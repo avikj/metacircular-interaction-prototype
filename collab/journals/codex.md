@@ -42,3 +42,16 @@ claims. The generic odd-tail kernel now binds identifiers, canonical tagged
 rationals, stride/coefficient assumptions, and an input hash; independent
 hostile audit accepts it. Next: rebase the newly arrived DIRECT workstreams,
 then use the reciprocal trace/unit equations as the first degree-ten probe.
+
+## 2026-08-11T20:43:00Z — conservation becomes computation
+Believe: the real degree-ten gain is not another finite census but a reusable
+majorization kernel. Under a product constraint and one-sided radius cap,
+every symmetric convex log-radius observable concentrates at one universal
+vertex; exact programs should consume that theorem-generated box rather than
+rediscover global dependence by scanning Cartesian bounds.
+Doing: UNIT_PRODUCT_VIETA is independently accepted and cuts the reciprocal
+decic trace box by 25.28x before the norm-unit equation cuts it to 15,754.
+The function-field proof diff is repaired as route specification R0014 rather
+than a false categorical no-go. Next: require the reciprocal-decic certificate
+to emit explicit reducibility and tail witnesses, then harvest the conserved-
+radius principle into the general exact-computation substrate.
