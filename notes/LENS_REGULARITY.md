@@ -105,6 +105,15 @@ $\mathbf 1_{(a,q)=1}x/\varphi(q)$ of $\psi(x;q,a)$ for **every** modulus
 $q\le Q$ and **every** residue $a$ (including the density-0 non-coprime
 classes), with error $O_Q(1)$ — not $o(x)$, but bounded.
 
+*(Cross-review, msg 0029: independently re-derived line by line — the CRT
+count, multiplicativity of $g(d)=(d,q)\mathbf 1_{(d,q)\mid a}$, the support
+$r\mid\mathrm{rad}(q)$, and the Euler product collapse to
+$\mathbf 1_{(a,q)=1}q/\varphi(q)$ all check, non-coprime residues included —
+and numerically verified at $X=10^6$, $Q=30$: all 62 progressions $(q,a)$
+for $q\in\{2,3,4,6,7,12,30\}$, non-squarefree moduli and non-coprime
+residues included, have $\max_{x\le X}|\sum-\text{main}|\le10.4$, well
+inside $C_{30}\approx99.8$.)*
+
 ## 2. Theorem 1 (the one-page theorem): interval cut norm ⟺ RH
 
 Let $\Theta=\sup\{\operatorname{Re}\rho:\ \zeta(\rho)=0\}\in[1/2,1]$.
@@ -273,7 +282,12 @@ Propositions 4–5.
 
 **Theorem 2.** For every fixed $Q\ge1$ the identity
 $$\Lambda\;=\;\Lambda^\sharp_Q\;+\;\Lambda^\flat_Q$$
-is an arithmetic regularity decomposition in the sense of [Gr05, GT10], with:
+is an arithmetic regularity decomposition ~~in the sense of [Gr05, GT10]~~
+*patterned on* [Gr05, GT10] — structured + uniform, with uniformity
+certified against the matched interval/Bohr families of §0 rather than
+their Fourier/Gowers norms (Propositions 4–5 below: Fourier-uniformity
+*fails* at fixed $Q$), and for the unbounded $\Lambda$ rather than their
+bounded $f$ *(scope phrase corrected in cross-review, msg 0029)* — with:
 
 1. **Structured part, explicitly described.** $\Lambda^\sharp_Q$ is
    periodic of period $L_Q=\mathrm{lcm}(1,\dots,Q)$ — i.e. constant on the
@@ -307,7 +321,13 @@ lemma [Gr05], and the Green–Tao arithmetic regularity lemma [GT10], write a
 $f=f_{\mathrm{str}}+f_{\mathrm{sml}}+f_{\mathrm{unf}}$ with
 $f_{\mathrm{str}}$ of bounded complexity (Bohr-set/nilsequence structured),
 $\|f_{\mathrm{sml}}\|_{L^2}\le\varepsilon$, and $f_{\mathrm{unf}}$ tiny in a
-Gowers norm. There the small-$L^2$ term is unavoidable: $f$ is arbitrary,
+Gowers norm. *(Attribution sharpened in cross-review, msg 0029: the
+displayed three-term functional form is [GT10]'s — its abstract decomposes
+bounded $f$ into a nilsequence, an $L^2$-small error, and a
+$U^{s+1}$-miniscule error; [Gr05] is the partition-form antecedent, "an
+analogue of Szemerédi's regularity lemma in the context of abelian groups"
+per its abstract. Both re-checked against the arXiv records.)* There the
+small-$L^2$ term is unavoidable: $f$ is arbitrary,
 the structured projection is found by pigeonhole/energy increment, and the
 bounds are of tower type (tower-type losses are provably necessary in the
 graph-regularity setting [Gow97]; the arithmetic versions inherit comparable
@@ -487,8 +507,27 @@ magnitude bottleneck $|S^\flat|$, and §2 shows the interval family's phase
 content is exactly RH-strength archimedean data, which controls averages
 over $N$ (Prop 6), not single slices — that gap is Proposition 7.)
 
+*(Scope remark, added in cross-review, msg 0029. "Magnitude-only" is
+formalized as "valid for every integrand with the magnitude profile
+$|S^\flat|$", and the listed chains ($L^2$, $\sup\cdot L^1$, Hölder of
+$L^p$'s) are all of this kind, so the proposition is true as stated and
+sharp: the extremal $F$ shows the best bound in this class is exactly
+$\int|S^\flat|^2$. But the class is genuinely narrower than "phase-blind"
+colloquially: $|S^\flat|^2$ determines the trigonometric polynomial
+$S^\flat$ up to a unimodular constant and finitely many Fejér–Riesz
+zero-flips $z\mapsto1/\bar z$, so a functional that additionally exploits
+the side constraint "the integrand is the square of a degree-$N$
+exponential sum" — e.g. the max of $|\widehat{G^2}(N)|$ over the finitely
+many such $G$ with $|G|=|S^\flat|$ — is still computable from the magnitude
+profile alone, yet lies outside Prop 8's class (the extremal $F$ is not an
+exponential sum), and the Parseval floor does not apply to it. No such
+bound is known to beat the floor; the point is only that Prop 8 does not
+close that route.)*
+
 Together: (7) closes every uniformity-norm route *even in the bounded
-model*; (8) closes every phase-blind route and quantifies the
+model*; (8) closes every phase-blind route (precisely: every bound in
+Prop 8's magnitude-profile class — see the scope remark, msg 0029) and
+quantifies the
 unbounded-weight surcharge — the $\log N$ excess of the Parseval floor over
 the main term is precisely the $L^2$ mass that Green–Tao-type pseudorandom
 majorants [GT08, CFZ15] tame *on average over $N$* (transference gives
@@ -536,6 +575,15 @@ even the $\log^2$ allowance is invisible at these heights); the measurable
 cut scale $\max(\sum f_+,\sum f_-)/X\to1$ (at $X=10^7$: measured $0.9335$
 vs. Lemma 2's prediction $1-1/\log X=0.938$) — the degeneration is exact;
 and $D_{30}-D_1=O(1)$ at all scales (Corollary 1.2).
+
+*(Independent replication, cross-review msg 0029: different pipeline —
+smallest-prime-factor sieve for $\Lambda$, Hölder-identity evaluation of
+$c_q$, sympy arithmetic — reproduces the $X\le10^6$ rows exactly:
+$D_1(10^6)=994.29$, meas-cut$/X=0.9213$; $D_{30}(10^6)=988.92$,
+meas-cut$/X=0.8376$, $D_{30}-D_1=-5.37$. Moreover Lemma 2(2)'s exact form
+predicts meas-cut$/X\approx1-\Pi(X)/X=0.92126$ at $X=10^6$
+($\Pi(10^6)=78{,}738$ prime powers), matching the measured $0.9213$ to four
+decimals — the $1-1/\log X$ figure quoted above is the cruder gloss.)*
 
 ## 8. References
 
