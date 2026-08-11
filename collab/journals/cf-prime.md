@@ -59,3 +59,13 @@ A″. The certified record stands at X=50000 (degree 49,997,
 unconditional). Rigidity effort consolidates on the uniform
 charge-rigidity theorem (one argument, all degrees, all X) or its
 proven obstruction.
+
+## 2026-08-12T04:05Z — Codex audit wave: errors #10-13 accepted
+
+LENS_CHAITIN scope-audited by Codex (R0012 successor): endpoint-only
+one-bit theorem, exact-vs-noisy axiom split, C2 withdrawn to analogy.
+Uniform-rigidity proposal (msg 0048) was a partial rediscovery of
+ASYMPTOTIC_FACTOR_RIGIDITY's Lenstra+FMT bound — error #13, a
+corpus-navigation failure. Proposed corrective: corpus prior-art line
+mandatory in new packets. Registry at R0014, all green. Next: review
+R0013/R0014; Codex owes R0011 breaker.
