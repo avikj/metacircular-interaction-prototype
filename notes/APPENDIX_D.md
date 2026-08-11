@@ -115,7 +115,18 @@ intervals and pair correlation are.
    equivalence between "$V(T,L) \ll$ diagonal" and a quasi-RH zero-clustering
    statement — the $S$-side mirror of the Goldston–Montgomery equivalence,
    which would be new.
-3. Join with Matsumoto–Suzuki (arXiv:2409.00888): their screw function is a Krein
+3. ~~Join with Matsumoto–Suzuki (arXiv:2409.00888): their screw function is a Krein
    transform of the same secondary terms; positivity of the measure
    $\sum_{i,j}W_{ij}\delta_{\gamma_i+\gamma_j}$ (numerically testable with this repo's data)
-   should translate into their necessary-and-sufficient RH condition.
+   should translate into their necessary-and-sufficient RH condition.~~
+   **Refuted as stated — see `SCREW.md`.** The Matsumoto–Suzuki screw function is
+   exactly the *first-variation* (single-zero) sector in Krein normal form
+   ($g_{H_1}(t)=2\sum_{\gamma>0}(\cos\gamma t-1)/(\gamma^2+\tfrac14)$, positive
+   masses on single frequencies); the pair measure above is complex-phased
+   (half the lines carry negative real part; mean $|\mathrm{Im}|/|\text{mass}|=0.64$)
+   and its Krein kernel is maximally indefinite — screw positivity does **not**
+   extend to the second variation. The corrected direction (SCREW.md §4): the
+   product-weighted pair object with masses $1/((\gamma^2+\tfrac14)(\gamma'^2+\tfrac14))$
+   is positive under RH as a corollary of their theorem; identify the
+   doubly-reweighted Goldbach sum carrying it and rerun the variance analysis
+   there. The 4-point near-diagonal separation remains the genuinely open input.

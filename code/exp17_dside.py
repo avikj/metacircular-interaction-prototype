@@ -162,7 +162,7 @@ def part_c_kernels(X=10 ** 6):
     b = np.linspace(0, np.log(X / 2.0), 40000)
     gvals = 1.0 - np.exp(-b)
     ph = np.exp(-1j * np.outer(delta, b))
-    mu = np.abs(np.trapz(gvals * ph, b, axis=1))
+    mu = np.abs(np.trapezoid(gvals * ph, b, axis=1))
     # S-side weight |Gamma(rho)Gamma(rho')/Gamma(rho+rho'+2)| on the diagonal
     # gamma = gamma' = s/2 (same sign), as a function of the pair-sum s.
     s = np.logspace(np.log10(30), 3, 200)

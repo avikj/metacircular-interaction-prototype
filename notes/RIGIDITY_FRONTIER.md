@@ -187,11 +187,13 @@ any $F_X$ other than the known two has degree $\varphi(m)\ge48$.**
 ### 3.5 The extended scan — DATA
 
 exp7b Part 1: all $m\le200$, all prime cutoffs $X\le10^7$
-($\pi(10^7)=664{,}579$), exact integer vectors, chunked numpy cumulative sums:
+($\pi(10^7)=664{,}579$), exact integer vectors, chunked numpy cumulative sums, 199 s
+(classification and interval computation: <1 s; total run 204 s):
 
-[SCAN-RESULT]
+> **Ties found: exactly one — $(X,m)=(11,6)$.** No new ties anywhere in
+> $2\le m\le200$, $5\le X\le10^7$.
 
-This is a $\sim$17-fold extension in $m$-range and 10-fold in $X$-range over exp7
+This is a $\sim$3-fold extension in $m$-range and 10-fold in $X$-range over exp7
 ($m\le60$, $X\le10^6$) and independently certifies the small-$X$ region of Theorem F2.
 
 ---
@@ -222,18 +224,30 @@ every coordinate.
   **unconditionally** (Littlewood 1914: $\pi(x;4,3)-\pi(x;4,1)$ changes sign infinitely
   often). So: infinitely many near-ties at the minimal possible distance, zero ties.
 
-**DATA (exp7b Part 2), $X\le10^7$:** running minimum of $|v_m|^2$ (squared $L^2$ norm of the
-reduced vector) per decade:
+**DATA (exp7b Part 2), $X\le10^7$:** minimum of $|v_m|^2$ (squared $L^2$ norm of the
+reduced vector; $0$ = tie) per decade of $X$:
 
-[MINNORM-TABLE]
+| decade of $X$ | $m=3$ | $m=4$ | $m=6$ |
+|---|---|---|---|
+| $[10^1,10^2)$ | 2 (at 13) | 1 (at 17) | **0 (at 11)** |
+| $[10^2,10^3)$ | 109 | 1 (at 461) | 101 |
+| $[10^3,10^4)$ | 6436 | 2 | 6416 |
+| $[10^4,10^5)$ | 372{,}149 | 1 (at 26833) | 372{,}125 |
+| $[10^5,10^6)$ | 22{,}887{,}140 | 1 (at 616769) | 22{,}887{,}056 |
+| $[10^6,10^7)$ | 1{,}539{,}072{,}517 | 730 | 1{,}539{,}072{,}385 |
 
-The $m=4$ row realizes the theory: the minimum is exactly $1$ in every decade where the
-mod-4 race ties ([M4-COUNT] prime cutoffs with $|v|^2=1$ up to $10^7$; first few:
-[M4-FIRST]; the race-tie clusters around $X\approx2.7\cdot10^4$ are the classical
-Leech/Hudson–Bays region). For $m=3,6$ the minimum grows like
-$\bigl(\pi(X)/2\bigr)^2$ — the monotone coordinate $|1-n_{1(m)}|$ — i.e. **quadratically in
-$\pi(X)$**: at $X\approx10^7$ the reduced vector has norm $\sim3\cdot10^5$. "Recurrent but
-rare" is decisively refuted in favor of "transient with linear escape".
+The $m=4$ column realizes the theory: the minimum is exactly $1$ whenever the mod-4 race
+ties — **111** prime cutoffs with $|v|^2=1$ up to $10^7$, first few
+$X=5,17,41,461,26833$; the clusters near $2.7\cdot10^4$ and $6.2\cdot10^5$ are the
+classical Leech / Hudson–Bays sign-change regions, and the absence of any $|v|^2=1$ in
+$[10^6,10^7)$ matches the known race-tie gap until $\approx1.2\cdot10^7$. For $m=3,6$ the
+minimum after $X=13$ grows like $\bigl(n_{1(m)}(X)-1\bigr)^2\approx(\pi(X)/2)^2$ — the
+monotone coordinate — i.e. **quadratically in $\pi(X)$** (e.g. the decade minimum
+$22{,}887{,}140$ at $X=100003$ vs $(\pi(10^5)/2)^2=4796^2=23{,}001{,}616$: agreement to
+0.5\%, the deficit being the ordinary race deviation). "Recurrent but rare" is decisively
+refuted in favor of "transient with
+linear escape"; the closest approach to a tie after $X=11$ is $|v|^2=2$ at $X=13$ ($m=3$)
+and $|v|^2=1$ at $X=17$ ($m=6$), never bettered again.
 
 **Corrected expected-count heuristic (HEURISTIC).** For $m$ with $\mu(m)=0$, $4\nmid m$,
 $p^2\mid m$: *if* the target were in the step lattice (never observed, §3.3), the free
@@ -277,8 +291,9 @@ coefficients in $\{0,1\}$.
 3. $r\ge2$ with at least one non-reciprocal factor, but **no** proper split is 0-1.
 
 So a rigidity counterexample needs *simultaneously*: reducibility of the non-cyclotomic
-part ($r\ge2$), at least two non-reciprocal factors among $C,G_i$ ... more precisely at
-least one non-reciprocal $G_i$ in a proper split, *and* the arithmetic miracle that the
+part ($r\ge2$), **at least two non-reciprocal $G_i$** (reversing reciprocal factors does
+nothing, and reversing *all* non-reciprocal ones gives the mirror — so with $\le1$
+non-reciprocal factor every split is trivial), *and* the arithmetic miracle that the
 recombined coefficients — sums of products of the $G_i$'s coefficients — land in $\{0,1\}$
 at every one of the $\deg F_X+1$ positions.
 
