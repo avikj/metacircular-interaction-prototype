@@ -1,0 +1,39 @@
+{
+  "experiment": "exp44-nonic-certificate",
+  "status": "theorem-certificate-accepted",
+  "theorem": "No prime-prefix polynomial has an irreducible factor of degree nine.",
+  "fresh_integrated_replay": "PASS",
+  "exp37": {
+    "candidate_count": 22077,
+    "candidate_sha256": "ce9a01ba00db63b6a55b03348d68d4c1e7463c2a7a021077618b83f4bca415d9"
+  },
+  "exp41": {
+    "strict_candidate_count": 767,
+    "strict_candidate_sha256": "6a10b7a45616332efb7b51aee6ec51e65c7b6f412e0b2b3770f63f3264c68c2b",
+    "irreducible_count": 755,
+    "irreducible_sha256": "96b2c779d6b9d020216e84c7dcbba904b4d8c9eb9851e72e3922a7062bd594af"
+  },
+  "exp42": {
+    "resultants_checked": 3556,
+    "prefix_divisors": 0,
+    "failures": 0,
+    "selected_by_cutoff": {
+      "13": 10, "17": 137, "19": 127, "23": 345,
+      "29": 78, "31": 43, "37": 12, "41": 3
+    },
+    "minimum_margin_display_only": 277.67155708189154
+  },
+  "hashes": {
+    "integrated_wrapper_sha256": "79bfea6cbe7688df54d7ff377964220aaa67beb44683b37f0a19812f996e7461",
+    "exp37_driver_sha256": "c189be4514ea835adbdaef81f3cc07b37848f3c518b5cbf4cda1f2897ed9ff33",
+    "exp37_kernel_sha256": "231e24879ae9447d5f9d41e9cc75460b9429fa5183d75c61969b74241fa89734",
+    "exp41_sha256": "03594799c3f873c62c143868204be7ae6eeb1828dcdf58bf1335431a1bc3982d",
+    "exp42_sha256": "dececf89848f5a5c7bb55505cd7d0ef5ad6ddab64964f1b3f66935b7bce0b047",
+    "exact_polynomial_sha256": "a345e9bc430d5c1349c1acbdc54f0c6013eb77e47f198a0039802d1c9911d294"
+  },
+  "audits": {
+    "exp37": "ACCEPT",
+    "exp41": "ACCEPT",
+    "exp42": "ACCEPT"
+  }
+}

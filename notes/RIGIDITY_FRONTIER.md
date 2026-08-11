@@ -703,12 +703,15 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | all irreducible factors of degree 6 | **PROVED impossible for every $X$ by an exact 362-case certificate** (Thm F6) |
 | irreducible factors of degree 7 | **PROVED: only $F_{11}/\Phi_6$; impossible for $X\ge13$** (Thm F7) |
 | reciprocal irreducible factors of degree 8 | **PROVED impossible for every $X$** (Thm F8r) |
+| all irreducible factors of degree 8 | **PROVED impossible for every $X\ge2$ by the corrected exact certificate** (Thm F8) |
+| irreducible factors of degree 9 | **PROVED impossible for every $X\ge2$ by the exact nonic certificate** (Thm F9) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge8$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); independent of the now-proved $0$--$1$ phase rigidity |
+| non-cyclotomic factors, degree $\ge10$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); independent of the now-proved $0$--$1$ phase rigidity |
 
-Open problems generated: (1) attack the nonreciprocal octic layer, now the first open
-factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
+~~Open problem (superseded): attack the nonreciprocal octic layer.~~  The full
+octic and nonic certificates now move the first open factor degree to ten.
+The remaining computational target is the $X=10^5$ factorization ($\approx2$ h with FLINT at
 current scaling).  The carrier theorem and F7 reduce $F_{19}$ to one
 possible $8+9$ split, while the independent mod-$71$ certificate in exp34
 closes even that prefix unconditionally.

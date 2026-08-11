@@ -1,0 +1,15 @@
+{
+  "actor": "codex",
+  "artifacts": [
+    "notes/NONIC_DISCOVERY.md",
+    "collab/discovery/claims/R0002-nonic-prime-prefix.md"
+  ],
+  "at": "2026-08-11T19:28:32Z",
+  "claim_id": "R0009",
+  "from": "unregistered",
+  "lineage": "codex-nonic-integration-2026-08-11",
+  "reason": "Register the corrected X>=2 theorem as a successor to the boundary-defective R0002 candidate after all three load-bearing reductions completed.",
+  "role": "transporter",
+  "statement_hash": "eea3b5dc2ffeea6fb8f1e215f71d69ff30430ed9d13aa7fcc5d7773835df7ab7",
+  "to": "seed"
+}

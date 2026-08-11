@@ -214,3 +214,135 @@ This establishes only the exact finite candidate workload.  It is not a
 degree-nine classification theorem.  Hostile proof audit, independent census
 reproduction, root-count, irreducibility, prefix, and infinite-tail stages
 remain necessary before such a theorem can be claimed.
+
+## Post-census exact filtering
+
+The discovery-only successor `code/exp41_nonic_postcensus.py` applies exact
+Sturm and Routh--Cayley tests to the 22,077 unit-resultant tuples.  The exact
+candidate ledgers are
+
+$$
+22{,}077\longrightarrow6{,}082\longrightarrow768,
+$$
+
+where the last set has exactly one real root and all nine roots in the relaxed
+rational annulus
+
+$$
+\frac{617}{1000}<|z|<\frac{20001}{10000}.
+$$
+
+No Routh table was degenerate.  Reciprocity gives no fixed point and no
+two-element orbit contained in this 768-tuple set.  This is expected rather
+than paradoxical: reciprocity preserves reducibility and the annulus, but
+sends the distinguished negative root $-t$ to $-1/t$ and therefore does not
+preserve the small negative-root window.
+
+An additional exact Routh count at radius $2$ removes one tuple,
+
+$$
+(a,b,c,d,e,f,h,j)=(0,6,0,8,0,0,0,0),
+$$
+
+which has only seven roots in $|z|<2$.  Thus the strict prime-prefix root box
+contains $767$ tuples.  No radius-two Routh table is degenerate.
+
+Exact degree-nine Rabin tests over finite fields give irreducibility witnesses
+for 754 tuples.  Twelve further tuples have explicit integer factorization
+witnesses, all recorded in `data/exp41_nonic_postcensus.json`.  The sole
+remaining tuple is
+
+$$
+g(x)=x^9+4x^3+1.
+$$
+
+It has the candidate Cohn witness
+
+$$
+g(6)=10{,}078{,}561,
+$$
+
+which exact trial division verifies is prime, while the coefficients of $g$
+are base-six digits.  Brillhart--Filaseta--Odlyzko's arbitrary-base form of
+Cohn's criterion therefore proves this singleton irreducible (Canad. J. Math.
+33 (1981), Corollary 2, DOI 10.4153/CJM-1981-080-0).
+
+As a separate completeness cross-check, every possible monic integral factor
+of degree at most four was enumerated using the strict root bound $|z|<2$.
+For degree $k$, integrality and
+
+$$
+|e_\ell|<\binom{k}{\ell}2^\ell
+$$
+
+give 89,352 factor candidates in total.  All thirteen inputs to this search
+have separately certified root count nine in $|z|<2$.  The search finds
+exactly the same twelve reducibles and no factor of $x^9+4x^3+1$.  Independent
+hostile replay accepted the factor-box completeness, every Rabin assignment,
+all explicit products, and the Cohn witness.  Thus the post-census
+irreducibility partition is exact; the overall nonic obstruction still
+requires the separately audited prime-prefix/tail layer.
+
+## Odd-degree resultant-tail closure
+
+The tail layer is now independently audited, conditional on the upstream
+exp37 census.  Let $-t$ be the unique negative root of an irreducible nonic
+candidate and let $r_1,\ldots,r_4$ be the moduli of its four complex-conjugate
+pairs.  If $g$ divides a later prime prefix $F_X$ after a prime cutoff $q$,
+write
+
+$$
+F_X=F_q+T.
+$$
+
+At every root $\alpha$ of $g$, $F_q(\alpha)=-T(\alpha)$.  If $N$ is the
+exponent of the first prime monomial after $q$, all tail exponents are odd,
+so at the negative root
+
+$$
+|T(-t)|\le \frac{t^N}{1-t^2}.
+$$
+
+At either root in the $i$th complex pair, use the finite-prefix bound
+
+$$
+|F_q(\alpha)|\le
+B_q(r_i),
+\qquad
+B_q(r)=\sum_{p\le q}r^{p-2}.
+$$
+
+Multiplying the nine root evaluations gives the exact necessary inequality
+
+$$
+\boxed{
+|\operatorname{Res}(g,F_q)|(1-t^2)
+\le
+t^N\prod_{i=1}^4 B_q(r_i)^2.
+}
+$$
+
+Both certificate scripts replace $t,r_i$ by exact rational upper bounds, for
+which the right side is monotone.  `code/exp42_nonic_tail_discovery.py` uses
+12 negative-root and 10 complex-radius bisections.  On the strict set of 755
+irreducibles it checks 3,556 exact resultants, finds no prefix divisor, and
+certifies every candidate by cutoff $41$:
+
+$$
+\begin{array}{c|rrrrrrrr}
+q&13&17&19&23&29&31&37&41\\ \hline
+\#&10&137&127&345&78&43&12&3.
+\end{array}
+$$
+
+The minimum strict margin is greater than $277$.  The independent hostile
+replay `code/audit42_nonic_tail.py` uses finer 20/16-step radius bounds and
+constructs every $F_q$ directly before exact division, rather than using the
+production power recurrence.  It checks 3,544 resultants and independently
+closes all 755 candidates with minimum margin greater than $10{,}422$.
+
+~~At this stage the combined theorem remained unpromoted pending the exp37
+convex-box and full-census audit.~~  That independent audit subsequently
+reproduced all 441 shards and accepted the reduction.  The integrated theorem
+and fresh no-checkpoint replay are now recorded in `NONIC_OBSTRUCTION.md` and
+`code/exp44_nonic_certificate.py`.

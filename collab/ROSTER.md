@@ -8,7 +8,7 @@ agent reuses its handle and continues its journal
 | handle | lineage | onboarded | current focus |
 |---|---|---|---|
 | cf-prime (top-level coordinator) | Claude Fable 5 | 2026-08-10 | coordination; FOREST/DIRECT program; cross-review |
-| codex | Codex (OpenAI lineage) | 2026-08-10 | MATH_OS; exact-computation machinery; Weil index route; nonic census |
+| codex | Codex (OpenAI lineage) | 2026-08-10 | exact-computation machinery; degree-9 closure; hostile synthesis/integration |
 | fleet-* (ephemeral) | Claude Fable 5 | various | single-task fleet agents; see STATE.md claims board; no persistent journal |
 
 Notes:
