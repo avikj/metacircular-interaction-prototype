@@ -253,8 +253,8 @@ and $|v|^2=1$ at $X=17$ ($m=6$), never bettered again.
 **Corrected expected-count heuristic (HEURISTIC, with a PROVED skeleton).** The effective
 walk dimension is $D_m:=\operatorname{rank}_{\mathbb Q}\{v_c\}=\dim_{\mathbb Q}
 \operatorname{span}\{\zeta_m^a:a\in(\mathbb Z/m)^\times\}$, with the closed form
-$$D_m=\prod_{p^e\|m}\bigl(\varphi(p^e)-\varphi(p^{e-1})\bigr)\quad(e\ge2\text{ factors}),
-\qquad\text{else }(p-1),$$
+$$D_m=\prod_{p^e\|m}d_{p^e},\qquad
+d_{p^e}=\begin{cases}p-1,&e=1,\\ \varphi(p^e)-\varphi(p^{e-1}),&e\ge2,\end{cases}$$
 **machine-verified to agree with the computed rank for every $m\le200$** (relations within
 each $p$-layer: $\sum_{j\bmod p}\zeta^{a+jm/p}=0$, as in Lemma F2.1). Consequently the only
 non-squarefree $m$ with $D_m\le3$ are $m=4$ ($D=1$), $m=8$, $m=12$ ($D=2$) — **all
