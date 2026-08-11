@@ -185,10 +185,13 @@ budget.  Repeatedly encountering the same missing lemma produces
    degree-nine search has now passed the acceptance test: a fresh 441-shard
    census, independently checked topology/irreducibility stages, and two
    differently encoded tail replays close the layer exactly.
-3. Attack degree ten in two deliberately separated lanes: first the reciprocal
-   trace-polynomial subproblem, where the all-degree parity resultant gives two
-   unit equations, then the full nonreciprocal layer.  A quantified infeasibility
-   boundary remains an acceptable output from either lane.
+3. Do not continue the finite degree tower by inertia.  The existing
+   Lenstra--Ford--Maynard--Tao theorem already gives a growing all-degree
+   exclusion asymptotically.  Use reciprocal degree ten only as a cheap kernel
+   test when trace-product-one bounds and the parity resultant collapse it to a
+   small unit equation; launch the full nonreciprocal layer only if that audit
+   exposes a new degree-independent mechanism.  Otherwise record the finite
+   obstruction and redirect effort to uniform structure.
 4. Install/reproduce Lean 4.33 and formalize generic witness checkers before
    translating whole research notes.
 5. Prototype the finite sieve quotient plus residual charge in Cubical Agda;
