@@ -393,8 +393,9 @@ constants in the formula can be certified.
 
 `code/exp39_rational_fiber_normalization.py` performs the first falsifier:
 
-1. a 200-bit complex-character check of (1.1), including the nonunit
-   correction, for $q=5$;
+1. a 200-bit complex-character check of (1.1) for $q=5$, followed by a
+   separate von Mangoldt-weighted check of (1.2)--(1.3) through $n=200$ that
+   distinguishes the $5^k$ local correction from composite non-prime-powers;
 2. exact rational verification of (2.2) for every shift modulo $6$, and
    selected shifts modulo $30030$.
 
