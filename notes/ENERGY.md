@@ -3,6 +3,13 @@
 `code/exp16_energy.py`, figure `figures/exp16_energy.png`. Data: first 100k
 Odlyzko ordinates ($\gamma \le 74920.8$), via `pairfield.load_zeros()`.
 
+**Status correction.**  This note is numerical evidence, not a finite
+closure of Theorem D-double-prime.  The proposed closure by a finite zero table
+plus crude tail bounds is impossible with those inputs; see
+`DCLOSE_NO_GO.md`.  In particular, the phase-free product energy has an
+unsuppressed mixed-sign/difference sector which this experiment's Beta weights
+do not model.
+
 This experiment computes, directly from the zeros, the two four-fold sums that
 control the Goldbach-average variance of `APPENDIX_D`:
 
@@ -45,8 +52,8 @@ of the zero density ($\propto\log t$), not arithmetic.
 $|W|\ll e^{-\pi\min(|\gamma|,|\gamma'|)}$ and are dropped (Theorem D′). The
 $(-,-)$ class mirrors the $(+,+)$ class and cross-class sums are $\ge 2\gamma_1
 = 28.3$ apart, so off/diagonal ratios are computed inside the $(+,+)$ class,
-where they equal the full-set ratios. $|W|$ is computed exactly by
-`scipy.special.loggamma` for every ordered pair with $\gamma_i+\gamma_j\le
+where they equal the full-set ratios. $|W|$ is evaluated numerically in
+double precision by `scipy.special.loggamma` for every ordered pair with $\gamma_i+\gamma_j\le
 s_{\max}$; since $|W|\asymp(\gamma+\gamma')^{-5/2}$ and the pair-sum density is
 $f(s)\asymp s\log^2 s$, the diagonal $2\sum|W|^2$ converges like $\int f|W|^2
 \sim s^{-4}\log^2 s$ (tail at 300: $<2\%$) but the off-diagonal at fixed
@@ -119,19 +126,20 @@ $$\frac{E_W^\circ(\delta)}{2\sum|W|^2} \;\approx\; 2.8\,\delta .$$
 Weighted Poisson check: the prediction $E_W^\circ \approx 2\delta\int
 f_w(s)^2ds$ from the $|W|$-weighted pair-sum density alone reproduces the
 measured off-diagonal to **0.91** at $\delta_*$ — the weighted energy, like the
-unweighted one, contains no additive conspiracy: it is what the density and
-the weights force.
+unweighted one, shows no additive conspiracy at the sampled heights and
+resolutions beyond what the density and weights predict.
 
 ### Verdict on Theorem D″
 
-The quantity D.4 needs is $E^\circ_W(1/L) = o\big(\sum|W_{12}|^2\big)$ as
-$L\to\infty$. Empirically:
+The dyadic upper bound in D.3 needs multiscale control of $E_W^\circ(\eta)$;
+the single-scale statement
+$E^\circ_W(1/L)=o\big(\sum|W_{12}|^2\big)$ alone is insufficient.
+Empirically:
 
-1. **The asymptotic statement holds in the strongest (Poisson) form**:
-   off/diag $\approx 2.8\,\delta = 2.8/L \to 0$ linearly, with a constant fully
-   explained by the pair-sum density. The separation hypothesis of D.4 — the
-   only unproved ingredient of (D.3) — is *quantitatively true* in the range
-   computable from real zeros.
+1. **The finite sample follows the strongest (Poisson) prediction**:
+   off/diag $\approx 2.8\,\delta$ over the tested range, with the observed
+   constant explained by the empirical pair-sum density.  This is evidence
+   for, not a proof of, the asymptotic separation hypothesis.
 2. **At the concrete height $X=10^6$** ($\delta_*=1/\log 10^6$) the
    off-diagonal is 21% of the diagonal at cutoff 300 and $\approx30\%$ after
    tail extrapolation. So $V \asymp$ diagonal holds with constant in
@@ -139,19 +147,19 @@ $L\to\infty$. Empirically:
    off-diagonal enters through
    $\mathrm{sinc}^2(L\delta/2)\,e^{i\delta u_0}$, so $E_W$ (absolute values) is
    an upper bound, and the sinc² factor alone is $\le0.9$ over most of
-   $|\delta|\le\delta_*$. The variance really is diagonal-dominated, with the
-   off-diagonal a controlled, sign-oscillating $\lesssim30\%$ correction that
-   dies like $1/L$.
+   $|\delta|\le\delta_*$.  Thus the truncated numerical model is
+   diagonal-dominated at this scale.  The claim that the correction dies like
+   $1/L$ in the full spectrum remains conditional.
 3. Because the weights decay ($s^{-5/2}$ per pair, $s^{-3}\log^4 s$ for the
-   off-diagonal integrand), $E_W$ is dominated by zeros below height a few
-   hundred — the regime this computation covers *exactly*. Unlike the
-   unweighted problem, no assumption about zeros at large height is being
-   extrapolated; only the modelled $\approx30\%$ tail of the off-diagonal is.
+   off-diagonal integrand), ordinary weighted mass is dominated by relatively
+   low zeros.  The near-diagonal mass divided by $\delta$, however, is not
+   controlled by ordinary tail mass: an arbitrarily close high-zero quartet
+   can violate a Lipschitz estimate.  The extrapolated $\approx30\%$ tail is a
+   model, not an all-height bound.
 
-**Empirical verdict: Theorem D″'s asymptotic $V \sim 2\sum|W_{12}|^2$ is
-supported.** The needed separation is not marginal — the off-diagonal sits at
-its Poisson floor (ratio 0.91 of the density prediction), an order of
-magnitude below the level ($\sim$ diagonal) at which (D.3) would fail.
+**Empirical verdict:** the tested truncations support Theorem D-double-prime's
+predicted asymptotic.  They do not certify the microscopic separation needed
+for the infinite spectrum.
 
 ## 4. Relation to Tao–Trudgian–Yang (arXiv:2501.16779)
 
@@ -174,13 +182,11 @@ i.e. again $T^{3+o(1)}$ — *at the critical line the best known upper bound is
 the trivial one*. And Cauchy–Schwarz on the $N^2$ pair sums spread over an
 interval of length $\asymp T$ pushes the lower bound up to $N^*\gg (N^2)^2/T
 \asymp T^3\log^4 T$: upper and lower bounds already meet at $T^{3+o(1)}$, so
-the only open question at $\sigma=1/2$ is the constant. Our measurement decides
-the constant: $N^*(1/2,10^4) \approx 1.47\cdot10^{12} \approx 1.4\,n^3$, i.e.
-**the full zero set has maximal additive energy in the exponent, and the
-constant is exactly Poisson**. There is no hidden savings to be had at
-$\sigma=1/2$: the energy is as large as the density allows, so approaches
-hoping for a power saving on the *unweighted* full-set energy are ruled out
-numerically as well as heuristically.
+the remaining information at $\sigma=1/2$ is below the exponent scale.  At
+the finite height $10^4$ we measure
+$N^*(1/2,10^4)\approx1.47\cdot10^{12}\approx1.4\,n^3$, consistent with the
+density-corrected Poisson model.  This finite-height observation does not
+decide an asymptotic constant or rule out sub-exponent-scale structure.
 
 **The honest difference.** TTY's new content (their Theorem 64) lives at
 $7/10\le\sigma<1$: bounds like $A^*(\sigma)(1-\sigma)\le\max(\ldots)$ that
@@ -193,38 +199,41 @@ only in the *program* of D.6(1): to replace D.4's Poisson-separation
 heuristic by a proven bound one needs an $N^*$-type estimate for the weighted,
 $\delta$-resolution energy at $\sigma=1/2$ — a different regime from TTY's,
 but exactly their machinery's shape (their $E_r\asymp E_1$ comparability, and
-energy-vs-density bookkeeping, transfer verbatim). What is actually needed is
-far weaker than a power saving: any bound $E^\circ_W(\delta)\le c\,\delta\cdot
-\sum|W|^2$ with explicit $c$ — our measured $c\approx2.8$ — would close
-Theorem D″ under RH.
+energy-vs-density bookkeeping suggest the relevant shape, but do not directly
+give the microscopic estimate). What is actually needed is far weaker than a
+power saving in height: in the absence of nontrivial exact resonances, a
+uniform bound $E^\circ_W(\delta)\le c\,\delta\sum|W|^2$ on all sufficiently
+small $\delta$ would close the quantitative dyadic estimate under RH.  The
+sampled value $c\approx2.8$ is evidence only.
 
 ## 5. Implications for the Goldbach-variance program
 
-- The chain of `APPENDIX_D` — variance $=$ weighted energy $=$ diagonal
-  $\times(1+O(\delta))$ — now has every link either proved (D.1–D.3), or
-  verified numerically at the relevant scale with the failure mode (additive
-  conspiracy among low zeros) *directly excluded by measurement*: pair sums of
-  the zeros that carry 98% of the weight behave Poisson to $\le9\%$ in the
-  weighted metric and $\le1\%$ in the unweighted one.
-- The Ω-result constant of D.5 is therefore trustworthy: with the diagonal
+- The exact variance/energy identity is proved, while diagonal dominance and
+  the linear near-diagonal law remain conditional.  The finite sample excludes
+  an additive conspiracy only in the sampled range and at the sampled
+  resolutions; it cannot exclude arbitrarily small defects in the infinite
+  tail.
+- The measured RMS is strong numerical evidence: with the diagonal
   measured here ($2\sum|W|^2 \approx 3.05\cdot10^{-6}$ per same-sign class,
   $6.1\cdot10^{-6}$ over both), the second-order Goldbach term genuinely
-  oscillates at RMS $\sqrt{V}\approx\sqrt{6.1\cdot10^{-6}}\approx2.5\cdot10^{-3}
+  appears at RMS $\sqrt{V}\approx\sqrt{6.1\cdot10^{-6}}\approx2.5\cdot10^{-3}
   \cdot x^2$ — the same 0.0025 closed numerically in D.5's Parseval table.
 - What a proof still needs (D.6(1)): an unconditional-under-RH bound
   $E^\circ_W(\delta)\ll\delta\sum|W|^2$. The numerics say the true constant is
-  $\approx2.8$ and Poisson-forced; since the weights confine everything to
-  zeros of height $O(10^2$–$10^3)$, a *finite verified computation plus a tail
-  bound from the $s^{-5/2}$ weight decay and any crude sup on the local
-  pair-sum density* would make the Goldbach-variance asymptotic
-  $V\sim2\sum|W|^2$ a theorem under RH. That is a genuinely finite-checkable
-  reduction — the numerical half of it is this experiment.
+  $\approx2.8$ in the sampled Beta-metric range.  Weight decay makes ordinary
+  tail mass small, but it does not control tail mass divided by an arbitrarily
+  small resolution.  A single sufficiently close four-zero defect defeats a
+  Lipschitz bound.  Thus a new microscopic correlation or separation theorem,
+  not a finite computation plus zero-counting bounds, is required.
 
 ## 6. Reproducibility
 
 `python3 code/exp16_energy.py` (from `code/`): ~60 s, peak ~1 GB. Windowed
-counting is exact (integer counts, no binning) for both energies; only the two
-Poisson *references* and the weighted tail extrapolation involve modelling.
+counting is combinatorially exact relative to the stored decimal ordinates
+(integer counts, no binning) for the unweighted windows.  The Gamma weights
+are evaluated in double precision, and both the Poisson references and the
+weighted tail extrapolation involve modelling; none of these are V2.5
+certificates.
 Figure: left — $E_{\rm offdiag}(\delta,T_0)$ vs $\delta$ (log–log) with
 density-corrected Poisson dashed lines indistinguishable from the data, slopes
 $\approx1$; right — weighted off/diagonal ratio vs $\delta$, marking

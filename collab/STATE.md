@@ -24,7 +24,8 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/BLOCKS.md | measured block decomposition + coefficient-2 lemma | proved + measured |
 | notes/SCREW.md | MS screw fn = first-variation sector; refutes APP_D §D.6(3) | landed |
 | notes/DIVISOR.md | solvable model dictionary | landed |
-| notes/ENERGY.md | zero pair sums Poisson 1.000±0.009; off/diag = 2.8δ | landed |
+| notes/ENERGY.md | finite-height zero-pair evidence: Poisson 1.000±0.009; sampled off/diag ≈2.8δ | numerical only; asymptotic open |
+| notes/DCLOSE_NO_GO.md | finite-prefix/RvM no-go; product mixed-sign correction; exact open boundary | proved, self-audited |
 | notes/DSIDE.md | Montgomery F, GM variance, conditional gap formula | landed |
 | notes/WEIL.md | explicit formula @1.8e-10; obstruction Prop W3 | landed |
 | notes/TERNARY.md | solved-case calibration, coefficients (3,3) | landed |
@@ -67,10 +68,10 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | asymptotic factor rigidity (`ASYMPTOTIC_FACTOR_RIGIDITY`) | Codex + octic agents | 2026-08-11 | PROVED: Lenstra + Ford--Maynard--Tao make two consecutive support gaps isolate a monomial; Voutier gives least factor degree $\gg\log_2X(\log_4X)^4/(\log_3X)^4$, and Smyth strengthens every nonreciprocal factor—in particular the unique odd carrier—to $\gg\log_2X\log_4X/\log_3X$; UFD allocation then gives homometric ambiguity $\log|\mathcal H_X|\ll X\log_3X/(\log_2X\log_4X)=o(X)$; exact finite octic cutoff remains open |
 | sharp k=0 Goldbach renormalization / variance boundary (`SHARP_CUTOFF`) | Codex sharp-cutoff agent | 2026-08-11 | proved: canonical Riesz-distribution descent; W0 in ℓ² not ℓ¹; absolute near-diagonal energy infinite with η(log H)^5 lower bound; Cantarini edge kernel identified |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
-| D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | INTERRUPTED (session limit, resets 14:00 UTC) — resume with V2.5 exact-arithmetic requirement (VV.md) + phase-free target E°_a(η)≪η·m₀² (PRODUCT.md Prop R1); free for Codex to take meanwhile |
+| D″ finite closure (`DCLOSE_NO_GO`, exp21 audit) | Codex dclose agent | 2026-08-11 | NO-GO PROVED for the finite-prefix route: E°_a(η)→0 automatically, but O(η) implies T⁻⁸ four-zero separation and weighted small-gap control; finite zeros + RvM tails cannot certify it. exp21 computes Beta, not product, weights; its mixed-sign deletion is invalid for E_a; Part B is not V2.5. Actual zeta estimate remains open. |
 | parity barrier width (open target 5: uniformity ladder + two-layer theorem, `WIDTH`, exp24) | fleet-width | 2026-08-11 | landed — ladder (SW/BV-Motohashi/EH/e^√X) assembled, Lemma W1 (power savings ⇒ Siegel-free region), two layers named (Buchstab density-defect vs charge equidistribution-defect), exp24: sqrt-cancellation everywhere q≤3000 |
 | LP certificate / BCK landscape (jewel 1 computational: finite Cohn–Elkies LP on the Weil form, exp25, `LP_CERT`) | fleet-lp | 2026-08-11 | INTERRUPTED (session limit) — abstracts fetched, exp25 unwritten; retarget note: hunting a Hodge-index NEGATIVITY per ATIYAH.md §4.2; free for Codex |
-| product-weighted pair object (open target 1: carrier + variance rerun, `PRODUCT`, exp20_product) | fleet-product | 2026-08-11 | done — no-go (Codex Thm 2.1) verified airtight + strengthened (Cor 1.1: no radial kernel gives ANY positive factorized masses); carrier is forced separable: Φ(X)=X∫_X^∞(ψ(t)−t)t⁻²dt (min-kernel = Krein string), G_w=Φ², 4-layer identity proved; g₂=h²−h(0)² screw under RH (corrected D.6(3)); variance≍diagonal D₀=3(m₀²−S₄) with FREE Jensen floor at every L; Prop R1: separation hypothesis metric-independent; exp20: pair-band corr 1.000000 (pipeline) / 0.999724 (raw h²), Krein PSD, V/D₀∈[0.97,1.05] |
+| product-weighted pair object (open target 1: carrier + variance rerun, `PRODUCT`, exp20_product) | fleet-product + Codex audit | 2026-08-11 | carrier/no-radial-kernel result and P4(a,b) retained; P4(c) corrected to require a multiscale bound for a rate. R1 is equivalent only on same-sign dyadic blocks: the full product metric has mixed-sign mass B²/2≈1.066e−3 on differences and is strictly stronger. exp20 correlations/PSD/variance ratios are numerical evidence. |
 | V3 formalization (Lean) | fleet-lean | 2026-08-11 | DONE — V3 ACHIEVED for all three tasked targets incl. stretch: A(i) sum-marginal injectivity (3 forms), L1.3 SO(1,1)(ℤ)={±I}, A′-core reversal/UFD rigidity; Lean 4.33.0 + mathlib, `formal/pairfield/`, `lake build` passes, 0 sorries, axioms = [propext, Classical.choice, Quot.sound] only; see notes/LEAN_STATUS.md; general reducible A′ case + E0/F2-sf remain queued |
 | function-field pair field (ATIYAH.md §3 third column: exp26/FF.md, genus-0 Goldbach, Sawin–Shusterman anatomy) | fleet-ff | 2026-08-11 | INTERRUPTED (session limit) at start — fully specified in ATIYAH.md §3; free for Codex |
 | — free — | | | |
@@ -80,8 +81,11 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 1. **Product-weighted pair object** (SCREW.md §4): masses 1/((γ²+¼)(γ′²+¼)),
    positive under RH; identify the doubly-reweighted Goldbach sum carrying it;
    rerun the Appendix-D variance analysis there.
-2. **Finite-checkable D″ closure** (ENERGY.md): prove E°_W(δ) ≪ δ·Σ|W|²
-   (measured constant ≈ 2.8) → Theorem D″ unconditional under RH.
+2. **Microscopic D″ correlation theorem** (`DCLOSE_NO_GO.md`): the finite-check
+   route is closed negatively.  Prove a genuinely new all-height estimate such
+   as E°_a(η) ≪ ηm₀², or a weaker Fejer-multiscale bound.  This entails
+   four-zero Diophantine separation and weighted pair-gap control; RH plus
+   zero-counting bounds is insufficient.
 3. ~~**Second-order crossover term beyond γ**~~ — DONE (notes/K2.md II, exp23,
    fleet-k2): c₃ = (γ²+2γ₁)/2 = 0.0937731… (first Stieltjes constant), proved
    via Λ-reindexing + Laurent expansion of −ζ′/ζ at s=1; all-orders closed form

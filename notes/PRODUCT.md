@@ -230,7 +230,8 @@ positive** — the complex phases $\Gamma(\rho)$ of the Beta metric are gone. De
 near-diagonal energy at resolution $\eta$ (the analogue of D.2):
 $E^\circ_a(\eta)=\sum_{0<|\delta|\le\eta}a_1a_2a_3a_4$.
 
-**Theorem P4 (variance $\asymp$ diagonal, product metric).** Assume RH.
+**Theorem P4 (product variance: unconditional lower bound, exact limit, and
+conditional rate).** Assume RH.
 
 **(a) Free lower bound at every finite $L$ (new; impossible in the Beta metric).**
 Since $\phi_L(u)\,du/L$ is a probability measure and $|A_2|^2=h^4$, Cauchy–Schwarz/Jensen
@@ -257,15 +258,22 @@ independence only increase the variance, whereas in the Beta metric they enter w
 Riemann–Siegel phases and unknown sign. Thus $\lim V\ge D_0$ always, $=D_0$ iff no
 nontrivial relations.
 
-**(c) Rate under the same separation input as D.4.** Splitting off-diagonal terms
+**(c) Rate under a multiscale separation input.** Splitting off-diagonal terms
 dyadically in $|\delta|$ exactly as D.3 (no absolute values needed — the weights are their
 own absolute values):
-$$\bigl|V(u_0,L)-D_0\bigr|\;\le\;E^\circ_a(1/L)+\sum_{k\ge0}4^{-k}E^\circ_a(2^{k+1}/L)
+$$\bigl|V(u_0,L)-D_0\bigr|\;\ll\;E^\circ_a(1/L)+\sum_{k\ge0}4^{-k}E^\circ_a(2^{k+1}/L)
 \;+\;(\text{nontrivial-resonance mass, }\ge0\text{ in }V).$$
-If $E^\circ_a(1/L)=o(m_0^2)$ — the product-metric form of the near-diagonal separation
-hypothesis, cf. `ENERGY.md`'s measured law $E^\circ(\delta)\approx2.8\,\delta\cdot\Sigma$ —
-then $V=D_0(1+o(1))$ **uniformly in $u_0$, with no averaging over $u_0$** (D.4 needed a
-unit average in $u_0$ to control phases; here only the lower-order off-diagonal does).
+The single-scale assertion $E^\circ_a(1/L)=o(m_0^2)$ does **not** control the
+whole dyadic sum.  Assuming no nontrivial exact resonances, a sufficient
+quantitative hypothesis is the full microscopic bound
+$$E^\circ_a(\eta)\le C\eta m_0^2\qquad(0<\eta\le\eta_0).$$
+It gives
+$$V(u_0,L)=D_0+O\!\left(\frac{Cm_0^2}{L}
++\frac{B^4}{(L\eta_0)^2}\right)$$
+uniformly in $u_0$.  Without a rate hypothesis, part (b) still gives the
+qualitative limit by dominated convergence.  See `DCLOSE_NO_GO.md`: the
+linear estimate is a genuine microscopic correlation conjecture, not a
+finite-checkable consequence of RH and zero-counting bounds.
 
 **(d) Ω-results with explicit constants.** From (a), $\limsup_u h(u)^2\ge m_0$, so
 $$\limsup_{X\to\infty}\frac{|\Phi(X)|}{\sqrt X}\;\ge\;\sqrt{m_0}\;=\;0.00861\ldots,
@@ -283,11 +291,12 @@ mean by at most $m_0X+O(\sqrt X)$ but can exceed it without bound relative to $m
 | upper/lower energy functional | $E_W$ with $\vert W\bar W\vert$ vs signed sum | one positive $E_a$ for both |
 | diagonal | $2\sum\vert W_{12}\vert^2$, Beta-coupled | $3(m_0^2-S_4)$, factorized closed form |
 | DC of pair layer | $e^{-\pi\gamma}$-small | $m_0>0$ = main term of $G_w$ |
-| still open | 4-point near-diagonal separation | the **same** hypothesis (only for rates) |
+| still open | same-sign 4-point separation | full product separation, including mixed-sign differences |
 
-The genuinely open input — near-diagonal separation of $\{\gamma_i+\gamma_j\}$ — is
-untouched, as `SCREW.md` §4.3 predicted it must be (positivity is a 2-point statement). But
-it is now needed *only for the rate in the upper bound*; every lower bound is free.
+The genuinely open input is untouched, as `SCREW.md` §4.3 predicted it must
+be.  It is needed only for a quantitative upper-bound rate; every lower bound
+is free.  For the full signed product measure it includes the difference
+spectrum as well as the same-sign sum spectrum.
 
 ---
 
@@ -302,25 +311,36 @@ by Stirling ($|\Gamma(\sigma+it)|\sim\sqrt{2\pi}|t|^{\sigma-1/2}e^{-\pi|t|/2}$),
 Riemann–Siegel phases $\arg C$. On a dyadic block ($\gamma_i\in[T,2T]$, all four, same
 sign class) $|C|\asymp T^{3/2}$ with absolute implied constants.
 
-**Proposition R1 (the separation hypothesis is metric-independent).** For every $\eta>0$
+**Proposition R1 (same-sign block comparison only).** For every $\eta>0$
 and dyadic $T$, restricting all four ordinates to a same-sign dyadic block,
 $$E^\circ_W(\eta;T)\;\asymp\;T^{3}\,E^\circ_a(\eta;T),$$
 since $E^\circ$ sums absolute values and $|W_{12}\overline{W_{34}}|=|C_{12}||C_{34}|
 (aa)_{12}(aa)_{34}$ with $|C|\asymp T^{3/2}$ blockwise. Hence the near-diagonal separation
-hypothesis of D.4 holds in the Beta metric iff it holds in the product metric (blockwise
-weighted); the phases of $C$ are invisible at this level. (The opposite-sign sector exists
-only in the product metric — full mass $aa'$ on difference frequencies $|\gamma-\gamma'|$ —
-where it is positive and harmless; in the Beta metric it is $e^{-\pi\min(\gamma,\gamma')}$-
-suppressed, cf. Thm D′.)
+hypothesis of D.4 is equivalent in the two metrics **on that same-sign block**;
+the phases of $C$ are invisible there.
 
-**Consequence (the join, precisely).** The D.3/D.4 off-diagonal machinery uses only
-absolute values, so by R1: *under RH + product-metric separation, the Beta-metric variance
-also satisfies $V_W\asymp\sum|W_{12}|^2$* — Theorem D″ and Theorem P4(c) close under **one
-and the same** zero-separation statement. What the multiplier $C$ destroys is exactly and
-only the *unconditional* (Jensen) lower bound: with phases, $\inf$ over phase
+This is not a global equivalence.  If
+$A=\sum_{\gamma>0}a(\gamma)=B/2$, the two ordered mixed-sign sectors of the
+product pair measure have total mass
+$$2A^2=B^2/2=1.066\ldots\times10^{-3},$$
+supported on zero differences.  They are exponentially suppressed in the
+Beta metric but fully present in the product metric.  Indeed the product
+energy obeys
+$$E_a^\circ(\eta)\ge
+8m_0\sum_{\substack{i<j\\0<\gamma_j-\gamma_i\le\eta}}a_i a_j,$$
+so its mixed-sign sector contains a weighted pair-correlation problem and is
+not harmless for an upper bound; see `DCLOSE_NO_GO.md`.
+
+**Consequence (one-way blockwise transfer).** On each same-sign dyadic
+block, a product-metric separation estimate transfers to the corresponding
+Beta block after the displayed $T^3$ reweighting.  No summation over heights
+or cross-scale blocks is asserted here, so this is not by itself a global
+Beta-energy theorem.  The converse also does not control the product
+metric's mixed-sign sector.  What the multiplier $C$
+destroys is the *unconditional* (Jensen) lower bound: with phases, $\inf$ over phase
 configurations of the quadratic form can dip below the diagonal unless the near-diagonal
 mass is small — i.e. the free-positivity layer of §3 is metric-specific, the conditional
-layer is not. This is the precise content of the "Schur-multiplier route" flagged in
+same-sign comparison is blockwise. This is the precise content of the "Schur-multiplier route" flagged in
 `SCREW.md` §4.2: $C$ is blockwise bounded (after the $T^{3/2}$ normalization) as an $L^2$
 multiplier, and no pointwise-positivity statement about it is needed or possible
 (`exp12` Part 4; §1 above).
@@ -399,18 +419,21 @@ against $D_0$ and the Jensen floor.
 2. **Corrected conjecture proved.** $g_2=h^2-h(0)^2$ (not the naive $g_{H_1}^2$, whose
    measure is signed) is a screw function under RH, by a Hermitian-square identity over the
    sum spectrum (Theorem P3); numerically PSD while the Beta layer is maximally indefinite.
-3. **Variance program rerun.** In the product metric the variance$\,\asymp\,$diagonal
-   statement holds with the diagonal in closed form $D_0=3(m_0^2-S_4)$, a *free*
+3. **Variance program rerun.** In the product metric the exact limiting
+   resonance mass and the candidate diagonal $D_0=3(m_0^2-S_4)$ are in closed form, with a *free*
    lower bound at every window length (Jensen — positivity's gift), resonances that can
-   only help, and the near-diagonal separation needed only for upper-bound rates
-   (Theorem P4). Verified numerically to $V/D_0\in[0.97,1.05]$.
+   only help, and a multiscale near-diagonal hypothesis needed only for an
+   explicit upper-bound rate (Theorem P4).  The finite experiment gives
+   $V/D_0\in[0.97,1.05]$; this is numerical evidence, not a certificate.
 4. **What it buys the Goldbach-variance program vs. the Beta version.** Proposition R1
-   shows the one genuinely open hypothesis — 4-point near-diagonal separation — is the
-   *same statement* in both metrics (blockwise $|C|\asymp T^{3/2}$); so proving it for the
-   positive-weight energy $E^\circ_a$ (a cleaner target for the Tao–Trudgian–Yang $N^*$
-   machinery, D.6 item 1) closes Theorem D″ in *both* metrics at once. What does not
+   identifies the same-sign dyadic part of the separation problem in both
+   metrics (blockwise $|C|\asymp T^{3/2}$).  A full bound for the positive
+   energy $E^\circ_a$ would therefore close the corresponding Beta blocks,
+   but it is strictly stronger because it also controls mixed-sign
+   differences. What does not
    transfer is unconditional positivity: that is metric-specific, and the no-go says no
    reweighting of a genuine $m+n$-kernel will ever import it. Target 1 therefore resolves
    into: (i) *done* — carrier, positivity, free lower bounds, closed-form diagonal;
-   (ii) *sharpened* — the program's single remaining wall is $E^\circ_a(\eta)\ll\eta\,m_0^2$,
-   now stated with positive weights and no Γ-phases in sight.
+   (ii) *sharpened* — the program's remaining wall is the conjectural bound
+   $E^\circ_a(\eta)\ll\eta\,m_0^2$, now known to imply polynomial four-zero
+   separation and weighted small-gap control (`DCLOSE_NO_GO.md`).

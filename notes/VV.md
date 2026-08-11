@@ -26,12 +26,17 @@ graded V0–V3:
   effectively at this level: the tie classifications (exact integer
   reductions mod Φ_m), the homometric brute force, the F_X factorizations
   (exact, though irreducibility has no short certificate — cross-implementation
-  replication is the available standard). **Required at this level:** the D″
-  spacing floor (fleet-dclose) — it is about to become the hypothesis of a
-  theorem, and a hypothesis may not rest on floating point. Note the data
-  constraint: the Odlyzko table carries 9 decimals; any spacing claim below
-  10⁻⁹ requires recomputing zeros to certified precision (Turing-method
-  verification à la Platt) — flag, don't finesse.
+  replication is the available standard). The interrupted D-double-prime
+  computation (`exp21_dclose.py`) reaches V2.5 only for its finite decimal
+  pair-sum arithmetic, not for its floating-point weights, FFT tails, or
+  hard-coded roundoff allowances.  More importantly, no finite spacing floor
+  can certify the required all-height Lipschitz energy estimate; see
+  `DCLOSE_NO_GO.md`.  The Odlyzko table carries 9 decimals, and with the
+  program's 14-nanounit uncertainty allowance its pair-sum minimum is already
+  unresolved at sum cutoff 2000.  Any finite claim below the table precision
+  requires recomputing zeros with certified intervals (Turing verification à
+  la Platt), but greater finite precision does not remove the all-height
+  obstruction.
 - **V3** — machine-checked in a proof assistant.
 
 **Division of labor, stated once:** V3 certifies derivations; V2.5 certifies
