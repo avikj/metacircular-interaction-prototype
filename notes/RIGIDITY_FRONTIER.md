@@ -54,7 +54,7 @@ uniform Mahler-measure gap for nonreciprocal algebraic integers gives the
 stronger rigidity-sensitive tier
 
 $$
-\min_{\substack{g\mid F_X\\g\ {m irreducible, nonreciprocal}}}
+\min_{\substack{g\mid F_X\\g\ {\rm irreducible, nonreciprocal}}}
 \deg g
 \gg\frac{\log_2X\,\log_4X}{\log_3X}.
 $$
