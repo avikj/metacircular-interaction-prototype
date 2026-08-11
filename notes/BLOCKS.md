@@ -298,3 +298,35 @@ identification of oscillatory content, not an exact block identity. A
 corrected exact statement needs a canonical ($Q\to\infty$ or $Q$-covariant)
 smooth subtraction; this is now the open item of the join (see
 `CROSSREVIEW_THMJ.md` when filed).
+
+### 5.1 The scheme runs: the anomaly flow of the block constants (exp27)
+
+The audit's "Q-dependent artifact" is a *structure*, measured over
+$Q\in\{5,\dots,120\}$:
+
+| $Q$ | $[\sharp\sharp]$ | $[\text{mix}]$ | $[\flat\flat]$ | sum |
+|---|---|---|---|---|
+| 5 | 1.711 | −5.946 | 1.954 | **−2.2805** |
+| 30 | 5.141 | −12.102 | 4.681 | **−2.2806** |
+| 120 | 9.517 | −20.040 | 8.243 | **−2.2806** |
+
+**The profinite resolution $Q$ is a renormalization scheme.** Each block's
+smooth constant runs — the $[\sharp\sharp]$ intercept follows
+$0.362\log^2Q+0.19\log Q+0.33$ (rms 0.14 over nine points; the $\log^2$
+leader comes from the small-$n$ spikes of $\Lambda^\sharp_Q$, of height
+$\sim\sum\mu^2/\varphi\sim\log Q$, squared against the $1/n^2$ weight) —
+while the sum of the three constants is pinned at the **scheme invariant**
+$c_2=-2.2803$ to $10^{-4}$ at every $Q$. The running has square structure:
+$[\flat\flat]$ runs at nearly the $[\sharp\sharp]$ rate and $[\text{mix}]$ at
+minus their sum, so the anomaly cancels identically in the total (as
+bilinearity demands) but *cannot be assigned to any single block*.
+
+This is the precise sense in which the corrected Theorem J's "canonical
+smooth subtraction" fails to exist at fixed $Q$ and what replaces it:
+scheme-independent statements are those about (i) the total ($c_2$),
+(ii) fluctuation sectors (the band-passed screw identification, corr
+1.0000), (iii) scheme-covariant limits. The block language, like a
+renormalized field theory, needs its scheme label — and MS's Krein
+positivity, which involves the smooth part, is a statement about the
+*invariant* combination, not about any block alone. This finalizes the
+corrected form of Theorem J.
