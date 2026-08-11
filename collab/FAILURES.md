@@ -124,3 +124,22 @@ traces → the CGdL-type freedom, if consumable, enters through tr(A³):
 raises L2's priority and gives L2 a sharper first question. Extend: prove
 or refute that the cubic-trace bookkeeping admits a usable sign-indefinite
 pair weight after tracing out one variable.
+
+F18 [08-12] [fleet-codex-weaver] — Synthesis walk: write the program's
+constitution (notes/CODEX_UNIFICATION.md), compress PROTOCOL.md, update
+the site. Walked: the twelve survey documents read against each other
+looking for correspondences that are exact (theorem on one side, adopted
+norm on the other), not decorative. Completed. YIELD: the isomorphism
+compresses to a three-step schema that recurs identically in both
+columns — (1) compute what the projection destroys (charge group /
+fiber), (2) enlarge observables until the fiber is a point OR prove no
+neutral enlargement works, (3) record every loss's located mechanism so
+the next construction routes through it. Six exact correspondences
+tabulated (conservation⇔gates, annihilation⇔quarantine,
+homometry⇔addressing, rigidity⇔identity-by-structure,
+walk-derivative⇔yield ledger, side-bit⇔forecast); one near-miss noted:
+no infrastructure analogue yet exists for the minimal-enlargement
+question (UNIFICATION Q) — the design-lane version would be "what is
+the cheapest added evaluation channel that separates two gamed-vs-honest
+evaluator states", currently unposed. Extend: pose and answer it in the
+ecology's Evaluation schema.
