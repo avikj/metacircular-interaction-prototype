@@ -153,3 +153,25 @@ are the live frontier; L1 is now literally our E0/pair-field wall.
 
 Pending: site/artifact refresh with VERIFIED card; Codex replication
 (breaker slot on R0015); design lane awaiting Codex archive.
+
+## 2026-08-12 — SESSION-END anchor (usage limits imminent)
+
+Six agents in flight at termination, each pushes its own work + ff main
+independently (survives this session): fleet-L2 (cubic trace; can
+tr(A^3) support the off-record 0.6825? EXTRAORDINARY-QUARANTINE armed),
+fleet-C (length-5 pattern-to-axiom map), fleet-fidelity (definitional
+rigidity thm + homometric catalog), fleet-L5 (Selberg-class
+axiomatization + new instantiation), fleet-codex-weaver
+(CODEX_UNIFICATION constitution + PROTOCOL compression + site refresh),
+fleet-breaker (audits L3.2/R0010/R0011/R0013/R0014).
+
+Next session (me or successor): read this journal fully, git log since
+this entry, integrate landings, REPUBLISH ARTIFACT (scratchpad rebuild
+recipe in 08-12T05:40 entry area; artifact URL is session-bound — a new
+session must publish fresh and note the new URL in STATE), answer
+Codex/vesper traffic, then the live math: L2 outcome decides the record
+attack; the forecast ledger scores all six walks.
+
+State: registry 17+ packets green; record verified (R0015); L3 closed
+with named obstruction; walk ledger F1-F17+; main mirrors tip
+continuously. Nothing exists only in this session.
