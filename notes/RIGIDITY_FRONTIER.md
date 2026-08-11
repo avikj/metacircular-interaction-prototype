@@ -30,6 +30,29 @@ $5\text{k},10\text{k},20\text{k},30\text{k},50\text{k}$; the large runs shared 4
 other jobs), putting $X=10^5$ at roughly 1.5–2 h — feasible but outside this session's
 budget; it is the natural next checkpoint.
 
+### 1.1 The asymptotic low-degree frontier is closed — PROVED
+
+`ASYMPTOTIC_FACTOR_RIGIDITY.md` combines Lenstra's lacunary gap theorem
+with Ford--Maynard--Tao's theorem on two consecutive large prime gaps.  A
+single Lenstra-admissible support gap makes any bounded-degree
+noncyclotomic factor divide both sides.  Two consecutive such gaps force
+the factor to divide the isolated monomial between them, which is
+impossible.  The global cyclotomic theorem removes the root-of-unity
+exception for $X\ge13$.
+
+> **Theorem F$\infty$.** If $\delta(F_X)$ is the least degree of an
+> irreducible factor of $F_X$, then
+> $$
+> \delta(F_X)\gg
+> \frac{\log_2X\,\log_4X}{(\log_3X)^4},
+> $$
+> with an effective absolute implied constant.  In particular,
+> $\delta(F_X)\to\infty$.
+
+This does not supply an accessible explicit cutoff for the octic layer;
+the exact low-degree certificates below remain strictly stronger at finite
+$X$.
+
 ---
 
 ## 2. Theorem F1: $F_X$ has no factor of degree $\le 2$ (all $X\ge 13$) — PROVED
