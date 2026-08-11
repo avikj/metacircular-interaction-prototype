@@ -87,11 +87,22 @@ Structural laws visible in the table, all now verified rows 1–3
   (Estermann/Motohashi, `REPORT.md` §7a), $\mu$ by being pure spectrum on the
   $S$-side — while the arithmetic-progression middle ($\Lambda$) is where both
   structures superpose. Solvability at the ends, conjecture in the middle.
-- Cross-dressings $\sum a(m)b(n)$ ($a\ne b$) interpolate rows: e.g.
-  $\Lambda\times\mu$ has one pole (from $\Lambda$) ⟹ main $=0$? No —
-  pole×pole needs both; $\Lambda\times\mu$ has main term $0$, single layers
-  from $\Lambda$'s pole × $\mu$'s zeros ($X^{3/2}$-scale, weights $v_{\rho}$)
-  and from... — a clean exercise; predicted fully by the same mechanism.
+- **Cross-dressings are compositional — verified, with a discovered layer
+  (exp18).** The ordered field $\sum\Lambda(m)\mu(n)(X{-}m{-}n)_+$: the $X^3$
+  main term is *annihilated* ($\mu$ has no pole; measured $G_1/X^3\to0.00000$
+  vs $\Lambda$'s $1/6$); the single-zero layer survives at $X^{5/2}$ **with
+  Möbius weights** $v_\rho=1/\zeta'(\rho)$ (corr 1.0000, ratio 1.0000); the
+  pair layer carries the ordered weights $-1\otimes v$ (corr 1.0000, ratio
+  1.0008). And the experiment corrected its own bookkeeping: the pole/zero
+  layer algebra misses the **$s=0$ layer** — $M(v)$'s constant $1/\zeta(0)=-2$
+  pairs with $\Lambda$'s pole to give the smooth term
+  $\tfrac{1}{2\zeta(0)}X^2=-X^2$, *measured $-0.99986$: the arithmetic data
+  reads off $\zeta(0)=-\tfrac12$ to four digits.* Corrected corollary: the
+  diagonal $\Lambda\mu$ gives $-X^2/4$ (prime density), so
+  $\sum_{m\ne n}\Lambda(m)\mu(n)(X{-}m{-}n)=-(3/4)X^2+\text{osc}$ (measured
+  $-0.7551$, $-0.7484$ about $-0.75$). Moral: the complete layer algebra is
+  indexed by *all* singularities of the two Mellin factors — poles, zeros,
+  **and the $s=0$ residue** — composed pairwise.
 - The Fresnel-zone resummation (`FRESNEL.md` §4) applies to the pure field
   most cleanly: for $\mu$ there is no foreground to subtract at all.
 
