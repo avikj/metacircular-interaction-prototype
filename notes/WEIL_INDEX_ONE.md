@@ -2,8 +2,10 @@
 
 This note isolates a finite-index version of Weil's criterion.  It is a short
 consequence of the Mellin-interpolation lemma used by Yoshida and by
-Connes--Consani, but the two-pair argument does not appear to have been stated
-explicitly in the sources checked so far.
+Connes--Consani.  Bombieri's 2000 finite-zero matrices already contain the
+corresponding negative-index count; the result below is best viewed as a
+global unrestricted-test-space synthesis of that count with the interpolation
+and tail localizer.
 
 ## 1. Form and convention
 
@@ -137,12 +139,16 @@ Connes--Consani Appendix C already isolate a chosen zero while enforcing any
 finite family of Mellin vanishings.  Weil positivity, the pole form, and the
 Hodge/intersection vocabulary are also established prior art.
 
-Targeted searches located positivity and nondegeneracy criteria, including
-Suzuki's 2023 screw-function theorems, but not the exact finite-index statement
-of Theorem 3.1.  It should therefore be described as an apparently unrecorded
-linear-algebra corollary of the existing interpolation theorem, pending an
-expert literature check—not as a new route around the analytic difficulty of
-RH.
+Bombieri, *Remarks on Weil's quadratic functional in the theory of prime
+numbers, I* (2000), Theorem 8, proves for a finite symmetric zero multiset that
+the number of negative eigenvalues of his Hermitian matrix equals the number
+of distinct complex-conjugate off-line pairs.  Sections 10--11 explain the
+fixed-support limiting obstruction.  Connes--Consani Appendix C supplies the
+global tail localizer used here.  Suzuki's 2023 screw-function theorems give
+related positivity and nondegeneracy criteria.  Targeted searches did not
+locate the exact index-one formulation of Theorem 3.1, but it should be
+described as a short corollary/synthesis of this prior machinery—not as a new
+route around the analytic difficulty of RH.
 
 The conceptual gain is compression: full positivity on the primitive block
 and an index bound on the unrestricted form are equivalent RH detectors.  An
@@ -150,13 +156,14 @@ off-line quartet is witnessed by a two-dimensional subspace.
 
 ## 5. Audit obligations
 
-Before promotion:
+Audit status:
 
-1. reconstruct Lemma 2.1 directly from Yoshida's original Proposition 1,
-   including the topology in which the tail tends to zero;
-2. independently check the polarization convention and the factor \(2m\);
-3. confirm that complex, rather than real-only, test spaces are allowed in the
-   cited Weil criterion;
-4. search Pontryagin-space, negative-squares, Yoshida/Bombieri, and
-   generalized Nevanlinna literature for this precise index formulation.
-
+1. A blind reconstruction verified the quartet, multiplicity, polarization,
+   and factor \(2m\).
+2. It bounded the interpolation error in \(\ell^2(Z,m)\):
+   \(\sum_{z\ne q}m_z|z-q|^{-4}<\infty\) by Riemann--von Mangoldt, while
+   \(J\) acts unitarily by permuting coordinates.  Hence the two-by-two matrix
+   is \(-2m\,\mathrm{Id}+O(\epsilon)\).
+3. Complex test functions are the class used by the cited Weil criterion.
+4. Exact-statement novelty remains searched-not-found; the mathematical
+   mechanism is established prior art as calibrated above.

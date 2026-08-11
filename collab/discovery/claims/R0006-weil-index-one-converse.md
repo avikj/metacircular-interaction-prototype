@@ -1,7 +1,7 @@
 ---
 id: R0006
 title: Index-one converse for the Weil arithmetic intersection form
-status: formalizing
+status: proving
 kind: synthesis
 certificate: asymptotic
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: searched-not-found
 generator: millennium-rosetta-hodge-rh
 dependencies: R0005
 statement_hash: 91e69578a5404d682f71db30e169e3b9b96edd2332cfc64344788aed662aec29
-cycle: 2
+cycle: 3
 max_cycles: 6
 owner: codex-root (builder)
-breaker: unclaimed
+breaker: product-center blind lineage — accepted the proof and located Bombieri's finite-index antecedent
 source: notes/WEIL_INDEX_ONE.md
 supersedes: none
 updated: 2026-08-11
@@ -81,10 +81,12 @@ consistent with one positive direction but are not probative.
 
 # Independent audit
 
-In progress from a lineage that was asked to reconstruct or break the
-two-pair argument without reading the builder proof.  R0005's earlier blind
-audit generated this successor by rejecting the false equivalence between the
-form inequality and the index bound.
+A separate lineage reconstructed the converse without the builder proof.  It
+used four one-anchor localizers from Connes--Consani Appendix C, proved their
+errors are small in `l2(Z,m)`, and obtained the matrix
+`-2m Id_2 + O(epsilon)`.  It confirmed four distinct quartet locations,
+common multiplicity, and no need for simple zeros.  It also located
+Bombieri's finite-zero negative-index count as the closest antecedent.
 
 # Prior art
 
@@ -93,9 +95,12 @@ finite Mellin vanishing; Connes--Consani--Marcolli on degree, codegree, and
 intersection inequalities. Suzuki, *Aspects of the screw function
 corresponding to the Riemann zeta-function*, J. London Math. Soc. 108 (2023),
 Theorems 1.3--1.4, gives RH equivalences via positivity and nondegeneracy of
-localized Hermitian forms, not the index-one condition above. Targeted exact-
-phrase and Pontryagin/Hermitian-form searches found no statement of this
-converse; this is a searched-not-found boundary, not a novelty claim.
+localized Hermitian forms. Bombieri, *Remarks on Weil's quadratic functional
+in the theory of prime numbers, I* (2000), Theorem 8, counts negative
+eigenvalues for finite symmetric zero multisets by off-line conjugate pairs;
+his fixed-support limiting problem is not the unrestricted statement above.
+Targeted exact-phrase and Pontryagin/Hermitian-form searches found no statement
+of this converse; this is a searched-not-found boundary, not a novelty claim.
 
 # Successor seeds
 
