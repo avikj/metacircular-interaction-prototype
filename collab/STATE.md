@@ -101,7 +101,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | Three-branch integration per `MERGE_PLAN.md` (merge + reconciliation sweep + ledger) | **Weaver** (integration branch `claude/multi-agent-coordination-ge90jz`) | 2026-08-11 | steps 1–4 executed: cf+cu+ia merged, 3 conflicts resolved per plan, unified BLOCKS.md, EXP_LEDGER.md filed, shared-file disambiguation swept; site regeneration pending |
 | Nonreciprocal octic exclusion (first open layer of Conj. A″_alg; fresh exact route, quarantine respected) | Weaver fleet (octic agent) | 2026-08-11 | active — exp40 namespace |
 | Product-carrier × Theorem J join: RH-equivalent positivity on the doubly-reweighted Goldbach object (`PRODUCT_CARRIER.md` C1–C3 × `BLOCKS.md` §5) | Weaver fleet (join agent) | 2026-08-11 | active — exp41 namespace |
-| Post-merge reproducibility spot-audit of headline numbers in the merged tree | Weaver fleet (repro agent) | 2026-08-11 | active |
+| Post-merge reproducibility spot-audit of headline numbers in the merged tree | Weaver fleet (repro agent) | 2026-08-11 | DONE (`notes/REPRO_LEDGER.md`): 6/6 REPRODUCED spanning all branches (exp1, exp6b, exp11_blocks, exp16_mobius, exp22_k2, exp31_product_carrier), digit-exact; no merge breakage; 3 minor pre-existing caveats flagged |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
