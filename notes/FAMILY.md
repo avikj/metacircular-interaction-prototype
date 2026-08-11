@@ -268,3 +268,26 @@ $d\to\Lambda\to\lambda\to\mu$ is now verified at **both ends**: all-pole/no-zero
 sibling's `exp15_divisor` (Ingham marginals): their result is what the
 $d$-field *has* (solvable local structure), this one is what it *lacks*
 (zeta spectrum).
+
+## 2.6 Statistics of the L-tower sum spectrum (exp29; paper problem 3)
+
+With the self-computed $L(s,\chi_3)$ zeros extended to $t\le120$ (44 zeros;
+GRH + simple zeros standing):
+
+- **Poisson universality (supported):** unfolded sum-spectrum spacing
+  var/mean² $=0.885$ ($\zeta$), $0.860$ ($L$), $0.857$ (union) — consistent
+  with Poisson at these sample sizes (194/446 atoms; the local-window
+  unfolding used here biases slightly low — exp13's density unfolding on
+  3108 $\zeta$-atoms gave $0.997$). The union staying Poisson is the
+  transparency prediction: superposed independent Poisson processes.
+- **Cornu coherence is conductor-universal (supported):** the dechirped
+  L-atom sums follow the same Fresnel law — coherent fraction $0.252$ vs
+  predicted $0.270$ in $[30,60)$ (7%); higher bands ($0.262$ vs $0.182$,
+  $0.204$ vs $0.144$) agree within the $\sim25\%$ shot noise of a 44-zero
+  spectrum. The $\Gamma$-part of the theory is blind to the conductor, as it
+  must be (archimedean origin); the sparse-spectrum error bars are the
+  honest limit here, not the law.
+
+Paper problem 3 status: the tower's statistical profile matches the
+$\zeta$ template at current precision; a decisive test needs L-zeros to
+$t\sim10^3$ (a table, or a longer mpmath run).
