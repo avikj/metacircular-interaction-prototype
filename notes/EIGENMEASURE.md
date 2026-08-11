@@ -41,9 +41,9 @@ ledger.
    never pretend to $\chi(n)n^{it}$ with $t \neq 0$ — quantitatively,
    by the pretentious triangle inequality plus the nonvanishing
    $\zeta(1+2it) \neq 0$, $L(1,\psi)\neq 0$ (Prop 4.2). **The
-   arithmetic fact that must enter to keep the $\pm1$ dichotomy alive
-   is located: nonvanishing of $\zeta$ and $L$ on the 1-line, i.e.
-   PNT-strength input, closes the Archimedean exotic channel.**
+   resulting 1-line nonvanishing argument closes the specific
+   Archimedean pretension channel used by the MRT construction.  It
+   does not classify all possible $\pm1$ exotic mechanisms.**
 5. The parity barrier reappears *inside* the soft theory with exact
    coordinates: the odd Walsh sector of an eigenmeasure is the charged
    sector; soft dilation-averaging annihilates precisely against the
@@ -432,8 +432,10 @@ $\pm1$.
 
 ### 3.6 The parity/charge structure of the soft theory
 
-For any conditional eigenmeasure, (3.3.1) reads: the Walsh coefficient
-function is a *twisted dilation eigenfunction on ray classes*,
+For an unconditional eigenmeasure — or for a conditional eigenmeasure
+after Lemma 3.1 deconditions it under ergodicity and trivial rational
+spectrum — (3.3.1) reads: the Walsh coefficient function is a *twisted
+dilation eigenfunction on ray classes*,
 $\hat w(mA) = x(m)^{|A|}\hat w(A)$. The flip $\sigma_\pm$ grades
 observables: even Walsh sector ($|A|$ even, gauge-neutral), odd sector
 ($|A|$ odd, charged) — the same $\mathbb Z/2$ as GAUGE.md's Theorem F
@@ -489,7 +491,7 @@ anticipated "construction outcome", supplied by the literature in the
 relaxed category. What remains open — and what the program's question
 really is — is the $\pm1$ category.
 
-### 4.2 The Archimedean channel is closed for $\pm1$ — the located arithmetic fact
+### 4.2 The MRT Archimedean pretension channel is closed for $\pm1$
 
 **Proposition 4.2.** Let $x: \mathbb N \to \{\pm1\}$ be completely
 multiplicative, $\chi$ any Dirichlet character, $t \in \mathbb R
@@ -522,15 +524,17 @@ $\square$
 
 This assembly is standard (folklore around MRT/Klurman; we found no
 single citable statement in the fetched sources, so the two-line proof
-is recorded). Its role here is new in emphasis: **it is the exact
-arithmetic gate between the refuted relaxed dichotomy and the open
-$\pm1$ dichotomy.** The MRT mechanism needs a continuum of completely
+is recorded). Its exact scope is narrower than the full dichotomy: **it
+obstructs transport of the known MRT Archimedean-pretension mechanism
+to the $\pm1$ category.** The MRT mechanism needs a continuum of completely
 multiplicative unimodular characters to slide along scales; for real
 values the only such characters are quadratic $\chi$'s (rational,
 discrete), and their pretension is *rational-spectrum* structure
 (horn 1 of Cor 3.5), not the unipotent exotic zone. Nonvanishing of
 $\zeta$ and $L$ on the 1-line — PNT-strength arithmetic — is what
-closes the continuous channel.
+closes this continuous pretension channel.  The proposition neither
+excludes a different $\pm1$ exotic construction nor proves the
+$\pm1$ dichotomy.
 
 ### 4.3 A $\pm1$ tower construction attempt and its exact failure point
 
@@ -561,6 +565,17 @@ impossibility proof. The sharp open question survives:
 > for $\lambda$ would give the full dichotomy; a positive answer would
 > refute the $\pm1$ abstract dichotomy exactly as MRT functions do the
 > relaxed one.
+
+**Exact successor seed (classification of the $\pm1$ exotic zone).**
+Classify ergodic unconditional $\pm1$ eigenmeasures with trivial rational
+spectrum (equivalently, conditional ones after Lemma 3.1 applies).  The
+sharp target is to prove that their torsion-free divisible Kronecker factor
+is trivial, hence that they are weakly mixing and therefore
+Bernoulli($\tfrac12$) by Thm 3.3; alternatively, construct an explicit
+counterexample by giving a positive-definite, shift-invariant Walsh system
+satisfying the twisted dilation identities and having a nontrivial such
+factor.  Cor 3.5 makes this an exact classification problem rather than an
+analogy, and Prop 4.2 removes only the MRT route to a counterexample.
 
 ### 4.4 (b) The softest hypothesis forcing Bernoulli
 
@@ -620,12 +635,11 @@ upgrades and its strength class:
   $\lambda$: every log-limit has vanishing 2-point sector. Strength:
   the deepest currently-used input; strictly beyond PNT.
 - **E4 (1-line nonvanishing $\zeta(1+it) \neq 0$, $L(1+it,\psi)\neq0$
-  via the pretentious triangle).** Closes the Archimedean exotic
-  channel for $\pm1$ sequences (Prop 4.2): the relaxed-category
-  refutation of the dichotomy (§4.1) cannot be transported to $M$.
-  Upgrades: protects horn (3) of Cor 3.5 from the known exotic
-  construction; this is the *exact* boundary between the solved-false
-  relaxed case and the open $\pm1$ case. Strength: PNT.
+  via the pretentious triangle).** Closes the MRT Archimedean
+  pretension channel for $\pm1$ sequences (Prop 4.2): that particular
+  relaxed-category construction cannot be transported to $M$.
+  Upgrades: excludes one known route into horn (3) of Cor 3.5, not the
+  horn itself or every possible construction. Strength: PNT.
 - **E5 (rational independence of $\{\log p\}$ / Archimedean scale
   flow).** Enters the *constructions*: MRT functions exist because
   $n^{it}$ with $t$ sliding along $\log$-scales is a continuum of
@@ -636,8 +650,9 @@ upgrades and its strength class:
 - **E6 (TT structure theorem: correlation ray-maps are uniform limits
   of periodic functions; isotypy or vanishing).** Arithmetic content =
   E1+E3 again. In our coordinates: arithmetic forces the ray-map
-  $a \mapsto \hat w(aA)$ toward *periodicity*, while (3.3.1) forces the
-  $\lambda(a)$-twist; for odd $|A|$ the two are incompatible unless the
+  $a \mapsto \hat w(aA)$ toward *periodicity*, while the deconditioned
+  ray law (3.3.1), where applicable, supplies the $\lambda(a)$-twist;
+  for odd $|A|$ the two are incompatible unless the
   sector vanishes — this is how the charged sector actually got killed
   for $\lambda$ (TT odd), where the soft theory provably cannot do it
   (§3.6). Strength: E3-class.
@@ -650,8 +665,8 @@ upgrades and its strength class:
 **The compressed verdict.** Everything soft reduces the dichotomy to
 two arithmetic duties: (i) control the rational spectrum / odometer
 coupling of $\lambda$'s limits (E2/E3-class), and (ii) exclude the
-solenoidal exotic zone for $\pm1$ (E4 closes its only known door;
-whether other doors exist is §4.3's open question). Ergodicity of
+solenoidal exotic zone for $\pm1$ (E4 closes the MRT door only;
+other mechanisms remain unclassified in §4.3). Ergodicity of
 $\lambda$'s limits stands as the one purely dynamical unknown, and
 Frantzikinakis 1611.09338 shows it is decisive (with E3 input).
 

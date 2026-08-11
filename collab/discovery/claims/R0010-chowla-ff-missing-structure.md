@@ -110,7 +110,20 @@ No numerics; the only computations are the one-line algebra in B0-B3.
 
 # Independent audit
 
-None yet (builder only).
+**2026-08-11 audit correction (non-authoritative; historical Exact statement
+and hash intentionally preserved).**  The registered statement overreaches.
+Initiality of $\mathbb Z$ does not force schemes over $\mathbb Z$ to have
+relative dimension zero: $\mathbb A^n_{\mathbb Z}$ is an immediate
+counterexample.  Accordingly F1 does not prove P1 impossible, and neither
+the constructibility lemma nor the place-indexing observation excludes the
+whole category of schemes, Tannakian objects, or Arakelov/adelic
+enlargements.  The identity endomorphism is also a canonical Frobenius lift
+on $\mathbb Z$, albeit a trivial one that supplies no proper image or
+large-kernel coset mechanism.  F3 and F5 likewise require the narrower
+rank-one and finite-affine scopes proved in their cited lemmas.  This packet
+is retained as provenance, not authority.  Corrected route-local content is
+registered in successor R0014; `notes/PROOF_DIFF_FF.md` now states that
+version.
 
 # Prior art
 

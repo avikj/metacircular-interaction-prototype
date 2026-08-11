@@ -1,11 +1,12 @@
-# Proof-diff: integer Chowla against the solved F_q[t] case — a missing-structure certificate
+# Proof-diff: integer Chowla against the solved F_q[t] case — a route specification
 
 Workstream B of `DIRECT.md`, executing METALOOP §4 item 2 (the proof-diff
 engine) by hand on the nucleus.  Method: dissect the actual proofs of
 function-field Chowla / twin primes from primary sources (fetch ledger in
 §8), build the dependency DAG, align each node against $\mathbb Z$, and emit
-a theorem-shaped certificate naming exactly what any transport of the route
-requires and in which categories those requirements provably fail.  No
+a route specification naming exactly what a faithful transport would require,
+together with scoped no-go results only in the categories where they are
+proved.  No
 sampling; the only computations here are one-line algebra.
 
 Companion notes: `FF.md` (the exact shell pair theorem and the
@@ -169,24 +170,25 @@ Consumption points, stated exactly:
 
 | node | F_q[t] object | integer-side analog | status | proved sense / source |
 |---|---|---|---|---|
-| N1 shell | $\mathbb A^n(\mathbb F_q)$: shell = points of a variety of relative dimension $n$ over the constant field; degree + leading coeff = algebraic data at $\infty$ | $\{1,\dots,X\}$: no scheme of positive relative dimension has this as its point set; membership $n \le X$ is archimedean | **provably absent in Sch** | Lemma B0 below (initiality of $\mathbb Z$: no base under $\operatorname{Spec}\mathbb Z$, relative dimension 0); any infinite subset of $\mathbb Z$ is Zariski-dense in $\mathbb A^1$; cf. `FF.md` §2 (infinity-place) |
-| N1' shift family | $h \mapsto f + h$: connected algebraic action ($V_n$ on itself) | $\mathbb G_a/\mathbb Z$ exists and $\mathbb G_a(\mathbb Z) = \mathbb Z$ — the *group* is not what is missing; what is missing is the shell-object it should act on, and a cohomology comparing shifted fibers | absent for want of N1 | see §5.1 |
+| N1 shell | $\mathbb A^n(\mathbb F_q)$: shell = points of a variety of relative dimension $n$ over the constant field; degree + leading coeff = algebraic data at $\infty$ | Positive-dimensional schemes such as $\mathbb A^n_{\mathbb Z}$ exist, but $\{1,\dots,X\}$ is an archimedean height truncation of integral points, not the full point set of such a scheme | **scheme exists; required height/cohomology package is not known** | Observation B0 below; cf. `FF.md` §2 (infinity-place) |
+| N1' shift family | $h \mapsto f + h$: connected algebraic action ($V_n$ on itself) | $\mathbb G_a/\mathbb Z$ exists and $\mathbb G_a(\mathbb Z) = \mathbb Z$ — the *group* is not what is missing; what is missing is a canonical finite-height shell package on which it acts, with cohomology comparing shifted fibers | unfilled route requirement, not a scheme-theoretic no-go | see §4.1 |
 | N2 convolution skeleton | $\Lambda = \mu * \log$, Vaughan-style decompositions | identical (Vaughan, Heath-Brown identities; BV = average level 1/2) | **exists** | classical; the corpus's `LENS_CIRCUIT`/`WIDTH` map this layer |
 | N3 Pellet | $\mu(f) = (-1)^{\deg f}\chi_2(\operatorname{Res}(f, f'))$ | needs a derivation of $\mathbb Z$ | **provably absent in Rings** | Lemma B2: $\operatorname{Der}(\mathbb Z) = 0$ |
-| N4 Frobenius twist | cosets of $\mathbb F_q[T^p]$, density exponent $1/p$; $\mu$ abelian on each | needs a ring endomorphism / large-kernel derivation; Buium's $p$-derivation $\delta_p(n) = (n - n^p)/p$ is the honest candidate | **provably absent in Rings; Buium kernel collapses** | Lemma B2: $\operatorname{End}(\mathbb Z) = \{\mathrm{id}\}$; $\ker\delta_p \cap \mathbb Z = \{-1,0,1\}$ vs $q^{\lceil n/p\rceil}$ per shell |
-| N4' abelian target | shifted quadratic Dirichlet characters in the coset variable | $\mathbb Z$'s rank-1 "sheaves": $\chi(n)n^{it}$ (Hecke characters) — they exist, but $\lambda$ provably is not one and does not pretend to be one | **provably absent for the whole extant abelian category** | Lemma B3 (Chebotarev no-go + pretentious divergence) |
+| N4 Frobenius twist | cosets of $\mathbb F_q[T^p]$, density exponent $1/p$; $\mu$ abelian on each | needs a nontrivial Frobenius-like image or large-kernel derivation; Buium's $p$-derivation $\delta_p(n) = (n - n^p)/p$ is the honest candidate | **the literal Rings mechanism fails; Buium zero fiber collapses** | Lemma B2: the only unital endomorphism is the identity (the canonical but trivial Frobenius lift); for odd $p$, $\delta_p^{-1}(0)\cap\mathbb Z=\{-1,0,1\}$ vs $q^{\lceil n/p\rceil}$ per shell |
+| N4' abelian target | shifted quadratic Dirichlet characters in the coset variable | Rank-one targets $\chi(n)n^{it}$ exist, but $\lambda$ is not one and does not pretend to any fixed one | **excluded for this rank-one target class** | Lemma B3 (Chebotarev no-go + pretentious divergence) |
 | N5 trace functions | $\ell$-adic sheaves on $\mathbb A^d$, tensor-functorial | explicit formula = the one-variable abelian shadow (primes ↔ zeros); no multi-variable tensor formalism whose traces are $\lambda(n{+}h_1)\cdots\lambda(n{+}h_k)$ | exists-but-weak | `WEIL.md`, exp5a; Weil explicit formula |
-| N6 amplitude | perversity, Artin vanishing, vanishing cycles | needs a t-structure on a coefficient category over the (absent) N1 object | no known object | — |
-| N7 complexity | Betti bounds $\le A^d$ | needs a complexity/conductor theory for the (absent) coefficient objects; analytic conductor is the one-variable shadow | no known object | [Kow22 §6]; Sawin's quantitative sheaf theory is FF-only |
-| N8 purity | Deligne Weil II | GRH is the maximal conjectural abelian input — and it is *not enough for this route*: individual level of distribution $3/4$ is unknown even under GRH; no nontrivial integer sequence is known with individual level $\ge 3/4$ | exists only conjecturally, and provably too weak in the known abelian channel | [Kow22, Rem. 1.4(2)]; parity conservation: R0007 / `LENS_CHAITIN` Lemma C1 |
+| N6 amplitude | perversity, Artin vanishing, vanishing cycles | needs a t-structure on a coefficient category over an N1 height-shell package | no known object supplying this route | — |
+| N7 complexity | Betti bounds $\le A^d$ | needs a complexity/conductor theory for those coefficient objects; analytic conductor is the one-variable shadow | no known object supplying this route | [Kow22 §6]; Sawin's quantitative sheaf theory is FF-only |
+| N8 purity | Deligne Weil II | GRH is the strongest standard abelian spectral input, but no known deduction from it supplies the route's individual level $3/4$; no natural integer sequence is known with such individual level | conjectural input exists; the required route-level consequence is unknown | [Kow22, Rem. 1.4(2)]; the charge-even derivation cone is limited by R0007 / `LENS_CHAITIN` Lemma C1 |
 | N9 race | $q^{1/2} > A(p)$ | nothing to race: no $q$ to enlarge (the "constant field of $\mathbb Z$" has one element and cannot grow); no complexity constant to beat | structurally void | the large-$q$ dial is itself part of the missing structure |
 | N10 assembly | Thms 1.7 + 1.3 + appendix ⇒ 1.9 ⇒ 1.1 | the assembly layer exists over $\mathbb Z$ and is exactly where all known partial results live (MRT, Tao's log-Chowla) | exists | `FOREST.md` (three exploitation modes) |
 
-The table's summary: **the integer side possesses the entire analytic
-skeleton (N2, N10) and provably lacks the entire geometric spine (N1, N3,
-N4), with the spectral engine (N6–N9) absent for want of the spine.**
+The table's summary: **the integer side possesses the analytic skeleton
+(N2, N10).  The literal derivative/Frobenius conversion at N3–N4 fails in
+Rings, while N1 and N6–N9 name a finite-height geometric/cohomological
+package for which no construction is presently supplied.**
 
-## 4. The three critical absences, made exact
+## 4. Three critical route gaps, made exact
 
 ### 4.1 (i) The connected family deforming translation
 
@@ -198,18 +200,21 @@ $\mathbb Z$: the group scheme $\mathbb G_a/\mathbb Z$ has
 $\mathbb G_a(\mathbb Z) = \mathbb Z$, so a connected thickening of the
 translation *group* exists.  What fails is the pair (space, comparison):
 
-**Lemma B0 (relative-dimension collapse).** In commutative rings,
-$\mathbb Z$ is the initial object; hence the only affine scheme under
-every $\mathbb Z$-scheme is $\operatorname{Spec}\mathbb Z$ itself, and
-$\operatorname{Spec}\mathbb Z$ has relative dimension 0 over every base it
-admits.  There is no "constant field" $F \subsetneq \mathbb Z$, so no
-scheme-theoretic analog of $\mathbb A^n_{\mathbb F_q}$ whose
-$F$-points form the scale-$n$ shell.  Moreover any infinite subset of
-$\mathbb Z \subset \mathbb A^1(\mathbb Q)$ is Zariski-dense, so shells
-$\{1,\dots,X\}$ (for growing $X$) are not uniformly constructible, and
-membership $|n| \le X$ is an archimedean, non-algebraic condition — the
-precise integer-side face of the infinity-place discreteness that
-`FF.md` §2 isolated on the function-field side.  $\square$
+**Observation B0 (the finite-height shell gap; diagnostic, not a
+scheme-theoretic impossibility).** Positive-relative-dimensional schemes over
+$\mathbb Z$ certainly exist: $\mathbb A^n_{\mathbb Z}$ is the immediate
+example, with $\mathbb A^n_{\mathbb Z}(\mathbb Z)=\mathbb Z^n$.  What has no
+literal counterpart in the fixed-$q$ proof is the equality
+"degree-$n$ shell = all rational points over a finite constant field."  The
+integer shell $\{1,\ldots,X\}$ is instead selected from integral points by an
+archimedean height inequality.  On the generic fiber, an infinite set of
+integers is Zariski dense in $\mathbb A^1_{\mathbb Q}$, and $|n|\le X$ is not
+a Zariski condition.  Thus an integer transport needs more than a scheme: it
+needs a canonical height truncation or compactification, compatibility of
+translation with that truncation, and a cohomology/trace formalism uniform in
+$X$.  No such package is constructed here, but its nonexistence in
+$\mathrm{Sch}/\mathbb Z$ is **not** claimed.  This is the integer-side face
+of the infinity-place distinction isolated in `FF.md` §2.
 
 This is exactly the gap the $\mathbb F_1$ programs aim at, and the honest
 inventory is: **Connes–Consani** (arithmetic site, scaling site; the
@@ -247,8 +252,8 @@ kills) and discrete in the shift direction (where connectivity is needed).
 
 ### 4.2 (ii) The coefficient object ("the Liouville sheaf") and its missing Galois group
 
-What must exist, stated as an object class: a category $\mathsf T$ of
-coefficients over the P1 object with (a) a fiber/trace functor assigning
+What this route asks for, stated as an object class: a category $\mathsf T$ of
+coefficients over an N1 height-shell package with (a) a fiber/trace functor assigning
 to each scale-$n$ shell point $n$ a "Frobenius class" $\Theta_n$, (b) an
 object $\mathcal L_\lambda$ with
 $\operatorname{tr}\Theta_n(\mathcal L_\lambda) = \lambda(n)$, (c)
@@ -257,13 +262,12 @@ $\mathcal L_\lambda^{\otimes\text{shifts}}$, (d) purity.  If $\mathsf T$
 is Tannakian its Tannaka group is what "the motivic Galois group of the
 Liouville sheaf" would mean; Chowla-by-this-route would be either "the
 group is big + equidistribution" (large-$q$ style) or "amplitude +
-complexity" (fixed-$q$ style).  **No extant Tannakian category attached
-to $\mathbb Z$ can host $\mathcal L_\lambda$**, for the structural
-reason that all of them (motives over $\mathbb Q$, Galois
-representations, automorphic representations) index traces by *places*,
-not by integers-as-points; integers are points only of the absent P1
-object.  This is the precise sense in which the object class, not merely
-the object, is missing.
+complexity" (fixed-$q$ style).  No currently specified construction in the
+standard motivic, Galois, or automorphic categories provides this package:
+their familiar trace formalisms are indexed by *places*, whereas this route
+asks for traces on height-truncated integers together with shifted tensor
+families.  This is an inventory of a missing construction, not a theorem that
+no Tannakian or Arakelov-style enlargement can host it.
 
 ### 4.3 (iii) The equidistribution engine
 
@@ -286,13 +290,20 @@ before its spectral input does any work.
 
 ## 5. Elementary no-go lemmas (the "proved senses")
 
-**Lemma B1 (constructibility no-go).** No constructible function on
-$\mathbb A^1_{\mathbb Z}$ restricts to $\lambda$ on $\mathbb Z$.
-*Proof.* A constructible $\{\pm1\}$-valued function is a finite boolean
-combination of closed conditions $f(x) = 0$, $f \in \mathbb Z[x]$
-nonzero; each such condition holds at finitely many integers, so the
-restriction to $\mathbb Z$ is eventually constant.  But
-$\lambda(2^k) = (-1)^k$ alternates.  $\square$
+**Lemma B1 (generic-fiber constructibility no-go; narrow form).** Let
+$c:\mathbb A^1_{\mathbb Q}\to\{\pm1\}$ be a constructible function, where
+the target is discrete.  Then $c(n)$ is eventually constant for integer
+points $n\in\mathbb Z\subset\mathbb A^1(\mathbb Q)$; in particular it
+cannot equal $\lambda(n)$ for all positive integers.
+*Proof.* The irreducible curve $\mathbb A^1_{\mathbb Q}$ has a generic point.
+One fiber of the finite constructible partition defined by $c$ contains that
+point and therefore contains a nonempty Zariski-open set.  Its complement is
+a finite set of closed points, so all but finitely many integer points have
+the same value.  But $\lambda(2^k)=(-1)^k$ alternates.  $\square$
+
+This lemma excludes only this finite-valued generic-fiber realization.  It
+does not exclude constructible sheaves with place-dependent traces,
+archimedean/adelic coefficient objects, or a future height-shell category.
 
 **Lemma B2 (derivation/Frobenius no-go, with the Buium calibration).**
 (a) $\operatorname{Der}(\mathbb Z) = 0$: any derivation has
@@ -300,11 +311,14 @@ $D(1) = D(1\cdot 1) = 2D(1)$, so $D(1) = 0$, and additivity kills all of
 $\mathbb Z$.  Hence no analog of $\operatorname{disc} f =
 \pm\operatorname{Res}(f, f')$: node N3 has no transport in Rings.
 (b) $\operatorname{End}_{\mathrm{Ring}}(\mathbb Z) = \{\mathrm{id}\}$
-(unitality), so there is no Frobenius endomorphism and no coset
-decomposition along an image of Frobenius: node N4 has no transport in
-Rings/Sch.  (c) The best genuine substitute, Buium's $p$-derivation
+(unitality).  The identity is the canonical Frobenius lift modulo every
+$p$, but it is **trivial**: its image is all of $\mathbb Z$, so it supplies
+no proper large subring and no nontrivial coset decomposition analogous to
+$\mathbb F_q[T^p]$.  Thus the literal N4 conversion has no nontrivial
+realization in Rings.  (c) The best genuine substitute, Buium's $p$-derivation
 $\delta_p(n) = (n - n^p)/p$, has
-$\ker \delta_p \cap \mathbb Z = \{n : n^p = n\} = \{-1, 0, 1\}$: the
+$\delta_p^{-1}(0) \cap \mathbb Z = \{n : n^p = n\} = \{-1, 0, 1\}$ for
+odd $p$: the
 fixed-derivative fibers, which over $\mathbb F_q[t]$ have
 $q^{\lceil n/p \rceil}$ points per shell (density exponent $1/p$),
 collapse to at most one point per shell over $\mathbb Z$.  The twist
@@ -341,26 +355,26 @@ Independently, all automatic sequences are asymptotically orthogonal to
 $\mu$ [Mue17].  So the substitution-dynamical completions of the shell
 cannot carry the coefficient object either.
 
-## 6. The missing-structure certificate
+## 6. Route requirements and scoped no-go results
 
-**Certificate (theorem-shaped, per DIRECT.md Workstream B).**
+**Route specification (per DIRECT.md Workstream B; not an absolute no-go
+theorem).**
 Fix $k \ge 2$ and $\theta \in (0,1)$.  Call an *SS-transport* any proof of
 integer Chowla
 $\sum_{n \le X}\lambda(n{+}h_1)\cdots\lambda(n{+}h_k) = o(X)$, uniformly
 for $|h_i| \le X^\theta$, that proceeds by the route of §2 (shell
 algebraization; parity-to-character conversion on a positive-density
 subfamily; trace-formula bound with per-point square-root cancellation
-beating an exponential complexity constant).  Then the proof requires an
-object $(\mathcal C, X_\bullet, B, \mathcal L, H^\bullet)$ with:
+beating an exponential complexity constant).  By definition, an
+SS-transport must instantiate functional analogues of the following three
+packages.  They need not literally be schemes or sheaves:
 
-- **P1 (completed connected shift family).** A category $\mathcal C$ with
-  a point functor and a cohomology functor, containing for each scale a
-  compact object $X_n$ of positive relative dimension over a constant
-  base object, with $\mathrm{pts}(X_n) \cong \{1,\dots,X\}$ naturally,
-  together with a geometrically connected family $B$ acting on $X_n$
-  whose points realize all translations $n \mapsto n + h$, $|h| \le
-  X^\theta$, such that shifted correlation data extend to a single
-  deformable (constructible) object over $B$.
+- **P1 (completed finite-height shift family).** A scale-dependent object
+  whose relevant points are the height-truncated integers
+  $\{1,\dots,X\}$, together with a connected deformation or comparison
+  mechanism realizing translations $n\mapsto n+h$, $|h|\le X^\theta$,
+  such that shifted correlation data extend to one deformable family and
+  boundary/height errors are uniformly controlled.
 - **P2 (charge-algebraizing coefficient object).** A
   $\otimes$-functorial coefficient object $\mathcal L$ on $X_n$ whose
   pointwise traces recover $\lambda$, together with a positive-density
@@ -375,16 +389,17 @@ object $(\mathcal C, X_\bullet, B, \mathcal L, H^\bullet)$ with:
   and complexity bounds exponential in scale, jointly yielding a power
   saving uniform in the shifts.
 
-**Proved failures (categories $\mathcal C$ where the requirements fail,
-with the failing clause).**
+**Scoped failures actually proved by the inputs above.**  These exclude
+specific realizations of P2/P3; they do not prove P1 impossible in
+$\mathrm{Sch}/\mathbb Z$ or in an enlargement carrying heights.
 
 | # | category | failing clause | proved sense |
 |---|---|---|---|
-| F1 | $\mathbb Z$-schemes, constructible coefficients | P1, P2 | Lemma B0 (initiality/relative dimension 0; Zariski density of shells; archimedean membership); Lemma B1 ($\lambda$ not constructible) |
-| F2 | rings with derivations / Frobenius lifts; Buium $p$-jets; Borger $\Lambda$-descent on $\mathbb Z$ | P2 (the conversion mechanism) | Lemma B2: $\operatorname{Der}\mathbb Z = 0$, $\operatorname{End}\mathbb Z = \{\mathrm{id}\}$, $\ker\delta_p = \{-1,0,1\}$, canonical Frobenius lifts on $\mathbb Z$ are the identity; and the mechanism is inseparability-powered (fails over $\mathbb C[t]$) |
-| F3 | the extant abelian coefficient category of $\mathbb Z$ (Dirichlet/Hecke characters $\chi(n)n^{it}$) | P2 (abelian realization) | Lemma B3 (Chebotarev no-go; divergent pretentious distance) |
-| F4 | automatic/substitutive (finite-state) completions | P1+P2 | [SP11], [Li19], [Mue17] |
-| F5 | charge-even (abelian-spectral / sieve-type) axiom systems, GRH included | P3 without P2 | R0007 / `LENS_CHAITIN` Lemma C1 (exact finite conservation theorem); calibration: individual level $3/4$ unknown even under GRH [Kow22 Rem. 1.4(2)] — this last is a no-known-proof statement, not an impossibility theorem |
+| F1 | finite-valued constructible functions on $\mathbb A^1_{\mathbb Q}$ evaluated at integer points | P2 (literal coefficient function) | Lemma B1: every such function is eventually constant on the integers |
+| F2 | ordinary ring derivations, unital endomorphisms of $\mathbb Z$, and Buium's standard $p$-derivation on $\mathbb Z$ | P2 (the literal Pellet/Frobenius conversion) | Lemma B2: $\operatorname{Der}\mathbb Z=0$; the sole Frobenius lift is the trivial identity; for odd $p$, $\delta_p^{-1}(0)=\{-1,0,1\}$; the large-kernel mechanism also fails over $\mathbb C[t]$ |
+| F3 | fixed rank-one Dirichlet/Hecke targets $\chi(n)n^{it}$ | P2 (rank-one abelian realization) | Lemma B3: exact Chebotarev obstruction and divergent pretentious distance |
+| F4 | completely multiplicative automatic/finite-state coefficient sequences | P2 in that finite-state class | [SP11], [Li19], [Mue17] |
+| F5 | the charge-even affine derivation cone formalized in R0007 / `LENS_CHAITIN` | charged conclusions without a P2-type input | Lemma C1 in its stated finite/affine scope; the level-$3/4$ remark is calibration only, not an impossibility theorem |
 
 **Remaining candidate categories $\mathcal D$ (not excluded; none known to
 supply P1–P3).** (D1) $\mathbb F_1$-type geometries: Connes–Consani
@@ -402,21 +417,22 @@ the charge-killing direction (§4.1); a completion connected in the
 automorphic/Tannakian completions indexed by shells rather than places
 (§4.2) — no candidate construction exists.
 
-**Corollary of the diff (route-local parity statement).** Any
+**Route-local parity conclusion.** Any
 SS-transport crosses the parity barrier exactly at P2, and P2's known
 realization is inseparability (characteristic $p$); therefore an
 $\mathbb F_1$-geometry realizing only characteristic-0-like behavior
-would satisfy at most P1 + P3 and still fail the route.  A transport must
-manufacture an arithmetic analog of an inseparable direction — a
+would need an additional P2 mechanism beyond the literal transport.  A
+faithful copy of the SS route would have to manufacture an arithmetic analog of an inseparable direction — a
 "derivation of $\mathbb Z$ with large kernel" — whose nonexistence in
-Rings is Lemma B2.  This names the missing structure more finely than
+ordinary Rings is Lemma B2.  This names that route's missing structure more finely than
 "$\mathbb Z$ lacks a connected deformation of $n \mapsto n{+}1$": even
 granted the deformation, $\mathbb Z$ lacks the inseparable direction
 along which translation preserves the parity-relevant data.
 
 ## 7. Rigor boundary
 
-- Lemmas B0–B3 are proved here (elementary; B3(b) general case cited to
+- Observation B0 is a diagnostic statement, not a no-go theorem.  Lemmas
+  B1–B3 hold in the narrow categories stated above (B3(b)'s general case is cited to
   classical pretentiousness literature).  F4's inputs are cited theorems,
   checked against abstracts/texts as recorded in §8.
 - The certificate is *route-local*: it constrains SS-transports only.  It
@@ -424,8 +440,9 @@ along which translation preserves the parity-relevant data.
   2-point proof uses none of them), nor that categories in $\mathcal D$
   cannot work, nor that GRH provably cannot yield level $3/4$
   (unknown, not refuted).
-- "Provably absent" always names its category; every absence claim
-  outside F1–F5 is downgraded to "no known object" in the text above.
+- The failure table excludes only the displayed realizations.  P1 is an
+  unfilled height/cohomology specification, not something proved absent from
+  $\mathrm{Sch}/\mathbb Z$ or from Arakelov/adelic enlargements.
 - The SS/Kowalski proof-architecture claims were read from the full texts
   (local extraction, §8), not from memory; the two-regime split (§1) and
   the placement of big monodromy in the appendix only were verified
@@ -433,9 +450,11 @@ along which translation preserves the parity-relevant data.
 - Not claimed as new: Pellet, the twist trick, the vanishing-cycle
   method, the no-go lemmas' ingredients (all classical or in the cited
   papers).  Claimed as (possibly) new: the assembly — the aligned DAG,
-  the P1–P3 certificate with named failure categories, the
+  the P1–P3 route specification with scoped failure categories, the
   inseparability corollary, and the gauge-vs-base connectivity diff
-  against the corpus's BC results (§4.1).  Registered as R0010.
+  against the corpus's BC results (§4.1).  The corrected route specification
+  is registered as R0014; R0010 is retained as the audited historical
+  overclaim.
 
 ## 8. Fetch ledger
 
