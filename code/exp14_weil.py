@@ -307,6 +307,11 @@ for i in range(0, len(sig_scan), 12):
     r = rows_sig[i]
     print(f"  {sig_scan[i]:5.2f}  {r['zero']:11.4e}  {r['pole']:11.4e}  "
           f"{-r['prime']:11.4e}  {r['arch']:11.4e}  mu={mu_sig[i]:9.2e}")
+arch_sig = np.array([r["arch"] for r in rows_sig])
+iflip = int(np.argmax(arch_sig < 0))
+print(f"  arch term changes sign between sigma={sig_scan[iflip-1]:.3f} and "
+      f"{sig_scan[iflip]:.3f} (positive for narrow bumps: the density "
+      f"Re psi(1/4+i tau/2)-log pi is negative only for |tau| < 2 pi)")
 i_pnt = len(sig_scan) - 1
 r = rows_sig[i_pnt]
 print(f"  PNT cancellation at sigma={sig_scan[i_pnt]:.2f}: pole={r['pole']:.6e}"

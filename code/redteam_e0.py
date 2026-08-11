@@ -89,7 +89,10 @@ def audit_crossover():
         return r
     for H, lam in [((0, 2), 1.0), ((0, 2), -1.0), ((0, 2, 6), 0.5), ((0, 4, 6), 0.5)]:
         k = len(H)
-        pred = float(mp.e ** (-(k - 1) * mp.ein(lam)))
+        # Ein(z) = sum_{j>=1} (-1)^{j+1} z^j / (j * j!)  (entire; valid all real lam)
+        ein = float(mp.nsum(lambda j: (-1) ** (j + 1) * mp.mpf(lam) ** j
+                            / (j * mp.factorial(j)), [1, mp.inf]))
+        pred = float(mp.e ** (-(k - 1) * ein))
         zs = [10 ** 4, 10 ** 5, 10 ** 6, 3 * 10 ** 6]
         rs = [ratio(z, lam, H) for z in zs]
         # Richardson in 1/log z from last two

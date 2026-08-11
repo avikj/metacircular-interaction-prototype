@@ -179,7 +179,7 @@ Combining Theorems F1 and F2: **for every $X\ge13$, $F_X$ has no irreducible fac
 degree $\le2$, and no cyclotomic factor $\Phi_m$ with $m\le200$ — unconditionally, for all
 $X$, not merely all tested $X$.** Any counterexample to Conjecture A″ must consist of
 non-cyclotomic factors of degree $\ge3$, or a cyclotomic $\Phi_m$ with $m>200$ (and then
-$\varphi(m)>\!48$, since all $m$ with $\varphi(m)\le48$... — see remark below).
+$\varphi(m)\ge48$ — see remark below).
 
 *Remark.* Since $\min\{\varphi(m):m>200\}=\varphi(210)=48$ (finite check: every $m$ with
 $\varphi(m)<48$ is $<200$), Theorem F2 gives unconditionally: **any cyclotomic factor of
@@ -312,8 +312,9 @@ with **two distinct non-reciprocal non-cyclotomic factors, each of whose single 
 is 0-1**: reversing $x^4+x+1$ gives support $\{0,2,4,5,10,11\}$ (≅ the partner reflected)
 and reversing $x^5-x^3+1$ gives $\{0,1,6,7,9,11\}$. Both coincidences at once, at degree 11.
 
-**Slack quantification — DATA (scratchpad `slack_experiment.py`).** Random 0-1 polynomials,
-constant and leading coefficient 1, prime-like density, 400 samples each:
+**Slack quantification — DATA (one-off experiment; FLINT factorization + split enumeration
+via `exp1_rigidity.py` machinery, seeds = degree).** Random 0-1 polynomials, constant and
+leading coefficient 1, prime-like density, 400 samples per row:
 
 | deg | density | irreducible | reducible | reducible w/ cyclotomic factor | w/ reciprocal non-cyclotomic factor | rigidity broken |
 |---|---|---|---|---|---|---|

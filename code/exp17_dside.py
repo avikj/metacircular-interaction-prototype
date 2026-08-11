@@ -157,12 +157,12 @@ def part_b(X=10 ** 6):
 # (c) the two weight laws (illustration only; derivation in notes/DSIDE.md)
 # ----------------------------------------------------------------------
 def part_c_kernels(X=10 ** 6):
-    # D-side Cesaro kernel mu_X(delta) = int_0^{log(X/2)} (1-e^-b) e^{-i b delta} db
+    # D-side Cesaro kernel envelope: |mu_X(delta)| = |B(i delta, 2)| saturated
+    # at mu_X(0) = log(X/2) - 1 (the sharp-endpoint 2^{i delta}/delta ringing is
+    # frequency-zero in log X and belongs to the smooth layer; see DSIDE.md)
     delta = np.logspace(-2, 3, 400)
-    b = np.linspace(0, np.log(X / 2.0), 40000)
-    gvals = 1.0 - np.exp(-b)
-    ph = np.exp(-1j * np.outer(delta, b))
-    mu = np.abs(np.trapezoid(gvals * ph, b, axis=1))
+    mu = np.minimum(np.log(X / 2.0) - 1.0,
+                    1.0 / (delta * np.sqrt(1.0 + delta ** 2)))
     # S-side weight |Gamma(rho)Gamma(rho')/Gamma(rho+rho'+2)| on the diagonal
     # gamma = gamma' = s/2 (same sign), as a function of the pair-sum s.
     s = np.logspace(np.log10(30), 3, 200)
@@ -224,7 +224,7 @@ def main():
 
     # --- panel (c)
     ax[2].loglog(delta, mu, color=C_DATA, lw=1.6,
-                 label=r"D-side $|\mu_X(\gamma-\gamma')|$, $X=10^6$")
+                 label=r"D-side $|\mu_X(\gamma-\gamma')|$ envelope, $X=10^6$")
     ax[2].loglog(s, Wsum, color=C_PRED, lw=1.6,
                  label=r"S-side $|W(\gamma,\gamma')|$ vs $\gamma+\gamma'$")
     ax[2].loglog(s, 2.2 * s ** -2.5, color=C_REF, lw=0.9, ls=":",
