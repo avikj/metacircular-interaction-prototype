@@ -7,13 +7,12 @@ Their claim, in this repo's language.  Split Lambda = Lambda#_Q + Lambda-flat
 decompose the Matsumoto-Suzuki reweighted Goldbach summatory [MS (1.6)]
     T(X) = sum_{n<=X} (Lambda*Lambda)(n) / n^2
 into blocks [##] + [mix] + [bb].  Theorem J asserts
-    [##](T)  = log X + const        (smooth, spectrally dead),
-    [mix](T) = 2 sum_rho X^{rho-1}/(rho(1-rho)) + const + err
-             = 2 e^{-t/2} (g_H1(t) + H1(1)) + const + err,   t = log X,
+    [##](T)  = log X + c2           (smooth, spectrally dead),
+    [mix](T) = 2 sum_rho X^{rho-1}/(rho(1-rho))  ( = 2e^{-t/2}(g_H1+H1(1)) ),
     [bb](T)  = E(X)-side, subleading,
 i.e. the MS screw function g_H1 (Krein masses 1/(gamma^2+1/4) on single
-zeros) is an explicit invertible transform of the MIXED (pole x zero,
-first-variation) block.
+zeros) is an explicit transform of the MIXED (pole x zero, first-variation)
+block.
 
 This experiment is the independent verification path, built without reusing
 exp23's code (own Lambda#, own convolutions, own grids), plus the stress
@@ -25,9 +24,11 @@ tests exp23 lacks:
      discriminates the symmetrized denominator rho(1-rho) (phase 0) from
      Fujii's unsymmetrized rho(rho+1) (phase ~ pi - 2/gamma), i.e. tests
      that the n^{-2} reweighting -- not fiat -- produces the symmetrization;
-  C. the c2 ledger: per-block constants vs Q, their sum vs the full-T
-     constant; adjudicates exp23's "c2 = 5.1407 measured from the BC block"
-     against the sibling's fitted c2 = -2.280 [SCREW.md Part 5];
+  C. the c2 ledger: raw (un-bandpassed) block constants vs Q, their sum vs
+     the full-T constant; adjudicates exp23's "c2 = 5.1407 measured from the
+     BC block" against the sibling's fitted c2 = -2.280 [SCREW.md Part 5].
+     Analytic anchor: at Q=1, Lambda# = 1 and c_## = gamma_E - zeta(2)
+     = -1.0677 exactly;
   D. controls: zero-jitter and random-frequency nulls (is the band match
      real or a bandpass artifact?), Q-ablation, pair-band exclusion (the
      chirped pair sector must NOT enter [mix]).
@@ -36,7 +37,9 @@ Derivation being tested (independent; see notes/CROSSREVIEW_THMJ.md):
 partial summation int_1^X y^{-2} d[-2 y^{rho+1}/(rho(rho+1))]
 = 2(X^{rho-1} - 1)/(rho(1-rho)); the exponent -2 is the UNIQUE reweighting
 n^{-alpha} making the resulting masses rho <-> 1-rho symmetric, hence real
-on the critical line, hence Krein-eligible.
+on the critical line, hence Krein-eligible.  The derivation predicts an
+OSCILLATORY-sector identity only: each block also carries a Q-dependent
+smooth part (constants + drift) that no zero sum reproduces.
 
 Figure: ../figures/exp30_screwjoin.png
 """
@@ -57,6 +60,8 @@ LOGX = np.linspace(np.log(2e4), np.log(1.9e6), M)
 # ... and a wider grid for per-line extraction (more beat periods)
 LOGX_W = np.linspace(np.log(5e3), np.log(1.9e6), M)
 
+EULER_GAMMA = 0.5772156649015329
+
 
 # ------------------------------------------------- independent block machinery
 def mobius_phi(N):
@@ -73,7 +78,7 @@ def mobius_phi(N):
 
 
 def ramanujan_c(q, n_max, mu):
-    """c_q(n) for n = 0..n_max, via c_q = sum_{d|q} d mu(q/d) 1_{d|n}."""
+    """c_q(n) for n = 0..n_max, via c_q(n) = sum_{d | q, d | n} d mu(q/d)."""
     out = np.zeros(n_max + 1)
     for d in range(1, q + 1):
         if q % d == 0 and mu[q // d] != 0:
@@ -112,7 +117,6 @@ def screw_kernel(gam, logx, denom="sym"):
     rho = 0.5 + 1j * gam
     c = 1.0 / (rho * (1 - rho)) if denom == "sym" else 1.0 / (rho * (rho + 1))
     out = np.zeros(len(logx))
-    X1 = np.exp(logx)
     for ch in range(0, len(gam), 2000):
         out += 2 * np.real(np.exp(np.outer(logx, rho[ch:ch + 2000] - 1))
                            @ c[ch:ch + 2000])
@@ -123,20 +127,20 @@ def bb_model(gam, logx, K2=60, smax=80.0):
     """Reweighted pair layer of [bb](T):
     sum_{rho,rho'} W0 * s/(s-2) * X^{s-2},  s = rho+rho',
     W0 = Gamma(rho)Gamma(rho')/Gamma(rho+rho'+1)   (k=0 pair weights).
-    Same-sign pairs with Im(s) <= smax only (opposite-sign: e^{-pi gamma}
-    suppressed).  NOT absolutely convergent (k=0!) -- truncation-sensitive,
+    k=0 pair sums are NOT absolutely convergent -- truncation-sensitive,
     reported as such."""
     g = gam[:K2]
     rho = 0.5 + 1j * np.concatenate([g, -g])
     LG = loggamma(rho)
-    s = rho[:, None] + rho[None, :]
-    W0 = np.exp(LG[:, None] + LG[None, :] - loggamma(s + 1))
-    coef = (W0 * s / (s - 2)).ravel()
-    sv = s.ravel()
-    keep = np.abs(sv.imag) <= smax
+    s = (rho[:, None] + rho[None, :]).ravel()
+    W0 = np.exp((LG[:, None] + LG[None, :]).ravel() - loggamma(s + 1))
+    coef = W0 * s / (s - 2)
+    keep = np.abs(s.imag) <= smax
+    s, coef = s[keep], coef[keep]
     out = np.zeros(len(logx))
-    E = np.exp(np.outer(logx, sv[keep] - 2))
-    out = np.real(E @ coef[keep])
+    for ch in range(0, len(s), 2000):
+        out += np.real(np.exp(np.outer(logx, s[ch:ch + 2000] - 2))
+                       @ coef[ch:ch + 2000])
     return out
 
 
@@ -163,17 +167,18 @@ def band_stats(y, model, logx, lo, hi):
 
 # ----------------------------------------------- per-line matched-filter LSQ
 def extract_lines(y, logx, gams, lo=8.0, hi=50.0):
-    """Complex amplitude of each e^{-t/2} cos/sin(gamma_j t) line in y(t).
+    """Complex amplitude of each e^{-t/2} (cos, sin)(gamma_j t) line in y(t).
     y is band-passed first (kills constants + smooth drift), then LSQ on the
-    2J-column matched basis.  Returns c_j = a_j - i b_j."""
+    2J-column matched basis, itself band-passed identically (common-mode
+    pipeline).  Returns c_j = a_j - i b_j."""
     z = bandpass(y, logx, lo, hi)
     env = np.exp(-logx / 2)
     cols = []
     for g in gams:
         cols += [env * np.cos(g * logx), env * np.sin(g * logx)]
     A = np.vstack(cols).T
-    # band-limit the basis identically (common-mode with the data pipeline)
-    Ab = np.column_stack([bandpass(A[:, k], logx, lo, hi) for k in range(A.shape[1])])
+    Ab = np.column_stack([bandpass(A[:, k], logx, lo, hi)
+                          for k in range(A.shape[1])])
     sol, *_ = np.linalg.lstsq(Ab[CORE], z[CORE], rcond=None)
     return sol[0::2] - 1j * sol[1::2]
 
@@ -184,21 +189,25 @@ def main():
     mu, phi = mobius_phi(60)
     lam = sieve_lambda(NMAX)
 
+    # blocks for every Q used anywhere, computed once
+    QS = [1, 10, 30, 50]
+    blocks = {}
+    for Qt in QS:
+        lS = lambda_sharp(Qt, mu, phi, NMAX)
+        lB = lam - lS
+        lB[0] = 0.0
+        blocks[Qt] = dict(
+            T_SS=T_of(cross_conv(lS, lS), LOGX),
+            T_mix=T_of(2 * cross_conv(lS, lB), LOGX),
+            T_BB=T_of(cross_conv(lB, lB), LOGX),
+        )
+    T_tot = T_of(cross_conv(lam, lam), LOGX)
+    Q0 = 30
+    T_SS, T_mix, T_BB = (blocks[Q0][k] for k in ("T_SS", "T_mix", "T_BB"))
+
     print("=" * 78)
     print("PART A: reproduction of exp23 on its own grid (independent code path)")
     print("=" * 78)
-    Q0 = 30
-    lamS = lambda_sharp(Q0, mu, phi, NMAX)
-    lamB = lam - lamS
-    lamB[0] = 0.0
-
-    r_SS = cross_conv(lamS, lamS)
-    r_mix = 2 * cross_conv(lamS, lamB)
-    r_BB = cross_conv(lamB, lamB)
-    r_tot = cross_conv(lam, lam)
-
-    T_SS, T_mix = T_of(r_SS, LOGX), T_of(r_mix, LOGX)
-    T_BB, T_tot = T_of(r_BB, LOGX), T_of(r_tot, LOGX)
     closure = np.max(np.abs(T_SS + T_mix + T_BB - T_tot) / np.abs(T_tot))
     print(f"closure max|[##]+[mix]+[bb]-T|/|T| = {closure:.2e}")
 
@@ -208,14 +217,13 @@ def main():
 
     SINGLE, WIDE, PAIRB = (10.0, 27.5), (8.0, 45.0), (28.5, 60.0)
     c1, a1 = band_stats(T_mix, model, LOGX, *SINGLE)
-    c2b, a2b = band_stats(T_mix, model, LOGX, *WIDE)
-    print(f"[mix](T) vs screw kernel  band {SINGLE}: corr = {c1:.4f}, ratio = {a1:.4f}")
-    print(f"[mix](T) vs screw kernel  band {WIDE}: corr = {c2b:.4f}, ratio = {a2b:.4f}")
+    cW, aW = band_stats(T_mix, model, LOGX, *WIDE)
+    print(f"[mix](T) vs screw kernel  band {SINGLE}: corr = {c1:.4f}, ratio = {a1:.4f}"
+          f"   (exp23: 1.0000, 0.9992)")
+    print(f"[mix](T) vs screw kernel  band {WIDE}: corr = {cW:.4f}, ratio = {aW:.4f}")
 
-    # [##] fit (their c2 claim) and spectral deadness
-    A = np.vstack([LOGX, np.ones(M)]).T
-    (slope, cSS), *_ = np.linalg.lstsq(A, T_SS, rcond=None),
-    sol, *_ = np.linalg.lstsq(A, T_SS, rcond=None)
+    A2 = np.vstack([LOGX, np.ones(M)]).T
+    sol, *_ = np.linalg.lstsq(A2, T_SS, rcond=None)
     slope, cSS = sol
     print(f"[##](T) = a logX + c:  a = {slope:.4f},  c = {cSS:.4f}  "
           f"(exp23 printed 1.0000, 5.1407)")
@@ -225,13 +233,12 @@ def main():
     c3, a3 = band_stats(T_mix, model, LOGX, *PAIRB)
     print(f"[mix](T) in pair band {PAIRB} vs single-zero screw model: "
           f"corr = {c3:.4f}, ratio = {a3:.4f}   <-- exclusion check")
-    # [bb](T): subleading, pair frequencies
     bbm = bb_model(gam, LOGX)
     c4, a4 = band_stats(T_BB, bbm, LOGX, *PAIRB)
     print(f"[bb](T) RMS single band: {np.std(bandpass(T_BB, LOGX, *SINGLE)[CORE]):.2e}, "
           f"pair band: {np.std(bandpass(T_BB, LOGX, *PAIRB)[CORE]):.2e}")
     print(f"[bb](T) vs reweighted k=0 pair model, band {PAIRB}: "
-          f"corr = {c4:.3f}, ratio = {a4:.3f}  (k=0: NOT abs. convergent; "
+          f"corr = {c4:.3f}, ratio = {a4:.3f}  (k=0 pair sum not abs. conv.; "
           f"truncation-limited)")
 
     print()
@@ -239,76 +246,76 @@ def main():
     print("PART B: per-zero Krein masses from the arithmetic mixed block")
     print("=" * 78)
     J = 10
-    T_mix_w = T_of(r_mix, LOGX_W)
+    lS30 = lambda_sharp(30, mu, phi, NMAX)
+    lB30 = lam - lS30
+    lB30[0] = 0.0
+    T_mix_w = T_of(2 * cross_conv(lS30, lB30), LOGX_W)
     cj_data = extract_lines(T_mix_w, LOGX_W, gam[:J])
     cj_model = extract_lines(model_w, LOGX_W, gam[:J])
-    # wrong-kernel control: Fujii's unsymmetrized denominator rho(rho+1)
     model_fuj = screw_kernel(gam[:K1], LOGX_W, denom="fujii")
     cj_fuj = extract_lines(model_fuj, LOGX_W, gam[:J])
 
-    print("line-by-line: mass_j := |c_j(data)| * (gamma^2+1/4)/4  (theory: 1)")
-    print(f"{'j':>3} {'gamma':>8} {'mass ratio':>11} {'phase(rad)':>11} "
-          f"{'data/model':>11} {'phase':>8} | {'vs-Fujii |r|':>12} {'phase':>8}")
+    print("mass_j := |c_j(data)| (gamma_j^2+1/4)/4;  theory (MS Krein mass): 1")
+    print(f"{'j':>3} {'gamma':>8} {'mass/theory':>12} {'phase':>8} "
+          f"{'|data/model|':>13} {'phase':>8} | {'|data/Fujii|':>13} {'phase':>8}")
     theo = 4.0 / (gam[:J] ** 2 + 0.25)
     for j in range(J):
-        r_th = np.abs(cj_data[j]) / theo[j]
-        ph_th = np.angle(cj_data[j])
         r_md = cj_data[j] / cj_model[j]
         r_fj = cj_data[j] / cj_fuj[j]
-        print(f"{j+1:>3} {gam[j]:>8.3f} {r_th:>11.4f} {ph_th:>+11.4f} "
-              f"{np.abs(r_md):>11.4f} {np.angle(r_md):>+8.4f} | "
-              f"{np.abs(r_fj):>12.4f} {np.angle(r_fj):>+8.4f}")
-    print("(symmetrization test: vs-Fujii phase should be ~ pi - 2/gamma = "
+        print(f"{j+1:>3} {gam[j]:>8.3f} {np.abs(cj_data[j])/theo[j]:>12.4f} "
+              f"{np.angle(cj_data[j]):>+8.4f} {np.abs(r_md):>13.4f} "
+              f"{np.angle(r_md):>+8.4f} | {np.abs(r_fj):>13.4f} "
+              f"{np.angle(r_fj):>+8.4f}")
+    print("(symmetrization test: data/Fujii phase should be ~ pi - 2/gamma = "
           + ", ".join(f"{np.pi - 2/g:+.3f}" for g in gam[:3]) + ", ...)")
 
     print()
     print("=" * 78)
-    print("PART C: the c2 ledger -- block constants vs Q, and the true MS constant")
+    print("PART C: the c2 ledger -- raw block constants vs Q, and the MS constant")
     print("=" * 78)
-    # full-T constant: fit T - logX - (zero model) ~ const on the top decade
     top = LOGX > np.log(2e5)
     resid_tot = T_tot - LOGX - model
     c2_tot = resid_tot[top].mean()
-    print(f"c2(total) = mean[T - logX - screwmodel] on X>2e5:  {c2_tot:+.4f}   "
-          f"(drift over top decade: {resid_tot[top].std():.5f})")
-    print(f"(sibling SCREW.md Part 5 fitted c2 = -2.280 with a different basis)")
+    print(f"c2(total) = mean[T - logX - screwmodel], X>2e5:  {c2_tot:+.4f}  "
+          f"(drift {resid_tot[top].std():.5f})")
+    print(f"  [sibling SCREW.md Part 5 fitted c2 = -2.280 with another basis]")
+    print(f"  [analytic anchor: c_## at Q=1 must be gamma_E - zeta(2) = "
+          f"{EULER_GAMMA - np.pi**2/6:+.4f}]")
     print(f"{'Q':>4} {'c_##':>9} {'c_mix':>9} {'c_bb':>9} {'sum':>9}")
-    for Qt in [1, 10, 30, 50]:
-        lS = lambda_sharp(Qt, mu, phi, NMAX) if Qt != Q0 else lamS
-        lB = lam - lS
-        lB[0] = 0.0
-        tSS = T_of(cross_conv(lS, lS), LOGX)
-        tMX = T_of(2 * cross_conv(lS, lB), LOGX)
-        tBB = T_of(cross_conv(lB, lB), LOGX)
-        cS = (tSS - LOGX)[top].mean()
-        cM = (tMX - model)[top].mean()
-        cB = tBB[top].mean()
+    ctab = []
+    for Qt in QS:
+        b = blocks[Qt]
+        cS = (b["T_SS"] - LOGX)[top].mean()
+        cM = (b["T_mix"] - model)[top].mean()
+        cB = b["T_BB"][top].mean()
+        ctab.append([cS, cM, cB])
         print(f"{Qt:>4} {cS:>9.4f} {cM:>9.4f} {cB:>9.4f} {cS+cM+cB:>9.4f}")
+    ctab = np.array(ctab)
     print("==> block constants are Q-dependent; only the SUM is the MS c2.")
+    iQ30 = QS.index(30)
+    print(f"exact-identity check at Q=30: raw [mix](T)(X=1e6) = "
+          f"{T_mix[np.searchsorted(LOGX, np.log(1e6))]:+.4f} vs claimed "
+          f"2e^(-t/2)(g_H1+H1(1)) = {model[np.searchsorted(LOGX, np.log(1e6))]:+.6f}"
+          f"  -- differ by c_mix(30) = {ctab[iQ30,1]:+.4f}")
 
     print()
     print("=" * 78)
     print("PART D: controls")
     print("=" * 78)
-    # D1: zero jitter / random-frequency nulls
-    print("D1 jitter: corr([mix], screw model with gamma -> gamma + delta), "
-          f"band {WIDE}:")
-    for d in [0.0, 0.02, 0.1, 0.5]:
-        mj = screw_kernel(gam[:K1] + d, LOGX)
-        cj_, aj_ = band_stats(T_mix, mj, LOGX, *WIDE)
+    print(f"D1 jitter: corr([mix], screw model with gamma -> gamma+delta), band {WIDE}:")
+    deltas = [0.0, 0.02, 0.05, 0.1, 0.2, 0.5]
+    cors = []
+    for d in deltas:
+        cj_, aj_ = band_stats(T_mix, screw_kernel(gam[:K1] + d, LOGX), LOGX, *WIDE)
+        cors.append(cj_)
         print(f"    delta = {d:4.2f}:  corr = {cj_:+.4f}   ratio = {aj_:.4f}")
     gr = np.sort(rng.uniform(10, 50, 200))
     cr, _ = band_stats(T_mix, screw_kernel(gr, LOGX), LOGX, *WIDE)
     print(f"    200 random frequencies in [10,50]:  corr = {cr:+.4f}")
 
-    # D2: Q-ablation of the headline numbers
     print("D2 Q-ablation: [mix](T) vs screw kernel, band (10,27.5):")
-    for Qt in [1, 10, 30, 50]:
-        lS = lambda_sharp(Qt, mu, phi, NMAX) if Qt != Q0 else lamS
-        lB = lam - lS
-        lB[0] = 0.0
-        tMX = T_of(2 * cross_conv(lS, lB), LOGX)
-        cq, aq = band_stats(tMX, model, LOGX, *SINGLE)
+    for Qt in QS:
+        cq, aq = band_stats(blocks[Qt]["T_mix"], model, LOGX, *SINGLE)
         print(f"    Q = {Qt:>3}:  corr = {cq:.4f},  ratio = {aq:.4f}")
 
     # ---------------------------------------------------------------- figure
@@ -322,16 +329,16 @@ def main():
     a.plot(XS[CORE], bm[CORE], lw=0.6, alpha=0.8,
            label=r"$\sqrt{X}\cdot2\sum_\rho X^{\rho-1}/(\rho(1-\rho))$")
     a.set_xscale("log")
-    a.set_title(f"independent reproduction: corr {c2b:.4f}, ratio {a2b:.4f} (band [8,45])")
+    a.set_title(f"independent reproduction: corr {cW:.4f}, ratio {aW:.4f} (band [8,45])")
     a.legend(fontsize=8)
 
     a = ax[0, 1]
     jj = np.arange(1, J + 1)
     a.axhline(1.0, color="gray", lw=0.8)
     a.plot(jj, np.abs(cj_data) / theo, "o", color="navy",
-           label=r"$|c_j|\,(\gamma_j^2+\frac14)/4$ (mass ratio vs theory)")
+           label=r"$|c_j|\,(\gamma_j^2+\tfrac{1}{4})/4$ (mass vs theory)")
     a.plot(jj, np.abs(cj_data / cj_model), "s", ms=4, color="seagreen",
-           label="data / model (pipeline-calibrated)")
+           label="|data / model| (pipeline-calibrated)")
     a.plot(jj, np.angle(cj_data / cj_model), "x", color="crimson",
            label="phase of data/model (rad)")
     a.axhline(0.0, color="crimson", lw=0.5, ls=":")
@@ -340,9 +347,6 @@ def main():
     a.legend(fontsize=8)
 
     a = ax[1, 0]
-    deltas = [0.0, 0.02, 0.05, 0.1, 0.2, 0.5]
-    cors = [band_stats(T_mix, screw_kernel(gam[:K1] + d, LOGX), LOGX, *WIDE)[0]
-            for d in deltas]
     a.plot(deltas, cors, "o-", color="tab:red")
     a.axhline(cr, color="gray", ls="--", lw=0.8, label="random-frequency null")
     a.set_xlabel(r"zero jitter $\delta$")
@@ -352,27 +356,15 @@ def main():
     a.grid(alpha=0.3)
 
     a = ax[1, 1]
-    Qs = [1, 10, 30, 50]
-    table = []
-    for Qt in Qs:
-        lS = lambda_sharp(Qt, mu, phi, NMAX) if Qt != Q0 else lamS
-        lB = lam - lS
-        lB[0] = 0.0
-        tSS = T_of(cross_conv(lS, lS), LOGX)
-        tMX = T_of(2 * cross_conv(lS, lB), LOGX)
-        tBB = T_of(cross_conv(lB, lB), LOGX)
-        table.append([(tSS - LOGX)[top].mean(), (tMX - model)[top].mean(),
-                      tBB[top].mean()])
-    table = np.array(table)
     w = 0.25
-    xpos = np.arange(len(Qs))
+    xpos = np.arange(len(QS))
     for k, (lab, col) in enumerate([("$c_{\\sharp\\sharp}$", "tab:blue"),
                                     ("$c_{mix}$", "tab:orange"),
                                     ("$c_{\\flat\\flat}$", "tab:green")]):
-        a.bar(xpos + (k - 1) * w, table[:, k], w, label=lab, color=col)
-    a.plot(xpos, table.sum(1), "k*-", ms=10, label="sum = MS $c_2$")
+        a.bar(xpos + (k - 1) * w, ctab[:, k], w, label=lab, color=col)
+    a.plot(xpos, ctab.sum(1), "k*-", ms=10, label="sum = MS $c_2$")
     a.axhline(c2_tot, color="gray", ls="--", lw=0.8)
-    a.set_xticks(xpos, [f"Q={q}" for q in Qs])
+    a.set_xticks(xpos, [f"Q={q}" for q in QS])
     a.set_title("the c2 ledger: block constants move with Q, the sum does not")
     a.legend(fontsize=8)
 
