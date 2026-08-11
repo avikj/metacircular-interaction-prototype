@@ -70,6 +70,25 @@ generated views of this graph rather than competing authorities.
 The high-throughput trick is asymmetric: generation can be nearly free because
 promotion is expensive and fail-closed.
 
+### Center-of-gravity invariant
+
+The agent layer is the research intelligence, not temporary scaffolding to be
+compiled away. Frontier models choose important questions, invent languages,
+read the literature, notice structural tension, and interpret anomalies. CPU
+kernels only amplify a mathematical reduction the agents already understood.
+
+Keep the four live lanes epistemically distinct:
+
+1. a frontier synthesizer working on the program's central arithmetic object;
+2. a blind breaker attacking the strongest current claim;
+3. an outside-lens/literature agent importing mature mathematics and tools;
+4. a kernelizer turning one proved finite reduction into cheap exact work.
+
+An infrastructure task is justified only by an attached theorem experiment or
+measured obstruction. Every kernel must return structured surprises and
+witnesses to the frontier agents. Scaling CPU without a proved reduction, or
+scaling agents without extracting reusable invariants, are dual failure modes.
+
 ## 3. Computational fabric
 
 ### Wolfram layer
