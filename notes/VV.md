@@ -20,7 +20,25 @@ graded V0–V3:
 - **V2** — independently re-derived or replicated (different mind or
   different code) — current status of every headline result (see REDTEAM,
   and the cross-review trail with Codex);
+- **V2.5** — *certified computation*: exact integer/rational or interval
+  arithmetic with no floats in the load-bearing path, independently
+  implemented. Applies to computational claims that feed theorems. Already
+  effectively at this level: the tie classifications (exact integer
+  reductions mod Φ_m), the homometric brute force, the F_X factorizations
+  (exact, though irreducibility has no short certificate — cross-implementation
+  replication is the available standard). **Required at this level:** the D″
+  spacing floor (fleet-dclose) — it is about to become the hypothesis of a
+  theorem, and a hypothesis may not rest on floating point. Note the data
+  constraint: the Odlyzko table carries 9 decimals; any spacing claim below
+  10⁻⁹ requires recomputing zeros to certified precision (Turing-method
+  verification à la Platt) — flag, don't finesse.
 - **V3** — machine-checked in a proof assistant.
+
+**Division of labor, stated once:** V3 certifies derivations; V2.5 certifies
+computations; float numerics are the *discovery and bridge-testing*
+instrument — they connect theorems to the actual primes and zeros, which no
+proof assistant can do, and they are how three errors in this corpus were
+found. All three are load-bearing; none substitutes for another.
 
 The V3 ledger opens now, ranked by formalizability:
 

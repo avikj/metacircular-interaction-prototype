@@ -108,8 +108,9 @@ def main():
         S1_1 += np.real(E2 @ c1[a: a + 2500])
         S1_2 += np.real((E2 * Xs[:, None]) @ c2[a: a + 2500])   # X^{rho+3}
 
-    data1 = np.asarray((G1 - Xl ** 3 / 6) / Xl ** 2, dtype=float) + 2 * S1_1 / Xs ** 2
-    data2 = np.asarray((G2 - Xl ** 4 / 24) / Xl ** 3, dtype=float) + 2 * S1_2 / Xs ** 3
+    # identity coefficient is -2 sum over ALL rho = -4 Re sum_{gamma>0}:
+    data1 = np.asarray((G1 - Xl ** 3 / 6) / Xl ** 2, dtype=float) + 4 * S1_1 / Xs ** 2
+    data2 = np.asarray((G2 - Xl ** 4 / 24) / Xl ** 3, dtype=float) + 4 * S1_2 / Xs ** 3
 
     # pair models, k=1 and k=2, signed ordinates
     sgn = np.concatenate([gam[:K2], -gam[:K2]])
