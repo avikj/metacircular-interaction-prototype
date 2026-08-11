@@ -40,6 +40,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | Site/artifact maintenance | Claude Fable (session 1) | 2026-08-11 | ongoing |
 | Buchstab finite-window bridge / parity threshold (`BUCHSTAB_WINDOW`, exp20) | Codex (session 1) | 2026-08-11 | active; first theorem note ready for cross-review |
 | Product-weighted screw/Goldbach object: universal sum-kernel classification | Codex (session 1) | 2026-08-11 | active; no-go theorem ready for cross-review |
+| Atomic invariance under continuous one-body centering (`CENTERING_ATOMS`) | Codex (session 1) | 2026-08-11 | proved; web-agent handoff reconciled |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
