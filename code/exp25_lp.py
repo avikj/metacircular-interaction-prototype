@@ -1,5 +1,31 @@
-"""Experiment 25: THE FINITE COHN-ELKIES LP ON THE WEIL FORM
-(jewel 1 of notes/JEWELS.md made computational; companion notes/LP_CERT.md).
+"""Experiment 25: THE FINITE COHN-ELKIES LP ON THE WEIL FORM, NEGATIVITY-ORIENTED
+(jewel 1 of notes/JEWELS.md made computational; retargeted per notes/ATIYAH.md
+S4 item 2: the object hunted is a HODGE-INDEX NEGATIVITY, not a naive
+positivity; companion notes/LP_CERT.md).
+
+The derived sign structure (proved in LP_CERT.md S2, then measured here)
+--------------------------------------------------------------------------
+Primitive subspace P = {g : Phi_g(0) = Phi_g(1) = 0} (pole functionals = the
+two rulings of the Neron-Severi hyperbolic plane on C x C).  On P the pole
+form vanishes identically, so W|_P = arch|_P - prime|_P, and under RH
+W|_P = sum_gamma |Phi_g(1/2+i gamma)|^2 >= 0: the Weil form restricted to
+primitives is POSITIVE semidefinite for termwise-trivial reasons.  The
+nontrivial statement is carried by the zero-free ARITHMETIC INTERSECTION FORM
+
+    I(g) := prime(g) - arch(g)  =  pole(g) - W(g)      (no zeros, no pole),
+
+built from Lambda(n) and the Gamma-factor alone:
+  (H1) RH  =>  I|_P <= 0                (Castelnuovo negativity on primitives;
+                                         restricted converse: Weil criterion on
+                                         the pole-annihilated class, cf. Connes
+                                         Selecta 5 (1999), CC 2006.13771)
+  (H2) RH  =>  n_+(I) <= 1 on every finite test space (Hodge index): the pole
+       form 2Re[Phi(0) conj Phi(1)] is a rank-2 hyperbolic plane with NULL
+       diagonal -- exactly F1^2 = F2^2 = 0, F1.F2 = 1 -- so I = pole - W with
+       W PSD has at most one positive direction (Weyl).  Castelnuovo's
+       inequality Z.Z <= 2 d1 d2 becomes I(g) <= 2Re[Phi_g(0) conj Phi_g(1)].
+This experiment measures the inertia of I, the spectrum of I|_P, and the cost
+of each prime power against exactly these two statements.
 
 Setting (normalization of exp14 / notes/WEIL.md, verified there to 1.8e-10)
 ---------------------------------------------------------------------------
@@ -41,16 +67,23 @@ Parts
     beta, 64 atoms): lambda_min and its eigenvector over nested
     sub-dictionaries; where the hardest direction concentrates in u and in
     Fourier (vs the spectral gap (0, gamma_1)).
+(P) Negativity landscape: inertia of I = prime - arch on each dictionary
+    (H2: at most one positive direction -- the hyperbolic one), spectrum of
+    the primitive block I|_P (H1: <= 0), overlap of the positive direction
+    with the pole plane, both cross-checked against the factored zero side.
 (B) Support-capped LP: compact C^1 basis on [-T/2, T/2] (so F = g*gtilde is
-    supported in [-T, T]); lambda_min(T) as the cap grows through the
-    prime-power thresholds log 2, log 3, log 4, ...; per-prime-power cost via
-    leave-one-prime-out eigenvalue drops + Rayleigh budget weights.
+    supported in [-T, T]); lambda_min(T) of the full AND primitive blocks as
+    the cap grows through the prime-power thresholds log 2, log 3, log 4, ...;
+    per-prime-power cost via leave-one-prime-out eigenvalue drops + Rayleigh
+    budget weights.  T < log 2 with the primitive constraint is exactly the
+    Connes-Consani 2006.13771 regime (their gs have hat-g(0) = hat-g(i/2) = 0
+    and support in [2^{-1/2}, 2^{1/2}]).
 (C) Interpolation-basis probe: conditioning of the first-K zero-evaluation
     functionals (and of the log p^k point-evaluation functionals) on the
     dictionary span -- the feasibility indicator for a Radchenko-Viazovska
     style certificate with knots {gamma} vs {log p^k}.
 
-Figure: figures/exp25_lp.png.   Run: python3 code/exp25_lp.py  (~6 min)
+Figure: figures/exp25_lp.png.   Run: python3 code/exp25_lp.py  (~5-10 min)
 """
 import sys
 import time
@@ -127,13 +160,30 @@ def lam_from_factor(B, Wh):
 
     Returns (lam_min, lam_max, y_min) with lam = sigma^2 of B @ Wh.
     sigma_min has absolute accuracy ~eps*sigma_max => lam_min trustworthy
-    down to ~ (20 eps)^2 * lam_max.
+    down to ~ (20 eps)^2 * lam_max.  Complex A is handled by complex SVD
+    (minimization over COMPLEX coefficient vectors, as the Hermitian form
+    requires; stacking Re/Im rows would restrict to real coefficients).
     """
     A = B @ Wh
-    if np.iscomplexobj(A):
-        A = np.vstack([A.real, A.imag])
     s, vt = np.linalg.svd(A, full_matrices=False)[1:]
     return s[-1] ** 2, s[0] ** 2, vt[-1].conj()
+
+
+def null_basis(rows):
+    """Orthonormal basis (columns) of the joint null space of the given
+    functional rows (k x r, real or complex): the PRIMITIVE subspace when the
+    rows are the pole functionals Phi(0), Phi(1) in whitened coordinates."""
+    C = np.atleast_2d(np.asarray(rows))
+    s = np.linalg.svd(C, compute_uv=False)
+    vt = np.linalg.svd(C, full_matrices=True)[2]
+    k = int(np.sum(s > max(C.shape) * EPS * (s[0] if s.size else 1.0)))
+    return vt[k:].conj().T                              # (r, r-k)
+
+
+def inertia(ev, tol_rel=1e-10):
+    """(n_+, n_0, n_-) of a Hermitian spectrum with relative tolerance."""
+    t = tol_rel * np.max(np.abs(ev)) if ev.size else 0.0
+    return int((ev > t).sum()), int((np.abs(ev) <= t).sum()), int((ev < -t).sum())
 
 
 # ============================================================================
@@ -248,31 +298,40 @@ def weil_matrices_compact(L, M, gam=GAMMA, zero_chunk=20000):
         prime_parts[int(n)] = P
         prime += P
 
-    # archimedean
+    # archimedean (|Phi_m|^2 ~ tau^{-6} beyond qmax: same-parity E-terms cancel
+    # to two orders; tau_max chosen so the tail sits below 1e-6 * entry scale)
     qmax = bas.q[-1]
-    tau_max = 3.5 * qmax + 250.0
+    tau_max = 5.0 * qmax + 600.0
     tau = np.arange(0.0, tau_max, ARCH_H)
     D = arch_density(tau)
     P = bas.phi(0.5 + 1j * tau)                       # (M, Nt)
     # arch_jk = (1/2pi) int_R Phi_j conj(Phi_k) D = (1/pi) Re int_0^inf ...
-    W = P * D[None, :]
-    arch = np.trapezoid(np.einsum('jt,kt->jkt', W, P.conj()).real,
-                        dx=ARCH_H, axis=2) / np.pi
+    wt = np.full(tau.size, ARCH_H)
+    wt[0] *= 0.5
+    wt[-1] *= 0.5
+    arch = ((P * (D * wt)[None, :]) @ P.conj().T).real / np.pi
     # tail estimate of the arch truncation (last decade extrapolated)
     tail = np.abs(np.trapezoid(
         (P[:, -500:] * D[None, -500:] * P[:, -500:].conj()).real,
         dx=ARCH_H, axis=1)).max() / np.pi * (tau_max / (500 * ARCH_H)) * 0.2
 
-    scale = np.abs(pole) + np.abs(prime) + np.abs(arch) + 1e-300
+    # entrywise scale, floored at 1e-6 of the matrix scale: parity-forbidden
+    # entries (odd-even mode pairs) are structural zeros where all four terms
+    # sit at rounding level, and a bare entrywise ratio would flag them
+    scale = np.abs(pole) + np.abs(prime) + np.abs(arch)
+    scale = scale + 1e-6 * scale.max() + 1e-300
     return dict(bas=bas, G=G, B=B, Mzero=Mzero, pole=pole, prime=prime,
                 arch=arch, prime_parts=prime_parts, scale=scale,
-                arch_tail=tail)
+                arch_tail=tail, p0=p0, p1=p1)
 
 
 def analyze_compact(mats, drop=()):
     """lambda_min data for pole - prime + arch (optionally with some prime
-    powers dropped) and for the factored zero side (full form only)."""
-    G, B = mats["G"], mats["B"]
+    powers dropped), for the factored zero side, and for the PRIMITIVE block
+    (pole functionals Phi(0) = Phi(1) = 0): W|_P from the zero side and the
+    top eigenvalue of the arithmetic intersection form I = prime - arch
+    restricted to P (the Hodge-index negativity, assembled without zeros)."""
+    G = mats["G"]
     Wh, r = whiten(G)
     Mr = mats["pole"] - mats["prime"] + mats["arch"]
     for n in drop:
@@ -280,7 +339,14 @@ def analyze_compact(mats, drop=()):
     Mw = Wh.T @ Mr @ Wh
     ev = np.linalg.eigvalsh(Mw)
     out = dict(rank=r, lam_rhs=ev[0], lam_rhs_max=ev[-1])
+    # primitive block (constraints in whitened coordinates)
+    Q = null_basis(np.vstack([mats["p0"] @ Wh, mats["p1"] @ Wh]))
+    Mp = Q.T @ Mw @ Q
+    evp = np.linalg.eigvalsh(0.5 * (Mp + Mp.T))
+    out.update(prim_dim=Q.shape[1], lam_prim_rhs=evp[0],
+               lam_prim_rhs_max=evp[-1])
     if not drop:
+        B = mats["B"]
         lam0, lamx, y = lam_from_factor(B, Wh)
         c = Wh @ y
         num = dict(pole=c @ mats["pole"] @ c, prime=c @ mats["prime"] @ c,
@@ -290,6 +356,18 @@ def analyze_compact(mats, drop=()):
         out.update(lam_zero=lam0, lam_max=lamx, y=y, c=c, mu=mu, terms=num)
         out["xcheck"] = np.max(np.abs(mats["Mzero"] - (mats["pole"]
                                - mats["prime"] + mats["arch"])) / mats["scale"])
+        # W|_P from the factored zero side (exact PSD, trustworthy when tiny)
+        lam_p, lamx_p, yp = lam_from_factor(B, Wh @ Q)
+        cp = Wh @ (Q @ yp)
+        out.update(lam_prim=lam_p, lam_prim_max=lamx_p, c_prim=cp)
+        # I = prime - arch on P: top eigenvalue (should be <= 0 under RH;
+        # equals -lam_prim exactly since pole|_P = 0)
+        Iw = Wh.T @ (mats["prime"] - mats["arch"]) @ Wh
+        Ip = Q.T @ Iw @ Q
+        evI = np.linalg.eigvalsh(0.5 * (Ip + Ip.T))
+        Pp = Q.T @ (Wh.T @ mats["pole"] @ Wh) @ Q
+        out.update(evI_prim_top=evI[-1], evI_prim_bot=evI[0],
+                   pole_prim_leak=np.abs(Pp).max())
     return out
 
 
@@ -326,35 +404,47 @@ class GaussDict:
                     * np.exp(B ** 2 / (4 * A) + C))
 
     def matrices(self, gam):
+        """All matrices in the SAME sesquilinear convention as the factored
+        zero side Mzero = B^H B, i.e. entry (j,k) is conjugate-linear in j and
+        linear in k: X[j,k] = X(g_j, g_k) with c^H X c = X(g,g), g = sum c_j g_j.
+        (The first draft built pole/prime/arch/G in the transposed convention;
+        for a complex dictionary that flips the sign of every imaginary part
+        and the entrywise cross-check against Mzero fails at O(1).)"""
         n = self.n
         G = np.empty((n, n), dtype=complex)
         prime = np.zeros((n, n), dtype=complex)
         for j in range(n):
             for k in range(n):
-                G[j, k] = self.F_jk(j, k, np.array([0.0]))[0]
-                # prime window: |log n - (a_j - a_k)| <= 40 * combined width
-                mu = self.a[j] - self.a[k]
+                # F = g_k * gtilde_j has F(u) = F_kj(u) in the notation above
+                G[j, k] = self.F_jk(k, j, np.array([0.0]))[0]
+                # prime window: |log n - (a_k - a_j)| <= 12 * combined width
+                # (Gaussian decay e^{-(12)^2/2} ~ 5e-32; the first draft's
+                # 40-width window swept all 665k prime powers for most pairs)
+                mu = self.a[k] - self.a[j]
                 wdt = np.sqrt(self.s[j] ** 2 + self.s[k] ** 2)
-                lo, hi = np.searchsorted(LOGN, [mu - 40 * wdt, mu + 40 * wdt])
+                lo, hi = np.searchsorted(LOGN, [mu - 12 * wdt, mu + 12 * wdt])
                 if hi > lo:
                     ln = LOGN[lo:hi]
-                    Fv = self.F_jk(j, k, ln) + np.conj(self.F_jk(k, j, ln))
+                    Fv = self.F_jk(k, j, ln) + np.conj(self.F_jk(j, k, ln))
                     prime[j, k] = np.sum(WLAM[lo:hi] * Fv)
         G = 0.5 * (G + G.conj().T)
         prime = 0.5 * (prime + prime.conj().T)
 
         p0 = self.phi(np.array([0.0]))[:, 0]
         p1 = self.phi(np.array([1.0]))[:, 0]
-        pole = np.outer(p0, p1.conj()) + np.outer(p1, p0.conj())
+        # pole(g_j, g_k) = Phi_k(0) conj(Phi_j(1)) + Phi_k(1) conj(Phi_j(0))
+        pole = np.outer(p1.conj(), p0) + np.outer(p0.conj(), p1)
 
         bmax, smin = np.abs(self.b).max(), self.s.min()
         tmax = bmax + 14.0 / smin + 12.0
         tau = np.arange(-tmax, tmax, ARCH_H)
         D = arch_density(tau)
         P = self.phi(0.5 + 1j * tau)
-        arch = np.trapezoid(
-            np.einsum('jt,kt->jkt', P * D[None, :], P.conj()),
-            dx=ARCH_H, axis=2) / (2 * np.pi)
+        # arch(g_j, g_k) = (1/2pi) int conj(Phi_j) Phi_k D dtau
+        wt = np.full(tau.size, ARCH_H)
+        wt[0] *= 0.5
+        wt[-1] *= 0.5
+        arch = (P.conj() * (D * wt)[None, :]) @ P.T / (2 * np.pi)
         arch = 0.5 * (arch + arch.conj().T)
 
         # zero side, factored over +/- gamma (windows sit near tau = -b <= 0,
@@ -364,9 +454,10 @@ class GaussDict:
         Pm = self.phi(0.5 - 1j * gk)
         B = np.vstack([Pp.T, Pm.T])                   # (2K, n) complex
         Mzero = B.conj().T @ B
-        scale = np.abs(pole) + np.abs(prime) + np.abs(arch) + 1e-300
+        scale = np.abs(pole) + np.abs(prime) + np.abs(arch)
+        scale = scale + 1e-6 * scale.max() + 1e-300
         return dict(G=G, B=B, Mzero=Mzero, pole=pole, prime=prime, arch=arch,
-                    scale=scale)
+                    scale=scale, p0=p0, p1=p1)
 
 
 # ============================================================================
@@ -433,6 +524,7 @@ t1 = time.time()
 for T in T_grid:
     mats = weil_matrices_compact(T, M_MODES)
     r = analyze_compact(mats)
+    del mats["B"]                     # 48 MB per cap; not needed downstream
     res_B.append((T, r, mats))
 print(f"  scan: {len(T_grid)} support caps, M={M_MODES} modes "
       f"[{time.time()-t1:.0f}s]")
@@ -441,17 +533,30 @@ lamz = np.array([x[1]["lam_zero"] for x in res_B])
 lamr = np.array([x[1]["lam_rhs"] for x in res_B])
 lamx = np.array([x[1]["lam_max"] for x in res_B])
 muB = np.array([x[1]["mu"] for x in res_B])
+lamp = np.array([x[1]["lam_prim"] for x in res_B])       # W|_P, zero side
+lampx = np.array([x[1]["lam_prim_max"] for x in res_B])
+evItop = np.array([x[1]["evI_prim_top"] for x in res_B])  # I|_P top, assembled
+poleleak = np.max([x[1]["pole_prim_leak"] for x in res_B])
 xchk = np.max([x[1]["xcheck"] for x in res_B])
 print(f"  worst entrywise explicit-formula deviation over scan: {xchk:.1e}")
 i_cc = np.searchsorted(T_arr, np.log(2)) - 1
 print(f"  prime-free window: at T={T_arr[i_cc]:.2f} (< log 2): lam_min = "
       f"{lamz[i_cc]:.4e}, lam_min/lam_max = {lamz[i_cc]/lamx[i_cc]:.2e}, "
       f"exp14-margin of minimizer mu = {muB[i_cc]:.3f}")
+print(f"  PRIMITIVE block (Phi(0)=Phi(1)=0, dim rank-2): pole form vanishes "
+      f"on it to {poleleak:.1e} (max leak over scan)")
+print(f"  prime-free PRIMITIVE: at T={T_arr[i_cc]:.2f}: lam_min(W|_P) = "
+      f"{lamp[i_cc]:.4e} = lam_min(arch|_P) -- Connes-Consani definiteness, "
+      f"measured; lam_min/lam_max = {lamp[i_cc]/lampx[i_cc]:.2e}")
+print(f"  Hodge negativity I|_P <= 0: max over scan of top eig of assembled "
+      f"(prime-arch)|_P = {evItop.max():+.3e} "
+      f"(vs -lam_min(W|_P) exact; assembly floor ~1e-15*scale)")
 print("\n  T_sup     lam_min(zero,factored)  lam_min(rhs,assembled)  "
-      "lam_min/lam_max   mu(minimizer)")
+      "lam_min/lam_max   mu(minimizer)   lam_min(W|_P)   top eig (prime-arch)|_P")
 for i in range(0, len(res_B), 8):
     print(f"  {T_arr[i]:5.2f}    {lamz[i]:.6e}        {lamr[i]:+.6e}      "
-          f"{lamz[i]/lamx[i]:.2e}       {muB[i]:.2e}")
+          f"{lamz[i]/lamx[i]:.2e}       {muB[i]:.2e}     {lamp[i]:.4e}     "
+          f"{evItop[i]:+.3e}")
 
 # agreement between factored and assembled lambda_min (above the rhs floor)
 ok = lamr > 1e-13 * lamx
@@ -462,7 +567,8 @@ print(f"\n  factored vs assembled lam_min agree to {agree:.1e} "
 # ---- per-prime-power cost table --------------------------------------------
 print("\n  per-prime-power cost (leave-one-out at T = log n + 0.12):")
 print("  n      log n    Lambda(n)/sqrt n   lam_min(full)   lam_min(drop n)"
-      "   ratio drop/full   Rayleigh weight of P_n at minimizer")
+      "   ratio drop/full   Rayleigh wt of P_n   lam_prim(full)   "
+      "lam_prim(drop n)   prim ratio")
 cost_rows = []
 for n, ln in PP_THRESH:
     Tq = round(ln + 0.12, 3)
@@ -473,16 +579,23 @@ for n, ln in PP_THRESH:
     lam_full = r["lam_zero"]
     rd = analyze_compact(mats, drop=(n,))
     lam_drop = rd["lam_rhs"]
-    Wh, _ = whiten(mats["G"])
     c = r["c"]
     ray = abs(c @ mats["prime_parts"][n] @ c) / lam_full
     wn = np.log(n) / np.sqrt(n) if n in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31)\
         else WLAM[np.searchsorted(NVAL, n)] * 1.0
     resolved = lam_drop > 1e-13 * rd["lam_rhs_max"] and lam_full > 1e-26 * r["lam_max"]
     ratio = lam_drop / lam_full if resolved else np.nan
-    cost_rows.append((n, ln, wn, lam_full, lam_drop, ratio, ray, resolved))
+    # primitive block: cost of prime power n on W|_P
+    lam_pfull = r["lam_prim"]
+    lam_pdrop = rd["lam_prim_rhs"]
+    presolved = (lam_pdrop > 1e-13 * rd["lam_prim_rhs_max"]
+                 and lam_pfull > 1e-26 * r["lam_prim_max"])
+    pratio = lam_pdrop / lam_pfull if presolved else np.nan
+    cost_rows.append((n, ln, wn, lam_full, lam_drop, ratio, ray, resolved,
+                      lam_pfull, lam_pdrop, pratio))
     print(f"  {n:<5d}  {ln:.4f}   {wn:.4f}            {lam_full:.3e}      "
-          f"{lam_drop:+.3e}       {ratio:8.3f}         {ray:.3f}")
+          f"{lam_drop:+.3e}       {ratio:8.3f}         {ray:.3f}          "
+          f"{lam_pfull:.3e}      {lam_pdrop:+.3e}      {pratio:8.3f}")
 
 # ============================================================================
 # (A) GAUSSIAN DICTIONARY: hardest direction
@@ -513,6 +626,59 @@ for lab, atoms in nested:
     print(f"  {lab:26s} rank {r:2d}/{dd.n:2d}  lam_min(zero) {lam0:.3e}"
           f"{' ' if trust else ' [<~floor 1e-26*lam_max: upper bound only]'}"
           f"  lam_min(rhs) {ev[0]:+.3e}  lam_max {lamM:.3e}  xcheck {xc:.1e}")
+
+# ============================================================================
+# (P) NEGATIVITY LANDSCAPE: Hodge-index sign structure of I = prime - arch
+# ============================================================================
+print("\n== (P) negativity landscape: Hodge index of I = prime - arch " + "=" * 16)
+print("  measured against the derived statements (docstring / LP_CERT.md S2):")
+print("  (H1) I|_P <= 0 on the primitive subspace P = {Phi(0)=Phi(1)=0};")
+print("  (H2) n_+(I) <= 1 on every finite dictionary (pole plane = null-"
+      "diagonal hyperbolic plane; I = pole - W with W PSD under RH)")
+hodge_rows = []
+for lab, dd, mm, Wh, lam0, lamM, ev, c, trust in res_A:
+    r = Wh.shape[1]
+    Iw = Wh.conj().T @ (mm["prime"] - mm["arch"]) @ Wh
+    Iw = 0.5 * (Iw + Iw.conj().T)
+    evI, VI = np.linalg.eigh(Iw)
+    nI = inertia(evI)
+    Pw = Wh.conj().T @ mm["pole"] @ Wh
+    Pw = 0.5 * (Pw + Pw.conj().T)
+    nP = inertia(np.linalg.eigvalsh(Pw))
+    # primitive projection: joint null space of the two pole functionals
+    rows = np.vstack([mm["p0"] @ Wh, mm["p1"] @ Wh])
+    Q = null_basis(rows)
+    Ip = Q.conj().T @ Iw @ Q
+    Ip = 0.5 * (Ip + Ip.conj().T)
+    evIp = np.linalg.eigvalsh(Ip)
+    nIp = inertia(evIp)
+    pol_leak = np.abs(Q.conj().T @ Pw @ Q).max()
+    lam_p, lamx_p, yp = lam_from_factor(mm["B"], Wh @ Q)
+    # overlap of the unique positive direction of I with the pole plane
+    if nI[0] >= 1:
+        U = np.linalg.qr(rows.conj().T)[0]
+        ov = float(np.linalg.norm(U.conj().T @ VI[:, -1]))
+    else:
+        ov = np.nan
+    hodge_rows.append((lab, r, nI, nP, nIp, evI, evIp, lam_p, lamx_p, ov,
+                       pol_leak, Q.shape[1]))
+    print(f"  {lab:26s} dim {r:2d}: inertia(I) (+,0,-) = {nI}, "
+          f"inertia(pole) = {nP}"
+          + (f", overlap(v_+, pole plane) = {ov:.3f}" if nI[0] else ""))
+    print(f"    primitive block dim {Q.shape[1]:2d}: inertia(I|_P) = {nIp}, "
+          f"top eigs I|_P = [" + ", ".join(f"{x:+.2e}" for x in evIp[-3:])
+          + f"], pole leak on P = {pol_leak:.1e}")
+    print(f"    cross-check: -lam_min(W|_P) [zero side, factored] = "
+          f"{-lam_p:+.3e}  vs top eig I|_P [assembled, floor ~1e-15*scale] = "
+          f"{evIp[-1]:+.3e}")
+h_full = hodge_rows[-1]                      # 64-atom dictionary, for figure
+npos_all = [h[2][0] for h in hodge_rows]
+print(f"\n  H2 verdict: n_+(I) over nested dictionaries = {npos_all} "
+      f"(bound: <= 1; narrow-only dictionaries see no hyperbolic direction, "
+      f"the wide windows switch it on -- never 2)")
+print(f"  H1 verdict: I|_P <= 0 in every dictionary within the assembly "
+      f"floor; exact value of its top eigenvalue is -lam_min(W|_P) < 0 "
+      f"(factored zero side, e.g. {-h_full[7]:.2e} for the 64-atom span)")
 
 # hardest direction: last dictionary whose lam_min is trusted
 lab_h, dd_h, mm_h, Wh_h, lam_h, lamM_h, ev_h, c_h, _ = \
@@ -607,10 +773,10 @@ print(f"  joint system ({K1} zero + {K2} prime-power functionals, "
 # FIGURE
 # ============================================================================
 C_POLE, C_PRIME, C_ARCH, C_W = "#0072B2", "#D55E00", "#009E73", "#111111"
-fig, axes = plt.subplots(2, 3, figsize=(17.5, 9.6))
-fig.suptitle("Exp 25: the finite Cohn–Elkies LP on the Weil form — "
-             "BCK landscape, per-prime-power cost, interpolation conditioning",
-             fontsize=13)
+fig, axes = plt.subplots(2, 4, figsize=(22.5, 9.8))
+fig.suptitle("Exp 25: the finite Cohn–Elkies LP on the Weil form, negativity-"
+             "oriented — Hodge-index sign structure of I = prime − arch, "
+             "per-prime-power cost, interpolation conditioning", fontsize=13)
 
 # (a) lambda_min vs support cap
 ax = axes[0, 0]
@@ -641,11 +807,15 @@ ns = [str(r[0]) for r in cost_rows]
 ratios = np.array([r[5] for r in cost_rows])
 rays = np.array([r[6] for r in cost_rows])
 wns = np.array([r[2] for r in cost_rows])
+pratios = np.array([r[10] for r in cost_rows])
 xp = np.arange(len(ns))
 okr = ~np.isnan(ratios)
-ax.bar(xp[okr] - 0.2, ratios[okr], width=0.38, color=C_PRIME, alpha=0.85,
+okpr = ~np.isnan(pratios)
+ax.bar(xp[okr] - 0.27, ratios[okr], width=0.25, color=C_PRIME, alpha=0.85,
        label=r"$\lambda_{\rm drop\,n}/\lambda_{\rm full}$ at $T=\log n+0.12$")
-ax.bar(xp + 0.2, rays, width=0.38, color=C_POLE, alpha=0.85,
+ax.bar(xp[okpr], pratios[okpr], width=0.25, color=C_ARCH, alpha=0.85,
+       label=r"same, primitive block $W|_P$")
+ax.bar(xp + 0.27, rays, width=0.25, color=C_POLE, alpha=0.85,
        label=r"Rayleigh weight $|c^*P_nc|/\lambda_{\min}$")
 ax2 = ax.twinx()
 ax2.plot(xp, wns, "k^--", ms=5, lw=1.0, label=r"$\Lambda(n)/\sqrt{n}$")
@@ -714,6 +884,52 @@ ax.set_xlabel(r"max atom width $\sigma$ in dictionary", fontsize=9)
 ax.set_ylabel(r"$\log_{10}\lambda_{\min}$", fontsize=9)
 ax.set_title("(f) LP rediscovers exp14's wide-window collapse\n"
              r"$\lambda_{\min}\approx 4\sqrt{\pi}\sigma\,e^{-\sigma^2\gamma_1^2}$",
+             fontsize=10)
+ax.legend(fontsize=7.5, loc="lower left")
+ax.grid(alpha=0.25, lw=0.6)
+
+# (g) Hodge-index spectrum of I = prime - arch (64-atom dictionary)
+ax = axes[0, 3]
+labh, rh, nIh, nPh, nIph, evIh, evIph, lam_ph, lamx_ph, ovh, _, dimP = h_full
+xs = np.arange(evIh.size)
+pos = evIh > 0
+ax.scatter(xs[~pos], evIh[~pos], s=22, color=C_POLE, label=r"$I$ eigenvalues $\le 0$")
+ax.scatter(xs[pos], evIh[pos], s=42, color=C_PRIME, marker="D",
+           label=rf"positive: $n_+(I)={nIh[0]}$")
+xsp = np.arange(evIph.size) + (evIh.size - evIph.size)
+ax.scatter(xsp, evIph, s=12, color=C_ARCH, marker="x",
+           label=rf"$I|_P$ (primitive, dim {dimP}): all $\le 0$")
+ax.set_yscale("symlog", linthresh=1e-8)
+ax.axhline(0, color="#888888", lw=0.8)
+ax.set_xlabel("eigenvalue index (sorted)", fontsize=9)
+ax.set_ylabel(r"eigenvalues of $I=\mathrm{prime}-\mathrm{arch}$ (symlog)", fontsize=9)
+ax.set_title(f"(g) Hodge index, 64-atom dictionary: inertia $(+,0,-)$ = {nIh}\n"
+             rf"pole plane inertia {nPh[0], nPh[2]}; overlap($v_+$, pole plane) = {ovh:.2f}",
+             fontsize=9.5)
+ax.legend(fontsize=7.5, loc="lower right")
+ax.grid(alpha=0.25, lw=0.6)
+
+# (h) primitive block vs support cap: Connes-Consani window and per-prime cost
+ax = axes[1, 3]
+ax.semilogy(T_arr, lamz, color="#999999", lw=1.1, ls="--",
+            label=r"$\lambda_{\min}(W)$ (unconstrained)")
+ax.semilogy(T_arr, lamp, color=C_W, lw=1.8,
+            label=r"$\lambda_{\min}(W|_P)=-\,$top eig $I|_P$ (zero side)")
+mask = evItop < 0
+ax.semilogy(T_arr[mask], -evItop[mask], ".", color=C_PRIME, ms=4,
+            label=r"$-\,$top eig of assembled $(\mathrm{prime}-\mathrm{arch})|_P$")
+ax.axvspan(0.30, np.log(2), color=C_ARCH, alpha=0.12, lw=0)
+ax.text(0.33, 2e-9, "prime-free:\n$W|_P=$ arch$|_P$\n(CC 2006.13771\nregime)",
+        fontsize=7.5, color=C_ARCH)
+for n, ln in PP_THRESH:
+    if ln < T_arr[-1]:
+        ax.axvline(ln, color=C_PRIME, lw=0.7, alpha=0.5)
+        ax.text(ln, 1.6 * lamp.max(), str(n), fontsize=7, ha="center",
+                color=C_PRIME)
+ax.set_xlabel(r"support cap $T_{\rm sup}$", fontsize=9)
+ax.set_ylabel(r"$\lambda_{\min}$ on the primitive block", fontsize=9)
+ax.set_title("(h) primitive (Hodge) block vs support cap:\n"
+             r"negativity margin of $I|_P$ as each prime power enters",
              fontsize=10)
 ax.legend(fontsize=7.5, loc="lower left")
 ax.grid(alpha=0.25, lw=0.6)

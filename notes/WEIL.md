@@ -372,3 +372,11 @@ A. Connes, C. Consani, H. Moscovici, Ann. Funct. Anal. 15 (2024),
 arXiv:2409.00888 (J. Number Theory 2026); cf. `notes/SCREW`-material in
 `code/exp12_screw.py`. Data: Odlyzko's tables (first 100,000 zeros, accurate to
 $3\cdot10^{-9}$).
+
+---
+
+**Continuation (2026-08-11):** the finite Cohn–Elkies LP on this form, the
+Hodge-index reformulation (the negativity that RH actually is, per ATIYAH §2/§4),
+the measured inertia of the arithmetic intersection form $I=\mathrm{prime}-\mathrm{arch}$,
+the per-prime-power cost of the certificate, and the interpolation-basis
+conditioning are in `notes/LP_CERT.md` (`code/exp25_lp.py`).
