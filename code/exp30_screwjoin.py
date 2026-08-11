@@ -336,7 +336,7 @@ def main():
     jj = np.arange(1, J + 1)
     a.axhline(1.0, color="gray", lw=0.8)
     a.plot(jj, np.abs(cj_data) / theo, "o", color="navy",
-           label=r"$|c_j|\,(\gamma_j^2+\tfrac{1}{4})/4$ (mass vs theory)")
+           label=r"$|c_j|\,(\gamma_j^2+\frac{1}{4})/4$ (mass vs theory)")
     a.plot(jj, np.abs(cj_data / cj_model), "s", ms=4, color="seagreen",
            label="|data / model| (pipeline-calibrated)")
     a.plot(jj, np.angle(cj_data / cj_model), "x", color="crimson",
