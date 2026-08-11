@@ -44,9 +44,9 @@ The V3 ledger opens now, ranked by formalizability:
 
 | target | content | mathlib needs | status |
 |---|---|---|---|
-| A(i) | sum-marginal injectivity (a∗a = b∗b ⟹ a = b, nonneg) | polynomial/`Finsupp` algebra, integral domains | agent tasked |
-| L1.3 | SO(1,1)(ℤ) = {±I} | integer matrices | agent tasked |
-| A′-core | reversal/UFD argument, irreducible case | `Polynomial.reverse`, UFD | agent tasked |
+| A(i) | sum-marginal injectivity (a∗a = b∗b ⟹ a = b, nonneg) | polynomial/`Finsupp` algebra, integral domains | **V3 achieved** — `formal/pairfield/Pairfield/SumRigidity.lean`, `lake build` passes (see notes/LEAN_STATUS.md) |
+| L1.3 | SO(1,1)(ℤ) = {±I} | integer matrices | **V3 achieved** — `formal/pairfield/Pairfield/Lorentz.lean`, `lake build` passes |
+| A′-core | reversal/UFD argument, irreducible case | `Polynomial.reverse`, UFD | **V3 achieved** — `formal/pairfield/Pairfield/ReversalRigidity.lean`, `lake build` passes; general reducible/cyclotomic case remains V2 |
 | E0 | β=1 trichotomy | Mertens (partially in mathlib) | queued |
 | F2-sf | squarefree tie forcing (monotone counts) | cyclotomics, Dirichlet | queued |
 | F | gauge invariance of KMS states | universal C*-algebras | out of reach of current libraries — flagged as a mathlib-gap datum |
