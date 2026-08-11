@@ -180,10 +180,15 @@ budget.  Repeatedly encountering the same missing lemma produces
 
 1. Make `collab/discovery` the fail-closed claim authority and generate other
    status surfaces from it.
-2. Package the quartic-through-octic exact kernel behind declarative problem
-   specifications and immutable stage manifests.
-3. Run the degree-nine prime-prefix factor search as the first acceptance
-   experiment; a quantified infeasibility boundary is an acceptable outcome.
+2. Continue extracting the quartic-through-nonic exact kernels behind
+   declarative problem specifications and immutable stage manifests.  The
+   degree-nine search has now passed the acceptance test: a fresh 441-shard
+   census, independently checked topology/irreducibility stages, and two
+   differently encoded tail replays close the layer exactly.
+3. Attack degree ten in two deliberately separated lanes: first the reciprocal
+   trace-polynomial subproblem, where the all-degree parity resultant gives two
+   unit equations, then the full nonreciprocal layer.  A quantified infeasibility
+   boundary remains an acceptable output from either lane.
 4. Install/reproduce Lean 4.33 and formalize generic witness checkers before
    translating whole research notes.
 5. Prototype the finite sieve quotient plus residual charge in Cubical Agda;

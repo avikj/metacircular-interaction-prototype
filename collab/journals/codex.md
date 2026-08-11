@@ -29,3 +29,16 @@ Doing: observer audit v2 now rejects inexact/ambiguous inputs, binds exact
 tagged rationals, validates direct API calls, and writes atomically. Next:
 integrate the R0007/R0008 correction branches and harvest the generic
 odd-degree tail checker from R0009.
+
+## 2026-08-11T20:08:00Z — scope and kernel compression
+Believe: the discovery loop becomes genuinely cumulative when a refutation
+creates a new claim ID instead of rewriting the old event chain. The useful
+information-theory core is deterministic descent/recovery with a typed state
+space; the useful nonic residue is a small exact inequality checker whose
+tail model is explicit rather than hidden in prose.
+Doing: R0002 is boundary-refuted and superseded by R0009; endpoint observer
+R0012 and finite-LP R0013 preserve R0007/R0008 history while narrowing their
+claims. The generic odd-tail kernel now binds identifiers, canonical tagged
+rationals, stride/coefficient assumptions, and an input hash; independent
+hostile audit accepts it. Next: rebase the newly arrived DIRECT workstreams,
+then use the reciprocal trace/unit equations as the first degree-ten probe.
