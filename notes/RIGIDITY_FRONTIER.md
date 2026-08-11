@@ -144,14 +144,28 @@ over $\{1,\sigma\}$ leaves $1=0$. ∎
 This covers $m=4,8,12,16,20,\dots$ In particular **$\Phi_4\nmid F_X$ for all $X$** — the
 constant "+1" from the prime 2 is frozen into the rational coordinate and can never cancel.
 
-### 3.3 Remaining non-squarefree $m$ ($p^2\mid m$, $p$ odd) — MACHINE-VERIFIED
+### 3.3 Every non-squarefree $m$ is impossible — PROVED
 
-Here $\mu(m)=0$ so the drift argument is unavailable, and the primitive roots are dependent
-(Lemma F2.1), so forcing fails; the question is whether $-t_m$ lies in the
-$\mathbb Z$-lattice spanned by the steps $\{v_c\}$. `code/exp7b_ties_extended.py` (Part 3)
-computes, for every $m\le200$: $\operatorname{rank}_{\mathbb Q}\{v_c\}$, membership of
-$-t_m$ in the $\mathbb Q$-span (rank comparison) and in the $\mathbb Z$-lattice (HNF
-reduction), all in exact integer arithmetic (FLINT `fmpz_mat`). Result:
+The former machine-only lattice obstruction is now a uniform theorem; see
+`CYCLOTOMIC_TRACE.md` for the full proof. If $p^2\mid m$, put
+$K=\mathbb Q(\zeta_m)$ and $K_0=\mathbb Q(\zeta_{m/p})$. Then
+$[K:K_0]=p$ and
+
+$$\operatorname{Tr}_{K/K_0}(\zeta_m^a)=
+\begin{cases}0,&p\nmid a,\\p\zeta_m^a,&p\mid a.\end{cases}$$
+
+A tie, multiplied by $\zeta_m^2$, is $\sum_{q\le X}\zeta_m^q=0$. If
+$p\le X$, its relative trace is the impossible equation $p\zeta_m^p=0$,
+because $p$ is the only prime exponent divisible by $p$. If $p>X$, then
+$\varphi(m)\ge p(p-1)>\deg F_X$, so divisibility is impossible by degree.
+Therefore
+
+> **Theorem F2-ns.** If $m$ is non-squarefree, then
+> $\Phi_m\nmid F_X$ for every $X$.
+
+The earlier exact computation remains an independent finite verification:
+`code/exp7b_ties_extended.py` (Part 3) computes lattice membership in exact
+FLINT arithmetic. It found:
 
 > **For every one of the 392 non-squarefree $m\le1000$, the target $-t_m$ is not in the
 > step lattice: ties are impossible for $X>m$.** (`data/exp7b_out.txt`: for $m\le200$,
@@ -159,12 +173,8 @@ reduction), all in exact integer arithmetic (FLINT `fmpz_mat`). Result:
 > the EXTENSION blocks certify lattice non-membership for all 314 non-squarefree values,
 > with zero "walkers", i.e. zero solvable cases.)
 
-(For $4\mid m$ this is Theorem F2-4; for the odd cases $m=9,18,25,27,\dots$ it is verified
-exactly but we have no uniform hand proof; a partial mechanism: the projection
-$e=\frac1p\sum_i\tau^i$, $\tau:\zeta\mapsto\zeta^{1+m/p}$, kills every step with
-$c\not\equiv2\ (p)$ and kills the ramified term of $p$ itself, leaving a lower-level
-obstruction that in every checked case is nondegenerate. Proving it in general is a clean
-open lemma.)
+This computation is now corroboration rather than a premise. Theorem F2-4 is
+the $p=2$ shadow of the same relative-trace argument.
 
 ### 3.4 Synthesis: the complete tie theorem
 
@@ -175,7 +185,7 @@ Structure of the proof: squarefree $m$ (607 values) → forced counts and explic
 intervals (Thm F2-sf; exp7b Part 3b and the EXTENSION mode: for $m\le200$ every forced
 count is $\le2$, so each interval closes by the third prime of a class; all intervals
 empty except $m=2\to[3,5)$ and $m=6\to[11,13)$); $4\mid m$ → parity (Thm F2-4); other
-non-squarefree $m$ → lattice non-membership (§3.3; 392 values, zero solvable); the region
+non-squarefree $m$ → relative-trace impossibility (§3.3, all $m$); the region
 $X\le\max(m,P(m))$ → direct scan (to $10^7$ for $m\le200$, to $2000\ge m$ for
 $201\le m\le1000$), plus independently all $X\le10^7$ for $m\le200$ (§3.5).
 
@@ -259,20 +269,24 @@ walk dimension is $D_m:=\operatorname{rank}_{\mathbb Q}\{v_c\}=\dim_{\mathbb Q}
 \operatorname{span}\{\zeta_m^a:a\in(\mathbb Z/m)^\times\}$, with the closed form
 $$D_m=\prod_{p^e\|m}d_{p^e},\qquad
 d_{p^e}=\begin{cases}p-1,&e=1,\\ \varphi(p^e)-\varphi(p^{e-1}),&e\ge2,\end{cases}$$
-**machine-verified to agree with the computed rank for every $m\le200$** (relations within
-each $p$-layer: $\sum_{j\bmod p}\zeta^{a+jm/p}=0$, as in Lemma F2.1). Consequently the only
-non-squarefree $m$ with $D_m\le3$ are $m=4$ ($D=1$), $m=8$, $m=12$ ($D=2$) — **all
-divisible by 4, all killed unconditionally by Theorem F2-4.** For every other
-non-squarefree $m$, $D_m\ge4$, and a walk in dimension $\ge4$ hits a fixed point at
-$\sum_n n^{-D_m/2}<\infty$ expected times: finitely many ties a.s. even without the §3.3
-obstruction. Summing the expected counts over all $m$ converges. So the structure of the
-finiteness claim is: squarefree $m$ — PROVED finite (forced counts); $4\mid m$ — PROVED
-zero (parity); remaining $m$ ($p^2\mid m$, $p$ odd) — dimension $\ge4$ transience,
-HEURISTIC, plus the §3.3 lattice obstruction wherever it is checked (all such $m\le1000$).
+**proved in `CYCLOTOMIC_TRACE.md` Proposition 4**: locally the primitive
+$p^e$-root span is the kernel of the relative trace to level $p^{e-1}$, and
+the coprime local spans tensor. It is also machine-verified for every
+$m\le200$. Consequently the only
+non-squarefree $m$ with $D_m\le3$ are $m=4$ ($D=1$), $m=8$, $m=12$ ($D=2$).
+The former transience heuristic for all other non-squarefree moduli is now
+superseded: Theorem F2-ns kills **every** one of them deterministically by
+relative trace, regardless of dimension. The rank formula remains useful as a
+structural description of which information the primitive-root orbit retains.
+Thus the finiteness claim is now exact: squarefree $m$ have at most one forced
+count vector; non-squarefree $m$ have zero ties.
 **Conjecture F2∞: $(3,2)$ and $(11,6)$ are the only cyclotomic ties of the prime
-polynomial, over all $m$ and all $X$.** A theorem for $m\le1000$ (Thm F2); beyond, only the
-odd-square case rests on heuristics, and any individual $m$ is decidable by the finite
-computation of §3.3/F2-sf.
+polynomial, over all $m$ and all $X$.** A theorem for $m\le1000$ (Thm F2);
+beyond, every non-squarefree modulus is now excluded by Theorem F2-ns, so the
+conjecture is purely squarefree. For squarefree $m$, `CYCLOTOMIC_TRACE.md`
+sharpens the forced vector to
+$$n_c(X)=\#\{r\mid m:c\equiv r\pmod{m/r}\},
+\qquad \pi(X)=\sum_{r\mid m}r.$$
 
 **Which $m$ are most tie-prone? (theory note requested by the task.)** Ties require small
 forced counts hit simultaneously in every class: probability decays like a coincidence among
@@ -354,12 +368,12 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 |---|---|
 | factors of degree 1, 2 | **PROVED impossible** for $X\ge13$ (Thm F1) |
 | cyclotomic factors $\Phi_m$, $m\le1000$, any $X$ | **PROVED/MACHINE: only $(3,2),(11,6)$** (Thm F2) |
-| cyclotomic factors, $m>1000$ | degree $\ge240$ forced; forced-count machinery decides any given $m$; Conjecture F2∞ (no more ties ever; heuristic + scan) |
+| cyclotomic factors, $m>1000$ | every non-squarefree $m$ **PROVED impossible** by relative trace; squarefree $m$ obey explicit forced counts and $\pi(X)=\sum_{p\mid m}p$; Conjecture F2∞ remains only there |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
 | non-cyclotomic factors, degree $\ge3$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) the §3.3 lemma — for odd $p$ with $p^2\mid m$, show
-$-t_m$ is never in the step lattice in general (machine-true for all $m\le1000$);
+Open problems generated: (1) eliminate the remaining squarefree forced vectors,
+using $\pi(X)=\sum_{p\mid m}p$ together with the class-by-class condition;
 (2) exclude cubic factors of $F_X$ unconditionally (the first genuinely open degree; needs
 input beyond root location — e.g. a Smyth-type gap plus the annulus is not contradictory);
 (3) push F2 beyond $m=1000$ (the EXTENSION mode of exp7b runs $m\in[201,1000]$ in
