@@ -148,8 +148,8 @@ budget.
 
 ## 3. Measured spectra
 
-All numbers from the `code/exp25_lp.py` run of 2026-08-11 (log quoted in the
-repo history; the script reproduces them end-to-end in ~10 min).
+All numbers from the `code/exp25_lp.py` run of 2026-08-11; the script
+reproduces them end-to-end in ~6 minutes (`python3 code/exp25_lp.py`).
 
 **Cross-check (task target ≤ 1e−6).** Worst entrywise relative deviation
 between the zero-side and assembled computations of M: **3.3e−9** over the

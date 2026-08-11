@@ -835,31 +835,34 @@ ax.set_title("(a) minimal eigenvalue vs support cap; prime powers marked",
 ax.legend(fontsize=8, loc="lower left")
 ax.grid(alpha=0.25, lw=0.6)
 
-# (b) per-prime-power cost
+# (b) per-prime-power cost: primitive margin after entry + leave-one-out sign
 ax = axes[0, 1]
 ns = [str(r[0]) for r in cost_rows]
-ratios = np.array([r[5] for r in cost_rows])
-rays = np.array([r[6] for r in cost_rows])
 wns = np.array([r[2] for r in cost_rows])
-pratios = np.array([r[10] for r in cost_rows])
+lamp_full = np.array([r[8] for r in cost_rows])
+lamp_drop = np.array([r[9] for r in cost_rows])
+rays = np.array([r[6] for r in cost_rows])
 xp = np.arange(len(ns))
-okr = ~np.isnan(ratios)
-okpr = ~np.isnan(pratios)
-ax.bar(xp[okr] - 0.27, ratios[okr], width=0.25, color=C_PRIME, alpha=0.85,
-       label=r"$\lambda_{\rm drop\,n}/\lambda_{\rm full}$ at $T=\log n+0.12$")
-ax.bar(xp[okpr], pratios[okpr], width=0.25, color=C_ARCH, alpha=0.85,
-       label=r"same, primitive block $W|_P$")
-ax.bar(xp + 0.27, rays, width=0.25, color=C_POLE, alpha=0.85,
-       label=r"Rayleigh weight $|c^*P_nc|/\lambda_{\min}$")
+ax.bar(xp, lamp_full, width=0.55, color=C_ARCH, alpha=0.85,
+       label=r"$\lambda_{\min}(W|_P)$ at $T=\log n+0.12$ (margin after $n$ enters)")
+neg = lamp_drop < 0
+ax.plot(xp[~neg], lamp_drop[~neg], "o", color=C_POLE, ms=7,
+        label=r"$\lambda_{\min}(W|_P$ without $n)>0$")
+ax.plot(xp[neg], -lamp_drop[neg], "v", color=C_PRIME, ms=8,
+        label=r"$|\lambda_{\min}|$, drop-$n$ INDEFINITE ($\lambda_{\min}<0$)")
+ax.set_yscale("log")
 ax2 = ax.twinx()
-ax2.plot(xp, wns, "k^--", ms=5, lw=1.0, label=r"$\Lambda(n)/\sqrt{n}$")
-ax2.set_ylabel(r"$\Lambda(n)/\sqrt{n}$", fontsize=9)
+ax2.semilogy(xp, np.maximum(rays, 1e-2), "k^--", ms=4, lw=0.9, alpha=0.7,
+             label=r"Rayleigh weight $|c^*P_nc|/\lambda_{\min}$")
+ax2.set_ylabel("Rayleigh weight of $P_n$ (log)", fontsize=9)
 ax.set_xticks(xp, ns)
 ax.set_xlabel(r"prime power $n$ entering at $T_{\rm sup}=\log n$", fontsize=9)
-ax.set_title("(b) per-prime-power cost at entry", fontsize=10)
+ax.set_ylabel(r"primitive-block eigenvalue scale (log)", fontsize=9)
+ax.set_title("(b) per-prime-power cost at entry: margin after $n$;\n"
+             "deleting any single $n\geq3$ makes $W|_P$ indefinite", fontsize=10)
 h1, l1 = ax.get_legend_handles_labels()
 h2, l2 = ax2.get_legend_handles_labels()
-ax.legend(h1 + h2, l1 + l2, fontsize=7.5, loc="upper right")
+ax.legend(h1 + h2, l1 + l2, fontsize=7, loc="center right")
 ax.grid(alpha=0.25, lw=0.6)
 
 # (c) hardest direction in u
@@ -938,6 +941,7 @@ ax.axhline(0, color="#888888", lw=0.8)
 ax.set_xlabel("eigenvalue index (sorted)", fontsize=9)
 ax.set_ylabel(r"eigenvalues of $I=\mathrm{prime}-\mathrm{arch}$ (symlog)", fontsize=9)
 ax.set_title(f"(g) Hodge index, 64-atom dictionary: inertia $(+,0,-)$ = {nIh}\n"
+             f"(ghosts at 1e-6$\lambda_1$ whitening floor; robust subspace: $n_+=1$)\n"
              rf"pole plane inertia {nPh[0], nPh[2]}; overlap($v_+$, pole plane) = {ovh:.2f}",
              fontsize=9.5)
 ax.legend(fontsize=7.5, loc="lower right")
