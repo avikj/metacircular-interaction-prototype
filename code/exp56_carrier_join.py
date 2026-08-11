@@ -672,7 +672,7 @@ def main():
     ax[1, 0].plot(dls, [r[1] for r in p4b], "s--", color="crimson",
                   label=r"one-body kernel $g_1$")
     ax[1, 0].axhline(0, color="k", lw=0.6)
-    ax[1, 0].set_xlabel(r"$\delta=\beta-\tfrac12$ of injected quadruple")
+    ax[1, 0].set_xlabel(r"$\delta=\beta-1/2$ of injected quadruple")
     ax[1, 0].set_ylabel(r"$\lambda_{\min}/|\lambda|_{\max}$")
     ax[1, 0].legend(fontsize=8, loc="lower left")
     ax[1, 0].set_title("(c) falsifiability: kernels go indefinite off the "
@@ -690,8 +690,8 @@ def main():
                        "leaves one constant", fontsize=10)
 
     fig.suptitle("exp56: the carrier join --- RH as one-point positivity of "
-                 r"the finite pair carrier: $T(X,X)-2\widetilde MS+"
-                 r"\widetilde M^2\le B^2X$", fontsize=11)
+                 r"the finite pair carrier: $T(X,X)-2\widetilde{M}S"
+                 r"+\widetilde{M}^2 \leq B^2 X$", fontsize=11)
     fig.tight_layout(rect=[0, 0, 1, 0.96])
     fig.savefig(ROOT / "figures" / "exp56_carrier_join.png", dpi=140)
     print(f"saved figures/exp56_carrier_join.png   [total "
