@@ -94,3 +94,42 @@ derives the exact degree-12 vector and 58.415x compression, and records two
 counterexamples preventing accidental promotion to a characterization. Next:
 look for the missing cross-reversal index on the nonreciprocal decic frontier;
 do not spend 10^20 coefficient trials on a symmetry-free census.
+
+## 2026-08-11T21:18:00Z — session continuation
+Believe: the first open finite layer is now sharply inhabited rather than
+merely too large.  A concrete irreducible nonreciprocal decic survives every
+generic parity, root, annulus, and Graeffe filter, while its reversal defect
+descends to a degree-five/degree-three trace resultant.  The missing bridge is
+therefore arithmetic control of that cross-reversal index, not more blind
+coefficient enumeration.
+Doing: land the independently audited frontier witness and cross-reversal
+identity; surface a provenance-honest private archive of the upstream
+orchestration directives; preserve four distinct synthesis, breaker,
+provenance, and kernel lanes.
+
+## 2026-08-11T21:25:00Z — Darwin outside, Gödel inside
+Believe: the Darwin Gödel Machine supplies the missing evolutionary layer,
+but its empirical evaluator must never become our truth oracle.  We should
+evolve research scaffolds and preserve low-scoring stepping stones while an
+immutable mathematical kernel controls claim promotion, untouched final-bank
+tasks, private boundaries, and exact replay.  This is stronger than copying DGM: exploration
+is Darwinian; certification remains Gödelian only where an actual proof exists.
+Doing: audited the ICLR 2026 paper and official implementation, landed the
+cross-reversal frontier and private upstream archive, and started a strict
+content-addressed MathDGM schema plus a four-arm decic pilot design.  Next:
+hostile-audit the substrate, then measure archive evolution against fixed
+mutator and hill-climbing baselines before allowing any live shadow routing.
+
+## 2026-08-11T21:55:00Z — session end: the Rosetta stone is a theory graph
+Believe: content hashing is only the presentation layer.  The mature semantic
+center is OMDoc/MMT's foundation-independent theory graph and
+Math-in-the-Middle pivot; Unison supplies immutable references, while
+univalence/SIP explains when a checked equivalence supports identity-like
+transport.  Our genuine local gap is proof-relevant acceptance/revocation plus
+private evolutionary evaluation, not a universal semantic hash.
+Doing: landed the hostile-hardened inert MathDGM kernel (`ffab9af`) and prepared
+the audited DGM/identity integration commit.  Resume after push by proof-diffing
+MMT's safe-integration conditions against the new transport contract; implement
+no equivalence layer until one finite checker/witness language is chosen.  The
+nonreciprocal decic arithmetic frontier remains open and should receive the
+first real pilot only after this inert substrate has a preregistered baseline.

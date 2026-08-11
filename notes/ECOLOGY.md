@@ -72,8 +72,14 @@ objects in the DAG — evolvable, with the same genotype/phenotype
 separation. Anti-objective-hacking guardrail becomes structural: an
 evaluation cites H_evaluator, so a gamed evaluator is identifiable and
 its observations quarantinable WITHOUT touching the genotypes it
-scored. Cross-lineage authorship of held-back evaluators (A5) slots in
-as evaluator-diversity in the co-evolution.
+scored. Cross-lineage authorship of never-queried final evaluators (A5)
+slots in as evaluator-diversity in the co-evolution.
+
+This is a between-epoch design possibility, not permission for an evaluator
+to rewrite itself during a run.  The pilot controller and evaluator remain
+frozen; a proposed replacement is a new content-addressed object, passes an
+external review and anti-gaming gate, and starts a new epoch.  It never
+retroactively changes an observation or self-adopts.
 
 ## Isomorphism as identity: the univalent substrate (upstream, 2026-08-12)
 
@@ -112,6 +118,27 @@ Consequences:
    univalence is the type theory in which isomorphism-as-identity is
    not a hack but an axiom. The mathematics and the infrastructure have
    converged on one subject.
+
+### Trust correction: observation is not isomorphism
+
+The hierarchy above is a search view, not a hierarchy of equally authoritative
+identities.  Equality of bytes or of a certified canonical presentation is an
+exact content claim.  Equality on a finite hashed test environment is only an
+environment-indexed behavioral fingerprint: it may nominate an equivalence
+witness search, but it does not merge objects, certify an isomorphism, or count
+as independent mathematical replication by itself.  Homometric examples are
+the reason, not an edge case.
+
+Likewise, fitness does not automatically transport with a numerical discount.
+Reuse across distinct presentations requires a checked equivalence under an
+explicit structure theory plus a theorem or verified operator showing that the
+evaluation is invariant (or specifying exactly how it transforms).  Multiple
+witnesses and automorphisms remain data; a connected-component/class hash is a
+head-scoped view, never the durable identity of an object.  The complete
+fail-closed contract is `notes/CONTENT_ADDRESSED_MATHEMATICAL_IDENTITY.md`.
+Univalence motivates witness-indexed transport inside a specified structural
+universe; it is not an infrastructure axiom that makes arbitrary observations
+or records equal.
 
 ## Build order (design lane)
 
