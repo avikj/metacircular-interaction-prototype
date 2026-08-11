@@ -221,3 +221,19 @@ visible to all levels, $\Lambda\chi$ from literals up, $\lambda,\mu$ to none;
 the control objects the sibling's $\lambda$-orthogonality theorems
 (their Thms 1/1″) describe, here measured as a uniform noise floor across
 every modulus.
+
+## 2.5 The anti-Möbius null test (exp25; row 4 verified)
+
+The divisor field's Mellin factor $\zeta(s)^2$ has double **zeros** at every
+$\rho$, so its residues vanish: row 4 of the table predicts *no zeta-zero
+layer at all*. Verified as a null test with a positive control in identical
+units (same pipeline, same scale $X^3$, degree-5 log-polynomial detrend):
+the $\Lambda$ field shows $\gamma_1$ as a $27\times$-broadband outlier, while
+the divisor field's $\gamma$-bins are statistically indistinguishable from
+its own broadband (contrasts $1.1$–$3.8\times$ against a band fluctuation
+ceiling of $6.9\times$; percentile ranks 56–92%). The purity axis
+$d\to\Lambda\to\lambda\to\mu$ is now verified at **both ends**: all-pole/no-zero
+($d$, this section) and all-zero/no-pole ($\mu$, §1). Complements the
+sibling's `exp15_divisor` (Ingham marginals): their result is what the
+$d$-field *has* (solvable local structure), this one is what it *lacks*
+(zeta spectrum).
