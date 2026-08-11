@@ -1,10 +1,14 @@
-# The rigidity frontier: unconditional partial results toward Conjecture A″
+# The prime-prefix factor frontier: independent algebra beyond phase rigidity
 
 **Context.** REPORT.md §2: $F_X(x)=\sum_{p\le X}x^{p-2}$ (monic, 0-1, $F_X(0)=1$, $\pi(X)$ terms).
-Theorem A′: if the non-cyclotomic part of $F_X$ is irreducible, the primes $\le X$ are
-determined by their difference multiset up to reflection. Conjecture A″: this holds for all $X$.
-This note records (i) the new computational frontier, (ii) two unconditional theorems that
-settle the low-degree and cyclotomic layers of A″, (iii) the resolution — negative — of the
+The singleton-parity theorem in `PARITY_RIGIDITY.md` now proves directly that
+every prime prefix is determined by its full pairwise difference multiset up
+to translation and reflection. Thus phase rigidity is solved independently
+of factorization. Write **Conjecture A″$_{\rm alg}$** for the strictly
+stronger assertion that the non-cyclotomic part of every $F_X$ is
+irreducible. This note records (i) the computational factor frontier, (ii)
+unconditional results on the low-degree and cyclotomic layers of
+A″$_{\rm alg}$, (iii) the resolution — negative — of the
 "2-dimensional recurrence" question for $m\in\{3,4,6\}$, and (iv) a quantification of how much
 weaker rigidity is than irreducibility.
 
@@ -22,9 +26,9 @@ Every claim is labeled **PROVED** (hand proof, checkable line by line), **MACHIN
 | 30000 | 29987 | 3245 | **1 (irreducible)** | 657 s |
 | 50000 | 49997 | 5133 | **1 (irreducible)** | 1769 s |
 
-$F_X$ is irreducible at every tested cutoff beyond $X=11$; by Theorem A′, **the primes up
-to $5\cdot10^4$ are unconditionally determined by their difference multiset up to
-reflection** (a 2.5× degree extension over the previous frontier $2\cdot10^4$). Timing
+$F_X$ is irreducible at every tested cutoff beyond $X=11$. This is evidence
+for A″$_{\rm alg}$; prime-set reconstruction itself is already unconditional
+for every cutoff by singleton parity. Timing
 grows like $\deg^{2.1-2.2}$ (9.3 s → 44.7 s → 211 s → 657 s → 1769 s along
 $5\text{k},10\text{k},20\text{k},30\text{k},50\text{k}$; the large runs shared 4 cores with
 other jobs), putting $X=10^5$ at roughly 1.5–2 h — feasible but outside this session's
@@ -71,8 +75,9 @@ $$
 \ll\frac{X\log_3X}{\log_2X\,\log_4X}=o(X).
 $$
 
-Thus full uniqueness remains open, but the ambiguity entropy per ambient
-coefficient is unconditionally zero in the limit.
+This bounds the number of **algebraic factor allocations** before the
+$0$--$1$ coefficient constraint is imposed. Exact $0$--$1$ uniqueness is
+already supplied by singleton parity.
 
 This does not supply an accessible explicit cutoff for the octic layer;
 the exact low-degree certificates below remain strictly stronger at finite
@@ -523,7 +528,7 @@ full proof and exact citations.
 
 Combining Theorems F1--F6: **for every $X\ge13$, $F_X$ has no
 irreducible factor of degree $\le6$ and no cyclotomic factor of any degree.**
-Every possible counterexample to Conjecture A″ must therefore come entirely
+Every possible counterexample to Conjecture A″$_{\rm alg}$ must therefore come entirely
 from non-cyclotomic factors of degree at least $7$.
 
 ### 3.5 The extended scan — DATA
@@ -625,7 +630,7 @@ for $4\mid m$ and inflates $n_{2\bmod 3}$, $n_{5\bmod 6}$ early for $m=3,6$.
 
 ---
 
-## 5. Rigidity is strictly weaker than irreducibility — PROVED + DATA
+## 5. Why the factor program is stronger than rigidity — PROVED + DATA
 
 **Setup (Rosenblatt–Seymour, cf. Thm A′).** Write $F_X=C\cdot G_1\cdots G_r$ with $C$ the
 cyclotomic part and $G_i$ the non-cyclotomic irreducibles. Every homometric partner of the
@@ -670,10 +675,10 @@ irreducible whp), zero reciprocal non-cyclotomic factors, zero rigidity breaks. 
 random model at these degrees, **the gap between "irreducible" and "rigid" absorbs 100% of
 the observed reducibility**: rigidity is strictly and usefully weaker than A″. Heuristically
 (HEURISTIC) a break requires $\deg F_X+1$ coefficient constraints to hold simultaneously
-after reversal — probability exponentially small in the degree — so homometric partners of
-prime-like sets should exist only at bounded degree, and the exhaustive search (exp1: none
-for any prime cutoff $X\le500$ by direct split enumeration, none possible for $X\le5\cdot10^4$
-by irreducibility) has already passed the plausible window.
+after reversal — probability exponentially small in the degree. For actual
+prime prefixes, `PARITY_RIGIDITY.md` now proves that this $0$--$1$
+recombination never occurs, at any degree. The experiments remain useful as
+calibration for prime-like sets without a singleton parity class.
 
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
@@ -689,7 +694,7 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 
 ## 6. Status and open problems
 
-| layer of Conjecture A″ | status |
+| layer of Conjecture A″$_{\rm alg}$ | status |
 |---|---|
 | factors of degree 1, 2, 3 | **PROVED impossible** for $X\ge13$ (Thms F1, F3) |
 | irreducible factors of degree 4 | **PROVED impossible for every $X$ by an exact finite certificate** (Thm F4) |
@@ -700,7 +705,7 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | reciprocal irreducible factors of degree 8 | **PROVED impossible for every $X$** (Thm F8r) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge8$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge8$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); independent of the now-proved $0$--$1$ phase rigidity |
 
 Open problems generated: (1) attack the nonreciprocal octic layer, now the first open
 factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at

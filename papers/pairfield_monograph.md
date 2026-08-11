@@ -34,13 +34,22 @@ An independent adversarial audit (`REDTEAM`, 2026-08-11: fresh implementations, 
 
 Classification of the main results, as honestly as we can make it:
 
-- **New (theorem-level):** Theorem A′ and the rigidity-frontier theorems F1--F$\infty$ (`RIGIDITY_FRONTIER`, `CYCLOTOMIC_TRACE`, low-degree obstruction notes, `ASYMPTOTIC_FACTOR_RIGIDITY`); Proposition E1 (`ADELIC §2`); Proposition E0 and the crossover law Theorems 1–4 of [CROSS] (novelty sustained after 15 targeted searches, [CROSS §7]); the arithmetic identification in Theorem F and its CORE_KMS closure; Theorem D′ (weight law) and the D″ variance-energy program; Proposition W3 and the Weil margin cartography (`WEIL §6`).
+- **New (theorem-level, with the stated prior-art qualifications):** Theorem A′′ (singleton-parity rigidity; exact turnpike prior art not yet found) and the rigidity-frontier theorems F1--F$\infty$ (`RIGIDITY_FRONTIER`, `CYCLOTOMIC_TRACE`, low-degree obstruction notes, `ASYMPTOTIC_FACTOR_RIGIDITY`); Proposition E1 (`ADELIC §2`); Proposition E0 and the crossover law Theorems 1–4 of [CROSS] (novelty sustained after 15 targeted searches, [CROSS §7]); the arithmetic identification in Theorem F and its CORE_KMS closure; Theorem D′ (weight law) and the D″ variance-energy program; Proposition W3 and the Weil margin cartography (`WEIL §6`).
 - **New synthesis of known parts:** Theorem A (the injectivity is a two-line square-root argument; the kernel is classical homometry — Piccard, Bloom, Rosenblatt–Seymour); Theorem C (the sharp-cutoff equivalences are Granville and Bhowmik–Schlage-Puchta; the smoothed trivialization is ours); Theorem B; the block decomposition; the holomorphic/Hermitian dichotomy; Theorem P (assembled from Davenport, Siegel–Walfisz, el Abdalaoui–Kułaga-Przymus–Lemańczyk–de la Rue).
 - **Known, rederived and verified:** the Theorem D identity is Languasco–Zaccagnini's $k=1$ Cesàro formula (the spectral-line reading, weight law, and numerical verification are ours); the BC correlator content at $\beta=1$ is the classical local-density heuristic, spectrally Gadiyar–Padma (Physica A 269, 1999); Cuntz's uniqueness theorem, Neshveyev's KMS correspondence, Montgomery's $F(\alpha)$, Goldston–Montgomery, Matsumoto–Suzuki's screw theorem, and the entire divisor-model literature are used as cited inputs, never claimed.
 
 ### 1.4 The correction trail
 
-Seven corrections were found and applied; each is reported at its site below and collected in §9. The two substantive ones: the "intermediate target" of `REPORT §8` Problem 1 was **refuted by explicit counterexample** (`REDTEAM §2c`) and replaced; and the screw-function join conjectured in `APPENDIX_D §D.6(3)` was **refuted by computation** (`SCREW §3` Part 4) and replaced by the product-weight construction. A third, smaller: exp5's zero-sum spacing statistic had a double-counting artifact whose theoretical value (3.0) was itself predicted and measured before the corrected statistic (1.001) was reported (`REPORT §6`). A program that finds and displays its own errors at this rate can be read literally everywhere else.
+Seven audit corrections were found and applied; each is reported at its site
+below and collected in §9. A later change of lens then superseded the main
+rigidity reduction entirely: quotienting the autocorrelation by parity before
+factoring it revealed the unique-even-point theorem A′′. The factor results
+remain true, but no longer bear the logical weight of prime reconstruction.
+The two substantive audit corrections were: the "intermediate target" of
+`REPORT §8` Problem 1 was **refuted by explicit counterexample**
+(`REDTEAM §2c`) and replaced; and the screw-function join conjectured
+in `APPENDIX_D §D.6(3)` was **refuted by computation** (`SCREW §3`
+Part 4) and replaced by the product-weight construction.
 
 ---
 
@@ -57,15 +66,35 @@ Let $a:\mathbb Z\to\mathbb R_{\ge0}$ be finitely supported, $A(x)=\sum a_nx^n$; 
 
 The kernel of the difference marginal is exactly classical crystallographic homometry (turnpike/beltway; Rosenblatt–Seymour, *SIAM J. Alg. Disc. Meth.* 3 (1982)). Exhaustive search (`exp1`; independently re-run in `redteam_poly.py`): **6 distinct homometric pairs up to congruence (12 collision events)** in the box $\{0..13\}$, zero sum-marginal collisions. *(Correction applied: REPORT originally said "12 homometric pairs", counting collision events; `REDTEAM §2d`.)* Slogan (`REPORT §2`): the gap marginal is the unique lossy projection of the pair field, and its kernel is exactly classical homometry.
 
-### 2.2 Theorem A′: the primes are homometrically rigid
+### 2.2 Theorem A′′: parity makes the primes homometrically rigid
 
 Normalize $F_X(x)=\sum_{p\le X}x^{p-2}$.
 
 > **Theorem A′** (`REPORT §2.1`; proof there, with the corrected argument of `REDTEAM §2b` — multiplicity count for palindromic irreducibles, exclusion of $\Phi_1$ via $F_X(1)=\pi(X)>0$, and the reciprocal-$F_0$ degenerate case, where rigidity holds trivially). *If the non-cyclotomic part of $F_X$ is irreducible over $\mathbb Q$, then any $B\subset\mathbb Z$ with $c_B=c_{P_X}$ is a translate of $P_X$ or of its reflection.*
 
-**Computation** (`exp1`, FLINT; frontier extended in `exp1c`): $F_X$ is irreducible for every prime cutoff $X\le2000$ except $X=11$, where $F_{11}=\Phi_6\cdot(x^7+x^6-x^4+x^2+2x+1)$ and the palindromic $\Phi_6$ is harmless; irreducible at $X=5000$ (deg 4997), $10^4$ (deg 9971), $2\cdot10^4$ (deg 19,995; 211 s), $3\cdot10^4$ (deg 29,987; 657 s), and $5\cdot10^4$ (deg 49,997; 1769 s). Hence **the primes up to $5\cdot10^4$ are unconditionally determined by their difference multiset up to reflection** (`RIGIDITY_FRONTIER §1`). The `REDTEAM` rescan (303 cutoffs, own code) confirmed the $X\le2000$ result exactly.
+The hypothesis can now be removed completely:
 
-> **Conjecture A″** (`REPORT §2.1`). For every $X\ge3$ the non-cyclotomic part of $F_X$ is irreducible; hence the primes up to $X$ are determined by their difference multiset up to reflection, for every $X$.
+> **Theorem A′′ (singleton-parity rigidity; `PARITY_RIGIDITY`).** *For every
+> \(X\ge3\), any finite set with the same full pairwise difference multiset as
+> \(\{p:p\le X\}\) is its translate or reflection.*
+
+The unique even prime \(2\) is the anchor. Every odd pairwise prime difference
+involves \(2\), so the odd part of the difference multiset literally lists
+\(\{p-2:p>2\}\). More generally, equality of the odd and even parts of the
+Laurent autocorrelation proves rigidity for every finite integer set with a
+singleton parity class. Reconstruction from a difference-count array of
+diameter \(D\) is \(O(D)\). This concerns all pairwise differences with
+multiplicity, not merely consecutive prime gaps.
+
+**Independent algebraic computation** (`exp1`, FLINT; frontier extended in
+`exp1c`): $F_X$ is irreducible for every prime cutoff $X\le2000$ except
+$X=11$, where $F_{11}=\Phi_6\cdot(x^7+x^6-x^4+x^2+2x+1)$; it is also
+irreducible at the sampled cutoffs through $X=5\cdot10^4$ (degree 49,997).
+These computations support prime-prefix irreducibility but are no longer
+needed for homometric rigidity.
+
+> **Conjecture A″$_{\rm alg}$ (prime-prefix irreducibility).** For every
+> $X\ge3$ the non-cyclotomic part of $F_X$ is irreducible.
 
 Heuristic support: random 0-1 polynomials are irreducible with probability $\to1$ (Konyagin; Breuillard–Varjú under GRH for Dedekind zetas; Bary-Soroker–Kozma). Contrast with Sun's conjecture (primes as coefficients): here primes are *exponents* and the question is tied to gap statistics.
 
@@ -79,9 +108,11 @@ Heuristic support: random 0-1 polynomials are irreducible with probability $\to1
 
 Verified (`exp8`): the minimal homometric pair has identical gap data on the half-line and distinct gap data after symmetrization. **Crystallographic phase loss for difference data is exactly the restriction to a half-line; on the signed line, gap data *is* Goldbach data.** The sector identity $r_{\tilde\Lambda}(N)=r_\Lambda(N)+2c_\Lambda(N)$ for $\tilde\Lambda(n)=\Lambda(|n|)$ holds to machine precision ($N=10^4$, window $2\cdot10^5$: $16{,}855+2\cdot335{,}364=687{,}583$ ✓). The $S/D$ distinction — hence the entire dichotomy of §3.6 — is the choice of positive cone: archimedean, with the finite-adelic factor sector-blind (this explains structurally exp4's measurement of one singular series governing both marginals, ratios 0.99997/0.99925, corr 0.9996).
 
-### 2.5 The rigidity frontier: unconditional layers of A″
+### 2.5 The algebraic factor frontier: unconditional layers of A″$_{\rm alg}$
 
-`RIGIDITY_FRONTIER` settles the low-degree and cyclotomic layers of A″ unconditionally, with every claim labeled PROVED / MACHINE-VERIFIED / DATA / HEURISTIC.
+`RIGIDITY_FRONTIER` settles the low-degree and cyclotomic layers of the
+stronger algebraic conjecture unconditionally, with every claim labeled
+PROVED / MACHINE-VERIFIED / DATA / HEURISTIC.
 
 > **Theorems F1 and F3--F8r** (`RIGIDITY_FRONTIER §2`; `CUBIC_OBSTRUCTION`; `PARITY_RESULTANT`; `QUINTIC_OBSTRUCTION`; `SEXTIC_OBSTRUCTION`; `SEPTIC_OBSTRUCTION`; `RECIPROCAL_OCTIC`). *For $X\ge5$, $F_X$ has no linear factor; every irreducible quadratic is cyclotomic; the only cubic is $F_5$; no quartic occurs; the only quintic is $F_7$; no sextic occurs; the only septic is $F_{11}/\Phi_6$; and no reciprocal octic occurs.*  The low-degree proofs use parity-resultant unit equations followed by exact finite root/resultant/tail certificates.  They also prove $F_{13}$, $F_{17}$, and $F_{19}$ irreducible.  The first finite open layer is the nonreciprocal octic.
 
@@ -97,14 +128,15 @@ forces every reciprocal divisor to take a Gaussian-unit value at $i$.
 > $$
 > \delta(F_X)\gg\frac{\log_2X(\log_4X)^4}{(\log_3X)^4}\longrightarrow\infty.
 > $$
-> *Every nonreciprocal factor—in particular the unique odd carrier—has the stronger lower bound $\gg\log_2X\log_4X/\log_3X$.*  This combines Lenstra's lacunary gap theorem, Voutier's height bound, Smyth's nonreciprocal Mahler gap, and Ford--Maynard--Tao's theorem on two consecutive large prime gaps.  Two gaps force a putative low-degree factor to divide the single monomial between them.  As a result, the number $\mathcal H_X$ of normalized $0$--$1$ homometric candidates satisfies
+> *Every nonreciprocal factor—in particular the unique odd carrier—has the stronger lower bound $\gg\log_2X\log_4X/\log_3X$.* This combines Lenstra's lacunary gap theorem, Voutier's height bound, Smyth's nonreciprocal Mahler gap, and Ford--Maynard--Tao's theorem on two consecutive large prime gaps. Two gaps force a putative low-degree factor to divide the single monomial between them. Before using the parity anchor, factor allocation gives the bound
 > $$
 > \log|\mathcal H_X|\ll\frac{X\log_3X}{\log_2X\log_4X}=o(X).
 > $$
 
-Thus exact uniqueness remains open, but bounded-degree counterexamples are
-asymptotically impossible and homometric ambiguity has zero entropy per
-ambient coefficient.
+Singleton parity strengthens this subexponential estimate to exact
+$0$--$1$ uniqueness, at every cutoff. The displayed estimate remains a bound
+on the larger algebraic allocation space and illustrates how much structure
+was left unused by the factorization lens.
 
 The former recurrence question — do $\varphi(m)=2$ ties recur, Chebyshev-bias style? — is resolved **negatively** (`RIGIDITY_FRONTIER §4`, PROVED): the class-count walk is not mean-zero but monotone with drift; for $m=3,6$ the tie pins a monotone coordinate to a small integer passed by $X=13$, so ties are impossible forever; for $m=4$ the walk is recurrent but in the wrong affine subspace — the tie point is off-lattice, and the recurrent structure survives only as near-ties at distance exactly 1, which occur infinitely often *unconditionally* (Littlewood 1914; 111 cutoffs with $|v|^2=1$ up to $10^7$, clusters matching the Leech / Hudson–Bays sign-change regions). The effective primitive-root span dimension $D_m$ has the proved closed form $\prod_{p^e\|m}d_{p^e}$; relative trace excludes every non-squarefree modulus outright.
 
@@ -295,7 +327,13 @@ Four open problems carry the program's remaining content. Each is stated with it
 
 **P1 — Pointwise $[\flat\flat]$ positivity (binary Goldbach).** Show $|[\flat\flat](N)|<[\sharp\sharp](N)\asymp\mathfrak S(N)N$ for every even $N$ — pointwise evaluation of $\sum_{\rho,\rho'}W_2\,N^{\rho+\rho'}$ against a single-$N$ functional. Known: its mean square (D″-type $L^2$ theory; the exceptional-set literature is the binary problem retreating to the average). Needed: sign cancellation among the pair frequencies $\gamma_i+\gamma_j$ at every single $N$ — additive-correlation information strictly above RH; open even under GRH (`TERNARY §2.2`; `REPORT` Remark 1.2). No norm inequality can cross the $\log$; the calibration says this deficit is the exact boundary where the last solved problem in the family stopped being hard.
 
-**P2 — Conjecture A″, non-cyclotomic part.** F2 classifies every cyclotomic factor globally and F3--F7 classify every factor degree through seven.  The only septic is the non-cyclotomic cofactor $F_{11}/\Phi_6$; exact certificates exclude every reciprocal octic and prove $F_{13}$, $F_{17}$, and $F_{19}$ irreducible.  The first finite open layer is the nonreciprocal octic.  Asymptotically, F$\infty$ now proves that the least factor degree diverges effectively and that the nonreciprocal factor-reversal ambiguity is subexponential.  What remains is to upgrade zero ambiguity entropy to exact uniqueness: exclude higher non-cyclotomic factorization, or prove directly that no nontrivial factor reversal is again a $0$--$1$ polynomial.  Computational next checkpoint: $X=10^5$ (~2 h at current FLINT scaling).
+**P2 — Conjecture A″$_{\rm alg}$, non-cyclotomic part.** F2 classifies every
+cyclotomic factor globally and F3--F7 classify every factor degree through
+seven. Exact certificates exclude every reciprocal octic and prove
+$F_{13}$, $F_{17}$, and $F_{19}$ irreducible. The first finite open layer is
+the nonreciprocal octic. Asymptotically, F$\infty$ proves that the least factor
+degree diverges effectively. Exact $0$--$1$ phase rigidity is already settled
+by A′′; what remains here is the stronger algebraic classification.
 
 **P3 — Chowla flatness (the charged sector).** Theorem F/CORE_KMS prove the equilibrium carries nothing; Theorem P locates the barrier as spectral disjointness. The hard content is flatness of the atomless sector — $\sigma_\lambda=$ Lebesgue — untouched here and correctly located. The measurable version of the barrier's width: uniformity in $Q$ of Möbius-orthogonality to limit-periodic functions, from the known $X^{O(1)}$ toward the $e^{\sqrt X}$ that primality certification would need. A sharp sub-question (`PARITY §2.2`): does the graded-KMS structure force *any* constraint on the off-diagonal parity block? (CORE_KMS Theorem 4 answers the state-theoretic half: no — and that no-go is itself the theorem.)
 
@@ -334,8 +372,8 @@ graph TD
 
   subgraph partI["Part I — Information"]
     A["Thm A: marginal rigidity"]
-    Ap["Thm A′: prime homometric rigidity"]
-    App["Conj A″"]
+    Ap["Thm A′′: singleton-parity rigidity"]
+    App["Conj A″alg: prime-prefix irreducibility"]
     E1["Prop E1: signed-line resolution"]
     F1["Thm F1: no deg ≤ 2 factors"]
     F2["Thm F2: cyclotomic ties = (3,2),(11,6)"]
@@ -439,4 +477,4 @@ Every measured number quoted in this monograph is printed by the named script: `
 
 ### Verdict, in one paragraph
 
-The pair field is not a new structure — it is the rank-one square of the prime indicator, and every physics reading tested was inert. Interrogating it adversarially produced: a genuinely new rigidity theory for the primes' gap data (A′, F1--F$\infty$), including exact factor classifications through degree seven, reciprocal-octic exclusion, effective divergence of the least factor degree, and subexponential homometric ambiguity; a two-line smoothed form of "average Goldbach ⟺ RH" (C) that relocates a celebrated difficulty into the cutoff; the direct spectral display of the zeta sum-spectrum inside Goldbach data (D/D′), verified to $10^{-3}$–$10^{-4}$ and adversarially replicated, with its variance theory reduced to one finite-checkable energy bound (D″/P4); a forced, measured, three-block anatomy of the smoothed Goldbach count; a critical scaling theory for the Hardy–Littlewood singular series with Dickman crossover and Mertens finite-size correction ([CROSS]); and an exact symmetry-protection account of the parity barrier, closed at the level of the core (F, CORE_KMS), with the Weil obstruction stated as a proposition rather than a mood (W3). The wall is now four named problems with exact reductions, each calibrated against a solved case (ternary) and a solvable model (divisor). What the program did not do is prove exact prime homometric rigidity, or advance RH, binary Goldbach, or Chowla by one epsilon — and it says so.
+The pair field is not a new structure — it is the rank-one square of the prime indicator, and every physics reading tested was inert. Interrogating it adversarially produced: unconditional prime-prefix homometric rigidity from the singleton parity anchor (A′′), plus an independent algebraic factor theory (F1--F$\infty$) with exact classifications through degree seven, reciprocal-octic exclusion, and effective divergence of the least factor degree; a two-line smoothed form of "average Goldbach ⟺ RH" (C) that relocates a celebrated difficulty into the cutoff; the direct spectral display of the zeta sum-spectrum inside Goldbach data (D/D′), verified to $10^{-3}$–$10^{-4}$ and adversarially replicated, with its variance theory reduced to one finite-checkable energy bound (D″/P4); a forced, measured, three-block anatomy of the smoothed Goldbach count; a critical scaling theory for the Hardy–Littlewood singular series with Dickman crossover and Mertens finite-size correction ([CROSS]); and an exact symmetry-protection account of the parity barrier, closed at the level of the core (F, CORE_KMS), with the Weil obstruction stated as a proposition rather than a mood (W3). It does not advance RH, binary Goldbach, or Chowla by one epsilon — and it says so.

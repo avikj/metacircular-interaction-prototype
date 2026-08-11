@@ -18,7 +18,7 @@ $Z(t,\theta) = P(t+i\theta)P(t-i\theta)$, $P(z)=\sum_n a_n e^{-nz}$.
 **What survives, sharpened into theorems** (Sections 2–5):
 
 - **Theorem A (Marginal Rigidity).** The sum marginal (Goldbach data) determines a nonnegative sequence *uniquely* — no phase problem, by a square-root argument. The difference marginal (gap data) has a genuine kernel — the crystallographic homometry classes (minimal 0-1 example: $\{0,1,2,6,8,11\}\sim\{0,1,6,7,9,11\}$, found by exhaustive search). Heat resolution restores completeness for both. So the original "gaps lose phase" intuition is right at multiset level, and its correction is right at resolved level; both are now precise.
-- **Theorem A′ and F$\infty$ (Homometric rigidity of the primes).** If the non-cyclotomic part of $F_X(x)=\sum_{p\le X}x^{p-2}$ is irreducible over $\mathbb Q$, the set of primes $\le X$ is determined by its difference multiset up to reflection. Computationally this holds through $X=5\cdot10^4$ (degree 49,997).  Exact work classifies every cyclotomic factor and every irreducible factor through degree seven, excludes reciprocal octics, and proves $F_{13},F_{17},F_{19}$ irreducible.  Asymptotically, Lenstra's lacunary gap theorem plus Ford--Maynard--Tao prime-gap chains prove that the least factor degree tends effectively to infinity; Voutier gives $\delta(F_X)\gg\log_2X(\log_4X)^4/(\log_3X)^4$, while Smyth strengthens every nonreciprocal factor to $\gg\log_2X\log_4X/\log_3X$.  Consequently the number of normalized $0$--$1$ homometric candidates is $\exp(o(X))$ (`ASYMPTOTIC_FACTOR_RIGIDITY`). This connects the phase problem for prime gaps to polynomial factorization — a question we have not found in the literature.
+- **Theorem A′′ (Unconditional homometric rigidity of the primes).** Every finite prime prefix is determined by its full difference multiset up to translation and reflection.  The proof is elementary: after shifting by $2$, there is one even exponent and all remaining exponents are odd; equality of autocorrelations preserves the two parity-class sizes, and separating the odd and even Laurent coefficients forces any partner to be the original or its reversal (`PARITY_RIGIDITY`).  No irreducibility hypothesis is needed.  Separately, the polynomial-factor program classifies every cyclotomic factor and every irreducible factor through degree seven, excludes reciprocal octics, proves $F_{13},F_{17},F_{19}$ irreducible, and proves effective divergence of the least factor degree (`ASYMPTOTIC_FACTOR_RIGIDITY`).
 - **Theorem B (Aperture Law).** In the zero-pair expansion of $Z$, the radial coordinate $\log|z|$ is conjugate to $\gamma+\gamma'$ and the angular coordinate $\arg z$ to $\gamma-\gamma'$; and the phase aperture $\theta$ opens the zero spectrum at rate $\gamma_{\max}\approx(\theta/t)\log(1/\varepsilon)$. Verified: predicted constant $\log(10^6)=13.8$; measured 12.2–14.6.
 - **Theorem C (Smoothing trivialization).** With heat smoothing, "average Goldbach ⟺ RH" is an *algebraic* equivalence (square-root injectivity — the analytic avatar of Theorem A(i)): RH $\iff \sum_N R_\Lambda(N)e^{-Nt} = (1/t - \log 2\pi)^2 + O(t^{-3/2-\varepsilon})$ for every $\varepsilon>0$. The celebrated difficulty in the sharp-cutoff literature (Granville; Bhowmik–Schlage-Puchta) is an artifact of the cutoff, not of the arithmetic.
 - **Theorem D (Sum-spectrum identity, verified to 10⁻³).** The second-order term of the smoothed Goldbach count $G_1(X)=\sum_{m+n\le X}\Lambda(m)\Lambda(n)(X-m-n)$ is an exponential sum over **pairs of zeros at frequencies $\gamma_i+\gamma_j$** with Beta-function weights $\Gamma(\rho)\Gamma(\rho')/\Gamma(\rho+\rho'+2)$, with same-sign weight decay $\asymp(\gamma+\gamma')^{-5/2}$ (measured exponent: $-2.500$) and exponential suppression of opposite-sign pairs. Numerics: band correlation **0.9999**, amplitude ratio **0.9991**, individual spectral lines at $2\gamma_1, \gamma_1+\gamma_2, 2\gamma_2, \gamma_1+\gamma_3$ correct to 0.2–1.1%. The identity is Languasco–Zaccagnini's ($k=1$ Cesàro); the spectral-line reading, the weight law, and (to our knowledge) the numerical verification are new.
@@ -79,7 +79,7 @@ Let $a:\mathbb Z\to\mathbb R_{\ge0}$ be finitely supported, with generating poly
 
 **Discussion.** This settles the framework's phase question exactly. The compressed difference marginal — the object actually studied in "prime gaps" — genuinely loses phase (this is the crystallographic phase problem); the compressed sum marginal does not. Heat resolution erases the distinction. The correct slogan is not "gap data loses phase" but: **the gap marginal is the unique lossy projection of the pair field, and its kernel is exactly classical homometry.**
 
-### 2.1 Theorem A′: the primes are homometrically rigid
+### 2.1 Theorem A′ and the parity upgrade
 
 Since primes are the case of interest, we ask: *is the set $P_X=\{p\le X\}$ determined (up to congruence) by its difference multiset?* Equivalently: which finite sets share all gap statistics of the primes, with multiplicity? We are not aware of this question in the literature.
 
@@ -95,9 +95,22 @@ and $\Phi_6$ is palindromic, so rigidity holds there too (the induced "partner" 
 
 **Why $X=11$?** $\Phi_6\mid F_X$ iff $\sum_{p\le X}\zeta^{p-2}=0$ for a primitive 6th root $\zeta$ — an exact equidistribution coincidence of primes in residue classes mod 6 (weighted by 6th roots), i.e. a *prime-race tie*. Race ties might recur (Littlewood-type oscillations), so the theorem is engineered to be immune to them. **Exhaustive scan (exp7):** over *all* moduli $m\le60$ and *all* prime cutoffs $X\le10^6$, exactly one tie exists — the known $(X,m)=(11,6)$. The $\zeta_m$-weighted races never tie again in this range: the anomaly is genuinely sporadic.
 
-**Conjecture A″ (prime phase rigidity).** For every $X\ge3$ the non-cyclotomic part of $F_X$ is irreducible; hence the primes up to $X$ are determined by their difference multiset up to reflection, for every $X$.
+The irreducibility premise is unnecessary for the $0$--$1$ conclusion.
+After translating by $-2$, the prime prefix has the unique even element $0$
+and every other element is odd.  The singleton-parity theorem of
+`PARITY_RIGIDITY.md` therefore gives:
 
-Heuristic support: random 0-1 polynomials of degree $n$ are irreducible with probability $\to1$ (Konyagin's lower bounds; Breuillard–Varjú conditionally on GRH for Dedekind zetas; Bary-Soroker–Kozma for related models), and the primes' indicator behaves pseudo-randomly in every tested algebraic sense. Note the contrast with Sun's conjecture (irreducibility of $1+3x+5x^2+\cdots$, primes as *coefficients*): here primes are *exponents*, and the question is tied to gap statistics rather than digit representations (Cohn/Murty).
+**Theorem A′′ (unconditional prime phase rigidity).** For every $X\ge3$, any
+finite $B\subset\mathbb Z$ with $c_B=c_{P_X}$ is a translate of $P_X$ or of
+its reflection.
+
+The former **Conjecture A″** bundled this rigidity conclusion with the much
+stronger assertion that the non-cyclotomic part of $F_X$ is irreducible.
+The rigidity conclusion is now a theorem; retain the algebraic assertion as
+**Conjecture A″$_{\rm alg}$ (prime-prefix irreducibility)**.  Heuristic support
+for that separate conjecture comes from random 0-1 polynomial results
+(Konyagin; Breuillard–Varjú conditionally on GRH for Dedekind zetas;
+Bary-Soroker–Kozma).  It is no longer a prerequisite for phase rigidity.
 
 ---
 
@@ -188,7 +201,7 @@ Hence the staircase of §0, and the twin facts of Experiment 5: the zeros' own d
 
 This, we contend, is the precise and correct residue of the original "phase retrieval" intuition:
 
-- At the level of *information*: phase is lost only in the compressed difference marginal (homometry, Thm A) — and for the primes themselves, empirically never (Thm A′).
+- At the level of *information*: phase is lost in the compressed difference marginal for general sets (homometry, Thm A), but not for prime prefixes: singleton parity proves exact rigidity for every $X$ (Thm A′′).
 - At the level of *provability*: "phase" = the holomorphic/Hermitian distinction, and it sits exactly at the boundary between theorem-factories (Fujii/LZ/Thm C/D) and the open problems (pair correlation, twin primes, individual Goldbach).
 
 **What remains genuinely open in this language.** Individual Goldbach = pointwise lower bound on coefficients of the holomorphic square: needs $L^1\to$ pointwise passage (minor arcs; the $\log$-factor of Remark 1.2). Twin primes = pointwise statement about a single Hermitian frequency. Both live strictly above every rung the pair field can reach by linear/quadratic expansion. The framework clarifies *why* they are hard; it does not make them easier. Note also the persistent $\Lambda$ vs $\mathbf 1_P$ gap: $\Lambda*\Lambda(N)>0$ admits prime-power representations ($N=p^a+q^b$), so even a positivity miracle for $\Lambda$-Goldbach would leave a (sparse but real) bridge to cross; conversely all our theorems hold verbatim for either weight.
@@ -207,7 +220,14 @@ This, we contend, is the precise and correct residue of the original "phase retr
 
 ## 8. Three problems this work generates
 
-1. **Prime phase rigidity (Conjecture A″).** Upgrade the proved zero ambiguity-entropy statement to exact uniqueness: prove that the non-cyclotomic part of $F_X=\sum_{p\le X}x^{p-2}$ is irreducible for all $X$, or prove directly that no nontrivial factor reversal is again 0-1.  Cyclotomic factors are classified globally, bounded-degree factors disappear effectively, and the number of algebraic reversal allocations is subexponential (`ASYMPTOTIC_FACTOR_RIGIDITY`); the first finite open layer is a nonreciprocal octic. ~~Intermediate target: no reciprocal non-cyclotomic factor (this alone implies rigidity).~~ **Refuted (REDTEAM §3):** the minimal homometric pair's polynomial $\Phi_4(1{+}x{+}x^4)(1{-}x^3{+}x^5)$ has no reciprocal non-cyclotomic factor yet is non-rigid. Corrected exact target: no factorization $F_X = QR$ with $Q\tilde R$ again a 0-1 polynomial.
+1. **Prime-prefix irreducibility (Conjecture A″$_{\rm alg}$).** The original
+   $0$--$1$ phase-rigidity objective is solved by singleton parity (Thm A′′).
+   The stronger algebraic question remains: is the non-cyclotomic part of
+   $F_X=\sum_{p\le X}x^{p-2}$ irreducible for every $X$?  Cyclotomic factors
+   are classified globally, bounded-degree factors disappear effectively,
+   and the first finite open layer is a nonreciprocal octic.  This now studies
+   the algebraic spectral factors themselves, not the uniqueness of prime
+   sets from gap data.
 2. **Weighted additive energy of zeros.** Prove Theorem D″ with explicit constants, and determine the true order of $\sum_{|\gamma_i+\gamma_j|\le T,\ \text{4-tuples near diagonal}} W_{12}\overline{W_{34}}$ under RH + (a) GUE-adjacent hypotheses, (b) unconditionally with $N^*(\sigma,T)$ inputs (Tao–Trudgian–Yang). Payoff: sharp $\Omega/O$ results for the Goldbach-average error, potentially improving Bhowmik–Schlage-Puchta's $\Omega(X\log\log X)$ story into an equivalence with a zero-clustering statement — the exact $S$-side analogue of Goldston–Montgomery.
 3. **Screw-function ⟷ sum-spectrum join.** Matsumoto–Suzuki's screw function is built from the same secondary terms our exp6b resolves into $\gamma_i+\gamma_j$ lines. Make the dictionary exact: their Krein-space positivity condition should be equivalent to a positivity property of the measure $\sum_{i,j} W_{ij}\,\delta_{\gamma_i+\gamma_j}$. A numerical Krein test at 100k zeros is immediately feasible with this repository's data.
 
@@ -215,7 +235,7 @@ This, we contend, is the precise and correct residue of the original "phase retr
 
 ## 9. Verdict
 
-The pair field is not a new structure — it is the rank-one square of the prime indicator, and every "physics" reading of it that we tested is inert (Section 1). But interrogating it adversarially forced exact answers to real questions, and three of those answers appear to be new: the homometric rigidity of the primes and its reduction to an irreducibility conjecture (A′/A″, with computations to degree $2\cdot10^4$); the clean smoothing-trivialization of the average-Goldbach/RH equivalence (C); and the direct spectral display — identity, weight law, and 0.1%-level verification — of the zeta sum-spectrum $\{\gamma_i+\gamma_j\}$ inside Goldbach data (D), organized by the marginal-to-marginal intertwining (B) and the holomorphic/Hermitian dichotomy (§6), which we propose as the correct formalization of the framework's founding intuition. The deepest true statements adjacent to the framework — GL(2) solvability of the divisor model, Weil/screw positivity — mark where a continuation should aim.
+The pair field is not a new structure — it is the rank-one square of the prime indicator, and every "physics" reading of it that we tested is inert (Section 1). But interrogating it adversarially forced exact answers to real questions, including unconditional homometric rigidity of every prime prefix by singleton parity (A′′); the clean smoothing-trivialization of the average-Goldbach/RH equivalence (C); and the direct spectral display — identity, weight law, and 0.1%-level verification — of the zeta sum-spectrum $\{\gamma_i+\gamma_j\}$ inside Goldbach data (D), organized by the marginal-to-marginal intertwining (B) and the holomorphic/Hermitian dichotomy (§6). The polynomial irreducibility program remains valuable independent algebra rather than a prerequisite for rigidity. The deepest true statements adjacent to the framework — GL(2) solvability of the divisor model, Weil/screw positivity — mark where a continuation should aim.
 
 ---
 
