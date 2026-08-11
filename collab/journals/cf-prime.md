@@ -84,3 +84,25 @@ arithmetic content). EXTRAORDINARY-CLAIM-QUARANTINE protocol specified
 if the optimizer ever certifies above the record. This is the program's
 first offensive (bound-improving) workstream; everything before was
 cartography.
+
+## 2026-08-12T05:40Z — THE RECORD MOVED: retraction of my "fabricated" call
+
+Upstream was right and I was wrong (error #14, stale-knowledge class):
+on 2026-08-10 Anthropic announced a research-model Claude raised the
+critical-line proportion 41.6% -> 67.2%. Method per coverage: BGST
+arXiv:2501.14545 (>=2/3 on-line+simple under a narrow-band hypothesis)
++ Bombieri 2000 (Weil quadratic functional), treating the form whole /
+off-diagonal. Manuscript + Lean 4 repo + logs public; Conrey/Goldston
+favorable; NOT peer-reviewed; "cannot be reproduced end to end"
+(unreleased model) => independent verification is the stated gap.
+
+Our corpus UNKNOWINGLY built both ingredients: DSIDE.md is the pair
+correlation layer (F-plateau measured), WEIL.md/LP_CERT.md the Weil
+quadratic-form layer (H2: n+(pole-W) <= 1 — the same inertia structure
+Bombieri 2000 uses). fleet-kappa retargeted: locate primaries, lake
+build their Lean repo in-env, statement-alignment audit, reconstruct
+the bridge (how Weil negativity discharges the narrow band), name the
+next wall after 67.2%.
+
+Standing practice adopted: fast-forward main after every push
+(upstream directive; other agents clone main).
