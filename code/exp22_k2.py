@@ -154,17 +154,18 @@ def main():
     print(f"k=1 band {BAND}: corr = {corr1:.5f}, amplitude ratio = {rat1:.4f}  (reference)")
 
     # ------------------------------------- joint least-squares line amplitudes
-    # design: all pair-sum lines from first 14 zeros with f<=95, all single-gamma
-    # lines <=95 (truncation-leakage absorbers), Legendre trend; uniform weights
-    # (grid resolution 2pi/4.33 = 1.45 rad); frequencies closer than 0.6 rad are
-    # merged into one representative column to keep the fit well-conditioned.
+    # design: all pair-sum lines from first 14 zeros with f<=95 + Legendre trend,
+    # uniform weights (grid resolution 2pi/4.33 = 1.45 rad); frequencies closer
+    # than 0.6 rad merged. NOTE (validated on the pure model): adding single-gamma
+    # columns interlaces the pair lines at ~1 rad spacing and the resulting
+    # correlated chain is ill-conditioned -- coefficient blow-up 9x-70x at
+    # 2g2/g2+g3; pairs-only recovers all five exact amplitudes to <1.3%.
     raw = []
     for i in range(14):
         for j in range(i, 14):
             f = gam[i] + gam[j]
             if f <= 95:
                 raw.append(f)
-    raw += [g for g in gam[:30] if g <= 95]
     raw = sorted(raw)
     merged = [raw[0]]
     for f in raw[1:]:
@@ -179,7 +180,7 @@ def main():
     A = np.hstack(cols)
 
     def line_amps(y):
-        sol, *_ = np.linalg.lstsq(A, detrend(y), rcond=1e-6)
+        sol, *_ = np.linalg.lstsq(A, detrend(y), rcond=1e-8)
         amps = {}
         for kk, f in enumerate(allf):
             a, b = sol[6 + 2 * kk], sol[6 + 2 * kk + 1]
@@ -213,9 +214,14 @@ def main():
         th2 = 1.0 / abs(2 + 1j * f)
         kratio_rows.append((name, f, meas, th3, th2))
         print(f"  {name:6s} {f:7.3f}  {meas:.6f}  {th3:.6f}  {th2:.6f}   {meas/th3:.4f}")
-    mr = [row[2] / row[3] for row in kratio_rows]
-    print(f"  model-side exact check: amp_m2/amp_m1 vs 1/|3+if|: ",
+    print(f"  model-side LSQ check: amp_m2/amp_m1 vs 1/|3+if|: ",
           ", ".join(f"{amps_m2[f]/amps_m1[f]/(1/abs(3+1j*f)):.5f}" for f, _ in tests[:3]))
+    # exact-weight check, no readout involved: enumerate pairs in +-0.02 of line
+    fpair = (sgn[:, None] + sgn[None, :]).ravel()
+    w1f, w2f = W1.ravel(), W2.ravel()
+    print("  exact-weight check |sum W2|/|sum W1| vs 1/|3+if|: ",
+          ", ".join(f"{abs(np.sum(w2f[np.abs(fpair-f)<.02]))/abs(np.sum(w1f[np.abs(fpair-f)<.02]))/(1/abs(3+1j*f)):.6f}"
+                    for f, _ in tests[:3]))
 
     # ------------------------------------------------ weight-decay slope (7/2)
     K3 = 320
@@ -232,20 +238,21 @@ def main():
     slope = np.polyfit(np.log(fs[keep]), lw[keep], 1)[0]
     print(f"\nsame-sign |W2| decay: fitted slope {slope:.4f}  (predicted -3.5)")
 
-    # ---------------------------------------------------------------- spectra
+    # ------------------------------------------------- spectra (padded, display)
     kais = np.kaiser(M, 9.0)
+    NP = 8 * M
+    fpad = np.fft.rfftfreq(NP, d=dlx) * 2 * np.pi
 
     def spec(y):
-        Y = np.fft.rfft(detrend(y) * kais)
-        return np.abs(Y)
+        return np.abs(np.fft.rfft(detrend(y) * kais, NP))
 
     sp_d, sp_m = spec(data2), spec(model2)
 
     # ----------------------------------------------------------------- figure
     fig, ax = plt.subplots(3, 1, figsize=(13, 12))
-    band = (freqs > 22) & (freqs < 92)
-    ax[0].plot(freqs[band], sp_d[band] / sp_d[band].max(), lw=0.9, label="k=2 data spectrum")
-    ax[0].plot(freqs[band], -sp_m[band] / sp_m[band].max(), lw=0.9, color="crimson",
+    band = (fpad > 22) & (fpad < 92)
+    ax[0].plot(fpad[band], sp_d[band] / sp_d[band].max(), lw=0.9, label="k=2 data spectrum")
+    ax[0].plot(fpad[band], -sp_m[band] / sp_m[band].max(), lw=0.9, color="crimson",
                label="k=2 zero-pair model (mirrored)")
     first = True
     for f in lines:
