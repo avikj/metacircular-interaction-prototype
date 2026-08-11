@@ -29,7 +29,7 @@ theorem reverse_reverse_of_constantCoeff_ne_zero {R : Type*} [Semiring R]
   have h0 : p.natTrailingDegree = 0 := natTrailingDegree_eq_zero.mpr (Or.inr hp)
   have hdeg : p.reverse.natDegree = p.natDegree := by
     rw [reverse_natDegree, h0, Nat.sub_zero]
-  unfold Polynomial.reverse
+  unfold Polynomial.reverse at hdeg ⊢
   rw [hdeg]
   exact reflect_reflect
 
@@ -44,14 +44,17 @@ theorem Monic.eq_of_dvd_of_natDegree_eq {F G : ℤ[X]} (hFm : F.Monic) (hGm : G.
     exact hGm.ne_zero hq
   have hnd : G.natDegree = F.natDegree + q.natDegree := by
     rw [hq]
-    exact Polynomial.natDegree_mul hFm.ne_zero hq0
+    exact hFm.natDegree_mul' hq0
   have hqdeg : q.natDegree = 0 := by omega
   have hqC : q = C (q.coeff 0) := Polynomial.eq_C_of_natDegree_eq_zero hqdeg
-  have hlead : G.leadingCoeff = F.leadingCoeff * q.leadingCoeff := by
-    rw [hq, Polynomial.leadingCoeff_mul]
-  rw [hGm.leadingCoeff, hFm.leadingCoeff, one_mul] at hlead
-  have hq1 : q = 1 := by
-    rw [hqC, ← Polynomial.leadingCoeff, ← hlead, map_one]
+  have hlead : q.leadingCoeff = 1 := by
+    have hGq : G.leadingCoeff = q.leadingCoeff := by
+      rw [hq, mul_comm]
+      exact Polynomial.leadingCoeff_mul_monic hFm
+    rw [← hGq, hGm.leadingCoeff]
+  have hc1 : q.coeff 0 = 1 := by
+    rw [← hqdeg, Polynomial.coeff_natDegree, hlead]
+  have hq1 : q = 1 := by rw [hqC, hc1, map_one]
   rw [hq, hq1, mul_one]
 
 /-- **Theorem A′, irreducible core.** If F ∈ ℤ[X] is irreducible, monic, with
@@ -78,8 +81,10 @@ theorem reversal_rigidity (F G : ℤ[X]) (hFirr : Irreducible F)
     have hrevdeg : G.reverse.natDegree = F.natDegree := by
       rw [reverse_natDegree, hGtd, Nat.sub_zero, hdeg]
     have hrevmonic : G.reverse.Monic := by
-      unfold Polynomial.Monic
-      rw [reverse_leadingCoeff, Polynomial.trailingCoeff, hGtd, hG0]
+      have ht : G.trailingCoeff = 1 := by
+        rw [Polynomial.trailingCoeff_eq_coeff_zero hG0', hG0]
+      have hl : G.reverse.leadingCoeff = 1 := by rw [reverse_leadingCoeff, ht]
+      exact hl
     have hrevF : G.reverse = F :=
       Monic.eq_of_dvd_of_natDegree_eq hFm hrevmonic hrevdeg hFGrev
     calc G = G.reverse.reverse := (reverse_reverse_of_constantCoeff_ne_zero G hG0').symm
