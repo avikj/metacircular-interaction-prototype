@@ -17,6 +17,57 @@ fields.
 Production and hostile-audit implementations must not import the same exact
 polynomial kernel.  Shared code is convenience, not independence.
 
+## Finite observer audits
+
+`observer_channel.py` compiles the finite information lens into an exact
+counterexample/reconstruction kernel.  Given JSONL rows for a finite state,
+its observable value, and a target value, it decides whether the target is
+constant on every observer fiber.  On failure it emits a concrete collision;
+in either case it computes the exact minimum zero-error side alphabet for the
+target and for full-state reconstruction.  This separates target sufficiency,
+fiber ambiguity, and Shannon channel capacity instead of treating them as one
+quantity.
+
+The checker is exact only relative to the supplied finite state list.  A
+separate proof obligation must establish that the list exhausts the intended
+mathematical domain; no finite table certifies an infinite universal claim.
+
+## Odd-degree tail certificates
+
+`odd_tail_certificate.py` is the reusable arithmetic residue of the septic
+and nonic closures.  For a monic odd-degree candidate with one negative root,
+it checks the strict rational inequality that excludes divisibility by every
+later odd-exponent prefix tail.  The input contains a nonzero prefix
+resultant, rational upper bounds for the negative root and complex-pair
+moduli, the prefix support, and the first tail exponent.  It also binds a
+polynomial identifier, prefix identifier, the stride-two/coefficient-one tail
+model, and a hash of the canonical input.  Rationals use the repository wire
+format `{ "num": "...", "den": "..." }`.  The output records the exact lower
+side, upper side, and signed margin.
+
+The kernel deliberately does not bless its inputs: root topology and
+enclosures, monicity/integrality, prefix identity and support, resultant
+correctness, and the asserted later-tail support/coefficient bound remain
+separate proof obligations.  This makes the cheap verifier reusable without
+hiding the agent-derived mathematics inside configuration.
+
+## Monomial vertex certificates
+
+`monomial_vertex.py` compiles positive rational cap and product constraints
+into a finite exact vertex problem.  In log coordinates, each disjoint
+product law is a simplex of cap deficits.  Every positive-coefficient Laurent
+polynomial is convex there, so its closed-domain maximum (or strict-domain
+supremum) is the largest exact value on the product-of-simplices vertices.
+This transfers conserved-product reasoning into a cheap traditional program:
+the checker accepts signed integer exponents, rejects floats and overlapping
+groups, hashes the canonical problem, and evaluates all vertices with rational
+arithmetic.
+
+The result certifies only the declared optimization problem.  Root caps,
+norm equations, and the translation from polynomial coefficients to a
+positive Laurent objective remain external theorem obligations.  Strict
+domains are reported as suprema with attainment deliberately undecided.
+
 ### Exponent-addressed bound contracts
 
 Analytic root bounds are often written from the leading coefficient while the
@@ -64,4 +115,6 @@ Run the regressions with:
 ```sh
 python3 machinery/test_cpu_ledger.py
 python3 machinery/test_bound_contract.py
+python3 machinery/test_odd_tail_certificate.py
+python3 machinery/test_monomial_vertex.py
 ```

@@ -14,3 +14,4 @@ jobs:
           python-version: "3.12"
       - run: python3 code/discovery_loop.py validate
       - run: python3 machinery/validate.py
+      - run: python3 -m unittest discover -s machinery -p 'test_*.py'

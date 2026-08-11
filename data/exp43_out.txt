@@ -1,0 +1,6 @@
+# exp43: Liouville sign-pattern census, X=10000000
+k=2: max|freq-2^-k| = 9.34e-05 (pattern 11), min count = 2499066 (pattern 11, freq 0.249907); all 4 patterns present: True
+k=3: max|freq-2^-k| = 1.42e-04 (pattern 111), min count = 1248580 (pattern 111, freq 0.124858); all 8 patterns present: True
+k=4: max|freq-2^-k| = 1.15e-04 (pattern 0101), min count = 623876 (pattern 0100, freq 0.062388); all 16 patterns present: True
+k=5: max|freq-2^-k| = 1.23e-04 (pattern 01001), min count = 311271 (pattern 01001, freq 0.031127); all 32 patterns present: True
+k=6: max|freq-2^-k| = 8.01e-05 (pattern 101010), min count = 155594 (pattern 101001, freq 0.015559); all 64 patterns present: True

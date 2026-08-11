@@ -48,20 +48,20 @@ must prove separately that the fibers are exactly those orbits; the twirl
 lemma supplies only the easy non-injectivity direction. The table records
 proved cases and organizing conjectures, not an automatic dichotomy:
 
-| quotient | charge group G | charged generator | corpus theorem |
+| quotient | symmetry/fiber structure | hidden generator | corpus theorem |
 |---|---|---|---|
 | phase: ψ ↦ ρ | 𝕋 (global phase) | — | lossless on rays (trivial case) |
-| difference marginal | factor-reversal allocation group, after accounting for multiplicities, reciprocal associates, units, and coefficient constraints | factor-reversal | Rosenblatt--Seymour/UFD describes algebraic allocations; `PARITY_RIGIDITY` proves the prime $0$--$1$ class is rigid by a simpler character anchor, without classifying every algebraic spectral factor |
+| difference marginal | product-of-chains allocation fiber, with global reversal involution | factor-reversal choice | UFD gives the exact fiber in `ALGEBRAIC_ALLOCATION_CHANNEL`; `PARITY_RIGIDITY` proves its prime $0$--$1$ slice is one reflection class |
 | positive cone (E1) | ℤ/2 (reflection n↦−n) | the cone choice | symmetrization kills the charge ⟹ signed-line gap data injective |
 | sieve/gauge quotient | 𝕋^𝒫 | Liouville λ = (−1,−1,…) | Theorem F + CORE_KMS: equilibrium annihilates all charge; p=2k−1 gives exact finite-place annihilation |
 | polynomial certificates | ℤ/2 (x ↦ −x) | odd part O | Res(g,g(−x)) = charge pairing; the exclusion tower = charge-neutrality obstructions (TENSIONS §2) |
 
-The last column of the review's three-language table is thus literal: phase
-retrieval, factor-reversal homometry, and sieve parity are the *same lemma*
-applied to three (M, G) pairs. What varies — and where all mathematical
-content lives — is the *computation of the charge group for the specific
-arithmetic object*: that is what A′'s irreducibility program, F's KMS
-uniqueness, and the p=2k−1 identity respectively achieve.
+The table records a common observer/fiber schema, not one group-action theorem
+in every row. Genuine group actions support the twirl/charge lemma. The
+factor-reversal row is instead a UFD allocation fiber: with multiplicities it
+is a product of chains rather than a group orbit. What varies — and where the
+mathematical content lives — is the exact computation of each fiber or
+symmetry structure for the arithmetic object.
 
 ## 3. The reframed central question, and its two machines
 
@@ -106,7 +106,7 @@ state of §1 and E_G is the twirl over the group named.
 
 | corpus theorem | QI statement it instantiates |
 |---|---|
-| **A(ii) (difference kernel / homometry)** | State discrimination under a translation SSR: measurements restricted to the shift algebra C\*(ℤ) see only tr(ρS_h) = c(h), i.e. the twirled reduction. Two supports are homometric iff their states have identical C\*(ℤ)-restrictions; by Helstrom + twirl, the optimal discrimination bias under covariant measurements is ½‖E(ρ_A−ρ_B)‖₁ = **exactly 0** — homometric partners are perfectly indistinguishable, not merely hard to tell apart. The hidden frame group whose orbits index the fibers is the charge group (ℤ/2)^{#factors} of §2 (factor reversal); Rosenblatt–Seymour is its orbit classification. |
+| **A(ii) (difference kernel / homometry)** | State discrimination under a translation SSR: measurements restricted to the shift algebra C\*(ℤ) see only tr(ρS_h) = c(h), i.e. the twirled reduction. Two supports are homometric iff their states have identical C\*(ℤ)-restrictions; by Helstrom + twirl, the optimal discrimination bias under covariant measurements is ½‖E(ρ_A−ρ_B)‖₁ = **exactly 0** — homometric partners are perfectly indistinguishable, not merely hard to tell apart. Algebraically, the normalized spectral-factor fiber is the product of chains $\prod_j\{0,\ldots,m_j\}$ from `ALGEBRAIC_ALLOCATION_CHANNEL`; it is a binary hypercube only in the squarefree case. Global reversal is the central involution. |
 | **A(i) (sum rigidity)** | Frame extension lifts the SSR: adjoining the reflection to translations (C\*(ℤ) → C\*(D_∞), the reflected coset {JS_N}) makes the covariant data {r(N)} informationally complete on the positive cone. In BRS terms: the sum marginal is a *relational encoding* w.r.t. the dihedral frame, and one added ℤ/2 reference frame (reflection) converts an SSR-degenerate tomography problem into a complete one. |
 | **A′ (prime rigidity)** | Charge-group triviality = the SSR has no room to act on the state class: irreducibility of the noncyclotomic part forces the frame group down to the global reversal (ℤ/2)¹, whose orbit {P_X, reflection} is the trivial ambiguity. Rigidity is not better data — it is a smaller asymmetry group. |
 | **E1 (positive cone)** | The cone choice is itself a ℤ/2 reference frame (which half-line is "positive"). Symmetrization a ↦ ã is the relational (frame-independent) encoding: on even states c_ã = ã\*ã, and A(i) applies — the crystallographic phase problem is *frame dependence*, destroyed by passing to the decoherence-free (symmetric) encoding. BRS's "relational encodings evade the SSR", literally. |

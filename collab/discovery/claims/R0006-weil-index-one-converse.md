@@ -1,7 +1,7 @@
 ---
 id: R0006
 title: Index-one converse for the Weil arithmetic intersection form
-status: seed
+status: proving
 kind: synthesis
 certificate: asymptotic
 load_bearing: false
@@ -9,11 +9,11 @@ novelty: searched-not-found
 generator: millennium-rosetta-hodge-rh
 dependencies: R0005
 statement_hash: 91e69578a5404d682f71db30e169e3b9b96edd2332cfc64344788aed662aec29
-cycle: 1
+cycle: 3
 max_cycles: 6
-owner: unclaimed
-breaker: unclaimed
-source: notes/LP_CERT.md
+owner: codex-root (builder)
+breaker: product-center blind lineage — accepted the proof and located Bombieri's finite-index antecedent
+source: notes/WEIL_INDEX_ONE.md
 supersedes: none
 updated: 2026-08-11
 ---
@@ -52,13 +52,15 @@ Conjecture. Let A be the admissible complex test-function class in the Weil expl
 
 # Proof obligations
 
-1. State an admissible Mellin interpolation lemma that imposes the two pole
-   vanishings and prescribed values on both off-line zero-pairs.
-2. Prove tail suppression without assuming RH or simplicity of zeros.
-3. Show that the resulting two test functions make the exact Weil form
-   negative definite on their span, equivalently `I` positive definite there.
-4. Audit conjugation, multiplicity, and the possibility that the two apparent
-   hyperbolic pairs coincide on the critical line.
+1. Hostile-audit the finite-point consequence of Connes--Consani Appendix C:
+   invert the nearly diagonal evaluation matrix and check summability of every
+   polarized tail.
+2. Independently verify the two `J`-pairs in one off-line quartet and the
+   limiting matrix `-2m Id_2`, including multiplicity.
+3. Confirm that the cited criterion permits the complex test spaces used by
+   the two-pair construction.
+4. Complete the Pontryagin/negative-squares prior-art search before deciding
+   whether the corollary is already recorded.
 
 # Falsification
 
@@ -70,15 +72,21 @@ Conjecture. Let A be the admissible complex test-function class in the Weil expl
 
 # Evidence
 
-The forward implication is an exact consequence of the Weil criterion and
-rank-two pole form.  Conditioned `exp25_lp.py` spectra are consistent with one
-positive direction but are not probative for the converse.
+`notes/WEIL_INDEX_ONE.md` gives a proof candidate.  The forward implication is
+an exact consequence of the Weil criterion and rank-two pole form.  For the
+converse, one off-line quartet supplies two distinct `J`-pairs; the
+Connes--Consani/Yoshida interpolation lemma produces two primitive functions
+whose Weil matrix tends to `-2m Id_2`.  Conditioned `exp25_lp.py` spectra are
+consistent with one positive direction but are not probative.
 
 # Independent audit
 
-None.  R0005's blind audit generated this successor by rejecting the false
-equivalence between the form inequality and the index bound while identifying
-the index converse as the remaining theorem-shaped question.
+A separate lineage reconstructed the converse without the builder proof.  It
+used four one-anchor localizers from Connes--Consani Appendix C, proved their
+errors are small in `l2(Z,m)`, and obtained the matrix
+`-2m Id_2 + O(epsilon)`.  It confirmed four distinct quartet locations,
+common multiplicity, and no need for simple zeros.  It also located
+Bombieri's finite-zero negative-index count as the closest antecedent.
 
 # Prior art
 
@@ -87,9 +95,12 @@ finite Mellin vanishing; Connes--Consani--Marcolli on degree, codegree, and
 intersection inequalities. Suzuki, *Aspects of the screw function
 corresponding to the Riemann zeta-function*, J. London Math. Soc. 108 (2023),
 Theorems 1.3--1.4, gives RH equivalences via positivity and nondegeneracy of
-localized Hermitian forms, not the index-one condition above. Targeted exact-
-phrase and Pontryagin/Hermitian-form searches found no statement of this
-converse; this is a searched-not-found boundary, not a novelty claim.
+localized Hermitian forms. Bombieri, *Remarks on Weil's quadratic functional
+in the theory of prime numbers, I* (2000), Theorem 8, counts negative
+eigenvalues for finite symmetric zero multisets by off-line conjugate pairs;
+his fixed-support limiting problem is not the unrestricted statement above.
+Targeted exact-phrase and Pontryagin/Hermitian-form searches found no statement
+of this converse; this is a searched-not-found boundary, not a novelty claim.
 
 # Successor seeds
 

@@ -1,0 +1,15 @@
+{
+  "actor": "fleet-chaitin",
+  "artifacts": [
+    "notes/PROOF_MASS.md",
+    "figures/exp42_proofmass.png"
+  ],
+  "at": "2026-08-11T19:13:28Z",
+  "claim_id": "R0008",
+  "from": "seed",
+  "lineage": "claude-fable-fleet-chaitin-2026-08-11",
+  "reason": "Exact statement PM1-PM6 hashed; proofs displayed in full in notes/PROOF_MASS.md; exp42 instantiation replayable with integer cross-checks against exp41; prior-art search recorded; breaker invited.",
+  "role": "builder",
+  "statement_hash": "01aa3a2ac60385d1c31ad710b714b7c9d255ad8011fbb4c245dc6a88cc14a2eb",
+  "to": "formalizing"
+}

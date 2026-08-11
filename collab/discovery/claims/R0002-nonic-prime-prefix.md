@@ -1,7 +1,7 @@
 ---
 id: R0002
 title: Nonic prime-prefix factor classification
-status: seed
+status: superseded
 kind: measurement
 certificate: exact-finite
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: unsearched
 generator: factor-pipeline-acceptance
 dependencies: none
 statement_hash: 8c4122a70e711bc2b507eb3f132f93f71def84c882418caa559108a78b500b4b
-cycle: 1
+cycle: 3
 max_cycles: 8
 owner: octic-frontier
 breaker: unclaimed
@@ -68,13 +68,15 @@ Candidate theorem: for every real X, the prime-prefix polynomial $F_X(x)=\sum_{p
 
 # Evidence
 
-Discovery implementation is in progress under `code/exp37_nonic_*`.  No count,
-bound, or tractability estimate is yet authoritative in this packet.
+The literal all-real-$X$ statement is refuted at every $X<2$: then
+$F_X=0$, so every polynomial divides it.  The corrected $X\ge2$ theorem is
+proved by the fresh certificate registered as R0009, which supersedes this
+boundary-defective seed.
 
 # Independent audit
 
-Pending.  The eventual hostile audit must not import the production polynomial
-kernel.
+The R0009 hostile audit identified the missing boundary independently and
+accepted the corrected theorem after a fresh full replay.
 
 # Prior art
 
@@ -91,6 +93,5 @@ bounds must be attributed separately from any prime-prefix specialization.
 
 # Event log
 
-- Authoritative transitions are intended to live under
-  `collab/discovery/events/R0002/`; certification is currently disabled.
 - 2026-08-11: seeded as the first exact-computation acceptance experiment.
+- 2026-08-11: refuted at $X<2$, then superseded by corrected theorem R0009.

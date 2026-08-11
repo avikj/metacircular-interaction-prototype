@@ -1,11 +1,13 @@
-# The meta-loop: a strategic engine for accelerated mathematics, extracted from one night's data
+# The meta-loop: a strategic engine for accelerated mathematics, extracted from one local case history
 
 The Rosetta agent maps *what is equivalent across languages*. This document is
 its complement: *how to run the loop* that exploits such a map — a general
-architecture for machine-scale mathematics, derived not from speculation but
-from this repository's own measured history (~40 landed results, 5
+architecture for machine-scale mathematics, suggested by this repository's
+own case history (~40 landed results, 5
 refutations-and-repairs, 3 independent replications of one identity, 3
 tension-dissolutions, one V3 batch, two model lineages colliding productively).
+These counts motivate hypotheses about workflow; they do not by themselves
+establish causal performance claims.
 
 ## 1. The moves, ranked by measured yield
 
@@ -48,9 +50,9 @@ answer — each structural theorem of this corpus *is* a meta-move:
   strategies.** If data D provably underdetermines object O (homometry),
   then *no proof strategy consuming only D can establish properties
   distinguishing O* — entire strategy classes are excluded a priori. Before
-  attacking, compute what the available data determines. (This is
-  model-theoretic hygiene imported into analytic practice; nobody does it
-  systematically.)
+  attacking, compute what the available data determines.  This is
+  model-theoretic hygiene imported into analytic practice; explicit automation
+  of it remains uncommon.
 - **Theorem F + CORE_KMS (gauge protection) → the barrier–symmetry
   dictionary.** Every persistent barrier should be interrogated for the
   conservation law protecting it. A barrier with an identified protecting
@@ -85,7 +87,10 @@ Roles, each of which tonight's history instantiates:
 | language rotators | BLINDSPOTS corrective | scheduled vocabulary-adversarial waves |
 
 The loop: **measure → recognize → claim → prove ∥ break → certify (typed) →
-transport → dissolve → rotate → re-measure.** Each arrow is cheap; the yield
+harvest the path → transport → dissolve → rotate → re-measure.** The harvest
+pass asks what else the proof route established: generalizations, deleted
+hypotheses, duals, algorithms, counterexample families, and bridges to earlier
+claims (`collab/PATH_HARVEST.md`). Each arrow is intended to be cheap; the yield
 came from running *all* of them, concurrently, with the collision-tolerant
 substrate (one-file messages, claims board, strike-through corrections)
 absorbing the friction. Two independent model lineages measurably
@@ -106,20 +111,23 @@ an identity.
    auto-flag strategy classes that provably cannot work.
 4. **Certificate-typed conjecture registry**: every open statement carries
    its certificate type and its protecting symmetry (if any) — the two
-   fields that tonight proved most decision-relevant and that no existing
-   database (OEIS, LMFDB, Lean mathlib) records.
-5. **The substrate, packaged**: PROTOCOL.md + STATE.md + V-ladder as a
-   deployable kit for any multi-agent mathematical collaboration; its
-   empirical warrant is this branch's git log.
+   fields that this case history found especially decision-relevant.  TheoremDB
+   is now the closest public research-memory service; our contribution should
+   interoperate with it rather than claiming the database layer is absent.
+5. **The substrate, federated**: evaluate mature open systems before extending
+   the local scaffold.  TheoremDB supplies public memory; Albilich supplies a
+   substantial proof-state workflow; QED supplies an independent informal
+   research pipeline; OpenProver supplies a Lean worker.  See
+   `OPEN_MATH_ECOSYSTEM.md`.
 
 The first routing scaffold now lives in `collab/discovery/`: one linguistic
 state packet per claim, a Rosetta bridge grammar (`ROSETTA_ENGINE.md`), and a
 small consistency validator/router (`code/discovery_loop.py`). Certification
 is deliberately disabled until manifests and reviewer lineage are enforceable.
-This avoids a
-large orchestration stack.  Agent identities and mathematical state remain
-readable language; code enforces only the few epistemic transitions that must
-never become matters of rhetoric.
+This remains a limited local router, not a replacement for those systems.
+Agent identities and mathematical state remain readable language; its current
+code detects only a limited set of consistency errors, and certification stays
+disabled until the stronger gates are enforceable.
 
 ## 5. Honest limits
 

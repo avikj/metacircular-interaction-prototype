@@ -6,6 +6,8 @@ This is a research map, not a claim that the Millennium problems have been
 reduced to one another.  We adopt "solvable" as a working prior: each problem
 is assumed to have a finite conceptual bottleneck, but every proposed
 transport must still expose exact maps, defects, and falsification tests.
+The ranked executable allocation derived from a later hostile sweep is in
+`MOONSHOT_PORTFOLIO.md`.
 
 The seven problems are valuable here because they have already destroyed many
 seductive proof styles.  Their negative knowledge is reusable.  The official
