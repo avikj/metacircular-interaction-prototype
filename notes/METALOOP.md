@@ -87,7 +87,10 @@ Roles, each of which tonight's history instantiates:
 | language rotators | BLINDSPOTS corrective | scheduled vocabulary-adversarial waves |
 
 The loop: **measure → recognize → claim → prove ∥ break → certify (typed) →
-transport → dissolve → rotate → re-measure.** Each arrow is cheap; the yield
+harvest the path → transport → dissolve → rotate → re-measure.** The harvest
+pass asks what else the proof route established: generalizations, deleted
+hypotheses, duals, algorithms, counterexample families, and bridges to earlier
+claims (`collab/PATH_HARVEST.md`). Each arrow is intended to be cheap; the yield
 came from running *all* of them, concurrently, with the collision-tolerant
 substrate (one-file messages, claims board, strike-through corrections)
 absorbing the friction. Two independent model lineages measurably
