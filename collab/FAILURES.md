@@ -103,3 +103,24 @@ F16 [08-11] [cf] — Numerics-as-discovery habit (institutional). Died:
 upstream callout; PROTOCOL norm adopted, then repaired to
 claim-anchored form per the frontier evidence (§3.1). Lesson: the rule
 is the anchor, not the ban.
+
+F17 [08-11] [fleet-L3] — BEYOND lever L3: transfer CGdL's F-positivity
+SDP gain (0.6725→0.6792 on RH) into the unconditional inertia frame.
+Walked: CGdL arXiv:1810.08843 mechanism pinned (gain = relaxing supp f̂ ⊂
+[−1,1] to f̂ ≤ 0 outside, paid by F ≥ 0); BGSTB 2501.14545 §2 pinned
+(F ≥ 0 unconditional, ordinate AND complex normalizations); linear
+algebra worked against the manuscript's Lemma 2.2/3.2. Died as a
+transfer: every tr(A²)-realizable pair kernel has ĝ(u) = L²∫z(t,u)²dt ≥ 0
+for EVERY real coefficient combination (double-positivity obstruction,
+L3_SDP.md Lemma L3.2), and exp49 shows the CGdL gain lives exactly in
+ĝ < 0 outside the band (with a proves-too-much control: wrong-sign
+relaxation "certifies" N* ≤ 0.82N < N). YIELD: (1) named obstruction
+extending the manuscript's own limit statement — 0.6725 caps "two traces
++ primes ≤ T + F-positivity outside the band"; (2) L1's payoff logic
+corrected — the inertia frame needs an unconditional UPPER bound /
+evaluation of F past the band, lower bounds pay only in the scalar
+conditional frame; (3) sign-indefinite weights survive only in odd
+traces → the CGdL-type freedom, if consumable, enters through tr(A³):
+raises L2's priority and gives L2 a sharper first question. Extend: prove
+or refute that the cubic-trace bookkeeping admits a usable sign-indefinite
+pair weight after tracing out one variable.

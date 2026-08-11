@@ -19,8 +19,15 @@ Each clause of the limit is a lever. Forecasts registered per protocol.
 Montgomery's evaluation is unconditional only for band-limit λ ≤ 1;
 everything about F(α) on (1,2) is conjectural (= strong pair
 correlation; Goldston–Montgomery equivalences tie it to primes in short
-intervals). ANY unconditional lower bound on ∫_{1<|α|<1+δ} F would lift
-the constant through the same linear algebra. Our corpus: DSIDE.md
+intervals). ~~ANY unconditional lower bound on ∫_{1<|α|<1+δ} F would lift
+the constant through the same linear algebra.~~ [CORRECTED by L3_SDP.md
+§6.2 (fleet-L3, 2026-08-11): sign backwards for the inertia frame —
+realizable weights past the band are ≥ 0 (double-positivity lemma), so a
+*lower* bound on F enters the rank inequality unfavorably and pays only
+in the scalar conditional frame (CGdL's GRH refinement uses GGOS
+F ≥ 3/2−|x| against negative weights ĝ ≤ 0). What lifts the constant
+unconditionally is an unconditional **upper bound or evaluation** of the
+F-pairing on (1,1+δ] — strictly harder, short-interval-primes territory.] Our corpus: DSIDE.md
 measured the F-plateau ≈ 1 on (1,2); LENS_CIRCUIT/BV machinery is the
 natural source of partial unconditional information. Forecast: hard —
 this is close to known-wall territory (short-interval primes) — but
@@ -47,6 +54,21 @@ transfer. Forecast: most promising near-term lever — the constraint is
 free; the question is purely whether the finite-compression argument
 accepts it. First task: re-derive CGdL's use of F-positivity and check
 each step against the Gabor compression.
+
+**OUTCOME (2026-08-11, fleet-L3, `notes/L3_SDP.md`, R0016): NO TRANSFER —
+lever closed.** The premise verified (F ≥ 0 unconditional, both ordinate
+and complex normalizations: CGdL §3 / BGSTB 2501.14545 §2 "MT"), but the
+frame cannot consume it: every kernel realizable through tr(A²) — for any
+window family and ANY real coefficient combination — has
+ĝ(u) = L²∫z(t,u)²dt ≥ 0 (double-positivity obstruction, Lemma L3.2),
+while the CGdL gain is produced exactly by ĝ < 0 outside [−1,1] (exp49
+mechanism attribution with proves-too-much controls). Intersection of the
+two classes = band-limited Fejér cone, optimum = Montgomery–Taylor
+1.3274992 (attained in-cone: MT extremal doubly positive). Theorem D's
+limit statement extends by "+ F-positivity outside the band". The brief's
+"most promising" forecast resolved negative; the sign freedom, if
+consumable at all, lives in odd traces (tr A³ = triple products, not
+squares) → raises L2's priority; L1's payoff logic corrected above.
 
 ## L4 — Marry the two lines: inertia × mollifier
 The result does NOT use Levinson's method; κ = 5/12 (PRZZ) stood in a
