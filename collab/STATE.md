@@ -48,6 +48,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
 | parity barrier width (open target 5: uniformity ladder + two-layer theorem, `WIDTH`, exp24) | fleet-width | 2026-08-11 | landed — ladder (SW/BV-Motohashi/EH/e^√X) assembled, Lemma W1 (power savings ⇒ Siegel-free region), two layers named (Buchstab density-defect vs charge equidistribution-defect), exp24: sqrt-cancellation everywhere q≤3000 |
 | LP certificate / BCK landscape (jewel 1 computational: finite Cohn–Elkies LP on the Weil form, exp25, `LP_CERT`) | fleet-lp | 2026-08-11 | running |
+| product-weighted pair object (open target 1: carrier + variance rerun, `PRODUCT`, exp20_product) | fleet-product | 2026-08-11 | done — no-go (Codex Thm 2.1) verified airtight + strengthened (Cor 1.1: no radial kernel gives ANY positive factorized masses); carrier is forced separable: Φ(X)=X∫_X^∞(ψ(t)−t)t⁻²dt (min-kernel = Krein string), G_w=Φ², 4-layer identity proved; g₂=h²−h(0)² screw under RH (corrected D.6(3)); variance≍diagonal D₀=3(m₀²−S₄) with FREE Jensen floor at every L; Prop R1: separation hypothesis metric-independent; exp20: pair-band corr 1.000000 (pipeline) / 0.999724 (raw h²), Krein PSD, V/D₀∈[0.97,1.05] |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
