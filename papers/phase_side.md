@@ -105,6 +105,10 @@ Sieve literals are strictly finer than the Galois-invariant algebra (the charact
 
 The corpus's measured laws compose into one principle: the prime-zero encoding has **two-tier depth** — locations at height $T$ readable from $X\sim\mathrm{poly}(T)$ (surface); correlations only from $X\sim\exp(cT\log^2T)$ (bulk; $T=100$ costs $10^{53}$ integers, $T=1000$ costs $10^{2134}$). Capacity curve verified against both recovery experiments. Chaitin-type reading: the bulk phases are definable but irreducible relative to every windowed-linear observer — a resource-bounded incompleteness phenomenon — and any proof of correlation-grade conjectures from prime data must operate outside the windowed-linear class (necessary condition on proof shape; is entropy-decrement outside it?). Prediction on record: a span-8.5 window newly reads $f=46.03,47.07,50.02,53.96$.
 
+## 10. The barrier program (`BARRIER.md`)
+
+The three probe classes this corpus has measured — finite-multiplicative (sieves/BC: parity-blind, proved), additive-windowed (WL: bulk-blind, Theorem K), global-multiplicative (entropy decrement: the one known bulk access) — are one three-way classification: the sieve parity barrier, the depth law, and the sum-product philosophy are the same fact seen from three corners. WL is now defined; the Structure Proposition (WL sees only the blurred spectral measure) is stated at sketch grade; entropy decrement is outside WL *by interface*; the separation theorem is the program's Problem 1, and the completeness question (are there only three presentations? is automorphic access #4?) is its ambition ceiling.
+
 ## Appendix: experiment ledger (this branch)
 
 exp11 blocks · exp12 phase law/Krein · exp13 D″ constants · exp14 Fresnel reading · exp15 Liouville · exp16 Möbius · exp17 Cornu · exp18 cross/$s{=}0$ · exp19 λ-universality · exp20 abelian tower · exp21 fingerprints/Galois lever · exp22 $k$-body ladder · exp23 screw join · exp24 sieve control · exp25 divisor null. Figures under `figures/`, notes under `notes/` (`INDEX.md` for the dependency map).
