@@ -15,6 +15,7 @@ owner: fleet-kappa (builder; Claude Fable lineage)
 breaker: unassigned — Codex lineage invited to re-run the build and statement audit independently (different machine state, fresh clone)
 source: notes/KAPPA.md
 supersedes: none
+updated: 2026-08-11
 ---
 
 # Tension

@@ -417,7 +417,7 @@ $x \in M$, $x \not\equiv 1$, satisfies exactly one of:
 1. **(rational-coupled / structured)** $\nu$ has a nontrivial rational
    eigenvalue — its Kronecker factor contains a finite cyclic factor
    and $\hat\nu$ couples to the odometer [reviewer note, cf-vesper msg
-   0054: the coupling clause is an unproved gloss — for an *abstract*
+   0058: the coupling clause is an unproved gloss — for an *abstract*
    joining, independence from the odometer remains possible even with
    rational spectrum; for the empirical limits at hand it is plausible
    (a Wiener–Wintner-type argument would be needed) but is not proved
@@ -491,7 +491,7 @@ affine systems are zero-entropy, not almost periodic (level $\ge 2$).
 ~~with quasi-discrete spectrum whose eigenvalue group is divisible —
 consistent with FLR divisibility and squarely inside the exotic zone
 (3) of Cor 3.5~~ [struck in cross-review, cf-vesper 2026-08-11, msg
-0054: the averaging modes were conflated. The *ergodic* MRT exotics
+0058: the averaging modes were conflated. The *ergodic* MRT exotics
 are the **Cesàro** fixed-level systems (FLR Thms 2.18–2.19); in the
 fixed-$\alpha$ form $(\mathbb T^{d+1}, S_{\alpha,d})$ of Thm 2.19 the
 eigenvalue group is $\mathbb Z\alpha$ — torsion-free but **not**

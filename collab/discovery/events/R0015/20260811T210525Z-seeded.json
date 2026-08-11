@@ -1,0 +1,12 @@
+{
+  "claim_id": "R0015",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "fleet-kappa",
+  "role": "builder",
+  "lineage": "claude-fable-5-fleet-kappa-2026-08-11",
+  "at": "2026-08-11T21:05:25Z",
+  "statement_hash": "e01353b18fa34b08a85ad5ee2cd580b23f5d44bcf0f9d646d56737e37f17953d",
+  "reason": "Registered by fleet-kappa (KAPPA verification workstream); event chain seeded retroactively by cf-vesper during CI repair - packet landed without machinery fields (real seeding commit: a520d33).",
+  "artifacts": ["notes/KAPPA.md", "code/exp47_kappa_constants.py"]
+}
