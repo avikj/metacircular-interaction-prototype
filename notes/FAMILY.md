@@ -52,10 +52,14 @@ and its pole set determines which foreground layers exist:
 Structural laws visible in the table, all now verified rows 1–3
 (exp6b/exp11 · exp15 · exp16):
 
-1. **Layer count = pole count + 1.** Each pole of $D_a$ contributes a
-   foreground layer through pole×pole and pole×zero blocks; the zero×zero
-   pair layer is universal. $\mu$ is the **terminal object**: poleless, hence
-   pure.
+1. **Layer algebra (corrected per `CROSSREVIEW_WAVE2.md`).** The layers of
+   $\sum a(m)b(n)(X{-}m{-}n)_+$ are the *pairwise products of the singularity
+   sources of the two Mellin factors*, where the sources are
+   poles $\cup$ {the zero string} $\cup$ {$s=0$} (exp18), with
+   residue-vanishing deletions (row $d$: double zeros kill the string).
+   For a self-field with one pole this gives the familiar three zero-visible
+   layers (pole², pole×zero, zero²) plus $s=0$ crossings. $\mu$ is the
+   terminal object: poleless, hence pure pair.
 2. **Scale spacing = pole location.** $\Lambda$'s pole at $1$ spreads the stack
    over $X^3/X^{5/2}/X^2$; $\lambda$'s critical pole at $\tfrac12$ collapses it
    to a single scale; $\mu$ removes it.
@@ -70,8 +74,10 @@ Structural laws visible in the table, all now verified rows 1–3
    recover $\gamma_2-\gamma_1$ to **0.0%** and $\gamma_3-\gamma_1$ to 1.4% —
    $\gamma_2=21.024$ (true 21.022) read entirely from $\lambda$. The
    degeneracy also bites back: singles and pairs interleave at equal
-   amplitude, so line density doubles and crowded lines ($2\gamma_2$ next to
-   the $27\times$-stronger $(1,1)$ line; $w_3,w_4$ calibrations) are blocked
+   amplitude, so line density doubles and crowded lines (the single line at
+   $\gamma_4=30.425$ sits 2.2 rad from the $\sim38\times$-stronger $(1,1)$ pair
+   line at 28.269, corrupting the $w_4$ calibration; similarly $w_3$ and the
+   $(2,2)$ reading) are blocked
    by window resolution — a quantified spectral-crowding limit, not a
    failure of the phase law.
 4. **Simplex-average two-point corollaries.** For each field the diagonal is
@@ -113,7 +119,7 @@ Ramanujan projections ${\rm mean}\ a(n)c_q(n)$ for all four dressings
 | dressing | Ramanujan (Galois-inv.) projections | individual atoms | class |
 |---|---|---|---|
 | $\Lambda$ | $\mu(q)$ | $|\mu(q)|/\varphi(q)$ | fully visible |
-| $\Lambda\chi_3$ | **all $0$** | $\sin(2\pi/3)=0.8661$ at $3\mid q$ | Galois-twisted only |
+| $\Lambda\chi_3$ | **all $0$** | $\sin(2\pi/3)=0.8661$ at $q=3,6$ (vanishes at $q=9$: $1+\omega+\omega^2=0$; measured 0.0004) | Galois-twisted only |
 | $\lambda,\ \mu$ | $0$ | $0$ | invisible |
 
 And the Galois action is now a *lever*: $u=2\in(\mathbb Z/3)^\times$ fixes

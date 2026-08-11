@@ -14,7 +14,7 @@ of the prime-sum lines — precisely the information every Hermitian statistic
 |.|^2 destroys.  Line POSITIONS give sums; line PHASES give differences.
 
 This experiment demonstrates it on the arithmetic data: from the smoothed
-Goldbach counts of the primes to 4*10^6 alone (same pipeline as exp6b), we
+Goldbach counts (Lambda to 2*10^6, X <= 1.9*10^6; same pipeline as exp6b), we
 measure the complex phases of the resolvable pair lines and RECOVER the zero
 gaps |gamma_i - gamma_j| via
 
@@ -140,7 +140,7 @@ def main():
                    label=f"line ({i+1},{j+1})")
     ax[0].set_xlabel(r"true gap $|\gamma_i-\gamma_j|$")
     ax[0].set_ylabel(r"$2f\cdot$ measured phase residual")
-    ax[0].set_title("zero gaps read off Goldbach phases (primes to $4\\cdot10^6$)")
+    ax[0].set_title("zero gaps read off Goldbach phases ($\\Lambda$ to $2\\cdot10^6$)")
     ax[0].legend(fontsize=8)
     ax[1].bar(np.arange(len(pairs)) - 0.18, tru, 0.36, label="true gap")
     ax[1].bar(np.arange(len(pairs)) + 0.18, rec, 0.36, label="recovered from data phase")

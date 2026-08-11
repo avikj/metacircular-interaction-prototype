@@ -18,7 +18,7 @@ latter builds directly on this branch's `BLOCKS.md`).
 | H′ | **Möbius = the pure pair field**: no pole ⟹ pair layer only; corr 0.9999/0.9999 | `FAMILY.md` §1 | exp16 | terminal object of the family |
 | — | family classification: layer count = pole count + 1; purity axis $d\to\Lambda\to\lambda\to\mu$; simplex-Chowla corollaries $-0.0659X^2$ ($\lambda$), $-0.1520X^2$ ($\mu$) | `FAMILY.md` §2 | — | |
 | — | cross field $\Lambda\times\mu$: compositional layers (corr 1.0000 twice); **$s=0$ layer discovered** — data measures $\zeta(0)=-\tfrac12$; off-diag $=-\tfrac34X^2$ | `FAMILY.md` §2 | exp18 | layer algebra = all Mellin singularities, composed pairwise |
-| — | Fresnel reading is dressing-universal: gaps from $\lambda$ data, self-calibrated ($w_1,w_2$ to 1%); crowding limit quantified | `FAMILY.md` §2.3 | exp19 | |
+| — | Fresnel reading is dressing-universal: gaps from $\lambda$ data, self-calibrated ($w_1,w_2$ to 1%); crowding limit quantified | `FAMILY.md` §2 law 3 | exp19 | |
 | — | **abelian tower**: mod-3 twisted Goldbach displays the $L(s,\chi_3)$ zero sum-spectrum (self-computed zeros); corr 0.9994, unit weights | `FAMILY.md` §2.1 | exp20 | each character reads its own jewel string |
 | — | finite-place fingerprints: three visibility classes; **Galois lever** acts by $\chi(2)=-1$ on the character sector | `FAMILY.md` §2.2, `ADELIC.md` §1 | exp21 | answers ADELIC's Galois remark |
 | D‴-k | **k-body ladder**: $W_k=(2\pi)^{(k-1)/2}s^{-(k+3)/2}e^{-i(sH_k+(k+3)\pi/4)}$, verified $k=2,3,4$; diffraction hierarchy; triple-layer inaccessibility quantified | `FAMILY.md` §2.3 | exp22 | closes sibling `TERNARY.md`'s open triple layer |

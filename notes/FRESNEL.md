@@ -4,8 +4,13 @@ Companion to `REPORT.md`, `BLOCKS.md`. This note records a step-back audit of th
 program and its payoff: a lens (semiclassical/Fresnel phase reading) that had
 not been applied, which converts our own Theorem D‴ into a statement filling
 the *empty off-diagonal cell* of the 2×2 dictionary — and a numerical
-demonstration that **zeta zero gaps can be read off Goldbach counts of primes**,
-to 0.1% for the first gap.
+demonstration that **given the zero sums (line positions), the phases of the
+Goldbach counts of primes determine the zero differences** — to 0.1% for the
+first gap. [Framing per cross-audit `CROSSREVIEW_WAVE2.md`: the recovery
+evaluates phases at the known pair frequencies; a fully blind pipeline
+(peak-found positions, ±0.02–0.04) recovers gaps only to ~10–30%. The
+demonstrated statement is the conditional one, and it is still the load-bearing
+one: the *difference* information is in the phases.]
 
 ---
 
@@ -80,8 +85,12 @@ Consequences:
 
 ## 3. Experiment 14: reading zero gaps off the primes
 
-Pipeline of exp6b (smoothed Goldbach counts of primes to $4\cdot10^6$, single-zero
-layer removed), then a phase-sensitive DFT at the exact line frequencies
+Pipeline of exp6b (smoothed Goldbach counts, $\Lambda$ to $2\cdot10^6$,
+$X\le1.9\cdot10^6$; single-zero layer removed — NB this subtraction is
+*zero-informed*, consuming 30k known zeros; without it the $(1,2)$ recovery
+fails at +185%, with 10 zeros it is restored to +0.2% [audit]. exp19's
+self-calibrated subtraction is the zero-free alternative and the recommended
+default framing), then a phase-sensitive DFT at the exact line frequencies
 (cubic detrend + Hann window; with a real symmetric window the DFT phase at
 the line *is* $\arg c_f$, no calibration). Inversion of Theorem G:
 $$|\gamma_i-\gamma_j| = \sqrt{2f\cdot\Bigl[\operatorname{wrap}_{[0,2\pi)}\bigl(\varphi_{\rm data}+f\log2+\tfrac{5\pi}4\bigr)-\tfrac{37}{12f}-\tfrac1{24}\bigl(\tfrac1{\gamma_i}+\tfrac1{\gamma_j}\bigr)\Bigr]}$$

@@ -13,7 +13,9 @@ is another PURE pair field (cf. exp16 for mu), over a NEW jewel string:
                 X^{rho+rho'+1}  + smooth,     rho, rho' zeros of L(s,chi_3),
 
 with UNIT weights (pure D''' structure) and frequencies gamma_i^chi +
-gamma_j^chi.  Sharp discriminators:
+gamma_j^chi.  Standing hypotheses (stated explicitly per cross-audit):
+GRH + simple zeros for L(s,chi_3) — the model hard-codes rho = 1/2 + i*g
+and zeros are searched on the critical line only.  Sharp discriminators:
   * pair lines at sums of L-zeros (2*8.04=16.08, 8.04+11.25=19.29, ...);
   * NO single lines at the L-zeros themselves (no pole to cross against);
   * NO lines at zeta-zero frequencies (different jewel string entirely).
