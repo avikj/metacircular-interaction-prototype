@@ -6,13 +6,14 @@ per the program of `SCREW.md` §4, item 1, revised mid-task by the landing of
 **Code:** `code/exp20_product.py` → `figures/exp20_product.png`.
 
 Throughout, RH is assumed where stated; $\rho=\tfrac12+i\gamma$ with $\gamma$ ranging over
-**signed** ordinates, and
+**distinct signed** ordinates. Write $m(\gamma)$ for the multiplicity of the zero and set
 
-$$a(\gamma)\;=\;\frac{1}{\gamma^2+\tfrac14}\;=\;\frac{1}{\rho(1-\rho)}\Big|_{\mathrm{RH}}\;>\;0,
+$$a(\gamma)\;=\;\frac{m(\gamma)}{\gamma^2+\tfrac14}
+\;=\;\frac{m(\gamma)}{\rho(1-\rho)}\Big|_{\mathrm{RH}}\;>\;0,
 \qquad B:=\sum_\gamma a(\gamma)=2+\gamma_E-\log 4\pi=0.046191\ldots,$$
 
-the Matsumoto–Suzuki screw masses (`SCREW.md` §1). Set
-$h(u):=\sum_\gamma a(\gamma)e^{i\gamma u}=2\sum_{\gamma>0}\frac{\cos\gamma u}{\gamma^2+\frac14}$
+the multiplicity-aggregated Matsumoto--Suzuki spectral masses (`SCREW.md` §1). Set
+$h(u):=\sum_\gamma a(\gamma)e^{i\gamma u}=2\sum_{\gamma>0}\frac{m(\gamma)\cos\gamma u}{\gamma^2+\frac14}$
 (real, even, $h(0)=B$; absolutely and uniformly convergent), and
 
 $$m_0:=\sum_\gamma a(\gamma)^2,\qquad S_4:=\sum_\gamma a(\gamma)^4 .$$
@@ -29,7 +30,7 @@ carries it exactly; (2) what the Appendix-D variance program becomes in this met
 
 ---
 
-## 1. Verification of the no-go (`PRODUCT_WEIGHT_NO_GO.md`, Theorem 2.1), and a strengthening
+## 1. Verification of the no-go (`PRODUCT_WEIGHT_NO_GO.md`, Theorem 2.1), and its boundary
 
 Before the no-go note landed, we had independently derived the same obstruction in the form
 of a lemma: for **any** kernel depending on $m+n$ alone, the substitution $u=rt$, $v=r(1-t)$
@@ -48,20 +49,16 @@ $b(z)=Ae^{\alpha z}$, $\widehat k(s)=A^2e^{\alpha s}\Gamma(s)$, $k(r)=A^2e^{-e^{
 extended by analytic continuation. **The proof is airtight; no hole found.** Their §3
 computation $b'/b=-\psi(z)-1/z+1/(1-z)\neq\mathrm{const}$ for the MS weight is also correct.
 
-**Strengthening (new).** Within the *classified* family the critical-line masses are
+**Phase question (not a theorem).** Within the *classified* family the critical-line masses are
 $a(\rho)=Ae^{\alpha/2}e^{i\alpha\gamma}\Gamma(\tfrac12+i\gamma)$. Since
 $\arg\Gamma(\tfrac12+i\gamma)$ (the Riemann–Siegel-type phase, $\sim\gamma\log\gamma$) is not
-linear in $\gamma$, no choice of $A,\alpha$ makes these masses positive — or even real — on
-the line. Hence:
-
-> **Corollary 1.1.** No homogeneous kernel of $(m+n)/X$ has a two-zero sector with
-> *positive* factorized masses of **any** form, MS or otherwise. Positivity of a factorized
-> pair measure forces a **non-radial (separable) carrier**.
-
-The same functional-equation argument disposes of the max/min-type radial variants
-($a(z)=e^{cz}/z$, also complex-phased on the line). So the constructive task is fixed by
-necessity, not by convenience: the carrier of $\mu_2$ must be a rank-one (per-variable)
-weight, and the only freedom is *which* one-body kernel produces the masses $1/(\rho(1-\rho))$.
+linear as a continuous function of $\gamma$. That observation does **not** prove that an
+affine phase cannot agree modulo $\pi$ on the discrete set of zeta ordinates. What the
+classification proves is the narrower statement actually needed here: the MS weights
+$1/(\rho(1-\rho))$ cannot arise from a homogeneous kernel of $(m+n)/X$, because their
+$b'/b$ is not constant. Thus a non-radial carrier is forced for the present target. The
+stronger claim that no classified radial family can ever be positive on the zeta support,
+and the analogous max/min claims, remain unproved phase-congruence questions.
 
 ---
 
@@ -139,7 +136,8 @@ their Goldbach-side carrier [MS (1.6)] which needs the constants $c_2$, $E(X)$.
 
 ### 2.3 The doubly-reweighted pair sum and the exact four-layer identity
 
-By Corollary 1.1 the pair carrier must be separable; the canonical choice is the square.
+By the MS-specific classification above the present pair carrier must be non-radial; the
+canonical separable choice is the square.
 Define the **doubly-reweighted Goldbach pair sum** with rank-one weights
 $w_X(m,n)=\min(1,X/m)\min(1,X/n)$:
 
@@ -242,7 +240,8 @@ M_L(u_0):=\frac1L\int h^2(u_0+u)\phi_L(u)\,du
 and $|M_L-m_0|\le\varepsilon(L):=\sum_{\gamma'\neq-\gamma}aa'\,
 \mathrm{sinc}^2\bigl(L(\gamma+\gamma')/2\bigr)\to0$ as $L\to\infty$, **uniformly in $u_0$
 and with no separation hypothesis** (dominated convergence against $B^2<\infty$). Hence
-$V\ge(m_0-\varepsilon(L))^2$ for all $u_0,L$: positivity delivers the lower bound for free.
+$V\ge\max(0,m_0-\varepsilon(L))^2$ for all $u_0,L$. Once
+$\varepsilon(L)\le m_0$, this is the advertised asymptotically nontrivial lower bound.
 
 **(b) The limit is the diagonal; exact resonances can only help.** By dominated convergence
 on the absolutely convergent quadruple sum,
@@ -275,12 +274,15 @@ qualitative limit by dominated convergence.  See `DCLOSE_NO_GO.md`: the
 linear estimate is a genuine microscopic correlation conjecture, not a
 finite-checkable consequence of RH and zero-counting bounds.
 
-**(d) Ω-results with explicit constants.** From (a), $\limsup_u h(u)^2\ge m_0$, so
-$$\limsup_{X\to\infty}\frac{|\Phi(X)|}{\sqrt X}\;\ge\;\sqrt{m_0}\;=\;0.00861\ldots,
+**(d) Exact limsups from almost-periodic recurrence.** Absolute convergence makes $h$
+uniformly almost periodic. It has arbitrarily large almost periods, while $|h(u)|\le B$
+and $h(0)=B$. Hence
+$$\limsup_{X\to\infty}\frac{|\Phi(X)|}{\sqrt X}=B,
 \qquad
-\limsup_{X\to\infty}\frac{G_w(X)}{X}\;\ge\;2m_0-\text{(mean)}\;\ge m_0,$$
-and the pair layer $X(h^2-m_0)$ oscillates one-sidedly: $G_w$'s zero layer dips below its
-mean by at most $m_0X+O(\sqrt X)$ but can exceed it without bound relative to $m_0$. $\square$
+\limsup_{X\to\infty}\frac{G_w(X)}{X}=B^2.$$
+The normalized pair layer $h^2-m_0$ is bounded between $-m_0$ and
+$B^2-m_0$, and its limsup is exactly $B^2-m_0$. In particular it does not
+exceed its mean by an unbounded factor. $\square$
 
 **Scorecard vs. `APPENDIX_D.md` (Beta metric).**
 
@@ -358,7 +360,9 @@ of the pair layer $h^2$). The zero-side model is pushed through the **identical 
 
 Spectral constants ($10^4$ zeros): $B=0.045922$ (exact $0.046191$; tail as in `SCREW.md`),
 $m_0=7.4201\cdot10^{-5}$, $S_4=1.320\cdot10^{-9}$, $D_0=3(m_0^2-S_4)=1.2559\cdot10^{-8}$,
-$\sqrt{m_0}=0.008614$.
+$\sqrt{m_0}=0.008614$. These numerical values use the simple, distinct zeros in the input
+table; the theorem-level definitions above aggregate any unknown multiple zero into one
+spectral atom.
 
 **Part 1 — first variation (MS screw data) in the min-kernel.** Band $[8,26.5]$ in
 $\log X$ (single lines $\gamma_1..\gamma_3$ only): corr(arithmetic $q$, zero-side $h$)
@@ -412,10 +416,11 @@ against $D_0$ and the Jensen floor.
    $\sum a(\gamma)a(\gamma')\delta_{\gamma+\gamma'}$ is carried exactly by the
    doubly-reweighted, compensated pair sum $G_w(X)=\Phi(X)^2$ with separable min-kernel
    weights $\min(1,X/m)\min(1,X/n)$ (Theorems P1–P2), where
-   $\Phi(X)=X\int_X^\infty(\psi(t)-t)t^{-2}dt$. By the (verified) no-go this separability
-   is forced, not chosen: no kernel of $m+n$ can do it, and (Corollary 1.1, new) no radial
-   kernel yields *any* positive factorized weights. The Mellin kernel answering the task's
-   question — $k(s)=1/(s(1-s))$ — is the Kreĭn string kernel $\min(X,t)$.
+   $\Phi(X)=X\int_X^\infty(\psi(t)-t)t^{-2}dt$. By the verified classification this
+   non-radiality is forced for the MS weights: no kernel of $m+n$ can produce their required
+   factorization. The stronger all-positive-radial no-go is not asserted. The Mellin kernel
+   answering the task's question — $k(s)=1/(s(1-s))$ — is the Kreĭn string kernel
+   $\min(X,t)$.
 2. **Corrected conjecture proved.** $g_2=h^2-h(0)^2$ (not the naive $g_{H_1}^2$, whose
    measure is signed) is a screw function under RH, by a Hermitian-square identity over the
    sum spectrum (Theorem P3); numerically PSD while the Beta layer is maximally indefinite.
@@ -431,8 +436,9 @@ against $D_0$ and the Jensen floor.
    energy $E^\circ_a$ would therefore close the corresponding Beta blocks,
    but it is strictly stronger because it also controls mixed-sign
    differences. What does not
-   transfer is unconditional positivity: that is metric-specific, and the no-go says no
-   reweighting of a genuine $m+n$-kernel will ever import it. Target 1 therefore resolves
+   transfer is unconditional positivity: that is metric-specific, and the verified no-go
+   prevents importing it through an $m+n$-kernel while retaining the MS factorized weights.
+   Target 1 therefore resolves
    into: (i) *done* — carrier, positivity, free lower bounds, closed-form diagonal;
    (ii) *sharpened* — the program's remaining wall is the conjectural bound
    $E^\circ_a(\eta)\ll\eta\,m_0^2$, now known to imply polynomial four-zero

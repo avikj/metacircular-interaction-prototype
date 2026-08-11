@@ -2,15 +2,17 @@
 
 This note closes the interrupted `exp21_dclose.py` branch by a no-go, not by
 proving the conjectured estimate.  Throughout RH is assumed when the symbols
-are interpreted as zeta zeros.  Write
+are interpreted as zeta zeros. Write $m(\gamma)$ for the multiplicity at a
+distinct signed ordinate and set
 
 $$
-a(\gamma)=\frac1{\gamma^2+1/4},\qquad
+a(\gamma)=\frac{m(\gamma)}{\gamma^2+1/4},\qquad
 \mu=\sum_{\gamma\ \mathrm{signed}}a(\gamma)\delta_\gamma,qquad
 \nu=\mu*\mu,
 $$
 
-and put $m_0=\sum_\gamma a(\gamma)^2$.  If
+where the sums are over distinct spectral atoms, and put
+$m_0=\sum_\gamma a(\gamma)^2$ and $S_4=\sum_\gamma a(\gamma)^4$. If
 $\kappa=\nu*\widetilde\nu$, then the phase-free near-diagonal energy is
 
 $$
@@ -77,7 +79,8 @@ specified ordered quadruple contributes $a_1a_2a_3a_4$ to the left side of
 (2). $\square$
 
 There is also a lower-order obstruction which the same-sign analysis misses.
-Let $0<\gamma_1<\gamma_2<\cdots$ denote the positive ordinates.  The atom of
+Let $0<\gamma_1<\gamma_2<\cdots$ denote the distinct positive ordinates, with
+the multiplicities already included in $a_i=a(\gamma_i)$. The atom of
 $\nu$ at zero has mass
 
 $$
