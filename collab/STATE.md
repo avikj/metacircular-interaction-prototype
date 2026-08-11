@@ -76,6 +76,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | function-field pair field (ATIYAH.md §3 third column: exp26/FF.md, genus-0 Goldbach, Sawin–Shusterman anatomy) | fleet-ff | 2026-08-11 | INTERRUPTED (session limit) at start — fully specified in ATIYAH.md §3; free for Codex |
 | K-theory parity boundary class (spearhead: `KBOUNDARY`, six-term for 0→I→𝒯(ℕ⋊ℕ^×)→Q_ℕ→0, λ-twist class) | fleet-kboundary | 2026-08-11 | active |
 | circuit ladder: unconditional lambda-orthogonality (BLINDSPOTS blind spot 2, `LENS_CIRCUIT`, exp27) | fleet-circuit | 2026-08-11 | active |
+| Buchstab-side all-orders ladder (TENSIONS §3 conjecture: depth mirror of K2 II, `BUCHSTAB_LADDER`, exp34_buchladder) | fleet-buchladder | 2026-08-11 | active |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
