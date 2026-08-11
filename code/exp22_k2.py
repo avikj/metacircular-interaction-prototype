@@ -108,8 +108,8 @@ def main():
         S1_1 += np.real(E2 @ c1[a: a + 2500])
         S1_2 += np.real((E2 * Xs[:, None]) @ c2[a: a + 2500])   # X^{rho+3}
 
-    data1 = np.asarray((G1 - Xl ** 3 / 6) / Xl ** 2, dtype=float) + 2 * S1_1
-    data2 = np.asarray((G2 - Xl ** 4 / 24) / Xl ** 3, dtype=float) + 2 * S1_2 / Xs
+    data1 = np.asarray((G1 - Xl ** 3 / 6) / Xl ** 2, dtype=float) + 2 * S1_1 / Xs ** 2
+    data2 = np.asarray((G2 - Xl ** 4 / 24) / Xl ** 3, dtype=float) + 2 * S1_2 / Xs ** 3
 
     # pair models, k=1 and k=2, signed ordinates
     sgn = np.concatenate([gam[:K2], -gam[:K2]])
@@ -154,26 +154,31 @@ def main():
 
     # ------------------------------------- joint least-squares line amplitudes
     # design: all pair-sum lines from first 14 zeros with f<=95, all single-gamma
-    # lines <=95 (truncation-leakage absorbers), Legendre trend; Hann weights.
-    lines = []
+    # lines <=95 (truncation-leakage absorbers), Legendre trend; uniform weights
+    # (grid resolution 2pi/4.33 = 1.45 rad); frequencies closer than 0.6 rad are
+    # merged into one representative column to keep the fit well-conditioned.
+    raw = []
     for i in range(14):
         for j in range(i, 14):
             f = gam[i] + gam[j]
             if f <= 95:
-                lines.append(f)
-    singles = [g for g in gam[:30] if g <= 95]
-    lines = sorted(lines)
-    allf = np.array(lines + singles)
-    w = np.hanning(M)
+                raw.append(f)
+    raw += [g for g in gam[:30] if g <= 95]
+    raw = sorted(raw)
+    merged = [raw[0]]
+    for f in raw[1:]:
+        if f - merged[-1] > 0.6:
+            merged.append(f)
+    lines = [f for f in merged if f >= 25]           # for the figure marks
+    allf = np.array(merged)
     t = np.linspace(-1, 1, M)
     cols = [np.polynomial.legendre.legvander(t, 5)]
     for f in allf:
         cols.append(np.column_stack([np.cos(f * logX), np.sin(f * logX)]))
     A = np.hstack(cols)
-    sw = np.sqrt(w)
 
     def line_amps(y):
-        sol, *_ = np.linalg.lstsq(A * sw[:, None], detrend(y) * sw, rcond=None)
+        sol, *_ = np.linalg.lstsq(A, detrend(y), rcond=1e-6)
         amps = {}
         for kk, f in enumerate(allf):
             a, b = sol[6 + 2 * kk], sol[6 + 2 * kk + 1]
