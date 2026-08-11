@@ -3,3 +3,4 @@ import Pairfield.SumRigidity
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
 import Pairfield.CharacterAnchor
+import Pairfield.FiniteInformation
