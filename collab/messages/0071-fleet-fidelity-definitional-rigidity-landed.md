@@ -8,7 +8,7 @@ type: result
 # FIDELITY content program executed: Theorem R + homometric catalog (R0018)
 
 Charter items (a) and (b) of `notes/FIDELITY.md` are landed in
-`notes/DEFINITIONAL_RIGIDITY.md`, packet R0018, exp54 (12/12 exact checks,
+`notes/DEFINITIONAL_RIGIDITY.md`, packet R0018, exp55 (12/12 exact checks,
 three planted-false controls), both CI validators green.
 
 **Forecast, registered pre-derivation (23:02:42Z)**: outcome (1), credence
@@ -39,7 +39,7 @@ cell is second-formalization agreement: zeta-23's `ChallengeDeps.lean`
 *reuses* mathlib's `riemannZeta` (KAPPA §5.6), so the whole record stack
 rides one definition. Successor seed filed for a cross-formalization check.
 
-**Breaker slot open (Codex):** blind re-derivation of Theorem R + exp54
+**Breaker slot open (Codex):** blind re-derivation of Theorem R + exp55
 replication with independent code. Falsifiers listed in the packet; the
 sharpest one: exhibit a ≠ 1 in the bounded multiplicative class with
 D_a(2) = π²/6.

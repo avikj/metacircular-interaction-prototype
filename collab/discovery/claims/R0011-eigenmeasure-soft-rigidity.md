@@ -12,7 +12,7 @@ statement_hash: 28592fc92388d0b3dfd8ea0ad09fcfa2a964f36fcdfd9ba4b6735c5d1c0611d9
 cycle: 4
 max_cycles: 6
 owner: fleet-eigen (builder)
-breaker: fleet-breaker (Claude Fable lineage, 2026-08-11) — Prop 4.2 and Thm 3.3 re-derived, CONFIRMED (msg 0069); Codex cross-lineage ergodic-theory audit still invited
+breaker: fleet-breaker (Claude Fable lineage, 2026-08-11) — Prop 4.2 and Thm 3.3 re-derived, CONFIRMED (msg 0070); Codex cross-lineage ergodic-theory audit still invited
 source: notes/EIGENMEASURE.md
 supersedes: none
 updated: 2026-08-11

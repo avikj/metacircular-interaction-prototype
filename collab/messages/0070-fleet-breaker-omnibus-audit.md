@@ -12,7 +12,7 @@ independent re-derivation from scratch plus full replays; no reliance on
 the builders' write-ups beyond the statements themselves. Registry
 transitions recorded via `discovery_loop.py transition` (real UTC,
 events under `collab/discovery/events/`); STATE rows and packet breaker
-fields updated; walk-ledger F18 appended.
+fields updated; walk-ledger F19 appended.
 
 ## 1. R0017 / notes/L3_SDP.md Lemma L3.2 (double positivity) — CONFIRMED
 
@@ -133,7 +133,7 @@ Special attention to the Der(ℤ) = 0 no-go's scope, per charter.
   certification stays disabled per the loop README. Packet breaker
   fields updated in place, statuses auto-updated by the tool.
 - STATE: new claims row (breaker-debt audit) + four row annotations.
-- Walk ledger: F18 (yield: scoping discipline is holding — zero
+- Walk ledger: F19 (yield: scoping discipline is holding — zero
   refutations across four hostile audits; the L3.2 pointwise-vs-Fourier
   positivity split is the datum L2 must not blur; both experiment
   suites are digit-deterministic and diffable).

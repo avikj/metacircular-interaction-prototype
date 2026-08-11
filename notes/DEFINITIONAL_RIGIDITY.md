@@ -2,8 +2,8 @@
 
 fleet-fidelity, 2026-08-11. Executes FIDELITY.md's content program (a)+(b):
 Theorem A′ of the prime-set corpus transplanted to formal vocabularies.
-Registry packet R0018; verification code/exp54_definitional_rigidity.py
-(12/12 exact checks, data/exp54_out.txt); mathlib-suite retrofit in §5.
+Registry packet R0018; verification code/exp55_definitional_rigidity.py
+(12/12 exact checks, data/exp55_out.txt); mathlib-suite retrofit in §5.
 
 **Forecast** (registered 2026-08-11T23:02:42Z, before derivation, scratchpad
 `forecast.txt` quoted in R0018's seed event): outcome (1) — both (a) and (b)
@@ -71,7 +71,7 @@ special value, no analytic continuation at all). The two theorems bracket
 the catalog below: delete either side's load-bearing axiom and homometry
 appears.
 
-Numeric anchor (exp54): strict extremality margin on the unit-circle grid;
+Numeric anchor (exp55): strict extremality margin on the unit-circle grid;
 planted-false control C1: the unit-modulus impostor a(2) = e^{0.3i} misses
 the web value by 2.9·10⁻² — the detector fires.
 
@@ -80,7 +80,7 @@ the web value by 2.9·10⁻² — the detector fires.
 **H1 — special values without the Euler fragment.** The web
 {D(2) = π²/6, D(4) = π⁴/90} on unrestricted Dirichlet series is homometric:
 let P(s) = 5 − 128·2^{−s} + 243·3^{−s}. Then P(2) = 5 − 32 + 27 = 0 and
-P(4) = 5 − 8 + 3 = 0 exactly (exp54, rational arithmetic), so ζ and ζ + P
+P(4) = 5 − 8 + 3 = 0 exactly (exp55, rational arithmetic), so ζ and ζ + P
 are inequivalent meanings sharing the web. General principle: any finite
 special-value web {s₁,…,s_k} has a nonzero Dirichlet polynomial in its
 kernel (k linear conditions on k+1 coefficients), so special values alone
@@ -93,7 +93,7 @@ structural axiom.
 exact witness: over the universe {2,3}, (a(2),a(3)) = (1,1) and (0,3) give
 (1 − 1/4)^{−1}(1 − 1/9)^{−1} = 3/2 = (1 − 0)^{−1}(1 − 3/9)^{−1}. Both are
 restrictions of genuine completely multiplicative functions; the meanings
-are inequivalent, the web value identical (exp54, exact rationals). Control
+are inequivalent, the web value identical (exp55, exact rationals). Control
 C2: restoring the boundedness axiom kills the impostor (|3| > 1) — the
 web-thickening that Theorem R prescribes is exactly the missing axiom.
 
@@ -110,7 +110,7 @@ moral: a functional-equation check pins only if the gamma-factor data is
 pinned vocabulary, not an existential.
 
 **H4 — the paradigm case (pure homometry, finite and minimal).** Exhaustive
-search (exp54): within diameter ≤ 17 there is NO homometric multiset pair of
+search (exp55): within diameter ≤ 17 there is NO homometric multiset pair of
 sizes 3–5, and at size 6 the pair {0,1,2,6,8,11} vs {0,1,6,7,9,11} shares
 the full difference multiset {1,1,2,2,3,4,5,5,6,6,7,8,9,10,11} while being
 inequivalent under translation and reflection. (Homometric pairs are
@@ -148,7 +148,7 @@ family — still admits two meanings. Webs fail by *structure*, not by count.
   conclusion transports along it.
 - H3's witness relies on the classical L-function functional equation, cited
   as known, not reproved here.
-- exp54's grid check of the extremality lemma is illustrative; the lemma's
+- exp55's grid check of the extremality lemma is illustrative; the lemma's
   proof is the two-line inequality chain above, not the grid.
 
 ## 5. Retrofit: the checked-consequence web already pinning riemannZeta in mathlib

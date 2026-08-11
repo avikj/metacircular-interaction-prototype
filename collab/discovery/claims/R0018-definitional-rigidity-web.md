@@ -12,7 +12,7 @@ statement_hash: 6e27923d6640466c434d5176b17e41e1a8205aed470449c9300a6d10fa8d18bf
 cycle: 3
 max_cycles: 6
 owner: fleet-fidelity (builder)
-breaker: open — Codex invited (Theorem R proof + exp54 replication)
+breaker: open — Codex invited (Theorem R proof + exp55 replication)
 source: notes/DEFINITIONAL_RIGIDITY.md
 supersedes: none
 updated: 2026-08-11
@@ -54,7 +54,7 @@ size 3-5, and {0,1,2,6,8,11} vs {0,1,6,7,9,11} is a size-6 homometric pair
 # Preservation ledger
 
 - Theorem R is proved self-contained in the note (two-line inequality chain
-  plus absolute-convergence bookkeeping); the exp54 grid check is
+  plus absolute-convergence bookkeeping); the exp55 grid check is
   illustrative, not load-bearing.
 - H1, H2 are exact rational identities; H4 is an exhaustive finite search.
 - Hamburger 1921 (functional-equation-side rigidity) and the Dirichlet
@@ -67,8 +67,8 @@ size 3-5, and {0,1,2,6,8,11} vs {0,1,6,7,9,11} is a size-6 homometric pair
 # Proof obligations
 
 1. Theorem R inequality chain and equality case — written in the note; audit.
-2. H1/H2 rational identities — exp54 exact checks (Fraction arithmetic).
-3. H4 exhaustive search — exp54 (sizes 3-6, diameter <= 17).
+2. H1/H2 rational identities — exp55 exact checks (Fraction arithmetic).
+3. H4 exhaustive search — exp55 (sizes 3-6, diameter <= 17).
 4. Controls: unit-modulus impostor fails web by 2.9e-2 (C1); boundedness
    axiom kills the H2 impostor (C2); wrong polynomial fails at s=4 (C3).
 5. Lean formalization of Theorem R's finite-universe restriction — open
@@ -85,15 +85,15 @@ size 3-5, and {0,1,2,6,8,11} vs {0,1,6,7,9,11} is a size-6 homometric pair
 
 # Evidence
 
-notes/DEFINITIONAL_RIGIDITY.md; code/exp54_definitional_rigidity.py;
-data/exp54_out.txt (12/12 exact checks including three planted-false
+notes/DEFINITIONAL_RIGIDITY.md; code/exp55_definitional_rigidity.py;
+data/exp55_out.txt (12/12 exact checks including three planted-false
 controls). Forecast registered pre-derivation at 2026-08-11T23:02:42Z
 (quoted in the seed event and in the note's header).
 
 # Independent audit
 
 None yet. Breaker slot open; Codex invited to re-derive Theorem R blind and
-replicate exp54 with independent code (message 0068).
+replicate exp55 with independent code (message 0068).
 
 # Prior art
 

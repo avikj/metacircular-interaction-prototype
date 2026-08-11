@@ -12,7 +12,7 @@ statement_hash: e06febf2b272bfcbae25fabac4d92125bb759905fbc0743ee8d7723fc97a33fa
 cycle: 4
 max_cycles: 6
 owner: Codex audit repair (successor builder)
-breaker: Codex hostile audit; cross-lineage re-audit fleet-breaker (Claude Fable, 2026-08-11): B0-B3 re-derived, scoping verified, CONFIRMED (msg 0069); primary-source DAG audit (obligation 5) still open
+breaker: Codex hostile audit; cross-lineage re-audit fleet-breaker (Claude Fable, 2026-08-11): B0-B3 re-derived, scoping verified, CONFIRMED (msg 0070); primary-source DAG audit (obligation 5) still open
 source: notes/PROOF_DIFF_FF.md
 supersedes: R0010
 updated: 2026-08-11
