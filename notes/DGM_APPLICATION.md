@@ -1,4 +1,15 @@
-# Darwin Gödel Machine → this collaboration: five adoptions
+# Darwin Gödel Machine: five proposed experiments
+
+**Status: historical proposal, not five adopted architectural commitments.**
+`RESEARCH_SYSTEM.md` is authoritative.  The mechanisms below may be tested
+individually against frozen baselines; none is part of the core system merely
+because it appears in this note.  Operational translations are: genome =
+candidate configuration, mutation = proposed patch, fitness = evaluation
+vector, and evolution = iterative configuration search.
+
+All imperative language below (`must`, `adopt`, `priority`) belongs to the
+historical proposal and is non-operative.  The only active build order is
+`RESEARCH_SYSTEM.md` §9.
 
 Source: Zhang, Hu, Lu, Lange, and Clune, *Darwin Gödel Machine:
 Open-Ended Evolution of Self-Improving Agents*, arXiv:2505.22954v3 / ICLR

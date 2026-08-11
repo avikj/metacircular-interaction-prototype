@@ -1,9 +1,13 @@
-# MathDGM: evolutionary search outside, mathematical authority inside
+# Darwin Gödel Machine pilot study (optional search-policy prior art)
 
-Status: architecture proposal, not an evolutionary runner and not a
-mathematical result.  `machinery/evolution/` supplies only an inert exact-record
-validator; no sandbox, mutator, evaluator, or controller is implemented.  The
-design below adapts one useful idea from the Darwin Gödel Machine
+**Status: quarantined experimental design, not canonical architecture.**  The
+current system is described by `RESEARCH_SYSTEM.md`.  This note remains as a
+source audit and possible future controlled experiment; its evolutionary and
+biological language is not used to explain the operating research system.
+
+`machinery/evolution/` supplies only an inert exact-record validator; no
+sandbox, mutator, evaluator, parent selector, or controller is implemented.
+The design below studies one useful idea from the Darwin Gödel Machine
 (DGM)—an archive of branching, empirically evaluated agent scaffolds—to this
 repository.  It does **not** import DGM's benchmark claims as evidence about
 mathematical discovery, and it does not authorize publishing or exporting any

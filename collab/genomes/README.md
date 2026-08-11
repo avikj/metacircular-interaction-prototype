@@ -1,18 +1,18 @@
-# Genome archive (DGM adoption A1)
+# Candidate-configuration archive (legacy `genomes` namespace)
 
-Every trusted brief, skill version, and protocol amendment receives an
-immutable catalog snapshot; that does not make it executable ancestry. Human
-labels such as `G0001` are mutable aliases, not mathematical identity. Strict
-candidate-genome records under `machinery/evolution/` use versioned content
-IDs, hashed dependencies, reconstruction evidence, attestations, and
-append-only events; names and champion pointers stay outside those IDs.
-Registry packets and fleet briefs cite the retained genome record that produced
-them. Executable branching uses only retained, attested genomes. Rejected
-genomes remain epistemic stepping stones—their
-sanitized yields, counterexamples, and certified artifacts may be inherited—but
-their code is not executable ancestry. Adoption into the default path goes
-through the empirical gate (A3) once the evaluation suite lands; until then,
-forecast + review date per PROTOCOL.
+The directory name is retained for compatibility.  A "genome" here means only
+a versioned candidate configuration; it carries no biological or evolutionary
+claim.  This archive is not the system's authoritative research graph and no
+configuration self-adopts.
 
-G0001: the onboard skill as of 2026-08-12 (.claude/skills/onboard/
-SKILL.md @ commit afedbed) — root genome of the agent layer.
+This archive is currently **unpopulated**: it contains no schema-valid
+candidate records, retained-event chain, empirical gate, or registry links.
+Live provenance remains Git history, the claim registry, journals, and exact
+artifacts.
+
+`G0001` was a historical human alias for a snapshot of an onboarding skill. It
+is not a retained candidate configuration under the current validator and has
+no executable or epistemic authority.  Any future candidate records must use
+the inert, fail-closed contract in `machinery/evolution/` and must pass a
+separately authorized evaluation policy before becoming eligible for a
+controlled experiment.

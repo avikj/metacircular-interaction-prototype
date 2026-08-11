@@ -2,9 +2,9 @@
 
 Status: architecture proposal. No record type, canonicalizer, equivalence
 checker, class merger, or transport engine described here is implemented by
-this note. The experimental MathDGM validator, once its hostile-input audit
-passes, is authoritative only for its own narrow v1 record syntax; it does not
-implement or authorize the equivalence layer proposed here.
+this note. The legacy candidate/evaluation validator is authoritative only for
+its own narrow v1 record syntax; it does not implement or authorize the
+equivalence layer proposed here.
 
 ## 1. The design in one sentence
 
@@ -72,12 +72,12 @@ not to an inferred description of the current language.
   foundations, when identifications coincide with the appropriate notion of
   equivalence. The hypotheses and the chosen signature are part of the
   theorem; "isomorphic things are literally the same hash" is not.
-- The evolutionary application follows Zhang, Hu, Lu, Lange, and Clune,
+- One optional search-policy client is informed by Zhang, Hu, Lu, Lange, and
+  Clune,
   [*Darwin Gödel Machine*, arXiv v3](https://arxiv.org/abs/2505.22954v3),
-  while retaining
-  the trust boundary in `DARWIN_GODEL_MATH.md`: evolutionary scores select
-  scaffolds, whereas exact checkers and proof kernels determine mathematical
-  status.
+  but that experiment is not a source of the identity architecture.  If run,
+  evaluation scores may select candidate configurations while exact checkers
+  and proof kernels alone determine mathematical status.
 
 - Rabe and Kohlhase's
   [MMT module system](https://arxiv.org/abs/1105.0548) already represents
@@ -117,11 +117,11 @@ witness is accepted. No single layer may impersonate the others.
 This changes the implementation question. We are not designing a universal
 semantic hash. We are reconstructing a small, private, content-addressed
 front-end to an already mature theory-graph idea, then adding the missing
-proof-relevant acceptance, causal snapshots, resource accounting, and DGM
-search boundary. Before defining any new transport record, compare it against
-MMT's theory-morphism semantics and safe-integration conditions. The local
-record is justified only when it binds evidence or trust data that the existing
-semantic language does not.
+proof-relevant acceptance, causal snapshots, resource accounting, and an
+optional search-client boundary. Before defining any new transport record,
+compare it against MMT's theory-morphism semantics and safe-integration
+conditions. The local record is justified only when it binds evidence or trust
+data that the existing semantic language does not.
 
 ### 2.2 What the architecture should optimize
 
@@ -596,17 +596,17 @@ ordering specification, symmetry fixtures, implementation-independent replay,
 and a migration morphism from any v1 bundle. Until then, dependency cycles are
 rejected.
 
-## 7. MathDGM cache, lineage, and search
+## 7. Evaluation reuse, lineage, and optional search clients
 
-This layer can make evolutionary mathematics cheaper without allowing fitness
-to become truth.
+This layer can make repeated research evaluation cheaper without allowing a
+score to become truth.
 
 ### Exact reuse
 
 The ordinary evaluation cache remains keyed by exact inputs:
 
 ```text
-(genome_presentation_id,
+(candidate_configuration_presentation_id,
  evaluator_presentation_id,
  task_set_presentation_id,
  environment_presentation_id,
@@ -632,13 +632,14 @@ more expensive proof-carrying transport cache, rather than one unsound
 
 ### Lineage and novelty
 
-Parent-child ancestry always uses immutable genome presentation IDs; later
+Parent-child ancestry always uses immutable candidate-configuration
+presentation IDs; later
 class mergers never rewrite lineage. Novelty scoring may use a class snapshot
 at a recorded edge head:
 
 - an exact I1 duplicate receives zero presentation novelty;
 - a scaffold certified equivalent under the selected relation receives zero
-  genome/presentation novelty, while a new morphism, automorphism, proof
+  configuration/presentation novelty, while a new morphism, automorphism, proof
   compression, faster transport, or stronger verifier may receive a separate
   proof-artifact novelty score—never scaffold novelty;
 - a heuristic resemblance changes neither identity nor novelty unless the
@@ -646,11 +647,11 @@ at a recorded edge head:
 - historical scores retain their original snapshot ID, preventing newly
   discovered equivalences from retroactively changing an experiment.
 
-The archive therefore keeps semantically duplicate descendants for provenance
-while avoiding repeated expensive evaluation when exact replay or certified
-transport is available. DGM mutations may propose canonicalizers, morphisms,
-coherences, and transports, but cannot approve their own verifier, equivalence
-theory, class membership, or theorem status.
+An experimental archive may therefore keep semantically duplicate descendants
+for provenance while avoiding repeated expensive evaluation when exact replay
+or certified transport is available. Search processes may propose canonicalizers,
+morphisms, coherences, and transports, but cannot approve their own verifier,
+equivalence theory, class membership, or theorem status.
 
 ## 8. Failure modes and fail-closed responses
 
@@ -672,8 +673,8 @@ theory, class membership, or theorem status.
 | canonicalizer disagreement | platform-dependent identities | quarantine outputs; no ID or class merge |
 | digest collision or object mismatch | address aliases unequal bytes | fatal integrity stop and algorithm migration |
 | axiom-profile erasure | classical or unsafe result appears constructive | bind axiom profile in theory and verification |
-| class-wide DGM cache reuse | equivalent object may require nontrivial result transport | exact cache or proof-carrying derived cache only |
-| adaptive discovery controls authority | a high fitness score promotes its own semantics | immutable verifier/class-acceptance controller |
+| class-wide evaluation-cache reuse | equivalent object may require nontrivial result transport | exact cache or proof-carrying derived cache only |
+| adaptive discovery controls authority | a high evaluation score promotes its own semantics | immutable verifier/class-acceptance controller |
 
 ## 9. Staged implementation
 
@@ -796,7 +797,7 @@ executable fixtures with expected IDs or expected failures.
     the full head prefix fails maximality even when the submitted tree is
     internally connected.
 
-### Transport and MathDGM tests
+### Transport and evaluation-cache tests
 
 22. Transport along identity reproduces the source theorem; transport along a
     verified relabeling produces a target theorem accepted by the ordinary
@@ -810,13 +811,13 @@ executable fixtures with expected IDs or expected failures.
     an accepted coherence, a separately checked transport-congruence operator,
     and ordinary replay of the target proof; coherence alone does not rewrite
     immutable path-keyed entries.
-25. Exact DGM cache hits require identical semantic input IDs and seeds;
+25. Exact evaluation-cache hits require identical semantic input IDs and seeds;
     timestamps, aliases, and resource observations do not affect the key.
 26. Same-class/different-presentation evaluations miss the exact cache and hit
     an equivalence-assisted cache only with a valid transport certification.
-27. A later class merge does not rewrite parent IDs, old fitness values, or old
-    novelty features; it affects only evaluations explicitly pinned to the new
-    snapshot.
+27. A later class merge does not rewrite parent IDs, old evaluation values, or
+    old novelty features; it affects only evaluations explicitly pinned to the
+    new snapshot.
 28. A descendant cannot modify its equivalence theory, verifier allowlist,
     accepted-edge head, class computation, or theorem-status rules.
 29. Prompt claims, embedding similarity, matching names, identical benchmark
@@ -834,13 +835,14 @@ machinery and an incomplete-ordering warning; Cubical Agda computes transport
 from equivalences via univalence; SIP theorems require specified structural
 hypotheses; OMDoc/MMT represents foundation-independent theory graphs and uses
 theory morphisms for safe cross-system translation; Math-in-the-Middle uses a
-shared ontology as a semantic pivot; DGM is an empirical evolutionary
-architecture rather than a proof authority.
+shared ontology as a semantic pivot. Darwin Gödel Machine work is optional
+empirical search-policy prior art rather than an identity source or proof
+authority.
 
 Specified here, not yet established: the four-stratum record system, exact
 preimages, finite canonicalizer allowlist, proof-relevant graph, snapshot
-algorithm, transport records, DGM cache integration, and their regression
-suite. In particular, this note makes no claim that arbitrary mathematical
+algorithm, transport records, candidate/evaluation cache integration, and
+their regression suite. In particular, this note makes no claim that arbitrary mathematical
 isomorphism, equivalence, theorem equivalence, or program equivalence is
 decidable. The design is valuable precisely because it remains sound when
 those questions are open.

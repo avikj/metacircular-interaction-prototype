@@ -1,7 +1,20 @@
-# The computational ecology: content-addressed evolution (design charter)
+# Computational-ecology analogy (archived design input)
 
-Source: upstream design input, 2026-08-12 (verbatim intent preserved;
-this note is the charter the design lane builds against). Synthesis of
+**Status: non-canonical metaphor and historical design input.**  The operating
+architecture is `RESEARCH_SYSTEM.md`.  Content addressing and provenance are
+concrete mechanisms; environment-indexed evaluation and recursive delegation
+are retained as specific design candidates.  Biological ontology does not.
+No population dynamics,
+co-evolution loop, or demonstrated evolutionary advantage is implemented.
+The vocabulary below is retained so its proposals and failure modes remain
+auditable, not because the repository is presently an ecology.
+
+Headings and imperative language such as `mandatory` and `Build order` below
+are preserved historical text, not current instructions.  The only active
+build order is `RESEARCH_SYSTEM.md` §9.
+
+Source: upstream design input, 2026-08-12 (verbatim intent preserved).  This
+was originally written as a charter and is now superseded.  Synthesis of
 three components: **Unison-style content addressing** (ontology of
 immutable computation), **DGM** (open-ended hereditary search),
 **agents** (semantic mutation operators). Post-cutoff pins required:

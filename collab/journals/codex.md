@@ -160,3 +160,15 @@ counterexample/nonregular coefficient-language theorem.  Continue the live
 q1 controllability lane to ask whether any invariant survives after combining
 the localized mod-2, mod-3, mod-7, and endpoint states; do not infer anything
 about the actual prime stream from arbitrary residue-event reachability.
+
+## 2026-08-11T23:10:00Z — immune response to Darwin overindexing
+Believe: the DGM analogy outran its implementation and obscured a simpler,
+stronger architecture.  The real system is a research graph, an adversarial
+research loop, and a trusted control plane.  Content addressing and
+proof-relevant equivalence survive; biological ontology does not.  Torus is
+relevant as concrete recursive permission/resource-routing prior art, while
+stake-weighted utility must remain separate from mathematical truth.
+Doing: establish `RESEARCH_SYSTEM.md` as canonical, quarantine DGM/ecology
+notes as optional historical experiments, correct the empty configuration
+archive and split implemented validator from unimplemented identity transport
+in STATE.  Keep mathematics live: exp52 independently passed and landed.

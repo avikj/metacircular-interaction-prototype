@@ -1,7 +1,13 @@
-# Private MathDGM record kernel
+# Private candidate/evaluation record kernel
 
-This directory is the smallest inert substrate for testing evolutionary
-orchestration ideas. It validates content-addressed records. It does **not**
+The directory name and several schema fields retain legacy evolutionary
+terminology.  They describe versioned candidate configurations and evaluation
+observations; they do not make Darwin Gödel Machine search part of the system
+architecture.  See `notes/RESEARCH_SYSTEM.md` for the canonical description.
+The remainder uses `genome` only where it is the frozen v1 wire-format name.
+
+This directory is the smallest inert substrate for testing candidate
+configuration and evaluation records. It validates content-addressed records. It does **not**
 run an agent, apply a mutation, access a network, modify itself, select a
 champion, or change the status of a mathematical claim.
 
