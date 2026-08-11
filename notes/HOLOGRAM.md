@@ -100,3 +100,40 @@ A span-8.5 window ($X\sim10^8$) reads 9 banded lines; newly readable:
 $f=46.03, 47.07, 50.02, 53.96$ — the gaps $\gamma_3{-}\gamma_2$,
 $\gamma_5{-}\gamma_1$ and the $(3,3)$ diagonal become extractable.
 Falsifiable the day anyone sieves to $10^8$.
+
+## 6. Toy Theorem K0: the provable core is superresolution theory (exp41)
+
+The capacity law's rigorous skeleton exists in an established field —
+imported, not invented. The WL observer of `BARRIER.md` sees a span-$L$
+bandlimited observation of the spectral spike train; spike-superresolution
+theory (Candès–Fernandez-Granda, CPAM 2014: stable recovery needs
+separation $\gtrsim c/L$; Demanet–Nguyen, Batenkov–Goldman–Yomdin: below
+separation, a coherent $p$-cluster with moments matched to order $2p-2$ is
+indistinguishable at relative precision $(\delta L)^{2p-1}$) is exactly the
+K$_{\mathrm{wl}}$ transition in the toy.
+
+**Verified on the real atom geometry (exp41):** taking the closest true
+pair atoms ($81.837/81.854$, $\delta=0.016$) and their moment-matched
+merges, the windowed-signal difference scales as $(\delta L)^{1.95}$
+(order-1 match; predicted 2) and $(\delta L)^{2.94}$ (order-2; predicted 3).
+A phase subtlety is itself informative: the indistinguishable cluster must
+be *coherent* — with independent phases even the merged spike is
+$O(1)$-distinguishable — so the worst case of the lower bound and the
+typical case of the chirped arithmetic measure differ, and the D‴ phase
+law (which fixes the phases) is what lets the arithmetic case sit at the
+constructive edge of the bound.
+
+**Refined crowding law.** Precision $\varepsilon$ buys sub-Rayleigh
+*detection* at $L\sim\varepsilon^{1/(2p-1)}/\delta$, but stable *reading*
+(parameter extraction) still requires Rayleigh-grade separation — the
+measured $\kappa=1.4$ sits exactly in the corridor between the two, and
+becomes precision-dependent, $\kappa=\kappa(\varepsilon)$, in the general
+law. The depth exponent of Theorem K(b) is unchanged (it is forced by the
+density $\rho_2$); the constants now carry $\varepsilon^{1/(2p-1)}$
+refinements.
+
+Honest deltas toy→arithmetic: superresolution lower bounds are minimax
+over amplitudes; the arithmetic amplitudes are fixed and partially known
+(modulus law), which improves constants — it cannot change exponents,
+which moment matching forces. Citations to anchor: arXiv:1203.5871 (CF-G),
+arXiv:1502.01385 (Demanet–Nguyen), arXiv:1904.09186 (Batenkov et al.).
