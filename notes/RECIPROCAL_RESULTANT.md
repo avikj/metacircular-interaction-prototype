@@ -1,9 +1,9 @@
 # Reciprocal parity resultants are evaluation times a square
 
 This note isolates the all-degree structure behind the reciprocal sextic
-and octic unit equations. It is an exact algebraic identity. Its status
-relative to the classical literature on reciprocal-polynomial resultants
-has not yet been determined, so no novelty claim is made.
+and octic unit equations. It is an exact algebraic identity and a direct
+corollary of the classical square-resultant theorem for even-degree
+reciprocal polynomials. No novelty is claimed for the factorization itself.
 
 Let $g\in\mathbb Z[x]$ be monic and reciprocal of even degree, with
 constant term one, and split it into even and odd powers:
@@ -169,6 +169,35 @@ Thus every reciprocal divisor of an odd-support polynomial is forced to
 take a Gaussian-unit value at the fourth root of unity. The remaining
 condition $\operatorname{Res}(A,B)=\pm1$ is a lower-dimensional
 Joukowski norm equation.
+
+## Prior-art status
+
+The square in (1.1)--(1.2) is classical structure, not a new phenomenon.
+Matthew Baker's Proposition 2.3 in
+[Reciprocity via Reciprocants](https://doi.org/10.1080/00029890.2024.2439819)
+proves that if $R$ and $S$ are monic reciprocal polynomials of even degree,
+then
+
+$$
+\operatorname{Res}(R,S)
+=\operatorname{Res}(R^\#,S^\#)^2,
+$$
+
+where the sharp denotes the trace polynomial under $x+x^{-1}$. Formula
+(1.1) follows immediately by factoring the odd-degree reciprocal polynomial
+$O=(y+1)Q$ and applying Baker's proposition to $(E,Q)$. Formula (1.2)
+follows in the same way from $E=(y+1)Q$ and the pair $(Q,O)$. The factors
+$E(-1)$ and $O(-1)=(-1)^kB(-2)$ are precisely the resultants contributed
+by $y+1$.
+
+Baker notes that the underlying ingredients also occur in Theorem 3.4 of
+K. Alan Loper and Nicholas J. Werner,
+[Resultants of minimal polynomials of maximal real cyclotomic extensions](https://doi.org/10.1016/j.jnt.2015.06.002),
+and uses the trace-polynomial terminology of Benedict Gross and Curtis
+McMullen,
+[Automorphisms of even unimodular lattices and unramified Salem numbers](https://doi.org/10.1016/S0021-8693(02)00552-5).
+The useful specialization here is the parity split for odd-support divisors
+and its Gaussian-unit consequence, not a new square-resultant theorem.
 
 ## Low-degree checks
 

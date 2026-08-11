@@ -348,9 +348,12 @@ $$
 
 See `RECIPROCAL_RESULTANT.md` and
 `code/exp35_reciprocal_resultant.py`; the latter gives exact regression
-checks in degrees $4$ through $14$.  The identity explains rather than
-merely repeats the low-degree factorizations.  No novelty claim is attached
-pending comparison with the classical reciprocal-resultant literature.
+checks in degrees $4$ through $14$.  The square structure is classical:
+it follows from Baker's reciprocal trace-resultant theorem (Monthly 2025,
+Prop. 2.3), with antecedents in Loper--Werner and Gross--McMullen.  The
+repo-specific contribution is the odd-support parity specialization and
+Gaussian-unit consequence, which explain rather than merely repeat the
+low-degree factorizations.
 
 ---
 
