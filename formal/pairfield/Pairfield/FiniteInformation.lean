@@ -42,6 +42,44 @@ def Completes {X : Type u} {Y : Type v} {C : Type w}
     (q : X → Y) (c : X → C) : Prop :=
   Function.Injective fun x => (q x, c x)
 
+/-- The target values that remain possible inside one observer fiber. -/
+def TargetFiber {X : Type u} {Y : Type v} {T : Type w}
+    (q : X → Y) (t : X → T) (y : Y) : Type w :=
+  {value : T // ∃ x, q x = y ∧ t x = value}
+
+/-- Any zero-error side alphabet must distinguish all target values occurring
+inside a single observer fiber.  The injection is the distribution-free core
+of the lower bound `|C| ≥ max_y |t(q⁻¹(y))|`. -/
+theorem targetFiber_injects_side
+    {X : Type u} {Y : Type v} {T : Type w} {C : Type z}
+    (q : X → Y) (t : X → T) (c : X → C)
+    (decode : Y → C → T)
+    (hdecode : ∀ x, decode (q x) (c x) = t x)
+    (y : Y) :
+    ∃ encode : TargetFiber q t y → C, Function.Injective encode := by
+  classical
+  let witness : TargetFiber q t y → X := fun value =>
+    Classical.choose value.property
+  have hwitness_q (value : TargetFiber q t y) : q (witness value) = y :=
+    (Classical.choose_spec value.property).1
+  have hwitness_t (value : TargetFiber q t y) :
+      t (witness value) = value.1 :=
+    (Classical.choose_spec value.property).2
+  refine ⟨fun value => c (witness value), ?_⟩
+  intro left right hc
+  apply Subtype.ext
+  calc
+    left.1 = t (witness left) := (hwitness_t left).symm
+    _ = decode (q (witness left)) (c (witness left)) :=
+      (hdecode (witness left)).symm
+    _ = decode y (c (witness left)) := by rw [hwitness_q left]
+    _ = decode y (c (witness right)) := by
+      exact congrArg (decode y) hc
+    _ = decode (q (witness right)) (c (witness right)) := by
+      rw [hwitness_q right]
+    _ = t (witness right) := hdecode (witness right)
+    _ = right.1 := hwitness_t right
+
 /-- Completion is exactly separation of distinct points inside each fiber. -/
 theorem completes_iff_separatesFibers
     {X : Type u} {Y : Type v} {C : Type w}

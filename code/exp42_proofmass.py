@@ -1,34 +1,39 @@
 """exp42: proof-mass instantiation of the noisy-axiom conservation theorem.
 
-Companion to notes/PROOF_MASS.md (Theorems PM1-PM6), executing LENS_CHAITIN
-section 4 item 2 at X = 2*10^6 on exp41's lambda pipeline (sieve re-run with
-the identical algorithm; exact integer cross-checks against data/exp41_out.txt
-are asserted).
+Companion to notes/PROOF_MASS.md (Theorems PM1-PM6), evaluating one finite
+box-and-slab LP family at X = 2*10^6 on exp41's lambda pipeline.  The prime,
+twin, and swap cross-checks are exact integer identities.  Budgets involving
+N/q or log N, the reported ratios, and kappa are float64 diagnostics, not an
+exact arithmetic certificate.
 
 Frame.  States nu = w dn on [1,N] with 0 <= w <= 2.  Axiom family: AP counts
 A_{q,a}(nu) = sum_{n<=N, n=a(q)} w(n), asserted value b_{q,a} = N/q, budget
 R_q.  Charge chi is lambda (prime frame, target 1_P, true state (1-lambda)dn)
 or c2(n) = lambda(n)lambda(n+2) (twin frame, target 1_{twin}, true state
-(1+c2)dn).  Per-axiom quantities measured exactly:
+(1+c2)dn).  Per-axiom integer sums are computed exactly at this scale:
 
     delta_{q,a} = |sum_{n=a(q)} chi(n)|          (true charge of the axiom)
     e_{q,a}     = |#{n=a(q)} - N/q| < 1          (reference offset)
     m_{q,a}     = R_q - e_{q,a}                  (margin at the reference)
 
-Budget schemes R_q = (N/q) / (log N)^A, A in {0,1,2}: A=0 is the trivial
-(always-provable) budget; A=1,2 model BV_lambda-scale budgets (provable for
-the lambda frame by LENS_CIRCUIT Lemma 3.1 on average / off the bad set; NOT
-provable for the c2 frame, where nothing below trivial is known).
+Budget schemes R_q = (N/q) / (log N)^A, A in {0,1,2}, are selected centered
+baselines for this numerical experiment.  Even A=0 is not the universal box
+budget around N/q: residue-class endpoint effects require N/q+O(1), with
+N/q+2 a safe uniform choice for 0 <= w <= 2.  A=1,2 model BV_lambda-scale
+budgets (available for the lambda frame only on average / off the bad set;
+not known for the c2 frame).
 
-Reported per (frame, theta, A), family = all (q,a) with 3 <= q <= N^theta:
+Reported per (frame, theta, A), family = all (q,a) with
+3 <= q <= floor(N^theta):
 
-  t*    = min m_{q,a}/delta_{q,a}   -- largest |t| with nu_t = (1+t chi)dn
-          satisfying every noisy axiom (PM3 interpolation; t* >= 1 means the
-          full swap state is feasible and PM2 gives beta <= 0: no positive
-          derivation certifies a single prime/twin at these budgets).
+  t*    = min m_{q,a}/delta_{q,a}   -- largest symmetric radius r for which
+          every nu_t with |t| <= r satisfies every noisy axiom (PM3; t* >= 1
+          means both endpoints are feasible and PM2 gives beta <= 0 inside
+          this finite affine LP cone).
   exch  = min R_q/delta_{q,a}       -- mass exchange rate: any derivation
           certifying beta pays dual mass M = sum |c_j| R_j >= beta * exch
-          (PM5); with trivial floors this is the PM6 oracle-cost constant.
+          (PM5); relative to an explicitly selected certified baseline this
+          is the PM6 reparameterization constant.
   kappa = max delta_{q,a}/sqrt(N_chi/q) -- flatness constant of the charge.
 
 Output: data/exp42_out.txt, figures/exp42_proofmass.png.
@@ -40,7 +45,6 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pairfield import sieve_primes
 
 X = int(sys.argv[1]) if len(sys.argv) > 1 else 2_000_000
-LOGX = np.log(X)
 
 
 def liouville2(X):
@@ -97,11 +101,12 @@ for q in range(3, QMAX + 1):
 
 # ---- evaluate schemes -------------------------------------------------------
 def family_stats(delta, e, Ntot, Q, A):
-    """min margin/charge (t*), min budget/charge (exch), max flatness kappa."""
+    """Numerical t*, exchange ratio, and flatness for a selected budget."""
     tstar, exch, kappa = np.inf, np.inf, 0.0
     arg_t = arg_x = None
+    log_ntot = np.log(Ntot)
     for q in range(3, Q + 1):
-        R = (Ntot / q) / LOGX ** A
+        R = (Ntot / q) / log_ntot ** A
         d, ee = delta[q], e[q]
         pos = d > 0
         if pos.any():
@@ -123,12 +128,14 @@ frames = {
     "twin  (chi=c2)":     (delta_c2, e_c2, float(N2), pi2_X),
 }
 thetas = [0.40, 0.45, 0.50]
+out.append("diagnostic status: integer target/swap checks exact; ratios and kappa float64")
+out.append("selected budgets: R_q=(N/q)/(log N)^A; safe universal A=0 box budget is N/q+2")
 out.append("")
 out.append("frame                theta   Q      A   t*        exch      kappa   beta cap (PM3)")
 results = {}
 for fname, (delta, e, Ntot, target) in frames.items():
     for th in thetas:
-        Q = min(QMAX, int(round(X ** th)))
+        Q = min(QMAX, int(X ** th))
         for A in (0, 1, 2):
             tstar, qt, exch, qx, kappa = family_stats(delta, e, Ntot, Q, A)
             cap = 0.0 if tstar >= 1 else (1 - max(tstar, 0.0)) * target
@@ -142,12 +149,12 @@ for fname, (delta, e, Ntot, target) in frames.items():
 th = 0.45
 tstar, qt, exch, qx, kappa, Q = results[("twin  (chi=c2)", th, 0)]
 out.append("")
-out.append(f"HEADLINE (twin frame, theta = {th} = 1/2 - eps, Q = {Q}, trivial floors A=0,")
-out.append(f"          the only budgets currently provable for pair-charged states):")
-out.append(f"  max feasible |t| for the swap family nu_t = (1 + t*c2)dn:  t* = {tstar:.3f}")
+out.append(f"HEADLINE (twin frame, theta = {th} = 1/2 - eps, Q = {Q},")
+out.append("          selected centered budget R_q=N/q; numerical finite-X evaluation):")
+out.append(f"  symmetric feasible radius for nu_t = (1 + t*c2)dn:  t* = {tstar:.3f}")
 out.append(f"    (attained at q = {qt}; t* >= 1, so BOTH nu_+1 and nu_-1 satisfy every")
 out.append(f"     noisy axiom, with {tstar:.1f}x slack -> PM2: beta <= 0, no positive")
-out.append(f"     derivation from this family certifies even one twin pair, at ANY mass)")
+out.append("     derivation in this finite box-and-slab LP cone certifies a positive bound)")
 out.append(f"  mass exchange rate: min_j R_j/delta_j = {exch:.3f} (attained at q = {qx})")
 out.append(f"    -> PM5/PM6: any derivation certifying beta (using any sound sharpened")
 out.append(f"       budgets s_j*R_j) satisfies  M(D) * Gamma(D) >= beta * {exch:.3f},")
@@ -156,8 +163,8 @@ out.append(f"  charge flatness kappa = {kappa:.2f}  (sqrt-cancellation scale, al
 out.append(f"  at separation-scale certification beta = pi2/2 = {pi2_X // 2}:")
 out.append(f"       M * Gamma >= {0.5 * pi2_X * exch:.3e}")
 out.append("")
-out.append("asymptotic projection of the exchange rate min_j F_j/delta_j (PM6),")
-out.append("under flatness delta <= kappa*sqrt(N/q): X^((1-theta)/2)/kappa(logX)^A:")
+out.append("conditional asymptotic projection of min_j F_j/delta_j (PM6),")
+out.append("assuming CH_theta flatness delta <= kappa*sqrt(N/q):")
 for XX in (2e6, 1e9, 1e12):
     v0 = XX ** ((1 - 0.45) / 2) / kappa
     v1 = XX ** ((1 - 0.5) / 2) / (kappa * np.log(XX))
@@ -174,7 +181,7 @@ try:
     ax.scatter(qs, dmax, s=3, alpha=0.35, color="#30588c",
                label=r"max$_a\,\delta_{q,a}/\sqrt{N/q}$  (pair charge $c_2$)")
     for A, c in ((0, "#b8443c"), (1, "#c98a2d"), (2, "#5b8c4a")):
-        ax.plot(qs, np.sqrt(N2 / qs) / LOGX ** A, color=c, lw=1.4,
+        ax.plot(qs, np.sqrt(N2 / qs) / np.log(N2) ** A, color=c, lw=1.4,
                 label=rf"budget $R_q/\sqrt{{N/q}}$, $A={A}$")
     ax.set_xscale("log"); ax.set_yscale("log")
     ax.set_xlabel("modulus q"); ax.set_ylabel(r"units of $\sqrt{N/q}$")

@@ -1,24 +1,24 @@
 """exp41: the Selberg two-model swap, measured.
 
-The two states nu_pm(n) = 1 +/- lambda(n) on [1,X] are the two points of the
-fiber over the charge-even shadow: every sigma-even observable (sigma: the
-gauge flip lambda -> -lambda) takes the SAME value on both, while the prime
-target separates them maximally (w_+(p) = 0, w_-(p) = 2).
+The endpoint measures nu_pm(n) = 1 +/- lambda(n) on [1,X] are compared
+exactly.  A "common shadow" is a declared channel on the two-element endpoint
+domain that identifies them; ordinary linear tests need not do so.
 
 Measured here (X = 2*10^6 default):
   (A) axiom-value agreement: for moduli q <= Q, residues a, the AP counts
       sum_{n<=X, n=a(q)} w_pm(n) agree up to the lambda-discrepancy
       D(q,a) = |sum_{n<=X, n=a(q)} lambda(n)|, reported in units of
       sqrt(X/q) (square-root cancellation null).  This is the finite-level
-      content of "the sieve axioms are charge-even" (cf. LENS_CIRCUIT
-      Thms 1-2: these discrepancies are provably small on average).
+      a falsifier for any claim of exact AP agreement.  No asymptotic
+      square-root bound is inferred from this finite measurement.
   (B) target separation: primes get total weight 0 under w_+ and 2*pi(X)
-      under w_-; the pair target (n, n+2 both prime) likewise 0 vs ~4*pi_2(X).
-  (C) pair charge: same for the twin problem with the pair flip
+      under w_-.
+  (C) pair charge: a separate endpoint system for the twin problem on
+      n=1,...,X-2, with pair flip
       c_2(n) = lambda(n)lambda(n+2): weights 1 +/- c_2 agree on even
-      observables, separate the twin target (c_2 = +1 on twin p, p+2 > 2
-      since lambda(p)lambda(p+2) = 1... note lambda(p) = -1 so c_2(p) = +1
-      when both prime: w^-(twins) = 0).
+      endpoint observables by definition and separate the twin target as
+      2*pi_2(X) versus 0.  This pair-charge flip is not induced by the global
+      sign change lambda -> -lambda, which fixes c_2.
 Output: data/exp41_out.txt
 """
 import sys, os
@@ -46,14 +46,14 @@ def liouville2(X):
 
 lam = liouville2(X)
 isp = sieve_primes(X).astype(bool)
-n_all = np.arange(X + 1)
-
 out = []
 out.append(f"# exp41: Selberg two-model swap, X={X}")
 
 # sanity: sum lambda should be o(X) and lambda(p) = -1
 assert all(lam[p] == -1 for p in [2, 3, 5, 7, 997]) and lam[4] == 1 and lam[6] == 1
 out.append(f"sum lambda = {int(lam[1:].sum())}  (|.|/sqrt(X) = {abs(lam[1:].sum())/X**0.5:.3f})")
+out.append(f"exact masses: mass(nu+) = {int((1 + lam[1:]).sum())}, "
+           f"mass(nu-) = {int((1 - lam[1:]).sum())}")
 
 # (A) axiom agreement in APs
 rng = np.random.default_rng(41)
@@ -65,7 +65,7 @@ for q in [3, 7, 30, 101, 997, 9973, 99991]:
         d = abs(int(lam[a::q][1:].sum() if a == 0 else lam[a::q].sum()))
         worst = max(worst, d / (X / q) ** 0.5)
     rows.append((q, worst))
-out.append("(A) max_a |sum_{n=a(q)} lambda| / sqrt(X/q):")
+out.append("(A) AP discrepancy (nonzero means AP counts are not an exact common shadow):")
 for q, w in rows:
     out.append(f"    q={q:6d}  {w:8.3f}")
 
@@ -84,11 +84,11 @@ out.append(f"(C) twin target: sum(1+c2) over twin n = {int(wp2[twin].sum())} = 2
            f"sum(1-c2) over twin n = {int(wm2[twin].sum())}")
 out.append(f"    mean c2 over all n = {c2.mean():+.6f}  (Chowla-2 scale: known o(1) only log-averaged)")
 
-# two-point fiber check: an even observable evaluates equally by construction;
-# spot-check with a random even functional f(n) = g(n) + g(sigma n)-style:
-# any function of n alone (not of lambda) is even; the swap changes nothing:
+# Floating replay of the exact unnormalized linear-integral identity.  This is
+# not an equality of normalized expectations and does not make g invariant
+# under the endpoint swap.
 g = rng.random(X)
-out.append(f"fiber check: E_nu+[g] - E_nu-[g] = {float((wp*g).sum() - (wm*g).sum() - 2*(lam[1:]*g).sum()):.1e} "
+out.append(f"integral identity residual: nu+(g) - nu-(g) - 2<lambda,g> = {float((wp*g).sum() - (wm*g).sum() - 2*(lam[1:]*g).sum()):.1e} "
            f"(identity: difference = 2<lam,g>; charged part carries ALL separation)")
 
 txt = "\n".join(out)

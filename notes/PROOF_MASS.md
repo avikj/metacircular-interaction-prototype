@@ -14,13 +14,12 @@ Ch. 16) and was formalized in convex-duality form by Tao (2014 blog post
 conjecture; see §6). The proof technique below — evaluate a dual certificate
 at an explicitly constructed state family — is the standard lower-bound
 method of LP proof complexity (pseudo-expectations / fooling distributions
-for Sherali–Adams). What we claim as new is the assembly: the *noisy-axiom*
-formalization with per-axiom error budgets, the master transfer inequality
-PM1 and its continuous feasibility/mass tradeoff (PM3–PM5), the
-budget-vs-charge exchange-rate bookkeeping PM6 ("proof mass × oracle
-sharpness ≥ polynomial"), and the fully unconditional finite-X
-instantiation (§4: at X = 2·10⁶ every quantity is a computed integer
-identity, no pseudorandomness conjecture). §6 records the search.
+for Sherali–Adams), and PM1 is a direct robust-LP/approximate-feasibility
+sensitivity inequality. We therefore presume the abstract LP core known in
+form. The useful contribution here is the explicit arithmetic specialization:
+charges, margins, the Selberg swap path, and a reproducible finite-$X$
+numerical diagnostic. No theorem-level novelty is claimed. §6 records the
+remaining prior-art boundary.
 
 ---
 
@@ -56,8 +55,8 @@ $$\beta(D) \;:=\; \sum_j c_j b_j \;-\; \sum_j |c_j| R_j \;+\; \kappa .$$
 b_j - |c_j| R_j$ for feasible $\nu$; add $P(\nu) \ge 0$ and $\kappa$.
 $\square$
 
-**Lemma 1.4 (completeness — the frame captures all positive linear
-reasoning).** Conversely, if $T(\nu) \ge \beta$ holds for every $\nu \in
+**Lemma 1.4 (completeness inside the finite box-and-slab LP).** Conversely,
+if $T(\nu) \ge \beta$ holds for every $\nu \in
 \Phi(\mathcal A)$ and $\Phi(\mathcal A) \neq \emptyset$, then some
 derivation $D$ in the sense of 1.2 certifies $\beta(D) \ge \beta$.
 *Proof.* $\Phi(\mathcal A)$ is a compact nonempty polytope ($\mathcal K$
@@ -68,16 +67,18 @@ their budget cost is $\ge |c_j| R_j$) and to the box faces (whose
 aggregate is a functional nonnegative on $\mathcal K$, absorbed into $P$
 and $\kappa$). $\square$
 
-So "a sieve proof certifies $\beta$" and "$\beta(D) \ge \beta$ for some
-dual certificate $D$" coincide. **Non-circularity:** the theorems below
+Thus semantic validity and existence of a dual certificate coincide **inside
+this finite affine LP cone**. This is not a completeness theorem for arbitrary
+sieve arguments, bilinear/Type-II estimates, nonlinear deductions, or proof
+systems whose state space contains additional arithmetic constraints.
+**Non-circularity:** the theorems below
 never assume the exotic states are feasible; they evaluate the *identity*
 of Definition 1.2 at explicit states of $\mathcal K$, using only (i)
 $P \ge 0$ on $\mathcal K$, and (ii) soundness at one reference state.
 Feasibility of the swap states is a *conclusion* (PM2/PM3), derived from
-computed margins — never an assumption. The frame is moreover *generous*
-to the prover: the target kernel (the actual twin set) is handed to the
-derivation for free; any real sieve proof, which knows less, factors
-through this frame, so lower bounds here apply a fortiori.
+margins — never an assumption. The target kernel (the actual twin set) is
+handed to this LP for free, but no claim is made that every real sieve proof
+factors through the resulting cone.
 
 **Charges.** Fix a charge function $\chi: [1,N] \to \{\pm 1\}$ (below:
 $\chi = \lambda$ for the prime frame, $\chi = c_2$, $c_2(n) =
@@ -87,6 +88,9 @@ Per-axiom data, all finite and computable:
 $$\delta_j := |\langle \chi, a_j\rangle| \ \ (\text{charge}), \qquad
 e_j := |A_j(\nu_0) - b_j| \ \ (\text{reference offset}), \qquad
 m_j := R_j - e_j \ \ (\text{margin}).$$
+Unless explicitly stated otherwise, PM2–PM6 assume $m_j\ge0$ for every
+axiom. A zero-charge axiom has $\delta_j=0$ and affects feasibility only
+through this margin condition.
 Target data: $\tau = 1_{\text{twin}}$ has $T(\nu_t) = (1+t)\,\pi_2(N)$
 (since $c_2 = +1$ on twin $n$: $\lambda(p) = \lambda(p+2) = -1$), so the
 *anti-twin state* $\nu_{-1}$ has $T = 0$ and the *twin-charged truth*
@@ -126,8 +130,14 @@ twin (resp. prime). *Proof.* PM1 at $t = -1$: every $(\ )^+$ vanishes.
 $\square$
 
 **Corollary PM3 (feasibility interpolation — the quantitative tradeoff).**
-Let $t^\ast := \min_{j\,:\,\delta_j > 0}\, m_j / \delta_j$ (the largest
-$|t|$ for which $\nu_t$ satisfies every noisy axiom). Then
+Assume all margins are nonnegative and set
+$$t^\ast := \min_{j:\delta_j>0}\frac{m_j}{\delta_j},$$
+with $t^\ast=+\infty$ when every $\delta_j=0$. This is the largest radius
+$r\ge0$ for which the whole centered interval $\{\nu_t:|t|\le r\}$ is
+feasible: for each axiom,
+$$\max_{|t|\le r}|A_j(\nu_t)-b_j|=e_j+r\delta_j.$$
+It need not be the largest feasible displacement in the single
+target-killing direction, where offset/slope cancellation may help. Then
 $$\beta(D) \;\le\; \bigl(1 - \min(1, t^\ast)\bigr)^{+}\,\pi_2(N).$$
 In particular the certifiable bound degrades linearly in the feasible
 swap radius: to certify a positive proportion $\beta = \eta\,\pi_2$ the
@@ -147,24 +157,33 @@ R_j + \delta_j$, so $(\delta_j - m_j)^+ \le 2\delta_j$. $\square$
 
 **Corollary PM5 (budget-weighted mass — the proof-mass bound).** Define
 the dual mass $M(D) := \sum_j |c_j| R_j$ (coefficients times error
-budgets, the LENS_CHAITIN §4.2 bookkeeping). Then, with margins $\ge 0$,
-$$M(D) \;\ge\; \beta(D) \cdot \min_{j \in \mathrm{supp}(c)}
+budgets, the LENS_CHAITIN §4.2 bookkeeping). Assume margins $\ge 0$ and
+$\beta(D)>0$, and put
+$$J_c^+ := \{j\in\operatorname{supp}(c):\delta_j>0\}.$$
+By PM4, $J_c^+$ is then nonempty. With all minima below restricted to
+$J_c^+$ (equivalently, with $R_j/0:=+\infty$),
+$$M(D) \;\ge\; \beta(D) \cdot \min_{j \in J_c^+}
 \frac{R_j}{\delta_j}
 \;=\; \frac{\beta(D)}{\gamma(D)}, \qquad
-\gamma(D) := \max_{j \in \mathrm{supp}(c)} \frac{\delta_j}{R_j},$$
+\gamma(D) := \max_{j \in J_c^+} \frac{\delta_j}{R_j},$$
 i.e. **(proof mass) × (charge concentration) ≥ (certified bound)**:
-$M(D)\,\gamma(D) \ge \beta(D)$. *Proof.* $M(D) \ge \min_j (R_j/\delta_j)
-\cdot \sum_j |c_j|\delta_j \ge \min_j(R_j/\delta_j)\,\beta(D)$ by PM4.
+$M(D)\,\gamma(D) \ge \beta(D)$. *Proof.* $M(D) \ge
+\min_{j\in J_c^+} (R_j/\delta_j)
+\cdot \sum_j |c_j|\delta_j \ge
+\min_{j\in J_c^+}(R_j/\delta_j)\,\beta(D)$ by PM4.
 $\square$
 
-**Theorem PM6 (exchange rate: mass × oracle sharpness ≥ polynomial).**
+**Theorem PM6 (conditional exchange-rate reparameterization).**
 Suppose each axiom kernel is an AP indicator $a_{q,a} = 1_{n \equiv a
 (q)}$ with $3 \le q \le N^\theta$, $b_{q,a} = N/q$, and each budget is a
-sharpening $R_j = F_j / \Gamma_j$, $\Gamma_j \ge 1$, of a *floor* $F_j$
-(the best bound provable for that axiom by current theorems; see §3).
+sharpening $R_j = F_j / \Gamma_j$, $\Gamma_j \ge 1$, of an explicitly
+chosen certified baseline $F_j$; "best currently provable" is not part of
+the mathematics. Assume all margins are nonnegative and $\beta(D)>0$.
 Let $\Gamma(D) := \max_{j\in\mathrm{supp}(c)} \Gamma_j$ (the oracle
-factor; $\Gamma = 1$ for a fully unconditional derivation). Then
-$$M(D)\cdot \Gamma(D) \;\ge\; \beta(D)\cdot \min_{j}\frac{F_j}{\delta_j}.$$
+factor; $\Gamma = 1$ when the selected budgets themselves are certified).
+Then, restricting the minimum to $J_c^+$,
+$$M(D)\cdot \Gamma(D) \;\ge\; \beta(D)\cdot
+\min_{j\in J_c^+}\frac{F_j}{\delta_j}.$$
 If moreover the charges are square-root flat, $\delta_{q,a} \le
 \kappa\sqrt{N/q}$ (measured: $\kappa \le 4.9$ for $c_2$, $\kappa \le 5.8$
 for $\lambda$, all $q \le \sqrt N$ at $N = 2\cdot 10^6$; hypothesis
@@ -173,38 +192,29 @@ then
 $$M(D)\cdot \Gamma(D) \;\ge\; \beta(D)\cdot
 \frac{N^{(1-\theta)/2}}{\kappa\,(\log N)^{A_0}} .$$
 *Proof.* $M\Gamma \ge \sum_j |c_j| R_j \Gamma_j = \sum_j |c_j| F_j \ge
-\min_j (F_j/\delta_j)\, N(D) \ge \min_j(F_j/\delta_j)\,\beta(D)$ (PM4);
+\min_{j\in J_c^+} (F_j/\delta_j)\, N(D) \ge
+\min_{j\in J_c^+}(F_j/\delta_j)\,\beta(D)$ (PM4);
 then $F_j/\delta_j \ge (N/q)(\log N)^{-A_0} / (\kappa\sqrt{N/q}) =
 \sqrt{N/q}\,(\log N)^{-A_0}/\kappa \ge N^{(1-\theta)/2}(\log
 N)^{-A_0}/\kappa$. $\square$
 
-**Reading.** At $\theta = 1/2 - \varepsilon$ the right side is
-$\beta \cdot N^{1/4 + \varepsilon/2 - o(1)}$: *certifying even one twin
-($\beta = 1$) costs proof-mass-times-sharpness polynomial in $N$; a
-positive-proportion certification $\beta = \eta\pi_2(N)$ costs
-$N^{5/4 + \varepsilon/2 - o(1)}$.* A derivation can be light only by
-being sharp: to spend mass below $N^{(1-\theta)/2-o(1)}$ it must include
-an axiom sharpened polynomially below anything provable — an adjoined
-charged axiom in the sense of Corollary C2, i.e. exactly a
-"reflection-axiom" purchase (Type-II information). This is the
-Chaitin-quantitative statement promised in LENS_CHAITIN §4.2: short
-(light) proofs cannot certify charged conclusions; the deficit is priced
-in budget units. Note the two regimes are *both* theorems and coexist:
-for fully unconditional families ($\Gamma = 1$, budgets at floors) PM2
-already gives the endpoint $\beta \le 0$ — mass bounds are then vacuously
-infinite; PM6's content is the *continuous pricing of the oracle regime*
-between "provable today" and "the full charged truth", which the 0/1
-dichotomy cannot see. (The back-of-envelope $M \gtrsim
-2\pi_2/N^{1/2+\varepsilon}$ of LENS_CHAITIN §4.2 is superseded by this
-bookkeeping: it conflated charge-weighted and budget-weighted mass; the
-correct exchange rate is $\min_j F_j/\delta_j \asymp N^{(1-\theta)/2}$,
-applied to whichever $\beta$-scale is being certified.)
+**Conditional reading.** Under CH$_\theta$ and the stated baseline lower
+bound, $\theta = 1/2 - \varepsilon$ gives
+$M(D)\Gamma(D)\ge\beta(D)N^{1/4+\varepsilon/2-o(1)}$ **inside this affine
+LP cone**. For $\beta=1$ this is a conditional polynomial exchange rate.
+For $\beta=\eta\pi_2(N)$ the theorem gives only
+$$\eta\pi_2(N)N^{1/4+\varepsilon/2-o(1)};$$
+calling this $N^{5/4+\varepsilon/2-o(1)}$ additionally assumes
+$\pi_2(N)=N^{1-o(1)}$, which is not known. Type-II or bilinear information
+does not belong to the present cone; translating its kernels, budgets, and
+charges is an open successor problem rather than a consequence of PM6.
 
 ---
 
-## 3. What the floors are (the provability input)
+## 3. Explicit baseline choices
 
-PM6 needs, for each axiom, the best budget provable by current theorems.
+PM6 accepts any explicitly certified baseline $F_j$; it neither defines nor
+detects a canonical "best currently provable" bound.
 
 - **Twin frame ($\chi = c_2$):** the axiom $|A_{q,a}(\nu) - N/q| \le R$
   must hold for the twin-charged truth $\nu_{+1} = (1+c_2)dn$, whose AP
@@ -213,57 +223,60 @@ PM6 needs, for each axiom, the best budget provable by current theorems.
   $F_{q,a} = N/q + O(1)$ is known for this quantity at general $q \le
   N^\theta$ (even the global $q = 1$ case is known only log-averaged:
   Tao's 2016 two-point Chowla; nothing individual at the
-  $(N/q)(\log N)^{-A}$ scale, let alone square-root). So the honest floor
-  is trivial, $A_0 = 0$, and PM6 reads $M\Gamma \ge \beta\,
-  N^{(1-\theta)/2}/\kappa$ outright.
+  $(N/q)(\log N)^{-A}$ scale, let alone square-root). Around the center
+  $b=N/q$, the box $0\le w\le2$ gives the safe uniform endpoint-aware
+  baseline $F_{q,a}=N/q+2$, since a residue class contains at most
+  $N/q+1$ integers. The asymptotic $N/q+O(1)$ notation suppresses this
+  endpoint term. Combining it with CH$_\theta$ would give PM6's polynomial
+  rate; CH$_\theta$ itself remains unproved for $c_2$.
 - **Prime frame ($\chi = \lambda$):** BV$_\lambda$ (LENS_CIRCUIT §3,
   Lemma 3.1) proves $F_{q,a} = (N/q)(\log N)^{-A}$ *on average over
   $q \le N^{1/2}(\log N)^{-B}$, individually off a circuit-independent
   bad set*; Siegel–Walfisz gives it for $q \le (\log N)^{A'}$
-  individually. So $A_0 = A$ floors are available (with the bad-set and
+  individually. So $A_0 = A$ baselines are available (with the bad-set and
   ineffectivity caveats exactly as in LENS_CIRCUIT), and PM6 loses only
   the stated polylog.
 
-Both floors sit *polynomially above* the actual charges
-$\delta_{q,a} \approx \kappa\sqrt{N/q}$ — that gap is the exchange rate,
-and the reason proofs are heavy. A hypothetical theorem lowering a floor
-to the charge scale would simultaneously (i) trivialize the mass bound
-and (ii) be a parity-breaking equidistribution statement (it would pin
-pair-correlations at square-root accuracy) — the two faces of C2's
-threshold.
+Under the additional square-root-flatness hypothesis, these baselines sit
+above the charges by the displayed exchange-rate factor. This is a statement
+about the chosen affine cone, not a lower bound on unrestricted proofs.
 
 ---
 
-## 4. Instantiation at N = 2·10⁶ (exp42; all quantities computed exactly)
+## 4. Numerical instantiation at N = 2·10⁶ (exp42)
 
-Pipeline: exp41's factor-count λ sieve re-run; asserted integer
+Pipeline: exp41's factor-count λ sieve re-run; asserted **exact integer**
 cross-checks $\sum\lambda = -1234$, $2\pi = 297866$, $2\pi_2 = 29742$,
 and the swap identities $\sum_{\text{twin}}(1 - c_2) = 0$,
-$\sum_{\text{twin}}(1 + c_2) = 2\pi_2$. Family: all $(q, a)$ with $3 \le
-q \le N^\theta$; budgets $R_q = (N/q)(\log N)^{-A}$.
+$\sum_{\text{twin}}(1 + c_2) = 2\pi_2$. Ratios involving $N/q$ or
+$\log N$, minima, and $\kappa$ are float64 diagnostics, not an exact
+rational certificate. Family: all $(q,a)$ with
+$3\le q\le\lfloor N^\theta\rfloor$; selected experimental budgets
+$R_q=(N/q)(\log N)^{-A}$. The $A=0$ choice is observed to contain both
+charged endpoints here; it is not the universal box baseline $N/q+2$.
 
 | frame | θ | Q | A | $t^\ast$ | $\min_j R_j/\delta_j$ | κ | certifiable β (PM2/PM3) |
 |---|---|---|---|---|---|---|---|
-| twin | 0.45 | 685 | 0 | **12.32** | **12.33** | 4.62 | **≤ 0** |
+| twin | 0.45 | 684 | 0 | **12.32** | **12.33** | 4.62 | **≤ 0** |
 | twin | 0.50 | 1414 | 0 | 8.04 | 8.04 | 4.91 | ≤ 0 |
-| twin | 0.45 | 685 | 1 | 0.848 | 0.850 | 4.62 | ≤ 2267 = 0.152·π₂ |
+| twin | 0.45 | 684 | 1 | 0.848 | 0.850 | 4.62 | ≤ 2267 = 0.152·π₂ |
 | twin | 0.50 | 1414 | 1 | 0.554 | 0.554 | 4.91 | ≤ 6633 |
-| twin | 0.45 | 685 | 2 | 0.057 | 0.059 | 4.62 | ≤ 14030 |
-| prime | 0.45 | 685 | 0 | 11.84 | 11.84 | 4.68 | ≤ 0 |
+| twin | 0.45 | 684 | 2 | 0.057 | 0.059 | 4.62 | ≤ 14030 |
+| prime | 0.45 | 684 | 0 | 11.84 | 11.84 | 4.68 | ≤ 0 |
 | prime | 0.50 | 1414 | 1 | 0.481 | 0.483 | 5.73 | ≤ 77262 |
 
-(Full 18-cell table in `data/exp42_out.txt`; $t^\ast$ is the max feasible
-swap radius $\min_j m_j/\delta_j$, κ the measured flatness constant
+(Full 18-cell table in `data/exp42_out.txt`; $t^\ast$ is the largest
+centered symmetric feasible radius $\min_j m_j/\delta_j$, κ the measured flatness constant
 $\max \delta_{q,a}/\sqrt{N/q}$.)
 
 Headline numbers (twin frame, $\theta = 0.45 = 1/2 - \varepsilon$,
-trivial floors — the only provable ones for pair-charged states):
+selected centered budget $R_q=N/q$):
 
-- **Max feasible swap: $t^\ast = 12.32$** (worst axiom $q = 665$). Both
+- **Symmetric feasible radius: $t^\ast = 12.32$** (worst axiom $q = 665$). Both
   $\nu_{\pm 1}$ satisfy every noisy axiom with **12× slack**: PM2 applies
-  and $\beta \le 0$ — no positive derivation from the level-$N^{0.45}$
-  AP family certifies even one twin pair at $N = 2\cdot 10^6$, at any
-  dual mass.
+  and $\beta \le 0$ — no positive derivation in this level-$N^{0.45}$
+  finite affine AP cone certifies a positive twin lower bound at
+  $N=2\cdot10^6$.
 - **Exchange rate: $\min_j R_j / \delta_j = 12.33$**, so any
   oracle-sharpened derivation obeys $M(D)\,\Gamma(D) \ge 12.33\,
   \beta(D)$; at separation-scale certification $\beta = \pi_2/2$:
@@ -278,7 +291,8 @@ trivial floors — the only provable ones for pair-charged states):
   $N^{(1-\theta)/2} \gg (\log N)^A$ sets in around $N \sim 10^9$
   ($\theta = 0.45$, $A = 1$); projections: exchange rate $\approx 65$ at
   $N = 10^9$, $\approx 430$ at $N = 10^{12}$ ($\theta = 0.45$, $A = 0$,
-  κ frozen at its measured value).
+  κ frozen at its measured value). These are projections under
+  CH$_\theta$, not unconditional estimates.
 - Figure `figures/exp42_proofmass.png`: measured charge band
   $\delta_{q,a}/\sqrt{N/q} \in [\sim 1, 4.9]$ (square-root flat across
   three decades of $q$) against the three budget curves; threshold
@@ -288,14 +302,15 @@ trivial floors — the only provable ones for pair-charged states):
 
 ## 5. Rigor boundary
 
-- **PM1–PM5 are exact finite theorems** — five inequalities on a finite
+- **PM1–PM5 are exact finite LP theorems** — five inequalities on a finite
   box polytope; every step is displayed. No asymptotics, no conjecture.
   They hold for *any* affine axiom family (not only AP counts; kernels
   built from AP indicators — Selberg forms, smooth sums — inherit charge
   bounds by linearity).
-- **PM6's first inequality is exact**; its second (the polynomial
-  exchange rate) uses two inputs: the floor scale $F_{q,a}$ (§3 —
-  trivial floor: unconditional; BV floor: LENS_CIRCUIT's provenance,
+- **PM6's first inequality is exact** under its margin and positive-$\beta$
+  hypotheses; its second (the polynomial exchange rate) uses two inputs:
+  the certified baseline scale $F_{q,a}$ (§3 — trivial baseline:
+  unconditional with its endpoint term; BV baseline: LENS_CIRCUIT's provenance,
   ineffective, average/bad-set caveats) and the flatness hypothesis
   CH$_\theta$: $\delta_{q,a} \le \kappa(N)\sqrt{N/q}$ with $\kappa(N) =
   N^{o(1)}$. CH$_\theta$ is *measured* here (κ ≤ 4.9 across the full
@@ -304,10 +319,11 @@ trivial floors — the only provable ones for pair-charged states):
   it), and for $\lambda$ follows from GRH only in the weaker per-modulus
   form $\delta \le N^{1/2+\varepsilon}$, which still yields a polynomial
   rate $N^{1/2-\theta-\varepsilon}$ for fixed $\theta < 1/2$ — degrading
-  to nothing as $\theta \to 1/2$. So: **at finite X the instantiation is
-  unconditional and exact; the asymptotic exponent $(1-\theta)/2$ is
-  conditional on CH$_\theta$, and an unconditional (weaker) exponent
-  $1/2 - \theta - \varepsilon$ holds for the prime frame under GRH.**
+  to nothing as $\theta \to 1/2$. Thus the algebraic theorem is exact,
+  while exp42 is a numerical finite-$X$ diagnostic with exact integer
+  target checks. The asymptotic exponent $(1-\theta)/2$ is conditional on
+  CH$_\theta$; under GRH the prime frame has only the weaker conditional
+  exponent $1/2-\theta-\varepsilon$.
 - The theorems bound derivations *from the stated axiom family over the
   stated state class*. They do not bound proofs that use genuinely
   different observables (bilinear/Type-II axioms have their own charges
@@ -319,9 +335,10 @@ trivial floors — the only provable ones for pair-charged states):
   below the swap family would break PM1, and a certified constraint
   excluding part of $\{\nu_t\}$ is exactly what a parity-breaking
   ingredient is.
-- $t^\ast$, exchange rates, κ: exact integer/rational arithmetic up to
-  float summation of ±1 arrays (error $\le 2^{-52} N$, irrelevant at
-  these magnitudes).
+- exp42 uses exactly representable integer-sized $\pm1$ sums at this scale,
+  but $N/q$, logarithmic budgets, ratios, minima, and κ are float64. The
+  large $A=0$ slack is numerically robust; no interval-arithmetic certificate
+  is claimed.
 
 ## 6. Prior-art boundary (recorded search, 2026-08-11)
 
@@ -337,7 +354,7 @@ pseudo-expectation lower bounds; recent bounded-coefficient SA size
 bounds).
 
 Verdict:
-- **Known:** the two-weight witness and the impossibility reading
+- **Known in form:** the two-weight witness and the impossibility reading
   (Selberg 1949; Bombieri; FI Ch. 16). Known and closest: **Tao 2014,
   "A general parity problem obstruction"** — an abstract convex-duality
   formalization of "no sieve-theoretic proof", via Hahn–Banach on
@@ -346,16 +363,13 @@ Verdict:
   its noisy finite-X analog, made unconditional at each finite X by
   computing the charges). Known technique: dual-certificate-vs-fooling-
   distribution lower bounds in LP proof complexity (Sherali–Adams
-  literature).
-- **Not found:** per-axiom error budgets with margins; the master
-  transfer inequality; the feasibility interpolation $t^\ast$ and the
-  linear degradation $\beta \le (1 - t^\ast)\pi_2$; dual-mass lower
-  bounds $M \gamma \ge \beta$, $M\Gamma \ge \beta \cdot N^{(1-\theta)/2
-  - o(1)}$ for sieve derivations; any "proof mass × oracle sharpness"
-  conservation statement; any finite-X unconditional instantiation.
-  Novelty claim for these: **possibly-new** (searched-not-found;
-  external expert review required — the sieve-LP literature is large and
-  the SA-transport may exist in unpublished form).
+  literature). PM1 and its $|c_j|R_j$ penalties are standard robust-LP,
+  approximate-Farkas, and dual-sensitivity machinery in form.
+- **Arithmetic specialization only:** the particular charge/margin ledger,
+  Selberg swap path, and exp42 diagnostic were not located verbatim. This is
+  a useful synthesis, not a novelty claim. A serious novelty audit would need
+  robust optimization, Hoffman error bounds, approximate Farkas lemmas, and
+  Sherali–Adams pseudoexpectation literature in addition to sieve sources.
 
 ## References
 
@@ -371,4 +385,4 @@ Verdict:
 - LP proof complexity: e.g. "Clique is hard on average for Sherali–Adams
   with bounded coefficients" (arXiv:2404.16722) and references there.
 - In-corpus: LENS_CHAITIN.md (C1/C2), LENS_CIRCUIT.md (Thms 1–2, Lemma
-  3.1, floors), GAUGE.md, exp41/exp42.
+  3.1, baselines), GAUGE.md, exp41/exp42.
