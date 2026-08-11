@@ -1,4 +1,4 @@
-# κ: the critical-line proportion — the 2026-08-10 jump to 2/3, verified
+# κ: the critical-line proportion — the 2026-08-10 jump to 2/3, ~~verified~~ under audit
 
 Author: fleet-kappa. Started 2026-08-11 under the original "pin the
 Levinson–Conrey record" charter; retargeted mid-session by the coordinator
@@ -25,11 +25,16 @@ linear algebra (Sylvester inertia + a rank–trace inequality via von Neumann)
 applied to a finite Gabor compression of Weil's Hermitian form.
 
 This session independently: (i) fetched and hashed all primary documents;
-(ii) cloned the Lean 4 formalization and rebuilt it from source in this
-environment (toolchain v4.33.0-rc2, Mathlib 51e6992); (iii) audited the
-trusted statement layer for statement–paper alignment; (iv) ran the axiom
-audit. Outcome in §5 (spoiler: it builds; statements align; only the three
-standard axioms). §6 reconstructs the proof in this corpus's language —
+(ii) ~~cloned the Lean 4 formalization and rebuilt it from source in this
+environment~~ replayed the repository's default and `Solution*` build targets
+at the pinned toolchain (Mathlib was obtained from the public binary cache);
+(iii) read the trusted statement layer for statement–paper alignment; and
+(iv) ran the supplied `#print axioms` files. A later Codex audit found that
+the recorded targets do **not** perform the comparator's statement-equality
+check and that the archived log is a curated summary rather than a raw build
+record. Therefore this is partial build/axiom evidence, not yet an independent
+verification of the formalization; see §5.2 and the audit artifact cited
+there. §6 reconstructs the proof in this corpus's language —
 both of its ingredients (Montgomery's F-plateau machinery, and the Weil-form
 inertia structure) were independently built in this repository as
 `notes/DSIDE.md` and `notes/WEIL.md` + `notes/LP_CERT.md` before the
@@ -194,7 +199,7 @@ variational problem for c_λ(v) = λ(∫v)²/(∫v² + λ²∫∫|s−s′|v v�
 v* = cos(√2 s), and CCLM17 (Carneiro et al.) proves no window does better
 given only F on [−1,1].
 
-## 5. Independent mechanical verification (this session, this machine)
+## 5. ~~Independent mechanical verification~~ Mechanical replay and audit correction
 
 Environment: the session container (4 cores), Lean via elan at
 `/root/.elan`; clone at scratchpad `zeta-23-lean/`, HEAD = `3635e74`
@@ -203,24 +208,30 @@ Environment: the session container (4 cores), Lean via elan at
 1. **Toolchain**: repo pins `leanprover/lean4:v4.33.0-rc2` + Mathlib
    `51e6992efd06126df61a496bebf8f49482a4e129` (tag v4.33.0-rc2). Our
    `formal/pairfield` uses v4.33.0 + a different Mathlib pin, so no cache
-   reuse; elan fetched the rc2 toolchain, `lake exe cache get` retrieved
-   8681 prebuilt Mathlib artifacts, and the 316 project files + remainder
-   (9010 jobs total) were compiled **from source in this environment**.
+   reuse from that local project; elan fetched the rc2 toolchain and
+   `lake exe cache get` retrieved 8681 prebuilt Mathlib artifacts. The
+   archived log records a successful 9010-job default build, but it retains
+   only the final lines: the job count includes dependencies and does not by
+   itself certify that all 316 `Zeta23/` sources were freshly compiled.
 2. **Build**: `lake build` followed by `lake build Solution
    Solution.Multiplicity Solution.XiPrime` — RESULT RECORDED BELOW (§5.1).
 3. **Sorry audit** (source-level, independent of the repo's own AUDIT.md):
    `grep -rn sorry` over `Zeta23/` finds the token only inside comments
-   (2 files, porting notes); the 27 real `sorry`s are exactly the
-   deliberate placeholder proofs in the two trusted challenge files
+   (2 files, porting notes); ~~the 27 real `sorry`s are exactly the
+   deliberate placeholder proofs in the two trusted challenge files~~ the
+   fresh source audit finds **33** deliberate placeholder proofs in **three**
+   trusted challenge files
    (`comparator/Challenge.lean` 15, `comparator/Challenge/Multiplicity.lean`
-   12) — by design: those files state WHAT is claimed and are proved by
-   the untrusted `Solution` modules.
+   12, `comparator/Challenge/XiPrime.lean` 6). By design, those files state
+   WHAT is claimed; equivalence to the separately compiled `Solution`
+   statements is a job for the comparator, not for `lake build Solution*`.
 4. **Axiom audit**: no `axiom` declaration outside comments in the project
    (`Zeta23/FromPNTPlus/Tactic/AdditiveCombination.lean:183` has one inside
    a docstring example, verified by reading the file); `#print axioms` run
-   via `comparator/PrintAxioms*.lean` — result in §5.1. The repo's AUDIT.md
-   records `[propext, Classical.choice, Quot.sound]` for all 27 comparator
-   statements and the 28 underlying library theorems.
+   via `comparator/PrintAxioms*.lean` — result in §5.1. The upstream repo's
+   amended AUDIT.md reports the standard triple for all 33 comparator
+   statements, but that upstream report is provenance, not evidence that this
+   session independently replayed its comparator run.
 5. **`decide`/`native_decide`**: `native_decide` appears nowhere; the
    PairCeiling numeric certificates use `decide +kernel` (kernel
    evaluation) with ONE displayed hypothesis (`EnclOK`, integer enclosures
@@ -235,15 +246,18 @@ Environment: the session container (4 cores), Lean via elan at
    `Challenge/Multiplicity.lean` state the liminf claims in ε-form:
    `∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, (2/3 − ε)·Ncount T (2T) ≤ N0star T (2T)`,
    and `(2 − 1/cMT − ε)` with `cMT` in closed form for Theorem D. These
-   are faithful to the paper's Theorems A–E. One subtlety noted and
+   appear faithful on manual reading to the paper's Theorems A–E. This is a
+   source-level alignment review, not a mechanical equality check between
+   `Challenge*` and `Solution*`. One subtlety noted and
    resolved: `Ncount` uses `∑ᶠ` (finsum), which returns 0 for infinite
    support — the definitions denote the true counts because window
    finiteness is classically true (and is proved on the solution side);
    the statements are not weakened by this convention. The multiplicity
    convention `analyticOrderAt.toNat` (⊤ ↦ 0) is harmless since ζ is not
-   locally ≡ 0. Verdict: **the Lean statements say what the paper says**,
-   including the 2/3 and Montgomery–Taylor 0.6725 forms with multiplicity
-   on the left and distinct/simple counts on the right.
+   locally ≡ 0. The reviewed `Challenge*` text includes the 2/3 and
+   Montgomery–Taylor 0.6725 forms with multiplicity on the left and
+   distinct/simple counts on the right; the comparator obligation remains
+   open.
 
 ### 5.1 Build outcome (recorded 2026-08-11T21:16Z; log: `data/exp47_zeta23_build.txt`)
 
@@ -251,17 +265,37 @@ Environment: the session container (4 cores), Lean via elan at
   errors, zero `sorry` warnings, only deprecation warnings (rc2 vs newer
   Mathlib lints) and benign `info:` outputs.
 - `lake build Solution Solution.Multiplicity Solution.XiPrime`:
-  **"Build completed successfully (9002 jobs)"** — the untrusted solution
-  modules typecheck against the trusted challenge statements.
-- PrintAxioms audits (all four files, 43 audited declarations printed):
+  **"Build completed successfully (9002 jobs)"**. These modules import
+  `ChallengeDeps*`, not `Challenge*`; this build checks the solution
+  declarations but does not establish statement equality with the trusted
+  challenges.
+- PrintAxioms audits (all four files, **44** audited declarations printed):
   **42 report exactly `[propext, Classical.choice, Quot.sound]`**; the two
   remaining are PairCeiling kernel-`decide` facts reporting strictly LESS
   (`LawN256_check`: `[propext]`; `LawN256_edge`: no axioms). No `sorryAx`,
   no `ofReduceBool`/`native_decide`, no project axiom anywhere.
 
-**Verdict: the formalization builds from source in an independent
+~~**Verdict: the formalization builds from source in an independent
 environment, and the kernel-checked statements say what the paper says.
-The forecast branch "builds-and-statements-align" obtained.**
+The forecast branch "builds-and-statements-align" obtained.**~~
+
+**Corrected verdict:** the archived run supports successful default and
+`Solution*` builds and clean axiom output for the printed declarations. It
+does not establish the trusted/untrusted statement-equality boundary, and its
+curated log is insufficient for a from-scratch/source-coverage claim. R0015
+must not be promoted until a raw, manifest-bound clean build plus the
+end-to-end comparator replay has been archived.
+
+### 5.2 Codex audit amendment (2026-08-11)
+
+The append-only audit is
+`collab/discovery/audits/R0015-build-evidence-audit.md`. It binds the archived
+log and the inspected upstream files by SHA-256, records the exact 15+12+6
+`sorry` count and 44-declaration axiom count, and specifies the evidence
+manifest needed by a future repaired successor. R0015's event files and Exact
+statement are left untouched; the packet remains non-load-bearing and its
+promotion is explicitly blocked. A positive successor should be registered
+only after the missing comparator and raw-build obligations are discharged.
 
 ## 6. The corpus bridge: we had both ingredients
 
@@ -348,15 +382,21 @@ F-plateau measurements are consistent with everything the theorem consumes.
 ## 8. Honesty ledger
 
 - The result is 30 hours old at verification time, not peer reviewed. Our
-  contribution is an independent from-source rebuild + statement audit +
+  contribution is ~~an independent from-source rebuild + statement audit +~~
+  a replay of selected build targets, a manual statement read, an axiom-output
+  capture, and
   reading of the full manuscript; we did NOT re-derive the analytic error
-  terms (Prop 4.2, Lemma 5.4, Prop 5.6/5.7) by hand — the Lean kernel
-  replay is the evidence for those.
+  terms (Prop 4.2, Lemma 5.4, Prop 5.6/5.7) by hand. A complete Lean-kernel
+  verification claim awaits the comparator replay described in §5.2.
 - The comparator tool itself (`leanprover/comparator`) was not run
-  end-to-end here (it fetches its own copies); we ran the equivalent:
+  end-to-end here (it fetches its own copies). ~~We ran the equivalent:
   built the trusted Challenge files, built Solution against them in the
-  same environment, and ran the PrintAxioms audits. Statement equality
-  was checked by reading `ChallengeDeps.lean`/`Challenge*.lean` in full.
+  same environment, and ran the PrintAxioms audits.~~ The recorded commands
+  are not equivalent: the default target excludes `Challenge`, and the
+  `Solution*` modules import `ChallengeDeps*`, not `Challenge*`. The
+  PrintAxioms replay checks solution declarations and their axioms, while
+  trusted/solution statement equality remains open. The trusted statements
+  were reviewed manually.
 - The ξ′ results depend on docstring-cited technical supplements not in
   the repository ("[XF′ ...]" labels) only as *provenance labels*; the
   Lean statements stand alone. The PairCeiling `EnclOK` hypothesis is
