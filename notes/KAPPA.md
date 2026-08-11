@@ -245,18 +245,23 @@ Environment: the session container (4 cores), Lean via elan at
    including the 2/3 and Montgomery–Taylor 0.6725 forms with multiplicity
    on the left and distinct/simple counts on the right.
 
-### 5.1 Build outcome (recorded after completion)
+### 5.1 Build outcome (recorded 2026-08-11T21:16Z; log: `data/exp47_zeta23_build.txt`)
 
-See the message and packet for the final line; at the time of this note's
-first commit the build had passed the full Mathlib dependency closure and
-was compiling the last Zeta23 modules with only deprecation warnings.
-FINAL RESULT: filled in below by this session before push.
-
-- `lake build`: BUILD-RESULT-PLACEHOLDER
+- `lake build`: **"Build completed successfully (9010 jobs)"** — zero
+  errors, zero `sorry` warnings, only deprecation warnings (rc2 vs newer
+  Mathlib lints) and benign `info:` outputs.
 - `lake build Solution Solution.Multiplicity Solution.XiPrime`:
-  BUILD-RESULT-PLACEHOLDER
-- `lake env lean comparator/PrintAxioms.lean` (+ Multiplicity, XiPrime):
-  BUILD-RESULT-PLACEHOLDER
+  **"Build completed successfully (9002 jobs)"** — the untrusted solution
+  modules typecheck against the trusted challenge statements.
+- PrintAxioms audits (all four files, 43 audited declarations printed):
+  **42 report exactly `[propext, Classical.choice, Quot.sound]`**; the two
+  remaining are PairCeiling kernel-`decide` facts reporting strictly LESS
+  (`LawN256_check`: `[propext]`; `LawN256_edge`: no axioms). No `sorryAx`,
+  no `ofReduceBool`/`native_decide`, no project axiom anywhere.
+
+**Verdict: the formalization builds from source in an independent
+environment, and the kernel-checked statements say what the paper says.
+The forecast branch "builds-and-statements-align" obtained.**
 
 ## 6. The corpus bridge: we had both ingredients
 

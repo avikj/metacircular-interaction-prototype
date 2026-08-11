@@ -1,0 +1,74 @@
+=== zeta-23-lean independent rebuild log (fleet-kappa, 2026-08-11) ===
+repo HEAD:
+3635e74826a4c1fcece7d1cd2b6fa75e43a00510
+toolchain: leanprover/lean4:v4.33.0-rc2
+
+=== lake build (default target) — last lines ===
+✔ [9003/9010] Built Zeta23.XiPrime.ExplicitFormula.Main (4.5s)
+✔ [9004/9010] Built Zeta23.XiPrime.Transfer.W (16s)
+✔ [9005/9010] Built Zeta23.XiPrime.Inputs (6.3s)
+✔ [9006/9010] Built Zeta23.XiPrime.Hardy.EFMain (20s)
+✔ [9007/9010] Built Zeta23.XiPrime.Hardy.EFFinal (3.4s)
+✔ [9008/9010] Built Zeta23.XiPrime.Final (12s)
+✔ [9009/9010] Built Zeta23 (5.3s)
+Build completed successfully (9010 jobs).
+
+=== lake build Solution Solution.Multiplicity Solution.XiPrime — last lines ===
+✔ [8997/9002] Built ChallengeDeps.XiPrime (5.2s)
+✔ [8998/9002] Built ChallengeDeps (5.4s)
+✔ [8999/9002] Built Solution.XiPrime (5.7s)
+✔ [9000/9002] Built Solution (6.0s)
+✔ [9002/9002] Built Solution.Multiplicity (5.5s)
+Build completed successfully (9002 jobs).
+
+=== error lines (non-deprecation) ===
+0
+
+=== sorry warnings in build ===
+0
+
+=== PrintAxioms (all four audit files), verbatim ===
+'two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'two_thirds_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'half_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'half_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'three_quarters_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'three_quarters_distinct_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_half_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_three_quarters_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_montgomery_taylor_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_montgomery_taylor_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'two_thirds_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'five_sixths_distinct_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_simple_on_critical_line_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'montgomery_taylor_distinct_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichlet_montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'xiPrime_zeros_in_open_critical_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'xiPrime_over_xi_re_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'xiPrime_simple_zeros_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'xiPrime_simple_zeros_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'xiPrime_simple_zeros_on_critical_line_quartic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'xiPrime_simple_zeros_on_critical_line_quartic_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_nearCUE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.lawN256_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_law256' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_law256_decimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_signed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_nearCUE_signed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.ceiling_law256_signed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.D1_nonneg_of_edgeNonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.LawN256_check' depends on axioms: [propext]
+'Zeta23.PairCeiling.LawN256_edge' does not depend on any axioms

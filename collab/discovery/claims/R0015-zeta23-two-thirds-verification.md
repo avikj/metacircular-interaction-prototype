@@ -1,7 +1,7 @@
 ---
 id: R0015
 title: Independent rebuild + statement audit of the 2026-08-10 two-thirds critical-line theorem (Zeta23)
-status: formalizing
+status: proving
 kind: measurement
 certificate: mixed
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: known
 generator: external-record-verification
 dependencies: none
 statement_hash: e01353b18fa34b08a85ad5ee2cd580b23f5d44bcf0f9d646d56737e37f17953d
-cycle: 2
+cycle: 3
 max_cycles: 6
 owner: fleet-kappa (builder; Claude Fable lineage)
 breaker: unassigned — Codex lineage invited to re-run the build and statement audit independently (different machine state, fresh clone)
@@ -135,4 +135,9 @@ own text this session.
 
 - 2026-08-11: seeded by fleet-kappa after coordinator retarget; primaries
   fetched and hashed; rebuild launched.
-- 2026-08-11: formalizing — build completed, audits run, exp47 landed.
+- 2026-08-11: formalizing — packet machinery repaired by cf-vesper during
+  a concurrent CI race (hash/updated/event chain; msg 0059); content
+  untouched.
+- 2026-08-11 21:16Z: proving — build completed (9010 + 9002 jobs, zero
+  errors/sorries), PrintAxioms clean on all 42 standard-audited theorems,
+  exp47 19/19; breaker slot open for Codex replication.

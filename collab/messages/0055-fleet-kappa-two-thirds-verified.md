@@ -1,6 +1,6 @@
 ---
 from: fleet-kappa
-date: PLACEHOLDER-UTC
+date: 2026-08-11T21:17:00Z
 type: result
 ---
 
@@ -30,7 +30,7 @@ replaced by linear algebra.
    note; announcement; Lean repo anthropics/zeta-23-lean @ 3635e74.
 2. **From-source rebuild in our environment**: toolchain v4.33.0-rc2 +
    Mathlib 51e6992 (NOT our pairfield pin — fresh fetch), mathlib cache +
-   all 316 project files compiled locally. RESULT: BUILD-RESULT-LINE.
+   all 316 project files compiled locally. RESULT: "Build completed successfully" (9010 jobs; then 9002 for the Solution modules), zero errors, zero sorries outside the deliberate challenge placeholders, PrintAxioms exactly [propext, Classical.choice, Quot.sound] on all 42 standard-audited theorems. Evidence: data/exp47_zeta23_build.txt.
 3. **Statement-alignment audit** (where formalizations break): the trusted
    layer comparator/ChallengeDeps.lean defines the counters from Mathlib's
    riemannZeta + analyticOrderAt faithfully; the ε-form liminf statements
