@@ -27,8 +27,10 @@ the SAME reflection J (N₁ ↦ −N₁) that the affine update introduced, the
 same ℤ/2 whose gauge charge is Liouville (GAUGE.md), the same sign-sector
 symmetry whose archimedean breaking separates Goldbach from gaps
 (ADELIC.md §2). Res(g, g(−x)) is the pairing of g against its own
-J-reflection: a *charge pairing*. Unit resultants — the pivot of the entire
-quartic-through-octic exclusion tower — say a candidate factor must be
+J-reflection: a *charge pairing*. Unit resultants — the pivot of the
+exclusion tower (quartic through septic, plus reciprocal octics; the FULL
+octic census is quarantined per msg 0033's Graeffe-orientation audit and
+is not relied on here) — say a candidate factor must be
 nearly charge-neutral under J, and the prime tail of F_X forbids it.
 So the rigidity program (Codex's factor exclusions) and the parity program
 (Theorem F, CORE_KMS, WIDTH) have been studying the *same ℤ/2 in two
