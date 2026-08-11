@@ -141,12 +141,15 @@ $2\cdot10^6$):
 - Theorem F and Lemmas F.1–F.2: proved above (modulo Cuntz's cited theorems).
   Novelty of the arithmetic identification: searched, not found; the
   operator-algebra ingredients are standard and must be presented as such.
-- The remaining open question from `PARITY.md` §2.2 sharpens to: **does the
-  fixed-point algebra $Q^0$ (or the $G$-core) admit KMS states that do not
-  extend to $Q_{\mathbb N}$?** If no — parity-blindness is intrinsic even to the
-  neutral world, closing the no-go completely. Machinery: Neshveyev-type
-  groupoid KMS criteria on the core's groupoid model. This is a well-posed
-  operator-algebra problem of independent interest.
+- The remaining open question from `PARITY.md` §2.2 — whether the core $Q^0$
+  admits non-extending KMS states — is now **closed**: see `CORE_KMS.md`.
+  $Q^0$ is exactly the Bunce–Deddens algebra $C(\widehat{\mathbb Z})\rtimes\mathbb Z$
+  of type $\prod_p p^\infty$; $\sigma|_{Q^0}$ is trivial; $Q^0$ has a unique
+  trace (Haar $\circ$ expectation) which is $\omega|_{Q^0}$ — so the core
+  carries exactly one equilibrium at every $\beta$, the restriction of the
+  critical state, and the same holds for every intermediate charge core
+  (including the $\mathbb Z/2$ parity core). **Parity-blindness is intrinsic
+  even to the neutral world; the no-go is complete.**
 - Quantitative widening (the barrier's "width"): uniformity level $Q$ in
   Möbius-orthogonality to limit-periodic functions ($Q\le X^{O(1)}$ known,
   $Q\sim e^{\sqrt X}$ needed for primality certification, per the sampling

@@ -40,6 +40,31 @@ contains deterministic secondary terms (its $O(X^2)$ smooth layer, non-monotone
 in $Q$ through Möbius sign cancellations); these are frequency-$0$ in $\log X$
 and detrend away.
 
+## Lemma (the mixed block carries the first variation with coefficient exactly 2)
+
+The measured $2.08\approx2$ is a theorem. Write
+$2[\sharp\flat]=2\sum_m\Lambda^\sharp_Q(m)\,\Psi_1^\flat(X-m)$ with
+$\Psi_1^\flat(y)=\sum_n\Lambda^\flat_Q(n)(y-n)_+$. Since
+$\Psi_1^\sharp(y)=\sum_{q\le Q}\tfrac{\mu(q)}{\varphi(q)}\sum_{n\le y}c_q(n)(y-n)$
+contains no zeta zeros (periodic summands; the $q=1$ term is $y^2/2$, and for
+$q\ge2$ partial summation against the mean-zero $c_q$ gives $O(qy)$), the whole
+zero content of $\Psi_1$ sits in $\Psi_1^\flat$:
+$$\Psi_1^\flat(y)=-\sum_\rho\frac{y^{\rho+1}}{\rho(\rho+1)}+(\text{smooth},\ O(Qy)).$$
+Pairing against $\Lambda^\sharp_Q$: the $q=1$ (density) part of $\Lambda^\sharp$
+integrates $\int_0^X(X-u)^{\rho+1}du=X^{\rho+2}/(\rho+2)$, while each $q\ge2$
+part contributes $\sum_m c_q(m)(X-m)^{\rho+1}=O(qX^{\rho+1})$ by partial
+summation. Hence
+$$2[\sharp\flat] \;=\; -2\sum_\rho\frac{X^{\rho+2}}{\rho(\rho+1)(\rho+2)}
+\;+\;O_Q\!\bigl(X^{3/2}\bigr)\;+\;(\text{smooth in }X),$$
+i.e. the mixed block carries the full single-zero layer with coefficient
+exactly $2$, plus a lower-order finite-$Q$ leakage — accounting for the
+measured $2.08$ at $Q=30$ and predicting the coefficient $\to2$ as
+$Q\to\infty$ with the oscillatory leakage at scale $X^{3/2}/X^{5/2}=X^{-1}$
+relative. Simultaneously this proves the zero block $[\flat\flat]$ contains
+*no* single-zero layer at leading order: its single-band content is the square
+of fluctuations, of relative order $X^{-1/2}$ — matching the measured
+single/pair power ratio $0.003$.
+
 ## What this establishes
 
 The canonical decomposition of `ADELIC.md` §3 is not just formally exact — its
