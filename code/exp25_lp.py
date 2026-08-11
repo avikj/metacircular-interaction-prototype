@@ -673,8 +673,21 @@ for lab, dd, mm, Wh, lam0, lamM, ev, c, trust in res_A:
         ov = float(np.linalg.norm(U.conj().T @ VI[:, -1]))
     else:
         ov = np.nan
+    # conditioning-robust pass: whitening cut 1e-6 discards near-dependent
+    # Gram directions, whose 1/lambda_G amplification of the ~1e-9 assembly
+    # tails otherwise manufactures ghost positive eigenvalues at the
+    # 1e-6*lam_1 level in the wide-atom spans
+    Wh6, r6 = whiten(mm["G"], cut=1e-6)
+    Iw6 = Wh6.conj().T @ (mm["prime"] - mm["arch"]) @ Wh6
+    Iw6 = 0.5 * (Iw6 + Iw6.conj().T)
+    evI6 = np.linalg.eigvalsh(Iw6)
+    nI6 = inertia(evI6)
+    Q6 = null_basis(np.vstack([mm["p0"] @ Wh6, mm["p1"] @ Wh6]))
+    Ip6 = Q6.conj().T @ Iw6 @ Q6
+    evIp6 = np.linalg.eigvalsh(0.5 * (Ip6 + Ip6.conj().T))
+    nIp6 = inertia(evIp6)
     hodge_rows.append((lab, r, nI, nP, nIp, evI, evIp, lam_p, lamx_p, ov,
-                       pol_leak, Q.shape[1]))
+                       pol_leak, Q.shape[1], r6, nI6, evI6, nIp6, evIp6))
     print(f"  {lab:26s} dim {r:2d}: inertia(I) (+,0,-) = {nI}, "
           f"lam_1(I) = {evI[-1]:+.3e}, lam_2(I) = {evI[-2]:+.3e}, "
           f"inertia(pole) = {nP}"
@@ -682,16 +695,21 @@ for lab, dd, mm, Wh, lam0, lamM, ev, c, trust in res_A:
     print(f"    primitive block dim {Q.shape[1]:2d}: inertia(I|_P) = {nIp}, "
           f"top eigs I|_P = [" + ", ".join(f"{x:+.2e}" for x in evIp[-3:])
           + f"], pole leak on P = {pol_leak:.1e}")
+    print(f"    robust subspace (whitening cut 1e-6) dim {r6:2d}: "
+          f"inertia(I) = {nI6}, lam_2(I) = {evI6[-2]:+.3e}; "
+          f"inertia(I|_P) = {nIp6}, top I|_P = {evIp6[-1]:+.3e}")
     print(f"    cross-check: -lam_min(W|_P) [zero side, factored] = "
           f"{-lam_p:+.3e}  vs top eig I|_P [assembled, floor ~1e-15*scale] = "
           f"{evIp[-1]:+.3e}")
 h_full = hodge_rows[-1]                      # 64-atom dictionary, for figure
 npos_all = [h[2][0] for h in hodge_rows]
+npos_rob = [h[13][0] for h in hodge_rows]
 lam2_rel = max(h[5][-2] / abs(h[5][-1]) for h in hodge_rows)
-print(f"\n  H2 verdict: n_+(I) over nested dictionaries = {npos_all} "
-      f"(bound: <= 1 resolved positive); worst lam_2(I)/|lam_1(I)| = "
-      f"{lam2_rel:+.1e} -- the second direction never rises above the "
-      f"assembly floor, exactly one hyperbolic direction")
+lam2_rob = max(h[14][-2] / abs(h[14][-1]) for h in hodge_rows)
+print(f"\n  H2 verdict: n_+(I) full span = {npos_all} (ghosts at the "
+      f"whitening-amplified floor, worst lam_2/|lam_1| = {lam2_rel:+.1e}); "
+      f"robust subspaces = {npos_rob} with lam_2/|lam_1| <= {lam2_rob:+.1e} "
+      f"-- exactly ONE hyperbolic direction, never two")
 print(f"  H1 verdict: I|_P <= 0 in every dictionary within the assembly "
       f"floor; exact value of its top eigenvalue is -lam_min(W|_P) < 0 "
       f"(factored zero side, e.g. {-h_full[7]:.2e} for the 64-atom span)")
@@ -835,7 +853,7 @@ ax.bar(xp + 0.27, rays, width=0.25, color=C_POLE, alpha=0.85,
        label=r"Rayleigh weight $|c^*P_nc|/\lambda_{\min}$")
 ax2 = ax.twinx()
 ax2.plot(xp, wns, "k^--", ms=5, lw=1.0, label=r"$\Lambda(n)/\sqrt{n}$")
-ax2.set_ylabel(r"$\Lambda(n)/\sqrt n$", fontsize=9)
+ax2.set_ylabel(r"$\Lambda(n)/\sqrt{n}$", fontsize=9)
 ax.set_xticks(xp, ns)
 ax.set_xlabel(r"prime power $n$ entering at $T_{\rm sup}=\log n$", fontsize=9)
 ax.set_title("(b) per-prime-power cost at entry", fontsize=10)
@@ -865,7 +883,7 @@ ax.axvspan(-G1, G1, color=C_PRIME, alpha=0.10, lw=0)
 ax.text(0, np.max(pw) * 0.1, f"spectral gap\n{100*frac_gap:.0f}% of mass",
         ha="center", fontsize=8.5, color=C_PRIME)
 ax.set_xlabel(r"$\tau$", fontsize=9)
-ax.set_ylabel(r"$|\Phi_g(\tfrac12+i\tau)|^2$", fontsize=9)
+ax.set_ylabel(r"$|\Phi_g(\frac{1}{2}+i\tau)|^2$", fontsize=9)
 ax.set_title("(d) hardest direction concentrates in the gap "
              r"$(-\gamma_1,\gamma_1)$; zeros = blue lines", fontsize=10)
 ax.grid(alpha=0.25, lw=0.6)
@@ -906,15 +924,15 @@ ax.grid(alpha=0.25, lw=0.6)
 
 # (g) Hodge-index spectrum of I = prime - arch (64-atom dictionary)
 ax = axes[0, 3]
-labh, rh, nIh, nPh, nIph, evIh, evIph, lam_ph, lamx_ph, ovh, _, dimP = h_full
+labh, rh, nIh, nPh, nIph, evIh, evIph, lam_ph, lamx_ph, ovh, _, dimP = h_full[:12]
 xs = np.arange(evIh.size)
 pos = evIh > 0
-ax.scatter(xs[~pos], evIh[~pos], s=22, color=C_POLE, label=r"$I$ eigenvalues $\le 0$")
+ax.scatter(xs[~pos], evIh[~pos], s=22, color=C_POLE, label=r"$I$ eigenvalues $\leq 0$")
 ax.scatter(xs[pos], evIh[pos], s=42, color=C_PRIME, marker="D",
            label=rf"positive: $n_+(I)={nIh[0]}$")
 xsp = np.arange(evIph.size) + (evIh.size - evIph.size)
 ax.scatter(xsp, evIph, s=12, color=C_ARCH, marker="x",
-           label=rf"$I|_P$ (primitive, dim {dimP}): all $\le 0$")
+           label=rf"$I|_P$ (primitive, dim {dimP}): all $\leq 0$")
 ax.set_yscale("symlog", linthresh=1e-8)
 ax.axhline(0, color="#888888", lw=0.8)
 ax.set_xlabel("eigenvalue index (sorted)", fontsize=9)

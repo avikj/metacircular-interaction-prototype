@@ -13,6 +13,25 @@ power against the archimedean budget, (v) gives the interpolation-basis
 conditioning verdict, and (vi) places all of it against Connes–Consani
 (arXiv:2006.13771) and Connes–Consani–Moscovici (arXiv:2310.18423).
 
+**Headlines.** (1) The naive primitive question is trivial: W|_P is PSD
+under RH termwise. The nontrivial object is the zero-free *arithmetic
+intersection form* I = prime − arch = pole − W, for which we derive and then
+measure the exact Hodge-index statements: I ≤ 0 on the primitive subspace
+(⟺ RH there), and at most ONE positive direction on any finite test space —
+the pole plane is a null-diagonal hyperbolic plane, F₁²=F₂²=0, F₁·F₂=1,
+and Castelnuovo's Z·Z ≤ 2d₁d₂ is verbatim I(g) ≤ 2Re[Φ_g(0)Φ̄_g(1)].
+(2) Measured: inertia of I is (1, ·, rest) in every resolved dictionary; the
+primitive top eigenvalue of the assembled zero-free form matches the
+factored zero side to all digits where resolved (−1.718e−8 both ways).
+(3) The primitive block is O(1)-definite in the prime-free Connes–Consani
+window (λ_min/λ_max = 0.19, vs 6.9e−4 unconstrained); each of the first
+prime powers then costs 3–7 orders of magnitude, and *deleting any single
+prime power ≥ 3 from the arithmetic makes the primitive block indefinite* —
+every prime is individually load-bearing. (4) Interpolation by direct
+collocation on generic spans is numerically infeasible beyond ~15–20 knots
+(cond 1e16 by K = 24): a certificate needs the prolate/Sonin-adapted basis,
+which is exactly the Connes–Consani route.
+
 Normalization throughout is that of `notes/WEIL.md` Prop W1 (verified there
 to 1.8e−10): for admissible g on u = log x, Φ_g(s) = ∫ g(u) e^{(s−1/2)u} du,
 F = g⋆g̃, and
