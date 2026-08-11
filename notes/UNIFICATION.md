@@ -88,6 +88,70 @@ discrimination and check which QI theorems say something arithmetic we have
 not proven — the plausible candidate: quantitative tomography bounds ⟹
 quantitative homometry rigidity (how far apart must homometric partners be).
 
+**Machine 1 — EXECUTED (fleet-toy, 2026-08-11).** Anchor text confirmed:
+Bartlett–Rudolph–Spekkens, *Reference frames, superselection rules, and
+quantum information*, Rev. Mod. Phys. **79**, 555 (2007), arXiv
+quant-ph/0610030 — "unspeakable" quantum information is data encoded in
+degrees of freedom that a missing reference frame makes inaccessible; lacking
+a frame for a group G imposes a superselection rule (SSR) = restriction to
+G-invariant operations; within the SSR, asymmetry ("charge") becomes a
+manipulable resource. This is exactly the formal home of §2's twirl lemma.
+
+*The dictionary (exact, per theorem).* Throughout, ρ = ψψ* is the prime
+state of §1 and E_G is the twirl over the group named.
+
+| corpus theorem | QI statement it instantiates |
+|---|---|
+| **A(ii) (difference kernel / homometry)** | State discrimination under a translation SSR: measurements restricted to the shift algebra C\*(ℤ) see only tr(ρS_h) = c(h), i.e. the twirled reduction. Two supports are homometric iff their states have identical C\*(ℤ)-restrictions; by Helstrom + twirl, the optimal discrimination bias under covariant measurements is ½‖E(ρ_A−ρ_B)‖₁ = **exactly 0** — homometric partners are perfectly indistinguishable, not merely hard to tell apart. The hidden frame group whose orbits index the fibers is the charge group (ℤ/2)^{#factors} of §2 (factor reversal); Rosenblatt–Seymour is its orbit classification. |
+| **A(i) (sum rigidity)** | Frame extension lifts the SSR: adjoining the reflection to translations (C\*(ℤ) → C\*(D_∞), the reflected coset {JS_N}) makes the covariant data {r(N)} informationally complete on the positive cone. In BRS terms: the sum marginal is a *relational encoding* w.r.t. the dihedral frame, and one added ℤ/2 reference frame (reflection) converts an SSR-degenerate tomography problem into a complete one. |
+| **A′ (prime rigidity)** | Charge-group triviality = the SSR has no room to act on the state class: irreducibility of the noncyclotomic part forces the frame group down to the global reversal (ℤ/2)¹, whose orbit {P_X, reflection} is the trivial ambiguity. Rigidity is not better data — it is a smaller asymmetry group. |
+| **E1 (positive cone)** | The cone choice is itself a ℤ/2 reference frame (which half-line is "positive"). Symmetrization a ↦ ã is the relational (frame-independent) encoding: on even states c_ã = ã\*ã, and A(i) applies — the crystallographic phase problem is *frame dependence*, destroyed by passing to the decoherence-free (symmetric) encoding. BRS's "relational encodings evade the SSR", literally. |
+| **F + CORE_KMS (parity)** | Global SSR for the gauge torus 𝕋^𝒫: sieves are G-covariant operations, λ is the maximally charged state-direction, and Theorem F is the SSR statement that every invariant (equilibrium) state assigns charged observables expectation zero. CORE_KMS strengthens it to: the invariant world has a *unique* state — the twirl E_G followed by the unique trace — so no invariant-side refinement ever sees charge. Friedlander–Iwaniec's "extra input" = a resource state carrying asymmetry (bilinear/type-II data), the exact BRS resource-theoretic reading. The toy model (TOY_OBSTRUCTION §2.3) sharpens this to a single-place mechanism: at p = 2k−1 the local channel is the complete depolarizer on the charge bit — the sieve does not merely hide the parity bit, one finite place erases it. |
+
+*The quantitative import (the theorem QI contributes that the corpus has not
+proven).* QI's covariant-discrimination calculus assigns exact numbers where
+the corpus had only the dichotomy complete/incomplete:
+
+**Import Q1 (noisy/partial heat data separating homometric partners —
+derived).** Let A ≠ B ⊆ {0,…,N} be homometric (hence |A|=|B|=m), with pure
+states ψ_A, ψ_B as in §1, and let f_A(t) = Σ_{a∈A} e^{−ta} = m·tr(ρ_A e^{−tN̂})
+be the heat (diagonal Laplace) observable of A(iii).
+(i) Under the translation SSR the discrimination bias is exactly 0 (dictionary
+row 1): no amount of gap data at any precision separates them.
+(ii) Adjoining a single heat observable at parameter t gives bias
+≥ |f_A(t)−f_B(t)|/(2m), and D(t) := f_A(t)−f_B(t) = P(e^{−t}) for a nonzero
+polynomial P with coefficients in {−1,0,1} of degree ≤ N. Self-contained
+bound: at e^{−t} = 1/3, |D| ≥ 3^{−n₀}/2 where n₀ ≤ N is the smallest element
+of the symmetric difference (leading term dominates the geometric tail:
+3^{−n₀} − Σ_{n>n₀}3^{−n} = 3^{−n₀}/2). Hence **noisy heat tomography at noise
+ε separates every homometric pair as soon as ε < 3^{−N}/(4m)** — completeness
+of A(iii) made quantitative, unconditionally. Littlewood-type polynomial
+bounds (Borwein–Erdélyi–Kós, *Littlewood-type problems on [0,1]*, Proc. LMS
+1999) improve the guaranteed worst-case separation to sup_t |D(t)| ≥
+exp(−c√(N log N))-type; citation from memory, exponent regime (√N vs
+√(N log N)) to be pulled from the paper before external use.
+(iii) The deflationary corollary for the prime state: explicit-formula /
+RH-level data determines heat observables to relative precision ~N^{−1/2}
+(power savings), which is *exponentially* coarser than the exp(−c√N)
+worst-case discrimination threshold. **Generic covariant tomography can
+never certify prime homometric rigidity; the algebraic route (A′,
+irreducibility = charge-group collapse) is forced, not merely convenient.**
+This is the QI mirror of the toy model's annihilation verdict: in both
+machines, the win condition is shrinking the symmetry, not sharpening the
+data.
+
+**Import Q2 (the precise open import).** Quantitative homometric *repulsion*
+of the primes: prove that for every 0–1 sequence B ≠ P_X homometric to P_X on
+[0,N], sup_{t>0} |f_{P_X}(t) − f_B(t)| ≥ N^{−O(1)} (polynomial, not
+exponential, separation). Under A″ the statement is vacuous (no partners
+exist); unconditionally it interpolates between A′ and the generic BEK bound,
+and it is exactly the statement needed to make *noisy, physically-realizable*
+heat data (precision N^{−O(1)}, the precision arithmetic actually supplies)
+sufficient for rigidity. Nothing in the corpus proves or refutes it; the QI
+frame identifies it as the natural quantitative target, and the
+factor-reversal structure (D(t) = A(e^{−t}) − Ã(e^{−t}) for a reversal
+allocation, per REDTEAM's corrected target) gives it algebraic traction.
+
 **Machine 2 — obstruction theory (the functorial upgrade of the spearhead).**
 The K-question is hereby upgraded per the review: not "is ∂[λ-twist] ≠ 0"
 but **"is the assignment (charge sector killed by quotient) ↦ (boundary class
@@ -100,6 +164,21 @@ cocycle; compare with the Toeplitz boundary map under inverse limit. A *yes*
 identifies the parity barrier with a gluing obstruction; a *no* is the
 valuable deflation that K-theory sees the extension's topology but not the
 analytic barrier — decided *before* the program builds on it.
+
+**Machine 2 — EXECUTED (fleet-toy, 2026-08-11): the answer is *no*, and
+sharply.** `notes/TOY_OBSTRUCTION.md` + `code/exp36_toy.py` (33/33 exact
+checks): the λ-twisted section is **annihilated, not obstructed** — at
+p\* = 2k−1 the local partition function is exactly the twirl idempotent
+(1+z)/2 (the local parity bit is a fair coin, uniquely at p\*), so the
+twisted line's bonding map is zero there, while every candidate obstruction
+group vanishes structurally (towers over ℚ and ℤ/2 are Mittag–Leffler ⟹
+lim¹ = 0; clopen partitions are cofinal on the profinite fiber ⟹ Čech
+H^{≥1} = 0 for *every* coefficient presheaf; the ℤ/2-charge torsor is
+explicitly trivial at each finite level). The one nonvanishing invariant —
+integral lim¹ — is a completion artifact equally present when 2k−1 is
+composite: blind to the parity zero. Prediction lodged for the K-computation:
+∂[λ-twist] = 0, with the falsifier and the ℤ-coefficient caveat stated in
+TOY_OBSTRUCTION §5 (interface to fleet-kboundary, note not yet landed).
 
 ## 4. Program reorganization (accepting the review's priorities)
 

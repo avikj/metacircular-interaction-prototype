@@ -41,6 +41,8 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/ASYMPTOTIC_FACTOR_RIGIDITY.md | effective divergence of the least irreducible-factor degree | proved from Lenstra + Ford--Maynard--Tao + global cyclotomic classification |
 | papers/crossover.md | β-deformed HL scaling law, full draft | landed; novelty sustained after 15 searches |
 | notes/WIDTH.md | parity-barrier width: uniformity ladder, two failure layers, exp24 | landed |
+| notes/LENS_CIRCUIT.md | sieve circuits SIEVE_d(S,Q); small-lcm + dyadic-effective + BV rungs; W-trick restriction calculus; open rung R3 | landed; proofs modulo classical BV_mu input; exp27 null |
+| notes/TOY_OBSTRUCTION.md | finite toy presheaf: parity sector annihilated (local twirl idempotent at p=2k−1), not obstructed (all H¹/lim¹ receptacles vanish); K-prediction ∂[λ-twist]=0 | landed; 33/33 exact-rational checks (exp36_toy) |
 
 ## Claims
 
@@ -75,11 +77,11 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | V3 formalization (Lean) | fleet-lean | 2026-08-11 | DONE — V3 ACHIEVED for all three tasked targets incl. stretch: A(i) sum-marginal injectivity (3 forms), L1.3 SO(1,1)(ℤ)={±I}, A′-core reversal/UFD rigidity; Lean 4.33.0 + mathlib, `formal/pairfield/`, `lake build` passes, 0 sorries, axioms = [propext, Classical.choice, Quot.sound] only; see notes/LEAN_STATUS.md; general reducible A′ case + E0/F2-sf remain queued |
 | function-field pair field (ATIYAH.md §3 third column: exp26/FF.md, genus-0 Goldbach, Sawin–Shusterman anatomy) | fleet-ff | 2026-08-11 | INTERRUPTED (session limit) at start — fully specified in ATIYAH.md §3; free for Codex |
 | K-theory parity boundary class (spearhead: `KBOUNDARY`, six-term for 0→I→𝒯(ℕ⋊ℕ^×)→Q_ℕ→0, λ-twist class) | fleet-kboundary | 2026-08-11 | active |
-| circuit ladder: unconditional lambda-orthogonality (BLINDSPOTS blind spot 2, `LENS_CIRCUIT`, exp27) | fleet-circuit | 2026-08-11 | active |
+| circuit ladder: unconditional lambda-orthogonality (BLINDSPOTS blind spot 2, `LENS_CIRCUIT`, exp27) | fleet-circuit | 2026-08-11 | landed — SIEVE_d(S,Q) formalized (periodicity collapse, provable AC⁰-incomparability); Thm 1 (lcm ≤ log^A, all depths, ineffective), Thm 1″ (Green port: dyadic moduli, lcm ≤ e^{c√log X}, EFFECTIVE), Thm 2/2′ (bounded size at moduli ≤ X^{1/2-ε}: pointwise off a circuit-independent bad set + fully averaged — first non-periodic rung), Thm 3 (mixed circuits via W-trick restriction, Lemma R); Prop 5.1: profinite restrictions cannot switch prime-modulus literals; open rung R3 named (bilinear switching / WF-BV_λ beyond 1/2); exp27: 15/15 cells null vs half-normal |
 | LP certificate / negativity landscape (ATIYAH §4.2 retarget: primitive-block Hodge-index sign structure, per-prime cost, interpolation conditioning; exp25 completed + run, `LP_CERT`) | fleet-lp2 | 2026-08-11 | active |
 | Buchstab-side all-orders ladder (TENSIONS §3 conjecture: depth mirror of K2 II, `BUCHSTAB_LADDER`, exp34_buchladder) | fleet-buchladder | 2026-08-11 | active |
 | cut-norm RH / exact regularity (BLINDSPOTS blind spot 1, `LENS_REGULARITY`, exp36_cutnorm) | fleet-graphon | 2026-08-11 | active |
-| toy presheaf obstruction + QI translation (UNIFICATION §3 Machines 1+2: `TOY_OBSTRUCTION`, exp36_toy) | fleet-toy | 2026-08-11 | active |
+| toy presheaf obstruction + QI translation (UNIFICATION §3 Machines 1+2: `TOY_OBSTRUCTION`, exp36_toy) | fleet-toy | 2026-08-11 | landed — VERDICT: annihilation, not obstruction. J_{2k−1} = (1+z)/2 is exactly the local twirl idempotent (parity bit = fair coin uniquely at p=2k−1 ⟹ zero bonding map); all obstruction receptacles vanish structurally (ℚ/ℤ-2 towers ML ⟹ lim¹=0; clopen partitions cofinal ⟹ Čech H^{≥1}=0 ∀ coefficients; charge torsor explicitly trivial); integral lim¹ ≠ 0 but identical for k=5 (9 composite) ⟹ not localized at the parity zero. 33/33 exact checks. K-prediction lodged: ∂[λ-twist]=0 (interface in TOY_OBSTRUCTION §5, awaiting KBOUNDARY). QI: BRS dictionary + Import Q1 (3^{−N} heat-separation bound derived; RH-precision ≪ discrimination threshold ⟹ tomography can't certify rigidity) + Import Q2 (open: polynomial homometric repulsion of the primes) appended to UNIFICATION §3 |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
