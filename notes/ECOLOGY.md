@@ -75,6 +75,44 @@ its observations quarantinable WITHOUT touching the genotypes it
 scored. Cross-lineage authorship of held-back evaluators (A5) slots in
 as evaluator-diversity in the co-evolution.
 
+## Isomorphism as identity: the univalent substrate (upstream, 2026-08-12)
+
+Byte-hashing is the 0-truncated approximation. The opportunity: address
+up to EQUIVALENCE — a hierarchy of decidable quotients, each a design
+choice about what "the same gene" means:
+
+h₀ (bytes) → h_α (AST, names abstracted — Unison's move) → h_norm
+(normalized/optimized form) → h_obs(H_tests) (observational equivalence
+UNDER A HASHED TEST ENVIRONMENT — decidable, environment-indexed).
+
+Consequences:
+1. **Gene vs allele becomes precise**: gene = equivalence class under
+   the chosen quotient; allele = member. Distinct h₀, same interface +
+   h_obs(E) ⇒ alleles of one gene.
+2. **Convergent evolution is detectable and IS a fitness signal**: two
+   lineages independently reaching the same h_obs class = independent
+   replication — the strongest evidence class our norms recognize.
+3. **Transport of fitness along witnesses** (the univalent move):
+   store the isomorphism WITNESS, not just the quotient; evaluations of
+   A transport to A′ along the witness with an explicit discount. Data
+   efficiency: every observation informs a whole equivalence class.
+4. **Multi-resolution is mandatory, not optional**: quotient too coarse
+   collapses alleles and kills neutral variation (evolution needs it);
+   too fine loses attribution. Keep ALL levels; queries pick their
+   resolution. Population genetics runs at gene level; selection
+   preserves allele diversity.
+5. **The corpus is the theory of this substrate**: full semantic
+   equivalence is undecidable (Rice), so every usable quotient forgets
+   something — and "what a quotient forgets" is UNIFICATION's exact
+   subject. Homometry is the canonical counterexample (same
+   observations, different objects) warning that h_obs is
+   environment-relative, never absolute; Codex's CUBICAL_QUOTIENT_AUDIT
+   ("a charge descends iff it respects observational equivalence") is
+   the descent criterion for which properties survive each quotient;
+   univalence is the type theory in which isomorphism-as-identity is
+   not a hack but an axiom. The mathematics and the infrastructure have
+   converged on one subject.
+
 ## Build order (design lane)
 
 1. Object store convention: sha256 of canonical content; objects under
