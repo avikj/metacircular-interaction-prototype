@@ -43,8 +43,11 @@ purely the pair layer plus $O(X^{3/2})$ cross-constant terms.
 **Verification (exp11; $\Lambda$ to $2\cdot10^6$, $Q=30$, 30,000 zeros in the
 single-zero model, 1200 in the pair model).**
 
-- **Exact closure:** $\max_X\bigl|[\sharp\sharp]+[\text{mix}]+[\flat\flat]-G_1\bigr|/G_1
-  = 2.1\times10^{-13}$.
+- **Closure (sanity check only, per `CROSSREVIEW_BLOCKS.md`):**
+  $\max_X|[\sharp\sharp]+[\text{mix}]+[\flat\flat]-G_1|/G_1=2.1\times10^{-13}$ —
+  tautological by bilinearity ($\Lambda\Lambda=(\Lambda^\sharp+\Lambda^\flat)^2$); it
+  verifies FFT arithmetic. The substantive evidence for E2 is the
+  parameter-free band attribution below.
 - **Band power split** (RMS at $X^2$ scale, single band $[10,27.5]$ / pair band
   $[28.5,320]$ in log-$X$ frequency):
 
@@ -69,9 +72,10 @@ single-zero model, 1200 in the pair model).**
   $\frac1X\sum_{n\le X}\Lambda(n)c_q(n)=\mu(q)$ to 4 decimals for all tested
   $q\le30$ (including the vanishing cases $q=4,12$).
 - **Besicovitch orthogonality:** $\frac1X\sum_n\Lambda^\sharp_Q\Lambda^\flat_Q
-  \approx10^{-4}$, flat in $Q$ (tail prediction $\sum_{q>Q}\mu^2/\varphi^2$ decays
-  like $1/Q$; the measured means sit far below even the $Q=100$ tail, i.e.
-  orthogonality holds with room to spare at $X=2\cdot10^6$).
+  \approx10^{-4}$, flat in $Q$. [Corrected framing per audit: by Carmichael
+  orthogonality of Ramanujan sums the mean is exactly $0$ at every $Q$ in the
+  limit; the measured $10^{-4}$ is finite-$X$ noise, not a $\sum_{q>Q}\mu^2/\varphi^2$
+  tail effect — the earlier "tail prediction" column was mislabeled.]
 
 Figure: `figures/exp11_blocks.png` — the three block spectra, each showing only
 its own line system.
@@ -128,6 +132,10 @@ Two structural facts, both new relative to Theorem D′:
 - phase deviation from $-sH(p)-5\pi/4$: rms $0.0045$ rad; max-deviation envelope
   decays as predicted: $0.077,\,0.031,\,0.016,\,0.0054$ for
   $\min(\gamma,\gamma')>20,50,100,300$ — i.e. $\approx1.6/\min(\gamma,\gamma')$.
+  [Audit note: the *bulk* regression of $|$dev$|$ vs $\min$ gives exponent
+  $-0.41$, not $-1$ — the typical deviation mixes $1/\min$ and $1/s$ terms;
+  the envelope is the correct statistic for the $O(1/\min)$ *upper bound*
+  claimed by D‴, and it passes. Both numbers are in exp12's output.]
 
 Figure: `figures/exp12_phaselaw.png` (diagonal chirp $-f\log2-\tfrac{5\pi}{4}$;
 error scaling; atom-phase histogram).
@@ -185,18 +193,24 @@ explicit constants:
   (ratio 1.0024). And $\sqrt D=0.002457$ reproduces the measured arithmetic
   band RMS of `APPENDIX_D.md` §D.5 (0.0025): the Parseval chain is now
   **four**-way — zero-pair Parseval, D‴ closed form, synthesized time series,
-  and the actual primes to $4\cdot10^6$ — all agreeing to three decimals.
+  and the arithmetic data — agreeing to $\sim1.7\%$ ($0.002457$ vs $0.0025$;
+  "three decimals" was over-rounded — audit).
 - **The separation ingredient, measured.** The off-diagonal weighted energy
-  $E(\eta)=\sum_{f\ne f',|f-f'|\le\eta}|c_fc_{f'}|$ is **linear over five
-  decades**: log-log slope 1.10 on $\eta\in[10^{-3},0.3]$, $E(\eta)\approx C\eta$
-  with $C=8.66\times10^{-6}$, i.e. $C/D=1.44$. This is exactly the Poisson
-  separation hypothesized in §D.4 — no clustering excess at any resolution
-  down to $10^{-4}$.
-- **Variance = diagonal, with rate.** The exact quadruple sum (D.1) gives
-  $V(T,L)/D\in[0.955,1.037]$ for **all** $L\ge1$, converging to $0.9998$ at
-  $L=1000$; the rigorous dyadic bound (D.2), evaluated from the measured
-  $E$-profile, certifies off-diagonal $\le6.5\%$ of $D$ at $L=100$. Threshold:
-  $E(1/L)=0.1D$ at $L^*=14.5$.
+  $E(\eta)=\sum_{f\ne f',|f-f'|\le\eta}|c_fc_{f'}|$ is linear where statistics
+  exist: log-log slope $1.10$ over the fit window $\eta\in[10^{-3},0.3]$
+  ($\sim2.5$ decades; below $10^{-2}$ the ratio $E/C\eta$ wobbles $\sim2\times$
+  and the $\eta=10^{-4}$ point rests on 20 pairs — audit-corrected phrasing),
+  $E(\eta)\approx C\eta$ with $C=8.66\times10^{-6}$, $C/D=1.44$. This is the
+  Poisson separation hypothesized in §D.4, with no gross clustering excess
+  at any resolution where the count is meaningful.
+- **Variance = diagonal, with rate.** The quadruple sum (D.1) — exact on the
+  truncated same-sign atom set (cross-quadrant sinc² terms $\sim10^{-3}$,
+  $s>300$ tail $2.3\%$, both bounded) — gives $V(T,L)/D\in[0.955,1.037]$ on a
+  13-point $L$-grid at $u_0=\log10^6$, converging to $0.9998$ at $L=1000$.
+  [Audit: the interval is $u_0$-dependent — $0.907$ at $u_0=\log10^5,L=3$; the
+  $u_0$-independent statement is the limit $V/D\to1$, which is solid.] The
+  dyadic bound (D.2) from the measured $E$-profile certifies off-diagonal
+  $\le6.5\%$ of $D$ at $L=100$; threshold $E(1/L)=0.1D$ at $L^*=14.5$.
 - **Poisson statistics, properly unfolded.** Raw spacing var/mean² is 6.39 —
   but this conflates the density gradient ($\rho_2(s)\sim s\log^2s$ across the
   band) with clustering. Unfolded by the local pair-sum density (computed as

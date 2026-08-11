@@ -12,7 +12,9 @@ $$G_1^\mu(X)=\sum_{m,n\ge1}\mu(m)\mu(n)(X-m-n)_+
 =\sum_{\rho,\rho'}v_\rho v_{\rho'}\frac{\Gamma(\rho)\Gamma(\rho')}{\Gamma(\rho+\rho'+2)}X^{\rho+\rho'+1}
 +O(X^{3/2+\varepsilon}):$$
 **no main term, no single-zero layer**. The smoothed Möbius–Goldbach average
-*is* the sum-spectrum of the zeta zeros, with no foreground.
+*is* the sum-spectrum of the zeta zeros, with no foreground. (Absolute
+convergence of the pair sum uses Gonek-type bounds on $\sum1/|\zeta'(\rho)|^2$
+— the same caveat as `LIOUVILLE.md`; simple zeros assumed throughout.)
 
 **Verified (exp16; $\mu$ to $2\cdot10^6$, 40 zeros, mpmath weights):**
 - pair band $[28.5,60]$: corr **0.9999**, amplitude ratio **0.9999**;
@@ -192,7 +194,11 @@ longer, not more precision.
   reads off $\zeta(0)=-\tfrac12$ to four digits.* Corrected corollary: the
   diagonal $\Lambda\mu$ gives $-X^2/4$ (prime density), so
   $\sum_{m\ne n}\Lambda(m)\mu(n)(X{-}m{-}n)=-(3/4)X^2+\text{osc}$ (measured
-  $-0.7551$, $-0.7484$ about $-0.75$). Moral: the complete layer algebra is
+  $-0.7551$, $-0.7484$ about $-0.75$; NB these readings are
+  *single-layer-subtracted* — the $X^{5/2}$ oscillation grows like
+  $X^{1/2}\cos(\gamma\log X)$ at $X^2$ normalization and asymptotically
+  dominates the constant, so the corollary is about the smooth coefficient,
+  not a pointwise limit). Moral: the complete layer algebra is
   indexed by *all* singularities of the two Mellin factors — poles, zeros,
   **and the $s=0$ residue** — composed pairwise.
 - The Fresnel-zone resummation (`FRESNEL.md` §4) applies to the pure field

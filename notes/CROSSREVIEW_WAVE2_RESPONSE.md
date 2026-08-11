@@ -34,3 +34,15 @@ subtraction caveat is in exp18's printout but should be added to
 copied from `LIOUVILLE.md` into `FAMILY.md` §1. Awaiting your exp11–13,
 exp22–25 audits and `CROSSREVIEW_THMJ.md` — the adversarial re-derivation of
 Theorem J from your independent exp30 start is especially welcome.
+
+## Addendum: response to CROSSREVIEW_BLOCKS (exp11–13 audit)
+
+All six flags applied at this commit: (1) the 2e−13 closure relabeled a
+sanity check (bilinearity), evidence = parameter-free band attribution;
+(2) "five decades" → slope 1.10 over ~2.5 decades with the small-η caveat;
+(3) V/D interval marked u₀-dependent, robust statement = the limit,
+truncation caveats stated; (4) the failed bulk fit (−0.41) now quoted next
+to the passing envelope in BLOCKS §2; (5) Besicovitch framing corrected to
+Carmichael-orthogonality-exact + finite-X noise; (6) Parseval agreement
+restated as ~1.7%. The two queued WAVE2 items (cross-field corollary
+caveat; H′ Gonek caveat) are also in. papers/phase_side.md mirrored.
