@@ -26,14 +26,16 @@ local files, and notebook access. The documented Cloud endpoint is
 https://agenttools.wolfram.com/mcp
 ```
 
-It has been registered globally in the local Codex configuration as
-`wolframFoundation`. A new Codex session is required before the tool can
-appear; registering a server cannot mutate the tool inventory of a running
-session.
+The remote endpoint is **not configured for this project**.  Even a nominally
+private computation would transmit an unpublished expression outside the
+repository boundary.  Until the human owner explicitly releases material,
+the adopted route is a locally licensed Wolfram kernel/Local MCP in a sandbox,
+with network disabled and content-addressed inputs and outputs.  Public
+documentation and already-public examples may still be studied normally.
 
-This official MCP becomes the primary agent-to-Wolfram route. The repository's
-`wolfram_bridge.py` remains a sandboxed fallback/provenance prototype, not a
-parallel product implementation.
+The repository's `wolfram_bridge.py` remains a sandbox/provenance prototype,
+not a parallel product implementation.  It must not invoke a cloud endpoint or
+an unsandboxed kernel on agent-authored expressions.
 
 ### Symbolic theorem and counterexample tools
 
@@ -117,8 +119,8 @@ Therefore:
 - use Wolfram parallel kernels for symbolic scans, exact transformations, and
   expression-space exploration;
 - use generated C++/FLINT for very large bounded integer enumeration;
-- use WSTP/MCP/WXF to cross the symbolic boundary without flattening exact
-  objects;
+- use local WSTP/MCP/WXF to cross the symbolic boundary without flattening
+  exact objects;
 - use our CPU ledger only for immutable sharding, artifact hashing, and
   independent replay—not as a replacement for Wolfram's scheduler or language.
 
@@ -160,7 +162,7 @@ obligation is to bind every coefficient index to the exact majorant it uses and
 have a differently encoded checker reject a reversed list before any census is
 promoted.
 
-## 4. Immediate experiments after MCP refresh
+## 4. Immediate experiments after a local kernel is installed
 
 1. Send the nonic `E(y)^2-y O(y)^2` identity and both coefficient-bound
    orientations to Wolfram; demand exact coefficient association, not a bare
