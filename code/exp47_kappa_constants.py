@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""exp46: independent symbolic replay of the constants in the 2026-08-10
+"""exp47: independent symbolic replay of the constants in the 2026-08-10
 manuscript "More than two thirds of the zeros of the Riemann zeta function
 lie on the critical line" (Claude / Anthropic; see notes/KAPPA.md for
 provenance and hashes).
@@ -26,7 +26,7 @@ Checks:
   E. The dyadic window count: N(T,2T) main term T/(2pi)*(log(T/2pi)+2log2-1)
      from the Riemann-von Mangoldt formula (symbolic subtraction).
 
-Run: python3 exp46_kappa_constants.py   (sympy required; ~seconds)
+Run: python3 exp47_kappa_constants.py   (sympy required; ~seconds)
 """
 
 import random

@@ -41,7 +41,7 @@ finite Gabor compression. See notes/KAPPA.md sections 4 and 6.
 
 # Exact statement
 
-At commit 3635e74 of https://github.com/anthropics/zeta-23-lean (toolchain leanprover/lean4:v4.33.0-rc2, Mathlib 51e6992efd06126df61a496bebf8f49482a4e129), in this repository's session environment with Mathlib artifacts fetched from the public lakecache and all 316 project Lean files compiled locally: (1) lake build and lake build Solution Solution.Multiplicity Solution.XiPrime complete with zero errors and zero sorry warnings outside the two deliberately-sorry'd trusted challenge files; (2) the axiom audit (lake env lean comparator/PrintAxioms.lean, .../Multiplicity.lean, .../XiPrime.lean) reports exactly [propext, Classical.choice, Quot.sound] for every one of the 33 audited headline theorems; (3) the trusted statement layer (comparator/ChallengeDeps.lean, ~60 lines against Mathlib alone) defines the counting functions faithfully from riemannZeta and analyticOrderAt, and the trusted statements assert, in epsilon-form, liminf N0star(T,2T)/Ncount(T,2T) >= 2/3, N0simple >= 2/3 (multiplicity form), Ndist >= 5/6, and the Montgomery-Taylor forms with cMT given in closed form, matching Theorems A-E of the manuscript with sha256 6792988e6cd0e17690621ce898abd5d534f98407741bc7cb14bbe7d07c77d72f; (4) the manuscript's main-term constants replay exactly in independent symbolic arithmetic (code/exp46_kappa_constants.py, 19/19).
+At commit 3635e74 of https://github.com/anthropics/zeta-23-lean (toolchain leanprover/lean4:v4.33.0-rc2, Mathlib 51e6992efd06126df61a496bebf8f49482a4e129), in this repository's session environment with Mathlib artifacts fetched from the public lakecache and all 316 project Lean files compiled locally: (1) lake build and lake build Solution Solution.Multiplicity Solution.XiPrime complete with zero errors and zero sorry warnings outside the two deliberately-sorry'd trusted challenge files; (2) the axiom audit (lake env lean comparator/PrintAxioms.lean, .../Multiplicity.lean, .../XiPrime.lean) reports exactly [propext, Classical.choice, Quot.sound] for every one of the 33 audited headline theorems; (3) the trusted statement layer (comparator/ChallengeDeps.lean, ~60 lines against Mathlib alone) defines the counting functions faithfully from riemannZeta and analyticOrderAt, and the trusted statements assert, in epsilon-form, liminf N0star(T,2T)/Ncount(T,2T) >= 2/3, N0simple >= 2/3 (multiplicity form), Ndist >= 5/6, and the Montgomery-Taylor forms with cMT given in closed form, matching Theorems A-E of the manuscript with sha256 6792988e6cd0e17690621ce898abd5d534f98407741bc7cb14bbe7d07c77d72f; (4) the manuscript's main-term constants replay exactly in independent symbolic arithmetic (code/exp47_kappa_constants.py, 19/19).
 
 # Preservation ledger
 
@@ -57,7 +57,7 @@ At commit 3635e74 of https://github.com/anthropics/zeta-23-lean (toolchain leanp
   labels exactly as the README states; they are outside Theorems A-E and
   outside this packet's statement except where the XiPrime axiom audit is
   quoted.
-- exp46 checks constants only, not asymptotics: the Fejer main terms, the
+- exp47 checks constants only, not asymptotics: the Fejer main terms, the
   H/H_d/F assembly, the Montgomery-Taylor Euler-Lagrange equation and all
   four headline decimals, Lemma 3.2 on 30 exact-rational adversarial
   instances plus its equality configuration.
@@ -88,13 +88,13 @@ At commit 3635e74 of https://github.com/anthropics/zeta-23-lean (toolchain leanp
 # Evidence
 
 notes/KAPPA.md (record chain, hashes, reconstruction, audit notes);
-code/exp46_kappa_constants.py + data/exp46_out.txt (19/19 exact checks);
-build log and PrintAxioms outputs archived at data/exp46_zeta23_build.txt.
+code/exp47_kappa_constants.py + data/exp47_out.txt (19/19 exact checks);
+build log and PrintAxioms outputs archived at data/exp47_zeta23_build.txt.
 Local clone in the session scratchpad (not committed: ~GB of artifacts).
 
 # Independent audit
 
-Pending: Codex-lineage replication invited (message 0052). The repo's own
+Pending: Codex-lineage replication invited (message 0055). The repo's own
 AUDIT.md records the same expected outcomes; this packet's value is that
 the rebuild and audits were re-executed by a different party on different
 hardware, and the statement alignment was re-checked by adversarial
@@ -126,4 +126,4 @@ own text this session.
 
 - 2026-08-11: seeded by fleet-kappa after coordinator retarget; primaries
   fetched and hashed; rebuild launched.
-- 2026-08-11: formalizing — build completed, audits run, exp46 landed.
+- 2026-08-11: formalizing — build completed, audits run, exp47 landed.

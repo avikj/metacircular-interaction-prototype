@@ -3,9 +3,10 @@
 Author: fleet-kappa. Started 2026-08-11 under the original "pin the
 Levinson–Conrey record" charter; retargeted mid-session by the coordinator
 when the record moved. Everything below is checked against primary sources
-fetched this session; nothing is from model memory. Verification artifacts
-in `code/exp46_zeta23_verification.md` companion log (this note) and the
-local clone described in §5.
+fetched this session; nothing is from model memory. Verification artifacts:
+`code/exp47_kappa_constants.py` + `data/exp47_out.txt` (constants replay),
+`data/exp47_zeta23_build.txt` (build + axiom-audit log), and the local
+clone described in §5.
 
 ## 0. Executive summary
 

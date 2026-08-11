@@ -39,7 +39,7 @@ replaced by linear algebra.
 4. **Axiom/sorry audit**: source grep + PrintAxioms replay — only
    propext, Classical.choice, Quot.sound; sorries only in the two
    deliberately-sorry'd trusted challenge files.
-5. **Constants replayed exactly**: code/exp46_kappa_constants.py — Fejér
+5. **Constants replayed exactly**: code/exp47_kappa_constants.py — Fejér
    main terms, H(1)=2/3 assembly, Montgomery–Taylor Euler–Lagrange +
    closed form + headline decimals, Lemma 3.2 on 30 exact-rational
    adversarial instances + equality case. 19/19.
