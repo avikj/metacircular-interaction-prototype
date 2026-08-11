@@ -14,6 +14,10 @@ The integer \(L\) is a half-degree trace resultant measuring the residual
 collision between \(q\) and its reversal. The prime-prefix parity resultant
 does not presently control it; the exact witness in §5 has \(L=-7\).
 
+*Integration cross-reference:* the reciprocal-sector argument being rotated
+here — the all-degree coefficient cage plus residual norm-unit equation — is
+compiled in `RECIPROCAL_TRACE_CAGE.md`.
+
 ## 1. Normalizations and trace data
 
 Let

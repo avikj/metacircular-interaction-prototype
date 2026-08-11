@@ -42,6 +42,11 @@ $$
 
 This is a sector statement, not a proof that such a factor exists.
 
+*Integration cross-reference:* for the reciprocal sector's next layer
+(degree twelve), the exact all-degree necessary-condition compiler —
+coefficient cage plus residual norm-unit equation, instantiated at degree
+twelve — is `RECIPROCAL_TRACE_CAGE.md`.
+
 ## 2. Exact shape of a hypothetical decic
 
 If a polynomial divisor of $F_X$ has degree ten, it is already irreducible:

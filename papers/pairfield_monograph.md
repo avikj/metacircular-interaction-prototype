@@ -114,7 +114,7 @@ Verified (`exp8`): the minimal homometric pair has identical gap data on the hal
 stronger algebraic conjecture unconditionally, with every claim labeled
 PROVED / MACHINE-VERIFIED / DATA / HEURISTIC.
 
-> **Theorems F1 and F3--F8r** (`RIGIDITY_FRONTIER §2`; `CUBIC_OBSTRUCTION`; `PARITY_RESULTANT`; `QUINTIC_OBSTRUCTION`; `SEXTIC_OBSTRUCTION`; `SEPTIC_OBSTRUCTION`; `RECIPROCAL_OCTIC`). *For $X\ge5$, $F_X$ has no linear factor; every irreducible quadratic is cyclotomic; the only cubic is $F_5$; no quartic occurs; the only quintic is $F_7$; no sextic occurs; the only septic is $F_{11}/\Phi_6$; and no reciprocal octic occurs.*  The low-degree proofs use parity-resultant unit equations followed by exact finite root/resultant/tail certificates.  They also prove $F_{13}$, $F_{17}$, and $F_{19}$ irreducible.  The first finite open layer is the nonreciprocal octic.
+> **Theorems F1 and F3--F8r** (`RIGIDITY_FRONTIER §2`; `CUBIC_OBSTRUCTION`; `PARITY_RESULTANT`; `QUINTIC_OBSTRUCTION`; `SEXTIC_OBSTRUCTION`; `SEPTIC_OBSTRUCTION`; `RECIPROCAL_OCTIC`). *For $X\ge5$, $F_X$ has no linear factor; every irreducible quadratic is cyclotomic; the only cubic is $F_5$; no quartic occurs; the only quintic is $F_7$; no sextic occurs; the only septic is $F_{11}/\Phi_6$; and no reciprocal octic occurs.*  The low-degree proofs use parity-resultant unit equations followed by exact finite root/resultant/tail certificates.  They also prove $F_{13}$, $F_{17}$, and $F_{19}$ irreducible.  ~~The first finite open layer is the nonreciprocal octic.~~ *(Superseded by the V2 octic and nonic closures: the first finite open layer is now the nonreciprocal decic — §2.6; correction 8, §9.)*
 
 > **Theorem F2** (global classification of cyclotomic ties; `CYCLOTOMIC_TRACE`, PROVED). *For every integer $m\ge1$ and real $X\ge2$, $\Phi_m\mid F_X$ iff $m=2$ with $3\le X<5$, or $m=6$ with $11\le X<13$.* The non-squarefree half follows from a relative trace that isolates the unique ramified prime exponent.  In the squarefree half, rational independence forces the exact residue-class vector and the scalar identity $\pi(X)=\sum_{p\mid m}p$; a covering argument reduces every candidate to $m=P$ or $2P$, and one complete-residue-system theorem of Hajdu--Saradha finishes both families.  The exhaustive scan through two million prime cutoffs (`exp28_squarefree_ties`) independently reproduces only $(3,2)$ and $(11,6)$ but is not load-bearing.
 
@@ -141,6 +141,36 @@ was left unused by the factorization lens.
 The former recurrence question — do $\varphi(m)=2$ ties recur, Chebyshev-bias style? — is resolved **negatively** (`RIGIDITY_FRONTIER §4`, PROVED): the class-count walk is not mean-zero but monotone with drift; for $m=3,6$ the tie pins a monotone coordinate to a small integer passed by $X=13$, so ties are impossible forever; for $m=4$ the walk is recurrent but in the wrong affine subspace — the tie point is off-lattice, and the recurrent structure survives only as near-ties at distance exactly 1, which occur infinitely often *unconditionally* (Littlewood 1914; 111 cutoffs with $|v|^2=1$ up to $10^7$, clusters matching the Leech / Hudson–Bays sign-change regions). The effective primitive-root span dimension $D_m$ has the proved closed form $\prod_{p^e\|m}d_{p^e}$; relative trace excludes every non-squarefree modulus outright.
 
 Finally, rigidity is strictly weaker than irreducibility (`RIGIDITY_FRONTIER §5`, Prop R1): a break needs $r\ge2$ non-cyclotomic factors, at least two non-reciprocal, *and* a 0-1 recombination at every coefficient. In 1200 random prime-like 0-1 polynomials (degrees 40–120), every irreducibility failure was purely cyclotomic and rigidity never broke.
+
+### 2.6 The decic frontier: octic/nonic closures, the trace cage, and the cross-reversal charge
+
+The finite frontier of §2.5 has since moved twice. Exact certificates close degrees eight and nine outright:
+
+> **Theorems F8 and F9** (`OCTIC_OBSTRUCTION_V2`; `NONIC_OBSTRUCTION`; both computer-assisted exact theorems). *For every real $X\ge2$, $F_X$ has no irreducible factor of degree eight and none of degree nine.*
+
+The octic closure (`exp38_octic_certificate`) is a fresh successor artifact: the historical exp36 certificate attached the right Graeffe majorants to the wrong coefficient order and is retained only as quarantine history; the corrected ascending bound vector $(12,59,150,209,159,64,12)$ leaves the downstream ledger $139{,}448\to37{,}284\to7{,}092$ unchanged, and — as its note states — the result requires a fresh hostile audit of the successor artifact. The nonic closure (`exp44_nonic_certificate`; census `exp37_nonic_discovery`) had independent hostile audits accept its three gates (census, post-census, tail) separately before promotion: 767 strict candidates split as 754 Rabin witnesses + 12 explicit factorizations + the Cohn singleton $x^9+4x^3+1$ (base-six digits of the prime $10{,}078{,}561$; Brillhart–Filaseta–Odlyzko), and all 755 irreducibles close by cutoff 41 with production margin $>277$. Reciprocal decics close too, for every real $X\ge2$ (`RECIPROCAL_DECIC`, `exp45_reciprocal_decic_certificate`; independent hostile replay returned ACCEPT): the product-one trace box and quadratic norm-unit equation collapse $10{,}002{,}902$ labeled tuples to $15{,}754$, thence $294\to222$ irreducible ($\Phi_{11},\Phi_{22}$ removed by F2) $\to220$ candidates, all closed after 526 exact resultants.
+
+The resulting sector floors (`FACTOR_ARCHITECTURE §1`, a corollary-level synthesis of these audited inputs, stated for $X\ge13$): **every factor has degree $\ge10$; reciprocal factors $\ge12$** (odd-degree reciprocal irreducibles are linear, excluded); nonreciprocal $\ge10$; the unique odd carrier $\ge11$. The first finite open layer is exactly the **nonreciprocal decic** — a sector statement, not an existence claim. A hypothetical decic divisor is already forced to be irreducible, totally nonreal, monic with constant term $+1$, a nonreciprocal unit under Smyth's bound, and a parity-unit solution (`FACTOR_ARCHITECTURE §2`). Its damage is bounded in advance: flipping one copy creates at least four algebraic allocations $F_X,F_X^*,A,A^*$, but $A,A^*$ must leave the 0-1 cone by A′′ — *a decic factor could create algebraic phase ambiguity, but not a new homometric prime set* (`FACTOR_ARCHITECTURE §4`). The full ambiguity space is exact: the allocation fiber is the chain product $M=\prod_j(m_j+1)$, its 0-1 slice is exactly $\{F_X,F_X^*\}$, and $\log M=o(X)$ — zero asymptotic ambiguity rate (`ALGEBRAIC_ALLOCATION_CHANNEL`, Theorem 1, (3.1), (4.2), PROVED).
+
+For the reciprocal sector's next layer, degree twelve, the all-degree compiler is in place:
+
+> **Theorem (reciprocal trace cage)** (`RECIPROCAL_TRACE_CAGE §1`, PROVED — a necessary-condition compiler, explicitly *not* a divisibility criterion). *Any monic reciprocal divisor $g=x^nH(x+x^{-1})$ of any $F_X$ has unit constant term $c_n=\pm1$, all trace roots in $|\tau|<\sqrt5$, unit-product Vieta bounds $|c_k|\le B_{n,k}$, and residual Joukowski unit $\operatorname{Res}(A,B)=\pm1$.*
+
+At degree twelve the cage holds $30{,}943{,}405{,}350$ vectors — a factor $58.41\ldots$ below independent Vieta bounds — and its even side $(c_2,c_4,c_6)$ has only $\mathbf{51{,}106}$ possibilities, so the correct certificate shape is a 51,106-case bounded quadratic-polynomial norm-unit problem $\operatorname{Res}(A,B)=\pm1$, not a 30.9-billion-vector scan (`RECIPROCAL_TRACE_CAGE §2`). The cage is provably not sufficient: an irreducible cubic trace polynomial inside the cage lifts to a *reducible* sextic with parity resultant 9, and $\Phi_7$ passes every cage and unit test yet divides no $F_X$ (`RECIPROCAL_TRACE_CAGE §3`). The note claims no degree-twelve exclusion; its counts are box counts, not a completed census.
+
+On the nonreciprocal decic itself the program has an exact invariant and a conservation law:
+
+> **Theorems (cross-reversal index and charge)** (`CROSS_REVERSAL_INDEX §2`, PROVED, a structural identity, not a factor exclusion; `CROSS_REVERSAL_CHARGE §§1–2`, PROVED). *For a nonreciprocal decic $q$, $\operatorname{Res}(q,q^*)=q(1)q(-1)L^2$ with $L=\operatorname{Res}_T(H,K)\in\mathbb Z$, $L\ne0$ for irreducible nonreciprocal $q$. For any monic $P$ with $P(0)=1$, the exterior-square collision charge $\mathcal C(P)=\prod_{i<j}(1-\alpha_i\alpha_j)=\det(1-\wedge^2A_P)\in\mathbb Z$ satisfies $\operatorname{Res}(P,P^*)=(-1)^nP(1)P(-1)\mathcal C(P)^2$ and the factorization conservation law $\mathcal C(PQ)=\mathcal C(P)\mathcal C(Q)\operatorname{Res}(P,Q^*)$; hence $q\mid F_X\Rightarrow\mathcal C(q)\mid\mathcal C(F_X)$, with $\mathcal C(q)=\pm L$.* (Replay: `exp50_cross_reversal_charge`.)
+
+The sharp odd-support cage $\varphi^{-1}<|z|<\sqrt2$ (PROVED) yields the uniform finite target $|L|<2.5\cdot10^{14}$; support geometry is load-bearing — a family with all local algebra satisfied has $|L|\sim n^{14}$ unbounded (`CROSS_REVERSAL_INDEX §§4,6`). The witness $q_1=x^{10}+x^8+x^2+x+1$ — irreducible, totally nonreal, parity-unit, inside the sharp cage, independently certified in `NONRECIPROCAL_DECIC_FRONTIER` (`exp48_nonreciprocal_decic_frontier`) — has $L=-7$: nothing so far forces $L$ to be a unit. Each nondegenerate odd prime $\ell\mid L$ compresses to a reciprocal gcd $h_\ell$ of even degree $\le6$ and a bounded-memory syndrome on prime-count residues (`CROSS_REVERSAL_CHARGE §3`, PROVED): for $q_1$, two affine equations mod 7 on the counts of $p\pmod 8$, rejecting $48/49$ of abstract counter states — a reusable falsifier, not an all-$X$ exclusion: the genuine prefix $X=2467$ passes both the syndrome and the endpoint tether $\pi(X)\equiv5\pmod{15}$ and is rejected only by the full mod-13 remainder.
+
+Three no-go theorems then delimit what cheap structure can do, each proved in its note:
+
+1. **Charge zero is unlocalized** (`GLOBAL_CHARGE_DYNAMICS §§1–3`; replay `exp51_global_charge_no_go`). Away from endpoint roots, $\mathcal C(P)=0$ iff $\gcd(P,P^*)\ne1$ — *some* reciprocal collision, forgetting whose (Theorem 1, PROVED). At $X=2129$ the global charge vanishes mod 7 through a $\Phi_6$ collision while the localized $q_1$ syndrome correctly rejects. And for odd $\ell\ne3$, no degree-independent finite automaton reading arbitrary coefficient words decides $\mathcal C(P)\equiv0\pmod\ell$ (Theorem 2, PROVED) — a theorem about the unrestricted polynomial language, explicitly *not* a nonregularity claim for the one distinguished prime-prefix stream.
+2. **The cheap filter package cannot close $q_1$** (`Q1_PRIME_SUPPORT_AUTOMATON`; replay `exp49_q1_prime_support`). The complete mod-2 state is exactly ten parity syndromes (orders 7 and 127; $x$ has exact order 889 in $\mathbf F_2[x]/(q_1)$, algebraic order certificates), yet the genuine cutoff $X_0=246{,}709$ ($\pi=21{,}770\equiv5\bmod15$) simultaneously passes the endpoint tether, the full mod-2 state, and the mod-7 collision constraint — so that package provably cannot yield an all-$X$ exclusion; $q_1\nmid F_{X_0}$ is seen only at mod 3 (order 19,682). The automata falsify at any named cutoff and compress candidates; none self-proves a global exclusion (`Q1_PRIME_SUPPORT_AUTOMATON §5`).
+3. **No further local invariant exists** (`Q1_LOCAL_CONTROLLABILITY_NO_GO`, Theorem 2.1, PROVED; replay `exp52_q1_automaton_controllability`). Combining the endpoint counter with the mod-2, mod-3, and mod-7 machines, the subgroup generated by *all* locally admissible unit-residue transitions is exactly the kernel of the single invariant $k+R_3(-1)\bmod3$ (index 3) — which is the mod-3 half of the endpoint condition $q_1(-1)=3$, already imposed. The forbidden target has the same invariant value, hence is reachable by arbitrary admissible words. Any all-$X$ theorem must use that a prefix contains *every* prime up to its endpoint — exact cumulative residue counts or a nonlocal endpoint-tied state — not further restrictions on which individual residue events are allowed.
+
+Whether any nonreciprocal decic divides any $F_X$ remains **open**. What is closed is the perimeter: the degree floors below and beside it, the exact shape any such factor must take, the integer invariant $L$ it must carry, the conservation law that invariant obeys, and — by the three no-gos — the precise reason the remaining problem is about the compulsory cumulative prime walk rather than local residue admissibility.
 
 ---
 
@@ -330,8 +360,13 @@ Four open problems carry the program's remaining content. Each is stated with it
 **P2 — Conjecture A″$_{\rm alg}$, non-cyclotomic part.** F2 classifies every
 cyclotomic factor globally and F3--F7 classify every factor degree through
 seven. Exact certificates exclude every reciprocal octic and prove
-$F_{13}$, $F_{17}$, and $F_{19}$ irreducible. The first finite open layer is
-the nonreciprocal octic. Asymptotically, F$\infty$ proves that the least factor
+$F_{13}$, $F_{17}$, and $F_{19}$ irreducible. ~~The first finite open layer is
+the nonreciprocal octic.~~ *(Superseded: the V2 octic and nonic certificates
+close degrees eight and nine for every $X\ge2$, and reciprocal decics are
+excluded; the first finite open layer is now the nonreciprocal decic, with
+sector floors $\ge10$/$\ge12$/$\ge11$ for $X\ge13$ — §2.6;
+`OCTIC_OBSTRUCTION_V2`, `NONIC_OBSTRUCTION`, `RECIPROCAL_DECIC`,
+`FACTOR_ARCHITECTURE`.)* Asymptotically, F$\infty$ proves that the least factor
 degree diverges effectively. Exact $0$--$1$ phase rigidity is already settled
 by A′′; what remains here is the stronger algebraic classification.
 
@@ -377,6 +412,9 @@ graph TD
     E1["Prop E1: signed-line resolution"]
     F1["Thm F1: no deg ≤ 2 factors"]
     F2["Thm F2: cyclotomic ties = (3,2),(11,6)"]
+    F89["Thms F8–F9: no octic/nonic factors (V2)"]
+    FD["Factor floors: frontier = nonreciprocal decic"]
+    CC["Cross-reversal charge C(P) + q1 no-gos"]
   end
 
   subgraph partII["Part II — Spectrum"]
@@ -418,6 +456,12 @@ graph TD
   F1 --> App
   F2 --> App
   F2 --> Ap
+  F89 --> FD
+  F2 --> FD
+  FD --> App
+  FD --> CC
+  Ap --> FD
+  CC --> WALL
 
   EF --> B
   EF --> C
@@ -472,8 +516,9 @@ All corrections found by audit or computation, applied at source and reported he
 | 5 | `REPORT §2` | "12 homometric pairs" → 6 distinct pairs, 12 collision events (`REDTEAM §2d`) |
 | 6 | `GAUGE` F(3), Lemma F.2 | "BC algebra" → "BC diagonal"; F.2 restated for continuous extensions / Besicovitch projection (`REDTEAM §1d`) |
 | 7 | `exp5` zero-sum spacing | double-counting artifact (theoretical value 3.0, predicted and measured) corrected before reporting var/mean² = 1.001 (`REPORT §6`) |
+| 8 | §2.5 / §7 P2 | ~~"the first finite open layer is the nonreciprocal octic"~~ — **superseded**, not refuted: the V2 octic and nonic certificates and the reciprocal-decic exclusion move the frontier to the nonreciprocal decic (`OCTIC_OBSTRUCTION_V2`, `NONIC_OBSTRUCTION`, `RECIPROCAL_DECIC`, `FACTOR_ARCHITECTURE`); the decic-charge frontier woven in as §2.6 per the exp57 joins queue (`DEPENDENT_ORIGINATION §3`, top substantive join) |
 
-Every measured number quoted in this monograph is printed by the named script: `exp1/1b/1c` (rigidity, factorizations), `exp2` (aperture), `exp4` (one singular series, two marginals), `exp5` (zero field), `exp6b` (sum spectrum), `exp7/7b` (ties), `exp8` (BC correlator, E0), `exp9` (crossover, L-identity), `exp10` (parity atoms), `exp12_screw` (screw), `exp13_blocks` (blocks), `exp14_weil` (Weil), `exp15_divisor` (divisor), `exp16_energy` (energy), `exp17_dside` (D-side), `exp19_ternary` (ternary), and the four `redteam_*.py` replications. Zeros: `data/odlyzko_zeros_100k.txt`.
+Every measured number quoted in this monograph is printed by the named script: `exp1/1b/1c` (rigidity, factorizations), `exp2` (aperture), `exp4` (one singular series, two marginals), `exp5` (zero field), `exp6b` (sum spectrum), `exp7/7b` (ties), `exp8` (BC correlator, E0), `exp9` (crossover, L-identity), `exp10` (parity atoms), `exp12_screw` (screw), `exp13_blocks` (blocks), `exp14_weil` (Weil), `exp15_divisor` (divisor), `exp16_energy` (energy), `exp17_dside` (D-side), `exp19_ternary` (ternary), and the four `redteam_*.py` replications. The §2.6 layer adds `exp38_octic_certificate`, `exp37_nonic_discovery` + `exp44_nonic_certificate`, `exp45_reciprocal_decic_certificate`, `exp48_nonreciprocal_decic_frontier`, `exp49_q1_prime_support`, `exp50_cross_reversal_charge`, `exp51_global_charge_no_go`, and `exp52_q1_automaton_controllability` — cited by full stem per `EXP_LEDGER` (bare experiment numbers ≥ 11 are ambiguous across branches). Zeros: `data/odlyzko_zeros_100k.txt`.
 
 ### Verdict, in one paragraph
 

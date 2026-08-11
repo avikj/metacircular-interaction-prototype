@@ -408,6 +408,10 @@ repo-specific contribution is the odd-support parity specialization and
 Gaussian-unit consequence, which explain rather than merely repeat the
 low-degree factorizations.
 
+*Integration cross-reference:* the all-degree assembly of this identity with
+the root-annulus/unit-product Vieta cage into reusable exact preprocessing
+(instantiated at degree twelve) is `RECIPROCAL_TRACE_CAGE.md`.
+
 ---
 
 ## 3. Theorem F2: the cyclotomic layer, solved globally

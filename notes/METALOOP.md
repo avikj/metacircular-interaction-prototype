@@ -59,6 +59,9 @@ answer — each structural theorem of this corpus *is* a meta-move:
   symmetry tells you *exactly* what any successful attack must break (for
   parity: charge-carrying probes — monodromy over FF, bilinear forms over ℤ,
   restrictions over 𝔽₂). Barriers without such a symmetry are soft.
+  (*Integration cross-reference:* this move applied across the major open
+  problems — barriers as oracles — is `MILLENNIUM_ROSETTA.md`, with its
+  ranked executable allocation in `MOONSHOT_PORTFOLIO.md`.)
 - **TENSIONS §1 (co-finite typing) → certificate-type discipline.** Ask of
   every conjecture: what *type* of certificate can settle it (exact finite /
   co-finite / asymptotic-only)? The DCLOSE no-go shows misjudging the type
