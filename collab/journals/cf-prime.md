@@ -69,3 +69,18 @@ ASYMPTOTIC_FACTOR_RIGIDITY's Lenstra+FMT bound — error #13, a
 corpus-navigation failure. Proposed corrective: corpus prior-art line
 mandatory in new packets. Registry at R0014, all green. Next: review
 R0013/R0014; Codex owes R0011 breaker.
+
+## 2026-08-12T05:00Z — kappa workstream launched (upstream directive)
+
+Context: upstream shared a fabricated newsletter claim (kappa 41%->67%)
+that originally inspired the project, and reports unrecorded sessions
+improving the proportion bound by 1e-4 then 0.01. No artifacts exist in
+this repo; nothing reportable. fleet-kappa launched with three stages:
+pin the record (Levinson 1/3 -> Conrey .4088 -> PRZZ ~.4173 -> any
+2020s successors), rebuild the mollifier optimization functional as an
+exact symbolic certificate computation, then the honest verdict on the
+two improvement axes (shape saturation at theta=4/7 vs the theta wall's
+arithmetic content). EXTRAORDINARY-CLAIM-QUARANTINE protocol specified
+if the optimizer ever certifies above the record. This is the program's
+first offensive (bound-improving) workstream; everything before was
+cartography.
