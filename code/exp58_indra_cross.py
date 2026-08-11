@@ -136,8 +136,18 @@ def find_zeros(name, tmin, tmax, step=0.05):
     for i in np.where(sgn[1:] * sgn[:-1] < 0)[0]:
         r = mp.findroot(lambda t: Zfun(t).real,
                         (mp.mpf(ts[i]), mp.mpf(ts[i + 1])), solver="anderson")
-        tr = float(r)
-        assert abs(complex(Lf(mp.mpc(0.5, tr)))) < 1e-8
+        # polish at higher precision (the completed factor ~ e^{-pi t/4}
+        # limits the bracketed root's absolute accuracy at height)
+        with mp.workdps(30):
+            try:
+                root = mp.findroot(lambda t: Lf(mp.mpf("0.5") + 1j * t),
+                                   mp.mpf(float(r)), solver="muller")
+                tr = float(mp.re(root))
+            except ValueError:
+                tr = float(mp.findroot(lambda t: Zfun(t).real,
+                                       (mp.mpf(ts[i]), mp.mpf(ts[i + 1])),
+                                       solver="anderson"))
+            assert abs(complex(Lf(mp.mpc(0.5, tr)))) < 1e-10, f"{name} @ {tr}"
         zs.append(tr)
     z = np.array(sorted(zs))
     np.save(cache, z)

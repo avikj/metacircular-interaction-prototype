@@ -657,7 +657,7 @@ def main():
 
     ns = [r[0] for r in p3a]
     ax[0, 1].loglog(ns, [max(r[1], 1e-18) for r in p3a], "o-",
-                    color="#1f77b4", label="model (100k zeros), T = 14")
+                    color="#1f77b4", label="model (100k zeros), T = 7")
     ax[0, 1].loglog(ns, [max(r[3], 1e-18) for r in p3a], "s--",
                     color="seagreen", label="arithmetic (primes to 2e6)")
     ax[0, 1].set_xlabel("grid size n")
