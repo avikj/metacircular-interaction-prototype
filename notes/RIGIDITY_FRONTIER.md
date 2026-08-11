@@ -268,9 +268,9 @@ $\sum_n n^{-D_m/2}<\infty$ expected times: finitely many ties a.s. even without 
 obstruction. Summing the expected counts over all $m$ converges. So the structure of the
 finiteness claim is: squarefree $m$ — PROVED finite (forced counts); $4\mid m$ — PROVED
 zero (parity); remaining $m$ ($p^2\mid m$, $p$ odd) — dimension $\ge4$ transience,
-HEURISTIC, plus the §3.3 lattice obstruction wherever it is checked (all such $m\le200$).
+HEURISTIC, plus the §3.3 lattice obstruction wherever it is checked (all such $m\le1000$).
 **Conjecture F2∞: $(3,2)$ and $(11,6)$ are the only cyclotomic ties of the prime
-polynomial, over all $m$ and all $X$.** A theorem for $m\le200$ (Thm F2); beyond, only the
+polynomial, over all $m$ and all $X$.** A theorem for $m\le1000$ (Thm F2); beyond, only the
 odd-square case rests on heuristics, and any individual $m$ is decidable by the finite
 computation of §3.3/F2-sf.
 

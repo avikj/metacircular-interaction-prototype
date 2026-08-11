@@ -494,3 +494,10 @@ U_c = (t_c+1)-th.  (X <= max prime | m <= 200 is separately certified by the sca
 complete tie list over ALL X (m squarefree <= 200, X > max p|m): [(3, 2), (11, 6)]
 
 total time 203.6s
+
+== EXTENSION: exact classification m in [201,1000], ALL X (mini-scan X<=2000) ==
+non-squarefree, target outside step lattice (NEVER): 314
+squarefree, forced counts infeasible (NEVER): 486
+solvable non-squarefree walkers: []
+complete tie list (ALL X) in this m-range: []
+time 166.2s
