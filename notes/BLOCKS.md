@@ -381,11 +381,20 @@ ratio **0.9992** (a wrong prefactor would read $\approx2$ or $\approx\tfrac12$);
 the $\log X$ main term sits in $[\sharp\sharp]$ at every $Q$ (slope $1.0000$ at
 $Q=10/30/60$); the $[\flat\flat]$ fluctuation sits at pair frequencies. **The
 zero-line (oscillatory) content of the MS screw kernel lives in the mixed
-block.** (Phrasing per literature audit: since MS *build* $g_{H_1}$ from the
-single-zero secondary term, this identification makes explicit what is
-near-definitional in their construction — the value added is the block
-localization and its measured scheme structure, §5.1, not discovery of the
-masses.)
+block.** (Sizing per the audits: Theorem J = MS (1.6) $\circ$ Theorem E2 —
+both inputs known; the new content is the block *localization* plus its
+numerical closure, now audited to per-mass level: `CROSSREVIEW_THMJ.md`
+verified the Krein masses $1/(\gamma_j^2+\tfrac14)$ line-by-line to $\le1\%$
+for $j\le8$, phases $0\pm0.03$ rad, with jitter/random-frequency nulls, and
+proved the $n^{-2}$ reweighting is the *unique* Krein gauge (their Prop. R2:
+$\alpha=2$ iff the denominator is functional-equation symmetric). Their
+Prop. R3.1 shows the original exact identity was structurally impossible —
+the block's smooth part is not computable from the zero layer. It
+contributes no new RH criterion; the RH content is MS Theorem 1.3's. Their
+pair-band measurements also close the last loose end: in $[28.5,60]$ the
+mixed block matches the single-zero model at corr 1.0000, and $[\flat\flat]$
+is positively identified at corr 0.990 — "the chirped pair sector never
+enters" is now measured, not inferred.)
 
 **What was wrong (corrected per the cross-audit, independently re-verified
 here):** the per-block *constants* are artifacts of the profinite resolution
@@ -420,16 +429,24 @@ $Q\in\{5,\dots,120\}$:
 | 30 | 5.141 | −12.102 | 4.681 | **−2.2806** |
 | 120 | 9.517 | −20.040 | 8.243 | **−2.2806** |
 
-**The profinite resolution $Q$ is a renormalization scheme.** Each block's
-smooth constant runs — the $[\sharp\sharp]$ intercept follows
-$0.362\log^2Q+0.19\log Q+0.33$ (rms 0.14 over nine points; the $\log^2$
-leader comes from the small-$n$ spikes of $\Lambda^\sharp_Q$, of height
-$\sim\sum\mu^2/\varphi\sim\log Q$, squared against the $1/n^2$ weight) —
-while the sum of the three constants is pinned at the **scheme invariant**
-$c_2=-2.2803$ to $10^{-4}$ at every $Q$. The running has square structure:
-$[\flat\flat]$ runs at nearly the $[\sharp\sharp]$ rate and $[\text{mix}]$ at
-minus their sum, so the anomaly cancels identically in the total (as
-bilinearity demands) but *cannot be assigned to any single block*.
+**The profinite resolution $Q$ behaves like a renormalization scheme**
+(organizing language; no scheme-change functor is defined yet —
+`CROSSREVIEW_THMJ.md` §6). Per the audit's reclassification: the invariance
+of the summed constants is **exact** — a tautology of bilinearity + closure
+(uniform extraction gives $10^{-9}$; exp27's $10^{-4}$ scatter was
+LSQ-vs-mean extraction mismatch) — so the invariance is not evidence; **the
+running is the content.** The $[\sharp\sharp]$ intercept grows with a robust
+$\log^2Q$ leader (coefficient $\approx0.36$–$0.42$ depending on extraction
+method; sub-coefficients not yet claim-grade over one decade of $\log Q$).
+The mechanism is exact at its source: the small-$n$ spike height is
+$$\Lambda^\sharp_Q(1)=\sum_{q\le Q}\frac{\mu^2(q)}{\varphi(q)}
+=\log Q+\gamma_E+\sum_p\frac{\log p}{p(p-1)}+o(1)=\log Q+1.3326$$
+(audit: matches $4.733$ at $Q=30$ to four digits), squared against the
+$1/n^2$ weight. $[\flat\flat]$ runs at the $[\sharp\sharp]$ rate only to first
+order (their difference drifts $+0.24/-0.46/-1.27$ at $Q=5/30/120$);
+$[\text{mix}]$ runs at minus the sum, so the anomaly cancels identically but
+*cannot be assigned to any single block* — the $Q\to\infty$ subtraction is
+ruled out (divergence direction and rate audit-confirmed).
 
 This is the precise sense in which the corrected Theorem J's "canonical
 smooth subtraction" fails to exist at fixed $Q$ and what replaces it:

@@ -187,11 +187,15 @@ the layers sit at $X^{5/2}$ vs $X^3$, so at $X=10^6$ the observable ratio is
 $\approx0.38\,X^{-1/2}\approx4\times10^{-4}$ — detection requires subtracting
 the pair model to better than that; (ii) *crowding* — the first six triple
 lines sit $0.09$–$0.74$ rad from the nearest pair line, inside the $1.4$ rad
-resolution. Earlier wording ("not amplitude") was wrong; both bind, and the
-per-body slope increment measured $-0.97$ vs the leading-order $-0.5$ means
-"hierarchy confirmed" should read "hierarchy present, exponents
-$\sim1.4\times$ steeper than leading order" (overlapping bands, no error
-bars — audit).
+resolution. Earlier wording ("not amplitude") was wrong; both bind. **The exponent
+excess is now closed (exp30 cu / paper problem 4):** replacing the naive
+Fresnel model by the exact continuum — exact entropy phase
+$s[H(\tfrac12+\Delta/2s)-\log2]$ and exact pair density
+$\ell(\tfrac{s+\Delta}2)\ell(\tfrac{s-\Delta}2)$ — reproduces the measured
+coherence within shot noise: model slope $-0.698$ vs measured $-0.741$
+(naive $-0.5$), and measured/exact $=1.022\pm0.112$ over 16 bands. The
+"excess" is the log-density envelope plus the quartic tail of the entropy
+phase; no anomalous power exists.
 
 ## 3. Where this points
 
@@ -273,3 +277,26 @@ $d\to\Lambda\to\lambda\to\mu$ is now verified at **both ends**: all-pole/no-zero
 sibling's `exp15_divisor` (Ingham marginals): their result is what the
 $d$-field *has* (solvable local structure), this one is what it *lacks*
 (zeta spectrum).
+
+## 2.6 Statistics of the L-tower sum spectrum (exp29; paper problem 3)
+
+With the self-computed $L(s,\chi_3)$ zeros extended to $t\le120$ (44 zeros;
+GRH + simple zeros standing):
+
+- **Poisson universality (supported):** unfolded sum-spectrum spacing
+  var/mean² $=0.885$ ($\zeta$), $0.860$ ($L$), $0.857$ (union) — consistent
+  with Poisson at these sample sizes (194/446 atoms; the local-window
+  unfolding used here biases slightly low — exp13's density unfolding on
+  3108 $\zeta$-atoms gave $0.997$). The union staying Poisson is the
+  transparency prediction: superposed independent Poisson processes.
+- **Cornu coherence is conductor-universal (supported):** the dechirped
+  L-atom sums follow the same Fresnel law — coherent fraction $0.252$ vs
+  predicted $0.270$ in $[30,60)$ (7%); higher bands ($0.262$ vs $0.182$,
+  $0.204$ vs $0.144$) agree within the $\sim25\%$ shot noise of a 44-zero
+  spectrum. The $\Gamma$-part of the theory is blind to the conductor, as it
+  must be (archimedean origin); the sparse-spectrum error bars are the
+  honest limit here, not the law.
+
+Paper problem 3 status: the tower's statistical profile matches the
+$\zeta$ template at current precision; a decisive test needs L-zeros to
+$t\sim10^3$ (a table, or a longer mpmath run).
