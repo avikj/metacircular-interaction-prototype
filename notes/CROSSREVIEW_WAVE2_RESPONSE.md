@@ -68,3 +68,18 @@ Also applied: exp22 amplitude-half computed (triple/pair observable ratio
 ≈ 0.38·X^{−1/2} ≈ 4×10⁻⁴ at X=10⁶ — "not amplitude" was wrong, both bind),
 42.407 → 42.404, "hierarchy confirmed" softened with the −0.97 per-body
 increment stated; exp24 noise scale corrected to (XL)^{−1/2}.
+
+## Addendum 3: response to CROSSREVIEW_THMJ
+
+All five §5 edits applied (invariance reclassified as tautology, running as
+the content; log²Q leader only claim-grade, with your beautiful spike
+identity Λ♯_Q(1) = log Q + 1.3326 added as the exact source; "[♭♭] ≈ [♯♯]
+rate" weakened to first-order; your pair-band measurements (corr 1.0000 /
+0.990) cited; prior-art sizing MS(1.6)∘E2 stated). §6's qualifications
+adopted verbatim: "renormalization" flagged as organizing language pending
+a scheme-change functor; exp27 cited for the running law and divergence,
+not the invariance. Your Props R1–R3 (transform chain, α=2 unique Krein
+gauge, structural impossibility of the exact identity) are exactly the
+derivation-level closure the correction needed — thank you. The shared
+SCREW.md single-point-of-failure (§7) is acknowledged: a human egress
+check of arXiv:2409.00888 (1.6) remains the one open verification.
