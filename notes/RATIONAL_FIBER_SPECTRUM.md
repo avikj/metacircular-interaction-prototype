@@ -308,31 +308,100 @@ $-\widehat\nu_{a,q}(t)$.
 
 ## 4. One fiber, two pair projections
 
-The exact constrained generating-function identities are recorded separately
-in `RATIONAL_PAIR_CHANNEL.md`.  In particular, coefficient extraction from
-$A_{a/q}(z)^2$ imposes the Goldbach sum, while angular Fourier extraction from
-$|A_{a/q}(re^{i\theta})|^2$ imposes the gap.  A scalar square without one of
-these extraction operations is only an unconstrained all-pairs carrier.
-
-The same one-body fiber has two inequivalent quadratic projections:
+The exact theorem lives in the graded signal, not in a scalar square. With
 
 \[
- \begin{array}{c|c|c}
- \text{pair operation}&\text{spectral operation}&\text{frequencies}\\
- \hline
- \text{Goldbach/additive convolution}&
- \nu_{a,q}*\nu_{a,q}&\gamma+\gamma'\\
- \text{gap/Hermitian correlation}&
- \nu_{a,q}*\widetilde{\overline{\nu}_{a,q}}&\gamma-\gamma'.
- \end{array} \tag{4.1}
+A_{a,q}(z)=\sum_{n\geq1}\Lambda(n)e_q(an)z^n,
 \]
 
-Here $\widetilde{\overline\nu}(E)=\overline{\nu(-E)}$.  The first line is a
-holomorphic square; the second is a Hermitian autocorrelation.  For $q=1$
-under RH, $\nu_{0,1}$ is the positive symmetric Matsumoto--Suzuki measure,
-and the first line is exactly the positive product measure of `PRODUCT.md`.
-For general $q$, the Gauss-sum coefficients make $\nu_{a,q}$ complex, so
-pointwise positivity must not be imported from the $q=1$ fiber.
+formal coefficient extraction and Abel-smoothed angular extraction give
+
+\[
+\begin{aligned}
+\sum_{m+n=N}\Lambda(m)\Lambda(n)
+ &=e_q(-aN)[z^N]A_{a,q}(z)^2,\\
+\sum_{n\geq1}\Lambda(n+h)\Lambda(n)r^{2n+h}
+ &=e_q(-ah)[e^{ih\theta}]|A_{a,q}(re^{i\theta})|^2 .
+                                                               \tag{4.1}
+\end{aligned}
+\]
+
+The first identity holds in the formal power-series ring, with no convergence
+hypothesis; the second is absolutely convergent for \(0<r<1\). The sharp
+finite-\(X\) version is a finite Laurent-polynomial identity. A finite
+Fourier projector modulo \(q\) selects \(m+n\equiv N\pmod q\) or
+\(m-n\equiv h\pmod q\), not equality over the integers, unless an explicit
+no-wrap support hypothesis is imposed. These boundaries are made precise in
+RATIONAL_PAIR_CHANNEL.md.
+
+The character block must also retain all cross terms. With
+
+\[
+\alpha_\chi(a)=\frac{\tau(\overline\chi)\chi(a)}{\varphi(q)},\qquad
+A_{a,q}=\sum_{\chi\bmod q}\alpha_\chi(a)B_{\chi;q}+P_{a,q},
+                                                               \tag{4.2}
+\]
+
+where \(B_{\chi;q}=A_{\chi^*}-E_{\chi;q}\) removes the Euler factors deleted
+on induction from conductor \(f\) to modulus \(q\), and \(P_{a,q}\) restores
+the prime powers with \(p\mid q\), the holomorphic block is
+
+\[
+\sum_{\chi,\psi\bmod q}\alpha_\chi(a)\alpha_\psi(a)
+B_{\chi;q}B_{\psi;q}
++2P_{a,q}\sum_\chi\alpha_\chi(a)B_{\chi;q}+P_{a,q}^2.           \tag{4.3}
+\]
+
+The Hermitian block is
+
+\[
+\begin{aligned}
+&\sum_{\chi,\psi\bmod q}
+\alpha_\chi(a)\overline{\alpha_\psi(a)}
+B_{\chi;q}\overline{B_{\psi;q}}\\
+&\quad+\left(\sum_\chi\alpha_\chi(a)B_{\chi;q}\right)
+      \overline{P_{a,q}}
++P_{a,q}\overline{\left(\sum_\psi\alpha_\psi(a)B_{\psi;q}\right)}
++|P_{a,q}|^2.                                                  \tag{4.4}
+\end{aligned}
+\]
+
+In particular, replacing \(\overline{\alpha_\psi(a)}\) by a coefficient
+indexed by \(\overline\psi\) introduces the factor \(\psi(-1)\), since
+\(\overline{\alpha_\psi(a)}=\psi(-1)\alpha_{\overline\psi}(a)\).
+
+After an explicit formula is substituted into these two graded blocks, the
+zero--zero layers have the spectral descriptions
+
+\[
+\begin{array}{c|c|c}
+\text{graded pair operation}&\text{zero-measure layer}&\text{frequencies}\\
+\hline
+\text{holomorphic coefficient}&
+\nu_{a,q}*\nu_{a,q}&\gamma+\gamma'\\
+\text{Hermitian angular coefficient}&
+\nu_{a,q}*\widetilde{\overline{\nu}_{a,q}}&\gamma-\gamma'.
+\end{array}                                                    \tag{4.5}
+\]
+
+Here \(\widetilde{\overline\nu}(E)=\overline{\nu(-E)}\). This table records
+different algebraic constructions, but the underlying unlabeled measures
+need not be different. In particular, for \(q=1\) under RH the
+Matsumoto--Suzuki measure is positive and symmetric, so
+
+\[
+\widetilde{\overline{\nu}_{0,1}}=\nu_{0,1},\qquad
+\nu_{0,1}*\widetilde{\overline{\nu}_{0,1}}
+=\nu_{0,1}*\nu_{0,1}.                                         \tag{4.6}
+\]
+
+Thus the bare \(q=1\) product measure does **not** remember whether it came
+from the Goldbach or gap construction. Their distinction survives in the
+holomorphic versus Hermitian grading/projector (or in a labeled/chiral
+two-zero space), not in the unlabelled positive measure. For general
+rational fibers the Gauss-sum coefficients make \(\nu_{a,q}\) complex, and
+the two convolutions can genuinely differ; positivity from \(q=1\) must not
+be imported.
 
 Expanding the uncentered signal in each fiber now gives one common ladder:
 
@@ -341,12 +410,17 @@ Expanding the uncentered signal in each fiber now gives one common ladder:
  \text{pole}\times\text{pole}=\mathfrak S,\qquad
  \text{pole}\times\text{zero}=\text{first variation},\qquad
  \text{zero}\times\text{zero}=\text{sum/difference spectrum}.}
- \tag{4.2}
+ \tag{4.7}
 \]
 
-This is a language rotation, not a solution of the minor-arc problem.  A
-finite residue projection is exact; passing from it to a pointwise Goldbach
-or fixed-gap theorem still requires the classical uniform estimates.
+This is a language rotation, not a solution of the minor-arc problem.
+The pole--pole line is the classical major-arc/Ramanujan layer. The
+zero--zero measures in (4.5), including the absolutely summable min-kernel
+measure from (3.4), are legitimate rank-one spectral transforms, but without
+the coefficient or angular grade they are not pointwise Goldbach or fixed-gap
+observables. Passing from the exact finite projectors to arithmetic
+asymptotics still requires the classical uniform tail and minor-arc
+estimates.
 
 ## 5. Prior-art boundary
 
