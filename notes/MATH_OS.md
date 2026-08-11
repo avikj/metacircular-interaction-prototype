@@ -74,32 +74,40 @@ promotion is expensive and fail-closed.
 
 ### Wolfram layer
 
-Use `wolframscript` or the Python client as an optional representation and
-counterexample oracle.  High-value operations include exact `Reduce`/`Resolve`,
+Use the official Wolfram Foundation Tool MCP as the primary representation and
+counterexample oracle. The stateless Cloud endpoint is registered locally as
+`wolframFoundation`; a licensed Local MCP can later add persistent sessions,
+notebooks, files, and the full installed product. High-value operations include
+exact `Reduce`/`Resolve`,
 `FindInstance`, `Resultant`, `CountRoots`, `FunctionExpand`, `RSolve`, `DSolve`,
 and `FindIntegerNullVector`.  `FullSimplify` should receive a task-specific
 `ComplexityFunction` that penalizes hidden assumptions, branch-sensitive
 functions, piecewise explosions, and vocabulary foreign to the target proof.
 
-`code/wolfram_bridge.py` and `code/wolfram_probe.wls` hash requests, retain WXF
-results, and mark every response discovery-only. The current adapter executes
+`code/wolfram_bridge.py` and `code/wolfram_probe.wls` are fallback/provenance
+prototypes, not substitutes for the official MCP. They hash requests, retain
+WXF results, and mark every response discovery-only. The current adapter executes
 arbitrary Wolfram Language contained in a request and therefore refuses to run
 without an explicit trusted-code flag; autonomous use additionally requires an
 OS sandbox with a read-only repository, isolated output, resource limits, and
 no network/process authority. Wolfram does not generally
 emit portable proof objects for `Reduce`, `FullSimplify`, or differential
 solvers; exact results still require an independent checker.  No Wolfram engine
-is installed on the current machine, and free-engine/cloud terms must be
-reviewed before group or production use.
+is installed on the current machine, so direct local-kernel evaluation remains
+capability-gated. See `WOLFRAM_ADOPTION.md` for the source-level adoption map;
+in particular, use Wolfram's existing multiway, sequence-recognition, WSTP,
+parallel-kernel, and symbolic-compilation machinery rather than rebuilding it.
 
 ### Exact arithmetic layer
 
 Generated C++ performs large bounded enumeration.  Python orchestrates shards
 and replays exact `Fraction` witnesses.  FLINT/PARI/Sage provide independent
 factor, resultant, finite-field, and root-isolation implementations when
-installed.  Every pruning filter names a proved lemma; heuristic filters may
-rank candidates but may not remove them.  The corrected octic census
-$139448\to37284\to7092\to2473$ is the regression test.
+installed. Every pruning filter names a proved lemma; heuristic filters may
+rank candidates but may not remove them. The proposed full-octic census is
+currently quarantined because an independent audit found reversed Graeffe
+coefficient bounds; it must not be used as a regression until a corrected
+enumeration and a differently encoded audit agree.
 
 ### Solver layer
 
@@ -110,9 +118,9 @@ verified checker.
 
 ### Formal layer
 
-The repo pins Lean/mathlib 4.33, while the local elan installation currently
-lacks that toolchain.  Reproducible kernel builds are therefore a prerequisite,
-not a claimed present capability.  Agent proof search can later use Pantograph,
+The repo pins Lean/mathlib 4.33. The matching Lean toolchain is now installed
+and the first complete local mathlib build is in progress; no success is claimed
+until that build finishes. Agent proof search can later use Pantograph,
 LeanInteract, neural provers, or ATPs; they remain outside the trusted base.
 Forbidden promotion escapes include `sorry`, `admit`, custom unreviewed axioms,
 unsafe kernel skipping, moving dependency heads, and unrecorded `#print axioms`.
