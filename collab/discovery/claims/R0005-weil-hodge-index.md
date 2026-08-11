@@ -5,14 +5,14 @@ status: formalizing
 kind: transport
 certificate: mixed
 load_bearing: false
-novelty: possibly-new
+novelty: known
 generator: atiyah-retarget
 dependencies: none
 statement_hash: 72bb03359e6a44f5c4ec0585581b4c8bd91aaa34fbd60353aab7498cb3ae3f8a
 cycle: 2
 max_cycles: 6
 owner: fleet-lp2 (builder)
-breaker: unclaimed — H1/H2 derivation is five lines from Prop W1 (WEIL.md); leave-one-out indefiniteness reproducible from exp25 analyze_compact
+breaker: codex blind audit — exact kernel accepted subject to the registry-blocking correction below; numerical and prior-art claims downgraded
 source: notes/LP_CERT.md
 supersedes: none
 updated: 2026-08-11
@@ -33,83 +33,119 @@ negativity go?
 
 # Rosetta bridge
 
-The correct arithmetic intersection form is I = prime - arch = pole - W
-on test functions g, with the two pole moments Phi_g(0), Phi_g(1) playing
-the roles of the two rulings of the hyperbolic plane. Castelnuovo's
-Z.Z <= 2 d1 d2 transcribes verbatim to I(g) <= 2 Re[Phi_g(0) conj(Phi_g(1))].
+The exact analytic form is I = prime - arch = pole - W on test functions g.
+The two pole moments Phi_g(0), Phi_g(1) carry a hyperbolic form and can be
+compared with the two rulings in the established explicit-formula
+intersection language.  Under that interpretation, the stronger form
+inequality resembles Castelnuovo's Z.Z <= 2 d1 d2.  This bridge is prior-art
+guided analogy; the identity and inequality are the exact content.
 
 # Exact statement
 
 Let W be the Weil explicit-formula quadratic form, P = {g : Phi_g(0) = Phi_g(1) = 0} the primitive (pole-annihilated) subspace, and I = pole - W the zero-free arithmetic intersection form. Then: (H1) under RH, I restricted to P is negative semidefinite, explicitly sum_{n>=2} (Lambda(n)/sqrt(n)) 2 Re F(log n) <= (1/2pi) int |Phi_g(1/2+i tau)|^2 D(tau) d tau for all g in P; (H2) under RH, on every finite-dimensional test space I has at most one positive eigenvalue, since the pole form has Hermitian signature (1,1) and I <= pole with W PSD; equivalently Castelnuovo's inequality I(g) <= 2 Re[Phi_g(0) conj(Phi_g(1))] holds; (Converse) H1 for all smooth compactly supported g in P implies RH (Weil's criterion on the pole-annihilated class).
 
+# Audit-controlled reading (registry blocker)
+
+The registered text above is hash-bound to both existing events and cannot be
+silently repaired.  Two phrases require correction before this packet can be
+certified or cited as an exact statement:
+
+- On a finite test space, the pullback of the pole form has positive and
+  negative indices at most one.  It has full inertia `(1, dim-2, 1)` only when
+  the evaluation map `g -> (Phi_g(0), Phi_g(1))` has rank two.  Thus
+  "signature (1,1)" describes the form on its two-dimensional moment space,
+  not necessarily its pullback to every test space.
+- The form inequality `I <= pole` implies the H2 index bound; it is not
+  equivalent to that bound.  The word "equivalently" must read "more
+  strongly" in a repaired exact statement.
+
+The companion note states the corrected theorem.  Under the registry's
+append-only repair rule, the corrected exact statement belongs in a successor
+packet rather than under R0005's existing statement hash.
+
 # Preservation ledger
 
-- H1/H2 are short consequences of Prop W1 (in-corpus, cross-reviewed)
-  plus Weyl monotonicity; the converse is Weil's criterion restricted to
-  P, standard in the trace-formula literature (Connes 1999;
-  Connes-Consani test class).
-- The measured companion facts (inertia (1, ., rest) on all dictionaries;
-  leave-one-out indefiniteness — deleting any single prime power >= 3
-  makes W|_P indefinite; per-prime definiteness costs; collocation
-  conditioning wall at K ~ 15-20 knots) are exp25 measurements, not part
-  of this packet's exact statement.
+- The identity `I = prime - arch = pole - W`, H1, and the one-way H2 index
+  implication are short exact consequences of Prop W1 plus Weyl
+  monotonicity.
+- Appendix C, Proposition C.1 of Connes--Consani gives the precise restricted
+  converse after the normalization `k(x)=x^{-1/2}g(log x)`, for which the
+  Mellin transform of `k` is `Phi_g`.
+- The Hodge/intersection vocabulary is an interpretation, not an additional
+  theorem.  Connes--Consani--Marcolli already make the degree/codegree and
+  intersection-form transcription.
+- The reported spectra and leave-one-out behavior are conditioned numerical
+  evidence.  In particular, deletion removes one tested von Mangoldt atom
+  `n=p^k`, not an Euler factor or a whole finite place.
 
 # Proof obligations
 
-1. Verify the pole form's (1,1) signature computation and the Weyl step
-   (LP_CERT §3).
+1. In a successor packet, register the corrected pole-rank statement and
+   replace the false equivalence by the one-way implication
+   `I <= pole => n_+(I) <= 1`.
 2. Verify H1's zero-free rewriting (both sides of the inequality contain
    no zeros; the D(tau) density kernel bookkeeping).
-3. Check that the note's Mellin/Fourier normalization identifies P with the
-   test class in Connes--Consani, Appendix C, Proposition C.1. That
-   proposition proves that imposing any finite vanishing set disjoint from
-   the zeta zeros and containing {0,1} leaves Weil's criterion equivalent to
-   RH; the remaining obligation here is normalization, not a new converse
-   proof.
-4. Independent audit (unclaimed).
+3. Normalization audit completed: `k(x)=x^{-1/2}g(log x)` has Mellin
+   transform `Phi_g`, so Connes--Consani Appendix C, Proposition C.1 with
+   vanishing set `{0,1}` gives P exactly.  Do not conflate this with their
+   main archimedean theorem's central-plus-one-pole-side Fourier slice.
+4. Replace the compact `C^1` exploratory basis by admissible smooth windows,
+   or prove the approximation/distributional extension used by the
+   computation.
 
 # Falsification
 
-- Exhibit g in P with I(g) > 0 alongside a verified-RH-range argument
-  that the relevant zeros are on the line (would refute H1's derivation,
-  not RH).
-- Break the (1,1) signature: show the pole form has rank != 2 or a
-  defective off-diagonal bound on some test space.
+- Exhibit an admissible g in P with rigorously evaluated I(g) > 0.  By the
+  cited restricted criterion this would refute RH, not merely the finite
+  experiment; a finite verified-zero range is insufficient.
+- For a rank-two moment map, break the `(1, dim-2, 1)` inertia computation;
+  for a lower-rank map, test the corrected index-at-most-one statement.
 - Reproduce leave-one-out: analyze_compact(mats, drop=(n,)) in exp25;
   failure to reproduce indefiniteness would impugn the measured layer.
 
 # Evidence
 
-notes/LP_CERT.md (LP1/LP2 proofs, spectra, per-prime costs,
-Connes-Consani comparison); code/exp25_lp.py (983 lines, 348 s clean
-run); figures/exp25_lp.png; matrix explicit formula cross-checked
-entrywise to 3.3e-9; assembled vs factored top primitive eigenvalue
-agree to all resolved digits (-1.718e-8 both ways).
+notes/LP_CERT.md (LP1/LP2 proofs, conditioned spectra, per-prime-power-atom
+costs, Connes--Consani comparison); code/exp25_lp.py; figures/exp25_lp.png.
+An independent rerun reproduced the narrow-dictionary value
+`-1.718e-8` and the reported entrywise residuals.  Wider dictionaries are
+conditioning-limited; these are measurements, not exact certificates.
 
 # Independent audit
 
-None yet. Builder's run found and fixed three real bugs in a predecessor
-draft (conjugation convention, signed-window halving, arch tail) — the
-fixes are themselves audit surface.
+Blind reconstruction accepted `I = prime - arch = pole - W`, H1, the
+one-way H2 argument, and the Appendix C converse after an explicit Mellin
+normalization.  It rejected the exact-statement equivalence, the unqualified
+pullback signature, the claimed identification with the main Connes--Consani
+archimedean test slice, and several numerical overclaims.  An independent
+`exp25_lp.py` rerun reproduced the principal values while also reproducing
+the conditioning wall.
 
 # Prior art
 
-Weil's criterion (classical); Connes Selecta 1999; Connes--Consani,
+Weil's criterion (classical); Yoshida, *On Hermitian forms attached to zeta
+functions* (1992); Connes Selecta 1999; Connes--Consani,
 *Weil positivity and Trace formula, the archimedean place*, Selecta Math. 27
 (2021), Appendix C, Proposition C.1 (finite Mellin-vanishing conditions do
-not weaken the criterion); arXiv:2006.13771 and 2310.18423 (prolate/Sonin
-route -- cited as exactly the basis this packet's conditioning wall forces);
-Bombieri's variational literature. The Hodge-index/Castelnuovo transcription
-with the pole plane as the hyperbolic plane, and the leave-one-out
-load-bearing phenomenon, have no located precedent; targeted search not yet
-done.
+not weaken the criterion); Connes--Consani--Marcolli, *The Weil proof and the
+geometry of the adeles class space* (2007), arXiv:math/0703392, Definition 7.1 and Proposition
+7.2 (degree, codegree, intersections, and an RH-equivalent intersection
+inequality); arXiv:2006.13771 and 2310.18423 (prolate/Sonin route); and the
+classical Hodge-index/Castelnuovo--Severi inequality.  The transcription is
+therefore known prior art.  The leave-one-out prime-power-atom pattern is a
+numerical observation only.
 
 # Successor seeds
 
 - Prolate/Sonin-adapted finite certificate on a support window past
   log 2 (the genuine prime-vs-archimedean budget regime).
-- Dissolve the leave-one-out indefiniteness against WIDTH.md's
-  per-prime ladder (same "each prime individually load-bearing" shape).
+- **Conjectural H2 converse / proof obligation:** prove or refute that RH is
+  equivalent to `n_+(I|_V) <= 1` for every finite-dimensional test space
+  `V`.  Off RH, try to use the two distinct hyperbolic zero-pairs in a zero
+  quartet plus finite Mellin interpolation and tail control to construct a
+  two-dimensional `V subset P` on which `I` is positive definite.
+- Dissolve the leave-one-out prime-power-atom pattern against WIDTH.md's
+  per-prime ladder without identifying one atom with a whole place.
 - Transport H2 to the function-field column where Castelnuovo is a
   theorem, and diff the proofs (METALOOP move 3).
 
