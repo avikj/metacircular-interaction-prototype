@@ -61,6 +61,17 @@ $e_F$ (units are Galois-stable), so all correlators above are Galois-invariant �
 consistent, but not yet leverage. A genuine BC-theoretic lever would need the
 class-field action to move a sieve-type projection nontrivially; none of the
 natural projections here does.
+**[Update — exp21 / `FAMILY.md`: the lever exists; the family provides it.
+The finite-place fingerprints split into three visibility classes: $\Lambda$
+is visible to the Galois-invariant (Ramanujan) algebra (atoms
+$|\mu(q)|/\varphi(q)$, projections $\mu(q)$ — measured to 4 decimals);
+$\Lambda\chi_3$ has *vanishing* Ramanujan projections but nonzero individual
+atoms ($\sin(2\pi/3)=0.8661$ at levels 3, 6), and the class-field action
+$u=2$ moves its level-3 atom by exactly $\chi(2)=-1$ while fixing
+$\Lambda$'s; $\lambda,\mu$ are invisible at every level. The character
+sector is precisely the part of the BC diagonal on which
+$\widehat{\mathbb Z}^\times$ acts nontrivially — the twisted pair fields
+(exp20) are the objects this lever moves.]**
 
 ---
 

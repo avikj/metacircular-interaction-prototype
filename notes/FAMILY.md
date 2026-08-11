@@ -104,6 +104,27 @@ correlation. **Each Dirichlet character is a jewel: its twisted Goldbach
 data displays the sum spectrum of its own $L$-zeros through the same
 $\Gamma$-net.**
 
+## 2.2 Finite-place fingerprints: three visibility classes (exp21)
+
+Measuring both individual spectral atoms $|{\rm mean}\ a(n)e(an/q)|$ and
+Ramanujan projections ${\rm mean}\ a(n)c_q(n)$ for all four dressings
+($X=2\cdot10^6$, all to 4 decimals):
+
+| dressing | Ramanujan (Galois-inv.) projections | individual atoms | class |
+|---|---|---|---|
+| $\Lambda$ | $\mu(q)$ | $|\mu(q)|/\varphi(q)$ | fully visible |
+| $\Lambda\chi_3$ | **all $0$** | $\sin(2\pi/3)=0.8661$ at $3\mid q$ | Galois-twisted only |
+| $\lambda,\ \mu$ | $0$ | $0$ | invisible |
+
+And the Galois action is now a *lever*: $u=2\in(\mathbb Z/3)^\times$ fixes
+$\Lambda$'s level-3 atom (ratio $+1.000$) and moves $\Lambda\chi_3$'s by exactly
+$\chi(2)=-1.000$ (measured). The protection/exposure duality
+(`LIOUVILLE.md`) refines to a hierarchy: full > twisted-only > none at the
+finite places, while all four dressings display their zero spectra at full
+strength at the archimedean place (exp6b/15/16/20). This answers the
+"Galois remark" of `ADELIC.md` §1: the class-field action acts nontrivially
+exactly on the character sector, i.e. on the twisted pair fields of §2.1.
+
 ## 3. Where this points
 
 - The $d(n)$ row is the **anti-Möbius**: $\zeta^2$ has double *zeros* at every
