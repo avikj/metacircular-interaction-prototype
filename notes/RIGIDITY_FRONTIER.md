@@ -257,6 +257,46 @@ theorem then proves $F_{13}$ and $F_{17}$ irreducible; at $F_{19}$ the only
 remaining proper degree pattern is $8+9$.  Thus degree eight is the first
 open factor layer.
 
+### 2.7 Reciprocal octics are excluded — MACHINE-VERIFIED EXACT THEOREM
+
+For a reciprocal octic
+
+$$
+g=x^8+a x^7+b x^6+c x^5+d x^4+c x^3+b x^2+a x+1,
+$$
+
+the parity resultant factors completely:
+
+$$
+\operatorname{Res}(E,O)
+=(d-2b+2)
+\left((a-c)^2+ab(a-c)+a^2(d-2)\right)^2.
+$$
+
+Thus both displayed integer factors are units.  Reciprocity upgrades the
+root annulus to $\varphi^{-1}<|z|<\varphi$; the Joukowski coordinate
+$T=z+z^{-1}$ then gives a complete finite coefficient box.  The exact
+reduction is
+
+$$
+928\longrightarrow424\longrightarrow58\longrightarrow38.
+$$
+
+The $58$ rational-annulus candidates split into $20$ explicit reducibles,
+$36$ noncyclotomic polynomials certified irreducible modulo $2$, $3$, or
+$7$, and the two cyclotomics $\Phi_{15},\Phi_{30}$.  F2 removes the latter;
+exact ordered-radius/resultant/tail inequalities exclude the other $36$ by
+cutoff $37$.  The smallest margin is $55.165\ldots>0$.
+
+> **Theorem F8r (computer-assisted, exact).** No irreducible reciprocal
+> octic divides any $F_X$.
+
+See `RECIPROCAL_OCTIC.md` and `code/exp34_reciprocal_octic.py`.  The same
+certificate applies Rabin's criterion modulo $71$ directly to $F_{19}$,
+proving that degree-$17$ prefix irreducible and closing the residual $8+9$
+possibility left by F7.  The first open layer is therefore specifically the
+**nonreciprocal** octic layer.
+
 ---
 
 ## 3. Theorem F2: the cyclotomic layer, solved globally
@@ -533,10 +573,11 @@ by irreducibility) has already passed the plausible window.
 reciprocal non-cyclotomic factor") splits cleanly now:
 - degree $\le7$ factors: **classified unconditionally** (Thms F1, F3--F7);
 - cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
-- a reciprocal non-cyclotomic factor must have even degree $\ge8$ (odd-degree reciprocals
-  have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
-  inside the annulus $(\tfrac12,2)$ — Salem-type configurations; no instance observed in
-  1200 random samples nor at any tested $X$.
+- a reciprocal non-cyclotomic factor must have even degree (odd-degree reciprocals
+  have the root $-1$), and Theorem F8r excludes degree $8$; any such factor
+  must therefore have degree at least $10$, Mahler measure in Lehmer's range, and both a root
+  and its inverse inside the annulus $(\tfrac12,2)$ — Salem-type configurations; no
+  instance was observed in 1200 random samples nor at any tested $X$.
 
 ---
 
@@ -550,12 +591,13 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | reciprocal irreducible factors of degree 6 | **PROVED impossible for every $X$** (Thm F6r) |
 | all irreducible factors of degree 6 | **PROVED impossible for every $X$ by an exact 362-case certificate** (Thm F6) |
 | irreducible factors of degree 7 | **PROVED: only $F_{11}/\Phi_6$; impossible for $X\ge13$** (Thm F7) |
+| reciprocal irreducible factors of degree 8 | **PROVED impossible for every $X$** (Thm F8r) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
 | non-cyclotomic factors, degree $\ge8$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) attack the octic layer, now the first open
+Open problems generated: (1) attack the nonreciprocal octic layer, now the first open
 factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
-current scaling).  The carrier theorem and F7 sharpen the first unresolved
-prefix question to one exact possibility: $F_{19}$ can factor only as an
-irreducible octic times an irreducible nonic.
+current scaling).  The carrier theorem and F7 reduce $F_{19}$ to one
+possible $8+9$ split, while the independent mod-$71$ certificate in exp34
+closes even that prefix unconditionally.

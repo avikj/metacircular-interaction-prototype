@@ -35,6 +35,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/RECIPROCAL_SEXTIC.md | exact reciprocal-sextic exclusion | proved; exact certificate passed |
 | notes/SEXTIC_OBSTRUCTION.md | exact full sextic exclusion | proved; corrected-bound certificate + independent audit passed |
 | notes/SEPTIC_OBSTRUCTION.md | exact septic classification; carrier corollaries | proved; exact certificate + hostile independent audit passed |
+| notes/RECIPROCAL_OCTIC.md | exact reciprocal-octic exclusion; $F_{19}$ finite-field certificate | proved; exact certificate + hostile independent audit passed |
 | papers/crossover.md | β-deformed HL scaling law, full draft | landed; novelty sustained after 15 searches |
 | notes/WIDTH.md | parity-barrier width: uniformity ladder, two failure layers, exp24 | landed |
 
@@ -59,6 +60,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | reciprocal sextic exclusion (`RECIPROCAL_SEXTIC`, exp32) | Codex + sextic agent | 2026-08-11 | PROVED (exact computer-assisted theorem): factored unit resultant + mod-3/mod-5 singleton obstructions reduce 12 root-compatible reciprocal candidates to Φ7, Φ14 and two noncyclotomics; global F2 removes the cyclotomics and exact F11/tail margins remove the last two; subsequently subsumed by full F6 |
 | full sextic exclusion (`SEXTIC_OBSTRUCTION`, exp32) | Codex + sextic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): corrected root box gives 18,506 unit-resultant tuples → 4,894 no-real → 392 rational-annulus → 362 irreducibles; global F2 removes four cyclotomics and exact Cayley--Routh/resultant/tail certificates remove all 358 by q≤47; subsequently extended by F7 |
 | septic classification (`SEPTIC_OBSTRUCTION`, exp33) | Codex + septic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): corrected root box gives 90,893,475 five-tuples → 21,647,831 scalar-window tuples → 2,266 unit-resultant → 537 one-real → 37 rational-annulus candidates; 36 exact prefix/tail certificates leave only $H_7=F_{11}/\Phi_6$; hence no septic for $X\ge13$, $F_{13}$ and $F_{17}$ are irreducible, and the first open degree is 8 |
+| reciprocal octic exclusion (`RECIPROCAL_OCTIC`, exp34) | Codex + octic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): reciprocal parity resultant factors as a unit times a square; 928 tuples → 424 no-real → 58 rational-annulus → 38 irreducibles; global F2 removes $\Phi_{15},\Phi_{30}$ and 36 exact resultant-tail certificates close by $q\le37$; hostile audit passed; separate Rabin certificate proves $F_{19}$ irreducible mod 71 |
 | sharp k=0 Goldbach renormalization / variance boundary (`SHARP_CUTOFF`) | Codex sharp-cutoff agent | 2026-08-11 | proved: canonical Riesz-distribution descent; W0 in ℓ² not ℓ¹; absolute near-diagonal energy infinite with η(log H)^5 lower bound; Cantarini edge kernel identified |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
@@ -80,7 +82,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
    via Λ-reindexing + Laurent expansion of −ζ′/ζ at s=1; all-orders closed form
    D_z = Ein(λ) − log[δζ(1+δ)], δ = λ/log z; verified to 3·10⁻⁶ at z=10⁸.
    The empirical 0.0925 was finite-z bias.
-4. **Conjecture A″** attack routes: F1--F7 classify every factor degree through 7; octic is the first open degree, and $F_{19}$ can factor only in the degree pattern $8+9$ (RIGIDITY_FRONTIER.md).
+4. **Conjecture A″** attack routes: F1--F7 classify every factor degree through 7 and F8r excludes every reciprocal octic; the nonreciprocal octic is the first open layer.  Exact carrier and finite-field certificates prove $F_{13}$, $F_{17}$, and $F_{19}$ irreducible (RIGIDITY_FRONTIER.md).
 5. ~~**Quantitative parity-barrier width**~~ — DONE (notes/WIDTH.md, exp24,
    fleet-width): infinite width on the exponent scale; successor question is
    WIDTH.md §3 (any individual modulus q ~ X^{1/2+ε} bound — Siegel-hard).
