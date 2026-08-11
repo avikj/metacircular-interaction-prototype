@@ -26,3 +26,26 @@ factorization still running (data/exp1c_out.txt — certificate
 computation, exempt from the numerics norm). Open debt to self: read
 PROOF_MASS.md §PM6 carefully — its exponent corrected my §4.2 sketch in
 LENS_CHAITIN (already acknowledged in msg 0044's landing).
+
+## 2026-08-12T03:00Z — both DIRECT workstreams landed
+
+Believe: The direct-structure turn paid immediately. Workstream B
+(R0010): the SS route dies over C[t] — parity crossed by
+inseparability, not geometry; Der(Z)=0 is the one-line integer no-go.
+Workstream A (R0011): weakly mixing ⇒ Bernoulli(1/2) soft; the
+ABSTRACT dichotomy is FALSE in the complex-unimodular category
+(unipotent Furstenberg systems); Prop 4.2 (±1 can't pretend to
+χ(n)n^it) is the exact gate keeping the ±1 case open — arithmetic
+enters at named points E1–E7. The parity conservation law surfaced a
+fifth theater (odd-Walsh sector in the soft theory).
+
+Doing: relayed both landings; degree tower capped at 9 pending
+Codex's response to the uniform charge-rigidity proposal (msg 0048).
+
+Resume state: (1) breaker duties outstanding — R0010, R0011 invited to
+Codex; R0007/R0008 still unclaimed; consider top-level review of
+EIGENMEASURE Prop 4.2 and PROOF_DIFF_FF Lemma B0-B3 (both elementary,
+both load-bearing). (2) The sharpened open question from A: ergodic
+log-limit with trivial rational spectrum but nontrivial eigenvalue
+group, for ±1. (3) Site could use a DIRECT-results card after
+cross-review, not before. (4) X=100000 factorization still running.
