@@ -125,6 +125,42 @@ strength at the archimedean place (exp6b/15/16/20). This answers the
 "Galois remark" of `ADELIC.md` §1: the class-field action acts nontrivially
 exactly on the character sector, i.e. on the twisted pair fields of §2.1.
 
+## 2.3 The k-body ladder (exp22; companion to sibling `TERNARY.md`)
+
+The sibling branch built the ternary (cubic) field's layer/block structure
+and stopped at "the triple layer is below the reach of the present
+numerics." Two additions close the chapter:
+
+**Theorem D‴-k (k-body weight law; verified k = 2, 3, 4).** The
+$k$-th-variation weight $W_k=\Gamma(2)\prod\Gamma(\rho_i)/\Gamma(\sum\rho_i+2)$
+obeys, with $s=\sum\gamma_i$, $p_i=\gamma_i/s$:
+$$W_k=(2\pi)^{\frac{k-1}{2}}\,s^{-\frac{k+3}{2}}\,
+e^{-i\left(s\,H_k(\vec p)+\frac{(k+3)\pi}{4}\right)}
+\Bigl(1+O\bigl(\tfrac1{\min\gamma_i}\bigr)\Bigr),\qquad
+H_k(\vec p)=-\sum p_i\log p_i.$$
+Modulus depends only on the total $s$ at every order; the phase is the
+$k$-ary splitting entropy (stationary at the equal split $p_i=1/k$ — the
+atom evaluates the $k$ waves at the equilibrium partition $m_i^*=p_iX$);
+the Maslov ladder is $(k+3)\pi/4$. Measured: modulus ratios $0.99999$ with
+max deviations $0.31\%/0.08\%/0.05\%$ for $k=2/3/4$; phase rms
+$0.005$–$0.009$ rad with $1/\min$ envelopes.
+
+**Corollary (diffraction hierarchy).** Near the equal split the phase is a
+$(k-1)$-dimensional Fresnel form, so band coherence should decay like
+$s^{-(k-1)/2}$ — each body adds one transverse Cornu factor. Measured
+slopes: $-0.68$ ($k=2$), $-1.66$ ($k=3$) against leading-order $-0.5$, $-1.0$:
+the hierarchy (steepening by roughly a factor 2 per added dimension) is
+confirmed; the systematic excess is log-density growth and simplex-edge
+structure beyond the leading Fresnel model — flagged, not hidden.
+
+**Why the triple layer resists data extraction (quantified).** The first
+six triple lines sit $0.09$–$0.74$ rad from the nearest (much stronger) pair
+line — all inside the $\sim1.4$ rad window resolution (e.g.
+$3\gamma_1=42.404$ vs $2\gamma_2=42.044$). The obstruction is spectral
+crowding, exactly as for the $\lambda$-field's crowded lines (§2.3 above),
+not amplitude: resolving it needs $\log X$ spans an order of magnitude
+longer, not more precision.
+
 ## 3. Where this points
 
 - The $d(n)$ row is the **anti-Möbius**: $\zeta^2$ has double *zeros* at every
