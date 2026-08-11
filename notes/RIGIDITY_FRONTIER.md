@@ -209,6 +209,54 @@ as a much smaller conceptual subcertificate.  Combining F1--F6, for every
 $X\ge13$ every irreducible factor of $F_X$ is noncyclotomic and has degree
 at least $7$.
 
+### 2.6 The septic layer is classified — MACHINE-VERIFIED EXACT THEOREM
+
+An irreducible odd-degree factor owns the unique negative root of $F_X$.
+For a septic
+
+$$
+g=x^7+a x^6+b x^5+c x^4+d x^3+e x^2+f x+1
+  =E(x^2)+xO(x^2),
+$$
+
+the parity resultant again forces $\operatorname{Res}(E,O)=\pm1$.  The
+valid root bounds $\varphi^{-1}<|z|<2$, together with the product of the
+three conjugate-pair radii, give the complete coefficient box
+
+$$
+|a|,|f|\le7,\qquad |b|,|e|\le25,\qquad |c|,|d|\le44.
+$$
+
+Exact enumeration and rational root filtering reduce this box as follows:
+
+$$
+90{,}893{,}475\longrightarrow21{,}647{,}831
+\longrightarrow2{,}266\longrightarrow537\longrightarrow37.
+$$
+
+The stages are scalar-window tuples, unit-resultant tuples, one-real-root
+tuples, and a conservative rational-annulus superset.  Exact monotone
+prefix and all-odd-tail certificates exclude 36 of the final candidates.
+The sole survivor is
+
+$$
+H_7=x^7+x^6-x^4+x^2+2x+1,
+\qquad F_{11}=\Phi_6H_7.
+$$
+
+It is irreducible over $\mathbb Q$, and adding the $p=13$ term makes its
+negative-root value strictly negative forever.
+
+> **Theorem F7 (computer-assisted, exact).** An irreducible septic factor
+> divides $F_X$ if and only if $11\le X<13$, and then it is $H_7$.
+
+See `SEPTIC_OBSTRUCTION.md` and
+`code/exp33_septic_certificate.py`.  Combining F1--F7, no irreducible
+factor of degree at most seven occurs for $X\ge13$.  The unique-odd-carrier
+theorem then proves $F_{13}$ and $F_{17}$ irreducible; at $F_{19}$ the only
+remaining proper degree pattern is $8+9$.  Thus degree eight is the first
+open factor layer.
+
 ---
 
 ## 3. Theorem F2: the cyclotomic layer, solved globally
@@ -483,7 +531,7 @@ by irreducibility) has already passed the plausible window.
 
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
-- degree $\le6$ factors: **classified unconditionally** (Thms F1, F3--F6);
+- degree $\le7$ factors: **classified unconditionally** (Thms F1, F3--F7);
 - cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
 - a reciprocal non-cyclotomic factor must have even degree $\ge8$ (odd-degree reciprocals
   have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
@@ -501,12 +549,13 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | irreducible factors of degree 5 | **PROVED: only $F_7$ itself; impossible for $X\ge11$** (Thm F5) |
 | reciprocal irreducible factors of degree 6 | **PROVED impossible for every $X$** (Thm F6r) |
 | all irreducible factors of degree 6 | **PROVED impossible for every $X$ by an exact 362-case certificate** (Thm F6) |
+| irreducible factors of degree 7 | **PROVED: only $F_{11}/\Phi_6$; impossible for $X\ge13$** (Thm F7) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge7$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge8$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) attack the septic layer, now the first open
+Open problems generated: (1) attack the octic layer, now the first open
 factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
-current scaling).  The unique-odd-carrier theorem makes degree seven another
-scalar monotone-root problem, but its unit-resultant coefficient box is
-larger and needs a new exact reduction.
+current scaling).  The carrier theorem and F7 sharpen the first unresolved
+prefix question to one exact possibility: $F_{19}$ can factor only as an
+irreducible octic times an irreducible nonic.
