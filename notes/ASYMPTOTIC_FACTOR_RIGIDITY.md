@@ -312,7 +312,7 @@ $$
 There are therefore no cyclotomic exceptions once $X\ge13$, completing
 the factor-degree claims.
 
-## 4. Subexponential homometric ambiguity
+## 4. Subexponential algebraic allocation ambiguity
 
 The nonreciprocal bound has a direct consequence for the difference-data
 problem.  For a polynomial $P$ with nonzero constant term, write
@@ -321,26 +321,24 @@ $$
 P^*(x)=x^{\deg P}P(1/x).
 $$
 
-Normalize a finite $0$--$1$ support polynomial to have constant term one.
-Its labeled difference multiset is encoded by $PP^*$ up to the forced
-monomial shift.  Let $\mathcal H_X$ be the set of normalized $0$--$1$
-polynomials $A$ satisfying
+Let
 
 $$
-AA^*=F_XF_X^*.
+\mathcal S_{\rm alg}(F_X)=
+\{A\in\mathbb Z[x]: A\text{ monic},\ A(0)=1,\ AA^*=F_XF_X^*\}.
 $$
 
 Factor $F_X$ over $\mathbb Q[x]$.  For a monic irreducible factor $q$ put
 $q^\dagger=q(0)^{-1}q^*$, its monic reciprocal, and group the
 nonreciprocal factors into pairs $\{q_j,q_j^\dagger\}$.  If the total multiplicity
-of this pair in $F_X$ is $m_j$, then a spectral factor $A$ can allocate
-$0,1,\ldots,m_j$ copies to $q_j$ and the remainder to $q_j^\dagger$: at most
-$m_j+1$ choices.  Reciprocal irreducible factors have no allocation
-choice.  Therefore
+of this pair in $F_X$ is $m_j$, then a spectral factor $A$ allocates
+$0,1,\ldots,m_j$ copies to $q_j$ and the remainder to $q_j^\dagger$.
+Reciprocal irreducible factors have no allocation choice.  Unique
+factorization and the normalization therefore give the exact count
 
 $$
-|\mathcal H_X|
-\le\prod_j(m_j+1)
+|\mathcal S_{\rm alg}(F_X)|
+=\prod_j(m_j+1)
 \le2^{\sum_jm_j}.
 $$
 
@@ -359,22 +357,20 @@ The Smyth-tier estimate now gives
 
 $$
 \boxed{
-\log|\mathcal H_X|
+\log|\mathcal S_{\rm alg}(F_X)|
 \ll
 \frac{X\log_3X}{\log_2X\,\log_4X}
 =o(X).
 }
 $$
 
-Thus the number of normalized prime-prefix homometric candidates is
-subexponential in the ambient degree.  Equivalently, its ambiguity entropy
-per coefficient tends to zero, since Bertrand's theorem gives
-$\deg F_X\asymp X$.  Constant and leading coefficient one remove scalar
-and translation units; reflection is counted twice, which is harmless for
-an upper bound.  This is weaker than uniqueness: most
-algebraic factor allocations need not preserve $0$--$1$ coefficients, but
-the estimate deliberately counts all of them and is therefore an
-unconditional upper bound for the genuine combinatorial partners.
+Thus the exact algebraic allocation fiber is subexponential in the ambient
+degree, and its ambiguity entropy per coefficient tends to zero, since
+Bertrand's theorem gives $\deg F_X\asymp X$.  Singleton-parity rigidity is
+much sharper on the combinatorial slice: exactly $F_X$ and $F_X^*$ among
+these allocations have $0$--$1$ coefficients.  See
+`ALGEBRAIC_ALLOCATION_CHANNEL.md` for the exact product-of-chains bijection,
+reflection quotient, and side-information formulas.
 
 ## 5. Meaning and limitation
 

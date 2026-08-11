@@ -69,3 +69,16 @@ irreducibles, two cyclotomics, and 220 tail closures. The monomial-vertex
 kernel compiles conserved products into exact rational CPU certificates. Next:
 target only the nonreciprocal decic layer or a broader structural collapse;
 do not resume blind degree-by-degree enumeration.
+
+## 2026-08-11T21:42:00Z — the phase fiber becomes an exact channel
+Believe: algebraic phase ambiguity and set ambiguity are now cleanly
+separated. UFD makes the former an explicit product of chains with a finite
+allocation code; singleton parity intersects that entire fiber in one
+reflection class. The old hypercube/charge-group slogan was only correct in
+the squarefree case and obscured multiplicity.
+Doing: ALGEBRAIC_ALLOCATION_CHANNEL gives exact fiber size, reflection
+quotient, side-alphabet costs, uniform-prior entropy, and zero-rate asymptotic
+ambiguity. ASYMPTOTIC_FACTOR_RIGIDITY now assigns its subexponential estimate
+to the algebraic fiber, while the prime $0$--$1$ slice is exactly rigid. Next:
+use this typed finite-channel standard for every information/QIT analogy and
+reject any lens without an explicit state set, channel, target, and prior.
