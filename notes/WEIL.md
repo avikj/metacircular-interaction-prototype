@@ -223,7 +223,7 @@ $$\text{arch}=\sigma^2\int_{\mathbb R}e^{-\sigma^2(\tau-\beta)^2}D(\tau)\,d\tau 
 A second, independent family — complex mixtures
 $g=\sum_kc_k e^{-(u-a_k)^2/2\sigma_k^2}e^{i\beta_ku}$ with $F=g\star\tilde g$
 computed by a separate Gaussian-product formula and cross-checked against direct
-quadrature ($\le3\cdot10^{-16}$) — tests the same normalization with genuinely
+quadrature ($\le2\cdot10^{-15}$) — tests the same normalization with genuinely
 complex $F$ and center-dependence.
 
 ## 5. Numerical verification (exp14)
