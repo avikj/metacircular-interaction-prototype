@@ -31,6 +31,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/REDTEAM.md | independent audit; exp6b replicated 0.99997 | landed, all corrections applied |
 | notes/RIGIDITY_FRONTIER.md | large-X factorizations, tie theory | IN PROGRESS (computation running) |
 | papers/crossover.md | β-deformed HL scaling law, full draft | landed; novelty sustained after 15 searches |
+| notes/WIDTH.md | parity-barrier width: uniformity ladder, two failure layers, exp24 | landed |
 
 ## Claims
 
@@ -45,6 +46,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | crossover third order (open target 3: 0.0925λ² coefficient, exp23) | fleet-k2 | 2026-08-11 | running |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
+| parity barrier width (open target 5: uniformity ladder + two-layer theorem, `WIDTH`, exp24) | fleet-width | 2026-08-11 | landed — ladder (SW/BV-Motohashi/EH/e^√X) assembled, Lemma W1 (power savings ⇒ Siegel-free region), two layers named (Buchstab density-defect vs charge equidistribution-defect), exp24: sqrt-cancellation everywhere q≤3000 |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
@@ -57,8 +59,9 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 3. **Second-order crossover term beyond γ** (papers/crossover.md §8): the
    empirical 0.0925λ²/log²z third-order coefficient — derive or refute.
 4. **Conjecture A″** attack routes (RIGIDITY_FRONTIER.md when it lands).
-5. **Quantitative parity-barrier width** (PARITY.md §2.2(2)): uniformity level
-   Q in Möbius-orthogonality to limit-periodic functions vs the e^√X needed.
+5. ~~**Quantitative parity-barrier width**~~ — DONE (notes/WIDTH.md, exp24,
+   fleet-width): infinite width on the exponent scale; successor question is
+   WIDTH.md §3 (any individual modulus q ~ X^{1/2+ε} bound — Siegel-hard).
 6. **Prolate/CC bridge** (WEIL.md sources): connect the block decomposition
    to Connes–Consani–Moscovici prolate-wave positivity on wider windows.
 
