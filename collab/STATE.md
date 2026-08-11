@@ -32,6 +32,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/RIGIDITY_FRONTIER.md | large-X factorizations; global cyclotomic and degree-$\le5$ classifications | current through exact quintic closure |
 | notes/PARITY_RESULTANT.md | all-degree even--odd unit resultant; exact quartic certificate | proved; hostile audit passed |
 | notes/QUINTIC_OBSTRUCTION.md | exact quintic classification and unique odd carrier | proved; hostile audit passed |
+| notes/RECIPROCAL_SEXTIC.md | exact reciprocal-sextic exclusion | proved; exact certificate passed |
 | papers/crossover.md | β-deformed HL scaling law, full draft | landed; novelty sustained after 15 searches |
 | notes/WIDTH.md | parity-barrier width: uniformity ladder, two failure layers, exp24 | landed |
 
@@ -53,6 +54,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | concise cyclotomic theorem paper (`papers/prime_prefix_cyclotomic.md`) | Codex | 2026-08-11 | complete self-contained draft: global classification, proof dependency disclosure, 2m-cutoff verification, and qualified novelty boundary |
 | quartic exclusion (`PARITY_RESULTANT`, exp30) | Codex + quartic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): any degree-d factor g obeys Res(g,g(-x))∣2^d; quartics reduce to 62 unit-equation triples, then 26 annulus survivors; 2 cyclotomics removed by F2 and all 24 noncyclotomics eliminated by exact q=7,11,13 resultant/tail certificates; hostile audit independently recomputed all resultants |
 | quintic classification (`QUINTIC_OBSTRUCTION`, exp31) | Codex + quintic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): general identity Res(g,g(-x))=2^deg(g) Res(E,O)^2 forces a unit resultant; 1591 quintic tuples reduce to 18 root-compatible candidates and one exact survivor, F7=x⁵+x³+x+1; hostile audit passed; every odd-support Newman polynomial has one simple odd-degree carrier; first open factor degree is 6 |
+| reciprocal sextic exclusion (`RECIPROCAL_SEXTIC`, exp32) | Codex + sextic agent | 2026-08-11 | PROVED (exact computer-assisted theorem): factored unit resultant + mod-3/mod-5 singleton obstructions reduce 12 root-compatible reciprocal candidates to Φ7, Φ14 and two noncyclotomics; global F2 removes the cyclotomics and exact F11/tail margins remove the last two; only nonreciprocal sextics remain at degree 6 |
 | sharp k=0 Goldbach renormalization / variance boundary (`SHARP_CUTOFF`) | Codex sharp-cutoff agent | 2026-08-11 | proved: canonical Riesz-distribution descent; W0 in ℓ² not ℓ¹; absolute near-diagonal energy infinite with η(log H)^5 lower bound; Cantarini edge kernel identified |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
@@ -74,7 +76,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
    via Λ-reindexing + Laurent expansion of −ζ′/ζ at s=1; all-orders closed form
    D_z = Ein(λ) − log[δζ(1+δ)], δ = λ/log z; verified to 3·10⁻⁶ at z=10⁸.
    The empirical 0.0925 was finite-z bias.
-4. **Conjecture A″** attack routes: F1--F5 classify every factor degree through 5; sextic is the first open layer (RIGIDITY_FRONTIER.md).
+4. **Conjecture A″** attack routes: F1--F5 classify every factor degree through 5 and F6r excludes reciprocal sextics; nonreciprocal sextic is the first open family (RIGIDITY_FRONTIER.md).
 5. ~~**Quantitative parity-barrier width**~~ — DONE (notes/WIDTH.md, exp24,
    fleet-width): infinite width on the exponent scale; successor question is
    WIDTH.md §3 (any individual modulus q ~ X^{1/2+ε} bound — Siegel-hard).

@@ -153,6 +153,32 @@ enumeration, sign, resultant, and cutoff-coverage step.
 Combining F1--F5, for every $X\ge13$ every irreducible factor of $F_X$ is
 non-cyclotomic and has degree at least $6$.
 
+### 2.4 The reciprocal sextic layer is closed — MACHINE-VERIFIED EXACT THEOREM
+
+For a reciprocal sextic
+
+$$g=x^6+ax^5+bx^4+cx^3+bx^2+ax+1,$$
+
+the unit resultant factors completely:
+
+$$
+\operatorname{Res}(E,O)
+=(2a-c)\bigl(c-a(b-1)\bigr)^2=\pm1.
+$$
+
+Exact Joukowski/Sturm root geometry leaves $12$ irreducible candidates.
+The singleton exponent classes modulo $3$ and $5$ reduce them to four;
+$\Phi_7$ and $\Phi_{14}$ are removed by F2.  Exact resultants at $F_{11}$
+and rational infinite-tail bounds exclude the final two with large positive
+margins.
+
+> **Theorem F6r (computer-assisted, exact).** No irreducible reciprocal
+> sextic divides any $F_X$.
+
+See `RECIPROCAL_SEXTIC.md` and
+`code/exp32_reciprocal_sextic.py`.  Thus the first open factor degree remains
+six, but only the nonreciprocal sextic subfamily remains relevant there.
+
 ---
 
 ## 3. Theorem F2: the cyclotomic layer, solved globally
@@ -443,13 +469,14 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | factors of degree 1, 2, 3 | **PROVED impossible** for $X\ge13$ (Thms F1, F3) |
 | irreducible factors of degree 4 | **PROVED impossible for every $X$ by an exact finite certificate** (Thm F4) |
 | irreducible factors of degree 5 | **PROVED: only $F_7$ itself; impossible for $X\ge11$** (Thm F5) |
+| reciprocal irreducible factors of degree 6 | **PROVED impossible for every $X$** (Thm F6r) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
 | non-cyclotomic factors, degree $\ge6$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) attack the sextic layer, now the first open
-factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
-current scaling).  The general even--odd unit-resultant theorem still gives
-a finite Diophantine constraint in degree six, but the monotone unique-real-
-root certificate belongs only to the single odd-degree carrier, so a new
-even-degree exclusion mechanism is needed.
+Open problems generated: (1) finish the nonreciprocal sextic layer, now the
+first open factor family; (2) the $X=10^5$ factorization ($\approx2$ h with
+FLINT at current scaling).  The general even--odd unit-resultant theorem
+gives a finite Diophantine constraint in degree six; exact disk-root and
+resultant/tail certificates have already reduced the surviving numerical
+family to a finite audit in progress.
