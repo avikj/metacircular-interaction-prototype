@@ -1,0 +1,19 @@
+{
+  "format": "math-bound-contract-v1",
+  "polynomial": "G(y)=E(y)^2-y*O(y)^2 for exp37 nonic discovery",
+  "degree": 9,
+  "bounds_by_exponent": {
+    "1": "14",
+    "2": "85",
+    "3": "270",
+    "4": "493",
+    "5": "516",
+    "6": "300",
+    "7": "95",
+    "8": "15"
+  },
+  "derived_vector": {
+    "orientation": "leading-to-constant",
+    "values": ["15", "95", "300", "516", "493", "270", "85", "14"]
+  }
+}
