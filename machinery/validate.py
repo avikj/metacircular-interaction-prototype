@@ -8,6 +8,8 @@ import hashlib
 import json
 from pathlib import Path
 
+import bound_contract
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,9 +19,10 @@ def canonical_hash(value: object) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def validate_spec(path: Path) -> list[str]:
+def validate_problem_spec(value: object) -> list[str]:
     errors: list[str] = []
-    value = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        return ["problem spec must be an object"]
     for key in ("claim_id", "family", "degree", "mode", "coefficient_order", "decomposition", "stages"):
         if key not in value:
             errors.append(f"missing {key}")
@@ -33,8 +36,23 @@ def validate_spec(path: Path) -> list[str]:
                 errors.append(f"{stage.get('id')}/{constraint.get('id')}: unproved constraint may not prune")
             if constraint.get("prunes") and constraint.get("proof_ref") in {None, "", "pending"}:
                 errors.append(f"{stage.get('id')}/{constraint.get('id')}: pruning requires proof_ref")
-    print(f"spec_sha256={canonical_hash(value)}")
     return errors
+
+
+def validate_path(path: Path) -> tuple[str, list[str]]:
+    """Dispatch by an explicit format marker; never guess from a filename."""
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        return "unreadable", [str(error)]
+    if isinstance(value, dict) and value.get("format") == bound_contract.FORMAT:
+        kind = bound_contract.FORMAT
+        errors = bound_contract.validate_contract(value)
+    else:
+        kind = "math-problem-spec-v1"
+        errors = validate_problem_spec(value)
+    print(f"kind={kind} sha256={canonical_hash(value)}")
+    return kind, errors
 
 
 def main() -> int:
@@ -44,7 +62,7 @@ def main() -> int:
     paths = args.paths or sorted((ROOT / "machinery" / "specs").glob("*.json"))
     failed = False
     for path in paths:
-        errors = validate_spec(path)
+        _, errors = validate_path(path)
         if errors:
             failed = True
             print(f"FAIL {path}")

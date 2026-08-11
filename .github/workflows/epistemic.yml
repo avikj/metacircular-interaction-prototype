@@ -14,3 +14,6 @@ jobs:
           python-version: "3.12"
       - run: python3 code/discovery_loop.py validate
       - run: python3 machinery/validate.py
+      - run: python3 machinery/test_bound_contract.py
+      - run: python3 machinery/test_cpu_ledger.py
+      - run: python3 machinery/test_validate.py
