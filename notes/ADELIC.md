@@ -192,7 +192,7 @@ temperature, so the decomposition is not tunable — it is forced.
 **Next derivations in order of tractability.**
 1. ~~Write out $[\sharp\sharp]$ for the smoothed Goldbach sector at finite $Q$ and
    verify numerically that the blocks reproduce $G_1(X)$.~~ **Done — exp11 /
-   `BLOCKS.md` §1 (Theorem F):** exact closure to $2\times10^{-13}$; each spectral
+   `BLOCKS.md` §1 (Theorem E2):** exact closure to $2\times10^{-13}$; each spectral
    layer sits in exactly one block ($[\sharp\sharp]$ smooth, mixed = single-zero
    layer, $[\flat\flat]$ = pair layer); Hardy projection and $Q$-orthogonality
    verified.

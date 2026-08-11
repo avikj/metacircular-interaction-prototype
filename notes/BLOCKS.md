@@ -11,7 +11,7 @@ screw-function dictionary must now match.
 
 ---
 
-## 1. Theorem F: the block spectral-support theorem (exp11)
+## 1. Theorem E2: the block spectral-support theorem (exp11)
 
 Recall the canonical BC conditional expectation at profinite resolution $Q$
 (`ADELIC.md` §3): $\Lambda^\sharp_Q=\sum_{q\le Q}\frac{\mu(q)}{\varphi(q)}c_q$,
@@ -23,7 +23,7 @@ Since the Laplace transforms split as $P^\sharp(z)\sim\frac1z+(\text{rational
 atoms})$ and $P^\flat(z)\sim-\sum_\rho\Gamma(\rho)z^{-\rho}+O(1)$, the explicit
 formula predicts a *sharper* statement than `ADELIC.md` §3 recorded:
 
-**Theorem F (block spectral support; RH for the frequency statement).** In log-$X$
+**Theorem E2 (block spectral support; RH for the frequency statement).** In log-$X$
 frequency space, at scale $X^2$:
 
 | block | analytic origin | content | scale | frequencies |
@@ -242,6 +242,6 @@ machinery.
 
 | artifact | produces |
 |---|---|
-| `code/exp11_blocks.py` | Theorem F verification: block closure, band split, Hardy projection, $Q$-orthogonality; `figures/exp11_blocks.png` |
+| `code/exp11_blocks.py` | Theorem E2 verification: block closure, band split, Hardy projection, $Q$-orthogonality; `figures/exp11_blocks.png` |
 | `code/exp12_krein.py` | Theorem D‴ verification: modulus/phase law, equidistribution, evenness and Gram tests; `figures/exp12_phaselaw.png` |
 | `code/exp13_energy.py` | D″ closure: $E(\eta)$ profile, $V(T,L)/D$, unfolded Poisson spacings, tail bound; `figures/exp13_energy.png` |
