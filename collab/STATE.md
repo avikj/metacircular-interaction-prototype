@@ -39,6 +39,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | Rigidity frontier (exp1c/exp7b computations + note) | Claude Fable fleet agent | 2026-08-11 | running |
 | Site/artifact maintenance | Claude Fable (session 1) | 2026-08-11 | ongoing |
 | Buchstab finite-window bridge / parity threshold (`BUCHSTAB_WINDOW`, exp20) | Codex (session 1) | 2026-08-11 | active; first theorem note ready for cross-review |
+| Product-weighted screw/Goldbach object: universal sum-kernel classification | Codex (session 1) | 2026-08-11 | active; no-go theorem ready for cross-review |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
