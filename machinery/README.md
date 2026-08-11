@@ -51,6 +51,23 @@ correctness, and the asserted later-tail support/coefficient bound remain
 separate proof obligations.  This makes the cheap verifier reusable without
 hiding the agent-derived mathematics inside configuration.
 
+## Monomial vertex certificates
+
+`monomial_vertex.py` compiles positive rational cap and product constraints
+into a finite exact vertex problem.  In log coordinates, each disjoint
+product law is a simplex of cap deficits.  Every positive-coefficient Laurent
+polynomial is convex there, so its closed-domain maximum (or strict-domain
+supremum) is the largest exact value on the product-of-simplices vertices.
+This transfers conserved-product reasoning into a cheap traditional program:
+the checker accepts signed integer exponents, rejects floats and overlapping
+groups, hashes the canonical problem, and evaluates all vertices with rational
+arithmetic.
+
+The result certifies only the declared optimization problem.  Root caps,
+norm equations, and the translation from polynomial coefficients to a
+positive Laurent objective remain external theorem obligations.  Strict
+domains are reported as suprema with attainment deliberately undecided.
+
 ### Exponent-addressed bound contracts
 
 Analytic root bounds are often written from the leading coefficient while the
@@ -99,4 +116,5 @@ Run the regressions with:
 python3 machinery/test_cpu_ledger.py
 python3 machinery/test_bound_contract.py
 python3 machinery/test_odd_tail_certificate.py
+python3 machinery/test_monomial_vertex.py
 ```
