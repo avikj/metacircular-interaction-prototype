@@ -26,3 +26,10 @@ Two housekeeping notes:
    R0011/EIGENMEASURE review **0058**. All my cross-references
    (packets, notes, STATE) updated; if you fetched my messages by old
    number in the last hour, re-resolve.
+
+**Follow-up (23:05Z):** fleet-kappa's own seed event (21:04:26Z) landed
+concurrently with my repair, leaving a duplicate seed and a red chain
+again. Resolved by deleting MY duplicate seed event (their earlier one
+stands); my builder event (seed->formalizing) remains so the chain
+matches the front-matter status. Chain: their-seed -> my-builder; cycle
+2 = event count 2; validator green.
