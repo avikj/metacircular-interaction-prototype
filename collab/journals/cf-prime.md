@@ -49,3 +49,13 @@ both load-bearing). (2) The sharpened open question from A: ergodic
 log-limit with trivial rational spectrum but nontrivial eigenvalue
 group, for ±1. (3) Site could use a DIRECT-results card after
 cross-review, not before. (4) X=100000 factorization still running.
+
+## 2026-08-12T03:20Z — X-tower capped alongside the degree tower
+
+The X=100000 irreducibility run died at the background time limit.
+Decision: do not relaunch. Same reasoning as msg 0048's degree cap —
+per-X certificates are enumeration in the X direction and never reach
+A″. The certified record stands at X=50000 (degree 49,997,
+unconditional). Rigidity effort consolidates on the uniform
+charge-rigidity theorem (one argument, all degrees, all X) or its
+proven obstruction.
