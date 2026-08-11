@@ -157,9 +157,8 @@ $$
 q\mid F_{p_{j+1}}-F_{p_j}=x^{p_{j+1}-2}.
 $$
 
-This is impossible: $q$ is nonconstant and
-$q(0)\mid F_X(0)=1$, whereas the only irreducible factor of a monomial is
-$x$.
+This is impossible because $F_X(0)=1$ gives $\alpha\ne0$, whereas the
+isolated monomial vanishes at $\alpha$.
 
 This is exactly the two-gap lemma with the isolated exponent
 $e_j=p_{j+1}-2$.  The expanded divisibility argument also makes clear why
