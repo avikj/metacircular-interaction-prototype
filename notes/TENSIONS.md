@@ -65,6 +65,18 @@ an all-orders closed form mirroring K2's, with ω playing ρ's role — the
 and their adjunction would constitute the complete finite-size theory of
 the critical field.
 
+**RESOLVED** (notes/BUCHSTAB_LADDER.md, exp34_buchladder, fleet-buchladder):
+the depth Mellin closed form is ζ(s)·∏_{p≤y}(1−p^{−s}) = e^{−γ}e^{Ein(λ)}/λ
+= 1+ω̂(λ) with only PNT-scale error — the Stieltjes ladder cancels
+*identically* against the ζ factor (Theorem D1, a corollary of K2.2 +
+Mertens). The adjunction ρ̂(s)(1+ω̂(s)) = 1/s is the microscopic shadow of
+ζ = ζ_y·(ζ/ζ_y) (unique factorization smooth×rough). The interval-window
+ladder has coefficients c_k(u) = (−u)^k ω^{(k)}(u)/ω(u) — the ω-jet, with
+c₁(u) = 1 − ω(u−1)/ω(u) — and is factorially divergent, hence provably NOT
+zeta-Laurent: the conjectured "ω-analog of the Stieltjes ladder" is refuted
+in exactly that sense, and the complete finite-size theory is the
+three-window table of BUCHSTAB_LADDER §5.
+
 ## The standing instruction this encodes
 
 "These two things are unrelated" is a statement about our bookkeeping, never
