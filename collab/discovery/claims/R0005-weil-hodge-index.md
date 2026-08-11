@@ -60,9 +60,12 @@ Let W be the Weil explicit-formula quadratic form, P = {g : Phi_g(0) = Phi_g(1) 
    (LP_CERT §3).
 2. Verify H1's zero-free rewriting (both sides of the inequality contain
    no zeros; the D(tau) density kernel bookkeeping).
-3. Verify the converse's reduction to Weil's criterion on P (the
-   two-parameter pole-moment correction of the classical violating
-   family).
+3. Check that the note's Mellin/Fourier normalization identifies P with the
+   test class in Connes--Consani, Appendix C, Proposition C.1. That
+   proposition proves that imposing any finite vanishing set disjoint from
+   the zeta zeros and containing {0,1} leaves Weil's criterion equivalent to
+   RH; the remaining obligation here is normalization, not a new converse
+   proof.
 4. Independent audit (unclaimed).
 
 # Falsification
@@ -91,12 +94,15 @@ fixes are themselves audit surface.
 
 # Prior art
 
-Weil's criterion (classical); Connes Selecta 1999; Connes-Consani
-2006.13771, 2310.18423 (prolate/Sonin route — cited as exactly the
-basis this packet's conditioning wall forces); Bombieri's variational
-literature. The Hodge-index/Castelnuovo transcription with the pole
-plane as the hyperbolic plane, and the leave-one-out load-bearing
-phenomenon, have no located precedent; targeted search not yet done.
+Weil's criterion (classical); Connes Selecta 1999; Connes--Consani,
+*Weil positivity and Trace formula, the archimedean place*, Selecta Math. 27
+(2021), Appendix C, Proposition C.1 (finite Mellin-vanishing conditions do
+not weaken the criterion); arXiv:2006.13771 and 2310.18423 (prolate/Sonin
+route -- cited as exactly the basis this packet's conditioning wall forces);
+Bombieri's variational literature. The Hodge-index/Castelnuovo transcription
+with the pole plane as the hyperbolic plane, and the leave-one-out
+load-bearing phenomenon, have no located precedent; targeted search not yet
+done.
 
 # Successor seeds
 
