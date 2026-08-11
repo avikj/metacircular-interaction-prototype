@@ -148,19 +148,143 @@ budget.
 
 ## 3. Measured spectra
 
-(numbers from `code/exp25_lp.py` run of 2026-08-11; entrywise cross-check of
-the two computations of M: worst deviation XCHECK_A over the Gaussian
-dictionary, XCHECK_B over the support-cap scan — target ≤ 1e−6.)
+All numbers from the `code/exp25_lp.py` run of 2026-08-11 (log quoted in the
+repo history; the script reproduces them end-to-end in ~10 min).
 
-TO FILL: inertia table, primitive spectra, cross-checks, hardest direction.
+**Cross-check (task target ≤ 1e−6).** Worst entrywise relative deviation
+between the zero-side and assembled computations of M: **3.3e−9** over the
+Gaussian dictionaries (64×64 complex), **9.6e−7** over all 128 support caps
+of the compact scan (the worst caps are the smallest supports, where the
+entries themselves are ~1e−6 of the matrix scale and the residual is the
+quantified archimedean far-tail; self-check points: 3.1e−9 at T=1.0, 1.2e−9
+at T=2.4). Diagonal single-atom values agree with exp14's closed forms to
+2e−16…8e−16, and translation-invariance of all four terms holds to 7e−15.
+Three real bugs in the first (never-executed) draft of exp25 were caught by
+exactly this cross-check and fixed: a sesquilinear-convention mismatch that
+conjugated every imaginary part of the assembled matrices against the
+zero side, a prime-sum window centered at the signed rather than absolute
+center separation (which silently halved Hermitian off-diagonal entries for
+center-separated pairs — found as an exact factor 2 at atom pair
+(a=∓0.75, σ=0.15, β=γ₁)), and an archimedean τ-truncation whose ~4e−10
+absolute tail broke the small-support entries.
+
+**Hodge index of I = prime − arch (part P).** Inertia (n₊, n₀, n₋) at
+relative tolerance 1e−8, with the primitive block P = ker Φ(0) ∩ ker Φ(1):
+
+| dictionary | dim | inertia(I) | λ₁(I) | λ₂(I) | inertia(I&#124;_P) | top of I&#124;_P (assembled) | −λ_min(W&#124;_P) (zero side, exact) |
+|---|---|---|---|---|---|---|---|
+| σ≤0.1 (20 narrow atoms) | 20 | **(1, 1, 18)** | +6.05 | −1.7e−8 | **(0, 1, 17)** | **−1.718e−8** | **−1.718e−8** ✓ |
+| σ≤0.25 (40 atoms) | 40 | (1, 18, 21) | +12.0 | +6.3e−13 | (0, 18, 20) | +6.3e−13 (floor) | −2.7e−33 |
+| σ≤0.5 (60 atoms) | 60 | (3, 33, 24) | +30.8 | +3.2e−5 | (2, 33, 23) | +3.2e−5 (ghost) | −3.9e−32 |
+| +wide atoms (64) | 64 | (3, 38, 23) | +199.3 | +4.4e−5 | (3, 34, 25) | +4.4e−5 (ghost) | −5.0e−32 |
+
+Reading: **H2 and H1 hold exactly as derived.** In the well-conditioned
+narrow dictionary everything is resolved *above* the numerical floor: exactly
+one positive direction, and the primitive top eigenvalue of the assembled
+zero-free form agrees with the factored zero side to all printed digits
+(−1.718e−8 both ways) — the arithmetic-plus-archimedean data alone "knows"
+the primitive negativity. In the wide-atom spans the Gram matrix is
+near-singular and the whitening amplifies the ~1e−9 assembly tails into
+ghost positives at the 1e−6·λ₁ level (λ₂/λ₁ ≤ 1.0e−6 everywhere); on
+conditioning-robust subspaces (whitening cut 1e−6, dims 52–53 of 60–64) the
+inertia returns to **n₊(I) = 1 in every dictionary with λ₂/λ₁ ≤ 1e−13 and
+n₊(I|_P) = 0** — the ghosts are pure conditioning artifacts. **In no dictionary does a second
+resolved hyperbolic direction appear**, and the factored zero side pins the
+true primitive top eigenvalues at −5e−32…−1.7e−8: negative, as H1 demands.
+The unique positive eigenvector of I overlaps the pole plane at 0.999–1.000 —
+it *is* the hyperbolic direction, the "ample class" of the arithmetic
+surface.
+
+**Pole form inertia**: (1, r−2, 1) in every dictionary — the hyperbolic
+plane, measured. The pole form vanishes on P to 5.2e−16 (max leak over the
+whole compact scan) — the constraint machinery is exact.
+
+**The hardest direction (BCK landscape).** On the narrow dictionary the LP
+minimizer reaches λ_min = W/‖g‖² = 3.14e−10 (vs 0.107 for the best single
+atom: the dictionary goes nine orders deeper), with 82.5% of its Fourier
+mass inside the spectral gap (0, γ₁) and effective width 1.31 synthesized
+out of σ = 0.1 atoms — the finite-LP optimizer *rediscovers* exp14's verdict
+that the extremal window is wide, low-frequency, and gap-concentrated, and
+it beats the single-Gaussian uncertainty tradeoff by paying the prime terms.
+For the wider dictionaries λ_min falls below the factored-SVD trust floor
+(~1e−26·λ_max ≈ 4e−32); the single-atom continuation (exact log-space
+evaluation) reaches λ ~ 1e−194 at σ = 1.5, exp14's doubly-exponential
+collapse.
 
 ## 4. Per-prime-power cost
 
-TO FILL.
+Support-capped compact basis (M = 30 modes; λ values at fixed M carry ~10%
+truncation bias in the resolved regime — M=22/30/38 spread measured — and
+are M-dependent upper bounds in the collapse regime; the *locations* of the
+drops and all fixed-M comparisons are the robust content).
+
+**The primitive block against the support cap** (figure panel h; this is the
+negativity margin of I|_P = −W|_P as arithmetic enters):
+
+| regime | λ_min(W&#124;_P) | comment |
+|---|---|---|
+| T < log 2 (prime-free, **the Connes–Consani window**) | **0.59–1.42** with λ_min/λ_max = 0.19 | comfortable O(1) definiteness: W&#124;_P = arch&#124;_P, the finite shadow of CC's Sonin-space positivity; contrast the *unconstrained* λ_min = 2.1e−3 (μ = 0.001) at the same cap — the thin directions of the full form live in the pole plane, not in P |
+| after 2 (T = 0.81) | 2.5e−1 | prime 2 costs a factor ~2.4 |
+| after 3 (T = 1.22) | 8.4e−5 | ×3.0e−3 |
+| after 4 (T = 1.50) | 1.1e−9 | ×1.3e−5 |
+| after 5 (T = 1.73) | 1.4e−14 | ×1.3e−5 |
+| after 7 (T = 2.07) | 4.4e−21 | ×3.2e−7 |
+| after 8, 9, 11, … | 3.5e−23 → 1e−30 | reaches the factored-SVD floor by T ≈ 2.7 |
+
+So the certificate obstruction has a sharply quantified shape: **each of the
+first few prime powers costs 3–7 orders of magnitude of primitive
+definiteness**, the heaviest single blows being 3 (×3e−3) and 4 = 2²
+entering at T = 2 log 2 (×1.3e−5), after which the margin is doubly-
+exponentially thin but (as far as the trusted range reaches) never zero.
+This is the spectral face of what 2310.18423 handles operator-theoretically
+as "stability of the semilocal Sonin space under the increase of the finite
+set of places."
+
+**Leave-one-prime-out: every prime power is individually load-bearing.**
+Deleting the term of a single prime power n from the assembled form (keeping
+all others) at cap T = log n + 0.12:
+
+- n = 2: λ_min(W|_P without 2) = **+0.416** (> full 0.25): at this cap
+  removing 2 leaves the prime-free form — definite, as it must be.
+- n = 3 at T = 1.22: **−3.9e−2** — *indefinite*. n = 4: −3.7e−2. n = 5:
+  −1.1e−1. n = 7: −1.5e−1. n = 8: −6.3e−2 … every later prime power tested
+  (through 27) gives λ_min < 0 when deleted.
+
+That is: with support past log 3, the Weil form is **not a monotone budget**
+— the prime terms are oscillatory, finely tuned corrections, and removing
+any single one breaks positivity in the *other* direction (the remaining
+primes overshoot the pole + archimedean budget). Weil positivity at cap T is
+a property of the exact multiset {Λ(n) : n ≤ e^T} — a certificate must know
+every prime power individually, not merely bound their aggregate. (Rayleigh
+weights of the deleted term at the minimizer grow from 11.8 at n = 2 to
+~1e14 by n = 11: the minimizer rides an extreme cancellation.)
 
 ## 5. Interpolation feasibility (Radchenko–Viazovska indicator)
 
-TO FILL.
+Conditioning of the row-normalized evaluation functionals on the 60-atom
+Gaussian span (whitened dimension 60): zero knots g ↦ Φ_g(½+iγ_k), prime
+knots g ↦ g(log p^k):
+
+| K | cond (zero knots) | cond (prime knots, 24 knots < e⁴) |
+|---|---|---|
+| 5 | 5.2 | 1.1 |
+| 10 | 2.0e2 | 1.4 |
+| 15 | 9.1e3 | 3.5e4 |
+| 20 | 2.6e8 | 4.2e11 |
+| 24 | 2.6e16 | 1.8e16 |
+| 30 | 1.2e17 | — |
+
+Joint RV-type system (30 zero + 24 prime functionals on dim 60):
+cond = 2.7e17, σ_min = 1.3e−17. **Verdict: infeasible by direct dictionary
+collocation beyond K ≈ 15–20 knots** — both knot families go numerically
+degenerate at double precision by K ≈ 24, the prime knots faster than the
+zero knots (log p^k clusters faster than γ_k: knot spacing shrinks like
+1/n vs the ~2π/log γ zero spacing). A Radchenko–Viazovska-style certificate
+for the zeta kernel therefore cannot be bootstrapped from generic Gaussian
+spans; it needs a basis biorthogonal-by-construction to the knots — which
+is precisely the role the prolate spheroidal/Sonin eigenbasis plays in
+2006.13771/2310.18423, and the right next experiment is collocation in
+*that* basis rather than a larger dictionary.
 
 ## 6. Comparison with Connes–Consani and the prolate program
 
@@ -198,7 +322,24 @@ places 2, 3, …) is precisely the T > log 2 region of our panel (h): their
 "stability of Sonin space as places are added" is the operator-theoretic
 face of what our per-prime cost table measures spectrally.
 
-TO FILL: quantitative comparison.
+**Quantitative placement of our measurements against the two papers.**
+(i) CC 2021 prove W ≥ 0 on {g ∈ P, supp F ⊂ (1/2, 2)} — *all* such g. Our
+panel-h measurement gives the finite-dimensional spectral gap of that
+theorem's form: λ_min(arch|_P)/λ_max ≈ 0.19 on the 28-dimensional primitive
+compact-basis slice at T = 0.68 — the definiteness is not marginal but O(1),
+consistent with their trace-formula proof having room (their Sonin-space
+compression has strictly positive trace). (ii) Their proof strategy
+(compression + prolate functions + Toeplitz control) is exactly what our §5
+conditioning verdict says is *necessary*: generic spans cannot see the
+knots. (iii) The semilocal program of 2310.18423 (places added one at a
+time, Sonin space stable) predicts that primitive definiteness persists as
+each prime enters but does not quantify the margin; our §4 table is that
+quantification on the finite slice: ×3e−3 at the place 3, ×1.3e−5 at 4,
+saturating the double-precision floor by T ≈ 2.7. The leave-one-out
+indefiniteness (§4) sharpens the qualitative statement "each new place must
+be absorbed" (WEIL.md §7) into: each place, once inside the support, is
+individually indispensable — the semilocal trace formula cannot drop or
+majorize any single Euler factor.
 
 ## 7. Honest limitations
 

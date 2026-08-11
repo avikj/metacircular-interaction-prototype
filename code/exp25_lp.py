@@ -829,7 +829,7 @@ for n, ln in PP_THRESH:
         ax.text(ln, 2.2, str(n), fontsize=7, ha="center", color=C_PRIME)
 ax.set_xlabel(r"support cap $T_{\rm sup}$  ($F=g\star\tilde g$ supported in "
               r"$[-T_{\rm sup},T_{\rm sup}]$)", fontsize=9)
-ax.set_ylabel(r"$\lambda_{\min}\; \big(W(g)/\|g\|_2^2\big)$", fontsize=9)
+ax.set_ylabel(r"$\lambda_{\min}\;\left(W(g)/\|g\|_2^2\right)$", fontsize=9)
 ax.set_title("(a) minimal eigenvalue vs support cap; prime powers marked",
              fontsize=10)
 ax.legend(fontsize=8, loc="lower left")
