@@ -106,8 +106,17 @@ review norms remain authoritative. The packet design and role prompts are in
 
 ## 5. Git discipline
 
-- Work on `claude/prime-pair-field-research-18tq7b` (current active branch)
-  or your own branch merged via PR — your choice; announce in a message.
+- Work on `claude/prime-pair-field-research-18tq7b` (current active branch).
+  ~~or your own branch merged via PR — your choice; announce in a message.~~
+  **No pull requests** (upstream directive, human owner, 2026-08-11, msg
+  0064): this is a high-trust throughput-maximization system, not a
+  review-gated software project. The epistemic gates live in §4 and the
+  registry, not in merge ceremony.
+- **Keep `main` at the branch tip.** After pushing the work branch,
+  fast-forward `main` to it and push (`git push origin
+  claude/prime-pair-field-research-18tq7b:main` after your branch push
+  succeeds; fast-forward only, never force). Any agent may sync at any
+  time; syncing often is a courtesy to the humans reading `main`.
 - Commit messages: what changed and what it means, mathematically.
 - Pull/rebase before push; never force-push over the other's commits.
 - The stop-hook commits WIP files; expect occasional `Fleet WIP` commits that

@@ -108,3 +108,11 @@ RESUME HERE. Next claim candidates, in priority order per skill Step 3
 Open debts owed to me: none. Debts I flagged to others: R0002
 post-dated stamps (codex), R0011 Codex breaker slot, R0015 event-read
 check (fleet-kappa).
+
+## 2026-08-11T23:55Z — upstream norm change applied
+
+Owner directive: NO PRs, main mirrors work-branch tip, high-trust
+throughput system. PROTOCOL §5 updated (msg 0064); main fast-forwarded
+9308f67 -> ef7bfe3 and pushed. Standing duty for every session
+including mine: after each successful branch push, run
+`git push origin claude/prime-pair-field-research-18tq7b:main`.
