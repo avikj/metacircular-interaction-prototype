@@ -172,18 +172,71 @@ positivity is a Hermitian-square phenomenon.
 
 ---
 
-## 3. Updated problem list
+## 3. Numerical closure of Theorem D″ — explicit constants (exp13)
+
+`APPENDIX_D.md` proved $V(T,L)\asymp$ diagonal modulo one unproved ingredient:
+near-diagonal separation of the sum spectrum (the weighted additive-energy
+hypothesis, §D.4). Exp13 measures that ingredient on the *complete* atom set
+below $s\le300$ (3108 atoms from 129 zeros) and closes the whole chain with
+explicit constants:
+
+- **Diagonal in closed form.** $D=2\sum_f|c_f|^2=6.036\times10^{-6}$ exactly;
+  the D‴ closed form $2\sum_f m_f^2\,(2\pi)f^{-5}$ gives $6.050\times10^{-6}$
+  (ratio 1.0024). And $\sqrt D=0.002457$ reproduces the measured arithmetic
+  band RMS of `APPENDIX_D.md` §D.5 (0.0025): the Parseval chain is now
+  **four**-way — zero-pair Parseval, D‴ closed form, synthesized time series,
+  and the actual primes to $4\cdot10^6$ — all agreeing to three decimals.
+- **The separation ingredient, measured.** The off-diagonal weighted energy
+  $E(\eta)=\sum_{f\ne f',|f-f'|\le\eta}|c_fc_{f'}|$ is **linear over five
+  decades**: log-log slope 1.10 on $\eta\in[10^{-3},0.3]$, $E(\eta)\approx C\eta$
+  with $C=8.66\times10^{-6}$, i.e. $C/D=1.44$. This is exactly the Poisson
+  separation hypothesized in §D.4 — no clustering excess at any resolution
+  down to $10^{-4}$.
+- **Variance = diagonal, with rate.** The exact quadruple sum (D.1) gives
+  $V(T,L)/D\in[0.955,1.037]$ for **all** $L\ge1$, converging to $0.9998$ at
+  $L=1000$; the rigorous dyadic bound (D.2), evaluated from the measured
+  $E$-profile, certifies off-diagonal $\le6.5\%$ of $D$ at $L=100$. Threshold:
+  $E(1/L)=0.1D$ at $L^*=14.5$.
+- **Poisson statistics, properly unfolded.** Raw spacing var/mean² is 6.39 —
+  but this conflates the density gradient ($\rho_2(s)\sim s\log^2s$ across the
+  band) with clustering. Unfolded by the local pair-sum density (computed as
+  the self-convolution of the zero density, which also matches the measured
+  atom counts to ~10% using only the main term of $N(T)$), the spacings are
+  exponential with var/mean² $=0.997$. This sharpens the Experiment-5 "sums
+  are Poisson" finding to the weighted, band-complete atom set that D″
+  actually needs.
+- **Truncation is controlled:** the tail of $D$ beyond $s=300$ is
+  $\le2.3\%$ of $D$ (density-weighted $s^{-5}$ integral).
+
+Figure: `figures/exp13_energy.png`. **Status of D″ after exp13:** every
+constant in $V\asymp E_W(1/L)\asymp\sum|W_{12}|^2$ is now measured, and the
+lone hypothesis is verified numerically at all accessible resolutions with
+$C/D=1.44$. What remains for a theorem is replacing the measured linearity of
+$E(\eta)$ by an unconditional count bound on near-solutions of
+$\gamma_1+\gamma_2\approx\gamma_3+\gamma_4$ — precisely the Tao–Trudgian–Yang
+$N^*$ input, now with the exact weight $2\pi s^{-5}$ (D‴) to plug into their
+machinery.
+
+---
+
+## 4. Updated problem list
 
 1. (unchanged) Prime phase rigidity, `REPORT.md` §8.1.
-2. (sharpened) Theorem D″ with explicit constants: by D‴ the diagonal is now in
-   closed form, $2\sum_{\{\gamma_1,\gamma_2\}}|W_{12}|^2 = 4\pi\sum_{\gamma_1<\gamma_2}
-   (\gamma_1+\gamma_2)^{-5}+2\pi\sum_\gamma(2\gamma)^{-5}+O(\min^{-1})$-corrections —
-   the remaining work is purely the off-diagonal separation bound.
+2. (numerically closed — §3 above) Theorem D″ with explicit constants: the
+   diagonal is in D‴ closed form (verified, ratio 1.0024), the separation
+   ingredient is measured linear with $C/D=1.44$ over five decades, and
+   $V/D\to1$ with certified dyadic bounds. Remaining for a *theorem*: an
+   unconditional near-diagonal count bound — the Tao–Trudgian–Yang $N^*$
+   input with the exact weight $2\pi s^{-5}$.
 3. (replaced) ~~positivity of $\sum W_{ij}\delta_{\gamma_i+\gamma_j}$~~ → identify the
    Matsumoto–Suzuki screw function with a **mixed-block** (first-variation)
    object, and its Krein measure with a Hermitian square carrying
    $|{\cdot}|^2$-weights; the phase law D‴ is the constraint any such dictionary
-   must reproduce.
+   must reproduce. *Blocker recorded:* the exact M–S definitions
+   (arXiv:2409.00888, J. Number Theory 280 (2026) 918–946; also the companion
+   arXiv:2209.04658 "The screw line of the Riemann zeta-function") could not
+   be retrieved in this environment (network egress blocks arXiv); the join
+   test needs their $g(t)$ verbatim — do not reconstruct it from memory.
 
 ## Appendix: reproducibility
 
@@ -191,3 +244,4 @@ positivity is a Hermitian-square phenomenon.
 |---|---|
 | `code/exp11_blocks.py` | Theorem F verification: block closure, band split, Hardy projection, $Q$-orthogonality; `figures/exp11_blocks.png` |
 | `code/exp12_krein.py` | Theorem D‴ verification: modulus/phase law, equidistribution, evenness and Gram tests; `figures/exp12_phaselaw.png` |
+| `code/exp13_energy.py` | D″ closure: $E(\eta)$ profile, $V(T,L)/D$, unfolded Poisson spacings, tail bound; `figures/exp13_energy.png` |

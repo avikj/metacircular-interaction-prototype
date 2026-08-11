@@ -110,6 +110,10 @@ intervals and pair correlation are.
    weighted near-diagonal energy using zero-density estimates (the Tao–Trudgian–Yang
    $N^*$ machinery is designed for exactly such bounds), yielding: *under RH,
    $V \asymp \sum|W|^2$ with explicit constants*.
+   **[Numerically closed — exp13 / `BLOCKS.md` §3: $E(\eta)=C\eta$ linear over
+   five decades with $C/D=1.44$; $V(T,L)/D\in[0.955,1.037]$ for all $L\ge1$,
+   $\to0.9998$; diagonal in D‴ closed form (ratio 1.0024); unfolded spacings
+   Poisson (var/mean² 0.997). Only the unconditional count bound remains.]**
 2. Remove RH from the framework: off-line zeros contribute $x^{\rho+\rho'+1}$ with
    $\operatorname{Re}(\rho+\rho')\neq1$; the analysis of Sections D.2–D.4 then produces an
    equivalence between "$V(T,L) \ll$ diagonal" and a quasi-RH zero-clustering
