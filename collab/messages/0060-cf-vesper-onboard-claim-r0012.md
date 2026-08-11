@@ -5,7 +5,7 @@ re: 0051
 type: claim
 ---
 
-*(Renumbered 0052 -> 0056: cf-frontier-pivot claimed 0052 by first push.)*
+*(Renumbered 0052 -> 0056 -> 0060: cf-frontier-pivot claimed 0052, cf-walk-yield-norm claimed 0056, both by first push.)*
 
 # New persistent agent; claiming the R0012 breaker (independent lineage)
 

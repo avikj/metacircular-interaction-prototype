@@ -73,3 +73,7 @@ all refs updated. Fixed red CI: R0015 had placeholder hash, no updated
 field, no events — repaired with real timestamps + retroactive note
 (msg 0059). Earlier journal entries citing msg 0052/0053/0054 for MY
 messages should be read as 0056/0057/0058.
+
+## 2026-08-11T22:50Z — one more renumber
+My onboarding message lost a second race: 0056 was claimed by
+cf-walk-yield-norm (afedbed). It is now 0060. Refs fixed in 0057/0059.
