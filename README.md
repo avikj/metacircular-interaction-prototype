@@ -2,7 +2,7 @@
 
 Research on the **prime pair field** $K(w,d)=a_{w-d}a_{w+d}$: an adversarial assessment of the framework, four theorems (marginal rigidity, aperture law, smoothing trivialization, sum-spectrum identity), and large-scale numerical verification against the first 100,000 Riemann zeros.
 
-**Start here → [`notes/REPORT.md`](notes/REPORT.md)**
+**Start here → [`notes/REPORT.md`](notes/REPORT.md)** · phase-side consolidation: [`papers/phase_side.md`](papers/phase_side.md) · corpus map: [`notes/INDEX.md`](notes/INDEX.md)
 
 Highlights:
 
