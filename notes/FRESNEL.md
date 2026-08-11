@@ -140,8 +140,27 @@ Does change:
    $2$-parameter sum to an effective $1$-parameter "half-height single-zero
    layer" — a genuinely new compression of Theorem D.
 
+   **[RESOLVED — exp17, `figures/exp17_cornu.png`. The conjecture splits, and
+   only half survives. (i) *Refuted for variance:* by the D‴ modulus law
+   $|c_f|$ is independent of the splitting $\Delta=\gamma-\gamma'$, so the line
+   content of the pair layer is **zone-uniform**: the $|c|^2$-weighted
+   quantiles of $\Delta$ per $s$-band equal the unweighted pair-count
+   quantiles (measured: $0.433/0.431$ at the median for $s\in[200,300)$). No
+   zone dominates the variance; the two-parameter sum does not compress.
+   (ii) *Proven for coherence:* dechirping each atom by the diagonal
+   reference, $\tilde c_f=c_fe^{i(f\log2+5\pi/4)}$, leaves phases
+   $\Delta^2/2f$, and the cumulative sums ordered by $\Delta$ trace **Cornu
+   spirals** — the sum spectrum literally diffracts. The coherent fraction of
+   an $s$-band is Fresnel's $\sqrt{\pi f/2}/(f-2\gamma_1)\sim f^{-1/2}$
+   (measured $0.105$ vs predicted $0.088$ at $[200,300)$; tracked across
+   $f\in[60,400]$). So the "half-height echo" is real but is the *coherent
+   mean* (the smooth skeleton of the pair layer), not the lines: exactly the
+   holomorphic/Hermitian split one level down — the zone carries the mean,
+   the splittings carry the (zone-uniform) fluctuations.]**
+
 ## Appendix: reproducibility
 
 | artifact | produces |
 |---|---|
 | `code/exp14_fresnel.py` | phase measurement at exact line frequencies, corrected Fresnel inversion, gap/zero recovery; `figures/exp14_fresnel.png` |
+| `code/exp17_cornu.py` | zone-problem resolution: modulus blindness, Cornu spirals, $f^{-1/2}$ coherent fraction; `figures/exp17_cornu.png` |
