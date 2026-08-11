@@ -89,6 +89,7 @@ NOVELTY = {
 }
 ACTIVE = {"seed", "formalizing", "proving", "breaking"}
 LEGAL_TRANSITIONS = {
+    "unregistered": {"seed"},
     "seed": {"formalizing", "refuted", "known", "blocked", "inconclusive"},
     "formalizing": {"proving", "breaking", "refuted", "known", "blocked", "inconclusive"},
     "proving": {"breaking", "refuted", "known", "blocked", "inconclusive", "quarantined"},
@@ -236,8 +237,8 @@ def validate(packet: Packet) -> list[str]:
         for index, event in enumerate(events):
             event_from = str(event.get("from", ""))
             event_to = str(event.get("to", ""))
-            if index == 0 and event_from != "seed":
-                errors.append("first event must begin at seed")
+            if index == 0 and event_from not in {"unregistered", "seed"}:
+                errors.append("first event must begin at unregistered or seed")
             for key in ("claim_id", "from", "to", "actor", "role", "lineage", "at", "statement_hash", "reason", "artifacts"):
                 if key not in event:
                     errors.append(f"event missing {key}: {event.get('_path')}")
