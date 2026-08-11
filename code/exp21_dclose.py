@@ -300,11 +300,23 @@ def main():
     def Eo_mid_ub(dd):
         return max(0.0, Eo_U_ub(dd) - Eo_core(dd))
 
-    print(f"D(class, s<=1e4) = {D_U:.6e};  E^o_U(delta*)/D <= "
-          f"{Eo_U_ub(DSTAR)/D_U:.4f}   [exp16 extrapolated ~0.30]")
-    for dd in (0.01, DSTAR, 0.1):
-        print(f"  linear law check: E^o_U({dd:.4f})/(D*delta) <= "
-              f"{Eo_U_ub(dd)/D_U/dd:.2f}   [ENERGY.md: ~2.8]")
+    # exact (unbinned) reference evaluations over all of U
+    cwU = np.concatenate([[0.0], np.cumsum(U)])
+
+    def Eo_U_exact(dd):
+        loU = np.searchsorted(SF, SF - dd, side="left")
+        hiU = np.searchsorted(SF, SF + dd, side="right")
+        return float((U * (cwU[hiU] - cwU[loU])).sum()) - D_U
+
+    e_star = Eo_U_exact(DSTAR)
+    print(f"D(class, s<=1e4) = {D_U:.6e};  E^o_U(delta*)/D = "
+          f"{e_star/D_U:.4f} exact, <= {Eo_U_ub(DSTAR)/D_U:.4f} binned "
+          f"  [exp16 core 0.2105, extrapolated ~0.30]")
+    for dd in (0.01, DSTAR):
+        print(f"  linear law: E^o_U({dd:.4f})/(D*delta) = "
+              f"{Eo_U_exact(dd)/D_U/dd:.2f} exact   [core-only, ENERGY.md: "
+              f"~2.8]")
+    del cwU
 
     # --- coarse-bin counting grids (exact in table, RvM+Trudgian beyond) --
     kfull = int(74880 // COARSE)               # bins fully inside the table
@@ -369,6 +381,11 @@ def main():
 
     cap_far = T_far * C0ub
     cap_out = T_out * C0ub
+    # for the (++) x (--) cross bound: sinc^2(L(sp+sq)/2) <= 4/(L(sp+sq))^2
+    # <= 1/(L^2 sp sq), so  sum <= (2/L^2) (sum_p w_p/s_p)^2  (2 = both orders)
+    Winv = float((U / SF).sum()) + float(
+        (pcb[kmid:] * Phi(mgrid[kmid:]) / np.maximum(mgrid[kmid:], 1.0)).sum()
+    ) + T_AN / MGRID
 
     def E_far(dd):
         """Anchored bound: pairs (1,2) with s12 > 1e4 - dd, partner pair in
@@ -415,13 +432,13 @@ def main():
           f" {'B_out':>10} {'B_cross':>10} {'err(class)':>11} {'err_V/D_V':>10}")
     results = {}
     for name, L in LS.items():
-        K = int(np.ceil(np.log2(3e4 * L))) + 1
-        ds = (1.0 / L) * 2.0 ** np.arange(K + 1)
+        K = int(np.ceil(4 * np.log2(3e4 * L))) + 1     # levels at ratio 2^1/4
+        ds = (1.0 / L) * 2.0 ** (0.25 * np.arange(K + 1))
         bc = B_core_exact(L)
         bm = abel(Eo_mid_ub, Mtot_mid, L, ds)
         bf = abel(E_far, cap_far, L, ds)
         bo = abel(E_out, cap_out, L, ds)
-        bx = 2 * C0ub ** 2 * min(1.0, (2.0 / (L * 4 * G1)) ** 2)
+        bx = 2 * Winv ** 2 / L ** 2
         err_class = bc + bm + bf + bo
         err_V = 2 * err_class + bx + B_OPP + 2 * Dtail
         D_V = 2 * D_U

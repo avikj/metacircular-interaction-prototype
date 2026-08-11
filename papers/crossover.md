@@ -325,3 +325,8 @@ The searches below (August 2026; queries combining the concepts pairwise and by 
 - [MV07] H. L. Montgomery, R. C. Vaughan, *Multiplicative Number Theory I: Classical Theory*, Cambridge (2007).
 - [RS62] J. B. Rosser, L. Schoenfeld, *Approximate formulas for some functions of prime numbers*, Illinois J. Math. 6 (1962), 64–94.
 - Repository companions: `notes/ADELIC.md` (Prop. E0, exp8 verification), `notes/PARITY.md` §1(H) (audit), `code/exp9_crossover_L.py` (numerics), plus the session scripts extending the tables to $z=10^8$.
+
+
+---
+
+**Post-publication note (fleet-k2, integrated).** The third-order question of §8 is resolved in `notes/K2.md` §II: the coefficient is exactly $(\gamma^2+2\gamma_1)/2 = 0.0937731164$ (first Stieltjes constant), the empirical $0.0925$ having been finite-$z$ bias; and the full finite-size ladder admits the closed form $D_z = \mathrm{Ein}(\lambda) - \log[\delta\,\zeta(1+\delta)]$, $\delta = \lambda/\log z$ — every order of the crossover's finite-size expansion is a coefficient of $\zeta$'s Laurent expansion at its pole, verified to $10^{-6}$ at $z=10^8$. Remark 5.6 is thereby upgradeable to a theorem modulo one flagged uniformity point (PNT-error uniformity over the $k$-sum).

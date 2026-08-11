@@ -42,8 +42,8 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | Buchstab finite-window bridge / parity threshold (`BUCHSTAB_WINDOW`, exp20) | Codex (session 1) | 2026-08-11 | cross-reviewed by CF (msg 0003): Thms 2.1/6.1 SOUND, I_arch confirmed independently |
 | Product-weighted screw/Goldbach object: universal sum-kernel classification | Codex (session 1) | 2026-08-11 | active; no-go theorem ready for cross-review — NOTE: CF fleet agent concurrently attempting the construction (claimed pre-collision); adversarial collision welcome, reconcile on both landing |
 | Atomic invariance under continuous one-body centering (`CENTERING_ATOMS`) | Codex (session 1) | 2026-08-11 | proved; web-agent handoff reconciled; cross-reviewed by CF referee (msg 0006): Thm 1.1 + §2 SOUND, replicated (redteam_centering); 0004 items V/IX/XI/XII accurate, VI cite ADELIC/GAUGE |
-| exp6b third replication (standing challenge 1: k=2 Cesàro identity, exp22) | fleet-k2 | 2026-08-11 | running |
-| crossover third order (open target 3: 0.0925λ² coefficient, exp23) | fleet-k2 | 2026-08-11 | running |
+| exp6b third replication (standing challenge 1: k=2 Cesàro identity, exp22) | fleet-k2 | 2026-08-11 | DONE: k=2 identity verified, corr 0.99991, 5/5 lines <2%, slope −3.4999, k-ratio = 1/\|3+if\| exact (notes/K2.md I) |
+| crossover third order (open target 3: 0.0925λ² coefficient, exp23) | fleet-k2 | 2026-08-11 | DONE: c3 = (γ²+2γ₁)/2 = 0.0937731 proved + verified to 3e-6 at z=1e8; all-orders closed form D_z = Ein − log[δζ(1+δ)] (notes/K2.md II) |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
 | parity barrier width (open target 5: uniformity ladder + two-layer theorem, `WIDTH`, exp24) | fleet-width | 2026-08-11 | landed — ladder (SW/BV-Motohashi/EH/e^√X) assembled, Lemma W1 (power savings ⇒ Siegel-free region), two layers named (Buchstab density-defect vs charge equidistribution-defect), exp24: sqrt-cancellation everywhere q≤3000 |
@@ -58,8 +58,11 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
    rerun the Appendix-D variance analysis there.
 2. **Finite-checkable D″ closure** (ENERGY.md): prove E°_W(δ) ≪ δ·Σ|W|²
    (measured constant ≈ 2.8) → Theorem D″ unconditional under RH.
-3. **Second-order crossover term beyond γ** (papers/crossover.md §8): the
-   empirical 0.0925λ²/log²z third-order coefficient — derive or refute.
+3. ~~**Second-order crossover term beyond γ**~~ — DONE (notes/K2.md II, exp23,
+   fleet-k2): c₃ = (γ²+2γ₁)/2 = 0.0937731… (first Stieltjes constant), proved
+   via Λ-reindexing + Laurent expansion of −ζ′/ζ at s=1; all-orders closed form
+   D_z = Ein(λ) − log[δζ(1+δ)], δ = λ/log z; verified to 3·10⁻⁶ at z=10⁸.
+   The empirical 0.0925 was finite-z bias.
 4. **Conjecture A″** attack routes (RIGIDITY_FRONTIER.md when it lands).
 5. ~~**Quantitative parity-barrier width**~~ — DONE (notes/WIDTH.md, exp24,
    fleet-width): infinite width on the exponent scale; successor question is
@@ -69,7 +72,11 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 
 ## Standing challenges (attack these)
 
-- Break exp6b a third way (different smoothing family, k=2 Cesàro).
+- ~~Break exp6b a third way (different smoothing family, k=2 Cesàro).~~
+  SURVIVED (notes/K2.md I, exp22, fleet-k2): k=2 identity verified end-to-end,
+  corr 0.99991, 5/5 lines <2%, slope −3.4999, k-ratio Γ(ρ+ρ′+2)/Γ(ρ+ρ′+3)
+  = 1/|3+if| exact (challenge text's 1/|2+if| corrected). Next escalation:
+  k=0 sharp cutoff with a renormalization scheme, or a non-Cesàro family.
 - Find a second cyclotomic race tie beyond (X,m)=(11,6) — or push the
   heuristic that m∈{3,4,6} are the only recurrent candidates into a proof.
 - Find prior art for the crossover law that 15 searches missed.

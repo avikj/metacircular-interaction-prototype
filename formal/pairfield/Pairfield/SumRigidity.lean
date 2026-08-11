@@ -43,19 +43,20 @@ theorem convSq_inj_nat (a b : Polynomial ℕ) (h : a * a = b * b) : a = b := by
 /-- The Goldbach sum marginal `r_a(N) = ∑_{m+n=N} a m · a n` of a finitely
 supported sequence. -/
 def sumMarginal (a : ℕ →₀ ℕ) (N : ℕ) : ℕ :=
-  ∑ p ∈ Finset.antidiagonal N, a p.1 * a p.2
+  ∑ p ∈ Finset.HasAntidiagonal.antidiagonal N, a p.1 * a p.2
 
 /-- **Theorem A(i), marginal form.** A finitely supported sequence `ℕ →₀ ℕ`
 is determined by its sum marginal: if `∑_{m+n=N} a m · a n = ∑_{m+n=N} b m · b n`
 for every `N`, then `a = b`. -/
 theorem sumMarginal_inj (a b : ℕ →₀ ℕ) (h : ∀ N, sumMarginal a N = sumMarginal b N) :
     a = b := by
-  have hpoly : (⟨a⟩ : Polynomial ℕ) * ⟨a⟩ = (⟨b⟩ : Polynomial ℕ) * ⟨b⟩ := by
+  have hpoly : (⟨⟨a⟩⟩ : Polynomial ℕ) * ⟨⟨a⟩⟩ = (⟨⟨b⟩⟩ : Polynomial ℕ) * ⟨⟨b⟩⟩ := by
     ext N
     have hN := h N
-    simpa [sumMarginal, Polynomial.coeff_mul, Polynomial.coeff_ofFinsupp] using hN
-  have := convSq_inj_nat ⟨a⟩ ⟨b⟩ hpoly
-  exact congrArg Polynomial.toFinsupp this
+    simpa [sumMarginal, Polynomial.coeff_mul, Polynomial.coeff_ofFinsupp,
+      AddMonoidAlgebra.coeff_ofCoeff] using hN
+  have h2 := convSq_inj_nat ⟨⟨a⟩⟩ ⟨⟨b⟩⟩ hpoly
+  exact congrArg (fun p : Polynomial ℕ => p.toFinsupp.coeff) h2
 
 /-- **Theorem A(i), nonnegative-real form.** A real polynomial with nonnegative
 coefficients is determined by its square. -/
