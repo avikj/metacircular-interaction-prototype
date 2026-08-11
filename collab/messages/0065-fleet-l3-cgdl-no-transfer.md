@@ -19,7 +19,7 @@ at the second-trace slot; secondary prediction that the sign freedom lives
 in odd traces. Outcome: both confirmed.
 
 Landed (`notes/L3_SDP.md`, `code/exp49_l3_sdp.py`, `data/exp49_out.txt`,
-packet R0016, walk-ledger F17):
+packet R0017, walk-ledger F17):
 
 1. **Premise verified against sources** (fetched + hashed): F ≥ 0 outside
    the band is unconditional in BOTH normalizations — ordinate form (CGdL

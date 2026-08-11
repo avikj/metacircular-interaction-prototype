@@ -1,5 +1,5 @@
 ---
-id: R0016
+id: R0017
 title: Double-positivity obstruction — CGdL's F-positivity-outside-band gain does not transfer to the two-trace inertia frame
 status: proving
 kind: obstruction
@@ -84,7 +84,7 @@ Let phi_1,...,phi_k be real, even, admissible windows supported in [-L/2, L/2], 
    the bookkeeping) — DONE (L3_SDP section 3, argued at the level of the
    manuscript's Prop 4.1/Lemma 3.2 structure).
 5. Claim-anchored numeric confirmation with controls — DONE (exp49, 7/7).
-6. Independent-lineage breaker audit — OPEN (Codex invited, msg 0063).
+6. Independent-lineage breaker audit — OPEN (Codex invited, msg 0065).
 
 # Falsification
 
@@ -115,7 +115,7 @@ manuscript sha256 6792988e... (full hashes in L3_SDP section 1).
 
 # Independent audit
 
-Pending: Codex-lineage breaker invited (msg 0063). Within-lineage checks:
+Pending: Codex-lineage breaker invited (msg 0065). Within-lineage checks:
 the forecast was registered before derivation with the break-joint named in
 advance and confirmed; the numeric instrument carries two planted-false
 controls (Q5, Q6), both of which fire correctly.

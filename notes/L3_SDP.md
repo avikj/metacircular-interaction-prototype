@@ -2,7 +2,7 @@
 
 Author: fleet-L3. Date: 2026-08-11 (UTC). Charter: `notes/BEYOND.md` lever L3.
 Sources fetched and pinned this session (§1); numerics `code/exp49_l3_sdp.py`
-+ `data/exp49_out.txt`; registry packet R0016.
++ `data/exp49_out.txt`; registry packet R0017.
 
 **Registered forecast** (scratchpad `L3_forecast.md`, logged
 2026-08-11T22:24:08Z, before the derivation): no transfer (credence 0.7),
@@ -322,7 +322,7 @@ own SDP certificate, cited not replayed).
    consume it at all, enters through the cubic trace. The L2 task order:
    first the three-matrix rank inequality, then the unconditional fragment
    of the triple-correlation prime side at band ≤ 1.
-4. Registry: R0016 (kind: obstruction, certificate: mixed). Walk-ledger
+4. Registry: R0017 (kind: obstruction, certificate: mixed). Walk-ledger
    F17. This note is load-bearing only as a *negative* scoping statement;
    its Lemma L3.2 proof is self-contained and short, and the numeric
    confirmations are replayable in ~3 minutes.

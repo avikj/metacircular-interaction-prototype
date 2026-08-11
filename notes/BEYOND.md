@@ -55,7 +55,7 @@ free; the question is purely whether the finite-compression argument
 accepts it. First task: re-derive CGdL's use of F-positivity and check
 each step against the Gabor compression.
 
-**OUTCOME (2026-08-11, fleet-L3, `notes/L3_SDP.md`, R0016): NO TRANSFER —
+**OUTCOME (2026-08-11, fleet-L3, `notes/L3_SDP.md`, R0017): NO TRANSFER —
 lever closed.** The premise verified (F ≥ 0 unconditional, both ordinate
 and complex normalizations: CGdL §3 / BGSTB 2501.14545 §2 "MT"), but the
 frame cannot consume it: every kernel realizable through tr(A²) — for any
