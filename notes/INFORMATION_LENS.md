@@ -19,10 +19,24 @@ $c:X\to C$:
 - $c$ descends through $q$ exactly when $H(c(X)\mid q(X))=0$;
 - the augmented observation $(q,c)$ reconstructs $X$ exactly when
   $H(X\mid q(X),c(X))=0$;
+- zero-error reconstruction of a target $t$ needs a side alphabet of size at
+  least $\max_y|t(q^{-1}(y))|$, attained by labeling the distinct target
+  values within each fiber;
 - any worst-case side channel that labels every $q$-fiber needs at least
   $\lceil\log_2\max_y|q^{-1}(y)|\rceil$ bits;
 - the expected optimal side information is bounded below by
-  $H(X\mid q(X))$.
+  $H(X\mid q(X))$, with a conditional prefix code of expected length less
+  than $H(X\mid q(X))+1$.
+
+For this deterministic channel, the Shannon capacity is instead
+
+\[
+C(q)=\max_\mu I(X;q(X))=\log_2|\operatorname{im}q|,
+\]
+
+attained by choosing one representative of each output uniformly.  Capacity
+counts observable symbols.  It does **not** determine fiber geometry, whether
+a chosen target descends, or the time needed to invert the channel.
 
 These are the quantitative forms of the repository's quotient, missing
 charge, and reconstruction language.  They force every claim of “one missing
@@ -68,8 +82,8 @@ three legitimate research moves:
 1. **Upper bounds by reconstruction.**  An explicit inverse or side-information
    code is a rigorous program and therefore a rigorous complexity upper bound.
 2. **Lower bounds by counting.**  If many states share one observation, most
-   require many residual bits.  This does not identify which named state is
-   incompressible.
+   require roughly $\log_2|q^{-1}(y)|$ residual bits, up to machine constants.
+   This does not identify which named state is incompressible.
 3. **Proof compression.**  A representation is valuable when it shortens the
    certified dependency graph or the executable verifier, not merely the prose
    explaining it.
@@ -115,6 +129,18 @@ But the constraints are strict:
 - “entanglement,” “no-cloning,” and “quantum advantage” require actual tensor
   products, operational tasks, and admissible maps.
 
+Quantum capacity measures coherent quantum information transmissible through
+a specified CPTP channel.  It is not the Shannon capacity above, the number of
+classical fiber labels, or an arithmetic search-time lower bound.  Likewise,
+contextuality may be invoked only after giving a measurement scenario,
+joint-measurability contexts, an empirical probability model, and a proof that
+no global noncontextual section exists.  Failure of an ordinary set function
+to descend through a quotient is noncongruence, not contextuality.
+
+Entanglement requires a state, a declared tensor-product or subalgebra
+bipartition, and a nonseparability witness.  An arithmetic pair field
+$a\otimes a$ is explicitly separable.
+
 Most present reconstruction problems are set-level and classical.  QIT earns
 its place only when it contributes a quantitative discrimination/recovery
 theorem or a new convex certificate.
@@ -130,6 +156,7 @@ FIBERS/KERNEL:        what is provably identified
 SUFFICIENT STATISTIC: what descends through the channel
 MISSING INFORMATION: exact count, entropy, orbit, or complexity bound
 SIDE INFORMATION:     smallest proved reconstruction supplement
+CHANNEL CAPACITY:      classical, zero-error, quantum, or not applicable
 STABILITY:            how noise changes distinguishability
 ALGORITHMIC FORM:     explicit encoder/decoder or verifier
 QUANTUM UPGRADE:      genuine CPTP/tensor formulation, or “not applicable”
@@ -153,4 +180,3 @@ FALSIFIER:            cheapest pair of states violating the claim
 The aim is not to redescribe mathematics as information.  It is to turn every
 claim about “what is forgotten” into a coding theorem, a recovery theorem, or
 an impossibility certificate.
-
