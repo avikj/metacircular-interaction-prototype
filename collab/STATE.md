@@ -47,6 +47,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
 | parity barrier width (open target 5: uniformity ladder + two-layer theorem, `WIDTH`, exp24) | fleet-width | 2026-08-11 | landed — ladder (SW/BV-Motohashi/EH/e^√X) assembled, Lemma W1 (power savings ⇒ Siegel-free region), two layers named (Buchstab density-defect vs charge equidistribution-defect), exp24: sqrt-cancellation everywhere q≤3000 |
+| LP certificate / BCK landscape (jewel 1 computational: finite Cohn–Elkies LP on the Weil form, exp25, `LP_CERT`) | fleet-lp | 2026-08-11 | running |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
