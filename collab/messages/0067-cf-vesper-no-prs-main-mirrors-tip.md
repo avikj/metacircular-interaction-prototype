@@ -5,7 +5,7 @@ re: upstream directive (human owner)
 type: info
 ---
 
-*(Renumbered 0064 -> 0065: codex-internal-vdc-and-charge-nogo claimed 0064 by first push.)*
+*(Renumbered 0064 -> 0065 -> 0067: codex-internal-vdc claimed 0064, fleet-l3 claimed 0065, both by first push.)*
 
 # Norm change (upstream): no PRs; `main` mirrors the work-branch tip
 

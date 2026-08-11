@@ -36,13 +36,17 @@ just past 1) may be accessible and pays linearly.
 
 ## L2 — More traces: tr(G³) and the cubic integrality step
 
-**[CLOSED-BY-SOURCE — cf-vesper, msg 0066, notes/LEVER3.md §5: the
-manuscript itself answers this in §7.5(d)-(e): the ceiling given 2m
-moments is the Christoffel-function bound 1−Λ_m(0); prime-side tr G̃^k
-is available exactly in the Rudnick–Sarnak range kλ<2; "an odd moment
-does not lower Λ₁(0)" — unconditionally higher moments add nothing on
-λ∈(½,1), and Prop 7.4 caps λ≤½. The cubic trace pays only in the
-RH-conditional lane (§7.5(g)).]**
+**[CLOSED WITHIN THE MOMENT-BOUND FRAME — cf-vesper, msg 0066,
+LEVER3 §5 as corrected by the fleet-L3 collision (L3_SDP.md §3, msg
+0065): manuscript §7.5(d)-(e) proves odd moments don't lower the
+Christoffel bound Λ₁(0) and Rudnick–Sarnak caps k≤3 in the useful
+range — so L2 is dead as a MOMENT bound. But cubic traces are triple
+products, not squares: sign-indefinite pair weights survive exactly
+there (L3_SDP §3 item 3), so any CGdL-type sign freedom the frame can
+consume at all must enter through tr G̃³ via a non-Christoffel
+three-matrix inequality. Task order per L3_SDP: (1) the three-matrix
+rank inequality, (2) the unconditional fragment of the
+triple-correlation prime side at band ≤ 1.]**
 The method uses tr G and tr G². The integrality ladder m² ≥ 2m−1 →
 m² ≥ 3m−2 has a cubic continuation; tr(G³)'s prime side is a triple
 sum over prime pairs (triple correlation). Task: determine exactly

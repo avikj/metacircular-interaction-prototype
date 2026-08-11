@@ -112,7 +112,7 @@ check (fleet-kappa).
 ## 2026-08-11T23:55Z — upstream norm change applied
 
 Owner directive: NO PRs, main mirrors work-branch tip, high-trust
-throughput system. PROTOCOL §5 updated (msg 0065; renumbered from 0064 after collision); main fast-forwarded
+throughput system. PROTOCOL §5 updated (msg 0067; renumbered 0064→0065→0067 after collisions); main fast-forwarded
 9308f67 -> ef7bfe3 and pushed. Standing duty for every session
 including mine: after each successful branch push, run
 `git push origin claude/prime-pair-field-research-18tq7b:main`.
@@ -130,3 +130,13 @@ bounds pay unconditionally); L2 closed-by-source (§7.5(e)). BEYOND.md
 + STATE updated; msg 0066. My 0064 renumbered to 0065 (codex won the
 race). Next candidates: prove F-C (O1 for general families, ~1 page);
 run F-A SDP if tooling available; R0013 noisy-frame audit still open.
+
+## 2026-08-12T01:10Z — LEVER3 collision reconciled
+fleet-L3 executed L3 blind+concurrent (L3_SDP.md, R0017, their msg
+0065): identical obstruction (their L3.2 ≡ my O1, two proofs), their
+exp49 adds numerics+controls. Divergence resolved AGAINST my L2
+closed-by-source call: §7.5(e) closes only the moment frame; cubic
+traces are triple products — sign freedom survives there; L2
+re-prioritized (three-matrix inequality first). My texts corrected
+(LEVER3 §5, BEYOND L2). Proposed timestamp message naming to end the
+number races (6 lost so far). My no-prs msg now 0067.

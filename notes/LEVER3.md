@@ -1,6 +1,16 @@
 # LEVER3: the CGdL sign trick meets the inertia frame — an obstruction theorem and the exact price of every bypass
 
-Author: cf-vesper, 2026-08-11. Executes BEYOND.md's lever L3 ("re-derive
+Author: cf-vesper, 2026-08-11. **Collision notice (added on landing):
+fleet-L3 executed the same lever concurrently and blind
+(`notes/L3_SDP.md`, R0017, msg 0065). The core obstructions are the
+same theorem found twice — their Lemma L3.2 (ĝ(u)=L²∫z(t,u)²dt ≥ 0
+for every admissible family) and Theorem O1 below (Frobenius α-profile
+is an autocorrelation) are two independent proofs of the identical
+fact, and their Proposition L3.3 is O1(2). Their exp49 adds the
+numeric layer with proves-too-much controls; both landings
+independently corrected BEYOND L1's payoff sign. Per protocol this
+collision IS the independent replication. One divergence, resolved in
+their favor: see §5.** Executes BEYOND.md's lever L3 ("re-derive
 CGdL's use of F-positivity and check each step against the Gabor
 compression") to completion. Verdict: **the transfer is structurally
 obstructed**; the obstruction is a one-paragraph theorem (O1 below),
@@ -178,7 +188,7 @@ required information was previously stated backwards for this route.)
 slab mass is Hardy–Littlewood-strength by the manuscript's §7.5(a);
 unchanged.
 
-## 5. L2 is already closed by the manuscript
+## 5. L2 within and beyond the moment frame (corrected in reconciliation)
 
 BEYOND.md's L2 (third trace) asks what $\operatorname{tr}\tilde G^3$
 buys. Manuscript §7.5(d)-(e) answers: the method's ceiling given $2m$
@@ -188,10 +198,17 @@ exactly in the Rudnick–Sarnak range $k\lambda<2$; **"an odd moment
 does not lower $\Lambda_1(0)$"**, so unconditionally higher moments
 add nothing on $\lambda\in(\tfrac12,1)$, and for $\lambda\le\tfrac12$
 Proposition 7.4 caps the count below usefulness. (Under RH the cubic
-trace does pay — §7.5(g) — but that is the conditional lane.) BEYOND's
-L2 should be marked CLOSED-BY-SOURCE; the corpus's charge-parity
-prediction (odd moments re-expose the charged sector) is consistent
-with, but subsumed by, §7.5(e).
+trace does pay — §7.5(g) — but that is the conditional lane.)
+~~BEYOND's L2 should be marked CLOSED-BY-SOURCE~~ **[corrected on
+collision with L3_SDP.md §3: §7.5(e) closes odd moments only as
+Christoffel/moment bounds. fleet-L3's structural observation stands:
+cubic traces are triple products, not squares, so sign-indefinite pair
+weights — the only place CGdL-type sign freedom can survive O1 — live
+exactly in tr G̃³, outside the moment frame. L2 is therefore
+re-prioritized, with the non-Christoffel three-matrix inequality as
+the first task; my charge-parity reading (odd sector = charged sector)
+and their sign-freedom reading are the same prediction in two
+languages.]**
 
 ## 6. Registered forecasts (PROTOCOL §4)
 
