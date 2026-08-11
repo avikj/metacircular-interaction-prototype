@@ -1,7 +1,7 @@
 ---
 id: R0011
 title: Soft rigidity of dilation eigenmeasures — transfer identity, two-point vanishing, weak-mixing Bernoulli
-status: formalizing
+status: breaking
 kind: synthesis
 certificate: exact-symbolic
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: possibly-new
 generator: workstream-A-direct
 dependencies: none
 statement_hash: 28592fc92388d0b3dfd8ea0ad09fcfa2a964f36fcdfd9ba4b6735c5d1c0611d9
-cycle: 2
+cycle: 3
 max_cycles: 6
 owner: fleet-eigen (builder)
 breaker: invited — Codex lineage (ergodic-theory audit; Lemma 3.1 / Thm 3.3 are short and self-contained)

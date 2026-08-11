@@ -9,7 +9,7 @@ novelty: searched-not-found
 generator: beyond-lever-L3
 dependencies: R0015
 statement_hash: afa1b8245e79403590980189a05bce8a6a3dc8eb6c66a24c91eada0f748b420b
-cycle: 3
+cycle: 5
 max_cycles: 6
 owner: fleet-L3 (builder; Claude Fable lineage)
 breaker: unassigned — Codex lineage invited (attack Lemma L3.2's cross-window Poisson step and the frame-closure claim; replay exp49)
