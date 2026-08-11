@@ -1,4 +1,10 @@
-# Index: this branch's corpus and its interfaces (three-collaborator state)
+# Index: the catchup branch's corpus and its interfaces (three-collaborator state)
+
+*Merged-tree note (integration branch, 2026-08-11): this document was the
+catchup branch's (`claude/repo-catchup-math-tgs5hx`) self-map, written before
+the three-branch merge. It is kept as a historical map; the live corpus map is
+`collab/STATE.md` and the exp-number authority is `notes/EXP_LEDGER.md`. Bare
+exp numbers in this file refer to the **cu** series.*
 
 Branch `claude/repo-catchup-math-tgs5hx`, sessions of 2026-08-11. Sibling
 branch: `claude/prime-pair-field-research-18tq7b` (rigidity certificate
@@ -12,7 +18,7 @@ latter builds directly on this branch's `BLOCKS.md`).
 | E2 | block spectral support: BC block smooth, **mixed = single-zero layer**, [♭♭] = pair layer; closure $2\times10^{-13}$ | `BLOCKS.md` §1 | exp11 | corrects `ADELIC.md` §3 |
 | D‴ | weight law, full form: $W=\sqrt{2\pi}s^{-5/2}e^{-i(sH(p)+5\pi/4)}$ — modulus knows only the sum, **phase = splitting entropy** | `BLOCKS.md` §2 | exp12 | refutes naive Krein positivity (measure maximally chirped) |
 | D″ | variance = weighted additive energy, closed with explicit constants: $E(\eta)=C\eta$, $C/D=1.44$; $V/D\to0.9998$; Parseval chain closes 4 ways | `BLOCKS.md` §3, `APPENDIX_D.md` | exp13 | only the unconditional near-diagonal count (TTY $N^*$) remains |
-| G | **Fresnel coupling**: $\arg c_f\supset(\gamma-\gamma')^2/2f$ — the difference spectrum lives in sum-line phases; gaps read off Goldbach data to 0.1% | `FRESNEL.md` | exp14 | fills the dictionary off-diagonal (Hermitian statistics stay blind) |
+| G | **Fresnel coupling**: $\arg c_f\supset(\gamma-\gamma')^2/2f$ — the difference spectrum lives in sum-line phases; given the line positions, gaps read off Goldbach phases to 0.1% (blind: ~10–30%, `CROSSREVIEW_WAVE2.md`) | `FRESNEL.md` | exp14 | fills the dictionary off-diagonal (Hermitian statistics stay blind) |
 | — | zone problem resolved: variance zone-uniform (modulus blindness); coherence = **Cornu spirals**, fraction $\sim f^{-1/2}$ | `FRESNEL.md` §4 | exp17 | corrects this branch's own §4 conjecture |
 | H | **Liouville–Goldbach trace formula**: $\lambda$-field = pure spectrum, all layers at $X^2$, weights $\zeta(2\rho)/\zeta'(\rho)$; corr 0.9999–1.0000 | `LIOUVILLE.md` | exp15 | protection/exposure duality with sibling `GAUGE.md` |
 | H′ | **Möbius = the pure pair field**: no pole ⟹ pair layer only; corr 0.9999/0.9999 | `FAMILY.md` §1 | exp16 | terminal object of the family |

@@ -113,6 +113,11 @@ field** — over a *new jewel string*, with *unit* weights (pure D‴ structure)
 $$G_1^{\chi_3}(X)=\sum_{\rho,\rho'\in Z(L(\cdot,\chi_3))}
 \frac{\Gamma(\rho)\Gamma(\rho')}{\Gamma(\rho+\rho'+2)}X^{\rho+\rho'+1}+\text{smooth}.$$
 
+(Hypotheses, per `CROSSREVIEW_WAVE2.md` §2.3: the displayed identity assumes
+**GRH and simple zeros for $L(s,\chi_3)$** — the analogue of the RH + simple
+zeros standing assumption, stated here because it is otherwise silent in
+`exp20_dirichlet.py`.)
+
 Verified fully self-contained (exp20): the L-zeros are computed from scratch
 (mpmath/Hurwitz; first ordinates $8.0397, 11.2492, 15.7046,\dots$), the
 arithmetic side from the sieve. Results: $X^3$ absent ($-0.000000$ vs $1/6$);

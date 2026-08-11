@@ -2,8 +2,8 @@
 
 Companion to `REPORT.md`, `ADELIC.md`, `APPENDIX_D.md`. This document executes the
 two items flagged as "next" in `ADELIC.md` §3 and `APPENDIX_D.md` §D.6.3: the
-numerical closure of the two-body adelic block decomposition (exp11), and the
-Krein positivity test of the sum-spectrum measure (exp12). The first *confirms*
+numerical closure of the two-body adelic block decomposition (exp11_blocks), and the
+Krein positivity test of the sum-spectrum measure (exp12_krein). The first *confirms*
 the decomposition and *corrects* one attribution in `ADELIC.md` §3. The second
 *refutes* the naive positivity guess of Problem 3 — and replaces it with an exact
 asymptotic law for the pair weights (modulus **and** phase) that any correct
@@ -117,7 +117,7 @@ Consequences for the program:
 
 ---
 
-## 1. Theorem E2: the block spectral-support theorem (exp11)
+## 1. Theorem E2: the block spectral-support theorem (exp11_blocks)
 
 Recall the canonical BC conditional expectation at profinite resolution $Q$
 (`ADELIC.md` §3): $\Lambda^\sharp_Q=\sum_{q\le Q}\frac{\mu(q)}{\varphi(q)}c_q$,
@@ -146,7 +146,7 @@ hence live in the **mixed** block. The mixed blocks vanish in Besicovitch mean
 entire $X^{5/2}$ layer, which dominates the $X^2$ pair layer. $[\flat\flat]$ is
 purely the pair layer plus $O(X^{3/2})$ cross-constant terms.
 
-**Verification (exp11; $\Lambda$ to $2\cdot10^6$, $Q=30$, 30,000 zeros in the
+**Verification (exp11_blocks; $\Lambda$ to $2\cdot10^6$, $Q=30$, 30,000 zeros in the
 single-zero model, 1200 in the pair model).**
 
 - **Closure (sanity check only, per `CROSSREVIEW_BLOCKS.md`):**
@@ -195,7 +195,7 @@ variation — should be sought in the **mixed** block, not the zero block.
 
 ---
 
-## 2. Theorem D‴: the exact weight law — modulus *and phase* (exp12)
+## 2. Theorem D‴: the exact weight law — modulus *and phase* (exp12_krein)
 
 `APPENDIX_D.md` §D.6.3 proposed testing "positivity of the measure
 $\sum_{i,j}W_{ij}\delta_{\gamma_i+\gamma_j}$" as the numerical face of the
@@ -231,7 +231,7 @@ Two structural facts, both new relative to Theorem D′:
    $$2\sqrt{2\pi}\,s^{-5/2}\cos\!\bigl(s\log X - sH(p)-\tfrac{5\pi}{4}\bigr)\cdot X^2 ,$$
    a line at frequency $s$ with an entropy phase delay.
 
-**Verification (exp12; first 600 zeros, all $600^2$ same-sign pairs).**
+**Verification (exp12_krein; first 600 zeros, all $600^2$ same-sign pairs).**
 
 - modulus ratio $|W|/\bigl(\sqrt{2\pi}s^{-5/2}\bigr)$: mean $0.999995$, max
   deviation $0.31\%$;
@@ -241,14 +241,14 @@ Two structural facts, both new relative to Theorem D′:
   [Audit note: the *bulk* regression of $|$dev$|$ vs $\min$ gives exponent
   $-0.41$, not $-1$ — the typical deviation mixes $1/\min$ and $1/s$ terms;
   the envelope is the correct statistic for the $O(1/\min)$ *upper bound*
-  claimed by D‴, and it passes. Both numbers are in exp12's output.]
+  claimed by D‴, and it passes. Both numbers are in exp12_krein's output.]
 
 Figure: `figures/exp12_phaselaw.png` (diagonal chirp $-f\log2-\tfrac{5\pi}{4}$;
 error scaling; atom-phase histogram).
 
 ### 2.1 The Krein test: the amplitude measure is *maximally non-positive*
 
-Consequences of the phase law, all verified (exp12):
+Consequences of the phase law, all verified (exp12_krein):
 
 - **Atom phases equidistribute** on the circle: over the 180,300 atoms from 600
   zeros, the fraction with $\operatorname{Re}c_f>0$ is $0.499$; Weyl sums
@@ -286,7 +286,7 @@ positivity is a Hermitian-square phenomenon.
 
 ---
 
-## 3. Numerical closure of Theorem D″ — explicit constants (exp13)
+## 3. Numerical closure of Theorem D″ — explicit constants (exp13_energy)
 
 `APPENDIX_D.md` proved $V(T,L)\asymp$ diagonal modulo one unproved ingredient:
 near-diagonal separation of the sum spectrum (the weighted additive-energy
@@ -328,7 +328,7 @@ explicit constants:
 - **Truncation is controlled:** the tail of $D$ beyond $s=300$ is
   $\le2.3\%$ of $D$ (density-weighted $s^{-5}$ integral).
 
-Figure: `figures/exp13_energy.png`. **Status of D″ after exp13:** every
+Figure: `figures/exp13_energy.png`. **Status of D″ after exp13_energy:** every
 constant in $V\asymp E_W(1/L)\asymp\sum|W_{12}|^2$ is now measured, and the
 lone hypothesis is verified numerically at all accessible resolutions with
 $C/D=1.44$. What remains for a theorem is replacing the measured linearity of
@@ -368,7 +368,7 @@ machinery.
 
 ---
 
-## 5. Theorem J: the screw join — corrected to a band-passed identification (exp23; audit `CROSSREVIEW_EXP22_25.md`)
+## 5. Theorem J: the screw join — corrected to a band-passed identification (exp23_screwjoin; audit `CROSSREVIEW_EXP22_25.md`)
 
 The sibling branch's `SCREW.md` extracted Matsumoto–Suzuki verbatim: Krein
 masses $1/(\gamma^2+\tfrac14)$ on the single zeros, attached to
@@ -409,7 +409,7 @@ corrected exact statement needs a canonical ($Q\to\infty$ or $Q$-covariant)
 smooth subtraction; this is now the open item of the join (see
 `CROSSREVIEW_THMJ.md` when filed).
 
-### 5.1 The scheme runs: the anomaly flow of the block constants (exp27)
+### 5.1 The scheme runs: the anomaly flow of the block constants (exp27_running)
 
 The audit's "Q-dependent artifact" is a *structure*, measured over
 $Q\in\{5,\dots,120\}$:
@@ -441,7 +441,7 @@ positivity, which involves the smooth part, is a statement about the
 *invariant* combination, not about any block alone. This finalizes the
 corrected form of Theorem J.
 
-### 5.2 The k=0 challenge: smoothing is what makes the constants constants (exp28)
+### 5.2 The k=0 challenge: smoothing is what makes the constants constants (exp28_k0)
 
 Repeating the scheme analysis on the **sharp-cutoff** field
 $G_0(X)=\sum_{m+n\le X}\Lambda(m)\Lambda(n)$ (single-zero layer

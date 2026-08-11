@@ -205,6 +205,6 @@ concrete targets, in increasing ambition:
   $\zeta(2s)/\zeta(s)$, and the Liouville pair field obeys an exact trace
   formula (Theorem H) — main term $\pi X^2/8\zeta(1/2)^2$, single- and
   pair-zero lines with weights $\zeta(2\rho)/\zeta'(\rho)$, all at scale $X^2$,
-  verified at corr 0.9999–1.0000 (exp15). The parity barrier is a property of
+  verified at corr 0.9999–1.0000 (exp15_liouville). The parity barrier is a property of
   the place, not the function; Chowla is the Hermitian side of this same
   field.]**

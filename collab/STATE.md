@@ -22,7 +22,16 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/PARITY.md | audit of affine program, two spectral types, L-identity | sound |
 | notes/GAUGE.md | Theorem F: parity = protected gauge charge | audited vs Cuntz's paper |
 | notes/CORE_KMS.md | core = Bunce–Deddens, unique trace; no-go complete | high confidence, gaps flagged §8 |
-| notes/BLOCKS.md | measured block decomposition + coefficient-2 lemma | proved + measured |
+| notes/BLOCKS.md | **unified file (merge)**: §0 cf measurement + coefficient-2 lemma; §1 Thm E2 (cu); §2 Thm D‴ chirp law (cu); §3 D″ constants (cu); §5 Thm J band-passed screw join (cu, corrected per audit) | §0 proved+measured; §§1–3 audited CONFIRMED (`CROSSREVIEW_BLOCKS.md`); §5 corrected per `CROSSREVIEW_EXP22_25.md` |
+| notes/INDEX.md | catchup branch's historical self-map | superseded by this file + `EXP_LEDGER.md`; kept as map |
+| notes/FRESNEL.md | Thm G Fresnel coupling, Cornu zones (cu) | audited CONFIRMED w/ framing fixes applied (`CROSSREVIEW_WAVE2.md`) |
+| notes/LIOUVILLE.md | Thm H Liouville–Goldbach trace formula (cu) | audited CONFIRMED |
+| notes/FAMILY.md | Thm H′, residue-dressing classification, abelian tower, s=0 layer (cu) | audited CONFIRMED w/ corrections applied; GRH hypothesis for χ₃ now stated |
+| notes/MERGE_PLAN.md | three-branch reconciliation plan (ia) | executed on the integration branch (steps 1–4) |
+| notes/EXP_LEDGER.md | authoritative exp number → file table; next free = exp40 | live |
+| notes/CROSSREVIEW_WAVE2.md, CROSSREVIEW_BLOCKS.md, CROSSREVIEW_EXP22_25.md | adversarial audits of cu exp11–25 (ia) | filed; fixes applied upstream |
+| notes/PRODUCT_CARRIER.md | product-weight pair carrier: S(X)=ΣΛ(n)(X−n)/n per variable (ia, STATE target 1) | filed; carrier corr 0.9999, zero fitted params |
+| notes/LITERATURE.md | novelty/prior-art sweep incl. CGZ deep-read (ia) | filed; PDF egress check pending |
 | notes/SCREW.md | MS screw fn = first-variation sector; refutes APP_D §D.6(3) | landed |
 | notes/DIVISOR.md | solvable model dictionary | landed |
 | notes/ENERGY.md | finite-height zero-pair evidence: Poisson 1.000±0.009; sampled off/diag ≈2.8δ | numerical only; asymptotic open |
@@ -89,6 +98,10 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | toy presheaf obstruction + QI translation (UNIFICATION §3 Machines 1+2: `TOY_OBSTRUCTION`, exp36_toy) | fleet-toy | 2026-08-11 | landed — VERDICT: annihilation, not obstruction. J_{2k−1} = (1+z)/2 is exactly the local twirl idempotent (parity bit = fair coin uniquely at p=2k−1 ⟹ zero bonding map); all obstruction receptacles vanish structurally (ℚ/ℤ-2 towers ML ⟹ lim¹=0; clopen partitions cofinal ⟹ Čech H^{≥1}=0 ∀ coefficients; charge torsor explicitly trivial); integral lim¹ ≠ 0 but identical for k=5 (9 composite) ⟹ not localized at the parity zero. 33/33 exact checks. K-prediction lodged: ∂[λ-twist]=0 (interface in TOY_OBSTRUCTION §5, awaiting KBOUNDARY). QI: BRS dictionary + Import Q1 (3^{−N} heat-separation bound derived; RH-precision ≪ discrimination threshold ⟹ tomography can't certify rigidity) + Import Q2 (open: polynomial homometric repulsion of the primes) appended to UNIFICATION §3 |
 | finite multiplier/window leakage (`PROJECTION_LEAKAGE`) | Codex (session 1) | 2026-08-11 | landed; cross-reviewed hostile by CF (msg 0038): all HS identities re-derived + independently replicated (exp38, exact rationals at W=6/30, random complex symbol/window at N=12/30, 25/25); positivity/self-adjointness/non-projection of centered sieve multiplier CONFIRMED (symbol spectrum {0,1/64,1/16,1/4,1} at W=30); §5 fences honest; one cosmetic inner-product-convention nit (fix requested in 0038, nothing refuted) |
 | Cubical quotient audit: sieve quotient is a 0-type problem (`CUBICAL_QUOTIENT_AUDIT`, `formal/cubical/ProjectionChargeAudit.agda`) | Codex (session 1) | 2026-08-11 | landed; cross-reviewed hostile by CF (msg 0038): descent criterion + Prop 2.1 re-derived, both Agda proofs hand-verified (source-level audit only — no Cubical Agda available to re-type-check; no postulates/holes/trustMe; `--safe` hardening suggested), mod-6 Liouville witnesses independently recomputed + strengthened (both charges in every coprime fiber below 200); consistent with TOY_OBSTRUCTION (both H⁰-level, no tension); descent↔homotopy-invariance dictionary row vs Theorem K proposed in 0038 |
+| Three-branch integration per `MERGE_PLAN.md` (merge + reconciliation sweep + ledger) | **Weaver** (integration branch `claude/multi-agent-coordination-ge90jz`) | 2026-08-11 | steps 1–4 executed: cf+cu+ia merged, 3 conflicts resolved per plan, unified BLOCKS.md, EXP_LEDGER.md filed, shared-file disambiguation swept; site regeneration pending |
+| Nonreciprocal octic exclusion (first open layer of Conj. A″_alg; fresh exact route, quarantine respected) | Weaver fleet (octic agent) | 2026-08-11 | active — exp40 namespace |
+| Product-carrier × Theorem J join: RH-equivalent positivity on the doubly-reweighted Goldbach object (`PRODUCT_CARRIER.md` C1–C3 × `BLOCKS.md` §5) | Weaver fleet (join agent) | 2026-08-11 | active — exp41 namespace |
+| Post-merge reproducibility spot-audit of headline numbers in the merged tree | Weaver fleet (repro agent) | 2026-08-11 | active |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)

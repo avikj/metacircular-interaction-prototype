@@ -187,7 +187,7 @@ a **weighted additive energy of the zero ordinates** at resolution $1/\log T$. U
 
 The diagonal is populated by theorems; the off-diagonal is *empty* — and Theorem B explains why: the bridge is marginal-to-marginal, without mixing. Sum data of primes couples only to sum data of zeros; difference to difference. We regard this exact segregation — visible in the identity, in the weights, and in the numerics — as the framework's one true "intertwining theorem".
 
-**[Update (`FRESNEL.md`): the off-diagonal is empty for *Hermitian* statistics only. The phases of the sum-spectrum lines carry the difference spectrum as a Fresnel chirp $(\gamma-\gamma')^2/2f$ (Theorem G), and exp14 reads zero gaps off the Goldbach data to 0.1%. Theorem B's frequency-support statement stands; the mixing lives entirely in phase.]**
+**[Update (`FRESNEL.md`): the off-diagonal is empty for *Hermitian* statistics only. The phases of the sum-spectrum lines carry the difference spectrum as a Fresnel chirp $(\gamma-\gamma')^2/2f$ (Theorem G); *given the line positions*, `exp14_fresnel` recovers zero gaps from the phases of the Goldbach data to 0.1% (a fully blind pipeline reaches ~10–30%; see `CROSSREVIEW_WAVE2.md`). Theorem B's frequency-support statement stands; the mixing lives entirely in phase.]**
 
 ---
 
