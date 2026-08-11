@@ -297,6 +297,61 @@ proving that degree-$17$ prefix irreducible and closing the residual $8+9$
 possibility left by F7.  The first open layer is therefore specifically the
 **nonreciprocal** octic layer.
 
+### 2.8 Reciprocal parity resultants factor in every degree — PROVED
+
+The sextic and octic square factorizations are instances of one exact
+Joukowski identity.  Let a reciprocal monic factor of even degree split as
+
+$$
+g(x)=E(x^2)+xO(x^2),
+\qquad T=y+y^{-1}.
+$$
+
+If $\deg g=4k$, write
+
+$$
+E=y^kA(T),\qquad O=y^{k-1}(y+1)B(T).
+$$
+
+Then
+
+$$
+\boxed{
+\operatorname{Res}_y(E,O)
+=E(-1)\operatorname{Res}_T(A,B)^2.
+}
+$$
+
+If $\deg g=4k+2$, write
+
+$$
+E=y^k(y+1)A(T),\qquad O=y^kB(T).
+$$
+
+Then
+
+$$
+\boxed{
+\operatorname{Res}_y(E,O)
+=(-1)^kB(-2)\operatorname{Res}_T(A,B)^2.
+}
+$$
+
+These are root-pair identities and remain valid through degree drops by
+polynomial continuation.  For a divisor of an odd-support polynomial,
+the parity-unit theorem therefore forces the distinguished evaluation and
+the smaller Joukowski resultant separately to be units.  Equivalently,
+
+$$
+\boxed{g(i)\in\{\pm1,\pm i\}.}
+$$
+
+See `RECIPROCAL_RESULTANT.md` and
+`code/exp35_reciprocal_resultant.py`; the latter gives exact regression
+checks in degrees $4$ through $14$.  The identity explains rather than
+merely repeats the low-degree factorizations.  No novelty claim is attached
+pending comparison with the classical reciprocal-resultant literature.
+
 ---
 
 ## 3. Theorem F2: the cyclotomic layer, solved globally
