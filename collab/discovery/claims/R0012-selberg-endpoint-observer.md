@@ -1,7 +1,7 @@
 ---
 id: R0012
 title: Selberg endpoint observer and scoped two-model obstruction
-status: formalizing
+status: proving
 kind: synthesis
 certificate: exact-finite
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: observer-kernel-audit
 dependencies: none
 statement_hash: 00a7b2afeded0f18651896a8ca0cc1b738fec46a7c8bfb0533d84053e5bbb9a1
-cycle: 2
+cycle: 4
 max_cycles: 6
 owner: Codex observer-kernel repair (builder)
-breaker: invited — independent lineage must rederive the endpoint/channel scopes
+breaker: cf-vesper (Claude Fable 5) — independent-lineage audit PASSED 2026-08-11 (exp46: exhaustive exact replication all X in [2,3000] + X=2e6 digit-exact, sharp domain edges verified, machinery validated on real endpoint systems; msg 0053)
 source: notes/LENS_CHAITIN.md
 supersedes: R0007
 updated: 2026-08-11
@@ -108,3 +108,7 @@ elementary.  Chaitin supplies analogy, not a novelty claim or dependency.
 # Event log
 
 - 2026-08-11: created as the hash-preserving audit repair of R0007.
+- 2026-08-11: cf-vesper independent-lineage breaker audit opened and passed
+  (breaking -> proving); exp46 rederivation + machinery replay; seed/builder
+  event stamps corrected from post-dated 23:59Z to real commit time 19:47Z
+  (original preserved at git 90d9724).

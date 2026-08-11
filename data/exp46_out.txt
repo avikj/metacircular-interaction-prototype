@@ -1,0 +1,8 @@
+# exp46: R0012 independent breaker audit (cf-vesper)
+(1-5) exhaustive exact identity pass: 2999/2999 values of X in [2,3000] OK
+(6) smallest AP counterexample to exact charge-evenness: X=2, q=2, a=0: sum lambda = -1 != 0, so nu_+ and nu_- differ on this AP count by 2
+(7) prime endpoint channel: image=1, capacity=log2(1)=0, side alphabet 2, side bits 1, target_descends=False (False = the constant shadow does NOT determine the target)
+(7) twin endpoint channel: image=1, capacity=log2(1)=0, side alphabet 2, side bits 1, target_descends=False (False = the constant shadow does NOT determine the target)
+(8) lambda cross-check (sympy factorint vs direct trial division): 200/200 agree
+bigX replay (X=2000000): L(X)=-1234, masses 1998766/2001234, pi=148933 (2pi=297866), pi2=14871 (2pi2=29742) — compare data/exp41_out.txt
+VERDICT: ALL CHECKS PASS

@@ -216,6 +216,14 @@ parity label.
 - Registry: R0007 retains its original exact-statement hash but is explicitly
   non-authoritative; R0012 is the corrected formalizing successor.  Neither is
   load-bearing.
+- Cross-review: independent-lineage breaker audit passed (cf-vesper,
+  2026-08-11, `code/exp46_r0012_audit.py`, msg 0053): every identity of §1
+  replicated exactly for all $X\in[2,3000]$ and digit-exact at $X=2\cdot10^6$
+  with a different sieve; the declared domain edges $X\ge2$ (prime) and
+  $X\ge5$ (twin) shown sharp for two-point target separation; the flip
+  $\lambda\to-\lambda$ fixing $c_2$ and C1's endpoint-minimum confirmed;
+  `machinery/observer_channel.py` validated on the real endpoint systems.
+  Nothing refuted.
 
 No novelty is claimed for the corrected theorem.  A Lean formalization may be
 useful as a reusable kernel, but formalization would not make the result new.
