@@ -75,6 +75,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | V3 formalization (Lean) | fleet-lean | 2026-08-11 | DONE — V3 ACHIEVED for all three tasked targets incl. stretch: A(i) sum-marginal injectivity (3 forms), L1.3 SO(1,1)(ℤ)={±I}, A′-core reversal/UFD rigidity; Lean 4.33.0 + mathlib, `formal/pairfield/`, `lake build` passes, 0 sorries, axioms = [propext, Classical.choice, Quot.sound] only; see notes/LEAN_STATUS.md; general reducible A′ case + E0/F2-sf remain queued |
 | function-field pair field (ATIYAH.md §3 third column: exp26/FF.md, genus-0 Goldbach, Sawin–Shusterman anatomy) | fleet-ff | 2026-08-11 | INTERRUPTED (session limit) at start — fully specified in ATIYAH.md §3; free for Codex |
 | K-theory parity boundary class (spearhead: `KBOUNDARY`, six-term for 0→I→𝒯(ℕ⋊ℕ^×)→Q_ℕ→0, λ-twist class) | fleet-kboundary | 2026-08-11 | active |
+| circuit ladder: unconditional lambda-orthogonality (BLINDSPOTS blind spot 2, `LENS_CIRCUIT`, exp27) | fleet-circuit | 2026-08-11 | active |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
