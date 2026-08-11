@@ -447,6 +447,20 @@ def main():
               f" {bo:>10.3e} {bx:>10.3e} {err_class:>11.3e}"
               f" {err_V/D_V:>10.4f}")
 
+    # --- certified linear law: E^o_class(eta) <= eps0 + c_cert eta D ------
+    etas = np.geomspace(1e-4, 0.1, 41)
+    c_cert = max(Eo_U_ub(etas[j + 1]) / (etas[j] * D_U)
+                 for j in range(len(etas) - 1))
+    efar01, eout01 = E_far(0.1), E_out(0.1)
+    eps0 = Eo_U_ub(1e-4) + efar01 + eout01
+    print(f"\ncertified near-diagonal law (per class), 0 <= eta <= 0.1:")
+    print(f"  E^o_U(eta) <= {c_cert:.2f} * eta * D   (binned grid, ratio "
+          f"2^(1/8), slop included)")
+    print(f"  E^o_far(eta) <= E_far(0.1) = {efar01:.3e}, E^o_out(eta) <= "
+          f"E_out(0.1) = {eout01:.3e}")
+    print(f"  => E^o_class(eta) <= {c_cert:.2f} eta D + {efar01+eout01:.3e}"
+          f" (+ {Eo_U_ub(1e-4):.2e} for eta < 1e-4)")
+
     # --- the L -> infinity floor -----------------------------------------
     dres = RES_NANO / 1e9
     floor_class = Eo_res + E_far(dres) + E_out(dres)
@@ -467,6 +481,12 @@ def main():
         print(f"  X = {name}: V = D_V (1 + theta_X {err_V/DV:.3f}), "
               f"|theta| <= 1")
     print(f"  L -> inf: |V - D_V| <= {floor_V:.3e} = {floor_V/D_V:.4f} D_V")
+    b_lin = (results["1e6"][0] / D_V - floor_V / D_V) * LS["1e6"]
+    print(f"  representation err_V/D_V ~ {floor_V/D_V:.4f} + {b_lin:.1f}/L; "
+          f"check at other L: "
+          + ", ".join(f"{name}: {floor_V/D_V + b_lin/L:.3f} vs "
+                      f"{results[name][0]/D_V:.3f}"
+                      for name, L in list(LS.items())[1:]))
     print(f"  certified spacing floor delta0(300) = {d0_300:.4e}; "
           f"min gap at H=300 = {floors[300][0]}e-9")
     print(f"\ntotal {time.time()-t0:.0f}s")
