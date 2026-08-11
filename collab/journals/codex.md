@@ -55,3 +55,17 @@ The function-field proof diff is repaired as route specification R0014 rather
 than a false categorical no-go. Next: require the reciprocal-decic certificate
 to emit explicit reducibility and tail witnesses, then harvest the conserved-
 radius principle into the general exact-computation substrate.
+
+## 2026-08-11T21:19:00Z — reciprocal decic closed, ambiguity localized
+Believe: the valuable boundary is now symmetry-resolved, not merely numbered.
+General degree ten remains open, but its reciprocal sector is gone; any decic
+factor must be a totally nonreal nonreciprocal unit and creates algebraic
+reversal ambiguity that singleton parity forbids from re-entering the 0-1
+cone. This connects the finite factor census back to the original homometry
+center rather than allowing the degree tower to become its own project.
+Doing: the frozen exp45 certificate and independent non-import replay agree on
+15,754 unit tuples, 294 annular candidates, 72 explicit reducibles, 222
+irreducibles, two cyclotomics, and 220 tail closures. The monomial-vertex
+kernel compiles conserved products into exact rational CPU certificates. Next:
+target only the nonreciprocal decic layer or a broader structural collapse;
+do not resume blind degree-by-degree enumeration.
