@@ -121,8 +121,37 @@ tenth of a second, and is independently checkable in
 `code/exp30_quartic_certificate.py`.  The proof and certificate derivation
 are in `PARITY_RESULTANT.md`.
 
-Combining F1--F4, for every $X\ge13$ every irreducible factor of $F_X$ is
-non-cyclotomic and has degree at least $5$.
+### 2.3 The quintic layer is closed — MACHINE-VERIFIED EXACT THEOREM
+
+The degree-independent parity identity sharpens to
+
+$$
+\operatorname{Res}_x(g(x),g(-x))
+=2^{\deg g}\operatorname{Res}_y(E,O)^2
+$$
+
+for $g(x)=E(x^2)+xO(x^2)$.  Thus every factor has
+$\operatorname{Res}(E,O)=\pm1$.  In degree five this is an explicit
+four-variable Diophantine equation.  Root geometry reduces it to $1{,}591$
+integer tuples; exact Sturm and reducibility tests leave $18$.
+
+Every odd-degree factor owns the unique negative root $-t$ of $F_X$.
+Consequently divisibility becomes the scalar condition
+$\sum_{3\le p\le X}t^{p-2}=1$, whose left side is strictly increasing with
+the prime cutoff.  Exact rational root isolation and a geometric tail
+majorant eliminate $17$ candidates.  The sole survivor is $F_7$ itself.
+
+> **Theorem F5 (computer-assisted, exact).** $F_X$ has an irreducible
+> quintic factor iff $7\le X<11$.  On that interval
+> $F_X=x^5+x^3+x+1$, which is irreducible.
+
+The exact certificate is `code/exp31_quintic_certificate.py`; its smallest
+tail safety margin is $0.0023189\ldots>0$.  The proof is in
+`QUINTIC_OBSTRUCTION.md`, and an independent hostile audit accepted every
+enumeration, sign, resultant, and cutoff-coverage step.
+
+Combining F1--F5, for every $X\ge13$ every irreducible factor of $F_X$ is
+non-cyclotomic and has degree at least $6$.
 
 ---
 
@@ -242,10 +271,10 @@ argument reduces $m$ to $P$ or $2P$; one complete-residue-system theorem of
 Hajdu--Saradha then leaves only $m=2,6$.  See `CYCLOTOMIC_TRACE.md` for the
 full proof and exact citations.
 
-Combining Theorems F1--F4: **for every $X\ge13$, $F_X$ has no
-irreducible factor of degree $\le4$ and no cyclotomic factor of any degree.**
+Combining Theorems F1--F5: **for every $X\ge13$, $F_X$ has no
+irreducible factor of degree $\le5$ and no cyclotomic factor of any degree.**
 Every possible counterexample to Conjecture A″ must therefore come entirely
-from non-cyclotomic factors of degree at least $5$.
+from non-cyclotomic factors of degree at least $6$.
 
 ### 3.5 The extended scan — DATA
 
@@ -398,7 +427,7 @@ by irreducibility) has already passed the plausible window.
 
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
-- degree $\le4$ factors: **classified unconditionally** (Thms F1, F3, F4);
+- degree $\le5$ factors: **classified unconditionally** (Thms F1, F3--F5);
 - cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
 - a reciprocal non-cyclotomic factor must have even degree $\ge6$ (odd-degree reciprocals
   have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
@@ -413,12 +442,14 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 |---|---|
 | factors of degree 1, 2, 3 | **PROVED impossible** for $X\ge13$ (Thms F1, F3) |
 | irreducible factors of degree 4 | **PROVED impossible for every $X$ by an exact finite certificate** (Thm F4) |
+| irreducible factors of degree 5 | **PROVED: only $F_7$ itself; impossible for $X\ge11$** (Thm F5) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge5$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge6$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) attack the quintic layer, now the first open
+Open problems generated: (1) attack the sextic layer, now the first open
 factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
-current scaling).  Unlike the quartic case, odd degree loses the
-even/odd-resultant unit equation's direct self-pairing advantage, so a new
-structural input is likely needed.
+current scaling).  The general even--odd unit-resultant theorem still gives
+a finite Diophantine constraint in degree six, but the monotone unique-real-
+root certificate belongs only to the single odd-degree carrier, so a new
+even-degree exclusion mechanism is needed.

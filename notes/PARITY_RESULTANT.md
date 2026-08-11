@@ -39,6 +39,88 @@ does not. $\square$
 An even nonconstant polynomial can therefore never divide $P$: it would be
 a common divisor of $P(x)$ and $P(-x)$ and hence divide $2$.
 
+The divisibility has a uniform Bézout form in every degree.
+
+> **Theorem 1b (even--odd unit resultant).** Let $g$ be as in Theorem 1.
+> Then $g(0)=1$.  Write
+> $$
+> g(x)=E(x^2)+xO(x^2),\qquad E,O\in\mathbb Z[y].
+> $$
+> Then
+> $$
+> \boxed{
+> \operatorname{Res}_x(g(x),g(-x))
+> =2^d\operatorname{Res}_y(E,O)^2,
+> \qquad
+> \operatorname{Res}_y(E,O)=\pm1.
+> }
+> \tag{1.3}
+> $$
+
+*Proof.* Every real root of $P$ is negative.  The real roots of $g$ have
+the same parity as its degree, while its nonreal roots occur in conjugate
+pairs.  Its root product therefore has sign $(-1)^d$, so its
+constant term, which is $\pm1$, is $+1$.
+
+Suppose first that $d=2k$.  Then $E$ is monic of degree $k$ and $E(0)=1$.
+At a root $\alpha$ of $g$, $g(-\alpha)=2E(\alpha^2)$, whence
+
+$$
+\operatorname{Res}_x(g,g(-x))
+=2^d\operatorname{Res}_x(g,E(x^2)).
+$$
+
+If $\beta$ runs through the roots of $E$ and $s^2=\beta$, then
+
+$$g(s)g(-s)=E(\beta)^2-\beta O(\beta)^2=-\beta O(\beta)^2.$$
+
+Multiplying over $\beta$ gives
+$\operatorname{Res}_x(g,E(x^2))=\operatorname{Res}_y(E,O)^2$, because
+$E$ is monic with constant term $1$.
+
+If $d=2k+1$, then $O$ is monic of degree $k$.  At a root $\alpha$,
+$g(-\alpha)=-2\alpha O(\alpha^2)$, and
+$\prod_{g(\alpha)=0}\alpha=-1$.  Hence
+
+$$
+\operatorname{Res}_x(g,g(-x))
+=2^d\operatorname{Res}_x(g,O(x^2)).
+$$
+
+For $O(\beta)=0$, the paired product is now
+$g(s)g(-s)=E(\beta)^2$, so the last resultant is again
+$\operatorname{Res}_y(E,O)^2$.  Equation (1.3) follows in both parities.
+Theorem 1 says its left side divides $2^d$ and is nonzero; since the other
+factor is an integer square, $\operatorname{Res}_y(E,O)=\pm1$. $\square$
+
+Thus every factor has unimodularly coprime even and odd parts.  This is the
+degree-independent arithmetic content of the parity identity; the quartic
+equation below is its first nontrivial coefficient-level specialization.
+
+There is also a useful global consequence that does not require a
+coefficient search.
+
+> **Corollary 1c (unique odd carrier).** Every finite polynomial
+> $$
+> P(x)=1+\sum_{j\text{ odd}}\epsilon_jx^j,
+> \qquad \epsilon_j\in\{0,1\},
+> $$
+> of odd degree has exactly one odd-degree irreducible factor over
+> $\mathbb Q$, and that factor occurs with multiplicity one.
+
+*Proof.* The function $P(-t)=1-\sum_j\epsilon_jt^j$ is strictly decreasing
+for $t>0$, so $P$ has exactly one real root and it is simple.  Since
+$\deg P$ is odd, its factorization contains an odd-degree irreducible
+factor.  Every such factor has a real root.  Two distinct odd-degree factors
+would therefore supply two real roots of $P$; equivalently, if they shared
+the sole root they would share its minimal polynomial.  A repeated odd
+factor would make that root multiple.  Hence precisely one odd factor occurs,
+with multiplicity one. $\square$
+
+The cubic and quintic theorems therefore classify successive possible
+degrees of one distinguished algebraic object: the minimal polynomial of
+the unique negative root.  All other irreducible factors have even degree.
+
 ## 2. Exact quartic equation
 
 Let an irreducible quartic factor be
@@ -373,7 +455,8 @@ $$
 >0.
 $$
 
-Together with the linear, quadratic, and cubic classifications:
+Together with the linear, quadratic, cubic, and subsequent quintic
+classification in `QUINTIC_OBSTRUCTION.md`:
 
 > **Corollary 4.** For every $X\ge13$, every irreducible factor of $F_X$ is
-> non-cyclotomic and has degree at least $5$.
+> non-cyclotomic and has degree at least $6$.

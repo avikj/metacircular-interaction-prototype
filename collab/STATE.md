@@ -29,8 +29,9 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | notes/WEIL.md | explicit formula @1.8e-10; obstruction Prop W3 | landed |
 | notes/TERNARY.md | solved-case calibration, coefficients (3,3) | landed |
 | notes/REDTEAM.md | independent audit; exp6b replicated 0.99997 | landed, all corrections applied |
-| notes/RIGIDITY_FRONTIER.md | large-X factorizations; global cyclotomic and degree-$\le4$ exclusions | current through exact quartic closure |
-| notes/PARITY_RESULTANT.md | parity resultant and exact quartic certificate | proved; hostile audit passed |
+| notes/RIGIDITY_FRONTIER.md | large-X factorizations; global cyclotomic and degree-$\le5$ classifications | current through exact quintic closure |
+| notes/PARITY_RESULTANT.md | all-degree even--odd unit resultant; exact quartic certificate | proved; hostile audit passed |
+| notes/QUINTIC_OBSTRUCTION.md | exact quintic classification and unique odd carrier | proved; hostile audit passed |
 | papers/crossover.md | β-deformed HL scaling law, full draft | landed; novelty sustained after 15 searches |
 | notes/WIDTH.md | parity-barrier width: uniformity ladder, two failure layers, exp24 | landed |
 
@@ -50,7 +51,8 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | global cyclotomic classification (`CYCLOTOMIC_TRACE`) | Codex + squarefree/cyclotomic audit agents | 2026-08-11 | PROVED for all m,X: relative trace kills non-squarefree m; covering reduction + one Hajdu–Saradha complete-residue theorem leave only Φ₂∣F₃ and Φ₆∣F₁₁; hostile proof audit + exact 2m-cutoff scan passed; plausibly novel prime-prefix specialization, pending expert review |
 | global cubic obstruction (`CUBIC_OBSTRUCTION`) | Codex + cubic-frontier agent | 2026-08-11 | PROVED: every finite 0-1 polynomial with support {0,1,3} plus optional odd exponents ≥5 has a cubic factor iff it is x³+x+1; hence F_X has no cubic factor for X≥7 and every factor has degree ≥4 for X≥13 |
 | concise cyclotomic theorem paper (`papers/prime_prefix_cyclotomic.md`) | Codex | 2026-08-11 | complete self-contained draft: global classification, proof dependency disclosure, 2m-cutoff verification, and qualified novelty boundary |
-| quartic exclusion (`PARITY_RESULTANT`, exp30) | Codex + quartic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): any degree-d factor g obeys Res(g,g(-x))∣2^d; quartics reduce to 62 unit-equation triples, then 26 annulus survivors; 2 cyclotomics removed by F2 and all 24 noncyclotomics eliminated by exact q=7,11,13 resultant/tail certificates; hostile audit independently recomputed all resultants; first open factor degree is 5 |
+| quartic exclusion (`PARITY_RESULTANT`, exp30) | Codex + quartic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): any degree-d factor g obeys Res(g,g(-x))∣2^d; quartics reduce to 62 unit-equation triples, then 26 annulus survivors; 2 cyclotomics removed by F2 and all 24 noncyclotomics eliminated by exact q=7,11,13 resultant/tail certificates; hostile audit independently recomputed all resultants |
+| quintic classification (`QUINTIC_OBSTRUCTION`, exp31) | Codex + quintic agents | 2026-08-11 | PROVED (exact computer-assisted theorem): general identity Res(g,g(-x))=2^deg(g) Res(E,O)^2 forces a unit resultant; 1591 quintic tuples reduce to 18 root-compatible candidates and one exact survivor, F7=x⁵+x³+x+1; hostile audit passed; every odd-support Newman polynomial has one simple odd-degree carrier; first open factor degree is 6 |
 | sharp k=0 Goldbach renormalization / variance boundary (`SHARP_CUTOFF`) | Codex sharp-cutoff agent | 2026-08-11 | proved: canonical Riesz-distribution descent; W0 in ℓ² not ℓ¹; absolute near-diagonal energy infinite with η(log H)^5 lower bound; Cantarini edge kernel identified |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
@@ -72,7 +74,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
    via Λ-reindexing + Laurent expansion of −ζ′/ζ at s=1; all-orders closed form
    D_z = Ein(λ) − log[δζ(1+δ)], δ = λ/log z; verified to 3·10⁻⁶ at z=10⁸.
    The empirical 0.0925 was finite-z bias.
-4. **Conjecture A″** attack routes: F1--F4 close every factor degree through 4; quintic is the first open layer (RIGIDITY_FRONTIER.md).
+4. **Conjecture A″** attack routes: F1--F5 classify every factor degree through 5; sextic is the first open layer (RIGIDITY_FRONTIER.md).
 5. ~~**Quantitative parity-barrier width**~~ — DONE (notes/WIDTH.md, exp24,
    fleet-width): infinite width on the exponent scale; successor question is
    WIDTH.md §3 (any individual modulus q ~ X^{1/2+ε} bound — Siegel-hard).
