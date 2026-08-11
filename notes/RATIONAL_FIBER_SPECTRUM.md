@@ -308,6 +308,12 @@ $-\widehat\nu_{a,q}(t)$.
 
 ## 4. One fiber, two pair projections
 
+The exact constrained generating-function identities are recorded separately
+in `RATIONAL_PAIR_CHANNEL.md`.  In particular, coefficient extraction from
+$A_{a/q}(z)^2$ imposes the Goldbach sum, while angular Fourier extraction from
+$|A_{a/q}(re^{i\theta})|^2$ imposes the gap.  A scalar square without one of
+these extraction operations is only an unconstrained all-pairs carrier.
+
 The same one-body fiber has two inequivalent quadratic projections:
 
 \[
