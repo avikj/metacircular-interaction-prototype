@@ -9,14 +9,26 @@
 For a finite set $H\subset\mathbb Z$ of $k$ distinct shifts with $0\in H$, the Hardy–Littlewood singular series $\mathfrak S(H)$ is the correlation, under Haar measure on $\widehat{\mathbb Z}$, of the sifted (unit-coprimality) indicators at the shifted points, renormalized by the $k$-th power of the one-point density. Haar measure is the restriction to the diagonal $C(\widehat{\mathbb Z})$ of the KMS state of the Bost–Connes system at the critical inverse temperature $\beta=1$; replacing it by the KMS$_\beta$ measure $\mu_\beta$ (under which the $p$-adic valuations are independent geometric variables of ratio $p^{-\beta}$ and the unit parts are uniform) defines a one-parameter deformation $C_{\beta,z}(H)$ of the partial singular series, with local factors
 $$L_{\beta,p}(H)=\frac{p-\nu_p(H)}{p-1}\,\bigl(1-p^{-\beta}\bigr)^{1-k},\qquad
 C_{\beta,z}(H)=\prod_{p\le z}L_{\beta,p}(H).$$
-We prove three results about this deformation. **(1) Trichotomy:** as $z\to\infty$, $C_{\beta,z}(H)$ converges to a finite nonzero limit if and only if $\beta=1$, where the limit is $\mathfrak S(H)$; for $\beta<1$ it diverges to $+\infty$ (with $\log C_{\beta,z}\gg z^{1-\beta}/\log z$), for $\beta>1$ it decays to $0$ like $(\log z)^{1-k}$. Thus the existence of renormalized $k$-point densities selects the critical temperature — the pole of $\zeta$ at $s=1$ re-derived from correlation finiteness rather than from the partition function. **(2) Critical scaling law:** in the natural critical window $\beta_z=1+\lambda/\log z$,
+We prove three layers of results about this deformation. **(1) Trichotomy:** as $z\to\infty$, $C_{\beta,z}(H)$ converges to a finite nonzero limit if and only if $\beta=1$, where the limit is $\mathfrak S(H)$; for $\beta<1$ it diverges to $+\infty$ (with $\log C_{\beta,z}\gg z^{1-\beta}/\log z$), for $\beta>1$ it decays to $0$ like $(\log z)^{1-k}$. Thus the existence of renormalized $k$-point densities selects the critical temperature — the pole of $\zeta$ at $s=1$ re-derived from correlation finiteness rather than from the partition function. **(2) Critical scaling law:** in the natural critical window $\beta_z=1+\lambda/\log z$,
 $$\frac{C_{\beta_z,z}(H)}{C_{1,z}(H)}\;\longrightarrow\;
 \exp\bigl[-(k-1)\,\mathrm{Ein}(\lambda)\bigr],\qquad
 \mathrm{Ein}(\lambda)=\int_0^\lambda\frac{1-e^{-t}}{t}\,dt,$$
 for every fixed $\lambda\in\mathbb R$, uniformly on compacta; the limit is *universal in $H$* — indeed the ratio is exactly independent of $H$ at every finite $z$ — and equals $\bigl(e^{-\gamma}\widehat\rho(\lambda)\bigr)^{k-1}$, where $\widehat\rho$ is the Laplace transform of the Dickman function. **(3) Second-order term:** the approach to the scaling limit is
 $$\frac{C_{\beta_z,z}(H)}{C_{1,z}(H)}
 = e^{-(k-1)\mathrm{Ein}(\lambda)}\Bigl[1+\frac{(k-1)\gamma\lambda}{\log z}+O_\lambda\bigl((\log z)^{-2}\bigr)\Bigr],$$
-with $\gamma$ Euler's constant; the coefficient is again universal in $H$ and is produced exactly by the constant term in Mertens' theorem for $\sum_{p\le z}\log p/p$. All three statements are verified numerically (truncations to $z=10^8$; agreement to $3$–$4$ decimals after extrapolation, and bounded second-order residuals). The proofs use only Mertens-type sums with prime-number-theorem error control; the point of the paper is the statement, which — after a targeted search documented in §7 — appears not to be in the literature: the singular series acquires a critical-window scaling theory, and its crossover exponent function is the Dickman transform $\gamma-\mathrm{Ein}$.
+with $\gamma$ Euler's constant. **(3) Complete finite-size ladder:** writing
+$\delta=\lambda/\log z$ and $D_z$ for the one-factor logarithm, uniformly on
+compact real $\lambda$-sets,
+$$D_z(\lambda)=\mathrm{Ein}(\lambda)-\log[\delta\zeta(1+\delta)]
++O(e^{-c\sqrt{\log z}}).$$
+Consequently the next coefficient is
+$(\gamma_1+\gamma^2/2)\lambda^2/\log^2z=0.0937731164\ldots\,\lambda^2/\log^2z$,
+and every later coefficient is a Stieltjes/Laurent layer of $\zeta$ at $1$.
+The statements are verified numerically to $z=10^8$. Finite Euler-product
+asymptotics of this form have substantial classical prior art; the contribution
+claimed here is their exact placement in the anchored KMS/singular-series
+correlator and the resulting universal response law, not the bare analytic
+lemma.
 
 ---
 
@@ -37,9 +49,12 @@ The observation that starts the present paper (`ADELIC.md`, Prop. E0) is that th
 
 Once a system has a critical point, the canonical next question is statistical-mechanical: *what is the scaling law in the critical window?* This paper answers that question for the deformed singular series and proves the answer. In the window $\beta_z=1+\lambda/\log z$ (the natural window: $\beta-1$ conjugate to $\log z$, exactly as $s-1\sim1/\log x$ is the natural window at the pole of $\zeta$), the deformation acquires a finite, nontrivial, $H$-universal limit
 $$\frac{C_{\beta_z,z}(H)}{C_{1,z}(H)}\longrightarrow e^{-(k-1)\,\mathrm{Ein}(\lambda)},$$
-where $\mathrm{Ein}$ is the entire exponential integral. Equivalently, by a classical identity, the crossover function per "excess point" of the tuple is $e^{-\mathrm{Ein}(\lambda)}=e^{-\gamma}\widehat\rho(\lambda)$: the (normalized) Laplace transform of the Dickman function, the central special function of smooth-number theory, here arising with no smooth numbers in sight. We also compute the second-order term: the $1/\log z$ correction to the crossover has coefficient $(k-1)\gamma\lambda$, produced exactly by the Mertens constant, and visible in the numerics.
+where $\mathrm{Ein}$ is the entire exponential integral. Equivalently, by a classical identity, the crossover function per "excess point" of the tuple is $e^{-\mathrm{Ein}(\lambda)}=e^{-\gamma}\widehat\rho(\lambda)$: the (normalized) Laplace transform of the Dickman function, the central special function of smooth-number theory, here arising with no smooth numbers in sight. We also compute the complete finite-size ladder: its first correction is $(k-1)\gamma\lambda/\log z$, its next exponent coefficient is $-(k-1)(\gamma_1+\gamma^2/2)\lambda^2/\log^2z$, and all later terms are read from the Laurent jet of $\zeta$ at $1$.
 
-The results are theorems about the *local model*, not about primes; §8 discusses at length what they do and do not mean. The proofs (§5) are short and use only partial summation against $\theta(x)$ with the classical PNT error term; the contribution is the identification and isolation of the statement, which our search of the literature (§7) did not find in any guise.
+The results are theorems about the *local model*, not about primes; §8 discusses
+at length what they do and do not mean. The proofs (§5) use partial summation
+and the classical PNT error term. Section 7 separates the close finite-product
+prior art from the narrower KMS/correlation synthesis claimed here.
 
 ### Statement of results
 
@@ -75,11 +90,42 @@ $$\mathrm{Ein}(\lambda)=\int_0^\lambda\frac{1-e^{-t}}{t}\,dt=\sum_{n\ge1}\frac{(
 > Equivalently, the single-factor exponent $D_z(\lambda):=\sum_{p\le z}\bigl[\log(1-p^{-\beta_z})-\log(1-p^{-1})\bigr]$ satisfies
 > $D_z(\lambda)=\mathrm{Ein}(\lambda)-\gamma\lambda/\log z+O_\lambda(1/\log^2z)$, and $R_z=e^{(1-k)D_z}$ exactly.
 
-Theorem 1 for $k=2$ is Proposition E0 of `notes/ADELIC.md` (this repository); the general-$k$ statement, Proposition 2, and Theorems 3–4 are new. Theorem 4 is the "one new secondary result": its coefficient $-\gamma\lambda$ was first seen as the empirical $1/\log z$ drift in the Richardson extrapolation of `exp9`, and is derived in §5.4 from the constant term of Mertens' theorem; the mechanism is a small identity worth displaying in advance. Two sources contribute at order $1/\log z$: the Mertens constant $E_1^{\mathrm M}$ in $\sum_{p\le z}\log p/p=\log z+E_1^{\mathrm M}+O(e^{-c\sqrt{\log z}})$, and the prime powers $p^{-m\beta}$, $m\ge2$, hidden in $\log(1-p^{-\beta})$, which contribute $+\sum_p\log p/(p(p-1))$ per unit of $\lambda/\log z$. Since
+> **Theorem 5 (complete finite-size ladder).** Put $L=\log z$ and
+> $\delta=\lambda/L$. Uniformly for $\lambda$ in any fixed compact subset of
+> $\mathbb R$,
+> $$D_z(\lambda)=\mathrm{Ein}(\lambda)
+> -\log[\delta\zeta(1+\delta)]
+> +O_K(e^{-c_K\sqrt L}),$$
+> where the logarithm is its analytic branch at $\delta=0$. In particular,
+> $$D_z(\lambda)=\mathrm{Ein}(\lambda)-\frac{\gamma\lambda}{L}
+> +\left(\gamma_1+\frac{\gamma^2}{2}\right)\frac{\lambda^2}{L^2}
+> +O_K(L^{-3}),$$
+> with $\zeta(1+s)=s^{-1}+\gamma-\gamma_1s+O(s^2)$ and
+> $\gamma_1+\gamma^2/2=0.093773116420\ldots$.
+
+Theorem 1 for $k=2$ is Proposition E0 of `notes/ADELIC.md` (this repository).
+The defensible novelty candidates are the general-$k$ KMS correlator,
+Proposition 2's exact $H$-cancellation, and their response-law synthesis;
+Theorems 3–5 use analytic machinery close to the finite-Euler-product results
+reviewed in §7. The coefficient $-\gamma\lambda$ was first seen here as the
+empirical $1/\log z$ drift in `exp9` and is derived in §5.4. Two sources
+contribute: the Mertens constant $E_1^{\mathrm M}$ in
+$\sum_{p\le z}\log p/p=\log z+E_1^{\mathrm M}+O(e^{-c\sqrt{\log z}})$, and
+the prime powers $p^{-m\beta}$ hidden in $\log(1-p^{-\beta})$, which contribute
+$+\sum_p\log p/(p(p-1))$ per unit of $\lambda/\log z$. Since
 $$E_1^{\mathrm M}=-\gamma-\sum_p\frac{\log p}{p(p-1)},$$
 the prime-power sum cancels against the corresponding piece of $E_1^{\mathrm M}$ and the bare $-\gamma$ survives. The universality of the second-order coefficient is thus exactly as robust as the appearance of $e^{-\gamma}$ in Mertens' third theorem.
 
 *Remark (susceptibility).* Differentiating at $\lambda=0$: $\partial_\lambda\log R_z\big|_{\lambda=0}=(1-k)\bigl(1-\gamma/\log z\bigr)+O(e^{-c\sqrt{\log z}})$, consistent with $\mathrm{Ein}'(0)=1$ and Theorem 4. The linear response of the log-correlation to temperature is *extensive in the excess tuple size* $k-1$, with universal coefficient.
+
+More generally Theorem 5 gives the diagonal response hierarchy
+$$\left.\partial_\lambda^r\log R_z\right|_{\lambda=0}
+=(k-1)\left[\frac{(-1)^r}{r}
++\frac{A^{(r)}(0)}{(\log z)^r}\right]
++O_{r,k}(e^{-c\sqrt{\log z}}),$$
+where $A(s)=\log[s\zeta(1+s)]$. Thus the $r$th response has no algebraic
+finite-size correction before order $(\log z)^{-r}$, where it recovers the
+$r$th Laurent/Stieltjes layer.
 
 ---
 
@@ -239,7 +285,40 @@ $$-\Sigma_2(\beta_z,z)=\log\zeta(\beta_z)-\sum_{p>z}\sum_m\frac{p^{-m\beta_z}}{m
 \log\zeta(1+\delta)=\log\frac1\delta+\gamma\delta+O(\delta^2),$$
 and by the PNT the tail behaves as $\sum_{p>z}p^{-\beta_z}\approx\int_z^\infty t^{-\beta_z}\frac{dt}{\log t}=E_1(\lambda)+o(1)$; combining with Mertens' third theorem $-\Sigma_2(1,z)=\gamma+\log\log z+o(1)$ recovers $D_z\to\gamma+\log\lambda+E_1(\lambda)=\mathrm{Ein}(\lambda)$, and the $\gamma\delta=\gamma\lambda/\log z$ term of $\log\zeta(1+\delta)$ is precisely the second-order coefficient of Theorem 4. The crossover law is thus the correlation-function shadow of the Laurent expansion of $\zeta$ at its pole: $\mathrm{Ein}(\lambda)$ from the pole itself, $-\gamma\lambda/\log z$ from the constant term. The partial-summation proof above is preferred because it covers $\lambda\le0$ (where the Euler product of $\zeta(\beta_z)$ diverges) with no extra work.
 
-*Remark 5.6 (empirical third order).* The numerics of §6 show $(D_z-\mathrm{Ein}(\lambda)+\gamma\lambda/\log z)\log^2z$ tending to a constant $\approx0.0925\,\lambda^2$ (values $0.094,0.092,0.369$ for $\lambda=1,-1,2$). A $\lambda^2$-proportional third order is consistent with the structure of the proof — the exactly-linear-in-$\lambda$ terms of $D_z$ are $\lambda\bigl(1-\gamma/\log z\bigr)+O(e^{-c\sqrt{\log z}})$ with no $1/\log^2z$ contribution, so the next correction is quadratic, its coefficient a second-order Mertens constant ($\tfrac12$ times the constant in $\sum_{p\le z}\log^2p/p-\tfrac12\log^2z$, plus prime-power terms). We have not certified the closed form and state it only as an observation.
+### 5.5 Proof of Theorem 5
+
+Let $L=\log z$, $\delta=\lambda/L$, and
+$A(u)=\log[u\zeta(1+u)]$, with $A(0)=0$. Re-indexing the Euler-factor expansion
+by prime powers gives, uniformly for $\lambda$ in a compact set,
+$$D_z(\lambda)=\sum_{n\le z}\frac{\Lambda(n)}{n\log n}
+(1-n^{-\delta})+O_K(z^{-1/2}).\tag{5.5}$$
+Since $(1-n^{-\delta})/\log n=\int_0^\delta n^{-u}\,du$, (5.5) equals
+$$\frac1L\int_0^\lambda M_z\!\left(1+\frac tL\right)dt+O_K(z^{-1/2}),
+\qquad M_z(1+u)=\sum_{n\le z}\frac{\Lambda(n)}{n^{1+u}}.\tag{5.6}$$
+
+We need a microscopic truncated-log-derivative estimate:
+$$M_z(1+u)=\frac{1-z^{-u}}u-A'(u)
++O_K(e^{-c_K\sqrt L})\qquad(|u|\le K/L).\tag{5.7}$$
+To prove it uniformly on both sides of the pole, write
+$R(x)=\psi(x)-x\ll xe^{-a\sqrt{\log x}}$ and apply Stieltjes integration.
+For $u>0$ the infinite $R$-integral is $-A'(u)$ directly. For either sign,
+put $x=e^y$ and Taylor-expand $e^{-uy}$ only through
+$N=\lfloor a\sqrt L/8\rfloor$. On $0\le y\le L$, $|uy|\le K$ and the remainder
+is $O_K(K^{N+1}/(N+1)!)$. For $j\le N$,
+$$\int_L^\infty e^{-a\sqrt y}y^j\,dy
+\ll L^{j+1/2}e^{-a\sqrt L};$$
+after multiplication by $|u|^j/j!$ these tails sum to
+$O_K(e^{-c_K\sqrt L})$. The full moments are the Taylor coefficients of the
+analytic function $-A'(u)$, proving (5.7). This optimal-truncation step is
+essential: fixed-order moment asymptotics alone cannot simply be resummed.
+
+Substituting (5.7) into (5.6), the first term integrates to
+$\mathrm{Ein}(\lambda)$ and the second to $-A(\lambda/L)$, proving the closed
+form. Finally,
+$$A(s)=\gamma s-\left(\gamma_1+\frac{\gamma^2}{2}\right)s^2
++\left(\frac{\gamma_2}{2}+\gamma\gamma_1+\frac{\gamma^3}{3}\right)s^3+\cdots,$$
+which proves the displayed coefficient and the entire Stieltjes correction
+ladder. $\square$
 
 ---
 
@@ -262,7 +341,7 @@ All computations are reproducible from `code/exp9_crossover_L.py` (original expe
 
 All eight cases land on the prediction to 3–4 decimals after extrapolation; the residual $\sim10^{-4}$–$10^{-3}$ is the $O(1/\log^2z)$ term that Richardson in $1/\log z$ does not remove, consistent with Theorem 4's error term.
 
-**Theorem 4 (second-order term).** Exact $D_z(\lambda)$ against $\mathrm{Ein}(\lambda)-\gamma\lambda/\log z$; recall the prediction $(D_z-\mathrm{Ein}(\lambda))\log z\to-\gamma\lambda=\mp0.57722\ (\lambda=\pm1)$, $-1.15443\ (\lambda=2)$:
+**Theorems 4–5 (finite-size ladder).** Exact $D_z(\lambda)$ against $\mathrm{Ein}(\lambda)-\gamma\lambda/\log z$; recall the prediction $(D_z-\mathrm{Ein}(\lambda))\log z\to-\gamma\lambda=\mp0.57722\ (\lambda=\pm1)$, $-1.15443\ (\lambda=2)$:
 
 | $\lambda$ | quantity | $z=10^4$ | $10^5$ | $10^6$ | $10^7$ | $10^8$ | predicted |
 |---|---|---|---|---|---|---|---|
@@ -273,7 +352,15 @@ All eight cases land on the prediction to 3–4 decimals after extrapolation; th
 | $2$ | $(D_z-\mathrm{Ein})\log z$ | $-1.10512$ | $-1.11973$ | $-1.12749$ | $-1.13154$ | $-1.13440$ | $-1.15443$ |
 | $2$ | residual $\times\log^2z$ | $0.454$ | $0.400$ | $0.372$ | $0.369$ | $0.369$ | bounded |
 
-The first-order coefficient converges to $-\gamma\lambda$ and the rescaled residual (row "residual $\times\log^2z$", i.e. $(D_z-\mathrm{Ein}(\lambda)+\gamma\lambda/\log z)\log^2z$) stabilizes to a constant, exactly as Theorem 4 asserts; its empirical value is $\approx0.0925\lambda^2$ (Remark 5.6). The Mertens constant enters as claimed: the independent check $\sum_{p\le10^6}\log p/p-\log(10^6)=-1.331925$ against $-\gamma-\sum_p\frac{\log p}{p(p-1)}=-1.332582$ (literature value $-1.3325822757\ldots$).
+The first-order coefficient converges to $-\gamma\lambda$. The rescaled residual
+converges, by Theorem 5, to
+$(\gamma_1+\gamma^2/2)\lambda^2=0.0937731164\ldots\lambda^2$; the earlier
+$0.0925$ estimate was finite-$z$ bias. `code/exp23_third.py` independently
+checks the coefficient, the next Stieltjes term, and the closed form to $z=10^8$.
+The Mertens constant enters as claimed: the independent check
+$\sum_{p\le10^6}\log p/p-\log(10^6)=-1.331925$ against
+$-\gamma-\sum_p\frac{\log p}{p(p-1)}=-1.332582$ (literature value
+$-1.3325822757\ldots$).
 
 ---
 
@@ -285,13 +372,31 @@ The searches below (August 2026; queries combining the concepts pairwise and by 
 2. **Primon/Riemann gas Hagedorn transition** (Julia; Spector; expository accounts, e.g. [the primon-gas literature](https://arxiv.org/pdf/1101.3116)): criticality of $\beta=1$ via divergence of $\zeta(\beta)$ — the partition-function shadow of our Theorem 1, with no correlation content and no scaling window. *Precedent for the critical temperature only.*
 3. **Gadiyar–Padma** ([arXiv:hep-th/9806061](https://arxiv.org/abs/hep-th/9806061); Physica A 269 (1999) 503; [Ramanujan–Fourier/Wiener–Khintchine papers](https://eudml.org/doc/262036)): the spectral reading of Hardy–Littlewood as a correlation of the local model. Closest in spirit at $\beta=1$; contains no deformation parameter, no phase transition, no scaling law. *Prior art for the $\beta=1$ identity (as already credited in `notes/ADELIC.md`), not for the deformation.*
 4. **Dickman transform identity** $\widehat\rho(s)=e^{\gamma-\mathrm{Ein}(s)}$: classical ([Lagarias, arXiv:1303.1856](https://arxiv.org/abs/1303.1856), §3.1; [Tenenbaum, GSM 163](https://www.ams.org/books/gsm/163/), III.5; [Encyclopedia of Math, "Dickman function"](https://encyclopediaofmath.org/wiki/Dickman_function)). The crossover *function* is therefore a known special function of analytic number theory. This is the most important contact point: it shows our limit function is natural, and it is honestly *prior art for the function, not for the theorem* — no statement connecting it to singular series or KMS deformations exists in the sources found.
-5. **Smooth-number saddle-point analysis** (Hildebrand–Tenenbaum, Trans. AMS 296 (1986); modern refinements, e.g. [arXiv:2408.16576](https://arxiv.org/abs/2408.16576), [arXiv:2409.05761](https://arxiv.org/abs/2409.05761)): the truncated Euler product $\zeta(s,y)=\prod_{p\le y}(1-p^{-s})^{-1}$ analyzed precisely in the regime $(s-1)\log y$ bounded — the same analytic engine as our Lemmas 5.1–5.4, and the deeper reason the Dickman transform appears in both places. *Prior art for the analytic lemma-layer (in spirit; our anchored two-sided form with the $\gamma\lambda/\log z$ term isolated is stated nowhere), not for the correlation-theoretic statement.*
-6. **Mertens-theorem literature**: quantitative and dissected forms ([Rosser–Schoenfeld]; [\"Mertens' prime product formula, dissected\", Integers 21A (2021)](https://math.colgate.edu/~integers/graham17/graham17.pdf); [Kowalski's exposition](https://blogs.ethz.ch/kowalski/2009/04/25/the-mertens-formula/)); Mertens for Beurling primes ([Cambridge Core](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/ACD8741993142EB30BC9B9C5B04AF890/S0008439500006871a.pdf/on_mertens_theorem_for_beurling_primes.pdf)) and for the Selberg class ([arXiv:1311.0754](https://arxiv.org/abs/1311.0754)). Supplies (3.2)–(3.3); contains no deformed-correlation statement.
-7. **Singular-series statistics**: Gallagher's averages; Montgomery–Soundararajan moments; sums of singular series ([arXiv:2301.06095](https://arxiv.org/abs/2301.06095), [Stanford thesis](https://purl.stanford.edu/mz553sv1729)); tails of the singular product ([Functiones et Approximatio](https://projecteuclid.org/journals/functiones-et-approximatio-commentarii-mathematici/volume-56/issue-1/The-tail-of-the-singular-series-for-the-prime-pair/10.7169/facm/1602.pdf), [arXiv:2606.28832](https://arxiv.org/pdf/2606.28832)); distribution of Euler products ([arXiv:0805.4682](https://arxiv.org/abs/0805.4682)). All study $\mathfrak S$ at $\beta=1$ (averages over $H$, tails over $p$); none deforms the measure. *Not prior art.*
-8. **Zeros-to-twin-primes correspondences** (Bogomolny–Keating; [arXiv:1903.07057](https://arxiv.org/abs/1903.07057); [arXiv:1208.3374](https://arxiv.org/abs/1208.3374)): a different bridge (archimedean/zero side); no local-measure deformation. *Not prior art.*
-9. Direct phrase searches — "deformed singular series", "temperature-deformed primes", "beta-deformed Hardy–Littlewood", KMS + prime tuples, critical temperature + twin primes, exponential integral + singular series — returned nothing relevant beyond the above (queries logged in the session; representative hit lists: [k-tuples surveys](https://arxiv.org/abs/1910.02636), [MathWorld](https://mathworld.wolfram.com/k-TupleConjecture.html), [Grokipedia KMS](https://grokipedia.com/page/KMS_state)).
+5. **Finite Euler products near the pole.** Ramanujan's partial-Euler-product
+formula already contains the $\operatorname{Li}/\operatorname{Ei}$ transition;
+see the modern account in [Sheth, IMRN 2025](https://doi.org/10.1093/imrn/rnaf214),
+Remark 2.6. Gonek's finite-Euler-product work
+([arXiv:0704.3448](https://arxiv.org/abs/0704.3448)) and the
+Gonek–Hughes–Keating hybrid Euler–Hadamard product give, uniformly near the
+pole, a partial product equal to $\zeta(s)$ times an exponential-integral
+factor. This is close analytic prior art for Theorem 5: the bare
+$\zeta\times E_1$ structure and its Taylor coefficients are established
+machinery. What is not found there is the anchored KMS tuple correlator, exact
+$H$-cancellation, or the response-law interpretation. The coefficient
+$\gamma_1+\gamma^2/2$ is therefore a routine Laurent-jet consequence, not a
+standalone novelty claim.
+6. **Smooth-number saddle-point analysis** (Hildebrand–Tenenbaum, Trans. AMS 296 (1986); modern refinements, e.g. [arXiv:2408.16576](https://arxiv.org/abs/2408.16576), [arXiv:2409.05761](https://arxiv.org/abs/2409.05761)): the truncated Euler product $\zeta(s,y)=\prod_{p\le y}(1-p^{-s})^{-1}$ analyzed precisely in the regime $(s-1)\log y$ bounded — the same analytic engine as our Lemmas 5.1–5.4, and the deeper reason the Dickman transform appears in both places. *Prior art for the analytic lemma-layer, not for the correlation-theoretic statement.*
+7. **Mertens-theorem literature**: quantitative and dissected forms ([Rosser–Schoenfeld]; [\"Mertens' prime product formula, dissected\", Integers 21A (2021)](https://math.colgate.edu/~integers/graham17/graham17.pdf); [Kowalski's exposition](https://blogs.ethz.ch/kowalski/2009/04/25/the-mertens-formula/)); Mertens for Beurling primes ([Cambridge Core](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/ACD8741993142EB30BC9B9C5B04AF890/S0008439500006871a.pdf/on_mertens_theorem_for_beurling_primes.pdf)) and for the Selberg class ([arXiv:1311.0754](https://arxiv.org/abs/1311.0754)). Supplies (3.2)–(3.3); contains no deformed-correlation statement.
+8. **Singular-series statistics**: Gallagher's averages; Montgomery–Soundararajan moments; sums of singular series ([arXiv:2301.06095](https://arxiv.org/abs/2301.06095), [Stanford thesis](https://purl.stanford.edu/mz553sv1729)); tails of the singular product ([Functiones et Approximatio](https://projecteuclid.org/journals/functiones-et-approximatio-commentarii-mathematici/volume-56/issue-1/The-tail-of-the-singular-series-for-the-prime-pair/10.7169/facm/1602.pdf), [arXiv:2606.28832](https://arxiv.org/pdf/2606.28832)); distribution of Euler products ([arXiv:0805.4682](https://arxiv.org/abs/0805.4682)). All study $\mathfrak S$ at $\beta=1$ (averages over $H$, tails over $p$); none deforms the measure. *Not prior art.*
+9. **Zeros-to-twin-primes correspondences** (Bogomolny–Keating; [arXiv:1903.07057](https://arxiv.org/abs/1903.07057); [arXiv:1208.3374](https://arxiv.org/abs/1208.3374)): a different bridge (archimedean/zero side); no local-measure deformation. *Not prior art.*
+10. Direct phrase searches — "deformed singular series", "temperature-deformed primes", "beta-deformed Hardy–Littlewood", KMS + prime tuples, critical temperature + twin primes, exponential integral + singular series — returned nothing relevant beyond the above (queries logged in the session; representative hit lists: [k-tuples surveys](https://arxiv.org/abs/1910.02636), [MathWorld](https://mathworld.wolfram.com/k-TupleConjecture.html), [Grokipedia KMS](https://grokipedia.com/page/KMS_state)).
 
-**Verdict.** The theorem-level content — the trichotomy for general $k$, the exact $H$-cancellation, the critical-window limit $e^{-(k-1)\mathrm{Ein}(\lambda)}$, and the universal $\gamma\lambda(k-1)/\log z$ second-order term — appears to be new. The honest classification: *a new statement assembled from known analytic technology*, whose two anchors in the literature are the BC KMS measures (for the deformation) and the smooth-number/Dickman analysis (for the limit function). The strongest claim we are entitled to: **the Hardy–Littlewood singular series has a critical scaling theory, its crossover exponent per excess tuple point is the Dickman transform $\gamma-\mathrm{Ein}(\lambda)$, and its finite-size correction is governed by the Mertens constant.**
+**Verdict.** The analytic crossover and Stieltjes ladder are close consequences
+of established finite-Euler-product machinery. The defensible novelty candidate
+is narrower: the trichotomy, exact $H$-cancellation, and universal response law
+inside the anchored Bost–Connes/Hardy–Littlewood correlator. This remains a new
+statement assembled from known technology pending expert literature review; it
+is not evidence toward the prime-tuple conjectures themselves.
 
 ---
 
@@ -324,9 +429,20 @@ The searches below (August 2026; queries combining the concepts pairwise and by 
 - [Lag13] J. C. Lagarias, *Euler's constant: Euler's work and modern developments*, Bull. AMS 50 (2013), 527–628; [arXiv:1303.1856](https://arxiv.org/abs/1303.1856).
 - [MV07] H. L. Montgomery, R. C. Vaughan, *Multiplicative Number Theory I: Classical Theory*, Cambridge (2007).
 - [RS62] J. B. Rosser, L. Schoenfeld, *Approximate formulas for some functions of prime numbers*, Illinois J. Math. 6 (1962), 64–94.
-- Repository companions: `notes/ADELIC.md` (Prop. E0, exp8 verification), `notes/PARITY.md` §1(H) (audit), `code/exp9_crossover_L.py` (numerics), plus the session scripts extending the tables to $z=10^8$.
+- [Gon12] S. M. Gonek, *Finite Euler products and the Riemann hypothesis*,
+  Trans. AMS 364 (2012), 2157–2191;
+  [arXiv:0704.3448](https://arxiv.org/abs/0704.3448).
+- [GHK07] S. M. Gonek, C. P. Hughes, J. P. Keating, *A hybrid Euler–Hadamard
+  product for the Riemann zeta function*, Duke Math. J. 136 (2007), 507–549.
+- Repository companions: `notes/ADELIC.md` (Prop. E0, exp8 verification),
+  `notes/PARITY.md` §1(H) (audit), `notes/K2.md` §II (independent derivation),
+  `code/exp9_crossover_L.py`, and `code/exp23_third.py` (numerics to $z=10^8$).
 
 
 ---
 
-**Post-publication note (fleet-k2, integrated).** The third-order question of §8 is resolved in `notes/K2.md` §II: the coefficient is exactly $(\gamma^2+2\gamma_1)/2 = 0.0937731164$ (first Stieltjes constant), the empirical $0.0925$ having been finite-$z$ bias; and the full finite-size ladder admits the closed form $D_z = \mathrm{Ein}(\lambda) - \log[\delta\,\zeta(1+\delta)]$, $\delta = \lambda/\log z$ — every order of the crossover's finite-size expansion is a coefficient of $\zeta$'s Laurent expansion at its pole, verified to $10^{-6}$ at $z=10^8$. Remark 5.6 is thereby upgradeable to a theorem modulo one flagged uniformity point (PNT-error uniformity over the $k$-sum).
+**Cross-verification note.** Theorem 5 was independently derived by fleet-k2,
+Codex, and two proof-audit agents. The original fixed-order derivation had one
+real gap—summing asymptotics without uniformity—which the optimal-truncation
+argument in §5.5 repairs. The coefficient is verified computationally to
+$3\cdot10^{-6}$ at $z=10^8$ in `code/exp23_third.py`.
