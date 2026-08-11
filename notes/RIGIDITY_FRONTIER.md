@@ -81,7 +81,7 @@ $5\cdot10^4$, of course.)
 
 ---
 
-## 3. Theorem F2: the cyclotomic layer, solved for $m\le1000$ and ALL $X$
+## 3. Theorem F2: the cyclotomic layer, solved globally
 
 $\Phi_m\mid F_X\iff\sum_{p\le X}\zeta_m^{p-2}=0$: the "$\zeta_m$-weighted prime race tie"
 (REPORT §2.1). Fix $m$ and let $X>P(m):=\max\{p:p\mid m\}$. Split the sum into the fixed
@@ -178,26 +178,29 @@ the $p=2$ shadow of the same relative-trace argument.
 
 ### 3.4 Synthesis: the complete tie theorem
 
-**Theorem F2 (classification, $m\le1000$, all $X$) — PROVED + MACHINE-VERIFIED.**
-For every $m\le1000$ and every $X\ge3$:
-$$\Phi_m\mid F_X\iff (X,m)\in\{(3,2),\ (11,6)\}\ \text{(with }F_3=\Phi_2\text{ itself)}.$$
-Structure of the proof: squarefree $m$ (607 values) → forced counts and explicit tie
-intervals (Thm F2-sf; exp7b Part 3b and the EXTENSION mode: for $m\le200$ every forced
-count is $\le2$, so each interval closes by the third prime of a class; all intervals
-empty except $m=2\to[3,5)$ and $m=6\to[11,13)$); $4\mid m$ → parity (Thm F2-4); other
-non-squarefree $m$ → relative-trace impossibility (§3.3, all $m$); the region
-$X\le\max(m,P(m))$ → direct scan (to $10^7$ for $m\le200$, to $2000\ge m$ for
-$201\le m\le1000$), plus independently all $X\le10^7$ for $m\le200$ (§3.5).
+**Theorem F2 (global classification) — PROVED.** For every integer $m\ge1$
+and every real $X\ge2$,
+$$
+\Phi_m\mid F_X
+\iff
+\bigl(m=2\text{ and }3\le X<5\bigr)
+\text{ or }
+\bigl(m=6\text{ and }11\le X<13\bigr).
+$$
+Equivalently, at prime cutoffs the only pairs $(X,m)$ are $(3,2)$ and
+$(11,6)$.
 
-Combining Theorems F1 and F2: **for every $X\ge13$, $F_X$ has no irreducible factor of
-degree $\le2$, and no cyclotomic factor $\Phi_m$ with $m\le1000$ — unconditionally, for
-all $X$, not merely all tested $X$.** Any counterexample to Conjecture A″ must consist of
-non-cyclotomic factors of degree $\ge3$, or a cyclotomic $\Phi_m$ with $m>1000$ (and then
-$\varphi(m)\ge240$ — see remark below).
+The non-squarefree case is Theorem F2-ns.  In the squarefree case the forced
+vector implies that every prime below the cutoff is covered by one of the
+congruences $q\equiv r\pmod{m/r}$.  A largest-prime and Bertrand-postulate
+argument reduces $m$ to $P$ or $2P$; the complete-residue-system theorems of
+Hajdu--Saradha then leave only $m=2,6$.  See `CYCLOTOMIC_TRACE.md` for the
+full proof and exact citations.
 
-*Remark.* Since $\min\{\varphi(m):m>1000\}=\varphi(1050)=240$ (finite check up to $10^5$;
-beyond, $\varphi(m)>m^{1/2}>316$), Theorem F2 gives unconditionally: **any cyclotomic
-factor of any $F_X$ other than the known two has degree $\varphi(m)\ge240$.**
+Combining Theorems F1 and F2: **for every $X\ge13$, $F_X$ has no
+irreducible factor of degree $\le2$ and no cyclotomic factor of any degree.**
+Every possible counterexample to Conjecture A″ must therefore come entirely
+from non-cyclotomic factors of degree at least $3$.
 
 ### 3.5 The extended scan — DATA
 
@@ -279,12 +282,9 @@ superseded: Theorem F2-ns kills **every** one of them deterministically by
 relative trace, regardless of dimension. The rank formula remains useful as a
 structural description of which information the primitive-root orbit retains.
 Thus the finiteness claim is now exact: squarefree $m$ have at most one forced
-count vector; non-squarefree $m$ have zero ties.
-**Conjecture F2∞: $(3,2)$ and $(11,6)$ are the only cyclotomic ties of the prime
-polynomial, over all $m$ and all $X$.** A theorem for $m\le1000$ (Thm F2);
-beyond, every non-squarefree modulus is now excluded by Theorem F2-ns, so the
-conjecture is purely squarefree. For squarefree $m$, `CYCLOTOMIC_TRACE.md`
-sharpens the forced vector to
+count vector; non-squarefree $m$ have zero ties.  The former Conjecture F2∞ is
+now Theorem F2: globally, only $(3,2)$ and $(11,6)$ occur at prime cutoffs.
+For squarefree $m$, the decisive forced vector is
 $$n_c(X)=\#\{r\mid m:c\equiv r\pmod{m/r}\},
 \qquad \pi(X)=\sum_{r\mid m}r.$$
 
@@ -354,7 +354,7 @@ by irreducibility) has already passed the plausible window.
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
 - degree $\le2$ reciprocal factors: **excluded unconditionally** (Thm F1);
-- cyclotomic factors, $m\le200$: **excluded unconditionally for all $X$** (Thm F2);
+- cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
 - a reciprocal non-cyclotomic factor must have even degree $\ge4$ (odd-degree reciprocals
   have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
   inside the annulus $(\tfrac12,2)$ — Salem-type configurations; no instance observed in
@@ -367,16 +367,11 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | layer of Conjecture A″ | status |
 |---|---|
 | factors of degree 1, 2 | **PROVED impossible** for $X\ge13$ (Thm F1) |
-| cyclotomic factors $\Phi_m$, $m\le1000$, any $X$ | **PROVED/MACHINE: only $(3,2),(11,6)$** (Thm F2) |
-| cyclotomic factors, $m>1000$ | every non-squarefree $m$ **PROVED impossible** by relative trace; squarefree $m$ obey explicit forced counts and $\pi(X)=\sum_{p\mid m}p$; Conjecture F2∞ remains only there |
+| cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
 | non-cyclotomic factors, degree $\ge3$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) eliminate the remaining squarefree forced vectors,
-using $\pi(X)=\sum_{p\mid m}p$ together with the class-by-class condition;
-(2) exclude cubic factors of $F_X$ unconditionally (the first genuinely open degree; needs
+Open problems generated: (1) exclude cubic factors of $F_X$ unconditionally (the first genuinely open degree; needs
 input beyond root location — e.g. a Smyth-type gap plus the annulus is not contradictory);
-(3) push F2 beyond $m=1000$ (the EXTENSION mode of exp7b runs $m\in[201,1000]$ in
-$\approx3$ min; cost is dominated by the exact linear solves at $\varphi(m)\sim m$, so
-$m\le2000$ is hours, not days); (4) the $X=10^5$ factorization ($\approx2$ h with FLINT at
+(2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
 current scaling).

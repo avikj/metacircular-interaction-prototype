@@ -1,4 +1,4 @@
-# Relative trace eliminates every non-squarefree cyclotomic factor
+# Global classification of cyclotomic factors of the prime polynomial
 
 This note closes the machine-only open lemma in `RIGIDITY_FRONTIER.md` §3.3.
 The proof is shorter and stronger than the lattice computation: a relative
@@ -6,7 +6,7 @@ trace isolates the one ramified prime whose square divides the modulus.
 
 Let
 
-$$F_X(x)=\sum_{q\le X\atop q\ {m prime}}x^{q-2},$$
+$$F_X(x)=\sum_{q\le X\atop q\ {\rm prime}}x^{q-2},$$
 
 and let $\zeta_m$ be a primitive $m$th root of unity.
 
@@ -26,7 +26,7 @@ $$[K:K_0]=\frac{\varphi(m)}{\varphi(m/p)}=p.$$
 
 The relative Galois group consists of
 
-$$\sigma_j(\zeta_m)=\zeta_m^{,1+jf},\qquad 0\le j<p.$$
+$$\sigma_j(\zeta_m)=\zeta_m^{1+jf},\qquad 0\le j<p.$$
 
 Every $1+jf$ is a unit modulo $m$: it is $1$ modulo every prime dividing
 $f$, including $p$. Therefore, for every integer $a$,
@@ -43,7 +43,7 @@ $$
 Suppose first that $p\le X$ and $\Phi_m\mid F_X$. Evaluation at $\zeta_m$
 and multiplication by $\zeta_m^2$ give
 
-$$\sum_{q\le X\atop q\ {m prime}}\zeta_m^q=0.\tag{1.2}$$
+$$\sum_{q\le X\atop q\ {\rm prime}}\zeta_m^q=0.\tag{1.2}$$
 
 Among prime exponents $q$, exactly one is divisible by $p$, namely $q=p$.
 Applying (1.1) to (1.2) yields
@@ -75,27 +75,29 @@ expanded explicitly in it.
 
 *Proof.* The geometric sum
 
-$$\sum_{j=0}^{r-1}\zeta_m^{,r+j(m/r)}=0$$
+$$\sum_{j=0}^{r-1}\zeta_m^{r+j(m/r)}=0$$
 
 has initial term $\zeta_m^r$.  For $j\ne0$, squarefreeness implies that
 $r+j(m/r)$ is coprime to $r$ and to every other prime dividing $m$; these are
 exactly the unit classes congruent to $r$ modulo $m/r$. $\square$
 
-Let $P\le X$ be the last prime cutoff and, for a unit class $c\bmod m$, let
+Let $p_k\le X$ be the last prime cutoff and, for a unit class $c\bmod m$, let
 $n_c(X)$ count primes $q\le X$, $q\nmid m$, with $q\equiv c\pmod m$.
 
-> **Corollary 3 (forced class vector).** If $m$ is squarefree and
-> $\Phi_m\mid F_X$, then every prime divisor of $m$ is at most $X$, and
+> **Corollary 3 (forced class vector).** Let $m>1$ be squarefree. Then
+> $\Phi_m\mid F_X$ if and only if every prime divisor of $m$ is at most $X$
+> and
 > $$n_c(X)=\#\{r\mid m:r\text{ prime and }c\equiv r\pmod{m/r}\}.
 > \tag{2.2}$$
 > Consequently
-> $$\boxed{\ \pi(X)=\sum_{r\mid m\atop r\ {m prime}}r.\ }\tag{2.3}$$
+> $$\boxed{\ \pi(X)=\sum_{r\mid m\atop r\ {\rm prime}}r.\ }\tag{2.3}$$
 
 *Proof.* If some prime $r\mid m$ exceeds $X$, then
 $\varphi(m)\ge r-1>\deg F_X$, so no divisibility is possible.  Otherwise
 multiply the tie by $\zeta_m^2$, expand every ramified $\zeta_m^r$ using
 (2.1), and compare coefficients in the primitive-root basis. This gives
-(2.2).  Each $r$ contributes to exactly $r-1$ unit classes. Thus the number
+(2.2); reversing the expansion proves the converse.  Each $r$ contributes
+to exactly $r-1$ unit classes. Thus the number
 of unramified primes is $\sum_{r\mid m}(r-1)$; adding the $\omega(m)$ ramified
 primes yields (2.3). $\square$
 
@@ -107,7 +109,7 @@ scalar filter before the class-by-class test.
 If the cutoff is the $k$th prime $p_k$, (2.3) becomes the finite partition
 condition
 
-$$k=\sum_{r\mid m\atop r\ {m prime}}r,
+$$k=\sum_{r\mid m\atop r\ {\rm prime}}r,
 \qquad
 \prod_{r\mid m}(r-1)=\varphi(m)\le p_k-2.\tag{2.4}$$
 
@@ -135,10 +137,10 @@ $$U_m=\operatorname{span}_{\mathbb Q}
 kernel. Conversely, with $K_{e-1}=\mathbb Q(\zeta_{p^{e-1}})$,
 
 $$\mathbb Q(\zeta_{p^e})=
-\bigoplus_{j=0}^{p-1}\zeta_{p^e}^{,j}K_{e-1}.$$
+\bigoplus_{j=0}^{p-1}\zeta_{p^e}^{j}K_{e-1}.$$
 
 For $1\le j<p$, every vector in
-$\zeta_{p^e}^{,j}K_{e-1}$ is spanned by powers whose exponent is not divisible
+$\zeta_{p^e}^{j}K_{e-1}$ is spanned by powers whose exponent is not divisible
 by $p$, hence by primitive roots. These $p-1$ summands have exactly the
 dimension of the trace kernel. The $e=1$ statement is the usual power basis.
 $\square$
@@ -156,15 +158,162 @@ p-1,&e=1,\\
 \varphi(p^e)-\varphi(p^{e-1}),&e\ge2.
 \end{cases}\ }\tag{3.1}$$
 
-## 4. New frontier
+## 4. The squarefree covering reduction
 
-The global cyclotomic conjecture is now:
+We now close the squarefree half.  Let the cutoff be $p_k$, let $P$ be the
+largest prime divisor of $m$, and put $M=m/P$.
 
-> Apart from $F_3=\Phi_2$ and $\Phi_6\mid F_{11}$, no squarefree modulus $m$
-> satisfies the forced class vector (2.2) at a prime cutoff.
+The forced vector (2.2) has the following covering consequence: for every
+prime $q\le p_k$ with $q\nmid m$, there is a prime $r\mid m$ such that
 
-The non-squarefree half is a theorem with no computation.  A future attack on
-the squarefree half should combine the scalar partition
-$\pi(X)=\sum_{r\mid m}r$, the degree condition $\varphi(m)\le\deg F_X$, and
-the requirement that the first few primes realize every prescribed residue
-class in (2.2).
+$$q\equiv r\pmod{m/r}.\tag{4.1}$$
+
+If $q<P$ and $q\nmid m$, (4.1) cannot use $r\ne P$, because $m/r$ is
+divisible by $P$ while $0<|q-r|<P$.  Hence it must use $r=P$, so
+
+$$M\mid P-q.\tag{4.2}$$
+
+### 4.1 Reduction to $m=P$ or $m=2P$
+
+Suppose first that $P\le M$.  Then (4.2) shows that every prime below $P$
+divides $m$, so $m=P\#$, the primorial through $P$.  The cases $P=2,3$ give
+$m=2,6$.  For $P=5$, the next prime $7$ satisfies none of the congruences
+(4.1) for $m=30$.  For $P\ge7$, Bertrand's postulate gives a next prime
+$P<Q<2P$.  But
+
+$$m/r\ge m/P=(P-1)\#>2P>|Q-r|$$
+
+for every $r\mid m$, so $Q$ is uncovered, a contradiction.
+Here $Q\le p_k$: indeed $k=\sum_{r\mid m}r\ge P+2>\pi(P)+1$, so the next
+prime after $P$ occurs before the cutoff.
+
+Now suppose $P>M$.  Every prime $q<M$ not dividing $M$ obeys
+$q\equiv P\pmod M$.  Since $0<q<M$, at most one such prime exists.
+
+> **Lemma 5.** If a squarefree integer $M$ omits at most one prime below $M$,
+> then $M\in\{1,2,3,6\}$.
+
+*Proof.* If $M$ is prime, $M\ge5$ omits both $2$ and $3$.  If $M$ is
+composite with largest prime factor $R$, Bertrand gives a missing prime
+$R<a<2R\le M$.  Hence every prime below $R$ divides $M$.  If $R\ge5$, this
+forces $M=R\#$; applying Bertrand between $2R$ and $4R<R\#$ produces a second
+missing prime. Thus $R\le3$, leaving $M=6$ (plus $1,2,3$). $\square$
+
+For $M=3$, the missing prime $2$ forces $P\equiv2\pmod3$, while the prime
+$7$ forces $P\equiv1\pmod3$ when $P>7$; the edges $P=5,7$ fail directly.
+For $M=6$, $q=5$ forces $P\equiv5\pmod6$ and $q=7$ forces
+$P\equiv1\pmod6$ (with $P=7$ already failing the first).  Therefore only
+
+$$m=P\qquad\text{or}\qquad m=2P\tag{4.3}$$
+
+remain, besides the already retained $m=2,6$.
+
+All fixed test primes used here lie below $p_k$: in these cases
+$k=\sum_{r\mid m}r$ is respectively $P+3$ or $P+5$.
+
+## 5. Complete-residue theorems finish the classification
+
+### 5.1 The prime family
+
+If $m=P$, then $k=P$ by (2.3), and (2.2) says that the first $P$ primes form
+a complete residue system modulo $P$.  Equivalently, $P$ is a prime
+$P$-integer in the terminology of Hajdu--Saradha. Their Theorem 1 proves that
+the only such prime is $P=2$.  This gives $F_3=\Phi_2$.
+
+### 5.2 The semiprime family
+
+If $m=2P$ with $P$ odd, then $k=P+2$.  The target multiset in (2.2) is
+
+$$\{\text{every unit class modulo }2P\text{ once}\}
+\uplus\{P+2\text{ once more}\}.\tag{5.1}$$
+
+Choose one realizing prime from each unit class and adjoin the prime $P$.
+Reduction modulo $P$ gives $P$ primes forming a complete residue system, all
+at most $p_{P+2}$.  For $P\ge5$,
+
+$$p_{P+2}\le p_{P+\pi(P)-1}.$$
+
+Hajdu--Saradha's generalized complete-residue theorem (Theorem 2.3 of their
+2016 paper) then restricts $P$ to $\{2,3,7,11\}$.  The case $P=2$ makes
+$m=4$ non-squarefree.  Direct forced-multiset checks give:
+
+- $P=3$: modulo $6$, the unramified residues through $p_5=11$ are
+  $\{5,1,5\}$, exactly (5.1), so $\Phi_6\mid F_{11}$;
+- $P=7$: modulo $14$, the residues are
+  $\{3,5,11,13,3,5,9\}$, whereas the target is
+  $\{1,3,5,9,11,13,9\}$;
+- $P=11$: modulo $22$, the residues are
+  $\{3,5,7,13,17,19,1,7,9,15,19\}$, whereas the target is
+  $\{1,3,5,7,9,13,15,17,19,21,13\}$.
+
+Thus only $P=3$ survives.
+
+> **Theorem 6 (global cyclotomic classification).** For every $m\ge1$ and
+> every prime cutoff $X\ge2$,
+> $$\boxed{\ \Phi_m\mid F_X
+> \iff (X,m)=(3,2)\text{ or }(11,6).\ }$$
+
+The omitted edge $m=1$ is immediate: $\Phi_1=x-1$ cannot divide $F_X$
+because $F_X(1)=\pi(X)>0$.
+
+Since $F_X$ is constant between consecutive primes, the equivalent statement
+for real $X\ge2$ has precisely the intervals $m=2$, $3\le X<5$, and $m=6$,
+$11\le X<13$.
+
+The proof has no unproved prime-distribution hypothesis.  It does inherit the
+finite computational components of the cited Hajdu--Saradha theorems; our
+earlier scan through $m\le1000$ is an additional independent verification,
+not the theorem's range.
+
+## 6. Exact computational corroboration
+
+The classification proof does not depend on our cutoff scan.  For an independent check,
+`code/exp28_squarefree_ties.py` enumerates the finite family (2.4) exactly.
+Equality of the forced class vectors implies, for every $H\in\mathbb Z[x]$,
+
+$$
+\sum_{q\le p_k,\ q\nmid m}H(q)
+\equiv
+\sum_{r\mid m}\sum_{j=1}^{r-1}H\!\left(r+j\frac mr\right)
+\pmod m.\tag{6.1}
+$$
+
+The script applies (6.1) for $H(x)=x$ and $x^2$ before the exact multiset
+comparison.  Through $k=2{,}000{,}000$ ($p_k=32{,}452{,}843$), it checks
+$2{,}417{,}270$ scalar/degree candidates.  Nine survive the first moment;
+only $(k,m)=(2,2)$ and $(5,6)$ survive the second moment and exact forced
+vector.  This is MACHINE-VERIFIED corroboration of Theorem 6, not part of its
+proof.
+
+## 7. Prior art used at the final step
+
+- L. Rédei, *Natürliche Basen des Kreisteilungskörpers*, Abhandlungen aus
+  dem Mathematischen Seminar der Universität Hamburg **23** (1959), 180--200,
+  and W. Bosma, *Canonical Bases for Cyclotomic Fields*, AAECC **1** (1990),
+  125--134, provide classical context for the primitive-root basis and its
+  linear relations.
+- L. De Carli, M. Laporta, *Divisibility criteria and coefficient formulas
+  for cyclotomic polynomials*, Ramanujan Journal **70** (2026), Article 44,
+  <https://doi.org/10.1007/s11139-026-01421-6>, gives a general
+  necessary-and-sufficient coefficient criterion for cyclotomic divisibility.
+  It does not specialize to or classify the prime-prefix polynomial here.
+- G. Kiss, I. Łaba, M. Marshall, G. Somlai, *Lower bounds for mask
+  polynomials with many cyclotomic divisors*, Advances in Mathematics **494**
+  (2026), 110932, <https://doi.org/10.1016/j.aim.2026.110932>, places these
+  questions in the de Bruijn--Rédei--Schoenberg fiber/mask-polynomial
+  framework.  Again, it contains no prime-prefix classification.
+- L. Hajdu, N. Saradha, *On a problem of Recaman and its generalization*,
+  Journal of Number Theory **131** (2011), 18--24,
+  <https://doi.org/10.1016/j.jnt.2010.07.002>.  Theorem 1: the only prime
+  $P$-integer is $2$.
+- L. Hajdu, N. Saradha, *On generalizations of problems of Recaman and
+  Pomerance*, Journal of Number Theory **162** (2016), 552--563,
+  <https://doi.org/10.1016/j.jnt.2015.10.006>.  Theorem 2.3 restricts primes
+  admitting a sufficiently low complete prime residue system to
+  $\{2,3,7,11\}$; our bound $p_{P+2}\le p_{P+\pi(P)-1}$ lies inside its stated
+  range.
+
+No indexed source found in the accompanying prior-art search states the
+prime-prefix classification of Theorem 6.  The claim of novelty should remain
+qualified until expert review; the cyclotomic-basis and complete-residue
+ingredients themselves are established prior art.
