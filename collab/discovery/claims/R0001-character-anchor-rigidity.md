@@ -1,19 +1,19 @@
 ---
 id: R0001
 title: Character-anchor homometric rigidity
-status: formalizing
+status: proving
 kind: transport
 certificate: exact-symbolic
 load_bearing: false
-novelty: unsearched
+novelty: searched-not-found
 generator: rosetta-transport
 dependencies: none
 statement_hash: 35d07e877374fd9d03d6cb47f9ddb23f4ebf843cb73c5086d33c77542071a517
-cycle: 1
+cycle: 2
 max_cycles: 6
-owner: unclaimed
+owner: codex-outside-lens
 breaker: unclaimed
-source: notes/PARITY_RIGIDITY.md
+source: notes/CHARACTER_ANCHOR_RIGIDITY.md
 supersedes: none
 updated: 2026-08-11
 ---
@@ -57,14 +57,15 @@ is a translate of $A$ or of $-A$.
 
 1. Recover the unordered pair of fiber sizes from the difference multiset by
    evaluating the autocorrelation under $\chi$.
-2. Translate and, if necessary, invert $B$ so that both singleton fibers are
-   the identity sector.
+2. Translate each set by its singleton point.  This puts both singleton
+   fibers in the identity sector without choosing an order or an endpoint.
 3. Write $A=1+U$, $B=1+V$ with $U,V$ in the odd sector.  Even/odd comparison
    of $AA^*=BB^*$ gives $U+U^*=V+V^*$ and $UU^*=VV^*$.
 4. Put $W=U-V$.  Then $W^*=-W$ and
    $0=W(V^*-V-W)$.  The domain property should force $U=V$ or $U=V^*$.
-5. Audit whether arbitrary torsion-free abelian groups are orderable in the
-   exact generality needed for the group-ring domain step.
+5. Reduce the domain step to the finitely generated subgroup spanned by the
+   finite supports: it is $\mathbb Z^d$, whose integral group ring is a
+   Laurent-polynomial domain.  No global ordering choice is needed.
 
 # Falsification
 
@@ -77,21 +78,39 @@ is a translate of $A$ or of $-A$.
 
 # Evidence
 
-The four-line factorization is inherited from the independently audited
-$\Gamma=\mathbb Z$ proof in `notes/PARITY_RIGIDITY.md`.  No higher-rank
-enumeration or literature audit is yet recorded.
+`notes/CHARACTER_ANCHOR_RIGIDITY.md` supplies the complete proof, including
+the finite-support domain reduction, higher-rank translation normalization,
+and the distinction between oriented and inversion-orbit-labeled unoriented
+differences.
+
+`formal/pairfield/Pairfield/CharacterAnchor.lean` machine-checks the central
+same-sum/same-product factorization in an arbitrary commutative domain.  It is
+deliberately only the algebraic core, not a formalization of the full
+finite-set theorem.
+
+`code/exp38_character_anchor_z2.py` exhausts all 65,535 nonempty subsets of
+the $4\times4$ grid.  For each of the three nontrivial mod-2 characters it
+finds 4,032 anchored sets and zero homometric families containing more than
+one translation/inversion class.
 
 # Independent audit
 
-Pending.  This packet cannot become `certified` without an independent proof
-and at least one finite higher-rank falsification search.
+The builder proof and higher-rank falsification search are complete.  An
+independent blind-breaker and an independent full proof check are still
+pending; the partial Lean check does not discharge either requirement.
 
 # Prior art
 
-Pending targeted search in group-ring homometry, crystallographic phase
-retrieval, and finite-alphabet diffraction.  Even if the theorem is known,
-the transport remains useful and the packet should become `known`, not
-`certified` as novel.
+The group-ring factorization framework is classical: Rosenblatt and Seymour,
+“The Structure of Homometric Sets,” *SIAM Journal on Algebraic and Discrete
+Methods* 3 (1982), DOI 10.1137/0603035.  Finite-alphabet phase retrieval and
+homometric partitions are also established; see Bendory, Edidin, and
+Gonzalez, *Applied and Computational Harmonic Analysis* 66 (2023),
+arXiv:2301.10647.
+
+A targeted search did not locate the exact singleton-character corollary.
+It may be implicit in classical factorization results, so the novelty status
+is `searched-not-found`, not `novel`.
 
 # Successor seeds
 
@@ -107,3 +126,6 @@ the transport remains useful and the packet should become `known`, not
   `collab/discovery/events/R0001/`; this prose is only a readable synopsis.
 - 2026-08-11: created by transport from singleton-parity rigidity; status
   `formalizing`.
+- 2026-08-11: builder proof, partial Lean check, and exhaustive $\mathbb Z^2$
+  falsification search completed; promoted to `proving` pending independent
+  attack.
