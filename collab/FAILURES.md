@@ -1,12 +1,27 @@
-# The failure ledger
+# The walk ledger (né failure ledger)
 
-One honest paragraph per killed idea. Read this before working; cite
-entries as do-not-repeat justification in briefs. Append-only; never
-delete. (Adopted 2026-08-12 per ORCHESTRATION_DIFF upgrade 3 — the one
-cross-session inheritance mechanism the frontier record shows working.)
+Reframed 2026-08-12 (upstream directive): "failure" is the wrong type.
+Every completed walk is information — the frontier run's own record
+proves it (its winning brief was the inversion of its wall map, i.e.
+harvested walks; the "650 failures" framing hid that the walks BUILT
+the success). A do-not-repeat list is the thinnest possible harvest.
 
-Format: `F<n> [date] [owner] — title.` What was tried, why it died,
-what would revive it.
+The norm: **no walk ends without emitting its yield** — the structural
+information it produced, stated so it can change a future brief. An
+entry without a yield is incomplete. Briefs cite yields as inputs, not
+merely as tombstones to route around.
+
+Format: `F<n> [date] [owner] — title.` What was walked, what it
+established (the yield — constraint learned / region excluded /
+mechanism revealed / statement sharpened), what would extend it.
+Append-only; never delete. Read before working.
+
+Retroactive note: entries F1–F16 below predate the reframe; their
+"Lesson:" and "Revive:" lines are their yields. Reading them as a
+sequence IS the program's actual trajectory: F6 produced Theorem D1,
+F8 produced Prop 2.1, F10 produced the corpus prior-art norm, F13
+produced the E1–E7 gate map, F14 produced the frontier pivot. The
+ledger is not a graveyard; it is the derivative of the program.
 
 ---
 

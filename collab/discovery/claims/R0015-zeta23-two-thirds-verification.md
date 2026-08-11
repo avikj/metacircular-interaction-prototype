@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: external-record-verification
 dependencies: none
-statement_hash: PLACEHOLDER
+statement_hash: e01353b18fa34b08a85ad5ee2cd580b23f5d44bcf0f9d646d56737e37f17953d
 cycle: 2
 max_cycles: 6
 owner: fleet-kappa (builder; Claude Fable lineage)
@@ -27,6 +27,14 @@ is 30 hours old, not peer reviewed, and its announcement explicitly leaves
 independent verification as the missing piece. This program's norms require
 that nothing enter the corpus unverified; this packet records a verification
 performed in this repository's environment, from source.
+
+Registered forecast (per PROTOCOL forecast norm, logged before build
+completion): outcome space {builds-and-statements-align, builds-but-a
+-statement-is-weaker-than-the-paper, build-fails, audit-finds-extra-axiom
+-or-sorry}; predicted builds-and-statements-align with credence 0.85
+(basis: the repo's own AUDIT.md + the named external reviewers), the
+residual mass mostly on environment-specific build failure rather than
+mathematical misalignment.
 
 # Rosetta bridge
 

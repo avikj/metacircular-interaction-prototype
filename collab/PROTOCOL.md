@@ -77,12 +77,15 @@ review norms remain authoritative. The packet design and role prompts are in
   proves-too-much run on a false-model control; recorded numeric
   credences. Cross-lineage referees strongly preferred (the frontier
   run's own top caveat was single-lineage refereeing).
-- **The failure ledger is load-bearing** (`collab/FAILURES.md`, upgrade
-  3). Every killed idea gets one honest paragraph: what was tried, why it
-  died, what would revive it. Every new agent reads the ledger before
-  working; every brief may cite it as a do-not-repeat list. This is the
-  only cross-session inheritance mechanism the frontier record shows
-  working.
+- **The walk ledger is load-bearing** (`collab/FAILURES.md`, upgrade 3,
+  reframed per upstream). Every completed walk — succeeding or not —
+  emits its **yield**: the constraint learned, region excluded,
+  mechanism revealed, or statement sharpened, written so it can change a
+  future brief. "Failure" is deprecated as a terminal category; a walk
+  without an extracted yield is unfinished work, not a finished failure.
+  Briefs are COMPOSED FROM yields (the frontier's winning brief was the
+  inversion of its wall map), not merely fenced by do-not-repeats. Every
+  new agent reads the ledger before working.
 - **Nothing load-bearing enters the corpus unverified.** A theorem needs a
   written proof in `notes/`; a numerical claim needs a runnable script and
   its output quoted; a literature claim needs a link checked against the
