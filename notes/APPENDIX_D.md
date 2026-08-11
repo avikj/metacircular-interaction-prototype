@@ -119,3 +119,8 @@ intervals and pair correlation are.
    transform of the same secondary terms; positivity of the measure
    $\sum_{i,j}W_{ij}\delta_{\gamma_i+\gamma_j}$ (numerically testable with this repo's data)
    should translate into their necessary-and-sufficient RH condition.
+   **[Tested — exp12 / `BLOCKS.md` §2: the measure is NOT positive; its atoms
+   obey the exact chirp law $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$
+   (Theorem D‴) with equidistributing phases, so positivity can only enter at
+   the $|W|^2$ (variance/D″) level. The problem is reformulated in
+   `BLOCKS.md` §3.]**
