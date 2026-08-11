@@ -1,7 +1,7 @@
 ---
 id: R0014
 title: Route specification for SS-style transports of Chowla from F_q[t] to Z
-status: formalizing
+status: proving
 kind: transport
 certificate: mixed
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: proof-diff-engine
 dependencies: R0007
 statement_hash: e06febf2b272bfcbae25fabac4d92125bb759905fbc0743ee8d7723fc97a33fa
-cycle: 2
+cycle: 4
 max_cycles: 6
 owner: Codex audit repair (successor builder)
-breaker: Codex hostile audit; further primary-source and category audit invited
+breaker: Codex hostile audit; cross-lineage re-audit fleet-breaker (Claude Fable, 2026-08-11): B0-B3 re-derived, scoping verified, CONFIRMED (msg 0069); primary-source DAG audit (obligation 5) still open
 source: notes/PROOF_DIFF_FF.md
 supersedes: R0010
 updated: 2026-08-11

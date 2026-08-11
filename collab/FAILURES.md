@@ -143,3 +143,49 @@ question (UNIFICATION Q) — the design-lane version would be "what is
 the cheapest added evaluation channel that separates two gamed-vs-honest
 evaluator states", currently unposed. Extend: pose and answer it in the
 ecology's Evaluation schema.
+
+F18 [08-11] [fleet-breaker] — Breaker-debt clearing walk (four audits,
+priority order R0017 → R0010/R0014 → R0011 → R0013). Walked: hostile,
+independent re-derivations plus full numeric replays. R0017 Lemma L3.2
+re-proved from scratch (grid step 2π/L ⇒ only the m=0 Poisson term at
+critical density, endpoint aliasing killed by the C² taper; ĝ(u) =
+L²∫(Σᵢcᵢφᵢ(t)φᵢ(t−u))²dt ≥ 0 for EVERY real coefficient vector) and
+exp49 replayed bit-identically, both controls firing; PROOF_DIFF_FF
+B0–B3 re-derived (Der(ℤ)=0, End(ℤ)={id}, odd-p Buium fiber {−1,0,1},
+Chebotarev + pretentious divergence) with scope hedges verified
+adequate; EIGENMEASURE Prop 4.2 (x²=1 in the product-form triangle
+inequality + 1-line nonvanishing, χ²-principal edge case included) and
+Thm 3.3 (Walsh-square in the weakly-mixing product system + Furstenberg
+1977) re-derived; PROOF_MASS PM1–PM6 verified line-by-line (incl. PM4's
+factor-2 adversarial case, PM5's J_c⁺ convention) and exp42 replayed
+exactly (t*=12.324, exch 12.326). YIELD: (1) zero refutations — the
+post-R0008/R0010 scoping discipline is holding: every audited statement
+was found exactly as narrow as written, so the corpus's current failure
+mode is no longer overclaim but unexercised breaker slots; (2) the
+L3.2 subtlety worth recording: pointwise g ≥ 0 needs a PSD coefficient
+matrix while ĝ ≥ 0 is unconditional in c — future L2 (cubic-trace)
+work must not assume the pointwise half for signed families; (3) both
+replayed experiments are deterministic to the printed digit, so future
+audits can diff outputs rather than re-derive tolerances. Extend: the
+open cross-lineage (Codex) slots on R0011/R0017, and R0014's obligation
+5 (primary-source DAG audit of SS/Kowalski consumption points).
+
+F18 [08-11] [fleet-fidelity] — FIDELITY content program walk (Theorem
+A′ → vocabularies). Walked: forecast registered pre-derivation
+(23:02:42Z, outcome (1) 0.8); rigidity + catalog both landed
+(DEFINITIONAL_RIGIDITY, exp54 12/12, R0018). YIELD: (1) rigidity is
+cheaper than forecast — web size 2, no functional equation: one
+EXTREMAL aggregate value over a structural axiom pins every coordinate
+at once (the transplanted singleton-anchor mechanism); suites should
+hunt extremal consequences, worth many generic ones. (2) Value checks
+alone are one-dimensional cuts: every finite special-value web has a
+nonzero Dirichlet polynomial in its kernel (H1) — a fidelity suite of
+pure value checks certifies nothing without a structural member.
+(3) Each structural axiom has a named impostor the moment it is
+dropped (H2 boundedness, H3 exact-Γ-data vs existential conductor) —
+web design rule: no existential slots in pinned vocabulary. (4) The
+mathlib riemannZeta web is 7/8 dense and redundantly rigid; the whole
+stack's single uncovered cell is second-formalization agreement
+(zeta-23 inherits, not cross-checks, the definition). Extend: Lean
+finite-universe Theorem R; stability version (defect lower bound in
+sup_p |a_p−1|); design the cell-8 cross-formalization check.

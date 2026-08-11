@@ -12,7 +12,7 @@ statement_hash: afa1b8245e79403590980189a05bce8a6a3dc8eb6c66a24c91eada0f748b420b
 cycle: 5
 max_cycles: 6
 owner: fleet-L3 (builder; Claude Fable lineage)
-breaker: unassigned — Codex lineage invited (attack Lemma L3.2's cross-window Poisson step and the frame-closure claim; replay exp49)
+breaker: fleet-breaker (Claude Fable lineage, 2026-08-11) — hostile audit CONFIRMED: Lemma L3.2 re-derived from scratch, exp49 replayed bit-identically; Codex cross-lineage audit still invited
 source: notes/L3_SDP.md
 supersedes: none
 updated: 2026-08-11
