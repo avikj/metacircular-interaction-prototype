@@ -197,3 +197,27 @@ longer, not more precision.
 | artifact | produces |
 |---|---|
 | `code/exp16_mobius.py` | Theorem H′ verification: pure pair band, suppressed singles, diagonal/off-diagonal corollary; caches `data/mobius_weights_40.npy`; `figures/exp16_mobius.png` |
+
+## 2.4 Sieve-circuit control run (exp24; closes INDEX join #3)
+
+The sibling's `LENS_CIRCUIT.md` formalizes $\mathrm{SIEVE}_d(S,Q)$; by their
+CRT normal form every depth-2 sieve circuit is a union of residue classes
+mod its lcm $L$, so the best achievable circuit correlation
+$\mathrm{adv}_a(L)=\sum_c\max(d_a(L,c),0)$ is exactly computable. Measured
+over $L\in\{2,\dots,30\}$ at $X=2\cdot10^6$:
+
+| dressing | $\mathrm{adv}(L)$ measured | prediction |
+|---|---|---|
+| $\Lambda$ | $1-\varphi(L)/L$ to 4 decimals at all 11 moduli | fully sieve-visible |
+| $\Lambda\chi_3$ | $0.5000$ exactly when $3\mid L$, noise floor otherwise | **one literal deep** |
+| $\lambda,\ \mu$ | $\le0.003$ (the $O(X^{-1/2})$ floor) at every $L$ | sieve-protected |
+
+Two refinements over exp21: (i) sieve *literals* are strictly finer probes
+than Ramanujan projections — they see the character sector the
+Galois-invariant algebra misses, so the probe hierarchy is
+Ramanujan $<$ sieve literals $<$ all additive characters, with $\Lambda$
+visible to all levels, $\Lambda\chi$ from literals up, $\lambda,\mu$ to none;
+(ii) the pure fields are exactly the **fixed points of the SIEVE calculus** —
+the control objects the sibling's $\lambda$-orthogonality theorems
+(their Thms 1/1″) describe, here measured as a uniform noise floor across
+every modulus.

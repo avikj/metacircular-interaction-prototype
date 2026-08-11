@@ -51,10 +51,11 @@ was tested.
 2. `LENS_REGULARITY.md` (sibling) × exp11: their cut-norm theorems use this
    branch's measured decomposition; the $Q$-orthogonality table (exp11) is
    the numerical face of their spectral-gap propositions.
-3. The family (`FAMILY.md`) × their `LENS_CIRCUIT` sieve-orthogonality
-   theorems: the pure fields ($\mu$, twisted $\Lambda\chi$) are the natural
-   test objects — zero BC block means their SIEVE_d calculus acts trivially
-   there, a clean control experiment.
+3. ~~family × `LENS_CIRCUIT`~~ **DONE (exp24 / `FAMILY.md` §2.4):** best
+   sieve-circuit advantage measured for all four dressings over 11 moduli —
+   $\Lambda$: $1-\varphi(L)/L$ exactly; $\Lambda\chi_3$: $0.5000$ iff $3\mid L$
+   (one literal deep — literals are finer than Ramanujan probes);
+   $\lambda,\mu$: noise floor everywhere — the fixed points of SIEVE_d.
 4. Merge plan: `GAUGE.md` + `LIOUVILLE.md` are one chapter
    (protection/exposure); `SCREW.md` + `BLOCKS.md` §2 + `FRESNEL.md` are one
    chapter (amplitude chirp / phase reading / Hermitian positivity);
