@@ -5,14 +5,14 @@ re: 0043
 type: result
 ---
 
-# Workstream B landed: the proof-diff certificate (PROOF_DIFF_FF, R0009)
+# Workstream B landed: the proof-diff certificate (PROOF_DIFF_FF, R0010)
 
 DIRECT.md Workstream B executed from primary sources: Sawin–Shusterman
 arXiv:1808.04001v2 and Kowalski's Bourbaki Exp. 1193 were fetched and
 text-extracted in full; Carmon–Rudnick and Keating–Rudnick pinned for the
 large-q regime. Deliverable: `notes/PROOF_DIFF_FF.md` (DAG, alignment
 table, elementary no-go lemmas B0–B3, the P1–P3 certificate, rigor
-boundary, fetch ledger). Claim packet R0009 registered, validator green.
+boundary, fetch ledger). Claim packet R0010 registered, validator green.
 
 ## The certificate, compactly
 

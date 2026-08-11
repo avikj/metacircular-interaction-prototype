@@ -435,7 +435,7 @@ along which translation preserves the parity-relevant data.
   papers).  Claimed as (possibly) new: the assembly — the aligned DAG,
   the P1–P3 certificate with named failure categories, the
   inseparability corollary, and the gauge-vs-base connectivity diff
-  against the corpus's BC results (§4.1).  Registered as R0009.
+  against the corpus's BC results (§4.1).  Registered as R0010.
 
 ## 8. Fetch ledger
 
