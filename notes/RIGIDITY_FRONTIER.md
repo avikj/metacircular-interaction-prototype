@@ -62,6 +62,18 @@ $$
 The unique odd-degree carrier is necessarily nonreciprocal for $X\ge13$,
 so its degree satisfies this stronger bound.
 
+Grouping nonreciprocal factors into reciprocal pairs then bounds the number
+$\mathcal H_X$ of normalized $0$--$1$ polynomials with the same labeled
+difference multiset:
+
+$$
+\log|\mathcal H_X|
+\ll\frac{X\log_3X}{\log_2X\,\log_4X}=o(X).
+$$
+
+Thus full uniqueness remains open, but the ambiguity entropy per ambient
+coefficient is unconditionally zero in the limit.
+
 This does not supply an accessible explicit cutoff for the octic layer;
 the exact low-degree certificates below remain strictly stronger at finite
 $X$.

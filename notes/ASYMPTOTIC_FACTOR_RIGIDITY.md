@@ -313,7 +313,71 @@ $$
 There are therefore no cyclotomic exceptions once $X\ge13$, completing
 the factor-degree claims.
 
-## 4. Meaning and limitation
+## 4. Subexponential homometric ambiguity
+
+The nonreciprocal bound has a direct consequence for the difference-data
+problem.  For a polynomial $P$ with nonzero constant term, write
+
+$$
+P^*(x)=x^{\deg P}P(1/x).
+$$
+
+Normalize a finite $0$--$1$ support polynomial to have constant term one.
+Its labeled difference multiset is encoded by $PP^*$ up to the forced
+monomial shift.  Let $\mathcal H_X$ be the set of normalized $0$--$1$
+polynomials $A$ satisfying
+
+$$
+AA^*=F_XF_X^*.
+$$
+
+Factor $F_X$ over $\mathbb Q[x]$.  For a monic irreducible factor $q$ put
+$q^\dagger=q(0)^{-1}q^*$, its monic reciprocal, and group the
+nonreciprocal factors into pairs $\{q_j,q_j^\dagger\}$.  If the total multiplicity
+of this pair in $F_X$ is $m_j$, then a spectral factor $A$ can allocate
+$0,1,\ldots,m_j$ copies to $q_j$ and the remainder to $q_j^\dagger$: at most
+$m_j+1$ choices.  Reciprocal irreducible factors have no allocation
+choice.  Therefore
+
+$$
+|\mathcal H_X|
+\le\prod_j(m_j+1)
+\le2^{\sum_jm_j}.
+$$
+
+At least one member of each pair divides $F_X$; the two members have equal
+degree, and $m_j\deg q_j$ is exactly that pair's degree contribution to
+$F_X$.  Hence $\deg q_j\ge\delta_{\rm nr}(F_X)$ and
+
+$$
+\sum_jm_j\le
+\frac{\deg F_X}{\delta_{\rm nr}(F_X)}
+\le
+\frac{X}{\delta_{\rm nr}(F_X)}.
+$$
+
+The Smyth-tier estimate now gives
+
+$$
+\boxed{
+\log|\mathcal H_X|
+\ll
+\frac{X\log_3X}{\log_2X\,\log_4X}
+=o(X).
+}
+$$
+
+Thus the number of normalized prime-prefix homometric candidates is
+subexponential in the ambient degree.  Equivalently, its ambiguity entropy
+per coefficient tends to zero, since Bertrand's theorem gives
+$\deg F_X\asymp X$.  Constant and leading coefficient one remove scalar
+and translation units; reflection is counted twice, which is harmless for
+an upper bound.  This is weaker than uniqueness: most
+algebraic factor allocations need not preserve $0$--$1$ coefficients, but
+the estimate deliberately counts all of them and is therefore an
+unconditional upper bound for the genuine combinatorial partners.
+
+## 5. Meaning and limitation
 
 This is an asymptotic rigidity theorem, not an effective closure of the
 octic case at accessible cutoffs.  The available effective threshold from
@@ -322,8 +386,8 @@ degree-$7$ classifications and the reciprocal degree-$8$ exclusion remain
 valuable because they operate at every finite cutoff with small exact
 certificates.
 
-Targeted searches found Lenstra's bounded-degree factor theorem and the
-Ford--Maynard--Tao chain theorem, but no prior statement of their above
-prime-prefix consequence.  The safest novelty description is therefore:
-an apparently unrecorded corollary/synthesis, pending a broader expert
-search; neither input theorem is new.
+Targeted searches found the separate theorems of Lenstra, Voutier, Smyth,
+and Ford--Maynard--Tao, but no prior statement of their above prime-prefix
+consequence.  The safest novelty description is therefore: an apparently
+unrecorded corollary/synthesis, pending a broader expert search; none of
+the height or prime-gap inputs is new.
