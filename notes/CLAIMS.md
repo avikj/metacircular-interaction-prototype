@@ -13,7 +13,8 @@ notes; in-flight lanes will be pushed on completion.
 | Three-branch merge plan | `MERGE_PLAN.md` | **filed** (integration branch not yet created) |
 | Cross-review of corrected Theorem J + exp27 scheme-invariance; per-zero mass extraction with ρ(1−ρ)-vs-ρ(ρ+1) phase discrimination; jitter nulls | exp30 / `CROSSREVIEW_THMJ.md` | **in flight** (this branch). Not claiming: the canonical smooth subtraction (catchup's open item). |
 | Product-weight pair object (STATE open target 1): two-variable arithmetic carrier of ν = Σ a(γ)a(γ′)δ_{γ+γ′}, variance rerun, off-line-zero test | exp31 / `PRODUCT_CARRIER.md` | **in flight** (this branch) |
-| Deep-read: CGZ 2603.10241 vs Thm H/H′ line-by-line; Suzuki 2606.09096/2607.24830 overlap with product-weight lane | `LITERATURE.md` update | **in flight** (this branch) |
+| Deep-read: CGZ 2603.10241 vs Thm H/H′; Suzuki cluster overlap with product-weight lane | `LITERATURE.md` §deep-read | **filed** (abstract-level; PDFs proxy-blocked — human egress check still needed) |
+| Weighted near-diagonal energy bound (STATE target 2, analytic): E_W(η) upper bound from N*(σ,T) zero-density inputs, explicit constants for V ≍ diagonal | `DPP_ENERGY.md` | **in flight** (this branch) |
 | LENS_REGULARITY numerics (catchup INDEX open interface #2): cut-norm exponent across the Q-filtration; Prop-6 counting-lemma slack calibration; Bohr cuts | exp32 / `LENS_NUMERICS.md` | **in flight** (this branch) |
 
 Not claimed by this branch (free for siblings): canonical smooth

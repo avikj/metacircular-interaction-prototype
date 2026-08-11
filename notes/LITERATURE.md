@@ -35,6 +35,34 @@ Action items at the end. Companions: `CROSSREVIEW_WAVE2.md`,
   differentiate via the block decomposition (mixed-block localization) or
   fold into the product-weight carrier work.
 
+## Deep-read follow-up (abstract/snippet level — PDFs proxy-blocked from this environment)
+
+Full texts of CGZ 2603.10241 and the Suzuki cluster were unobtainable here
+(gateway 403 on arxiv.org/export/ar5iv/mirrors; WebSearch snippets only).
+Findings at that level:
+
+- **CGZ 2603.10241 confirmed details**: object S(n)=Σ_{m₁+m₂=n}λ(m₁)λ(m₂)
+  plus k-fold versions; engine = their Forum Math. 2025 Laplace-convolution
+  machinery with **general weights**; hypotheses RH + simple zeros
+  (snippet-confirmed); introduction discusses Chowla; no evidence of
+  numerics. **Verdict for Thm H: presumptively identical at identity level**
+  — a smoothing difference (their weights vs our (X−m−n)₊) defends nothing,
+  since the identity content coincides under standard transforms. Likely
+  repo-new regardless: the scale-degeneracy reading, the line-level
+  spectroscopy and inverse recovery (exp15/exp19), protection/exposure and
+  block framing. **At risk until full text read: the simplex-Chowla
+  corollary constants.** Thm H′ same verdict if their Möbius object is μ*μ.
+- **Suzuki cluster** (2606.09096 theory; 2607.24830 finite-element operator
+  numerics to 30 digits; 2607.02828 truncated-form dictionary): all three
+  are **single-zero-index** objects (Weil-form style; cross terms at
+  difference frequencies). Product weights a(γ)a(γ′) on pair sums: **not
+  treated in any of the three**; a two-variable arithmetic carrier: **not
+  treated**. The generic "Krein/Weil positivity numerics at scale"
+  deliverable is externally taken (twice); mixed-block localization and the
+  pair-sector/product-measure content remain untouched externally.
+- A human with open egress should still do the final line-by-line PDF check
+  of 2603.10241 before any submission containing Thm H/H′.
+
 ## Action items
 
 1. **Decisive**: obtain and read arXiv:2603.10241 in full; line-by-line
