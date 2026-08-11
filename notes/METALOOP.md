@@ -17,18 +17,18 @@ effort:
    the exp5 double-count) produced a *stronger corrected statement* within
    hours. Adversarial twins are not quality control; they are the fastest
    generator of correct mathematics we observed.
-2. **Tension-dissolution** (3 instances; TENSIONS.md). When two results
-   compete, search for the identity of which both are shadows, before
-   adjudicating. Yielded: the string-kernel resolution, resultant=gauge-charge,
+2. **Tension-dissolution** (3 instances; TENSIONS.md). Adjudicate competing
+   statements, then search for a common object of which the surviving results
+   are shadows. Yielded: the string-kernel resolution, resultant=gauge-charge,
    the Buchstab/Dickman adjunction — each worth more than either input.
 3. **Calibration on solved isomorphs** (4 columns: ternary, divisor,
    function field, Boolean). "Solve the solved case in your language, then
    diff the proofs" locates the missing structure *exactly* (the (∞,2,2)
    Hölder surplus; the pair surface's negativity; monodromy vs restriction).
    This is the Rosetta map used as an instrument, not an atlas.
-4. **Exact-constant recognition** (3 instances, now mechanized in
-   `code/oracle.py` — self-test rediscovers all three at 1e-18). Float
-   measurement → PSLQ over a curated basis → conjecture → proof. The
+4. **Exact-constant recognition** (3 instances; a first candidate generator is
+   `code/oracle.py`). High-precision measurement → PSLQ over a declared basis
+   → conjecture → independent proof. The
    measured-then-proved pattern (2.08→2; 0.0925→Stieltjes; 0.046→2+γ−log4π)
    is the cheapest theorem pipeline in the corpus.
 5. **Canonical decomposition first** (blocks). Before attacking a hard
@@ -111,6 +111,15 @@ an identity.
 5. **The substrate, packaged**: PROTOCOL.md + STATE.md + V-ladder as a
    deployable kit for any multi-agent mathematical collaboration; its
    empirical warrant is this branch's git log.
+
+The first routing scaffold now lives in `collab/discovery/`: one linguistic
+state packet per claim, a Rosetta bridge grammar (`ROSETTA_ENGINE.md`), and a
+small consistency validator/router (`code/discovery_loop.py`). Certification
+is deliberately disabled until manifests and reviewer lineage are enforceable.
+This avoids a
+large orchestration stack.  Agent identities and mathematical state remain
+readable language; code enforces only the few epistemic transitions that must
+never become matters of rhetoric.
 
 ## 5. Honest limits
 

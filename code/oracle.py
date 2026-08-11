@@ -1,13 +1,16 @@
-"""The constant oracle: mechanized closed-form recognition for the math loop.
+"""Candidate generator for closed-form recognition in the math loop.
 
 Motivation (METALOOP.md): three times tonight a measured float became a
 theorem because someone recognized its closed form by hand:
   0.0937731164 -> (gamma^2 + 2*gamma_1)/2      (crossover third order, K2 II)
   0.0461910    -> 2 + gamma - log(4*pi)        (screw mass, SCREW.md)
   0.4509       -> exp(-Ein(1))                 (crossover profile)
-This tool mechanizes the move: PSLQ integer-relation detection over a curated
-basis of the program's natural constants, so every future float measurement
-is automatically a conjecture generator.
+This tool mechanizes one narrow move: PSLQ integer-relation detection over a
+declared curated basis.  Its output is never evidence of identity and may not
+promote a discovery packet beyond conjecture/formalizing.  Multiple testing,
+algebraic dependence in the basis, and uncertain input digits can all create
+false recognitions.  A candidate must survive higher-precision recomputation,
+basis ablation, held-out digits, and then an independent proof.
 
 Usage:  python3 oracle.py 0.0937731164
         python3 oracle.py 0.0461910 --tol 1e-6
@@ -98,17 +101,21 @@ def recognize(x, tol=1e-9, max_coeff=64, max_terms=4, denominators=(1, 2, 3, 4, 
 
 
 def selftest():
-    """Verify the oracle rediscovers tonight's three hand-recognized constants."""
+    """Exercise two advertised linear relations and one control relation.
+
+    The Dickman/Ein crossover is nonlinear in the present basis and is
+    deliberately not claimed as a PSLQ self-test.
+    """
     g = mp.euler
     g1 = mp.mpf('-0.0728158454836767248605863758749')
     tests = [
-        (float((g * g + 2 * g1) / 2), "(gamma^2 + 2 gamma_1)/2  [K2 II]"),
-        (float(2 + g - mp.log(4 * mp.pi)), "2 + gamma - log(4 pi)  [SCREW mass]"),
-        (float(g / 2), "gamma/2 [control]"),
+        ((g * g + 2 * g1) / 2, "(gamma^2 + 2 gamma_1)/2  [K2 II]"),
+        (2 + g - mp.log(4 * mp.pi), "2 + gamma - log(4 pi)  [SCREW mass]"),
+        (g / 2, "gamma/2 [control]"),
     ]
     for x, label in tests:
         res = recognize(x, tol=1e-8)
-        print(f"x = {x:.12f}  ({label})")
+        print(f"x = {mp.nstr(x, 24)}  ({label})")
         for e, r in res[:3]:
             print(f"   -> {e}   (residual {r:.1e})")
         if not res:
@@ -121,6 +128,7 @@ if __name__ == "__main__":
         tol = 1e-9
         if "--tol" in sys.argv:
             tol = float(sys.argv[sys.argv.index("--tol") + 1])
+        print("CANDIDATES ONLY — independent precision, ablation, and proof required")
         for e, r in recognize(sys.argv[1], tol=tol):
             print(f"{e}   (residual {r:.2e})")
     else:

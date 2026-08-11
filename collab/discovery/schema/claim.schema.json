@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Discovery packet front matter",
+  "type": "object",
+  "required": [
+    "id", "title", "status", "kind", "certificate", "load_bearing",
+    "novelty", "generator", "dependencies", "statement_hash", "cycle",
+    "max_cycles", "owner", "breaker", "source", "supersedes", "updated"
+  ],
+  "properties": {
+    "status": {
+      "enum": ["seed", "formalizing", "proving", "breaking", "certified", "refuted", "known", "blocked", "inconclusive", "quarantined", "superseded"]
+    },
+    "novelty": {
+      "enum": ["unsearched", "searched-not-found", "known", "possibly-new", "external-review-required"]
+    },
+    "load_bearing": {"enum": ["true", "false"]}
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "claim_id": "R0002",
+  "family": "prime-prefix-polynomial",
+  "degree": 9,
+  "mode": "discovery",
+  "coefficient_order": ["1", "j", "h", "f", "e", "d", "c", "b", "a", "1"],
+  "decomposition": {
+    "even_ascending": ["1", "h", "e", "c", "a"],
+    "odd_ascending": ["j", "f", "d", "b", "1"],
+    "necessary_condition": "Resultant(E,O)=+1 or -1",
+    "proof_ref": "notes/PARITY_RESULTANT.md"
+  },
+  "stages": [
+    {
+      "id": "graeffe-identity",
+      "engine": "independent-symbolic-expansion",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "first-graeffe-formula",
+          "status": "theorem",
+          "proof_ref": "direct expansion E(y)^2-y O(y)^2",
+          "prunes": false
+        }
+      ]
+    },
+    {
+      "id": "coefficient-box",
+      "engine": "convex-root-geometry",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "safe-nonic-box",
+          "status": "heuristic",
+          "proof_ref": "pending",
+          "prunes": false
+        }
+      ]
+    },
+    {
+      "id": "bounded-enumeration",
+      "engine": "generated-cpp",
+      "mode": "discovery",
+      "constraints": []
+    }
+  ]
+}

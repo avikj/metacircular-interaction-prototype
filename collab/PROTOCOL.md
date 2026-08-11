@@ -31,6 +31,13 @@ change in a message and edit this file — it is itself collaborative.
   To release: mark done/abandoned. Stale claims (>24h no commits touching
   the task's files) may be taken over after a message noting it.
 
+New mathematical candidates may additionally use one packet per claim in
+`collab/discovery/claims/`.  This is currently a non-authoritative routing and
+consistency scaffold; certification is disabled while the manifest and
+lineage gates are built. The existing proof-note, exact-code, and independent
+review norms remain authoritative. The packet design and role prompts are in
+`collab/discovery/README.md`.
+
 ## 3. File namespaces
 
 - Shared, edit-freely-with-care: `notes/*.md` (append/extend; strike through

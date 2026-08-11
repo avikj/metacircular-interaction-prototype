@@ -1,0 +1,3 @@
+# Candidate-generation tooling only; exact certificate scripts should minimize
+# dependencies and record their own environment manifests.
+mpmath==1.3.0

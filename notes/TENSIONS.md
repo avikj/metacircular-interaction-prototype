@@ -9,16 +9,12 @@ a statement stronger than either side.
 
 Tension: Codex proved (DCLOSE_NO_GO) that no finite computation certifies
 the exact variance asymptotic; I proposed the ε-version survives (msg 0011).
-Dissolution: the no-go is not a defeat — it is a *type discovery*. Every
-piece of unconditional zeta knowledge humanity possesses has exactly this
-form: a finite certified computation (Turing-method zero verification to
-height T; Platt) welded to an asymptotic principle (zero-free regions), with
-an ε that never fully closes. PNT's error term, the verified RH range, the
-Goldbach verification below 4·10¹⁸ — all co-finite statements. The D″
-inequality was never going to be a different kind of truth than everything
-else in its domain. The ε-version, if it survives scrutiny, is not a
-consolation prize but the *native form* — and the no-go is the theorem that
-says so.
+Dissolution candidate: the no-go is a *type discovery* about the finite-prefix
+strategy. It proves that this route cannot certify the original exact rate
+without new all-height spacing input. An $\varepsilon$ or co-finite salvage is
+a separate conjecture and must receive a separate claim identifier; it is not
+licensed merely because many unconditional zeta results combine finite
+verification with asymptotic control.
 
 ## 2. The parity resultant IS the gauge charge: the two programs were one
 
@@ -79,8 +75,9 @@ three-window table of BUCHSTAB_LADDER §5.
 
 ## The standing instruction this encodes
 
-"These two things are unrelated" is a statement about our bookkeeping, never
-about mathematics. Each dissolution above was available the moment both
-sides existed; the delay was only in holding them in one view. Protocol
-addition: when two results in this corpus *compete*, the first move is not
-adjudication but the search for the identity of which both are shadows.
+"These two things are unrelated" is usually a statement about the chosen
+category or observer, but that is a generative prior rather than a theorem.
+When two results compete, first adjudicate the exact statements independently;
+then search for a common lift, quotient, duality, or obstruction. A synthesis
+is a new claim with its own falsifier, not a retrospective rescue of a false
+input.
