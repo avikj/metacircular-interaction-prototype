@@ -98,6 +98,12 @@ def main():
     k = np.argmax(Wq)
     print(f"  global worst progression: q={qs[k]}, a={argmax_a[k]}, "
           f"W={Wq[k]:.4f}")
+    for Qc in (10, 50, 300, 1000, 3000):
+        m = qs <= Qc
+        if m.any():
+            j = np.where(m)[0][-1]
+            print(f"    W(Q={Qc:5d}) = {WQ[j]:.4f}   "
+                  f"random model at Q: {np.sqrt(2*Qc*np.log(Qc)/X):.4f}")
 
     # departure check: largest studentized excursion under the half-normal max
     # model; anything O(1) means square-root cancellation holds everywhere.
