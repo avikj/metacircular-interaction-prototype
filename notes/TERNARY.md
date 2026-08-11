@@ -238,27 +238,30 @@ range, grid, zeros, and band.
 
 Measured (see `figures/exp19_ternary.png`):
 
-- **(i) Main term.** $24\,G_2(X)/X^4 = 1.0000$ across the grid
-  (RESULT_MAIN).
+- **(i) Main term.** $24\,G_2(X)/X^4 = 0.99927,\ 0.99977,\ 0.99990,\ 0.99993$
+  at $X = 3\cdot10^4,\ 10^5,\ 2\cdot10^5,\ 2.9\cdot10^5$ — ratio $\to1$ with
+  the expected $O(X^{-1/2})$ approach.
 - **(ii) First variation, coefficient 3.** Band-passing
   $(G_2-X^4/24)/X^{7/2}$ to the single-zero band $[10,24]$ against the *unit*
   model $-\sum_\rho X^{\rho+3}/(\rho(\rho+1)(\rho+2)(\rho+3))$:
-  correlation RESULT_C1, fitted coefficient RESULT_A1 (predicted $3$).
+  correlation $1.0000$, fitted coefficient $\mathbf{3.004}$ (predicted $3$).
   Subtracting the layer with coefficient $3$ collapses the detrended residual
-  rms by a factor RESULT_DROP at the $X^{7/2}$ scale.
+  rms at the $X^{7/2}$ scale from $1.02\cdot10^{-4}$ to $3.6\cdot10^{-6}$
+  (factor $28$).
 - **(iii) Second variation, coefficient 3.** The remaining residual at scale
   $X^3$ has its spectrum concentrated on the pair lines $\gamma_i+\gamma_j$
   (single-$\gamma$ lines absent — panel 1); band-passed to $[26,250]$ against
   the unit pair model with the *ternary* weights
   $\Gamma(\rho_1)\Gamma(\rho_2)/\Gamma(\rho_1+\rho_2+3)$:
-  correlation RESULT_C2, fitted coefficient RESULT_A2 (predicted $3$).
-  Individual lines at $2\gamma_1,\ \gamma_1+\gamma_2,\ 2\gamma_2,\ \gamma_1+\gamma_3$:
-  data/(3$\times$model) amplitude ratios RESULT_LINES.
+  correlation $0.9992$, fitted coefficient $\mathbf{3.022}$ (predicted $3$).
+  Individual lines: $2\gamma_1=28.269$ (data/$3{\times}$model $=0.990$),
+  $\gamma_1+\gamma_2=35.157$ ($1.011$), $2\gamma_2=42.044$ ($1.038$),
+  $\gamma_1+\gamma_3=39.146$ ($0.983$).
 - **Binary reference, coefficient 1.** Same pipeline on
   $(G_1-X^3/6+2\sum_\rho\cdot)/X^2$ with binary weights
   $\Gamma(\rho_1)\Gamma(\rho_2)/\Gamma(\rho_1+\rho_2+2)$: correlation
-  RESULT_CB, fitted coefficient RESULT_AB (predicted $1$). Ternary/binary
-  pair-coefficient ratio: RESULT_RATIO (predicted $3/1$).
+  $0.9998$, fitted coefficient $\mathbf{1.003}$ (predicted $1$). Ternary/binary
+  pair-coefficient ratio: $\mathbf{3.012}$ (predicted $3/1$).
 
 So the trinomial layer structure of §1.2 — coefficients $(1,-3,+3)$ down to the
 $X^3$ layer, ternary $\Gamma$-quotient weights included — is empirically exact

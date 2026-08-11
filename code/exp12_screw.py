@@ -38,8 +38,10 @@ What this experiment does
     the line and masses are positive);
 (3) control experiments:
     (a) g_H built from the UNsymmetrized denominator rho(rho+1) of Fujii's
-        formula: fails the screw axiom g(-t)=conj g(t) (complex masses), and
-        its Krein kernel is indefinite -- shows why [MS] pass from H to H_1;
+        formula: fails the screw axiom g(-t)=conj g(t) (complex masses; the
+        kernel is not even symmetric), and the symmetric part of its Krein
+        kernel comes out NEGATIVE definite (all Re[1/(rho(rho+1))] < 0 on the
+        line) -- shows why [MS] pass from H to the rho <-> 1-rho symmetric H_1;
     (b) an off-line zero quadruple beta +- i gamma_1, 1-beta +- i gamma_1
         injected into g_{H_1}: the kernel acquires large negative eigenvalues
         (the criterion detects RH violations), swept over beta in (1/2, 1);
@@ -256,12 +258,16 @@ def main():
     key, wv = key[order], w[sel][order]
     cuts = np.nonzero(np.diff(key))[0] + 1
     masses = np.add.reduceat(wv, np.concatenate([[0], cuts]))
+    masses = masses[np.abs(masses) > 0]        # drop underflowed opposite-sign bins
     frac_neg = np.mean(np.real(masses) < 0)
+    wneg = np.abs(masses[np.real(masses) < 0]).sum() / np.abs(masses).sum()
     print(f"  binned pair measure on [20,100]: {masses.size} lines;")
-    print(f"    fraction with Re(mass) < 0: {frac_neg:.2f}; "
-          f"min Re = {np.real(masses).min():+.3e}, max Re = {np.real(masses).max():+.3e}")
-    print(f"    mean |Im|/|mass| = {np.mean(np.abs(np.imag(masses))/np.abs(masses)):.2f}"
-          f"   ==> the measure sum W delta_(gamma+gamma') is NOT positive")
+    print(f"    fraction of lines with Re(mass) < 0: {frac_neg:.2f} "
+          f"(carrying {wneg:.2f} of total |mass|);")
+    print(f"    min Re = {np.real(masses).min():+.3e}, "
+          f"max Re = {np.real(masses).max():+.3e}; "
+          f"mean |Im(mass)|/|mass| = {np.mean(np.abs(np.imag(masses))/np.abs(masses)):.2f}")
+    print(f"    ==> the measure sum W delta_(gamma+gamma') is complex, NOT positive")
     KA, asymA, _ = krein_kernel_uniform(A, 120, 25.0)
     evs["pair"], relA = eig_report(KA, "pair layer A(u), n=120, T=25")
     # consistency with Thm D': opposite-sign suppression
@@ -328,7 +334,7 @@ def main():
     for lab, key_, col, mk in [
             (r"$g_{H_1}$ (RH): PSD", "gH1_T40", "tab:green", "."),
             (r"off-line $\beta=0.6$", "off060", "tab:red", "x"),
-            (r"$g_H$: $\rho(\rho+1)$ masses", "gH", "tab:orange", "+"),
+            (r"$g_H$: $\rho(\rho+1)$ masses (all $<0$)", "gH", "tab:orange", "+"),
             (r"pair layer $A(u)$ (Thm D)", "pair", "tab:purple", "1")]:
         ev = np.sort(evs[key_])[::-1]
         a.plot(np.arange(ev.size), ev, mk, ms=4, color=col, label=lab, lw=0)

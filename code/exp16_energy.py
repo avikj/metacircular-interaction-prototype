@@ -212,14 +212,15 @@ def weighted(g_all):
           f"off/diag ~ {c_lin:.2f} * delta  -> vanishes linearly as "
           f"delta = 1/L -> 0")
 
-    # weighted-Poisson check: off_pred(delta) = 2 delta int f_w(s)^2 ds
+    # weighted-Poisson check: off_pred(delta) = 2 delta int f_w(s)^2 ds,
+    # with the self + swap (diagonal) pairs removed from the same-bin count
     s, w = o["EW"].__defaults__[0], o["EW"].__defaults__[1]
     h = 2.0
     bins = np.arange(s[0] - h, s[-1] + 2 * h, h)
     bw, _ = np.histogram(s, bins=bins, weights=w)
-    int_fw2 = float(np.sum(bw * bw)) / h
-    print(f"  weighted-Poisson prediction 2*delta*int f_w^2: off/pred at "
-          f"delta* = {o['off'] / (2 * DSTAR * int_fw2):.3f}")
+    int_fw2_off = (float(np.sum(bw * bw)) - o["diag"]) / h
+    print(f"  weighted-Poisson prediction 2*delta*int f_w^2 (diag removed): "
+          f"off/pred at delta* = {o['off'] / (2 * DSTAR * int_fw2_off):.3f}")
 
     ew_row = [(d, o["EW"](d), (o["EW"](d) - o["diag"]) / o["diag"])
               for d in (0.01, DSTAR, 0.1, 1.0)]
