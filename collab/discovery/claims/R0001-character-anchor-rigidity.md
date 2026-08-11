@@ -12,7 +12,7 @@ statement_hash: 35d07e877374fd9d03d6cb47f9ddb23f4ebf843cb73c5086d33c77542071a517
 cycle: 2
 max_cycles: 6
 owner: codex-outside-lens
-breaker: unclaimed
+breaker: Mendel / character_anchor_audit
 source: notes/CHARACTER_ANCHOR_RIGIDITY.md
 supersedes: none
 updated: 2026-08-11
@@ -95,9 +95,13 @@ one translation/inversion class.
 
 # Independent audit
 
-The builder proof and higher-rank falsification search are complete.  An
-independent blind-breaker and an independent full proof check are still
-pending; the partial Lean check does not discharge either requirement.
+Mendel independently reconstructed the proof, checked all edge cases and the
+group-ring domain reduction, reran the complete $4\times4$ search, and
+verified the Lean algebraic kernel.  The attack found the sharp torsion
+counterexample $\{0,1,4,6\}$ versus $\{0,1,3,7\}$ in $\mathbb Z/12$ under
+$\chi(x)=(-1)^x$, while finding no flaw under the stated torsion-free
+hypothesis.  Verdict: ACCEPT mathematically; full formalization of the
+finite-set theorem remains incomplete.
 
 # Prior art
 
@@ -106,7 +110,9 @@ The group-ring factorization framework is classical: Rosenblatt and Seymour,
 Methods* 3 (1982), DOI 10.1137/0603035.  Finite-alphabet phase retrieval and
 homometric partitions are also established; see Bendory, Edidin, and
 Gonzalez, *Applied and Computational Harmonic Analysis* 66 (2023),
-arXiv:2301.10647.
+arXiv:2301.10647.  Their closest ordered-partition result assumes labeled
+cross-difference data between partition blocks and is therefore not this
+union-autocorrelation theorem.
 
 A targeted search did not locate the exact singleton-character corollary.
 It may be implicit in classical factorization results, so the novelty status

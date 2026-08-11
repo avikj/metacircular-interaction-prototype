@@ -39,7 +39,8 @@ bag of multiplicities.
 ## Theorem
 
 **Character-anchor rigidity.**  Let \(\Gamma\) be a torsion-free abelian
-group and let \(\chi:\Gamma\to\{\pm1\}\) be a character.  Let
+group and let \(\chi:\Gamma\to\{\pm1\}\) be a group homomorphism, with
+\(\{\pm1\}\) written multiplicatively.  Let
 \(A\subset\Gamma\) be finite and suppose one of the two \(\chi\)-fibers of
 \(A\) is a singleton.  If a finite set \(B\subset\Gamma\) satisfies
 \(c_A=c_B\), then there is a \(t\in\Gamma\) such that
@@ -176,9 +177,22 @@ The proof uses two independent ingredients:
 
 Torsion-freeness is a clean sufficient hypothesis for the second ingredient.
 With torsion, group rings can have zero divisors (for example
-\((1-X^g)(1+\cdots+X^{(n-1)g})=0\) when \(ng=0\)), so this proof cannot be
-transported unchanged.  That observation is a proof boundary, not by itself
-a counterexample to every torsion-group version.
+\((1-X^g)(1+\cdots+X^{(n-1)g})=0\) when \(ng=0\)), and the theorem itself can
+fail.  In \(\mathbb Z/12\mathbb Z\), for
+\(\chi(x)=(-1)^x\), the anchored sets
+
+\[
+A=\{0,1,4,6\},\qquad B=\{0,1,3,7\}
+\]
+
+have the same cyclic autocorrelation
+
+\[
+(4,1,1,1,1,1,2,1,1,1,1,1),
+\]
+
+but are not related by translation or inversion.  Thus torsion-freeness is
+a substantive hypothesis, not merely a convenience of this proof.
 
 ## Computational falsification search
 
@@ -198,7 +212,10 @@ group-ring/polynomial factorization.  Modern finite-alphabet phase-retrieval
 work likewise treats uniqueness through difference sets and homometric
 partitions; see Bendory, Edidin, and Gonzalez, “Finite alphabet phase
 retrieval,” *Applied and Computational Harmonic Analysis* 66 (2023),
-arXiv:2301.10647.
+arXiv:2301.10647.  Their neighboring result for homometric ordered
+partitions of type \([N-K,1,\ldots,1]\) assumes the cross-difference data
+between labeled blocks; it does not imply rigidity from the autocorrelation
+of the unlabeled union used here.
 
 A targeted search did not locate the exact corollary “a singleton fiber of an
 index-two character forces trivial homometry in a torsion-free abelian
