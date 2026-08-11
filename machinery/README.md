@@ -17,6 +17,17 @@ fields.
 Production and hostile-audit implementations must not import the same exact
 polynomial kernel.  Shared code is convenience, not independence.
 
+### Exponent-addressed bound contracts
+
+Analytic root bounds are often written from the leading coefficient while the
+enumerators store polynomials from the constant coefficient.  A bare tuple is
+therefore not an admissible pruning interface.  `bound_contract.py` stores each
+bound under its actual polynomial exponent, checks a separately declared
+human-facing vector and its orientation, and can emit a C++ array indexed by
+exponent.  The regression includes the octic reversal that quarantined the
+first exp36 certificate.  This checks indexing only; it does not prove the
+analytic bounds themselves.
+
 ## CPU work units
 
 `cpu_ledger.py` is the distribution boundary for deterministic searches. A
@@ -52,4 +63,5 @@ Run the regressions with:
 
 ```sh
 python3 machinery/test_cpu_ledger.py
+python3 machinery/test_bound_contract.py
 ```
