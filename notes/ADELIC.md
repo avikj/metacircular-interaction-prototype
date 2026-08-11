@@ -61,6 +61,17 @@ $e_F$ (units are Galois-stable), so all correlators above are Galois-invariant �
 consistent, but not yet leverage. A genuine BC-theoretic lever would need the
 class-field action to move a sieve-type projection nontrivially; none of the
 natural projections here does.
+**[Update — exp21 / `FAMILY.md`: the lever exists; the family provides it.
+The finite-place fingerprints split into three visibility classes: $\Lambda$
+is visible to the Galois-invariant (Ramanujan) algebra (atoms
+$|\mu(q)|/\varphi(q)$, projections $\mu(q)$ — measured to 4 decimals);
+$\Lambda\chi_3$ has *vanishing* Ramanujan projections but nonzero individual
+atoms ($\sin(2\pi/3)=0.8661$ at levels 3, 6), and the class-field action
+$u=2$ moves its level-3 atom by exactly $\chi(2)=-1$ while fixing
+$\Lambda$'s; $\lambda,\mu$ are invisible at every level. The character
+sector is precisely the part of the BC diagonal on which
+$\widehat{\mathbb Z}^\times$ acts nontrivially — the twisted pair fields
+(exp20) are the objects this lever moves.]**
 
 ---
 
@@ -154,16 +165,23 @@ $$\sum_{m,n}\Lambda(m)\Lambda(n)f(m,n)
   local arithmetic = renormalized critical-BC $k$-point functions" enters an
   actual prime-counting identity.
 - **Zero block.** In the Goldbach sector with one Cesàro smoothing, the
-  $[\flat\flat]$ block is exactly the single- and double-zero sums of Theorem D
-  with the $\Gamma(\rho)\Gamma(\rho')/\Gamma(\rho+\rho'+2)$ weights (verified at
-  0.9999 correlation): *evaluable from zero locations alone.* In the gap sector
-  at fixed $h$ it is a bilinear form on the zeros concentrated near the diagonal
-  $\gamma\approx\gamma'$: *evaluable only given pair-correlation information.*
-  The provability asymmetry of the two sectors (REPORT §6) is thus a property
-  of one kernel's two sector projections — as demanded.
-- **Mixed blocks.** Vanish in Besicovitch mean by orthogonality; their
-  *uniform* control in the sector parameter is the large sieve on average and
-  the minor-arc problem pointwise.
+  $[\flat\flat]$ block is the **double**-zero (pair) sum of Theorem D with the
+  $\Gamma(\rho)\Gamma(\rho')/\Gamma(\rho+\rho'+2)$ weights: *evaluable from zero
+  locations alone.* **[Corrected + verified, exp11 / `BLOCKS.md` §1:** the
+  *single*-zero sums arise from the pole × zero cross term and therefore live in
+  the **mixed** block, not here; measured: $[\flat\flat]$ matches the pair model at
+  corr 0.9997, and its single-$\gamma$ lines are $\sim4000\times$ smaller than the
+  mixed block's.**]** In the gap sector at fixed $h$ it is a bilinear form on
+  the zeros concentrated near the diagonal $\gamma\approx\gamma'$: *evaluable only
+  given pair-correlation information.* The provability asymmetry of the two
+  sectors (REPORT §6) is thus a property of one kernel's two sector
+  projections — as demanded.
+- **Mixed blocks.** Vanish in Besicovitch mean by orthogonality (verified,
+  exp11: means $\approx10^{-4}$), but are **not pointwise small**: they carry the
+  entire single-zero layer $-2\sum_\rho X^{\rho+2}/(\rho(\rho+1)(\rho+2))$ at scale
+  $X^{5/2}$ (corr 1.0000 with the model — `BLOCKS.md` §1). Their *uniform*
+  control in the sector parameter is the large sieve on average and the
+  minor-arc problem pointwise.
 
 **Honest assessment (canonical vs. circle-method rearrangement).** The blocks
 are canonical (orthogonal projections in adelic harmonic analysis; no arbitrary
@@ -183,10 +201,12 @@ concentration); (iii) Proposition E0 pins the entire BC block to the critical
 temperature, so the decomposition is not tunable — it is forced.
 
 **Next derivations in order of tractability.**
-1. Write out $[\sharp\sharp]$ for the smoothed Goldbach sector at finite $Q$ and
-   verify numerically that $[\sharp\sharp]+[\flat\flat]$ reproduces $G_1(X)$ to
-   the accuracy of exp6b with the mixed blocks averaging to zero at the
-   predicted $Q$-rate. (Fully within reach of this repository's tooling.)
+1. ~~Write out $[\sharp\sharp]$ for the smoothed Goldbach sector at finite $Q$ and
+   verify numerically that the blocks reproduce $G_1(X)$.~~ **Done — exp11 /
+   `BLOCKS.md` §1 (Theorem E2):** exact closure to $2\times10^{-13}$; each spectral
+   layer sits in exactly one block ($[\sharp\sharp]$ smooth, mixed = single-zero
+   layer, $[\flat\flat]$ = pair layer); Hardy projection and $Q$-orthogonality
+   verified.
 2. The $\beta$-deformed pair field: compute the full BC-block flow in $\beta$
    and identify what arithmetic function replaces $\mathfrak S$ in the scaling
    window $\beta\to1^\pm$ (Proposition E0 suggests a logarithmic scaling law —
@@ -194,3 +214,10 @@ temperature, so the decomposition is not tunable — it is forced.
 3. The Krein/screw join of `APPENDIX_D.md` §D.6, now with the BC block
    subtracted first — the natural guess is that Matsumoto–Suzuki's screw
    function is precisely the Krein transform of the zero block alone.
+   **[Update, exp12 / `BLOCKS.md` §2: the naive positivity of
+   $\sum W_{ij}\delta_{\gamma_i+\gamma_j}$ is refuted — the measure is chirped with
+   phase law $\arg W=-(\gamma+\gamma')H(\gamma/(\gamma+\gamma'))-5\pi/4$ (Theorem D‴)
+   and equidistributing atom phases; any screw join must go through the
+   Hermitian square $|W|^2=2\pi(\gamma+\gamma')^{-5}$, and by the corrected block
+   attribution the screw kernel should pair with the *mixed* (first-variation)
+   block.]**

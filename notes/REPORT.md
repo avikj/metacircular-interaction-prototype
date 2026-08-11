@@ -187,6 +187,8 @@ a **weighted additive energy of the zero ordinates** at resolution $1/\log T$. U
 
 The diagonal is populated by theorems; the off-diagonal is *empty* — and Theorem B explains why: the bridge is marginal-to-marginal, without mixing. Sum data of primes couples only to sum data of zeros; difference to difference. We regard this exact segregation — visible in the identity, in the weights, and in the numerics — as the framework's one true "intertwining theorem".
 
+**[Update (`FRESNEL.md`): the off-diagonal is empty for *Hermitian* statistics only. The phases of the sum-spectrum lines carry the difference spectrum as a Fresnel chirp $(\gamma-\gamma')^2/2f$ (Theorem G), and exp14 reads zero gaps off the Goldbach data to 0.1%. Theorem B's frequency-support statement stands; the mixing lives entirely in phase.]**
+
 ---
 
 ## 6. The holomorphic/Hermitian dichotomy (what "phase" really meant)
@@ -227,7 +229,10 @@ This, we contend, is the precise and correct residue of the original "phase retr
    are classified globally, bounded-degree factors disappear effectively,
    and the first finite open layer is a nonreciprocal octic.  This now studies
    the algebraic spectral factors themselves, not the uniqueness of prime
-   sets from gap data.
+   sets from gap data.  (An equivalent erratum to the superseded phrasing of
+   this problem — reciprocal factors *remove* swap freedom rather than create
+   it — was filed independently on the catchup branch, `FRESNEL.md` §1,
+   before the A′′ upgrade landed.)
 2. **Weighted additive energy of zeros.** Prove Theorem D″ with explicit constants, and determine the true order of $\sum_{|\gamma_i+\gamma_j|\le T,\ \text{4-tuples near diagonal}} W_{12}\overline{W_{34}}$ under RH + (a) GUE-adjacent hypotheses, (b) unconditionally with $N^*(\sigma,T)$ inputs (Tao–Trudgian–Yang). Payoff: sharp $\Omega/O$ results for the Goldbach-average error, potentially improving Bhowmik–Schlage-Puchta's $\Omega(X\log\log X)$ story into an equivalence with a zero-clustering statement — the exact $S$-side analogue of Goldston–Montgomery.
 3. **Screw-function ⟷ sum-spectrum join.** Matsumoto–Suzuki's screw function is built from the same secondary terms our exp6b resolves into $\gamma_i+\gamma_j$ lines. Make the dictionary exact: their Krein-space positivity condition should be equivalent to a positivity property of the measure $\sum_{i,j} W_{ij}\,\delta_{\gamma_i+\gamma_j}$. A numerical Krein test at 100k zeros is immediately feasible with this repository's data.
 

@@ -110,6 +110,13 @@ intervals and pair correlation are.
    weighted near-diagonal energy using zero-density estimates (the Tao–Trudgian–Yang
    $N^*$ machinery is designed for exactly such bounds), yielding: *under RH,
    $V \asymp \sum|W|^2$ with explicit constants*.
+   **[Numerically closed — `exp13_energy` / `BLOCKS.md` §3: $E(\eta)=C\eta$
+   linear over the ~2.5 audited decades with $C/D=1.44$; $V(T,L)/D\in[0.955,1.037]$
+   on the audited $L$-grid at fixed $u_0$ ($L$-independence in the limit is the
+   claim), $\to0.9998$; diagonal in D‴ closed form (ratio 1.0024); unfolded
+   spacings Poisson (var/mean² 0.997). Only the unconditional count bound
+   remains — and `DCLOSE_NO_GO.md` proves the finite-check route cannot supply
+   it, so "numerically closed" must not be read as "closed".]**
 2. Remove RH from the framework: off-line zeros contribute $x^{\rho+\rho'+1}$ with
    $\operatorname{Re}(\rho+\rho')\neq1$; the analysis of Sections D.2–D.4 then produces an
    equivalence between "$V(T,L) \ll$ diagonal" and a quasi-RH zero-clustering
@@ -130,3 +137,11 @@ intervals and pair correlation are.
    is positive under RH as a corollary of their theorem; identify the
    doubly-reweighted Goldbach sum carrying it and rerun the variance analysis
    there. The 4-point near-diagonal separation remains the genuinely open input.
+   **[Independently tested — `exp12_krein` / `BLOCKS.md` §2: the measure is NOT
+   positive; its atoms obey the exact chirp law
+   $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$ (Theorem D‴) with
+   equidistributing phases, so positivity can only enter at the $|W|^2$
+   (variance/D″) level; reformulated in `BLOCKS.md` §3.]**
+   *Both refutations are consistent; the join is now closed by Theorem J
+   (`BLOCKS.md` §5): the MS screw function IS the mixed block, so Krein
+   positivity lives one block over from the pair measure.*
