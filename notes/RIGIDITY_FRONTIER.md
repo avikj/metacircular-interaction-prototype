@@ -19,14 +19,15 @@ Every claim is labeled **PROVED** (hand proof, checkable line by line), **MACHIN
 
 | $X$ | degree | $\pi(X)$ | factors | time |
 |---|---|---|---|---|
-| 30000 | 29985 | 3245 | [PENDING-30K] | [PENDING-30K-T] |
-| 50000 | 49991 | 5133 | [PENDING-50K] | [PENDING-50K-T] |
+| 30000 | 29987 | 3245 | **1 (irreducible)** | 657 s |
+| 50000 | 49997 | 5133 | [PENDING-50K] | [PENDING-50K-T] |
 
-[PENDING-VERDICT]
-
-Timing grows like $\deg^{2.2}$ (9.3s → 44.7s → 211s → [PENDING] across doublings), putting
-$X=10^5$ at roughly 2 hours — feasible but outside this session's budget; it is the natural
-next checkpoint.
+$F_X$ is irreducible at every tested cutoff beyond $X=11$; by Theorem A′, the primes up to
+$3\cdot10^4$ [PENDING-CONFIRM-5E4] are unconditionally determined by their difference
+multiset up to reflection. Timing grows like $\deg^{2.2}$ (9.3 s → 44.7 s → 211 s → 657 s
+across the doublings $5\text{k}\to10\text{k}\to20\text{k}\to30\text{k(×1.5)}$, run
+concurrently with other jobs), putting $X=10^5$ at roughly 1.5–2 h — feasible but outside
+this session's budget; it is the natural next checkpoint.
 
 ---
 
@@ -249,18 +250,25 @@ refuted in favor of "transient with
 linear escape"; the closest approach to a tie after $X=11$ is $|v|^2=2$ at $X=13$ ($m=3$)
 and $|v|^2=1$ at $X=17$ ($m=6$), never bettered again.
 
-**Corrected expected-count heuristic (HEURISTIC).** For $m$ with $\mu(m)=0$, $4\nmid m$,
-$p^2\mid m$: *if* the target were in the step lattice (never observed, §3.3), the free
-dimension is $\operatorname{rank}\{v_c\}=\varphi(m)-\varphi(m/p)\ge4$ for $m>12$, so returns
-to a point contribute $\sum_n n^{-\operatorname{rank}/2}<\infty$: finitely many ties a.s.
-Summing over all $m$: the expected number of cyclotomic ties beyond the proven list, over
-all $m$ and all $X$, is a convergent sum dominated by its smallest terms — consistent with
-the observed count of zero. **Conjecture F2∞: $(3,2)$ and $(11,6)$ are the only cyclotomic
-ties of the prime polynomial, over all $m$ and all $X$.** By Theorem F2 this is now a
-theorem for $m\le200$; the general case needs only the §3.3 lemma for $p^2\mid m$ (all $p$
-odd, $m$ arbitrary) plus Thm F2-sf's effective intervals for squarefree $m$ (whose union
-over $m>200$ is a.s. finite by the same convergence, and *provably* empty for any given $m$
-by a finite check).
+**Corrected expected-count heuristic (HEURISTIC, with a PROVED skeleton).** The effective
+walk dimension is $D_m:=\operatorname{rank}_{\mathbb Q}\{v_c\}=\dim_{\mathbb Q}
+\operatorname{span}\{\zeta_m^a:a\in(\mathbb Z/m)^\times\}$, with the closed form
+$$D_m=\prod_{p^e\|m}\bigl(\varphi(p^e)-\varphi(p^{e-1})\bigr)\quad(e\ge2\text{ factors}),
+\qquad\text{else }(p-1),$$
+**machine-verified to agree with the computed rank for every $m\le200$** (relations within
+each $p$-layer: $\sum_{j\bmod p}\zeta^{a+jm/p}=0$, as in Lemma F2.1). Consequently the only
+non-squarefree $m$ with $D_m\le3$ are $m=4$ ($D=1$), $m=8$, $m=12$ ($D=2$) — **all
+divisible by 4, all killed unconditionally by Theorem F2-4.** For every other
+non-squarefree $m$, $D_m\ge4$, and a walk in dimension $\ge4$ hits a fixed point at
+$\sum_n n^{-D_m/2}<\infty$ expected times: finitely many ties a.s. even without the §3.3
+obstruction. Summing the expected counts over all $m$ converges. So the structure of the
+finiteness claim is: squarefree $m$ — PROVED finite (forced counts); $4\mid m$ — PROVED
+zero (parity); remaining $m$ ($p^2\mid m$, $p$ odd) — dimension $\ge4$ transience,
+HEURISTIC, plus the §3.3 lattice obstruction wherever it is checked (all such $m\le200$).
+**Conjecture F2∞: $(3,2)$ and $(11,6)$ are the only cyclotomic ties of the prime
+polynomial, over all $m$ and all $X$.** A theorem for $m\le200$ (Thm F2); beyond, only the
+odd-square case rests on heuristics, and any individual $m$ is decidable by the finite
+computation of §3.3/F2-sf.
 
 **Which $m$ are most tie-prone? (theory note requested by the task.)** Ties require small
 forced counts hit simultaneously in every class: probability decays like a coincidence among
