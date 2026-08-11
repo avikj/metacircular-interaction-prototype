@@ -94,8 +94,35 @@ $x^3+x+1$.  Since every $F_X$ for $X\ge5$ has this support form,
 
 The proof uses root-product signs, the elementary root annulus, Vieta, and
 an exact six-case integer enumeration; it uses no prime-distribution input.
-Combining F1--F3, for every $X\ge13$ every irreducible factor of $F_X$ is
-non-cyclotomic and has degree at least $4$.
+### 2.2 The quartic layer is closed — MACHINE-VERIFIED EXACT THEOREM
+
+The parity identity $F_X(x)+F_X(-x)=2$ implies that every monic degree-$d$
+factor $g$ satisfies
+
+$$0\ne\operatorname{Res}(g(x),g(-x))\mid 2^d.$$
+
+For $g=x^4+ax^3+bx^2+cx+1$, this becomes the exact unit equation
+
+$$a^2-abc+c^2=\pm1.$$
+
+The odd-support root geometry sharpens this to $62$ integer triples.  Exact
+Sturm counts and a cubic-resolvent annulus test leave $26$: two cyclotomic
+cases already excluded by F2 and $24$ noncyclotomic cases.  Each of those
+$24$ is eliminated for all cutoffs by an exact resultant/tail certificate
+at $q\in\{7,11,13\}$; the smallest rational safety margin is
+$0.04181409\ldots>0$.
+
+> **Theorem F4 (computer-assisted, exact).** No irreducible quartic
+> polynomial divides any $F_X$.
+
+The finite certificate uses only integer and rational arithmetic (Sturm
+chains, Bareiss resultants, and fraction comparisons), runs in under a
+tenth of a second, and is independently checkable in
+`code/exp30_quartic_certificate.py`.  The proof and certificate derivation
+are in `PARITY_RESULTANT.md`.
+
+Combining F1--F4, for every $X\ge13$ every irreducible factor of $F_X$ is
+non-cyclotomic and has degree at least $5$.
 
 ---
 
@@ -215,10 +242,10 @@ argument reduces $m$ to $P$ or $2P$; one complete-residue-system theorem of
 Hajdu--Saradha then leaves only $m=2,6$.  See `CYCLOTOMIC_TRACE.md` for the
 full proof and exact citations.
 
-Combining Theorems F1--F3: **for every $X\ge13$, $F_X$ has no
-irreducible factor of degree $\le3$ and no cyclotomic factor of any degree.**
+Combining Theorems F1--F4: **for every $X\ge13$, $F_X$ has no
+irreducible factor of degree $\le4$ and no cyclotomic factor of any degree.**
 Every possible counterexample to Conjecture A″ must therefore come entirely
-from non-cyclotomic factors of degree at least $4$.
+from non-cyclotomic factors of degree at least $5$.
 
 ### 3.5 The extended scan — DATA
 
@@ -371,9 +398,9 @@ by irreducibility) has already passed the plausible window.
 
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
-- degree $\le3$ factors: **classified unconditionally** (Thms F1 and F3);
+- degree $\le4$ factors: **classified unconditionally** (Thms F1, F3, F4);
 - cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
-- a reciprocal non-cyclotomic factor must have even degree $\ge4$ (odd-degree reciprocals
+- a reciprocal non-cyclotomic factor must have even degree $\ge6$ (odd-degree reciprocals
   have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
   inside the annulus $(\tfrac12,2)$ — Salem-type configurations; no instance observed in
   1200 random samples nor at any tested $X$.
@@ -385,10 +412,13 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | layer of Conjecture A″ | status |
 |---|---|
 | factors of degree 1, 2, 3 | **PROVED impossible** for $X\ge13$ (Thms F1, F3) |
+| irreducible factors of degree 4 | **PROVED impossible for every $X$ by an exact finite certificate** (Thm F4) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge4$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge5$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) exclude quartic factors of $F_X$ unconditionally;
-(2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
-current scaling).
+Open problems generated: (1) attack the quintic layer, now the first open
+factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
+current scaling).  Unlike the quartic case, odd degree loses the
+even/odd-resultant unit equation's direct self-pairing advantage, so a new
+structural input is likely needed.
