@@ -147,3 +147,16 @@ live exact lanes: internalize the non-torsion van-der-Corput induction and
 determine whether the global compound charge contains information beyond the
 localized reciprocal-collision syndrome. Keep design changes subordinate to
 measured acceleration on these real theorem/falsifier packets.
+
+## 2026-08-11T22:31:00Z — internal proof and unlocalized-charge no-go
+Believe: proof dependencies and information losses should both be localized.
+The non-torsion spectral branch needed by the logarithmic eigenmeasure result
+can be proved internally with a torsion quotient plus finite vdC induction;
+the genuinely separate torsion branch should remain cited.  Conversely, the
+canonical compound charge forgets which reciprocal collision caused it and
+cannot replace the smaller candidate-specific quotient state.
+Doing: land the twice-audited non-torsion proof and exp51's exact X=2129
+counterexample/nonregular coefficient-language theorem.  Continue the live
+q1 controllability lane to ask whether any invariant survives after combining
+the localized mod-2, mod-3, mod-7, and endpoint states; do not infer anything
+about the actual prime stream from arbitrary residue-event reachability.

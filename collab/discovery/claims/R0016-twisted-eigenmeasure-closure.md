@@ -72,8 +72,10 @@ Let Omega={-1,+1}^Z with shift S, dilations D_m(omega)(h)=omega(mh), and global 
    weak mixing, and that R0011 Theorem 3.3 applies to the abstract
    unconditional law.
 5. Re-run the nonergodic constant-mixture and untwisted biased-iid controls.
-6. Preferably reconstruct the special one-or-two-component case of
-   Proposition 3.7 from Jenvey's proof before any load-bearing promotion.
+6. Replay the internal non-torsion proof in
+   `notes/NON_TORSION_STRONG_STATIONARITY.md`; reconstruct Jenvey's separate
+   root-of-unity branch before making the stronger unconditional theorem
+   load-bearing.
 
 # Falsification
 
@@ -97,6 +99,8 @@ stationary systems*, J. Analyse Math. 93 (2004), 359--388,
 doi:10.1007/BF02789313, arXiv:math/0403453, especially Definitions 3.1--3.2
 and Proposition 3.7.  R0011 supplies the independently rederived
 deconditioning lemma and weak-mixing Walsh theorem.
+`notes/NON_TORSION_STRONG_STATIONARITY.md` internally proves the only branch
+of Proposition 3.7 needed by the trivial-rational logarithmic corollary.
 
 # Independent audit
 
@@ -108,8 +112,10 @@ paper.  The measurable patch is fully explicit: take `C=B\J(B)`, so `C` and
 `J(C)` are disjoint, invariant, and conull for the two components.  This
 packet remains deliberately `formalizing`, non-load-bearing, and separate
 from R0011's immutable exact statement and event history.  Its residual
-trust boundary is that the 2004 paper sketches rather than reprints the full
-Jenvey-derived proof of Proposition 3.7.
+trust boundary applies only to the stronger unconditional theorem: the 2004
+paper sketches rather than reprints the Jenvey-derived root-of-unity branch.
+Two further independent audits ACCEPTED the full internal non-torsion
+van-der-Corput induction used by the logarithmic corollary.
 
 # Prior art
 
@@ -123,8 +129,6 @@ Novelty is `searched-not-found`, never `novel`.
 
 # Successor seeds
 
-- Reconstruct the one-or-two-component specialization of Proposition 3.7
-  with a self-contained van der Corput/spectral proof.
 - Obtain and audit Jenvey's full proof, especially the root-of-unity case that
   the Frantzikinakis paper calls trickier.
 - Generalize the finite-flip argument to a finite character group: determine

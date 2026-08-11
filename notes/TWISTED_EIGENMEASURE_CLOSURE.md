@@ -1,11 +1,12 @@
 # TWISTED EIGENMEASURE CLOSURE: finite flip symmetrization kills the exotic zone
 
-**Status: under audit.**  This note records a short successor argument to
-`EIGENMEASURE.md`; it does not amend or promote R0011.  The argument has been
-rederived once by a Codex breaker, but its decisive external input,
-Frantzikinakis's Proposition 3.7, is stated in the published paper with only a
-proof sketch.  A separate source/proof audit is therefore required before this
-result becomes load-bearing.
+**Status: formalizing, non-load-bearing.**  This note records a short
+successor argument to `EIGENMEASURE.md`; it does not amend or promote R0011.
+Two hostile audits accept the stated theorem through the published
+Frantzikinakis Proposition 3.7.  A separate internal reconstruction now
+closes the non-torsion branch needed by the trivial-rational logarithmic
+corollary, while the stronger unconditional theorem still cites Jenvey's
+root-of-unity argument.
 
 ## 1. Statement
 
@@ -193,26 +194,26 @@ trivial.
 
 ## 6. Rigor and novelty boundary
 
-**Internally proved, conditional on cited theorems:** symmetrization (2.2),
-the two-component eigenfunction patch, the controls, and the reduction to
-R0011 Theorem 3.3.
+**Internally proved:** symmetrization (2.2), the two-component eigenfunction
+patch, the controls, and the reduction to R0011 Theorem 3.3.  In addition,
+`NON_TORSION_STRONG_STATIONARITY.md` supplies a complete spectral-quotient and
+repeated-van-der-Corput proof that a strongly stationary system has no
+non-torsion shift eigenvalue; two hostile audits accept that reconstruction.
 
-**Cited, not internally reconstructed:** Frantzikinakis Proposition 3.7,
-whose publication contains a proof strategy rather than the full Jenvey
-argument; Furstenberg's multiple weak-mixing theorem already used in R0011.
+**Cited, not internally reconstructed:** the root-of-unity branch of
+Frantzikinakis Proposition 3.7/Jenvey, needed by unconditional Candidate T;
+and Furstenberg's multiple weak-mixing theorem already used in R0011.
 
 There is a useful split inside that citation.  The unconditional Candidate T
 permits rational shift spectrum and therefore needs Jenvey's difficult
 root-of-unity branch.  The logarithmic corollary enters with *trivial rational
 spectrum* before Lemma 3.1 deconditions it, so only the non-torsion branch of
-Proposition 3.7 is needed there.  An independent reconstruction verified its
-terminal spectral-flight lemma: the dilation-difference vectors attached to
-a non-torsion eigenfunction have pairwise disjoint shift-spectral supports
-and hence converge weakly to zero.  The remaining internal-proof debt is the
-finite repeated-van-der-Corput induction from that lemma to orthogonality
-against the generating cylinder algebra.  Thus the application has a
-narrower external dependency than Candidate T, but neither is advertised as
-a fully internal certificate.
+Proposition 3.7 is needed there.  The internal reconstruction proves that
+branch in full: iterated dilation-difference carriers occupy pairwise
+orthogonal spectral classes in the circle modulo torsion, and a finite
+van-der-Corput induction makes every non-torsion eigenfunction orthogonal to
+the generating cylinder algebra.  Thus the application no longer depends on
+the omitted Jenvey proof; Candidate T still does.
 
 **Not claimed:** a Cesaro classification, removal of ergodicity, removal of
 the trivial-rational hypothesis before deconditioning, or a new proof of
@@ -221,12 +222,7 @@ Frantzikinakis/Jenvey.
 Targeted public searches for `twisted strongly stationary`, sign
 symmetrization, global flip, and finitely many ergodic components did not
 locate this exact corollary.  The status is therefore *possibly new as an
-assembly*, not novel.  The shortest decisive next action is a blind audit of
-Proposition 3.7's applicability and of the measurable component patch,
-followed by a reconstruction of the special one-or-two-component spectral
-case from Jenvey's proof if the original source can be obtained.
-
-One independent hostile audit has accepted the proof chain, including that
-R0011 Theorem 3.3 yields the literal coordinate iid law rather than only a
-Bernoulli isomorphism.  A second fresh blind audit is pending; this note stays
-under audit and no claim is promoted on the first verdict alone.
+assembly*, not novel.  The remaining proof-reconstruction target is the
+root-of-unity branch if the unconditional theorem is ever made load-bearing;
+the narrower logarithmic corollary has already passed two audits of both its
+component patch and its internal non-torsion proof.
