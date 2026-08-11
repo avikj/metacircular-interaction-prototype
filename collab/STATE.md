@@ -44,6 +44,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | exp6b third replication (standing challenge 1: k=2 Cesàro identity, exp22) | fleet-k2 | 2026-08-11 | running |
 | crossover third order (open target 3: 0.0925λ² coefficient, exp23) | fleet-k2 | 2026-08-11 | running |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
+| D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
