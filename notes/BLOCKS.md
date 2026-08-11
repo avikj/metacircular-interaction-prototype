@@ -262,32 +262,39 @@ machinery.
 
 ---
 
-## 5. Theorem J: the screw join, closed (exp23)
+## 5. Theorem J: the screw join — corrected to a band-passed identification (exp23; audit `CROSSREVIEW_EXP22_25.md`)
 
-The sibling branch's `SCREW.md` extracted Matsumoto–Suzuki verbatim: the
-RH-equivalent screw function has Krein masses $1/(\gamma^2+\tfrac14)$ on the
-*single* zeros, attached to the reweighted summatory
-$T(X)=\sum_{n\le X}(\Lambda*\Lambda)(n)/n^2 = \log X + c_2
-+ 2\sum_\rho\frac{X^{\rho-1}}{\rho(1-\rho)} + E(X)$ [MS (1.6)]. Both branches
-predicted independently (Theorem E2 §1; `PARITY.md` §1K) that this kernel is
-the **mixed block**. Exp23 splits $T(X)$ by the adelic blocks and confirms:
+The sibling branch's `SCREW.md` extracted Matsumoto–Suzuki verbatim: Krein
+masses $1/(\gamma^2+\tfrac14)$ on the single zeros, attached to
+$T(X)=\sum_{n\le X}(\Lambda*\Lambda)(n)/n^2=\log X+c_2+2\sum_\rho\frac{X^{\rho-1}}{\rho(1-\rho)}+E(X)$.
+Splitting $T$ by the adelic blocks:
 
-| block of $T$ | content | measured |
-|---|---|---|
-| $[\sharp\sharp]$ | $\log X + c_2$ | slope $1.0000$, $c_2=5.1407$, residual rms $2\times10^{-5}$, spectrally dead ($4\times10^{-7}$) |
-| $[\text{mix}]$ | $2\sum_\rho X^{\rho-1}/(\rho(1-\rho))$ — **the screw kernel** | corr **1.0000**, amplitude ratio **0.9992** (30k zeros) |
-| $[\flat\flat]$ | $E(X)$-side | $10^{-7}$-scale, pair frequencies |
+**What holds (band-passed, and it is the important part):** the mixed
+block's *fluctuation* matches the screw kernel at corr **1.0000**, amplitude
+ratio **0.9992** (a wrong prefactor would read $\approx2$ or $\approx\tfrac12$);
+the $\log X$ main term sits in $[\sharp\sharp]$ at every $Q$ (slope $1.0000$ at
+$Q=10/30/60$); the $[\flat\flat]$ fluctuation sits at pair frequencies. **The
+zero-line (oscillatory) content of the MS screw kernel lives in the mixed
+block.**
 
-So, with $t=\log X$: $[\text{mix}](T)(e^t) = 2e^{-t/2}\bigl(g_{H_1}(t)+H_1(1)\bigr)$
-— **the Matsumoto–Suzuki screw function is the mixed (first-variation) block**
-of the reweighted pair field, exactly. Consequences:
+**What was wrong (corrected per the cross-audit, independently re-verified
+here):** the per-block *constants* are artifacts of the profinite resolution
+— the $[\sharp\sharp]$ intercept is $2.362/5.141/7.159$ at $Q=10/30/60$, and the
+raw blocks carry large smooth offsets ($[\text{mix}]\to-12.10$,
+$[\flat\flat]\to+4.68$ at $Q=30$) that cancel only in the total. The earlier
+claims "$c_2=5.1407$ measured from the BC block" and
+"$[\text{mix}](T)=2e^{-t/2}(g_{H_1}(t)+H_1(1))$ exactly" are **false**; the
+true MS constant, from the total field with the zero oscillation removed, is
+$$c_2=-2.2803$$
+(stable over $X=10^5$–$1.9\times10^6$; agrees with the sibling `SCREW.md`
+Part 5 fit of $-2.280$).
 
-1. MS Theorem 1.3 ("$g_{H_1}$ screw $\iff$ RH") is a statement about the
-   mixed block *alone*: RH $\iff$ the first-variation sector is a screw line.
-   The pair sector — maximally chirped by D‴ (exp12) — never enters, which is
-   *why* the naive pair-measure positivity guess of `APPENDIX_D.md` §D.6.3
-   failed while the MS condition works: Krein positivity lives one block over.
-2. The MS constant $c_2$ is now measured from the BC block: $c_2 = 5.1407$.
-3. Problem 3 of `REPORT.md` §8 / the reformulated item of §4 above is
-   **closed**: the screw$\leftrightarrow$block dictionary is exact, numerical,
-   and consistent with the sibling's independent extraction.
+**Corrected interpretive statement.** MS Theorem 1.3's Krein positivity is a
+property of the *full* $g_{H_1}$ including its smooth part; the mixed block
+carries a $Q$-dependent non-screw smooth component that band-passing
+discards. So the honest form of Theorem J is: *the fluctuation sector of the
+mixed block is the fluctuation sector of the MS screw line* — an
+identification of oscillatory content, not an exact block identity. A
+corrected exact statement needs a canonical ($Q\to\infty$ or $Q$-covariant)
+smooth subtraction; this is now the open item of the join (see
+`CROSSREVIEW_THMJ.md` when filed).

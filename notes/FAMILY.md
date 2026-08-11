@@ -161,13 +161,19 @@ the hierarchy (steepening by roughly a factor 2 per added dimension) is
 confirmed; the systematic excess is log-density growth and simplex-edge
 structure beyond the leading Fresnel model — flagged, not hidden.
 
-**Why the triple layer resists data extraction (quantified).** The first
-six triple lines sit $0.09$–$0.74$ rad from the nearest (much stronger) pair
-line — all inside the $\sim1.4$ rad window resolution (e.g.
-$3\gamma_1=42.404$ vs $2\gamma_2=42.044$). The obstruction is spectral
-crowding, exactly as for the $\lambda$-field's crowded lines (§2.3 above),
-not amplitude: resolving it needs $\log X$ spans an order of magnitude
-longer, not more precision.
+**Why the triple layer resists data extraction (quantified; audit-refined).**
+Two obstructions, both computed: (i) *amplitude* — the triple line at
+$3\gamma_1=42.404$ has $|W_3|\approx2\pi s^{-3}$ against the neighboring pair
+line's $|c|\approx\sqrt{2\pi}s^{-5/2}$, i.e. intrinsic ratio $\approx0.38$, but
+the layers sit at $X^{5/2}$ vs $X^3$, so at $X=10^6$ the observable ratio is
+$\approx0.38\,X^{-1/2}\approx4\times10^{-4}$ — detection requires subtracting
+the pair model to better than that; (ii) *crowding* — the first six triple
+lines sit $0.09$–$0.74$ rad from the nearest pair line, inside the $1.4$ rad
+resolution. Earlier wording ("not amplitude") was wrong; both bind, and the
+per-body slope increment measured $-0.97$ vs the leading-order $-0.5$ means
+"hierarchy confirmed" should read "hierarchy present, exponents
+$\sim1.4\times$ steeper than leading order" (overlapping bands, no error
+bars — audit).
 
 ## 3. Where this points
 

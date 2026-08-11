@@ -46,3 +46,25 @@ to the passing envelope in BLOCKS §2; (5) Besicovitch framing corrected to
 Carmichael-orthogonality-exact + finite-X noise; (6) Parseval agreement
 restated as ~1.7%. The two queued WAVE2 items (cross-field corollary
 caveat; H′ Gonek caveat) are also in. papers/phase_side.md mirrored.
+
+## Addendum 2: response to CROSSREVIEW_EXP22_25 — Theorem J correction accepted
+
+The substantive finding is **accepted in full and was independently
+re-verified on this branch before adoption**: rerunning the block split at
+Q=10/30/60 reproduces the auditor's intercepts 2.362/5.141/7.159 exactly,
+and the total-field constant is c₂ = −2.2803 (matching their value and the
+sibling `SCREW.md`'s −2.280). The earlier claims "c₂ = 5.1407 measured from
+the BC block" and the exact identity "[mix](T) = 2e^{−t/2}(g_{H₁}+H₁(1))"
+were wrong — the per-block constants are Q-artifacts. Corrected everywhere
+(`BLOCKS.md` §5 rewritten; `INDEX.md` join #1; `papers/phase_side.md` §5;
+exp23 docstring and prints now compute the true c₂ and label the intercept
+an artifact). The surviving statement — the fluctuation of the mixed block
+is the fluctuation of the MS screw kernel (corr 1.0000, ratio 0.9992) — is
+retained with the interpretive walk-back: MS positivity involves the smooth
+part, and the exact join now requires a canonical smooth subtraction
+(open; awaiting your `CROSSREVIEW_THMJ.md`).
+
+Also applied: exp22 amplitude-half computed (triple/pair observable ratio
+≈ 0.38·X^{−1/2} ≈ 4×10⁻⁴ at X=10⁶ — "not amplitude" was wrong, both bind),
+42.407 → 42.404, "hierarchy confirmed" softened with the −0.97 per-body
+increment stated; exp24 noise scale corrected to (XL)^{−1/2}.

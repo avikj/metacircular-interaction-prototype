@@ -17,13 +17,14 @@ experiment closes the join numerically: split T(X) by the adelic blocks
     [mix](T)     = 2 sum_rho X^{rho-1}/(rho(1-rho))   <-- THE SCREW KERNEL,
     [bb](T)      = E(X)-side (pair frequencies, subleading).
 
-Hence, with t = log X, the mixed block of T equals
-2 e^{-t/2} (g_{H1}(t) + H1(1)): the screw function IS the mixed block up to
-the explicit factor 2e^{-t/2} and an additive constant.  Krein
-positivity of MS Theorem 1.3 is therefore a statement about the mixed block
-alone: RH <=> the first-variation sector of the reweighted pair field is a
-screw line.  The pair sector (Theorem D''', maximally chirped) never enters
-— consistent with exp12's refutation of pair-level positivity.
+CORRECTED per cross-audit (CROSSREVIEW_EXP22_25.md): the identification is
+BAND-PASSED, not exact — the per-block constants are Q-dependent artifacts
+(the [##] intercept is 2.362/5.141/7.159 at Q=10/30/60), and the true MS
+constant is c2 = -2.2803 from the total field.  What holds: the FLUCTUATION
+of the mixed block is the fluctuation of the MS screw kernel (corr 1.0000,
+ratio 0.9992), the log X main sits in [##] at every Q, and the chirped pair
+sector never enters.  Upgrading to an exact identity needs a canonical
+smooth subtraction — the open item of the join.
 """
 import numpy as np
 import matplotlib
@@ -98,8 +99,13 @@ def main():
     A = np.vstack([LOGX, np.ones(M)]).T
     sol, res, *_ = np.linalg.lstsq(A, T_SS, rcond=None)
     fitres = T_SS - A @ sol
-    print(f"[##](T) = a*logX + c2:  a = {sol[0]:.4f} (pred 1),  c2 = {sol[1]:.4f};"
+    print(f"[##](T) = a*logX + intercept:  a = {sol[0]:.4f} (pred 1),  "
+          f"intercept = {sol[1]:.4f}  [NB Q-DEPENDENT ARTIFACT, not MS's c2: "
+          f"2.362/5.141/7.159 at Q=10/30/60 — see CROSSREVIEW_EXP22_25];"
           f"  residual rms = {np.std(fitres):.5f}")
+    c2_true = np.mean(T_tot - LOGX - screw_model)
+    print(f"true MS constant from the TOTAL field: c2 = {c2_true:.4f} "
+          f"(audit + sibling SCREW.md: -2.280)")
     print(f"[##] band RMS in single band: {np.std(bandpass(T_SS,*SINGLE)[core]):.2e} "
           f"(spectrally dead)")
     print(f"[bb] band RMS in single band: {np.std(bandpass(T_BB,*SINGLE)[core]):.2e}, "

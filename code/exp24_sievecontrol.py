@@ -76,8 +76,8 @@ def main():
                 row += " |" if nm == "lambda" else ""
         print(row)
 
-    print("\nfloor check: lambda/mu advantages are O(X^{-1/2}) noise "
-          f"(~{NMAX**-0.5:.1e}-scale per class, summed over L classes).")
+    print("\nfloor check: lambda/mu advantages are noise at the (XL)^{-1/2}-per-class "
+          "scale summed over positive classes (audit-corrected from X^{-1/2}).")
     print("Lambda*chi3 at 3|L: constant 1/2 independent of L — the character")
     print("sector is one literal deep; at 3∤L it drops to the noise floor.")
 
