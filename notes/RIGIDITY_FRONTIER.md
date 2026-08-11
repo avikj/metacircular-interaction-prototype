@@ -151,8 +151,9 @@ computes, for every $m\le200$: $\operatorname{rank}_{\mathbb Q}\{v_c\}$, members
 $-t_m$ in the $\mathbb Q$-span (rank comparison) and in the $\mathbb Z$-lattice (HNF
 reduction), all in exact integer arithmetic (FLINT `fmpz_mat`). Result:
 
-> **For every non-squarefree $m\le200$, the target $-t_m$ is not even in the
-> $\mathbb Q$-span of the steps: ties are impossible for $X>m$.** [CONFIRMED-P3]
+> **For every one of the 78 non-squarefree $m\le200$, the target $-t_m$ is not even in the
+> $\mathbb Q$-span of the steps: ties are impossible for $X>m$.** (`data/exp7b_out.txt`,
+> Part 3: all 78 marked `Qspan=0`; no case was $\mathbb Q$-solvable but $\mathbb Z$-obstructed.)
 
 (For $4\mid m$ this is Theorem F2-4; for the odd cases $m=9,18,25,27,\dots$ it is verified
 exactly but we have no uniform hand proof; a partial mechanism: the projection
@@ -166,10 +167,12 @@ open lemma.)
 **Theorem F2 (classification, $m\le200$, all $X$) — PROVED + MACHINE-VERIFIED.**
 For every $m\le200$ and every $X\ge3$:
 $$\Phi_m\mid F_X\iff (X,m)\in\{(3,2),\ (11,6)\}\ \text{(with }F_3=\Phi_2\text{ itself)}.$$
-Structure of the proof: squarefree $m$ → forced counts and explicit tie intervals
-(Thm F2-sf; intervals computed in exp7b Part 3b, all empty except $m=2,6$); $4\mid m$ →
-parity (Thm F2-4); other non-squarefree $m$ → lattice non-membership (§3.3);
-the region $X\le\max(m,P(m))$ and independently all $X\le10^7$ → direct scan (§3.5).
+Structure of the proof: squarefree $m$ (121 values) → forced counts and explicit tie
+intervals (Thm F2-sf; computed in exp7b Part 3b: every forced count is $\le2$, so each
+interval closes by the third prime of a class; all intervals empty except
+$m=2\to[3,5)$ and $m=6\to[11,13)$); $4\mid m$ → parity (Thm F2-4); other non-squarefree
+$m$ → lattice non-membership (§3.3; 78 values); the region $X\le\max(m,P(m))$ and
+independently all $X\le10^7$ → direct scan (§3.5).
 
 Combining Theorems F1 and F2: **for every $X\ge13$, $F_X$ has no irreducible factor of
 degree $\le2$, and no cyclotomic factor $\Phi_m$ with $m\le200$ — unconditionally, for all
@@ -177,11 +180,9 @@ $X$, not merely all tested $X$.** Any counterexample to Conjecture A″ must con
 non-cyclotomic factors of degree $\ge3$, or a cyclotomic $\Phi_m$ with $m>200$ (and then
 $\varphi(m)>\!48$, since all $m$ with $\varphi(m)\le48$... — see remark below).
 
-*Remark.* The classification covers $m\le200$ by list, not by $\varphi$; small-degree
-cyclotomics with $m>200$ do not exist below $\varphi(m)\ge$ the minimum of $\varphi$ on
-$(200,\infty)$, which is $\varphi(210)=48$... $\varphi(m)>200/\log\log$-type bounds give
-$\varphi(m)\ge48$ for $m>200$ (attained at $m=210$). So unconditionally: any cyclotomic
-factor of $F_X$ beyond the known two has degree $\varphi(m)\ge48$.
+*Remark.* Since $\min\{\varphi(m):m>200\}=\varphi(210)=48$ (finite check: every $m$ with
+$\varphi(m)<48$ is $<200$), Theorem F2 gives unconditionally: **any cyclotomic factor of
+any $F_X$ other than the known two has degree $\varphi(m)\ge48$.**
 
 ### 3.5 The extended scan — DATA
 
