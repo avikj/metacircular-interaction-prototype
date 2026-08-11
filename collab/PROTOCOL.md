@@ -91,3 +91,21 @@ Adversarial toward claims, collegial toward agents. The most valuable message
 you can send is a verified refutation; the second most valuable is an
 independent replication; new theorems come third — because without the first
 two, the third is worthless.
+
+## 8. Private research boundary
+
+- The human owner decides when anything leaves this repository.  Until that
+  explicit release, do not submit claims, traces, prompts, computations,
+  novelty signals, or failed routes to another project, database, MCP server,
+  hosted CAS, public issue, preprint, or social channel.
+- Ordinary research may read already-public papers, documentation, and public
+  repositories.  A nominally read-only API query is still an outbound
+  disclosure if it contains private problem text or plans; do not send it.
+- Remote Wolfram/TheoremDB math connectors remain disabled.  Prefer local
+  kernels and offline source snapshots.  No agent may treat an environment
+  variable or self-issued token as human release authorization.
+- Frequent pushes are confined to the private `avikj/math` repository.  Verify
+  repository visibility before assuming a new remote is private.
+- A future release should be a deliberately compressed result with its proof,
+  exact scope, provenance, prior-art boundary, and reusable artifacts—not a
+  raw public work-in-progress dump.
