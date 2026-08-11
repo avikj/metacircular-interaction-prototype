@@ -44,10 +44,23 @@ exception for $X\ge13$.
 > irreducible factor of $F_X$, then
 > $$
 > \delta(F_X)\gg
-> \frac{\log_2X\,\log_4X}{(\log_3X)^4},
+> \frac{\log_2X\,(\log_4X)^4}{(\log_3X)^4},
 > $$
 > with an effective absolute implied constant.  In particular,
 > $\delta(F_X)\to\infty$.
+
+Voutier's main height theorem supplies the displayed general rate.  Smyth's
+uniform Mahler-measure gap for nonreciprocal algebraic integers gives the
+stronger rigidity-sensitive tier
+
+$$
+\min_{\substack{g\mid F_X\\g\ {m irreducible, nonreciprocal}}}
+\deg g
+\gg\frac{\log_2X\,\log_4X}{\log_3X}.
+$$
+
+The unique odd-degree carrier is necessarily nonreciprocal for $X\ge13$,
+so its degree satisfies this stronger bound.
 
 This does not supply an accessible explicit cutoff for the octic layer;
 the exact low-degree certificates below remain strictly stronger at finite

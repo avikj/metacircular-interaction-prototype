@@ -6,14 +6,18 @@ $$
 F_X(x)=\sum_{p\le X}x^{p-2},
 $$
 
-where the sum is over primes.  If
+where the sum is over primes.  Define
 
 $$
 \delta(F_X)=\min\{\deg g:g\in\mathbb Q[x]
 \text{ is nonconstant and irreducible, }g\mid F_X\},
 $$
 
-then
+and let $\delta_{\rm nr}(F_X)$ denote the corresponding minimum restricted
+to nonreciprocal irreducible factors, with value $+\infty$ if none exist.
+Here an irreducible polynomial is nonreciprocal when its reciprocal
+$x^{\deg g}g(1/x)$ is not an associate of $g$; equivalently, for a root
+$\alpha$, the inverse $\alpha^{-1}$ is not a conjugate of $\alpha$.  Then
 
 $$
 \boxed{\delta(F_X)\longrightarrow\infty\qquad(X\to\infty).}
@@ -25,7 +29,16 @@ logarithm,
 $$
 \boxed{
 \delta(F_X)\gg
-\frac{\log_2X\,\log_4X}{(\log_3X)^4}
+\frac{\log_2X\,(\log_4X)^4}{(\log_3X)^4}
+}
+$$
+
+and
+
+$$
+\boxed{
+\delta_{\rm nr}(F_X)\gg
+\frac{\log_2X\,\log_4X}{\log_3X}
 }
 $$
 
@@ -79,7 +92,38 @@ the two sides of the gap.  For $n=1$ the same statement uses the smaller
 threshold $\log(N-1)/\log2$; this harmless exceptional formula will be
 absorbed below.
 
-## 2. Two consecutive prime gaps isolate one monomial
+## 2. The two-gap exclusion principle
+
+Lenstra's proposition has a useful consequence that does not appear to
+require any arithmetic structure in the support.
+
+> **Two-gap lemma.**  Let
+> $$
+> f(x)=\sum_{i=0}^{r}a_i x^{e_i}\in\mathbb Q[x],
+> \qquad
+> a_i\ne0,\qquad e_0<e_1<\cdots<e_r,\qquad f(0)\ne0.
+> $$
+> If, for some $1\le j<r$,
+> $$
+> \min(e_j-e_{j-1},e_{j+1}-e_j)
+> >\frac{\log(rH(f))}{c(n)},
+> $$
+> then every irreducible factor of $f$ of degree at most $n$ is
+> cyclotomic.
+
+Indeed, let $q$ be a noncyclotomic irreducible factor and $\alpha$ one of
+its zeros.  Apply Lenstra at the first gap: $\alpha$ is a zero of
+$\sum_{i<j}a_ix^{e_i}$.  Apply it at the second gap: $\alpha$ is a zero of
+$\sum_{i\le j}a_ix^{e_i}$.  Subtraction gives
+$a_j\alpha^{e_j}=0$, impossible because $a_j\ne0$ and $f(0)\ne0$ implies
+$\alpha\ne0$.
+
+Thus one large support gap is a persistence mechanism: a low-degree factor
+must occur in both chunks.  Two adjacent large gaps are an annihilation
+mechanism: persistence isolates a single monomial, which cannot carry the
+factor.
+
+### Application to two consecutive prime gaps
 
 Let $p_j<p_{j+1}<p_{j+2}\le X$ be consecutive primes.  Suppose that both
 
@@ -117,9 +161,10 @@ This is impossible: $q$ is nonconstant and
 $q(0)\mid F_X(0)=1$, whereas the only irreducible factor of a monomial is
 $x$.
 
-The important point is that one large gap would only make the factor recur
-in a smaller prefix.  Two consecutive large gaps isolate the prime between
-them and turn recurrence into a contradiction.
+This is exactly the two-gap lemma with the isolated exponent
+$e_j=p_{j+1}-2$.  The expanded divisibility argument also makes clear why
+one large gap alone would only make the factor recur in a smaller prefix,
+whereas two consecutive large gaps turn recurrence into a contradiction.
 
 ## 3. Prime-gap input and the quantitative bound
 
@@ -146,11 +191,44 @@ eventually exceed $T_n(X)$ for every fixed $n$.  The argument of the
 previous section therefore excludes every fixed noncyclotomic factor
 degree for all sufficiently large $X$.
 
-The comparison can be inverted.  Put
+Lenstra's displayed $c(n)$ already gives the effective, but weaker, rate
+$\delta(F_X)\gg\log_2X\log_4X/(\log_3X)^4$.  His proof, however, only uses
+a lower bound for the height of a non-root-of-unity algebraic number.
+Voutier's main theorem in
+[An effective lower bound for the height of algebraic numbers](https://arxiv.org/abs/1211.3110)
+proves that an algebraic number $\alpha$ of degree $m\ge2$ that is not a
+root of unity satisfies
+
+$$
+m h(\alpha)>
+\frac14\left(\frac{\log\log m}{\log m}\right)^3.
+$$
+
+The function
+$m^{-1}(\log\log m/\log m)^3$ is decreasing for $m>e^e$.
+Combining Voutier's theorem for $16\le m\le n$ with Lenstra's explicit
+$c(m)$ for the finitely many smaller degrees gives, uniformly for
+all non-root-of-unity numbers of degree at most $n$ and all sufficiently
+large $n$,
+
+$$
+h(\alpha)\ge
+\frac1{4n}\left(\frac{\log\log n}{\log n}\right)^3.
+$$
+
+Replacing $c(n)$ by this stronger height bound in Lenstra's proof makes
+the required support gap at most
+
+$$
+4n\left(\frac{\log n}{\log\log n}\right)^3
+\log(\pi(X)-1).
+$$
+
+Now put
 
 $$
 D(X)=\left\lfloor
-\eta\frac{\log_2X\,\log_4X}{(\log_3X)^4}
+\eta\frac{\log_2X\,(\log_4X)^4}{(\log_3X)^4}
 \right\rfloor
 $$
 
@@ -158,15 +236,68 @@ for a sufficiently small effective absolute constant $\eta>0$.  Uniformly
 for $1\le n\le D(X)$,
 
 $$
-\frac n2(\log(3n))^3\log(\pi(X)-1)
+4n\left(\frac{\log n}{\log\log n}\right)^3
+\log(\pi(X)-1)
 \le
-\left(\frac\eta2+o(1)\right)
+\left(4\eta+o(1)\right)
 \frac{\log X\,\log_2X\,\log_4X}{\log_3X}.
 $$
 
-Choosing $\eta$ below twice the effective constant in the $G_2$ theorem
+Choosing $\eta$ below one quarter of the effective constant in the $G_2$ theorem
 makes both consecutive gaps Lenstra-admissible.  Hence $F_X$ has no
 noncyclotomic irreducible factor of degree at most $D(X)$.
+
+### The stronger nonreciprocal tier
+
+Smyth proved in
+[On the Product of the Conjugates outside the unit circle of an Algebraic Integer](https://doi.org/10.1112/blms/3.2.169)
+that every nonreciprocal algebraic integer satisfies
+
+$$
+M(\alpha)\ge\theta_0=1.324717957\ldots,
+$$
+
+where $\theta_0$ is the real root of $x^3-x-1$.  If a nonreciprocal
+irreducible factor has degree $m\le D$, any one of its roots therefore has
+
+$$
+h(\alpha)=\frac{\log M(\alpha)}m
+\ge\frac{\log\theta_0}{D}.
+$$
+
+Lenstra's proof now requires only a support gap larger than
+
+$$
+\frac{D\log(\pi(X)-1)}{\log\theta_0}.
+$$
+
+Taking
+
+$$
+D=\left\lfloor
+\eta\frac{\log_2X\,\log_4X}{\log_3X}
+\right\rfloor
+$$
+
+with a sufficiently small effective $\eta>0$, the Ford--Maynard--Tao
+chain supplies two larger consecutive gaps.  The two-gap lemma then
+excludes every nonreciprocal factor through degree $D$, proving the second
+boxed estimate.  This is the more relevant tier for homometric rigidity:
+at the algebraic spectral-factorization level, only nonreciprocal factors
+can create reversal choices.  This does not say that every algebraic
+choice preserves the required $0$--$1$ coefficients.
+
+There is always a nonreciprocal factor here.  For $X\ge3$, the degree
+$p_{\max}-2$ of $F_X$ is odd.  Moreover, the unique-real-root argument in
+`QUINTIC_OBSTRUCTION.md` shows that $F_X$ has exactly one odd-degree
+irreducible factor, with multiplicity one.  An odd-degree reciprocal or
+anti-reciprocal irreducible polynomial has $-1$ or $+1$ as a root; neither
+can divide $F_X$ once $X\ge13$.  Hence the unique odd carrier is
+nonreciprocal and obeys the stronger estimate
+
+$$
+\deg G_X\gg\frac{\log_2X\,\log_4X}{\log_3X}.
+$$
 
 Finally, the global cyclotomic classification in `CYCLOTOMIC_TRACE.md`
 proves
@@ -180,7 +311,7 @@ $$
 $$
 
 There are therefore no cyclotomic exceptions once $X\ge13$, completing
-both boxed claims.
+the factor-degree claims.
 
 ## 4. Meaning and limitation
 
