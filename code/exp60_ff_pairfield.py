@@ -385,13 +385,35 @@ for name, p, A, B in curves:
     print(f"  T_n closed form q*al*(q^(n-1)-al^(n-1))/(q-al) + conj "
           f"verified EXACTLY in Z[alpha]; denominator norm = q*#E(F_q) = {q*(q+1-a)}")
 
-    # layer magnitudes at n=20 (for the note)
+    # (iii-b) exact resolution of the pole x zero layer:
+    #   T_n = [ (a-2) q^n + q (s_{n-1} - s_n) ] / N1,   N1 = #E(F_q) = q+1-a
+    # i.e. a SMOOTH secondary term (freq 0) + the true single-zero oscillation
+    # with weight 2q/N1 -- the FF avatar of BLOCKS.md section 0's mixed block
+    # (smooth secondary terms + single-gamma lines, coefficient exactly 2).
+    N1 = q + 1 - a
+    ok_T = True
+    for n in range(2, NMAX + 1):
+        T = sum(q ** i * s[n - i] for i in range(1, n))
+        num = (a - 2) * q ** n + q * (s[n - 1] - s[n])
+        ok_T &= (num % N1 == 0) and (num // N1 == T)
+    print(f"  resolved mixed layer T_n = [(a-2)q^n + q(s_(n-1)-s_n)]/N1 exact "
+          f"(N1=#E(F_q)={N1}): {ok_T}")
+    assert ok_T
+    if a == 2:
+        print("  NOTE: a=2 kills the smooth part of the mixed layer exactly "
+              "((a-2)/N1 = 0): pure single-zero oscillation")
+
+    # layer magnitudes at n=20 (for the note), with the mixed layer resolved
     n = 20
     MAIN = (n - 1) * q ** n
-    T = sum(q ** i * s[n - i] for i in range(1, n))
+    SM_MIXED = -2 * (a - 2) * q ** n // N1 if (2 * (a - 2) * q ** n) % N1 == 0 \
+        else -2 * (a - 2) * q ** n / N1
+    OSC_SINGLE = 2 * q * (s[n] - s[n - 1]) / N1
     PAIR = (n - 1) * s[n] + 2 * q * U[n - 2]
-    print(f"  n=20 layers: MAIN={MAIN}  SINGLE={-2*T}  PAIR={PAIR}"
-          f"  |SINGLE|/MAIN={abs(2*T)/MAIN:.3e}  |PAIR|/MAIN={abs(PAIR)/MAIN:.3e}")
+    print(f"  n=20 resolved layers: MAIN={MAIN}  smooth-mixed~{SM_MIXED}  "
+          f"osc-single~{OSC_SINGLE:.4g}  PAIR={PAIR}")
+    print(f"    ratios to MAIN: smooth {abs(SM_MIXED)/MAIN:.3e}, "
+          f"single-osc {abs(OSC_SINGLE)/MAIN:.3e}, pair {abs(PAIR)/MAIN:.3e}")
 
     # supersingular rigidity
     if a == 0:
@@ -485,19 +507,25 @@ TEXT1, TEXT2, GRID = "#0b0b0b", "#52514e", "#e6e5e1"
 
 fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.4), facecolor="#fcfcfb")
 
-# panel 1: layer hierarchy for E1
+# panel 1: layer hierarchy for E1 (mixed layer resolved into smooth + oscillatory)
 ax = axes[0]
 r1 = results["E1: y^2=x^3+x+1 / F_5"]
 q = 5
+a1 = r1["a"]; N1 = q + 1 - a1
 ns = list(range(2, 41))
-main_l, single_l, pair_l = [], [], []
+main_l, smooth_l, single_l, pair_l = [], [], [], []
 for n in ns:
     MAIN = (n - 1) * q ** n
-    T = sum(q ** i * r1["s"][n - i] for i in range(1, n))
     PAIR = (n - 1) * r1["s"][n] + 2 * q * r1["U"][n - 2]
-    main_l.append(MAIN); single_l.append(abs(2 * T)); pair_l.append(abs(PAIR))
+    main_l.append(MAIN)
+    smooth_l.append(abs(2 * (a1 - 2) * q ** n / N1))
+    single_l.append(abs(2 * q * (r1["s"][n] - r1["s"][n - 1]) / N1))
+    pair_l.append(abs(PAIR))
 ax.semilogy(ns, main_l, color=C_BLUE, lw=2, label="main  $(n{-}1)q^n$")
-ax.semilogy(ns, single_l, color=C_ORANGE, lw=2, label=r"single  $|2T_n|$ (pole$\times$zero)")
+ax.semilogy(ns, smooth_l, color="#eda100", lw=2, ls=":",
+            label=r"mixed, smooth  $2|a{-}2|q^n/N_1$")
+ax.semilogy(ns, single_l, color=C_ORANGE, lw=2,
+            label=r"mixed, single-zero osc.  $|2q(s_n{-}s_{n-1})/N_1|$")
 ax.semilogy(ns, pair_l, color=C_AQUA, lw=2, label=r"pair  $|(n{-}1)s_n+2qU_{n-2}|$")
 ax.set_title("E1/$\\mathbf{F}_5$: exact layers of $R_n^\\Lambda$ (integer residual $=0$ at every $n$)",
              fontsize=10, color=TEXT1)
