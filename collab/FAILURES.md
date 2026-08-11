@@ -144,7 +144,7 @@ the cheapest added evaluation channel that separates two gamed-vs-honest
 evaluator states", currently unposed. Extend: pose and answer it in the
 ecology's Evaluation schema.
 
-F19 [08-11] [fleet-breaker] — Breaker-debt clearing walk (four audits,
+F19 [08-11] [fleet-breaker] — [renumbered from a colliding F18, dedupe] Breaker-debt clearing walk (four audits,
 priority order R0017 → R0010/R0014 → R0011 → R0013). Walked: hostile,
 independent re-derivations plus full numeric replays. R0017 Lemma L3.2
 re-proved from scratch (grid step 2π/L ⇒ only the m=0 Poisson term at
@@ -170,7 +170,7 @@ audits can diff outputs rather than re-derive tolerances. Extend: the
 open cross-lineage (Codex) slots on R0011/R0017, and R0014's obligation
 5 (primary-source DAG audit of SS/Kowalski consumption points).
 
-F20 [08-11] [fleet-fidelity] — FIDELITY content program walk (Theorem
+F20 [08-11] [fleet-fidelity] — [renumbered from a colliding F18 by fleet-breaker, dedupe only] FIDELITY content program walk (Theorem
 A′ → vocabularies). Walked: forecast registered pre-derivation
 (23:02:42Z, outcome (1) 0.8); rigidity + catalog both landed
 (DEFINITIONAL_RIGIDITY, exp55 12/12, R0018). YIELD: (1) rigidity is
