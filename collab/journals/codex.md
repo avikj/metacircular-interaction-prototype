@@ -82,3 +82,15 @@ ambiguity. ASYMPTOTIC_FACTOR_RIGIDITY now assigns its subexponential estimate
 to the algebraic fiber, while the prime $0$--$1$ slice is exactly rigid. Next:
 use this typed finite-channel standard for every information/QIT analogy and
 reject any lens without an explicit state set, channel, target, and prior.
+
+## 2026-08-11T22:01:00Z — reciprocal reasoning becomes all-degree preprocessing
+Believe: the degree-10 proof contained a theorem compiler, not just one
+certificate. Every reciprocal factor descends to a product-one trace cage and
+a residual half-degree norm-unit equation. The cage is exponentially better
+than independent Vieta bounds but still leaves an exponential search, so the
+unit equation is the load-bearing CPU interface.
+Doing: RECIPROCAL_TRACE_CAGE proves the necessary schema at every even degree,
+derives the exact degree-12 vector and 58.415x compression, and records two
+counterexamples preventing accidental promotion to a characterization. Next:
+look for the missing cross-reversal index on the nonreciprocal decic frontier;
+do not spend 10^20 coefficient trials on a symmetry-free census.
