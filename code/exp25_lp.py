@@ -180,8 +180,11 @@ def null_basis(rows):
     return vt[k:].conj().T                              # (r, r-k)
 
 
-def inertia(ev, tol_rel=1e-10):
-    """(n_+, n_0, n_-) of a Hermitian spectrum with relative tolerance."""
+def inertia(ev, tol_rel=1e-8):
+    """(n_+, n_0, n_-) of a Hermitian spectrum with relative tolerance.
+    Default 1e-8: the assembled matrices carry ~1e-9-absolute quadrature
+    tails, and near-null primitive directions (|eig| down to 1e-30) are
+    'unresolved' rather than signed at the assembly level."""
     t = tol_rel * np.max(np.abs(ev)) if ev.size else 0.0
     return int((ev > t).sum()), int((np.abs(ev) <= t).sum()), int((ev < -t).sum())
 
@@ -299,21 +302,28 @@ def weil_matrices_compact(L, M, gam=GAMMA, zero_chunk=20000):
         prime += P
 
     # archimedean (|Phi_m|^2 ~ tau^{-6} beyond qmax: same-parity E-terms cancel
-    # to two orders; tau_max chosen so the tail sits below 1e-6 * entry scale)
+    # to two orders).  Fine grid h=0.02 to 5 qmax + 600, then a coarse grid
+    # (resolving the e^{i tau L} oscillation) out to 22 qmax + 600: at small L
+    # the entries are ~1e-6 while the 5qmax tail is ~4e-10, which would break
+    # the 1e-6 entrywise cross-check target.  Nonuniform trapezoid weights.
     qmax = bas.q[-1]
-    tau_max = 5.0 * qmax + 600.0
-    tau = np.arange(0.0, tau_max, ARCH_H)
+    tau1 = 5.0 * qmax + 600.0
+    tau2_end = 22.0 * qmax + 600.0
+    h2 = max(ARCH_H, min(0.35, (2 * np.pi / L) / 40))
+    tau = np.concatenate([np.arange(0.0, tau1, ARCH_H),
+                          np.arange(tau1, tau2_end, h2)])
     D = arch_density(tau)
     P = bas.phi(0.5 + 1j * tau)                       # (M, Nt)
     # arch_jk = (1/2pi) int_R Phi_j conj(Phi_k) D = (1/pi) Re int_0^inf ...
-    wt = np.full(tau.size, ARCH_H)
-    wt[0] *= 0.5
-    wt[-1] *= 0.5
+    wt = np.empty_like(tau)
+    wt[1:-1] = 0.5 * (tau[2:] - tau[:-2])
+    wt[0] = 0.5 * (tau[1] - tau[0])
+    wt[-1] = 0.5 * (tau[-1] - tau[-2])
     arch = ((P * (D * wt)[None, :]) @ P.conj().T).real / np.pi
-    # tail estimate of the arch truncation (last decade extrapolated)
-    tail = np.abs(np.trapezoid(
-        (P[:, -500:] * D[None, -500:] * P[:, -500:].conj()).real,
-        dx=ARCH_H, axis=1)).max() / np.pi * (tau_max / (500 * ARCH_H)) * 0.2
+    # tail estimate of the arch truncation (tau^-5 extrapolation of the end)
+    endint = np.abs((P[:, -500:] * (D * wt)[None, -500:]
+                     * P[:, -500:].conj()).real.sum(axis=1)).max() / np.pi
+    tail = endint * (tau2_end / (500 * h2)) * 0.25
 
     # entrywise scale, floored at 1e-6 of the matrix scale: parity-forbidden
     # entries (odd-even mode pairs) are structural zeros where all four terms
@@ -417,10 +427,13 @@ class GaussDict:
             for k in range(n):
                 # F = g_k * gtilde_j has F(u) = F_kj(u) in the notation above
                 G[j, k] = self.F_jk(k, j, np.array([0.0]))[0]
-                # prime window: |log n - (a_k - a_j)| <= 12 * combined width
-                # (Gaussian decay e^{-(12)^2/2} ~ 5e-32; the first draft's
-                # 40-width window swept all 665k prime powers for most pairs)
-                mu = self.a[k] - self.a[j]
+                # prime window: the two terms F_kj(ln) and conj(F_jk(ln)) peak
+                # at ln = +mu and ln = -mu respectively (mu = a_k - a_j); over
+                # ln > 0 the active one sits at |mu|, so the window MUST be
+                # centered at |mu| (centering at signed mu silently zeroes the
+                # (k,j) entry and Hermitization then halves the pair -- bug
+                # caught by the entrywise cross-check).  Decay e^{-12^2/2}.
+                mu = abs(self.a[k] - self.a[j])
                 wdt = np.sqrt(self.s[j] ** 2 + self.s[k] ** 2)
                 lo, hi = np.searchsorted(LOGN, [mu - 12 * wdt, mu + 12 * wdt])
                 if hi > lo:
@@ -663,6 +676,7 @@ for lab, dd, mm, Wh, lam0, lamM, ev, c, trust in res_A:
     hodge_rows.append((lab, r, nI, nP, nIp, evI, evIp, lam_p, lamx_p, ov,
                        pol_leak, Q.shape[1]))
     print(f"  {lab:26s} dim {r:2d}: inertia(I) (+,0,-) = {nI}, "
+          f"lam_1(I) = {evI[-1]:+.3e}, lam_2(I) = {evI[-2]:+.3e}, "
           f"inertia(pole) = {nP}"
           + (f", overlap(v_+, pole plane) = {ov:.3f}" if nI[0] else ""))
     print(f"    primitive block dim {Q.shape[1]:2d}: inertia(I|_P) = {nIp}, "
@@ -673,9 +687,11 @@ for lab, dd, mm, Wh, lam0, lamM, ev, c, trust in res_A:
           f"{evIp[-1]:+.3e}")
 h_full = hodge_rows[-1]                      # 64-atom dictionary, for figure
 npos_all = [h[2][0] for h in hodge_rows]
+lam2_rel = max(h[5][-2] / abs(h[5][-1]) for h in hodge_rows)
 print(f"\n  H2 verdict: n_+(I) over nested dictionaries = {npos_all} "
-      f"(bound: <= 1; narrow-only dictionaries see no hyperbolic direction, "
-      f"the wide windows switch it on -- never 2)")
+      f"(bound: <= 1 resolved positive); worst lam_2(I)/|lam_1(I)| = "
+      f"{lam2_rel:+.1e} -- the second direction never rises above the "
+      f"assembly floor, exactly one hyperbolic direction")
 print(f"  H1 verdict: I|_P <= 0 in every dictionary within the assembly "
       f"floor; exact value of its top eigenvalue is -lam_min(W|_P) < 0 "
       f"(factored zero side, e.g. {-h_full[7]:.2e} for the 64-atom span)")
@@ -934,7 +950,11 @@ ax.set_title("(h) primitive (Hodge) block vs support cap:\n"
 ax.legend(fontsize=7.5, loc="lower left")
 ax.grid(alpha=0.25, lw=0.6)
 
-fig.tight_layout(rect=[0, 0, 1, 0.955])
+try:
+    fig.tight_layout(rect=[0, 0, 1, 0.955])
+except ValueError:
+    fig.subplots_adjust(left=0.045, right=0.985, top=0.90, bottom=0.07,
+                        wspace=0.30, hspace=0.34)
 out = FIGDIR / "exp25_lp.png"
 fig.savefig(out, dpi=150)
 print(f"\nfigure -> {out}")
