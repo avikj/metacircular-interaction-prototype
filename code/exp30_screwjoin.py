@@ -31,7 +31,17 @@ tests exp23 lacks:
      = -1.0677 exactly;
   D. controls: zero-jitter and random-frequency nulls (is the band match
      real or a bandpass artifact?), Q-ablation, pair-band exclusion (the
-     chirped pair sector must NOT enter [mix]).
+     chirped pair sector must NOT enter [mix]);
+  E. audit of exp27 ("the profinite scheme runs", commit 7804143):
+     (i) with a UNIFORM linear extraction the sum of block constants equals
+     the total's constant to machine precision -- the "scheme invariance to
+     1e-4" is closure + linearity (a tautology); the 1e-4 scatter in exp27
+     is method mismatch (LSQ intercept for [##] vs plain means for the
+     rest), not structure; (ii) the nontrivial content is the RUNNING LAW:
+     the [##] constant grows ~ a log^2 Q (their a = 0.362), driven by the
+     small-n spikes Lambda#_Q(1) = sum_{q<=Q} mu^2(q)/phi(q) ~ log Q --
+     both re-measured here; divergence as Q -> infinity means no Q -> inf
+     canonical subtraction exists, supporting exp27's conclusion.
 
 Derivation being tested (independent; see notes/CROSSREVIEW_THMJ.md):
 partial summation int_1^X y^{-2} d[-2 y^{rho+1}/(rho(rho+1))]
@@ -186,11 +196,11 @@ def extract_lines(y, logx, gams, lo=8.0, hi=50.0):
 def main():
     rng = np.random.default_rng(30)
     gam = load_zeros()
-    mu, phi = mobius_phi(60)
+    mu, phi = mobius_phi(130)
     lam = sieve_lambda(NMAX)
 
     # blocks for every Q used anywhere, computed once
-    QS = [1, 10, 30, 50]
+    QS = [1, 5, 10, 30, 50, 120]
     blocks = {}
     for Qt in QS:
         lS = lambda_sharp(Qt, mu, phi, NMAX)
@@ -317,6 +327,42 @@ def main():
     for Qt in QS:
         cq, aq = band_stats(blocks[Qt]["T_mix"], model, LOGX, *SINGLE)
         print(f"    Q = {Qt:>3}:  corr = {cq:.4f},  ratio = {aq:.4f}")
+
+    print()
+    print("=" * 78)
+    print("PART E: audit of exp27 (scheme running / invariance)")
+    print("=" * 78)
+    # E1: uniform linear extraction => machine-precision invariance (tautology)
+    print("E1 uniform extraction (every block fit as a logX + c after removing")
+    print("   its oscillatory model): sum of block (a, c) minus total's (a, c):")
+    solT, *_ = np.linalg.lstsq(A2, T_tot - model, rcond=None)
+    for Qt in [5, 30, 120]:
+        b = blocks[Qt]
+        sS, *_ = np.linalg.lstsq(A2, b["T_SS"], rcond=None)
+        sM, *_ = np.linalg.lstsq(A2, b["T_mix"] - model, rcond=None)
+        sB, *_ = np.linalg.lstsq(A2, b["T_BB"], rcond=None)
+        d = sS + sM + sB - solT
+        print(f"    Q = {Qt:>3}:  d_slope = {d[0]:+.2e},  d_const = {d[1]:+.2e}")
+    print(f"   (total fit: slope = {solT[0]:.4f}, const = {solT[1]:.4f} = MS c2)")
+    print("   ==> invariance of the SUM is exact by closure + linearity;")
+    print("       exp27's 1e-4 scatter is LSQ-vs-mean extraction mismatch.")
+
+    # E2: the running law and its mechanism
+    lQ = np.log(np.array(QS[1:], dtype=float))          # Q >= 5
+    cSS_run = ctab[1:, 0]
+    co = np.polyfit(lQ, cSS_run, 2)
+    print(f"E2 running law of c_## on Q in {QS[1:]}: "
+          f"{co[0]:.3f} log^2 Q {co[1]:+.3f} log Q {co[2]:+.3f}  "
+          f"(exp27: 0.362, +0.19, +0.33; rms here "
+          f"{np.std(cSS_run - np.polyval(co, lQ)):.3f})")
+    print("   spike mechanism  Lambda#_Q(1) = sum_(q<=Q) mu^2/phi  vs  log Q:")
+    for Qt in [5, 30, 120]:
+        spike = sum(mu[q] ** 2 / phi[q] for q in range(1, Qt + 1))
+        print(f"    Q = {Qt:>3}:  Lambda#_Q(1) = {spike:.3f},   log Q = "
+              f"{np.log(Qt):.3f}")
+    print("   c_## grows ~ log^2 Q: block constants DIVERGE as Q -> inf;")
+    print("   no Q->inf canonical subtraction -- fluctuation sector is the")
+    print("   scheme-invariant content (supports exp27's conclusion).")
 
     # ---------------------------------------------------------------- figure
     fig, ax = plt.subplots(2, 2, figsize=(13.5, 9))
