@@ -386,6 +386,23 @@ degree-$7$ classifications and the reciprocal degree-$8$ exclusion remain
 valuable because they operate at every finite cutoff with small exact
 certificates.
 
+The separation between the two quantitative tiers is also diagnostic.
+If Lehmer's conjecture supplies an absolute constant $M(\alpha)>1+\varepsilon$
+for every noncyclotomic algebraic integer, the Smyth argument applies to
+all irreducible factors and improves the general bound to
+
+$$
+\delta(F_X)\gg
+\frac{\log_2X\,\log_4X}{\log_3X}.
+$$
+
+Thus the extra iterated-log loss in the unconditional general estimate
+comes from the unresolved reciprocal algebraic-unit height problem, not
+from the prime-gap input.  The odd-support parity resultant forces
+$q(i)\in\mathbb Z[i]^\times$ for a reciprocal divisor, but after
+Joukowski compression $q(x)=x^kQ(x+x^{-1})$, only $Q(0)=\pm1$; no known
+height theorem upgrades Voutier in this reciprocal unit sector.
+
 Targeted searches found the separate theorems of Lenstra, Voutier, Smyth,
 and Ford--Maynard--Tao, but no prior statement of their above prime-prefix
 consequence.  The safest novelty description is therefore: an apparently
