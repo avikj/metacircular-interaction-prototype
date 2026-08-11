@@ -101,7 +101,18 @@ def tau_conjugate_q5(j: int) -> mp.mpc:
     return sum(mp.conj(q5_character(j, r)) * e5(r) for r in range(5))
 
 
-def check_q5_character_identity() -> mp.mpf:
+def mangoldt(n: int) -> mp.mpf:
+    """Exact support test with a high-precision logarithmic value."""
+    if n < 2:
+        return mp.mpf(0)
+    factors = prime_factors(n)
+    if len(factors) != 1:
+        return mp.mpf(0)
+    return mp.log(factors[0])
+
+
+def check_q5_unweighted_character_identity() -> mp.mpf:
+    """Check (1.1), extended by its full nonunit indicator."""
     worst = mp.mpf("0")
     for a in range(1, 5):
         for n in range(1, 21):
@@ -120,12 +131,41 @@ def check_q5_character_identity() -> mp.mpf:
     return worst
 
 
+def check_q5_mangoldt_identity() -> mp.mpf:
+    """Check the actual von Mangoldt identity (1.2)--(1.3)."""
+    worst = mp.mpf("0")
+    for a in range(1, 5):
+        for n in range(1, 201):
+            weight = mangoldt(n)
+            character_part = sum(
+                tau_conjugate_q5(j)
+                * q5_character(j, a)
+                * weight
+                * q5_character(j, n)
+                for j in range(4)
+            ) / 4
+            # Among nonunits, Lambda is supported only on 5^k.
+            local_correction = weight * e5(a * n) if prime_factors(n) == [5] else 0
+            error = abs(weight * e5(a * n) - character_part - local_correction)
+            worst = max(worst, error)
+
+    # Explicitly include both sides of the support distinction that the
+    # unweighted identity cannot test.
+    require(all(mangoldt(n) == 0 for n in [10, 15, 20, 30, 45]),
+            "composite non-prime-power support failure")
+    require(all(mangoldt(n) == mp.log(5) for n in [5, 25, 125]),
+            "p|q prime-power support failure")
+    return worst
+
+
 def main() -> None:
     if not __debug__:
         raise RuntimeError("Do not run this certificate with python -O")
 
-    character_error = check_q5_character_identity()
+    character_error = check_q5_unweighted_character_identity()
     require(character_error < mp.mpf("1e-60"), character_error)
+    mangoldt_error = check_q5_mangoldt_identity()
+    require(mangoldt_error < mp.mpf("1e-60"), mangoldt_error)
 
     q6_values = []
     for h in range(6):
@@ -150,6 +190,7 @@ def main() -> None:
         require(direct == spectral, (W, h, direct, spectral))
 
     print(f"q=5 character identity worst error: {mp.nstr(character_error, 6)}")
+    print(f"q=5 Mangoldt identity worst error: {mp.nstr(mangoldt_error, 6)}")
     print(f"q=6 exact correlations: {q6_values}")
     print(f"W={W} exact shifts checked: {checked_shifts}")
     print("PASS")
