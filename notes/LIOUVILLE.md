@@ -34,6 +34,20 @@ $$L(u)=\sum_{n\le u}\lambda(n)=\frac{u^{1/2}}{\zeta(1/2)}
 
 ## 2. Theorem H (Liouville–Goldbach trace formula)
 
+**[Prior-art annotation, per the collaborator literature audit
+(`LITERATURE.md`, branch psvg2m): the identity itself is presumptively
+prior art — Cantarini–Gambini–Zaccagnini, arXiv:2603.10241 (Mar 2026)
+treats $\sum_{m_1+m_2=n}\lambda(m_1)\lambda(m_2)$ with explicit formulas under
+RH + simple zeros via their Laplace-convolution machinery (Forum Math.),
+Möbius case included; see also Mangerel arXiv:2404.12117 (pointwise
+$\lambda$-Goldbach) and Chavez arXiv:2409.02106 ($1/\zeta'(\rho)$ weights).
+Pending a full-text line-by-line check (PDFs unreachable from these
+environments), Theorem H should be read as a REDERIVATION at identity
+level. What remains repo-new per the audit: the scale-degeneracy reading,
+the line-level spectroscopy and inverse recovery (exp15/exp19), the
+protection/exposure duality, and the block framing. The simplex-Chowla
+corollary constants are AT RISK until the full text is read.]**
+
 Substituting this twice into the smoothed pair count (the Theorem-D
 mechanism verbatim), with $w_\rho=\zeta(2\rho)/\zeta'(\rho)$:
 

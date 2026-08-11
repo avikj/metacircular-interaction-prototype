@@ -5,6 +5,13 @@ Verified in `code/exp16_mobius.py` → `figures/exp16_mobius.png`.
 
 ## 1. Theorem H′ (Möbius–Goldbach trace formula)
 
+**[Prior-art annotation: same status as Theorem H — the identity is
+presumptively in Cantarini–Gambini–Zaccagnini arXiv:2603.10241 (Möbius
+case included); pending full-text check, read as a rederivation at
+identity level. The purity reading (no foreground at all), the numerical
+line display, and the classification below are the repo-new content per
+the audit (`LITERATURE.md`).]**
+
 $\sum\mu(n)n^{-s}=1/\zeta(s)$ has **no pole anywhere**, so the double explicit
 formula predicts the extreme member of the family: with $v_\rho=1/\zeta'(\rho)$,
 under RH + simple zeros,
@@ -91,6 +98,12 @@ Structural laws visible in the table, all now verified rows 1–3
    the Hermitian side of the same fields.
 
 ## 2.1 The abelian tower (exp20)
+
+**[Citation added per literature audit: the identity progressions ⇔
+double sums over L-zeros, with a converse, is
+Bhowmik–Halupczok–Matsumoto–Suzuki, Mathematika 65 (2019),
+arXiv:1704.06103. The individual-line numerical display below appears
+new.]**
 
 The net extends beyond $\zeta$: for the quadratic character $\chi_3$,
 $-L'/L(s,\chi_3)$ has **no pole** ($L(1,\chi_3)\ne0$) and residue $1$ at every

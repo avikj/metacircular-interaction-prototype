@@ -54,10 +54,10 @@ The pair field of any arithmetic dressing $a$ reads the same zero spectrum throu
 | $\Lambda$ | $-\zeta'/\zeta$ | $s{=}1$ | $1$ | $X^3/X^{5/2}/X^2$ | exp6b/11 |
 | $\lambda$ | $\zeta(2s)/\zeta$ | $s{=}\tfrac12$ | $\zeta(2\rho)/\zeta'(\rho)$ | all at $X^2$ (degenerate) | exp15: corr 0.9999–1.0000 |
 | $\mu$ | $1/\zeta$ | — | $1/\zeta'(\rho)$ | pair only (pure) | exp16: corr 0.9999, ratio 0.9999 |
-| $\Lambda\chi_3$ | $-L'/L$ | — | $1$ | pair only over $L$-zeros | exp20: corr 0.9994 |
+| $\Lambda\chi_3$ | $-L'/L$ | — | $1$ | pair only over $L$-zeros | exp20: corr 0.9994 (identity cf. arXiv:1704.06103; line display new) |
 | $d$ | $\zeta^2$ | $s{=}1$ double | $0$ (double zeros) | no zero layer at all | exp25: null test w/ control |
 
-**Theorem H (Liouville–Goldbach trace formula; `LIOUVILLE`, exp15).** $G_1^\lambda(X)=\frac{\pi X^2}{8\zeta(1/2)^2}+\frac{\sqrt\pi}{\zeta(1/2)}\sum_\rho w_\rho\frac{\Gamma(\rho)}{\Gamma(\rho+5/2)}X^{\rho+3/2}+\sum_{\rho,\rho'}w_\rho w_{\rho'}W\,X^{\rho+\rho'+1}+\dots$ — all three layers at scale $X^2$ (the parity pole sits *on the critical line*). The parity sector, provably invisible to every finite-place probe (sibling `GAUGE`; exp21/24 below), is fully exposed to the archimedean place: **the parity barrier is a property of the place, not the function**, and Chowla is the Hermitian side of this same field.
+**Theorem H (Liouville–Goldbach trace formula; `LIOUVILLE`, exp15; identity presumptively prior art — Cantarini–Gambini–Zaccagnini arXiv:2603.10241, pending full-text check; the scale-degeneracy reading, spectroscopy, and framing are this branch's).** $G_1^\lambda(X)=\frac{\pi X^2}{8\zeta(1/2)^2}+\frac{\sqrt\pi}{\zeta(1/2)}\sum_\rho w_\rho\frac{\Gamma(\rho)}{\Gamma(\rho+5/2)}X^{\rho+3/2}+\sum_{\rho,\rho'}w_\rho w_{\rho'}W\,X^{\rho+\rho'+1}+\dots$ — all three layers at scale $X^2$ (the parity pole sits *on the critical line*). The parity sector, provably invisible to every finite-place probe (sibling `GAUGE`; exp21/24 below), is fully exposed to the archimedean place: **the parity barrier is a property of the place, not the function**, and Chowla is the Hermitian side of this same field.
 
 **Theorem H′ (Möbius; `FAMILY §1`, exp16).** Poleless $\Rightarrow$ the Möbius–Goldbach average *is* the sum spectrum of the zeros, no foreground. Terminal object of the purity axis $d\to\Lambda\to\lambda\to\mu$ (all-pole/no-zero to all-zero/no-pole; solvability lives at the two ends, the conjectures in the middle).
 

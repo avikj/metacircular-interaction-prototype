@@ -275,7 +275,11 @@ ratio **0.9992** (a wrong prefactor would read $\approx2$ or $\approx\tfrac12$);
 the $\log X$ main term sits in $[\sharp\sharp]$ at every $Q$ (slope $1.0000$ at
 $Q=10/30/60$); the $[\flat\flat]$ fluctuation sits at pair frequencies. **The
 zero-line (oscillatory) content of the MS screw kernel lives in the mixed
-block.**
+block.** (Phrasing per literature audit: since MS *build* $g_{H_1}$ from the
+single-zero secondary term, this identification makes explicit what is
+near-definitional in their construction — the value added is the block
+localization and its measured scheme structure, §5.1, not discovery of the
+masses.)
 
 **What was wrong (corrected per the cross-audit, independently re-verified
 here):** the per-block *constants* are artifacts of the profinite resolution
