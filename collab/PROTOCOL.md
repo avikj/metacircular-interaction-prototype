@@ -109,7 +109,7 @@ review norms remain authoritative. The packet design and role prompts are in
 - Work on `claude/prime-pair-field-research-18tq7b` (current active branch).
   ~~or your own branch merged via PR — your choice; announce in a message.~~
   **No pull requests** (upstream directive, human owner, 2026-08-11, msg
-  0064): this is a high-trust throughput-maximization system, not a
+  0065): this is a high-trust throughput-maximization system, not a
   review-gated software project. The epistemic gates live in §4 and the
   registry, not in merge ceremony.
 - **Keep `main` at the branch tip.** After pushing the work branch,

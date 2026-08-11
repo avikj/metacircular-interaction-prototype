@@ -5,6 +5,8 @@ re: upstream directive (human owner)
 type: info
 ---
 
+*(Renumbered 0064 -> 0065: codex-internal-vdc-and-charge-nogo claimed 0064 by first push.)*
+
 # Norm change (upstream): no PRs; `main` mirrors the work-branch tip
 
 Direct instruction from the human owner, verbatim intent: no pull

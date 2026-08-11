@@ -35,6 +35,14 @@ this is close to known-wall territory (short-interval primes) — but
 just past 1) may be accessible and pays linearly.
 
 ## L2 — More traces: tr(G³) and the cubic integrality step
+
+**[CLOSED-BY-SOURCE — cf-vesper, msg 0066, notes/LEVER3.md §5: the
+manuscript itself answers this in §7.5(d)-(e): the ceiling given 2m
+moments is the Christoffel-function bound 1−Λ_m(0); prime-side tr G̃^k
+is available exactly in the Rudnick–Sarnak range kλ<2; "an odd moment
+does not lower Λ₁(0)" — unconditionally higher moments add nothing on
+λ∈(½,1), and Prop 7.4 caps λ≤½. The cubic trace pays only in the
+RH-conditional lane (§7.5(g)).]**
 The method uses tr G and tr G². The integrality ladder m² ≥ 2m−1 →
 m² ≥ 3m−2 has a cubic continuation; tr(G³)'s prime side is a triple
 sum over prime pairs (triple correlation). Task: determine exactly
@@ -50,10 +58,20 @@ On RH, Chirre–Gonçalves–de Laat reached 0.6792 by SDP exploiting
 F ≥ 0 outside [−1,1]. F ≥ 0 is unconditional (it is |S(τ)|²-shaped —
 check exact statement). If the positivity-outside-band constraint can
 be fed into the inertia frame unconditionally, the CGdL gain may
-transfer. Forecast: most promising near-term lever — the constraint is
+transfer. ~~Forecast: most promising near-term lever — the constraint is
 free; the question is purely whether the finite-compression argument
-accepts it. First task: re-derive CGdL's use of F-positivity and check
-each step against the Gabor compression.
+accepts it.~~ **[EXECUTED and OBSTRUCTED — cf-vesper, notes/LEVER3.md,
+msg 0066: Theorem O1 — the Frobenius α-profile of any critical-density
+lattice compression is an autocorrelation, hence pointwise ≥ 0, while
+CGdL requires ≤ 0 outside the band; the intersection is band-limited =
+Theorem D's 0.6725 regime. No window choice transfers any of the
+0.6792−0.6725 gain. Bypasses priced: signed schemes lose rank ≥ δN vs
+gain ≤ 0.0067N (finite SDP falsifier registered); super-band windows
+need an O(1) upper bound on F_u over (1,1+δ] — the surviving
+arithmetic door, which reframes L1's payoff to UPPER bounds for the
+unconditional route. F-positivity itself survives unconditionally
+(LEVER3 Lemma 2.1).]** First task was: re-derive CGdL's use of
+F-positivity and check each step against the Gabor compression.
 
 **OUTCOME (2026-08-11, fleet-L3, `notes/L3_SDP.md`, R0017): NO TRANSFER —
 lever closed.** The premise verified (F ≥ 0 unconditional, both ordinate

@@ -112,7 +112,21 @@ check (fleet-kappa).
 ## 2026-08-11T23:55Z — upstream norm change applied
 
 Owner directive: NO PRs, main mirrors work-branch tip, high-trust
-throughput system. PROTOCOL §5 updated (msg 0064); main fast-forwarded
+throughput system. PROTOCOL §5 updated (msg 0065; renumbered from 0064 after collision); main fast-forwarded
 9308f67 -> ef7bfe3 and pushed. Standing duty for every session
 including mine: after each successful branch push, run
 `git push origin claude/prime-pair-field-research-18tq7b:main`.
+
+## 2026-08-12T00:55Z — LEVER3 landed
+
+Executed BEYOND L3 end-to-end from primaries (manuscript hash-verified
+vs KAPPA pin; CGdL 1810.08843v2; BGSTB24 = 2306.04799). Result:
+Theorem O1 obstruction (Gram ⟹ α-profile autocorrelation ≥ 0 vs CGdL
+needs ≤ 0 out-of-band ⟹ band-limited ⟹ Thm D 0.6725 wall); Lemma 2.1
+unconditional F_u ≥ 0 self-contained; bypass prices (signed schemes:
+rank δN vs ≤0.0067N gain, SDP falsifier F-A registered; super-band:
+needs O(1) slab bound on F_u, F-B); L1 payoff sign corrected (UPPER
+bounds pay unconditionally); L2 closed-by-source (§7.5(e)). BEYOND.md
++ STATE updated; msg 0066. My 0064 renumbered to 0065 (codex won the
+race). Next candidates: prove F-C (O1 for general families, ~1 page);
+run F-A SDP if tooling available; R0013 noisy-frame audit still open.
