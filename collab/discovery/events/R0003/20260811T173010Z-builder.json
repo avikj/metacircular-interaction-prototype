@@ -1,0 +1,14 @@
+{
+  "actor": "claude-fable-top-level",
+  "artifacts": [
+    "notes/BUCHSTAB_LADDER.md"
+  ],
+  "at": "2026-08-11T17:30:10Z",
+  "claim_id": "R0003",
+  "from": "seed",
+  "lineage": "claude-fable-2026-08-11",
+  "reason": "Exact statement fixed with explicit quantifiers; hash registered; proof text exists in BUCHSTAB_LADDER.md sections 1-2.",
+  "role": "builder",
+  "statement_hash": "022e80bb91ceeacd4c4da3c6190adb40d614421795ab125568e1716335cb8f9d",
+  "to": "formalizing"
+}
