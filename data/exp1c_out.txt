@@ -1,0 +1,1 @@
+# exp1c: large-X irreducibility of F_X (flint fmpz_poly.factor), 2026-08-11T10:33Z
