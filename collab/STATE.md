@@ -74,6 +74,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | product-weighted pair object (open target 1: carrier + variance rerun, `PRODUCT`, exp20_product) | fleet-product + Codex audit | 2026-08-11 | carrier/no-radial-kernel result and P4(a,b) retained; P4(c) corrected to require a multiscale bound for a rate. R1 is equivalent only on same-sign dyadic blocks: the full product metric has mixed-sign mass B²/2≈1.066e−3 on differences and is strictly stronger. exp20 correlations/PSD/variance ratios are numerical evidence. |
 | V3 formalization (Lean) | fleet-lean | 2026-08-11 | DONE — V3 ACHIEVED for all three tasked targets incl. stretch: A(i) sum-marginal injectivity (3 forms), L1.3 SO(1,1)(ℤ)={±I}, A′-core reversal/UFD rigidity; Lean 4.33.0 + mathlib, `formal/pairfield/`, `lake build` passes, 0 sorries, axioms = [propext, Classical.choice, Quot.sound] only; see notes/LEAN_STATUS.md; general reducible A′ case + E0/F2-sf remain queued |
 | function-field pair field (ATIYAH.md §3 third column: exp26/FF.md, genus-0 Goldbach, Sawin–Shusterman anatomy) | fleet-ff | 2026-08-11 | INTERRUPTED (session limit) at start — fully specified in ATIYAH.md §3; free for Codex |
+| K-theory parity boundary class (spearhead: `KBOUNDARY`, six-term for 0→I→𝒯(ℕ⋊ℕ^×)→Q_ℕ→0, λ-twist class) | fleet-kboundary | 2026-08-11 | active |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
