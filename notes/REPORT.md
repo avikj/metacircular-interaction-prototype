@@ -93,7 +93,7 @@ Normalize $F_X(x) = \sum_{p\le X} x^{p-2}$ (so $F_X(0)=1$).
 $$F_{11} = 1+x+x^3+x^5+x^9 = \Phi_6(x)\cdot(x^7+x^6-x^4+x^2+2x+1),$$
 and $\Phi_6$ is palindromic, so rigidity holds there too (the induced "partner" is exactly the mirror — verified). Spot checks: irreducible at $X=5000$ (deg 4997), $X=10^4$ (deg 9971), $X=2\cdot10^4$ (deg 19,995; 211 s). Also verified directly: no non-mirror 0-1 partner exists for any tested $X$ by enumerating all factor splits.
 
-**Why $X=11$?** $\Phi_6\mid F_X$ iff $\sum_{p\le X}\zeta^{p-2}=0$ for a primitive 6th root $\zeta$ — an exact equidistribution coincidence of primes in residue classes mod 6 (weighted by 6th roots), i.e. a *prime-race tie*. Race ties recur infinitely often (Littlewood-type oscillations), so sporadic cyclotomic factors may recur; the theorem is engineered to be immune to them.
+**Why $X=11$?** $\Phi_6\mid F_X$ iff $\sum_{p\le X}\zeta^{p-2}=0$ for a primitive 6th root $\zeta$ — an exact equidistribution coincidence of primes in residue classes mod 6 (weighted by 6th roots), i.e. a *prime-race tie*. Race ties might recur (Littlewood-type oscillations), so the theorem is engineered to be immune to them. **Exhaustive scan (exp7):** over *all* moduli $m\le60$ and *all* prime cutoffs $X\le10^6$, exactly one tie exists — the known $(X,m)=(11,6)$. The $\zeta_m$-weighted races never tie again in this range: the anomaly is genuinely sporadic.
 
 **Conjecture A″ (prime phase rigidity).** For every $X\ge3$ the non-cyclotomic part of $F_X$ is irreducible; hence the primes up to $X$ are determined by their difference multiset up to reflection, for every $X$.
 
