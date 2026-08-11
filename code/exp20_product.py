@@ -330,7 +330,8 @@ def main():
     a.legend(fontsize=8)
 
     a = ax[1, 1]
-    a.loglog(Ls, Vs, "o-", color="tab:blue", label=r"$V(L)=\frac1L\int h^4\phi_L$")
+    a.loglog(Ls, Vs, "o-", color="tab:blue",
+             label=r"$V(L)=\frac{1}{L}\int h^4\phi_L$")
     a.loglog(Ls, MLs ** 2, "s--", color="tab:orange",
              label=r"Jensen floor $M_L^2$ (free lower bound)")
     a.axhline(D0V, color="tab:green", lw=1.0, ls=":",
