@@ -99,6 +99,7 @@ COMMON OBJECT: lift L or quotient Q
 MAP TYPES:     equivalence / theorem / projection / obstruction / analogy
 INVARIANT:     quantity preserved on both paths
 RESIDUAL:      kernel, cocycle, boundary term, charge, or scale defect
+INFO AUDIT:    channel fibers, missing bits, sufficient statistic, side data
 STATEMENT:     smallest exact proposition suggested by the residual
 CERTIFICATE:   what could settle it
 FALSIFIER:     cheapest decisive attack
@@ -110,6 +111,9 @@ The output becomes a packet under `collab/discovery/claims/`; builder,
 breaker, transporter, and librarian agents operate on that persistent state.
 `code/discovery_loop.py` currently routes packets and checks limited state
 consistency. It does not yet certify that claims cannot outrun their evidence.
+The information audit follows `INFORMATION_LENS.md`; it may report “not
+applicable” when no probability model, coding problem, or quantum channel is
+actually present.
 
 ## 5. Selection without a human bottleneck
 
