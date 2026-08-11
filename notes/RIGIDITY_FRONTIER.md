@@ -20,14 +20,15 @@ Every claim is labeled **PROVED** (hand proof, checkable line by line), **MACHIN
 | $X$ | degree | $\pi(X)$ | factors | time |
 |---|---|---|---|---|
 | 30000 | 29987 | 3245 | **1 (irreducible)** | 657 s |
-| 50000 | 49997 | 5133 | [PENDING-50K] | [PENDING-50K-T] |
+| 50000 | 49997 | 5133 | **1 (irreducible)** | 1769 s |
 
-$F_X$ is irreducible at every tested cutoff beyond $X=11$; by Theorem A′, the primes up to
-$3\cdot10^4$ [PENDING-CONFIRM-5E4] are unconditionally determined by their difference
-multiset up to reflection. Timing grows like $\deg^{2.2}$ (9.3 s → 44.7 s → 211 s → 657 s
-across the doublings $5\text{k}\to10\text{k}\to20\text{k}\to30\text{k(×1.5)}$, run
-concurrently with other jobs), putting $X=10^5$ at roughly 1.5–2 h — feasible but outside
-this session's budget; it is the natural next checkpoint.
+$F_X$ is irreducible at every tested cutoff beyond $X=11$; by Theorem A′, **the primes up
+to $5\cdot10^4$ are unconditionally determined by their difference multiset up to
+reflection** (a 2.5× degree extension over the previous frontier $2\cdot10^4$). Timing
+grows like $\deg^{2.1-2.2}$ (9.3 s → 44.7 s → 211 s → 657 s → 1769 s along
+$5\text{k},10\text{k},20\text{k},30\text{k},50\text{k}$; the large runs shared 4 cores with
+other jobs), putting $X=10^5$ at roughly 1.5–2 h — feasible but outside this session's
+budget; it is the natural next checkpoint.
 
 ---
 
@@ -80,7 +81,7 @@ $5\cdot10^4$, of course.)
 
 ---
 
-## 3. Theorem F2: the cyclotomic layer, solved for $m\le200$ and ALL $X$
+## 3. Theorem F2: the cyclotomic layer, solved for $m\le1000$ and ALL $X$
 
 $\Phi_m\mid F_X\iff\sum_{p\le X}\zeta_m^{p-2}=0$: the "$\zeta_m$-weighted prime race tie"
 (REPORT §2.1). Fix $m$ and let $X>P(m):=\max\{p:p\mid m\}$. Split the sum into the fixed
@@ -152,9 +153,11 @@ computes, for every $m\le200$: $\operatorname{rank}_{\mathbb Q}\{v_c\}$, members
 $-t_m$ in the $\mathbb Q$-span (rank comparison) and in the $\mathbb Z$-lattice (HNF
 reduction), all in exact integer arithmetic (FLINT `fmpz_mat`). Result:
 
-> **For every one of the 78 non-squarefree $m\le200$, the target $-t_m$ is not even in the
-> $\mathbb Q$-span of the steps: ties are impossible for $X>m$.** (`data/exp7b_out.txt`,
-> Part 3: all 78 marked `Qspan=0`; no case was $\mathbb Q$-solvable but $\mathbb Z$-obstructed.)
+> **For every one of the 392 non-squarefree $m\le1000$, the target $-t_m$ is not in the
+> step lattice: ties are impossible for $X>m$.** (`data/exp7b_out.txt`: for $m\le200$,
+> Part 3 shows all 78 marked `Qspan=0` — not even rationally solvable; for $201\le m\le1000$
+> the EXTENSION blocks certify lattice non-membership for all 314 non-squarefree values,
+> with zero "walkers", i.e. zero solvable cases.)
 
 (For $4\mid m$ this is Theorem F2-4; for the odd cases $m=9,18,25,27,\dots$ it is verified
 exactly but we have no uniform hand proof; a partial mechanism: the projection
@@ -165,25 +168,26 @@ open lemma.)
 
 ### 3.4 Synthesis: the complete tie theorem
 
-**Theorem F2 (classification, $m\le200$, all $X$) — PROVED + MACHINE-VERIFIED.**
-For every $m\le200$ and every $X\ge3$:
+**Theorem F2 (classification, $m\le1000$, all $X$) — PROVED + MACHINE-VERIFIED.**
+For every $m\le1000$ and every $X\ge3$:
 $$\Phi_m\mid F_X\iff (X,m)\in\{(3,2),\ (11,6)\}\ \text{(with }F_3=\Phi_2\text{ itself)}.$$
-Structure of the proof: squarefree $m$ (121 values) → forced counts and explicit tie
-intervals (Thm F2-sf; computed in exp7b Part 3b: every forced count is $\le2$, so each
-interval closes by the third prime of a class; all intervals empty except
-$m=2\to[3,5)$ and $m=6\to[11,13)$); $4\mid m$ → parity (Thm F2-4); other non-squarefree
-$m$ → lattice non-membership (§3.3; 78 values); the region $X\le\max(m,P(m))$ and
-independently all $X\le10^7$ → direct scan (§3.5).
+Structure of the proof: squarefree $m$ (607 values) → forced counts and explicit tie
+intervals (Thm F2-sf; exp7b Part 3b and the EXTENSION mode: for $m\le200$ every forced
+count is $\le2$, so each interval closes by the third prime of a class; all intervals
+empty except $m=2\to[3,5)$ and $m=6\to[11,13)$); $4\mid m$ → parity (Thm F2-4); other
+non-squarefree $m$ → lattice non-membership (§3.3; 392 values, zero solvable); the region
+$X\le\max(m,P(m))$ → direct scan (to $10^7$ for $m\le200$, to $2000\ge m$ for
+$201\le m\le1000$), plus independently all $X\le10^7$ for $m\le200$ (§3.5).
 
 Combining Theorems F1 and F2: **for every $X\ge13$, $F_X$ has no irreducible factor of
-degree $\le2$, and no cyclotomic factor $\Phi_m$ with $m\le200$ — unconditionally, for all
-$X$, not merely all tested $X$.** Any counterexample to Conjecture A″ must consist of
-non-cyclotomic factors of degree $\ge3$, or a cyclotomic $\Phi_m$ with $m>200$ (and then
-$\varphi(m)\ge48$ — see remark below).
+degree $\le2$, and no cyclotomic factor $\Phi_m$ with $m\le1000$ — unconditionally, for
+all $X$, not merely all tested $X$.** Any counterexample to Conjecture A″ must consist of
+non-cyclotomic factors of degree $\ge3$, or a cyclotomic $\Phi_m$ with $m>1000$ (and then
+$\varphi(m)\ge240$ — see remark below).
 
-*Remark.* Since $\min\{\varphi(m):m>200\}=\varphi(210)=48$ (finite check: every $m$ with
-$\varphi(m)<48$ is $<200$), Theorem F2 gives unconditionally: **any cyclotomic factor of
-any $F_X$ other than the known two has degree $\varphi(m)\ge48$.**
+*Remark.* Since $\min\{\varphi(m):m>1000\}=\varphi(1050)=240$ (finite check up to $10^5$;
+beyond, $\varphi(m)>m^{1/2}>316$), Theorem F2 gives unconditionally: **any cyclotomic
+factor of any $F_X$ other than the known two has degree $\varphi(m)\ge240$.**
 
 ### 3.5 The extended scan — DATA
 
@@ -349,14 +353,16 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | layer of Conjecture A″ | status |
 |---|---|
 | factors of degree 1, 2 | **PROVED impossible** for $X\ge13$ (Thm F1) |
-| cyclotomic factors $\Phi_m$, $m\le200$, any $X$ | **PROVED/MACHINE: only $(3,2),(11,6)$** (Thm F2) |
-| cyclotomic factors, $m>200$ | forced-count machinery applies per $m$; Conjecture F2∞ (finitely many ever; heuristic + scan) |
+| cyclotomic factors $\Phi_m$, $m\le1000$, any $X$ | **PROVED/MACHINE: only $(3,2),(11,6)$** (Thm F2) |
+| cyclotomic factors, $m>1000$ | degree $\ge240$ forced; forced-count machinery decides any given $m$; Conjecture F2∞ (no more ties ever; heuristic + scan) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge3$ | open; irreducible up to $X=5\cdot10^4$ [PENDING-CONFIRM] (deg $\sim5\cdot10^4$); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge3$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
 Open problems generated: (1) the §3.3 lemma — for odd $p$ with $p^2\mid m$, show
-$-t_m\notin\mathbb Q\text{-span}\{v_c\}$ in general (machine-true for all $m\le200$);
+$-t_m$ is never in the step lattice in general (machine-true for all $m\le1000$);
 (2) exclude cubic factors of $F_X$ unconditionally (the first genuinely open degree; needs
 input beyond root location — e.g. a Smyth-type gap plus the annulus is not contradictory);
-(3) push F2 to all $m$ with $\varphi(m)\le$ 100 via the effective intervals (mechanical);
-(4) $X=10^5$ factorization ($\approx2$h with FLINT at current scaling).
+(3) push F2 beyond $m=1000$ (the EXTENSION mode of exp7b runs $m\in[201,1000]$ in
+$\approx3$ min; cost is dominated by the exact linear solves at $\varphi(m)\sim m$, so
+$m\le2000$ is hours, not days); (4) the $X=10^5$ factorization ($\approx2$ h with FLINT at
+current scaling).

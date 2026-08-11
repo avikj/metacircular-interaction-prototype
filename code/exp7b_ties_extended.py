@@ -286,5 +286,84 @@ def main():
         fh.write("\n".join(log_lines) + "\n")
 
 
+def extend_classification(lo, hi, xscan=2000):
+    """Fast Part-3-only classification for m in [lo, hi] (no big scan).
+    Squarefree m: unique Q-solution (Lemma F2.1 in notes/RIGIDITY_FRONTIER.md)
+    -> direct fmpz_mat.solve, then exact tie interval from class primes.
+    Non-squarefree m: Z-lattice membership test (HNF). A mini-scan X <= xscan
+    covers the X <= m region where the ramified part is not yet complete.
+    Valid classification of ALL X for every m in range. Appends to OUT."""
+    from flint import fmpz_mat as _fm
+    t00 = time.time()
+    isp = sieve_primes(300000)
+    primes = np.nonzero(isp)[0].astype(np.int64)
+    small = primes[primes <= xscan]
+    assert xscan >= hi
+    never_lat = never_forced = 0
+    tie_hits, walkers = [], []
+    for m in range(lo, hi + 1):
+        R = reduction_rows(m)
+        d = R.shape[1]
+        units = [c for c in range(m) if sympy.gcd(c, m) == 1]
+        steps = [R[(c - 2) % m] for c in units]
+        t = np.zeros(d, dtype=np.int64)
+        for p in primefactors(m):
+            t += R[(p - 2) % m]
+        target = (-t).tolist()
+        sqfree = all(e == 1 for e in factorint(m).values())
+        v = np.zeros(d, dtype=np.int64)
+        for i, p in enumerate(small):
+            v += R[(int(p) - 2) % m]
+            if i >= 2 and not v.any():
+                tie_hits.append((int(p), m))
+        if sqfree:
+            A = _fm([[int(steps[k][i]) for k in range(len(units))] for i in range(d)])
+            B = _fm([[int(x)] for x in target])
+            sol = A.solve(B)
+            tc, ok = {}, True
+            for k in range(len(units)):
+                r = sympy.Rational(str(sol[k, 0]))
+                if not r.is_integer or r < 0:
+                    ok = False
+                    break
+                tc[units[k]] = int(r)
+            if not ok:
+                never_forced += 1
+                continue
+            pm = primes % m
+            lo_, hi_ = 0, float('inf')
+            for cls, tt in tc.items():
+                cp = primes[pm == cls]
+                L = 0 if tt == 0 else int(cp[tt - 1])
+                U = int(cp[tt]) if tt < len(cp) else float('inf')
+                lo_, hi_ = max(lo_, L), min(hi_, U)
+            if lo_ < hi_:
+                tie_hits += [(int(p), m) for p in
+                             primes[(primes >= max(lo_, 3)) & (primes < hi_)]]
+            else:
+                never_forced += 1
+        else:
+            solvQ, solvZ = int_solve_lattice(steps, target)
+            if solvQ and solvZ:
+                walkers.append(m)
+            else:
+                never_lat += 1
+    msg = [f"\n== EXTENSION: exact classification m in [{lo},{hi}], ALL X "
+           f"(mini-scan X<={xscan}) ==",
+           f"non-squarefree, target outside step lattice (NEVER): {never_lat}",
+           f"squarefree, forced counts infeasible (NEVER): {never_forced}",
+           f"solvable non-squarefree walkers: {walkers}",
+           f"complete tie list (ALL X) in this m-range: {sorted(set(tie_hits))}",
+           f"time {time.time()-t00:.1f}s"]
+    print("\n".join(msg), flush=True)
+    with open(OUT, "a") as fh:
+        fh.write("\n".join(msg) + "\n")
+
+
 if __name__ == "__main__":
-    main()
+    ext = os.environ.get("EXTEND")
+    if ext:
+        lo, hi = map(int, ext.split(":"))
+        extend_classification(lo, hi)
+    else:
+        main()
