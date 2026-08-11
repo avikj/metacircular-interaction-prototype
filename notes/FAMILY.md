@@ -82,6 +82,28 @@ Structural laws visible in the table, all now verified rows 1–3
    theorem-side (holomorphic) shadows of the Chowla conjectures, which remain
    the Hermitian side of the same fields.
 
+## 2.1 The abelian tower (exp20)
+
+The net extends beyond $\zeta$: for the quadratic character $\chi_3$,
+$-L'/L(s,\chi_3)$ has **no pole** ($L(1,\chi_3)\ne0$) and residue $1$ at every
+zero of $L(s,\chi_3)$, so the twisted field
+$\sum\Lambda(m)\chi_3(m)\Lambda(n)\chi_3(n)(X-m-n)_+$ is another **pure pair
+field** — over a *new jewel string*, with *unit* weights (pure D‴ structure):
+$$G_1^{\chi_3}(X)=\sum_{\rho,\rho'\in Z(L(\cdot,\chi_3))}
+\frac{\Gamma(\rho)\Gamma(\rho')}{\Gamma(\rho+\rho'+2)}X^{\rho+\rho'+1}+\text{smooth}.$$
+
+Verified fully self-contained (exp20): the L-zeros are computed from scratch
+(mpmath/Hurwitz; first ordinates $8.0397, 11.2492, 15.7046,\dots$), the
+arithmetic side from the sieve. Results: $X^3$ absent ($-0.000000$ vs $1/6$);
+pair band corr **0.9994**, ratio **1.0004**; L-pair lines $2L_1$, $L_1{+}L_2$,
+$2L_2$, $L_1{+}L_3$ to $0.3$–$0.7\%$; L-single lines suppressed $30$–$40\times$
+(no pole to cross against). Caveat recorded in the code: the sum sets of the
+$\zeta$ and $L$ spectra interleave too densely for isolated cross-probes at
+this window span; string identification rests on the L-only model's $0.999+$
+correlation. **Each Dirichlet character is a jewel: its twisted Goldbach
+data displays the sum spectrum of its own $L$-zeros through the same
+$\Gamma$-net.**
+
 ## 3. Where this points
 
 - The $d(n)$ row is the **anti-Möbius**: $\zeta^2$ has double *zeros* at every
