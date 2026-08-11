@@ -124,7 +124,7 @@ def audit_FX(cutoff=2000):
     # explicit X=11 identity from REPORT.md
     f11 = FX(11, ps)
     phi6 = poly([1, -1, 1])
-    other = poly([1, 2, 1, -1, 0, 1, 1])
+    other = poly([1, 2, 1, 0, -1, 0, 1, 1])   # x^7+x^6-x^4+x^2+2x+1
     print(f"  X=11 identity check: F_11 == Phi6 * (x^7+x^6-x^4+x^2+2x+1)? ",
           f11 == phi6 * other)
     if f11 != phi6 * other:

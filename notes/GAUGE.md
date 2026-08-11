@@ -53,7 +53,9 @@ $Q_{\mathbb N}=Q^0\oplus Q^1$ by parity of $\Omega$.
 3. the equilibrium data of the critical affine arithmetic system is supported
    entirely on the multiplicatively neutral sector — the closed span of
    $\{u^a\,s_n(\cdot)s_n^*\,u^{-b}\}$-type elements with zero net multiplicative
-   momentum, whose diagonal part is exactly the BC algebra $C(\widehat{\mathbb Z})$.
+   momentum, whose diagonal part is exactly $C(\widehat{\mathbb Z})$ — the diagonal
+   subalgebra of the BC system (the BC algebra proper is the full Hecke
+   crossed product; only its diagonal appears here).
 
 *Proof.* (1) $\omega\circ\alpha_g$ is a KMS state for $\sigma$ (Lemma F.1);
 uniqueness forces equality. (2) For $x$ in the $\chi$-isotypic sector

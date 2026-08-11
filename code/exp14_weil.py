@@ -302,11 +302,14 @@ sig_scan = np.linspace(0.05, 1.5, 88)
 scan_grid = ArchGrid(tau_max=12 / 0.05 + 10)
 rows_sig = [weil_terms_gauss(s, 0.0, scan_grid) for s in sig_scan]
 mu_sig = np.array([margin(r) for r in rows_sig])
-print("sigma-scan (beta=0): sigma, zero side, pole, -prime, arch, mu")
+print("sigma-scan (beta=0): sigma, zero side, pole, -prime, arch, mu, "
+      "|RHS|/scale")
 for i in range(0, len(sig_scan), 12):
     r = rows_sig[i]
+    sc = abs(r["pole"]) + abs(r["prime"]) + abs(r["arch"])
     print(f"  {sig_scan[i]:5.2f}  {r['zero']:11.4e}  {r['pole']:11.4e}  "
-          f"{-r['prime']:11.4e}  {r['arch']:11.4e}  mu={mu_sig[i]:9.2e}")
+          f"{-r['prime']:11.4e}  {r['arch']:11.4e}  mu={mu_sig[i]:9.2e}  "
+          f"{abs(r['rhs'])/sc:8.1e}")
 arch_sig = np.array([r["arch"] for r in rows_sig])
 iflip = int(np.argmax(arch_sig < 0))
 print(f"  arch term changes sign between sigma={sig_scan[iflip-1]:.3f} and "
@@ -332,7 +335,7 @@ print(f"\nbeta-scan (sigma=1): min positive mu = {mu_beta[imin]:.2e} "
 res = np.array([abs(r["rhs"]) for r in rows_beta])
 scalearr = np.array([abs(r["pole"]) + abs(r["prime"]) + abs(r["arch"])
                      for r in rows_beta])
-deep = zb < 1e-250
+deep = zb < 1e-30
 if deep.any():
     print(f"  where zero side underflows ({deep.sum()} pts): max |RHS|/scale "
           f"= {np.max(res[deep]/scalearr[deep]):.1e}  "
@@ -393,7 +396,7 @@ ax.axvline(1e-6, color=C_PRIME, lw=1.4, ls="--")
 ax.text(1e-6, len(labels) - 0.2, " target 1e-6", color=C_PRIME, fontsize=8,
         va="top")
 ax.set_xscale("log")
-ax.set_xlim(1e-13, 1e-4)
+ax.set_xlim(1e-16, 1e-4)
 ax.set_yticks(ypos, [l.replace("gauss ", "") for l in labels], fontsize=7.5)
 ax.invert_yaxis()
 ax.set_xlabel("|zero side − (pole − prime + arch)| / |zero side|", fontsize=9)
@@ -407,8 +410,8 @@ ax.semilogy(sig_scan, [r["pole"] for r in rows_sig], color=C_POLE, lw=1.8,
             label="pole  $\\Phi_F(0)+\\Phi_F(1)$")
 ax.semilogy(sig_scan, [r["prime"] for r in rows_sig], color=C_PRIME, lw=1.8,
             ls="--", label="prime  $\\sum\\Lambda(n)n^{-1/2}\\,2F(\\log n)$")
-ax.semilogy(sig_scan, [abs(r["arch"]) for r in rows_sig], color=C_ARCH, lw=1.8,
-            label="|arch|  (arch $<0$ here)")
+ax.semilogy(sig_scan, np.abs(arch_sig), color=C_ARCH, lw=1.8,
+            label=r"|arch|  (sign flips at $\sigma\approx0.06$)")
 ax.semilogy(sig_scan, np.maximum([r["zero"] for r in rows_sig], 1e-18),
             color=C_W, lw=2.4, label="$W(g)$ = zero side $\\geq 0$")
 ax.set_xlabel(r"bump width $\sigma$   (fixed $\beta=0$)", fontsize=9)
