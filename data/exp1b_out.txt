@@ -1,0 +1,5 @@
+checked all prime cutoffs X <= 2000: reducible cases: 1
+   (11, [('x^2 + (-1)*x + 1', 1), ('x^7 + x^6 + (-1)*x^4 + x^2 + 2*x + 1', 1)])
+X=5000: degree 4997, pi(X)=669, factors=1, time=9.3s
+X=10000: degree 9971, pi(X)=1229, factors=1, time=44.7s
+X=20000: degree 19995, pi(X)=2262, factors=1, time=211.2s
