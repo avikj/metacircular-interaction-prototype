@@ -80,28 +80,47 @@ Three columns, one structure; each open problem's fate under each:
 | statement | number field (ours) | divisor model (DIVISOR.md) | function field F_q[t] / curves |
 |---|---|---|---|
 | RH | open | THEOREM (spectral gap λ₁>1/4) | THEOREM (Weil, via pair surface) |
-| Goldbach-type | open (blocks located) | theorem (Ingham) | theorem-grade (Effinger–Hayes for polynomials) |
+| Goldbach-type | open (blocks located) | theorem (Ingham) | model-dependent: Sawin–Shusterman Remark 1.2 (binary method); Bender–Pollack (binary, large $q$ relative to degree); Effinger–Hayes is ternary |
 | twin primes / Chowla | open (charge layer) | theorem (shifted divisor) | **THEOREM (Sawin–Shusterman, q large): the parity barrier FALLS** |
 | pair correlation | conjecture (Montgomery; our exp17 data) | theorem (Motohashi spectrum) | theorem (Katz–Sarnak equidistribution; Keating–Rudnick variance) |
 | mechanism | ? | GL(2) trace formula | geometry: Frobenius, monodromy, vanishing cycles |
 
-The third column is the decisive one Atiyah's lens adds: **every wall this
-program has mapped — positivity certificate, parity barrier, pair
-correlation — is a proven theorem over function fields, and each proof runs
-through geometry the number field lacks: the pair surface, monodromy groups,
-vanishing-cycle sheaves (Sawin–Shusterman's route through the parity
-barrier).** The barrier is not logical necessity; it is the absence of a
-cohomology theory. That is simultaneously sobering (we cannot conjure étale
-cohomology for Spec Z tonight) and precise: the program's ultimate question
-is not "is there a trick" but "what is the minimal cohomological structure
-whose existence over Z reproduces the three proofs" — the standard-conjectures
-question, localized by our block decomposition to: *which sector of the pair
-field must carry the primitive-negativity axiom.*
+The third column is the decisive calibration, but the earlier version of this
+table compressed several different assertions into "solved over function
+fields."  `FF.md` separates them.  On the degree-$n$ shell of
+$\mathbf F_q[T]$, the genus-zero zeta identity fixes only the trivial additive
+Fourier mode.  The sum and gap marginals have exact holomorphic/Hermitian
+spectra and equal fourth-moment fluctuation energy, and that energy is
+strictly positive for every $n\ge2$ even though the base zeta has no numerator
+zeros.  Sawin–Shusterman's theorem controls the nontrivial fixed-gap modes
+with a power saving for sufficiently large fixed $q$.  It does so through
+Möbius/character identities, level of distribution beyond $1/2$, and
+vanishing-cycle control of auxiliary sheaf cohomology — not by reading zeros
+off the zeta function of the affine line.
 
-→ spawned: the function-field pair field, computed exactly (exp26/FF.md) —
-polynomial Goldbach vs its singular series with NO zero corrections (genus 0:
-the control case where the zero block is empty), and the Sawin–Shusterman
-anatomy of how the charge layer dies when geometry is available.
+The place at infinity also cannot be suppressed.  Reflection identifies a
+fixed gap exactly with a Goldbach sum whose two degree-$n$ primes have
+opposite leading coefficients, so their leading terms cancel.  It does not
+by itself identify the gap theorem with the conventional polynomial
+Goldbach normalization using degree-$n$ and degree-$(n-1)$ monic summands.
+Sawin–Shusterman explicitly say their method also establishes a Goldbach
+analogue, but any use of that assertion must state the leading-coefficient,
+degree, target-uniformity, and weighting conventions.  Effinger–Hayes is a
+three-primes result, not evidence for the binary fixed-field cell.
+
+The corrected lesson is stronger than "geometry solves everything."  The
+parity wall is not a logical necessity, but Deligne's weight bound alone is
+also not enough: in a family whose dimension grows, one still needs the hard
+vanishing and Betti-number estimates that expose a power saving.  The
+function-field model therefore locates the missing structure more precisely:
+it belongs to auxiliary cohomology carrying the nontrivial pair modes, not to
+the hyperbolic identity or the base one-body zeta spectrum.
+
+→ completed: `FF.md` — the exact shell pair theorem, a quantitative
+fourth-moment obstruction to "zero-free base implies no pair correction,"
+the infinity-type reflection theorem, the Sawin–Shusterman fixed-gap
+asymptotic placed inside it, and a strict boundary around binary Goldbach
+normalizations.
 
 ## 4. What transfers tonight
 
@@ -112,6 +131,8 @@ anatomy of how the charge layer dies when geometry is available.
    named: it is hunting a Hodge-index negativity, not a Weil positivity —
    the objective's sign structure should be built accordingly.
 3. The parity program (WIDTH, GAUGE) gains the Sawin–Shusterman datum: the
-   charge layer is killable *in principle* — by monodromy, not by sieves —
-   sharpening "what extra input breaks parity" from rhetoric to a literature
-   with a mechanism.
+   charge layer is killable *in principle*, but by a composite mechanism — a
+   derivative/Pellet conversion of Möbius signs to characters, analytic
+   distribution beyond level $1/2$, and geometric vanishing/complexity
+   bounds.  "By monodromy, not by sieves" was too coarse: both the analytic
+   decomposition and the auxiliary cohomology are essential.
