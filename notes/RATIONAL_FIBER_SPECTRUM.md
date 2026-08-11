@@ -153,7 +153,7 @@ rational fibers, not a finite-energy one-body mean.
 
 ## 3. Twisted compensated explicit formula
 
-Put
+For $X\geq2$, put
 
 \[
  \Psi_{a,q}(x)=\sum_{n\leq x}\Lambda(n)e_q(an),
@@ -169,10 +169,49 @@ progressions (with any exceptional real-zero term treated separately; its
 exponent is still $<1$). Define also
 
 \[
- \psi(t,\chi)=\sum_{n\leq t}\Lambda(n)\chi(n),
+ \psi_0(t,\chi)=\frac12\!\sum_{n<t}\Lambda(n)\chi(n)
+                 +\frac12\!\sum_{n\leq t}\Lambda(n)\chi(n),
  \qquad
  \Phi_\chi(X)=X\int_X^\infty
- \bigl(\psi(t,\chi)-\mathbf1_{\chi=\chi_0}t\bigr)\frac{dt}{t^2}.
+ \bigl(\psi_0(t,\chi)-\mathbf1_{\chi=\chi_0}t\bigr)\frac{dt}{t^2}.
+\]
+
+The half-weight convention fixes the pointwise explicit formula; it does not
+change the integral.  Suppose first that $\chi$ is primitive and
+nonprincipal, of conductor $f$, and put
+
+\[
+ \epsilon=\frac{1-\chi(-1)}2\in\{0,1\},\qquad
+ c_\chi=
+ \begin{cases}
+  L'(0,\chi)/L(0,\chi),&\epsilon=1,\\[2mm]
+  L''(0,\chi)/(2L'(0,\chi)),&\epsilon=0.
+ \end{cases}                                           \tag{3.2a}
+\]
+
+In the even case this is the finite part at the simple trivial zero at
+$s=0$.  The functional equation for
+
+\[
+ \Lambda(s,\chi)=
+ \left(\frac f\pi\right)^{(s+\epsilon)/2}
+ \Gamma\!\left(\frac{s+\epsilon}{2}\right)L(s,\chi)
+\]
+
+gives the parity-independent identity
+
+\[
+ \boxed{c_\chi=\gamma+\log\frac{2\pi}{f}
+ -\frac{L'}L(1,\overline\chi).}                         \tag{3.2b}
+\]
+
+With nontrivial zeros counted with multiplicity, the Davenport explicit
+formula is
+
+\[
+ \psi_0(x,\chi)=-\sum_{0<\Re\rho<1}\frac{x^\rho}{\rho}
+ -c_\chi-\frac12\log(x-1)-\frac{\chi(-1)}2\log(x+1),
+ \qquad x>1.                                            \tag{3.2c}
 \]
 
 Integrating (1.2) gives the exact identity
@@ -199,13 +238,58 @@ The nontrivial-zero part of each character term is
 \]
 
 where $\rho_\chi$ runs over distinct nontrivial zeros of the primitive
-$L$-function inducing $\chi$, $m(\rho_\chi)$ is the multiplicity, and
-$A_\chi$ is the explicit smooth/local contribution of conductor and gamma
-terms, trivial zeros, and the Euler factors in (1.6).  The zero series in
-(3.3) is absolutely convergent: for fixed $X,q$, $X^{\Re\rho}\leq X$ and
+$L$-function inducing $\chi$ and $m(\rho_\chi)$ is the multiplicity.  For a
+primitive nonprincipal character, the previously unspecified term is exactly
+
+\[
+ \boxed{A_\chi(X)=-c_\chi+J_\epsilon(X),}               \tag{3.3a}
+\]
+
+where
+
+\[
+ \begin{aligned}
+ J_0(X)&=-\log X-1+\delta_0(X),\\
+ \delta_0(X)&=\sum_{k\geq1}\frac{X^{-2k}}{2k(2k+1)}
+ =1-X\operatorname{artanh}(X^{-1})
+   -\frac12\log(1-X^{-2}),\\
+ J_1(X)&=\delta_1(X),\\
+ \delta_1(X)&=\sum_{k\geq0}
+ \frac{X^{-(2k+1)}}{(2k+1)(2k+2)}
+ =\operatorname{artanh}(X^{-1})
+   +\frac X2\log(1-X^{-2}).                            \tag{3.3b}
+ \end{aligned}
+\]
+
+The $-\log X$ in $J_0$ is the double Perron residue produced by the
+simultaneous factors $1/s$ and the even character's trivial zero at $s=0$.
+For the primitive principal character (the zeta function), the pole at one
+instead gives
+
+\[
+ \boxed{A_\zeta(X)=-\log(2\pi)+\delta_0(X).}            \tag{3.3c}
+\]
+
+Finally, if $\chi\pmod q$ is induced by a primitive $\chi^*$ of conductor
+$f$, the complete imprimitive correction, including its sign, is
+
+\[
+ \boxed{
+ \Phi_\chi(X)=\Phi_{\chi^*}(X)
+ -\sum_{\substack{p\mid q\\p\nmid f}}(\log p)
+   \sum_{k\geq1}\chi^*(p)^k
+   \min\!\left(1,\frac X{p^k}\right).}                 \tag{3.3d}
+\]
+
+For the principal character modulo $q$, read $\chi^*=1$ and
+$\Phi_{\chi^*}=\Phi_\zeta$, so the correction runs over every $p\mid q$.
+Equations (3.3a)--(3.3d) therefore include all conductor, gamma, trivial-zero,
+and deleted-Euler-factor terms.  The zero series in
+(3.3) is absolutely convergent: for fixed $X\geq2,q$,
+$X^{\Re\rho}\leq X$ and
 $N_\chi(T)=O_q(T\log(qT))$, while the denominator is quadratic in $T$.
 For $q=1$, (3.3) is precisely `PRODUCT.md` Theorem P1, with
-$A_{\chi_0}(X)=-\log(2\pi)+\delta(X)$.
+$\delta=\delta_0$.
 
 Under GRH for the Dirichlet $L$-functions modulo $q$, define the complex
 spectral measure
@@ -264,6 +348,12 @@ The ingredients and much of their interaction are classical.
 
 - Hardy--Littlewood's circle method already organizes primes near rational
   frequencies and produces the Ramanujan expansion (2.3).
+- The pointwise normalization (3.2c) is the standard Davenport explicit
+  formula; see also A. Granville,
+  [*The prime number theorem for arithmetic progressions*, Chapter 11,
+  equation (11.8.3)](https://dms.umontreal.ca/~andrew/Courses/Chapter11.pdf).
+  Equations (3.3a)--(3.3d) are its elementary integration and the standard
+  removal of imprimitive Euler factors, not a new explicit formula.
 - Gadiyar and Padma, *Physica A* **269** (1999), 503--510,
   [DOI 10.1016/S0378-4371(99)00171-5](https://doi.org/10.1016/S0378-4371(99)00171-5),
   explicitly use Ramanujan--Fourier/Wiener--Khintchine language for prime
@@ -291,13 +381,15 @@ The potentially useful contribution here is narrower: the exact
 the pole, first-variation, Goldbach-sum, and gap-difference layers are put in
 one sharded computational schema.  Novelty is **not established**.
 
-## 6. Next proof and computation
+## 6. Proof and computation frontier
 
-The next paper-grade obligation is to expand $A_\chi(X)$ in (3.3) completely,
-including parity-dependent gamma factors and every imprimitive Euler term,
-then prove the formula uniformly for a stated finite range of $q$.  Only
-after that should a GRH spectral experiment be treated as more than a
-normalization test.
+Equations (3.2a)--(3.3d) close the finite $A_\chi$ normalization obligation.
+The next paper-grade obligation is different: choose a stated truncation
+scheme for the nontrivial zeros, import certified zero enclosures through a
+height $T$, and prove a rigorous tail bound uniform in a stated finite range
+of conductors.  Until that is done, experiments involving truncated
+Dirichlet-zero spectra remain discovery computations, even though all finite
+constants in the formula can be certified.
 
 `code/exp39_rational_fiber_normalization.py` performs the first falsifier:
 
@@ -314,5 +406,20 @@ Run it in the discovery environment, which supplies `mpmath`:
 /tmp/avikj-math-venv/bin/python code/exp39_rational_fiber_normalization.py
 ```
 
-The script refuses optimized `python -O` execution so its checks cannot be
+The script code/exp40_dirichlet_Achi_normalization.py is the second
+falsifier.  With python-flint/Arb it certifies at 256-bit precision:
+
+1. the odd $\chi_4$ and even quadratic $\chi_5$ definitions of $c_\chi$,
+   their stable constants, and the common functional-equation expression;
+2. the closed and positive-series forms of both $J_0$ and $J_1$, with
+   explicit geometric tail majorants; and
+3. the minus sign in (3.3d), using the character modulo $10$ induced by
+   $\chi_5$ and its deleted $p=2$ Euler factor.
+
+Run it with
+/tmp/avikj-math-venv/bin/python code/exp40_dirichlet_Achi_normalization.py.
+The mpmath fallback labels itself discovery-only, and the Arb script does not
+claim a certified nontrivial-zero tail.
+
+The scripts refuse optimized `python -O` execution so their checks cannot be
 silently disabled. The dependency is recorded in `requirements-discovery.txt`.
