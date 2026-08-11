@@ -182,11 +182,15 @@ the layers sit at $X^{5/2}$ vs $X^3$, so at $X=10^6$ the observable ratio is
 $\approx0.38\,X^{-1/2}\approx4\times10^{-4}$ — detection requires subtracting
 the pair model to better than that; (ii) *crowding* — the first six triple
 lines sit $0.09$–$0.74$ rad from the nearest pair line, inside the $1.4$ rad
-resolution. Earlier wording ("not amplitude") was wrong; both bind, and the
-per-body slope increment measured $-0.97$ vs the leading-order $-0.5$ means
-"hierarchy confirmed" should read "hierarchy present, exponents
-$\sim1.4\times$ steeper than leading order" (overlapping bands, no error
-bars — audit).
+resolution. Earlier wording ("not amplitude") was wrong; both bind. **The exponent
+excess is now closed (exp30 cu / paper problem 4):** replacing the naive
+Fresnel model by the exact continuum — exact entropy phase
+$s[H(\tfrac12+\Delta/2s)-\log2]$ and exact pair density
+$\ell(\tfrac{s+\Delta}2)\ell(\tfrac{s-\Delta}2)$ — reproduces the measured
+coherence within shot noise: model slope $-0.698$ vs measured $-0.741$
+(naive $-0.5$), and measured/exact $=1.022\pm0.112$ over 16 bands. The
+"excess" is the log-density envelope plus the quartic tail of the entropy
+phase; no anomalous power exists.
 
 ## 3. Where this points
 
