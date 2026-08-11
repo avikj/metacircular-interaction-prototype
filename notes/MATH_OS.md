@@ -82,7 +82,11 @@ and `FindIntegerNullVector`.  `FullSimplify` should receive a task-specific
 functions, piecewise explosions, and vocabulary foreign to the target proof.
 
 `code/wolfram_bridge.py` and `code/wolfram_probe.wls` hash requests, retain WXF
-results, and mark every response discovery-only.  Wolfram does not generally
+results, and mark every response discovery-only. The current adapter executes
+arbitrary Wolfram Language contained in a request and therefore refuses to run
+without an explicit trusted-code flag; autonomous use additionally requires an
+OS sandbox with a read-only repository, isolated output, resource limits, and
+no network/process authority. Wolfram does not generally
 emit portable proof objects for `Reduce`, `FullSimplify`, or differential
 solvers; exact results still require an independent checker.  No Wolfram engine
 is installed on the current machine, and free-engine/cloud terms must be

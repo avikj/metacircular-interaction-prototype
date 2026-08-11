@@ -55,8 +55,10 @@ manifest = <|
   "machine_precision" -> $MachinePrecision,
   "elapsed_seconds" -> N[elapsed],
   "result_wxf" -> wxfPath,
+  "input_contains_inexact_numbers" -> (! FreeQ[expression, _Real] || ! FreeQ[assumptions, _Real]),
   "contains_inexact_numbers" -> ! FreeQ[result, _Real],
   "status" -> Which[result === $Aborted, "timeout", result === $Failed, "failed", True, "candidate-only"]
 |>;
 Export[FileNameJoin[{outputDir, "manifest.json"}], manifest, "RawJSON"];
 WriteString[$Output, ExportString[manifest, "RawJSON"] <> "\n"];
+Exit[Which[result === $Aborted, 124, result === $Failed, 1, True, 0]];

@@ -33,7 +33,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("request", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--trusted-code", action="store_true",
+                        help="acknowledge that WL Expression/Assumptions execute arbitrary code")
     args = parser.parse_args()
+    if not args.trusted_code:
+        print("Refusing to execute agent-authored Wolfram Language without --trusted-code. "
+              "Use an OS sandbox for autonomous requests.", file=sys.stderr)
+        return 4
     executable = shutil.which("wolframscript")
     if not executable:
         print("wolframscript is not installed; Wolfram integration is optional.", file=sys.stderr)
@@ -43,12 +49,27 @@ def main() -> int:
         if key not in request:
             print(f"request missing {key}", file=sys.stderr)
             return 2
-    args.output.mkdir(parents=True, exist_ok=True)
+    allowed_operations = {"FullSimplify", "FunctionExpand", "Reduce", "Resolve", "FindInstance"}
+    if request["Operation"] not in allowed_operations:
+        print("unsupported operation", file=sys.stderr)
+        return 2
+    if not isinstance(request["StatementHash"], str) or len(request["StatementHash"]) != 64 \
+            or any(char not in "0123456789abcdef" for char in request["StatementHash"].lower()):
+        print("StatementHash must be 64 hexadecimal characters", file=sys.stderr)
+        return 2
+    timeout = request.get("TimeConstraintSeconds", 60)
+    if not isinstance(timeout, int) or not 1 <= timeout <= 300:
+        print("TimeConstraintSeconds must be an integer from 1 to 300", file=sys.stderr)
+        return 2
+    if args.output.exists():
+        print("output directory must not already exist", file=sys.stderr)
+        return 2
+    args.output.mkdir(parents=True)
     result = subprocess.run(
         [executable, "-file", str(PROBE), str(args.request), str(args.output)],
         capture_output=True,
         text=True,
-        timeout=int(request.get("TimeConstraintSeconds", 60)) + 30,
+        timeout=timeout + 30,
         check=False,
     )
     envelope = {
@@ -60,6 +81,10 @@ def main() -> int:
         "stdout": result.stdout,
         "stderr": result.stderr,
     }
+    for name in ("result.wxf", "manifest.json"):
+        candidate = args.output / name
+        if candidate.exists():
+            envelope[name + "_sha256"] = sha256(candidate)
     manifest_path = args.output / "adapter-manifest.json"
     manifest_path.write_text(json.dumps(envelope, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(manifest_path)
