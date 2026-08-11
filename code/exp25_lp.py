@@ -889,7 +889,7 @@ ax = axes[1, 2]
 sig_nested = [0.1, 0.25, 0.5, 1.5]
 lam_nested = [ra[4] for ra in res_A]
 trust_nested = [ra[8] for ra in res_A]
-lg = [np.log10(max(x, 1e-300)) for x in lam_nested]
+lg = [np.log10(max(x, 1e-33)) for x in lam_nested]   # display floor ~ SVD trust
 ax.plot(sig_line, lam_line, "^--", color=C_ARCH, ms=6, lw=1.2,
         label=r"single atom $(\sigma,\beta{=}0)$: $\log_{10} W/\|g\|^2$ (exact, log-space)")
 for sn, lgv, tr in zip(sig_nested, lg, trust_nested):
