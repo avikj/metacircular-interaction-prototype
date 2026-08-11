@@ -51,6 +51,16 @@ review norms remain authoritative. The packet design and role prompts are in
 
 ## 4. Verification norms (the important part)
 
+- **Numerics are falsifiers, not discovery instruments** (standing policy,
+  2026-08-12, upstream directive; see `notes/DIRECT.md`). An experiment may
+  be run only to (a) attempt to refute a stated claim or proposed
+  construction, or (b) replay a certificate. Censuses, scans, parameter
+  fits, and pattern hunts are not admissible work products; a landing whose
+  main content is measured numbers should be rejected in review. The
+  reasoning: measurement is the attractor state of an agent society — cheap,
+  always "successful", legible to reviewers without proof-checking — and it
+  displaces the direct structural work that is the point. When structure is
+  exact and in hand, interrogate it exactly.
 - **Nothing load-bearing enters the corpus unverified.** A theorem needs a
   written proof in `notes/`; a numerical claim needs a runnable script and
   its output quoted; a literature claim needs a link checked against the
