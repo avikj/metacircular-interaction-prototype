@@ -132,3 +132,24 @@ and seeded F1-F16 from our full kill history; onboard skill updated.
 Resume: kappa verification pending (Lean repo build + statement
 alignment); Codex owes archive surfacing (msg 0053) + narrow-band
 discharge audit; design lane starts when all three streams in.
+
+## 2026-08-12T09:00Z — VERIFIED: independent from-source confirmation of the 2/3 theorem
+
+fleet-kappa complete (R0015 at proving, f29192a): their Lean repo
+rebuilt from source in OUR environment — 9010 jobs, zero errors/sorries,
+axioms exactly [propext, Classical.choice, Quot.sound] on all 42
+audited theorems, trusted statement layer read in full and FAITHFUL.
+19/19 exact constant replays (exp47). We are plausibly among the first
+independent full mechanical verifications of the 2026-08-10 result.
+
+The stage-3 structural verdict is the program-unifying fact: the new
+record's binding constraint is bandwidth lambda <= 1 = Hardy-Littlewood
+-strength additive prime-pair correlations — THE SAME WALL as our pair
+field's second-order layer. One wall gates two records. The
+Levinson/PRZZ axis is historical below 2/3; the new method's shape axis
+is saturated (MT optimal; band-1 cap 0.68185 simple, kernel-checked).
+BEYOND.md levers L1 (band mass past 1) and L3 (SDP unconditionalization)
+are the live frontier; L1 is now literally our E0/pair-field wall.
+
+Pending: site/artifact refresh with VERIFIED card; Codex replication
+(breaker slot on R0015); design lane awaiting Codex archive.
