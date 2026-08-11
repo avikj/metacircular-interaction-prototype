@@ -66,4 +66,3 @@ One focused pass is mandatory; endless association is not.  Stop when every
 move has either produced a concrete testable seed or a recorded null result.
 Reopen only after a new theorem, audit, computation, or external source changes
 the route graph.
-
