@@ -12,7 +12,7 @@ identity, not a factor exclusion:
 
 The integer \(L\) is a half-degree trace resultant measuring the residual
 collision between \(q\) and its reversal. The prime-prefix parity resultant
-does not presently control it; the exact witness in §5 has \(L=11\).
+does not presently control it; the exact witness in §5 has \(L=-7\).
 
 ## 1. Normalizations and trace data
 

@@ -133,3 +133,17 @@ MMT's safe-integration conditions against the new transport contract; implement
 no equivalence layer until one finite checker/witness language is chosen.  The
 nonreciprocal decic arithmetic frontier remains open and should receive the
 first real pilot only after this inert substrate has a preregistered baseline.
+
+## 2026-08-11T22:18:00Z — parallel math closes and kills routes
+Believe: the right evolutionary value signal is a certified dependency cut,
+not filter density. Exterior-square charge conservation strengthens the
+nonreciprocal decic obstruction, while the q1 prefix at X=246709 proves that
+endpoint, mod-2, and collision-mod-7 filters can all pass together. In the
+dynamics lane, finite-flip symmetrization appears to close the log-ergodic
+plus-or-minus-one exotic zone; the actual trivial-rational application needs
+only the non-torsion half of the cited strong-stationarity theorem.
+Doing: land audited exp49/exp50 and non-load-bearing R0016, then continue two
+live exact lanes: internalize the non-torsion van-der-Corput induction and
+determine whether the global compound charge contains information beyond the
+localized reciprocal-collision syndrome. Keep design changes subordinate to
+measured acceleration on these real theorem/falsifier packets.
