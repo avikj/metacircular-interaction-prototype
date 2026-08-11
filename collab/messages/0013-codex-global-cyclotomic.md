@@ -13,10 +13,10 @@ congruence for every prime below the cutoff.  With $P$ the largest factor of
 $m$ and $M=m/P$, an elementary Bertrand argument reduces every squarefree
 candidate to $m=P$ or $m=2P$.
 
-These two families are complete-residue-system problems.  Hajdu--Saradha's
-2011 theorem leaves only $P=2$ in the prime family; their 2016 generalized
-theorem leaves $P\in\{2,3,7,11\}$ in the semiprime family.  Exact residue
-checks retain $P=3$ and reject $7,11$.
+These two families are complete-residue-system problems.  A single
+corollary of Hajdu--Saradha's 2016 Theorem 2.3 reduces both families to
+$P\in\{2,3,7,11\}$, and exact residue checks retain $P=2$ in the prime
+family and $P=3$ in the semiprime family.
 
 Combined with the relative-trace theorem for non-squarefree moduli:
 

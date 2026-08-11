@@ -64,7 +64,8 @@ If they are non-real they lie on $|z|=1$ with $-a=2\cos\theta\in\mathbb Z$, so
 $a\in\{0,\pm1\}$ ($a=\pm2$ gives the double roots $\mp1$, excluded by (1) for $X\ge5$; for
 $X\le4$, $\deg F_X\le1$): these are exactly $\Phi_4$ ($a=0$), $\Phi_6$ ($a=-1$),
 $\Phi_3$ ($a=1$).
-If they are real they are both negative (Lemma F0′) and lie in $(-2,-\tfrac12)$ (Lemma F0);
+If they are real they are both negative (Lemma F0′) and lie in $(-1,-\tfrac12)$ (the
+mandatory $x,x^3$ terms exclude roots $\le-1$, while Lemma F0 gives the lower modulus bound);
 but on that interval $z+1/z\in[-\tfrac52,-2]$ takes the integer value $-a$ only at $z=-1$
 (value $-2$), excluded. ∎
 
@@ -75,9 +76,26 @@ hence Mahler measure $M(g)>1$. If moreover $g$ is non-reciprocal, Smyth's theore
 $M(g)\ge\theta_0=1.3247\ldots$ (the plastic number). An irreducible **cubic** factor would
 necessarily be non-cyclotomic ($\varphi(m)=3$ has no solutions) and non-reciprocal (an odd-degree
 reciprocal polynomial has $-1$ as a root), so it would be a cubic unit with one real root in
-$(-2,-\tfrac12)$ and $M\ge\theta_0$; we cannot yet exclude this unconditionally — degree 3 is
-where the provable zone currently ends. (The computations of §1 exclude all degrees up to
-$5\cdot10^4$, of course.)
+$(-1,-\tfrac12)$ and $M\ge\theta_0$.  This is the first case not settled by
+F1 alone, and Theorem F3 below now closes it. (The computations of §1 exclude
+all degrees up to $5\cdot10^4$, of course.)
+
+### 2.1 The cubic layer is also closed — PROVED
+
+`CUBIC_OBSTRUCTION.md` proves a stronger odd-support theorem: a finite
+$0$--$1$ polynomial
+$$1+x+x^3+\sum_{j\ge5,\ j\text{ odd}}\epsilon_jx^j$$
+has an irreducible cubic factor if and only if every higher coefficient
+vanishes, in which case the polynomial is the irreducible cubic
+$x^3+x+1$.  Since every $F_X$ for $X\ge5$ has this support form,
+
+> **Theorem F3.** $F_X$ has an irreducible cubic factor iff $5\le X<7$.
+> In particular, it has no cubic factor for $X\ge7$.
+
+The proof uses root-product signs, the elementary root annulus, Vieta, and
+an exact six-case integer enumeration; it uses no prime-distribution input.
+Combining F1--F3, for every $X\ge13$ every irreducible factor of $F_X$ is
+non-cyclotomic and has degree at least $4$.
 
 ---
 
@@ -193,14 +211,14 @@ $(11,6)$.
 The non-squarefree case is Theorem F2-ns.  In the squarefree case the forced
 vector implies that every prime below the cutoff is covered by one of the
 congruences $q\equiv r\pmod{m/r}$.  A largest-prime and Bertrand-postulate
-argument reduces $m$ to $P$ or $2P$; the complete-residue-system theorems of
-Hajdu--Saradha then leave only $m=2,6$.  See `CYCLOTOMIC_TRACE.md` for the
+argument reduces $m$ to $P$ or $2P$; one complete-residue-system theorem of
+Hajdu--Saradha then leaves only $m=2,6$.  See `CYCLOTOMIC_TRACE.md` for the
 full proof and exact citations.
 
-Combining Theorems F1 and F2: **for every $X\ge13$, $F_X$ has no
-irreducible factor of degree $\le2$ and no cyclotomic factor of any degree.**
+Combining Theorems F1--F3: **for every $X\ge13$, $F_X$ has no
+irreducible factor of degree $\le3$ and no cyclotomic factor of any degree.**
 Every possible counterexample to Conjecture A″ must therefore come entirely
-from non-cyclotomic factors of degree at least $3$.
+from non-cyclotomic factors of degree at least $4$.
 
 ### 3.5 The extended scan — DATA
 
@@ -353,7 +371,7 @@ by irreducibility) has already passed the plausible window.
 
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
-- degree $\le2$ reciprocal factors: **excluded unconditionally** (Thm F1);
+- degree $\le3$ factors: **classified unconditionally** (Thms F1 and F3);
 - cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
 - a reciprocal non-cyclotomic factor must have even degree $\ge4$ (odd-degree reciprocals
   have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
@@ -366,12 +384,11 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 
 | layer of Conjecture A″ | status |
 |---|---|
-| factors of degree 1, 2 | **PROVED impossible** for $X\ge13$ (Thm F1) |
+| factors of degree 1, 2, 3 | **PROVED impossible** for $X\ge13$ (Thms F1, F3) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge3$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge4$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) exclude cubic factors of $F_X$ unconditionally (the first genuinely open degree; needs
-input beyond root location — e.g. a Smyth-type gap plus the annulus is not contradictory);
+Open problems generated: (1) exclude quartic factors of $F_X$ unconditionally;
 (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
 current scaling).

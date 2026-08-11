@@ -211,14 +211,23 @@ remain, besides the already retained $m=2,6$.
 All fixed test primes used here lie below $p_k$: in these cases
 $k=\sum_{r\mid m}r$ is respectively $P+3$ or $P+5$.
 
-## 5. Complete-residue theorems finish the classification
+## 5. One complete-residue theorem finishes the classification
+
+We use the following direct corollary of Hajdu--Saradha's 2016 Theorem 2.3.
+If $P\ge5$ is prime and some $P$ primes no larger than $p_{P+2}$ form a
+complete residue system modulo $P$, then $P\in\{7,11\}$.  Indeed,
+
+$$p_{P+2}\le p_{P+\pi(P)-1}$$
+
+for $P\ge5$, so their theorem first restricts $P$ to $\{2,3,7,11\}$.
 
 ### 5.1 The prime family
 
 If $m=P$, then $k=P$ by (2.3), and (2.2) says that the first $P$ primes form
-a complete residue system modulo $P$.  Equivalently, $P$ is a prime
-$P$-integer in the terminology of Hajdu--Saradha. Their Theorem 1 proves that
-the only such prime is $P=2$.  This gives $F_3=\Phi_2$.
+a complete residue system modulo $P$.  They lie below $p_{P+2}$, so the
+corollary above reduces $P\ge5$ to $7,11$; both fail directly (the first $P$
+primes omit residue $1$ modulo $7$, respectively residue $10$ modulo $11$).
+The small case $P=3$ also fails, while $P=2$ gives $F_3=\Phi_2$.
 
 ### 5.2 The semiprime family
 
@@ -229,13 +238,8 @@ $$\{\text{every unit class modulo }2P\text{ once}\}
 
 Choose one realizing prime from each unit class and adjoin the prime $P$.
 Reduction modulo $P$ gives $P$ primes forming a complete residue system, all
-at most $p_{P+2}$.  For $P\ge5$,
-
-$$p_{P+2}\le p_{P+\pi(P)-1}.$$
-
-Hajdu--Saradha's generalized complete-residue theorem (Theorem 2.3 of their
-2016 paper) then restricts $P$ to $\{2,3,7,11\}$.  The case $P=2$ makes
-$m=4$ non-squarefree.  Direct forced-multiset checks give:
+at most $p_{P+2}$.  The same corollary reduces $P\ge5$ to $7,11$.  The case
+$P=2$ makes $m=4$ non-squarefree.  Direct forced-multiset checks give:
 
 - $P=3$: modulo $6$, the unramified residues through $p_5=11$ are
   $\{5,1,5\}$, exactly (5.1), so $\Phi_6\mid F_{11}$;
@@ -304,8 +308,9 @@ proof.
   framework.  Again, it contains no prime-prefix classification.
 - L. Hajdu, N. Saradha, *On a problem of Recaman and its generalization*,
   Journal of Number Theory **131** (2011), 18--24,
-  <https://doi.org/10.1016/j.jnt.2010.07.002>.  Theorem 1: the only prime
-  $P$-integer is $2$.
+  <https://doi.org/10.1016/j.jnt.2010.07.002>, gives the original prime
+  $P$-integer classification.  It is relevant context but is no longer
+  needed as a separate proof input here.
 - L. Hajdu, N. Saradha, *On generalizations of problems of Recaman and
   Pomerance*, Journal of Number Theory **162** (2016), 552--563,
   <https://doi.org/10.1016/j.jnt.2015.10.006>.  Theorem 2.3 restricts primes

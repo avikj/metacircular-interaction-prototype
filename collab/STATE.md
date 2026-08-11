@@ -37,7 +37,7 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 
 | task | owner | started | status |
 |---|---|---|---|
-| Rigidity frontier (exp1c/exp7b computations + note) | Claude Fable fleet agent | 2026-08-11 | DONE: F1/F2 proved, ties classified all m<=1000, irreducible to deg 49997 |
+| Rigidity frontier (exp1c/exp7b computations + note) | Claude Fable fleet agent | 2026-08-11 | DONE/SUPERSEDED BELOW: original F1/F2 range m<=1000 and irreducibility through degree 49997; global F2 and cubic F3 now strengthen it |
 | Site/artifact maintenance | Claude Fable (session 1) | 2026-08-11 | ongoing |
 | Buchstab finite-window bridge / parity threshold (`BUCHSTAB_WINDOW`, exp20) | Codex (session 1) | 2026-08-11 | cross-reviewed by CF (msg 0003): Thms 2.1/6.1 SOUND, I_arch confirmed independently |
 | Product-weighted screw/Goldbach object: universal sum-kernel classification | Codex (session 1) | 2026-08-11 | active; no-go theorem ready for cross-review — NOTE: CF fleet agent concurrently attempting the construction (claimed pre-collision); adversarial collision welcome, reconcile on both landing |
@@ -46,7 +46,9 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | crossover third order (open target 3: 0.0925λ² coefficient, exp23) | fleet-k2 | 2026-08-11 | DONE: c3 = (γ²+2γ₁)/2 = 0.0937731 proved + verified to 3e-6 at z=1e8; all-orders closed form D_z = Ein − log[δζ(1+δ)] (notes/K2.md II) |
 | independent cross-review of crossover ladder + paper integration | Codex (session 1) | 2026-08-11 | done: coefficient/sign independently confirmed; optimal-truncation repair landed as Theorem 5; Gonek/GHK/Ramanujan prior-art downgrade integrated |
 | Wolfram corpus pass: profinite automaton / observer / causal no-go (`WOLFRAM_LENS`) | Codex research agent | 2026-08-11 | done: exact sieve Bratteli theorem extracted; conditional-expectation observer identified; confluence/causal-invariance and irreducibility overclaims fenced off |
-| global cyclotomic classification (`CYCLOTOMIC_TRACE`) | Codex + squarefree/cyclotomic audit agents | 2026-08-11 | PROVED for all m,X: relative trace kills non-squarefree m; covering reduction + Hajdu–Saradha complete-residue theorems leave only Φ₂∣F₃ and Φ₆∣F₁₁; hostile proof audit + exact 2m-cutoff scan passed; plausibly novel prime-prefix specialization, pending expert review |
+| global cyclotomic classification (`CYCLOTOMIC_TRACE`) | Codex + squarefree/cyclotomic audit agents | 2026-08-11 | PROVED for all m,X: relative trace kills non-squarefree m; covering reduction + one Hajdu–Saradha complete-residue theorem leave only Φ₂∣F₃ and Φ₆∣F₁₁; hostile proof audit + exact 2m-cutoff scan passed; plausibly novel prime-prefix specialization, pending expert review |
+| global cubic obstruction (`CUBIC_OBSTRUCTION`) | Codex + cubic-frontier agent | 2026-08-11 | PROVED: every finite 0-1 polynomial with support {0,1,3} plus optional odd exponents ≥5 has a cubic factor iff it is x³+x+1; hence F_X has no cubic factor for X≥7 and every factor has degree ≥4 for X≥13 |
+| concise cyclotomic theorem paper (`papers/prime_prefix_cyclotomic.md`) | Codex | 2026-08-11 | complete self-contained draft: global classification, proof dependency disclosure, 2m-cutoff verification, and qualified novelty boundary |
 | sharp k=0 Goldbach renormalization / variance boundary (`SHARP_CUTOFF`) | Codex sharp-cutoff agent | 2026-08-11 | proved: canonical Riesz-distribution descent; W0 in ℓ² not ℓ¹; absolute near-diagonal energy infinite with η(log H)^5 lower bound; Cantarini edge kernel identified |
 | Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | D″ finite closure (open target 2: near-diagonal separation → finite check, `DCLOSE`, exp21) | fleet-dclose | 2026-08-11 | running |
