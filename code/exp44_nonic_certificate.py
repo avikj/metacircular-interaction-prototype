@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integrated exact certificate excluding degree-nine prime-prefix factors.
+"""Exclude degree-nine prime-prefix factors for every real cutoff X >= 2.
 
 This fail-closed wrapper rebuilds the complete chain in fresh temporary state:
 
