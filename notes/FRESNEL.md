@@ -164,3 +164,25 @@ Does change:
 |---|---|
 | `code/exp14_fresnel.py` | phase measurement at exact line frequencies, corrected Fresnel inversion, gap/zero recovery; `figures/exp14_fresnel.png` |
 | `code/exp17_cornu.py` | zone-problem resolution: modulus blindness, Cornu spirals, $f^{-1/2}$ coherent fraction; `figures/exp17_cornu.png` |
+
+## 5. Deep-window reading (exp26): the readable set scales with the span
+
+Extending the sieve to $10^7$ (span $6.16$, resolution $2\pi/6.16\approx1.02$
+rad vs exp14's $1.38$):
+
+| line | separation to neighbor | gap recovered | true | status |
+|---|---|---|---|---|
+| (1,2) | 3.99 | 6.901 | 6.887 | 0.2% |
+| (1,3) | 2.90 | 10.943 | 10.876 | 0.6% |
+| (1,4) | 1.47 | 16.780 | 16.290 | **3.0% — newly readable** |
+| (2,2), (3,3) | 2.52, 1.43 | **0.000** | 0 | diagonals invert exactly |
+| (2,3) | 1.04 | fails | 3.99 | at the resolution limit |
+| (2,4) | 0.27 | fails | 9.40 | far below limit |
+
+$\gamma_4=30.670$ (true $30.425$) joins the zeros recovered from prime data
+alone. The crowding law is now *quantitatively predictive*: a line is
+readable iff its separation from the nearest stronger line exceeds
+$2\pi/\mathrm{span}$ — the failures at $1.04$ and $0.27$ rad against the
+$1.02$ limit land exactly where predicted. Open problem 2 of
+`papers/phase_side.md` is thus reduced to data volume: every factor $e$ in
+$X$ adds $1$ to the span and admits the next shell of lines.

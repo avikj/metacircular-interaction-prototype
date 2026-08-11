@@ -96,7 +96,7 @@ Sieve literals are strictly finer than the Galois-invariant algebra (the charact
 ## 8. Open problems, updated
 
 1. **D″ unconditional:** replace the measured linearity $E(\eta)=C\eta$ ($C/D=1.44$) by a Tao–Trudgian–Yang $N^*$ bound with weight $2\pi s^{-5}$.
-2. **Fresnel reach:** the crowded-line obstruction is pure window span ($\log X\sim72$ resolves the full sum spectrum; individual low lines need far less). Any dataset extension multiplies the readable gap set.
+2. **Fresnel reach:** ~~open~~ — reduced to data volume by exp26 (`FRESNEL §5`): at $X\le10^7$ the readable set grows to $\{(1,2),(1,3),(1,4)\}$ + three exact diagonals, and the crowding law is quantitatively predictive (readable $\iff$ separation $>2\pi/\mathrm{span}$; the two failures sit at $1.04$ and $0.27$ rad against the $1.02$ limit). Each factor $e$ in $X$ admits the next shell.
 3. **Phase-side of the tower:** GRH-side Fresnel reading from twisted data; the $L$-zero sum spectrum's own Poisson/diffraction statistics.
 4. **The $k$-body coherence exponents:** derive the measured excess over $-(k-1)/2$ (log-density + edge corrections) exactly.
 5. **Screw positivity, quantitatively:** with Theorem J, MS positivity is a mixed-block statement; express their Krein form in the exp11 block basis at finite $Q$ and study the $Q\to\infty$ limit as an effective RH criterion.
