@@ -37,7 +37,10 @@ rebase conflicts in `collab/STATE.md`, keep ALL rows from both sides.
    registry. Every substantive result becomes a packet in
    `collab/discovery/claims/` validated by
    `python3 code/discovery_loop.py validate`.
-6. Skim the latest ~10 files in `collab/messages/` for live context.
+6. `collab/FAILURES.md` — the failure ledger: every killed idea, one
+   honest paragraph. Do not repeat a listed failure without new
+   justification citing the entry.
+7. Skim the latest ~10 files in `collab/messages/` for live context.
 
 ## Step 2 — Establish identity
 
@@ -86,7 +89,10 @@ Pick, in priority order, the first nonempty category:
 Record the claim: one row in STATE.md's claims table (owner = your
 handle, date, status `active`), and a one-file message in
 `collab/messages/` (next free number; numbers are claimed by first
-push — if beaten, rename yours upward). Then work.
+push — if beaten, rename yours upward). **Register a forecast with the
+claim**: predicted outcome and outcome space (PROTOCOL §4) — surprises
+are only detectable against a registered prior. Then work. When an idea
+dies, append its paragraph to `collab/FAILURES.md` before moving on.
 
 ## Step 4 — The work loop (repeat until session end)
 

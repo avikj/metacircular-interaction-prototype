@@ -106,3 +106,29 @@ next wall after 67.2%.
 
 Standing practice adopted: fast-forward main after every push
 (upstream directive; other agents clone main).
+
+## 2026-08-12T07:10Z — frontier orchestration absorbed into protocol
+
+Archeology landed (ORCHESTRATION_DIFF, D1-D22 evidence index, primaries
+incl. 116pp transcripts + 95pp provenance + manuscript + Lean repo
+github.com/anthropics/zeta-23-lean). Their real architecture:
+human-steered hub-and-spoke, amnesiac agents w/ memo briefs +
+registered forecasts, verdict-first 2k returns, zero peer messaging;
+650 failures = prior session, inherited only as a 106-item honest
+failure ledger; 30/60 agents built a wall map whose sharpest
+obstruction was inverted into the winning brief; winning agent
+defected from its brief after 37min silence; recognition =
+pre-registered prior + blind disjoint-joint referees + proves-too-much
+controls; 22% validator launches; binding resource = coordinator
+judgment, not agent count (their scale bought the wall map + option
+value, not parallel proof search — vindicates our cartography phase).
+
+Adopted at top level (coordinator work, non-redundant with fleet):
+PROTOCOL numerics rule repaired to CLAIM-ANCHORED (their winning scans
+were claim-anchored w/ planted-zero controls; our wording overshot);
+forecast-carrying briefs; extraordinary-claim gate; FAILURES.md created
+and seeded F1-F16 from our full kill history; onboard skill updated.
+
+Resume: kappa verification pending (Lean repo build + statement
+alignment); Codex owes archive surfacing (msg 0053) + narrow-band
+discharge audit; design lane starts when all three streams in.

@@ -51,16 +51,38 @@ review norms remain authoritative. The packet design and role prompts are in
 
 ## 4. Verification norms (the important part)
 
-- **Numerics are falsifiers, not discovery instruments** (standing policy,
-  2026-08-12, upstream directive; see `notes/DIRECT.md`). An experiment may
-  be run only to (a) attempt to refute a stated claim or proposed
-  construction, or (b) replay a certificate. Censuses, scans, parameter
-  fits, and pattern hunts are not admissible work products; a landing whose
-  main content is measured numbers should be rejected in review. The
-  reasoning: measurement is the attractor state of an agent society — cheap,
-  always "successful", legible to reviewers without proof-checking — and it
-  displaces the direct structural work that is the point. When structure is
-  exact and in hand, interrogate it exactly.
+- **Numerics must be claim-anchored** (standing policy, 2026-08-12,
+  upstream directive; wording repaired per ORCHESTRATION_DIFF §3.1). A
+  numerical experiment is admissible iff it computes a declared exact
+  quantity whose value would confirm-or-kill a stated candidate statement,
+  with at least one control where the statement is known false — or it
+  replays a certificate. Censuses, scans-without-a-claim, parameter fits,
+  and pattern hunts remain inadmissible; a landing whose main content is
+  unanchored measurement should be rejected in review. The reasoning:
+  unanchored measurement is the attractor state of an agent society —
+  cheap, always "successful", legible without proof-checking — and it
+  displaces direct structural work. (The frontier run's winning path used
+  claim-anchored scans with planted-zero controls; the original
+  falsifier-only wording would have barred it. The rule exists to force
+  the anchor, not to forbid the instrument.)
+- **Every claim and fleet brief carries a forecast** (adopted from the
+  frontier run's record, ORCHESTRATION_DIFF upgrade 1). At launch or
+  seeding, register the predicted outcome and the outcome space. Surprises
+  are only detectable against a registered prior — the frontier ½-insight
+  was recognized because it fell outside its brief's trichotomy.
+- **Extraordinary-claim gate** (upgrade 2). Before any headline-level
+  claim is believed: a written prior with suspect joints named in advance;
+  at least two blind referees attacking disjoint joints with worked attack
+  plans; a from-scratch re-derivation blind to the proof; a
+  proves-too-much run on a false-model control; recorded numeric
+  credences. Cross-lineage referees strongly preferred (the frontier
+  run's own top caveat was single-lineage refereeing).
+- **The failure ledger is load-bearing** (`collab/FAILURES.md`, upgrade
+  3). Every killed idea gets one honest paragraph: what was tried, why it
+  died, what would revive it. Every new agent reads the ledger before
+  working; every brief may cite it as a do-not-repeat list. This is the
+  only cross-session inheritance mechanism the frontier record shows
+  working.
 - **Nothing load-bearing enters the corpus unverified.** A theorem needs a
   written proof in `notes/`; a numerical claim needs a runnable script and
   its output quoted; a literature claim needs a link checked against the
