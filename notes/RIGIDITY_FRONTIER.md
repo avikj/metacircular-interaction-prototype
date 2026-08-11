@@ -150,9 +150,6 @@ tail safety margin is $0.0023189\ldots>0$.  The proof is in
 `QUINTIC_OBSTRUCTION.md`, and an independent hostile audit accepted every
 enumeration, sign, resultant, and cutoff-coverage step.
 
-Combining F1--F5, for every $X\ge13$ every irreducible factor of $F_X$ is
-non-cyclotomic and has degree at least $6$.
-
 ### 2.4 The reciprocal sextic layer is closed — MACHINE-VERIFIED EXACT THEOREM
 
 For a reciprocal sextic
@@ -178,6 +175,39 @@ margins.
 See `RECIPROCAL_SEXTIC.md` and
 `code/exp32_reciprocal_sextic.py`.  Thus the first open factor degree remains
 six, but only the nonreciprocal sextic subfamily remains relevant there.
+
+### 2.5 The full sextic layer is closed — MACHINE-VERIFIED EXACT THEOREM
+
+For a general sextic $g=E(x^2)+xO(x^2)$, the unit equation
+$\operatorname{Res}(E,O)=\pm1$ combines with the valid odd-support bounds
+$\varphi^{-1}<|z|<2$.  Exact coefficient optimization yields
+
+$$
+|a|,|e|\le6,\qquad |b|,|d|\le18,\qquad |c|\le24.
+$$
+
+The resulting exact search has the auditable reduction
+
+$$
+18{,}506\longrightarrow4{,}894\longrightarrow392
+\longrightarrow362,
+$$
+
+respectively: unit-resultant tuples, no-real-root tuples, a conservative
+rational-annulus superset certified by Cayley--Routh counts, and irreducible
+candidates.  Four are $\Phi_7,\Phi_9,\Phi_{14},\Phi_{18}$ and are removed by
+F2.  Exact disk-radius/resultant/tail inequalities exclude the other $358$
+by cutoff $47$; the smallest exact margin is
+$0.060188651182\ldots>0$.
+
+> **Theorem F6 (computer-assisted, exact).** No irreducible sextic
+> polynomial divides any $F_X$.
+
+See `SEXTIC_OBSTRUCTION.md` and
+`code/exp32_sextic_certificate.py`.  The reciprocal theorem F6r is retained
+as a much smaller conceptual subcertificate.  Combining F1--F6, for every
+$X\ge13$ every irreducible factor of $F_X$ is noncyclotomic and has degree
+at least $7$.
 
 ---
 
@@ -297,10 +327,10 @@ argument reduces $m$ to $P$ or $2P$; one complete-residue-system theorem of
 Hajdu--Saradha then leaves only $m=2,6$.  See `CYCLOTOMIC_TRACE.md` for the
 full proof and exact citations.
 
-Combining Theorems F1--F5: **for every $X\ge13$, $F_X$ has no
-irreducible factor of degree $\le5$ and no cyclotomic factor of any degree.**
+Combining Theorems F1--F6: **for every $X\ge13$, $F_X$ has no
+irreducible factor of degree $\le6$ and no cyclotomic factor of any degree.**
 Every possible counterexample to Conjecture A″ must therefore come entirely
-from non-cyclotomic factors of degree at least $6$.
+from non-cyclotomic factors of degree at least $7$.
 
 ### 3.5 The extended scan — DATA
 
@@ -453,9 +483,9 @@ by irreducibility) has already passed the plausible window.
 
 **Consequence for the program.** The intermediate target of REPORT §8 Problem 1 ("no
 reciprocal non-cyclotomic factor") splits cleanly now:
-- degree $\le5$ factors: **classified unconditionally** (Thms F1, F3--F5);
+- degree $\le6$ factors: **classified unconditionally** (Thms F1, F3--F6);
 - cyclotomic factors: **globally classified; only the two small ties** (Thm F2);
-- a reciprocal non-cyclotomic factor must have even degree $\ge6$ (odd-degree reciprocals
+- a reciprocal non-cyclotomic factor must have even degree $\ge8$ (odd-degree reciprocals
   have the root $-1$), Mahler measure in Lehmer's range, and both a root and its inverse
   inside the annulus $(\tfrac12,2)$ — Salem-type configurations; no instance observed in
   1200 random samples nor at any tested $X$.
@@ -470,13 +500,13 @@ reciprocal non-cyclotomic factor") splits cleanly now:
 | irreducible factors of degree 4 | **PROVED impossible for every $X$ by an exact finite certificate** (Thm F4) |
 | irreducible factors of degree 5 | **PROVED: only $F_7$ itself; impossible for $X\ge11$** (Thm F5) |
 | reciprocal irreducible factors of degree 6 | **PROVED impossible for every $X$** (Thm F6r) |
+| all irreducible factors of degree 6 | **PROVED impossible for every $X$ by an exact 362-case certificate** (Thm F6) |
 | cyclotomic factors $\Phi_m$, every $m$ and $X$ | **PROVED: only $(3,2),(11,6)$ at prime cutoffs** (Thm F2) |
 | recurrence for $\varphi(m)=2$ | **refuted**: drift ($m=3,6$) / parity ($m=4$); only distance-1 near-ties recur ($m=4$, Littlewood, unconditional) |
-| non-cyclotomic factors, degree $\ge6$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
+| non-cyclotomic factors, degree $\ge7$ | open; $F_X$ irreducible up to $X=5\cdot10^4$ (degree 49{,}997); rigidity survives even $r\ge2$ unless a 0-1 split exists (Prop R1, slack data §5) |
 
-Open problems generated: (1) finish the nonreciprocal sextic layer, now the
-first open factor family; (2) the $X=10^5$ factorization ($\approx2$ h with
-FLINT at current scaling).  The general even--odd unit-resultant theorem
-gives a finite Diophantine constraint in degree six; exact disk-root and
-resultant/tail certificates have already reduced the surviving numerical
-family to a finite audit in progress.
+Open problems generated: (1) attack the septic layer, now the first open
+factor degree; (2) the $X=10^5$ factorization ($\approx2$ h with FLINT at
+current scaling).  The unique-odd-carrier theorem makes degree seven another
+scalar monotone-root problem, but its unit-resultant coefficient box is
+larger and needs a new exact reduction.

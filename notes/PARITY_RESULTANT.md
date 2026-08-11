@@ -455,8 +455,8 @@ $$
 >0.
 $$
 
-Together with the linear, quadratic, cubic, and subsequent quintic
-classification in `QUINTIC_OBSTRUCTION.md`:
+Together with the subsequent low-degree classifications through sextic in
+`QUINTIC_OBSTRUCTION.md` and `SEXTIC_OBSTRUCTION.md`:
 
 > **Corollary 4.** For every $X\ge13$, every irreducible factor of $F_X$ is
-> non-cyclotomic and has degree at least $6$.
+> non-cyclotomic and has degree at least $7$.

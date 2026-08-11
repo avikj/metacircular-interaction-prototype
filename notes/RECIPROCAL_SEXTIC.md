@@ -102,6 +102,12 @@ $$
 \qquad r_1r_2r_3=1.
 $$
 
+Here the upper golden bound uses reciprocity and is not asserted for a
+general sextic factor: the odd-support triangle inequality gives
+$|z|>\varphi^{-1}$ to every root inside the unit circle, while reciprocity
+makes $z^{-1}$ a root whenever $z$ is.  Hence an outer root must satisfy
+$|z|<\varphi$.
+
 Convexity in the logarithms gives
 
 $$

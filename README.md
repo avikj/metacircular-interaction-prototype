@@ -6,7 +6,7 @@ Research on the **prime pair field** $K(w,d)=a_{w-d}a_{w+d}$: an adversarial ass
 
 Highlights:
 
-- **Homometric rigidity of the primes**: the set $\{p\le X\}$ is determined by its difference multiset up to reflection whenever the non-cyclotomic part of $\sum_{p\le X}x^{p-2}$ is irreducible — verified through degree 49,997.  The cyclotomic layer is now classified globally (only $\Phi_2\mid F_3$ and $\Phi_6\mid F_{11}$), and exact theorems exclude every irreducible factor of degree at most five for $X\ge13$.
+- **Homometric rigidity of the primes**: the set $\{p\le X\}$ is determined by its difference multiset up to reflection whenever the non-cyclotomic part of $\sum_{p\le X}x^{p-2}$ is irreducible — verified through degree 49,997.  The cyclotomic layer is now classified globally (only $\Phi_2\mid F_3$ and $\Phi_6\mid F_{11}$), and exact theorems exclude every irreducible factor of degree at most six for $X\ge13$.
 - **Sum-spectrum of zeta zeros read off Goldbach data**: the second-order term of the smoothed Goldbach count is an exponential sum over pair sums $\gamma_i+\gamma_j$ with Beta-function weights — verified at correlation 0.9999, individual spectral lines to ~1% (`figures/exp6b_sumspectrum.png`).
 - **Holomorphic/Hermitian dichotomy**: a precise formulation of why Goldbach averages are theorem-factories while gap statistics are conjecture-inputs.
 
