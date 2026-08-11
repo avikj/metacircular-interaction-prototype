@@ -13,14 +13,19 @@ $$M \;=\; \{x : x(mn) = x(m)x(n)\ \forall m,n\}
 is a **compact abelian group** — canonically $\{\pm1\}^{\mathcal P}$,
 coordinates = values at primes. Nothing is sampled: $M$ is fully known.
 The problem is the interaction of the group $M$ with the shift, which
-does not preserve it.
+does not preserve it. The exact interface is
+
+$$\sigma D_m=D_m\sigma^m.$$
+
+The Liouville point is characterized up to global sign by
+$D_p\lambda=-\lambda$ for every prime $p$; for a general $m$ its
+eigenvalue is $\lambda(m)$, not always $-1$.
 
 ## Workstream A: classify the eigenmeasures (pure ergodic theory)
 
 Call a shift-stationary process on $\{\pm1\}$ a **dilation eigenprocess**
 if it arises as a shift-orbit statistical limit of some $x \in M$. The
-convex set of these contains structured points ($x \equiv 1$; pretentious
-$x$ close to $\chi(n)n^{it}$ have almost-periodic statistics) and,
+convex set of these contains structured points (for example $x\equiv1$) and,
 conjecturally, Bernoulli($\tfrac12$) for $\lambda$. The direct question,
 stated without arithmetic:
 
@@ -28,9 +33,11 @@ stated without arithmetic:
 > process of a point of $M$ is either (i) almost periodic (pretentious
 > regime) or (ii) of positive entropy. Sharper target: (ii′) Bernoulli.
 
-Everything known factors through this shape: Tao's 2-point theorem is
-the log-averaged first case; Frantzikinakis–Host's logarithmic Sarnak
-results are partial (A)-statements. The workstream's charge: separate
+This is a proposed classification problem, not a consequence of the dilation
+identity and not a theorem schema already known to contain every existing
+result. Entropy-decrement and logarithmic Sarnak results are calibration
+points that use substantial additional arithmetic and analytic input. The
+workstream's charge is to separate
 what is *soft* (true for abstract distributional eigenprocesses —
 provable by dynamics alone) from what *requires arithmetic input*
 (rational independence of $\{\log p\}$, positive density of primes).
@@ -65,9 +72,11 @@ by the semigroup relations — an exact combinatorial object (which
 window positions are multiplicatively coupled, through which primes, at
 which scales). Charge: prove structural theorems about this constraint
 graph (its expansion, its scale-recursion), and derive pattern-forcing
-results *algebraically* where possible. The known $k=3$ proofs enter
-analysis only at one point (Matomäki–Radziwiłł short-interval input);
-isolate that point as the single analytic axiom the combinatorics needs.
+results *algebraically* where possible. Every length-four sign pattern is
+already known to occur with positive lower density; length five is the first
+open all-pattern case (at least 24 of 32 are known at positive upper density).
+The first task is to dependency-audit those proofs and isolate every analytic
+input rather than presupposing there is only one.
 
 ## Discipline
 

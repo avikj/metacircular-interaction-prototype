@@ -1,91 +1,147 @@
-# The forest: one object, one identity, one question
+# The forest: one rigid point and one noncommuting action
 
-Pull back from the entire corpus. Strip every method. What remains is
-this.
+This page is the compressed center of the Liouville/parity program. It keeps
+only exact statements and names the open interface without pretending that
+the interface is already a theorem.
 
-## The object
+## 1. The object
 
-The single point
-$$\lambda = (\lambda(1), \lambda(2), \lambda(3), \dots) \in \{-1,+1\}^{\mathbb N}$$
-and, for each prime $p$, the **dilation map**
-$T_p : (x_n) \mapsto (x_{pn})$.
+Let
 
-## The identity (exact, no error term)
+\[
+\lambda=(\lambda(1),\lambda(2),\ldots)\in\{\pm1\}^{\mathbb N},
+\qquad (T_mx)(n)=x(mn),\qquad (Sx)(n)=x(n+1).
+\]
 
-$$T_p\,\lambda \;=\; -\,\lambda \qquad \text{for every prime } p.$$
+The completely multiplicative sign sequences form the compact abelian group
 
-That is the whole of complete multiplicativity: $\lambda(pn) =
-\lambda(p)\lambda(n) = -\lambda(n)$. **The Liouville point is a
-simultaneous eigenvector of the entire multiplicative semigroup, with
-every eigenvalue equal to $-1$.** Nothing else in the corpus is this
-clean. The eigenvalue $-1$ *is* the charge; every "gauge flip",
-"twirl idempotent", "charged sector" of forty notes is a shadow of this
-one line.
+\[
+\mathcal M=\{x\in\{\pm1\}^{\mathbb N}:x(mn)=x(m)x(n)\},
+\]
 
-## The question
+under pointwise multiplication. Restriction to the primes identifies
+\(\mathcal M\) with \(\{\pm1\}^{\mathcal P}\): prime values are free, and
+unique factorization determines every other coordinate.
 
-**Is a simultaneous dilation-eigenvector forced to be additively
-featureless?** Precisely: must the shift-orbit statistics of $\lambda$
-be those of a fair coin? That single question *is* Chowla (all
-correlations vanish), contains Sarnak (featureless implies orthogonal to
-determinism), and carries the prime questions with it (twins, Goldbach
-fluctuations live in two-point functions of the charge sector).
+## 2. The exact dilation spectrum
 
-The tension could not be more elemental: the **multiplicative** structure
-pins the point exactly (eigenvector), and the conjecture is that the
-**additive** structure (the shift) consequently sees pure noise. Rigidity
-on one side forcing randomness on the other.
+For every \(m\geq1\),
 
-## The archetype
+\[
+\boxed{T_m\lambda=\lambda(m)\lambda.} \tag{2.1}
+\]
 
-This is Furstenberg's $\times 2 \times 3$ phenomenon, transposed. There:
-a measure on the circle invariant under two multiplicatively independent
-dilations must be Lebesgue or atomic — multiplicative invariance forces
-additive equidistribution. Here: a sequence that is an eigenvector of
-*all* dilations should be shift-generic. Rudolph's theorem settled the
-positive-entropy case there; Tao's logarithmic Chowla (via entropy
-decrement) is exactly the analogous partial result here — and its proof
-uses nothing but the identity above, coupling scale $X$ to scale $pX$.
-Our four-theater conservation law now reads as one sentence: **every
-method that does not use the eigenvector identity provably sees nothing**
-(the neutral algebra is the dilation-symmetrized one), **and the only
-method that ever worked is the identity itself.**
+Thus every prime generator has eigenvalue \(-1\), while a general semigroup
+element has eigenvalue \(\lambda(m)=(-1)^{\Omega(m)}\). It is incorrect to
+say that every element of the multiplicative semigroup has eigenvalue
+\(-1\): eigenvalues must multiply, and \(T_pT_q\lambda=+\lambda\).
 
-So the way of thinking that moves toward the deep result is not sieves,
-not spectra, not operator algebras, not regularity — it is **measure
-rigidity for the multiplicative semigroup action on sequence space**.
-The corpus's role, in retrospect: it proved the other directions are
-flat. All curvature is in the dilation action.
+The prime-generator spectrum characterizes the point up to global sign.
 
-## The minimal open instance
+**Proposition 2.1 (prime-spectrum uniqueness).** If
+\(x\in\{\pm1\}^{\mathbb N}\) satisfies \(T_px=-x\) for every prime \(p\),
+then
 
-Simplify until the question fits in one spoken sentence:
+\[
+x=x(1)\lambda.
+\]
 
-> **Do all $2^k$ sign patterns of $(\lambda(n+1), \dots, \lambda(n+k))$
-> occur with positive density, for every $k$?**
+**Proof.** If \(n=p_1\cdots p_r\), repeated application of the eigenvalue
+equations gives \(x(n)=(-1)^r x(1)=\lambda(n)x(1)\). \(\square\)
 
-$k=3$: proved (Matomäki–Radziwiłł–Tao era, positive density).
-$k=4$: at the frontier [prior-art check: Tao–Teräväinen value-pattern
-papers; exact current record to be pinned before any claim].
-Full statement for all $k$ = a corollary of Chowla. This is the
-fruit-fly: every gram of machinery in this repository either helps prove
-a new $k$ or it does not matter for the deep result.
+This is multiplicative rigidity, not additive randomness. General
+simultaneous dilation eigenvectors can be completely structured—the constant
+sequence is the simplest counterexample. Even the all-prime \(-1\) spectrum
+forces randomness only if one has independently proved a randomness theorem
+about the uniquely selected point \(\lambda\).
 
-Measured (exp43, $X = 10^7$): all patterns present through $k = 6$, with
-frequencies uniform to $|\hat f - 2^{-k}| \le 1.5\cdot10^{-4}$ — the
-object itself is not hiding anything; only our theorems are behind.
+## 3. The real interface: dilation does not commute with shift
 
-## What this deletes and what it keeps
+The additive and multiplicative actions meet in the exact affine-semigroup
+relation
 
-Deletes (as attack routes, not as knowledge): the sum-spectrum ladder,
-the cut-norm dictionary, the K-theory boundary, the LP landscape — all
-now *understood* as cartography of the flat directions. Keeps: the
-eigenvector identity and its three known exploitation modes — entropy
-decrement (probabilistic), Type II bilinear sums (combinatorial),
-Frobenius monodromy (algebraic; the function-field case is *solved* by
-making the dilation symmetry into a group action with geometry). The
-sharpest form of the redirect: **find the fourth exploitation mode of
-$T_p\lambda = -\lambda$, or make one of the three quantitative enough to
-reach $k = 4, 5, 6, \dots$.**
+\[
+\boxed{S T_m=T_m S^m.} \tag{3.1}
+\]
 
-One page. That is the forest.
+Indeed, both sides evaluated at coordinate \(n\) equal \(x(mn+m)\). The
+shift does not preserve \(\mathcal M\), so there is no joint diagonalization
+that turns Chowla into a formal consequence of (2.1). The research problem
+is to understand shift-orbit measures of the rigid point selected by the
+dilation spectrum, using the noncommuting relation (3.1) plus genuinely
+arithmetic input.
+
+This formulation is close in spirit to \(\times2,\times3\) measure rigidity,
+but it is not an instance of a solved classification theorem. The Furstenberg
+classification is conjectural in general; the Rudolph--Johnson theorem
+handles a positive-entropy invariant/ergodic regime. Entropy-decrement
+arguments for logarithmic Liouville correlations use much more than (2.1),
+including logarithmic averaging, short-interval estimates, and
+approximate-independence machinery.
+
+## 4. The exact statistical target
+
+For \(\varepsilon=(\varepsilon_1,\ldots,\varepsilon_k)\in\{\pm1\}^k\),
+put
+
+\[
+f_{k,\varepsilon}(X)=\frac1X\#\{n\leq X:
+(\lambda(n+1),\ldots,\lambda(n+k))=\varepsilon\}.
+\]
+
+Boolean/Walsh inversion gives the clean equivalence
+
+\[
+\boxed{
+\text{full Cesàro Chowla}
+\quad\Longleftrightarrow\quad
+f_{k,\varepsilon}(X)\longrightarrow2^{-k}
+\text{ for every }k,\varepsilon.} \tag{4.1}
+\]
+
+One direction expands a pattern indicator as
+\(2^{-k}\prod_j(1+\varepsilon_j\lambda(n+j))\); the other takes marginals
+and Walsh coefficients. Mere occurrence, positive upper density, positive
+lower density, and limiting density \(2^{-k}\) are four different claims and
+must not be interchanged.
+
+The current unconditional sign-pattern frontier recorded here is:
+
+- every pattern of length at most four occurs with positive lower density;
+- at length five, at least 24 of the 32 patterns are known to occur with
+  positive upper density;
+- all-pattern length five remains open.
+
+The finite census in `code/exp43_sign_patterns.py` finds all patterns through
+length six below \(10^7\). This is a regression/falsification datum only. A
+finite census proves neither global occurrence nor positive density, and its
+bit labels are printed in reverse temporal order because the encoding is
+little-endian.
+
+## 5. What this does—and does not—redirect
+
+The useful redirect is precise:
+
+1. classify which shift-invariant measures can arise from points of
+   \(\mathcal M\);
+2. isolate the additional arithmetic input that selects the Liouville orbit
+   from structured completely multiplicative orbits;
+3. exploit (3.1) quantitatively enough to force new Walsh coefficients or
+   sign patterns;
+4. compare the integer dependency graph with function-field monodromy proofs,
+   with all characteristic/degree/uniformity regimes stated explicitly.
+
+Repository no-go theorems eliminate only the observer, cone, functor, or
+proof classes they define. They do not prove that every method failing to use
+(2.1) is blind, and the gauge twirl is not globally identical to dilation
+symmetrization.
+
+Finally, Chowla for \(\lambda\) does not by itself prove twins or Goldbach:
+unweighted density-scale Liouville correlations cannot isolate the sparse
+prime set. The prime-pair field and rational-character channels remain the
+separate machinery that records where prime weights, local factors, and pair
+projectors enter.
+
+That is the forest: a uniquely rigid multiplicative point, a noncommuting
+additive action, and an open measure-classification problem at their
+interface.
