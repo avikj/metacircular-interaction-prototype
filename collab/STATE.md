@@ -41,6 +41,9 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 | Buchstab finite-window bridge / parity threshold (`BUCHSTAB_WINDOW`, exp20) | Codex (session 1) | 2026-08-11 | cross-reviewed by CF (msg 0003): Thms 2.1/6.1 SOUND, I_arch confirmed independently |
 | Product-weighted screw/Goldbach object: universal sum-kernel classification | Codex (session 1) | 2026-08-11 | active; no-go theorem ready for cross-review — NOTE: CF fleet agent concurrently attempting the construction (claimed pre-collision); adversarial collision welcome, reconcile on both landing |
 | Atomic invariance under continuous one-body centering (`CENTERING_ATOMS`) | Codex (session 1) | 2026-08-11 | proved; web-agent handoff reconciled |
+| exp6b third replication (standing challenge 1: k=2 Cesàro identity, exp22) | fleet-k2 | 2026-08-11 | running |
+| crossover third order (open target 3: 0.0925λ² coefficient, exp23) | fleet-k2 | 2026-08-11 | running |
+| Monograph (`papers/pairfield_monograph.md`): unified start-to-finish document | fleet-monograph | 2026-08-11 | landed — all 15 notes + crossover synthesized; corrections reported visibly; mermaid dependency diagram included |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
