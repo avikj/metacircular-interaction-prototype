@@ -334,3 +334,32 @@ renormalized field theory, needs its scheme label — and MS's Krein
 positivity, which involves the smooth part, is a statement about the
 *invariant* combination, not about any block alone. This finalizes the
 corrected form of Theorem J.
+
+### 5.2 The k=0 challenge: smoothing is what makes the constants constants (exp28)
+
+Repeating the scheme analysis on the **sharp-cutoff** field
+$G_0(X)=\sum_{m+n\le X}\Lambda(m)\Lambda(n)$ (single-zero layer
+$2\sum X^{\rho+1}/(\rho(\rho+1))$ subtracted with 30k zeros; smooth parts
+fitted on $[1,\log X,\log^2X]$ at $X^1$ scale, $Q=10/30/60$):
+
+- **invariance survives exactly**: the summed fit is
+  $-3.507-0.029\log X+0.0013\log^2X$ at all three $Q$ — identical to the
+  digit (bilinearity control);
+- **the anomaly entangles with the $X$-flow**: per-block $\log X$
+  coefficients are nonzero and $Q$-dependent ($[\sharp\sharp]$:
+  $-0.053/-0.101/-0.112$; $[\flat\flat]$: $+0.024/+0.071/+0.080$) — at $k=1$
+  these are zero and the running lives in constants alone (§5.1);
+- **determinacy collapses**: the $[\sharp\sharp]$ smooth part is extractable to
+  rms $2\times10^{-5}$ at $k=1$ but only $0.73$ at $k=0$ — same order as the
+  coefficients themselves, a $\sim3\times10^4$-fold loss — because the sharp
+  cutoff leaves $X$-scale oscillatory content (singular-series waves in
+  $[\sharp\sharp]$, conditional pair convergence in $[\flat\flat]$) that one
+  Cesàro smoothing kills. Only the mixed block stays clean at $k=0$
+  (rms $0.003$–$0.016$).
+
+This is the scheme-language form of `REPORT.md` §5's diagnosis: *one
+smoothing is exactly what disentangles the $Q$-running from the $X$-running
+and makes the block constants well-defined.* The $\log X$-coefficients'
+$Q$-variation at $k=0$ is measured at only $O(1)$ confidence given the
+residuals — the qualitative contrast, not the $k=0$ coefficients themselves,
+is the result. Companion: the sibling's `SHARP_CUTOFF.md`.
