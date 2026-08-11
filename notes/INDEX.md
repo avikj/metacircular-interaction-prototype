@@ -43,9 +43,11 @@ was tested.
 
 ## Open interfaces (best next joins)
 
-1. `SCREW.md` (sibling) × `BLOCKS.md` §1: identify $g_{H_1}$'s single-zero
-   masses $1/(\gamma^2+\tfrac14)$ with the **mixed-block** first variation;
-   both branches now predict this independently.
+1. ~~`SCREW.md` × `BLOCKS.md` §1~~ **DONE (exp23 / `BLOCKS.md` §5, Theorem
+   J):** the MS screw function IS the mixed block of the reweighted field —
+   corr 1.0000, ratio 0.9992; $c_2=5.1407$ measured; RH ⟺ the
+   first-variation sector is a screw line, and the chirped pair sector never
+   enters.
 2. `LENS_REGULARITY.md` (sibling) × exp11: their cut-norm theorems use this
    branch's measured decomposition; the $Q$-orthogonality table (exp11) is
    the numerical face of their spectral-gap propositions.

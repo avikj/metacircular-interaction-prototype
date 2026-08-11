@@ -245,3 +245,35 @@ machinery.
 | `code/exp11_blocks.py` | Theorem E2 verification: block closure, band split, Hardy projection, $Q$-orthogonality; `figures/exp11_blocks.png` |
 | `code/exp12_krein.py` | Theorem D‴ verification: modulus/phase law, equidistribution, evenness and Gram tests; `figures/exp12_phaselaw.png` |
 | `code/exp13_energy.py` | D″ closure: $E(\eta)$ profile, $V(T,L)/D$, unfolded Poisson spacings, tail bound; `figures/exp13_energy.png` |
+
+---
+
+## 5. Theorem J: the screw join, closed (exp23)
+
+The sibling branch's `SCREW.md` extracted Matsumoto–Suzuki verbatim: the
+RH-equivalent screw function has Krein masses $1/(\gamma^2+\tfrac14)$ on the
+*single* zeros, attached to the reweighted summatory
+$T(X)=\sum_{n\le X}(\Lambda*\Lambda)(n)/n^2 = \log X + c_2
++ 2\sum_\rho\frac{X^{\rho-1}}{\rho(1-\rho)} + E(X)$ [MS (1.6)]. Both branches
+predicted independently (Theorem E2 §1; `PARITY.md` §1K) that this kernel is
+the **mixed block**. Exp23 splits $T(X)$ by the adelic blocks and confirms:
+
+| block of $T$ | content | measured |
+|---|---|---|
+| $[\sharp\sharp]$ | $\log X + c_2$ | slope $1.0000$, $c_2=5.1407$, residual rms $2\times10^{-5}$, spectrally dead ($4\times10^{-7}$) |
+| $[\text{mix}]$ | $2\sum_\rho X^{\rho-1}/(\rho(1-\rho))$ — **the screw kernel** | corr **1.0000**, amplitude ratio **0.9992** (30k zeros) |
+| $[\flat\flat]$ | $E(X)$-side | $10^{-7}$-scale, pair frequencies |
+
+So, with $t=\log X$: $[\text{mix}](T)(e^t) = 2e^{-t/2}\bigl(g_{H_1}(t)+H_1(1)\bigr)$
+— **the Matsumoto–Suzuki screw function is the mixed (first-variation) block**
+of the reweighted pair field, exactly. Consequences:
+
+1. MS Theorem 1.3 ("$g_{H_1}$ screw $\iff$ RH") is a statement about the
+   mixed block *alone*: RH $\iff$ the first-variation sector is a screw line.
+   The pair sector — maximally chirped by D‴ (exp12) — never enters, which is
+   *why* the naive pair-measure positivity guess of `APPENDIX_D.md` §D.6.3
+   failed while the MS condition works: Krein positivity lives one block over.
+2. The MS constant $c_2$ is now measured from the BC block: $c_2 = 5.1407$.
+3. Problem 3 of `REPORT.md` §8 / the reformulated item of §4 above is
+   **closed**: the screw$\leftrightarrow$block dictionary is exact, numerical,
+   and consistent with the sibling's independent extraction.
