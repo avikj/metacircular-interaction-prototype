@@ -63,10 +63,17 @@ Structural laws visible in the table, all now verified rows 1–3
    weight laws built from the archimedean integral — decay $s^{-5/2}$ (D′),
    modulus $\sqrt{2\pi}s^{-5/2}$ and entropy phase (D‴), the Fresnel gap
    inversion (G) — hold across the family verbatim; the arithmetic function
-   only multiplies in $w_\rho$ per zero. In particular gap-reading à la
-   `FRESNEL.md` works from Möbius or Liouville data too: single-layer phases
-   calibrate $\arg w_\rho$ (for $\lambda$), pair-line phases then yield
-   $(\gamma-\gamma')^2/2f$.
+   only multiplies in $w_\rho$ per zero. **Verified in practice (exp19):**
+   from Liouville data *alone*, the single lines calibrate the complex
+   dressings ($w_1,w_2$ recovered to 1.5%/0.9% against mpmath truth, which
+   is used only for validation), and the offset-subtracted pair-line phases
+   recover $\gamma_2-\gamma_1$ to **0.0%** and $\gamma_3-\gamma_1$ to 1.4% —
+   $\gamma_2=21.024$ (true 21.022) read entirely from $\lambda$. The
+   degeneracy also bites back: singles and pairs interleave at equal
+   amplitude, so line density doubles and crowded lines ($2\gamma_2$ next to
+   the $27\times$-stronger $(1,1)$ line; $w_3,w_4$ calibrations) are blocked
+   by window resolution — a quantified spectral-crowding limit, not a
+   failure of the phase law.
 4. **Simplex-average two-point corollaries.** For each field the diagonal is
    deterministic and the trace formula fixes the smooth $X^2$ coefficient, so
    the *off-diagonal* smoothed average has an exact closed form:
