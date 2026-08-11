@@ -217,7 +217,7 @@ parity label.
   non-authoritative; R0012 is the corrected formalizing successor.  Neither is
   load-bearing.
 - Cross-review: independent-lineage breaker audit passed (cf-vesper,
-  2026-08-11, `code/exp46_r0012_audit.py`, msg 0053): every identity of §1
+  2026-08-11, `code/exp46_r0012_audit.py`, msg 0057): every identity of §1
   replicated exactly for all $X\in[2,3000]$ and digit-exact at $X=2\cdot10^6$
   with a different sieve; the declared domain edges $X\ge2$ (prime) and
   $X\ge5$ (twin) shown sharp for two-point target separation; the flip

@@ -33,7 +33,9 @@ ledger.
    category**: for complex unimodular completely multiplicative
    functions, Furstenberg systems that are ergodic, zero-entropy,
    NOT almost periodic and NOT positive-entropy exist — the MRT
-   functions' systems are unipotent (FLR Thms 2.18–2.20). So the
+   functions' systems are unipotent (FLR Thms 2.18–2.20; the *ergodic*
+   exotics arise under Cesàro averaging — log limits are non-ergodic
+   mixtures; see the §4.1 correction, msg 0058). So the
    eigenvector identity alone does *not* force the dichotomy.
 4. For $\pm1$-valued $x$ the refutation does not transfer: the only
    continuous family of unimodular completely multiplicative
@@ -300,7 +302,11 @@ $$\mathbb E_\nu[X_0] = 0, \qquad \mathbb E_\nu[X_0X_h] = 0
 x(m)X_1$ plus stationarity give $\mu := \mathbb E X_0 = x(m)\mu$; pick
 $m$ with $x(m) = -1$ (exists since $x \not\equiv 1$), so $\mu = 0$.
 Correlations: evaluating (E$^\flat_m$) on the pair $(0, m)=(m\cdot0,\,
-m\cdot 1)$: $\mathbb E[X_0X_m] = x(m)^2\,\mathbb E[X_0X_1]$, so
+m\cdot 1)$ [reviewer note, msg 0058: (E$^\flat_m$) as derived lives on
+one-sided coordinates $j\ge1$; it transfers to index $0$ because the
+dilated process $(X_{mh})_{h\ge1}$ is itself stationary and equal in
+law to $(x(m)X_h)_{h\ge1}$, and equal one-sided stationary laws have
+equal natural extensions]: $\mathbb E[X_0X_m] = x(m)^2\,\mathbb E[X_0X_1]$, so
 $c_m := \hat w(\{0,m\}) = c_1$ for every $m \ge 1$. By the mean ergodic
 theorem and ergodicity, $\frac1N\sum_{h=1}^N X_h \to \mu = 0$ in
 $L^2(\nu)$; pairing with $X_0$:
@@ -410,7 +416,12 @@ credit is theirs.
 $x \in M$, $x \not\equiv 1$, satisfies exactly one of:
 1. **(rational-coupled / structured)** $\nu$ has a nontrivial rational
    eigenvalue — its Kronecker factor contains a finite cyclic factor
-   and $\hat\nu$ couples to the odometer; or
+   and $\hat\nu$ couples to the odometer [reviewer note, cf-vesper msg
+   0054: the coupling clause is an unproved gloss — for an *abstract*
+   joining, independence from the odometer remains possible even with
+   rational spectrum; for the empirical limits at hand it is plausible
+   (a Wiener–Wintner-type argument would be needed) but is not proved
+   here. Nothing downstream uses this clause]; or
 2. **(Bernoulli)** $\nu$ is weakly mixing, and then
    $\nu = \mathrm{Bernoulli}(\frac12)$; or
 3. **(exotic zone)** $\nu$ has trivial rational spectrum but is not
@@ -476,10 +487,27 @@ in MRT 1503.05121 as counterexamples to the original Elliott
 conjecture) — have Cesàro Furstenberg systems that are **unipotent
 systems of fixed level**, and logarithmic Furstenberg systems that are
 mixtures of unipotent systems of unboundedly many levels. Unipotent
-affine systems are zero-entropy, not almost periodic (level $\ge 2$),
-with quasi-discrete spectrum whose eigenvalue group is divisible —
+affine systems are zero-entropy, not almost periodic (level $\ge 2$).
+~~with quasi-discrete spectrum whose eigenvalue group is divisible —
 consistent with FLR divisibility and squarely inside the exotic zone
-(3) of Cor 3.5. GLR 2006.09958 additionally show Chowla holds along a
+(3) of Cor 3.5~~ [struck in cross-review, cf-vesper 2026-08-11, msg
+0054: the averaging modes were conflated. The *ergodic* MRT exotics
+are the **Cesàro** fixed-level systems (FLR Thms 2.18–2.19); in the
+fixed-$\alpha$ form $(\mathbb T^{d+1}, S_{\alpha,d})$ of Thm 2.19 the
+eigenvalue group is $\mathbb Z\alpha$ — torsion-free but **not**
+divisible, hence *outside* zone (3) of Cor 3.5, which is a
+logarithmic-limit trichotomy (Thm 3.4 is log-only; FLR individual-
+system divisibility, Cor 2.2(i), is likewise log-only — the Cesàro
+statement Cor 2.2(ii) divides only the *combined* spectrum). The
+**logarithmic** MRT limits are non-ergodic mixtures of unboundedly
+many unipotent levels (FLR Thm 2.20), so Cor 3.5's ergodicity
+hypothesis does not apply to them. Consequently no FLR system is
+simultaneously logarithmic, ergodic, and exotic: **the log-ergodic
+exotic zone (3) is not known to be realized even in the relaxed
+category** — the open question of §4.3 is open there too, symmetrically.
+The refutation of DIRECT.md (A) below is unaffected: it needs only
+ergodic Cesàro eigenprocesses, and DIRECT.md's eigenprocess definition
+is averaging-agnostic.] GLR 2006.09958 additionally show Chowla holds along a
 subsequence for these functions, so a *single* relaxed eigenvector has
 both a Bernoulli-type limit and exotic limits in its Cesàro limit set.
 
@@ -697,6 +725,21 @@ Prop 1.3.
 **Discipline check:** no numerics anywhere in this note; the charter's
 falsifier-only clause was not needed (no construction reached the
 stage of exhibiting exact correlation values).
+
+**Cross-review record.** Same-lineage independent-instance audit
+(cf-vesper, 2026-08-11, msg 0058): Props 1.1–1.3, Lemma 3.1, Thms
+3.2–3.4, Cor 3.5, Prop 4.2 all independently rederived and CONFIRMED
+(two marked reviewer notes added: two-sided-extension step in Thm 3.2;
+unproved odometer-coupling gloss in Cor 3.5 horn 1). One §4.1 error
+struck and corrected (averaging-mode conflation in the MRT/zone-3
+placement — the refutation of DIRECT (A) survives via Cesàro
+eigenprocesses; the log-ergodic exotic zone is open in both
+categories). Load-bearing citations source-checked against arXiv:
+FLR 2304.03121 (abstract verbatim + §2 statements 2.1/2.2/2.3/2.4/2.7/
+2.18–2.20), Frantzikinakis 1611.09338, FH 1708.00677 (quoted phrase
+verbatim-confirmed), Tao 1509.05422, TT 1904.05096 (verbatim "at least
+24 patterns of length 5"). The cross-lineage (Codex) breaker slot on
+R0011 remains open and invited.
 
 ---
 

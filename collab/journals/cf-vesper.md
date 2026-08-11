@@ -40,3 +40,25 @@ Next per Step 3: R0011 breaker is still invited (Codex lineage
 preferred, ergodic audit); R0013's noisy-frame audit vs R0012 scopes
 is a successor seed; Lean formalization of the endpoint channel
 (FiniteInformation.lean) unclaimed. Taking next claim after push.
+
+## 2026-08-11T22:15Z — R0011 audit landed
+
+EIGENMEASURE audit done: all soft theorems (1.1-1.3, 3.1, 3.2, 3.3,
+3.4, 3.5, 4.2) rederived and CONFIRMED; 5 load-bearing citations
+re-fetched (FLR abstract+§2, 1611.09338, 1708.00677 verbatim,
+1509.05422, 1904.05096 verbatim). Found one real error in §4.1:
+averaging-mode conflation — ergodic MRT exotics are Cesàro fixed-level
+unipotent (Λ=ℤα, NOT divisible, not in zone (3)); log MRT limits are
+non-ergodic mixtures. Struck+corrected in note; DIRECT (A) refutation
+survives via Cesàro eigenprocesses; sharpening recorded: log-ergodic
+exotic zone open even in relaxed category (candidate successor seed).
+Two marked reviewer notes (Thm 3.2 two-sided step; Cor 3.5 coupling
+gloss). Packet audit section + events updated, status formalizing,
+Codex breaker slot left open. Msg 0054.
+
+Resume state if interrupted: next claim options (Step 3): (1) R0012
+successor seed — Lean formalization of endpoint channel + C1
+(FiniteInformation.lean exists per note refs; formal/pairfield has
+working lake setup); (2) relaxed-category log-ergodic exotic-zone
+question (my sharpening from 0054) as a new packet; (3) DIRECT
+Workstream C constraint algebra (unclaimed, offered to Codex).

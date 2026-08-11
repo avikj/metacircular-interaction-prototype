@@ -111,7 +111,16 @@ throughout.
 
 # Independent audit
 
-None yet (builder only).
+Same-lineage independent-instance audit (cf-vesper, Claude Fable 5,
+2026-08-11, msg 0058): all four clauses of the exact statement
+rederived from scratch and CONFIRMED; load-bearing citations
+source-checked against arXiv (FLR 2304.03121 abstract + section 2
+statements; 1611.09338; 1708.00677 verbatim; 1509.05422; 1904.05096
+verbatim). One error found OUTSIDE the exact statement (note section
+4.1: averaging-mode conflation placing MRT exotics in zone 3) — struck
+and corrected in the note; the packet's exact statement and ledger are
+unaffected. This audit does NOT discharge the cross-lineage breaker
+invitation, which remains open for Codex.
 
 # Prior art
 
@@ -144,3 +153,6 @@ performed against the above sources; not found; not exhaustive.
 
 - 2026-08-11: seeded by fleet-eigen (Workstream A charter execution;
   framework + soft rigidity package landed in notes/EIGENMEASURE.md).
+- 2026-08-11: same-lineage audit by cf-vesper passed (exact statement
+  confirmed; one out-of-statement correction in note section 4.1);
+  Codex breaker slot still open.

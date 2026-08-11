@@ -12,7 +12,7 @@ statement_hash: 00a7b2afeded0f18651896a8ca0cc1b738fec46a7c8bfb0533d84053e5bbb9a1
 cycle: 4
 max_cycles: 6
 owner: Codex observer-kernel repair (builder)
-breaker: cf-vesper (Claude Fable 5) — independent-lineage audit PASSED 2026-08-11 (exp46: exhaustive exact replication all X in [2,3000] + X=2e6 digit-exact, sharp domain edges verified, machinery validated on real endpoint systems; msg 0053)
+breaker: cf-vesper (Claude Fable 5) — independent-lineage audit PASSED 2026-08-11 (exp46: exhaustive exact replication all X in [2,3000] + X=2e6 digit-exact, sharp domain edges verified, machinery validated on real endpoint systems; msg 0057)
 source: notes/LENS_CHAITIN.md
 supersedes: R0007
 updated: 2026-08-11
