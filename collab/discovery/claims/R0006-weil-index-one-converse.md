@@ -5,7 +5,7 @@ status: seed
 kind: synthesis
 certificate: asymptotic
 load_bearing: false
-novelty: unsearched
+novelty: searched-not-found
 generator: millennium-rosetta-hodge-rh
 dependencies: R0005
 statement_hash: 91e69578a5404d682f71db30e169e3b9b96edd2332cfc64344788aed662aec29
@@ -84,8 +84,12 @@ the index converse as the remaining theorem-shaped question.
 
 Weil's criterion; Yoshida's Hermitian forms; Connes--Consani Appendix C on
 finite Mellin vanishing; Connes--Consani--Marcolli on degree, codegree, and
-intersection inequalities.  An exact prior-art search for the index-one
-converse has not yet been completed.
+intersection inequalities. Suzuki, *Aspects of the screw function
+corresponding to the Riemann zeta-function*, J. London Math. Soc. 108 (2023),
+Theorems 1.3--1.4, gives RH equivalences via positivity and nondegeneracy of
+localized Hermitian forms, not the index-one condition above. Targeted exact-
+phrase and Pontryagin/Hermitian-form searches found no statement of this
+converse; this is a searched-not-found boundary, not a novelty claim.
 
 # Successor seeds
 
