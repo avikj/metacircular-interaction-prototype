@@ -17,6 +17,21 @@ fields.
 Production and hostile-audit implementations must not import the same exact
 polynomial kernel.  Shared code is convenience, not independence.
 
+## Finite observer audits
+
+`observer_channel.py` compiles the finite information lens into an exact
+counterexample/reconstruction kernel.  Given JSONL rows for a finite state,
+its observable value, and a target value, it decides whether the target is
+constant on every observer fiber.  On failure it emits a concrete collision;
+in either case it computes the exact minimum zero-error side alphabet for the
+target and for full-state reconstruction.  This separates target sufficiency,
+fiber ambiguity, and Shannon channel capacity instead of treating them as one
+quantity.
+
+The checker is exact only relative to the supplied finite state list.  A
+separate proof obligation must establish that the list exhausts the intended
+mathematical domain; no finite table certifies an infinite universal claim.
+
 ### Exponent-addressed bound contracts
 
 Analytic root bounds are often written from the leading coefficient while the
