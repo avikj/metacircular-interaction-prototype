@@ -14,8 +14,10 @@ concentration + Kátai sparse-dyadic reduction + no-exceptional-zero trick at
 Honesty header: every analytic input below is classical or recent published
 work (Siegel–Walfisz transported to λ; Bombieri–Vinogradov for μ via
 Motohashi's induction principle / Vaughan's identity, and its
-multiplicative-function form in Granville–Shao [cite-check journal data —
-offline session]; the Montgomery–Vaughan Ex. 11.3.7 estimate; Green's
+multiplicative-function form in Granville–Shao ~~[cite-check journal data —
+offline session]~~ Adv. Math. **350** (2019), 304–358, arXiv:1703.06865
+[cite verified against source, cross-review msg 0028]; the
+Montgomery–Vaughan Ex. 11.3.7 estimate; Green's
 no-exceptional-zero observation for 2-power conductors). The contribution of
 this note is: (i) the formalization of the class SIEVE_d(S,Q) and its
 structure theory (normal form, periodicity collapse, provable incomparability
@@ -142,7 +144,8 @@ depth and size,
 $$\Bigl|\sum_{n\le X}\lambda(n)f(n)\Bigr|\;\ll\;X\,e^{-c'\sqrt{\log X}},
 \qquad\text{effectively.}$$
 
-*Proof.* Step 1 (Green's Theorem 4, λ-version). For $\chi$ mod $2^s\le
+*Proof.* Step 1 (Green's Theorem ~~4~~ 3 [arXiv v2 source numbering,
+checked msg 0028], λ-version). For $\chi$ mod $2^s\le
 e^{c_2\sqrt{\log Y}}$: there are exactly three nonprincipal primitive real
 characters of 2-power conductor ($\chi_4,\chi_8,\chi_4\chi_8$), and none has
 a real zero in $(\tfrac12,1]$ (Ramaré–Rumely; explicit, hence effective), so
@@ -188,8 +191,18 @@ $$\sum_{q\le Y^{1/2}(\log Y)^{-B}}\ \max_{(a,q)=1}\,|D_\lambda(Y;q,a)|
 \;\ll_A\;Y(\log Y)^{-A}.$$
 *Provenance.* Bombieri–Vinogradov for $\mu$ is classical (Vaughan's identity
 + large sieve, exactly as for primes; systematically: Motohashi's induction
-principle, Proc. Japan Acad. 52 (1976); multiplicative-function form:
-Granville–Shao 2018 [cite-check]). Transfer to λ by $\lambda=\mu*1_\square$:
+principle, Proc. Japan Acad. 52 (1976), 273–275 [verified to exist with this
+title/volume, msg 0028]; multiplicative-function form:
+Granville–Shao ~~2018 [cite-check]~~ Adv. Math. 350 (2019), 304–358
+[verified, msg 0028]. *Caveat added in cross-review:* the general
+Granville–Shao theorem — $f\in\mathcal C$ (Λ-dominated, includes 1-bounded
+completely multiplicative) satisfying a 1-Siegel–Walfisz criterion, level
+$x^{1/2-\delta}$ — saves only a factor $(\log x)^{1-\varepsilon}$, and their
+Prop. on large-prime obstructions shows this is best possible for *general*
+$f$; the arbitrary-$(\log X)^{-A}$ form of BV$_\mu$ used below is the
+classical $\mu$-specific statement via Vaughan + large sieve, as listed
+first — the citation order here is load-bearing, not decorative.)
+Transfer to λ by $\lambda=\mu*1_\square$:
 for $(a,q)=1$, $D_\lambda(X;q,a)=\sum_{d\le\sqrt X,(d,q)=1}
 D_\mu(X/d^2;q,ad^{-2})$; summing $\max_a$ over $q\le\mathcal Q$ and splitting
 $d\le(\log X)^{B_1}$ (BV$_\mu$ at scale $X/d^2$, level
@@ -389,16 +402,30 @@ would be: apply a random restriction under which each bottom OR collapses
 base case. Two precise obstructions, and then the precise open statement.
 
 **Proposition 5.1 (profinite restrictions cannot switch prime literals).**
-Let $\ell_{q,a}$ have prime modulus $q>W$. Then for every fiber $\rho_{W,r}$,
-$\ell_{q,a}\circ\rho_{W,r}$ is a non-constant literal at the *same* modulus
-$q$ (Lemma R.1 with $g=1$). Consequently, for any restriction budget
-$W\le X^{o(1)}$: a bottom-level OR of $t\ge2$ literals at distinct prime
-moduli $>X^{\varepsilon}$ retains, on **every** fiber, all $t$ of its
-literals at their original moduli — no fiber makes it constant (each
-surviving class is nonempty in a fiber of length $X/W\ge q$, and their union
-has density $\le\sum1/q_i<1$ on the fiber), and no fiber reduces its width.
-Profinite restriction has zero switching power against prime-modulus
-literals. $\square$
+Let $\ell_{q,a}$ have prime modulus $q>W$, $q\le X/W$. Then for every fiber
+$\rho_{W,r}$, $\ell_{q,a}\circ\rho_{W,r}$ is a non-constant literal at the
+*same* modulus $q$ (Lemma R.1 with $g=1$; non-constancy uses $q\le X/W$, so
+the fiber contains a full period). Consequently, for any restriction budget
+$W\le X^{o(1)}$: a bottom-level OR of $2\le t\le X^{\varepsilon/2}$ literals
+at distinct prime moduli in $(X^{\varepsilon},\,X^{1-\delta}]$ retains, on
+**every** fiber, all $t$ of its literals at their original moduli — no fiber
+makes it constant (each surviving class is nonempty in a fiber of length
+$X/W\ge q$, and their union covers $\le\sum_i(X/(Wq_i)+1)\le
+(X/W)(X^{-\varepsilon/2}+tW/X)<X/W$ points of the fiber), and no fiber
+reduces its width. Profinite restriction has zero switching power against
+prime-modulus literals. $\square$
+
+[Cross-review edit, msg 0028: the original statement bounded the moduli only
+from below ($>X^\varepsilon$) and put no cap on $t$; then "each surviving
+class is nonempty in a fiber of length $X/W\ge q$" is unjustified for
+$q>X/W$, and "$\sum_i 1/q_i<1$" can fail for $t\ge X^\varepsilon$ (Mertens:
+the sum over all primes in $(X^\varepsilon,X^{1/2}]$ is
+$\log(1/2\varepsilon)+o(1)$, which exceeds $1$ for small $\varepsilon$). The
+added caps $q\le X^{1-\delta}$, $t\le X^{\varepsilon/2}$ restore the claim
+and are automatic in the standing regime of §3 ($q\le\mathcal Q\le X^{1/2}$,
+$t\le S\le\mathrm{poly}\log X$); the core structural claim — every literal
+survives at its original modulus, zero width reduction, for **any** $t$ —
+needs no caps and is unconditional.]
 
 Together with Lemma W1 (`WIDTH.md` §3: individual savings at one large
 modulus $\Rightarrow$ effective zero-free region), this locates the barrier
@@ -561,8 +588,11 @@ classes. `figures/exp27_circuit.png`.
   Green; λ-transfer written out). Effective.
 - Theorems 2/2′/3, Lemmas 3.1/3.2, Lemma R: proved modulo the BV$_\lambda$
   input, whose μ-form is classical and whose λ-transfer is written out
-  above; [cite-check] flags on Motohashi 1976 / Granville–Shao 2018 journal
-  data per repo convention. Ineffective (Siegel upstream).
+  above; ~~[cite-check] flags on Motohashi 1976 / Granville–Shao 2018
+  journal data per repo convention~~ cite-checks resolved in cross-review
+  (msg 0028): Motohashi = Proc. Japan Acad. 52 (1976), 273–275;
+  Granville–Shao = Adv. Math. 350 (2019), 304–358, with the
+  general-$f$ caveat now recorded in §3. Ineffective (Siegel upstream).
 - Prop 5.1 and the R3 specification: proved / stated as open respectively.
   R3 is this note's successor question, joining `WIDTH.md` §3's
   one-modulus-past-the-barrier question as the program's two named
@@ -571,3 +601,17 @@ classes. `figures/exp27_circuit.png`.
   $\theta=1/2$ when the average degenerates.
 - exp27: run, quoted in §7, null everywhere (as predicted; the measurement
   is the camouflage, as in exp24).
+- **Hostile cross-review (msg 0028, Claude Fable top-level):** Lemma 3.1 +
+  the μ→λ BV transfer re-derived independently and CONFIRMED (the exact
+  reduction $D_\lambda(X;q,a)=\lambda(g)D_\lambda(X/g;q/g,a/g)$ and the
+  convolution identity verified numerically on 300/60 random instances with
+  an independent SPF-sieve implementation); Theorem 1″ CONFIRMED (Step-2
+  dyadic residue reduction verified on 100 random instances; effectivity
+  chain — three explicit 2-power-conductor characters, Ramaré–Rumely,
+  MV Ex. 11.3.7 — checked against Green's actual LaTeX source, where
+  "this precise statement is Exercise 11.3.7" appears verbatim); Prop 5.1
+  CONFIRMED-WITH-EDIT (caps on $t$ and $q$ made explicit above); all four
+  [cite-check] flags resolved (one year corrected, one theorem number
+  corrected). exp27 independently replicated: $\sum_{n\le2\cdot10^6}\lambda
+  =-1234$ exactly, and the bvwindow $S{=}16$ cell reproduced null
+  (median 0.653, max 2.356, $p=0.845$) with different code and RNG.
