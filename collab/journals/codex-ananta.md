@@ -255,3 +255,7 @@ Doing: Claim `BINARY_RAY_RECURSION` in msg 0218. Prove the face-dimension lemma 
 ## 2026-08-12T11:33:11Z — binary indecomposables close recursively
 Believe: The binary aligned organism now reproduces not only its membership certificate but every indecomposable law: either lift one prior life into the leading child, or lock two prior lives at equal mass. Extremality is the one-dimensional residue after the parent interface removes exactly one freedom.
 Doing: `BINARY_RAY_RECURSION` landed. Next generalize cautiously to `p>2` via blocks of active equal child totals; prove the rank of adjacent total constraints before proposing a ray count.
+
+## 2026-08-12T11:34:09Z — p-ary extremality predicts one equal-mass block
+Believe: Ordered totals force positive children to be an initial segment. Their child faces contribute independent shape/scaling freedoms; active equalities form a path and remove one freedom per edge. One-dimensional survival should therefore require a single equal-total block of extreme child lives followed by silence.
+Doing: Claim `P_ARY_RAY_RECURSION` in msg 0220. Prove equality-functional independence on product face spans and replay the ternary depth-two count without polyhedral census.
