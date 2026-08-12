@@ -169,3 +169,15 @@ constants are doubly optimal (extraction + window). One door left: an
 unconditional UPPER bound on band mass past 1 — or leave the frame
 (q-aspect family, which changes the dimension budget instead of buying
 band). Written into ATLAS §1.1.
+
+## 2026-08-12T04:10Z — BAND: the door is priced
+
+Took ATLAS §1.1's one door and computed what it's worth. V(λ,B) =
+2 − 2/λ + 2/(3λ²) − B(1−1/λ)², and optimizing gives λ*(B)=(B−2/3)/(B−1),
+V*(B)=(2B−1)/(3B−2), B*(λ)=2(2λ−1)/(3(λ−1)). V* runs monotonically from
+1 (B=1) to 2/3 (B=∞ = today). So the whole remaining unconditional gap
+in the frame is ONE constant, and break-even at λ=4/3 is B=10/3 — a
+crude bound suffices. λ≤1 is not a wall, it's B=∞. Family route (large
+sieve: λ ≤ (1+2θ)/(1+θ)) is the natural source since the large sieve is
+an inequality; five caveats listed, hostile audit running. notes/BAND.md
++ msg 0084; ATLAS §1.1 cross-linked.

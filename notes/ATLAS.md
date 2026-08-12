@@ -83,6 +83,21 @@ provably exhausted.
 > *upper* bound (the sign correction that both L3 landings made
 > independently). Everything else in this frame is spent.
 
+**Priced, same day** (`notes/BAND.md`): if $F\le B$ unconditionally on
+$(1,\lambda]$, the flat-window certificate is
+$V(\lambda,B)=2-\frac2\lambda+\frac{2}{3\lambda^2}-B(1-\frac1\lambda)^2$,
+and optimizing the band collapses everything to
+$$\lambda^*(B)=\frac{B-2/3}{B-1},\qquad
+V^*(B)=\frac{2B-1}{3B-2},\qquad
+B^*(\lambda)=\frac{2(2\lambda-1)}{3(\lambda-1)} .$$
+$V^*$ decreases monotonically from $1$ (at $B=1$, the conjectured value)
+to $2/3$ (at $B=\infty$, our present knowledge). **The entire remaining
+unconditional gap in this frame is one constant**, the break-even bound
+at $\lambda=4/3$ is $B^*=10/3$, and the $\lambda\le1$ wall is revealed
+as not a structural boundary at all but the substitution $B=\infty$ into
+a formula that is otherwise happy at any band. Three of this week's four
+closures were exhaustions; this one was a missing number.
+
 This is worth stating plainly because it is rare. A world-record method,
 36 hours old, is already pinned on three sides by proofs from three
 different directions, and the remaining door is named exactly. The atlas
