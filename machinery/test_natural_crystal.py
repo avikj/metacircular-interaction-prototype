@@ -5,6 +5,8 @@ from natural_crystal import (
     binary_divisibility_classes,
     crystallize,
     divisibility_world,
+    divisibility_classes,
+    divisibility_horizon,
     explain_distinctions,
     extend_observation,
     generate_world,
@@ -72,6 +74,27 @@ class NaturalCrystalTests(unittest.TestCase):
                 q //= 2
                 exponent += 1
             self.assertEqual(len(predicted), q + exponent)
+
+    def test_general_base_horizon_matches_refinement(self):
+        for base in range(2, 11):
+            digits = tuple(range(base))
+            for modulus in range(1, 101):
+                world, observation = divisibility_world(base, modulus)
+                computed = crystallize(
+                    world.states, digits, world.transition, observation
+                )
+                predicted = divisibility_classes(base, modulus)
+                self.assertEqual(
+                    {frozenset(fiber) for fiber in computed.fibers},
+                    {frozenset(fiber) for fiber in predicted},
+                    (base, modulus, divisibility_horizon(base, modulus)),
+                )
+
+    def test_general_horizon_rejects_invalid_arithmetic(self):
+        with self.assertRaises(ValueError):
+            divisibility_horizon(1, 3)
+        with self.assertRaises(ValueError):
+            divisibility_horizon(2, 0)
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):

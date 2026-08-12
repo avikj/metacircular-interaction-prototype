@@ -165,6 +165,12 @@ From those runs comes its first assimilated theorem: if `m=2^a q` with `q`
 odd, binary divisibility modulo `m` needs exactly `q+a` states.  The closed
 formula now replaces refinement while the original algorithm remains its
 independent replay.
+
+Changing the numeral base reveals the wider theorem.  For every base and
+modulus there is an explicit finite length after which no digit word can make
+a new divisibility distinction.  The infinite future is therefore compiled
+to a finite signature of least accepted suffixes; binary's `q+a` law is its
+cleanest special form.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,
