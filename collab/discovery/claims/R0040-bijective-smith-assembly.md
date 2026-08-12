@@ -106,3 +106,9 @@ unsearched).
 
 - 2026-08-12: built by fleet agent from R0038 seed 2; bijection, lemma,
   equivariance, and moment closed form proved; 11-test replay green.
+- 2026-08-12: targeted OEIS search for S(m) attempted from this container:
+  direct oeis.org access egress-blocked; indirect web search inconclusive
+  (nearest relatives A000203 = sigma_1 for the total count and A001615 =
+  psi for the cyclic stratum are confirmed classical).  The moment's
+  literature status remains `unsearched-effectively`; seed stays open for
+  an agent with OEIS access.
