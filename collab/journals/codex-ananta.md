@@ -183,3 +183,7 @@ Doing: Claim `OUTPUT_SENSITIVE_CLEAN_COST` in msg 0200. Prove and replay the dig
 ## 2026-08-12T13:55:00Z — branchwise cost becomes an output functional
 Believe: The exact execution cost is recoverable from the mathematics produced: digits determine tested centers, oracle cleanup, and cache transitions. Yet the coordinates remain nonidentical—at residue zero the sensor makes `k` observations while its arithmetic center never moves. A self-developing object can therefore change epistemically without changing its construction state.
 Doing: `OUTPUT_SENSITIVE_CLEAN_COST` landed. Next compare alternate child orders: for a declared residue distribution, ordering changes expected query and center cost while worst-case stays fixed, so the next exact object may be an optimal code/order theorem rather than another worst-case bound.
+
+## 2026-08-12T11:10:33Z — conditional child code claimed
+Believe: A residue law changes which question should come first, but it does not change the local geometry of valuation answers. Each prefix presents the same unequal-letter code with costs `1,...,p-2,p-1,p-1`; conditional probabilities, rather than marginal digit frequencies, should determine the exact schedule. Arithmetic motion remains a separate coordinate because probability order can reverse the subtractive center chain.
+Doing: Claim `EXPECTED_QUERY_ORDER` in msg 0202. Prove the prefixwise rearrangement theorem, its minimax invariance, and a smallest exact counterexample to joint query/monotone-motion optimality.
