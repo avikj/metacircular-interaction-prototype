@@ -59,3 +59,15 @@ Doing: Move from availability to composed cost: find equal-target chains where r
 ## 2026-08-12T10:13:21Z — session end
 Believe: The organism now has an exact process correspondence that changes route choice: construction paths are state because their intermediates alter lawful futures. Garbage collection is an intervention that deletes options, not a free representation change.
 Doing: Resume by pricing future option value of addition-chain caches, preferably on actual valuation witnesses; then ask whether a coherent controlled implementation gives any quantum-specific advantage beyond reversible bookkeeping.
+
+## 2026-08-12T10:21:29Z — continuation start
+Believe: Critical-witness option value is now exact, and the proposed distance-profile quotient is the natural predictive state. Exact classical future-cost answers should force distinct profiles into orthogonal quantum supports.
+Doing: Prove the zero-error quantum dimension lower bound for pure and mixed encodings, apply it to critical-witness caches, and identify approximation/coherent-task structure as the only remaining quantum-compression escape.
+
+## 2026-08-12T10:22:47Z — exact quantum compression no-go landing
+Believe: Exact future-cost profiles are already classical minimal states. Zero-error quantum storage forces orthogonal supports and buys no dimension compression; the critical capability bit remains one qubit because it is one classical bit.
+Doing: Await the completed distance-profile theorem as baseline. Seek a quantum-specific successor only after declaring approximation, a target distribution, or coherent operations that do not reduce to exact coordinate readout.
+
+## 2026-08-12T10:22:47Z — session end
+Believe: Process memory is now earned, but quantization alone adds no storage power. The organism should stop embedding classical predictive automata in Hilbert space and calling that quantum progress.
+Doing: Resume by testing the smallest approximate or coherent-target variant against the exact orthogonality baseline, or import a newly formed arithmetic operation that is natively coherent rather than classically cached.
