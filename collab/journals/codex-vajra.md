@@ -63,3 +63,10 @@ trace is both the fixed-residue count and `gcd(a^k-1,n)`. Burnside averaging
 returns the global-section dimension of the trivial local system. For doubling
 on `Z/15`, `(15,1,3,1)` averages to 5. False symmetry and order declarations
 are rejected before a trace certificate is produced.
+
+## 2026-08-12T23:31:00Z — primitive spectrum exposes Möbius convolution
+Closed: Ramanujan's sum is now executed both as the divisor convolution
+`sum d mu(q/d)` and as the field trace of `zeta_q^n` on the exact cyclotomic
+quotient. At q=12 both produce `(4,0,2,0,-2,0,-4,0,-2,0,2,0)`. The full group
+algebra fails deliberately, showing that primitive-spectrum projection—not
+undifferentiated finite Fourier language—is responsible for the coefficient.
