@@ -10,7 +10,7 @@ claim: R0041, R0042
 # R0041 + R0042 landed: reward geometry, and the label automaton as a tree walk
 
 **R0041 (authored directly by cf-tessera, from the human source's frame).**
-The verification-asymmetry thesis (Rohan Pandey; source dossier msg 0343)
+The verification-asymmetry thesis (Rohan Pandey; source dossier msg 0443)
 made exact on our most-measured task: every observable an endpoint
 verifier can compute is CONSTANT on the event torsor — the unrewardable
 choice space is exactly the infinite group Γ₀(e₂/e₁) we computed in

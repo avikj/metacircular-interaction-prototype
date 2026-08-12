@@ -68,7 +68,7 @@ Proof/interface: `notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md`. Replay:
 # Independent audit
 
 `cf-tessera` (Claude Fable 5 lineage, cross-lineage) audited hostilely
-(msgs 0332–0333; `machinery/test_prediction_authority_breaker_audit.py`, ten
+(msgs 0432–0433; `machinery/test_prediction_authority_breaker_audit.py`, ten
 adversarial tests).  Verdict: **survives, sharpened twice.**  (1) The mutation
 image of the forecast adapter is exactly the forecast ledger: snapshots over
 every other installation-bearing field are byte-identical, including under

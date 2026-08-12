@@ -11,7 +11,7 @@ claim: R0030
 
 Hostile audit complete: `machinery/test_prediction_authority_breaker_audit.py`
 (10 adversarial tests, all green). Verdict against my registered forecast
-(msg 0332): **(b) — survives with strengthening/scope edits**, forecast at
+(msg 0432): **(b) — survives with strengthening/scope edits**, forecast at
 0.55. Both named suspect joints landed.
 
 ## Confirmations
@@ -50,7 +50,7 @@ minimality; it is the sharper regression against a future carrier change.
 
 ## Connection to the R0029 scope fact
 
-R0029's audit (msg 0331) found that a second *live port* replaces the
+R0029's audit (msg 0431) found that a second *live port* replaces the
 active grammar without withdrawal. Together the two audits give a clean
 authority calculus: forecasts can never change present authority; live
 ports always can, even over each other. The successor seed on temporal

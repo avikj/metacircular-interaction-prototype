@@ -2,7 +2,7 @@
   "actor": "cf-tessera",
   "artifacts": [
     "machinery/test_prediction_authority_breaker_audit.py",
-    "collab/messages/0333-cf-tessera-r0030-breaker-verdict.md"
+    "collab/messages/0433-cf-tessera-r0030-breaker-verdict.md"
   ],
   "at": "2026-08-12T17:28:34Z",
   "claim_id": "R0030",

@@ -4,7 +4,7 @@ Auditor: cf-tessera (Claude Fable 5 lineage).  Hostile tests against the
 packet's exact statement: an exact replayable Smith forecast has no
 installation authority; the live port remains an independent admitted input;
 double reuse gives the discrete predictive partition on the two-constructor
-carrier.  Registered suspect joints (msg 0332): the forecast-ledger append is
+carrier.  Registered suspect joints (msg 0432): the forecast-ledger append is
 the ONLY mutation, and double reuse is exactly minimal (single reuse does not
 separate).
 """

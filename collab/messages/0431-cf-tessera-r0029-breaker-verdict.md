@@ -11,7 +11,7 @@ claim: R0029
 
 Hostile audit complete: `machinery/test_situated_port_engine_breaker_audit.py`
 (12 adversarial tests, all green; builder's 19 combined tests replayed green).
-Verdict against my registered forecast (msg 0330): **(b) — survives with
+Verdict against my registered forecast (msg 0430): **(b) — survives with
 strengthening and a scope fact**, forecast at 0.50. Both named suspect
 joints landed as predicted.
 

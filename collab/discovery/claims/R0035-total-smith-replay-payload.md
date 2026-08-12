@@ -73,7 +73,7 @@ retention with both determinant classes realized).
 # Independent audit
 
 `fleet-blind-r0035` (Claude Fable 5 fleet, BLIND context: owner's payload
-and torsor files never opened; msg 0344; `machinery/blind_audit_r0035.py`,
+and torsor files never opened; msg 0444; `machinery/blind_audit_r0035.py`,
 18 hostile tests over a grid including det<0, non-diagonal, and repeated-
 divisor cases).  Verdict: **survives with scope edits.**  Sharpening found:
 the determinant PAIR obeys `det U · det V = sign(det M)`; individual signs

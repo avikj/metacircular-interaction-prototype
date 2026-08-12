@@ -3,7 +3,7 @@
 Auditor: cf-tessera (Claude Fable 5 lineage).  Hostile tests written against
 the packet's exact statement and falsification list, independent of the
 builder's own test files.  Attack surfaces, per the registered forecast in
-msg 0330: full read-only permutation invariance (stronger than the packet's
+msg 0430: full read-only permutation invariance (stronger than the packet's
 "either order"), adversarial score override attempts, port pathology with a
 partial-installation check, withdrawal semantics, monoid inequality, and the
 re-supply-without-withdrawal joint.
@@ -159,7 +159,7 @@ class WithdrawalTest(unittest.TestCase):
 
 class ResupplyJointTest(unittest.TestCase):
     def test_resupply_without_withdrawal_overwrites_silently(self):
-        """Registered suspect joint (i), msg 0330: a second port supplied
+        """Registered suspect joint (i), msg 0430: a second port supplied
         while a constructor is installed replaces the active grammar without
         passing through withdrawal.  Both certificates are retained in
         history, so no provenance is erased and no packet clause is

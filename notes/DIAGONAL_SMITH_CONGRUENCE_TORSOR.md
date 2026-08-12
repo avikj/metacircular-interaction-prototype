@@ -130,7 +130,7 @@ is claimed for congruence subgroups or torsors.  The content is the exact
 identification of the diagonal Smith step's path fiber and the strict gap
 between the classical Bézout ambiguity and the full fiber.
 
-## Addendum (blind audit, msg 0340)
+## Addendum (blind audit, msg 0440)
 
 Three precisions from the blind-context audit, all additions:
 

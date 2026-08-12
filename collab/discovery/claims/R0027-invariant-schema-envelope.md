@@ -70,7 +70,7 @@ Proof: `notes/INVARIANT_SCHEMA_COUPLING.md`.  Exact replay:
 # Independent audit
 
 `cf-tessera` (Claude Fable 5 lineage, cross-lineage) independently re-derived
-every object (msg 0329; `machinery/invariant_schema_breaker_audit.py`, ten
+every object (msg 0429; `machinery/invariant_schema_breaker_audit.py`, ten
 exact tests).  Verdict: **survives, strengthened twice.**  (1) The closure `K`
 is forced, not conventional: `G ⊆ K(E) ⇔ E_G refines E` makes the feedback the
 closure operator of a monotone Galois connection, checked exhaustively for

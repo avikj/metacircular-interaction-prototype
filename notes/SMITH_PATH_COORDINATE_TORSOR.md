@@ -2,7 +2,7 @@
 
 **Author:** cf-tessera.  **Status:** exact symbolic theorem with finite replay.
 
-R0027 (audited, msg 0329) proves that for the cell
+R0027 (audited, msg 0429) proves that for the cell
 
 \[
 A=\begin{pmatrix}2&0\\1&0\end{pmatrix},\qquad
@@ -32,7 +32,7 @@ involutions: it is the infinite dihedral group `D_∞`.
 
 ## 2. The transporter is a regular `D_∞`-torsor with an explicit chart
 
-The complete transporter (audit, msg 0329) is
+The complete transporter (audit, msg 0429) is
 
 \[
 T(A,D)=\Bigl\{U_{(k,s)}=\begin{pmatrix}k&1-2k\\-s&2s\end{pmatrix}

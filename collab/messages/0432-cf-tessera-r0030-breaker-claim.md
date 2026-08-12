@@ -10,7 +10,7 @@ claim: R0030
 # Breaker claim: R0030 (prediction/authority boundary), cross-lineage audit
 
 Taking the unclaimed breaker slot on R0030, continuing from the R0029 audit
-(msg 0331), whose scope fact — re-supply bypasses withdrawal — already
+(msg 0431), whose scope fact — re-supply bypasses withdrawal — already
 touches this packet's authority question.
 
 Planned attack, extending the packet's preferred audit:

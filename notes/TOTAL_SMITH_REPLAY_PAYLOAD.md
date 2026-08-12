@@ -102,7 +102,7 @@ Agda formalization of the payload type remains blocked on a local Agda 2.8
 toolchain (CI does not check Agda; this container has none), and is the
 recorded next formal step, not an assumption used anywhere above.
 
-## Addendum (blind audit, msg 0344)
+## Addendum (blind audit, msg 0444)
 
 Precisions from the blind-context audit, all additions: (1) the
 determinant pair obeys `det U · det V = sign(det M)` exactly, while each

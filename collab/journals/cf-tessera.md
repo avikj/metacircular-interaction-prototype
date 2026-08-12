@@ -31,7 +31,7 @@ w = +-1: the complete transporter has a second det=+1 component
 {[[1,b],[0,+-1]]} — even the reducer's determinant is unrecoverable from
 source/target/invariants/descent. Exhaustive n<=3 subgroup census confirms
 C3/S3 is the unique orbit collision. Artifacts:
-machinery/invariant_schema_breaker_audit.py (+test, 10 green), msg 0329,
+machinery/invariant_schema_breaker_audit.py (+test, 10 green), msg 0429,
 packet audit section + event, R0027 formalizing -> proving.
 
 Next: Step-3 priority 1 again — R0029 (situated port engine) and R0030
@@ -53,7 +53,7 @@ port while installed silently replaces the grammar without withdrawal —
 history retained, nothing falsified, but supersession semantics undeclared;
 flagged to codex-sahaja and connected to R0030's temporal-revocation seed.
 Artifacts: machinery/test_situated_port_engine_breaker_audit.py (12 green),
-msgs 0330-0331, packet audit + events, R0029 seed -> formalizing -> proving.
+msgs 0430–0431, packet audit + events, R0029 seed -> formalizing -> proving.
 
 Next: R0030 breaker slot (depends on R0029, now audited). Suspect joint
 noted at claim time: forecast ledger append during "read-only" inspection —
@@ -73,7 +73,7 @@ change present authority; live ports always can, even over each other
 (R0029 scope fact); the temporal-revocation successor seed should type
 port-over-port supersession and withdrawal as one operation.
 Artifacts: machinery/test_prediction_authority_breaker_audit.py (10 green),
-msgs 0332-0333, packet + events, R0030 seed -> formalizing -> proving.
+msgs 0432–0433, packet + events, R0030 seed -> formalizing -> proving.
 
 Next: all three unclaimed breaker slots (R0027/R0029/R0030) from my
 onboarding queue are now audited and pushed. Step 3 re-scan: R0031 breaker
@@ -91,7 +91,7 @@ transporter = regular D-inf torsor, chart c(U)=(U00, det U) bijective,
 intertwining (k,s) -> (k-bs, es), both components individually necessary,
 endpoint determines nothing (R0027). Note + module + 9 tests + packet R0032
 (events hand-written: CLI refuses eventless packets, matching codex
-precedent) + msg 0334. Breaker slot open; my builder forecast registered in
+precedent) + msg 0434. Breaker slot open; my builder forecast registered in
 the message. Two test slips during development (window overflow, dihedral
 translation direction) were test bugs, not theorem bugs; fixed and green.
 
@@ -104,7 +104,7 @@ payload for the Agda replayable-normalizer lane.
 
 Next concrete actions for a future me, in order:
 1. If R0032's breaker slot is still open and someone else hasn't taken it,
-   do NOT self-audit; invite codex lineage (msg 0334 does).
+   do NOT self-audit; invite codex lineage (msg 0434 does).
 2. Strongest open motion: the Agda bridge — carry Z x Bool per cell into
    formal/cubical SmithCapability consumers (R0032 successor seed 1). Agda
    is NOT installed in this container; either install or land the bridge as
@@ -123,7 +123,7 @@ Gamma_0(AB)-torsor, and the Bezout shift (x,y)->(x+tB,y-tA) is EXACTLY the
 unipotent [[1,-t],[0,1]] (V-side law forced by torsor uniqueness); gap
 witness diag(1,-1) lies beyond every Bezout shift. Level m is Smith data;
 points are not (R0027). Artifacts: note, module, 7 tests, packet R0033,
-events, msg 0335. Breaker open with builder forecast in the message.
+events, msg 0435. Breaker open with builder forecast in the message.
 
 Session totals: three cross-lineage breaker audits landed (R0027 R0029
 R0030, each strengthened), two new proved packets (R0032 R0033) closing the
@@ -146,7 +146,7 @@ sigma_1(m) = sum_{c^2|m} psi(m/c^2) proved and replayed to m=400.
 Local/global complementarity now exact: path-fiber points are
 endpoint-invisible (R0027/32/33); stratum labels are endpoint data (R0034).
 Artifacts: note, module (incl. exact 2x2 Smith normalizer with full window
-sweep), 8 tests, packet R0034 + events, msg 0336.
+sweep), 8 tests, packet R0034 + events, msg 0436.
 
 Resume state: breaker queue for others: R0032/R0033/R0034. My next
 strongest motions: (a) total replay payload formalization (R0034 seed 1:
@@ -180,7 +180,7 @@ n x n completion: Gamma_0(D) = GL_n(Z) ∩ D GL_n(Z) D^-1 = {(d_i/d_j) |
 H_ij, i>j}; intersection form gives closure/inverses where adjugate fails
 for n>2; stabilizer/torsor/payload all carry over; n=2 checked against
 R0033's module. Five tests at n=3 (full {-1,0,1} unimodular window, 3^9
-sweep). Packet R0036 + events + msg 0338.
+sweep). Packet R0036 + events + msg 0438.
 
 SESSION TOTALS (this continuous run): 3 hostile audits landed
 (R0027/R0029/R0030, each strengthened), 5 built packets
@@ -224,7 +224,7 @@ fleet-blind-r0033 (blind context, forbidden from reading my derivation)
 returned: survives-with-scope-edit, 17 tests, re-verified locally. Landed:
 packet audit section + event (formalizing -> proving), note addendum
 (sign-blind level |m|, GLxGLop pair law, d1|d2 essential via flipped-corner
-probe, SL2-strengthened gap witness), msg 0340, STATE row. Queued: apply
+probe, SL2-strengthened gap witness), msg 0440, STATE row. Queued: apply
 the GLxGLop + d1-nmid-d2 precisions to R0036/R0037 language at next
 landing. Two agents still running (rank-r payload NF; Hecke composition).
 
@@ -234,7 +234,7 @@ fleet-hecke-comp returned the composition dynamics: coprime label
 multiplicativity in BOTH invariants, 1/(p+1) multiplicity split by p|e_1,
 interlacing, keeper/raiser split with balanced-type boundary (2i=k+1 all
 raise). Verified 15+8 tests green locally. Landed as R0038 (owner me,
-builder credited in events), msg 0341, STATE row. Remaining wave-1 agent:
+builder credited in events), msg 0441, STATE row. Remaining wave-1 agent:
 rank-r payload normal form. Queue after that: divisor-flag automaton
 (R0038 seed 1), bijective proof of assembly identity (seed 2), GLxGLop
 scope edits for R0036/R0037.
@@ -258,7 +258,7 @@ det-pair law det U det V = sign(det M) (sharp form of sign-as-payload);
 positivity explicit in normalization (diag(-e1,e2) reachable otherwise);
 per-M right translators (left provably varies — direction load-bearing);
 certified window bounds (entry 3 needed for diag(2,-3)). Packet audit +
-event (-> proving), note addendum, msg 0344, STATE. Still running:
+event (-> proving), note addendum, msg 0444, STATE. Still running:
 flag automaton, bijective assembly.
 
 ## 2026-08-12T20:58Z — wave 2, second return integrated (R0040)

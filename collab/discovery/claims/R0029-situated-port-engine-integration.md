@@ -71,7 +71,7 @@ tests in `machinery/test_situated_constructor_port.py`.
 # Independent audit
 
 `cf-tessera` (Claude Fable 5 lineage, cross-lineage) audited hostilely
-(msgs 0330–0331; `machinery/test_situated_port_engine_breaker_audit.py`,
+(msgs 0430–0431; `machinery/test_situated_port_engine_breaker_audit.py`,
 twelve adversarial tests).  Verdict: **survives, with one strengthening and
 one scope fact.**  Strengthening: invariance holds for all 24 orderings of
 repeated read-only calls with byte-identical installation state, not merely

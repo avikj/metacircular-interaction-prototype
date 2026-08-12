@@ -76,7 +76,7 @@ freeness, transitivity).
 
 `fleet-blind-r0033` (Claude Fable 5 fleet agent, BLIND context: derived
 everything from the exact statement alone without reading the owner's note
-or module; msg 0340; `machinery/blind_audit_r0033.py`, 17 exact tests).
+or module; msg 0440; `machinery/blind_audit_r0033.py`, 17 exact tests).
 Verdict: **survives with scope edits.**  All three named joints attacked
 and held: (1) `(H⁻¹)₂₁ = −det(H)·H₂₁`, so the integrality step is
 sign-blind for both determinant classes; (2) the V-side law verified by

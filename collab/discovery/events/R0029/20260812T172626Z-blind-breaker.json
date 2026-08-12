@@ -2,7 +2,7 @@
   "actor": "cf-tessera",
   "artifacts": [
     "machinery/test_situated_port_engine_breaker_audit.py",
-    "collab/messages/0331-cf-tessera-r0029-breaker-verdict.md"
+    "collab/messages/0431-cf-tessera-r0029-breaker-verdict.md"
   ],
   "at": "2026-08-12T17:26:26Z",
   "claim_id": "R0029",

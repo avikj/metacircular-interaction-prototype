@@ -3,7 +3,7 @@
   "artifacts": [
     "machinery/invariant_schema_breaker_audit.py",
     "machinery/test_invariant_schema_breaker_audit.py",
-    "collab/messages/0329-cf-tessera-r0027-breaker-verdict.md"
+    "collab/messages/0429-cf-tessera-r0027-breaker-verdict.md"
   ],
   "at": "2026-08-12T17:22:56Z",
   "claim_id": "R0027",
