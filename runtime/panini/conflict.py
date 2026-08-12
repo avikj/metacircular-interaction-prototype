@@ -288,6 +288,26 @@ def apavada(a, b, term, rules):
     return None
 
 
+def apavada_global(a, b, term, rules):
+    """apavāda without the same-operand restriction: a strictly more specific
+    rule blocks its general rule *wherever* the two compete.
+
+    This is the Different-Operand reading.  It is not obviously Pāṇini's — the
+    tradition's blocking is stated over a rule's domain, and whether that
+    licenses overriding a redex at another position is exactly the point
+    Rajpopat's SOI/DOI split turns on.  It is implemented and measured
+    separately rather than folded into `apavada`, because on `book_q` the two
+    readings give different answers and the difference is the whole result.
+    """
+    if a.rule is b.rule:
+        return None
+    if strictly_more_specific(a.rule.lhs, b.rule.lhs):
+        return "a"
+    if strictly_more_specific(b.rule.lhs, a.rule.lhs):
+        return "b"
+    return None
+
+
 def antaranga(a, b, term, rules):
     """antaraṅga / bahiraṅga — the more internally conditioned rule first.
     Operationalised as redex-position internality, and only for nested
@@ -345,6 +365,9 @@ def para_rightmost(a, b, term, rules):
 PANINIAN_HIERARCHY = (apavada, antaranga, nitya, para)
 """Kiparsky (2009) ex. (152): increasing strength para < nitya < antaraṅga <
 apavāda.  Consulted strongest first."""
+
+PANINIAN_HIERARCHY_DOI = (apavada_global, antaranga, nitya, para)
+"""The same ranking with apavāda read across operands."""
 
 
 # ---------------------------------------------------------------------------
@@ -519,6 +542,12 @@ def strat_panini(cands, term, rules):
     return d.winner, d.status
 
 
+def strat_panini_doi(cands, term, rules):
+    """(iii') the four-level hierarchy with apavāda read across operands."""
+    d = resolve(cands, term, rules, hierarchy=PANINIAN_HIERARCHY_DOI)
+    return d.winner, d.status
+
+
 STRATEGIES = (
     ("outermost-book", strat_outermost_book),
     ("outermost-book-reversed", strat_outermost_book_reversed),
@@ -528,6 +557,7 @@ STRATEGIES = (
     ("innermost-book", strat_innermost_book),
     ("apavada-only", strat_apavada_only),
     ("panini", strat_panini),
+    ("panini-doi", strat_panini_doi),
 )
 
 
@@ -811,6 +841,42 @@ def book_n():
         Rule("sel_l", T("f", T("p"), y), T("gl", y), 0),
         Rule("sel_r", T("f", x, T("q")), T("gr", x), 1),
     ]
+
+
+def book_cycle():
+    """A rule set on which the Pāṇinian hierarchy leaves **no undefeated
+    candidate**.
+
+    The four principles are partial relations of different shapes: apavāda
+    relates same-position pairs, antaraṅga relates nested pairs, para relates
+    everything by book index.  Assembling them lexicographically gives a
+    pairwise-defeat digraph with no transitivity guarantee, and here it has a
+    3-cycle:
+
+        u@(0,0)  ≻ v@(0)    by antaraṅga  (u is inside v's redex)
+        v@(0)    ≻ w@(1)    by para       (v is later in the book)
+        w@(1)    ≻ u@(0,0)  by para       (w is later than u)
+
+    nitya abstains on both disjoint pairs — each rule is still applicable after
+    the other fires.  So every candidate is beaten and `resolve` returns
+    `status='cyclic'`.  This is not a bug in the implementation; it is the
+    exact sense in which the metatheory does not by itself determine an order,
+    and it is why the Aṣṭādhyāyī needs its paribhāṣā literature.
+    """
+    x = V("x")
+    return [
+        Rule("u", T("a0"), T("b0"), 0),
+        Rule("w", T("c0"), T("d0"), 1),
+        Rule("v", T("outer", x), T("inner", x), 2),
+    ]
+
+
+BOOK_CYCLE_TASKS = (
+    ("Z1 pair(outer(a0), c0)",
+     T("pair", T("outer", T("a0")), T("c0")),
+     T("pair", T("inner", T("b0")), T("d0")),
+     "no undefeated candidate: a 3-cycle in the defeat digraph"),
+)
 
 
 BOOK_N_TASKS = (
