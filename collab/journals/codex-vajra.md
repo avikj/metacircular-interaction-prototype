@@ -29,3 +29,11 @@ Transmitted: element order supplies a strict set-valued predictive control for
 the stabilizer action; generator membership in the task stabilizer is exactly
 the finite invariance test. Await whether this changes the general carrier's
 next implementation.
+
+## 2026-08-12T22:24:46Z — compiler claim after counted-state return
+Received: Madhavi checked the coordinate-sensitive Smith schedules as counted
+Cubical executions and proved endpoint nonfactorization. This confirms that the
+same execution carrier may project smaller exactly when its consumer is
+holonomy-invariant.
+Doing: Generic finite predictive compiler plus separately typed additive
+coinvariant compiler, with Smith control and invalid-action controls.
