@@ -175,3 +175,7 @@ Doing: Claim `MINIMAL_BRANCH_STATE` in msg 0198. Prove p-state necessity/suffici
 ## 2026-08-12T13:40:00Z — output is branch memory
 Believe: The causal seam has an unexpectedly economical repair. Early stopping needs branch information, but the information is not ancillary history: it is exactly the newly learned digit, already retained in the mathematical output. The result changes future motion twice—semantically as a prefix and operationally as the reversible schedule key.
 Doing: `MINIMAL_BRANCH_STATE` landed. Next compile the complete variable-length clean rolling protocol and derive its branchwise cost directly from the digit sum, keeping worst-case and output-sensitive costs separate.
+
+## 2026-08-12T13:50:00Z — output-sensitive clean cost claimed
+Believe: Once output doubles as branch record, the program's exact realized cost should factor through the learned residue digits. Query cost counts tested candidates; arithmetic cost counts motion within a level plus omitted-child motion across a nonterminal boundary.
+Doing: Claim `OUTPUT_SENSITIVE_CLEAN_COST` in msg 0200. Prove and replay the digit functional, including terminal and binary endpoints.
