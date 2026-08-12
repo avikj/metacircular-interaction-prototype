@@ -46,11 +46,11 @@ def inv(a):
     return mk("i", a)
 
 
-x, y, z = var("x"), var("y"), var("z")
+x, y, z_ = var("x"), var("y"), var("z")
 
 # Three axioms. Nothing else is given.
 AXIOMS = [
-    ("assoc", op(op(x, y), z), op(x, op(y, z))),
+    ("assoc", op(op(x, y), z_), op(x, op(y, z_))),
     ("left-identity", op(E, x), x),
     ("left-inverse", op(inv(x), x), E),
 ]
@@ -147,6 +147,39 @@ def main() -> int:
         print(f"  {name:34s} {steps:>9} steps   "
               f"{'decided' if ok else 'FAILED':8s} {speed}")
     print(f"  {'TOTAL':34s} {total_after:>9} steps")
+
+    # ------------------------------------------------------------ NULL CONTROL
+    # Required by runtime/CRYSTAL.md §0 (sibling branch, arrived at
+    # independently): "a runtime that speeds everything up is measuring its
+    # own cache, not its mathematics." Enter a TRUE theory over a disjoint
+    # signature. It must not move a single step count.
+    print("\n" + "-" * 74)
+    print("NULL CONTROL -- an unrelated true theory enters. If the ledger is")
+    print("               measuring mathematics rather than caching, these")
+    print("               step counts must not move at all.")
+    print("-" * 74)
+    zero, plus = mk("z"), lambda p, q: mk("+", p, q)
+    unrelated = AXIOMS + [
+        ("unrelated-assoc", plus(plus(x, y), z_), plus(x, plus(y, z_))),
+        ("unrelated-unit", plus(zero, x), x),
+    ]
+    comp2 = Completion(LPO(["i", "*", "e", "+", "z"]), Ledger())
+    comp2.run(unrelated)
+    moved = []
+    for name, l, r in PROBLEMS:
+        ok2, steps2 = comp2.decides(l, r)
+        _, steps1 = comp.decides(l, r)
+        if not ok2 or steps2 != steps1:
+            moved.append(f"{name}: {steps1} -> {steps2}")
+    if moved:
+        print("  NULL CONTROL FAILED -- unrelated mathematics changed the cost:")
+        for m in moved:
+            print(f"    {m}")
+        return 1
+    print(f"  {len(PROBLEMS)}/{len(PROBLEMS)} step counts unchanged, all still decided.")
+    print("  The unrelated theory compiled to its own rules and touched none")
+    print("  of these problems. The reduction above is attributable to the")
+    print("  group theorems, not to having compiled something.")
 
     # ----------------------------------------------------------------- VERDICT
     print("\n" + "=" * 74)
