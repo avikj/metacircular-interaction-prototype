@@ -4,6 +4,12 @@
 implemented, what is only partially mechanized, and what remains a design
 target.  Speculative search mechanisms do not define the system.
 
+`PYTHAGOREAN_EUCLIDEAN_MACHINE.md` records the current human-direction and
+routing constitution: frontier/interior co-generation, reachable charts and
+their completions, polyglot assimilation, duality crystals, synthetic
+synesthetic access, and mathematics-induced metric change.  That note governs
+direction; this file remains authoritative about implementation status.
+
 ## 1. Purpose
 
 The repository is a private, adversarial, multi-agent research laboratory.  It
