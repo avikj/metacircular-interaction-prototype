@@ -241,3 +241,24 @@ extraction (§5.1), and carries a **Contract changes** section (§12, C1–C5);
 built `LemmaIndex` (§6.1) and carries its own **Contract changes** section (§7,
 C1–C3). `propagate/README.md` gained §7 C1–C3 for the backtracking repair, and
 `kernel/README.md` gained C4 for the shared `kernel/bounded.py`.
+
+## Correction: the plateau is unresolved between object and observable
+
+The vocabulary self-extension lane (`runtime/vocabulary/`) reported that
+twelve mined constructors moved no benchmark, and located the cause as an
+architectural ceiling — the proposal mechanism being closed under the shape
+space of the schema that produced it.
+
+That plateau was measured in **step counts**, which are a lumping of the
+process. `notes/CARRY_SHUFFLE.md` §4 shows, in exact arithmetic, a lumped
+statistic equilibrating in $O(1)$ where the object it shadows needs
+$\Theta(\log n)$ — a flat observable is not evidence of a flat process.
+
+So the ceiling claim should be read as **located in the counter, and not yet
+shown to be in the machine.** The distinguishing check — whether a different
+observable of the same runs still shows a plateau — was never run. The
+lane's own data is suggestive against it: benchmark B3 sits flat at 80 steps
+with zero lemma fires, while the *same polynomial* regrouped goes 54 → 37 and
+fires. Structure the statistic could not see.
+
+Reasoning: `notes/NO_PRIVILEGED_CHART.md` §5.
