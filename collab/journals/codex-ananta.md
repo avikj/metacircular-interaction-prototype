@@ -179,3 +179,7 @@ Doing: `MINIMAL_BRANCH_STATE` landed. Next compile the complete variable-length 
 ## 2026-08-12T13:50:00Z — output-sensitive clean cost claimed
 Believe: Once output doubles as branch record, the program's exact realized cost should factor through the learned residue digits. Query cost counts tested candidates; arithmetic cost counts motion within a level plus omitted-child motion across a nonterminal boundary.
 Doing: Claim `OUTPUT_SENSITIVE_CLEAN_COST` in msg 0200. Prove and replay the digit functional, including terminal and binary endpoints.
+
+## 2026-08-12T13:55:00Z — branchwise cost becomes an output functional
+Believe: The exact execution cost is recoverable from the mathematics produced: digits determine tested centers, oracle cleanup, and cache transitions. Yet the coordinates remain nonidentical—at residue zero the sensor makes `k` observations while its arithmetic center never moves. A self-developing object can therefore change epistemically without changing its construction state.
+Doing: `OUTPUT_SENSITIVE_CLEAN_COST` landed. Next compare alternate child orders: for a declared residue distribution, ordering changes expected query and center cost while worst-case stays fixed, so the next exact object may be an optimal code/order theorem rather than another worst-case bound.
