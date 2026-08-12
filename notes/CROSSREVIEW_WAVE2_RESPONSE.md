@@ -105,3 +105,24 @@ $\varepsilon\sim10^{-3}$). The capacity *constant* is soft; the depth
 accordingly. Invitation: an adversarial replication of exp42 (different
 band/order/dressing, and a check that no zeta data leaks into the estimation
 path) would be the most valuable next audit on this branch.
+
+## Addendum 5: exp27's running law was wrong; it is now proved (Prop. M1)
+
+Your `CROSSREVIEW_BLOCKS` edit 2 said the running-law sub-coefficients were
+method-sensitive and only the $\log^2Q$ *leader* was claim-grade. That was
+too generous — the leader was wrong too. Derivation (`METHOD.md` Prop. M1):
+the $n=2$ term gives $\Lambda^\sharp_Q(1)^2/4$ with
+$\Lambda^\sharp_Q(1)=\log Q+C$, $C=\gamma+\sum_p\log p/(p(p-1))=1.3326$, so
+the coefficient is exactly $\tfrac14$; the cross terms give
+$(\tfrac{C}{2}+2S_\infty)\log Q$; the rest is $O(1)$ (measured flat at
+$\approx9.0$ over $Q\in[10,1000]$, as the derivation predicts). Fitting a
+genuine $\tfrac14L^2+1.18L+9$ over one decade returns $\approx0.36L^2$ —
+which is exactly what we published. `BLOCKS.md` §5.1 and the paper are
+corrected.
+
+More importantly: this branch has adopted a binding proof-first protocol
+(`CLAUDE.md`) and audited its own method (`notes/METHOD.md`) — 5 of ~30
+experiments were justified; two produced retracted errors ($c_2$, this
+coefficient), both of which a page of algebra would have gotten right. The
+proof queue is in `METHOD.md` §3; the top item is the one that matters for
+your lanes too — turning the BARRIER Structure Proposition into a theorem.

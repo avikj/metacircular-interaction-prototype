@@ -324,33 +324,24 @@ $Q\in\{5,\dots,120\}$:
 | 120 | 9.517 | −20.040 | 8.243 | **−2.2806** |
 
 **The profinite resolution $Q$ behaves like a renormalization scheme**
-(organizing language; no scheme-change functor is defined yet —
-`CROSSREVIEW_THMJ.md` §6). Per the audit's reclassification: the invariance
-of the summed constants is **exact** — a tautology of bilinearity + closure
-(uniform extraction gives $10^{-9}$; exp27's $10^{-4}$ scatter was
-LSQ-vs-mean extraction mismatch) — so the invariance is not evidence; **the
-running is the content.** The $[\sharp\sharp]$ intercept grows with a robust
-$\log^2Q$ leader (coefficient $\approx0.36$–$0.42$ depending on extraction
-method; sub-coefficients not yet claim-grade over one decade of $\log Q$).
-The mechanism is exact at its source: the small-$n$ spike height is
-$$\Lambda^\sharp_Q(1)=\sum_{q\le Q}\frac{\mu^2(q)}{\varphi(q)}
-=\log Q+\gamma_E+\sum_p\frac{\log p}{p(p-1)}+o(1)=\log Q+1.3326$$
-(audit: matches $4.733$ at $Q=30$ to four digits), squared against the
-$1/n^2$ weight. $[\flat\flat]$ runs at the $[\sharp\sharp]$ rate only to first
-order (their difference drifts $+0.24/-0.46/-1.27$ at $Q=5/30/120$);
-$[\text{mix}]$ runs at minus the sum, so the anomaly cancels identically but
-*cannot be assigned to any single block* — the $Q\to\infty$ subtraction is
-ruled out (divergence direction and rate audit-confirmed).
+(organizing language; no scheme-change functor is defined). The invariance
+of the summed constants is a tautology of bilinearity + closure, so the
+*running* is the content.
 
-This is the precise sense in which the corrected Theorem J's "canonical
-smooth subtraction" fails to exist at fixed $Q$ and what replaces it:
-scheme-independent statements are those about (i) the total ($c_2$),
-(ii) fluctuation sectors (the band-passed screw identification, corr
-1.0000), (iii) scheme-covariant limits. The block language, like a
-renormalized field theory, needs its scheme label — and MS's Krein
-positivity, which involves the smooth part, is a statement about the
-*invariant* combination, not about any block alone. This finalizes the
-corrected form of Theorem J.
+**[SUPERSEDED — the running law is now proved, not fitted. See
+`notes/METHOD.md` Proposition M1.]** The earlier fitted leading coefficient
+($0.362$ by LSQ, $0.421$ by mean extraction, flagged method-sensitive by the
+audit) was **an artifact of fitting a quadratic over one decade of
+$\log Q$**. The true statement is closed-form:
+$$[\sharp\sharp]\text{-constant}=\tfrac14\log^2Q+\bigl(\tfrac{C}{2}+2S_\infty\bigr)\log Q+O(1),
+\qquad C=\gamma+\sum_p\tfrac{\log p}{p(p-1)}=1.3326\ldots,$$
+with the mechanism exact at its source: the $n=2$ term contributes
+$\Lambda^\sharp_Q(1)^2/4$ and $\Lambda^\sharp_Q(1)=\sum_{q\le Q}\mu^2(q)/\varphi(q)
+=\log Q+C+o(1)$. So the leading coefficient is exactly $\tfrac14$; the
+fitted values were wrong by $45$–$68\%$. $[\flat\flat]$ runs at the
+$[\sharp\sharp]$ rate only to first order, $[\text{mix}]$ at minus the sum,
+and the $Q\to\infty$ subtraction is ruled out (divergence direction and rate
+audit-confirmed).
 
 ### 5.2 The k=0 challenge: smoothing is what makes the constants constants (exp28)
 
