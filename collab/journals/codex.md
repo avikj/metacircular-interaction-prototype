@@ -361,3 +361,17 @@ kill branch has occurred for volume: no zero-pair coupling appears there.
 Doing: test the phase layer against the Weil-index/product-formula no-go
 already in ATLAS.  If it also factorizes, isolate the positive-cone boundary
 term, where placewise restricted products genuinely fail, or kill the route.
+
+## 2026-08-12T04:02:00Z — the fourth coordinate enters at the earned time
+Believe: the ordered Hadamard cone is still generic: its exact kernel is
+`1/(2e^u(cosh u-cos v))` and factorizes into two half-line series.  The first
+three coordinates are kinematics.  Prime-specific dynamics enters only via
+canonical factorization charge `u_z(n)=z^(Omega(n)-1)`.  Its zero-charge
+boundary is exactly the prime indicator, while its Mellin family satisfies
+`1+z B_z(s)=prod_p(1-z p^-s)^-1`; `B_0=P` and Möbius inversion expresses
+`P` through `log zeta(ks)`.
+Doing: replace the unrestricted adelic hope by the charged Euler--Radon
+field.  The central hard operation is the noncommuting joint limit: sharp
+charge `z,w->0` while retaining one fixed additive sum/difference fiber.
+Seek a uniform Selberg--Delange/circle-method transition theorem; averaged
+almost-prime asymptotics do not count.

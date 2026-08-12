@@ -187,7 +187,7 @@ The next target is therefore precise:
 - No positivity, cancellation, RH, Goldbach, twin-prime, or novelty claim is
   made by the elementary nucleus alone.
 
-## 7. Rigor boundary
+## 9. Rigor boundary
 
 Proved here: the integral image/cokernel theorem, its local reductions, the
 positive-cone reconstruction, and the elementary projective pushforward
@@ -197,3 +197,80 @@ Standard structural input: the split-form Weil product law.  Proposed only:
 the ordered-cone boundary transform and any cross-place or cross-direction
 constraint.  A targeted prior-art search is required before any novelty label
 stronger than `possibly-new` is attached to that successor.
+
+## 7. The missing fourth coordinate: canonical factorization charge
+
+The ordered-cone transform itself still factorizes for every sequence.  In
+the unweighted positive lattice one has the exact identity
+
+\[
+ \sum_{m,n\ge1}e^{-u(m+n)}e^{-iv(m-n)}
+ =\frac{1}{2e^u(\cosh u-\cos v)}.
+\]
+
+This is precisely the sum over `S>|D|`, `S=D (mod 2)`; it factors back into
+the two half-line geometric series.  More generally arbitrary weights give
+`A(u+iv)A(u-iv)`.  Thus sum, difference, parity, and order are kinematic:
+they do not distinguish primes from an arbitrary sequence.
+
+Insert the multiplicative coordinate canonically.  For `n>=2`, set
+
+\[
+ u_z(n)=z^{\Omega(n)-1},\qquad
+ A_z(w)=\sum_{n\ge2}u_z(n)e^{-nw}.
+\]
+
+With the convention `0^0=1`, `u_0` is exactly the prime indicator: numbers
+with `Omega(n)=1` are precisely primes.  The two-leg charged field
+
+\[
+ \mathcal K(z_1,z_2;w_1,w_2)
+ =A_{z_1}(w_1)A_{z_2}(w_2)
+\]
+
+therefore contains the sharp prime-pair field at `z_1=z_2=0`.  Its sum grade
+is the ordered Goldbach count and its difference Fourier grade is the prime
+gap count.
+
+The one-leg Mellin transform has an exact Euler product.  For `Re(s)>1` and
+initially small `z`, define
+
+\[
+ B_z(s)=\sum_{n\ge2}\frac{z^{\Omega(n)-1}}{n^s}.
+\]
+
+Then
+
+\[
+ 1+zB_z(s)
+ =\sum_{n\ge1}\frac{z^{\Omega(n)}}{n^s}
+ =\prod_p(1-zp^{-s})^{-1},
+\]
+
+and the sharp boundary is the prime zeta function
+
+\[
+ B_0(s)=P(s)=\sum_p p^{-s}
+ =\sum_{k\ge1}\frac{\mu(k)}k\log\zeta(ks).
+\]
+
+The last identity follows by Möbius inversion from
+`log zeta(s)=sum_{k>=1}P(ks)/k`.  Hence zeta-zero singularities, Goldbach
+sum fibers, and prime-gap difference fibers are three boundary operations on
+one charged Euler--Radon field.
+
+This identifies a stronger successor than the unrestricted adelic transform:
+
+> Control the joint sharp-charge boundary `z_1,z_2 -> 0` while retaining a
+> fixed additive fiber `a m+b n=N`.  Determine whether the Euler-product
+> continuation in charge supplies a uniform cross-direction law that survives
+> coefficient/Fourier extraction.
+
+Ordinary Selberg--Delange analysis averages multiplicative charge; ordinary
+circle methods isolate additive fibers after rational-frequency
+decomposition.  The noncommutation of sharp charge extraction with sharp
+additive projection is the precise hard corner.  It is not resolved here.
+
+Advancement requires a uniform theorem near `z_1=z_2=0` strong enough to
+retain a fixed sum or difference coefficient.  A formal Euler product or an
+averaged almost-prime asymptotic alone fails the criterion.
