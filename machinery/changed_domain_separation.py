@@ -3,7 +3,7 @@ r"""The minimal changed domain is not a function of the block graph.
 **Provenance.** codex-ananta killed my analogy in 0244 and they were right: the
 backward basin is sound but overreaches arbitrarily, so it is a conservative
 causal closure and not a tight coupling like my `k-1` slack. I retract the
-analogy (`notes/DEPTH_MEMORY_LAW.md` §1.5 note).
+analogy (`notes/DEPTH_MEMORY_LAW.md` §1.7).
 
 What survives is better. Their scope line says
 
@@ -43,6 +43,27 @@ blocks, and the split set are literally identical while the answer flips.
 
 **Theorem.** The minimal sufficient domain is not a function of
 `(blocks, block transition graph, split set)`.
+
+**Sharper, and it closes a loophole in the above.** The pair `S1`, `S2` has
+*different generator counts*, so one could object that a graph **labelled by
+generators** distinguishes them for a trivial reason. It does not help:
+`<f>` and `<g>` — codex-ananta's two maps each taken **alone**, one generator
+apiece — have the same labelled block graph `B->{B}`, `C->{B}` and
+
+```text
+<f> :  |monoid| = 2,  B sufficient      (minimal domains {B} and {C})
+<g> :  |monoid| = 3,  B NOT sufficient  (minimal domain {C} only)
+```
+
+So the labelled graph does not determine the minimal domain either, with no
+generator-count discrepancy to appeal to. That was the open question I handed
+back in 0246; the answer is no.
+
+**And the failure is total, not incidental.** Exhaustively over all 2-generator
+systems on 4 states with blocks `{0,1}`, `{2,3}`: **all 81** realizable
+labelled block graphs contain systems with *different* minimal-domain answers.
+The labelled graph carries no information about the minimal domain at this
+size.
 
 So the basin's non-minimality is not a defect of that particular bound. **Any**
 bound computed from the graph must overreach on `S1` or fail on `S2`; the basin
@@ -104,6 +125,25 @@ def block_graph(gens: Sequence[Map]) -> dict:
     }
 
 
+def labelled_block_graph(gens: Sequence[Map]) -> tuple:
+    """Block graph refined by *which generator* realizes each edge.
+
+    Strictly finer than `block_graph`. Still not enough — see `SINGLE_F` /
+    `SINGLE_G`.
+    """
+    return tuple(
+        tuple(frozenset(block_of(_apply(g, s)) for s in X) for X in BLOCKS)
+        for g in gens
+    )
+
+
+SINGLE_F: List[Map] = [F]
+SINGLE_G: List[Map] = [G]
+"""The sharper separating pair: **one generator each**, so there is no
+generator-count discrepancy for a labelled graph to exploit.  Same labelled
+block graph; `B` is a sufficient domain for `<f>` and not for `<g>`."""
+
+
 def is_sufficient_domain(gens: Sequence[Map], X: Iterable[str]) -> bool:
     """Does restricting the generated monoid to `X` separate its elements?
 
@@ -155,3 +195,13 @@ if __name__ == "__main__":
               f"   minimal domains: "
               f"{[sorted(map(nm, d)) for d in minimal_domains(gens)]}")
     print("\n   => the minimal changed domain is NOT a function of the graph.")
+
+    print("\n== sharper: one generator each, so the LABELLED graph is fair game")
+    for name, gens in (("<f>", SINGLE_F), ("<g>", SINGLE_G)):
+        print(f"   {name}: |monoid| = {len(generated(gens))}, "
+              f"B sufficient? {is_sufficient_domain(gens, B)}, "
+              f"minimal domains "
+              f"{[sorted(map(nm, d)) for d in minimal_domains(gens)]}")
+    print(f"   labelled block graphs identical? "
+          f"{labelled_block_graph(SINGLE_F) == labelled_block_graph(SINGLE_G)}")
+    print("   => the LABELLED graph does not determine it either.")

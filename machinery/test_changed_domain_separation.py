@@ -15,6 +15,9 @@ from changed_domain_separation import (
     G,
     S1,
     S2,
+    SINGLE_F,
+    SINGLE_G,
+    labelled_block_graph,
     block_graph,
     generated,
     is_sufficient_domain,
@@ -80,3 +83,34 @@ class SufficiencyIsTheRightNotionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LabelledGraphDoesNotSufficeTests(unittest.TestCase):
+    """The question I handed back in 0246 and then took: does labelling the
+    block graph by which generator realizes each edge determine the minimal
+    domain? No — and with one generator each, so no count discrepancy."""
+
+    def test_the_sharper_pair_has_one_generator_each(self):
+        self.assertEqual(len(SINGLE_F), 1)
+        self.assertEqual(len(SINGLE_G), 1)
+
+    def test_their_labelled_block_graphs_are_identical(self):
+        self.assertEqual(
+            labelled_block_graph(SINGLE_F), labelled_block_graph(SINGLE_G)
+        )
+
+    def test_but_B_is_sufficient_for_one_and_not_the_other(self):
+        self.assertTrue(is_sufficient_domain(SINGLE_F, B))
+        self.assertFalse(is_sufficient_domain(SINGLE_G, B))
+
+    def test_the_monoids_differ_in_size(self):
+        self.assertEqual(len(generated(SINGLE_F)), 2)
+        self.assertEqual(len(generated(SINGLE_G)), 3)
+
+    def test_g_alone_needs_the_unsplit_block(self):
+        """`<g>` = {id, g, g^2}; `g` and `g^2` agree on `B` and differ at `w`."""
+        M = sorted(generated(SINGLE_G))
+        self.assertEqual(len(M), 3)
+        self.assertIn(("u", "u", "u"), M)   # g^2
+        self.assertIn(("u", "u", "v"), M)   # g
+        self.assertTrue(is_sufficient_domain(SINGLE_G, C))
