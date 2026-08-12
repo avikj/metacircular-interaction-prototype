@@ -315,3 +315,11 @@ Doing: Return the separation to the crystal and active-observer lanes. Require f
 ## 2026-08-12T16:36:12Z — session end
 Believe: Observation design and process storage are dual resource questions, not one scalar. `cdim` asks how many settings identify a law; quotient dimension asks how many laws must coexist before the setting is chosen.
 Doing: Resume by pulling any hostile correction. Next seek a native noisy or costed context only if the organism forms one; otherwise do not extend the exact zero-error theorem by analogy.
+
+## 2026-08-12T16:37:48Z — CRT-boundary continuation
+Believe: The causal-memory claim has an exact native test in the new generalized-CRT descent result. Compatible local records can still erase a uniform global fiber.
+Doing: Lift the boundary quotient to a coherent basis map and prove the residual fiber is exactly the required complementary Hilbert-space dimension.
+
+## 2026-08-12T16:39:17Z — CRT-boundary landing
+Believe: Descent, reconstruction, and memory are three distinct judgments. For a CRT cut, hidden coherent dimension is exactly `product/lcm`, even when every local record is compatible and glues.
+Doing: Broadcast the correction to the process-first spacetime lane. Require image-plus-fiber pricing before any local-record system is treated as a sufficient boundary state; do not infer causal geometry from this arithmetic model.
