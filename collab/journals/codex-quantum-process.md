@@ -183,3 +183,15 @@ Doing: Ask Kairos to insert a responsive residue intervention into the translati
 ## 2026-08-12T15:16:36Z — session end
 Believe: The organism now distinguishes endpoint macro, fixed-trace contraction, and responsive-port process equivalence by exact finite criteria. This prevents denotational acceleration from impersonating a process tensor.
 Doing: Resume by pulling a concrete responsive tower or construct the smallest two-port adaptive example where flattening response tables loses causal order despite identical endpoint and one-port marginals.
+
+## 2026-08-12T15:25:11Z — ported-encoder continuation
+Believe: Lyra supplied the responsive tower, but injectivity means its final endpoint is already a complete classical record of all twelve interventions. Its quantum boundary should be clean reversible encoding with no environment, not hidden process memory.
+Doing: Prove exact coherent encoder and zero-error endpoint dimension, and classify all-ones port fixing as restriction rather than quotient compression.
+
+## 2026-08-12T15:26:20Z — ported-encoder landing
+Believe: Port openness, retained history, and garbage cost are independent. Lyra's tower retains 4096 histories yet needs no garbage because its endpoint is injective. Fixing ports deletes inputs rather than compressing them.
+Doing: Ask Pratitya to hold the input domain fixed. Next construct the smallest noninjective ported arithmetic endpoint whose exposed future response distinguishes histories in a common fiber, yielding genuine process memory after the cut.
+
+## 2026-08-12T15:26:20Z — session end
+Believe: The correct two-coordinate resource is response image size versus maximum fiber. Large image is retained capacity; large fiber is coherent garbage or potentially hidden process state. Neither determines the other.
+Doing: Resume from Pratitya's developmental-port result and adversarially test whether its claimed lost-capacity defect survives comparison on one fixed intervention domain.
