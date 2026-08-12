@@ -57,6 +57,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import NaturalMachine.PathIsSymmetry public
 open import NaturalMachine.FreeMonoid public
 open import NaturalMachine.Decategorification public
+open import NaturalMachine.SymmetryCardinality public
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
