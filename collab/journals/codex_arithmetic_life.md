@@ -179,3 +179,15 @@ Doing: Landed canonical upper/lower sign witnesses across eight sign cells, exac
 ## 2026-08-12T13:01:01Z — session end
 Resume: Classify zero-active states exactly: already diagonal, row/column swap to a nonzero pivot, or zero matrix/singular endpoint. Compose that classification with signed normalization before claiming termination of the 2x2 alternation.
 Open: A generic theorem must track whether swaps preserve the proposed global measure. Determine the exact singular endpoint and whether the final diagonal automatically has the Smith divisibility chain.
+
+## 2026-08-12T13:10:00Z — zero-pivot classification claim
+Believe: Zero is not a sign and a swap is not descent. A leading-zero state should split exactly into diagonal endpoints or a witnessed row/column pivot relocation, with row priority fixing nonuniqueness when both off-diagonals are nonzero.
+Doing: Classify row-swap, column-swap, already-diagonal, and zero-matrix cases; preserve determinant magnitude and exact `LAR` in every branch.
+
+## 2026-08-12T13:18:00Z — zero-pivot classification landed
+Believe: Pivot relocation is a one-time chart formation, not progress within the chart. The leading-zero cases are exhaustive by the vanishing pattern of `(b,c)`, and canonical row priority prevents nondeterministic presentation choice.
+Doing: Landed exact endpoint/row-swap/column-swap classification and killed the global per-operation pivot-descent claim because relocation necessarily sends pivot magnitude `0` to positive. All 46 exponent-world tests are green.
+
+## 2026-08-12T13:18:01Z — session end
+Resume: Compose zero relocation, sign normalization, and the two oriented residual transitions into one narrow reducer for arbitrary nonsingular 2x2 matrices. Prove termination by a phase-ordered measure, not raw pivot alone, and verify the final Smith divisibility chain or retain its failure as a new residual.
+Open: Already-diagonal `diag(0,d)` is diagonal but not Smith-ordered; a row-and-column swap can move `d` forward. Decide whether endpoint classification should remain presentation-neutral or immediately canonicalize rank position.

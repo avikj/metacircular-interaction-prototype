@@ -22,6 +22,7 @@ from exponent_world import (
     ResidualCycleObstruction,
     LowerResidualRowAdvance,
     SignedActiveNormalization,
+    ZeroPivotClassification,
 )
 
 
@@ -501,6 +502,34 @@ class SmithPathTests(unittest.TestCase):
         world = ExponentWorld()
         with self.assertRaisesRegex(ValueError, "cannot make a zero"):
             world.normalize_signed_active_pair(((2, 0), (0, 7)), "upper")
+
+    def test_zero_pivot_row_swap_has_canonical_priority(self):
+        world = ExponentWorld()
+        result = world.classify_zero_pivot(((0, 6), (-4, 9)))
+        self.assertIsInstance(result, ZeroPivotClassification)
+        self.assertEqual((result.kind, result.relocated_pivot), ("row-swap", 4))
+        self.assertEqual(result.transformed, ((-4, 9), (0, 6)))
+        self.assertEqual(result.left, ((0, 1), (1, 0)))
+        self.assertEqual(abs(_det_for_test(result.transformed)), 24)
+
+    def test_zero_pivot_uses_column_swap_when_first_column_is_zero(self):
+        world = ExponentWorld()
+        result = world.classify_zero_pivot(((0, -6), (0, 9)))
+        self.assertEqual((result.kind, result.relocated_pivot), ("column-swap", 6))
+        self.assertEqual(result.transformed, ((-6, 0), (9, 0)))
+        self.assertEqual(result.right, ((0, 1), (1, 0)))
+
+    def test_zero_pivot_distinguishes_diagonal_and_zero_endpoints(self):
+        world = ExponentWorld()
+        diagonal = world.classify_zero_pivot(((0, 0), (0, -7)))
+        zero = world.classify_zero_pivot(((0, 0), (0, 0)))
+        self.assertEqual((diagonal.kind, diagonal.relocated_pivot),
+                         ("already-diagonal", None))
+        self.assertEqual((zero.kind, zero.relocated_pivot), ("zero-matrix", None))
+
+    def test_nonzero_pivot_cannot_enter_zero_classifier(self):
+        with self.assertRaisesRegex(ValueError, "zero leading"):
+            ExponentWorld().classify_zero_pivot(((2, 0), (0, 7)))
 
 
 def _matmul_for_test(left, right):

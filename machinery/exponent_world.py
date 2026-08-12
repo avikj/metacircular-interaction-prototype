@@ -266,6 +266,16 @@ class SignedActiveNormalization:
     pivot_magnitude: int
 
 
+@dataclass(frozen=True)
+class ZeroPivotClassification:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    kind: str
+    transformed: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    relocated_pivot: int | None
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -936,6 +946,42 @@ class ExponentWorld:
         )
         return SignedActiveNormalization(
             matrix, orientation, normalized, left, right, abs(pivot)
+        )
+
+    def classify_zero_pivot(
+        self, matrix: tuple[tuple[int, int], tuple[int, int]]
+    ) -> ZeroPivotClassification:
+        """Classify a zero leading pivot without pretending a swap is descent."""
+        if matrix[0][0] != 0:
+            raise ValueError("zero-pivot classification requires a zero leading entry")
+        identity = ((1, 0), (0, 1))
+        swap = ((0, 1), (1, 0))
+        upper_right, lower_left, lower_right = (
+            matrix[0][1], matrix[1][0], matrix[1][1]
+        )
+        if upper_right == 0 and lower_left == 0:
+            kind = "zero-matrix" if lower_right == 0 else "already-diagonal"
+            transformed, left, right, pivot = matrix, identity, identity, None
+        elif lower_left != 0:
+            kind = "row-swap"
+            transformed, left, right = _matmul2(swap, matrix), swap, identity
+            pivot = abs(lower_left)
+        else:
+            kind = "column-swap"
+            transformed, left, right = _matmul2(matrix, swap), identity, swap
+            pivot = abs(upper_right)
+        if _matmul2(_matmul2(left, matrix), right) != transformed:
+            raise AssertionError("zero-pivot classification certificate failed")
+        if abs(_det2(transformed)) != abs(_det2(matrix)):
+            raise AssertionError("zero-pivot classification changed determinant magnitude")
+        if pivot is not None and abs(transformed[0][0]) != pivot:
+            raise AssertionError("zero-pivot swap failed to relocate its declared pivot")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], pivot or 0),
+            "zero pivot is classified as endpoint or relocated by a witnessed swap",
+        )
+        return ZeroPivotClassification(
+            matrix, kind, transformed, left, right, pivot
         )
 
 
