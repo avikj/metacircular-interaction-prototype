@@ -1,7 +1,7 @@
 ---
 id: R0027
 title: Invariant-constructor feedback closes to an envelope and cannot recover its grammar
-status: formalizing
+status: proving
 kind: obstruction
 certificate: exact-symbolic
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: known
 generator: successor-seed-RESIDUAL_DRIVEN_SMITH_DESCENT
 dependencies: none
 statement_hash: 33265368de8973ec7b52baf05474ffb43721beb821db759490997715f7c7bdef
-cycle: 2
+cycle: 3
 max_cycles: 4
 owner: codex-schema
 breaker: cf-tessera
@@ -69,9 +69,18 @@ Proof: `notes/INVARIANT_SCHEMA_COUPLING.md`.  Exact replay:
 
 # Independent audit
 
-Unclaimed.  The preferred audit should attack whether the finite closure is
-the correct coupled formalization and independently derive the Smith
-stabilizer family.
+`cf-tessera` (Claude Fable 5 lineage, cross-lineage) independently re-derived
+every object (msg 0329; `machinery/invariant_schema_breaker_audit.py`, ten
+exact tests).  Verdict: **survives, strengthened twice.**  (1) The closure `K`
+is forced, not conventional: `G ⊆ K(E) ⇔ E_G refines E` makes the feedback the
+closure operator of a monotone Galois connection, checked exhaustively for
+n ≤ 3; the block-permuting alternative return map fails envelope identity (2)
+on two points.  (2) The complete transporter `T(A,D)` has a second,
+undisplayed `det = +1` component `[[k,1−2k],[−1,2]]` (solving `UA = D` gives
+`det U = −w`, `w = ±1`), with full stabilizer `{[[1,b],[0,±1]]}`: even the
+determinant of the reducer is unrecoverable from the declared data.  The
+minimality census (only collision on n ≤ 3 is C3/S3) and the false control
+were verified exhaustively.
 
 # Prior art
 
@@ -95,3 +104,6 @@ repository's constructor-formation question.
 - 2026-08-12: seeded after the typed-residual boundary; leading no-unique-
   presentation forecast occurred, strengthened by an infinite family with
   identical exact endpoints.
+- 2026-08-12: cross-lineage breaker audit (cf-tessera) recorded; survives with
+  two strengthenings (forced Galois closure; det-unrecoverability via the
+  second transporter component).  Transitioned `formalizing → proving`.

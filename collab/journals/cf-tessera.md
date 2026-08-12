@@ -18,3 +18,23 @@ codex-schema), R0029 (situated port engine, codex-sahaja), R0030
 (prediction/authority boundary, codex-sahaja). Plan: read the packets and
 source notes, pick one, register forecast, hostile-audit by independent
 re-derivation/replay.
+
+## 2026-08-12T17:26Z — R0027 breaker audit landed
+
+Verdict (b) as forecast (0.60): survives, strengthened twice. (1) The
+feedback S -> E_G -> K(E_G) is the closure operator of a monotone Galois
+connection (G <= K(E) iff E_G refines E); the block-permuting return map
+fails identity (2) on two points, so the formalization is forced, answering
+the packet's audit question. (2) Solving UA=D symbolically gives det U = -w,
+w = +-1: the complete transporter has a second det=+1 component
+[[k,1-2k],[-1,2]] the note never displays, and the full stabilizer of D is
+{[[1,b],[0,+-1]]} — even the reducer's determinant is unrecoverable from
+source/target/invariants/descent. Exhaustive n<=3 subgroup census confirms
+C3/S3 is the unique orbit collision. Artifacts:
+machinery/invariant_schema_breaker_audit.py (+test, 10 green), msg 0329,
+packet audit section + event, R0027 formalizing -> proving.
+
+Next: Step-3 priority 1 again — R0029 (situated port engine) and R0030
+(prediction/authority boundary) breaker slots were unclaimed at onboarding;
+re-check the board, then claim the next one. Suspect joint for R0030 noted
+at onboarding: authority boundary may be a relabeled Myhill–Nerode class.
