@@ -162,7 +162,8 @@ class CyclotomicOrgan:
     def valuation(self, prime: int, base: int, exponent: int) -> int:
         return self.form(prime, base).valuation(exponent)
 
-    def propose_encounter(self, base: int, limit: int = 500) -> int | None:
+    def propose_encounter(self, base: int, budget: int = DEFAULT_BUDGET,
+                          limit: int | None = None) -> int | None:
         """The least exponent this organ has not covered that is GUARANTEED
         to earn a prime it cannot already hold.
 
@@ -171,12 +172,20 @@ class CyclotomicOrgan:
         it skips exponent 6, because Phi_6(2) = 3 is exactly the largest prime
         factor of 6, the one classical case where no primitive divisor exists.
         Declining is the point: an organ that cannot refuse cannot choose.
+
+        Two refusals, not one.  Theorem 7 declines encounters where no
+        primitive prime EXISTS; Theorem 8 declines those where one exists but
+        this organ cannot REACH it inside its budget.  Conflating them is how
+        the organ used to promise exponent 61 and deliver nothing.  Returning
+        None means the horizon is exhausted, which Theorem 8 proves is a
+        finite event.
         """
         covered = self.routed.get(base, set())
-        for index in range(1, limit + 1):
+        ceiling = limit if limit is not None else acquisition_horizon(base, budget)
+        for index in range(1, ceiling + 1):
             if any(done % index == 0 for done in covered):
                 continue
-            if has_primitive_divisor(base, index):
+            if refusal(base, index, budget) is None:
                 return index
         return None
 
@@ -356,6 +365,102 @@ def has_primitive_divisor(base: int, index: int) -> bool:
     if index == 2:
         return value & (value - 1) != 0       # fails iff base+1 is 2^k
     return value not in (1, largest_prime_factor(index))
+
+
+def totient(n: int) -> int:
+    """Euler's totient, from the exact factorization of n."""
+    if n < 1:
+        raise ValueError("need n >= 1")
+    if n == 1:
+        return 1
+    result = n
+    for prime, _power in _factor_small(n):
+        result = result // prime * (prime - 1)
+    return result
+
+
+def scan_cost(base: int, index: int) -> int:
+    """Candidates the guided scan needs in the WORST case for this encounter.
+
+    The worst case is `Phi_index(base)` prime, when the scan must reach
+    sqrt(Phi) inside the progression.  This is a guarantee, not a prediction:
+    an encounter passing it always completes, while one failing it may still
+    complete by luck if a small factor turns up early.
+    """
+    value = abs(cyclotomic_value(index, base))
+    if value <= 1:
+        return 1
+    step, exceptional = search_progression(index)
+    return isqrt(value) // max(step, 1) + (1 if exceptional else 0) + 1
+
+
+def certainly_unaffordable(base: int, index: int,
+                           budget: int = DEFAULT_BUDGET) -> bool:
+    """Theorem 8's cheap necessary condition, decided from phi(index) alone.
+
+    Affordability forces `a^(phi(n)/2)/sqrt(8) <= 2 n B`, i.e.
+    `phi(n) log a <= 2 log(6 n B)`.  Checking this before evaluating
+    `Phi_index(base)` keeps the horizon search from costing more than the
+    encounters it is deciding about.
+    """
+    from math import log
+    return (totient(index) * log(base)
+            > 2.0 * log(6.0 * index * max(budget, 1)))
+
+
+def affordable(base: int, index: int, budget: int = DEFAULT_BUDGET) -> bool:
+    """Can this organ actually DELIVER on the encounter, not merely want it?"""
+    if certainly_unaffordable(base, index, budget):
+        return False
+    return scan_cost(base, index) <= budget
+
+
+def acquisition_horizon(base: int, budget: int = DEFAULT_BUDGET) -> int:
+    """Least N beyond which NO encounter is affordable — the organ's horizon.
+
+    Theorem 8 in `notes/CYCLOTOMIC_SENSOR.md`.  Affordability forces
+    `a^(phi(n)/2) / sqrt(8) <= 2 n B`, i.e. `phi(n) log a <= 2 log(6 n B)`,
+    and `phi(n) >= sqrt(n)` for `n > 6`, so `sqrt(n) log a <= 2 log(6 n B)`.
+    The left side eventually dominates, so the affordable set is finite and
+    this search terminates with a proof rather than at an arbitrary cutoff.
+    """
+    from math import log
+    scale = log(base)
+    turning = int((4.0 / scale) ** 2) + 1      # beyond here the gap increases
+    index = max(turning, 7)
+    while index * scale * scale <= 4.0 * log(6.0 * index * max(budget, 1)) ** 2:
+        index += 1
+    return index
+
+
+def refusal(base: int, index: int,
+            budget: int = DEFAULT_BUDGET) -> str | None:
+    """Why this organ declines the encounter, or None if it accepts.
+
+    A refusal an organ can state is worth more than one it merely performs:
+    each of these is licensed by a theorem, not by a missing precondition.
+    """
+    if certainly_unaffordable(base, index, budget):
+        return (f"phi({index}) = {totient(index)} is too large: Theorem 8's "
+                f"bound phi(n) log a <= 2 log(6 n B) already fails, so no "
+                f"scan of Phi_{index}({base}) fits in {budget}")
+    if not has_primitive_divisor(base, index):
+        value = abs(cyclotomic_value(index, base))
+        largest = largest_prime_factor(index)
+        if index == 1:
+            return f"Phi_1({base}) = {value}: no prime at all (Theorem 7)"
+        if index == 2:
+            return (f"Phi_2({base}) = {value} is a power of 2, the only prime "
+                    "available is the exceptional one (Theorem 7)")
+        return (f"Phi_{index}({base}) = {value} = the largest prime factor of "
+                f"{index}, which is {largest}: every prime here is the "
+                "exceptional one, so nothing is primitive (Theorem 7)")
+    cost = scan_cost(base, index)
+    if cost > budget:
+        return (f"a primitive prime exists but is not reachable: the guided "
+                f"scan needs up to {cost} trial divisions, budget is {budget} "
+                "(Theorem 8)")
+    return None
 
 
 def permits(index: int, prime: int) -> bool:
@@ -620,8 +725,8 @@ def main() -> None:
     fresh = CyclotomicOrgan(ArithmeticLife())
     try:
         fresh.form(1321, 2)
-    except ValueError as refusal:
-        print(f"  first, v_1321 is refused: {refusal}")
+    except ValueError as gate_error:
+        print(f"  first, v_1321 is refused: {gate_error}")
     routed = fresh.route(2, 60)
     print(f"  routed through Phi_m for m | 60:")
     print(f"    {routed.factors}")
@@ -648,6 +753,23 @@ def main() -> None:
           f"Phi_6(2) = {cyclotomic_value(6, 2)} = "
           f"largest prime factor of 6.  No primitive divisor exists.")
     print("  declining is the choice; an organ that accepts everything is fed.")
+
+    print("\nencounter 8: 'what can I NOT reach?'")
+    budget = 200_000
+    bound = acquisition_horizon(2, budget)
+    reach = [n for n in range(1, bound + 1) if affordable(2, n, budget)]
+    print(f"  with a budget of {budget} trial divisions at base 2:")
+    print(f"    proved horizon {bound}; affordable exponents {len(reach)}, "
+          f"largest {max(reach)}")
+    for index in (53, 61, 210):
+        print(f"    n={index:4d} phi={totient(index):3d} "
+              f"cost={scan_cost(2, index):10d}  "
+              f"{'REACHABLE' if affordable(2, index, budget) else 'refused'}")
+    print("  the horizon is a sublevel set of phi, not an interval in n:")
+    print("  2^210-1 has 64 digits and is reachable; 2^61-1 has 19 and is not.")
+    print(f"  refusal(2,61): {refusal(2, 61)}")
+    print(f"  refusal(2, 6): {refusal(2, 6)}")
+    print("  two refusals, kept apart: nothing is there, versus I cannot get there.")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):

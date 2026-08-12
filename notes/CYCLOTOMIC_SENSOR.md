@@ -525,6 +525,100 @@ encounter is not selecting; it is being fed.  The mathematical content of the
 agency is entirely in the negative case — the cases where the theorem says
 *do not bother* — and those cases are exactly the classical exceptions.
 
+## The organ was promising what it could not deliver
+
+Fourth sitting.  The organ chooses now, so I let it choose repeatedly and
+watched whether its guarantee survived.  It does not.  Force it to the frontier
+and it proposes $n=61$, spends its entire budget of $200{,}000$ trial
+divisions, and earns **nothing**:
+
+```text
+organ proposes n = 61 ; primitive divisor exists? True
+  delivered factors: ()   complete = False
+  cofactor: 2305843009213693951
+```
+
+The primitive prime is $2^{61}-1$ itself, sitting in the cofactor unrecognised.
+Theorem 7's guarantee is about **existence**; the routing's delivery is about
+**budget**; and the organ had conflated them.  It promised, failed, and said
+nothing about the failure beyond a boolean.
+
+The repair needs a second refusal, and to state it I need a lower bound on
+$\Phi_n(a)$ that the earlier $(a-1)^{\varphi(n)}$ cannot give at $a=2$.
+
+> **Lemma.**  For every $a\ge2$ and $n\ge1$,
+> $$\Phi_n(a) \;>\; \frac{a^{\varphi(n)}}{8}.$$
+
+*Proof.*  $\Phi_n(a)=\prod_{d\mid n}(a^{d}-1)^{\mu(n/d)}$, so
+$$
+  \log\Phi_n(a)=\sum_{d\mid n}\mu(n/d)\bigl[d\log a+\log(1-a^{-d})\bigr]
+  =\varphi(n)\log a+\sum_{d\mid n}\mu(n/d)\log(1-a^{-d}),
+$$
+using $\sum_{d\mid n}\mu(n/d)\,d=\varphi(n)$.  Since $a\ge2$ gives
+$a^{-d}\le\tfrac12$, and $|\log(1-x)|\le 2x$ on $[0,\tfrac12]$, the tail is
+bounded by $\sum_{d\ge1}2a^{-d}=2/(a-1)\le2$.  Hence
+$\Phi_n(a)\ge a^{\varphi(n)}e^{-2}>a^{\varphi(n)}/8$.  $\square$
+
+This is the bound the earlier sections wanted and did not have: it is
+non-vacuous at $a=2$, where $(a-1)^{\varphi(n)}=1$ says nothing.
+
+> **Theorem 8 (affordable horizon).**  Fix $a\ge2$ and a budget $B$ of trial
+> divisions.  The guided scan of $\Phi_n(a)$ is guaranteed to finish when
+> $\sqrt{\Phi_n(a)}/\mathrm{step}(n)\le B$.  Since
+> $\mathrm{step}(n)\le 2n$ and $\Phi_n(a)>a^{\varphi(n)}/8$, this forces
+> $$
+>   \varphi(n)\,\log a \;\le\; 2\log(6nB).
+>   \tag{8}
+> $$
+> Because $\varphi(n)\ge\sqrt n$ for $n>6$, (8) fails for all large $n$, so
+> **the affordable set is finite** and an explicit bound is the least
+> $N>(4/\log a)^{2}$ with $\sqrt N\log a>2\log(6NB)$ — past that point the gap
+> is increasing, so the search for the horizon terminates with a proof rather
+> than at a chosen cutoff.
+
+## The horizon is a sublevel set of $\varphi$, not an interval
+
+This is the part I did not expect.  At $a=2$, $B=200{,}000$ the proved bound is
+$N=4151$, and inside it exactly $101$ exponents are affordable — the largest
+being $\mathbf{210}$.  Meanwhile $61$ is **not** affordable.
+
+| $n$ | $\varphi(n)$ | worst-case candidates | affordable? |
+|---|---|---|---|
+| $53$ | $52$ | $895{,}344$ | no |
+| $61$ | $60$ | $12{,}446{,}725$ | no |
+| $210$ | $48$ | $70{,}535$ | yes |
+
+So the organ's reachable world is not bounded by *size*.  $2^{210}-1$ has $64$
+digits and $2^{61}-1$ has $19$, and the big one is the reachable one.  What
+bounds the horizon is $\varphi(n)$: the reachable set is a sublevel set
+$\{\,n:\varphi(n)\lesssim 2\log(6nB)/\log a\,\}$, and $\varphi$ is small exactly
+at the highly composite $n$.  An organ with a fixed budget can see arbitrarily
+far out along the smooth exponents and is walled off from the primes.
+
+That inverts the naive picture of a growing frontier.  The machine does not
+run out of reach gradually; it runs out along one direction (prime and
+near-prime exponents) while remaining wide open along another.
+
+## Two refusals, kept apart
+
+`refusal(a, n, B)` returns the reason or `None`, and there are now exactly two
+kinds, each licensed by a theorem:
+
+```text
+n =   6 -> Phi_6(2) = 3 = the largest prime factor of 6: every prime here is
+           the exceptional one, so nothing is primitive     (Theorem 7)
+n =  61 -> a primitive prime exists but is not reachable: the guided scan
+           needs up to 12446725 trial divisions, budget is 200000 (Theorem 8)
+n = 210 -> None
+```
+
+Merging them would be the same defect as the crystal runtime's merged
+`UNORIENTABLE`/`EXHAUSTED` (`machinery/crystal/README.md`): one says *there is
+nothing here*, the other says *there is something here and I cannot reach it*,
+and only the second is repaired by a larger budget.  Keeping them apart is
+what makes the horizon a statement about this organ rather than about
+arithmetic.
+
 ## The encounter
 
 ```text
@@ -561,6 +655,12 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** the lemma `Phi_n(a) > a^phi(n)/8` and Theorem 8.  The
+  lemma's ingredients (the Mobius form of `Phi_n`, `sum mu(n/d) d = phi(n)`,
+  `phi(n) >= sqrt(n)` for `n > 6`) are standard; the assembly into a finiteness
+  statement about *this organ's* reachable set is what the note adds.  The
+  horizon's shape — a sublevel set of `phi`, so that exponent 210 is reachable
+  where 61 is not — is derived and then exhibited, not measured.
 - **Proved here:** Theorem 7, from Theorem 5 alone.  The *conclusion* — that
   a primitive prime divisor exists outside an explicit finite list — is
   Bang (1886) and Zsigmondy (1892) and is classical; what is derived here is

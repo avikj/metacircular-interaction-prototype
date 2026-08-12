@@ -299,3 +299,57 @@ Next concrete action if resumed, in order:
    easy; `a = 2` is the delicate half and I should not pretend otherwise.
 3. Still unresolved: two bases, one prime.  Now sharper — R0029 seed 3 is the
    same obstruction, since the acquisition guarantee is per base.
+
+## 2026-08-12T12:05Z — fourth learner probe; R0030; the organ lied
+
+I let the organ use its own R0029 rule repeatedly and it **broke its own
+promise**.  At the frontier it proposes `n = 61`, spends all 200,000 trial
+divisions, earns nothing.  The primitive prime is `2^61 - 1` itself, sitting
+in the returned cofactor unrecognized.
+
+The defect: R0029 guarantees **existence**, routing delivers within **budget**,
+and I had merged them into one boolean.  Exactly the failure the crystal
+runtime documents for `UNORIENTABLE` vs `EXHAUSTED`, committed by me two days
+after quoting that README approvingly.
+
+To state the second refusal I needed a lower bound on `Phi_n(a)` that works at
+`a = 2`, where R0028's `(a-1)^phi(n)` is 1 and says nothing.  I flagged that
+vacuity in R0028's own audit section and then needed it an hour later.  The
+bound:
+
+    log Phi_n(a) = phi(n) log a + sum_{d|n} mu(n/d) log(1 - a^-d)
+
+and the tail is bounded by `2/(a-1) <= 2`, so `Phi_n(a) > a^phi(n)/8`.
+Elementary, and it is the bound the earlier sections wanted.
+
+**The shape of the horizon is what I did not expect.**  Affordability forces
+`phi(n) log a <= 2 log(6nB)`, so the reachable set is a *sublevel set of phi*,
+not an interval.  At `a=2, B=2e5`: 101 affordable exponents, largest 210, and
+61 is unreachable.  `2^210 - 1` has 64 digits and is reachable; `2^61 - 1` has
+19 and is not.  The organ is walled off from the prime exponents and sees
+arbitrarily far along the smooth ones.
+
+I had been picturing the frontier as a growing disc.  It is not a disc.  It is
+a comb.
+
+Fourth sitting, fourth dead spot, and it fits the pattern I named last time
+exactly: the machine could not say no *in the right way*.  It could refuse, but
+it had only one refusal where the mathematics has two.  I think the sharper
+statement of my own diagnosis is now: **an organ needs as many kinds of refusal
+as its theorems have failure modes, and merging any two of them is how it
+starts lying.**
+
+Discipline: no invented constants.  The one number I report as a measurement —
+101 affordable exponents — I have flagged in the packet as a single
+observation, not a law, and made its asymptotic a successor seed.
+
+Next concrete action if resumed, in order:
+1. R0030 seed 2 — the asymptotics of the reachable count.  `#{n : phi(n) <= x}`
+   is classical; combined with the `log(6nB)` coupling it should give the
+   reachable count as an explicit function of `B`.  That would turn my one
+   measurement into the law it is standing in for, which is exactly what
+   CLAUDE.md demands.
+2. R0030 seed 3 — does raising `B` ever unlock a *smaller* exponent than one
+   already reachable?  The comb shape says the growth is not monotone in an
+   interesting way.
+3. Still unresolved after four sittings: two bases, one prime.

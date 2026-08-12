@@ -20,7 +20,12 @@ from cyclotomic_sensor import (
     cyclotomic_value,
     factor_cyclotomic,
     factor_power_minus_one,
+    acquisition_horizon,
+    affordable,
+    certainly_unaffordable,
     has_primitive_divisor,
+    refusal,
+    totient,
     largest_prime_factor,
     naive_trial_division,
     permits,
@@ -434,6 +439,66 @@ class TestCyclotomicSensor(unittest.TestCase):
         # The exceptions found are exactly the classical Zsigmondy list.
         self.assertEqual(sorted(exceptions), [(2, 1), (2, 6), (3, 2), (7, 2),
                                               (15, 2)])
+
+    def test_cyclotomic_lower_bound_lemma(self) -> None:
+        """Falsifier for the lemma behind Theorem 8: Phi_n(a) > a^phi(n) / 8."""
+        for base in range(2, 12):
+            for index in range(1, 60):
+                self.assertGreater(8 * abs(cyclotomic_value(index, base)),
+                                   base ** totient(index),
+                                   f"a={base} n={index}")
+
+    def test_affordability_is_a_guarantee_not_a_prediction(self) -> None:
+        """Every affordable encounter completes; that is the whole point."""
+        for index in range(1, 60):
+            if not affordable(2, index, 20_000):
+                continue
+            result = factor_cyclotomic(index, 2, budget=20_000, compare=False)
+            self.assertTrue(result.complete,
+                            f"n={index} was called affordable and did not finish")
+
+    def test_the_broken_promise_is_now_a_stated_refusal(self) -> None:
+        """Exponent 61 used to be proposed, cost the whole budget, and earn
+        nothing.  Now it is declined, and the decline cites its theorem."""
+        self.assertTrue(has_primitive_divisor(2, 61))      # one still EXISTS
+        self.assertFalse(affordable(2, 61))                # but is unreachable
+        why = refusal(2, 61)
+        self.assertIsNotNone(why)
+        self.assertIn("Theorem 8", why)
+        # and the two refusals are distinguished, not merged
+        self.assertIn("Theorem 7", refusal(2, 6))
+        self.assertIsNone(refusal(2, 210))
+
+    def test_horizon_is_finite_and_shaped_by_the_totient(self) -> None:
+        """The reachable world is not an interval in n.  It is a sublevel set
+        of phi: exponent 210 is affordable, exponent 61 is not."""
+        budget = 200_000
+        bound = acquisition_horizon(2, budget)
+        reachable = [n for n in range(1, bound + 1)
+                     if affordable(2, n, budget)]
+        self.assertEqual(len(reachable), 101)
+        self.assertEqual(max(reachable), 210)
+        self.assertNotIn(61, reachable)
+        self.assertIn(210, reachable)
+        self.assertLess(totient(210), totient(61))
+        # nothing past the proved bound can be affordable
+        for n in (bound + 1, bound + 17, 2 * bound):
+            self.assertTrue(certainly_unaffordable(2, n, budget))
+
+    def test_every_proposal_now_delivers(self) -> None:
+        """With affordability folded in, the promise is operational: each
+        proposed encounter completes AND earns a primitive prime."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for _ in range(20):
+            index = organ.propose_encounter(2, budget=20_000)
+            self.assertIsNotNone(index)
+            held = set(organ.life.moduli)
+            result = organ.route(2, index, budget=20_000)
+            self.assertTrue(result.complete, f"proposed n={index}, incomplete")
+            fresh = set(organ.life.moduli) - held
+            self.assertTrue(any(multiplicative_order(2, p) == index
+                                for p in fresh),
+                            f"proposed n={index} earned no primitive prime")
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
