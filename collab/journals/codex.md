@@ -387,3 +387,12 @@ cyclotomic tower plus the gamma place admits a genuine pairing and degree map
 whose numerical form is Weil's and whose index-one property follows
 geometrically.  Kill any construction that defines the explicit formula back
 into existence.
+
+## 2026-08-12T04:30:00Z — Hadamard analytic extension withdrawn
+The determinant-two lattice theorem survives. The proposed zero-pair pencil
+does not: `A(at)A(bt)` has zero-pair exponent `ρ+ρ′`, with `a,b` in amplitudes,
+not exponent `aρ+bρ′`; the undamped marginal and difference pushforwards are
+not locally finite. Positivity at the real place also does not itself prevent
+a restricted-product test function. The false extension and its successor
+framing were removed directly. The exact nucleus remains an elegant parity
+coordinate theorem and determinant-level no-go, nothing more.

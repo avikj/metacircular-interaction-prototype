@@ -83,7 +83,7 @@ No claim is made here that determinant two explains the analytic parity
 barrier in full; it identifies the exact integral datum that any proposed
 sum/difference spectral equivalence must retain.
 
-## 4. The projective pair pencil
+## 4. The two-variable transform, and why the pencil claim fails
 
 Let
 
@@ -94,23 +94,49 @@ Let
 \]
 
 The two-leg measure `mu tensor mu` has two-variable Laplace transform
-`A(z_1)A(z_2)`.  For every primitive integer vector `(a,b)`, pushforward by
-`L_{a,b}(m,n)=am+bn` gives one member of a projective Radon pencil.  When
-`a,b>0`, its Laplace transform is exactly
+`A(z_1)A(z_2)`.  When `a,b>0`, pushforward by
+`L_{a,b}(m,n)=am+bn` is locally finite and has Laplace transform
 
 \[
  A(at)A(bt).
 \]
 
-The distinguished directions are `(1,0)` (one-leg marginal), `(1,1)`
-(Goldbach), and `(1,-1)` (differences, interpreted in the Fourier--Laplace
-tube).  Substitution of the explicit formula sends a zero pair
-`(rho,rho')` to the corresponding linear combination `a rho+b rho'`;
-under RH its oscillatory part is `a gamma+b gamma'`.
+This does **not** produce a zero frequency `a rho+b rho'`.  In the standard
+small-`t` explicit-formula expansion, a zero-pair term has the form
 
-This is the exact common carrier of the RH, Goldbach, and twin directions.
-It is still only a reformulation until different directions impose a new
-compatibility condition.
+\[
+ \Gamma(\rho)\Gamma(\rho')a^{-\rho}b^{-\rho'}
+ t^{-(\rho+\rho')},                                  \tag{4.1}
+\]
+
+up to the chosen normalization.  The direction `(a,b)` changes the amplitude;
+the exponent is `rho+rho'`.  The earlier projective-frequency statement was
+false.
+
+The directions `(1,0)` and `(1,-1)` do not define locally finite pushforwards
+of the untruncated positive measure: the unused marginal and each fixed
+difference fiber carry infinite mass.  There is, however, one exact uniform
+regularization.  For `t>0`, set
+
+\[
+ d\mu_t^{(2)}(m,n)=\Lambda(m)\Lambda(n)e^{-t(m+n)}.
+\]
+
+This is a finite measure on \(\mathbb N^2\). For every integer vector
+`(a,b)`, the Fourier transform of its pushforward is
+
+\[
+ \boxed{
+ \widehat{(L_{a,b})_*\mu_t^{(2)}}(\xi)
+  =A(t-ia\xi)A(t-ib\xi).}                            \tag{4.2}
+\]
+
+Thus the regularized sum direction gives \(A(t-i\xi)^2\), while the
+difference direction gives
+\(A(t-i\xi)A(t+i\xi)=|A(t-i\xi)|^2\).  This is a genuine common
+two-variable carrier. It supplies no cross-direction theorem by itself, and
+removing the damping requires a specified distributional topology and uniform
+control.
 
 ## 5. The first adelic closure: determinant conservation
 
@@ -137,66 +163,32 @@ defect under `H`.
 This exact closure is useful but negative for the ambitious route.  At the
 volume/determinant level, the adelic transform supplies only a standard
 product formula and the familiar exceptional local normalization.  It does
-not couple pole--zero or zero--zero terms.  Any new content must live after
-volume has cancelled: in phase, positivity/order, or in the failure of a
-positive-cone truncation to factor place by place.
+not couple pole--zero or zero--zero terms.
 
 The unrestricted quadratic phase is not enough either.  The form
 `Q=mn=(S^2-D^2)/4` is a split hyperbolic plane, so its unrestricted adelic
 Fourier theory is governed by the standard local Weil indices and their
-product formula.  The datum that has no placewise restricted-product
-description is the order cut
+product formula.  The order cut
 
 \[
  m,n>0\quad\Longleftrightarrow\quad S>|D|,
 \]
 
-because only the real completion is ordered.  The first potentially new
-object is therefore the boundary distribution created by imposing this real
-cone simultaneously with the integral/2-adic lattice.  This is an
-Arakelov-style orientation, not a claim that existing Arakelov intersection
-theory already supplies the needed estimate.
+is an Archimedean condition and can itself be one local factor of a restricted
+product.  Its existence therefore does not prove cross-place coupling.  Such a
+coupling would have to arise from an exact rational summation, Poisson formula,
+or boundary distribution and be demonstrated rather than inferred from the
+absence of order at finite places.
 
-## 6. Proposed successor: an adelic ramified pair transform
+## 6. Status of the larger route
 
-The archimedean explicit formula transports the real Hadamard plane but does
-not by itself retain the index-two lattice cokernel or positive cone.  The
-rational-character fibers in `RATIONAL_FIBER_SPECTRUM.md` retain finite-place
-information but are currently assembled direction by direction.
-
-The next target is therefore precise:
-
-> Construct one adelic two-leg transform whose archimedean component is the
-> zero-pair Radon pencil and whose finite components retain the integral
-> Hadamard lattice, including its unique ramification at `2`.  Determine
-> whether the global compatibility law couples distinct projective
-> directions beyond the known pole--pole singular series.
-
-### Advancement and kill criteria
-
-- **Advance** only if the construction yields an exact cross-direction
-  constraint on a pole--zero or zero--zero term that cannot be recovered by
-  applying the existing explicit formulas independently in each direction.
-- **Kill** if it is merely the restricted product of the already-known
-  Dirichlet-character formulas, or if its only global content is the
-  classical Hardy--Littlewood singular series.
-- The determinant layer has already met this kill criterion: it is exactly
-  the product formula for `2`.  Next test the Fourier phase.  If that is only
-  the standard Weil-index product formula, retain the computation as a no-go
-  and move to the non-factorizing positive-cone boundary term.
-- No positivity, cancellation, RH, Goldbach, twin-prime, or novelty claim is
-  made by the elementary nucleus alone.
-
-## 9. Rigor boundary
-
-Proved here: the integral image/cokernel theorem, its local reductions, the
-positive-cone reconstruction, and the elementary projective pushforward
-identity; also the adelic determinant identity, which is the standard product
-formula.  Reinterpreted from proved corpus work: singleton parity rigidity.
-Standard structural input: the split-form Weil product law.  Proposed only:
-the ordered-cone boundary transform and any cross-place or cross-direction
-constraint.  A targeted prior-art search is required before any novelty label
-stronger than `possibly-new` is attached to that successor.
+The proposed projective zero pencil and the claimed cone nonfactorization are
+withdrawn.  What survives is an exact parity/lattice bridge and a
+determinant-level no-go.  A future adelic pair transform would first need a
+locally meaningful distributional definition for the marginal and difference
+directions.  It advances only if it then yields a cross-direction pole--zero or
+zero--zero constraint unavailable from the separate explicit formulas.  No
+such constraint is presently known here.
 
 ## 7. The missing fourth coordinate: canonical factorization charge
 
@@ -281,3 +273,17 @@ Advancement therefore requires a new relation among distinct charge layers,
 or a multiplicative structure that survives additive projection and supplies
 new off-diagonal control. Uniform reformulation of the existing prime-pair
 remainder alone fails the criterion.
+
+## 8. Rigor boundary
+
+Proved here: the integral image/cokernel theorem, its local reductions, the
+positive-cone reconstruction, the damped Fourier-pushforward identity (4.2),
+the elementary charged Euler-product identities of Section 7, and the adelic
+determinant identity, which is the standard product formula.
+Reinterpreted from proved corpus work: singleton parity rigidity. Standard
+structural input: the split-form Weil product law. The charged fixed-fiber
+commutator is closed negatively by `CHARGED_FIXED_FIBER_AUDIT.md`. Open:
+removing the damping in a specified distributional topology, every
+cross-direction zero constraint, and any relation among distinct charge
+layers that supplies new off-diagonal control. No novelty label is attached to
+those open routes.
