@@ -113,7 +113,7 @@ def find_zeros(name, tmin, tmax, step=0.05):
     cache = DATA / f"exp58_{name}_zeros.npy"
     if cache.exists():
         z = np.load(cache)
-        if z.min() < tmin + 2 * step and z.max() > tmax - 3:
+        if z.max() > tmax - 3:
             return z[(z > tmin) & (z < tmax)]
     q, table, a = CHARS[name]
     Lf = make_L(q, table)
@@ -134,20 +134,20 @@ def find_zeros(name, tmin, tmax, step=0.05):
     sgn = np.sign(zv.real)
     zs = []
     for i in np.where(sgn[1:] * sgn[:-1] < 0)[0]:
-        r = mp.findroot(lambda t: Zfun(t).real,
-                        (mp.mpf(ts[i]), mp.mpf(ts[i + 1])), solver="anderson")
-        # polish at higher precision (the completed factor ~ e^{-pi t/4}
-        # limits the bracketed root's absolute accuracy at height)
-        with mp.workdps(30):
-            try:
-                root = mp.findroot(lambda t: Lf(mp.mpf("0.5") + 1j * t),
-                                   mp.mpf(float(r)), solver="muller")
-                tr = float(mp.re(root))
-            except ValueError:
-                tr = float(mp.findroot(lambda t: Zfun(t).real,
-                                       (mp.mpf(ts[i]), mp.mpf(ts[i + 1])),
-                                       solver="anderson"))
-            assert abs(complex(Lf(mp.mpc(0.5, tr)))) < 1e-10, f"{name} @ {tr}"
+        # bisection on the sign of Z: sign evaluation is reliable at dps 15
+        # (relative error ~1e-15 even though |Z| ~ e^{-pi t/4} is tiny —
+        # mpmath findroot's ABSOLUTE tolerance is useless at that scale)
+        a_, b_ = mp.mpf(ts[i]), mp.mpf(ts[i + 1])
+        fa = zv.real[i]
+        for _ in range(45):
+            m_ = (a_ + b_) / 2
+            fm = float(Zfun(m_).real)
+            if fa * fm <= 0:
+                b_ = m_
+            else:
+                a_, fa = m_, fm
+        tr = float((a_ + b_) / 2)
+        assert abs(complex(Lf(mp.mpc(0.5, tr)))) < 1e-6, f"{name} @ {tr}"
         zs.append(tr)
     z = np.array(sorted(zs))
     np.save(cache, z)

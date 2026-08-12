@@ -545,7 +545,7 @@ idx = np.arange(1, 41)
 ax.plot(idx, np.maximum(e1, 1e-18), color=C_BLUE, lw=2,
         label="E1 (Weil RH true): all $\\lambda_k \\geq 0$")
 ax.plot(idx, np.abs(ef), color=C_RED, lw=2, ls="--",
-        label="fake $a=5,q=5$: $|\\lambda_k|$ (min $<-10^{9}$)")
+        label="fake $a=5,q=5$: $|\\lambda_k|$ (min $=-2.3\\times10^{8}$)")
 ax.set_yscale("log")
 ax.set_title("Krein/screw form: Toeplitz$[s_{|i-j|}/q^{|i-j|/2}]$ spectrum",
              fontsize=10, color=TEXT1)
