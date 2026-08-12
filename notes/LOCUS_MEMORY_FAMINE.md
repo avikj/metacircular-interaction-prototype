@@ -138,6 +138,16 @@ Theorem J, which cannot distinguish a locus from any other set of the same size.
 **Closing that gap — a chain lower bound sensitive to the held set's shape — is
 the honest open problem here**, and I do not have it.
 
+**PARTIALLY CLOSED**, `notes/MULTIPLICATIVE_CONFINEMENT.md`. In the
+*multiplicative fragment* shape is decisive and the statement is stronger than a
+bound: the reachable classes are exactly the subgroup `<F mod q>`, so a proper
+subgroup leaves classes unreachable at **any** length — mod 97 the `{2,3}`-locus
+of any size reaches 48 of 96 classes while the five-element interval `{1..5}`
+reaches all 96. But once **addition** is admitted the confinement vanishes
+entirely, so shape obstructs *reachability* only multiplicatively and can affect
+only *cost* in the full model — which is exactly what counting measures, and why
+four notes of mine asked for the wrong thing.
+
 ## 5. The historical instance is computable, not analogical
 
 `MEMORY_NOT_SUBTRACTION.md` §4 anchored on the Old Babylonian `IGI` reciprocal
