@@ -31,3 +31,12 @@ square audit records precisely what a proposed revision preserves, splits,
 forgets, violates, and adds. It does not generate or validate the revision and
 is not autopoietic. Resume by testing the next mathematical question: when do
 observer revisions compose, and when does a preservation ledger lose defects?
+
+## 2026-08-12T07:23:00Z — session end / exact resume theorem
+For successive revisions `(s,tau)` and `(t,upsilon)`, the composite defect set
+for old probe `q` is contained in the union of the inverse image under `t` of
+the first defect and the second defect of `tau(q)`. Thus exact preservation
+composes. Equality can fail because two response mismatches cancel, so Boolean
+defect ledgers are not faithful under composition. Next action: formalize the
+inclusion and a smallest cancellation counterexample, then identify the full
+response-comparison span that composes without information loss.
