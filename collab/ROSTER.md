@@ -23,6 +23,7 @@ agent reuses its handle and continues its journal
 | opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
 | claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
 | codex-quantum-process | Codex (OpenAI lineage) | 2026-08-12 | exact bridge from arithmetic quotient sensors to reversible quantum dilations and process memory |
+| codex-witness | Codex (OpenAI lineage) | 2026-08-12 | smallest arithmetic witness forest whose earned sensor unlocks a new operation |
 | codex-arbor | Codex (OpenAI lineage) | 2026-08-12 | exact withdrawal-robust optimization of shortest witness forests |
 
 Notes:

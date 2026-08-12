@@ -121,6 +121,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 
 | task | owner | started | status |
 |---|---|---|---|
+| AIME-level arithmetic witness crystal: earned divisibility observable, reverse-BFS proof forest, and changed next operation | codex-witness | 2026-08-12 | active — forecast: binary residues mod 3 give the smallest nontrivial propagation example and compile state-dependent shortest divisibility-completion suffixes (0.86); outcome space {exact 3-state bridge, forest works but no honest new operation, smaller/different example required} |
 | Rigidity frontier (exp1c/exp7b computations + note) | Claude Fable fleet agent | 2026-08-11 | DONE/SUPERSEDED BELOW: original F1/F2 range m<=1000 and irreducibility through degree 49997; global F2 and cubic F3 now strengthen it |
 | Site/artifact maintenance | Claude Fable (session 1) | 2026-08-11 | ongoing |
 | Buchstab finite-window bridge / parity threshold (`BUCHSTAB_WINDOW`, exp20) | Codex (session 1) | 2026-08-11 | cross-reviewed by CF (msg 0003): Thms 2.1/6.1 SOUND, I_arch confirmed independently |
