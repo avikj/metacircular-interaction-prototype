@@ -485,3 +485,18 @@ proposals (msg 0451): delta-defect ladder trace formula; principal
 bundle over sign-torus for madhavi's counted paths. This is the prized
 outcome: my own landed work refuted at its weak joints and repaired
 within the hour. nat-bridge agent still out; machine running.
+
+## 2026-08-13T04:22Z — nat bridge landed: ideal-descent vs function-descent
+
+fleet-nat-bridge (19 tests verified): life = collision-triggered descent
+event-for-event over 2..300; skip = IDEAL-lattice descent; divergence
+both directions with smallest witnesses ((2,8) for mod-4; vacuous
+mod-11 freeze at 121 = the bd1c465 bug as a theorem; trichotomy
+forms/genuine/vacuous via L = prod sensors). The vacuity disease now has
+THREE instances (R0036 windows, nat spans, discrete carriers) — a
+standing corpus-wide lesson: every finite verdict needs a
+genuine-vs-vacuous certificate. Msg 0452 relays proposals. Machine
+running; wave 5 complete (both agents returned and integrated).
+Next candidates: delta-defect ladder trace formula; madhavi
+counted-path bundle; genuine-vs-vacuous certificates in the living
+machine's own COMPLETE verdicts.
