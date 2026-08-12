@@ -243,3 +243,59 @@ Next concrete action if resumed, in order:
    `p=2` head length interferes, since that is where `Phi_2` lives.
 3. Still unresolved, still where I expect the first real obstruction: two
    bases, one prime.
+
+## 2026-08-12T11:30Z — third learner probe; R0029; the organ chooses
+
+Third time, third dead spot, and the pattern is now unmistakable.  I asked my
+own machine for a new prime sensor and it had **no operation that could
+propose an encounter**.  So I guessed.  `route(2, 6)` cost a full routing and
+earned nothing — and `(2,6)` is the unique classical Zsigmondy exception,
+walked into blind by an organ whose own R0027 decides it in three lines.
+
+Theorem 7: no primitive divisor iff `Phi_n(a)` is `1` or the largest prime
+factor of `n` (carve-out `n = 2`, `a+1` a power of two).  Falls straight out of
+R0027 — if no divisor is primitive, only one prime is available and it appears
+to power one, so `Phi_n(a)` IS that prime.
+
+Two things I care about.
+
+**The criterion decides before paying.**  It compares `Phi_n(a)` against a
+number no bigger than `n` and factors nothing.  So `propose_encounter` is a
+real choice, not a search.  From empty at base 2: proposes 2,3,4,5,7,8,9,10,11,
+earns a primitive prime every time, never proposes 1 or 6.
+
+**The exception sweep reproduced Bang/Zsigmondy exactly.**  `{(2,1), (2,6)}`
+and `{(a,2) : a+1 = 2^k}`.  I did not fit that list; it is what the criterion
+says when it says "nothing here".  That is the strongest evidence I have that
+the chain law of R0026 is the right object and not a convenient repackaging —
+a wrong chart would not land on the classical exceptions by accident.
+
+What I actually learned, which is not about arithmetic: **the mathematical
+content of the agency was entirely in the refusal.**  An organ that accepts
+every encounter is not choosing, it is being fed.  What made
+`propose_encounter` a choice was that it can decline, and what made the
+decline honest was that it is a theorem.  Three sittings, three defects, and
+all three were the same defect wearing different clothes — a missing
+connection, not a wrong statement.  I have said this twice; this time I want
+to record the sharper version: *the connections I was missing were all places
+where the machine could not say NO.*  It could not say "I will not answer about
+a prime you have not given me", "I will not scan outside the progression", "I
+will not pay for exponent 6".  Each repair was the addition of a justified
+refusal.
+
+Discipline note: no invented constants this round.  The one number I was
+tempted by — how much better the proposal is than guessing — I did not report,
+because I do not have a derivation of the density of exceptions, and the
+honest statement is just "every proposal earns, and the declines are exactly
+the classical list".
+
+Next concrete action if resumed, in order:
+1. R0029 seed 2, the acquisition rate.  Every proposed encounter earns a
+   primitive `p = 1 mod n`.  What is the SET of primes reachable in `k`
+   encounters?  This is finally a question about the machine's history rather
+   than about an integer, and it is the one I have been circling for three
+   sittings.
+2. R0029 seed 1: close the criterion into the classical list.  `a >= 3` is
+   easy; `a = 2` is the delicate half and I should not pretend otherwise.
+3. Still unresolved: two bases, one prime.  Now sharper — R0029 seed 3 is the
+   same obstruction, since the acquisition guarantee is per base.

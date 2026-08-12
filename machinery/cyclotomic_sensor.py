@@ -119,6 +119,7 @@ class CyclotomicOrgan:
     def __init__(self, life: ArithmeticLife | None = None) -> None:
         self.life = life or ArithmeticLife()
         self.sensors: dict[tuple[int, int], CyclotomicSensor] = {}
+        self.routed: dict[int, set[int]] = {}
         self.formations = 0
         self.reuses = 0
 
@@ -161,6 +162,24 @@ class CyclotomicOrgan:
     def valuation(self, prime: int, base: int, exponent: int) -> int:
         return self.form(prime, base).valuation(exponent)
 
+    def propose_encounter(self, base: int, limit: int = 500) -> int | None:
+        """The least exponent this organ has not covered that is GUARANTEED
+        to earn a prime it cannot already hold.
+
+        This is the first operation in the organ that chooses rather than
+        answers.  It declines an encounter it can prove worthless — for base 2
+        it skips exponent 6, because Phi_6(2) = 3 is exactly the largest prime
+        factor of 6, the one classical case where no primitive divisor exists.
+        Declining is the point: an organ that cannot refuse cannot choose.
+        """
+        covered = self.routed.get(base, set())
+        for index in range(1, limit + 1):
+            if any(done % index == 0 for done in covered):
+                continue
+            if has_primitive_divisor(base, index):
+                return index
+        return None
+
     def route(self, base: int, exponent: int,
               budget: int = DEFAULT_BUDGET) -> RoutedFactorization:
         """Factor `base^exponent - 1` through its cyclotomic pieces and keep
@@ -174,6 +193,7 @@ class CyclotomicOrgan:
         askable, where a moment earlier the organ refused the question.
         """
         result = factor_power_minus_one(base, exponent, budget=budget)
+        self.routed.setdefault(base, set()).add(exponent)
         for prime, _power in result.factors:
             self.life.install_residue_sensor(prime, (base, exponent))
         self.life._record(
@@ -305,6 +325,37 @@ def search_progression(index: int) -> tuple[int, int | None]:
     # the prime is odd too, so 2 | p-1 as well and the two are coprime.
     step = 2 * index if index % 2 else index
     return step, exceptional
+
+
+def largest_prime_factor(n: int) -> int | None:
+    """Largest prime factor of n, or None for n = 1."""
+    if n < 1:
+        raise ValueError("need n >= 1")
+    return max(p for p, _ in _factor_small(n)) if n > 1 else None
+
+
+def has_primitive_divisor(base: int, index: int) -> bool:
+    """Will encountering Phi_index(base) earn a prime we cannot already have?
+
+    A *primitive* prime divisor is one with ord_p(base) = index; it therefore
+    divides no base^k - 1 for k < index, so it is new relative to every earlier
+    encounter with this base.  Theorem 7 in `notes/CYCLOTOMIC_SENSOR.md`: by
+    Theorem 5 every divisor is primitive or is the largest prime factor P of
+    index, appearing to power one, so a primitive divisor is absent exactly
+    when Phi_index(base) is 1 or P.  The carve-out is index = 2, where
+    Phi_2(a) = a+1 may be any power of 2.
+
+    This decides the question WITHOUT factoring Phi_index(base) — one
+    comparison against a number no larger than `index`.
+    """
+    if base < 2 or index < 1:
+        raise ValueError("need base >= 2 and index >= 1")
+    value = abs(cyclotomic_value(index, base))
+    if index == 1:
+        return value > 1                      # fails only for base = 2
+    if index == 2:
+        return value & (value - 1) != 0       # fails iff base+1 is 2^k
+    return value not in (1, largest_prime_factor(index))
 
 
 def permits(index: int, prime: int) -> bool:
@@ -582,6 +633,21 @@ def main() -> None:
     print(f"  and now v_1321 is answerable: ord=({earned.order}), so "
           f"v_1321(2^{60 * 1321} - 1) = {earned.valuation(60 * 1321)}")
     print("  the encounter earned the sensor; the sensor answers the family.")
+
+    print("\nencounter 7: 'I want a new prime.  Which encounter should I ask "
+          "for?'")
+    chooser = CyclotomicOrgan(ArithmeticLife())
+    for _ in range(6):
+        index = chooser.propose_encounter(2)
+        held = set(chooser.life.moduli)
+        chooser.route(2, index)
+        fresh = sorted(set(chooser.life.moduli) - held)
+        print(f"    proposes n={index:2d} -> earns {fresh}")
+    declined = [n for n in range(1, 13) if not has_primitive_divisor(2, n)]
+    print(f"  it never proposes {declined}, and can say why: "
+          f"Phi_6(2) = {cyclotomic_value(6, 2)} = "
+          f"largest prime factor of 6.  No primitive divisor exists.")
+    print("  declining is the choice; an organ that accepts everything is fed.")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):

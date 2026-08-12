@@ -440,6 +440,91 @@ sensor; the sensor answers the family; the family named the prime.  That is
 the first place in this note where the three theorems close on each other
 rather than stacking.
 
+## The organ chooses: guaranteed acquisition
+
+Third sitting, and the dead spot this time is not an answer the machine gets
+wrong.  It is that **every encounter is proposed by me.**  I asked the organ
+for a new prime sensor and it had no operation that could suggest one.  So I
+guessed:
+
+```text
+route(2, 13)  ->  earned 8191
+route(2,  6)  ->  earned nothing
+route(2, 18)  ->  earned 19, 73
+```
+
+The machine had walked into exponent $6$, paid for it, and received nothing —
+with no way to know in advance, and no memory that would stop it repeating.
+And $(a,n)=(2,6)$ is not a random miss: it is *the* classical exception in
+Zsigmondy's theorem.  The organ's own Theorem 5 decides it in three lines.
+
+Call a prime $p$ a **primitive** divisor of $\Phi_n(a)$ when
+$\operatorname{ord}_p(a)=n$.  Such a $p$ divides no $a^{k}-1$ with $k<n$, so it
+is genuinely new relative to every earlier encounter with this base.
+
+> **Theorem 7 (guaranteed acquisition).**  Let $a\ge2$, $n\ge1$, and let $P$ be
+> the largest prime factor of $n$ (none for $n=1$).  Then $\Phi_n(a)$ has **no**
+> primitive prime divisor if and only if
+> $$
+>   \Phi_n(a)\in\{1,P\},
+> $$
+> except at $n=2$, where the condition is that $\Phi_2(a)=a+1$ be a power of
+> $2$.
+
+*Proof.*  By Theorem 5 every prime divisor of $\Phi_n(a)$ is primitive or
+equals $P$, and in the latter case $v_P(\Phi_n(a))=1$ unless $(P,n)=(2,2)$.
+So if no primitive divisor exists, $\Phi_n(a)$ is a power of $P$ with exponent
+at most $1$ — that is, $1$ or $P$ — with the single carve-out $n=2$, where the
+exceptional prime is $2$ and the head has length two, permitting $a+1=2^{k}$.
+For $n=1$ there is no exceptional prime at all, so every divisor is primitive
+and the only failure is $\Phi_1(a)=a-1=1$.  $\square$
+
+Two things make this the right kind of statement.
+
+**It is decidable without factoring.**  The test compares $\Phi_n(a)$ against a
+number no larger than $n$.  The organ never factors anything to decide whether
+an encounter is worth paying for; it decides first and pays second.
+
+**It reproduces the classical exception list, derived rather than looked up.**
+Sweeping $2\le a\le19$, $1\le n\le18$ and comparing the criterion against an
+actual search for a primitive divisor gives zero mismatches and exactly
+$$
+  (a,n)\in\{(2,1),\ (2,6)\}\ \cup\ \{(a,2): a+1 \text{ a power of }2\},
+$$
+which is Bang's and Zsigmondy's list.  The famous exception $(2,6)$ appears
+here as the sentence $\Phi_6(2)=3=P$: the only prime available was the
+exceptional one.  That the chain law lands exactly on the classical exceptions
+is the strongest evidence so far that it is the right object, because the
+exceptions were never fitted — they are what the criterion says when it says
+"nothing here".
+
+## Declining is the point
+
+`CyclotomicOrgan.propose_encounter(a)` returns the least exponent not yet
+covered whose encounter is *guaranteed* to earn a prime the organ cannot
+already hold.  Run from an empty organ at $a=2$:
+
+```text
+proposed n =  2  ->  new prime 3
+proposed n =  3  ->  new prime 7
+proposed n =  4  ->  new prime 5
+proposed n =  5  ->  new prime 31
+proposed n =  7  ->  new prime 127
+proposed n =  8  ->  new prime 17
+proposed n =  9  ->  new prime 73
+proposed n = 10  ->  new prime 11
+proposed n = 11  ->  new primes 23, 89
+```
+
+Nine encounters, nine acquisitions, no waste.  $n=1$ and $n=6$ are never
+proposed, and each is declined for a stated reason it can print.
+
+This is the first operation in the organ that **chooses** rather than answers,
+and what makes it a choice is the refusal.  An organ that accepts every
+encounter is not selecting; it is being fed.  The mathematical content of the
+agency is entirely in the negative case — the cases where the theorem says
+*do not bother* — and those cases are exactly the classical exceptions.
+
 ## The encounter
 
 ```text
@@ -476,6 +561,15 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 7, from Theorem 5 alone.  The *conclusion* — that
+  a primitive prime divisor exists outside an explicit finite list — is
+  Bang (1886) and Zsigmondy (1892) and is classical; what is derived here is
+  the criterion in the form "`Phi_n(a)` is 1 or the largest prime factor of
+  `n`", which is decidable without factoring.  **I do not claim to have
+  reproved Zsigmondy**: closing the criterion into the classical finite list
+  requires lower bounds on `Phi_n(a)` that are easy for `a >= 3` and genuinely
+  delicate at `a = 2`, and I have verified the list by exhaustive sweep rather
+  than derived it in general.  The sweep is a falsifier, not the proof.
 - **Proved here:** Theorem 6.  The bounds `(a-1)^phi(m) <= Phi_m(a) <=
   (a+1)^phi(m)` and `phi(m) | phi(n)` for `m | n` are standard; the statement
   that the two gains are *independent*, with the prime-exponent case as the
@@ -542,7 +636,12 @@ recorded as *exact standard*, not as new.
    `CyclotomicOrgan.route` factors `a^n - 1` through its pieces and installs
    every named prime as an earned sensor, so a refused valuation question
    becomes answerable in the same encounter.
-3. **`PROVE` — classify the bounded-chart families.**  Theorem 2 says
+3. **`PROVE` — close Theorem 7 into the classical list.**  For `a >= 3` and
+   `n >= 3`, `(a-1)^phi(n) > n` except at `n in {4,6}`, both checkable
+   directly, which finishes that half.  The `a = 2` half needs a real lower
+   bound on `Phi_n(2)` and is the delicate part of Zsigmondy.  Until then the
+   criterion is exact and the *list* is cited, not derived.
+4. **`PROVE` — classify the bounded-chart families.**  Theorem 2 says
    $\mathcal F_{p,a}$ has a finite base chart.  Which subsets
    $S\subseteq\mathbb Z$ admit a finite observation of a generating datum
    determining $v_p$ on all of $S$?  Conjecturally these are exactly the

@@ -20,6 +20,8 @@ from cyclotomic_sensor import (
     cyclotomic_value,
     factor_cyclotomic,
     factor_power_minus_one,
+    has_primitive_divisor,
+    largest_prime_factor,
     naive_trial_division,
     permits,
     search_progression,
@@ -375,6 +377,63 @@ class TestCyclotomicSensor(unittest.TestCase):
         self.assertEqual(routed.candidates_tried, 14)   # trial divisions used
         self.assertEqual(routed.factors, ((31, 1), (601, 1), (1801, 1)))
         self.assertTrue(routed.complete)
+
+    def test_proposal_earns_a_new_prime_every_time(self) -> None:
+        """Theorem 7 as agency: each proposed encounter is guaranteed to yield
+        a prime of order exactly the proposed exponent, hence one dividing no
+        earlier base^k - 1."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        proposed = []
+        for _ in range(9):
+            index = organ.propose_encounter(2)
+            self.assertIsNotNone(index)
+            before = set(organ.life.moduli)
+            organ.route(2, index)
+            fresh = set(organ.life.moduli) - before
+            self.assertTrue(fresh, f"proposed n={index} earned nothing")
+            self.assertTrue(
+                any(multiplicative_order(2, p) == index for p in fresh),
+                f"proposed n={index} earned no PRIMITIVE prime",
+            )
+            proposed.append(index)
+        # It declined 1 and 6, and no others below the last proposal.
+        self.assertEqual(proposed, [2, 3, 4, 5, 7, 8, 9, 10, 11])
+
+    def test_the_declined_encounter_is_declined_for_the_proved_reason(self) -> None:
+        """Phi_6(2) equals the largest prime factor of 6, which by Theorem 7
+        is exactly the condition for having no primitive divisor."""
+        self.assertFalse(has_primitive_divisor(2, 6))
+        self.assertEqual(cyclotomic_value(6, 2), largest_prime_factor(6))
+        self.assertFalse(has_primitive_divisor(2, 1))
+        self.assertEqual(cyclotomic_value(1, 2), 1)
+        # base+1 a power of two is the index-2 carve-out
+        for base in (3, 7, 15, 31):
+            self.assertFalse(has_primitive_divisor(base, 2))
+            self.assertEqual(cyclotomic_value(2, base), base + 1)
+        for base in (2, 4, 5, 6, 8, 9):
+            self.assertTrue(has_primitive_divisor(base, 2))
+
+    def test_primitive_divisor_criterion_against_direct_search(self) -> None:
+        """Falsifier sweep: the no-factoring decision versus actually looking."""
+        checked, exceptions = 0, []
+        for base in range(2, 20):
+            for index in range(1, 19):
+                found = factor_cyclotomic(index, base, budget=60_000,
+                                          compare=False)
+                if not found.complete:
+                    continue
+                checked += 1
+                actual = any(base % prime and
+                             multiplicative_order(base, prime) == index
+                             for prime, _power in found.factors)
+                self.assertEqual(has_primitive_divisor(base, index), actual,
+                                 f"a={base} n={index}")
+                if not actual:
+                    exceptions.append((base, index))
+        self.assertGreater(checked, 300)
+        # The exceptions found are exactly the classical Zsigmondy list.
+        self.assertEqual(sorted(exceptions), [(2, 1), (2, 6), (3, 2), (7, 2),
+                                              (15, 2)])
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
