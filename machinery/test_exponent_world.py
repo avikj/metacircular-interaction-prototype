@@ -20,6 +20,7 @@ from exponent_world import (
     PivotResidualColumnAdvance,
     ResidualCycleClosure,
     ResidualCycleObstruction,
+    LowerResidualRowAdvance,
 )
 
 
@@ -450,6 +451,22 @@ class SmithPathTests(unittest.TestCase):
         )
         result = world.close_residual_cycle_if_pivot_divides(advance)
         self.assertEqual(result, ResidualCycleObstruction(((2, 0), (5, 7)), 2, 5, 1))
+
+    def test_lower_residual_executes_as_oriented_strict_row_descent(self):
+        world = ExponentWorld()
+        obstruction = ResidualCycleObstruction(((2, 0), (5, 7)), 2, 5, 1)
+        result = world.advance_positive_lower_residual(obstruction)
+        self.assertIsInstance(result, LowerResidualRowAdvance)
+        self.assertEqual((result.old_pivot, result.new_pivot), (2, 1))
+        self.assertEqual(result.left, ((-2, 1), (5, -2)))
+        self.assertEqual(result.advanced, ((1, 7), (0, -14)))
+        self.assertEqual(_matmul_for_test(result.left, result.matrix), result.advanced)
+
+    def test_divisible_lower_entry_cannot_enter_residual_row_descent(self):
+        world = ExponentWorld()
+        false_obstruction = ResidualCycleObstruction(((2, 0), (6, 7)), 2, 6, 0)
+        with self.assertRaisesRegex(ValueError, "failed row divisibility"):
+            world.advance_positive_lower_residual(false_obstruction)
 
 
 def _matmul_for_test(left, right):

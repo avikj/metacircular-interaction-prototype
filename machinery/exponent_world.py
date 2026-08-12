@@ -246,6 +246,16 @@ class ResidualCycleObstruction:
     residual: int
 
 
+@dataclass(frozen=True)
+class LowerResidualRowAdvance:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    advanced: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    old_pivot: int
+    new_pivot: int
+    reduction: EuclideanColumnReduction
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -843,6 +853,34 @@ class ExponentWorld:
         )
         return ResidualCycleClosure(
             advance.matrix, diagonal, left, advance.right, quotient
+        )
+
+    def advance_positive_lower_residual(
+        self, obstruction: ResidualCycleObstruction
+    ) -> LowerResidualRowAdvance:
+        """Execute a lower-left residual and rotate it to upper-right form."""
+        matrix = obstruction.matrix
+        pivot = matrix[0][0]
+        lower_left = matrix[1][0]
+        if pivot <= 0 or lower_left <= 0 or matrix[0][1] != 0:
+            raise ValueError(
+                "lower-residual advance requires a positive first column and zero upper-right"
+            )
+        if obstruction.residual == 0 or lower_left % pivot == 0:
+            raise ValueError("lower-residual advance requires failed row divisibility")
+        reduction = self.reduce_positive_column(pivot, lower_left)
+        advanced = _matmul2(reduction.left, matrix)
+        new_pivot = reduction.finish[0]
+        if advanced[1][0] != 0 or advanced[0][0] != new_pivot:
+            raise AssertionError("Euclidean row witness did not restore triangular form")
+        if not 0 < new_pivot < pivot:
+            raise AssertionError("nonzero lower residual did not strictly decrease pivot")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], pivot, new_pivot),
+            "Euclidean row path executes lower residual and rotates orientation",
+        )
+        return LowerResidualRowAdvance(
+            matrix, advanced, reduction.left, pivot, new_pivot, reduction
         )
 
 

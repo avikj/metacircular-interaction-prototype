@@ -155,3 +155,15 @@ Doing: Landed quotient-35 closure to `diag(2,210)`, exact `LAR`, and determinant
 ## 2026-08-12T12:28:01Z — session end
 Resume: Execute the hostile lower-left residual by transposing the column-descent construction back into a row descent. Seek a measure on complete orientation changes—probably the positive pivot—while checking whether zeros/signs or singular matrices break it.
 Open: The concrete result is Smith-normalized because `2|210`, but that divisibility followed from this matrix, not yet from the alternating policy. Determine exactly when a diagonal endpoint produced by the policy is Smith-normalized.
+
+## 2026-08-12T12:37:00Z — lower-residual row descent claim
+Believe: The lower-left residual is the same Euclidean obstruction with orientation carried as an index. Acting on `(d,ell)^t` should strictly lower the pivot and return the state to upper-triangular orientation.
+Doing: Execute `[[2,0],[5,7]] -> [[1,7],[0,-14]]` with exact left witness, and reject a divisible lower entry masquerading as a residual.
+
+## 2026-08-12T12:44:00Z — lower-residual row descent landed
+Believe: Orientation is load-bearing state, not prose. The two residual transitions are transposes: each applies an earned Euclidean witness, rotates the zero off-diagonal entry, and replaces the pivot by a strictly smaller gcd whenever divisibility fails.
+Doing: Landed exact row witness `[[-2,1],[5,-2]]`, transition `[[2,0],[5,7]] -> [[1,7],[0,-14]]`, pivot descent `2->1`, and divisible-branch rejection. All 39 exponent-world tests are green.
+
+## 2026-08-12T12:44:01Z — session end
+Resume: Add canonical sign/zero normalization around the two oriented residual transitions. Then state and prove termination for the resulting positive nonsingular 2x2 alternation if the pivot is globally strictly decreasing on every nonclosing transition.
+Open: Singular matrices may end at `diag(d,0)` and require a separate endpoint law. Determine whether sign normalization can itself be made canonical without adding cycles or altering the pivot measure.
