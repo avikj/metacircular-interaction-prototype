@@ -1,0 +1,228 @@
+#!/usr/bin/env python3
+"""The walk: the minimal core, executing on CPU, nothing outside the system.
+
+    python3 runtime/walk.py                 certified walk to 10^30
+    python3 runtime/walk.py 1000000         certified walk to N
+    python3 runtime/walk.py 5040 --literal  literal odometer, one suc at a time
+
+The whole machine is one algebra of the signature 1 + X:
+
+    s0   : State                                  (zero)
+    step : State -> State                         (successor)
+
+and the execution trace is the unique fold from the initial algebra N.
+There is no scheduler and no plan; initiality is the plan.
+
+The single invariant `step` preserves is LOSSLESSNESS: the observation
+    profile(n) = (n mod m  for m in sensors)
+must admit a section on the walked prefix [0, n] -- reconstruction must be
+possible (the master problem's boxed question, answered constructively by
+CRT/Euclid at every step).  By CRT the profile is injective on [0, n] iff
+lcm(sensors) > n.  So:
+
+  * a COLLISION happens exactly when n reaches lcm(sensors);
+  * the machine must then install a new sensor: the LEAST modulus that
+    restores injectivity, i.e. the least q >= 2 not dividing lcm(sensors);
+  * THEOREM (checked at every install): that least non-divisor is always a
+    prime power.  The forced sensor sequence is 2,3,4,5,7,8,9,11,13,16,...
+    -- the prime powers in order.  The primes are not an input and not a
+    predicate: they are the walk's own forced memory.
+
+Exact consequences, visible in the counters:
+
+  * the machine's total storage is log2(lcm) = psi(frontier)/ln 2, the
+    Chebyshev function: THE PRIME NUMBER THEOREM IS THE MACHINE'S STORAGE
+    LAW (about 1.4427 bits per unit of prime-power frontier), and the regularity of this
+    trace's error term is literally the Riemann Hypothesis;
+  * the CRT injectivity theorem converts the O(N) odometer into
+    O(#installs) certified jumps: mathematics changes the cost of the walk
+    from N successor steps to ~ln(N) installs: 29 installs reach 10^30,
+    65 reach 10^100.  That is the seed criterion in its purest form.
+
+Nothing is imported beyond integer arithmetic.  No prime table, no float,
+no randomness, no model.  Every install carries its certificate; every
+resume re-certifies the state file and refuses what it cannot re-prove.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import sys
+from math import gcd
+
+STATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                          "state", "walk.json")
+
+
+# -------------------------------------------------------------------------
+# certificates (each is a finite, exact check -- the machine proves as it
+# walks; nothing is believed because the rule "should" produce it)
+# -------------------------------------------------------------------------
+
+def prime_power_certificate(q: int) -> tuple[int, int] | None:
+    """Return (p, k) with q = p^k, p prime -- or None. Pure trial division."""
+    if q < 2:
+        return None
+    p = 2
+    while p * p <= q:
+        if q % p == 0:
+            k, r = 0, q
+            while r % p == 0:
+                r //= p
+                k += 1
+            return (p, k) if r == 1 else None
+        p += 1
+    return (q, 1)
+
+
+def crt_section(profile: list[int], sensors: list[int]) -> int:
+    """The section: reconstruct n from its residues by Euclid alone."""
+    n, modulus = 0, 1
+    for r, m in zip(profile, sensors):
+        g = gcd(modulus, m)
+        if (r - n) % g:
+            raise AssertionError("profile is not consistent")
+        mg = m // g
+        t = ((r - n) // g * pow((modulus // g) % mg, -1, mg)) % mg if mg > 1 else 0
+        n += modulus * t
+        modulus = modulus // g * m
+        n %= modulus
+    return n
+
+
+# -------------------------------------------------------------------------
+# the algebra (s0, step)
+# -------------------------------------------------------------------------
+
+class State:
+    __slots__ = ("n", "sensors", "lcm", "installs", "jumps", "suc_steps")
+
+    def __init__(self) -> None:
+        self.n = 0                     # zero: the initial state
+        self.sensors: list[int] = []   # forced memory (starts EMPTY)
+        self.lcm = 1
+        self.installs: list[list[int]] = []   # [n_at_install, q, p, k]
+        self.jumps = 0
+        self.suc_steps = 0
+
+    # -- invariant: lossless on [0, n]  <=>  lcm > n --------------------
+
+    def lossless(self) -> bool:
+        return self.lcm > self.n
+
+    def collide(self) -> None:
+        """At n = lcm the profile of n equals the profile of 0: install the
+        least modulus restoring injectivity, with its certificate."""
+        q = 2
+        while self.lcm % q == 0:
+            q += 1
+        cert = prime_power_certificate(q)
+        if cert is None:  # the checked theorem: least non-divisor is p^k
+            raise AssertionError("forced sensor %d is not a prime power" % q)
+        self.sensors.append(q)
+        self.lcm = self.lcm // gcd(self.lcm, q) * q
+        self.installs.append([self.n, q, cert[0], cert[1]])
+
+    def suc(self) -> None:
+        """One literal odometer step: the constructor, nothing else."""
+        self.n += 1
+        self.suc_steps += 1
+        if not self.lossless():
+            self.collide()
+        # the section exists RIGHT NOW -- execute it (spot-proof, exact)
+        if self.n == self.lcm - 1:
+            profile = [self.n % m for m in self.sensors]
+            if crt_section(profile, self.sensors) != self.n:
+                raise AssertionError("section failed at %d" % self.n)
+
+    def jump(self) -> None:
+        """One certified macro step: CRT injectivity proves no collision in
+        (n, lcm), so the walk may move straight to the next event.  This is
+        a theorem converting O(N) steps into O(#installs) -- the entire
+        sense in which mathematics accelerates the machine."""
+        self.n = self.lcm
+        self.jumps += 1
+        self.collide()
+
+    def bits(self) -> int:
+        return self.lcm.bit_length()
+
+
+# -------------------------------------------------------------------------
+# persistence: re-certify or refuse
+# -------------------------------------------------------------------------
+
+def save(s: State) -> None:
+    os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
+    with open(STATE_PATH, "w") as f:
+        json.dump({"n": str(s.n), "sensors": s.sensors,
+                   "installs": s.installs}, f)
+
+
+def load() -> State:
+    s = State()
+    if not os.path.exists(STATE_PATH):
+        return s
+    with open(STATE_PATH) as f:
+        st = json.load(f)
+    lcm = 1
+    for q in st["sensors"]:
+        if prime_power_certificate(q) is None or lcm % q == 0:
+            return State()          # refuse: replay from zero
+        lcm = lcm // gcd(lcm, q) * q
+    n = int(st["n"])
+    if lcm <= n:                    # losslessness would already be broken
+        return State()
+    s.n, s.sensors, s.lcm = n, list(st["sensors"]), lcm
+    s.installs = [list(map(int, row)) for row in st.get("installs", [])]
+    return s
+
+
+# -------------------------------------------------------------------------
+# the fold
+# -------------------------------------------------------------------------
+
+def walk(target: int, literal: bool) -> State:
+    s = load()
+    while s.n < target:
+        if literal:
+            s.suc()
+        else:
+            if s.lcm > target:
+                s.n = target        # certified: no event before target
+                break
+            s.jump()
+    save(s)
+    return s
+
+
+def main(argv: list[str]) -> int:
+    target = int(argv[1]) if len(argv) > 1 else 10 ** 30
+    literal = "--literal" in argv
+    s = walk(target, literal)
+
+    print("walked to n = %d  (%s)" % (s.n, "literal odometer, %d suc steps"
+          % s.suc_steps if literal else "certified jumps: %d" % s.jumps))
+    seq = [q for _, q, _, _ in s.installs]
+    print("forced sensors (%d installs): %s%s"
+          % (len(s.installs), ", ".join(map(str, seq[:20])),
+             " ..." if len(seq) > 20 else ""))
+    print("all installs certified prime powers: %s"
+          % all(prime_power_certificate(q) for q in s.sensors))
+    print("lossless (lcm > n): %s   storage = %d bits"
+          % (s.lossless(), s.bits()))
+    if s.sensors:
+        k = max(s.sensors)
+        print("storage law  bits/frontier = %d/%d  =  %d.%04d   "
+              "(PNT: psi(k) ~ k, so -> log2 e = 1.4427...)"
+              % (s.bits(), k, s.bits() // k, (s.bits() * 10 ** 4 // k) % 10 ** 4))
+    # the section, executed at the frontier: reconstruction from residues
+    profile = [s.n % m for m in s.sensors]
+    ok = crt_section(profile, s.sensors) == s.n
+    print("section at frontier (CRT reconstruction of n): %s" % ok)
+    return 0 if ok and s.lossless() else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv))
