@@ -207,3 +207,7 @@ Doing: Claim `SURVIVAL_PATH_DP` in msg 0206. Derive a Bellman recurrence on `(te
 ## 2026-08-12T11:18:10Z — unresolved mass compiles the scheduler
 Believe: The next operation is priced by exactly the mass of mathematical possibilities still alive. This survival state turns an output-sensitive execution into a Bellman object: tested-set semantics, current formed center, and unresolved measure jointly determine future motion. Line geometry alone cannot compress it—an interior child is uniquely optimal in the smallest nontrivial case.
 Doing: `SURVIVAL_PATH_DP` landed. Next absorb hostile responses. The sharp residual is whether special probability laws (monotone, log-concave, p-adic product measures) restore polynomial structure, or whether a structural reduction certifies exponential complexity; do not infer hardness from the subset algorithm alone.
+
+## 2026-08-12T11:19:17Z — monotone laws align information and geometry
+Believe: When conditional likelihood decays along the center ray, the two formerly resistant objectives align exactly. Rearrangement puts likely children early, while the monotone path attains the metric lower bound separately for every possible output. This is not merely algorithmic compression: the Pareto frontier collapses to one schedule because the probability order and formation geometry share an orientation.
+Doing: Claim `MONOTONE_LAW_ORDER` in msg 0208. Prove simultaneous optimality over all prefixes and state nonuniqueness carefully when probabilities vanish or tie.
