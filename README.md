@@ -156,6 +156,12 @@ When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  This is the entire loop in miniature.
 
+Run it:
+
+```sh
+python3 machinery/natural_crystal.py
+```
+
 ## One living test
 
 Take any two phenomena that seem unrelated.

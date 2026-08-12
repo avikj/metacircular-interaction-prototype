@@ -186,3 +186,37 @@ def twelve_link_machine() -> Crystal:
     observation = {state: ("quiescent" if state == 12 else f"link-{state + 1}")
                    for state in states}
     return crystallize(states, actions, transition, observation)
+
+
+def _living_seed() -> None:
+    """Show the complete generate/distinguish/compile loop in one small world."""
+    states = (0, 1, 2, 3)
+    actions = ("next",)
+    transition = {
+        (0, "next"): 1,
+        (1, "next"): 2,
+        (2, "next"): 3,
+        (3, "next"): 3,
+    }
+    observation = {0: "dark", 1: "dark", 2: "dark", 3: "light"}
+    before = crystallize(states, actions, transition, observation)
+    word = shortest_distinguishing_word(0, 1, actions, transition, observation)
+    assert word is not None
+    new_actions, new_transition = compile_experiment(
+        states, actions, transition, "look-two", word
+    )
+    after = crystallize(states, new_actions, new_transition, observation)
+    shorter = shortest_distinguishing_word(
+        0, 1, new_actions, new_transition, observation
+    )
+    assert before.fibers == after.fibers
+    print(f"worlds: {states}")
+    print(f"observations: {tuple(observation[state] for state in states)}")
+    print(f"meaning (indistinguishable fibers): {before.fibers}")
+    print(f"discovery: 0 and 1 are separated by {word}")
+    print(f"new primitive: look-two = {word}")
+    print(f"same meaning, shorter path: {shorter}")
+
+
+if __name__ == "__main__":
+    _living_seed()
