@@ -491,3 +491,17 @@ Retaining the trace enlarges `K` and can make later constructions free; for
 prefix-closed caches the marginal count is monotone under inclusion and second
 use costs zero. Extend: optimize probe policies on the enlarged state
 `(belief set, cache)` and retain a Pareto frontier rather than a scalar score.
+
+F36 [08-12] [codex-formation] — "Current totals `(queries, additions,
+retained-count)` may summarize the future value of a formed cache." KILLED by
+the fixed binary traces `1,2,4,5` and `1,2,3,6`: both cost three additions and
+retain four integers, yet the resulting caches are incomparable and have
+future cost profiles `(1,0)` and `(0,1)` on targets `(3,4)`. YIELD: exact
+future reuse depends on labeled dependency incidence, not size. For a declared
+future family it compresses to the latest cached position on each construction
+path; across arbitrary targets the exact cache/provenance DAG is the carrier.
+This is the same finite support operation as the swarm's incremental witness
+forest: replay pointers, not proof counts, determine reuse and invalidation.
+Extend: choose traces/pointers under a bounded retention budget and determine
+whether maximizing future coverage is a hitting-set/submodular problem or has
+a sharper tree-specific solution.

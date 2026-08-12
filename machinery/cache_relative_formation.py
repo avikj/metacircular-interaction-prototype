@@ -28,6 +28,10 @@ class CacheTransition:
     def new_intermediates(self) -> frozenset[int]:
         return self.final_cache - self.initial_cache
 
+    @property
+    def present_cost_vector(self) -> tuple[int, int]:
+        return self.new_additions, len(self.final_cache)
+
 
 def binary_prefixes(target: int) -> tuple[int, ...]:
     """Values visited by left-to-right binary construction, including 1."""
@@ -86,8 +90,20 @@ def verify_transition(transition: CacheTransition) -> bool:
     )
 
 
+def future_cost_profile(
+    cache: frozenset[int], targets: tuple[int, ...]
+) -> tuple[int, ...]:
+    """Marginal fixed-policy additions for a declared future target family."""
+    return tuple(form_from_cache(target, cache).new_additions for target in targets)
+
+
 if __name__ == "__main__":
     for cache in (frozenset({1}), frozenset({1, 2, 3}), frozenset({1, 2, 3, 6}),
                   frozenset({1, 2, 3, 6, 12, 13})):
         transition = form_from_cache(13, cache)
         print(cache, "->", transition.new_additions, transition.steps)
+    five = form_from_cache(5, frozenset({1}))
+    six = form_from_cache(6, frozenset({1}))
+    print("equal present vectors:", five.present_cost_vector, six.present_cost_vector)
+    print("future (3,4):", future_cost_profile(five.final_cache, (3, 4)),
+          future_cost_profile(six.final_cache, (3, 4)))

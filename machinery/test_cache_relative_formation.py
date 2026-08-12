@@ -5,6 +5,7 @@ import unittest
 from cache_relative_formation import (
     binary_prefixes,
     form_from_cache,
+    future_cost_profile,
     verify_transition,
 )
 
@@ -43,6 +44,22 @@ class CacheRelativeFormationTests(unittest.TestCase):
             form_from_cache(7, frozenset())
         with self.assertRaises(ValueError):
             form_from_cache(0, frozenset({1}))
+
+    def test_equal_present_vectors_have_incomparable_future_options(self):
+        five = form_from_cache(5, frozenset({1}))
+        six = form_from_cache(6, frozenset({1}))
+        self.assertEqual(five.present_cost_vector, six.present_cost_vector)
+        self.assertEqual(five.present_cost_vector, (3, 4))
+        self.assertFalse(five.final_cache <= six.final_cache)
+        self.assertFalse(six.final_cache <= five.final_cache)
+        self.assertEqual(future_cost_profile(five.final_cache, (3, 4)), (1, 0))
+        self.assertEqual(future_cost_profile(six.final_cache, (3, 4)), (0, 1))
+
+    def test_future_profile_factors_through_labeled_dependency_intersection(self):
+        targets = (3, 4, 5, 6, 13)
+        cache = form_from_cache(13, frozenset({1})).final_cache
+        profile = future_cost_profile(cache, targets)
+        self.assertEqual(profile, tuple(form_from_cache(t, cache).new_additions for t in targets))
 
 
 if __name__ == "__main__":
