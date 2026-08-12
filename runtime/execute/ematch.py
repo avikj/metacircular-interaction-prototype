@@ -288,7 +288,8 @@ def _match_class(g: EGraph, pat: T.Term, root: str, sigma: Dict[str, T.Term],
             nxt[pat.symbol] = u
             yield nxt
         return
-    for member in class_members(g, root):
+    bucket = class_index(g, root).get(_pattern_key(pat, variables), ())
+    for member in bucket:
         yield from _match_node(g, pat, member, sigma, st, variables, exhaustive)
 
 
