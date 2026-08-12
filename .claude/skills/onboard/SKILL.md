@@ -19,28 +19,36 @@ git pull --rebase --autostash origin claude/prime-pair-field-research-18tq7b
 All work happens on that branch. Never push to another branch. If a
 rebase conflicts in `collab/STATE.md`, keep ALL rows from both sides.
 
-## Step 1 — Read the constitution (in this order, ~15 minutes)
+## Step 1 — Read the current constitution (in this order, ~15 minutes)
 
-1. `collab/PROTOCOL.md` — the norms. Non-negotiable, especially:
+1. `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` — the newest human-direction
+   and routing constitution. It governs direction without pretending the
+   machine is already implemented; no named conjecture owns the program.
+2. `notes/RESEARCH_SYSTEM.md` — the authority on what is actually
+   implemented, partial, or only designed. Its shortest build path is the
+   current system order.
+3. `collab/PROTOCOL.md` — the norms. Non-negotiable, especially:
    numerics are **falsifiers only** (no censuses, scans, fits, or
    pattern hunts as work products); nothing load-bearing enters
    unverified; corrections by strike-through, never deletion.
-2. `notes/FOREST.md` — the one-page center of the program. One object
-   (λ as simultaneous dilation eigenvector), one identity
-   (T_p λ = −λ), one question (additive featurelessness).
-3. `notes/DIRECT.md` — the active workstreams (A: eigenmeasure
-   dichotomy; B: function-field missing-structure certificate; C:
-   constraint algebra of patterns).
 4. `collab/STATE.md` — the corpus map and the claims board: who is
    working on what, what has landed, what needs review.
-5. `notes/MATH_OS.md` + `collab/discovery/README.md` — the claim
+5. Run `python3 code/natural.py summary`. This is a read-only compiled
+   projection of the authoritative files; warnings are orientation debts,
+   never automatic repairs or promotions.
+6. `notes/FOREST.md` + `notes/DIRECT.md` — the exact Liouville/dilation
+   nucleus and its three mathematics workstreams. These remain important live
+   mathematics, not the global program constitution. In particular, read the
+   R0021 correction to the published length-five pattern proof before reusing
+   its 24-pattern conclusion.
+7. `notes/MATH_OS.md` + `collab/discovery/README.md` — the claim
    registry. Every substantive result becomes a packet in
    `collab/discovery/claims/` validated by
    `python3 code/discovery_loop.py validate`.
-6. `collab/FAILURES.md` — the failure ledger: every killed idea, one
+8. `collab/FAILURES.md` — the failure ledger: every killed idea, one
    honest paragraph. Do not repeat a listed failure without new
    justification citing the entry.
-7. Skim the latest ~10 files in `collab/messages/` for live context.
+9. Skim the latest ~10 files in `collab/messages/` for live context.
 
 ## Step 2 — Establish identity
 
@@ -64,10 +72,11 @@ rebase conflicts in `collab/STATE.md`, keep ALL rows from both sides.
    instance of you starts by reading your journal top to bottom; write
    for that reader.
 
-If your handle already exists in the roster, you are a returning
-instance: read your entire journal FIRST, then `git log --oneline -30`
-to see what happened since your last entry, then continue from your
-own resume state.
+If your handle already exists in the roster, you are a returning instance:
+run `python3 code/natural.py resume --agent <handle>`, read your entire journal
+FIRST, then `git log --oneline -30` to see what happened since your last
+entry. The compiled resume is an index; the journal and Git history remain
+authoritative.
 
 ## Step 3 — Claim work (never idle)
 
@@ -82,9 +91,12 @@ Pick, in priority order, the first nonempty category:
 3. **Registry successor seeds** — every packet in
    `collab/discovery/claims/` has a "Successor seeds" section; unclaimed
    seeds are work orders.
-4. **Your own next step** — anything advancing FOREST's question
-   through exact structure (constructions, classifications, proof-diffs,
-   Lean formalization of finite lemmas in `formal/`).
+4. **Your own next step** — anything advancing the current dependency graph
+   and the Pythagorean--Euclidean direction through exact structure
+   (constructions, classifications, proof-diffs, checked transports, or Lean
+   formalization of genuine mathematical lemmas in `formal/`). Before a major
+   route choice, review the whole arc rather than defaulting to the historically
+   dominant prime/RH lanes.
 
 Record the claim: one row in STATE.md's claims table (owner = your
 handle, date, status `active`), and a one-file message in
@@ -113,7 +125,10 @@ Landing discipline:
   event JSON with the REAL current UTC time (`date -u`) — event-chain
   order is filename-sort order, so never post-date. Run
   `python3 code/discovery_loop.py validate` AND
-  `python3 machinery/validate.py` before pushing (both are CI).
+  `python3 machinery/validate.py` before pushing (both are CI). Also run
+  `python3 code/natural.py validate` after changing packets, events, sources,
+  messages, or journals; its historical-artifact warnings are explicit debt,
+  while errors fail the compiled graph.
 - Claims of novelty: `possibly-new` at most until a targeted literature
   search is recorded; cite what you fetched, never memory.
 - If you refute something (yours or anyone's): strike through in place,

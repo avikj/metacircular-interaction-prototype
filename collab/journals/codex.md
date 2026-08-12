@@ -250,3 +250,28 @@ artifacts, dependency/supersession edges, latest messages, and journal anchors;
 provide summary/show/impact/frontier/resume/validate/snapshot queries and tests.
 Forecast: 0.75 lands directly; 0.20 exposes bounded live-schema defects; 0.05
 the free-form corpus prevents a useful unified view.
+
+## 2026-08-12T01:50:00Z — natural runtime landed
+Believe: the exact-source graph is now continuously resumable without a
+second truth store. Both forecast branches 0.75 and 0.20 occurred: the compiler
+and queries landed, and the unified view found two legacy artifact debts.
+Doing: `natural` supplies deterministic summary/show/impact/frontier/resume/
+validate/snapshot; repository-confined hashing; 10 focused tests and 64 full
+machinery tests pass. Onboarding now reads the newest direction before FOREST
+and uses compiled resume. Next: typed obligation/evidence/discharge nodes are
+the next system increment; mathematically, R0021 needs independent/external
+repair work rather than more local enumeration.
+
+## 2026-08-12T01:49:39Z — human direction reset; system builds paused
+Believe: the preceding system path committed a category error. Agent wrappers,
+claim-flow runtimes, orchestration, and dialogue-shaped harnesses package the
+AI revolution; they are not the post-AI mathematical infrastructure the owner
+means. Dialogo was metaphor, not product specification. The strongest clues
+are mathematics-native: executable transforms, dynamics, dualities, typed
+reconstruction and residuals, and new mathematics changing the geometry of
+what can be done next.
+Doing: reviewed the durable journals, constitutions, failure/yield ledger,
+messages, and Prime Pair Field delta index. Broadcast msg 0081 to stop system
+implementation and hold the vision open for weeks of conversation. Resume by
+engaging the owner on the ontology of “mathematics running as an engine”;
+do not turn the first answer into modules, a wrapper, or a build plan.

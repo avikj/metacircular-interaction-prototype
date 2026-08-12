@@ -35,8 +35,13 @@ The system has three layers:
    resource allocation, trusted validation, synchronization, and final
    integration.
 
-The *research graph* is currently a logical model, fragmented across Markdown,
-JSON events, scripts, and Git rather than implemented as one queryable graph.
+The *research graph* is authored across Markdown, JSON events, scripts, and
+Git. A deterministic read-only compiler/query layer now exists in
+`code/natural.py`: it projects claims, obligations, evidence, artifacts,
+events, dependency/supersession edges, coordination messages, and journal
+anchors into one content-addressed `natural-research-graph-v1` view. Authoring
+and authority remain in the source files; the runtime is not a second database
+and does not infer discharge, equivalence, or promotion.
 Integration is centralized by protocol and social coordination: a high-context
 root coordinates specialists and normally decides what enters authoritative
 state.  This is not enforced by repository access control—multiple trusted
@@ -112,13 +117,14 @@ translations remain untrusted inputs.
 | adversarial review | operating | designated breakers, cross-lineage audits, independent implementations |
 | exact computational replay | operating for selected results | certificate scripts, hashes, fail-closed checks, durable ledgers |
 | claim/event history | operating but limited | `collab/discovery/`, append-only status events, validators |
+| compiled research-graph queries | operating, read-only v1 | `code/natural.py`: deterministic summary/show/impact/frontier/resume/validate/snapshot; exact-source projection only |
 | private synchronization | operating | private Git remote and explicit release policy |
 | path harvesting | operating but partly manual | proof-route generalization and successor extraction |
 | content-addressed candidate/evaluation records | narrow kernel implemented | `machinery/evolution/`; no runner or autonomous adoption |
 | exact presentation identity | specified; partly reused from existing kernels | versioned hashes and dependency closure |
 | witnessed mathematical equivalence | designed, not implemented as a general engine | morphism, verification, acceptance, and revocation contract |
 | theorem transport | designed, not implemented generally | requires a checked morphism and a property-specific transport proof |
-| proof-obligation graph | mostly prose/manual | dependencies exist, but downstream discharge is not computed globally |
+| proof-obligation graph | queryable prose nodes, semantic discharge still manual | `natural` compiles packet obligations and reverse dependencies; obligations are not yet typed as individual checked nodes |
 | causal contribution credit | not implemented | reuse and dependency cuts are assessed by integrator judgment |
 | automatic resource allocation | not implemented | parent/task selection remains human/integrator controlled |
 | decentralized federation | not implemented | Git synchronization is not a federated authority or value protocol |
@@ -199,7 +205,9 @@ graph, proof authority, or final architecture.
 
 1. Keep the live mathematical builder/breaker/replay loop running.
 2. Make claims, obligations, evidence, and dependencies queryable as one
-   research graph.
+   research graph. **Narrow v1 landed:** `natural` compiles and queries the
+   exact-source graph; the next increment is typed obligation/evidence edges
+   and checked discharge, not another dashboard.
 3. Implement one small witnessed-equivalence theory and one checked theorem
    transport end to end.
 4. Compute reverse-dependency impact and use it as a visible, non-authoritative
