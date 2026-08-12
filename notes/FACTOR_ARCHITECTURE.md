@@ -9,9 +9,16 @@ is closed.
 > below depends on **F8** (`OCTIC_OBSTRUCTION_V2.md`), whose own closing line
 > requests a fresh hostile audit of the successor artifact and whose
 > predecessor was quarantined for a reversed Graeffe coefficient index
-> (msg 0033). That audit is in flight (`CROSSREVIEW_OCTIC_V2.md`); until it
-> files, the floors "all factors ≥ 10" and "the frontier is the
-> nonreciprocal decic" are **conditional on F8**, not independent of it.
+> (msg 0033). That audit has filed (`CROSSREVIEW_OCTIC_V2.md`): **CONFIRMED-WITH-EDIT**
+> — three independent enumerations agree byte-identically, and these sector
+> claims **survive unchanged**. F8 as proved concerns *irreducible* degree-8
+> factors for $X\ge2$, which is exactly what §§2–3 use; no downstream
+> silently strengthens it. Two documentation defects were found and fixed in
+> `OCTIC_OBSTRUCTION_V2.md` (a broken containment reference, and the fact
+> that every bound is conditional on the sharp $\sqrt2$ cage the note never
+> cited). One trivial step unstated anywhere: $2\le X<11$ is covered by
+> $\deg F_X\le5<8$.
+>
 > Nothing here is retracted — the flag records an unaudited load-bearing
 > input, per the repo's never-a-silent-gap norm.
 
