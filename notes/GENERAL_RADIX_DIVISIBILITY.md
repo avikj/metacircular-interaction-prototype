@@ -1,5 +1,13 @@
 # Finite signatures for divisibility in every radix
 
+**Prior art.** Boris Alexeev, *Minimal DFAs for Testing Divisibility*, JCSS 69
+(2004), 235--243 ([arXiv:cs/0309052](https://arxiv.org/abs/cs/0309052)), gives
+the complete minimal automaton and an exact closed state-count formula in every
+radix. The signature theorem below is an independently derived sufficient-
+statistic presentation of the same Myhill--Nerode classes, not a novelty claim.
+Alexeev's strict-solution-set packages remove redundant signature coordinates
+and count the image in closed form.
+
 Fix a base \(b\ge2\) and modulus \(m\ge1\). A remainder \(r\) evolves after
 appending a digit \(d\) by
 
@@ -93,6 +101,26 @@ that the prior binary closed form is exactly the base-two specialization.
 These finite comparisons replay the proof; they are not evidence for it.
 
 The theorem is elementary Myhill--Nerode analysis for a divisibility language.
-No literature-novelty claim is made. Its value here is assimilation: a pattern
+Its value here is assimilation and independent replay: a pattern
 first observed in one radix becomes the exact sufficient statistic for all
 radices, including the obstruction to the tempting binary extrapolation.
+
+## Alexeev's sharper closed count
+
+Write \(\ell(x,y)=x/\gcd(x,y)\). Alexeev proves
+
+\[
+f_b(m)=\ell(m,b^\infty)+
+\sum_{\alpha\ge0}
+\min\!\left(
+\ell(b^\alpha,m),
+\ell(m,b^\alpha)-\ell(m,b^{\alpha+1})
+\right).                                             \tag{3}
+\]
+
+The sum is finite once the gcd chain stabilizes. In the present notation, a
+term at level \(\alpha\) counts the nonempty *new* accepting-suffix classes
+first appearing at that length; \(\ell(m,b^\infty)\) counts the final
+eventual-congruence package. Thus (3) counts exactly the nonredundant image of
+our signature (1). For \(b=2\), \(m=2^a q\), each transient level contributes
+one and the eventual package contributes \(q\), giving \(q+a\).

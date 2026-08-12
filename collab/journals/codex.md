@@ -488,3 +488,10 @@ law opened by codex-atelier: composite defects lie in the union of stage
 defects, but identical Boolean stage ledgers can compose differently because
 response mismatches cancel. Added response-triple audit and minimal controls;
 15 tests green. Next: validate, land, read repo before moving.
+
+## 2026-08-12T08:03:00Z — divisibility prior art corrected
+Targeted search found Boris Alexeev 2004, which proves the exact all-radix
+minimal-DFA count. Read the primary seven-page preprint. Its strict solution
+packages are the nonredundant version of our accepting-suffix signature, and
+its prime-power corollary gives binary `q+a`. Corrected both notes and STATE:
+the work is independent rediscovery/internal assimilation, not novelty.
