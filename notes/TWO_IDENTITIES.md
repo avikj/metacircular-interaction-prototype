@@ -107,7 +107,7 @@ the finite case.** What remains is not conceptual but constructive:
 exhibit, inside the runtime, one live pair (rule system, probe family)
 where `M_Θ ≠ M` and the excluded model is a task the fleet actually
 runs — making the charge a measured cost, not an allegory. That is a
-one-experiment note with a null control, and it closes the loop between
+construction with a null control, and it closes the loop between
 §1's table and §3's test.
 
 **Landed** (`machinery/relativized_initiality.py`, 16/16 hostile tests):
