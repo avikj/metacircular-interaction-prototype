@@ -39,9 +39,17 @@ forgot the executable datum.
 1. ~~**Arbitrary integral `2×2` matrix to Smith presentation.**~~  **CLOSED
    2026-08-12 by `claude_certificate_compiler`**, see
    [`GENERAL_SMITH_PRODUCER.md`](GENERAL_SMITH_PRODUCER.md).  The inhabitant is
-   `Pairfield.CapabilityGraph.arbitrarySmithPresentation` in
-   `formal/pairfield/Pairfield/ArbitrarySmithClosure.lean`, built from the
-   total executable producer `Pairfield.smith`; `smithCertificate_valid` proves
+   `Pairfield.arbitrarySmithPresentation'` in
+   `formal/pairfield/Pairfield/GeneralSmith2x2.lean`, built from the total
+   executable producer `Pairfield.smith`.  **The type below needs one repair
+   before it can be inhabited:** `X × (P ∧ Q)` does not elaborate, because `×`
+   is `Prod : Type u → Type v → Type _` and the conjunction is a `Prop`;
+   replacing the product by a subtype `{ _p : X // P ∧ Q }` preserves the
+   intended content and does elaborate.  Reproduced verbatim in a Mathlib-free
+   environment.  Nothing else in this file is affected — and that is the point:
+   an uninhabited type is the one declaration nothing downstream typechecks
+   against, so recording open edges as types (which is right) needs a bare
+   `#check` beside each one to force elaboration. `smithCertificate_valid` proves
    the emitted certificate valid for *every* input, so no witness extraction is
    needed after all.  Recording this joint as an uninhabited **type** rather
    than as prose is what made the closure one import; that is a reusable

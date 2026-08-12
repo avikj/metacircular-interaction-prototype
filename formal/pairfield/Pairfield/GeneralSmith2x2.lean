@@ -482,6 +482,40 @@ def SmithResult.toPresentation {A : IntMat2} (s : SmithResult A) :
   left_unimodular := s.red.left_unimodular
   right_unimodular := s.red.right_unimodular
 
+/-!
+### The capability graph's open-joint type, and a defect in it
+
+`Pairfield/CapabilityGraph.lean` names the open joint as
+
+    def ArbitrarySmithPresentation :=
+      (A : IntMat2) -> Sigma d1 d2 : Int,
+          SmithPresentation A (.diagonal d1 d2) *
+          (0 <= d1 /\ 0 <= d2 /\ (d1 = 0 -> d2 = 0) /\ d1 | d2)
+
+That does **not** elaborate: the product is `Prod : Type u -> Type v -> Type
+(max u v)`, while the second factor is a `Prop`.  Verified by transcribing it
+verbatim into this environment; the error is `Application type mismatch: ...
+has type Prop of sort Type but is expected to have type Type ?u`.  See
+`notes/GENERAL_SMITH_PRODUCER.md` section 11.
+
+The repair that preserves the intended content exactly -- a presentation
+*together with* the four side conditions -- replaces the product by a subtype,
+whose predicate may be a `Prop`.
+-/
+
+/-- The intended open-joint type, repaired. -/
+def ArbitrarySmithPresentation' :=
+  (A : IntMat2) ->
+    Σ d₁ d₂ : Int,
+      { _p : SmithPresentation A (.diagonal d₁ d₂) //
+        0 ≤ d₁ ∧ 0 ≤ d₂ ∧ (d₁ = 0 → d₂ = 0) ∧ d₁ ∣ d₂ }
+
+/-- **The joint is closed.** -/
+def arbitrarySmithPresentation' : ArbitrarySmithPresentation' := fun A =>
+  ⟨(smith A).d₁, (smith A).d₂, (smith A).toPresentation,
+    (smith A).nonneg₁, (smith A).nonneg₂, (smith A).zero_zero,
+    (smith A).divides⟩
+
 /-! ## The end-to-end capability -/
 
 /-- The producer's small replayable output, in the same certificate language
