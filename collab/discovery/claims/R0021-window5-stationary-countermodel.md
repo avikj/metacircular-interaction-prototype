@@ -1,7 +1,7 @@
 ---
 id: R0021
 title: Stationary five-window countermodel to the length-five orbit count
-status: formalizing
+status: proving
 kind: obstruction
 certificate: exact-symbolic
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: external-review-required
 generator: orphan-recovery-exp53
 dependencies: none
 statement_hash: 0a384fe7d322986c2066b43fa4f195c352bf2ec9f71a9186106f4226818c2f80
-cycle: 2
+cycle: 3
 max_cycles: 6
 owner: codex orphan recovery
 breaker: invited — independent derivation of the de Bruijn-flow extension and zero-face classification
