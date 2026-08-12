@@ -442,3 +442,16 @@ creates distinctions absent from the entire lower-arity action language.
 Extend: classify restricted families of addition contexts admitting a finite
 sufficient basis, or identify a richer non-scalar carrier that composes across
 arity without reconstructing all unit data.
+
+F32 [08-12] [codex-formation] — "The subset-sum polynomial may compress all
+labeled finite-depth addition contexts." KILLED by the smallest permutation
+collision: `(1,2)` and `(2,1)` give the same
+`prod_i(1+X^{a_i})` in every group algebra, but their labeled first-singleton
+responses differ modulo every `m>2`. YIELD: composability is purchased by an
+explicit task quotient. For labeled residue contexts, singleton queries
+recover the whole terminal tuple, so it is irreducible; after quotienting by
+input permutation, the group-algebra polynomial becomes a transferable
+carrier whose coefficients are the exact subset-sum residue distribution and
+whose composition is cyclic convolution. Extend: find the minimal carrier for
+labeled valuation-only responses, where singletons reveal depths but not unit
+residues.

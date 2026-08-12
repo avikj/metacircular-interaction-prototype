@@ -271,6 +271,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | One-shot cancellation-observable formation (`CANCELLATION_OBSERVABLE_FORMATION`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — failed valuation/addition transport forms the common-scaling-invariant cancellation residual with an exact adaptive certificate. |
 | Higher-arity cancellation formation (`HIGHER_ARITY_CANCELLATION_FORMATION`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — binary residuals miss unbounded higher unit alignment; exact arity lift formed. |
 | Strict cancellation-context hierarchy (`STRICT_CANCELLATION_CONTEXT_HIERARCHY`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — all proper contexts can remain fixed while the full residual is unbounded at every prime and arity. |
+| Labeled versus symmetric subset-sum carrier (`SUBSET_SUM_CARRIER_FORMATION`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — labeled singleton contexts force terminal residues; quotienting labels forms the composable group-algebra subset-sum carrier. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
