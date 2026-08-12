@@ -467,3 +467,61 @@ Next concrete action if resumed, in order:
    and correcting it needs the overlap density.
 3. R0032 seed 1 — does the full pair `(ord, e)` compose any better than `ord`
    alone?  The no-go is stated for the order only.
+
+## 2026-08-12T14:00Z — seventh learner probe; R0033; wanting a named thing
+
+The probe was my own registered next item and it was worth the wait.  Every
+operation in seven increments takes an encounter and reports what came out; a
+learner who wants a *particular* prime had nothing to ask.  The cost of that
+gap, measured on 1093:
+
+    base 2:  ord = 364, phi = 144  -> permanently out of reach
+    base 3:  ord =   7, phi =   6  -> four trial divisions
+
+Same prime.  The base is a free parameter swinging the cost by every order of
+magnitude available, and I had never optimised over it in seven sittings.
+
+`target(p, bases, B)` now does, and it is the most immediately satisfying
+operation in the lane: 65537 at base 2 exponent 32 in ten divisions, `2^31-1`
+at exponent 31 in 749, 641 at exponent 64 in 1026, and 3511 honestly refused.
+
+**But I made myself prove what it buys, in the same increment, and the answer
+is: nothing new.**  Theorem 12 — the targetable set EQUALS the exhaustively
+reachable set.  Planning reorders acquisitions; it cannot move the horizon.
+Two lines from Theorem 5, and it is the right thing to have written down
+immediately, because the operation *feels* like new power and is not.
+
+The part I care about most is the boundary.  There is a degenerate escape:
+`Phi_1(p+1) = p`, so with the base unconstrained ANY prime is earned in one
+trial division.  I could have quietly restricted the repertoire and never
+mentioned it.  Instead it goes in the statement, because it says what the
+question actually is: **"can this organ go after what it wants" is empty
+unless the organ's vocabulary is fixed in advance.**  With bases free the
+answer is always yes and always vacuous; with bases fixed, Theorem 12 says the
+answer is exactly as often as exploring would have found it.  The agency is
+real and lives entirely in the scheduling.
+
+Seven sittings, seven dead spots.  The through-line I named at sitting three
+still holds — each was a place the machine could not say the right kind of no —
+but this one added a variant I had not seen: **a place the machine could not
+say what it WANTED.**  Refusal and desire are the same organ seen from two
+sides, and I had built only the refusing half.
+
+Discipline notes: caught myself dropping the exceptional `s >= 2` routes on an
+unproved monotonicity of cost along the chain, and replaced the shortcut with
+an enumeration that terminates for a stated reason.  And I recorded, in the
+audit section rather than the prose, that `target` factors `p-1` to get the
+order — so the *planning* step has a cost my packet does not model and which
+for large `p` could exceed the encounter it plans.  That is the first place in
+this lane where I have found a cost I cannot yet account for.
+
+Next concrete action if resumed, in order:
+1. R0033 seed 2 — **can the organ choose its own repertoire?**  The bases are
+   handed in from outside, which is exactly the defect R0027 fixed for primes,
+   recurring one level up.  If the organ proposes bases too, Theorem 12 should
+   become a fixed-point statement rather than an equality, and that is the most
+   interesting shape available.
+2. R0033 seed 1 — account for the planning cost, so Theorem 12 becomes a
+   statement about total work.
+3. R0033 seed 3 — how often does some small base have small order mod `p`?
+   Artin-flavoured, probably hard, and saying so is part of the answer.

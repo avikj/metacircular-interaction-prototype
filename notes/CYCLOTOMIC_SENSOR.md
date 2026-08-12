@@ -811,6 +811,86 @@ prime $1093$ arrives at base $3$, exponent $7$ — a prime the base-2 organ met
 only as a curiosity in a hand-supplied test, now earned by a machine that chose
 to go and get it.
 
+## Going after a named prime — and what that does not buy
+
+Seventh sitting.  Every operation so far takes an encounter and reports what
+came out.  A learner who wants a *particular* prime has nothing to ask.  So I
+asked by hand for $1093$:
+
+| base $b$ | $\operatorname{ord}_{1093}(b)$ | $\varphi$ | cost |
+|---|---|---|---|
+| $2$ | $364$ | $144$ | astronomical |
+| $3$ | $\mathbf 7$ | $6$ | $\mathbf 4$ |
+| $5$ | $1092$ | $288$ | astronomical |
+| $9$ | $7$ | $6$ | $57$ |
+| $11$ | $13$ | $12$ | $71{,}464$ |
+
+Four trial divisions from base $3$; permanently out of reach from base $2$.
+**The base is a free parameter that swings the cost by every order of
+magnitude available, and the organ never optimised over it.**
+
+`target(p, bases, budget)` now does.  For a prime $p$ and a fixed repertoire,
+$p\mid\Phi_n(b)$ forces either $n=\operatorname{ord}_p(b)$ (primitive) or
+$n=\operatorname{ord}_p(b)\,p^{s}$ with $s\ge1$ (exceptional); every $s$ is
+tried, and the loop terminates because $\varphi(dp^{s})\to\infty$.  Results
+over bases $2,\dots,11$:
+
+```text
+1093        -> base 3,  exponent 7,   primitive,       4 divisions
+41          -> base 2,  exponent 20,  primitive,       2 divisions
+65537       -> base 2,  exponent 32,  primitive,      10 divisions
+641         -> base 2,  exponent 64,  primitive,    1026 divisions
+2147483647  -> base 2,  exponent 31,  primitive,     749 divisions
+3511        -> no route over this repertoire within budget
+```
+
+The Fermat prime $65537$ arrives at $\operatorname{ord}(2)=32$, the Mersenne
+prime $2^{31}-1$ at exponent $31$, and $3511$ — the second known Wieferich
+prime — is refused, honestly.
+
+### Theorem 12: planning is scheduling, not extension
+
+The organ can now go after a specified object.  It is worth asking immediately
+whether that buys anything, and the answer is no.
+
+> **Theorem 12.**  Fix a finite base repertoire $\mathcal B$ and a budget $B$.
+> Let $T$ be the set of primes for which `target` returns a route, and $E$ the
+> set of primes obtained by routing *every* affordable encounter over
+> $\mathcal B$.  Then $T=E$.
+
+*Proof.*  $(\subseteq)$  A route is an affordable encounter over $\mathcal B$;
+routing it is part of the exhaustive sweep and yields $p$.  $(\supseteq)$  If
+$p\in E$ it came from an affordable $(b,n)$ with $b\in\mathcal B$; by Theorem 5
+either $n=\operatorname{ord}_p(b)$ or $n=\operatorname{ord}_p(b)p^{s}$, and
+`target` tries every such index at every base, so it finds that route or a
+cheaper one.  $\square$
+
+So **targeting reorders acquisitions; it cannot extend them.**  The reachable
+set is the horizon of Theorem 8 taken over the repertoire, and no amount of
+planning enlarges it.  What planning buys is order: $1093$ arrives in four
+divisions instead of after an exhaustive sweep of base 3.
+
+The test asserts the equality exactly — for every prime below $400$,
+targetable if and only if exhaustively reached, over bases $\{2,3,5\}$ at
+budget $3000$.
+
+### The theorem has content only because the vocabulary is bounded
+
+There is a degenerate escape, and stating it is the honest part.  If the
+repertoire is unconstrained, targeting is trivial:
+$$
+  \Phi_1(p+1)=(p+1)-1=p,
+$$
+so **any** prime is earned in one trial division by choosing $b=p+1$, $n=1$.
+The executable confirms this for $1093$, $3511$, $65537$, $2^{31}-1$.
+
+That is not a loophole to be patched; it is the boundary of the question.
+"Can this organ go after what it wants?" is empty unless the organ's
+vocabulary is fixed in advance.  With $\mathcal B$ free, the answer is *always
+yes and always vacuous*; with $\mathcal B$ fixed, Theorem 12 says the answer is
+*exactly as often as exploring would have found it*.  The agency is real and
+it is entirely in the scheduling.
+
 ## The encounter
 
 ```text
@@ -847,6 +927,11 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 12 and the degenerate-repertoire remark.  Both are
+  elementary consequences of Theorem 5 plus the definition of order; no novelty
+  is claimed.  The content is that the equality `T = E` is *exact* rather than
+  approximate, so no scheduling heuristic can ever enlarge the reachable set —
+  a statement about this organ, not about arithmetic.
 - **Proved here:** Theorems 10 and 11.  Theorem 10 is a no-go with an explicit
   witness the executable rediscovers rather than quotes; the underlying fact
   (order is not multiplicative) is elementary and certainly known, and no

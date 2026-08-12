@@ -22,6 +22,7 @@ from cyclotomic_sensor import (
     factor_power_minus_one,
     acquisition_horizon,
     growth_rate,
+    target,
     fresh_yield,
     held_at,
     order_composition_witness,
@@ -648,6 +649,55 @@ class TestCyclotomicSensor(unittest.TestCase):
             organ.route(3, index)
             self.assertTrue(set(organ.life.moduli) - held,
                             f"fresh proposal n={index} earned nothing new")
+
+    def test_targeting_finds_the_base_that_makes_a_prime_cheap(self) -> None:
+        """The base is a free parameter and it swings the cost enormously:
+        ord_1093(2) = 364 puts 1093 out of reach, ord_1093(3) = 7 earns it."""
+        bases = tuple(range(2, 12))
+        route = target(1093, bases)
+        self.assertIsNotNone(route)
+        self.assertEqual((route.base, route.index), (3, 7))
+        self.assertTrue(route.primitive)
+        self.assertLess(route.cost, 10)
+        self.assertEqual(multiplicative_order(2, 1093), 364)
+        # and the route actually delivers
+        organ = CyclotomicOrgan(ArithmeticLife())
+        organ.route(route.base, route.index)
+        self.assertIn(1093, organ.life.moduli)
+
+    def test_targeting_equals_exhaustive_reach(self) -> None:
+        """Theorem 12: targeting reorders acquisitions, it does not extend
+        them.  The targetable set and the exhaustively reachable set agree."""
+        bases, budget = (2, 3, 5), 3_000
+        reached: set[int] = set()
+        for base in bases:
+            bound = acquisition_horizon(base, budget)
+            for index in range(1, bound + 1):
+                if not affordable(base, index, budget):
+                    continue
+                result = factor_cyclotomic(index, base, budget=budget,
+                                           compare=False)
+                self.assertTrue(result.complete)
+                reached.update(prime for prime, _power in result.factors)
+        self.assertGreater(len(reached), 15)
+        pool = [n for n in range(2, 400)
+                if all(n % d for d in range(2, isqrt(n) + 1))]
+        for prime in pool:
+            targetable = target(prime, bases, budget) is not None
+            self.assertEqual(targetable, prime in reached,
+                             f"p={prime} targetable={targetable} "
+                             f"reached={prime in reached}")
+
+    def test_unbounded_repertoire_makes_targeting_vacuous(self) -> None:
+        """The theorem has content only because the repertoire is fixed.  With
+        the base free, Phi_1(p+1) = p earns any prime in one division."""
+        for prime in (1093, 3511, 65537, 2147483647):
+            self.assertEqual(cyclotomic_value(1, prime + 1), prime)
+            route = target(prime, (prime + 1,))
+            self.assertIsNotNone(route)
+            self.assertEqual((route.base, route.index), (prime + 1, 1))
+            # ...while the fixed small repertoire genuinely cannot reach 3511
+            self.assertIsNone(target(3511, tuple(range(2, 12))))
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

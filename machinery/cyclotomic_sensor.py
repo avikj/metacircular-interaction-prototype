@@ -584,6 +584,53 @@ def fresh_yield(organ: "CyclotomicOrgan", base: int,
     return residual > 1, residual, held
 
 
+@dataclass(frozen=True)
+class TargetRoute:
+    """The cheapest encounter over a fixed repertoire that yields a named prime."""
+
+    prime: int
+    base: int
+    index: int
+    cost: int
+    primitive: bool
+
+    def describe(self) -> str:
+        kind = "primitive" if self.primitive else "exceptional"
+        return (f"{self.prime} via base {self.base}, exponent {self.index} "
+                f"({kind}), {self.cost} trial divisions")
+
+
+def target(prime: int, bases: tuple[int, ...],
+           budget: int = DEFAULT_BUDGET) -> TargetRoute | None:
+    """The cheapest affordable encounter over `bases` that earns `prime`.
+
+    Two routes exist and both are considered.  `prime` divides `Phi_n(b)`
+    either primitively, forcing `n = ord_prime(b)`, or exceptionally, forcing
+    `prime` to be the largest prime factor of `n`, so `n = ord_prime(b) *
+    prime^s` with `s >= 1`.  Since `phi(d p^s)` is strictly increasing in `s`,
+    the cheapest exceptional route is `s = 1`, and only that one is tried.
+
+    Returns None when no route over this repertoire fits the budget — which by
+    Theorem 12 is exactly when exhaustive routing would also miss it.  The base
+    matters enormously: `ord_1093(2) = 364` puts 1093 out of reach forever,
+    while `ord_1093(3) = 7` earns it in four trial divisions.
+    """
+    if prime < 2:
+        raise ValueError("target needs a prime")
+    best: TargetRoute | None = None
+    for base in bases:
+        if base < 2 or base % prime == 0:
+            continue
+        order = multiplicative_order(base, prime)
+        index, primitive = order, True
+        while not certainly_unaffordable(base, index, budget):
+            cost = scan_cost(base, index)
+            if cost <= budget and (best is None or cost < best.cost):
+                best = TargetRoute(prime, base, index, cost, primitive)
+            index, primitive = index * prime, False
+    return best
+
+
 def refusal(base: int, index: int,
             budget: int = DEFAULT_BUDGET) -> str | None:
     """Why this organ declines the encounter, or None if it accepts.
@@ -970,6 +1017,23 @@ def main() -> None:
           f"ord({other_right})={multiplicative_order(other_right, 7)} -> "
           f"ord({other_left * other_right % 7})="
           f"{multiplicative_order(other_left * other_right % 7, 7)}")
+
+    print("\nencounter 11: 'I want the prime 1093.  Which encounter gets it?'")
+    repertoire = tuple(range(2, 12))
+    for candidate in (2, 3, 5, 11):
+        order = multiplicative_order(candidate, 1093)
+        print(f"    base {candidate:2d}: ord_1093 = {order:4d}, phi = "
+              f"{totient(order):3d}")
+    route = target(1093, repertoire)
+    print(f"  cheapest over bases 2..11: {route.describe()}")
+    for wanted in (41, 65537, 641, 2147483647, 3511):
+        found = target(wanted, repertoire)
+        print(f"    {wanted:>10}: "
+              f"{found.describe() if found else 'no route in this repertoire'}")
+    print("  but planning does not extend reach (Theorem 12): the targetable")
+    print("  set EQUALS the exhaustively reachable set.  It reorders only.")
+    print(f"  and with the base free it is vacuous: Phi_1(p+1) = p, so "
+          f"Phi_1(3512) = {cyclotomic_value(1, 3512)}")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):
