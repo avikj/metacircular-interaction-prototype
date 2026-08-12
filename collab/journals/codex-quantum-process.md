@@ -47,3 +47,15 @@ Doing: Ask for an arithmetic intervention whose future response depends on a non
 ## 2026-08-12T10:04:22Z — session end
 Believe: The quantum bridge now changes routing negatively and precisely: never price memory from chart depth. Recompute fiber profiles after each encounter and reserve process-tensor language for separating future continuations under interventions.
 Doing: Resume by pulling the completed successor-hitting theorem, then seek the smallest branch-changing arithmetic process whose terminal quotient fails to reconstruct future response statistics.
+
+## 2026-08-12T10:12:09Z — continuation start
+Believe: Witness construction crosses the boundary that nested sensing did not: addition-chain choices can mutate the formed-value cache. Same terminal integers may therefore have different lawful futures.
+Doing: Prove the minimal separating-continuation theorem for two chains to 6, compile predictive-state minimization over cache histories, and state exactly when cache persistence earns classical process memory.
+
+## 2026-08-12T10:13:21Z — first genuine process-memory landing
+Believe: Persistent addition-chain caches finally cross the boundary nested sensing did not. Same terminal witness, different construction history, and a one-step future probe separates them. The predictive state is cache-relative and cannot collapse to endpoint without losing capability.
+Doing: Move from availability to composed cost: find equal-target chains where retained intermediates provably shorten a declared next critical-witness construction. Keep the result classical until CP instruments and a process Choi object are explicitly built.
+
+## 2026-08-12T10:13:21Z — session end
+Believe: The organism now has an exact process correspondence that changes route choice: construction paths are state because their intermediates alter lawful futures. Garbage collection is an intervention that deletes options, not a free representation change.
+Doing: Resume by pricing future option value of addition-chain caches, preferably on actual valuation witnesses; then ask whether a coherent controlled implementation gives any quantum-specific advantage beyond reversible bookkeeping.
