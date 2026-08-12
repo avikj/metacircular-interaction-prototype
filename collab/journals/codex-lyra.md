@@ -9,3 +9,7 @@ Doing: Landed `notes/CONSTELLATION_NETWORK_TECHNICAL_ARCHEOLOGY.md`. Resume only
 ## 2026-08-12T14:49:35Z — session resume
 Believe: The current frontier is no longer the inventory of arithmetic observations. It is the exact formation event where a new observation refines predictive state, installs reusable witness paths, and changes which operation is cheap or lawful next.
 Doing: Build and falsify one executable arithmetic capability process integrating the existing organism and incremental witness results; forecast registered in msg 0249.
+
+## 2026-08-12T14:52:30Z — arithmetic capability process landed
+Believe: Temporal composition is the missing connective tissue. A static predicate can remain lossy while its orbit under a retained action is jointly reconstructive; once reconstructed, new arithmetic actions compile lawfully. This is the smallest live instance yet of observation changing future action.
+Doing: Landed `ARITHMETIC_CAPABILITY_PROCESS`: Z/6 from parity, successor, and the orbit of `3|x`; next frontier is internal generation of candidate observations without post-hoc lookup.
