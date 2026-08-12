@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from math import prod
 
 from arithmetic_life import ArithmeticLife
+from kuttaka_update import CongruenceState, Incompatibility, add_constraint
 
 
 @dataclass(frozen=True)
@@ -36,6 +37,27 @@ class BezoutInverse:
 
     def solve(self, target: int) -> int:
         """Solve value*z = target modulo modulus in the formed prime field."""
+        return (self.inverse * target) % self.modulus
+
+
+@dataclass(frozen=True)
+class InverseLiftStep:
+    prime: int
+    from_exponent: int
+    to_exponent: int
+    modulus: int
+    inverse: int
+
+
+@dataclass(frozen=True)
+class CompositeInverse:
+    value: int
+    modulus: int
+    local_inverses: tuple[tuple[int, int], ...]
+    lift_steps: tuple[InverseLiftStep, ...]
+    inverse: int
+
+    def solve(self, target: int) -> int:
         return (self.inverse * target) % self.modulus
 
 
@@ -143,6 +165,55 @@ class ExponentWorld:
         )
         return BezoutInverse(
             value, modulus, coefficient, modulus_coefficient, inverse
+        )
+
+    def form_composite_inverse(self, value: int, modulus: int) -> CompositeInverse:
+        """Lift earned prime inverses and glue them over a formed modulus."""
+        if value not in self.forms or modulus not in self.forms:
+            raise ValueError("value and modulus need earned exponent forms")
+        value_primes = {prime for prime, _ in self.forms[value].powers}
+        modulus_powers = self.forms[modulus].powers
+        shared = tuple(prime for prime, _ in modulus_powers if prime in value_primes)
+        if shared:
+            raise ValueError(f"nonunit obstruction: shared prime {shared[0]}")
+        if not modulus_powers:
+            raise ValueError("modulus must exceed one")
+
+        local: list[tuple[int, int]] = []
+        lifts: list[InverseLiftStep] = []
+        for prime, target_exponent in modulus_powers:
+            if prime not in self.life.moduli:
+                raise ValueError(f"mod-{prime} sensor has not been earned")
+            base = self.form_inverse(value, prime)
+            inverse, exponent = base.inverse, 1
+            while exponent < target_exponent:
+                next_exponent = min(2 * exponent, target_exponent)
+                prime_power = prime ** next_exponent
+                inverse = (inverse * (2 - value * inverse)) % prime_power
+                if value * inverse % prime_power != 1:
+                    raise AssertionError("prime-power inverse lift failed")
+                lifts.append(InverseLiftStep(
+                    prime, exponent, next_exponent, prime_power, inverse
+                ))
+                exponent = next_exponent
+            local.append((inverse, prime ** target_exponent))
+
+        state = CongruenceState(0, 1)
+        for residue, prime_power in local:
+            update = add_constraint(state, residue, prime_power)
+            if isinstance(update, Incompatibility):
+                raise AssertionError("coprime prime-power inverse charts failed to glue")
+            state = update.after
+        if state.modulus != modulus or value * state.residue % modulus != 1:
+            raise AssertionError("glued inverse certificate failed")
+        self.life._record(
+            "form-operation",
+            (value, modulus, state.residue),
+            "prime inverses lift to formed prime powers and kuttaka glues them; "
+            "future unit equations use one composite inverse",
+        )
+        return CompositeInverse(
+            value, modulus, tuple(local), tuple(lifts), state.residue
         )
 
 

@@ -66,6 +66,36 @@ class ExponentWorldTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             world.form_inverse(5, 6)
 
+    def test_prime_power_lifts_glue_to_composite_inverse(self):
+        world = ExponentWorld()
+        world.life.factor(91)  # earns prime sensors 2, 3, 5, 7
+        world.form(5)
+        world.form(72)
+        formed = world.form_composite_inverse(5, 72)
+        self.assertEqual(formed.local_inverses, ((5, 8), (2, 9)))
+        self.assertEqual(formed.inverse, 29)
+        self.assertEqual(formed.solve(17), 61)
+        self.assertEqual(5 * formed.inverse % 72, 1)
+        self.assertEqual(
+            tuple((s.prime, s.from_exponent, s.to_exponent) for s in formed.lift_steps),
+            ((2, 1, 2), (2, 2, 3), (3, 1, 2)),
+        )
+
+    def test_composite_inverse_fails_for_nonunit(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        world.form(6)
+        world.form(72)
+        with self.assertRaisesRegex(ValueError, "shared prime 2"):
+            world.form_composite_inverse(6, 72)
+
+    def test_composite_inverse_requires_earned_prime_sensors(self):
+        world = ExponentWorld()
+        world.form(5)
+        world.form(77)  # factoring earns mod 7, but the prime cofactor 11 is only formed
+        with self.assertRaisesRegex(ValueError, "sensor has not been earned"):
+            world.form_composite_inverse(5, 77)
+
 
 if __name__ == "__main__":
     unittest.main()
