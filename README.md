@@ -198,7 +198,9 @@ Then show it a new exact view.  If the view separates states previously joined,
 the old meaning reopens and refines.  The earlier observation is retained, not
 declared false, and previously compiled actions remain replayable as the action
 words from which they came.  Learning is alternately compression and renewed
-distinction.
+distinction.  Lean checks the direction of this change: because the richer view
+projects back to the old one, it may split an old class but cannot merge two old
+classes.
 
 Run it:
 

@@ -105,6 +105,17 @@ theorem quotientRun_mk (step : X → A → X) (observe : X → O)
   | cons action word induction =>
       exact induction (step x action)
 
+/-- A finer observation can split old meanings but cannot merge them. -/
+theorem futureEq_of_finer {Fine : Type z}
+    (step : X → A → X) (coarse : X → O) (fine : X → Fine)
+    (forget : Fine → O) (hforget : ∀ x, forget (fine x) = coarse x)
+    {x y : X} (h : FutureEq step fine x y) :
+    FutureEq step coarse x y := by
+  intro word
+  change coarse (run step x word) = coarse (run step y word)
+  rw [← hforget (run step x word), ← hforget (run step y word)]
+  exact congrArg forget (h word)
+
 theorem quotientObserve_mk (step : X → A → X) (observe : X → O) (x : X) :
     quotientObserve step observe (Quotient.mk _ x) = observe x := rfl
 
