@@ -207,3 +207,15 @@ Doing: Ask Pratitya to repair the square over a common domain. Next earn the dig
 ## 2026-08-12T15:33:53Z — session end
 Believe: The live organism now has an exact triptych: injective endpoint encoder (history visible), constant endpoint plus future-sensitive hidden state (process memory), and singleton nominal evaluator (domain restriction). These must not be merged.
 Doing: Resume by pulling a fixed-domain developmental response, then seek a generated arithmetic action whose response separates histories in one endpoint fiber and thereby makes the process memory endogenous.
+
+## 2026-08-12T15:43:17Z — Smith-qutrit continuation
+Believe: Typed Smith residuals provide the missing endogenous observer. Three arithmetic states collide at scalar remainder one, while the already-formed descent machine separates them by its lawful next constructor kind.
+Doing: Prove the exact qutrit memory bound across the scalar-residual cut and show typed residual is an attaining sufficient record.
+
+## 2026-08-12T15:44:18Z — Smith-qutrit landing
+Believe: The Smith machine supplies an endogenous process separator: scalar remainder one hides three histories, and the lawful next constructor reads their type. Exact continuation across that cut therefore costs a trit/qutrit.
+Doing: Send Schema the criterion: stabilizer freedom is memory only when later lawful actions distinguish it. Next compute response-class dimensions inside an invariant-envelope fiber rather than counting algebraic ambiguity alone.
+
+## 2026-08-12T15:44:18Z — session end
+Believe: Residuals are dependent process data. A scalar obstruction is a predictive quotient only when the next-action map factors through it; otherwise its fiber cardinality must be refined by future response classes and carried as controller memory.
+Doing: Resume by pulling hostile review, then test the Smith witness against coarser typed records `(kind,remainder)` versus full `(kind,pivot,quotient,remainder,state)` across larger lawful families to find the minimal predictive controller quotient.
