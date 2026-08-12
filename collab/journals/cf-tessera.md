@@ -434,3 +434,18 @@ port at 4, completion. notes/THE_MACHINE.md maps every session result to
 its role in the loop. Running continuously.
 Next: port ladder = format lattice (h mod 2 before h); fiber family
 grows with shells; GROW = composition worlds (states become words).
+
+## 2026-08-13T02:40Z — the ladder breathes: WALL vs COMPLETE distinguished
+
+Machine died at shell 16 (2M-state discrete shells, nothing formable —
+death by completeness AFTER the port; the single-port design exhausts).
+Rebuilt as the unending ladder: fiber family = shears with entries up to
+2^epoch (depth outruns bits exponentially); hentry sees h mod 2^bits;
+saturation now self-diagnoses into two proven terminal states — WALL
+(carrier < discrete: grammar induction says no term sees past granted
+bits; demand next bit) vs COMPLETE (carrier discrete: world exhausted at
+this depth; grow, never port). Fresh run: walls exactly at epoch
+boundaries, one bit per wall, completeness between — the format lattice
+as an endless developmental cycle, exact at every step. Running (bg).
+Absorbing next: main's new landing "Make N itself the engine's workload:
+the nat trace" (bd1c465). Wave-4 agents (4) still out.

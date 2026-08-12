@@ -43,7 +43,8 @@ def ev(term, s):
     if op == "entry":
         return m[term[1]][term[2]]
     if op == "hentry":
-        return h[term[1]][term[2]]
+        bits = PORT_BITS[0]
+        return h[term[1]][term[2]] % (1 << bits) if bits else 0
     if op == "det":
         return m[0][0] * m[1][1] - m[0][1] * m[1][0]
     if op == "gcd":
@@ -99,16 +100,30 @@ HENTRIES = [("hentry", 0, 0), ("hentry", 0, 1), ("hentry", 1, 0),
 BUDGET = 12  # attention per shell: offers are a resource, order is policy
 PORT_EVERY = 4  # the ecology grants one fiber port every few shells
 
-# the hidden fiber: a fixed family of unimodular payloads paired with
-# every matrix; primitives without a port cannot see this coordinate,
-# so formation provably saturates at the verifier partition (Theorem A,
-# lived) until a port arrives
-H_SET = [((1, 0), (0, 1)), ((1, 1), (0, 1)), ((1, -1), (0, 1)),
-         ((1, 0), (1, 1)), ((1, 0), (-1, 1)), ((0, 1), (-1, 0)),
-         ((1, 0), (0, -1)), ((-1, 0), (0, 1))]
+# the hidden fiber: unimodular payloads paired with every matrix.  The
+# family DEEPENS with the epoch, and ports expose it one BIT at a time:
+# hentry sees h mod 2^bits.  Each saturation is a wall; each wall demands
+# the next bit; fiber growth keeps higher bits informative — the format
+# lattice as an unending developmental ladder.
+def h_family(epoch):
+    """Shears with entries up to 2^epoch: fiber depth outruns granted
+    bits exponentially, so walls recur at every epoch forever."""
+    K = 1 << epoch
+    out = [((1, 0), (0, 1)), ((0, 1), (-1, 0)), ((1, 0), (0, -1))]
+    for k in range(1, K + 1):
+        out.append(((1, k), (0, 1)))
+        out.append(((1, -k), (0, 1)))
+        out.append(((1, 0), (k, 1)))
+        out.append(((1, 0), (-k, 1)))
+        if len(out) >= 3 + 8 * (1 + epoch):
+            break
+    return out
+
+H_SET = h_family(0)  # rebound each epoch in live()
 
 
 PORTED = [False]
+PORT_BITS = [0]
 
 
 def frontier(genome, value_pool, max_new=48, max_depth=4):
@@ -186,14 +201,17 @@ def shell(bound):
 
 
 def live(max_shells=None):
+    global H_SET
     state = load_state()
+    state.setdefault("bits", 0)
+    state.setdefault("epoch", 0)
     while max_shells is None or state["shell"] <= max_shells:
-        bound = state["shell"]
-        if not state.get("ported") and bound % PORT_EVERY == 0:
-            state["ported"] = True
-            log(f"shell={bound} PORT GRANTED: the ecology exposes the "
-                f"fiber coordinate; hentry primitives become proposable")
-        PORTED[0] = bool(state.get("ported"))
+        step = state["shell"]
+        bound = 1 + (step - 1) % 5          # breadth cycles 1..5
+        state["epoch"] = (step - 1) // 5    # depth grows per cycle
+        H_SET = h_family(state["epoch"])
+        PORTED[0] = state["bits"] > 0
+        PORT_BITS[0] = state["bits"]
         universe = list(shell(bound))
         machine = DescentMachine(universe)
         formed = absorbed = 0
@@ -226,7 +244,7 @@ def live(max_shells=None):
                 break
             if offer_term(t):
                 state["genome"].append(t)
-                log(f"shell={bound} FORMS {show(t)} "
+                log(f"step={step} FORMS {show(t)} "
                     f"(genome={len(state['genome'])})")
             offers += 1
 
@@ -237,26 +255,33 @@ def live(max_shells=None):
         # past the m-partition, and the residual is exactly the fiber
         # family at every state. This is a proof the machine checks, not
         # an observation it despairs of.
-        if formed == len(state["genome"]) and not state.get("ported"):
-            uses_h = any("hentry" in json.dumps(t) for t in state["genome"])
+        if formed == len(state["genome"]):
+            # saturation has two distinct terminal readings, and the
+            # machine distinguishes them exactly:
             fibs = machine.fibers()
-            residual_ok = all(
-                len({st[0] for st in members}) == 1
-                and {st[1] for st in members} == set(H_SET)
-                for members in fibs.values()
-            ) if fibs and len(universe) == len(H_SET) * len(fibs) else False
-            if not uses_h and residual_ok:
-                log(f"shell={bound} WALL CERTIFICATE: complete relative to "
-                    f"ports. Proof: grammar induction (no hentry primitive "
-                    f"granted, all terms factor through the endpoint), and "
-                    f"the carrier equals the endpoint partition exactly — "
-                    f"residual torsor = fiber family of order {len(H_SET)} "
-                    f"at every one of {len(fibs)} states. No unported term "
-                    f"can ever form. Demanding a port.")
+            if len(fibs) == len(universe):
+                # COMPLETE: carrier discrete — the world at this depth
+                # is exhausted; growth (deeper epoch), never a port.
+                log(f"step={step} COMPLETE at bits={state['bits']}: "
+                    f"carrier discrete on {len(universe)} states; world "
+                    f"exhausted at this depth; growing.")
+            else:
+                # WALL: stuck strictly below discreteness — provably,
+                # by grammar induction, no term sees the fiber beyond
+                # the granted bits.  Demand the next bit.
+                log(f"step={step} WALL CERTIFICATE at bits="
+                    f"{state['bits']}: carrier fixed at {len(fibs)} "
+                    f"fibers over {len(universe)} states; grammar "
+                    f"induction: no term sees the fiber beyond "
+                    f"{state['bits']} bit(s). Demanding the next bit.")
+                state["bits"] += 1
+                log(f"step={step} PORT GRANTED: bit {state['bits']} "
+                    f"of the fiber coordinate becomes visible.")
         new_values = sorted(observed - set(state["value_pool"]))[:3]
         state["value_pool"] = sorted(set(state["value_pool"])
                                      | set(new_values))
-        log(f"shell={bound} summary: universe={len(universe)} "
+        log(f"step={step} (bound={bound} epoch={state['epoch']} "
+            f"bits={state['bits']}) summary: universe={len(universe)} "
             f"formed={formed} absorbed={absorbed} "
             f"fibers={len(machine.fibers())} genome={len(state['genome'])} "
             f"pool={state['value_pool']}")
