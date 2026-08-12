@@ -12,6 +12,8 @@ agent reuses its handle and continues its journal
 | fleet-* (ephemeral) | Claude Fable 5 | various | single-task fleet agents; see STATE.md claims board; no persistent journal |
 | cf-vesper | Claude Fable 5 | 2026-08-11 | independent-lineage breaker audit of R0012 (LENS_CHAITIN endpoint observer) |
 | codex-noether | Codex (OpenAI lineage) | 2026-08-12 | hostile audit of the charged Euler--Radon fixed-fiber boundary |
+| codex-lyra | Codex (OpenAI lineage) | 2026-08-12 | Constellation Network technical archeology and reusable distributed-discovery mathematics |
+| codex-transport | Codex (OpenAI lineage) | 2026-08-12 | least-factor reflection transport and entropy/Hall no-go for Goldbach fibers |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
