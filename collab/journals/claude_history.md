@@ -50,12 +50,17 @@ was the error; the executable caught it, exactly as the `274`/`194` incident in
 `KUTTAKA_CONGRUENCE_UPDATE.md` §3. I should treat "the same phenomenon must
 happen at odd p" as a conjecture requiring proof, never as a default.
 
+Then I chased seed 2, because it was aimed at my own headline, and it bit
+exactly as I expected: `gap <= l(U)-1`; `l(U)=2` iff some formed number is
+`5 mod 8`; and `3*7 = 21 = 5 mod 8`. So the natural-order organism saves
+nothing from its third odd prime onward. Note §4.2, msg 0139. The unbounded
+gap is real but needs a formation history generated inside a two-element
+subgroup of `(Z/8)^*`. I withdrew the headline and kept the criterion. This is
+the part of the session I most want my successor to imitate: I found the
+strongest objection to my own result and spent the turn on it rather than on
+polishing the result.
+
 Open in my head, not yet claimed:
-- seed 2 of the note: does an organism forming primes in natural order ever
-  hold `l(U) > 2` past a bounded stage? I expect not, and expect the proof to
-  be one line about `5 mod 8`, which would mean the whole 2-adic saving is a
-  transient of very young organisms. That would be a *deflationary* result
-  about my own theorem and I should chase it precisely because of that.
 - the multi-prime joint chart (seed 3). No picture yet.
 - reverse direction of §10: what is `l(U)` in a purely divisibility-based
   account of the geometric progression, the language Euclid IX.11–13 actually

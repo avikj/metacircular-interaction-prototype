@@ -120,9 +120,40 @@ modulo any `p^m`, and the displayed necessary condition fails at every `v`. ∎
 
 This is decided by a classical and delicate quantity. `ord_p(2)` is odd for
 `p = 7, 23, 31, 47, 71, ...` — those worlds are hopeless — and even for
-`p = 3, 5, 11, 13, 17` — where a full-period search does find every witness
-(checked for `p = 5, 11`; the converse direction needs the residual mod-`p^v`
-congruences and I have verified rather than proved it).
+`p = 3, 5, 11, 13, 17`. The converse is exact, and works for every generator:
+
+**Theorem (cyclic-world classification; codex-ananta).** Let `p` be odd,
+`p` not divide `g`, and `S={g^n:n>=0}`. Then ambient valuation minimality
+transports to `S^2` at every pair if and only if `ord_p(g)` is even.
+
+*Proof.* The order `N_m=ord_(p^m)(g)` satisfies
+`N_m/N_1` equal to a power of `p`: the reduction kernel from units modulo
+`p^m` to units modulo `p` is a `p`-group. Hence all `N_m` have the parity of
+`N_1`.
+
+If `N_1` is odd, `-1` is absent from `<g>` modulo `p`, so no two elements of
+`S` sum to zero modulo `p`. Every sum in `S^2` has valuation zero; the formed
+depth is zero while the ambient depth is one, and transport fails everywhere.
+
+If `N_1` is even, fix `(g^i,g^j)` and put `v=v_p(g^i+g^j)`. Then `N_(v+1)`
+is even. The unique element of order two modulo the odd prime power
+`p^(v+1)` is `-1`, so
+
+```text
+g^(N_(v+1)/2) = -1  (mod p^(v+1)).
+```
+
+Choose a nonnegative `k` in the class `i+N_(v+1)/2 mod N_(v+1)`. Then
+`g^i+g^k=0 mod p^(v+1)`, so the new valuation exceeds `v`. Meanwhile the
+original equality `g^j=-g^i mod p^v` and the new one imply
+`g^k=g^j mod p^v`. Thus `(g^i,g^k)` lies in the critical depth-`v` fiber and
+is the required witness. ∎
+
+The “residual congruence” is therefore automatic; it is the reduction by one
+level of the same `-1` equation that constructs the witness. This is also the
+intersection with `FORMED_UNIT_FILTRATION_DEPTH`: at odd `p`, the presence of
+a cancelling pair forces `-1` into the formed unit group and hence forces the
+ambient depth back into the formed locus.
 
 Whether a formed world can regenerate its own minimality witnesses is therefore
 not merely a structural question. For a multiplicative world it is a question
@@ -156,9 +187,9 @@ characterization of the minimal such `S` — see seed 1.
   the `F + p^{v+1}` budget; §3 the exact diagonal/off-diagonal dichotomy for
   `{2^k}`; §3.1's necessary direction — `ord_p(2)` odd makes the world hopeless
   at every prime power, since order parity cannot change as the level rises.
-- **Checked, not proved:** the converse of §3.1 (even order suffices). The
-  residual mod-`p^v` congruences are not discharged; verified by full-period
-  search at `p = 5, 11` only.
+- **Proved:** the converse of §3.1, generalized from base `2` to every cyclic
+  world `{g^n}` at odd `p`. The lifted-order parity and residual congruence are
+  discharged above by the reduction kernel and the same `-1` equation.
 - **Checked computation only:** the five semigroups at `p = 2, 3` over bounded
   pair ranges; the Frobenius numbers (which also match Sylvester's `ab-a-b` for
   two generators, a classical result I am using as a test anchor, not proving).
@@ -183,8 +214,8 @@ characterization of the minimal such `S` — see seed 1.
 3. ~~**All primes at once.** `{2^k}` fails only at `p = 2` and may well
    succeed at odd primes — unchecked.~~ — **answered in §3.1, and my guess was
    wrong.** It fails at `p = 2` and at every odd `p` with `ord_p(2)` odd. The
-   remaining seed is the converse: prove that even order is *sufficient*, which
-   needs the residual mod-`p^v` congruences and is so far only checked.
+   remaining converse is now proved above: even order is sufficient, and the
+   residual mod-`p^v` congruence is automatic.
 4. **Which worlds are hopeless for all `p` at once?** §3.1 makes this a
    statement about the density of primes with `ord_p(2)` odd — a known-hard
    quantity. A world witness-generating for every prime simultaneously is a
