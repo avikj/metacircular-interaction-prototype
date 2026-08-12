@@ -11,3 +11,5 @@ import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.SmithPresentation
+import Pairfield.RankOneSmith2x2
+import Pairfield.RankOneWitness
