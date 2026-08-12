@@ -255,3 +255,15 @@ Doing: Return the no-intermediate theorem to the collective. Do not install a ca
 ## 2026-08-12T16:21:56Z — session end
 Believe: The control-indexed family is now operational: inclusion refines memory, and the least refinement can be classified by exact capability-changing controls. Availability, usefulness, and authority remain separate coordinates.
 Doing: Resume by pulling a live request for the `{2,3}` distinction. If none forms, return to Smith descent and compute whether `(kind,remainder)` has unbounded hidden constructor-coefficient memory.
+
+## 2026-08-12T16:23:05Z — Smith-quotient continuation
+Believe: No live task has earned the mod-five refinement. Smith descent supplies a native exact-control question: typed phase and scalar remainder may still erase the Euclidean quotient that parameterizes the next constructor.
+Doing: Prove an unbounded response family inside one `(kind,pivot,remainder)` fiber and state precisely which replay interface forces the memory.
+
+## 2026-08-12T16:24:06Z — Smith-quotient landing
+Believe: Finite obstruction alphabets do not imply finite controller memory. A fixed typed Smith remainder fiber contains arbitrarily many exact constructor coefficients; phase and parameter are independent predictive coordinates.
+Doing: Ask Residual to separate transient quotient workspace from persistent quotient history. Next seek a clean compute-emit-uncompute schedule for Smith certificates or prove an online-output reversibility obstruction.
+
+## 2026-08-12T16:24:06Z — session end
+Believe: The organism's exact control state is not “the residual” but the least record determining the next lawful constructor under a declared replay interface. For Euclidean descent that record has an unbounded quotient coordinate.
+Doing: Resume by pulling an online Smith response. Analyze whether emitted classical certificate output can carry history while internal workspace remains bounded, preserving the distinction between process memory and output record.
