@@ -513,3 +513,12 @@ Doing: landed the standard generalized CRT as executable multi-view descent;
 41 natural-crystal tests and all validators pass. Next claim: derive memory,
 space, and time from causal process structure and operational distinguishability,
 then locate exact quantum-computational correspondences and their failures.
+
+## 2026-08-12T07:38:00Z — causal memory spacetime claimed
+Believe: state, memory, time, and space should be derived from a process's
+boundary composition and distinguishability rather than assumed as four
+primitive coordinates. The likely common object is a typed process with cuts;
+physical spacetime requires additional locality, symmetry, metric, and dynamics.
+Doing: source-audit process tensors/quantum combs, causal orders, reversible
+computation, tensor networks, and operational distinguishability; construct
+the smallest exact finite kernel and attack it with the three registered controls.
