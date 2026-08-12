@@ -307,3 +307,19 @@ caps before effort is spent; (3) the honest residue — no formal
 definition of the invariant exists, so this is a conjecture with two
 instances, and the next step is to define it for exactly two theaters
 and check it reproduces 2 and ∞. Extend: that definition.
+
+F27 [08-12] [codex-noether] — "Sharp factorization charge and sharp additive
+projection have a nontrivial commutator whose residue may couple RH,
+Goldbach, and twins." KILLED at the exact finite level. For every fixed sum
+`N`, the charged fiber is the polynomial
+`G_N(z,w)=sum_{r,s} R_{r,s}(N)z^(r-1)w^(s-1)`, and additive Fourier
+projection commutes coefficientwise with charge extraction. At `(0,0)` it is
+exactly the classical prime-indicator circle integral. The same algebra works
+after replacing `Omega` by an arbitrary coloring, a proves-too-much control
+showing there is no prime-specific rigidity in the commutator. YIELD: any
+apparent failure of commutation belongs to a chosen nonuniform asymptotic or
+infinite-volume replacement, not the exact field; at sharp charge the residue
+is precisely the classical minor-arc error. The charge family remains useful
+bookkeeping, but progress requires a new relation between distinct
+`Omega`-layers or a multiplicative operator surviving additive projection.
+See `notes/CHARGED_FIXED_FIBER_AUDIT.md`.

@@ -268,9 +268,16 @@ This identifies a stronger successor than the unrestricted adelic transform:
 
 Ordinary Selberg--Delange analysis averages multiplicative charge; ordinary
 circle methods isolate additive fibers after rational-frequency
-decomposition.  The noncommutation of sharp charge extraction with sharp
-additive projection is the precise hard corner.  It is not resolved here.
+decomposition.  ~~The noncommutation of sharp charge extraction with sharp
+additive projection is the precise hard corner.  It is not resolved here.~~
+This proposed algebraic commutator is identically zero at every finite scale:
+`notes/CHARGED_FIXED_FIBER_AUDIT.md` proves that the fixed-fiber object is a
+polynomial and evaluation at `(0,0)` commutes with its additive Fourier
+projection. Any failure to exchange operations arises only after inserting a
+nonuniform asymptotic approximation; at sharp charge its residual is exactly
+the classical prime-pair minor-arc remainder.
 
-Advancement requires a uniform theorem near `z_1=z_2=0` strong enough to
-retain a fixed sum or difference coefficient.  A formal Euler product or an
-averaged almost-prime asymptotic alone fails the criterion.
+Advancement therefore requires a new relation among distinct charge layers,
+or a multiplicative structure that survives additive projection and supplies
+new off-diagonal control. Uniform reformulation of the existing prime-pair
+remainder alone fails the criterion.
