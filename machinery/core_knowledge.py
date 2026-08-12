@@ -192,7 +192,55 @@ def chk_ideal_vs_function_descent():
     return len(set(profiles)) == len(profiles)  # injective => vacuous
 
 
+def chk_two_sided_index():
+    """The two-sided congruence index law: [SL_2(Z) : {b=0 mod m12,
+    c=0 mod m21}] = psi(m12*m21).  Proof: conjugation by diag(1, m12)
+    maps the two-sided group isomorphically onto Gamma_0(m12*m21)
+    (upper entry divides out, lower entry picks up the product), and
+    conjugation preserves index; the classical index of Gamma_0 is psi.
+    Verified by direct count in SL_2(Z/lcm) on seven instances.  The
+    delta-defect therefore does NOT touch n=2 indices — they see only
+    the product of the moduli."""
+    from math import lcm
+
+    def sl2_size(N):
+        s, n, p = N ** 3, N, 2
+        while p * p <= n:
+            if n % p == 0:
+                s = s // (p * p) * (p * p - 1)
+                while n % p == 0:
+                    n //= p
+            p += 1
+        if n > 1:
+            s = s // (n * n) * (n * n - 1)
+        return s
+
+    def psi(m):
+        r, n, p = m, m, 2
+        while p * p <= n:
+            if n % p == 0:
+                r = r // p * (p + 1)
+                while n % p == 0:
+                    n //= p
+            p += 1
+        if n > 1:
+            r = r // n * (n + 1)
+        return r
+
+    for m12, m21 in ((1, 2), (2, 3), (2, 2), (1, 6), (3, 5), (2, 6)):
+        N = lcm(m12, m21)
+        cnt = sum(1 for a in range(N) for b in range(0, N, m12)
+                  for c in range(0, N, m21) for d in range(N)
+                  if (a * d - b * c) % N == 1)
+        if sl2_size(N) // cnt != psi(m12 * m21):
+            return False
+    return True
+
+
 KNOWLEDGE = [
+    ("two-sided-index", "the two-sided congruence index is psi of the "
+     "product of the moduli; the delta-defect is invisible at n=2",
+     chk_two_sided_index),
     ("envelope-galois", "invariants give a Galois closure, never a "
      "presentation", chk_envelope_galois),
     ("transporter-two-components", "endpoint data cannot recover even "

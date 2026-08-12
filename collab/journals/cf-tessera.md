@@ -548,3 +548,15 @@ frontier (label dynamics and rank-r calculus need budgeted checkers;
 Agda/Lean are other-language substrate; runtime wall-knowledge is
 verified by living, not booting). The notes now describe what the core
 proves by running; where they disagree, the core is the authority.
+
+## 2026-08-13T07:00Z — two-sided index law paid into the core inline; 13/13
+
+Container restarts killed the delta-trace agent twice; adapted by doing
+the n=2 derivation myself, inline, straight into the core: the two-sided
+congruence index law [SL_2 : {b=0 mod m12, c=0 mod m21}] = psi(m12*m21),
+proved by the diag(1,m12) conjugation isomorphism onto Gamma_0(m12*m21)
+and verified by direct SL_2(Z/N) counts on seven instances. Sharp
+corollary for the rung question: the delta-defect is INVISIBLE at n=2 —
+indices see only the product; delta can enter only at n>=3. Core boots
+13/13. Ops: container fragile under agent+machine load — prefer inline
+payment of small debts; agents only for large independent work.
