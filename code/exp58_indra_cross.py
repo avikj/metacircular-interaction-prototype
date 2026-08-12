@@ -59,12 +59,15 @@ Z_chi(t) = e^{-i arg(eps)/2} (q/pi)^{(s+a)/2} Gamma((s+a)/2) L(s,chi) at
 s = 1/2+it (root numbers computed from Gauss sums; all four characters
 give |Im Z|/|Re Z| < 1e-15) — complete by construction up to double zeros
 within the 0.05 scan step, and count-checked against the Riemann-von
-Mangoldt density.  NB this scan shows exp29_ltower_stats's deep cache
-(data/chi3_zeros_deep.npy) is missing ~15 of ~37 zeros in (60,120): the
-|L|-minima detector loses shallow minima at height.  Flagged in the note.
+Mangoldt density.  NB this scan AUDITS exp29_ltower_stats's deep cache
+(data/chi3_zeros_deep.npy, read-only here) and finds it missing 14 of the 36
+zeros in (60,120): the |L|-minima detector loses shallow minima at height.
+Confirmed by two independent counts (sign changes at steps 0.05 and 0.02) and
+by the Riemann-von Mangoldt density.  Reported in notes/INDRA_CROSS.md §2.
 
 Outputs: figures/exp58_indra_cross.png, figures/exp58_net.png; zero caches
-data/exp58_chi{3,4,12,5}_zeros.npy.  Companion note: notes/INDRA_CROSS.md.
+data/exp58_chi{3,4,12,5,5bar}_zeros.npy, data/exp58_chi3_zeros_deep.npy.
+Companion note: notes/INDRA_CROSS.md.
 """
 import time
 import numpy as np
@@ -107,10 +110,10 @@ def root_number(q, table, a):
     return tau / (1j ** a * np.sqrt(q))
 
 
-def find_zeros(name, tmin, tmax, step=0.05):
+def find_zeros(name, tmin, tmax, step=0.05, cache_name=None):
     """Ordinates of zeros of L(1/2+it, chi) in (tmin, tmax), sign-change scan
     of the rotated completed Hardy function (real for any primitive chi)."""
-    cache = DATA / f"exp58_{name}_zeros.npy"
+    cache = DATA / f"{cache_name or ('exp58_' + name + '_zeros')}.npy"
     if cache.exists():
         z = np.load(cache)
         if z.max() > tmax - 3:
@@ -154,6 +157,27 @@ def find_zeros(name, tmin, tmax, step=0.05):
     return z
 
 
+def Zfun_of(name):
+    """The rotated completed Hardy function Z_chi(t) (real on the line)."""
+    q, table, a = CHARS[name]
+    Lf = make_L(q, table)
+    phase = complex(np.exp(-0.5j * np.angle(root_number(q, table, a))))
+
+    def Z(t):
+        s = mp.mpc(0.5, t)
+        return complex(phase * mp.power(mp.mpf(q) / mp.pi, (s + a) / 2)
+                       * mp.gamma((s + a) / 2) * Lf(s)).real
+    return Z
+
+
+def count_sign_changes(name, tmin, tmax, step):
+    """Number of sign changes of Z_chi on (tmin, tmax) at the given step —
+    an independent completeness probe (no root polishing)."""
+    Z = Zfun_of(name)
+    v = np.array([Z(t) for t in np.arange(tmin, tmax + 1e-9, step)])
+    return int(np.sum(np.sign(v[1:]) * np.sign(v[:-1]) < 0))
+
+
 def rvm_count(q, T):
     """Riemann-von Mangoldt-type density (one-sided, leading term)."""
     return (T / (2 * np.pi)) * (np.log(q * T / (2 * np.pi)) - 1)
@@ -172,6 +196,41 @@ for nm, g in [("chi3", g3), ("chi4", g4), ("chi12", g12)]:
 print(f"  min spacing within each string: "
       f"{min(np.diff(g3).min(), np.diff(g4).min(), np.diff(g12).min()):.3f} "
       "(all zeros simple as located)")
+
+# ----------------------------------------------------------------------
+# 1b. AUDIT of the sibling cache data/chi3_zeros_deep.npy (exp29_ltower_stats)
+#     Read-only: this block never writes that file.  Two independent counts of
+#     #{zeros of L(s,chi3) in (60,120)}: Hardy-Z sign changes (two step sizes)
+#     and the Riemann-von Mangoldt density.
+# ----------------------------------------------------------------------
+DLO, DHI = 60.0, 120.0
+g3deep = find_zeros("chi3", 58.0, 122.0, cache_name="exp58_chi3_zeros_deep")
+mine = g3deep[(g3deep > DLO) & (g3deep < DHI)]
+sc_fine = count_sign_changes("chi3", DLO, DHI, 0.02)
+rvm_win = rvm_count(3, DHI) - rvm_count(3, DLO)
+their = np.load(DATA / "chi3_zeros_deep.npy")
+theirs = their[(their > DLO) & (their < DHI)]
+missing = [t for t in mine if np.abs(theirs - t).min() > 1e-3]
+spurious = [t for t in theirs if np.abs(mine - t).min() > 1e-3]
+agree = max((np.abs(mine - t).min() for t in theirs), default=0.0)
+print(f"\n[{time.time()-T0:.0f}s] AUDIT of data/chi3_zeros_deep.npy "
+      "(exp29_ltower_stats' cache; read-only)")
+print(f"  #zeros of L(s,chi3) in ({DLO:.0f},{DHI:.0f}):")
+print(f"    this scan, Hardy-Z sign changes @ step 0.05, Muller/bisection "
+      f"polished:            {len(mine)}")
+print(f"    same, independent sign-change count @ step 0.02 (no polishing):"
+      f"                    {sc_fine}")
+print(f"    Riemann-von Mangoldt N(120)-N(60) = (T/2pi)(log(qT/2pi)-1) "
+      f"evaluated:              {rvm_win:.2f}")
+print(f"    data/chi3_zeros_deep.npy contains:"
+      f"                                              {len(theirs)}")
+print(f"  every cached ordinate matches one of ours (max |dt| = {agree:.2e}); "
+      f"spurious in cache: {len(spurious)}")
+print(f"  MISSING from the cache: {len(missing)} ordinates — "
+      + ", ".join(f"{t:.4f}" for t in missing))
+print(f"  => the cache is INCOMPLETE above t=60 ({len(theirs)}/{len(mine)} "
+      f"= {100*len(theirs)/max(len(mine),1):.0f}% of the string); its entries "
+      "are correct zeros, but ~1 in 3 is absent.")
 
 # boundary-term constants -L'/L(0,chi) for the X^{3/2} ledger
 mp.mp.dps = 15
@@ -231,17 +290,31 @@ def spec(y):
     return f, np.abs(Y)
 
 
-def pair_model(ga, gb):
-    """sum over rho in string a, rho' in string b (both signs) of
-    Gamma(rho)Gamma(rho')/Gamma(rho+rho'+2) X^{i(g+g')} (X^2-normalized)."""
-    sa = np.concatenate([ga, -ga]); sb = np.concatenate([gb, -gb])
-    ra = 0.5 + 1j * sa; rb = 0.5 + 1j * sb
-    la, lb = loggamma(ra), loggamma(rb)
-    W = np.exp(la[:, None] + lb[None, :]
-               - loggamma(ra[:, None] + rb[None, :] + 2))
+def pair_weights(sa, sb):
+    """The kernel matrix W_{ij} = Gamma(rho_i)Gamma(rho'_j)/Gamma(rho+rho'+2)."""
+    ra = 0.5 + 1j * np.asarray(sa, float)
+    rb = 0.5 + 1j * np.asarray(sb, float)
+    return np.exp(loggamma(ra)[:, None] + loggamma(rb)[None, :]
+                  - loggamma(ra[:, None] + rb[None, :] + 2))
+
+
+def pair_model_full(sa, sb, keep=None):
+    """sum_{rho in sa, rho' in sb} Gamma(rho)Gamma(rho')/Gamma(rho+rho'+2)
+    X^{i(g+g')} (X^2-normalized), COMPLEX; sa, sb are full ordinate strings
+    (both signs) exactly as given.  `keep` optionally masks the pair set."""
+    sa = np.asarray(sa, float); sb = np.asarray(sb, float)
+    W = pair_weights(sa, sb)
+    if keep is not None:
+        W = W * keep
     Ea = np.exp(1j * np.outer(sa, logX))
     Eb = np.exp(1j * np.outer(sb, logX))
-    return np.real(np.einsum("km,km->m", Ea, W @ Eb))
+    return np.einsum("km,km->m", Ea, W @ Eb)
+
+
+def pair_model(ga, gb):
+    """Real pair model for two SYMMETRIC strings given by positive ordinates."""
+    return np.real(pair_model_full(np.concatenate([ga, -ga]),
+                                   np.concatenate([gb, -gb])))
 
 
 def single_model(g, kind="boundary"):
@@ -302,21 +375,40 @@ bd, bm = bandpass(data, BLO, BHI), bandpass(model34, BLO, BHI)
 corr34 = np.corrcoef(bd[core], bm[core])[0, 1]
 ratio34 = np.std(bd[core]) / np.std(bm[core])
 print(f"\n(b) MIXED PAIR MODEL, band [{BLO:.0f},{BHI:.0f}]")
-print(f"  corr(data, mixed model {{g3_i + g4_j}}, unit weights) = {corr34:.4f}"
-      f",  amplitude ratio = {ratio34:.4f}")
+print(f"  corr(data, mixed model {{g3_i + g4_j}}, unit weights) = {corr34:.6f}"
+      f",  amplitude ratio = {ratio34:.6f}")
 
 # (c) controls: the wrong models -------------------------------------------
 print("\n(c) CONTROLS (same data, same band, wrong line models)")
 gz = load_zeros(40); gz = gz[gz < TMAX]
+
+
+def false_string(q, n, seed):
+    """A planted-false ordinate string: n ordinates in (0, TMAX+2) drawn from
+    the Riemann-von Mangoldt density for modulus q (right density, wrong
+    arithmetic) — the exp55 planted-false control pattern."""
+    tt = np.linspace(0.5, TMAX + 2.0, 4000)
+    cc = rvm_count(q, tt); cc -= cc[0]
+    u = np.sort(np.random.default_rng(seed).uniform(0, cc[-1], n))
+    return np.interp(u, cc, tt)
+
+
 controls = [("pure chi3-pair {g3+g3}", pair_model(g3, g3)),
             ("pure chi4-pair {g4+g4}", pair_model(g4, g4)),
-            ("zeta pair {gz+gz}", pair_model(gz, gz))]
+            ("zeta pair {gz+gz}", pair_model(gz, gz)),
+            ("planted-false {f3+f4}",
+             pair_model(false_string(3, len(g3), 583),
+                        false_string(4, len(g4), 584)))]
 ctrl_res = []
 for nm, mod in controls:
     bc = bandpass(mod, BLO, BHI)
     c = np.corrcoef(bd[core], bc[core])[0, 1]
+    r = np.std(bd[core]) / np.std(bc[core])
     ctrl_res.append((nm, c))
-    print(f"  {nm:>24}: corr {c:+.4f}")
+    print(f"  {nm:>24}: corr {c:+.6f},  amplitude ratio {r:9.4f}")
+print(f"  {'MIXED MODEL {g3+g4}':>24}: corr {corr34:+.6f},  amplitude ratio "
+      f"{ratio34:9.4f}   <- the claim; margin over best control "
+      f"{corr34 - max(abs(c) for _, c in ctrl_res):+.4f}")
 
 # (d) individual mixed lines ------------------------------------------------
 print("\n(d) INDIVIDUAL MIXED LINES (window resolution ~1.38; 8x zero-padded "
@@ -365,15 +457,18 @@ lift = {c: lam * np.array([TAB[c].get(v, 0) for v in range(12)])[n % 12]
 direct = {(c1, c2): field(lift[c1], lift[c2]) for c1 in CN for c2 in CN}
 
 # finite Fourier both ways
+cellscale = max(np.max(np.abs(cell[k])) for k in cell)
 err_fwd = 0.0
+err_fwd_in = 0.0
 comp = {}
 for c1 in CN:
     for c2 in CN:
         rec = sum(TAB[c1][a] * TAB[c2][b] * cell[(a, b)]
                   for a in RES for b in RES)
         comp[(c1, c2)] = rec
-        err_fwd = max(err_fwd, np.max(np.abs(rec - direct[(c1, c2)]))
-                      / np.max(np.abs(direct[(c1, c2)])))
+        e = np.max(np.abs(rec - direct[(c1, c2)]))
+        err_fwd = max(err_fwd, e / np.max(np.abs(direct[(c1, c2)])))
+        err_fwd_in = max(err_fwd_in, e / cellscale)
 err_inv = 0.0
 for a in RES:
     for b in RES:
@@ -381,8 +476,16 @@ for a in RES:
                   for c1 in CN for c2 in CN) / 16.0
         err_inv = max(err_inv, np.max(np.abs(rec - cell[(a, b)]))
                       / np.max(np.abs(cell[(a, b)])))
-print(f"  (i) EXACTNESS: max rel err, cells->characters vs direct: "
-      f"{err_fwd:.2e};  characters->cells (inverse): {err_inv:.2e}")
+print(f"  (i) EXACTNESS (Proposition N is exact in exact arithmetic; these are"
+      " float64 round-off numbers)")
+print(f"      cells->characters vs direct build, rel. to the RECOVERED "
+      f"component: {err_fwd:.2e}")
+print(f"      same residual rel. to the RAW CELL scale being cancelled "
+      f"({cellscale:.3g}): {err_fwd_in:.2e}")
+print(f"      characters->cells (inverse transform): {err_inv:.2e}")
+print("      [the first number is larger only because the forward transform "
+      "cancels ~7 orders of magnitude; the absolute residual is float64 eps "
+      "against the input scale]")
 
 # lift vs primitive difference (2-power / 3-power boundary terms)
 dl = np.max(np.abs(direct[("chi3", "chi4")] - data))
@@ -407,7 +510,9 @@ models = {k: bandpass(pair_model(strings[k[0]], strings[k[1]]), BLO, BHI)
 
 
 def mkey(c1, c2):
-    return tuple(sorted((c1, c2)))
+    """The MKEYS entry for the unordered pair {c1,c2} (the pair model is
+    symmetric; MKEYS stores one representative per pair)."""
+    return (c1, c2) if (c1, c2) in MKEYS else (c2, c1)
 
 
 conf = np.zeros((9, 6))
@@ -448,6 +553,9 @@ g5p = find_zeros("chi5", 0.05, TMAX + 2.0)
 CHARS["chi5bar"] = (5, {1: 1, 2: -1j, 3: 1j, 4: -1}, 1)
 g5n = -find_zeros("chi5bar", 0.05, TMAX + 2.0)[::-1]
 g5 = np.concatenate([g5n, g5p])          # the true asymmetric string
+eps5 = root_number(*CHARS["chi5"])
+print(f"  root number eps(chi5) = {eps5.real:+.6f}{eps5.imag:+.6f}i "
+      f"(|eps| = {abs(eps5):.12f}, arg = {np.angle(eps5):+.6f})")
 print(f"  chi5 zeros in (-{TMAX:.0f},{TMAX:.0f}): {len(g5)} "
       f"({len(g5n)} negative, {len(g5p)} positive — asymmetric, "
       f"first above 0: {g5p[0]:.4f}, first below: {g5n[-1]:.4f})")
@@ -462,39 +570,93 @@ Rc, Sc = np.cumsum(rc), np.cumsum(Nn * rc)
 dataC = (Xs * Rc[Xi] - Sc[Xi]) / Xs ** 2
 
 
-def pair_model_asym(ga_sym, gb_string):
-    sa = np.concatenate([ga_sym, -ga_sym]); sb = gb_string
-    ra = 0.5 + 1j * sa; rb = 0.5 + 1j * sb
-    W = np.exp(loggamma(ra)[:, None] + loggamma(rb)[None, :]
-               - loggamma(ra[:, None] + rb[None, :] + 2))
-    Ea = np.exp(1j * np.outer(sa, logX)); Eb = np.exp(1j * np.outer(sb, logX))
-    return np.einsum("km,km->m", Ea, W @ Eb)          # complex
-
-
-modC = pair_model_asym(g3, g5)
+s3 = np.concatenate([g3, -g3])                 # chi3 string, symmetric
+modC = pair_model_full(s3, g5)
 for part, nm in [(np.real, "Re"), (np.imag, "Im")]:
     bdc = bandpass(part(dataC), BLO, BHI)
     bmc = bandpass(part(modC), BLO, BHI)
     c = np.corrcoef(bdc[core], bmc[core])[0, 1]
     r = np.std(bdc[core]) / np.std(bmc[core])
-    print(f"  G^(chi3,chi5) {nm} part: corr {c:+.4f}, ratio {r:.4f}")
-# wrong-string control: conjugate (negated) chi5 string
-modCbar = pair_model_asym(g3, -g5[::-1])
+    print(f"  G^(chi3,chi5) {nm} part: corr {c:+.6f}, ratio {r:.4f}")
+
+# --- controls for the asymmetric string ----------------------------------
+# (i) the mirrored (chibar5) string.  NB this model is the EXACT complex
+#     conjugate of modC (s3 is symmetric), so it is NOT an amplitude test:
+#     it can only be falsified by the SIGN of the Im-part correlation.
+modCbar = pair_model_full(s3, -g5[::-1])
+conj_gap = np.max(np.abs(modCbar - np.conj(modC))) / np.max(np.abs(modC))
 cRe = np.corrcoef(bandpass(np.real(dataC), BLO, BHI)[core],
                   bandpass(np.real(modCbar), BLO, BHI)[core])[0, 1]
 cIm = np.corrcoef(bandpass(np.imag(dataC), BLO, BHI)[core],
                   bandpass(np.imag(modCbar), BLO, BHI)[core])[0, 1]
-print(f"  control (chibar5 string, i.e. mirrored ordinates): "
-      f"Re corr {cRe:+.4f}, Im corr {cIm:+.4f}")
-# the dark field (chi5, chibar5): difference spectrum, exponentially damped
+print(f"  control 1, mirrored (chibar5) ordinates: Re corr {cRe:+.4f}, "
+      f"Im corr {cIm:+.4f}")
+print(f"    [HONEST READ: this model equals conj(true model) to "
+      f"{conj_gap:.1e} relative, so Re is degenerate by construction and only "
+      "the Im SIGN discriminates — a 1-bit control, not an amplitude control. "
+      "Controls 2-3 are the real wrong-line tests.]")
+# (ii) symmetrized chi5 string (the asymmetry deleted, ordinates otherwise
+#      correct) and (iii) the wrong jewel entirely (chi4 in place of chi5).
+for nm, sb in [("2, symmetrized chi5 string (+-g5p)",
+                np.concatenate([-g5p[::-1], g5p])),
+               ("3, wrong jewel: chi4 string in place of chi5",
+                np.concatenate([g4, -g4]))]:
+    mc = pair_model_full(s3, sb)
+    cs = [np.corrcoef(bandpass(p(dataC), BLO, BHI)[core],
+                      bandpass(p(mc), BLO, BHI)[core])[0, 1]
+          for p in (np.real, np.imag)]
+    print(f"  control {nm}: Re corr {cs[0]:+.4f}, Im corr {cs[1]:+.4f}")
+
+# --- the dark field (chi5, chibar5): the difference spectrum --------------
 a5b = lam * np.conj(chi5)
 rd = np.fft.ifft(np.fft.fft(a5, LFFT) * np.fft.fft(a5b, LFFT))[: 2 * NMAX + 1]
 Rd, Sd = np.cumsum(rd), np.cumsum(Nn * rd)
 dataD = np.real((Xs * Rd[Xi] - Sd[Xi]) / Xs ** 2)
-print(f"  dark field G^(chi5,chibar5): band amplitude "
-      f"{np.std(bandpass(dataD, BLO, BHI)[core]):.4f} vs mixed "
-      f"{np.std(bandpass(np.real(dataC), BLO, BHI)[core]):.4f} "
-      "(pair weights e^{-pi*min(g,g')}-damped: difference-spectrum field is dark)")
+bD = bandpass(dataD, BLO, BHI)
+modD = np.real(pair_model_full(g5, -g5[::-1]))       # difference spectrum
+bmD = bandpass(modD, BLO, BHI)
+bM = bandpass(np.real(modC), BLO, BHI)
+# what the (chi5,chibar5) band actually contains: its own m=n diagonal,
+# sum_m Lambda(m)^2 (X-2m)_+ over m coprime to 5 (chi5*chibar5 = principal)
+w = (lam * np.abs(chi5)) ** 2
+Cw, Cmw = np.cumsum(w), np.cumsum(np.arange(len(w), dtype=float) * w)
+h = np.minimum((Xi // 2), len(w) - 1)
+diagD = (Xs * Cw[h] - 2 * Cmw[h]) / Xs ** 2
+bdiag = bandpass(diagD, BLO, BHI)
+print("  dark field G^(chi5,chibar5), band [12,58]:")
+print(f"    MODEL amplitudes: difference-spectrum pair model {np.std(bmD[core]):.3e}"
+      f"  vs  sum-spectrum (chi3,chi5) pair model {np.std(bM[core]):.3e}"
+      f"   (ratio {np.std(bmD[core])/np.std(bM[core]):.2f} -- the draft "
+      "predicted e^{-pi*min|g|} suppression here; there is none)")
+print(f"    DATA amplitude {np.std(bD[core]):.4f} vs mixed field "
+      f"{np.std(bandpass(np.real(dataC), BLO, BHI)[core]):.4f}"
+      "  -- the dark field's band is NOT smaller")
+print(f"    corr(dark data, difference-spectrum pair model) = "
+      f"{np.corrcoef(bD[core], bmD[core])[0,1]:+.6f}, amplitude ratio "
+      f"{np.std(bD[core])/np.std(bmD[core]):.4f}  (the pair layer is PRESENT "
+      "with unit weights -- the kernel is right, the darkness claim is not)")
+print(f"    corr(dark data, its own m=n diagonal sum Lambda^2 (X-2m)_+) = "
+      f"{np.corrcoef(bD[core], bdiag[core])[0,1]:+.4f}, amplitude ratio "
+      f"{np.std(bD[core])/np.std(bdiag[core]):.3f}")
+print("  => THE DRAFT'S 'DARK FIELD' PREDICTION IS FALSIFIED. Diagnosis "
+      "(sign split of the kernel):")
+al, be = g5, -g5[::-1]                       # Z(chi5) and Z(chibar5)
+sgn_same = np.outer(np.sign(al), np.sign(be)) > 0
+Wd = np.abs(pair_weights(al, be))
+for nm, keep in [("same-sign (alpha,beta) pairs", sgn_same),
+                 ("opposite-sign pairs", ~sgn_same)]:
+    amp = np.std(bandpass(np.real(pair_model_full(al, be, keep=keep)),
+                          BLO, BHI)[core])
+    print(f"    {nm:>28}: {int(keep.sum()):4d} pairs, max|W| "
+          f"{Wd[keep].max():.3e}, band amplitude {amp:.3e}")
+print("    Z(chibar5) = -Z(chi5), and Z(chi5) is asymmetric but contains BOTH "
+      "signs (29/29 here), so beta ranges over both signs too: roughly half "
+      "the (alpha,beta) pairs are SAME-sign and therefore UNDAMPED. Those "
+      "carry frequencies gamma_i - gamma_j with gamma_i>0>gamma_j, i.e. "
+      "|gamma_i|+|gamma_j| -- sum-like lines wearing difference labels.")
+print("    What IS exponentially dark is only the same-sign-ordinate part of "
+      "the difference spectrum (the small |gamma_i - gamma_j| lines), which "
+      "is the opposite-sign (alpha,beta) block above.")
 
 # ----------------------------------------------------------------------
 # 5. figures
@@ -528,13 +690,14 @@ ax[1].plot(Xs[core], bm[core], lw=0.7, color=CR, alpha=0.85,
 ax[1].set_xscale("log"); ax[1].legend(fontsize=8)
 ax[1].set_xlabel("$X$")
 vals = [corr34] + [c for _, c in ctrl_res]
-cols = [CR] + [CGY] * 3
-bars = ax[2].bar(range(4), vals, color=cols, width=0.55)
+cols = [CR] + [CGY] * len(ctrl_res)
+bars = ax[2].bar(range(len(vals)), vals, color=cols, width=0.55)
 ax[2].axhline(0, color="k", lw=0.8)
-ax[2].set_xticks(range(4))
+ax[2].set_xticks(range(len(vals)))
 ax[2].set_xticklabels(["mixed model\n$\\{\\gamma^{\\chi_3}+\\gamma^{\\chi_4}\\}$",
                        "pure $\\chi_3$ pairs", "pure $\\chi_4$ pairs",
-                       "$\\zeta$ pairs"], fontsize=9)
+                       "$\\zeta$ pairs", "planted-false\n(right density)"],
+                      fontsize=9)
 for b, v in zip(bars, vals):
     ax[2].text(b.get_x() + b.get_width() / 2, v + 0.03 * np.sign(v),
                f"{v:+.3f}", ha="center", fontsize=9)

@@ -309,6 +309,127 @@ for c in COND:
     print(f"    c = {c:5.0f}: cond = {COND[c]['cj']:.4g}, sigma_min = {COND[c]['sjmin']:.3e}"
           f"   (exp25: cond = 2.7e17, sigma_min = 1.3e-17)")
 
+# ----------------------------------------------------------------------------
+# (A-controls) designed annihilation for the conditioning headline.
+#
+# A1  DIMENSION-MATCHED control.  The spans above have N = 88..440, while
+#     exp25's Gaussian span had whitened dimension 60.  If the cure were "the
+#     prolate basis family", it would survive truncation to dimension 60.
+#     Registered prediction BEFORE running: it does NOT -- the resource being
+#     bought is time-bandwidth (= dimension), and a 60-dimensional space
+#     cannot carry K zero knots reaching up to gamma_K unless the Nyquist
+#     count T*gamma_K/pi is <= its dimension.
+# A2  WRONG-BASIS control = independent re-implementation of exp25's own
+#     60-atom Gaussian dictionary here, from scratch, in this script.  It must
+#     REPRODUCE the 2.6e16 blocker; if it does not, the comparison is void.
+# ----------------------------------------------------------------------------
+N0 = 60
+print(f"\n  CONTROL A1 (dimension-matched: first N0 = {N0} prolates only) "
+      f"-- prediction: FAILS like exp25")
+COND60 = {}
+for c in (30 * np.pi, 100.0, 400.0, 652.0):
+    chi, C = prolate_basis(c, N0)
+    Ez = phi_line(C, TA, GAMMA[:60]).T
+    Ez_n = Ez / np.linalg.norm(Ez, axis=1, keepdims=True)
+    Vp = legendre_eval(C, u_pk * 2 / TA) * np.sqrt(2 / TA)
+    Ep_n = Vp.T / np.linalg.norm(Vp.T, axis=1, keepdims=True)
+    cz, cp = [], []
+    for K in Ks:
+        s = np.linalg.svd(Ez_n[:K], compute_uv=False)
+        cz.append(s[0] / s[-1])
+        if K <= u_pk.size:
+            s = np.linalg.svd(Ep_n[:K], compute_uv=False)
+            cp.append(s[0] / s[-1])
+        else:
+            cp.append(np.nan)
+    COND60[c] = dict(condz=np.array(cz), condp=np.array(cp))
+print("    K  | " + " | ".join(f"c={c:<5.0f}zero" for c in COND60)
+      + " || " + " | ".join(f"c={c:<5.0f}prime" for c in COND60))
+for i, K in enumerate(Ks):
+    print(f"    {K:2d} | "
+          + " | ".join(f"{COND60[c]['condz'][i]:9.3g}" for c in COND60) + " || "
+          + " | ".join(f"{COND60[c]['condp'][i]:9.3g}" for c in COND60))
+
+
+class GaussSpan:
+    """exp25 dictionary A, re-implemented independently for control A2:
+    g(u) = norm * exp(-(u-a)^2/2s^2) exp(i b u), ||g||_2 = 1."""
+
+    def __init__(self, atoms):
+        self.a = np.array([x[0] for x in atoms])
+        self.s = np.array([x[1] for x in atoms])
+        self.b = np.array([x[2] for x in atoms])
+        self.norm = (self.s * np.sqrt(np.pi)) ** -0.5
+        self.n = len(atoms)
+
+    def phi(self, sarg):
+        sarg = np.atleast_1d(np.asarray(sarg, dtype=complex))
+        w = sarg[None, :] - 0.5 + 1j * self.b[:, None]
+        return (self.norm * np.sqrt(2 * np.pi) * self.s)[:, None] * np.exp(
+            w * self.a[:, None] + 0.5 * (self.s[:, None] * w) ** 2)
+
+    def val(self, u):
+        u = np.atleast_1d(np.asarray(u, float))
+        return self.norm[:, None] * np.exp(
+            -(u[None, :] - self.a[:, None]) ** 2 / (2 * self.s[:, None] ** 2)
+            + 1j * self.b[:, None] * u[None, :])
+
+    def gram(self):
+        aj, sj, bj = self.a[:, None], self.s[:, None], self.b[:, None]
+        ak, sk, bk = self.a[None, :], self.s[None, :], self.b[None, :]
+        A = 0.5 / sj ** 2 + 0.5 / sk ** 2
+        Bc = aj / sj ** 2 + ak / sk ** 2 + 1j * (bj - bk)
+        Cc = -aj ** 2 / (2 * sj ** 2) - ak ** 2 / (2 * sk ** 2)
+        return (self.norm[:, None] * self.norm[None, :]
+                * np.sqrt(np.pi / A) * np.exp(Bc ** 2 / (4 * A) + Cc))
+
+
+CENTERS = [-1.5, -0.75, 0.0, 0.75, 1.5]
+BETAS = [0.0, 7.067, 14.134725, 21.02204]
+gs = GaussSpan([(a, s, b) for s in (0.1, 0.25, 0.5) for a in CENTERS for b in BETAS])
+Gg = gs.gram()
+dg, Ug = np.linalg.eigh(0.5 * (Gg + Gg.conj().T))
+keep = dg > 1e-13 * dg.max()
+Whg = Ug[:, keep] / np.sqrt(dg[keep])
+Ezg = gs.phi(0.5 + 1j * GAMMA[:60]).T @ Whg
+Ezg = Ezg / np.linalg.norm(Ezg, axis=1, keepdims=True)
+Epg = gs.val(u_pk).T @ Whg
+Epg = Epg / np.linalg.norm(Epg, axis=1, keepdims=True)
+CONDG = dict(condz=[], condp=[])
+for K in Ks:
+    s = np.linalg.svd(Ezg[:K], compute_uv=False)
+    CONDG['condz'].append(s[0] / s[-1])
+    if K <= u_pk.size:
+        s = np.linalg.svd(Epg[:K], compute_uv=False)
+        CONDG['condp'].append(s[0] / s[-1])
+    else:
+        CONDG['condp'].append(np.nan)
+CONDG = {k: np.array(v) for k, v in CONDG.items()}
+sjg = np.linalg.svd(np.vstack([Ezg[:30], Epg]), compute_uv=False)
+print(f"\n  CONTROL A2 (wrong-basis: exp25's 60 Gaussian atoms re-implemented "
+      f"here, whitened dim {int(keep.sum())}) -- must reproduce the blocker")
+print("    K  |  cond(zero)  | exp25 zero |  cond(prime) | exp25 prime")
+for i, K in enumerate(Ks):
+    print(f"    {K:2d} | {CONDG['condz'][i]:12.4g} | "
+          f"{EXP25_CONDZ.get(K, float('nan')):9.3g}  | {CONDG['condp'][i]:12.4g} | "
+          f"{EXP25_CONDP.get(K, float('nan')):9.3g}")
+print(f"    joint 30+24: cond = {sjg[0]/sjg[-1]:.4g}, sigma_min = {sjg[-1]:.3e}"
+      f"   (exp25 quoted: 2.7e17, 1.3e-17)")
+# Nyquist/Landau bookkeeping: a T-window band-limited to |tau| <= Omega has
+# ~T*Omega/pi real degrees of freedom; K zero knots need Omega >~ gamma_K.
+print("\n  LANDAU/NYQUIST bookkeeping (T = 8).  A prolate span of bandwidth "
+      "parameter c is\n  essentially band-limited to |tau| <= tau_edge = 2c/T and has "
+      "N ~ 2c/pi = T*tau_edge/pi\n  degrees of freedom.  Zero-knot collocation at "
+      "gamma_1..gamma_K should be well\n  conditioned exactly when tau_edge >= gamma_K, "
+      "i.e. N >= T*gamma_K/pi:")
+print("    K  | gamma_K  | c needed = T gamma_K/2 | N needed = T gamma_K/pi | "
+      "smallest tested c with cond < 10")
+for K in Ks:
+    ok = [c for c in COND if COND[c]['condz'][Ks.index(K)] < 10]
+    print(f"    {K:2d} | {GAMMA[K-1]:8.3f} | {TA*GAMMA[K-1]/2:22.1f} | "
+          f"{TA*GAMMA[K-1]/np.pi:23.1f} | "
+          + (f"{min(ok):.0f}" if ok else "none of 100/200/400/652"))
+
 # ============================================================================
 # (B) the Weil form on the prolate span vs window width
 # ============================================================================
@@ -416,6 +537,68 @@ for r in RES_B:
     print(f"  {r['T']:4.2f} | {r['lam_prim']:15.4e}      | {refs}       | "
           f"{r['evIP_top']:+13.4e}     | rel dev {agree:8.2e}")
 
+
+# ---------------------------------------------------------------------------
+# (B-controls) designed annihilation for the Weil-form half.
+#
+# B1  KNOWN-FALSE POSITIVITY TARGET: move the pair {1/2 +- i gamma_1} off the
+#     critical line to {1/2 + delta + i gamma_1, 1/2 - delta + i gamma_1}.
+#     For real g the pair contributes 2 Re[Phi(1/2+delta+i g) conj Phi(1/2-delta+i g)],
+#     which at delta = 0 reduces EXACTLY to the on-line 2|Phi|^2 (built-in
+#     consistency check).  A test space that cannot see the violation is
+#     useless as a certificate space, whatever its conditioning.
+# B2  PROVES-TOO-MUCH control: multiply the prime side by (1 + eps).  H1
+#     (I|_P <= 0) must break at some eps; the smallest detected eps is the
+#     arithmetic resolution of the assembled form on this span.
+# ---------------------------------------------------------------------------
+def phi_complex(C, T, w, ng=900):
+    """Phi_n(1/2 + w) for complex w, basis phi_n(u) = sqrt(2/T) psi_n(2u/T)."""
+    xg, wg = np.polynomial.legendre.leggauss(ng)
+    V = legendre_eval(C, xg)
+    E = np.exp(np.outer(np.atleast_1d(np.asarray(w, complex)) * (T / 2), xg))
+    return np.sqrt(T / 2) * (V * wg) @ E.T
+
+
+print("\n  CONTROL B1 (off-line zero injection at gamma_1; delta = 0 must "
+      "reproduce lam_min(W) exactly):")
+print("   T    | delta  | lam_min(W_pert)      | lam_min(W_pert|_P)   | detected?")
+for T in (1.22, 1.50, 2.07, 2.60):
+    r = next(rr for rr in RES_B if abs(rr['T'] - T) < 1e-9)
+    m = r['mats']
+    Q = null_basis(np.vstack([m['p0'], m['p1']]))
+    for delta in (0.0, 1e-3, 0.01, 0.05, 0.2):
+        w = np.array([delta + 1j * G1, -delta + 1j * G1])
+        F = phi_complex(m['C'], T, w)
+        ar, ai = F[:, 0].real, F[:, 0].imag
+        br, bi = F[:, 1].real, F[:, 1].imag
+        p = phi_line(m['C'], T, np.array([G1]))[:, 0]
+        pr, pi_ = p.real, p.imag
+        rem = 2 * (np.outer(pr, pr) + np.outer(pi_, pi_))
+        inj = (np.outer(ar, br) + np.outer(br, ar)
+               + np.outer(ai, bi) + np.outer(bi, ai))
+        Mp = m['Mzero'] - rem + inj
+        Mp = 0.5 * (Mp + Mp.T)
+        ev = np.linalg.eigvalsh(Mp)
+        evP = np.linalg.eigvalsh(0.5 * (Q.T @ Mp @ Q + (Q.T @ Mp @ Q).T))
+        tag = "YES (indefinite)" if evP[0] < -1e-12 * abs(evP[-1]) else "no"
+        if delta == 0.0:
+            tag += f"  [consistency: lam_min(W) = {r['lam_min']:.3e}]"
+        print(f"  {T:4.2f}  | {delta:6.3f} | {ev[0]:+.6e}       | "
+              f"{evP[0]:+.6e}       | {tag}")
+
+print("\n  CONTROL B2 (prime side scaled by 1 + eps; H1 must break):")
+for T in (0.81, 1.50, 2.07):
+    r = next(rr for rr in RES_B if abs(rr['T'] - T) < 1e-9)
+    m = r['mats']
+    Q = null_basis(np.vstack([m['p0'], m['p1']]))
+    tops = []
+    for eps in (0.0, 1e-12, 1e-9, 1e-6, 1e-3, 1e-1):
+        If = (1 + eps) * m['prime'] - m['arch']
+        IP = Q.T @ (0.5 * (If + If.T)) @ Q
+        tops.append(np.linalg.eigvalsh(0.5 * (IP + IP.T))[-1])
+    print(f"  T = {T:4.2f}: top(I|_P) at eps = 0, 1e-12, 1e-9, 1e-6, 1e-3, 1e-1: "
+          + " ".join(f"{t:+.2e}" for t in tops))
+
 # ============================================================================
 # (C) localization of I = prime - arch in prolate coordinates
 # ============================================================================
@@ -437,10 +620,18 @@ for T in (1.50, 2.60):
     m = r['mats']
     Iful = 0.5 * ((m['prime'] - m['arch']) + (m['prime'] - m['arch']).T)
     fd = diag_frac(Iful)
-    fr = []
+    fr, fp = [], []
+    ev_i, od_i = np.arange(0, NB, 2), np.arange(1, NB, 2)
     for _ in range(20):
         Qr = np.linalg.qr(rng.standard_normal((NB, NB)))[0]
         fr.append(diag_frac(Qr.T @ Iful @ Qr))
+        # parity-respecting null: I couples only same-parity prolates (F even),
+        # so an unrestricted random rotation is too weak a control.
+        Qp = np.zeros((NB, NB))
+        for idx in (ev_i, od_i):
+            Qp[np.ix_(idx, idx)] = np.linalg.qr(
+                rng.standard_normal((idx.size, idx.size)))[0]
+        fp.append(diag_frac(Qp.T @ Iful @ Qp))
     ev, U = np.linalg.eigh(Iful)
     vpos = U[:, -1]                       # the single positive (hyperbolic) direction
     vneg1 = U[:, np.searchsorted(ev, 0.0) - 1]   # largest negative eigenvalue
@@ -452,8 +643,11 @@ for T in (1.50, 2.60):
     # overlap of vpos with the pole plane span(p0, p1)
     PP = np.linalg.qr(np.vstack([m['p0'], m['p1']]).T)[0]
     ovl = np.linalg.norm(PP.T @ vpos)
+    off_par = float(np.sum(Iful[np.ix_(ev_i, od_i)] ** 2) * 2 / np.sum(Iful ** 2))
     print(f"  T = {T:4.2f}: diag fraction of I (prolate) = {fd:.3f}   "
-          f"random-basis control: median {np.median(fr):.3f}, max {np.max(fr):.3f}")
+          f"random-basis control: median {np.median(fr):.3f}, max {np.max(fr):.3f}"
+          f";  PARITY-RESPECTING control: median {np.median(fp):.3f}, "
+          f"max {np.max(fp):.3f};  opposite-parity Frobenius mass = {off_par:.2e}")
     print(f"           participation ratio (of {NB}): v_+ {participation(vpos):5.1f}, "
           f"v_-1 {participation(vneg1):5.1f}, v_min {participation(vmin):5.1f}, "
           f"top(I|_P) {participation(vP_top):5.1f};  |proj of v_+ on pole plane| = {ovl:.4f}")
@@ -534,8 +728,9 @@ def zero_side_W(vecs, uq, wq, chunk=4000):
     Phi = np.zeros((vecs.shape[0], NZC), dtype=complex)
     gw = vecs * wq
     for i0 in range(0, NZC, chunk):
-        g = GAMMA[i0:i0 + chunk]
-        Phi[:, i0:i0 + chunk] = gw @ np.exp(1j * np.outer(uq, g))
+        i1 = min(i0 + chunk, NZC)
+        g = GAMMA[i0:i1]
+        Phi[:, i0:i1] = gw @ np.exp(1j * np.outer(uq, g))
     return 2 * np.real(Phi @ Phi.conj().T), Phi
 
 
@@ -622,8 +817,8 @@ def gauss_pair(vq, s1, s2):
 
 
 gc = gauss_pair(vq, sig1, sig2)[None, :]
-Gc = float((gc * wq) @ gc.T)
-Wc = float(zero_side_W(gc, uq, wq)[0])
+Gc = float(((gc * wq) @ gc.T)[0, 0])
+Wc = float(zero_side_W(gc, uq, wq)[0][0, 0])
 RHO_CTRL = Wc / Gc
 print(f"    CONTROL (Gaussian-pair f in S_0^ev, same window lambda^2 = 5): "
       f"W/||g||^2 = {RHO_CTRL:.3e}  (vs prolate m=2: {RES_D[5]['rho'][0]:.3e})")
@@ -655,12 +850,16 @@ ax = axes[0, 1]
 for c, col in zip(COND, (C_SKY, C_ARCH, C_ORG, C_POLE)):
     ax.semilogy(Ks, COND[c]['condz'], "o-", color=col, lw=1.5, ms=4,
                 label=f"prolate c={c:.0f} (N={COND[c]['N']})")
+ax.semilogy(Ks, COND60[652.0]['condz'], "^:", color=C_PUR, lw=1.5, ms=5,
+            label="CONTROL A1: first 60 prolates of c=652")
+ax.semilogy(Ks, CONDG['condz'], "v-", color=C_PRIME, lw=1.5, ms=5,
+            label="CONTROL A2: 60 Gaussian atoms (this script)")
 kk = sorted(EXP25_CONDZ)
 ax.semilogy(kk, [EXP25_CONDZ[k] for k in kk], "x--", color=C_W, lw=1.5, ms=8,
-            label="exp25 Gaussian span (dim 60)")
+            label="exp25 Gaussian span (dim 60), quoted")
 ax.set_xlabel("K knots")
 ax.set_ylabel(r"cond $\sigma_{\max}/\sigma_{\min}$")
-ax.set_title(r"(b) zero-knot collocation $g\mapsto\Phi_g(\frac12+i\gamma_k)$")
+ax.set_title(r"(b) zero-knot collocation $g\mapsto\Phi_g(\frac{1}{2}+i\gamma_k)$")
 ax.legend(fontsize=7)
 
 ax = axes[0, 2]
@@ -668,9 +867,11 @@ for c, col in zip(COND, (C_SKY, C_ARCH, C_ORG, C_POLE)):
     ok = ~np.isnan(COND[c]['condp'])
     ax.semilogy(np.array(Ks)[ok], COND[c]['condp'][ok], "s-", color=col, lw=1.5, ms=4,
                 label=f"prolate c={c:.0f}")
+ax.semilogy(Ks, CONDG['condp'], "v-", color=C_PRIME, lw=1.5, ms=5,
+            label="CONTROL A2: Gaussian atoms (this script)")
 kk = sorted(EXP25_CONDP)
 ax.semilogy(kk, [EXP25_CONDP[k] for k in kk], "x--", color=C_W, lw=1.5, ms=8,
-            label="exp25 Gaussian span")
+            label="exp25 Gaussian span, quoted")
 ax.set_xlabel("K knots")
 ax.set_ylabel("cond")
 ax.set_title(r"(c) prime-knot collocation $g\mapsto g(\log p^k)$, $\log p^k<4$")
