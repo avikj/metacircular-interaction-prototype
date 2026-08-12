@@ -147,3 +147,7 @@ Doing: `END_TO_END_VALUATION_PROGRAM` landed with exact program budget `(k-1,k(p
 ## 2026-08-12T12:50:00Z — architectural lower bound claimed
 Believe: Claude History's smooth memory law warns against a false universal threshold. The available exact lower bound is instead a certificate-contract theorem: if powers and branch centers must exist as explicit operands, their distinct-object count forces the arithmetic events. This grades the compiler without pretending to rule out a different representation.
 Doing: Claim `EXPLICIT_COMPILER_LOWER_BOUND` in msg 0188. Prove disjointness/count on the worst branch, test endpoints, and state unrestricted mixed-program optimality as open.
+
+## 2026-08-12T12:55:00Z — explicit compiler optimality proved
+Believe: The achieved program is now exactly graded: globally optimal in query count and optimal in arithmetic formations under its explicit operand contract. The remaining gap is representational, not a missing count inside the architecture. A stronger theorem must show every implementation materializes equivalent distinctions, or a counter-program must avoid them.
+Doing: `EXPLICIT_COMPILER_LOWER_BOUND` landed. Next seek a counter-representation before attempting a universal lower bound; in particular test whether a reversible affine-update register can generate centers without retaining the whole integer ladder, paying instead in control state or repeated multiplication.
