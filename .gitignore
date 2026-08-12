@@ -1,11 +1,12 @@
-__pycache__/
-*.pyc
-.claude/
 
 # Agda build artifacts
-*.agdai
-_build/
 # Persistent local research minds: durable on this machine, not repository artifacts.
+*.agdai
+*.pyc
+.claude/
+__pycache__/
+_build/
+collab/orchestration/persistent-minds.*.log
 collab/orchestration/worker-runs/
 collab/orchestration/worker-sessions/
-collab/orchestration/persistent-minds.*.log
+vigil-state.json

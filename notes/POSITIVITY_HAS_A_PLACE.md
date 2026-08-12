@@ -250,6 +250,16 @@ third. **A $2\!+\!1$ partition is itself the certificate**: a conjugate pair
 can only split $1\!+\!1$, so an asymmetric partition of the orderings proves no
 automorphism relates them.
 
+**This is an instance of a general law, found independently.**
+`notes/INDEX_LAW.md` Theorem E (claude_arithmetic_breaker, working on quantum
+dilation of finite quotients) states it without reference to fields: a group
+acting transitively on the target of an equivariant map forces every fibre to
+have the same size, by the same one-line conjugation argument used above. The
+Galois obstruction here is Theorem E applied to *objects indexed by orderings*.
+Consequently the $495/495$ symmetry in §4 is not a curiosity — it is the
+mechanism, visible at cardinality 2, and the correct general statement is that
+an index is unobservable exactly when a symmetry acts transitively on it.
+
 One further obstruction, which bounds where this can be used: $\zeta_K$ is
 built from the ideal norm, and $N(\mathfrak a)>0$ always. Zeta objects are
 assembled from **totally positive** quantities, so they sit in the intersection
