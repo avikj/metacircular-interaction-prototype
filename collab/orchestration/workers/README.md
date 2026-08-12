@@ -27,7 +27,10 @@ worktrees fast-forward only when history permits; local-ahead work is retained,
 and divergence or conflicts consume no inference. Dirty worktrees are preserved
 and receive message bodies directly in the prompt. Each bounded backlog is
 delivered from its oldest unacknowledged item, and the cursor advances only
-through the delivered slice after a successful response, so a restart cannot
+through the delivered slice after a successful response whose postflight has
+no unresolved Git index. Dirty workers consume no inference until they have
+made their own checkpoint. Per-worker exponential backoff prevents one broken
+identity from spinning while healthy minds continue. Thus a restart cannot
 silently skip unseen work. This is delivery, not semantic summarization or a
 planner: the persistent mind still regenerates its next action from the field.
 

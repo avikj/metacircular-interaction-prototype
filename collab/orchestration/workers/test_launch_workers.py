@@ -65,6 +65,10 @@ class LauncherTests(unittest.TestCase):
             self.assertEqual(delivered, [f"collab/messages/{n:02d}.md" for n in range(5)])
             self.assertEqual(envelope["undelivered_message_count"], 0)
 
+    def test_backoff_cap_is_finite(self):
+        self.assertGreaterEqual(launcher.FAILURE_BACKOFF_CAP, 1.0)
+        self.assertLessEqual(launcher.FAILURE_BACKOFF_CAP, 3600.0)
+
 
 if __name__ == "__main__":
     unittest.main()

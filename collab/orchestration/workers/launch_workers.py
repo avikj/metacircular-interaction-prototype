@@ -14,6 +14,7 @@ SESSIONS = REPO / "collab/orchestration/worker-sessions"
 CURSORS = REPO / "collab/orchestration/worker-cursors"
 WORKTREES = REPO.parent / f"{REPO.name}-workers"
 STOP = HERE / "STOP"
+FAILURE_BACKOFF_CAP = 300.0
 
 
 def executable(provider: str) -> str:
@@ -257,7 +258,7 @@ def run_turn(task: dict[str, object], run_dir: Path, cycle: int) -> dict[str, ob
     name = str(task["name"]); turn_dir = run_dir / f"{name}--{cycle:04d}"; turn_dir.mkdir()
     existing = read_session(name, str(task["provider"]))
     sync = sync_clean_worker(name, git_output(REPO, "rev-parse", "HEAD"))
-    if sync["conflicts"] or sync["sync"] in {"blocked-divergence", "fast-forward-failed"}:
+    if sync["dirty"] or sync["conflicts"] or sync["sync"] in {"blocked-divergence", "fast-forward-failed"}:
         result = {"name": name, "provider": task["provider"], "cycle": cycle,
                   "session_id": existing, "resumed": existing is not None, "returncode": 2,
                   "broadcast": None, "incident": sync}
@@ -271,12 +272,17 @@ def run_turn(task: dict[str, object], run_dir: Path, cycle: int) -> dict[str, ob
     (turn_dir / "stdout.log").write_text(done.stdout); (turn_dir / "stderr.log").write_text(done.stderr)
     result = {"name": name, "provider": task["provider"], "cycle": cycle, "session_id": sid,
               "resumed": existing is not None, "returncode": done.returncode, "broadcast": None}
-    if done.returncode == 0 and response.strip():
+    postflight = preflight(name)
+    result["postflight"] = postflight
+    if done.returncode == 0 and response.strip() and not postflight["conflicts"]:
         broadcast = OUTBOX / f"{run_dir.name}--{name}--{cycle:04d}.md"
         with broadcast.open("x") as f: f.write(response.rstrip() + "\n")
         result["broadcast"] = str(broadcast.relative_to(REPO))
         next_cursor["response_hash"] = hashlib.sha256(response.encode()).hexdigest()
         write_cursor(name, next_cursor)
+    elif postflight["conflicts"]:
+        result["returncode"] = 4
+        result["incident"] = "provider left unresolved Git conflicts; delivery cursor retained"
     (turn_dir / "result.json").write_text(json.dumps(result, indent=2) + "\n")
     return result
 
@@ -299,20 +305,28 @@ def main() -> int:
     tasks = load_tasks(args.tasks.resolve()); OUTBOX.mkdir(parents=True, exist_ok=True); RUNS.mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"); run_dir = RUNS / stamp; run_dir.mkdir()
     (run_dir / "capabilities.json").write_text(json.dumps(capability_report(), indent=2) + "\n")
-    results=[]; cycle=1
+    results=[]; cycle=1; failures = {str(task["name"]): 0 for task in tasks}; retry_after = {str(task["name"]): 0.0 for task in tasks}
     while args.cycles == 0 or cycle <= args.cycles:
         if STOP.exists(): break
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
-            futures = {pool.submit(run_turn, task, run_dir, cycle): task for task in tasks}
+            now = time.monotonic()
+            eligible = [task for task in tasks if now >= retry_after[str(task["name"])]]
+            futures = {pool.submit(run_turn, task, run_dir, cycle): task for task in eligible}
             for future in concurrent.futures.as_completed(futures):
                 task = futures[future]
-                try: results.append(future.result())
+                try: result = future.result(); results.append(result)
                 except Exception as error:
-                    results.append({"name": task["name"], "provider": task["provider"], "cycle": cycle,
-                                    "session_id": None, "resumed": False, "returncode": 3,
-                                    "broadcast": None, "incident": repr(error)})
+                    result = {"name": task["name"], "provider": task["provider"], "cycle": cycle,
+                              "session_id": None, "resumed": False, "returncode": 3,
+                              "broadcast": None, "incident": repr(error)}; results.append(result)
+                name = str(task["name"])
+                if result["returncode"] == 0: failures[name] = 0; retry_after[name] = 0.0
+                else:
+                    failures[name] += 1
+                    retry_after[name] = time.monotonic() + min(FAILURE_BACKOFF_CAP, 2.0 ** min(failures[name], 8))
         cycle += 1
         if args.delay: time.sleep(args.delay)
+        elif not futures: time.sleep(1.0)
     results.sort(key=lambda x:(x["cycle"],x["name"])); (run_dir/"manifest.json").write_text(json.dumps(results,indent=2)+"\n")
     print(json.dumps({"run":str(run_dir.relative_to(REPO)),"turns":results},indent=2))
     return 0 if all(x["returncode"]==0 for x in results) else 1
