@@ -10,6 +10,7 @@ minimal quotient while retaining every dependent-origin fiber.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from collections import deque
 from typing import Hashable, Mapping, Sequence
 
 State = Hashable
@@ -33,6 +34,67 @@ class Crystal:
         if any(target < 0 or target >= count
                for row in self.transitions for target in row):
             raise ValueError("transition leaves quotient")
+
+
+def run_word(
+    state: State,
+    word: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+) -> State:
+    """Apply a finite experiment to a state."""
+    current = state
+    for action in word:
+        current = transition[current, action]
+    return current
+
+
+def shortest_distinguishing_word(
+    left: State,
+    right: State,
+    actions: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+    observation: Mapping[State, Output],
+) -> tuple[Action, ...] | None:
+    """Return a shortest future experiment separating two states, if one exists.
+
+    Breadth-first search occurs on pairs of states.  Returning ``None`` means
+    no finite action word can distinguish the pair in the supplied finite
+    total system.
+    """
+    if observation[left] != observation[right]:
+        return ()
+    start = (left, right)
+    queue = deque([(start, ())])
+    seen = {start}
+    for_pair = tuple(actions)
+    while queue:
+        (x, y), word = queue.popleft()
+        for action in for_pair:
+            next_pair = (transition[x, action], transition[y, action])
+            next_word = word + (action,)
+            if observation[next_pair[0]] != observation[next_pair[1]]:
+                return next_word
+            if next_pair not in seen:
+                seen.add(next_pair)
+                queue.append((next_pair, next_word))
+    return None
+
+
+def explain_distinctions(
+    states: Sequence[State],
+    actions: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+    observation: Mapping[State, Output],
+) -> dict[tuple[State, State], tuple[Action, ...] | None]:
+    """Give every unordered state pair its shortest separating experiment."""
+    xs = tuple(states)
+    return {
+        (left, right): shortest_distinguishing_word(
+            left, right, actions, transition, observation
+        )
+        for index, left in enumerate(xs)
+        for right in xs[index + 1:]
+    }
 
 
 def crystallize(

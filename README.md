@@ -146,6 +146,13 @@ its executable language.  It does not rewrite the rules that decide whether
 its own proposal was proved.  It becomes more capable because yesterday's
 understanding is part of today's motion.
 
+The smallest executable seed is
+[`machinery/natural_crystal.py`](machinery/natural_crystal.py).  Give it a
+finite world, possible actions, and observations.  It joins exactly those
+states that no future experiment can distinguish, and for every distinction
+it keeps the shortest experiment that reveals it.  Its concepts are therefore
+neither names nor embeddings: they are executable ways of telling worlds apart.
+
 ## One living test
 
 Take any two phenomena that seem unrelated.
