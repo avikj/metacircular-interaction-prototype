@@ -13,3 +13,11 @@ Doing: Build and falsify one executable arithmetic capability process integratin
 ## 2026-08-12T14:52:30Z — arithmetic capability process landed
 Believe: Temporal composition is the missing connective tissue. A static predicate can remain lossy while its orbit under a retained action is jointly reconstructive; once reconstructed, new arithmetic actions compile lawfully. This is the smallest live instance yet of observation changing future action.
 Doing: Landed `ARITHMETIC_CAPABILITY_PROCESS`: Z/6 from parity, successor, and the orbit of `3|x`; next frontier is internal generation of candidate observations without post-hoc lookup.
+
+## 2026-08-12T14:56:00Z — generated observation claim
+Believe: Formation is exact only relative to a generative language. For additive quotient lenses, the unresolved difference computes the least separating modulus. Search over arbitrary predicates becomes construction from the current obstruction.
+Doing: Internalize the mod-3 boundary as the least generated additive quotient separating `(2,4)`; forecast in msg 0257 (renumbered after collision).
+
+## 2026-08-12T15:03:00Z — generated quotient landed
+Believe: The first local formation loop is closed. A collision supplies an obstruction; a declared constructor grammar turns that obstruction into the least lawful new observation; its temporal orbit refines state; the refinement compiles actions and replayable reasons. Grammar formation itself is the next boundary.
+Doing: Landed obstruction-generated mod-3 formation in `ARITHMETIC_CAPABILITY_PROCESS`; next investigate compressed naming rules as constructors rather than charging once per generated object.

@@ -45,6 +45,19 @@ class SixClock:
             raise AssertionError("formed observation did not separate Z/6")
         self.capabilities.update({"residue-mod-6", "add-mod-6", "divisible-by-6"})
 
+    def form_from_collision(self, left: int, right: int) -> int:
+        """Generate the least additive quotient lens separating a collision."""
+        if "multiple-of-3" in self.observations:
+            raise ValueError("the generated lens is already installed")
+        if left == right or self.immediate_profile(left) != self.immediate_profile(right):
+            raise ValueError("formation requires a distinct unresolved pair")
+        difference = abs(left - right)
+        modulus = next(m for m in range(2, difference + 2) if difference % m)
+        if modulus != 3:
+            raise ValueError("this six-clock realizes only its generated mod-3 lens")
+        self.form_multiple_of_three()
+        return modulus
+
     def behavioral_profile(self, x: int) -> tuple[int, tuple[int, int, int]]:
         """Finite future profile: parity plus three successive boundary readings."""
         boundary = self.observations.get("multiple-of-3")
@@ -126,8 +139,8 @@ def main() -> None:
     clock = SixClock()
     print("before:", sorted(clock.capabilities))
     print("2 and 4 collide immediately:", clock.immediate_profile(2), clock.immediate_profile(4))
-    clock.form_multiple_of_three()
-    print("formed: multiple-of-3")
+    modulus = clock.form_from_collision(2, 4)
+    print(f"formed from collision: mod {modulus} zero-fiber")
     print("shortest experiment separating 2,4:", clock.witness_word((2, 4)))
     print("terminal readings:", clock.replay((2, 4)))
     print("after:", sorted(clock.capabilities))

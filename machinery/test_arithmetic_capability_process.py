@@ -6,7 +6,7 @@ from arithmetic_capability_process import SixClock
 class ArithmeticCapabilityProcessTests(unittest.TestCase):
     def test_temporal_observation_is_necessary(self):
         clock = SixClock()
-        clock.form_multiple_of_three()
+        self.assertEqual(clock.form_from_collision(2, 4), 3)
         self.assertEqual(clock.immediate_profile(2), clock.immediate_profile(4))
         self.assertEqual(clock.witness_word((2, 4)), ("successor",))
         self.assertEqual(clock.replay((2, 4)), ("multiple-of-3", (1, 0)))
@@ -35,6 +35,14 @@ class ArithmeticCapabilityProcessTests(unittest.TestCase):
             self.assertEqual(len(clock.witness_word(pair)), certificate.distance)
             _, readings = clock.replay(pair)
             self.assertNotEqual(*readings)
+
+    def test_generated_modulus_is_forced_by_difference(self):
+        clock = SixClock()
+        self.assertEqual(2 % 2, 4 % 2)
+        self.assertNotEqual(2 % 3, 4 % 3)
+        self.assertEqual(clock.form_from_collision(2, 4), 3)
+        with self.assertRaises(ValueError):
+            clock.form_from_collision(2, 4)
 
 
 if __name__ == "__main__":

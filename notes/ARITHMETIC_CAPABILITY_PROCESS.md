@@ -5,7 +5,11 @@ Work in the six residues `X = Z/6Z`. Initially the machine has successor
 even and odd. In particular, 2 and 4 remain indistinguishable after every
 number of successor steps.
 
-Now form one predicate
+The predicate need not be supplied as an arbitrary table. Restrict the
+observation language to additive quotient lenses `q_m(x)=x mod m` and their
+zero-fiber boundaries. Then `q_m(a)=q_m(b)` exactly when `m | (a-b)`. For the
+unresolved pair `(2,4)`, mod 2 fails and mod 3 is the least generated lens that
+separates. Its zero fiber supplies the predicate
 
 `b(x) = 1 iff 3 divides x`.
 
@@ -42,7 +46,8 @@ profile.
 ## Rigor boundary
 
 The theorem is exact for this finite system and is exhaustively replayed in
-`machinery/test_arithmetic_capability_process.py`. The choice to form the
-multiple-of-three predicate is supplied by the program; this artifact does not
-yet generate its own observation language. It demonstrates formation's effect,
-not autonomous formation itself.
+`machinery/test_arithmetic_capability_process.py`. The candidate *language* of
+additive quotients is supplied by the program. Within that language the
+observable is generated exactly from the collision rather than selected post
+hoc. This is a local formation theorem, not a claim that every useful
+observation is an additive quotient.
