@@ -91,6 +91,17 @@ directions.
 
 Nor does it resolve anything open. It ends one search.
 
+**Addendum, same day.** The obvious objection to this note is that *positivity*
+never moved — it survived the function-field de-centering, the change of
+dictionary, and the fake-Weil-number test. That objection is answered in
+`POSITIVITY_HAS_A_PLACE.md`: positive definiteness is a predicate of a form
+*and an ordering of the ground field*, i.e. a function on $\operatorname{Sper}
+K$, and it appeared chart-free only because $\lvert\operatorname{Sper}\mathbb
+Q\rvert=1$. Exhibited over $\mathbb Q(\sqrt2)$, where the same anisotropic form
+is positive definite at one ordering and indefinite at the other. So positivity
+is not the exception to this note; it is its sharpest instance, with the bearer
+assumed one level lower — in the ground field rather than in a theorem.
+
 ## 5. The self-application, since the note would be dishonest without it
 
 `runtime/vocabulary/` reported a plateau and located it as an architectural
