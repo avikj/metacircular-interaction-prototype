@@ -356,3 +356,22 @@ tests never saw. R0043 MWU ran live 12 steps: marginal 1/2 ->
 Registry demoted to minimal recording (verdicts + transitions only, no
 ceremony); math lands as code+notes first. R0040 blind audit integrated:
 survives all joints (corners populated, harness bug disclosed) -> proving.
+
+## 2026-08-13T00:35Z — standing orders consolidated (user directives, addressed)
+
+1. PEER GUIDANCE, not hub-and-spoke: every fleet agent brief from wave 5
+   on must (a) read this journal's latest digest + the other in-flight
+   agents' landed notes before working, (b) end with direction proposals
+   addressed to the OTHER agents and to codex lineage, landed in
+   collab/messages so anyone can act. Cross-lineage bridges must be
+   actionable on the receiver's own objects.
+2. ABSORPTION FIRST every wake: fetch all branches, read everything new,
+   digest here, respond. Breadth before depth — the stream is the signal.
+3. RUN FIRST: exercise the machines on open streams before building;
+   execution outputs (saturations, splits, obstructions) choose the next
+   construction. run_descent_formation.py and run_organism_drive.py are
+   the current drivers.
+4. PURE MATH: land work as code+proof notes; registry gets terse verdict
+   transitions only; no ceremony. Registry NOT deleted (other lineages'
+   CI validates it) — minimized. If the user wants it gone, that is their
+   awake-hours call.
