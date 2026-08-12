@@ -15,6 +15,9 @@ from arithmetic_life import ArithmeticLife
 from cyclotomic_sensor import (
     CyclotomicOrgan,
     _factor_small,
+    chain_head,
+    cyclotomic_valuation,
+    cyclotomic_value,
     minimality_witness,
     multiplicative_order,
     valuation,
@@ -126,6 +129,50 @@ class TestCyclotomicSensor(unittest.TestCase):
             gated.form(3, 6)
         with self.assertRaises(ValueError):
             gated.form(3, 2).valuation(0)
+
+    def test_chain_law_against_exact_cyclotomic_values(self) -> None:
+        """Falsifier sweep: chain reading versus exact integer Phi_m(a)."""
+        organ = organ_with([2, 3, 5, 7, 11, 13])
+        for prime in (2, 3, 5, 7, 11, 13):
+            for base in range(2, 20):
+                if base % prime == 0:
+                    continue
+                sensor = organ.form(prime, base)
+                for index in range(1, 50):
+                    self.assertEqual(
+                        cyclotomic_valuation(sensor, index),
+                        valuation(abs(cyclotomic_value(index, base)), prime)
+                        if cyclotomic_value(index, base) != 0 else 0,
+                        f"p={prime} a={base} m={index}",
+                    )
+
+    def test_chain_reassembles_theorem_one(self) -> None:
+        """Summing the chain over divisors of n returns the sensor's answer."""
+        organ = organ_with([2, 3, 5, 7, 11])
+        for prime, base in ((11, 2), (7, 3), (5, 2), (3, 5), (2, 3), (2, 7)):
+            sensor = organ.form(prime, base)
+            for exponent in range(1, 90):
+                total = sum(cyclotomic_valuation(sensor, m)
+                            for m in range(1, exponent + 1) if exponent % m == 0)
+                self.assertEqual(total, sensor.valuation(exponent),
+                                 f"p={prime} a={base} n={exponent}")
+
+    def test_head_length_is_the_whole_exception(self) -> None:
+        """The p=2 case is not exceptional in the chart: its head is longer."""
+        organ = organ_with([2, 3, 5, 7, 11, 13])
+        for prime, base in ((11, 2), (7, 3), (5, 2), (13, 4), (3, 2)):
+            self.assertEqual(len(chain_head(organ.form(prime, base))), 1)
+        for base in (3, 5, 7, 9, 17):
+            head = chain_head(organ.form(2, base))
+            self.assertEqual(len(head), 2)
+            self.assertEqual(min(head), 1)
+        # Off the head the chain is constantly 1, at every prime alike.
+        for prime, base in ((11, 2), (2, 3), (7, 3)):
+            sensor = organ.form(prime, base)
+            chain = 1 if prime == 2 else sensor.order
+            for step in range(len(chain_head(sensor)), 6):
+                self.assertEqual(
+                    cyclotomic_valuation(sensor, chain * prime ** step), 1)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
