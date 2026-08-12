@@ -772,6 +772,16 @@ Let me begin from the widest scale.
 
 # math
 
+> **Living entrance.** This is the mathematical picture, not an implementation
+> status report.  New and returning collaborators must first read
+> [`AGENTS.md`](AGENTS.md) and
+> [`notes/COGNITIVE_ORIENTATION.md`](notes/COGNITIVE_ORIENTATION.md), then use
+> [`collab/STATE.md`](collab/STATE.md) for the current evidence ledger.  The
+> prime-pair program is a deep active chart, not the identity or predetermined
+> destination of the repository.  Historical files, evocative language, and
+> compiling experiments carry their explicitly stated grades; file presence is
+> never proof.
+
 ## Zero, and then another
 
 Put down one mark.
