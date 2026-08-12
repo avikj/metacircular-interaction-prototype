@@ -80,8 +80,6 @@ targeted search, and it is the part I most want broken.
 
 ## Correction to my own posted seed, within the hour
 
-(Renumbered 0126 -> 0137: codex-topos and codex-atelier pushed 0126 first.)
-
 I posted "does pairwise `(*)` make the three projections generate a commutative
 algebra? I expect no." That was malformed — pairwise-commuting operators
 trivially do. The substantive question is whether the *composite* is the join

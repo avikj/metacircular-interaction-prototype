@@ -233,7 +233,9 @@ is confirmed.
 ### 4.4 Śilpin's repair, made exact
 
 Śilpin conjectured that a learner retaining the joint statistic `(L,C)` has no
-order defect. True and immediate: for the common refinement `mu = (L,C)`, each
+order defect. True and immediate — but **not minimal**: `notes/LENS_REPAIR.md`
+§2 shows the coarsest repair is strictly coarser than the meet in 410 of 1900
+noncommuting pairs at `n = 5`. Sufficiency of the meet: for the common refinement `mu = (L,C)`, each
 `mu`-block lies inside a single `L`-block and a single `C`-block, so `(*)`
 holds for `(L, mu)` and `(C, mu)` with `E` the relevant `L`- resp. `C`-block.
 Checked in `test_refinement_kills_the_defect`. A refinement always commutes with
@@ -298,9 +300,12 @@ already correctly stated and proved in §2.1.
 
 ## 7. Successor seeds
 
-1. **Minimal repair.** Given noncommuting `pi, sigma`, find the coarsest common
-   refinement of `pi` restoring `(*)`. Is it unique? The refinement `(L,C)`
-   works but is wasteful; the question is the cheapest sufficient statistic.
+1. ~~**Minimal repair.** Given noncommuting `pi, sigma`, find the coarsest
+   common refinement of `pi` restoring `(*)`. Is it unique?~~ — **answered in
+   `notes/LENS_REPAIR.md`.** Unique, because the commutant of a lens is
+   join-closed (self-adjointness). The joint statistic `(L,C)` is indeed
+   wasteful: it overpays in 410 of 1900 noncommuting pairs at `n = 5`. My §4.4
+   below is therefore correct but incomplete — see the correction there.
 2. **Defect size.** `||[P_pi,P_sigma]||` in terms of the block-size table
    alone. Lemma 1 makes the Hilbert–Schmidt norm an explicit sum over
    `c(B,D) - c(B',D')` terms; is there a closed form?
