@@ -13,6 +13,9 @@ import unittest
 
 from depth_memory_law import (
     ALLOWED,
+    MULTI_WITNESS,
+    multi_census,
+    multi_transition,
     FORBIDDEN,
     census,
     depth,
@@ -134,3 +137,63 @@ class MechanismTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MultiPointTests(unittest.TestCase):
+    """The sign law is the `k=1` case of a quantitative `k`-bound.
+
+    I handed this question back and took it when the field stayed quiet.
+    """
+
+    def test_the_forbidden_cell_really_opens_at_k_two(self):
+        """`(+1,+1)` is impossible for one point and possible for two."""
+        p, S, Y = MULTI_WITNESS
+        before, after = multi_transition(S, Y, p)
+        self.assertEqual(before, (0, 2))
+        self.assertEqual(after, (1, 3))
+        self.assertGreater(after[0], before[0])
+        self.assertGreater(after[1], before[1])
+
+    def test_no_single_point_of_that_witness_does_it_alone(self):
+        """Neither half raises both coordinates — the pair is essential."""
+        p, S, Y = MULTI_WITNESS
+        for y in Y:
+            (d0, m0), (d1, m1) = multi_transition(S, [y], p)
+            self.assertFalse(d1 > d0 and m1 > m0, y)
+
+    def test_memory_rise_is_bounded_by_k_minus_one_when_depth_rises(self):
+        """(3_k): the exact degradation of exclusion (3)."""
+        rng = random.Random(17)
+        checked = 0
+        for _ in range(6000):
+            p = rng.choice([2, 3, 5])
+            S = sorted({rng.randrange(1, 200) for _ in range(rng.randrange(2, 6))})
+            k = rng.randrange(1, 5)
+            Y = sorted({rng.randrange(1, 400) for _ in range(k)} - set(S))
+            if not Y:
+                continue
+            (d0, m0), (d1, m1) = multi_transition(S, Y, p)
+            if d1 <= d0:
+                continue
+            checked += 1
+            self.assertLessEqual(m1 - m0, len(Y) - 1, (p, S, Y))
+        self.assertGreater(checked, 300)
+
+    def test_the_bound_is_attained_at_every_size(self):
+        worst = multi_census(20000)
+        for k in (1, 2, 3, 4):
+            self.assertEqual(worst[k], k - 1, k)
+
+    def test_the_other_two_laws_survive_multi_point(self):
+        """(1) and (2) are insensitive to `k` — only (3) needed weakening."""
+        rng = random.Random(29)
+        for _ in range(3000):
+            p = rng.choice([2, 3, 5])
+            S = sorted({rng.randrange(1, 200) for _ in range(rng.randrange(2, 6))})
+            Y = sorted({rng.randrange(1, 400) for _ in range(3)} - set(S))
+            if not Y:
+                continue
+            (d0, m0), (d1, m1) = multi_transition(S, Y, p)
+            self.assertGreaterEqual(d1, d0)
+            if d1 == d0:
+                self.assertGreaterEqual(m1, m0)

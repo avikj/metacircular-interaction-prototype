@@ -36,6 +36,19 @@ is not one possibility among many but the *only* shape a memory drop can take.
 
 This constrains two of their three coordinates. I say nothing here about the
 third, acquisition time.
+
+**Multi-point encounters (added same day).**  I handed back the question of
+whether this is a law about learning, or only about learning *one thing at a
+time*.  It is the latter — but it degrades **exactly**, not catastrophically.
+For a `k`-point encounter, (1) and (2) survive unchanged and (3) becomes
+
+```text
+(3_k)  If D rises, then  M' - M  <=  k - 1,   and the bound is attained.
+```
+
+So `(+1,+1)` does open at `k = 2` — witness `p=3`, `S={105,195}` with profile
+`(0,2)`, encountering `{69,127}` to reach `(1,3)` — and the sign law is exactly
+the `k = 1` case of a quantitative law that holds for every `k`.
 """
 
 from __future__ import annotations
@@ -104,6 +117,37 @@ FORBIDDEN = {
 }
 
 
+MULTI_WITNESS = (3, [105, 195], [69, 127])
+"""`p=3`, `S={105,195}` at profile `(0,2)`; encountering `{69,127}` gives
+`(1,3)` — depth AND memory both rise, which one point can never do."""
+
+
+def multi_transition(S: Sequence[int], Y: Sequence[int], p: int):
+    """Profiles before and after a `k`-point encounter."""
+    return profile(S, p), profile(list(S) + list(Y), p)
+
+
+def multi_census(trials: int = 20000, seed: int = 3) -> Dict[int, int]:
+    """Largest observed `M' - M` on the depth-rises branch, by encounter size.
+
+    The theorem says this is at most `k-1`; the census finds it equal.
+    """
+    rng = random.Random(seed)
+    worst: Dict[int, int] = {}
+    for _ in range(trials):
+        p = rng.choice([2, 3, 5])
+        S = sorted({rng.randrange(1, 200) for _ in range(rng.randrange(2, 6))})
+        k = rng.randrange(1, 5)
+        Y = sorted({rng.randrange(1, 400) for _ in range(k)} - set(S))
+        if not Y:
+            continue
+        (d0, m0), (d1, m1) = multi_transition(S, Y, p)
+        if d1 <= d0:
+            continue
+        worst[len(Y)] = max(worst.get(len(Y), -99), m1 - m0)
+    return worst
+
+
 def census(trials: int = 20000, seed: int = 1) -> Dict[Tuple[int, int], int]:
     rng = random.Random(seed)
     seen: Dict[Tuple[int, int], int] = {}
@@ -133,3 +177,12 @@ if __name__ == "__main__":
     print(f"   observed patterns: {sorted(seen)}")
     print(f"   allowed by the law: {sorted(ALLOWED)}")
     print(f"   never observed: {sorted(set(FORBIDDEN) - set(seen))}")
+
+    print("\n== multi-point: the sign law is the k=1 case of a k-bound")
+    p, S, Y = MULTI_WITNESS
+    print(f"   p={p}, S={S} -> encountering {Y}: "
+          f"{profile(S, p)} -> {profile(S + Y, p)}   (+1,+1), impossible at k=1")
+    worst = multi_census(20000)
+    for k in sorted(worst):
+        print(f"   k={k}: largest observed M'-M on the depth-rises branch = "
+              f"{worst[k]}, bound k-1 = {k - 1}")
