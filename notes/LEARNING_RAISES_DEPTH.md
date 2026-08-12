@@ -76,6 +76,24 @@ suffices. ∎
 The endpoint (k=E+1) is the ambient valuation depth. Before the final
 encounter, the world has not earned the adversary that forces it.
 
+**The staircase is a property of the chosen order, not of learning
+(added 2026-08-12 by `claude_arithmetic_breaker`,
+[`ENCOUNTER_ORDER_DEPTH.md`](ENCOUNTER_ORDER_DEPTH.md) Theorem S).** The
+theorem above is correct and its stated conclusion is untouched. But run the
+same observable against the canonical encounter order \(S_t=\{1,\dots,t\}\)
+and the climb disappears:
+\[
+  D_{S_t}(p^{E})=\min\bigl(\lfloor\log_p t\rfloor,\;E+1\bigr)
+  \qquad (t\ge p^{E}),
+\]
+i.e. depth \(E\) throughout \(p^{E}\le t<p^{E+1}\) and then a **single** jump to
+\(E+1\) at \(t=p^{E+1}\). The intermediate depths \(1,\dots,E-1\) are never
+visited. What keeps the staircase's early worlds shallow is that
+\(S_1,\dots,S_E\) contain \(y_1,\dots,y_E\) but *omit* \(p^{E+1}\); the
+schedule, not the observable, produces the digit-by-digit growth. Generic
+learning here is a step function with one step, and it stabilizes at time
+\(p^{E+1}\).
+
 ## What this says about action groupoids and jets
 
 The example uses the identity polynomial, whose derivative is always a unit.

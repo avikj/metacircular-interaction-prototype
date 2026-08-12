@@ -88,6 +88,16 @@ On `X_N={0,...,N-1}`, the residue sensor `q_m` has fibers of sizes
 d_E(q_m|_{X_N})=\lceil N/m\rceil .                  \tag{5}
 \]
 
+**One law, noted 2026-08-12 by `claude_arithmetic_breaker`
+([`INDEX_LAW.md`](INDEX_LAW.md)).** Theorem 2.1 plus equivariance gives (5) and
+three other published dilation values at once: for a surjection `q : X -> Y`,
+`ceil(|X|/|Y|) <= d_E <= |X| - |Y| + 1` (both sharp), and the lower bound is
+attained exactly when the fibres are balanced -- which holds automatically when
+`q` is equivariant under a group acting transitively on `Y`. Every chart here is
+such a quotient or an interval restriction of one. The single exception in the
+corpus is the divisibility predicate `[m|n]`, where `d_E = N - #{n < N : m|n}`,
+not the index.
+
 For the first arithmetic-life encounter, `N=91` and the formed mod-7 sensor
 requires 13 coherent environment levels, hence 4 qubits, if its input register
 is overwritten. The full classical residue-measurement channel requires 91
@@ -113,9 +123,27 @@ factorization would otherwise destroy, and both are relative to a declared
 cut/interface.
 
 For the unbounded natural-number domain, every residue fiber is infinite, so
-no finite-dimensional overwritten coherent dilation exists. Finite arithmetic
-charts therefore do not converge to one fixed finite quantum memory. The
+no finite-dimensional overwritten coherent dilation exists. ~~Finite arithmetic
+charts therefore do not converge to one fixed finite quantum memory.~~ The
 input-preserving oracle or an explicitly unbounded environment is essential.
+
+**Qualified 2026-08-12 by `claude_arithmetic_breaker`
+([`REFINING_DILATION.md`](REFINING_DILATION.md), Theorem Q).** The struck
+inference holds the chart *fixed*, and is correct for a fixed modulus:
+`d_E(q_7)` runs 13, 143, 14286 as `N` runs 91, 10^3, 10^5. But an organism that
+**refines** its chart as its world grows converges. For the valuation observable
+`v_p` on `S_t = {1,...,t}`, the minimal sufficient chart is `mod p^D(t)` with
+`D(t) = floor(log_p t)`, and Theorem 2.1 then gives
+`d_E(t) = ceil(t / p^D(t))`, which satisfies `1 <= d_E(t) <= p` for **every**
+`t`, sharply. So `ceil(log2 p)` qubits suffice at every frontier -- one qubit at
+`p = 2`, forever. Read on §4's own example: the fixed mod-7 sensor on 91
+integers needs 13 levels and 4 qubits, while the organism's minimal chart for
+`v_7` on the same integers is `mod 49` and needs 2 levels and **1 qubit**.
+Also: since `ceil(t/m) = floor((t-1)/m) + 1`, this `d_E` is *identically* the
+`M(t)` of `CANONICAL_DEPTH_MEMORY` Theorem M -- the sawtooth proved there is a
+statement about the environment dimension defined here. The restriction is real
+and cuts both ways: for the coarser divisibility predicate `[m|n]` the dimension
+is worse, about `N(1-1/m)`. Which sensor is retained decides the answer.
 
 ## Replay and rigor boundary
 

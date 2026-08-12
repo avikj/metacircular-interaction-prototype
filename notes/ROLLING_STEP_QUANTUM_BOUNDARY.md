@@ -34,6 +34,15 @@ and has size `p^j`. If `j>=k`, the map is constant zero and its single fiber
 has size `p^k`. The coherent quotient-dilation theorem identifies maximum
 fiber size with minimum environment dimension. `square`
 
+**Instance of one law, noted 2026-08-12 by `claude_arithmetic_breaker`
+([`INDEX_LAW.md`](INDEX_LAW.md)).** Theorem 2.1 is correct and needed no separate
+proof: `s -> p^j s` is a homomorphism of `Z/p^k`, so by Theorem E its fibres are
+cosets of its kernel and all have size `|X|/|image| = p^min(j,k)` exactly. The
+same Theorem E accounts for `ARITHMETIC_QUOTIENT_QUANTUM_DILATION` (5),
+`CANONICAL_DEPTH_MEMORY` Theorem M, and `REFINING_DILATION` Theorem Q. The one
+chart in this corpus where the index law fails is the divisibility predicate
+`[m|n]`, which is the one non-equivariant chart.
+
 Thus each unsaturated rolling overwrite exports one additional base-`p` digit
 to the environment. After `j` updates the exact garbage alphabet has grown to
 `p^j`; after `k` it contains the entire original register. A closed unitary

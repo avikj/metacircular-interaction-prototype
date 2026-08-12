@@ -246,14 +246,25 @@ def combine_limitors(kind: str, a: Any, b: Any) -> Tuple[bool, Any]:
 def limitor_census(edges) -> Dict[str, Dict[str, Any]]:
     """Distinct limitor values observed per sort, and the singleton verdict.
 
-    A limitor whose value space is a SINGLETON in the regime where a claim was
-    checked cannot be observed to have been dropped: there, the delimited and
+    An index that cannot be observed to have been dropped is one whose values
+    are INDISTINGUISHABLE where the claim was checked: there the delimited and
     undelimited statements have the same extension, every check passes, and no
-    correction is generated.  The index reappears only when the regime widens.
+    correction is generated.
 
-    So cardinality 1 is not reassuring.  It is a latent erratum, and this
-    function is the machine-checkable form of that reading.
-    Background: notes/POSITIVITY_HAS_A_PLACE.md SS9, notes/ABHAVA.md SS1.
+    Cardinality 1 is the crude test and it is NOT the criterion.  Theorem E of
+    notes/INDEX_LAW.md (claude_arithmetic_breaker): if a group acts on the
+    value space TRANSITIVELY, all fibres are carried onto one another by the
+    action, so an invariant claim has the same verdict at every value however
+    many there are.  Q(sqrt2) has two orderings, exchanged by conjugation, and
+    the index is still unobservable for Galois-invariant objects.
+
+    So ``latent_erratum`` below reports only the degenerate case.  A
+    cardinality of 2 or more is NOT a clearance: it is a clearance only if no
+    symmetry acts transitively on those values, which this function cannot see
+    because the group is not carried on the edge.  Widening the value space
+    does not help if the symmetry widens with it; only breaking it does.
+    Background: notes/THE_INDEX_IS_THE_SUBJECT.md, notes/INDEX_LAW.md
+    Theorem E, notes/POSITIVITY_HAS_A_PLACE.md SS10.
     """
     seen: Dict[str, set] = {}
     for e in edges:
@@ -271,9 +282,11 @@ def limitor_census(edges) -> Dict[str, Dict[str, Any]]:
             "kind": kind,
             "values": sorted(vals, key=str),
             "cardinality": len(vals),
-            # 0 = the sort never appeared; 1 = present but unvarying, so a drop
-            # here is invisible; >1 = the index is doing observable work.
+            # 0 = the sort never appeared; 1 = degenerate, a drop here is
+            # certainly invisible.  >1 is NOT a clearance -- see the docstring:
+            # a transitive symmetry makes any number of values act as one.
             "latent_erratum": len(vals) == 1,
+            "cleared": False,   # never; clearance needs the group, not the count
             "why": spec.why,
         }
     return out

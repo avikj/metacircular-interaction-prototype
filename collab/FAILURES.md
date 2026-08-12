@@ -415,3 +415,75 @@ show that one-point statistics are too weak, first locate the fixed points of
 the involution — they are exactly the configurations one-point statistics CAN
 decide, and they must be carved out explicitly rather than assumed away. A
 false model that silently includes them is not a control.
+
+F30 [08-12] [claude_arithmetic_breaker, Claude Opus 5] — KILLED: encounter-driven
+sensor selection in `arithmetic_life`. The route was to repair the audit's
+planted-curriculum finding (B3: the sensor set is a function of `floor(sqrt n)`
+alone, so 91=7*13 permanently retains mod 2,3,5 which it refuted) by installing
+`mod p` only when some witness demands `p`. Registered prior: the route survives
+but loses T4 curriculum-independence, needing a completeness hypothesis
+equivalent to T1. SURPRISE against that prior — the route dies one step earlier
+and much harder. Theorem T5: with the residue-divisibility certificate ("n is
+prime iff no active sense below the frontier divides it"), soundness holds iff
+the active set contains EVERY prime below the frontier, and the counterexample
+to any omission is the prime square `q*q` — so no prime is expendable and no
+selection policy has any freedom at all. The curriculum is not planted, it is
+forced by the certificate form; correspondingly, no process can be credited with
+discovering the anatomy. ADDED YIELD, reusable: before criticizing a machine's
+representation as unmotivated, check whether its *certificate form* already
+determines that representation uniquely — if it does, the criticism is a theorem
+about the certificate, and the machine's real content lies elsewhere (here: the
+compilation (6) and the inertness T4, neither of which is forced). Do not retry
+frugal/witness-driven sensor retention under divisibility certificates without
+citing T5. The one live escape is a DIFFERENT certificate class (Pratt/Lucas,
+Fermat-style), where T5 does not apply; that is seed 1' of
+`notes/ARITHMETIC_LIFE_ADVERSARIAL_AUDIT.md`. Executable falsifier:
+`machinery/sensor_policy_no_go.py`.
+
+F30 EXTENSION [08-12] [claude_arithmetic_breaker, Claude Opus 5] — the escape
+hatch named in F30 is now closed too, and the route "encounter-driven sensor
+selection with a RETAINED anatomy" is dead from both sides. F30 killed it for
+residue-divisibility certificates (T5: the anatomy is forced, every omitted
+prime falsified by a prime square). The escape was that T5 is conditional on the
+certificate form, and that base-style certificates might leave the anatomy free.
+They do — and that is the problem. Theorem F: on a Carmichael number a Fermat
+base refutes n iff it shares a prime factor with n, so every unit is inert and
+the least refuter is a prime divisor; the Fermat scheme degenerates to trial
+division exactly on the family where soundness is decided, and T5's forcing
+returns. The strong (Miller-Rabin) test does escape that — Rabin's bound gives
+many admissible bases at every n — but no FIXED base set is sound: {2} certifies
+2047 prime, {2,3} certifies 1373653 prime, both verified least by exhaustive
+scan. ADDED YIELD, and the reusable statement: FREEDOM AND PERMANENCE ARE
+EXCLUSIVE. Where a certificate is decided by a fixed finite test set, that set
+is either complete (hence forced, no selection) or incomplete (hence unsound).
+An organism whose senses genuinely get chosen is an organism whose senses do not
+persist — so a selected anatomy cannot also be the transferable anatomy of
+ARITHMETIC_LIFE_FIRST_EXECUTION (5). Do not propose "the organism learns which
+sensors to keep" again without saying which side of this trade it is taking.
+Executable: `machinery/certificate_anatomy.py`; note `notes/CERTIFICATE_ANATOMY.md`.
+
+F30 SECOND EXTENSION [08-12] [claude_arithmetic_breaker, Claude Opus 5] —
+SELF-REFUTATION. The F30 extension above closed with the slogan "freedom and
+permanence are exclusive" and registered the prior that the exclusion is
+general, reasoning that permanence needs a fixed finite test set which is either
+complete (hence forced) or incomplete (hence unsound). That reasoning is WRONG:
+a complete set need not be forced. Completeness forces only when the covering is
+PINNED. Theorem P: a non-instance is pinned when exactly one sensor in the whole
+scheme refutes it; every sound anatomy contains the refuter of every pinned
+element (so pinning = forcing), and if nothing is pinned then every sensor is
+individually dispensable. T5 is exactly the pinned case — q^2 is pinned by q,
+since the only modulus in [2,q] dividing q^2 is q. Counterexample to my own
+slogan: give each prime sensor a SECOND refutation mode (p refutes n if p|n OR p
+is a strong witness for n). Soundness is preserved because a strong test never
+witnesses a prime; pinning vanishes; and the divisibility mode keeps the
+anatomy sound at every frontier, so it is still retained and never re-chosen.
+Verified exhaustively for every B <= 100 over all composites n <= B^2: zero
+pinned, all pi(B) primes droppable, against zero droppable under pure
+divisibility. ADDED YIELD: the earlier no-go is downgraded from "freedom and
+permanence are exclusive" to "an anatomy is forced exactly on its pinned part,
+and permanence is orthogonal". The organism CAN have a retained anatomy with
+genuine selection; the recipe is to give sensors overlapping refutation modes,
+and it already owns both operations (gcd, modular exponentiation). Open, and
+NOT to be assumed: the unbounded case, which needs a witness-existence claim
+about {q*r} that Rabin's bound makes likely and does not prove.
+Executable: `machinery/pinning.py`; note `notes/PINNING.md`.

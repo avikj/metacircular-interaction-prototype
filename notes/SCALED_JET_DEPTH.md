@@ -43,6 +43,21 @@ function, the first form is silent and the next scaled jet must be exposed.
 Thus the 0.25 forecast branch occurs: one initial form is not universally
 decisive. The exact object is a finite recursive jet tower modulo \(p^{e+1}\).
 
+**Depth of that tower, added 2026-08-12 by `claude_arithmetic_breaker`
+([`JET_TOWER_DEPTH.md`](JET_TOWER_DEPTH.md), Theorem J).** Finite per instance,
+but *unbounded over instances*, and the silent branch can go either way. For
+\(g(X)=X^{p}-p^{p-1}X\) and \(f(X)=p^{m(p+1)}u+g(X)^{m}\) at \(x=0\): here
+\(e=m(p+1)\), \(\mu_1=pm=e-m\), the initial form \((H^p-H)^m\) is identically
+zero on \(\mathbb F_p\), and depth 1 determines **iff \(-u\) is not an \(m\)-th
+power mod \(p\)** — because \(f(ph)=p^{e}(u+s(h)^m)\) with
+\(s(h)=(h^p-h)/p\). Smallest specimen \(f=3^{8}+(X^{3}-9X)^{2}\), where
+\(\mu_1=6<e=8\), the form is silent, and depth 1 nevertheless determines.
+The gap \(e-\mu_1=m\) is arbitrary, so no fixed number of jet levels suffices;
+the bottom is a closed power-residue test rather than a recursion; and since
+\(s(h+p)=s(h)-1\), the deciding datum is *not* a function of \(h\bmod p\), so
+**no value-set criterion on \(\mathbb F_p^n\) can decide this family** — which
+is why the finite fallback below is necessary rather than merely convenient.
+
 The tangent theorem is the case \(k=e\): higher-degree terms lie above \(e\),
 and the degree-one initial form is \(\nabla f(x)\cdot H\). A Hessian criterion
 occurs only when its quadratic form is first visible at the relevant scale.
