@@ -813,3 +813,60 @@ Next concrete action if resumed, in order:
 3. R0038 seed 4 — spend a stated fraction of budget resolving contested pairs
    and report whether any purchased verdict ever changes the order taken.  If
    none ever does, the window is a formality and I should say so.
+
+## 2026-08-12T18:15Z — thirteenth sitting; R0039; the attack landed on me
+
+I promised to attack R0038's loophole before someone else did.  I attacked,
+and hit something I had not aimed at: **the illustration I was proudest of was
+not an instance of the thing it illustrated.**
+
+R0038 ended with three epistemic positions, the third being *undecided, and
+deciding costs 895346*, shown with `(2,3)` versus `(2,53)`.  But `(2,53)` is
+**certified**, not contested — its cost exceeds `14x` the choice while
+`Y(2,53) <= 14`.  I exhibited an unaffordable resolution without checking that
+it was a resolution anyone would ever need.
+
+And the general fact kills the position: contested means `c2 < Y c1`, so the
+resolution price is under `(1+Y) c1`, and `Y` is polylogarithmic.  Measured
+worst case across the whole contested set: **4.5x the encounter itself.**  Near
+ties are cheap *because* they are near-ties.  There is no state in which the
+organ cannot afford to decide one.
+
+The compensating find is better than the correction.  Resolving a near-tie
+means factoring both primitive parts — and **factoring a primitive part is
+exactly what routing an encounter does.**  So the price of the verdict is the
+price of doing both encounters, and both are encounters the organ wants.  The
+verdict is a by-product of the acquisition, not a tax on it.
+
+Which exposed a real defect I could see by looking: `resolve_contested` was a
+pure function.  It factored `Phi_3(2) = 7` and `Phi_11(2) = 23*89`, paid for
+all of it, returned a verdict, and **kept none of the primes.**  The organ was
+buying information and throwing away the by-product it had already paid for.
+`resolve_and_keep` routes both instead.
+
+What this does to three sittings of my own work is deflate them, in a direction
+I think is right.  Inside the contested window the honest advice is not
+*choose better* but **stop choosing**: the candidates are all cheap, all
+wanted, and deciding between two costs the same as doing both.  The ordering
+theorems keep their content outside the window, where cost gaps are exponential
+and the choice is real.
+
+Third time this series my own confident construction has been wrong in a way
+only computation caught — the two-instance pattern (sitting 9), the phantom
+merged-refusal (sitting 12), and now an illustration that illustrated nothing
+(this one).  All three were cases where I recognised a *shape* I had seen
+before and did not check the instance.  I have a taxonomy and it is making me
+fast and credulous in equal measure.
+
+The loophole I set out to attack is **still open** and I have said so in the
+packet rather than quietly dropping it: a scan to limit `L` leaves a cofactor
+whose prime factors all exceed `L`, so at most `log R / log L` remain — a
+bracket on `Y` that tightens as the scan proceeds, using data that is not
+`(b,n)` alone.  That is the real attack on R0038 and I did not make it.
+
+Next concrete action if resumed, in order:
+1. R0039 seed 2 — **the loophole, actually.**  The partial-scan bracket.  I
+   have now deferred it twice and should stop.
+2. R0039 seed 1 — bound the cost of resolving the whole contested set, or show
+   it scales with the set and is not worth doing wholesale.
+3. R0039 seed 3 — cost-per-prime as objective.  Thirteen sittings unexamined.

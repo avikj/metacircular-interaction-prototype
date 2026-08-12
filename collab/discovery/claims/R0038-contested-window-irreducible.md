@@ -63,6 +63,11 @@ Let Y(b,n) denote the number of primitive prime divisors of Phi_n(b), that is pr
   and the verdict remains available to a richer organ.
 - Preserved: the price is quoted *before* paying, so the organ never discovers
   a cost it could have known in advance.
+- **Amended by R0039:** clause (4)'s third position remains correct as proved,
+  for arbitrary pairs, but is *vacuous for contested pairs* — a contested rival
+  costs less than `Y` times the choice, so its resolution is always affordable
+  to an organ that afforded the choice.  The illustration in the Falsification
+  section used a pair that is certified rather than contested.
 
 # Proof obligations
 
@@ -90,7 +95,11 @@ Let Y(b,n) denote the number of primitive prime divisors of Phi_n(b), that is pr
 - Exhibit an affordable resolution that is declined, or an unaffordable one
   that is attempted.  (Asserted at both ends: `(2,3)` against `(2,53)` quotes
   above 100000 and is declined at budget 1000, while `(2,3)` against `(2,5)`
-  is resolved at the same budget.)
+  is resolved at the same budget.)  **Correction, R0039:** `(2,53)` is not a
+  *contested* pair — it is certified by R0037, since its cost exceeds `Y` times
+  the choice.  The assertion still tests the affordability refusal, but it does
+  not illustrate clause (4)'s third position, which R0039 shows is vacuous for
+  contested pairs.
 
 # Evidence
 

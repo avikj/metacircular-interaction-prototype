@@ -1223,6 +1223,76 @@ An organ that can quote the price of a certainty it does not have is in a
 better epistemic position than one that merely reports uncertainty, and the
 quote costs nothing to produce.
 
+## The contest dissolves: resolving a near-tie *is* doing the work
+
+I ended the previous section pleased with three epistemic positions, the third
+being *undecided, and deciding costs 895346*.  The thirteenth sitting went to
+attack the loophole I had left, and found something better and less flattering:
+**that third position is empty**, and the example I used to illustrate it was
+not a contested pair at all.
+
+> **Theorem 18.**  Let $(b_2,n_2)$ be *contested* against the choice
+> $(b_1,n_1)$ — that is, not certified by Theorem 16, so
+> $\operatorname{cost}_2 < Y_2\operatorname{cost}_1$.  Then the price of
+> resolving the pair satisfies
+> $$
+>   \operatorname{cost}_1+\operatorname{cost}_2
+>   \;<\;\bigl(1+Y_2\bigr)\operatorname{cost}_1,
+>   \qquad
+>   Y_2\le\frac{\varphi(n_2)\log(b_2+1)}{\log(n_2+1)} .
+> $$
+> Since $Y$ is polylogarithmic where cost is exponential, **every near-tie is
+> resolvable at a polylogarithmic multiple of the encounter the organ was
+> already going to make.**
+
+Measured across the whole contested set at two budgets: the worst resolution
+price is $4.5\times$ the encounter itself.  Contested pairs are cheap
+*because* they are contested — being a near-tie in cost is exactly what makes
+the second one affordable.
+
+That kills the third position.  There is no state in which the organ cannot
+afford to decide a near-tie it actually faces.  My $(2,53)$ illustration was a
+pair I chose by hand; run through the certification it is **certified, not
+contested** — its cost exceeds $14\times$ the choice while $Y(2,53)\le14$.  I
+had exhibited an unaffordable resolution without checking it was a resolution
+anyone would need.
+
+### And the resolution is not overhead
+
+Here is the part that changes the picture rather than correcting it.  To
+resolve a near-tie the organ factors both primitive parts.  **Factoring a
+primitive part is exactly what routing an encounter does.**  So the price of
+the verdict is the price of performing the two encounters — and both are
+encounters the organ wants, being among the cheapest available.
+
+Yet `resolve_contested` was a pure function: it factored, read off the two
+yields, and threw the factorizations away.
+
+```text
+resolve_contested((2,3), (2,11))  ->  verdict, price 6
+primes held before: []      primes held after: []
+```
+
+It had just factored $\Phi_3(2)=7$ and $\Phi_{11}(2)=23\cdot89$, paid for all
+of it, and kept none of it.  `resolve_and_keep` routes both instead:
+
+```text
+resolve_and_keep((2,3), (2,11))  ->  same verdict, same price
+primes now held: [7, 23, 89]
+routed: {2: [1, 3, 11]}
+```
+
+So the cost of certainty is not a tax on the acquisition — it *is* the
+acquisition, and the verdict falls out as a by-product.  Which deflates three
+sittings of my own work in a useful direction: **within the contested set, the
+order does not matter, because the organ should simply do all of them.**  They
+are all cheap, all wanted, and choosing between them costs the same as doing
+both.
+
+The ordering theorems keep their content outside the window, where the cost
+gaps are exponential and the choice is real.  Inside it, the honest advice is
+not *choose better* but *stop choosing*.
+
 ## The encounter
 
 ```text

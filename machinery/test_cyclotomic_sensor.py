@@ -1011,6 +1011,61 @@ class TestCyclotomicSensor(unittest.TestCase):
         self.assertIsNone(resolve_contested((2, 3), expensive, budget=1_000))
         self.assertIsNotNone(resolve_contested((2, 3), (2, 5), budget=1_000))
 
+    def test_contested_pairs_are_always_affordable(self) -> None:
+        """Theorem 18: contested means cost_2 < Y * cost_1, so the resolution
+        price is under (1+Y) times the encounter itself.  R0038's third
+        position — undecided because unaffordable — is empty for real
+        contested pairs."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for budget in (20_000, 200_000):
+            choice = organ.propose_next(budget=budget, base_limit=8)
+            cheap = scan_cost(*choice)
+            worst, seen = 0.0, 0
+            for base in range(2, 9):
+                if base_refusal(base) is not None:
+                    continue
+                for index in range(1, acquisition_horizon(base, budget) + 1):
+                    if (base, index) == choice:
+                        continue
+                    if certainly_unaffordable(base, index, budget):
+                        continue
+                    if refusal(base, index, budget) is not None:
+                        continue
+                    if beats_certainly(cheap, scan_cost(base, index),
+                                       base, index):
+                        continue
+                    seen += 1
+                    price = quote_resolution(choice, (base, index))
+                    self.assertLessEqual(price, budget)
+                    self.assertLess(price,
+                                    (1 + yield_bound(base, index)) * cheap)
+                    worst = max(worst, price / cheap)
+            self.assertGreater(seen, 10)
+            self.assertLess(worst, 10.0)
+
+    def test_the_illustration_was_not_a_contested_pair(self) -> None:
+        """Correction: (2,53) was used to show an unaffordable resolution, but
+        it is certified, not contested — its cost exceeds Y times the choice."""
+        cheap = scan_cost(2, 3)
+        self.assertTrue(beats_certainly(cheap, scan_cost(2, 53), 2, 53))
+        self.assertLessEqual(yield_bound(2, 53), 15)
+        self.assertGreater(scan_cost(2, 53), yield_bound(2, 53) * cheap)
+
+    def test_resolution_keeps_what_it_pays_for(self) -> None:
+        """The organ used to buy a verdict and discard the primes."""
+        pure = CyclotomicOrgan(ArithmeticLife())
+        resolve_contested((2, 3), (2, 11), budget=20_000)
+        self.assertEqual(pure.life.moduli, [])        # nothing kept
+        keeping = CyclotomicOrgan(ArithmeticLife())
+        verdict = keeping.resolve_and_keep((2, 3), (2, 11), budget=20_000)
+        self.assertIsNotNone(verdict)
+        self.assertEqual(sorted(keeping.life.moduli), [7, 23, 89])
+        self.assertEqual(keeping.routed[2], {1, 3, 11})
+        # and the verdict is the same one the pure function gives
+        self.assertEqual(verdict.winner,
+                         resolve_contested((2, 3), (2, 11),
+                                           budget=20_000).winner)
+
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
             for base in range(2, 15):

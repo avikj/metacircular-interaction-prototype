@@ -250,6 +250,29 @@ class CyclotomicOrgan:
                     contested += 1
         return choice, certified, contested
 
+    def resolve_and_keep(self, left: tuple[int, int], right: tuple[int, int],
+                         budget: int = DEFAULT_BUDGET
+                         ) -> ContestedVerdict | None:
+        """Decide a near-tie by ROUTING both encounters, keeping every prime.
+
+        `resolve_contested` is a pure function: it factors both primitive parts,
+        reads off the yields, and discards the factorizations.  That is paying
+        for a factorization and throwing it away.  Theorem 18: a contested
+        rival costs less than `Y` times the chosen encounter, so resolving a
+        near-tie is within a bounded multiple of doing one encounter — and
+        since both encounters are ones the organ wants anyway, the resolution
+        is not overhead at all.  Buying the verdict and acquiring the primes
+        are the same act, and this method makes them the same call.
+        """
+        if quote_resolution(left, right) > budget:
+            return None
+        verdict = resolve_contested(left, right, budget=budget)
+        if verdict is None:
+            return None
+        for base, index in (left, right):
+            self.route(base, index, budget=budget)
+        return verdict
+
     def propose_encounter(self, base: int, budget: int = DEFAULT_BUDGET,
                           limit: int | None = None) -> int | None:
         """The least exponent this organ has not covered that is GUARANTEED
