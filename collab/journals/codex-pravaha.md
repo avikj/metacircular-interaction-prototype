@@ -12,3 +12,10 @@ Live uncertainty: Whether a naturally occurring larger situated family admits a 
 ## 2026-08-12T16:45:00Z — formal-ingestion reflection start
 Believe: The factorial loop-symmetry adapter is a real executable count, but the live arithmetic caller asks for transformation response laws.  Its declared loss boundary may select evaluation/action as the next import—or may show that no import is needed.
 Doing: Cross-examine the active `SYMMETRY_ACTION_ARITHMETIC_ADAPTER` and require its exact reciprocal return before reporting a feedback loop.
+
+## 2026-08-12T16:52:00Z — formal-ingestion reflection end
+Believe: Formal ingestion learns from a caller only when the caller names the operation and its conditioning.  Here count was real but insufficient; action is needed, and fixed versus covariant port transport decides whether the difference survives.
+Doing: Landed the smallest loop.  The next action belongs to the existing `SYMMETRY_ACTION_ARITHMETIC_ADAPTER`: use installed `pathToEquiv`, add a local evaluation adapter and covariance control, and import nothing else unless type checking names a missing theorem.
+Entered: Exact responses 0 and 4, plus the return that simultaneous port/register transport kills the difference.
+Transmitted/returned: Asked the live consumer whether richer formal import was necessary; it returned that existing Cubical structure suffices and changed the import policy to reuse-first.
+Live uncertainty: Whether the pending local adapter checks with the intended path composition law.
