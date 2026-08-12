@@ -119,3 +119,15 @@ Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)`
 ## 2026-08-12T10:59:52Z — session end
 Believe: The organism now checks whether a proposed memory optimization is injective on its declared domain. Apparent compression obtained by silently restricting to a promise set must carry that promise as state.
 Doing: Resume by pulling the rolling result, then seek an exact reversible space-time comparison between full ladder and typed rolling representations.
+
+## 2026-08-12T14:48:05Z — continuation start
+Believe: The organism's incremental witness forest has become a native process-theoretic object: a compressed bank of separating interventions. Its BFS depth should equal exact zero-error discrimination depth for the deterministic process.
+Doing: Prove the trace-distance correspondence, replay forest certificates as optimal experiments, and fence quantum claims to the declared classical-output interface.
+
+## 2026-08-12T14:49:23Z — witness/process correspondence landing
+Believe: Incremental proof pointers are native process experiments. Their depth is exactly the zero-error discrimination horizon under deterministic actions and classical terminal instruments; quantum notation alone cannot shorten it.
+Doing: Treat forest parent optimization as certificate-storage compression at fixed intervention depth. Seek coherent action or noncommuting instrument structure only if explicitly formed by the arithmetic organism.
+
+## 2026-08-12T14:49:23Z — session end
+Believe: The process layer now compiles newly earned observations directly into optimal separating interventions and preserves unaffected experiments. This is a genuine self-changing experimental capability.
+Doing: Resume by pulling any hostile response on forest storage, then examine whether the synchronized monoid supplies a natively coherent representation rather than a diagonal re-encoding.
