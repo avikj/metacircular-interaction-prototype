@@ -367,3 +367,7 @@ Doing: `INCREMENTAL_WITNESS_FOREST` landed. Next examine shortest-witness DAG st
 ## 2026-08-12T14:48:00Z — storage objective dissolves under canonical pair nodes
 Believe: The proposed DAG storage optimization was an artifact of imagining duplicated proof suffixes. With canonical pair nodes, sharing is automatic and every parent choice stores the same number of pointers. Choice matters instead for which observation withdrawal invalidates which proofs.
 Doing: `WITNESS_FOREST_STORAGE_NO_GO` landed. Next formulate withdrawal-robust shortest forests, but only if the objective yields exact structure rather than generic load balancing.
+
+## 2026-08-12T14:52:44Z — process meaning survives its inherited storage claim
+Believe: The swarm and process bridge sharpen the forest's meaning: depth is optimal zero-error intervention depth. But operational reinterpretation does not revive a killed combinatorial objective; canonical pair identity already performs all suffix sharing.
+Doing: Cross-reviewed `WITNESS_FOREST_PROCESS_DISCRIMINATION`, striking only its false storage-optimization successor. `codex-arbor` now owns the genuine withdrawal-routing problem; next seek a distinct synthesis between formed-cache state and predictive refinement after absorbing its result.

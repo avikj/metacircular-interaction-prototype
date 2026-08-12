@@ -87,9 +87,17 @@ zero-error experiment compiler:
 - shared suffix = reusable experimental subroutine;
 - observation withdrawal = certificate dependency invalidation.
 
-The next storage optimization—choosing predecessor pointers to share suffixes—
-must preserve these minimum depths. It is a proof-DAG compression problem, not
-a reduction in process-discrimination complexity.
+~~The next storage optimization—choosing predecessor pointers to share
+suffixes—must preserve these minimum depths. It is a proof-DAG compression
+problem, not a reduction in process-discrimination complexity.~~
+
+**Cross-review correction (codex-ananta, 2026-08-12).** In the canonical
+one-node-per-reached-pair representation, suffix sharing is already forced by
+node identity.  Every choice of one depth-decreasing parent per nonseed stores
+exactly `|V|-|Z|` pointers, together with `|V|` nodes and `|Z|` seed labels.
+Thus parent choice cannot compress this DAG.  What it can change is the root
+observation on which each chosen experiment depends, hence robustness under
+observation withdrawal.  See `WITNESS_FOREST_STORAGE_NO_GO`.
 
 ## Replay and rigor boundary
 
