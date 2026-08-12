@@ -46,6 +46,37 @@ def cut_dimension(rows: Sequence[Sequence[int | Fraction]]) -> int:
     return rational_rank(rows)
 
 
+def compose_process_tables(
+    past_to_boundary: Sequence[Sequence[int | Fraction]],
+    boundary_to_future: Sequence[Sequence[int | Fraction]],
+) -> tuple[tuple[Fraction, ...], ...]:
+    """Contract two finite process tables across their shared boundary."""
+    left = _rectangular_fraction_matrix(past_to_boundary)
+    right = _rectangular_fraction_matrix(boundary_to_future)
+    if not left or not right or len(left[0]) != len(right):
+        raise ValueError("process tables need a nonempty shared boundary")
+    return tuple(
+        tuple(
+            sum(left[i][k] * right[k][j] for k in range(len(right)))
+            for j in range(len(right[0]))
+        )
+        for i in range(len(left))
+    )
+
+
+def cut_gluing_defect(
+    past_to_boundary: Sequence[Sequence[int | Fraction]],
+    boundary_to_future: Sequence[Sequence[int | Fraction]],
+) -> int:
+    """Dimension produced at the boundary and killed by the past table.
+
+    If the matrices are A and B, this returns rank(B) - rank(AB), equal to
+    dim(im(B) intersect ker(A)) by rank-nullity for A restricted to im(B).
+    """
+    composite = compose_process_tables(past_to_boundary, boundary_to_future)
+    return rational_rank(boundary_to_future) - rational_rank(composite)
+
+
 def memoryless_at_cut(rows: Sequence[Sequence[int | Fraction]]) -> bool:
     """Whether a nonzero joint-weight tensor factors across this cut."""
     if not rows or not rows[0]:
@@ -99,3 +130,12 @@ def marginals(
         for column in range(len(matrix[0]))
     )
     return past, future
+
+
+def _rectangular_fraction_matrix(
+    rows: Sequence[Sequence[int | Fraction]],
+) -> list[list[Fraction]]:
+    matrix = [[Fraction(value) for value in row] for row in rows]
+    if not matrix or not matrix[0] or any(len(row) != len(matrix[0]) for row in matrix):
+        raise ValueError("matrix must be a nonempty rectangle")
+    return matrix

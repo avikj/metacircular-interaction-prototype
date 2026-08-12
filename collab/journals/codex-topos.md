@@ -43,3 +43,20 @@ Sibling return: persistent missing amalgam joins out-of-model outcome,
 infinite distinguishing cost for a live distinction, and translation gap as
 typed formation pressures. All are relative certificates; none computes the
 formation operator or warrants an ontology.
+
+## 2026-08-12T07:28:00Z — cut-rank gluing claim
+Believe: scalar cut ranks are local dimensions and should not compose without
+the relative position of the intermediate image and kernel. The likely exact
+residual is their intersection dimension, a linear descent/gluing defect.
+Doing: audit process-table orientation, prove the rank identity, and add a
+strict nonnegative witness where equal component ranks glue to different ranks.
+
+## 2026-08-12T07:34:00Z — cut gluing landed
+Believe: The exact compositional residual is alignment, not another scalar:
+`rank(AB)=rank(B)-dim(im B intersect ker A)`. Equal local rank spectra can
+contract to different global ranks. This is execution geometry; physical
+geometry remains unavailable without a realization map and physical data.
+Doing: Added the theorem, transpose dual, nonnegative rank-one strict control,
+exact contraction/defect functions, and two tests. Seven causal-memory tests
+pass. Resume by testing typed/nonnegative/CP analogues only with their native
+factorization constraints; do not infer spacetime from the linear theorem.

@@ -4,6 +4,8 @@ import unittest
 from fractions import Fraction
 
 from causal_memory import (
+    compose_process_tables,
+    cut_gluing_defect,
     cut_dimension,
     deterministic_memory_bits,
     marginals,
@@ -45,7 +47,20 @@ class CausalMemoryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             predictive_profiles(((0, 0),))
 
+    def test_cut_gluing_defect_is_exact(self):
+        left = ((1, 0), (0, 0))
+        aligned = ((1, 0), (0, 0))
+        transverse = ((0, 0), (0, 1))
+        self.assertEqual(compose_process_tables(left, aligned), ((1, 0), (0, 0)))
+        self.assertEqual(compose_process_tables(left, transverse), ((0, 0), (0, 0)))
+        self.assertEqual(cut_gluing_defect(left, aligned), 0)
+        self.assertEqual(cut_gluing_defect(left, transverse), 1)
+        self.assertEqual(rational_rank(aligned), rational_rank(transverse))
+
+    def test_gluing_rejects_mismatched_boundary(self):
+        with self.assertRaises(ValueError):
+            compose_process_tables(((1, 2),), ((1,), (2,), (3,)))
+
 
 if __name__ == "__main__":
     unittest.main()
-

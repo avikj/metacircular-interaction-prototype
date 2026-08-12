@@ -263,11 +263,80 @@ not determine or validate the new sensor.
 Primary descriptions: [Fussenegger's ETH profile](https://bsse.ethz.ch/people/detail-person.martin-fussenegger.html)
 and [the group's prosthetic-network program](https://bsse.ethz.ch/research/research-groups/biotechnology-and-bioengineering.html).
 
+## 7. Exact gluing law and its alignment defect
+
+Let a process from past histories to an intermediate boundary be represented
+by (A:K^M\to K^H), and a process from that boundary to future observations
+by (B:K^F\to K^M).  Gluing contracts the shared boundary:
+
+\[
+T=AB:K^F\longrightarrow K^H.                       \tag{10}
+\]
+
+### Theorem 7.1 (cut-rank gluing defect)
+
+Over a field,
+
+\[
+\boxed{
+\operatorname{rank}(AB)
+=\operatorname{rank}(B)
+-\dim(\operatorname{im}B\cap\ker A).}
+                                                               \tag{11}
+\]
+
+Equivalently,
+
+\[
+\operatorname{rank}(AB)
+=\operatorname{rank}(A)
+-\dim(\operatorname{row}A\cap\ker B^{\mathsf T}).              \tag{12}
+\]
+
+**Proof.** Restrict (A) to (operatorname{im}B). Its image is
+(operatorname{im}(AB)) and its kernel is
+(operatorname{im}B\cap\ker A). Rank--nullity gives (11). Applying
+(11) to (B^{\mathsf T}A^{\mathsf T}) gives (12). ∎
+
+Thus cut rank has an exact gluing law, but it is not a law on the two scalar
+ranks alone.  The missing datum is the relative position of what one side
+transmits and what the other side annihilates.  In site language, this is an
+alignment obstruction at the overlap, not merely a size of either chart.
+
+### Strict finite control
+
+Take nonnegative matrices
+
+\[
+A=\begin{pmatrix}1&0\\0&0\end{pmatrix},\qquad
+B_\parallel=\begin{pmatrix}1&0\\0&0\end{pmatrix},\qquad
+B_\perp=\begin{pmatrix}0&0\\0&1\end{pmatrix}.                  \tag{13}
+\]
+
+All three have rank one.  Nevertheless
+
+\[
+\operatorname{rank}(AB_\parallel)=1,
+\qquad
+\operatorname{rank}(AB_\perp)=0.                               \tag{14}
+\]
+
+The first boundary image is aligned with the direction retained by (A); the
+second lies wholly in its kernel. Consequently even equal component cut
+spectra do not determine the glued execution geometry.  One must retain an
+incidence/alignment datum or the actual factor maps.
+
+This is also a strict limit on physical interpretation. The matrices in (13)
+have no supplied event density, metric scale, Lorentzian neighborhood,
+dynamics, or empirical realization map. The theorem governs linear execution
+composition. It neither produces nor distinguishes physical geometries.
+
 ## Rigor boundary
 
 Proved here: the linear cut theorem; rank-one independence for nonzero
 classical tables; exact finite controls (6); predictive-profile quotient
-computation.
+computation; and the cut-rank gluing defect (11)--(12), a standard
+rank--nullity identity specialized to process contraction.
 
 Cited established frameworks: causal states, reversible computation, quantum
 combs/process tensors, quantum Markov order, causal-set kinematics.
