@@ -311,3 +311,7 @@ Doing: `ONLINE_PRIMITIVE_SPLIT_MACHINE` landed. Next test state minimality: seek
 ## 2026-08-12T12:41:00Z — prime support corrects exact-gcd state
 Believe: The online machine carried too much arithmetic history. Future primitivity tests only whether a prime survives all remaining coordinates, so exponent information is behaviorally invisible. The correct persistent content is radical support, further quotiented by what feasible suffixes can still test.
 Doing: `RADICAL_SPLIT_STATE` landed as a correction. Next characterize locally testable primes under remaining sum/length constraints before claiming a minimal quotient.
+
+## 2026-08-12T13:10:00Z — future budget prunes arithmetic history
+Believe: A prime matters only if the remaining bounded composition can keep it alive. Divisibility of the remaining sum and a capacity inequality decide this exactly, separately for a child and its complement. The machine can discard arithmetic history as soon as future geometry makes it unexecutable.
+Doing: `FEASIBLE_PRIME_SUPPORT` landed. Next lift from individual primes to simultaneous squarefree divisors; correlations may be the residual preventing a prime-set minimal quotient.
