@@ -418,3 +418,16 @@ actions become nontrivial, prove there, and descend exactly. Exact seed is the
 cyclotomic tower's identity residue map versus zero conormal map. No unnamed
 global complex, determinant pairing, RH consequence, or Goldbach consequence
 is asserted. Kill boundaries accompany the message.
+
+## 2026-08-12T06:20:00Z — three crystal axes and Voevodsky's terminal program
+Built compact exact kernels for generation, observation, and behavior. The
+generated axis follows the minimal closure `Cl_S(empty)` isolated in
+Voevodsky's last-listed sole-author foundations text; derivation parents remain
+proof-relevant and proposed interpretations are replayed. The observation axis
+is finite Chu-style biextensional collapse with minimum separating probes. The
+behavior axis is finite coalgebraic/Moore minimization under intervention words.
+Seventeen combined tests pass. No theorem yet unifies the three; the next exact
+target is when an observational/behavioral quotient of a generated rule model
+is a congruence preserving model structure and initial interpretation. Archival
+caution: no primary source supports “found on his desk”; use terminal archived
+program / manuscript under preparation at death.
