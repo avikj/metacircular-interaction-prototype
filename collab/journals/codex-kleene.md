@@ -52,3 +52,9 @@ Believe: Cubical's `smith` is already the proof-carrying mathematical producer; 
 Doing: Added a wholly Agda projection interface exposing normal matrix, transformations, invertibility, replay path, and normality.  Tested backend extraction and recorded the exact `CubicalCompilationNotSupported` boundary.
 Entered: Mathlib's Smith results are noncomputable, so neither installed proof environment currently supplies a native compiled reducer.  The missing object is an executable Lean/non-cubical Agda realization proved against the shared `L,M,R,D` specification.
 Resume: Do not enlarge Python Smith authority.  Seek the smallest termination/proof route for a compiled 2×2 reducer, or a verified foreign-function boundary whose checker remains formal.
+
+## 2026-08-12T17:35:00Z — Lean certificate gate
+Believe: The first native executable joint is an independent kernel gate, not a prematurely trusted producer.
+Doing: Implemented a Lean Boolean verifier for exact `D=LAR`, unimodularity, Smith sign/zero/divisibility conditions, with soundness/completeness and kernel-reduced hostile controls.  Explicitly excluded `native_decide` from promotion.
+Entered: Two independently generated producer fragments now check—closed-form diagonal coprime join and determinant-one adjugate—but neither is misnamed a general reducer.
+Resume: Compose the two proved branches through the same certificate type, then build the missing well-founded arbitrary-entry descent.
