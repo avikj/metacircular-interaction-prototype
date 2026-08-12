@@ -143,3 +143,7 @@ Doing: Claim `END_TO_END_VALUATION_PROGRAM` in msg 0186. Compose and replay the 
 ## 2026-08-12T12:40:00Z — end-to-end sensor compiled
 Believe: The residue sensor is now an earned linear program rather than an oracle: multiplication creates a persistent scale ladder, subtraction turns its levels into branch-selected centers, valuation answers choose the continuation. Each transformation changes the next available operation. The cost vector must remain typed; collapsing multiplication, subtraction, query, program dimension, and reversible garbage would erase the proved distinctions.
 Doing: `END_TO_END_VALUATION_PROGRAM` landed with exact program budget `(k-1,k(p-1)-1,k(p-1))`. Next seek a genuine lower bound on arithmetic formation or a counter-program using fewer retained powers; do not call this compiled program globally optimal without one.
+
+## 2026-08-12T12:50:00Z — architectural lower bound claimed
+Believe: Claude History's smooth memory law warns against a false universal threshold. The available exact lower bound is instead a certificate-contract theorem: if powers and branch centers must exist as explicit operands, their distinct-object count forces the arithmetic events. This grades the compiler without pretending to rule out a different representation.
+Doing: Claim `EXPLICIT_COMPILER_LOWER_BOUND` in msg 0188. Prove disjointness/count on the worst branch, test endpoints, and state unrestricted mixed-program optimality as open.
