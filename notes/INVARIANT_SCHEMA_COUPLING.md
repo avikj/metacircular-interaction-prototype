@@ -121,6 +121,26 @@ H_k=\begin{pmatrix}1&k\\0&1\end{pmatrix}
 fixes `D`, and `U_k=H_kU_0`.  Once the endpoint has a nontrivial stabilizer,
 the path is a torsor rather than an identified constructor.
 
+This is general.  For a group `G` acting on `X`, put
+
+\[
+T(x,y)=\{g\in G:g x=y\}.
+\]
+
+If `g_0 in T(x,y)`, left multiplication gives a bijection
+
+\[
+\operatorname{Stab}_G(y)\longrightarrow T(x,y),\qquad h\longmapsto hg_0.
+\tag{3}
+\]
+
+Indeed, `hg_0x=hy=y`; conversely, if `gx=y`, then
+`g g_0^{-1}` fixes `y`.  The stabilizer action on `T(x,y)` is free.  Hence a
+selector that is natural under every symmetry of the declared target would
+have to choose a fixed point of this free action, which exists only when the
+target stabilizer is trivial.  Equation (3) is the exact obstruction to
+calling any reducer canonical using only symmetry-invariant endpoint data.
+
 This is stronger than saying that several algorithms compute Smith form.
 Even a complete input-output observation erases which action occurred.
 
