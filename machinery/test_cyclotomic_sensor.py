@@ -18,6 +18,10 @@ from cyclotomic_sensor import (
     chain_head,
     cyclotomic_valuation,
     cyclotomic_value,
+    factor_cyclotomic,
+    naive_trial_division,
+    permits,
+    search_progression,
     head_length,
     shifts_by_one,
     minimality_witness,
@@ -210,6 +214,91 @@ class TestCyclotomicSensor(unittest.TestCase):
         # Every odd prime: -1 is not in U_1 at all, which is why odd p is clean.
         for prime in (3, 5, 7, 11, 13):
             self.assertEqual(valuation(-1 - 1, prime), 0)
+
+    def test_every_prime_divisor_obeys_the_naming_law(self) -> None:
+        """Theorem 5: a prime dividing Phi_m(a) is primitive or is the largest
+        prime factor of m.  This is the exact statement, not a count."""
+        for index in range(1, 34):
+            for base in (2, 3, 5, 7, 10):
+                step, exceptional = search_progression(index)
+                result = factor_cyclotomic(index, base, compare=False)
+                if not result.complete:
+                    continue
+                for prime, power in result.factors:
+                    self.assertTrue(
+                        permits(index, prime),
+                        f"m={index} a={base} p={prime} escaped the naming law",
+                    )
+                    if multiplicative_order(base, prime) == index:
+                        # primitive: the order is m exactly, so m divides p-1
+                        self.assertEqual((prime - 1) % index, 0)
+                    else:
+                        # otherwise it is the exceptional prime, to power one,
+                        # and (2,2) is the single carve-out of Theorem 5
+                        self.assertEqual(prime, exceptional)
+                        if (prime, index) != (2, 2):
+                            self.assertEqual(power, 1,
+                                             f"m={index} a={base} p={prime}")
+
+    def test_odd_index_sharpening(self) -> None:
+        """For odd m>1 the progression is 2m, not m: primitive primes are odd."""
+        for index in (3, 5, 7, 9, 11, 15, 21, 25, 27, 33):
+            step, _ = search_progression(index)
+            self.assertEqual(step, 2 * index)
+            for base in (2, 3, 5, 7):
+                for prime, _power in factor_cyclotomic(
+                        index, base, compare=False).factors:
+                    if multiplicative_order(base, prime) == index:
+                        self.assertEqual((prime - 1) % (2 * index), 0)
+
+    def test_guided_search_agrees_and_costs_less(self) -> None:
+        """The guided and unguided factorizations agree; the guided one is
+        never more expensive, and at large index the ratio is the progression."""
+        for index, base in ((11, 2), (23, 2), (29, 2), (37, 2), (41, 2)):
+            result = factor_cyclotomic(index, base)
+            naive_factors, naive_count, _cofactor, done = (
+                naive_trial_division(abs(result.value)))
+            self.assertTrue(done)
+            self.assertEqual(result.factors, naive_factors)
+            self.assertEqual(result.naive_candidates, naive_count)
+            self.assertLessEqual(result.candidates_tried, result.naive_candidates)
+            self.assertEqual(result.reconstruct(), abs(result.value))
+        # The derivable claim: at a common bound the counts differ by step/2.
+        # Checked where the bound is large enough that integer flooring is
+        # negligible; the small-index deviation is flooring, not a constant.
+        deep = factor_cyclotomic(37, 2)
+        self.assertAlmostEqual(deep.naive_candidates / deep.candidates_tried,
+                               deep.progression / 2, delta=1.0)
+
+    def test_equal_budget_reaches_further(self) -> None:
+        """The saving is reach, not luck: at the SAME budget the guided search
+        finds a factor the unguided one cannot get to."""
+        budget = 150_000
+        guided = factor_cyclotomic(31, 10, budget=budget, compare=False)
+        naive_factors, _tried, _cofactor, done = naive_trial_division(
+            abs(cyclotomic_value(31, 10)), budget)
+        self.assertFalse(done)
+        self.assertFalse(guided.complete)
+        self.assertIn((2791, 1), naive_factors)          # both reach this one
+        self.assertIn((6943319, 1), guided.factors)      # only the chart does
+        self.assertNotIn((6943319, 1), naive_factors)
+        # ...and the reason is arithmetic, not heuristic: the progression is
+        # 62, so at equal budget the guided scan ends 31 times further out.
+        self.assertEqual(guided.progression // 2, 31)
+
+    def test_incomplete_answer_is_typed_never_truncated(self) -> None:
+        """An exhausted budget yields a cofactor, not a wrong factorization."""
+        result = factor_cyclotomic(31, 10, budget=2000, compare=False)
+        self.assertFalse(result.complete)
+        self.assertGreater(result.cofactor, 1)
+        self.assertEqual(result.reconstruct(), abs(result.value))
+        for prime, _power in result.factors:
+            self.assertTrue(permits(31, prime))
+
+    def test_naming_law_is_vacuous_at_small_index(self) -> None:
+        """m <= 2 carries no congruence information, and the code says so."""
+        for index, expected in ((1, (1, None)), (2, (1, 2))):
+            self.assertEqual(search_progression(index), expected)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

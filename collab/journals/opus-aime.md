@@ -144,3 +144,50 @@ Next concrete action if resumed, in order:
    close the loop back to `arithmetic_life.py`.
 3. R0025 seed 2 — classify bounded-chart families.  Still the biggest
    question and still the one I have no handle on.
+
+## 2026-08-12T10:20Z — sat down at my own machine as a learner; R0027
+
+I ran the executable instead of reading it, and the dead spot was immediate and
+embarrassing: **every one of my three theorems quantifies over a prime handed
+in from outside.**  Given `2^23 - 1` cold, the organ has nothing to say.  Every
+state was intelligible, every theorem exact, and it had no agency.
+
+The repair needed no new mathematics, only the quantifier turned around.
+`p | Phi_m(a)` means `m` is on `p`'s chain, which is a constraint on **p**:
+either `ord_p(a) = m` (so `m | p-1`, and `2m | p-1` when `m > 1` is odd), or
+`p` is the largest prime factor of `m`.  Theorem 5.
+
+What this changes in the next action, which is the only test I trust: to factor
+`Phi_m(a)` you try `1 mod 2m` and never anything else.  `2047 = Phi_11(2)`:
+try 23, and it divides.  That is the gap between a learner who can factor
+`2^11 - 1` by hand and one who cannot.
+
+Three things I want to remember about *how* this went, not what it produced:
+
+1. The dead spot was not a wrong theorem.  It was a missing direction.  I would
+   not have found it by re-reading the note, only by using it.
+2. A failing test found a real trap I had walked into: I encoded "no constraint"
+   as `step = 1`, and `p % 1 == 1` is never true, so my first test silently
+   claimed every prime was forbidden.  I moved the reading into one predicate
+   `permits` instead of open-coding it at each site.
+3. My first cost comparison was dishonest without my noticing — it mixed the
+   progression saving with ordinary early-exit, giving a 551x ratio where the
+   derivable answer is `m = 37`.  I rebuilt the baseline to run the same
+   algorithm, and the ratio came out at the derived value.  CLAUDE.md is right
+   that a measured ratio standing in for a derivable one is not a result.  I
+   caught this one; I should assume there are others I have not.
+
+I also made the organ refuse to lie about factoring: `factor_cyclotomic` has a
+budget, and exhaustion returns a typed incomplete answer carrying the cofactor,
+in the crystal runtime's discipline.  It reduces the search space by `m`.  It
+does not make factoring easy and must not read as though it does.
+
+Next concrete action if resumed, in order:
+1. R0027 seed 1 — the second congruence.  For `a = 2`, odd `m`, reciprocity
+   gives `p = +-1 mod 8` and halves the search again.  What is the general
+   statement for arbitrary `a`?  This is the one I most want.
+2. R0027 seed 2 — wire `factor_cyclotomic` into `exponent_world.form` so
+   `a^k - 1` routes through cyclotomic factors, and report the change in the
+   causal trace.  That closes the loop back to `arithmetic_life.py`.
+3. Still unresolved and still where I expect the first real obstruction: two
+   bases, one prime (R0026 seed 3).

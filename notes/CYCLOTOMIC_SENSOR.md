@@ -309,6 +309,64 @@ local-field machinery, so the statement is recorded as a derived consequence
 of standard theory and is **not** tested.  It is the first place the sensor
 would need a genuinely new organ rather than an integer pair.
 
+## Reading the chain backwards: the machine names its own primes
+
+Everything above answers *"given $p$, what is $v_p$?"*.  Sitting down at the
+executable as a learner exposes the dead spot immediately: **you have to
+already know which prime to ask about.**  Handed $2^{23}-1$ cold, the organ has
+nothing to say, which is exactly the situation an actual problem presents.
+
+The chain law read backwards fixes this, and it needs no new mathematics.
+$p\mid\Phi_m(a)$ means $v_p(\Phi_m(a))\ge1$, which by Theorem 3 means $m$ lies
+on $p$'s chain.  That is a strong constraint *on $p$*, not on $m$.
+
+> **Theorem 5 (prime naming).**  Let $m\ge1$ and let $p$ be a prime with
+> $p\mid\Phi_m(a)$.  Then exactly one of:
+> 1. $\operatorname{ord}_p(a)=m$ — *primitive* — and then $m\mid p-1$; if
+>    moreover $m>1$ is odd, then $2m\mid p-1$;
+> 2. $p$ is the **largest prime factor of $m$** — *exceptional* — and then
+>    $v_p(\Phi_m(a))=1$, the sole carve-out being $(p,m)=(2,2)$.
+
+*Proof.*  By Theorem 3, $m=dp^{s}$ with $d=\operatorname{ord}_p(a)$ (and $d=1$
+at $p=2$).  If $s=0$ then $m=d=\operatorname{ord}_p(a)$, so $m\mid p-1$.  If in
+addition $m>1$ is odd then $p$ is odd — for $p=2$ forces $d=1$, hence
+$m=2^{s}$, impossible for odd $m>1$ — so $2\mid p-1$; as $\gcd(2,m)=1$ this
+gives $2m\mid p-1$.  If $s\ge1$ then $p\mid m$, and $d\mid p-1$ makes every
+prime factor of $d$ smaller than $p$; since $m=dp^{s}$, $p$ is the largest
+prime factor of $m$.  The valuation is the chain entry $H[s]$, which is $1$
+whenever $s\ge|H|$; by Theorem 4, $|H|=1$ for odd $p$ and $2$ for $p=2$, so the
+only $s\ge1$ with $s<|H|$ is $p=2,s=1$, i.e. $m=2$.  $\square$
+
+The three theorems are now doing one job.  Theorem 3 gives the chain, Theorem 4
+gives its head length, and Theorem 5 is the same statement with the quantifier
+turned around: *the chain constrains $p$ as tightly as it constrains $m$.*
+
+**What this changes in the next action.**  To factor $\Phi_m(a)$ by trial
+division, the candidate set drops from every integer to a single residue class:
+$$
+  p\equiv 1 \pmod{2m}\ (m>1 \text{ odd}),\qquad
+  p\equiv 1 \pmod{m}\ (m \text{ even}),
+$$
+plus one explicit exceptional candidate.  At a common search bound the guided
+scan tests $\lfloor B/2m\rfloor$ candidates where the blind scan tests
+$\lfloor B/2\rfloor$: a factor of exactly $m$, derived, not measured.
+Equivalently, at a common *budget* the guided scan reaches $m$ times further
+along the number line.  (Dirichlet then says the class contains the expected
+density of primes, but no density statement is needed for the exact count.)
+
+$2047=\Phi_{11}(2)$: try $23,45,67,89,\dots$, and $23$ divides at once —
+$2047=23\cdot 89$, both $\equiv1\bmod22$.  This is the difference between a
+learner who can factor $2^{11}-1$ by hand and one who cannot.
+
+**Honest limits, executed rather than asserted.**  The organ reduces the search
+space by $m$; it does not make factoring easy, and it must not pretend to.
+`factor_cyclotomic` carries a budget, and an exhausted budget returns a typed
+incomplete answer carrying the surviving cofactor — never a silently truncated
+factorization.  On $\Phi_{31}(10)$ (31 digits) with $150{,}000$ trial divisions
+each, the guided scan returns $2791$ and $6943319$ and the blind scan returns
+only $2791$; both report themselves incomplete, and the guided cofactor
+multiplies back exactly.
+
 ## The encounter
 
 ```text
@@ -345,6 +403,13 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here, classical in content:** Theorem 5.  That a prime divisor of
+  `Phi_m(a)` is primitive or is the largest prime factor of `m` is the standard
+  lemma behind Bang (1886) and Zsigmondy (1892), and the resulting
+  `p = 1 mod 2m` search rule is classical practice in Mersenne/Cunningham
+  factoring.  The derivation here is from Theorem 3 by turning the quantifier
+  around; no novelty is claimed.  The exact candidate-count ratio `m` is
+  derived, not fitted.
 - **Proved here:** Theorem 4's shift lemma and the identification of the head
   length with the torsion threshold of the unit filtration.  The threshold
   fact ($U_k$ torsion-free iff $k>e/(p-1)$) is standard local field theory,
@@ -402,7 +467,14 @@ recorded as *exact standard*, not as new.
    Does the CRT recombination of sensors give a local-global statement for
    $v$ against a composite $W=\prod p$, i.e. does the compiled Euclidean batch
    of `arithmetic_life.py` extend to the cyclotomic family?
-4. **`DEMONSTRATE` — the AIME encounter.**  Wire the organ into
-   `exponent_world.py` so that a `form(n)` request for $n=a^{k}-1$ consults the
-   sensors before attempting factorization, and measure the change in formed
-   factor events.
+4. ~~**`DEMONSTRATE` — the AIME encounter.**~~  DONE by Theorem 5 and
+   `factor_cyclotomic`: the organ now names its own prime candidates instead of
+   waiting to be handed one.  Remaining: wire it into `exponent_world.form` so
+   that a request for $n=a^{k}-1$ routes through the cyclotomic factors before
+   trial division, and report the change in formed factor events.
+5. **`PROVE` — how far does naming go?**  Theorem 5 restricts $p$ to one class
+   mod $2m$.  Is there a second, independent congruence?  For $a=2$ the
+   classical answer is yes — $p\equiv\pm1\bmod 8$ by quadratic reciprocity,
+   since $2$ is a QR mod $p$ when $\operatorname{ord}_p(2)$ is odd — which
+   would halve the search again.  State the general reciprocity constraint for
+   arbitrary $a$, or show it does not exist.

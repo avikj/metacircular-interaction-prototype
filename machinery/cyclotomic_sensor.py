@@ -19,9 +19,14 @@ Run `python3 cyclotomic_sensor.py` for the encounter trace.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import gcd
+from math import gcd, isqrt, prod
 
 from arithmetic_life import ArithmeticLife
+
+# The organ reduces the search space by exactly the progression; it does not
+# make factoring easy.  Past this many trial divisions the answer is typed
+# `incomplete` with the surviving cofactor, never silently truncated.
+DEFAULT_BUDGET = 200_000
 
 
 def valuation(n: int, prime: int) -> int:
@@ -242,6 +247,149 @@ def cyclotomic_valuation(sensor: CyclotomicSensor, index: int) -> int:
     return head[steps] if steps < len(head) else 1
 
 
+@dataclass(frozen=True)
+class CyclotomicFactorization:
+    index: int
+    base: int
+    value: int
+    factors: tuple[tuple[int, int], ...]
+    cofactor: int
+    complete: bool
+    exceptional: int | None
+    progression: int
+    candidates_tried: int
+    naive_candidates: int | None
+
+    def reconstruct(self) -> int:
+        return self.cofactor * prod(p ** power for p, power in self.factors)
+
+
+def search_progression(index: int) -> tuple[int, int | None]:
+    """The candidate law for prime divisors of Phi_index(a), read off the chain.
+
+    Returns `(step, exceptional)`: every prime divisor of `Phi_index(a)` is
+    either congruent to 1 modulo `step`, or equal to `exceptional`, the largest
+    prime factor of `index`.  See `notes/CYCLOTOMIC_SENSOR.md` Theorem 5.
+    The law is vacuous for `index <= 2`, where `step` is 1.
+    """
+    if index < 1:
+        raise ValueError("cyclotomic index must be positive")
+    if index <= 2:
+        return 1, (index if index == 2 else None)
+    exceptional = max(prime for prime, _ in _factor_small(index))
+    # A primitive prime has ord_p(a) = index, so index | p-1.  For odd index
+    # the prime is odd too, so 2 | p-1 as well and the two are coprime.
+    step = 2 * index if index % 2 else index
+    return step, exceptional
+
+
+def permits(index: int, prime: int) -> bool:
+    """May `prime` divide Phi_index(a) for some base a?  Theorem 5.
+
+    At `index <= 2` the progression degenerates to `step = 1`, which carries no
+    congruence information, so every prime is permitted.  Keeping that reading
+    here rather than in each caller is deliberate: `prime % 1 == 1` is never
+    true, and a caller open-coding the test would silently exclude everything.
+    """
+    step, exceptional = search_progression(index)
+    if prime == exceptional:
+        return True
+    return step == 1 or prime % step == 1
+
+
+def naive_trial_division(
+    n: int, budget: int = DEFAULT_BUDGET
+) -> tuple[tuple[tuple[int, int], ...], int, int, bool]:
+    """The same algorithm with no chart: 2, then every odd number ascending.
+
+    Returned alongside the chart-guided count so the comparison is
+    apples-to-apples — both divide out factors as they are found, so the
+    difference between the two counts is the progression and nothing else.
+    """
+    remaining, factors, tried = n, [], 0
+    tried += 1
+    power = 0
+    while remaining % 2 == 0:
+        remaining //= 2
+        power += 1
+    if power:
+        factors.append((2, power))
+    candidate = 3
+    while candidate * candidate <= remaining:
+        if tried >= budget:
+            return tuple(sorted(factors)), tried, remaining, False
+        tried += 1
+        if remaining % candidate == 0:
+            power = 0
+            while remaining % candidate == 0:
+                remaining //= candidate
+                power += 1
+            factors.append((candidate, power))
+        candidate += 2
+    if remaining > 1:
+        factors.append((remaining, 1))
+    return tuple(sorted(factors)), tried, 1, True
+
+
+def factor_cyclotomic(
+    index: int, base: int, budget: int = DEFAULT_BUDGET, compare: bool = True
+) -> CyclotomicFactorization:
+    """Factor Phi_index(base) by searching only the primes the chart permits.
+
+    Trial division restricted to the arithmetic progression `1 mod step`,
+    preceded by the single exceptional prime.  Correct because after the
+    exceptional prime is divided out, every surviving prime divisor is
+    primitive, so the least divisor encountered in ascending order is prime.
+    """
+    value = cyclotomic_value(index, base)
+    step, exceptional = search_progression(index)
+    remaining, factors, tried, complete = abs(value), [], 0, True
+    if exceptional is not None:
+        tried += 1
+        power = 0
+        while remaining % exceptional == 0:
+            remaining //= exceptional
+            power += 1
+        if power:
+            factors.append((exceptional, power))
+    candidate = 1 + step if step > 1 else 2
+    while candidate * candidate <= remaining:
+        if tried >= budget:
+            complete = False
+            break
+        tried += 1
+        if remaining % candidate == 0:
+            power = 0
+            while remaining % candidate == 0:
+                remaining //= candidate
+                power += 1
+            factors.append((candidate, power))
+        candidate += step if step > 1 else 1
+    if complete and remaining > 1:
+        factors.append((remaining, 1))
+        remaining = 1
+    naive_count: int | None = None
+    if compare:
+        naive_factors, naive_count, naive_cofactor, naive_done = (
+            naive_trial_division(abs(value), budget)
+        )
+        if naive_done and complete and naive_factors != tuple(sorted(factors)):
+            raise AssertionError("chart-guided and naive factorizations disagree")
+        if not naive_done:
+            naive_count = None
+    result = CyclotomicFactorization(
+        index=index, base=base, value=value,
+        factors=tuple(sorted(factors)),
+        cofactor=remaining if not complete else 1,
+        complete=complete,
+        exceptional=exceptional, progression=step,
+        candidates_tried=tried, naive_candidates=naive_count,
+    )
+    if result.reconstruct() != abs(value):
+        raise AssertionError("chart-guided factorization failed to reconstruct")
+    return result
+
+
 def minimality_witness(sensor: CyclotomicSensor) -> tuple[int, int, int]:
     """A base sharing every digit below the sensor's chart depth, but not the sensor.
 
@@ -308,6 +456,27 @@ def main() -> None:
     print(f"\nminimality: base {other} agrees with 2 modulo "
           f"11^{sensor.base_chart_depth - 1}, yet v_11({other}^{exponent}-1) = "
           f"{other_valuation} != {sensor.valuation(exponent)}")
+
+    print("\nencounter 4: handed 2^23 - 1, NOT told which prime to ask about.")
+    naming = factor_cyclotomic(23, 2)
+    print(f"  Phi_23(2) = {naming.value}")
+    print(f"  the chart names its own candidates: p = 1 mod {naming.progression}"
+          f", or p = {naming.exceptional}")
+    print("  so I try 47, 93, 139, ... and never 3, 5, 7, 9, ...")
+    print(f"  {naming.factors} in {naming.candidates_tried} trial divisions; "
+          f"unguided the same algorithm needs {naming.naive_candidates}")
+
+    print("\nencounter 5: the same move on Phi_31(10), a 31-digit integer.")
+    budget = 150_000
+    guided = factor_cyclotomic(31, 10, budget=budget, compare=False)
+    blind, _t, _c, _d = naive_trial_division(abs(guided.value), budget)
+    print(f"  with {budget} trial divisions each:")
+    print(f"    guided by p = 1 mod {guided.progression}: {guided.factors}")
+    print(f"    unguided:                              {blind}")
+    print(f"  the chart reaches {guided.progression // 2}x further, so it gets "
+          "a factor brute force cannot.")
+    print(f"  what is left is typed, not hidden: cofactor {guided.cofactor} "
+          f"(complete={guided.complete})")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):
