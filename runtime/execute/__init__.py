@@ -37,6 +37,7 @@ from .ematch import (  # noqa: F401
     ematch_rule,
 )
 from .extract import (  # noqa: F401
+    RouteFinder,
     COST_NAMES,
     CostVector,
     ExtractionResult,
@@ -88,5 +89,5 @@ __all__ = [
     "COST_NAMES", "CostVector", "Route", "ExtractionResult", "Scalarization",
     "ScalarChoice", "FrontierDiff", "literal_value", "arith_width",
     "measure_route", "extract_routes", "dominates", "is_nondominated",
-    "pareto", "scalarize", "frontier_diff",
+    "pareto", "scalarize", "frontier_diff", "RouteFinder",
 ]

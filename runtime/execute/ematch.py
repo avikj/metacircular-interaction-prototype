@@ -123,13 +123,14 @@ class EMatchResult:
 
 
 class _State:
-    __slots__ = ("visits", "budget", "exhausted", "reason")
+    __slots__ = ("visits", "budget", "exhausted", "reason", "memo")
 
     def __init__(self, budget: EMatchBudget) -> None:
         self.visits = 0
         self.budget = budget
         self.exhausted = False
         self.reason = ""
+        self.memo: Dict[Tuple, Tuple[Tuple[Tuple[str, str], ...], ...]] = {}
 
     def visit(self) -> bool:
         """Charge one visit.  Returns False once the budget is spent."""
@@ -259,74 +260,153 @@ def canonical_member(g: EGraph, root: str) -> T.Term:
 # the matcher
 # --------------------------------------------------------------------------
 
-def _match_class(g: EGraph, pat: T.Term, root: str, sigma: Dict[str, T.Term],
-                 st: _State, variables: frozenset,
-                 exhaustive: bool) -> Iterator[Dict[str, T.Term]]:
+#
+# Two phases, deliberately.
+#
+# PHASE 1 binds each pattern variable to an **e-class**, not to a term.  That is
+# the semantically right object -- "matching modulo the equalities proved" means
+# the variable stands for a class -- and it is also what keeps the search cheap:
+# a repeated variable is discharged by one class comparison instead of by
+# enumerating candidate terms and rejecting them one at a time.
+#
+# PHASE 2 turns each class substitution into term substitutions, because the
+# kernel's ``Instantiate`` witness needs terms.  All representative enumeration
+# happens here, outside the search, so the search cost does not multiply by it.
+#
+
+def _class_sort(g: EGraph, root: str):
+    ms = class_members(g, root)
+    return ms[0].sort if ms else None
+
+
+def _match_class(g: EGraph, pat: T.Term, root: str, csigma: Dict[str, str],
+                 st: _State, variables: frozenset) -> Iterator[Dict[str, str]]:
+    """Memoised wrapper over ``_match_class_raw``.
+
+    Curried application means one syntactic ``mul a b`` is ``App(App(mul,a),b)``,
+    so the partial application ``mul a`` has an e-class of its own containing one
+    node per term equal to ``a``.  Without memoisation the matcher re-enumerates
+    the entire subpattern once per member of that class, and the cost multiplies
+    by it at every spine level -- on the demo's graph that is the difference
+    between 0.5M and 50M visits.  The memo is keyed on
+    ``(pattern node address, class root, substitution so far)``, which is
+    exactly the state the subsearch depends on, so it can only remove repeated
+    work, never a result.  It lives on the per-call ``_State``, so it never
+    outlives the e-graph snapshot it was computed against.
+    """
+    key = (pat.addr, root, tuple(sorted(csigma.items())))
+    got = st.memo.get(key)
+    if got is not None:
+        COUNTERS.bump("ematch.memo_hit")
+        for rec in got:
+            yield dict(rec)
+        return
+    acc: List[Tuple[Tuple[str, str], ...]] = []
+    seen: Dict[Tuple, None] = {}
+    for out in _match_class_raw(g, pat, root, csigma, st, variables):
+        k = tuple(sorted(out.items()))
+        if k in seen:
+            continue
+        seen[k] = None
+        acc.append(k)
+        yield out
+    # Only reached when the generator is drained, so an abandoned search never
+    # memoises a partial answer.
+    if not st.exhausted:
+        st.memo[key] = tuple(acc)
+
+
+def _match_class_raw(g: EGraph, pat: T.Term, root: str, csigma: Dict[str, str],
+                     st: _State, variables: frozenset) -> Iterator[Dict[str, str]]:
     if not st.visit():
         return
     if pat.head == T.CONST and pat.symbol in variables:
-        bound = sigma.get(pat.symbol)
+        bound = csigma.get(pat.symbol)
         if bound is not None:
             # matching modulo the equalities that were actually merged, and
-            # only those: a class check, never a syntactic one.
-            if g.find(bound.addr) == root:
-                yield sigma
+            # only those: a class comparison, never a syntactic one.
+            if bound == root:
+                yield csigma
             return
-        cands = class_members(g, root)
-        if exhaustive:
-            if len(cands) > st.budget.max_representatives:
-                st.blow("max_representatives")
-                cands = cands[: st.budget.max_representatives]
-        else:
-            cands = cands[:1]
-        for u in cands:
-            if u.sort is not pat.sort or not u.is_closed:
-                continue
-            if not st.visit():
-                return
-            nxt = dict(sigma)
-            nxt[pat.symbol] = u
-            yield nxt
+        if _class_sort(g, root) is not pat.sort:
+            return
+        nxt = dict(csigma)
+        nxt[pat.symbol] = root
+        yield nxt
         return
     bucket = class_index(g, root).get(_pattern_key(pat, variables), ())
     for member in bucket:
-        yield from _match_node(g, pat, member, sigma, st, variables, exhaustive)
+        yield from _match_node(g, pat, member, csigma, st, variables)
 
 
-def _match_node(g: EGraph, pat: T.Term, node: T.Term, sigma: Dict[str, T.Term],
-                st: _State, variables: frozenset,
-                exhaustive: bool) -> Iterator[Dict[str, T.Term]]:
+def _match_node(g: EGraph, pat: T.Term, node: T.Term, csigma: Dict[str, str],
+                st: _State, variables: frozenset) -> Iterator[Dict[str, str]]:
     if not st.visit():
         return
     if pat.sort is not node.sort:
         return
     if pat.head == T.CONST and pat.symbol in variables:
-        yield from _match_class(g, pat, g.find(node.addr), sigma, st,
-                                variables, exhaustive)
+        yield from _match_class(g, pat, g.find(node.addr), csigma, st, variables)
         return
     if pat.head != node.head:
         return
     if pat.head == T.CONST:
         if pat.symbol == node.symbol:
-            yield sigma
+            yield csigma
         return
     if pat.head == T.VAR:
         if pat.index == node.index:
-            yield sigma
+            yield csigma
         return
     if pat.head == T.LAM:
         if pat.dom is not node.dom:
             return
         yield from _match_class(g, pat.children[0],
-                                g.find(node.children[0].addr), sigma, st,
-                                variables, exhaustive)
+                                g.find(node.children[0].addr), csigma, st,
+                                variables)
         return
-    # application
     for s1 in _match_class(g, pat.children[0], g.find(node.children[0].addr),
-                           sigma, st, variables, exhaustive):
+                           csigma, st, variables):
         yield from _match_class(g, pat.children[1],
-                                g.find(node.children[1].addr), s1, st,
-                                variables, exhaustive)
+                                g.find(node.children[1].addr), s1, st, variables)
+
+
+def _representatives(g: EGraph, root: str, st: _State,
+                     exhaustive: bool) -> Tuple[T.Term, ...]:
+    cands = tuple(t for t in class_members(g, root) if t.is_closed)
+    if not exhaustive:
+        return cands[:1]
+    if len(cands) > st.budget.max_representatives:
+        st.blow("max_representatives")
+        return cands[: st.budget.max_representatives]
+    return cands
+
+
+def _expand(g: EGraph, csigma: Dict[str, str], st: _State,
+            exhaustive: bool) -> Iterator[Tuple[Tuple[str, T.Term], ...]]:
+    """Phase 2: class substitution -> term substitutions, deterministically."""
+    syms = sorted(csigma)
+    if not syms:
+        yield ()
+        return
+    choices = [_representatives(g, csigma[s], st, exhaustive) for s in syms]
+    total = 1
+    for c in choices:
+        total *= len(c)
+    if total == 0:
+        return
+    idx = [0] * len(syms)
+    while True:
+        yield tuple((syms[i], choices[i][idx[i]]) for i in range(len(syms)))
+        k = len(syms) - 1
+        while k >= 0:
+            idx[k] += 1
+            if idx[k] < len(choices[k]):
+                break
+            idx[k] = 0
+            k -= 1
+        if k < 0:
+            return
 
 
 def ematch(g: EGraph, pattern: T.Term, variables, budget: EMatchBudget = EMatchBudget(),
@@ -349,14 +429,18 @@ def ematch(g: EGraph, pattern: T.Term, variables, budget: EMatchBudget = EMatchB
         root_list = sorted({g.find(r) for r in roots})
     for root in root_list:
         for member in class_members(g, root):
-            for sigma in _match_node(g, pattern, member, {}, st, variables,
-                                     exhaustive):
-                m = EMatch(root=root, matched=member.addr,
-                           subst=tuple(sorted(sigma.items(), key=lambda kv: kv[0])))
-                k = m.key()
-                if k not in found:
-                    found[k] = m
-                    COUNTERS.bump("ematch.match")
+            seen_classes: Dict[Tuple, None] = {}
+            for csigma in _match_node(g, pattern, member, {}, st, variables):
+                ck = tuple(sorted(csigma.items()))
+                if ck in seen_classes:
+                    continue
+                seen_classes[ck] = None
+                for subst in _expand(g, csigma, st, exhaustive):
+                    m = EMatch(root=root, matched=member.addr, subst=subst)
+                    k = m.key()
+                    if k not in found:
+                        found[k] = m
+                        COUNTERS.bump("ematch.match")
             if st.exhausted and st.reason == "max_visits":
                 break
         if st.exhausted and st.reason == "max_visits":

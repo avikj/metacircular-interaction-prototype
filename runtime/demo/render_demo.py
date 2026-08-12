@@ -58,7 +58,6 @@ from render import (  # noqa: E402
     RGB,
     SVG,
     Channel,
-    Language,
     StepCounter,
     Task,
     borrow_chroma,
@@ -85,16 +84,12 @@ from render import (  # noqa: E402
     orbit_chroma,
     product_channel,
     restrict,
-    reverse_word,
     sector_name,
-    sector_palette,
-    separation,
-    text_on,
     token_chroma,
     validate_channel,
     value_of,
 )
-from render.chroma import AGREEMENT_COLOUR, EXCEPTION_COLOUR, DEMO_TOKENS  # noqa: E402
+from render.chroma import DEMO_TOKENS  # noqa: E402
 
 BASE = 4
 LENGTH = 4
@@ -200,7 +195,7 @@ CELL = 30
 LABEL_W = 26
 LABEL_H = 18
 MARGIN = 30
-TITLE_H = 100
+TITLE_H = 120
 PANEL = GRID * CELL
 
 
@@ -229,6 +224,17 @@ def draw_panel(doc: SVG, x0: int, y0: int, colours, heading: str, caption: str) 
     doc.close_group()
 
 
+def legend_from_channel(chroma, groups, counter=None) -> tuple:
+    """Build legend swatches by *resolving representative states*.
+
+    A legend that paints a palette entry can disagree with the picture -- the
+    picture is the composed colour, after every layer, override, quantisation
+    and clamp.  Building the legend from representatives makes that impossible
+    by construction, and the demo additionally checks the two agree as sets.
+    """
+    return tuple((chroma.colour(state, counter), label) for label, state in groups)
+
+
 def draw_legend(doc: SVG, x0: int, y0: int, entries) -> int:
     doc.open_group("legend")
     x = x0
@@ -252,7 +258,7 @@ def draw_caption(doc: SVG, x0: int, y0: int, lines, width: int) -> int:
     return y
 
 
-def write_carry_svg(path: str, carry_cells, borrow_cells, ramp) -> tuple:
+def write_carry_svg(path: str, carry_cells, borrow_cells, legend) -> tuple:
     x_a = MARGIN + LABEL_W
     x_b = x_a + PANEL + 64 + LABEL_W
     y_top = TITLE_H + LABEL_H
@@ -286,15 +292,13 @@ def write_carry_svg(path: str, carry_cells, borrow_cells, ramp) -> tuple:
     draw_panel(doc, x_a, y_top, carry_cells, "left: c_n(w) = trailing (b-1) digits", "carries produced by T: v -> v+1")
     draw_panel(doc, x_b, y_top, borrow_cells, "right: z_n(w) = trailing 0 digits", "borrows produced by T^-1")
     y = y_top + PANEL + 40
-    entries = [(ramp[k], "c = %d" % (k,)) for k in range(LENGTH + 1)]
-    entries.append((EXCEPTION_COLOUR, "semantic override: cocycle exceptional state"))
-    y = draw_legend(doc, x_a, y, entries)
+    y = draw_legend(doc, x_a, y, legend)
     y = draw_caption(doc, x_a, y + 24, caption, width - 2 * x_a + LABEL_W)
     doc.height = y + 20
     return (doc, width, y + 20)
 
 
-def write_orbit_svg(path: str, cells, ancestry_palette) -> tuple:
+def write_orbit_svg(path: str, cells, legend) -> tuple:
     x_a = MARGIN + LABEL_W
     y_top = TITLE_H + LABEL_H
     caption = [
@@ -320,16 +324,9 @@ def write_orbit_svg(path: str, cells, ancestry_palette) -> tuple:
     doc.text(MARGIN, 62, "colour = which automorphism orbit the word lies in; ancestry shows through on generic orbits", FAINT, 12)
     doc.text(MARGIN, 80, "runtime/render -- chroma_orbit: ancestry < sort < symmetry < semantic", FAINT, 12)
     draw_panel(doc, x_a, y_top, cells, "W_4^4 by symmetry sector", "D = reversal, E = digit complement")
-    palette = sector_palette()
     y = y_top + PANEL + 40
-    entries = [
-        (palette["palindrome"], "Fix D"),
-        (palette["antipalindrome"], "Fix DE"),
-        (AGREEMENT_COLOUR, "constant words (Thm 4.2 agreement locus)"),
-    ]
-    y = draw_legend(doc, x_a, y, entries)
-    entries = [(colour, "generic, c_0 = %d" % (index,)) for index, colour in enumerate(ancestry_palette)]
-    y = draw_legend(doc, x_a, y, entries)
+    y = draw_legend(doc, x_a, y, legend[:3])
+    y = draw_legend(doc, x_a, y, legend[3:])
     y = draw_caption(doc, x_a, y + 24, caption, width - 2 * MARGIN)
     doc.height = y + 20
     return (doc, width, y + 20)
@@ -616,6 +613,17 @@ def main() -> int:
     say("a descending-precedence walk that shares no code path with the ascending one, and the two")
     say("must agree colour for colour on every state.")
     say()
+    say("A THIRD LOSS SOURCE, MEASURED RATHER THAN ASSUMED AWAY.  Composing components taken from")
+    say("different layers can land outside the sRGB cube, and the result is then clamped.  That is")
+    say("loss introduced by the *rendering*, not by the mathematics, so it is counted:")
+    for chroma in (carry, borrow, orbit):
+        clamped = sum(1 for word in language.states if chroma.resolve(word, counter).clamped)
+        say("  %-14s clamped on %3d of %d states" % (chroma.name, clamped, len(language.states)))
+    say("  chroma_orbit clamps because its sort layer overwrites Y on saturated ancestry hues.")
+    say("  What must not happen is a clamp collapsing a distinction a declared task needs -- and")
+    say("  that is not assumed: the preservation certificates in §2 and §5 are computed on the")
+    say("  clamped colours that were actually written to the file.")
+    say()
 
     # ---- distinguishability -------------------------------------------
     rule("=")
@@ -830,11 +838,47 @@ def main() -> int:
     say("8. ARTIFACTS")
     rule("=")
     say()
-    from render.chroma import hue_palette  # noqa: E402
+    def first(predicate):
+        for word in states:
+            if predicate(word):
+                return word
+        raise SystemExit("no representative state for a legend entry")
+
+    carry_legend = legend_from_channel(
+        carry,
+        [("c_n = %d" % (k,), first(lambda w, k=k: carry_count(w, BASE) == k)) for k in range(LENGTH + 1)],
+        counter,
+    )
+    orbit_legend = legend_from_channel(
+        orbit,
+        [
+            ("Fix D (palindrome)", first(lambda w: is_palindrome(w) and not is_constant_word(w))),
+            ("Fix DE (antipalindrome)", first(lambda w: is_antipalindrome(w, BASE))),
+            ("constant word: Thm 4.2 agreement locus", first(is_constant_word)),
+        ]
+        + [
+            ("generic, c_0 = %d" % (digit,), first(lambda w, d=digit: sector_name(w, BASE) == "generic" and w[0] == d))
+            for digit in range(BASE)
+        ],
+        counter,
+    )
+    say("LEGENDS ARE CHANNEL-DERIVED, not palette-derived: every swatch is the resolved colour")
+    say("of a representative state, so a legend cannot paint a colour the picture never uses.")
+    for label, legend, cells in (
+        ("carry_cocycle", carry_legend, carry_cells + borrow_cells),
+        ("symmetry_sectors", orbit_legend, orbit_cells),
+    ):
+        drawn = set(colour for colour, _ in cells)
+        shown = set(colour for colour, _ in legend)
+        say("  %-18s distinct cell colours %2d   legend swatches %2d   legend == picture: %s"
+            % (label, len(drawn), len(shown), drawn == shown))
+        if drawn != shown:
+            raise SystemExit("legend disagrees with the picture for %s" % (label,))
+    say()
 
     documents = [
-        ("carry_cocycle.svg", write_carry_svg(os.path.join(OUT, "carry_cocycle.svg"), carry_cells, borrow_cells, ramp)),
-        ("symmetry_sectors.svg", write_orbit_svg(os.path.join(OUT, "symmetry_sectors.svg"), orbit_cells, hue_palette(BASE))),
+        ("carry_cocycle.svg", write_carry_svg(os.path.join(OUT, "carry_cocycle.svg"), carry_cells, borrow_cells, carry_legend)),
+        ("symmetry_sectors.svg", write_orbit_svg(os.path.join(OUT, "symmetry_sectors.svg"), orbit_cells, orbit_legend)),
         ("layer_precedence.svg", write_layers_svg(os.path.join(OUT, "layer_precedence.svg"), tokens, resolutions)),
     ]
     for name, (document, width, height) in documents:

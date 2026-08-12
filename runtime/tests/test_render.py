@@ -69,7 +69,6 @@ from render import (  # noqa: E402
     borrow_count,
     carry_chroma,
     carry_count,
-    carry_ramp,
     categorical_palette,
     certify_claim,
     certify_distinguishability,
@@ -98,7 +97,6 @@ from render import (  # noqa: E402
     reverse_word,
     round_half_even,
     sector_name,
-    semantic_layer,
     separation,
     sequential_ramp,
     text_on,
@@ -588,15 +586,31 @@ class TestChromaticLayers(unittest.TestCase):
         self.assertEqual(fired, [word for word in language.states if is_constant_word(word)])
         self.assertEqual(len(fired), BASE)
 
-    def test_layer_composition_never_clamps_on_the_shipped_channels(self):
+    def test_gamut_clamping_is_counted_and_harmless_to_the_declared_task(self):
+        """Layering can push a composed colour out of the sRGB cube.
+
+        That is a third loss source, on top of fibres and 8-bit quantisation,
+        and it is *measured* rather than assumed away.  chroma_carry and
+        chroma_borrow never clamp; chroma_orbit clamps on 168 of 256 states,
+        because its sort layer overwrites Y on saturated ancestry hues.  The
+        thing that must not happen is a clamp collapsing a distinction the
+        declared task needs -- so that is asserted separately.
+        """
         language = digit_language(BASE, LENGTH)
+        expected = {"chroma_carry": 0, "chroma_borrow": 0, "chroma_orbit": 168}
         for chroma in (
             carry_chroma(BASE, LENGTH, language),
             borrow_chroma(BASE, LENGTH, language),
             orbit_chroma(BASE, LENGTH, language),
         ):
             clamped = [word for word in language.states if chroma.resolve(word).clamped]
-            self.assertEqual(clamped, [], chroma.name)
+            self.assertEqual(len(clamped), expected[chroma.name], chroma.name)
+        orbit = orbit_chroma(BASE, LENGTH, language).channel()
+        sector = Task("sector", lambda word, c: sector_name(word, BASE))
+        self.assertTrue(certify_preservation(orbit, sector).preserved)
+        generic = language.sublanguage("generic", lambda word: sector_name(word, BASE) == "generic")
+        root = Task("root", lambda word, c: word[0])
+        self.assertTrue(certify_preservation(restrict(orbit, generic), root).preserved)
 
     def test_duplicate_layer_roles_are_refused(self):
         language = digit_language(BASE, LENGTH)
@@ -677,7 +691,11 @@ class TestRenderedMathematics(unittest.TestCase):
         borrow = borrow_chroma(BASE, LENGTH, language)
         differing = [w for w in language.states if carry.colour(w) != borrow.colour(w)]
         self.assertGreater(len(differing), 0)
-        self.assertEqual(len(differing), 200)
+        # exactly the words whose least significant digit is 0 or b-1: those have
+        # c_n and z_n differing, every other word has c_n = z_n = 0.
+        self.assertEqual(len(differing), 2 * BASE ** (LENGTH - 1))
+        for word in differing:
+            self.assertIn(word[0], (0, BASE - 1))
 
     def test_fixed_point_counts_match_the_closed_forms_of_theorem_3_4(self):
         language = digit_language(BASE, LENGTH)
@@ -771,14 +789,24 @@ class TestSVG(unittest.TestCase):
 
         self.assertEqual(build(), build())
 
-    def test_no_float_appears_in_a_rendered_document(self):
+    def test_every_geometric_attribute_is_an_integer_string(self):
         doc = SVG(40, 40, "t", background=RGB(0, 0, 0))
         doc.rect(0, 0, 4, 4, fill=RGB(9, 9, 9), stroke=RGB(1, 1, 1), stroke_width=1)
         doc.circle(2, 2, 1, fill=RGB(3, 3, 3))
         doc.line(0, 0, 4, 4, RGB(0, 0, 0), 1)
-        for token in doc.render().replace('"', " ").split():
-            if token.replace("-", "").replace(".", "").isdigit():
-                self.assertNotIn(".", token, token)
+        doc.text(1, 1, "x", RGB(0, 0, 0), 11)
+        geometry = ("x", "y", "width", "height", "x1", "y1", "x2", "y2", "cx", "cy", "r",
+                    "stroke-width", "font-size")
+        root = ElementTree.fromstring(doc.render())
+        seen = 0
+        for element in root.iter():
+            for key in geometry:
+                value = element.get(key)
+                if value is None:
+                    continue
+                seen += 1
+                self.assertEqual(str(int(value)), value, "%s=%s" % (key, value))
+        self.assertGreater(seen, 10)
 
 
 # --------------------------------------------------------------------------

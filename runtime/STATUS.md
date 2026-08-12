@@ -14,7 +14,7 @@ Updated by the integration lane as components land.
 | L3 execution | rewriting, e-matching, cost-vector extraction | **designed, not built** |
 | L4 consequence propagation | `propagate/` — both indices, exact forward cone, survival by homotopy class, stale-vs-dead caches, route deltas, obligation triage | **BUILT**, 26/26 tests (15 capabilities, 11 controls), 12/12 mutants dead; cone 7/45 facts, incremental 42 vs full rebuild 226, null control 1 step / 0 cost |
 | §4 reachability discipline | generated locus / completion / omitted locus declarations | **partial** — `distinguish/` attaches it to every claim (a quotient sufficient for one task family is not sufficient for the ambient problem; two later tasks collide, one recompiling to 108× compression, one to *none*, with the omitted locus identified as the endian class) |
-| plural surfaces | perceptual/symbolic/executable projections with round-trip guarantees | **designed, not built** |
+| plural surfaces | `render/` — channels carrying proved preservation, an explicit collision witness, and `decode` returning the **fiber** (a lossy channel structurally cannot return a guess); layered chromatic coding in exact rationals; SVG output | **BUILT**, 68/68 tests, 12/12 mutants killed. The rendered picture **verifies its own theorem**: DIGIT_CRYSTAL 2.2 (complement exchanges carry with borrow) is re-checked against every `<rect fill>` re-parsed from the file. Proxy measurement only — **no human recognition-latency claim is established, and `certify_claim` rejects any INFORMATION_GAIN claim outright** |
 
 ## The trust boundary, stated plainly
 

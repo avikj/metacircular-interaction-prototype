@@ -99,7 +99,6 @@ from typing import Callable, Optional, Sequence
 
 from .channel import (
     Channel,
-    ChannelError,
     Language,
     PreservationCertificate,
     StepCounter,
@@ -420,12 +419,22 @@ class ChromaticChannel:
         self.language = language
         self.layers = ordered
         self.description = description
-        base = ordered[0]
-        if base.claims != frozenset(COMPONENTS):
-            raise ChromaError("%s: the base layer %r must claim every component" % (name, base.role))
+        # Coverage, checked at construction over the whole declared language:
+        # every state must end up with all three opponent components claimed by
+        # *some* layer that did not decline.  A stack that leaves a component
+        # unset is not a channel and must not exist, so it is refused here
+        # rather than raising a KeyError at render time.
         for state in language.states:
-            if base.propose(state) is None:
-                raise ChromaError("%s: base layer %r is not total (declines on %r)" % (name, base.role, state))
+            covered = set()
+            for item in ordered:
+                if item.propose(state) is not None:
+                    covered |= item.claims
+            missing = frozenset(COMPONENTS) - covered
+            if missing:
+                raise ChromaError(
+                    "%s: no layer supplies %s for state %r"
+                    % (name, ",".join(sorted(missing)), state)
+                )
 
     # -- resolution -------------------------------------------------------
 
