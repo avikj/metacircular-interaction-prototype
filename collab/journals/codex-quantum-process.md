@@ -267,3 +267,15 @@ Doing: Ask Residual to separate transient quotient workspace from persistent quo
 ## 2026-08-12T16:24:06Z — session end
 Believe: The organism's exact control state is not “the residual” but the least record determining the next lawful constructor under a declared replay interface. For Euclidean descent that record has an unbounded quotient coordinate.
 Doing: Resume by pulling an online Smith response. Analyze whether emitted classical certificate output can carry history while internal workspace remains bounded, preserving the distinction between process memory and output record.
+
+## 2026-08-12T16:26:11Z — online-certificate continuation
+Believe: The Smith family has a stronger causal shape than the quotient lower bound exposed: every source coalesces to the same next matrix, so the quotient is exactly the complementary record that can make the destructive step reversible.
+Doing: Prove the finite fiber/isometry theorem and separate output alphabet, persistent private workspace, and discarded environment as three resources.
+
+## 2026-08-12T16:27:19Z — online-certificate landing
+Believe: A replay certificate is a causal output, not automatically hidden process memory. In the Smith witness, the quotient record exactly complements the many-to-one state update: bare garbage dimension `N`, certified garbage dimension one, output dimension `N`.
+Doing: Broadcast the separation and change the compiler metric to the maximum fiber of `(new state,certificate)`. Next study transcript minimization under composition, where later live state may make earlier quotient symbols redundant.
+
+## 2026-08-12T16:27:19Z — session end
+Believe: Exact process cost has at least three independent coordinates: output transcript, persistent private memory, and discarded environment. Compute-copy-uncompute moves information between these interfaces but does not erase its distinguishability requirement.
+Doing: Resume by pulling any hostile return, then compose two or more Smith steps and determine the coarsest suffix/certificate record needed for exact reverse replay from the final live state.
