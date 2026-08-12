@@ -236,6 +236,12 @@ the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
 hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
 the overlap condition and the residual fiber are both retained.
 
+Lean checks the general part that is truly universal: equality under a pair of
+observations is exactly the intersection of equality under each observation.
+The Chinese-remainder calculation supplies what that abstract intersection
+does not: which pairs of readings can coexist and what their joint view still
+cannot reconstruct.
+
 The shared heart is machine-checked in
 `formal/pairfield/Pairfield/FutureBehavior.lean`: a state's meaning for a
 declared observation is the function sending every finite action word to its

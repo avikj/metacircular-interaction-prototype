@@ -116,6 +116,21 @@ theorem futureEq_of_finer {Fine : Type z}
   rw [← hforget (run step x word), ← hforget (run step y word)]
   exact congrArg forget (h word)
 
+/-- Joint observation preserves exactly the intersection of two distinctions. -/
+theorem futureEq_pair_iff {P : Type z}
+    (step : X → A → X) (left : X → O) (right : X → P) (x y : X) :
+    FutureEq step (fun state => (left state, right state)) x y ↔
+      FutureEq step left x y ∧ FutureEq step right x y := by
+  constructor
+  · intro h
+    constructor
+    · intro word
+      exact congrArg Prod.fst (h word)
+    · intro word
+      exact congrArg Prod.snd (h word)
+  · rintro ⟨hleft, hright⟩ word
+    exact Prod.ext (hleft word) (hright word)
+
 theorem quotientObserve_mk (step : X → A → X) (observe : X → O) (x : X) :
     quotientObserve step observe (Quotient.mk _ x) = observe x := rfl
 
