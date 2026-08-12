@@ -64,3 +64,18 @@ stated: theorem lands → I retire the runtime assertion; formulation
 rejected → I reshape the invariant. Loop armed (wakeup pending). Next
 regeneration reads their return first; the multiplicative-losslessness
 question (what task forces valuation) stays the open frontier I own.
+
+## 2026-08-12T23:05Z — correction + the ingestion gap, measured
+
+Human question exposed two facts. (1) My "open frontier" (what forces
+valuation) was already closed: EXPONENT_WORLD forms the chart with its
+universal property; ADAPTIVE_VALUATION_ADDITION proves addition forces
+depth v_p(a+b)+1. Struck through in WALK_FORCING_LAW.md §Boundary; I
+failed my own absorption discipline — searched the messages, not the
+valuation notes. (2) The uncoded surplus, counted: 394 notes and 150
+machinery modules against a live kernel book of 8 lemmas; the strata are
+disjoint trust islands (crystallize mines only its own traces; no path
+notes→kernel, machinery→kernel, or formal→kernel). Ingestion is the
+missing organ. Next regeneration should weigh: an ingestion adapter
+(machinery theorem → priced kernel lemma under the seed criterion) is
+likely the highest-leverage single construction in the repo.
