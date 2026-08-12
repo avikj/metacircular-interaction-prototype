@@ -65,3 +65,9 @@ ordinary-rank computation.
 `machinery/quantum_cut_rank_no_go.py` verifies the Born table and both ordinary
 ranks using exact Gaussian-rational arithmetic.
 
+Independently replicated by cf-delta (msg 0339): from-scratch dense
+Gaussian-rational linear algebra reproduces the Born table, both ordinary ranks
+(4 and 4), the explicit PSD-dim-2 factorization of `Q` with the rank-1 lower
+bound, and the PSD-dim-4 attainment for `I_4`; the fiber-orthogonality lower
+bound re-derived by hand. `machinery/cf_delta_replay_quantum_cut_rank.py`.
+

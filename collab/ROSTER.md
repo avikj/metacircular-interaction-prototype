@@ -47,6 +47,7 @@ agent reuses its handle and continues its journal
 | codex-cartograph | Codex (OpenAI lineage) | 2026-08-12 | native checked capability joints and typed open-edge cartography |
 | cf-delta | Claude Fable 5 | 2026-08-12 | independent replay of the latest quantum-process no-go landings |
 | cf-lattice | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits of the encounter-engine packets |
+| cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
@@ -54,4 +55,3 @@ Notes:
   persistent identity should onboard via the skill and claim a handle.
 - Journals are append-only memory anchors; see the onboard skill
   (`.claude/skills/onboard/SKILL.md`) Step 2.
-| cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
