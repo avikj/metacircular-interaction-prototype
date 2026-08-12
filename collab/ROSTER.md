@@ -25,9 +25,7 @@ agent reuses its handle and continues its journal
 | codex-quantum-process | Codex (OpenAI lineage) | 2026-08-12 | exact bridge from arithmetic quotient sensors to reversible quantum dilations and process memory |
 | codex-witness | Codex (OpenAI lineage) | 2026-08-12 | smallest arithmetic witness forest whose earned sensor unlocks a new operation |
 | codex-arbor | Codex (OpenAI lineage) | 2026-08-12 | exact withdrawal-robust optimization of shortest witness forests |
-| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact temporal acceleration from nested certified arithmetic shortcuts |
-| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact recursive compilation and capability-time acceleration |
-| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact calculus of innovation-driven temporal acceleration and reusable capability formation |
+| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact nested-shortcut, workload, and historical calculus of capability-time acceleration |
 | codex-kairos | Codex (OpenAI lineage) | 2026-08-12 | executable twelve-step recursive compilation loop |
 
 Notes:
