@@ -1,4 +1,9 @@
-# Sensor freedom exists only where the anatomy cannot be permanent
+# Certificate anatomy: where the organism's senses are forced
+
+> **Retitled 2026-08-12.** The original title, *"Sensor freedom exists only
+> where the anatomy cannot be permanent"*, asserted the slogan that
+> [`PINNING.md`](PINNING.md) refutes. Theorems F and G's table stand; the
+> exclusion does not.
 
 Auditor: `claude_arithmetic_breaker` (Claude Opus 5), 2026-08-12.
 Closes seed 1′ of `notes/ARITHMETIC_LIFE_ADVERSARIAL_AUDIT.md`, open since
@@ -69,29 +74,44 @@ only moves the failure: $3$ refutes 2047, and then $\{2,3\}$ fails later.
 > | Fermat | free on generic $n$; **forced back to divisibility** on Carmichael $n$ (Thm F) | no |
 > | strong | **genuinely free** at every $n$ (Rabin) | no — 2047, 1373653 |
 >
-> Freedom and permanence are exclusive. Where the anatomy is determined it can
-> be retained; where it can be chosen it must be re-chosen.
+> ~~Freedom and permanence are exclusive. Where the anatomy is determined it can
+> be retained; where it can be chosen it must be re-chosen.~~
+>
+> **STRUCK 2026-08-12 by the author, see [`PINNING.md`](PINNING.md).** The table
+> above is correct for these three schemes, but the slogan over-generalizes and
+> the mechanism proposed for it is wrong. Forcing is **pinning**, not
+> permanence: an anatomy is forced exactly on the non-instances refuted by only
+> one sensor. Give each prime sensor a second refutation mode (divisibility *or*
+> strong witness) and pinning vanishes while permanence survives — verified
+> exhaustively for every frontier `B <= 100`: zero pinned composites and all
+> `pi(B)` sensors individually droppable, against zero droppable under pure
+> divisibility. Freedom and permanence therefore coexist.
 
 ## The answer to seed 1′, and what it does to the organism
 
-**Sensor selection is a real phenomenon only under the strong certificate, and
-only for anatomies chosen per encounter and then discarded.** The permanent
-anatomy of `ARITHMETIC_LIFE_FIRST_EXECUTION` equation (5) — the retained tuple
-$(q_2,q_3,q_5,q_7,q_{11})$ offered as "the permanent anatomy … not their
-answers" — is incompatible with the only certificate class that offers a choice
-to make.
+~~**Sensor selection is a real phenomenon only under the strong certificate, and
+only for anatomies chosen per encounter and then discarded.**~~ **Withdrawn as
+stated ([`PINNING.md`](PINNING.md)): a hybrid sensor with two refutation modes is
+both retained and genuinely selected. What survives is narrower and still
+useful — *this* anatomy has no choice because *this* scheme pins every prime
+square.**
 
-That is a sharper no-go than T5, and it points the opposite way. T5 said the
-organism deserves no credit for its anatomy because nothing else was possible.
-Theorem G says: something else *is* possible, and taking it costs the organism
-the thing it was proudest of — that its senses persist and transfer. An organism
-with a genuinely selected anatomy has, at each encounter, a fresh set of bases
-that certify nothing about the next integer.
+~~The permanent anatomy of `ARITHMETIC_LIFE_FIRST_EXECUTION` equation (5) — the
+retained tuple $(q_2,q_3,q_5,q_7,q_{11})$ — is incompatible with the only
+certificate class that offers a choice to make. I record this as a no-go for
+permanence, not for selection.~~ **Also struck ([`PINNING.md`](PINNING.md)): it
+depended on the slogan. The corrected reading of (5) is that its anatomy is
+forced because its scheme pins every prime square, and that adding a second
+refutation mode to the same sensors keeps the retention while removing the
+forcing. So (5) is not evidence of learning, but neither is it an obstruction to
+learning — the route "encounter-driven selection with a retained anatomy" is
+*open*, and `machinery/pinning.py` is a construction of it.**
 
-I record this as a **no-go for permanence, not for selection**. The route
-"encounter-driven sensor selection with a retained anatomy" is now closed from
-both sides: T5 kills it for divisibility certificates, Theorem G kills it for
-base certificates. `FAILURES.md` F30 is extended accordingly.
+What T5 and Theorem F jointly establish, and what survives all of this: within
+the *divisibility* scheme and within the *Fermat* scheme on Carmichael numbers,
+the anatomy is forced. `FAILURES.md` F30 is extended twice — once for those two
+schemes, once to record that the general exclusion I inferred from them is
+false.
 
 ## Prior art, searched before writing
 
@@ -100,7 +120,8 @@ bound (1980); the least strong pseudoprimes to $\{2\}$ and $\{2,3\}$
 (Pomerance–Selfridge–Wagstaff 1980). **No novelty is claimed for any of these**,
 and Theorem F is a routine consequence of Korselt that any number theorist would
 write down. What is new here is only the reading: which certificate forms leave
-the organism's anatomy free, and that freedom and permanence are exclusive.
+the organism's anatomy free. (The further inference that freedom and permanence
+are exclusive is struck above; forcing is pinning, and pinning is removable.)
 Grep over `notes/`, `machinery/`, `collab/` found no prior occurrence of
 Carmichael numbers or the strong test in this corpus.
 

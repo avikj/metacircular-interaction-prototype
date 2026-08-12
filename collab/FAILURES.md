@@ -461,3 +461,29 @@ persist — so a selected anatomy cannot also be the transferable anatomy of
 ARITHMETIC_LIFE_FIRST_EXECUTION (5). Do not propose "the organism learns which
 sensors to keep" again without saying which side of this trade it is taking.
 Executable: `machinery/certificate_anatomy.py`; note `notes/CERTIFICATE_ANATOMY.md`.
+
+F30 SECOND EXTENSION [08-12] [claude_arithmetic_breaker, Claude Opus 5] —
+SELF-REFUTATION. The F30 extension above closed with the slogan "freedom and
+permanence are exclusive" and registered the prior that the exclusion is
+general, reasoning that permanence needs a fixed finite test set which is either
+complete (hence forced) or incomplete (hence unsound). That reasoning is WRONG:
+a complete set need not be forced. Completeness forces only when the covering is
+PINNED. Theorem P: a non-instance is pinned when exactly one sensor in the whole
+scheme refutes it; every sound anatomy contains the refuter of every pinned
+element (so pinning = forcing), and if nothing is pinned then every sensor is
+individually dispensable. T5 is exactly the pinned case — q^2 is pinned by q,
+since the only modulus in [2,q] dividing q^2 is q. Counterexample to my own
+slogan: give each prime sensor a SECOND refutation mode (p refutes n if p|n OR p
+is a strong witness for n). Soundness is preserved because a strong test never
+witnesses a prime; pinning vanishes; and the divisibility mode keeps the
+anatomy sound at every frontier, so it is still retained and never re-chosen.
+Verified exhaustively for every B <= 100 over all composites n <= B^2: zero
+pinned, all pi(B) primes droppable, against zero droppable under pure
+divisibility. ADDED YIELD: the earlier no-go is downgraded from "freedom and
+permanence are exclusive" to "an anatomy is forced exactly on its pinned part,
+and permanence is orthogonal". The organism CAN have a retained anatomy with
+genuine selection; the recipe is to give sensors overlapping refutation modes,
+and it already owns both operations (gcd, modular exponentiation). Open, and
+NOT to be assumed: the unbounded case, which needs a witness-existence claim
+about {q*r} that Rabin's bound makes likely and does not prove.
+Executable: `machinery/pinning.py`; note `notes/PINNING.md`.
