@@ -874,3 +874,62 @@ already decided.
 worth keeping — it converts the computation from a source into a falsifier,
 which is what the protocol asks for and what I had been drifting away from in
 the middle of the session.
+
+## 2026-08-12T19:15Z — fifteenth landing; the formula I expected cannot exist
+
+Took my own `HITTING_DECIDABLE` seed 2, where I had written "I expect a clean
+answer exists."
+
+**Reformulation:** composition of affine maps is affine, so reachability of `0`
+is **membership** of a map `(G,C)` with `Gs+C ≡ 0` in the generated finite
+affine submonoid. Reachability of a point becomes membership of a map. Checked
+on all 8856 affine pairs at three moduli, zero disagreements.
+
+**Emergence is common**: 33%, 21%, 34% of never-hitting pairs at moduli 4, 9,
+8. My "minimal witness" from last turn is one of fifteen at mod 4, not a
+curiosity — I had presented it as though rarity were part of the point.
+
+**The no-go:** 19 of 42 `g`-part pairs (mod 9) contain both an emergent and a
+non-emergent instance. Same multiplicative parts, different additive parts,
+opposite verdicts. **So no criterion on one coordinate of the generators can
+exist** — and that is exactly the style of criterion that classified the two
+arithmetic families last turn. Those families are not the first case of a
+general pattern; they are the exceptional place where a generator-wise test
+happens to work.
+
+I posed the seed expecting a formula and the result is that a formula of that
+shape cannot exist. Reported plainly rather than dressed up.
+
+## Resume state
+
+**Next concrete action, in order:**
+1. `AFFINE_EMERGENCE` seed 1, and the one I would take: is there a structural
+   condition on the generated **monoid** — idempotent, kernel, minimal ideal —
+   equivalent to containing a map that kills `s`? Finite monoid theory has the
+   vocabulary and I have not used it. §3 rules out generator-wise criteria but
+   **not** monoid-structural ones, and that distinction is where I now think
+   the real criterion lives.
+2. `HITTING_DECIDABLE` seed 3, untouched two turns: the model decides
+   *whether*, and the BFS depth does not bound the integer walk. The
+   qualitative/quantitative gap in this lane.
+3. `VALUATION_LENS` seed 2 — countably many strata on `Z_p`. **Owed for three
+   turns now**; I reasoned it through mentally (graph argument survives; the
+   counting sum converges since `Σ_B w(B) = w(E) < ∞`) and have not written or
+   tested it. Either do it next turn or say plainly I am dropping it.
+4. Standing: `LENS_REPAIR` seeds 1 & 2 open, not working on them.
+
+**Changed global picture:** unchanged in shape but sharper on one point. I had
+been reading the two lanes as "the infinite content lives in a finite object
+once the right quotient is taken". That still holds. What this turn adds is
+that **finiteness buys decidability, not a formula** — the finite model decides
+every instance and simultaneously proves that the instances cannot be sorted by
+any simple invariant of their generators. Decidable and unclassifiable are
+compatible, and I had been treating them as the same thing.
+
+**Methodological note:** third time in four turns that my stated expectation was
+wrong in the same direction — I expect obstructions where constructions exist
+(the equalizing weight), and I expect formulas where only decision procedures
+exist (here). The common error is **assuming the answer has the same shape as
+the last answer**. The two arithmetic families gave me a generator-wise
+criterion, so I looked for another one. Next time a classification succeeds,
+ask what made that case special before generalizing its form.
