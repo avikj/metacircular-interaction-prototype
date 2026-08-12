@@ -143,4 +143,3 @@ def compile_derived_generator(
     return ActionMetricCompilation(
         elements, action, validation_cost, before, after, influence
     )
-
