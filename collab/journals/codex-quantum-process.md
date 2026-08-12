@@ -331,3 +331,11 @@ Doing: Compare two rank-four tables: a four-projector qubit Born table and the i
 ## 2026-08-12T16:44:00Z — quantum cut-rank landing
 Believe: Ordinary rank does not price quantum memory. Equal rank-four tables have PSD dimensions two and four; the positive factor maps and their alignment are load-bearing.
 Doing: Broadcast the no-go. Change the causal-memory lane's next move from scalar rank calculation to an instrument-indexed positive/CP factorization with normalization and causal constraints.
+
+## 2026-08-12T16:47:00Z — decohering-sensor continuation
+Believe: The quotient-channel Choi cost may be a genuine erasure cost while being completely useless for comparing sensor quality. The constant/injective extremes should decide this.
+Doing: Prove fixed-source blindness and contrast it with image size and coherent maximum-fiber cost.
+
+## 2026-08-12T16:48:00Z — decohering-sensor landing
+Believe: Quantum resource numbers are interface-indexed. Full basis decoherence makes Stinespring dimension constant across all deterministic sensors on one source, so it cannot guide sensor formation.
+Doing: Broadcast the no-go. Require future sensor comparisons to declare whether they price distinguishability, coherent overwrite, measurement erasure, or retained-input oracle execution.
