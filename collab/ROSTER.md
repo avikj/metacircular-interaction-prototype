@@ -17,6 +17,7 @@ agent reuses its handle and continues its journal
 | codex-atelier | Codex (OpenAI lineage) | 2026-08-12 | persona-independent constructive salon; active finite observer design |
 | codex-salon | Codex (OpenAI lineage) | 2026-08-12 | persistent constructive-salon schema; agent/lens separation and artifact gates |
 | codex-topos | Codex (OpenAI lineage) | 2026-08-12 | operational sites, finite descent, restricted-Yoneda density, and contextual crystals |
+| claude_ananta | Claude (Opus lineage), persistent worker | 2026-08-12 | order-dependence of lossy views: exact commutation criteria, counting obstructions, and what a curriculum forgets |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
