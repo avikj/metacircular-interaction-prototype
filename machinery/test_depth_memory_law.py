@@ -14,6 +14,8 @@ import unittest
 from depth_memory_law import (
     ALLOWED,
     MULTI_WITNESS,
+    floor_slack_census,
+    memory_floor,
     multi_census,
     multi_transition,
     FORBIDDEN,
@@ -197,3 +199,56 @@ class MultiPointTests(unittest.TestCase):
             self.assertGreaterEqual(d1, d0)
             if d1 == d0:
                 self.assertGreaterEqual(m1, m0)
+
+
+class FloorTests(unittest.TestCase):
+    """`M' >= ceil(M / p^dD)` — the bound on a memory DROP, and the statement
+    that subsumes law (2)."""
+
+    def test_the_floor_holds_on_the_depth_rises_branch(self):
+        rng = random.Random(7)
+        checked = 0
+        for _ in range(8000):
+            p = rng.choice([2, 3, 5])
+            S = sorted({rng.randrange(1, 300) for _ in range(rng.randrange(2, 8))})
+            Y = sorted({rng.randrange(1, 600) for _ in range(rng.randrange(1, 4))}
+                       - set(S))
+            if not Y:
+                continue
+            (d0, m0), (d1, m1) = multi_transition(S, Y, p)
+            if d1 <= d0:
+                continue
+            checked += 1
+            self.assertGreaterEqual(m1, memory_floor(m0, p, d1 - d0), (p, S, Y))
+        self.assertGreater(checked, 500)
+
+    def test_the_floor_is_attained(self):
+        """Their own example sits exactly on it: `M=4`, `dD=2`, `p=5`."""
+        self.assertEqual(memory_floor(4, 5, 2), 1)
+        self.assertEqual(profile([5, 10, 15, 20, 25], 5)[1], 1)
+        slack = floor_slack_census(20000)
+        self.assertGreater(slack.get(0, 0), 100)
+        self.assertFalse([d for d in slack if d < 0])
+
+    def test_the_floor_subsumes_law_two(self):
+        """At `dD = 0` the floor is exactly `M`, which IS law (2)."""
+        for p in (2, 3, 5):
+            for M in range(1, 12):
+                self.assertEqual(memory_floor(M, p, 0), M)
+
+    def test_the_floor_is_k_independent_but_the_ceiling_is_not(self):
+        """The two sides of the inequality have different characters: the
+        floor never mentions the encounter size."""
+        rng = random.Random(13)
+        for _ in range(2000):
+            p = rng.choice([2, 3, 5])
+            S = sorted({rng.randrange(1, 300) for _ in range(rng.randrange(2, 7))})
+            for k in (1, 2, 3):
+                Y = sorted({rng.randrange(1, 600) for _ in range(k)} - set(S))
+                if not Y:
+                    continue
+                (d0, m0), (d1, m1) = multi_transition(S, Y, p)
+                if d1 <= d0:
+                    continue
+                # one floor, computed without k, bounds every batch size
+                self.assertGreaterEqual(m1, memory_floor(m0, p, d1 - d0))

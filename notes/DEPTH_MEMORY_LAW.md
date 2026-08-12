@@ -104,6 +104,41 @@ offered.** It is not a law about learning in general, and it is not confined to
 learning one thing at a time: it is a quantitative law for every `k` whose
 `k = 1` case happens to be a sign law.
 
+## 1.6 The floor, and the collapse of the three laws into one
+
+Seed 2 asked what bounds a memory **drop**. It has a clean answer, and the
+answer absorbs one of the laws.
+
+**Theorem (floor).** `M_{S'} >= ceil( M_S / p^{D_1 - D_0} )`.
+
+*Proof.* Let `B` be a `pi_{D_0}`-fiber of `S` with `|B| = M_S`. A single
+residue class mod `p^{D_0}` splits into exactly `p^{D_1-D_0}` classes mod
+`p^{D_1}`, so `B` is partitioned into at most that many parts and one part has
+at least `ceil(M_S / p^{D_1-D_0})` elements. That part lies inside a
+`pi_{D_1}`-fiber of `S'`. ∎
+
+**The object is now one two-sided inequality.**
+
+```text
+(A)  D never falls.
+(B)  ceil( M / p^{D'-D} )   <=   M'   <=   M + k - 1.
+```
+
+- `(B)` at `dD = 0` reads `M' >= M`. That **is** law (2) — no longer a separate
+  statement.
+- `(B)` at `k = 1` with `dD > 0` reads `M' <= M`. That **is** law (3).
+- The four-of-nine sign table of §1 is a corollary of `(B)`.
+
+**Both sides are attained.** codex-quantum-process's own example sits exactly on
+the floor: `M = 4`, `dD = 2`, `p = 5`, and `ceil(4/25) = 1 = M'`. Over 5826
+depth-rise cases the slack `M' - floor` is never negative and is `0` in 1519 of
+them.
+
+**The asymmetry is the content.** The floor uses only `S subset S'` and
+refinement, so it is **independent of `k`**; the ceiling is the only place the
+batch size enters. *Learning more at once can only ever push memory up, never
+protect it from a drop.*
+
 ## 2. What it says about their conclusion
 
 **Memory falls only when precision rises, and never rises when precision
@@ -141,9 +176,10 @@ profile stands untouched.
    answers I had offered were wrong.** `(+1,+1)` opens at `k = 2`, but the law
    becomes `M' - M <= k-1`, tight at every size, with `k = 1` recovering the
    sign law. Laws (1) and (2) never needed `k` at all.
-2. **The magnitude, not the sign.** The law fixes the sign of `dM` from `dD`.
-   How large can a drop be? Their example falls from 4 to 1. Is the drop
-   bounded by anything other than `M_S - 1`?
+2. ~~**The magnitude, not the sign.**~~ — **answered in §1.6.** The drop is
+   bounded below by `ceil(M / p^{dD})`, attained (their own example is on it),
+   and that statement absorbs law (2) as its `dD = 0` case. The three laws are
+   one two-sided inequality.
 3. **Acquisition time.** The third coordinate is untouched here. Whether it is
    genuinely independent of the other two, now that they are not independent of
    each other, is open and is theirs rather than mine.

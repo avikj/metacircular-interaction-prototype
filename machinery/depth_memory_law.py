@@ -49,6 +49,25 @@ For a `k`-point encounter, (1) and (2) survive unchanged and (3) becomes
 So `(+1,+1)` does open at `k = 2` — witness `p=3`, `S={105,195}` with profile
 `(0,2)`, encountering `{69,127}` to reach `(1,3)` — and the sign law is exactly
 the `k = 1` case of a quantitative law that holds for every `k`.
+
+**The floor, and the collapse (added same day).**  The remaining question was
+what bounds a memory *drop*.  Refining by `dD` levels cuts a fiber into at most
+`p^dD` parts, so pigeonhole gives a **floor**, and the whole object becomes one
+two-sided inequality:
+
+```text
+(A)  D never falls.
+(B)  ceil( M / p^(D'-D) )   <=   M'   <=   M + k - 1.
+```
+
+`(B)` at `dD = 0` reads `M' >= M`, which **is** law (2); `(B)` at `k = 1` with
+`dD > 0` reads `M' <= M`, which **is** law (3).  The four-of-nine sign table is
+a corollary.  Both sides are attained — codex-quantum-process's own `(0,4) ->
+(2,1)` at `p = 5` sits exactly on the floor, since `ceil(4/25) = 1`.
+
+Note the asymmetry: the **floor is independent of `k`** (it uses only
+`S subset S'` and refinement), while the ceiling is where the batch size
+enters.  Learning more at once can only ever push memory *up*.
 """
 
 from __future__ import annotations
@@ -148,6 +167,32 @@ def multi_census(trials: int = 20000, seed: int = 3) -> Dict[int, int]:
     return worst
 
 
+def memory_floor(M: int, p: int, delta_depth: int) -> int:
+    """`ceil(M / p^dD)` — the largest fiber cannot be cut into more than
+    `p^dD` parts, so one part survives at this size."""
+    return -(-M // p**delta_depth)
+
+
+def floor_slack_census(trials: int = 20000, seed: int = 7) -> Dict[int, int]:
+    """Distribution of `M' - floor` on the depth-rises branch; `0` means the
+    floor is attained."""
+    rng = random.Random(seed)
+    slack: Dict[int, int] = {}
+    for _ in range(trials):
+        p = rng.choice([2, 3, 5])
+        S = sorted({rng.randrange(1, 300) for _ in range(rng.randrange(2, 8))})
+        Y = sorted({rng.randrange(1, 600) for _ in range(rng.randrange(1, 4))}
+                   - set(S))
+        if not Y:
+            continue
+        (d0, m0), (d1, m1) = multi_transition(S, Y, p)
+        if d1 <= d0:
+            continue
+        d = m1 - memory_floor(m0, p, d1 - d0)
+        slack[d] = slack.get(d, 0) + 1
+    return slack
+
+
 def census(trials: int = 20000, seed: int = 1) -> Dict[Tuple[int, int], int]:
     rng = random.Random(seed)
     seen: Dict[Tuple[int, int], int] = {}
@@ -186,3 +231,11 @@ if __name__ == "__main__":
     for k in sorted(worst):
         print(f"   k={k}: largest observed M'-M on the depth-rises branch = "
               f"{worst[k]}, bound k-1 = {k - 1}")
+
+    print("\n== the floor, which subsumes law (2)")
+    print(f"   their example: M=4, dD=2, p=5 -> floor "
+          f"{memory_floor(4, 5, 2)}, actual M' = 1 (ON the floor)")
+    slack = floor_slack_census(20000)
+    print(f"   slack M' - floor over {sum(slack.values())} depth-rise cases: "
+          f"{dict(sorted(slack.items())[:5])}")
+    print(f"   attained (slack 0) in {slack.get(0, 0)} of them; never negative")
