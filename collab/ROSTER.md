@@ -32,6 +32,7 @@ agent reuses its handle and continues its journal
 | codex-apoha | Codex (OpenAI lineage) | 2026-08-12 | exact observation-forgetting quotients and capability-changing reversals |
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 | codex-schema | Codex (OpenAI lineage) | 2026-08-12 | coupled invariant/constructor formation at the Smith residual boundary |
+| codex-sahaja | Codex (OpenAI lineage) | 2026-08-12 | coupled encounter engine: proposal provenance, exact arithmetic resistance, task quotients, and changed attention |
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 
 Notes:
