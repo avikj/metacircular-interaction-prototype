@@ -61,3 +61,21 @@ The even-parity triangle is the hostile positive control.
 Resume: A next exact bridge would combine both directions in a single Čech
 diagram: first quotient occurrence names, then compute the compatible-section
 limit, retaining a cycle cocycle when it is empty.
+
+## 2026-08-12T23:31:00Z — Peres--Mermin transgression
+
+Believe: The Pauli odd sign begins as a projective multiplication 2-cocycle,
+then evaluates on commuting-context relators to a parity vector whose cokernel
+class obstructs a global assignment.  It is not natively the triangle's graph
+1-cocycle.
+
+Doing: Landed exact Gaussian-integer matrix multiplication, all six context
+signs, exhaustive global-section failure, and the trivial-phase positive
+control.  The precise bridge retains all three stages rather than calling them
+one holonomy.
+
+## 2026-08-12T23:32:00Z — session end
+
+Resume: If a further synthesis is needed, formalize the presentation complex
+and its cellular boundary maps; that would make the transgression a literal
+cochain map rather than the proved finite evaluation used here.
