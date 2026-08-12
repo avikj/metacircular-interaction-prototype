@@ -9,7 +9,7 @@ Every other test checks an exact structural claim.
 from __future__ import annotations
 
 import unittest
-from math import gcd
+from math import gcd, isqrt
 
 from arithmetic_life import ArithmeticLife
 from cyclotomic_sensor import (
@@ -19,6 +19,7 @@ from cyclotomic_sensor import (
     cyclotomic_valuation,
     cyclotomic_value,
     factor_cyclotomic,
+    factor_power_minus_one,
     naive_trial_division,
     permits,
     search_progression,
@@ -299,6 +300,81 @@ class TestCyclotomicSensor(unittest.TestCase):
         """m <= 2 carries no congruence information, and the code says so."""
         for index, expected in ((1, (1, None)), (2, (1, 2))):
             self.assertEqual(search_progression(index), expected)
+
+    def test_routed_factorization_is_exact(self) -> None:
+        """Routing through Phi_m for m | n returns the true factorization."""
+        for base, exponent in ((2, 35), (2, 36), (2, 60), (2, 23), (10, 12),
+                               (3, 24), (5, 12), (2, 1), (2, 2), (7, 6)):
+            result = factor_power_minus_one(base, exponent)
+            self.assertTrue(result.complete)
+            self.assertEqual(result.reconstruct(), base ** exponent - 1)
+            naive, _tried, _cofactor, done = naive_trial_division(
+                base ** exponent - 1)
+            if done:
+                self.assertEqual(result.factors, naive)
+
+    def test_degree_gain_is_sandwiched_by_the_totient(self) -> None:
+        """Theorem 6(i).  The routed scan bound is a^(phi(n)/2) up to the
+        factor (1 +- 1/a), because (a-1)^phi(m) <= Phi_m(a) <= (a+1)^phi(m).
+        Both sides are asserted: an upper bound alone would not show the
+        exponent is phi(n) rather than something smaller."""
+        for base, exponent in ((2, 35), (2, 36), (2, 60), (10, 12), (3, 24),
+                               (2, 23), (7, 6), (5, 20)):
+            result = factor_power_minus_one(base, exponent)
+            totient = sum(1 for k in range(1, exponent + 1)
+                          if gcd(k, exponent) == 1)
+            self.assertLessEqual(result.routed_scan_bound,
+                                 isqrt((base + 1) ** totient),
+                                 f"a={base} n={exponent} upper")
+            self.assertGreaterEqual(result.routed_scan_bound,
+                                    isqrt((base - 1) ** totient),
+                                    f"a={base} n={exponent} lower")
+
+    def test_prime_exponent_gets_no_degree_gain(self) -> None:
+        """The theorem's own control.  For prime n, phi(n) = n-1, so the
+        sandwich puts the routed bound within a factor a of the blind one:
+        the route helps exactly when the exponent is composite."""
+        for base, exponent in ((2, 23), (2, 17), (3, 11), (5, 7), (7, 5)):
+            result = factor_power_minus_one(base, exponent)
+            self.assertLessEqual(result.blind_scan_bound,
+                                 (result.routed_scan_bound + 1) * base,
+                                 f"a={base} n={exponent} claimed an unearned gain")
+        # A composite exponent gains by exactly the totient deficit: the
+        # predicted ratio is a^((n - phi(n))/2), computed, not chosen.
+        for base, exponent in ((2, 24), (2, 36), (2, 60), (3, 24)):
+            result = factor_power_minus_one(base, exponent)
+            totient = sum(1 for k in range(1, exponent + 1)
+                          if gcd(k, exponent) == 1)
+            predicted = base ** ((exponent - totient) // 2)
+            ratio = result.blind_scan_bound / result.routed_scan_bound
+            self.assertGreaterEqual(ratio, predicted / base)
+            self.assertLessEqual(ratio, predicted * base)
+
+    def test_routing_earns_sensors_that_were_refused(self) -> None:
+        """The loop closes: factoring earns the sensor, the sensor answers the
+        infinite family.  A moment earlier the organ refused the question."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        with self.assertRaises(ValueError):
+            organ.form(1321, 2)
+        organ.route(2, 60)
+        self.assertIn(1321, organ.life.moduli)
+        sensor = organ.form(1321, 2)
+        self.assertEqual(sensor.order, 60)
+        self.assertEqual(sensor.valuation(59), 0)
+        self.assertEqual(sensor.valuation(60), 1)
+        self.assertEqual(sensor.valuation(60 * 1321), 2)
+        self.assertIn("route-factor", [e.kind for e in organ.life.events])
+
+    def test_route_reaches_where_the_blind_organ_grinds(self) -> None:
+        """Exact ledger on one integer, not a claim about factoring in general."""
+        blind = ArithmeticLife()
+        blind.factor(2 ** 25 - 1)
+        routed = CyclotomicOrgan(ArithmeticLife()).route(2, 25)
+        self.assertEqual(len(blind.moduli), 760)        # sensors ground out
+        self.assertEqual(max(blind.moduli), 5791)
+        self.assertEqual(routed.candidates_tried, 14)   # trial divisions used
+        self.assertEqual(routed.factors, ((31, 1), (601, 1), (1801, 1)))
+        self.assertTrue(routed.complete)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

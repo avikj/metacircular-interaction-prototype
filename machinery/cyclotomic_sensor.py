@@ -161,6 +161,30 @@ class CyclotomicOrgan:
     def valuation(self, prime: int, base: int, exponent: int) -> int:
         return self.form(prime, base).valuation(exponent)
 
+    def route(self, base: int, exponent: int,
+              budget: int = DEFAULT_BUDGET) -> RoutedFactorization:
+        """Factor `base^exponent - 1` through its cyclotomic pieces and keep
+        every prime it names as an earned residue sensor.
+
+        This closes the loop the two organs had left open.  `arithmetic_life`
+        accumulates prime sensors by grinding upward through trial division;
+        the cyclotomic route reaches primes far beyond that grind and installs
+        them.  Since `form` is gated on an earned mod-p sense, a prime earned
+        here immediately makes the whole infinite family `v_p(a^n - 1)`
+        askable, where a moment earlier the organ refused the question.
+        """
+        result = factor_power_minus_one(base, exponent, budget=budget)
+        for prime, _power in result.factors:
+            self.life.install_residue_sensor(prime, (base, exponent))
+        self.life._record(
+            "route-factor", (base, exponent, len(result.factors)),
+            f"{base}^{exponent}-1 routed through Phi_m for m | {exponent}; "
+            f"scan bound {result.blind_scan_bound} -> {result.routed_scan_bound} "
+            f"in {result.candidates_tried} trial divisions; "
+            "each named prime is now an earned sensor",
+        )
+        return result
+
 
 def _divisors(n: int) -> tuple[int, ...]:
     return tuple(d for d in range(1, n + 1) if n % d == 0)
@@ -390,6 +414,69 @@ def factor_cyclotomic(
     return result
 
 
+@dataclass(frozen=True)
+class RoutedFactorization:
+    """`a^n - 1` factored through its cyclotomic pieces rather than head-on."""
+
+    base: int
+    exponent: int
+    value: int
+    factors: tuple[tuple[int, int], ...]
+    cofactor: int
+    complete: bool
+    pieces: tuple[CyclotomicFactorization, ...]
+    candidates_tried: int
+    blind_scan_bound: int
+    routed_scan_bound: int
+
+    def reconstruct(self) -> int:
+        return self.cofactor * prod(p ** power for p, power in self.factors)
+
+
+def factor_power_minus_one(
+    base: int, exponent: int, budget: int = DEFAULT_BUDGET
+) -> RoutedFactorization:
+    """Factor `base^exponent - 1` by routing through Phi_m for each m | exponent.
+
+    Two independent gains over scanning the integer head-on, both derivable and
+    neither a heuristic (`notes/CYCLOTOMIC_SENSOR.md` Theorem 6):
+
+    1. degree — each piece has size about `base^phi(m)`, and `phi(m) <= phi(n)`
+       for every `m | n`, so the deepest candidate examined falls from
+       `base^(n/2)` to about `base^(phi(n)/2)`;
+    2. congruence — inside each piece Theorem 5 restricts the scan to one
+       residue class, dividing the candidate count by a further `m`.
+
+    The first gain is exponential in `n - phi(n)`, so the route helps exactly
+    when the exponent is composite, and by an amount that is computed, not
+    hoped for.
+    """
+    if base < 2 or exponent < 1:
+        raise ValueError("need base >= 2 and exponent >= 1")
+    value = base ** exponent - 1
+    merged: dict[int, int] = {}
+    pieces, tried, cofactor, complete = [], 0, 1, True
+    for index in _divisors(exponent):
+        piece = factor_cyclotomic(index, base, budget=budget, compare=False)
+        pieces.append(piece)
+        tried += piece.candidates_tried
+        for prime, power in piece.factors:
+            merged[prime] = merged.get(prime, 0) + power
+        if not piece.complete:
+            complete = False
+            cofactor *= piece.cofactor
+    result = RoutedFactorization(
+        base=base, exponent=exponent, value=value,
+        factors=tuple(sorted(merged.items())), cofactor=cofactor,
+        complete=complete, pieces=tuple(pieces), candidates_tried=tried,
+        blind_scan_bound=isqrt(value),
+        routed_scan_bound=max(isqrt(abs(p.value)) for p in pieces),
+    )
+    if result.reconstruct() != value:
+        raise AssertionError("routed factorization failed to reconstruct")
+    return result
+
+
 def minimality_witness(sensor: CyclotomicSensor) -> tuple[int, int, int]:
     """A base sharing every digit below the sensor's chart depth, but not the sensor.
 
@@ -477,6 +564,24 @@ def main() -> None:
           "a factor brute force cannot.")
     print(f"  what is left is typed, not hidden: cofactor {guided.cofactor} "
           f"(complete={guided.complete})")
+
+    print("\nencounter 6: 'factor 2^60 - 1.'  No prime named, no index named.")
+    fresh = CyclotomicOrgan(ArithmeticLife())
+    try:
+        fresh.form(1321, 2)
+    except ValueError as refusal:
+        print(f"  first, v_1321 is refused: {refusal}")
+    routed = fresh.route(2, 60)
+    print(f"  routed through Phi_m for m | 60:")
+    print(f"    {routed.factors}")
+    print(f"    scan bound {routed.blind_scan_bound} -> "
+          f"{routed.routed_scan_bound}, in {routed.candidates_tried} "
+          "trial divisions")
+    print("  the blind organ needs 760 prime sensors just to crack 2^25 - 1.")
+    earned = fresh.form(1321, 2)
+    print(f"  and now v_1321 is answerable: ord=({earned.order}), so "
+          f"v_1321(2^{60 * 1321} - 1) = {earned.valuation(60 * 1321)}")
+    print("  the encounter earned the sensor; the sensor answers the family.")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):

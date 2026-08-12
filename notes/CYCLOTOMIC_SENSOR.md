@@ -367,6 +367,79 @@ each, the guided scan returns $2791$ and $6943319$ and the blind scan returns
 only $2791$; both report themselves incomplete, and the guided cofactor
 multiplies back exactly.
 
+## Routing the integer: two independent gains
+
+Theorem 5 gave the organ prime candidates, and sitting down again exposed the
+next dead spot at once.  A learner is not handed $\Phi_m(a)$.  A learner is
+handed **a number**.  Asked to factor $2^{35}-1$, the machine had two organs
+that were strangers: `arithmetic_life` ground out $16{,}777$ prime sensors up
+to $185{,}363$ to find a single factor, while the cyclotomic organ sitting in
+the same process already knew that every prime factor lies in one of four
+sparse progressions.
+
+The route is $a^{n}-1=\prod_{m\mid n}\Phi_m(a)$: factor the pieces, not the
+number.  What makes this worth a theorem rather than a refactor is that it
+carries **two independent gains**, and only one of them is Theorem 5.
+
+> **Theorem 6 (degree and congruence).**  Let $a\ge2$, $n\ge1$,
+> $N=a^{n}-1$.
+> 1. *(degree)* For every $m\mid n$, $\varphi(m)\le\varphi(n)$ and
+>    $(a-1)^{\varphi(m)}\le\Phi_m(a)\le(a+1)^{\varphi(m)}$.  So the deepest
+>    candidate any piece requires is $a^{\varphi(n)/2}$ up to a factor
+>    $(1\pm1/a)^{\varphi(n)/2}$, where scanning $N$ head-on requires
+>    $a^{n/2}$.  The reduction is $a^{(n-\varphi(n))/2}$.
+> 2. *(congruence)* Inside each piece, Theorem 5 confines the scan to one
+>    residue class, dividing the candidate count by a further $m$.
+>
+> The two are independent: (1) is the degree drop of the cyclotomic
+> factorization and holds even with no congruence information; (2) is the
+> congruence and holds even at $m=n$ where (1) gives nothing.
+
+*Proof.*  $\Phi_m(a)=\prod_{\zeta}(a-\zeta)$ over primitive $m$-th roots of
+unity, so $(a-1)^{\varphi(m)}\le|\Phi_m(a)|\le(a+1)^{\varphi(m)}$ termwise.
+$\varphi(m)\mid\varphi(n)$ for $m\mid n$, hence $\varphi(m)\le\varphi(n)$.  The
+count statement is Theorem 5.  $\square$
+
+**The route helps exactly when $n$ is composite, and the theorem says so.**
+$n-\varphi(n)=1$ precisely when $n$ is prime, so for prime exponents gain (1)
+is a factor of $\sqrt a$ — nothing.  For $n=60$, $\varphi(60)=16$ and the
+reduction is $2^{22}$.  This is not a hope about hard cases; it is a computed
+number that the executable reports per encounter, with its own negative
+control built in:
+
+| $a^{n}-1$ | blind bound | routed bound | trial divisions | complete |
+|---|---|---|---|---|
+| $2^{23}-1$ | $2896$ | $2896$ | $10$ | yes |
+| $2^{35}-1$ | $185{,}363$ | $2954$ | $7$ | yes |
+| $2^{36}-1$ | $262{,}143$ | $63$ | $9$ | yes |
+| $2^{60}-1$ | $1{,}073{,}741{,}823$ | $283$ | $12$ | yes |
+| $10^{12}-1$ | $999{,}999$ | $99$ | $20$ | yes |
+
+The first row is the control: $23$ is prime, and the bound does not move.
+The fourth row is the whole point — $2^{60}-1$, nineteen digits, factored
+completely into eleven primes in **twelve trial divisions**.
+
+## The loop closes
+
+`ArithmeticLife` was built to *accumulate prime sensors*, one grind at a time,
+and `CyclotomicOrgan.form` is gated on having earned one.  So routing does not
+merely answer faster; it feeds the organ that gates it.
+
+```text
+factor 2^60 - 1   →  v_1321 is REFUSED (no earned mod-1321 sense)
+                  ↓  route through Phi_m, 12 trial divisions
+                  →  1321 installed as an earned sensor
+                  →  v_1321(2^n - 1) answerable for EVERY n
+                     ord_1321(2) = 60, so v_1321(2^79260 - 1) = 2
+```
+
+A prime the blind organ would have reached only after a $10^{9}$-deep grind is
+earned in twelve divisions, and with it an infinite family of valuations that
+the machine refused to discuss one step earlier.  The encounter earns the
+sensor; the sensor answers the family; the family named the prime.  That is
+the first place in this note where the three theorems close on each other
+rather than stacking.
+
 ## The encounter
 
 ```text
@@ -403,6 +476,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 6.  The bounds `(a-1)^phi(m) <= Phi_m(a) <=
+  (a+1)^phi(m)` and `phi(m) | phi(n)` for `m | n` are standard; the statement
+  that the two gains are *independent*, with the prime-exponent case as the
+  built-in negative control, is the framing this note adds.  The per-encounter
+  ledger reports exact integer counts, and the predicted ratio
+  `a^((n-phi(n))/2)` is asserted in the tests within a factor of `a` — derived,
+  never fitted.  Routing through cyclotomic factors is standard practice
+  (Cunningham tables); no novelty is claimed.
 - **Proved here, classical in content:** Theorem 5.  That a prime divisor of
   `Phi_m(a)` is primitive or is the largest prime factor of `m` is the standard
   lemma behind Bang (1886) and Zsigmondy (1892), and the resulting
@@ -457,7 +538,11 @@ recorded as *exact standard*, not as new.
 1. ~~**`PROVE` — the cyclotomic refinement.**~~  DONE: Theorem 3 above.  The
    indicator dissolved into the chain's support and the $p=2$ exception
    dissolved into a longer head, which is the sign the chart is right.
-2. **`PROVE` — classify the bounded-chart families.**  Theorem 2 says
+2. ~~**`DEMONSTRATE` — wire the organ into the factorer.**~~  DONE:
+   `CyclotomicOrgan.route` factors `a^n - 1` through its pieces and installs
+   every named prime as an earned sensor, so a refused valuation question
+   becomes answerable in the same encounter.
+3. **`PROVE` — classify the bounded-chart families.**  Theorem 2 says
    $\mathcal F_{p,a}$ has a finite base chart.  Which subsets
    $S\subseteq\mathbb Z$ admit a finite observation of a generating datum
    determining $v_p$ on all of $S$?  Conjecturally these are exactly the

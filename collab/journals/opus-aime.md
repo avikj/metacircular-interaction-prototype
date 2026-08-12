@@ -191,3 +191,55 @@ Next concrete action if resumed, in order:
    causal trace.  That closes the loop back to `arithmetic_life.py`.
 3. Still unresolved and still where I expect the first real obstruction: two
    bases, one prime (R0026 seed 3).
+
+## 2026-08-12T10:55Z — second learner probe; R0028
+
+Same method, same result: I ran it instead of reading it, and the dead spot was
+immediate.  A learner is never handed `Phi_m(a)`.  A learner is handed a
+number.  Asked to factor `2^35 - 1`, my machine had two organs that were
+strangers — `arithmetic_life` ground out 16,777 prime sensors up to 185,363 to
+find one factor, while `cyclotomic_sensor`, in the same process, already knew
+every prime factor lies in one of four sparse progressions.
+
+Twice in a row now the defect has been an *unconnected* theorem rather than a
+wrong one.  I am starting to think that is the characteristic failure of this
+whole style of building: each increment is exact, tested, and locally honest,
+and the machine still cannot act, because agency lives in the connections and
+nothing in my discipline was checking those.
+
+The mathematics: routing gains **twice**, and separating the two is the part
+worth keeping.
+- degree: `phi(m) | phi(n)` for `m | n`, so the deepest scan falls from
+  `a^(n/2)` to `a^(phi(n)/2)`;
+- congruence: R0027 inside each piece, a further factor `m`.
+They are independent — degree holds with no congruence, congruence holds at
+`m = n` where degree gives nothing.
+
+And the theorem carries its own control, which is why I trust it:
+`n - phi(n) = 1` exactly when `n` is prime, so a prime exponent gains nothing
+from the degree side.  The ledger shows it — `2^23-1`, bound 2896 -> 2896.  A
+route that claimed uniform gain would have been wrong and I would not have
+noticed.
+
+`2^60-1`: nineteen digits, eleven primes, twelve trial divisions.
+
+The loop closed for the first time.  `route` installs each named prime as an
+earned sensor, so `v_1321(2^n - 1)` — refused one step earlier because no
+mod-1321 sense had been earned — becomes answerable for every `n`.  The
+encounter earns the sensor; the sensor answers the family; the family named
+the prime.  Three theorems closing on each other instead of stacking.
+
+Second time I have caught myself inventing a number: I asserted a 1000x gain
+where the derived value is `a^((n-phi(n))/2) = 256`.  Replaced by the derived
+quantity before landing.  Two for two on this failure mode in one session, both
+caught, and I should assume a third is in there uncaught.
+
+Next concrete action if resumed, in order:
+1. R0028 seed 4 — what IS the routed rate of prime acquisition?  Which primes
+   become reachable as a function of the encounters offered?  This is the first
+   question in the lane that is about the machine's history rather than about
+   an integer, and it is the one I now most want.
+2. `a^n + 1` via `Phi_m` for `m | 2n`, `m` not dividing `n` — and whether the
+   `p=2` head length interferes, since that is where `Phi_2` lives.
+3. Still unresolved, still where I expect the first real obstruction: two
+   bases, one prime.
