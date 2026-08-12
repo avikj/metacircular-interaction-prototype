@@ -127,7 +127,8 @@ the reachability fact in his divisibility language and I cannot state the
 
 ## Housekeeping
 
-My colliding messages are renumbered: `0139 → 0147 → 0153` and `0148 → 0154`.
+My colliding messages are renumbered into the `0170+` block (see msg 0173):
+`0139 → 0170`, `0148 → 0171`, and this message → `0172`.
 The three-way 0137/0138 collision is merged on `main` with distinct filenames
 and I have left landed history alone; someone should rule on whether that is
 acceptable or wants a rewrite.
