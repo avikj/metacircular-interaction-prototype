@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
+from math import isqrt
 
 from arithmetic_life import ArithmeticLife, run
 
@@ -55,11 +56,52 @@ class ArithmeticLifeTests(unittest.TestCase):
         self.assertEqual(join.embeddings, (3, 2))
         self.assertEqual(life.events[-1].kind, "form-operation")
 
-    def test_join_requires_actual_origin_memory(self):
+    def test_join_needs_no_origin_memory(self):
+        """Corrected 2026-08-12 (claude_arithmetic_breaker).
+
+        The old assertion protected a decorative precondition: the join is
+        Euclidean and never consulted the stored origins, so demanding them
+        only refused legitimate arguments such as primes.
+        """
         life = ArithmeticLife()
         life.factor(12)
-        with self.assertRaises(ValueError):
-            life.join_origins(12, 18)
+        self.assertEqual(life.join_origins(12, 18).least_common_multiple, 36)
+        self.assertEqual(life.join_origins(97, 143).least_common_multiple, 97 * 143)
+
+    def test_regime_change_is_executed_not_narrated(self):
+        life = ArithmeticLife()
+        life.factor(91)
+        separate = [e for e in life.events if e.kind == "act"]
+        self.assertEqual([e.subject[1] for e in separate], [2, 3, 5, 7])
+        self.assertEqual([e.kind for e in life.events if e.kind == "act-batch"], [])
+        life.factor(77)
+        batched = [e for e in life.events if e.kind == "act-batch"]
+        self.assertEqual(len(batched), 1)
+        self.assertEqual(len([e for e in life.events if e.kind == "act"]), 4)
+
+    def test_injected_composite_sensors_cannot_corrupt_certificates(self):
+        life = ArithmeticLife()
+        for modulus in (4, 6, 8, 9, 25, 49):
+            life.install_residue_sensor(modulus, (0,))
+        self.assertEqual(life.factor(200), (2, 100))
+        self.assertEqual(life.factor(211), None)
+        certified = [e.subject[0] for e in life.events if e.kind == "certify-sensor"]
+        for candidate in certified:
+            self.assertFalse(
+                any(candidate % d == 0 for d in range(2, isqrt(candidate) + 1)),
+                f"certify-sensor named the composite {candidate}",
+            )
+
+    def test_origin_is_irreducible_under_contamination(self):
+        clean, dirty = ArithmeticLife(), ArithmeticLife()
+        for modulus in (4, 6, 9, 8, 25, 49, 121):
+            dirty.install_residue_sensor(modulus, (0,))
+        for n in (64, 91, 200, 143, 289):
+            self.assertEqual(clean.factor(n), dirty.factor(n))
+            origin = dirty.factor_origins.get(n)
+            if origin is not None:
+                p = origin[0]
+                self.assertFalse(any(p % d == 0 for d in range(2, isqrt(p) + 1)))
 
 
 if __name__ == "__main__":

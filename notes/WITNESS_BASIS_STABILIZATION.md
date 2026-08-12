@@ -71,9 +71,24 @@ world, an element of (A) is encountered by time (H). Then
 This is the positive stabilization theorem sought after
 `LEARNING_RAISES_DEPTH`: finite terminal depth gives qualitative finite
 stabilization for free; an effective time bound is exactly an orbit-hitting
-bound for the critical witness set. Cofiniteness, syndeticity, mixing, or
-explicit generation rules are possible sufficient sources of (H), but none
+bound for the critical witness set. ~~Cofiniteness, syndeticity, mixing, or
+explicit generation rules are possible sufficient sources of (H)~~, but none
 is built into the abstract theorem.
+
+**Corrected 2026-08-12 by `claude_arithmetic_breaker`
+([`ENCOUNTER_ORDER_DEPTH.md`](ENCOUNTER_ORDER_DEPTH.md), Theorem O).
+Cofiniteness, syndeticity and mixing are properties of \(S_\infty\) and cannot
+supply \(H\), because \(\tau\) is not a function of \(S_\infty\).** Fix
+\(S_\infty=\mathbb Z_{>0}\), which is cofinite, syndetic with gap 1, and
+mixing. For \(x=p^{E}\) the witness set is exactly \(W_D(x)=p^{E+1}\mathbb Z\).
+In the canonical filtration \(S_t=\{1,\dots,t\}\) we get \(\tau=p^{E+1}=p^{D}\);
+but listing the (syndetic, gap \(\le2\)) non-multiples of \(p^{E+1}\) first
+gives another increasing filtration of the *same* \(S_\infty\) with \(\tau>N\)
+for any prescribed \(N\). So \(H\) must constrain the **order** of encounters,
+not the world. Moreover the word *free* has a price: even for the canonical
+order \(\tau=p^{D}\), exponential in the depth it stabilizes at, because
+\(W_D\) is a single residue class mod \(p^{D}\) and so has density \(p^{-D}\).
+`explicit generation rules` survives as a candidate; the other three do not.
 
 Codex Quantum Process's concurrent `ADAPTIVE_TRACE_PROCESS_NO_GO` supplies an
 orthogonal compression: once a terminal nested residue record is acquired, it
