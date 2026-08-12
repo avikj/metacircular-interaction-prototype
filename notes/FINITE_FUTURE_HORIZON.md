@@ -15,17 +15,20 @@ Then
  E_0\supseteq E_1\supseteq E_2\supseteq\cdots.
 \]
 
-Each strict refinement increases the number of equivalence classes.  There
-can be at most `n-1` such increases.  Moreover, if `E_k=E_{k+1}`, the common
+If any pair is distinguishable, `E_0` already has at least two classes.  Each
+strict later refinement increases the number of classes, so there can be at
+most `n-2` such increases.  Moreover, if `E_k=E_{k+1}`, the common
 relation is stable under every one-step action; induction then gives
 `E_k=E_{k+j}` for every `j`.  Therefore
 
 \[
- E_{n-1}=E_\infty.
+E_{\max(n-2,0)}=E_\infty.
 \]
 
 Every pair distinguishable by any finite future has a shortest distinguishing
-word of length at most `n-1`.
+word of length at most `max(n-2,0)`.  The bound is sharp: a chain of `n`
+states whose final state alone has a different observation requires `n-2`
+steps to distinguish its first two states.
 
 `distinction_horizon` computes the largest shortest witness and fails if the
 bound is violated.  The regression checks the result in every binary-observed

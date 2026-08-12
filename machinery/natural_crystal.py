@@ -155,9 +155,9 @@ def distinction_horizon(
     """Maximum length of a shortest separating word in a finite world."""
     words = explain_distinctions(states, actions, transition, observation).values()
     horizon = max((len(word) for word in words if word is not None), default=0)
-    bound = max(len(tuple(states)) - 1, 0)
+    bound = max(len(tuple(states)) - 2, 0)
     if horizon > bound:
-        raise AssertionError("finite future exceeded the n-1 refinement bound")
+        raise AssertionError("finite future exceeded the sharp n-2 refinement bound")
     return horizon
 
 

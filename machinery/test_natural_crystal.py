@@ -61,7 +61,7 @@ class NaturalCrystalTests(unittest.TestCase):
                         distinction_horizon(
                             states, actions, transition, observation
                         ),
-                        max(state_count - 1, 0),
+                        max(state_count - 2, 0),
                     )
 
     def test_generation_closes_from_one_seed(self):
