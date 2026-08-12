@@ -149,6 +149,61 @@ class State:
         return self.lcm.bit_length()
 
 
+
+# -------------------------------------------------------------------------
+# the multiplicative refinement: towers, executed
+# -------------------------------------------------------------------------
+#
+# The additive invariant sees sensors as opaque moduli.  But an installed
+# q = p^k with k >= 2 IS p * p^(k-1): the sensor family organizes itself by
+# divisibility into p-adic towers  Z/p^k -> Z/p^(k-1) -> ... -> Z/p,  and
+# at every frontier the whole observation space factors as the product of
+# the towers' tops (CRT at the coprime decomposition):
+#
+#     Z/lcm  ~=  prod_p  Z/p^{v_p(lcm)}.
+#
+# Both facts are EXECUTED below, not asserted: tower_certificate checks the
+# projection compatibility n mod p^(k-1) = (n mod p^k) mod p^(k-1) for every
+# tower edge at the frontier, and product_certificate round-trips n through
+# the coprime factorization and back by crt_section.  The space the walk is
+# building, sensor by forced sensor, is therefore visibly  prod_p Z_p  --
+# the profinite completion assembled from its p-adic charts.
+
+def towers(sensors: list[int]) -> dict[int, int]:
+    """The maximal prime-power chart per prime: {p: max k with p^k a sensor}."""
+    tops: dict[int, int] = {}
+    for q in sensors:
+        cert = prime_power_certificate(q)
+        if cert is None:
+            raise AssertionError("non-prime-power sensor %d" % q)
+        p, k = cert
+        tops[p] = max(tops.get(p, 0), k)
+    return tops
+
+
+def tower_certificate(n: int, sensors: list[int]) -> bool:
+    """Every refinement edge p^k -> p^(k-1) commutes with observation of n."""
+    for q in sensors:
+        p, k = prime_power_certificate(q)
+        if k >= 2:
+            if (n % q) % (q // p) != n % (q // p):
+                return False
+    return True
+
+
+def product_certificate(n: int, sensors: list[int], lcm: int) -> bool:
+    """Z/lcm ~= prod_p Z/p^max, executed on n: factor the profile through the
+    coprime tops and reconstruct n by CRT; the round trip must close."""
+    tops = towers(sensors)
+    coprime = [p ** k for p, k in sorted(tops.items())]
+    prod = 1
+    for c in coprime:
+        prod *= c
+    if prod != lcm:
+        return False
+    return crt_section([n % c for c in coprime], coprime) == n % lcm
+
+
 # -------------------------------------------------------------------------
 # persistence: re-certify or refuse
 # -------------------------------------------------------------------------
@@ -221,7 +276,15 @@ def main(argv: list[str]) -> int:
     profile = [s.n % m for m in s.sensors]
     ok = crt_section(profile, s.sensors) == s.n
     print("section at frontier (CRT reconstruction of n): %s" % ok)
-    return 0 if ok and s.lossless() else 1
+    tow = tower_certificate(s.n, s.sensors)
+    prd = product_certificate(s.n, s.sensors, s.lcm)
+    tops = towers(s.sensors)
+    print("towers (p-adic charts): %d primes, deepest %s; "
+          "projection compatibility: %s; Z/lcm ~= prod Z/p^k: %s"
+          % (len(tops),
+             "%d^%d" % max(tops.items(), key=lambda pk: pk[0] ** pk[1] and pk[1]),
+             tow, prd))
+    return 0 if ok and s.lossless() and tow and prd else 1
 
 
 if __name__ == "__main__":
