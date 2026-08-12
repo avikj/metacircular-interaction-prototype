@@ -13,6 +13,12 @@ class LawDiscoveryTests(unittest.TestCase):
         for modulus in range(33, 129):
             self.assertEqual(evaluate(law.text, modulus), observed_count(modulus))
 
+    def test_raw_modulus_is_an_insufficient_small_language(self):
+        law = discover(
+            tuple(range(1, 33)), variables={"m": lambda modulus: modulus}
+        )
+        self.assertIsNone(law)
+
     def test_planted_false_multiplicative_law_is_rejected(self):
         self.assertTrue(any(
             features(modulus)[0] * features(modulus)[1] != observed_count(modulus)
