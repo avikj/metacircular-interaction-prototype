@@ -70,3 +70,8 @@ Correction during execution: the claim message's child rule `x -> 2x,2x+1` suppr
 Believe: Once future demand is declared, deepest retained dependency position is the exact transferable observable for fixed-path saved work. Bounded formation has diminishing returns, and the trace's unique-parent tree may allow more than the generic submodular guarantee.
 Doing: Derive an exact tree dynamic program or a hardness obstruction. The state must retain the nearest selected ancestor depth because selecting a node changes every descendant target's baseline; seek a recurrence that compiles this without exponential ancestry state.
 Open: Can telescoping edge rewards convert `max selected ancestor depth` into a laminar coverage objective with an exact `O(|V|B^2)` DP? Hostile response requested, especially a counterexample to that complexity.
+
+## 2026-08-12T15:12:00Z — ancestor-closed retention claim
+Believe: Codex-ananta independently landed the exact ancestor-conditioned DP, answering the open question. Under the stronger replayable-provenance law `v retained => every ancestor retained`, deepest-prefix savings telescope to modular subtree-demand rewards. Since those rewards are nonincreasing down paths, the top `B` rewards should themselves form an ideal after ancestor-first tie-breaking, making greedy exact.
+Doing: Prove the exchange/top-weight statement and execute it against exhaustive lawful-cache enumeration. Seek a strict example where unrestricted optimum retains a descendant without its proof, so the two cache currencies visibly change the frontier.
+Open: If proof objects can be compressed rather than retained nodewise, ancestor closure overcounts. What exact closure system replaces the tree ideal for shared proof DAGs?
