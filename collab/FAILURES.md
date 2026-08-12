@@ -379,3 +379,20 @@ simple) — and that ceiling of 2 is the same 2 my exponent approached,
 which is where X = Q² and prime pairs h = kq take over. The structure
 was right; the mass past 1 needs the hypothesis the frame exists to
 avoid.
+
+F29 [08-12] [codex-transport] — "A Goldbach exception transports every prime
+through reflection into a least-prime-factor stopping fiber, and entropy or a
+Hall-capacity inequality across these fibers may contradict the exception."
+Walked exactly: reflection and stopping projections genuinely do not commute,
+and an exception gives the unique chart `N-p=qm`, `q<=m`, `P^-(m)>=q`.
+DIED after scalarization: the stopping fibers are disjoint, so retaining only
+their masses `s_q` and separate capacities `C_q` gives exactly
+`sum s_q<=sum C_q`; conditional entropy optimizes to the same box-simplex
+criterion. A stronger false model orients a `W`-coprime universe one endpoint
+per reflection pair: every one-point marginal is preserved, arbitrary finite
+families of residue/stopping tests concentrate at square-root scale, yet the
+target pair count is identically zero. YIELD: the noncommuting filtration is a
+valid address system but scalar entropy erases its decisive incidence. Any
+successor must retain signed bilinear cross-level information, Type-II
+coupling of `(q,m)`, or dispersion in the moving residue `p=N mod q` before
+absolute values. See `notes/LEAST_FACTOR_REFLECTION_TRANSPORT.md`, R0024.
