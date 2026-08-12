@@ -12,6 +12,7 @@ from exponent_world import (
     LinearCongruenceObstruction,
     LinearCongruenceSolution,
     UnitDeterminantSystemSolution,
+    WitnessedSmithSolution,
 )
 
 
@@ -260,6 +261,31 @@ class ExponentWorldTests(unittest.TestCase):
                 LinearCongruenceObstruction(10, 14, 30, 10),
             ),
         )
+
+    def test_explicit_smith_witness_transports_target_and_solution(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (2, 4, 6, 8, 10, 14, 18, 30):
+            world.form(value)
+        # U*A*V = diag(2,4) for A=[[2,4],[6,8]].
+        result = world.solve_witnessed_smith_system(
+            ((2, 4), (6, 8)), (14, 18), 30,
+            ((1, 0), (3, -1)), (2, 4), ((1, -2), (0, 1)),
+        )
+        self.assertIsInstance(result, WitnessedSmithSolution)
+        self.assertEqual(result.transformed_target, (14, 24))
+        self.assertEqual(result.representative, (25, 6))
+        self.assertEqual(result.diagonal_solution.kernel_size, 4)
+        self.assertEqual((2*25 + 4*6) % 30, 14)
+        self.assertEqual((6*25 + 8*6) % 30, 18)
+
+    def test_invalid_smith_witness_fails_before_solving(self):
+        world = ExponentWorld()
+        with self.assertRaisesRegex(ValueError, "not diagonal"):
+            world.solve_witnessed_smith_system(
+                ((2, 4), (6, 8)), (14, 18), 30,
+                ((1, 0), (-2, 1)), (2, 4), ((1, -2), (0, 1)),
+            )
 
 
 if __name__ == "__main__":

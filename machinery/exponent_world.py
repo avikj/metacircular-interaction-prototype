@@ -141,6 +141,19 @@ class DiagonalSmithObstruction:
     obstruction: LinearCongruenceObstruction
 
 
+@dataclass(frozen=True)
+class WitnessedSmithSolution:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    target: tuple[int, int]
+    modulus: int
+    left: tuple[tuple[int, int], tuple[int, int]]
+    diagonal: tuple[int, int]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    transformed_target: tuple[int, int]
+    diagonal_solution: DiagonalSmithSolution
+    representative: tuple[int, int]
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -503,6 +516,60 @@ class ExponentWorld:
         return DiagonalSmithSolution(
             diagonal, target, modulus, (first, second), kernel_size
         )
+
+    def solve_witnessed_smith_system(
+        self,
+        matrix: tuple[tuple[int, int], tuple[int, int]],
+        target: tuple[int, int],
+        modulus: int,
+        left: tuple[tuple[int, int], tuple[int, int]],
+        diagonal: tuple[int, int],
+        right: tuple[tuple[int, int], tuple[int, int]],
+    ) -> WitnessedSmithSolution | DiagonalSmithObstruction:
+        """Consume an explicit integer certificate U*A*V=diag(d1,d2)."""
+        if _det2(left) not in (-1, 1) or _det2(right) not in (-1, 1):
+            raise ValueError("Smith transport matrices must be integer unimodular")
+        diagonal_matrix = ((diagonal[0], 0), (0, diagonal[1]))
+        if _matmul2(_matmul2(left, matrix), right) != diagonal_matrix:
+            raise ValueError("invalid Smith certificate: U*A*V is not diagonal")
+        transformed_target = _matvec2(left, target)
+        normalized_target = tuple(value % modulus or modulus for value in transformed_target)
+        for value in (*diagonal, *normalized_target, modulus):
+            if value not in self.forms:
+                self.form(value)
+        solved = self.solve_diagonal_smith_system(
+            diagonal, normalized_target, modulus
+        )
+        if isinstance(solved, DiagonalSmithObstruction):
+            return solved
+        w = tuple(coordinate.residue for coordinate in solved.coordinates)
+        representative = tuple(value % modulus for value in _matvec2(right, w))
+        if tuple(value % modulus for value in _matvec2(matrix, representative)) != tuple(
+            value % modulus for value in target
+        ):
+            raise AssertionError("Smith reconstruction failed in original coordinates")
+        self.life._record(
+            "form-operation",
+            (*matrix[0], *matrix[1], *target, modulus, *diagonal, *representative),
+            "verified U*A*V=D, solved transformed diagonal system, reconstructed z=Vw",
+        )
+        return WitnessedSmithSolution(
+            matrix, target, modulus, left, diagonal, right,
+            transformed_target, solved, representative,
+        )
+
+
+def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:
+    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+
+
+def _matmul2(left, right):
+    return tuple(tuple(sum(left[i][k] * right[k][j] for k in range(2))
+                       for j in range(2)) for i in range(2))
+
+
+def _matvec2(matrix, vector):
+    return tuple(sum(matrix[i][j] * vector[j] for j in range(2)) for i in range(2))
 
 
 def _extended_gcd(a: int, b: int) -> tuple[int, int, int]:

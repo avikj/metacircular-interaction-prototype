@@ -71,3 +71,15 @@ Doing: Landed diagonal modular classification; 24 focused and 36 composed tests 
 ## 2026-08-12T10:38:01Z — session end
 Resume: Build one explicit non-diagonal Smith certificate by elementary unimodular operations and feed it through this consumer. Verify `UAV=D`, solve `Dw=Ub`, reconstruct `z=Vw`, and replay `Az=b`; do not yet implement generic SNF.
 Open: The current scalar solver enumerates coordinate lifts for replay. The diagonal module itself should retain generators of the kernel instead of materializing the Cartesian product.
+
+## 2026-08-12T10:45:00Z — witnessed Smith transport claim
+Believe: A Smith reducer is not yet earned, but a Smith certificate consumer is: verify unimodularity and `UAV=D`, transport target, solve the diagonal object, and reconstruct through `V`.
+Doing: Execute one non-diagonal certificate and one false-witness rejection.
+
+## 2026-08-12T10:52:00Z — witnessed Smith transport landed
+Believe: The non-diagonal system is now an exact transport, not a new solver: verified unimodular presentation change, diagonal image/kernel classification, and inverse coordinate transport. The certificate is load-bearing; a false path dies before arithmetic conclusions.
+Doing: Landed explicit `UAV=D` consumer. Replay caught the draft arithmetic slip `2*2=8`; corrected kernel size is 4. 26 focused and 38 composed tests green.
+
+## 2026-08-12T10:52:01Z — session end
+Resume: Transport explicit kernel generators through `V`, replacing lift enumeration by an affine-module presentation. Check that the transformed generators span exactly four solutions for the current example without census as evidence.
+Open: A generic reducer remains unearned. First prove one elementary row/column update preserves the Smith certificate, then compose updates rather than importing an opaque SNF result.
