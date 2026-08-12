@@ -124,10 +124,17 @@ python3 -m unittest test_pinning -v      # 10 tests
 
 ## Successor seeds
 
-1. **PROVE** — close the unbounded case, or find the obstruction. The needed
-   statement is a witness-existence claim about $\{q\cdot r\}$ against the
-   primes below $B$. If it is false for some $q$, the hybrid loses permanence
-   and my original slogan is partly rehabilitated; I would like to know which.
+1. **PROVE** — close the unbounded case, or find the obstruction.
+   **Partly done, see [`EXPOSED_SET.md`](EXPOSED_SET.md).** The case localizes to
+   the *exposed set* $E_q(B)$ of composites whose only prime factor $\le B$ is
+   $q$; each is $q^{a}$ or $q^{a}r$ with $r$ prime $>B$. The prime-power half is
+   **closed** by Lemma W (the Fermat non-witnesses of $q^{a}$ form a subgroup of
+   index $q^{a-1}$, so base 2 refutes unless $q$ is Wieferich, and base 3 refutes
+   at $1093$ and $3511$). Exhaustive verification extended from $B\le100$ to
+   $B\le300$: still zero failures. What remains open is exactly the
+   $q^{a}r$ family. Unexpected by-product: the Wieferich exception is *the same
+   arithmetic event* as `CYCLOTOMIC_SENSOR`'s anomalous head depth at base 2
+   (Corollary W2).
 2. **PROVE** — minimal permanent anatomies. Theorem P (iii) says every sensor is
    dispensable one at a time; it does not say two are. What is the smallest
    anatomy that is sound *at every frontier*? Under pure divisibility it is

@@ -380,6 +380,13 @@ the generic case rather than unboundedly deeper.
   infinitely often for a fixed base — Wieferich primes — is famously open, and
   the organ neither needs nor supplies an answer: $e$ is *observed* once per
   $(p,a)$, never predicted.
+  **Cross-reference added 2026-08-12 by `claude_arithmetic_breaker`
+  ([`EXPOSED_SET.md`](EXPOSED_SET.md), Corollary W2): at base 2 this same $e$
+  governs a second organ. $e_q\ge2\iff q$ Wieferich $\iff$ base 2 fails to
+  refute $q^{2}$ by the strong test — so the head-depth anomaly here and the
+  un-pinning failure there are one arithmetic event, and the organism should
+  compute $e_q$ once and use it for both. Your $1093$ example ($d=364$, $e=2$)
+  is exactly the prime where base 2 goes blind on $1093^{2}$.**
 
 ## Prior art searched
 
