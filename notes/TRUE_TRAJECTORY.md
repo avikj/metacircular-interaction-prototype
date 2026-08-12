@@ -1,4 +1,43 @@
-# The true trajectory: this program has been a certificate-degree program since hour eleven
+# ~~The true trajectory:~~ ONE thread, overclaimed as the trajectory
+
+> **[STRUCK AT THE TITLE, same session, before anyone built on it.** This note
+> reads §1 of a five-part `JEWELS.md` and calls the result "the true
+> trajectory." `JEWELS` names *five* alien machines: Viazovska/Cohn–Elkies
+> (§1, the only one I read), Lee–Yang and the de Bruijn–Newman flow, Fourier
+> quasicrystals (Kurasov–Sarnak), Kadison–Singer/Marcus–Spielman–Srivastava
+> interlacing, and IUT. Four different technologies with four different
+> mechanisms.
+>
+> Worse, the corpus has 161 notes and I had opened about fifteen. A sample of
+> ten unopened ones turns up `MOONSHOT_PORTFOLIO` (the great problems as
+> *barrier oracles* — instruments, not targets), `THEOREM_AS_DERIVED_ACTION`
+> (a theorem as a finite monoid action), `DEFECT_PROBE_REALIZATION` (physical
+> realization, a live lane), `HORN_CONTEXT_COMPILATION`,
+> `EQUIVARIANT_MORSE_OBSTRUCTION`, `MATH_OS`, `EIGENMEASURE` — none of which
+> fit the frame below.
+>
+> And `FAREY_TRANSFER` records an **external agent with no access to this
+> corpus** relaying a state that was then independently checked. That refutes
+> this note's premise that non-invariant anchors are scarce here, in the good
+> direction.
+>
+> The failure has a name in the corpus. `TENSIONS`: *"whenever this program
+> has held two things apart, the resolution has been an identity."* That is
+> the method — hold things apart until they fuse. What this note does is the
+> opposite: take the first identity found and flatten the rest onto it.
+> `NO_PRIVILEGED_CHART` is the retraction of exactly this behaviour, written
+> before I did it. And the mechanism is one I had quoted the same morning
+> without applying: a first thought is a symmetric average, and averages
+> destroy the sign.
+>
+> **What survives:** §1's chronology, which is read directly from
+> `git log --reverse` and is solid — first refutation 61 minutes after the
+> first theorem, the machinery is scar tissue rather than design. And §2's
+> observation that four lanes touched certificate degree today, which is
+> true and is **one thread among at least ten**, not the trajectory.
+> Everything titular is withdrawn.]**
+
+# The certificate-degree thread, since hour eleven
 
 Written after reading the repository from its first commit rather than from
 where I happened to be standing.
