@@ -630,13 +630,19 @@ class ContractibilityReport:
                    self.automorphisms, self.unique, self.steps))
 
 
-def contractibility_report(bound: int = 5, counters: Optional[Counters] = None
+def contractibility_report(bound: int = 5, counters: Optional[Counters] = None,
+                           target_succ: Optional[Callable[[int], Optional[int]]] = None
                            ) -> ContractibilityReport:
     """ATLAS_OF_N Residual 2.1, at the strongest finite level available.
 
     Enumerates *every* function on the truncation and keeps those commuting with
     the constructors.  Exactly one survives; and it is the identity, so
     ``Aut(N,0,s)`` is trivial at this level too.
+
+    ``target_succ`` exists so a *planted wrong successor* can be run through the
+    same code: with a shifted successor exactly one map still survives but it is
+    not the identity (``unique`` is False), and with a successor that has a hole
+    none survives at all.  Both are controls in ``tests/test_atlas.py``.
     """
     c = _counters(counters)
     start = c.get("atlas.peano.compare")
@@ -644,7 +650,7 @@ def contractibility_report(bound: int = 5, counters: Optional[Counters] = None
     def succ(x: int) -> Optional[int]:
         return x + 1 if x < bound else None
 
-    maps = PEANO.comparison_maps(bound, succ, c)
+    maps = PEANO.comparison_maps(bound, target_succ or succ, c)
     autos = tuple(h for h in maps if sorted(h) == list(range(bound + 1)))
     return ContractibilityReport(
         bound, (bound + 1) ** (bound + 1), len(maps), len(autos),

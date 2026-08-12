@@ -556,11 +556,16 @@ def x_carry_free():
             and rep.class_is_nonzero is False)
 
 
-@control("C10 a wrong successor must not yield a unique comparison map")
+@control("C10 a planted wrong successor must break the contractibility verdict")
 def x_wrong_successor():
-    bad = X.PEANO.comparison_maps(5, lambda x: (x + 2) % 6, CNT)
-    worse = X.PEANO.comparison_maps(5, lambda x: 0, CNT)
-    return len(bad) != 1 and len(worse) != 1
+    shifted = X.contractibility_report(5, CNT, lambda x: (x + 2) % 6)
+    holed = X.contractibility_report(5, CNT, lambda x: None if x == 2 else x + 1)
+    constant = X.contractibility_report(5, CNT, lambda x: 0)
+    # a shifted successor still admits exactly one map -- but it is NOT the
+    # identity, which is precisely what `unique` tests; a hole admits none.
+    return (shifted.comparison_maps == 1 and not shifted.unique
+            and holed.comparison_maps == 0 and not holed.unique
+            and not constant.unique)
 
 
 @control("C11 a Quotient claimed for a bijection must be refused")

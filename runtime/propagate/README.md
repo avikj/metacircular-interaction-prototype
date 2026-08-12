@@ -20,7 +20,8 @@ recompute  (mutation)   apply the plan, re-execute only the invalid, routes
 
 `cone` imports only `kernel.term`. `invalidate` imports `kernel.egraph`'s
 **quotient machinery** — `ClassEnumeration`, `merge_multisets`, `multiset_key`,
-`IncompleteEnumeration` — and nothing else. L4 never touches the checker and
+`IncompleteEnumeration` — plus `kernel.bounded`, the bounded-search discipline
+it shares with `egraph.explanation_classes` (§7 C1), and nothing else. L4 never touches the checker and
 cannot make anything true.
 
 ```python
@@ -122,7 +123,7 @@ survival rule needs, and each has a planted-false control in the suite
 
 | call | returns |
 |---|---|
-| `justification_classes(g, fid, max_paths=, max_depth=, max_classes=)` | `ClassEnumeration` of `DerivationClass` |
+| `justification_classes(g, fid, max_paths=, max_depth=, max_classes=)` | `ClassEnumeration` of `DerivationClass` — **iterative deepening; a depth bound prunes a branch, never the search** (§7 C1) |
 | `survival(g, fid, retracted)` | `Survival` — `.status ∈ {SURVIVES, DIES, UNDECIDED}` |
 | `invalidate(g, fid, obligations=())` | `Invalidation` — the whole plan, **pure** |
 | `classify_obligations(g, obligations, survivals)` | `ObligationVerdict`s |
@@ -132,6 +133,10 @@ survival rule needs, and each has a planted-false control in the suite
 
 `Survival.alive` **raises** `IncompleteEnumeration` on an `UNDECIDED` verdict:
 there is no boolean answer to give, so none is given.
+
+`DerivationClass.representative` is the class's **smallest** justification tree
+(fewest derivations, ties broken by the derivation-id sequence), matching
+`kernel/README.md` C3. `members` is unchanged.
 
 ### `recompute.py`
 
@@ -193,8 +198,8 @@ which `CRYSTAL.md` §0 rules out explicitly.
 
 ## 5. Testing
 
-`python3 runtime/tests/test_propagate.py` — 15 capability tests and 11
-planted-false controls; exits nonzero on any failure. The controls are the
+`python3 runtime/tests/test_propagate.py` — **19 capability tests and 13
+planted-false controls (32 total)**; exits nonzero on any failure. The controls are the
 three the design is most likely to get wrong, plus the ones that guard the
 guarantees:
 
@@ -212,7 +217,10 @@ guarantees:
   reassociations must not count as two proofs (over-splitting);
 * a plan built on an `UNDECIDED` survival must not be applied;
 * a retracted fact must justify nothing afterwards;
-* a derived fact must not be retractable.
+* a derived fact must not be retractable;
+* a bounded tree enumeration that found *some* classes must not call itself
+  complete (`x_l4_depth_pruned_not_complete`), while an unbounded run on the
+  same graph must still be able to.
 
 **Mutation-tested**, per the norm the kernel set: 12 deliberate defects were
 injected into copies — β counted as an axiom, axioms counted as nothing,
@@ -247,6 +255,10 @@ an untested suite.
 
 ### What breaks first at scale
 
+0. ~~**The derivation-tree walk aborts globally on `max_depth`, exactly as
+   `egraph.py` used to.**~~ **FIXED** — see §7 C1. It now prunes the branch and
+   backtracks, with rounds shortest-first over an admissible minimum-height
+   bound.
 1. **Class enumeration is exponential, and honestly so.** Six links with three
    parallel axioms each is `3⁶ = 729` genuinely distinct classes — the demo
    computes all of them. The blow-up is in the mathematics, not the algorithm:
@@ -267,3 +279,29 @@ an untested suite.
    e-graph's DFS recursion depth (`STATUS.md` #5) and, on a heavily shared atom,
    the retraction cone width (`STATUS.md` #3). L4's cone is exact over the
    *fact* graph; it does not repair the *term* graph's sharing problem.
+6. **Iterative deepening re-explores.** Each round re-expands the trees it
+   already saw and re-records only the ones of exactly that height. On a graph
+   whose justification heights are uniform — the demo's, and the reason its
+   counters did not move — the loop runs once and costs nothing extra. On a
+   graph with a wide spread of tree heights it runs once per height and the
+   work multiplies by that spread. `expand` is not memoised across rounds; it
+   could be, keyed on `(fact, remaining height)`, and is not.
+
+---
+
+## 7. Contract changes
+
+This section exists because other lanes code against this file, and a silently
+edited document is indistinguishable from a document that was always right.
+
+| # | when | symbol | was | is | why |
+|---|---|---|---|---|---|
+| C1 | repair lane | `invalidate.justification_classes` | on reaching `max_depth` the tree walk set a **global** stop flag and returned no trees at all: one justification chain deeper than the bound ended the whole enumeration. A consequence with a short, independent, *surviving* justification behind that chain therefore produced **zero** classes, `survival` degraded to `UNDECIDED`, and `recompute.apply` refuses to act on an `UNDECIDED` plan — so a theorem that plainly survived could not be said to | the depth bound **prunes that derivation branch and backtracks**; rounds go shortest-first (iterative deepening from `min_height(fid)` upward, cutting a branch only when `depth + min_height` provably overruns the round) | Filed by the repair lane against itself in `STATUS.md`: "`propagate/invalidate.py`'s derivation-tree walk still aborts globally on `max_depth` exactly as `egraph.py` used to, and wants the same repair." It is the same defect as `kernel/README.md` C2 and it now runs the same code (`kernel/bounded.py`). Measured on a 60-link chain hiding a 2-fact survivor: **0 classes / `UNDECIDED` → 1 class of size 2 / `SURVIVES`**. Honesty is unchanged: the run still reports `complete=False` with the pruned-branch count in `reason`. Pinned by `B10`, `B11` and the control `x_l4_depth_pruned_not_complete`. |
+| C2 | repair lane | the `max_paths` premise-product bound | overrunning it set the same global stop flag | it **truncates that derivation and keeps its siblings**, and is reported *as a width bound*, with its own reason string, not as a depth problem | A deeper round cannot recover a product that was too wide, so reporting it as `max_depth` would have been a wrong diagnosis. `SearchLedger` tracks depth pruning and width truncation separately for exactly this reason. |
+| C3 | repair lane | `DerivationClass.representative` | the tree with the lexicographically smallest derivation-id sequence | the **smallest** tree (fewest derivations), ties broken by that same sequence | Parity with `kernel/README.md` C3: the representative is what a caller reads as "the proof". `members` is unchanged. |
+
+**No published number moved.** `runtime/demo/propagate_demo.py`'s output is
+**byte-identical** before and after — including `344` L4 steps for the `P00`
+retraction against `1` for the null control, `class.expand=119` and
+`index.reverse=251`. The demo's library has uniform justification height, so the
+deepening loop runs exactly one round and the admissible bound prunes nothing.

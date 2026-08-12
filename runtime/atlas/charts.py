@@ -601,7 +601,9 @@ class Ordinal:
     def __mul__(self, other: "Ordinal") -> "Ordinal":
         if self == Ordinal(0, 0) or other == Ordinal(0, 0):
             return Ordinal(0, 0)
-        if other.finite:                       # alpha * m
+        if other.finite:                       # alpha * m, m >= 1
+            if self.a == 0:                    # both finite: ordinary product
+                return Ordinal(0, self.b * other.b)
             return Ordinal(self.a * other.b, self.b)
         if self.finite:                        # m * (omega*a + b) = omega*a + m*b
             return Ordinal(other.a, self.b * other.b)

@@ -492,11 +492,20 @@ outcome; on this task both happened.)
 | applications during saturation | **0** |
 | frontier targets vs before | **identical** |
 | frontier costs vs before | **identical** |
-| e-match work it cost anyway | **+854 visits** |
+| e-match work it cost anyway | **+0 visits** under the automaton, **+854** under the recursive matcher |
 
 A true, checked, irrelevant theorem costs search work and buys nothing. The gap
 between that row and the table above it is the entire claim: the runtime is not
 caching, it is applying mathematics that happens to apply.
+
+The e-match row moved when the automaton became the default (§3.4) and is worth
+stating rather than quietly re-issuing: the automaton's candidate-signature
+collapse makes the irrelevant `plus`/`dbl` theorem cost **nothing measurable**
+on this graph, where the recursive matcher paid 854 visits to fail. That
+*weakens* the "it costs work and buys nothing" half of the null control on this
+particular counter — the theorem is still applied 0 times and the frontier is
+still bit-identical, which is the half the claim rests on, but the cost side of
+it is now engine-dependent and is reported as such.
 
 ### The frontier again, extracted over the **class DAG** (demo §13)
 
@@ -592,7 +601,7 @@ expansion.
 
 ## 9. Testing
 
-`python3 runtime/tests/test_execute.py` — **47/47**, every capability paired
+`python3 runtime/tests/test_execute.py` — **59/59**, every capability paired
 with a planted control. The four the brief names:
 
 | control | test |
@@ -602,7 +611,22 @@ with a planted control. The four the brief names:
 | an extraction claiming a dominated route is Pareto-optimal | `test_dominated_route_is_refused_by_the_frontier` |
 | a saturation that must report budget exhaustion | `test_saturation_reports_budget_exhaustion_not_a_fixpoint` |
 
-plus: `Conjecture` edges refused as rules; `Eq` edges with unchecked proofs
+plus, for the two things built since (§3.4, §5.1): the automaton and the
+recursive matcher returning **equal match keys in equal order** over eight
+patterns × two graph sizes and over binder patterns; the automaton honouring the
+same budget discipline; a pattern compiled once and reused; an unknown engine
+name refused; a class-DAG frontier point that lands on a term the e-graph
+**never built** and still checks; the class-DAG frontier matching or beating
+every stored-term frontier point; the class fixpoint converging *and saying so*;
+the class fixpoint under each of `max_rounds`, `max_options` and `max_terms`
+refusing to call itself converged (the planted falsehood being "we found some,
+so we are done"); an unknown bound refused rather than ignored; assembled routes
+being re-checked against a different book and **failing**, because "our own
+fixpoint assembled it" is not a reason to believe it; class-DAG extraction being
+deterministic; and class-DAG extraction leaving the e-graph's terms, records and
+classes untouched.
+
+Plus: `Conjecture` edges refused as rules; `Eq` edges with unchecked proofs
 refused; theorems that justify themselves refused; schematic parameters that
 collide with an axiom refused; forged theorem expansions that do not check;
 open bindings refused; bare-variable patterns refused; sorts respected across
@@ -611,9 +635,9 @@ the forest route; `max_targets` refusing rather than truncating; determinism of
 e-matching, saturation and the demo; and a grep asserting no float appears
 anywhere in the package.
 
-**Mutation-tested.** A green suite that has not been mutation-tested is an
-untested suite. Thirteen deliberate defects were injected into copies of the
-package — dropping the checker call from `apply_rule`; letting a bound
+**Mutation-tested — but note what is and is not covered.** A green suite that
+has not been mutation-tested is an untested suite. Thirteen deliberate defects
+were injected into copies of the package — dropping the checker call from `apply_rule`; letting a bound
 e-matching variable match any class; hard-wiring `is_fixpoint` to `True`;
 dropping the strictness half of domination; merging without checking; degrading
 the geodesic to the forest route; ignoring the visit budget; skipping the
@@ -628,24 +652,35 @@ all thirteen.
 
 Ordered by how soon it bites.
 
-1. **E-matching is exponential in pattern size and this bound is doing real
-   work.** The memo and the head index cut the demo's e-match cost by three
-   orders of magnitude, and they only postpone the problem:
-   a pattern with several variables over classes of thousands of members will hit
-   `max_visits`, and then saturation correctly reports `budget:ematch` and every
-   claim downstream becomes "as far as we got". The fix is the standard one and
-   is not cheap: compile patterns to an e-matching automaton (a discrimination
-   net over the e-graph), and index nodes by `(spine head, arity, child classes)`
-   so candidate generation is a join rather than a scan. **This is the one that
-   matters**, because a partial e-match makes the fixpoint claim unavailable.
-2. **`Budget.max_exhaustive_vars = 1` is a route-materialisation cliff.** Rules
-   with two or more variables bind canonically, so their right-hand sides are
-   built at one representative per class. No equality is lost, but the frontier
-   only ever contains terms someone materialised — so a *better route to a term
-   nobody built* is invisible. Raising the threshold multiplies node count by
-   `|class|^vars`. The real fix is extraction that selects from classes rather
-   than from stored terms (bottom-up Pareto extraction over the class DAG), at
-   which point materialisation stops mattering.
+1. ~~**E-matching is exponential in pattern size and this bound is doing real
+   work.** … The fix is the standard one and is not cheap: compile patterns to
+   an e-matching automaton (a discrimination net over the e-graph), and index
+   nodes by `(spine head, arity, child classes)` so candidate generation is a
+   join rather than a scan.~~ **The automaton is BUILT** (§3.4,
+   `execute/ematch.py`, `DEFAULT_ENGINE = "automaton"`, the recursive matcher
+   retained and selectable). Measured: demo saturation 33,630 → **16,962**
+   visits, 3.1× fewer total lookups on an AC-saturated 6,549-node graph,
+   2.7×–4.7× faster on search-dominated patterns, **3–10% slower on two
+   match-heavy patterns**. **The bound itself is untouched**: e-matching is
+   still exponential in pattern size, the automaton enumerates the same search
+   tree, and a pattern with several variables over wide classes will still hit
+   `max_visits` and still make saturation report `budget:ematch`. What was
+   removed is constant factors, not the exponential — so this item is downgraded,
+   not deleted. Full numbers and the two adverse rows: `SCALE.md` §4.
+2. ~~**`Budget.max_exhaustive_vars = 1` is a route-materialisation cliff.**
+   … The real fix is extraction that selects from classes rather than from
+   stored terms (bottom-up Pareto extraction over the class DAG), at which point
+   materialisation stops mattering.~~ **BUILT** — §5.1,
+   `extract_class_frontier`. On the demo's before-graph the frontier goes
+   **11 → 16** nondominated routes, **4 of them to terms the e-graph never
+   built**; after the theorem **9 → 14** with 3 unbuilt. `max_exhaustive_vars`
+   is still 1 and the e-graph still materialises one representative per class:
+   what changed is that extraction no longer *depends* on that, so the cliff no
+   longer shows up in the frontier. Two things this does **not** fix: the
+   *saturation* search still only ever fires rules at canonical representatives,
+   so an equality that would only be discovered by e-matching against an unbuilt
+   term is still not discovered; and the per-class Pareto filter is exact in
+   `(steps, size, width)` and silent in `verify` (§5.1).
 3. **Chords make the record graph dense, and everything downstream is over that
    graph.** 32 unions produced 225 chords here — a factor of 8. `RouteFinder`'s
    Dijkstra is `O(E log V)` per target and it is run per target, so extraction is
@@ -669,7 +704,17 @@ Ordered by how soon it bites.
    failure is *loud*, which is the right failure mode, but the bookkeeping that
    should have withdrawn the rule is `CRYSTAL.md` §L4's dependency cone and it is
    not built.
-7. **`verify` is nearly collinear with `steps` on flat proof paths.** The axis
+7. **The class-DAG fixpoint is bounded, not convergent, on cyclic class
+   graphs.** §5.1's termination argument is by construction. On an e-graph
+   carrying a unit law (`x = x*1`) the class graph has a cycle and the Pareto
+   set of a class is not guaranteed finite, so `max_rounds`/`max_options` will
+   bind and the result will honestly say `complete=False`. Nothing measured here
+   exercises that case — the demo's class graph is acyclic and converges — so
+   the bounds' behaviour under a genuinely cyclic class graph is *untested at
+   scale*, which is a gap, not a guarantee. The combination count is also
+   `|options|^arity` per node per round, and `max_terms` exists because that is
+   the number that will bite.
+8. **`verify` is nearly collinear with `steps` on flat proof paths.** The axis
    earns its place only on congruence-heavy routes. On a task whose proofs are
    all root-level rewrites it is close to `4·steps`, and a four-component vector
    with two near-parallel components is a three-component vector wearing a hat.
@@ -681,8 +726,30 @@ Ordered by how soon it bites.
 | file | contents |
 |---|---|
 | `rewrite.py` | `Rule`; `rule_from_axiom` / `rule_from_edge` / `install_theorem` (G1–G3); positions, `match`, `apply_rule`, `rewrite_all`; proof-path arithmetic — `count_steps`, `reverse_path`, `substitute_path`, `expand_path` |
-| `ematch.py` | `EMatchBudget`, `EMatch`, `EMatchResult`; class member/index caches; the two-phase memoised matcher; `ematch`, `ematch_rule` |
+| `ematch.py` | `EMatchBudget`, `EMatch`, `EMatchResult`; class member/index caches; the two-phase memoised recursive matcher **and** the compiled automaton (`compile_pattern`, `Program`, `DEFAULT_ENGINE`); `ematch`, `ematch_rule` |
 | `saturate.py` | `Budget`, `Application`, `SaturationResult`, `saturate` |
-| `extract.py` | `CostVector`, `dominates`, `pareto`, `is_nondominated`; `RouteFinder` (the geodesic); `Route`, `measure_route`, `extract_routes`; `Scalarization`, `ScalarChoice`, `scalarize`; `FrontierDiff`, `frontier_diff` |
-| `../demo/geodesic_demo.py` | the measured demonstration; exits 0 iff every claim above holds |
-| `../tests/test_execute.py` | 47 tests, every planted-false control |
+| `extract.py` | `CostVector`, `dominates`, `pareto`, `is_nondominated`; `RouteFinder` (the geodesic); `Route`, `measure_route`, `extract_routes`; **`ClassOption`, `ClassSolution`, `ClassExtractor`, `extract_class_frontier`, `DEFAULT_DAG_BOUNDS`** (§5.1); `Scalarization`, `ScalarChoice`, `scalarize`; `FrontierDiff`, `frontier_diff` |
+| `../demo/geodesic_demo.py` | the measured demonstration, §1–§14; exits 0 iff every claim above holds. §13 is the class-DAG frontier, §14 the verdict |
+| `../demo/ematch_bench.py` | both e-match engines against one AC-saturated graph — `SCALE.md` §4.3 |
+| `../tests/test_execute.py` | 59 tests, every planted-false control |
+
+---
+
+## 12. Contract changes
+
+This section exists because other lanes code against this file, and a silently
+edited document is indistinguishable from a document that was always right.
+Each entry says what the contract *was*, what it *is*, and why it moved.
+
+| # | when | symbol / claim | was | is | why |
+|---|---|---|---|---|---|
+| C1 | scale lane | `ematch(g, pattern, variables, budget=…)` | one engine: the memoised recursive matcher | `ematch(…, engine=None)` selecting `"automaton"` (the default) or `"recursive"`; patterns compiled once by `compile_pattern` and cached | §10 item 1 named the automaton as the thing that must be built. Matches are **identical in content and order** under both engines (differential test), so no caller's answer changes. |
+| C2 | scale lane | `EMatchBudget.max_visits` | "recursive calls made" | "candidate signatures considered" under the automaton | The two engines count different events, so a caller who pinned a `max_visits` against the recursive engine may see `exhausted=True` sooner on AC-like graphs. `max_visits` is a **budget, not a metric**, and cross-engine comparisons of it are meaningless (`SCALE.md` §4.4). |
+| C3 | repair lane | extraction | `extract_routes` only, over the members of an e-class — i.e. over the terms that were materialised | `extract_class_frontier` additionally, over the **class DAG**: a Pareto fixpoint whose realisations need never have been built | §10 item 2's named fix. `extract_routes` is **unchanged** and still the demo's published extractor, so every §7 counter reproduces to the unit. The new function is additive. |
+| C4 | repair lane | "the geodesic to `sqr(sqr(sqr #3))` is 24 before the theorem" (§7) | presented as the route length | a minimum over **record-graph routes**; the minimum over checkable proofs found by the class-DAG extractor is **20** | Extraction weakness, not mathematics. The theorem's honest effect on that target is **−5**, not −9. §7's table is correct about `RouteFinder` and is left as it stands; §7's class-DAG subsection is the correction, and `STATUS.md` quotes the −9. |
+| C5 | repair lane | the null control's e-match cost | "+854 visits" | **+0** under the automaton, +854 under the recursive matcher | The default engine changed (C1). The half of the null control that carries the claim — 0 applications, bit-identical frontier — is unchanged; the cost half is now engine-dependent and is reported as such. |
+
+One thing deliberately did **not** change and should not be changed without an
+entry here: `extract_routes` remains the default extractor and the source of
+every number in §7's main tables, so a lane that quoted them can still reproduce
+them exactly.

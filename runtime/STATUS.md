@@ -126,12 +126,66 @@ use. Any claim that it does would be measuring the wrong thing.
    **Contract changes** section (C1 the `ClassEnumeration` replacement, C2 the
    backtracking fix, C3 the shortest-realisation representative) so a later
    lane can read the history instead of trusting a silently-edited document.
-3. **`EGraph.explain` is not a metric and must not be used as one.** Its
+3. ~~**`propagate/invalidate.py`'s derivation-tree walk aborts globally on
+   `max_depth` exactly as `egraph.py` used to.** Filed by the repair lane
+   against itself rather than fixed.~~ **FIXED.** Same defect, same repair,
+   and now the *same code*: the discipline lives in the new
+   `runtime/kernel/bounded.py` (prune the branch, deepen shortest-first over an
+   admissible lower bound, report which bound bound) and both
+   `egraph.explanation_classes` and `invalidate.justification_classes` call it.
+   On a 60-link chain hiding a 2-fact independent survivor: **0 classes →
+   1 class of size 2**, and the verdict **`UNDECIDED` → `SURVIVES`** — the old
+   behaviour could not certify survival for a consequence that plainly
+   survived, and `recompute.apply` refuses to act on `UNDECIDED`. Nodes
+   explored 33 → 96 (it now explores instead of dying). **No published number
+   moved**: `runtime/demo/propagate_demo.py` is byte-identical, including 344
+   L4 steps for `P00` against 1 for the null control. Pinned by `B10`, `B11`
+   and the control `x_l4_depth_pruned_not_complete` in
+   `tests/test_propagate.py`; contract entry in `propagate/README.md` §7 C1–C3
+   and `kernel/README.md` C4.
+4. ~~**The materialisation cliff.** `execute/README.md` §10 item 2: with
+   `max_exhaustive_vars = 1`, multi-variable rules bind canonically and build
+   their right-hand sides at one representative per class, so the Pareto
+   frontier only ever contains terms someone materialised and a better route to
+   an unbuilt term is invisible.~~ **FIXED** by the named fix — Pareto
+   extraction over the class DAG (`execute.extract_class_frontier`, a vector
+   fixpoint with a Pareto set of realisations per e-class, assembling terms that
+   need never have been built). On `demo/geodesic_demo.py`'s task the frontier
+   goes **11 → 16** nondominated routes before the theorem and **9 → 14** after,
+   with **4 (before) and 3 (after) frontier routes landing on terms the e-graph
+   never built**; 0 routes rejected by the checker, all 208 destinations
+   evaluated to the single value 6561, the null control still bit-identical, and
+   the class fixpoint converging in 4 rounds / 3 rounds rather than hitting a
+   bound. Demo §13; contract entry in `execute/README.md` §12 C3–C4.
+   **One published number is now known to be an extraction artifact — see the
+   note below.**
+5. **`EGraph.explain` is not a metric and must not be used as one.** Its
    length is proof-forest route length, which depends on merge order: in an
    early L3 draft, adding a theorem made a target go 28 → 36 steps while
    genuinely getting *closer*. L3 added `RouteFinder` (Dijkstra over the
    retained justification graph, congruence edges weighted by the recursive
    geodesic between their arguments). Any future distance claim must use it.
+
+## The number the class-DAG extractor moved, stated loudly
+
+The L3 row in the table above, and `execute/README.md` §7, report that the
+`pow4` theorem took the geodesic to `sqr(sqr(sqr #3))` from **24 to 15** steps,
+a change of **−9**. That is a correct statement about `RouteFinder`: 24 is the
+shortest route through the **retained merge records** before the theorem.
+
+It is *not* the shortest checkable proof. Extraction over the class DAG finds a
+**20-step** checked proof of the same target in the same before-theorem book,
+because a congruence proof assembled from freely chosen sub-geodesics need not
+correspond to any single retained congruence record. Measured over the class
+DAG the theorem's effect on that target is **20 → 15, i.e. −5**.
+
+Both numbers are checked proofs and both are reproduced by
+`runtime/demo/geodesic_demo.py` (§7 and §13 respectively). **The direction of
+every claim is unchanged**: the theorem strictly shortens the target, no route
+gets longer, the frontier moves, and the null control changes nothing. What is
+no longer defensible is the magnitude −9 as a claim about *proofs* rather than
+about *record-graph routes*. Anything quoting "24 → 15" or "−9" should quote it
+that way round.
 
 ## A note on the cost vector
 
@@ -166,18 +220,24 @@ performs, the automaton does 2.6× less work on the hardest graph measured;
 counting raw `visits` it looks worse there and better on the demo. `SCALE.md`
 §4.4 states this in full.
 
-**Still open after this lane:** `merge`'s O(n²) duplicate-id scan; retraction
-cone width; `recompute_addr` tree recursion; class enumeration is still
-exponential in *work* on dense justification graphs (the fix is dominance
-pruning on the partial multiset during the walk, not more bounds);
-`propagate/invalidate.py`'s derivation-tree walk still aborts globally on
-`max_depth` exactly as `egraph.py` used to, and wants the same repair.
+**Still open after the repair lane:** `merge`'s O(n²) duplicate-id scan;
+retraction cone width; `recompute_addr` tree recursion; class enumeration is
+still exponential in *work* on dense justification graphs (the fix is dominance
+pruning on the partial multiset during the walk, not more bounds); L4's
+iterative deepening re-expands once per tree height and `expand` is not memoised
+across rounds; the class-DAG fixpoint's per-class Pareto filter is exact in
+`(steps, size, width)` and **silent in `verify`**; the class-DAG fixpoint is
+bounded rather than convergent on a *cyclic* class graph and nothing measured so
+far exercises that case; saturation still fires rules only at canonical
+representatives, so extraction over classes does not make e-matching see unbuilt
+terms; and the twelve tests added for the e-match automaton and the class-DAG
+extractor have **not** been mutation-tested, so those two components carry a
+weaker guarantee than the rest of the runtime.
 
-**Two documents this lane deliberately did not edit**, because they belong to
-other lanes and their published counters are theirs to re-issue:
-`execute/README.md` describes the recursive matcher and its memo, which is now
-the non-default engine (the automaton is in `execute/ematch.py` under
-`DEFAULT_ENGINE`, with the recursive one retained and selectable);
-`crystallize/README.md` §6.1 still calls the lemma scan unfixed and estimates
-the crossover at a few hundred, where `SCALE.md` measures 22. Both are stale in
-the direction of understating what is built, not overstating it.
+**The two stale documents are no longer stale.** `execute/README.md` now
+documents both e-match engines (§3.4, automaton by default) and class-DAG
+extraction (§5.1), and carries a **Contract changes** section (§12, C1–C5);
+`crystallize/README.md` now records the measured crossover at 22 lemmas and the
+built `LemmaIndex` (§6.1) and carries its own **Contract changes** section (§7,
+C1–C3). `propagate/README.md` gained §7 C1–C3 for the backtracking repair, and
+`kernel/README.md` gained C4 for the shared `kernel/bounded.py`.
