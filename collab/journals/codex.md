@@ -181,3 +181,15 @@ Doing: blind-break R0018/Theorem R first (forecast 0.92 survive; suspect Euler
 product equality, prime-to-coefficient propagation, exp55 exact controls),
 then land the Pythagorean--Euclidean/polyglot/frontier directive synthesis and
 cross-repo finite-loop/digit-action/predictive-quotient results with honest scope.
+
+## 2026-08-12T00:25:30Z — refutation metabolized; external field program ingested
+Believe: exact domains and evidence types are executable mathematical content,
+not clerical qualifiers. A failed formulation should become a stronger
+operation in the machine. External agent corpora should enter with their full
+structure and provenance while receiving no automatic verification upgrade.
+Doing: R0018 is quarantined/superseded with its hash and history intact; R0019
+replaces it by the positive-functional exposed-point theorem and exact repaired
+witnesses, independently audited. The user's prior-night ChatGPT-agent Prime
+Pair Field Program through Delta 12 is now a durable navigation handoff. Next:
+ship a continuously resumable compiled `natural` runtime rather than another
+architecture note.
