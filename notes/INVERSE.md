@@ -108,17 +108,21 @@ numerics. Here is what it *is*.
 > **Theorem I2 (the weight is a semiclassical simplex integral).** $W_k$ is
 > exactly the Dirichlet integral over the standard simplex,
 > $$W_k=\int_{\Delta_k}\prod_i u_i^{\rho_i-1}\Bigl(1-\sum_i u_i\Bigr)\,du ,$$
-> and its large-$s$ asymptotics is the stationary-phase (WKB) evaluation of
-> that integral, in which:
-> 1. the **phase is the action** $\varphi(\vec u)=s\sum_i p_i\log u_i$, whose
->    unique stationary point on $\Delta_k$ is $u_i=p_i$ with stationary value
->    $-s\,H_k(\vec p)$ — the entropy is the classical action of the
->    constraint geometry;
+> and in polar simplex coordinates it **factors exactly** into a radial Beta
+> factor and an angular simplex integral, whose large-$s$ evaluation gives:
+> 1. the **phase is the action**: the angular factor has a genuine interior,
+>    nondegenerate stationary point at $w_i=p_i$ on $\{\sum w=1\}$, with
+>    stationary value $-s\,H_k(\vec p)$ — the entropy is the classical action
+>    of the constraint geometry. (There is *no* interior stationary point on
+>    $\Delta_k$ itself; the naive application fails, see the proof.)
 > 2. the **modulus is splitting-blind** because the half-density amplitude
->    $\prod_i u_i^{-1/2}$ and the Hessian determinant cancel exactly at the
->    stationary point;
-> 3. the **Maslov constant** $(k+3)\pi/4$ is the signature of that Hessian
->    plus the $\Gamma(\sum\rho_i+2)$ boundary contribution.
+>    $\prod_i p_i^{-1/2}$ and the *restricted* $(k-1)\times(k-1)$ Hessian
+>    determinant $|\det M|^{-1/2}=s^{-(k-1)/2}(\prod_i p_i)^{1/2}$ cancel
+>    exactly — and in fact splitting-blindness holds *exactly*, not just
+>    asymptotically (see the upgrades below);
+> 3. the **Maslov constant** $(k+3)\pi/4$ decomposes as $(k-1)\pi/4$ from the
+>    $(k-1)$ negative Hessian eigenvalues plus $\pi$ from the two powers of
+>    $1/(is)$ in the radial Beta factor.
 
 *Proof (corrected; the first version was invalid — see below).* The Dirichlet
 identity is exact as stated ($\Gamma(2)$ and the exponent $2-1=1$ are right;
