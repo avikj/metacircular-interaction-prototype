@@ -41,7 +41,7 @@ open import Cubical.Data.Unit
 open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.Digits k
-open import NaturalMachine.Endian k using (w01 ; w01-canonical)
+open import NaturalMachine.Endian k using (w01 ; w01-canonical ; v1 ; value-v1)
 
 ------------------------------------------------------------------------
 -- C1.  Canonicity is load-bearing.
@@ -74,10 +74,9 @@ no-raw-round-trip h = znots (cong length (sym step ∙ h (fzero ∷ [])))
 
 wrong-endian-round-trip-fails :
   ¬ ((w : Word) → Canonical w → digits (value (rev w)) ≡ w)
-wrong-endian-round-trip-fails h =
-  znots (injSuc (cong length (h w01 w01-canonical)))
+wrong-endian-round-trip-fails h = znots (injSuc (cong length chain))
   where
-    -- `rev w01 = 1 ∷ 0`, whose value is 1, whose digits are `1` --- a
-    -- word of length 1, while w01 has length 2.
-    _ : Word
-    _ = w01
+    -- `rev w01 = 1 ∷ 0`, whose value is 1, whose digits are the
+    -- one-digit word `1`, while w01 has length 2.
+    chain : (fone ∷ []) ≡ w01
+    chain = sym (cong digits value-v1) ∙ h w01 w01-canonical
