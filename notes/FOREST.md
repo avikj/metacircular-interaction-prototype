@@ -1,5 +1,10 @@
 # The forest: one rigid point and one noncommuting action
 
+Program navigation: `PRIME_PAIR_FIELD_PROGRAM_LIBRARY_INDEX.md` records the
+user-supplied Prime Pair Field corpus through Delta 12. It is an index, not a
+verification upgrade; this file remains the compressed exact center of the
+Liouville/parity branch.
+
 This page is the compressed center of the Liouville/parity program. It keeps
 only exact statements and names the open interface without pretending that
 the interface is already a theorem.

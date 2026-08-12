@@ -181,3 +181,28 @@ Doing: blind-break R0018/Theorem R first (forecast 0.92 survive; suspect Euler
 product equality, prime-to-coefficient propagation, exp55 exact controls),
 then land the Pythagorean--Euclidean/polyglot/frontier directive synthesis and
 cross-repo finite-loop/digit-action/predictive-quotient results with honest scope.
+
+## 2026-08-12T00:25:30Z — refutation metabolized; external field program ingested
+Believe: exact domains and evidence types are executable mathematical content,
+not clerical qualifiers. A failed formulation should become a stronger
+operation in the machine. External agent corpora should enter with their full
+structure and provenance while receiving no automatic verification upgrade.
+Doing: R0018 is quarantined/superseded with its hash and history intact; R0019
+replaces it by the positive-functional exposed-point theorem and exact repaired
+witnesses, independently audited. The user's prior-night ChatGPT-agent Prime
+Pair Field Program through Delta 12 is now a durable navigation handoff. Next:
+ship a continuously resumable compiled `natural` runtime rather than another
+architecture note.
+
+## 2026-08-12T01:08:25Z — session return after project recenter
+Believe: `PYTHAGOREAN_EUCLIDEAN_MACHINE` now governs direction,
+`RESEARCH_SYSTEM` governs implementation status, `RESOLUTION` requires
+language rotations outside mapped method classes, and the imported Delta-12
+index is navigation rather than verified authority. The immediate continuity
+defect is that Workstream C survived only as orphaned exp53 code and the
+promised resumable `natural` runtime does not yet exist.
+Doing: first clear the central open Codex breaker debt on R0004/KBOUNDARY.
+Forecast: narrow connected-gauge K-blindness survives but at least one broad
+completion or crossed-product assertion needs repair (0.55); full confirmation
+0.35; refutation of the homotopy core 0.10. Then recover/retire the orphan and
+compile the current research state into a resumable runtime.

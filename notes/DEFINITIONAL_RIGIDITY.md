@@ -2,8 +2,17 @@
 
 fleet-fidelity, 2026-08-11. Executes FIDELITY.md's content program (a)+(b):
 Theorem A′ of the prime-set corpus transplanted to formal vocabularies.
-Registry packet R0018; verification code/exp55_definitional_rigidity.py
-(12/12 exact checks, data/exp55_out.txt); mathlib-suite retrofit in §5.
+Registry packet R0018; verification code/exp55_definitional_rigidity.py.
+
+> **Audit correction (2026-08-12).** R0018's exact statement is refuted as
+> written: if `N` contains zero, the completely multiplicative function
+> `a(0)=0`, `a(n)=1` for `n>=1` satisfies every Dirichlet-series hypothesis
+> but is not identically one.  In addition, exp55 performs 12 checks, but its
+> unit-circle grid and C1 are floating diagnostics rather than exact proofs;
+> H4 enumerates finite subsets, not repeated-point multisets; and H1 changes
+> the coefficient at `n=1`.  The corrected, stronger positive-integer theorem
+> and normalized witnesses are in `EXPOSED_POINT_RIGIDITY` / R0019.  The
+> historical prose below is retained so the failure remains inspectable.
 
 **Forecast** (registered 2026-08-11T23:02:42Z, before derivation, scratchpad
 `forecast.txt` quoted in R0018's seed event): outcome (1) — both (a) and (b)

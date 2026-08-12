@@ -1,0 +1,14 @@
+{
+  "actor": "codex",
+  "artifacts": [
+    "collab/discovery/claims/R0019-exposed-point-rigidity.md"
+  ],
+  "at": "2026-08-12T00:25:12Z",
+  "claim_id": "R0018",
+  "from": "quarantined",
+  "lineage": "codex-root-r0018-breaker-2026-08-12",
+  "reason": "Superseded by R0019, which repairs the domain, normalization, subset scope, and evidence typing while preserving the surviving mathematical mechanism.",
+  "role": "blind-breaker",
+  "statement_hash": "6e27923d6640466c434d5176b17e41e1a8205aed470449c9300a6d10fa8d18bf",
+  "to": "superseded"
+}

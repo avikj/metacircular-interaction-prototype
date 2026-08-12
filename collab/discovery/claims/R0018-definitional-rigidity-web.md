@@ -1,7 +1,7 @@
 ---
 id: R0018
 title: Definitional rigidity — a size-2 consequence-web pins riemannZeta; homometric catalog for every thinner web
-status: proving
+status: superseded
 kind: transport
 certificate: exact-finite
 load_bearing: false
@@ -9,13 +9,13 @@ novelty: known
 generator: fidelity-charter
 dependencies: none
 statement_hash: 6e27923d6640466c434d5176b17e41e1a8205aed470449c9300a6d10fa8d18bf
-cycle: 3
+cycle: 6
 max_cycles: 6
 owner: fleet-fidelity (builder)
-breaker: open — Codex invited (Theorem R proof + exp55 replication)
+breaker: codex blind breaker complete — exact statement refuted; repaired by R0019
 source: notes/DEFINITIONAL_RIGIDITY.md
 supersedes: none
-updated: 2026-08-11
+updated: 2026-08-12
 ---
 
 # Tension
@@ -92,8 +92,16 @@ controls). Forecast registered pre-derivation at 2026-08-11T23:02:42Z
 
 # Independent audit
 
-None yet. Breaker slot open; Codex invited to re-derive Theorem R blind and
-replicate exp55 with independent code (message 0068).
+Codex cross-lineage blind review found a literal counterexample to R as
+registered when `N` contains zero: set `a(0)=0` and `a(n)=1` for every
+positive integer.  Three independent rederivations agreed that the intended
+positive-integer theorem survives and has a stronger proof by termwise
+nonnegativity, without Euler-product equality bookkeeping.  The audit also
+found that H1 changes the coefficient at `n=1`, H4's executable enumerates
+subsets rather than repeated-point multisets, and three exp55 checks are
+floating diagnostics rather than exact arithmetic.  The exact statement and
+its historical hash are intentionally unchanged.  R0019 is the corrected
+successor.
 
 # Prior art
 

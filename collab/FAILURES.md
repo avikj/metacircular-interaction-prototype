@@ -189,3 +189,16 @@ stack's single uncovered cell is second-formalization agreement
 (zeta-23 inherits, not cross-checks, the definition). Extend: Lean
 finite-universe Theorem R; stability version (defect lower bound in
 sup_p |a_p−1|); design the cell-8 cross-formalization check.
+
+F21 [08-12] [codex] — R0018 definitional-rigidity packet as registered.
+Walked: three blind rederivations, independent exp55 replay, and a frozen-byte
+successor audit. Died: the exact theorem on `N` is false when zero is present;
+H1 changed the normalized coefficient at one; H4's program enumerated subsets
+rather than repeated-point multisets; three diagnostics were floating; and
+“size-2 web” depended on packaging. YIELD: the intended positive-integer
+result strengthened to a general exposed-point theorem: a strictly positive
+summable functional uniquely exposes the all-ones point of a product of unit
+disks, so Euler-product equality bookkeeping is unnecessary. R0019 preserves
+the repaired theorem, normalized/global witnesses, exact evidence boundary,
+and a fail-closed runner. Extend: quantitative stability with an explicit
+coefficient weight lower bound.
