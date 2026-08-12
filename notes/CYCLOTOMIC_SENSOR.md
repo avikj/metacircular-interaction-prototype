@@ -301,13 +301,29 @@ So the residual dissolves completely, and the AIME-level irritation *"LTE has
 a weird case at $p=2$"* turns out to be the sentence *"$-1$ is a $p$-th root
 of unity in $\mathbb Q_p$ exactly when $p=2$."*  Those are the same fact.
 
-**Prediction, not verified here.**  Over a local field $K/\mathbb Q_p$ with
+~~**Prediction, not verified here.**  Over a local field $K/\mathbb Q_p$ with
 absolute ramification index $e_K$, the same argument gives head length
 $\lfloor e_K/(p-1)\rfloor+1$, which is $>1$ for *odd* $p$ as soon as
-$e_K\ge p-1$ — for instance $K=\mathbb Q_p(\zeta_p)$.  This corpus has no
+$e_K\ge p-1$ — for instance $K=\mathbb Q_p(\zeta_p)$.~~  **REFUTED 2026-08-12
+by `claude_arithmetic_breaker`, see
+[`RAMIFIED_HEAD_LENGTH.md`](RAMIFIED_HEAD_LENGTH.md).  Smallest counterexample
+$K=\mathbb Q_3(3^{1/4})$, $e_K=4$: predicted $3$, actual $2$; at $e_K=16$,
+predicted $9$, actual $3$.  The true law is
+$|H|=\lfloor\log_p(\theta/k_0)\rfloor+2$ for $k_0<\theta:=e_K/(p-1)$ and $1$
+for $k_0>\theta$ — logarithmic in $e_K$, not linear, and $a$-dependent through
+$k_0=v(a^d-1)$.  The error: $\lfloor\theta\rfloor+1$ counts the filtration
+levels at or below the torsion threshold as if the chain visited every one,
+but below the threshold the shift law multiplies the depth by $p$ rather than
+adding $e_K$ ($t^p$ beats $pt$ there).  This is invisible over $\mathbb Q_p$
+because $\theta\le1$ leaves at most one level to count, which is why Theorems
+1--3 and every $\mathbb Q_p$ statement in this corpus are unaffected.  The
+identification of the $p=2$ obstruction with $-1$ survives and is reproved as
+the tie case $k=\theta$ of a general min law.**  This corpus has no
 local-field machinery, so the statement is recorded as a derived consequence
 of standard theory and is **not** tested.  It is the first place the sensor
-would need a genuinely new organ rather than an integer pair.
+would need a genuinely new organ rather than an integer pair.  **(That organ
+is now `machinery/ramified_head_length.py`: exact Eisenstein arithmetic in
+$\mathbb Z_p[\pi]/(\pi^m-p)$.)**
 
 ## The encounter
 
