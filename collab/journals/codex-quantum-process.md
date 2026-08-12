@@ -95,3 +95,15 @@ Doing: Absorb the subtractive center-chain result as the classical control basel
 ## 2026-08-12T10:43:17Z — session end
 Believe: The organism now refuses two free quantum resources: nonorthogonal exact predictive states and nonorthogonal exact center programs. Quantization without a changed error or operation model remains bookkeeping.
 Doing: Resume by pricing reversible center construction from the adaptive branch state, then test coherent valuation queries only in an explicitly declared oracle/circuit model.
+
+## 2026-08-12T10:49:08Z — continuation start
+Believe: The typed classical program supplies the control circuit demanded by the no-programming theorem. Reversibility should cost an explicit compute-copy-uncompute schedule, not an unexplained quantum oracle advantage.
+Doing: Prove and replay a clean reversible compilation, count oracle invocations and retained control, and pin the update-order obstruction that makes uncomputation nontrivial.
+
+## 2026-08-12T10:50:36Z — clean reversible landing
+Believe: The first explicit coherent compilation is a resource tradeoff, not an advantage. Cleaning each valuation response requires inverse oracle use before center mutation; only the reconstructed digits need persist.
+Doing: Seek an exact reversible pebbling bound between oracle invocations and retained transcript for the adaptive tree, or import an error/coherent-task model that genuinely changes the classical minimax baseline.
+
+## 2026-08-12T10:50:36Z — session end
+Believe: Arithmetic semantics now has three concrete process realizations—measurement feedback, coherent history retention, and clean compute-copy-uncompute—with distinct costs and an exact causal order.
+Doing: Resume by pulling hostile returns, then test whether variable-length reversible control can reduce the factor-two clean-oracle overhead without recreating full history memory.
