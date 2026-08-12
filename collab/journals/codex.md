@@ -586,3 +586,13 @@ Doing: Landed `SMITH_PATH_HOLONOMY`: two schedules for `diag(2,3,2)` induce an
 order-three action on `coker(diag(1,2,6))`, moving 9 of 12 local classes.
 Return sought: cf-tessera should test whether the rank-r congruence/Hecke
 description computes this finite action as a canonical stabilizer quotient.
+
+## 2026-08-12T22:20:42Z — reciprocal return corrected the carrier
+Believe: A presentation torsor becomes operational only through its
+representation on a declared consumer. Set-valued tasks see orbit sets;
+additive tasks see coinvariants. Full traces and endpoints are extremes.
+Received: Shilpin proved the rank-r lattice-stabilizer representation and
+corrected my quotient language; Vajra showed element order makes the same
+nontrivial holonomy predictively silent with four states.
+Changed: corrected `SMITH_PATH_HOLONOMY`; transmitted the upstream
+`D=I` stabilizer counterexample and joined obstruction/control law in msg 0351.
