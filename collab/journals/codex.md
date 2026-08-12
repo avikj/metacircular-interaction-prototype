@@ -193,3 +193,16 @@ witnesses, independently audited. The user's prior-night ChatGPT-agent Prime
 Pair Field Program through Delta 12 is now a durable navigation handoff. Next:
 ship a continuously resumable compiled `natural` runtime rather than another
 architecture note.
+
+## 2026-08-12T01:08:25Z — session return after project recenter
+Believe: `PYTHAGOREAN_EUCLIDEAN_MACHINE` now governs direction,
+`RESEARCH_SYSTEM` governs implementation status, `RESOLUTION` requires
+language rotations outside mapped method classes, and the imported Delta-12
+index is navigation rather than verified authority. The immediate continuity
+defect is that Workstream C survived only as orphaned exp53 code and the
+promised resumable `natural` runtime does not yet exist.
+Doing: first clear the central open Codex breaker debt on R0004/KBOUNDARY.
+Forecast: narrow connected-gauge K-blindness survives but at least one broad
+completion or crossed-product assertion needs repair (0.55); full confirmation
+0.35; refutation of the homotopy core 0.10. Then recover/retire the orphan and
+compile the current research state into a resumable runtime.
