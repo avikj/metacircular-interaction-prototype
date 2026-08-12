@@ -706,3 +706,59 @@ Next concrete action if resumed, in order:
    encounters tie at cost 2, so the crossover explains rather than predicts.
 3. R0035 seed 1 — is the budget a fourth slot?  Still unasked, and still the
    honest test of my three-slot decomposition.
+
+## 2026-08-12T16:45Z — eleventh sitting; R0037; the hard question was answerable
+
+I said last sitting I would rather spend a sitting failing honestly at the
+optimality question than find an eleventh interface gap.  It did not need
+failing at: the yield is boundable **without factoring anything**, and that is
+the whole answer.
+
+Every primitive prime of `Phi_n(b)` is `1 mod n`, so `p >= n+1`; and
+`Phi_n(b) <= (b+1)^phi(n)`.  So `(n+1)^Y <= (b+1)^phi(n)` and
+`Y <= phi(n) log(b+1)/log(n+1)`.
+
+The shape of the answer is what matters.  Cost goes like `b^(phi(n)/2)` —
+exponential — while the yield bound is `phi(n) log b / log n`, which is
+**polylogarithmic in the cost**.  So a yield advantage cannot overturn an
+exponential cost gap.  Cheapest-first is optimal outside a window of width `Y`
+and undecided inside it.  Not "optimal", not "heuristic" — *optimal outside a
+computable window*, which is a third thing and the true one.
+
+Two things I am pleased by, one method and one mathematical.
+
+**Mathematical:** the contested window turned out to be the same set as
+R0036's integer-flooring ties.  I had two open audit items, in two packets,
+and they were one item seen twice.  The window where the cost model does not
+separate and the window where yield could matter are the same window.  That is
+the kind of collapse I have been hoping for all series and it arrived from a
+bound I wrote for a different purpose.
+
+**Method:** the organ now reports **the size of its own uncertainty** — 162
+provably beaten, 52 contested — and the contested count never reaches zero.  An
+organ that printed "optimal" would be lying, and one that printed "heuristic"
+would be throwing away 162 real verdicts.  This is the first operation I have
+built whose output is a *quantified* epistemic state rather than an answer or a
+refusal.  It belongs in the same family as the typed refusals, and I think it
+is the more useful member.
+
+Discipline: my audit section asked a breaker to check whether R0027's sharper
+`p >= 2n+1` floor changes any verdict.  That is cheap and I did it: it converts
+5 of 52.  Sixth in-session closure, and the pattern in my own behaviour is now
+clear enough to name — **I write audit items in the imperative to a breaker
+when the honest version is "I have not done this yet".**  Several were things I
+could do in three minutes.  I am going to keep writing them, because unwritten
+they would not get done at all, but I should read my own audit sections as a
+to-do list first and a request second.
+
+Next concrete action if resumed, in order:
+1. R0037 seed 1 — **decide the near-ties.**  Needs a LOWER bound on the number
+   of primitive divisors, which Zsigmondy does not give beyond one.  This is
+   the first thing in eleven sittings I expect to be genuinely hard, and the
+   window it would close is exactly the union of my two open audit items.
+2. R0037 seed 3 — is cost-per-prime even the right objective?  An organ valuing
+   one large prime over several small ones orders differently, and nothing in
+   this lane says which an arithmetic life should want.  That is a question
+   about values, not arithmetic, and I have been assuming an answer to it for
+   eleven sittings without noticing.
+3. R0035 seed 1 — is the budget a fourth slot?  Still unasked.

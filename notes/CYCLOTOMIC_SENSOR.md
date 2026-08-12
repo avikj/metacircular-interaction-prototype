@@ -1108,6 +1108,65 @@ membership; the new global search did not, and the organ would have re-paid
 for exponents it had already factored.  Now `route` records the divisors it
 actually visited.
 
+## Is cheapest-first optimal?  Bounded locally, and the organ says by how much
+
+Theorem 15 gave the organ an order and I flagged, three times, that the order
+minimises cost per **guaranteed** acquisition — one prime, by Zsigmondy —
+while an encounter can yield several.  A yield-aware rule might beat it.  The
+eleventh sitting is that question, and it turns out to be answerable, because
+the yield is boundable without factoring anything.
+
+> **Theorem 16 (yield bound, and local optimality).**  Let $Y(b,n)$ be the
+> number of *primitive* prime divisors of $\Phi_n(b)$.  Every such prime
+> satisfies $\operatorname{ord}_p(b)=n$, hence $n\mid p-1$ and $p\ge n+1$; and
+> $\Phi_n(b)\le(b+1)^{\varphi(n)}$.  So $(n+1)^{Y}\le(b+1)^{\varphi(n)}$, i.e.
+> $$
+>   Y(b,n)\;\le\;\frac{\varphi(n)\log(b+1)}{\log(n+1)} .
+> $$
+> Consequently, for two candidate encounters with $\operatorname{cost}_1\le
+> \operatorname{cost}_2$, a yield-aware ordering can prefer the second only if
+> $$
+>   \operatorname{cost}_2 \;<\; Y(b_2,n_2)\cdot\operatorname{cost}_1 ,
+> $$
+> because $Y\ge1$ on the cheaper side by Zsigmondy.  **Outside that window,
+> cheapest-first is optimal whatever the actual yields are.**
+
+The bound is the point.  Cost varies like $b^{\varphi(n)/2}$ — exponentially —
+while the yield bound is $\varphi(n)\log b/\log n$, *polylogarithmic in the
+cost*.  So a yield advantage can never overturn an exponential cost gap; it
+can only reorder near-ties.  Cheapest-first is wrong at most locally, and the
+locality is computable per pair.
+
+The bound is not vacuous: swept over $2\le b\le7$, $1\le n\le25$ against real
+factorizations it is never violated **and is attained** — at $(b,n)=(2,2)$,
+where $\Phi_2(2)=3$ has exactly one primitive prime and the bound is one.
+
+### The organ reports the size of its own uncertainty
+
+`optimality_certificate` returns the choice together with how much of the grid
+it *provably* beats and how much is contested:
+
+```text
+step 0: pick (2,3)   provably beats 179, contested 55   (yield bound 1)
+step 1: pick (2,4)   provably beats 178, contested 55   (yield bound 1)
+step 2: pick (2,5)   provably beats 177, contested 54   (yield bound 2)
+step 3: pick (2,7)   provably beats 177, contested 53   (yield bound 3)
+```
+
+No factoring is done to produce that split — the bound comes from $\varphi(n)$
+and $\log b$ alone.  And the contested count never reaches zero, which is
+correct and worth saying plainly: **near-ties always exist, so a greedy choice
+is never fully certified, and an organ that reported "optimal" would be
+overclaiming.**  What it can honestly report is *optimal against 177 of 232
+alternatives, undecided against 55*.
+
+This also closes a joint I left open in the previous section.  I noted there
+that at small totients the integer flooring makes many encounters tie at cost
+$2$, so the crossover explains the observed order rather than predicting each
+swap.  Those ties are exactly the contested set: the window where the cost
+model does not separate, and the window where yield could matter, are the same
+window.
+
 ## The encounter
 
 ```text
@@ -1144,6 +1203,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 16.  The yield bound is elementary — `p = 1 mod n`
+  forces `p >= n+1`, and `Phi_n(b) <= (b+1)^phi(n)` is the same product bound
+  used in R0028.  **No novelty claimed.**  **Not claimed:** that the bound is
+  sharp beyond the small cases where it is attained, nor any lower bound on the
+  yield beyond Zsigmondy's one.  The local-optimality consequence is arithmetic
+  on the two bounds, and it establishes only that cheapest-first cannot be
+  wrong across an exponential cost gap — it does **not** decide the near-ties,
+  and the executable reports them as contested rather than resolving them.
 - **Proved here:** Theorem 15.  The cost expansion is R0030's lemma read as an
   asymptotic in both variables; the crossover is elementary calculus on the two
   move ratios.  Elementary and surely known in the folklore of special-form

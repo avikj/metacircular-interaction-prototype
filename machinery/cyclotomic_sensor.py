@@ -215,6 +215,41 @@ class CyclotomicOrgan:
                 best = (cost, base, index)
         return None if best is None else (best[1], best[2])
 
+    def optimality_certificate(self, budget: int = DEFAULT_BUDGET,
+                               base_limit: int = 12
+                               ) -> tuple[tuple[int, int] | None, int, int]:
+        """The next choice, and how much of the grid it is PROVED to beat.
+
+        Returns `(choice, certified, contested)`: the number of candidate
+        encounters cheapest-first provably beats whatever their yields are, and
+        the number inside the yield window where it might be wrong.  Theorem 16
+        bounds the contested set; it never empties, because near-ties always
+        exist, and saying so is the point — the organ reports the size of its
+        own uncertainty rather than presenting a greedy pick as optimal.
+        """
+        choice = self.propose_next(budget=budget, base_limit=base_limit)
+        if choice is None:
+            return None, 0, 0
+        cheap_cost = scan_cost(*choice)
+        certified = contested = 0
+        for base in range(2, base_limit + 1):
+            if base_refusal(base) is not None:
+                continue
+            covered = self.routed.get(base, set())
+            for index in range(1, acquisition_horizon(base, budget) + 1):
+                if index in covered or (base, index) == choice:
+                    continue
+                if certainly_unaffordable(base, index, budget):
+                    continue
+                if refusal(base, index, budget) is not None:
+                    continue
+                if beats_certainly(cheap_cost, scan_cost(base, index),
+                                   base, index):
+                    certified += 1
+                else:
+                    contested += 1
+        return choice, certified, contested
+
     def propose_encounter(self, base: int, budget: int = DEFAULT_BUDGET,
                           limit: int | None = None) -> int | None:
         """The least exponent this organ has not covered that is GUARANTEED
@@ -686,6 +721,36 @@ def base_refusal(base: int) -> str | None:
                 f"{root} encounter at {exponent} times the exponent "
                 "(Theorem 13)")
     return None
+
+
+def yield_bound(base: int, index: int) -> int:
+    """Most primitive prime divisors `Phi_index(base)` can possibly have.
+
+    Every primitive prime satisfies `ord_p(base) = index`, so `index | p - 1`
+    and `p >= index + 1`; and `Phi_index(base) <= (base+1)^phi(index)`.  So
+    `k` distinct primitive primes force `(index+1)^k <= (base+1)^phi(index)`.
+    Theorem 16.  This is what makes the yield *polylogarithmic* in the cost
+    while the cost itself is exponential — which is why cheapest-first can only
+    be wrong locally.
+    """
+    from math import log
+    if base < 2 or index < 1:
+        raise ValueError("need base >= 2 and index >= 1")
+    return max(int(totient(index) * log(base + 1) / log(index + 1)), 1)
+
+
+def beats_certainly(cheap_cost: int, rival_cost: int, rival_base: int,
+                    rival_index: int) -> bool:
+    """Is the cheaper encounter optimal against this rival whatever the yields?
+
+    A yield-aware ordering prefers the rival only if
+    `yield(rival)/yield(cheap) > cost(rival)/cost(cheap)`.  Zsigmondy gives
+    `yield(cheap) >= 1` and Theorem 16 gives `yield(rival) <= yield_bound`, so
+    the rival can win only when `cost(rival) < yield_bound * cost(cheap)`.
+    Outside that window cheapest-first is certified, with no knowledge of the
+    actual yields and no factoring.
+    """
+    return rival_cost >= yield_bound(rival_base, rival_index) * cheap_cost
 
 
 def interleaving_weight(base: int, index: int) -> float:
@@ -1260,6 +1325,28 @@ def main() -> None:
     print(f"    {trail}")
     print(f"  fourteen straight encounters in base 2 out to exponent 30,")
     print(f"  then it widens -- matching the crossover, not my guess.")
+
+    print("\nencounter 15: 'is cheapest-first actually optimal?'")
+    print("  it minimises cost per GUARANTEED prime, and an encounter can")
+    print("  yield several.  but the yield is boundable without factoring:")
+    print("    every primitive prime is 1 mod n, so p >= n+1; and")
+    print("    Phi_n(b) <= (b+1)^phi(n).  hence (n+1)^Y <= (b+1)^phi(n).")
+    for probe_base, probe_index in ((2, 2), (2, 12), (5, 19), (7, 23)):
+        print(f"      b={probe_base}, n={probe_index:2d}: at most "
+              f"{yield_bound(probe_base, probe_index)} primitive primes")
+    print("  cost is exponential in phi(n) log b; the yield bound is only")
+    print("  polylogarithmic in it.  so yield can never overturn an")
+    print("  exponential cost gap -- only reorder near-ties.")
+    judge = CyclotomicOrgan(ArithmeticLife())
+    for _ in range(4):
+        verdict, sure, unsure = judge.optimality_certificate(budget=20_000,
+                                                             base_limit=8)
+        if verdict is None:
+            break
+        print(f"    pick {verdict}: provably beats {sure}, contested {unsure}")
+        judge.route(verdict[0], verdict[1], budget=20_000)
+    print("  the contested count never reaches zero, and that is the honest")
+    print("  report: optimal against most of the grid, undecided on the ties.")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):

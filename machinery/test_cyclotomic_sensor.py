@@ -22,6 +22,8 @@ from cyclotomic_sensor import (
     factor_power_minus_one,
     acquisition_horizon,
     growth_rate,
+    yield_bound,
+    beats_certainly,
     widen_crossover,
     interleaving_weight,
     exponent_redundancy_witness,
@@ -851,6 +853,108 @@ class TestCyclotomicSensor(unittest.TestCase):
                 by_divisibility = any(done % index == 0 for done in covered)
                 self.assertEqual(by_membership, by_divisibility,
                                  f"base {base} index {index}")
+
+    def test_yield_bound_is_never_violated(self) -> None:
+        """Theorem 16: every primitive prime is = 1 mod n so is at least n+1,
+        and Phi_n(b) <= (b+1)^phi(n); so k primitive primes force
+        (n+1)^k <= (b+1)^phi(n).  Falsifier sweep against real factorizations."""
+        tight = 0
+        for base in range(2, 8):
+            for index in range(1, 26):
+                result = factor_cyclotomic(index, base, compare=False)
+                if not result.complete:
+                    continue
+                actual = sum(1 for prime, _power in result.factors
+                             if base % prime
+                             and multiplicative_order(base, prime) == index)
+                bound = yield_bound(base, index)
+                self.assertLessEqual(actual, bound,
+                                     f"b={base} n={index}: {actual} > {bound}")
+                if actual == bound:
+                    tight += 1
+        self.assertGreater(tight, 0, "bound never attained; suspiciously loose")
+
+    def test_certificate_is_sound_for_every_admissible_yield(self) -> None:
+        """When `beats_certainly` says yes, cheapest-first wins for EVERY yield
+        assignment the bounds allow — checked exhaustively, not argued."""
+        cases = ((2, 3, 2, 20), (2, 5, 3, 12), (2, 7, 5, 10), (3, 4, 2, 24))
+        checked = 0
+        for cheap_base, cheap_index, rival_base, rival_index in cases:
+            cheap_cost = scan_cost(cheap_base, cheap_index)
+            rival_cost = scan_cost(rival_base, rival_index)
+            if not beats_certainly(cheap_cost, rival_cost,
+                                   rival_base, rival_index):
+                continue
+            for cheap_yield in range(1, yield_bound(cheap_base,
+                                                    cheap_index) + 1):
+                for rival_yield in range(1, yield_bound(rival_base,
+                                                        rival_index) + 1):
+                    self.assertLessEqual(cheap_cost / cheap_yield,
+                                         rival_cost / rival_yield)
+                    checked += 1
+        self.assertGreater(checked, 0)
+
+    def test_organ_reports_the_size_of_its_own_uncertainty(self) -> None:
+        """The certificate splits the grid into provably-beaten and contested,
+        and the contested set is never empty — near-ties always exist, and
+        reporting that is the point."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for _ in range(6):
+            choice, certified, contested = organ.optimality_certificate(
+                budget=20_000, base_limit=8)
+            self.assertIsNotNone(choice)
+            self.assertGreater(certified, 0)
+            self.assertGreater(contested, 0)
+            # every contested rival really is inside the yield window
+            cheap = scan_cost(*choice)
+            for base in range(2, 9):
+                if base_refusal(base) is not None:
+                    continue
+                for index in range(1, 40):
+                    if (base, index) == choice:
+                        continue
+                    if index in organ.routed.get(base, set()):
+                        continue
+                    if refusal(base, index, 20_000) is not None:
+                        continue
+                    rival = scan_cost(base, index)
+                    if not beats_certainly(cheap, rival, base, index):
+                        self.assertLess(rival,
+                                        yield_bound(base, index) * cheap)
+            organ.route(*choice, budget=20_000)
+
+    def test_sharper_floor_would_convert_five_verdicts(self) -> None:
+        """R0027 gives p >= 2n+1 for odd n>1 where Theorem 16 uses p >= n+1.
+        The uniform bound is weaker on purpose (one formula, not two); this
+        measures exactly what that costs rather than leaving it to a breaker."""
+        from math import log
+
+        def sharp(base: int, index: int) -> int:
+            floor_prime = 2 * index + 1 if (index > 1 and index % 2) else index + 1
+            return max(int(totient(index) * log(base + 1)
+                           / log(floor_prime)), 1)
+
+        organ = CyclotomicOrgan(ArithmeticLife())
+        choice = organ.propose_next(budget=20_000, base_limit=8)
+        cheap = scan_cost(*choice)
+        weak = strong = 0
+        for base in range(2, 9):
+            if base_refusal(base) is not None:
+                continue
+            for index in range(1, acquisition_horizon(base, 20_000) + 1):
+                if (base, index) == choice:
+                    continue
+                if certainly_unaffordable(base, index, 20_000):
+                    continue
+                if refusal(base, index, 20_000) is not None:
+                    continue
+                cost = scan_cost(base, index)
+                weak += cost < yield_bound(base, index) * cheap
+                strong += cost < sharp(base, index) * cheap
+                # the sharper floor never loosens the bound
+                self.assertLessEqual(sharp(base, index),
+                                     yield_bound(base, index))
+        self.assertEqual((weak, strong), (52, 47))
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
