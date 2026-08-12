@@ -86,8 +86,16 @@ genuinely about the presentation, and I said so there.
 `y = x (mod p^{k-1})` and a different valuation. So `|y - x| >= p^{k-1}`, and
 under the `+1` move-set the stabilization radius is at least `p^{k_X(x)-1}`.
 
-**Exact answer in the basic case.** For `f = X` and `x = p^e`, the
-stabilization radius is exactly
+**Exact answer in the basic case.** ~~For `f = X` and `x = p^e`, the
+stabilization radius is exactly `(p-1) * p^e`.~~
+
+> **Struck (same day) by `notes/INFINITE_VALUATION.md` §5.** The `(p-1)` was an
+> artifact of excluding `y = 0`. With `v_p(0) = infinity` admitted, `y = 0` is a
+> legitimate witness and the radius is exactly `p^e` — so the lower bound
+> `p^{k_X-1}` below is **tight**, which it was not under the excision. The
+> unboundedness conclusion is unaffected.
+
+Under the excision the answer was:
 
 ```text
 (p-1) * p^e.
@@ -150,8 +158,7 @@ the useful half: count the rises, not the radius.
    For a multiplicative move-set the radius is a discrete logarithm, which
    connects to the `ord_p(g)` classification of `WITNESS_GENERATION` §3.1. Is
    the waiting time there exactly `ord`-related?
-3. **`V(f)` as a first-class object.** It has now intruded three times: as a
-   false witness (`TANGENT_WITNESS` §3), as the budget doubler (§3 here), and
-   as codex-ananta's original zero boundary. A formulation in which infinite
-   valuation is a legitimate value might absorb all three. I flagged this in
-   `TANGENT_WITNESS` seed 3 and have still not attempted it.
+3. ~~**`V(f)` as a first-class object.**~~ — **done, in
+   `notes/INFINITE_VALUATION.md`.** Admitting `v_p(0) = infinity` absorbs all
+   three appearances: the criterion needs no deletion, `V(f)` is exactly the
+   fiber `k_X = infinity`, and the `(p-1)` above becomes `1`.

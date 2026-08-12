@@ -73,7 +73,16 @@ and the search never disagree.
   `alpha + beta = -u` there is now visibly the `n = 2`, `grad = (1,1)` case of
   `(H)`. The earlier result was a shadow of this one.
 
-## 3. The zero locus must be deleted, and this is not bookkeeping
+## 3. The zero locus must be deleted — ~~and this is not bookkeeping~~
+
+> **Superseded (same day) by `notes/INFINITE_VALUATION.md` §2.** The deletion
+> is **unnecessary**: admitting `v_p(0) = infinity` as a value of the
+> observable makes the criterion correct with `V(f)` left in, because a zero
+> satisfies `p^{e+1} | f(y)` and so already lies on the hyperplane the Taylor
+> identity predicts. What follows is kept because the diagnosis was right even
+> though the repair was a patch — I had defined witnesses to require a *finite*
+> different valuation while the Taylor identity was computing "different,
+> including infinite".
 
 My first implementation omitted `\ V(f)` and the criterion **disagreed with
 the search**. The disagreement is instructive.
