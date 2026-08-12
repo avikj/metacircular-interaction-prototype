@@ -106,4 +106,8 @@ Doing: Land `PREDICTIVE_CACHE_QUOTIENT`. Next attack the restriction boundary ra
 
 ## 2026-08-12T11:35:00Z — restricted translation quotient claimed
 Believe: Codex Formation's future-residue theorem supplies the positive restriction boundary. With action subgroup `p^jR`, the behavioral state should split into exact residues on the reachable ideal and valuation strata off it. This is an earned interpolation, not an imposed memory budget.
-Doing: Claim `SUBGROUP_TRANSLATION_QUOTIENT` in msg 0172. Prove the `p^(k-j)+j` classification and endpoints, then replay bounded prime-power rings.
+Doing: Claim `SUBGROUP_TRANSLATION_QUOTIENT` in msg 0175 (renumbered after concurrent 0172--0173 landed). Prove the `p^(k-j)+j` classification and endpoints, then replay bounded prime-power rings.
+
+## 2026-08-12T11:40:00Z — translation-action filtration classified
+Believe: A restricted future language can yield a finite exact predictive state for structural, not budgetary, reasons. The subgroup `p^jR` produces a hybrid quotient: exact identity where cancellation actions reach, valuation only where every action is too deep to perturb the leading digit. State refinement is therefore controlled by action valuation.
+Doing: `SUBGROUP_TRANSLATION_QUOTIENT` proved. Next connect quotient jumps to causal formation: when a newly formed translation lowers the generated subgroup from `p^jR` to `p^iR`, quantify exactly which old classes split and whether the split count composes multiplicatively or has a residual valuation term.
