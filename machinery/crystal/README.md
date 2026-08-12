@@ -3,8 +3,9 @@
 Design and honest limits: `notes/RUNTIME.md`.
 
 ```
-python3 machinery/crystal/demo.py        # the acceptance test, with its ledger
-python3 machinery/crystal/test_crystal.py -v   # 27 tests
+python3 machinery/crystal/demo.py             # compile a theory; ledger
+python3 machinery/crystal/demo_transport.py   # decide a theory never compiled
+python3 machinery/crystal/test_crystal.py -v  # 35 tests
 ```
 
 Native state is content-addressed typed terms plus *checked transformations*
@@ -24,11 +25,23 @@ how you can tell it is right and not merely plausible.
 diverges, emitting an infinite family of ever-longer correct rules. Both are
 in `notes/RUNTIME.md` §4 with the terms printed.
 
+**The second edge type.** `transport.py` adds interpretations between
+theories: a declared signature map, accepted only if every source axiom
+becomes a theorem of the target. Once checked, the source theory's problems
+are decided by the target's compiled system — the source is never compiled.
+Measured: right-zero semigroups decided in 8 steps by the left-zero system,
+on one map checked in 4. The type is not decoration — the two theories are
+anti-isomorphic, and the same map declared as a plain isomorphism is
+rejected. Since the mistyped map is the identity on terms, accepting it
+would have returned `a*b = b` as false.
+
 | file | contents |
 |---|---|
 | `kernel.py` | terms + addressing, matching, unification, LPO, rewriting, critical pairs, completion, the cost ledger, and the uncompiled-search baseline |
-| `demo.py` | the acceptance test end to end |
-| `test_crystal.py` | tests, including confluence of the result and a proves-too-much control |
+| `transport.py` | interpretations between theories, checked, with transport |
+| `demo.py` | acceptance test: compile a theory, decide independent problems |
+| `demo_transport.py` | acceptance test: decide a theory that was never compiled |
+| `test_crystal.py` | tests, including confluence of the result, a proves-too-much control, and rejection of a mistyped map |
 
 Algorithms are classical and cited in `kernel.py`'s docstring — Knuth–Bendix
 1970, Kamin–Levy LPO, Robinson unification, content addressing. None of them

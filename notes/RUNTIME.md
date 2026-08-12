@@ -139,11 +139,13 @@ here; it is a line in the ledger.
 
 This section is longer than §1 on purpose.
 
-1. **One edge type.** Only *equality*, oriented. The design calls for
-   isomorphism, implication, quotient, embedding, completion, duality,
-   approximation-with-error, and simulation as **distinct** typed edges with
-   their own composition and preservation laws. None of those exist. The
-   entire "transport theorems across an equivalence" story is unbuilt.
+1. **Two edge types of the eight or so needed.** Equality (oriented) and
+   *interpretation between theories* (§7). Still missing: implication,
+   quotient, embedding, completion, duality, approximation-with-error, and
+   simulation, each of which needs its own composition and preservation
+   laws. Interpretations also do not yet compose, and there is no search
+   over the graph of them — so "route this problem to the theory where it
+   is cheapest" is not implemented.
 2. **No univalence.** There is no path object, no transport, no
    automorphism retained as structure. Content addressing (the Unison half)
    is real; the witness-bearing-identity half is not. Calling the current
@@ -239,11 +241,66 @@ by hand.
 ## 6. The next edge
 
 The smallest step that would make this more than a demonstration is not
-another layer. It is the **second edge type**: an isomorphism edge carrying
-its witness, with transport along it. That is the first point at which a
-theorem proved about one structure becomes executable about a different one,
-which is the only reason to have a typed graph instead of a rule list.
+another layer. It is the **second edge type**: a map between theories
+carrying its witness, with transport along it. That is the first point at
+which a theorem proved about one structure becomes executable about a
+different one, which is the only reason to have a typed graph instead of a
+rule list.
 
 The test for it should be built the same way as this one — an external
 answer, an independent problem, and a ledger — and it should be allowed to
 fail.
+
+---
+
+## 7. The second edge, built
+
+    python3 machinery/crystal/demo_transport.py
+
+`machinery/crystal/transport.py`. An **interpretation** is a declared
+signature map from a source theory into a target theory, extended
+homomorphically to all terms. The kernel accepts it only if **every source
+axiom becomes a theorem of the target**, checked by normalisation. An
+unchecked or rejected interpretation raises rather than answering — a map
+that has not been verified may not decide anything.
+
+Once accepted, the source theory's word problems are decided by the
+target's compiled system. The source theory is never compiled: its
+compilation cost is not reduced, it is *never paid*.
+
+Measured: left-zero semigroups compiled once (associativity is absorbed and
+retired, leaving the single rule $x\cdot y\to x$). Right-zero semigroups —
+a genuinely different theory — arrive and are never compiled. One map
+checked in 4 rewrite steps; 5 problems then decided in 8 steps total; both
+false controls correctly refused.
+
+**The type does work, and this is the point.** The two theories are
+anti-isomorphic, not isomorphic. Declared as a plain isomorphism the map is
+**rejected**, on the axiom $x\cdot y=y$, which translates to itself and is
+not a theorem of the target. That rejection matters because the mistyped
+map is the *identity on terms*: had the kernel accepted it, every right-zero
+problem would have been answered by asking the left-zero theory a different
+question, and `a*b = b` would have come back false. Conflating two edge
+kinds is not a modelling infelicity; it is a wrong answer.
+
+### How this test got here, since the first version was wrong
+
+The obvious example was groups: compile the left-axiom presentation,
+transport the right-axiom one. The kernel accepted the *mistyped* identity
+map. That looked like a bug for about a minute and was not. **Group theory
+is self-dual** — the completed left theory proves right identity and right
+inverse outright, so the identity map genuinely is a valid interpretation
+and the anti-isomorphism is not needed. The example could not demonstrate
+what it claimed, because there was nothing there to demonstrate.
+Demonstrating that the type matters requires a theory that is not
+self-dual, hence the zero semigroups.
+
+Worth recording as a fact about this kind of work: the failure was in the
+test's mathematics, not the code, and the kernel is what caught it. That is
+the argument for having a kernel at all. It is also the pattern the corpus
+keeps hitting from the other side — `notes/E2_PROOF.md` found two errors in
+`METHOD.md`'s Proposition M1 whose own numerical check had passed, because
+the check verified a finite-$Q$ quantity while the error was in the
+identification of its limit. A check that cannot fail is not a check.
+`test_crystal.py::test_group_theory_is_self_dual_so_both_maps_check` now
+pins the corrected understanding so it cannot be re-broken.

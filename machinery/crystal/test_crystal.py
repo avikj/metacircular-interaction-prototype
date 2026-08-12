@@ -239,5 +239,92 @@ class TestTheLedgerClaim(unittest.TestCase):
         self.assertFalse(proved)
 
 
+class TestTransport(unittest.TestCase):
+    """The second edge type: interpretations between theories."""
+
+    def setUp(self):
+        from machinery.crystal.transport import Interpretation, arg
+
+        self.Interp, self.arg = Interpretation, arg
+        self.left_zero = [
+            ("assoc", op(op(x, y), z), op(x, op(y, z))),
+            ("left-zero", op(x, y), x),
+        ]
+        self.right_zero = [
+            ("assoc", op(op(x, y), z), op(x, op(y, z))),
+            ("right-zero", op(x, y), y),
+        ]
+        self.target = Completion(LPO(["*"]))
+        self.target.run(self.left_zero)
+
+    def _map(self, reversing: bool):
+        cl = mk("*", self.arg(1), self.arg(0)) if reversing \
+            else mk("*", self.arg(0), self.arg(1))
+        return self.Interp("m", {("*", 2): cl}, self.right_zero, self.target)
+
+    def test_a_mistyped_map_is_rejected(self):
+        m = self._map(reversing=False)
+        self.assertFalse(m.check())
+        self.assertTrue(m.failures)
+
+    def test_a_rejected_map_cannot_be_used(self):
+        m = self._map(reversing=False)
+        m.check()
+        with self.assertRaises(RuntimeError):
+            m.decides(op(a, b), b)
+
+    def test_an_unchecked_map_cannot_be_used(self):
+        with self.assertRaises(RuntimeError):
+            self._map(reversing=True).decides(op(a, b), b)
+
+    def test_the_anti_isomorphism_is_accepted(self):
+        self.assertTrue(self._map(reversing=True).check())
+
+    def test_transport_decides_the_uncompiled_theory(self):
+        m = self._map(reversing=True)
+        m.check()
+        for l, r in [(op(a, b), b),
+                     (op(op(a, b), c), c),
+                     (op(a, op(b, c)), c),
+                     (op(op(op(a, b), c), a), a)]:
+            self.assertTrue(m.decides(l, r)[0], f"failed on {l!r} = {r!r}")
+
+    def test_transport_refuses_what_is_false_in_the_source(self):
+        m = self._map(reversing=True)
+        m.check()
+        for l, r in [(op(a, b), a), (op(op(a, b), c), a)]:
+            self.assertFalse(m.decides(l, r)[0], f"wrongly decided {l!r} = {r!r}")
+
+    def test_translation_is_homomorphic_and_reverses(self):
+        m = self._map(reversing=True)
+        self.assertIs(m.apply(op(a, b)), op(b, a))
+        self.assertIs(m.apply(op(op(a, b), c)), op(c, op(b, a)))
+
+    def test_group_theory_is_self_dual_so_both_maps_check(self):
+        # Recorded because it broke the first version of the transport
+        # demo. Groups are self-dual: the completed left-axiom theory
+        # proves the right-axiom ones, so the identity map is a genuine
+        # interpretation and the reversal is not needed. The kernel
+        # accepting it was correct; the test that called it a bug was not.
+        E = mk("e")
+
+        def inv(p):
+            return mk("i", p)
+
+        target = Completion(LPO(["i", "*", "e"]))
+        target.run(GROUP)
+        right_axioms = [
+            ("assoc", op(op(x, y), z), op(x, op(y, z))),
+            ("right-identity", op(x, E), x),
+            ("right-inverse", op(x, inv(x)), E),
+        ]
+        for reversing in (False, True):
+            cl = mk("*", self.arg(1), self.arg(0)) if reversing \
+                else mk("*", self.arg(0), self.arg(1))
+            m = self.Interp("g", {("*", 2): cl, ("i", 1): mk("i", self.arg(0)),
+                                  ("e", 0): E}, right_axioms, target)
+            self.assertTrue(m.check(), f"reversing={reversing} should check")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
