@@ -335,3 +335,7 @@ Doing: `TWO_STEP_RESIDUE_EXCLUSIONS` landed. Next decide whether cover minimizat
 ## 2026-08-12T13:31:37Z — local masks return to the global generated-action arc
 Believe: The residue-cover problem is not the next center. Reconstructing the whole field exposed an unassimilated live question: how predictive worlds change when observations arrive. The general answer is intersection/refinement with canonical quotient transport; our split horizons are one exact instance where a Boolean future unfolds into a mask and witnesses localize inside the old class.
 Doing: `INCREMENTAL_OBSERVATION_REFINEMENT` landed. Next seek the algorithmic changed-region theorem for finite systems, preserving old distinguishing certificates rather than recomputing the whole quotient.
+
+## 2026-08-12T13:34:00Z — changed region becomes reverse pair reachability
+Believe: Incremental observation has a local causal geometry. Immediate disagreements are seeds; synchronous predecessor pairs inherit a witness by prefixing one action. Reverse reachability computes exactly which old equivalences die, while every untouched pair and old inter-block certificate persists.
+Doing: `INCREMENTAL_WITNESS_PAIR_GRAPH` landed. Next connect state refinement to the transformation/syntactic monoid update: determine which old action classes split using the refined state witnesses without enumerating all words.
