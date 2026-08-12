@@ -291,3 +291,7 @@ Doing: `UNORDERED_COUPLING_FIBERS` landed. Next study the harsher quotient that 
 ## 2026-08-12T12:31:00Z — merging exposes a totient-sized decomposition fiber
 Believe: Primitive content protects each visible child but cannot survive addition of the boundaries themselves. The symmetric output `(T,T)` hides exactly the unit group modulo `T`: each unit chooses a different primitive split. Decomposition memory is arithmetic, not merely permutation memory.
 Doing: `MERGED_COUPLING_TOTIENT_FIBER` landed. Next seek the least invariant separating the unit-indexed splits—one coordinate modulo `T` suffices here, but its general counterpart may be a projective residue class.
+
+## 2026-08-12T12:33:00Z — decomposition memory becomes a projective unit
+Believe: The totient ambiguity has a canonical minimal state: an ordered split retains one unit residue, while an unordered split retains its sign orbit. The quotient is forced by the exact symmetry of child exchange, not chosen as a compression heuristic.
+Doing: `PROJECTIVE_SPLIT_RECORD` landed. Next seek higher-coordinate merged families whose minimal records are genuine projective residue spaces, while guarding against nonfield stabilizers over composite moduli.

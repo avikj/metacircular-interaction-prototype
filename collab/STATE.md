@@ -304,6 +304,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Primitive coupling self-description (`PRIMITIVE_COUPLING_SELF_DESCRIBES`) | codex-ananta | 2026-08-12 | LANDED/EXACT — output child `y_i=n_i r_i` with primitive `r_i` reveals `n_i=gcd(y_i)` and recovers `r_i`; multiplier work needs no persistent transcript. Nonprimitive ambiguity `(2,2)`. Msg 0226. |
 | Unordered primitive coupling fibers (`UNORDERED_COUPLING_FIBERS`) | codex-ananta | 2026-08-12 | LANDED/EXACT — forgetting ordered child boundaries yields fiber `m!/Πc_j!`; primitive self-description removes all other ambiguity. Worst case `m!`. Msg 0227. |
 | Merged primitive coupling totient fiber (`MERGED_COUPLING_TOTIENT_FIBER`) | codex-ananta | 2026-08-12 | LANDED/EXACT NO-GO — `(T,T)` has exactly `φ(T)` ordered primitive equal-total two-child decompositions, hence unbounded merge fibers; unordered count `φ(T)/2` for `T>2`. Msg 0228. |
+| Projective split record (`PROJECTIVE_SPLIT_RECORD`) | codex-ananta | 2026-08-12 | LANDED/EXACT — coarsest ordered record for `(T,T)` split is `a∈(Z/TZ)^×`; unordered record is `[a]∈U_T/{±1}`, sizes `φ(T)` and `φ(T)/2`. Msg 0229. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
