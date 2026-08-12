@@ -504,9 +504,41 @@ print(f"    at the first zero s = 1/2 + i gamma_1: |Phi| = {abs(a1):.3e} "
 # (D2) windowed prolate E-vectors: lambda^2 in {3, 5, 11}; f_m = psi_{2m, lambda}
 #      (truncated even prolate, c = 2 pi lambda^2), corrected by psi_0, psi_2 to
 #      f(0) = 0 = int f; g_m = E(f_m)|_{[lambda^{-1}, lambda]}.
+#      The zero sum is restricted to gamma < GCUT with oscillation-resolving
+#      Gauss nodes per segment (the first run used 64 nodes/segment against all
+#      100k zeros: for gamma*T/2 >> nodes the oscillatory quadrature returns
+#      O(1) noise per zero instead of the true |Phi| ~ jump/gamma, and the
+#      noise summed to a spurious W ~ 1e3 -- caught by magnitude sanity).
+#      The omitted gamma > GCUT tail is bounded analytically by the jump data:
+#      |Phi_g(1/2+i t)| <= J_tot/t with J_tot = sum of |jump| of g, so
+#      tail <= J_tot^2 * (2/2pi) int_GCUT (log(t/2pi)) t^-2 dt.
 print("\n  (D2) Rayleigh quotients W(g_m)/||g_m||^2 of windowed prolate E-vectors")
 print("       vs Slepian leakage 1 - lambda_{2m}(2 pi lambda^2):")
+GCUT = 5000.0
+NZC = int(np.searchsorted(GAMMA, GCUT))
+TAILFAC = (np.log(GCUT / (2 * np.pi)) + 1.0) / GCUT / np.pi   # 2*(1/2pi)*int
 RES_D = {}
+
+
+def segment_nodes(pts, gmax):
+    uq, wq = [], []
+    for a, b in zip(pts[:-1], pts[1:]):
+        nn = int(gmax * (b - a) / 2 * 1.2) + 48
+        xg, wg = np.polynomial.legendre.leggauss(nn)
+        uq.append(0.5 * (a + b) + 0.5 * (b - a) * xg)
+        wq.append(0.5 * (b - a) * wg)
+    return np.concatenate(uq), np.concatenate(wq)
+
+
+def zero_side_W(vecs, uq, wq, chunk=4000):
+    Phi = np.zeros((vecs.shape[0], NZC), dtype=complex)
+    gw = vecs * wq
+    for i0 in range(0, NZC, chunk):
+        g = GAMMA[i0:i0 + chunk]
+        Phi[:, i0:i0 + chunk] = gw @ np.exp(1j * np.outer(uq, g))
+    return 2 * np.real(Phi @ Phi.conj().T), Phi
+
+
 for lam2 in (3, 5, 11):
     lam = np.sqrt(lam2)
     Twin = np.log(lam2)
@@ -515,19 +547,12 @@ for lam2 in (3, 5, 11):
     chi, C, slep, mus, _ = slepian_lams(c, Npro)
     C = trim(C)
     val0 = legendre_eval(C, np.array([0.0]))[:, 0]        # psi_n(0)
+    val1 = legendre_eval(C, np.array([1.0]))[:, 0]        # psi_n(1) (edge)
     integ = lam * np.sqrt(2) * C[:, 0]                    # int_{-lam}^{lam} psi_n(x/lam) dx
-    # breakpoints and piecewise Gauss nodes
     brk = [np.log(lam / n) for n in range(1, int(lam2 + 1e-9) + 1)]
     pts = sorted(set([-Twin / 2, Twin / 2] + [b for b in brk if -Twin / 2 < b < Twin / 2]))
-    xg, wg = np.polynomial.legendre.leggauss(64)
-    uq, wq = [], []
-    for a, b in zip(pts[:-1], pts[1:]):
-        uq.append(0.5 * (a + b) + 0.5 * (b - a) * xg)
-        wq.append(0.5 * (b - a) * wg)
-    uq = np.concatenate(uq)
-    wq = np.concatenate(wq)
+    uq, wq = segment_nodes(pts, GCUT)
     vq = np.exp(uq)
-    # raw E-values for every even prolate index
     ev_idx = list(range(0, Npro, 2))
     graw = np.zeros((len(ev_idx), uq.size))
     for i, u in enumerate(uq):
@@ -538,50 +563,49 @@ for lam2 in (3, 5, 11):
     # constrained combos: f_m = psi_{2m} - a psi_0 - b psi_2
     A22 = np.array([[val0[0], val0[2]], [integ[0], integ[2]]])
     ms = [mm for mm in range(2, len(ev_idx))]
-    G_list, W_list, leak = [], [], []
     vecs = np.zeros((len(ms), uq.size))
+    leak, jtot = [], []
     for j, mm in enumerate(ms):
         k = 2 * mm
         ab = np.linalg.solve(A22, np.array([val0[k], integ[k]]))
         vecs[j] = graw[ev_idx.index(k)] - ab[0] * graw[0] - ab[1] * graw[1]
         leak.append(max(1.0 - slep[k], 1e-16))
-    # zero-side W and Gram
+        # jump budget: every jump of g (breakpoints + window ends) has size
+        # sqrt(lam/n) |f(lam^-)|, f(lam^-) = psi_k(1) - a psi_0(1) - b psi_2(1)
+        fedge = abs(val1[k] - ab[0] * val1[0] - ab[1] * val1[2])
+        jtot.append(fedge * np.sum(np.sqrt(lam / np.arange(1, lam2 + 1)))
+                    + abs(vecs[j][0]) + abs(vecs[j][-1]))
     Gm = (vecs * wq) @ vecs.T
-    Phi = np.zeros((len(ms), GAMMA.size), dtype=complex)
-    for i0 in range(0, GAMMA.size, 10000):
-        g = GAMMA[i0:i0 + 10000]
-        E = np.exp(1j * np.outer(uq, g))
-        Phi[:, i0:i0 + 10000] = (vecs * wq) @ E
-    Wm = 2 * np.real(Phi @ Phi.conj().T)
+    Wm, _ = zero_side_W(vecs, uq, wq)
     rho = np.diag(Wm) / np.diag(Gm)
-    RES_D[lam2] = dict(ms=ms, rho=rho, leak=np.array(leak), Gm=Gm, Wm=Wm)
-    shown = min(len(ms), 4 * lam2 // 2 + 2)
+    tail = np.array(jtot) ** 2 * TAILFAC / np.diag(Gm)
+    RES_D[lam2] = dict(ms=ms, rho=rho, leak=np.array(leak), Gm=Gm, Wm=Wm, tail=tail)
     print(f"    lambda^2 = {lam2:2d} (T = {Twin:.3f}, c = 2 pi lambda^2 = {c:.1f}, "
-          f"Shannon 4 lambda^2 = {4*lam2}):")
+          f"Shannon 4 lambda^2 = {4*lam2}, zeros < {GCUT:.0f}: {NZC}):")
     for j in range(len(ms)):
         if j % 2 == 0 or j > len(ms) - 4:
-            print(f"      m = {ms[j]:2d}: W/||g||^2 = {rho[j]:9.3e}   "
-                  f"1 - lambda_{{2m}} = {RES_D[lam2]['leak'][j]:9.3e}")
-    # generalized small eigenvalues on the whole constrained span
+            print(f"      m = {ms[j]:2d}: W/||g||^2 = {rho[j]:9.3e} "
+                  f"(+tail <= {tail[j]:7.1e})   1 - lambda_{{2m}} = "
+                  f"{RES_D[lam2]['leak'][j]:9.3e}")
     dG, UG = np.linalg.eigh(Gm)
     keep = dG > 1e-12 * dG.max()
     Wh = UG[:, keep] / np.sqrt(dG[keep])
     evg = np.linalg.eigvalsh(Wh.T @ Wm @ Wh)
-    nsmall = int((evg < 1e-8 * evg.max()).sum())
-    print(f"      generalized eigenvalues on the span: min = {evg[0]:.3e}, "
-          f"#(< 1e-8 max) = {nsmall}   [CC 2106.01715 quote at lambda^2 = 11: "
-          f"smallest 2.389e-48, nu ~ 2 lambda^2]")
+    nsmall = int((evg < 1e-8 * max(evg.max(), 1e-300)).sum())
+    print(f"      generalized eigenvalues on the span (dim {int(keep.sum())}): "
+          f"min = {evg[0]:.3e}, max = {evg[-1]:.3e}, #(< 1e-8 max) = {nsmall}")
+    print(f"      [CC 2106.01715 quote at lambda^2 = 11: smallest eigenvalue "
+          f"2.389e-48, nu(lambda^2) ~ 2 lambda^2; double precision resolves "
+          f"only down to ~1e-16 relative on the assembled sum]")
     stamp(f"    lambda^2 = {lam2} done")
-# control: Gaussian f (non-prolate) at lambda^2 = 5
+# control: Gaussian f (non-prolate) at lambda^2 = 5, same construction
 lam2 = 5
 lam = np.sqrt(lam2)
 Twin = np.log(lam2)
 pts = sorted(set([-Twin / 2, Twin / 2]
                  + [np.log(lam / n) for n in range(1, lam2 + 1)
                     if -Twin / 2 < np.log(lam / n) < Twin / 2]))
-xg, wg = np.polynomial.legendre.leggauss(64)
-uq = np.concatenate([0.5 * (a + b) + 0.5 * (b - a) * xg for a, b in zip(pts[:-1], pts[1:])])
-wq = np.concatenate([0.5 * (b - a) * wg for a, b in zip(pts[:-1], pts[1:])])
+uq, wq = segment_nodes(pts, GCUT)
 vq = np.exp(uq)
 sig1, sig2 = lam / 3, lam / 5
 
@@ -597,15 +621,12 @@ def gauss_pair(vq, s1, s2):
     return out
 
 
-gc = gauss_pair(vq, sig1, sig2)
-Gc = np.sum(wq * gc * gc)
-Phic = np.zeros(GAMMA.size, dtype=complex)
-for i0 in range(0, GAMMA.size, 10000):
-    g = GAMMA[i0:i0 + 10000]
-    Phic[i0:i0 + 10000] = (gc * wq) @ np.exp(1j * np.outer(uq, g))
-Wc = 2 * np.real(np.vdot(Phic, Phic))
-print(f"    CONTROL (Gaussian-pair f, same window lambda^2 = 5): "
-      f"W/||g||^2 = {Wc/Gc:.3e}  (vs prolate m=2: {RES_D[5]['rho'][0]:.3e})")
+gc = gauss_pair(vq, sig1, sig2)[None, :]
+Gc = float((gc * wq) @ gc.T)
+Wc = float(zero_side_W(gc, uq, wq)[0])
+RHO_CTRL = Wc / Gc
+print(f"    CONTROL (Gaussian-pair f in S_0^ev, same window lambda^2 = 5): "
+      f"W/||g||^2 = {RHO_CTRL:.3e}  (vs prolate m=2: {RES_D[5]['rho'][0]:.3e})")
 
 # ============================================================================
 # FIGURE
