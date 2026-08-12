@@ -1411,3 +1411,68 @@ The next serious construction I can see is therefore not “try another transfor
 I do not yet know whether that category is an Arakelov category of correspondences, a derived intersection theory on a cyclotomic/endomotive object, a noncommutative quotient with a genuine intersection pairing, or something not yet named.  The repo should resist choosing a fashionable container too early.  The invariant requirements are clearer than the implementation.  We know what the object must output, what it must not assume, how failure will look, and which exact local atoms it must contain.  That is enough to begin engineering.
 
 And this is the deepest sense in which we are building a machine rather than collecting mathematics.  A machine is not a single proof.  It is a closed metabolism in which intuitions become definitions, definitions become exact consequences, consequences become reusable operations, failures become constraints, and constraints reshape intuition.  The huge result, if it comes, will not descend as one brilliant analogy.  It will appear when the organism has made every false move expensive, every exact defect reusable, and the right global object easier to construct than to avoid.
+
+There is now a more exact reason to privilege the cyclotomic tower.  Let
+
+\[
+\mathcal O_k=\mathbb Z[\zeta_{p^k}],\qquad \pi_k=1-\zeta_{p^k}.
+\]
+
+The inclusion \(\mathcal O_k\hookrightarrow\mathcal O_{k+1}\) sends \(\zeta_{p^k}\) to \(\zeta_{p^{k+1}}^p\), hence
+
+\[
+\pi_k=1-\zeta_{p^{k+1}}^p
+=(1-\zeta_{p^{k+1}})(1+\zeta_{p^{k+1}}+\cdots+\zeta_{p^{k+1}}^{p-1}).
+\]
+
+Total ramification sharpens this to
+
+\[
+\pi_k=u_k\pi_{k+1}^{p}
+\]
+
+for a unit \(u_k\in\mathcal O_{k+1}^{\times}\).  Equivalently, the relative norm runs in the opposite direction by
+
+\[
+N_{k+1/k}(\pi_{k+1})=\pi_k.
+\]
+
+Thus two apparently contradictory things happen at once.  On residue fields, the tower map is the identity
+
+\[
+\mathcal O_k/(\pi_k)\cong\mathbb F_p
+\longrightarrow
+\mathcal O_{k+1}/(\pi_{k+1})\cong\mathbb F_p.
+\]
+
+But on first-order conormal directions it is zero:
+
+\[
+(\pi_k)/(\pi_k^2)\otimes_{\mathcal O_k}\mathbb F_p
+\longrightarrow
+(\pi_{k+1})/(\pi_{k+1}^2),
+\qquad [\pi_k]\longmapsto[ u_k\pi_{k+1}^{p}]=0.
+\]
+
+The point survives while its tangent is annihilated.  The next level is indistinguishable at residue order zero and radically different at infinitesimal order one.  This is not metaphorical.  It is the exact signature of ramification, and after reduction it has the shape of Frobenius/inseparability: motion upstairs becomes a \(p\)-th-order event downstairs.
+
+That observation links two regions of the repository that had remained merely adjacent.  The finite-field proof-difference program found that the missing integer mechanism is inseparability: in positive characteristic, Frobenius collapses derivatives and makes certain coefficient objects abelianizable; over \(\mathbb Z\), ordinary derivations and Frobenius lifts are too rigid or trivial.  The cyclotomic tower shows that characteristic zero nevertheless contains canonical places where reduction turns tower motion into a purely ramified \(p\)-power map whose differential vanishes.  It does not import the finite-field proof.  It identifies an exact interface at which the structural resource called inseparability is present locally rather than postulated globally.
+
+This may be the first candidate for a genuinely coupled operation.  Additive projection commuted with charge extraction because both were coefficientwise linear views of the same data.  Residue and infinitesimal transport along the cyclotomic tower do not commute innocently: residue sees an isomorphism while the conormal derivative sees zero, and the lost first-order information reappears only as ramification multiplicity \(p\), norm, and archimedean displacement \(\log p\).  One event has four inseparable shadows:
+
+\[
+\text{residue persistence},\quad
+\text{tangent annihilation},\quad
+\text{ramification multiplicity},\quad
+\text{logarithmic energy}.
+\]
+
+This is a quaternity with reconstruction content.  Any three may plausibly determine the fourth under suitable normalization: the residue characteristic gives \(p\); tangent annihilation says the order is at least two; exact ramification gives the exponent \(p\); and norm compatibility converts the local multiplicity into the repeated Mangoldt weight across the tower.  The reconstruction theorem needs to be stated carefully, because tangent annihilation alone is far too weak and many ramified extensions share the same residue behavior.  The full local extension, not a slogan about vanishing derivatives, is the object.
+
+The immediate mathematical test is therefore finite and severe.  Construct the diagram of residue modules, conormal complexes, norm maps, and logarithmic gradings for the tower \(\{\mathcal O_k\}\).  Determine whether its derived intersection class has an additive trace equal to \(\log p\) at every level for a reason stronger than taking cardinality after the fact.  Then determine whether induction and restriction across distinct primes assemble multiplicatively while their connected logarithm assembles additively.  If this is merely the standard different/discriminant calculus written in new notation, record it as a coordinate chart and stop.  If the same functor simultaneously produces the Mangoldt coefficient and a canonical bilinear or index pairing, advance it.
+
+There is a particularly important warning.  Ramification tends to create large discriminant exponents, whereas \(\Lambda(p^k)=\log p\) is deliberately constant in \(k\).  The desired object cannot simply be the different or discriminant of \(\mathbb Q(\zeta_{p^k})\), whose size grows strongly with the level.  It must isolate the identity-section intersection as a primitive residue event while retaining the tower map as structure.  In other words, the coefficient is order-zero length, but the possible proof mechanism lives in higher-order transport.  Conflating those levels will generate the wrong weights.
+
+This distinction suggests a broader machine principle: the observable and the mechanism need not live at the same categorical depth.  The observed coefficient \(\Lambda(p^k)\) is the logarithmic cardinality of a residue module.  The reason those coefficients cohere may live in a conormal or derived tower.  The observed prime-pair count is an additive fiber coefficient.  The mechanism capable of controlling it may live in how multiplicative tangent data ramifies before projection.  Asking the observable itself to display the proof mechanism is exactly what made the bare pair field and the charged fixed-fiber field look richer than they were.
+
+So the next engine operation should be named conceptually even before it is implemented: lift an arithmetic observable to the lowest derived or infinitesimal layer at which its generating maps cease to commute, prove a conservation or index law there, and descend only at the end.  The lift is valid only if descent recovers the original observable exactly.  This is the Euclidean version of looking behind appearances: not adding dimensions freely, but locating the first layer where the obstruction becomes an object.

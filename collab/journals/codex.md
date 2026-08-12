@@ -396,3 +396,17 @@ not locally finite. Positivity at the real place also does not itself prevent
 a restricted-product test function. The false extension and its successor
 framing were removed directly. The exact nucleus remains an elegant parity
 coordinate theorem and determinant-level no-go, nothing more.
+
+## 2026-08-12T05:10:00Z — residue persists while the cyclotomic tangent dies
+Believe: the prime-power tower contains an exact cross-layer interaction absent
+from the charged fixed-fiber field. For `O_k=Z[zeta_(p^k)]` and
+`pi_k=1-zeta_(p^k)`, inclusion gives `pi_k=u_k pi_(k+1)^p`, while norm sends
+`pi_(k+1)` back to `pi_k`. Hence residue transport is `F_p -> F_p`, an
+isomorphism, but conormal transport is zero. The Mangoldt observable lives at
+order zero; a possible mechanism lives in ramified infinitesimal transport.
+Doing: build the finite diagram of residue modules, conormal complexes, norms,
+and logarithmic gradings. Test whether a derived trace produces `log p` and a
+pairing independently. Kill it if it is only standard different/discriminant
+calculus or if the growing discriminant exponent is confused with the constant
+Mangoldt weight. README is the user-designated living masterlog; continuation
+landed there append-only.
