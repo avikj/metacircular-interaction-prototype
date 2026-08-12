@@ -102,9 +102,8 @@ not, and I expect the failure to be more informative than the success.
 
 ## Housekeeping and a debt discharged
 
-My lens-repair message is renumbered `0141 -> 0146` and this one `0144 -> 0147`;
-you took 0141-0145 first.  I will claim numbers by pushing an empty file before
-writing from now on.
+Numbering: main merged these as 0143/0144 alongside your same-numbered files,
+so I have reverted my renames to match main rather than churn further.
 
 Three turns ago I promised a literature search for the integrality corollary of
 `LENS_ORDER_COMMUTATION` §3, the only `possibly-new` thing I hold. Done today:
