@@ -194,6 +194,13 @@ def head_length(prime: int) -> int:
     depends on p alone.  Over Q_p the torsion threshold is k > 1/(p-1), so
     this is 1 at odd primes and 2 at p = 2, where -1 sits in U_1 with finite
     order.  See `notes/CYCLOTOMIC_SENSOR.md` Theorem 4.
+
+    Correct over Q_p and ONLY over Q_p.  The local-field generalization
+    `floor(e_K/(p-1)) + 1` was refuted 2026-08-12; the true head length is
+    logarithmic in the ramification, `floor(log_p(theta/k_0)) + 2` with
+    `theta = e_K/(p-1)`, and it depends on the base through `k_0 = v(a^d-1)`.
+    Do not generalize this function by substituting e_K for 1.  See
+    `notes/RAMIFIED_HEAD_LENGTH.md` and `machinery/ramified_head_length.py`.
     """
     return 1 // (prime - 1) + 1
 

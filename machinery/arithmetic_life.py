@@ -19,7 +19,7 @@ class Event:
 @dataclass(frozen=True)
 class OriginJoin:
     inputs: tuple[int, int]
-    remembered_origins: tuple[tuple[int, int], tuple[int, int]]
+    remembered_origins: tuple[tuple[int, ...], tuple[int, ...]]
     overlap: int
     least_common_multiple: int
     embeddings: tuple[int, int]
@@ -100,61 +100,75 @@ class ArithmeticLife:
         self.generated_through = max(self.generated_through, bound)
 
     def factor(self, n: int) -> tuple[int, int] | None:
-        """Let the current sensor frontier grow until equal grouping resolves n."""
+        """Let the current sensor frontier grow until equal grouping resolves n.
+
+        Two regimes actually execute.  Before the batch theorem is derived,
+        every installed sensor below the frontier is applied as its own
+        reduction.  Deriving the theorem replaces those |A| reductions by one
+        Euclidean descent, and the trace records the change of regime rather
+        than asserting it.
+        """
         if n < 2:
             raise ValueError("factor encounter needs n >= 2")
-        self._extend_prime_sensors_through(isqrt(n), n)
-        active = tuple(p for p in self.moduli if p <= isqrt(n))
-        if len(active) >= 2:
+        bound = isqrt(n)
+        self._extend_prime_sensors_through(bound, n)
+        active = sorted(m for m in self.moduli if m <= bound)
+        witness = None
+        if active and self.batch_compiled:
             wheel = prod(active)
-            if not self.batch_compiled:
-                self._record(
-                    "compile-action", active + (wheel,),
-                    "gcd(n,product sensors)>1 iff an installed prime divides n",
-                )
-                self.batch_compiled = True
             common = gcd(n, wheel)
             self._record(
                 "act-batch", (n, wheel, common),
-                "Euclidean descent interrogates all installed prime senses",
+                "one Euclidean descent interrogates every installed sense",
             )
             if common > 1:
-                divisor = next(p for p in active if common % p == 0)
-                pair = (divisor, n // divisor)
-                self.factor_origins[n] = pair
-                self._record(
-                    "reconstruct-origin", (n,) + pair,
-                    f"{n}={pair[0]}*{pair[1]}; replace object by origins",
-                )
-                return pair
+                # Least active modulus dividing the overlap; minimality forces
+                # it prime, so the origin is irreducible even under injected
+                # composite sensors.  See ARITHMETIC_LIFE_ADVERSARIAL_AUDIT T3.
+                witness = min(m for m in active if common % m == 0)
         elif active:
-            divisor = active[0]
-            self._record(
-                "act", (n, divisor, n % divisor),
-                f"apply installed mod-{divisor} sensor",
-            )
-            if n % divisor == 0:
-                pair = (divisor, n // divisor)
-                self.factor_origins[n] = pair
+            residues = tuple(n % m for m in active)
+            for modulus, residue in zip(active, residues):
                 self._record(
-                    "reconstruct-origin", (n,) + pair,
-                    f"{n}={pair[0]}*{pair[1]}; replace object by origins",
+                    "act", (n, modulus, residue),
+                    f"apply installed mod-{modulus} sensor on its own",
                 )
-                return pair
+            hits = [m for m, r in zip(active, residues) if r == 0]
+            if hits:
+                witness = hits[0]
+            if len(active) >= 2:
+                self._record(
+                    "compile-action", tuple(active) + (prod(active),),
+                    f"gcd(n,product of senses)>1 iff some installed sense "
+                    f"divides n; {len(active)} separate reductions collapse "
+                    "into one Euclidean descent from here on",
+                )
+                self.batch_compiled = True
+        if witness is not None:
+            pair = (witness, n // witness)
+            self.factor_origins[n] = pair
+            self._record(
+                "reconstruct-origin", (n,) + pair,
+                f"{n}={pair[0]}*{pair[1]}; replace object by irreducible origins",
+            )
+            return pair
         self._record(
             "frontier", (n,),
-            f"no equal grouping through {isqrt(n)}; n is prime",
+            f"no equal grouping through {bound}; n is prime",
         )
         return None
 
     def join_origins(self, left: int, right: int) -> OriginJoin:
-        """Form the least shared multiple from remembered factor origins.
+        """Form the least shared multiple by Euclidean descent alone.
 
-        Euclidean descent finds the overlap. Dividing it out before
-        multiplication prevents double-counting the shared origin.
+        Dividing the overlap out before multiplication prevents double-counting
+        the shared origin.  Remembered origins are *provenance*, not input: the
+        identity gcd(a,b)*lcm(a,b)=ab makes the join independent of any
+        factorization, so requiring stored origins would only shrink the domain
+        (it refused prime arguments) without contributing to the value.
         """
-        if left not in self.factor_origins or right not in self.factor_origins:
-            raise ValueError("both inputs need remembered factor origins")
+        if left < 1 or right < 1:
+            raise ValueError("a join needs positive integers")
         overlap = gcd(left, right)
         joined = (left // overlap) * right
         embeddings = (joined // left, joined // right)
@@ -168,7 +182,10 @@ class ArithmeticLife:
         )
         return OriginJoin(
             inputs=(left, right),
-            remembered_origins=(self.factor_origins[left], self.factor_origins[right]),
+            remembered_origins=(
+                self.factor_origins.get(left, ()),
+                self.factor_origins.get(right, ()),
+            ),
             overlap=overlap,
             least_common_multiple=joined,
             embeddings=embeddings,

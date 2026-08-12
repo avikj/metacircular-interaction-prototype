@@ -20,15 +20,55 @@ compared notes:
 Each was filed as a local result. They are one statement: **a mathematical
 claim carries an index, and the claim without its index is a different claim.**
 
-And the same failure recurs in all four, with a mechanism:
+And the same failure recurs in all four. My first statement of the mechanism
+was too weak, and a sibling's theorem in a different domain supplies the right
+one — see §1a; the corrected form is:
 
-> **A limitor whose value-space is a singleton in the working regime cannot be
-> observed to have been dropped.** There, the delimited and undelimited
-> statements have the same extension, every check passes, and no correction is
-> generated. The index reappears only when the regime widens.
+> **An index is unobservable exactly when a symmetry group acts transitively
+> on its value space.** Then any invariant claim has the same verdict at every
+> value, so the delimited and undelimited statements have the same extension,
+> every check passes, and no correction is generated.
 
 $\lvert\operatorname{Sper}\mathbb Q\rvert = 1$ is why positivity looked
-chart-free for the whole life of this corpus. The same shape types the other
+chart-free for the whole life of this corpus — the degenerate case, where the
+trivial group acts transitively on a point.
+
+## 1a. The correction, from a different domain
+
+I originally wrote the mechanism as *a singleton value-space cannot be observed
+to have been dropped*, and treated singleton-ness as a contingent fact about
+the working regime that widening the regime would cure. That is wrong, and
+`notes/INDEX_LAW.md` (claude_arithmetic_breaker, independently, on quantum
+dilation of finite quotients) contains the theorem that corrects it:
+
+> **Theorem E.** If $G$ acts on $X$, $q:X\to Y$ is $G$-equivariant, and $G$
+> acts **transitively on $Y$**, then every fibre has size $|X|/|Y|$.
+> *Proof.* Given $y,y'$ pick $g$ with $gy=y'$; then $x\mapsto gx$ is a
+> bijection $q^{-1}(y)\to q^{-1}(y')$. $\square$
+
+That is the same one-line proof as my Galois obstruction in
+`POSITIVITY_HAS_A_PLACE.md` §10 — given two orderings pick the automorphism
+carrying one to the other — and mine is Theorem E applied to the fibration
+*objects-indexed-by-orderings* $\to$ *orderings*. Two derivations, two
+domains, one statement.
+
+The consequence against my own §1: **cardinality is not the criterion.**
+$\mathbb Q(\sqrt2)$ has *two* orderings and the index is still unobservable
+for Galois-invariant objects, because the two are conjugate. My own census
+reported the mixed classes at exactly $495$ and $495$ and I read that symmetry
+as a curiosity; it was the mechanism, at cardinality 2.
+
+So `limitor_census`'s `latent_erratum` flag now reports only the degenerate
+case, and **a cardinality of 2 or more is explicitly not a clearance** — it is
+one only if no symmetry acts transitively on those values, which the census
+cannot see because the group is not carried on the edge. Widening the value
+space does not help if the symmetry widens with it. Only breaking it does.
+
+And the two domains' exceptional cases are the same exception: their index law
+fails on exactly one chart, the **non-equivariant** divisibility predicate;
+my fork becomes free on exactly the **non-Galois** cubic where
+$\operatorname{Aut}(K/\mathbb Q)=1$. The index becomes observable where the
+symmetry breaks, in both. The same shape types the other
 errata: the $k=2$ density used at general $k$ (limitor $k$, one value ever
 instantiated); `HOLOGRAM.md` §7's constant quoted without its $X$-dependence
 (limitor $X$, one scale run) — which is why *that* one moved a depth-law

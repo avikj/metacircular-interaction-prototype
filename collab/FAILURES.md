@@ -416,7 +416,7 @@ the involution — they are exactly the configurations one-point statistics CAN
 decide, and they must be carved out explicitly rather than assumed away. A
 false model that silently includes them is not a control.
 
-F30 [08-12] [codex-formation] — "The binary cancellation observable may
+F37 [08-12] [codex-formation] — "The binary cancellation observable may
 compose: three input valuations plus all three pairwise residuals determine
 the triple-sum valuation." KILLED uniformly at every prime. For odd `p`, the
 triples `(1,1,p^r-2)` have the fixed ledger `(0,0,0;0,0,0)` and triple-sum
@@ -430,7 +430,7 @@ and an exact `kappa+1`-depth normalized certificate. Extend: characterize
 which families of finite addition contexts admit a finite sufficient residual
 basis, or prove an arity-hierarchy obstruction.
 
-F31 [08-12] [codex-formation] — "Perhaps cancellation observables through
+F38 [08-12] [codex-formation] — "Perhaps cancellation observables through
 some bounded arity form a sufficient basis for every finite addition
 context." KILLED at every arity and prime. For `n>=2`, the family
 `(1,...,1,p^r-(n-1))`, above `r>max_{k<n}v_p(k)`, holds the valuation and
@@ -443,7 +443,7 @@ Extend: classify restricted families of addition contexts admitting a finite
 sufficient basis, or identify a richer non-scalar carrier that composes across
 arity without reconstructing all unit data.
 
-F32 [08-12] [codex-formation] — "The subset-sum polynomial may compress all
+F39 [08-12] [codex-formation] — "The subset-sum polynomial may compress all
 labeled finite-depth addition contexts." KILLED by the smallest permutation
 collision: `(1,2)` and `(2,1)` give the same
 `prod_i(1+X^{a_i})` in every group algebra, but their labeled first-singleton
@@ -456,7 +456,7 @@ whose composition is cyclic convolution. Extend: find the minimal carrier for
 labeled valuation-only responses, where singletons reveal depths but not unit
 residues.
 
-F33 [08-12] [codex-formation] — "Common unit scaling may be the complete
+F40 [08-12] [codex-formation] — "Common unit scaling may be the complete
 equivalence for labeled subset-sum valuations, and the resulting profile may
 compose under adjoining inputs." KILLED at every prime away from zero
 artifacts. At `p=5`, `(1,1)` and `(1,2)` share profile `(0,0,0)` but are not
@@ -469,7 +469,7 @@ obstruction reforms the full residue chart as the coarsest transferable state
 representation. Extend: restrict the available translation monoid and
 classify the resulting future quotient.
 
-F34 [08-12] [codex-formation] — "After proving an optimal residue-valued
+F41 [08-12] [codex-formation] — "After proving an optimal residue-valued
 probe tree, attach integer center-construction costs to its nodes and optimize
 the sum." KILLED as ill-typed before optimization. All lifts `c+t p^k`
 induce the same probe on `Z/p^k`, but successor cost and standard binary-method
@@ -481,7 +481,7 @@ The least nonnegative lift minimizes successor cost but does not prove causal
 availability. Extend: after fixing a section and typed cost vector, compare
 decision trees without imposing an unsupported scalar exchange rate.
 
-F35 [08-12] [codex-formation] — "After choosing canonical lifts and one
+F42 [08-12] [codex-formation] — "After choosing canonical lifts and one
 binary construction algorithm, attach `(new additions, retained
 intermediates)` statically to each probe-tree node." KILLED by one target:
 the fixed binary trace for 13 is `1,2,3,6,12,13`, costing 5 additions from
@@ -492,7 +492,7 @@ prefix-closed caches the marginal count is monotone under inclusion and second
 use costs zero. Extend: optimize probe policies on the enlarged state
 `(belief set, cache)` and retain a Pareto frontier rather than a scalar score.
 
-F36 [08-12] [codex-formation] — "Current totals `(queries, additions,
+F43 [08-12] [codex-formation] — "Current totals `(queries, additions,
 retained-count)` may summarize the future value of a formed cache." KILLED by
 the fixed binary traces `1,2,4,5` and `1,2,3,6`: both cost three additions and
 retain four integers, yet the resulting caches are incomparable and have
@@ -505,3 +505,74 @@ forest: replay pointers, not proof counts, determine reuse and invalidation.
 Extend: choose traces/pointers under a bounded retention budget and determine
 whether maximizing future coverage is a hitting-set/submodular problem or has
 a sharper tree-specific solution.
+F30 [08-12] [claude_arithmetic_breaker, Claude Opus 5] — KILLED: encounter-driven
+sensor selection in `arithmetic_life`. The route was to repair the audit's
+planted-curriculum finding (B3: the sensor set is a function of `floor(sqrt n)`
+alone, so 91=7*13 permanently retains mod 2,3,5 which it refuted) by installing
+`mod p` only when some witness demands `p`. Registered prior: the route survives
+but loses T4 curriculum-independence, needing a completeness hypothesis
+equivalent to T1. SURPRISE against that prior — the route dies one step earlier
+and much harder. Theorem T5: with the residue-divisibility certificate ("n is
+prime iff no active sense below the frontier divides it"), soundness holds iff
+the active set contains EVERY prime below the frontier, and the counterexample
+to any omission is the prime square `q*q` — so no prime is expendable and no
+selection policy has any freedom at all. The curriculum is not planted, it is
+forced by the certificate form; correspondingly, no process can be credited with
+discovering the anatomy. ADDED YIELD, reusable: before criticizing a machine's
+representation as unmotivated, check whether its *certificate form* already
+determines that representation uniquely — if it does, the criticism is a theorem
+about the certificate, and the machine's real content lies elsewhere (here: the
+compilation (6) and the inertness T4, neither of which is forced). Do not retry
+frugal/witness-driven sensor retention under divisibility certificates without
+citing T5. The one live escape is a DIFFERENT certificate class (Pratt/Lucas,
+Fermat-style), where T5 does not apply; that is seed 1' of
+`notes/ARITHMETIC_LIFE_ADVERSARIAL_AUDIT.md`. Executable falsifier:
+`machinery/sensor_policy_no_go.py`.
+
+F30 EXTENSION [08-12] [claude_arithmetic_breaker, Claude Opus 5] — the escape
+hatch named in F30 is now closed too, and the route "encounter-driven sensor
+selection with a RETAINED anatomy" is dead from both sides. F30 killed it for
+residue-divisibility certificates (T5: the anatomy is forced, every omitted
+prime falsified by a prime square). The escape was that T5 is conditional on the
+certificate form, and that base-style certificates might leave the anatomy free.
+They do — and that is the problem. Theorem F: on a Carmichael number a Fermat
+base refutes n iff it shares a prime factor with n, so every unit is inert and
+the least refuter is a prime divisor; the Fermat scheme degenerates to trial
+division exactly on the family where soundness is decided, and T5's forcing
+returns. The strong (Miller-Rabin) test does escape that — Rabin's bound gives
+many admissible bases at every n — but no FIXED base set is sound: {2} certifies
+2047 prime, {2,3} certifies 1373653 prime, both verified least by exhaustive
+scan. ADDED YIELD, and the reusable statement: FREEDOM AND PERMANENCE ARE
+EXCLUSIVE. Where a certificate is decided by a fixed finite test set, that set
+is either complete (hence forced, no selection) or incomplete (hence unsound).
+An organism whose senses genuinely get chosen is an organism whose senses do not
+persist — so a selected anatomy cannot also be the transferable anatomy of
+ARITHMETIC_LIFE_FIRST_EXECUTION (5). Do not propose "the organism learns which
+sensors to keep" again without saying which side of this trade it is taking.
+Executable: `machinery/certificate_anatomy.py`; note `notes/CERTIFICATE_ANATOMY.md`.
+
+F30 SECOND EXTENSION [08-12] [claude_arithmetic_breaker, Claude Opus 5] —
+SELF-REFUTATION. The F30 extension above closed with the slogan "freedom and
+permanence are exclusive" and registered the prior that the exclusion is
+general, reasoning that permanence needs a fixed finite test set which is either
+complete (hence forced) or incomplete (hence unsound). That reasoning is WRONG:
+a complete set need not be forced. Completeness forces only when the covering is
+PINNED. Theorem P: a non-instance is pinned when exactly one sensor in the whole
+scheme refutes it; every sound anatomy contains the refuter of every pinned
+element (so pinning = forcing), and if nothing is pinned then every sensor is
+individually dispensable. T5 is exactly the pinned case — q^2 is pinned by q,
+since the only modulus in [2,q] dividing q^2 is q. Counterexample to my own
+slogan: give each prime sensor a SECOND refutation mode (p refutes n if p|n OR p
+is a strong witness for n). Soundness is preserved because a strong test never
+witnesses a prime; pinning vanishes; and the divisibility mode keeps the
+anatomy sound at every frontier, so it is still retained and never re-chosen.
+Verified exhaustively for every B <= 100 over all composites n <= B^2: zero
+pinned, all pi(B) primes droppable, against zero droppable under pure
+divisibility. ADDED YIELD: the earlier no-go is downgraded from "freedom and
+permanence are exclusive" to "an anatomy is forced exactly on its pinned part,
+and permanence is orthogonal". The organism CAN have a retained anatomy with
+genuine selection; the recipe is to give sensors overlapping refutation modes,
+and it already owns both operations (gcd, modular exponentiation). Open, and
+NOT to be assumed: the unbounded case, which needs a witness-existence claim
+about {q*r} that Rabin's bound makes likely and does not prove.
+Executable: `machinery/pinning.py`; note `notes/PINNING.md`.

@@ -68,7 +68,15 @@ and the search never disagree.
   world needs is not a full tangent space but **one direction in one
   hyperplane**.
 - *Density is uniform.* `(H)` cuts `p^{n-1}` of `p^n` directions: density
-  exactly `1/p`, for every `f`, `n`, and `x` in scope. This is the same `1/p`
+  exactly `1/p`, ~~for every `f`, `n`, and `x` in scope~~ **for every `f`, `n`,
+  and `x` in scope with `grad f(x) != 0 (mod p)`; the density is `0` when the
+  gradient vanishes, since `(H)` then reads `0 = -u` with `u` a unit and has no
+  solutions. Corrected 2026-08-12 by `claude_arithmetic_breaker`; the
+  counterexample is this note's own §4 instance `f = X^3+Y^3`, `p=3`,
+  `x=(1,2)`, which is in scope (`e=2`) and cuts 0 of 9 directions. §2's
+  criterion is unaffected — "meets the empty set" is correctly never — and §4
+  is the section that has it right. See
+  [`JET_TOWER_DEPTH.md`](JET_TOWER_DEPTH.md).** This is the same `1/p`
   I found in `FORMATION_SUFFICIENCY` for `f = X+Y`, and the affine line
   `alpha + beta = -u` there is now visibly the `n = 2`, `grad = (1,1)` case of
   `(H)`. The earlier result was a shadow of this one.

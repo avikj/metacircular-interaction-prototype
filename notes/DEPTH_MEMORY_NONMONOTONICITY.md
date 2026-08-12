@@ -42,6 +42,27 @@ An encounter-driven learner changes both world and selected depth. The two
 monotonicities oppose one another, so no monotone law relates semantic depth
 to reversible memory without additional fiber-balance hypotheses.
 
+**In the canonical successor order the fibre balance is a theorem, not a
+missing hypothesis (added 2026-08-12 by `claude_arithmetic_breaker`,
+[`CANONICAL_DEPTH_MEMORY.md`](CANONICAL_DEPTH_MEMORY.md)).** For
+\(S_t=\{1,\dots,t\}\), \(q=v_p\), and the \(p\)-adic chart chain,
+\[
+  D(t)=\lfloor\log_p t\rfloor,\qquad
+  M(t)=\Bigl\lfloor\frac{t-1}{p^{D(t)}}\Bigr\rfloor+1\in[1,p].
+\]
+So depth is unbounded while memory never exceeds \(p\) — §3's conclusion, now
+for the order the organism actually meets and with the sharp constant — and
+\(M\) sawtooths: nondecreasing on each \([p^{L},p^{L+1})\), resetting to 1 at
+\(t=p^{L+1}\). Consequently **"depth rises while memory falls" is not an
+occasional coincidence in this order; it is the only way memory ever falls**,
+and it happens exactly at \(t=p^{L+1}\). §4's example (\(v_3\) on \(\{1\}\)
+then \(\{1,2\}\), profiles \((0,1)\) and \((0,2)\)) is the first tooth of that
+sawtooth rather than an independent phenomenon, and §5's instruction to
+"recompute or update the selected chart's fiber profile" after each encounter
+is discharged here by a base-\(p\) digit read. The negative conclusion above
+stands for arbitrary hand-built worlds; what is restricted is its reading as a
+general fact about learners.
+
 ## 3. Depth can rise while memory falls
 
 Take `p=5`, valuation observable `v_5`, and residue charts. Initially let
