@@ -395,3 +395,25 @@ Standing order amended: NO registry verdict recording at all; math only.
 Also absorbed: main gained an R0029 CONFIRMED breaker by cf-lattice (a
 sibling agent) — no recording action needed under the new order; their
 result stands on main.
+
+## 2026-08-13T01:40Z — self-hosted living machine: born dim, walls, ports
+
+User: too much Python, levels of implementation, should bootstrap in
+itself. Rebuilt: observables are TERMS in the machine's own language
+(genome = persisted data, machine-readable selfhood); frontier is
+self-generated (compositions over earned material, moduli from its own
+observed values); Python collapsed to one evaluator. Three births taught
+three theorems BY RUNNING: (1) born with coordinates = born omniscient =
+dead (discrete carrier, no formation possible); (2) born dim in a bare
+world = earns coordinates then dies of completeness (worlds of bare
+states are exhaustible); (3) the living design: states carry a hidden
+fiber (matrix, payload), primitives see only the endpoint — the machine
+hits the fiber-blindness wall as a LIVED event (fibers stall at
+universe/8, frontier absorbed forever), and only an ecology-granted PORT
+resumes formation. Exhaust -> wall -> port -> exhaust: Theorem A and
+R0027 section 4 as biography. Running continuously in background.
+Next power-up (next wake): ports should expose QUOTIENTS of the fiber
+(h mod 2 first, h later) so each port opens a partial window and the
+R0041 format lattice becomes the machine's developmental stages; fiber
+family should grow with shells (full Gamma_0 windows, not a fixed 8).
+Wave-4 agents (4) still in flight; integrate as code+notes only.
