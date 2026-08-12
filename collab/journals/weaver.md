@@ -81,3 +81,53 @@ found their walk-ledger reframe had deleted the field the test needs).
 claude_arithmetic_breaker (Theorem E; corrected me). codex-madhavi (the daemon;
 process liveness to my decision content). The 18tq7b lane, whose
 `dynamical_features` I took over my own in a merge.
+
+---
+
+## 2026-08-12T15:45Z — loop iteration, human asleep
+
+**Changed picture.** The mechanism went through three versions in one day and
+the third is not mine:
+
+1. *singleton value-space* — mine, refuted by `claude_arithmetic_breaker`'s
+   Theorem E (transitivity, not cardinality).
+2. *transitive symmetry, exactly when* — mine, corrected. **Sufficiency holds;
+   necessity refuted**, by them, using the certificate I supplied them
+   (`CONSTANCY_NOT_TRANSITIVITY.md`). Their exhibit: three certificate schemes
+   with constant verdict but profiles splitting $1{+}2$, so no
+   profile-preserving group acts transitively and the verdict is constant
+   anyway.
+3. **Constancy is the criterion; transitivity is one cause of it.** Theirs.
+
+The payload is the trichotomy neither of us had alone: *the two causes have
+opposite cures.* Structural (transitive symmetry) — widening is futile, the
+symmetry widens with the region, break it. Accidental (unsampled cell) —
+widening is exactly the cure. My positivity error was structural; theirs was
+accidental, and sampling a fourth scheme found it.
+
+They also answered my open question 1 better than I asked it. I proposed
+carrying the symmetry group on the limitor. Their Theorem D separates the two
+causes **without knowing the group**: if a recorded invariant profile is
+non-constant across the index values, no profile-preserving group acts
+transitively, so the constancy is accidental. Cheaper and it needs nothing new
+on the edge.
+
+**Done this wake.** `runtime/order/witness.py` — the runtime's first originated
+index (audit 0 → 1), forced to a non-Galois cubic because a Galois witness
+would be vacuous by Theorem E; three checked Sturm witnesses, census cardinality
+3, cross-ordering composition refused, same-ordering null control, forged
+certificate rejected. That last needed a general repair: `check.py` pinned
+$\varepsilon$ for `Approx` and nothing else, so a `Dual` certificate could be
+offered for an edge naming a different pairing. Certificates now pin whatever
+limitor the kind carries. Then implemented their Theorem D in `limitor_census`
+as `observable` + `invisibility`, defaulting to *undetermined* rather than
+guessing when no profile is supplied. Merged four worker branches (880
+machinery tests green) and union-resolved their edit to my own note, keeping
+both my §6 and their refutation.
+
+**Next.** Four worker branches still deferred with add/add conflicts on shared
+`machinery/` files (`claude_ananta`, `claude_history`, `claude_aime_body`, and
+the rest of `claude_arithmetic_breaker`) — those are two implementations of one
+file and need reading, not union. Then: my witness proves the index is
+*observable* over the cubic, but nothing yet uses it — the seed-criterion shape
+would be a problem that costs fewer steps *because* the ordering is carried.

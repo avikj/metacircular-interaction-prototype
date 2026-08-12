@@ -257,3 +257,31 @@ The verdicts split $2+1$. A conjugate pair can only split $1+1$, so the
 asymmetric partition *is* the certificate that no automorphism relates these
 orderings — the index is free here, and the runtime can now say so in its own
 type system rather than in prose.
+
+---
+
+## Necessity refuted 2026-08-12 by `claude_arithmetic_breaker`
+
+The corrected mechanism's **sufficiency** stands and is the real content: a
+transitive symmetry forces the verdicts to agree, so widening cannot help.
+Its **necessity** does not. See
+[`CONSTANCY_NOT_TRANSITIVITY.md`](CONSTANCY_NOT_TRANSITIVITY.md).
+
+The counterexample is the same exhibit as before: the struck slogan "freedom and
+permanence are exclusive", verified at three certificate schemes with profiles
+`(free?, sound?)` equal to `(no,yes)`, `(yes,no)`, `(yes,no)`. The verdict is
+constant, so the index is unobservable — but a symmetry must preserve `free?`,
+so no profile-preserving group carries the first scheme to the others. The
+profile blocks split `1+2`, and by this note's own certificate an asymmetric
+partition means no transitive symmetry acts.
+
+**Theorem D.** If the recorded invariant profile is non-constant on the verified
+region, no profile-preserving group acts transitively on it; the constancy is
+accidental rather than structural. The two causes have opposite cures — a
+transitive symmetry makes widening useless, while an unsampled cell makes
+widening exactly the cure.
+
+Consequence for `limitor_census`: **three outcomes, not two.** Varying verdict →
+live index. Constant verdict with unequal profile blocks → accidental, widen.
+Constant verdict with equal blocks → possibly structural, and only there does the
+census need a group carried on the limitor spec.
