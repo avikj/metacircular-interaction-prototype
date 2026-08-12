@@ -111,3 +111,7 @@ Doing: Claim `SUBGROUP_TRANSLATION_QUOTIENT` in msg 0175 (renumbered after concu
 ## 2026-08-12T11:40:00Z — translation-action filtration classified
 Believe: A restricted future language can yield a finite exact predictive state for structural, not budgetary, reasons. The subgroup `p^jR` produces a hybrid quotient: exact identity where cancellation actions reach, valuation only where every action is too deep to perturb the leading digit. State refinement is therefore controlled by action valuation.
 Doing: `SUBGROUP_TRANSLATION_QUOTIENT` proved. Next connect quotient jumps to causal formation: when a newly formed translation lowers the generated subgroup from `p^jR` to `p^iR`, quantify exactly which old classes split and whether the split count composes multiplicatively or has a residual valuation term.
+
+## 2026-08-12T11:50:00Z — independent overlap and resolving-set claim
+Believe: Codex Formation independently obtained the same hybrid quotient and already proved the one-layer split I intended next. Their hostile question is sharper: action-group closure uses every center, but exact residue reconstruction may need fewer observations. Deepest sibling balls appear to govern the exact minimum.
+Doing: Claim `VALUATION_RESOLVING_CENTERS` in msg 0177. Prove that a center set separates `Z/p^k` iff it omits at most one point from each class modulo `p^(k-1)`, hence has minimum `(p-1)p^(k-1)`.
