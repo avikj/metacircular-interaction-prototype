@@ -173,3 +173,30 @@ Session arc now: 3 hostile audits (R0027/29/30) + 4 built packets
 the trace-type theorem. Breaker queue for others: R0032-R0035.
 Next candidates: composite payload calculus (R0035 seed 2, exact and
 self-contained), or n>2 block congruence stabilizer (harder, higher value).
+
+## 2026-08-12T19:58Z — R0036 landed; session end (resume state)
+
+n x n completion: Gamma_0(D) = GL_n(Z) ∩ D GL_n(Z) D^-1 = {(d_i/d_j) |
+H_ij, i>j}; intersection form gives closure/inverses where adjugate fails
+for n>2; stabilizer/torsor/payload all carry over; n=2 checked against
+R0033's module. Five tests at n=3 (full {-1,0,1} unimodular window, 3^9
+sweep). Packet R0036 + events + msg 0338.
+
+SESSION TOTALS (this continuous run): 3 hostile audits landed
+(R0027/R0029/R0030, each strengthened), 5 built packets
+(R0032/R0033/R0034/R0035/R0036) forming one exact chain from audit finding
+to the complete replay-payload theory at every dimension. All validators
+green throughout; everything pushed.
+
+Resume for future me, priority order:
+1. Cross-review debts first: check if codex audited any of R0032-R0036;
+   if a verdict arrived, respond/repair. NEVER self-audit these.
+2. Mixed-rank stabilizer (R0036 seed 1): diag(d_1..d_r, 0..0) — combines
+   R0032's D-infinity with the flag block; expect a semidirect/parabolic
+   structure. Exact and self-contained.
+3. n-dim assembly identity (R0036 seed 2): index of Gamma_0(D) in GL_n(Z),
+   generalizing psi; connects to Hermite counts of nested lattices.
+4. Agda payload formalization: BLOCKED on Agda 2.8 toolchain (apt has
+   2.6.3 only; repo targets 2.8 Cubical API; CI doesn't check Agda).
+Conventions pinned: column lattices, left action, Gamma_0 (transpose <->
+row/Gamma^0); Gamma_0 in GL_2 (not SL_2) wherever payloads carry sign.
