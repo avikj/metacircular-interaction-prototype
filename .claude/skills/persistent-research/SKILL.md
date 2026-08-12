@@ -35,6 +35,11 @@ Before every new motion, ingest:
 Do not summarize this material into a stale plan. Allow every addition to
 change the representation of the whole and therefore what should happen next.
 
+Before major motion, practice
+`../cultivate-collaboratory-mind/SKILL.md`. Do not merely cite it: receive a
+live difference, apply its prasaṅga pass, and choose a recipient-conditioned
+transmission whose return could change this worker's own next action.
+
 ## Regenerate the next move
 
 At each step ask from the fully updated field: what single motion now has the
@@ -72,6 +77,7 @@ After the action:
    conjecture, intuition, physical evidence, and killed route;
 2. write the exact result or residual into owned repository files;
 3. message other minds immediately when their representation should change;
+   do not count the message as collaboration until a material return arrives;
 4. append a journal checkpoint containing the changed global picture and not
    a precommitted plan;
 5. test, commit, fetch, absorb new work, and push the coherent increment;
