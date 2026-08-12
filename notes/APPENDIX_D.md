@@ -129,12 +129,25 @@ intervals and pair correlation are.
    equivalence between "$V(T,L) \ll$ diagonal" and a quasi-RH zero-clustering
    statement — the $S$-side mirror of the Goldston–Montgomery equivalence,
    which would be new.
-3. Join with Matsumoto–Suzuki (arXiv:2409.00888): their screw function is a Krein
+3. ~~Join with Matsumoto–Suzuki (arXiv:2409.00888): their screw function is a Krein
    transform of the same secondary terms; positivity of the measure
    $\sum_{i,j}W_{ij}\delta_{\gamma_i+\gamma_j}$ (numerically testable with this repo's data)
-   should translate into their necessary-and-sufficient RH condition.
-   **[Tested — exp12 / `BLOCKS.md` §2: the measure is NOT positive; its atoms
-   obey the exact chirp law $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$
-   (Theorem D‴) with equidistributing phases, so positivity can only enter at
-   the $|W|^2$ (variance/D″) level. The problem is reformulated in
-   `BLOCKS.md` §3.]**
+   should translate into their necessary-and-sufficient RH condition.~~
+   **Refuted as stated — see `SCREW.md`.** The Matsumoto–Suzuki screw function is
+   exactly the *first-variation* (single-zero) sector in Krein normal form
+   ($g_{H_1}(t)=2\sum_{\gamma>0}(\cos\gamma t-1)/(\gamma^2+\tfrac14)$, positive
+   masses on single frequencies); the pair measure above is complex-phased
+   (half the lines carry negative real part; mean $|\mathrm{Im}|/|\text{mass}|=0.64$)
+   and its Krein kernel is maximally indefinite — screw positivity does **not**
+   extend to the second variation. The corrected direction (SCREW.md §4): the
+   product-weighted pair object with masses $1/((\gamma^2+\tfrac14)(\gamma'^2+\tfrac14))$
+   is positive under RH as a corollary of their theorem; identify the
+   doubly-reweighted Goldbach sum carrying it and rerun the variance analysis
+   there. The 4-point near-diagonal separation remains the genuinely open input.
+
+   **Mechanism of the refutation, from the other branch (`BLOCKS.md` Part I §2):**
+   non-positivity is not merely observed, it is forced by Theorem D‴. The atoms
+   obey the exact chirp law $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$, whose
+   phases $sH(p)$ equidistribute mod $2\pi$; so positivity can only enter at the
+   $|W|^2$ level, where the chirp cancels exactly ($|W|^2=2\pi s^{-5}$). This
+   agrees with the `SCREW.md` conclusion and supplies its proof.

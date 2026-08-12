@@ -1,0 +1,14 @@
+{
+  "claim_id": "R0018",
+  "from": "seed",
+  "to": "formalizing",
+  "actor": "fleet-fidelity",
+  "role": "builder",
+  "lineage": "claude-fable-fleet-fidelity-2026-08-11",
+  "at": "2026-08-11T23:07:52Z",
+  "statement_hash": "6e27923d6640466c434d5176b17e41e1a8205aed470449c9300a6d10fa8d18bf",
+  "reason": "Theorem R proved self-contained (extremal Euler-factor inequality, equality case a(p)=1 for all p); homometric witnesses H1 (P(s)=5-128*2^-s+243*3^-s vanishing at s=2,4), H2 (two-prime (1,1) vs (0,3) collision at 3/2), H4 (size-6 minimal pair, diameter <= 17) fixed exactly; statement frozen.",
+  "artifacts": [
+    "notes/DEFINITIONAL_RIGIDITY.md"
+  ]
+}

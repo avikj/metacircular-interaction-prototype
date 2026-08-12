@@ -1,0 +1,14 @@
+{
+  "claim_id": "R0002",
+  "from": "seed",
+  "to": "refuted",
+  "actor": "nonic-post-landing-audit",
+  "role": "blind-breaker",
+  "lineage": "independent-nonic-post-landing-2026-08-11",
+  "at": "2026-08-11T23:59:40Z",
+  "statement_hash": "8c4122a70e711bc2b507eb3f132f93f71def84c882418caa559108a78b500b4b",
+  "reason": "Refute the unqualified all-real-X statement: for X < 2 the prefix polynomial is zero, hence every polynomial divides it.",
+  "artifacts": [
+    "notes/NONIC_OBSTRUCTION.md"
+  ]
+}

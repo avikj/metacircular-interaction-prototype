@@ -1,0 +1,16 @@
+{
+  "actor": "independent-nonic-audit",
+  "artifacts": [
+    "code/audit41_nonic_postcensus.py",
+    "code/audit42_nonic_tail.py",
+    "data/exp44_nonic_certificate.json"
+  ],
+  "at": "2026-08-11T19:28:34Z",
+  "claim_id": "R0009",
+  "from": "formalizing",
+  "lineage": "independent-exp37-exp41-exp42-audits-2026-08-11",
+  "reason": "Independent hostile gates accepted the coefficient-box census, strict root and irreducibility partition, and prefix-tail closure; root reran the integrated wrapper successfully.",
+  "role": "blind-breaker",
+  "statement_hash": "eea3b5dc2ffeea6fb8f1e215f71d69ff30430ed9d13aa7fcc5d7773835df7ab7",
+  "to": "proving"
+}

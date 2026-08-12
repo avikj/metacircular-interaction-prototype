@@ -1,0 +1,1 @@
+we should try to get to a point i can throw cpu at math and have valuable results - not just llms running on gps - we must transfer kernels of intelligence down towards traditional programs, real math understnading would lend to that right? would def make this project way cheaper/higher throughput than running primarily through language models

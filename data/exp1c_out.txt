@@ -1,0 +1,5 @@
+# exp1c: large-X irreducibility of F_X (flint fmpz_poly.factor), 2026-08-11T10:33Z
+X=30000: degree=29987, pi(X)=3245, irreducible_factors=1, factor_time=656.9s (sieve 0.00s)
+  IRREDUCIBLE => homometric rigidity of primes <= 30000 holds unconditionally (Thm A').
+X=50000: degree=49997, pi(X)=5133, irreducible_factors=1, factor_time=1769.3s (sieve 0.00s)
+  IRREDUCIBLE => homometric rigidity of primes <= 50000 holds unconditionally (Thm A').

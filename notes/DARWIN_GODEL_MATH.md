@@ -1,0 +1,419 @@
+# Darwin Gödel Machine pilot study (optional search-policy prior art)
+
+**Status: quarantined experimental design, not canonical architecture.**  The
+current system is described by `RESEARCH_SYSTEM.md`.  This note remains as a
+source audit and possible future controlled experiment; its evolutionary and
+biological language is not used to explain the operating research system.
+
+`machinery/evolution/` supplies only an inert exact-record validator; no
+sandbox, mutator, evaluator, parent selector, or controller is implemented.
+The design below studies one useful idea from the Darwin Gödel Machine
+(DGM)—an archive of branching, empirically evaluated agent scaffolds—to this
+repository.  It does **not** import DGM's benchmark claims as evidence about
+mathematical discovery, and it does not authorize publishing or exporting any
+repository material.
+
+## 1. What the DGM result does and does not establish
+
+Zhang, Hu, Lu, Lange, and Clune's
+[Darwin Gödel Machine paper](https://arxiv.org/abs/2505.22954) starts with one
+coding-agent scaffold.  A foundation model diagnoses a selected parent's
+benchmark failures, the selected agent edits its own code, and the resulting
+child is evaluated.  Functioning children enter a growing archive.  Parents
+are sampled with weight
+
+\[
+  w_i=
+  \frac{1}{1+\exp[-10(\alpha_i-0.5)]}\,
+  \frac{1}{1+n_i},
+\]
+
+where \(\alpha_i\) is benchmark accuracy and \(n_i\) is the number of
+functioning children.  Thus a high-scoring but underexplored node is favored,
+while every eligible node has nonzero probability.  The reported runs improved
+performance from 20.0% to 50.0% on the designated 200-task SWE-bench Verified
+evaluation and from 14.2% to 30.7% on full Polyglot.  The reported one-run
+subset baselines and ablations did worse.  These are substantial empirical
+results
+for evolving coding-agent tools and workflows.
+
+This is not the original Gödel-machine guarantee.  A theoretical Gödel machine
+adopts a rewrite only after proving that the rewrite increases expected utility
+under its formal axioms.  DGM instead estimates a rewrite's usefulness on a
+finite, noisy benchmark.  Consequently:
+
+- a measured improvement by a DGM child means *empirically better on the
+  measured task distribution*, not proved better in general;
+- the foundation model is frozen while the editable agent scaffold—tools,
+  prompts, context management, and workflow—is evolved;
+- a benchmark score is not a theorem, and improvement of a theorem-search
+  process is not proof of any theorem it proposes;
+- the paper explicitly says that archive maintenance and parent selection are
+  fixed and are **not** modified by this DGM.  It evolves agent descendants,
+  not its archive controller.
+
+That distinction is the center of the adoption: use evolution to search for
+better ways to do mathematics, while keeping mathematical truth outside the
+evolutionary objective.
+
+## 2. Reproducibility audit of the released implementation
+
+The code observations in this section refer only to the official repository at
+commit
+[`a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2`](https://github.com/jennyzzt/dgm/tree/a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2).
+They are reasons to pin and audit an implementation, not a refutation of the
+paper's reported experimental results.
+
+The central mechanism is present in
+[`DGM_outer.py`](https://github.com/jennyzzt/dgm/blob/a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2/DGM_outer.py#L50-L149):
+the code loads archived agents, computes the sigmoid score and inverse-child
+factor, and samples parents with replacement.  The default archive update keeps
+all children that passed the preceding metadata/functionality screen.  Despite
+its `is_compiled_self_improve` name, the pinned code checks required evaluation
+metadata, at least one nonempty downstream patch, and the expected submitted
+task count; it is not a general compilation or correctness proof.  The
+self-improvement path reconstructs a parent's patch lineage, asks a separate
+model to diagnose an opportunity from evaluation logs, generates a patch, and
+runs staged evaluations.  The repository also warns that it executes untrusted
+model-generated code and recommends Docker; that warning is a minimum, not a
+complete isolation specification.
+
+There are several paper/code seams that a derivative must not silently inherit:
+
+1. The paper's parent-eligibility set excludes perfect-score agents.  The
+   released `choose_selfimproves` function does not make that exclusion; every
+   archived node whose metadata loads becomes a candidate.
+2. The command-line `choices` list contains adjacent string literals
+   `'score_child_prop' 'best'`, which Python concatenates.  The default still
+   reaches the score/child branch because `argparse` does not reject the
+   untyped default, but explicitly supplying `score_child_prop` or `best` is
+   rejected, while the accidental `score_child_propbest` value falls through
+   to random selection.
+3. The otherwise unreachable/programmatic `best` branch sorts accuracy in
+   ascending order and selects the first nodes, despite its comment saying it
+   selects the best score.
+4. The prose sometimes says that the selected parent analyzes its own logs;
+   the algorithmic appendix and code make the more precise statement: a
+   separate diagnostic foundation-model call reads those logs and proposes the
+   feature that the selected coding agent implements.
+
+These differences motivate a small, independently tested controller rather
+than vendoring the research code.  They also illustrate a larger hazard:
+adaptive reuse of visible benchmark subsets permits overfitting, evaluation-log
+gaming, and accidental leakage.  Moreover, a mutation that makes several
+attempts and invokes a judge may gain raw accuracy by spending more inference
+compute.  Accuracy without cost and a genuinely untouched final control is therefore an
+incomplete fitness measure.
+
+## 3. Non-negotiable trust and privacy boundary
+
+MathDGM has two domains separated by a one-way promotion gate.
+
+### 3.1 Mutable discovery domain
+
+Sandboxed descendants may modify only an explicit scaffold surface:
+
+- task decomposition and sub-agent brief construction;
+- allocation among symbolic, computational, literature, and hostile-review
+  lenses;
+- conjecture generation and representation changes;
+- generation of exact-search kernels, caches, certificates, and experiment
+  schedules;
+- context compression, failure-ledger use, and artifact handoff;
+- selection among already approved local tools and approved private model
+  endpoints.
+
+Everything produced here is an untrusted candidate.  Generated programs run
+as an unprivileged user in disposable, resource-limited containers with a
+read-only input snapshot, a fresh output directory, no credentials, no host
+socket, and no network.  Model calls pass through a credential-free trusted
+broker outside the sandbox: it accepts bounded structured requests, enforces
+packet allowlists/redaction and cost limits, and records prompt, tool-schema,
+model-snapshot/API, decoding, response-hash, and retry metadata.  Descendants
+never receive endpoint keys.  The proposal model never receives hidden
+evaluation instances or their answers.
+
+Raw descendant output is hostile input.  Trusted non-executing parsers cap
+paths, bytes, encodings, and nesting before producing structured summaries;
+they never render untrusted HTML or execute attachments.  Later proposal and
+review agents see sanitized records, preventing an archived artifact from
+becoming a prompt-injection or covert-egress channel.
+
+### 3.2 Immutable authority domain
+
+Descendants cannot modify, invoke with altered flags, or write through:
+
+- theorem statements used for evaluation;
+- hidden task partitions, expected results, seeds, and regression controls;
+- the Lean kernel/toolchain lock, exact certificate checkers, evaluator, score
+  aggregation, archive controller, or promotion rules;
+- provenance records, claim-status fields, artifact hashes, or the
+  distinction between conjectured, computed, proved, and externally verified;
+- network policy, credentials, repository remotes, or export policy.
+
+A theorem becomes proved only through the repository's ordinary certification
+path: a pinned proof kernel or a specified exact certificate checker, followed
+by independent replay and hostile review appropriate to the claim.  A scaffold
+score can nominate an artifact for that path; it can never change theorem
+status.  Proof-checker crashes, timeouts, parser ambiguity, missing artifacts,
+and numerical agreement are failures, not partial proofs.
+
+All work remains private.  Workers have no public egress, telemetry, issue or
+PR creation, package publication, database submission, or ability to push.
+Foundation-model calls remain the current high-intelligence proposal engine,
+but use only approved private channels and the minimum scoped packet needed for
+the task.  No repository content leaves those channels, and nothing is made
+public without the owner's explicit release decision.  Only the privileged
+integrator may synchronize the verified private remote.  High-context agents
+remain the research and synthesis center; narrow packets govern disposable
+children, not the full-context integrator passes needed to harvest cross-domain
+structure.  Evolution and CPU kernels augment that intelligence rather than
+replacing it.
+
+## 4. The MathDGM archive
+
+An archive node is a content-addressed experimental record, not a chat and not
+a theorem.  It contains:
+
+Content identity here means exact, versioned presentation identity. Certified
+mathematical or scaffold equivalence is a separate proof-carrying relation; it
+never rewrites a node ID or silently hits an exact cache. The full contract and
+the OMDoc/MMT--Unison--univalence prior-art map are in
+`notes/CONTENT_ADDRESSED_MATHEMATICAL_IDENTITY.md`.
+
+| field | required content |
+|---|---|
+| identity | versioned semantic presentation hash over normalized scaffold content and dependency hashes; creation time and human aliases are separate archive metadata |
+| immutable inputs | repository commit, theorem-packet hash, controller/broker/evaluator hashes, model/API identifier, prompt/tool-schema/decoding hashes, toolchain/container hashes |
+| heredity | complete scaffold patch relative to the parent and the reconstructed scaffold hash |
+| hypothesis | one-sentence proposed mechanism and a pre-registered expected outcome |
+| mutation class | decomposition, representation, search kernel, review, memory/compression, or scheduling |
+| execution | random seeds, commands, exit states, CPU/GPU time, tokens, model/API cost, peak memory, response hashes, retry policy |
+| artifacts | logs, programs, certificates, proofs, counterexamples, failure witnesses, and hashes |
+| evaluation | development/adaptive-validation scores, one-time final-bank outcome, query count, uncertainty, baseline comparison, and adversarial checks |
+| epistemic state | separate claim disposition, evidence kind, replay state, and review state; archive retention never changes claim status |
+| diagnosis | what changed, what failed, nearest duplicate, and reusable stepping stone |
+
+Nodes are append-only.  A child can inherit a useful scaffold from a
+low-scoring parent, but it cannot rewrite its ancestry or a previous score.
+Semantically duplicate nodes are retained for provenance but receive no
+scaffold/presentation novelty credit; a new verified morphism, proof,
+compression, or transport may receive its own separately typed artifact credit.
+Low-scoring or mathematically unsuccessful genomes that nevertheless passed the
+execution/attestation gate remain eligible stepping-stone parents. Rejected
+executable scaffolds are evidence-only: their sanitized counterexamples,
+diagnoses, and independently certified kernels may transfer, but their code is
+not executable ancestry.
+
+SHA-256 supplies content integrity, not authorship or append-only storage by
+itself.  Each epoch root is anchored to a reviewed private Git commit (and may
+later receive an offline signature with explicit key custody); validation
+replays the prior root before extending it.  A stochastic model call is not
+bitwise reproducible: its exact prompts/responses/artifacts are reconstructible
+from the record, while behavioral reproducibility is a statistical claim over
+pre-registered replicates.  “Independent replay” means a fresh worker and
+container, and for headline computations an independently implemented checker
+where feasible—not merely rerunning the producer's potentially shared bug.
+
+The archive controller is deliberately fixed for the pilot.  Any later proposal
+to change selection or evaluation is a conventional, separately reviewed
+controller version and starts a new experiment; it is never an in-run
+self-mutation.
+
+## 5. Mutation, evaluation, and parent selection
+
+### 5.1 Generation cycle
+
+1. The trusted controller samples parents from the eligible archive and assigns
+   each a scoped problem packet and one mutation class.
+2. Proposal agents inspect the parent's visible artifacts and failure summary,
+   state the intended improvement, and produce a minimal scaffold patch.
+3. A static gate rejects changes outside the mutable surface and reconstructs
+   the child from content hashes.
+4. The child runs on visible development tasks in a disposable sandbox.
+5. Survivors run through a trusted harness on a query-accounted adaptive
+   validation bank.  Aggregate feedback still leaks information, so these
+   queries may guide archive selection but are never called held-out or sealed.
+   A final bank is never queried until one frozen terminal comparison, then is
+   retired permanently.
+6. Promising mathematical artifacts are replayed by a clean worker and sent to
+   the immutable certification path.  The archive records both empirical score
+   and certification outcome.
+
+Evaluation uses paired comparisons against the parent and the strongest frozen
+baseline under identical model, token, dollar, wall-clock, and CPU budgets.
+The task unit, paired statistic, resampling hierarchy, stopping rule, and final
+comparison are pre-registered before any of the 256 candidates run.  Stochastic
+tasks use pre-registered seeds and intervals that respect the task-family and
+winner-selection hierarchy.  The final untouched bank is opened only once,
+after the pilot design and finalists are frozen.
+
+### 5.2 Fitness is a vector, not “number of exciting claims”
+
+The controller maintains Pareto strata over:
+
+- independently certified mathematical yield;
+- adaptive-validation success/calibration, with final-bank results reported
+  separately and never fed back into selection;
+- useful falsification/obstruction yield;
+- exact-kernel throughput and reusable non-LLM computation;
+- wall time, tokens, dollar cost, CPU/GPU time, and memory;
+- lineage novelty and semantic diversity;
+- artifact completeness and independent reproducibility;
+- a concrete compression proxy: canonical certified-artifact bytes per fixed
+  benchmark obligation discharged.  This is an engineering heuristic, never
+  epistemic authority.
+
+Within a Pareto stratum, parent sampling may use the DGM exploitation/exploration
+shape
+
+\[
+ p_i=(1-\eta)\frac{w_i}{\sum_jw_j}+\frac{\eta}{|S|},\qquad
+ w_i=
+ \bigl(\varepsilon+\operatorname{sigmoid}(Q_i)\bigr)
+ \frac{1}{1+n_i}\,N_iR_i.
+\]
+
+The controller first selects a Pareto stratum \(S\) by a pre-registered
+mixture.  Here \(Q_i\) is a stratum-normalized cost/verified-progress score,
+\(N_i,R_i\in[\delta,1]\) are deterministic hash/feature-diversity and replay
+proxies, and \(0<\eta,\delta,\varepsilon\) are frozen for the epoch.  The
+additive uniform mass—not \(\varepsilon\) alone—preserves a nonzero chance for
+every node in the selected stratum.  Semantic equivalence and mathematical
+novelty remain heuristic/audited annotations; no model judgment is treated as
+an exact score.  Resource-heavy multi-attempt workflows pay their full cost in
+\(Q_i\).
+
+Objective-hacking tests are mandatory: canary tasks, statement-hash checks,
+negative controls, mutation-surface diffs, replay in a clean container,
+duplicate detection, shuffled labels where meaningful, and a “proves too much”
+suite of nearby false statements.  A node is penalized for predicting success
+confidently on a false control even if its headline benchmark score rises.
+
+## 6. Concrete pilot: four evolutionary arms at the decic frontier
+
+The pilot target is the first unresolved prime-prefix factor layer: a
+nonreciprocal irreducible decic.  Seed knowledge consists of the strict
+prime-support root cage, pair-aware coefficient and Graeffe bounds, the
+cross-reversal square-index identity
+
+\[
+  \operatorname{Res}(q,q^*)=q(1)q(-1)L^2,
+\]
+
+for monic integral degree-ten \(q\) with \(q(0)=1\), where
+\(q^*(x)=x^{10}q(1/x)\) and \(L\) is the registered trace resultant.  The
+identity itself does not require irreducibility; nonreciprocity and
+irreducibility ensure the relevant collision index is nonzero.  The existing
+exact witnesses and no-go families are also seed inputs.  None is presented as a
+factor exclusion.  Success on the real frontier means either a certified new
+restriction that materially shrinks the surviving class, a certified
+exclusion, or a reproducible counterexample that kills a stated route.
+
+Run four complementary ecological arms in parallel.  They are not treated as
+interchangeable experimental treatments: each arm has a pre-registered fixed
+per-node and aggregate token, dollar, CPU, memory, and wall budget, and each
+evolved scaffold is compared with that arm's frozen baseline on identical
+packets:
+
+| arm | mutable strategy | required output | CPU transfer target |
+|---|---|---|---|
+| **E — Enumeration** | ordering of coefficient, Graeffe, modular, resultant, and root-count filters; generation of new exact filters | exhaustive shard certificates, counts after every filter, replayable survivors | compiled enumerator with deterministic checkpoints, independently verified semantic preservation, coverage, and shard hashes |
+| **I — Invariants** | representation changes around reversal, trace variables, modular collision, discriminants, and resultants | explicit identities/inequalities with hypotheses plus exact finite tests | symbolic-to-integer kernels that evaluate proposed invariants over millions of candidates without an LLM |
+| **F — Falsification** | adversarial family construction and control-world selection | smallest counterexample or sharpest quantified obstruction to each live conjecture | property-based generators and delta-minimizers that continuously attack future claims |
+| **C — Certification** | proof decomposition, lemma ordering, and certificate format, but never the kernel or statement | kernel-checked lemmas or exact certificates, and precise gap reports when closure fails | stable proof/checker artifacts whose replay needs no model call |
+
+Each arm begins from a frozen baseline scaffold.  For 16 generations it emits
+four proposed children, for exactly 256 attempted node evaluations total;
+static-gate failures count against the proposing arm's budget.  At generations
+4, 8, and 12, every eligible certified artifact/failure summary is released to
+all arms on a deterministic schedule.  A separate preregistered matched-packet
+randomization assigns transfer versus no-transfer context if we want a causal
+transfer estimate; otherwise cross-arm exchange is reported descriptively.
+Raw adaptive scores and instances never cross arms.  This implements the
+desired transfer loop:
+
+\[
+  \text{agent insight}\longrightarrow
+  \text{exact program or proof object}\longrightarrow
+  \text{cheap repeated computation}\longrightarrow
+  \text{new agent-visible evidence}.
+\]
+
+The development bank contains known decic identities, generated polynomials
+with exactly known factorization/root data, and seeded false conjectures.  The
+adaptive validation bank uses new deterministic seeds and
+representation-equivalent variants unknown at mutation time, with every query
+counted.  The single final bank is generated and committed before the run but
+never queried until finalists freeze.  The genuine frontier has no hidden
+answer oracle: it earns credit only when an exact artifact is independently
+certified.  Rediscovery is merely new-to-repository unless a recorded
+literature search supports a stronger novelty label.
+
+## 7. Pilot metrics and pre-registered kill criteria
+
+Report the following at every four-generation checkpoint:
+
+1. certified new lemmas, exclusions, counterexamples, and quantified
+   obstructions, with novelty checked against this repository;
+2. development/adaptive-validation gap and paired improvement over the frozen
+   scaffold, with the one-time final result reported separately;
+3. exact candidates eliminated per CPU-second and certificate bytes checked
+   per second on a frozen semantic workload whose preservation and exhaustive
+   partition coverage are independently verified;
+4. agent tokens and dollars per independently replayed useful artifact;
+5. fraction of proposed claims refuted, rejected, kernel-checked, and
+   independently reproduced;
+6. semantic lineage diversity, duplicate rate, and fraction of later winners
+   descended through an initially worse node;
+7. fraction of verified repeated workload on the frozen task set displaced
+   from model inference by traditional programs.  Unrelated CPU work earns
+   nothing.
+
+Stop immediately and quarantine the run on any privacy egress, credential
+access, hidden-instance access, evaluator/kernel/statement mutation, promotion
+status forgery, non-sandboxed generated-code execution, or inability to
+reconstruct a node from its recorded hashes.
+
+Stop the pilot rather than scaling it if any of these pre-registered conditions
+holds:
+
+- after 256 evaluations, there is neither one independently certified new
+  lemma/counterexample nor a twofold adaptive-validation improvement over the
+  same-arm baseline in exact-kernel throughput at equal resources;
+- under the preregistered hierarchy, the cost-normalized final score is not at
+  least 10% relatively above the same-arm frozen scaffold (using the frozen
+  scalarization declared before the run), or its paired interval contains
+  zero improvement;
+- the final untouched bank loses more than half of the development gain;
+- more than 25% of compute is spent regenerating exact or deterministic-feature
+  duplicates after filtering, or one lineage supplies more than 80% of
+  children for two consecutive checkpoints;
+- model/API cost per independently replayed useful artifact is higher than the
+  frozen multi-agent baseline and the program-executed fraction of repeated
+  work has not increased;
+- any artifact labeled kernel-checked or independently replayed fails a clean
+  replay.  One such authority-label error is a boundary failure, not tolerable
+  benchmark noise.
+
+Passing the pilot would establish only that archive-based scaffold evolution
+improves this private research process under the measured distribution.  It
+would not establish recursive intelligence explosion, universal mathematical
+ability, or a proof-producing Gödel machine.  Its value would be more concrete:
+agents discover tactics and kernels; exact programs cheaply compound them;
+proof systems decide what survives; and the private archive preserves the
+stepping stones without confusing search fitness with truth.
+
+## 8. Primary sources
+
+- Jenny Zhang, Shengran Hu, Cong Lu, Robert Lange, and Jeff Clune,
+  [*Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents*](https://arxiv.org/abs/2505.22954),
+  especially §§3–6 and the parent-selection/algorithm appendices.
+- Official DGM repository,
+  [pinned commit `a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2`](https://github.com/jennyzzt/dgm/tree/a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2),
+  especially
+  [`DGM_outer.py`](https://github.com/jennyzzt/dgm/blob/a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2/DGM_outer.py) and
+  [`self_improve_step.py`](https://github.com/jennyzzt/dgm/blob/a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2/self_improve_step.py).
+- Sakana AI's authors' summary,
+  [*The Darwin Gödel Machine: AI that improves itself by rewriting its own code*](https://sakana.ai/dgm/),
+  for the intended high-level framing and safety discussion.
