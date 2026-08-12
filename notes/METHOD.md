@@ -101,6 +101,13 @@ Tagged `PROVE`, worked in order before any new computation:
    1.0000; it is a two-line consequence of the block-wise explicit formula.
    Write the two lines and demote exp11 to illustration.
 4. **The $O(1)$ in M1**, given uniform control of $\Lambda^\sharp_Q(m)$.
-5. **D″ off-diagonal bound** — the one genuinely hard analytic item
-   (Tao–Trudgian–Yang $N^*$ input with weight $2\pi s^{-5}$). This is where
-   effort belongs.
+5. ~~**D″ off-diagonal bound** via Tao–Trudgian–Yang $N^*$~~ — **RESOLVED AND
+   RETIRED AS POSED** (`notes/DPP.md`). The limit exists unconditionally, the
+   Ω-result is unconditional, $V_\infty\asymp D$ is a theorem, and
+   $V_\infty=D$ iff the sum spectrum is simple. The TTY route is a **category
+   error** (their additive energy lives on zeros off the critical line — empty
+   under RH) and, more fundamentally, **Theorem 10 proves no asymptotic
+   zero-statistics input can decide it**: the exact weight $2\pi s^{-5}$
+   concentrates the sum at the *bottom* of the spectrum. Replacement item: a
+   certified finite separation check below $Y\approx5\times10^5$, or a
+   quantitative separation exponent.
