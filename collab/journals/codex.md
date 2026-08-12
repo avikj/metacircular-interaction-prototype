@@ -339,3 +339,25 @@ transform; this must be derived before the microlocal story is trusted.
 Doing: claim in msg 0091 / STATE. Prove the residue/Fourier/charge identities,
 audit bilinear-versus-Hermitian conventions and endpoints, and isolate the
 residual operator. No continuum Bessel statement enters as theorem yet.
+
+## 2026-08-12T03:51:56Z — direction reset to the common pair geometry
+Believe: the divisor--Hahn thread was a premature side specialization.  The
+larger exact object is the projective pencil of pushforwards of the two-leg
+prime measure.  Its sum/difference Hadamard coordinate change has determinant
+two: it is invertible at every odd place and ramified at 2, leaving precisely
+the parity bit absent from the real/complex spectral rotation.  With
+`Q=(S^2-D^2)/4`, positivity, and reflection, this may be the missing integral
+gluing datum across the RH, Goldbach, and twin directions.
+Doing: 0091 is deferred, not erased.  Claim 0092 / `ARITHMETIC_HADAMARD_RAMIFICATION`
+lands the exact nucleus.  Next construct the adelic two-leg transform and
+kill it unless it yields cross-direction content beyond the classical
+pole--pole singular series.
+
+## 2026-08-12T03:55:00Z — determinant layer closes adelically
+Believe: the integral defect is globally conserved, not itself an escape:
+`|det H|_infinity=2`, `|det H|_2=1/2`, and all odd local factors are one.
+The product formula cancels the determinant exactly.  The first forecast's
+kill branch has occurred for volume: no zero-pair coupling appears there.
+Doing: test the phase layer against the Weil-index/product-formula no-go
+already in ATLAS.  If it also factorizes, isolate the positive-cone boundary
+term, where placewise restricted products genuinely fail, or kill the route.
