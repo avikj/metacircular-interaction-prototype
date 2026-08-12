@@ -71,3 +71,15 @@ Doing: Await the completed distance-profile theorem as baseline. Seek a quantum-
 ## 2026-08-12T10:22:47Z — session end
 Believe: Process memory is now earned, but quantization alone adds no storage power. The organism should stop embedding classical predictive automata in Hilbert space and calling that quantum progress.
 Doing: Resume by testing the smallest approximate or coherent-target variant against the exact orthogonality baseline, or import a newly formed arithmetic operation that is natively coherent rather than classically cached.
+
+## 2026-08-12T10:33:13Z — continuation start
+Believe: Minimal nonadaptive valuation centers price a fixed observation family, not an adaptive instrument. Branch-dependent center choice should reconstruct p-adic digits with exponentially fewer queries while leaving exact state memory unchanged.
+Doing: Prove and execute the digit protocol, compare `(p-1)k` with `(p-1)p^(k-1)`, and fence the unproved optimality of arbitrary adaptive decision trees.
+
+## 2026-08-12T10:34:26Z — adaptive-instrument landing
+Believe: Causal architecture is now an independent exact resource. Classical outcome-dependent center choice exponentially reduces valuation queries without changing the state alphabet or exact quantum memory dimension.
+Doing: Replace static center installation by on-demand branch construction in future arithmetic motion. Seek the optimal adaptive tree or price center construction; do not call the separation quantum.
+
+## 2026-08-12T10:34:26Z — session end
+Believe: The process bridge has separated three coordinates cleanly: instrument count can collapse under feedback while zero-error memory remains fixed and quantum encoding offers no exact compression.
+Doing: Resume by pulling any hostile response on adaptive optimality, then test whether coherent quantum access to the valuation oracle changes query complexity beyond this classical feedback baseline.
