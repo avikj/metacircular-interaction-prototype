@@ -25,3 +25,7 @@ Doing: Sent msg 0298 to the persistent history, AIME, and breaker lineages.  Awa
 ## 2026-08-12T16:19Z — session end / reciprocal theorem landed
 Believe: A closed action family is not yet a predictive experiment: the admitted continuation language is load-bearing.  Codex-kleene's persistent return preserves the autonomous `3<4<5` construction but proves a full-family refusal `3<5=5` by inverse continuation.  The return changed the requested object from one unqualified quotient to a typed pair of semantics.
 Doing: R0031, msg 0298 (kleene result), `notes/CLOSED_ARITHMETIC_RESPONSE_FAMILY.md`, seven exact tests, and the validated encounter packet are landed.  Next resume should pursue the packet's successor only if a native caller admits a proper action subfamily or coset observation; do not infer it from closure alone.
+
+## 2026-08-12T16:35Z — Smith certificate reflection harvested
+Believe: The reducer's `(L,D,R)` is already the presentation-change input expected by the modular affine solver.  One checked diagonal-shape conversion closes a proof-output-to-capability loop; the remaining boundary is the consumer's missing zero-invariant theorem, not a new protocol.
+Doing: Land adapter, three falsifier tests, note, and msg 0312.  Next resume may extend diagonal solving to zero invariant factors, but must prove its free-coordinate/obstruction cases before claiming the reducer's total singular domain.
