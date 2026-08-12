@@ -25,6 +25,16 @@ class SmithResidualMachineTests(unittest.TestCase):
         self.assertEqual(certificate.steps[0].kind, "divisibility-residual")
         self.assertEqual(certificate.steps[0].residual, 4)
 
+    def test_same_scalar_residual_requires_three_typed_actions(self):
+        lower = smith_reduce(((2, 0), (1, 7))).steps[0]
+        upper = smith_reduce(((2, 1), (0, 7))).steps[0]
+        diagonal = smith_reduce(((2, 0), (0, 3))).steps[0]
+        self.assertEqual({lower.residual, upper.residual, diagonal.residual}, {1})
+        self.assertEqual(
+            {lower.kind, upper.kind, diagonal.kind},
+            {"column-residual", "row-residual", "divisibility-residual"},
+        )
+
     def test_signed_zero_entry_and_singular_states(self):
         self.assertSmith(((0, -6), (0, 15)), ((3, 0), (0, 0)))
         self.assertSmith(((-2, 0), (5, 7)), ((1, 0), (0, 14)))

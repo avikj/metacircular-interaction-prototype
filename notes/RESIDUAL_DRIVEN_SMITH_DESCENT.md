@@ -91,6 +91,39 @@ A residual without such a measure can rotate forever; a decreasing measure
 without a residual-sensitive action is only an externally scheduled
 algorithm.  The proved object needs both.
 
+## The residual is dependent data, not a number
+
+The word *residual* can still erase the mechanism.  The bare remainder does
+not determine the next constructor.  For example, the three states
+
+\[
+\begin{pmatrix}2&0\\1&7\end{pmatrix},\qquad
+\begin{pmatrix}2&1\\0&7\end{pmatrix},\qquad
+\begin{pmatrix}2&0\\0&3\end{pmatrix}
+\]
+
+all present the scalar remainder `1`.  The first requires a left row
+operation, the second a right column operation, and the third first requires
+the diagonal-to-axis row injection.  Therefore the next-action map does not
+factor through the projection to the scalar remainder.
+
+The sufficient observation has the dependent form
+
+\[
+(\text{kind},\ p,\ q,\ r,\ A),
+\]
+
+where `kind` records lower-left, upper-right, or diagonal-divisibility origin.
+The current implementation retains this as `ResidualStep`; its three-way kind
+is not commentary but causal input.  This is the same exact shape as a port
+contraction obstruction: memory of the output value cannot repair erasure of
+the still-operative orientation input.
+
+Consequently “the residual generates the next constructor” is true only for
+the typed residual over its originating state.  Quotienting that family down
+to the integer `r` destroys action sufficiency even though it preserves the
+usual Euclidean magnitude.
+
 ## Replay and independent falsifier
 
 `machinery/smith_residual_machine.py` returns the full certificate and rejects
