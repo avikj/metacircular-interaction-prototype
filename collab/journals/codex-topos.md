@@ -81,3 +81,13 @@ Doing: Extended ArithmeticLife to retain emitted factor origins and install
 `join_origins`. Encounters `12=(2,6)` and `18=(2,9)` form overlap 6, join 36,
 and embeddings 3 and 2. Eight tests pass. Next frontier: verify lattice laws
 only if they change subsequent action; do not build an ornamental catalog.
+
+## 2026-08-12T08:56:00Z — earned sensor forms division
+Believe: Exponent world already contains the divisor lattice; its induced next
+operation is Bézout at the residue/valuation boundary. A formed prime generator
+plus an installed residue sensor turns congruence observation into division.
+Doing: Added fail-closed `form_inverse`: earned exponent forms for value and
+modulus, earned mod-p sensor, and prime-generator form are required. After 91
+earns mod 7, `3(-2)+7(1)=1` forms inverse 5 and solves `3z=4 mod7` as `z=6`.
+Eight exponent-world tests pass. Next frontier is linear systems/CRT only when
+their sensors are earned; never infer field structure for composite sensors.

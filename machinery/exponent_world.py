@@ -26,6 +26,19 @@ class ExponentForm:
         return prod(prime ** exponent for prime, exponent in self.powers)
 
 
+@dataclass(frozen=True)
+class BezoutInverse:
+    value: int
+    modulus: int
+    coefficient: int
+    modulus_coefficient: int
+    inverse: int
+
+    def solve(self, target: int) -> int:
+        """Solve value*z = target modulo modulus in the formed prime field."""
+        return (self.inverse * target) % self.modulus
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -102,6 +115,50 @@ class ExponentWorld:
 
     def divisor_count(self, n: int) -> int:
         return prod(exponent + 1 for _prime, exponent in self.form(n).powers)
+
+    def form_inverse(self, value: int, modulus: int) -> BezoutInverse:
+        """Let earned multiplicative and residue memories form division.
+
+        Both integers must already have exponent forms, and the modulus must
+        already be an installed prime residue sensor. This is a causal gate,
+        not a mathematical requirement of the extended Euclidean algorithm.
+        """
+        if value not in self.forms or modulus not in self.forms:
+            raise ValueError("value and modulus need earned exponent forms")
+        if modulus not in self.life.moduli:
+            raise ValueError("modulus needs an earned residue sensor")
+        if self.forms[modulus].powers != ((modulus, 1),):
+            raise ValueError("division is installed only at a formed prime generator")
+        common, coefficient, modulus_coefficient = _extended_gcd(value, modulus)
+        if common != 1:
+            raise ValueError("value is not invertible modulo the sensor")
+        inverse = coefficient % modulus
+        if value * inverse % modulus != 1:
+            raise AssertionError("Bezout certificate failed to form an inverse")
+        self.life._record(
+            "form-operation",
+            (value, modulus, coefficient, modulus_coefficient, inverse),
+            "Bezout descent turns earned mod-prime observation into division; "
+            "solve value*z=target by z=inverse*target",
+        )
+        return BezoutInverse(
+            value, modulus, coefficient, modulus_coefficient, inverse
+        )
+
+
+def _extended_gcd(a: int, b: int) -> tuple[int, int, int]:
+    """Return positive gcd g and coefficients x,y with ax+by=g."""
+    old_r, r = a, b
+    old_s, s = 1, 0
+    old_t, t = 0, 1
+    while r:
+        quotient = old_r // r
+        old_r, r = r, old_r - quotient * r
+        old_s, s = s, old_s - quotient * s
+        old_t, t = t, old_t - quotient * t
+    if old_r < 0:
+        return -old_r, -old_s, -old_t
+    return old_r, old_s, old_t
 
 
 def main() -> None:

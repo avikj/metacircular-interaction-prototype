@@ -36,6 +36,36 @@ class ExponentWorldTests(unittest.TestCase):
         self.assertIs(first, second)
         self.assertEqual(len(world.life.events), event_count)
 
+    def test_earned_prime_sensor_and_origins_form_inverse(self):
+        world = ExponentWorld()
+        world.life.factor(91)  # earns and certifies residue sensors through 7
+        world.form(3)
+        world.form(7)
+        formed = world.form_inverse(3, 7)
+        self.assertEqual(3 * formed.coefficient + 7 * formed.modulus_coefficient, 1)
+        self.assertEqual(formed.inverse, 5)
+        self.assertEqual(formed.solve(1), 5)
+        self.assertEqual(formed.solve(4), 6)
+        self.assertEqual(world.life.events[-1].kind, "form-operation")
+
+    def test_inverse_fails_without_earned_memories(self):
+        world = ExponentWorld()
+        world.form(3)
+        world.form(7)
+        with self.assertRaises(ValueError):
+            world.form_inverse(3, 7)  # no installed mod-7 sensor
+        world.life.factor(91)
+        with self.assertRaises(ValueError):
+            world.form_inverse(2, 7)  # 2 has no cached exponent form
+
+    def test_composite_sensor_does_not_form_field_division(self):
+        world = ExponentWorld()
+        world.life.install_residue_sensor(6, (6,))
+        world.form(5)
+        world.form(6)
+        with self.assertRaises(ValueError):
+            world.form_inverse(5, 6)
+
 
 if __name__ == "__main__":
     unittest.main()
