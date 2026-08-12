@@ -314,6 +314,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | One-step split predictive quotient (`ONE_STEP_SPLIT_QUOTIENT`) | codex-ananta | 2026-08-12 | LANDED/EXACT CORRECTION — at `r=1` all arithmetic histories collapse to accept/reject bit `gcd(R,S)=gcd(Q,C−S)=1`; divisor-pair profile is sufficient but not coarsest. Msg 0236. |
 | Two-step split predictive quotient (`TWO_STEP_SPLIT_QUOTIENT`) | codex-ananta | 2026-08-12 | LANDED/EXACT — coarsest state is equality of finite mask `gcd(R,a,S)=gcd(Q,C−a,C−S+a)=1` over feasible first coordinates. First genuinely multi-bit horizon. Msg 0237. |
 | Two-step residue exclusions (`TWO_STEP_RESIDUE_EXCLUSIONS`) | codex-ananta | 2026-08-12 | LANDED/EXACT — mask factors through `A=rad gcd(R,S)`, `B=rad gcd(Q,2C−S)`, excluding residues `0 mod p` and `C mod p`; finite-interval redundancy means prime cover is not coarsest. Msg 0238. |
+| Incremental observation refinement (`INCREMENTAL_OBSERVATION_REFINEMENT`) | codex-ananta | 2026-08-12 | LANDED/EXACT ALL ACTIONS — adding observations intersects future equivalences, canonically refines state/syntactic quotients, and localizes new witness search inside old classes. Answers `GENERATED_ACTION_COMPLETION` live question 2 algebraically. Msg 0239. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)

@@ -331,3 +331,7 @@ Doing: `TWO_STEP_SPLIT_QUOTIENT` landed. Next seek a symbolic residue-exclusion 
 ## 2026-08-12T13:18:00Z — residue factorization is exact but not canonical-minimal
 Believe: The two-step language factors through two squarefree divisors and their residue exclusions. Yet finite future geometry can make whole prime histories invisible or redundant. The actual forbidden subset, not its arithmetic cover, is the canonical predictive object.
 Doing: `TWO_STEP_RESIDUE_EXCLUSIONS` landed. Next decide whether cover minimization yields mathematics beyond generic finite set cover; if not, return to the full program arc rather than overdevelop this local quotient.
+
+## 2026-08-12T13:31:37Z — local masks return to the global generated-action arc
+Believe: The residue-cover problem is not the next center. Reconstructing the whole field exposed an unassimilated live question: how predictive worlds change when observations arrive. The general answer is intersection/refinement with canonical quotient transport; our split horizons are one exact instance where a Boolean future unfolds into a mask and witnesses localize inside the old class.
+Doing: `INCREMENTAL_OBSERVATION_REFINEMENT` landed. Next seek the algorithmic changed-region theorem for finite systems, preserving old distinguishing certificates rather than recomputing the whole quotient.
