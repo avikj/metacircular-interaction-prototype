@@ -577,6 +577,7 @@ def section_6(book, index, plain, acruns, t_plain, t_ac, rounds: int) -> None:
     print("        size |  steps      work    |  steps      work")
     print("        -----+---------------------+---------------------")
     b1_steps = 0
+    step_rows: List[Tuple[int, int]] = []
     for nb in (0, 10, 50, 100, 200, 400):
         bk = tuple(book.lemmas) + tuple(filler[:nb])
         idx = LemmaIndex(bk)
@@ -587,6 +588,7 @@ def section_6(book, index, plain, acruns, t_plain, t_ac, rounds: int) -> None:
         AC.ac_normalize(BENCH[0][1], lemmas=bk, ctr=c1, name="ac%d" % nb,
                         run=run)
         b1_steps = c0.steps
+        step_rows.append((c0.steps, c1.steps))
         print("        %4d |  %5d   %9d  |  %5d   %9d"
               % (len(bk), c0.steps, c0.work, c1.steps, c1.work))
     print("""
@@ -594,9 +596,12 @@ def section_6(book, index, plain, acruns, t_plain, t_ac, rounds: int) -> None:
         column is flat; the AC column is linear in the book.  That is the wall
         AC matching walks into first, and nothing here moves it: the fix is a
         discrimination net keyed on the AC argument MULTISET rather than on
-        positions, which is a different index and is not built.""" % 12)
+        positions, which is a different index and is not built.""" % b1_steps)
+    audit("padding the book changes no kernel step in either column, so the "
+          "two work columns are comparable",
+          len({r for row in step_rows for r in row}) == 1, repr(step_rows))
 
-    print("\n    (c) WHERE THE TIME ACTUALLY GOES.  Three arms, %d rounds:\n"
+    print("\n    (d) WHERE THE TIME ACTUALLY GOES.  Three arms, %d rounds:\n"
           % rounds)
     print("          positional   %7.1f s" % t_plain)
     print("          AC           %7.1f s   (%.0fx)"
@@ -617,7 +622,7 @@ def section_6(book, index, plain, acruns, t_plain, t_ac, rounds: int) -> None:
         installation path is what pays.  Reporting the 40x as "AC matching is
         40x slower" would be reporting the wrong component.""")
 
-    print("\n    (d) FIXPOINT, OR BUDGET?\n")
+    print("\n    (e) FIXPOINT, OR BUDGET?\n")
     for mode, label in ARMS:
         run = acruns[mode][2]
         print("          (%s)  %-14s  exhaustions=%d"
