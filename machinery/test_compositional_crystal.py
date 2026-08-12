@@ -12,6 +12,10 @@ class CompositionalCrystalTests(unittest.TestCase):
         crystal = crystallize_algebra(elements, (add,), observation)
         self.assertEqual(len(crystal.fibers), 3)
         self.assertFalse(crystal.equations)
+        witness = next(item for item in crystal.distinctions
+                       if item[0:2] == (1, 2))
+        self.assertEqual(len(witness[2]), 1)
+        self.assertNotEqual(witness[3], witness[4])
 
     def test_parity_is_compositional_for_addition_mod_four(self):
         elements = (0, 1, 2, 3)
@@ -42,6 +46,17 @@ class CompositionalCrystalTests(unittest.TestCase):
                          {"e", "o"})
         with self.assertRaises(ValueError):
             factor_map(crystal, {0: "zero", 2: "two", 1: "o", 3: "o"})
+
+    def test_multistep_context_is_synthesized(self):
+        elements = (0, 1, 2, 3)
+        step = Operation("step", 1, {(x,): min(x + 1, 3) for x in elements})
+        observation = {0: 0, 1: 0, 2: 0, 3: 1}
+        crystal = crystallize_algebra(elements, (step,), observation)
+        witness = next(item for item in crystal.distinctions
+                       if item[0:2] == (0, 1))
+        self.assertEqual(len(witness[2]), 2)
+        self.assertEqual((witness[3], witness[4]), (0, 1))
+        self.assertEqual(len(crystal.separating_contexts), 3)
 
 
 if __name__ == "__main__":

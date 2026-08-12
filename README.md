@@ -10,6 +10,7 @@ Zero and successor already give the natural numbers:
 
 \[
 0,\quad S(0),\quad S(S(0)),\quad\ldots
+0,quad S(0),quad S(S(0)),\quad\ldots
 \]
 
 This is not merely a list.  It is a way to generate every member of the list.
@@ -67,6 +68,10 @@ connected (Fazang's six characteristics of whole/part, identity/difference,
 and integration/disintegration in the *Essay on the Golden Lion*, T 1881).
 These traditions are not decorations for a European mathematical story.  They
 are long-developed
+shared by apparently exhaustive accounts of self-grounded production.  Huayan
+accounts of whole and part similarly preserve difference while denying that a
+part first exists alone and is only later connected.  These traditions are not
+decorations for a European mathematical story.  They are long-developed
 disciplines for noticing when thought has mistaken a useful designation for an
 independent thing.
 
@@ -189,6 +194,11 @@ argument in `BINARY_DIVISIBILITY_CRYSTAL.md` is what licenses installation.
 Before receiving those features it searches the same small language using only
 the raw modulus and finds no law.  The failed representation is preserved;
 factorization supplies the missing coordinates that make compression possible.
+the raw modulus and finds no law. The failed representation is preserved. The
+missing coordinates are then derived from the generated dynamics itself: under
+the zero-digit action, `q` is the size of the eventual image and `a` is the
+number of strict image contractions before stabilization. Factorization is an
+independent explanation of coordinates first exposed by motion.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,
@@ -205,6 +215,7 @@ words from which they came.  Learning is alternately compression and renewed
 distinction.  Lean checks the direction of this change: because the richer view
 projects back to the old one, it may split an old class but cannot merge two old
 classes.
+distinction.
 
 Run it:
 
@@ -264,6 +275,8 @@ context.  It is not global mathematical identity.  It deliberately does not
 retain distinct equivalence proofs, automorphisms, homotopies, or higher paths;
 those remain in the native proof-relevant object and are transported by
 explicit witnesses rather than erased into this finite crystal.
+and is preserved by every action.  This is all the universal language the
+current construction needs.
 
 ## One living test
 

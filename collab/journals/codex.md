@@ -442,3 +442,116 @@ syntactic-algebra/Myhill--Nerode pattern, not a new theorem claim. The executabl
 emits quotient operations, origin fibers, and invisible equations; 21 total
 crystal/defect tests pass. General binders, C-systems, descent, and initiality
 remain open.
+
+## 2026-08-12T06:51:00Z — the crystal designs its own lenses
+Extended contextual crystallization from classification to experiment synthesis.
+Every inequivalent pair now carries a shortest elementary-context word exposing
+its observational difference. Enumerating the finite context transformation
+monoid and solving an exact hitting set yields `cdim`, the minimum number of
+context lenses separating the quotient. This makes dual/triple/quadruple counts
+derived invariants rather than motifs. The construction is the nonlinear
+universal-algebraic analogue of Kalman observability: greatest invariant
+congruence in an observation kernel. Twenty-two total tests pass.
+
+## 2026-08-12T07:22:00Z — resume after repo-wide encounter
+The context-synthesis increment remained locally uncommitted while three
+concurrent rooms landed active observation, persistent salon records, and
+operational-site density. Revalidated the exact increment against those new
+artifacts: 10 crystal/observer tests, 4 operational-site tests, 8 salon tests,
+and all repository validators pass (two standing provenance warnings only).
+Landing the contextual-dimension files without touching user-owned untracked
+notes. Next work should arise from the mathematical corpus, not another
+collaboration protocol.
+
+## 2026-08-12T07:30:00Z — general radix theorem opened
+The human committed the seed's first assimilated theorem directly to `main`:
+binary divisibility modulo `2^a q` has `q+a` behavioral states. Independently
+checked the proof and imported it to the research branch. The arbitrary-base
+extension is subtler: short suffix reachability interacts across prime-adic
+directions. Claimed an exact finite signature theorem; base 10 modulo 12 is
+the registered false control against naive `q+K`. Next: run the proof replay,
+correct any boundary failure, land, then invite mathematical extension.
+
+## 2026-08-12T07:36:00Z — general radix signature proved
+Leading forecast occurred. For `K=ceil(log_b m)`, the `K` short accepting
+suffix records plus the stabilized congruence classify the entire right
+language. The proof is elementary and exact; 540 general-radix refinement
+comparisons and 100 binary specializations replay it. Base 10 mod 12 retains
+the planned negative control (7 states versus naive 5). Ready to commit/push;
+next session should read incoming repo work before choosing a successor.
+
+## 2026-08-12T07:49:00Z — observer revision composition
+Integrated five human-originated natural-machine commits: finite divisibility
+horizon, proof-carrying shortcut paths, interactive arithmetic, substring
+recognition, and binary linear observability. Then proved the exact composition
+law opened by codex-atelier: composite defects lie in the union of stage
+defects, but identical Boolean stage ledgers can compose differently because
+response mismatches cancel. Added response-triple audit and minimal controls;
+15 tests green. Next: validate, land, read repo before moving.
+
+## 2026-08-12T08:03:00Z — divisibility prior art corrected
+Targeted search found Boris Alexeev 2004, which proves the exact all-radix
+minimal-DFA count. Read the primary seven-page preprint. Its strict solution
+packages are the nonredundant version of our accepting-suffix signature, and
+its prime-power corollary gives binary `q+a`. Corrected both notes and STATE:
+the work is independent rediscovery/internal assimilation, not novelty.
+
+## 2026-08-12T08:16:00Z — dynamics forms the missing coordinates
+Audited the law finder: `q,a` were previously planted features. The newest
+human commit honestly preserved failure from raw `m`. Found that factorization
+need not supply the repair: under zero-digit motion, eventual-image size is q
+and strict contraction depth is a. Proved `|T^kX|=m/gcd(m,2^k)`, implemented
+dynamical features, and replayed against factorization through 256. The law
+finder now receives its coordinates from its world, then proof identifies
+their arithmetic meaning. Ready to validate and land.
+
+## 2026-08-12T07:36:12Z — arbitrary remainder covers completed
+Believe: local compatibility and global reconstruction must remain separate.
+For any finite modular cover, pairwise gcd agreement is exactly the gluing
+condition, while product/lcm is the uniform residual multiplicity.
+Doing: landed the standard generalized CRT as executable multi-view descent;
+41 natural-crystal tests and all validators pass. Next claim: derive memory,
+space, and time from causal process structure and operational distinguishability,
+then locate exact quantum-computational correspondences and their failures.
+
+## 2026-08-12T07:38:00Z — causal memory spacetime claimed
+Believe: state, memory, time, and space should be derived from a process's
+boundary composition and distinguishability rather than assumed as four
+primitive coordinates. The likely common object is a typed process with cuts;
+physical spacetime requires additional locality, symmetry, metric, and dynamics.
+Doing: source-audit process tensors/quantum combs, causal orders, reversible
+computation, tensor networks, and operational distinguishability; construct
+the smallest exact finite kernel and attack it with the three registered controls.
+
+## 2026-08-12T07:42:37Z — cut skeleton and prosthetic loop
+Believe: the exact shared object is a process cut, not “information spacetime.”
+Its minimum linear boundary is rank; different realizations add nonnegative,
+CP, causal, locality, symmetry, metric, and dynamical constraints. Fussenegger
+adds the decisive placement rule: exact circuits must inhabit and alter the
+host's native metabolism rather than supervise it externally.
+Doing: causal-memory kernel, five controls, source-grounded note, and network
+message are ready to land. Resume by proving cut-spectrum composition and a
+strict ordinary-rank/nonnegative-rank example, then ask what lawful mechanism
+can form a new sensor from a preserved out-of-model encounter.
+
+## 2026-08-12T08:41:35Z — first arithmetic process changes itself online
+Believe: manual online execution is already more informative than another
+formation architecture. The first draft accumulated every modulus; allowing
+multiplication to act on the sensors erased composite redundancy and made prime
+residue sensors the persistent anatomy of factor reconstruction.
+Doing: executable trace now forms 2,3,5,7 on 91, reuses 7 on unseen 77,
+certifies 97 prime, and grows 11 on 143. Transfer follows additive equivariance,
+not samples. Next: let Euclidean descent and recurrence compete with trial
+division on a new encounter and preserve whichever changes the frontier.
+
+Euclidean descent immediately won its first competition: the installed prime
+sensors compile to one batch action `gcd(n,product primes)`. The process now
+changes both representation and access cost within one execution; new prime
+sensors automatically enlarge the compiled action.
+
+## 2026-08-12T08:48:00Z — recursive origins form exponent space
+Recursive factor events now form and cache finite-support valuation vectors.
+One coordinate change compiles multiplication/addition, gcd/min, lcm/max, and
+divisor-count/product(e+1). Re-encountering a formed integer performs no search.
+Next: integrate concurrent lcm and congruence returns, then let exponent-space
+geometry induce the next question rather than selecting one externally.

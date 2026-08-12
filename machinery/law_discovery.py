@@ -34,6 +34,20 @@ def features(modulus: int) -> tuple[int, int]:
     return q, a
 
 
+def dynamical_features(modulus: int) -> tuple[int, int]:
+    """Derive persistent-core size and transient depth from zero-digit motion."""
+    if modulus < 1:
+        raise ValueError("modulus must be positive")
+    image = frozenset(range(modulus))
+    depth = 0
+    while True:
+        next_image = frozenset((2 * state) % modulus for state in image)
+        if next_image == image:
+            return len(image), depth
+        image = next_image
+        depth += 1
+
+
 def observed_count(modulus: int) -> int:
     """Compute the target without using the closed-form theorem."""
     world, observation = divisibility_world(2, modulus)
@@ -57,8 +71,8 @@ def discover(
         raise ValueError("training moduli must be nonempty and positive")
     wanted = tuple(target(modulus) for modulus in xs)
     variable_functions = variables or {
-        "q": lambda modulus: features(modulus)[0],
-        "a": lambda modulus: features(modulus)[1],
+        "q": lambda modulus: dynamical_features(modulus)[0],
+        "a": lambda modulus: dynamical_features(modulus)[1],
     }
     atoms = {
         tuple(function(modulus) for modulus in xs): Expression(
