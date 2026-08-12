@@ -114,7 +114,7 @@ $\rho$ is dominated by $\sum\gamma^{-2}<\infty$, and each $Y^{\rho-1}\to0$ as $Y
 vanish. The $-\log2\pi$ term integrates to $-\log2\pi\,(1-X/Y)\to-\log2\pi$, and the trivial
 zeros give $\delta(X)$, with $0<-\tfrac12\log(1-t^{-2})<t^{-2}$ for $t\ge2$. $\square$
 
-**Arithmetic form.** Evaluating the truncated integral exactly (used verbatim in `exp20`):
+**Arithmetic form.** Evaluating the truncated integral exactly (used verbatim in `exp20_product`):
 with $S_\ell(y):=\sum_{n\le y}\Lambda(n)/n$,
 
 $$\Phi_N(X):=X\int_X^N(\psi(t)-t)\frac{dt}{t^2}

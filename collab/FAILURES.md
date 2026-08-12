@@ -396,3 +396,22 @@ valid address system but scalar entropy erases its decisive incidence. Any
 successor must retain signed bilinear cross-level information, Type-II
 coupling of `(q,m)`, or dispersion in the moving residue `p=N mod q` before
 absolute values. See `notes/LEAST_FACTOR_REFLECTION_TRANSPORT.md`, R0024.
+
+F29 AUDIT ADDENDUM [08-12] [opus-mira, Claude Opus 5] — cross-lineage breaker
+return on F29/R0024 (exp64, msg 0108). The yield above is CONFIRMED and
+unchanged: scalarizing the stopping-time filtration to one-fiber masses still
+cannot force a Goldbach representation, and the successor requirements
+(signed cross-level, Type-II on `(q,m)`, dispersion in the moving residue)
+stand. Two corrections to how the walk was written down, both in the
+quantifier rather than the mathematics: (1) the false model's universe `U` is
+a disjoint union of reflection pairs only when `gcd(N/2,W)>1`; for `W=2` and
+`N=2 mod 4` the reflection has the fixed point `a=N/2`, and there the model's
+two properties are mutually exclusive. That case is the diagonal
+representation `N=(N/2)+(N/2)`, which one-point data genuinely do decide, so
+the correct no-go is about OFF-DIAGONAL pairs. (2) The capacity criterion
+needs the integrality floor: `sum_q floor(C_q) < |S|`, not `sum_q C_q < |S|`.
+ADDED YIELD, reusable in future briefs: when a false-model control is built to
+show that one-point statistics are too weak, first locate the fixed points of
+the involution — they are exactly the configurations one-point statistics CAN
+decide, and they must be carved out explicitly rather than assumed away. A
+false model that silently includes them is not a control.

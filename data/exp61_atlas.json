@@ -1,0 +1,31 @@
+{
+  "cmax": 100000,
+  "n_primitive_triples": 15919,
+  "n_rational_points": 127356,
+  "fiber_identity": "127356 = 8*15919 + 4",
+  "lehmer_ratio": 1.0002202690499182,
+  "d4_orbit_census": {
+    "8": 15919,
+    "4": 1
+  },
+  "approx_exponent_measured": -0.9964601936830719,
+  "approx_exponent_predicted": -1.0,
+  "approx_rms_free": 0.013174783429407134,
+  "approx_rms_at_-1": 0.01458571386405642,
+  "approx_rms_at_-0.5": 0.8778499119607728,
+  "approx_rms_at_-2": 1.7743263332462533,
+  "covering_exponent_measured_allH": -0.5283490136306279,
+  "covering_exponent_measured_tail": -0.5038439130480658,
+  "covering_exponent_predicted": -0.5,
+  "covering_constant_measured": 0.707443486506359,
+  "covering_constant_predicted": 0.7071067811865475,
+  "median_constant_measured": 1.2735695740059527,
+  "golden_deltaH_max": 2.192106548482114,
+  "liouville_deltaH_min": 0.02205117831667669,
+  "rank_rates": {
+    "1": -1.0462872653101145,
+    "2": -1.975072462018899,
+    "3": -3.0560980008785466
+  },
+  "failures": []
+}

@@ -12,7 +12,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from collections import deque
-from itertools import combinations
+from itertools import combinations, product
 from math import gcd, lcm
 from typing import Callable, Hashable, Mapping, Sequence
 
@@ -411,6 +411,40 @@ def binary_divisibility_classes(modulus: int) -> tuple[tuple[int, ...], ...]:
     return tuple(classes)
 
 
+def radix_divisibility_signature(base: int, modulus: int, remainder: int) -> tuple:
+    """Exact finite right-language signature for base-``base`` divisibility.
+
+    The entries before the final one record the unique accepting suffix of
+    each length shorter than ``ceil(log_base(modulus))``, or ``None`` when no
+    such suffix exists.  The final entry records the stabilized congruence
+    seen by every longer suffix.
+    """
+    if base < 2 or modulus < 1:
+        raise ValueError("base must be at least two and modulus must be positive")
+    if not 0 <= remainder < modulus:
+        raise ValueError("remainder must lie in range(modulus)")
+    power, short = 1, []
+    while power < modulus:
+        target = (-power * remainder) % modulus
+        short.append(target if target < power else None)
+        power *= base
+    from math import gcd
+    return tuple(short) + (remainder % (modulus // gcd(modulus, power)),)
+
+
+def radix_divisibility_classes(
+    base: int, modulus: int
+) -> tuple[tuple[int, ...], ...]:
+    """Behavioral classes for divisibility after appending base-``base`` digits."""
+    if base < 2 or modulus < 1:
+        raise ValueError("base must be at least two and modulus must be positive")
+    groups = {}
+    for remainder in range(modulus):
+        signature = radix_divisibility_signature(base, modulus, remainder)
+        groups.setdefault(signature, []).append(remainder)
+    return tuple(tuple(group) for group in groups.values())
+
+
 def chinese_remainder_view(
     left_modulus: int, right_modulus: int
 ) -> tuple[tuple[tuple[tuple[int, int], tuple[int, ...]], ...], int, int]:
@@ -436,6 +470,37 @@ def chinese_remainder_view(
     return tuple((view, tuple(fiber)) for view, fiber in fibers.items()), common, lcm(
         left_modulus, right_modulus
     )
+
+
+def multiple_remainder_view(
+    moduli: Sequence[int],
+) -> tuple[tuple[tuple[tuple[int, ...], tuple[int, ...]], ...], int, int]:
+    """Joint view through any finite family of moduli.
+
+    The source is Z/(product moduli).  The image consists of the pairwise
+    gcd-compatible tuples and every fiber has size product/lcm.
+    """
+    ms = tuple(moduli)
+    if not ms or any(modulus < 1 for modulus in ms):
+        raise ValueError("moduli must be a nonempty positive family")
+    from math import prod
+    product_modulus = prod(ms)
+    combined = lcm(*ms)
+    fibers: dict[tuple[int, ...], list[int]] = {}
+    for value in range(product_modulus):
+        view = tuple(value % modulus for modulus in ms)
+        fibers.setdefault(view, []).append(value)
+    compatible = {
+        view for view in product(*(range(modulus) for modulus in ms))
+        if all(view[i] % gcd(ms[i], ms[j]) == view[j] % gcd(ms[i], ms[j])
+               for i in range(len(ms)) for j in range(i + 1, len(ms)))
+    }
+    if set(fibers) != compatible:
+        raise AssertionError("multi-view image violated generalized CRT")
+    residual = product_modulus // combined
+    if any(len(fiber) != residual for fiber in fibers.values()):
+        raise AssertionError("multi-view fibers violated product/lcm law")
+    return tuple((view, tuple(fiber)) for view, fiber in fibers.items()), residual, combined
 
 
 def pattern_world(

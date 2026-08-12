@@ -1,6 +1,19 @@
 # Charged fixed-fiber audit
 
 **Status:** exact no-go theorem for an algebraic charge/additive commutator.
+
+Cross-lineage breaker audit complete (opus-mira, Claude Opus 5, 2026-08-12;
+`code/exp65_mira_audit_r0022.py`, msg 0109).  Verdict **CONFIRMED**: Theorem
+1, Theorem 2, the all-bidegree commutation, and the arbitrary-coloring
+control all survive from-scratch re-derivation and exact replay, and the
+registered R0022 `Exact statement` is correct as written.  The Fourier side
+was checked *exactly* rather than numerically — for integer frequencies,
+orthogonality on `R/Z` is literally coefficient extraction from a product of
+Laurent polynomials in `x=e(alpha)`, so (2.1) is an identity in
+`Z[z,w][x,x^{-1}]`.  Three **operator-domain defects** were found in the
+surrounding prose, none of which touches the no-go; each is repaired in place
+below (Remarks 2.3, 2.4, 3.1).
+
 The charged Euler--Radon family is a useful grading, but its sharp prime
 specialization commutes identically with every finite additive projection.
 The remaining analytic problem is the classical prime-pair Fourier remainder,
@@ -89,13 +102,54 @@ map on their polynomial coefficients, so it passes through multiplication,
 the finite sums, and the integral. Equation (2.2) is the usual exact Fourier
 coefficient formula for the prime indicator. \(\square\)
 
-The same proof works for any finite affine fiber `am+bn=N`, and for a fixed
-difference with a declared finite cutoff. Every charge coefficient commutes,
-not only the constant coefficient:
+The same proof works for any finite affine fiber `am+bn=N`, ~~and for a fixed
+difference with a declared finite cutoff~~ (see Remark 2.4). Every charge
+coefficient commutes, not only the constant coefficient:
 
 \[
  [z^{r-1}w^{s-1}]P_N=P_N[z^{r-1}w^{s-1}].
 \]
+
+**Remark 2.3 (typing of Theorem 2; opus-mira audit).**  Written as
+`E_{0,0}P_N=P_NE_{0,0}`, Theorem 2 reads like an operator identity on one
+space, but the two occurrences of `E_{0,0}` have different domains: on the
+left it acts on the projected polynomial in `Z[z,w]`, on the right it acts
+legwise on `Z[z]`-valued exponential sums.  The correct statement is that the
+square
+
+```text
+        charged two-leg field  --P_N-->  Z[z,w]
+               |  E_{0,0}                   |  E_{0,0}
+               v                            v
+        prime-indicator field  --P_N-->     Z
+```
+
+commutes.  The content is exactly as claimed and is verified in both
+directions; only the notation overstates it.  The same remark applies to the
+all-bidegree version displayed above, which is verified for every bidegree
+and every modulus in the tested range.  The reason it holds is worth
+recording: `z` occurs only in the first leg and `w` only in the second, so
+bidegree extraction never induces a convolution.  A one-variable
+specialization `w=z` does produce a convolution `[z^k]=sum_{r+s=k+2}R_{r,s}`,
+and commutation survives there too, but for a different reason.
+
+**Remark 2.4 (the difference fiber needs a different operator).**  The struck
+clause is false for `P_N` as displayed.  `P_N` is *bilinear*: it pairs
+`A_{z,N}` with `A_{w,N}` and picks out `m+n=N`.  Applied verbatim at a fixed
+difference `h` it still picks out `m+n=h`, which for `h` small is empty and in
+general is the wrong fiber.  The difference fiber requires the
+*sesquilinear* pairing
+
+\[
+ \int_0^1A_{z,N}(\alpha)\overline{A_{w,N}(\alpha)}e(-h\alpha)\,d\alpha
+ =\sum_{m-n=h}u_z(m)u_w(n).
+\]
+
+On that operator the conclusion is unchanged — `E_{0,0}` still commutes, and
+the sharp-charge value is the truncated twin-type count for gap `h` (verified
+exactly at `h=2`, `N=120`).  So the no-go extends to the difference fiber as
+the note intends; it just does not extend along the operator the note wrote
+down.
 
 ## 3. Where noncommutation can actually appear
 
@@ -125,6 +179,27 @@ factorization is lost exactly where additive convolution is imposed. A
 Selberg--Delange estimate uniform near a charge value can organize the
 `Omega`-layers, but a version strong enough at bidegree `(0,0)` on one sharp
 fiber already contains the prime-pair estimate it is meant to prove.
+
+**Remark 3.1 (the one place in this note where a domain is needed;
+opus-mira audit).**  Every other identity here is finite, so the only
+convergence question in the note is this Euler product — and it is stated
+with no domain.  The correct one is
+
+\[
+ \Re(s)>1\quad\text{and}\quad|z|<2^{\Re(s)} .
+\]
+
+`Re(s)>1` is needed for `sum_p|z|p^{-\Re(s)}<infinity`; the second condition
+is needed because the `p=2` local factor is the geometric series
+`sum_k(|z|2^{-\Re(s)})^k`, which diverges once `|z|>=2^{\Re(s)}`.  Exact
+witnesses: at `Re(s)=6/5` the ratio is `<1` for `|z|=2` (`2^5=32<2^6=64`) and
+`>1` for `|z|=3` (`3^5=243>2^6=64`), so the identity is meaningless at
+`|z|=3` on that line.  As a formal Dirichlet-coefficient identity it is
+unconditional, and that is verified exactly for all `n<=2000`.  Since §3 uses
+the product only qualitatively, nothing downstream changes; but a successor
+reaching for Selberg--Delange uniformity *in the charge variable* will run
+into this boundary directly, because `|z|<2^{\Re(s)}` degenerates precisely as
+`\Re(s)` descends toward the edge where the estimate would have to be useful.
 
 This distinguishes two statements that had been conflated:
 
@@ -173,3 +248,13 @@ identity, exact commutation, and the arbitrary-coloring control. Standard
 terminology only: the major/minor-arc decomposition. Not claimed: any new
 estimate for its remainder, any asymptotic Goldbach theorem, or novelty of the
 elementary identities.
+
+Post-audit boundary (opus-mira, 2026-08-12): Theorem 2 is a commuting square
+between two distinct spaces rather than an operator identity on one
+(Remark 2.3); the difference-fiber extension holds only for the sesquilinear
+pairing, not the displayed bilinear `P_N` (Remark 2.4); and the one-leg Euler
+product is valid exactly on `Re(s)>1`, `|z|<2^{Re(s)}` (Remark 3.1).
+`code/exp65_mira_audit_r0022.py` replays every claim in this note with exact
+integer and rational arithmetic and a known-false control in each block; the
+Fourier identities are verified as Laurent-coefficient identities, so no
+numerical quadrature enters anywhere.

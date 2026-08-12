@@ -1,5 +1,11 @@
 # The binary divisibility crystal
 
+**Prior-art correction.** This state count is the base-two case of Boris
+Alexeev, *Minimal DFAs for Testing Divisibility*, JCSS 69 (2004), 235--243,
+Corollary 5 ([arXiv:cs/0309052](https://arxiv.org/abs/cs/0309052)). The proof
+below was independently generated inside this repository and remains an exact
+replay/presentation; it is not a new theorem.
+
 Let words of binary digits act on remainders modulo `m` by
 
 \[

@@ -10,8 +10,13 @@ q=(c_q,r_q,Y_q),\qquad r_q:X\to Y_q,
 
 where `c_q` is a positive integer resource cost. A history is a finite list
 `(q_i,y_i)`. Given an exact prior `p`, its posterior is obtained by restricting
-to the fiber `r_{q_i}^{-1}(y_i)` at every step and renormalizing. An impossible
-history fails closed.
+to the fiber `r_{q_i}^{-1}(y_i)` at every step and renormalizing.
+
+An outcome of a declared probe with zero live mass is preserved as an
+`out_of_model_outcome` formation-pressure record: the coherent prefix, the
+offending outcome, and the previously live support. This record authorizes
+reopening model formation but is not evidence for any replacement. An unknown
+probe name remains a programming error, not a philosophical discovery.
 
 For states `x,x'`, define their one-probe distinguishing cost
 
@@ -131,6 +136,44 @@ promote experimental utility into mathematical truth. A high-gain probe only
 partitions the declared hypothesis family efficiently. If the true possibility
 is absent from `X`, exact arithmetic cannot repair the model misspecification.
 
+### 6.1 Selection cannot perform formation
+
+The optimizer has type `(X,Q,p,h) -> Q`: by construction its output lies in
+the declared probe pool. It therefore cannot propose a probe outside `Q`, a
+new state vocabulary, an observer translation, or regenerated operating
+conditions. Low gain is not a formation trigger. A system can separate every
+existing pair while still admitting a persistent compatible local family with
+no global amalgam; separation of `X` does not certify the adequacy of `X`.
+
+The runtime preserves only one directly executable closure defect,
+`out_of_model_outcome`. The salon may also record `structural_blindness`,
+`translation_gap`, and `persistent_descent_failure`. These are typed pressures,
+not outputs of a purported formation operator `Phi`.
+
+### 6.2 Exact preservation ledger for a proposed revision
+
+Let a proposed revision supply a state projection `s:X' -> X` and a probe
+translation `tau:Q -> Q'`. An old probe `q` is preserved exactly when
+
+\[
+r'_{\tau(q)}(x')=r_q(s(x')) \quad\text{for every }x'\in X'. \tag{5}
+\]
+
+**Preservation proposition.** The executable audit reports an old probe as
+preserved if and only if its response square (5) commutes. It additionally
+lists the fibers of `s` (hence state splitting), old states with empty fiber
+(forgetting), newly introduced probes, and every failing `x'` for a violated
+probe.
+
+**Proof.** The audit evaluates the two sides of (5) for every element of the
+finite domain and records exactly the unequal cases. Empty and multiple fibers
+of `s` are respectively forgetting and splitting by definition. The probes of
+`Q'` outside the image of `tau` are exactly the new probes. `square`
+
+This ledger checks preservation only. It neither generates `X',Q'` nor judges
+their adequacy. The runtime depends on externally supplied models, costs,
+execution, and acceptance, so posterior/self-model updating is not autopoiesis.
+
 ## 7. Buildable loop
 
 1. Crystallize a finite algebra under a declared observation.
@@ -147,8 +190,10 @@ larger budget; **structural invisibility** requires a new operation or lens.
 
 ## 8. Rigor boundary
 
-Proved here: equations (1)--(4), exact posterior conditioning, the one-step
-optimality statement, and compilation of existing shortest crystal contexts.
+Proved here: equations (1)--(5), exact posterior conditioning, preservation of
+the first impossible declared outcome as a pressure record, the one-step
+optimality statement, the finite preservation audit, and compilation of
+existing shortest crystal contexts.
 
 Not proved: global optimality of the greedy policy, a unique objective for all
 observers, emergence of physical law, equivalence with Rovelli's relational

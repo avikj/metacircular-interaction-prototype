@@ -60,6 +60,16 @@ summable), then simply $V(T,L)\ll E_W(1/L)$.
 
 ## D.4 Lower bound
 
+**[SUPERSEDED — see `notes/DPP.md` §2–§3.** Theorem 2 there proves
+$\lim_{L\to\infty}V(T,L)=V_\infty=\sum_f|\widetilde m(f)|^2$ *uniformly in $u_0$*
+with no separation hypothesis, replacing D.3–D.4 wholesale. **Erratum:** the
+$u_0$-averaging step below is invalid as written — averaging $e^{i\delta u_0}$
+over a unit window multiplies by $\operatorname{sinc}(\delta/2)$, damping
+$|\delta|\ge1$ only by $O(1/\delta)$, not killing it. The conclusion survives
+because the $\operatorname{sinc}^2(L\delta/2)$ already present does the work.
+Also: the Ω-result of D.5 is **unconditional** under RH (DPP §3), not
+contingent on the near-diagonal hypothesis.]**
+
 Restrict (D.1) to the exact diagonal $\mathcal D = \{(\gamma_3,\gamma_4) = (\gamma_1,\gamma_2)
 \text{ or } (\gamma_2,\gamma_1)\}$, where $\delta=0$, $e^{i\delta u_0}=1$, and every term is
 positive:
@@ -110,6 +120,13 @@ intervals and pair correlation are.
    weighted near-diagonal energy using zero-density estimates (the Tao–Trudgian–Yang
    $N^*$ machinery is designed for exactly such bounds), yielding: *under RH,
    $V \asymp \sum|W|^2$ with explicit constants*.
+   **[Numerically closed — `exp13_energy` / `BLOCKS.md` §3: $E(\eta)=C\eta$
+   linear over the ~2.5 audited decades with $C/D=1.44$; $V(T,L)/D\in[0.955,1.037]$
+   on the audited $L$-grid at fixed $u_0$ ($L$-independence in the limit is the
+   claim), $\to0.9998$; diagonal in D‴ closed form (ratio 1.0024); unfolded
+   spacings Poisson (var/mean² 0.997). Only the unconditional count bound
+   remains — and `DCLOSE_NO_GO.md` proves the finite-check route cannot supply
+   it, so "numerically closed" must not be read as "closed".]**
 2. Remove RH from the framework: off-line zeros contribute $x^{\rho+\rho'+1}$ with
    $\operatorname{Re}(\rho+\rho')\neq1$; the analysis of Sections D.2–D.4 then produces an
    equivalence between "$V(T,L) \ll$ diagonal" and a quasi-RH zero-clustering
@@ -130,3 +147,18 @@ intervals and pair correlation are.
    is positive under RH as a corollary of their theorem; identify the
    doubly-reweighted Goldbach sum carrying it and rerun the variance analysis
    there. The 4-point near-diagonal separation remains the genuinely open input.
+   **[Independently tested — `exp12_krein` / `BLOCKS.md` §2: the measure is NOT
+   positive; its atoms obey the exact chirp law
+   $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$ (Theorem D‴) with
+   equidistributing phases, so positivity can only enter at the $|W|^2$
+   (variance/D″) level; reformulated in `BLOCKS.md` §3.]**
+   *Both refutations are consistent; the join is now closed by Theorem J
+   (`BLOCKS.md` §5): the MS screw function IS the mixed block, so Krein
+   positivity lives one block over from the pair measure.*
+
+   **Mechanism of the refutation, from the other branch (`BLOCKS.md` Part I §2):**
+   non-positivity is not merely observed, it is forced by Theorem D‴. The atoms
+   obey the exact chirp law $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$, whose
+   phases $sH(p)$ equidistribute mod $2\pi$; so positivity can only enter at the
+   $|W|^2$ level, where the chirp cancels exactly ($|W|^2=2\pi s^{-5}$). This
+   agrees with the `SCREW.md` conclusion and supplies its proof.

@@ -22,6 +22,34 @@ Next concrete action: construct the smallest exact counterexample where greedy
 gain/cost loses to a bounded two-step policy, or prove a restricted optimality
 class. Preserve persona/process orthogonality in all future salon work.
 
+## 2026-08-12T07:19:34Z — collaboratory formation-boundary landing
+Jackendoff/Rubin/Maturana corrections converged with the operational-site and
+salon siblings on one exact defect: probe selection cannot form what is absent
+from its declared vocabulary. The runtime now preserves the first impossible
+declared outcome as non-evidentiary formation pressure. A finite commuting-
+square audit records precisely what a proposed revision preserves, splits,
+forgets, violates, and adds. It does not generate or validate the revision and
+is not autopoietic. Resume by testing the next mathematical question: when do
+observer revisions compose, and when does a preservation ledger lose defects?
+
+## 2026-08-12T07:23:00Z — session end / exact resume theorem
+For successive revisions `(s,tau)` and `(t,upsilon)`, the composite defect set
+for old probe `q` is contained in the union of the inverse image under `t` of
+the first defect and the second defect of `tau(q)`. Thus exact preservation
+composes. Equality can fail because two response mismatches cancel, so Boolean
+defect ledgers are not faithful under composition. Next action: formalize the
+inclusion and a smallest cancellation counterexample, then identify the full
+response-comparison span that composes without information loss.
+
+## 2026-08-12T07:46:15Z — causal-memory spectrum hostile audit
+The first typed-boundary separation is the dimension-minimal 4x4 square-cycle
+matrix: rational rank 3, nonnegative rank 4, with an exact four-position
+fooling-set certificate. The existing gluing-defect theorem is correct and
+stronger than a scalar inequality. Its aligned/orthogonal example also proves
+that component `(rank,rank_+)` spectra cannot determine composite spectra;
+interface alignment/factor maps are indispensable. Nine tests pass. CP rank is
+still only a placeholder and no composition claim should be made for it.
+
 ## 2026-08-12T08:38:02Z — transferable formation criterion
 The smallest exact distinction from lookup memorization is injectivity of
 restriction on a predeclared admissible observable class. Failure has a finite
@@ -31,3 +59,22 @@ the domain by training states forces uniqueness; a two-orbit four-state model
 is the sharp control. Four tests pass. The checker cannot certify that the
 chosen admissible class or action is mathematically natural; posthoc structure
 remains an explicit authority boundary.
+
+## 2026-08-12T08:49:35Z — valuation formation audit
+The exact leap from recursive factor origins to formed coordinates is the free
+commutative monoid theorem: exponent vectors uniquely transport every
+multiplicative observable into any commutative target. Recursive leaves are
+therefore constructors, not a factor lookup, once tree-independence is supplied
+by Euclid's lemma/FTA. Sharp limitation: at each prime, addition is not local;
+inputs with valuations `(0,0)` can sum to valuation `k` for arbitrary `k`.
+Four exact tests pass. Next interfaces must retain residues or reconstruct
+globally when additive motion crosses the multiplicative chart.
+
+## 2026-08-12T08:53:33Z — prime-power bridge
+Residues and valuations meet exactly at finite local depth: mod `p^k` is the
+disjoint union of a zero/depth-k point and strata `(j,unit mod p^(k-j))`.
+Truncated depth multiplies by saturated addition and adds ultrametrically;
+same-depth unit cancellation is the only place strict increase enters. The
+boundary is two-sided: zero residue forgets all depth beyond k, and depth alone
+forgets the local unit. Four exact tests pass. This is the smallest honest
+interface for additive residue motion and multiplicative origin coordinates.

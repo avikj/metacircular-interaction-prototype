@@ -46,5 +46,21 @@ class SalonTests(unittest.TestCase):
         errors = validate({"nodes": [q], "edges": [{"kind": "depends_on", "from": q["id"], "to": "missing"}]}, Path("."))
         self.assertTrue(any("dangling" in e for e in errors))
 
+    def test_attention_is_indexical_not_evidence(self):
+        a = node("attention")
+        a.update({"status": "open", "forbidden_conclusions": ["do not infer adequacy"]})
+        a["id"] = content_id(a)
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d); (root / "proof.txt").write_text("proof")
+            c = node("construction", ["proof.txt"])
+            rec = {"nodes": [a, c], "edges": [{"kind": "depends_on", "from": c["id"], "to": a["id"]}]}
+            self.assertTrue(any("cannot support mathematics" in e for e in validate(rec, root)))
+
+    def test_formation_pressure_requires_model_and_kind(self):
+        p = node("formation_pressure")
+        errors = validate({"nodes": [p]}, Path("."))
+        self.assertTrue(any("pressure" in e for e in errors))
+        self.assertTrue(any("model_ref" in e for e in errors))
+
 
 if __name__ == "__main__": unittest.main()
