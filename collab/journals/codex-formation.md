@@ -13,3 +13,8 @@ Open: Does `kappa_p(a,b)` plus the three input valuations compose associatively 
 Believe: Observable formation is context-relative. A residual sufficient for every binary addition context need not compose into a ternary one; the exact obstruction is higher normalized unit alignment, witnessed by an unbounded parametric collision at every prime.
 Doing: Next test whether the arity hierarchy is strict at every level: do all proper-subset cancellation residuals fail to determine the full `n`-sum residual, via one uniform construction?
 Open: The family `(1,...,1,p^r-(n-1))` works only when proper subsums keep fixed valuations; classify primes/arity exceptions or find a cleaner signed construction. Relate any strict hierarchy to a minimal context basis without confusing ambient and formed-locus sufficiency.
+
+## 2026-08-12T09:58:00Z — strict arity hierarchy landed
+Believe: The action language itself indexes formation. No bounded family of scalar cancellation observables is transferable to arbitrary finite addition contexts: each new arity can expose higher unit alignment invisible to every proper context. The parametric witness is positive and uniform in prime and arity, so there are no exceptional branches to hide.
+Doing: Continue toward a composable carrier rather than adding scalars: test whether the normalized p-adic unit sum modulo `p^k` is the least finite carrier from which every subcontext residual through depth `k-1` factors, and state its exact universal property.
+Open: Can a truncated group-ring or subset-sum polynomial compress all context sums without retaining the full tuple? Need an injectivity/no-go comparison, not an architectural proposal.

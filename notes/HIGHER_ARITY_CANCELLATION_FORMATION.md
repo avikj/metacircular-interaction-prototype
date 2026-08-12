@@ -132,3 +132,56 @@ Open: minimal context families for arbitrary sum actions; compositional data
 retaining normalized unit residues without reconstructing every input; and
 formed-world criteria guaranteeing that higher-arity collisions remain
 reachable.
+
+## Addendum: the hierarchy is strict at every arity
+
+The ternary no-go is the first member of a uniform hierarchy.
+
+**Theorem 2 (strict context hierarchy).** Fix a prime (p) and (n\ge2).
+There is a one-parameter family of positive (n)-tuples for which the
+valuation—and hence the normalized cancellation residual—of every nonempty
+proper subset sum is constant, while the full (n)-sum residual is unbounded.
+
+**Proof.** For (r\ge1), put
+
+\[
+A_r=(\underbrace{1,\ldots,1}_{n-1},p^r-(n-1)).          \tag{7}
+\]
+
+Take (r) so large that (p^r>n-1) and
+
+\[
+r>R_{p,n}:=\max_{1\le k\le n-1}v_p(k).                 \tag{8}
+\]
+
+This makes every coordinate positive. A proper subset omitting the moving
+coordinate has sum (s\in\{1,\ldots,n-1}), independent of (r). A proper
+subset containing it omits (k\in\{1,\ldots,n-1}) of the unit coordinates
+and therefore has sum (p^r-k). Since (r>v_p(k)), the unequal-valuation
+ultrametric equality gives
+
+\[
+v_p(p^r-k)=v_p(k),                                     \tag{9}
+\]
+
+again independent of (r). Thus the valuation of every nonempty proper
+subset sum is fixed. The valuations of the individual coordinates are among
+these fixed data, so every proper-subset normalized residual is fixed as well.
+But the full sum is (p^r), the minimum input valuation is zero, and hence
+
+\[
+\kappa_p^{(n)}(A_r)=r.                                 \tag{10}
+\]
+
+This grows without bound. ∎
+
+**Corollary 3.** For every (m\ge1), no family containing only cancellation
+observables from addition contexts of arity at most (m) is sufficient for
+all finite addition contexts: Theorem 2 at (n=m+1) gives two states agreeing
+on every admitted lower-arity observation and disagreeing on the new context.
+
+This is a strict action-language result. Adding an (n)-input context does
+not merely request a longer evaluation of the binary sensor; it creates an
+observable distinction absent from the entire lower-arity language. The
+changed frontier is therefore to characterize restricted context families
+with finite bases, not to search for a universal bounded-arity scalar summary.

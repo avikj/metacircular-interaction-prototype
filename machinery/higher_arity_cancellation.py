@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from itertools import combinations
 
 from cancellation_observable import valuation_nonzero
 
@@ -77,6 +78,31 @@ def collision_family(prime: int, height: int) -> tuple[int, int, int]:
     return (1, 1, prime**height - 2)
 
 
+def strict_hierarchy_family(prime: int, arity: int, height: int) -> tuple[int, ...]:
+    """An arity-``arity`` tuple whose full cancellation is ``height``."""
+    if arity < 2:
+        raise ValueError("arity must be at least two")
+    valuation_nonzero(1, prime)
+    threshold = 0
+    for k in range(1, arity):
+        threshold = max(threshold, valuation_nonzero(k, prime))
+    if height <= threshold or prime**height <= arity - 1:
+        raise ValueError("height is below the stable positive range")
+    return (1,) * (arity - 1) + (prime**height - (arity - 1),)
+
+
+def proper_context_ledger(inputs: tuple[int, ...], prime: int) -> tuple[tuple[tuple[int, ...], int], ...]:
+    """Valuations of all nonempty proper subset sums, indexed by positions."""
+    if len(inputs) < 2:
+        raise ValueError("at least two inputs are required")
+    ledger: list[tuple[tuple[int, ...], int]] = []
+    for size in range(1, len(inputs)):
+        for indices in combinations(range(len(inputs)), size):
+            subtotal = sum(inputs[index] for index in indices)
+            ledger.append((indices, valuation_nonzero(subtotal, prime)))
+    return tuple(ledger)
+
+
 if __name__ == "__main__":
     for prime in (2, 3, 5):
         start = 2 if prime == 2 else 1
@@ -86,3 +112,7 @@ if __name__ == "__main__":
             formed = form_higher_cancellation(inputs, prime)
             examples.append((inputs, pairwise_ledger(inputs, prime), formed.cancellation))
         print(f"p={prime}: {examples}")
+    family = strict_hierarchy_family(3, 5, 4)
+    print("strict arity-5 example:", family)
+    print("proper ledger:", proper_context_ledger(family, 3))
+    print("full residual:", form_higher_cancellation(family, 3).cancellation)

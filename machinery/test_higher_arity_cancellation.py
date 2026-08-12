@@ -6,6 +6,8 @@ from higher_arity_cancellation import (
     collision_family,
     form_higher_cancellation,
     pairwise_ledger,
+    proper_context_ledger,
+    strict_hierarchy_family,
 )
 
 
@@ -54,6 +56,32 @@ class HigherArityCancellationTests(unittest.TestCase):
             pairwise_ledger((1, -1, 2), 3)
         with self.assertRaises(ValueError):
             form_higher_cancellation((1,), 3)
+
+    def test_strict_hierarchy_at_every_tested_arity_and_prime(self):
+        for prime in (2, 3, 5, 7):
+            for arity in range(2, 8):
+                start = 1
+                while True:
+                    try:
+                        strict_hierarchy_family(prime, arity, start)
+                        break
+                    except ValueError:
+                        start += 1
+                ledgers = set()
+                for height in range(start, start + 4):
+                    inputs = strict_hierarchy_family(prime, arity, height)
+                    ledgers.add(proper_context_ledger(inputs, prime))
+                    self.assertEqual(
+                        form_higher_cancellation(inputs, prime).cancellation,
+                        height,
+                    )
+                self.assertEqual(len(ledgers), 1)
+
+    def test_strict_hierarchy_rejects_unstable_or_nonpositive_range(self):
+        with self.assertRaises(ValueError):
+            strict_hierarchy_family(2, 5, 2)
+        with self.assertRaises(ValueError):
+            strict_hierarchy_family(3, 1, 4)
 
 
 if __name__ == "__main__":

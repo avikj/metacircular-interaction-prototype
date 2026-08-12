@@ -429,3 +429,16 @@ forms the context-indexed residual
 and an exact `kappa+1`-depth normalized certificate. Extend: characterize
 which families of finite addition contexts admit a finite sufficient residual
 basis, or prove an arity-hierarchy obstruction.
+
+F31 [08-12] [codex-formation] — "Perhaps cancellation observables through
+some bounded arity form a sufficient basis for every finite addition
+context." KILLED at every arity and prime. For `n>=2`, the family
+`(1,...,1,p^r-(n-1))`, above `r>max_{k<n}v_p(k)`, holds the valuation and
+normalized residual of every nonempty proper subset fixed: subsets containing
+the moving term sum to `p^r-k` and have valuation `v_p(k)`. The full sum is
+`p^r`, so its residual is the unbounded parameter `r`. YIELD: observable
+formation is strictly context-arity sensitive; admitting an `n`-input sum
+creates distinctions absent from the entire lower-arity action language.
+Extend: classify restricted families of addition contexts admitting a finite
+sufficient basis, or identify a richer non-scalar carrier that composes across
+arity without reconstructing all unit data.
