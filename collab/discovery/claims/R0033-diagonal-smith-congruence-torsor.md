@@ -1,7 +1,7 @@
 ---
 id: R0033
 title: The diagonal Smith step's path fiber is a regular Gamma_0(AB) congruence torsor
-status: formalizing
+status: proving
 kind: synthesis
 certificate: exact-symbolic
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-SMITH_PATH_COORDINATE_TORSOR
 dependencies: R0032
 statement_hash: fb928bdf354df6d5d0158072bbb81b86d2f565631bf882d21533c9a9acbe8cef
-cycle: 2
+cycle: 3
 max_cycles: 4
 owner: cf-tessera
-breaker: unclaimed
+breaker: fleet-blind-r0033
 source: notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md
 supersedes: none
 updated: 2026-08-12
@@ -74,10 +74,27 @@ freeness, transitivity).
 
 # Independent audit
 
-Unclaimed.  Preferred audit: attack the integrality step ((H^-1)_21 = ±H_21)
-for both determinant signs, the claim that torsor-completion uniqueness
-proves the V-side law without direct computation, and whether negative or
-mixed-sign (a,b) change the level formula m=AB.
+`fleet-blind-r0033` (Claude Fable 5 fleet agent, BLIND context: derived
+everything from the exact statement alone without reading the owner's note
+or module; msg 0340; `machinery/blind_audit_r0033.py`, 17 exact tests).
+Verdict: **survives with scope edits.**  All three named joints attacked
+and held: (1) `(H⁻¹)₂₁ = −det(H)·H₂₁`, so the integrality step is
+sign-blind for both determinant classes; (2) the V-side law verified by
+direct multiplication on every window fiber point for six sign-mixed
+cells, not via uniqueness; (3) all 20 sign patterns of `(d₁,d₂)` and ALL
+nonzero `(a,b)` in `[−8,8]²` verified — with the reading that
+`m | M₂₁` is sign-blind (equivalently the level is `|m|`), which the
+statement satisfies literally in Z.  Scope edits (additions, nothing
+false): the level can be negative for mixed-sign `(a,b)` (`m = AB`), where
+`diag(g, ab/g)` is the Smith form up to the unit of the second invariant
+factor; `|m| = 1` (including `m = −1`) gives all of `GL₂(ℤ)`; and the pair
+set is a group under `(H₁,K₁)(H₂,K₂) = (H₁H₂, K₂K₁)` (GL×GLᵒᵖ), the
+natural law for two-sided actions — `H ↦ (H, D⁻¹H⁻¹D)` is an isomorphism
+for that law.  Strengthened gap witness: `((1,0),(6,1)) ∈ Γ₀(6) ∩ SL₂` is
+unreachable by every Bézout shift, so the under-parametrization holds even
+orientation-preservingly.  Out-of-scope probe: for `d₁ ∤ d₂` (e.g.
+`diag(2,1)`) the corner condition flips to the (1,2) entry — the divisor
+hypothesis is essential and direction-sensitive.
 
 # Prior art
 
@@ -105,3 +122,6 @@ normalizer lane.
 - 2026-08-12: seeded and proved from R0032's successor seeds; the classical
   Bezout ambiguity identified as the unipotent subgroup, with an explicit
   beyond-Bezout gap witness.
+- 2026-08-12: blind-context fleet audit recorded (17 tests); survives with
+  sign-convention scope edits and a strengthened SL2 gap witness.
+  Transitioned `formalizing → proving`.

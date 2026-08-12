@@ -129,3 +129,25 @@ replay completed algebra.  The infinite-index remark in §4 is standard
 is claimed for congruence subgroups or torsors.  The content is the exact
 identification of the diagonal Smith step's path fiber and the strict gap
 between the classical Bézout ambiguity and the full fiber.
+
+## Addendum (blind audit, msg 0340)
+
+Three precisions from the blind-context audit, all additions:
+
+1. **Signs.**  `m = d₂/d₁` and `m = AB` can be negative (mixed-sign
+   `(a,b)`); divisibility `m | H₂₁` is sign-blind in `ℤ`, so every
+   statement holds literally with the level read as `|m|`.  For `ab < 0`
+   the endpoint `diag(g, ab/g)` is the Smith normal form up to the unit of
+   the second invariant factor.  `|m| = 1` — including `m = −1` — gives all
+   of `GL₂(ℤ)`.
+2. **Pair law.**  The stabilizer pair set is a group under
+   `(H₁,K₁)(H₂,K₂) = (H₁H₂, K₂K₁)` (i.e. `GL₂ × GL₂ᵒᵖ`, the natural law
+   for a two-sided action); `H ↦ (H, D⁻¹H⁻¹D)` is an isomorphism onto it
+   from `Γ₀(m)`.  It is not closed under the componentwise product.
+3. **Hypothesis sharpness.**  For `d₁ ∤ d₂` (e.g. `diag(2,1)`) the corner
+   condition provably flips to the `(1,2)` entry: the divisor-chain
+   hypothesis is essential and direction-sensitive.
+
+Also strengthened: `((1,0),(6,1)) ∈ Γ₀(6) ∩ SL₂(ℤ)` is a fiber point of
+the `(a,b) = (2,3)` cell unreachable by every Bézout shift, so the
+under-parametrization holds even among orientation-preserving reducers.
