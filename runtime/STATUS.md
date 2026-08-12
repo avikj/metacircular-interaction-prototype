@@ -9,11 +9,11 @@ Updated by the integration lane as components land.
 | L1 typed edges | `kernel/edges.py` — 10 kinds, total composition (39/100 ordered pairs licensed, 61 `None`), exact `Fraction` ε, preservation as an intersection lattice over 9 tags | **BUILT** |
 | L2 proof-relevant e-graph | `kernel/egraph.py` — union-find + congruence closure + genuine Nieuwenhuis–Oliveras proof forest (path reversed on union, NCA explain); directed edges never merge classes; retraction rebuilds only the cone | **BUILT** |
 | L5 trusted heart | `kernel/check.py` — 189 statements, trust assumptions T1–T4 stated, recomputes every address from scratch, normalizes β-witnesses itself, verifies `Iso` by running the round trip on fresh probes, imports nothing from `egraph` | **BUILT** |
-| §3.1 crystallization | derivation DAGs, sub-DAG mining, anti-unification, lemma install | in flight |
-| §3.2 distinction compilation | collisions, minimal separating channels, partition refinement | in flight |
+| §3.1 crystallization | `crystallize/` — derivation DAGs, contiguity-windowed sub-DAG mining, Plotkin/Reynolds anti-unification, 7-gate lemma install | **BUILT**, 27/27 tests, **seed criterion MET**: independent P4 29→12 steps, null control bit-identical at 29 |
+| §3.2 distinction compilation | `distinguish/` — collision finder, exact minimum-cardinality channel search, Moore refinement | **BUILT**, 51/51 tests, **seed criterion MET**: 46656 states → 216 blocks, independent queries 91551→28672 steps, null control +616 and removed |
 | L3 execution | rewriting, e-matching, cost-vector extraction | **designed, not built** |
 | L4 consequence propagation | dependency cones, cache invalidation, route recomputation | **designed, not built** |
-| §4 reachability discipline | generated locus / completion / omitted locus declarations | **designed, not built** |
+| §4 reachability discipline | generated locus / completion / omitted locus declarations | **partial** — `distinguish/` attaches it to every claim (a quotient sufficient for one task family is not sufficient for the ambient problem; two later tasks collide, one recompiling to 108× compression, one to *none*, with the omitted locus identified as the endian class) |
 | plural surfaces | perceptual/symbolic/executable projections with round-trip guarantees | **designed, not built** |
 
 ## The trust boundary, stated plainly
@@ -50,3 +50,23 @@ survived — proof-forest rerooting, path contiguity, and the `Conjecture`
 guard were not actually being tested. The suite was strengthened until
 13/13 mutants die. A green suite that has not been mutation-tested is an
 untested suite.
+
+
+## Seed criterion: MET, twice, independently
+
+Both self-improvement algorithms satisfy `CRYSTAL.md` §0 on their own
+domains, with null controls:
+
+| | mathematics that entered | independent problem | before | after | null control |
+|---|---|---|---|---|---|
+| §3.1 | difference of squares, mined from three unrelated derivations, rebuilt and 7-gate checked | P4, verified not an instance of any training problem, firing on compound arguments no instance exhibited | 29 steps | **12** | unrelated valid lemma: **29**, bit-identical (search work +12%) |
+| §3.2 | a coarsest sufficient quotient (46656 states → 216 blocks) | 512 fresh states with fresh action words, **zero overlap** with the states that drove refinement | 91551 steps | **28672** | irrelevant valid channel: **+616 steps**, and removed by the redundancy step |
+
+Neither reduction is a cache: in both cases a *true but irrelevant* fact
+leaves cost unchanged or worse. That gap is the entire thesis.
+
+**The honest counterweight, kept in the table rather than omitted:**
+compilation is not free. The §3.2 compile costs 23.8M steps against 122
+steps saved per query — break-even at ~39,000 queries. Mathematics lowers
+the cost of *further* understanding; it does not pay for itself on first
+use. Any claim that it does would be measuring the wrong thing.
