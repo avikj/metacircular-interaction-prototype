@@ -26,6 +26,7 @@ from cyclotomic_sensor import (
     actual_yield,
     partial_bracket,
     certify_with_effort,
+    least_deciding_effort,
     quote_resolution,
     resolve_contested,
     beats_certainly,
@@ -1115,32 +1116,32 @@ class TestCyclotomicSensor(unittest.TestCase):
         verdict = resolve_contested(left, right, budget=20_000)
         self.assertEqual(verdict.winner, left)
 
-    def test_bracket_usually_saves_nothing(self) -> None:
-        """The measurement that refuted my own sentence.  Half the encounters
-        need the whole scan for exactness, because proving a single-prime
-        primitive part prime requires reaching its square root — R0038's
-        sharpness and R0040's limitation are the same fact."""
+    def test_exactness_coincides_with_scan_termination(self) -> None:
+        """Sharp form of last sitting's measurement, which was wrong twice: it
+        used the WORST-CASE bound as baseline, and the bracket was loose
+        because its primality test looked at the last tested candidate rather
+        than the loop's own exit condition.  Corrected, the ratio is not a
+        distribution at all — exactness arrives at exactly the effort at which
+        the scan terminates, because both are the test `candidate^2 > R`."""
         ratios = []
         for base in (2, 3, 5, 7):
             for index in range(10, 46):
-                full = scan_cost(base, index)
-                if full < 50 or full > 300_000:
+                worst = scan_cost(base, index)
+                if worst < 50 or worst > 300_000:
                     continue
-                low, high = 1, full
+                real = factor_cyclotomic(index, base,
+                                         compare=False).candidates_tried
+                low, high = 0, worst
                 while low < high:
                     middle = (low + high) // 2
                     if partial_bracket(base, index, effort=middle).exact:
                         high = middle
                     else:
                         low = middle + 1
-                ratios.append(low / full)
-        ratios.sort()
+                ratios.append(low / max(real, 1))
         self.assertGreater(len(ratios), 50)
-        self.assertEqual(ratios[len(ratios) // 2], 1.0)     # median saves nothing
-        self.assertLess(min(ratios), 0.01)                  # but the tail is real
-        cheap = sum(1 for r in ratios if r < 0.1) / len(ratios)
-        self.assertGreater(cheap, 0.2)
-        self.assertLess(cheap, 0.5)
+        self.assertEqual(min(ratios), 1.0)
+        self.assertEqual(max(ratios), 1.0)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

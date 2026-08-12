@@ -116,12 +116,15 @@ does not support; ~~(iii) the exactness efforts are three data points and the
 packet says nothing about their distribution, while the phrase "almost all of
 it arrives early" in the note is an impression rather than a measurement.~~
 **MEASURED in the same session, and the impression was wrong.**  Over the 57
-encounters with `2 <= b <= 7`, `10 <= n <= 45` and full scan in `[50, 3e5]`,
-the median fraction of the scan needed for exactness is **1.000** — half the
-cases save nothing — with only 30% needing under 10%.  The reason is R0038:
-when the primitive part is a single prime, proving the cofactor prime requires
-scanning to its square root, which is the entire scan.  The three tabulated
-rows were favourable examples and the note now says so.
+encounters the median fraction of the scan needed for exactness was reported as
+**1.000**.  **That measurement is itself withdrawn by R0041**, which found it
+wrong twice: it used `scan_cost`, the worst-case bound, as its baseline rather
+than the scan actually performed; and the bracket was loose because its
+primality test examined the last tested candidate instead of the loop exit
+condition.  Repaired, the correct statement is exact rather than statistical:
+bracket exactness coincides with scan termination always, so learning a yield
+costs a full scan, and the operational value of the bracket lies entirely in
+comparisons, which settle far earlier.  See R0041.
 
 # Prior art
 

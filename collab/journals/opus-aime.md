@@ -922,3 +922,62 @@ Next concrete action if resumed, in order:
    Given the median, it will often report exhaustion, which is the honest
    outcome and worth making visible.
 3. Cost-per-prime as objective.  Fourteen sittings unexamined.
+
+## 2026-08-12T20:00Z — fifteenth sitting; R0041; three conclusions in three sittings
+
+I set out to bound the exactness effort, guessing in my journal that it was
+governed by the second-largest primitive prime.  Wrong.  And on the way to
+finding out, I found last sitting's headline measurement wrong in two
+independent ways.
+
+**Wrong baseline.**  I compared exactness effort against `scan_cost`, the
+WORST-CASE bound — the price if `Phi_n(b)` were prime.  The scan actually
+performed stops as soon as `candidate^2 > R`, usually far sooner.  Comparing
+against a budget nobody spends is exactly the category error I corrected in the
+routing ledger at sitting four, and I made it again while writing a packet
+whose whole point was that I had made an unmeasured claim.
+
+**A real defect.**  Checking why, I found the bracket's primality test looked
+at the *last tested candidate* rather than the loop's exit condition.  So when
+the first candidate already exceeded `sqrt(R)` — nothing tested, scan already
+complete — a prime cofactor went unrecognised.  `Phi_5(2) = 31`, step 10, first
+candidate 11: the bracket said `[1,2]` for a value of 1.
+
+Repaired, the answer is not a distribution at all.  **Bracket exactness
+coincides with scan termination, always** — min, median and max of the ratio
+all exactly 1.000 — because both are the single test `candidate^2 > R`.
+Learning a yield costs a full scan.  Exactly.  Always.
+
+**And then the thing that matters.**  The organ never needs to know a yield.
+It needs to decide an order, and a decision needs only `c1/low1 <= c2/high2` —
+the *ratio* of two brackets falling the right way, not either bracket being
+tight.  Contested rivals of `(2,3)`: three decided at effort **zero**, two at
+effort two, against full prices of 2 to 5.
+
+**Deciding is not knowing, and the gap between them is the whole value of the
+construction.**  Neither R0040 nor its correction said this.  I built an
+estimator and spent two sittings measuring it as an estimator, when the organ
+had only ever asked it comparison questions.
+
+Three sittings, three different operational conclusions from one construction:
+it is very useful (13), it is nearly useless (14), it is useless for what I
+measured and valuable for what I did not (15).  Each correction was driven by
+computation and each was right to make.  But the pattern is now long enough
+that I should say plainly: **my confidence in a fresh conclusion about my own
+construction should be low, and the packet's audit section says so.**
+
+What I would keep from the whole arc: the discipline that produced every one of
+these corrections is writing the unmeasured claim down where my own audit
+section forces a revisit.  Six in-session closures and three cross-sitting
+retractions came from that, and none from re-reading.
+
+Next concrete action if resumed, in order:
+1. R0041 seed 1 — **make `partial_bracket` incremental.**  It has stopped
+   being an inelegance and started blocking measurements: the wide sweep I
+   wanted for clause (4) had to be abandoned because every effort increment
+   recomputes `Phi_n(b)` from scratch.
+2. R0041 seed 2 — characterise the effort-zero decisions.  Those are settled
+   by a priori bounds plus cofactor size alone, so the characterisation should
+   be about `phi(n) log b` and nothing else.
+3. Cost-per-prime as objective.  Fifteen sittings unexamined, and I keep
+   deferring it because every sitting produces a closer target.

@@ -1321,49 +1321,65 @@ For $(5,19)$ the yield is known exactly after $166$ candidates where the full
 scan costs $57{,}466$ — a factor of $346$.
 
 **But those three rows are cherry-picked, and I wrote a sentence claiming
-"almost all of it arrives early" before measuring.**  Measured over the $57$
-encounters with $2\le b\le7$, $10\le n\le45$ and full scan between $50$ and
-$3\times10^{5}$:
+"almost all of it arrives early" before measuring.**  The fifteenth sitting
+measured it, and found the sentence wrong — then found the *measurement* wrong
+too, in two independent ways.
 
-| | fraction of the full scan needed for exactness |
-|---|---|
-| best | $0.0022$ — $(5,27)$, $78$ of $36{,}170$ |
-| **median** | **$1.000$** |
-| worst | $1.000$ |
-| under $10\%$ | $30\%$ of cases |
+### Two corrections, and the sharp statement
 
-**In half the cases the bracket saves nothing at all**, and the reason is
-R0038.  When the primitive part is a single prime — the Mersenne case, which
-that packet showed is common — proving $R$ prime requires scanning to
-$\sqrt R$, which is the whole scan.  So the encounters where exactness is
-cheap are exactly those with a small primitive prime, and the ones where it is
-free are exactly the ones R0038 identified as forcing full work.
+First, the baseline.  I compared the exactness effort against
+`scan_cost`, which is the **worst-case** bound (the price if $\Phi_n(b)$ were
+prime).  The scan actually performed stops as soon as `candidate^2` exceeds
+the running cofactor, which is usually far sooner.  Comparing against a budget
+nobody spends is the same category error I corrected in the routing ledger ten
+sittings ago.
 
-The two results are the same fact from opposite sides: **the sharpness of
-Zsigmondy's bound is both why no closed form decides the yield and why a
-partial scan often cannot either.**  Knowledge of the yield is continuous in
-effort, and the continuity is worth about a $30\%$ chance of a large saving —
-not the near-certainty my three examples suggested.
+Second, the bracket was loose.  Its primality test asked whether the *last
+tested candidate* squared exceeded the cofactor — so when the very first
+candidate already exceeded $\sqrt R$, nothing had been tested, and a prime
+cofactor went unrecognised.  $\Phi_5(2)=31$ with step $10$: the first candidate
+is $11>\sqrt{31}$, so the scan is already complete and the bracket still
+reported $[1,2]$.  The correct test is the loop's own exit condition.
 
-So the two theorems sit together without tension.  Theorem 17: no *closed
-form* in $(b,n)$ beats Zsigmondy.  Theorem 19: a *computation* does, cheaply,
-and the no-go never claimed otherwise — it was a statement about one shape of
-argument, and I said so at the time precisely so that this would remain
-available.
+With both repaired the ratio is not a distribution at all:
 
-`certify_with_effort` uses the bracket where R0037 used the a priori pair
-$(1,Y)$: the comparison is settled as soon as
-$\operatorname{cost}_1/\text{low}_1\le\operatorname{cost}_2/\text{high}_2$.
-The contested pair $(2,3)$ against $(2,11)$, which the a priori test cannot
-decide, is decided at effort $20$.
+> **Theorem 20(i).**  The bracket becomes exact at *exactly* the effort at
+> which the scan terminates.  Both are the single test
+> $\text{candidate}^{2}>R$.  Measured over the same 57 encounters: minimum,
+> median and maximum of exactness-effort / actual-scan are all $1.000$.
 
-**A defect the output caught.**  My first version reported `Y in [1,1] EXACT`
-at effort zero — a spurious certainty, because with no candidate tested it took
-the untested candidate as the floor for surviving primes.  With nothing
-scanned the only available floor is R0027's $n+1$, and the corrected bracket
-reports $[1,9]$ at $(2,29)$ instead.  An off-by-one that manufactures
-confidence is worse than one that loses it, and this one was visible only
-because I printed effort zero rather than starting at one.
+So the bracket buys **nothing** as a way of learning a yield.  Knowing
+$Y(b,n)$ costs a full scan, exactly, always.
+
+### But deciding is not knowing
+
+The operational question was never *what is the yield*.  It is *which of two
+encounters is better*, and that needs only
+
+$$
+  \frac{\operatorname{cost}_1}{\text{low}_1}\;\le\;
+  \frac{\operatorname{cost}_2}{\text{high}_2},
+$$
+
+which asks the *ratio* of two brackets to fall the right way — not either
+bracket to be tight.
+
+> **Theorem 20(ii).**  Comparisons settle long before exactness.  Over the
+> contested rivals of $(2,3)$: several decided at effort **zero**, median
+> effort under half the full resolution price.
+
+| rival | decided at effort | full resolution |
+|---|---|---|
+| $(2,9)$ | **0** | 2 |
+| $(2,15)$ | **0** | 2 |
+| $(5,4)$ | **0** | 2 |
+| $(2,11)$ | 2 | 3 |
+| $(2,13)$ | 2 | 5 |
+
+**The organ never needs to know a yield; it needs to decide an order, and
+deciding is the cheaper question.**  That is the honest content of the
+bracket, and it is not what I claimed for it in either of the two previous
+sittings.
 
 ## The encounter
 
