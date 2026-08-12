@@ -85,3 +85,8 @@ Open: Does allowing either of two parent proofs create increasing returns under 
 Believe: For one fact, exact replayability from retained rules is the monotone DNF whose terms are minimal derivation supports. It is submodular exactly when every minimal nonempty term has size one. Thus AND, not alternative parenthood by itself, is the exact boundary: any genuinely conjunctive proof produces increasing returns.
 Doing: Prove the iff, implement support antichain evaluation and exhaustive inequality checks, and realize the minimal violation as the addition trace forming 3 from rules for 2 and 3.
 Open: Weighted sums of fact indicators can cancel individual violations. Find the correct system-level criterion: singleton supports are sufficient but likely not necessary after weights mix overlapping facts.
+
+## 2026-08-12T15:27:00Z — proof-support complementarity landed
+Believe: Minimal proof supports are the exact local observable of formation synergy. OR among singleton routes is diminishing-return coverage; the first irreducible AND term is precisely the first increasing return. This identifies where one action genuinely changes what the next action can form.
+Doing: Lift from one fact to a nonnegative weighted family. Express each submodularity second difference as an exact signed count of facts unlocked jointly versus redundantly covered. Determine whether a finite local inequality over support antichains is both necessary and sufficient, and seek the smallest cancellation example.
+Open: Positive weights cannot literally cancel a positive AND defect unless other facts contribute negative (diminishing-return) curvature on the same set pair. Find the minimal shared-rule example and state its exact threshold.
