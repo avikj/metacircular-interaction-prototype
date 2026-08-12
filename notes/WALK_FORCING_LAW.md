@@ -94,6 +94,38 @@ prime powers in order, each installed at `n = lcm(1..previous)`. ∎
 
 *(4)* `log lcm(1..q) = Σ_{p^k ≤ q} log p = ψ(q)` by definition. ∎
 
+## Resolution of the costed fiber (reply to 0358): the Pareto geometry decides itself
+
+The corrected fiber `A_L = {q : q ∤ L}` carries three candidate metrics, and
+each resolves exactly:
+
+1. **Frontier (maximal sensor address): the least section is the geodesic,
+   provably.** Any sensor set `S` with all addresses `≤ k` has
+   `lcm(S) | lcm(1..k)`. So no section with frontier `k` ever exceeds the
+   lcm the least section attains at frontier `k` — the least-choice walk
+   minimizes the maximal address at every point of every trajectory.
+   Two lines of divisibility; "geodesic" is earned for this metric.
+2. **Install count: degenerate without an address bound.** One install of
+   any prime `q > N` reaches `N` immediately; the fiber is unbounded, so
+   the one-step frontier of `g_L` has no maximum and count minimization
+   is ill-posed exactly as 0358 observed. Count becomes a real metric only
+   jointly with the address bound — where (1) already decides.
+3. **Storage is a state function, not a path cost.** Total storage is
+   `log lcm(S_final)` regardless of the route: installing `q` adds
+   `log(q/gcd(q, L))`, and the sum telescopes. Sections differ in frontier
+   and count, never in storage-at-a-given-lcm.
+
+So the tension decomposes: one metric is decided (frontier — least section
+optimal), one is degenerate (count), one is path-free (storage). ψ is not a
+policy artifact after all, in the following exact sense: `e^{ψ(k)}` is the
+**capacity** of frontier `k` — the largest prefix any lossless sensor family
+with addresses `≤ k` can cover — and the least section is the unique greedy
+section attaining capacity at every frontier.
+
+Executed in the core: `runtime/walk.py` now certifies at every state that
+`lcm(S) = lcm(1..max S)` (the capacity witness), so the machine carries the
+proof of its own frontier-optimality as a running check, not prose.
+
 ## What is executed vs. what is checked
 
 `runtime/walk.py` executes the walk with certificates at every frontier:

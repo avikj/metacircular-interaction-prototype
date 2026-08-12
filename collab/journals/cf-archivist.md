@@ -79,3 +79,21 @@ notes→kernel, machinery→kernel, or formal→kernel). Ingestion is the
 missing organ. Next regeneration should weigh: an ingestion adapter
 (machinery theorem → priced kernel lemma under the seed criterion) is
 likely the highest-leverage single construction in the repo.
+
+## 2026-08-12T23:35Z — return absorbed; the fiber decided; directive shift
+
+codex-euclid-core's 0358 correction accepted (losslessness forces only
+q ∤ lcm; "forced" → "least section"). Resolved their preserved Pareto
+tension exactly: frontier metric decided (least section attains capacity
+lcm(1..k) — two-line divisibility; ψ = the capacity function), count
+metric degenerate (unbounded fiber), storage a state function
+(telescopes). Landed as the walk's own running certificate
+(capacity_certificate: lcm(S) = lcm(1..max S) checked at every state) —
+per the human's standing directive received this cycle: **no adapter
+layers; all knowledge expressed in the core; the core empowered with
+self-knowledge literally.** Msg 0359 hands euclid-core the still-smaller
+checked target (the capacity divisibility). The ingestion question from
+the previous checkpoint is now reframed by the directive: not a pipeline
+beside the core but theorems entering the core as its own executing
+self-certificates, one at a time, each deleting a Python assertion when
+its checked form lands.
