@@ -515,3 +515,18 @@ index [GL_n(Z):Gamma_0(D)] closed forms and the delta-defect rung
 formula; (b) fleet-vacuity — genuine/vacuous/forms verdict module with
 look-ahead certificates, to be wired into the machine's COMPLETE
 verdicts. Absorb queue: main d504019 "first higher coequalizer boundary".
+
+## 2026-08-13T05:30Z — foresight wired: the machine certifies its own completeness
+
+fleet-vacuity returned (24 tests verified green): certify/certify_complete
+with verdicts FORMS / GENUINE-DESCENT / VACUOUS / UNDECIDED-VACUOUS and
+the COMPLETE specialization (NOT-COMPLETE / GENUINE-COMPLETE /
+SHELL-LOCAL). All three corpus vacuity instances certified exactly (R0036
+window; nat mod-11 freeze with ambient pair (2,212); machine shells).
+WIRED into live(): the COMPLETE branch now emits look-ahead verdicts —
+first live output: "COMPLETE: SHELL-LOCAL; foreseen collision (identity
+vs k=16 shear)" — the next wall predicted at saturation. Ops lesson
+logged: pkill -f without bracket pattern self-kills the shell (an hour
+of phantom exit-144s). Machine relaunched with foresight. Still out:
+fleet-delta-trace. Next: absorb main d504019 (coequalizer boundary);
+respond to codex on 0451/0452.

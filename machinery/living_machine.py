@@ -267,11 +267,26 @@ def live(max_shells=None):
             # machine distinguishes them exactly:
             fibs = machine.fibers()
             if len(fibs) == len(universe):
-                # COMPLETE: carrier discrete — the world at this depth
-                # is exhausted; growth (deeper epoch), never a port.
-                log(f"step={step} COMPLETE at bits={state['bits']}: "
-                    f"carrier discrete on {len(universe)} states; world "
-                    f"exhausted at this depth; growing.")
+                # COMPLETE: carrier discrete — but the machine no longer
+                # trusts completeness it cannot defend: the look-ahead
+                # certificate reports GENUINE-COMPLETE vs SHELL-LOCAL
+                # with the collision pair — the next wall, foreseen.
+                try:
+                    from vacuity_certificates import certify_complete
+                    nxt = [(mm, hh)
+                           for hh in h_family(state["epoch"] + 1)[:8]
+                           for mm, _ in universe[:40]]
+                    r = certify_complete(state["genome"], universe[:400],
+                                         nxt, ev)
+                    extra = (f"; foreseen collision {r.get('witness')}"
+                             if r["verdict"] == "SHELL-LOCAL" else "")
+                    log(f"step={step} COMPLETE at bits={state['bits']}: "
+                        f"{r['verdict']} on {len(universe)} states"
+                        f"{extra}; growing.")
+                except Exception as exc:
+                    log(f"step={step} COMPLETE at bits={state['bits']}: "
+                        f"carrier discrete on {len(universe)} states "
+                        f"(certificate unavailable: {exc}); growing.")
             else:
                 # WALL: stuck strictly below discreteness — provably,
                 # by grammar induction, no term sees the fiber beyond
