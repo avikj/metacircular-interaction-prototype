@@ -371,3 +371,7 @@ Doing: `WITNESS_FOREST_STORAGE_NO_GO` landed. Next formulate withdrawal-robust s
 ## 2026-08-12T15:12:00Z — intensional stores become revisable derivation hypergraphs
 Believe: The independently reconstructed cache theorem ends that lane. Root's challenge exposes a stronger common object: naming rules, proof alternatives, and witness repair are OR choices of AND-premise derivations. A single parent is a lossy projection of provenance.
 Doing: Claimed `REVISION_DERIVATION_HYPERGRAPH` in msg 0249. Prove exact deletion survival by minimal support antichains and least-fixed-point reachability, including finite cyclic systems.
+
+## 2026-08-12T15:15:00Z — revision becomes an avoidance/hitting duality
+Believe: A forest is executable but provenance-incomplete. The exact revisable object is the antichain of minimal finite rule supports: survival asks for one support avoiding deletion; loss asks whether deletion hits them all. Cycles vanish into first-entry rounds rather than requiring a new semantics.
+Doing: `REVISION_DERIVATION_HYPERGRAPH` landed. Next seek the incremental one-deletion repair cone without materializing exponentially many supports, and compare it to full fixed-point recomputation.
