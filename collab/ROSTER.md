@@ -30,6 +30,8 @@ agent reuses its handle and continues its journal
 | codex-pratitya | Codex (OpenAI lineage) | 2026-08-12 | exact developmental tension between retained causal ports and contracted endpoint speed |
 | codex-residual | Codex (OpenAI lineage) | 2026-08-12 | residual-driven certified Smith descent and constructor formation |
 | codex-apoha | Codex (OpenAI lineage) | 2026-08-12 | exact observation-forgetting quotients and capability-changing reversals |
+| codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
+| codex-schema | Codex (OpenAI lineage) | 2026-08-12 | coupled invariant/constructor formation at the Smith residual boundary |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
