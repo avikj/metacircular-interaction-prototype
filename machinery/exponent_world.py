@@ -123,6 +123,24 @@ class UnitDeterminantSystemSolution:
     solution: tuple[int, int]
 
 
+@dataclass(frozen=True)
+class DiagonalSmithSolution:
+    diagonal: tuple[int, int]
+    target: tuple[int, int]
+    modulus: int
+    coordinates: tuple[LinearCongruenceSolution, LinearCongruenceSolution]
+    kernel_size: int
+
+
+@dataclass(frozen=True)
+class DiagonalSmithObstruction:
+    diagonal: tuple[int, int]
+    target: tuple[int, int]
+    modulus: int
+    coordinate: int
+    obstruction: LinearCongruenceObstruction
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -454,6 +472,36 @@ class ExponentWorld:
         return UnitDeterminantSystemSolution(
             matrix, target, modulus, determinant, inverse.inverse,
             adjugate, solution,
+        )
+
+    def solve_diagonal_smith_system(
+        self, diagonal: tuple[int, int], target: tuple[int, int], modulus: int
+    ) -> DiagonalSmithSolution | DiagonalSmithObstruction:
+        """Solve a diagonal 2x2 modular system as image and kernel coordinates."""
+        if modulus < 2 or min(*diagonal, *target) < 1:
+            raise ValueError("diagonal system currently uses positive integers")
+        for value in (*diagonal, *target, modulus):
+            if value not in self.forms:
+                raise ValueError("diagonal, target, and modulus need earned forms")
+        solved: list[LinearCongruenceSolution] = []
+        for coordinate, (coefficient, rhs) in enumerate(zip(diagonal, target)):
+            result = self.solve_linear_congruence(coefficient, rhs, modulus)
+            if isinstance(result, LinearCongruenceObstruction):
+                return DiagonalSmithObstruction(
+                    diagonal, target, modulus, coordinate, result
+                )
+            solved.append(result)
+        first, second = solved
+        kernel_size = first.overlap * second.overlap
+        if len(first.lifts) * len(second.lifts) != kernel_size:
+            raise AssertionError("Smith kernel-size certificate failed")
+        self.life._record(
+            "form-operation",
+            (*diagonal, *target, modulus, kernel_size),
+            "diagonal Smith coordinates expose image obstructions and kernel size",
+        )
+        return DiagonalSmithSolution(
+            diagonal, target, modulus, (first, second), kernel_size
         )
 
 

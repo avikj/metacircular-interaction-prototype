@@ -59,3 +59,15 @@ Doing: Landed 2x2 adjugate solver; negative determinant normalization occurred a
 ## 2026-08-12T10:20:01Z — session end
 Resume: Attack the nonunit boundary with one exact Smith reduction, retaining unimodular row/column transformations and transformed target. The first aim is classification of a diagonal 2x2 system over Z/mZ, not a generic black-box SNF implementation.
 Open: Explicitly replay two scalar elimination orders as proof traces, even though uniqueness already proves agreement; compare their intermediate image subgroups to the adjugate certificate.
+
+## 2026-08-12T10:30:00Z — diagonal Smith claim
+Believe: The nonunit determinant boundary should first open as a diagonal module, not a generic algorithm. Each invariant factor contributes one image obstruction and one kernel factor; their product is the solution fiber.
+Doing: Classify and execute `diag(6,10) z=(18,20) mod30`, with a coordinate-local incompatible target.
+
+## 2026-08-12T10:38:00Z — diagonal Smith consumer landed
+Believe: Diagonal invariant factors simultaneously describe the image and kernel: divisibility locates failure, while the same gcd counts reconstruction fibers. A general Smith operation is now demanded by a concrete consumer contract `UAV=D`, transformed target `Ub`, and inverse-coordinate transport `V`.
+Doing: Landed diagonal modular classification; 24 focused and 36 composed tests green.
+
+## 2026-08-12T10:38:01Z — session end
+Resume: Build one explicit non-diagonal Smith certificate by elementary unimodular operations and feed it through this consumer. Verify `UAV=D`, solve `Dw=Ub`, reconstruct `z=Vw`, and replay `Az=b`; do not yet implement generic SNF.
+Open: The current scalar solver enumerates coordinate lifts for replay. The diagonal module itself should retain generators of the kernel instead of materializing the Cartesian product.

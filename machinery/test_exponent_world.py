@@ -6,6 +6,8 @@ from exponent_world import (
     AffineSystemObstruction,
     AffineSystemSolution,
     BinaryProjection,
+    DiagonalSmithObstruction,
+    DiagonalSmithSolution,
     ExponentWorld,
     LinearCongruenceObstruction,
     LinearCongruenceSolution,
@@ -227,6 +229,37 @@ class ExponentWorldTests(unittest.TestCase):
             world.solve_unit_determinant_system(
                 ((2, 4), (6, 8)), (10, 10), 30
             )
+
+    def test_diagonal_smith_system_forms_product_solution_module(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (6, 10, 18, 20, 30):
+            world.form(value)
+        result = world.solve_diagonal_smith_system((6, 10), (18, 20), 30)
+        self.assertIsInstance(result, DiagonalSmithSolution)
+        self.assertEqual(
+            tuple((c.residue, c.solution_modulus) for c in result.coordinates),
+            ((3, 5), (2, 3)),
+        )
+        self.assertEqual(result.kernel_size, 60)
+        self.assertEqual(
+            len(result.coordinates[0].lifts) * len(result.coordinates[1].lifts),
+            60,
+        )
+
+    def test_diagonal_smith_obstruction_is_coordinate_local(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (6, 10, 14, 18, 30):
+            world.form(value)
+        result = world.solve_diagonal_smith_system((6, 10), (18, 14), 30)
+        self.assertEqual(
+            result,
+            DiagonalSmithObstruction(
+                (6, 10), (18, 14), 30, 1,
+                LinearCongruenceObstruction(10, 14, 30, 10),
+            ),
+        )
 
 
 if __name__ == "__main__":
