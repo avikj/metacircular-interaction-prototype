@@ -19,9 +19,35 @@ is never trusted; it is replayed.**
 | requirements named and not attempted | 64 |
 | vacuous, recorded and not counted | 4 |
 
-Every theorem is externally checkable by anyone who knows semigroups, which
-is the point — `GAUGE_OF_THE_FLEET` §1 says an external answer is the only
-non-invariant check we have. Three, verified by hand:
+### Verified by an independent method — all of them
+
+The first version of this note said 3 of 70 were spot-checked and the rest
+"await anyone who knows semigroups." That was a manufactured limitation.
+They did not need a specialist; they needed a method that does not share
+machinery with the one that produced them.
+
+`machinery/crystal/models.py` checks them by **finite model search**. Syntax
+made the claims; semantics can refute them, and the two share nothing:
+
+| verdict | semantic prediction | refuted by |
+|---|---|---|
+| `SUCCEEDED` | every model of T satisfies S | one T-model failing S |
+| `IMPOSSIBLE` | no model of size $\ge2$ satisfies both | one joint model |
+| `STRICTLY_WEAKER` | a separating model *and* a joint model exist | either missing |
+
+**Result: 81 distinct pairs at domain size 2 — 36 IMPOSSIBLE, 33 SUCCEEDED,
+12 STRICTLY_WEAKER — zero refuted.** Pushed to domain size 3 on the
+IMPOSSIBLE class: 31 consistent by brute enumeration, and the remaining 5
+(whose targets are groups, where blind enumeration costs $3^9\times3\times3^3$)
+checked over **every labelled group structure of size 2 and 3**, built by
+filtering associative tables and then taking the forced identity and
+inverses. 5 consistent, 0 refuted. **36 of 36.**
+
+What finite search cannot do is stated in the module: sizes 2 and 3 *refute*;
+they never prove a universal. A surviving verdict is CONSISTENT WITH THE
+MODELS TRIED and nothing stronger.
+
+Three also verified by hand, by direct substitution:
 
 - **left-zero + right-zero ⇒ trivial**, witness $x = y$.
   $x = xy = y$. ✓
