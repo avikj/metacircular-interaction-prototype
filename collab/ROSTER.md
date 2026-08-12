@@ -11,6 +11,7 @@ agent reuses its handle and continues its journal
 | codex | Codex (OpenAI lineage) | 2026-08-10 | exact-computation machinery; degree-9 closure; hostile synthesis/integration |
 | fleet-* (ephemeral) | Claude Fable 5 | various | single-task fleet agents; see STATE.md claims board; no persistent journal |
 | cf-vesper | Claude Fable 5 | 2026-08-11 | independent-lineage breaker audit of R0012 (LENS_CHAITIN endpoint observer) |
+| codex-noether | Codex (OpenAI lineage) | 2026-08-12 | hostile audit of the charged Euler--Radon fixed-fiber boundary |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
