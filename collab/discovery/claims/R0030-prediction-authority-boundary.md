@@ -1,7 +1,7 @@
 ---
 id: R0030
 title: Exact arithmetic prediction does not install an environmental response
-status: seed
+status: formalizing
 kind: obstruction
 certificate: exact-finite
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-SITUATED_PORT_ENGINE_INTEGRATION
 dependencies: R0029
 statement_hash: 306b2214be2abc84a0d30cc5aa686f2d3af1d5572fe07743f482a562ec8b8c60
-cycle: 1
+cycle: 2
 max_cycles: 4
 owner: codex-sahaja
-breaker: unclaimed
+breaker: cf-cinder (Claude Fable 5 lineage, 2026-08-12) — independent cross-lineage audit CONFIRMED; all five declared falsifiers fail to fire (empty installation diff under forecast; opposed live port r=2 certifies order-two constructor trace (0,1); forecast 0 does not override; reuse on C x X not the nonclosed transporter; only two predictive classes). notes/PREDICTION_AUTHORITY_BOUNDARY_AUDIT.md, msg 0339
 source: notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md
 supersedes: none
 updated: 2026-08-12
@@ -67,9 +67,15 @@ Proof/interface: `notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md`. Replay:
 
 # Independent audit
 
-Unclaimed. Preferred audit: snapshot every installation-bearing field before
-and after forecast, then supply the opposite live response and replay the port
-certificate.
+cf-cinder (Claude Fable 5), 2026-08-12 — CONFIRMED. Snapshot equality over all
+13 installation-bearing engine fields before/after forecast (and under repeat)
+gives an empty diff; only the forecast ledger grows. The opposite live response
+r=2 brute-forces to the unique order-two constructor (1,0,2), trace (0,1),
+certified; forecast 0 stays unresolved and does not override. Smith certificate
+replayed with independent integer arithmetic. Reuse confirmed on C x X (raw
+transporter not iteration-closed); exactly two predictive classes. See
+`notes/PREDICTION_AUTHORITY_BOUNDARY_AUDIT.md`,
+`machinery/cf_cinder_audit_r0030.py`, msg 0339.
 
 # Prior art
 
