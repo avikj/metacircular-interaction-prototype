@@ -286,6 +286,115 @@ def t_approx():
     return True
 
 
+@capability("L1 the limitor auditor classifies origination correctly")
+def t_limitor_audit_classifier():
+    """The auditor's verdict is load-bearing, so test it on known code rather
+    than trusting its output.  It reports zero originating sites in this
+    runtime; that must mean 'none exist', not 'the classifier is broken'."""
+    import ast as _ast
+    from runtime.kernel import limitor_audit as LA
+    fixture = (
+        "Edge('Approx', a, b, eps=Fraction(1,3))\n"          # originating
+        "Edge('Order', a, b, ordering='sigma+')\n"           # originating
+        "E.Edge(kind='Dual', src=a, dst=b, pairing=name)\n"  # originating
+        "Edge(kind=e.kind, src=e.src, dst=e.dst, eps=e.eps)\n"   # propagating
+        "Edge('Approx', a, b, eps=eps)\n"                    # propagating
+        "Edge('Eq', a, b)\n"                                 # unlimited
+        "Edge('Iso', a, b, eps=None)\n"                      # unlimited
+    )
+    tree = _ast.parse(fixture)
+    calls = [n for n in _ast.walk(tree) if LA.is_edge_call(n)]
+    assert len(calls) == 7, len(calls)
+    verdicts = [LA.classify(c)[1] for c in calls]
+    kinds = [LA.classify(c)[0] for c in calls]
+    assert kinds[:3] == ["Approx", "Order", "Dual"], kinds
+    assert list(verdicts[0].values()) == ["originating"], verdicts[0]
+    assert list(verdicts[1].values()) == ["originating"], verdicts[1]
+    assert list(verdicts[2].values()) == ["originating"], verdicts[2]
+    assert list(verdicts[3].values()) == ["propagating"], verdicts[3]
+    assert list(verdicts[4].values()) == ["propagating"], verdicts[4]
+    assert verdicts[5] == {} and verdicts[6] == {}, (verdicts[5], verdicts[6])
+    return True
+
+
+@capability("L1 the limitor is one mechanism, not three payload special cases")
+def t_limitor_table():
+    # Every payload-bearing kind is in the table, and nothing else is.
+    assert set(E.LIMITORS) == {"Approx", "Dual", "Order"}
+    assert E.limitor_of("Iso") is None
+    # The three combination rules, which are the only thing that varies.
+    ok, v = E.combine_limitors("Approx", Fraction(1, 3), Fraction(1, 6))
+    assert ok and v == Fraction(1, 2), "epsilons add exactly"
+    assert E.combine_limitors("Dual", "p", "p") == (True, "p")
+    assert E.combine_limitors("Dual", "p", "q")[0] is False
+    assert E.combine_limitors("Order", "s+", "s+") == (True, "s+")
+    assert E.combine_limitors("Order", "s+", "s-")[0] is False
+    # A dropped limitor never matches -- there is nothing to check against.
+    assert E.combine_limitors("Order", None, None)[0] is False
+    assert E.combine_limitors("Dual", None, "p")[0] is False
+    # and the rules are actually wired into compose
+    a1 = E.Edge("Approx", a.addr, b.addr, eps=Fraction(1, 3))
+    a2 = E.Edge("Approx", b.addr, c.addr, eps=Fraction(1, 6))
+    assert E.compose(a1, a2).eps == Fraction(1, 2)
+    # a one-sided bearer carries its limitor through
+    thru = E.compose(E.Edge("Iso", d.addr, a.addr), a1)
+    assert thru.eps == Fraction(1, 3)
+    return True
+
+
+@capability("L1 limitor_census reports a singleton index as a latent erratum")
+def t_limitor_census():
+    """The machine-checkable form of the reading in POSITIVITY_HAS_A_PLACE SS9.
+
+    A limitor whose value space is a singleton where a claim was checked cannot
+    be observed to have been dropped: delimited and undelimited have the same
+    extension there, so every check passes and no correction is generated.
+    """
+    one = [E.Edge("Order", a.addr, b.addr, ordering="sigma+"),
+           E.Edge("Order", b.addr, c.addr, ordering="sigma+")]
+    r = E.limitor_census(one)["ordering"]
+    assert r["cardinality"] == 1 and r["latent_erratum"] is True, r
+    # widen the regime and the index becomes observable
+    two = one + [E.Edge("Order", a.addr, c.addr, ordering="sigma-")]
+    r2 = E.limitor_census(two)["ordering"]
+    assert r2["cardinality"] == 2 and r2["latent_erratum"] is False, r2
+    # a sort that never appears is not a latent erratum -- absent is not unvarying
+    assert E.limitor_census(one)["pairing"]["cardinality"] == 0
+    assert E.limitor_census(one)["pairing"]["latent_erratum"] is False
+    return True
+
+
+@control("CONTROL L1: a required limitor may not be defaulted away")
+def t_limitor_required():
+    """The whole point: an edge whose index was dropped is correct exactly
+    while the index space is a singleton, and silently wrong after."""
+    for kind, kw in (("Order", {}), ("Approx", {})):
+        try:
+            E.Edge(kind, a.addr, b.addr, **kw)
+        except E.EdgeError:
+            continue
+        LOG.append("%s accepted without its limitor" % kind)
+        return False
+    # Dual's pairing is optional by design, but an unnamed one cannot compose.
+    d1 = E.Edge("Dual", a.addr, b.addr)
+    d2 = E.Edge("Dual", b.addr, c.addr)
+    if E.compose(d1, d2) is not None:
+        LOG.append("two unnamed Duals composed")
+        return False
+    return True
+
+
+@capability("L1 the limitor is part of an edge's identity, not a label on it")
+def t_limitor_identity():
+    p1 = E.Edge("Order", a.addr, b.addr, ordering="sigma+")
+    p2 = E.Edge("Order", a.addr, b.addr, ordering="sigma-")
+    assert p1.edge_id != p2.edge_id
+    x1 = E.Edge("Approx", a.addr, b.addr, eps=Fraction(1, 3))
+    x2 = E.Edge("Approx", a.addr, b.addr, eps=Fraction(1, 4))
+    assert x1.edge_id != x2.edge_id
+    return True
+
+
 @capability("L1 Order carries its ordering as a required limitor, and composes only within it")
 def t_order_limitor():
     plus = E.Edge("Order", a.addr, b.addr, ordering="sigma+")
