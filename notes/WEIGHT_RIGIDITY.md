@@ -146,6 +146,14 @@ charge the zero locus and it becomes visible.
 (in `Z/p^m` the saturated block is exactly `{0}`), so by §2 its contribution is
 weight-independent. Charging it changes no verdict.
 
+> **Corrected (same day) by `notes/COUNTABLE_STRATA.md` §3.** This argument is
+> about the **finite model**, where `{0}` carries positive weight `p^{-m}`. On
+> the actual `Z_p` that set is **null**, so it contributes `0 = 0` and states
+> no equation at all — it is *absent*, not *rigid*. Both routes reach
+> "invisible", so the conclusion stands, but positive-weight rigidity and
+> null-block absence are different phenomena and I had let the finite argument
+> stand as though it settled `Z_p`.
+
 Verified directly: for `Z/p^m` with `(N,p,cap)` in
 `(8,2,3), (9,3,2), (16,2,4), (27,3,3)`, and every residue lens plus 60 random
 lenses each, the verdict under uniform weight and under weight `97` at `0` is

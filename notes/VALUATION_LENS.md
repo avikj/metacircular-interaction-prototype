@@ -145,11 +145,13 @@ lanes rather than pretending the bridge is complete.
    cannot do it, because singleton blocks are weight-rigid. The exotic
    candidates (germs, non-archimedean coefficients) remain untouched, and §5.3
    there argues they inherit the same rigid part.
-2. **Infinitely many valuation strata.** §3 caps the valuation to make `Z/N`
-   finite. On `Z_p` the partition has countably many blocks with weights
-   summing to 1. My criterion is stated for finitely many blocks; the proof's
-   graph argument should survive countably many, but I have not checked, and
-   the join could become subtle.
+2. ~~**Infinitely many valuation strata.**~~ — **answered in
+   `notes/COUNTABLE_STRATA.md`, and the seed was mis-posed.** The general
+   criterion holds for arbitrary sigma-algebras and is the prior art cited in
+   my first note; no new proof was needed. The distinct-prime commutation does
+   extend to countably many positive strata. That note also **corrects
+   `WEIGHT_RIGIDITY` §3**, which argued the finite model as though it settled
+   `Z_p`.
 3. **Which arithmetic lenses fail to commute?** §3 gives one positive family
    (distinct primes) and one negative instance (`v_2` vs `mod 5` on `Z/24`).
    A classification of commuting pairs among natural arithmetic lenses would

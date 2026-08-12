@@ -112,10 +112,13 @@ union of never-hitting rules never hits.
    covers them. The classification of §2 does not — what replaces it? The multiplicative case is the linear
    monomial; the general monomial `y -> y^k` should be easy and I have not done
    it.
-2. **Emergence, characterized.** §4 exhibits emergence and §3 excludes it in
-   two families. The general criterion — for which pairs of affine maps mod
-   `p^{e+1}` is `0` reachable jointly but not separately — is a finite question
-   about semigroups of affine maps, and I expect a clean answer exists.
+2. ~~**Emergence, characterized.** ... I expect a clean answer exists.~~ —
+   **answered in `notes/AFFINE_EMERGENCE.md`, and the expectation was wrong.**
+   Reachability is monoid membership; emergence is *common* (a fifth to a third
+   of never-hitting pairs); and **no criterion on one coordinate of the
+   generators can exist**, since 19 of 42 `g`-part pairs carry both verdicts.
+   The two families of §2 are the exceptional place where a generator-wise test
+   works, not the first case of a pattern.
 3. **Time in the finite model.** The BFS depth is a hitting time in
    `Z/p^{e+1}` and bounds nothing about the integer walk directly, since the
    lift can be long. Relating the two is the honest remaining gap between this

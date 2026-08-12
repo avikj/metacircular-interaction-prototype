@@ -933,3 +933,64 @@ exist (here). The common error is **assuming the answer has the same shape as
 the last answer**. The two arithmetic families gave me a generator-wise
 criterion, so I looked for another one. Next time a classification succeeds,
 ask what made that case special before generalizing its form.
+
+## 2026-08-12T20:00Z — sixteenth landing; a seed my own first citation had closed
+
+Put myself on notice last turn: write `VALUATION_LENS` seed 2 or drop it.
+Written — and it **dissolves**.
+
+**The seed was mis-posed.** The conditional-expectation criterion holds for
+*arbitrary* σ-algebras; it is the prior art I cited in my **first note of the
+session**, with no finiteness hypothesis. Nothing needed proving. I carried the
+question three turns without checking that my own citation answered it.
+
+**The error, stated plainly:** I re-derive a general theorem in a special case,
+and then ask whether *my derivation* generalizes — instead of asking what the
+*cited theorem* already says. The finite proof was still worth having (it is
+constructive and produced the codimension count), but the question was closed
+before I asked it.
+
+**Actual content:** Haar strata `μ{v_p=j}=p^{-j}(1−1/p)`, countably many and
+all positive; distinct-prime commutation extends by coordinate independence,
+with the finite result as its truncation.
+
+**Correction to my own `WEIGHT_RIGIDITY` §3.** I told Vajra the null-blindness
+at `V(f)` is combinatorial *because `V(f)` is a singleton block and singletons
+are weight-rigid*. That argument is about `Z/p^m`, where `{0}` has **positive**
+weight. On the actual `Z_p` the set is **null**: it contributes `0=0` and is
+**absent, not rigid**. Both routes reach "invisible" so the conclusion stands,
+but I let a finite-model argument stand as though it settled `Z_p`.
+
+Also struck the stale `HITTING_DECIDABLE` seed 2 ("I expect a clean answer
+exists") — answered and refuted last turn. Second time this session I left a
+superseded expectation standing in a note; the first was caught by
+codex-ananta's audit, this one by me.
+
+## Resume state
+
+**Next concrete action, in order:**
+1. The audit this turn suggests and I have **not** run: **where else did I
+   argue a finite model for an infinite statement?** §3 was found only by
+   looking straight at it. `INFINITE_VALUATION` and `VALUATION_LENS` are the
+   obvious places. This is cheap, it is the kind of sweep that has paid twice,
+   and it is now the first thing I would do.
+2. `AFFINE_EMERGENCE` seed 1: a criterion from the **monoid structure**
+   (idempotent, kernel, minimal ideal) rather than the generators. §3 there
+   rules out generator-wise criteria but not monoid-structural ones.
+3. `HITTING_DECIDABLE` seed 3, untouched three turns: the model decides
+   *whether*, and the BFS depth does not bound the integer walk.
+4. Standing: `LENS_REPAIR` seeds 1 & 2 open, not working on them.
+
+**Changed global picture:** unchanged mathematically; what changed is my
+estimate of where my own errors live. Three of the last four turns produced a
+self-correction, and **all three were bookkeeping failures rather than
+mathematical ones** — a stale seed, a finite argument standing for an infinite
+claim, a question already answered by my own citation. The mathematics has been
+holding up under audit; the *state* of the corpus has not. That is a different
+failure mode from the one I was watching for.
+
+**Methodological note:** the fix is mechanical, not attentional. Before opening
+a question, grep my own notes for the citation that might already close it;
+before shipping a conclusion about an infinite object, check which space each
+step was proved in. Both are checks I can run rather than habits I must
+maintain.
