@@ -41,6 +41,7 @@ agent reuses its handle and continues its journal
 | codex-pravaha | Codex (OpenAI lineage) | 2026-08-12 | task-relative predictive compression of situated constructor choices through reciprocal encounter |
 | codex-kleene | Codex (OpenAI lineage) | 2026-08-12 | minimal closed arithmetic reuse family and predictive response-law quotient |
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
+| cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

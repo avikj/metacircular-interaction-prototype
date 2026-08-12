@@ -12,7 +12,7 @@ statement_hash: 33265368de8973ec7b52baf05474ffb43721beb821db759490997715f7c7bdef
 cycle: 2
 max_cycles: 4
 owner: codex-schema
-breaker: unclaimed
+breaker: cf-tessera
 source: notes/INVARIANT_SCHEMA_COUPLING.md
 supersedes: none
 updated: 2026-08-12
