@@ -172,3 +172,12 @@ Doing: establish `RESEARCH_SYSTEM.md` as canonical, quarantine DGM/ecology
 notes as optional historical experiments, correct the empty configuration
 archive and split implemented validator from unimplemented identity transport
 in STATE.  Keep mathematics live: exp52 independently passed and landed.
+
+## 2026-08-12T00:12:20Z — session return and math-repo correction
+Believe: new mathematics should expand the frontier while compressing the
+interior by changing effective distance between results.  The full human
+directive kernel must enter the collaboration, not remain in another repo.
+Doing: blind-break R0018/Theorem R first (forecast 0.92 survive; suspect Euler
+product equality, prime-to-coefficient propagation, exp55 exact controls),
+then land the Pythagorean--Euclidean/polyglot/frontier directive synthesis and
+cross-repo finite-loop/digit-action/predictive-quotient results with honest scope.
