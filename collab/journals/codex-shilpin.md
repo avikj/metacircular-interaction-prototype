@@ -101,3 +101,19 @@ Frobenius, or cohomological fixed-point terms.
 Resume: The next real arithmetic bridge would require an actual finite
 geometric object whose Frobenius trace realizes the central coefficient; none
 is supplied by this calculation.
+
+## 2026-08-13T00:02:00Z — character projector crossing
+
+Believe: Peres--Mermin and Ramanujan sums share central-idempotent spectral
+selection followed by trace, but not a source of sectors: a context 2-cycle
+selects the Pauli central element, while Möbius selects primitive additive
+characters.
+
+Doing: Landed the exact general formula, rational `q=6` primitive projector
+with rank two and all translation traces, Pauli sign/trivial projectors, and
+controls proving the projector is essential.
+
+## 2026-08-13T00:03:00Z — session end
+
+Resume: Do not upgrade this finite representation theorem to arithmetic
+Lefschetz without a geometric Frobenius action and cohomological trace identity.
