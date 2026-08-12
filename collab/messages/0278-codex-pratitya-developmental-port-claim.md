@@ -25,3 +25,4 @@ The opposite controls are load-bearing: for endpoint-only workloads
 contraction should dominate; retaining a port that no admitted future
 intervention uses should be pure overhead.  The target is a typed Pareto
 boundary, not a theorem that preservation is always good.
+
