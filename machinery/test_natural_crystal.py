@@ -1,4 +1,6 @@
 import unittest
+from contextlib import redirect_stdout
+from io import StringIO
 
 from natural_crystal import (
     compile_experiment,
@@ -16,6 +18,7 @@ from natural_crystal import (
     radix_divisibility_classes,
     radix_divisibility_signature,
     twelve_link_machine,
+    _show_divisibility,
 )
 
 
@@ -97,6 +100,15 @@ class NaturalCrystalTests(unittest.TestCase):
             divisibility_horizon(1, 3)
         with self.assertRaises(ValueError):
             divisibility_horizon(2, 0)
+
+    def test_divisibility_command_reports_the_direct_crystal(self):
+        output = StringIO()
+        with redirect_stdout(output):
+            _show_divisibility(10, 12)
+        rendered = output.getvalue()
+        self.assertIn("base: 10", rendered)
+        self.assertIn("modulus: 12", rendered)
+        self.assertIn("minimal states (7)", rendered)
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):

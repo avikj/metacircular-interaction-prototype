@@ -190,6 +190,7 @@ Run it:
 
 ```sh
 python3 machinery/natural_crystal.py
+python3 machinery/natural_crystal.py divisibility 10 12
 ```
 
 ## One living test
