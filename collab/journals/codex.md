@@ -219,3 +219,14 @@ H_even PV action. Forecast's leading repair outcome occurred, with the extra
 surprise that the planned reflection false-model itself failed. Next: recover
 the orphaned Workstream C artifact and compile resumable current state rather
 than losing another in-flight mathematical lane.
+
+## 2026-08-12T01:25:25Z — R0021 claimed from the exp53 orphan
+Believe: the missing Workstream C note hid a proof-step countermodel. The
+Walsh point `(1/3,1/3,1/3)` has ten zero five-patterns and conserves the
+order-four de Bruijn flow, so it is a stationary-process marginal satisfying
+the correlation conditions printed before Tao--Teräväinen's nonzero-case
+orbit count. It is not known to be multiplicative and therefore does not
+refute their Liouville theorem. Doing: replace exp53's grid claim by a
+continuous facet proof, verify the stationary extension, and name the missing
+arithmetic constraint. Forecast: 0.65 proof-step break survives/new repair
+needed; 0.25 table or stationarity fails; 0.10 overlooked premise closes it.
