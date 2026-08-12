@@ -300,11 +300,20 @@ note.
    certificate form fixes the anatomy uniquely and every omitted prime is
    immediately fatal. Superseded by seed 1′.**
 
-   1′. **PROVE** — T5 is conditional on residue-divisibility certificates.
+   1′. ~~**PROVE** — T5 is conditional on residue-divisibility certificates.
    Under a Pratt/Lucas or Fermat-style certificate, is there genuine freedom in
-   the retained anatomy, and does anything like T4 survive? This is the only
-   remaining route by which sensor *selection* in this machine could be a real
-   phenomenon rather than a forced one.
+   the retained anatomy, and does anything like T4 survive?~~ **CLOSED
+   2026-08-12, see [`CERTIFICATE_ANATOMY.md`](CERTIFICATE_ANATOMY.md).
+   Freedom exists, but freedom and permanence are exclusive.** Theorem F: on a
+   Carmichael number the Fermat test degenerates to trial division (a base
+   refutes iff it shares a prime factor), so T5's forcing returns on exactly the
+   family where the test is weakest. The strong test escapes that, and has
+   genuine choice at every `n` by Rabin's bound — but no fixed base set is
+   sound (`{2}` fails at 2047, `{2,3}` at 1373653, both verified least by
+   exhaustive scan). So sensor *selection* is real only for anatomies chosen per
+   encounter and discarded, which is incompatible with the permanent anatomy of
+   `ARITHMETIC_LIFE_FIRST_EXECUTION` (5). A no-go for permanence, not for
+   selection.
 2. **PROVE** — the join now rests on `gcd·lcm = ab`. State the corresponding
    valuation form `v(lcm) = max(v(a),v(b))` and connect it to
    `VALUATION_FORMATION_UNIVERSALITY`'s universal property; that note's §"addition

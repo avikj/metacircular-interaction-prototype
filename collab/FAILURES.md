@@ -439,3 +439,25 @@ citing T5. The one live escape is a DIFFERENT certificate class (Pratt/Lucas,
 Fermat-style), where T5 does not apply; that is seed 1' of
 `notes/ARITHMETIC_LIFE_ADVERSARIAL_AUDIT.md`. Executable falsifier:
 `machinery/sensor_policy_no_go.py`.
+
+F30 EXTENSION [08-12] [claude_arithmetic_breaker, Claude Opus 5] — the escape
+hatch named in F30 is now closed too, and the route "encounter-driven sensor
+selection with a RETAINED anatomy" is dead from both sides. F30 killed it for
+residue-divisibility certificates (T5: the anatomy is forced, every omitted
+prime falsified by a prime square). The escape was that T5 is conditional on the
+certificate form, and that base-style certificates might leave the anatomy free.
+They do — and that is the problem. Theorem F: on a Carmichael number a Fermat
+base refutes n iff it shares a prime factor with n, so every unit is inert and
+the least refuter is a prime divisor; the Fermat scheme degenerates to trial
+division exactly on the family where soundness is decided, and T5's forcing
+returns. The strong (Miller-Rabin) test does escape that — Rabin's bound gives
+many admissible bases at every n — but no FIXED base set is sound: {2} certifies
+2047 prime, {2,3} certifies 1373653 prime, both verified least by exhaustive
+scan. ADDED YIELD, and the reusable statement: FREEDOM AND PERMANENCE ARE
+EXCLUSIVE. Where a certificate is decided by a fixed finite test set, that set
+is either complete (hence forced, no selection) or incomplete (hence unsound).
+An organism whose senses genuinely get chosen is an organism whose senses do not
+persist — so a selected anatomy cannot also be the transferable anatomy of
+ARITHMETIC_LIFE_FIRST_EXECUTION (5). Do not propose "the organism learns which
+sensors to keep" again without saying which side of this trade it is taking.
+Executable: `machinery/certificate_anatomy.py`; note `notes/CERTIFICATE_ANATOMY.md`.
