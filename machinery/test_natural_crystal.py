@@ -5,6 +5,7 @@ from io import StringIO
 from natural_crystal import (
     compile_experiment,
     binary_divisibility_classes,
+    chinese_remainder_view,
     crystallize,
     divisibility_world,
     divisibility_classes,
@@ -23,6 +24,7 @@ from natural_crystal import (
     _show_divisibility,
     _show_pattern,
     _show_linear,
+    _show_crt,
 )
 
 
@@ -186,6 +188,31 @@ class NaturalCrystalTests(unittest.TestCase):
 
     def test_sensor_search_returns_empty_when_grammar_is_insufficient(self):
         self.assertEqual(minimal_sensor_sets(3, (1, 2, 4), (1, 2)), ())
+
+    def test_coprime_views_reconstruct_exactly(self):
+        fibers, common, combined = chinese_remainder_view(3, 4)
+        self.assertEqual((common, combined, len(fibers)), (1, 12, 12))
+        self.assertTrue(all(len(fiber) == 1 for _view, fiber in fibers))
+
+    def test_non_coprime_views_retain_overlap_and_residual(self):
+        fibers, common, combined = chinese_remainder_view(4, 6)
+        self.assertEqual((common, combined, len(fibers)), (2, 12, 12))
+        self.assertTrue(all(len(fiber) == 2 for _view, fiber in fibers))
+        self.assertTrue(all(
+            left % common == right % common for (left, right), _fiber in fibers
+        ))
+
+    def test_crt_view_rejects_nonpositive_modulus(self):
+        with self.assertRaises(ValueError):
+            chinese_remainder_view(0, 3)
+
+    def test_crt_command_exposes_failed_exact_reconstruction(self):
+        output = StringIO()
+        with redirect_stdout(output):
+            _show_crt(4, 6)
+        rendered = output.getvalue()
+        self.assertIn("shared overlap gcd: 2", rendered)
+        self.assertIn("exact reconstruction: False", rendered)
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):

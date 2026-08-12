@@ -13,7 +13,7 @@ import argparse
 from dataclasses import dataclass
 from collections import deque
 from itertools import combinations
-from math import gcd
+from math import gcd, lcm
 from typing import Callable, Hashable, Mapping, Sequence
 
 State = Hashable
@@ -396,6 +396,33 @@ def binary_divisibility_classes(modulus: int) -> tuple[tuple[int, ...], ...]:
     return tuple(classes)
 
 
+def chinese_remainder_view(
+    left_modulus: int, right_modulus: int
+) -> tuple[tuple[tuple[tuple[int, int], tuple[int, ...]], ...], int, int]:
+    """Joint residue view of Z/(mn), with its exact image and fiber size."""
+    if left_modulus < 1 or right_modulus < 1:
+        raise ValueError("moduli must be positive")
+    product = left_modulus * right_modulus
+    fibers: dict[tuple[int, int], list[int]] = {}
+    for value in range(product):
+        view = (value % left_modulus, value % right_modulus)
+        fibers.setdefault(view, []).append(value)
+    common = gcd(left_modulus, right_modulus)
+    expected_image = {
+        (left, right)
+        for left in range(left_modulus)
+        for right in range(right_modulus)
+        if left % common == right % common
+    }
+    if set(fibers) != expected_image:
+        raise AssertionError("joint residue image violated compatibility")
+    if any(len(fiber) != common for fiber in fibers.values()):
+        raise AssertionError("joint residue fibers violated gcd law")
+    return tuple((view, tuple(fiber)) for view, fiber in fibers.items()), common, lcm(
+        left_modulus, right_modulus
+    )
+
+
 def pattern_world(
     pattern: str, alphabet: Sequence[str]
 ) -> tuple[GeneratedWorld, dict[State, bool]]:
@@ -643,6 +670,16 @@ def _show_linear() -> None:
           f"{minimal_sensor_sets(3, rows, (1, 2, 4))}")
 
 
+def _show_crt(left: int, right: int) -> None:
+    fibers, common, combined = chinese_remainder_view(left, right)
+    print(f"joint view: Z/{left * right} -> Z/{left} x Z/{right}")
+    print(f"shared overlap gcd: {common}")
+    print(f"compatible visible pairs: {len(fibers)} = lcm {combined}")
+    print(f"hidden states behind each visible pair: {common}")
+    print(f"exact reconstruction: {common == 1}")
+    print(f"fibers: {fibers}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate, distinguish, and compile a finite natural machine"
@@ -661,6 +698,11 @@ def main() -> None:
     subcommands.add_parser(
         "observe-linear", help="crystallize a three-bit linear sensor"
     )
+    crt = subcommands.add_parser(
+        "glue-remainders", help="combine two modular views"
+    )
+    crt.add_argument("left", type=int)
+    crt.add_argument("right", type=int)
     args = parser.parse_args()
     if args.command == "divisibility":
         _show_divisibility(args.base, args.modulus)
@@ -668,6 +710,8 @@ def main() -> None:
         _show_pattern(args.pattern, args.alphabet)
     elif args.command == "observe-linear":
         _show_linear()
+    elif args.command == "glue-remainders":
+        _show_crt(args.left, args.right)
     else:
         _living_seed()
 

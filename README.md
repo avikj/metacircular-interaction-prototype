@@ -204,6 +204,7 @@ python3 machinery/natural_crystal.py divisibility 10 12
 python3 machinery/natural_crystal.py contains aba ab
 python3 machinery/natural_crystal.py observe-linear
 python3 machinery/law_discovery.py
+python3 machinery/natural_crystal.py glue-remainders 4 6
 ```
 
 The same operation crosses from arithmetic into language.  For substring
@@ -222,6 +223,12 @@ construction while retaining their native laws and evidence boundaries.
 Running the same calculation backward chooses every smallest sensor family
 that preserves the whole state.  Perception is constructed from the joint law
 of motion and observation, not attached afterward as a label.
+
+Several views do not automatically make a whole.  The joint residue map from
+`Z/(mn)` to the mod-`m` and mod-`n` views says exactly what gluing requires:
+the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
+hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
+the overlap condition and the residual fiber are both retained.
 
 ## One living test
 
