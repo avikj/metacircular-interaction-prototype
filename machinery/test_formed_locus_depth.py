@@ -15,6 +15,7 @@ from formed_locus_depth import (
     level_criterion_depth,
     unit_group_index,
     unit_level,
+    unit_sum_depth,
     unit_subgroup,
     valuation,
 )
@@ -81,6 +82,39 @@ class FormedLocusDepthTests(unittest.TestCase):
             self.assertEqual(after.depth, after.ambient_depth)
             self.assertEqual(after.gap, 0)
             self.assertGreater(after.depth, before.depth)   # cost goes UP
+
+    def test_natural_order_organism_saves_nothing(self):
+        """Corollary 4.4: forming 3 and 7 puts 21 = 5 mod 8 in U, so l = 2."""
+        for K in range(4, 9):
+            self.assertEqual(unit_level(2, K, [3, 7]), 2)
+            self.assertEqual(unit_level(2, K, [3, 5, 7, 11, 13]), 2)
+            # l >= 3 forces U mod 8 into a two-element subgroup
+            for gens in ([3], [7], [17]):
+                U = unit_subgroup(2, K, gens)
+                self.assertNotIn(5, {x % 8 for x in U})
+                self.assertGreaterEqual(unit_level(2, K, gens), 3)
+        for a, b in [(3, 7), (21, 3), (9, 7)]:
+            cert = formed_chart_depth(2, [3, 7], a, b)
+            self.assertEqual(cert.gap, 0)
+
+    def test_gap_is_bounded_by_the_level(self):
+        """Proposition 4.2: gap <= max(0, l(U) - 1), attained by 2^t - 1."""
+        for gens in ([3], [7], [15], [31], [7, 23], [3, 7]):
+            K = 10
+            ell = unit_level(2, K, gens)
+            U = unit_subgroup(2, K, gens)
+            for u in sorted(U)[:40]:
+                for w in sorted(U)[:40]:
+                    if (u + w) % 2**K == 0:
+                        continue
+                    delta = valuation((u + w) % 2**K, 2)
+                    if delta + 3 > K:
+                        continue
+                    d, _, _ = unit_sum_depth(2, K, frozenset(U), u, w)
+                    self.assertLessEqual(delta + 1 - d, max(0, ell - 1))
+        for t in range(2, 8):
+            cert = formed_chart_depth(2, [2**t - 1], 1, 2**t - 1)
+            self.assertEqual(cert.gap, unit_level(2, t + 3, [2**t - 1]) - 2)
 
     def test_odd_p_has_no_saving_when_delta_is_positive(self):
         """Theorem 5.1: at odd p, delta >= 1 forces l(U) <= delta and gap 0."""
