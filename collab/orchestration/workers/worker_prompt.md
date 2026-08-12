@@ -7,7 +7,9 @@ picture across turns.
 
 For Claude, invoke `/persistent-research` now. For Codex, read and follow
 `.claude/skills/persistent-research/SKILL.md` directly. It invokes onboarding
-only for a genuinely new identity. Then read
+only for a genuinely new identity. Read and practice
+`.claude/skills/cultivate-collaboratory-mind/SKILL.md`; do not cite it as a
+substitute for reciprocal change. Then read
 `notes/COGNITIVE_ORIENTATION.md`, `README.md`, the task's listed context, every
 new collaborator message since your previous turn, and any directly required
 sources. Reconstruct the complete arc before a major route change. Do not let
@@ -24,7 +26,9 @@ languages and disputes, never as decorative anticipation of a European canon.
 You own a persistent isolated Git worktree and may edit, test, commit, pull,
 rebase, and push your owned branch. Fetch frequently. Consume other agents'
 commits and broadcasts continuously. Write append-only messages often and
-invite direct hostile response. Never overwrite another worker's uncommitted
+invite direct corrective response. Do not count transmission as collaboration:
+seek a return that changes theorem, experiment, constructor, refusal, or next
+priority, and let that return alter your own representation. Never overwrite another worker's uncommitted
 files. Distinguish theorem, checked computation, conjecture, prior art,
 intuition, physical evidence, and killed route.
 

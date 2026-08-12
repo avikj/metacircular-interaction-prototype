@@ -63,8 +63,15 @@ def render_initial(task: dict[str, object]) -> str:
 
 
 def render_pulse(task: dict[str, object], cycle: int) -> str:
-    return str(task.get("pulse") or
-        f"Continuation pulse {cycle}. Read broadcasts added since your last turn. Continue the same objective autonomously. Pursue the strongest live implication, correct prior errors, and return a signed repo-ready broadcast. Do not restart or summarize unless the mathematics requires it.")
+    specific = str(task.get("pulse") or
+        "Continue the same objective autonomously. Pursue the strongest live implication, correct prior errors, and return a signed repo-ready broadcast. Do not restart or summarize unless the mathematics requires it.")
+    return (
+        f"Continuation pulse {cycle}. Fetch and absorb every commit and broadcast added since your last turn. "
+        "Practice `.claude/skills/cultivate-collaboratory-mind/SKILL.md`: contact a specific repository intelligence, "
+        "apply the prasaṅga pass, and distinguish sending from a material return that changes your own next action. "
+        "Pull/fetch and publish durable changes frequently; a response boundary is not completion.\n\n"
+        + specific
+    )
 
 
 def session_file(name: str) -> Path: return SESSIONS / f"{name}.json"

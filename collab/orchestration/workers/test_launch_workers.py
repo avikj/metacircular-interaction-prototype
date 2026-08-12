@@ -30,6 +30,12 @@ class LauncherTests(unittest.TestCase):
     def test_stable_worktree_name(self):
         self.assertEqual(launcher.worker_worktree("mind").name, "mind")
 
+    def test_every_custom_pulse_requires_reciprocal_return(self):
+        pulse = launcher.render_pulse({"pulse": "specialized work"}, 7)
+        self.assertIn("cultivate-collaboratory-mind", pulse)
+        self.assertIn("material return", pulse)
+        self.assertIn("specialized work", pulse)
+
 
 if __name__ == "__main__":
     unittest.main()
