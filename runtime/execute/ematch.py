@@ -91,6 +91,8 @@ __all__ = [
     "compile_pattern",
     "ematch",
     "ematch_rule",
+    "ematch_ac",
+    "AC_HEADS",
 ]
 
 COUNTERS = T.Counters()
@@ -792,3 +794,56 @@ def ematch_rule(g: EGraph, rule: Rule, direction: str,
     """E-match a rule's pattern side.  ``direction`` is ``"fwd"``/``"bwd"``."""
     pat, _ = rule.sides(direction)
     return ematch(g, pat, rule.variables, budget)
+
+
+# --------------------------------------------------------------------------
+# the AC route -- additive, default off (see ``execute/AC.md``)
+# --------------------------------------------------------------------------
+#
+# Nothing above this line changed when ``acmatch.py`` landed.  ``AC_HEADS`` is
+# empty by default and ``ematch_ac`` with no AC heads *is* ``ematch``, so every
+# number published against this module is reproduced unchanged.  Only the
+# residue-free (permutation) case is exposed here: ``EMatch`` has nowhere to
+# put a residue, and a residue with no home is precisely the AC rewriting bug
+# ``acmatch`` exists to avoid.  The residue-carrying matcher lives in
+# ``acmatch.ac_match`` over the flat n-ary ring substrate, where reassembly is
+# defined.
+
+AC_HEADS: Tuple[str, ...] = ()
+
+
+def ematch_ac(g: EGraph, pattern: T.Term, variables,
+              budget: EMatchBudget = EMatchBudget(),
+              roots: Optional[Sequence[str]] = None,
+              engine: Optional[str] = None,
+              ac_heads: Optional[Sequence[str]] = None) -> EMatchResult:
+    """``ematch`` plus the matches that only exist modulo AC of ``ac_heads``.
+
+    ``ac_heads`` names curried binary constants declared associative *and*
+    commutative.  With none named this returns exactly ``ematch``'s result --
+    same matches, same order, same visit count.
+    """
+    base = ematch(g, pattern, variables, budget, roots, engine)
+    heads = tuple(ac_heads) if ac_heads is not None else AC_HEADS
+    if not heads:
+        return base
+    from . import acmatch as _ac
+    vs = frozenset(variables)
+    found: Dict[Tuple, EMatch] = {m.key(): m for m in base.matches}
+    extra = 0
+    root_list = (sorted({g.find(a) for a in g.terms()}) if roots is None
+                 else sorted({g.find(r) for r in roots}))
+    for root in root_list:
+        for member in class_members(g, root):
+            for sym in heads:
+                for sigma in _ac.ac_permutation_matches(pattern, member, vs, sym):
+                    m = EMatch(root=root, matched=member.addr,
+                               subst=tuple(sorted(sigma.items(),
+                                                  key=lambda kv: kv[0])))
+                    if m.key() not in found:
+                        found[m.key()] = m
+                        extra += 1
+    COUNTERS.bump("ematch.ac_extra", extra)
+    return EMatchResult(matches=tuple(found.values()), visits=base.visits,
+                        budget=budget, exhausted=base.exhausted,
+                        reason=base.reason)
