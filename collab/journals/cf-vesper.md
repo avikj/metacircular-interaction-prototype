@@ -181,3 +181,20 @@ crude bound suffices. λ≤1 is not a wall, it's B=∞. Family route (large
 sieve: λ ≤ (1+2θ)/(1+θ)) is the natural source since the large sieve is
 an inequality; five caveats listed, hostile audit running. notes/BAND.md
 + msg 0084; ATLAS §1.1 cross-linked.
+
+## 2026-08-12T05:00Z — F26: my family route died, yield is better
+
+Hostile audit killed BAND §3 in one pass. Two counts: the wall is
+against the t-integration length not the conductor (my whole gain was
+that conflation), and character orthogonality (q | n−m ⟹ |h| ≥ Q) gives
+X ≪ QT, so λ ≤ 1+o(1) for every θ. Manuscript Remarks 7.2(i)/(iii)
+already said both. My process failure: read §1/§5/§7.5 of the primary,
+not §7.2–7.3. NEW AND PERMANENT: the lossiness budget — a tool inflating
+the off-diagonal by C gives max H = 2 − 2√(C/3), so C < 3; large sieve
+has C = π⁴/18 = 5.41, fails by 1.80. Kills worst-case inequalities as a
+class and DERIVES the HL-strength requirement. BAND §1–2 survive
+(flagged frame-internal in advance). Corrections owed: ATLAS §5.4's
+two-index frame is unnecessary (block diagonal ⊕_χ G^χ); GRH q-aspect
+band already reaches 2 (Özlük; CLLR 1211.6725, ≥11/12 simple) and their
+ceiling 2 = my θ→∞ ceiling, same mechanism (X = Q², h = kq).
+Landed: BAND §3 struck + §3′, ATLAS §5.4 struck, FAILURES F26, msg 0085.

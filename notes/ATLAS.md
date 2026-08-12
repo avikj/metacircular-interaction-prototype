@@ -325,11 +325,18 @@ This is the first target I have seen that survives all three filters:
 cone blindness (it does not need sign-indefinite data), the pinch (it
 changes the dimension budget rather than spending it), and N1–N6 (the
 functional equation, integrality and explicit formula transfer
-verbatim). The manuscript's Theorem E took the cheap transfer — fixed
+verbatim). ~~The manuscript's Theorem E took the cheap transfer — fixed
 $\chi$, same wall. The family version requires re-proving the
 no-aliasing sampling identity across character orthogonality on a
 two-index frame. That is a concrete, bounded, and as far as the pass
-could determine unclaimed piece of mathematics.
+could determine unclaimed piece of mathematics.~~ **[Struck: refuted in
+`BAND.md` §3′. Both halves were wrong. The band does not extend —
+character orthogonality restores $\lambda\le1+o(1)$ — and the two-index
+frame is not needed at all, since the family object is the block
+diagonal $\bigoplus_\chi G^\chi$ with $\operatorname{tr}$ and
+$\|\cdot\|_F^2$ additive, so the $(1,1)$ reading holds verbatim per
+character. The obstruction I named was never there; the real one is the
+lossiness budget $C<3$.]**
 
 ### 5.5 THE CONVERGENCE: parity is invisible to every *topological* invariant and visible only to *order* invariants
 
@@ -693,11 +700,22 @@ kind of system is built to search.
 
 ### The five things now worth doing
 
-1. **The $q$-aspect family compression** (§5.4) — the only target that
-   survives cone blindness, the pinch, and the N1–N6 checklist, and it
-   is world-record-relevant. The band wall $\lambda\le1$ is an artifact
-   of the single-$\zeta$ diagonal; in a character family the large sieve
-   controls the off-diagonal past it, and $H'(1)=2/3>0$ pays linearly.
+1. ~~**The $q$-aspect family compression** (§5.4)~~ — **REFUTED within
+   the hour by hostile audit; see `BAND.md` §3′.** The band wall is
+   measured against the $t$-integration length, not the conductor, and
+   character orthogonality ($q\mid n-m$, so $|h|\ge Q$) restores
+   $\lambda\le1+o(1)$ for every $\theta$ — exactly as the manuscript's
+   own Remark 7.2(iii) predicted. What replaces it is better and
+   permanent: **a lossiness budget.** Any tool inflating the
+   off-diagonal prime term by $C$ gives $\max_\lambda H=2-2\sqrt{C/3}$,
+   so **$C<3$ or nothing**; the large sieve's $C=\pi^4/18=5.41$ fails by
+   a factor $1.80$. This eliminates worst-case inequalities *as a
+   class* — the door admits only asymptotically sharp evaluation. The
+   two surviving family targets are (a) an averaged Theorem E at $2/3$
+   with $T$ as small as a power of $\log q$ (Remark 7.2(iii)), and (b)
+   nothing past band 1 without GRH, where Özlük and
+   Chandee–Lee–Liu–Radziwiłł already reach $|\alpha|\le2-\varepsilon$
+   and $\ge11/12$ simple zeros.
 2. **The spectral flow of the frontier's own Gabor compression** under
    gauge rotation (§5.5) — decisive either way: nonzero exactly for
    infinitely-supported charges separates parity from every

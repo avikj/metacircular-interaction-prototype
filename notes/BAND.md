@@ -81,7 +81,14 @@ substituted into a formula that is otherwise perfectly happy at any
 $\lambda$. Every closure we proved this week (sign, integrality, degree)
 is a genuine structural exhaustion. This one is a missing number.
 
-## 3. Where $B$ could come from: the $q$-aspect
+## 3. ~~Where $B$ could come from: the $q$-aspect~~ — REFUTED, with a better constraint in its place
+
+**This section died in hostile audit within the hour (2026-08-12).** It
+is kept struck rather than deleted, per protocol; the refutation and its
+yields are §3′. §1–2 are untouched and were flagged in advance as
+frame-internal.
+
+~~
 
 The single-$\zeta$ wall is Montgomery–Vaughan diagonal dominance: a
 Dirichlet polynomial of length $X$ averaged over $t\in[T,2T]$ has
@@ -108,12 +115,104 @@ low-lying-zeros literature. The family is where past-band information
 has always been available. What was missing was a certificate that could
 *spend* an upper bound. That certificate is two days old.
 
-**Calibration.** The record for this family is $56\%$
+~~**Calibration.** The record for this family is $56\%$
 (Conrey–Iwaniec–Soundararajan, [arXiv:1105.1177](https://arxiv.org/abs/1105.1177)),
 improved to $61.07\%$ with a Feng mollifier
 ([arXiv:2105.07422](https://arxiv.org/abs/2105.07422)). Both use
 Levinson's method. An inertia certificate at $\lambda=4/3$ needs only
-$B<10/3$ to pass $2/3$, and $B=1$ would give $5/6$ at $\lambda=2$.
+$B<10/3$ to pass $2/3$, and $B=1$ would give $5/6$ at $\lambda=2$.~~
+
+## 3′. The refutation, and the two constraints it leaves
+
+**Where I was wrong.** The exponent algebra above is internally correct,
+and its premise is not. The diagonal-dominance wall is not measured
+against the *conductor* but against the **length of the $t$-integration**:
+Prop 5.6's dominance condition is $X\ll T\ell$, and in the single-$\zeta$
+case conductor and $t$-range coincide, which is exactly the conflation
+my $\lambda\le(1+2\theta)/(1+\theta)$ exploited. Worse, character
+orthogonality forces $q\mid(n-m)$, so surviving off-diagonal pairs have
+$|h|\ge Q$: the off-diagonal mass is $\ll QX\ell^2$ against a main term
+$\asymp Q^2T\ell^3$, giving $X\ll QT\cdot\mathrm{polylog}$ — i.e.
+$$\lambda\le 1+O\!\big(\tfrac{\log\log\ell}{\ell}\big)\quad\text{for every }\theta .$$
+The band excess is $o(1)$, so the gain is $o(1)$. Dead.
+
+**And the manuscript said so.** Remark 7.2(i) states the opposite of my
+proposal — for $q\le T^\vartheta$ the band *shrinks*, $\Lambda<1/(1+\vartheta)$
+— and Remark 7.2(iii) predicts precisely the corrected conclusion: character
+orthogonality "restores $\Lambda^*=1$ for the family average", with an
+expected averaged Theorem E at proportion $2/3$. I read §1, §5 and §7.5
+of the primary source and not §7.2–7.3, and proposed something the
+source had already answered. Recording that as the process failure it is.
+
+### 3′.1 The new constraint: a lossiness budget of 3
+
+The audit's central finding is better than the proposal it killed, and
+it is permanent. An upper bound on $\|\tilde G\|_F^2$ *does* suffice
+(that part of §1–2 is confirmed) — but it must be **sharp-constant**,
+because the certificate has almost no margin. If a tool inflates the
+off-diagonal prime term by a factor $C$, then
+$$H=2-\frac1\lambda-\frac{C\lambda}{3},
+\qquad \max_\lambda H = 2-2\sqrt{C/3}\ \ \text{at}\ \ \lambda^*=\sqrt{3/C},$$
+so
+$$\boxed{\ \text{any global tool must satisfy } C<3\ }$$
+to certify anything at all. The large sieve's inflation is the ratio of
+its $Q^2$ to the true primitive-character count
+$\sum_{q\le Q}\varphi^*(q)\sim 18Q^2/\pi^4$ (from
+$\sum\varphi^*(q)q^{-s}=\zeta(s-1)/\zeta(s)^2$), i.e.
+$$C=\pi^4/18=5.4116\ldots,\qquad \max H=-0.686 .$$
+Vacuous — and failing by only a factor $1.80$. Dyadic $q$ is worse
+($C=7.2$), prime moduli worse by $\log Q$, the sharp $q/\varphi(q)$-weighted
+form worse still. Splitting (exact on $[0,1]$, lossy only on the tail)
+fails too at large band excess: at $\lambda=\sqrt3$ the tail carries
+$\ell^3/3$ of the prime term's $\ell^3\cdot0.866$, giving
+$\|\tilde G\|_F^2/N=2.13>2$.
+
+**What this rules out, as a class:** worst-case inequalities. The large
+sieve's $Q^2T$ term *is* the diagonal, so $|\mathrm{OffDiag}|\le
+\mathrm{Total}+\mathrm{Diag}$ bounds the off-diagonal by something of
+the same order as the main term; no such inequality can ever certify
+$\mathrm{OffDiag}=o(\mathrm{Diag})$, whatever the exponents do. The door
+needs an *asymptotically sharp evaluation*, not a bound — which is
+exactly the Hardy–Littlewood-strength requirement, now derived rather
+than asserted, and with a number ($C<3$) attached.
+
+So §1–2 and §3′.1 are two prices on the same door, and both must be
+paid: a tail bound $B<B^*(\lambda)$, obtained by a tool of global
+lossiness $C<3$.
+
+### 3′.2 Two real targets the refutation exposes
+
+1. **The family's payoff is $T$, not band.** Remark 7.2(iii): with the
+   orthogonality-restored $\Lambda^*=1$, one expects an averaged
+   Theorem E at $2/3$ **with $T$ as small as a power of $\log q$**
+   (needing a Gevrey-class taper). That is a genuine, bounded,
+   theorem-shaped target — and it is what the family actually buys.
+2. **Under GRH the $q$-aspect band does reach 2**, and my exponent's
+   ceiling was tracking something real. Özlük, and Chandee–Lee–Liu–
+   Radziwiłł ([arXiv:1211.6725](https://arxiv.org/abs/1211.6725)),
+   compute the $q$-aspect pair correlation uniformly for
+   $|\alpha|\le2-\varepsilon$ under GRH — yielding $\ge11/12$ simple
+   zeros — and their ceiling $2$ is the same $2$ my formula approached as
+   $\theta\to\infty$. Not a coincidence: it is where $X=Q^2$ and the
+   prime pairs $h=kq$ take over. The structure was right; the mass past
+   $1$ needs GRH, which is the one thing this frame exists to avoid.
+
+### 3′.3 Corrections to earlier notes
+
+- `ATLAS.md` §5.4 called "re-proving the no-aliasing sampling identity
+  across character orthogonality on a two-index frame" the concrete
+  unclaimed piece. **Wrong and unnecessary:** the zero multiset of
+  $L(s,\chi)$ is invariant under $\rho\mapsto1-\bar\rho$ (functional
+  equation composed with $L(\bar s,\chi)=L(s,\bar\chi)$), $\nu_{X,\chi}$
+  is real, so the $(1,1)$ reading holds verbatim per character and the
+  family object is the block diagonal $\bigoplus_\chi G^\chi$, with
+  $\operatorname{tr}$ and $\|\cdot\|_F^2$ additive. No two-index frame
+  is needed; the obstruction was never there.
+- Prime-side inputs that would still need re-derivation in any family
+  attempt, none supplied by an inequality: $\operatorname{tr}\tilde G$
+  (a two-sided asymptotic), the archimedean $1/\lambda$ with
+  $\ell_{1,\chi}=\log(qT/2\pi)$ varying across the family, Mertens sums
+  with $(n,q)=1$, the cross term, and Prop 4.2's taper uniformity in $q$.
 
 ## 4. Status, and what kills it
 
@@ -122,27 +221,25 @@ degeneration $V(1,B)=2/3$ and $V^*(\infty)=2/3$, the break-even values,
 and the $\lambda\le(1+2\theta)/(1+\theta)$ exponent. All verified
 symbolically.
 
-**Not established — any one is fatal to the family route (not to §1–2):**
-1. $\operatorname{tr}\tilde G$ may need an *asymptotic* past the band,
-   which an inequality cannot supply;
-2. the signature-$(1,1)$ block structure for complex $\chi$, whose zeros
-   pair with those of $L(s,\bar\chi)$ — possibly forcing a frame over
-   pairs $\{\chi,\bar\chi\}$;
-3. critical-density / no-aliasing for a two-index frame;
-4. the translation of the large sieve's $\ell^2$ inequality into a
-   pointwise $F_{\rm fam}\le B$ on a band excess of positive length —
-   this is the real work, and it is not assumed anywhere in §1–2;
-5. prior art: $q$-aspect pair correlation past band 1 may exist in the
-   literature.
-
-**Note the asymmetry.** §1–2 are frame-internal and survive regardless:
-they price *any* future source of $B$, including a single-$\zeta$ one.
-Only §3's route depends on the five.
+**Refuted (§3′):** the family route, on caveats 1, 4 and 5 of the five I
+listed — the asymptotic requirement, the inequality-to-pointwise-bound
+translation, and prior art. Caveats 2 and 3 turned out to be non-issues.
+The audit resolved all five in one pass, which is the outcome the
+asymmetry note anticipated: **§1–2 are frame-internal and survive.** They
+price any future source of $B$, single-$\zeta$ or otherwise, and §3′.1
+adds the second price that any such source must also pay.
 
 ## 5. Yield
 
 The one remaining door now has a number on it. The program's task in
 this direction is no longer "get information past the band" but:
 
-> **exhibit any unconditional $B<10/3$ on $(1,4/3]$** — and then read
-> the answer off $V^*(B)=(2B-1)/(3B-2)$.
+> **exhibit any unconditional $B<10/3$ on $(1,4/3]$, by a tool whose
+> global lossiness satisfies $C<3$** — and then read the answer off
+> $V^*(B)=(2B-1)/(3B-2)$.
+
+The second clause is the one the refutation added, and it is the more
+restrictive: it eliminates worst-case inequalities as a class and leaves
+only asymptotically sharp evaluation. That is the honest statement of
+the door, and it is why the door is hard — now with two numbers on it
+instead of a mood.

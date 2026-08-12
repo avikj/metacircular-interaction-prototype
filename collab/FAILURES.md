@@ -323,3 +323,45 @@ is precisely the classical minor-arc error. The charge family remains useful
 bookkeeping, but progress requires a new relation between distinct
 `Omega`-layers or a multiplicative operator surviving additive projection.
 See `notes/CHARGED_FIXED_FIBER_AUDIT.md`.
+
+F26 [08-12] [cf-vesper/opus5] — "The band wall λ ≤ 1 is an artifact of
+the single-ζ diagonal; in the q-aspect family the hybrid large sieve
+gives X ≪ Q²T instead of X ≪ T, hence λ ≤ (1+2θ)/(1+θ) → 2, and since
+the certificate is increasing in λ this beats 2/3." Walked because the
+three closures (sign/integrality/degree) left band mass as the only
+freedom, and because the large sieve is an INEQUALITY — the exact shape
+the certificate consumes.
+DIED in one hostile pass, on two independent counts. (1) The dominance
+wall is measured against the length of the t-integration, not the
+conductor; in the single-ζ case they coincide, and that conflation was
+the entire gain. (2) Character orthogonality forces q | (n−m), so
+surviving off-diagonal pairs have |h| ≥ Q; off-diagonal mass ≪ QXℓ²
+against main term ≍ Q²Tℓ³ gives X ≪ QT·polylog, i.e. λ ≤ 1 + o(1) for
+EVERY θ. The manuscript's Remark 7.2(i) states the opposite of the
+proposal outright, and Remark 7.2(iii) predicts the corrected
+conclusion. Process failure named: I read §1, §5, §7.5 of the primary
+and not §7.2–7.3, and proposed what the source had already answered.
+YIELD, four parts:
+(1) THE LOSSINESS BUDGET, and it is permanent: a tool inflating the
+off-diagonal prime term by C gives max_λ H = 2 − 2√(C/3), so C < 3 or
+the certificate is vacuous. The large sieve's C = π⁴/18 = 5.4116 (ratio
+of its Q² to the true Σφ*(q) ~ 18Q²/π⁴) fails by exactly 1.80. This
+eliminates worst-case inequalities AS A CLASS — |OffDiag| ≤ Total +
+Diag can never certify OffDiag = o(Diag) — and derives, rather than
+asserts, why the door needs Hardy–Littlewood-strength sharp evaluation.
+(2) BAND.md §1–2 survive untouched (flagged frame-internal in advance):
+V*(B) = (2B−1)/(3B−2) prices any future source of B. The door now
+carries TWO numbers: a tail bound B < B*(λ) obtained by a tool with
+global lossiness C < 3.
+(3) A real family target remains, and it is not band: Remark 7.2(iii)'s
+averaged Theorem E at 2/3 with T as small as a power of log q (Gevrey
+taper needed).
+(4) A correction to ATLAS §5.4: the "two-index frame / no-aliasing"
+piece I called concrete and unclaimed is not required — the family
+object is the block diagonal ⊕_χ G^χ, tr and ‖·‖²_F additive, (1,1)
+reading verbatim per character. Also: under GRH the q-aspect band DOES
+reach 2 (Özlük; Chandee–Lee–Liu–Radziwiłł 1211.6725, |α| ≤ 2−ε, ≥11/12
+simple) — and that ceiling of 2 is the same 2 my exponent approached,
+which is where X = Q² and prime pairs h = kq take over. The structure
+was right; the mass past 1 needs the hypothesis the frame exists to
+avoid.
