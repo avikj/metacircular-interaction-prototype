@@ -131,28 +131,30 @@ def resource_distinguishability(
 
 
 def shortest_context_probes(elements, operations, observation, crystal):
-    """Compile a crystal's shortest context words into executable probes.
+    """Compile shortest elementary-context words into executable probes.
 
     The pool is the union of the identity, every pairwise shortest witness,
     and the minimum separating basis.  Cost is one for observation plus the
     number of elementary translations.
     """
-    operation_by_name = {operation.name: operation for operation in operations}
+    from context_monoid import build_context_monoid
+
+    monoid = build_context_monoid(elements, operations, observation)
+    if tuple(map(frozenset, monoid.fibers)) != tuple(map(frozenset, crystal.fibers)):
+        raise ValueError("context monoid and supplied crystal disagree")
+    class_of = {
+        element: index
+        for index, fiber in enumerate(monoid.fibers)
+        for element in fiber
+    }
     words = {()}
-    words.update(item[2] for item in crystal.distinctions)
-    words.update(crystal.separating_contexts)
-
-    def apply_word(value, word):
-        for operation_name, slot, fixed in word:
-            operation = operation_by_name[operation_name]
-            args = list(fixed)
-            args.insert(slot, value)
-            value = operation.table[tuple(args)]
-        return value
-
-    ordered = sorted(words, key=lambda word: (len(word), repr(word)))
+    words.update(word for _, _, word in monoid.witnesses)
+    ordered = sorted(words, key=lambda word: (len(word), word))
     return tuple(Probe(
-        "identity" if not word else repr(word),
+        "identity" if not word else repr(tuple(
+            monoid.generators[index].name for index in word
+        )),
         len(word) + 1,
-        {element: observation[apply_word(element, word)] for element in elements},
+        {element: monoid.observations[monoid.apply_word(class_of[element], word)]
+         for element in elements},
     ) for word in ordered)
