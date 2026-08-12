@@ -248,9 +248,14 @@ In particular `h^2 != 1`, and `h^2` lies in `U cap (1+p) = 1 + p^{l}`, so
 So the phenomenon of §4 is **exactly 2-adic**, and the proof isolates why: at
 `p = 2` both `h-1` and `h+1` are even, and the extra factor of `2` in
 `v_2(h-1)` pushes the level of the formed group past the cancellation. At odd
-`p` that factor is absent. For `delta = 0` the gap can be `1` (a formed locus
+`p` that factor is absent. ~~For `delta = 0` the gap can be `1` (a formed locus
 can rule out cancellation with no digits at all), and that is the whole of the
-odd-`p` saving.
+odd-`p` saving.~~ **CORRECTED** by `notes/PERIOD_PARITY_TRANSPORT.md` §6: false
+for the locus `F = p^N * U` declared here, where the gap at `delta = 0` is also
+`0` (Theorem A' there). It holds only for a *units-only* locus `S = <G>`, which
+this note never defined. Theorem 5.1 and everything resting on it are
+unaffected. The `delta = 0` case for a units-only world is settled there, and
+is governed by whether `-1` lies in the image of `S` in `(Z/p)^*`.
 
 ## 6. Forming one more number destroys the saving
 

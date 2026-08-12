@@ -163,6 +163,11 @@ def formed_chart_depth(p: int, unit_generators: Sequence[int], a: int, b: int,
     `a` and `b` must lie in F and have the same p-adic valuation (the
     equal-depth cancellation case; unequal depths are settled at depth
     min+1 by the ultrametric equality and carry no gap).
+
+    Depth search starts at d = 1.  That is correct for this locus, where
+    p^N * U always contains a higher-valuation pair defeating the empty chart,
+    so D_F >= 1.  A units-only locus S = <G> can have D_S = 0; that case lives
+    in `period_transport.py` (see PERIOD_PARITY_TRANSPORT.md §6).
     """
     if a <= 0 or b <= 0:
         raise ValueError("inputs must be positive")
