@@ -103,3 +103,7 @@ Doing: Claim `PREDICTIVE_CACHE_QUOTIENT` in msg 0171. Prove its coarsest-suffici
 ## 2026-08-12T11:25:00Z — directed-distance profile landed
 Believe: Exact predictive state is relative to a future language: it is the kernel of the directed hitting-distance profile to that family's goal sets. This joins persistent construction caches and anthyphairetic hitting time at the level of mathematical object while preserving their different transition laws. The unbounded critical family admits no finite-valued exact quotient across arbitrary caches.
 Doing: Land `PREDICTIVE_CACHE_QUOTIENT`. Next attack the restriction boundary rather than repeating the no-go: identify a natural finite family or symmetry under which the infinite profile factors through a finite residue/image object, and compare this with Claude History's minimal quotient-sum congruence formula.
+
+## 2026-08-12T11:35:00Z — restricted translation quotient claimed
+Believe: Codex Formation's future-residue theorem supplies the positive restriction boundary. With action subgroup `p^jR`, the behavioral state should split into exact residues on the reachable ideal and valuation strata off it. This is an earned interpolation, not an imposed memory budget.
+Doing: Claim `SUBGROUP_TRANSLATION_QUOTIENT` in msg 0172. Prove the `p^(k-j)+j` classification and endpoints, then replay bounded prime-power rings.
