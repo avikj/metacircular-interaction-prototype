@@ -19,9 +19,11 @@ Four commitments this file makes good on, each of which the test suite attacks:
 2.  **Distinct paths are kept.**  Every ``merge`` call is retained as a record,
     including the redundant ones that merge an already-equal pair ("chords").
     ``explain`` returns the cheap canonical path from the forest;
-    ``explanations`` enumerates distinct simple paths through the retained
-    justification graph.  Collapsing them would destroy exactly the
-    automorphism information the corpus proved is the content.
+    ``explanation_classes`` enumerates the *homotopy classes* of simple paths
+    through the retained justification graph (shortest first, backtracking at
+    the depth bound), returning a guarded ``ClassEnumeration``.  Collapsing
+    them would destroy exactly the automorphism information the corpus proved
+    is the content.
 3.  **Directed edges never merge.**  ``Quotient``/``Refine``/``Approx``/
     ``Implies``/``Embed``/``Interp``, and also the symmetric-but-not-equal
     ``Iso``/``Dual``, live in a separate labelled digraph with its own
@@ -672,14 +674,30 @@ class EGraph:
         changed the union-find; those records form an undirected *justification
         graph* on addresses, and the proof forest is only a spanning structure
         over it -- the chords are the extra transports and are never discarded.
-        Raw simple paths in that graph are enumerated depth-first in ascending
-        record id (so the output is deterministic) and then **quotiented by the
-        canonical form** of ``path_class_key``: two paths with the same axiom
-        multiset are two presentations of one proof and are reported once.
+        Raw simple paths in that graph are enumerated by **iterative deepening**
+        (each round a depth-bounded DFS that backtracks at the bound, neighbours
+        taken in ascending record id, so the output is deterministic) and then
+        **quotiented by the canonical form** of ``path_class_key``: two paths
+        with the same axiom multiset are two presentations of one proof and are
+        reported once.
+
+        Two properties of the search, both load-bearing:
+
+        * ``max_depth`` **prunes a branch, never the search**.  A branch that
+          cannot close inside the bound is abandoned and its siblings are still
+          explored, so a short class sitting behind a deep branch is found.
+          (Before this was fixed, one deep branch aborted the whole enumeration
+          and a 15-axiom geodesic was reported as a single 240-axiom class.)
+        * Rounds go shortest-first, and a branch is cut as soon as the
+          breadth-first distance to ``b`` no longer fits in the round's budget.
+          So when a *path* budget runs out, what has been found is the short
+          proofs, not the first deep ones the record order happened to offer.
 
         The enumeration is total up to the stated bounds.  If a bound is hit,
         the result's ``complete`` is ``False`` and the reason is carried; the
-        classes found are then reachable only via ``.partial()``.  There is no
+        classes found are then reachable only via ``.partial()``.  Depth
+        pruning counts as hitting a bound: a run that abandoned even one branch
+        reports ``complete=False``, however many classes it found.  There is no
         code path in this method that returns a subset dressed as a total
         answer -- which is the whole point of the return type.
         """
@@ -718,53 +736,109 @@ class EGraph:
         for k in adj:
             adj[k].sort(key=lambda z: z[0])
 
+        # Lower bound on how many further records are needed to reach ``b``:
+        # the breadth-first distance in the justification graph.  A simple path
+        # can only be *longer* than the graph distance, so refusing a branch
+        # whose remaining distance does not fit in the depth budget removes
+        # only branches that provably cannot close -- admissible pruning, not a
+        # truncation of the answer.  Nodes absent from ``dist`` cannot reach
+        # ``b`` at all and are likewise dropped without loss.
+        dist: Dict[str, int] = {b: 0}
+        layer: List[str] = [b]
+        while layer:
+            nxt_layer: List[str] = []
+            for n in layer:
+                for _, m, _ in adj.get(n, ()):
+                    if m not in dist:
+                        dist[m] = dist[n] + 1
+                        nxt_layer.append(m)
+            layer = sorted(nxt_layer)
+
         memo: Dict[int, Dict[Tuple, int]] = {}
         buckets: Dict[Tuple, List[Tuple[Tuple[int, ...],
                                         List[Tuple[str, str, MergeRecord]]]]] = {}
         order: List[Tuple] = []
-        state = {"raw": 0, "explored": 0, "stop": ""}
+        state = {"raw": 0, "explored": 0, "stop": "", "pruned": 0, "rounds": 0}
         path: List[Tuple[str, str, MergeRecord]] = []
         visited: Set[str] = {a}
 
-        def dfs(node: str) -> None:
+        def record() -> None:
+            state["raw"] += 1
+            self.steps.bump("path_enum")
+            sig = tuple(r.mid for _, _, r in path)
+            key = (a, b) + (self.path_class_key(path, memo),)
+            if key not in buckets:
+                if bnd["max_classes"] and len(buckets) >= bnd["max_classes"]:
+                    state["stop"] = ("max_classes=%d reached" % bnd["max_classes"])
+                    return
+                buckets[key] = []
+                order.append(key)
+            buckets[key].append((sig, list(path)))
+            if state["raw"] >= bnd["max_paths"]:
+                state["stop"] = "max_paths=%d reached" % bnd["max_paths"]
+
+        def dfs(node: str, limit: int) -> None:
+            """Depth-bounded DFS that **backtracks** at the bound.
+
+            Hitting the bound retires one branch, never the search.  A branch
+            that cannot close within ``limit`` is left for a later round of the
+            deepening loop below; if there is no later round (``limit`` is the
+            caller's ``max_depth``) the pruning is counted and reported as
+            incompleteness -- but the classes that *did* fit are still found.
+            """
             if state["stop"]:
                 return
             state["explored"] += 1
-            if node == b and path:
-                state["raw"] += 1
-                self.steps.bump("path_enum")
-                sig = tuple(r.mid for _, _, r in path)
-                key = (a, b) + (self.path_class_key(path, memo),)
-                if key not in buckets:
-                    if bnd["max_classes"] and len(buckets) >= bnd["max_classes"]:
-                        state["stop"] = ("max_classes=%d reached" % bnd["max_classes"])
-                        return
-                    buckets[key] = []
-                    order.append(key)
-                buckets[key].append((sig, list(path)))
-                if state["raw"] >= bnd["max_paths"]:
-                    state["stop"] = "max_paths=%d reached" % bnd["max_paths"]
-                return
-            if len(path) >= bnd["max_depth"]:
-                state["stop"] = "max_depth=%d reached" % bnd["max_depth"]
+            if node == b:
+                if len(path) == limit:      # shorter ones were reported already
+                    record()
                 return
             for _, nxt, rec in adj.get(node, ()):
                 if nxt in visited:
                     continue
+                d = dist.get(nxt)
+                if d is None:
+                    continue                # cannot reach b: no path is lost
+                if len(path) + 1 + d > limit:
+                    state["pruned"] += 1
+                    self.steps.bump("depth_prune")
+                    continue                # too deep for this round: backtrack
                 visited.add(nxt)
                 path.append((node, nxt, rec))
-                dfs(nxt)
+                dfs(nxt, limit)
                 path.pop()
                 visited.discard(nxt)
                 if state["stop"]:
                     return
 
-        dfs(a)
+        # Iterative deepening: raw paths are enumerated in nondecreasing length,
+        # so a budget is spent on the *short* proofs first and a class hidden
+        # behind a deep branch is still reported.  The loop stops as soon as a
+        # round prunes nothing, which means the whole simple-path tree fitted
+        # inside that round -- no deepening cost is paid on graphs that do not
+        # need it.
+        for limit in range(1, bnd["max_depth"] + 1):
+            state["pruned"] = 0
+            state["rounds"] += 1
+            visited.clear()
+            visited.add(a)
+            del path[:]
+            dfs(a, limit)
+            if state["stop"]:
+                break
+            if state["pruned"] == 0:
+                break                       # every simple path has been seen
+        else:
+            state["stop"] = (
+                "max_depth=%d reached (%d branch(es) pruned; every class at or "
+                "below the bound was still enumerated)"
+                % (bnd["max_depth"], state["pruned"]))
 
         classes: List[ProofClass] = []
         for key in order:
             entries = sorted(buckets[key], key=lambda z: z[0])
-            rep_path = entries[0][1]
+            # the class's *shortest* realisation is its representative
+            rep_path = min(entries, key=lambda z: (len(z[0]), z[0]))[1]
             ms = key[2]
             classes.append(ProofClass(
                 key=key, src=a, dst=b, multiset=ms,

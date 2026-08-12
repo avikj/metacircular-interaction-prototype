@@ -63,13 +63,22 @@ __all__ = [
     "EMatch",
     "EMatchResult",
     "COUNTERS",
+    "Program",
     "canonical_member",
     "class_members",
+    "compile_pattern",
     "ematch",
     "ematch_rule",
 ]
 
 COUNTERS = T.Counters()
+
+# Which engine ``ematch`` uses by default.  ``"automaton"`` compiles each
+# pattern once into an instruction sequence (see THE AUTOMATON below);
+# ``"recursive"`` is the memoised backtracking matcher it replaced.  Both are
+# kept, and ``runtime/tests/test_execute.py`` runs a differential test that
+# asserts they agree, match for match, on every pattern in the suite.
+DEFAULT_ENGINE = "automaton"
 
 
 @dataclass(frozen=True)
@@ -125,7 +134,7 @@ class EMatchResult:
 
 
 class _State:
-    __slots__ = ("visits", "budget", "exhausted", "reason", "memo")
+    __slots__ = ("visits", "budget", "exhausted", "reason", "memo", "sigs")
 
     def __init__(self, budget: EMatchBudget) -> None:
         self.visits = 0
@@ -133,6 +142,10 @@ class _State:
         self.exhausted = False
         self.reason = ""
         self.memo: Dict[Tuple, Tuple[Tuple[Tuple[str, str], ...], ...]] = {}
+        # automaton: (class root, bucket key, sort) -> distinct child-class
+        # tuples.  Valid only for the duration of one ``ematch`` call, which is
+        # one e-graph snapshot -- exactly the lifetime rule ``memo`` follows.
+        self.sigs: Dict[Tuple, Tuple] = {}
 
     def visit(self) -> bool:
         """Charge one visit.  Returns False once the budget is spent."""
@@ -373,6 +386,271 @@ def _match_node(g: EGraph, pat: T.Term, node: T.Term, csigma: Dict[str, str],
                                 g.find(node.children[1].addr), s1, st, variables)
 
 
+# --------------------------------------------------------------------------
+# THE AUTOMATON
+# --------------------------------------------------------------------------
+#
+# The recursive matcher above is a backtracking search *re-derived per query*:
+# every call re-walks the pattern, re-computes bucket keys, re-copies the
+# substitution dict at every variable binding, and pays for a generator frame
+# per pattern node per candidate.  Saturation calls it once per rule per
+# direction per iteration, so all of that is paid again on every pass.
+#
+# The standard fix (Simplify's e-matching abstract machine; egg's ``Program``)
+# is to **compile the pattern once** into a flat instruction sequence over
+# registers holding e-classes, and then *run* it.  Three things change, and the
+# third is the one that matters:
+#
+#   1. The pattern walk, the bucket keys and the register layout are computed
+#      at compile time, once per (pattern, variable set), and cached.
+#   2. The search becomes an explicit index-and-candidate loop over an array of
+#      instructions.  No generator frames, no per-binding dict copy: a register
+#      file is written in place, because each register is written by exactly one
+#      instruction and read only after that instruction has written it.
+#   3. **Candidates are e-node *signatures*, not e-nodes.**  A ``bind`` step
+#      only ever exposes the *classes* of a node's children, so two nodes of the
+#      same class with the same child classes are one candidate.  In a curried
+#      IR that collapse is enormous: the partial application ``mul a`` has one
+#      node per term equal to ``a``, all with identical child classes, so a
+#      class of *n* members contributes **one** candidate instead of *n*.
+#      That is the same blow-up the recursive matcher needed its memo table to
+#      survive -- here it is removed structurally, before the search sees it.
+#
+# Instruction set (registers hold class roots; the pattern's own root is
+# matched against a *node*, since ``ematch`` reports which node it matched):
+#
+#   ("app",   src, sort, bucket_key, r_fn, r_arg)   branch: app nodes of class
+#   ("lam",   src, sort, dom_addr,   r_body)        branch: lam nodes of class
+#   ("const", src, sort, symbol)                    filter: class has that atom
+#   ("var",   src, sort, index)                     filter: class has that atom
+#   ("vbind", src, sort)                            filter: class sort agrees
+#   ("vcmp",  src, other)                           filter: same class
+#
+# Compilation is in pattern preorder (children[0]'s subtree, then children[1]'s)
+# and a repeated variable becomes ``vcmp`` at exactly the position the recursive
+# matcher would have compared it.  So the two engines explore in the same order
+# and enumerate the same substitutions in the same sequence -- which is what
+# lets the differential test in the suite be an equality, not a set comparison.
+
+
+@dataclass(frozen=True)
+class Program:
+    """A compiled pattern: the root node test plus the instruction sequence."""
+
+    root: Tuple
+    root_key: Tuple
+    instrs: Tuple[Tuple, ...]
+    nregs: int
+    var_regs: Tuple[Tuple[str, int], ...]
+    pattern: str
+
+    def render(self) -> str:
+        return ("Program(%s: %d instr, %d reg, vars %s)"
+                % (self.pattern[:8], len(self.instrs), self.nregs,
+                   ",".join(v for v, _ in self.var_regs) or "-"))
+
+
+_PROGRAM_CACHE: Dict[Tuple[str, frozenset], Program] = {}
+
+
+def compile_pattern(pat: T.Term, variables: frozenset) -> Program:
+    """Compile ``pat`` to an instruction sequence.  Memoised on the pattern."""
+    variables = frozenset(variables)
+    key = (pat.addr, variables)
+    got = _PROGRAM_CACHE.get(key)
+    if got is not None:
+        COUNTERS.bump("ematch.program_hit")
+        return got
+    if pat.head == T.CONST and pat.symbol in variables:
+        raise ValueError("a bare variable pattern matches everything; refused")
+
+    instrs: List[Tuple] = []
+    var_regs: Dict[str, int] = {}
+    counter = [0]
+
+    def newreg() -> int:
+        r = counter[0]
+        counter[0] += 1
+        return r
+
+    def walk(p: T.Term, reg: int) -> None:
+        """Emit the instructions matching ``p`` against the class in ``reg``."""
+        if p.head == T.CONST and p.symbol in variables:
+            prev = var_regs.get(p.symbol)
+            if prev is None:
+                var_regs[p.symbol] = reg
+                instrs.append(("vbind", reg, p.sort))
+            else:
+                instrs.append(("vcmp", reg, prev))
+            return
+        if p.head == T.APP:
+            r0, r1 = newreg(), newreg()
+            instrs.append(("app", reg, p.sort, _pattern_key(p, variables), r0, r1))
+            walk(p.children[0], r0)
+            walk(p.children[1], r1)
+            return
+        if p.head == T.LAM:
+            rb = newreg()
+            instrs.append(("lam", reg, p.sort, p.dom.addr, rb))
+            walk(p.children[0], rb)
+            return
+        if p.head == T.CONST:
+            instrs.append(("const", reg, p.sort, p.symbol))
+            return
+        instrs.append(("var", reg, p.sort, p.index))
+
+    if pat.head == T.APP:
+        r0, r1 = newreg(), newreg()
+        root: Tuple = ("app", pat.sort, r0, r1)
+        walk(pat.children[0], r0)
+        walk(pat.children[1], r1)
+    elif pat.head == T.LAM:
+        rb = newreg()
+        root = ("lam", pat.sort, pat.dom.addr, rb)
+        walk(pat.children[0], rb)
+    elif pat.head == T.CONST:
+        root = ("const", pat.sort, pat.symbol)
+    else:
+        root = ("var", pat.sort, pat.index)
+
+    prog = Program(root=root, root_key=_pattern_key(pat, variables),
+                   instrs=tuple(instrs), nregs=counter[0],
+                   var_regs=tuple(sorted(var_regs.items())), pattern=pat.addr)
+    _PROGRAM_CACHE[key] = prog
+    COUNTERS.bump("ematch.program_compile")
+    return prog
+
+
+def _signatures(g: EGraph, st: _State, root: str, key: Tuple, sort,
+                arity: int) -> Tuple[Tuple[str, ...], ...]:
+    """Distinct child-class tuples of the class's nodes in one bucket.
+
+    This is the automaton's whole advantage over node-by-node backtracking, and
+    it loses nothing: an instruction downstream of a bind can only observe the
+    *classes* of the children, so two nodes agreeing on those are the same
+    choice.  Cached per ``ematch`` call, i.e. per e-graph snapshot.
+    """
+    ck = (root, key, sort, arity)
+    got = st.sigs.get(ck)
+    if got is not None:
+        COUNTERS.bump("ematch.sig_hit")
+        return got
+    seen: Dict[Tuple[str, ...], None] = {}
+    for m in class_index(g, root).get(key, ()):
+        if m.sort is not sort:
+            continue
+        sig = tuple(g.find(c.addr) for c in m.children[:arity])
+        if sig not in seen:
+            seen[sig] = None
+    out = tuple(seen)
+    st.sigs[ck] = out
+    COUNTERS.bump("ematch.sig_build")
+    return out
+
+
+def _has_atom(g: EGraph, root: str, key: Tuple, sort) -> bool:
+    for m in class_index(g, root).get(key, ()):
+        if m.sort is sort:
+            return True
+    return False
+
+
+_YES: Tuple = ((),)
+_NO: Tuple = ()
+
+
+def _candidates(g: EGraph, ins: Tuple, regs: List[str], st: _State) -> Tuple:
+    op = ins[0]
+    if op == "app":
+        return _signatures(g, st, regs[ins[1]], ins[3], ins[2], 2)
+    if op == "vcmp":
+        return _YES if regs[ins[1]] == regs[ins[2]] else _NO
+    if op == "vbind":
+        return _YES if _class_sort(g, regs[ins[1]]) is ins[2] else _NO
+    if op == "const":
+        return _YES if _has_atom(g, regs[ins[1]], ("const", ins[3]), ins[2]) else _NO
+    if op == "var":
+        return _YES if _has_atom(g, regs[ins[1]], ("var", ins[3]), ins[2]) else _NO
+    if op == "lam":
+        return _signatures(g, st, regs[ins[1]], ("lam", ins[3]), ins[2], 1)
+    raise AssertionError("unknown instruction %r" % (op,))
+
+
+def _write(ins: Tuple, cand: Tuple, regs: List[str]) -> None:
+    op = ins[0]
+    if op == "app":
+        regs[ins[4]] = cand[0]
+        regs[ins[5]] = cand[1]
+    elif op == "lam":
+        regs[ins[4]] = cand[0]
+
+
+def _root_sig(g: EGraph, prog: Program, node: T.Term) -> Optional[Tuple]:
+    """The node's *entry signature*, or ``None`` if it cannot start this pattern.
+
+    Two nodes with the same entry signature drive identical runs of the program,
+    so ``ematch`` runs the machine once per distinct signature and replays the
+    answer for every node carrying it.  This is where the automaton recovers the
+    cross-node reuse the recursive matcher bought with its memo table -- at a
+    tuple lookup, with no substitution in the key.
+    """
+    root = prog.root
+    if node.sort is not root[1]:
+        return None
+    kind = root[0]
+    if kind == "app":
+        if node.head != T.APP:
+            return None
+        return (g.find(node.children[0].addr), g.find(node.children[1].addr))
+    if kind == "lam":
+        if node.head != T.LAM or node.dom.addr != root[2]:
+            return None
+        return (g.find(node.children[0].addr),)
+    if kind == "const":
+        return () if (node.head == T.CONST and node.symbol == root[2]) else None
+    return () if (node.head == T.VAR and node.index == root[2]) else None
+
+
+def _run_program(g: EGraph, prog: Program, sig: Tuple, st: _State
+                 ) -> Iterator[Dict[str, str]]:
+    """Run a compiled pattern from an entry signature.  Yields class substs."""
+    regs: List[str] = [""] * prog.nregs
+    root = prog.root
+    if root[0] == "app":
+        regs[root[2]], regs[root[3]] = sig
+    elif root[0] == "lam":
+        regs[root[3]] = sig[0]
+
+    instrs = prog.instrs
+    n = len(instrs)
+    var_regs = prog.var_regs
+    if n == 0:
+        yield {v: regs[r] for v, r in var_regs}
+        return
+
+    cands: List[Optional[Tuple]] = [None] * n
+    idx = [0] * n
+    pc = 0
+    while pc >= 0:
+        c = cands[pc]
+        if c is None:
+            c = cands[pc] = _candidates(g, instrs[pc], regs, st)
+            idx[pc] = 0
+        i = idx[pc]
+        if i >= len(c):
+            cands[pc] = None
+            pc -= 1
+            continue
+        idx[pc] = i + 1
+        if not st.visit():
+            return
+        _write(instrs[pc], c[i], regs)
+        if pc == n - 1:
+            yield {v: regs[r] for v, r in var_regs}
+        else:
+            pc += 1
+
+
 def _representatives(g: EGraph, root: str, st: _State,
                      exhaustive: bool) -> Tuple[T.Term, ...]:
     cands = tuple(t for t in class_members(g, root) if t.is_closed)
@@ -412,15 +690,26 @@ def _expand(g: EGraph, csigma: Dict[str, str], st: _State,
 
 
 def ematch(g: EGraph, pattern: T.Term, variables, budget: EMatchBudget = EMatchBudget(),
-           roots: Optional[Sequence[str]] = None) -> EMatchResult:
+           roots: Optional[Sequence[str]] = None,
+           engine: Optional[str] = None) -> EMatchResult:
     """All substitutions matching ``pattern`` against the e-graph, bounded.
 
     Returns an ``EMatchResult``; check ``.complete`` before treating
     ``.matches`` as exhaustive.
+
+    ``engine`` selects the search: ``"automaton"`` (compiled instruction
+    sequence, the default) or ``"recursive"`` (the memoised backtracking
+    matcher).  They are required to agree; the parameter exists so the suite
+    can hold them against each other and so a regression can be bisected
+    without editing this file.
     """
     variables = frozenset(variables)
     if pattern.head == T.CONST and pattern.symbol in variables:
         raise ValueError("a bare variable pattern matches everything; refused")
+    engine = engine or DEFAULT_ENGINE
+    if engine not in ("automaton", "recursive"):
+        raise ValueError("unknown e-match engine %r" % (engine,))
+    prog = compile_pattern(pattern, variables) if engine == "automaton" else None
     nvars = len(vars_of(pattern, variables))
     exhaustive = nvars <= budget.max_exhaustive_vars
     st = _State(budget)
@@ -430,9 +719,33 @@ def ematch(g: EGraph, pattern: T.Term, variables, budget: EMatchBudget = EMatchB
     else:
         root_list = sorted({g.find(r) for r in roots})
     for root in root_list:
-        for member in class_members(g, root):
+        entry: Dict[Tuple, Tuple[Dict[str, str], ...]] = {}
+        # The compiled program knows which bucket of the class can possibly
+        # start it, so the automaton scans that bucket instead of every member.
+        # The recursive matcher pays a visit per member and rejects each inside
+        # ``_match_node``; this rejects them by not looking at them.
+        candidates = (class_index(g, root).get(prog.root_key, ())
+                      if prog is not None else class_members(g, root))
+        for member in candidates:
             seen_classes: Dict[Tuple, None] = {}
-            for csigma in _match_node(g, pattern, member, {}, st, variables):
+            if prog is not None:
+                if not st.visit():
+                    break
+                sig = _root_sig(g, prog, member)
+                if sig is None:
+                    continue
+                source = entry.get(sig)
+                if source is None:
+                    acc = list(_run_program(g, prog, sig, st))
+                    # never cache an abandoned search (same rule as the memo)
+                    source = tuple(acc)
+                    if not st.exhausted:
+                        entry[sig] = source
+                else:
+                    COUNTERS.bump("ematch.entry_hit")
+            else:
+                source = _match_node(g, pattern, member, {}, st, variables)
+            for csigma in source:
                 ck = tuple(sorted(csigma.items()))
                 if ck in seen_classes:
                     continue

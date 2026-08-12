@@ -98,6 +98,8 @@ the cost of *further* understanding; it does not pay for itself on first
 use. Any claim that it does would be measuring the wrong thing.
 
 
+| education | `curriculum/` — dependency graph where every edge cites the theorem forcing it, choice metric in `ATLAS_OF_N`'s exact sense, order derived by sort on computed integers | **BUILT**, 55/55 tests, 15/16 mutants killed (survivor proved equivalent, recorded rather than counted as a kill). Derived order puts **group action 3rd of 13 and positional notation 13th of 13**, with 0/23 dependency violations and 0 choice debt against the conventional sequence's 11/23 and 7. Empirical learning claims are structurally rejected by the same guard `render/` uses |
+
 ## Cross-lane defect reports (open)
 
 1. **`explanations`/homotopy DFS aborts globally on `max_depth` instead of

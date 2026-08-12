@@ -34,7 +34,8 @@ from runtime.kernel.egraph import EGraph                               # noqa: E
 from runtime.execute import (Budget, CostVector, EMatchBudget,         # noqa: E402
                              Route, RouteFinder, Rule, RewriteError,
                              Scalarization, apply_rule, arith_width,
-                             count_steps, dominates, ematch, expand_path,
+                             compile_pattern, count_steps, dominates,
+                             ematch, expand_path,
                              extract_routes, frontier_diff, install_theorem,
                              is_nondominated, literal_value, match,
                              measure_route, pareto, positions, reverse_path,
@@ -445,6 +446,81 @@ def test_ematch_is_deterministic():
     b = ematch(g, pat, {"?a", "?b", "?c"})
     assert [m.key() for m in a.matches] == [m.key() for m in b.matches]
     assert a.visits == b.visits
+
+
+def _differential_patterns():
+    """Patterns exercising every instruction the compiler can emit."""
+    return [
+        (mul(mul(mul(VP, VP), VP), VP), {"?p"}),          # repeated variable
+        (mul(mul(VA, VB), VC), {"?a", "?b", "?c"}),       # distinct variables
+        (mul(mul(VA, VB), mul(VB, VA)), {"?a", "?b"}),    # late compares
+        (mul(VA, VA), {"?a"}),                            # shallow
+        (sqr(VU), {"?u"}),                                # unary spine
+        (mul(lit(9), VA), {"?a"}),                        # a ground argument
+        (mul(mul(lit(3), lit(3)), VA), {"?a"}),           # ground subterm
+        (mul(mul(mul(VA, VB), VC), mul(VA, VB)),          # deep + repeats
+         {"?a", "?b", "?c"}),
+    ]
+
+
+def test_ematch_automaton_agrees_with_the_recursive_matcher():
+    """The differential test that licenses replacing the search.
+
+    The compiled automaton and the memoised recursive matcher must return the
+    *same matches in the same order* -- not the same count, and not the same
+    set: the same sequence of keys.  If a future optimisation reorders or drops
+    a match, this fails, and the two engines can be bisected against each other
+    without editing the module.
+    """
+    for size in (6, 8):
+        _, _, _, g, _ = saturated(size)
+        for pat, vs in _differential_patterns():
+            a = ematch(g, pat, vs, engine="automaton")
+            r = ematch(g, pat, vs, engine="recursive")
+            assert a.complete and r.complete, (pat.pretty(), a.reason, r.reason)
+            assert [m.key() for m in a.matches] == [m.key() for m in r.matches], \
+                ("engines disagree on %s" % pat.pretty())
+
+
+def test_ematch_automaton_honours_the_same_budget_discipline():
+    _, _, _, g, _ = saturated(8)
+    pat = mul(mul(mul(VP, VP), VP), VP)
+    tight = ematch(g, pat, {"?p"}, EMatchBudget(max_visits=20), engine="automaton")
+    assert tight.exhausted and not tight.complete and tight.reason == "max_visits"
+    loose = ematch(g, pat, {"?p"}, EMatchBudget(max_visits=5000000),
+                   engine="automaton")
+    assert loose.complete and len(loose.matches) >= len(tight.matches)
+
+
+def test_ematch_program_is_compiled_once_and_reused():
+    _, _, _, g, _ = saturated(6)
+    pat = mul(mul(VA, VB), VC)
+    p1 = compile_pattern(pat, frozenset({"?a", "?b", "?c"}))
+    p2 = compile_pattern(pat, frozenset({"?a", "?b", "?c"}))
+    assert p1 is p2, "the program cache must return the same object"
+    # a different variable set is a different pattern, not a cache hit
+    p3 = compile_pattern(pat, frozenset({"?a", "?b"}))
+    assert p3 is not p1
+    # the instruction sequence really is a sequence over registers
+    kinds = [i[0] for i in p1.instrs]
+    assert "app" in kinds and "const" in kinds and "vbind" in kinds, kinds
+    assert p1.nregs >= len(p1.var_regs)
+    # and a bare variable pattern is refused at compile time, as at match time
+    try:
+        compile_pattern(VA, frozenset({"?a"}))
+        assert False, "a bare variable pattern must be refused"
+    except ValueError:
+        pass
+
+
+def test_ematch_engine_name_is_checked():
+    g = EGraph()
+    g.add(mul(A, B))
+    try:
+        ematch(g, mul(VA, VB), {"?a", "?b"}, engine="clairvoyance")
+        assert False, "an unknown engine must be refused"
+    except ValueError:
+        pass
 
 
 # ==========================================================================

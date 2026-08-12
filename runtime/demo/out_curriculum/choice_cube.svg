@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="578" viewBox="0 0 732 578" version="1.1">
+  <title>The three choices of positional notation, separated</title>
+  <desc>Eight states = the eight subsets of {base, endianness, carry}. Each parameter of ATLAS_OF_N Theorem 4.2(2) drives exactly one opponent component.</desc>
+  <rect x="0" y="0" width="732" height="578" fill="#ffffff" shape-rendering="crispEdges"/>
+  <text x="16" y="26" fill="#111111" font-family="monospace" font-size="16" font-weight="bold" text-anchor="start" xml:space="preserve">Positional notation = three choices, and they are independent</text>
+  <text x="16" y="44" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">ATLAS_OF_N.md Theorem 4.2(2): a base (a finite quotient), an endianness (a trivialization of a Z/2-torsor), and a carry (a 2-cocycle whose class is never zero).</text>
+  <text x="16" y="58" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Each drives one component of the exact opponent space: base -&gt; Co, endianness -&gt; Cg, carry -&gt; Y.</text>
+  <text x="16" y="86" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">carry</text>
+  <text x="104" y="86" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="middle" xml:space="preserve">b=0 e=0</text>
+  <text x="204" y="86" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="middle" xml:space="preserve">b=0 e=1</text>
+  <text x="304" y="86" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="middle" xml:space="preserve">b=1 e=0</text>
+  <text x="404" y="86" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="middle" xml:space="preserve">b=1 e=1</text>
+  <text x="16" y="142" fill="#555555" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">0</text>
+  <rect x="58" y="96" width="92" height="92" fill="#715dc1" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=0 endianness=0 carry=0  #715dc1  Y=5519/50 Co=-40 Cg=-30</title></rect>
+  <text x="66" y="114" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">000</text>
+  <text x="66" y="132" fill="#ffffff" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#715dc1</text>
+  <text x="66" y="150" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  5519/50</text>
+  <text x="66" y="162" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co -40</text>
+  <text x="66" y="174" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg -30</text>
+  <rect x="158" y="96" width="92" height="92" fill="#2a8e7a" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=0 endianness=1 carry=0  #2a8e7a  Y=5491/50 Co=-40 Cg=30</title></rect>
+  <text x="166" y="114" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">010</text>
+  <text x="166" y="132" fill="#ffffff" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#2a8e7a</text>
+  <text x="166" y="150" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  5491/50</text>
+  <text x="166" y="162" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co -40</text>
+  <text x="166" y="174" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg 30</text>
+  <rect x="258" y="96" width="92" height="92" fill="#b24e62" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=1 endianness=0 carry=0  #b24e62  Y=5509/50 Co=40 Cg=-30</title></rect>
+  <text x="266" y="114" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">100</text>
+  <text x="266" y="132" fill="#ffffff" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#b24e62</text>
+  <text x="266" y="150" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  5509/50</text>
+  <text x="266" y="162" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co 40</text>
+  <text x="266" y="174" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg -30</text>
+  <rect x="358" y="96" width="92" height="92" fill="#6b7f1b" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=1 endianness=1 carry=0  #6b7f1b  Y=5481/50 Co=40 Cg=30</title></rect>
+  <text x="366" y="114" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">110</text>
+  <text x="366" y="132" fill="#ffffff" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#6b7f1b</text>
+  <text x="366" y="150" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  5481/50</text>
+  <text x="366" y="162" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co 40</text>
+  <text x="366" y="174" fill="#ffffff" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg 30</text>
+  <text x="16" y="242" fill="#555555" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">1</text>
+  <rect x="58" y="196" width="92" height="92" fill="#ad99fd" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=0 endianness=0 carry=1  #ad99fd  Y=8519/50 Co=-40 Cg=-30</title></rect>
+  <text x="66" y="214" fill="#000000" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">001</text>
+  <text x="66" y="232" fill="#000000" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#ad99fd</text>
+  <text x="66" y="250" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  8519/50</text>
+  <text x="66" y="262" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co -40</text>
+  <text x="66" y="274" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg -30</text>
+  <rect x="158" y="196" width="92" height="92" fill="#66cab6" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=0 endianness=1 carry=1  #66cab6  Y=8491/50 Co=-40 Cg=30</title></rect>
+  <text x="166" y="214" fill="#000000" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">011</text>
+  <text x="166" y="232" fill="#000000" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#66cab6</text>
+  <text x="166" y="250" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  8491/50</text>
+  <text x="166" y="262" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co -40</text>
+  <text x="166" y="274" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg 30</text>
+  <rect x="258" y="196" width="92" height="92" fill="#ee8a9e" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=1 endianness=0 carry=1  #ee8a9e  Y=8509/50 Co=40 Cg=-30</title></rect>
+  <text x="266" y="214" fill="#000000" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">101</text>
+  <text x="266" y="232" fill="#000000" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#ee8a9e</text>
+  <text x="266" y="250" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  8509/50</text>
+  <text x="266" y="262" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co 40</text>
+  <text x="266" y="274" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg -30</text>
+  <rect x="358" y="196" width="92" height="92" fill="#a7bb57" stroke="#bbbbbb" stroke-width="1" shape-rendering="crispEdges"><title>base=1 endianness=1 carry=1  #a7bb57  Y=8481/50 Co=40 Cg=30</title></rect>
+  <text x="366" y="214" fill="#000000" font-family="monospace" font-size="13" font-weight="bold" text-anchor="start" xml:space="preserve">111</text>
+  <text x="366" y="232" fill="#000000" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">#a7bb57</text>
+  <text x="366" y="250" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Y  8481/50</text>
+  <text x="366" y="262" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Co 40</text>
+  <text x="366" y="274" fill="#000000" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">Cg 30</text>
+  <rect x="358" y="196" width="92" height="92" fill="none" stroke="#000000" stroke-width="3" shape-rendering="crispEdges"/>
+  <text x="478" y="100" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">the three axes</text>
+  <text x="478" y="120" fill="#111111" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">base  -&gt;  Co</text>
+  <text x="478" y="133" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">base b (a finite quotient N -&gt; Z/b)</text>
+  <text x="478" y="150" fill="#111111" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">endianness  -&gt;  Cg</text>
+  <text x="478" y="163" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">endianness (a trivialization of the Z/2-torsor</text>
+  <text x="478" y="180" fill="#111111" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">carry  -&gt;  Y</text>
+  <text x="478" y="193" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">carry (a digit section with nonzero class in H</text>
+  <text x="478" y="224" fill="#555555" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">heavy outline: all three fixed = a numeral</text>
+  <text x="16" y="326" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">Separability, proved exhaustively over all 24 flips:</text>
+  <text x="16" y="342" fill="#333333" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">flipping one choice moves its own component by at least 60 and every other component by at most 14/25</text>
+  <text x="16" y="356" fill="#333333" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">quantisation bound 1; layers claim disjoint components (True); eight distinct colours (True); clamped 0</text>
+  <text x="16" y="378" fill="#555555" font-family="monospace" font-size="10" font-weight="bold" text-anchor="start" xml:space="preserve">What a reader could misread:</text>
+  <text x="16" y="392" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">(a) the three axes are separable in the CHART, not orthogonal as mathematics: the torsor of endianness is a torsor of truncation</text>
+  <text x="16" y="404" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">      systems on (Z/b^n)_n, so it is not even definable until the base is fixed (ATLAS_OF_N Proposition 2.10).</text>
+  <text x="16" y="418" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">(b) &apos;carry = 0&apos; is not a carry-free numeral. No digit section makes the class vanish (Corollary 2.11.1); 0 here means</text>
+  <text x="16" y="430" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">      the parameter has not been chosen yet, not that it was chosen to be trivial.</text>
+  <text x="16" y="444" fill="#777777" font-family="monospace" font-size="9" font-weight="normal" text-anchor="start" xml:space="preserve">(c) the opponent surrogate is not CIELAB and is not perceptually uniform (runtime/render/README.md Sec.3).</text>
+</svg>

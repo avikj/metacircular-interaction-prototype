@@ -289,7 +289,11 @@ g.add(term)                                  -> addr        # registers all subt
 g.merge(x, y, justification, edge_id=None)   -> edge_id
 g.find(x) / g.equal(x, y) / g.class_of(x) / g.classes()
 g.explain(x, y)                              -> tuple[Step, …] | None
-g.explanations(x, y, limit=8)                -> tuple[tuple[Step, …], …]
+g.explanation_classes(x, y, limit=None, max_paths=None,
+                      max_depth=None, max_classes=None)
+                                             -> ClassEnumeration   # NOT a tuple
+g.explanations(x, y, limit=None, **kw)       -> ClassEnumeration   # alias
+g.path_class_key(path, memo=None)            -> tuple[tuple[atom, int], …]
 g.justifications(x, y)                       -> tuple[MergeRecord, …]
 g.records()                                  -> tuple[MergeRecord, …]
 g.retract(edge_id)                           -> bool
@@ -363,7 +367,13 @@ directions: over-merging and over-splitting each have a planted-false control.
 
 **Bounds are not caps.** Enumeration is total up to `max_paths` / `max_depth` /
 `max_classes`; hitting one produces `complete == False` with the reason
-carried. `ClassEnumeration` is **not a list**: while incomplete, `len()`,
+carried. **A hit `max_depth` prunes the branch, not the search**: the round
+abandons that branch, its siblings are still explored, and the classes that fit
+inside the bound are still reported (as an *incomplete* result). Raw paths are
+walked by iterative deepening — shortest first, with a branch cut as soon as the
+breadth-first distance to the target no longer fits the round's budget — so a
+short class hidden behind a deep branch is found, and a spent `max_paths`
+budget has been spent on the *short* proofs. `ClassEnumeration` is **not a list**: while incomplete, `len()`,
 iteration, `.classes` and `== ()` all raise `IncompleteEnumeration`. The
 partial content is reachable only through the explicitly-named `.partial()`, so
 a subset can be *accepted*, in writing, but never *mistaken* for a total
@@ -526,9 +536,13 @@ Honest boundaries. Callers must not assume any of this works.
 
 1. **Class enumeration cost.** The silent-subset bug is gone — the homotopy
    quotient is the semantics and an exhausted bound is an explicit
-   `IncompleteEnumeration` — but the enumeration still walks raw simple paths
-   before quotienting them, so a dense justification graph is exponential in
-   *work* even when the class count is small. Quotienting during the walk
+   `IncompleteEnumeration` — and the depth bound now backtracks instead of
+   aborting, so a bounded run returns the short classes rather than nothing.
+   What remains is cost: the enumeration still walks raw simple paths before
+   quotienting them, so a dense justification graph is exponential in *work*
+   even when the class count is small. Iterative deepening pays a re-walk of
+   the shallow prefix once per round (bounded by the distance prune, and skipped
+   entirely when a round prunes nothing). Quotienting during the walk
    (dominance pruning on the partial multiset) is the next move.
 2. **`merge`'s duplicate-id scan** is `O(records)` per call, making *n* merges
    `O(n²)`. It wants an id index. Nothing else in `merge` is superlinear.
@@ -544,3 +558,24 @@ Honest boundaries. Callers must not assume any of this works.
    stays obvious until profiling says otherwise.
 5. **Python recursion limits** bound term depth (`shift`, `subst`, `_nf`,
    `subterms`, `explanations`' DFS) to a few thousand levels.
+
+---
+
+## Contract changes
+
+This section exists because other lanes code against this file, and a silently
+edited document is indistinguishable from a document that was always right.
+Each entry says what the signature *was*, what it *is*, and why it moved.
+Nothing here is retroactive: a caller written against an old row will fail
+loudly (a wrong type or a raised `IncompleteEnumeration`), never quietly.
+
+| # | when | symbol | was | is | why |
+|---|---|---|---|---|---|
+| C1 | L4 lane (Part A) | `EGraph.explanations` | `explanations(x, y, limit=8) -> tuple[tuple[Step, …], …]` — raw simple paths, **silently truncated** at `limit` | `explanations(x, y, limit=None, **kw) -> ClassEnumeration`, an alias for `explanation_classes` | Raw simple paths over-count proofs (reassociation is not a second transport) and a silent cap is not a semantics. `STATUS.md` failure mode #1. The return type is now guarded: while `complete` is false, `len()`, iteration, `.classes` and `== ()` raise `IncompleteEnumeration`, and the subset is reachable only through `.partial()`. `limit` survives as an alias for `max_classes`. |
+| C2 | repair lane | `EGraph.explanation_classes` | on hitting `max_depth` the depth-first walk set a **global** stop flag: the first over-deep branch ended the entire enumeration, and a graph with a 15-axiom geodesic behind a 300-record chain returned nothing usable (filed by L3 against a 533-record graph, reported as a single 240-step class) | the depth bound **prunes that branch and backtracks**; rounds go shortest-first (iterative deepening with a breadth-first distance cut), so the short classes are the ones a spent budget has bought | A depth-bounded search must explore the space, not die on the first deep branch. Soundness was never the issue and is unchanged: a run that pruned anything still reports `complete=False` with the count of pruned branches in `reason`. Tests `A7`/`A8` and the control `x_depth_pruned_not_complete` in `runtime/tests/test_propagate.py` pin it. |
+| C3 | repair lane | `ProofClass.representative` | the raw path with the lexicographically smallest record-id sequence | the **shortest** raw path in the class (ties broken by that same sequence) | The representative is what a caller checks and reads as "the proof"; handing back a long realisation of a short class was gratuitous. `members` is unchanged (still sorted by record-id sequence), so nothing that indexed it moves. |
+
+Two things deliberately did **not** change, and should not be changed without
+an entry here: `explain` still returns the cheap canonical proof-forest path
+(it is not a metric — see `STATUS.md` defect 3 and L3's `RouteFinder`), and
+`ClassEnumeration` still refuses to present a partial answer as a complete one.

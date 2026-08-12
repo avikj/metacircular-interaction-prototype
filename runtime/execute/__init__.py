@@ -31,8 +31,10 @@ from .ematch import (  # noqa: F401
     EMatch,
     EMatchBudget,
     EMatchResult,
+    Program,
     canonical_member,
     class_members,
+    compile_pattern,
     ematch,
     ematch_rule,
 )

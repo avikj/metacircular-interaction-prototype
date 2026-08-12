@@ -228,6 +228,76 @@ def t_deterministic():
     return a1 == a2 and b1 == b2 and len(b1) == 8
 
 
+def deep_branch_graph(deep=300, short=15):
+    """The shape the L3 lane filed against this enumerator.
+
+    ``z0 = z1 = ... = z_deep = END`` is a long chain whose records carry the
+    *lowest* ids, so a depth-first search meets it first and cannot close it
+    inside ``max_depth``.  A genuinely short ``short``-axiom route between the
+    same endpoints is added afterwards, with higher record ids.  The geodesic
+    class is therefore hidden *behind* a branch that overruns the depth bound.
+    """
+    g = EGraph()
+    chain = [T.Const("z%03d" % i, N) for i in range(deep + 1)]
+    end = T.Const("END", N)
+    for t in chain:
+        g.add(t)
+    g.add(end)
+    for i in range(deep):
+        g.merge(chain[i], chain[i + 1], C.Axiom("deep:%d" % i), edge_id="D%04d" % i)
+    g.merge(chain[deep], end, C.Axiom("deep:tail"), edge_id="D%04d" % deep)
+    mids = [T.Const("s%03d" % i, N) for i in range(1, short)]
+    for t in mids:
+        g.add(t)
+    nodes = [chain[0]] + mids + [end]
+    for i in range(len(nodes) - 1):
+        g.merge(nodes[i], nodes[i + 1], C.Axiom("short:%d" % i), edge_id="S%04d" % i)
+    return g, chain[0], end
+
+
+@capability("A7 max_depth backtracks: a short class behind a deep branch is found")
+def t_depth_backtracks():
+    g, lo, hi = deep_branch_graph()
+    r = g.explanation_classes(lo, hi)          # default max_depth=32
+    found = r.partial()
+    # the defect: the DFS dove into the 301-record chain, hit max_depth and
+    # aborted the whole enumeration, returning nothing usable.
+    assert found, "depth bound aborted the search instead of backtracking"
+    assert min(c.size for c in found) == 15, sorted(c.size for c in found)
+    # and the short class really is the short route, not a bookkeeping artefact
+    short = min(found, key=lambda c: c.size)
+    assert all(a[0] == "axiom" and a[1].startswith("short:") for a in short.axioms), \
+        sorted(short.axioms)
+    assert len(short.representative) == 15, len(short.representative)
+    # honesty is unchanged: the deep branch really was pruned, so the
+    # enumeration must still refuse to call itself complete.
+    assert not r.complete and "max_depth" in r.reason, r.reason
+    return True
+
+
+@capability("A8 a raised depth bound closes the same enumeration completely")
+def t_depth_raised():
+    g, lo, hi = deep_branch_graph(deep=8, short=4)
+    tight = g.explanation_classes(lo, hi, max_depth=4)
+    assert not tight.complete and "max_depth" in tight.reason, tight.reason
+    assert [c.size for c in tight.partial()] == [4], [c.size for c in tight.partial()]
+    full = g.explanation_classes(lo, hi, max_depth=32)
+    assert full.complete, full.reason
+    assert sorted(c.size for c in full.classes) == [4, 9], \
+        sorted(c.size for c in full.classes)
+    return True
+
+
+@control("CONTROL A: backtracking must not launder a pruned search as complete")
+def x_depth_pruned_not_complete():
+    g, lo, hi = deep_branch_graph(deep=40, short=5)
+    r = g.explanation_classes(lo, hi, max_depth=6)
+    planted = r.complete                       # the falsehood: "found some, so done"
+    ok = not planted and len(r.partial()) >= 1
+    ok &= rejects(lambda: r.classes, IncompleteEnumeration)
+    return ok
+
+
 @control("CONTROL A: a caller that ignores the Incomplete marker must break loudly")
 def x_ignore_incomplete():
     g, lo, hi = dense_graph()
