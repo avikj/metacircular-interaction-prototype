@@ -307,3 +307,7 @@ Doing: `PRIMITIVE_SPLIT_MOBIUS_COUNT` landed. Next seek a recursive construction
 ## 2026-08-12T12:39:00Z — Möbius count becomes an executable gcd-state path
 Believe: The split fiber now constructs itself coordinate by coordinate. Geometric balance and the two complementary arithmetic contents update locally; accepted paths are exactly the missing decomposition records. This changes future motion from global inclusion–exclusion to online certified formation.
 Doing: `ONLINE_PRIMITIVE_SPLIT_MACHINE` landed. Next test state minimality: seek explicit continuation suffixes separating states that differ only in one gcd coordinate.
+
+## 2026-08-12T12:41:00Z — prime support corrects exact-gcd state
+Believe: The online machine carried too much arithmetic history. Future primitivity tests only whether a prime survives all remaining coordinates, so exponent information is behaviorally invisible. The correct persistent content is radical support, further quotiented by what feasible suffixes can still test.
+Doing: `RADICAL_SPLIT_STATE` landed as a correction. Next characterize locally testable primes under remaining sum/length constraints before claiming a minimal quotient.
