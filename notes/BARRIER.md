@@ -27,15 +27,71 @@ $m+n$), blocks (Ramanujan-twisted kernels), all band-passed phases, the
 Fresnel readings, the twisted fields, the $k$-body fields ($d=k$).
 Classical major/minor-arc circle-method quantities are WL. 
 
-**Structure Proposition (proof-sketch grade; RH-conditional bookkeeping).**
-For $a$ in the residue-dressing family, every $Q\in$WL$_d(L,\cdot)$ is a
-function of (i) scheme/smooth data and (ii) the *blurred spectral measure*
-$\sigma_a^{(j)}\!*\!\widehat W_L$, $j\le d$ — the $j$-fold sum-spectrum atoms
-convolved with a resolution-$2\pi/L$ kernel. *Sketch:* substitute the
-explicit formula for each $a$-factor (trace formulas of `FAMILY.md`, verified
-rows); the kernel's windowed linear forms turn each zero product into an
-atom evaluated against $\widehat W_L$; absolute convergence after one
-smoothing (Theorem D-family) justifies the exchange. $\square$(sketch)
+**Theorem B1 (Structure Theorem for windowed observables).** Let
+$\Psi_k(X)=\sum_{n_1+\dots+n_k\le X}a(n_1)\cdots a(n_k)\,(X-\textstyle\sum n_j)$
+be the $k$-fold Cesàro-1 field of a dressing $a$ in the residue-dressing
+family, and write $\psi(u)=\Psi_k(e^u)e^{-(k+1)u}$ for the field at its
+natural scale. Let $w\in C_c^\infty$ be a window supported in an interval of
+length $L$, and let $Q_w=\int w(u)\psi(u)\,du$ be the corresponding **span-$L$
+windowed observable**. Then, with
+$$\sigma_k \;=\; \sum_{\rho_1,\dots,\rho_k} W_k(\vec\rho)\,
+\delta_{\gamma_1+\dots+\gamma_k}$$
+the $k$-fold sum-spectral measure ($W_k$ as in Theorem D‴-$k$),
+$$\boxed{\;Q_w \;=\; \langle \sigma_k,\widehat w\,\rangle \;+\;
+\langle w,\mathrm{Smooth}\rangle \;+\; \langle w, E\rangle\;}$$
+and for every $N$, atoms at distance $>R/L$ from $\operatorname{supp}\widehat w$'s
+centre contribute $\ll_N R^{-N}\|\sigma_k\|$, where
+$\|\sigma_k\|=\sum|W_k|<\infty$.
+
+*Proof.* Substitute the explicit formula for each of the $k$ factors and
+integrate against the Cesàro weight; the Dirichlet–Beta identity
+$\iint_{\sum u_j\le X}\prod u_j^{\rho_j-1}(X-\sum u_j)\,du
+=\frac{\Gamma(2)\prod\Gamma(\rho_j)}{\Gamma(\sum\rho_j+2)}X^{\sum\rho_j+1}$
+sends the zero$^{\times k}$ term to $\sum_{\vec\rho}W_k(\vec\rho)
+e^{i(\sum\gamma_j)u}$, the pole-containing terms to $\mathrm{Smooth}$, and
+the remainder to $E$. Absolute convergence of the multiple zero sum after one
+Cesàro smoothing is Theorem D′/D‴-$k$ ($|W_k|\asymp s^{-(k+3)/2}$ against
+pair density $\asymp s\log^2 s$), so the interchange of $\int w$ with
+$\sum_{\vec\rho}$ is justified. Termwise,
+$\int w(u)e^{i\xi u}du=\widehat w(-\xi)$, giving the pairing. The tail bound
+is Paley–Wiener: $w\in C_c^\infty$ of support length $L$ has
+$\widehat w(\xi)\ll_N (1+|\xi|L)^{-N}$, and $\|\sigma_k\|<\infty$ by the same
+convergence. $\square$
+
+**Corollary B2 (indistinguishability).** Two spectral configurations
+$\sigma_k,\sigma_k'$ with $\langle\sigma_k-\sigma_k',\widehat w\rangle=0$ for
+every span-$L$ window $w$ produce **identical values of every span-$L$
+windowed observable**. Since $\widehat w$ resolves at scale $2\pi/L$, it
+suffices that $\sigma_k-\sigma_k'$ be annihilated at that resolution — the
+moment-matched sub-resolution clusters of Theorem K0 are exactly such
+differences, with mismatch $O((\delta L)^{2p-1})$.
+
+**Proposition B3 (nonlinear closure).** Any $O=\Phi(Q_{w_1},\dots,Q_{w_r})$
+with arbitrary — even non-computable — post-processing $\Phi$ is a function of
+$r$ numbers each of which factors as in B1. Hence the entire class
+$\mathrm{WL}_d(L,r)$ factors through the blurred measure
+$\sigma_k * K_L$, $K_L$ any kernel dominating the $\widehat w_i$. *Post-processing
+cannot recover information the windows did not pass.*
+
+**What B1–B3 do and do not establish.** They prove that the *access mode* is
+lossy at resolution $2\pi/L$, with quantified tails. They do **not** yet
+prove a barrier against inferring $\zeta$'s correlations, because that
+requires exhibiting **two admissible spectra** — both satisfying the
+counting law $N(T)\sim\frac{T}{2\pi}\log\frac{T}{2\pi}$, the functional
+equation constraints, and (if assumed) RH — whose blurred measures agree.
+The superresolution construction perturbs an abstract spike measure; the
+zeros of $\zeta$ cannot be moved. So the honest form is minimax over a
+hypothesis class:
+
+> **The barrier problem (precise).** Exhibit, or rule out, a pair of
+> admissible zero configurations indistinguishable to all
+> $\mathrm{WL}_d(L,\mathrm{poly})$ observables at $L=o\bigl(\sqrt{\rho_2\log\rho_2}\bigr)$
+> but with different pair-correlation statistics.
+
+This is exactly the natural-proofs situation: the structure theorem is the
+easy half (there, "natural properties are constructive and large"), and the
+hard half is producing pseudorandom candidates inside the class. Naming it
+this precisely is the contribution; solving it is open.
 
 **Barrier corollary (= Theorem K restated).** A WL observable determines
 correlation-grade information at height $T$ only if the blur resolves the

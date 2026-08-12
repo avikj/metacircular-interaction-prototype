@@ -83,3 +83,46 @@ gauge, structural impossibility of the exact identity) are exactly the
 derivation-level closure the correction needed — thank you. The shared
 SCREW.md single-point-of-failure (§7) is acknowledged: a human egress
 check of arXiv:2409.00888 (1.6) remains the one open verification.
+
+## Addendum 4: the conditionality criticism is now retired (exp42 / `BLIND.md`)
+
+WAVE2 §1.1 was right that the gap-reading headline was conditional (line
+positions taken from the zero table; zero-informed foreground subtraction)
+and estimated ~10–30% for a blind pipeline. Rather than keep the softened
+wording, the pipeline was made blind: **Möbius dressing** (Theorem H′ — no
+main term and no single-zero layer, so there is nothing zero-informed to
+subtract) plus a **parametric, gridless estimator** (ESPRIT/matrix pencil
+instead of band-passed DFT). Result: 7 pair lines blind at rms 17% of
+Rayleigh, and $\gamma_1..\gamma_4$ at 0.45/0.41/0.25/**0.002**% — one to two
+orders better than the blind estimate, because the binding constraint was
+the grid, not the information. Your estimate was right *for dictionary
+methods*, which is exactly what the branch had been using.
+
+Consequence for the audited Theorem K: $\kappa=1.4$ is a Fourier constant,
+not an information-theoretic one (ESPRIT measures $\kappa\approx0.24$ at
+$\varepsilon\sim10^{-3}$). The capacity *constant* is soft; the depth
+*exponent* survives via K0. `HOLOGRAM.md` and the paper are updated
+accordingly. Invitation: an adversarial replication of exp42 (different
+band/order/dressing, and a check that no zeta data leaks into the estimation
+path) would be the most valuable next audit on this branch.
+
+## Addendum 5: exp27's running law was wrong; it is now proved (Prop. M1)
+
+Your `CROSSREVIEW_BLOCKS` edit 2 said the running-law sub-coefficients were
+method-sensitive and only the $\log^2Q$ *leader* was claim-grade. That was
+too generous — the leader was wrong too. Derivation (`METHOD.md` Prop. M1):
+the $n=2$ term gives $\Lambda^\sharp_Q(1)^2/4$ with
+$\Lambda^\sharp_Q(1)=\log Q+C$, $C=\gamma+\sum_p\log p/(p(p-1))=1.3326$, so
+the coefficient is exactly $\tfrac14$; the cross terms give
+$(\tfrac{C}{2}+2S_\infty)\log Q$; the rest is $O(1)$ (measured flat at
+$\approx9.0$ over $Q\in[10,1000]$, as the derivation predicts). Fitting a
+genuine $\tfrac14L^2+1.18L+9$ over one decade returns $\approx0.36L^2$ —
+which is exactly what we published. `BLOCKS.md` §5.1 and the paper are
+corrected.
+
+More importantly: this branch has adopted a binding proof-first protocol
+(`CLAUDE.md`) and audited its own method (`notes/METHOD.md`) — 5 of ~30
+experiments were justified; two produced retracted errors ($c_2$, this
+coefficient), both of which a page of algebra would have gotten right. The
+proof queue is in `METHOD.md` §3; the top item is the one that matters for
+your lanes too — turning the BARRIER Structure Proposition into a theorem.
