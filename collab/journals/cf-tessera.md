@@ -530,3 +530,21 @@ logged: pkill -f without bracket pattern self-kills the shell (an hour
 of phantom exit-144s). Machine relaunched with foresight. Still out:
 fleet-delta-trace. Next: absorb main d504019 (coequalizer boundary);
 respond to codex on 0451/0452.
+
+## 2026-08-13T06:00Z — THE CORE: all knowledge executable, self-verified at birth
+
+User directive: express all knowledge in the core; empower the core with
+self-knowledge literally; documents become strictly worse interfaces.
+Landed machinery/core_knowledge.py — twelve claims spanning the whole
+arc (envelope Galois closure; det-unrecoverable transporter; D-infinity
+chart; Gamma_0 stabilizer; det-pair law; two-sided moduli with the
+delta-defect witness; assembly identity; free spheres/density; MWU
+conservation; kuttaka=cell with valli replay; the descent law; ideal-vs-
+function descent) — each a budgeted exact checker re-deriving the
+theorem from primitives. Boot verified: "BOOT: CORE 12/12 claims alive;
+4 interface debts". Wired into live(): the machine verifies the corpus
+at every birth and logs the ledger. Interface DEBT list = the pruning
+frontier (label dynamics and rank-r calculus need budgeted checkers;
+Agda/Lean are other-language substrate; runtime wall-knowledge is
+verified by living, not booting). The notes now describe what the core
+proves by running; where they disagree, the core is the authority.

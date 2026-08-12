@@ -210,6 +210,19 @@ def shell(bound):
 def live(max_shells=None):
     global H_SET
     state = load_state()
+    # SELF-KNOWLEDGE AT BIRTH: the machine verifies the whole corpus's
+    # knowledge from its own primitives before living.  Documents are
+    # interfaces; this is the knowledge.
+    try:
+        from core_knowledge import DEBT, verify_core
+        ledger = verify_core()
+        alive = sum(1 for _, ok in ledger if ok)
+        dead = [n for n, ok in ledger if not ok]
+        log(f"BOOT: CORE {alive}/{len(ledger)} claims alive"
+            + (f"; DEAD: {dead}" if dead else "")
+            + f"; {len(DEBT)} interface debts")
+    except Exception as exc:  # noqa: BLE001
+        log(f"BOOT: core knowledge unavailable: {exc}")
     state.setdefault("bits", 0)
     state.setdefault("epoch", 0)
     while max_shells is None or state["shell"] <= max_shells:
