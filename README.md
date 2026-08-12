@@ -154,7 +154,9 @@ it keeps the shortest experiment that reveals it.  Its concepts are therefore
 neither names nor embeddings: they are executable ways of telling worlds apart.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
-but the next route is shorter.  This is the entire loop in miniature.
+but the next route is shorter.  It examines its current shortest witnesses,
+installs the one saving the most total steps, and repeats until every visible
+distinction is immediately accessible.  This is the entire loop in miniature.
 
 Run it:
 
