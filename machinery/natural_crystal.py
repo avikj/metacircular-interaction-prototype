@@ -423,6 +423,75 @@ def pattern_world(
     return world, {state: state == found for state in world.states}
 
 
+def _binary_dot(mask: int, vector: int) -> int:
+    return (mask & vector).bit_count() & 1
+
+
+def _binary_linear_map(rows: Sequence[int], vector: int) -> int:
+    return sum(_binary_dot(row, vector) << index
+               for index, row in enumerate(rows))
+
+
+def _binary_rank(vectors: Sequence[int]) -> int:
+    basis: dict[int, int] = {}
+    for vector in vectors:
+        value = vector
+        while value:
+            pivot = value.bit_length() - 1
+            if pivot in basis:
+                value ^= basis[pivot]
+            else:
+                basis[pivot] = value
+                break
+    return len(basis)
+
+
+def linear_observation_world(
+    dimension: int, rows: Sequence[int], sensor: int
+) -> tuple[GeneratedWorld, dict[State, int]]:
+    """All states of an autonomous binary linear system and one sensor."""
+    if dimension < 0 or len(rows) != dimension:
+        raise ValueError("matrix must have one row per nonnegative dimension")
+    bound = 1 << dimension
+    if any(row < 0 or row >= bound for row in rows) or sensor < 0 or sensor >= bound:
+        raise ValueError("matrix and sensor must fit the declared binary dimension")
+    states = tuple(range(bound))
+    transition = {
+        (state, "evolve"): _binary_linear_map(rows, state) for state in states
+    }
+    return GeneratedWorld(states, transition, ()), {
+        state: _binary_dot(sensor, state) for state in states
+    }
+
+
+def linear_observation_classes(
+    dimension: int, rows: Sequence[int], sensor: int
+) -> tuple[tuple[tuple[int, ...], ...], int]:
+    """Direct observable signatures and rank for a binary linear system."""
+    world, observation = linear_observation_world(dimension, rows, sensor)
+    signatures: dict[tuple[int, ...], list[int]] = {}
+    for state in world.states:
+        current = state
+        signature = []
+        for _ in range(dimension):
+            signature.append(observation[current])
+            current = world.transition[current, "evolve"]
+        signatures.setdefault(tuple(signature), []).append(state)
+
+    # Each signature coordinate is a linear functional.  Evaluate it on the
+    # coordinate basis to recover its row vector and hence the observability rank.
+    functional_rows = []
+    for time in range(dimension):
+        row = 0
+        for coordinate in range(dimension):
+            current = 1 << coordinate
+            for _ in range(time):
+                current = world.transition[current, "evolve"]
+            row |= observation[current] << coordinate
+        functional_rows.append(row)
+    return tuple(tuple(fiber) for fiber in signatures.values()), _binary_rank(functional_rows)
+
+
 def twelve_link_machine() -> Crystal:
     """A minimal intervention toy, not a historical or physical model.
 
@@ -522,6 +591,21 @@ def _show_pattern(pattern: str, alphabet: str) -> None:
     print(f"primitive action count: {len(letters)} -> {len(actions)}")
 
 
+def _show_linear() -> None:
+    # Three-bit cyclic motion; one sensor eventually sees every coordinate.
+    rows, sensor = (2, 4, 1), 1
+    world, observation = linear_observation_world(3, rows, sensor)
+    crystal = crystallize(
+        world.states, ("evolve",), world.transition, observation
+    )
+    direct, rank = linear_observation_classes(3, rows, sensor)
+    print("binary linear system: cyclic shift of three coordinates")
+    print("sensor: first coordinate")
+    print(f"observability rank: {rank}")
+    print(f"observable concepts: 2^{rank} = {len(direct)}")
+    print(f"minimal future classes: {crystal.fibers}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate, distinguish, and compile a finite natural machine"
@@ -537,11 +621,16 @@ def main() -> None:
     )
     pattern.add_argument("pattern")
     pattern.add_argument("alphabet")
+    subcommands.add_parser(
+        "observe-linear", help="crystallize a three-bit linear sensor"
+    )
     args = parser.parse_args()
     if args.command == "divisibility":
         _show_divisibility(args.base, args.modulus)
     elif args.command == "contains":
         _show_pattern(args.pattern, args.alphabet)
+    elif args.command == "observe-linear":
+        _show_linear()
     else:
         _living_seed()
 

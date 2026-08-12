@@ -13,12 +13,15 @@ from natural_crystal import (
     extend_observation,
     generate_world,
     learn_experiments,
+    linear_observation_classes,
+    linear_observation_world,
     pattern_world,
     run_word,
     shortest_distinguishing_word,
     twelve_link_machine,
     _show_divisibility,
     _show_pattern,
+    _show_linear,
 )
 
 
@@ -135,6 +138,38 @@ class NaturalCrystalTests(unittest.TestCase):
             pattern_world("", ("a",))
         with self.assertRaises(ValueError):
             pattern_world("ab", ("a",))
+
+    def test_linear_sensor_classes_equal_future_quotient(self):
+        systems = (
+            (3, (2, 4, 1), 1),  # cyclic: full rank
+            (3, (1, 2, 0), 1),  # only first coordinate is visible
+            (4, (2, 4, 8, 1), 3),
+        )
+        for dimension, rows, sensor in systems:
+            world, observation = linear_observation_world(
+                dimension, rows, sensor
+            )
+            computed = crystallize(
+                world.states, ("evolve",), world.transition, observation
+            )
+            direct, rank = linear_observation_classes(
+                dimension, rows, sensor
+            )
+            self.assertEqual(
+                {frozenset(fiber) for fiber in computed.fibers},
+                {frozenset(fiber) for fiber in direct},
+            )
+            self.assertEqual(len(direct), 2 ** rank)
+
+    def test_linear_sensor_rejects_dimension_mismatch(self):
+        with self.assertRaises(ValueError):
+            linear_observation_world(2, (1,), 1)
+
+    def test_linear_sensor_command(self):
+        output = StringIO()
+        with redirect_stdout(output):
+            _show_linear()
+        self.assertIn("observable concepts: 2^3 = 8", output.getvalue())
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):

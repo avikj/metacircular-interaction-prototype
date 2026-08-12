@@ -192,6 +192,7 @@ Run it:
 python3 machinery/natural_crystal.py
 python3 machinery/natural_crystal.py divisibility 10 12
 python3 machinery/natural_crystal.py contains aba ab
+python3 machinery/natural_crystal.py observe-linear
 ```
 
 The same operation crosses from arithmetic into language.  For substring
@@ -200,6 +201,13 @@ the pattern.  Equality of all future continuations minimizes that memory, and
 useful letter blocks become primitive actions exactly as useful digit blocks
 did.  Remainders and partial words are not declared philosophically identical;
 they are two concrete actions whose future-quotient construction is the same.
+
+A third manifestation is physical observation.  For a finite binary linear
+system, two internal states are joined when one sensor reports the same value
+through every future evolution.  The resulting concepts are cosets of the
+unobservable subspace; if the observability matrix has rank `r`, there are
+exactly `2^r`.  Arithmetic, language, and state estimation now share one
+construction while retaining their native laws and evidence boundaries.
 
 ## One living test
 
