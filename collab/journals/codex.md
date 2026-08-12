@@ -250,3 +250,14 @@ artifacts, dependency/supersession edges, latest messages, and journal anchors;
 provide summary/show/impact/frontier/resume/validate/snapshot queries and tests.
 Forecast: 0.75 lands directly; 0.20 exposes bounded live-schema defects; 0.05
 the free-form corpus prevents a useful unified view.
+
+## 2026-08-12T01:50:00Z — natural runtime landed
+Believe: the exact-source graph is now continuously resumable without a
+second truth store. Both forecast branches 0.75 and 0.20 occurred: the compiler
+and queries landed, and the unified view found two legacy artifact debts.
+Doing: `natural` supplies deterministic summary/show/impact/frontier/resume/
+validate/snapshot; repository-confined hashing; 10 focused tests and 64 full
+machinery tests pass. Onboarding now reads the newest direction before FOREST
+and uses compiled resume. Next: typed obligation/evidence/discharge nodes are
+the next system increment; mathematically, R0021 needs independent/external
+repair work rather than more local enumeration.

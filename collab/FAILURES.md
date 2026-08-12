@@ -237,3 +237,17 @@ refuted by the stationary false model. The old grid uniqueness check and
 finite-$\lambda$ regression were removed; exp53 is now exact and fail-closed.
 Extend: independently audit R0021, then rule out the four sharp vertices using
 genuinely arithmetic structure.
+
+F24 [08-12] [codex] — Compiled `natural` runtime walk. Walked: projected all
+claim packets, event chains, sources, obligations, evidence, dependency and
+supersession edges, coordination messages, and journal heads into one
+deterministic query graph; added summary/show/impact/frontier/resume/validate/
+snapshot commands and adversarial tests. YIELD: a useful runtime did fit the
+existing free-form corpus without inventing a database, while immediately
+exposing two hidden provenance debts: R0010's event still names its
+pre-renumbering R0009 path, and R0012 names an absent exp46 output file. The
+runtime preserves these as warnings and strict-mode failures rather than
+rewriting append-only history. Artifact resolution needed an additional hard
+boundary: absolute paths, parent traversal, and symlink escapes are rejected
+before hashing. Extend: promote proof obligations from prose fields to typed
+nodes with checked evidence/discharge edges; do not build another dashboard.

@@ -17,6 +17,22 @@ fields.
 Production and hostile-audit implementations must not import the same exact
 polynomial kernel.  Shared code is convenience, not independence.
 
+## Compiled research-state queries
+
+`code/natural.py` is the read-only graph layer above this exact-computation
+substrate. It compiles claim packets, events, sources, obligations, evidence,
+dependencies, coordination messages, and journal heads without changing their
+authority. Run its regressions with:
+
+```sh
+python3 code/natural.py validate
+python3 -m unittest machinery.test_natural_runtime
+```
+
+Historical missing event artifacts remain visible warnings; use
+`natural.py validate --strict-artifacts` when a workflow requires a completely
+closed provenance set.
+
 ## Finite observer audits
 
 `observer_channel.py` compiles the finite information lens into an exact
