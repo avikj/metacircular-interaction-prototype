@@ -146,6 +146,21 @@ def explain_distinctions(
     }
 
 
+def distinction_horizon(
+    states: Sequence[State],
+    actions: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+    observation: Mapping[State, Output],
+) -> int:
+    """Maximum length of a shortest separating word in a finite world."""
+    words = explain_distinctions(states, actions, transition, observation).values()
+    horizon = max((len(word) for word in words if word is not None), default=0)
+    bound = max(len(tuple(states)) - 2, 0)
+    if horizon > bound:
+        raise AssertionError("finite future exceeded the sharp n-2 refinement bound")
+    return horizon
+
+
 def extend_observation(
     states: Sequence[State],
     observation: Mapping[State, Output],
@@ -614,6 +629,8 @@ def _show_divisibility(base: int, modulus: int) -> None:
     print(f"base: {base}")
     print(f"modulus: {modulus}")
     print(f"finite future horizon: {divisibility_horizon(base, modulus)}")
+    print(f"shortest distinguishing horizon: "
+          f"{distinction_horizon(world.states, digits, world.transition, observation)}")
     print(f"minimal states ({len(direct)}): {direct}")
     print(f"learned digit blocks: {learned}")
     print(f"primitive action count: {len(digits)} -> {len(actions)}")

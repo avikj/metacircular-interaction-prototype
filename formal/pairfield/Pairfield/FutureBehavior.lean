@@ -87,6 +87,50 @@ theorem quotientStep_mk (step : X → A → X) (observe : X → O)
     quotientStep step observe action (Quotient.mk _ x) =
       Quotient.mk _ (step x action) := rfl
 
+/-- Apply an entire action word directly on the quotient. -/
+def quotientRun (step : X → A → X) (observe : X → O) :
+    Quotient (futureSetoid step observe) → List A →
+      Quotient (futureSetoid step observe)
+  | meaning, [] => meaning
+  | meaning, action :: word =>
+      quotientRun step observe (quotientStep step observe action meaning) word
+
+/-- Executing before or after quotienting gives the same meaning. -/
+theorem quotientRun_mk (step : X → A → X) (observe : X → O)
+    (x : X) (word : List A) :
+    quotientRun step observe (Quotient.mk _ x) word =
+      Quotient.mk _ (run step x word) := by
+  induction word generalizing x with
+  | nil => rfl
+  | cons action word induction =>
+      exact induction (step x action)
+
+/-- A finer observation can split old meanings but cannot merge them. -/
+theorem futureEq_of_finer {Fine : Type z}
+    (step : X → A → X) (coarse : X → O) (fine : X → Fine)
+    (forget : Fine → O) (hforget : ∀ x, forget (fine x) = coarse x)
+    {x y : X} (h : FutureEq step fine x y) :
+    FutureEq step coarse x y := by
+  intro word
+  change coarse (run step x word) = coarse (run step y word)
+  rw [← hforget (run step x word), ← hforget (run step y word)]
+  exact congrArg forget (h word)
+
+/-- Joint observation preserves exactly the intersection of two distinctions. -/
+theorem futureEq_pair_iff {P : Type z}
+    (step : X → A → X) (left : X → O) (right : X → P) (x y : X) :
+    FutureEq step (fun state => (left state, right state)) x y ↔
+      FutureEq step left x y ∧ FutureEq step right x y := by
+  constructor
+  · intro h
+    constructor
+    · intro word
+      exact congrArg Prod.fst (h word)
+    · intro word
+      exact congrArg Prod.snd (h word)
+  · rintro ⟨hleft, hright⟩ word
+    exact Prod.ext (hleft word) (hright word)
+
 theorem quotientObserve_mk (step : X → A → X) (observe : X → O) (x : X) :
     quotientObserve step observe (Quotient.mk _ x) = observe x := rfl
 

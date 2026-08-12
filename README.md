@@ -156,6 +156,10 @@ finite world, possible actions, and observations.  It joins exactly those
 states that no future experiment can distinguish, and for every distinction
 it keeps the shortest experiment that reveals it.  Its concepts are therefore
 neither names nor embeddings: they are executable ways of telling worlds apart.
+In a world of `n` states every possible distinction has a witness of length at
+most `max(n-2,0)`; once a distinction exists, the present observation already
+supplies two classes, leaving at most `n-2` strict refinements.  The infinite
+family of future words is therefore exhausted by a sharp finite horizon.
 The world itself may be generated from one seed by repeatedly applying its
 actions.  If the declared finite horizon is not closed, the first omitted
 transition is returned as a frontier rather than silently treating a prefix as
@@ -198,7 +202,9 @@ Then show it a new exact view.  If the view separates states previously joined,
 the old meaning reopens and refines.  The earlier observation is retained, not
 declared false, and previously compiled actions remain replayable as the action
 words from which they came.  Learning is alternately compression and renewed
-distinction.
+distinction.  Lean checks the direction of this change: because the richer view
+projects back to the old one, it may split an old class but cannot merge two old
+classes.
 
 Run it:
 
@@ -234,6 +240,12 @@ the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
 hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
 the overlap condition and the residual fiber are both retained.
 
+Lean checks the general part that is truly universal: equality under a pair of
+observations is exactly the intersection of equality under each observation.
+The Chinese-remainder calculation supplies what that abstract intersection
+does not: which pairs of readings can coexist and what their joint view still
+cannot reconstruct.
+
 The shared heart is machine-checked in
 `formal/pairfield/Pairfield/FutureBehavior.lean`: a state's meaning for a
 declared observation is the function sending every finite action word to its
@@ -242,7 +254,16 @@ and is preserved by every action.  The checked quotient carries the induced
 actions and observation.  This is all the universal language the current
 construction needs.  Every future-invariant quantity factors through this
 quotient, and the quotient embeds into the space of complete observable
-futures: nothing coarser preserves the same distinctions.
+futures: nothing coarser preserves the same distinctions.  Executing any
+action-word before quotienting gives exactly the same result as executing its
+induced actions afterward; this is the checked reason a compiled shortcut
+cannot manufacture meaning.
+
+This is a set-level behavioral quotient for one declared action/observation
+context.  It is not global mathematical identity.  It deliberately does not
+retain distinct equivalence proofs, automorphisms, homotopies, or higher paths;
+those remain in the native proof-relevant object and are transported by
+explicit witnesses rather than erased into this finite crystal.
 
 ## One living test
 
