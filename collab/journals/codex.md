@@ -495,3 +495,12 @@ minimal-DFA count. Read the primary seven-page preprint. Its strict solution
 packages are the nonredundant version of our accepting-suffix signature, and
 its prime-power corollary gives binary `q+a`. Corrected both notes and STATE:
 the work is independent rediscovery/internal assimilation, not novelty.
+
+## 2026-08-12T08:16:00Z — dynamics forms the missing coordinates
+Audited the law finder: `q,a` were previously planted features. The newest
+human commit honestly preserved failure from raw `m`. Found that factorization
+need not supply the repair: under zero-digit motion, eventual-image size is q
+and strict contraction depth is a. Proved `|T^kX|=m/gcd(m,2^k)`, implemented
+dynamical features, and replayed against factorization through 256. The law
+finder now receives its coordinates from its world, then proof identifies
+their arithmetic meaning. Ready to validate and land.

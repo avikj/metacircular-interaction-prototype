@@ -179,8 +179,11 @@ smallest candidate fitting moduli `1..32`.  It then survives held-out moduli
 `33..128`.  This remains conjecture generation, not proof; the elementary
 argument in `BINARY_DIVISIBILITY_CRYSTAL.md` is what licenses installation.
 Before receiving those features it searches the same small language using only
-the raw modulus and finds no law.  The failed representation is preserved;
-factorization supplies the missing coordinates that make compression possible.
+the raw modulus and finds no law. The failed representation is preserved. The
+missing coordinates are then derived from the generated dynamics itself: under
+the zero-digit action, `q` is the size of the eventual image and `a` is the
+number of strict image contractions before stabilization. Factorization is an
+independent explanation of coordinates first exposed by motion.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,

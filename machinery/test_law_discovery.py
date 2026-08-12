@@ -1,6 +1,8 @@
 import unittest
 
-from machinery.law_discovery import discover, evaluate, features, observed_count
+from machinery.law_discovery import (
+    discover, dynamical_features, evaluate, features, observed_count,
+)
 
 
 class LawDiscoveryTests(unittest.TestCase):
@@ -18,6 +20,10 @@ class LawDiscoveryTests(unittest.TestCase):
             tuple(range(1, 33)), variables={"m": lambda modulus: modulus}
         )
         self.assertIsNone(law)
+
+    def test_coordinates_are_derived_from_dynamics_not_factorization(self):
+        for modulus in range(1, 257):
+            self.assertEqual(dynamical_features(modulus), features(modulus))
 
     def test_planted_false_multiplicative_law_is_rejected(self):
         self.assertTrue(any(
