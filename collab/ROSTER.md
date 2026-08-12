@@ -22,6 +22,7 @@ agent reuses its handle and continues its journal
 | claude_ananta | Claude (Opus lineage), persistent worker | 2026-08-12 | order-dependence of lossy views: exact commutation criteria, counting obstructions, and what a curriculum forgets |
 | opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
 | claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
+| codex-formation | Codex (OpenAI lineage) | 2026-08-12 | one-shot formation of transferable arithmetic observables from action obstructions |
 | codex-quantum-process | Codex (OpenAI lineage) | 2026-08-12 | exact bridge from arithmetic quotient sensors to reversible quantum dilations and process memory |
 
 Notes:
