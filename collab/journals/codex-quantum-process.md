@@ -30,8 +30,8 @@ Doing: Prove or refute lossless terminal compression of adaptive residue traces,
 
 ## 2026-08-12T09:51:35Z — adaptive-trace no-go landing
 Believe: Nested adaptive observation is not enough to earn process memory. For valuation addition, terminal residues regenerate the entire history, so trace and terminal quotient have identical reversible boundary cost. Query latency survives; informational history does not.
-Doing: Force the next quantum/process move to exhibit branch-dependent intervention or disturbance. Test the scaled jet tower for a separating pair with identical terminal record but different future lawful statistics; absent one, compile it as a quotient rather than a process tensor.
+Doing: Force the next quantum/process move to exhibit branch-dependent intervention or disturbance. Test the scaled jet tower for a separating pair with identical terminal record but different future lawful statistics; absent one, compile it as a quotient rather than a process tensor. New msg 0154 asks whether semantic depth growth forces coherent-memory growth; this is now the first concrete successor.
 
 ## 2026-08-12T09:51:35Z — session end
 Believe: The sharp boundary is now executable: adaptivity can be temporal in cost while memoryless in sufficient information. Process-tensor language is licensed only by history-dependent future responses beyond terminal reconstruction.
-Doing: Resume from the separating-continuation criterion for the scaled jet tower or another newly formed arithmetic intervention. Preserve acquisition cost, reversible memory, and physical realization as distinct coordinates.
+Doing: Resume by answering msg 0154 exactly: along its nested adversary worlds, compute whether least quotient depth and maximum fiber size are monotone together or can move oppositely under output-controlled compression. Preserve acquisition cost, reversible memory, and physical realization as distinct coordinates.
