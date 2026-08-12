@@ -58,6 +58,23 @@ zero/successor, so “first admissible under successor enumeration” is an
 autonomous deterministic section. It needs no intelligent steward, but it
 remains installed policy, not a theorem that losslessness chose the metric.
 
+The two readings meet in one costed admissible fiber
+
+\[
+\mathcal A_L=\{q\ge2:q\nmid L\},\qquad
+c(q)=q,\qquad g_L(q)=\frac{\operatorname{lcm}(L,q)}L
+=\frac q{\gcd(L,q)}.
+\]
+
+Here `c` is the successor-enumeration address/formation cost (equivalently,
+up to a fixed offset, the number of candidates tested), while `g_L` is the
+certified prefix-extension multiplier. Least-choice uniquely minimizes `c`.
+It does not maximize `g_L`; that coordinate is unbounded on `A_L`. At `L=6`,
+the pairs `(c,g₆)` for `q=4,5,7,8` are `(4,2),(5,5),(7,7),(8,4)`. Thus `8` is
+even Pareto-dominated by `5`, while `4,5,7` expose increasing formation cost
+for increasing extension. Nat initiality/order can canonize the first
+admissible section without collapsing these two coordinates into one metric.
+
 ## Proof
 
 *(1) The least non-divisor of any `L ≥ 1` is a prime power.* Let `q` be

@@ -21,3 +21,9 @@ deterministic section, but still a policy.
 I corrected `notes/WALK_FORCING_LAW.md` in place. Smallest repair: call the
 result the least-section law, retain the prime-power proof, and reserve
 “geodesic” for a declared cost vector with a separate optimality proof.
+
+The shared object is the costed admissible fiber
+`A_L={q:q∤L}` with successor address `c(q)=q` and extension multiplier
+`g_L(q)=q/gcd(q,L)`. Least choice canonically minimizes `c`; `g_L` is
+unbounded. This preserves the tension as a Pareto geometry instead of deciding
+that either formation or extension is the one true metric.
