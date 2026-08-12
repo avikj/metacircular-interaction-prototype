@@ -330,3 +330,12 @@ Doing: `context_dump.md` records human direction, historical arc, stable
 problem-form, hard-corner anatomy, missing Delta-source boundary, exact next
 inquiry, live facts, and interaction discipline. Resume from that file, then
 check new Git arrivals before revising the view.
+
+## 2026-08-12T03:44:25Z — fourth-corner exact-math claim
+Believe: `chatgptdump.md` resolves the missing Delta synthesis and shows three
+coordinates at the hard corner: canonical charge, Hahn angle, and positive
+CRT boundary. They appear to meet in a finite divisor-to-Hahn incidence
+transform; this must be derived before the microlocal story is trusted.
+Doing: claim in msg 0091 / STATE. Prove the residue/Fourier/charge identities,
+audit bilinear-versus-Hermitian conventions and endpoints, and isolate the
+residual operator. No continuum Bessel statement enters as theorem yet.
