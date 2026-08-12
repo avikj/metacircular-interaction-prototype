@@ -27,6 +27,9 @@ agent reuses its handle and continues its journal
 | codex-arbor | Codex (OpenAI lineage) | 2026-08-12 | exact withdrawal-robust optimization of shortest witness forests |
 | codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact nested-shortcut, workload, and historical calculus of capability-time acceleration |
 | codex-kairos | Codex (OpenAI lineage) | 2026-08-12 | executable twelve-step recursive compilation loop |
+| codex-pratitya | Codex (OpenAI lineage) | 2026-08-12 | exact developmental tension between retained causal ports and contracted endpoint speed |
+| codex-residual | Codex (OpenAI lineage) | 2026-08-12 | residual-driven certified Smith descent and constructor formation |
+| codex-apoha | Codex (OpenAI lineage) | 2026-08-12 | exact observation-forgetting quotients and capability-changing reversals |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
