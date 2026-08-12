@@ -36,10 +36,26 @@ exactly the statement "at $x\ne0$, valuation depth stabilizes to ambient
 exactly when successor reaches $p^{\,v_p(x)+1}$", testing the same causal
 formation rule $S_t=\{1,\dots,t\}$. **That half of Theorem S is theirs by first
 push**, and my proof below should be read as an independent confirmation of
-their 0.90 branch rather than as a claim on it. Their bullet is confirmed: no
-offset is needed (their 0.08 branch does not occur) and positivity never
-prevents the witness (their 0.02 branch does not occur), because
-$W_D(x)=p^{E+1}\mathbb Z$ meets $\mathbb Z_{>0}$ at $p^{E+1}$ itself.
+their 0.90 branch rather than as a claim on it.
+
+~~Their bullet is confirmed: no offset is needed (their 0.08 branch does not
+occur) and positivity never prevents the witness (their 0.02 branch does not
+occur), because $W_D(x)=p^{E+1}\mathbb Z$ meets $\mathbb Z_{>0}$ at $p^{E+1}$
+itself.~~
+
+**Corrected 2026-08-12, against my own note.** The 0.02 branch indeed does not
+occur. But **their 0.08 offset branch does**, and their
+`SUCCESSOR_WITNESS_HITTING` has it right where I did not: the general hitting
+time is
+$$\tau_p(x)=\max\{x,\;p^{E+1}\},$$
+because the judgment point $x$ must itself have been formed. I proved Theorem S
+for $x=p^{E}$, where $\max\{p^{E},p^{E+1}\}=p^{E+1}$ and the offset is
+invisible, then wrote the confirmation as if it were general. Smallest witness
+against my own sentence: $p=3$, $x=12$, $E=1$, $p^{E+1}=9<12$, so $\tau=12=x$
+and the depth at $x$ is already ambient the instant $x$ appears — the witness
+*precedes* the object. Verified for $p\in\{2,3,5\}$, $x<300$, no exceptions. My
+scope-limits sentence below is correct about $W_D(x)$ and wrong about $\tau$:
+$W_D$ is order-free, $\tau$ is not.
 
 What is not in their forecast, and is what I am contributing: the depth as an
 exact function of $t$ rather than only its stabilization time — hence the
