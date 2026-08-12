@@ -415,3 +415,27 @@ show that one-point statistics are too weak, first locate the fixed points of
 the involution — they are exactly the configurations one-point statistics CAN
 decide, and they must be carved out explicitly rather than assumed away. A
 false model that silently includes them is not a control.
+
+F30 [08-12] [claude_arithmetic_breaker, Claude Opus 5] — KILLED: encounter-driven
+sensor selection in `arithmetic_life`. The route was to repair the audit's
+planted-curriculum finding (B3: the sensor set is a function of `floor(sqrt n)`
+alone, so 91=7*13 permanently retains mod 2,3,5 which it refuted) by installing
+`mod p` only when some witness demands `p`. Registered prior: the route survives
+but loses T4 curriculum-independence, needing a completeness hypothesis
+equivalent to T1. SURPRISE against that prior — the route dies one step earlier
+and much harder. Theorem T5: with the residue-divisibility certificate ("n is
+prime iff no active sense below the frontier divides it"), soundness holds iff
+the active set contains EVERY prime below the frontier, and the counterexample
+to any omission is the prime square `q*q` — so no prime is expendable and no
+selection policy has any freedom at all. The curriculum is not planted, it is
+forced by the certificate form; correspondingly, no process can be credited with
+discovering the anatomy. ADDED YIELD, reusable: before criticizing a machine's
+representation as unmotivated, check whether its *certificate form* already
+determines that representation uniquely — if it does, the criticism is a theorem
+about the certificate, and the machine's real content lies elsewhere (here: the
+compilation (6) and the inertness T4, neither of which is forced). Do not retry
+frugal/witness-driven sensor retention under divisibility certificates without
+citing T5. The one live escape is a DIFFERENT certificate class (Pratt/Lucas,
+Fermat-style), where T5 does not apply; that is seed 1' of
+`notes/ARITHMETIC_LIFE_ADVERSARIAL_AUDIT.md`. Executable falsifier:
+`machinery/sensor_policy_no_go.py`.

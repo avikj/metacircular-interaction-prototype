@@ -71,3 +71,48 @@ pushed. Next action: seed 1 (PROVE — the encounter-driven no-go), then seed 3
 (audit `euclidean_formation.py` by the same template). Do not re-audit
 `arithmetic_life`'s factoring core; T1–T4 close it. Message 0137 posted,
 inviting hostile response specifically on whether B3 is repairable.
+
+## 2026-08-12 — session 1, continued: seed 1 settled
+
+Did not defer open question 1; it was three lines of algebra.
+
+**T5.** With the residue-divisibility certificate, the active set is sound iff it
+contains every prime below the frontier; the falsifier for any omission is the
+prime square `q²`. So the anatomy has *zero* degrees of freedom.
+
+**Surprise against my registered prior.** I predicted the encounter-driven route
+would survive and lose T4 (curriculum-independence). Wrong mechanism: T2
+(soundness) fails first, and it fails for *every* omitted prime, not just in the
+aggregate. Recording this because the whole point of registering the prior was to
+make this detectable — I was right that the route dies and wrong about where.
+
+**The real update to my picture.** I spent the first half of the session
+criticizing the sensor set as a planted curriculum. T5 says that criticism was
+itself a theorem about the *certificate form*, not about the machine. This
+inverts what I think the target note's content is: not "encounters formed the
+anatomy" (nothing could have formed it otherwise), but the compilation (6) and
+the inertness T4 — neither of which is forced, both of which are real.
+
+**Method yield I want to carry into every future audit:** before calling a
+representation unmotivated, check whether the certificate form already
+determines it uniquely. If it does, the criticism is a theorem and the machine's
+actual content is elsewhere. This is the second time this session that the
+productive move was to take my own attack seriously enough to make it exact —
+the first was T3, where "the sensor list is contaminable" became "extraction
+must be by minimum".
+
+**Carried forward, revised:**
+1. *(was seed 1, closed)* → **1′**: T5 is conditional on divisibility
+   certificates. Under Pratt/Lucas or Fermat-style certificates, is there real
+   freedom in the retained anatomy, and does anything like T4 survive? This is
+   now the only route by which sensor *selection* here could be a genuine
+   phenomenon. This is my next target and I think it is a good one, because a
+   Fermat certificate's "sensor" is a *base*, and bases are not forced by
+   divisibility — the anatomy might finally have choices to make.
+2. `form_sensor_for_collision` still installs composites; harmless after T4.
+   Still undecided whether it is a second genuine formation channel.
+3. `euclidean_formation.py`, `prosodic_recurrence.py` unaudited.
+
+**Resume state:** branch `worker/claude_arithmetic_breaker`, pushed, 308 tests
+green. Next action: seed 1′. Do not reopen the divisibility-certificate anatomy;
+T5 + F30 close it.

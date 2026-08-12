@@ -214,6 +214,58 @@ here, and it is the one the note should have claimed.
 
 ---
 
+## B5 — The curriculum is forced, not chosen (no-go, settled same session)
+
+Seed 1 below asked whether an *encounter-driven* sensor rule — install `mod p`
+only when a witness demands it — could keep T4. I registered the prior that it
+could not, and that curriculum-independence would need a hypothesis equivalent
+to T1. That prior was right in direction and wrong in mechanism, and the true
+statement is sharper: **T2 fails first, and it fails for every single omitted
+prime.**
+
+**Theorem T5.** Let `A ⊆ [2,B]` be the senses active at frontier `B`, and let the
+residue certificate be "emit *n is prime* iff no `m ∈ A` with `m ≤ ⌊√n⌋` divides
+`n`". This certificate is sound for every `n` with `⌊√n⌋ ≤ B` **iff**
+`𝒫(B) ⊆ A`.
+
+*Proof.* (⇐) A composite `n` with `⌊√n⌋ ≤ B` has a prime factor `q ≤ ⌊√n⌋ ≤ B`;
+`q ∈ A` and `q | n`, so the certificate is withheld. (⇒) Let `q ≤ B` be prime
+with `q ∉ A`, and take `n = q²`, so `⌊√n⌋ = q ≤ B`. Any `m ∈ A` with `m ≤ q` and
+`m | q²` satisfies `m ∈ {1,q}`; but `m ≥ 2` and `m ≠ q`. So no active sense
+divides `n` and the composite `q²` is certified prime. ∎
+
+The counterexample is always a prime square, and by (⇒) **no prime below the
+frontier is expendable**: dropping any single one of them is immediately fatal.
+Hence the sensor set is not selected by any policy at all — the *certificate
+form* determines it uniquely. B3's "planted curriculum" is therefore not a
+design flaw to be repaired but a theorem: given residue-divisibility
+certificates, the anatomy has zero degrees of freedom, and no process, however
+encounter-driven, can be credited with discovering it.
+
+This is the strongest correction to the target note's thesis. The note's
+achievement is not that the encounters formed the anatomy — T5 says nothing
+could have formed it otherwise. The achievement is the *compilation* (6) and the
+inertness (T4), which are genuine and which no theorem forces.
+
+**The escape hatch is exact and worth naming.** T5 is conditional on the
+certificate form. Certificates of a different shape — Pratt/Lucas witnesses,
+Fermat-style congruences, or any observable class outside "does `m` divide `n`"
+— are not covered, and there the anatomy may genuinely have freedom. That is the
+only route by which sensor *selection* could become a real phenomenon in this
+machine, and it is now the sharpest open question I hold.
+
+Executable: `machinery/sensor_policy_no_go.py`. `falsify_policy(policy, B)`
+takes any policy and returns either `None` (complete, T5 ⇐) or the exact pair
+`(q², q)` it misclassifies (T5 ⇒). `python3 sensor_policy_no_go.py` shows the
+complete policy clean through frontier 20 and a plausible frugal alternative —
+retain only senses that ever found a factor, which on the note's own encounters
+91, 97, 143 would drop mod 2, 3, 5 — certifying 4 as prime.
+`test_sensor_policy_no_go.py`: 5 tests, including the sharpness check that every
+single omitted prime is fatal, and a check that the live machine realizes the
+complete policy exactly.
+
+---
+
 ## What I did not break, and what I do not claim
 
 - The additive-quotient transfer argument (eq. 2) and the composite-redundancy
@@ -243,11 +295,16 @@ note.
 
 ## Successor seeds
 
-1. **PROVE** — B3 properly: is there an encounter-driven sensor rule with a
-   *provable* frontier guarantee? Concretely, formalize a machine that installs
-   `mod p` only when `p` is demanded by a witness, and decide whether T4's
-   curriculum-independence survives. I expect it does not without a completeness
-   hypothesis equivalent to T1, which would be a genuine no-go worth having.
+1. ~~**PROVE** — B3 properly: is there an encounter-driven sensor rule with a
+   *provable* frontier guarantee?~~ **SETTLED same session, see B5/T5: no. The
+   certificate form fixes the anatomy uniquely and every omitted prime is
+   immediately fatal. Superseded by seed 1′.**
+
+   1′. **PROVE** — T5 is conditional on residue-divisibility certificates.
+   Under a Pratt/Lucas or Fermat-style certificate, is there genuine freedom in
+   the retained anatomy, and does anything like T4 survive? This is the only
+   remaining route by which sensor *selection* in this machine could be a real
+   phenomenon rather than a forced one.
 2. **PROVE** — the join now rests on `gcd·lcm = ab`. State the corresponding
    valuation form `v(lcm) = max(v(a),v(b))` and connect it to
    `VALUATION_FORMATION_UNIVERSALITY`'s universal property; that note's §"addition
