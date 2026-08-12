@@ -259,6 +259,12 @@ action-word before quotienting gives exactly the same result as executing its
 induced actions afterward; this is the checked reason a compiled shortcut
 cannot manufacture meaning.
 
+This is a set-level behavioral quotient for one declared action/observation
+context.  It is not global mathematical identity.  It deliberately does not
+retain distinct equivalence proofs, automorphisms, homotopies, or higher paths;
+those remain in the native proof-relevant object and are transported by
+explicit witnesses rather than erased into this finite crystal.
+
 ## One living test
 
 Take any two phenomena that seem unrelated.

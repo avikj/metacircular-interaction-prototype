@@ -39,3 +39,7 @@ This is why the finite crystal can speak exactly about an infinite set of
 future words.  Finiteness does not approximate the declared behavior here;
 stabilization proves that the finite horizon has already seen all distinctions
 that any later word could expose.
+
+The claim is relative to the declared observation and actions.  It does not
+say that two states in one fiber are identical mathematical objects, only that
+this experiment language has no continuation that separates them.
