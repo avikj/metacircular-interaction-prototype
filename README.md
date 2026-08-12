@@ -251,6 +251,22 @@ the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
 hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
 the overlap condition and the residual fiber are both retained.
 
+Reconstruction is not the only thing that can fail.  A view used as a *working
+memory* replaces a signal by its fiberwise average, and then the order of two
+views can matter.  It matters exactly when they fail to spread across each
+other evenly: two such compressions commute precisely when every pair of their
+fibers inside a common coarsening meets in `|B||D|/|E|` points.  The criterion
+is cheap enough to be an obstruction.  Because that number must be an integer,
+block sizes alone can prove that no order-free study is possible — the decimal
+view of `Z/1000Z` and the view recording which of `8` and `125` divides
+`x²-x` cannot commute, since the four idempotents cannot spread evenly over
+fibers of a hundred.  The two residue views above, by contrast, commute for
+every `m` and `n`, coprime or not: the residual fiber that blocks
+reconstruction is exactly what makes the counts come out even.  Losing
+information and losing order-independence are different failures.  When views
+do commute, studying them in any order forgets precisely their common
+coarsening and nothing else.
+
 Lean checks the general part that is truly universal: equality under a pair of
 observations is exactly the intersection of equality under each observation.
 The Chinese-remainder calculation supplies what that abstract intersection
