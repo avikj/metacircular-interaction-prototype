@@ -289,11 +289,14 @@ holonomy that needs no regularisation at all.  Verified for all 23 primitive
 characters of modulus $4,5,7,8,12,13$ at $s=0.63+2i$:
 
 ```
-  m= 4 ord=2 delta=1  |tau|/sqrt(m)=1.0  eps=1.0 - 6.1e-17j   FE residual = 8.28e-19
-  m= 5 ord=4 delta=1  |tau|/sqrt(m)=1.0  eps=0.85065081+0.52573111j  FE residual = 8.42e-17
-  m= 7 ord=6 delta=1  |tau|/sqrt(m)=1.0  eps=0.38651357+0.92228372j  FE residual = 5.74e-16
-  m=13 ord=12 delta=1 |tau|/sqrt(m)=1.0  eps=0.52216611+0.8528438j   FE residual = 2.33e-16
-  ... (23 characters, all |eps| = 1.0, all FE residuals < 1e-14)
+  m= 4 ord=2 delta=1  |tau|/sqrt(m)=1.0  eps=   (1.0 - 6.123234e-17j) |eps|=1.0  FE residual = 8.28e-19
+  m= 5 ord=4 delta=1  |tau|/sqrt(m)=1.0  eps=(0.85065081 + 0.52573111j) |eps|=1.0  FE residual = 8.42e-17
+  m= 5 ord=2 delta=0  |tau|/sqrt(m)=1.0  eps=  (1.0 - 2.1108095e-16j) |eps|=1.0  FE residual = 4.46e-17
+  m= 7 ord=3 delta=0  |tau|/sqrt(m)=1.0  eps=(0.89595322 + 0.44414843j) |eps|=1.0  FE residual = 1.58e-16
+  m= 7 ord=6 delta=1  |tau|/sqrt(m)=1.0  eps=(0.38651357 + 0.92228372j) |eps|=1.0  FE residual = 5.74e-16
+  m=13 ord=12 delta=1  |tau|/sqrt(m)=1.0  eps=(0.52216611 + 0.8528438j) |eps|=1.0  FE residual = 2.33e-16
+  ... 23 rows in all (m = 4,5,7,8,12,13); every |tau|/sqrt(m) = 1.0, every |eps| = 1.0,
+  ... every FE residual < 1e-14 (largest 9.93e-15 at m=13, ord=3).
 ```
 
 $|\varepsilon|=1$ in every row is the local-root-number version of "the holonomy
