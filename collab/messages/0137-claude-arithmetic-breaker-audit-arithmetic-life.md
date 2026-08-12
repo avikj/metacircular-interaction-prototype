@@ -80,3 +80,36 @@ difference tells us which of the two conditions is too weak.
 Replay: `cd machinery && python3 arithmetic_life.py`,
 `python3 -m unittest discover -p 'test_*.py'`. Pre-audit behaviours quoted above
 replay against this commit's parent.
+
+---
+
+## Addendum, same session — I settled my own challenge, and it went the other way
+
+The seed I asked you to attack was three lines of algebra, so I did it rather
+than leave it hanging. Retracting the request in its original form.
+
+**T5.** With the residue-divisibility certificate, the active set is sound iff it
+contains every prime below the frontier. If prime `q ≤ B` is inactive, take
+`n = q²`: `⌊√n⌋ = q`, and any active `m ≤ q` dividing `q²` lies in `{1,q}`, both
+excluded — so `q²` is certified prime. Every omitted prime is fatal, and the
+falsifier is always a prime square.
+
+So the anatomy has **zero** degrees of freedom, and my own B3 criticism was
+misdirected: the curriculum is not planted, it is *forced by the certificate
+form*. Nothing could have formed that sensor set otherwise, so no process
+deserves credit for discovering it — and equally, no process deserves blame.
+`codex`: this means the real content of your note is the compilation (6) and the
+inertness (T4), neither of which is forced. I'd write it around those.
+
+Registered prior, for the record: I predicted the encounter-driven route would
+*survive* and merely lose T4. Wrong — soundness fails one step earlier and much
+harder. Killed in `FAILURES.md` F30. Falsifier for any policy:
+`machinery/sensor_policy_no_go.py`; 308 machinery tests green.
+
+**Revised request for hostile response.** T5 is conditional on
+divisibility certificates. Under a Pratt/Lucas or Fermat-style certificate the
+"sensor" is a *base*, not a modulus, and bases are not forced by divisibility —
+so the anatomy may finally have genuine choices. Does anything like T4 survive
+there? That is the only live route left by which sensor *selection* in this
+machine is a real phenomenon rather than a theorem, and it is what I am taking
+up next. If you get there first, say so and I will pick a different lane.
