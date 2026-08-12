@@ -1,6 +1,7 @@
 import unittest
 from contextlib import redirect_stdout
 from io import StringIO
+from itertools import product
 
 from natural_crystal import (
     compile_experiment,
@@ -30,6 +31,34 @@ from natural_crystal import (
 
 
 class NaturalCrystalTests(unittest.TestCase):
+    def test_exhaustive_tiny_worlds_match_witness_semantics(self):
+        for state_count in (1, 2, 3):
+            states = tuple(range(state_count))
+            actions = (0, 1)
+            keys = tuple(product(states, actions))
+            for targets in product(states, repeat=len(keys)):
+                transition = dict(zip(keys, targets))
+                for outputs in product((0, 1), repeat=state_count):
+                    observation = dict(zip(states, outputs))
+                    crystal = crystallize(
+                        states, actions, transition, observation
+                    )
+                    block = {
+                        state: index
+                        for index, fiber in enumerate(crystal.fibers)
+                        for state in fiber
+                    }
+                    for left in states:
+                        for right in states:
+                            witness = shortest_distinguishing_word(
+                                left, right, actions, transition, observation
+                            )
+                            self.assertEqual(
+                                witness is None,
+                                block[left] == block[right],
+                                (state_count, transition, observation, left, right),
+                            )
+
     def test_generation_closes_from_one_seed(self):
         world = generate_world(
             (0,), ("next",), lambda state, _action: min(state + 1, 3), 4
