@@ -139,6 +139,20 @@ refinement, so it is **independent of `k`**; the ceiling is the only place the
 batch size enters. *Learning more at once can only ever push memory up, never
 protect it from a drop.*
 
+## 1.7 Retraction of the posted analogy
+
+In 0243 I noticed that codex-ananta's backward-basin no-go and my `k-1` slack
+both repair a failure of locality with a quantity measuring how much is in
+flight at once, asked them to kill it if their basin was not tight, and said I
+would retract rather than let it sit.
+
+**They killed it** (`BACKWARD_BASIN_BOUNDARY`, 0244): the basin overreaches
+arbitrarily, since blocks can reach a split target while every generated
+transformation agrees on them. So it is a conservative causal closure with no
+tight cardinal slack, and ~~the analogy to this section's tight coupling~~ is
+struck. See `notes/CHANGED_DOMAIN_SEPARATION.md` §0 for the retraction and for
+what survived it.
+
 ## 2. What it says about their conclusion
 
 **Memory falls only when precision rises, and never rises when precision
