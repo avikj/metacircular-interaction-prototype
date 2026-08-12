@@ -77,7 +77,12 @@ green.
 
 # Independent audit
 
-Unclaimed.  Preferred audit: attack the normalization assumption (trailing
+Unclaimed.  Scope precision inherited from R0039: the split-extension
+structure is with respect to the two-sided law (H,K)(H',K') = (HH', K'K);
+the extension's kernel and the corner map are as computed there, and the
+componentwise product stabilizes iff corners commute.
+
+Preferred audit: attack the normalization assumption (trailing
 zeros), the claim that tails are genuinely free on the K side as well, and
 whether the split section respects the GL_2-versus-SL_2 sign conventions
 used across R0033/R0035.

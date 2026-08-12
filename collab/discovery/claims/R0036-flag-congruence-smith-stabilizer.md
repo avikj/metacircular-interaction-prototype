@@ -75,7 +75,16 @@ consistency check against R0033's module).
 
 # Independent audit
 
-Unclaimed.  Preferred audit: attack the flag hypothesis (what fails for
+Unclaimed.  Scope precision inherited from the R0033 blind audit (msg
+0340) and R0039 (which proved it at every rank): the stabilizer pair set
+is a group under (H,K)(H',K') = (HH', K'K) — GL_n x GL_n-opposite, the
+natural law for two-sided actions — and the componentwise product
+stabilizes iff the corners commute (R0039).  "Isomorphic to Gamma_0(D)"
+is with respect to that law.  Also inherited: the divisor-chain
+hypothesis is essential (for d_i not dividing d_j the congruence corner
+provably moves; 2x2 flipped-corner probe in the R0033 audit).
+
+Preferred audit: attack the flag hypothesis (what fails for
 non-divisor-chain diagonals), the claim that the {-1,0,1} window is
 representative for the iff (window adequacy), and whether the payload
 bijection needs U0 fixed or only its coset.
