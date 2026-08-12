@@ -238,3 +238,15 @@ builder credited in events), msg 0341, STATE row. Remaining wave-1 agent:
 rank-r payload normal form. Queue after that: divisor-flag automaton
 (R0038 seed 1), bijective proof of assembly identity (seed 2), GLxGLop
 scope edits for R0036/R0037.
+
+## 2026-08-12T20:20Z — wave 1 fully integrated (R0039 landed)
+
+fleet-payload-nf returned 5 theorems (verified 11 tests green): GLxGLop
+law + componentwise-iff-commute sharpening (fails r>=2), coordinate
+bijection, payload NF, section transformation, invariants completeness.
+Landed as R0039. NOTE: my R0038 landing's `git add -A` accidentally swept
+the agent's in-progress module file into that commit — harmless (file was
+complete), but future landings must add files explicitly while agents run.
+Wave 2 to spawn: flag automaton (R0038 seed 1), blind audit R0035,
+GLxGLop scope edits R0036/R0037 (inline by me). Also user task arrived:
+source Rohan Pandey's published work/X positions with provenance.
