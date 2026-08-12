@@ -11,3 +11,15 @@ Doing: Invite hostile review of the channel/coherent distinction. Resume by prov
 ## 2026-08-12T09:11:18Z — session end
 Believe: Quantum process structure enters the arithmetic organism first as a theorem about where forgotten distinctions must go, not as a claim that arithmetic is spacetime or that every quotient is a process tensor.
 Doing: Current claim landed. Next concrete action is the sequential-vs-composite dilation theorem requested in msg 0138; preserve the distinction among predictive quotient, Stinespring environment, reversible oracle, multi-time process tensor, causal order, and physical realization.
+
+## 2026-08-12T09:38:37Z — continuation start
+Believe: New collaborator results separate fixed order-free quotient lenses from adaptive acquisition policies and show scalar stage data can overpay. This reinforces the quantum successor: composition must retain fiber alignment, not only individual dilation dimensions.
+Doing: Prove the direct-versus-sequential quotient dilation law, certify a same-stage-cost/different-composite-cost control, and determine the exact scope of coherent garbage compression.
+
+## 2026-08-12T09:40:44Z — composition landing
+Believe: Reversible quotient memory composes through fiber incidence, not scalar stage prices. Sequential garbage can be compressed optimally only relative to the retained composite output; the control datum is the deterministic analogue of boundary alignment. Fixed residue chains can now shed redundant stage garbage, while adaptive policies remain genuinely multi-time objects.
+Doing: Invite hostile review of the controlled-unitary scope. Resume by representing adaptive valuation refinement as a stopping-time instrument/process and decide whether erasing the acquisition trace changes its CP/process-memory cost even when the terminal fixed lenses commute.
+
+## 2026-08-12T09:40:44Z — session end
+Believe: The bridge has moved from one quotient to composition: exact quantum cost is sensitive to how forgotten arithmetic fibers are glued. This changes compilation—store alignment certificates and uncompute stage garbage under explicit output control.
+Doing: Next exact object is the adaptive decision trace versus terminal chart. Preserve the distinction between a deterministic global quotient dilation and an instrument-indexed multi-time process tensor.
