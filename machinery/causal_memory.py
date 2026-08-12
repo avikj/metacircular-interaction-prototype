@@ -132,6 +132,25 @@ def marginals(
     return past, future
 
 
+def is_nonnegative_fooling_set(rows, positions) -> bool:
+    """Check a fooling-set certificate for a nonnegative-rank lower bound."""
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in rows)
+    if not matrix or not matrix[0] or any(len(row) != len(matrix[0]) for row in matrix):
+        raise ValueError("matrix must be a nonempty rectangle")
+    if any(value < 0 for row in matrix for value in row):
+        raise ValueError("fooling-set matrix must be nonnegative")
+    picks = tuple(positions)
+    if len(set(picks)) != len(picks):
+        return False
+    height, width = len(matrix), len(matrix[0])
+    if any(not (0 <= i < height and 0 <= j < width) or matrix[i][j] <= 0
+           for i, j in picks):
+        return False
+    return all(matrix[i][column] == 0 or matrix[row][j] == 0
+               for index, (i, j) in enumerate(picks)
+               for row, column in picks[index + 1:])
+
+
 def _rectangular_fraction_matrix(
     rows: Sequence[Sequence[int | Fraction]],
 ) -> list[list[Fraction]]:

@@ -212,6 +212,41 @@ not “information is spacetime.”  It is a comparison theorem or strict
 separation among these cut spectra on explicit processes, followed by a gluing
 law under process composition.
 
+### 5.1 First strict classical separation
+
+The smallest dimensions in which the first two coordinates differ are
+realized by
+
+\[
+S=\begin{pmatrix}0&0&1&1\\1&0&0&1\\1&1&0&0\\0&1&1&0\end{pmatrix}. \tag{9}
+\]
+
+**Theorem.** `rank(S)=3` and `rank_+(S)=4`.
+
+**Proof.** `row_1+row_3=row_2+row_4`, while the first-three-rows,
+first-three-columns minor has determinant one. For the nonnegative lower bound,
+select `(1,3),(2,4),(3,1),(4,2)`. Between every two selected positive entries,
+at least one cross entry vanishes. A nonnegative rank-one summand positive at
+both selections would make both cross entries positive, so no summand covers
+two selections. Four summands are necessary and the four-row decomposition is
+an upper bound. `square`
+
+This is dimension-minimal. Nonnegative rank equals ordinary rank through rank
+two ([Cohen--Rothblum 1993, Proposition 3.1](https://doi.org/10.1016/0024-3795(93)90224-C)). If one matrix dimension is at most three, a strict
+example must therefore have ordinary rank three; the identity-times-matrix
+factorization on the three-entry side is already a nonnegative factorization
+of size three. Both dimensions must be at least four. The executable fooling-
+set checker validates the explicit lower-bound certificate, not nonnegative
+rank in general.
+
+The gluing theorem in Section 7 supplies the exact ordinary-rank composition
+law and its obstruction. Its aligned/orthogonal control also proves that even
+the pair `(rank,rank_+)` of each component cannot determine the composite pair:
+all component matrices there have `(1,1)`, while the composites have `(1,1)`
+and `(0,0)`. Typed scalar spectra price boundaries but forget how their
+subspaces and cones meet; compositional data must retain an identified
+intermediate boundary or factor maps.
+
 ## 6. Prosthetic mathematical networks
 
 Martin Fussenegger's mammalian synthetic-biology program supplies a concrete

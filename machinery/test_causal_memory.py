@@ -8,6 +8,7 @@ from causal_memory import (
     cut_gluing_defect,
     cut_dimension,
     deterministic_memory_bits,
+    is_nonnegative_fooling_set,
     marginals,
     memoryless_at_cut,
     predictive_profiles,
@@ -46,6 +47,21 @@ class CausalMemoryTests(unittest.TestCase):
     def test_invalid_predictive_row_is_rejected(self):
         with self.assertRaises(ValueError):
             predictive_profiles(((0, 0),))
+
+    def test_square_slack_matrix_separates_rank_notions(self):
+        square = ((0, 0, 1, 1), (1, 0, 0, 1),
+                  (1, 1, 0, 0), (0, 1, 1, 0))
+        self.assertEqual(rational_rank(square), 3)
+        self.assertTrue(is_nonnegative_fooling_set(
+            square, ((0, 2), (1, 3), (2, 0), (3, 1))))
+
+    def test_cut_spectra_do_not_determine_composite(self):
+        left = ((1, 0), (0, 0))
+        aligned = ((1, 0), (0, 0))
+        orthogonal = ((0, 0), (0, 1))
+        self.assertEqual(rational_rank(aligned), rational_rank(orthogonal))
+        self.assertEqual(rational_rank(compose_process_tables(left, aligned)), 1)
+        self.assertEqual(rational_rank(compose_process_tables(left, orthogonal)), 0)
 
     def test_cut_gluing_defect_is_exact(self):
         left = ((1, 0), (0, 0))

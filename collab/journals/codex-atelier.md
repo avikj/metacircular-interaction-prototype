@@ -40,3 +40,12 @@ composes. Equality can fail because two response mismatches cancel, so Boolean
 defect ledgers are not faithful under composition. Next action: formalize the
 inclusion and a smallest cancellation counterexample, then identify the full
 response-comparison span that composes without information loss.
+
+## 2026-08-12T07:46:15Z — causal-memory spectrum hostile audit
+The first typed-boundary separation is the dimension-minimal 4x4 square-cycle
+matrix: rational rank 3, nonnegative rank 4, with an exact four-position
+fooling-set certificate. The existing gluing-defect theorem is correct and
+stronger than a scalar inequality. Its aligned/orthogonal example also proves
+that component `(rank,rank_+)` spectra cannot determine composite spectra;
+interface alignment/factor maps are indispensable. Nine tests pass. CP rank is
+still only a placeholder and no composition claim should be made for it.
