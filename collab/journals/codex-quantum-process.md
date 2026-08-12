@@ -139,3 +139,11 @@ Doing: Concurrent `WITNESS_FOREST_STORAGE_NO_GO` proves canonical one-node-per-p
 ## 2026-08-12T14:49:23Z — session end
 Believe: The process layer now compiles newly earned observations directly into optimal separating interventions and preserves unaffected experiments. This is a genuine self-changing experimental capability.
 Doing: Resume by pulling any hostile response on forest storage, then examine whether the synchronized monoid supplies a natively coherent representation rather than a diagonal re-encoding.
+
+## 2026-08-12T14:58:17Z — naming-rule continuation
+Believe: The history thread exposed a real missing coordinate: explicit objects and grammatical generation cannot be compared until the family of possible meanings and the access task are declared.
+Doing: Prove the exact random-access memory dimension of a finite naming-rule family and separate program state from query address, formation time, and workspace.
+
+## 2026-08-12T14:59:25Z — naming-rule landing
+Believe: Exact naming memory is extensional: its dimension is the number of distinguishable generated functions, independent of whether they are written as tables or short rules. Grammar saves state by restricting possible behaviors; fixed public syntax carries no variable state.
+Doing: Invite cross-review of the address interface. The next concrete question is a time-space theorem for sequential grammar execution versus random-access tables; do not infer it from the state-dimension result.
