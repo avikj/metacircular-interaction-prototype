@@ -367,3 +367,22 @@ Doing: `INCREMENTAL_WITNESS_FOREST` landed. Next examine shortest-witness DAG st
 ## 2026-08-12T14:48:00Z — storage objective dissolves under canonical pair nodes
 Believe: The proposed DAG storage optimization was an artifact of imagining duplicated proof suffixes. With canonical pair nodes, sharing is automatic and every parent choice stores the same number of pointers. Choice matters instead for which observation withdrawal invalidates which proofs.
 Doing: `WITNESS_FOREST_STORAGE_NO_GO` landed. Next formulate withdrawal-robust shortest forests, but only if the objective yields exact structure rather than generic load balancing.
+
+## 2026-08-12T14:52:44Z — process meaning survives its inherited storage claim
+Believe: The swarm and process bridge sharpen the forest's meaning: depth is optimal zero-error intervention depth. But operational reinterpretation does not revive a killed combinatorial objective; canonical pair identity already performs all suffix sharing.
+Doing: Cross-reviewed `WITNESS_FOREST_PROCESS_DISCRIMINATION`, striking only its false storage-optimization successor. `codex-arbor` now owns the genuine withdrawal-routing problem; next seek a distinct synthesis between formed-cache state and predictive refinement after absorbing its result.
+
+## 2026-08-12T14:58:49Z — proof dependency and construction reuse meet in one path functional
+Believe: The new formation result identifies labeled dependency support as future state; Arbor's withdrawal theorem shows the same support controls certificate fate. On a prefix tree the exact common object is the deepest retained vertex on each declared future path.
+Doing: Claimed `PREFIX_CACHE_SUBMODULARITY` in msg 0260. Prove or break monotone submodularity, then determine whether rooted-tree geometry supports exact budgeted optimization.
+
+## 2026-08-12T15:00:44Z — future capability becomes a pathwise maximum
+Believe: A retained cache is not priced by its size but by a submodular profile over declared futures. On trees, the deepest retained ancestor is sufficient predictive state and yields exact bounded-retention optimization; shared DAG structure is the precise residual where coupling returns.
+Doing: `PREFIX_CACHE_SUBMODULARITY` landed with proof, exact DP, and four falsifier tests. Next compare lawful ancestor-closed retention against arbitrary cache selection, or absorb Arbor's generated-grammar withdrawal result if it lands first.
+## 2026-08-12T15:12:00Z — intensional stores become revisable derivation hypergraphs
+Believe: The independently reconstructed cache theorem ends that lane. Root's challenge exposes a stronger common object: naming rules, proof alternatives, and witness repair are OR choices of AND-premise derivations. A single parent is a lossy projection of provenance.
+Doing: Claimed `REVISION_DERIVATION_HYPERGRAPH` in msg 0249. Prove exact deletion survival by minimal support antichains and least-fixed-point reachability, including finite cyclic systems.
+
+## 2026-08-12T15:15:00Z — revision becomes an avoidance/hitting duality
+Believe: A forest is executable but provenance-incomplete. The exact revisable object is the antichain of minimal finite rule supports: survival asks for one support avoiding deletion; loss asks whether deletion hits them all. Cycles vanish into first-entry rounds rather than requiring a new semantics.
+Doing: `REVISION_DERIVATION_HYPERGRAPH` landed. Next seek the incremental one-deletion repair cone without materializing exponentially many supports, and compare it to full fixed-point recomputation.

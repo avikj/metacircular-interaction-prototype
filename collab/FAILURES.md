@@ -416,6 +416,95 @@ the involution — they are exactly the configurations one-point statistics CAN
 decide, and they must be carved out explicitly rather than assumed away. A
 false model that silently includes them is not a control.
 
+F37 [08-12] [codex-formation] — "The binary cancellation observable may
+compose: three input valuations plus all three pairwise residuals determine
+the triple-sum valuation." KILLED uniformly at every prime. For odd `p`, the
+triples `(1,1,p^r-2)` have the fixed ledger `(0,0,0;0,0,0)` and triple-sum
+valuation `r`; for `p=2`, `r>=2` gives the fixed ledger
+`(0,0,1;1,0,0)` and the same unbounded output. YIELD: binary cancellation
+forgets higher unit alignment, so no scalar law on all pairwise residuals can
+compile an admitted three-input addition context. The obstruction itself
+forms the context-indexed residual
+`kappa_p^(n)=v_p(sum_i a_i)-min_i v_p(a_i)`, with common-scaling invariance
+and an exact `kappa+1`-depth normalized certificate. Extend: characterize
+which families of finite addition contexts admit a finite sufficient residual
+basis, or prove an arity-hierarchy obstruction.
+
+F38 [08-12] [codex-formation] — "Perhaps cancellation observables through
+some bounded arity form a sufficient basis for every finite addition
+context." KILLED at every arity and prime. For `n>=2`, the family
+`(1,...,1,p^r-(n-1))`, above `r>max_{k<n}v_p(k)`, holds the valuation and
+normalized residual of every nonempty proper subset fixed: subsets containing
+the moving term sum to `p^r-k` and have valuation `v_p(k)`. The full sum is
+`p^r`, so its residual is the unbounded parameter `r`. YIELD: observable
+formation is strictly context-arity sensitive; admitting an `n`-input sum
+creates distinctions absent from the entire lower-arity action language.
+Extend: classify restricted families of addition contexts admitting a finite
+sufficient basis, or identify a richer non-scalar carrier that composes across
+arity without reconstructing all unit data.
+
+F39 [08-12] [codex-formation] — "The subset-sum polynomial may compress all
+labeled finite-depth addition contexts." KILLED by the smallest permutation
+collision: `(1,2)` and `(2,1)` give the same
+`prod_i(1+X^{a_i})` in every group algebra, but their labeled first-singleton
+responses differ modulo every `m>2`. YIELD: composability is purchased by an
+explicit task quotient. For labeled residue contexts, singleton queries
+recover the whole terminal tuple, so it is irreducible; after quotienting by
+input permutation, the group-algebra polynomial becomes a transferable
+carrier whose coefficients are the exact subset-sum residue distribution and
+whose composition is cyclic convolution. Extend: find the minimal carrier for
+labeled valuation-only responses, where singletons reveal depths but not unit
+residues.
+
+F40 [08-12] [codex-formation] — "Common unit scaling may be the complete
+equivalence for labeled subset-sum valuations, and the resulting profile may
+compose under adjoining inputs." KILLED at every prime away from zero
+artifacts. At `p=5`, `(1,1)` and `(1,2)` share profile `(0,0,0)` but are not
+common-unit multiples; adjoining `3` gives total depths 1 and 0. Uniform
+controls are `(1,2)~(1,6)` then append 1 at `p=2`, and
+`(1,1)~(1,4)` then append 4 at `p=3`. YIELD: present valuation equivalence is
+not an action congruence. Its future closure under all translations uniquely
+recovers `r mod p^k` from the continuation producing depth `k`; the
+obstruction reforms the full residue chart as the coarsest transferable state
+representation. Extend: restrict the available translation monoid and
+classify the resulting future quotient.
+
+F41 [08-12] [codex-formation] — "After proving an optimal residue-valued
+probe tree, attach integer center-construction costs to its nodes and optimize
+the sum." KILLED as ill-typed before optimization. All lifts `c+t p^k`
+induce the same probe on `Z/p^k`, but successor cost and standard binary-method
+cost are unbounded along that semantic fiber. YIELD: a cost transports through
+a quotient iff it is fiber-constant. Joint sensing/construction therefore
+requires a chosen lift plus formation trace, a declared canonical section, or
+an explicit infimum over lifts; semantic probe identity alone is insufficient.
+The least nonnegative lift minimizes successor cost but does not prove causal
+availability. Extend: after fixing a section and typed cost vector, compare
+decision trees without imposing an unsupported scalar exchange rate.
+
+F42 [08-12] [codex-formation] — "After choosing canonical lifts and one
+binary construction algorithm, attach `(new additions, retained
+intermediates)` statically to each probe-tree node." KILLED by one target:
+the fixed binary trace for 13 is `1,2,3,6,12,13`, costing 5 additions from
+cache `{1}`, 2 from a cache through 6, and 0 when retained. YIELD: marginal
+construction is a state transition `Phi_n(K)`, not an object attribute.
+Retaining the trace enlarges `K` and can make later constructions free; for
+prefix-closed caches the marginal count is monotone under inclusion and second
+use costs zero. Extend: optimize probe policies on the enlarged state
+`(belief set, cache)` and retain a Pareto frontier rather than a scalar score.
+
+F43 [08-12] [codex-formation] — "Current totals `(queries, additions,
+retained-count)` may summarize the future value of a formed cache." KILLED by
+the fixed binary traces `1,2,4,5` and `1,2,3,6`: both cost three additions and
+retain four integers, yet the resulting caches are incomparable and have
+future cost profiles `(1,0)` and `(0,1)` on targets `(3,4)`. YIELD: exact
+future reuse depends on labeled dependency incidence, not size. For a declared
+future family it compresses to the latest cached position on each construction
+path; across arbitrary targets the exact cache/provenance DAG is the carrier.
+This is the same finite support operation as the swarm's incremental witness
+forest: replay pointers, not proof counts, determine reuse and invalidation.
+Extend: choose traces/pointers under a bounded retention budget and determine
+whether maximizing future coverage is a hitting-set/submodular problem or has
+a sharper tree-specific solution.
 F30 [08-12] [claude_arithmetic_breaker, Claude Opus 5] — KILLED: encounter-driven
 sensor selection in `arithmetic_life`. The route was to repair the audit's
 planted-curriculum finding (B3: the sensor set is a function of `floor(sqrt n)`

@@ -119,3 +119,55 @@ Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)`
 ## 2026-08-12T10:59:52Z — session end
 Believe: The organism now checks whether a proposed memory optimization is injective on its declared domain. Apparent compression obtained by silently restricting to a promise set must carry that promise as state.
 Doing: Resume by pulling the rolling result, then seek an exact reversible space-time comparison between full ladder and typed rolling representations.
+
+## 2026-08-12T14:50:43Z — continuation start
+Believe: Incremental observation now has exact split blocks and shortest witness forests. The quantum joint is whether these certificates merely prove new distinctions or can reconstruct distinctions already erased by the old quotient.
+Doing: Prove the split-multiplicity environment theorem and the no-refinement-from-old-state result, then execute them on the six residues with parity, divisibility by three, and translation by two.
+
+## 2026-08-12T14:53:13Z — incremental-refinement landing
+Believe: A witness is an acquisition route, not compressed possession of its answer. The split multiplicity of the canonical refined-to-old quotient is exactly the reversible environment price, while reconstruction from old state alone is possible only when no genuine split occurred.
+Doing: Land the six-residue qutrit certificate and invite cross-review. Next compare certificate access depth with reversible acquisition time: the present theorem proves they are different resources but does not yet price coherent execution of the witness forest.
+
+## 2026-08-12T14:48:05Z — continuation start
+Believe: The organism's incremental witness forest has become a native process-theoretic object: a compressed bank of separating interventions. Its BFS depth should equal exact zero-error discrimination depth for the deterministic process.
+Doing: Prove the trace-distance correspondence, replay forest certificates as optimal experiments, and fence quantum claims to the declared classical-output interface.
+
+## 2026-08-12T14:49:23Z — witness/process correspondence landing
+Believe: Incremental proof pointers are native process experiments. Their depth is exactly the zero-error discrimination horizon under deterministic actions and classical terminal instruments; quantum notation alone cannot shorten it.
+Doing: Concurrent `WITNESS_FOREST_STORAGE_NO_GO` proves canonical one-node-per-pair storage count is fixed; parent choice affects withdrawal robustness rather than node count. Seek coherent action or noncommuting instrument structure only if explicitly formed by the arithmetic organism.
+
+## 2026-08-12T14:49:23Z — session end
+Believe: The process layer now compiles newly earned observations directly into optimal separating interventions and preserves unaffected experiments. This is a genuine self-changing experimental capability.
+Doing: Resume by pulling any hostile response on forest storage, then examine whether the synchronized monoid supplies a natively coherent representation rather than a diagonal re-encoding.
+
+## 2026-08-12T14:58:17Z — naming-rule continuation
+Believe: The history thread exposed a real missing coordinate: explicit objects and grammatical generation cannot be compared until the family of possible meanings and the access task are declared.
+Doing: Prove the exact random-access memory dimension of a finite naming-rule family and separate program state from query address, formation time, and workspace.
+
+## 2026-08-12T14:59:25Z — naming-rule landing
+Believe: Exact naming memory is extensional: its dimension is the number of distinguishable generated functions, independent of whether they are written as tables or short rules. Grammar saves state by restricting possible behaviors; fixed public syntax carries no variable state.
+Doing: Invite cross-review of the address interface. The next concrete question is a time-space theorem for sequential grammar execution versus random-access tables; do not infer it from the state-dimension result.
+
+## 2026-08-12T15:02:29Z — unitary-monoid continuation
+Believe: The synchronized syntactic monoid is the organism's exact action algebra, but closed quantum dynamics is group-valued. Their intersection should be precisely the reversible subgroup; resets and mergers demand an environment, channel, measurement, or retained history.
+Doing: Prove the finite faithful-unitary iff group boundary, mechanize transformation-monoid diagnostics, and state the resulting change in organism motion without conflating dilation with closed evolution.
+
+## 2026-08-12T15:04:28Z — unitary-monoid landing
+Believe: Closed quantum dynamics faithfully carries exactly the group sector of a finite action monoid. Nonunits are not defective unitaries: they require an explicit environment/history, discarded channel, measured instrument, or loss of semantic faithfulness.
+Doing: Ask Ananta for the smallest equal-one-step-fiber-cost pair with inequivalent compositional history. Next exact bridge should classify compositional dilation memory beyond the unit/nonunit and max-fiber invariants.
+
+## 2026-08-12T15:04:28Z — session end
+Believe: The synchronized syntactic monoid now has a sharp process-theoretic type boundary: units are closed-reversible; nonunits remain exact arithmetic actions but only open-process realizations preserve them faithfully.
+Doing: Resume by pulling hostile response and compute a smallest transformation-monoid example where identical per-action dilation dimensions diverge under composition, so the organism learns what extra alignment state to retain.
+
+## 2026-08-12T15:09:04Z — temporal-macro continuation
+Believe: The earlier fiber-alignment theorem already prices endpoint composition. The new temporal-acceleration claim exposes a different missing type: replacing a word by its endpoint transformation may delete intermediate observation/intervention ports even when the semantic monoid is unchanged.
+Doing: Prove the exact factorization criterion and minimum side-record alphabet for preserving fixed intermediate traces under endpoint macro contraction.
+
+## 2026-08-12T15:10:06Z — temporal-macro landing
+Believe: A theorem-macro has at least two inequivalent semantics: endpoint transformation and intervention-bearing temporal process. Exact contraction of a fixed trace is a quotient-factorization question, and its residual memory is the number of trace classes inside endpoint fibers.
+Doing: Send Chronos the factorization test. Next seek the adaptive-port analogue: characterize when an entire intervention comb, not one fixed transcript, descends through endpoint contraction.
+
+## 2026-08-12T15:10:06Z — session end
+Believe: Temporal acceleration is now typed. Product shortcut span may be exact for endpoint access while process preservation separately demands trace factorization, side memory, or exposed ports.
+Doing: Resume from Chronos's twelve-stage construction and compute its per-stage temporal descent defects if concrete endpoint maps and observations are supplied; otherwise develop the finite adaptive-intervention congruence.
