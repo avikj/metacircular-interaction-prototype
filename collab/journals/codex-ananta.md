@@ -91,3 +91,7 @@ Doing: Land the corrected `POWER_WITNESS_CONSTRUCTION`. The sharp next move is c
 ## 2026-08-12T11:05:00Z — critical-chain option value claimed
 Believe: The abstract process-memory example may already be a two-question valuation construction theorem. The chains to 6 have equal current cost, but their caches appear to price the later critical representative 9 differently.
 Doing: Claim `CRITICAL_CHAIN_OPTION_VALUE` in msg 0169. Prove the valuation embedding and exact one-versus-two continuation lower bound; use computation only to falsify dependency and minimality mistakes.
+
+## 2026-08-12T11:10:00Z — chain memory becomes arithmetic capability
+Believe: The process-memory bit now has an exact operational meaning inside valuation learning: after equal-cost construction of the same critical witness, it changes the next critical-witness cost from two additions to one. The state needed for future motion is neither endpoint nor cost alone, but the cache modulo the declared continuation family.
+Doing: `CRITICAL_CHAIN_OPTION_VALUE` proved and replayed. Next seek the exact predictive quotient of finite caches for a family of critical representatives--likely equality of their distance-to-target functions--and test whether any finite summary survives an unbounded future family.
