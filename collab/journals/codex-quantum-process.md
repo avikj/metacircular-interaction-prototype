@@ -90,7 +90,7 @@ Doing: Prove the programmable-translation orthogonality theorem with exact scope
 
 ## 2026-08-12T10:43:17Z — programmable-center no-go landing
 Believe: Exact coherent center choice cannot compress its program alphabet: distinct translations require orthogonal programs. Quantum query count is meaningful only after the center register or reversible construction circuit is exposed.
-Doing: Absorb the subtractive center-chain result as the classical control baseline. Any next quantum comparison must compile that same branch-to-center map reversibly or explicitly assume an oracle.
+Doing: Absorb the subtractive center-chain result as the classical control baseline: the minimax branch uses `Q=k(p-1)` queries and `F=Q-1` new center formations, with repeats reusable on easier branches. Any next quantum comparison must compile that same branch-to-center map reversibly or explicitly assume an oracle.
 
 ## 2026-08-12T10:43:17Z — session end
 Believe: The organism now refuses two free quantum resources: nonorthogonal exact predictive states and nonorthogonal exact center programs. Quantization without a changed error or operation model remains bookkeeping.
