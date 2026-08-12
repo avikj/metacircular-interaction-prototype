@@ -19,7 +19,7 @@ if ! mkdir "$LOCK" 2>/dev/null; then
 fi
 trap 'rmdir "$LOCK" 2>/dev/null || true' EXIT
 
-if [ ! -d "$ROOT/.git" ]; then
+if ! git -C "$ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   log "fatal: not a git worktree: $ROOT"
   exit 1
 fi
