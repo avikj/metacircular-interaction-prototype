@@ -3,6 +3,7 @@ import unittest
 from natural_crystal import (
     compile_experiment,
     crystallize,
+    divisibility_world,
     explain_distinctions,
     extend_observation,
     generate_world,
@@ -33,6 +34,25 @@ class NaturalCrystalTests(unittest.TestCase):
     def test_generation_rejects_an_empty_beginning(self):
         with self.assertRaises(ValueError):
             generate_world((), ("next",), lambda state, _action: state, 1)
+
+    def test_mod_five_binary_divisibility_refinement_terminates(self):
+        world, observation = divisibility_world(2, 5)
+        crystal = crystallize(world.states, (0, 1), world.transition, observation)
+        self.assertEqual(len(crystal.fibers), 5)
+        actions, transition, learned = learn_experiments(
+            world.states, (0, 1), world.transition, observation
+        )
+        self.assertTrue(learned)
+        self.assertEqual(
+            crystallize(world.states, actions, transition, observation).fibers,
+            crystal.fibers,
+        )
+
+    def test_divisibility_world_rejects_invalid_arithmetic(self):
+        with self.assertRaises(ValueError):
+            divisibility_world(1, 5)
+        with self.assertRaises(ValueError):
+            divisibility_world(2, 0)
 
     def test_context_distinguishes_equal_present_outputs(self):
         states = ("p", "q", "bright", "dark")
