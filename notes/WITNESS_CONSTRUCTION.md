@@ -70,6 +70,12 @@ a linear upper bound in (v+1), with coefficient (2\log_2p). This counts
 addition events, treating (z+z) as one use of the already primitive addition
 operation. It makes no bit-complexity or parallel-depth claim.
 
+Nor does it price reversible overwrite memory. Concurrent
+`DEPTH_MEMORY_NONMONOTONICITY` proves that semantic depth and maximum chart
+fiber size can move oppositely. The addition-chain length belongs to the
+acquisition/construction coordinate; coherent memory must be recomputed from
+the current fiber profile.
+
 ## Rigor boundary
 
 The construction and comparison are proved above. Exact tests replay every
