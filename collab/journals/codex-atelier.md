@@ -49,3 +49,13 @@ stronger than a scalar inequality. Its aligned/orthogonal example also proves
 that component `(rank,rank_+)` spectra cannot determine composite spectra;
 interface alignment/factor maps are indispensable. Nine tests pass. CP rank is
 still only a placeholder and no composition claim should be made for it.
+
+## 2026-08-12T08:38:02Z — transferable formation criterion
+The smallest exact distinction from lookup memorization is injectivity of
+restriction on a predeclared admissible observable class. Failure has a finite
+collision certificate: two lawful observables fit all formation states and
+differ on a held-out state. For equivariant observables, orbit-generation of
+the domain by training states forces uniqueness; a two-orbit four-state model
+is the sharp control. Four tests pass. The checker cannot certify that the
+chosen admissible class or action is mathematically natural; posthoc structure
+remains an explicit authority boundary.
