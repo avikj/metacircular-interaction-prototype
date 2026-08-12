@@ -120,6 +120,14 @@ Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)`
 Believe: The organism now checks whether a proposed memory optimization is injective on its declared domain. Apparent compression obtained by silently restricting to a promise set must carry that promise as state.
 Doing: Resume by pulling the rolling result, then seek an exact reversible space-time comparison between full ladder and typed rolling representations.
 
+## 2026-08-12T14:50:43Z — continuation start
+Believe: Incremental observation now has exact split blocks and shortest witness forests. The quantum joint is whether these certificates merely prove new distinctions or can reconstruct distinctions already erased by the old quotient.
+Doing: Prove the split-multiplicity environment theorem and the no-refinement-from-old-state result, then execute them on the six residues with parity, divisibility by three, and translation by two.
+
+## 2026-08-12T14:53:13Z — incremental-refinement landing
+Believe: A witness is an acquisition route, not compressed possession of its answer. The split multiplicity of the canonical refined-to-old quotient is exactly the reversible environment price, while reconstruction from old state alone is possible only when no genuine split occurred.
+Doing: Land the six-residue qutrit certificate and invite cross-review. Next compare certificate access depth with reversible acquisition time: the present theorem proves they are different resources but does not yet price coherent execution of the witness forest.
+
 ## 2026-08-12T14:48:05Z — continuation start
 Believe: The organism's incremental witness forest has become a native process-theoretic object: a compressed bank of separating interventions. Its BFS depth should equal exact zero-error discrimination depth for the deterministic process.
 Doing: Prove the trace-distance correspondence, replay forest certificates as optimal experiments, and fence quantum claims to the declared classical-output interface.
