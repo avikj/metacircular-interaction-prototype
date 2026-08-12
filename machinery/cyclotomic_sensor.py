@@ -162,6 +162,22 @@ class CyclotomicOrgan:
     def valuation(self, prime: int, base: int, exponent: int) -> int:
         return self.form(prime, base).valuation(exponent)
 
+    def propose_base(self, limit: int = 200) -> int | None:
+        """The least base this organ has not worked that is worth working.
+
+        The bases were handed in from outside for eight increments, exactly as
+        the prime was before Theorem 5.  Theorem 13 gives the organ a reason to
+        choose: perfect powers are redundant, since `(c^k)^n - 1 = c^(kn) - 1`.
+        So it proposes 2, 3, 5, 6, 7, 10, ... and declines 4, 8, 9, 16, 25 with
+        the identity that makes each one someone else's encounter.
+        """
+        for base in range(2, limit + 1):
+            if base in self.routed:
+                continue
+            if base_refusal(base) is None:
+                return base
+        return None
+
     def propose_encounter(self, base: int, budget: int = DEFAULT_BUDGET,
                           limit: int | None = None) -> int | None:
         """The least exponent this organ has not covered that is GUARANTEED
@@ -582,6 +598,56 @@ def fresh_yield(organ: "CyclotomicOrgan", base: int,
         while residual % exceptional == 0:
             residual //= exceptional
     return residual > 1, residual, held
+
+
+def perfect_power(base: int) -> tuple[int, int] | None:
+    """Write `base = root ** power` with `power >= 2` maximal, or None.
+
+    Exact: the root is found by integer bisection, never by floating point.
+    A float guess with a three-point correction would be fast and would fail
+    silently on large bases if the guess ever landed more than one away; the
+    failure direction is a MISSED refusal, which is safe and invisible, so the
+    search is done in integers instead.
+    """
+    if base < 2:
+        return None
+    best: tuple[int, int] | None = None
+    exponent = 2
+    while 2 ** exponent <= base:
+        low, high = 2, base
+        while low <= high:                      # integer bisection for the root
+            middle = (low + high) // 2
+            power = middle ** exponent
+            if power == base:
+                best = (middle, exponent)
+                break
+            if power < base:
+                low = middle + 1
+            else:
+                high = middle - 1
+        exponent += 1
+    return best
+
+
+def base_refusal(base: int) -> str | None:
+    """Why an organ choosing its own repertoire declines this base.
+
+    Theorem 13: `(c^k)^n - 1 = c^(kn) - 1`, so a perfect-power base generates
+    no integer the root does not already generate.  This is the very first move
+    of `ARITHMETIC_LIFE_FIRST_EXECUTION` — a composite modulus `d = ab` adds no
+    test because `d | n` implies `a | n` — recurring one level up, on bases
+    rather than moduli.
+    """
+    if base < 2:
+        return "a base must be at least 2"
+    power = perfect_power(base)
+    if power is not None:
+        root, exponent = power
+        return (f"{base} = {root}^{exponent}, and ({root}^{exponent})^n - 1 = "
+                f"{root}^({exponent}n) - 1: every encounter here is a base-"
+                f"{root} encounter at {exponent} times the exponent "
+                "(Theorem 13)")
+    return None
 
 
 @dataclass(frozen=True)
@@ -1034,6 +1100,22 @@ def main() -> None:
     print("  set EQUALS the exhaustively reachable set.  It reorders only.")
     print(f"  and with the base free it is vacuous: Phi_1(p+1) = p, so "
           f"Phi_1(3512) = {cyclotomic_value(1, 3512)}")
+
+    print("\nencounter 12: 'which base?'  -- for eight increments, mine.")
+    chooser = CyclotomicOrgan(ArithmeticLife())
+    picks = []
+    for _ in range(10):
+        pick = chooser.propose_base()
+        picks.append(pick)
+        chooser.routed.setdefault(pick, set()).add(1)
+    print(f"  the organ now proposes: {picks}")
+    print(f"  and declines: "
+          f"{[b for b in range(2, 40) if base_refusal(b) is not None]}")
+    print(f"    {base_refusal(8)}")
+    print(f"  witness: 4^3 - 1 = {4 ** 3 - 1} = 2^6 - 1 = {2 ** 6 - 1}")
+    print("  this is ARITHMETIC_LIFE_FIRST_EXECUTION eq (3) one level up:")
+    print("    composite modulus adds no test  ->  retained sensors are prime")
+    print("    perfect-power base adds no family -> retained bases are non-powers")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):

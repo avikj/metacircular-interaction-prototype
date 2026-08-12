@@ -22,6 +22,8 @@ from cyclotomic_sensor import (
     factor_power_minus_one,
     acquisition_horizon,
     growth_rate,
+    perfect_power,
+    base_refusal,
     target,
     fresh_yield,
     held_at,
@@ -698,6 +700,53 @@ class TestCyclotomicSensor(unittest.TestCase):
             self.assertEqual((route.base, route.index), (prime + 1, 1))
             # ...while the fixed small repertoire genuinely cannot reach 3511
             self.assertIsNone(target(3511, tuple(range(2, 12))))
+
+    def test_perfect_power_bases_are_redundant(self) -> None:
+        """Theorem 13(i): (c^k)^n - 1 = c^(kn) - 1, exactly."""
+        for root in range(2, 8):
+            for power in range(2, 5):
+                base = root ** power
+                self.assertEqual(perfect_power(base)[0] ** perfect_power(base)[1],
+                                 base)
+                for index in range(1, 12):
+                    self.assertEqual(base ** index - 1,
+                                     root ** (power * index) - 1)
+
+    def test_redundant_base_earns_nothing_the_root_cannot(self) -> None:
+        """Theorem 13(ii): a prime primitive for (c^k, n) has ord_p(c) = d with
+        n = d/gcd(d,k), and phi(d) <= k phi(n) — the root's route is no larger
+        in degree, so the redundancy is a real saving and not a formality."""
+        for root, power in ((2, 2), (2, 3), (3, 2), (5, 2)):
+            base = root ** power
+            for index in range(1, 14):
+                result = factor_cyclotomic(index, base, compare=False)
+                if not result.complete:
+                    continue
+                for prime, _mult in result.factors:
+                    if root % prime == 0:
+                        continue
+                    order = multiplicative_order(root, prime)
+                    self.assertEqual(order // gcd(order, power),
+                                     multiplicative_order(base, prime))
+                    self.assertLessEqual(
+                        totient(order),
+                        power * totient(multiplicative_order(base, prime)),
+                        f"c={root} k={power} p={prime}")
+
+    def test_organ_chooses_its_own_bases(self) -> None:
+        """Eight increments of bases handed in from outside, now chosen."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        picks = []
+        for _ in range(12):
+            base = organ.propose_base()
+            picks.append(base)
+            organ.routed.setdefault(base, set()).add(1)
+        self.assertEqual(picks, [2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15, 17])
+        declined = [b for b in range(2, 40) if base_refusal(b) is not None]
+        self.assertEqual(declined, [4, 8, 9, 16, 25, 27, 32, 36])
+        self.assertIn("2^3", base_refusal(8))
+        self.assertIn("Theorem 13", base_refusal(8))
+        self.assertIsNone(base_refusal(6))
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

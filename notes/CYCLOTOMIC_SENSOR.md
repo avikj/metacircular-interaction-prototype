@@ -891,6 +891,77 @@ yes and always vacuous*; with $\mathcal B$ fixed, Theorem 12 says the answer is
 *exactly as often as exploring would have found it*.  The agency is real and
 it is entirely in the scheduling.
 
+## Choosing the repertoire: the first move, one level up
+
+Eighth sitting, and the probe is embarrassingly short.  Every operation in
+this note takes a base:
+
+```text
+propose_encounter(base, ...)   propose_fresh_encounter(base, ...)
+route(base, ...)               target(prime, bases, ...)
+```
+
+**Where do the bases come from?**  From me, for eight increments.  That is
+precisely the defect Theorem 5 fixed for the prime — a datum the organ cannot
+produce itself, sitting in the interface — recurring one level up and
+invisible because I kept supplying it.
+
+Working base $4$ shows the cost immediately:
+
+$$
+  4^{3}-1 \;=\; 2^{6}-1 .
+$$
+
+A base-$4$ encounter is a base-$2$ encounter wearing a disguise.
+
+> **Theorem 13 (perfect powers are redundant bases).**  For $k\ge2$,
+> $(c^{k})^{n}-1=c^{kn}-1$, so $\mathcal F_{c^{k}}\subseteq\mathcal F_{c}$ and
+> every prime earnable from base $c^{k}$ is earnable from base $c$.
+> Moreover, if $p$ is a primitive divisor of $\Phi_n(c^{k})$ then
+> $\operatorname{ord}_p(c)=d$ with $n=d/\gcd(d,k)$, and
+> $$
+>   \varphi(d)\;\le\;k\,\varphi(n),
+> $$
+> so the root's route is no larger in degree: the redundancy is a genuine
+> saving, not a formality.
+
+*Proof.*  The identity is immediate.  For the second part,
+$\operatorname{ord}_p(c^{k})=d/\gcd(d,k)$ is standard; writing $g=\gcd(d,k)$
+and $d=gn$, submultiplicativity gives $\varphi(gn)\le g\,\varphi(n)\le
+k\,\varphi(n)$.  $\square$
+
+So an organ choosing its own repertoire keeps the non-powers and declines the
+rest, **with the identity as the reason**:
+
+```text
+proposes: 2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15, 17
+declines: 4, 8, 9, 16, 25, 27, 32, 36
+
+base_refusal(8)  = "8 = 2^3, and (2^3)^n - 1 = 2^(3n) - 1: every encounter
+                    here is a base-2 encounter at 3 times the exponent"
+base_refusal(36) = "36 = 6^2, ... a base-6 encounter at 2 times the exponent"
+```
+
+### This is the lane's own first move
+
+`ARITHMETIC_LIFE_FIRST_EXECUTION` opens with exactly this argument, one level
+down.  Its equation (3) is
+$$
+  d=ab,\ a>1 \quad\Longrightarrow\quad d\mid n \;\Rightarrow\; a\mid n,
+$$
+so a composite modulus contributes no new test, and the retained sensors are
+the irreducible moduli.  Theorem 13 is the same move on bases: a perfect-power
+base contributes no new family, and the retained bases are the non-powers.
+
+I did not go looking for that echo; I went looking for a reason to prefer one
+base over another, and the reason turned out to be the argument this whole
+lane started with, eight increments and one level of abstraction away.  What
+makes it more than a pleasing coincidence is that both are instances of the
+same shape — *an object built from another by a structure-preserving operation
+tests nothing the constituent does not* — and in both cases the retained set is
+the set of objects irreducible for that operation.  Multiplication of moduli
+gave the primes; exponentiation of bases gives the non-powers.
+
 ## The encounter
 
 ```text
@@ -927,6 +998,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 13.  The identity `(c^k)^n - 1 = c^(kn) - 1` and
+  `ord_p(c^k) = ord_p(c)/gcd(ord_p(c), k)` are elementary and standard; the
+  submultiplicativity `phi(gn) <= g phi(n)` likewise.  No novelty is claimed.
+  What is recorded is that this is the criterion by which an organ can choose
+  its own repertoire, and that it is the lane's opening argument recurring one
+  level up.  **Not claimed:** that non-powers are the *optimal* repertoire —
+  only that powers are redundant.  Which non-powers are worth working, and in
+  what order, is not settled here.
 - **Proved here:** Theorem 12 and the degenerate-repertoire remark.  Both are
   elementary consequences of Theorem 5 plus the definition of order; no novelty
   is claimed.  The content is that the equality `T = E` is *exact* rather than

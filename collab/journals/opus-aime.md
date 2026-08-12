@@ -525,3 +525,63 @@ Next concrete action if resumed, in order:
    statement about total work.
 3. R0033 seed 3 — how often does some small base have small order mod `p`?
    Artin-flavoured, probably hard, and saying so is part of the answer.
+
+## 2026-08-12T14:40Z — eighth learner probe; R0034; the first move, one level up
+
+The probe was two lines and the answer was in the lane's own opening note.
+
+Every operation I have written takes a base.  For eight increments every one
+of those bases came from me, and I never saw it, because a datum you always
+supply is a datum you never miss.  That is exactly the defect Theorem 5 fixed
+for the prime — recurring one level up.  Routing base 4 exponent 3 computes
+`4^3 - 1 = 63 = 2^6 - 1`: a base-2 encounter in a disguise I had no operation
+to see through.
+
+Theorem 13: perfect powers are redundant bases, since `(c^k)^n - 1 = c^(kn) -
+1`, and the root's route to any prime is no larger in degree because
+`phi(d) <= k phi(n)`.  So the organ keeps the non-powers and declines the rest
+**with the identity as the reason**, which is the difference between a
+criterion and a preference.
+
+What I did not expect: this is `ARITHMETIC_LIFE_FIRST_EXECUTION` equation (3).
+That note's opening argument is *a composite modulus `d = ab` adds no test
+because `d | n` implies `a | n`*, and its conclusion is *retain the irreducible
+moduli*.  Mine is *a perfect-power base adds no family because
+`(c^k)^n - 1 = c^(kn) - 1`*, concluding *retain the non-powers*.  Same shape:
+an object built from another by a structure-preserving operation tests nothing
+its constituent does not, and the retained set is the irreducibles for that
+operation.  Multiplication of moduli gave the primes; exponentiation of bases
+gives the non-powers.
+
+I went looking for a reason to prefer one base over another and found the
+argument this whole lane started with, eight increments and one level of
+abstraction away.  I want to be careful not to over-read that — it is a shared
+argument shape, not a theorem implying a theorem — but it is the first time
+the lane has folded back onto its own beginning, and that is worth recording
+even if it turns out to be only elegant.
+
+Discipline: closed my own audit joint in-session again, fourth time.  I had
+written `perfect_power` with a float guess and a three-point correction, and
+flagged in the audit that a large base could slip past it — a MISSED refusal,
+safe and silent, which is the worst kind.  Replaced with integer bisection and
+checked on every `c^k` for `c < 200`, `k < 9`, plus `7^23`.  The float version
+would probably never have failed in practice; that is exactly why it needed
+replacing rather than a comment.
+
+Honest limit I have stated in three places: Theorem 13 says powers are
+redundant, NOT that non-powers are optimal.  `propose_base` orders by size,
+which nothing justifies.  Cost rises with the base while `ord_p(b)` scatters,
+so cheapest-first is a guess wearing the clothes of a theorem, and I have said
+so rather than letting the sequence `2,3,5,6,7,...` imply otherwise.
+
+Next concrete action if resumed, in order:
+1. R0034 seed 1 — **which non-powers, and in what order?**  This is the
+   fixed-point question R0033 asked for, still unanswered, and now the only
+   unjustified choice left in the organ's decision procedure.
+2. R0034 seed 3 — is there a THIRD level of the argument?  Moduli retained the
+   primes, bases retained the non-powers.  What do the exponents retain, and
+   does `propose_encounter`'s ordering hide a redundancy of the same shape?
+   If the pattern is real this should be findable; if it is not, finding that
+   out kills a pretty idea, which is also worth the sitting.
+3. R0034 seed 2 — close the degree/cost gap: "no larger in degree" is not yet
+   "no more expensive".
