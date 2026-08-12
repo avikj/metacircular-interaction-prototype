@@ -9,8 +9,20 @@ them is a statement that cannot be written inside a single chart of
 $\mathbb{N}$ — and that shape is a real observation with no technical content,
 predicting nothing about method, difficulty, or barrier type. The membership
 of the list is best explained by fame. One genuine sub-family of **two**
-survives the tests (Goldbach and twin primes), and it survives for reasons that
-are already in this corpus and that exclude the other three.
+survives the tests (Goldbach and twin primes), and it survives as an
+*identification*, not a unification, for reasons already in this corpus that
+exclude the other three.
+
+**The two decisive tests, and where to find them.** §5.7 runs the local-to-
+global framing against the extended list of **seven** (adding Navier–Stokes,
+P vs NP, quantum gravity): it scores **0 of 7** on its own predicted object
+type, and it fails on a member of its own list, because it describes *ternary*
+Goldbach — a theorem — in exactly the words it uses for binary Goldbach.
+§7.5 applies the **mixed-term criterion** to this note's own verdict: the
+five-fold and seven-fold joint objects have **zero** mixed term and are
+dropped; the surviving pair has a *degenerate* mixed term, which is a third
+outcome the criterion needs and did not have, supplied with the discipline that
+keeps it from being a loophole.
 
 ---
 
@@ -390,12 +402,12 @@ thing everyone says. §3.5 is about the thing everyone says.
 
 ---
 
-## 3.5 Does Collatz live in base-2/base-3 incompatibility? Both sides, then a verdict
+### 3.5 Does Collatz live in base-2/base-3 incompatibility? Both sides, then a verdict
 
 This is the pattern-match the brief asked to be tested honestly, so both sides
 are argued at full strength.
 
-### The case FOR (and it is not empty)
+#### The case FOR (and it is not empty)
 
 `ATLAS_OF_N.md` Proposition 2.9 is a genuine theorem and it applies. Within a
 single positional chart base $b$:
@@ -417,7 +429,7 @@ $\mathbb{Z}_3\to\mathbb{Z}_2$ exists. Two charts, no dictionary, and one map
 requiring both. That is a clean story and it is why the pattern-match is
 tempting.
 
-### The case AGAINST (and it wins)
+#### The case AGAINST (and it wins)
 
 **Objection 1: a common refinement exists, so there is no incompatibility of
 the required kind.** Proposition 2.8's criterion is
@@ -461,7 +473,7 @@ answers. **A proposed obstruction that cannot distinguish $3n+1$ from $5n+1$ is
 not the obstruction of $3n+1$.** That is the annihilation test applied to the
 pattern-match, and the pattern-match fails it.
 
-### Verdict on Collatz and radical invariance
+#### Verdict on Collatz and radical invariance
 
 **Superficial pattern-match. Rejected.** The correct atlas location for
 Collatz is the pair
@@ -1309,6 +1321,10 @@ corresponding claim of this note.
 | F6 | The lens-calculus verdicts of §6 | each row's own falsifier, tabulated in §6.1 |
 | F7 | Goldbach and twin primes form a genuine pair (§7.4) | a proof that the singular series is *not* sector-blind, i.e. that the two differ at some finite place; or an unconditional result on one that provably cannot transfer to the other |
 | F8 | FLT's mechanism is presentational rigidity, not gluing (§5.2) | a Brauer–Manin-style or descent-theoretic proof of FLT in which the obstruction is a genuine local-to-global class |
+| F9 | The seven-problem framing scores 0/7 on its own object type (§5.7) | naming, for any one of the seven, a genuine gluing obstruction — a class in a cohomology of local data whose non-vanishing *is* the problem's difficulty. One instance downgrades the score; three would restore the framing |
+| F10 | Ground 1 — the framing cannot separate a theorem from a conjecture (§5.7) | a formulation of the framing under which ternary and binary Goldbach receive *different* characterisations, derived from the framing rather than appended to it |
+| F11 | The joint object has zero mixed term (§7.5) | exhibiting an ambient containing the local data of any two of the seven with a **nonzero** pairing between them — the criterion's own discharge condition, and the single most direct way to overturn this note |
+| F12 | The three-outcome amendment is not a loophole (§7.5, §9.3) | any use of outcome (iii) in this note that rests on a resemblance rather than an exhibited isomorphism. Only one such use is made (Goldbach/twin, §7.4), and its isomorphism is cited to three independent in-corpus sources |
 
 ### What this note did NOT establish
 
@@ -1349,6 +1365,28 @@ corresponding claim of this note.
 8. **The historical section establishes no historical thesis.** It records what
    the retrieved sources say and declines both the transmission thesis and its
    dismissal.
+9. **No proof that a nonzero mixed term is impossible (§7.5).** Two
+   constructions were attempted and both give zero. That is a failed search,
+   not a no-go theorem, and it is recorded as F11 with its discharge
+   condition. Anyone who exhibits the ambient overturns the note's central
+   verdict, and should.
+10. **The three new problems are treated at citation depth only.** Navier–
+    Stokes, P vs NP and quantum gravity enter §5.7 solely to be run through the
+    object test. No claim is made about their content, their difficulty, or
+    their barriers beyond quoting named results; I did not read the
+    Tao, Baker–Gill–Solovay, Razborov–Rudich or Aaronson–Wigderson papers, and
+    the Goroff–Sagnotti two-loop result is **UNVERIFIED-MEMORY** used as an
+    illustration only. The 0/7 score is a score against *the framing's own
+    predicted object type*, which requires only knowing what type each named
+    object is — the weakest thing one can know about them, deliberately.
+11. **No claim that the lens-calculus verdicts extend to the three new
+    problems.** §5.7 observes that every object it found is annihilation- or
+    low-rung-shaped; it does not classify Navier–Stokes, P vs NP or quantum
+    gravity, and §6's table deliberately still contains five rows.
+12. **The unification protocol of §9 is adopted, not validated.** It has two
+    in-corpus consumers (§9.2) and one live application (§7.5). Two instances
+    and one self-application is not evidence that the criterion is correct in
+    general, and §9.3 states its known failure mode rather than concealing it.
 
 ---
 
@@ -1371,8 +1409,13 @@ corresponding claim of this note.
 | Whish 1834 Transactions title and posthumous publication; Whish 1795–1833 | **FETCHED**, Cambridge Core record + MacTutor biography |
 | Kerala transmission thesis contested; "remained localised until Whish" | **FETCHED at search-summary level**, Almeida–Joseph (Race & Class 45, 2004) + MacTutor |
 | Taylor–Wiles; Zhang; Maynard; Friedlander–Iwaniec; Chen; Conway; Simons–de Weger; Bernstein–Lagarias | **FETCHED at search-summary level** — bibliographic data confirmed, full texts not read |
-| Frey; Ribet; Serre $\varepsilon$; Kummer regularity; Vinogradov 1937; Polymath8b $246$; Presburger | **UNVERIFIED-MEMORY** — nothing structural depends on these |
-| Proposition 3.1; the three objections of §3.5; Criterion R; the information-bound argument of §5.6; the four-family argument of §7.3 | **HERE** |
+| Frey; Ribet; Serre $\varepsilon$; Kummer regularity; Vinogradov 1937; Polymath8b $246$; Presburger; Goroff–Sagnotti | **UNVERIFIED-MEMORY** — nothing structural depends on these |
+| Tao, averaged Navier–Stokes, JAMS **29** (2016) 601–674, arXiv:1402.0290 | **FETCHED at search-summary level** — matching energy identity and cancellation condition, finite-time blowup |
+| Baker–Gill–Solovay, SIAM J. Comput. **4** (1975) 431–442; Razborov–Rudich, JCSS **55** (1997) 24–35; Aaronson–Wigderson, ACM TOCT **1** (2009) art. 2 | **FETCHED at search-summary level** — bibliographic data and barrier statements only; none read |
+| The three-layer identity and its mixed block with coefficient $2$; the $a=2$ vanishing locus | **CORPUS**, `FF_PAIRFIELD.md` §§2.2–2.3 — used in §9.2 as the protocol's worked consumer |
+| The refuted duality crystal ($D^2$ undefined; dropped) | **CORPUS**, `ATLAS_OF_N.md` §6 — used in §9.2 as the protocol's outcome-(ii) precedent |
+| The unification protocol (Steps 1–3) and the mixed-term criterion | **sibling agent**, adopted in §9; not originated here |
+| Proposition 3.1; the three objections of §3.5; the §3.6 adjudication; Criterion R; the information-bound argument of §5.6; the four Grounds of §5.7; the four-family argument of §7.3; the three-outcome amendment of §7.5 with its exhibited-isomorphism discipline | **HERE** |
 
 ---
 
