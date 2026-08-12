@@ -1,0 +1,2 @@
+{"after": [[12, 2855], [14, 4958]], "audits_ok": true, "baseline": [[29, 5431], [24, 5025]], "before": [[29, 5431], [24, 5025]], "book": 8, "quick": true, "reload_refused": 0, "reloaded": 0, "rounds": 4, "t": 1786571529, "verdict": "improved", "widened": false}
+{"after": [[12, 2855], [14, 4958]], "audits_ok": true, "baseline": [[29, 5431], [24, 5025]], "before": [[12, 2855], [14, 4958]], "book": 8, "quick": true, "reload_refused": 0, "reloaded": 8, "rounds": 4, "t": 1786571531, "verdict": "plateau", "widened": false}
