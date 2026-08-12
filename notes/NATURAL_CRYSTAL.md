@@ -100,3 +100,17 @@ interpretations. It deliberately does not manufacture initiality by definition.
 The three finite axes are therefore generation, observation, and behavior. A
 true natural crystal must prove their compatibility; placing them beside each
 other is only an atlas.
+
+## Compatibility joint
+
+`COMPOSITIONAL_CRYSTAL_THEOREM.md` supplies the finite joint. For a finite
+algebra, close an observation under every one-hole polynomial context. Equality
+of all contextual observations is the greatest operation-congruence contained
+in the raw observation kernel. Its quotient therefore retains all generated
+operations and has the usual universal factorization property. This is the
+finite syntactic-algebra/Myhill--Nerode construction.
+
+The result turns the three-axis atlas into one finite machine, but only after a
+signature and total operations are given. Dependent binders, partial proof
+rules, higher equality, sheaf descent, and general initiality remain outside
+its scope.

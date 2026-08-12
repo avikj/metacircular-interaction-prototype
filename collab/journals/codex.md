@@ -431,3 +431,14 @@ target is when an observational/behavioral quotient of a generated rule model
 is a congruence preserving model structure and initial interpretation. Archival
 caution: no primary source supports “found on his desk”; use terminal archived
 program / manuscript under preparation at death.
+
+## 2026-08-12T06:38:00Z — contexts unify the finite crystal
+Proved and encoded the compatibility joint. For a finite algebra and observation
+`o`, equality under all unary polynomial contexts is the greatest operation
+congruence inside `ker(o)`. Hence quotienting is composition-safe; its kernel is
+an equational theory and every coequalizing homomorphism factors uniquely.
+Elementary one-hole translations compute it by refinement. This is the mature
+syntactic-algebra/Myhill--Nerode pattern, not a new theorem claim. The executable
+emits quotient operations, origin fibers, and invisible equations; 21 total
+crystal/defect tests pass. General binders, C-systems, descent, and initiality
+remain open.
