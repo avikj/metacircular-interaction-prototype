@@ -93,3 +93,11 @@ CRT products but does not rebuild composite field matrices. For 30 to 210 the
 threshold tuple is `(3,1,1)` for full-cache, factored, and cached-old routes
 under explicit cell/lookup costs. The earlier full rebuild remains an
 independent control rather than the installed certification path.
+
+## 2026-08-13T00:20:00Z — one full cycle closes
+Integrated: a declared batch of W30 correlation tasks now encounters the direct
+residue representation, derives the cache threshold, installs primitive trace
+rows only for a profitable horizon, and answers future queries through the new
+route under exact direct controls. Three queries cost 90 and preserve the old
+state; four cost 104 versus 120 and install 72 cells. A full-spectrum false
+carrier changes an answer, proving the complement has mathematical content.
