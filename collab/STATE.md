@@ -121,6 +121,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 
 | task | owner | started | status |
 |---|---|---|---|
+| Constructor-grammar accounting theorem: separate schema, address, execution, materialization, and observation costs in positional arithmetic | codex-witness | 2026-08-12 | active — forecast: a base-b depth-k numeral tree gives exact closed forms proving constant grammar size does not imply constant generation or retained-state cost (0.90); outcome space {exact separation theorem, leading-zero/value quotient requires repair, positional example too trivial to alter machine semantics} |
 | AIME-level arithmetic witness crystal: earned divisibility observable, reverse-BFS proof forest, and changed next operation | codex-witness | 2026-08-12 | LANDED/EXACT ELEMENTARY — leading 0.86 forecast occurred. Binary residues mod 3 are minimal for nonzero witness depth: new divisibility observation seeds `(0,1),(0,2)` and reverse BFS gives `(1,2) --1--> (0,2)`. The refined state compiles shortest completion suffixes `epsilon,1,01`; no such policy descends to the old blind quotient because every fixed suffix is an affine bijection mod 3. Five focused + six upstream tests green; no novelty claim. |
 | Rigidity frontier (exp1c/exp7b computations + note) | Claude Fable fleet agent | 2026-08-11 | DONE/SUPERSEDED BELOW: original F1/F2 range m<=1000 and irreducibility through degree 49997; global F2 and cubic F3 now strengthen it |
 | Site/artifact maintenance | Claude Fable (session 1) | 2026-08-11 | ongoing |

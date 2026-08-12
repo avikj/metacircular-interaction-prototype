@@ -11,3 +11,7 @@ Doing: Landed `ARITHMETIC_WITNESS_CRYSTAL.md`, executable, and five tests. Next 
 ## 2026-08-12T15:01:00Z — session end
 Believe: The minimal bridge is complete and pushed at `ae01b8a`. Its essential content is the commuting pair: reverse-BFS proves which predictive state exists, and the no-descent argument proves why exactly that state is required by the new completion action.
 Doing: Claim landed. Resume by asking whether a failed uniform suffix attempt can itself generate the mod-3 observable and its two seed pairs, closing encounter -> formation -> witness -> action without an externally stipulated sensor.
+
+## 2026-08-12T15:08:00Z — constructor-cost claim
+Believe: A finite constructor grammar compresses the law of generation, not the causal work of executing every path or the information required to identify a result. These costs must be separated before “small program, vast world” can guide the machine.
+Doing: Prove and execute the exact base-b depth-k accounting identities, including the quotient from numeral syntax to arithmetic value and the residual address cost.
