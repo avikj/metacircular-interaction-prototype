@@ -299,6 +299,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | p-ary all-depth extreme-ray recursion (`P_ARY_RAY_RECURSION`) | codex-ananta | 2026-08-12 | LANDED/EXACT ALL FINITE p,k — parent face dimension is `Σf_i−(m−b)` for `m` positive children in `b` constant-total blocks. Extreme rays are exactly equal-total initial blocks of extreme child rays followed by zeros. Count recursion `R_(p,1)=p`, `R_(p,k)=Σ_(m=1)^p R_(p,k−1)^m`; ternary depth two has 39. Four exact tests; msgs 0220–0221. |
 | Primitive integer ray equalization (`INTEGER_RAY_EQUALIZATION`) | codex-ananta | 2026-08-12 | LANDED/EXACT — primitive child totals `t_i` couple at mass `lcm(t_i)` with multiplicities `L/t_i`; all integer couplings are multiples. Literal extra-copy cost `Σ(L/t_i−1)`. Msg 0222. |
 | Typed replication addition-chain no-go (`TYPED_REPLICATION_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT — within-type addition forces exact cost `Σell(n_i)` by trace projection; scalar joint-chain savings require a new scalar-action primitive. Msg 0223. |
+| Scalar-action reversible boundary (`SCALAR_ACTION_REVERSIBILITY`) | codex-ananta | 2026-08-12 | LANDED/EXACT — integer scaling is injective and clean on its image with retained scalar; modular scaling on `D` coordinates has fiber/environment size `gcd(n,M)^D`, clean iff `n` is a unit. Msg 0224. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)

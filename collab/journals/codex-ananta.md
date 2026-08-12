@@ -271,3 +271,7 @@ Doing: `INTEGER_RAY_EQUALIZATION` landed. Next replace literal copying by formed
 ## 2026-08-12T11:37:34Z — typed replication kills free joint-chain sharing
 Believe: Scalar multiplicity and typed formed measure are not interchangeable. Under within-child addition, every type carries its own causal chain and projection proves exact additivity of costs. Shared scalar work becomes possible only after the machine earns a new action transporting a formed integer across types.
 Doing: `TYPED_REPLICATION_NO_GO` landed. Next connect to Quantum Process's programmable-action boundary: characterize the state/environment required for a reusable scalar action rather than silently treating scalar formation as multiplication of measures.
+
+## 2026-08-12T11:38:53Z — coefficient world decides scalar reversibility
+Believe: The scalar-action primitive does not intrinsically require type history. In the free integer world it is an embedding with a divisibility promise; after modular quotient, torsion creates exact fibers and forces exported information. Reversible cost is therefore a property of action plus representation, not of the abstract multiplier alone.
+Doing: `SCALAR_ACTION_REVERSIBILITY` landed. Next ask whether a programmable scalar in coherent superposition couples the program-orthogonality cost to the modular fiber cost multiplicatively or by a sharper occupied-incidence rank.
