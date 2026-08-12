@@ -26,4 +26,10 @@ certifies transfer; Euclidean descent supplies the next stronger invariant-
 preserving move; Indian prosodic recursion supplies the complementary move of
 partitioning a world into smaller generated copies.
 
-Run `cd machinery && python3 arithmetic_life.py`. Five tests pass.
+The Euclidean return has already compiled: with installed primes `P`, one
+action `gcd(n, product(P))` fires iff some retained sensor fires. Thus 97 is
+tested against the full organ by one gcd with 210; after mod 11 forms, the same
+action grows automatically to gcd with 2310. This is theorem-to-action in the
+same online execution, not a planned next release.
+
+Run `cd machinery && python3 arithmetic_life.py`. Six tests pass.

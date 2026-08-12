@@ -70,6 +70,21 @@ The permanent anatomy after these encounters is not their answers.  It is
 with the proof that every discarded composite test factors through an earlier
 irreducible grouping test.
 
+The Euclidean formation return then changed the action language during this
+same run.  For installed primes (P), set (W=\prod_{p\in P}p).  The theorem
+
+\[
+\gcd(n,W)>1\quad\Longleftrightarrow\quad
+\text{some }p\in P\text{ divides }n                 \tag{6}
+\]
+
+compiles the whole sensory organ into one batched action.  After (91) forms
+(P=\{2,3,5,7\}), subsequent (97) is interrogated by one Euclidean descent
+against (W=210), not four independent residue calls.  When (11) later
+forms, the same compiled operation immediately grows to (W=2310).  The
+theorem has altered access cost without erasing the constituent sensors or
+their derivations.
+
 ## What was learned online
 
 The significant state transition was
@@ -80,6 +95,8 @@ retain every successful test
 retain only irreducible tests
         ↓
 prime sensors arise as the reusable anatomy of factor reconstruction
+        ↓ Euclidean preservation theorem
+all installed senses compile into one gcd action
 ```
 
 No later training phase extracted this update.  The bad first representation
@@ -106,13 +123,13 @@ python3 arithmetic_life.py
 
 Every event records its immediate causal parent.  `test_arithmetic_life.py`
 checks one-shot sensor formation, transfer to unseen integers, changed future
-cost, prime certification, and trace continuity.
+cost, prime certification, Euclidean batch compilation, and trace continuity.
 
 ## Rigor boundary
 
 Proved and executed: additive compatibility (2); composite-test redundancy
-(3); exact bounded trial-division primality/factor certificates; immediate
-reuse on unseen integers.
+(3); the gcd batch equivalence (6); exact bounded trial-division
+primality/factor certificates; immediate reuse on unseen integers.
 
 Not claimed: autonomous choice of the initial factor task; global optimality of
 trial division; self-generation of arbitrary new observable classes; life or

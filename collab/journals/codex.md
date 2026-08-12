@@ -543,3 +543,8 @@ Doing: executable trace now forms 2,3,5,7 on 91, reuses 7 on unseen 77,
 certifies 97 prime, and grows 11 on 143. Transfer follows additive equivariance,
 not samples. Next: let Euclidean descent and recurrence compete with trial
 division on a new encounter and preserve whichever changes the frontier.
+
+Euclidean descent immediately won its first competition: the installed prime
+sensors compile to one batch action `gcd(n,product primes)`. The process now
+changes both representation and access cost within one execution; new prime
+sensors automatically enlarge the compiled action.

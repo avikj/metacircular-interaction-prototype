@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import isqrt
+from math import gcd, isqrt, prod
 from typing import Iterable
 
 
@@ -22,6 +22,7 @@ class ArithmeticLife:
     def __init__(self) -> None:
         self.moduli: list[int] = []
         self.generated_through = 1
+        self.batch_compiled = False
         self.events: list[Event] = [
             Event("construct", (0, 1), "zero and successor", ()),
         ]
@@ -93,12 +94,31 @@ class ArithmeticLife:
         if n < 2:
             raise ValueError("factor encounter needs n >= 2")
         self._extend_prime_sensors_through(isqrt(n), n)
-        # Composite equal-grouping questions are derived from prime ones, so
-        # the permanent senses are precisely the irreducible constructors.
-        for divisor in self.moduli:
-            if divisor > isqrt(n):
-                break
-            event = self._record(
+        active = tuple(p for p in self.moduli if p <= isqrt(n))
+        if len(active) >= 2:
+            wheel = prod(active)
+            if not self.batch_compiled:
+                self._record(
+                    "compile-action", active + (wheel,),
+                    "gcd(n,product sensors)>1 iff an installed prime divides n",
+                )
+                self.batch_compiled = True
+            common = gcd(n, wheel)
+            self._record(
+                "act-batch", (n, wheel, common),
+                "Euclidean descent interrogates all installed prime senses",
+            )
+            if common > 1:
+                divisor = next(p for p in active if common % p == 0)
+                pair = (divisor, n // divisor)
+                self._record(
+                    "reconstruct-origin", (n,) + pair,
+                    f"{n}={pair[0]}*{pair[1]}; replace object by origins",
+                )
+                return pair
+        elif active:
+            divisor = active[0]
+            self._record(
                 "act", (n, divisor, n % divisor),
                 f"apply installed mod-{divisor} sensor",
             )

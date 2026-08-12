@@ -24,6 +24,15 @@ class ArithmeticLifeTests(unittest.TestCase):
         self.assertEqual(life.factor(77), (7, 11))
         after = len([event for event in life.events if event.kind == "form-sensor"])
         self.assertEqual(before, after)
+        self.assertEqual(life.events[-2].kind, "act-batch")
+
+    def test_euclidean_batch_compiles_once(self):
+        life = ArithmeticLife()
+        life.factor(91)
+        life.factor(77)
+        self.assertEqual(
+            sum(event.kind == "compile-action" for event in life.events), 1
+        )
 
     def test_prime_is_frontier_after_exact_bounded_division(self):
         life = ArithmeticLife()
