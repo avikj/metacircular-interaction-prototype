@@ -1,6 +1,7 @@
 import unittest
 
 from natural_crystal import (
+    compile_experiment,
     crystallize,
     explain_distinctions,
     run_word,
@@ -73,6 +74,40 @@ class NaturalCrystalTests(unittest.TestCase):
         self.assertEqual(no_witness, same_fiber)
         self.assertEqual(explanations[(0, 1)], ("next", "next"))
         self.assertEqual(explanations[(1, 2)], ("next",))
+
+    def test_discovered_experiment_becomes_one_action_without_new_meaning(self):
+        states = (0, 1, 2, 3)
+        actions = ("next",)
+        transition = {
+            (0, "next"): 1,
+            (1, "next"): 2,
+            (2, "next"): 3,
+            (3, "next"): 3,
+        }
+        observation = {0: 0, 1: 0, 2: 0, 3: 1}
+        before = crystallize(states, actions, transition, observation)
+        old_word = shortest_distinguishing_word(
+            0, 1, actions, transition, observation
+        )
+        self.assertEqual(old_word, ("next", "next"))
+
+        new_actions, new_transition = compile_experiment(
+            states, actions, transition, "look-two", old_word
+        )
+        after = crystallize(states, new_actions, new_transition, observation)
+        self.assertEqual(after.fibers, before.fibers)
+        self.assertEqual(shortest_distinguishing_word(
+            0, 1, new_actions, new_transition, observation
+        ), ("look-two",))
+
+    def test_compilation_fails_closed(self):
+        transition = {(0, "step"): 0}
+        with self.assertRaises(ValueError):
+            compile_experiment((0,), ("step",), transition, "step", ("step",))
+        with self.assertRaises(ValueError):
+            compile_experiment((0,), ("step",), transition, "new", ())
+        with self.assertRaises(ValueError):
+            compile_experiment((0,), ("step",), transition, "new", ("missing",))
 
     def test_twelve_fixture_retains_declared_links(self):
         crystal = twelve_link_machine()

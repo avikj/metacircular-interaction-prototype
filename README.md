@@ -152,6 +152,9 @@ finite world, possible actions, and observations.  It joins exactly those
 states that no future experiment can distinguish, and for every distinction
 it keeps the shortest experiment that reveals it.  Its concepts are therefore
 neither names nor embeddings: they are executable ways of telling worlds apart.
+When a useful experiment takes several actions, the seed can install that
+action-word as one new primitive.  The observable mathematics is unchanged,
+but the next route is shorter.  This is the entire loop in miniature.
 
 ## One living test
 
