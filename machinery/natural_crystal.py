@@ -97,6 +97,33 @@ def explain_distinctions(
     }
 
 
+def compile_experiment(
+    states: Sequence[State],
+    actions: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+    name: Action,
+    word: Sequence[Action],
+) -> tuple[tuple[Action, ...], dict[tuple[State, Action], State]]:
+    """Install a known composite experiment as one new primitive action.
+
+    The new action changes access cost but cannot add a behavioral distinction:
+    it is definitionally a word in the old actions.
+    """
+    xs, old_actions, expansion = tuple(states), tuple(actions), tuple(word)
+    if name in old_actions:
+        raise ValueError("compiled experiment name must be new")
+    if not expansion:
+        raise ValueError("compiled experiment must have a nonempty expansion")
+    if any(action not in old_actions for action in expansion):
+        raise ValueError("compiled experiment cites an unknown action")
+    result = dict(transition)
+    if any((state, action) not in result for state in xs for action in old_actions):
+        raise ValueError("transition must be total before compilation")
+    for state in xs:
+        result[state, name] = run_word(state, expansion, transition)
+    return old_actions + (name,), result
+
+
 def crystallize(
     states: Sequence[State],
     actions: Sequence[Action],
