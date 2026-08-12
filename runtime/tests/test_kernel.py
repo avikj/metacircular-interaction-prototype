@@ -234,7 +234,7 @@ def _expected_table():
         if k != "Conjecture":
             EXPECTED[("Eq", k)] = k
             EXPECTED[(k, "Eq")] = k
-    for k in ("Iso",) + directed:
+    for k in ("Iso", "Order") + directed:
         EXPECTED[(k, k)] = k
     for k in directed:
         EXPECTED[("Iso", k)] = k
@@ -245,7 +245,7 @@ def _expected_table():
     return EXPECTED
 
 
-@capability("L1 composition table is total and matches the spec on all 100 pairs")
+@capability("L1 composition table is total and matches the spec on all 121 pairs")
 def t_table():
     exp = _expected_table()
     for l, r, got in E.composition_table():
@@ -256,7 +256,10 @@ def t_table():
             l, r, E.compose_kind(l, r), want)
         assert (got if (l != "Conjecture" and r != "Conjecture") else None) == want
     n_none = sum(1 for l in E.KINDS for r in E.KINDS if E.compose_kind(l, r) is None)
-    assert n_none == 61, "expected 61 unlicensed ordered pairs, got %d" % n_none
+    # 79 = 121 - 42 licensed.  Adding Order licensed exactly 3 new pairs
+    # (Eq;Order), (Order;Eq), (Order;Order) and nothing else: notably NOT
+    # (Iso;Order), because an isomorphism need not carry order data.
+    assert n_none == 79, "expected 79 unlicensed ordered pairs, got %d" % n_none
     return True
 
 
@@ -283,10 +286,72 @@ def t_approx():
     return True
 
 
+@capability("L1 Order carries its ordering as a required limitor, and composes only within it")
+def t_order_limitor():
+    plus = E.Edge("Order", a.addr, b.addr, ordering="sigma+")
+    plus2 = E.Edge("Order", b.addr, c.addr, ordering="sigma+")
+    minus = E.Edge("Order", b.addr, c.addr, ordering="sigma-")
+    assert plus.preserves == frozenset({"sign"})
+    assert plus.render().startswith("Order<sigma+>")
+    same = E.compose(plus, plus2)
+    assert same is not None and same.kind == "Order" and same.ordering == "sigma+"
+    # Different limitors do not compose.  Sign is not transported between
+    # orderings: over Q(sqrt2), x^2 - sqrt2*y^2 has signature (1,1) at one
+    # ordering and (2,0) at the other (machinery/orderings.py).
+    assert E.compose(plus, minus) is None
+    # The limitor is part of the edge's identity, not a label on it.
+    assert E.Edge("Order", b.addr, c.addr, ordering="sigma+").edge_id != minus.edge_id
+    # An Order edge is directed: order-preserving does not invert.
+    assert not plus.symmetric and E.invert(plus) is None
+    return True
+
+
+@control("CONTROL L1: an Order edge with no named ordering must fail construction")
+def t_order_needs_limitor():
+    try:
+        E.Edge("Order", a.addr, b.addr)
+    except E.EdgeError:
+        pass
+    else:
+        LOG.append("Order accepted without a limitor")
+        return False
+    # and no other kind may carry one
+    try:
+        E.Edge("Iso", a.addr, b.addr, ordering="sigma+")
+    except E.EdgeError:
+        return True
+    LOG.append("a non-Order edge accepted an ordering")
+    return False
+
+
+@control("CONTROL L1: no path through a Quotient or an Iso can deliver sign")
+def t_sign_is_not_manufactured():
+    """cf-prime msg 0110 SS2 as a fact about the lattice, not about our source.
+
+    Every self-improvement loop in the runtime is an averaging or a quotient.
+    The preservation lattice says such a step cannot carry order data, so the
+    machine's blindness to parity is now something the kernel can state.
+    """
+    order = E.Edge("Order", a.addr, b.addr, ordering="sigma+")
+    for kind in ("Quotient", "Iso", "Approx", "Refine", "Implies", "Embed", "Interp"):
+        assert "sign" not in E.preserves(kind), kind
+        e = E.Edge(kind, b.addr, c.addr,
+                   eps=Fraction(1, 5) if kind == "Approx" else None)
+        comp = E.compose(order, e)
+        if comp is not None and "sign" in comp.preserves:
+            LOG.append("%s manufactured sign" % kind)
+            return False
+    return True
+
+
 @capability("L1 preservation is the intersection lattice")
 def t_preserves():
     assert E.preserves("Eq") == E.ALL_PROPERTIES
     assert "presentation" not in E.preserves("Iso")
+    # Iso does not carry sign: Galois conjugation on Q(sqrt2) is an
+    # isomorphism that exchanges the field's two orderings.
+    assert "sign" not in E.preserves("Iso")
+    assert E.preserves("Order") == frozenset({"sign"})
     iso = E.Edge("Iso", a.addr, b.addr)
     imp = E.Edge("Implies", b.addr, c.addr)
     comp = E.compose(iso, imp)

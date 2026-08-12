@@ -59,6 +59,7 @@ KINDS: Tuple[str, ...] = (
     "Refine",
     "Interp",
     "Dual",
+    "Order",
     "Conjecture",
 )
 
@@ -77,6 +78,7 @@ ALL_PROPERTIES = frozenset(
         "extensional",      # extensional behaviour
         "semantics",        # theory-to-theory semantics
         "pairing",          # a stated duality pairing
+        "sign",             # order data relative to a NAMED ordering; see Order
     }
 )
 
@@ -84,7 +86,12 @@ PRESERVES: Dict[str, frozenset] = {
     "Eq": ALL_PROPERTIES,
     # An Iso preserves everything an Eq does except the presentation itself:
     # that is exactly the L0/L1 distinction the spec insists on.
-    "Iso": ALL_PROPERTIES - {"presentation"},
+    # An Iso preserves everything an Eq does except the presentation -- and
+    # except ``sign``.  Galois conjugation a+b*sqrt2 |-> a-b*sqrt2 is a field
+    # isomorphism of Q(sqrt2) that EXCHANGES its two orderings, so an
+    # isomorphism does not carry order data.  See notes/POSITIVITY_HAS_A_PLACE.md
+    # and machinery/orderings.py for the certificate.
+    "Iso": ALL_PROPERTIES - {"presentation", "sign"},
     "Embed": frozenset({"injectivity", "truth"}),
     "Quotient": frozenset({"task_sufficiency"}),
     "Implies": frozenset({"truth"}),
@@ -92,6 +99,9 @@ PRESERVES: Dict[str, frozenset] = {
     "Refine": frozenset({"extensional"}),
     "Interp": frozenset({"semantics", "truth"}),
     "Dual": frozenset({"pairing"}),
+    # Order is the only kind carrying ``sign``, and it carries it only
+    # relative to the ordering named in its ``ordering`` payload.
+    "Order": frozenset({"sign"}),
     "Conjecture": frozenset(),
 }
 
@@ -146,7 +156,8 @@ def _build_table() -> None:
         _TABLE[("Eq", k)] = k
         _TABLE[(k, "Eq")] = k
     # idempotent same-kind composites
-    for k in ("Iso", "Embed", "Quotient", "Implies", "Approx", "Refine", "Interp"):
+    for k in ("Iso", "Embed", "Quotient", "Implies", "Approx", "Refine", "Interp",
+              "Order"):
         _TABLE[(k, k)] = k
     # Iso is absorbed by the directed kinds.
     for k in _NEUTRAL_ABSORBERS:
@@ -192,10 +203,10 @@ def compose_kind(left: str, right: str) -> Optional[str]:
 # --------------------------------------------------------------------------
 
 
-def _edge_id(kind, src, dst, eps, pairing, label) -> str:
+def _edge_id(kind, src, dst, eps, pairing, label, ordering=None) -> str:
     h = hashlib.blake2b(digest_size=12)
     for part in (kind, src, dst, "" if eps is None else "%d/%d" % (eps.numerator, eps.denominator),
-                 pairing or "", label or ""):
+                 pairing or "", label or "", ordering or ""):
         h.update(part.encode("utf-8"))
         h.update(b"\x1f")
     return "e" + h.hexdigest()
@@ -218,6 +229,7 @@ class Edge:
     dst: str
     eps: Optional[Fraction] = None
     pairing: Optional[str] = None
+    ordering: Optional[str] = None
     witness: Any = None
     label: str = ""
     provenance: Tuple[str, ...] = ()
@@ -236,12 +248,21 @@ class Edge:
             raise EdgeError("only Approx carries an epsilon")
         if self.kind != "Dual" and self.pairing is not None:
             raise EdgeError("only Dual carries a pairing name")
+        # The limitor.  An Order edge without a named ordering would be the
+        # singleton-limitor erratum committed in the architecture: correct
+        # wherever the ambient object has exactly one ordering, silently wrong
+        # on the first one that has two.  So it is required, not defaulted.
+        if self.kind == "Order":
+            if not isinstance(self.ordering, str) or not self.ordering:
+                raise EdgeError("Order requires a named ordering (its limitor)")
+        elif self.ordering is not None:
+            raise EdgeError("only Order carries an ordering")
         if not isinstance(self.src, str) or not isinstance(self.dst, str):
             raise EdgeError("edge endpoints are L0 addresses (str)")
         if not self.edge_id:
             object.__setattr__(
                 self, "edge_id", _edge_id(self.kind, self.src, self.dst, self.eps,
-                                          self.pairing, self.label)
+                                          self.pairing, self.label, self.ordering)
             )
         COUNTERS.bump("edge.build")
 
@@ -260,6 +281,8 @@ class Edge:
             tag = "Approx(%d/%d)" % (self.eps.numerator, self.eps.denominator)
         elif self.kind == "Dual" and self.pairing:
             tag = "Dual<%s>" % self.pairing
+        elif self.kind == "Order":
+            tag = "Order<%s>" % self.ordering
         return "%s: %s -> %s" % (tag, self.src[:8], self.dst[:8])
 
 
@@ -274,6 +297,7 @@ def invert(e: Edge) -> Optional[Edge]:
         dst=e.src,
         eps=e.eps,
         pairing=e.pairing,
+        ordering=e.ordering,
         witness=e.witness,
         label=e.label,
         provenance=e.provenance or (e.edge_id,),
@@ -287,6 +311,10 @@ def compose(e1: Edge, e2: Edge) -> Optional[Edge]:
       * endpoints meet: ``e1.dst == e2.src``
       * the kind pair is in the table (this is where Conjecture dies)
       * ``Dual . Dual`` only when both name the same pairing
+      * ``Order . Order`` only when both name the same ordering -- two order
+        edges over *different* orderings do not compose, because sign is not
+        transported between orderings (Q(sqrt2) has two, and conjugation swaps
+        them).  This is the limitor as a binder rather than a label.
     Epsilon adds exactly; ``Approx . Iso`` and ``Iso . Approx`` keep epsilon.
     The composite preserves the intersection of the parts' preservation sets.
     """
@@ -302,6 +330,11 @@ def compose(e1: Edge, e2: Edge) -> Optional[Edge]:
         if e1.pairing is None or e1.pairing != e2.pairing:
             COUNTERS.bump("edge.compose_unlicensed")
             return None
+    if e1.kind == "Order" and e2.kind == "Order":
+        if e1.ordering is None or e1.ordering != e2.ordering:
+            COUNTERS.bump("edge.compose_limitor_mismatch")
+            COUNTERS.bump("edge.compose_unlicensed")
+            return None
     eps = None
     if kind == "Approx":
         a = e1.eps if e1.eps is not None else Fraction(0)
@@ -310,6 +343,9 @@ def compose(e1: Edge, e2: Edge) -> Optional[Edge]:
     pairing = None
     if kind == "Dual":
         pairing = e1.pairing if e1.kind == "Dual" else e2.pairing
+    ordering = None
+    if kind == "Order":
+        ordering = e1.ordering if e1.kind == "Order" else e2.ordering
     label = "(%s;%s)" % (e1.label or e1.kind, e2.label or e2.kind)
     return Edge(
         kind=kind,
@@ -317,6 +353,7 @@ def compose(e1: Edge, e2: Edge) -> Optional[Edge]:
         dst=e2.dst,
         eps=eps,
         pairing=pairing,
+        ordering=ordering,
         witness=("compose", e1.witness, e2.witness),
         label=label,
         provenance=(e1.edge_id, e2.edge_id),

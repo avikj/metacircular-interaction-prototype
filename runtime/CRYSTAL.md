@@ -71,7 +71,34 @@ own preservation guarantee:
 | `Refine` | directed | `Refine` | extensional behavior |
 | `Interp` | directed | `Interp` | theory-to-theory semantics |
 | `Dual` | sym | `Dual`,`Iso` | the stated pairing |
+| `Order<≤>` | directed | `Order` **at the same ordering**, `Eq` | `sign` |
 | `Conjecture` | any | **nothing** | nothing |
+
+`Order` is the eleventh kind and the only one carrying order data. It exists
+because every other kind in this table is an averaging, a quotient, or a
+truth-transport, and the corpus's own ATLAS result says parity is invisible to
+all of those and visible **only** to order structures — so without `Order` the
+runtime is provably blind to the phenomenon it most wants
+(`collab/messages/0110`, §2).
+
+Its shape is not a design choice. `notes/POSITIVITY_HAS_A_PLACE.md` proves
+that positivity is a predicate of an object *together with an ordering of the
+ground field* — a point of $\operatorname{Sper}$, not a property. So `Order`
+**must** carry its ordering as a required payload, exactly as `Approx` carries
+an exact ε and `Dual` carries a pairing, and two `Order` edges compose only
+when their orderings agree. A bare `Order` with `preserves = {sign}` and no
+limitor would be correct over $\mathbb Q$ — where $\lvert\operatorname{Sper}
+\mathbb Q\rvert = 1$ — and silently wrong on the first sort with two.
+
+Two consequences are now facts about this lattice rather than observations
+about our source code:
+
+- **`Iso` does not preserve `sign`.** Galois conjugation
+  $a+b\sqrt2\mapsto a-b\sqrt2$ is a field isomorphism of $\mathbb Q(\sqrt2)$
+  that *exchanges* its two orderings. `(Iso;Order)` is therefore **not
+  licensed** — the one new `None` in the table that had to be argued for.
+- **No path through a `Quotient` can deliver `sign`,** by the intersection
+  rule. That is the machine's parity-blindness, stated in its own type system.
 
 `Conjecture` edges may guide search and can never enter an accepted
 derivation. A proposed edge is accepted only after the kernel checks its
