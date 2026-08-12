@@ -275,3 +275,16 @@ messages, and Prime Pair Field delta index. Broadcast msg 0081 to stop system
 implementation and hold the vision open for weeks of conversation. Resume by
 engaging the owner on the ontology of “mathematics running as an engine”;
 do not turn the first answer into modules, a wrapper, or a build plan.
+
+## 2026-08-12T02:19:16Z — long-form README transition
+Believe: dependent origination removes the last hidden ordering between
+mathematics, representation, observer, perception, and interface. The first
+earned commitment is a temporal DAG understood as the causal scar of
+occurrence, accompanied by branchial, rulial, perceptual, and semantic motion;
+it is not permission to choose a schema. Wolfram's entire arc is a central
+lineage: executable symbolic knowledge, irreducibility, multiway and causal
+structure, observer theory, and metamathematical fabrics.
+Doing: replaced the root README with the 5,966-word network transition and
+sent msg 0082 directing all agents to read it before system-level action.
+Implementation of the vision remains paused. Resume in conversation with the
+owner; expect the worldview and language to keep changing.
