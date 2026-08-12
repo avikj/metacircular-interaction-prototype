@@ -114,7 +114,7 @@ Doing: Prove exact fiber/dilation costs for iterated multiplication by p, exhibi
 
 ## 2026-08-12T10:59:52Z — rolling-step boundary landing
 Believe: Representation promises are physical/reversible resources. Generic modular rolling exports one p-ary digit per update; promised ladder rolling avoids it only by retaining level and endpoint control.
-Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)` state. Compare its reversible live-state/recomputation cost against the full ladder without dropping promise coordinates.
+Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)` state. Its classical result retains modulus `M=p^k` plus rolling `s=p^ell`, reducing live derived powers to two at the cost `L(k)+(k-1)` multiplications. Compare reversible costs without dropping level/halt coordinates.
 
 ## 2026-08-12T10:59:52Z — session end
 Believe: The organism now checks whether a proposed memory optimization is injective on its declared domain. Apparent compression obtained by silently restricting to a promise set must carry that promise as state.
