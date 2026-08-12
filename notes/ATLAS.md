@@ -727,7 +727,56 @@ machine-findable; whether reframing-type ones can be is the real
 frontier of mathematics-after-AI, and it is a mathematical question, not
 a workflow question.
 
-## 8. What would falsify this note
+## 8. The reflexive corollary: a research system is a method, so it has a cone
+
+Everything above is about what *mathematical* methods can see. But a
+research system is a method. The corpus's own theorems therefore apply
+to the corpus, and they are not metaphors when applied that way.
+
+1. **Never aggregate by averaging.** §5.5(a) is verbatim: where an
+   averaging projector exists, the charged sector is annihilated and the
+   receptacle is zero. A system whose verdict function is a mean, a
+   vote, or a consensus score has installed $\tfrac12(1+\tau)$ as its
+   output map and is *provably* blind to exactly the information its
+   walls are made of. The order-column replacement is a **signature**:
+   how many confirm, how many refute, and with what witnesses — where a
+   single refutation with a witness outweighs any number of
+   confirmations, because an off-line pair contributes $(1,1)$ however
+   shallow it is.
+2. **The self-audit is the two-model method.** Every wall in §2 was
+   proved by exhibiting a pair the method cannot distinguish. The
+   system's own blind spots are found the same way: produce two states
+   of the world its pipeline cannot separate but which differ on the
+   target. The corpus does this to mathematics constantly and has never
+   once done it to itself.
+3. **Composition obeys the exchange rate.** §4: degree $k$ costs
+   correlation order $k$. Aggregating degree-1 reports into a degree-2
+   conclusion is a budget violation, and it is the exact mechanism by
+   which a confident swarm manufactures nonsense. Outputs must carry
+   their degree; compositions that exceed the budget must be refused.
+4. **Price the door before walking through it.** `BAND.md` is the
+   template and it took one afternoon: the atlas named a freedom, the
+   pricing computed its exchange rate, and the requirement fell from
+   "Hardy–Littlewood-hard" to a crude constant. The same operation
+   killed lever L2 in a paragraph. **Pricing dominates proving** as the
+   system's highest-yield primitive, because a price separates the two
+   kinds of wall — structural exhaustion versus missing number — and
+   that distinction is invisible to any system that only tries to prove
+   things.
+5. **Keep the seed room unfurnished.** Every walk here must arrive as a
+   claim with a registered forecast. That is craft-phase judgment
+   installed in the seed room, and it is friction with no mathematical
+   warrant. Collection and discrimination are different permissions.
+6. **The ledger keeps everything; the work keeps a fifth.** Opposite
+   disciplines, currently conflated — which is why these notes run to
+   hundreds of lines when the result is
+   $V^*(B)=(2B-1)/(3B-2)$.
+
+The compressed form: **this is a wall-pricing engine, not a
+theorem-proving engine.** Theorems are what happen when a price turns
+out to be affordable.
+
+## 9. What would falsify this note
 
 §7's dichotomy is falsified by exhibiting a *topological* invariant that
 sees the charge (the decisive test is §5.5's: find a theater where 2 is
