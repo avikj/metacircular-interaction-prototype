@@ -70,3 +70,11 @@ Closed: Ramanujan's sum is now executed both as the divisor convolution
 quotient. At q=12 both produce `(4,0,2,0,-2,0,-4,0,-2,0,2,0)`. The full group
 algebra fails deliberately, showing that primitive-spectrum projection—not
 undifferentiated finite Fourier language—is responsible for the coefficient.
+
+## 2026-08-12T23:43:00Z — trace certificate enters the sieve path
+Assimilated: primitive trace rows now feed the existing exp39 rational-fiber
+correlator. At wheel 30 and shift 6 the spectral and direct routes meet at
+`45/16`. The 72-cell compiled cache changes repeated queries to eight divisor
+lookups instead of 30 residue checks, while the note preserves that compilation
+is not a one-query speedup. The exact exp39 dependency is replayed without its
+unrelated optional numerical imports.
