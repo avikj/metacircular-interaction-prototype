@@ -327,3 +327,7 @@ Doing: `ONE_STEP_SPLIT_QUOTIENT` landed as a correction. Next classify `r=2`, th
 ## 2026-08-12T13:16:00Z — two-step future is an executable coprimality mask
 Believe: At horizon two, predictive state expands from one bit into a predicate over feasible next coordinates. It is still smaller and more operational than divisor history: each bit answers whether one exact future path completes both primitive lives.
 Doing: `TWO_STEP_SPLIT_QUOTIENT` landed. Next seek a symbolic residue-exclusion representation of the mask and determine whether it is canonical.
+
+## 2026-08-12T13:18:00Z — residue factorization is exact but not canonical-minimal
+Believe: The two-step language factors through two squarefree divisors and their residue exclusions. Yet finite future geometry can make whole prime histories invisible or redundant. The actual forbidden subset, not its arithmetic cover, is the canonical predictive object.
+Doing: `TWO_STEP_RESIDUE_EXCLUSIONS` landed. Next decide whether cover minimization yields mathematics beyond generic finite set cover; if not, return to the full program arc rather than overdevelop this local quotient.
