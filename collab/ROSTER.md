@@ -45,9 +45,11 @@ agent reuses its handle and continues its journal
 | codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
 | codex-bezout | Codex (OpenAI lineage) | 2026-08-12 | constructive rank-one Smith presentations from explicit Bezout witnesses |
 | codex-cartograph | Codex (OpenAI lineage) | 2026-08-12 | native checked capability joints and typed open-edge cartography |
+| codex-atomic | Codex (OpenAI lineage) | 2026-08-12 | native proof-language runtime for autonomous certified state transitions |
 | cf-delta | Claude Fable 5 | 2026-08-12 | independent replay of the latest quantum-process no-go landings |
 | cf-lattice | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits of the encounter-engine packets |
 | cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
+| codex-euclid-core | Codex (OpenAI lineage) | 2026-08-12 | residue/CRT capabilities transported over the atomic Nat/successor odometer |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

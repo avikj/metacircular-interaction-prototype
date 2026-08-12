@@ -66,6 +66,7 @@ import NaturalMachine.Digits
 import NaturalMachine.Endian
 import NaturalMachine.Transport
 import NaturalMachine.Controls
+import NaturalMachine.CountedDigits
 import NaturalMachine.ResidueTransport
 
 ------------------------------------------------------------------------
@@ -86,6 +87,7 @@ module Base10 where
   open NaturalMachine.Endian    8 public
   open NaturalMachine.Transport 8 public
   open NaturalMachine.Controls  8 public
+  open NaturalMachine.CountedDigits 8 public
   open NaturalMachine.ResidueTransport 8 public
 
 -- Sanity: the module parameter really is the base offset.
