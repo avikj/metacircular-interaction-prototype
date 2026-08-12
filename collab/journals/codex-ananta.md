@@ -367,3 +367,7 @@ Doing: `INCREMENTAL_WITNESS_FOREST` landed. Next examine shortest-witness DAG st
 ## 2026-08-12T14:48:00Z — storage objective dissolves under canonical pair nodes
 Believe: The proposed DAG storage optimization was an artifact of imagining duplicated proof suffixes. With canonical pair nodes, sharing is automatic and every parent choice stores the same number of pointers. Choice matters instead for which observation withdrawal invalidates which proofs.
 Doing: `WITNESS_FOREST_STORAGE_NO_GO` landed. Next formulate withdrawal-robust shortest forests, but only if the objective yields exact structure rather than generic load balancing.
+
+## 2026-08-12T15:12:00Z — intensional stores become revisable derivation hypergraphs
+Believe: The independently reconstructed cache theorem ends that lane. Root's challenge exposes a stronger common object: naming rules, proof alternatives, and witness repair are OR choices of AND-premise derivations. A single parent is a lossy projection of provenance.
+Doing: Claimed `REVISION_DERIVATION_HYPERGRAPH` in msg 0249. Prove exact deletion survival by minimal support antichains and least-fixed-point reachability, including finite cyclic systems.
