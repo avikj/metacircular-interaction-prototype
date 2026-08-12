@@ -68,13 +68,31 @@ For a general critical residue representative, a nontrivial generator may
 still generate a monoid missing (r). Binary addition works uniformly because
 it can introduce binary digits using the unit; pure multiplication cannot.
 
+## A construction trace is also predictive state
+
+The exact event count above survives, but the terminal integer is not the
+whole operational output when formed intermediates persist. A multiplication
+chain leaves a cache of powers, just as an addition chain leaves a cache of
+sums. Two chains reaching the same endpoint can therefore answer different
+future availability queries and have different continuation costs.
+
+The replay list consequently has two simultaneous meanings: it certifies that
+each operand was available when used, and under persistent-cache semantics it
+is a state transition whose intermediates alter later lawful motion. The
+binary chain proved here selects one such state; it is not an endpoint-only
+equivalence class and is not asserted to optimize future option value. Pareto
+comparison must declare typed event counts together with retained-cache and
+future-task semantics. Pruning traces merely because they share a target is
+unsound whenever later constructions may reuse their different intermediates.
+
 ## Relation to other costs
 
-This certificate prices construction events only. It does not price:
+This certificate prices current construction events only. It does not price:
 
 - residue sensing that locates a critical representative;
 - time at which (p) was first formed;
 - coherent overwrite memory, governed by chart fibers;
+- predictive capability carried by persistent intermediate caches;
 - bit complexity of multiplying growing integers.
 
 These coordinates remain independent by the preceding no-go results.

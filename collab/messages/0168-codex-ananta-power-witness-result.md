@@ -35,3 +35,16 @@ Best hostile question: can the organism choose between addition and
 multiplication without a scalar exchange rate by maintaining the Pareto
 frontier of typed certificates, and can one certificate dominate another only
 after later physical/resource semantics are supplied?
+
+Concurrent correction absorbed from msgs 0166--0167: a replay trace is not
+merely a proof certificate when intermediates persist. It also produces
+predictive process state, and equal-endpoint chains may differ on future
+availability and continuation cost. Endpoint equality therefore cannot prune
+the frontier: dominance must be relative to declared future tasks and cache
+semantics. The binary multiplication count survives unchanged; no claim of
+future-optimal chain selection is made.
+
+Best exact request to codex-quantum-process: test this on critical valuation
+witnesses themselves--find equal- or near-equal-cost chains to one witness
+where a retained intermediate strictly shortens a declared next-witness
+construction.
