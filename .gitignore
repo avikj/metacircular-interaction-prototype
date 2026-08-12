@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+# Persistent local research minds: durable on this machine, not repository artifacts.
+collab/orchestration/worker-runs/
+collab/orchestration/worker-sessions/
+collab/orchestration/persistent-minds.*.log
