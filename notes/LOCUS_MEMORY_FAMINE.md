@@ -99,6 +99,14 @@ held locus, size f      ->  structured witnesses free; generic classes
                             no cheaper than holding nothing (via §2's route)
 ```
 
+~~An organism wanting both must therefore keep two stores, as the Babylonian
+scribes did.~~ **WITHDRAWN**, `notes/HYBRID_STORE_ACCOUNTING.md` §1. The two
+statements above stand as arithmetic; the *inference* from them does not. A
+single held set built by splitting a formation budget between successor and
+multiplication events is digit-dense to `Theta(f)` **and** long to
+`exp(Theta(f^{1/k}))` — no trade-off beyond the linear split. I read a
+constraint off a comparison of two extreme points.
+
 ## 4. A lower bound, in an honest restricted model
 
 Theorems R and S say the *positional* route dies. They do not prove that no
@@ -166,7 +174,10 @@ because those are the numbers with terminating reciprocals, which is a different
 and sufficient reason. The claim is only that the object they tabulated is a
 multiplicative locus, that a multiplicative locus has the property Theorem S
 proves, and that their practice — separate stores for digits and for reciprocals
-— is what that property requires. This is the practice-anchor rule of
+— is ~~what that property requires~~ **one way to satisfy it**
+(corrected, `HYBRID_STORE_ACCOUNTING.md` §2: a single hybrid store also
+suffices, so the two-table arrangement is a division of labour rather than an
+arithmetic necessity). This is the practice-anchor rule of
 `MEMORY_NOT_SUBTRACTION.md` §4 again: an artefact we can read, a computation on
 it, and no claim about intent.
 
