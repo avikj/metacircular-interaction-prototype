@@ -504,6 +504,8 @@ class ClassOption:
     """
 
     term: T.Term
+    anchor: str
+    subs: Tuple[Tuple[C.Step, ...], ...]
     path: Tuple[C.Step, ...]
     steps: int
     size: int
@@ -514,6 +516,28 @@ class ClassOption:
 
     def key(self) -> Tuple:
         return (self.steps, self.size, self.width, self.term.addr)
+
+    def path_from(self, src: str, finder: "RouteFinder"
+                  ) -> Optional[Tuple[C.Step, ...]]:
+        """The same realisation, proved from ``src`` instead of the class root.
+
+        The realisation is ``anchor`` with its children replaced, so the only
+        part of the proof that depends on where the caller starts is the lead
+        ``src = anchor``.  Re-anchoring can only shorten the route -- the class
+        root is one possible ``src`` -- and it is what stops a class's canonical
+        representative from being charged to every consumer of the class.
+        """
+        if src == self.anchor:
+            lead: Tuple[C.Step, ...] = ()
+        else:
+            got = finder.route(src, self.anchor)
+            if got is None:
+                return None
+            lead = tuple(got)
+        if not self.subs:
+            return lead
+        return lead + (C.Step(self.anchor, self.term.addr, "congruence",
+                              None, None, self.subs),)
 
     def render(self) -> str:
         return "%-40s steps=%-3d size=%-3d width=%-3d" % (
@@ -622,16 +646,16 @@ class ClassExtractor:
                 subs.append(())
                 kids.append(child)
                 continue
-            croot = self.g.find(child.addr)
-            lead = self._steps_between(child.addr, croot)
-            if lead is None:
+            sub = pick.path_from(child.addr, self.finder)
+            if sub is None:
                 return None
-            subs.append(tuple(lead) + tuple(pick.path))
+            subs.append(sub)
             kids.append(pick.term)
             changed = True
         if not changed:
             term = node
             path = tuple(prefix)
+            subs = []
         else:
             try:
                 if node.head == T.APP:
@@ -646,8 +670,9 @@ class ClassExtractor:
             path = tuple(prefix) + (C.Step(addr, term.addr, "congruence", None,
                                            None, tuple(subs)),)
         COUNTERS.bump("extract.class_assemble")
-        return ClassOption(term=term, path=path, steps=count_steps(path),
-                           size=term_size(term), width=arith_width(term))
+        return ClassOption(term=term, anchor=addr, subs=tuple(subs), path=path,
+                           steps=count_steps(path), size=term_size(term),
+                           width=arith_width(term))
 
     # -- the fixpoint ------------------------------------------------------
     def solve(self) -> ClassSolution:
@@ -731,11 +756,24 @@ def extract_class_frontier(g: EGraph, ctx: C.CheckContext, src: T.Term,
                            ) -> ExtractionResult:
     """The Pareto frontier over the **class DAG**, not over the stored terms.
 
-    Every option of ``src``'s e-class is turned into a complete route
-    ``src = rep = term`` and handed to the trusted checker exactly as
-    ``extract_routes`` does: a route that does not check is counted in
-    ``rejected`` and never returned.  So nothing here widens what is believed --
-    it widens only what is *considered*.
+    The candidate set is the union of
+
+    * every realisation the class fixpoint produced for ``src``'s class -- which
+      includes terms the e-graph never materialised, and
+    * every **stored** member of that class, routed exactly as
+      ``extract_routes(mode="geodesic")`` routes it,
+
+    so this frontier is computed over a strict superset of the stored-term
+    frontier's candidates and can only be better or equal.  Where a term is both
+    stored and assembled, the cheaper of the two routes to it is kept: an
+    assembled congruence proof is sometimes *shorter* than the geodesic through
+    the retained records, because it may compose sub-geodesics the record graph
+    never joined into one edge.
+
+    Every route is handed to the trusted checker before it is costed, exactly as
+    ``extract_routes`` does: one that fails is counted in ``rejected`` and never
+    returned.  Nothing here widens what is *believed*; it widens only what is
+    *considered*.
     """
     if finder is None:
         finder = RouteFinder(g)
@@ -743,20 +781,37 @@ def extract_class_frontier(g: EGraph, ctx: C.CheckContext, src: T.Term,
         extractor = ClassExtractor(g, finder=finder, bounds=bounds)
     sol = extractor.solve()
     root = g.find(src.addr)
-    lead = () if src.addr == root else finder.route(src.addr, root)
+
+    # candidate (term, path) pairs, best-by-steps per destination term
+    best: Dict[str, Tuple[int, T.Term, Tuple[C.Step, ...]]] = {}
+
+    def offer(term: T.Term, path: Optional[Sequence[C.Step]]) -> None:
+        if path is None:
+            return
+        path = tuple(path)
+        n = count_steps(path)
+        got = best.get(term.addr)
+        if got is None or n < got[0]:
+            best[term.addr] = (n, term, path)
+
+    for addr in g.class_of(src.addr):
+        stored = T.lookup(addr)
+        if stored is not None:
+            offer(stored, () if addr == src.addr else finder.route(src.addr, addr))
+    for opt in sol.options.get(root, ()):
+        offer(opt.term, opt.path_from(src.addr, finder))
+
     routes: List[Route] = []
     considered = 0
     rejected = 0
-    if lead is not None:
-        for i, opt in enumerate(sol.options.get(root, ())):
-            considered += 1
-            path = tuple(lead) + tuple(opt.path)
-            cost = measure_route(ctx, src, opt.term, path)
-            if cost is None:
-                rejected += 1
-                continue
-            routes.append(Route(target=opt.term.addr, path=path, cost=cost,
-                                variant=i))
+    for i, addr in enumerate(sorted(best)):
+        _, term, path = best[addr]
+        considered += 1
+        cost = measure_route(ctx, src, term, path)
+        if cost is None:
+            rejected += 1
+            continue
+        routes.append(Route(target=addr, path=path, cost=cost, variant=0))
     routes.sort(key=lambda r: r.key())
     partial = () if sol.complete else (root,)
     return ExtractionResult(routes=tuple(routes), frontier=pareto(routes),

@@ -195,6 +195,8 @@ class RoundReport:
     edges: int
     refusals: int
     causal: str
+    colls_found: int
+    surviving: int
     proposed: int
     discharged: int
     refuted: int
@@ -397,9 +399,11 @@ class Organism:
                               sources=self.sources)
         self.pool = (self.pool + terms)[-cfg.pool_cap:]
         proposed_now: List[str] = []
+        unproposed: List[Term] = []
         for a, b in colls:
             if len(proposed_now) >= cfg.max_conjectures:
-                break
+                unproposed.extend((a, b))
+                continue
             cj = self.pg.propose(a, b, r)
             if cj is not None:
                 proposed_now.append(cj.cid)
@@ -522,11 +526,21 @@ class Organism:
         self.frontiers.append(frontier)
 
         # ----------------------------------------------------------- REFLECT
+        # Three residual streams, all real, and their sizes are reported so a
+        # dead one is visible rather than implied:
+        #   (a) conjectures the PROVE budget could not settle -- in this
+        #       substrate almost always empty, because normalisation is a
+        #       decision procedure here and the audit grid decides the rest;
+        #   (b) collisions the proposal budget truncated away -- surviving
+        #       collisions in CRYSTAL.md sec 3.2's exact sense, and the stream
+        #       that actually carries load in this configuration;
+        #   (c) separating points from refutations, which widen the channel.
         residual_terms: List[Term] = []
         for v in verdicts:
             if v.status in (PR.OPEN, PR.EXHAUSTED):
                 cj = self.pg.conjectures[v.cid]
                 residual_terms.extend([cj.lhs, cj.rhs])
+        residual_terms.extend(unproposed)
         for cid, sep, a, b in self.pg.counterexamples:
             if sep not in self.channel:
                 self.channel.append(sep)
@@ -539,6 +553,7 @@ class Organism:
         rep = RoundReport(
             rnd=r, seeds=len(seeds), states=len(g.states), edges=len(g.edges),
             refusals=len(g.refusals), causal=cr.render(),
+            colls_found=len(colls), surviving=len(unproposed) // 2,
             proposed=len(proposed_now), discharged=disch, refuted=refut,
             open_=sum(1 for v in verdicts if v.status == PR.OPEN),
             exhausted=exh, cones=len(cones), cone_facts=cone_facts,
