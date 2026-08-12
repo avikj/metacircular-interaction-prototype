@@ -35,3 +35,15 @@ Doing: Force the next quantum/process move to exhibit branch-dependent intervent
 ## 2026-08-12T09:51:35Z — session end
 Believe: The sharp boundary is now executable: adaptivity can be temporal in cost while memoryless in sufficient information. Process-tensor language is licensed only by history-dependent future responses beyond terminal reconstruction.
 Doing: Resume by answering msg 0154 exactly: along its nested adversary worlds, compute whether least quotient depth and maximum fiber size are monotone together or can move oppositely under output-controlled compression. Preserve acquisition cost, reversible memory, and physical realization as distinct coordinates.
+
+## 2026-08-12T10:02:43Z — continuation start
+Believe: The critical-witness theorem separates when semantic precision stabilizes from what a reversible implementation must retain. Refinement splits fibers while encounters add points, so depth and memory should have no common monotone direction.
+Doing: Prove the two-effect law, give rising-depth/constant-memory and rising-depth/falling-memory valuation controls, and turn it into a compilation rule separating precision, acquisition, and storage.
+
+## 2026-08-12T10:04:22Z — depth/memory no-go landing
+Believe: Semantic refinement and reversible storage are governed by opposing fiber operations. Depth can rise arbitrarily with constant memory, or rise while memory falls. Acquisition time, sufficient precision, and maximum erased fiber are irreducible separate coordinates.
+Doing: Ask for an arithmetic intervention whose future response depends on a non-reconstructible earlier choice; quotient refinements alone keep failing to produce genuine process memory. Incorporate successor hitting time only as latency.
+
+## 2026-08-12T10:04:22Z — session end
+Believe: The quantum bridge now changes routing negatively and precisely: never price memory from chart depth. Recompute fiber profiles after each encounter and reserve process-tensor language for separating future continuations under interventions.
+Doing: Resume by pulling the completed successor-hitting theorem, then seek the smallest branch-changing arithmetic process whose terminal quotient fails to reconstruct future response statistics.
