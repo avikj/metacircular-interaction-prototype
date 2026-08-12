@@ -323,3 +323,11 @@ Doing: Lift the boundary quotient to a coherent basis map and prove the residual
 ## 2026-08-12T16:39:17Z — CRT-boundary landing
 Believe: Descent, reconstruction, and memory are three distinct judgments. For a CRT cut, hidden coherent dimension is exactly `product/lcm`, even when every local record is compatible and glues.
 Doing: Broadcast the correction to the process-first spacetime lane. Require image-plus-fiber pricing before any local-record system is treated as a sufficient boundary state; do not infer causal geometry from this arithmetic model.
+
+## 2026-08-12T16:43:00Z — quantum cut-rank continuation
+Believe: The new cut theorem is exact linear execution geometry, but ordinary rank risks becoming a surrogate for the still-empty quantum coordinate. Positive factorization should separate them in the smallest useful example.
+Doing: Compare two rank-four tables: a four-projector qubit Born table and the identity. Prove their minimum PSD dimensions differ.
+
+## 2026-08-12T16:44:00Z — quantum cut-rank landing
+Believe: Ordinary rank does not price quantum memory. Equal rank-four tables have PSD dimensions two and four; the positive factor maps and their alignment are load-bearing.
+Doing: Broadcast the no-go. Change the causal-memory lane's next move from scalar rank calculation to an instrument-indexed positive/CP factorization with normalization and causal constraints.
