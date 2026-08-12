@@ -592,127 +592,143 @@ def phi_value(s):
 # Fourier convention:  g(u) = (1/2pi) int h(r) e^{-iru} dr,  h(r) = int g(u) e^{iru} du.
 
 
-class TestFn:
-    """Even, entire, rapidly decreasing test function with its transform."""
+RGRID = 34.0            # all test functions here are negligible beyond this
+_QUAD = {}
 
-    def __init__(self, name, h, g, h0, g0, hihalf, rmax, umax, osc=0.0):
+
+def build_quadrature(panel=0.2, order=16, verbose=True):
+    """Composite Gauss-Legendre panels on [0, RGRID], with all the r-kernels of
+    the trace formula evaluated once (the expensive one is zeta'/zeta)."""
+    if _QUAD:
+        return _QUAD
+    t0 = time.time()
+    xg, wg = np.polynomial.legendre.leggauss(order)
+    edges = np.arange(0.0, RGRID + 1e-9, panel)
+    rs, ws = [], []
+    for lo, hi in zip(edges[:-1], edges[1:]):
+        mid, half = (lo + hi) / 2, (hi - lo) / 2
+        rs.append(mid + half * xg)
+        ws.append(half * wg)
+    r = np.concatenate(rs)
+    w = np.concatenate(ws)
+    from scipy.special import digamma as _dg
+    _QUAD.update(
+        r=r, w=w,
+        K_id=r * np.tanh(math.pi * r),
+        K_e2=1.0 / np.cosh(math.pi * r),
+        K_e3=np.cosh(math.pi * r / 3) / np.cosh(math.pi * r),
+        K_psi=np.real(_dg(1 + 1j * r)),
+        K_phi=np.array([float(phi_logder_on_line(x)) for x in r]),
+    )
+    if verbose:
+        print(f"  quadrature: {len(r)} Gauss-Legendre nodes on [0,{RGRID}] "
+              f"(panel {panel}, order {order}) built in {time.time()-t0:.1f}s")
+    return _QUAD
+
+
+class TestFn:
+    """Even, entire, rapidly decreasing test function with its transform.
+
+    hf : numpy-vectorised h on the real axis (float64)
+    gf : numpy-vectorised g on the real axis (float64)
+    """
+
+    def __init__(self, name, hf, gf, h0, g0, hihalf, rmax, umax):
         self.name = name
-        self.h = h
-        self.g = g
+        self.hf = hf
+        self.gf = gf
         self.h0 = h0
         self.g0 = g0
         self.hihalf = hihalf     # h(i/2), the lambda=0 contribution
-        self.rmax = rmax         # h negligible beyond |r| > rmax
-        self.umax = umax         # geodesic sum negligible beyond u > umax
-        self.osc = osc           # angular frequency of h in r (0 if none)
-
-    def nodes(self, lo=0.0):
-        """Quadrature partition of [lo, rmax] resolving the oscillation of h."""
-        n = 12
-        if self.osc > 0:
-            n = max(n, int(8 * self.osc * (self.rmax - lo) / (2 * math.pi)) + 12)
-        n = min(n, 900)
-        return [mp.mpf(lo) + (mp.mpf(self.rmax) - mp.mpf(lo)) * k / n for k in range(n + 1)]
+        self.rmax = rmax         # discrete spectrum truncation (completeness)
+        self.umax = umax         # geodesic sum truncation
 
 
 def gaussian_in_r(alpha, r0, rmax, umax):
     """h(r) = exp(-alpha (r-r0)^2) + exp(-alpha (r+r0)^2)."""
-    a = mp.mpf(alpha)
-    R = mp.mpf(r0)
-
-    def h(r):
-        r = mp.mpf(r) if not isinstance(r, mp.mpc) else r
-        return mp.e ** (-a * (r - R) ** 2) + mp.e ** (-a * (r + R) ** 2)
-
-    def g(u):
-        u = mp.mpf(u)
-        return (1 / (2 * mp.pi)) * mp.sqrt(mp.pi / a) * mp.e ** (-u ** 2 / (4 * a)) * 2 * mp.cos(R * u)
-
-    h0 = 2 * mp.e ** (-a * R ** 2)
-    g0 = (1 / (2 * mp.pi)) * mp.sqrt(mp.pi / a) * 2
-    hih = 2 * mp.e ** (-a * (R ** 2 - mp.mpf(1) / 4)) * mp.cos(a * R)
-    return TestFn(f"gauss_r(alpha={alpha},r0={r0})", h, g, h0, g0, hih, rmax, umax, osc=0.0)
+    a, R = float(alpha), float(r0)
+    hf = lambda r: np.exp(-a * (r - R) ** 2) + np.exp(-a * (r + R) ** 2)
+    pref = (1 / (2 * math.pi)) * math.sqrt(math.pi / a) * 2
+    gf = lambda u: pref * np.exp(-u ** 2 / (4 * a)) * np.cos(R * u)
+    h0 = 2 * math.exp(-a * R ** 2)
+    g0 = pref
+    hih = 2 * math.exp(-a * (R ** 2 - 0.25)) * math.cos(a * R)
+    return TestFn(f"gauss_r(alpha={alpha},r0={r0})", hf, gf, h0, g0, hih, rmax, umax)
 
 
 def gaussian_in_u(sigma, u0, rmax, umax):
-    """g(u) = G(u-u0) + G(u+u0) with G the unit-mass Gaussian of width sigma;
-    h(r) = 2 cos(r u0) exp(-sigma^2 r^2/2)."""
-    s = mp.mpf(sigma)
-    U = mp.mpf(u0)
-
-    def h(r):
-        return 2 * mp.cos(r * U) * mp.e ** (-s ** 2 * r ** 2 / 2)
-
-    def G(u):
-        return (1 / (s * mp.sqrt(2 * mp.pi))) * mp.e ** (-u ** 2 / (2 * s ** 2))
-
-    def g(u):
-        return G(u - U) + G(u + U)
-
-    h0 = mp.mpf(2)
-    g0 = 2 * G(U)
-    hih = 2 * mp.cosh(U / 2) * mp.e ** (s ** 2 / 8)
-    return TestFn(f"gauss_u(sigma={sigma},u0={u0})", h, g, h0, g0, hih, rmax, umax, osc=float(u0))
+    """g(u) = G(u-u0) + G(u+u0), G the unit-mass Gaussian of width sigma;
+    h(r) = 2 cos(r u0) exp(-sigma^2 r^2/2).  Then h(i/2)=2cosh(u0/2)e^{s^2/8}
+    is the prime-geodesic-theorem MAIN term and sum_j h(r_j) the error term."""
+    s, U = float(sigma), float(u0)
+    hf = lambda r: 2 * np.cos(r * U) * np.exp(-s ** 2 * r ** 2 / 2)
+    G = lambda u: (1 / (s * math.sqrt(2 * math.pi))) * np.exp(-u ** 2 / (2 * s ** 2))
+    gf = lambda u: G(u - U) + G(u + U)
+    h0 = 2.0
+    g0 = float(2 * G(np.array(U)))
+    hih = 2 * math.cosh(U / 2) * math.exp(s ** 2 / 8)
+    return TestFn(f"gauss_u(sigma={sigma},u0={u0})", hf, gf, h0, g0, hih, rmax, umax)
 
 
-def geometric_side(tf, hist, tmax_used, report=False):
-    """I + E2 + E3 + H + P for PSL(2,Z)."""
-    h, g = tf.h, tf.g
-    R = tf.rmax
-    nod = tf.nodes(0.0)
-    nod_eps = tf.nodes(1e-10)
+def hyperbolic_side(tf, hist, tmax_used):
+    """H = sum_{P} log N(P_0) / (N(P)^{1/2}-N(P)^{-1/2}) g(log N(P)).
 
-    I = (mp.mpf(1) / 12) * 2 * mp.quad(lambda r: r * h(r) * mp.tanh(mp.pi * r), nod)
-    E2 = mp.mpf(1) / 4 * mp.quad(lambda r: h(r) / mp.cosh(mp.pi * r), nod)
-    E3 = (2 / (3 * mp.sqrt(3))) * mp.quad(
-        lambda r: h(r) * mp.cosh(mp.pi * r / 3) / mp.cosh(mp.pi * r), nod)
-
-    # hyperbolic
-    H = mp.mpf(0)
+    Uses that tr(gamma^k) = t_k is an integer (t_{k+1} = t t_k - t_{k-1}), so
+    N(P)^{1/2}-N(P)^{-1/2} = sqrt(t_k^2 - 4) exactly."""
+    H = 0.0
     umax = tf.umax
     for t in range(3, tmax_used + 1):
         c = int(hist[t])
         if c == 0:
             continue
-        ell = 2 * math.acosh(t / 2.0)          # log N(P_0)
+        ell = 2 * math.acosh(t / 2.0)
         if ell > umax:
             continue
-        # powers gamma^k: trace t_k via t_{k+1} = t t_k - t_{k-1}
         tk_prev, tk = 2, t
         k = 1
         while k * ell <= umax:
-            denom = math.sqrt(float(tk) ** 2 - 4.0)   # N^{k/2} - N^{-k/2}
-            H += c * mp.mpf(ell) / mp.mpf(denom) * g(k * ell)
+            H += c * ell / math.sqrt(float(tk) ** 2 - 4.0) * float(tf.gf(np.array(k * ell)))
             tk_prev, tk = tk, t * tk - tk_prev
             k += 1
+    return H
 
-    # parabolic / scattering
-    phi_half = mp.mpf(-1)                       # verified numerically in main()
-    P = mp.mpf(1) / 4 * tf.h0 * (1 - phi_half)
-    P -= tf.g0 * mp.log(2)
-    P += (1 / (4 * mp.pi)) * 2 * mp.quad(
-        lambda r: h(r) * phi_logder_on_line(r), nod_eps)
-    P -= (1 / (2 * mp.pi)) * 2 * mp.quad(
-        lambda r: h(r) * mp.re(mp.digamma(1 + 1j * r)), nod)
+
+def geometric_side(tf, hist, tmax_used, report=False):
+    """I + E2 + E3 + H + P for PSL(2,Z)."""
+    Q = build_quadrature(verbose=False)
+    r, w = Q["r"], Q["w"]
+    hv = tf.hf(r)
+    tail = abs(float(tf.hf(np.array(RGRID))))
+    if tail > 1e-15:
+        raise RuntimeError(f"test function not negligible at r={RGRID}: {tail:.3e}")
+
+    I = (1.0 / 12) * 2 * float(np.dot(w, hv * Q["K_id"]))
+    E2 = 0.25 * float(np.dot(w, hv * Q["K_e2"]))
+    E3 = (2 / (3 * math.sqrt(3))) * float(np.dot(w, hv * Q["K_e3"]))
+    H = hyperbolic_side(tf, hist, tmax_used)
+
+    phi_half = -1.0                              # verified numerically in main()
+    P = 0.25 * tf.h0 * (1 - phi_half)
+    P -= tf.g0 * math.log(2)
+    P += (1 / (4 * math.pi)) * 2 * float(np.dot(w, hv * Q["K_phi"]))
+    P -= (1 / (2 * math.pi)) * 2 * float(np.dot(w, hv * Q["K_psi"]))
 
     if report:
-        print(f"    I  = {mp.nstr(I, 15)}")
-        print(f"    E2 = {mp.nstr(E2, 15)}   E3 = {mp.nstr(E3, 15)}")
-        print(f"    H  = {mp.nstr(H, 15)}")
-        print(f"    P  = {mp.nstr(P, 15)}")
+        print(f"    I  = {I:.15f}")
+        print(f"    E2 = {E2:.15e}   E3 = {E3:.15e}")
+        print(f"    H  = {H:.15f}")
+        print(f"    P  = {P:.15f}")
     return I + E2 + E3 + H + P, dict(I=I, E2=E2, E3=E3, H=H, P=P)
 
 
 def spectral_side(tf, rlist, report=False):
-    S = tf.hihalf                     # lambda = 0, r = i/2
-    Sc = mp.mpf(0)
-    for r in rlist:
-        if r > tf.rmax:
-            break
-        Sc += tf.h(mp.mpf(r))
+    """h(i/2) [lambda=0, the main term] + sum over Maass cusp forms."""
+    arr = np.array([x for x in rlist if x <= tf.rmax])
+    Sc = float(np.sum(tf.hf(arr))) if len(arr) else 0.0
     if report:
-        print(f"    h(i/2) = {mp.nstr(S, 15)}   sum_cusp h(r_j) = {mp.nstr(Sc, 15)}")
-    return S + Sc
+        print(f"    h(i/2) = {tf.hihalf:.15e}   sum_cusp h(r_j) = {Sc:.15f}  "
+              f"[{len(arr)} eigenvalues used]")
+    return tf.hihalf + Sc
 
 
 # ===========================================================================

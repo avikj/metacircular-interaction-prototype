@@ -66,9 +66,13 @@ survives only in a much weaker form.**  Precisely:
 Let $v$ be a place of $\mathbb Q$, $k_v$ the completion, $\psi_v$ the standard
 additive character ($\psi_\infty(x)=e^{2\pi ix}$; $\psi_p(x)=e^{2\pi i\{x\}_p}$,
 kernel exactly $\mathbb Z_p$), $dx$ the self-dual Haar measure (Lebesgue at
-$\infty$; $\mathrm{vol}(\mathbb Z_p)=1$ at $p$), and
-$d^\times x=\frac{dx}{|x|_v}$ up to the normalisation
-$\mathrm{vol}^\times(\mathbb Z_p^\times)=1$ at finite $p$.  On the
+$\infty$; $\mathrm{vol}(\mathbb Z_p)=1$ at $p$), and $d^\times x=\frac{dx}{|x|_\infty}$ at
+$\infty$, $d^\times x=\frac{1}{1-p^{-1}}\frac{dx}{|x|_p}$ at $p$ (so
+$\mathrm{vol}^\times(\mathbb Z_p^\times)=1$).  *Auditor's note:* $\gamma_v$ is a
+**ratio** of zeta integrals, hence completely insensitive to the normalisation of
+$d^\times x$; it is sensitive only to $dx$ and $\psi_v$.  That is exactly why the
+controls C1 and C2 of §5 attack the additive measure and the additive character
+and not the multiplicative one.  On the
 Schwartz–Bruhat space $\mathcal S(k_v)$ define the **local zeta integral**
 
 $$Z_v(f,\chi,s)\;=\;\int_{k_v^\times} f(x)\,\chi(x)\,|x|_v^{s}\,d^\times x .$$
@@ -102,8 +106,11 @@ characters they would commute trivially and there would be no holonomy to find.
 | $DEX$ | $\mathcal FJf$ | $\gamma_v(\chi^{-1},1-s)\,Z_v(f,\chi,s)$ |
 | $EDX$ | $J\mathcal Ff$ | $\gamma_v(\chi,s)\,Z_v(f,\chi,s)$ |
 
-The last two rows are the crystal's content: **both routes around the square land
-on the same corner of the base but on different scalar multiples of it.**
+The last two rows are the crystal's content.  $\mathcal FJ$ and $J\mathcal F$ are
+both *diagonal* in the quasicharacter decomposition — each returns the $(\chi,s)$
+Mellin coefficient of $f$ multiplied by a scalar — but **the two scalars differ**:
+$\gamma_v(\chi^{-1},1-s)$ versus $\gamma_v(\chi,s)$.  That mismatch is the
+holonomy.
 
 ### 1.2 Involutivity (charter step 3), proved and measured
 
@@ -113,8 +120,10 @@ on the same corner of the base but on different scalar multiples of it.**
   technicality: it is precisely what produces the holonomy identity of §2.
   Measured: at $v=\infty$ the Gaussian is $\mathcal F$-fixed to $7.9\times10^{-18}$;
   at $v=3$, $\max_y|\mathcal F^2f(y)-f(-y)|=1.2\times10^{-15}$ for
-  $f=\mathbf 1_{1+p\mathbb Z_p}$ (an *odd-placed* test function, so $f(-y)\ne f(y)$
-  and the distinction is visible).
+  $f=\mathbf 1_{1+p\mathbb Z_p}$ — a test function deliberately chosen **not**
+  symmetric under $y\mapsto-y$, so that $f(-y)\ne f(y)$ and the difference between
+  $\mathcal F^2=\sigma$ and $\mathcal F^2=\mathrm{id}$ is actually visible in the
+  measurement rather than hidden by an even test function.
 - $\sigma$ acts on the $(\chi,s)$ Mellin component by $\chi(-1)$:
   $Z_v(\sigma f,\chi,s)=\chi(-1)Z_v(f,\chi,s)$.
 
@@ -162,15 +171,16 @@ on the same corner of the base but on different scalar multiples of it.**
 > **(3)** $h_v\not\equiv1$ at **every** place: the crystal does not commute
 > locally anywhere.  On the even subspace with even $\chi$, $D$ and $E$ are
 > honest involutions, $J(\mathcal FJ)J=(\mathcal FJ)^{-1}$, and $\mathcal FJ$ has
-> infinite order (its multiplier $\gamma_v(\chi,1-s)$ is a nonconstant function
-> of $s$).  Hence
+> infinite order (its multiplier $\gamma_v(\chi^{-1},1-s)$ is a nonconstant
+> function of $s$).  Hence
 > $$\langle D,E\rangle\;\cong\;D_\infty\quad\text{(infinite dihedral)}$$
 > — the charter's "iteration may open a larger dihedral orbit", realised exactly.
 >
 > **(4)** **The global holonomy vanishes:**
 > $$\prod_v\gamma_v(\chi,s)\;=\;1 ,$$
 > for every Hecke character $\chi$ of the idele class group; equivalently
-> $\Lambda(1-s,\bar\chi)=\varepsilon(\chi)\Lambda(s,\chi)$.
+> $\Lambda(s,\chi)=\varepsilon(\chi)\,\Lambda(1-s,\bar\chi)$ (for $\chi$ trivial,
+> $\varepsilon=1$ and this is $\Lambda(s)=\Lambda(1-s)$).
 
 *Proof of (1).*  The first identity is Tate's local functional equation
 (classical; see §8 for the fetched statement).  The second follows from it: put
@@ -245,11 +255,12 @@ level so the lattice sums are exact, with the omitted balls summed in closed for
 ```
   D-fixed point at p: max_y |hat(1_Zp)(y) - 1_Zp(y)| = 1.334e-16
   Z_p(1_Zp, 1, s=0.8) shellsum = 1.7101139544367   (1-p^-s)^-1 = 1.7101139544367
+  Z_p(1_Zp, 1, s=(0.5 + 4.0j)) shellsum = (0.6967375461625 + 0.32368106255225j)   (1-p^-s)^-1 = (0.6967375461625 + 0.32368106255225j)
   s = 0.6;   gamma_p(s) = (1-p^-s)/(1-p^{s-1}) = 1.357452243098
-    f = 1_{Z_p}          Z(fhat,1-s)/Z(f,s) = 1.357452243098   dev 1.81e-16
-    f = 1_{1+pZ_p}       Z(fhat,1-s)/Z(f,s) = 1.357452243098   dev 3.89e-16
-    f = 1_{p^-1 Z_p}     Z(fhat,1-s)/Z(f,s) = 1.357452243098   dev 3.08e-16
-    f = 1_{Z_p^*}        Z(fhat,1-s)/Z(f,s) = 1.357452243098   dev 2.62e-16
+    f = 1_{Z_p}          Z(fhat,1-s)/Z(f,s) = (1.357452243098 + 9.5117505198743e-17j)   dev 1.81e-16
+    f = 1_{1+pZ_p}       Z(fhat,1-s)/Z(f,s) = (1.357452243098 + 1.1287465770303e-16j)   dev 3.89e-16
+    f = 1_{p^-1 Z_p}     Z(fhat,1-s)/Z(f,s) = (1.357452243098 + 1.2256783539268e-16j)   dev 3.08e-16
+    f = 1_{Z_p^*}        Z(fhat,1-s)/Z(f,s) = (1.357452243098 + 9.80209549582e-17j)   dev 2.62e-16
   D^2 = parity at p:  max |F^2 f (y) - f(-y)| = 1.196e-15   (NOT f(y): F is order 4, not 2)
 ```
 
@@ -422,12 +433,13 @@ Measured at $a=b=c=1/3$ ($B_\infty=15.8997487526$), against the leading Mertens
 prediction $3\sum_{p\le P}(p^{-a}-p^{a-1})$:
 
 ```
-  P=      10   log(B_inf prod_{p<=P} B_p) =    8.74224296   prediction =    2.605925557   ratio = 3.355
-  P=     100                                  24.94712038                  15.42987405            1.617
-  P=    1000                                  78.65458745                  64.76087727            1.215
-  P=   10000                                 268.6279386                  248.1464061             1.083
-  P=  100000                                 973.1740785                  941.8193227             1.033
-  P= 1000000                                3684.207611                  3633.825191             1.014
+  (a,b,c)=(1/3,1/3,1/3), B_inf = 15.8997487526
+  P=      10   log(B_inf prod_{p<=P} B_p) =       8.74224296   leading prediction 3*sum(p^-a - p^{a-1}) =      2.605925557   ratio = 3.3547554
+  P=     100   log(B_inf prod_{p<=P} B_p) =      24.94712038   leading prediction 3*sum(p^-a - p^{a-1}) =      15.42987405   ratio = 1.6168065
+  P=    1000   log(B_inf prod_{p<=P} B_p) =      78.65458745   leading prediction 3*sum(p^-a - p^{a-1}) =      64.76087727   ratio = 1.2145386
+  P=   10000   log(B_inf prod_{p<=P} B_p) =      268.6279386   leading prediction 3*sum(p^-a - p^{a-1}) =      248.1464061   ratio = 1.0825381
+  P=  100000   log(B_inf prod_{p<=P} B_p) =      973.1740785   leading prediction 3*sum(p^-a - p^{a-1}) =      941.8193227   ratio = 1.0332917
+  P= 1000000   log(B_inf prod_{p<=P} B_p) =      3684.207611   leading prediction 3*sum(p^-a - p^{a-1}) =      3633.825191   ratio = 1.0138648
 ```
 
 The partial products blow up like $\exp\bigl(3P^{2/3}/(\tfrac23\log P)\bigr)$, and
@@ -449,10 +461,10 @@ by $1+1/p+O(p^{-2})\to1$ — undetectable place by place at any fixed tolerance.
 The global holonomy:
 
 ```
-  P=      10   broken global holonomy =  4.375          (correct 1;  e^gamma log P =  4.101)
-  P=    1000                            12.35097567                              12.303
-  P=  100000                            20.51159283                              20.505
-  P= 1000000                            24.60738295                              24.606
+  P=      10   broken global holonomy =          4.375   (correct value 1; grows like e^gamma log P = 4.1010708)
+  P=    1000   broken global holonomy =    12.35097567   (correct value 1; grows like e^gamma log P = 12.303212)
+  P=  100000   broken global holonomy =    20.51159283   (correct value 1; grows like e^gamma log P = 20.505354)
+  P= 1000000   broken global holonomy =    24.60738295   (correct value 1; grows like e^gamma log P = 24.606425)
 ```
 
 Log-divergent, tracking $e^\gamma\log P$ (Mertens) to 4 digits.  **This is the
@@ -465,10 +477,10 @@ $\psi'_p(x)=\psi_p(x/p)$ (conductor $p^{-1}\mathbb Z_p$).  Self-duality of
 $\mathbf 1_{\mathbb Z_p}$ dies immediately:
 
 ```
-  hat(1_Z3)(y) for y = w/3, w = 0..8:  [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-                                       (should be all 1.0 if self-dual)
-  gamma'_p = p^{s-1} gamma_p:  prod_{p<=10} = 0.1178,  prod_{p<=100} = 2.85e-15,
-                               prod_{p<=1000} = 7.64e-167  ->  0   (correct value 1)
+  P=    10   prod_{p<=P} gamma'_p / gamma_p = 0.117791047   -> 0 (correct value 1)
+  P=   100   prod_{p<=P} gamma'_p / gamma_p = 2.850288551e-15   -> 0 (correct value 1)
+  P=  1000   prod_{p<=P} gamma'_p / gamma_p = 7.641580718e-167   -> 0 (correct value 1)
+  explicit: with psi'_3, hat(1_Z3)(y) for y=w/3, w=0..8:  [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  (should be all 1 if self-dual)
 ```
 
 ### C3 — planted-false gamma factor, rejected two ways
@@ -581,7 +593,10 @@ the two computations share no code, no objects and no method.
 Freund–Witten is a real theorem about real amplitudes, and it is *not* about GR
 and QM.  It concerns tree-level four-point tachyon scattering in open bosonic
 string theory, with the $p$-adic worldsheet a Bruhat–Tits tree (FETCHED: Brekke–
-Freund, Phys. Rep. 233 (1993); Zabrodin).  Nothing computed in this lane involves
+Freund, Phys. Rep. **233** (1993), summary; and Jepsen arXiv:2211.01611 §1 full
+text, which attributes the tree worldsheet to Zabrodin — we did **not** fetch
+Zabrodin, so that attribution is second-hand and labelled as such).  Nothing
+computed in this lane involves
 a metric, a curvature, a state space, an observable, or a measurement.  The
 mapping "archimedean = GR, finite = QM" adds no predicate that any object here can
 verify or falsify, and per charter §2 it is therefore refused as mythology.  The
