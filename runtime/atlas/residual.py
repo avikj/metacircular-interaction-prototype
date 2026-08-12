@@ -48,7 +48,6 @@ __all__ = [
     "Cocycle",
     "CocycleReport",
     "carry_cocycle",
-    "no_homomorphic_section",
     "exhaustive_section_search",
     "splitting_exponent_argument",
     "Residual",

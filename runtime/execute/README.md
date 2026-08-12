@@ -4,10 +4,15 @@
 > implementations by declared task and a **cost vector**, keeping nondominated
 > routes rather than collapsing to one scalar fitness. — `CRYSTAL.md` §2 L3
 
-**Status: BUILT.** `python3 runtime/tests/test_execute.py` → **47/47**, and the
+**Status: BUILT.** `python3 runtime/tests/test_execute.py` → **59/59**, and the
 suite kills every one of 13 injected defects. `python3
-runtime/demo/geodesic_demo.py` → exit 0, ~2 s, byte-identical under
+runtime/demo/geodesic_demo.py` → exit 0, ~6 s, byte-identical under
 `PYTHONHASHSEED` 0/12345/999.
+
+Two things named in §10 as "what breaks first" have since been **built**, and
+this file has been brought current for both: the **e-matching automaton** (§3.4,
+§10 item 1) and **Pareto extraction over the class DAG** (§5.1, §10 item 2).
+What changed in the contract is recorded in §12, not applied silently.
 
 Pure Python 3 stdlib, CPU only, exact integers throughout — no float is
 constructed anywhere in the package (there is a test that greps for it). No ML,
@@ -193,6 +198,40 @@ cannot change a result — only its cost.
    spine level. On the demo's post-theorem graph that is the difference between **37 082**
    e-match visits and **53 million**, measured during development.
 
+### 3.4 Two engines, and which one runs
+
+The description above is the **recursive** matcher. It is no longer the default.
+`ematch.DEFAULT_ENGINE = "automaton"`: a pattern is compiled **once** (and
+cached) by `compile_pattern` into a flat instruction sequence over registers
+holding e-classes — `app`/`lam` branch, `const`/`var`/`vbind`/`vcmp` filter —
+walked in pattern preorder so the automaton returns **the same matches in the
+same order** as the recursive matcher. Both engines are kept and selectable:
+`ematch(..., engine="automaton"|"recursive")`.
+
+The one structural change: **candidates are e-node *signatures*, not e-nodes.**
+A bind step can only expose the *classes* of a node's children, so two nodes of
+one class with the same child classes are one candidate. In a curried IR that
+collapse is large, and it removes structurally the blow-up the memo table
+existed to survive.
+
+Measured (`SCALE.md` §4, full tables and caveats there):
+
+| | recursive | automaton |
+|---|---:|---:|
+| demo saturation e-match visits (277 calls) | 33,630 | **16,962** |
+| AC-saturated k=6 graph (6,549 nodes), total lookups | 739,278 | **239,994** |
+| search-dominated patterns (late compares, no matches) | — | **2.7×–4.7× faster** |
+| two match-materialisation-dominated patterns | — | **3–10% slower** |
+
+The two slower rows are in the table, not in a footnote. Three honest caveats:
+`max_visits` is a **budget, not a metric** and its unit differs between the
+engines (§4.4 of `SCALE.md`), so a caller who pinned a `max_visits` against the
+recursive engine may see `exhausted=True` sooner under the automaton on AC-like
+graphs; the differential test
+`test_ematch_automaton_agrees_with_the_recursive_matcher` asserts equal match
+keys **in equal order** over eight patterns × two graph sizes; and this is **not
+an asymptotic improvement** — e-matching is still exponential in pattern size.
+
 ---
 
 ## 4. Saturation: a fixpoint, or a named budget
@@ -277,6 +316,65 @@ the caller said which question they were asking.
 `ExtractionResult.partial_targets` propagates the kernel's own
 `ClassEnumeration.complete` flag in `homotopy` mode.
 
+### 5.1 Extraction over the **class DAG** — `extract_class_frontier`
+
+`extract_routes` costs the terms that are *members of the e-class*: the terms
+someone materialised. §10 item 2 named why that is a cliff — with
+`max_exhaustive_vars = 1` a multi-variable rule fires at one representative per
+class, so most combinations of realisations are never built, and **a better
+route to an unbuilt term is invisible**. `extract_class_frontier` is the fix
+that item named.
+
+**What it does.** An e-node is a head plus a tuple of child *classes*, so a term
+is recovered by choosing, for every class, one realisation — and the chosen
+combination need never have been built. The classical scalar version is a
+fixpoint (a class's best cost = min over its nodes of the node's cost combined
+with its children's best costs); here the cost is a *vector*, so a class carries
+a **Pareto set** of `ClassOption`s instead of a single best.
+
+A `ClassOption` is a term, the e-node it was assembled from (its *anchor*), the
+sub-proofs of its replaced children, and three **exactly compositional** costs:
+`steps` (kernel steps in the proof), `size`, `width`. `verify` is deliberately
+absent from the per-class filter — it is the checker's own counter delta from
+verifying a *complete* route, and there is no complete route until an option is
+attached to the task. It is measured, exactly, once, on the finished routes.
+**So the per-class Pareto is exact in three components and silent in the
+fourth**, which is a stated approximation, not an oversight: an option dominated
+on `(steps, size, width)` but cheaper in `verify` can be dropped. On this task
+`verify` is near-collinear with `steps` (§10 item 7), which is why the
+approximation is tolerable here and why it is written down rather than implied.
+
+**Re-anchoring.** An option's proof is `class root = term`, but the class root
+is not usually where the consumer starts. `ClassOption.path_from(src)` rebuilds
+the same realisation from any address in the class; since the root is one
+possible `src`, re-anchoring can only shorten the route.
+
+**Termination, stated rather than assumed.** The scalar fixpoint terminates
+because costs only decrease and the integers are well founded. *That argument
+does not survive the move to a vector*, and the class graph can be cyclic (a
+class may contain a node one of whose child classes is the class itself, once
+e.g. `x = x*1` is proved). Going once round such a cycle produces a term that
+properly contains an option of the same class, so its `size` strictly increases
+— but it may strictly *decrease* `width` or `steps`, so it is not dominated, and
+the Pareto set of a class in a cyclic class graph is **not guaranteed finite**.
+Termination here is therefore *by construction*: at most `max_rounds` rounds
+(round *k* can only produce terms of assembly depth *k*), at most `max_options`
+options per class, at most `max_terms` assemblies in total. Where the class
+graph is acyclic the fixpoint genuinely converges and **the round at which no
+class's option set changes is detected** — the result then reports
+`complete=True` and no bound bound. Where a bound does bind, `ClassSolution.reason`
+names which, and it is propagated into `ExtractionResult.partial_targets` /
+`.reasons` through the same channel `homotopy` mode uses. On the demo's graph it
+converges in **4 rounds before the theorem and 3 after**.
+
+**Nothing is trusted.** Every assembled route goes to `check_path` before it is
+costed, exactly as `extract_routes` does; one that fails is counted in
+`rejected` and never returned. The extractor never adds a node, a record or a
+merge to the e-graph (`test_class_dag_extraction_does_not_mutate_the_egraph`),
+so the graph the geodesic engine measures is untouched — which does mean an
+assembled target is **not** an e-graph member and `g.equal` cannot be asked
+about it. The checker can, and is.
+
 ---
 
 ## 6. The domain, and why this one
@@ -317,9 +415,15 @@ an arithmetic error in it would produce beautifully checked nonsense.
 
 | run | status | iters | applications | unions | chords | nodes | classes | records | e-match visits |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| before | fixpoint | 4 | 257 | 32 | 225 | 309 | 17 | 517 | 33 630 |
-| after `pow4` | fixpoint | 4 | 265 | 32 | 233 | 317 | 17 | 533 | 37 082 |
-| null control | fixpoint | 4 | 257 | 32 | 225 | 309 | 17 | 517 | 34 484 |
+| before | fixpoint | 4 | 257 | 32 | 225 | 309 | 17 | 517 | 16 962 |
+| after `pow4` | fixpoint | 4 | 265 | 32 | 233 | 317 | 17 | 533 | 19 260 |
+| null control | fixpoint | 4 | 257 | 32 | 225 | 309 | 17 | 517 | 16 962 |
+
+The e-match visit column is the **automaton's** counter, which is what the demo
+now prints (§3.4). Under `engine="recursive"` the same three rows are 33 630 /
+37 082 / 34 484 — the same fixpoint, the same 257/265/257 applications, the same
+frontier, a different amount of work to get there. The two counters are not the
+same unit and must not be compared across engines (`SCALE.md` §4.4).
 
 Every one of those applications was handed to `check.py` as an `Instantiate`
 step before the merge. Rejections: 0 for the primitive book, and the planted-false
@@ -393,6 +497,66 @@ outcome; on this task both happened.)
 A true, checked, irrelevant theorem costs search work and buys nothing. The gap
 between that row and the table above it is the entire claim: the runtime is not
 caching, it is applying mathematics that happens to apply.
+
+### The frontier again, extracted over the **class DAG** (demo §13)
+
+Same two graphs, same cost vector, same checker; the only change is that
+candidate routes are assembled from e-classes instead of read off stored terms.
+
+| | stored terms (`extract_routes`) | class DAG (`extract_class_frontier`) |
+|---|---:|---:|
+| nondominated routes, **before** | 11 | **16** |
+| nondominated routes, **after** | 9 | **14** |
+| frontier routes to a term the e-graph **never built**, before | 0 by construction | **4** |
+| …after | 0 by construction | **3** |
+| candidate destinations considered, before / after | 99 / 102 | 103 / 105 |
+| routes rejected by the checker | 0 | **0** |
+| class fixpoint | — | converged in 4 rounds (10,627 assemblies) / 3 rounds (7,865) |
+| curvature (`frontier_diff`) | appeared 2, vanished 4, shortened 4 | appeared 6, vanished 8, shortened 5 |
+
+**Before** the theorem, the four frontier points that no stored-term extraction
+can see:
+
+| assembled term | steps | size | width | verify |
+|---|---:|---:|---:|---:|
+| `mul (mul (mul (mul #3 #3) (mul #3 #3)) #9) (mul #3 #3)` | 8 | 11 | 6 | 41 |
+| `mul (mul (mul (mul #3 #3) (mul #3 #3)) (mul #3 #3)) (mul #3 #3)` | 11 | 10 | 2 | 57 |
+| `mul (mul (mul #3 #3) (mul #3 #3)) #81` | 12 | 9 | 9 | 59 |
+| `mul (sqr #9) #81` | 16 | 7 | 11 | 79 |
+
+The second row is the clearest one: at `width = 2` the stored-term frontier
+offers `size 8` only at **15** steps and nothing between `size 12` and `size 8`.
+The assembled `size 10 / 11 steps` point beats both on one axis and neither
+dominates the other — a genuinely new corner of the frontier, reachable by a
+term nobody ever built.
+
+Every one of the 208 class-DAG destinations across both runs was evaluated by
+the demo's independent exact-integer evaluator: **one value, 6561**. The null
+control leaves the class-DAG frontier **bit-identical** to the before-run, as it
+does the stored-term one.
+
+#### The number this moves, said loudly
+
+| route to `sqr (sqr (sqr #3))` | before | after | change |
+|---|---:|---:|---:|
+| shortest route through the **retained merge records** (`RouteFinder`, §7 above) | 24 | 15 | **−9** |
+| shortest route extracted over the **class DAG** | **20** | 15 | **−5** |
+
+Both columns are checked proofs. The class-DAG extractor finds a **20-step**
+proof *before* the theorem that `RouteFinder`'s shortest path through the
+justification graph does not: 24 is a minimum over **record-graph routes**, not
+over checkable proofs, because a congruence proof assembled from freely chosen
+sub-geodesics need not correspond to any single retained congruence record.
+
+So the honest effect of `pow4` on this target is **−5**, and the **−9** in §7
+above (and in `STATUS.md`, which quotes it as "24→15 steps on one target") is
+partly an artifact of how thoroughly the *before* run was extracted. **The
+direction of the claim is unchanged**: the theorem still strictly shortens this
+target, no route got longer, the frontier still moves, and the null control
+still changes nothing. What is no longer defensible is the *magnitude* −9 as a
+statement about proofs rather than about record-graph routes. §7's table is left
+as it stands because it is a correct statement about `RouteFinder`, which is
+what produced it; this row is the correction.
 
 ### Correctness controls
 

@@ -870,9 +870,13 @@ def test_class_dag_extraction_never_returns_an_unchecked_route():
     ctx, rules, task, g, sat = saturated(6)
     ex = extract_class_frontier(g, ctx, task)
     assert ex.routes and ex.rejected == 0
+    built = set(g.terms())
     for r in ex.routes:
-        assert g.equal(task, r.target), "an extracted target must be in the class"
+        # an assembled target is deliberately NOT a node of the e-graph, so the
+        # e-graph cannot be asked to vouch for it.  The checker can, and does.
         assert C.check_path(r.path, task.addr, r.target, ctx)
+        if r.target in built:
+            assert g.equal(task, r.target)
     # a route measured against a *different* book must be refused, which is the
     # planted falsehood: "it was assembled by our own fixpoint, so it is fine"
     empty = C.CheckContext()

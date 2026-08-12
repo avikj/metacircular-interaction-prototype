@@ -51,9 +51,9 @@ from ..generate.multiway import (AxiomVault, GenerationBudget, MultiwayGraph,
                                  causal_report, generate)
 
 __all__ = [
-    "ARROWS", "BENCHMARK", "BENCHMARK_NAME", "Config", "RoundReport",
-    "Organism", "constructions", "leakage_report", "LeakageReport",
-    "benchmark_cost",
+    "ARROWS", "BENCHMARK", "BENCHMARK_NAME", "BENCHMARK2", "BENCHMARK2_NAME",
+    "BENCHMARKS", "Config", "RoundReport", "Organism", "constructions",
+    "leakage_report", "LeakageReport", "benchmark_cost",
 ]
 
 ARROWS: Tuple[Tuple[str, str], ...] = (
@@ -78,9 +78,21 @@ ARROWS: Tuple[Tuple[str, str], ...] = (
 # a construction schema over bare atoms can produce.
 
 _X, _Y = V("x"), V("y")
-_XX, _3Y = P(_X, _X), P(I(3), _Y)
+_XX, _3Y, _2Y = P(_X, _X), P(I(3), _Y), P(I(2), _Y)
 BENCHMARK: Term = S(P(S(_XX, _3Y), Sub(_XX, _3Y)), P(I(9), _Y, _Y))
-BENCHMARK_NAME = "HELD-OUT (x^2+3y)(x^2-3y)+9y^2"
+BENCHMARK_NAME = "B1  (x^2+3y)(x^2-3y) + 9y^2"
+
+# A second held-out problem, fixed at the same moment as the first and for the
+# same reason: with one benchmark a loop that improves once is indistinguishable
+# from a loop that improves once *and then stops*.  B2 needs a different lemma
+# from B1, so the pair can show whether learning recurs or fires once.
+BENCHMARK2: Term = S(P(S(_XX, _2Y), S(_XX, _2Y)), P(I(-4), _Y, _Y))
+BENCHMARK2_NAME = "B2  (x^2+2y)^2 - 4y^2"
+
+BENCHMARKS: Tuple[Tuple[str, Term], ...] = (
+    (BENCHMARK_NAME, BENCHMARK),
+    (BENCHMARK2_NAME, BENCHMARK2),
+)
 
 
 def benchmark_cost(book: Optional[Book], index: Optional[LemmaIndex] = None,
@@ -214,6 +226,8 @@ class RoundReport:
     frontier: int
     bench_steps: int
     bench_work: int
+    bench2_steps: int
+    bench2_work: int
     bench_answer: str
     residuals: int
     gen_status: str
@@ -284,7 +298,9 @@ def _subterm_addrs(t: Term) -> set:
     return out
 
 
-def leakage_report(org: "Organism", target: Term = BENCHMARK) -> LeakageReport:
+def leakage_report(org: "Organism",
+                   targets: Sequence[Tuple[str, Term]] = BENCHMARKS
+                   ) -> LeakageReport:
     """Four independent ways the benchmark could have leaked, all checked.
 
     L1  the benchmark itself was handed to GENERATE as a seed;
@@ -302,25 +318,27 @@ def leakage_report(org: "Organism", target: Term = BENCHMARK) -> LeakageReport:
     its root, so generating a piece of it counts as leakage too.
     """
     findings: List[str] = []
-    tgt = target.addr
-    sub = _subterm_addrs(target) - {a.addr for a in ATOMS}
-
-    for s in org.all_seeds:
-        if s.addr == tgt:
-            findings.append("L1 benchmark used as a generation seed")
-            break
-    hit = sub & org.all_state_addrs
-    if hit:
-        findings.append("L2 %d benchmark subterm address(es) appear among the "
-                        "%d generated states" % (len(hit), len(org.all_state_addrs)))
-    for name, t in org.mining_inputs:
-        if t.addr == tgt:
-            findings.append("L3 benchmark was a mining input (%s)" % name)
-            break
-    for s in org.all_seeds:
-        if ring_match(_as_pattern(s), target) is not None:
-            findings.append("L4 benchmark is an instance of seed %s" % render(s))
-            break
+    for label, target in targets:
+        tgt = target.addr
+        sub = _subterm_addrs(target) - {a.addr for a in ATOMS}
+        for s in org.all_seeds:
+            if s.addr == tgt:
+                findings.append("L1 %s used as a generation seed" % label)
+                break
+        hit = sub & org.all_state_addrs
+        if hit:
+            findings.append("L2 %d subterm address(es) of %s appear among the "
+                            "%d generated states"
+                            % (len(hit), label, len(org.all_state_addrs)))
+        for name, t in org.mining_inputs:
+            if t.addr == tgt:
+                findings.append("L3 %s was a mining input (%s)" % (label, name))
+                break
+        for s in org.all_seeds:
+            if ring_match(_as_pattern(s), target) is not None:
+                findings.append("L4 %s is an instance of seed %s"
+                                % (label, render(s)))
+                break
     return LeakageReport(not findings, tuple(findings), len(org.all_seeds),
                          len(org.all_state_addrs), len(org.mining_inputs))
 
@@ -549,6 +567,7 @@ class Organism:
 
         # ------------------------------------------------------- MEASUREMENT
         bs, bw, ans = self.bench()
+        b2s, b2w, _ = benchmark_cost(self.book, self.index, BENCHMARK2)
 
         rep = RoundReport(
             rnd=r, seeds=len(seeds), states=len(g.states), edges=len(g.edges),
@@ -561,6 +580,7 @@ class Organism:
             book=len(self.book.lemmas), dropped_lemmas=dropped_l,
             channel=len(self.channel), dropped_probes=dropped_p,
             frontier=len(frontier), bench_steps=bs, bench_work=bw,
+            bench2_steps=b2s, bench2_work=b2w,
             bench_answer=render(ans), residuals=len(self.residual_seeds),
             gen_status=g.status)
         self.reports.append(rep)
@@ -634,5 +654,7 @@ class Organism:
         out.append(("proposal/accepted separation", ok, why))
         return out
 
-    def trajectory(self) -> Tuple[Tuple[int, int], ...]:
-        return tuple((r.bench_steps, r.bench_work) for r in self.reports)
+    def trajectory(self, which: int = 1) -> Tuple[Tuple[int, int], ...]:
+        if which == 1:
+            return tuple((r.bench_steps, r.bench_work) for r in self.reports)
+        return tuple((r.bench2_steps, r.bench2_work) for r in self.reports)

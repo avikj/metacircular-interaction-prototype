@@ -11,7 +11,8 @@ leaves it at **29**. Reproduce with
 
 ```
 python3 runtime/demo/crystallize_demo.py     # exit 0 iff the criterion holds
-python3 runtime/tests/test_crystallize.py    # 27/27
+python3 runtime/tests/test_crystallize.py    # 30/30
+python3 runtime/demo/scale_lemmas.py --index --sizes=1,10,22,23,50,100,300,477,1000,3000
 ```
 
 Pure Python 3 stdlib. CPU only. Exact integers throughout — no floating point
@@ -265,14 +266,18 @@ mathematics that happens to apply.
 
 Ordered by how soon it bites.
 
-1. **Lemma matching is a linear scan over positions × book.** Every
+1. ~~**Lemma matching is a linear scan over positions × book.** Every
    normalisation iteration tries every lemma at every position: `O(|book| ·
    |term|)` match attempts *per step*. The null-control row already shows the
    symptom — +665 work units for one irrelevant lemma. At a few hundred
    lemmas the search cost overtakes the step savings and the headline number
    becomes a lie told with a true counter. Fix: index lemma LHSs by a
    discrimination net or top-symbol/flat-term index so only plausible lemmas
-   are tried. This is the first thing that must change.
+   are tried. This is the first thing that must change.~~ **MEASURED, AND
+   FIXED — see §6.1.** The crossover is real and this section was wrong about
+   *where*: it is at **22 lemmas**, not a few hundred. The discrimination net
+   this item named is built (`derivation.LemmaIndex`) and moves it to 477 per
+   query, or removes it entirely when the index is built once per book.
 2. **The window/contiguity heuristic is strategy-dependent.** It works because
    innermost-leftmost keeps related work adjacent. Any strategy that
    interleaves — parallel rewriting, e-graph saturation, a scheduler — makes
@@ -305,15 +310,80 @@ Ordered by how soon it bites.
    axiom cannot be withdrawn — CRYSTAL.md §L4's dependency cone is exactly the
    missing machinery.
 
+### 6.1 Item 1, measured and built (this is no longer a prediction)
+
+`runtime/SCALE.md` §2–3 tests the paragraph above against a book grown to 3,000
+mechanically generated, individually seven-gate-checked lemmas, none of which
+can fire on P4. Verdict: **right in kind, ~15× optimistic in degree.**
+
+| | predicted here | measured |
+|---|---|---|
+| where the scan's cost overtakes the step saving | "a few hundred" | **22 lemmas**; net loss from 23 |
+| does the step count decay with book size? | not claimed | **no** — 12 steps at N=1 and at N=3000; null book 29 at every size |
+| the named fix (a discrimination net) | "the first thing that must change" | **built**: `LemmaIndex` in `derivation.py` |
+
+`LemmaIndex` stores, per probe position (root, `(0)`, `(1)`, `(2)`, `(0,0)`,
+`(0,1)`, `(1,0)`, `(1,1)`), a dict from `(kind, val, arity)` key to an integer
+bitmask of lemmas, plus a wildcard mask for the lemmas unconstrained there. A
+lookup is eight dict hits and eight integer ANDs, and the survivors are read out
+in installation order. It is a **filter, never a truncation**: the candidate
+list is a superset of the matches, so the derivation is identical step for step,
+which the suite asserts three ways —
+`test_discrimination_net_returns_the_same_derivation_as_the_scan`,
+`test_discrimination_net_candidates_are_a_superset_of_the_matches` (the planted
+control: every lemma the net drops is re-matched by brute force at every node of
+every test term and must fail), and
+`test_discrimination_net_index_can_be_built_once_and_reused`. Every probe
+lookup and every insertion bumps the same `work` counter as the scan it
+replaces, so the cost is charged, not hidden.
+
+| N | steps | scan work | net, built per query | net, index amortised |
+|---:|---:|---:|---:|---:|
+| 22 | 12 | 5,431 | 1,799 | 1,623 |
+| 477 | 12 | 89,151 | 5,439 | **1,623** |
+| 3000 | 12 | 553,383 | 25,623 | **1,623** |
+
+Per-query construction moves the crossover 22 → **477**; an index built once per
+book removes it — query work is **constant at 1,623 from N=10 to N=3000**, which
+is 3.3× *cheaper* than the empty-book baseline of 5,431, at every size.
+
+**It is off by default.** `normalize(..., use_index=False)` is the default, so
+every counter in §5 above reproduces to the unit. Flipping the default is a
+one-word change in `normalize` and belongs with a re-issue of the §5 tables; the
+scale lane deliberately did not make that change inside this lane's README.
+Full method, the generated-lemma families, and the validity/irrelevance
+enforcement are in `SCALE.md` §1–3.
+
+Items 2–7 below are unchanged and remain unfixed.
+
 ---
 
-## 7. Files
+## 7. Contract changes
+
+This section exists because other lanes code against this file, and a silently
+edited document is indistinguishable from a document that was always right.
+Each entry says what was claimed, what is true now, and why it moved.
+
+| # | when | symbol / claim | was | is | why |
+|---|---|---|---|---|---|
+| C1 | scale lane | `derivation.normalize` | `normalize(start, lemmas=(), ...)` — a linear scan over positions × book, with no alternative | `normalize(start, lemmas=(), ..., use_index=False, index=None)`; `LemmaIndex` is a discrimination net over lemma left sides, selectable per call and reusable across calls | §6 item 1 named the scan as "the first thing that must change" and it was measured to bite at 22 lemmas. The default is unchanged so every published counter still reproduces; the new keywords are additive and a caller written against the old signature is unaffected. |
+| C2 | scale lane | §6 item 1's estimate | "at a few hundred lemmas the search cost overtakes the step savings" | **22 lemmas**, with the curve, the slope (184 work per lemma per query at 12 steps) and the null-book slope (665) in `SCALE.md` §2 | The estimate was a prediction, not a measurement, and this README presented it as the operative number. It was right that a crossover exists and wrong by ~15× about where. |
+| C3 | repair lane | test count | 27/27 | **30/30** | Three tests were added with `LemmaIndex` (same derivation, superset-of-matches control, index reuse). No test was removed or weakened. |
+
+Two things deliberately did **not** change, and should not be changed without an
+entry here: the seven gates are still all-or-nothing with no confidence score,
+and `use_index` still defaults to `False` so §5's numbers stay reproducible.
+
+---
+
+## 8. Files
 
 | file | contents |
 |---|---|
-| `derivation.py` | hash-consed ring terms and addresses; positions; `Counter` (steps / work / checks); `Step`, `Derivation`; the rule set; matching and substitution; `normalize`; the checker (`check_step`, `check_derivation`); the exact semantic decision `poly_equal` |
+| `derivation.py` | hash-consed ring terms and addresses; positions; `Counter` (steps / work / checks); `Step`, `Derivation`; the rule set; matching and substitution; `normalize` (with `use_index` / `index`); **`LemmaIndex`**, the discrimination net over lemma left sides; the checker (`check_step`, `check_derivation`); the exact semantic decision `poly_equal` |
 | `antiunify.py` | `Generalizer` (Plotkin/Reynolds LGG with the consistent variable map), `antiunify`, `antiunify_tuples`, `recover`, `variable_positions` |
 | `mine.py` | `Segment`, shape keys, the windowed miner, `Candidate`, `reconstruction_ok` |
 | `install.py` | the seven gates (`verify`), `Verdict`, `Book`, `solve` |
 | `../demo/crystallize_demo.py` | the measured demonstration; exits 0 iff the seed criterion holds |
-|  `../tests/test_crystallize.py` | 27 tests, including every planted-false control |
+| `../demo/scale_lemmas.py` | the book-size curve, the crossover, and the net — `SCALE.md` §2–3 |
+|  `../tests/test_crystallize.py` | 30 tests, including every planted-false control |

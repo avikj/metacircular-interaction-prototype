@@ -32,9 +32,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(
 from runtime.crystallize.derivation import (I, P, RULE_TABLE, S, Sub, V,       # noqa: E402
                                             Lemma, PV, poly_equal, render)
 from runtime.execute.rewrite import RewriteError, rule_from_edge              # noqa: E402
-from runtime.generate.loop import (BENCHMARK, Config, Organism,               # noqa: E402
-                                   benchmark_cost, constructions,
-                                   leakage_report)
+from runtime.generate.loop import (BENCHMARK, BENCHMARK2, BENCHMARKS,        # noqa: E402
+                                   Config, Organism, benchmark_cost,
+                                   constructions, leakage_report)
 from runtime.generate.multiway import (AxiomVault, GenerationBudget, MEdge,    # noqa: E402
                                        MultiwayGraph, Refusal, causal_report,
                                        encode, generate, kernel_dirs,
@@ -409,12 +409,13 @@ def test_refutation_cones_really_fire_inside_the_loop():
 # 5. CONTROL -- leakage
 # ==========================================================================
 
-def test_the_benchmark_is_not_reachable_from_the_construction_schema():
+def test_no_benchmark_is_reachable_from_the_construction_schema():
     seen = set()
     for r in range(24):
         for t in constructions(r):
             seen.add(t.addr)
-    assert BENCHMARK.addr not in seen
+    for _, t in BENCHMARKS:
+        assert t.addr not in seen
 
 
 def x_benchmark_as_generation_target_passes_the_leakage_check():
@@ -493,10 +494,40 @@ def test_the_real_run_is_leakage_clean():
 # 6. the measurement itself
 # ==========================================================================
 
-def test_benchmark_baseline_and_answer():
+def test_benchmark_baselines_and_answers():
     steps, work, ans = benchmark_cost(None)
     assert (steps, work) == (29, 5431), (steps, work)
     assert render(ans) == "(x*x*x*x)"
+    s2, w2, a2 = benchmark_cost(None, None, BENCHMARK2)
+    assert (s2, w2) == (24, 5025), (s2, w2)
+    assert poly_equal(BENCHMARK2, a2)
+    assert BENCHMARK.addr != BENCHMARK2.addr
+
+
+def test_the_two_benchmarks_drop_in_different_rounds():
+    """The staircase claim: learning recurs, and each drop lands once."""
+    b1 = benchmark_cost(None)[0]
+    b2 = benchmark_cost(None, None, BENCHMARK2)[0]
+    o = Organism(Config(rounds=4, max_conjectures=14, closure_limit=4))
+    o.run()
+    t1 = [r.bench_steps for r in o.reports]
+    t2 = [r.bench2_steps for r in o.reports]
+    assert t1[0] < b1, t1
+    assert t2[0] == b2 and min(t2) < b2, t2
+    assert t1.index(min(t1)) < t2.index(min(t2)), (t1, t2)
+    # neither ever regresses in steps
+    assert max(t1) <= b1 and max(t2) <= b2, (t1, t2)
+
+
+def test_an_irrelevant_book_costs_search_and_buys_nothing():
+    """The null-control signature, measured on a held-out problem: after round
+    0 the book is real, checked and useless to B2 -- steps flat, work up."""
+    b2_steps, b2_work, _ = benchmark_cost(None, None, BENCHMARK2)
+    o = Organism(Config(rounds=1, max_conjectures=12, closure_limit=3))
+    o.run()
+    steps, work, _ = benchmark_cost(o.book, o.index, BENCHMARK2)
+    assert steps == b2_steps, (steps, b2_steps)
+    assert work > b2_work, (work, b2_work)
 
 
 def test_the_loop_makes_the_held_out_benchmark_strictly_cheaper():
@@ -518,6 +549,8 @@ def test_null_trajectory_generation_without_crystallization_changes_nothing():
     o.run()
     assert [r.bench_steps for r in o.reports] == [29] * 4
     assert [r.bench_work for r in o.reports] == [5431] * 4
+    assert [r.bench2_steps for r in o.reports] == [24] * 4
+    assert [r.bench2_work for r in o.reports] == [5025] * 4
     assert all(r.book == 0 for r in o.reports)
     assert sum(r.states for r in o.reports) > 200, "the null run still generated"
 

@@ -987,15 +987,11 @@ class DigitChart(Chart):
 # ---------------------------------------------------------------------------
 
 def primes_up_to(n: int) -> Tuple[int, ...]:
+    """Integer-only sieve: no float is constructed (the loop bound is ``p*p<=n``)."""
     if n < 2:
         return ()
     sieve = [True] * (n + 1)
     sieve[0] = sieve[1] = False
-    for p in range(2, int(n ** 0.5) + 1) if n > 3 else range(2, 2):
-        if sieve[p]:
-            for q in range(p * p, n + 1, p):
-                sieve[q] = False
-    # integer-only sieve fallback (no float sqrt in the loop bound)
     p = 2
     while p * p <= n:
         if sieve[p]:

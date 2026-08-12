@@ -151,12 +151,14 @@ class BijectionReport:
                         % (self.well_defined, self.injective, self.surjective, self.defect))
         if kind == "Embed":
             ok = self.well_defined and self.injective and not self.surjective
-            return ok, ("" if ok else "Embed claimed but injective=%s surjective=%s"
-                        % (self.injective, self.surjective))
+            return ok, ("" if ok else "Embed claimed but well_defined=%s injective=%s "
+                        "surjective=%s (%s)" % (self.well_defined, self.injective,
+                                                self.surjective, self.defect))
         if kind == "Quotient":
             ok = self.well_defined and self.surjective and not self.injective
-            return ok, ("" if ok else "Quotient claimed but injective=%s surjective=%s"
-                        % (self.injective, self.surjective))
+            return ok, ("" if ok else "Quotient claimed but well_defined=%s injective=%s "
+                        "surjective=%s (%s)" % (self.well_defined, self.injective,
+                                                self.surjective, self.defect))
         if kind == "Implies":
             ok = self.well_defined
             return ok, ("" if ok else "Implies claimed but the map is not well defined")
@@ -168,6 +170,11 @@ class BijectionReport:
                 % (self.key, self.domain_size, self.codomain_size, self.image_size,
                    self.well_defined, self.injective, self.surjective, self.steps,
                    self.range_note))
+
+
+def _short(x: Any, width: int = 44) -> str:
+    r = repr(x)
+    return r if len(r) <= width else r[:width - 3] + "..."
 
 
 def exhaustive_map_report(key: str, range_note: str, domain: Sequence[Any],
@@ -190,18 +197,20 @@ def exhaustive_map_report(key: str, range_note: str, domain: Sequence[Any],
         if r not in codset:
             well = False
             if defect is None:
-                defect = "f(%r) = %r is outside the declared codomain" % (d, y)
+                defect = ("f(%s) = %s is outside the declared codomain"
+                          % (_short(d), _short(y)))
         if r in seen:
             inj = False
             if defect is None:
-                defect = "f(%r) = f(%r) = %r" % (seen[r], d, y)
+                defect = ("f(%s) = f(%s) = %s"
+                          % (_short(seen[r]), _short(d), _short(y)))
         else:
             seen[r] = d
             image.append(r)
     surj = len(set(image) & codset) == len(codset)
     if not surj and defect is None:
         missing = sorted(codset - set(image))[:1]
-        defect = "not hit: %s" % (missing[0] if missing else "?")
+        defect = "not hit: %s" % (_short(missing[0], 44) if missing else "?")
     return BijectionReport(key, range_note, len(tuple(domain)), len(cod), len(set(image)),
                            well, inj, surj, defect, c.get("atlas.map.probe") - start)
 

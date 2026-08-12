@@ -633,6 +633,15 @@ def main() -> int:
     want(cd0.rejected == 0 and cd1.rejected == 0,
          "every class-DAG route must be accepted by the checker")
 
+    dag_vals = sorted({value_of(T.lookup(r.target))
+                       for r in list(cd0.routes) + list(cd1.routes)})
+    print("\n  every class-DAG destination -- including the assembled ones the")
+    print("  e-graph never stored -- evaluated by the independent exact-integer")
+    print("  evaluator: %d routes, %d distinct value(s): %s"
+          % (len(cd0.routes) + len(cd1.routes), len(dag_vals), dag_vals))
+    want(dag_vals == [BASE ** EXP],
+         "every class-DAG route must land on a term whose value is 3^8")
+
     dagdiff = frontier_diff(cd0.frontier, cd1.frontier)
     print("\n  curvature measured over the class DAG : %s" % dagdiff.render())
     print("  curvature measured over stored terms  : %s" % diff.render())
