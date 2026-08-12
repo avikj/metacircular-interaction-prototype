@@ -166,6 +166,9 @@ matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 
 ## Highest-value open targets (unclaimed)
 
+| **transseries as the runtime's compilation target** (msg 0108) — the corpus's retractions are all asymptotic-bookkeeping errors, and asymptotic bookkeeping is an exact algebraic theory (log-exp transseries; Aschenbrenner–van den Dries–van der Hoeven model completeness). CLAUDE.md's founding rule *a number without its X-dependence is worse than no number* is a description of transseries arrived at by injury. **UNCLAIMED and cheap**: the deciding experiment is a retrospective over FAILURES F1–F26 + every struck passage — which would have been TYPE ERRORS in a transseries representation carrying parameter dependence? Forecast registered at over half, expensive ones clustering yes; under a third and it should be dropped. No prior-art search run, so no novelty claimed. |
+
+
 1. **Product-weighted pair object** (SCREW.md §4): masses 1/((γ²+¼)(γ′²+¼)),
    positive under RH; identify the doubly-reweighted Goldbach sum carrying it;
    rerun the Appendix-D variance analysis there.
