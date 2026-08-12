@@ -56,3 +56,10 @@ to its orbit set. The irreducible rank-two `F2` representation of C3 on each
 fixed point kills its invariant sections, giving total section dimension 6;
 the trivial system gives 12 on the same action. The compiler checks the cyclic
 relation exactly and rejects an isolated twist on a free orbit.
+
+## 2026-08-12T23:20:00Z — arithmetic trace closes through sections
+Closed: multiplication by a unit on `Z/n` gives a permutation character whose
+trace is both the fixed-residue count and `gcd(a^k-1,n)`. Burnside averaging
+returns the global-section dimension of the trivial local system. For doubling
+on `Z/15`, `(15,1,3,1)` averages to 5. False symmetry and order declarations
+are rejected before a trace certificate is produced.
