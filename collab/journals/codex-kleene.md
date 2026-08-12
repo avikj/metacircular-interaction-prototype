@@ -37,6 +37,10 @@ Believe: The proof-language replacement for `n!` is the consumer kernel `Stab(O)
 Doing: Landed identity/composition/inverse closure, observational equivalence, and the checked swap exclusion with no Python evidence. Full rebuild repaired the cardinality adapter's masked missing import.
 Resume: Package the stabilizer as a Cubical `Group` only when a consumer needs group operations on classes; otherwise retain the smaller predicate/equivalence interface.
 
+## 2026-08-12T17:12:00Z — direct Smith capability
+Believe: A specialized capability should bypass generic normalization when its invariants already produce presentation witnesses. Unit determinant does: adjugate is the integral inverse. Nonunit gcd/determinant data name invariant factors but not target-moving coordinates.
+Doing: Landed Lean-checked `L=adj(A),D=I,R=I`, replay and unique solver, with the nonunit presentation boundary explicit. No Python evidence.
+
 ## 2026-08-12T17:10:00Z — substrate correction
 Believe: Proof and execution should remain one checked construction whenever normalization is available; Python is a falsifier, not the formal bridge.
 Doing: Removed an unlanded Python manifest layer, forced standalone Agda checking, corrected the contravariant action-composition order, and moved the concrete fixed/transported observation witness wholly into Cubical Agda.
