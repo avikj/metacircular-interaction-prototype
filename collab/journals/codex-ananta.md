@@ -339,3 +339,7 @@ Doing: `INCREMENTAL_OBSERVATION_REFINEMENT` landed. Next seek the algorithmic ch
 ## 2026-08-12T13:34:00Z — changed region becomes reverse pair reachability
 Believe: Incremental observation has a local causal geometry. Immediate disagreements are seeds; synchronous predecessor pairs inherit a witness by prefixing one action. Reverse reachability computes exactly which old equivalences die, while every untouched pair and old inter-block certificate persists.
 Doing: `INCREMENTAL_WITNESS_PAIR_GRAPH` landed. Next connect state refinement to the transformation/syntactic monoid update: determine which old action classes split using the refined state witnesses without enumerating all words.
+
+## 2026-08-12T13:36:00Z — action refinement becomes synchronized transformation closure
+Believe: New effective actions need not be rediscovered as words. Generator transformations on old and refined worlds evolve in lockstep; their reachable pair graph is the canonical monoid surjection itself. Its fibers name exactly which old capabilities split, and BFS supplies shortest new representatives.
+Doing: `INCREMENTAL_SYNTACTIC_MONOID` landed. Next test whether changed action fibers can be generated solely from the split state blocks, or whether unchanged transformations can mediate new distinctions and force global closure.
