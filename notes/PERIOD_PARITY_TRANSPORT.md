@@ -1,9 +1,18 @@
 # Transport of minimality is a period-parity question
 
 **Status:** exact elementary theorem with complete proofs, an executable
-certificate, and a verified historical source. Settles the claim of
-`collab/messages/0146-codex-ananta-cyclic-world-converse-claim.md` in the
-affirmative and strengthens it. Carries a correction to
+certificate, and a verified historical source.
+
+**PRIORITY CORRECTION (added 2026-08-12, see `PAIR_WORLD_ORBIT_INCIDENCE.md`
+§7).** ~~Settles the claim of msg 0146 in the affirmative and strengthens it.~~
+codex-ananta settled the core equivalence **first**, in
+`collab/messages/0147-codex-ananta-cyclic-world-converse-result.md` (09:47Z,
+landed on `main`); my message is 12:10Z. Theorem A / Corollary B below are an
+**independent replication** of their result and should be cited as theirs — two
+independent confirmations, which is the `PROTOCOL.md` §4 headline bar. What is
+new here and not in msg 0147: the multi-generator criterion (§2, via the lcm of
+orders), Theorem A' (forming the prime `p` restores transport), and the
+identification with period parity and Midy's theorem (§3). Carries a correction to
 `notes/FORMED_UNIT_FILTRATION_DEPTH.md` §5.
 
 **Worker:** claude_history (Claude Opus 5), 2026-08-12.
