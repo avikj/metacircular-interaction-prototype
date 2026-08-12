@@ -308,13 +308,19 @@ class MultiwayGraph:
     """States, all their histories, and the typed edges between them."""
 
     __slots__ = ("vault", "states", "order", "depth", "edges", "out", "inc",
-                 "refusals", "checked", "rejected_edges", "status")
+                 "refusals", "checked", "rejected_edges", "status", "origin")
 
     def __init__(self, vault: AxiomVault) -> None:
         self.vault = vault
         self.states: Dict[str, Term] = {}
         self.order: List[str] = []
         self.depth: Dict[str, int] = {}
+        # which seed a state was first reached from.  Two states of one orbit
+        # are *already* connected by this graph, so a conjecture between them
+        # is one the runtime can discharge by construction; the informative
+        # collisions are the cross-origin ones.  Recording the origin costs one
+        # dict write per state and is what lets DISTINGUISH tell them apart.
+        self.origin: Dict[str, int] = {}
         self.edges: List[MEdge] = []
         self.out: Dict[str, List[int]] = {}
         self.inc: Dict[str, List[int]] = {}
@@ -324,7 +330,7 @@ class MultiwayGraph:
         self.status = "fixpoint"
 
     # -- states ------------------------------------------------------------
-    def add_state(self, t: Term, depth: int) -> bool:
+    def add_state(self, t: Term, depth: int, origin: int = -1) -> bool:
         if t.addr in self.states:
             if depth < self.depth[t.addr]:
                 self.depth[t.addr] = depth
@@ -332,6 +338,7 @@ class MultiwayGraph:
         self.states[t.addr] = t
         self.order.append(t.addr)
         self.depth[t.addr] = depth
+        self.origin[t.addr] = origin
         self.out[t.addr] = []
         self.inc[t.addr] = []
         return True
@@ -341,7 +348,7 @@ class MultiwayGraph:
 
     # -- edges -------------------------------------------------------------
     def admit(self, before: Term, pos: Sequence[int], rule: str,
-              contractum: Term, lemma=None, depth: int = 0):
+              contractum: Term, lemma=None, depth: int = 0, origin: int = -1):
         """Propose one rewrite.  Returns an ``MEdge`` or a ``Refusal``.
 
         Nothing is added to the graph on the refusal path -- that is the whole
@@ -373,8 +380,9 @@ class MultiwayGraph:
             self.refusals.append(r)
             return r
 
-        self.add_state(before, depth)
-        self.add_state(after, depth + 1)
+        self.add_state(before, depth, origin)
+        self.add_state(after, depth + 1,
+                       self.origin.get(before.addr, origin))
         me = MEdge(len(self.edges), rule, pos, before.addr, after.addr, edge,
                    depth)
         self.edges.append(me)
@@ -446,8 +454,8 @@ def generate(seeds: Sequence[Term], budget: Optional[GenerationBudget] = None,
     from ..crystallize.derivation import subst as ring_subst
 
     frontier: List[str] = []
-    for s in seeds:
-        if g.add_state(s, 0):
+    for k, s in enumerate(seeds):
+        if g.add_state(s, 0, k):
             frontier.append(s.addr)
 
     head = 0
@@ -484,7 +492,8 @@ def generate(seeds: Sequence[Term], budget: Optional[GenerationBudget] = None,
             if fresh and len(g.states) >= budget.max_states:
                 g.status = "budget:states"
                 continue
-            res = g.admit(t, pos, rule, contractum, lemma=lem, depth=d)
+            res = g.admit(t, pos, rule, contractum, lemma=lem, depth=d,
+                          origin=g.origin.get(addr, -1))
             if isinstance(res, MEdge) and fresh:
                 frontier.append(after.addr)
     if head < len(frontier) and g.status == "fixpoint":

@@ -83,6 +83,11 @@ __all__ = [
     "scalarize",
     "frontier_diff",
     "COUNTERS",
+    "ClassOption",
+    "ClassSolution",
+    "ClassExtractor",
+    "extract_class_frontier",
+    "DEFAULT_DAG_BOUNDS",
 ]
 
 COUNTERS = T.Counters()
@@ -423,6 +428,341 @@ def extract_routes(g: EGraph, ctx: C.CheckContext, src: T.Term,
                             considered=considered, rejected=rejected,
                             partial_targets=tuple(sorted(partial)),
                             mode=mode, reasons=tuple(sorted(set(reasons))))
+
+
+# --------------------------------------------------------------------------
+# Pareto extraction over the class DAG
+# --------------------------------------------------------------------------
+#
+# The materialisation cliff, and what removes it
+# ----------------------------------------------
+# ``extract_routes`` costs the terms that are *members of the e-class*, i.e. the
+# terms someone materialised.  ``Budget.max_exhaustive_vars = 1`` means a rule
+# with two or more variables fires at the canonical representative of each
+# class, so its right-hand side is built at one representative and not at the
+# others.  No equality is lost -- congruence makes the class-level consequence
+# identical -- but the *frontier* is a set of stored terms, so **a better route
+# to a term nobody built is invisible**.  That is `execute/README.md` Sec.10
+# item 2, and this is the fix it names.
+#
+# The fix is to extract from **classes**, not from terms.  An e-node is a head
+# plus a tuple of child *classes*; a term is recovered by choosing, for every
+# class, one option -- and the chosen combination need never have been built.
+# The classical scalar version is a fixpoint: a class's best cost is the
+# minimum, over its nodes, of the node's cost combined with its children's best
+# costs.  Here the cost is a *vector*, so a class carries a **Pareto set** of
+# options rather than a single best.
+#
+# Termination, stated rather than assumed
+# ---------------------------------------
+# The scalar fixpoint terminates because costs only decrease and the integers
+# are well founded.  **That argument does not survive the move to a vector**,
+# and the class graph can be cyclic (a class may contain a node one of whose
+# child classes is the class itself, e.g. once ``x = x * 1`` is proved).  Going
+# once round such a cycle produces a term that *properly contains* an option of
+# the same class, so its ``size`` strictly increases -- but it may strictly
+# decrease ``width`` or ``steps``, so it is not dominated and the Pareto set of
+# a class in a cyclic class graph is not guaranteed to be finite.
+#
+# So termination here is **by construction, not by convergence**:
+#
+#   * the fixpoint runs at most ``max_rounds`` rounds; round *k* can only
+#     produce terms of assembly depth *k*, so every round is finite;
+#   * each class keeps at most ``max_options`` options, chosen by the
+#     deterministic ``ClassOption.key``;
+#   * total assembly is capped by ``max_terms``.
+#
+# When the class graph is acyclic the fixpoint genuinely converges, and the
+# round at which no class's option set changes is *detected*: the run then
+# reports ``complete=True`` and the bounds did not bind.  When a bound does
+# bind, the result says so through the same ``partial_targets``/``reasons``
+# channel as the homotopy mode -- there is no silent truncation here either.
+
+DEFAULT_DAG_BOUNDS: Dict[str, int] = {
+    "max_rounds": 8,        # assembly depth of the fixpoint
+    "max_options": 24,      # Pareto options retained per class
+    "max_terms": 200000,    # total assembled candidates
+}
+
+
+@dataclass(frozen=True)
+class ClassOption:
+    """One way to realise an e-class as a term, with a proof it is that class.
+
+    ``path`` proves ``rep = term``, where ``rep`` is the class's canonical
+    representative address.  The three components are exactly compositional and
+    are computed exactly:
+
+    ``steps``  kernel proof steps in ``path``;
+    ``size``   nodes in ``term``'s DAG;
+    ``width``  total bit length of ``term``'s integer literals.
+
+    ``verify`` is deliberately **not** here: it is the trusted checker's own
+    counter delta from verifying a *complete* route, and there is no complete
+    route until a class option is attached to the task.  It is measured, once,
+    on the finished routes -- see ``extract_class_frontier``.
+    """
+
+    term: T.Term
+    path: Tuple[C.Step, ...]
+    steps: int
+    size: int
+    width: int
+
+    def triple(self) -> Tuple[int, int, int]:
+        return (self.steps, self.size, self.width)
+
+    def key(self) -> Tuple:
+        return (self.steps, self.size, self.width, self.term.addr)
+
+    def render(self) -> str:
+        return "%-40s steps=%-3d size=%-3d width=%-3d" % (
+            self.term.pretty()[:40], self.steps, self.size, self.width)
+
+
+def _dominates3(a: ClassOption, b: ClassOption) -> bool:
+    x, y = a.triple(), b.triple()
+    return all(i <= j for i, j in zip(x, y)) and any(i < j for i, j in zip(x, y))
+
+
+def _pareto_options(opts: Sequence[ClassOption],
+                    cap: int) -> Tuple[Tuple[ClassOption, ...], bool]:
+    """Nondominated options, deduplicated by term, deterministically ordered.
+
+    Returns ``(kept, capped)``; ``capped`` is true iff ``cap`` bound, which the
+    caller must report -- a cap that is not reported is a silent truncation.
+    """
+    best: Dict[str, ClassOption] = {}
+    for o in opts:
+        got = best.get(o.term.addr)
+        if got is None or o.key() < got.key():
+            best[o.term.addr] = o
+    uniq = sorted(best.values(), key=lambda o: o.key())
+    keep = [o for o in uniq if not any(_dominates3(p, o) for p in uniq)]
+    COUNTERS.bump("extract.class_pareto")
+    if cap and len(keep) > cap:
+        return tuple(keep[:cap]), True
+    return tuple(keep), False
+
+
+@dataclass(frozen=True)
+class ClassSolution:
+    """The fixpoint's answer: a Pareto set of realisations for every e-class."""
+
+    options: Dict[str, Tuple[ClassOption, ...]]     # class root -> options
+    rounds: int
+    assembled: int
+    complete: bool
+    reason: str
+    bounds: Tuple[Tuple[str, int], ...]
+
+    def best_per_component(self, root: str) -> Dict[str, ClassOption]:
+        """The class's best representative **per cost component**.
+
+        This is the object the materialisation cliff was hiding: it is chosen
+        from everything the class can be realised as, not from the subset that
+        happens to be stored.
+        """
+        opts = self.options.get(root, ())
+        out: Dict[str, ClassOption] = {}
+        for i, name in enumerate(("steps", "size", "width")):
+            if opts:
+                out[name] = min(opts, key=lambda o, _i=i: (o.triple()[_i], o.key()))
+        return out
+
+    def render(self) -> str:
+        return ("%d class(es), %d option(s), %d assembled, %d round(s), %s"
+                % (len(self.options), sum(len(v) for v in self.options.values()),
+                   self.assembled, self.rounds,
+                   "converged" if self.complete else "PARTIAL (%s)" % self.reason))
+
+
+class ClassExtractor:
+    """The bottom-up vector fixpoint over the e-class DAG.
+
+    One instance per e-graph.  ``solve()`` is idempotent and pure with respect
+    to the e-graph: it *builds terms* (which the hash-consed intern table
+    records) but it never adds a node, a record or a merge to the e-graph, so
+    the graph the geodesic engine measures is untouched.
+    """
+
+    def __init__(self, g: EGraph, finder: Optional[RouteFinder] = None,
+                 bounds: Optional[Dict[str, int]] = None) -> None:
+        self.g = g
+        self.finder = finder if finder is not None else RouteFinder(g)
+        self.bnd = dict(DEFAULT_DAG_BOUNDS)
+        for k, v in (bounds or {}).items():
+            if k not in self.bnd:
+                raise ValueError("unknown class-DAG bound %r" % (k,))
+            self.bnd[k] = v
+        self._solution: Optional[ClassSolution] = None
+
+    # -- helpers -----------------------------------------------------------
+    def _steps_between(self, src: str, dst: str) -> Optional[Tuple[C.Step, ...]]:
+        if src == dst:
+            return ()
+        return self.finder.route(src, dst)
+
+    def _assemble(self, root: str, addr: str, node: T.Term,
+                  picks: Sequence[Optional[ClassOption]]) -> Optional[ClassOption]:
+        """Build one candidate: node ``addr`` with its children replaced.
+
+        ``picks[i] is None`` keeps the child exactly as stored.  Returns
+        ``None`` if the term cannot be built (ill-sorted) or the proof cannot be
+        assembled from the retained justifications.
+        """
+        prefix = self._steps_between(root, addr)
+        if prefix is None:
+            return None
+        subs: List[Tuple[C.Step, ...]] = []
+        kids: List[T.Term] = []
+        changed = False
+        for child, pick in zip(node.children, picks):
+            if pick is None or pick.term.addr == child.addr:
+                subs.append(())
+                kids.append(child)
+                continue
+            croot = self.g.find(child.addr)
+            lead = self._steps_between(child.addr, croot)
+            if lead is None:
+                return None
+            subs.append(tuple(lead) + tuple(pick.path))
+            kids.append(pick.term)
+            changed = True
+        if not changed:
+            term = node
+            path = tuple(prefix)
+        else:
+            try:
+                if node.head == T.APP:
+                    term = T.App(kids[0], kids[1])
+                elif node.head == T.LAM:
+                    term = T.Lam(node.dom, kids[0])
+                else:                       # atoms have no children to replace
+                    return None
+            except T.KernelError:
+                COUNTERS.bump("extract.class_illsorted")
+                return None
+            path = tuple(prefix) + (C.Step(addr, term.addr, "congruence", None,
+                                           None, tuple(subs)),)
+        COUNTERS.bump("extract.class_assemble")
+        return ClassOption(term=term, path=path, steps=count_steps(path),
+                           size=term_size(term), width=arith_width(term))
+
+    # -- the fixpoint ------------------------------------------------------
+    def solve(self) -> ClassSolution:
+        if self._solution is not None:
+            return self._solution
+        groups: List[Tuple[str, Tuple[str, ...]]] = []
+        for members in self.g.classes():
+            groups.append((self.g.find(members[0]), members))
+        groups.sort()
+
+        options: Dict[str, Tuple[ClassOption, ...]] = {r: () for r, _ in groups}
+        assembled = 0
+        rounds = 0
+        capped: List[str] = []
+        stop = ""
+
+        for rounds in range(1, self.bnd["max_rounds"] + 1):
+            changed = False
+            for root, members in groups:
+                cand: List[ClassOption] = list(options[root])
+                for addr in members:
+                    node = T.lookup(addr)
+                    if node is None:
+                        continue
+                    if not node.children:
+                        one = self._assemble(root, addr, node, ())
+                        if one is not None:
+                            cand.append(one)
+                            assembled += 1
+                        continue
+                    per_child: List[List[Optional[ClassOption]]] = []
+                    for child in node.children:
+                        croot = self.g.find(child.addr)
+                        picks: List[Optional[ClassOption]] = [None]
+                        picks.extend(o for o in options.get(croot, ())
+                                     if o.term.addr != child.addr)
+                        per_child.append(picks)
+                    combos: List[Tuple[Optional[ClassOption], ...]] = [()]
+                    for picks in per_child:
+                        combos = [c + (p,) for c in combos for p in picks]
+                    for combo in combos:
+                        if assembled >= self.bnd["max_terms"]:
+                            stop = ("max_terms=%d reached"
+                                    % self.bnd["max_terms"])
+                            break
+                        one = self._assemble(root, addr, node, combo)
+                        if one is not None:
+                            cand.append(one)
+                            assembled += 1
+                    if stop:
+                        break
+                kept, was_capped = _pareto_options(cand, self.bnd["max_options"])
+                if was_capped and root not in capped:
+                    capped.append(root)
+                if tuple(o.key() for o in kept) != tuple(o.key() for o in options[root]):
+                    options[root] = kept
+                    changed = True
+                if stop:
+                    break
+            if stop:
+                break
+            if not changed:
+                break                       # the fixpoint converged
+        else:
+            stop = ("max_rounds=%d reached (the class graph did not converge "
+                    "inside the bound)" % self.bnd["max_rounds"])
+        if not stop and capped:
+            stop = ("max_options=%d reached on %d class(es)"
+                    % (self.bnd["max_options"], len(capped)))
+        self._solution = ClassSolution(
+            options=options, rounds=rounds, assembled=assembled,
+            complete=not stop, reason=stop,
+            bounds=tuple(sorted(self.bnd.items())))
+        return self._solution
+
+
+def extract_class_frontier(g: EGraph, ctx: C.CheckContext, src: T.Term,
+                           bounds: Optional[Dict[str, int]] = None,
+                           finder: Optional[RouteFinder] = None,
+                           extractor: Optional["ClassExtractor"] = None
+                           ) -> ExtractionResult:
+    """The Pareto frontier over the **class DAG**, not over the stored terms.
+
+    Every option of ``src``'s e-class is turned into a complete route
+    ``src = rep = term`` and handed to the trusted checker exactly as
+    ``extract_routes`` does: a route that does not check is counted in
+    ``rejected`` and never returned.  So nothing here widens what is believed --
+    it widens only what is *considered*.
+    """
+    if finder is None:
+        finder = RouteFinder(g)
+    if extractor is None:
+        extractor = ClassExtractor(g, finder=finder, bounds=bounds)
+    sol = extractor.solve()
+    root = g.find(src.addr)
+    lead = () if src.addr == root else finder.route(src.addr, root)
+    routes: List[Route] = []
+    considered = 0
+    rejected = 0
+    if lead is not None:
+        for i, opt in enumerate(sol.options.get(root, ())):
+            considered += 1
+            path = tuple(lead) + tuple(opt.path)
+            cost = measure_route(ctx, src, opt.term, path)
+            if cost is None:
+                rejected += 1
+                continue
+            routes.append(Route(target=opt.term.addr, path=path, cost=cost,
+                                variant=i))
+    routes.sort(key=lambda r: r.key())
+    partial = () if sol.complete else (root,)
+    return ExtractionResult(routes=tuple(routes), frontier=pareto(routes),
+                            considered=considered, rejected=rejected,
+                            partial_targets=partial, mode="class-dag",
+                            reasons=() if sol.complete else (sol.reason,))
 
 
 # --------------------------------------------------------------------------

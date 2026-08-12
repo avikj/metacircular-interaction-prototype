@@ -59,7 +59,8 @@ from ..propagate.recompute import RecomputeReport, apply as recompute_apply
 from .multiway import AxiomVault, MultiwayGraph, encode, kernel_dirs, lift_path
 
 __all__ = [
-    "Probe", "probe", "uniform", "ALPHABET", "signature", "variables_of",
+    "Probe", "probe", "uniform", "probe_render", "ALPHABET", "signature",
+    "variables_of",
     "collisions",
     "Conjecture", "OPEN", "DISCHARGED", "REFUTED", "EXHAUSTED",
     "Discharge", "ProposalGraph", "eq_edge_from_derivations",
@@ -69,19 +70,31 @@ __all__ = [
 
 ALPHABET: Tuple[str, ...] = ("a", "b", "u", "v", "w", "x", "y", "z")
 
-Probe = Tuple[Tuple[str, int], ...]
+# A probe is an integer point together with a modulus.  ``mod == 0`` means the
+# exact value; ``mod == m`` means the residue mod m, i.e. observation through
+# the ring homomorphism ``Z -> Z/m``.  Both are exact -- no float, no
+# tolerance -- and the modular one is *coarser*, which is where CRYSTAL.md
+# sec 3.2 step 2 says to start ("start from the coarsest observation").  A
+# channel that already separates everything is a channel with nothing to learn.
+Probe = Tuple[Tuple[Tuple[str, int], ...], int]
 
 
-def probe(**env: int) -> Probe:
+def probe(mod: int = 0, **env: int) -> Probe:
     """A named integer point.  Sorted, so the channel order is deterministic."""
     full = {v: 0 for v in ALPHABET}
     full.update(env)
-    return tuple(sorted(full.items()))
+    return (tuple(sorted(full.items())), mod)
 
 
-def uniform(k: int) -> Probe:
-    """The diagonal point ``a = b = ... = z = k``."""
-    return tuple(sorted({v: k for v in ALPHABET}.items()))
+def uniform(k: int, mod: int = 0) -> Probe:
+    """The diagonal point ``a = b = ... = z = k``, read mod ``mod``."""
+    return (tuple(sorted({v: k for v in ALPHABET}.items())), mod)
+
+
+def probe_render(p: Probe) -> str:
+    env, mod = p
+    body = ",".join("%s=%d" % kv for kv in env if kv[1] != 0) or "all=0"
+    return body + (" (mod %d)" % mod if mod else "")
 
 
 # The coarsest channel a round ever starts from: two diagonal points.  It is
@@ -91,7 +104,7 @@ def uniform(k: int) -> Probe:
 # variables they use are indistinguishable, so cross-construction collisions
 # (the interesting, frequently false ones) are exactly what this channel sees.
 # REFLECT widens it with the points that actually separated a refuted pair.
-DEFAULT_CHANNEL: Tuple[Probe, ...] = (uniform(1), uniform(2))
+DEFAULT_CHANNEL: Tuple[Probe, ...] = (uniform(1, mod=3), uniform(2, mod=4))
 
 # The audit grid is the *refutation* library: an ordered, fixed set of exact
 # points that assigns every variable of the alphabet a value, with the values
@@ -109,8 +122,8 @@ _AUDIT_ROWS: Tuple[Tuple[int, ...], ...] = (
 )
 
 AUDIT_GRID: Tuple[Probe, ...] = tuple(
-    tuple(sorted({ALPHABET[i]: row[(i + shift) % len(row)]
-                  for i in range(len(ALPHABET))}.items()))
+    (tuple(sorted({ALPHABET[i]: row[(i + shift) % len(row)]
+                   for i in range(len(ALPHABET))}.items())), 0)
     for row in _AUDIT_ROWS
     for shift in range(len(row))
 )
@@ -141,22 +154,44 @@ def signature(t: Term, channel: Sequence[Probe],
     if any(v not in ALPHABET for v in vs):
         return None
     out: List[int] = []
-    for p in channel:
+    for env, mod in channel:
         if ctr is not None:
             ctr.effort()
-        out.append(evaluate(t, dict(p)))
+        val = evaluate(t, dict(env))
+        out.append(val % mod if mod else val)
     return tuple(out)
 
 
 def collisions(terms: Sequence[Term], channel: Sequence[Probe],
                ctr: Optional[Counter] = None,
-               limit: int = 0) -> List[Tuple[Term, Term]]:
+               limit: int = 0,
+               sources: Optional[Dict[str, int]] = None
+               ) -> List[Tuple[Term, Term]]:
     """Distinct constructions that ``channel`` cannot tell apart.
 
     Deterministic: buckets are keyed by the exact signature and read out in
     first-appearance order; inside a bucket the terms keep the order they were
     handed in.  ``limit`` truncates and the truncation is reported by the
     caller, never silently.
+
+    Enumeration is **breadth-first across buckets**, not depth-first inside
+    them: one pair from every bucket, then a second from every bucket, and so
+    on.  Depth-first is what a naive implementation does and it is a trap under
+    a budget -- the first bucket is usually one construction's own rewrite
+    orbit, whose pairs are all *true*, so a depth-first budget spends itself
+    entirely on conjectures that cannot fail and the loop never sees a
+    counterexample.  Breadth-first costs nothing and is neutral: it prefers no
+    pair over any other, it only stops starving the later buckets.
+
+    ``sources`` maps a term address to the construction it was generated from.
+    When it is supplied, **cross-source pairs are enumerated before same-source
+    pairs inside each bucket**.  This is not a thumb on the scale toward
+    falsehood: two states of one construction's rewrite orbit are already
+    joined by an accepted path in the multiway graph, so a conjecture between
+    them is one the runtime can discharge by construction and it teaches
+    nothing.  The pairs worth a proof budget are the ones spanning two
+    independent constructions, and they are also -- unavoidably -- the ones
+    that can be false.
     """
     buckets: Dict[Tuple[int, ...], List[Term]] = {}
     order: List[Tuple[int, ...]] = []
@@ -172,15 +207,36 @@ def collisions(terms: Sequence[Term], channel: Sequence[Probe],
             buckets[sig] = []
             order.append(sig)
         buckets[sig].append(t)
-    out: List[Tuple[Term, Term]] = []
+    lanes: List[List[Tuple[Term, Term]]] = []
     for sig in order:
         group = buckets[sig]
+        cross: List[Tuple[Term, Term]] = []
+        same: List[Tuple[Term, Term]] = []
         for i in range(len(group)):
             for j in range(i + 1, len(group)):
                 a, b = group[i], group[j]
-                out.append((a, b) if a.ckey < b.ckey else (b, a))
+                pair = (a, b) if a.ckey < b.ckey else (b, a)
+                if sources is not None and \
+                        sources.get(a.addr, -1) != sources.get(b.addr, -2):
+                    cross.append(pair)
+                else:
+                    same.append(pair)
+        lane = cross + same
+        if lane:
+            lanes.append(lane)
+    out: List[Tuple[Term, Term]] = []
+    depth = 0
+    while lanes:
+        progressed = False
+        for lane in lanes:
+            if depth < len(lane):
+                progressed = True
+                out.append(lane[depth])
                 if limit and len(out) >= limit:
                     return out
+        if not progressed:
+            break
+        depth += 1
     return out
 
 
@@ -392,8 +448,10 @@ class ProposalGraph:
         if any(v not in ALPHABET for v in vs):
             return None
         for p in grid:
-            env = dict(p)
-            a, b = evaluate(cj.lhs, env), evaluate(cj.rhs, env)
+            env, mod = p
+            a, b = evaluate(cj.lhs, dict(env)), evaluate(cj.rhs, dict(env))
+            if mod:
+                a, b = a % mod, b % mod
             if a != b:
                 return (p, a, b)
         return None
@@ -556,8 +614,7 @@ def triage(pg: ProposalGraph, cids: Sequence[str], lemmas: Sequence,
             v = Discharge(cid, REFUTED, v.route, v.steps, v.work,
                           separator=sep[0],
                           reason="separated %d != %d at %s"
-                                 % (sep[1], sep[2],
-                                    ",".join("%s=%d" % kv for kv in sep[0])))
+                                 % (sep[1], sep[2], probe_render(sep[0])))
             out.append(v)
             pg.verdicts[cid] = v
             continue

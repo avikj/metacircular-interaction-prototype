@@ -179,6 +179,8 @@ class Config:
     crystallize: bool = True          # the null trajectory turns this off
     compress: bool = True
     max_installs_per_round: int = 2
+    lemma_grace: int = 4              # rounds a never-firing lemma survives
+    pool_cap: int = 420               # cumulative state pool DISTINGUISH sees
     mine_window: int = 24
     mine_min_support: int = 2
     use_index: bool = True            # SCALE.md sec 3: amortised discrimination net
@@ -337,6 +339,8 @@ class Organism:
         self.channel: List[PR.Probe] = list(PR.DEFAULT_CHANNEL)
         self.reports: List[RoundReport] = []
         self.residual_seeds: List[Term] = []
+        self.pool: List[Term] = []
+        self.sources: Dict[str, int] = {}
         self.all_seeds: List[Term] = []
         self.all_state_addrs: set = set()
         self.mining_inputs: List[Tuple[str, Term]] = []
@@ -377,8 +381,21 @@ class Organism:
         cr = causal_report(g)
 
         # ------------------------------------------------------- DISTINGUISH
+        # The pool matters.  Collisions computed only inside one round's graph
+        # are almost all *true*: every state of one construction's rewrite orbit
+        # really does equal every other, so an amnesiac DISTINGUISH proposes
+        # only theorems and the loop never meets a counterexample.  Falsehood
+        # lives *between* constructions, so the channel is applied to this
+        # round's states together with a bounded, deterministic tail of every
+        # earlier round's states.
         terms = [g.states[a] for a in g.order]
-        colls = PR.collisions(terms, self.channel, limit=cfg.max_conjectures * 3)
+        pool = [t for t in self.pool if t.addr not in g.states]
+        for a in g.order:
+            self.sources.setdefault(a, r * 1000 + g.origin.get(a, -1))
+        colls = PR.collisions(terms + pool, self.channel,
+                              limit=cfg.max_conjectures * 3,
+                              sources=self.sources)
+        self.pool = (self.pool + terms)[-cfg.pool_cap:]
         proposed_now: List[str] = []
         for a, b in colls:
             if len(proposed_now) >= cfg.max_conjectures:
@@ -445,20 +462,47 @@ class Organism:
                     self.reject_log.append((r, "%s %s" % (lid, v.reasons[:1])))
             self._rebuild_index()
 
+        # ------------------------------- post-install firing measurement -----
+        # A lemma installed this round cannot have fired in the derivations it
+        # was mined from -- they predate it.  Re-solving the round's targets
+        # under the new book is what actually measures whether it fires, and
+        # omitting this step is how COMPRESS below would otherwise delete the
+        # single most valuable lemma in the book (observed, then fixed).
+        if installed:
+            for i, s in enumerate(seeds):
+                ctr = Counter()
+                try:
+                    d, _ = normalize(s, lemmas=tuple(self.book.lemmas), ctr=ctr,
+                                     name="r%d-p%d" % (r, i), index=self.index,
+                                     max_steps=cfg.prove_steps)
+                except Divergence:
+                    continue
+                for st in d.steps:
+                    if st.lemma_id is not None:
+                        self.lemma_fires[st.lemma_id] = \
+                            self.lemma_fires.get(st.lemma_id, 0) + 1
+
         # ---------------------------------------------------------- COMPRESS
         dropped_l = dropped_p = 0
         if cfg.compress:
-            # 1. a lemma that has never fired in any round is dead weight.
-            #    Firing counts come only from generated targets -- the
-            #    benchmark is never consulted, which is why this arrow cannot
-            #    launder benchmark information into the book.
+            # 1. A lemma that has never fired, in any round, on any generated
+            #    target, and has been resident for the whole grace period, is
+            #    dead weight and is dropped.  Firing counts come only from
+            #    generated targets -- the benchmark is never consulted, which
+            #    is why this arrow cannot launder benchmark information into
+            #    the book.  The grace period is not politeness: a lemma is
+            #    mined from family F in round r and the targets of round r+1
+            #    are family F', so a zero-grace rule deletes every lemma one
+            #    round after installing it.
+            born = {lid: rr for rr, lid, _ in self.install_log}
             keep = [l for l in self.book.lemmas
-                    if self.lemma_fires.get(l.lid, 0) > 0 or
-                    any(rr == r for rr, lid, _ in self.install_log if lid == l.lid)]
+                    if self.lemma_fires.get(l.lid, 0) > 0
+                    or r - born.get(l.lid, r) < cfg.lemma_grace]
             if len(keep) < len(self.book.lemmas):
                 dropped_l = len(self.book.lemmas) - len(keep)
+                kept = {l.lid for l in keep}
                 self.dropped_lemmas.extend(
-                    l.lid for l in self.book.lemmas if l not in keep)
+                    l.lid for l in self.book.lemmas if l.lid not in kept)
                 self.book.lemmas = keep
                 self._rebuild_index()
             # 2. CRYSTAL.md sec 3.2's converse: drop a probe that separates
