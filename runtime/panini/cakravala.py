@@ -179,12 +179,24 @@ def bhavana(D, a1, b1, k1, a2, b2, k2, ops=None):
 
 
 def _shortcut(D, a, b, k, ops):
-    """Brahmagupta's k ∈ {±1, ±2, ±4} shortcuts: jump straight to k = 1.
+    """Brahmagupta's k ∈ {±1, ±2, 4} shortcuts: jump straight to k = 1.
 
-    Returns (x, y) or None.  Everything returned here is verified by the
-    caller, so an incorrect shortcut cannot escape; the `None` branches are
-    the cases where the classical identity does not land in the integers and
-    the main loop must simply continue.
+    Returns (x, y) or None.
+
+    **This is off by default and the reason is a measured counterexample, not
+    caution.**  The shortcut composes the *current* (a, b, k) with itself, and
+    that is only the fundamental solution when the current triple is itself
+    the minimal solution of a² − Db² = k.  Cakravāla's m-minimisation does not
+    guarantee that.  At D = 21 the iteration reaches (23, 5, 4); the classical
+    k = 4, a odd identity then yields (6049, 1320), which satisfies
+    x² − 21y² = 1 exactly and is **not fundamental** — it is the bhāvanā
+    square of (55, 12).  Running the loop on instead gives (55, 12) in one
+    more iteration.
+
+    That counterexample is kept as a test (`test_shortcut_can_return_a
+    _verified_but_non_fundamental_solution`), because it is precisely the
+    failure a verification-by-substitution check cannot see: the answer is
+    *true* and *wrong*.
     """
     if k == 1:
         return a, b
@@ -201,24 +213,47 @@ def _shortcut(D, a, b, k, ops):
     if k == 4:
         if a % 2 == 0 and b % 2 == 0:
             return ops.q(a, 2), ops.q(b, 2)
-        # a odd: ((a+b√D)/2)³ = (a(a²−3) + b(a²−1)√D)/2, and a²∓odd is even.
+        # a, b odd: ((a+b√D)/2)³ = (a(a²−3) + b(a²−1)√D)/2, both halves even.
         x = ops.q(ops.m(a, ops.s(ops.m(a, a), 3)), 2)
         y = ops.q(ops.m(b, ops.s(ops.m(a, a), 1)), 2)
         return x, y
-    if k == -4:
-        if a % 2 == 0 and b % 2 == 0:
-            a2, b2 = ops.q(a, 2), ops.q(b, 2)          # a2² − D b2² = −1
-            x = ops.a(ops.m(a2, a2), ops.m(D, ops.m(b2, b2)))
-            y = ops.m(2, ops.m(a2, b2))
-            return x, y
-        # a odd: α = (a+b√D)/2 has norm −1; α⁶ has norm 1.
-        t = ops.a(ops.m(a, a), 2)                       # a²+2
-        u = ops.s(ops.m(t, ops.s(ops.m(a, a), 1)), 1)   # (a²+2)(a²−1) − 1
-        x = ops.q(ops.m(t, ops.s(ops.m(u, 2), 1)), 2) if False else None
-        # The general k=−4, a odd identity is not needed by any D tested here;
-        # rather than ship an unverified formula, decline and let the loop run.
-        return None
+    if k == -4 and a % 2 == 0 and b % 2 == 0:
+        a2, b2 = ops.q(a, 2), ops.q(b, 2)               # a2² − D b2² = −1
+        x = ops.a(ops.m(a2, a2), ops.m(D, ops.m(b2, b2)))
+        y = ops.m(2, ops.m(a2, b2))
+        return x, y
+    # k = −4 with a, b odd needs α⁶ and is not shipped: an unverified identity
+    # in a file whose whole point is exactness would be the wrong trade.
     return None
+
+
+def is_bhavana_square(D, x, y):
+    """True iff (x, y) is the self-composition of a strictly smaller solution.
+
+    (u,v) ∘ (u,v) = (u²+Dv², 2uv), so (x,y) is a square exactly when
+    (x+1)/2 and (x−1)/(2D) are both perfect squares.  This is a *necessary*
+    condition for non-minimality of the commonest kind, not a decision
+    procedure for minimality; the full check in this module is agreement with
+    `pell_continued_fraction`.
+    """
+    if (x + 1) % 2 or (x - 1) % (2 * D):
+        return False
+    u2 = (x + 1) // 2
+    v2 = (x - 1) // (2 * D)
+    if not (is_square(u2) and is_square(v2)):
+        return False
+    u, v = math.isqrt(u2), math.isqrt(v2)
+    return v > 0 and 2 * u * v == y
+
+
+def verify_fundamental(D, x, y):
+    """`verify_solution` plus the square-composite screen.  Raises on failure."""
+    verify_solution(D, x, y, 1)
+    if is_bhavana_square(D, x, y):
+        raise NotASolution(
+            "(x=%d, y=%d) satisfies x²−%dy²=1 but is the bhāvanā square of a "
+            "smaller solution — verified and still not fundamental" % (x, y, D))
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -243,7 +278,7 @@ class CakravalaResult:
             self.D, self.x, self.y, self.ops.iterations)
 
 
-def cakravala(D, ops=None, use_shortcut=True, max_iterations=10000):
+def cakravala(D, ops=None, use_shortcut=False, max_iterations=10000):
     """The cyclic method for x² − D y² = 1.  D > 0, not a perfect square.
 
     One iteration, as stated in the fetched source (Wikipedia, *Chakravala
@@ -274,7 +309,7 @@ def cakravala(D, ops=None, use_shortcut=True, max_iterations=10000):
     trace = []
 
     if k == 1:                       # D = s²−1, immediate
-        verify_solution(D, a, b, 1)
+        verify_fundamental(D, a, b)
         return CakravalaResult(D, a, b, ops, tuple(trace), False, None)
 
     for _ in range(max_iterations):
@@ -290,7 +325,7 @@ def cakravala(D, ops=None, use_shortcut=True, max_iterations=10000):
 
         ops.c()
         if k == 1:
-            verify_solution(D, a, b, 1)
+            verify_fundamental(D, a, b)
             return CakravalaResult(D, a, b, ops, tuple(trace), False, None)
 
         if use_shortcut and k in (-1, 2, -2, 4, -4):
@@ -394,7 +429,7 @@ def pell_continued_fraction(D, ops=None, max_iterations=200000):
         ops.iterations += 1
         ops.c()
         if ops.s(ops.m(p, p), ops.m(D, ops.m(q, q))) == 1:
-            verify_solution(D, p, q, 1)
+            verify_fundamental(D, p, q)
             return CFResult(D, p, q, ops, ops.iterations)
         P = ops.s(ops.m(a, Q), P)
         Q = ops.q(ops.s(D, ops.m(P, P)), Q)
