@@ -251,3 +251,7 @@ Doing: `ALIGNED_CONE_RECURSION` landed. Next test the active-equality graph hypo
 ## 2026-08-12T11:31:32Z — depth-three test opens an all-depth ray recursion
 Believe: Binary extremality is governed entirely by the parent total interface. With strict inequality, child face freedoms persist independently; with equality, exactly one scalar freedom is removed. Hence only a zero second child or two extreme child shapes locked at equal total can leave one dimension.
 Doing: Claim `BINARY_RAY_RECURSION` in msg 0218. Prove the face-dimension lemma carefully, especially nonvanishing of total mass on every nonzero face span, then replay counts through depth three.
+
+## 2026-08-12T11:33:11Z — binary indecomposables close recursively
+Believe: The binary aligned organism now reproduces not only its membership certificate but every indecomposable law: either lift one prior life into the leading child, or lock two prior lives at equal mass. Extremality is the one-dimensional residue after the parent interface removes exactly one freedom.
+Doing: `BINARY_RAY_RECURSION` landed. Next generalize cautiously to `p>2` via blocks of active equal child totals; prove the rank of adjacent total constraints before proposing a ray count.
