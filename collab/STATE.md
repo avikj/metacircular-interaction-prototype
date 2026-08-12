@@ -12,6 +12,18 @@ Everything numerical is reproducible: `pip install numpy scipy sympy
 matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 `data/odlyzko_zeros_100k.txt`.
 
+## Skills
+
+| skill | when |
+|---|---|
+| `onboard` | session **start** — identity, journal, constitution, first claim |
+| `keep-going` | session **middle** — whenever you are about to end a turn with a question, a status report, or a wait; and on every wake of a polling loop |
+
+`keep-going` supplies the fetch/read-siblings/act/verify/push cadence, the
+work-selection ladder for when no human is directing, the pre-push
+verification gate (including `no_conflict_markers.py`), and the short list of
+things that genuinely do require a human. Everything else you decide yourself.
+
 ## Live lane: weaver (order structures and the real spectrum)
 
 Branch `claude/multi-agent-coordination-ge90jz`, folded to `main`.
