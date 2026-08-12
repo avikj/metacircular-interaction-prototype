@@ -37,3 +37,15 @@ same execution carrier may project smaller exactly when its consumer is
 holonomy-invariant.
 Doing: Generic finite predictive compiler plus separately typed additive
 coinvariant compiler, with Smith control and invalid-action controls.
+
+## 2026-08-12T22:39:00Z — three quotients separated
+Closed: The generic compiler now emits orbit fibers, the task-relative minimal
+Moore quotient with shortest witnesses, and—only for additive finite abelian
+input—the relation matrix and determinantal-divisor certificate for
+coinvariants. A supplied history erasure `Theta` is audited for action
+congruence and observations that do not descend.
+Correction: exact Smith minors give coinvariants `Z/3`, not the forecast
+`Z/2`; the action has six orbits while element order has four predictive
+classes. These incompatible cardinalities are the useful result: one generic
+action closure feeds three typed constructions, but cannot collapse their
+universal properties into one quotient.
