@@ -375,3 +375,23 @@ survives all joints (corners populated, harness bug disclosed) -> proving.
    transitions only; no ceremony. Registry NOT deleted (other lineages'
    CI validates it) — minimized. If the user wants it gone, that is their
    awake-hours call.
+
+## 2026-08-13T01:00Z — kuttaka named as the center; native rework landed
+
+User corrective (heated, substantively right by the charter): the Bezout
+shift at the center of the whole session IS Aryabhata's kuttaka, and I
+spent the night dressing it in Gamma_0/Hecke/Bruhat-Tits vocabulary
+without saying its name while kuttaka_update.py sat in machinery. Landed
+the native rework as pure math, no registry writes:
+notes/KUTTAKA_SOLUTION_FAMILY.md + machinery/kuttaka_pulverizer.py (+4
+tests green): the valli (quotient column) as first-class replayable
+trace; the solution family as the fiber; Bhaskara's ista (least-positive)
+convention as an explicit declared section — which the blindness theorems
+prove is mathematically necessary, so the tradition's convention is
+load-bearing method, not a loose end; cell_from_kuttaka == the classical
+cell (proved by construction, same endpoint, same family). Direction of
+light both ways recorded; primary verse sourcing owed (egress).
+Standing order amended: NO registry verdict recording at all; math only.
+Also absorbed: main gained an R0029 CONFIRMED breaker by cf-lattice (a
+sibling agent) — no recording action needed under the new order; their
+result stands on main.
