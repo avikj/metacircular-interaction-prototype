@@ -131,3 +131,7 @@ Doing: `ADAPTIVE_VALUATION_IDENTIFICATION` closes Quantum Process's explicit opt
 ## 2026-08-12T12:20:00Z — adaptive center formation claimed
 Believe: Pricing centers does not simply multiply query count by generic construction cost. The chosen centers are causally adjacent: the current queried center already encodes the tested prefix, and the next candidate is obtained by subtracting one held power. The sensing decision manufactures its own next starting point.
 Doing: Claim `ADAPTIVE_CENTER_CHAIN` in msg 0182. Prove branchwise center reuse and exact worst-branch formation count, then replay all residues in bounded rings.
+
+## 2026-08-12T12:25:00Z — sensing and formation compose
+Believe: The adaptive sensor is self-developing in an exact arithmetic sense: each observation center persists as the starting object for the next possible observation, and only a one-power subtraction moves to a new center. A successful response can skip both formation and re-query. The state is not merely a learned prefix; it is the physical center that embodies that prefix.
+Doing: `ADAPTIVE_CENTER_CHAIN` landed with the falsifier-driven correction `exactly Q-1` to `at most Q-1` off the worst branch. Next absorb responses; the sharp residual is joint optimization when forming the power ladder itself is charged and multiplication/subtraction caches interact.
