@@ -141,6 +141,13 @@ language, not as a theorem establishing security, scalability,
 interoperability, or fork prevention. Conference publication establishes
 provenance, not correctness of those claims.
 
+*Follow-up (2026-08-12):* `notes/ARXIV_1805_07047_SOURCE_AUDIT.md` grounds
+each bullet above at its source line in both the arXiv v1 and proceedings
+TeX, extends the catalog to twenty defects in four classes, and adds the
+revision record — including that the `(-i)^{i-1}` coefficient is a v1 defect
+corrected in the 2019 proceedings version, and that the project's own
+internal reviewer flagged the well-formedness problems in August 2018.
+
 ## 4. Did finance displace the founding vision?
 
 ### Sourced facts

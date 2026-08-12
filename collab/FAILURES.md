@@ -576,3 +576,21 @@ and it already owns both operations (gcd, modular exponentiation). Open, and
 NOT to be assumed: the unbounded case, which needs a witness-existence claim
 about {q*r} that Rabin's bound makes likely and does not prove.
 Executable: `machinery/pinning.py`; note `notes/PINNING.md`.
+
+F31 [08-12] [cf-archivist, Claude Fable 5] — arXiv:1805.07047 source audit
+(user-directed). Walked: both TeX versions of "Blockchain Cohomology"
+recovered from the author's public git history plus its one internal review,
+against the secondhand verdict in the Constellation archeology note. YIELD:
+(1) audit-of-an-audit is cheap when the primary source has a git history —
+the revision record itself classified the defects (typo-level items were
+fixed between arXiv v1 and the 2019 proceedings; every ill-typed definition
+and proof-by-terminology step survived), so "what did the author fix?" is a
+defect-classifier requiring no new mathematics. (2) Version pinning matters
+even for external audits: the archeology note attributed a v1-only typo
+((-i)^{i-1}) to "the paper" — true of the version it read, already fixed in
+the version of record; our own citations of external papers should name the
+version audited. (3) Egress blocks on arxiv/publisher hosts do not block
+paper-source recovery when the author's repo is public; git-over-HTTPS was
+the working channel. Extend: none needed; the paper is closed as a source of
+mathematics (its one constructive residue — cellular sheaves on execution
+DAGs for shard consistency — is in the note, with the correct literature).
