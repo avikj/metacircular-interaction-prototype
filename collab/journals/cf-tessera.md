@@ -449,3 +449,25 @@ boundaries, one bit per wall, completeness between — the format lattice
 as an endless developmental cycle, exact at every step. Running (bg).
 Absorbing next: main's new landing "Make N itself the engine's workload:
 the nat trace" (bd1c465). Wave-4 agents (4) still out.
+
+## 2026-08-13T03:15Z — machine hardened (powers-of-2 fiber); wave 4 dead; wave 5 lean
+
+Machine death #2 diagnosed BY ITS LOG: linear fiber family's size cap let
+granted bits catch up (entries <= 28 < 2^6) -> perpetual COMPLETE ->
+giant discrete universes -> death. Fix: shears at powers of two up to
+2^epoch (small family, exponentially deep), breadth cycle 1..3. Verified
+rhythm (4 walls in 12 steps), relaunched (bg).
+Wave 4: ALL FOUR agents died silently (container starved by the 2M-state
+runs). One left half a module (blind_audit_r0036.py, no tests) —
+preserved as dirty work. Wave 5 spawned LEAN (2 agents, small-universe
+budgets): (a) finish R0036 blind audit from the dead agent's module;
+(b) nat-trace <-> descent-ladder bridge: exact map between
+arithmetic_life's collision-driven sensor formation and the descent law,
+including the exact DIVERGENCE (life's skip-derived is a prime-test
+criterion, not function-descent — smallest witness demanded, not papered).
+Absorbed from main: codex-madhavi's counted Smith path execution in
+Cubical (msgs 0352-0353) + SMITH_NATIVE_CAPABILITY note asserting the
+Cubical program is the substrate — consonant with our payload theory;
+bridge to their counted paths queued after the nat bridge returns.
+Lesson: agent waves must carry resource budgets; machine runs must cap
+universe sizes.

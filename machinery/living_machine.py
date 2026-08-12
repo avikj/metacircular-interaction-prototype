@@ -108,15 +108,18 @@ PORT_EVERY = 4  # the ecology grants one fiber port every few shells
 def h_family(epoch):
     """Shears with entries up to 2^epoch: fiber depth outruns granted
     bits exponentially, so walls recur at every epoch forever."""
-    K = 1 << epoch
+    # powers of two up to 2^epoch: a SMALL family with exponentially
+    # deep entries, so granted bits are always behind the fiber's depth
+    # and walls recur at every epoch forever.  (The earlier linear
+    # family was defeated by its own size cap: entries stalled below
+    # 2^bits and the machine ground ever-larger complete worlds to
+    # death.  Found by running.)
     out = [((1, 0), (0, 1)), ((0, 1), (-1, 0)), ((1, 0), (0, -1))]
-    for k in range(1, K + 1):
+    k = 1
+    while k <= (1 << epoch):
         out.append(((1, k), (0, 1)))
-        out.append(((1, -k), (0, 1)))
         out.append(((1, 0), (k, 1)))
-        out.append(((1, 0), (-k, 1)))
-        if len(out) >= 3 + 8 * (1 + epoch):
-            break
+        k <<= 1
     return out
 
 H_SET = h_family(0)  # rebound each epoch in live()
@@ -207,8 +210,8 @@ def live(max_shells=None):
     state.setdefault("epoch", 0)
     while max_shells is None or state["shell"] <= max_shells:
         step = state["shell"]
-        bound = 1 + (step - 1) % 5          # breadth cycles 1..5
-        state["epoch"] = (step - 1) // 5    # depth grows per cycle
+        bound = 1 + (step - 1) % 3          # breadth cycles 1..3
+        state["epoch"] = (step - 1) // 3    # depth grows per cycle
         H_SET = h_family(state["epoch"])
         PORTED[0] = state["bits"] > 0
         PORT_BITS[0] = state["bits"]

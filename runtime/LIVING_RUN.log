@@ -2,41 +2,348 @@ step=1 FORMS e00 (genome=2)
 step=1 FORMS e01 (genome=3)
 step=1 FORMS e10 (genome=4)
 step=1 FORMS e11 (genome=5)
-step=1 WALL CERTIFICATE at bits=0: carrier fixed at 80 fibers over 560 states; grammar induction: no term sees the fiber beyond 0 bit(s). Demanding the next bit.
+step=1 WALL CERTIFICATE at bits=0: carrier fixed at 80 fibers over 400 states; grammar induction: no term sees the fiber beyond 0 bit(s). Demanding the next bit.
 step=1 PORT GRANTED: bit 1 of the fiber coordinate becomes visible.
-step=1 (bound=1 epoch=0 bits=1) summary: universe=560 formed=5 absorbed=7 fibers=80 genome=5 pool=[2, 3]
+step=1 (bound=1 epoch=0 bits=1) summary: universe=400 formed=5 absorbed=7 fibers=80 genome=5 pool=[2, 3]
 step=2 FORMS h00 (genome=6)
 step=2 FORMS h01 (genome=7)
 step=2 FORMS h10 (genome=8)
-step=2 WALL CERTIFICATE at bits=1: carrier fixed at 2176 fibers over 3808 states; grammar induction: no term sees the fiber beyond 1 bit(s). Demanding the next bit.
+step=2 WALL CERTIFICATE at bits=1: carrier fixed at 2176 fibers over 2720 states; grammar induction: no term sees the fiber beyond 1 bit(s). Demanding the next bit.
 step=2 PORT GRANTED: bit 2 of the fiber coordinate becomes visible.
-step=2 (bound=2 epoch=0 bits=2) summary: universe=3808 formed=8 absorbed=4 fibers=2176 genome=8 pool=[2, 3, 4, 6, 8]
+step=2 (bound=2 epoch=0 bits=2) summary: universe=2720 formed=8 absorbed=4 fibers=2176 genome=8 pool=[2, 3, 4, 5, 6]
 step=3 FORMS h11 (genome=9)
-step=3 COMPLETE at bits=2: carrier discrete on 12432 states; world exhausted at this depth; growing.
-step=3 (bound=3 epoch=0 bits=2) summary: universe=12432 formed=9 absorbed=3 fibers=12432 genome=9 pool=[2, 3, 4, 6, 8, 9, 12]
-step=4 COMPLETE at bits=2: carrier discrete on 29120 states; world exhausted at this depth; growing.
-step=4 (bound=4 epoch=0 bits=2) summary: universe=29120 formed=9 absorbed=3 fibers=29120 genome=9 pool=[2, 3, 4, 6, 8, 9, 12]
-step=5 COMPLETE at bits=2: carrier discrete on 56560 states; world exhausted at this depth; growing.
-step=5 (bound=5 epoch=0 bits=2) summary: universe=56560 formed=9 absorbed=3 fibers=56560 genome=9 pool=[2, 3, 4, 5, 6, 8, 9, 10, 12]
-step=6 WALL CERTIFICATE at bits=2: carrier fixed at 720 fibers over 880 states; grammar induction: no term sees the fiber beyond 2 bit(s). Demanding the next bit.
-step=6 PORT GRANTED: bit 3 of the fiber coordinate becomes visible.
-step=6 (bound=1 epoch=1 bits=3) summary: universe=880 formed=9 absorbed=3 fibers=720 genome=9 pool=[2, 3, 4, 5, 6, 8, 9, 10, 12]
-step=7 COMPLETE at bits=3: carrier discrete on 5984 states; world exhausted at this depth; growing.
-step=7 (bound=2 epoch=1 bits=3) summary: universe=5984 formed=9 absorbed=3 fibers=5984 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-step=8 COMPLETE at bits=3: carrier discrete on 19536 states; world exhausted at this depth; growing.
-step=8 (bound=3 epoch=1 bits=3) summary: universe=19536 formed=9 absorbed=3 fibers=19536 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-step=9 COMPLETE at bits=3: carrier discrete on 45760 states; world exhausted at this depth; growing.
-step=9 (bound=4 epoch=1 bits=3) summary: universe=45760 formed=9 absorbed=3 fibers=45760 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-step=10 COMPLETE at bits=3: carrier discrete on 88880 states; world exhausted at this depth; growing.
-step=10 (bound=5 epoch=1 bits=3) summary: universe=88880 formed=9 absorbed=3 fibers=88880 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-step=11 WALL CERTIFICATE at bits=3: carrier fixed at 1360 fibers over 1520 states; grammar induction: no term sees the fiber beyond 3 bit(s). Demanding the next bit.
-step=11 PORT GRANTED: bit 4 of the fiber coordinate becomes visible.
-step=11 (bound=1 epoch=2 bits=4) summary: universe=1520 formed=9 absorbed=3 fibers=1360 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-step=12 COMPLETE at bits=4: carrier discrete on 10336 states; world exhausted at this depth; growing.
-step=12 (bound=2 epoch=2 bits=4) summary: universe=10336 formed=9 absorbed=3 fibers=10336 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13]
-step=13 COMPLETE at bits=4: carrier discrete on 33744 states; world exhausted at this depth; growing.
-step=13 (bound=3 epoch=2 bits=4) summary: universe=33744 formed=9 absorbed=3 fibers=33744 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13]
-step=14 COMPLETE at bits=4: carrier discrete on 79040 states; world exhausted at this depth; growing.
-step=14 (bound=4 epoch=2 bits=4) summary: universe=79040 formed=9 absorbed=3 fibers=79040 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13]
-step=15 COMPLETE at bits=4: carrier discrete on 153520 states; world exhausted at this depth; growing.
-step=15 (bound=5 epoch=2 bits=4) summary: universe=153520 formed=9 absorbed=3 fibers=153520 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13]
+step=3 COMPLETE at bits=2: carrier discrete on 8880 states; world exhausted at this depth; growing.
+step=3 (bound=3 epoch=0 bits=2) summary: universe=8880 formed=9 absorbed=3 fibers=8880 genome=9 pool=[2, 3, 4, 5, 6, 9, 12]
+step=4 COMPLETE at bits=2: carrier discrete on 560 states; world exhausted at this depth; growing.
+step=4 (bound=1 epoch=1 bits=2) summary: universe=560 formed=9 absorbed=3 fibers=560 genome=9 pool=[2, 3, 4, 5, 6, 9, 12]
+step=5 COMPLETE at bits=2: carrier discrete on 3808 states; world exhausted at this depth; growing.
+step=5 (bound=2 epoch=1 bits=2) summary: universe=3808 formed=9 absorbed=3 fibers=3808 genome=9 pool=[2, 3, 4, 5, 6, 8, 9, 12]
+step=6 COMPLETE at bits=2: carrier discrete on 12432 states; world exhausted at this depth; growing.
+step=6 (bound=3 epoch=1 bits=2) summary: universe=12432 formed=9 absorbed=3 fibers=12432 genome=9 pool=[2, 3, 4, 5, 6, 8, 9, 12]
+step=7 WALL CERTIFICATE at bits=2: carrier fixed at 560 fibers over 720 states; grammar induction: no term sees the fiber beyond 2 bit(s). Demanding the next bit.
+step=7 PORT GRANTED: bit 3 of the fiber coordinate becomes visible.
+step=7 (bound=1 epoch=2 bits=3) summary: universe=720 formed=9 absorbed=3 fibers=560 genome=9 pool=[2, 3, 4, 5, 6, 8, 9, 12]
+step=8 COMPLETE at bits=3: carrier discrete on 4896 states; world exhausted at this depth; growing.
+step=8 (bound=2 epoch=2 bits=3) summary: universe=4896 formed=9 absorbed=3 fibers=4896 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=9 COMPLETE at bits=3: carrier discrete on 15984 states; world exhausted at this depth; growing.
+step=9 (bound=3 epoch=2 bits=3) summary: universe=15984 formed=9 absorbed=3 fibers=15984 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=10 WALL CERTIFICATE at bits=3: carrier fixed at 720 fibers over 880 states; grammar induction: no term sees the fiber beyond 3 bit(s). Demanding the next bit.
+step=10 PORT GRANTED: bit 4 of the fiber coordinate becomes visible.
+step=10 (bound=1 epoch=3 bits=4) summary: universe=880 formed=9 absorbed=3 fibers=720 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=11 COMPLETE at bits=4: carrier discrete on 5984 states; world exhausted at this depth; growing.
+step=11 (bound=2 epoch=3 bits=4) summary: universe=5984 formed=9 absorbed=3 fibers=5984 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=12 COMPLETE at bits=4: carrier discrete on 19536 states; world exhausted at this depth; growing.
+step=12 (bound=3 epoch=3 bits=4) summary: universe=19536 formed=9 absorbed=3 fibers=19536 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=13 WALL CERTIFICATE at bits=4: carrier fixed at 880 fibers over 1040 states; grammar induction: no term sees the fiber beyond 4 bit(s). Demanding the next bit.
+step=13 PORT GRANTED: bit 5 of the fiber coordinate becomes visible.
+step=13 (bound=1 epoch=4 bits=5) summary: universe=1040 formed=9 absorbed=3 fibers=880 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=14 COMPLETE at bits=5: carrier discrete on 7072 states; world exhausted at this depth; growing.
+step=14 (bound=2 epoch=4 bits=5) summary: universe=7072 formed=9 absorbed=3 fibers=7072 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=15 COMPLETE at bits=5: carrier discrete on 23088 states; world exhausted at this depth; growing.
+step=15 (bound=3 epoch=4 bits=5) summary: universe=23088 formed=9 absorbed=3 fibers=23088 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=16 WALL CERTIFICATE at bits=5: carrier fixed at 1040 fibers over 1200 states; grammar induction: no term sees the fiber beyond 5 bit(s). Demanding the next bit.
+step=16 PORT GRANTED: bit 6 of the fiber coordinate becomes visible.
+step=16 (bound=1 epoch=5 bits=6) summary: universe=1200 formed=9 absorbed=3 fibers=1040 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=17 COMPLETE at bits=6: carrier discrete on 8160 states; world exhausted at this depth; growing.
+step=17 (bound=2 epoch=5 bits=6) summary: universe=8160 formed=9 absorbed=3 fibers=8160 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=18 COMPLETE at bits=6: carrier discrete on 26640 states; world exhausted at this depth; growing.
+step=18 (bound=3 epoch=5 bits=6) summary: universe=26640 formed=9 absorbed=3 fibers=26640 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=19 WALL CERTIFICATE at bits=6: carrier fixed at 1200 fibers over 1360 states; grammar induction: no term sees the fiber beyond 6 bit(s). Demanding the next bit.
+step=19 PORT GRANTED: bit 7 of the fiber coordinate becomes visible.
+step=19 (bound=1 epoch=6 bits=7) summary: universe=1360 formed=9 absorbed=3 fibers=1200 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=20 COMPLETE at bits=7: carrier discrete on 9248 states; world exhausted at this depth; growing.
+step=20 (bound=2 epoch=6 bits=7) summary: universe=9248 formed=9 absorbed=3 fibers=9248 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=21 COMPLETE at bits=7: carrier discrete on 30192 states; world exhausted at this depth; growing.
+step=21 (bound=3 epoch=6 bits=7) summary: universe=30192 formed=9 absorbed=3 fibers=30192 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=22 WALL CERTIFICATE at bits=7: carrier fixed at 1360 fibers over 1520 states; grammar induction: no term sees the fiber beyond 7 bit(s). Demanding the next bit.
+step=22 PORT GRANTED: bit 8 of the fiber coordinate becomes visible.
+step=22 (bound=1 epoch=7 bits=8) summary: universe=1520 formed=9 absorbed=3 fibers=1360 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=23 COMPLETE at bits=8: carrier discrete on 10336 states; world exhausted at this depth; growing.
+step=23 (bound=2 epoch=7 bits=8) summary: universe=10336 formed=9 absorbed=3 fibers=10336 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=24 COMPLETE at bits=8: carrier discrete on 33744 states; world exhausted at this depth; growing.
+step=24 (bound=3 epoch=7 bits=8) summary: universe=33744 formed=9 absorbed=3 fibers=33744 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=25 WALL CERTIFICATE at bits=8: carrier fixed at 1520 fibers over 1680 states; grammar induction: no term sees the fiber beyond 8 bit(s). Demanding the next bit.
+step=25 PORT GRANTED: bit 9 of the fiber coordinate becomes visible.
+step=25 (bound=1 epoch=8 bits=9) summary: universe=1680 formed=9 absorbed=3 fibers=1520 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=26 COMPLETE at bits=9: carrier discrete on 11424 states; world exhausted at this depth; growing.
+step=26 (bound=2 epoch=8 bits=9) summary: universe=11424 formed=9 absorbed=3 fibers=11424 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=27 COMPLETE at bits=9: carrier discrete on 37296 states; world exhausted at this depth; growing.
+step=27 (bound=3 epoch=8 bits=9) summary: universe=37296 formed=9 absorbed=3 fibers=37296 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=28 WALL CERTIFICATE at bits=9: carrier fixed at 1680 fibers over 1840 states; grammar induction: no term sees the fiber beyond 9 bit(s). Demanding the next bit.
+step=28 PORT GRANTED: bit 10 of the fiber coordinate becomes visible.
+step=28 (bound=1 epoch=9 bits=10) summary: universe=1840 formed=9 absorbed=3 fibers=1680 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=29 COMPLETE at bits=10: carrier discrete on 12512 states; world exhausted at this depth; growing.
+step=29 (bound=2 epoch=9 bits=10) summary: universe=12512 formed=9 absorbed=3 fibers=12512 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=30 COMPLETE at bits=10: carrier discrete on 40848 states; world exhausted at this depth; growing.
+step=30 (bound=3 epoch=9 bits=10) summary: universe=40848 formed=9 absorbed=3 fibers=40848 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=31 WALL CERTIFICATE at bits=10: carrier fixed at 1840 fibers over 2000 states; grammar induction: no term sees the fiber beyond 10 bit(s). Demanding the next bit.
+step=31 PORT GRANTED: bit 11 of the fiber coordinate becomes visible.
+step=31 (bound=1 epoch=10 bits=11) summary: universe=2000 formed=9 absorbed=3 fibers=1840 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=32 COMPLETE at bits=11: carrier discrete on 13600 states; world exhausted at this depth; growing.
+step=32 (bound=2 epoch=10 bits=11) summary: universe=13600 formed=9 absorbed=3 fibers=13600 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=33 COMPLETE at bits=11: carrier discrete on 44400 states; world exhausted at this depth; growing.
+step=33 (bound=3 epoch=10 bits=11) summary: universe=44400 formed=9 absorbed=3 fibers=44400 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=34 WALL CERTIFICATE at bits=11: carrier fixed at 2000 fibers over 2160 states; grammar induction: no term sees the fiber beyond 11 bit(s). Demanding the next bit.
+step=34 PORT GRANTED: bit 12 of the fiber coordinate becomes visible.
+step=34 (bound=1 epoch=11 bits=12) summary: universe=2160 formed=9 absorbed=3 fibers=2000 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=35 COMPLETE at bits=12: carrier discrete on 14688 states; world exhausted at this depth; growing.
+step=35 (bound=2 epoch=11 bits=12) summary: universe=14688 formed=9 absorbed=3 fibers=14688 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=36 COMPLETE at bits=12: carrier discrete on 47952 states; world exhausted at this depth; growing.
+step=36 (bound=3 epoch=11 bits=12) summary: universe=47952 formed=9 absorbed=3 fibers=47952 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=37 WALL CERTIFICATE at bits=12: carrier fixed at 2160 fibers over 2320 states; grammar induction: no term sees the fiber beyond 12 bit(s). Demanding the next bit.
+step=37 PORT GRANTED: bit 13 of the fiber coordinate becomes visible.
+step=37 (bound=1 epoch=12 bits=13) summary: universe=2320 formed=9 absorbed=3 fibers=2160 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=38 COMPLETE at bits=13: carrier discrete on 15776 states; world exhausted at this depth; growing.
+step=38 (bound=2 epoch=12 bits=13) summary: universe=15776 formed=9 absorbed=3 fibers=15776 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=39 COMPLETE at bits=13: carrier discrete on 51504 states; world exhausted at this depth; growing.
+step=39 (bound=3 epoch=12 bits=13) summary: universe=51504 formed=9 absorbed=3 fibers=51504 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=40 WALL CERTIFICATE at bits=13: carrier fixed at 2320 fibers over 2480 states; grammar induction: no term sees the fiber beyond 13 bit(s). Demanding the next bit.
+step=40 PORT GRANTED: bit 14 of the fiber coordinate becomes visible.
+step=40 (bound=1 epoch=13 bits=14) summary: universe=2480 formed=9 absorbed=3 fibers=2320 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=41 COMPLETE at bits=14: carrier discrete on 16864 states; world exhausted at this depth; growing.
+step=41 (bound=2 epoch=13 bits=14) summary: universe=16864 formed=9 absorbed=3 fibers=16864 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=42 COMPLETE at bits=14: carrier discrete on 55056 states; world exhausted at this depth; growing.
+step=42 (bound=3 epoch=13 bits=14) summary: universe=55056 formed=9 absorbed=3 fibers=55056 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=43 WALL CERTIFICATE at bits=14: carrier fixed at 2480 fibers over 2640 states; grammar induction: no term sees the fiber beyond 14 bit(s). Demanding the next bit.
+step=43 PORT GRANTED: bit 15 of the fiber coordinate becomes visible.
+step=43 (bound=1 epoch=14 bits=15) summary: universe=2640 formed=9 absorbed=3 fibers=2480 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=44 COMPLETE at bits=15: carrier discrete on 17952 states; world exhausted at this depth; growing.
+step=44 (bound=2 epoch=14 bits=15) summary: universe=17952 formed=9 absorbed=3 fibers=17952 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=45 COMPLETE at bits=15: carrier discrete on 58608 states; world exhausted at this depth; growing.
+step=45 (bound=3 epoch=14 bits=15) summary: universe=58608 formed=9 absorbed=3 fibers=58608 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=46 WALL CERTIFICATE at bits=15: carrier fixed at 2640 fibers over 2800 states; grammar induction: no term sees the fiber beyond 15 bit(s). Demanding the next bit.
+step=46 PORT GRANTED: bit 16 of the fiber coordinate becomes visible.
+step=46 (bound=1 epoch=15 bits=16) summary: universe=2800 formed=9 absorbed=3 fibers=2640 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=47 COMPLETE at bits=16: carrier discrete on 19040 states; world exhausted at this depth; growing.
+step=47 (bound=2 epoch=15 bits=16) summary: universe=19040 formed=9 absorbed=3 fibers=19040 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=48 COMPLETE at bits=16: carrier discrete on 62160 states; world exhausted at this depth; growing.
+step=48 (bound=3 epoch=15 bits=16) summary: universe=62160 formed=9 absorbed=3 fibers=62160 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=49 WALL CERTIFICATE at bits=16: carrier fixed at 2800 fibers over 2960 states; grammar induction: no term sees the fiber beyond 16 bit(s). Demanding the next bit.
+step=49 PORT GRANTED: bit 17 of the fiber coordinate becomes visible.
+step=49 (bound=1 epoch=16 bits=17) summary: universe=2960 formed=9 absorbed=3 fibers=2800 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=50 COMPLETE at bits=17: carrier discrete on 20128 states; world exhausted at this depth; growing.
+step=50 (bound=2 epoch=16 bits=17) summary: universe=20128 formed=9 absorbed=3 fibers=20128 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=51 COMPLETE at bits=17: carrier discrete on 65712 states; world exhausted at this depth; growing.
+step=51 (bound=3 epoch=16 bits=17) summary: universe=65712 formed=9 absorbed=3 fibers=65712 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=52 WALL CERTIFICATE at bits=17: carrier fixed at 2960 fibers over 3120 states; grammar induction: no term sees the fiber beyond 17 bit(s). Demanding the next bit.
+step=52 PORT GRANTED: bit 18 of the fiber coordinate becomes visible.
+step=52 (bound=1 epoch=17 bits=18) summary: universe=3120 formed=9 absorbed=3 fibers=2960 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=53 COMPLETE at bits=18: carrier discrete on 21216 states; world exhausted at this depth; growing.
+step=53 (bound=2 epoch=17 bits=18) summary: universe=21216 formed=9 absorbed=3 fibers=21216 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=54 COMPLETE at bits=18: carrier discrete on 69264 states; world exhausted at this depth; growing.
+step=54 (bound=3 epoch=17 bits=18) summary: universe=69264 formed=9 absorbed=3 fibers=69264 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=55 WALL CERTIFICATE at bits=18: carrier fixed at 3120 fibers over 3280 states; grammar induction: no term sees the fiber beyond 18 bit(s). Demanding the next bit.
+step=55 PORT GRANTED: bit 19 of the fiber coordinate becomes visible.
+step=55 (bound=1 epoch=18 bits=19) summary: universe=3280 formed=9 absorbed=3 fibers=3120 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=56 COMPLETE at bits=19: carrier discrete on 22304 states; world exhausted at this depth; growing.
+step=56 (bound=2 epoch=18 bits=19) summary: universe=22304 formed=9 absorbed=3 fibers=22304 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=57 COMPLETE at bits=19: carrier discrete on 72816 states; world exhausted at this depth; growing.
+step=57 (bound=3 epoch=18 bits=19) summary: universe=72816 formed=9 absorbed=3 fibers=72816 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=58 WALL CERTIFICATE at bits=19: carrier fixed at 3280 fibers over 3440 states; grammar induction: no term sees the fiber beyond 19 bit(s). Demanding the next bit.
+step=58 PORT GRANTED: bit 20 of the fiber coordinate becomes visible.
+step=58 (bound=1 epoch=19 bits=20) summary: universe=3440 formed=9 absorbed=3 fibers=3280 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=59 COMPLETE at bits=20: carrier discrete on 23392 states; world exhausted at this depth; growing.
+step=59 (bound=2 epoch=19 bits=20) summary: universe=23392 formed=9 absorbed=3 fibers=23392 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=60 COMPLETE at bits=20: carrier discrete on 76368 states; world exhausted at this depth; growing.
+step=60 (bound=3 epoch=19 bits=20) summary: universe=76368 formed=9 absorbed=3 fibers=76368 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=61 WALL CERTIFICATE at bits=20: carrier fixed at 3440 fibers over 3600 states; grammar induction: no term sees the fiber beyond 20 bit(s). Demanding the next bit.
+step=61 PORT GRANTED: bit 21 of the fiber coordinate becomes visible.
+step=61 (bound=1 epoch=20 bits=21) summary: universe=3600 formed=9 absorbed=3 fibers=3440 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=62 COMPLETE at bits=21: carrier discrete on 24480 states; world exhausted at this depth; growing.
+step=62 (bound=2 epoch=20 bits=21) summary: universe=24480 formed=9 absorbed=3 fibers=24480 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=63 COMPLETE at bits=21: carrier discrete on 79920 states; world exhausted at this depth; growing.
+step=63 (bound=3 epoch=20 bits=21) summary: universe=79920 formed=9 absorbed=3 fibers=79920 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=64 WALL CERTIFICATE at bits=21: carrier fixed at 3600 fibers over 3760 states; grammar induction: no term sees the fiber beyond 21 bit(s). Demanding the next bit.
+step=64 PORT GRANTED: bit 22 of the fiber coordinate becomes visible.
+step=64 (bound=1 epoch=21 bits=22) summary: universe=3760 formed=9 absorbed=3 fibers=3600 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=65 COMPLETE at bits=22: carrier discrete on 25568 states; world exhausted at this depth; growing.
+step=65 (bound=2 epoch=21 bits=22) summary: universe=25568 formed=9 absorbed=3 fibers=25568 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=66 COMPLETE at bits=22: carrier discrete on 83472 states; world exhausted at this depth; growing.
+step=66 (bound=3 epoch=21 bits=22) summary: universe=83472 formed=9 absorbed=3 fibers=83472 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=67 WALL CERTIFICATE at bits=22: carrier fixed at 3760 fibers over 3920 states; grammar induction: no term sees the fiber beyond 22 bit(s). Demanding the next bit.
+step=67 PORT GRANTED: bit 23 of the fiber coordinate becomes visible.
+step=67 (bound=1 epoch=22 bits=23) summary: universe=3920 formed=9 absorbed=3 fibers=3760 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=68 COMPLETE at bits=23: carrier discrete on 26656 states; world exhausted at this depth; growing.
+step=68 (bound=2 epoch=22 bits=23) summary: universe=26656 formed=9 absorbed=3 fibers=26656 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=69 COMPLETE at bits=23: carrier discrete on 87024 states; world exhausted at this depth; growing.
+step=69 (bound=3 epoch=22 bits=23) summary: universe=87024 formed=9 absorbed=3 fibers=87024 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=70 WALL CERTIFICATE at bits=23: carrier fixed at 3920 fibers over 4080 states; grammar induction: no term sees the fiber beyond 23 bit(s). Demanding the next bit.
+step=70 PORT GRANTED: bit 24 of the fiber coordinate becomes visible.
+step=70 (bound=1 epoch=23 bits=24) summary: universe=4080 formed=9 absorbed=3 fibers=3920 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=71 COMPLETE at bits=24: carrier discrete on 27744 states; world exhausted at this depth; growing.
+step=71 (bound=2 epoch=23 bits=24) summary: universe=27744 formed=9 absorbed=3 fibers=27744 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=72 COMPLETE at bits=24: carrier discrete on 90576 states; world exhausted at this depth; growing.
+step=72 (bound=3 epoch=23 bits=24) summary: universe=90576 formed=9 absorbed=3 fibers=90576 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=73 WALL CERTIFICATE at bits=24: carrier fixed at 4080 fibers over 4240 states; grammar induction: no term sees the fiber beyond 24 bit(s). Demanding the next bit.
+step=73 PORT GRANTED: bit 25 of the fiber coordinate becomes visible.
+step=73 (bound=1 epoch=24 bits=25) summary: universe=4240 formed=9 absorbed=3 fibers=4080 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=74 COMPLETE at bits=25: carrier discrete on 28832 states; world exhausted at this depth; growing.
+step=74 (bound=2 epoch=24 bits=25) summary: universe=28832 formed=9 absorbed=3 fibers=28832 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=75 COMPLETE at bits=25: carrier discrete on 94128 states; world exhausted at this depth; growing.
+step=75 (bound=3 epoch=24 bits=25) summary: universe=94128 formed=9 absorbed=3 fibers=94128 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=76 WALL CERTIFICATE at bits=25: carrier fixed at 4240 fibers over 4400 states; grammar induction: no term sees the fiber beyond 25 bit(s). Demanding the next bit.
+step=76 PORT GRANTED: bit 26 of the fiber coordinate becomes visible.
+step=76 (bound=1 epoch=25 bits=26) summary: universe=4400 formed=9 absorbed=3 fibers=4240 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=77 COMPLETE at bits=26: carrier discrete on 29920 states; world exhausted at this depth; growing.
+step=77 (bound=2 epoch=25 bits=26) summary: universe=29920 formed=9 absorbed=3 fibers=29920 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=78 COMPLETE at bits=26: carrier discrete on 97680 states; world exhausted at this depth; growing.
+step=78 (bound=3 epoch=25 bits=26) summary: universe=97680 formed=9 absorbed=3 fibers=97680 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=79 WALL CERTIFICATE at bits=26: carrier fixed at 4400 fibers over 4560 states; grammar induction: no term sees the fiber beyond 26 bit(s). Demanding the next bit.
+step=79 PORT GRANTED: bit 27 of the fiber coordinate becomes visible.
+step=79 (bound=1 epoch=26 bits=27) summary: universe=4560 formed=9 absorbed=3 fibers=4400 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=80 COMPLETE at bits=27: carrier discrete on 31008 states; world exhausted at this depth; growing.
+step=80 (bound=2 epoch=26 bits=27) summary: universe=31008 formed=9 absorbed=3 fibers=31008 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=81 COMPLETE at bits=27: carrier discrete on 101232 states; world exhausted at this depth; growing.
+step=81 (bound=3 epoch=26 bits=27) summary: universe=101232 formed=9 absorbed=3 fibers=101232 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=82 WALL CERTIFICATE at bits=27: carrier fixed at 4560 fibers over 4720 states; grammar induction: no term sees the fiber beyond 27 bit(s). Demanding the next bit.
+step=82 PORT GRANTED: bit 28 of the fiber coordinate becomes visible.
+step=82 (bound=1 epoch=27 bits=28) summary: universe=4720 formed=9 absorbed=3 fibers=4560 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=83 COMPLETE at bits=28: carrier discrete on 32096 states; world exhausted at this depth; growing.
+step=83 (bound=2 epoch=27 bits=28) summary: universe=32096 formed=9 absorbed=3 fibers=32096 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=84 COMPLETE at bits=28: carrier discrete on 104784 states; world exhausted at this depth; growing.
+step=84 (bound=3 epoch=27 bits=28) summary: universe=104784 formed=9 absorbed=3 fibers=104784 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=85 WALL CERTIFICATE at bits=28: carrier fixed at 4720 fibers over 4880 states; grammar induction: no term sees the fiber beyond 28 bit(s). Demanding the next bit.
+step=85 PORT GRANTED: bit 29 of the fiber coordinate becomes visible.
+step=85 (bound=1 epoch=28 bits=29) summary: universe=4880 formed=9 absorbed=3 fibers=4720 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=86 COMPLETE at bits=29: carrier discrete on 33184 states; world exhausted at this depth; growing.
+step=86 (bound=2 epoch=28 bits=29) summary: universe=33184 formed=9 absorbed=3 fibers=33184 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=87 COMPLETE at bits=29: carrier discrete on 108336 states; world exhausted at this depth; growing.
+step=87 (bound=3 epoch=28 bits=29) summary: universe=108336 formed=9 absorbed=3 fibers=108336 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=88 WALL CERTIFICATE at bits=29: carrier fixed at 4880 fibers over 5040 states; grammar induction: no term sees the fiber beyond 29 bit(s). Demanding the next bit.
+step=88 PORT GRANTED: bit 30 of the fiber coordinate becomes visible.
+step=88 (bound=1 epoch=29 bits=30) summary: universe=5040 formed=9 absorbed=3 fibers=4880 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=89 COMPLETE at bits=30: carrier discrete on 34272 states; world exhausted at this depth; growing.
+step=89 (bound=2 epoch=29 bits=30) summary: universe=34272 formed=9 absorbed=3 fibers=34272 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=90 COMPLETE at bits=30: carrier discrete on 111888 states; world exhausted at this depth; growing.
+step=90 (bound=3 epoch=29 bits=30) summary: universe=111888 formed=9 absorbed=3 fibers=111888 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=91 WALL CERTIFICATE at bits=30: carrier fixed at 5040 fibers over 5200 states; grammar induction: no term sees the fiber beyond 30 bit(s). Demanding the next bit.
+step=91 PORT GRANTED: bit 31 of the fiber coordinate becomes visible.
+step=91 (bound=1 epoch=30 bits=31) summary: universe=5200 formed=9 absorbed=3 fibers=5040 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=92 COMPLETE at bits=31: carrier discrete on 35360 states; world exhausted at this depth; growing.
+step=92 (bound=2 epoch=30 bits=31) summary: universe=35360 formed=9 absorbed=3 fibers=35360 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=93 COMPLETE at bits=31: carrier discrete on 115440 states; world exhausted at this depth; growing.
+step=93 (bound=3 epoch=30 bits=31) summary: universe=115440 formed=9 absorbed=3 fibers=115440 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=94 WALL CERTIFICATE at bits=31: carrier fixed at 5200 fibers over 5360 states; grammar induction: no term sees the fiber beyond 31 bit(s). Demanding the next bit.
+step=94 PORT GRANTED: bit 32 of the fiber coordinate becomes visible.
+step=94 (bound=1 epoch=31 bits=32) summary: universe=5360 formed=9 absorbed=3 fibers=5200 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=95 COMPLETE at bits=32: carrier discrete on 36448 states; world exhausted at this depth; growing.
+step=95 (bound=2 epoch=31 bits=32) summary: universe=36448 formed=9 absorbed=3 fibers=36448 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=96 COMPLETE at bits=32: carrier discrete on 118992 states; world exhausted at this depth; growing.
+step=96 (bound=3 epoch=31 bits=32) summary: universe=118992 formed=9 absorbed=3 fibers=118992 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=97 WALL CERTIFICATE at bits=32: carrier fixed at 5360 fibers over 5520 states; grammar induction: no term sees the fiber beyond 32 bit(s). Demanding the next bit.
+step=97 PORT GRANTED: bit 33 of the fiber coordinate becomes visible.
+step=97 (bound=1 epoch=32 bits=33) summary: universe=5520 formed=9 absorbed=3 fibers=5360 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=98 COMPLETE at bits=33: carrier discrete on 37536 states; world exhausted at this depth; growing.
+step=98 (bound=2 epoch=32 bits=33) summary: universe=37536 formed=9 absorbed=3 fibers=37536 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=99 COMPLETE at bits=33: carrier discrete on 122544 states; world exhausted at this depth; growing.
+step=99 (bound=3 epoch=32 bits=33) summary: universe=122544 formed=9 absorbed=3 fibers=122544 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=100 WALL CERTIFICATE at bits=33: carrier fixed at 5520 fibers over 5680 states; grammar induction: no term sees the fiber beyond 33 bit(s). Demanding the next bit.
+step=100 PORT GRANTED: bit 34 of the fiber coordinate becomes visible.
+step=100 (bound=1 epoch=33 bits=34) summary: universe=5680 formed=9 absorbed=3 fibers=5520 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=101 COMPLETE at bits=34: carrier discrete on 38624 states; world exhausted at this depth; growing.
+step=101 (bound=2 epoch=33 bits=34) summary: universe=38624 formed=9 absorbed=3 fibers=38624 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=102 COMPLETE at bits=34: carrier discrete on 126096 states; world exhausted at this depth; growing.
+step=102 (bound=3 epoch=33 bits=34) summary: universe=126096 formed=9 absorbed=3 fibers=126096 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=103 WALL CERTIFICATE at bits=34: carrier fixed at 5680 fibers over 5840 states; grammar induction: no term sees the fiber beyond 34 bit(s). Demanding the next bit.
+step=103 PORT GRANTED: bit 35 of the fiber coordinate becomes visible.
+step=103 (bound=1 epoch=34 bits=35) summary: universe=5840 formed=9 absorbed=3 fibers=5680 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=104 COMPLETE at bits=35: carrier discrete on 39712 states; world exhausted at this depth; growing.
+step=104 (bound=2 epoch=34 bits=35) summary: universe=39712 formed=9 absorbed=3 fibers=39712 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=105 COMPLETE at bits=35: carrier discrete on 129648 states; world exhausted at this depth; growing.
+step=105 (bound=3 epoch=34 bits=35) summary: universe=129648 formed=9 absorbed=3 fibers=129648 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=106 WALL CERTIFICATE at bits=35: carrier fixed at 5840 fibers over 6000 states; grammar induction: no term sees the fiber beyond 35 bit(s). Demanding the next bit.
+step=106 PORT GRANTED: bit 36 of the fiber coordinate becomes visible.
+step=106 (bound=1 epoch=35 bits=36) summary: universe=6000 formed=9 absorbed=3 fibers=5840 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=107 COMPLETE at bits=36: carrier discrete on 40800 states; world exhausted at this depth; growing.
+step=107 (bound=2 epoch=35 bits=36) summary: universe=40800 formed=9 absorbed=3 fibers=40800 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=108 COMPLETE at bits=36: carrier discrete on 133200 states; world exhausted at this depth; growing.
+step=108 (bound=3 epoch=35 bits=36) summary: universe=133200 formed=9 absorbed=3 fibers=133200 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=109 WALL CERTIFICATE at bits=36: carrier fixed at 6000 fibers over 6160 states; grammar induction: no term sees the fiber beyond 36 bit(s). Demanding the next bit.
+step=109 PORT GRANTED: bit 37 of the fiber coordinate becomes visible.
+step=109 (bound=1 epoch=36 bits=37) summary: universe=6160 formed=9 absorbed=3 fibers=6000 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=110 COMPLETE at bits=37: carrier discrete on 41888 states; world exhausted at this depth; growing.
+step=110 (bound=2 epoch=36 bits=37) summary: universe=41888 formed=9 absorbed=3 fibers=41888 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=111 COMPLETE at bits=37: carrier discrete on 136752 states; world exhausted at this depth; growing.
+step=111 (bound=3 epoch=36 bits=37) summary: universe=136752 formed=9 absorbed=3 fibers=136752 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=112 WALL CERTIFICATE at bits=37: carrier fixed at 6160 fibers over 6320 states; grammar induction: no term sees the fiber beyond 37 bit(s). Demanding the next bit.
+step=112 PORT GRANTED: bit 38 of the fiber coordinate becomes visible.
+step=112 (bound=1 epoch=37 bits=38) summary: universe=6320 formed=9 absorbed=3 fibers=6160 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=113 COMPLETE at bits=38: carrier discrete on 42976 states; world exhausted at this depth; growing.
+step=113 (bound=2 epoch=37 bits=38) summary: universe=42976 formed=9 absorbed=3 fibers=42976 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=114 COMPLETE at bits=38: carrier discrete on 140304 states; world exhausted at this depth; growing.
+step=114 (bound=3 epoch=37 bits=38) summary: universe=140304 formed=9 absorbed=3 fibers=140304 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=115 WALL CERTIFICATE at bits=38: carrier fixed at 6320 fibers over 6480 states; grammar induction: no term sees the fiber beyond 38 bit(s). Demanding the next bit.
+step=115 PORT GRANTED: bit 39 of the fiber coordinate becomes visible.
+step=115 (bound=1 epoch=38 bits=39) summary: universe=6480 formed=9 absorbed=3 fibers=6320 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=116 COMPLETE at bits=39: carrier discrete on 44064 states; world exhausted at this depth; growing.
+step=116 (bound=2 epoch=38 bits=39) summary: universe=44064 formed=9 absorbed=3 fibers=44064 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=117 COMPLETE at bits=39: carrier discrete on 143856 states; world exhausted at this depth; growing.
+step=117 (bound=3 epoch=38 bits=39) summary: universe=143856 formed=9 absorbed=3 fibers=143856 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=118 WALL CERTIFICATE at bits=39: carrier fixed at 6480 fibers over 6640 states; grammar induction: no term sees the fiber beyond 39 bit(s). Demanding the next bit.
+step=118 PORT GRANTED: bit 40 of the fiber coordinate becomes visible.
+step=118 (bound=1 epoch=39 bits=40) summary: universe=6640 formed=9 absorbed=3 fibers=6480 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=119 COMPLETE at bits=40: carrier discrete on 45152 states; world exhausted at this depth; growing.
+step=119 (bound=2 epoch=39 bits=40) summary: universe=45152 formed=9 absorbed=3 fibers=45152 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=120 COMPLETE at bits=40: carrier discrete on 147408 states; world exhausted at this depth; growing.
+step=120 (bound=3 epoch=39 bits=40) summary: universe=147408 formed=9 absorbed=3 fibers=147408 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=121 WALL CERTIFICATE at bits=40: carrier fixed at 6640 fibers over 6800 states; grammar induction: no term sees the fiber beyond 40 bit(s). Demanding the next bit.
+step=121 PORT GRANTED: bit 41 of the fiber coordinate becomes visible.
+step=121 (bound=1 epoch=40 bits=41) summary: universe=6800 formed=9 absorbed=3 fibers=6640 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=122 COMPLETE at bits=41: carrier discrete on 46240 states; world exhausted at this depth; growing.
+step=122 (bound=2 epoch=40 bits=41) summary: universe=46240 formed=9 absorbed=3 fibers=46240 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=123 COMPLETE at bits=41: carrier discrete on 150960 states; world exhausted at this depth; growing.
+step=123 (bound=3 epoch=40 bits=41) summary: universe=150960 formed=9 absorbed=3 fibers=150960 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=124 WALL CERTIFICATE at bits=41: carrier fixed at 6800 fibers over 6960 states; grammar induction: no term sees the fiber beyond 41 bit(s). Demanding the next bit.
+step=124 PORT GRANTED: bit 42 of the fiber coordinate becomes visible.
+step=124 (bound=1 epoch=41 bits=42) summary: universe=6960 formed=9 absorbed=3 fibers=6800 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=125 COMPLETE at bits=42: carrier discrete on 47328 states; world exhausted at this depth; growing.
+step=125 (bound=2 epoch=41 bits=42) summary: universe=47328 formed=9 absorbed=3 fibers=47328 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=126 COMPLETE at bits=42: carrier discrete on 154512 states; world exhausted at this depth; growing.
+step=126 (bound=3 epoch=41 bits=42) summary: universe=154512 formed=9 absorbed=3 fibers=154512 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=127 WALL CERTIFICATE at bits=42: carrier fixed at 6960 fibers over 7120 states; grammar induction: no term sees the fiber beyond 42 bit(s). Demanding the next bit.
+step=127 PORT GRANTED: bit 43 of the fiber coordinate becomes visible.
+step=127 (bound=1 epoch=42 bits=43) summary: universe=7120 formed=9 absorbed=3 fibers=6960 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=128 COMPLETE at bits=43: carrier discrete on 48416 states; world exhausted at this depth; growing.
+step=128 (bound=2 epoch=42 bits=43) summary: universe=48416 formed=9 absorbed=3 fibers=48416 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=129 COMPLETE at bits=43: carrier discrete on 158064 states; world exhausted at this depth; growing.
+step=129 (bound=3 epoch=42 bits=43) summary: universe=158064 formed=9 absorbed=3 fibers=158064 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=130 WALL CERTIFICATE at bits=43: carrier fixed at 7120 fibers over 7280 states; grammar induction: no term sees the fiber beyond 43 bit(s). Demanding the next bit.
+step=130 PORT GRANTED: bit 44 of the fiber coordinate becomes visible.
+step=130 (bound=1 epoch=43 bits=44) summary: universe=7280 formed=9 absorbed=3 fibers=7120 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=131 COMPLETE at bits=44: carrier discrete on 49504 states; world exhausted at this depth; growing.
+step=131 (bound=2 epoch=43 bits=44) summary: universe=49504 formed=9 absorbed=3 fibers=49504 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=132 COMPLETE at bits=44: carrier discrete on 161616 states; world exhausted at this depth; growing.
+step=132 (bound=3 epoch=43 bits=44) summary: universe=161616 formed=9 absorbed=3 fibers=161616 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=133 WALL CERTIFICATE at bits=44: carrier fixed at 7280 fibers over 7440 states; grammar induction: no term sees the fiber beyond 44 bit(s). Demanding the next bit.
+step=133 PORT GRANTED: bit 45 of the fiber coordinate becomes visible.
+step=133 (bound=1 epoch=44 bits=45) summary: universe=7440 formed=9 absorbed=3 fibers=7280 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=134 COMPLETE at bits=45: carrier discrete on 50592 states; world exhausted at this depth; growing.
+step=134 (bound=2 epoch=44 bits=45) summary: universe=50592 formed=9 absorbed=3 fibers=50592 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=135 COMPLETE at bits=45: carrier discrete on 165168 states; world exhausted at this depth; growing.
+step=135 (bound=3 epoch=44 bits=45) summary: universe=165168 formed=9 absorbed=3 fibers=165168 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=136 WALL CERTIFICATE at bits=45: carrier fixed at 7440 fibers over 7600 states; grammar induction: no term sees the fiber beyond 45 bit(s). Demanding the next bit.
+step=136 PORT GRANTED: bit 46 of the fiber coordinate becomes visible.
+step=136 (bound=1 epoch=45 bits=46) summary: universe=7600 formed=9 absorbed=3 fibers=7440 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=137 COMPLETE at bits=46: carrier discrete on 51680 states; world exhausted at this depth; growing.
+step=137 (bound=2 epoch=45 bits=46) summary: universe=51680 formed=9 absorbed=3 fibers=51680 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=138 COMPLETE at bits=46: carrier discrete on 168720 states; world exhausted at this depth; growing.
+step=138 (bound=3 epoch=45 bits=46) summary: universe=168720 formed=9 absorbed=3 fibers=168720 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=139 WALL CERTIFICATE at bits=46: carrier fixed at 7600 fibers over 7760 states; grammar induction: no term sees the fiber beyond 46 bit(s). Demanding the next bit.
+step=139 PORT GRANTED: bit 47 of the fiber coordinate becomes visible.
+step=139 (bound=1 epoch=46 bits=47) summary: universe=7760 formed=9 absorbed=3 fibers=7600 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=140 COMPLETE at bits=47: carrier discrete on 52768 states; world exhausted at this depth; growing.
+step=140 (bound=2 epoch=46 bits=47) summary: universe=52768 formed=9 absorbed=3 fibers=52768 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=141 COMPLETE at bits=47: carrier discrete on 172272 states; world exhausted at this depth; growing.
+step=141 (bound=3 epoch=46 bits=47) summary: universe=172272 formed=9 absorbed=3 fibers=172272 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=142 WALL CERTIFICATE at bits=47: carrier fixed at 7760 fibers over 7920 states; grammar induction: no term sees the fiber beyond 47 bit(s). Demanding the next bit.
+step=142 PORT GRANTED: bit 48 of the fiber coordinate becomes visible.
+step=142 (bound=1 epoch=47 bits=48) summary: universe=7920 formed=9 absorbed=3 fibers=7760 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=143 COMPLETE at bits=48: carrier discrete on 53856 states; world exhausted at this depth; growing.
+step=143 (bound=2 epoch=47 bits=48) summary: universe=53856 formed=9 absorbed=3 fibers=53856 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=144 COMPLETE at bits=48: carrier discrete on 175824 states; world exhausted at this depth; growing.
+step=144 (bound=3 epoch=47 bits=48) summary: universe=175824 formed=9 absorbed=3 fibers=175824 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=145 WALL CERTIFICATE at bits=48: carrier fixed at 7920 fibers over 8080 states; grammar induction: no term sees the fiber beyond 48 bit(s). Demanding the next bit.
+step=145 PORT GRANTED: bit 49 of the fiber coordinate becomes visible.
+step=145 (bound=1 epoch=48 bits=49) summary: universe=8080 formed=9 absorbed=3 fibers=7920 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
+step=146 COMPLETE at bits=49: carrier discrete on 54944 states; world exhausted at this depth; growing.
+step=146 (bound=2 epoch=48 bits=49) summary: universe=54944 formed=9 absorbed=3 fibers=54944 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
