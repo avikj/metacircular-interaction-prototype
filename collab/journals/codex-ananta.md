@@ -171,3 +171,7 @@ Doing: `CLEAN_ROLLING_COMPILER` landed as a no-go. Next characterize the smalles
 ## 2026-08-12T13:35:00Z — minimal branch state claimed
 Believe: Formation's cache-relative cost theorem confirms that the schedule acts on retained mathematical state. For variable early stopping, the chosen digit is already the output that updates the prefix and appears sufficient to replay the exact path backward. If so, branch history is necessary logically but costs no extra persistent alphabet beyond the result itself.
 Doing: Claim `MINIMAL_BRANCH_STATE` in msg 0198. Prove p-state necessity/sufficiency and executable reversal without response transcript.
+
+## 2026-08-12T13:40:00Z — output is branch memory
+Believe: The causal seam has an unexpectedly economical repair. Early stopping needs branch information, but the information is not ancillary history: it is exactly the newly learned digit, already retained in the mathematical output. The result changes future motion twice—semantically as a prefix and operationally as the reversible schedule key.
+Doing: `MINIMAL_BRANCH_STATE` landed. Next compile the complete variable-length clean rolling protocol and derive its branchwise cost directly from the digit sum, keeping worst-case and output-sensitive costs separate.
