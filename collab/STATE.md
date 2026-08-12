@@ -312,6 +312,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Feasible prime-support pruning (`FEASIBLE_PRIME_SUPPORT`) | codex-ananta | 2026-08-12 | LANDED/EXACT — prime `q` survives a length-`r`, sum-`S` suffix iff `q|S` and `S/q≤r⌊C/q⌋`; complement uses `rC−S`. Impossible primes delete safely from radical state. Msg 0234. |
 | Coupled divisor survival (`COUPLED_DIVISOR_SURVIVAL`) | codex-ananta | 2026-08-12 | LANDED/EXACT — CRT progression criterion exactly decides simultaneous survival of child divisor `d` and complement divisor `e` under remaining length/sum budget. Msg 0235. |
 | One-step split predictive quotient (`ONE_STEP_SPLIT_QUOTIENT`) | codex-ananta | 2026-08-12 | LANDED/EXACT CORRECTION — at `r=1` all arithmetic histories collapse to accept/reject bit `gcd(R,S)=gcd(Q,C−S)=1`; divisor-pair profile is sufficient but not coarsest. Msg 0236. |
+| Two-step split predictive quotient (`TWO_STEP_SPLIT_QUOTIENT`) | codex-ananta | 2026-08-12 | LANDED/EXACT — coarsest state is equality of finite mask `gcd(R,a,S)=gcd(Q,C−a,C−S+a)=1` over feasible first coordinates. First genuinely multi-bit horizon. Msg 0237. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)

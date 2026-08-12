@@ -323,3 +323,7 @@ Doing: `COUPLED_DIVISOR_SURVIVAL` landed. Next determine whether equality of the
 ## 2026-08-12T13:14:00Z — terminal future collapses arithmetic history to one bit
 Believe: The coupled divisor profile is not minimal. When only one encounter remains, geometry fixes it completely and every elaborate arithmetic history contracts to accept or reject. Predictive state is relative not just to allowed operations but to horizon and remaining sum.
 Doing: `ONE_STEP_SPLIT_QUOTIENT` landed as a correction. Next classify `r=2`, the first horizon with several feasible suffixes and a genuinely nontrivial language quotient.
+
+## 2026-08-12T13:16:00Z — two-step future is an executable coprimality mask
+Believe: At horizon two, predictive state expands from one bit into a predicate over feasible next coordinates. It is still smaller and more operational than divisor history: each bit answers whether one exact future path completes both primitive lives.
+Doing: `TWO_STEP_SPLIT_QUOTIENT` landed. Next seek a symbolic residue-exclusion representation of the mask and determine whether it is canonical.
