@@ -61,6 +61,26 @@ class CompositeInverse:
         return (self.inverse * target) % self.modulus
 
 
+@dataclass(frozen=True)
+class LinearCongruenceSolution:
+    coefficient: int
+    target: int
+    modulus: int
+    overlap: int
+    reduced_equation: tuple[int, int, int]
+    residue: int
+    solution_modulus: int
+    lifts: tuple[int, ...]
+
+
+@dataclass(frozen=True)
+class LinearCongruenceObstruction:
+    coefficient: int
+    target: int
+    modulus: int
+    overlap: int
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -214,6 +234,56 @@ class ExponentWorld:
         )
         return CompositeInverse(
             value, modulus, tuple(local), tuple(lifts), state.residue
+        )
+
+    def solve_linear_congruence(
+        self, coefficient: int, target: int, modulus: int
+    ) -> LinearCongruenceSolution | LinearCongruenceObstruction:
+        """Descend a*z=target (mod modulus) through its exact gcd obstruction."""
+        if min(coefficient, target, modulus) < 1:
+            raise ValueError("formed linear congruences use positive integers")
+        if any(n not in self.forms for n in (coefficient, target, modulus)):
+            raise ValueError("coefficient, target, and modulus need earned forms")
+        overlap_form = self.gcd(coefficient, modulus)
+        overlap = overlap_form.value
+        target_powers = dict(self.forms[target].powers)
+        if any(target_powers.get(p, 0) < e for p, e in overlap_form.powers):
+            self.life._record(
+                "obstruction", (coefficient, target, modulus, overlap),
+                "gcd(coefficient,modulus) does not divide target",
+            )
+            return LinearCongruenceObstruction(
+                coefficient, target, modulus, overlap
+            )
+
+        reduced_coefficient = coefficient // overlap
+        reduced_target = target // overlap
+        reduced_modulus = modulus // overlap
+        for value in (reduced_coefficient, reduced_target, reduced_modulus):
+            if value not in self.forms:
+                self.form(value)
+        if reduced_modulus == 1:
+            residue = 0
+        else:
+            inverse = self.form_composite_inverse(
+                reduced_coefficient, reduced_modulus
+            )
+            residue = inverse.solve(reduced_target)
+        lifts = tuple(
+            residue + step * reduced_modulus for step in range(overlap)
+        )
+        if any((coefficient * z - target) % modulus for z in lifts):
+            raise AssertionError("linear-congruence lift certificate failed")
+        self.life._record(
+            "form-operation",
+            (coefficient, target, modulus, overlap, residue, reduced_modulus),
+            "gcd obstruction descends a nonunit equation to a unit equation; "
+            "the residue class lifts through the overlap",
+        )
+        return LinearCongruenceSolution(
+            coefficient, target, modulus, overlap,
+            (reduced_coefficient, reduced_target, reduced_modulus),
+            residue, reduced_modulus, lifts,
         )
 
 

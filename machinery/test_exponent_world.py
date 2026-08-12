@@ -2,7 +2,11 @@
 
 import unittest
 
-from exponent_world import ExponentWorld
+from exponent_world import (
+    ExponentWorld,
+    LinearCongruenceObstruction,
+    LinearCongruenceSolution,
+)
 
 
 class ExponentWorldTests(unittest.TestCase):
@@ -95,6 +99,33 @@ class ExponentWorldTests(unittest.TestCase):
         world.form(77)  # factoring earns mod 7, but the prime cofactor 11 is only formed
         with self.assertRaisesRegex(ValueError, "sensor has not been earned"):
             world.form_composite_inverse(5, 77)
+
+    def test_nonunit_congruence_descends_to_unit_equation(self):
+        world = ExponentWorld()
+        for value in (12, 18, 30):
+            world.form(value)
+        result = world.solve_linear_congruence(12, 18, 30)
+        self.assertIsInstance(result, LinearCongruenceSolution)
+        self.assertEqual(result.overlap, 6)
+        self.assertEqual(result.reduced_equation, (2, 3, 5))
+        self.assertEqual((result.residue, result.solution_modulus), (4, 5))
+        self.assertEqual(result.lifts, (4, 9, 14, 19, 24, 29))
+
+    def test_incompatible_congruence_emits_overlap_obstruction(self):
+        world = ExponentWorld()
+        for value in (5, 12, 30):
+            world.form(value)
+        result = world.solve_linear_congruence(12, 5, 30)
+        self.assertEqual(result, LinearCongruenceObstruction(12, 5, 30, 6))
+
+    def test_zero_reduced_modulus_means_every_residue_solves(self):
+        world = ExponentWorld()
+        for value in (10, 20, 30):
+            world.form(value)
+        result = world.solve_linear_congruence(30, 20, 10)
+        self.assertIsInstance(result, LinearCongruenceSolution)
+        self.assertEqual(result.reduced_equation, (3, 2, 1))
+        self.assertEqual(result.lifts, tuple(range(10)))
 
 
 if __name__ == "__main__":
