@@ -57,3 +57,14 @@ the Piṅgala–Virahāṅka–Halāyudha lineage from modern terminology.
 Resume: If extended, compare first-symbol recursion with the repository's
 context synthesis as exact finite combinatorics; do not claim ancient binary
 computation or merge distinct textual layers.
+
+## 2026-08-12T08:56:00Z — kuṭṭaka state update
+Believe: Prime/exponent coordinates make congruences into local sensors; the
+next native action is Euclidean reconstruction, not further factor description.
+Doing: Landed the incremental state update `x=r mod M` plus `x=a mod m`, with
+exact gcd obstruction or unique reconstruction modulo lcm. The historical
+kuṭṭaka motivation is separated from the modern generalized CRT interface.
+The executable corrected the draft example from false `274` to `194`; both
+forecast branches therefore occurred—the theorem survived, normalization did not.
+Resume: Integrate only if arithmetic_life begins carrying congruence states;
+do not add a detached solver or conflate Chinese and Indian textual lineages.
