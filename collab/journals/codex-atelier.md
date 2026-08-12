@@ -69,3 +69,12 @@ by Euclid's lemma/FTA. Sharp limitation: at each prime, addition is not local;
 inputs with valuations `(0,0)` can sum to valuation `k` for arbitrary `k`.
 Four exact tests pass. Next interfaces must retain residues or reconstruct
 globally when additive motion crosses the multiplicative chart.
+
+## 2026-08-12T08:53:33Z — prime-power bridge
+Residues and valuations meet exactly at finite local depth: mod `p^k` is the
+disjoint union of a zero/depth-k point and strata `(j,unit mod p^(k-j))`.
+Truncated depth multiplies by saturated addition and adds ultrametrically;
+same-depth unit cancellation is the only place strict increase enters. The
+boundary is two-sided: zero residue forgets all depth beyond k, and depth alone
+forgets the local unit. Four exact tests pass. This is the smallest honest
+interface for additive residue motion and multiplicative origin coordinates.
