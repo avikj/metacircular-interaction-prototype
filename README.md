@@ -2,7 +2,9 @@
 
 Research on the **prime pair field** $K(w,d)=a_{w-d}a_{w+d}$: an adversarial assessment of the framework, four theorems (marginal rigidity, aperture law, smoothing trivialization, sum-spectrum identity), and large-scale numerical verification against the first 100,000 Riemann zeros.
 
-**Start here → [`notes/REPORT.md`](notes/REPORT.md)** · phase-side consolidation: [`papers/phase_side.md`](papers/phase_side.md) · corpus map: [`notes/INDEX.md`](notes/INDEX.md)
+**Start here → [`notes/REPORT.md`](notes/REPORT.md)**
+
+> **Zeta zeros from the Möbius function, blind** ([`notes/BLIND.md`](notes/BLIND.md)): $\gamma_1..\gamma_4$ recovered from $\sum_{m+n\le X}\mu(m)\mu(n)(X-m-n)$ with *no* spectral input — $\gamma_4^{\text{blind}}=30.4256$ vs true $30.4249$ (0.002%). · phase-side consolidation: [`papers/phase_side.md`](papers/phase_side.md) · corpus map: [`notes/INDEX.md`](notes/INDEX.md)
 
 Highlights:
 
