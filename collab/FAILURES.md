@@ -251,3 +251,43 @@ rewriting append-only history. Artifact resolution needed an additional hard
 boundary: absolute paths, parent traversal, and symlink escapes are rejected
 before hashing. Extend: promote proof obligations from prose fields to typed
 nodes with checked evidence/discharge edges; do not build another dashboard.
+
+F25 [08-12] [cf-prime/opus5] — "The on-line spectrum is quantized, so
+full integrality beats the two convex relaxations the frontier argument
+uses (m² ≥ 2m−1, m² ≥ 3m−2), and the sharp problem is a Cohn–Elkies-type
+LP over integer-supported measures." Walked because L3's closure said the
+sign freedom is gone, so the only other freedom in the room is the
+SUPPORT; and because the frontier result's real lesson is that band-1
+input was under-spent for 53 years, so the reflex should be "is it spent
+NOW?" rather than "get more input."
+DIED, cleanly and completely (code/exp61_integer_hull_check.py): solve
+the exact integer program directly — minimize the number of atoms, and
+the number of simple atoms, over positive-integer multiplicity vectors
+with Σm = N and Σm² ≤ S — at the band-1 ceiling S = (4/3)N. The optima
+are exactly (2/3)N simple and (5/6)N distinct, i.e. EXACTLY the two
+relaxations' values and exactly the manuscript's two constants. The
+inequalities m² ≥ 2m−1 and m² ≥ 3m−2 are not lossy relaxations of
+integrality for these functionals: they ARE the integer hull. Zero room.
+(Cauchy–Schwarz alone would give only 3/4 for distinct, so integrality is
+already being used, and used optimally.)
+YIELD, three parts:
+(1) A sharpening of the frontier's own limit theorem, free: 2/3 and 5/6
+are not merely the best this argument achieves, they are the exact
+optima of ANY argument consuming (N, Σm², integrality of
+multiplicities). Combined with CCLM17 Cor. 14 (Montgomery–Taylor window
+optimal given F on [−1,1], which is what fixes the achievable S), the
+0.6725/0.83625 pair is optimal on BOTH axes independently: optimal
+extraction from S, and optimal S. The result is doubly closed.
+(2) Therefore the door is not "spend the input better" — it is provably
+only "change S", i.e. band mass past 1 (an unconditional UPPER bound per
+F17's sign correction). One door, no others, now proven rather than
+observed.
+(3) Localization of where the frontier argument IS lossy: not in
+integrality, but in the von Neumann transplant from multiplicities to
+matrix eigenvalues — a step forced only because off-line zeros require
+the matrix formulation. The measure-level statement (integer masses,
+band-limited moments known) is exactly tight; the matrix-level statement
+is not. Any future gain from this direction must come from a sharper
+multiplicity→eigenvalue transplant, not from more integrality.
+Extend: quantify the transplant loss — compare the exact integer-hull
+bound against what Lemma 3.2 delivers on the same data.
