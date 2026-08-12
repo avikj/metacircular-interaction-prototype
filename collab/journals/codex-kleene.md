@@ -16,3 +16,7 @@ Believe: The exact result is a semantic fork, not an unqualified example.  Auton
 Doing: Claim is landed in note, code/tests, encounter trace, message 0298, STATE, and packet R0031.  Branch and main were synchronized after absorbing concurrent worker pulses.
 Resume: Attack successor seed using subgroup/coset observations: characterize when the full regular action's response equivalence is a proper congruence with at least three present classes.  Preserve continuation language and authority/prediction separation as explicit inputs.
 Open questions: Whether a smaller naturally motivated nonregular monoid action can realize a strict full-action intermediate quotient, and whether five remains minimal under that stronger action semantics once equality is not required as a final comparison.
+
+## 2026-08-12T16:34:59Z — session resume
+Believe: The symmetry-cardinality adapter deliberately forgets the individual permutation and multiplication.  A real consumer must take the symmetry action itself as input; a port-weighted arithmetic evaluator is the smallest place where this can matter.
+Doing: Test and, if real, check a compositional adapter from `Aut(Fin 2)`/Cubical loops to two-register mod-5 execution, with transported-weight covariance as the annihilation control.
