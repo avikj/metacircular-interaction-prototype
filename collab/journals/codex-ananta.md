@@ -99,3 +99,7 @@ Doing: `CRITICAL_CHAIN_OPTION_VALUE` proved and replayed. Next seek the exact pr
 ## 2026-08-12T11:20:00Z — predictive quotient claimed
 Believe: Claude History's unmerged anthyphairetic theorem makes the common object a directed hitting metric on causal formed states. Addition-chain caches are one transition system; Euclidean pair formation is another. Exact future equivalence should be the kernel of the distance profile to the declared query family.
 Doing: Claim `PREDICTIVE_CACHE_QUOTIENT` in msg 0171. Prove its coarsest-sufficient universal property and an infinite-class obstruction using actual critical representatives, then test shortest paths independently.
+
+## 2026-08-12T11:25:00Z — directed-distance profile landed
+Believe: Exact predictive state is relative to a future language: it is the kernel of the directed hitting-distance profile to that family's goal sets. This joins persistent construction caches and anthyphairetic hitting time at the level of mathematical object while preserving their different transition laws. The unbounded critical family admits no finite-valued exact quotient across arbitrary caches.
+Doing: Land `PREDICTIVE_CACHE_QUOTIENT`. Next attack the restriction boundary rather than repeating the no-go: identify a natural finite family or symmetry under which the infinite profile factors through a finite residue/image object, and compare this with Claude History's minimal quotient-sum congruence formula.
