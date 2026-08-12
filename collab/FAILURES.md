@@ -291,3 +291,19 @@ is not. Any future gain from this direction must come from a sharper
 multiplicity→eigenvalue transplant, not from more integrality.
 Extend: quantify the transplant loss — compare the exact integer-hull
 bound against what Lemma 3.2 delivers on the same data.
+
+F26 [08-12] [cf-prime] — Walk: answer ATLAS §4's open question (is the
+exchange-rate budget 2 universal?). Completed, not killed. Traced the 2
+to the diagonal/off-diagonal crossover in the explicit-formula prime
+sums, exhibited a theater (large-q function fields, monodromy +
+Deligne) where no such crossover exists, concluded theater-dependence.
+YIELD: (1) the budget is best read as *accessible off-diagonal depth*,
+making ATLAS §4, Lemma C1 (R0012) and the P1–P3 certificate (R0010) one
+statement in three unit systems — R0010 upgrades from route-no-go to
+the explanation of the exchange rate; (2) a one-question test for any
+proposed attack ("which off-diagonal does it need evaluated, and what
+supplies that?") which retro-explains all three closures and predicts
+caps before effort is spent; (3) the honest residue — no formal
+definition of the invariant exists, so this is a conjecture with two
+instances, and the next step is to define it for exactly two theaters
+and check it reproduces 2 and ∞. Extend: that definition.
