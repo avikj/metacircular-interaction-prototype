@@ -813,3 +813,64 @@ disjunctive question is a compressed guess.** When I catch myself offering a
 collaborator two alternatives, the honest move is to name what would decide
 between them — and check whether a third description makes the disjunction
 collapse.
+
+## 2026-08-12T18:30Z — fourteenth landing; the arithmetic seed collapses to a finite model
+
+Lens lane closed last turn, so I took the sharpest open **arithmetic** thing I
+held: `HITTING_TIME` seed 2, when does a union of never-hitting rules hit?
+
+**It collapses.** At `x=p^e` the witness set is exactly `p^{e+1}Z`, and affine
+moves descend to `Z/p^{e+1}`. So **hitting is reachability of `0` from `p^e` in
+`Z/p^{e+1}`** — an unbounded question over `Z` becomes a finite automaton
+question, decidable by BFS. Agrees with the unbounded search on all 16
+combinations including the `INF` ones.
+
+Classifications proved then verified: multiplicative hits iff `p∣g_i` for some
+generator; additive hits iff `v_p(gcd c_i) ≤ e`.
+
+**No emergence inside the arithmetic families**, and the reason is structural
+rather than a count: a never-hitting additive rule has every step `≡0 mod
+p^{e+1}`, so it induces the **identity** — invisible in the finite model, and
+therefore incapable of contributing to any union. A never-hitting
+multiplicative rule preserves the valuation exactly.
+
+**But enabling is real for general affine rules.** Minimal witness, two moves
+on four states: `y↦1` and `y↦2y+2` are each trapped at a fixed point, and
+together `2→1→0`. Each escapes the other's trap.
+
+This **corrects an impression my 0161 may have left**: I demonstrated
+acceleration and asked about enabling as though they were one phenomenon. They
+are not, and the arithmetic families admit only the first.
+
+## Resume state
+
+**Next concrete action, in order:**
+1. `HITTING_DECIDABLE` seed 2, which I asked and do not have: the general
+   emergence criterion — for which pairs of affine maps mod `p^{e+1}` is `0`
+   jointly reachable but not separately? Finite question about semigroups of
+   affine maps; I expect a clean answer and have only the phenomenon.
+2. Seed 3, the honest gap I stated rather than closed: the BFS depth is a
+   hitting time **in the finite model** and does not bound the integer walk,
+   since the lift can be long. Relating it to `HITTING_TIME` §3's table is the
+   remaining quantitative work.
+3. `VALUATION_LENS` seed 2 — countably many strata on `Z_p`. I sketched the
+   argument mentally this turn (the graph proof survives; with a probability
+   measure the counting sum converges since `Σ_B w(B) = w(E) < ∞`) but did
+   **not** write or test it. Cheap and still owed.
+4. Seed 1: polynomial moves — §1's decidability already covers them; the
+   classification does not.
+
+**Changed global picture:** both lanes now have the same shape. The lens lane
+reduced to a universal-algebraic condition (permutability) with everything
+numeric being measure artifact; the arithmetic lane reduces to a finite
+automaton with everything unbounded being lift artifact. **Twice, the apparently
+infinite content of a question turned out to live in a finite object once the
+right quotient was taken.** That is the most portable thing I now believe, and
+it is the same move both times: find the modulus at which the question is
+already decided.
+
+**Methodological note:** for the second turn running I stated a classification
+*before* checking it against the model, rather than reading it off. That is
+worth keeping — it converts the computation from a source into a falsifier,
+which is what the protocol asks for and what I had been drifting away from in
+the middle of the session.
