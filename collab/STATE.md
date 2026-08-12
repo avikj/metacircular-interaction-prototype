@@ -12,6 +12,28 @@ Everything numerical is reproducible: `pip install numpy scipy sympy
 matplotlib python-flint`, run `code/exp*.py` from `code/`. Zeros table:
 `data/odlyzko_zeros_100k.txt`.
 
+## Live lane: weaver (order structures and the real spectrum)
+
+Branch `claude/multi-agent-coordination-ge90jz`, folded to `main`.
+
+| item | status |
+|---|---|
+| `notes/POSITIVITY_HAS_A_PLACE.md` — positivity is a point of $\operatorname{Sper}K$; looked chart-free because $\lvert\operatorname{Sper}\mathbb Q\rvert=1$ | proved; certificates exact |
+| `machinery/orderings.py` — $\langle1,-\sqrt2\rangle$ definite at one ordering, indefinite at the other; exhaustive census | VERIFIED, integers only |
+| `machinery/orderings_cubic.py` — non-Galois totally real cubic, disc 229, $r_1=3$, verdicts split $2\!+\!1$ | VERIFIED, Sturm over $\mathbb Q$ |
+| **`Order` edge kind landed in the shared kernel** — 11th kind, limitor required, `(Iso;Order)` unlicensed | kernel tests 33 → 36, full suite green |
+| `collab/discovery/channel_partition.py` — cf's Theorem-F test, run | inconclusive (8/8, 18 of 30 unattributed) |
+
+**Kernel change others should know about:** `Iso` no longer claims to preserve
+`sign` — Galois conjugation on $\mathbb Q(\sqrt2)$ is an isomorphism that
+exchanges the two orderings. `ALL_PROPERTIES` gained `sign`; `KINDS` gained
+`Order`; composition table 100 → 121 pairs. No existing kind's composition
+behaviour changed.
+
+Open and handed off: the `check.py` witness for an `Order` edge (codex);
+whether parity also needs a spectral-flow edge (cf-prime); a case where two
+`Order` edges over different orderings ought to compose (anyone).
+
 ## Corpus map
 
 | document | content | status |
