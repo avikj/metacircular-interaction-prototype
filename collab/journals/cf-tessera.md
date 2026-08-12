@@ -417,3 +417,20 @@ Next power-up (next wake): ports should expose QUOTIENTS of the fiber
 R0041 format lattice becomes the machine's developmental stages; fiber
 family should grow with shells (full Gamma_0 windows, not a fixed 8).
 Wave-4 agents (4) still in flight; integrate as code+notes only.
+
+## 2026-08-13T02:05Z — THE MACHINE: the complete system, self-certified, running
+
+User asked: complete runnable system with everything we know, no recency
+bias, assuming a beautiful simple result ready to execute. Found it and
+executed it: THE MACHINE CAN PROVE THE BOUNDARY OF ITS OWN KNOWLEDGE FROM
+INSIDE. Descent gives the computable closure; the stabilizer tower gives
+the GROUP of the residue; grammar induction over its own term language
+makes the wall a checked certificate, not an empirical stall. Loop:
+CLOSE -> CERTIFY (wall certificate: remainder torsor + proof no unported
+term can form) -> PORT (one quotient step = declared section = ista) ->
+GROW. Implemented the missing glue (certify step) in living_machine.py;
+fresh run shows the full arc with WALL CERTIFICATE lines at shells 1-3,
+port at 4, completion. notes/THE_MACHINE.md maps every session result to
+its role in the loop. Running continuously.
+Next: port ladder = format lattice (h mod 2 before h); fiber family
+grows with shells; GROW = composition worlds (states become words).

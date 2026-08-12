@@ -2,8 +2,11 @@ shell=1 FORMS e00 (genome=2)
 shell=1 FORMS e01 (genome=3)
 shell=1 FORMS e10 (genome=4)
 shell=1 FORMS e11 (genome=5)
+shell=1 WALL CERTIFICATE: complete relative to ports. Proof: grammar induction (no hentry primitive granted, all terms factor through the endpoint), and the carrier equals the endpoint partition exactly — residual torsor = fiber family of order 8 at every one of 80 states. No unported term can ever form. Demanding a port.
 shell=1 summary: universe=640 formed=5 absorbed=7 fibers=80 genome=5 pool=[2, 3]
+shell=2 WALL CERTIFICATE: complete relative to ports. Proof: grammar induction (no hentry primitive granted, all terms factor through the endpoint), and the carrier equals the endpoint partition exactly — residual torsor = fiber family of order 8 at every one of 544 states. No unported term can ever form. Demanding a port.
 shell=2 summary: universe=4352 formed=5 absorbed=7 fibers=544 genome=5 pool=[2, 3, 4, 6, 8]
+shell=3 WALL CERTIFICATE: complete relative to ports. Proof: grammar induction (no hentry primitive granted, all terms factor through the endpoint), and the carrier equals the endpoint partition exactly — residual torsor = fiber family of order 8 at every one of 1776 states. No unported term can ever form. Demanding a port.
 shell=3 summary: universe=14208 formed=5 absorbed=7 fibers=1776 genome=5 pool=[2, 3, 4, 5, 6, 7, 8, 9]
 shell=4 PORT GRANTED: the ecology exposes the fiber coordinate; hentry primitives become proposable
 shell=4 FORMS h00 (genome=6)
@@ -12,4 +15,3 @@ shell=4 FORMS h10 (genome=8)
 shell=4 FORMS h11 (genome=9)
 shell=4 summary: universe=33280 formed=9 absorbed=3 fibers=33280 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 12]
 shell=5 summary: universe=64640 formed=9 absorbed=3 fibers=64640 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-shell=6 summary: universe=111360 formed=9 absorbed=3 fibers=111360 genome=9 pool=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12]

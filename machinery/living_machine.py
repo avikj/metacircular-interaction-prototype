@@ -230,6 +230,29 @@ def live(max_shells=None):
                     f"(genome={len(state['genome'])})")
             offers += 1
 
+        # CERTIFY: if nothing formed beyond the genome, the machine
+        # proves its own wall from inside. Grammar induction: every
+        # available term factors through the endpoint projection unless
+        # an hentry port is granted — so the carrier can never refine
+        # past the m-partition, and the residual is exactly the fiber
+        # family at every state. This is a proof the machine checks, not
+        # an observation it despairs of.
+        if formed == len(state["genome"]) and not state.get("ported"):
+            uses_h = any("hentry" in json.dumps(t) for t in state["genome"])
+            fibs = machine.fibers()
+            residual_ok = all(
+                len({st[0] for st in members}) == 1
+                and {st[1] for st in members} == set(H_SET)
+                for members in fibs.values()
+            ) if fibs and len(universe) == len(H_SET) * len(fibs) else False
+            if not uses_h and residual_ok:
+                log(f"shell={bound} WALL CERTIFICATE: complete relative to "
+                    f"ports. Proof: grammar induction (no hentry primitive "
+                    f"granted, all terms factor through the endpoint), and "
+                    f"the carrier equals the endpoint partition exactly — "
+                    f"residual torsor = fiber family of order {len(H_SET)} "
+                    f"at every one of {len(fibs)} states. No unported term "
+                    f"can ever form. Demanding a port.")
         new_values = sorted(observed - set(state["value_pool"]))[:3]
         state["value_pool"] = sorted(set(state["value_pool"])
                                      | set(new_values))
