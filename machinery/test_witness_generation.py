@@ -13,6 +13,7 @@ from formation_sufficiency import (
 )
 from witness_generation import (
     cofinite_witness,
+    cyclic_world_witness,
     minus_one_is_a_power,
     multiplicative_order,
     multiplicative_world_is_hopeless,
@@ -141,15 +142,30 @@ class MultiplicativeOrderTests(unittest.TestCase):
             self.assertFalse(rep["all_transport"])
 
     def test_even_order_primes_do_regenerate(self):
-        """Checked direction: for `p = 5, 11` the order is even, `-1` is a
-        power of 2, and a full-period search finds every witness."""
-        for p in (5, 11):
-            self.assertFalse(multiplicative_world_is_hopeless(2, p))
-            self.assertTrue(minus_one_is_a_power(2, p**3))
-            o = multiplicative_order(2, p**3)
-            S = [2**k for k in range(o + 2)]
-            rep = transports_everywhere(S, p, limit=10)
-            self.assertTrue(rep["all_transport"], (p, rep["failures"]))
+        """Proved direction replayed for several bases, pairs, and depths."""
+        for p in (3, 5, 7, 11, 13, 17, 19):
+            for base in range(2, 13):
+                if base % p == 0 or multiplicative_order(base, p) % 2:
+                    continue
+                for i in range(7):
+                    for j in range(7):
+                        a, bp = cyclic_world_witness(base, i, j, p)
+                        b = base**j
+                        v = v_p(a + b, p)
+                        self.assertEqual(bp % p**v, b % p**v)
+                        self.assertGreater(v_p(a + bp, p), v)
+
+    def test_odd_order_is_exactly_the_failure_branch(self):
+        for p in (3, 5, 7, 11, 13, 17, 19, 23):
+            for base in range(2, 12):
+                if base % p == 0:
+                    continue
+                witness = cyclic_world_witness(base, 2, 5, p)
+                self.assertEqual(
+                    witness is not None,
+                    multiplicative_order(base, p) % 2 == 0,
+                    (p, base),
+                )
 
     def test_order_lifts_keep_parity_for_odd_p(self):
         """The mechanism: `ord_{p^m}(2) = ord_p(2) * p^t` with `p` odd, so

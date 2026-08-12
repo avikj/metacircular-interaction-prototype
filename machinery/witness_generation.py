@@ -179,6 +179,34 @@ def multiplicative_world_is_hopeless(base: int, p: int) -> bool:
     return multiplicative_order(base, p) % 2 == 1
 
 
+def cyclic_world_witness(base: int, i: int, j: int, p: int) -> Tuple[int, int] | None:
+    """Exact one-sided witness in ``{base^n}^2`` for odd ``p``.
+
+    Returns ``(base^i, base^k)`` when ``ord_p(base)`` is even, and ``None``
+    when it is odd.  In the even case the order modulo ``p^(v+1)`` remains
+    even, so its halfway power is ``-1``.  Choosing ``k`` in that exponent
+    class makes the new sum vanish one digit deeper; the original sum already
+    vanishes through depth ``v``, so the second coordinates automatically
+    agree modulo ``p^v``.
+    """
+    from math import gcd
+
+    if p == 2 or gcd(base, p) != 1 or i < 0 or j < 0:
+        raise ValueError("requires odd p, a unit base, and nonnegative exponents")
+    if multiplicative_order(base, p) % 2:
+        return None
+    a, b = base**i, base**j
+    v = v_p(a + b, p)
+    modulus = p ** (v + 1)
+    order = multiplicative_order(base, modulus)
+    assert order % 2 == 0
+    k = (i + order // 2) % order
+    bp = base**k
+    assert bp % p**v == b % p**v
+    assert v_p(a + bp, p) > v
+    return a, bp
+
+
 # ------------------------------------------------------------ counterexample
 
 
