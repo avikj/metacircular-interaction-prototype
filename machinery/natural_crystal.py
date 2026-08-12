@@ -395,6 +395,34 @@ def binary_divisibility_classes(modulus: int) -> tuple[tuple[int, ...], ...]:
     return tuple(classes)
 
 
+def pattern_world(
+    pattern: str, alphabet: Sequence[str]
+) -> tuple[GeneratedWorld, dict[State, bool]]:
+    """Generate the exact suffix-memory machine for containing ``pattern``."""
+    letters = tuple(alphabet)
+    if not pattern or not letters or any(len(letter) != 1 for letter in letters):
+        raise ValueError("pattern and one-character alphabet must be nonempty")
+    if len(set(letters)) != len(letters) or any(letter not in letters for letter in pattern):
+        raise ValueError("alphabet must be unique and contain the pattern")
+    found = len(pattern)
+
+    def step(state: int, letter: str) -> int:
+        if state == found:
+            return found
+        text = pattern[:state] + letter
+        if text.endswith(pattern):
+            return found
+        return max(
+            length for length in range(len(pattern))
+            if text.endswith(pattern[:length])
+        )
+
+    world = generate_world((0,), letters, step, limit=len(pattern) + 1)
+    if not world.closed:
+        raise AssertionError("prefix-suffix machine failed to close")
+    return world, {state: state == found for state in world.states}
+
+
 def twelve_link_machine() -> Crystal:
     """A minimal intervention toy, not a historical or physical model.
 
@@ -479,6 +507,21 @@ def _show_divisibility(base: int, modulus: int) -> None:
     print(f"primitive action count: {len(digits)} -> {len(actions)}")
 
 
+def _show_pattern(pattern: str, alphabet: str) -> None:
+    world, observation = pattern_world(pattern, tuple(alphabet))
+    letters = tuple(alphabet)
+    crystal = crystallize(world.states, letters, world.transition, observation)
+    actions, _transition, learned = learn_experiments(
+        world.states, letters, world.transition, observation
+    )
+    print(f"pattern: {pattern!r}")
+    print(f"alphabet: {alphabet!r}")
+    print(f"reachable suffix memories: {world.states}")
+    print(f"minimal future classes: {crystal.fibers}")
+    print(f"learned letter blocks: {learned}")
+    print(f"primitive action count: {len(letters)} -> {len(actions)}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate, distinguish, and compile a finite natural machine"
@@ -489,9 +532,16 @@ def main() -> None:
     )
     divisibility.add_argument("base", type=int)
     divisibility.add_argument("modulus", type=int)
+    pattern = subcommands.add_parser(
+        "contains", help="crystallize recognition of a substring"
+    )
+    pattern.add_argument("pattern")
+    pattern.add_argument("alphabet")
     args = parser.parse_args()
     if args.command == "divisibility":
         _show_divisibility(args.base, args.modulus)
+    elif args.command == "contains":
+        _show_pattern(args.pattern, args.alphabet)
     else:
         _living_seed()
 

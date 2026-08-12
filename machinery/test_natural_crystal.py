@@ -13,10 +13,12 @@ from natural_crystal import (
     extend_observation,
     generate_world,
     learn_experiments,
+    pattern_world,
     run_word,
     shortest_distinguishing_word,
     twelve_link_machine,
     _show_divisibility,
+    _show_pattern,
 )
 
 
@@ -107,6 +109,32 @@ class NaturalCrystalTests(unittest.TestCase):
         self.assertIn("base: 10", rendered)
         self.assertIn("modulus: 12", rendered)
         self.assertIn("minimal states (7)", rendered)
+
+    def test_pattern_world_remembers_only_relevant_suffix(self):
+        world, observation = pattern_world("aba", ("a", "b"))
+        self.assertTrue(world.closed)
+        self.assertEqual(set(world.states), {0, 1, 2, 3})
+        crystal = crystallize(
+            world.states, ("a", "b"), world.transition, observation
+        )
+        self.assertEqual(len(crystal.fibers), 4)
+        self.assertEqual(world.transition[2, "a"], 3)
+        self.assertEqual(world.transition[2, "b"], 0)
+
+    def test_pattern_command_runs_the_same_learning_loop(self):
+        output = StringIO()
+        with redirect_stdout(output):
+            _show_pattern("aba", "ab")
+        rendered = output.getvalue()
+        self.assertIn("pattern: 'aba'", rendered)
+        self.assertIn("minimal future classes", rendered)
+        self.assertIn("learned letter blocks", rendered)
+
+    def test_pattern_world_rejects_malformed_language(self):
+        with self.assertRaises(ValueError):
+            pattern_world("", ("a",))
+        with self.assertRaises(ValueError):
+            pattern_world("ab", ("a",))
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):

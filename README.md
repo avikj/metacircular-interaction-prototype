@@ -191,7 +191,15 @@ Run it:
 ```sh
 python3 machinery/natural_crystal.py
 python3 machinery/natural_crystal.py divisibility 10 12
+python3 machinery/natural_crystal.py contains aba ab
 ```
+
+The same operation crosses from arithmetic into language.  For substring
+recognition, states remember only the longest suffix that can still grow into
+the pattern.  Equality of all future continuations minimizes that memory, and
+useful letter blocks become primitive actions exactly as useful digit blocks
+did.  Remainders and partial words are not declared philosophically identical;
+they are two concrete actions whose future-quotient construction is the same.
 
 ## One living test
 
