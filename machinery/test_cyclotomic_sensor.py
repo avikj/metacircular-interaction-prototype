@@ -22,6 +22,8 @@ from cyclotomic_sensor import (
     factor_power_minus_one,
     acquisition_horizon,
     growth_rate,
+    exponent_redundancy_witness,
+    interface_report,
     perfect_power,
     base_refusal,
     target,
@@ -747,6 +749,44 @@ class TestCyclotomicSensor(unittest.TestCase):
         self.assertIn("2^3", base_refusal(8))
         self.assertIn("Theorem 13", base_refusal(8))
         self.assertIsNone(base_refusal(6))
+
+    def test_exponents_are_never_redundant(self) -> None:
+        """Theorem 14: the redundancy pattern has exactly two instances and its
+        boundary is Zsigmondy.  A witness exists for every exponent outside the
+        classical exception list, so no exponent can be pruned."""
+        exceptions = []
+        for base in range(2, 12):
+            for index in range(1, 16):
+                witness = exponent_redundancy_witness(base, index)
+                if witness is None:
+                    if has_primitive_divisor(base, index):
+                        continue          # affordability, not redundancy
+                    exceptions.append((base, index))
+                    continue
+                # the witness divides Phi_index(base) and no smaller family term
+                self.assertEqual(cyclotomic_value(index, base) % witness, 0)
+                self.assertEqual(multiplicative_order(base, witness), index)
+                for smaller in range(1, index):
+                    self.assertNotEqual((base ** smaller - 1) % witness, 0)
+        # exactly the R0029 list, reached from the other side
+        self.assertEqual(sorted(exceptions),
+                         [(2, 1), (2, 6), (3, 2), (7, 2)])
+
+    def test_every_input_slot_is_accounted_for(self) -> None:
+        """The arc closes: each slot is either chosen by the organ or proved
+        unprunable.  Nothing is handed in without a rule or a theorem."""
+        report = interface_report()
+        self.assertEqual([row[0] for row in report],
+                         ["modulus", "base", "exponent"])
+        self.assertEqual([row[3] for row in report], [True, True, False])
+        for _slot, _op, _retained, _prunable, reason in report:
+            self.assertTrue(reason.strip())
+        # the two prunable slots really do have working selection rules
+        organ = CyclotomicOrgan(ArithmeticLife())
+        self.assertEqual(organ.propose_base(), 2)
+        self.assertIsNone(base_refusal(2))
+        self.assertIsNotNone(base_refusal(4))
+        self.assertEqual(organ.propose_encounter(2), 2)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

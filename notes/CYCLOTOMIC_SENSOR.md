@@ -962,6 +962,77 @@ tests nothing the constituent does not* — and in both cases the retained set i
 the set of objects irreducible for that operation.  Multiplication of moduli
 gave the primes; exponentiation of bases gives the non-powers.
 
+## The third level: where the pattern stops
+
+I ended the previous section pleased, and immediately suspicious.  Two
+instances and an elegant shape is exactly how one talks oneself into a law
+that is not there, so the ninth sitting went looking for a third instance in
+order to kill the idea rather than confirm it.
+
+The organ has three input slots: the **modulus**, the **base**, the
+**exponent**.  Two are prunable.  Is the third?
+
+A composite exponent $n=mk$ has $b^{m}-1\mid b^{n}-1$, so the family member at
+$n$ *contains* the one at $m$ — the same shape as the other two levels.  Is the
+extra part empty?
+
+```text
+b=2, n=12: Phi_12(2) =  13, primes dividing no b^m - 1 with m<12: [13]
+b=2, n=20: Phi_20(2) = 205, primes dividing no b^m - 1 with m<20: [41]
+b=3, n= 9: Phi_9(3)  = 757, primes dividing no b^m - 1 with m< 9: [757]
+b=2, n= 6: Phi_6(2)  =   3, primes dividing no b^m - 1 with m< 6: []
+b=2, n= 1: Phi_1(2)  =   1, primes dividing no b^m - 1 with m< 1: []
+```
+
+**No.**  And the only failures are $(2,6)$ and $(2,1)$ — precisely the
+Zsigmondy exceptions of Theorem 7, arrived at from the other side.
+
+> **Theorem 14 (the trichotomy, and its boundary).**  The three slots differ
+> exactly in whether the refinement quotient is trivial.
+>
+> 1. *Moduli under multiplication.*  For $d=ab$ with $a>1$, the mod-$d$
+>    divisibility test **factors through** mod-$a$: there is no quotient at
+>    all.  Retained set: the primes.
+>    (`ARITHMETIC_LIFE_FIRST_EXECUTION` eq. (3).)
+> 2. *Bases under exponentiation.*  $\mathcal F_{c^{k}}\subseteq\mathcal F_{c}$
+>    as sets of integers: the quotient is a reindexing and produces no new
+>    objects.  Retained set: the non-powers.  (Theorem 13.)
+> 3. *Exponents under multiplication.*  For $m\mid n$, $m<n$,
+>    $b^{n}-1=(b^{m}-1)\,Q$ with $\Phi_n(b)\mid Q$, and by Theorem 7
+>    $\Phi_n(b)$ carries a primitive prime outside the classical exception
+>    list.  **The quotient is nontrivial, so no exponent is redundant.**
+>
+> Hence the pattern has exactly two instances, and its boundary is Zsigmondy.
+
+That is a better outcome than a third confirmation.  A pattern that held at
+every level would have been suspicious precisely because nothing would have
+stopped it; instead it stops at the one place where this lane's deepest
+consumed theorem lives, and the theorem is *why* it stops.  Redundancy at a
+level is the triviality of the quotient at that level, and the exponent level
+is exactly where the quotient stops being trivial.
+
+`exponent_redundancy_witness` returns the prime, not the boolean.  Deciding
+that a witness exists is free (Theorem 7, no factoring); exhibiting one costs a
+scan, and the two failure modes — *no witness exists* and *I cannot afford to
+find one* — are kept apart for the same reason Theorems 7 and 8 are.
+
+## The interface, completely accounted for
+
+Nine sittings ago this organ took three data from outside and had an opinion
+about none of them.  It now has:
+
+| slot | operation | retained | prunable | by |
+|---|---|---|---|---|
+| modulus | multiplication | primes | yes | eq. (3) |
+| base | exponentiation | non-powers | yes | Theorem 13 |
+| exponent | multiplication | all of them | **no** | Theorem 14 |
+
+Every input is either **chosen by the organ** or **proved unprunable**.
+Nothing is handed in without either a selection rule or a theorem saying no
+selection rule can exist.  That is the closure of the arc this note has been
+walking since the machine could not say no: the last unexamined slot turned
+out to be unexaminable, and the reason is a theorem rather than a gap.
+
 ## The encounter
 
 ```text
@@ -998,6 +1069,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here, on a consumed classical input:** Theorem 14.  Parts 1 and 2
+  are eq. (3) and Theorem 13; part 3 is Theorem 7 (Bang/Zsigmondy), consumed.
+  What is proved here is only the *trichotomy* — that the three slots differ
+  exactly in the triviality of the quotient — which is a statement about this
+  organ's interface, not about arithmetic.  **Not claimed:** that three slots
+  are all there are.  A different organ with a different interface would have
+  a different table, and the pattern's "exactly two instances" is a fact about
+  this construction rather than a law.
 - **Proved here:** Theorem 13.  The identity `(c^k)^n - 1 = c^(kn) - 1` and
   `ord_p(c^k) = ord_p(c)/gcd(ord_p(c), k)` are elementary and standard; the
   submultiplicativity `phi(gn) <= g phi(n)` likewise.  No novelty is claimed.

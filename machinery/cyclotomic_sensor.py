@@ -650,6 +650,48 @@ def base_refusal(base: int) -> str | None:
     return None
 
 
+def exponent_redundancy_witness(base: int, index: int,
+                                budget: int = DEFAULT_BUDGET) -> int | None:
+    """A prime of `Phi_index(base)` dividing no `base^m - 1` with `m < index`.
+
+    Such a prime is a *witness that the exponent is not redundant*: the
+    encounter at `index` earns something no smaller exponent could.  Theorem 14
+    in `notes/CYCLOTOMIC_SENSOR.md`.
+
+    This is the constructive form of `has_primitive_divisor`, which decides the
+    same question as a boolean without factoring.  Deciding is cheap; exhibiting
+    costs a scan, so this returns None both when no witness exists and when the
+    scan cannot afford to find one — the caller should consult
+    `has_primitive_divisor` to tell those apart, and the two are kept separate
+    for the same reason Theorems 7 and 8 are.
+    """
+    if not has_primitive_divisor(base, index):
+        return None
+    found = factor_cyclotomic(index, base, budget=budget, compare=False)
+    for prime, _power in found.factors:
+        if base % prime and multiplicative_order(base, prime) == index:
+            return prime
+    return None
+
+
+def interface_report() -> tuple[tuple[str, str, str, bool, str], ...]:
+    """What this organ takes in, and whether each slot can be pruned.
+
+    Theorem 14.  The three slots differ exactly in whether the refinement
+    quotient is trivial, and the exponent slot is where it stops being trivial —
+    which is Zsigmondy, the deepest input this lane consumes.
+    """
+    return (
+        ("modulus", "multiplication", "primes", True,
+         "ARITHMETIC_LIFE_FIRST_EXECUTION eq (3): mod-ab factors through mod-a"),
+        ("base", "exponentiation", "non-powers", True,
+         "Theorem 13: (c^k)^n - 1 = c^(kn) - 1, a reindexing with no new objects"),
+        ("exponent", "multiplication", "all of them", False,
+         "Theorem 14: b^n - 1 = (b^m - 1) Q with Phi_n(b) | Q, and Phi_n(b) has "
+         "a primitive prime outside the classical exception list"),
+    )
+
+
 @dataclass(frozen=True)
 class TargetRoute:
     """The cheapest encounter over a fixed repertoire that yields a named prime."""
@@ -1116,6 +1158,23 @@ def main() -> None:
     print("  this is ARITHMETIC_LIFE_FIRST_EXECUTION eq (3) one level up:")
     print("    composite modulus adds no test  ->  retained sensors are prime")
     print("    perfect-power base adds no family -> retained bases are non-powers")
+
+    print("\nencounter 13: 'is there a THIRD redundancy?'  -- no, and that is")
+    print("  better than yes.  A composite exponent n = m*k has b^m-1 | b^n-1,")
+    print("  the same shape as the other two levels.  Is the extra part empty?")
+    for probe_base, probe_index in ((2, 12), (2, 20), (3, 9), (2, 6), (2, 1)):
+        seen = exponent_redundancy_witness(probe_base, probe_index)
+        print(f"    b={probe_base}, n={probe_index:2d}: "
+              f"Phi = {cyclotomic_value(probe_index, probe_base):>6}, "
+              f"prime dividing no smaller term: "
+              f"{seen if seen else 'NONE -- redundant'}")
+    print("  the only failures are (2,6) and (2,1): the Zsigmondy exceptions.")
+    print("  so the pattern has exactly two instances and its boundary is a")
+    print("  theorem, not a gap.  the interface is now fully accounted for:")
+    for slot, operation, retained, prunable, _why in interface_report():
+        verdict = "chosen by the organ" if prunable else "PROVED unprunable"
+        print(f"    {slot:9s} under {operation:15s} -> {retained:12s} "
+              f"{verdict}")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):
