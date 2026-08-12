@@ -9,6 +9,7 @@ from exponent_world import (
     ExponentWorld,
     LinearCongruenceObstruction,
     LinearCongruenceSolution,
+    UnitDeterminantSystemSolution,
 )
 
 
@@ -203,6 +204,29 @@ class ExponentWorldTests(unittest.TestCase):
         self.assertIsInstance(projected, BinaryProjection)
         with self.assertRaisesRegex(ValueError, "outside the projected"):
             world.reconstruct_binary_fiber(projected, 3)
+
+    def test_unit_determinant_system_forms_unique_pair(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (4, 5, 6, 9, 14, 30):
+            world.form(value)
+        result = world.solve_unit_determinant_system(
+            ((6, 5), (5, 4)), (14, 9), 30
+        )
+        self.assertIsInstance(result, UnitDeterminantSystemSolution)
+        self.assertEqual(result.determinant, -1)
+        self.assertEqual(result.determinant_inverse, 29)
+        self.assertEqual(result.solution, (19, 16))
+
+    def test_nonunit_determinant_is_fenced_for_smith_analysis(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (2, 4, 6, 8, 10, 30):
+            world.form(value)
+        with self.assertRaisesRegex(ValueError, "nonunit determinant obstruction: gcd=2"):
+            world.solve_unit_determinant_system(
+                ((2, 4), (6, 8)), (10, 10), 30
+            )
 
 
 if __name__ == "__main__":

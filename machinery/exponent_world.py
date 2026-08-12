@@ -112,6 +112,17 @@ class BinaryFiber:
     reconstructed: LinearCongruenceSolution
 
 
+@dataclass(frozen=True)
+class UnitDeterminantSystemSolution:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    target: tuple[int, int]
+    modulus: int
+    determinant: int
+    determinant_inverse: int
+    adjugate: tuple[tuple[int, int], tuple[int, int]]
+    solution: tuple[int, int]
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -400,6 +411,50 @@ class ExponentWorld:
             "a projected point reconstructs an exact eliminated-variable fiber coset",
         )
         return BinaryFiber(projection, chosen_x, reconstructed)
+
+    def solve_unit_determinant_system(
+        self,
+        matrix: tuple[tuple[int, int], tuple[int, int]],
+        target: tuple[int, int],
+        modulus: int,
+    ) -> UnitDeterminantSystemSolution:
+        """Solve a 2x2 modular system when its determinant is a formed unit."""
+        (a, b), (c, d) = matrix
+        if modulus < 2 or min(a, b, c, d, *target) < 1:
+            raise ValueError("matrix system currently uses positive entries")
+        for value in (a, b, c, d, *target, modulus):
+            if value not in self.forms:
+                raise ValueError("matrix entries, target, and modulus need earned forms")
+        determinant = a * d - b * c
+        determinant_residue = determinant % modulus
+        if determinant_residue == 0:
+            raise ValueError("nonunit determinant: Smith analysis required")
+        if determinant_residue not in self.forms:
+            self.form(determinant_residue)
+        determinant_form = self.gcd(determinant_residue, modulus)
+        if determinant_form.value != 1:
+            raise ValueError(
+                f"nonunit determinant obstruction: gcd={determinant_form.value}"
+            )
+        inverse = self.form_composite_inverse(determinant_residue, modulus)
+        adjugate = ((d, -b), (-c, a))
+        u, v = target
+        solution = (
+            inverse.inverse * (d * u - b * v) % modulus,
+            inverse.inverse * (-c * u + a * v) % modulus,
+        )
+        x, y = solution
+        if ((a*x + b*y - u) % modulus or (c*x + d*y - v) % modulus):
+            raise AssertionError("adjugate solution certificate failed")
+        self.life._record(
+            "form-operation",
+            (a, b, c, d, u, v, modulus, determinant, *solution),
+            "unit determinant plus adjugate forms a unique two-variable solution",
+        )
+        return UnitDeterminantSystemSolution(
+            matrix, target, modulus, determinant, inverse.inverse,
+            adjugate, solution,
+        )
 
 
 def _extended_gcd(a: int, b: int) -> tuple[int, int, int]:

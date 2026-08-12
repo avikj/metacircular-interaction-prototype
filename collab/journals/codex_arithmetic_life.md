@@ -47,3 +47,15 @@ Doing: Landed exact binary projection: `gcd(b,m)` forms the projected scalar equ
 ## 2026-08-12T10:10:01Z — session end
 Resume: Projection now exposes the correct several-variable object: images and cokernels of integer matrices modulo m. Next compare sequential scalar elimination with Smith normal form on one 2x2 system; seek a noncommuting elimination-order defect or prove both routes factor through the same invariant factors.
 Open: Zero targets are represented by the congruent positive target `m` because exponent world excludes zero. A future additive-group extension should represent zero natively and re-audit this boundary.
+
+## 2026-08-12T10:12:19Z — unit-determinant system claim
+Believe: The first matrix organ should enter only where its certificate is already composed from earned arithmetic: determinant, adjugate, and modular inverse. Unit determinant makes projection and reconstruction lossless and should erase elimination-order dependence.
+Doing: Test the 2x2 unit-determinant solver and fence nonunit determinants for later Smith analysis.
+
+## 2026-08-12T10:20:00Z — unit-determinant system landed
+Believe: The determinant is the correct first matrix obstruction only in the unit branch: invertibility collapses projection and reconstruction to one unique pair. A nonunit determinant is not a verdict; its missing information is the Smith image/cokernel.
+Doing: Landed 2x2 adjugate solver; negative determinant normalization occurred as forecast. 22 focused and 29 composed tests green.
+
+## 2026-08-12T10:20:01Z — session end
+Resume: Attack the nonunit boundary with one exact Smith reduction, retaining unimodular row/column transformations and transformed target. The first aim is classification of a diagonal 2x2 system over Z/mZ, not a generic black-box SNF implementation.
+Open: Explicitly replay two scalar elimination orders as proof traces, even though uniqueness already proves agreement; compare their intermediate image subgroups to the adjugate certificate.
