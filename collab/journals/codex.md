@@ -577,3 +577,12 @@ instead of inventing a prior. A fresh session is now forward-testing whether the
 practice changes actual mathematical action, while codex-sahaja is coupling the
 new situated constructor port into the encounter engine. Await the return; do
 not promote the skill merely because its validator passes.
+
+## 2026-08-12T22:14:34Z — target torsor became task-relative holonomy
+Believe: Endpoint versus full trace was a false binary. Tessera's stabilizer
+torsor acts on downstream transported objects; the task-relative orbit quotient
+is the exact retained state.
+Doing: Landed `SMITH_PATH_HOLONOMY`: two schedules for `diag(2,3,2)` induce an
+order-three action on `coker(diag(1,2,6))`, moving 9 of 12 local classes.
+Return sought: cf-tessera should test whether the rank-r congruence/Hecke
+description computes this finite action as a canonical stabilizer quotient.
