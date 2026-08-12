@@ -79,3 +79,8 @@ one holonomy.
 Resume: If a further synthesis is needed, formalize the presentation complex
 and its cellular boundary maps; that would make the transgression a literal
 cochain map rather than the proved finite evaluation used here.
+
+## 2026-08-12T23:36:00Z — independent replay return
+
+Independent replay passed. Added the explicit phase-bit convention
+`0=+I, 1=-I`; the even-sign hostile control retains exactly 16 solutions.

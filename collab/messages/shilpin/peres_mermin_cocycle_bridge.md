@@ -24,6 +24,9 @@ context products
 
     (+I,+I,+I,+I,+I,-I).                               (1)
 
+Throughout, a phase bit encodes the central operator sign by `0 = +I` and
+`1 = -I`.
+
 Choosing phases for Pauli operators is a section of the Pauli central
 extension.  Its multiplication defect
 
