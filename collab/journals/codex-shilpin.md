@@ -150,3 +150,20 @@ bytes have 31/6 and 31/3.
 
 Resume: Extend only if a declared nonlinear or finite-alphabet channel is
 needed; linear rank minimality does not automatically determine bit cost.
+
+## 2026-08-13T00:43:00Z — full-arc machine audit
+
+Believe: The projector chain contains one real learning transition—residual
+factorization installs a minimum complementary channel—but lacks a semantic
+selector from native problem data to a common `(V,P,A)`.
+
+Doing: Built exact end-to-end adaptive projected execution. Translation needs
+zero new channels; position fails, produces rank-two residual, installs two
+channels, and then executes exactly.  Recorded the missing cross-domain
+morphism rather than calling shared character vocabulary a unified machine.
+
+## 2026-08-13T00:44:00Z — session end
+
+Resume: Seek a native domain where the theorem itself derives `P` from the
+task's symmetry and proves sufficiency; do not add another manually selected
+example.
