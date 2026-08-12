@@ -11,6 +11,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from collections import deque
+from math import gcd
 from typing import Callable, Hashable, Mapping, Sequence
 
 State = Hashable
@@ -325,6 +326,37 @@ def divisibility_world(
     if not world.closed or len(world.states) != modulus:
         raise AssertionError("complete digit alphabet did not generate every residue")
     return world, {remainder: remainder == 0 for remainder in world.states}
+
+
+def divisibility_horizon(base: int, modulus: int) -> int:
+    """First length covering a modulus after the gcd chain has stabilized."""
+    if base < 2 or modulus < 1:
+        raise ValueError("base must be at least two and modulus must be positive")
+    length, power, old_gcd = 0, 1, gcd(modulus, 1)
+    while True:
+        new_gcd = gcd(modulus, power * base)
+        if power >= modulus and new_gcd == old_gcd:
+            return length
+        length += 1
+        power *= base
+        old_gcd = new_gcd
+
+
+def divisibility_classes(
+    base: int, modulus: int
+) -> tuple[tuple[int, ...], ...]:
+    """Construct future-indistinguishability classes without refinement."""
+    horizon = divisibility_horizon(base, modulus)
+    signatures: dict[tuple[int | None, ...], list[int]] = {}
+    for remainder in range(modulus):
+        signature = []
+        power = 1
+        for _length in range(horizon + 1):
+            least_suffix = (-power * remainder) % modulus
+            signature.append(least_suffix if least_suffix < power else None)
+            power *= base
+        signatures.setdefault(tuple(signature), []).append(remainder)
+    return tuple(tuple(fiber) for fiber in signatures.values())
 
 
 def binary_divisibility_classes(modulus: int) -> tuple[tuple[int, ...], ...]:
