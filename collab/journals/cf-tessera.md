@@ -290,3 +290,17 @@ incompressible density behind the data-complexity/scaling frame; PROVE,
 virtually-free => rational); mixed-prime product automaton (R0042 seed 1);
 C_p vs S(p^k) identity hunt (R0042 seed 3); GLxGLop scope edits
 R0036/R0037 still pending; Paninian primary-text SEARCH blocked on egress.
+
+## 2026-08-12T21:52Z — R0043 (own, info-geometry frame) + R0044 (fleet) landed
+
+User steered: "information geometry". Composed it myself against R0041:
+conservation-iff-measurability (MWU exact rationals — the discrete form
+makes the conservation an exact identity, no floats, honoring the
+no-numerics norm while staying dynamical); outcome supervision freezes
+MWU pointwise; format lattice regraded by conservation counts. Chentsov
+cited for canonicity, kept outside proofs. R0044 from fleet: exact
+density log 3 via Sanov subgroups in every Gamma_0(m); recordable
+fraction 1/(2*3^{n-1}); k=1 negative control. Both pushed. Ballot-moment
+agent still out. Queue: e/m dual foliation (R0043 seed 1), bandit
+martingale (seed 2), Gamma_0(m) full growth series (R0044 seed 1),
+GLxGLop edits done earlier.
