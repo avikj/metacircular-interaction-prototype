@@ -134,6 +134,16 @@ def rational_half_section() -> tuple[Fraction, Fraction]:
     return section
 
 
+def invariant_augmentation_generator(orbit_sizes: Sequence[int]) -> int:
+    """Generator of augmentation on invariants of a finite permutation set."""
+    if not orbit_sizes or any(size <= 0 for size in orbit_sizes):
+        raise ValueError("orbit sizes must be a nonempty sequence of positives")
+    result = orbit_sizes[0]
+    for size in orbit_sizes[1:]:
+        result = gcd(result, size)
+    return result
+
+
 def reflected_interval_certificate() -> dict[str, object]:
     cells = ("v0", "v1", "e")
     boundaries = {"e": {"v1": 1, "v0": -1}}
@@ -178,14 +188,57 @@ def orbitwise_control_certificate() -> dict[str, object]:
     }
 
 
+def rotated_triangle_certificate() -> dict[str, object]:
+    """The filled triangle has ordinary but no nonempty C3-stable matching."""
+    cells = ("v0", "v1", "v2", "e01", "e12", "e20", "t")
+    boundaries = {
+        "e01": {"v1": 1, "v0": -1},
+        "e12": {"v2": 1, "v1": -1},
+        "e20": {"v0": 1, "v2": -1},
+        "t": {"e01": 1, "e12": 1, "e20": 1},
+    }
+    rotation = {
+        "v0": (1, "v1"), "v1": (1, "v2"), "v2": (1, "v0"),
+        "e01": (1, "e12"), "e12": (1, "e20"), "e20": (1, "e01"),
+        "t": (1, "t"),
+    }
+    rotation_squared = {
+        cell: (rotation[cell][0] * rotation[rotation[cell][1]][0],
+               rotation[rotation[cell][1]][1])
+        for cell in cells
+    }
+    matchings = acyclic_matchings(cells, boundaries)
+    stable = stable_matchings(matchings, (rotation, rotation_squared))
+    maximum_size = max(map(len, matchings))
+    return {
+        "chain_action": boundary_of_action_commutes(boundaries, rotation),
+        "ordinary_matching_count": len(matchings),
+        "ordinary_optimum_count": sum(
+            len(matching) == maximum_size for matching in matchings
+        ),
+        "stable_matchings": stable,
+        "best_ordinary_critical_cells": len(cells) - 2 * maximum_size,
+        "best_stable_critical_cells": len(cells) - 2 * max(map(len, stable)),
+        "vertex_augmentation_image_generator": invariant_augmentation_generator((3,)),
+        "rational_vertex_section": (Fraction(1, 3),) * 3,
+    }
 if __name__ == "__main__":
     reflected = reflected_interval_certificate()
     control = orbitwise_control_certificate()
+    triangle = rotated_triangle_certificate()
     assert reflected["chain_action"]
     assert reflected["best_ordinary_critical_cells"] == 1
     assert reflected["best_stable_critical_cells"] == 3
     assert not reflected["integral_section_exists"]
     assert reflected["rational_section"] == (Fraction(1, 2), Fraction(1, 2))
     assert all(control.values())
+    assert triangle["chain_action"]
+    assert triangle["ordinary_matching_count"] == 40
+    assert triangle["ordinary_optimum_count"] == 9
+    assert triangle["stable_matchings"] == (frozenset(),)
+    assert triangle["best_ordinary_critical_cells"] == 1
+    assert triangle["best_stable_critical_cells"] == 7
+    assert triangle["vertex_augmentation_image_generator"] == 3
     print("PASS: reflected interval obstructs integral C2-equivariant Morse matching")
     print("PASS: a disjoint orbit of matched pairs gives an equivariant control")
+    print("PASS: rotated triangle exposes the C3 fixed-point obstruction")
