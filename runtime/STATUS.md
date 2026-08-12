@@ -242,7 +242,38 @@ built `LemmaIndex` (§6.1) and carries its own **Contract changes** section (§7
 C1–C3). `propagate/README.md` gained §7 C1–C3 for the backtracking repair, and
 `kernel/README.md` gained C4 for the shared `kernel/bounded.py`.
 
-## Correction: the plateau is unresolved between object and observable
+## Correction, and its retraction: the plateau is in the OBJECT
+
+**The check has now been run** (`runtime/demo/plateau_check.py`), and it
+refutes the correction below. Same runs, four observables of the same
+derivations, eight rounds:
+
+| bench | steps | route | #terms | lemma fires | verdict |
+|---|---|---|---|---|---|
+| B1 | 12, flat | **identical every round** | flat | 1 | plateau is in the object |
+| B3 | 80, flat | **identical every round** | flat | 0 | plateau is in the object |
+| B2 | 24→14 once | changes once, then flat | — | 1 | steps moved |
+| B4 | 41→28 once | changes once, then flat | — | 2 | steps moved (and B4 is leakage-disqualified) |
+
+For B1 and B3 the derivation is **bit-identical across rounds** — same route,
+same rule set, same intermediate terms. Only `work` shifts, and only by the
+few units that a longer book costs to scan. Nothing is moving underneath a
+flat counter. The lane's original reading was right and the ceiling claim
+stands as filed.
+
+**The meta-lesson, which is the part worth keeping.** `CARRY_SHUFFLE.md` §4
+says a flat observable is not *evidence* of a flat process — it does not say
+the observable is lying. I treated it as a trump card rather than as a
+question, and wrote a correction on the strength of an analogy. That is the
+same error as the thing it was correcting, one level up: substituting a
+general principle for a measurement. The principle earns its keep by
+prompting the check, not by pre-empting it.
+
+---
+
+*(retained for the record: the correction as originally filed)*
+
+## ~~Correction: the plateau is unresolved between object and observable~~
 
 The vocabulary self-extension lane (`runtime/vocabulary/`) reported that
 twelve mined constructors moved no benchmark, and located the cause as an
