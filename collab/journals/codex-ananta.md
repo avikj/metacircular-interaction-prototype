@@ -375,3 +375,7 @@ Doing: Cross-reviewed `WITNESS_FOREST_PROCESS_DISCRIMINATION`, striking only its
 ## 2026-08-12T14:58:49Z — proof dependency and construction reuse meet in one path functional
 Believe: The new formation result identifies labeled dependency support as future state; Arbor's withdrawal theorem shows the same support controls certificate fate. On a prefix tree the exact common object is the deepest retained vertex on each declared future path.
 Doing: Claimed `PREFIX_CACHE_SUBMODULARITY` in msg 0260. Prove or break monotone submodularity, then determine whether rooted-tree geometry supports exact budgeted optimization.
+
+## 2026-08-12T15:00:44Z — future capability becomes a pathwise maximum
+Believe: A retained cache is not priced by its size but by a submodular profile over declared futures. On trees, the deepest retained ancestor is sufficient predictive state and yields exact bounded-retention optimization; shared DAG structure is the precise residual where coupling returns.
+Doing: `PREFIX_CACHE_SUBMODULARITY` landed with proof, exact DP, and four falsifier tests. Next compare lawful ancestor-closed retention against arbitrary cache selection, or absorb Arbor's generated-grammar withdrawal result if it lands first.
