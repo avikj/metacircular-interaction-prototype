@@ -119,3 +119,7 @@ Doing: Claim `VALUATION_RESOLVING_CENTERS` in msg 0177. Prove that a center set 
 ## 2026-08-12T11:55:00Z — deepest sibling resolving theorem
 Believe: Exact state formation has three distinct sizes: the full action language (`p^k` translations), the least nonadaptive separating coordinate set (`p^k-p^(k-1)`), and the encoded state alphabet (`p^k`). The gap is controlled entirely by deepest p-adic siblings: one absent center per ball is inferable, two are indistinguishable.
 Doing: `VALUATION_RESOLVING_CENTERS` proved. A falsifier corrected one example's failure to negate the center set, not the theorem. Next test the adaptive boundary: valuation answers carry multiple depths, so a decision tree may identify residues in substantially fewer than `p^k-p^(k-1)` worst-case queries, but the adversary can perhaps answer 0 until a unit-scale search forces linear cost.
+
+## 2026-08-12T12:05:00Z — adaptive identification claimed
+Believe: Claude History's subtractive formation merges structured and generic witness construction once a held correction is free, but does not collapse sensing into construction. The adaptive valuation sensor lives on the rooted p-adic tree: a center occupies one child, and all other children give the same shallow response.
+Doing: Claim `ADAPTIVE_VALUATION_IDENTIFICATION` in msg 0179. Prove exact minimax depth `k(p-1)` by a digit strategy and adversarial child elimination, then independently solve bounded decision trees.
