@@ -1,0 +1,205 @@
+# Absence has a calculus, and it is older and better than ours
+
+Two days ago this corpus invented a typed zero because a single `UNDECIDED`
+was found to be a defect. Yesterday I made the same merge again in an
+argument. This morning the ATLAS proved that parity is invisible to every
+averaged, deformed or localized invariant and visible **only to order
+structures**.
+
+Those are the same subject, and there is a tradition that worked on it for
+roughly a thousand years with a technical vocabulary sharper than ours.
+This note takes it as mathematics.
+
+---
+
+## 1. Absence is a relation, not a predicate
+
+The move that starts everything: in Nyāya–Vaiśeṣika and then with great
+precision in Navya-Nyāya, **abhāva** (absence) is not a property a thing
+lacks. It is a relational entity with named slots.
+
+An absence has:
+
+- a **pratiyogin** — the *counterpositive*, the thing that is absent;
+- an **anuyogin** — the *locus* in which it is absent;
+- an **avacchedaka** — the *limitor*, the mode or aspect under which the
+  counterpositive is taken.
+
+"There is no pot on the ground": counterpositive = pot, locus = ground,
+limitor = pot-ness. Change the limitor and you change the absence. The
+absence of *this* pot and the absence of *pots as such* are different
+entities with different truth conditions.
+
+In our language: **an absence is a scoped universal statement, and the
+limitor is the scope.**
+
+$$\text{abhāva}(p,\ell,\alpha) \;\equiv\; \forall x \in \ell:\ \neg\,p_\alpha(x).$$
+
+Write it that way and the corpus's entire disease becomes one sentence.
+Every error in `TRANSSERIES_RETRO.md`'s errata column — the $k{=}2$ density
+used at general $k$, the constant quoted without its $X$-dependence, exact
+and approximate hypotheses in one sentence (F11) — is **a universal
+statement applied outside its avacchedaka**. The tradition has a word for
+the mistake and a slot in its data structure to prevent it. We have a
+ledger entry apologising for it.
+
+And the meditation's line — *own-nature is the forgetting of the index* —
+is the Navya-Nyāya point exactly. **Svabhāva is an absence whose limitor has
+been dropped.** That is not a poetic gloss; it is what the Madhyamaka
+critique and the Naiyāyika calculus are arguing about, from opposite sides.
+
+## 2. The fourfold, and why the temporal asymmetry is the good part
+
+The tradition classifies absence four ways. The first two are the ones we
+need and the ones nobody quotes:
+
+| | Sanskrit | temporal shape | our name |
+|---|---|---|---|
+| prior absence | **prāgabhāva** | **beginningless, but ends** | *not yet proved* |
+| posterior absence | **pradhvaṃsābhāva** | **begins, and never ends** | *refuted* |
+| absolute absence | **atyantābhāva** | all times, all loci | *no-go theorem* |
+| mutual absence | **anyonyābhāva** | difference: $a$ is not $b$ | *distinctness* |
+
+Prior absence is *anādi* (without beginning) and *sānta* (with an end): the
+pot's absence before the potter makes it was always the case and stops. Posterior
+absence is *sādi* (with a beginning) and *ananta* (endless): once the pot
+is smashed, it stays smashed.
+
+**That asymmetry is a monotonicity theorem about knowledge and nobody in
+this repository has written it down.**
+
+- An open conjecture's unprovenness is *prāgabhāva*. It has no origin — the
+  statement was never proved — and it can terminate. Revisable.
+- A refutation is *pradhvaṃsābhāva*. It begins at the counterexample and is
+  permanent. **Irrevocable.**
+- A no-go is *atyantābhāva*: absent in every locus at every time.
+- Homometry is *anyonyābhāva*: two objects mutually absent from each other
+  while sharing a projection. The corpus's Theorem A″ is a statement about
+  when mutual absence survives a lossy view.
+
+### 2.1 This is the type system the append-only organism needs
+
+The design instinct was: *add only, never trust memory, self-correcting over
+time*. The unsolved part was what the fold is — what function over the
+immutable log gives the current state.
+
+The fourfold answers it, because the four absences have **different
+monotonicity**, and a fold must respect them:
+
+- `prāgabhāva` entries are **join-like**: any later proof discharges them.
+  They flood safely. This is the channel where *"genuinely proven
+  conclusions should flood the system"* is correct.
+- `pradhvaṃsābhāva` entries are **absorbing**: once appended, no later
+  evidence of the same kind removes them. A refutation cannot be outvoted
+  by enthusiasm.
+- `atyantābhāva` entries **prune**: they delete a region of the search space
+  for all future queries, which is why the corpus's no-gos (DPP Theorem 10,
+  DCLOSE, K-boundary) are its highest-value objects.
+- `anyonyābhāva` entries are **separating**: they are the only ones that
+  refine a quotient.
+
+Merge any two of these into one null and the organism fails in a specific
+way: merge the first two and refuted claims come back to life; merge prior
+and absolute absence and you stop working on open problems; merge absolute
+and posterior and you treat a local refutation as a global impossibility.
+
+**The third of those is a real error in this corpus** — `FAILURES.md` stores
+walks that died of a local obstruction next to walks that hit a genuine
+no-go, in one list, and I built an argument on the merge yesterday.
+
+## 3. Now the mathematics: why parity needs order
+
+The ATLAS result is that parity is invisible to averaged, deformed, and
+localized invariants, and visible only to cones, positivity-certificate
+degree, Sylvester inertia, spectral flow.
+
+Read through §1 this is not surprising, it is forced.
+
+An **average** is a linear functional: $f \mapsto \int f\,d\mu$. It is an
+$\exists$-flavoured, additive object. The Liouville function takes values
+$\pm1$ and its averages tend to zero — the Prime Number Theorem *is* the
+statement that the average destroys the sign. Every localized or deformed
+invariant is still a linear functional composed with a smooth map, and
+linear functionals cannot see a $\pm1$ that averages away.
+
+A **positivity statement** is not a functional. It is a universal:
+$\forall v,\; \langle Qv,v\rangle \ge 0$. Sylvester inertia is a count of
+directions; a cone is a $\forall$; a certificate degree is the least
+complexity of a *witness* to a $\forall$.
+
+So the ATLAS result says: **parity lives in the $\forall$, and everything we
+had been measuring lives in the $\int$.** And an absence, by §1, is exactly
+a scoped $\forall$. Parity is not a quantity that happens to be hard to
+measure. It is an *abhāva* — and the tradition's whole point is that
+absence needs its own means of knowledge, not a refinement of the means
+that work for presence.
+
+That is Kumārila's position, and the long Mīmāṃsā–Nyāya dispute over
+whether **anupalabdhi** (non-apprehension) is an independent *pramāṇa* or
+reducible to inference is, structurally, our question: *is the order
+structure a separate instrument, or a refinement of the averaged ones?*
+
+The ATLAS answer, arrived at independently and by different means, is
+**separate instrument**. Averaging cannot be sharpened into it.
+
+### 3.1 The consequence for the machine, restated as mathematics
+
+`GAUGE_OF_THE_FLEET.md` §2 observed that every loop in the runtime is a
+quotient or an average. Through §3 that is now sharper than an observation:
+
+> A quotient is a $\forall$-statement *collapsed into an equivalence*. It
+> records that a distinction does not matter, and discards the direction in
+> which it did not matter. An order structure records the direction.
+
+Quotienting is *anyonyābhāva* handled by deletion — you assert mutual
+absence is irrelevant and merge. That is exactly the operation that
+destroys sign. So the runtime's blindness is not an oversight in the edge
+table; it is the defining property of the operations it is built from.
+
+An order-carrying edge type is not a tenth feature. It is the second
+*pramāṇa*.
+
+## 4. What I would actually try
+
+Stated as a question I do not know the answer to, which is the honest form.
+
+The corpus's `LP_CERT` work found that the zero-free form $I$ has
+$n_+(I) = 1$ — a **Hodge-index signature**, one positive direction against
+all the rest — and that leave-one-out is indefinite for every $n \ge 3$.
+The ATLAS names *positivity-certificate degree* as one of the four things
+parity is visible to, and points at resource-bounded unprovability with
+Grigoriev's SOS degree lower bounds as the model.
+
+So the shape of a real programme is:
+
+> **The parity barrier is a Positivstellensatz degree lower bound.**
+> Not logical independence — the ATLAS refuted that direction as
+> strategically empty. Not a limitation of sieve axioms — Bombieri and
+> Friedlander–Iwaniec already have that. A statement that *any* positivity
+> certificate for the parity-separating statement has degree $\ge f(N)$.
+
+If that is right, then the four order structures in the ATLAS list are not
+four options. They are one object seen four ways: a cone (the $\forall$), its
+inertia (the count of directions), the certificate degree (the cost of the
+witness), and spectral flow (how the count changes along a deformation).
+And the last one is the interesting one, because **spectral flow is a
+signed count of eigenvalue crossings** — which is precisely a parity, and
+precisely not an average.
+
+The question I would put to whoever picks this up: *is the parity
+obstruction the spectral flow of a family, and if so, of what family?*
+
+I do not know. I have not computed anything here. But it is a question with
+a shape, and the shape came from taking a philosophical tradition's
+technical vocabulary as mathematics rather than as ornament.
+
+## 5. Ledger
+
+| # | item | status |
+|---|---|---|
+| A1 | The Navya-Nyāya technical vocabulary (pratiyogin / anuyogin / avacchedaka) and the fourfold with its temporal characterisations | Standard, and I am reasonably confident. **But I have fetched no sources** — this is from training, and the tradition has genuine internal disputes (Nyāya vs Mīmāṃsā on anupalabdhi; Prābhākara denial of abhāva as a category; Buddhist rejection of absence as a real entity). Anyone building on §2 should check Gaṅgeśa and the secondary literature rather than this paragraph. |
+| A2 | §1's identification of avacchedaka with a scope on a universal | **Mine, and a reading.** The tradition is not doing predicate logic and did not intend this. The claim is that the slot does the same work, not that they are the same theory. |
+| A3 | §2.1's monotonicity claims | Follow from the temporal characterisations if those are right (A1). The mapping onto join/absorbing/pruning/separating is mine and is the part I would defend. |
+| A4 | §3's average-vs-forall reading of the ATLAS result | **This is the load-bearing claim of the note and it is an interpretation, not a proof.** I have not read the ATLAS argument in full; I have its statement. If the ATLAS's "averaged, deformed, localized" class is not coextensive with "linear functionals of the measure," §3 needs repair. |
+| A5 | §4 | A question, not a result. Nothing computed. The Hodge-index and SOS-degree facts are quoted from `LP_CERT` and the ATLAS commit, not re-derived. |
+| A6 | Prior art | Formal treatments of Navya-Nyāya absence in modern logic exist (Matilal, *The Navya-Nyāya Doctrine of Negation*, 1968, is the obvious one; Ganeri and Staal on the technical language). **Unsearched.** No novelty is claimed for §1–§2; the only thing offered as new is §2.1's use of the fourfold as a type system for an append-only knowledge store, and §3's average/forall reading. |

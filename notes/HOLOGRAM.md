@@ -20,7 +20,7 @@ Three laws, each independently measured in this corpus, compose:
    (theorem-side) content; pair-line *phases* carry difference/correlation
    (conjecture-side) content.
 3. **Densities**: single lines at height $T$: spacing $2\pi/\log\tfrac{T}{2\pi}$;
-   pair atoms near $s$: spacing $1/\rho_2(s)$, $\rho_2(s)\sim s\log^2s/(8\pi^3)$.
+   pair atoms near $s$: spacing $1/\rho_2(s)$, $\rho_2^{\text{unord}}(s)\sim s\log^2s/(8\pi^2)$ [corrected: the corpus carried a stray $\pi$ — `SWEEP.md` §1.1].
 
 **Theorem K (capacity/depth law).**
 (a) *Capacity:* readable gap-grade lines from span $L$ =
@@ -74,9 +74,16 @@ resource-bounded* analogue for arithmetic data:
 
 ## 3. Consequences stated plainly
 
-1. **Numerical unreachability of the bulk is a law.** No feasible
-   computation reads correlation-grade structure beyond $T\sim$ tens from
-   arithmetic data. Analytic methods are the only access to the bulk —
+1. **Scope correction (librarian audit) — the broad reading is false.** The
+   claim is *not* "no feasible computation reads correlation-grade structure
+   from arithmetic data": Montgomery's $F(\alpha,T)$ is computed **from prime
+   data** and is proved for $|\alpha|<1$, and Goldston–Montgomery ties pair
+   correlation to prime variance at *polynomially* related scales. Theorem K′
+   is about the strictly narrower task of **resolving individual pair atoms
+   $\gamma_i+\gamma_j$ as separated spectral lines within a windowed-linear
+   read-off** — not about estimating correlation *statistics*, which are
+   accessible at polynomial depth. Stated broadly the claim contradicts
+   Montgomery; stated narrowly it stands. Analytic methods are the only access to the bulk —
    and zero-table numerics (surface of the *spectral* side) can never
    substitute for prime-side correlation knowledge.
 2. **Dressing fusion improves constants, not exponents** (exp19/20: all
@@ -135,7 +142,7 @@ refinements.
 Honest deltas toy→arithmetic: superresolution lower bounds are minimax
 over amplitudes; the arithmetic amplitudes are fixed and partially known
 (modulus law), which improves constants — it cannot change exponents,
-which moment matching forces. Citations to anchor: arXiv:1203.5871 (CF-G),
+which moment matching forces. Citations to anchor: **Donoho**, *SIAM J. Math. Anal.* **23** (1992) 1309 — the origin of the $\varepsilon^{1/(2p-1)}$ / Rayleigh-index rate; arXiv:1203.5871 (CF-G),
 arXiv:1502.01385 (Demanet–Nguyen), arXiv:1904.09186 (Batenkov et al.).
 
 
@@ -181,17 +188,42 @@ supply, and it is what changes the answer:
 > so, with $\rho_2(2T)\asymp T\log^2T$,
 > $$\boxed{\;X_{\text{needed}}(T)=\exp\Bigl(\Theta\bigl(T^{1/2}\log^{3/2}T\bigr)\Bigr).\;}$$
 
-This **supersedes Theorem K(b)'s $\exp(cT\log^2T)$**. The barrier is real but
-was overstated: at $T=100$ the corrected requirement is $\log_{10}X\approx
-10^{1.6}$-ish rather than $10^{53}$ — still hopeless numerically, so every
-qualitative conclusion of `BARRIER.md` survives, but the exponent is
-$T^{1/2}\log^{3/2}T$, not $T\log^2T$. The old figure came from imposing a
+This **supersedes Theorem K(b)'s $\exp(cT\log^2T)$**, and the corrected
+constant is $\pi^{-1/2}$ (verifier A): $L\sim\pi^{-1/2}T^{1/2}(\log T)^{3/2}$,
+using $\log(\rho_2/L)\sim\tfrac12\log T$ rather than $\log\rho_2$.
+
+**Retraction (`SWEEP.md` §0).** An earlier version of this paragraph asserted
+that at $T=100$ the requirement is "$\log_{10}X\approx10^{1.6}$-ish — still
+hopeless numerically, so every qualitative conclusion of `BARRIER.md`
+survives." **Both independent verifiers refuted this.** Solving the boxed
+inequality with the corrected $\rho_2$ gives $\log_{10}X\approx5$–$15$ at
+$T=100$ — *reachable*, and consistent with exp42 having resolved a
+Rayleigh-separation doublet blind at $X=10^7$. The $T=100$ figure is deleted
+rather than repaired: at $p\approx10$ an unspecified $O(1)$ inside
+$(c\delta L)^{2p-1}$ is raised to the ~20th power. The barrier survives
+asymptotically ($T=10^3\Rightarrow\log_{10}X\approx62$–$111$) but
+**reachability must be recomputed per $T$, never asserted**.
+
+**The robust content** is not the constant but the insensitivity: $L\propto
+\alpha^{-1/2}$ where $\varepsilon=X^{-\alpha}$, so the exponent depends only on
+the *fact* that $\varepsilon=X^{-\Theta(1)}$, not on its value. The old figure came from imposing a
 *fixed* precision floor; the true floor improves with the very window that
 is being widened, and no amount of measurement at a single $X$ could have
 revealed that.
 
-**Honesty ledger.** Lemma N is unconditional given RH + simple zeros for the
-$\mu$-field (the same hypotheses Theorem H′ already carries). Theorem K′
+**Honesty ledger (revised after audit).** Lemma N needs RH + simple zeros
+**plus** a Gonek-type input $\sum_{0<\gamma\le T}|\zeta'(\rho)|^{-2}\ll T^{1+o(1)}$
+for convergence — "unconditional given RH + simple zeros" was false. Its
+$O(X^{-1/2})$ is a *determinate single-zero layer*, not an error, hence
+modellable (true residual $O(X^{-2})$); and the Stieltjes proof is invalid at
+the edge, so the double-Mellin derivation is the correct one. K′ additionally
+inherits the **sumset-rank objection**: the SRF bound is minimax over arbitrary
+measures, while the atoms are the sumset of $N(T)$ generators, so K′ bounds
+*structure-blind recovery of the sumset*, not recovery of $\{\gamma\}$ — which
+is Theorem I1's content seen from the other side. Additionally $\kappa$ is not
+a constant ($\kappa(X,p)=c_pX^{-1/(2(2p-1))}$) and span vs $\log X$ were
+conflated here. Original text: Lemma N is unconditional given RH + simple
+zeros for the $\mu$-field (the same hypotheses Theorem H′ already carries). Theorem K′
 inherits K0's worst-case, minimax-over-amplitudes character and the
 self-consistency closure for $p$ is heuristic in exactly the way Theorem K
 was — it is a derived scaling law, not a theorem about primes. What has

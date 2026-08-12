@@ -60,6 +60,16 @@ summable), then simply $V(T,L)\ll E_W(1/L)$.
 
 ## D.4 Lower bound
 
+**[SUPERSEDED — see `notes/DPP.md` §2–§3.** Theorem 2 there proves
+$\lim_{L\to\infty}V(T,L)=V_\infty=\sum_f|\widetilde m(f)|^2$ *uniformly in $u_0$*
+with no separation hypothesis, replacing D.3–D.4 wholesale. **Erratum:** the
+$u_0$-averaging step below is invalid as written — averaging $e^{i\delta u_0}$
+over a unit window multiplies by $\operatorname{sinc}(\delta/2)$, damping
+$|\delta|\ge1$ only by $O(1/\delta)$, not killing it. The conclusion survives
+because the $\operatorname{sinc}^2(L\delta/2)$ already present does the work.
+Also: the Ω-result of D.5 is **unconditional** under RH (DPP §3), not
+contingent on the near-diagonal hypothesis.]**
+
 Restrict (D.1) to the exact diagonal $\mathcal D = \{(\gamma_3,\gamma_4) = (\gamma_1,\gamma_2)
 \text{ or } (\gamma_2,\gamma_1)\}$, where $\delta=0$, $e^{i\delta u_0}=1$, and every term is
 positive:
@@ -145,3 +155,10 @@ intervals and pair correlation are.
    *Both refutations are consistent; the join is now closed by Theorem J
    (`BLOCKS.md` §5): the MS screw function IS the mixed block, so Krein
    positivity lives one block over from the pair measure.*
+
+   **Mechanism of the refutation, from the other branch (`BLOCKS.md` Part I §2):**
+   non-positivity is not merely observed, it is forced by Theorem D‴. The atoms
+   obey the exact chirp law $W=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$, whose
+   phases $sH(p)$ equidistribute mod $2\pi$; so positivity can only enter at the
+   $|W|^2$ level, where the chirp cancels exactly ($|W|^2=2\pi s^{-5}$). This
+   agrees with the `SCREW.md` conclusion and supplies its proof.
