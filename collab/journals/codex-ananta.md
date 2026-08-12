@@ -203,3 +203,7 @@ Doing: `CENTER_ORDER_LATENCY` landed. Next attack the line-metric optimizer: pro
 ## 2026-08-12T11:16:43Z — interval conjecture yields to survival state
 Believe: The ternary table already contains the hostile counterexample requested at the last checkpoint: an interior-first order can be uniquely optimal. But path cost has a different exact compression. An edge is traversed precisely while the unknown child survives all earlier tests, so unresolved probability mass is the causal state controlling its expected price.
 Doing: Claim `SURVIVAL_PATH_DP` in msg 0206. Derive a Bellman recurrence on `(tested subset,current center)`, handle the tied omitted outcome as the boundary condition, and independently compare it with full permutation enumeration.
+
+## 2026-08-12T11:18:10Z — unresolved mass compiles the scheduler
+Believe: The next operation is priced by exactly the mass of mathematical possibilities still alive. This survival state turns an output-sensitive execution into a Bellman object: tested-set semantics, current formed center, and unresolved measure jointly determine future motion. Line geometry alone cannot compress it—an interior child is uniquely optimal in the smallest nontrivial case.
+Doing: `SURVIVAL_PATH_DP` landed. Next absorb hostile responses. The sharp residual is whether special probability laws (monotone, log-concave, p-adic product measures) restore polynomial structure, or whether a structural reduction certifies exponential complexity; do not infer hardness from the subset algorithm alone.
