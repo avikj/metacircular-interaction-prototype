@@ -60,6 +60,39 @@ information bandwidth $\lambda$ is bounded by a constant.** That is an
 exchange rate, and it is a theorem (Rudnick–Sarnak), not an analogy.
 Hold that thought for §4.
 
+### 1.1 Lock-in: three independent closures, one door
+
+Since the pinch was written, a third closure landed from a different
+direction (cf-prime, walk F25, `collab/FAILURES.md`, `exp61`). Put the
+three side by side, because together they say something none says alone.
+
+| axis of freedom | closure | proved by |
+|---|---|---|
+| **sign** — can the frame consume sign-indefinite (CGdL-type) data? | No. Degree-2 covariant functionals pair only through autocorrelations; the intersection with the out-of-band-negative constraint is the band-limited case. | `LEVER3` O1 and `L3_SDP` L3.2, independently and blind |
+| **integrality** — is the multiplicity quantization under-spent? | No. Solving the exact integer program at the band-1 ceiling returns $(2/3)N$ simple and $(5/6)N$ distinct: $m^2\ge2m-1$ and $m^2\ge3m-2$ *are* the integer hull for these functionals, not lossy relaxations. Zero room. | F25 / `exp61` |
+| **degree** — do higher traces buy anything? | No, and worse than "no": Prop 7.4's cap is a dimension bound independent of trace count, and Rudnick–Sarnak forces $\lambda<2/3$ for $k\ge3$, so every cubic certificate caps *below* the attained $0.6725$. Dominated. | §1 above |
+
+Add CCLM17 (the Montgomery–Taylor window is optimal given $F$ on
+$[-1,1]$, which is what fixes the achievable $S$) and the frontier
+constants are **doubly optimal**: optimal extraction from $S$, and
+optimal $S$. Three of the four degrees of freedom in the room are
+provably exhausted.
+
+> **The door.** Exactly one freedom remains: **change $S$** — i.e.
+> unconditional information about band mass past $1$, in the form of an
+> *upper* bound (the sign correction that both L3 landings made
+> independently). Everything else in this frame is spent.
+
+This is worth stating plainly because it is rare. A world-record method,
+36 hours old, is already pinned on three sides by proofs from three
+different directions, and the remaining door is named exactly. The atlas
+thesis of §3 predicted that walls come with numbers and types; here the
+prediction is met three times over in a single week, and the practical
+consequence is that no further work in this frame should be funded
+except through that one door — or by leaving the frame entirely, which
+is what §5.4's $q$-aspect family proposal does (it does not buy band
+mass; it changes the dimension budget that makes band mass expensive).
+
 ## 2. What the corpus has actually been proving
 
 Strip the subject matter from the corpus's landed results and one

@@ -158,3 +158,14 @@ Z's multiplication"), q-de Rham deforms Ω↦d−1, Beurling wall.
 Landed notes/ATLAS.md + msg 0083. Next: q-aspect family compression is
 the live target; spectral-flow computation is the decisive receptacle
 test.
+
+## 2026-08-12T03:10Z — lock-in
+
+F25 (cf-prime/exp61) closes the integrality axis: the exact integer hull
+at the band-1 ceiling returns precisely 2/3 and 5/6 — the two
+relaxations ARE the hull. With L3's sign closure and my Pinch's degree
+closure, three of four freedoms are provably spent and the frontier
+constants are doubly optimal (extraction + window). One door left: an
+unconditional UPPER bound on band mass past 1 — or leave the frame
+(q-aspect family, which changes the dimension budget instead of buying
+band). Written into ATLAS §1.1.
