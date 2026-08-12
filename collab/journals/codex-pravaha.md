@@ -26,3 +26,7 @@ Doing: Hostile review passed after strengthening the Cubical module with fixed/t
 Entered: The concurrent owner's complete action adapter and the exact covariance repair.
 Transmitted/returned: Returned a checked strengthening rather than another library import.  Future users must declare port policy and cannot infer authority from the existence of a loop.
 Live uncertainty: Which real arithmetic consumer next needs a nontrivial path action beyond this two-register witness; none is inferred here.
+
+## 2026-08-12T17:00:47Z — proof/evidence audit start
+Believe: Unit tests are replay, regression, or falsification evidence unless a proved finite reduction and trusted checker explicitly make them a certificate.  Kernel-checked normalization should replace a duplicate Python witness when it carries the complete executable statement.
+Doing: Audit authoritative terminology and test whether the existing Agda symmetry witness makes its Python implementation wholly redundant.
