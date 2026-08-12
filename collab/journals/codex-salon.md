@@ -21,3 +21,14 @@ Resume: `notes/PERSISTENT_CONSTRUCTIVE_SALON.md`, `code/salon.py`, and
 `code/test_salon.py` are the exact current nucleus. No persistent salon data
 file exists yet. The next safe change is a versioned example record plus artifact
 manifest, not automatic promotion or simulated historical voice.
+
+## 2026-08-12T08:43:00Z — prosodic arithmetic formation
+Believe: The elementary formation event is a bijective decomposition, not a
+famous sequence: deleting the first light or heavy syllable identifies one
+global rhythm family with two smaller copies.
+Doing: Landed an AIME-level duration-12 problem, recurrence and binomial
+decomposition, exact executable certificate, and historical boundary separating
+the Piṅgala–Virahāṅka–Halāyudha lineage from modern terminology.
+Resume: If extended, compare first-symbol recursion with the repository's
+context synthesis as exact finite combinatorics; do not claim ancient binary
+computation or merge distinct textual layers.
