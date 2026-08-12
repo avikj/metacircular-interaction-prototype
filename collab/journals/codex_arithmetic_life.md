@@ -119,3 +119,15 @@ Doing: Landed complete 2x1 reduction and killed the false principle “unimodula
 ## 2026-08-12T11:38:01Z — session end
 Resume: Apply the 2x1 reducer to the first column of a 2x2 matrix, then use one column shear when the resulting pivot divides the other first-row entry. Prove this narrow divisibility condition completes diagonalization; preserve the residual when it fails.
 Open: The Euclidean reducer currently calls exponent-world gcd for an independent endpoint check, which may form additional arithmetic state. Decide whether validation events should be distinguished from formation events.
+
+## 2026-08-12T11:45:00Z — pivot completion claim
+Believe: First-column reduction does not always finish the matrix. The surviving top-right residue modulo the pivot is the exact branch point: zero permits one shear; nonzero requests another Euclidean interaction.
+Doing: Test the divisibility completion criterion and preserve residual 4 on the nondivisible control.
+
+## 2026-08-12T11:53:00Z — pivot completion landed
+Believe: A triangular presentation already contains its own exact next instruction. Divisibility of the upper-right entry by the earned pivot is equivalent to completion by one unimodular column shear; failure is not generic defeat but the residue that selects a further interaction.
+Doing: Landed `complete_diagonal_if_pivot_divides`, its matrix witnesses, sign normalization, and the nonzero-residual branch. All 33 exponent-world tests are green.
+
+## 2026-08-12T11:53:01Z — session end
+Resume: Let the residual branch act rather than merely report: apply a Euclidean column operation to reduce `h mod g`, then alternate row and column reductions on one concrete 2x2 matrix. Find and prove a decreasing measure before claiming generic Smith termination.
+Open: The diagonal result need not yet satisfy Smith divisibility `d_1|d_2`; distinguish ordinary diagonalization from Smith normalization. Validation gcd calls still form state and may need a non-forming check mode.

@@ -198,6 +198,25 @@ class EuclideanColumnReduction:
     left: tuple[tuple[int, int], tuple[int, int]]
 
 
+@dataclass(frozen=True)
+class PivotDivisibilityResidual:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    triangular: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    pivot: int
+    upper_right: int
+    residual: int
+
+
+@dataclass(frozen=True)
+class PivotDiagonalization:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    diagonal: tuple[int, int]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    quotient: int
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -698,6 +717,40 @@ class ExponentWorld:
             "division remainders choose a strictly descending unimodular row path",
         )
         return EuclideanColumnReduction(start, current, tuple(steps), left)
+
+    def complete_diagonal_if_pivot_divides(
+        self, matrix: tuple[tuple[int, int], tuple[int, int]]
+    ) -> PivotDiagonalization | PivotDivisibilityResidual:
+        """Reduce column one, then clear the upper-right entry when divisible."""
+        (a, h0), (b, k0) = matrix
+        reduction = self.reduce_positive_column(a, b)
+        triangular = _matmul2(reduction.left, matrix)
+        pivot, upper_right = triangular[0]
+        if triangular[1][0] != 0:
+            raise AssertionError("column reduction did not produce triangular form")
+        residual = upper_right % pivot
+        if residual:
+            return PivotDivisibilityResidual(
+                matrix, triangular, reduction.left, pivot, upper_right, residual
+            )
+        quotient = upper_right // pivot
+        right = ((1, -quotient), (0, 1))
+        diagonal_matrix = _matmul2(triangular, right)
+        left = reduction.left
+        if diagonal_matrix[1][1] < 0:
+            sign = ((1, 0), (0, -1))
+            diagonal_matrix = _matmul2(sign, diagonal_matrix)
+            left = _matmul2(sign, left)
+        diagonal = (diagonal_matrix[0][0], diagonal_matrix[1][1])
+        if diagonal_matrix != ((diagonal[0], 0), (0, diagonal[1])):
+            raise AssertionError("pivot shear failed to diagonalize")
+        if _matmul2(_matmul2(left, matrix), right) != diagonal_matrix:
+            raise AssertionError("pivot diagonal certificate failed")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], *diagonal, quotient),
+            "first-column gcd plus pivot divisibility completes diagonalization",
+        )
+        return PivotDiagonalization(matrix, diagonal, left, right, quotient)
 
 
 def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:

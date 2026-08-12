@@ -15,6 +15,8 @@ from exponent_world import (
     WitnessedSmithSolution,
     SmithStep,
     EuclideanColumnReduction,
+    PivotDiagonalization,
+    PivotDivisibilityResidual,
 )
 
 
@@ -365,6 +367,33 @@ class SmithPathTests(unittest.TestCase):
         after = _matvec_for_test(operation, (a, b))
         self.assertEqual(after, (30, 54))
         self.assertFalse(0 <= after[1] < b)
+
+    def test_pivot_divisibility_completes_diagonalization(self):
+        world = ExponentWorld()
+        for value in (84, 30):
+            world.form(value)
+        result = world.complete_diagonal_if_pivot_divides(((84, 42), (30, 18)))
+        self.assertIsInstance(result, PivotDiagonalization)
+        self.assertEqual(result.diagonal, (6, 42))
+        self.assertEqual(result.quotient, 2)
+        self.assertEqual(
+            _matmul_for_test(_matmul_for_test(result.left, result.matrix), result.right),
+            ((6, 0), (0, 42)),
+        )
+
+    def test_nondivisible_upper_entry_emits_residual(self):
+        world = ExponentWorld()
+        for value in (84, 30):
+            world.form(value)
+        result = world.complete_diagonal_if_pivot_divides(((84, 14), (30, 10)))
+        self.assertIsInstance(result, PivotDivisibilityResidual)
+        self.assertEqual(result.triangular, ((6, 16), (0, -70)))
+        self.assertEqual((result.pivot, result.upper_right, result.residual), (6, 16, 4))
+
+
+def _matmul_for_test(left, right):
+    return tuple(tuple(sum(left[i][k] * right[k][j] for k in range(2))
+                       for j in range(2)) for i in range(2))
 
 
 if __name__ == "__main__":
