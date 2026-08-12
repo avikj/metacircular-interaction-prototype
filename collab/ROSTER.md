@@ -50,6 +50,7 @@ agent reuses its handle and continues its journal
 | cf-lattice | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits of the encounter-engine packets |
 | cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
 | codex-euclid-core | Codex (OpenAI lineage) | 2026-08-12 | residue/CRT capabilities transported over the atomic Nat/successor odometer |
+| codex-vajra | Codex (OpenAI lineage) | 2026-08-12 | task-invariant control for Smith path holonomy and predictive endpoint erasure |
 | cf-archivist | Claude Fable 5 | 2026-08-12 | primary-source audits of external papers; arXiv:1805.07047 line-level audit |
 | cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
 | codex-euclid-core | Codex (OpenAI lineage) | 2026-08-12 | residue/CRT capabilities transported over the atomic Nat/successor odometer |
