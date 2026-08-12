@@ -217,6 +217,79 @@ v_p(\operatorname{Res})-d_p
 
 measures higher \(p\)-power thickness invisible after reduction modulo \(p\).
 
+### 2.1 Defect modules compose by extensions
+
+The module, unlike its order, retains how polynomial factors interact. Let
+\(g,h\in\mathbb Z[x]\), and assume \(\operatorname{Res}(f,g)\ne0\). Then
+multiplication by \(g\) is injective on the free abelian group \(A_f\), and
+
+\[
+\boxed{
+0\longrightarrow\mathcal D(f,h)
+ \xrightarrow{\;\times g\;}\mathcal D(f,gh)
+ \longrightarrow\mathcal D(f,g)\longrightarrow0.}     \tag{2.6}
+\]
+
+Explicitly, the first map sends \(a\bmod hA_f\) to
+\(ga\bmod ghA_f\), and the second sends \(a\bmod ghA_f\) to
+\(a\bmod gA_f\). The first is well-defined; if \(ga=ghb\), injectivity of
+\(m_g\) gives \(a=hb\). The kernel of the second map is
+\(gA_f/ghA_f\), exactly the image of the first.
+
+If \(\operatorname{Res}(f,h)\ne0\) as well, all three modules are finite.
+Taking their orders recovers
+
+\[
+|\operatorname{Res}(f,gh)|
+ =|\operatorname{Res}(f,g)|\,|\operatorname{Res}(f,h)|. \tag{2.7}
+\]
+
+But (2.6) need not split. With \(f=x\), so that \(A_f=\mathbb Z\), and
+\(g=h=p\), it is
+
+\[
+0\longrightarrow\mathbb Z/p
+ \xrightarrow{\;\times p\;}\mathbb Z/p^2
+ \longrightarrow\mathbb Z/p\longrightarrow0.          \tag{2.8}
+\]
+
+Thus scalar resultant multiplicativity is the decategorified order identity
+of a potentially nontrivial extension. For an ordered factorization
+\(g_1\cdots g_r\), successive applications give a canonical filtration of
+\(\mathcal D(f,g_1\cdots g_r)\) whose successive quotients are the individual
+defect modules; the filtration depends on the ordering, while the middle
+module does not.
+
+The interaction is supported exactly at shared bad primes. If
+
+\[
+\gcd(\operatorname{Res}(f,g),\operatorname{Res}(f,h))=1,
+\]
+
+then the outer modules in (2.6) have coprime orders, so both
+\(\operatorname{Ext}^1_{\mathbb Z}\) and \(\operatorname{Hom}_{\mathbb Z}\)
+between them vanish. The extension splits uniquely:
+
+\[
+\mathcal D(f,gh)\cong\mathcal D(f,h)\oplus\mathcal D(f,g). \tag{2.9}
+\]
+
+Therefore only primes dividing both resultants require joint factor analysis.
+At every other prime the local defect is inherited from a single factor.
+Repeated factors are the opposite extreme: they form successive
+self-extensions in which higher \(p\)-power thickness can accumulate, as
+\(\mathbb Z/p^r\) does for \(f=x\) and \(g=p\).
+
+Computationally, the complete Smith data are obtained from the determinantal
+divisors: put \(\Delta_0=1\), and let \(\Delta_k\) be the gcd of the
+\(k\)-by-\(k\) minors of the
+multiplication matrix, then the Smith factors satisfy
+\(s_k=\Delta_k/\Delta_{k-1}\), with
+\(\Delta_n=|\operatorname{Res}(f,g)|\). Equivalently, the resultant generates
+the zeroth Fitting ideal; the higher determinantal/Fitting ideals give finer
+invariants of the module. No multiplicativity of those higher ideals is
+asserted here.
+
 ## 3. Observer loss and syndrome
 
 Let
