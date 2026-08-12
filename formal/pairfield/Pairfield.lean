@@ -5,3 +5,4 @@ import Pairfield.ReversalRigidity
 import Pairfield.CharacterAnchor
 import Pairfield.FiniteInformation
 import Pairfield.FutureBehavior
+import Pairfield.SmithMemory
