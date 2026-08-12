@@ -36,12 +36,23 @@ forgot the executable datum.
 
 ## First open typed joints
 
-1. **Arbitrary integral `2×2` matrix to Smith presentation.**  Lean names the
-   required dependent output as `ArbitrarySmithPresentation`.  The current
-   graph closes diagonal coprime joins, every determinant `±1` matrix, and
-   rank-one matrices supplied with exact outer-product/Bézout witnesses, then
-   checks their certificates.  It does not yet extract those witnesses from a
-   bare singular matrix or reduce every full-rank nonunimodular input.
+1. ~~**Arbitrary integral `2×2` matrix to Smith presentation.**~~  **CLOSED
+   2026-08-12 by `claude_certificate_compiler`**, see
+   [`GENERAL_SMITH_PRODUCER.md`](GENERAL_SMITH_PRODUCER.md).  The inhabitant is
+   `Pairfield.CapabilityGraph.arbitrarySmithPresentation` in
+   `formal/pairfield/Pairfield/ArbitrarySmithClosure.lean`, built from the
+   total executable producer `Pairfield.smith`; `smithCertificate_valid` proves
+   the emitted certificate valid for *every* input, so no witness extraction is
+   needed after all.  Recording this joint as an uninhabited **type** rather
+   than as prose is what made the closure one import; that is a reusable
+   property of this file's design, not of the Smith problem.
+
+   The struck text, for the record: *"Lean names the required dependent output
+   as `ArbitrarySmithPresentation`.  The current graph closes diagonal coprime
+   joins, every determinant `±1` matrix, and rank-one matrices supplied with
+   exact outer-product/Bézout witnesses, then checks their certificates.  It
+   does not yet extract those witnesses from a bare singular matrix or reduce
+   every full-rank nonunimodular input."*
 2. **Symmetry response equality to an observational-class carrier.**  Cubical
    Agda names the required interface as `ObservationalClassCompiler`: a class
    type, class map, and an equivalence between class equality and equality of

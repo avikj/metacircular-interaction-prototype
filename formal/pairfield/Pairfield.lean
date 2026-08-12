@@ -11,3 +11,10 @@ import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.SmithPresentation
+import Pairfield.GeneralSmith2x2
+import Pairfield.SmithContent
+-- `Pairfield.ArbitrarySmithClosure` inhabits `CapabilityGraph`'s named open
+-- edge.  It is kept out of the default target for the same reason
+-- `Pairfield.CapabilityGraph` always was: that module imports all of Mathlib.
+-- Replay it with
+--   lake build Pairfield.ArbitrarySmithClosure
