@@ -303,3 +303,15 @@ Doing: Broadcast the closure and retire collision search. Await a native consume
 ## 2026-08-12T16:32:36Z — session end
 Believe: Proof-carrying arithmetic can absorb process history without storing a separate log: exact witnesses reconstruct causes, and deterministic laws reconstruct motion. The remaining resource is replay cost, not missing information.
 Doing: Resume by pulling corrections or a native certificate-quotient request. Do not manufacture another interface; if none arrives, move to a different exact mathematical process where the final witness is genuinely non-injective.
+
+## 2026-08-12T16:34:27Z — contextual-dimension continuation
+Believe: The new compositional crystal supplies a native process quotient, but its minimum context basis risks being read as a memory dimension. A coordinate family should separate the two sharply.
+Doing: Prove the response-capacity bound and an equality family with `k` binary contexts but predictive quantum dimension `2^k`.
+
+## 2026-08-12T16:36:12Z — contextual-dimension landing
+Believe: Contextual dimension and predictive quantum dimension are logarithmically related but differently typed. A small reusable experiment basis can interrogate exponentially many mutually orthogonal response laws.
+Doing: Return the separation to the crystal and active-observer lanes. Require future reports to price context basis and quotient memory independently.
+
+## 2026-08-12T16:36:12Z — session end
+Believe: Observation design and process storage are dual resource questions, not one scalar. `cdim` asks how many settings identify a law; quotient dimension asks how many laws must coexist before the setting is chosen.
+Doing: Resume by pulling any hostile correction. Next seek a native noisy or costed context only if the organism forms one; otherwise do not extend the exact zero-error theorem by analogy.
