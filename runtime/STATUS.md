@@ -100,17 +100,32 @@ use. Any claim that it does would be measuring the wrong thing.
 
 | education | `curriculum/` — dependency graph where every edge cites the theorem forcing it, choice metric in `ATLAS_OF_N`'s exact sense, order derived by sort on computed integers | **BUILT**, 55/55 tests, 15/16 mutants killed (survivor proved equivalent, recorded rather than counted as a kill). Derived order puts **group action 3rd of 13 and positional notation 13th of 13**, with 0/23 dependency violations and 0 choice debt against the conventional sequence's 11/23 and 7. Empirical learning claims are structurally rejected by the same guard `render/` uses |
 
-## Cross-lane defect reports (open)
+## Cross-lane defect reports
 
-1. **`explanations`/homotopy DFS aborts globally on `max_depth` instead of
+1. ~~**`explanations`/homotopy DFS aborts globally on `max_depth` instead of
    backtracking.** On a 533-record graph it returns a single 240-step class
    where the geodesic is 15 — so it cannot currently be used to find short
    routes. Filed by the L3 lane against the L4/Part-A lane. Not a soundness
    bug (the guarded `ClassEnumeration` still refuses to pass off a partial
-   answer as complete), but the enumeration is far from complete in practice.
-2. **`kernel/README.md` still documents the old `explanations(x,y,limit=8)
+   answer as complete), but the enumeration is far from complete in practice.~~
+   **FIXED** by the repair lane. The depth bound now prunes the *branch* and
+   backtracks; rounds go shortest-first (iterative deepening with a
+   breadth-first distance cut), so a budget buys the short classes. On the same
+   533-record graph, same bounds: smallest class found **64 → 11 axioms**,
+   classes found in the same 4096-path budget **104 → 523**, nodes explored
+   **252,202 → 26,346**. On a synthetic worst case (a 301-record chain hiding a
+   15-axiom route) it went from **0 classes** to finding the 15-axiom one.
+   Completeness semantics are untouched: a run that pruned anything still
+   reports `complete=False`, with the pruned-branch count in `reason`. Pinned by
+   `A7`, `A8` and the control `x_depth_pruned_not_complete` in
+   `tests/test_propagate.py`; numbers in `SCALE.md` §5.
+2. ~~**`kernel/README.md` still documents the old `explanations(x,y,limit=8)
    -> tuple` signature**, which Part A replaced with the guarded
-   `ClassEnumeration`. The contract other lanes code against is stale.
+   `ClassEnumeration`. The contract other lanes code against is stale.~~
+   **FIXED**. `kernel/README.md` now documents the real API and carries a
+   **Contract changes** section (C1 the `ClassEnumeration` replacement, C2 the
+   backtracking fix, C3 the shortest-realisation representative) so a later
+   lane can read the history instead of trusting a silently-edited document.
 3. **`EGraph.explain` is not a metric and must not be used as one.** Its
    length is proof-forest route length, which depends on merge order: in an
    early L3 draft, adding a theorem made a target go 28 → 36 steps while
@@ -125,3 +140,44 @@ L3 reports that on its demo task `verify` is near-collinear with `steps`:
 three-component vector wearing a hat.* Recorded rather than fixed — the
 Pareto machinery is correct, but the claim "four independent costs" is not
 established on this task.
+
+## Scale: the "measured on toy tasks only" objection, answered in numbers
+
+Full curves, method and caveats: **`runtime/SCALE.md`**. Headlines:
+
+| what was tested | prediction | measured |
+|---|---|---|
+| §3.1 lemma book (`crystallize/README.md` §6.1: *"at a few hundred lemmas the search cost overtakes the step savings"*) | a few hundred | **break-even at 22 lemmas, net loss from 23** — right in kind, ~15× optimistic in degree. Step count never decays: **12 steps at a 1-lemma book and at a 3000-lemma book**, null book 29 at every size |
+| the fix that lane named (discrimination net on lemma LHSs) | "the first thing that must change" | **built** (`crystallize.derivation.LemmaIndex`, off by default). Per-query index: crossover 22 → **477**. Index built once per book: query work is **constant at 1,623 from N=10 to N=3000** — no crossover at any size measured, and 3.3× cheaper than the empty book |
+| L3 e-matching (*"only postpones the wall"*) | — | **e-matching automaton built** (compile once, register machine, candidates deduplicated by e-node signature). Demo saturation **33,630 → 16,962 visits**; wall clock lower in all 17 measured pattern queries (up to 5.2× on an AC-saturated 6,549-node graph); identical matches in identical order, held by a differential test against the recursive matcher, which is retained and selectable |
+
+**Seed criterion at scale (§3.1): survives.** At the largest book measured
+(3,000 checked lemmas) P4 still solves in 12 steps against the null book's 29,
+with the answer independently re-verified. The criterion is durable because it
+is a statement about *steps* — but a step claim stops being an operational
+claim once search cost dominates, and with the linear scan that happens at 22
+lemmas. With the net amortised, cost stops growing with the book at all.
+
+**Two counters that must not be compared across engines.** `ematch`'s
+`max_visits` is a *budget*, not a metric: the recursive matcher charges nothing
+for a memo hit and the automaton charges nothing for an entry-cache hit, so
+their `visits` are not the same unit. Counting every lookup either engine
+performs, the automaton does 2.6× less work on the hardest graph measured;
+counting raw `visits` it looks worse there and better on the demo. `SCALE.md`
+§4.4 states this in full.
+
+**Still open after this lane:** `merge`'s O(n²) duplicate-id scan; retraction
+cone width; `recompute_addr` tree recursion; class enumeration is still
+exponential in *work* on dense justification graphs (the fix is dominance
+pruning on the partial multiset during the walk, not more bounds);
+`propagate/invalidate.py`'s derivation-tree walk still aborts globally on
+`max_depth` exactly as `egraph.py` used to, and wants the same repair.
+
+**Two documents this lane deliberately did not edit**, because they belong to
+other lanes and their published counters are theirs to re-issue:
+`execute/README.md` describes the recursive matcher and its memo, which is now
+the non-default engine (the automaton is in `execute/ematch.py` under
+`DEFAULT_ENGINE`, with the recursive one retained and selectable);
+`crystallize/README.md` §6.1 still calls the lemma scan unfixed and estimates
+the crossover at a few hundred, where `SCALE.md` measures 22. Both are stale in
+the direction of understating what is built, not overstating it.

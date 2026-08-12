@@ -45,18 +45,16 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(
 
 from runtime.kernel import check as C                                  # noqa: E402
 from runtime.kernel import term as T                                   # noqa: E402
-from runtime.execute.extract import (RouteFinder, Scalarization,        # noqa: E402
-                                     dominates, is_nondominated, pareto,
-                                     scalarize)
+from runtime.execute.extract import (Scalarization, dominates,          # noqa: E402
+                                     is_nondominated, scalarize)
 from runtime.physics import dimension as DIM                           # noqa: E402
 from runtime.physics import optics as OPT                              # noqa: E402
 from runtime.physics import geodesic as GEO                            # noqa: E402
 from runtime.physics.dimension import (AREA, DimensionError, LENGTH,   # noqa: E402
                                        SPEED, TIME, quantity)
 from runtime.physics.optics import (InterfaceStack, Medium, MirrorArc,  # noqa: E402
-                                    Ray, Surd, Vec, circle_tangent,
-                                    critical_points, lattice,
-                                    optical_path_length, reflection_residual,
+                                    Vec, circle_tangent, critical_points,
+                                    lattice, reflection_residual,
                                     snell_invariant, snell_residual)
 from runtime.physics.geodesic import (SOURCE, TARGET, MirrorRouteProblem,  # noqa: E402
                                       OpticsRouteProblem, ProofRouteProblem,

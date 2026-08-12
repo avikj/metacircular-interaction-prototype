@@ -482,6 +482,32 @@ def test_ematch_automaton_agrees_with_the_recursive_matcher():
                 ("engines disagree on %s" % pat.pretty())
 
 
+def test_ematch_automaton_agrees_on_binder_patterns():
+    """The ``lam`` instruction: no demo pattern reaches it, so it is tested here.
+
+    ``h (lam x. f a)`` and ``h (lam x. f x)`` sit in one graph with ``a = b``
+    merged, so the pattern ``lam x. f ?u`` must bind ``?u`` to the class of
+    ``a`` and materialise both members -- under both engines, identically.
+    """
+    h = T.Const("h", T.arrow(ZZ, Z))
+    lam_open = T.Lam(Z, T.App(F, T.Var(0, Z)))
+    lam_const = T.Lam(Z, T.App(F, A))
+    g = EGraph()
+    g.add(T.App(h, lam_open))
+    g.add(T.App(h, lam_const))
+    g.add(B)
+    ctx = C.CheckContext()
+    ctx.declare_axiom("ab", A, B)
+    g.merge(A, B, C.Axiom("ab"), edge_id="E1")
+    for pat in (T.Lam(Z, T.App(F, VU)), T.App(h, T.Lam(Z, T.App(F, VU)))):
+        a = ematch(g, pat, {"?u"}, engine="automaton")
+        r = ematch(g, pat, {"?u"}, engine="recursive")
+        assert a.complete and r.complete
+        assert [m.key() for m in a.matches] == [m.key() for m in r.matches], \
+            pat.pretty()
+        assert len(a.matches) == 2, [m.key() for m in a.matches]
+
+
 def test_ematch_automaton_honours_the_same_budget_discipline():
     _, _, _, g, _ = saturated(8)
     pat = mul(mul(mul(VP, VP), VP), VP)

@@ -44,6 +44,28 @@ module gives something up:
     routes.  That is a loss of candidate routes, not of mathematics, and it is
     why the exhaustive mode exists for small-arity patterns.
 
+TWO ENGINES, ONE ANSWER
+-----------------------
+``ematch(..., engine=...)`` selects the search:
+
+``"automaton"``  (the default) compiles each pattern **once** into a flat
+                 instruction sequence over registers holding e-classes and runs
+                 it -- the Simplify / egg e-matching abstract machine.  See THE
+                 AUTOMATON below for the instruction set and for the one
+                 structural difference that matters: its candidates are e-node
+                 *signatures*, so a class of *n* members with the same child
+                 classes is one candidate, not *n*.
+``"recursive"``  the memoised backtracking matcher the automaton replaced.
+                 Retained, not deleted: it is the reference the differential
+                 test in ``runtime/tests/test_execute.py`` holds the automaton
+                 against, match for match **and in the same order**.
+
+They are required to agree.  What they do *not* share is the meaning of
+``visits``: the recursive matcher charges nothing for a memo hit, the automaton
+nothing for an entry-cache hit, so ``max_visits`` is a per-engine budget and
+never a cross-engine metric.  ``runtime/SCALE.md`` §4 measures both and says so
+in those words.
+
 Everything is deterministic: classes are iterated in sorted address order,
 representatives in ``(size, address)`` order, results deduplicated by an
 insertion-ordered dict.

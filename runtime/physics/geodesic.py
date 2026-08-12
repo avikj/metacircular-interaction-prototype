@@ -32,8 +32,8 @@ domination code runs.
 ``RouteFinder._dijkstra`` itself is not called on the optics problem, and
 cannot be: its weights are Python ``int``s accumulated as ``d + w``, and an
 optical path length is not an integer.  Rewriting L3 to be weight-generic is a
-one-line change to a BUILT, mutation-tested layer and this lane does not have
-the mandate to make it.  So the honest statement is: **the shared abstraction
+small change to a BUILT, mutation-tested layer and this lane does not have the
+mandate to make it.  So the honest statement is: **the shared abstraction
 is implemented here and L3's extractor is shown to be an instance of it, by
 running L3's adjacency and weights through it and asserting equality.**  That
 is a checked claim, not a metaphor and not a copy-paste.
@@ -42,7 +42,7 @@ is a checked claim, not a metaphor and not a copy-paste.
 *stationarity* principle, ``delta OPL = 0``; extraction is *minimisation*.
 Minimal implies stationary; the converse is false, and the failure is not
 exotic -- a concave mirror's focusing ray is a path-length **maximum**.
-``mirror_problem`` builds one exactly, and this module's routing machinery gets
+``MirrorRouteProblem`` builds one exactly, and this module's routing machinery gets
 it wrong, on purpose, in the open.  The precise repair is not "search harder":
 it is ``convexity_certificate``, which states the exact condition under which
 the identification is licensed and refuses to issue when it is not.
@@ -55,9 +55,9 @@ evaluated numerically.
 from __future__ import annotations
 
 import heapq
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from fractions import Fraction
-from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 from ..kernel import check as C
 from ..kernel import edges as E
@@ -449,21 +449,26 @@ def certify_optical_length(ray: O.Ray, claimed: Surd) -> Tuple[bool, int]:
 
 
 def optical_routes(stack: O.InterfaceStack,
-                   crossings: Optional[Sequence[Sequence[Fraction]]] = None
+                   crossings: Optional[Sequence[Sequence[Fraction]]] = None,
+                   certifier: Optional[Callable[[O.Ray, Surd],
+                                                Tuple[bool, int]]] = None
                    ) -> Tuple[Route, ...]:
     """Every candidate ray as an ``execute.extract.Route``, certified first.
 
     A ray whose optical length fails independent recomputation is dropped, in
     the same place and for the same reason L3 drops a route the checker
-    rejects: the frontier contains only certified routes.
+    rejects: the frontier contains only certified routes.  ``certifier`` is
+    injectable so the test suite can plant a refusing certifier and check that
+    the gate is really load-bearing rather than decorative.
     """
+    certify = certifier or certify_optical_length
     out: List[Route] = []
     xs_list = list(crossings) if crossings is not None else list(stack.paths())
     for xs in xs_list:
         ray = stack.ray(xs)
         opl = O.optical_path_length(ray)
-        ok, verify = certify_optical_length(ray, opl)
-        if not ok:                                   # pragma: no cover - control
+        ok, verify = certify(ray, opl)
+        if not ok:
             COUNTERS.bump("light.route_rejected")
             continue
         cost = OpticalCost(opl=opl, hops=len(ray.media), width=ray.width(),

@@ -21,10 +21,10 @@ from runtime.crystallize.antiunify import (antiunify, antiunify_tuples,      # n
                                            is_strictly_more_general, recover,
                                            variable_positions)
 from runtime.crystallize.derivation import (CheckFailure, Counter,           # noqa: E402
-                                            Divergence, I, Lemma, P, PV, S,
-                                            Step, Sub, V, check_derivation,
-                                            match, normalize, poly_equal,
-                                            pvars_of, render, subst)
+                                            Divergence, I, Lemma, LemmaIndex,
+                                            P, PV, S, Step, Sub, V,
+                                            check_derivation, match, normalize,
+                                            poly_equal, pvars_of, render, subst)
 from runtime.crystallize.install import Book, ground, solve, verify          # noqa: E402
 from runtime.crystallize.mine import (Candidate, mine, reconstruction_ok,    # noqa: E402
                                       segments)
@@ -382,6 +382,77 @@ def test_poly_equal_is_a_decision_not_a_sample():
     assert not poly_equal(P(S(x, y), Sub(x, y)), S(P(x, x), P(y, y)))
     assert not poly_equal(S(x, I(1)), S(x, I(2)))
     assert poly_equal(P(S(x, I(1)), S(x, I(1))), S(P(x, x), P(I(2), x), I(1)))
+
+
+def _big_book(n):
+    """A book of ``n`` gate-checked lemmas: the mined one plus filler.
+
+    The filler lemmas are true by construction and installed through the same
+    seven gates, and every one of them uses a literal >= 11, which no term in
+    these tests contains -- so they can only cost search, never change an
+    answer.
+    """
+    b, _ = _dsq_book()
+    c = 11
+    while len(b) < n:
+        lhs = P(S(PV(0), I(c)), Sub(PV(0), I(c)))
+        rhs, _ = normalize(P(S(V("$g0"), I(c)), Sub(V("$g0"), I(c))), name="f")
+        assert b.install("f%d" % c, lhs,
+                         subst(rhs.result, {"$g0": PV(0)})).ok
+        c += 1
+    return b
+
+
+def test_discrimination_net_returns_the_same_derivation_as_the_scan():
+    """The net may only remove match attempts that were bound to fail."""
+    book = _big_book(40)
+    for t in (P4, dos("x", "y"), S(I(7), dos("u", "v")),
+              S(dos("a", "b"), V("a")), P(S(x, y), Sub(x, y))):
+        d0, c0 = normalize(t, lemmas=tuple(book.lemmas), name="scan")
+        d1, c1 = normalize(t, lemmas=tuple(book.lemmas), name="net",
+                           use_index=True)
+        assert d0.result.addr == d1.result.addr, render(t)
+        assert list(d0.rule_seq()) == list(d1.rule_seq()), render(t)
+        assert c0.steps == c1.steps
+        assert c1.work < c0.work, (c0.work, c1.work)
+
+
+def test_discrimination_net_candidates_are_a_superset_of_the_matches():
+    """The planted control for the index: whatever it drops must be unmatchable.
+
+    Checked exhaustively -- for every node of every test term, the lemmas the
+    net rejects are re-matched by brute force and every one of them must fail.
+    """
+    from runtime.crystallize.derivation import positions_postorder, at
+    book = _big_book(30)
+    lemmas = tuple(book.lemmas)
+    idx = LemmaIndex(lemmas)
+    checked = 0
+    for t in (P4, dos("x", "y"), S(dos("a", "b"), V("a"))):
+        for p in positions_postorder(t):
+            node = at(t, p)
+            cands = set(id(l) for l in idx.candidates(node))
+            for lem in lemmas:
+                if id(lem) in cands:
+                    continue
+                checked += 1
+                assert match(lem.lhs, node) is None, \
+                    "the net dropped a lemma that matches: %s" % lem.lid
+    assert checked > 0, "the control tested nothing"
+
+
+def test_discrimination_net_index_can_be_built_once_and_reused():
+    book = _big_book(20)
+    idx = LemmaIndex(tuple(book.lemmas))
+    d0, c0 = normalize(P4, lemmas=tuple(book.lemmas), name="scan")
+    d1, c1 = normalize(P4, lemmas=tuple(book.lemmas), name="amortised",
+                       index=idx)
+    assert d0.result.addr == d1.result.addr
+    assert c0.steps == c1.steps
+    # a reused index charges the query nothing for construction
+    _, c2 = normalize(P4, lemmas=tuple(book.lemmas), name="built-in",
+                      use_index=True)
+    assert c1.work < c2.work < c0.work, (c0.work, c1.work, c2.work)
 
 
 def test_substitution_respects_repeated_variables():

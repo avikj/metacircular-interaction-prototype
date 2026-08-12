@@ -642,6 +642,114 @@ class Lemma:
                                            render(self.rhs))
 
 
+# --------------------------------------------------------------------------
+# the discrimination net (README sec.6 item 1: "this is the first thing that
+# must change")
+# --------------------------------------------------------------------------
+#
+# ``_try_lemmas`` below is a linear scan: every lemma is match-attempted at
+# every position of every intermediate term, so the search is O(|book| *
+# |term|) per step.  ``runtime/SCALE.md`` measures where that stops paying:
+# on the demo's independent problem the mined lemma saves 17 kernel steps for
+# ever, but the book's search work passes the no-lemma baseline at **22
+# lemmas** -- an order of magnitude earlier than the README's "a few hundred"
+# estimate.
+#
+# The fix the crystallize lane named is an index on lemma left-hand sides, and
+# this is it.  ``match`` is one-way and purely structural: at a non-variable
+# pattern node it demands the same ``(kind, val, arity)`` as the subject.  So
+# for a fixed set of probe positions, a lemma whose left side carries a
+# concrete key at a probe cannot possibly match a subject that carries a
+# different key (or nothing) there.  Indexing on those keys therefore
+# **removes only match attempts that were guaranteed to fail** -- the candidate
+# list is a superset of the matches, and the derivation is identical, step for
+# step.  That equality is asserted by the tests and by ``scale_lemmas.py``.
+#
+# The lookup is not free and is not free of charge either: every probe costs a
+# counted work unit, as does every lemma inserted at build time, so the index's
+# own cost appears in the same column as the scan it replaces.
+
+PROBES: Tuple[Position, ...] = ((), (0,), (1,), (2,), (0, 0), (0, 1), (1, 0), (1, 1))
+
+
+def _at_opt(t: Term, p: Position) -> Optional[Term]:
+    for i in p:
+        if i >= len(t.args):
+            return None
+        t = t.args[i]
+    return t
+
+
+def _node_key(t: Term) -> Tuple:
+    """Exactly what ``match`` demands to agree at a non-variable pattern node."""
+    return (t.kind, t.val, len(t.args))
+
+
+class LemmaIndex:
+    """A discrimination net over lemma left-hand sides.
+
+    ``candidates(node)`` returns the lemmas whose left side agrees with ``node``
+    at every probe position where the left side is not a pattern variable, in
+    installation order.  It is a *filter*, never a truncation: a lemma it drops
+    could not have matched.
+    """
+
+    __slots__ = ("lemmas", "masks", "wild", "full")
+
+    def __init__(self, lemmas: Sequence[Lemma],
+                 ctr: Optional[Counter] = None) -> None:
+        self.lemmas = tuple(lemmas)
+        self.masks: List[Dict[Tuple, int]] = [{} for _ in PROBES]
+        self.wild: List[int] = [0] * len(PROBES)
+        for i, lem in enumerate(self.lemmas):
+            bit = 1 << i
+            for j, p in enumerate(PROBES):
+                if ctr is not None:
+                    ctr.effort()
+                node = _at_opt(lem.lhs, p)
+                if node is None or is_pvar(node):
+                    self.wild[j] |= bit
+                else:
+                    k = _node_key(node)
+                    self.masks[j][k] = self.masks[j].get(k, 0) | bit
+        self.full = (1 << len(self.lemmas)) - 1
+
+    def candidates(self, t: Term, ctr: Optional[Counter] = None) -> List[Lemma]:
+        m = self.full
+        for j, p in enumerate(PROBES):
+            if not m:
+                break
+            if ctr is not None:
+                ctr.effort()
+            node = _at_opt(t, p)
+            if node is None:
+                m &= self.wild[j]
+            else:
+                m &= self.masks[j].get(_node_key(node), 0) | self.wild[j]
+        out: List[Lemma] = []
+        while m:
+            b = m & -m
+            out.append(self.lemmas[b.bit_length() - 1])
+            m ^= b
+        return out
+
+
+def _try_lemmas_indexed(t: Term, index: LemmaIndex, ctr: Counter):
+    """``_try_lemmas`` with the scan replaced by an index lookup.
+
+    Same traversal, same priority, same first hit -- the only difference is
+    which lemmas are match-attempted at each node.
+    """
+    for p in positions_postorder(t):
+        node = at(t, p)
+        for lem in index.candidates(node, ctr):
+            ctr.effort()
+            sigma = match(lem.lhs, node)
+            if sigma is not None:
+                return (p, node, subst(lem.rhs, sigma), lem)
+    return None
+
+
 def _try_lemmas(t: Term, lemmas: Sequence[Lemma], ctr: Counter):
     """Innermost-leftmost search for a lemma redex over the whole term.
 
@@ -674,23 +782,40 @@ def _try_primitive(t: Term, ctr: Counter):
 
 def normalize(start: Term, lemmas: Sequence[Lemma] = (),
               ctr: Optional[Counter] = None, name: str = "derivation",
-              max_steps: int = MAX_STEPS) -> Tuple[Derivation, Counter]:
+              max_steps: int = MAX_STEPS,
+              use_index: bool = False,
+              index: Optional["LemmaIndex"] = None) -> Tuple[Derivation, Counter]:
     """Normalise ``start``, recording every step in a :class:`Derivation`.
 
     Deterministic: fixed rule priority, innermost-leftmost redex selection,
     lemmas before primitives.  Terminating: a cycle guard on whole-term
     addresses plus a hard step cap, both of which raise rather than return a
     wrong answer.
+
+    ``use_index`` selects the discrimination net (``LemmaIndex``) instead of the
+    linear scan over the book, building the net here and charging its
+    construction to ``ctr.work``.  ``index=`` takes a net built once for a book
+    and reused across problems, which is how a real caller would pay for it.
+    Either way the net is required to produce the *same derivation*, step for
+    step -- it changes only the ``work`` counter.  The default is ``False`` so
+    that every number already published against this module stays reproducible;
+    ``runtime/SCALE.md`` measures both and says what flipping it would cost and
+    buy.
     """
     if ctr is None:
         ctr = Counter()
+    if index is None and use_index and lemmas:
+        index = LemmaIndex(lemmas, ctr)
     d = Derivation(name, start)
     cur = start
     seen = {start.addr}
     while True:
         if len(d) >= max_steps:
             raise Divergence("step cap %d exceeded on %s" % (max_steps, name))
-        hit = _try_lemmas(cur, lemmas, ctr) if lemmas else None
+        if index is not None:
+            hit = _try_lemmas_indexed(cur, index, ctr)
+        else:
+            hit = _try_lemmas(cur, lemmas, ctr) if lemmas else None
         if hit is not None:
             p, redex, contractum, lem = hit
             rule, lid = "lemma:" + lem.lid, lem.lid

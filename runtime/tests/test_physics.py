@@ -463,6 +463,33 @@ def test_scalarize_needs_an_explicit_named_scalarization():
     assert action.scalarization.name == "least-action"
 
 
+def test_every_route_carries_a_measured_verify_cost():
+    """`verify` must be *read off a counter*, never stipulated."""
+    st = two_medium()
+    routes = optical_routes(st)
+    assert routes and all(r.cost.verify > 0 for r in routes)
+    assert len({r.cost.verify for r in routes}) >= 1
+
+
+def test_the_certification_gate_is_load_bearing():
+    """PLANTED FALSE -- a certifier that refuses must actually exclude routes."""
+    st = two_medium()
+    full = optical_routes(st)
+    seen = []
+
+    def refuse_one(ray, claimed):
+        seen.append(ray)
+        ok, cost = certify_optical_length(ray, claimed)
+        if len(seen) == 3:
+            return (False, cost)
+        return (ok, cost)
+
+    gated = optical_routes(st, certifier=refuse_one)
+    assert len(gated) == len(full) - 1, \
+        "a refused route reached the frontier anyway"
+    assert {r.label for r in full} - {r.label for r in gated}
+
+
 def test_certification_rejects_a_forged_optical_length():
     """PLANTED FALSE -- a claimed OPL that is not the ray's OPL."""
     st = two_medium()
