@@ -52,17 +52,6 @@ rightTransform-invertible M =
 normalMatrix-isSmith : (M : Mat m n) → isSmithNormal (normalMatrix M)
 normalMatrix-isSmith M = normalizeSmith M .isnormal
 
--- Consumer form: downstream mathematics receives the normal matrix together
--- with the exact relation and normality proof in one elimination step.  It
--- never has to serialize, project, and trustingly reassemble a certificate.
-withSmith : {A : Type₀} (M : Mat m n)
-          → ((D : Mat m n) → SimRel M D → isSmithNormal D → A)
-          → A
-withSmith M consume =
-  consume (normalizeSmith M .sim .result)
-          (normalizeSmith M .sim .simrel)
-          (normalizeSmith M .isnormal)
-
 -- Native consumer joint.  A downstream capability receives the actual normal
 -- matrix together with the invertible presentation change and its normality
 -- proof; no external certificate decoder or untyped tuple intervenes.
