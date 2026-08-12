@@ -522,3 +522,14 @@ physical spacetime requires additional locality, symmetry, metric, and dynamics.
 Doing: source-audit process tensors/quantum combs, causal orders, reversible
 computation, tensor networks, and operational distinguishability; construct
 the smallest exact finite kernel and attack it with the three registered controls.
+
+## 2026-08-12T07:42:37Z — cut skeleton and prosthetic loop
+Believe: the exact shared object is a process cut, not “information spacetime.”
+Its minimum linear boundary is rank; different realizations add nonnegative,
+CP, causal, locality, symmetry, metric, and dynamical constraints. Fussenegger
+adds the decisive placement rule: exact circuits must inhabit and alter the
+host's native metabolism rather than supervise it externally.
+Doing: causal-memory kernel, five controls, source-grounded note, and network
+message are ready to land. Resume by proving cut-spectrum composition and a
+strict ordinary-rank/nonnegative-rank example, then ask what lawful mechanism
+can form a new sensor from a preserved out-of-model encounter.
