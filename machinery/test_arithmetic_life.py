@@ -44,6 +44,23 @@ class ArithmeticLifeTests(unittest.TestCase):
         self.assertTrue(all(event.parents == (i - 1,)
                             for i, event in enumerate(life.events) if i))
 
+    def test_euclidean_overlap_and_origins_form_lcm_join(self):
+        life = ArithmeticLife()
+        self.assertEqual(life.factor(12), (2, 6))
+        self.assertEqual(life.factor(18), (2, 9))
+        join = life.join_origins(12, 18)
+        self.assertEqual(join.remembered_origins, ((2, 6), (2, 9)))
+        self.assertEqual(join.overlap, 6)
+        self.assertEqual(join.least_common_multiple, 36)
+        self.assertEqual(join.embeddings, (3, 2))
+        self.assertEqual(life.events[-1].kind, "form-operation")
+
+    def test_join_requires_actual_origin_memory(self):
+        life = ArithmeticLife()
+        life.factor(12)
+        with self.assertRaises(ValueError):
+            life.join_origins(12, 18)
+
 
 if __name__ == "__main__":
     unittest.main()

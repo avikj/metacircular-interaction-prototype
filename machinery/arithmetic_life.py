@@ -16,6 +16,15 @@ class Event:
     parents: tuple[int, ...]
 
 
+@dataclass(frozen=True)
+class OriginJoin:
+    inputs: tuple[int, int]
+    remembered_origins: tuple[tuple[int, int], tuple[int, int]]
+    overlap: int
+    least_common_multiple: int
+    embeddings: tuple[int, int]
+
+
 class ArithmeticLife:
     """A tiny process whose installed observations change its next action."""
 
@@ -23,6 +32,7 @@ class ArithmeticLife:
         self.moduli: list[int] = []
         self.generated_through = 1
         self.batch_compiled = False
+        self.factor_origins: dict[int, tuple[int, int]] = {}
         self.events: list[Event] = [
             Event("construct", (0, 1), "zero and successor", ()),
         ]
@@ -111,6 +121,7 @@ class ArithmeticLife:
             if common > 1:
                 divisor = next(p for p in active if common % p == 0)
                 pair = (divisor, n // divisor)
+                self.factor_origins[n] = pair
                 self._record(
                     "reconstruct-origin", (n,) + pair,
                     f"{n}={pair[0]}*{pair[1]}; replace object by origins",
@@ -124,6 +135,7 @@ class ArithmeticLife:
             )
             if n % divisor == 0:
                 pair = (divisor, n // divisor)
+                self.factor_origins[n] = pair
                 self._record(
                     "reconstruct-origin", (n,) + pair,
                     f"{n}={pair[0]}*{pair[1]}; replace object by origins",
@@ -134,6 +146,33 @@ class ArithmeticLife:
             f"no equal grouping through {isqrt(n)}; n is prime",
         )
         return None
+
+    def join_origins(self, left: int, right: int) -> OriginJoin:
+        """Form the least shared multiple from remembered factor origins.
+
+        Euclidean descent finds the overlap. Dividing it out before
+        multiplication prevents double-counting the shared origin.
+        """
+        if left not in self.factor_origins or right not in self.factor_origins:
+            raise ValueError("both inputs need remembered factor origins")
+        overlap = gcd(left, right)
+        joined = (left // overlap) * right
+        embeddings = (joined // left, joined // right)
+        if joined % left or joined % right:
+            raise AssertionError("formed join is not a common multiple")
+        self._record(
+            "form-operation",
+            (left, right, overlap, joined) + embeddings,
+            "Euclidean overlap plus factor origins forms lcm; "
+            "future common-multiple questions use the join",
+        )
+        return OriginJoin(
+            inputs=(left, right),
+            remembered_origins=(self.factor_origins[left], self.factor_origins[right]),
+            overlap=overlap,
+            least_common_multiple=joined,
+            embeddings=embeddings,
+        )
 
 
 def run(encounters: Iterable[int]) -> ArithmeticLife:

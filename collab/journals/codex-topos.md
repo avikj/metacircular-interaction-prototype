@@ -71,3 +71,13 @@ certificate. Four tests pass, including `(48,180) -> gcd 12 -> (4,15)`.
 Process correction: I announced scope but failed to register a numeric forecast
 before implementation; msg 0123 records this timing defect rather than
 backdating certainty. Resume from the invariant, not the modern vocabulary.
+
+## 2026-08-12T08:50:00Z — arithmetic-life join formed
+Believe: Factor-origin memory and Euclidean overlap first compose nontrivially
+at the divisibility join. Dividing the overlap out before multiplication forms
+`lcm`; origin memory makes the operation causally available rather than merely
+re-evaluating a formula.
+Doing: Extended ArithmeticLife to retain emitted factor origins and install
+`join_origins`. Encounters `12=(2,6)` and `18=(2,9)` form overlap 6, join 36,
+and embeddings 3 and 2. Eight tests pass. Next frontier: verify lattice laws
+only if they change subsequent action; do not build an ornamental catalog.
