@@ -1,9 +1,20 @@
 # Least-factor reflection transport on a Goldbach fiber
 
 **Status.** Exact finite construction and a no-go theorem for a proposed
-entropy/Hall route.  No numerical evidence is used.  The construction locates
+entropy/Hall route.  The construction locates
 a real noncommutation, but also proves that scalarizing its stopping-time
 filtration to one-fiber masses cannot force a Goldbach representation.
+
+Cross-lineage breaker audit complete (opus-mira, Claude Opus 5, 2026-08-12;
+`code/exp64_mira_audit_r0024.py`, msg 0108).  Verdict
+**CONFIRMED-WITH-CORRECTION**: Proposition 1, Theorem 2, and the Hoeffding
+block structure of Proposition 3 survive independent re-derivation and exact
+replay; Proposition 3's fixed-point-freeness claim is **refuted** for `W=2`,
+`N=2 (mod 4)` and repaired by Lemma 3.0 plus Remark 3.4; the packet's
+`Exact statement` is inexact at the integrality floor (Remark 2.1).  The
+route-killing yield is unchanged.  exp64 is falsifier-only: every block
+computes a declared exact quantity against a stated claim and carries a
+known-false control.
 
 ## 1. Reflection followed by multiplicative stopping
 
@@ -115,6 +126,27 @@ This theorem does not say sieve bounds can never prove Goldbach.  It says the
 proposed scalar entropy repackaging adds no strength to the one-fiber bounds it
 is given.
 
+**Remark 2.1 (the floor is load-bearing; opus-mira audit, exp64 Block D).**
+The integrality correction in the proof above is not decoration, and it is the
+one place where the criterion is genuinely sharper than the arithmetic-mean
+form.  With real capacities, `sum_q C_q >= |S|` does *not* imply that a
+contradiction is unavailable: for `C=(3/2,3/2)` and `|S|=3` one has
+`sum_q C_q = 3 >= |S|`, yet `s_1,s_2 <= 1` forces `sum_q s_q <= 2 < 3`, so the
+integer box-simplex is empty and the scalar data already contradict the
+exception.  The correct criterion is therefore
+
+\[
+  \text{a scalar contradiction exists}
+  \iff
+  \sum_q\lfloor C_q\rfloor<|S|,                              \tag{2.4}
+\]
+
+as proved above.  The R0024 packet's `Exact statement` writes the un-floored
+`sum_q C_q < sum_q s_q`, which is strictly weaker than what this note proves;
+see the non-authoritative audit correction recorded in that packet.  The
+no-go itself is unaffected — floors only strengthen it — but a successor must
+quote (2.4), not the packet line.
+
 ## 3. A reflection-pair false model
 
 The loss can be seen without invoking primes.  Let `W` be even, let `W|N`,
@@ -124,15 +156,47 @@ and define the finite `W`-rough universe
  U=\{1\leq a<N:(a,W)=1\}.
 \]
 
-It is invariant under `tau_N`, and it has no fixed point: `a=N/2` is not a
+It is invariant under `tau_N`, and ~~it has no fixed point: `a=N/2` is not a
 unit modulo the even number `W`.  Hence `U` is a disjoint union of reflection
-pairs `{a,N-a}`.
+pairs `{a,N-a}`.~~
+
+> **CORRECTION (2026-08-12, opus-mira breaker audit; exp64, msg 0108).**  The
+> struck sentence is false and its stated reason is invalid: evenness of `W`
+> forces `2 | N/2` only when `4 | N`.  Smallest counterexample `W=2`, `N=6`:
+> `U={1,3,5}` and `tau_6(3)=3`.  The declared falsifier "find a fixed point of
+> reflection in the even `W`-coprime universe" (R0024) therefore fires.  The
+> exact repair is Lemma 3.0; §3 below is restated under its hypothesis, and
+> the diagonal carve-out turns out to be mathematically necessary rather than
+> cosmetic (Remark 3.4).
+
+**Lemma 3.0 (fixed-point criterion).** Let `N` be even, let `W` be even with
+`W|N`, and let `U` be as above.  Then `tau_N` has a fixed point in `U` if and
+only if `gcd(N/2,W)=1`, and this happens exactly when `W=2` and
+`N=2 (mod 4)`.  Consequently `U` is a disjoint union of reflection pairs
+`{a,N-a}` if and only if `gcd(N/2,W)>1`.
+
+**Proof.** The only possible fixed point of `tau_N` on `[1,N)` is `a=N/2`, and
+it lies in `U` iff `gcd(N/2,W)=1`; this is the first equivalence.  For the
+second, write `W=2^v W'` with `W'` odd and `v>=1`.
+
+*(If.)* If `W=2` and `N=2 (mod 4)` then `N/2` is odd, so `gcd(N/2,2)=1`.
+
+*(Only if.)* Suppose `gcd(N/2,W)=1`.  Since `W|N` we have `W'|N`, and `W'` is
+odd, so `W'|N/2`; hence `W'|gcd(N/2,W)=1`, giving `W'=1` and `W=2^v`.  If
+`v>=2` then `v_2(N)>=v` forces `v_2(N/2)>=v-1>=1`, so `2|gcd(N/2,W)`, a
+contradiction.  Hence `v=1`, `W=2`, and `N/2` must be odd, i.e.
+`N=2 (mod 4)`. $\square$
+
+**Standing hypothesis for §3.** `gcd(N/2,W)>1` — equivalently `W>2` or
+`4|N`.  Every `W=prod_{p<=z}p` with `z>=3` used in the `W`-trick satisfies it
+automatically, so the intended application is unaffected.
 
 Fix `0<=theta<=1/2`.  Independently on every reflection pair, choose neither
 endpoint with probability `1-2theta`, and choose either endpoint with
 probability `theta` each.  Call the resulting random set `A`.
 
-**Proposition 3 (one-point indistinguishability, pair exclusion).** For every
+**Proposition 3 (one-point indistinguishability, pair exclusion).** *Assume
+`gcd(N/2,W)>1` (Lemma 3.0).*  For every
 `a in U` and every collection of subsets `B_j subset U`,
 
 \[
@@ -171,6 +235,27 @@ logical obstruction.
 This is the decisive false-model control.  Any proposed argument that also
 proves a reflected pair from only those one-point statistics proves too much.
 
+**Remark 3.4 (the carve-out is the diagonal, and it is necessary).** In the
+excluded case `W=2`, `N=2 (mod 4)`, the two conclusions of Proposition 3 are
+not merely unproved — they are *incompatible*.  Matching the one-point
+marginal on the singleton test `B={N/2}` forces `Pr(N/2 in A)=theta>0`, and
+then `1_A(N/2)1_A(N-N/2)=1_A(N/2)` is not identically zero; forcing the pair
+count to zero instead forces `Pr(N/2 in A)=0`, breaking that marginal.
+
+This is the correct scope statement rather than a technical annoyance.  The
+fixed point `a=N/2` is exactly the *diagonal* representation `N=a+(N-a)` with
+equal parts, and that single representation genuinely *is* decidable by a
+one-point test: `N` has a diagonal Goldbach representation iff `N/2` is
+prime.  A one-point false model cannot exclude what one-point data already
+decide.  So the honest form of the no-go is:
+
+> one-point statistics cannot force an *off-diagonal* reflected pair,
+
+with the diagonal disposed of separately and trivially (under the exception
+hypothesis of Proposition 1, `N/2` is not prime, so the diagonal contributes
+nothing and the no-go is unaffected).  The `W`-trick moduli actually used
+satisfy `gcd(N/2,W)>1` and never see the fixed point at all.
+
 ## 4. The retained object and the missing datum
 
 The full stopping-time filtration is not useless.  It gives an exact address
@@ -199,9 +284,13 @@ one-point partition an entropy or transport problem does not supply them.
 
 ## 5. Rigor and prior-art boundary
 
-Propositions 1 and 3 and Theorem 2 are proved above by finite elementary
-arguments.  The Hoeffding bound is the standard bounded-independent-sums
-inequality.  The relation to Buchstab decomposition, sieve parity, Type-II
+Propositions 1 and 3, Lemma 3.0, and Theorem 2 are proved above by finite
+elementary arguments.  The Hoeffding bound is the standard
+bounded-independent-sums inequality.  Proposition 3 now carries the explicit
+hypothesis `gcd(N/2,W)>1`; without it the proposition is false (Remark 3.4).
+`code/exp64_mira_audit_r0024.py` is a falsifier-only exact replay of every
+claim in this note, with known-false controls; it uses integer and rational
+arithmetic only and is not evidence for anything beyond the stated claims.  The relation to Buchstab decomposition, sieve parity, Type-II
 sums, and dispersion is interpretive routing and carries no novelty claim.
 No claim is made that every entropy method, every transport method, or every
 sieve method is covered: the no-go applies exactly to methods that retain only
