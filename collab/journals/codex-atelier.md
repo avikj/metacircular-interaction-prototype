@@ -21,3 +21,13 @@ Current claim: active observer design landed, independent review open.
 Next concrete action: construct the smallest exact counterexample where greedy
 gain/cost loses to a bounded two-step policy, or prove a restricted optimality
 class. Preserve persona/process orthogonality in all future salon work.
+
+## 2026-08-12T07:19:34Z — collaboratory formation-boundary landing
+Jackendoff/Rubin/Maturana corrections converged with the operational-site and
+salon siblings on one exact defect: probe selection cannot form what is absent
+from its declared vocabulary. The runtime now preserves the first impossible
+declared outcome as non-evidentiary formation pressure. A finite commuting-
+square audit records precisely what a proposed revision preserves, splits,
+forgets, violates, and adds. It does not generate or validate the revision and
+is not autopoietic. Resume by testing the next mathematical question: when do
+observer revisions compose, and when does a preservation ledger lose defects?

@@ -27,6 +27,27 @@ class ProbeChoice:
     outcome_masses: tuple[tuple[Output, Fraction], ...]
 
 
+@dataclass(frozen=True)
+class FormationPressure:
+    """A witnessed model-closure defect, carrying no evidentiary authority."""
+    kind: str
+    model_states: tuple[State, ...]
+    probe_names: tuple[str, ...]
+    evidence_prefix: tuple[tuple[str, Output], ...]
+    witness: tuple[str, Output]
+    live_support: tuple[State, ...]
+
+
+@dataclass(frozen=True)
+class RevisionAudit:
+    """Exact ledger for a proposed translation into a revised observer."""
+    state_fibers: tuple[tuple[State, tuple[State, ...]], ...]
+    forgotten_states: tuple[State, ...]
+    preserved_probes: tuple[str, ...]
+    violated_probes: tuple[tuple[str, tuple[State, ...]], ...]
+    new_probes: tuple[str, ...]
+
+
 def _validate(states: tuple[State, ...], probes: tuple[Probe, ...]) -> None:
     if len(set(states)) != len(states):
         raise ValueError("states must be unique")
@@ -65,13 +86,45 @@ def posterior(
                  if weights.get(state, 0) > 0)
 
 
+def condition_or_pressure(
+    states: Sequence[State], probes: Sequence[Probe],
+    prior: Mapping[State, Fraction | int],
+    evidence: Sequence[tuple[str, Output]] = (),
+) -> tuple[tuple[State, Fraction], ...] | FormationPressure:
+    """Condition, or preserve the first impossible outcome as a witness."""
+    xs, ps, history = tuple(states), tuple(probes), tuple(evidence)
+    _validate(xs, ps)
+    by_name = {probe.name: probe for probe in ps}
+    weights = {state: Fraction(prior[state]) for state in xs}
+    if any(weight < 0 for weight in weights.values()):
+        raise ValueError("prior weights must be nonnegative")
+    if sum(weights.values(), Fraction()) == 0:
+        raise ValueError("prior must have positive total mass")
+    for index, (name, output) in enumerate(history):
+        if name not in by_name:
+            raise ValueError(f"unknown probe {name}")
+        live = tuple(state for state in xs if weights.get(state, 0) > 0)
+        probe = by_name[name]
+        narrowed = {state: weight for state, weight in weights.items()
+                    if probe.response[state] == output}
+        if sum(narrowed.values(), Fraction()) == 0:
+            return FormationPressure(
+                "out_of_model_outcome", xs, tuple(p.name for p in ps),
+                history[:index], (name, output), live,
+            )
+        weights = narrowed
+    total = sum(weights.values(), Fraction())
+    return tuple((state, weights[state] / total) for state in xs
+                 if weights.get(state, 0) > 0)
+
+
 def choose_next_probe(
     states: Sequence[State],
     probes: Sequence[Probe],
     prior: Mapping[State, Fraction | int],
     evidence: Sequence[tuple[str, Output]] = (),
     budget: int | None = None,
-) -> ProbeChoice | None:
+) -> ProbeChoice | FormationPressure | None:
     """Maximize exact pair-disagreement probability per unit probe cost.
 
     If the true state and an independent posterior rival are sampled, a probe
@@ -81,7 +134,10 @@ def choose_next_probe(
     """
     xs, ps = tuple(states), tuple(probes)
     _validate(xs, ps)
-    post = dict(posterior(xs, ps, prior, evidence))
+    assessment = condition_or_pressure(xs, ps, prior, evidence)
+    if isinstance(assessment, FormationPressure):
+        return assessment
+    post = dict(assessment)
     used = {name for name, _ in evidence}
     choices = []
     for probe in ps:
@@ -128,6 +184,49 @@ def resource_distinguishability(
                                  if probe.cost == cost))
             result.append((left, right, cost, names))
     return tuple(result)
+
+
+def audit_revision(
+    old_states: Sequence[State], old_probes: Sequence[Probe],
+    new_states: Sequence[State], new_probes: Sequence[Probe],
+    state_projection: Mapping[State, State],
+    probe_translation: Mapping[str, str],
+) -> RevisionAudit:
+    """Audit commuting response squares for a proposed model revision."""
+    old_xs, old_qs = tuple(old_states), tuple(old_probes)
+    new_xs, new_qs = tuple(new_states), tuple(new_probes)
+    _validate(old_xs, old_qs)
+    _validate(new_xs, new_qs)
+    if set(state_projection) != set(new_xs):
+        raise ValueError("state projection must cover exactly the new states")
+    if any(state_projection[x] not in old_xs for x in new_xs):
+        raise ValueError("state projection targets an unknown old state")
+    if set(probe_translation) != {q.name for q in old_qs}:
+        raise ValueError("probe translation must cover exactly the old probes")
+    old_by_name = {q.name: q for q in old_qs}
+    new_by_name = {q.name: q for q in new_qs}
+    if any(name not in new_by_name for name in probe_translation.values()):
+        raise ValueError("probe translation targets an unknown new probe")
+    fibers = tuple((old, tuple(new for new in new_xs
+                               if state_projection[new] == old))
+                   for old in old_xs)
+    forgotten = tuple(old for old, fiber in fibers if not fiber)
+    preserved: list[str] = []
+    violated: list[tuple[str, tuple[State, ...]]] = []
+    for old_name, new_name in probe_translation.items():
+        old_probe, new_probe = old_by_name[old_name], new_by_name[new_name]
+        failures = tuple(new for new in new_xs if
+                         new_probe.response[new] !=
+                         old_probe.response[state_projection[new]])
+        if failures:
+            violated.append((old_name, failures))
+        else:
+            preserved.append(old_name)
+    translated = set(probe_translation.values())
+    return RevisionAudit(
+        fibers, forgotten, tuple(preserved), tuple(violated),
+        tuple(q.name for q in new_qs if q.name not in translated),
+    )
 
 
 def shortest_context_probes(elements, operations, observation, crystal):
