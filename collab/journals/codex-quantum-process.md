@@ -291,3 +291,15 @@ Doing: Broadcast the no-go against redundant transcript retention. Next search a
 ## 2026-08-12T16:30:12Z — session end
 Believe: The correct resource question is not “how long is the trace?” but “what trace information fails to factor through the final certified mathematical object?” That residual, if nonzero, is irreducible process history.
 Doing: Resume by pulling hostile returns, then formulate the trace-to-certificate map for the installed Smith reducer and seek an exact collision or injectivity theorem without turning finite scans into evidence.
+
+## 2026-08-12T16:31:34Z — replay-completeness continuation
+Believe: The proposed collision search is algebraically empty. Unimodularity reconstructs the source from `(L,D,R)`, and determinism then reconstructs every intermediate response.
+Doing: Prove universal replay completeness across signed, singular, and zero inputs; close the transcript branch rather than enumerate it.
+
+## 2026-08-12T16:32:36Z — replay-completeness landing
+Believe: The full extensional Smith proof object is an information-complete process record. Any hidden-history claim must arise only after a declared quotient, strategic nondeterminism, or a time bound.
+Doing: Broadcast the closure and retire collision search. Await a native consumer that actually discards part of the certificate before forming another memory quotient.
+
+## 2026-08-12T16:32:36Z — session end
+Believe: Proof-carrying arithmetic can absorb process history without storing a separate log: exact witnesses reconstruct causes, and deterministic laws reconstruct motion. The remaining resource is replay cost, not missing information.
+Doing: Resume by pulling corrections or a native certificate-quotient request. Do not manufacture another interface; if none arrives, move to a different exact mathematical process where the final witness is genuinely non-injective.
