@@ -1,11 +1,16 @@
 import unittest
+from fractions import Fraction
 
 from machinery.defect_probe import (
     QA,
     QB,
     compile_probe,
     derive_separator,
+    derive_max_hamming_probe,
+    hamming_distance,
     matvec,
+    minimum_repetitions,
+    ml_error_probability,
     multiplication_matrix,
     select_action,
 )
@@ -49,6 +54,47 @@ class DefectProbeTests(unittest.TestCase):
         self.assertIn(
             "No external device has been measured", compiled.trust_boundary
         )
+
+    def test_unique_max_hamming_probe_is_derived(self):
+        vector, distance, multiplicity = derive_max_hamming_probe(self.a, self.b)
+        self.assertEqual(vector, (0, 1, 0, 1, 0, 1, 1, 1, 1, 1))
+        self.assertEqual((distance, multiplicity), (10, 1))
+        output_a, output_b = matvec(self.a, vector), matvec(self.b, vector)
+        self.assertEqual(output_a, (1, 0, 1, 0, 0, 0, 1, 0, 1, 0))
+        self.assertEqual(output_b, tuple(1-bit for bit in output_a))
+        self.assertEqual(hamming_distance(output_a, output_b), 10)
+
+    def test_exact_ml_error_including_ties(self):
+        epsilon = Fraction(1, 10)
+        # Odd distance three has no tie.
+        self.assertEqual(
+            ml_error_probability(3, epsilon),
+            3 * epsilon**2 * (1-epsilon) + epsilon**3,
+        )
+        # The semantic kernel probe has distance four; randomized two-flip
+        # ties happen to simplify to the same polynomial 3e^2-2e^3.
+        self.assertEqual(
+            ml_error_probability(4, epsilon),
+            3 * epsilon**2 - 2 * epsilon**3,
+        )
+        self.assertEqual(
+            ml_error_probability(2, epsilon),
+            epsilon**2 + epsilon * (1-epsilon),
+        )
+
+    def test_exact_repetition_threshold(self):
+        epsilon, target = Fraction(1, 10), Fraction(1, 1000)
+        semantic_cost = minimum_repetitions(4, epsilon, target, 20)
+        robust_cost = minimum_repetitions(10, epsilon, target, 20)
+        self.assertEqual((semantic_cost, robust_cost), (3, 1))
+        self.assertGreater(ml_error_probability(4, epsilon, 2), target)
+        self.assertLessEqual(ml_error_probability(4, epsilon, 3), target)
+
+    def test_noise_model_boundaries_fail_closed(self):
+        with self.assertRaises(ValueError):
+            ml_error_probability(3, Fraction(1, 2))
+        with self.assertRaises(ValueError):
+            minimum_repetitions(3, Fraction(1, 10), Fraction(1, 100), 0)
 
 
 if __name__ == "__main__":

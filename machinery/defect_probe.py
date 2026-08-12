@@ -9,8 +9,10 @@ selection.  It does not claim that external hardware realizes either map.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from fractions import Fraction
 import hashlib
 import json
+from math import comb
 from pathlib import Path
 from typing import Iterable, Sequence
 
@@ -81,6 +83,62 @@ def derive_separator(
     raise ValueError("candidate maps have no zero/nonzero separating input")
 
 
+def hamming_distance(left: Sequence[int], right: Sequence[int]) -> int:
+    if len(left) != len(right):
+        raise ValueError("words must have equal length")
+    return sum(a != b for a, b in zip(left, right))
+
+
+def derive_max_hamming_probe(
+    left: Sequence[Sequence[int]], right: Sequence[Sequence[int]]
+) -> tuple[tuple[int, ...], int, int]:
+    """Return first optimum, maximum distance, and number of maximizers."""
+    best_distance = -1
+    best_vectors: list[tuple[int, ...]] = []
+    for vector in bit_vectors():
+        distance = hamming_distance(matvec(left, vector), matvec(right, vector))
+        if distance > best_distance:
+            best_distance, best_vectors = distance, [vector]
+        elif distance == best_distance:
+            best_vectors.append(vector)
+    if not best_vectors:
+        raise AssertionError("nonzero vector enumeration was empty")
+    return best_vectors[0], best_distance, len(best_vectors)
+
+
+def ml_error_probability(
+    distance: int, epsilon: Fraction, repetitions: int = 1
+) -> Fraction:
+    """Equal-prior ML error for repeated codewords through an exact BSC."""
+    epsilon = Fraction(epsilon)
+    if distance <= 0 or repetitions <= 0:
+        raise ValueError("distance and repetitions must be positive")
+    if not 0 <= epsilon < Fraction(1, 2):
+        raise ValueError("epsilon must satisfy 0 <= epsilon < 1/2")
+    trials = distance * repetitions
+    answer = Fraction()
+    for flips in range(trials // 2 + 1, trials + 1):
+        answer += comb(trials, flips) * epsilon**flips * (1-epsilon)**(trials-flips)
+    if trials % 2 == 0:
+        flips = trials // 2
+        answer += Fraction(1, 2) * comb(trials, flips) * epsilon**flips * (1-epsilon)**flips
+    return answer
+
+
+def minimum_repetitions(
+    distance: int, epsilon: Fraction, target_error: Fraction, max_repetitions: int
+) -> int:
+    target_error = Fraction(target_error)
+    if not 0 <= target_error < Fraction(1, 2):
+        raise ValueError("target_error must satisfy 0 <= target_error < 1/2")
+    if max_repetitions <= 0:
+        raise ValueError("max_repetitions must be positive")
+    for repetitions in range(1, max_repetitions + 1):
+        if ml_error_probability(distance, epsilon, repetitions) <= target_error:
+            return repetitions
+    raise ValueError("target error not reached within max_repetitions")
+
+
 def canonical_json(value: object) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":"))
 
@@ -97,6 +155,7 @@ class CompiledProbe:
     input_bits_low_degree_first: tuple[int, ...]
     predicted_outputs: dict[str, tuple[int, ...]]
     action_table: dict[str, str]
+    robust_bsc_probe: dict[str, object]
     missing_external_record: dict[str, object]
     trust_boundary: str
 
@@ -118,6 +177,12 @@ def compile_probe() -> CompiledProbe:
     }
     if len(output_actions) != 2:
         raise AssertionError("action table is not separating")
+    robust_vector, robust_distance, robust_multiplicity = derive_max_hamming_probe(
+        matrices["qA"], matrices["qB"]
+    )
+    robust_outputs = {
+        name: matvec(matrix, robust_vector) for name, matrix in matrices.items()
+    }
     return CompiledProbe(
         schema="finite-defect-probe/v1",
         candidates=("qA", "qB"),
@@ -125,6 +190,16 @@ def compile_probe() -> CompiledProbe:
         input_bits_low_degree_first=vector,
         predicted_outputs=outputs,
         action_table=output_actions,
+        robust_bsc_probe={
+            "objective": "maximize Hamming distance under equal-prior independent BSC noise",
+            "input_bits_low_degree_first": robust_vector,
+            "predicted_outputs": robust_outputs,
+            "hamming_distance": robust_distance,
+            "maximizer_count_over_nonzero_inputs": robust_multiplicity,
+            "semantic_kernel_probe_hamming_distance": hamming_distance(
+                outputs["qA"], outputs["qB"]
+            ),
+        },
         missing_external_record={
             "status": "NOT_MEASURED",
             "required_fields": [
