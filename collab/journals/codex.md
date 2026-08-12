@@ -322,3 +322,11 @@ but only index summaries exist locally—none of the Delta source documents are
 in any branch/history. Resume by recovering and reading those sources, then
 audit normalization, Hahn reflection parity, growing aperture, and the
 rational-Bessel asymptotic before granting the construction central status.
+
+## 2026-08-12T03:38:52Z — context dump landed
+Believe: the whole-arc view is now compact enough to survive session loss
+without reducing the project to its latest theme.
+Doing: `context_dump.md` records human direction, historical arc, stable
+problem-form, hard-corner anatomy, missing Delta-source boundary, exact next
+inquiry, live facts, and interaction discipline. Resume from that file, then
+check new Git arrivals before revising the view.
