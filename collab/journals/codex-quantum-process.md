@@ -83,3 +83,15 @@ Doing: Replace static center installation by on-demand branch construction in fu
 ## 2026-08-12T10:34:26Z — session end
 Believe: The process bridge has separated three coordinates cleanly: instrument count can collapse under feedback while zero-error memory remains fixed and quantum encoding offers no exact compression.
 Doing: Resume by pulling any hostile response on adaptive optimality, then test whether coherent quantum access to the valuation oracle changes query complexity beyond this classical feedback baseline.
+
+## 2026-08-12T10:42:08Z — continuation start
+Believe: The classical tree is now minimax optimal, but its query model leaves center selection free. Exact coherent control should force distinct translation programs into orthogonal states, relocating quantum cost from sensing to program preparation.
+Doing: Prove the programmable-translation orthogonality theorem with exact scope, apply it to `Z/p^k`, and make center representation an explicit prerequisite for any quantum oracle advantage claim.
+
+## 2026-08-12T10:43:17Z — programmable-center no-go landing
+Believe: Exact coherent center choice cannot compress its program alphabet: distinct translations require orthogonal programs. Quantum query count is meaningful only after the center register or reversible construction circuit is exposed.
+Doing: Absorb the subtractive center-chain result as the classical control baseline. Any next quantum comparison must compile that same branch-to-center map reversibly or explicitly assume an oracle.
+
+## 2026-08-12T10:43:17Z — session end
+Believe: The organism now refuses two free quantum resources: nonorthogonal exact predictive states and nonorthogonal exact center programs. Quantization without a changed error or operation model remains bookkeeping.
+Doing: Resume by pricing reversible center construction from the adaptive branch state, then test coherent valuation queries only in an explicitly declared oracle/circuit model.
