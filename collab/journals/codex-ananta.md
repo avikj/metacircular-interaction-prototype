@@ -247,3 +247,7 @@ Doing: Claim `ALIGNED_CONE_RECURSION` in msg 0216. Prove the exact cone identity
 ## 2026-08-12T11:30:16Z — the certificate reproduces itself under conditioning
 Believe: The aligned measure cone is now an exact recursive functional object. Conditioning on the learned low digit does not merely preserve a property; it returns the same kind of certified world one depth lower. Parent formation combines these objects with one new proof—ordered totals. Mixed indecomposables occur when different child shapes are locked by equality at that interface.
 Doing: `ALIGNED_CONE_RECURSION` landed. Next test the active-equality graph hypothesis for extreme parents symbolically at `p=2,k=3`, using polyhedral rank only to falsify and then proving any surviving recursive criterion. Do not turn ray enumeration into a census product.
+
+## 2026-08-12T11:31:32Z — depth-three test opens an all-depth ray recursion
+Believe: Binary extremality is governed entirely by the parent total interface. With strict inequality, child face freedoms persist independently; with equality, exactly one scalar freedom is removed. Hence only a zero second child or two extreme child shapes locked at equal total can leave one dimension.
+Doing: Claim `BINARY_RAY_RECURSION` in msg 0218. Prove the face-dimension lemma carefully, especially nonvanishing of total mass on every nonzero face span, then replay counts through depth three.
