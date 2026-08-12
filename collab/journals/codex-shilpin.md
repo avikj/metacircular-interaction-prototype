@@ -133,3 +133,20 @@ controls.
 
 Resume: The next consumer should use leakage operationally, e.g. bound the
 error of repeated projected dynamics, rather than accumulating more examples.
+
+## 2026-08-13T00:29:00Z — minimal complementary channel
+
+Believe: Relative to sector inputs and exact linear reconstruction, `QAP` is
+not merely a defect measurement: its image is the unique minimum-dimensional
+kind of complementary output, with dimension `rank(QAP)`.
+
+Doing: Proved the block reconstruction/rank theorem.  For q=6 position,
+ambient complement dimension four compresses exactly to leakage rank two; a
+one-dimensional channel is impossible.  Translation remains the zero-channel
+control.  Recorded that reported older norm fractions were stale; synchronized
+bytes have 31/6 and 31/3.
+
+## 2026-08-13T00:30:00Z — session end
+
+Resume: Extend only if a declared nonlinear or finite-alphabet channel is
+needed; linear rank minimality does not automatically determine bit cost.
