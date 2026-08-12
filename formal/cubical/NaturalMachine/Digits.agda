@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- NaturalMachine.Digits
@@ -248,14 +248,14 @@ digit-split d e (suc x) (suc y) p = fstEq , cong suc sndEq
        ∙ cong (toℕ e +_) (·-suc b y)
        ∙ shuffle (toℕ e) b (b · y)
 
-    rec : (toℕ d ≡ toℕ e) × (x ≡ y)
-    rec = digit-split d e x y (inj-m+ {m = b} p')
+    recursiveSplit : (toℕ d ≡ toℕ e) × (x ≡ y)
+    recursiveSplit = digit-split d e x y (inj-m+ {m = b} p')
 
     fstEq : toℕ d ≡ toℕ e
-    fstEq = fst rec
+    fstEq = fst recursiveSplit
 
     sndEq : x ≡ y
-    sndEq = snd rec
+    sndEq = snd recursiveSplit
 
 -- A canonical nonempty word has positive value.
 canonical-pos : (d : Digit) (w : Word) → Canonical (d ∷ w)

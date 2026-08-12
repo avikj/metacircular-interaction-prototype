@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- NaturalMachine.Transport
@@ -43,7 +43,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Monoid.Base
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 open import NaturalMachine.Digits k
 open import NaturalMachine.FreeMonoid using (ℕ-Monoid)
@@ -124,11 +124,11 @@ mutual
 
 ripple-lem1 : (S bb cc' U V : ℕ)
             → S + bb · (cc' + U + V) ≡ (S + cc' · bb) + bb · U + bb · V
-ripple-lem1 = solve
+ripple-lem1 S bb cc' U V = solveℕ!
 
 ripple-lem2 : (cc D E U V bb : ℕ)
             → (cc + D + E) + bb · U + bb · V ≡ cc + (D + bb · U) + (E + bb · V)
-ripple-lem2 = solve
+ripple-lem2 cc D E U V bb = solveℕ!
 
 value-addw-step :
     (c : Bool) (d e : Digit) (u v : Word)

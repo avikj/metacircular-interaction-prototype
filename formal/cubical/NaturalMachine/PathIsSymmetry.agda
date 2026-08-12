@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- NaturalMachine.PathIsSymmetry
@@ -77,7 +77,7 @@ pathToEquiv-∙ {A = A} p =
 
 -- The loop group of the universe at a set X.  Note the universe level:
 -- (X ≡ X) lives one level above X, so this is a Group (ℓ-suc ℓ) while
--- Symmetric-Group X is a Group ℓ.  The two are isomorphic but not
+-- SymGroup X is a Group ℓ.  The two are isomorphic but not
 -- literally equal --- an honest universe-level fact, not a defect.
 ΩGroup : (X : Type ℓ) → isSet X → Group (ℓ-suc ℓ)
 ΩGroup X isSetX =
@@ -95,12 +95,12 @@ pathToEquiv-∙ {A = A} p =
 -- THE PUNCHLINE OF §1: the loop group of the universe at X is the
 -- symmetric group of X, as groups.
 ΩGroup≃Symmetric : (X : Type ℓ) (isSetX : isSet X)
-                 → GroupEquiv (ΩGroup X isSetX) (Symmetric-Group X isSetX)
+                 → GroupEquiv (ΩGroup X isSetX) (SymGroup X isSetX)
 ΩGroup≃Symmetric X isSetX =
   univalence , makeIsGroupHom (λ p q → pathToEquiv-∙ p q)
 
 -- Ω(Type, Fin n) ≅ Sₙ.
-ΩFin≃Sym : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (Sym n)
+ΩFin≃Sym : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (SymGroup (Fin n) isSetFin)
 ΩFin≃Sym n = ΩGroup≃Symmetric (Fin n) isSetFin
 
 ------------------------------------------------------------------------
