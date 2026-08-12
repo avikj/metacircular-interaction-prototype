@@ -101,3 +101,11 @@ rows only for a profitable horizon, and answers future queries through the new
 route under exact direct controls. Three queries cost 90 and preserve the old
 state; four cost 104 versus 120 and install 72 cells. A full-spectrum false
 carrier changes an answer, proving the complement has mathematical content.
+
+## 2026-08-13T00:31:00Z — the task chooses the projector
+Correction: the W30 unit-correlation task does not live in the primitive q=30
+sector. Its translation orbit has rational rank 30 and nonzero projection to
+every cyclotomic sector d|30. The cache was sufficient because it assembled
+primitive rows for all divisors. Constant and alternating tasks collapse to
+single one-dimensional sectors, confirming that minimal support is generated
+by the task rather than prescribed by the method.
