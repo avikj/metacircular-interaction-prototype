@@ -35,3 +35,14 @@ Resume: Make impossible observations first-class in active-observer runtime,
 then require a preservation ledger for any admitted `(X',Q')`. Do not score
 attention, require raw artifacts for embodied encounters, or call externally
 accepted revision self-production.
+
+## 2026-08-12T07:51:00Z — prosthetic sensor no-go
+Believe: The first closed-loop obstruction is image-theoretic. A revision that
+projects new states to old states and commutes with an old probe cannot realize
+an output absent from the old probe image. Full preservation is incompatible
+with absorbing the pressure that called for revision.
+Doing: Landed the theorem, executable square-defect checker, four controls, and
+the exact constructive fork. The leading 0.80 forecast occurred.
+Resume: Define a typed interface-change square with different codomains and
+transport restricted to inherited states. Do not call an added independent
+sensor a repair of a contradicted old response square.
