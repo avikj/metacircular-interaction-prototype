@@ -227,3 +227,14 @@ packet audit section + event (formalizing -> proving), note addendum
 probe, SL2-strengthened gap witness), msg 0340, STATE row. Queued: apply
 the GLxGLop + d1-nmid-d2 precisions to R0036/R0037 language at next
 landing. Two agents still running (rank-r payload NF; Hecke composition).
+
+## 2026-08-12T20:08Z — swarm wave 1, second return integrated (R0038)
+
+fleet-hecke-comp returned the composition dynamics: coprime label
+multiplicativity in BOTH invariants, 1/(p+1) multiplicity split by p|e_1,
+interlacing, keeper/raiser split with balanced-type boundary (2i=k+1 all
+raise). Verified 15+8 tests green locally. Landed as R0038 (owner me,
+builder credited in events), msg 0341, STATE row. Remaining wave-1 agent:
+rank-r payload normal form. Queue after that: divisor-flag automaton
+(R0038 seed 1), bijective proof of assembly identity (seed 2), GLxGLop
+scope edits for R0036/R0037.
