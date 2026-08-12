@@ -170,14 +170,12 @@ def sublattices_direct(m):
     lifted generators plus (m,0),(0,m)."""
     n = m
     elems = [(x, y) for x in range(n) for y in range(n)]
-    seen = set()
     lattices = set()
     for v in elems:
         for w in elems:
-            key = (v, w)
-            if key in seen:
-                continue
-            # generate subgroup <v, w>
+            # generate subgroup <v, w> (no pruning: pairs inside a large
+            # subgroup generate SUB-subgroups, so any pair-level dedup
+            # across groups is unsound)
             group = {(0, 0)}
             frontier = [(0, 0)]
             while frontier:
@@ -187,9 +185,6 @@ def sublattices_direct(m):
                     if ng not in group:
                         group.add(ng)
                         frontier.append(ng)
-            for gv in group:
-                for gw in group:
-                    seen.add((gv, gw))
             if len(group) == m:  # index m^2/m = m in (Z/m)^2 -> index m in Z^2
                 cols = [list(g) for g in group] + [[m, 0], [0, m]]
                 lattices.add(hnf_of_columns(cols))
@@ -305,8 +300,9 @@ def S_pk_polynomial(k):
 def S_pk_closed_polynomial(k):
     """The claimed closed form (p^{k+1}+p^k-p^{ceil(k/2)}-p^{floor(k/2)})/(p-1)
     as an exact polynomial in Z[p], via exact univariate division."""
-    num = {k + 1: 1, k: 1, (k + 1) // 2: -1}
-    num[k // 2] = num.get(k // 2, 0) - 1
+    num = {}
+    for i, c in ((k + 1, 1), (k, 1), ((k + 1) // 2, -1), (k // 2, -1)):
+        num[i] = num.get(i, 0) + c  # additive build: exponents can collide
     num = {i: c for i, c in num.items() if c != 0}
     # divide by (p - 1) exactly
     quo = {}

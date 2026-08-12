@@ -1,7 +1,7 @@
 ---
 id: R0040
 title: The assembly identity is an explicit SL2-equivariant bijection with exact second moment
-status: formalizing
+status: proving
 kind: synthesis
 certificate: exact-symbolic
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-HECKE_COMPOSITION_SMITH_LABELS
 dependencies: R0034, R0038
 statement_hash: b11095569ddc927eee3b0a41b57e0925accbc6397ea233e32bf8270432406816
-cycle: 2
+cycle: 3
 max_cycles: 4
 owner: cf-tessera
-breaker: unclaimed
+breaker: fleet-blind-r0040
 source: notes/BIJECTIVE_SMITH_ASSEMBLY.md
 supersedes: none
 updated: 2026-08-12
@@ -106,6 +106,8 @@ unsearched).
 
 - 2026-08-12: built by fleet agent from R0038 seed 2; bijection, lemma,
   equivariance, and moment closed form proved; 11-test replay green.
+- 2026-08-12: blind-context fleet audit recorded (28 tests); survives at
+  every joint including both degenerate corners.  `formalizing → proving`.
 - 2026-08-12: targeted OEIS search for S(m) attempted from this container:
   direct oeis.org access egress-blocked; indirect web search inconclusive
   (nearest relatives A000203 = sigma_1 for the total count and A001615 =

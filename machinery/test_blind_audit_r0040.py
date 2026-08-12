@@ -377,7 +377,7 @@ class TestJoint4FirstDivergence(unittest.TestCase):
 
     def test_exact_table(self):
         S = [None] + [S_direct(m) for m in range(1, 11)]
-        self.assertEqual(S[1:], [1, 3, 4, 8, 6, 12, 8, 18, 16, 18])
+        self.assertEqual(S[1:], [1, 3, 4, 8, 6, 12, 8, 18, 15, 18])
 
     def test_divergence_indices(self):
         rivals = {

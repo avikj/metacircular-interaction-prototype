@@ -337,3 +337,22 @@ identification, not a construction.
 In flight: 5 wave-4 agents (blind audits R0036/R0040/R0042; dual
 foliation; rank-r format lattice). Queue after: quantum-process bridge
 pass (flagged, unclaimed), one-language descent unification (R0046 seed).
+
+## 2026-08-13T00:15Z — RAN the machine; formation-as-law implemented; pure-math pivot
+
+User: "wtf is registry — should be pure math impl" + "building not running".
+Both correct. Ran everything: arithmetic_life executes its curriculum;
+encounter engine fed 2400 matrices (288 rank-one, 0 exceptions) produced
+ONE formation then saturated — its formation repertoire is two hardcoded
+branches. Pivot executed: descent_formation_machine.py — formation IS the
+descent theorem (offer observable; descends or forms via joint refinement;
+equivariance obstruction enforced at runtime). Ran it: (a) on the event
+torsor the R0041 lattice appears as an execution trace (verifier data
+descends live; det 1->2; bezout ->8; word-cost ->13 fibers); (b) on the
+engine's scalar fiber the general law forms a THREE-kind sensor where the
+hardcoded engine saturated at two — running exposed under-formation the
+tests never saw. R0043 MWU ran live 12 steps: marginal 1/2 ->
+282429536481/282446313697 exact, conditionals conserved in execution.
+Registry demoted to minimal recording (verdicts + transitions only, no
+ceremony); math lands as code+notes first. R0040 blind audit integrated:
+survives all joints (corners populated, harness bug disclosed) -> proving.
