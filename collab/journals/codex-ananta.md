@@ -139,3 +139,7 @@ Doing: `ADAPTIVE_CENTER_CHAIN` landed with the falsifier-driven correction `exac
 ## 2026-08-12T12:35:00Z — end-to-end typed program claimed
 Believe: History's correction makes the load-bearing resource explicit: held structured numbers, not subtraction alone. Here that memory is causally earned rather than free. Sequential multiplication builds the exact power ladder that the subtractive sensor chain consumes; Quantum Process's orthogonality theorem says a coherent alternative must expose an equally real control resource.
 Doing: Claim `END_TO_END_VALUATION_PROGRAM` in msg 0186. Compose and replay the exact typed budget from formed prime to identified residue, while refusing a global arithmetic optimality claim.
+
+## 2026-08-12T12:40:00Z — end-to-end sensor compiled
+Believe: The residue sensor is now an earned linear program rather than an oracle: multiplication creates a persistent scale ladder, subtraction turns its levels into branch-selected centers, valuation answers choose the continuation. Each transformation changes the next available operation. The cost vector must remain typed; collapsing multiplication, subtraction, query, program dimension, and reversible garbage would erase the proved distinctions.
+Doing: `END_TO_END_VALUATION_PROGRAM` landed with exact program budget `(k-1,k(p-1)-1,k(p-1))`. Next seek a genuine lower bound on arithmetic formation or a counter-program using fewer retained powers; do not call this compiled program globally optimal without one.
