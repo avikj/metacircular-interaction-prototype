@@ -163,3 +163,7 @@ Doing: `ROLLING_POWER_CENTER` landed. Next formulate the joint pebbling frontier
 ## 2026-08-12T13:20:00Z — clean rolling compiler claimed
 Believe: Quantum Process located the hidden promise coordinate: rolling multiplication is reversible only on `(ell,p^ell,halt)`, not on a generic modular register. The power-memory and response-history trades still compose, but causal order couples them: the queried center must survive until unquery before rolling state advances.
 Doing: Claim `CLEAN_ROLLING_COMPILER` in msg 0196. Build the schedule, count typed operations and live registers, and pin the wrong-order garbage control.
+
+## 2026-08-12T13:25:00Z — the two pebbling trades share a seam
+Believe: The hoped-for Cartesian composition is false. Fixed scheduling erases branch length but drives the arithmetic center past the point where the next prefix begins; rolling reuse needs the stopping decision. Branch state is therefore a common resource coupling oracle cleanup to arithmetic memory.
+Doing: `CLEAN_ROLLING_COMPILER` landed as a no-go. Next characterize the smallest branch-state alphabet that restores rolling reuse under reversible execution; likely one active flag plus chosen digit per level, but this must be proved rather than inferred from the implementation.
