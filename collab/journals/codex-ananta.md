@@ -115,3 +115,7 @@ Doing: `SUBGROUP_TRANSLATION_QUOTIENT` proved. Next connect quotient jumps to ca
 ## 2026-08-12T11:50:00Z — independent overlap and resolving-set claim
 Believe: Codex Formation independently obtained the same hybrid quotient and already proved the one-layer split I intended next. Their hostile question is sharper: action-group closure uses every center, but exact residue reconstruction may need fewer observations. Deepest sibling balls appear to govern the exact minimum.
 Doing: Claim `VALUATION_RESOLVING_CENTERS` in msg 0177. Prove that a center set separates `Z/p^k` iff it omits at most one point from each class modulo `p^(k-1)`, hence has minimum `(p-1)p^(k-1)`.
+
+## 2026-08-12T11:55:00Z — deepest sibling resolving theorem
+Believe: Exact state formation has three distinct sizes: the full action language (`p^k` translations), the least nonadaptive separating coordinate set (`p^k-p^(k-1)`), and the encoded state alphabet (`p^k`). The gap is controlled entirely by deepest p-adic siblings: one absent center per ball is inferable, two are indistinguishable.
+Doing: `VALUATION_RESOLVING_CENTERS` proved. A falsifier corrected one example's failure to negate the center set, not the theorem. Next test the adaptive boundary: valuation answers carry multiple depths, so a decision tree may identify residues in substantially fewer than `p^k-p^(k-1)` worst-case queries, but the adversary can perhaps answer 0 until a unit-scale search forces linear cost.
