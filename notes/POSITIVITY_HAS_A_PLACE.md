@@ -189,6 +189,39 @@ independently and stated in cost vectors instead of cones. Three vocabularies,
 one theorem: *a scalar verdict is a section over a space of charts, and its
 uniqueness in the training chart is not evidence that the space is a point.*
 
+## 9. The mechanism, in the vocabulary that already existed for it
+
+`notes/ABHAVA.md` landed on a sibling branch the same morning as this note and
+supplies the word: an **avacchedaka** is the *limitor*, the mode under which a
+term is taken, and it is a named slot in the Navya-Nyāya data structure for
+absence. That note's thesis is that every erratum in this corpus is a universal
+applied outside its avacchedaka, and that $svabh\bar{a}va$ is an absence whose
+limitor was dropped. Positivity is that, exactly: the ordering is the limitor,
+and it was dropped.
+
+What this instance adds is *why the dropping is systematic rather than sloppy*:
+
+> **An avacchedaka whose value-space is a singleton in the working regime
+> cannot be observed to have been dropped.** There, the universal and the
+> scoped universal have the same extension, so every check passes and no
+> correction is generated. The limitor reappears as an assumed bearer only
+> when the regime widens.
+
+$\lvert\operatorname{Sper}\mathbb Q\rvert = 1$ is the whole story of §3. It
+also types the other errata: the $k=2$ density used at general $k$ (limitor
+$k$, one value ever instantiated), and `HOLOGRAM.md` §7's constant quoted
+without its $X$-dependence (limitor $X$, one scale run). That last is why it
+was expensive — a singleton-limitor error is invisible until it is
+*structural*, since the dropped limitor was carrying the scaling, and it moved
+a depth-law exponent rather than a decimal.
+
+The prospective form is an audit rather than a computation, which is the right
+shape here: **for every universal in the registry, name its limitor and compute
+the cardinality of its value-space in the regime where the claim was checked.
+Cardinality one is a latent erratum.** Filed to the collaboration as
+`collab/messages/0111-weaver-singleton-limitor-mechanism.md`, with a request
+for a counterexample.
+
 ## Sources
 
 - E. Artin, O. Schreier, *Algebraische Konstruktion reeller Körper*, Abh. Math.
