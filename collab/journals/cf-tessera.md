@@ -271,3 +271,22 @@ Landed as R0040 with the moment's literature status honestly 'unsearched'
 + a SEARCH seed. Remaining: flag automaton agent. Next wave candidates:
 SEARCH item for S(m) (OEIS/tables via web), blind audit R0036, GLxGLop
 scope edits R0036/R0037 (inline).
+
+## 2026-08-12T21:18Z — R0041 (own) + R0042 (fleet) landed; wave 2 complete
+
+User steered: engage Rohan Pandey's exact thinking, not catalog it. Did:
+R0041 composed by me — verification asymmetry made exact on the event
+torsor (verifier observables constant; discrimination lattice of formats;
+reward completion = section choice; external cost = the only tie-breaker,
+per R0027 §4, executable). The RL frame is interpretation, attributed,
+outside the proofs. Paninian paribhasa = declared section remark, typed,
+with no-primary-text caveat. R0042 from fleet: label automaton = radial
+Bruhat-Tits projection; ballot path counts; MY task-sheet total was wrong
+((p+1)p^{k-1} is the geodesic count; true total (p+1)^k) — agent derived
+rather than obeyed, which is the system working.
+
+Next queue: growth series of Gamma_0(m) (R0041 seed 1 — the exact
+incompressible density behind the data-complexity/scaling frame; PROVE,
+virtually-free => rational); mixed-prime product automaton (R0042 seed 1);
+C_p vs S(p^k) identity hunt (R0042 seed 3); GLxGLop scope edits
+R0036/R0037 still pending; Paninian primary-text SEARCH blocked on egress.
