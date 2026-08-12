@@ -588,3 +588,27 @@ size. Relaunched fresh (healthy early regime cycles). Remaining DEBT:
 R0039 coordinate law, other-language substrate, runtime wall-knowledge.
 Absorb queue: main "Review global arc" commit; certificate_compiler
 rank-one landings.
+
+## 2026-08-13 00:05Z — the minimality answer: verification IS descent (one law)
+
+The user rejected the four-collapse minimality answer: "It's definitely a
+1-2 answer that's obvious that you're missing."  Found it: the four
+collapses were four shadows of ONE missing identification.
+
+**Verification is descent.**  A claim is an observable over its instance
+world; it is a theorem iff its truth-observable descends through the
+indiscrete carrier with constant value True (a theorem = an observable
+that cannot split its own world); a dead claim FORMS and the split fiber
+is the counterexample — same law that grows the machine.  So the core's
+sixteen hand-written checkers were sixteen private re-implementations of
+`DescentMachine.offer`.  Deleted them: `core_knowledge.py` is now
+KNOWLEDGE = [(name, statement, world, holds)] verified by ONE call to the
+descent law per claim (`verify_core`), witness extraction on death for
+free.  16/16 alive in 0.35s; machine relaunched fresh, boots
+"CORE: 16/16 claims alive; 3 interface debts", already at epoch 36.
+
+The whole system is now literally two things: (1) the descent law, and
+(2) the exact evaluator presenting worlds.  Everything else — claims,
+genome, walls, ports — is data fed to (1) through (2).  Claims-as-data,
+derived schedule, evaluator primitives, interface deletion: all
+corollaries of the one identification, not separate work items.

@@ -1,19 +1,43 @@
 #!/usr/bin/env python3
-"""THE CORE: all knowledge of this corpus as executable, self-verifying
-claims.  Every theorem the session proved lives here as (name, statement,
-checker) — the checker re-derives it exactly, from primitives, at every
-boot of the living machine.  A document that says what a checker checks
-is a strictly worse interface than this file; knowledge not expressible
-here is interface debt, listed at the bottom as the pruning frontier.
+"""THE CORE, minimal form: one law, applied to itself.
 
-Run: python3 core_knowledge.py   (prints the ledger; exit 0 iff all alive)
+The minimality answer (found under challenge — the previous revision of
+this file was the four-collapse answer, and the four were one):
+
+    VERIFICATION IS DESCENT.
+
+A claim of this corpus is an observable over its instance world.  It is a
+theorem iff its truth-observable DESCENDS through the indiscrete carrier
+with constant value True — a theorem is exactly an observable that cannot
+split its own world.  A dead claim FORMS, and the fiber that splits off
+is the counterexample, delivered by the same law that grows the living
+machine.  So there is no verifier separate from the organism: the sixteen
+hand-written checkers of the previous revision were sixteen private
+re-implementations of `DescentMachine.offer`, and this file deletes them
+in favour of the one call.
+
+What the whole system is, in total: (1) the descent law
+(`descent_formation_machine.offer`), and (2) an exact evaluator
+presenting worlds.  Everything else — the sixteen claims below, the
+machine's genome, the walls — is DATA fed to (1) through (2).  Documents
+elsewhere in the repo are strictly worse interfaces to this ledger.
+
+Each claim is (name, statement, world, holds): `world()` yields the
+finite instance world (hashable states; for expensive constructions the
+world materializes the object and `holds` states its law — exactly the
+machine's hidden-world pattern), `holds` is the truth-observable.  Two
+claims have worlds of propositions (thunks) because their content is a
+finite conjunction of unlike parts; their observable is `_truth`.
+
+Run: python3 core_knowledge.py   (prints the ledger, with the splitting
+witness for any dead claim; exit 0 iff all alive)
 """
 
 from fractions import Fraction
-from itertools import permutations, product
+from itertools import product
 from math import gcd
 
-from kuttaka_pulverizer import (cell_from_kuttaka, pulverize, valli_replay)
+from kuttaka_pulverizer import cell_from_kuttaka, pulverize, valli_replay
 from diagonal_smith_congruence_torsor import classical_cell, diag, mat_mul
 
 
@@ -21,157 +45,301 @@ def det2(m):
     return m[0][0] * m[1][1] - m[0][1] * m[1][0]
 
 
-# ---- the claims -----------------------------------------------------------
+def _truth(proposition):
+    return proposition()
 
-def chk_envelope_galois():
-    """R0027: G <= K(E) iff orbits refine E — exhaustive n=3."""
+
+# ---- worlds and observables ----------------------------------------------
+
+def _S(i, p=2):
+    """Endpoint moment S(p^i) from the psi sum (R0040)."""
+    from math import isqrt
+    from hecke_coset_smith_assembly import psi
+    n = p ** i
+    return sum(c * psi(n // (c * c))
+               for c in range(1, isqrt(n) + 1) if n % (c * c) == 0)
+
+
+def _C(i, k, p=2):
+    """Chains to a fixed label-i lattice at level p^k (automaton law)."""
+    if i == 0:
+        return 1
+    if 2 * i > k:
+        return 0
+    if 2 * i == k:
+        return (p + 1) * _C(i - 1, k - 1, p)
+    return _C(i, k - 1, p) + p * _C(i - 1, k - 1, p)
+
+
+def w_ballot():
+    return range(1, 6)
+
+
+def h_ballot(k):
+    from math import comb
+    from hecke_coset_smith_assembly import hnf_bases, smith_invariants
+    p = 2
+    W = 0
+    for base in hnf_bases(p ** k):
+        e1 = smith_invariants(base)[0]
+        i = e1.bit_length() - 1  # e1 = p^i for p = 2
+        W += e1 * _C(i, k)
+    rhs = sum((comb(k, j) - (comb(k, j - 1) if j else 0))
+              * p ** (2 * j) * _S(k - 2 * j)
+              for j in range(k // 2 + 1))
+    if W != rhs:
+        return False
+    return k != 2 or W - _S(2) == p * p  # the refutation gap, exactly
+
+
+def w_labels():
+    from hecke_coset_smith_assembly import hnf_bases
+    bases = [tuple(map(tuple, b)) for b in hnf_bases(2)]
+    return bases + [((2, 0), (0, 2))]
+
+
+def h_labels(base):
+    from hecke_composition_smith_labels import compose
+    from hecke_coset_smith_assembly import hnf_bases, smith_invariants
+    steps = hnf_bases(2)
+    labels = sorted(smith_invariants(compose(base, s))[0] for s in steps)
+    if base == ((2, 0), (0, 2)):     # balanced: all keep, raise impossible
+        return labels == [2, 2, 2]
+    return (smith_invariants(base)[0] == 1
+            and labels == [1, 1, 2])  # keep, keep, raise
+
+
+def w_unimodular_window():
+    return [((a, b), (c, e))
+            for a, b, c, e in product(range(-2, 3), repeat=4)
+            if abs(a * e - b * c) == 1]
+
+
+def h_mixed_rank(h):
+    from mixed_rank_smith_stabilizer import (h_side_member,
+                                             one_sided_member,
+                                             one_sided_stabilizes,
+                                             partner, two_sided_stabilizes)
+    flag, n = (2,), 2
+    member = h_side_member(h, flag)
+    if member != (h[1][0] == 0):  # corner GL_1 = {+-1}: C must vanish
+        return False
+    if member and not two_sided_stabilizes(h, partner(h, flag, n), flag, n):
+        return False
+    return one_sided_stabilizes(h, flag, n) == one_sided_member(h, flag)
+
+
+def _sl2_size(N):
+    s, n, p = N ** 3, N, 2
+    while p * p <= n:
+        if n % p == 0:
+            s = s // (p * p) * (p * p - 1)
+            while n % p == 0:
+                n //= p
+        p += 1
+    if n > 1:
+        s = s // (n * n) * (n * n - 1)
+    return s
+
+
+def w_index():
+    return ((1, 2), (2, 3), (2, 2), (1, 6), (3, 5), (2, 6))
+
+
+def h_index(inst):
+    from math import lcm
+    from hecke_coset_smith_assembly import psi
+    m12, m21 = inst
+    N = lcm(m12, m21)
+    cnt = sum(1 for a in range(N) for b in range(0, N, m12)
+              for c in range(0, N, m21) for d in range(N)
+              if (a * d - b * c) % N == 1)
+    return _sl2_size(N) // cnt == psi(m12 * m21)
+
+
+def w_galois():
+    return (1, 2, 3)
+
+
+def h_galois(n):
     from invariant_schema_breaker_audit import galois_adjunction_holds
-    return all(galois_adjunction_holds(n) for n in (1, 2, 3))
+    return galois_adjunction_holds(n)
 
 
-def chk_transporter_two_components():
-    """R0027 audit: T(A,D) has det=-1 AND det=+1 components; det is
-    unrecoverable from endpoint data."""
+def w_transporter():
     from invariant_schema_breaker_audit import (determinant_unrecoverable,
                                                 transporter_is_complete)
-    return transporter_is_complete(5) and determinant_unrecoverable()
+    return [lambda: transporter_is_complete(5), determinant_unrecoverable]
 
 
-def chk_dihedral_chart():
-    """R0032: the rank-one transporter is a regular D-infinity torsor with
-    chart (k, s); free and transitive."""
+def w_chart():
+    return [(k, s) for k in range(-4, 5) for s in (1, -1)]
+
+
+def h_chart(inst):
     from smith_path_coordinate_torsor import (chart, chart_inverse,
-                                              intertwining, stab, mat_mul
-                                              as smm)
-    for k, s in product(range(-4, 5), (1, -1)):
-        if chart(chart_inverse(k, s)) != (k, s):
+                                              intertwining, stab,
+                                              mat_mul as smm)
+    k, s = inst
+    if chart(chart_inverse(k, s)) != (k, s):
+        return False
+    for b, e in product(range(-3, 4), (1, -1)):
+        if smm(stab(b, e), chart_inverse(k, s)) != \
+           chart_inverse(*intertwining(b, e, k, s)):
             return False
-        for b, e in product(range(-3, 4), (1, -1)):
-            if smm(stab(b, e), chart_inverse(k, s)) != \
-               chart_inverse(*intertwining(b, e, k, s)):
-                return False
     return True
 
 
-def chk_gamma0_stabilizer():
-    """R0033: HDK=D iff m | H_21 (sign-blind), K forced."""
+def w_gamma0():
+    return [(d1, d2, h)
+            for d1, d2 in ((1, 3), (2, 6), (1, -2))
+            for h in w_unimodular_window()]
+
+
+def h_gamma0(inst):
     from diagonal_smith_congruence_torsor import (conjugate_by_diag,
                                                   in_gamma0, inv_unimodular)
-    for d1, d2 in ((1, 3), (2, 6), (1, -2)):
-        m = d2 // d1
-        d = diag(d1, d2)
-        for a, b, c, e in product(range(-2, 3), repeat=4):
-            h = ((a, b), (c, e))
-            if abs(det2(h)) != 1:
-                continue
-            member = in_gamma0(h, m)
-            try:
-                k = conjugate_by_diag(inv_unimodular(h), d1, d2)
-                works = mat_mul(mat_mul(h, d), k) == d
-            except AssertionError:
-                works = False
-            if member != works:
-                return False
-    return True
+    d1, d2, h = inst
+    member = in_gamma0(h, d2 // d1)
+    d = diag(d1, d2)
+    try:
+        k = conjugate_by_diag(inv_unimodular(h), d1, d2)
+        works = mat_mul(mat_mul(h, d), k) == d
+    except AssertionError:
+        works = False
+    return member == works
 
 
-def chk_det_pair_law():
-    """R0035 audit: det U * det V = sign(det M) on every event."""
+def w_det_pair():
     from total_smith_replay_payload import section
     from test_verifier_blind_fiber_reward import window_events
+    out = []
     for mat in (((2, 0), (1, 7)), ((2, 0), (0, -3))):
         u0, v0, d = section(mat)
         sign = 1 if det2(mat) > 0 else -1
         for u, v in window_events(mat, d):
-            if det2(u) * det2(v) != sign:
-                return False
-    return True
+            out.append((u, v, sign))
+    return out
 
 
-def chk_two_sided_moduli_and_delta():
-    """R0036 corrected: membership iff m_ij | H_ij BOTH sides,
-    m_ij = |d_i|/gcd; delta-defect witness at diag(6,10,15)."""
+def h_det_pair(inst):
+    u, v, sign = inst
+    return det2(u) * det2(v) == sign
+
+
+def w_moduli():
+    out = ["delta-defect"]
+    for flag in ((1, 2, 4), (6, 10, 15)):
+        for i in range(3):
+            for j in range(3):
+                if i != j:
+                    out.extend((flag, i, j, v) for v in range(1, 7))
+    return out
+
+
+def h_moduli(inst):
     from flag_congruence_smith_stabilizer import in_flag_gamma0_conjugation
-    flag = (6, 10, 15)
-    m13 = abs(flag[0]) // gcd(flag[0], flag[2])
-    m12 = abs(flag[0]) // gcd(flag[0], flag[1])
-    m23 = abs(flag[1]) // gcd(flag[1], flag[2])
-    if not (m12 * m23 == 6 and m13 == 2):  # the defect
-        return False
-    h = ((1, 0, 2), (0, 1, 0), (0, 0, 1))  # I + 2 E_13: genuine member
-    return in_flag_gamma0_conjugation(h, flag)
+    if inst == "delta-defect":
+        flag = (6, 10, 15)
+        m = lambda a, b: abs(flag[a]) // gcd(flag[a], flag[b])
+        return m(0, 1) * m(1, 2) == 6 and m(0, 2) == 2  # delta = 3
+    flag, i, j, v = inst
+    m_ij = abs(flag[i]) // gcd(flag[i], flag[j])
+    h = tuple(tuple((1 if r == c else 0) + (v if (r, c) == (i, j) else 0)
+                    for c in range(3)) for r in range(3))
+    return in_flag_gamma0_conjugation(h, flag) == (v % m_ij == 0)
 
 
-def chk_assembly_identity():
-    """R0034/R0040: sigma_1(m) = sum_{c^2|m} psi(m/c^2), m <= 60."""
-    from hecke_coset_smith_assembly import psi, sigma1
+def w_assembly():
+    return range(1, 61)
+
+
+def h_assembly(m):
     from math import isqrt
-    return all(
-        sigma1(m) == sum(psi(m // (c * c))
-                         for c in range(1, isqrt(m) + 1) if m % (c * c) == 0)
-        for m in range(1, 61))
+    from hecke_coset_smith_assembly import psi, sigma1
+    return sigma1(m) == sum(psi(m // (c * c))
+                            for c in range(1, isqrt(m) + 1)
+                            if m % (c * c) == 0)
 
 
-def chk_free_spheres():
-    """R0044: Sanov spheres are exactly 4*3^(n-1), n <= 5 (certifies no
-    relation of length <= 10)."""
-    A = ((1, 2), (0, 1)); B = ((1, 0), (2, 1))
+def w_spheres():
+    A = ((1, 2), (0, 1))
+    B = ((1, 0), (2, 1))
+
     def inv(m):
         d = det2(m)
         return ((m[1][1] * d, -m[0][1] * d), (-m[1][0] * d, m[0][0] * d))
+
     gens = [A, B, inv(A), inv(B)]
     frontier, seen = {((1, 0), (0, 1))}, {((1, 0), (0, 1))}
+    out = []
     for n in range(1, 6):
         nxt = set()
         for g in frontier:
             for s in gens:
                 x = mat_mul(g, s)
                 if x not in seen:
-                    seen.add(x); nxt.add(x)
-        if len(nxt) != 4 * 3 ** (n - 1):
-            return False
+                    seen.add(x)
+                    nxt.add(x)
+        out.append((n, len(nxt)))
         frontier = nxt
-    return True
+    return out
 
 
-def chk_mwu_conservation():
-    """R0043: format-measurable rewards conserve within-class
-    conditionals exactly (rational MWU)."""
-    from format_conserved_learning_geometry import (conditionals, mwu,
-                                                    partition_from_format)
+def h_spheres(inst):
+    n, size = inst
+    return size == 4 * 3 ** (n - 1)
+
+
+def _mwu_setup():
     carrier = list(range(10))
-    part = partition_from_format(carrier, lambda x: x % 2)
     reward = {x: 3 if x % 2 else 1 for x in carrier}
     pi = {x: Fraction(x + 1) for x in carrier}
-    z = sum(pi.values()); pi = {x: p / z for x, p in pi.items()}
-    c0 = conditionals(pi, part)
+    z = sum(pi.values())
+    return carrier, reward, {x: p / z for x, p in pi.items()}
+
+
+def w_mwu():
+    from format_conserved_learning_geometry import mwu
+    carrier, reward, pi = _mwu_setup()
+    traj = [tuple(pi[x] for x in carrier)]
     for _ in range(5):
         pi = mwu(pi, reward, Fraction(3, 2))
-        if conditionals(pi, part) != c0:
-            return False
-    return True
+        traj.append(tuple(pi[x] for x in carrier))
+    return traj
 
 
-def chk_kuttaka_is_the_cell():
-    """Kuttaka: the pulverizer's cell equals the classical construction;
-    the valli replays."""
-    for a, b in ((4, 6), (2, 3), (9, 6)):
-        u, v, d = cell_from_kuttaka(a, b)
-        if mat_mul(mat_mul(u, diag(a, b)), v) != d:
-            return False
-        if d != classical_cell(a, b)[2]:
-            return False
-        valli, g, x, y = pulverize(a, b)
-        if not valli_replay(a, b, valli):
-            return False
-    return True
+def h_mwu(pi_tuple):
+    from format_conserved_learning_geometry import (conditionals,
+                                                    partition_from_format)
+    carrier, _, pi0 = _mwu_setup()
+    part = partition_from_format(carrier, lambda x: x % 2)
+    pi = dict(zip(carrier, pi_tuple))
+    return conditionals(pi, part) == conditionals(pi0, part)
 
 
-def chk_descent_law():
-    """R0046/the law: descends iff constant on fibers; joint is coarsest;
-    idempotent."""
+def w_kuttaka():
+    return ((4, 6), (2, 3), (9, 6))
+
+
+def h_kuttaka(inst):
+    a, b = inst
+    u, v, d = cell_from_kuttaka(a, b)
+    if mat_mul(mat_mul(u, diag(a, b)), v) != d:
+        return False
+    if d != classical_cell(a, b)[2]:
+        return False
+    valli, g, x, y = pulverize(a, b)
+    return valli_replay(a, b, valli)
+
+
+def w_descent():
+    return (12, 30)
+
+
+def h_descent(n):
     from descent_formation_machine import DescentMachine
-    m = DescentMachine(range(12))
+    m = DescentMachine(range(n))
     if m.offer("c", lambda x: 0)["kind"] != "descends":
         return False
     if m.offer("m2", lambda x: x % 2)["kind"] != "forms":
@@ -182,185 +350,59 @@ def chk_descent_law():
             and m.offer("m6", lambda x: x % 6)["kind"] == "descends")
 
 
-def chk_ideal_vs_function_descent():
-    """Nat bridge: mod-4 forms with witness (2,8); mod-11 is vacuous at
-    121 (joint profile injective)."""
-    prof = lambda k, S: tuple(k % p for p in S)
-    if prof(2, (2, 3)) != prof(8, (2, 3)) or 2 % 4 == 8 % 4:
-        return False
-    profiles = [prof(k, (2, 3, 5, 7)) for k in range(2, 122)]
-    return len(set(profiles)) == len(profiles)  # injective => vacuous
+def w_nat_bridge():
+    def prof(k, S):
+        return tuple(k % p for p in S)
 
+    def mod4_diverges():   # forms with witness (2, 8)
+        return prof(2, (2, 3)) == prof(8, (2, 3)) and 2 % 4 != 8 % 4
 
-def chk_two_sided_index():
-    """The two-sided congruence index law: [SL_2(Z) : {b=0 mod m12,
-    c=0 mod m21}] = psi(m12*m21).  Proof: conjugation by diag(1, m12)
-    maps the two-sided group isomorphically onto Gamma_0(m12*m21)
-    (upper entry divides out, lower entry picks up the product), and
-    conjugation preserves index; the classical index of Gamma_0 is psi.
-    Verified by direct count in SL_2(Z/lcm) on seven instances.  The
-    delta-defect therefore does NOT touch n=2 indices — they see only
-    the product of the moduli."""
-    from math import lcm
+    def mod11_vacuous():   # joint profile injective below 122
+        profiles = [prof(k, (2, 3, 5, 7)) for k in range(2, 122)]
+        return len(set(profiles)) == len(profiles)
 
-    def sl2_size(N):
-        s, n, p = N ** 3, N, 2
-        while p * p <= n:
-            if n % p == 0:
-                s = s // (p * p) * (p * p - 1)
-                while n % p == 0:
-                    n //= p
-            p += 1
-        if n > 1:
-            s = s // (n * n) * (n * n - 1)
-        return s
-
-    def psi(m):
-        r, n, p = m, m, 2
-        while p * p <= n:
-            if n % p == 0:
-                r = r // p * (p + 1)
-                while n % p == 0:
-                    n //= p
-            p += 1
-        if n > 1:
-            r = r // n * (n + 1)
-        return r
-
-    for m12, m21 in ((1, 2), (2, 3), (2, 2), (1, 6), (3, 5), (2, 6)):
-        N = lcm(m12, m21)
-        cnt = sum(1 for a in range(N) for b in range(0, N, m12)
-                  for c in range(0, N, m21) for d in range(N)
-                  if (a * d - b * c) % N == 1)
-        if sl2_size(N) // cnt != psi(m12 * m21):
-            return False
-    return True
-
-
-def chk_label_dynamics():
-    """R0038/R0042: forward splits at p=2 — an unbalanced lattice's three
-    index-2 children keep the label twice and raise it once; the balanced
-    lattice 2Z^2 keeps all three times (raising is impossible)."""
-    from hecke_composition_smith_labels import compose
-    from hecke_coset_smith_assembly import hnf_bases, smith_invariants
-    steps = hnf_bases(2)
-    for base in hnf_bases(2):  # level 2^1, label 0 (all cyclic)
-        if smith_invariants(base)[0] != 1:
-            return False
-        labels = sorted(smith_invariants(compose(base, s))[0]
-                        for s in steps)
-        if labels != [1, 1, 2]:  # keep, keep, raise (e1 doubles = raise)
-            return False
-    balanced = ((2, 0), (0, 2))  # 2Z^2: level 2^2, balanced
-    labels = sorted(smith_invariants(compose(balanced, s))[0]
-                    for s in steps)
-    return labels == [2, 2, 2]  # all keep; raise impossible
-
-
-def chk_mixed_rank_stabilizer():
-    """R0037: at blockdiag((2),0) in 2x2, H stabilizes two-sidedly iff
-    upper-parabolic with unit corner; the constructed partner works; the
-    one-sided stabilizer collapses the corner to +1."""
-    from itertools import product as prod
-    from mixed_rank_smith_stabilizer import (h_side_member,
-                                             one_sided_member,
-                                             one_sided_stabilizes,
-                                             partner, two_sided_stabilizes)
-    flag, n = (2,), 2
-    for a, b, c, e in prod(range(-2, 3), repeat=4):
-        h = ((a, b), (c, e))
-        if abs(a * e - b * c) != 1:
-            continue
-        member = h_side_member(h, flag)
-        if member != (c == 0):  # corner GL_1 = {+-1}, C must vanish
-            return False
-        if member and not two_sided_stabilizes(
-                h, partner(h, flag, n), flag, n):
-            return False
-        if one_sided_stabilizes(h, flag, n) != one_sided_member(h, flag):
-            return False
-    return True
-
-
-def chk_ballot_moment():
-    """R0045: the ballot transform W(k) = sum_j (C(k,j)-C(k,j-1)) p^2j
-    S(p^(k-2j)) holds, AND the naive identity is refuted: W(2) - S(p^2)
-    = p^2 exactly.  W computed from first principles (lattice
-    enumeration x chain DP from the automaton law); S from the psi sum."""
-    from math import comb, isqrt
-    from hecke_coset_smith_assembly import hnf_bases, psi, smith_invariants
-    p = 2
-
-    def S(i):
-        n = p ** i
-        return sum(c * psi(n // (c * c))
-                   for c in range(1, isqrt(n) + 1) if n % (c * c) == 0)
-
-    def C(i, k):  # chains to a fixed label-i lattice at level p^k
-        if i == 0:
-            return 1
-        if 2 * i > k:
-            return 0
-        if 2 * i == k:
-            return (p + 1) * C(i - 1, k - 1)
-        return C(i, k - 1) + p * C(i - 1, k - 1)
-
-    for k in range(1, 6):
-        W = 0
-        for base in hnf_bases(p ** k):
-            e1 = smith_invariants(base)[0]
-            i = e1.bit_length() - 1  # e1 = p^i for p=2
-            W += e1 * C(i, k)
-        rhs = sum((comb(k, j) - (comb(k, j - 1) if j else 0))
-                  * p ** (2 * j) * S(k - 2 * j)
-                  for j in range(k // 2 + 1))
-        if W != rhs:
-            return False
-        if k == 2 and W - S(2) != p * p:  # the refutation gap
-            return False
-    return True
+    return [mod4_diverges, mod11_vacuous]
 
 
 KNOWLEDGE = [
     ("ballot-moment", "the chain and endpoint moments are bridged by the "
      "ballot transform and never equal: the k=2 gap is exactly p^2",
-     chk_ballot_moment),
+     w_ballot, h_ballot),
     ("label-dynamics", "index-p children keep the label p times and "
-     "raise once; balanced lattices only keep", chk_label_dynamics),
+     "raise once; balanced lattices only keep", w_labels, h_labels),
     ("mixed-rank-stabilizer", "rank-deficient stabilizers are parabolic "
      "over the flag corner; one-sided collapses the corner",
-     chk_mixed_rank_stabilizer),
+     w_unimodular_window, h_mixed_rank),
     ("two-sided-index", "the two-sided congruence index is psi of the "
      "product of the moduli; the delta-defect is invisible at n=2",
-     chk_two_sided_index),
+     w_index, h_index),
     ("envelope-galois", "invariants give a Galois closure, never a "
-     "presentation", chk_envelope_galois),
+     "presentation", w_galois, h_galois),
     ("transporter-two-components", "endpoint data cannot recover even "
-     "det of the reducer", chk_transporter_two_components),
+     "det of the reducer", w_transporter, _truth),
     ("dihedral-chart", "rank-one payload = one integer + one sign, a "
-     "regular D-infinity torsor", chk_dihedral_chart),
+     "regular D-infinity torsor", w_chart, h_chart),
     ("gamma0-stabilizer", "the 2x2 event fiber is Gamma_0(d2/d1), "
-     "partner forced", chk_gamma0_stabilizer),
+     "partner forced", w_gamma0, h_gamma0),
     ("det-pair-law", "det U * det V = sign(det M) on every event",
-     chk_det_pair_law),
+     w_det_pair, h_det_pair),
     ("two-sided-moduli", "general stabilizer: m_ij = |d_i|/gcd both "
-     "sides; delta-defect is real", chk_two_sided_moduli_and_delta),
+     "sides; delta-defect is real", w_moduli, h_moduli),
     ("assembly-identity", "sigma_1 = sum psi over square divisors",
-     chk_assembly_identity),
+     w_assembly, h_assembly),
     ("free-spheres", "payload groups carry free subgroups: spheres "
-     "4*3^(n-1), density log 3", chk_free_spheres),
+     "4*3^(n-1), density log 3", w_spheres, h_spheres),
     ("mwu-conservation", "fiber conditionals are conserved by "
-     "format-measurable learning", chk_mwu_conservation),
+     "format-measurable learning", w_mwu, h_mwu),
     ("kuttaka-cell", "the pulverizer IS the normalization cell; the "
-     "valli replays", chk_kuttaka_is_the_cell),
+     "valli replays", w_kuttaka, h_kuttaka),
     ("descent-law", "observables descend or form; the joint is the "
-     "coarsest common carrier", chk_descent_law),
+     "coarsest common carrier", w_descent, h_descent),
     ("ideal-vs-function-descent", "the life's skip is ideal descent, "
-     "diverging from function descent both ways",
-     chk_ideal_vs_function_descent),
+     "diverging from function descent both ways", w_nat_bridge, _truth),
 ]
 
-# Interface debt — knowledge NOT yet expressible as a checker here (the
+# Interface debt — knowledge NOT yet expressible as a claim here (the
 # pruning frontier; each entry names why):
 DEBT = [
     ("rank-r-payload-normal-form", "R0039 five-coordinate calculus: "
@@ -374,11 +416,20 @@ DEBT = [
 
 
 def verify_core():
+    """The one checker: offer each claim's truth-observable to the descent
+    law over its instance world.  Alive iff it descends to the point with
+    value True; a dead claim forms, and the split fiber is the
+    counterexample."""
+    from descent_formation_machine import DescentMachine
     ledger = []
-    for name, statement, chk in KNOWLEDGE:
+    for name, statement, world, holds in KNOWLEDGE:
         try:
-            ok = bool(chk())
-        except Exception as exc:  # noqa: BLE001
+            instances = list(world())
+            event = DescentMachine(instances).offer(
+                name, lambda x: bool(holds(x)))
+            ok = (event["kind"] == "descends"
+                  and bool(holds(instances[0])))
+        except Exception:  # noqa: BLE001
             ok = False
         ledger.append((name, ok))
     return ledger
@@ -387,8 +438,18 @@ def verify_core():
 if __name__ == "__main__":
     ledger = verify_core()
     alive = sum(1 for _, ok in ledger if ok)
+    worlds = {name: (world, holds)
+              for name, _, world, holds in KNOWLEDGE}
     for name, ok in ledger:
-        print(("ALIVE " if ok else "DEAD  ") + name)
+        if ok:
+            print("ALIVE " + name)
+        else:
+            world, holds = worlds[name]
+            try:
+                witness = next(x for x in world() if not holds(x))
+            except Exception:  # noqa: BLE001
+                witness = "(world unconstructible)"
+            print(f"DEAD  {name}  split witness: {witness!r}")
     print(f"CORE: {alive}/{len(ledger)} claims alive; "
           f"{len(DEBT)} interface debts")
     raise SystemExit(0 if alive == len(ledger) else 1)
