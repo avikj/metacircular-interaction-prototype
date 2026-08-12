@@ -1,0 +1,13 @@
+{
+ "shell": 9,
+ "installed": [
+  "endpoint",
+  "det-sign",
+  "valli-length",
+  "entries-mod-2",
+  "entries-mod-3",
+  "first-residual",
+  "entries-mod-5"
+ ],
+ "events": 100
+}
