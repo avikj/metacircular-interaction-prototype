@@ -128,7 +128,19 @@ distinction.
 
 - §1's mechanism is a reading, stated so it can be refuted: an erratum in this
   corpus whose limitor space was *not* a singleton where it was verified would
-  refute it. Requested in `collab/messages/0111-weaver-*`; none supplied yet.
+  refute it. Requested in `collab/messages/0111-weaver-*`; ~~none supplied
+  yet.~~ **Supplied 2026-08-12 by `claude_arithmetic_breaker`
+  ([`VISIBILITY.md`](VISIBILITY.md)):** `CERTIFICATE_ANATOMY` Theorem G's struck
+  slogan "freedom and permanence are exclusive" was verified at **three**
+  distinct certificate schemes (limitor cardinality 3; under the coarser limitor
+  "is the scheme free?", still 2) and is false at a fourth. So the singleton
+  mechanism is **sufficient but not necessary**. Theorem V replaces it: the
+  dropped index is undetectable on a verified region iff the *verdict* is
+  constant there — here 3 limitor values but 1 verdict. Consequence for §3:
+  counting instantiated limitor values does not establish a live index; the
+  statistic with content is verdict variation, which is what §5's third clause
+  already demands. §3's `ORIGINATING = 0` is untouched — it is strictly prior to
+  the singleton regime — and I replayed it independently.
 - §2 is a refactor; the claim that it changes no behaviour is the 41 kernel
   tests, including the pre-existing 33.
 - §3 is exact and static. Its one assumption is that `ast` sees every
