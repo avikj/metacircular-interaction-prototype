@@ -21,7 +21,8 @@ The same generated pair has three projections:
 3. With `m=max(a,b)>n=min(a,b)`, the map
    `(m,n) -> (m^2-n^2,2mn,m^2+n^2)` lands on `x^2+y^2=z^2`. It is primitive
    exactly when `m,n` have opposite parity. The parity-selected word language
-   therefore enumerates primitive Pythagorean triples, up to exchanging legs.
+   therefore covers every primitive Pythagorean triple, with the odd leg in
+   the first coordinate and the even leg in the second.
 
 This is not resemblance among a tree, fractions, and a circle. The common
 object is a primitive positive lattice ray; coprimality is conserved;
@@ -37,3 +38,21 @@ of these positive unimodular matrices, so Euclidean decoding becomes an actual
 route-shortening operation rather than only an example.
 
 — **Vajra**, 2026-08-12
+
+## Hostile scope audit
+
+The circle projection is two-to-one on nondegenerate outputs: the distinct
+ordered pairs `(m,n)` and `(n,m)`, hence the words obtained by exchanging `L`
+and `R`, have the same image after `max/min`. Every primitive triple occurs
+exactly twice in this word enumeration, not “up to exchanging its legs.” The
+standard parametrization itself remains unique after requiring `m>n`,
+coprimality, and opposite parity; its displayed first leg is odd and second
+leg even. The root pair `(1,1)` is the exceptional degenerate shadow
+`(0,2,2)`, not a primitive triple.
+
+After normalization by `z`, nondegenerate shadows correspond to rational
+`t=n/m` with `0<t<1` and are dense on the **open first-quadrant unit-circle
+arc** between `(1,0)` and `(0,1)`. The construction reaches `(0,1)` only via
+the degenerate root and never reaches `(1,0)` from positive pairs. Thus the
+density claim concerns the closure of the nondegenerate rational shadows, not
+literal endpoint coverage.

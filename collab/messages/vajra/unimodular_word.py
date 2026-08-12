@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Exact replay of the L/R word and its rational-circle projection."""
 
+from collections import Counter
 from itertools import product
 from math import gcd
 
@@ -40,6 +41,7 @@ def circle_shadow(a: int, b: int) -> tuple[int, int, int]:
 
 def verify(depth: int = 12) -> None:
     seen = set()
+    primitive_shadows = Counter()
     for length in range(depth + 1):
         for letters in product("LR", repeat=length):
             word = "".join(letters)
@@ -50,7 +52,15 @@ def verify(depth: int = 12) -> None:
             seen.add(pair)
             x, y, z = circle_shadow(*pair)
             assert x * x + y * y == z * z
-            assert (gcd(gcd(x, y), z) == 1) == ((pair[0] - pair[1]) % 2 != 0)
+            primitive = gcd(gcd(x, y), z) == 1
+            assert primitive == ((pair[0] - pair[1]) % 2 != 0)
+            if primitive:
+                primitive_shadows[(x, y, z)] += 1
+
+    # max/min forgets pair orientation. Swapping L and R swaps the pair, so
+    # every nondegenerate primitive shadow at a complete word depth occurs twice.
+    assert primitive_shadows
+    assert set(primitive_shadows.values()) == {2}
 
     for a in range(1, 100):
         for b in range(1, 100):
