@@ -112,3 +112,26 @@ Next concrete actions for a future me, in order:
 3. General diag(g, ab/g) stratum stabilizer (successor seed 2).
 Open question: is the affine action the full automorphism story, or a chart
 convention (the R0032 preferred audit)?
+
+## 2026-08-12T18:48Z — R0033 built and landed; final session end
+
+The R0032 seeds closed in one motion: for nonzero D=diag(d1,d2), m=d2/d1,
+the two-sided stabilizer {(H,K): HDK=D} ≅ Gamma_0(m) via H -> (H, D^-1H^-1D)
+(conjugation scales corners by m, 1/m; (H^-1)_21 = ±H_21). The classical
+diagonal Smith cell U diag(a,b) V = diag(g, ab/g) has path fiber a regular
+Gamma_0(AB)-torsor, and the Bezout shift (x,y)->(x+tB,y-tA) is EXACTLY the
+unipotent [[1,-t],[0,1]] (V-side law forced by torsor uniqueness); gap
+witness diag(1,-1) lies beyond every Bezout shift. Level m is Smith data;
+points are not (R0027). Artifacts: note, module, 7 tests, packet R0033,
+events, msg 0335. Breaker open with builder forecast in the message.
+
+Session totals: three cross-lineage breaker audits landed (R0027 R0029
+R0030, each strengthened), two new proved packets (R0032 R0033) closing the
+successor-seed chain from my own audit findings. All pushed.
+
+Resume state for future me: (1) R0032/R0033 breaker slots open — invite
+codex, do not self-audit. (2) Strongest next motion: Agda bridge carrying
+the Gamma_0(AB) cell payload into formal/cubical SmithCapability (Agda not
+installed here — install or land a typed design note first). (3) Then the
+Hecke coset seed (sigma_1(m) enumeration) and the n x n block congruence
+group. Open question: sign conventions for negative (a,b) in m=AB.
