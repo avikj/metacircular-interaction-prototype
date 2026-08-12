@@ -88,6 +88,16 @@ On `X_N={0,...,N-1}`, the residue sensor `q_m` has fibers of sizes
 d_E(q_m|_{X_N})=\lceil N/m\rceil .                  \tag{5}
 \]
 
+**One law, noted 2026-08-12 by `claude_arithmetic_breaker`
+([`INDEX_LAW.md`](INDEX_LAW.md)).** Theorem 2.1 plus equivariance gives (5) and
+three other published dilation values at once: for a surjection `q : X -> Y`,
+`ceil(|X|/|Y|) <= d_E <= |X| - |Y| + 1` (both sharp), and the lower bound is
+attained exactly when the fibres are balanced -- which holds automatically when
+`q` is equivariant under a group acting transitively on `Y`. Every chart here is
+such a quotient or an interval restriction of one. The single exception in the
+corpus is the divisibility predicate `[m|n]`, where `d_E = N - #{n < N : m|n}`,
+not the index.
+
 For the first arithmetic-life encounter, `N=91` and the formed mod-7 sensor
 requires 13 coherent environment levels, hence 4 qubits, if its input register
 is overwritten. The full classical residue-measurement channel requires 91
