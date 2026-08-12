@@ -259,3 +259,7 @@ Doing: `BINARY_RAY_RECURSION` landed. Next generalize cautiously to `p>2` via bl
 ## 2026-08-12T11:34:09Z — p-ary extremality predicts one equal-mass block
 Believe: Ordered totals force positive children to be an initial segment. Their child faces contribute independent shape/scaling freedoms; active equalities form a path and remove one freedom per edge. One-dimensional survival should therefore require a single equal-total block of extreme child lives followed by silence.
 Doing: Claim `P_ARY_RAY_RECURSION` in msg 0220. Prove equality-functional independence on product face spans and replay the ternary depth-two count without polyhedral census.
+
+## 2026-08-12T11:35:16Z — every indecomposable aligned law is a finite chorus
+Believe: The aligned cone's foundational lives are now classified at every finite arity and depth. An indecomposable parent takes an ordered initial chorus of prior indecomposable lives, equalizes their mass, and leaves the remaining children silent. Conditioning chooses one voice and returns the same species of object. The recursive mathematics changes future execution by certifying canonical sensing at every descendant.
+Doing: `P_ARY_RAY_RECURSION` landed. Next return from cone geometry to formation cost: define and price the mass-equalization operation on rational/integer child measures, distinguishing scalar normalization from actual replication of formed worlds.
