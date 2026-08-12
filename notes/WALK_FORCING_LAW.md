@@ -74,7 +74,13 @@ None of this is machine-checked. The natural joint with the checked lane:
 ## Boundary
 
 The forcing law is additive: it never demands that the machine *notice*
-`4 = 2²` (the certificates notice it; no task forces it). The first task
-that forces valuation — multiplicative losslessness, where the machine
-must reconstruct products, not just points — is open, and is the walk's
-next distinction in the sense of `TWO_IDENTITIES.md` §1.
+`4 = 2²` (the certificates notice it; no task forces it). ~~The first task
+that forces valuation is open~~ — **correction (same day): it was already
+closed by the valuation lane.** `ARITHMETIC_LIFE_EXPONENT_WORLD.md` forms
+the valuation chart with its universal-property transfer certificate
+(`machinery/exponent_world.py`), and `ADAPTIVE_VALUATION_ADDITION.md`
+proves the exact forcing statement: determining `v_p(a+b)` forces residue
+depth `k = v_p(a+b) + 1`. The task that forces valuation is **addition in
+exponent coordinates**. The walk's remaining gap is therefore not a
+theorem but an ingestion: wiring that established demand into the walk's
+invariant.
