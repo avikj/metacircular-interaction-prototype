@@ -223,3 +223,7 @@ Doing: Claim `SUCCESSOR_PREFIX_LAW` in msg 0210. Prove the exact conditional cou
 ## 2026-08-12T11:22:37Z — successor formation is scheduler-compatible
 Believe: The formed world and the sensing program now share an exact recursive object: every low-prefix fiber of a successor ideal is again an initial interval after quotienting. This hereditary interval shape regenerates decreasing digit counts at every encounter, so probability order and center geodesics remain aligned throughout learning. Translation shows the phenomenon belongs to formation history, not cardinality.
 Doing: `SUCCESSOR_PREFIX_LAW` landed. Next classify the hereditary fiber shapes preserved by successor, union, and dilation. The sharp question is whether decreasing conditional counts themselves form an operation-stable class larger than initial intervals, allowing the machine to certify its own future scheduling simplification.
+
+## 2026-08-12T11:23:54Z — aligned worlds lift to a measure cone
+Believe: Conditional monotonicity is not essentially probabilistic normalization; it is a family of linear child-mass inequalities indexed by the p-adic prefix tree. This makes scheduler compatibility an algebraic cone of formed measures. Superposition and dilation may preserve the certificate directly, so a world can grow while retaining a proof that its future sensing frontier remains collapsed.
+Doing: Claim `ALIGNED_MEASURE_CONE` in msg 0212. Prove cone, dilation, disjoint-union, and scheduling consequences; resist an unproved extreme-ray classification.
