@@ -278,11 +278,18 @@ def crystallize(
     block = {x: 0 for x in xs}
     while True:
         signatures = {
-            x: (observation[x], tuple(block[transition[x, a]] for a in acts))
+            x: (
+                block[x],
+                observation[x],
+                tuple(block[transition[x, a]] for a in acts),
+            )
             for x in xs
         }
-        ordered = sorted(set(signatures.values()), key=repr)
-        code = {signature: index for index, signature in enumerate(ordered)}
+        code = {}
+        for state in xs:
+            signature = signatures[state]
+            if signature not in code:
+                code[signature] = len(code)
         refined = {x: code[signatures[x]] for x in xs}
         if all(refined[x] == block[x] for x in xs):
             break
@@ -300,6 +307,24 @@ def crystallize(
     result = Crystal(fibers, observations, transitions, acts)
     result.validate()
     return result
+
+
+def divisibility_world(
+    base: int, modulus: int
+) -> tuple[GeneratedWorld, dict[State, bool]]:
+    """Generate the remainder dynamics of appending one base-``base`` digit."""
+    if base < 2 or modulus < 1:
+        raise ValueError("base must be at least two and modulus must be positive")
+    digits = tuple(range(base))
+    world = generate_world(
+        (0,),
+        digits,
+        lambda remainder, digit: (base * remainder + digit) % modulus,
+        limit=modulus,
+    )
+    if not world.closed or len(world.states) != modulus:
+        raise AssertionError("complete digit alphabet did not generate every residue")
+    return world, {remainder: remainder == 0 for remainder in world.states}
 
 
 def twelve_link_machine() -> Crystal:
@@ -355,6 +380,17 @@ def _living_seed() -> None:
         states, new_actions, new_transition, richer_observation
     )
     print(f"new view separates the old fiber (3, 4): {reopened.fibers}")
+
+    residues, divisible = divisibility_world(2, 5)
+    residue_crystal = crystallize(
+        residues.states, (0, 1), residues.transition, divisible
+    )
+    _, _, arithmetic_actions = learn_experiments(
+        residues.states, (0, 1), residues.transition, divisible
+    )
+    print(f"binary divisibility by 5 needs these remainder states: "
+          f"{residue_crystal.fibers}")
+    print(f"digit blocks compiled from arithmetic: {arithmetic_actions}")
 
 
 if __name__ == "__main__":

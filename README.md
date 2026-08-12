@@ -156,6 +156,11 @@ The world itself may be generated from one seed by repeatedly applying its
 actions.  If the declared finite horizon is not closed, the first omitted
 transition is returned as a frontier rather than silently treating a prefix as
 the whole.
+
+The same loop already runs on arithmetic: binary digits act on remainders by
+`r -> 2r+d`, observation asks divisibility, and the machine recovers the exact
+remainder states needed for the question.  Useful digit blocks then become new
+primitive arithmetic actions while the divisibility language stays unchanged.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,
