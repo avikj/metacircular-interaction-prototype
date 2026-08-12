@@ -179,6 +179,62 @@ leaves the active grammar empty and the selection policy `None`.  Selection
 stores the explicit policy `exact-live-port-equation`; withdrawal removes it.
 Call order is execution history, not authority.
 
+### Predictive arithmetic is not port authority
+
+The Smith organ supplies an endogenous, replayable response class.  The engine
+now exposes an explicit adapter
+
+```text
+row-residual -> forecast 0
+other certified residual kind -> forecast 2.
+```
+
+This map is deliberately visible as policy rather than disguised as a natural
+identification between unrelated codomains.  Its evidence includes the first
+Smith response kind and certificate replay.  Calling it appends only to the
+forecast ledger.  It does not install a constructor, sensor, action grammar, or
+selection policy.
+
+The matrix `((2,1),(0,7))` certifies a row residual and hence forecasts `0`.
+A live port may nevertheless return `2`.  The exact equations then install the
+order-two grammar dictated by response `2`, while the opposed forecast remains
+in history.  Thus even perfect arithmetic classification of its declared
+target cannot acquire authority over an environmental response:
+
+```text
+arithmetic state -> forecast response
+live coupling     -> authoritative response
+authoritative response + exact equations -> installed grammar.
+```
+
+Prediction may order attention or expose likely consequences.  It cannot
+silently replace the causal input whose provenance the certificate claims.
+
+### Why the constructor family should not yet be enlarged
+
+The reciprocal cultivation return corrects the repeated-use carrier.  The
+transporter `C={tau,rho}` is not closed under iteration.  Installed execution
+lives on
+
+```text
+Q = C x X,       a(g,x)=(g,g(x)),       o(g,x)=x.
+```
+
+From `(tau,0)` and `(rho,0)`, observations under `epsilon,a,a^2` are
+`(0,1,0)` and `(0,1,2)`.  Endpoint-only use therefore gives the indiscrete
+quotient, while two uses give the discrete quotient.  Since `C` has two
+elements, there is no intermediate equivalence.
+
+The published AIME-history return supplies the operative discipline: measure
+the question imposed by the caller, not the quantity suggested by an artifact's
+type.  The engine's caller asks which installed grammar governs repeated use;
+`a^2` already decides it exactly.  Enlarging `C` solely to manufacture an
+intermediate quotient would introduce states no live encounter requested and
+would not reduce the current caller's uncertainty.  The engine therefore stops
+at the discrete answer until an actual continuation produces a third response
+law.  This is a scoped stop theorem, not a claim that larger situated families
+are mathematically uninteresting.
+
 The implemented cycle is
 
 ```text
@@ -220,7 +276,7 @@ python3 -m unittest test_coupled_encounter_engine.py -v
 python3 coupled_encounter_engine.py
 ```
 
-Ten focused engine tests plus seven R0028 tests check causation by collisions,
+Twelve focused engine tests plus seven R0028 tests check causation by collisions,
 order independence, noncollision controls, exact two-adic repair, task Pareto
 incomparability, genuinely different installed grammars, score nonauthority,
 withdrawal, API-order invariance before declared selection, and changed

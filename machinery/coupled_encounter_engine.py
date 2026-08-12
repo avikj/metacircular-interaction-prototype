@@ -65,6 +65,16 @@ class ParetoState:
     effective_action_is_group: bool
 
 
+@dataclass(frozen=True)
+class ResponseForecast:
+    """A replayable prediction that has no installation authority."""
+
+    response: int
+    source: str
+    evidence: str
+    policy: str
+
+
 @dataclass
 class EncounterEngine:
     """State changes only after an exact return or an explicit task coupling."""
@@ -82,6 +92,7 @@ class EncounterEngine:
     active_grammar: tuple[tuple[int, ...], ...] = ()
     constructor_selection_policy: str | None = None
     constructor_history: list[SelectionCertificate] = field(default_factory=list)
+    response_forecasts: list[ResponseForecast] = field(default_factory=list)
 
     @classmethod
     def inherited(cls) -> "EncounterEngine":
@@ -292,10 +303,40 @@ class EncounterEngine:
         return transporter(3, 0, 1)
 
     def constructor_future(self, point: int = 0) -> tuple[int, ...]:
-        """The presently executable orbit, which depends on the live response."""
+        """Observations on the closed installed carrier Q={(g,x)}.
+
+        Reuse acts by `(g,x) -> (g,g(x))`; it never acts on the transporter
+        candidate set, which is not composition-closed.
+        """
         if self.active_constructor is None:
             raise ValueError("constructor torsor unresolved: supply a live port")
-        return future_trace(self.active_constructor, point)
+        g, x = self.active_constructor, point
+        observations: list[int] = []
+        for _ in powers(g):
+            observations.append(x)
+            x = g[x]
+        return tuple(observations)
+
+    def forecast_port_from_smith(self, matrix: Matrix) -> ResponseForecast:
+        """Predict a response class from exact arithmetic, without selecting.
+
+        The adapter is explicit: row-origin residuals forecast response zero;
+        the other certified first-step kinds forecast response two.  This is a
+        lawful, replayable classifier, not an authority transfer from
+        arithmetic to an environmental participant.
+        """
+        cert = smith_reduce(matrix)
+        if not cert.steps:
+            raise ValueError("Smith encounter has no residual response to classify")
+        kind = cert.steps[0].kind
+        forecast = ResponseForecast(
+            response=0 if kind == "row-residual" else 2,
+            source="smith-first-certified-response",
+            evidence=f"{kind}; SmithCertificate.verify={cert.verify()}",
+            policy="row-residual->0; otherwise->2",
+        )
+        self.response_forecasts.append(forecast)
+        return forecast
 
     def withdraw_constructor_port(self) -> tuple[tuple[int, ...], ...]:
         """Remove present authority; restore the torsor, not a default choice."""

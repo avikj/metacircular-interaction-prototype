@@ -111,6 +111,30 @@ class CoupledEncounterEngineTests(unittest.TestCase):
                          "exact-live-port-equation")
         self.assertIsNone(right.active_constructor)
 
+    def test_predictive_reuse_lives_on_installed_configurations(self):
+        e = EncounterEngine.inherited()
+        e.couple_constructor_port(2, "participant")
+        self.assertEqual(e.constructor_future(0), (0, 1))
+        e.withdraw_constructor_port()
+        e.couple_constructor_port(0, "participant")
+        self.assertEqual(e.constructor_future(0), (0, 1, 2))
+
+    def test_exact_arithmetic_forecast_has_no_port_authority(self):
+        e = EncounterEngine.inherited()
+        forecast = e.forecast_port_from_smith(((2, 1), (0, 7)))
+        self.assertEqual(forecast.response, 0)
+        self.assertTrue("verify=True" in forecast.evidence)
+        # Forecasting mutates only the prediction ledger: no constructor,
+        # grammar, action, sensor, or selection policy has been installed.
+        self.assertIsNone(e.active_constructor)
+        self.assertEqual(e.active_grammar, ())
+        self.assertIsNone(e.constructor_selection_policy)
+        # A live participant may supply the opposite response. Exact
+        # certification follows that relation, not the arithmetic forecast.
+        cert = e.couple_constructor_port(2, "participant-disagrees")
+        self.assertEqual(cert.port.response, 2)
+        self.assertEqual(e.constructor_future(), (0, 1))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -13,3 +13,7 @@ Doing: Pushed d4afaeb.  Next resume should wait for codex-schema's R0028 landing
 ## 2026-08-12T16:30Z — situated port reciprocally integrated
 Believe: A formed choice must name its policy or preserve the undecided family.  R0028 now changes the engine's actual transformation monoid; the AIME return prevented API call order from becoming an unrecorded scheduler.  Withdrawal removes present authority but not historical causality.
 Doing: R0029 packet prepared with ten engine and seven upstream tests green.  Next exact boundary: derive the port response from an endogenous arithmetic continuation without converting arithmetic behavior into authority over a human/environmental response.
+
+## 2026-08-12T16:42Z — prediction separated from authority
+Believe: Arithmetic can exactly forecast a response class and its downstream grammar without becoming the causal source authorized to select it.  The opposed-port witness makes this executable.  Cultivation corrected reuse to `Q=C×X`; AIME history supplied the stop rule against inventing a larger carrier after the actual caller is already decided.
+Doing: R0030 prepared; nineteen combined tests green.  Next useful move must show forecast reduces a real proposal-search cost while preserving disagreement and withdrawal, not add response classes for their own sake.
