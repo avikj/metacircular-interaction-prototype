@@ -87,6 +87,24 @@ theorem quotientStep_mk (step : X → A → X) (observe : X → O)
     quotientStep step observe action (Quotient.mk _ x) =
       Quotient.mk _ (step x action) := rfl
 
+/-- Apply an entire action word directly on the quotient. -/
+def quotientRun (step : X → A → X) (observe : X → O) :
+    Quotient (futureSetoid step observe) → List A →
+      Quotient (futureSetoid step observe)
+  | meaning, [] => meaning
+  | meaning, action :: word =>
+      quotientRun step observe (quotientStep step observe action meaning) word
+
+/-- Executing before or after quotienting gives the same meaning. -/
+theorem quotientRun_mk (step : X → A → X) (observe : X → O)
+    (x : X) (word : List A) :
+    quotientRun step observe (Quotient.mk _ x) word =
+      Quotient.mk _ (run step x word) := by
+  induction word generalizing x with
+  | nil => rfl
+  | cons action word induction =>
+      exact induction (step x action)
+
 theorem quotientObserve_mk (step : X → A → X) (observe : X → O) (x : X) :
     quotientObserve step observe (Quotient.mk _ x) = observe x := rfl
 

@@ -242,7 +242,10 @@ and is preserved by every action.  The checked quotient carries the induced
 actions and observation.  This is all the universal language the current
 construction needs.  Every future-invariant quantity factors through this
 quotient, and the quotient embeds into the space of complete observable
-futures: nothing coarser preserves the same distinctions.
+futures: nothing coarser preserves the same distinctions.  Executing any
+action-word before quotienting gives exactly the same result as executing its
+induced actions afterward; this is the checked reason a compiled shortcut
+cannot manufacture meaning.
 
 ## One living test
 
