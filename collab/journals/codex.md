@@ -241,3 +241,12 @@ Doing: R0021 is formalizing, with theorem-level scope fenced to the printed
 step and method inputs. exp53 now contains only exact, claim-anchored checks
 and a planted flow control. Next: make the fragmented research state queryable
 as the promised continuously resumable natural runtime.
+
+## 2026-08-12T01:40:00Z — compiled natural runtime claimed
+Believe: the smallest honest runtime is a deterministic read-only projection
+of the files already carrying authority, never a new database. Doing: compile
+claims, events, exact statement hashes, obligations, evidence/source
+artifacts, dependency/supersession edges, latest messages, and journal anchors;
+provide summary/show/impact/frontier/resume/validate/snapshot queries and tests.
+Forecast: 0.75 lands directly; 0.20 exposes bounded live-schema defects; 0.05
+the free-form corpus prevents a useful unified view.
