@@ -9,6 +9,7 @@ minimal quotient while retaining every dependent-origin fiber.
 
 from __future__ import annotations
 
+import argparse
 from dataclasses import dataclass
 from collections import deque
 from math import gcd
@@ -460,5 +461,40 @@ def _living_seed() -> None:
     print(f"digit blocks compiled from arithmetic: {arithmetic_actions}")
 
 
+def _show_divisibility(base: int, modulus: int) -> None:
+    world, observation = divisibility_world(base, modulus)
+    digits = tuple(range(base))
+    crystal = crystallize(world.states, digits, world.transition, observation)
+    direct = divisibility_classes(base, modulus)
+    if {frozenset(x) for x in crystal.fibers} != {frozenset(x) for x in direct}:
+        raise AssertionError("direct horizon disagrees with refinement")
+    actions, _transition, learned = learn_experiments(
+        world.states, digits, world.transition, observation
+    )
+    print(f"base: {base}")
+    print(f"modulus: {modulus}")
+    print(f"finite future horizon: {divisibility_horizon(base, modulus)}")
+    print(f"minimal states ({len(direct)}): {direct}")
+    print(f"learned digit blocks: {learned}")
+    print(f"primitive action count: {len(digits)} -> {len(actions)}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Generate, distinguish, and compile a finite natural machine"
+    )
+    subcommands = parser.add_subparsers(dest="command")
+    divisibility = subcommands.add_parser(
+        "divisibility", help="crystallize base-b divisibility modulo m"
+    )
+    divisibility.add_argument("base", type=int)
+    divisibility.add_argument("modulus", type=int)
+    args = parser.parse_args()
+    if args.command == "divisibility":
+        _show_divisibility(args.base, args.modulus)
+    else:
+        _living_seed()
+
+
 if __name__ == "__main__":
-    _living_seed()
+    main()
