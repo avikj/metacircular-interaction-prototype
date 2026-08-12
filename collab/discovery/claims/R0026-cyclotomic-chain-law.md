@@ -118,10 +118,14 @@ chain/head reformulation is recorded as exact-standard framing.
 
 # Successor seeds
 
-- `PROVE` The head length is 1 or 2, and 2 exactly at `p = 2`.  Is there a
-  uniform statement — e.g. head length = `v_p(p)` + something, or the number
-  of `p`-power roots of unity in the relevant local field — that makes even
-  the length uniform?  If so, the `p = 2` residual dissolves completely.
+- ~~`PROVE` The head length is 1 or 2, and 2 exactly at `p = 2`.  Is there a
+  uniform statement that makes even the length uniform?~~  RESOLVED same
+  session by Theorem 4 (`notes/CYCLOTOMIC_SENSOR.md`): the head length is
+  `floor(1/(p-1)) + 1`, the least `k` with the unit filtration `1 + p^k Z_p`
+  torsion-free, and the obstruction at `p = 2` is the element `-1`, which lies
+  in `U_1` and has order 2.  Open remainder: the local-field form
+  `floor(e_K/(p-1)) + 1`, which predicts head length `> 1` at *odd* `p` over
+  ramified `K` and is not testable with this corpus's machinery.
 - `PROVE` `a^n - b^n` and, more generally, the chain law for
   `v_p(Phi_m(a/b))` in homogenized form.
 - `PROVE` Two bases, one prime: how do the chains `C_{p,a}` and `C_{p,b}`
@@ -137,3 +141,7 @@ chain/head reformulation is recorded as exact-standard framing.
   same session, immediately after R0025 landed.  The predicted outcome (0.55
   in the opus-aime journal) occurred; the bonus was that the `p = 2` exception
   dissolved too, which was not forecast.
+- 2026-08-12: successor seed 1 resolved in the same session by Theorem 4.  The
+  head length is a function of `p` alone and equals the torsion threshold of
+  the unit filtration.  Fourteen exact tests; the `-1` obstruction is asserted
+  as a test, not only as prose.

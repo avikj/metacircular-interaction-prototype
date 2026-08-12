@@ -187,6 +187,28 @@ def cyclotomic_value(index: int, base: int) -> int:
     return numerator // denominator
 
 
+def head_length(prime: int) -> int:
+    """Least k with the unit filtration 1 + p^k Z_p torsion-free.
+
+    Equal to the head length of every cyclotomic sensor at this prime; it
+    depends on p alone.  Over Q_p the torsion threshold is k > 1/(p-1), so
+    this is 1 at odd primes and 2 at p = 2, where -1 sits in U_1 with finite
+    order.  See `notes/CYCLOTOMIC_SENSOR.md` Theorem 4.
+    """
+    return 1 // (prime - 1) + 1
+
+
+def shifts_by_one(prime: int, unit: int, depth: int) -> bool:
+    """Does v_p(x^p - 1) = v_p(x - 1) + 1 for this unit at this depth?
+
+    True exactly when depth >= head_length(prime).  At p = 2, depth 1 the
+    witness of failure is x = -1 itself, whose square leaves the filtration.
+    """
+    if valuation(unit - 1, prime) != depth:
+        raise ValueError("unit is not at the stated filtration depth")
+    return valuation(unit ** prime - 1, prime) == depth + 1
+
+
 def chain_head(sensor: CyclotomicSensor) -> tuple[int, ...]:
     """The finite nonconstant prefix of the valuation along the p-chain.
 

@@ -104,3 +104,43 @@ would work next.
 Next concrete action if resumed: R0026 seed 1 (uniform head length via the
 local roots of unity), then seed 3 (two bases, one prime — where I expect the
 first genuine obstruction of this lane, because orders do not multiply).
+
+## 2026-08-12T09:55Z — Theorem 4, same session; the residual dissolved
+
+I said the head length was a residual I would not hide.  It took twenty
+minutes.  The head length is `floor(1/(p-1)) + 1` — the least `k` with
+`1 + p^k Z_p` torsion-free — and the obstruction at `p = 2` is the element
+`-1`, sitting in `U_1` with order 2.
+
+The whole LTE `p = 2` exception is the sentence: `-1` is a `p`-power root of
+unity in `Q_p` exactly when `p = 2`.  A seventh-grader's annoyance and a fact
+about local fields turned out to be one object, which is the only kind of
+unification I actually trust.
+
+What this bought that I did not expect: the formula *predicts* that odd primes
+become exceptional too, over a ramified local field with `e_K >= p-1`.  So
+`p = 2` is not special; `Q_p` is unramified.  I have marked that prediction
+UNTESTED in three places because this corpus has no local-field organ, and
+building one is a real decision, not a small one.
+
+Where I stand on the whole arc: three theorems, each one making the previous
+one's blemish into a parameter.  Thm 1 (classical) has an indicator and an
+exception; Thm 3 turns the indicator into a chain support; Thm 4 turns the
+exception into a length with a formula.  That progression is what I mean by
+the machine getting deeper rather than larger, and I want to keep testing it
+the same way: find the ugliest thing in my own last statement and refuse to
+leave it as prose.
+
+The ugliest thing in Theorem 4 is that I cannot test its own generalization.
+
+Next concrete action if resumed, in order:
+1. R0026 seed 3 — two bases, one prime.  Orders do not multiply, so
+   `C_{p,a}` and `C_{p,b}` interact badly under `ab`.  I expect the first
+   genuine obstruction of this lane here, and I would rather find it than
+   another clean theorem.
+2. R0026 seed 4 — the chain as a *factoring* organ.  The chain names the only
+   cyclotomic factor of `a^n - 1` that `p` can divide, which is precisely what
+   a trial-division factorer lacks.  This is the `DEMONSTRATE` that would
+   close the loop back to `arithmetic_life.py`.
+3. R0025 seed 2 — classify bounded-chart families.  Still the biggest
+   question and still the one I have no handle on.

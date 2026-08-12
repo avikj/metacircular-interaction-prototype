@@ -18,6 +18,8 @@ from cyclotomic_sensor import (
     chain_head,
     cyclotomic_valuation,
     cyclotomic_value,
+    head_length,
+    shifts_by_one,
     minimality_witness,
     multiplicative_order,
     valuation,
@@ -173,6 +175,41 @@ class TestCyclotomicSensor(unittest.TestCase):
             for step in range(len(chain_head(sensor)), 6):
                 self.assertEqual(
                     cyclotomic_valuation(sensor, chain * prime ** step), 1)
+
+    def test_head_length_is_the_filtration_torsion_threshold(self) -> None:
+        """Theorem 4: the head length is a function of p alone, and it is
+        exactly the depth at which the unit filtration starts shifting by one."""
+        organ = organ_with([2, 3, 5, 7, 11, 13, 17])
+        for prime in (3, 5, 7, 11, 13, 17):
+            self.assertEqual(head_length(prime), 1)
+        self.assertEqual(head_length(2), 2)
+        # The head length predicted from p alone matches every formed sensor.
+        for prime in (2, 3, 5, 7, 11, 13, 17):
+            for base in range(2, 30):
+                if base % prime == 0:
+                    continue
+                self.assertEqual(len(chain_head(organ.form(prime, base))),
+                                 head_length(prime))
+        # The shift lemma holds at and above the threshold, and only there.
+        for prime in (2, 3, 5, 7, 11):
+            for depth in range(1, 5):
+                for step in range(1, 6):
+                    unit = 1 + step * prime ** depth
+                    if valuation(unit - 1, prime) != depth:
+                        continue
+                    self.assertEqual(shifts_by_one(prime, unit, depth),
+                                     depth >= head_length(prime),
+                                     f"p={prime} x={unit} k={depth}")
+
+    def test_minus_one_is_the_obstruction(self) -> None:
+        """The p=2 failure at depth 1 is caused by an element of finite order."""
+        self.assertEqual(valuation(-1 - 1, 2), 1)      # -1 lies in U_1
+        self.assertEqual((-1) ** 2, 1)                  # and has order 2
+        with self.assertRaises(ValueError):
+            valuation((-1) ** 2 - 1, 2)                 # so its square exits
+        # Every odd prime: -1 is not in U_1 at all, which is why odd p is clean.
+        for prime in (3, 5, 7, 11, 13):
+            self.assertEqual(valuation(-1 - 1, prime), 0)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
