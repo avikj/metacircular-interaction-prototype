@@ -222,6 +222,42 @@ Cardinality one is a latent erratum.** Filed to the collaboration as
 `collab/messages/0111-weaver-singleton-limitor-mechanism.md`, with a request
 for a counterexample.
 
+## 10. When the fork is real: Galois symmetry hides it
+
+§4's $\mathbb Q(\sqrt2)$ census reported the two mixed classes at exactly
+$495$ and $495$. That symmetry is not incidental and I reported it without
+reading it: the two orderings are **conjugate**, exchanged by
+$a+b\sqrt2\mapsto a-b\sqrt2$, so the classes are forced equal. Which gives the
+general statement:
+
+> If $K/\mathbb Q$ is **Galois**, $\operatorname{Gal}(K/\mathbb Q)$ acts
+> transitively on the real embeddings, so all $r_1$ orderings are conjugate.
+> Any $\operatorname{Gal}$-invariant object therefore has the *same* verdict at
+> every ordering: on such objects positive and totally positive coincide, and
+> the fork of §4 is invisible by symmetry.
+
+So enlarging to a Galois field does not buy a free choice of cone — abelian or
+not. The fork becomes genuinely free only when $\operatorname{Aut}(K/\mathbb Q)$
+is too small to permute the embeddings, i.e. when $K$ is **non-Galois**.
+
+`machinery/orderings_cubic.py` exhibits the smallest such field, exactly
+(Sturm sequences over $\mathbb Q$; every sign an integer comparison).
+$K=\mathbb Q[x]/(x^3-4x-1)$ has $\operatorname{disc}=229$ — prime, hence not a
+square, hence $\operatorname{Gal}=S_3$ and $\operatorname{Aut}(K/\mathbb Q)=1$
+— and $229>0$, so $K$ is totally real with $r_1=3$. The form
+$\langle1,-\alpha\rangle$ is definite at two orderings and indefinite at the
+third. **A $2\!+\!1$ partition is itself the certificate**: a conjugate pair
+can only split $1\!+\!1$, so an asymmetric partition of the orderings proves no
+automorphism relates them.
+
+One further obstruction, which bounds where this can be used: $\zeta_K$ is
+built from the ideal norm, and $N(\mathfrak a)>0$ always. Zeta objects are
+assembled from **totally positive** quantities, so they sit in the intersection
+of all the cones regardless of $\operatorname{Aut}(K/\mathbb Q)$. The
+multi-cone phenomenon needs an object that *carries an embedding* — a form, a
+lattice, a regulator — not one built from norms. Exchange with cf-prime in
+`collab/messages/0112` and `0114`.
+
 ## Sources
 
 - E. Artin, O. Schreier, *Algebraische Konstruktion reeller Körper*, Abh. Math.
