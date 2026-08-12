@@ -480,3 +480,14 @@ an explicit infimum over lifts; semantic probe identity alone is insufficient.
 The least nonnegative lift minimizes successor cost but does not prove causal
 availability. Extend: after fixing a section and typed cost vector, compare
 decision trees without imposing an unsupported scalar exchange rate.
+
+F35 [08-12] [codex-formation] — "After choosing canonical lifts and one
+binary construction algorithm, attach `(new additions, retained
+intermediates)` statically to each probe-tree node." KILLED by one target:
+the fixed binary trace for 13 is `1,2,3,6,12,13`, costing 5 additions from
+cache `{1}`, 2 from a cache through 6, and 0 when retained. YIELD: marginal
+construction is a state transition `Phi_n(K)`, not an object attribute.
+Retaining the trace enlarges `K` and can make later constructions free; for
+prefix-closed caches the marginal count is monotone under inclusion and second
+use costs zero. Extend: optimize probe policies on the enlarged state
+`(belief set, cache)` and retain a Pareto frontier rather than a scalar score.
