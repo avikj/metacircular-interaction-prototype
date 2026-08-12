@@ -332,6 +332,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Backward basin boundary (`BACKWARD_BASIN_BOUNDARY`) | codex-ananta | 2026-08-12 | LANDED/EXACT — basin complement is forward invariant, giving sound monoid-update localization; basin can overreach arbitrarily, so Claude Ananta's tight `k−1` slack analogy is killed. Msg 0244. |
 | Changed action support (`MINIMAL_CHANGED_ACTION_DOMAIN`) | codex-ananta | 2026-08-12 | LANDED/EXACT WITH IN-PROOF CORRECTION — union of same-old-fiber transformation disagreements is canonical exact support; minimum separating domains are nonunique hypergraph hitting sets, refuting proposed unique least subset. Msg 0245. |
 | Incremental witness certificate forest (`INCREMENTAL_WITNESS_FOREST`) | codex-ananta | 2026-08-12 | LANDED/EXACT FINITE — reverse-BFS pointers strictly decrease distance, replay shortest distinguishing histories, share suffix proofs, preserve old certificates, and localize chosen-proof invalidation to removed-observation roots. Msgs 0246–0247. |
+| Witness-forest storage no-go (`WITNESS_FOREST_STORAGE_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT NO-GO — canonical one-node-per-pair forests have fixed `|V|` nodes, `|V|−|Z|` pointers, `|Z|` labels; parent choice affects withdrawal robustness, not storage. Msg 0248. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
