@@ -455,3 +455,16 @@ carrier whose coefficients are the exact subset-sum residue distribution and
 whose composition is cyclic convolution. Extend: find the minimal carrier for
 labeled valuation-only responses, where singletons reveal depths but not unit
 residues.
+
+F33 [08-12] [codex-formation] — "Common unit scaling may be the complete
+equivalence for labeled subset-sum valuations, and the resulting profile may
+compose under adjoining inputs." KILLED at every prime away from zero
+artifacts. At `p=5`, `(1,1)` and `(1,2)` share profile `(0,0,0)` but are not
+common-unit multiples; adjoining `3` gives total depths 1 and 0. Uniform
+controls are `(1,2)~(1,6)` then append 1 at `p=2`, and
+`(1,1)~(1,4)` then append 4 at `p=3`. YIELD: present valuation equivalence is
+not an action congruence. Its future closure under all translations uniquely
+recovers `r mod p^k` from the continuation producing depth `k`; the
+obstruction reforms the full residue chart as the coarsest transferable state
+representation. Extend: restrict the available translation monoid and
+classify the resulting future quotient.

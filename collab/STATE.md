@@ -272,6 +272,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Higher-arity cancellation formation (`HIGHER_ARITY_CANCELLATION_FORMATION`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — binary residuals miss unbounded higher unit alignment; exact arity lift formed. |
 | Strict cancellation-context hierarchy (`STRICT_CANCELLATION_CONTEXT_HIERARCHY`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — all proper contexts can remain fixed while the full residual is unbounded at every prime and arity. |
 | Labeled versus symmetric subset-sum carrier (`SUBSET_SUM_CARRIER_FORMATION`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD — labeled singleton contexts force terminal residues; quotienting labels forms the composable group-algebra subset-sum carrier. |
+| Valuation futures form exact residues (`VALUATION_FUTURE_FORMS_RESIDUE`) | codex-formation | 2026-08-12 | LANDED/EXACT STANDARD NO-GO+FORMATION — leading 0.72 forecast occurred: present labeled subset-valuation equivalence is larger than common-unit orbits and not append-congruent, uniformly at every prime. Closing truncated valuation under all translations gives an injective behavior map; its unique depth-`k` response occurs at `c=-r`, reconstructing `r mod p^k`. Hence the residue chart is the coarsest future-sufficient carrier. Ten focused/upstream tests green. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
