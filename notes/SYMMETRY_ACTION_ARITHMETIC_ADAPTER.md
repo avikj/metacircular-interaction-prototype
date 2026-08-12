@@ -9,7 +9,17 @@ For a permutation `e : Fin(n) ≃ Fin(n)` and register assignment
 (e\cdot r)(i)=r(e(i)).
 \]
 
-Then `(ef)·r=f·(e·r)` under the repository's `e after f` convention.  For a
+~~Then `(ef)·r=f·(e·r)` under the repository's `e after f` convention.~~
+**Correction (2026-08-12, standalone Agda recheck):** `compEquiv e f` has
+underlying map `f ∘ e`, while register action is precomposition, hence
+
+\[
+((e;f)\cdot r)=e\cdot(f\cdot r).
+\]
+
+The former order was hidden by the self-inverse two-port swap and by a stale
+incremental interface.  The corrected statement is now checked from source by
+the standalone command below.  For a
 Cubical loop `p : Fin(n) ≡ Fin(n)`, use `pathToEquiv(p)` as `e`.
 `formal/cubical/NaturalMachine/SymmetryArithmeticAction.agda` checks the
 action law, its compatibility with path composition, the distinction between
@@ -73,15 +83,19 @@ landing: inverse-precomposing coefficients happens to work for the order-two
 swap and fails for longer cycles; same-map precomposition is the checked
 covariance law under the definitions above.
 
-The Cubical action, composition law, fixed/transported-port policies,
+The Cubical action, corrected composition law, fixed/transported-port policies,
 transported-port invariance, and pointwise covariance square are
-machine-checked.  The mod-five
-witness and covariance control are exact finite arithmetic, replayed by:
+machine-checked.  The same Agda module now contains a fully internal
+normalizing witness: the checked `swap01-Equiv` moves the fixed observation at
+zero from value `1` to value `2`, while transporting the observation point
+returns value `1`.  It requires no Python. Replay the load-bearing result by:
 
 ```text
 agda -i formal/cubical formal/cubical/NaturalMachine/SymmetryArithmeticAction.agda
-python3 machinery/test_symmetry_arithmetic_action.py -v
 ```
+
+The older Python mod-five example remains a disposable differential falsifier,
+not part of the proof, bridge, or substrate.
 
 This is not a theorem that every permutation matters to every arithmetic
 program. Symmetric evaluators and covariantly transported interfaces erase the

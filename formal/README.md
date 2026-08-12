@@ -34,3 +34,9 @@ itself connect a repository conjecture to a theorem in that vocabulary.  Each
 useful ingestion still needs a checked adapter: definitions on both sides and
 a theorem that the translation preserves the operation or property being
 used.
+
+The adapter itself should remain in the proof language through executable
+normalization whenever possible.  Python machinery may falsify a candidate or
+compare implementations; it is not the certificate bridge.  In particular,
+`NaturalMachine.SymmetryArithmeticAction` now contains both the general action
+law and its concrete normalizing witness entirely in Cubical Agda.

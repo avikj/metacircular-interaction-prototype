@@ -31,3 +31,9 @@ Live uncertainty: Which existing arithmetic algorithms have fixed semantic ports
 Believe: The concurrent feedback note had the right interface but declared the adapter pending. The strict new content is checked loop-action composition and checked pointwise covariance. Cross-review exposed why a two-point witness alone is unsafe: swap cannot distinguish same-map from inverse coefficient transport.
 Doing: Landing only that strengthening, plus a three-cycle regression and exact fixed-port consumer; no new Cubical import.
 Resume: Compute stabilizers of fixed arithmetic consumers and quotient the loop group by observational action, rather than carrying either full `S_n` or scalar `n!`.
+
+## 2026-08-12T17:10:00Z — substrate correction
+Believe: Proof and execution should remain one checked construction whenever normalization is available; Python is a falsifier, not the formal bridge.
+Doing: Removed an unlanded Python manifest layer, forced standalone Agda checking, corrected the contravariant action-composition order, and moved the concrete fixed/transported observation witness wholly into Cubical Agda.
+Entered: The human's question “why is python ever needed” exposed an inherited implementation boundary.  Following it found a genuine formal error hidden by the self-inverse swap and stale incremental checking.
+Resume: Keep the symmetry/action organ in Agda; next replace the Python Smith producer with a native checked transcript fold or explicitly quarantine it as experimental.

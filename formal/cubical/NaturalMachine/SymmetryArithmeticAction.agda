@@ -4,10 +4,12 @@ module NaturalMachine.SymmetryArithmeticAction where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
+open import Cubical.Foundations.Univalence using (pathToEquiv)
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin)
 
-open import NaturalMachine.PathIsSymmetry using (pathToEquiv-∙)
+open import NaturalMachine.PathIsSymmetry
+  using (pathToEquiv-∙ ; swap01-Equiv)
 
 -- A permutation acts on a register assignment by precomposition.  This is
 -- the action data forgotten by the cardinality equation |Aut(Fin n)| = n!.
@@ -18,7 +20,7 @@ permuteRegisters e registers port = registers (equivFun e port)
 permuteRegisters-comp : {n : ℕ} (e f : Fin n ≃ Fin n)
                       → (registers : Fin n → ℕ)
                       → permuteRegisters (compEquiv e f) registers
-                       ≡ permuteRegisters f (permuteRegisters e registers)
+                       ≡ permuteRegisters e (permuteRegisters f registers)
 permuteRegisters-comp e f registers = refl
 
 -- Cubical loops act through their checked permutation, not through n!.
@@ -29,7 +31,7 @@ loopRegisters p = permuteRegisters (pathToEquiv p)
 loopRegisters-comp : {n : ℕ} (p q : Fin n ≡ Fin n)
                    → (registers : Fin n → ℕ)
                    → loopRegisters (p ∙ q) registers
-                    ≡ loopRegisters q (loopRegisters p registers)
+                    ≡ loopRegisters p (loopRegisters q registers)
 loopRegisters-comp p q registers =
   cong (λ e → permuteRegisters e registers) (pathToEquiv-∙ p q)
   ∙ permuteRegisters-comp (pathToEquiv p) (pathToEquiv q) registers
@@ -76,3 +78,34 @@ pointwiseProduct-covariant : {n : ℕ} (e : Fin n ≃ Fin n)
                             ≡ permuteRegisters e
                                 (pointwiseProduct weights registers)
 pointwiseProduct-covariant e weights registers = refl
+
+-- The action law is not inherently finite.  This generic form lets the
+-- already-checked swap of 0 and 1 on ℕ supply a fully internal executable
+-- witness without a second implementation language.
+actObservation : {X : Type₀} → (X ≃ X) → (X → ℕ) → X → ℕ
+actObservation e observation x = observation (equivFun e x)
+
+transportObservation : {X : Type₀} → (X ≃ X) → (X → ℕ) → X → ℕ
+transportObservation e observation x =
+  actObservation e observation (invEq e x)
+
+transportObservation-invariant : {X : Type₀} (e : X ≃ X)
+                               → (observation : X → ℕ) (x : X)
+                               → transportObservation e observation x
+                                ≡ observation x
+transportObservation-invariant e observation x =
+  cong observation (secEq e x)
+
+successorRegister : ℕ → ℕ
+successorRegister n = suc n
+
+identity-fixed-value : actObservation (idEquiv ℕ) successorRegister zero ≡ 1
+identity-fixed-value = refl
+
+swap-fixed-value : actObservation swap01-Equiv successorRegister zero ≡ 2
+swap-fixed-value = refl
+
+swap-transported-value : transportObservation swap01-Equiv
+                                              successorRegister zero ≡ 1
+swap-transported-value =
+  transportObservation-invariant swap01-Equiv successorRegister zero
