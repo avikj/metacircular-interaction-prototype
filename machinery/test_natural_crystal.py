@@ -15,6 +15,7 @@ from natural_crystal import (
     learn_experiments,
     linear_observation_classes,
     linear_observation_world,
+    minimal_sensor_sets,
     pattern_world,
     run_word,
     shortest_distinguishing_word,
@@ -170,6 +171,21 @@ class NaturalCrystalTests(unittest.TestCase):
         with redirect_stdout(output):
             _show_linear()
         self.assertIn("observable concepts: 2^3 = 8", output.getvalue())
+
+    def test_time_can_make_one_sensor_sufficient(self):
+        self.assertEqual(
+            minimal_sensor_sets(3, (2, 4, 1), (1, 2, 4)),
+            ((1,), (2,), (4,)),
+        )
+
+    def test_static_world_needs_all_coordinate_sensors(self):
+        self.assertEqual(
+            minimal_sensor_sets(3, (1, 2, 4), (1, 2, 4)),
+            ((1, 2, 4),),
+        )
+
+    def test_sensor_search_returns_empty_when_grammar_is_insufficient(self):
+        self.assertEqual(minimal_sensor_sets(3, (1, 2, 4), (1, 2)), ())
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):

@@ -208,6 +208,9 @@ through every future evolution.  The resulting concepts are cosets of the
 unobservable subspace; if the observability matrix has rank `r`, there are
 exactly `2^r`.  Arithmetic, language, and state estimation now share one
 construction while retaining their native laws and evidence boundaries.
+Running the same calculation backward chooses every smallest sensor family
+that preserves the whole state.  Perception is constructed from the joint law
+of motion and observation, not attached afterward as a label.
 
 ## One living test
 

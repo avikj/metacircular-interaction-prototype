@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from collections import deque
+from itertools import combinations
 from math import gcd
 from typing import Callable, Hashable, Mapping, Sequence
 
@@ -492,6 +493,39 @@ def linear_observation_classes(
     return tuple(tuple(fiber) for fiber in signatures.values()), _binary_rank(functional_rows)
 
 
+def minimal_sensor_sets(
+    dimension: int, rows: Sequence[int], candidates: Sequence[int]
+) -> tuple[tuple[int, ...], ...]:
+    """Return every smallest candidate sensor family with full observability."""
+    sensors = tuple(candidates)
+    if len(set(sensors)) != len(sensors):
+        raise ValueError("candidate sensors must be unique")
+    # Validate the dynamics and every sensor before searching.
+    for sensor in sensors:
+        linear_observation_world(dimension, rows, sensor)
+    target = 1 << dimension
+    for size in range(len(sensors) + 1):
+        solutions = []
+        for choice in combinations(sensors, size):
+            joint_signatures = set()
+            for state in range(target):
+                signature = []
+                for sensor in choice:
+                    world, observation = linear_observation_world(
+                        dimension, rows, sensor
+                    )
+                    current = state
+                    for _ in range(dimension):
+                        signature.append(observation[current])
+                        current = world.transition[current, "evolve"]
+                joint_signatures.add(tuple(signature))
+            if len(joint_signatures) == target:
+                solutions.append(choice)
+        if solutions:
+            return tuple(solutions)
+    return ()
+
+
 def twelve_link_machine() -> Crystal:
     """A minimal intervention toy, not a historical or physical model.
 
@@ -604,6 +638,8 @@ def _show_linear() -> None:
     print(f"observability rank: {rank}")
     print(f"observable concepts: 2^{rank} = {len(direct)}")
     print(f"minimal future classes: {crystal.fibers}")
+    print(f"smallest full-observation sensor sets: "
+          f"{minimal_sensor_sets(3, rows, (1, 2, 4))}")
 
 
 def main() -> None:
