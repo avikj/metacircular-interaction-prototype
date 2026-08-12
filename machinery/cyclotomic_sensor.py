@@ -753,6 +753,71 @@ def beats_certainly(cheap_cost: int, rival_cost: int, rival_base: int,
     return rival_cost >= yield_bound(rival_base, rival_index) * cheap_cost
 
 
+def actual_yield(base: int, index: int,
+                 budget: int = DEFAULT_BUDGET) -> int | None:
+    """The true number of primitive prime divisors, by paying for the scan.
+
+    None when the scan does not complete inside `budget`.  This is the only way
+    to learn the yield: Theorem 17 says no bound on `(base, index)` can give it,
+    because Zsigmondy's lower bound of one is sharp — `Phi_17(2) = 131071` is
+    prime, so its yield is exactly one while `yield_bound` allows six.
+    """
+    found = factor_cyclotomic(index, base, budget=budget, compare=False)
+    if not found.complete:
+        return None
+    return sum(1 for prime, _power in found.factors
+               if base % prime and multiplicative_order(base, prime) == index)
+
+
+@dataclass(frozen=True)
+class ContestedVerdict:
+    """A near-tie decided by paying for it, with the price stated."""
+
+    winner: tuple[int, int]
+    loser: tuple[int, int]
+    winner_yield: int
+    loser_yield: int
+    price: int
+
+    def describe(self) -> str:
+        return (f"{self.winner} beats {self.loser}: yields "
+                f"{self.winner_yield} vs {self.loser_yield}, "
+                f"price {self.price} trial divisions")
+
+
+def quote_resolution(left: tuple[int, int], right: tuple[int, int]) -> int:
+    """What deciding this near-tie would cost, quoted BEFORE paying."""
+    return scan_cost(*left) + scan_cost(*right)
+
+
+def resolve_contested(left: tuple[int, int], right: tuple[int, int],
+                      budget: int = DEFAULT_BUDGET) -> ContestedVerdict | None:
+    """Decide a contested pair by cost per prime obtained, or decline.
+
+    Theorem 17: the contested window of Theorem 16 cannot be narrowed by any
+    argument from `(base, index)` alone, because the yield lower bound is sharp.
+    So the organ cannot *derive* the verdict — but it can *buy* it, and the
+    price is quotable in advance.  Returns None when the quote exceeds the
+    budget, which is a refusal about affordability and not about existence.
+    """
+    if quote_resolution(left, right) > budget:
+        return None
+    left_yield = actual_yield(*left, budget=budget)
+    right_yield = actual_yield(*right, budget=budget)
+    if left_yield is None or right_yield is None:
+        return None
+    left_rate = scan_cost(*left) / left_yield
+    right_rate = scan_cost(*right) / right_yield
+    winner, loser = ((left, right) if left_rate <= right_rate
+                     else (right, left))
+    return ContestedVerdict(
+        winner=winner, loser=loser,
+        winner_yield=left_yield if winner is left else right_yield,
+        loser_yield=right_yield if winner is left else left_yield,
+        price=quote_resolution(left, right),
+    )
+
+
 def interleaving_weight(base: int, index: int) -> float:
     """The single scalar that orders encounters across BOTH slots.
 

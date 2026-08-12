@@ -1167,6 +1167,62 @@ swap.  Those ties are exactly the contested set: the window where the cost
 model does not separate, and the window where yield could matter, are the same
 window.
 
+## The contested window is irreducible — and purchasable
+
+I closed the previous section with the contested set as an open item and said I
+expected deciding it to be genuinely hard, because it needs a *lower* bound on
+the yield and Zsigmondy gives only one.  The twelfth sitting asked whether a
+better lower bound could exist at all.  It cannot.
+
+> **Theorem 17.**
+> 1. *The lower bound is sharp.*  Whenever the primitive part of $\Phi_n(b)$ is
+>    a single prime, $Y(b,n)=1$ exactly, however large the upper bound of
+>    Theorem 16 happens to be.  Witnesses at base $2$:
+>    $$
+>      \Phi_7(2)=127,\quad \Phi_{13}(2)=8191,\quad \Phi_{17}(2)=131071,
+>    $$
+>    all prime, with $Y=1$ against bounds $3$, $4$, $6$.
+> 2. *Hence the window cannot be narrowed.*  No argument from $(b,n)$ alone can
+>    improve $Y\ge1$, so the contested set of Theorem 16 is exactly as large as
+>    the bounds allow, and no sharper bound will shrink it.
+> 3. *But it can be bought.*  Factoring both primitive parts gives the exact
+>    yields, at a price quotable in advance: $\operatorname{cost}_1+
+>    \operatorname{cost}_2$ trial divisions.
+
+Part 2 is the honest answer to the question I left open, and it is a no-go of a
+particular kind: **the organ's residual uncertainty about its own optimality is
+not a gap in my analysis.  It is a feature of the problem.**  Deciding a
+near-tie requires exactly the work the ordering exists to schedule.
+
+### Buying a verdict
+
+`quote_resolution` prices the decision, `resolve_contested` pays it:
+
+```text
+choice (2,3), contested rivals: 52
+   vs (2,5):  quote 4  ->  (2,3) beats (2,5),  yields 1 vs 1, price 4
+   vs (2,7):  quote 4  ->  (2,3) beats (2,7),  yields 1 vs 1, price 4
+   vs (2,11): quote 6  ->  (2,3) beats (2,11), yields 1 vs 2, price 6
+   vs (2,53): quote 895346 -> declined, exceeds budget
+```
+
+The last row is the point about typing again: that refusal is about
+**affordability**, not about existence.  The verdict is there to be had; this
+organ cannot pay for it.
+
+So the organ now stands in three distinct relations to its own next choice:
+
+| | what it can say |
+|---|---|
+| outside the window | *optimal, proved, free* (Theorem 16) |
+| inside the window, affordable | *optimal, bought, price stated* (Theorem 17.3) |
+| inside the window, unaffordable | *undecided, and here is what deciding costs* |
+
+The third row is new and is the one I would not have written a sitting ago.
+An organ that can quote the price of a certainty it does not have is in a
+better epistemic position than one that merely reports uncertainty, and the
+quote costs nothing to produce.
+
 ## The encounter
 
 ```text
@@ -1203,6 +1259,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 17.  Part 1 is exhibition — the named cyclotomic
+  values are prime, which is a finite exact check, and the yields are computed
+  by complete factorization.  Part 2 follows: a uniform lower bound `Y >= 2`
+  is contradicted by a single witness.  Part 3 is the definition of the price
+  plus R0030's completeness guarantee.  **Not claimed:** that `Y = 1` occurs
+  infinitely often — that would need infinitely many Mersenne-type primes and
+  is open.  What is proved is only that no uniform improvement exists, which
+  one witness settles.
 - **Proved here:** Theorem 16.  The yield bound is elementary — `p = 1 mod n`
   forces `p >= n+1`, and `Phi_n(b) <= (b+1)^phi(n)` is the same product bound
   used in R0028.  **No novelty claimed.**  **Not claimed:** that the bound is

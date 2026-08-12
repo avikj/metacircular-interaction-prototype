@@ -23,6 +23,9 @@ from cyclotomic_sensor import (
     acquisition_horizon,
     growth_rate,
     yield_bound,
+    actual_yield,
+    quote_resolution,
+    resolve_contested,
     beats_certainly,
     widen_crossover,
     interleaving_weight,
@@ -955,6 +958,58 @@ class TestCyclotomicSensor(unittest.TestCase):
                 self.assertLessEqual(sharp(base, index),
                                      yield_bound(base, index))
         self.assertEqual((weak, strong), (52, 47))
+
+    def test_yield_lower_bound_is_sharp(self) -> None:
+        """Theorem 17: Zsigmondy's Y >= 1 cannot be improved.  Whenever the
+        primitive part is a single prime the yield is exactly one, however
+        large the upper bound is — so no argument from (b,n) alone can narrow
+        the contested window."""
+        witnesses = 0
+        for base, index in ((2, 7), (2, 13), (2, 17), (2, 19), (2, 27)):
+            self.assertEqual(actual_yield(base, index), 1)
+            self.assertGreaterEqual(yield_bound(base, index), 3)
+            witnesses += 1
+        self.assertGreater(witnesses, 0)
+        # Phi_17(2) is prime, so the gap between bound and truth is 6 to 1
+        self.assertEqual(cyclotomic_value(17, 2), 131071)
+        self.assertEqual(yield_bound(2, 17), 6)
+
+    def test_contested_pairs_are_purchasable_at_a_quoted_price(self) -> None:
+        """What cannot be derived can be bought, and the price is quoted first."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        choice = organ.propose_next(budget=20_000, base_limit=8)
+        cheap = scan_cost(*choice)
+        bought = 0
+        for base in range(2, 9):
+            if base_refusal(base) is not None:
+                continue
+            for index in range(1, 30):
+                rival = (base, index)
+                if rival == choice:
+                    continue
+                if refusal(base, index, 20_000) is not None:
+                    continue
+                if beats_certainly(cheap, scan_cost(base, index), base, index):
+                    continue
+                quote = quote_resolution(choice, rival)
+                verdict = resolve_contested(choice, rival, budget=20_000)
+                self.assertIsNotNone(verdict)
+                self.assertEqual(verdict.price, quote)
+                # the verdict is exactly the cost-per-prime comparison
+                mine = cheap / verdict.winner_yield if verdict.winner == choice \
+                    else scan_cost(*rival) / verdict.winner_yield
+                theirs = scan_cost(*verdict.loser) / verdict.loser_yield
+                self.assertLessEqual(mine, theirs)
+                bought += 1
+        self.assertGreater(bought, 10)
+
+    def test_resolution_declines_when_it_cannot_pay(self) -> None:
+        """The refusal is about affordability, not about existence."""
+        expensive = (2, 53)
+        quote = quote_resolution((2, 3), expensive)
+        self.assertGreater(quote, 100_000)
+        self.assertIsNone(resolve_contested((2, 3), expensive, budget=1_000))
+        self.assertIsNotNone(resolve_contested((2, 3), (2, 5), budget=1_000))
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

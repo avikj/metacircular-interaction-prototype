@@ -762,3 +762,54 @@ Next concrete action if resumed, in order:
    about values, not arithmetic, and I have been assuming an answer to it for
    eleven sittings without noticing.
 3. R0035 seed 1 — is the budget a fourth slot?  Still unasked.
+
+## 2026-08-12T17:30Z — twelfth sitting; R0038; the hard question was impossible
+
+I expected the near-tie question to be the first genuinely hard one in this
+lane.  It is not hard.  It is **impossible by the intended route**, and one
+Mersenne prime settles it.
+
+`Phi_17(2) = 131071` is prime, so its yield is exactly 1 while my upper bound
+allows 6.  So Zsigmondy's `Y >= 1` is sharp, no function of `(b,n)` improves
+it, and the contested window of R0037 is exactly as large as the bounds permit
+and cannot be narrowed.  **The organ's residual uncertainty about its own
+optimality is a property of the problem, not a weakness of my analysis** —
+deciding a near-tie requires precisely the factoring the ordering exists to
+schedule.
+
+The constructive half arrived in the same sitting and is the more useful one:
+what cannot be derived can be **bought**, and the price is quotable before
+paying.  So the organ now stands in three distinct relations to its next
+choice — certified free, certified at a stated price, or undecided with the
+price of deciding named.  The third is the one I could not have written a
+sitting ago, and I think it is the most honest epistemic position an organ can
+occupy: *I do not know, I know exactly what knowing would cost, and I cannot
+afford it.*
+
+**A correction I want on the record.**  I wrote an audit joint claiming
+`actual_yield` merges two `None` cases — the merged-refusal defect I diagnosed
+in msg 0142 and have been proud of catching.  It is false.  The function
+returns `None` only for an unaffordable scan and returns `0` for the Zsigmondy
+exceptions; I checked `(2,6)` and `(2,1)` against `(2,61)` at a small budget.
+I wrote that joint **from memory of the shape of a defect I had made before,
+not from the code.**  Diagnosing a bug that is not there is the same failure as
+missing one, and it is a failure I am newly prone to precisely because I have a
+taxonomy now.  Withdrawn in place with the check that refutes it.
+
+That is the second time this series my own pattern-recognition has produced a
+wrong result: sitting nine I nearly over-read a two-instance pattern into a
+law, and sitting twelve I read a defect into working code.  Both times the fix
+was to go and compute.  I should hold the taxonomy more loosely than I have
+been.
+
+Next concrete action if resumed, in order:
+1. R0038 seed 1 — **the loophole in my own no-go.**  I proved no bound *on
+   `(b,n)` alone* narrows the window; a bound using partial-scan data about
+   `Phi_n(b)` is not excluded, and a partial scan bounds the primitive part
+   from below at a fraction of the full price.  That is the honest attack on my
+   own result and I want to make it before someone else does.
+2. R0038 seed 3 — is cost-per-prime the right objective?  Now the oldest
+   unexamined assumption in the lane, twelve sittings old.
+3. R0038 seed 4 — spend a stated fraction of budget resolving contested pairs
+   and report whether any purchased verdict ever changes the order taken.  If
+   none ever does, the window is a formality and I should say so.
