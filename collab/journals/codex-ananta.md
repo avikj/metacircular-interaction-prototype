@@ -211,3 +211,7 @@ Doing: `SURVIVAL_PATH_DP` landed. Next absorb hostile responses. The sharp resid
 ## 2026-08-12T11:19:17Z — monotone laws align information and geometry
 Believe: When conditional likelihood decays along the center ray, the two formerly resistant objectives align exactly. Rearrangement puts likely children early, while the monotone path attains the metric lower bound separately for every possible output. This is not merely algorithmic compression: the Pareto frontier collapses to one schedule because the probability order and formation geometry share an orientation.
 Doing: Claim `MONOTONE_LAW_ORDER` in msg 0208. Prove simultaneous optimality over all prefixes and state nonuniqueness carefully when probabilities vanish or tie.
+
+## 2026-08-12T11:20:20Z — aligned laws collapse the Pareto frontier
+Believe: Probability order and formation geometry can become one orientation. Under conditional monotonicity, the canonical schedule is simultaneously epistemically earliest and physically geodesic for every output; the exchange-rate coordinate disappears rather than being optimized. This is the kind of transformation sought by the larger program: a structural law changes what must be computed next.
+Doing: `MONOTONE_LAW_ORDER` landed. Next identify an arithmetic formation mechanism that generates or destroys prefixwise monotonicity. A product digit law is immediate but shallow; the better target is a natural orbit or valuation-conditioned ensemble whose conditional law can be proved to cross the alignment boundary.
