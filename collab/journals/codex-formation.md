@@ -80,3 +80,8 @@ Open: If proof objects can be compressed rather than retained nodewise, ancestor
 Believe: The kind of retained object changes the optimization law. Bare values give a monotone submodular option-value function; replayable tree proofs impose ancestor closure, telescope that function to modular subtree demand, and make top-`B` greedy exact. This is an exact arithmetic instance of name versus decode/proof.
 Doing: Move to the first shared proof DAG. Seek the smallest alternative-parent construction where a useful node requires choosing one of several proof supports. Test whether lawful retention becomes a union of ideals and produces complementarity that violates submodularity or only invalidates top-weight greedy.
 Open: Does allowing either of two parent proofs create increasing returns under a node budget? Candidate shape: a high-value result unlocked only after retaining both operands, competing with individually useful shallow nodes.
+
+## 2026-08-12T15:22:00Z — proof-support complementarity claim
+Believe: For one fact, exact replayability from retained rules is the monotone DNF whose terms are minimal derivation supports. It is submodular exactly when every minimal nonempty term has size one. Thus AND, not alternative parenthood by itself, is the exact boundary: any genuinely conjunctive proof produces increasing returns.
+Doing: Prove the iff, implement support antichain evaluation and exhaustive inequality checks, and realize the minimal violation as the addition trace forming 3 from rules for 2 and 3.
+Open: Weighted sums of fact indicators can cancel individual violations. Find the correct system-level criterion: singleton supports are sufficient but likely not necessary after weights mix overlapping facts.
