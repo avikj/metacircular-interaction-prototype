@@ -70,22 +70,41 @@ def reduceDiagonal (f : CoprimeFactors) :
   let R : Mat2 := ⟨1, -(f.y * f.q), 1, f.x * f.p⟩
   let D := diag f.g (f.g * f.p * f.q)
   refine ⟨L, D, R, ?_, ?_, ?_, ?_⟩
-  · ext <;> simp [L, R, D, mul, diag] <;> nlinarith [f.bezout]
+  · apply Mat2.ext
+    · dsimp [L, R, D, mul, diag]
+      simp only [mul_zero, add_zero, zero_add, mul_one]
+      calc
+        f.x * (f.g * f.p) + f.y * (f.g * f.q) =
+            f.g * (f.x * f.p + f.y * f.q) := by ring
+        _ = f.g := by rw [f.bezout]; ring
+    · dsimp [L, R, D, mul, diag]
+      ring
+    · dsimp [L, R, D, mul, diag]
+      ring
+    · dsimp [L, R, D, mul, diag]
+      simp only [mul_zero, add_zero, zero_add, neg_mul, mul_neg, neg_neg]
+      calc
+        f.q * (f.g * f.p) * (f.y * f.q) +
+            f.p * (f.g * f.q) * (f.x * f.p) =
+            f.g * f.p * f.q * (f.x * f.p + f.y * f.q) := by ring
+        _ = f.g * f.p * f.q := by rw [f.bezout]; ring
   · dsimp [L, det]
     nlinarith [f.bezout]
   · dsimp [R, det]
     nlinarith [f.bezout]
   · refine ⟨f.p * f.q, ?_⟩
-    simp [D]
+    change f.g * f.p * f.q = f.g * (f.p * f.q)
+    ring
 
 /-- Mathlib's executable extended Euclidean algorithm supplies the coefficients
 needed by `reduceDiagonal`.  The side condition says precisely that the
 normalized factors have gcd one. -/
 def fromNatGcdOne (g : Int) (p q : Nat) (h : Nat.gcd p q = 1) :
-    CoprimeFactors :=
+  CoprimeFactors :=
   ⟨g, p, q, Nat.gcdA p q, Nat.gcdB p q, by
-    rw [← Nat.gcd_eq_gcd_ab, h]
-    norm_num⟩
+    have hb := Nat.gcd_eq_gcd_ab p q
+    rw [h] at hb
+    exact (by simpa [mul_comm] using hb.symm)⟩
 
 example :
     (reduceDiagonal (fromNatGcdOne 2 1 3 (by decide))).D = diag 2 6 := by
