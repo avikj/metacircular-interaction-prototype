@@ -69,3 +69,65 @@ contexts and may split old classes.
 
 `machinery/compositional_crystal.py` implements the finite theorem and emits
 the quotient operations, origin fibers, and invisible equations.
+
+## Proof-relevant separation
+
+The complementary certificate is constructive. For every pair not identified
+by `equiv_o`, the finite refinement graph contains a path to a pair already
+separated by `o`. Reading that path as nested elementary translations produces
+a context `C[-]` with unequal outputs. Breadth-first/backward refinement yields
+a shortest number of elementary contexts. The runtime emits such a context for
+every inequivalent pair.
+
+Thus the finite crystal is epistemically complete in both directions:
+
+\[
+\begin{array}{ll}
+x\equiv_o y & \leadsto \text{an invisible equation valid in every context},\\
+x\not\equiv_o y & \leadsto \text{an executable distinguishing experiment}.
+\end{array}                                           \tag{3}
+\]
+
+The quotient no longer merely reports blindness. It synthesizes the least-depth
+lens needed to resolve every resolvable ambiguity. Adding the synthesized
+contexts as named probes converts behavioral evidence into a reusable tool.
+
+## Contextual dimension
+
+For finite `A`, elementary translations generate a finite transformation
+monoid. Each transformation is a unary context behavior. Define
+
+\[
+\operatorname{cdim}_o(A)=min\{|S|:
+x\mapsto(o(C[x]))_{C\in S}\text{ separates }A/{\equiv_o}\}. \tag{4}
+\]
+
+This is an exact minimum hitting-set problem: each context covers the pairs it
+distinguishes, and all inequivalent pairs must be covered. The runtime enumerates
+the finite context transformation monoid, retains a shortest word for every
+transformation, and emits a minimum separating context basis.
+
+Consequently the number of necessary crystal faces is a computed invariant. A
+duality, trinity, quaternity, or twelvefold family is significant only when
+`cdim` forces that cardinality under the declared operations and observation.
+
+## Observability bridge
+
+For a linear system `x -> A x` observed by `C x`, contextual invisibility is
+
+\[
+\mathcal N=\bigcap_{k\ge0}\ker(CA^k),               \tag{5}
+\]
+
+the largest `A`-invariant subspace contained in `ker C`. The finite
+compositional theorem replaces linear powers by all polynomial contexts and
+subspaces by congruences:
+
+\[
+\equiv_o=\bigcap_{D[-]}\ker(o\circ D),               \tag{6}
+\]
+
+the greatest operation-invariant equivalence contained in `ker o`. Thus the
+natural crystal is a nonlinear algebraic observability construction. Its
+distinguishing contexts are experiments; `cdim` is a minimum experiment basis;
+its equivalence fibers are the structurally unobservable states.

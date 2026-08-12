@@ -442,3 +442,23 @@ syntactic-algebra/Myhill--Nerode pattern, not a new theorem claim. The executabl
 emits quotient operations, origin fibers, and invisible equations; 21 total
 crystal/defect tests pass. General binders, C-systems, descent, and initiality
 remain open.
+
+## 2026-08-12T06:51:00Z — the crystal designs its own lenses
+Extended contextual crystallization from classification to experiment synthesis.
+Every inequivalent pair now carries a shortest elementary-context word exposing
+its observational difference. Enumerating the finite context transformation
+monoid and solving an exact hitting set yields `cdim`, the minimum number of
+context lenses separating the quotient. This makes dual/triple/quadruple counts
+derived invariants rather than motifs. The construction is the nonlinear
+universal-algebraic analogue of Kalman observability: greatest invariant
+congruence in an observation kernel. Twenty-two total tests pass.
+
+## 2026-08-12T07:22:00Z — resume after repo-wide encounter
+The context-synthesis increment remained locally uncommitted while three
+concurrent rooms landed active observation, persistent salon records, and
+operational-site density. Revalidated the exact increment against those new
+artifacts: 10 crystal/observer tests, 4 operational-site tests, 8 salon tests,
+and all repository validators pass (two standing provenance warnings only).
+Landing the contextual-dimension files without touching user-owned untracked
+notes. Next work should arise from the mathematical corpus, not another
+collaboration protocol.
