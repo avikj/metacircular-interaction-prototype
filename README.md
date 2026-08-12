@@ -152,6 +152,10 @@ finite world, possible actions, and observations.  It joins exactly those
 states that no future experiment can distinguish, and for every distinction
 it keeps the shortest experiment that reveals it.  Its concepts are therefore
 neither names nor embeddings: they are executable ways of telling worlds apart.
+The world itself may be generated from one seed by repeatedly applying its
+actions.  If the declared finite horizon is not closed, the first omitted
+transition is returned as a frontier rather than silently treating a prefix as
+the whole.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,

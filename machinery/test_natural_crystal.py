@@ -5,6 +5,7 @@ from natural_crystal import (
     crystallize,
     explain_distinctions,
     extend_observation,
+    generate_world,
     learn_experiments,
     run_word,
     shortest_distinguishing_word,
@@ -13,6 +14,26 @@ from natural_crystal import (
 
 
 class NaturalCrystalTests(unittest.TestCase):
+    def test_generation_closes_from_one_seed(self):
+        world = generate_world(
+            (0,), ("next",), lambda state, _action: min(state + 1, 3), 4
+        )
+        self.assertTrue(world.closed)
+        self.assertEqual(world.states, (0, 1, 2, 3))
+        self.assertEqual(world.transition[3, "next"], 3)
+
+    def test_infinite_generation_returns_its_first_omitted_edge(self):
+        world = generate_world(
+            (0,), ("next",), lambda state, _action: state + 1, 4
+        )
+        self.assertFalse(world.closed)
+        self.assertEqual(world.states, (0, 1, 2, 3))
+        self.assertEqual(world.frontier, ((3, "next", 4),))
+
+    def test_generation_rejects_an_empty_beginning(self):
+        with self.assertRaises(ValueError):
+            generate_world((), ("next",), lambda state, _action: state, 1)
+
     def test_context_distinguishes_equal_present_outputs(self):
         states = ("p", "q", "bright", "dark")
         actions = ("probe",)
