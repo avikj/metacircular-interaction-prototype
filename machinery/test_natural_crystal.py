@@ -222,6 +222,23 @@ class NaturalCrystalTests(unittest.TestCase):
             word is None or len(word) <= 1 for word in explanations.values()
         ))
 
+    def test_learned_actions_unfold_to_original_actions(self):
+        world, observation = divisibility_world(2, 5)
+        actions, transition, learned = learn_experiments(
+            world.states, (0, 1), world.transition, observation
+        )
+        self.assertEqual(
+            learned,
+            (("learned-1", (0, 1), 2),
+             ("learned-2", (0, 0, 1), 1)),
+        )
+        for name, expansion, _gain in learned:
+            for state in world.states:
+                self.assertEqual(
+                    transition[state, name],
+                    run_word(state, expansion, world.transition),
+                )
+
     def test_new_view_refines_meaning_without_erasing_old_view(self):
         states = (0, 1, 2)
         actions = ("stay",)

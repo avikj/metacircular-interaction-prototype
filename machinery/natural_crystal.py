@@ -232,6 +232,7 @@ def learn_experiments(
     """
     current_actions = tuple(actions)
     current_transition = dict(transition)
+    primitive_expansion = {action: (action,) for action in current_actions}
     original_fibers = crystallize(
         states, current_actions, current_transition, observation
     ).fibers
@@ -244,12 +245,18 @@ def learn_experiments(
         if best is None:
             break
         word, gain = best
+        flattened = tuple(
+            primitive
+            for action in word
+            for primitive in primitive_expansion[action]
+        )
         while (name := f"learned-{serial}") in current_actions:
             serial += 1
         current_actions, current_transition = compile_experiment(
             states, current_actions, current_transition, name, word
         )
-        learned.append((name, word, gain))
+        primitive_expansion[name] = flattened
+        learned.append((name, flattened, gain))
         serial += 1
         if crystallize(
             states, current_actions, current_transition, observation

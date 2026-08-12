@@ -176,6 +176,9 @@ action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,
 installs the one saving the most total steps, and repeats until every visible
 distinction is immediately accessible.  This is the entire loop in miniature.
+Every learned primitive retains its full expansion into the original actions,
+even when it was discovered using earlier learned primitives.  Compression
+never destroys the path that justifies it.
 
 Then show it a new exact view.  If the view separates states previously joined,
 the old meaning reopens and refines.  The earlier observation is retained, not
