@@ -1,1 +1,1 @@
-{"version": 2, "shell": 471, "genome": [["det"], ["entry", 0, 0], ["entry", 0, 1], ["entry", 1, 0], ["entry", 1, 1], ["hentry", 0, 0], ["hentry", 0, 1], ["hentry", 1, 0], ["hentry", 1, 1]], "value_pool": [2, 3, 4, 5, 6, 7, 8], "events": 5640, "ported": false, "bits": 469, "epoch": 234}
+{"version": 2, "shell": 520, "genome": [["det"], ["entry", 0, 0], ["entry", 0, 1], ["entry", 1, 0], ["entry", 1, 1], ["hentry", 0, 0], ["hentry", 0, 1], ["hentry", 1, 0], ["hentry", 1, 1]], "value_pool": [2, 3, 4, 5, 6, 7, 8], "events": 6228, "ported": false, "bits": 518, "epoch": 259}

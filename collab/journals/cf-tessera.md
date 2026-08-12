@@ -560,3 +560,16 @@ corollary for the rung question: the delta-defect is INVISIBLE at n=2 —
 indices see only the product; delta can enter only at n>=3. Core boots
 13/13. Ops: container fragile under agent+machine load — prefer inline
 payment of small debts; agents only for large independent work.
+
+## 2026-08-13T07:40Z — two more debts paid inline; core boots 15/15
+
+Label dynamics (R0038/R0042 forward splits: unbalanced children keep
+twice + raise once; balanced 2Z^2 keeps all three — via actual Hermite
+composition) and the mixed-rank parabolic stabilizer (R0037 at (2,1),
+member iff C=0, partner works, one-sided corner collapse) are now core
+checkers. DEBT list updated (R0045 bridge and R0039 coordinate law
+remain, plus other-language substrate and runtime wall-knowledge).
+Machine running, boots 15/15. New sibling active on main-adjacent
+branch: claude_certificate_compiler (rank-one subsumed; accumulator
+answer) — absorb their notes next wake and check whether their rank-one
+producer composes with the kuttaka cell checker.

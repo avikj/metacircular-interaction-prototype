@@ -3989,3 +3989,151 @@ step=469 (bound=1 epoch=234 bits=468) summary: universe=37840 formed=9 absorbed=
 step=470 WALL CERTIFICATE at bits=468: carrier fixed at 256224 fibers over 257312 states; grammar induction: no term sees the fiber beyond 468 bit(s). Demanding the next bit.
 step=470 PORT GRANTED: bit 469 of the fiber coordinate becomes visible.
 step=470 (bound=2 epoch=234 bits=469) summary: universe=257312 formed=9 absorbed=3 fibers=256224 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=471 WALL CERTIFICATE at bits=469: carrier fixed at 37840 fibers over 38000 states; grammar induction: no term sees the fiber beyond 469 bit(s). Demanding the next bit.
+step=471 PORT GRANTED: bit 470 of the fiber coordinate becomes visible.
+step=471 (bound=1 epoch=235 bits=470) summary: universe=38000 formed=9 absorbed=3 fibers=37840 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=472 WALL CERTIFICATE at bits=470: carrier fixed at 257312 fibers over 258400 states; grammar induction: no term sees the fiber beyond 470 bit(s). Demanding the next bit.
+step=472 PORT GRANTED: bit 471 of the fiber coordinate becomes visible.
+step=472 (bound=2 epoch=235 bits=471) summary: universe=258400 formed=9 absorbed=3 fibers=257312 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=473 WALL CERTIFICATE at bits=471: carrier fixed at 38000 fibers over 38160 states; grammar induction: no term sees the fiber beyond 471 bit(s). Demanding the next bit.
+step=473 PORT GRANTED: bit 472 of the fiber coordinate becomes visible.
+step=473 (bound=1 epoch=236 bits=472) summary: universe=38160 formed=9 absorbed=3 fibers=38000 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=474 WALL CERTIFICATE at bits=472: carrier fixed at 258400 fibers over 259488 states; grammar induction: no term sees the fiber beyond 472 bit(s). Demanding the next bit.
+step=474 PORT GRANTED: bit 473 of the fiber coordinate becomes visible.
+step=474 (bound=2 epoch=236 bits=473) summary: universe=259488 formed=9 absorbed=3 fibers=258400 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=475 WALL CERTIFICATE at bits=473: carrier fixed at 38160 fibers over 38320 states; grammar induction: no term sees the fiber beyond 473 bit(s). Demanding the next bit.
+step=475 PORT GRANTED: bit 474 of the fiber coordinate becomes visible.
+step=475 (bound=1 epoch=237 bits=474) summary: universe=38320 formed=9 absorbed=3 fibers=38160 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=476 WALL CERTIFICATE at bits=474: carrier fixed at 259488 fibers over 260576 states; grammar induction: no term sees the fiber beyond 474 bit(s). Demanding the next bit.
+step=476 PORT GRANTED: bit 475 of the fiber coordinate becomes visible.
+step=476 (bound=2 epoch=237 bits=475) summary: universe=260576 formed=9 absorbed=3 fibers=259488 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=477 WALL CERTIFICATE at bits=475: carrier fixed at 38320 fibers over 38480 states; grammar induction: no term sees the fiber beyond 475 bit(s). Demanding the next bit.
+step=477 PORT GRANTED: bit 476 of the fiber coordinate becomes visible.
+step=477 (bound=1 epoch=238 bits=476) summary: universe=38480 formed=9 absorbed=3 fibers=38320 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=478 WALL CERTIFICATE at bits=476: carrier fixed at 260576 fibers over 261664 states; grammar induction: no term sees the fiber beyond 476 bit(s). Demanding the next bit.
+step=478 PORT GRANTED: bit 477 of the fiber coordinate becomes visible.
+step=478 (bound=2 epoch=238 bits=477) summary: universe=261664 formed=9 absorbed=3 fibers=260576 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=479 WALL CERTIFICATE at bits=477: carrier fixed at 38480 fibers over 38640 states; grammar induction: no term sees the fiber beyond 477 bit(s). Demanding the next bit.
+step=479 PORT GRANTED: bit 478 of the fiber coordinate becomes visible.
+step=479 (bound=1 epoch=239 bits=478) summary: universe=38640 formed=9 absorbed=3 fibers=38480 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=480 WALL CERTIFICATE at bits=478: carrier fixed at 261664 fibers over 262752 states; grammar induction: no term sees the fiber beyond 478 bit(s). Demanding the next bit.
+step=480 PORT GRANTED: bit 479 of the fiber coordinate becomes visible.
+step=480 (bound=2 epoch=239 bits=479) summary: universe=262752 formed=9 absorbed=3 fibers=261664 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=481 WALL CERTIFICATE at bits=479: carrier fixed at 38640 fibers over 38800 states; grammar induction: no term sees the fiber beyond 479 bit(s). Demanding the next bit.
+step=481 PORT GRANTED: bit 480 of the fiber coordinate becomes visible.
+step=481 (bound=1 epoch=240 bits=480) summary: universe=38800 formed=9 absorbed=3 fibers=38640 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=482 WALL CERTIFICATE at bits=480: carrier fixed at 262752 fibers over 263840 states; grammar induction: no term sees the fiber beyond 480 bit(s). Demanding the next bit.
+step=482 PORT GRANTED: bit 481 of the fiber coordinate becomes visible.
+step=482 (bound=2 epoch=240 bits=481) summary: universe=263840 formed=9 absorbed=3 fibers=262752 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=483 WALL CERTIFICATE at bits=481: carrier fixed at 38800 fibers over 38960 states; grammar induction: no term sees the fiber beyond 481 bit(s). Demanding the next bit.
+step=483 PORT GRANTED: bit 482 of the fiber coordinate becomes visible.
+step=483 (bound=1 epoch=241 bits=482) summary: universe=38960 formed=9 absorbed=3 fibers=38800 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=484 WALL CERTIFICATE at bits=482: carrier fixed at 263840 fibers over 264928 states; grammar induction: no term sees the fiber beyond 482 bit(s). Demanding the next bit.
+step=484 PORT GRANTED: bit 483 of the fiber coordinate becomes visible.
+step=484 (bound=2 epoch=241 bits=483) summary: universe=264928 formed=9 absorbed=3 fibers=263840 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=485 WALL CERTIFICATE at bits=483: carrier fixed at 38960 fibers over 39120 states; grammar induction: no term sees the fiber beyond 483 bit(s). Demanding the next bit.
+step=485 PORT GRANTED: bit 484 of the fiber coordinate becomes visible.
+step=485 (bound=1 epoch=242 bits=484) summary: universe=39120 formed=9 absorbed=3 fibers=38960 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=486 WALL CERTIFICATE at bits=484: carrier fixed at 264928 fibers over 266016 states; grammar induction: no term sees the fiber beyond 484 bit(s). Demanding the next bit.
+step=486 PORT GRANTED: bit 485 of the fiber coordinate becomes visible.
+step=486 (bound=2 epoch=242 bits=485) summary: universe=266016 formed=9 absorbed=3 fibers=264928 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=487 WALL CERTIFICATE at bits=485: carrier fixed at 39120 fibers over 39280 states; grammar induction: no term sees the fiber beyond 485 bit(s). Demanding the next bit.
+step=487 PORT GRANTED: bit 486 of the fiber coordinate becomes visible.
+step=487 (bound=1 epoch=243 bits=486) summary: universe=39280 formed=9 absorbed=3 fibers=39120 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=488 WALL CERTIFICATE at bits=486: carrier fixed at 266016 fibers over 267104 states; grammar induction: no term sees the fiber beyond 486 bit(s). Demanding the next bit.
+step=488 PORT GRANTED: bit 487 of the fiber coordinate becomes visible.
+step=488 (bound=2 epoch=243 bits=487) summary: universe=267104 formed=9 absorbed=3 fibers=266016 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=489 WALL CERTIFICATE at bits=487: carrier fixed at 39280 fibers over 39440 states; grammar induction: no term sees the fiber beyond 487 bit(s). Demanding the next bit.
+step=489 PORT GRANTED: bit 488 of the fiber coordinate becomes visible.
+step=489 (bound=1 epoch=244 bits=488) summary: universe=39440 formed=9 absorbed=3 fibers=39280 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=490 WALL CERTIFICATE at bits=488: carrier fixed at 267104 fibers over 268192 states; grammar induction: no term sees the fiber beyond 488 bit(s). Demanding the next bit.
+step=490 PORT GRANTED: bit 489 of the fiber coordinate becomes visible.
+step=490 (bound=2 epoch=244 bits=489) summary: universe=268192 formed=9 absorbed=3 fibers=267104 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=491 WALL CERTIFICATE at bits=489: carrier fixed at 39440 fibers over 39600 states; grammar induction: no term sees the fiber beyond 489 bit(s). Demanding the next bit.
+step=491 PORT GRANTED: bit 490 of the fiber coordinate becomes visible.
+step=491 (bound=1 epoch=245 bits=490) summary: universe=39600 formed=9 absorbed=3 fibers=39440 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=492 WALL CERTIFICATE at bits=490: carrier fixed at 268192 fibers over 269280 states; grammar induction: no term sees the fiber beyond 490 bit(s). Demanding the next bit.
+step=492 PORT GRANTED: bit 491 of the fiber coordinate becomes visible.
+step=492 (bound=2 epoch=245 bits=491) summary: universe=269280 formed=9 absorbed=3 fibers=268192 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=493 WALL CERTIFICATE at bits=491: carrier fixed at 39600 fibers over 39760 states; grammar induction: no term sees the fiber beyond 491 bit(s). Demanding the next bit.
+step=493 PORT GRANTED: bit 492 of the fiber coordinate becomes visible.
+step=493 (bound=1 epoch=246 bits=492) summary: universe=39760 formed=9 absorbed=3 fibers=39600 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=494 WALL CERTIFICATE at bits=492: carrier fixed at 269280 fibers over 270368 states; grammar induction: no term sees the fiber beyond 492 bit(s). Demanding the next bit.
+step=494 PORT GRANTED: bit 493 of the fiber coordinate becomes visible.
+step=494 (bound=2 epoch=246 bits=493) summary: universe=270368 formed=9 absorbed=3 fibers=269280 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=495 WALL CERTIFICATE at bits=493: carrier fixed at 39760 fibers over 39920 states; grammar induction: no term sees the fiber beyond 493 bit(s). Demanding the next bit.
+step=495 PORT GRANTED: bit 494 of the fiber coordinate becomes visible.
+step=495 (bound=1 epoch=247 bits=494) summary: universe=39920 formed=9 absorbed=3 fibers=39760 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=496 WALL CERTIFICATE at bits=494: carrier fixed at 270368 fibers over 271456 states; grammar induction: no term sees the fiber beyond 494 bit(s). Demanding the next bit.
+step=496 PORT GRANTED: bit 495 of the fiber coordinate becomes visible.
+step=496 (bound=2 epoch=247 bits=495) summary: universe=271456 formed=9 absorbed=3 fibers=270368 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=497 WALL CERTIFICATE at bits=495: carrier fixed at 39920 fibers over 40080 states; grammar induction: no term sees the fiber beyond 495 bit(s). Demanding the next bit.
+step=497 PORT GRANTED: bit 496 of the fiber coordinate becomes visible.
+step=497 (bound=1 epoch=248 bits=496) summary: universe=40080 formed=9 absorbed=3 fibers=39920 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=498 WALL CERTIFICATE at bits=496: carrier fixed at 271456 fibers over 272544 states; grammar induction: no term sees the fiber beyond 496 bit(s). Demanding the next bit.
+step=498 PORT GRANTED: bit 497 of the fiber coordinate becomes visible.
+step=498 (bound=2 epoch=248 bits=497) summary: universe=272544 formed=9 absorbed=3 fibers=271456 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=499 WALL CERTIFICATE at bits=497: carrier fixed at 40080 fibers over 40240 states; grammar induction: no term sees the fiber beyond 497 bit(s). Demanding the next bit.
+step=499 PORT GRANTED: bit 498 of the fiber coordinate becomes visible.
+step=499 (bound=1 epoch=249 bits=498) summary: universe=40240 formed=9 absorbed=3 fibers=40080 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=500 WALL CERTIFICATE at bits=498: carrier fixed at 272544 fibers over 273632 states; grammar induction: no term sees the fiber beyond 498 bit(s). Demanding the next bit.
+step=500 PORT GRANTED: bit 499 of the fiber coordinate becomes visible.
+step=500 (bound=2 epoch=249 bits=499) summary: universe=273632 formed=9 absorbed=3 fibers=272544 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=501 WALL CERTIFICATE at bits=499: carrier fixed at 40240 fibers over 40400 states; grammar induction: no term sees the fiber beyond 499 bit(s). Demanding the next bit.
+step=501 PORT GRANTED: bit 500 of the fiber coordinate becomes visible.
+step=501 (bound=1 epoch=250 bits=500) summary: universe=40400 formed=9 absorbed=3 fibers=40240 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=502 WALL CERTIFICATE at bits=500: carrier fixed at 273632 fibers over 274720 states; grammar induction: no term sees the fiber beyond 500 bit(s). Demanding the next bit.
+step=502 PORT GRANTED: bit 501 of the fiber coordinate becomes visible.
+step=502 (bound=2 epoch=250 bits=501) summary: universe=274720 formed=9 absorbed=3 fibers=273632 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=503 WALL CERTIFICATE at bits=501: carrier fixed at 40400 fibers over 40560 states; grammar induction: no term sees the fiber beyond 501 bit(s). Demanding the next bit.
+step=503 PORT GRANTED: bit 502 of the fiber coordinate becomes visible.
+step=503 (bound=1 epoch=251 bits=502) summary: universe=40560 formed=9 absorbed=3 fibers=40400 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=504 WALL CERTIFICATE at bits=502: carrier fixed at 274720 fibers over 275808 states; grammar induction: no term sees the fiber beyond 502 bit(s). Demanding the next bit.
+step=504 PORT GRANTED: bit 503 of the fiber coordinate becomes visible.
+step=504 (bound=2 epoch=251 bits=503) summary: universe=275808 formed=9 absorbed=3 fibers=274720 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=505 WALL CERTIFICATE at bits=503: carrier fixed at 40560 fibers over 40720 states; grammar induction: no term sees the fiber beyond 503 bit(s). Demanding the next bit.
+step=505 PORT GRANTED: bit 504 of the fiber coordinate becomes visible.
+step=505 (bound=1 epoch=252 bits=504) summary: universe=40720 formed=9 absorbed=3 fibers=40560 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=506 WALL CERTIFICATE at bits=504: carrier fixed at 275808 fibers over 276896 states; grammar induction: no term sees the fiber beyond 504 bit(s). Demanding the next bit.
+step=506 PORT GRANTED: bit 505 of the fiber coordinate becomes visible.
+step=506 (bound=2 epoch=252 bits=505) summary: universe=276896 formed=9 absorbed=3 fibers=275808 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=507 WALL CERTIFICATE at bits=505: carrier fixed at 40720 fibers over 40880 states; grammar induction: no term sees the fiber beyond 505 bit(s). Demanding the next bit.
+step=507 PORT GRANTED: bit 506 of the fiber coordinate becomes visible.
+step=507 (bound=1 epoch=253 bits=506) summary: universe=40880 formed=9 absorbed=3 fibers=40720 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=508 WALL CERTIFICATE at bits=506: carrier fixed at 276896 fibers over 277984 states; grammar induction: no term sees the fiber beyond 506 bit(s). Demanding the next bit.
+step=508 PORT GRANTED: bit 507 of the fiber coordinate becomes visible.
+step=508 (bound=2 epoch=253 bits=507) summary: universe=277984 formed=9 absorbed=3 fibers=276896 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=509 WALL CERTIFICATE at bits=507: carrier fixed at 40880 fibers over 41040 states; grammar induction: no term sees the fiber beyond 507 bit(s). Demanding the next bit.
+step=509 PORT GRANTED: bit 508 of the fiber coordinate becomes visible.
+step=509 (bound=1 epoch=254 bits=508) summary: universe=41040 formed=9 absorbed=3 fibers=40880 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=510 WALL CERTIFICATE at bits=508: carrier fixed at 277984 fibers over 279072 states; grammar induction: no term sees the fiber beyond 508 bit(s). Demanding the next bit.
+step=510 PORT GRANTED: bit 509 of the fiber coordinate becomes visible.
+step=510 (bound=2 epoch=254 bits=509) summary: universe=279072 formed=9 absorbed=3 fibers=277984 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=511 WALL CERTIFICATE at bits=509: carrier fixed at 41040 fibers over 41200 states; grammar induction: no term sees the fiber beyond 509 bit(s). Demanding the next bit.
+step=511 PORT GRANTED: bit 510 of the fiber coordinate becomes visible.
+step=511 (bound=1 epoch=255 bits=510) summary: universe=41200 formed=9 absorbed=3 fibers=41040 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+BOOT: CORE 13/13 claims alive; 4 interface debts
+step=512 WALL CERTIFICATE at bits=510: carrier fixed at 279072 fibers over 280160 states; grammar induction: no term sees the fiber beyond 510 bit(s). Demanding the next bit.
+step=512 PORT GRANTED: bit 511 of the fiber coordinate becomes visible.
+step=512 (bound=2 epoch=255 bits=511) summary: universe=280160 formed=9 absorbed=3 fibers=279072 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=513 WALL CERTIFICATE at bits=511: carrier fixed at 41200 fibers over 41360 states; grammar induction: no term sees the fiber beyond 511 bit(s). Demanding the next bit.
+step=513 PORT GRANTED: bit 512 of the fiber coordinate becomes visible.
+step=513 (bound=1 epoch=256 bits=512) summary: universe=41360 formed=9 absorbed=3 fibers=41200 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=514 WALL CERTIFICATE at bits=512: carrier fixed at 280160 fibers over 281248 states; grammar induction: no term sees the fiber beyond 512 bit(s). Demanding the next bit.
+step=514 PORT GRANTED: bit 513 of the fiber coordinate becomes visible.
+step=514 (bound=2 epoch=256 bits=513) summary: universe=281248 formed=9 absorbed=3 fibers=280160 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=515 WALL CERTIFICATE at bits=513: carrier fixed at 41360 fibers over 41520 states; grammar induction: no term sees the fiber beyond 513 bit(s). Demanding the next bit.
+step=515 PORT GRANTED: bit 514 of the fiber coordinate becomes visible.
+step=515 (bound=1 epoch=257 bits=514) summary: universe=41520 formed=9 absorbed=3 fibers=41360 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=516 WALL CERTIFICATE at bits=514: carrier fixed at 281248 fibers over 282336 states; grammar induction: no term sees the fiber beyond 514 bit(s). Demanding the next bit.
+step=516 PORT GRANTED: bit 515 of the fiber coordinate becomes visible.
+step=516 (bound=2 epoch=257 bits=515) summary: universe=282336 formed=9 absorbed=3 fibers=281248 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=517 WALL CERTIFICATE at bits=515: carrier fixed at 41520 fibers over 41680 states; grammar induction: no term sees the fiber beyond 515 bit(s). Demanding the next bit.
+step=517 PORT GRANTED: bit 516 of the fiber coordinate becomes visible.
+step=517 (bound=1 epoch=258 bits=516) summary: universe=41680 formed=9 absorbed=3 fibers=41520 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=518 WALL CERTIFICATE at bits=516: carrier fixed at 282336 fibers over 283424 states; grammar induction: no term sees the fiber beyond 516 bit(s). Demanding the next bit.
+step=518 PORT GRANTED: bit 517 of the fiber coordinate becomes visible.
+step=518 (bound=2 epoch=258 bits=517) summary: universe=283424 formed=9 absorbed=3 fibers=282336 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]
+step=519 WALL CERTIFICATE at bits=517: carrier fixed at 41680 fibers over 41840 states; grammar induction: no term sees the fiber beyond 517 bit(s). Demanding the next bit.
+step=519 PORT GRANTED: bit 518 of the fiber coordinate becomes visible.
+step=519 (bound=1 epoch=259 bits=518) summary: universe=41840 formed=9 absorbed=3 fibers=41680 genome=9 pool=[2, 3, 4, 5, 6, 7, 8]

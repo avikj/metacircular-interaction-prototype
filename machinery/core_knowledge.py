@@ -237,7 +237,57 @@ def chk_two_sided_index():
     return True
 
 
+def chk_label_dynamics():
+    """R0038/R0042: forward splits at p=2 — an unbalanced lattice's three
+    index-2 children keep the label twice and raise it once; the balanced
+    lattice 2Z^2 keeps all three times (raising is impossible)."""
+    from hecke_composition_smith_labels import compose
+    from hecke_coset_smith_assembly import hnf_bases, smith_invariants
+    steps = hnf_bases(2)
+    for base in hnf_bases(2):  # level 2^1, label 0 (all cyclic)
+        if smith_invariants(base)[0] != 1:
+            return False
+        labels = sorted(smith_invariants(compose(base, s))[0]
+                        for s in steps)
+        if labels != [1, 1, 2]:  # keep, keep, raise (e1 doubles = raise)
+            return False
+    balanced = ((2, 0), (0, 2))  # 2Z^2: level 2^2, balanced
+    labels = sorted(smith_invariants(compose(balanced, s))[0]
+                    for s in steps)
+    return labels == [2, 2, 2]  # all keep; raise impossible
+
+
+def chk_mixed_rank_stabilizer():
+    """R0037: at blockdiag((2),0) in 2x2, H stabilizes two-sidedly iff
+    upper-parabolic with unit corner; the constructed partner works; the
+    one-sided stabilizer collapses the corner to +1."""
+    from itertools import product as prod
+    from mixed_rank_smith_stabilizer import (h_side_member,
+                                             one_sided_member,
+                                             one_sided_stabilizes,
+                                             partner, two_sided_stabilizes)
+    flag, n = (2,), 2
+    for a, b, c, e in prod(range(-2, 3), repeat=4):
+        h = ((a, b), (c, e))
+        if abs(a * e - b * c) != 1:
+            continue
+        member = h_side_member(h, flag)
+        if member != (c == 0):  # corner GL_1 = {+-1}, C must vanish
+            return False
+        if member and not two_sided_stabilizes(
+                h, partner(h, flag, n), flag, n):
+            return False
+        if one_sided_stabilizes(h, flag, n) != one_sided_member(h, flag):
+            return False
+    return True
+
+
 KNOWLEDGE = [
+    ("label-dynamics", "index-p children keep the label p times and "
+     "raise once; balanced lattices only keep", chk_label_dynamics),
+    ("mixed-rank-stabilizer", "rank-deficient stabilizers are parabolic "
+     "over the flag corner; one-sided collapses the corner",
+     chk_mixed_rank_stabilizer),
     ("two-sided-index", "the two-sided congruence index is psi of the "
      "product of the moduli; the delta-defect is invisible at n=2",
      chk_two_sided_index),
@@ -271,10 +321,11 @@ KNOWLEDGE = [
 # Interface debt — knowledge NOT yet expressible as a checker here (the
 # pruning frontier; each entry names why):
 DEBT = [
-    ("hecke-composition-labels", "R0038/R0042/R0045 label dynamics: "
-     "checkers exist in tests but are minutes-long; need budgeted forms"),
+    ("ballot-moment-bridge", "R0045 Ihara bridge and Galois refutation: "
+     "needs a budgeted coefficientwise checker"),
     ("rank-r-payload-normal-form", "R0039 five-coordinate calculus: "
-     "same"),
+     "needs a budgeted round-trip checker (mixed-rank shape now in "
+     "KNOWLEDGE; the coordinate group law remains)"),
     ("cubical/lean formalizations", "other-language substrate; the core "
      "cannot run Agda/Lean here"),
     ("wall-certificates-live", "the machine's own runtime knowledge; "
