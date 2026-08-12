@@ -21,6 +21,7 @@ from exponent_world import (
     ResidualCycleClosure,
     ResidualCycleObstruction,
     LowerResidualRowAdvance,
+    SignedActiveNormalization,
 )
 
 
@@ -467,6 +468,39 @@ class SmithPathTests(unittest.TestCase):
         false_obstruction = ResidualCycleObstruction(((2, 0), (6, 7)), 2, 6, 0)
         with self.assertRaisesRegex(ValueError, "failed row divisibility"):
             world.advance_positive_lower_residual(false_obstruction)
+
+    def test_signed_upper_active_pair_normalizes_in_all_four_sign_cells(self):
+        world = ExponentWorld()
+        for pivot_sign in (-1, 1):
+            for companion_sign in (-1, 1):
+                matrix = ((pivot_sign * 6, companion_sign * 16), (0, -70))
+                result = world.normalize_signed_active_pair(matrix, "upper")
+                self.assertIsInstance(result, SignedActiveNormalization)
+                self.assertEqual(result.normalized[0], (6, 16))
+                self.assertEqual(result.normalized[1][0], 0)
+                self.assertEqual(result.pivot_magnitude, 6)
+                self.assertEqual(
+                    _matmul_for_test(
+                        _matmul_for_test(result.left, matrix), result.right
+                    ), result.normalized
+                )
+
+    def test_signed_lower_active_pair_normalizes_in_all_four_sign_cells(self):
+        world = ExponentWorld()
+        for pivot_sign in (-1, 1):
+            for companion_sign in (-1, 1):
+                matrix = ((pivot_sign * 2, 0), (companion_sign * 5, 7))
+                result = world.normalize_signed_active_pair(matrix, "lower")
+                self.assertEqual(
+                    (result.normalized[0][0], result.normalized[1][0]), (2, 5)
+                )
+                self.assertEqual(result.normalized[0][1], 0)
+                self.assertEqual(result.pivot_magnitude, 2)
+
+    def test_zero_active_entry_is_endpoint_not_signed_normalization(self):
+        world = ExponentWorld()
+        with self.assertRaisesRegex(ValueError, "cannot make a zero"):
+            world.normalize_signed_active_pair(((2, 0), (0, 7)), "upper")
 
 
 def _matmul_for_test(left, right):

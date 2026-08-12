@@ -167,3 +167,15 @@ Doing: Landed exact row witness `[[-2,1],[5,-2]]`, transition `[[2,0],[5,7]] -> 
 ## 2026-08-12T12:44:01Z — session end
 Resume: Add canonical sign/zero normalization around the two oriented residual transitions. Then state and prove termination for the resulting positive nonsingular 2x2 alternation if the pivot is globally strictly decreasing on every nonclosing transition.
 Open: Singular matrices may end at `diag(d,0)` and require a separate endpoint law. Determine whether sign normalization can itself be made canonical without adding cycles or altering the pivot measure.
+
+## 2026-08-12T12:53:00Z — signed active normalization claim
+Believe: Signs are presentation indices removable by canonical unimodular row/column negations, but zero is not a sign. A lawful normalization must preserve orientation, exact certificates, and the absolute pivot measure in every sign cell.
+Doing: Execute all four nonzero sign patterns for upper and lower active pairs; refuse zero rather than calling it positive.
+
+## 2026-08-12T13:01:00Z — signed active normalization landed
+Believe: Sign variation is inert only because exact unimodular witnesses connect every nonzero sign cell while keeping the pivot magnitude and orientation fixed. Zero lies outside that orbit and must remain a distinct arithmetic branch.
+Doing: Landed canonical upper/lower sign witnesses across eight sign cells, exact replay, constant absolute pivot, and zero refusal. All 42 exponent-world tests are green.
+
+## 2026-08-12T13:01:01Z — session end
+Resume: Classify zero-active states exactly: already diagonal, row/column swap to a nonzero pivot, or zero matrix/singular endpoint. Compose that classification with signed normalization before claiming termination of the 2x2 alternation.
+Open: A generic theorem must track whether swaps preserve the proposed global measure. Determine the exact singular endpoint and whether the final diagonal automatically has the Smith divisibility chain.

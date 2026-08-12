@@ -256,6 +256,16 @@ class LowerResidualRowAdvance:
     reduction: EuclideanColumnReduction
 
 
+@dataclass(frozen=True)
+class SignedActiveNormalization:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    orientation: str
+    normalized: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    pivot_magnitude: int
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -881,6 +891,51 @@ class ExponentWorld:
         )
         return LowerResidualRowAdvance(
             matrix, advanced, reduction.left, pivot, new_pivot, reduction
+        )
+
+    def normalize_signed_active_pair(
+        self,
+        matrix: tuple[tuple[int, int], tuple[int, int]],
+        orientation: str,
+    ) -> SignedActiveNormalization:
+        """Make the two active Euclidean entries positive without changing zero orientation."""
+        if orientation == "upper":
+            if matrix[1][0] != 0:
+                raise ValueError("upper normalization requires zero lower-left")
+            pivot, companion = matrix[0]
+            if pivot == 0 or companion == 0:
+                raise ValueError("sign normalization cannot make a zero active entry positive")
+            pivot_sign = 1 if pivot > 0 else -1
+            companion_after_left = pivot_sign * companion
+            companion_sign = 1 if companion_after_left > 0 else -1
+            left = ((pivot_sign, 0), (0, 1))
+            right = ((1, 0), (0, companion_sign))
+        elif orientation == "lower":
+            if matrix[0][1] != 0:
+                raise ValueError("lower normalization requires zero upper-right")
+            pivot, companion = matrix[0][0], matrix[1][0]
+            if pivot == 0 or companion == 0:
+                raise ValueError("sign normalization cannot make a zero active entry positive")
+            left = ((1 if pivot > 0 else -1, 0),
+                    (0, 1 if companion > 0 else -1))
+            right = ((1, 0), (0, 1))
+        else:
+            raise ValueError("normalization orientation must be upper or lower")
+        normalized = _matmul2(_matmul2(left, matrix), right)
+        active = (normalized[0][0], normalized[0][1] if orientation == "upper"
+                  else normalized[1][0])
+        if active != (abs(pivot), abs(companion)):
+            raise AssertionError("signed active normalization failed")
+        if abs(_det2(left)) != 1 or abs(_det2(right)) != 1:
+            raise AssertionError("signed normalization witness is not unimodular")
+        if abs(normalized[0][0]) != abs(matrix[0][0]):
+            raise AssertionError("sign normalization changed pivot magnitude")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], *active),
+            "canonical sign witnesses expose a positive oriented Euclidean pair",
+        )
+        return SignedActiveNormalization(
+            matrix, orientation, normalized, left, right, abs(pivot)
         )
 
 
