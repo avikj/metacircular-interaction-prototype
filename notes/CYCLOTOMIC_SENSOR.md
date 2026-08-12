@@ -180,6 +180,75 @@ It was already visible in $n$.  That is why one encounter suffices: the
 encounter does not measure the family, it measures the shift between two
 copies of one valuation.
 
+## The chart behind the law: the indicator dissolves
+
+Equation (4) explains the *shift*, but Theorem 1 still carries two blemishes:
+an indicator $[d\mid n]$, and a separate $p=2$ case with a stray $-1$.  Both
+are artifacts of the wrong coordinates.  Factor the family:
+$$
+  a^{n}-1=\prod_{m\mid n}\Phi_m(a),
+  \qquad\text{so}\qquad
+  v_p(a^{n}-1)=\sum_{m\mid n} v_p\bigl(\Phi_m(a)\bigr).
+  \tag{5}
+$$
+
+> **Theorem 3 (chain law).**  Let $p$ be a prime, $p\nmid a$, and set
+> $d=\operatorname{ord}_p(a)$ for odd $p$ and $d=1$ for $p=2$.  Define the
+> *$p$-chain* $C_{p,a}=\{\,d p^{s} : s\ge0\,\}$ and the *head*
+> $$
+>   H_{p,a}=\begin{cases}(e), & p \text{ odd},\\ (e_-,e_+), & p=2.\end{cases}
+> $$
+> Then $v_p(\Phi_m(a))=0$ for every $m\notin C_{p,a}$, and along the chain
+> $$
+>   v_p\bigl(\Phi_{d p^{s}}(a)\bigr)=
+>   \begin{cases} H_{p,a}[s], & s<|H_{p,a}|,\\ 1, & s\ge|H_{p,a}|.\end{cases}
+>   \tag{6}
+> $$
+
+*Proof (odd $p$).*  If $d\nmid m$ then $v_p(a^{m}-1)=0$ by Theorem 1, and
+$\Phi_m(a)\mid a^{m}-1$, so $v_p(\Phi_m(a))=0$.  For $m\mid d$ with $m<d$ the
+same argument gives $0$, so (5) at $n=d$ leaves $v_p(\Phi_d(a))=e$.  For
+$s\ge1$, subtract (5) at $n=dp^{s-1}$ from (5) at $n=dp^{s}$: the divisors of
+$dp^{s}$ that do not divide $dp^{s-1}$ are exactly $d'p^{s}$ with $d'\mid d$,
+and each with $d'<d$ contributes $0$ because $p\nmid d$ forces
+$d\nmid d'p^{s}$.  The difference of left-hand sides is
+$(e+s)-(e+s-1)=1$, so $v_p(\Phi_{dp^{s}}(a))=1$.  Finally, for general
+$n=dp^{t}k$ with $p\nmid k$, the terms already accounted for sum to $e+t$,
+which is all of $v_p(a^{n}-1)$; since every remaining term is $\ge0$, they all
+vanish.
+
+*Proof ($p=2$).*  $\Phi_1(a)=a-1$ and $\Phi_2(a)=a+1$ give the head directly.
+For $s\ge2$, $\Phi_{2^{s}}(a)=a^{2^{s-1}}+1$, and $a^{2^{s-1}}$ is an odd
+square, hence $\equiv1\pmod 8$, so $v_2=1$.  Off the chain, $m=2^{s}k$ with
+$k>1$ odd: the chain terms already sum to $v_2(a^{n}-1)$ by (2), and
+nonnegativity kills the rest.  $\square$
+
+Now read the two blemishes off the chart.
+
+- **The indicator is the chain's support.**  $[d\mid n]$ was never a case
+  split; it is the statement that $v_p$ is *supported on one chain*.  A
+  question about $n$ becomes: which chain elements divide $n$?
+- **The shift $v_p(n)$ is a count.**  For $d\mid n$,
+  $\#\{s\ge1 : dp^{s}\mid n\}=v_p(n)$.  Each chain step past the head
+  contributes exactly one factor of $p$, so the $p$-adic valuation of the
+  *exponent* is literally the number of chain steps taken.  Equation (4) is
+  no longer a coincidence between two copies of $v_p$; it is a count of the
+  same steps performed twice.
+- **$p=2$ is not exceptional.**  Its head is two entries long instead of one.
+  The stray $-1$ in (2) is bookkeeping: $v_2(n)=t$ names the $t+1$ chain
+  elements $1,2,\dots,2^{t}$, of which $2$ are head entries, leaving $t-1$
+  ones.  The exception was an artifact of compressing a length-two head into
+  a length-one formula.
+
+So the **cyclotomic sensor is exactly a chain plus a finite head**, and the
+head has length $1$ or $2$.  Nothing else is stored, and Theorem 2's chart
+depth is the cost of observing the head.
+
+The falsifier: `cyclotomic_valuation` versus exact integer $\Phi_m(a)$ computed
+by the Möbius product, for $6$ primes, $18$ bases, $m\le49$ — and the
+reassembly test summing (6) over divisors back to Theorem 1 for $n\le89$.
+Both green; both can only refute.
+
 ## The encounter
 
 ```text
@@ -216,6 +285,12 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here, classical in content:** Theorem 3.  The cyclotomic valuation
+  formula is standard (it is the engine of Bang's and Zsigmondy's theorems);
+  the derivation given is from Theorem 1 by divisor differencing, and the
+  chain/head reformulation — in particular the observation that it removes the
+  $p=2$ exception rather than special-casing it — is the framing this note
+  adds.  No novelty is claimed for the formula.
 - **Checked computation, falsifier only:** the agreement sweep.
 - **Not claimed:** that $\mathcal F_{p,a}$ is the *only* family with bounded
   base chart and unbounded valuation.  That classification is open and is the
@@ -244,17 +319,15 @@ recorded as *exact standard*, not as new.
 
 ## Successor seeds
 
-1. **`PROVE` — classify the bounded-chart families.**  Theorem 2 says
+1. ~~**`PROVE` — the cyclotomic refinement.**~~  DONE: Theorem 3 above.  The
+   indicator dissolved into the chain's support and the $p=2$ exception
+   dissolved into a longer head, which is the sign the chart is right.
+2. **`PROVE` — classify the bounded-chart families.**  Theorem 2 says
    $\mathcal F_{p,a}$ has a finite base chart.  Which subsets
    $S\subseteq\mathbb Z$ admit a finite observation of a generating datum
    determining $v_p$ on all of $S$?  Conjecturally these are exactly the
    images of $\mathbb Z_p$-analytic families; the honest first step is
    $a^{n}-b^{n}$ and $\Phi_m(a)$.
-2. **`PROVE` — the cyclotomic refinement.**  $a^{n}-1=\prod_{m\mid n}
-   \Phi_m(a)$.  Theorem 1 distributes the valuation over exactly one factor
-   ($m=d p^{s}$).  State and prove the sensor law for $v_p(\Phi_m(a))$
-   directly; it should make the indicator $[d\mid n]$ disappear into the
-   indexing, which is the sign the chart is the right one.
 3. **`PROVE` — composite moduli.**  The sensor is defined one prime at a time.
    Does the CRT recombination of sensors give a local-global statement for
    $v$ against a composite $W=\prod p$, i.e. does the compiled Euclidean batch

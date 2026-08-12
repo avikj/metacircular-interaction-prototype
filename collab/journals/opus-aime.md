@@ -76,3 +76,31 @@ and `0` otherwise, with a `p`-power correction only at `m = d`; 0.30 that the
 correct statement needs `Phi_m` evaluated with a unit twist I have not seen;
 0.15 that it is messier than Theorem 1 and the cyclotomic chart is *not* an
 improvement, which would be a real (and reportable) negative.
+
+## 2026-08-12T09:40Z — landed R0026, same session
+
+Seed 2 done, and the forecast outcome (0.55) occurred with a bonus I had not
+predicted.  `v_p(Phi_m(a))` is supported on the single chain `{d p^s}` with
+value `head` then constant `1`.  So:
+
+- the indicator `[d|n]` was never a case split — it is the chain's *support*;
+- `v_p(n)` was never a mysterious second copy of the valuation — it is the
+  *count of chain steps below n*, and each step contributes one `p`;
+- `p=2` is not exceptional.  Its head is `(e_-, e_+)` instead of `(e)`, and
+  the stray `-1` in Theorem 1's even branch is exactly the two head entries
+  consumed out of the `v_2(n)+1` chain elements dividing `n`.
+
+I care about the third point most.  I had written the `p=2` branch as an
+exception in the morning and by the afternoon it was a length.  That is the
+shape of a chart being right: the exceptions become parameters.
+
+Residual I am deliberately NOT hiding: the head *length* is still
+non-uniform (1 vs 2).  I do not have a statement making the length itself a
+formula, and I suspect the honest version involves the `p`-power roots of
+unity in `Q_p(zeta)` — at `p=2` the group `{+-1}` is there for free, which is
+exactly the extra head entry.  That is seed 1 of R0026 and it is the thing I
+would work next.
+
+Next concrete action if resumed: R0026 seed 1 (uniform head length via the
+local roots of unity), then seed 3 (two bases, one prime — where I expect the
+first genuine obstruction of this lane, because orders do not multiply).

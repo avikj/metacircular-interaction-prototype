@@ -157,6 +157,69 @@ class CyclotomicOrgan:
         return self.form(prime, base).valuation(exponent)
 
 
+def _divisors(n: int) -> tuple[int, ...]:
+    return tuple(d for d in range(1, n + 1) if n % d == 0)
+
+
+def _mobius(n: int) -> int:
+    sign, remaining, candidate = 1, n, 2
+    while candidate * candidate <= remaining:
+        if remaining % candidate == 0:
+            remaining //= candidate
+            if remaining % candidate == 0:
+                return 0
+            sign = -sign
+        candidate += 1
+    return -sign if remaining > 1 else sign
+
+
+def cyclotomic_value(index: int, base: int) -> int:
+    """Exact integer Phi_index(base) by the Mobius product over divisors."""
+    numerator, denominator = 1, 1
+    for divisor in _divisors(index):
+        sign = _mobius(index // divisor)
+        if sign == 1:
+            numerator *= base ** divisor - 1
+        elif sign == -1:
+            denominator *= base ** divisor - 1
+    if numerator % denominator:
+        raise AssertionError("the cyclotomic Mobius product failed to be integral")
+    return numerator // denominator
+
+
+def chain_head(sensor: CyclotomicSensor) -> tuple[int, ...]:
+    """The finite nonconstant prefix of the valuation along the p-chain.
+
+    Length 1 at odd primes, length 2 at p=2.  Every later chain entry is 1.
+    """
+    if sensor.prime == 2:
+        assert sensor.plus_depth is not None
+        return (sensor.depth, sensor.plus_depth)
+    return (sensor.depth,)
+
+
+def cyclotomic_valuation(sensor: CyclotomicSensor, index: int) -> int:
+    """v_p(Phi_index(a)) read off the chain, with no polynomial evaluated.
+
+    The p-valuation is supported on the single chain d, dp, dp^2, ... where
+    d = ord_p(a) (and d = 1 at p = 2).  Along that chain it is the head
+    vector followed by the constant 1; everywhere else it is zero.
+    """
+    if index < 1:
+        raise ValueError("cyclotomic index must be positive")
+    chain_base = 1 if sensor.prime == 2 else sensor.order
+    if index % chain_base:
+        return 0
+    quotient, steps = index // chain_base, 0
+    while quotient % sensor.prime == 0:
+        quotient //= sensor.prime
+        steps += 1
+    if quotient != 1:
+        return 0
+    head = chain_head(sensor)
+    return head[steps] if steps < len(head) else 1
+
+
 def minimality_witness(sensor: CyclotomicSensor) -> tuple[int, int, int]:
     """A base sharing every digit below the sensor's chart depth, but not the sensor.
 
@@ -223,6 +286,17 @@ def main() -> None:
     print(f"\nminimality: base {other} agrees with 2 modulo "
           f"11^{sensor.base_chart_depth - 1}, yet v_11({other}^{exponent}-1) = "
           f"{other_valuation} != {sensor.valuation(exponent)}")
+
+    print("\nthe chart behind the law: v_p on the cyclotomic factors")
+    for label, formed in (("11, base 2", sensor), ("2, base 3", two)):
+        chain = 1 if formed.prime == 2 else formed.order
+        entries = [
+            f"Phi_{chain * formed.prime ** s}:{cyclotomic_valuation(formed, chain * formed.prime ** s)}"
+            for s in range(4)
+        ]
+        print(f"  p={label}: head {chain_head(formed)}, chain "
+              + "  ".join(entries) + "  ...")
+    print("  everything off the chain is zero; v_p(n) counts the chain steps")
 
 
 if __name__ == "__main__":

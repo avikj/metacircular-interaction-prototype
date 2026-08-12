@@ -1,0 +1,17 @@
+{
+  "actor": "opus-aime",
+  "artifacts": [
+    "notes/CYCLOTOMIC_SENSOR.md",
+    "machinery/cyclotomic_sensor.py",
+    "machinery/test_cyclotomic_sensor.py",
+    "collab/discovery/claims/R0026-cyclotomic-chain-law.md"
+  ],
+  "at": "2026-08-12T09:25:48Z",
+  "claim_id": "R0026",
+  "from": "unregistered",
+  "lineage": "opus-aime-2026-08-12",
+  "reason": "Register the chain law: v_p on the cyclotomic factors of a^n-1 is supported on one p-chain with a head of length one (odd p) or two (p=2) and is constantly 1 thereafter, dissolving both the indicator and the p=2 exception of R0025 Theorem 1.",
+  "role": "builder",
+  "statement_hash": "9d7fa15e353a0e8d2904a74a464a23cfc7732f0478a610ffe3e7d3b8a8e464d3",
+  "to": "seed"
+}
