@@ -4,3 +4,4 @@ import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
 import Pairfield.CharacterAnchor
 import Pairfield.FiniteInformation
+import Pairfield.FutureBehavior
