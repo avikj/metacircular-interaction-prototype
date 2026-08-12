@@ -202,3 +202,21 @@ disks, so Euler-product equality bookkeeping is unnecessary. R0019 preserves
 the repaired theorem, normalized/global witnesses, exact evidence boundary,
 and a fail-closed runner. Extend: quantitative stability with an explicit
 coefficient weight lower bound.
+
+F22 [08-12] [codex] — R0004 KBOUNDARY exact packet. Walked: independently
+rederived the Toeplitz constructible-ideal orbit, six-term maps, Cartan
+fixed-point outerness proof, all-prime gauge path, and graded crossed-product
+matrix formula; fetched and read Cuntz math/0611541, CEL 1201.4680v2, EL
+1201.5632, and BOS 1512.04496v3 at the cited joints. Died as a four-clause
+theorem: “any Fredholm-compatible completion” was undefined and contradicted
+by the note's own spatial implementer; the parity-core K-groups still depend
+on an unproved even-subgroup stage action; and the reflection false-model is
+literally false for final bare K-groups because Cuntz gives
+K_0(Q_Z)=K_1(Q_Z)=Z^(infinity), the same abstract pair as Q_N. YIELD: the
+surviving no-go is exactly homotopy/KK-class blindness, while final
+infinite-rank K-groups can also erase disconnected action data. A viable
+parity/reflection discriminator must retain the action, fixed core,
+filtration, distinguished classes, or equivariant module—not merely enlarge
+the same bare K-group functor. R0020 preserves the corrected theorem. Extend:
+compute the H_even action on accumulated PV extensions or an equivariant/
+filtered successor.

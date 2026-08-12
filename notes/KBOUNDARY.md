@@ -21,38 +21,45 @@ $Q_{\mathbb N}$, and let $\alpha_\lambda$ be the Liouville gauge automorphism
    $\partial:K_0(Q_{\mathbb N})\to K_1(I)$ is an **isomorphism**. The
    extension is maximally non-degenerate: *every* nonzero class of
    $Q_{\mathbb N}$ bounds. No vanishing is forced by the six-term sequence.
-2. (§4) Nevertheless the parity twist contributes the zero class, because it
-   never defines a class: $\alpha_\lambda$ is an **outer** automorphism
-   (proved here), implemented by no unitary in $Q_{\mathbb N}$, in
-   $\mathcal T=M(\mathcal T)$, or in any Fredholm-compatible completion; and
+2. (§4) Nevertheless the parity twist contributes no class detectable from
+   its homotopy class: $\alpha_\lambda$ is an **outer** automorphism
+   (proved here), implemented by no unitary in $Q_{\mathbb N}$ or in
+   $\mathcal T=M(\mathcal T)$. ~~The original theorem also said “or in any
+   Fredholm-compatible completion”; that category was undefined and the
+   statement proves too much, since the displayed spatial implementer
+   $W_\lambda\in B(\ell^2P)$ exists.~~ (Codex audit, 2026-08-12.) Moreover,
    $\alpha_\lambda$ lies on the **connected** gauge torus
    $\mathbb T^{\mathcal P}$, so $(\alpha_\lambda)_*=\mathrm{id}$ on all
-   $K$-groups, $[\alpha_\lambda]=[\mathrm{id}]$ in $KK$, and every
-   difference-type invariant (mapping torus, Pimsner–Voiculescu, twisted
-   Busby/Ext class, Fredholm pairing) **vanishes identically**. The groups
+   $K$-groups and $[\alpha_\lambda]=[\mathrm{id}]$ in $KK$. Hence any
+   invariant that factors through the homotopy/KK class cannot distinguish
+   the twist from the identity. ~~The original “every difference-type
+   invariant ... vanishes identically” was too broad: the identity mapping
+   torus and PV groups do not vanish; only their *difference from the identity
+   twist at this declared level* vanishes.~~ The groups
    that force this: $\pi_0(\mathbb T^{\mathcal P})=0$, homotopy invariance of
    $KK$, $K_1(\mathcal T)=0$, $[1_{Q_{\mathbb N}}]=0$.
-3. (§5) The one invariant not killed by connectedness — the order-2 crossed
-   product comparison — is computed:
+3. (§5) The order-2 crossed product comparison is not killed by a path through
+   general automorphisms. The graded untwisting is proved:
    $Q_{\mathbb N}\rtimes_{\alpha_\lambda}\mathbb Z/2$ is Morita equivalent to
    the **parity core** ($=$ the stabilized
    $C_0(\mathbb A_f)\rtimes(\mathbb Q\rtimes H_{\mathrm{even}})$, and to
-   $Q^{\mathrm{even}}$ of CORE_KMS), and its K-groups are
-   $(\mathbb Z^{(\infty)},\mathbb Z^{(\infty)})$ — **abstractly identical**
-   to $K_*(Q_{\mathbb N}\rtimes_{\mathrm{triv}}\mathbb Z/2)$. Parity is not
-   detected. (One stage-triviality lemma inherited verbatim from Cuntz's own
-   K-computation is flagged; and the equivariant $R(\mathbb Z/2)$-module
-   refinement is the single isolated residue.)
-4. (§4.4) Sharp contrast, from the same source: the **reflection** charge
-   $n\mapsto -n$ (the program's E1/J-symmetry) **is** K-visible — Cuntz's
-   $Q_{\mathbb Z}=Q_{\mathbb N}\rtimes\mathbb Z/2$ has genuinely different
-   K-theory (K-parity shift; the dihedral Bunce–Deddens core has
-   $K_1=0$). The two $\mathbb Z/2$-charges of the program separate cleanly:
-   reflection acts by $-1$ on $K_1$ of the core, Liouville acts by $+1$ on
-   everything.
+   $Q^{\mathrm{even}}$ of CORE_KMS). ~~Its K-groups were promoted here to
+   $(\mathbb Z^{(\infty)},\mathbb Z^{(\infty)})$.~~ That computation remains
+   **formalizing** because the later-stage triviality asserted by Cuntz for
+   the prime tower has not been proved for the basis $\{4,2p\}$ of the even
+   subgroup. The Morita equivalence does not depend on that open step.
+4. (§4.4) ~~The original control claimed that reflection is visible in the
+   final abstract K-groups because $Q_{\mathbb Z}$ has different K-theory.~~
+   Cuntz's final theorem instead gives
+   $K_0(Q_{\mathbb Z})=K_1(Q_{\mathbb Z})=\mathbb Z^{(\infty)}$, exactly the
+   same abstract groups as for $Q_{\mathbb N}$. Reflection is detected at the
+   **action/core level**: it is disconnected, acts by $-1$ on $K_1(F)$, and
+   its dihedral fixed core has $K_1=0$. It is therefore a control for the
+   connected-homotopy mechanism, not a known-false control for the final bare
+   K-group invariant.
 
-**Answer to the spearhead question: NO — and the no-go is a theorem one
-level deeper than Theorem F.** Equilibrium states kill charge by uniqueness
+**Corrected answer to the spearhead question: NO for every invariant that
+factors through the homotopy/KK class of the twist.** Equilibrium states kill charge by uniqueness
 (F); K-theory kills charge by homotopy-invariance plus connectedness of the
 charge group. The pre-registered prediction of TOY_OBSTRUCTION §5
 (annihilation, not obstruction; $\partial[\lambda\text{-twist}]=0$; no
@@ -313,22 +320,28 @@ index-theoretic ones. Both are instances of one schema (UNIFICATION §2):
 the observable functor is a twirl — over the gauge group in F, over
 homotopy in K — and $\lambda$ is in the twirl's kernel both times.
 
-### 4.4 Control experiment: the reflection charge IS K-visible
+### 4.4 Corrected control: reflection is action/core-visible, not bare-K-group-visible
 
 Cuntz, math/0611541 §7: $Q_{\mathbb Z}=Q_{\mathbb N}\rtimes\mathbb Z/2$
 (adjoining $s_{-1}$: $u\mapsto u^*$ — the program's reflection/J-symmetry,
-E1). This $\mathbb Z/2$ is *not* on the connected gauge torus, acts by $-1$
-on $K_1(F)=\mathbb Z$, and its crossed products have genuinely different
-K-theory: the fixed-point core is the dihedral Bunce–Deddens algebra
+E1). This $\mathbb Z/2$ is *not* on the connected gauge torus and acts by
+$-1$ on $K_1(F)=\mathbb Z$. Its fixed-point core is the dihedral
+Bunce–Deddens algebra
 $F'=F\rtimes\mathbb Z/2$ with $K_0(A'_n)=\mathbb Z^3$, $K_1(A'_n)=0$
 (Cuntz Lemma 7.3) — versus $(K_0,K_1)=(\mathbb Q^2,\mathbb Z^2)$ for the
 trivial-action comparison $F\oplus F$ — and the abstract of the paper
-records the resulting "shift of parity from $K_0$ to $K_1$" in
-$K_*(Q_{\mathbb Z})$. **The two $\mathbb Z/2$-symmetries of the pair-field
-program separate in K-theory**: the archimedean sign sector (reflection,
-which exchanges Goldbach and gap data, E1) is K-detected; the finite-place
-parity charge (Liouville) is K-invisible. This is a precise operator
-K-theoretic echo of E1's "their difference is archimedean only".
+records a "shift of parity from $K_0$ to $K_1$" in the *computation*.
+~~The original conclusion said this made the final abstract K-groups of
+$Q_{\mathbb Z}$ genuinely different.~~ Cuntz's theorem at the end of §7 is
+explicit:
+
+$$K_0(Q_{\mathbb Z})=\mathbb Z^{(\infty)},\qquad
+K_1(Q_{\mathbb Z})=\mathbb Z^{(\infty)},$$
+
+the same abstract groups as for $Q_{\mathbb N}$. Thus reflection is an honest
+control for **connectedness and core-level action**, but not for the final
+bare K-group functor. Any stronger separation needs a pointed class, module
+structure, action, or filtered/core invariant.
 
 ## 5. The residual invariant: order-2 crossed products (task candidate (a))
 
@@ -391,7 +404,7 @@ So candidate (a) of the task is *literally the K-theory of the parity core*
 neutral world vs. K-theory of the full algebra: the exact K-analog of the
 CORE_KMS question.
 
-### 5.2 The computation
+### 5.2 Candidate computation (formalizing, not a theorem)
 
 Run Cuntz's §5 induction (§2(A) above) over $H_{\mathrm{even}}$ instead of
 $\mathbb Q_{>0}^\times$, i.e. adjoin the isometries $s_4,s_{2p}$ to $F$. The
@@ -415,8 +428,9 @@ which is **abstractly isomorphic** to
 $K_*(Q_{\mathbb N}\rtimes_{\mathrm{triv}}\mathbb Z/2)
 =K_*(Q_{\mathbb N})^{\oplus2}=(\mathbb Z^{(\infty)},\mathbb Z^{(\infty)})$.
 
-**Parity is not detected by the K-groups of the order-2 crossed product.**
-Both sides are countable-rank free abelian in both degrees; no torsion
+~~**Parity is not detected by the K-groups of the order-2 crossed product.**~~
+Conditional on the unproved even-tower stage-triviality step, both sides are
+countable-rank free abelian in both degrees; no torsion
 appears anywhere in the towers (all cokernels free), in particular no
 torsion class "localizing at $p=2k-1$" exists — indeed no $k$ exists: the
 algebraic setup is $k$-independent (it knows the Liouville *character*, not
@@ -489,10 +503,10 @@ table.
 **(c) The deflation, stated as a theorem.** *K-theory of the affine
 Toeplitz extension sees the extension's topology — completely
 ($\partial$ faithful, $\mathcal T$ a K-point, $\operatorname{Prim}$ the full
-power-set topology) — and sees no analytic parity information: all
-charge-twist invariants vanish by Theorem 4.2, and the surviving order-2
-crossed product has the K-theory of the untwisted one.* Decided before the
-program builds on it, as the strategic review demanded.
+power-set topology) — and every invariant factoring through the twist's
+homotopy/KK class sees no analytic parity information. ~~The original final
+clause also asserted that the order-2 crossed product has the K-theory of the
+untwisted one; that remains conditional on §5.3.1.~~
 
 ## 7. Reconciliation with the pre-registered prediction (TOY_OBSTRUCTION §5)
 
@@ -500,23 +514,23 @@ Prediction: $\partial[\lambda\text{-twist}]=0$; any nonzero contribution a
 Milnor-$\varprojlim^1$/completion term, not localized at $p=2k-1$;
 falsifier: rationally-invisible torsion localizing at $p^*$.
 
-Findings: **confirmed, and strengthened in one direction the toy could not
-see.** (1) $\partial[\lambda]$ is zero in the strongest sense — there is no
+Findings: **the homotopy/KK prediction is confirmed, with the crossed-product
+and reflection claims narrowed by the Codex audit.** (1) $\partial[\lambda]$
+is zero in the declared homotopy-invariant sense — there is no
 $K_1(Q_{\mathbb N})$-element for $\partial$ to act on (no unitary exists:
-Lemma 4.1, §4.1), and every constructed invariant vanishes (Theorem 4.2);
+Lemma 4.1, §4.1), and every invariant factoring through the homotopy/KK class
+agrees with the identity twist (Theorem 4.2);
 meanwhile $\partial$ itself is *injective* (§3), so the death is entirely
 upstream — precisely the toy's "annihilated by an exact local projector
 before any index can be charged", with "local projector" here read as
-"connected-group twirl". (2) No torsion and no $\varprojlim^1$ terms arose
-at all (all limits had injective connecting maps, all groups free); the
-falsifier is not triggered, and §5.2 shows it is structurally untriggerable
-($k$-independence). (3) The strengthening: the toy could not see the
-*positive* side — that the extension's boundary map is faithful and the
-reflection charge IS detected (§4.4). K-theory is not weak; it is
-charge-blind. The productive continuation is therefore exactly the toy's
-conclusion: not obstruction theory over the neutral world, but the
-minimal-enlargement question — and §4.4 adds a concrete hint that the
-archimedean/reflection direction is where K-visible structure lives.
+"connected-group twirl". (2) No torsion or $\varprojlim^1$ term appears in
+the proved part. The proposed §5.2 no-torsion conclusion remains conditional
+on its named stage lemma. (3) The strengthening the toy could not see is that
+the extension's boundary map is faithful. Reflection is detected at the
+action/core level (§4.4), not by the final abstract groups. The productive
+continuation is therefore exactly the toy's conclusion: not obstruction
+theory over the neutral world, but the minimal-enlargement question — §4.4
+now says that such an enlargement must retain more than final bare K-groups.
 
 **What any future "parity index" must evade (checklist for successors):**
 it must not be a homotopy-invariant functor of the twist (Theorem 4.2), not

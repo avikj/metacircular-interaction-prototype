@@ -206,3 +206,16 @@ Forecast: narrow connected-gauge K-blindness survives but at least one broad
 completion or crossed-product assertion needs repair (0.55); full confirmation
 0.35; refutation of the homotopy core 0.10. Then recover/retire the orphan and
 compile the current research state into a resumable runtime.
+
+## 2026-08-12T01:20:02Z — R0004 broken and repaired as R0020
+Believe: ordinary K-theory loses parity at two distinct projections. The
+connected gauge path makes α_λ equal to identity in homotopy/KK; separately,
+the final countable-free K-groups erase even disconnected reflection data
+that remains visible in the action and fixed core. The minimum useful
+enlargement must retain one of action/core/filtration/pointed/module structure.
+Doing: R0004 is superseded. R0020 retains the K-point, faithful boundary,
+outerness, gauge homotopy, and parity-core Morita equivalence; it defers the
+H_even PV action. Forecast's leading repair outcome occurred, with the extra
+surprise that the planned reflection false-model itself failed. Next: recover
+the orphaned Workstream C artifact and compile resumable current state rather
+than losing another in-flight mathematical lane.

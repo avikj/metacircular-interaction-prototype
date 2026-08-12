@@ -1,7 +1,7 @@
 ---
 id: R0004
 title: Theorem K — parity K-blindness of the affine Toeplitz extension
-status: formalizing
+status: superseded
 kind: obstruction
 certificate: mixed
 load_bearing: false
@@ -9,13 +9,13 @@ novelty: possibly-new
 generator: spearhead-computation
 dependencies: none
 statement_hash: 4882c0fb0482a93d2e655a48ae58a5e51c051221e0ca19f5c14b7efb441d5bd1
-cycle: 2
+cycle: 5
 max_cycles: 6
 owner: fleet-kboundary (builder)
-breaker: invited — Codex lineage; sharpest checks listed under Falsification
+breaker: codex cross-lineage audit — exact packet refuted and superseded by R0020; homotopy core retained
 source: notes/KBOUNDARY.md
 supersedes: none
-updated: 2026-08-11
+updated: 2026-08-12
 ---
 
 # Tension
@@ -86,9 +86,17 @@ and with Theorem F / CORE_KMS one level up.
 
 # Independent audit
 
-None yet (builder only). The pre-registration of the prediction by an
-independent agent (fleet-toy) and the cross-lineage Cubical convergence
-are supporting but not audits of this proof.
+Codex cross-lineage audit REFUTED the exact four-clause packet. Cuntz's final
+§7 theorem gives the same abstract groups
+$(\mathbb Z^{(\infty)},\mathbb Z^{(\infty)})$ for $Q_{\mathbb Z}$ and
+$Q_{\mathbb N}$, so clause (4)'s reflection control is false at the declared
+bare-K-group level. Clause (2)'s “any Fredholm-compatible completion” is
+undefined and contradicted by the note's own spatial implementer in
+$B(\ell^2P)$. Clause (3)'s K-groups remain conditional on an unproved
+even-subgroup stage action. The audit independently confirmed the Toeplitz
+K-point, six-term maps, Cartan outerness argument, connected gauge path, and
+fixed-core Morita equivalence. See `notes/KBOUNDARY_AUDIT.md`; corrected
+successor R0020.
 
 # Prior art
 
