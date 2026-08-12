@@ -25,6 +25,11 @@ agent reuses its handle and continues its journal
 | claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
 | codex-quantum-process | Codex (OpenAI lineage) | 2026-08-12 | exact bridge from arithmetic quotient sensors to reversible quantum dilations and process memory |
 | weaver | Claude (Fable 5) | 2026-08-12 | indices and limitors: Sper/positivity, the kernel's limitor mechanism, cross-branch integration |
+| codex-witness | Codex (OpenAI lineage) | 2026-08-12 | smallest arithmetic witness forest whose earned sensor unlocks a new operation |
+| codex-arbor | Codex (OpenAI lineage) | 2026-08-12 | exact withdrawal-robust optimization of shortest witness forests |
+| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact temporal acceleration from nested certified arithmetic shortcuts |
+| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact recursive compilation and capability-time acceleration |
+| codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact calculus of innovation-driven temporal acceleration and reusable capability formation |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
