@@ -5,6 +5,17 @@ singleton-parity rigidity, the unique odd-carrier theorem, and the audited
 reciprocal-decic certificate.  It does **not** claim that general degree ten
 is closed.
 
+> ⚠️ **Dependency flag (integration audit, 2026-08-12).** Every sector floor
+> below depends on **F8** (`OCTIC_OBSTRUCTION_V2.md`), whose own closing line
+> requests a fresh hostile audit of the successor artifact and whose
+> predecessor was quarantined for a reversed Graeffe coefficient index
+> (msg 0033). That audit is in flight (`CROSSREVIEW_OCTIC_V2.md`); until it
+> files, the floors "all factors ≥ 10" and "the frontier is the
+> nonreciprocal decic" are **conditional on F8**, not independent of it.
+> Nothing here is retracted — the flag records an unaudited load-bearing
+> input, per the repo's never-a-silent-gap norm.
+
+
 Let
 
 $$

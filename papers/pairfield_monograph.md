@@ -144,6 +144,13 @@ Finally, rigidity is strictly weaker than irreducibility (`RIGIDITY_FRONTIER §5
 
 ### 2.6 The decic frontier: octic/nonic closures, the trace cage, and the cross-reversal charge
 
+> ⚠️ **Audit flag (2026-08-12):** the degree-8 exclusion (F8) cited in this
+> section is an exact certificate whose *successor artifact* has not yet been
+> hostilely audited (its own note requests one; the predecessor was
+> quarantined for a reversed Graeffe index). Audit in flight,
+> `notes/CROSSREVIEW_OCTIC_V2.md`. The sector floors and the
+> "frontier = nonreciprocal decic" statement below are conditional on it.
+
 The finite frontier of §2.5 has since moved twice. Exact certificates close degrees eight and nine outright:
 
 > **Theorems F8 and F9** (`OCTIC_OBSTRUCTION_V2`; `NONIC_OBSTRUCTION`; both computer-assisted exact theorems). *For every real $X\ge2$, $F_X$ has no irreducible factor of degree eight and none of degree nine.*
