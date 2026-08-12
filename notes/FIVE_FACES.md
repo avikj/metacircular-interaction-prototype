@@ -488,6 +488,36 @@ $\mathbb{Z}_{b'}$ is inequivalent for some $b'$ with
 $\operatorname{rad}(b')\nmid\operatorname{rad}(b)$. That would make the base
 genuinely load-bearing. Absent it, the radical is not the invariant in play.
 
+### 3.6 The rival framing, adjudicated — and it wins on the point that matters
+
+A sibling agent proposes instead: *Collatz is a gap between **symbolic history**
+and **metric drift**.* This is offered as a rival to the radical-invariance
+framing of the brief. Adjudicated on the same three tests:
+
+- **Test 1 (does it name the right split?).** "Symbolic history" is the
+  $2$-adic itinerary — the parity vector, i.e. the point of the shift space to
+  which Bernstein–Lagarias's $\Phi$ conjugates the orbit. "Metric drift" is the
+  archimedean size, governed by $\log 3$ against $\log 4$. That is *exactly*
+  the split identified in §3.5's verdict (Thm 5.3: no continuous comparison
+  between the archimedean and $b$-adic completions), stated in dynamical rather
+  than chart-theoretic language. **It names the right split.**
+- **Test 2 (the $5n+1$ discriminator, which killed the radical framing).**
+  Symbolic history is identical for $3n+1$ and $5n+1$ — the same shift space,
+  the same clopen branch condition. The drift is not: $\log3$ vs $\log4$ against
+  $\log5$ vs $\log4$, opposite signs, opposite expected answers. **It passes the
+  test the radical framing failed.**
+- **Test 3 (does it name an object?).** No. "Metric drift" is precisely the
+  heuristic, unproven half; naming it does not produce a class, a defect, or a
+  witness.
+
+**Adjudication: the rival framing is strictly better than the one in the brief
+and is adopted as the correct *description*.** It is a restatement of
+`ATLAS_OF_N.md` Theorems 5.1 and 5.3 in dynamical vocabulary, not an addition
+to them, and it changes no verdict: Collatz remains low rung (§6), remains
+outside the family (§7), and still yields no obstruction object (§5.4). A
+better description that leaves every verdict unchanged is exactly what a
+description is; that is the finding, not a complaint.
+
 ---
 
 ## 4. The transfer test
@@ -749,6 +779,128 @@ about FLT — the impossible concurrence of two presentations — is genuinely
 better than the Hasse framing and is retained; it is just not local–global, and
 it applies to exactly one of the five.
 
+### 5.7 The seven-problem vacuity test, adjudicated
+
+The framing was subsequently extended to **seven** problems, adding
+Navier–Stokes global regularity, P vs NP, and quantum gravity, each
+characterised as a *translation obstruction*:
+
+| | problem | framing's characterisation |
+|---|---|---|
+| 1 | RH | prime locality and the global spectrum not yet fully joined |
+| 2 | Goldbach | residual between local possibility, average distribution, sharp sum bound |
+| 3 | twin primes | the sieve sees many distinctions but not the decisive parity distinction |
+| 4 | Collatz | gap between symbolic history and metric drift |
+| 5 | Navier–Stokes | a local differential law does not yield global regularity |
+| 6 | P vs NP | cheapness of verification does not yield cheapness of construction |
+| 7 | quantum gravity | two successful representations, each true in its domain, not yet glued |
+
+The stated fork: if it covers all seven, then either **(i)** it is a universal
+structural insight, or **(ii)** it is so general that it distinguishes nothing.
+Adjudicated below: **(ii)**, on four independent grounds, the first of which is
+decisive on its own.
+
+#### Ground 1 — the framing cannot distinguish a theorem from a conjecture
+
+Apply it to **ternary Goldbach**, which is *proved* (Vinogradov; Helfgott,
+§2.3). The framing's row 2 characterisation — "a residual between local
+possibility, average distribution, and a sharp sum bound" — describes ternary
+Goldbach **verbatim and without alteration**. The singular series is the local
+possibility; the major arcs are the average distribution; the minor-arc bound
+is the sharp sum bound. Same description, same three ingredients, same
+assembly; one is a theorem and one is open. The difference between them is the
+arity of the minor-arc estimate (§4.1), which the framing does not mention and
+cannot see.
+
+The same test kills row 6 from the other side. "Cheapness of verification does
+not yield cheapness of construction" is also a correct description of every
+*proved* separation of this type — and complexity theory has proved several
+(e.g. time and space hierarchy theorems separate classes by exactly this kind
+of construction/verification asymmetry; **UNVERIFIED-MEMORY** for citations,
+and nothing here depends on the example).
+
+> **A characterisation that assigns the same description to a proved theorem and
+> to an open conjecture carries zero information about difficulty.** This is not
+> a philosophical objection; it is a falsification, executed on a member of the
+> framing's own list.
+
+#### Ground 2 — the object test, run on all seven
+
+The coordinator's discriminating question: name a specific obstruction
+**object**, or concede only the word. Run twice, because the two readings give
+different and equally informative answers.
+
+| | problem | object of the type the framing predicts (a gluing / non-translation witness) | any named obstruction object at all |
+|---|---|---|---|
+| 1 | RH | **none** | **none.** The assembly (continuation, functional equation) is a *theorem*; what is open is a location, not a gluing |
+| 2 | Goldbach | **none** | **yes** — the $\mathbb{Z}/2$ parity charge, `GAUGE.md` Thm F (exactly zero equilibrium expectation on every charged observable) |
+| 3 | twin primes | **none** | **yes** — same charge, same theorem |
+| 4 | Collatz | **none** | **none.** The one candidate (the $2$-adic conjugacy to the full shift) is an annihilation certificate for a single probe class, not a gluing class |
+| 5 | Navier–Stokes | **none** | **yes** — Tao's averaged equation: a modification obeying *the same energy identity and the same cancellation condition* which blows up in finite time (**FETCHED at search-summary level**: T. Tao, *Finite time blowup for an averaged three-dimensional Navier–Stokes equation*, J. Amer. Math. Soc. **29** (2016), 601–674, arXiv:1402.0290). An explicit witness that energy plus scaling cannot decide regularity |
+| 6 | P vs NP | **none** | **yes, three** — relativization (Baker–Gill–Solovay, *Relativizations of the P=?NP question*, SIAM J. Comput. **4** (1975), 431–442: oracles $A,B$ with $\mathrm{P}^A=\mathrm{NP}^A$ and $\mathrm{P}^B\ne\mathrm{NP}^B$); natural proofs (Razborov–Rudich, *Natural proofs*, JCSS **55** (1997), 24–35); algebrization (Aaronson–Wigderson, *Algebrization: a new barrier in complexity theory*, ACM TOCT **1** (2009), art. 2). All **FETCHED at search-summary level** |
+| 7 | quantum gravity | **none** | **partial, and for a different question** — the nonvanishing two-loop counterterm of pure Einstein gravity (Goroff–Sagnotti; **UNVERIFIED-MEMORY**, cited as an example only) is an object, but it obstructs *perturbative renormalizability of pure gravity*, not "quantum gravity", which has no statement to obstruct |
+
+**Score: 0 of 7 on the framing's own terms.** Not one of the seven yields a
+gluing obstruction, a non-translation witness, or a class in a cohomology of
+local data. Under the loose reading, 4½ of 7 yield *some* object — and every
+single one of those objects is an **annihilation or low-rung** certificate in
+the lens calculus's sense (§6), never a relocation-of-a-gluing-class and never
+a Hasse-type obstruction. The framing predicts one type of object and the
+record contains a different type, seven times out of seven.
+
+**And the objects that exist are five different kinds of thing:** a gauge
+charge on a C\*-algebraic equilibrium state; a modified PDE with matching
+conservation laws; an oracle separation; a largeness-plus-constructivity
+property conditional on pseudorandom generators; a two-loop counterterm
+coefficient. Five kinds across four problems is not one mechanism. It is four
+mechanisms with one English sentence draped across them — the same verdict as
+§5.6, now with a larger sample and a worse ratio.
+
+#### Ground 3 — the class is (nearly) the universe, stated as a criterion
+
+> **Observation (HERE).** Any conjecture asserting a global property of an
+> infinite structure that is *generated by finitary local data* can be phrased
+> as "local data does not visibly yield the global property."
+
+$\mathbb{N}$ is generated by the successor (chart (a)); a PDE is defined by a
+local differential law; a computation is defined by local gate structure; a
+field theory is defined by a local Lagrangian. The hypothesis of the
+observation is satisfied by essentially every object mathematics studies, so
+the framing's class is essentially the universe of conjectures about them. By
+the information bound of §5.6 — a classification's content is
+$\log_2(1/\text{fraction assigned to the class})$ — its content is
+approximately zero bits. Adding two physics problems and one complexity problem
+to the list does not test universality; it **measures** it, and the measurement
+is the finding.
+
+#### Ground 4 — one member of the list is not a mathematical statement
+
+"Quantum gravity" is a research programme, not a conjecture: it has no
+statement, hence no truth value, hence nothing that could be obstructed. A
+classification that admits a non-statement alongside six statements is not
+sorting by mathematical structure — it is sorting by *the feeling of an
+unresolved juxtaposition*. That feeling is real and is worth having; it is not
+a classification, and treating it as one is precisely the promotion chain
+`MILLENNIUM_ROSETTA.md` catalogues (introduce a metaphorical invariant; omit a
+typed map; assume preservation; promote to axiom).
+
+#### Adjudication
+
+**(ii). The local-to-global framing is so general that it distinguishes
+nothing.** It fails on a member of its own list (Ground 1), scores 0/7 on its
+own predicted object type (Ground 2), covers a class that is nearly the
+universe (Ground 3), and admits a non-statement (Ground 4). Per the
+coordinator's instruction — *if five of seven yield only the word, rule (b)* —
+the count is worse than the threshold: **seven of seven yield only the word for
+the type of object the framing predicts.**
+
+**What survives, and it is worth keeping.** The framing is an excellent
+*index*: it says where each problem's difficulty is *felt*, and that is
+genuinely useful for orientation. What it does not do is say what kind of thing
+the difficulty *is*, and the lens calculus (§6) does exactly that, gives
+different answers for different members, and can be caught being wrong.
+Retain the framing as an index; refuse it as a classification.
+
 ---
 
 ## 6. The distinction that survives: classifying each barrier
@@ -920,6 +1072,91 @@ Five independent lines of evidence, four of them already in this corpus and
 none of them assembled for this purpose. That is what (a)-grade evidence looks
 like, and its scope is two problems, not five.
 
+### 7.5 The mixed-term criterion applied to this note's own verdict
+
+The protocol of §9 requires that any proposed unification build a third object
+containing both views and exhibit a **mixed term** invisible to either view
+separately; a zero mixed term means the unification is an independent
+juxtaposition and must be dropped. Applied to my own claims, hostilely, before
+anyone else does it.
+
+**Attempt 1 — the five (or seven) jointly.** The two strongest joint objects
+available:
+
+- *The semiring.* Take $(\mathbb{N},+,\times)$ presented simultaneously in
+  charts (b) and (f), and let the mixed term be a quantity visible only in the
+  joint presentation — the additive–multiplicative correlations
+  $\sum_n \Lambda(n)\Lambda(N-n)$ and their relatives. **This mixed term is
+  nonzero — but only for a subset.** It is the content of Goldbach and twin
+  primes; it is *not* the content of FLT (Prop. 3.1: FLT's multiplicative side
+  is $\operatorname{Sym}(P)$-invariant, so no prime-selection crosses the
+  transition); it is not the content of Collatz (residual: induction, not
+  addition); and for RH the corresponding object is the one-body sum
+  $\sum_{n\le X}\lambda(n)$, not a pair term. A mixed term supported on a
+  sub-family *is* the sub-family. Independent confirmation of §7.4 by a route
+  that did not assume it.
+- *The seven-fold version.* To have a nonzero mixed term one needs an ambient
+  in which two members' local data actually interact — a product structure, a
+  pairing, a common deformation. The local data of the prime problems lives in
+  $\hat{\mathbb{Z}}$ and its representations; the local data of Navier–Stokes
+  lives in jets of a vector field on $\mathbb{R}^3$; the local data of P vs NP
+  lives in bounded-depth circuit structure. No ambient with a nonzero pairing
+  between any two of these has been exhibited, and the only ambients that
+  visibly contain all three — "the set of open problems", a proof-theoretic
+  strength ordering — carry the *categorical product*, whose cross term is
+  identically zero by construction. **Mixed term zero. Per the criterion, the
+  seven-fold unification is an independent juxtaposition and is dropped.**
+
+This is stated as a challenge, not as a theorem: nobody has exhibited a mixed
+term, I attempted the two strongest constructions I could build and both give
+zero, and the criterion places the burden on the unifier. §10 lists what would
+discharge it.
+
+**Attempt 2 — my own rescued pair, which does not escape scrutiny.** Does
+Goldbach $\otimes$ twin primes carry a nonzero mixed term? Honestly: **no** —
+and the reason is instructive rather than damning. `ADELIC.md` Prop E1 (via
+`CROSS_LENS.md` §4) says the singular series is *sector-blind*: the two are
+**isomorphic at every finite place**, differing only in the choice of positive
+cone at the archimedean one. When two views coincide, there is no third object
+to build and no cross term to compute — one does not unify $X$ with $X$.
+
+This exposes a genuine gap in the criterion as stated, and I propose an
+amendment rather than exploiting it silently:
+
+> **Amendment (HERE): the mixed-term test has three outcomes, not two.**
+> **(i) nonzero** — genuine unification, new content.
+> **(ii) zero** — independent juxtaposition; drop it.
+> **(iii) degenerate** — the two views are *identical*, so the joint object
+> collapses to one factor. This is not a unification but an **identification**,
+> and its content lies entirely in whatever distinguishes the two
+> presentations of the one object.
+>
+> **The discipline that stops (iii) from being a loophole:** outcome (iii) may
+> be claimed *only* on an **exhibited isomorphism**, never on a resemblance.
+> Absent an exhibited isomorphism, the verdict defaults to (ii) and the
+> unification is dropped.
+
+Goldbach/twin primes qualifies for (iii) because the isomorphism is exhibited
+and independently checked (`ADELIC.md` Prop E1; `FF.md` Thm 2; and
+constructively in the function-field column, where one theorem gives both,
+`FF_PAIRFIELD.md` §5). The residue — what the identification leaves over — is
+exactly the archimedean cone choice, which is where §3.3, §6 and
+`CROSS_LENS.md` §4 all independently locate the remaining difficulty.
+
+`CROSS_LENS.md` §3's "reflection join" (one $\mathbb{Z}/2$ appearing in four
+vocabularies with no cross-citation) is a second instance of outcome (iii), and
+`ATLAS_OF_N.md` §6 is a worked instance of outcome (ii): the proposed
+decategorification/chart-swap crystal was **refuted** — $D^2$ is undefined,
+the four-corner square cannot be built — and that note dropped it. The corpus
+was already running this protocol before it was written down.
+
+**Consequence for the verdict.** My strongest positive claim (§7.4) survives
+only under outcome (iii), i.e. as an *identification* rather than a
+unification, and it is stated that way. The five-fold and seven-fold claims
+produce a zero mixed term and are dropped. **That is (b), reached by the
+criterion's own machinery rather than by family resemblance, and it is stated
+plainly here so no reader has to infer it.**
+
 ---
 
 ## 8. The historical hypothesis, briefly and with the line drawn exactly
@@ -984,7 +1221,80 @@ required vocabulary that did not exist.
 
 ---
 
-## 9. Designed annihilation, and what this note did NOT establish
+## 9. The unification protocol, adopted
+
+Contributed by a sibling agent and **adopted here as a standing norm**, because
+it is falsifiable, because it has a mathematical consumer in this corpus
+already (msg 0073 §5 requires one), and because it caught a defect in this
+note's own strongest claim (§7.5) before any auditor did.
+
+### 9.1 The protocol
+
+**Step 1 — see each object fully in its native form**, before any comparison.
+No comparison may be made through a summary of either side.
+
+**Step 2 — run the discriminating questions.** Same generators? Same action?
+Same invariant? Same universal property? Is one a *representation* of the
+other? Is one a *quotient* and the other a *refinement*? Are they boundary
+values of one family? Duality? Adjunction? Deformation? Common obstruction?
+Same spectral data? Shared physical realization?
+
+**Step 3 — construct a third object containing both**, and require it to carry
+a **mixed term not visible in either view separately.**
+
+**Step 4 — read the outcome**, per the three-way amendment of §7.5:
+**(i)** nonzero mixed term → new content, genuine unification;
+**(ii)** zero → independent juxtaposition, drop it;
+**(iii)** degenerate (the views coincide) → an *identification*, not a
+unification, admissible **only on an exhibited isomorphism**; otherwise the
+verdict defaults to (ii).
+
+### 9.2 Why the mixed term is the right test, in this corpus's own terms
+
+The criterion is not a metaphor here; the corpus contains a worked instance in
+which the mixed term is computed exactly, and a second in which it vanishes and
+the unification was correctly abandoned.
+
+- **Nonzero, computed exactly.** `FF_PAIRFIELD.md` §2.2's three-layer identity
+  for a genus-1 curve,
+  $R^\Lambda_{A,n} = \underbrace{(n-1)q^n}_{\text{pole}\times\text{pole}}
+  \underbrace{-\,2T_n}_{\text{pole}\times\text{zero}}
+  + \underbrace{(n-1)s_n + 2qU_{n-2}}_{\text{zero}\times\text{zero}}$,
+  is exactly a joint object of two views (pole side, zero side) whose **mixed
+  block is the cross term**, with coefficient exactly $2$, verified as an
+  integer identity with residual $0$ at every $2\le n\le40$ for three curves.
+  §2.3 then resolves it: $T_n = \bigl((a-2)q^n + q(s_{n-1}-s_n)\bigr)/N_1$.
+- **And it can vanish, on an identifiable locus** — the smooth part of the
+  mixed block has an explicit zero at $a=2$, realised by the curve E3. So the
+  criterion is not vacuously satisfied: a mixed term is a computable quantity
+  that is generically nonzero and sometimes exactly zero, and knowing which is
+  the content.
+- **Zero, and correctly dropped.** `ATLAS_OF_N.md` §6: the proposed duality
+  crystal pairing decategorification with the additive/multiplicative chart
+  swap was **refuted** — $\pi_0$ has no canonical inverse (Baez–Dolan:
+  categorification is a creative act), so $D^2$ is undefined and the square
+  cannot be built. That note's verdict, "the crystal does not exist… it is
+  dropped, per the charter's instruction not to force it", is Step 4(ii)
+  executed before the protocol was written.
+
+### 9.3 What adopting it costs, stated honestly
+
+The protocol has a failure mode of its own: **outcome (iii) is a loophole**
+unless policed, since any two things can be declared "the same" and thereby
+excused from producing a cross term. The amendment's requirement of an
+*exhibited* isomorphism is what closes it, and this note pays that price in
+§7.5 — the Goldbach/twin identification is admitted only because
+`ADELIC.md` Prop E1, `FF.md` Thm 2 and the function-field column supply the
+isomorphism independently, and the note says explicitly that without them the
+claim would default to (ii) and be dropped.
+
+Second cost: the protocol is a filter, not a generator. It can refuse a bad
+unification and cannot produce a good one. Nothing in §§5–8 was found *by* it;
+it was used to kill things, which is what msg 0073 §2 asks of any apparatus.
+
+---
+
+## 10. Designed annihilation, and what this note did NOT establish
 
 Per msg 0073 §2. Each row is a statement whose establishment would kill the
 corresponding claim of this note.
@@ -1042,7 +1352,7 @@ corresponding claim of this note.
 
 ---
 
-## 10. Attribution summary
+## 11. Attribution summary
 
 | item | grade |
 |---|---|

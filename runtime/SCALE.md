@@ -27,7 +27,11 @@ Three things are measured here:
    two engines count different things; §4.4 says so in full rather than burying
    it.
 3. **§5 The homotopy-class enumerator**, on the 533-record graph the defect was
-   filed against.
+   filed against, and **§5.1** the same defect in `propagate/invalidate.py`,
+   found by the repair lane, filed, and now fixed by the same code.
+4. **§6 The materialisation cliff**: what Pareto extraction over the class DAG
+   finds that extraction over stored terms cannot, and which published number
+   that moves.
 
 Nothing here is an asymptotic claim. Every row is a measurement at a stated
 size, and the largest size measured is stated in each section.
@@ -423,9 +427,153 @@ Honesty is unchanged in both columns: every run above pruned branches or hit a
 path bound, and every one of them reports `complete=False` and refuses to be
 iterated or measured without `.partial()`.
 
+### 5.1 The same defect in L4, and the shared abstraction
+
+`STATUS.md`'s "still open" list, written by the lane that fixed §5, said:
+
+> `propagate/invalidate.py`'s derivation-tree walk still aborts globally on
+> `max_depth` exactly as `egraph.py` used to, and wants the same repair.
+
+It did, and it now has it. The discipline was factored into
+**`runtime/kernel/bounded.py`** — `resolve_bounds`, `bounds_tuple`,
+`SearchLedger`, `ClassBuckets`, `deepen` — and both enumerators call it. What is
+shared is the *bookkeeping* both got wrong: a bound prunes a branch and the
+search backtracks; rounds deepen shortest-first; a branch is cut only when
+`depth + admissible_lower_bound` provably overruns the round; and whichever
+bound bound is named in the reason. What is not shared is the search itself,
+because the two spaces are different in kind — `egraph` enumerates simple
+**paths** in an undirected graph (OR-choices only, admissible bound = the
+breadth-first distance to the target), `invalidate` enumerates derivation
+**trees** (an AND-OR search: OR over a fact's derivations, AND over a
+derivation's premises, admissible bound = the minimum justification height).
+
+The L4 test case: a library where `THEOREM` has two derivations — `d.a_deep`
+through a 60-link chain standing on the fact to be retracted (deeper than the
+default `max_depth=32`, and first in sorted derivation order, so the search
+meets it first), and `d.b_short` from two independent primitives. The surviving
+justification is behind the over-deep branch.
+
+| same graph, same bounds (`max_depth=32`) | before | after |
+|---|---:|---:|
+| classes found | **0** | **1** |
+| smallest class | — | **2 facts** |
+| nodes explored | 33 | 96 |
+| `complete` | False (`max_depth`) | False (`max_depth`, 1 branch pruned) |
+| `survival(THEOREM, R0)` | **UNDECIDED** | **SURVIVES** |
+
+The verdict row is the one that matters: `recompute.apply` refuses to act on a
+plan containing an `UNDECIDED` survival, so before the fix a consequence with a
+perfectly good independent proof could not be certified as surviving. Nodes
+explored went *up*, because the search now explores instead of dying on the
+first deep branch.
+
+**No published number moved.** `runtime/demo/propagate_demo.py` is
+byte-identical before and after — 344 L4 steps for the `P00` retraction against
+1 for the null control, `class.expand=119`, `index.reverse=251`. The demo's
+library has uniform justification height, so `deepen` runs exactly one round and
+the admissible bound prunes nothing. `runtime/demo/geodesic_demo.py` §1–§12 is
+byte-identical too, which is how the `egraph` half of the refactor was checked:
+the shared module reproduces the old behaviour exactly, it does not re-implement
+it approximately.
+
+Regression tests: `B10`, `B11`, and the control `x_l4_depth_pruned_not_complete`
+in `runtime/tests/test_propagate.py`.
+
 ---
 
-## 6. Reproducing every number in this file
+## 6. The materialisation cliff: extraction over the class DAG
+
+`execute/README.md` §10 item 2:
+
+> **`Budget.max_exhaustive_vars = 1` is a route-materialisation cliff.** Rules
+> with two or more variables bind canonically, so their right-hand sides are
+> built at one representative per class. No equality is lost, but the frontier
+> only ever contains terms someone materialised — so a *better route to a term
+> nobody built* is invisible. … The real fix is extraction that selects from
+> classes rather than from stored terms (bottom-up Pareto extraction over the
+> class DAG).
+
+Built as `execute.extract_class_frontier`. Method and termination argument:
+`execute/README.md` §5.1. Measurement, on `runtime/demo/geodesic_demo.py`'s
+task (evaluate `3^8`), same graphs, same cost vector, same checker:
+
+| | stored terms | class DAG |
+|---|---:|---:|
+| nondominated routes, **before** the theorem | 11 | **16** |
+| nondominated routes, **after** | 9 | **14** |
+| frontier routes to a term **never built**, before / after | 0 by construction | **4 / 3** |
+| candidate destinations, before / after | 99 / 102 | 103 / 105 |
+| routes the checker rejected | 0 | **0** |
+| class fixpoint, before / after | — | converged, 4 rounds / 3 rounds (10,627 / 7,865 assemblies) |
+| `frontier_diff` before→after | appeared 2, vanished 4, shortened 4 | appeared 6, vanished 8, shortened 5 |
+
+The four before-theorem frontier points no stored-term extraction can see:
+
+| assembled term | steps | size | width | verify |
+|---|---:|---:|---:|---:|
+| `mul (mul (mul (mul #3 #3) (mul #3 #3)) #9) (mul #3 #3)` | 8 | 11 | 6 | 41 |
+| `mul (mul (mul (mul #3 #3) (mul #3 #3)) (mul #3 #3)) (mul #3 #3)` | 11 | 10 | 2 | 57 |
+| `mul (mul (mul #3 #3) (mul #3 #3)) #81` | 12 | 9 | 9 | 59 |
+| `mul (sqr #9) #81` | 16 | 7 | 11 | 79 |
+
+Row 2 is the cleanest demonstration. At `width = 2` the stored-term frontier
+offers `size 8` only at **15** steps, and nothing between `size 12` and
+`size 8`. The assembled `size 10` term at **11** steps is dominated by nothing
+and dominates nothing — a new corner of the frontier, reachable only through a
+term the e-graph never materialised.
+
+Controls, all in the demo: 208 class-DAG destinations across both runs evaluated
+by the demo's independent exact-integer evaluator → **one value, 6561**; 0 routes
+rejected; the null theorem leaves the class-DAG frontier **bit-identical**; and
+`test_class_dag_extraction_does_not_mutate_the_egraph` asserts the e-graph's
+terms, records and classes are unchanged by extraction.
+
+### 6.1 The published number this moves
+
+| shortest route to `sqr (sqr (sqr #3))` | before | after | change |
+|---|---:|---:|---:|
+| through the **retained merge records** (`RouteFinder`) | 24 | 15 | **−9** |
+| extracted over the **class DAG** | **20** | 15 | **−5** |
+
+Both are checked proofs. The class-DAG extractor finds a 20-step proof *before*
+the theorem that `RouteFinder`'s shortest path through the justification graph
+does not, because a congruence proof assembled from freely chosen sub-geodesics
+need not correspond to any single retained congruence record. So **24 is a
+minimum over record-graph routes, not over checkable proofs**, and the
+theorem's honest effect on that target is −5.
+
+The direction of every claim is unchanged — the theorem still strictly shortens
+the target, no route gets longer, the frontier still moves, the null control
+still changes nothing. What is no longer defensible is the magnitude −9 as a
+statement about proofs. `STATUS.md` and `execute/README.md` §7 both quote it and
+both now carry the correction next to it.
+
+### 6.2 What §6 does not establish
+
+* **The fixpoint is bounded, not convergent.** With a *vector* cost the usual
+  "costs only decrease, integers are well founded" argument fails, and a cyclic
+  class graph can grow a class's Pareto set without bound (going round a cycle
+  strictly increases `size` but may decrease `width` or `steps`, so the new
+  option is not dominated). Termination is by `max_rounds` / `max_options` /
+  `max_terms`, each reported when it binds. The demo's class graph is acyclic
+  and converges; **nothing here measures a cyclic one.**
+* **The per-class Pareto filter is silent in `verify`.** Three of the four cost
+  components are exactly compositional and are filtered on; `verify` is the
+  checker's counter delta on a *complete* route and is measured only at the end.
+  An option dominated on `(steps, size, width)` but cheaper in `verify` is
+  dropped. On this task `verify` is near-collinear with `steps`, which is why
+  that is tolerable here and why it is stated rather than implied.
+* **Saturation is unchanged.** `max_exhaustive_vars` is still 1 and rules still
+  fire at canonical representatives, so an *equality* that would only be found
+  by e-matching against an unbuilt term is still not found. What was removed is
+  the cliff in **extraction**, not in search.
+* **One task, one IR.** 16 → 11 and 14 → 9 are this task's numbers. The
+  combination count is `|options|^arity` per node per round, which is why
+  `max_terms` exists.
+
+---
+
+## 7. Reproducing every number in this file
 
 ```bash
 # §2, §3  the lemma-book curve, the crossover, and the net
@@ -443,8 +591,14 @@ python3 runtime/demo/geodesic_demo.py
 # §5     the 533-record graph and its 15-step geodesic (demo section 7)
 python3 runtime/demo/geodesic_demo.py
 
-# the six suites, all of which must pass unchanged
-for t in kernel execute propagate crystallize distinguish render; do
+# §5.1  the L4 backtracking repair
+python3 runtime/tests/test_propagate.py        # B10, B11, x_l4_depth_pruned_not_complete
+
+# §6     the class-DAG frontier, before and after (demo section 13)
+python3 runtime/demo/geodesic_demo.py
+
+# the eight suites, all of which must pass unchanged
+for t in kernel execute propagate crystallize distinguish render physics curriculum; do
     python3 runtime/tests/test_$t.py; done
 ```
 
@@ -454,11 +608,12 @@ and a 40-line script calling `explanation_classes` on the demo's after-theorem
 graph. Everything else is produced by the two committed scripts. Counters should
 reproduce exactly; wall clock should not.
 
-## 7. What this file does *not* establish
+## 8. What this file does *not* establish
 
 * **No asymptotics.** Every row is a measurement at a stated size. The largest
   sizes measured are: 3,000 lemmas (§2–3), a 6,549-node / 1,896-wide e-graph
-  (§4.3), a 533-record justification graph (§5). Beyond those, nothing here
+  (§4.3), a 533-record justification graph (§5), a 64-fact dependency graph with
+  a 60-link chain (§5.1), a 17-class / 309-node e-graph (§6). Beyond those, nothing here
   says anything.
 * **§2's crossover is P4's crossover.** The 22 is a property of one problem with
   one mined lemma at 12 steps and a 29-step baseline. The *slope* (184 work per
