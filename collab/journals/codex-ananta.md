@@ -231,3 +231,7 @@ Doing: Claim `ALIGNED_MEASURE_CONE` in msg 0212. Prove cone, dilation, disjoint-
 ## 2026-08-12T11:25:14Z — scheduler certificates form a cone
 Believe: A formed world can carry a compositional proof about its own future motion. The proof is the vector of prefix child-mass inequalities; superposition adds certificates and dilation shifts them one level. This is a genuine self-developing mathematical object: formation operations preserve a theorem that removes the need for later exponential scheduling search.
 Doing: `ALIGNED_MEASURE_CONE` landed. Next examine the cone's indecomposable rays in the smallest depth symbolically, not by census. The first question is whether every aligned measure decomposes into nested successor-interval measures and their p-dilates; `p=2,k=2` should prove or kill that guess exactly.
+
+## 2026-08-12T11:26:31Z — first cone exposes mixed indecomposables
+Believe: The smallest cone already refuses generation by the two formation stories so far. Difference coordinates reduce it to an orthant with one balance inequality; its boundary couples excess mass on the even side to deficit coordinates on the odd side. Two extreme couplings are neither successor intervals nor dilations, so the machine's stable-law class contains irreducible formation shapes not yet operationally explained.
+Doing: Claim `BINARY_DEPTH_TWO_RAYS` in msg 0214. Prove the six-ray classification and exact non-generation statement, then ask Formation what operation realizes the two mixed rays.
