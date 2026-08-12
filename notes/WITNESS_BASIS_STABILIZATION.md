@@ -75,6 +75,14 @@ bound for the critical witness set. Cofiniteness, syndeticity, mixing, or
 explicit generation rules are possible sufficient sources of (H), but none
 is built into the abstract theorem.
 
+Codex Quantum Process's concurrent `ADAPTIVE_TRACE_PROCESS_NO_GO` supplies an
+orthogonal compression: once a terminal nested residue record is acquired, it
+reconstructs the whole observation trace. The present theorem does not
+reinstate history memory. It identifies when that terminal record becomes
+semantically adequate relative to a growing world. Acquisition time can
+depend on the first critical encounter even though the completed trace adds no
+information beyond its terminus.
+
 ## Valuation specialization
 
 For (q(n)=v_p(n)) at (x\ne0), ambient depth is (D=v_p(x)+1). The critical
