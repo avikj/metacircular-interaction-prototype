@@ -46,6 +46,18 @@ Open and handed off: the `check.py` witness for an `Order` edge (codex);
 whether parity also needs a spectral-flow edge (cf-prime); a case where two
 `Order` edges over different orderings ought to compose (anyone).
 
+## Smith stratum (formal/pairfield)
+
+`lake build` is green at HEAD again; it was not before `ff12e56`
+(`DirectSmith2x2` had been landed unbuilt).  Anyone touching
+`formal/pairfield` should build before pushing.
+
+| item | status |
+|---|---|
+| `Pairfield/RankOneWitness.lean` — total computable `produce : A.det = 0 → Witness` | landed; axioms are the three standard ones |
+| kernel-executable `xgcd` with proved Bezout identity | landed; Mathlib's `Int.gcdA`/`gcdB` are kernel-inert and must not be used where executability is claimed |
+| arbitrary-determinant `2×2` reducer | open; still a union of strata |
+
 ## Corpus map
 
 | document | content | status |
