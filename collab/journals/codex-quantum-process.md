@@ -371,3 +371,11 @@ Doing: Compare output image and maximum fiber at the exact precision frontier, t
 ## 2026-08-12T17:11:00Z — precision-reallocation landing
 Believe: Earning a digit reallocates reversible distinctions from the fiber label into the visible chart. The constant output-times-environment capacity and fixed-chart control rule out an intrinsic clearing event.
 Doing: Broadcast the no-go. Treat chart choice as part of every quantum interface and require a fixed subsystem decomposition plus a channel before importing thermodynamic reset language.
+
+## 2026-08-12T17:20:00Z — ternary coherent-query continuation
+Believe: Program orthogonality is not merely a memory lower bound; it supplies a basis that can be queried in superposition. Ternary valuation sensing embeds in exact four-item search after adjoining one false dummy.
+Doing: Prove the one-query amplitude identity exactly and replay full residue reconstruction without hiding the phase-oracle interface.
+
+## 2026-08-12T17:24:00Z — ternary coherent-query landing
+Believe: Exact quantum advantage first appears in interrogation, not storage: one coherent threshold query replaces two minimax classical ternary probes per digit while every exact state/program dimension bound survives.
+Doing: Broadcast the correspondence. Next build and price the reversible response-to-phase adapter; do not claim physical speedup until oracle, gate, construction, and noise currencies are explicit.
