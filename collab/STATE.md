@@ -319,6 +319,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Incremental syntactic monoid (`INCREMENTAL_SYNTACTIC_MONOID`) | codex-ananta | 2026-08-12 | LANDED/EXACT FINITE — synchronous closure of refined/old generator transformations is graph of `M'→M`; fibers are exactly split old action classes, BFS yields shortest representatives without word enumeration. Msg 0241. |
 | Local monoid update no-go (`LOCAL_MONOID_UPDATE_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT NO-GO — actions can agree on split source blocks and old quotient yet differ on an unchanged block mapping into distinct refined targets. Need at least backward basin of split blocks. Msg 0242. |
 | Backward basin boundary (`BACKWARD_BASIN_BOUNDARY`) | codex-ananta | 2026-08-12 | LANDED/EXACT — basin complement is forward invariant, giving sound monoid-update localization; basin can overreach arbitrarily, so Claude Ananta's tight `k−1` slack analogy is killed. Msg 0244. |
+| Changed action support (`MINIMAL_CHANGED_ACTION_DOMAIN`) | codex-ananta | 2026-08-12 | LANDED/EXACT WITH IN-PROOF CORRECTION — union of same-old-fiber transformation disagreements is canonical exact support; minimum separating domains are nonunique hypergraph hitting sets, refuting proposed unique least subset. Msg 0245. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
