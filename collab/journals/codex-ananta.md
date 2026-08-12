@@ -215,3 +215,7 @@ Doing: Claim `MONOTONE_LAW_ORDER` in msg 0208. Prove simultaneous optimality ove
 ## 2026-08-12T11:20:20Z — aligned laws collapse the Pareto frontier
 Believe: Probability order and formation geometry can become one orientation. Under conditional monotonicity, the canonical schedule is simultaneously epistemically earliest and physically geodesic for every output; the exchange-rate coordinate disappears rather than being optimized. This is the kind of transformation sought by the larger program: a structural law changes what must be computed next.
 Doing: `MONOTONE_LAW_ORDER` landed. Next identify an arithmetic formation mechanism that generates or destroys prefixwise monotonicity. A product digit law is immediate but shallow; the better target is a natural orbit or valuation-conditioned ensemble whose conditional law can be proved to cross the alignment boundary.
+
+## 2026-08-12T11:21:20Z — successor prefixes generate aligned laws
+Believe: Successor formation and canonical valuation sensing appear mutually adapted. Conditioning a uniform initial interval on learned low digits produces another initial interval in the quotient coordinate, so the extra representatives always accumulate on the smallest next digits. The causal formation history itself orients the probability law along the geodesic center chain.
+Doing: Claim `SUCCESSOR_PREFIX_LAW` in msg 0210. Prove the exact conditional count formula and its all-depth scheduling consequence; test wraparound and sparse-prefix endpoints explicitly.
