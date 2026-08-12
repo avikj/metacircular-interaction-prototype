@@ -335,16 +335,49 @@ spanning structure over the justification graph, and the chords are the extra
 routes. Nothing is collapsed and nothing is discarded.
 
 * `explain(a, b)` — the **cheap canonical** path (one route, forest distance).
-* `explanations(a, b, limit=8)` — **distinct** routes, enumerated as distinct
-  simple paths in the justification graph (nodes = addresses, edges = retained
-  records, both assumption and congruence). Depth-first in ascending record id,
-  so the output is deterministic; deduplicated by the tuple of record ids.
+* `explanation_classes(a, b)` — the **homotopy classes** of proofs, one
+  representative each, as a guarded `ClassEnumeration`. `explanations` is an
+  alias kept for callers.
 * `justifications(a, b)` — every record directly relating the pair. Exactly one
   has `applied == True` (the spanning edge); the rest are the chords.
 
-`limit` exists because simple-path enumeration is exponential in the worst
-case. `explain` is the query for the hot path; `explanations` is the query for
-"how many genuinely different transports are there".
+### Distinct up to homotopy (the fix for `STATUS.md` failure mode #1)
+
+Raw simple paths over-count: the same proof, reassociated, is not a second
+transport. Two paths are **equivalent** when one becomes the other under moves
+the kernel performs with no mathematical input — congruence/symmetry/
+transitivity reassociation, `Refl`, `Beta`. The invariant of that move set is
+the **multiset of axiom justifications** consumed, and that multiset (with the
+endpoints) is the canonical form:
+
+```
+axiom_atom(Axiom | Instantiate | Certificate) = an atom     # caller's input
+axiom_atom(Refl | Beta | congruence)          = None        # kernel-decidable
+atoms(congruence record) = the atoms of its arguments' proofs   # recursively
+```
+
+So two independent axioms merging one pair give **2** classes, while the
+naturality square of β against congruence (`(λx.x)a = (λx.x)b` by congruence,
+or by β·axiom·β) gives **2 raw paths and 1 class**. Both are tested, in both
+directions: over-merging and over-splitting each have a planted-false control.
+
+**Bounds are not caps.** Enumeration is total up to `max_paths` / `max_depth` /
+`max_classes`; hitting one produces `complete == False` with the reason
+carried. `ClassEnumeration` is **not a list**: while incomplete, `len()`,
+iteration, `.classes` and `== ()` all raise `IncompleteEnumeration`. The
+partial content is reachable only through the explicitly-named `.partial()`, so
+a subset can be *accepted*, in writing, but never *mistaken* for a total
+answer. `.count_or_none()` is the sentinel form.
+
+`ProofClass` fields: `key`, `src`, `dst`, `multiset`, `axioms`, `size`,
+`representative` (a checkable `Step` path), `raw_paths`, `members`.
+`ClassEnumeration` fields: `complete`, `reason`, `bounds`, `raw_paths`,
+`explored`, plus `.classes` / `.paths` / `.partial()`.
+
+`explain` remains the query for the hot path; `explanation_classes` is the query
+for "how many genuinely different transports are there", and L4
+(`runtime/propagate`) reuses exactly this quotient to decide which consequences
+survive a retraction.
 
 `MergeRecord` fields: `mid`, `kind` (`"assumption"` / `"congruence"`), `a`, `b`,
 `witness`, `edge_id`, `deps` (frozenset of assumption edge ids this record rests
@@ -396,8 +429,9 @@ cone by construction, and the replay re-derives whatever survives.
 ### Counters (`EGraph.steps`)
 
 `add`, `merge_calls`, `unions`, `congruences`, `find`, `find_hop`,
-`reroot_hop`, `signature`, `explain_steps`, `path_enum`, `retract_calls`,
-`rebuilds`, `directed_edges`, `reach_steps`, `conjecture_refused`.
+`reroot_hop`, `signature`, `explain_steps`, `path_enum`, `atom_expand`,
+`class_enum`, `class_incomplete`, `retract_calls`, `rebuilds`,
+`directed_edges`, `reach_steps`, `conjecture_refused`.
 `g.report()` renders them sorted.
 
 ---
@@ -423,7 +457,7 @@ g.merge(a, b, C.Axiom("route2"), edge_id="E2")
 g.equal(fa, fb)                            # True, by congruence
 path = g.explain(fa, fb)                   # one congruence step + subproofs
 C.check_path(path, fa.addr, fb.addr, ctx)  # True — checked without the e-graph
-len(g.explanations(a, b))                  # 2 — both routes survive
+len(g.explanation_classes(a, b))           # 2 — two homotopy classes
 
 g.retract("E1"); g.equal(a, b)             # True  — route2 carries it
 g.retract("E2"); g.equal(fa, fb)           # False — and the congruence went too
@@ -456,7 +490,8 @@ disabling the `App` sort check, licensing `Conjecture` composition with and
 without a table row, discarding chord justifications, retracting the world
 instead of the cone, believing undeclared axioms, letting directed edges merge,
 skipping proof-forest rerooting, disabling congruence closure, skipping
-congruence subproof checks, skipping path contiguity, and not adding ε).
+congruence subproof checks, skipping path contiguity, and not adding ε).  The homotopy quotient added in the L4 lane carries its own
+mutation set in `runtime/propagate/README.md` §5: 12 further defects, all dead.
 
 ---
 
@@ -470,13 +505,16 @@ Honest boundaries. Callers must not assume any of this works.
 * **η is not a kernel equality.** `beta_normal` is β only. `λx. f x` and `f`
   have different addresses and are not merged unless you assert it.
 * **No rewriting / e-matching / extraction.** L3 (execution, cost vectors,
-  nondominated routes) and L4 (consequence propagation) are absent. The e-graph
-  stores and explains; it does not optimise.
+  nondominated routes) is absent. The e-graph stores and explains; it does not
+  optimise. L4 is built, in `runtime/propagate/`, on top of this file's
+  homotopy quotient.
 * **No anti-unification.** §3.1 crystallisation has no kernel support yet.
 * **Reachability discipline (§4)** — generated locus, omitted locus, completion
   — is not represented at all.
-* **`explanations` is capped and can be exponential.** It is not a "find all
-  automorphisms" oracle; it is "find up to `limit` distinct routes".
+* **Class enumeration can be exponential.** It is now a complete "find all
+  distinct transports" oracle *up to a stated bound*, and says so when the bound
+  bites — but the cost of completeness is unchanged, because the class count
+  itself can be exponential (and legitimately so).
 * **Certificates are trusted.** For `Quotient`, `Embed`, `Implies`, `Approx`,
   `Refine`, `Interp`, `Dual`, the checker verifies that a matching certificate
   was *declared*, not that the mathematics holds. Only `Eq` (proof paths),
@@ -486,10 +524,12 @@ Honest boundaries. Callers must not assume any of this works.
 
 ### What breaks first under load
 
-1. **`explanations`.** Exponential simple-path enumeration. A dense
-   justification graph will hit `limit` and silently return a subset. It is the
-   first thing that needs a proper "distinct up to homotopy" notion rather than
-   a path cap.
+1. **Class enumeration cost.** The silent-subset bug is gone — the homotopy
+   quotient is the semantics and an exhausted bound is an explicit
+   `IncompleteEnumeration` — but the enumeration still walks raw simple paths
+   before quotienting them, so a dense justification graph is exponential in
+   *work* even when the class count is small. Quotienting during the walk
+   (dominance pruning on the partial multiset) is the next move.
 2. **`merge`'s duplicate-id scan** is `O(records)` per call, making *n* merges
    `O(n²)`. It wants an id index. Nothing else in `merge` is superlinear.
 3. **Retraction cone width.** Step 5 walks the *transitive upward parent

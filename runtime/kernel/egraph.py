@@ -41,16 +41,223 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 from . import term as T
-from .check import Conjectural, Step
+from .check import Axiom, Beta, Certificate, Conjectural, Instantiate, Refl, Step
 from .edges import Edge, compose, is_symmetric
 
-__all__ = ["EGraphError", "MergeRecord", "EGraph"]
+__all__ = [
+    "EGraphError",
+    "IncompleteEnumeration",
+    "MergeRecord",
+    "EGraph",
+    "ProofClass",
+    "ClassEnumeration",
+    "axiom_atom",
+    "multiset_key",
+    "merge_multisets",
+    "DEFAULT_BOUNDS",
+]
 
 MAX_EXPLAIN_DEPTH = 64
+
+# Enumeration bounds.  These are *bounds*, not caps: exceeding one produces an
+# ``Incomplete`` result, never a silently truncated answer.
+DEFAULT_BOUNDS: Dict[str, int] = {
+    "max_paths": 4096,   # raw simple paths inspected
+    "max_depth": 32,     # records on one path
+    "max_classes": 0,    # 0 = unbounded
+}
 
 
 class EGraphError(T.KernelError):
     """An e-graph invariant was violated, or an inadmissible request was made."""
+
+
+class IncompleteEnumeration(EGraphError):
+    """Raised when a caller consumes a partial enumeration as if it were total.
+
+    This is the type that makes failure mode #1 impossible to reproduce: an
+    enumeration that stopped on a bound refuses to be iterated, measured or
+    compared until the caller has looked at ``.complete`` and explicitly asked
+    for ``.partial()``.
+    """
+
+
+# ---------------------------------------------------------------------------
+# homotopy of proof paths -- the canonical form
+# ---------------------------------------------------------------------------
+#
+# Two justification paths between the same pair are *equivalent* when one can
+# be turned into the other by reassociating congruence / symmetry /
+# transitivity, i.e. by moves that a kernel can perform with no mathematical
+# input.  The invariant of that move set is the **multiset of axiom
+# justifications** the path consumes.  So:
+#
+#     canonical_form(path) = (src_class, dst_class, multiset of axiom atoms)
+#
+# and two paths are homotopic iff their canonical forms agree.  Endpoints are
+# part of the form because reassociation cannot move them; nothing else
+# survives, because every other feature of a path (which node it passes
+# through, in which order, whether a congruence was applied above or below a
+# transitivity) is exactly what reassociation permutes.
+#
+# **Which witnesses are axioms.**  ``Axiom`` and ``Instantiate`` are axiom
+# atoms: they are the caller's mathematical input, and the kernel cannot
+# produce, remove or exchange them.  ``Refl`` and ``Beta`` are *structural*:
+# given two terms the kernel decides them itself, with no choice to make, so
+# they are as free as an associativity move and contribute no atom.  A
+# ``Certificate`` is an atom (it is declared, not computed).  This is the whole
+# of the semantics, and the reason the two demo cases come out 2 and 1.
+
+
+def axiom_atom(witness: Any) -> Optional[Tuple]:
+    """The axiom atom a witness contributes, or ``None`` if it is structural.
+
+    Structural witnesses (``Refl``, ``Beta``, and the ``None`` on a congruence
+    record) are kernel-decidable and carry no mathematical content, so they are
+    invisible to the homotopy quotient.
+    """
+    if witness is None or isinstance(witness, (Refl, Beta)):
+        return None
+    if isinstance(witness, Axiom):
+        return ("axiom", witness.name)
+    if isinstance(witness, Instantiate):
+        return ("instance", witness.name,
+                tuple(sorted((k, getattr(v, "addr", str(v))) for k, v in witness.subst)))
+    if isinstance(witness, Certificate):
+        return ("certificate", witness.name)
+    if isinstance(witness, Conjectural):
+        raise EGraphError("a Conjecture is not a justification")
+    return ("opaque", type(witness).__name__, repr(witness))
+
+
+def merge_multisets(*counts: Dict[Tuple, int]) -> Dict[Tuple, int]:
+    """Multiset union (counts add).  Deterministic; no ``collections.Counter``
+    iteration order is relied on because every consumer sorts."""
+    out: Dict[Tuple, int] = {}
+    for c in counts:
+        for k, n in c.items():
+            out[k] = out.get(k, 0) + n
+    return out
+
+
+def multiset_key(counts: Dict[Tuple, int]) -> Tuple[Tuple[Tuple, int], ...]:
+    """The canonical, hashable, order-independent form of an axiom multiset."""
+    return tuple(sorted((k, n) for k, n in counts.items() if n))
+
+
+@dataclass(frozen=True)
+class ProofClass:
+    """One homotopy class of proofs of a single equality.
+
+    ``key``            the canonical form: ``(src, dst, axiom multiset)``.
+    ``multiset``       sorted ``((atom, count), ...)``.
+    ``axioms``         the atoms as a set (multiplicity forgotten).
+    ``size``           total axiom count -- the class's proof length in axioms.
+    ``representative`` a checkable ``check.Step`` path realising the class.
+    ``raw_paths``      how many raw simple paths fell into this class.
+    ``members``        the record-id tuple of each raw path, sorted.
+    """
+
+    key: Tuple
+    src: str
+    dst: str
+    multiset: Tuple[Tuple[Tuple, int], ...]
+    axioms: frozenset
+    size: int
+    representative: Tuple[Step, ...]
+    raw_paths: int
+    members: Tuple[Tuple[int, ...], ...]
+
+    def uses(self, atom: Tuple) -> bool:
+        """Does every proof in this class consume ``atom``?  (They all do or
+        none do -- the multiset *is* the class.)"""
+        return atom in self.axioms
+
+    def render(self) -> str:
+        body = ", ".join("%s x%d" % (":".join(str(p) for p in a), n)
+                         for a, n in self.multiset) or "(structural only)"
+        return "{%s}" % body
+
+
+@dataclass(frozen=True)
+class ClassEnumeration:
+    """The result of enumerating homotopy classes.  **Not a list.**
+
+    ``complete`` is the field a caller must consult.  While it is ``False``,
+    ``classes``, ``len()``, iteration and ``==`` against a sequence all raise
+    ``IncompleteEnumeration``.  The partial content is still carried, and is
+    reachable only through the explicitly-named ``partial()``, so a partial
+    answer can never be *mistaken* for a total one -- only accepted as partial,
+    in writing.
+    """
+
+    src: str
+    dst: str
+    complete: bool
+    reason: str
+    bounds: Tuple[Tuple[str, int], ...]
+    raw_paths: int
+    explored: int
+    _classes: Tuple[ProofClass, ...] = ()
+
+    # -- the guarded, total view ------------------------------------------
+    def _guard(self, what: str) -> None:
+        if not self.complete:
+            raise IncompleteEnumeration(
+                "%s on an INCOMPLETE enumeration of %s=%s: stopped because %s "
+                "(%d classes found in %d raw paths, bounds %s).  Call .partial() "
+                "to accept a subset explicitly, or raise the bound."
+                % (what, self.src[:8], self.dst[:8], self.reason,
+                   len(self._classes), self.raw_paths, dict(self.bounds)))
+
+    @property
+    def classes(self) -> Tuple[ProofClass, ...]:
+        self._guard("classes")
+        return self._classes
+
+    @property
+    def paths(self) -> Tuple[Tuple[Step, ...], ...]:
+        """One checkable representative proof per class."""
+        self._guard("paths")
+        return tuple(c.representative for c in self._classes)
+
+    def __iter__(self):
+        self._guard("iteration")
+        return iter(tuple(c.representative for c in self._classes))
+
+    def __len__(self) -> int:
+        self._guard("len()")
+        return len(self._classes)
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, (tuple, list)):
+            self._guard("comparison with a sequence")
+            return tuple(c.representative for c in self._classes) == tuple(other)
+        if isinstance(other, ClassEnumeration):
+            return (self.src, self.dst, self.complete, self.reason,
+                    self._classes) == (other.src, other.dst, other.complete,
+                                       other.reason, other._classes)
+        return NotImplemented
+
+    def __hash__(self):
+        return hash((self.src, self.dst, self.complete, self.reason,
+                     len(self._classes)))
+
+    # -- the explicit partial view ----------------------------------------
+    def partial(self) -> Tuple[ProofClass, ...]:
+        """The classes found so far, complete or not.  Naming this call is the
+        caller's written acknowledgement that the answer may be a subset."""
+        return self._classes
+
+    def count_or_none(self) -> Optional[int]:
+        """``len`` for callers who prefer a sentinel to an exception."""
+        return len(self._classes) if self.complete else None
+
+    def render(self) -> str:
+        head = "complete" if self.complete else "INCOMPLETE(%s)" % self.reason
+        return "%s: %d classes / %d raw paths [%s]" % (
+            head, len(self._classes), self.raw_paths,
+            " ".join("%s=%d" % kv for kv in self.bounds))
 
 
 @dataclass
@@ -413,44 +620,133 @@ class EGraph:
             return None
         return self._steps_from_chain(chain, 0)
 
-    def explanations(self, x, y, limit: int = 8) -> Tuple[Tuple[Step, ...], ...]:
-        """*Distinct* proof paths for ``x = y``, up to ``limit``.
+    # -- axiom atoms of a record (the canonical form's only ingredient) ----
+    def _record_atoms(self, rec: MergeRecord,
+                      memo: Dict[int, Dict[Tuple, int]],
+                      stack: Tuple[int, ...] = ()) -> Dict[Tuple, int]:
+        """The multiset of axiom atoms a single record consumes.
 
-        How distinct paths are stored: every ``merge`` call appends a
-        ``MergeRecord``, whether or not it changed the union-find.  Those
-        records form an undirected *justification graph* on addresses.  A
-        distinct explanation is a distinct simple path in that graph.  The
-        proof forest is only a spanning structure over it -- the chords are the
-        extra automorphisms, and they are never discarded.
+        An assumption contributes its own witness's atom (or nothing, if the
+        witness is structural).  A congruence contributes whatever its argument
+        subproofs consume -- which is the precise sense in which congruence is
+        *not* mathematical input but a reassociation of its arguments' input.
+        """
+        got = memo.get(rec.mid)
+        if got is not None:
+            return got
+        if rec.mid in stack:
+            raise EGraphError("cyclic congruence justification at record %d" % rec.mid)
+        self.steps.bump("atom_expand")
+        if rec.kind == "assumption":
+            atom = axiom_atom(rec.witness)
+            out: Dict[Tuple, int] = {} if atom is None else {atom: 1}
+        else:
+            ta, tb = self._terms[rec.a], self._terms[rec.b]
+            parts: List[Dict[Tuple, int]] = []
+            for ca, cb in zip(ta.children, tb.children):
+                sub = self._chain(ca.addr, cb.addr)
+                if sub is None:
+                    raise EGraphError("congruence subproof vanished")
+                for _, _, srec in sub:
+                    parts.append(self._record_atoms(srec, memo, stack + (rec.mid,)))
+            out = merge_multisets(*parts)
+        memo[rec.mid] = out
+        return out
 
-        Enumeration is depth-first in ascending record id, so the output is
-        deterministic.  It is capped by ``limit`` because simple-path
-        enumeration is exponential in the worst case; ``explain`` remains the
-        cheap query.
+    def path_class_key(self, path: Sequence[Tuple[str, str, MergeRecord]],
+                       memo: Optional[Dict[int, Dict[Tuple, int]]] = None
+                       ) -> Tuple[Tuple[Tuple, int], ...]:
+        """The canonical form of one raw path: its axiom multiset."""
+        memo = {} if memo is None else memo
+        return multiset_key(merge_multisets(
+            *[self._record_atoms(r, memo) for _, _, r in path]))
+
+    def explanation_classes(self, x, y, limit: Optional[int] = None,
+                            max_paths: Optional[int] = None,
+                            max_depth: Optional[int] = None,
+                            max_classes: Optional[int] = None
+                            ) -> ClassEnumeration:
+        """Homotopy classes of proofs of ``x = y``, as a guarded result object.
+
+        Every ``merge`` call appends a ``MergeRecord``, whether or not it
+        changed the union-find; those records form an undirected *justification
+        graph* on addresses, and the proof forest is only a spanning structure
+        over it -- the chords are the extra transports and are never discarded.
+        Raw simple paths in that graph are enumerated depth-first in ascending
+        record id (so the output is deterministic) and then **quotiented by the
+        canonical form** of ``path_class_key``: two paths with the same axiom
+        multiset are two presentations of one proof and are reported once.
+
+        The enumeration is total up to the stated bounds.  If a bound is hit,
+        the result's ``complete`` is ``False`` and the reason is carried; the
+        classes found are then reachable only via ``.partial()``.  There is no
+        code path in this method that returns a subset dressed as a total
+        answer -- which is the whole point of the return type.
         """
         a, b = self._require(x), self._require(y)
+        self.steps.bump("class_enum")
+        bnd = dict(DEFAULT_BOUNDS)
+        if limit is not None:
+            bnd["max_classes"] = limit
+        if max_paths is not None:
+            bnd["max_paths"] = max_paths
+        if max_depth is not None:
+            bnd["max_depth"] = max_depth
+        if max_classes is not None:
+            bnd["max_classes"] = max_classes
+        bounds = tuple(sorted(bnd.items()))
+
+        def result(classes, complete, reason, raw, explored):
+            if not complete:
+                self.steps.bump("class_incomplete")
+            return ClassEnumeration(src=a, dst=b, complete=complete, reason=reason,
+                                    bounds=bounds, raw_paths=raw, explored=explored,
+                                    _classes=tuple(classes))
+
         if self.find(a) != self.find(b):
-            return ()
+            return result((), True, "", 0, 0)
+        if a == b:
+            refl = ProofClass(key=(a, b, ()), src=a, dst=b, multiset=(),
+                              axioms=frozenset(), size=0, representative=(),
+                              raw_paths=1, members=((),))
+            return result((refl,), True, "", 1, 0)
+
         adj: Dict[str, List[Tuple[int, str, MergeRecord]]] = {}
         for rec in self._records:
             adj.setdefault(rec.a, []).append((rec.mid, rec.b, rec))
             adj.setdefault(rec.b, []).append((rec.mid, rec.a, rec))
         for k in adj:
             adj[k].sort(key=lambda z: z[0])
-        results: List[Tuple[Step, ...]] = []
-        seen_sigs: Set[Tuple[int, ...]] = set()
+
+        memo: Dict[int, Dict[Tuple, int]] = {}
+        buckets: Dict[Tuple, List[Tuple[Tuple[int, ...],
+                                        List[Tuple[str, str, MergeRecord]]]]] = {}
+        order: List[Tuple] = []
+        state = {"raw": 0, "explored": 0, "stop": ""}
         path: List[Tuple[str, str, MergeRecord]] = []
         visited: Set[str] = {a}
 
         def dfs(node: str) -> None:
-            if len(results) >= limit:
+            if state["stop"]:
                 return
+            state["explored"] += 1
             if node == b and path:
+                state["raw"] += 1
+                self.steps.bump("path_enum")
                 sig = tuple(r.mid for _, _, r in path)
-                if sig not in seen_sigs:
-                    seen_sigs.add(sig)
-                    self.steps.bump("path_enum")
-                    results.append(self._steps_from_chain(list(path), 0))
+                key = (a, b) + (self.path_class_key(path, memo),)
+                if key not in buckets:
+                    if bnd["max_classes"] and len(buckets) >= bnd["max_classes"]:
+                        state["stop"] = ("max_classes=%d reached" % bnd["max_classes"])
+                        return
+                    buckets[key] = []
+                    order.append(key)
+                buckets[key].append((sig, list(path)))
+                if state["raw"] >= bnd["max_paths"]:
+                    state["stop"] = "max_paths=%d reached" % bnd["max_paths"]
+                return
+            if len(path) >= bnd["max_depth"]:
+                state["stop"] = "max_depth=%d reached" % bnd["max_depth"]
                 return
             for _, nxt, rec in adj.get(node, ()):
                 if nxt in visited:
@@ -460,11 +756,41 @@ class EGraph:
                 dfs(nxt)
                 path.pop()
                 visited.discard(nxt)
+                if state["stop"]:
+                    return
 
-        if a == b:
-            return ((),)
         dfs(a)
-        return tuple(results)
+
+        classes: List[ProofClass] = []
+        for key in order:
+            entries = sorted(buckets[key], key=lambda z: z[0])
+            rep_path = entries[0][1]
+            ms = key[2]
+            classes.append(ProofClass(
+                key=key, src=a, dst=b, multiset=ms,
+                axioms=frozenset(atom for atom, _ in ms),
+                size=sum(n for _, n in ms),
+                representative=self._steps_from_chain(rep_path, 0),
+                raw_paths=len(entries),
+                members=tuple(sig for sig, _ in entries),
+            ))
+        classes.sort(key=lambda c: (c.size, c.multiset))
+        return result(classes, not state["stop"], state["stop"],
+                      state["raw"], state["explored"])
+
+    def explanations(self, x, y, limit: Optional[int] = None,
+                     **kw) -> ClassEnumeration:
+        """Alias for :meth:`explanation_classes`.
+
+        Historically this returned a bare tuple of raw simple paths, truncated
+        at ``limit``.  That was `STATUS.md` failure mode #1: a cap is not a
+        semantics, and a silent subset silently discards the automorphism
+        content `CRYSTAL.md` Sec.2 L1 exists to protect.  It now returns a
+        ``ClassEnumeration``: one representative per homotopy class, with a
+        ``complete`` flag that must be consulted before the result can be
+        iterated or measured.
+        """
+        return self.explanation_classes(x, y, limit=limit, **kw)
 
     def justifications(self, x, y) -> Tuple[MergeRecord, ...]:
         """Every retained record directly relating ``x`` and ``y`` (either order)."""
