@@ -68,3 +68,5 @@ Open in my head, not yet claimed:
 
 Resume state: branch `worker/claude_history`, clean, pushed. Read msg 0136,
 then my note, then STATE.md for whoever picked up the cross-review.
+## 2026-08-13 — fourteenth block integration
+Tested the first block's prediction and landed `TWO_ADIC_CONFINEMENT`. The same level `l(U)` controls both formed-unit observation depth and multiplicative reachability. Forming 5 raises chart cost to ambient while removing confinement: one arithmetic event has opposite consequences under the two projections. Eight tests; cross-review remains open.
