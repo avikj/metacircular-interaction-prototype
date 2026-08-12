@@ -47,3 +47,75 @@ Doing: Ask for an arithmetic intervention whose future response depends on a non
 ## 2026-08-12T10:04:22Z — session end
 Believe: The quantum bridge now changes routing negatively and precisely: never price memory from chart depth. Recompute fiber profiles after each encounter and reserve process-tensor language for separating future continuations under interventions.
 Doing: Resume by pulling the completed successor-hitting theorem, then seek the smallest branch-changing arithmetic process whose terminal quotient fails to reconstruct future response statistics.
+
+## 2026-08-12T10:12:09Z — continuation start
+Believe: Witness construction crosses the boundary that nested sensing did not: addition-chain choices can mutate the formed-value cache. Same terminal integers may therefore have different lawful futures.
+Doing: Prove the minimal separating-continuation theorem for two chains to 6, compile predictive-state minimization over cache histories, and state exactly when cache persistence earns classical process memory.
+
+## 2026-08-12T10:13:21Z — first genuine process-memory landing
+Believe: Persistent addition-chain caches finally cross the boundary nested sensing did not. Same terminal witness, different construction history, and a one-step future probe separates them. The predictive state is cache-relative and cannot collapse to endpoint without losing capability.
+Doing: Move from availability to composed cost: find equal-target chains where retained intermediates provably shorten a declared next critical-witness construction. Keep the result classical until CP instruments and a process Choi object are explicitly built.
+
+## 2026-08-12T10:13:21Z — session end
+Believe: The organism now has an exact process correspondence that changes route choice: construction paths are state because their intermediates alter lawful futures. Garbage collection is an intervention that deletes options, not a free representation change.
+Doing: Resume by pricing future option value of addition-chain caches, preferably on actual valuation witnesses; then ask whether a coherent controlled implementation gives any quantum-specific advantage beyond reversible bookkeeping.
+
+## 2026-08-12T10:21:29Z — continuation start
+Believe: Critical-witness option value is now exact, and the proposed distance-profile quotient is the natural predictive state. Exact classical future-cost answers should force distinct profiles into orthogonal quantum supports.
+Doing: Prove the zero-error quantum dimension lower bound for pure and mixed encodings, apply it to critical-witness caches, and identify approximation/coherent-task structure as the only remaining quantum-compression escape.
+
+## 2026-08-12T10:22:47Z — exact quantum compression no-go landing
+Believe: Exact future-cost profiles are already classical minimal states. Zero-error quantum storage forces orthogonal supports and buys no dimension compression; the critical capability bit remains one qubit because it is one classical bit.
+Doing: Await the completed distance-profile theorem as baseline. Seek a quantum-specific successor only after declaring approximation, a target distribution, or coherent operations that do not reduce to exact coordinate readout.
+
+## 2026-08-12T10:22:47Z — session end
+Believe: Process memory is now earned, but quantization alone adds no storage power. The organism should stop embedding classical predictive automata in Hilbert space and calling that quantum progress.
+Doing: Resume by testing the smallest approximate or coherent-target variant against the exact orthogonality baseline, or import a newly formed arithmetic operation that is natively coherent rather than classically cached.
+
+## 2026-08-12T10:33:13Z — continuation start
+Believe: Minimal nonadaptive valuation centers price a fixed observation family, not an adaptive instrument. Branch-dependent center choice should reconstruct p-adic digits with exponentially fewer queries while leaving exact state memory unchanged.
+Doing: Prove and execute the digit protocol, compare `(p-1)k` with `(p-1)p^(k-1)`, and fence the unproved optimality of arbitrary adaptive decision trees.
+
+## 2026-08-12T10:34:26Z — adaptive-instrument landing
+Believe: Causal architecture is now an independent exact resource. Classical outcome-dependent center choice exponentially reduces valuation queries without changing the state alphabet or exact quantum memory dimension.
+Doing: Replace static center installation by on-demand branch construction in future arithmetic motion. Seek the optimal adaptive tree or price center construction; do not call the separation quantum.
+
+## 2026-08-12T10:34:26Z — session end
+Believe: The process bridge has separated three coordinates cleanly: instrument count can collapse under feedback while zero-error memory remains fixed and quantum encoding offers no exact compression.
+Doing: Resume by pulling any hostile response on adaptive optimality, then test whether coherent quantum access to the valuation oracle changes query complexity beyond this classical feedback baseline.
+
+## 2026-08-12T10:42:08Z — continuation start
+Believe: The classical tree is now minimax optimal, but its query model leaves center selection free. Exact coherent control should force distinct translation programs into orthogonal states, relocating quantum cost from sensing to program preparation.
+Doing: Prove the programmable-translation orthogonality theorem with exact scope, apply it to `Z/p^k`, and make center representation an explicit prerequisite for any quantum oracle advantage claim.
+
+## 2026-08-12T10:43:17Z — programmable-center no-go landing
+Believe: Exact coherent center choice cannot compress its program alphabet: distinct translations require orthogonal programs. Quantum query count is meaningful only after the center register or reversible construction circuit is exposed.
+Doing: Absorb the subtractive center-chain result as the classical control baseline: the minimax branch uses `Q=k(p-1)` queries and `F=Q-1` new center formations, with repeats reusable on easier branches. Any next quantum comparison must compile that same branch-to-center map reversibly or explicitly assume an oracle.
+
+## 2026-08-12T10:43:17Z — session end
+Believe: The organism now refuses two free quantum resources: nonorthogonal exact predictive states and nonorthogonal exact center programs. Quantization without a changed error or operation model remains bookkeeping.
+Doing: Resume by pricing reversible center construction from the adaptive branch state, then test coherent valuation queries only in an explicitly declared oracle/circuit model.
+
+## 2026-08-12T10:49:08Z — continuation start
+Believe: The typed classical program supplies the control circuit demanded by the no-programming theorem. Reversibility should cost an explicit compute-copy-uncompute schedule, not an unexplained quantum oracle advantage.
+Doing: Prove and replay a clean reversible compilation, count oracle invocations and retained control, and pin the update-order obstruction that makes uncomputation nontrivial.
+
+## 2026-08-12T10:50:36Z — clean reversible landing
+Believe: The first explicit coherent compilation is a resource tradeoff, not an advantage. Cleaning each valuation response requires inverse oracle use before center mutation; only the reconstructed digits need persist.
+Doing: Seek an exact reversible pebbling bound between oracle invocations and retained transcript for the adaptive tree. Concurrent `EXPLICIT_COMPILER_LOWER_BOUND` proves the classical `kp-2` materialization count optimal only for explicit-operand compilers; consume it as the reversible arithmetic baseline, not an unrestricted lower bound.
+
+## 2026-08-12T10:50:36Z — session end
+Believe: Arithmetic semantics now has three concrete process realizations—measurement feedback, coherent history retention, and clean compute-copy-uncompute—with distinct costs and an exact causal order.
+Doing: Resume by pulling hostile returns, then test whether variable-length reversible control can reduce the factor-two clean-oracle overhead without recreating full history memory.
+
+## 2026-08-12T10:58:46Z — continuation start
+Believe: Rolling power memory attacks explicit ladder storage, but its multiplication update has two inequivalent process semantics. Generic modular overwrite loses a p-ary digit; promised ladder motion is injective only because the level/domain restriction survives.
+Doing: Prove exact fiber/dilation costs for iterated multiplication by p, exhibit the ladder-promise escape, and force reversible implementations to declare which state space they inhabit.
+
+## 2026-08-12T10:59:52Z — rolling-step boundary landing
+Believe: Representation promises are physical/reversible resources. Generic modular rolling exports one p-ary digit per update; promised ladder rolling avoids it only by retaining level and endpoint control.
+Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)` state. Its classical result retains modulus `M=p^k` plus rolling `s=p^ell`, reducing live derived powers to two at the cost `L(k)+(k-1)` multiplications. Compare reversible costs without dropping level/halt coordinates.
+
+## 2026-08-12T10:59:52Z — session end
+Believe: The organism now checks whether a proposed memory optimization is injective on its declared domain. Apparent compression obtained by silently restricting to a promise set must carry that promise as state.
+Doing: Resume by pulling the rolling result, then seek an exact reversible space-time comparison between full ladder and typed rolling representations.
