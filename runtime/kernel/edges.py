@@ -1,0 +1,337 @@
+"""L1 -- the typed edge algebra.  No universal semantic hash.
+
+CRYSTAL.md Sec.2 L1 table, implemented as a small algebra.  Each kind knows
+
+  (a) whether it is symmetric              -- ``is_symmetric``
+  (b) what it composes with, and to what   -- ``compose_kind`` / ``compose``
+  (c) what it preserves                    -- ``preserves``
+
+``compose`` is a *total* function into ``Edge | None``.  ``None`` means "not
+licensed": the kernel refuses to manufacture an edge it cannot name.  In
+particular anything composed with ``Conjecture``, on either side, is ``None``.
+Conjectural edges may guide search; they never enter an accepted derivation.
+
+``Approx`` carries an exact ``fractions.Fraction`` epsilon.  Floats are rejected
+at construction.  Composition adds epsilon exactly.
+"""
+
+from __future__ import annotations
+
+import hashlib
+from dataclasses import dataclass, field
+from fractions import Fraction
+from typing import Any, Dict, Optional, Tuple
+
+from .term import COUNTERS, KernelError
+
+__all__ = [
+    "EdgeError",
+    "KINDS",
+    "SYMMETRIC",
+    "PRESERVES",
+    "ALL_PROPERTIES",
+    "Edge",
+    "compose_kind",
+    "compose",
+    "compose_path",
+    "invert",
+    "is_symmetric",
+    "preserves",
+    "composition_table",
+]
+
+
+class EdgeError(KernelError):
+    """An edge was built with an inadmissible payload."""
+
+
+# --------------------------------------------------------------------------
+# the ten kinds
+# --------------------------------------------------------------------------
+
+KINDS: Tuple[str, ...] = (
+    "Eq",
+    "Iso",
+    "Embed",
+    "Quotient",
+    "Implies",
+    "Approx",
+    "Refine",
+    "Interp",
+    "Dual",
+    "Conjecture",
+)
+
+SYMMETRIC = frozenset({"Eq", "Iso", "Dual"})
+
+#: The universe of preservation tags.  A composite preserves the *intersection*
+#: of what its parts preserve; this is the only lattice in the kernel.
+ALL_PROPERTIES = frozenset(
+    {
+        "presentation",     # the exact elaborated form / L0 address
+        "truth",            # the truth value of statements
+        "structure",        # structure named in an invertible witness
+        "injectivity",      # injectivity-stable properties
+        "task_sufficiency", # sufficiency for a declared task family
+        "bounded_error",    # properties stable under a bounded perturbation
+        "extensional",      # extensional behaviour
+        "semantics",        # theory-to-theory semantics
+        "pairing",          # a stated duality pairing
+    }
+)
+
+PRESERVES: Dict[str, frozenset] = {
+    "Eq": ALL_PROPERTIES,
+    # An Iso preserves everything an Eq does except the presentation itself:
+    # that is exactly the L0/L1 distinction the spec insists on.
+    "Iso": ALL_PROPERTIES - {"presentation"},
+    "Embed": frozenset({"injectivity", "truth"}),
+    "Quotient": frozenset({"task_sufficiency"}),
+    "Implies": frozenset({"truth"}),
+    "Approx": frozenset({"bounded_error"}),
+    "Refine": frozenset({"extensional"}),
+    "Interp": frozenset({"semantics", "truth"}),
+    "Dual": frozenset({"pairing"}),
+    "Conjecture": frozenset(),
+}
+
+
+def is_symmetric(kind: str) -> bool:
+    _require_kind(kind)
+    return kind in SYMMETRIC
+
+
+def preserves(kind: str) -> frozenset:
+    _require_kind(kind)
+    return PRESERVES[kind]
+
+
+def _require_kind(kind: str) -> None:
+    if kind not in KINDS:
+        raise EdgeError("unknown edge kind %r" % (kind,))
+
+
+# --------------------------------------------------------------------------
+# the composition table
+# --------------------------------------------------------------------------
+#
+# Reading of the spec table's "composes with" column: `Eq` and `Iso` are the
+# *neutral transports* of the algebra.  `Eq` is its two-sided identity; `Iso`
+# is absorbed by every directed kind (transporting along an invertible witness
+# neither creates nor destroys the directed content).  That reading is forced
+# by the two examples the spec spells out elsewhere -- `Approx . Iso = Approx`
+# with the same epsilon, and `Implies . Iso = Implies`.
+#
+# Every other cross-kind pair is *unlicensed* and composes to None: e.g. an
+# Embed followed by a Quotient is not an Embed, not a Quotient, and the kernel
+# has no name for it, so it refuses.
+
+_NEUTRAL_ABSORBERS: Tuple[str, ...] = (
+    "Embed",
+    "Quotient",
+    "Implies",
+    "Approx",
+    "Refine",
+    "Interp",
+)
+
+_TABLE: Dict[Tuple[str, str], str] = {}
+
+
+def _build_table() -> None:
+    for k in KINDS:
+        if k == "Conjecture":
+            continue
+        # Eq is the two-sided identity.
+        _TABLE[("Eq", k)] = k
+        _TABLE[(k, "Eq")] = k
+    # idempotent same-kind composites
+    for k in ("Iso", "Embed", "Quotient", "Implies", "Approx", "Refine", "Interp"):
+        _TABLE[(k, k)] = k
+    # Iso is absorbed by the directed kinds.
+    for k in _NEUTRAL_ABSORBERS:
+        _TABLE[("Iso", k)] = k
+        _TABLE[(k, "Iso")] = k
+    # Dual is symmetric and composes with Iso (staying a Dual) and with Dual.
+    _TABLE[("Iso", "Dual")] = "Dual"
+    _TABLE[("Dual", "Iso")] = "Dual"
+    # Dual . Dual: only licensed when both edges name the SAME pairing, in
+    # which case double dualisation is the identity up to iso.  Enforced in
+    # compose(); the kind entry records the result.
+    _TABLE[("Dual", "Dual")] = "Iso"
+
+
+_build_table()
+
+
+def composition_table() -> Tuple[Tuple[str, str, Optional[str]], ...]:
+    """The full table as a sorted tuple of ``(left, right, result_or_None)``.
+
+    All 100 ordered pairs appear.  Used by the tests to cover every ``None``.
+    """
+    out = []
+    for l in KINDS:
+        for r in KINDS:
+            out.append((l, r, _TABLE.get((l, r))))
+    return tuple(out)
+
+
+def compose_kind(left: str, right: str) -> Optional[str]:
+    """Kind-level composition.  ``None`` when the composite is not licensed."""
+    _require_kind(left)
+    _require_kind(right)
+    COUNTERS.bump("edge.compose_kind")
+    if left == "Conjecture" or right == "Conjecture":
+        COUNTERS.bump("edge.conjecture_blocked")
+        return None
+    return _TABLE.get((left, right))
+
+
+# --------------------------------------------------------------------------
+# edges
+# --------------------------------------------------------------------------
+
+
+def _edge_id(kind, src, dst, eps, pairing, label) -> str:
+    h = hashlib.blake2b(digest_size=12)
+    for part in (kind, src, dst, "" if eps is None else "%d/%d" % (eps.numerator, eps.denominator),
+                 pairing or "", label or ""):
+        h.update(part.encode("utf-8"))
+        h.update(b"\x1f")
+    return "e" + h.hexdigest()
+
+
+@dataclass(frozen=True)
+class Edge:
+    """A typed edge between two L0 addresses.
+
+    ``eps`` is only meaningful for ``Approx`` and is an exact ``Fraction``.
+    ``pairing`` is only meaningful for ``Dual``.
+    ``witness`` is whatever ``check.check_edge`` needs; the edge algebra itself
+    never inspects it.
+    ``provenance`` records the edge_ids this edge was composed from (empty for
+    a primitive edge), so a composite can be retracted with its parts.
+    """
+
+    kind: str
+    src: str
+    dst: str
+    eps: Optional[Fraction] = None
+    pairing: Optional[str] = None
+    witness: Any = None
+    label: str = ""
+    provenance: Tuple[str, ...] = ()
+    edge_id: str = field(default="", compare=True)
+
+    def __post_init__(self) -> None:
+        _require_kind(self.kind)
+        if isinstance(self.eps, float):
+            raise EdgeError("epsilon must be an exact Fraction, never a float")
+        if self.kind == "Approx":
+            if not isinstance(self.eps, Fraction):
+                raise EdgeError("Approx requires an exact Fraction epsilon")
+            if self.eps < 0:
+                raise EdgeError("Approx epsilon must be >= 0")
+        elif self.eps is not None:
+            raise EdgeError("only Approx carries an epsilon")
+        if self.kind != "Dual" and self.pairing is not None:
+            raise EdgeError("only Dual carries a pairing name")
+        if not isinstance(self.src, str) or not isinstance(self.dst, str):
+            raise EdgeError("edge endpoints are L0 addresses (str)")
+        if not self.edge_id:
+            object.__setattr__(
+                self, "edge_id", _edge_id(self.kind, self.src, self.dst, self.eps,
+                                          self.pairing, self.label)
+            )
+        COUNTERS.bump("edge.build")
+
+    # -- faces -------------------------------------------------------------
+    @property
+    def symmetric(self) -> bool:
+        return self.kind in SYMMETRIC
+
+    @property
+    def preserves(self) -> frozenset:
+        return PRESERVES[self.kind]
+
+    def render(self) -> str:
+        tag = self.kind
+        if self.kind == "Approx":
+            tag = "Approx(%d/%d)" % (self.eps.numerator, self.eps.denominator)
+        elif self.kind == "Dual" and self.pairing:
+            tag = "Dual<%s>" % self.pairing
+        return "%s: %s -> %s" % (tag, self.src[:8], self.dst[:8])
+
+
+def invert(e: Edge) -> Optional[Edge]:
+    """Reverse a symmetric edge; ``None`` for a directed one."""
+    COUNTERS.bump("edge.invert")
+    if not e.symmetric:
+        return None
+    return Edge(
+        kind=e.kind,
+        src=e.dst,
+        dst=e.src,
+        eps=e.eps,
+        pairing=e.pairing,
+        witness=e.witness,
+        label=e.label,
+        provenance=e.provenance or (e.edge_id,),
+    )
+
+
+def compose(e1: Edge, e2: Edge) -> Optional[Edge]:
+    """Compose ``e1`` then ``e2``.  Total; ``None`` when not licensed.
+
+    Licensing conditions, all of which must hold:
+      * endpoints meet: ``e1.dst == e2.src``
+      * the kind pair is in the table (this is where Conjecture dies)
+      * ``Dual . Dual`` only when both name the same pairing
+    Epsilon adds exactly; ``Approx . Iso`` and ``Iso . Approx`` keep epsilon.
+    The composite preserves the intersection of the parts' preservation sets.
+    """
+    COUNTERS.bump("edge.compose")
+    if e1.dst != e2.src:
+        COUNTERS.bump("edge.compose_endpoint_mismatch")
+        return None
+    kind = compose_kind(e1.kind, e2.kind)
+    if kind is None:
+        COUNTERS.bump("edge.compose_unlicensed")
+        return None
+    if e1.kind == "Dual" and e2.kind == "Dual":
+        if e1.pairing is None or e1.pairing != e2.pairing:
+            COUNTERS.bump("edge.compose_unlicensed")
+            return None
+    eps = None
+    if kind == "Approx":
+        a = e1.eps if e1.eps is not None else Fraction(0)
+        b = e2.eps if e2.eps is not None else Fraction(0)
+        eps = a + b
+    pairing = None
+    if kind == "Dual":
+        pairing = e1.pairing if e1.kind == "Dual" else e2.pairing
+    label = "(%s;%s)" % (e1.label or e1.kind, e2.label or e2.kind)
+    return Edge(
+        kind=kind,
+        src=e1.src,
+        dst=e2.dst,
+        eps=eps,
+        pairing=pairing,
+        witness=("compose", e1.witness, e2.witness),
+        label=label,
+        provenance=(e1.edge_id, e2.edge_id),
+    )
+
+
+def compose_path(edges) -> Optional[Edge]:
+    """Left fold of ``compose`` over a non-empty sequence.  ``None`` if any
+    step is unlicensed."""
+    edges = tuple(edges)
+    if not edges:
+        return None
+    acc = edges[0]
+    for e in edges[1:]:
+        acc = compose(acc, e)
+        if acc is None:
+            return None
+    return acc
