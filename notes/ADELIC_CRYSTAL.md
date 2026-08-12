@@ -333,10 +333,12 @@ $\mathbb Q_p$ with all three omitted regions summed analytically, for real and
 complex kinematics:
 
 ```
-  p=2  (a,b)=(0.3,0.4)   direct=5.8912061536262   closed=5.8912061536262   rel=1.56e-40
-  p=2  (a,b)=(0.25+0.3j, 0.35-0.1j)  direct=3.8095601451193-0.15326177838817j  rel=4.07e-41
-  p=3  (a,b)=(0.3,0.4)   direct=4.9567960571457   closed=4.9567960571457   rel=1.1e-38
-  p=5  (a,b)=(0.3,0.4)   direct=4.0632097326945   closed=4.0632097326945   rel=5.71e-38
+  p=2  (a,b)=(0.3,0.4)  direct=(5.8912061536262 + 0.0j)  closed=5.8912061536262  rel=1.56e-40
+  p=2  (a,b)=((0.25 + 0.3j),(0.35 - 0.1j))  direct=(3.8095601451193 - 0.15326177838817j)  closed=(3.8095601451193 - 0.15326177838817j)  rel=4.07e-41
+  p=3  (a,b)=(0.3,0.4)  direct=(4.9567960571457 + 0.0j)  closed=4.9567960571457  rel=1.1e-38
+  p=3  (a,b)=((0.25 + 0.3j),(0.35 - 0.1j))  direct=(3.2057574298827 - 0.12883317557982j)  closed=(3.2057574298827 - 0.12883317557982j)  rel=4.5e-39
+  p=5  (a,b)=(0.3,0.4)  direct=(4.0632097326945 + 0.0j)  closed=4.0632097326945  rel=5.71e-38
+  p=5  (a,b)=((0.25 + 0.3j),(0.35 - 0.1j))  direct=(2.6293191810853 - 0.10519526610147j)  closed=(2.6293191810853 - 0.10519526610147j)  rel=3.55e-38
 ```
 
 ### 4.2 $B_\infty$, derived the same way
@@ -365,9 +367,15 @@ first place where the archimedean side pays a price the finite sides do not.
 ```
   (a,b)=(0.3,0.4)  quad=16.2338061726  3-Beta=16.2338061726  gamma_inf-form=16.2338061726
         rel(quad,3Beta)=3.99e-14   rel(3Beta,gamma-form)=0.0
-  (a,b)=(0.25+0.2j, 0.3-0.15j)  quad=12.4982711083-0.751941302231j
-        3-Beta=12.4982711083-0.751941302267j   rel(3Beta,gamma-form)=6.42e-42
+  (a,b)=(0.2,0.5)  quad=18.5715775879  3-Beta=18.5715776008  gamma_inf-form=18.5715776008
+        rel(quad,3Beta)=6.93e-10   rel(3Beta,gamma-form)=1.98e-41
+  (a,b)=((0.25 + 0.2j),(0.3 - 0.15j))  quad=(12.4982711083 - 0.751941302231j)  3-Beta=(12.4982711083 - 0.751941302267j)  gamma_inf-form=(12.4982711083 - 0.751941302267j)
+        rel(quad,3Beta)=3.86e-12   rel(3Beta,gamma-form)=6.42e-42
 ```
+(The `quad` column is `mpmath.quad` on the three real intervals — a genuinely
+independent numeric; its $10^{-10}$-level agreement is quadrature error, while the
+`3-Beta` vs `gamma_inf-form` agreement is the exact reflection/duplication
+collapse and is at $10^{-41}$.)
 
 ### 4.3 The theorem
 
@@ -381,11 +389,11 @@ first place where the archimedean side pays a price the finite sides do not.
 Verified, in the continued (exact) form $\prod_pB_p=\prod_x\zeta(x)/\zeta(1-x)$:
 
 ```
-  (a,b)=(0.3,0.4)      c=0.3     B_inf * prod_p B_p = 1.0   |.-1| = 3.44e-41
-  (a,b)=(1/3,1/3)      c=1/3     B_inf * prod_p B_p = 1.0   |.-1| = 3.44e-41
-  (a,b)=(0.15,0.7)     c=0.15    B_inf * prod_p B_p = 1.0   |.-1| = 2.3e-41
-  (a,b)=(0.25+0.4j, 0.3-0.2j)  c=0.45-0.2j  ... = 1.0 + 5.0e-42j   |.-1| = 2.35e-41
-  (a,b)=(-1.4,0.9)     c=1.5     B_inf * prod_p B_p = 1.0   |.-1| = 9.18e-41
+  (a,b)=(0.3,0.4)  c=0.3   B_inf * prod_p B_p = 1.0   |.-1| = 3.44e-41
+  (a,b)=(0.3333333,0.3333333)  c=0.3333333   B_inf * prod_p B_p = 1.0   |.-1| = 3.44e-41
+  (a,b)=(0.15,0.7)  c=0.15   B_inf * prod_p B_p = 1.0   |.-1| = 2.3e-41
+  (a,b)=((0.25 + 0.4j),(0.3 - 0.2j))  c=(0.45 - 0.2j)   B_inf * prod_p B_p = (1.0 + 5.018338547022382355119911e-42j)   |.-1| = 2.35e-41
+  (a,b)=(-1.4,0.9)  c=1.5   B_inf * prod_p B_p = 1.0   |.-1| = 9.18e-41
 ```
 
 The last row is outside the convergence triangle and holds by continuation only.
