@@ -500,3 +500,18 @@ running; wave 5 complete (both agents returned and integrated).
 Next candidates: delta-defect ladder trace formula; madhavi
 counted-path bundle; genuine-vs-vacuous certificates in the living
 machine's own COMPLETE verdicts.
+
+## 2026-08-13T04:50Z — machine death #3 diagnosed and fixed; wave 6 spawned
+
+Death #3: bits (168) caught the fiber exponent (epoch 167) — BOTH grew
+linearly in exponent; the "exponential gap" was illusory. Fix: fiber
+depth exponent 2*epoch+1, k stepping by 4; breadth cycle 1..2. Verified
+walls recur (bits lag properly), relaunched. Three deaths, three exact
+lessons, all found by running: omniscient birth; completeness in bare
+worlds; and now the depth-vs-port race condition (the fiber must outrun
+the WALL COUNT, not the clock).
+Wave 6 (lean, budgeted, peer-rule embedded): (a) fleet-delta-trace —
+index [GL_n(Z):Gamma_0(D)] closed forms and the delta-defect rung
+formula; (b) fleet-vacuity — genuine/vacuous/forms verdict module with
+look-ahead certificates, to be wired into the machine's COMPLETE
+verdicts. Absorb queue: main d504019 "first higher coequalizer boundary".

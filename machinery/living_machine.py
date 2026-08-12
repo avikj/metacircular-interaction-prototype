@@ -114,12 +114,16 @@ def h_family(epoch):
     # family was defeated by its own size cap: entries stalled below
     # 2^bits and the machine ground ever-larger complete worlds to
     # death.  Found by running.)
+    # depth exponent 2*epoch+1: walls grant ~one bit per epoch, so the
+    # fiber's exponent must outrun the wall COUNT, not the epoch — round
+    # three of death-by-completeness taught that both grew linearly and
+    # bits caught up at epoch 167.  Found by running, again.
     out = [((1, 0), (0, 1)), ((0, 1), (-1, 0)), ((1, 0), (0, -1))]
     k = 1
-    while k <= (1 << epoch):
+    while k <= (1 << (2 * epoch + 1)):
         out.append(((1, k), (0, 1)))
         out.append(((1, 0), (k, 1)))
-        k <<= 1
+        k <<= 2
     return out
 
 H_SET = h_family(0)  # rebound each epoch in live()
@@ -210,8 +214,8 @@ def live(max_shells=None):
     state.setdefault("epoch", 0)
     while max_shells is None or state["shell"] <= max_shells:
         step = state["shell"]
-        bound = 1 + (step - 1) % 3          # breadth cycles 1..3
-        state["epoch"] = (step - 1) // 3    # depth grows per cycle
+        bound = 1 + (step - 1) % 2          # breadth cycles 1..2
+        state["epoch"] = (step - 1) // 2    # depth grows per cycle
         H_SET = h_family(state["epoch"])
         PORTED[0] = state["bits"] > 0
         PORT_BITS[0] = state["bits"]
