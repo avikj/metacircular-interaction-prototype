@@ -49,9 +49,15 @@ unconditional.
 
 ## 2. The triage
 
-Licences per `CLAUDE.md`: **E** existence, **R** refutation, **S** search,
-**D** discovery. "—" means the result was derivable and the experiment
-should not have been run in place of a proof.
+**Revised standard** (`CLAUDE.md`, second version): only *exact/certified
+symbolic* computation counts as legitimate — it is proof. Floating-point
+measurement never is. Under that standard the verdicts below tighten: the
+score drops from 5/30 to **2/30**, and the two survivors (`exp1/1b`,
+`exp7`) are certified symbolic computations, not numerics at all.
+Re-verdicts: `exp5` (zero statistics) was rediscovery of
+Montgomery–Odlyzko; `exp12`'s refutation follows from D‴ once derived;
+`exp42`'s content is the noise floor, which Lemma N derives in one line
+(`HOLOGRAM.md` §7).
 
 | experiment | verdict | what should have happened |
 |---|---|---|
@@ -71,9 +77,14 @@ should not have been run in place of a proof.
 | exp29 L-tower statistics | — | the $\Gamma$-law is conductor-blind by I2; the statistics were underpowered anyway |
 | exp31 capacity, exp41 superresolution | — | composition of laws / imported theorem; verification optional |
 
-**Score: 5 of ~30 justified.** Two produced errors that later had to be
-retracted (`exp23`'s $c_2$, `exp27`'s coefficient), both of which a
-derivation would have gotten right the first time.
+**Score: 2 of ~30 under the revised standard** (`exp1/1b`, `exp7` — both
+certified symbolic, i.e. proof rather than measurement). Two experiments
+produced errors that had to be retracted (`exp23`'s $c_2$, `exp27`'s
+coefficient), and one (`exp6b`/`exp41`) supplied an empirical constant
+that was hiding its own scaling law — the most expensive of the three,
+since Lemma N shows deriving it changes the depth-law exponent
+(`HOLOGRAM.md` §7). Measurement did not merely waste effort here; three
+times it put wrong numbers into the record.
 
 ## 3. The proof queue this generates
 

@@ -22,18 +22,31 @@ Then:
 2. If the statement is a **closed-form constant**, derive it. Fitted
    coefficients over one decade are not results; they are noise with error
    bars omitted.
-3. Only then consider computation, and only for one of these four licences:
-   - **(E) Existence/demonstration** that cannot be proved — e.g. blind
-     recovery of zeros from arithmetic data (`exp42`).
-   - **(R) Refutation** of a specific stated conjecture.
-   - **(S) Search** over a space with no closed form — irreducibility
-     certificates, race ties, zero location.
-   - **(D) Discovery** of a phenomenon whose *statement* is not yet known
-     (exploration proper), which must then be **followed by a proof or an
-     explicit conjecture**, never left as a correlation.
+3. **Floating-point measurement is not a licence for anything.** The
+   four-licence scheme in the first version of this file was still too
+   permissive and has been withdrawn. What survives is a single
+   distinction:
 
-   "Verifying a law we just derived" is **not** a licence. Neither is
-   "confirming the model matches at corr 0.999".
+   - **Exact / certified symbolic computation is proof** and is always
+     allowed: an irreducibility certificate over $\mathbb{Q}$, a finite
+     exhaustive verification, a resultant, a factorization. These produce
+     mathematical objects, not measurements.
+   - **Everything else — correlations, fitted exponents, "the model matches
+     at 0.9999", empirical constants — is standing in for an error
+     analysis you have not done.** In every instance in this corpus, the
+     derivable quantity behind the measurement existed and was shorter than
+     the experiment.
+
+   The operative test: *a correlation coefficient has no content; the
+   content is the error term.* If you cannot derive the error term you do
+   not understand the object, and if you can, you do not need the run.
+
+   Corollary, learned the hard way (`HOLOGRAM.md` §7): measuring a constant
+   at one scale hides its scaling. The "measured" noise floor
+   $\varepsilon\approx10^{-3}$ was $X^{-1/2}$; deriving it changed the
+   depth-law exponent from $T\log^2T$ to $T^{1/2}\log^{3/2}T$. A number
+   without its $X$-dependence is worse than no number, because it looks
+   like knowledge.
 
 ## Consequences for how results are written
 

@@ -137,3 +137,64 @@ over amplitudes; the arithmetic amplitudes are fixed and partially known
 (modulus law), which improves constants — it cannot change exponents,
 which moment matching forces. Citations to anchor: arXiv:1203.5871 (CF-G),
 arXiv:1502.01385 (Demanet–Nguyen), arXiv:1904.09186 (Batenkov et al.).
+
+
+## 7. Lemma N and Theorem K′ — the noise floor was derivable, and it sharpens the depth law
+
+*Derived, not measured. This section supersedes the empirical $\varepsilon$
+used in §§2–6 and in exp41.*
+
+Every capacity statement above is gated by one quantity: $\varepsilon$, the
+relative size of what the pair-layer model does **not** explain in the
+arithmetic data. I took $\varepsilon\approx10^{-3}$ from exp6b/exp14 as an
+empirical input. It is a one-line consequence of the explicit formula.
+
+> **Lemma N (arithmetic noise floor).** Under RH and simple zeros, for the
+> Möbius field,
+> $$\frac{G_1^\mu(X)}{X^2}=\underbrace{\sum_{\rho,\rho'}v_\rho v_{\rho'}
+> \tfrac{\Gamma(\rho)\Gamma(\rho')}{\Gamma(\rho+\rho'+2)}X^{\rho+\rho'-1}}_{\text{pair layer}}
+> \;+\;O\!\left(X^{-1/2+o(1)}\right).$$
+
+*Proof.* Insert $M(u)=\sum_\rho \frac{u^\rho}{\rho\zeta'(\rho)}+\frac{1}{\zeta(0)}
++\sum_{k\ge1}(\text{trivial-zero terms})$ twice into the double Stieltjes
+integral $\iint_{u+v\le X}(X-u-v)\,dM(u)\,dM(v)$. The Dirichlet–Beta identity
+sends $u^{\rho}v^{\rho'}\mapsto\frac{\Gamma(\rho)\Gamma(\rho')}{\Gamma(\rho+\rho'+2)}
+X^{\rho+\rho'+1}$, i.e. scale $X^{2}$ on the critical line. The
+zero$\times$constant cross terms carry $X^{\rho+1}$ — scale $X^{3/2}$ — and
+constant$\times$constant carries $X$. Dividing by $X^2$ leaves relative
+errors $O(X^{-1/2})$ and $O(X^{-1})$; trivial zeros contribute $O(X^{-1})$.
+$\square$
+
+At $X=10^7$ this gives $X^{-1/2}=3.2\times10^{-4}$ — the same order as the
+"measured" $10^{-3}$, now in closed form and, crucially, **with its
+$X$-dependence**. That dependence is what the measurement could never
+supply, and it is what changes the answer:
+
+> **Theorem K′ (sharpened depth law).** With $\varepsilon=X^{-1/2}=e^{-L/2}$
+> ($L=\log X$ the window span) fed into the superresolution threshold of
+> Theorem K0 — a coherent $p$-cluster at separation $\delta$ is
+> distinguishable iff $(\delta L)^{2p-1}\gtrsim\varepsilon$ — with
+> $\delta\asymp1/\rho_2(2T)$ and the cluster size fixed self-consistently as
+> the atom count per Rayleigh cell, $p\asymp2\pi\rho_2/L$:
+> $$\frac{4\pi\rho_2}{L}\log\frac{\rho_2}{L}\;\lesssim\;\frac{L}{2}
+> \quad\Longleftrightarrow\quad L\;\gtrsim\;\sqrt{\rho_2(2T)\,\log\rho_2(2T)},$$
+> so, with $\rho_2(2T)\asymp T\log^2T$,
+> $$\boxed{\;X_{\text{needed}}(T)=\exp\Bigl(\Theta\bigl(T^{1/2}\log^{3/2}T\bigr)\Bigr).\;}$$
+
+This **supersedes Theorem K(b)'s $\exp(cT\log^2T)$**. The barrier is real but
+was overstated: at $T=100$ the corrected requirement is $\log_{10}X\approx
+10^{1.6}$-ish rather than $10^{53}$ — still hopeless numerically, so every
+qualitative conclusion of `BARRIER.md` survives, but the exponent is
+$T^{1/2}\log^{3/2}T$, not $T\log^2T$. The old figure came from imposing a
+*fixed* precision floor; the true floor improves with the very window that
+is being widened, and no amount of measurement at a single $X$ could have
+revealed that.
+
+**Honesty ledger.** Lemma N is unconditional given RH + simple zeros for the
+$\mu$-field (the same hypotheses Theorem H′ already carries). Theorem K′
+inherits K0's worst-case, minimax-over-amplitudes character and the
+self-consistency closure for $p$ is heuristic in exactly the way Theorem K
+was — it is a derived scaling law, not a theorem about primes. What has
+changed is that no empirical input remains anywhere in the chain: the
+constant $\kappa$, the floor $\varepsilon$, and now the exponent are all
+computed.
