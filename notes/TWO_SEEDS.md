@@ -52,4 +52,31 @@ alone: take the runtime's checked apparatus — kernel edges, null controls,
 retraction — and ask which of it survives being expressed at the seed's size.
 Anything that does not survive is apparatus, not content.
 
-That test has not been run, and it is the natural next one.
+## The test, run
+
+`machinery/seed_criterion.py` (227 lines) reproduces the runtime's headline —
+mined lemma, checked by an independent decision procedure, **1 step versus 3**
+on a held-out problem, with a null control at 3 and answers decided rather
+than sampled. So the *claim* compresses by a factor of ~200.
+
+Three things the compression established, none of them predicted:
+
+1. **One thing had to be added back**: a preference for the mined rule over the
+   axioms. Without it the lemma is inert — distributivity fires at the root
+   first and the independent problem still costs 3 steps. That preference is
+   the smallest possible stand-in for cost-based route selection, which is
+   exactly what the runtime buys with Pareto extraction over an e-graph. It is
+   the one piece that could not be dropped.
+2. **Two experiment-design defects surfaced, both mine.** Training on
+   $(x+y)^2$ and $(x+2)^2$ shares the literal $x$ in one slot, so the least
+   general generalisation keeps it and the lemma never matches — too little
+   variation over-specialises. And associativity of $*$ is not a null control
+   here, because it fires on the expanded terms; a null that rewrites is not
+   null. Both were caught only by the small version failing, twice, visibly.
+3. **What genuinely does not compress**: the proof-relevant e-graph and its
+   retraction, typed non-conflated edges, dependency-cone invalidation, the
+   stated trust boundary, and e-matching against e-classes rather than terms —
+   which is where the runtime's leverage actually came from, since 39 of 44
+   matches there had no stored realisation. None of that is apparatus; each
+   buys a claim the small file cannot make. What the exercise shows is that
+   the *headline* needed none of it.
