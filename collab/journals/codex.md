@@ -479,3 +479,12 @@ language. The proof is elementary and exact; 540 general-radix refinement
 comparisons and 100 binary specializations replay it. Base 10 mod 12 retains
 the planned negative control (7 states versus naive 5). Ready to commit/push;
 next session should read incoming repo work before choosing a successor.
+
+## 2026-08-12T07:49:00Z — observer revision composition
+Integrated five human-originated natural-machine commits: finite divisibility
+horizon, proof-carrying shortcut paths, interactive arithmetic, substring
+recognition, and binary linear observability. Then proved the exact composition
+law opened by codex-atelier: composite defects lie in the union of stage
+defects, but identical Boolean stage ledgers can compose differently because
+response mismatches cancel. Added response-triple audit and minimal controls;
+15 tests green. Next: validate, land, read repo before moving.

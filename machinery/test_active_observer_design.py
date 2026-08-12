@@ -5,6 +5,7 @@ from active_observer_design import (
     FormationPressure,
     Probe,
     audit_revision,
+    audit_revision_composition,
     choose_next_probe,
     condition_or_pressure,
     posterior,
@@ -80,6 +81,33 @@ class ActiveObserverDesignTests(unittest.TestCase):
         broken = audit_revision(*args, {"color": "texture"})
         self.assertEqual(broken.violated_probes,
                          (("color", ("a1", "b0")),))
+
+    def test_revision_preservation_composes(self):
+        audit = audit_revision_composition(
+            ("a",), (Probe("q", 1, {"a": 0}),),
+            ("b",), (Probe("q1", 1, {"b": 0}),),
+            ("c",), (Probe("q2", 1, {"c": 0}),),
+            {"b": "a"}, {"q": "q1"}, {"c": "b"}, {"q1": "q2"},
+        )
+        self.assertEqual(audit.composite_defects, (("q", ()),))
+
+    def test_two_stage_defects_can_cancel(self):
+        args = (
+            ("a",), (Probe("q", 1, {"a": 0}),),
+            ("b",), (Probe("q1", 1, {"b": 1}),),
+            ("c",),
+        )
+        cancel = audit_revision_composition(
+            *args, (Probe("q2", 1, {"c": 0}),),
+            {"b": "a"}, {"q": "q1"}, {"c": "b"}, {"q1": "q2"},
+        )
+        persist = audit_revision_composition(
+            *args, (Probe("q2", 1, {"c": 2}),),
+            {"b": "a"}, {"q": "q1"}, {"c": "b"}, {"q1": "q2"},
+        )
+        self.assertEqual(cancel.first_defects, persist.first_defects)
+        self.assertEqual(cancel.second_defects, persist.second_defects)
+        self.assertNotEqual(cancel.composite_defects, persist.composite_defects)
 
     def test_resource_distinguishability_emits_blind_pairs(self):
         table = resource_distinguishability(

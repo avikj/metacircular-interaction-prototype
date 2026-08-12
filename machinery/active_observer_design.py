@@ -48,6 +48,15 @@ class RevisionAudit:
     new_probes: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class RevisionCompositionAudit:
+    """Pointwise old/intermediate/new response comparisons for two revisions."""
+    comparisons: tuple[tuple[str, State, Output, Output, Output], ...]
+    first_defects: tuple[tuple[str, tuple[State, ...]], ...]
+    second_defects: tuple[tuple[str, tuple[State, ...]], ...]
+    composite_defects: tuple[tuple[str, tuple[State, ...]], ...]
+
+
 def _validate(states: tuple[State, ...], probes: tuple[Probe, ...]) -> None:
     if len(set(states)) != len(states):
         raise ValueError("states must be unique")
@@ -227,6 +236,47 @@ def audit_revision(
         fibers, forgotten, tuple(preserved), tuple(violated),
         tuple(q.name for q in new_qs if q.name not in translated),
     )
+
+
+def audit_revision_composition(
+    old_states: Sequence[State], old_probes: Sequence[Probe],
+    middle_states: Sequence[State], middle_probes: Sequence[Probe],
+    new_states: Sequence[State], new_probes: Sequence[Probe],
+    middle_to_old: Mapping[State, State], old_to_middle_probe: Mapping[str, str],
+    new_to_middle: Mapping[State, State], middle_to_new_probe: Mapping[str, str],
+) -> RevisionCompositionAudit:
+    """Retain the comparison span needed to compose observation revisions."""
+    old_xs, middle_xs, new_xs = tuple(old_states), tuple(middle_states), tuple(new_states)
+    old_qs, middle_qs, new_qs = tuple(old_probes), tuple(middle_probes), tuple(new_probes)
+    _validate(old_xs, old_qs); _validate(middle_xs, middle_qs); _validate(new_xs, new_qs)
+    if set(middle_to_old) != set(middle_xs) or set(new_to_middle) != set(new_xs):
+        raise ValueError("state projections must cover their source states exactly")
+    if set(old_to_middle_probe) != {q.name for q in old_qs}:
+        raise ValueError("first probe translation must cover the old probes")
+    if any(name not in middle_to_new_probe for name in old_to_middle_probe.values()):
+        raise ValueError("second probe translation misses an intermediate image probe")
+    old_by = {q.name: q for q in old_qs}; mid_by = {q.name: q for q in middle_qs}; new_by = {q.name: q for q in new_qs}
+    comparisons = []
+    first, second, composite = [], [], []
+    for old_name, middle_name in old_to_middle_probe.items():
+        new_name = middle_to_new_probe[middle_name]
+        if middle_name not in mid_by or new_name not in new_by:
+            raise ValueError("probe translation targets an unknown probe")
+        d1, d2, dc = [], [], []
+        for new_state in new_xs:
+            middle_state = new_to_middle[new_state]
+            if middle_state not in middle_to_old:
+                raise ValueError("composite state projection is undefined")
+            old_state = middle_to_old[middle_state]
+            a = old_by[old_name].response[old_state]
+            b = mid_by[middle_name].response[middle_state]
+            c = new_by[new_name].response[new_state]
+            comparisons.append((old_name, new_state, a, b, c))
+            if a != b: d1.append(new_state)
+            if b != c: d2.append(new_state)
+            if a != c: dc.append(new_state)
+        first.append((old_name, tuple(d1))); second.append((old_name, tuple(d2))); composite.append((old_name, tuple(dc)))
+    return RevisionCompositionAudit(tuple(comparisons), tuple(first), tuple(second), tuple(composite))
 
 
 def shortest_context_probes(elements, operations, observation, crystal):
