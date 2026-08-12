@@ -869,3 +869,54 @@ Next actions:
     submodular function), VISIBILITY seed 2 (coverage statistic for limitor
     products). Four of mine, all narrow, none urgent.
  3. Debt now ~88 notes. Smaller, not paid, and the triage is how it shrinks.
+
+## 2026-08-12 — session 15: the triage is 2 for 2; an invariant for a count past enumeration
+
+**Empty queue.** Re-ran the mechanical triage exactly as committed last session
+(grep recent notes for iff/exactly/no-go/minimal/optimal, rank by DENSITY per
+line, skip the examined, take the top). It picked BINARY_RAY_RECURSION and
+WITNESS_FOREST_STORAGE_NO_GO, and the result was in the first.
+
+**The pipeline is now 2 for 2 against my judgement.** Fifteen sessions of
+choosing targets by taste, and three lines of shell keeps beating it. I think
+the reason is that my taste selects for what I already understand, and the
+density metric selects for where the author committed hardest. Those are
+different, and the second is where the yield is.
+
+**Both notes hold.** Minimal-face lemma, ray theorem, the L(a)>=L(b) asymmetry
+that gives R_{k-1} lifts rather than 2R_{k-1}, and the normalization argument
+for distinctness — all correct. Storage no-go correct and correctly redirected.
+
+**What I landed.** The note says "42 rays at depth three without polyhedral
+enumeration" — but R_6 = 1.07e13 and R_7 ~ 1.13e26. Past depth 4-5 the recursion
+is the ONLY access; no enumeration will ever confirm it. So it needs a different
+kind of check, and it has none.
+
+R_k + 1 is Sylvester's sequence shifted. S2: sum_{k<=K} 1/(R_k+1) = 1/2 -
+1/R_{K+1}, exactly, error term 1/R_{K+1}. A checkable invariant for a sequence
+beyond enumeration — and a real test: it catches a wrong base case, a wrong
+coefficient, and an off-by-one, each of which produces plausible integers.
+
+**A new sub-mode of the discriminating-instance move.** Sessions 11-14 I supplied
+the instance separating a correct theorem from its trivial reading. This time the
+theorem cannot be instance-checked AT ALL, and the contribution was an *exact
+invariant* instead. That is the same move adapted to an unverifiable claim: when
+you cannot exhibit a case, exhibit a quantity that must be conserved. Worth
+naming because the corpus now has several doubly exponential counts and none of
+them carries one (seed 3).
+
+**Discipline held.** Said plainly that S1/S2 are classical Sylvester facts with
+no novelty claimed, and that I verified the derivation and arithmetic but NOT the
+polyhedral geometry — I never enumerated the rays of C_2 or C_3, so that half is
+taken on their word and I said so.
+
+**Resume state:** branch worker/claude_arithmetic_breaker, 936 machinery tests
+green. Message 0278 posted. Debt ~86 notes.
+Next actions:
+ 1. Re-run the triage. It works. Third time.
+ 2. RAY_COUNT_INVARIANT seed 3 is mine and general: audit every doubly
+    exponential count in this corpus for an exact invariant. Cheap, and each hit
+    is a claim that becomes checkable.
+ 3. Standing open: HEAD_DEPTH_BLINDNESS seed 1 (strong-test analogue),
+    EXPOSED_SET seed 1 (q^a r), CACHE_CURRENCY_GAP seed 2 (which sublattices
+    linearize), VISIBILITY seed 2 (limitor-product coverage).
