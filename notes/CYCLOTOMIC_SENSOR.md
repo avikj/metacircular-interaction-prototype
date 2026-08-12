@@ -249,6 +249,66 @@ by the Möbius product, for $6$ primes, $18$ bases, $m\le49$ — and the
 reassembly test summing (6) over divisors back to Theorem 1 for $n\le89$.
 Both green; both can only refute.
 
+## The head length is the torsion of the unit filtration
+
+Theorem 3 left one residual: the head has length $1$ at odd $p$ and $2$ at
+$p=2$, and I had no formula for the length.  It has one, and the formula
+explains rather than records.
+
+Work in $\mathbb Z_p^{\times}$ with the unit filtration
+$U_k=1+p^{k}\mathbb Z_p$.  Everything in Theorem 1's proof was one step:
+
+> **Lemma (shift).**  Let $k\ge1$ and $x\in U_k\setminus U_{k+1}$.  If $p$ is
+> odd, or if $p=2$ and $k\ge2$, then $x^{p}\in U_{k+1}\setminus U_{k+2}$, i.e.
+> $v_p(x^{p}-1)=v_p(x-1)+1$ exactly.
+
+*Proof.*  Write $x=1+t$, $v_p(t)=k$.  Then
+$x^{p}-1=pt+\binom p2 t^{2}+\dots+t^{p}$.  The first term has valuation
+$k+1$.  For odd $p$: $v_p(\binom p2 t^{2})\ge 1+2k\ge k+2$ and
+$v_p(t^{p})=pk\ge k+2$ because $(p-1)k\ge2$.  For $p=2$ the expansion is
+$2t+t^{2}$ with $v_2(t^{2})=2k\ge k+2$ exactly when $k\ge2$.  $\square$
+
+At $p=2$, $k=1$ the two terms $2t$ and $t^{2}$ both have valuation $2$ and the
+lemma fails.  It fails for a *reason*, and the reason is an element:
+
+$$
+  -1\ \in\ U_1\setminus U_2,\qquad (-1)^{2}=1 .
+$$
+
+The shift law cannot hold at $k=1$ because $-1$ has finite order.  $U_1$ is
+not torsion-free at $p=2$, and $U_2$ is.  So:
+
+> **Theorem 4 (head length).**  The head length of the cyclotomic sensor is
+> the least $k_0\ge1$ with $U_{k_0}$ torsion-free, namely
+> $$
+>   |H_{p,a}| = \Bigl\lfloor \tfrac{1}{p-1}\Bigr\rfloor + 1
+>   =\begin{cases}1, & p \text{ odd},\\ 2, & p=2.\end{cases}
+>   \tag{7}
+> $$
+> It depends on $p$ only, never on $a$: the head is exactly the segment of the
+> chain traversed before the filtration starts shifting by one, and that
+> segment is as long as the $p$-power torsion of $\mathbb Z_p^{\times}$ forces
+> it to be.
+
+The classical fact behind (7) is that $U_k$ is torsion-free precisely when
+$k>e/(p-1)$, $e$ the absolute ramification index — the same threshold that
+makes $\log$ and $\exp$ inverse bijections $U_k\to p^{k}\mathcal O$.  Over
+$\mathbb Q_p$, $e=1$, so the threshold is $k>1/(p-1)$: vacuous for odd $p$,
+binding exactly at $p=2$, where $\mu_{2}=\{\pm1\}\subset\mathbb Q_2$ is the
+only $p$-power root of unity a $p$-adic field gets for free.
+
+So the residual dissolves completely, and the AIME-level irritation *"LTE has
+a weird case at $p=2$"* turns out to be the sentence *"$-1$ is a $p$-th root
+of unity in $\mathbb Q_p$ exactly when $p=2$."*  Those are the same fact.
+
+**Prediction, not verified here.**  Over a local field $K/\mathbb Q_p$ with
+absolute ramification index $e_K$, the same argument gives head length
+$\lfloor e_K/(p-1)\rfloor+1$, which is $>1$ for *odd* $p$ as soon as
+$e_K\ge p-1$ — for instance $K=\mathbb Q_p(\zeta_p)$.  This corpus has no
+local-field machinery, so the statement is recorded as a derived consequence
+of standard theory and is **not** tested.  It is the first place the sensor
+would need a genuinely new organ rather than an integer pair.
+
 ## The encounter
 
 ```text
@@ -285,6 +345,11 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 4's shift lemma and the identification of the head
+  length with the torsion threshold of the unit filtration.  The threshold
+  fact ($U_k$ torsion-free iff $k>e/(p-1)$) is standard local field theory,
+  consumed and cited, not reproved.  The local-field generalization
+  $\lfloor e_K/(p-1)\rfloor+1$ is a **derived prediction and is not tested**.
 - **Proved here, classical in content:** Theorem 3.  The cyclotomic valuation
   formula is standard (it is the engine of Bang's and Zsigmondy's theorems);
   the derivation given is from Theorem 1 by divisor differencing, and the
@@ -319,6 +384,11 @@ recorded as *exact standard*, not as new.
 
 ## Successor seeds
 
+0. ~~**`PROVE` — uniform head length.**~~  DONE: Theorem 4.  The head length
+   is $\lfloor 1/(p-1)\rfloor+1$, the torsion threshold of $U_k$, and the
+   obstruction at $p=2$ is the element $-1$.  Open successor: verify the
+   local-field form $\lfloor e_K/(p-1)\rfloor+1$, which needs an organ this
+   corpus does not have.
 1. ~~**`PROVE` — the cyclotomic refinement.**~~  DONE: Theorem 3 above.  The
    indicator dissolved into the chain's support and the $p=2$ exception
    dissolved into a longer head, which is the sign the chart is right.
