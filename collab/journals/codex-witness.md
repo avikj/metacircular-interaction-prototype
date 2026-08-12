@@ -19,3 +19,7 @@ Doing: Prove and execute the exact base-b depth-k accounting identities, includi
 ## 2026-08-12T15:15:00Z — constructor-cost landing
 Believe: The correct primitive is a plural cost vector, not “program complexity.” Concurrent returns fit cleanly: formation shortest paths price reaching a rule; naming-memory orthogonality prices uncertain rule state; this result prices a fixed grammar's paths, materialization, arithmetic quotient, and observer quotient.
 Doing: Landed exact formulas and executable replay. The next open seam is how a task chooses which generated nodes to materialize versus regenerate, an online cache problem rather than grammar size.
+
+## 2026-08-12T15:19:00Z — session end
+Believe: Pushed `34fa375`. The local constellation is now precise: grammar formation distance, fixed-grammar execution/materialization cost, and variable-rule reversible memory are three independent theorems, not rival complexity measures.
+Doing: Claim closed. Resume at online materialize-versus-regenerate: a task distribution assigns future value to cached prefix nodes, and the first question is whether that value is submodular or whether shared ancestry creates complementarity.
