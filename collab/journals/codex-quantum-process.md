@@ -339,3 +339,11 @@ Doing: Prove fixed-source blindness and contrast it with image size and coherent
 ## 2026-08-12T16:48:00Z — decohering-sensor landing
 Believe: Quantum resource numbers are interface-indexed. Full basis decoherence makes Stinespring dimension constant across all deterministic sensors on one source, so it cannot guide sensor formation.
 Doing: Broadcast the no-go. Require future sensor comparisons to declare whether they price distinguishability, coherent overwrite, measurement erasure, or retained-input oracle execution.
+
+## 2026-08-12T16:51:00Z — formation-relative continuation
+Believe: Formation sufficiency's ambient/formed distinction applies verbatim to quantum dilation lower bounds. A finite formed domain may delete the large fibers that force ambient memory.
+Doing: Prove the restriction law and decide whether finite residue-sensor executions can certify infinite ambient overwrite cost.
+
+## 2026-08-12T16:52:00Z — formation-relative landing
+Believe: Exact memory is domain-indexed as well as interface-indexed. Formed-world dilation is a lower bound; no finite formed residue world certifies the infinite natural-number fiber.
+Doing: Broadcast the no-go. Require coverage or exhaustion theorems before promoting finite execution costs to ambient quantum-memory minimality.
