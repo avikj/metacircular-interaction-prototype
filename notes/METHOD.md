@@ -18,10 +18,21 @@ $$[\sharp\sharp](T)\text{-constant}
 \qquad S(Q)=\sum_{m\ge2}\frac{\Lambda^\sharp_Q(m)}{(1+m)^2},$$
 and consequently, since $A(Q)=\log Q+C+o(1)$ with
 $C=\gamma+\sum_p\frac{\log p}{p(p-1)}=1.3326\ldots$ (Ward; Montgomery–Vaughan)
-and $S(Q)\to S_\infty=\sum_{m\ge2}\Lambda(m)/(1+m)^2$ (Hardy's Ramanujan
-expansion of $\Lambda$, termwise for fixed $m$),
+and ~~$S(Q)\to S_\infty=\sum_{m\ge2}\Lambda(m)/(1+m)^2$ (Hardy's Ramanujan
+expansion of $\Lambda$, termwise for fixed $m$)~~
+**[CORRECTED — see `notes/E2_PROOF.md` §2.2: the termwise limit of the
+Ramanujan expansion is $\tfrac{\varphi(m)}{m}\Lambda(m)$, not $\Lambda(m)$;
+the factor $\varphi(m)/m$ was dropped here]**
+$$S(Q)\to S_\infty=\sum_{m\ge2}\frac{\varphi(m)}{m}\frac{\Lambda(m)}{(1+m)^2}=0.257780\ldots$$
 $$\boxed{\ [\sharp\sharp]\text{-constant}=\tfrac14\log^2Q
-+\bigl(\tfrac{C}{2}+2S_\infty\bigr)\log Q+O(1).\ }$$
++\bigl(\tfrac{C}{2}+2S_\infty\bigr)\log Q+O(1),\qquad
+\tfrac{C}{2}+2S_\infty=1.181852\ldots\ }$$
+**The printed linear coefficient was $1.388949$; the correct value is
+$1.181852$.** The leading $\tfrac14$ is untouched — it comes from the single
+term $n=2$, where $A(Q)^2/4$ is exact. The exact-rational computation
+already in this section contained the refutation and was misread:
+$S(Q)=0.2513,\,0.2560,\,0.2663,\,0.2587$ at $Q=10,30,60,120$ converges to
+$0.2578$, nowhere near $0.3613$.
 
 *Proof.* $T$'s block constant is $\sum_{n\ge2}(\Lambda^\sharp_Q*\Lambda^\sharp_Q)(n)/n^2$.
 Split the convolution by whether each argument equals $1$. The $(1,1)$ term
@@ -33,19 +44,48 @@ $O(1)$. The stated asymptotics of $A$ and $S$ are classical. $\square$
 *Numerical confirmation of the derivation* (a licensed use — checking a
 proof, not fitting): $A(Q)$ against $\log Q+C$ agrees to four digits
 ($8.2400$ vs $8.2403$ at $Q=1000$), and the residual
-$[\sharp\sharp]-\bigl(A^2/4+2AS\bigr)$ is flat at $\approx9.0$ across
-$Q\in[10,1000]$ — the predicted $O(1)$.
+$[\sharp\sharp]-\bigl(A^2/4+2AS\bigr)$ is flat across $Q\in[10,1000]$ — the
+predicted $O(1)$. ~~flat at $\approx9.0$~~ **[CORRECTED: recomputing the
+residual from the formula printed above against the $[\sharp\sharp]$ values
+published in `BLOCKS.md` Part I §5.1 gives $\approx-3.1$
+($-3.493,\,-2.881,\,-3.066$ at $Q=10,30,120$), not $+9.0$. The substantive
+claim — flatness, hence $O(1)$ — is confirmed; the value was wrong. Either
+exp27 normalises $T(X)$ differently from this formula or the number was
+simply mis-transcribed; unresolved, `E2_PROOF.md` ledger H5.]**
+
+**The $O(1)$ is now half-explicit, and the flagged gap below named the
+wrong lemma.** `E2_PROOF.md` §2.5 resolves the constant into
+$\gamma-\sum_p\frac{\log p}{(p-1)^2}=-0.649753\ldots$ plus a residual
+$\mathcal E(Q)$ proved $\ll\log^2Q$ unconditionally and conjecturally
+$O(1)$, giving constant term $\tfrac{C^2}{4}+2CS_\infty+\gamma-B
+=0.430870\ldots+\lim\mathcal E(Q)$.
 
 **Why the fits failed.** Over $\log Q\in[1.6,4.8]$ — one decade — a genuine
 $\tfrac14L^2+1.18L+9$ is fitted by a pure quadratic as $\approx0.36L^2$,
 because the linear term has nowhere else to go. Nine points cannot separate
 $L^2$ from $L$ over one decade. This is the whole lesson in one number.
 
-**Gap flagged honestly.** Making the $O(1)$ term itself explicit needs
-uniform (in $m$ and $Q$) control of $\Lambda^\sharp_Q(m)$; partial sums of
-Ramanujan expansions are not uniformly bounded, so the constant term is
-stated as $O(1)$ and not evaluated. The two leading coefficients are
-unconditional.
+**Gap flagged honestly** ~~Making the $O(1)$ term itself explicit needs
+uniform (in $m$ and $Q$) control of $\Lambda^\sharp_Q(m)$~~
+**[RE-DIAGNOSED — `E2_PROOF.md` §2.3–2.4. Two things are now known that
+this paragraph got backwards.**
+
+*(i) The pointwise non-uniformity is exact, and it is the Mertens
+function.* Not "partial sums are not uniformly bounded" as a folklore
+gesture, but the identity $\Lambda^\sharp_Q(P_Q)=M(Q)=\sum_{d\le Q}\mu(d)$
+holding exactly for every $Q$, attained at $n\equiv0\bmod P_Q$. With
+Odlyzko–te Riele this gives $\sup_n|\Lambda^\sharp_Q(n)|\gg Q^{1/2}$
+infinitely often, unconditionally.
+
+*(ii) That failure is irrelevant here.* The bad $n$ all satisfy
+$n\ge P_Q$, which the weight $n^{-2}$ annihilates: $S(Q)\to S_\infty$
+regardless. The actual obstruction to an explicit constant is an
+incomplete-interval **bilinear** cancellation bound on the off-diagonal
+Fourier form (Hypothesis U), which is neither implied by nor equivalent to
+pointwise uniformity. Naming the wrong lemma is itself the kind of
+untracked obligation catalogued in `notes/OBLIGATION.md`.**]
+
+The two leading coefficients are unconditional.
 
 ## 2. The triage
 
