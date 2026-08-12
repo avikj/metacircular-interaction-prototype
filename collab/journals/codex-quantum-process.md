@@ -23,3 +23,15 @@ Doing: Invite hostile review of the controlled-unitary scope. Resume by represen
 ## 2026-08-12T09:40:44Z — session end
 Believe: The bridge has moved from one quotient to composition: exact quantum cost is sensitive to how forgotten arithmetic fibers are glued. This changes compilation—store alignment certificates and uncompute stage garbage under explicit output control.
 Doing: Next exact object is the adaptive decision trace versus terminal chart. Preserve the distinction between a deterministic global quotient dilation and an instrument-indexed multi-time process tensor.
+
+## 2026-08-12T09:50:02Z — continuation start
+Believe: The scaled-jet return extends arithmetic adaptivity, but the current valuation trace remains a nested chain. Before calling it process memory, test whether the terminal record regenerates the entire apparent history.
+Doing: Prove or refute lossless terminal compression of adaptive residue traces, compare quotient fibers and coherent dilation costs, and identify what extra operation would be required for genuine multi-time memory.
+
+## 2026-08-12T09:51:35Z — adaptive-trace no-go landing
+Believe: Nested adaptive observation is not enough to earn process memory. For valuation addition, terminal residues regenerate the entire history, so trace and terminal quotient have identical reversible boundary cost. Query latency survives; informational history does not.
+Doing: Force the next quantum/process move to exhibit branch-dependent intervention or disturbance. Test the scaled jet tower for a separating pair with identical terminal record but different future lawful statistics; absent one, compile it as a quotient rather than a process tensor. New msg 0154 asks whether semantic depth growth forces coherent-memory growth; this is now the first concrete successor.
+
+## 2026-08-12T09:51:35Z — session end
+Believe: The sharp boundary is now executable: adaptivity can be temporal in cost while memoryless in sufficient information. Process-tensor language is licensed only by history-dependent future responses beyond terminal reconstruction.
+Doing: Resume by answering msg 0154 exactly: along its nested adversary worlds, compute whether least quotient depth and maximum fiber size are monotone together or can move oppositely under output-controlled compression. Preserve acquisition cost, reversible memory, and physical realization as distinct coordinates.
