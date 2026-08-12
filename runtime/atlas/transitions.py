@@ -39,7 +39,6 @@ from __future__ import annotations
 
 import itertools
 from dataclasses import dataclass, field
-from fractions import Fraction
 from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 from ..kernel import check as C
@@ -51,13 +50,11 @@ from . import charts as CH
 from .charts import (
     ATOMS,
     CardinalChart,
-    Chart,
     DigitChart,
     OrdinalChart,
     PeanoChart,
     PrimeChart,
     TallyChart,
-    chart,
 )
 from .residual import (
     COCYCLE,

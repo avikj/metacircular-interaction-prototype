@@ -49,12 +49,10 @@ from ..kernel import term as T
 from ..kernel.term import Counters
 from .residual import (
     FiniteGroup,
-    ResidualError,
     Torsor,
     carry_cocycle,
     cyclic_group,
     symmetric_group,
-    trivial_group,
 )
 
 __all__ = [

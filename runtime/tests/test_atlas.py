@@ -475,6 +475,27 @@ def x_embedding_as_iso():
     return honest_embedding().install(None, fresh_ctx(), CNT).installed
 
 
+@control("C15 the KIND CHECK ALONE must refuse a non-surjective Iso (no kernel backstop)")
+def x_iso_surjectivity_without_kernel():
+    """C2 has two independent defences and would pass on either.
+
+    A mutation round found exactly that: weakening ``is_bijection`` to drop
+    surjectivity left C2 green, because the kernel still refused to normalise
+    ``n`` and ``2n`` to one numeral.  This control removes the kernel's help --
+    the transition offers no term pairs at all -- so only the exhaustive kind
+    check can catch it.
+    """
+    t = planted_embedding_as_iso()
+    naked = X.Transition(key="PLANT/double-naked", src=t.src, dst=t.dst, kind="Iso",
+                         range_note=t.range_note, domain=t.domain,
+                         codomain=t.codomain, forward=t.forward, residuals=(),
+                         note="planted", term_pairs=lambda: [])
+    rep = naked.install(None, fresh_ctx(), CNT)
+    return (not rep.installed and rep.edges_offered == 0
+            and "surjective=False" in rep.reason
+            and rep.bijection.injective and rep.bijection.well_defined)
+
+
 @control("C3 a residual claimed trivial that is not must block the install")
 def x_false_trivial_residual():
     rep = planted_trivial_residual().install(None, fresh_ctx(), CNT)

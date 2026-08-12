@@ -228,7 +228,7 @@ Per `runtime/STATUS.md`, only `Eq`, `Iso` and β are genuinely machine-checked.
 
 ## 5. Controls, and the mutation round
 
-26 capabilities, **14 planted-false controls**, all green. The four the lane was
+26 capabilities, **15 planted-false controls**, all green. The four the lane was
 commissioned with, plus the discriminating counterparts:
 
 | control | planted falsehood | caught by |
@@ -246,15 +246,27 @@ commissioned with, plus the discriminating counterparts:
 | C11/C12 | `Quotient` claimed for a bijection / `Iso` claimed for π₀ | kind discipline, both directions |
 | C13 | a chart used outside its declared range | `ChartError` |
 | C14 | an unlicensed composite of atlas edges | the L1 edge algebra |
+| C15 | a non-surjective `Iso` **with the kernel's help removed** | the kind check alone |
 
-**Mutation round: 14 deliberate defects injected into copies of the package, 14
-killed.** Freeness never checked, `Iso` not requiring surjectivity, residual
-triviality rubber-stamped, the carry set to zero, positional weights shifted to
-`b^{i+1}`, the residual agreement check skipped, the endian defect zeroed, every
-bijection accepted as an order isomorphism, the enumeration successor claimed to
-extend, the chart tag dropped (presentations collapse), the section search
-short-circuited to "found", the order claimed to extend to ℤ_b, the trust
-boundary disabled, and injectivity never detected.
+**Mutation round: 14 deliberate defects injected into copies of the package.
+13 died on the first run; 1 survived and the suite was strengthened until it
+died too.** Injected: freeness never checked, `Iso` not requiring surjectivity,
+residual triviality rubber-stamped, the carry set to zero, positional weights
+shifted to `b^{i+1}`, the residual agreement check skipped, the endian defect
+zeroed, every bijection accepted as an order isomorphism, the enumeration
+successor claimed to extend, the chart tag dropped (presentations collapse), the
+section search short-circuited to "found", the order claimed to extend to ℤ_b,
+the trust boundary disabled, injectivity never detected.
+
+The survivor is worth recording rather than quietly fixing. **M2 — dropping
+surjectivity from `is_bijection` — left the suite green**, because control C2
+has *two* independent defences and passed on the other one: the kernel still
+refused to normalise `n` and `2n` to one Church numeral, so the planted `Iso`
+was refused for the wrong reason. That is good news about the architecture (the
+defences really are independent) and bad news about the test (it could not tell
+which one fired). C15 was added to isolate the kind check by offering a
+transition with **no term pairs at all**, so the kernel cannot help; M2 dies
+against it. A control that passes for a reason it did not name is not a control.
 
 ---
 

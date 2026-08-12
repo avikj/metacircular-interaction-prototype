@@ -455,14 +455,38 @@ def strat_para_only(cands, term, rules):
     return strat_outermost_book_reversed(cands, term, rules)
 
 
-def strat_naive_priority(cands, term, rules):
-    """(ii) a naive priority scheme: prefer the rule with the most non-variable
-    left-side nodes ('looks more specific'), then leftmost-outermost, then book
-    order.  This is the heuristic a working engineer reaches for."""
+def strat_naive_specificity(cands, term, rules):
+    """(ii-a) a naive priority scheme: prefer the rule with the most
+    non-variable left-side nodes ('looks more specific'), then
+    leftmost-outermost, then book order.
+
+    Worth stating as a small lemma, because it bounds what this baseline can
+    do: **if A's left side is a strict instance of B's, then A has strictly
+    more ground nodes than B.**  (A = Bσ for a σ replacing at least one
+    variable by a non-variable, and instantiation never removes ground nodes.)
+    So this counter never *contradicts* apavāda — it is a sound relaxation of
+    it.  Where it differs from the Pāṇinian policy is on subsumption-*incompar-
+    able* pairs, where it is deciding by an accident of how many constants the
+    two left sides happen to contain.  `book_p2` is the re-encoding that shows
+    that accident changing the answer.
+    """
     best = 0
     for i in range(1, len(cands)):
         ki = (-ground_nodes(cands[i].rule.lhs), cands[i].pos, cands[i].rule.index)
         kb = (-ground_nodes(cands[best].rule.lhs), cands[best].pos, cands[best].rule.index)
+        if ki < kb:
+            best = i
+    return best, ""
+
+
+def strat_greedy_smallest(cands, term, rules):
+    """(ii-b) the other naive scheme a working engineer reaches for: fire the
+    rewrite whose *result* is smallest, ties by leftmost-outermost then book
+    order.  Greedy size reduction."""
+    best = 0
+    for i in range(1, len(cands)):
+        ki = (size(cands[i].result), cands[i].pos, cands[i].rule.index)
+        kb = (size(cands[best].result), cands[best].pos, cands[best].rule.index)
         if ki < kb:
             best = i
     return best, ""
@@ -499,7 +523,8 @@ STRATEGIES = (
     ("outermost-book", strat_outermost_book),
     ("outermost-book-reversed", strat_outermost_book_reversed),
     ("para-only", strat_para_only),
-    ("naive-priority", strat_naive_priority),
+    ("naive-specificity", strat_naive_specificity),
+    ("greedy-smallest", strat_greedy_smallest),
     ("innermost-book", strat_innermost_book),
     ("apavada-only", strat_apavada_only),
     ("panini", strat_panini),
@@ -693,6 +718,73 @@ BOOK_P_TASKS = (
      , "antaraṅga vs bahiraṅga"),
     ("C4 norm(mul(a,a))", T("norm", T("mul", T("a"), T("a"))),
      T("sqr", T("a")), "apavāda vs para"),
+)
+
+
+def book_p2():
+    """Book P's third conflict (C3), **re-encoded** so that the two competing
+    rules have the *same* ground-node count.
+
+    The mathematics is unchanged: a general unfolding rule whose second
+    argument is a bare variable, and an exponent-predecessor table inside it.
+    The only change is that the base carries a constructor `mk`, which lifts
+    `unfold`'s left side from 1 ground node to 2 — exactly the count the table
+    rules already had.
+
+    This is the control for the naive-specificity baseline.  That baseline
+    solved C3, but not by specificity (the two rules are subsumption-
+    incomparable); it solved it because `dec(e2)` happened to contain one more
+    constant than `pow(?x,?n)`.  Re-encoding removes the accident.  antaraṅga
+    is a statement about *positions* and is untouched by it.
+    """
+    x, n = V("x"), V("n")
+    return [
+        Rule("unfold", T("pow", T("mk", x), n),
+             T("mul", T("mk", x), T("pow", T("mk", x), T("dec", n))), 0),
+        Rule("dec2", T("dec", T("e2")), T("e1"), 1),
+        Rule("dec1", T("dec", T("e1")), T("e0"), 2),
+        Rule("pow_zero", T("pow", T("mk", x), T("e0")), T("one"), 3),
+        Rule("mul_one", T("mul", x, T("one")), x, 4),
+    ]
+
+
+BOOK_P2_TASKS = (
+    ("C3' pow(mk(a),e2)", T("pow", T("mk", T("a")), T("e2")),
+     T("mul", T("mk", T("a")), T("mk", T("a"))),
+     "antaraṅga vs bahiraṅga, ground-node counts tied"),
+)
+
+
+def book_q():
+    """The crystallised-lemma exhibit, and the one place the Pāṇinian *ranking*
+    is measurably worse than one of its own components.
+
+    `runtime/crystallize/` installs fused lemmas: one edge where the primitive
+    book took k steps.  Book Q is the smallest instance —
+
+        sqr_expand : sqr(?x)      -> mul(?x, ?x)                    (utsarga)
+        pow4       : sqr(sqr(?x)) -> mul(mul(mul(?x,?x),?x),?x)     (apavāda)
+
+    — where `pow4` is a genuine fused lemma over the same operators the L3
+    demo uses.  On `sqr(sqr(a))` the fused rule's immediate result is *larger*
+    (7 nodes) than the general rule's (5), so a greedy-size strategy refuses
+    the lemma; and the general rule also applies at the inner position, so
+    antaraṅga — which outranks nothing but is outranked only by apavāda, and
+    apavāda abstains across positions — pulls the Pāṇinian policy away from
+    the lemma too.  Both reach a normal form; they reach *different* ones.
+    """
+    x = V("x")
+    return [
+        Rule("sqr_expand", T("sqr", x), T("mul", x, x), 0),
+        Rule("pow4", T("sqr", T("sqr", x)),
+             T("mul", T("mul", T("mul", x, x), x), x), 1),
+    ]
+
+
+BOOK_Q_TASKS = (
+    ("Q1 sqr(sqr(a))", T("sqr", T("sqr", T("a"))),
+     T("mul", T("mul", T("mul", T("a"), T("a")), T("a")), T("a")),
+     "apavāda vs antaraṅga (fused lemma at the outer position)"),
 )
 
 
