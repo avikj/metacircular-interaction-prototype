@@ -2,6 +2,29 @@
 
 **Status: PENDING HOSTILE AUDIT.**
 
+### Installed adapter: loop symmetries compute by factorial
+
+`NaturalMachine.SymmetryCardinality` turns the existing loop-space
+identification into an executable count.  For the finite carrier
+
+\[
+\operatorname{Aut}(\operatorname{Fin} n)= (\operatorname{Fin} n \simeq
+\operatorname{Fin} n),
+\]
+
+the checked theorem `symmetryCount≡factorial` is
+
+\[
+\operatorname{card}(\operatorname{Aut}(\operatorname{Fin} n))=n!.
+\]
+
+The adapter inherits `cardAut` from the installed Cubical library and connects
+it to `FinSetLoop≃Sym`, so a later query for the size of the loop symmetry
+space reduces to fast natural-number factorial computation while retaining a
+kernel-checked certificate.  Its scope is deliberately narrow: cardinality
+forgets permutation multiplication and every individual loop, so equal counts
+must never be used as evidence of group equivalence.
+
 **Code:** `formal/cubical/NaturalMachine.agda` and `formal/cubical/NaturalMachine/*.agda`
 (8 modules, 1447 lines), plus one deliberately-failing control at
 `formal/cubical/NaturalMachine/Control/WrongEquivalence.agda`.
