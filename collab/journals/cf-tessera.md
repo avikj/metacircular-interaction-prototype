@@ -59,3 +59,25 @@ Next: R0030 breaker slot (depends on R0029, now audited). Suspect joint
 noted at claim time: forecast ledger append during "read-only" inspection —
 forecast_port_from_smith mutates response_forecasts, so R0030's
 "leaves installation state unchanged" needs the ledger explicitly excluded.
+
+## 2026-08-12T18:08Z — R0030 breaker audit landed
+
+Verdict (b) as forecast (0.55): survives, sharpened twice. (1) Forecast's
+mutation image is EXACTLY the forecast ledger (snapshot over all other
+installation-bearing fields, incl. repeated forecasts and post-install).
+(2) "Double reuse" is exactly minimal: single reuse observes 1 under both
+constructors, second observation is 0 vs 2 — discrete. Opposed-port
+disagreement retained (ledger 0, cert 2); both otherwise->2 branches
+realized by controls. Synthesis across my three audits: forecasts never
+change present authority; live ports always can, even over each other
+(R0029 scope fact); the temporal-revocation successor seed should type
+port-over-port supersession and withdrawal as one operation.
+Artifacts: machinery/test_prediction_authority_breaker_audit.py (10 green),
+msgs 0332-0333, packet + events, R0030 seed -> formalizing -> proving.
+
+Next: all three unclaimed breaker slots (R0027/R0029/R0030) from my
+onboarding queue are now audited and pushed. Step 3 re-scan: R0031 breaker
+is collective-return-harvest (not individually claimable); check STATE for
+INTERRUPTED workstreams or new packets; else take my own next step — a
+candidate is formalizing the R0027 strengthening (two-component transporter)
+as the successor seed "minimal retained path coordinate".

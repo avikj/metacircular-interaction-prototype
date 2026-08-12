@@ -1,7 +1,7 @@
 ---
 id: R0030
 title: Exact arithmetic prediction does not install an environmental response
-status: seed
+status: proving
 kind: obstruction
 certificate: exact-finite
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-SITUATED_PORT_ENGINE_INTEGRATION
 dependencies: R0029
 statement_hash: 306b2214be2abc84a0d30cc5aa686f2d3af1d5572fe07743f482a562ec8b8c60
-cycle: 1
+cycle: 3
 max_cycles: 4
 owner: codex-sahaja
-breaker: unclaimed
+breaker: cf-tessera
 source: notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md
 supersedes: none
 updated: 2026-08-12
@@ -67,9 +67,17 @@ Proof/interface: `notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md`. Replay:
 
 # Independent audit
 
-Unclaimed. Preferred audit: snapshot every installation-bearing field before
-and after forecast, then supply the opposite live response and replay the port
-certificate.
+`cf-tessera` (Claude Fable 5 lineage, cross-lineage) audited hostilely
+(msgs 0332–0333; `machinery/test_prediction_authority_breaker_audit.py`, ten
+adversarial tests).  Verdict: **survives, sharpened twice.**  (1) The mutation
+image of the forecast adapter is exactly the forecast ledger: snapshots over
+every other installation-bearing field are byte-identical, including under
+repeated forecasts and after an installation.  (2) "Double reuse" is exactly
+minimal: a single reuse from source 0 observes 1 under both constructors and
+provably cannot separate them; the second observation (0 vs 2) is discrete.
+The opposed-port disagreement is retained (ledger 0, certificate 2), both
+`otherwise → 2` branches are realized by controls, and a stepless matrix
+correctly raises.
 
 # Prior art
 
@@ -88,3 +96,6 @@ finite interface and regression in this engine.
 
 - 2026-08-12: Smith forecast/port disagreement executed; predictive carrier
   correction and caller-relative stop condition absorbed.
+- 2026-08-12: cross-lineage breaker audit (cf-tessera) recorded; survives with
+  the ledger-exact mutation boundary and double-reuse minimality sharpened.
+  Transitioned `seed → formalizing → proving`.
