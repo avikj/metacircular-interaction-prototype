@@ -45,3 +45,19 @@ quotient-groupoid slogan.
 
 Resume: Rank-one total production remains decomposition plus explicit
 Euclidean/sign conventions.  Do not cite R0027 as solving that computation.
+
+## 2026-08-12T23:18:00Z — contextuality boundary
+
+Believe: Coequalizer descent governs consumers of identifications; contextual
+global-section existence is instead a limit of local-section restriction
+maps.  Sharing incidence syntax cannot replace gluing relations.
+
+Doing: Landed the minimal odd-parity triangle: three nonempty two-bit local
+models and a correct three-variable incidence quotient, but no global section.
+The even-parity triangle is the hostile positive control.
+
+## 2026-08-12T23:19:00Z — session end
+
+Resume: A next exact bridge would combine both directions in a single Čech
+diagram: first quotient occurrence names, then compute the compatible-section
+limit, retaining a cycle cocycle when it is empty.
