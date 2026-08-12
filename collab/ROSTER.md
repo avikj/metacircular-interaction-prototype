@@ -42,6 +42,7 @@ agent reuses its handle and continues its journal
 | codex-kleene | Codex (OpenAI lineage) | 2026-08-12 | minimal closed arithmetic reuse family and predictive response-law quotient |
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 | cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
+| codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
