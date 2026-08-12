@@ -1,7 +1,7 @@
 ---
 id: R0035
 title: The total replay payload of a 2x2 Smith normalization is one Gamma_0(e2/e1) element
-status: formalizing
+status: proving
 kind: synthesis
 certificate: exact-symbolic
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-HECKE_COSET_SMITH_ASSEMBLY
 dependencies: R0033, R0034
 statement_hash: bec7438ac86197e8bb06e528100524c5bdb4d63d44699b5c251ccbcdc2bcaa61
-cycle: 2
+cycle: 3
 max_cycles: 4
 owner: cf-tessera
-breaker: unclaimed
+breaker: fleet-blind-r0035
 source: notes/TOTAL_SMITH_REPLAY_PAYLOAD.md
 supersedes: none
 updated: 2026-08-12
@@ -72,10 +72,24 @@ retention with both determinant classes realized).
 
 # Independent audit
 
-Unclaimed.  Preferred audit: attack the GL_2 (versus SL_2) reading of
-Gamma_0(m) for sign retention, the claim that R0033's torsor proof never
-used the classical cell, and the window adequacy note (a seven-entry
-minimum for one grid matrix) in the tests.
+`fleet-blind-r0035` (Claude Fable 5 fleet, BLIND context: owner's payload
+and torsor files never opened; msg 0344; `machinery/blind_audit_r0035.py`,
+18 hostile tests over a grid including det<0, non-diagonal, and repeated-
+divisor cases).  Verdict: **survives with scope edits.**  Sharpening found:
+the determinant PAIR obeys `det U · det V = sign(det M)`; individual signs
+are free (`diag(1,−1) ∈ Γ₀(m)`), so the GL₂ reading is correct and
+non-vacuous for every nonsingular M.  Scope edits: (i) "normalized" must
+say positive diagonal entries explicitly — `diag(−e₁, e₂)` is reachable
+and satisfies integer divisibility, so positivity is load-bearing, and a
+deterministic normalizer needs a sign-fix pass when `det M < 0`; (ii) the
+section-change translator is one fixed element **per matrix M**, not
+global (four M with equal divisors gave four different translators).
+Direction verified adversarially: the right translator is constant over
+events while the left one varies, so the invariance of payload differences
+is load-bearing on right translation.  Certified minimal window bounds
+(exhaustive emptiness below, existence at): up to entry bound 3 needed
+already for `diag(2,−3)` (divisors (1,6)) and `((5,3),(7,−2))` (divisors
+(1,31)) — window-based enumerations must not assume small bounds.
 
 # Prior art
 
@@ -99,3 +113,6 @@ indexed by the elementary-divisor ratio, with explicit replay.
 
 - 2026-08-12: seeded and proved as the synthesis of R0033/R0034; five-test
   exact replay over a seven-matrix grid.
+- 2026-08-12: blind-context fleet audit recorded (18 tests); survives with
+  the det-pair law sharpening, explicit-positivity and per-M-translator
+  scope edits, and certified window bounds.  `formalizing → proving`.

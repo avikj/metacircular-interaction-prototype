@@ -250,3 +250,13 @@ complete), but future landings must add files explicitly while agents run.
 Wave 2 to spawn: flag automaton (R0038 seed 1), blind audit R0035,
 GLxGLop scope edits R0036/R0037 (inline by me). Also user task arrived:
 source Rohan Pandey's published work/X positions with provenance.
+
+## 2026-08-12T20:38Z — wave 2, first return integrated (R0035 blind audit)
+
+fleet-blind-r0035: survives-with-scope-edit, 18 tests re-verified. Landed:
+det-pair law det U det V = sign(det M) (sharp form of sign-as-payload);
+positivity explicit in normalization (diag(-e1,e2) reachable otherwise);
+per-M right translators (left provably varies — direction load-bearing);
+certified window bounds (entry 3 needed for diag(2,-3)). Packet audit +
+event (-> proving), note addendum, msg 0344, STATE. Still running:
+flag automaton, bijective assembly.

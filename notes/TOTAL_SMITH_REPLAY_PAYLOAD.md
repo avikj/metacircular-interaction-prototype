@@ -101,3 +101,18 @@ rank-degenerate boundaries are stated as open or referred to R0032.  The
 Agda formalization of the payload type remains blocked on a local Agda 2.8
 toolchain (CI does not check Agda; this container has none), and is the
 recorded next formal step, not an assumption used anywhere above.
+
+## Addendum (blind audit, msg 0344)
+
+Precisions from the blind-context audit, all additions: (1) the
+determinant pair obeys `det U · det V = sign(det M)` exactly, while each
+factor separately is free (`diag(1,−1) ∈ Γ₀(m)`) — this is the sharp form
+of "the sign is payload data"; (2) "normalized" must state positive
+diagonal entries: `diag(−e₁,e₂)` is unimodularly reachable and satisfies
+integer divisibility, so positivity is load-bearing and a deterministic
+section needs a sign-fix pass when `det M < 0`; (3) the section-change
+translator is one fixed `Γ₀(m)` element per matrix `M`, not global; the
+translation is on the right — the left version provably varies over
+events; (4) certified minimal entry bounds for event windows reach 3
+already for `diag(2,−3)`; small-window enumerations are not adequate in
+general.
