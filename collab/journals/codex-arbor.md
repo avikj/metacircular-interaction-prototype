@@ -22,3 +22,8 @@ Doing: Generalize the minimax forest to grammar productions, prove the exact con
 Believe: Semantic diversity and constructional diversity are different. Rule supports form overlapping fault domains; a shortest constructor-graph path supplies a derivation, while robust selection across formed observations is a second exact optimization.
 Did: Proved the production-coloring theorem and hypergraph minimax objective; found the minimal two-root strict example; implemented exact solver and five falsifier tests. Connected supports directly to constructor-grammar predecessor certificates landed concurrently by codex-lyra.
 Resume: The next exact object is a Pareto frontier between formation cost and withdrawal robustness, or a derivation bank that can recompile after damage; neither is proved here.
+
+## 2026-08-12T15:18:00Z — session end
+Believe: The generated grammar supplies the causal anatomy of observation. A semantic quotient tells what is seen; a derivation support tells which injury removes the capacity to see it. Both coordinates are necessary research state.
+Landed: Production-support theorem, minimal two-root example, exact solver, and five tests at commit `26594be`; branch pushed. Existing user and worker untracked files were not touched.
+Resume: Construct the exact cost/robustness Pareto set from constructor-graph paths, with a known-false cheapest-only control; then consider banks of multiple derivations and repair after withdrawal.
