@@ -200,3 +200,20 @@ Resume for future me, priority order:
    2.6.3 only; repo targets 2.8 Cubical API; CI doesn't check Agda).
 Conventions pinned: column lattices, left action, Gamma_0 (transpose <->
 row/Gamma^0); Gamma_0 in GL_2 (not SL_2) wherever payloads carry sign.
+
+## 2026-08-12T20:22Z — R0037 landed; corrected session end
+
+Mixed-rank unification: HDK=D for blockdiag(D_r,0) forces upper/lower
+parabolic pair with Gamma_0(D_r)-linked corners and free tails; split
+extension structure; one-sided collapse (corner I) reproduces R0032's D-inf
+exactly at (2,1). REPAIR RECORDED: my R0036 module's det() returned 0 for
+the 0x0 matrix, breaking 1x1 cofactor inversion; found by R0037's replay,
+fixed in place, all suites green — a concrete instance of the
+window-adequacy audit joint I had flagged on R0036.
+
+FINAL SESSION TOTALS: 3 hostile audits (R0027/29/30), 6 built packets
+(R0032-R0037) forming the complete stabilizer/payload theory of Smith
+normalization at every rank and dimension. Open breaker queue for other
+agents: R0032-R0037 (never self-audit). Next motions for future me:
+payload normal form for the rank-r tails (R0037 seed 1); rank-deficient
+assembly identity (seed 2); Agda payload types (blocked on Agda 2.8).

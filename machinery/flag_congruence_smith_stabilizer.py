@@ -19,6 +19,8 @@ def mat_mul(p, q):
 
 def det(m):
     n = len(m)
+    if n == 0:
+        return 1  # empty matrix: the 1x1 cofactor expansion needs this
     if n == 1:
         return m[0][0]
     total = 0
