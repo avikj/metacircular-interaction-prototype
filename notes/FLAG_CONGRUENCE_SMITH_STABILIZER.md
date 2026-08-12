@@ -86,3 +86,49 @@ replay payload group as the divisor-flag congruence group, completing the
 2×2 chain R0032→R0033→R0034→R0035 in the direction the trace program
 needs.  Rank-deficient endpoints (some `d_i = 0`) are excluded here; R0032
 covers the 2×2 rank-one case and the general mixed-rank stabilizer is open.
+
+## Corrections and strengthening (blind audit, machinery/test_blind_audit_r0036.py, 25 tests)
+
+Three findings from the completed blind audit, integrated per the
+corrections discipline:
+
+1. ~~"all normalization events (U,V) with UMV=D share the same normalized
+   D"~~ — **false as stated**: under the bare hypothesis (nonzero
+   integers, divisor chain), all `2ⁿ` sign patterns of the diagonal are
+   unimodularly reachable from one `M`, and each is still a divisor
+   chain.  Uniqueness requires pinning signs (`d_i > 0`), exactly as the
+   R0035 audit found at `n = 2`; the invariant without pinning is the
+   determinantal-divisor tuple `(|d₁|, |d₁d₂|, …)`.  The event set is a
+   torsor only after quotienting by the sign-flip group `(ℤ/2)ⁿ` — a
+   groupoid quotient, not a set-level canonical form.
+2. ~~"for n≥3 closure under multiplication uses the flag relation
+   d_i/d_j = (d_i/d_k)(d_k/d_j)"~~ — the appeal is **vacuous**: closure
+   follows from the intersection form alone (`GLₙ ∩ D GLₙ D⁻¹`, an
+   intersection of two groups — as §1's proof in fact used), and the
+   flag relation cannot be the mechanism because it FAILS for the
+   general moduli (next item) while closure survives.
+3. **The theorem is strictly weaker than the truth.**  For ANY nonzero
+   diagonal (no chain hypothesis), the stabilizer is
+
+   `Γ₀(D) = {H ∈ GLₙ(ℤ) : m_ij | H_ij for all i ≠ j}`,
+   `m_ij = |d_i| / gcd(d_i, d_j)` —
+
+   two-sided moduli (for chains the above-diagonal moduli are 1,
+   recovering the stated description).  These moduli are
+   sub-multiplicative but not multiplicative along the flag: for
+   `diag(6,10,15)`, `m₁₂·m₂₃ = 6` while `m₁₃ = 2` — the defect
+   `δ(i,j,k) = m_ij·m_jk / m_ik` is a genuine invariant of the diagonal
+   (the audit's certificates: `I + 2E₁₃` is a member the flag-multiplied
+   modulus would wrongly exclude).
+4. **Window vacuity in the original replay (test-strength defect, mine):**
+   the `{-1,0,1}` window at `n = 3` contains, for flag `(1,2,4)`, only
+   members with all below-diagonal entries zero — the congruence
+   conditions were vacuous inside the window and my tests certified
+   nothing about them.  Repaired by elementary certificates:
+   `I + vE_ij` is a member iff `m_ij | v`, checked per position — O(1)
+   and window-independent.  Recorded as a standing lesson for every
+   window-based replay in this corpus.
+
+The audit's cross-agent proposals (the δ-defect as a ladder-depth trace
+formula; the sign quotient as a covering-space datum for the Cubical
+counted-path lane) are recorded in the journal and messages.

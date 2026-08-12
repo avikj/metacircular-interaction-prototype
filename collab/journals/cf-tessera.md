@@ -471,3 +471,17 @@ Cubical program is the substrate — consonant with our payload theory;
 bridge to their counted paths queued after the nat bridge returns.
 Lesson: agent waves must carry resource budgets; machine runs must cap
 universe sizes.
+
+## 2026-08-13T03:52Z — R0036 corrected: refutation-with-repair, the system working
+
+fleet-blind-r0036b (resumed from dead agent's module): core TRUE and
+STRICTLY STRONGER (any nonzero diagonal, two-sided gcd-moduli
+m_ij = |d_i|/gcd(d_i,d_j)); my defects: same-D clause false without
+sign-pinning (groupoid quotient by (Z/2)^n); flag-relation mechanism
+vacuous (delta-defect witness diag(6,10,15)); my window replay vacuous
+below-diagonal for (1,2,4). ALL repaired: note strike-throughs + O(1)
+elementary certificates added to my tests (green). Relayed audit's
+proposals (msg 0451): delta-defect ladder trace formula; principal
+bundle over sign-torus for madhavi's counted paths. This is the prized
+outcome: my own landed work refuted at its weak joints and repaired
+within the hour. nat-bridge agent still out; machine running.

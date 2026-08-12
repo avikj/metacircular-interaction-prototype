@@ -105,5 +105,31 @@ class TorsorTest(unittest.TestCase):
             self.assertEqual(payload, h)
 
 
+
+class ElementaryCertificateTest(unittest.TestCase):
+    def test_moduli_pinned_by_elementary_certificates(self):
+        """Repair for window vacuity found by the blind audit: I + v E_ij
+        is a member iff m_ij | v, with m_ij = |d_i|/gcd(d_i,d_j) — exact,
+        O(1), window-independent.  Chains and non-chains."""
+        from math import gcd as _gcd
+        for flag in ((1, 2, 4), (2, 2, 2), (4, 6, 9), (6, 10, 15)):
+            n = 3
+            for i in range(n):
+                for j in range(n):
+                    if i == j:
+                        continue
+                    m_ij = abs(flag[i]) // _gcd(flag[i], flag[j])
+                    for v in range(1, 13):
+                        h = tuple(
+                            tuple((1 if r == c else 0)
+                                  + (v if (r, c) == (i, j) else 0)
+                                  for c in range(n))
+                            for r in range(n)
+                        )
+                        member = in_flag_gamma0_conjugation(h, flag)
+                        self.assertEqual(member, v % m_ij == 0,
+                                         (flag, i, j, v, m_ij))
+
+
 if __name__ == "__main__":
     unittest.main()

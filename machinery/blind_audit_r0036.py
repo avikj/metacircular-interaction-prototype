@@ -338,3 +338,71 @@ def elementary(n, i, j, v):
     E = identity(n)
     E[i][j] = v
     return E
+
+
+# ---------------------------------------------------------------- events / torsor
+
+def partner_V(U, M, D):
+    """The unique rational V with U M V = diag(D) is V = (UM)^{-1} diag(D).
+
+    Return it as an exact integer matrix if it is integral and unimodular
+    (i.e. (U, V) is a genuine normalization event), else None.
+    Exact: (UM)^{-1} = adj(UM) / det(UM), so V = adj(UM) diag(D) / det(UM).
+    """
+    A = mat_mul(U, M)
+    dA = det(A)
+    if dA == 0:
+        return None
+    N = mat_mul(adjugate(A), diag_mat(D))
+    V = []
+    for i in range(len(M)):
+        row = []
+        for j in range(len(M)):
+            q, r = divmod(N[i][j], dA)
+            if r != 0:
+                return None
+            row.append(q)
+        V.append(row)
+    if det(V) not in (1, -1):
+        return None
+    return V
+
+
+def events_for(M, D, bound):
+    """All events (U, V) with U M V = diag(D) and U unimodular with entries
+    in [-bound, bound].  (V is forced by U, Lemma A, so this enumerates the
+    event set restricted to a U-window.)  Exact integers throughout."""
+    n = len(M)
+    gen = unimodular_2x2(bound) if n == 2 else unimodular_3x3(bound)
+    out = []
+    for U in gen:
+        V = partner_V(U, M, D)
+        if V is not None:
+            out.append((U, V))
+    return out
+
+
+def act(D, H, event):
+    """The claimed Gamma_0(D)-action H.(U,V) = (HU, V D^{-1} H^{-1} D).
+
+    Raises if H is not in Gamma_0(D) (partner not integral)."""
+    U, V = event
+    K = stabilizer_partner(D, H)
+    if K is None:
+        raise ValueError("H not in Gamma_0(D)")
+    return mat_mul(H, U), mat_mul(V, K)
+
+
+def payload(event, base_event):
+    """pi(U, V) = U U0^{-1} relative to the base event (U0, V0)."""
+    U0 = base_event[0]
+    return mat_mul(event[0], unimodular_inverse(U0))
+
+
+def unpayload(D, H, base_event):
+    """Claimed inverse of the payload: H |-> (H U0, V0 D^{-1} H^{-1} D)."""
+    U0, V0 = base_event
+    K = stabilizer_partner(D, H)
+    if K is None:
+        raise ValueError("H not in Gamma_0(D)")
+    return mat_mul(H, U0), mat_mul(V0, K)
