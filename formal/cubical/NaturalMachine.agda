@@ -56,6 +56,7 @@ open import Cubical.Data.Nat using (ℕ)
 
 open import NaturalMachine.PathIsSymmetry public
 open import NaturalMachine.FreeMonoid public
+open import NaturalMachine.CountedExecution public
 open import NaturalMachine.Decategorification public
 open import NaturalMachine.SymmetryCardinality public
 open import NaturalMachine.SymmetryArithmeticAction public
@@ -65,6 +66,7 @@ import NaturalMachine.Digits
 import NaturalMachine.Endian
 import NaturalMachine.Transport
 import NaturalMachine.Controls
+import NaturalMachine.ResidueTransport
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
@@ -77,12 +79,14 @@ module Base2 where
   open NaturalMachine.Endian    0 public
   open NaturalMachine.Transport 0 public
   open NaturalMachine.Controls  0 public
+  open NaturalMachine.ResidueTransport 0 public
 
 module Base10 where
   open NaturalMachine.Digits    8 public
   open NaturalMachine.Endian    8 public
   open NaturalMachine.Transport 8 public
   open NaturalMachine.Controls  8 public
+  open NaturalMachine.ResidueTransport 8 public
 
 -- Sanity: the module parameter really is the base offset.
 base2-is-2 : Base2.b ≡ 2
