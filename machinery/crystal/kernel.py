@@ -344,6 +344,10 @@ class Ledger:
     rules_derived: int = 0
     rewrite_steps: int = 0
     events: list = field(default_factory=list)
+    unorientable_pairs: list = field(default_factory=list)
+    """Equations no reduction order can orient, kept as terms rather than as
+    log strings. An unorientable equation is not a nuisance -- it is the
+    residual of a failed compilation, and `obstruction.py` reads it."""
 
     def log(self, kind: str, detail: str) -> None:
         self.events.append((kind, detail))
@@ -354,6 +358,7 @@ class Completion:
         self.order = order
         self.rules: list[Rule] = []
         self.ledger = ledger or Ledger()
+        self.exhausted = False
         self._next = 0
 
     def _orient(self, l: Term, r: Term, origin: tuple) -> Optional[Rule]:
@@ -367,6 +372,11 @@ class Completion:
         self._next += 1
         rule = Rule(lhs, rhs, self._next, origin)
         return rule
+
+    exhausted: bool = False
+    """True when `run` stopped with work still pending. A completed theory
+    and an abandoned one are different objects and must never be read the
+    same way."""
 
     def run(self, axioms: list[tuple[str, Term, Term]], max_rules: int = 200,
             max_rounds: int = 2000) -> list[Rule]:
@@ -392,6 +402,7 @@ class Completion:
             rule = self._orient(ln, rn, origin)
             if rule is None:
                 self.ledger.log("unorientable", f"{ln!r} = {rn!r}")
+                self.ledger.unorientable_pairs.append((ln, rn, origin))
                 continue
             self.rules.append(rule)
             self.ledger.rules_derived += 1
@@ -424,6 +435,7 @@ class Completion:
                         self.ledger.rewrite_steps += sa + sb
                         if cln is not crn:
                             pending.append((cln, crn, org))
+        self.exhausted = bool(pending)
         return self.rules
 
     def decides(self, l: Term, r: Term) -> tuple[bool, int]:

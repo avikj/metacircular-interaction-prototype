@@ -283,7 +283,87 @@ problem would have been answered by asking the left-zero theory a different
 question, and `a*b = b` would have come back false. Conflating two edge
 kinds is not a modelling infelicity; it is a wrong answer.
 
-### How this test got here, since the first version was wrong
+---
+
+## 8. Failed transports, kept — and the typed zero
+
+    स दोषः अपशब्दः न; स एव नूतनगणितस्य बीजम्।
+    अवरोधः अदृश्यमानस्य मानचित्रम्।
+
+`python3 machinery/crystal/demo_obstruction.py`
+
+§7's checker *rejects* a bad interpretation and discards it. That is the
+discipline violation: the machine was accumulating only successful
+relations. But the residual of a failed transport is a **presented theory
+extension** — exactly the equations the target would have to satisfy for the
+map to have worked — and asking whether that extension is consistent is a
+real question with real answers.
+
+Given φ: S → T failing on some axioms, put
+$\mathrm{Obs}(\varphi)=\{\varphi(l)=\varphi(r)\}$ over the failing axioms and
+complete $T\cup\mathrm{Obs}(\varphi)$:
+
+| verdict | what it means | measured |
+|---|---|---|
+| **FATAL** | the extension derives a bare variable equal to something not containing it, so every element collapses | right-zero → left-zero: witness `?x = ?y`, 3 steps |
+| **EXTENDS** | completes without collapse; φ *is* an interpretation into a larger theory, and the machine names the missing rules | monoid → pointed semigroup: the two unit rules, 10 steps |
+
+**Case 1's verdict is a theorem nobody supplied**: a semigroup that is both
+left-zero and right-zero satisfies $x = xy = y$, so it has exactly one
+element. The failed transport computed the exact reason two theories cannot
+be glued, and the reason is a fact about semigroups.
+
+### The typed zero
+
+The remaining verdicts are where the sūtra corrected a defect I had already
+detected and not understood:
+
+> शून्यं स्थानं रक्षति … एतानि एकेन null मध्ये न निक्षिपेत्।
+> शून्यं पश्यन् यन्त्रं अधिकं सत्यं पश्यति।
+
+The first version had a single `UNDECIDED`. Mutation testing found it before
+I knew why: **the mutant deleting the budget check survived**, because a
+budget failure and a representation failure were the same value. They are
+not the same fact, and they license *opposite* next actions:
+
+| verdict | Sanskrit | licensed next action |
+|---|---|---|
+| `UNORIENTABLE` | वर्तमानrepresentationेन अदृश्यम् | change the **order** — ordered/unfailing completion, or modulo AC. More budget is *certain* waste. |
+| `EXHAUSTED` | गणनासाधनातीतम् | spend more. Says nothing about whether an answer exists; growth is reported as a *diagnosis*, and divergence is **not claimed**, being undecidable. |
+| `OUT_OF_SCOPE` | अधिकारात् बहिः | fix the **map**. There is no mathematics here at all. |
+
+`OUT_OF_SCOPE` caught a live bug rather than a hypothetical one.
+`Interpretation.apply` silently carries an unmapped symbol through, so the
+"image" lands in a signature the target never had and checking it is
+*meaningless* rather than false. The first thing the new check did was
+reclassify my own §7 example: monoid → semigroup is `OUT_OF_SCOPE`, because
+`e` is in the source signature and not the target's. The old `EXTENDS`
+verdict was the sloppy one. The honest version declares the target as
+*pointed* semigroups — signature $\{*,e\}$, axioms $\{\text{assoc}\}$ — and
+then `EXTENDS` is exact. Jurisdiction is now **declared, not inferred**,
+because inferring a signature from the axioms is a guess that fails for
+every theory with an unconstrained symbol.
+
+### Verification
+
+46 tests. Mutation-tested: 14 injected defects, **13 die**. The survivor is
+`a.head not in variables(b)` in the collapse detector, and it is reported
+rather than papered over: under LPO the complementary case is *unreachable*,
+since a variable occurring on both sides makes the equation orientable by
+the subterm property, so it never reaches the unorientable residue. The
+guard is kept because that is a property of the **order**, not of this
+logic — swap in a non-simplification order and it goes live. An earlier
+round had two survivors; the second turned out to be genuine dead code (a
+`?x = ?y` branch wholly subsumed by the occurs branch) and was deleted
+rather than given a test that could not distinguish it.
+
+A test also caught a contamination bug: re-classifying a record under a
+smaller budget left `derived_rules` from the previous run, so it could
+report `EXHAUSTED` while carrying an extension. A verdict contaminated by a
+previous run is a lie told with true data; `classify` now clears every field
+it can set.
+
+### How the §7 test got here, since the first version was wrong
 
 The obvious example was groups: compile the left-axiom presentation,
 transport the right-axiom one. The kernel accepted the *mistyped* identity

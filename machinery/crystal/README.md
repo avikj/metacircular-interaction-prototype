@@ -5,7 +5,8 @@ Design and honest limits: `notes/RUNTIME.md`.
 ```
 python3 machinery/crystal/demo.py             # compile a theory; ledger
 python3 machinery/crystal/demo_transport.py   # decide a theory never compiled
-python3 machinery/crystal/test_crystal.py -v  # 35 tests
+python3 machinery/crystal/demo_obstruction.py # read a FAILED transport as mathematics
+python3 machinery/crystal/test_crystal.py -v  # 46 tests
 ```
 
 Native state is content-addressed typed terms plus *checked transformations*
@@ -39,9 +40,28 @@ would have returned `a*b = b` as false.
 |---|---|
 | `kernel.py` | terms + addressing, matching, unification, LPO, rewriting, critical pairs, completion, the cost ledger, and the uncompiled-search baseline |
 | `transport.py` | interpretations between theories, checked, with transport |
+| `obstruction.py` | failed transports kept as objects: the residual as a presented theory extension, classified FATAL / EXTENDS / UNORIENTABLE / EXHAUSTED / OUT_OF_SCOPE |
 | `demo.py` | acceptance test: compile a theory, decide independent problems |
 | `demo_transport.py` | acceptance test: decide a theory that was never compiled |
+| `demo_obstruction.py` | acceptance test: a failed map must yield a true theorem |
 | `test_crystal.py` | tests, including confluence of the result, a proves-too-much control, and rejection of a mistyped map |
+
+**Failed transports are kept, not discarded** (`obstruction.py`). The
+residual of a map that fails to be an interpretation is the presented theory
+extension the target would have needed; completing it answers. From
+right-zero → left-zero the machine derives a theorem nobody gave it — a
+semigroup that is both has exactly one element, witness `?x = ?y`. From
+monoid → pointed semigroup it names the two unit rules that were missing.
+
+The absence of an answer is **typed**, never one null: `UNORIENTABLE` (this
+order cannot see it — change the order, more budget is certain waste),
+`EXHAUSTED` (a fact about what we spent; divergence is undecidable and is
+not claimed), `OUT_OF_SCOPE` (the map has a gap; there is no mathematics
+here). Merging them was a real defect, found by mutation testing before it
+was understood: the mutant deleting the budget check survived.
+
+Mutation-tested: 14 injected defects, 13 die. The one survivor is documented
+in place as provably unreachable under LPO rather than hidden.
 
 Algorithms are classical and cited in `kernel.py`'s docstring — Knuth–Bendix
 1970, Kamin–Levy LPO, Robinson unification, content addressing. None of them

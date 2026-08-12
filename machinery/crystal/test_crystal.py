@@ -326,5 +326,123 @@ class TestTransport(unittest.TestCase):
             self.assertTrue(m.check(), f"reversing={reversing} should check")
 
 
+class TestObstruction(unittest.TestCase):
+    """Failed transports must be kept and classified, not discarded."""
+
+    def setUp(self):
+        from machinery.crystal.obstruction import Verdict, obstruction_of
+        from machinery.crystal.transport import Interpretation, arg
+
+        self.V, self.obs_of, self.Interp, self.arg = (
+            Verdict, obstruction_of, Interpretation, arg)
+        self.order = LPO(["*", "e"])
+        self.assoc = ("assoc", op(op(x, y), z), op(x, op(y, z)))
+        self.E = mk("e")
+
+    #: pointed semigroups: `e` is in the signature, unconstrained by axioms
+    POINTED = {("*", 2), ("e", 0)}
+
+    def _obs(self, target_ax, source_ax, reversing=False, sig=None):
+        target = Completion(self.order)
+        target.run(target_ax)
+        cl = mk("*", self.arg(1), self.arg(0)) if reversing \
+            else mk("*", self.arg(0), self.arg(1))
+        i = self.Interp("m", {("*", 2): cl}, source_ax, target)
+        return self.obs_of(i, target_ax, self.order, sig)
+
+    def test_a_checking_map_has_no_obstruction(self):
+        self.assertIsNone(self._obs(
+            [self.assoc, ("lz", op(x, y), x)],
+            [self.assoc, ("rz", op(x, y), y)], reversing=True))
+
+    def test_incompatible_theories_are_fatal_with_a_witness(self):
+        o = self._obs([self.assoc, ("lz", op(x, y), x)],
+                      [self.assoc, ("rz", op(x, y), y)])
+        self.assertIs(o.verdict, self.V.FATAL)
+        l, r, _ = o.collapse_witness
+        # the witness must actually be a collapse of the carrier
+        self.assertTrue(l.is_var and r.is_var and l is not r)
+
+    def test_a_missing_axiom_extends_rather_than_kills(self):
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        o = self._obs([self.assoc], monoid, sig=self.POINTED)
+        self.assertIs(o.verdict, self.V.EXTENDS)
+        got = {(r.lhs, r.rhs) for r in o.derived_rules}
+        self.assertIn((op(self.E, x), x), got)
+        self.assertIn((op(x, self.E), x), got)
+
+    def test_an_unorientable_obstruction_is_undecided_not_guessed(self):
+        comm = [self.assoc, ("comm", op(x, y), op(y, x))]
+        o = self._obs([self.assoc], comm)
+        self.assertIs(o.verdict, self.V.UNORIENTABLE)
+        self.assertIsNotNone(o.surviving_residual)
+        self.assertEqual(o.derived_rules, [])
+
+    def test_a_variable_equals_constant_collapse_is_also_fatal(self):
+        # The other shape of collapse: no var-vs-var equation arises, only
+        # ?x = e. It must still be fatal -- a universally quantified equation
+        # with a bare variable on one side kills the carrier either way.
+        trivial = [self.assoc, ("collapse", x, self.E)]
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        o = self._obs(monoid, trivial)
+        self.assertIs(o.verdict, self.V.FATAL)
+        a, b, _ = o.collapse_witness
+        self.assertTrue(a.is_var)
+        self.assertNotIn(a.head, variables(b))
+
+    def test_a_collapse_is_found_with_the_variable_on_either_side(self):
+        # `e = x` normalises with the bare variable on the RIGHT. Examining
+        # only one orientation of the residue would miss it.
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        o = self._obs(monoid, [self.assoc, ("collapse", self.E, x)])
+        self.assertIs(o.verdict, self.V.FATAL)
+        a, b, _ = o.collapse_witness
+        self.assertTrue(a.is_var)
+
+    def test_spending_the_budget_is_EXHAUSTED_not_UNORIENTABLE(self):
+        # A budget failure and a representation failure are different facts
+        # and license different next actions. Starve the monoid obstruction,
+        # which is perfectly orientable, and the verdict must say so.
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        o = self._obs([self.assoc], monoid, sig=self.POINTED)
+        o.classify(max_rules=60, max_rounds=1)
+        self.assertIs(o.verdict, self.V.EXHAUSTED)
+        self.assertEqual(o.budget, (60, 1))
+        self.assertEqual(o.derived_rules, [])
+
+    def test_an_unmapped_source_symbol_is_OUT_OF_SCOPE_not_an_obstruction(self):
+        # The source mentions a symbol the map does not send and the target
+        # does not have. That is a gap in the map, not mathematics.
+        foreign = mk("@", x)
+        src = [self.assoc, ("foreign", foreign, x)]
+        o = self._obs([self.assoc], src)
+        self.assertIs(o.verdict, self.V.OUT_OF_SCOPE)
+        self.assertIn(("@", 1), o.unmapped)
+        self.assertEqual(o.residuals, [])
+
+    def test_the_residual_records_where_the_image_landed(self):
+        o = self._obs([self.assoc, ("lz", op(x, y), x)],
+                      [self.assoc, ("rz", op(x, y), y)])
+        (res,) = [r for r in o.residuals if r.axiom == "rz"]
+        self.assertIs(res.image_lhs_nf, x)   # phi(x*y) normalised to x
+        self.assertIs(res.image_rhs_nf, y)   # but had to equal y
+
+    def test_the_five_limbs_are_all_present(self):
+        o = self._obs([self.assoc, ("lz", op(x, y), x)],
+                      [self.assoc, ("rz", op(x, y), y)])
+        self.assertTrue(o.interpretation)       # nimitta
+        self.assertTrue(o.target_axioms)        # desha
+        self.assertTrue(o.residuals)            # bheda
+        self.assertIsNotNone(o.verdict)         # parivartana
+        self.assertIsNotNone(o.collapse_witness)  # phala
+
+    def test_the_presentation_is_target_plus_residual(self):
+        target_ax = [self.assoc, ("lz", op(x, y), x)]
+        o = self._obs(target_ax, [self.assoc, ("rz", op(x, y), y)])
+        pres = o.presentation()
+        self.assertEqual(len(pres), len(target_ax) + len(o.residuals))
+        self.assertTrue(any(n.startswith("obstruction:") for n, _, _ in pres))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
