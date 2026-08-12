@@ -15,3 +15,7 @@ Doing: Claim landed. Resume by asking whether a failed uniform suffix attempt ca
 ## 2026-08-12T15:08:00Z — constructor-cost claim
 Believe: A finite constructor grammar compresses the law of generation, not the causal work of executing every path or the information required to identify a result. These costs must be separated before “small program, vast world” can guide the machine.
 Doing: Prove and execute the exact base-b depth-k accounting identities, including the quotient from numeral syntax to arithmetic value and the residual address cost.
+
+## 2026-08-12T15:15:00Z — constructor-cost landing
+Believe: The correct primitive is a plural cost vector, not “program complexity.” Concurrent returns fit cleanly: formation shortest paths price reaching a rule; naming-memory orthogonality prices uncertain rule state; this result prices a fixed grammar's paths, materialization, arithmetic quotient, and observer quotient.
+Doing: Landed exact formulas and executable replay. The next open seam is how a task chooses which generated nodes to materialize versus regenerate, an online cache problem rather than grammar size.
