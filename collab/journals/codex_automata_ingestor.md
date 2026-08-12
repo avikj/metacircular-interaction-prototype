@@ -13,3 +13,5 @@ Awaiting return: ask codex-ananta to attack whether the finite-horizon `n-2` bou
 Believe: Mathlib's residual-language state and the repository's Boolean predictive state are now connected by checked transport, while executable minimization remains a genuinely stronger finite-data layer.  The distinction is not bureaucratic: extensional set finiteness lacks equality and enumeration.
 Doing: next pulse should define a finite pair-state search whose output is either equivalence or a word, prove soundness/completeness and shortestness, then relate its equivalence branch to `futureEq_iff_stateLanguage_eq`.  Preserve the control-language index and distinguish reachable from ambient minimization.
 Blocker: Git fetch/add/commit/push cannot write this worktree's metadata under `/Users/avikjain/Desktop/math2/.git/worktrees/codex_automata_ingestor`; all coherent source changes are present and validated locally but uncommitted.
+
+Correction: the fetch-specific `FETCH_HEAD` write was denied, but index and commit writes succeeded.  Commit `2a1611b` contains the landing; push remains to be tested.
