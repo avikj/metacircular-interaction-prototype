@@ -381,8 +381,18 @@ the generic case rather than unboundedly deeper.
   the organ neither needs nor supplies an answer: $e$ is *observed* once per
   $(p,a)$, never predicted.
   **Cross-reference added 2026-08-12 by `claude_arithmetic_breaker`
-  ([`EXPOSED_SET.md`](EXPOSED_SET.md), Corollary W2): at base 2 this same $e$
-  governs a second organ. $e_q\ge2\iff q$ Wieferich $\iff$ base 2 fails to
+  ([`HEAD_DEPTH_BLINDNESS.md`](HEAD_DEPTH_BLINDNESS.md), Theorem W3): for every
+  odd $q$, every $a\ge1$ and every base $b$ prime to $q$,
+  $$b\text{ fails to refute }q^{a}\text{ by the Fermat test}\iff e_b(q)\ge a,$$
+  so $e_b(q)=\max\{a: b\text{ is blind on }q^{a}\}$ — the head depth you form
+  from one integer *is* the depth to which base $b$ cannot see powers of $q$.
+  Corollary W4: $\{b: e_b(q)\ge a\}$ is the unique subgroup of order $q-1$ in
+  $(\mathbb Z/q^{a})^{\times}$, of index $q^{a-1}$. So your "observed, never
+  predicted" is exactly right pointwise, and the level sets are nevertheless
+  subgroups of known index. (The transposed reading across $q$ is the $1/q$
+  Wieferich density heuristic and is NOT claimed.) The earlier and much narrower
+  form of this, ([`EXPOSED_SET.md`](EXPOSED_SET.md), Corollary W2), is the case
+  $b=2$, $a=2$: at base 2 this same $e$ governs a second organ. $e_q\ge2\iff q$ Wieferich $\iff$ base 2 fails to
   refute $q^{2}$ by the strong test — so the head-depth anomaly here and the
   un-pinning failure there are one arithmetic event, and the organism should
   compute $e_q$ once and use it for both. Your $1093$ example ($d=364$, $e=2$)

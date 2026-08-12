@@ -87,6 +87,14 @@ condition is why base $2$ goes blind on $1093^{2}$. This is the first exact
 coincidence between two independently constructed sensors in this corpus, and I
 did not go looking for it — it fell out of localizing an unrelated open case.
 
+## Generalized 2026-08-12: W2 is a special case
+
+Corollary W2 above is the case $b=2$, $a=2$ of an exact statement with no
+exceptional cases: **$b$ fails to refute $q^{a}$ by the Fermat test iff
+$e_b(q)\ge a$**, so $e_b(q)=\max\{a: b$ blind on $q^{a}\}$, and the level sets
+$\{b: e_b(q)\ge a\}$ are subgroups of index $q^{a-1}$. See
+[`HEAD_DEPTH_BLINDNESS.md`](HEAD_DEPTH_BLINDNESS.md), Theorems W3 and W4.
+
 ## What is proved, and what is not
 
 **Proved.** The localization to $E_q(B)$; Lemma W and its index computation;
