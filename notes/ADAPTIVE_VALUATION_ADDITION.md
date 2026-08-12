@@ -19,8 +19,12 @@ the least depth that determines the exact value `v_p(a+b)` is
 \boxed{k=v+1.}                                                \tag{1}
 \]
 
-Here “determines” means that every integer pair with the same two residues has
-the same valuation of its sum.
+Here “determines” means that every integer pair in the **ambient domain** with
+the same two residues has the same valuation of its sum. This quantifier is
+load-bearing. After restricting to a formed subset, the same depth remains
+sufficient but need not remain minimal; `FORMATION_SUFFICIENCY` gives the exact
+witness criterion and proves that no finite formed subset preserves ambient
+minimality everywhere.
 
 **Proof.** At depth `v+1`, the sum residue is divisible by `p^v` and nonzero
 modulo `p^(v+1)`. Every pair in the same residue fiber therefore has sum
@@ -71,3 +75,8 @@ replays the finite operation and its certificates. The implementation receives
 ordinary integers so it can discharge the zero boundary by exact equality;
 the refinement trace itself uses only residue queries. No claim is made about
 optimal bit complexity or about simultaneous refinement across all primes.
+
+The zero residues in a returned trace certify insufficiency of coarser charts
+against the ambient integer fiber. They are not, without an additional
+formation-set witness, certificates that a coarser chart is insufficient among
+only the states a particular process has already formed.
