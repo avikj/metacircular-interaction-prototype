@@ -9,6 +9,7 @@ Then allow the distinction to be used again.
 Zero and successor already give the natural numbers:
 
 \[
+0,\quad S(0),\quad S(S(0)),\quad\ldots
 0,quad S(0),quad S(S(0)),\quad\ldots
 \]
 
@@ -59,6 +60,14 @@ Modern mathematics repeatedly learned to define an object by its relations:
 The Buddhist analysis of dependent arising begins from a more radical warning:
 nothing supplies its own independent foundation.  Nāgārjuna's use of the four
 alternatives for arising is not a new truth table; it exposes the presupposition
+shared by apparently exhaustive accounts of self-grounded production
+(*Mūlamadhyamakakārikā* 1.1; dependent arising, emptiness, and designation are
+joined at 24.18–19).  Huayan accounts of whole and part similarly preserve
+difference while denying that a part first exists alone and is only later
+connected (Fazang's six characteristics of whole/part, identity/difference,
+and integration/disintegration in the *Essay on the Golden Lion*, T 1881).
+These traditions are not decorations for a European mathematical story.  They
+are long-developed
 shared by apparently exhaustive accounts of self-grounded production.  Huayan
 accounts of whole and part similarly preserve difference while denying that a
 part first exists alone and is only later connected.  These traditions are not
@@ -152,6 +161,10 @@ finite world, possible actions, and observations.  It joins exactly those
 states that no future experiment can distinguish, and for every distinction
 it keeps the shortest experiment that reveals it.  Its concepts are therefore
 neither names nor embeddings: they are executable ways of telling worlds apart.
+In a world of `n` states every possible distinction has a witness of length at
+most `max(n-2,0)`; once a distinction exists, the present observation already
+supplies two classes, leaving at most `n-2` strict refinements.  The infinite
+family of future words is therefore exhausted by a sharp finite horizon.
 The world itself may be generated from one seed by repeatedly applying its
 actions.  If the declared finite horizon is not closed, the first omitted
 transition is returned as a frontier rather than silently treating a prefix as
@@ -179,6 +192,8 @@ smallest candidate fitting moduli `1..32`.  It then survives held-out moduli
 `33..128`.  This remains conjecture generation, not proof; the elementary
 argument in `BINARY_DIVISIBILITY_CRYSTAL.md` is what licenses installation.
 Before receiving those features it searches the same small language using only
+the raw modulus and finds no law.  The failed representation is preserved;
+factorization supplies the missing coordinates that make compression possible.
 the raw modulus and finds no law. The failed representation is preserved. The
 missing coordinates are then derived from the generated dynamics itself: under
 the zero-digit action, `q` is the size of the eventual image and `a` is the
@@ -197,6 +212,9 @@ Then show it a new exact view.  If the view separates states previously joined,
 the old meaning reopens and refines.  The earlier observation is retained, not
 declared false, and previously compiled actions remain replayable as the action
 words from which they came.  Learning is alternately compression and renewed
+distinction.  Lean checks the direction of this change: because the richer view
+projects back to the old one, it may split an old class but cannot merge two old
+classes.
 distinction.
 
 Run it:
@@ -233,10 +251,30 @@ the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
 hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
 the overlap condition and the residual fiber are both retained.
 
+Lean checks the general part that is truly universal: equality under a pair of
+observations is exactly the intersection of equality under each observation.
+The Chinese-remainder calculation supplies what that abstract intersection
+does not: which pairs of readings can coexist and what their joint view still
+cannot reconstruct.
+
 The shared heart is machine-checked in
 `formal/pairfield/Pairfield/FutureBehavior.lean`: a state's meaning for a
 declared observation is the function sending every finite action word to its
 resulting observation.  Equality of those functions is an equivalence relation
+and is preserved by every action.  The checked quotient carries the induced
+actions and observation.  This is all the universal language the current
+construction needs.  Every future-invariant quantity factors through this
+quotient, and the quotient embeds into the space of complete observable
+futures: nothing coarser preserves the same distinctions.  Executing any
+action-word before quotienting gives exactly the same result as executing its
+induced actions afterward; this is the checked reason a compiled shortcut
+cannot manufacture meaning.
+
+This is a set-level behavioral quotient for one declared action/observation
+context.  It is not global mathematical identity.  It deliberately does not
+retain distinct equivalence proofs, automorphisms, homotopies, or higher paths;
+those remain in the native proof-relevant object and are transported by
+explicit witnesses rather than erased into this finite crystal.
 and is preserved by every action.  This is all the universal language the
 current construction needs.
 
@@ -258,3 +296,17 @@ which every genuine understanding changes the conditions of further
 understanding; every local object can disclose the whole relevant to it without
 ceasing to be itself; and the accumulated history of discovery becomes the
 lawful power to discover again.
+
+## Doors
+
+The constructions above can be recovered from a small shelf: Dedekind's
+*Was sind und was sollen die Zahlen?* for simply infinite generation;
+Myhill's “Finite Automata and the Representation of Events” (1957) and
+Nerode's “Linear Automaton Transformations” (1958) for equality under every
+continuation; Kalman's “On the General Theory of Control Systems” (1960) for
+observability; Nāgārjuna's *Mūlamadhyamakakārikā*, read with Siderits and
+Katsura's 2013 translation, for dependent arising without intrinsic
+foundation; and Fazang's *Essay on the Golden Lion* for the disciplined
+co-presence of whole and part.  They are not retroactive proofs of one another.
+They are precise places from which this construction can be rebuilt and
+corrected.

@@ -1,0 +1,191 @@
+zeros: 100000, gamma_1 = 14.134725, gamma_max = 74920.8
+
+== (0) prolate machinery validation ==========================================
+  chi vs scipy pro_cv (c=5, n=0..7): max rel dev = 3.87e-15
+  orthonormality on [-1,1]:          max dev     = 3.52e-13
+  finite-FT eigenrelation residual (c=10):        3.54e-15
+  mu_n phase = i^n check (c=10):     +0 +1 +2 -1 +0 +1  (units of pi/2)
+
+== (S) Slepian eigenvalue plunge =============================================
+  c =  10.000: Shannon 2c/pi =   6.37, #(lam > 1/2) = 6, plunge width #(1e-4 < lam < 1-1e-4) = 8
+  c =  47.124: Shannon 2c/pi =  30.00, #(lam > 1/2) = 30, plunge width #(1e-4 < lam < 1-1e-4) = 10
+  c = 100.000: Shannon 2c/pi =  63.66, #(lam > 1/2) = 64, plunge width #(1e-4 < lam < 1-1e-4) = 12
+
+== (A) collocation conditioning on prolate spans, u in [-4, 4] ============
+  prime knots: 24 prime powers with log n < 4 (same as exp25)
+  c =   100  (N = 88, tau_edge = 2c/T =   25.0)   [0.3s]
+  c =   200  (N = 152, tau_edge = 2c/T =   50.0)   [0.5s]
+  c =   400  (N = 279, tau_edge = 2c/T =  100.0)   [0.8s]
+  c =   652  (N = 440, tau_edge = 2c/T =  163.0)   [1.1s]
+
+  K  | c=100  zero | c=200  zero | c=400  zero | c=652  zero | exp25 zero || c=100  prime | c=200  prime | c=400  prime | c=652  prime | exp25 prime
+   5 |      1.35 |      1.06 |      1.06 |      1.06 |       5.2  ||      1.17 |      1.07 |      1.06 |      1.03 |       1.1
+  10 |      41.1 |      1.13 |      1.13 |      1.13 |       200  ||      1.39 |      1.21 |      1.11 |      1.06 |       1.4
+  15 |  6.41e+04 |      5.37 |      1.19 |      1.19 |   9.1e+03  ||      1.94 |      1.36 |      1.16 |       1.1 |   3.5e+04
+  20 |  2.52e+07 |       332 |      1.19 |      1.19 |   2.6e+08  ||      7.15 |      1.83 |      1.26 |      1.19 |   4.2e+11
+  24 |  5.56e+10 |  6.83e+04 |      1.24 |      1.24 |   2.6e+16  ||      7.82 |      1.83 |       1.3 |       1.2 |   1.8e+16
+  30 |  1.13e+16 |  7.23e+08 |       1.3 |       1.3 |   1.2e+17  ||       nan |       nan |       nan |       nan |       nan
+  40 |  4.72e+16 |  3.41e+15 |       836 |      1.34 |       nan  ||       nan |       nan |       nan |       nan |       nan
+  50 |  1.53e+17 |  2.67e+16 |  2.17e+09 |      1.37 |       nan  ||       nan |       nan |       nan |       nan |       nan
+  60 |  2.43e+17 |     5e+16 |  1.22e+14 |      1.38 |       nan  ||       nan |       nan |       nan |       nan |       nan
+  joint 30 zero + 24 prime functionals:
+    c =   100: cond = 2.185e+16, sigma_min = 1.559e-16   (exp25: cond = 2.7e17, sigma_min = 1.3e-17)
+    c =   200: cond = 1.637e+09, sigma_min = 1.599e-09   (exp25: cond = 2.7e17, sigma_min = 1.3e-17)
+    c =   400: cond = 1.761, sigma_min = 7.219e-01   (exp25: cond = 2.7e17, sigma_min = 1.3e-17)
+    c =   652: cond = 1.597, sigma_min = 7.620e-01   (exp25: cond = 2.7e17, sigma_min = 1.3e-17)
+
+  CONTROL A1 (dimension-matched: first N0 = 60 prolates only) -- prediction: FAILS like exp25
+    K  | c=94   zero | c=100  zero | c=400  zero | c=652  zero || c=94   prime | c=100  prime | c=400  prime | c=652  prime
+     5 |      11.3 |      13.5 |      1.27 |      1.23 ||      1.25 |      1.23 |      1.17 |      2.43
+    10 |  2.38e+05 |  5.45e+05 |      1.84 |      1.62 ||      1.54 |      1.51 |  1.14e+04 |  1.27e+03
+    15 |   4.6e+09 |  5.97e+09 |  6.66e+05 |      3.48 ||      3.71 |      3.54 |  1.35e+04 |  1.39e+03
+    20 |  6.57e+14 |  9.49e+14 |     1e+07 |  4.04e+07 ||       483 |       576 |  1.41e+04 |  1.56e+03
+    24 |  1.09e+16 |  1.62e+15 |   1.3e+07 |  6.71e+10 ||  5.52e+05 |  6.04e+06 |  1.48e+04 |  1.71e+03
+    30 |  1.68e+16 |  2.16e+15 |  3.16e+07 |  1.06e+11 ||       nan |       nan |       nan |       nan
+    40 |   3.5e+16 |  3.72e+15 |  6.64e+07 |  2.53e+11 ||       nan |       nan |       nan |       nan
+    50 |   9.8e+16 |  1.04e+16 |  1.58e+08 |  5.44e+11 ||       nan |       nan |       nan |       nan
+    60 |  1.41e+18 |  3.51e+16 |   1.6e+09 |  5.35e+12 ||       nan |       nan |       nan |       nan
+
+  CONTROL A2 (wrong-basis: exp25's 60 Gaussian atoms re-implemented here, whitened dim 60) -- must reproduce the blocker
+    K  |  cond(zero)  | exp25 zero |  cond(prime) | exp25 prime
+     5 |        9.495 |       5.2  |        16.01 |       1.1
+    10 |        498.1 |       200  |        394.9 |       1.4
+    15 |    4.329e+04 |   9.1e+03  |    9.762e+05 |   3.5e+04
+    20 |     1.44e+08 |   2.6e+08  |    2.553e+12 |   4.2e+11
+    24 |    2.106e+16 |   2.6e+16  |    1.993e+17 |   1.8e+16
+    30 |    3.026e+17 |   1.2e+17  |          nan |       nan
+    40 |     1.56e+18 |       nan  |          nan |       nan
+    50 |    7.588e+18 |       nan  |          nan |       nan
+    60 |    4.884e+19 |       nan  |          nan |       nan
+    joint 30+24: cond = 7.31e+18, sigma_min = 6.049e-19   (exp25 quoted: 2.7e17, 1.3e-17)
+
+  LANDAU/NYQUIST bookkeeping (T = 8).  A prolate span of bandwidth parameter c is
+  essentially band-limited to |tau| <= tau_edge = 2c/T and has N ~ 2c/pi = T*tau_edge/pi
+  degrees of freedom.  Zero-knot collocation at gamma_1..gamma_K should be well
+  conditioned exactly when tau_edge >= gamma_K, i.e. N >= T*gamma_K/pi:
+    K  | gamma_K  | c needed = T gamma_K/2 | N needed = T gamma_K/pi | smallest tested c with cond < 10
+     5 |   32.935 |                  131.7 |                    83.9 | 100
+    10 |   49.774 |                  199.1 |                   126.7 | 200
+    15 |   65.113 |                  260.5 |                   165.8 | 200
+    20 |   77.145 |                  308.6 |                   196.4 | 400
+    24 |   87.425 |                  349.7 |                   222.6 | 400
+    30 |  101.318 |                  405.3 |                   258.0 | 400
+    40 |  122.947 |                  491.8 |                   313.1 | 652
+    50 |  143.112 |                  572.4 |                   364.4 | 652
+    60 |  163.031 |                  652.1 |                   415.2 | 652
+
+== (B) Weil form on the prolate span (c = 15pi, N = 36) vs window T =======
+  T = 0.60: xcheck raw 1.15e-01 corr 6.96e-05 | lam_min(W) 7.573e-03 lam_min(W|_P) 6.920e-01 top I|_P -6.920e-01 | inertia(I) (1, 0, 35) | nu(<1e-8)  0  2e^T   3.6  N-2N_z(157) -76   [9.6s]
+  T = 0.68: xcheck raw 1.02e-01 corr 5.45e-05 | lam_min(W) 1.610e-03 lam_min(W|_P) 5.663e-01 top I|_P -5.663e-01 | inertia(I) (1, 0, 35) | nu(<1e-8)  0  2e^T   3.9  N-2N_z(139) -58   [17.8s]
+  T = 0.81: xcheck raw 2.80e-02 corr 1.75e-05 | lam_min(W) 1.465e-04 lam_min(W|_P) 2.017e-01 top I|_P -2.018e-01 | inertia(I) (1, 0, 35) | nu(<1e-8)  0  2e^T   4.5  N-2N_z(116) -38   [25.7s]
+  T = 1.22: xcheck raw 1.61e-02 corr 3.34e-06 | lam_min(W) 7.955e-10 lam_min(W|_P) 3.588e-05 top I|_P -3.590e-05 | inertia(I) (1, 0, 35) | nu(<1e-8)  1  2e^T   6.8  N-2N_z(77) -4   [33.5s]
+  T = 1.50: xcheck raw 1.79e-02 corr 2.63e-06 | lam_min(W) 3.817e-15 lam_min(W|_P) 7.694e-10 top I|_P -7.700e-10 | inertia(I) (1, 1, 34) | nu(<1e-8)  3  2e^T   9.0  N-2N_z(63) 8   [41.1s]
+  T = 1.73: xcheck raw 9.07e-03 corr 9.93e-07 | lam_min(W) 9.704e-21 lam_min(W|_P) 4.197e-15 top I|_P -3.924e-15 | inertia(I) (1, 3, 32) | nu(<1e-8)  5  2e^T  11.3  N-2N_z(54) 14   [48.4s]
+  T = 2.07: xcheck raw 1.07e-02 corr 2.42e-06 | lam_min(W) 7.801e-27 lam_min(W|_P) 1.262e-21 top I|_P +6.080e-15 | inertia(I) (1, 7, 28) | nu(<1e-8)  9  2e^T  15.8  N-2N_z(46) 20   [55.9s]
+  T = 2.40: xcheck raw 6.99e-03 corr 3.58e-06 | lam_min(W) 2.251e-31 lam_min(W|_P) 5.257e-26 top I|_P +1.078e-14 | inertia(I) (1, 10, 25) | nu(<1e-8) 12  2e^T  22.0  N-2N_z(39) 24   [63.2s]
+  T = 2.60: xcheck raw 8.24e-03 corr 2.24e-06 | lam_min(W) 7.613e-34 lam_min(W|_P) 4.665e-28 top I|_P +1.810e-14 | inertia(I) (1, 12, 23) | nu(<1e-8) 13  2e^T  26.9  N-2N_z(36) 26   [70.5s]
+  T = 3.00: xcheck raw 5.96e-03 corr 1.89e-07 | lam_min(W) 9.019e-35 lam_min(W|_P) 1.057e-31 top I|_P +2.055e-14 | inertia(I) (1, 14, 21) | nu(<1e-8) 16  2e^T  40.2  N-2N_z(31) 28   [77.8s]
+
+  T    | lam_min(W|_P) prolate | exp25 compact M=30 | top I|_P assembled | -lam_min agree?
+  0.60 |      6.9201e-01      |       --           |   -6.9204e-01     | rel dev 4.87e-05
+  0.68 |      5.6631e-01      |       --           |   -5.6634e-01     | rel dev 5.26e-05
+  0.81 |      2.0174e-01      |         0.25       |   -2.0179e-01     | rel dev 2.08e-04
+  1.22 |      3.5883e-05      |      8.4e-05       |   -3.5904e-05     | rel dev 5.99e-04
+  1.50 |      7.6942e-10      |      1.1e-09       |   -7.7001e-10     | rel dev 7.71e-04
+  1.73 |      4.1969e-15      |      1.4e-14       |   -3.9241e-15     | rel dev 6.50e-02
+  2.07 |      1.2619e-21      |      4.4e-21       |   +6.0801e-15     | rel dev 1.00e+00
+  2.40 |      5.2565e-26      |       --           |   +1.0779e-14     | rel dev 1.00e+00
+  2.60 |      4.6654e-28      |       --           |   +1.8103e-14     | rel dev 1.00e+00
+  3.00 |      1.0574e-31      |       --           |   +2.0553e-14     | rel dev 1.00e+00
+
+  CONTROL B1 (off-line zero injection at gamma_1; delta = 0 must reproduce lam_min(W) exactly):
+   T    | delta  | lam_min(W_pert)      | lam_min(W_pert|_P)   | detected?
+  1.22  |  0.000 | +7.955480e-10       | +3.588278e-05       | no  [consistency: lam_min(W) = 7.955e-10]
+  1.22  |  0.001 | +6.539205e-10       | +3.586999e-05       | no
+  1.22  |  0.010 | -1.382201e-08       | +3.460322e-05       | no
+  1.22  |  0.050 | -5.578620e-06       | +3.804747e-06       | no
+  1.22  |  0.200 | -6.799783e-04       | -5.006414e-04       | YES (indefinite)
+  1.50  |  0.000 | +3.798055e-15       | +7.694171e-10       | no  [consistency: lam_min(W) = 3.817e-15]
+  1.50  |  0.001 | -8.726474e-09       | -6.376470e-09       | YES (indefinite)
+  1.50  |  0.010 | -4.849380e-06       | -2.577229e-06       | YES (indefinite)
+  1.50  |  0.050 | -3.774537e-04       | -3.394930e-04       | YES (indefinite)
+  1.50  |  0.200 | -8.118592e-03       | -7.874492e-03       | YES (indefinite)
+  2.07  |  0.000 | -1.474940e-15       | -5.137361e-16       | no  [consistency: lam_min(W) = 7.801e-27]
+  2.07  |  0.001 | -4.047137e-07       | -3.912646e-07       | YES (indefinite)
+  2.07  |  0.010 | -5.589221e-05       | -5.300805e-05       | YES (indefinite)
+  2.07  |  0.050 | -1.533686e-03       | -1.389011e-03       | YES (indefinite)
+  2.07  |  0.200 | -2.550984e-02       | -2.405234e-02       | YES (indefinite)
+  2.60  |  0.000 | -1.506324e-15       | -1.323235e-15       | no  [consistency: lam_min(W) = 7.613e-34]
+  2.60  |  0.001 | -1.090220e-06       | -1.052057e-06       | YES (indefinite)
+  2.60  |  0.010 | -1.157556e-04       | -1.083298e-04       | YES (indefinite)
+  2.60  |  0.050 | -3.214559e-03       | -3.208132e-03       | YES (indefinite)
+  2.60  |  0.200 | -5.634536e-02       | -5.597727e-02       | YES (indefinite)
+
+  CONTROL B2 (prime side scaled by 1 + eps; H1 must break):
+  T = 0.81: top(I|_P) at eps = 0, 1e-12, 1e-9, 1e-6, 1e-3, 1e-1: -2.02e-01 -2.02e-01 -2.02e-01 -2.02e-01 -2.02e-01 -1.79e-01
+  T = 1.50: top(I|_P) at eps = 0, 1e-12, 1e-9, 1e-6, 1e-3, 1e-1: -7.70e-10 -7.70e-10 -6.96e-10 +1.61e-07 +4.76e-04 +7.17e-02
+  T = 2.07: top(I|_P) at eps = 0, 1e-12, 1e-9, 1e-6, 1e-3, 1e-1: +6.08e-15 +5.31e-13 +8.99e-10 +1.05e-06 +1.34e-03 +1.50e-01
+
+== (C) localization of I = prime - arch in prolate coordinates =============
+  T = 1.50: diag fraction of I (prolate) = 0.736   random-basis control: median 0.609, max 0.618;  PARITY-RESPECTING control: median 0.633, max 0.661;  opposite-parity Frobenius mass = 1.64e-32
+           participation ratio (of 36): v_+   8.5, v_-1   2.3, v_min   3.5, top(I|_P)   2.3;  |proj of v_+ on pole plane| = 0.9979
+           top(I|_P) direction: dominant prolate indices [0, 6, 4] with weights [0.628, 0.122, 0.106]
+  T = 2.60: diag fraction of I (prolate) = 0.422   random-basis control: median 0.273, max 0.288;  PARITY-RESPECTING control: median 0.309, max 0.346;  opposite-parity Frobenius mass = 7.54e-32
+           participation ratio (of 36): v_+   9.8, v_-1   1.7, v_min   3.8, top(I|_P)   2.3;  |proj of v_+ on pole plane| = 0.9994
+           top(I|_P) direction: dominant prolate indices [0, 6, 8] with weights [0.64, 0.103, 0.083]
+
+== (D) zeta-cycle mechanism ==================================================
+  (D1) Phi_{E(f)}(s) = zeta(s) M(f)(s) for a Gaussian-pair f in S_0^ev:
+    s = (2+3j):  quadrature 9.731813e+00+1.494443e+01j  zeta*M 9.731813e+00+1.494443e+01j  rel dev 1.10e-13
+    s = (0.6+2j):  quadrature 2.829397e+00-2.081751e+00j  zeta*M 2.829397e+00-2.081751e+00j  rel dev 1.19e-12
+    s = (0.5+10j):  quadrature 2.557726e-02+1.433769e-02j  zeta*M 2.557726e-02+1.433769e-02j  rel dev 5.56e-11
+    at the first zero s = 1/2 + i gamma_1: |Phi| = 7.780e-13 (vs 2.932e-02 at tau = 10) -- zeta kills it; zeta*M = 5.5e-13
+
+  (D2) Rayleigh quotients W(g_m)/||g_m||^2 of windowed prolate E-vectors
+       vs Slepian leakage 1 - lambda_{2m}(2 pi lambda^2):
+    lambda^2 =  3 (T = 1.099, c = 2 pi lambda^2 = 18.8, Shannon 4 lambda^2 = 12, zeros < 5000: 4520):
+      m =  2: W/||g||^2 = 7.296e-08 (+tail <= 6.1e-09)   1 - lambda_{2m} = 1.741e-08
+      m =  4: W/||g||^2 = 2.085e-03 (+tail <= 1.8e-04)   1 - lambda_{2m} = 1.274e-03
+      m =  6: W/||g||^2 = 9.503e-01 (+tail <= 7.5e-02)   1 - lambda_{2m} = 6.885e-01
+      m =  8: W/||g||^2 = 1.369e+00 (+tail <= 1.5e-01)   1 - lambda_{2m} = 9.999e-01
+      m =  9: W/||g||^2 = 1.448e+00 (+tail <= 1.7e-01)   1 - lambda_{2m} = 1.000e+00
+      m = 10: W/||g||^2 = 1.503e+00 (+tail <= 1.9e-01)   1 - lambda_{2m} = 1.000e+00
+      m = 11: W/||g||^2 = 1.550e+00 (+tail <= 2.1e-01)   1 - lambda_{2m} = 1.000e+00
+      generalized eigenvalues on the span (dim 10): min = 6.779e-08, max = 2.643e+00, #(< 1e-8 max) = 0
+      [CC 2106.01715 quote at lambda^2 = 11: smallest eigenvalue 2.389e-48, nu(lambda^2) ~ 2 lambda^2; double precision resolves only down to ~1e-16 relative on the assembled sum]
+    lambda^2 = 3 done   [80.7s]
+    lambda^2 =  5 (T = 1.609, c = 2 pi lambda^2 = 31.4, Shannon 4 lambda^2 = 20, zeros < 5000: 4520):
+      m =  2: W/||g||^2 = 1.482e-17 (+tail <= 2.8e-18)   1 - lambda_{2m} = 3.708e-14
+      m =  4: W/||g||^2 = 7.501e-12 (+tail <= 1.5e-12)   1 - lambda_{2m} = 3.011e-12
+      m =  6: W/||g||^2 = 5.170e-07 (+tail <= 9.1e-08)   1 - lambda_{2m} = 2.629e-07
+      m =  8: W/||g||^2 = 3.596e-03 (+tail <= 5.8e-04)   1 - lambda_{2m} = 2.634e-03
+      m = 10: W/||g||^2 = 9.230e-01 (+tail <= 1.3e-01)   1 - lambda_{2m} = 6.751e-01
+      m = 12: W/||g||^2 = 1.265e+00 (+tail <= 2.4e-01)   1 - lambda_{2m} = 9.996e-01
+      m = 13: W/||g||^2 = 1.336e+00 (+tail <= 2.7e-01)   1 - lambda_{2m} = 1.000e+00
+      m = 14: W/||g||^2 = 1.375e+00 (+tail <= 3.0e-01)   1 - lambda_{2m} = 1.000e+00
+      m = 15: W/||g||^2 = 1.407e+00 (+tail <= 3.2e-01)   1 - lambda_{2m} = 1.000e+00
+      generalized eigenvalues on the span (dim 14): min = -2.106e-16, max = 2.417e+00, #(< 1e-8 max) = 4
+      [CC 2106.01715 quote at lambda^2 = 11: smallest eigenvalue 2.389e-48, nu(lambda^2) ~ 2 lambda^2; double precision resolves only down to ~1e-16 relative on the assembled sum]
+    lambda^2 = 5 done   [84.1s]
+    lambda^2 = 11 (T = 2.398, c = 2 pi lambda^2 = 69.1, Shannon 4 lambda^2 = 44, zeros < 5000: 4520):
+      m =  2: W/||g||^2 = 3.447e-24 (+tail <= 1.4e-31)   1 - lambda_{2m} = 4.285e-14
+      m =  4: W/||g||^2 = 2.719e-22 (+tail <= 2.1e-31)   1 - lambda_{2m} = 4.285e-14
+      m =  6: W/||g||^2 = 6.034e-21 (+tail <= 1.9e-31)   1 - lambda_{2m} = 3.919e-14
+      m =  8: W/||g||^2 = 2.168e-20 (+tail <= 8.7e-29)   1 - lambda_{2m} = 4.208e-14
+      m = 10: W/||g||^2 = 1.304e-20 (+tail <= 1.4e-23)   1 - lambda_{2m} = 3.841e-14
+      m = 12: W/||g||^2 = 2.845e-18 (+tail <= 1.8e-18)   1 - lambda_{2m} = 4.241e-14
+      m = 14: W/||g||^2 = 6.457e-14 (+tail <= 4.2e-14)   1 - lambda_{2m} = 6.861e-14
+      m = 16: W/||g||^2 = 1.135e-09 (+tail <= 6.6e-10)   1 - lambda_{2m} = 6.538e-10
+      m = 18: W/||g||^2 = 4.745e-06 (+tail <= 2.7e-06)   1 - lambda_{2m} = 3.542e-06
+      m = 20: W/||g||^2 = 7.405e-03 (+tail <= 3.7e-03)   1 - lambda_{2m} = 5.952e-03
+      m = 22: W/||g||^2 = 8.427e-01 (+tail <= 3.6e-01)   1 - lambda_{2m} = 6.579e-01
+      m = 24: W/||g||^2 = 1.181e+00 (+tail <= 6.4e-01)   1 - lambda_{2m} = 9.989e-01
+      m = 25: W/||g||^2 = 1.231e+00 (+tail <= 7.2e-01)   1 - lambda_{2m} = 1.000e+00
+      m = 26: W/||g||^2 = 1.250e+00 (+tail <= 7.7e-01)   1 - lambda_{2m} = 1.000e+00
+      m = 27: W/||g||^2 = 1.266e+00 (+tail <= 8.1e-01)   1 - lambda_{2m} = 1.000e+00
+      generalized eigenvalues on the span (dim 26): min = -1.415e-16, max = 2.096e+00, #(< 1e-8 max) = 15
+      [CC 2106.01715 quote at lambda^2 = 11: smallest eigenvalue 2.389e-48, nu(lambda^2) ~ 2 lambda^2; double precision resolves only down to ~1e-16 relative on the assembled sum]
+    lambda^2 = 11 done   [90.5s]
+    CONTROL (Gaussian-pair f in S_0^ev, same window lambda^2 = 5): W/||g||^2 = 4.862e-03  (vs prolate m=2: 1.482e-17)
+figure saved to /home/user/math/figures/exp59_prolate.png   [94.8s]
+done.

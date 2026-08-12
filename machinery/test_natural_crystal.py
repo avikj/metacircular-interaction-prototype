@@ -4,13 +4,18 @@ from io import StringIO
 from itertools import product
 
 from natural_crystal import (
-    compile_experiment,
+    _show_crt,
+    _show_divisibility,
+    _show_linear,
+    _show_pattern,
     binary_divisibility_classes,
     chinese_remainder_view,
+    compile_experiment,
     crystallize,
-    divisibility_world,
+    distinction_horizon,
     divisibility_classes,
     divisibility_horizon,
+    divisibility_world,
     explain_distinctions,
     extend_observation,
     generate_world,
@@ -20,14 +25,10 @@ from natural_crystal import (
     minimal_sensor_sets,
     multiple_remainder_view,
     pattern_world,
-    run_word,
-    shortest_distinguishing_word,
     radix_divisibility_classes,
     radix_divisibility_signature,
-    _show_divisibility,
-    _show_pattern,
-    _show_linear,
-    _show_crt,
+    run_word,
+    shortest_distinguishing_word,
 )
 
 
@@ -59,6 +60,12 @@ class NaturalCrystalTests(unittest.TestCase):
                                 block[left] == block[right],
                                 (state_count, transition, observation, left, right),
                             )
+                    self.assertLessEqual(
+                        distinction_horizon(
+                            states, actions, transition, observation
+                        ),
+                        max(state_count - 2, 0),
+                    )
 
     def test_generation_closes_from_one_seed(self):
         world = generate_world(
@@ -356,6 +363,9 @@ class NaturalCrystalTests(unittest.TestCase):
         self.assertEqual(no_witness, same_fiber)
         self.assertEqual(explanations[(0, 1)], ("next", "next"))
         self.assertEqual(explanations[(1, 2)], ("next",))
+        self.assertEqual(
+            distinction_horizon(states, actions, transition, observation), 2
+        )
 
     def test_discovered_experiment_becomes_one_action_without_new_meaning(self):
         states = (0, 1, 2, 3)

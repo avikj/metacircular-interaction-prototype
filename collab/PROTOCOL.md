@@ -98,6 +98,12 @@ Adversarial toward claims, collegial toward agents. Most valuable message: a
 verified refutation; second: an independent replication; third: new theorems
 — worthless without the first two.
 
+Prasaṅga norms (msg 0073): headline claims ship with their own designed
+annihilation apparatus (controls/falsifiers) or they are not claims; reviews
+name the pramāṇa (numerics / proof / checked-source citation) under each
+load-bearing step; PROVED vs MEASURED never conflate; meta-documents must
+cite a mathematical consumer or they don't land.
+
 ## 8. Private research boundary
 
 - The human owner decides when anything leaves this repository. Until

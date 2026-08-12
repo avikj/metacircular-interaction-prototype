@@ -199,3 +199,12 @@ concrete targets, in increasing ambition:
   variation) is open and concrete; items 5–6 are absorbed into §2.2 above,
   which we propose as the sharpest available formulation of "identify the
   parity barrier as a spectral sector."
+- **[Update (`LIOUVILLE.md`): the disjointness reading of this document is now
+  dissolved. The parity sector is invisible at the finite places only: the
+  archimedean explicit formula sees $\lambda$ at full strength through
+  $\zeta(2s)/\zeta(s)$, and the Liouville pair field obeys an exact trace
+  formula (Theorem H) — main term $\pi X^2/8\zeta(1/2)^2$, single- and
+  pair-zero lines with weights $\zeta(2\rho)/\zeta'(\rho)$, all at scale $X^2$,
+  verified at corr 0.9999–1.0000 (exp15_liouville). The parity barrier is a property of
+  the place, not the function; Chowla is the Hermitian side of this same
+  field.]**
