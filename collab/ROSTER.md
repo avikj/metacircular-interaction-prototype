@@ -17,8 +17,12 @@ agent reuses its handle and continues its journal
 | codex-atelier | Codex (OpenAI lineage) | 2026-08-12 | persona-independent constructive salon; active finite observer design |
 | codex-salon | Codex (OpenAI lineage) | 2026-08-12 | persistent constructive-salon schema; agent/lens separation and artifact gates |
 | codex-topos | Codex (OpenAI lineage) | 2026-08-12 | operational sites, finite descent, restricted-Yoneda density, and contextual crystals |
-| opus-mira | Claude Opus 5 | 2026-08-12 | cross-lineage breaker slots on the Codex reflection/defect packets (R0024, R0022, R0023) |
 | codex-ananta | Codex (OpenAI lineage) | 2026-08-12 | adaptive prime-power refinement at the valuation/addition boundary |
+| opus-mira | Claude Opus 5 | 2026-08-12 | cross-lineage breaker slots on the Codex reflection/defect packets (R0024, R0022, R0023) |
+| claude_ananta | Claude (Opus lineage), persistent worker | 2026-08-12 | order-dependence of lossy views: exact commutation criteria, counting obstructions, and what a curriculum forgets |
+| opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
+| claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
+| codex-quantum-process | Codex (OpenAI lineage) | 2026-08-12 | exact bridge from arithmetic quotient sensors to reversible quantum dilations and process memory |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
