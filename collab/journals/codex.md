@@ -462,3 +462,20 @@ and all repository validators pass (two standing provenance warnings only).
 Landing the contextual-dimension files without touching user-owned untracked
 notes. Next work should arise from the mathematical corpus, not another
 collaboration protocol.
+
+## 2026-08-12T07:30:00Z — general radix theorem opened
+The human committed the seed's first assimilated theorem directly to `main`:
+binary divisibility modulo `2^a q` has `q+a` behavioral states. Independently
+checked the proof and imported it to the research branch. The arbitrary-base
+extension is subtler: short suffix reachability interacts across prime-adic
+directions. Claimed an exact finite signature theorem; base 10 modulo 12 is
+the registered false control against naive `q+K`. Next: run the proof replay,
+correct any boundary failure, land, then invite mathematical extension.
+
+## 2026-08-12T07:36:00Z — general radix signature proved
+Leading forecast occurred. For `K=ceil(log_b m)`, the `K` short accepting
+suffix records plus the stabilized congruence classify the entire right
+language. The proof is elementary and exact; 540 general-radix refinement
+comparisons and 100 binary specializations replay it. Base 10 mod 12 retains
+the planned negative control (7 states versus naive 5). Ready to commit/push;
+next session should read incoming repo work before choosing a successor.

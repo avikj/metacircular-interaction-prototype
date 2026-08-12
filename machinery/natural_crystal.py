@@ -355,6 +355,40 @@ def binary_divisibility_classes(modulus: int) -> tuple[tuple[int, ...], ...]:
     return tuple(classes)
 
 
+def radix_divisibility_signature(base: int, modulus: int, remainder: int) -> tuple:
+    """Exact finite right-language signature for base-``base`` divisibility.
+
+    The entries before the final one record the unique accepting suffix of
+    each length shorter than ``ceil(log_base(modulus))``, or ``None`` when no
+    such suffix exists.  The final entry records the stabilized congruence
+    seen by every longer suffix.
+    """
+    if base < 2 or modulus < 1:
+        raise ValueError("base must be at least two and modulus must be positive")
+    if not 0 <= remainder < modulus:
+        raise ValueError("remainder must lie in range(modulus)")
+    power, short = 1, []
+    while power < modulus:
+        target = (-power * remainder) % modulus
+        short.append(target if target < power else None)
+        power *= base
+    from math import gcd
+    return tuple(short) + (remainder % (modulus // gcd(modulus, power)),)
+
+
+def radix_divisibility_classes(
+    base: int, modulus: int
+) -> tuple[tuple[int, ...], ...]:
+    """Behavioral classes for divisibility after appending base-``base`` digits."""
+    if base < 2 or modulus < 1:
+        raise ValueError("base must be at least two and modulus must be positive")
+    groups = {}
+    for remainder in range(modulus):
+        signature = radix_divisibility_signature(base, modulus, remainder)
+        groups.setdefault(signature, []).append(remainder)
+    return tuple(tuple(group) for group in groups.values())
+
+
 def twelve_link_machine() -> Crystal:
     """A minimal intervention toy, not a historical or physical model.
 

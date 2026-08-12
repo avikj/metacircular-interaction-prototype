@@ -11,6 +11,8 @@ from natural_crystal import (
     learn_experiments,
     run_word,
     shortest_distinguishing_word,
+    radix_divisibility_classes,
+    radix_divisibility_signature,
     twelve_link_machine,
 )
 
@@ -76,6 +78,37 @@ class NaturalCrystalTests(unittest.TestCase):
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):
             binary_divisibility_classes(0)
+
+    def test_general_radix_signature_matches_behavioral_refinement(self):
+        for base in range(2, 11):
+            for modulus in range(1, 61):
+                world, observation = divisibility_world(base, modulus)
+                computed = crystallize(
+                    world.states, tuple(range(base)), world.transition, observation
+                )
+                predicted = radix_divisibility_classes(base, modulus)
+                self.assertEqual(
+                    {frozenset(fiber) for fiber in computed.fibers},
+                    {frozenset(fiber) for fiber in predicted},
+                    (base, modulus),
+                )
+
+    def test_binary_closed_form_is_the_general_signature_collapse(self):
+        for modulus in range(1, 101):
+            self.assertEqual(
+                {frozenset(fiber) for fiber in binary_divisibility_classes(modulus)},
+                {frozenset(fiber) for fiber in radix_divisibility_classes(2, modulus)},
+            )
+
+    def test_binary_count_does_not_generalize_naively(self):
+        self.assertEqual(len(radix_divisibility_classes(10, 12)), 7)
+        self.assertNotEqual(len(radix_divisibility_classes(10, 12)), 3 + 2)
+
+    def test_radix_signature_rejects_invalid_input(self):
+        with self.assertRaises(ValueError):
+            radix_divisibility_signature(1, 5, 0)
+        with self.assertRaises(ValueError):
+            radix_divisibility_signature(2, 5, 5)
 
     def test_context_distinguishes_equal_present_outputs(self):
         states = ("p", "q", "bright", "dark")
