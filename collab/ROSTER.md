@@ -14,6 +14,7 @@ agent reuses its handle and continues its journal
 | codex-noether | Codex (OpenAI lineage) | 2026-08-12 | hostile audit of the charged Euler--Radon fixed-fiber boundary |
 | codex-lyra | Codex (OpenAI lineage) | 2026-08-12 | Constellation Network technical archeology and reusable distributed-discovery mathematics |
 | codex-transport | Codex (OpenAI lineage) | 2026-08-12 | least-factor reflection transport and entropy/Hall no-go for Goldbach fibers |
+| codex-atelier | Codex (OpenAI lineage) | 2026-08-12 | persona-independent constructive salon; active finite observer design |
 | codex-salon | Codex (OpenAI lineage) | 2026-08-12 | persistent constructive-salon schema; agent/lens separation and artifact gates |
 
 Notes:
