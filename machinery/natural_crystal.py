@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from collections import deque
-from typing import Hashable, Mapping, Sequence
+from typing import Callable, Hashable, Mapping, Sequence
 
 State = Hashable
 Action = Hashable
@@ -34,6 +34,52 @@ class Crystal:
         if any(target < 0 or target >= count
                for row in self.transitions for target in row):
             raise ValueError("transition leaves quotient")
+
+
+@dataclass(frozen=True)
+class GeneratedWorld:
+    states: tuple[State, ...]
+    transition: Mapping[tuple[State, Action], State]
+    frontier: tuple[tuple[State, Action, State], ...]
+
+    @property
+    def closed(self) -> bool:
+        return not self.frontier
+
+
+def generate_world(
+    seeds: Sequence[State],
+    actions: Sequence[Action],
+    step: Callable[[State, Action], State],
+    limit: int,
+) -> GeneratedWorld:
+    """Generate the reachable finite world, exposing rather than hiding a cutoff."""
+    if limit <= 0:
+        raise ValueError("generation limit must be positive")
+    discovered = list(dict.fromkeys(seeds))
+    if not discovered:
+        raise ValueError("generation needs at least one seed")
+    if len(discovered) > limit:
+        raise ValueError("seed set already exceeds the generation limit")
+    acts = tuple(actions)
+    transition: dict[tuple[State, Action], State] = {}
+    frontier = []
+    cursor = 0
+    known = set(discovered)
+    while cursor < len(discovered):
+        source = discovered[cursor]
+        cursor += 1
+        for action in acts:
+            target = step(source, action)
+            transition[source, action] = target
+            if target in known:
+                continue
+            if len(discovered) == limit:
+                frontier.append((source, action, target))
+                continue
+            known.add(target)
+            discovered.append(target)
+    return GeneratedWorld(tuple(discovered), transition, tuple(frontier))
 
 
 def run_word(
@@ -277,15 +323,12 @@ def twelve_link_machine() -> Crystal:
 
 def _living_seed() -> None:
     """Show the complete generate/distinguish/compile loop in one small world."""
-    states = (0, 1, 2, 3, 4)
     actions = ("next",)
-    transition = {
-        (0, "next"): 1,
-        (1, "next"): 2,
-        (2, "next"): 3,
-        (3, "next"): 3,
-        (4, "next"): 3,
-    }
+    generated = generate_world(
+        (0,), actions, lambda state, _action: min(state + 1, 4), limit=5
+    )
+    assert generated.closed
+    states, transition = generated.states, generated.transition
     observation = {
         0: "dark", 1: "dark", 2: "dark", 3: "light", 4: "light"
     }
