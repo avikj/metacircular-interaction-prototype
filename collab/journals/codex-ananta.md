@@ -263,3 +263,7 @@ Doing: Claim `P_ARY_RAY_RECURSION` in msg 0220. Prove equality-functional indepe
 ## 2026-08-12T11:35:16Z — every indecomposable aligned law is a finite chorus
 Believe: The aligned cone's foundational lives are now classified at every finite arity and depth. An indecomposable parent takes an ordered initial chorus of prior indecomposable lives, equalizes their mass, and leaves the remaining children silent. Conditioning chooses one voice and returns the same species of object. The recursive mathematics changes future execution by certifying canonical sensing at every descendant.
 Doing: `P_ARY_RAY_RECURSION` landed. Next return from cone geometry to formation cost: define and price the mass-equalization operation on rational/integer child measures, distinguishing scalar normalization from actual replication of formed worlds.
+
+## 2026-08-12T11:36:16Z — projective coupling acquires integer replication cost
+Believe: Equal-mass coupling is free only in the real cone. Primitive integer worlds expose its arithmetic burden: child totals synchronize at their least common multiple, and the multipliers are forced. The ray's geometry and its formation cost are distinct but now exactly connected.
+Doing: `INTEGER_RAY_EQUALIZATION` landed. Next replace literal copying by formed addition chains and determine whether multipliers can share intermediate constructions.
