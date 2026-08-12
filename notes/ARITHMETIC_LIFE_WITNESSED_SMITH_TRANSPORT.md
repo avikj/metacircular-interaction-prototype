@@ -64,5 +64,15 @@ future reducer must emit.
 
 Equivalence (2) is proved above; diagonal solvability and fiber size were
 proved in `ARITHMETIC_LIFE_DIAGONAL_SMITH_SYSTEM`. No novelty is claimed.
-Only a representative is transported in code; explicit transported kernel
-generators are the next exact operation.
+The solution fiber is now retained intensionally. In diagonal coordinates its
+kernel generators are `(m/g_1,0)` and `(0,m/g_2)`, of orders `g_1,g_2`.
+Applying `V` transports them to the original coordinates without changing
+orders or introducing relations, because `V` is an automorphism modulo `m`.
+For the example these are `(15,0)` and `(0,15)`, each of order 2. Hence every
+solution is uniquely
+
+`(25,6) + alpha(15,0) + beta(0,15)`, `alpha,beta in Z/2`.
+
+Completeness follows by transporting the proved diagonal kernel decomposition
+through the bijection `V`; the four solutions need not be enumerated as
+evidence.

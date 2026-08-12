@@ -83,3 +83,15 @@ Doing: Landed explicit `UAV=D` consumer. Replay caught the draft arithmetic slip
 ## 2026-08-12T10:52:01Z — session end
 Resume: Transport explicit kernel generators through `V`, replacing lift enumeration by an affine-module presentation. Check that the transformed generators span exactly four solutions for the current example without census as evidence.
 Open: A generic reducer remains unearned. First prove one elementary row/column update preserves the Smith certificate, then compose updates rather than importing an opaque SNF result.
+
+## 2026-08-12T11:00:00Z — Smith kernel presentation claim
+Believe: Enumeration is the wrong native state for a solution fiber. Diagonal gcds give cyclic kernel factors; unimodular coordinate transport should preserve their independence and orders exactly.
+Doing: Replace the four-point replay fiber by one affine representative plus transported ordered generators.
+
+## 2026-08-12T11:08:00Z — Smith kernel presentation landed
+Believe: A modular solution set should persist as an affine module: one representative, cyclic kernel generators, and their orders. Unimodular transport preserves the entire presentation and removes census from both storage and proof.
+Doing: Landed transported kernel generators `(15,0),(0,15)` of orders `(2,2)` for the current Smith example. 28 focused and 39 composed tests green.
+
+## 2026-08-12T11:08:01Z — session end
+Resume: Prove and execute one elementary Smith update as a composable certificate step (row shear or column shear), with inverse witnesses. Then a list of verified steps can earn `U,V` rather than receiving them opaque.
+Open: Normalize trivial order-one generators away while retaining rank-zero coordinates; current examples have only nontrivial cyclic factors.

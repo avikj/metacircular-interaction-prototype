@@ -276,6 +276,12 @@ class ExponentWorldTests(unittest.TestCase):
         self.assertEqual(result.transformed_target, (14, 24))
         self.assertEqual(result.representative, (25, 6))
         self.assertEqual(result.diagonal_solution.kernel_size, 4)
+        self.assertEqual(result.kernel_generators, ((15, 0), (0, 15)))
+        self.assertEqual(result.generator_orders, (2, 2))
+        self.assertEqual(
+            result.generator_orders[0] * result.generator_orders[1],
+            result.diagonal_solution.kernel_size,
+        )
         self.assertEqual((2*25 + 4*6) % 30, 14)
         self.assertEqual((6*25 + 8*6) % 30, 18)
 
@@ -286,6 +292,25 @@ class ExponentWorldTests(unittest.TestCase):
                 ((2, 4), (6, 8)), (14, 18), 30,
                 ((1, 0), (-2, 1)), (2, 4), ((1, -2), (0, 1)),
             )
+
+    def test_transported_kernel_generators_preserve_every_solution(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (2, 4, 6, 8, 14, 18, 30):
+            world.form(value)
+        result = world.solve_witnessed_smith_system(
+            ((2, 4), (6, 8)), (14, 18), 30,
+            ((1, 0), (3, -1)), (2, 4), ((1, -2), (0, 1)),
+        )
+        for generator in result.kernel_generators:
+            self.assertEqual(
+                tuple(value % 30 for value in _matvec_for_test(result.matrix, generator)),
+                (0, 0),
+            )
+
+
+def _matvec_for_test(matrix, vector):
+    return tuple(sum(matrix[i][j] * vector[j] for j in range(2)) for i in range(2))
 
 
 if __name__ == "__main__":

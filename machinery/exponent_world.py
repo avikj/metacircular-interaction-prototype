@@ -152,6 +152,8 @@ class WitnessedSmithSolution:
     transformed_target: tuple[int, int]
     diagonal_solution: DiagonalSmithSolution
     representative: tuple[int, int]
+    kernel_generators: tuple[tuple[int, int], tuple[int, int]]
+    generator_orders: tuple[int, int]
 
 
 class ExponentWorld:
@@ -544,6 +546,22 @@ class ExponentWorld:
             return solved
         w = tuple(coordinate.residue for coordinate in solved.coordinates)
         representative = tuple(value % modulus for value in _matvec2(right, w))
+        generator_orders = tuple(
+            coordinate.overlap for coordinate in solved.coordinates
+        )
+        diagonal_generators = (
+            (solved.coordinates[0].solution_modulus, 0),
+            (0, solved.coordinates[1].solution_modulus),
+        )
+        kernel_generators = tuple(
+            tuple(value % modulus for value in _matvec2(right, generator))
+            for generator in diagonal_generators
+        )
+        for generator, order in zip(kernel_generators, generator_orders):
+            if tuple(value % modulus for value in _matvec2(matrix, generator)) != (0, 0):
+                raise AssertionError("transported Smith generator left the kernel")
+            if tuple((order * value) % modulus for value in generator) != (0, 0):
+                raise AssertionError("declared Smith generator order is too small")
         if tuple(value % modulus for value in _matvec2(matrix, representative)) != tuple(
             value % modulus for value in target
         ):
@@ -556,6 +574,7 @@ class ExponentWorld:
         return WitnessedSmithSolution(
             matrix, target, modulus, left, diagonal, right,
             transformed_target, solved, representative,
+            kernel_generators, generator_orders,
         )
 
 
