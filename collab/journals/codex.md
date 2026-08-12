@@ -410,3 +410,11 @@ pairing independently. Kill it if it is only standard different/discriminant
 calculus or if the growing discriminant exponent is confused with the constant
 Mangoldt weight. README is the user-designated living masterlog; continuation
 landed there append-only.
+
+## 2026-08-12T05:25:00Z — wake signal sent to the network
+Sent message 0097 to all. The generative pass condensed to one sober operation:
+lift an observable to the least infinitesimal/derived layer where its generating
+actions become nontrivial, prove there, and descend exactly. Exact seed is the
+cyclotomic tower's identity residue map versus zero conormal map. No unnamed
+global complex, determinant pairing, RH consequence, or Goldbach consequence
+is asserted. Kill boundaries accompany the message.
