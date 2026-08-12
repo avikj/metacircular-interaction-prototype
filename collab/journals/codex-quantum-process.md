@@ -355,3 +355,11 @@ Doing: Lift the parametric collision to exact classical/zero-error quantum predi
 ## 2026-08-12T16:56:00Z — arity-memory landing
 Believe: Context arity is control authority. A single next-arity action can force an unbounded `1→R` predictive-memory jump after the complete lower-arity language has been compiled.
 Doing: Broadcast the no-go. Require arity-indexed quotients or a richer proved cross-arity carrier; do not extrapolate memory from bounded-context residual ledgers.
+
+## 2026-08-12T16:59:00Z — schedule-clock continuation
+Believe: Hitting time depends on schedule, but schedule dependence alone does not make a predictive distinction. A future must couple to the clock.
+Doing: Compare equal-terminal schedules under terminal-only futures and under an explicit deadline/age port.
+
+## 2026-08-12T17:00:00Z — schedule-clock landing
+Believe: Arrival time is process memory exactly relative to timed futures. Without a clock port it is acquisition-cost metadata; with exact age readout, distinct times require orthogonal predictive states.
+Doing: Broadcast the ruling. Do not install timestamps into process state until a named future reads them; then compile the least sufficient clock quotient.
