@@ -276,6 +276,14 @@ class ZeroPivotClassification:
     relocated_pivot: int | None
 
 
+@dataclass(frozen=True)
+class RankOneDiagonalNormalization:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    diagonal: tuple[int, int]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -983,6 +991,39 @@ class ExponentWorld:
         return ZeroPivotClassification(
             matrix, kind, transformed, left, right, pivot
         )
+
+    def normalize_rank_one_diagonal(
+        self, matrix: tuple[tuple[int, int], tuple[int, int]]
+    ) -> RankOneDiagonalNormalization:
+        """Move a sole nonzero diagonal entry to the positive leading position."""
+        (a, b), (c, d) = matrix
+        if b != 0 or c != 0:
+            raise ValueError("rank-one diagonal normalization requires a diagonal matrix")
+        nonzero = (a != 0) + (d != 0)
+        if nonzero != 1:
+            raise ValueError("rank-one diagonal normalization requires exactly one nonzero entry")
+        identity = ((1, 0), (0, 1))
+        swap = ((0, 1), (1, 0))
+        if a != 0:
+            left, right = identity, identity
+            transformed = matrix
+        else:
+            left, right = swap, swap
+            transformed = _matmul2(_matmul2(left, matrix), right)
+        if transformed[0][0] < 0:
+            sign = ((-1, 0), (0, 1))
+            transformed = _matmul2(sign, transformed)
+            left = _matmul2(sign, left)
+        diagonal = (transformed[0][0], transformed[1][1])
+        if diagonal[0] <= 0 or diagonal[1] != 0:
+            raise AssertionError("rank-one diagonal normalization failed")
+        if _matmul2(_matmul2(left, matrix), right) != transformed:
+            raise AssertionError("rank-one diagonal certificate failed")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], *diagonal),
+            "paired swaps and sign place the rank-one invariant canonically",
+        )
+        return RankOneDiagonalNormalization(matrix, diagonal, left, right)
 
 
 def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:

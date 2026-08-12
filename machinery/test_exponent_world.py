@@ -23,6 +23,7 @@ from exponent_world import (
     LowerResidualRowAdvance,
     SignedActiveNormalization,
     ZeroPivotClassification,
+    RankOneDiagonalNormalization,
 )
 
 
@@ -530,6 +531,30 @@ class SmithPathTests(unittest.TestCase):
     def test_nonzero_pivot_cannot_enter_zero_classifier(self):
         with self.assertRaisesRegex(ValueError, "zero leading"):
             ExponentWorld().classify_zero_pivot(((2, 0), (0, 7)))
+
+    def test_rank_one_trailing_entry_moves_to_positive_leading_position(self):
+        world = ExponentWorld()
+        result = world.normalize_rank_one_diagonal(((0, 0), (0, -7)))
+        self.assertIsInstance(result, RankOneDiagonalNormalization)
+        self.assertEqual(result.diagonal, (7, 0))
+        self.assertEqual(
+            _matmul_for_test(
+                _matmul_for_test(result.left, result.matrix), result.right
+            ), ((7, 0), (0, 0))
+        )
+        self.assertEqual(abs(_det_for_test(result.left)), 1)
+        self.assertEqual(abs(_det_for_test(result.right)), 1)
+
+    def test_rank_one_leading_entry_only_needs_sign_normalization(self):
+        result = ExponentWorld().normalize_rank_one_diagonal(((-5, 0), (0, 0)))
+        self.assertEqual(result.diagonal, (5, 0))
+        self.assertEqual(result.right, ((1, 0), (0, 1)))
+
+    def test_zero_and_full_rank_diagonals_are_not_rank_one(self):
+        world = ExponentWorld()
+        for matrix in (((0, 0), (0, 0)), ((2, 0), (0, 7))):
+            with self.assertRaisesRegex(ValueError, "exactly one"):
+                world.normalize_rank_one_diagonal(matrix)
 
 
 def _matmul_for_test(left, right):

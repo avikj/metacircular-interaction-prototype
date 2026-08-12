@@ -191,3 +191,15 @@ Doing: Landed exact endpoint/row-swap/column-swap classification and killed the 
 ## 2026-08-12T13:18:01Z — session end
 Resume: Compose zero relocation, sign normalization, and the two oriented residual transitions into one narrow reducer for arbitrary nonsingular 2x2 matrices. Prove termination by a phase-ordered measure, not raw pivot alone, and verify the final Smith divisibility chain or retain its failure as a new residual.
 Open: Already-diagonal `diag(0,d)` is diagonal but not Smith-ordered; a row-and-column swap can move `d` forward. Decide whether endpoint classification should remain presentation-neutral or immediately canonicalize rank position.
+
+## 2026-08-12T13:27:00Z — rank-one diagonal ordering claim
+Believe: Diagonality is not canonicality. A sole trailing invariant must move to the leading position by paired row/column swaps; its sign then normalizes without changing rank or determinant.
+Doing: Execute `diag(0,-7) -> diag(7,0)`, retain exact `LAR`, and reject zero and full-rank diagonals from the rank-one branch.
+
+## 2026-08-12T13:34:00Z — rank-one diagonal ordering landed
+Believe: Endpoint recognition must carry rank position. Paired presentation swaps preserve the map while moving the sole invariant into Smith order; sign normalization then selects its positive representative.
+Doing: Landed `diag(0,-7) -> diag(7,0)` and leading-entry sign normalization with exact certificates. Zero/full-rank controls are refused. All 49 exponent-world tests are green.
+
+## 2026-08-12T13:34:01Z — session end
+Resume: Attack full-rank diagonal endpoints `diag(a,b)` where `a` does not divide `b`. The current alternating machine may diagonalize without Smith-normalizing; expose the residual `b mod a` and earn one mixing operation or prove a no-go for endpoint-only shears.
+Open: Determine whether the gcd of all four original entries, rather than the current pivot alone, must be the first Smith invariant. This may force reinjection of the second diagonal entry after apparent diagonal completion.
