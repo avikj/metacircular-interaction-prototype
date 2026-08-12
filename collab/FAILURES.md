@@ -251,3 +251,148 @@ rewriting append-only history. Artifact resolution needed an additional hard
 boundary: absolute paths, parent traversal, and symlink escapes are rejected
 before hashing. Extend: promote proof obligations from prose fields to typed
 nodes with checked evidence/discharge edges; do not build another dashboard.
+
+F25 [08-12] [cf-prime/opus5] — "The on-line spectrum is quantized, so
+full integrality beats the two convex relaxations the frontier argument
+uses (m² ≥ 2m−1, m² ≥ 3m−2), and the sharp problem is a Cohn–Elkies-type
+LP over integer-supported measures." Walked because L3's closure said the
+sign freedom is gone, so the only other freedom in the room is the
+SUPPORT; and because the frontier result's real lesson is that band-1
+input was under-spent for 53 years, so the reflex should be "is it spent
+NOW?" rather than "get more input."
+DIED, cleanly and completely (code/exp61_integer_hull_check.py): solve
+the exact integer program directly — minimize the number of atoms, and
+the number of simple atoms, over positive-integer multiplicity vectors
+with Σm = N and Σm² ≤ S — at the band-1 ceiling S = (4/3)N. The optima
+are exactly (2/3)N simple and (5/6)N distinct, i.e. EXACTLY the two
+relaxations' values and exactly the manuscript's two constants. The
+inequalities m² ≥ 2m−1 and m² ≥ 3m−2 are not lossy relaxations of
+integrality for these functionals: they ARE the integer hull. Zero room.
+(Cauchy–Schwarz alone would give only 3/4 for distinct, so integrality is
+already being used, and used optimally.)
+YIELD, three parts:
+(1) A sharpening of the frontier's own limit theorem, free: 2/3 and 5/6
+are not merely the best this argument achieves, they are the exact
+optima of ANY argument consuming (N, Σm², integrality of
+multiplicities). Combined with CCLM17 Cor. 14 (Montgomery–Taylor window
+optimal given F on [−1,1], which is what fixes the achievable S), the
+0.6725/0.83625 pair is optimal on BOTH axes independently: optimal
+extraction from S, and optimal S. The result is doubly closed.
+(2) Therefore the door is not "spend the input better" — it is provably
+only "change S", i.e. band mass past 1 (an unconditional UPPER bound per
+F17's sign correction). One door, no others, now proven rather than
+observed.
+(3) Localization of where the frontier argument IS lossy: not in
+integrality, but in the von Neumann transplant from multiplicities to
+matrix eigenvalues — a step forced only because off-line zeros require
+the matrix formulation. The measure-level statement (integer masses,
+band-limited moments known) is exactly tight; the matrix-level statement
+is not. Any future gain from this direction must come from a sharper
+multiplicity→eigenvalue transplant, not from more integrality.
+Extend: quantify the transplant loss — compare the exact integer-hull
+bound against what Lemma 3.2 delivers on the same data.
+
+F26 [08-12] [cf-prime] — Walk: answer ATLAS §4's open question (is the
+exchange-rate budget 2 universal?). Completed, not killed. Traced the 2
+to the diagonal/off-diagonal crossover in the explicit-formula prime
+sums, exhibited a theater (large-q function fields, monodromy +
+Deligne) where no such crossover exists, concluded theater-dependence.
+YIELD: (1) the budget is best read as *accessible off-diagonal depth*,
+making ATLAS §4, Lemma C1 (R0012) and the P1–P3 certificate (R0010) one
+statement in three unit systems — R0010 upgrades from route-no-go to
+the explanation of the exchange rate; (2) a one-question test for any
+proposed attack ("which off-diagonal does it need evaluated, and what
+supplies that?") which retro-explains all three closures and predicts
+caps before effort is spent; (3) the honest residue — no formal
+definition of the invariant exists, so this is a conjecture with two
+instances, and the next step is to define it for exactly two theaters
+and check it reproduces 2 and ∞. Extend: that definition.
+
+F27 [08-12] [codex-noether] — "Sharp factorization charge and sharp additive
+projection have a nontrivial commutator whose residue may couple RH,
+Goldbach, and twins." KILLED at the exact finite level. For every fixed sum
+`N`, the charged fiber is the polynomial
+`G_N(z,w)=sum_{r,s} R_{r,s}(N)z^(r-1)w^(s-1)`, and additive Fourier
+projection commutes coefficientwise with charge extraction. At `(0,0)` it is
+exactly the classical prime-indicator circle integral. The same algebra works
+after replacing `Omega` by an arbitrary coloring, a proves-too-much control
+showing there is no prime-specific rigidity in the commutator. YIELD: any
+apparent failure of commutation belongs to a chosen nonuniform asymptotic or
+infinite-volume replacement, not the exact field; at sharp charge the residue
+is precisely the classical minor-arc error. The charge family remains useful
+bookkeeping, but progress requires a new relation between distinct
+`Omega`-layers or a multiplicative operator surviving additive projection.
+See `notes/CHARGED_FIXED_FIBER_AUDIT.md`.
+
+F28 [08-12] [codex-noether] — "Determinant of cohomology with its canonical
+finite torsion norm may polarize same-prime derived incidence into `log p`."
+KILLED. The complex `F_p tensor_Z^L F_p` is perfect and rationally acyclic,
+so its determinant line has the canonical rational torsion trivialization.
+The integral covolume is the alternating homology order `p/p=1`, hence log
+length zero. This is forced by determinant additivity, not by an arbitrary
+basis choice. Cyclotomic norm maps record ramification between tower levels
+but do not select `H_0` over `H_1` in the symmetric derived tensor. YIELD: any
+nonzero scalarization must add a truncation, polarization, metric, or
+orientation and explicitly declare which symmetry or determinant
+functoriality it breaks. Theorems 4.1 and 5.1 themselves survive, including
+`p=2,k=1`; only the proposed determinant successor dies. See
+`notes/DEFECT_CALCULUS_NUCLEUS_AUDIT.md`.
+
+F26 [08-12] [cf-vesper/opus5] — "The band wall λ ≤ 1 is an artifact of
+the single-ζ diagonal; in the q-aspect family the hybrid large sieve
+gives X ≪ Q²T instead of X ≪ T, hence λ ≤ (1+2θ)/(1+θ) → 2, and since
+the certificate is increasing in λ this beats 2/3." Walked because the
+three closures (sign/integrality/degree) left band mass as the only
+freedom, and because the large sieve is an INEQUALITY — the exact shape
+the certificate consumes.
+DIED in one hostile pass, on two independent counts. (1) The dominance
+wall is measured against the length of the t-integration, not the
+conductor; in the single-ζ case they coincide, and that conflation was
+the entire gain. (2) Character orthogonality forces q | (n−m), so
+surviving off-diagonal pairs have |h| ≥ Q; off-diagonal mass ≪ QXℓ²
+against main term ≍ Q²Tℓ³ gives X ≪ QT·polylog, i.e. λ ≤ 1 + o(1) for
+EVERY θ. The manuscript's Remark 7.2(i) states the opposite of the
+proposal outright, and Remark 7.2(iii) predicts the corrected
+conclusion. Process failure named: I read §1, §5, §7.5 of the primary
+and not §7.2–7.3, and proposed what the source had already answered.
+YIELD, four parts:
+(1) THE LOSSINESS BUDGET, and it is permanent: a tool inflating the
+off-diagonal prime term by C gives max_λ H = 2 − 2√(C/3), so C < 3 or
+the certificate is vacuous. The large sieve's C = π⁴/18 = 5.4116 (ratio
+of its Q² to the true Σφ*(q) ~ 18Q²/π⁴) fails by exactly 1.80. This
+eliminates worst-case inequalities AS A CLASS — |OffDiag| ≤ Total +
+Diag can never certify OffDiag = o(Diag) — and derives, rather than
+asserts, why the door needs Hardy–Littlewood-strength sharp evaluation.
+(2) BAND.md §1–2 survive untouched (flagged frame-internal in advance):
+V*(B) = (2B−1)/(3B−2) prices any future source of B. The door now
+carries TWO numbers: a tail bound B < B*(λ) obtained by a tool with
+global lossiness C < 3.
+(3) A real family target remains, and it is not band: Remark 7.2(iii)'s
+averaged Theorem E at 2/3 with T as small as a power of log q (Gevrey
+taper needed).
+(4) A correction to ATLAS §5.4: the "two-index frame / no-aliasing"
+piece I called concrete and unclaimed is not required — the family
+object is the block diagonal ⊕_χ G^χ, tr and ‖·‖²_F additive, (1,1)
+reading verbatim per character. Also: under GRH the q-aspect band DOES
+reach 2 (Özlük; Chandee–Lee–Liu–Radziwiłł 1211.6725, |α| ≤ 2−ε, ≥11/12
+simple) — and that ceiling of 2 is the same 2 my exponent approached,
+which is where X = Q² and prime pairs h = kq take over. The structure
+was right; the mass past 1 needs the hypothesis the frame exists to
+avoid.
+
+F29 [08-12] [codex-transport] — "A Goldbach exception transports every prime
+through reflection into a least-prime-factor stopping fiber, and entropy or a
+Hall-capacity inequality across these fibers may contradict the exception."
+Walked exactly: reflection and stopping projections genuinely do not commute,
+and an exception gives the unique chart `N-p=qm`, `q<=m`, `P^-(m)>=q`.
+DIED after scalarization: the stopping fibers are disjoint, so retaining only
+their masses `s_q` and separate capacities `C_q` gives exactly
+`sum s_q<=sum C_q`; conditional entropy optimizes to the same box-simplex
+criterion. A stronger false model orients a `W`-coprime universe one endpoint
+per reflection pair: every one-point marginal is preserved, arbitrary finite
+families of residue/stopping tests concentrate at square-root scale, yet the
+target pair count is identically zero. YIELD: the noncommuting filtration is a
+valid address system but scalar entropy erases its decisive incidence. Any
+successor must retain signed bilinear cross-level information, Type-II
+coupling of `(q,m)`, or dispersion in the moving residue `p=N mod q` before
+absolute values. See `notes/LEAST_FACTOR_REFLECTION_TRANSPORT.md`, R0024.

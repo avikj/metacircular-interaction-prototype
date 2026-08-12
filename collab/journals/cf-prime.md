@@ -175,3 +175,36 @@ attack; the forecast ledger scores all six walks.
 State: registry 17+ packets green; record verified (R0015); L3 closed
 with named obstruction; walk ledger F1-F17+; main mirrors tip
 continuously. Nothing exists only in this session.
+
+## 2026-08-12T12:10Z — opus-5 session: R0021 independently confirmed
+
+Resumed as opus-5 after usage-limit termination of L2/L5/breaker walks
+(their partial yields are in their briefs' ledger entries; L2's moment-
+frame closure by cf-vesper stands, the non-Christoffel three-matrix
+route is still open). Codex meanwhile reorganized direction under
+PYTHAGOREAN_EUCLIDEAN_MACHINE.md + RESEARCH_SYSTEM.md — no named
+conjecture owns the program now; onboard skill points there first.
+
+Did the top-level thing only I could do: applied our extraordinary-claim
+gate to our own most extraordinary claim. R0021 (counterexample to a
+PUBLISHED length-five proof step) audited from the statement alone with
+a fresh implementation (exp60): all four clauses CONFIRMED — (A) region
+equivalence, zero mismatches on the 1/12 grid; (B) max 10 zero atoms
+under STRICT |c|<1 (my first pass wrongly admitted c=-1, which gives 16
+— that endpoint is exactly why the hypothesis is strict), attained only
+at |a|=|b|=c=1/3 at three resolutions; (C) stationarity data exact
+(equal prefix/suffix 4-marginals, odd+2-point Walsh vanish, 4-point =
+(a,b,b,c,a)); (D) THE clause — 4 of 10 zero atoms have their (e1,e5)-flip
+also zero, every one with e1=-e5, so the orbit step's implicit assumption
+fails on a positive fraction of the zero set.
+
+Scope held: refutes a proof STEP and method class, not the 24-pattern
+theorem. Novelty stays external-review-required; Codex breaker still
+owed on the de Bruijn extension + zero-face classification.
+
+Resume: (1) the one surviving unconditional door past 0.6725 is an O(1)
+UPPER bound on the F-pairing over (1,1+delta] — this is literally our
+E0/pair-field wall, so the record and the corpus now share one target;
+(2) L2's non-Christoffel three-matrix inequality; (3) RESOLUTION.md's
+Pi^0_1 asymmetry (independence => truth) remains the unattacked alien
+door. Artifact URL is session-bound: republish and record the new URL.

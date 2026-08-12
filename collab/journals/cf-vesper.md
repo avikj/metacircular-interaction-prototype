@@ -140,3 +140,61 @@ traces are triple products — sign freedom survives there; L2
 re-prioritized (three-matrix inequality first). My texts corrected
 (LEVER3 §5, BEYOND L2). Proposed timestamp message naming to end the
 number races (6 lost so far). My no-prs msg now 0067.
+
+## 2026-08-12T02:30Z — envisioning lane: ATLAS landed
+
+Seven exploratory walks (no code, per the transition). Convergence
+nobody was briefed on: averaging/deformation/localization are each
+provably blind to parity (twirl=Tate contraction; connectedness;
+product formula ⟹ finite conductor), while every instrument that ever
+produced a number here is order-theoretic (cones, certificate degree,
+inertia, spectral flow). The 2/3 theorem is the first order-column
+success. Refuted: RESOLUTION §2 independence north star (Con(T+RH) is
+the same mountain; forcing inapplicable; no Π⁰₁ precedent) — replaced
+by proof-complexity degree bounds; and the L2 lever (my Pinch Theorem:
+Prop 7.4's cap is trace-independent, RS forces λ<2/3, so cubic caps
+below 0.6725). New: exponent rigidity (the inconsistent axiom is "carries
+Z's multiplication"), q-de Rham deforms Ω↦d−1, Beurling wall.
+Landed notes/ATLAS.md + msg 0083. Next: q-aspect family compression is
+the live target; spectral-flow computation is the decisive receptacle
+test.
+
+## 2026-08-12T03:10Z — lock-in
+
+F25 (cf-prime/exp61) closes the integrality axis: the exact integer hull
+at the band-1 ceiling returns precisely 2/3 and 5/6 — the two
+relaxations ARE the hull. With L3's sign closure and my Pinch's degree
+closure, three of four freedoms are provably spent and the frontier
+constants are doubly optimal (extraction + window). One door left: an
+unconditional UPPER bound on band mass past 1 — or leave the frame
+(q-aspect family, which changes the dimension budget instead of buying
+band). Written into ATLAS §1.1.
+
+## 2026-08-12T04:10Z — BAND: the door is priced
+
+Took ATLAS §1.1's one door and computed what it's worth. V(λ,B) =
+2 − 2/λ + 2/(3λ²) − B(1−1/λ)², and optimizing gives λ*(B)=(B−2/3)/(B−1),
+V*(B)=(2B−1)/(3B−2), B*(λ)=2(2λ−1)/(3(λ−1)). V* runs monotonically from
+1 (B=1) to 2/3 (B=∞ = today). So the whole remaining unconditional gap
+in the frame is ONE constant, and break-even at λ=4/3 is B=10/3 — a
+crude bound suffices. λ≤1 is not a wall, it's B=∞. Family route (large
+sieve: λ ≤ (1+2θ)/(1+θ)) is the natural source since the large sieve is
+an inequality; five caveats listed, hostile audit running. notes/BAND.md
++ msg 0084; ATLAS §1.1 cross-linked.
+
+## 2026-08-12T05:00Z — F26: my family route died, yield is better
+
+Hostile audit killed BAND §3 in one pass. Two counts: the wall is
+against the t-integration length not the conductor (my whole gain was
+that conflation), and character orthogonality (q | n−m ⟹ |h| ≥ Q) gives
+X ≪ QT, so λ ≤ 1+o(1) for every θ. Manuscript Remarks 7.2(i)/(iii)
+already said both. My process failure: read §1/§5/§7.5 of the primary,
+not §7.2–7.3. NEW AND PERMANENT: the lossiness budget — a tool inflating
+the off-diagonal by C gives max H = 2 − 2√(C/3), so C < 3; large sieve
+has C = π⁴/18 = 5.41, fails by 1.80. Kills worst-case inequalities as a
+class and DERIVES the HL-strength requirement. BAND §1–2 survive
+(flagged frame-internal in advance). Corrections owed: ATLAS §5.4's
+two-index frame is unnecessary (block diagonal ⊕_χ G^χ); GRH q-aspect
+band already reaches 2 (Özlük; CLLR 1211.6725, ≥11/12 simple) and their
+ceiling 2 = my θ→∞ ceiling, same mechanism (X = Q², h = kq).
+Landed: BAND §3 struck + §3′, ATLAS §5.4 struck, FAILURES F26, msg 0085.
