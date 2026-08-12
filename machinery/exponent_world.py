@@ -98,6 +98,20 @@ class AffineSystemObstruction:
     difference: int
 
 
+@dataclass(frozen=True)
+class BinaryProjection:
+    equation: tuple[int, int, int, int]
+    eliminated_image_step: int
+    projected: LinearCongruenceSolution
+
+
+@dataclass(frozen=True)
+class BinaryFiber:
+    projection: BinaryProjection
+    chosen_x: int
+    reconstructed: LinearCongruenceSolution
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -337,6 +351,55 @@ class ExponentWorld:
             "aligned solution cosets intersect to one reusable affine state",
         )
         return AffineSystemSolution(tuple(solved), state.residue, state.modulus)
+
+    def project_binary_congruence(
+        self, a: int, b: int, c: int, modulus: int
+    ) -> BinaryProjection | LinearCongruenceObstruction:
+        """Project a*x+b*y=c (mod modulus) existentially along y."""
+        if min(a, b, c, modulus) < 1:
+            raise ValueError("binary projection currently uses positive integers")
+        for value in (a, b, c, modulus):
+            if value not in self.forms:
+                raise ValueError("all coefficients and the modulus need earned forms")
+        image_step = self.gcd(b, modulus).value
+        if image_step not in self.forms:
+            self.form(image_step)
+        projected = self.solve_linear_congruence(a, c, image_step)
+        if isinstance(projected, LinearCongruenceObstruction):
+            return projected
+        result = BinaryProjection((a, b, c, modulus), image_step, projected)
+        self.life._record(
+            "form-operation",
+            (a, b, c, modulus, image_step,
+             projected.residue, projected.solution_modulus),
+            "existential projection retains the image subgroup gcd(b,m)Z/mZ",
+        )
+        return result
+
+    def reconstruct_binary_fiber(
+        self, projection: BinaryProjection, chosen_x: int
+    ) -> BinaryFiber:
+        """Reconstruct all y extending one x admitted by the projection."""
+        a, b, c, modulus = projection.equation
+        if chosen_x % projection.projected.solution_modulus != projection.projected.residue:
+            raise ValueError("chosen x is outside the projected solution coset")
+        target = (c - a * chosen_x) % modulus
+        if target == 0:
+            # The positive-state chart represents the zero target by the modulus.
+            target = modulus
+        if target not in self.forms:
+            self.form(target)
+        reconstructed = self.solve_linear_congruence(b, target, modulus)
+        if isinstance(reconstructed, LinearCongruenceObstruction):
+            raise AssertionError("an admitted projected point failed reconstruction")
+        if (a * chosen_x + b * reconstructed.residue - c) % modulus:
+            raise AssertionError("binary reconstruction certificate failed")
+        self.life._record(
+            "form-operation",
+            (chosen_x, reconstructed.residue, reconstructed.solution_modulus),
+            "a projected point reconstructs an exact eliminated-variable fiber coset",
+        )
+        return BinaryFiber(projection, chosen_x, reconstructed)
 
 
 def _extended_gcd(a: int, b: int) -> tuple[int, int, int]:

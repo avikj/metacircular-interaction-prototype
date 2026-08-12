@@ -5,6 +5,7 @@ import unittest
 from exponent_world import (
     AffineSystemObstruction,
     AffineSystemSolution,
+    BinaryProjection,
     ExponentWorld,
     LinearCongruenceObstruction,
     LinearCongruenceSolution,
@@ -163,6 +164,45 @@ class ExponentWorldTests(unittest.TestCase):
         result = world.solve_affine_system(((10, 4, 2), (1, 4, 5)))
         self.assertIsInstance(result, AffineSystemSolution)
         self.assertEqual((result.residue, result.modulus), (4, 5))
+
+    def test_binary_projection_retains_eliminated_image_subgroup(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (6, 10, 14, 30):
+            world.form(value)
+        projected = world.project_binary_congruence(6, 10, 14, 30)
+        self.assertIsInstance(projected, BinaryProjection)
+        self.assertEqual(projected.eliminated_image_step, 10)
+        self.assertEqual(
+            (projected.projected.residue, projected.projected.solution_modulus),
+            (4, 5),
+        )
+        fiber = world.reconstruct_binary_fiber(projected, 4)
+        self.assertEqual(
+            (fiber.reconstructed.residue, fiber.reconstructed.solution_modulus),
+            (2, 3),
+        )
+        self.assertEqual((6 * 4 + 10 * 2 - 14) % 30, 0)
+
+    def test_naive_term_deletion_is_a_false_projection(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (6, 10, 14, 30):
+            world.form(value)
+        naive = world.solve_linear_congruence(6, 14, 30)
+        self.assertIsInstance(naive, LinearCongruenceObstruction)
+        exact = world.project_binary_congruence(6, 10, 14, 30)
+        self.assertIsInstance(exact, BinaryProjection)
+
+    def test_reconstruction_rejects_x_outside_projection(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (6, 10, 14, 30):
+            world.form(value)
+        projected = world.project_binary_congruence(6, 10, 14, 30)
+        self.assertIsInstance(projected, BinaryProjection)
+        with self.assertRaisesRegex(ValueError, "outside the projected"):
+            world.reconstruct_binary_fiber(projected, 3)
 
 
 if __name__ == "__main__":
