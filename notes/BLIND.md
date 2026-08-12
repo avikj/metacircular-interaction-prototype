@@ -1,4 +1,25 @@
-# Blind extraction: the zeta zeros come out of Möbius data with no spectral input
+# Blind extraction on the pair layer
+
+**Prior art, up front (librarian audit).** Recovering Riemann zeros from prime
+data by a *parametric* high-resolution estimator is **not new**:
+**Main, Mandelshtam, Wunner & Taylor**, *Nonlinearity* **11** (1998) 1015
+(arXiv:chao-dyn/9709009) obtained several thousand zeros to ~12 digits by
+harmonic inversion (filter diagonalization — matrix-pencil family) of the
+prime "periodic-orbit" signal, with 80 zeros from just 168 primes, and gave
+the *same* sub-Fourier argument this note gives in §2 ("no restriction for the
+closeness of the frequencies as they are variational parameters"). Follow-ups:
+Main–Dando–Belkić–Taylor, *J. Phys. A* **33** (2000) 1247; Main, *Phys. Rep.*
+**316** (1999) §3.1. The reverse direction (zeros → prime spikes) is
+Odlyzko (1989), Sakhr–Bhaduri–van Zyl, *PRE* **68** (2003) 026206, and
+Rubinstein's figure in Conrey, *Notices AMS* **50** (2003) 346; the underlying
+reading is Berry (1986).
+
+**What is actually new here**, and all that should be claimed: the target is
+the **pair layer** $\{\gamma_i+\gamma_j\}$ of a *bilinear* (Möbius–Goldbach)
+field rather than the linear explicit formula — nobody has inverted the
+double-zero layer — together with the **sumset chain inversion** that turns
+pair frequencies back into individual zeros. The superlative "with no spectral
+input of any kind" is withdrawn: it describes a 1997 result.
 
 Code: `code/exp42_esprit.py` → `figures/exp42_esprit.png`. This note answers
 the strongest standing criticism of this branch (auditor `CROSSREVIEW_WAVE2`

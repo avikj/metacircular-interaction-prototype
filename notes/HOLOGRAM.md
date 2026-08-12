@@ -74,9 +74,16 @@ resource-bounded* analogue for arithmetic data:
 
 ## 3. Consequences stated plainly
 
-1. **Numerical unreachability of the bulk is a law.** No feasible
-   computation reads correlation-grade structure beyond $T\sim$ tens from
-   arithmetic data. Analytic methods are the only access to the bulk —
+1. **Scope correction (librarian audit) — the broad reading is false.** The
+   claim is *not* "no feasible computation reads correlation-grade structure
+   from arithmetic data": Montgomery's $F(\alpha,T)$ is computed **from prime
+   data** and is proved for $|\alpha|<1$, and Goldston–Montgomery ties pair
+   correlation to prime variance at *polynomially* related scales. Theorem K′
+   is about the strictly narrower task of **resolving individual pair atoms
+   $\gamma_i+\gamma_j$ as separated spectral lines within a windowed-linear
+   read-off** — not about estimating correlation *statistics*, which are
+   accessible at polynomial depth. Stated broadly the claim contradicts
+   Montgomery; stated narrowly it stands. Analytic methods are the only access to the bulk —
    and zero-table numerics (surface of the *spectral* side) can never
    substitute for prime-side correlation knowledge.
 2. **Dressing fusion improves constants, not exponents** (exp19/20: all
@@ -135,7 +142,7 @@ refinements.
 Honest deltas toy→arithmetic: superresolution lower bounds are minimax
 over amplitudes; the arithmetic amplitudes are fixed and partially known
 (modulus law), which improves constants — it cannot change exponents,
-which moment matching forces. Citations to anchor: arXiv:1203.5871 (CF-G),
+which moment matching forces. Citations to anchor: **Donoho**, *SIAM J. Math. Anal.* **23** (1992) 1309 — the origin of the $\varepsilon^{1/(2p-1)}$ / Rayleigh-index rate; arXiv:1203.5871 (CF-G),
 arXiv:1502.01385 (Demanet–Nguyen), arXiv:1904.09186 (Batenkov et al.).
 
 

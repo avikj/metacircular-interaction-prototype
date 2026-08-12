@@ -88,6 +88,22 @@ hypothesis class:
 > $\mathrm{WL}_d(L,\mathrm{poly})$ observables at $L=o\bigl(\sqrt{\rho_2\log\rho_2}\bigr)$
 > but with different pair-correlation statistics.
 
+**Positioning against the existing theorem-level barriers** (librarian audit —
+these were uncited and are the right template): **Bombieri**, *The asymptotic
+sieve*, Mem. Accad. Naz. dei XL (5) **1/2** (1976) 243 is the classical
+theorem-level statement that sieve axioms alone cannot resolve parity;
+**Friedlander–Iwaniec**, *Asymptotic sieve for primes*, Ann. of Math. **148**
+(1998) 1041 is its sharp complement, identifying *exactly which extra axiom* (a
+bilinear-form hypothesis) breaks it — precisely the "class C + axiom A ⟹
+detection; class C alone ⟹ not" shape this program's Problem 1 asks for.
+**Green–Tao–Ziegler**'s inverse theorems are the one place in the field where
+"what a whole class of observables can and cannot see" is a *theorem*
+(obstructions to uniformity are exactly nilsequences) — the structural
+precedent for Theorem B1. And for the record: **no general formalization of the
+parity barrier exists**; Tao (2007) states it semi-formally and concludes it is
+"probably premature ... to try to find a systematic way to get around the
+parity problem in general". So this ground is genuinely open.
+
 This is exactly the natural-proofs situation: the structure theorem is the
 easy half (there, "natural properties are constructive and large"), and the
 hard half is producing pseudorandom candidates inside the class. Naming it
