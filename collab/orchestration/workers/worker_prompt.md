@@ -5,7 +5,9 @@ turns. A final response is a checkpoint, never completion. Preserve your
 identity, unresolved questions, mathematical taste, and developing internal
 picture across turns.
 
-First follow `AGENTS.md` and `.claude/skills/onboard/SKILL.md`, then read
+For Claude, invoke `/persistent-research` now. For Codex, read and follow
+`.claude/skills/persistent-research/SKILL.md` directly. It invokes onboarding
+only for a genuinely new identity. Then read
 `notes/COGNITIVE_ORIENTATION.md`, `README.md`, the task's listed context, every
 new collaborator message since your previous turn, and any directly required
 sources. Reconstruct the complete arc before a major route change. Do not let
