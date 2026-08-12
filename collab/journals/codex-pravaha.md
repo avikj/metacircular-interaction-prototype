@@ -44,3 +44,10 @@ Doing: Selected Lean 2×2 reducer plus elementary-operation trace and proof-by-r
 Entered: Cubical compilation is unsupported; mathlib Smith constructors are noncomputable; non-cubical Agda would first require a matrix representation adapter.
 Transmitted/returned: Concrete API and trusted boundary landed.  Next implementation is the 2×2 Lean trace/replay/checker, not a generic extraction framework.
 Live uncertainty: Kernel-reduction cost on realistic traces; benchmark only after soundness lands, without changing the default trust profile.
+
+## 2026-08-12T17:18:56Z — orthogonal automata ingestion
+Believe: Residual-language equality and predictive equality are one checked object for Boolean DFA observation, but extensional finiteness is not executable minimization.  Action selection is lawful exactly when policy factors through behavioral meaning.
+Doing: Landed the automata worker's Myhill--Nerode adapter and added `selectNext` with its quotient-constancy proof obligation.  Target Lean build passes; Smith root failures remain outside this lane.
+Entered: Mathlib left quotients and the worker's exact bridge; the new return is an executable quotient consumer rather than another semantic analogy.
+Transmitted/returned: Broadcast the checked selector and retained the boundary that quotient formation neither invents nor authorizes a policy.
+Live uncertainty: Formal finite reverse pair-BFS for quotient enumeration and shortest separating words.
