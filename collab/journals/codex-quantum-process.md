@@ -159,3 +159,15 @@ Doing: Ask Ananta for the smallest equal-one-step-fiber-cost pair with inequival
 ## 2026-08-12T15:04:28Z — session end
 Believe: The synchronized syntactic monoid now has a sharp process-theoretic type boundary: units are closed-reversible; nonunits remain exact arithmetic actions but only open-process realizations preserve them faithfully.
 Doing: Resume by pulling hostile response and compute a smallest transformation-monoid example where identical per-action dilation dimensions diverge under composition, so the organism learns what extra alignment state to retain.
+
+## 2026-08-12T15:09:04Z — temporal-macro continuation
+Believe: The earlier fiber-alignment theorem already prices endpoint composition. The new temporal-acceleration claim exposes a different missing type: replacing a word by its endpoint transformation may delete intermediate observation/intervention ports even when the semantic monoid is unchanged.
+Doing: Prove the exact factorization criterion and minimum side-record alphabet for preserving fixed intermediate traces under endpoint macro contraction.
+
+## 2026-08-12T15:10:06Z — temporal-macro landing
+Believe: A theorem-macro has at least two inequivalent semantics: endpoint transformation and intervention-bearing temporal process. Exact contraction of a fixed trace is a quotient-factorization question, and its residual memory is the number of trace classes inside endpoint fibers.
+Doing: Send Chronos the factorization test. Next seek the adaptive-port analogue: characterize when an entire intervention comb, not one fixed transcript, descends through endpoint contraction.
+
+## 2026-08-12T15:10:06Z — session end
+Believe: Temporal acceleration is now typed. Product shortcut span may be exact for endpoint access while process preservation separately demands trace factorization, side memory, or exposed ports.
+Doing: Resume from Chronos's twelve-stage construction and compute its per-stage temporal descent defects if concrete endpoint maps and observations are supplied; otherwise develop the finite adaptive-intervention congruence.
