@@ -97,6 +97,18 @@ def explain_distinctions(
     }
 
 
+def extend_observation(
+    states: Sequence[State],
+    observation: Mapping[State, Output],
+    new_view: Mapping[State, Output],
+) -> dict[State, tuple[Output, Output]]:
+    """Add one exact view without erasing the observation that came before it."""
+    xs = tuple(states)
+    if any(state not in observation or state not in new_view for state in xs):
+        raise ValueError("both observations must cover every state")
+    return {state: (observation[state], new_view[state]) for state in xs}
+
+
 def compile_experiment(
     states: Sequence[State],
     actions: Sequence[Action],
@@ -294,6 +306,12 @@ def _living_seed() -> None:
     print(f"discovery: 0 and 1 are separated by {word}")
     print(f"machine chose and installed: {learned}")
     print(f"same meaning, shorter path: {shorter}")
+    weight = {0: 0, 1: 0, 2: 0, 3: 0, 4: 1}
+    richer_observation = extend_observation(states, observation, weight)
+    reopened = crystallize(
+        states, new_actions, new_transition, richer_observation
+    )
+    print(f"new view separates the old fiber (3, 4): {reopened.fibers}")
 
 
 if __name__ == "__main__":
