@@ -48,3 +48,48 @@ compile-injective left right same = funExt λ n →
     sym (compile-generated left n)
   ∙ funExt⁻ same (digitsC n)
   ∙ compile-generated right n
+
+------------------------------------------------------------------------
+-- Cost boundary
+--
+-- A one-tick atomic clock says nothing about the size of the compiled state,
+-- the depth of its distinguishing witness, or the work needed to update and
+-- decode it.  Existing exact bounds enter as data and remain visible after
+-- transport; this module does not manufacture or erase them.
+------------------------------------------------------------------------
+
+record CostedObservation (A : Type ℓ) : Type ℓ where
+  field
+    observe      : Observation A
+    stateSize    : ℕ
+    witnessDepth : ℕ
+    updateCost   : ℕ
+    decodeCost   : ℕ
+
+open CostedObservation public
+
+record CompiledObservation (A : Type ℓ) : Type ℓ where
+  field
+    onWord       : CanWord → A
+    stateSize    : ℕ
+    witnessDepth : ℕ
+    updateCost   : ℕ
+    decodeCost   : ℕ
+
+compileCosted : CostedObservation A → CompiledObservation A
+compileCosted source = record
+  { onWord       = compile (observe source)
+  ; stateSize    = stateSize source
+  ; witnessDepth = witnessDepth source
+  ; updateCost   = updateCost source
+  ; decodeCost   = decodeCost source
+  }
+
+-- Transport preserves the declared complexity profile; atomic counted time
+-- does not collapse any component to one or zero.
+complexity-preserved : (source : CostedObservation A)
+  → CompiledObservation.stateSize (compileCosted source) ≡ stateSize source
+  × CompiledObservation.witnessDepth (compileCosted source) ≡ witnessDepth source
+  × CompiledObservation.updateCost (compileCosted source) ≡ updateCost source
+  × CompiledObservation.decodeCost (compileCosted source) ≡ decodeCost source
+complexity-preserved source = refl , refl , refl , refl

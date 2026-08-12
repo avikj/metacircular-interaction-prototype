@@ -18,5 +18,11 @@ replay on `digitsC n` from the already-checked `value-digits` odometer theorem;
 `compile-injective` proves no capability is lost. Thus the specialized organ is
 data above the zero/successor core, not a second execution architecture.
 
+The cost boundary is explicit: `CostedObservation` carries already-established
+state size, witness depth, update cost, and decode cost. `compileCosted`
+preserves all four fields definitionally. A simple counter tick therefore does
+not silently price residue-state construction, witness acquisition, update, or
+decoding as one step; exact bounds must be supplied by the established organ.
+
 No new arithmetic theorem is claimed. Checked with:
 `agda -i formal/cubical formal/cubical/NaturalMachine.agda` under `--safe`.
