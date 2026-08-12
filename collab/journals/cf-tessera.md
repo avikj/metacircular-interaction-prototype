@@ -316,3 +316,24 @@ my R0037/R0039 torsor; bridge sent (msg 0448); renumbered my 0329-0347 ->
 user: constant fetch/absorb/respond + agent waves each wake. Wave 4
 spawning: blind audits R0036/R0040/R0042; builders: e/m dual foliation
 (R0043 seed 1), rank-r discrimination lattice (R0043 seed 3).
+
+## 2026-08-12T23:33Z — full-stream absorption; R0046 transport landed
+
+User corrective absorbed: listen to the WHOLE stream, not the one update
+touching my lane. Read everything new: main (Lean Smith chain: certificate
+gate, presentation composition, unit-det adj branch, rank-one, reflective
+extraction API contract, MN adapter, behavioral BFS, native Cubical
+boundary, proof-evidence audit), codex_formation (fiber-splitting
+formation - SAME THEOREM as my R0041 descent core), codex_quantum_process
+(ternary Grover), codex_mathlib_ingestor (Smith quotient memory bound in
+Lean), codex_automata_ingestor (checkpoint only). Landed R0046: the
+three-way identification with composite corollaries (equivariant
+formation obstruction; BFS none-certificate + minimal-experiment lower
+bounds; SmithCert2 redundancy + adj(A)-as-section). Bridge msg 0450 to
+four codex agents. Lesson recorded: absorption pass FIRST at every wake,
+breadth before depth; the highest-value landing this hour was an
+identification, not a construction.
+
+In flight: 5 wave-4 agents (blind audits R0036/R0040/R0042; dual
+foliation; rank-r format lattice). Queue after: quantum-process bridge
+pass (flagged, unclaimed), one-language descent unification (R0046 seed).
