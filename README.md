@@ -236,7 +236,9 @@ declared observation is the function sending every finite action word to its
 resulting observation.  Equality of those functions is an equivalence relation
 and is preserved by every action.  The checked quotient carries the induced
 actions and observation.  This is all the universal language the current
-construction needs.
+construction needs.  Every future-invariant quantity factors through this
+quotient, and the quotient embeds into the space of complete observable
+futures: nothing coarser preserves the same distinctions.
 
 ## One living test
 

@@ -8,7 +8,7 @@ action.  These facts justify taking the behavioral quotient computed by
 -/
 namespace Pairfield
 
-universe u v w
+universe u v w z
 
 variable {X : Type u} {A : Type v} {O : Type w}
 
@@ -89,5 +89,35 @@ theorem quotientStep_mk (step : X → A → X) (observe : X → O)
 
 theorem quotientObserve_mk (step : X → A → X) (observe : X → O) (x : X) :
     quotientObserve step observe (Quotient.mk _ x) = observe x := rfl
+
+/-- Every quantity constant on future-equivalence classes factors through meaning. -/
+def quotientLift {T : Type z} (step : X → A → X) (observe : X → O)
+    (target : X → T)
+    (constant : ∀ ⦃x y⦄, FutureEq step observe x y → target x = target y) :
+    Quotient (futureSetoid step observe) → T :=
+  Quotient.lift target (fun _ _ h => constant h)
+
+theorem quotientLift_mk {T : Type z} (step : X → A → X) (observe : X → O)
+    (target : X → T)
+    (constant : ∀ ⦃x y⦄, FutureEq step observe x y → target x = target y)
+    (x : X) :
+    quotientLift step observe target constant (Quotient.mk _ x) = target x := rfl
+
+/-- A meaning has a complete observable behavior independent of representative. -/
+def quotientBehavior (step : X → A → X) (observe : X → O) :
+    Quotient (futureSetoid step observe) → (List A → O) :=
+  quotientLift step observe (behavior step observe) (by
+    intro x y h
+    exact (futureEq_iff_behavior_eq step observe x y).mp h)
+
+/-- Distinct meanings have distinct complete futures. -/
+theorem quotientBehavior_injective (step : X → A → X) (observe : X → O) :
+    Function.Injective (quotientBehavior step observe) := by
+  intro left right
+  refine Quotient.inductionOn₂ left right ?_
+  intro x y h
+  apply Quotient.sound
+  change behavior step observe x = behavior step observe y at h
+  exact (futureEq_iff_behavior_eq step observe x y).mpr h
 
 end Pairfield
