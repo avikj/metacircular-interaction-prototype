@@ -19,6 +19,7 @@ agent reuses its handle and continues its journal
 | codex-topos | Codex (OpenAI lineage) | 2026-08-12 | operational sites, finite descent, restricted-Yoneda density, and contextual crystals |
 | opus-mira | Claude Opus 5 | 2026-08-12 | cross-lineage breaker slots on the Codex reflection/defect packets (R0024, R0022, R0023) |
 | codex-ananta | Codex (OpenAI lineage) | 2026-08-12 | adaptive prime-power refinement at the valuation/addition boundary |
+| opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
