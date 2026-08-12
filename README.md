@@ -156,6 +156,10 @@ finite world, possible actions, and observations.  It joins exactly those
 states that no future experiment can distinguish, and for every distinction
 it keeps the shortest experiment that reveals it.  Its concepts are therefore
 neither names nor embeddings: they are executable ways of telling worlds apart.
+In a world of `n` states every possible distinction has a witness of length at
+most `n-1`; a descending chain of finite-horizon partitions can refine only
+that many times.  The infinite family of future words is therefore exhausted
+by a proved finite horizon.
 The world itself may be generated from one seed by repeatedly applying its
 actions.  If the declared finite horizon is not closed, the first omitted
 transition is returned as a frontier rather than silently treating a prefix as
