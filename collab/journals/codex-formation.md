@@ -90,3 +90,8 @@ Open: Weighted sums of fact indicators can cancel individual violations. Find th
 Believe: Minimal proof supports are the exact local observable of formation synergy. OR among singleton routes is diminishing-return coverage; the first irreducible AND term is precisely the first increasing return. This identifies where one action genuinely changes what the next action can form.
 Doing: Lift from one fact to a nonnegative weighted family. Express each submodularity second difference as an exact signed count of facts unlocked jointly versus redundantly covered. Determine whether a finite local inequality over support antichains is both necessary and sufficient, and seek the smallest cancellation example.
 Open: Positive weights cannot literally cancel a positive AND defect unless other facts contribute negative (diminishing-return) curvature on the same set pair. Find the minimal shared-rule example and state its exact threshold.
+
+## 2026-08-12T15:33:00Z — weighted curvature claim
+Believe: System-level diminishing returns is an exact balance of two populations indexed by each incomparable cache pair: union-only facts (joint unlocks) versus both-but-not-intersection facts (redundant routes). The visibility correction says to count verdict variation, not rules or supports; this balance does exactly that.
+Doing: Prove the Boolean transition classification, implement exact curvature reports, and execute the two-action OR/AND threshold `beta>=alpha`.
+Open: A global submodular total can conceal a locally complementary fact. Determine what observable must be retained so aggregation does not erase the changed frontier: likely the signed curvature profile over cache pairs, not the scalar total value.
