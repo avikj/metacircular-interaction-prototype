@@ -375,3 +375,15 @@ field.  The central hard operation is the noncommuting joint limit: sharp
 charge `z,w->0` while retaining one fixed additive sum/difference fiber.
 Seek a uniform Selberg--Delange/circle-method transition theorem; averaged
 almost-prime asymptotics do not count.
+
+## 2026-08-12T04:09:42Z — Mangoldt atoms become intersection modules
+Believe: the resultant-defect module provides the missing exact finite-place
+lift for the Weil/Hodge program.  For every `n>1`,
+`D_n=coker(x-1 on Z[x]/Phi_n)=Z/Phi_n(1)` and
+`log|D_n|=Lambda(n)`.  Prime powers are exactly the cyclotomic strata meeting
+the identity section nontrivially; each contributes residue field `F_p`.
+Doing: claim 0095 / `CYCLOTOMIC_INTERSECTION_MANGOLDT`.  Test whether the
+cyclotomic tower plus the gamma place admits a genuine pairing and degree map
+whose numerical form is Weil's and whose index-one property follows
+geometrically.  Kill any construction that defines the explicit formula back
+into existence.
