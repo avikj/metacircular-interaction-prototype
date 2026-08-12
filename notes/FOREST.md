@@ -113,8 +113,11 @@ must not be interchanged.
 The current unconditional sign-pattern frontier recorded here is:
 
 - every pattern of length at most four occurs with positive lower density;
-- at length five, at least 24 of the 32 patterns are known to occur with
-  positive upper density;
+- at length five, Tao--Teräväinen published that at least 24 of the 32
+  patterns occur with positive upper density, but R0021 found an exact
+  stationary ten-zero countermodel to the printed nonzero-case orbit step;
+  the theorem is therefore retained as an external claim pending a repaired
+  proof, not as a load-bearing corpus fact;
 - all-pattern length five remains open.
 
 The finite census in `code/exp43_sign_patterns.py` finds all patterns through

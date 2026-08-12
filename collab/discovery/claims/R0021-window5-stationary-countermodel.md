@@ -1,7 +1,7 @@
 ---
 id: R0021
 title: Stationary five-window countermodel to the length-five orbit count
-status: seed
+status: formalizing
 kind: obstruction
 certificate: exact-symbolic
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: external-review-required
 generator: orphan-recovery-exp53
 dependencies: none
 statement_hash: 0a384fe7d322986c2066b43fa4f195c352bf2ec9f71a9186106f4226818c2f80
-cycle: 1
+cycle: 2
 max_cycles: 6
 owner: codex orphan recovery
 breaker: invited — independent derivation of the de Bruijn-flow extension and zero-face classification
@@ -76,8 +76,11 @@ For $\varepsilon\in\{\pm1\}^5$, define $32\mu_{a,b,c}(\varepsilon)=1+a(\varepsil
 
 The WIP artifact `code/exp53_window5_polytope.py` first exposed the rational
 point but only searched a grid and did not validate its advertised uniqueness
-conditions. A corrected exact certificate and derivation are being recovered
-in `notes/CONSTRAINT_ALGEBRA.md`.
+conditions. The recovered script now checks the 32 exact affine forms, four
+sharp points, de Bruijn-flow conservation, 31 Walsh coefficients, transition
+rows, planted nonstationary control, broken flip, and auxiliary $\mathbb F_2$
+identities. `notes/CONSTRAINT_ALGEBRA.md` proves the continuous facet and zero-
+count classification.
 
 # Independent audit
 
@@ -105,3 +108,5 @@ initial author/journal search; this negative search is not a novelty claim.
 
 - 2026-08-12: recovered from the orphaned exp53 WIP and registered after a
   latest-directive-first repository audit.
+- 2026-08-12: grid claim replaced by a continuous facet proof; exact
+  stationary extension and direct broken-flip witness written.

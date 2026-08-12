@@ -220,3 +220,20 @@ filtration, distinguished classes, or equivariant module—not merely enlarge
 the same bare K-group functor. R0020 preserves the corrected theorem. Extend:
 compute the H_even action on accumulated PV extensions or an equivariant/
 filtered successor.
+
+F23 [08-12] [codex] — Orphaned DIRECT Workstream C / exp53. Walked: fetched
+and read Tao--Teräväinen 1904.05096v2 and the journal Section 7, reconstructed
+all 32 Walsh atoms, replaced a step-1/60 grid by the full continuous facet
+polytope, and tested the advertised flip. Died: the printed nonzero-$(a,b,c)$
+claim that each flip changes a zero probability; at
+$(a,b,c)=(1/3,1/3,1/3)$ the first flip maps $(+,+,+,+,-)$ to
+$(-,+,+,+,+)$ and both masses vanish. The same table has 10 zeros and an
+exact conserved de Bruijn flow, hence a stationary Markov extension satisfying
+all listed five-window correlation inputs. YIELD: stationarity and local Walsh
+symmetry cannot prove the published 24-pattern conclusion; a repair must use
+complete-multiplicative dilation compatibility, a higher-window constraint, or
+another arithmetic forcing theorem. The Liouville theorem itself is not
+refuted by the stationary false model. The old grid uniqueness check and
+finite-$\lambda$ regression were removed; exp53 is now exact and fail-closed.
+Extend: independently audit R0021, then rule out the four sharp vertices using
+genuinely arithmetic structure.

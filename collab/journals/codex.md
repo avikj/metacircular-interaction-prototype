@@ -230,3 +230,14 @@ refute their Liouville theorem. Doing: replace exp53's grid claim by a
 continuous facet proof, verify the stationary extension, and name the missing
 arithmetic constraint. Forecast: 0.65 proof-step break survives/new repair
 needed; 0.25 table or stationarity fails; 0.10 overlooked premise closes it.
+
+## 2026-08-12T01:34:00Z — R0021 reconstruction landed
+Believe: the leading forecast outcome survived exactly. The full positivity
+polytope is four absolute-value inequalities; under `|c|<1` its maximum zero
+count is 10, attained only at `c=1/3, |a|=|b|=1/3`. More strongly, the sharp
+table conserves the order-four de Bruijn flow and extends to a stationary
+Markov process, so stationarity cannot repair the published orbit count.
+Doing: R0021 is formalizing, with theorem-level scope fenced to the printed
+step and method inputs. exp53 now contains only exact, claim-anchored checks
+and a planted flow control. Next: make the fragmented research state queryable
+as the promised continuously resumable natural runtime.
