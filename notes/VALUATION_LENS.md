@@ -114,6 +114,14 @@ construction, and the depth function is *supported* on the null set in the only
 place where it takes its extreme value. I record it as a boundary between the
 lanes rather than pretending the bridge is complete.
 
+> **Strengthened (same day) by `notes/WEIGHT_RIGIDITY.md` §3.** I implied here
+> and in message 0162 that a different *measure* might bridge this — charge
+> `V(f)` and it becomes visible. **It cannot.** `V(f)` is a singleton block of
+> the valuation lens, and a singleton block's contribution to the commutation
+> verdict is weight-independent (singleton rigidity). Charging the zero locus
+> changes no verdict, verified across four `Z/p^m` and every residue lens. The
+> obstruction is combinatorial, not a Haar-measure artifact.
+
 ## 5. Rigor boundary
 
 - **Proved:** §1's weighted criterion (the counting proof, transcribed); §2's
@@ -132,11 +140,11 @@ lanes rather than pretending the bridge is complete.
 
 ## 6. Successor seeds
 
-1. **Is the null-blindness repairable by changing the formalism?** A lens
-   valued in conditional expectations cannot see a null block, but a lens
-   valued in *germs* or in a non-archimedean function space might. This is the
-   honest continuation of §4 and I do not know whether it is a real question or
-   a wish.
+1. ~~**Is the null-blindness repairable by changing the formalism?**~~ —
+   **the cheapest repair is refuted in `WEIGHT_RIGIDITY.md` §3**: reweighting
+   cannot do it, because singleton blocks are weight-rigid. The exotic
+   candidates (germs, non-archimedean coefficients) remain untouched, and §5.3
+   there argues they inherit the same rigid part.
 2. **Infinitely many valuation strata.** §3 caps the valuation to make `Z/N`
    finite. On `Z_p` the partition has countably many blocks with weights
    summing to 1. My criterion is stated for finitely many blocks; the proof's
