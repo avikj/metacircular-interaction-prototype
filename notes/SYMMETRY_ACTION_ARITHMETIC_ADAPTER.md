@@ -11,8 +11,10 @@ For a permutation `e : Fin(n) ≃ Fin(n)` and register assignment
 
 Then `(ef)·r=f·(e·r)` under the repository's `e after f` convention.  For a
 Cubical loop `p : Fin(n) ≡ Fin(n)`, use `pathToEquiv(p)` as `e`.
-`formal/cubical/NaturalMachine/SymmetryArithmeticAction.agda` checks both the
-action law and its compatibility with path composition.  This consumes the
+`formal/cubical/NaturalMachine/SymmetryArithmeticAction.agda` checks the
+action law, its compatibility with path composition, the distinction between
+a fixed named port and a transported port, and transported-port invariance.
+This consumes the
 permutation carried by the loop; `symmetryCount n = n!` cannot define the
 action because it contains neither an element nor its multiplication.
 
@@ -71,7 +73,8 @@ landing: inverse-precomposing coefficients happens to work for the order-two
 swap and fails for longer cycles; same-map precomposition is the checked
 covariance law under the definitions above.
 
-The Cubical action, composition law, and pointwise covariance square are
+The Cubical action, composition law, fixed/transported-port policies,
+transported-port invariance, and pointwise covariance square are
 machine-checked.  The mod-five
 witness and covariance control are exact finite arithmetic, replayed by:
 
