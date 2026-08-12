@@ -68,3 +68,14 @@ The executable corrected the draft example from false `274` to `194`; both
 forecast branches therefore occurred—the theorem survived, normalization did not.
 Resume: Integrate only if arithmetic_life begins carrying congruence states;
 do not add a detached solver or conflate Chinese and Indian textual lineages.
+
+## 2026-08-12T09:02:00Z — local congruence defects
+Believe: Exponent space turns the scalar gcd obstruction into a diagnostic:
+each failed compatibility condition has a prime coordinate and missing depth.
+Doing: Composed cached ExponentWorld coordinates with kuṭṭaka state updates;
+landed exact local defect reports and scalar cross-checks.
+The zero-difference control caught the finite-support representation edge:
+empty support must mean infinite availability here, not exponent zero.
+Resume: A next native action could propose which prime-power sensor must be
+revised, but the defect may authorize that question only; it cannot select the
+new residue or semantics.
