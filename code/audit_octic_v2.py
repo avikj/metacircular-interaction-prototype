@@ -826,9 +826,16 @@ def certified_moduli(candidate, precision=192):
                 uppers.append(abs(value))
             nonreal = False
             continue
-        try:
-            roots = acb_poly(coefficients).roots(tol=2.0 ** -(precision // 3))
-        except Exception:
+        roots = None
+        for attempt in range(6):
+            ctx.prec = precision * (2 ** attempt)
+            try:
+                roots = acb_poly(coefficients).roots(
+                    tol=2.0 ** -(precision // 3))
+                break
+            except Exception:
+                continue
+        if roots is None:
             return None, None, None, False
         for root in roots:
             modulus = abs(root)
