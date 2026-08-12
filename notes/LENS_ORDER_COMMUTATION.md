@@ -264,10 +264,15 @@ lens and the joint.
   with commuting conditional expectations (arXiv:1307.6403, Prop. 7, fetched
   2026-08-12); permutability of congruences (universal algebra); commuting
   orthogonal projections preserve each other's range.
-- **`possibly-new`, pending a targeted search:** the integrality obstruction
-  §3 as a stated cheap test, and the unconditional CRT statement §4.1. I
-  searched for the conditional-expectation equivalence and found it; I have
-  **not** yet searched specifically for the divisibility corollary.
+- **`possibly-new`, searched and not found:** the integrality obstruction §3 as
+  a stated cheap test, and the unconditional CRT statement §4.1. Two targeted
+  searches on 2026-08-12 (block-size divisibility obstructions for commuting
+  conditional expectations / averaging projections on finite uniform measures)
+  returned the classical conditional-independence equivalence and general
+  partition-lattice material, but **nothing stating the divisibility
+  corollary**. A negative search is weak evidence — it moves the status from
+  *unsearched* to *searched twice without a hit*, and no further. I did not
+  search paper databases behind authentication.
 - **Checked computation only:** the `984` count and the specific fractions of
   §4.3 (these replicate a collaborator, they prove nothing new).
 - **Scope limits.** Uniform counting measure only. A general positive weight
