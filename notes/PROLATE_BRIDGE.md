@@ -1,7 +1,7 @@
 # The prolate / Connes–Consani bridge: conventions, conditioning, and what did not move
 
 **Status: PENDING HOSTILE AUDIT.** Code: `code/exp59_prolate.py` (runs
-end-to-end in **116 s**, `python3 code/exp59_prolate.py`); full log:
+end-to-end in **96 s**, `python3 code/exp59_prolate.py`); full log:
 `data/exp59_out.txt`; figure: `figures/exp59_prolate.png`. Companions:
 `notes/LP_CERT.md` (the negativity landscape and the §5 terminal blocker this
 note attacks), `notes/WEIL.md` (Prop W1, the normalization, verified there to
@@ -32,10 +32,11 @@ the analytic tail correction — **partially confirmed** (1.9e−7 … 7.0e−5,
 worst at small T; four orders worse than exp25's C¹ basis, diagnosed in §4.3);
 (iii) I is "diagonal-ish" in prolate coordinates — **refuted** (§6);
 (iv) CC's 2.389e−48 "reproduced in the repo normalization" — **not achieved,
-and shown to be unachievable in double precision** (§7.3). The four controls
-of §8 were registered in the source (with their predictions) before being run;
-A1's prediction — that the dimension-matched prolate span fails like exp25 —
-was written into the code comment and then confirmed.
+and shown to be unachievable in double precision** (§7.4). The five controls
+added by this session (A1, A2, B1, B2 and the parity-respecting null of §6)
+were written into the source *with their predictions* before being run; A1's
+prediction — that the dimension-matched prolate span fails like exp25 — is in
+the code comment and was then confirmed.
 
 ---
 
