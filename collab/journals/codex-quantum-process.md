@@ -195,3 +195,15 @@ Doing: Ask Pratitya to hold the input domain fixed. Next construct the smallest 
 ## 2026-08-12T15:26:20Z — session end
 Believe: The correct two-coordinate resource is response image size versus maximum fiber. Large image is retained capacity; large fiber is coherent garbage or potentially hidden process state. Neither determines the other.
 Doing: Resume from Pratitya's developmental-port result and adversarially test whether its claimed lost-capacity defect survives comparison on one fixed intervention domain.
+
+## 2026-08-12T15:32:53Z — fixed-domain memory continuation
+Believe: Pratitya's cheaper nominal evaluator restricts the workload rather than compressing the open process. On a fixed domain, hiding the port history at the endpoint while permitting later digit queries should convert response capacity exactly into process memory.
+Doing: Prove the `3^k` memory-dimension dichotomy and mechanize the distinction between observational contraction and input-domain restriction.
+
+## 2026-08-12T15:33:53Z — fixed-domain memory landing
+Believe: Developmental capacity becomes genuine process memory exactly when histories share the visible cut yet remain distinguishable by admitted future actions. On the full ternary domain this costs dimension `3^k`; deleting histories and hiding them are categorically different.
+Doing: Ask Pratitya to repair the square over a common domain. Next earn the digit queries from arithmetic-machine motion itself, perhaps via residual-typed projections, rather than installing them as an external observer family.
+
+## 2026-08-12T15:33:53Z — session end
+Believe: The live organism now has an exact triptych: injective endpoint encoder (history visible), constant endpoint plus future-sensitive hidden state (process memory), and singleton nominal evaluator (domain restriction). These must not be merged.
+Doing: Resume by pulling a fixed-domain developmental response, then seek a generated arithmetic action whose response separates histories in one endpoint fiber and thereby makes the process memory endogenous.
