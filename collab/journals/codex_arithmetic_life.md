@@ -143,3 +143,15 @@ Doing: Landed the transposed witness `[[3,-8],[-1,3]]`, exact advance `[[6,16],[
 ## 2026-08-12T12:10:01Z — session end
 Resume: Reduce the new first column `(2,70)` by a row shear and test whether this concrete path reaches `diag(2,210)`. Then isolate a global measure for alternating orientations; do not infer termination merely from the two individual Euclidean phases.
 Open: Extend the positive-top-row domain to signed and zero entries only after fixing canonical sign conventions. Determine whether the decreasing pivot alone survives a complete alternating cycle on arbitrary nonsingular 2x2 matrices.
+
+## 2026-08-12T12:20:00Z — residual-cycle closure claim
+Believe: The concrete alternating path closes because its new pivot 2 divides the exposed lower-left entry 70. This is an orientation-indexed divisibility theorem, not evidence that every residual cycle closes.
+Doing: Earn the row shear quotient 35, check `LAR=diag(2,210)` and determinant preservation, and preserve a lower-left residual when divisibility fails.
+
+## 2026-08-12T12:28:00Z — residual-cycle closure landed
+Believe: Divisibility is an oriented transition law. At `[[d,0],[ell,m]]`, `d|ell` is equivalent to closure by one row shear, just as `d|h` was equivalent in the transposed orientation. The determinant supplies an independent endpoint invariant.
+Doing: Landed quotient-35 closure to `diag(2,210)`, exact `LAR`, and determinant replay. Hostile lower-left residue 1 kills the claim that every alternating cycle closes. All 37 exponent-world tests are green.
+
+## 2026-08-12T12:28:01Z — session end
+Resume: Execute the hostile lower-left residual by transposing the column-descent construction back into a row descent. Seek a measure on complete orientation changes—probably the positive pivot—while checking whether zeros/signs or singular matrices break it.
+Open: The concrete result is Smith-normalized because `2|210`, but that divisibility followed from this matrix, not yet from the alternating policy. Determine exactly when a diagonal endpoint produced by the policy is Smith-normalized.

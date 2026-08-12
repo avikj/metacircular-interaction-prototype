@@ -18,6 +18,8 @@ from exponent_world import (
     PivotDiagonalization,
     PivotDivisibilityResidual,
     PivotResidualColumnAdvance,
+    ResidualCycleClosure,
+    ResidualCycleObstruction,
 )
 
 
@@ -420,10 +422,43 @@ class SmithPathTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "failed pivot divisibility"):
             world.advance_positive_pivot_residual(false_obstruction)
 
+    def test_residual_cycle_closes_when_new_pivot_divides_lower_left(self):
+        world = ExponentWorld()
+        for value in (84, 30):
+            world.form(value)
+        obstruction = world.complete_diagonal_if_pivot_divides(
+            ((84, 14), (30, 10))
+        )
+        advance = world.advance_positive_pivot_residual(obstruction)
+        closure = world.close_residual_cycle_if_pivot_divides(advance)
+        self.assertIsInstance(closure, ResidualCycleClosure)
+        self.assertEqual((closure.quotient, closure.diagonal), (35, (2, 210)))
+        self.assertEqual(
+            _matmul_for_test(
+                _matmul_for_test(closure.left, closure.matrix), closure.right
+            ),
+            ((2, 0), (0, 210)),
+        )
+        self.assertEqual(abs(_det_for_test(closure.matrix)), 2 * 210)
+
+    def test_nondivisible_lower_left_remains_a_cycle_obstruction(self):
+        world = ExponentWorld()
+        advance = PivotResidualColumnAdvance(
+            ((2, 0), (5, 7)), ((2, 0), (5, 7)), ((2, 0), (5, 7)),
+            ((1, 0), (0, 1)), ((1, 0), (0, 1)), 4, 2,
+            EuclideanColumnReduction((4, 2), (2, 0), (), ((1, 0), (0, 1))),
+        )
+        result = world.close_residual_cycle_if_pivot_divides(advance)
+        self.assertEqual(result, ResidualCycleObstruction(((2, 0), (5, 7)), 2, 5, 1))
+
 
 def _matmul_for_test(left, right):
     return tuple(tuple(sum(left[i][k] * right[k][j] for k in range(2))
                        for j in range(2)) for i in range(2))
+
+
+def _det_for_test(matrix):
+    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
 
 
 if __name__ == "__main__":

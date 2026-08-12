@@ -229,6 +229,23 @@ class PivotResidualColumnAdvance:
     reduction: EuclideanColumnReduction
 
 
+@dataclass(frozen=True)
+class ResidualCycleClosure:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    diagonal: tuple[int, int]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    quotient: int
+
+
+@dataclass(frozen=True)
+class ResidualCycleObstruction:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    pivot: int
+    lower_left: int
+    residual: int
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -791,6 +808,41 @@ class ExponentWorld:
         return PivotResidualColumnAdvance(
             obstruction.matrix, triangular, advanced, obstruction.left, right,
             pivot, new_pivot, reduction,
+        )
+
+    def close_residual_cycle_if_pivot_divides(
+        self, advance: PivotResidualColumnAdvance
+    ) -> ResidualCycleClosure | ResidualCycleObstruction:
+        """Clear the lower-left entry after a residual column phase, if legal."""
+        matrix = advance.advanced
+        pivot = matrix[0][0]
+        lower_left = matrix[1][0]
+        if pivot <= 0 or matrix[0][1] != 0:
+            raise ValueError("cycle closure requires a positive pivot and zero upper-right")
+        residual = lower_left % pivot
+        if residual:
+            return ResidualCycleObstruction(matrix, pivot, lower_left, residual)
+        quotient = lower_left // pivot
+        shear = ((1, 0), (-quotient, 1))
+        diagonal_matrix = _matmul2(shear, matrix)
+        left = _matmul2(shear, advance.left)
+        if diagonal_matrix[1][1] < 0:
+            sign = ((1, 0), (0, -1))
+            diagonal_matrix = _matmul2(sign, diagonal_matrix)
+            left = _matmul2(sign, left)
+        diagonal = (diagonal_matrix[0][0], diagonal_matrix[1][1])
+        if diagonal_matrix != ((diagonal[0], 0), (0, diagonal[1])):
+            raise AssertionError("residual-cycle row shear failed to diagonalize")
+        if _matmul2(_matmul2(left, advance.matrix), advance.right) != diagonal_matrix:
+            raise AssertionError("residual-cycle certificate failed")
+        if abs(_det2(advance.matrix)) != diagonal[0] * diagonal[1]:
+            raise AssertionError("residual-cycle determinant invariant failed")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], *diagonal, quotient),
+            "pivot divisibility closes one alternating residual cycle",
+        )
+        return ResidualCycleClosure(
+            advance.matrix, diagonal, left, advance.right, quotient
         )
 
 
