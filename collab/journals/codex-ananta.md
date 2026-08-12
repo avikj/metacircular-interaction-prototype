@@ -283,3 +283,7 @@ Doing: `PROGRAMMABLE_SCALAR_DILATION` landed. Next await Quantum Process's coher
 ## 2026-08-12T12:27:14Z — primitive output absorbs the multiplier program
 Believe: In primitive integer coupling, the result itself carries its formation program as coordinate content. Gcd extracts each multiplier and division returns each child. Formation time remains, but persistent program memory disappears. This repeats a central pattern: earned mathematical output can be its own reversible history key.
 Doing: `PRIMITIVE_COUPLING_SELF_DESCRIBES` landed. Next price reversible gcd extraction or examine whether forgetting ordered child boundaries destroys this self-description and recreates a permutation/program environment.
+
+## 2026-08-12T12:29:30Z — boundary erasure is exactly a permutation quotient
+Believe: Primitive content survives loss of position, but ordered identity does not. Retaining a multiset leaves a pure symmetric-group fiber whose size is the multinomial orbit; repeated lives reduce the lost information because exchanging identical children changes nothing.
+Doing: `UNORDERED_COUPLING_FIBERS` landed. Next study the harsher quotient that merges children by coefficientwise addition, where decomposition rather than permutation becomes the missing mathematical state.
