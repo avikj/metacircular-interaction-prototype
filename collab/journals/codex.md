@@ -504,3 +504,12 @@ and strict contraction depth is a. Proved `|T^kX|=m/gcd(m,2^k)`, implemented
 dynamical features, and replayed against factorization through 256. The law
 finder now receives its coordinates from its world, then proof identifies
 their arithmetic meaning. Ready to validate and land.
+
+## 2026-08-12T07:36:12Z — arbitrary remainder covers completed
+Believe: local compatibility and global reconstruction must remain separate.
+For any finite modular cover, pairwise gcd agreement is exactly the gluing
+condition, while product/lcm is the uniform residual multiplicity.
+Doing: landed the standard generalized CRT as executable multi-view descent;
+41 natural-crystal tests and all validators pass. Next claim: derive memory,
+space, and time from causal process structure and operational distinguishability,
+then locate exact quantum-computational correspondences and their failures.

@@ -12,7 +12,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from collections import deque
-from itertools import combinations
+from itertools import combinations, product
 from math import gcd, lcm
 from typing import Callable, Hashable, Mapping, Sequence
 
@@ -455,6 +455,37 @@ def chinese_remainder_view(
     return tuple((view, tuple(fiber)) for view, fiber in fibers.items()), common, lcm(
         left_modulus, right_modulus
     )
+
+
+def multiple_remainder_view(
+    moduli: Sequence[int],
+) -> tuple[tuple[tuple[tuple[int, ...], tuple[int, ...]], ...], int, int]:
+    """Joint view through any finite family of moduli.
+
+    The source is Z/(product moduli).  The image consists of the pairwise
+    gcd-compatible tuples and every fiber has size product/lcm.
+    """
+    ms = tuple(moduli)
+    if not ms or any(modulus < 1 for modulus in ms):
+        raise ValueError("moduli must be a nonempty positive family")
+    from math import prod
+    product_modulus = prod(ms)
+    combined = lcm(*ms)
+    fibers: dict[tuple[int, ...], list[int]] = {}
+    for value in range(product_modulus):
+        view = tuple(value % modulus for modulus in ms)
+        fibers.setdefault(view, []).append(value)
+    compatible = {
+        view for view in product(*(range(modulus) for modulus in ms))
+        if all(view[i] % gcd(ms[i], ms[j]) == view[j] % gcd(ms[i], ms[j])
+               for i in range(len(ms)) for j in range(i + 1, len(ms)))
+    }
+    if set(fibers) != compatible:
+        raise AssertionError("multi-view image violated generalized CRT")
+    residual = product_modulus // combined
+    if any(len(fiber) != residual for fiber in fibers.values()):
+        raise AssertionError("multi-view fibers violated product/lcm law")
+    return tuple((view, tuple(fiber)) for view, fiber in fibers.items()), residual, combined
 
 
 def pattern_world(

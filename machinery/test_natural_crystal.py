@@ -18,6 +18,7 @@ from natural_crystal import (
     linear_observation_classes,
     linear_observation_world,
     minimal_sensor_sets,
+    multiple_remainder_view,
     pattern_world,
     run_word,
     shortest_distinguishing_word,
@@ -243,6 +244,19 @@ class NaturalCrystalTests(unittest.TestCase):
         rendered = output.getvalue()
         self.assertIn("shared overlap gcd: 2", rendered)
         self.assertIn("exact reconstruction: False", rendered)
+
+    def test_many_views_glue_pairwise_and_retain_uniform_residual(self):
+        fibers, residual, combined = multiple_remainder_view((4, 6, 9))
+        self.assertEqual((len(fibers), residual, combined), (36, 6, 36))
+        self.assertTrue(all(len(fiber) == 6 for _view, fiber in fibers))
+
+    def test_pairwise_coprime_many_views_reconstruct(self):
+        fibers, residual, combined = multiple_remainder_view((3, 4, 5))
+        self.assertEqual((len(fibers), residual, combined), (60, 1, 60))
+
+    def test_many_view_rejects_empty_cover(self):
+        with self.assertRaises(ValueError):
+            multiple_remainder_view(())
 
     def test_binary_class_formula_rejects_nonpositive_modulus(self):
         with self.assertRaises(ValueError):
