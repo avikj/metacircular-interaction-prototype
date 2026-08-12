@@ -510,6 +510,97 @@ def t_demo_deterministic():
     return True
 
 
+def deep_justification_library(deep=60, retracted="R0"):
+    """The L4 shape of the defect the L3 lane filed against L2.
+
+    ``THEOREM`` has exactly two derivations:
+
+    ``d.a_deep``   a chain of ``deep`` derivations standing on ``R0`` -- deeper
+                   than the default ``max_depth`` and, because derivations are
+                   taken in sorted id order, the branch the search meets first;
+    ``d.b_short``  one derivation from two independent primitives, using
+                   nothing the retraction touches.
+
+    So the *surviving* justification sits behind a branch that overruns the
+    depth bound.  A search that aborts globally at ``max_depth`` returns no
+    class at all, and ``survival`` degrades to ``UNDECIDED`` -- on a theorem
+    that plainly survives.
+    """
+    g = DependencyGraph()
+    g.add_fact(Fact(retracted, "the retracted hypothesis", 1))
+    g.add_fact(Fact("Q0", "independent hypothesis", 2))
+    g.add_fact(Fact("Q1", "independent hypothesis", 3))
+    prev = retracted
+    for i in range(deep):
+        nxt = "C%03d" % i
+        g.add_fact(Fact(nxt, "chain link", i))
+        g.add_derivation(Derivation("d.chain%03d" % i, nxt, (prev,), 1,
+                                    compute=lambda v, _p=prev: v[_p]))
+        prev = nxt
+    g.add_fact(Fact("THEOREM", "the consequence", None))
+    g.add_derivation(Derivation("d.a_deep", "THEOREM", (prev,), 1,
+                                compute=lambda v, _p=prev: v[_p]))
+    g.add_derivation(Derivation("d.b_short", "THEOREM", ("Q0", "Q1"), 1,
+                                compute=lambda v: v["Q0"] + v["Q1"]))
+    return g
+
+
+@capability("B10 max_depth backtracks in L4: a SURVIVOR behind a deep branch is found")
+def t_l4_depth_backtracks():
+    g = deep_justification_library()
+    g.build()
+    enum = justification_classes(g, "THEOREM")       # default max_depth=32
+    found = enum.partial()
+    # the defect: the first (deep) derivation overran max_depth and set a global
+    # stop flag, so the enumeration returned nothing and the short, independent
+    # justification was never seen.
+    assert found, "depth bound aborted the search instead of backtracking"
+    assert min(c.size for c in found) == 2, sorted(c.size for c in found)
+    short = min(found, key=lambda c: c.size)
+    assert short.leaves() == ("Q0", "Q1"), short.leaves()
+    assert short.representative == ("d.b_short",), short.representative
+    # and the verdict it decides: SURVIVES, where the defect gave UNDECIDED.
+    s = survival(g, "THEOREM", "R0")
+    assert s.status == SURVIVES and s.alive, s.render()
+    assert ("fact", "R0") not in s.surviving[0].axioms
+    # the deep branch really was pruned, so the enumeration must still say so
+    assert not enum.complete and "max_depth" in enum.reason, enum.reason
+    return True
+
+
+@capability("B11 a raised depth bound closes the same L4 enumeration completely")
+def t_l4_depth_raised():
+    g = deep_justification_library(deep=8)
+    g.build()
+    tight = justification_classes(g, "THEOREM", max_depth=4)
+    assert not tight.complete and "max_depth" in tight.reason, tight.reason
+    assert [c.size for c in tight.partial()] == [2], [c.size for c in tight.partial()]
+    full = justification_classes(g, "THEOREM", max_depth=32)
+    assert full.complete, full.reason
+    assert sorted(c.size for c in full.classes) == [1, 2], \
+        sorted(c.size for c in full.classes)
+    # the deep class is the one that dies with R0; the short one is not
+    deep_cls = [c for c in full.classes if ("fact", "R0") in c.axioms]
+    assert len(deep_cls) == 1 and len(deep_cls[0].representative) == 9, \
+        [c.representative for c in full.classes]
+    return True
+
+
+@control("CONTROL B: L4 backtracking must not launder a pruned search as complete")
+def x_l4_depth_pruned_not_complete():
+    g = deep_justification_library(deep=40)
+    g.build()
+    enum = justification_classes(g, "THEOREM", max_depth=6)
+    planted = enum.complete                    # the falsehood: "found some, so done"
+    ok = not planted and len(enum.partial()) == 1
+    ok &= "max_depth" in enum.reason
+    ok &= rejects(lambda: enum.classes, IncompleteEnumeration)
+    # and a *complete* run on the same graph must still be able to say complete,
+    # so the control is testing the reporting and not a hard-wired False
+    ok &= justification_classes(g, "THEOREM", max_depth=64).complete
+    return ok
+
+
 @control("CONTROL B: a 'survivor' whose every proof runs through the retracted fact")
 def x_false_survivor():
     """THEOREM_B is *claimed* to survive because it has a derivation.  Having a

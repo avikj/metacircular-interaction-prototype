@@ -42,6 +42,7 @@ from collections import deque
 from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
+from . import bounded as B
 from . import term as T
 from .check import Axiom, Beta, Certificate, Conjectural, Instantiate, Refl, Step
 from .edges import Edge, compose, is_symmetric
@@ -703,16 +704,11 @@ class EGraph:
         """
         a, b = self._require(x), self._require(y)
         self.steps.bump("class_enum")
-        bnd = dict(DEFAULT_BOUNDS)
-        if limit is not None:
-            bnd["max_classes"] = limit
-        if max_paths is not None:
-            bnd["max_paths"] = max_paths
-        if max_depth is not None:
-            bnd["max_depth"] = max_depth
-        if max_classes is not None:
-            bnd["max_classes"] = max_classes
-        bounds = tuple(sorted(bnd.items()))
+        bnd = B.resolve_bounds(DEFAULT_BOUNDS, max_paths=max_paths,
+                               max_depth=max_depth,
+                               max_classes=max_classes if max_classes is not None
+                               else limit)
+        bounds = B.bounds_tuple(bnd)
 
         def result(classes, complete, reason, raw, explored):
             if not complete:
@@ -755,27 +751,17 @@ class EGraph:
             layer = sorted(nxt_layer)
 
         memo: Dict[int, Dict[Tuple, int]] = {}
-        buckets: Dict[Tuple, List[Tuple[Tuple[int, ...],
-                                        List[Tuple[str, str, MergeRecord]]]]] = {}
-        order: List[Tuple] = []
-        state = {"raw": 0, "explored": 0, "stop": "", "pruned": 0, "rounds": 0}
+        ledger = B.SearchLedger()
+        buckets = B.ClassBuckets(ledger, max_classes=bnd["max_classes"],
+                                 max_paths=bnd["max_paths"])
         path: List[Tuple[str, str, MergeRecord]] = []
         visited: Set[str] = {a}
 
         def record() -> None:
-            state["raw"] += 1
             self.steps.bump("path_enum")
             sig = tuple(r.mid for _, _, r in path)
             key = (a, b) + (self.path_class_key(path, memo),)
-            if key not in buckets:
-                if bnd["max_classes"] and len(buckets) >= bnd["max_classes"]:
-                    state["stop"] = ("max_classes=%d reached" % bnd["max_classes"])
-                    return
-                buckets[key] = []
-                order.append(key)
-            buckets[key].append((sig, list(path)))
-            if state["raw"] >= bnd["max_paths"]:
-                state["stop"] = "max_paths=%d reached" % bnd["max_paths"]
+            buckets.add(key, (sig, list(path)))
 
         def dfs(node: str, limit: int) -> None:
             """Depth-bounded DFS that **backtracks** at the bound.
@@ -786,9 +772,9 @@ class EGraph:
             caller's ``max_depth``) the pruning is counted and reported as
             incompleteness -- but the classes that *did* fit are still found.
             """
-            if state["stop"]:
+            if ledger.stopped:
                 return
-            state["explored"] += 1
+            ledger.explored += 1
             if node == b:
                 if len(path) == limit:      # shorter ones were reported already
                     record()
@@ -800,7 +786,7 @@ class EGraph:
                 if d is None:
                     continue                # cannot reach b: no path is lost
                 if len(path) + 1 + d > limit:
-                    state["pruned"] += 1
+                    ledger.prune()
                     self.steps.bump("depth_prune")
                     continue                # too deep for this round: backtrack
                 visited.add(nxt)
@@ -808,35 +794,30 @@ class EGraph:
                 dfs(nxt, limit)
                 path.pop()
                 visited.discard(nxt)
-                if state["stop"]:
+                if ledger.stopped:
                     return
 
-        # Iterative deepening: raw paths are enumerated in nondecreasing length,
-        # so a budget is spent on the *short* proofs first and a class hidden
-        # behind a deep branch is still reported.  The loop stops as soon as a
-        # round prunes nothing, which means the whole simple-path tree fitted
-        # inside that round -- no deepening cost is paid on graphs that do not
-        # need it.
-        for limit in range(1, bnd["max_depth"] + 1):
-            state["pruned"] = 0
-            state["rounds"] += 1
+        def round_(limit: int) -> None:
             visited.clear()
             visited.add(a)
             del path[:]
             dfs(a, limit)
-            if state["stop"]:
-                break
-            if state["pruned"] == 0:
-                break                       # every simple path has been seen
-        else:
-            state["stop"] = (
-                "max_depth=%d reached (%d branch(es) pruned; every class at or "
-                "below the bound was still enumerated)"
-                % (bnd["max_depth"], state["pruned"]))
+
+        # Iterative deepening (``bounded.deepen``): raw paths are enumerated in
+        # nondecreasing length, so a budget is spent on the *short* proofs
+        # first and a class hidden behind a deep branch is still reported.  The
+        # loop stops as soon as a round prunes nothing, which means the whole
+        # simple-path tree fitted inside that round -- no deepening cost is
+        # paid on graphs that do not need it.
+        B.deepen(ledger, round_, 1, bnd["max_depth"], exhausted=lambda bound, pruned:
+                 "max_depth=%d reached (%d branch(es) pruned; every class at or "
+                 "below the bound was still enumerated)" % (bound, pruned))
+        state = {"raw": ledger.raw, "explored": ledger.explored,
+                 "stop": ledger.reason(), "rounds": ledger.rounds}
 
         classes: List[ProofClass] = []
-        for key in order:
-            entries = sorted(buckets[key], key=lambda z: z[0])
+        for key, members in buckets.items():
+            entries = sorted(members, key=lambda z: z[0])
             # the class's *shortest* realisation is its representative
             rep_path = min(entries, key=lambda z: (len(z[0]), z[0]))[1]
             ms = key[2]

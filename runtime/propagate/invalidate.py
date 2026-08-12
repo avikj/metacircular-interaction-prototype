@@ -38,6 +38,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, FrozenSet, List, Optional, Sequence, Set, Tuple
 
+from ..kernel import bounded as B
 from ..kernel.egraph import (
     ClassEnumeration,
     IncompleteEnumeration,
@@ -110,95 +111,176 @@ def justification_classes(graph: DependencyGraph, fid: str,
     live derivation per derived fact, recursively.  Trees are grouped by leaf
     multiset.  The bounds are bounds, not caps -- hitting one produces an
     ``INCOMPLETE`` result that refuses to be counted.
+
+    The search obeys ``kernel.bounded``'s discipline, which is the same one
+    ``egraph.explanation_classes`` obeys and for the same reason -- both got it
+    wrong in the same way first:
+
+    * ``max_depth`` **prunes one derivation branch and backtracks**.  It used to
+      set a global stop flag, so a single justification chain deeper than the
+      bound ended the entire enumeration and a *surviving* class sitting behind
+      it was never found -- turning a `SURVIVES` verdict into `UNDECIDED`, which
+      ``recompute.apply`` then refuses to act on.  Sibling derivations are now
+      explored regardless.
+    * Rounds go **shortest-first** (iterative deepening over tree height), with
+      an admissible lower bound: ``min_height`` is the height of the shallowest
+      justification tree of a fact, so a branch is cut only when
+      ``depth + min_height`` provably overruns the round.  Nothing that could
+      have closed is dropped, and a spent tree budget has bought the *small*
+      justifications.
+    * Honesty is unchanged.  Any pruning at all, and any derivation whose
+      premise product overran ``max_paths``, leaves ``complete=False`` with the
+      count in ``reason``.  Width truncation is reported as width, not as
+      depth, because a deeper round would not recover it.
     """
-    bnd = dict(DEFAULT_TREE_BOUNDS)
-    if max_paths is not None:
-        bnd["max_paths"] = max_paths
-    if max_depth is not None:
-        bnd["max_depth"] = max_depth
-    if max_classes is not None:
-        bnd["max_classes"] = max_classes
-    bounds = tuple(sorted(bnd.items()))
+    bnd = B.resolve_bounds(DEFAULT_TREE_BOUNDS, max_paths=max_paths,
+                           max_depth=max_depth, max_classes=max_classes)
+    bounds = B.bounds_tuple(bnd)
     graph.steps.bump("class.enum")
 
-    state = {"trees": 0, "explored": 0, "stop": ""}
-    buckets: Dict[Tuple, List[Tuple[Tuple[str, ...], Dict[Tuple, int]]]] = {}
-    order: List[Tuple] = []
+    ledger = B.SearchLedger()
+    buckets = B.ClassBuckets(ledger, max_classes=bnd["max_classes"],
+                             max_paths=bnd["max_paths"])
 
-    def expand(node: str, depth: int, stack: Tuple[str, ...]
-               ) -> List[Tuple[Dict[Tuple, int], Tuple[str, ...]]]:
-        """All (leaf multiset, derivation-id tuple) trees proving ``node``."""
-        if state["stop"]:
+    # -- the live-derivation view, read once per fact ----------------------
+    live_memo: Dict[str, Tuple[Tuple[str, ...], bool]] = {}
+
+    def live_ders(node: str) -> Tuple[Tuple[str, ...], bool]:
+        got = live_memo.get(node)
+        if got is None:
+            all_ders = graph.produced_by(node)
+            got = (tuple(sorted(d for d in all_ders
+                                if graph.is_live_derivation(d))), bool(all_ders))
+            live_memo[node] = got
+        return got
+
+    # -- the admissible lower bound ----------------------------------------
+    # ``min_height(n)`` is the height of the shallowest justification tree of
+    # ``n``, or ``None`` when ``n`` has no justification tree at all.  A subtree
+    # rooted at depth ``d`` therefore forces total height ``>= d + min_height``,
+    # so cutting a branch whose ``d + min_height`` overruns the round removes
+    # only branches that provably cannot close -- admissible pruning, exactly as
+    # the breadth-first distance is in ``egraph``.  It is computed lazily over
+    # the support of ``fid`` alone, never over the library: L4's O(cone) promise
+    # would not survive a global fixpoint here.
+    height_memo: Dict[str, Optional[int]] = {}
+
+    def min_height(node: str, stack: Tuple[str, ...] = ()) -> Optional[int]:
+        if node in height_memo:
+            return height_memo[node]
+        if node in stack:
+            raise PropagateError("cyclic justification at %r" % (node,))
+        live, had = live_ders(node)
+        if not live:
+            # a retracted primitive, or a derived fact all of whose derivations
+            # died: no justification tree at all.  Otherwise a live primitive,
+            # which is a tree of height 0.
+            best: Optional[int] = None if (graph.is_retracted(node) or had) else 0
+        else:
+            best = None
+            for did in live:
+                sub = 0
+                reachable = True
+                for p in graph.derivation(did).premises:
+                    ph = min_height(p, stack + (node,))
+                    if ph is None:
+                        reachable = False
+                        break
+                    if ph > sub:
+                        sub = ph
+                if reachable and (best is None or sub + 1 < best):
+                    best = sub + 1
+        height_memo[node] = best
+        return best
+
+    # -- one round of the deepening ----------------------------------------
+    def expand(node: str, depth: int, limit: int, stack: Tuple[str, ...]
+               ) -> List[Tuple[Dict[Tuple, int], Tuple[str, ...], int]]:
+        """Every (leaf multiset, derivation ids, height) tree for ``node`` that
+        fits under ``limit``.  An empty list means *this branch* yields nothing
+        this round -- never that the enumeration is over."""
+        if ledger.stopped:
             return []
         if node in stack:
             raise PropagateError("cyclic justification at %r" % (node,))
-        if depth > bnd["max_depth"]:
-            state["stop"] = "max_depth=%d reached" % bnd["max_depth"]
-            return []
-        state["explored"] += 1
+        floor = min_height(node)
+        if floor is None:
+            return []                       # no justification: nothing is lost
+        if depth + floor > limit:
+            ledger.prune()
+            graph.steps.bump("class.prune")
+            return []                       # too deep for this round: backtrack
+        ledger.explored += 1
         graph.steps.bump("class.expand")
-        all_ders = graph.produced_by(node)
-        live = [d for d in all_ders if graph.is_live_derivation(d)]
+        live, _had = live_ders(node)
         if not live:
-            if graph.is_retracted(node) or all_ders:
-                # a retracted primitive, or a derived fact all of whose
-                # derivations died: no justification tree at all.
-                return []
-            return [({graph.fact(node).atom(): 1}, ())]
-        out: List[Tuple[Dict[Tuple, int], Tuple[str, ...]]] = []
-        for did in sorted(live):
+            return [({graph.fact(node).atom(): 1}, (), 0)]
+        out: List[Tuple[Dict[Tuple, int], Tuple[str, ...], int]] = []
+        for did in live:
             der = graph.derivation(did)
-            combos: List[Tuple[Dict[Tuple, int], Tuple[str, ...]]] = [({}, ())]
+            combos: List[Tuple[Dict[Tuple, int], Tuple[str, ...], int]] = [({}, (), 0)]
+            dropped = False
             for p in der.premises:
-                sub = expand(p, depth + 1, stack + (node,))
-                if state["stop"]:
+                sub = expand(p, depth + 1, limit, stack + (node,))
+                if ledger.stopped:
                     return []
-                nxt: List[Tuple[Dict[Tuple, int], Tuple[str, ...]]] = []
-                for ms, ids in combos:
-                    for sms, sids in sub:
-                        nxt.append((merge_multisets(ms, sms), ids + sids))
+                if not sub:
+                    dropped = True          # this derivation, not the search
+                    break
+                nxt: List[Tuple[Dict[Tuple, int], Tuple[str, ...], int]] = []
+                for ms, ids, h in combos:
+                    for sms, sids, sh in sub:
+                        nxt.append((merge_multisets(ms, sms), ids + sids,
+                                    h if h > sh else sh))
                 combos = nxt
                 if len(combos) > bnd["max_paths"]:
-                    state["stop"] = "max_paths=%d reached" % bnd["max_paths"]
-                    return []
-            for ms, ids in combos:
-                out.append((ms, ids + (did,)))
+                    ledger.truncate(
+                        "max_paths=%d reached (premise product of derivation %s "
+                        "exceeded it; that derivation's trees are missing, "
+                        "its siblings are not)" % (bnd["max_paths"], did))
+                    graph.steps.bump("class.truncate")
+                    dropped = True
+                    break
+            if dropped:
+                continue                    # prune the branch, keep the siblings
+            for ms, ids, h in combos:
+                out.append((ms, ids + (did,), h + 1))
         return out
 
-    trees = expand(fid, 0, ())
-    if not state["stop"]:
-        for ms, ids in trees:
-            state["trees"] += 1
-            key = (fid, fid, multiset_key(ms))
-            if key not in buckets:
-                if bnd["max_classes"] and len(buckets) >= bnd["max_classes"]:
-                    state["stop"] = "max_classes=%d reached" % bnd["max_classes"]
-                    break
-                buckets[key] = []
-                order.append(key)
-            buckets[key].append((ids, ms))
-            if state["trees"] >= bnd["max_paths"]:
-                state["stop"] = "max_paths=%d reached" % bnd["max_paths"]
-                break
+    def round_(limit: int) -> None:
+        for ms, ids, h in expand(fid, 0, limit, ()):
+            if h != limit:
+                continue                    # shorter trees were recorded already
+            if not buckets.add((fid, fid, multiset_key(ms)), (ids, ms)):
+                return
+
+    floor0 = min_height(fid)
+    if floor0 is not None:
+        B.deepen(ledger, round_, floor0, bnd["max_depth"],
+                 exhausted=lambda bound, pruned:
+                 "max_depth=%d reached (%d branch(es) pruned; every class at or "
+                 "below the bound was still enumerated)" % (bound, pruned))
 
     classes: List[DerivationClass] = []
-    for key in order:
-        entries = sorted(buckets[key], key=lambda z: z[0])
+    for key, members in buckets.items():
+        entries = sorted(members, key=lambda z: z[0])
         ms = key[2]
         classes.append(DerivationClass(
             key=key, src=fid, dst=fid, multiset=ms,
             axioms=frozenset(a for a, _ in ms),
             size=sum(n for _, n in ms),
-            representative=entries[0][0],
+            # the class's *smallest* realisation is its representative
+            representative=min(entries, key=lambda z: (len(z[0]), z[0]))[0],
             raw_paths=len(entries),
             members=tuple(ids for ids, _ in entries),
         ))
     classes.sort(key=lambda c: (c.size, c.multiset))
-    if state["stop"]:
+    reason = ledger.reason()
+    if reason:
         graph.steps.bump("class.incomplete")
-    return ClassEnumeration(src=fid, dst=fid, complete=not state["stop"],
-                            reason=state["stop"], bounds=bounds,
-                            raw_paths=state["trees"], explored=state["explored"],
+    return ClassEnumeration(src=fid, dst=fid, complete=not reason,
+                            reason=reason, bounds=bounds,
+                            raw_paths=ledger.raw, explored=ledger.explored,
                             _classes=tuple(classes))
 
 
