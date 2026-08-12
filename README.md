@@ -234,8 +234,9 @@ The shared heart is machine-checked in
 `formal/pairfield/Pairfield/FutureBehavior.lean`: a state's meaning for a
 declared observation is the function sending every finite action word to its
 resulting observation.  Equality of those functions is an equivalence relation
-and is preserved by every action.  This is all the universal language the
-current construction needs.
+and is preserved by every action.  The checked quotient carries the induced
+actions and observation.  This is all the universal language the current
+construction needs.
 
 ## One living test
 

@@ -58,4 +58,36 @@ theorem futureEq_iff_behavior_eq (step : X → A → X) (observe : X → O) (x y
   · intro h word
     exact congrFun h word
 
+/-- Future equality as an actual quotient relation. -/
+def futureSetoid (step : X → A → X) (observe : X → O) : Setoid X where
+  r := FutureEq step observe
+  iseqv := {
+    refl := futureEq_refl step observe
+    symm := futureEq_symm step observe
+    trans := futureEq_trans step observe
+  }
+
+/-- Every action descends to the quotient because future equality is a congruence. -/
+def quotientStep (step : X → A → X) (observe : X → O) (action : A) :
+    Quotient (futureSetoid step observe) → Quotient (futureSetoid step observe) :=
+  Quotient.lift (fun x => Quotient.mk _ (step x action)) (by
+    intro x y h
+    apply Quotient.sound
+    exact futureEq_step step observe h action)
+
+/-- The present observation descends because the empty future is among all futures. -/
+def quotientObserve (step : X → A → X) (observe : X → O) :
+    Quotient (futureSetoid step observe) → O :=
+  Quotient.lift observe (by
+    intro x y h
+    exact h [])
+
+theorem quotientStep_mk (step : X → A → X) (observe : X → O)
+    (action : A) (x : X) :
+    quotientStep step observe action (Quotient.mk _ x) =
+      Quotient.mk _ (step x action) := rfl
+
+theorem quotientObserve_mk (step : X → A → X) (observe : X → O) (x : X) :
+    quotientObserve step observe (Quotient.mk _ x) = observe x := rfl
+
 end Pairfield
