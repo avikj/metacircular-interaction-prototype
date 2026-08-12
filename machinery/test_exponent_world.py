@@ -14,6 +14,7 @@ from exponent_world import (
     UnitDeterminantSystemSolution,
     WitnessedSmithSolution,
     SmithStep,
+    EuclideanColumnReduction,
 )
 
 
@@ -340,6 +341,30 @@ class SmithPathTests(unittest.TestCase):
             world.replay_smith_path(
                 ((2, 4), (6, 8)), bad, ((2, 0), (0, 4))
             )
+
+    def test_euclidean_remainders_choose_descending_row_path(self):
+        world = ExponentWorld()
+        world.form(84)
+        world.form(30)
+        reduction = world.reduce_positive_column(84, 30)
+        self.assertIsInstance(reduction, EuclideanColumnReduction)
+        self.assertEqual(reduction.finish, (6, 0))
+        self.assertEqual(
+            tuple((s.before, s.quotient, s.after) for s in reduction.steps),
+            (((84, 30), 2, (30, 24)),
+             ((30, 24), 1, (24, 6)),
+             ((24, 6), 4, (6, 0))),
+        )
+        self.assertEqual(_matvec_for_test(reduction.left, (84, 30)), (6, 0))
+
+    def test_wrong_quotient_is_invertible_but_not_euclidean(self):
+        a, b, wrong_q = 84, 30, 1
+        operation = ((0, 1), (1, -wrong_q))
+        self.assertEqual(abs(operation[0][0]*operation[1][1]
+                             - operation[0][1]*operation[1][0]), 1)
+        after = _matvec_for_test(operation, (a, b))
+        self.assertEqual(after, (30, 54))
+        self.assertFalse(0 <= after[1] < b)
 
 
 if __name__ == "__main__":

@@ -107,3 +107,15 @@ Doing: Landed three-step path and corrupted-coefficient control; 29 focused test
 ## 2026-08-12T11:23:01Z — session end
 Resume: Let Euclidean division choose one row shear from the current matrix and prove a decreasing measure for a narrow 2x1 column reduction. Do not jump directly to generic 2x2 SNF termination.
 Open: Couple the earned path directly to `solve_witnessed_smith_system` so no caller can bypass path provenance by supplying final `U,V` alone.
+
+## 2026-08-12T11:30:00Z — Euclidean column reduction claim
+Believe: Invertibility alone permits aimless paths. Euclidean remainder adds direction: a locally checked strict descent whose composite earns gcd and a unimodular presentation witness.
+Doing: Form `(84,30)->(6,0)` from quotient-selected row operations and reject an invertible but non-Euclidean quotient.
+
+## 2026-08-12T11:38:00Z — Euclidean column reduction landed
+Believe: Reversible syntax becomes mathematical formation only after an invariant and decreasing measure are attached. Euclidean remainder supplies both: common divisors persist and the positive remainder descends.
+Doing: Landed complete 2x1 reduction and killed the false principle “unimodular means progressive.” 31 focused and 39 composed tests green.
+
+## 2026-08-12T11:38:01Z — session end
+Resume: Apply the 2x1 reducer to the first column of a 2x2 matrix, then use one column shear when the resulting pivot divides the other first-row entry. Prove this narrow divisibility condition completes diagonalization; preserve the residual when it fails.
+Open: The Euclidean reducer currently calls exponent-world gcd for an independent endpoint check, which may form additional arithmetic state. Decide whether validation events should be distinguished from formation events.

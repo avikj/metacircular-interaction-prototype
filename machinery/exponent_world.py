@@ -181,6 +181,23 @@ class SmithPath:
     right: tuple[tuple[int, int], tuple[int, int]]
 
 
+@dataclass(frozen=True)
+class EuclideanColumnStep:
+    before: tuple[int, int]
+    quotient: int
+    remainder: int
+    operation: tuple[tuple[int, int], tuple[int, int]]
+    after: tuple[int, int]
+
+
+@dataclass(frozen=True)
+class EuclideanColumnReduction:
+    start: tuple[int, int]
+    finish: tuple[int, int]
+    steps: tuple[EuclideanColumnStep, ...]
+    left: tuple[tuple[int, int], tuple[int, int]]
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -641,6 +658,46 @@ class ExponentWorld:
             "elementary unimodular steps and inverse replay earn U*A*V=D",
         )
         return SmithPath(matrix, current, steps, left, right)
+
+    def reduce_positive_column(
+        self, top: int, bottom: int
+    ) -> EuclideanColumnReduction:
+        """Use quotient-selected unimodular row steps to form (gcd,0)."""
+        if top <= 0 or bottom <= 0:
+            raise ValueError("Euclidean column reduction needs positive entries")
+        start = (top, bottom)
+        current = start
+        left = ((1, 0), (0, 1))
+        steps: list[EuclideanColumnStep] = []
+        while current[1] != 0:
+            a, b = current
+            quotient, remainder = divmod(a, b)
+            operation = ((0, 1), (1, -quotient))
+            after = _matvec2(operation, current)
+            if after != (b, remainder) or not 0 <= remainder < b:
+                raise AssertionError("Euclidean row step failed strict descent")
+            if _det2(operation) not in (-1, 1):
+                raise AssertionError("Euclidean row step is not unimodular")
+            steps.append(EuclideanColumnStep(
+                current, quotient, remainder, operation, after
+            ))
+            left = _matmul2(operation, left)
+            current = after
+        if current[0] != self.gcd(top, bottom).value:
+            raise AssertionError("Euclidean column endpoint disagrees with exponent meet")
+        if _matvec2(left, start) != current:
+            raise AssertionError("accumulated Euclidean witness failed")
+        restored = current
+        for step in reversed(steps):
+            inverse = ((step.quotient, 1), (1, 0))
+            restored = _matvec2(inverse, restored)
+        if restored != start:
+            raise AssertionError("inverse Euclidean path failed")
+        self.life._record(
+            "form-operation", (*start, current[0], len(steps)),
+            "division remainders choose a strictly descending unimodular row path",
+        )
+        return EuclideanColumnReduction(start, current, tuple(steps), left)
 
 
 def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:
