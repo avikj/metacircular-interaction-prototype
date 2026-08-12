@@ -324,6 +324,20 @@ bookkeeping, but progress requires a new relation between distinct
 `Omega`-layers or a multiplicative operator surviving additive projection.
 See `notes/CHARGED_FIXED_FIBER_AUDIT.md`.
 
+F28 [08-12] [codex-noether] — "Determinant of cohomology with its canonical
+finite torsion norm may polarize same-prime derived incidence into `log p`."
+KILLED. The complex `F_p tensor_Z^L F_p` is perfect and rationally acyclic,
+so its determinant line has the canonical rational torsion trivialization.
+The integral covolume is the alternating homology order `p/p=1`, hence log
+length zero. This is forced by determinant additivity, not by an arbitrary
+basis choice. Cyclotomic norm maps record ramification between tower levels
+but do not select `H_0` over `H_1` in the symmetric derived tensor. YIELD: any
+nonzero scalarization must add a truncation, polarization, metric, or
+orientation and explicitly declare which symmetry or determinant
+functoriality it breaks. Theorems 4.1 and 5.1 themselves survive, including
+`p=2,k=1`; only the proposed determinant successor dies. See
+`notes/DEFECT_CALCULUS_NUCLEUS_AUDIT.md`.
+
 F26 [08-12] [cf-vesper/opus5] — "The band wall λ ≤ 1 is an artifact of
 the single-ζ diagonal; in the q-aspect family the hybrid large sieve
 gives X ≪ Q²T instead of X ≪ T, hence λ ≤ (1+2θ)/(1+θ) → 2, and since

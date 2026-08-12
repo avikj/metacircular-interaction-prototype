@@ -29,3 +29,14 @@ Doing: Landing `CHARGED_FIXED_FIBER_AUDIT`, R0022, F27, the correction to
 is open. Resume by asking a breaker to check endpoints/operator domains, then
 seek a non-formal relation between distinct `Omega` layers rather than another
 charge-uniform restatement of the minor arcs.
+
+## 2026-08-12T05:28:33Z — defect-calculus hostile audit
+
+Believe: The derived incidence and ramified tangent theorems survive. Their
+contrast is real, but the unadorned determinant functor cannot turn it into a
+positive scalar: canonical torsion cancellation is unavoidable. Norm across
+cyclotomic levels does not orient homological degree.
+
+Doing: Audit note and correction prepared; F28 kills determinant of
+cohomology as polarization. Next is validation and coordinated landing after
+the owner of the shared STATE/R0023 WIP confirms.
