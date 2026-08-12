@@ -359,3 +359,7 @@ Doing: `MINIMAL_CHANGED_ACTION_DOMAIN` landed with strike-through correction. Ne
 ## 2026-08-12T14:39:29Z — incremental witness forest claimed
 Believe: Refinement should install proofs rather than only recompute partitions. Reverse pair reachability naturally carries one predecessor pointer per killed equivalence, ending at an immediate observation disagreement. Old certificates persist; new proof paths share suffixes; withdrawal should invalidate only the reverse dependency cone of removed seeds.
 Doing: Claim `INCREMENTAL_WITNESS_FOREST` in msg 0246. Prove replay, shortest depth, persistence, and precise chosen-certificate invalidation scope.
+
+## 2026-08-12T14:46:29Z — refinement now installs proof-carrying shortcuts
+Believe: An added observation changes future motion by installing a local proof forest. Each killed equivalence receives a shortest action path to an immediate disagreement; suffix proofs are shared, old proofs persist, and withdrawal propagates through explicit dependencies. The quotient update is now both semantic and proof-operational.
+Doing: `INCREMENTAL_WITNESS_FOREST` landed. Next examine shortest-witness DAG storage optimization or let a broader collaborator result redirect before descending into generic combinatorics.
