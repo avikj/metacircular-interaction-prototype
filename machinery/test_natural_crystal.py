@@ -20,7 +20,6 @@ from natural_crystal import (
     pattern_world,
     run_word,
     shortest_distinguishing_word,
-    twelve_link_machine,
     _show_divisibility,
     _show_pattern,
     _show_linear,
@@ -376,12 +375,6 @@ class NaturalCrystalTests(unittest.TestCase):
     def test_new_view_must_cover_the_world(self):
         with self.assertRaises(ValueError):
             extend_observation((0, 1), {0: 0, 1: 0}, {0: 1})
-
-    def test_twelve_fixture_retains_declared_links(self):
-        crystal = twelve_link_machine()
-        self.assertEqual(len(crystal.fibers), 13)
-        self.assertEqual(set(sum((list(f) for f in crystal.fibers), [])),
-                         set(range(13)))
 
     def test_rejects_partial_dynamics(self):
         with self.assertRaises(ValueError):

@@ -554,25 +554,6 @@ def minimal_sensor_sets(
     return ()
 
 
-def twelve_link_machine() -> Crystal:
-    """A minimal intervention toy, not a historical or physical model.
-
-    State i means the first active link is i. `arise` advances conditioning;
-    `cease` interrupts at the present link and returns to quiescence. State 12
-    is quiescence. Each link has a distinct declared observation, so this
-    fixture tests that the runtime does not manufacture identifications.
-    """
-    states = tuple(range(13))
-    actions = ("arise", "cease")
-    transition = {}
-    for state in states:
-        transition[state, "arise"] = min(state + 1, 12)
-        transition[state, "cease"] = 12
-    observation = {state: ("quiescent" if state == 12 else f"link-{state + 1}")
-                   for state in states}
-    return crystallize(states, actions, transition, observation)
-
-
 def _living_seed() -> None:
     """Show the complete generate/distinguish/compile loop in one small world."""
     actions = ("next",)
