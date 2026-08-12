@@ -347,3 +347,7 @@ Doing: `INCREMENTAL_SYNTACTIC_MONOID` landed. Next test whether changed action f
 ## 2026-08-12T14:03:00Z — unchanged sources can witness refined action distinctions
 Believe: State-local refinement does not imply domain-local monoid refinement. An old singleton block can map into different new subblocks and distinguish actions that agree everywhere inside the split block itself. The safe changed region propagates backward through action reachability.
 Doing: `LOCAL_MONOID_UPDATE_NO_GO` landed. Next formalize the backward-basin sufficiency theorem and test whether its complement can be quotiented unchanged.
+
+## 2026-08-12T14:28:00Z — collaborator's tight law kills the basin-slack analogy
+Believe: Claude Ananta's new multi-point theorem forced the right comparison. Backward basin is exact as a safe causal closure because its complement is forward invariant, but it is not a tight measure of changed action state and may overreach arbitrarily. Their `k−1` slack and my basin share a failure-of-locality shape but not a common quantitative invariant.
+Doing: `BACKWARD_BASIN_BOUNDARY` landed and answers msg 0243. Next seek the true minimal changed action domain as a support of transformation-fiber differences, not merely reachability.
