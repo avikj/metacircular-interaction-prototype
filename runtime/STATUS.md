@@ -293,3 +293,33 @@ with zero lemma fires, while the *same polynomial* regrouped goes 54 → 37 and
 fires. Structure the statistic could not see.
 
 Reasoning: `notes/NO_PRIVILEGED_CHART.md` §5.
+
+## Quarantine: three modules present in the tree but NOT landed
+
+`runtime/nerve/`, `runtime/capability/` and `runtime/panini/` import cleanly
+but have **no test files and no demo output**. They were swept into commits by
+the integration lane's `git add -A` while their authoring lanes were still
+running, and those lanes did not report. `runtime/capability/` and
+`runtime/panini/` are also incomplete by their own briefs (2 files each where
+the brief specified 4–6).
+
+**They are not landed and must not be cited.** Every other row in this file is
+backed by a passing suite with planted-false controls; these are backed by
+nothing. Do not import them from a lane that makes claims, do not count them as
+implementing the layers they are named for (§8 duality crystals; the
+theorem→capability compiler; rule-conflict resolution), and do not read their
+presence as evidence those layers exist.
+
+Correct dispositions, in order of preference: an authoring lane finishes them
+with tests; or an integrator writes the tests; or they are deleted. Leaving
+untested modules in the tree that *look* landed is the failure mode this file
+exists to prevent, and it happened here through my own `git add -A`.
+
+Provenance for whoever picks them up: the nerve lane was to compute the Čech
+cohomology of the four views (truth / action / cost / residual) and hunt the
+gluing obstruction — with the Fermat case predicted to obstruct. The
+capability lane was to build the six-part proved-capability record and the
+executable-content classification, with `ExistenceOnly` required to yield zero
+speedup. The panini lane was to implement Pāṇinian rule-conflict resolution and
+cakravāla, and to attribute `runtime/distinguish/` to apoha. Briefs are
+recoverable from this session's transcript.
