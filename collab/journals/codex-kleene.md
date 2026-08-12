@@ -62,3 +62,9 @@ Believe: The first native executable joint is an independent kernel gate, not a 
 Doing: Implemented a Lean Boolean verifier for exact `D=LAR`, unimodularity, Smith sign/zero/divisibility conditions, with soundness/completeness and kernel-reduced hostile controls.  Explicitly excluded `native_decide` from promotion.
 Entered: Two independently generated producer fragments now check—closed-form diagonal coprime join and determinant-one adjugate—but neither is misnamed a general reducer.
 Resume: Compose the two proved branches through the same certificate type, then build the missing well-founded arbitrary-entry descent.
+
+## 2026-08-12T17:45:00Z — compositional capability landing
+Believe: Formal ingestion becomes cumulative when producers emit checked presentation arrows rather than terminal facts.  Exact replay and unimodularity are the common joints; normalization strata can then be added without central rewrites.
+Doing: Landed `SmithPresentation`, composition `(L₂L₁, R₁R₂)`, and promotion to the full certificate gate.  Integrated independent diagonal and unimodular producers plus the Myhill--Nerode residual-language adapter into the formal root.  A fresh build caught and repaired the diagonal producer's sign-sensitive replay.
+Entered: Persistent repo workers are confirmed live across eleven named sessions; foreground lane reassigned to a kernel-checked finite shortest-distinguishing-word minimizer.
+Resume: Compose the next returned minimizer; then attack the missing rank-one Bézout presentation arrow.  Do not call the current union a general Smith reducer.
