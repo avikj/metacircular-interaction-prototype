@@ -236,6 +236,97 @@ def cmd_verify(full: bool) -> int:
     return 1 if failures else 0
 
 
+
+
+# -------------------------------------------------------------------------
+# the natural trace: the execution IS the successor walk on N
+# -------------------------------------------------------------------------
+#
+# notes/NATURAL_MACHINE.md defines digits as the iterated odometer and proves
+# positional evaluation inverts it; notes/NATURAL_CRYSTAL.md gives the three
+# axes (generation, observation, behavior); machinery/arithmetic_life.py is
+# the temporal axis executable: sensors (prime moduli) are FORCED by
+# collisions in the walk, never chosen.  ``nat`` makes that walk the engine's
+# workload.  Nothing is imported from outside the system: no prime table, no
+# benchmark, no target -- the trace is 2, 3, 4, ... in successor order, and
+# the ledger is what N forced.
+
+NAT_PATH = os.path.join(STATE_DIR, "nat.json")
+
+
+def load_nat():
+    """Load and RE-CERTIFY the natural trace state.
+
+    Every stored modulus is re-proved irreducible against the earlier ones
+    (trial division through its own square root) before it is believed.  A
+    smuggled composite sensor is refused and everything after it is replayed.
+    """
+    if not os.path.exists(NAT_PATH):
+        return 1, [], 1
+    with open(NAT_PATH) as f:
+        st = json.load(f)
+    certified = []
+    for m in st["moduli"]:
+        ok = all(m % p != 0 for p in certified if p * p <= m) and m >= 2
+        if not ok:
+            break
+        certified.append(m)
+    if len(certified) != len(st["moduli"]):
+        return 1, [], 1
+    return st["position"], certified, st.get("generated_through", 1)
+
+
+def save_nat(position, moduli, generated_through):
+    os.makedirs(STATE_DIR, exist_ok=True)
+    with open(NAT_PATH, "w") as f:
+        json.dump({"position": position, "moduli": moduli,
+                   "generated_through": generated_through}, f)
+
+
+def cmd_nat(span: int) -> int:
+    sys.path.insert(0, os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "machinery"))
+    from arithmetic_life import ArithmeticLife
+
+    position, certified, gen_through = load_nat()
+    life = ArithmeticLife()
+    if certified:
+        life.moduli = list(certified)
+        life.generated_through = gen_through
+    forced_before = len(life.moduli)
+    events_before = len(life.events)
+
+    composite = prime = 0
+    for n in range(position + 1, position + span + 1):
+        if n < 2:
+            continue
+        pair = life.factor(n)
+        if pair is None:
+            prime += 1
+        else:
+            composite += 1
+    position += span
+    save_nat(position, life.moduli, life.generated_through)
+
+    forced = len(life.moduli) - forced_before
+    entry = {
+        "t": int(time.time()), "kind": "nat",
+        "trace": [position - span + 1, position],
+        "walked": span, "prime": prime, "composite": composite,
+        "sensors_forced": forced, "sensors_total": len(life.moduli),
+        "largest_sensor": max(life.moduli) if life.moduli else None,
+        "events": len(life.events) - events_before,
+        "batch_compiled": life.batch_compiled,
+    }
+    append_ledger(entry)
+    print("nat walk %d..%d: %d prime, %d composite; sensors +%d = %d "
+          "(largest %s); %d events; batch=%s"
+          % (entry["trace"][0], entry["trace"][1], prime, composite,
+             forced, len(life.moduli), entry["largest_sensor"],
+             entry["events"], life.batch_compiled))
+    return 0
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -243,6 +334,8 @@ def main(argv=None) -> int:
     p_step.add_argument("--rounds", type=int, default=6)
     p_step.add_argument("--quick", action="store_true")
     sub.add_parser("status")
+    p_nat = sub.add_parser("nat")
+    p_nat.add_argument("--span", type=int, default=100)
     sub.add_parser("bench")
     p_ver = sub.add_parser("verify")
     p_ver.add_argument("--full", action="store_true")
@@ -251,6 +344,8 @@ def main(argv=None) -> int:
         return cmd_step(a.rounds, a.quick)
     if a.cmd == "status":
         return cmd_status()
+    if a.cmd == "nat":
+        return cmd_nat(a.span)
     if a.cmd == "bench":
         return cmd_bench()
     return cmd_verify(a.full)
