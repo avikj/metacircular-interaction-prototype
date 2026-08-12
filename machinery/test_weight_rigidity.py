@@ -16,7 +16,11 @@ from valuation_lens import (
     weighted_commutes,
 )
 from weight_rigidity import (
+    cell_matrices,
+    codimension,
+    commutes_by_rank,
     equalizing_weight,
+    is_rank_one,
     permutable,
     weight_exists,
     singleton_rigidity_violations,
@@ -146,6 +150,94 @@ class CompletionTheoremTests(unittest.TestCase):
             checked += 1
             self.assertFalse(permutable(pi, sg), (pi, sg))
         self.assertGreater(checked, 100)
+
+
+class SolutionVarietyTests(unittest.TestCase):
+    """The commuting weights are exactly the rank-one cell matrices."""
+
+    def test_rank_one_characterization_matches_the_criterion(self):
+        rng = random.Random(2)
+        seen = {True: 0, False: 0}
+        for _ in range(2500):
+            n = rng.choice([4, 5, 6])
+            pi = _rand(rng, n, rng.choice([2, 3]))
+            sg = _rand(rng, n, rng.choice([2, 3]))
+            w = [Fraction(rng.randrange(1, 7)) for _ in range(n)]
+            got = commutes_by_rank(pi, sg, w)
+            seen[got] += 1
+            self.assertEqual(got, weighted_commutes(pi, sg, w), (pi, sg, w))
+        self.assertGreater(seen[True], 20)
+        self.assertGreater(seen[False], 20)
+
+    def test_every_outer_product_gives_a_commuting_weight(self):
+        """Constructive converse: choose positive `u`, `v` per join block, set
+        the cell mass to `u_i v_j`, split within cells arbitrarily."""
+        rng = random.Random(9)
+        built = 0
+        for _ in range(2500):
+            n = rng.choice([4, 5, 6, 7])
+            pi = _rand(rng, n, rng.choice([2, 3]))
+            sg = _rand(rng, n, rng.choice([2, 3]))
+            if not permutable(pi, sg):
+                continue
+            j = join(pi, sg)
+            w = [None] * n
+            ok = True
+            for E in blocks_of(j).values():
+                Bs = sorted({pi[x] for x in E}, key=str)
+                Ds = sorted({sg[x] for x in E}, key=str)
+                u = [Fraction(rng.randrange(1, 9)) for _ in Bs]
+                v = [Fraction(rng.randrange(1, 9)) for _ in Ds]
+                for bi, b in enumerate(Bs):
+                    for di, d in enumerate(Ds):
+                        pts = [x for x in E if pi[x] == b and sg[x] == d]
+                        if not pts:
+                            ok = False
+                            break
+                        parts = [rng.randrange(1, 5) for _ in pts]
+                        tot = sum(parts)
+                        for x, pp in zip(pts, parts):
+                            w[x] = u[bi] * v[di] * Fraction(pp, tot)
+                if not ok:
+                    break
+            if not ok:
+                continue
+            built += 1
+            self.assertTrue(weighted_commutes(pi, sg, w), (pi, sg, w))
+        self.assertGreater(built, 200)
+
+    def test_the_equalizing_weight_has_rank_one_cells(self):
+        rng = random.Random(4)
+        for _ in range(400):
+            n = rng.choice([4, 5, 6])
+            pi = _rand(rng, n, rng.choice([2, 3]))
+            sg = _rand(rng, n, rng.choice([2, 3]))
+            if not permutable(pi, sg):
+                continue
+            for M in cell_matrices(pi, sg, equalizing_weight(pi, sg)):
+                self.assertTrue(is_rank_one(M))
+
+    def test_codimension_counts_the_five_point_pair_correctly(self):
+        """`pi = 00011`, `sigma = 01101`: one join block, two blocks each side,
+        so codimension `(2-1)(2-1) = 1` — exactly the single equation
+        `a e = d(b+c)` found by hand."""
+        self.assertEqual(codimension([0, 0, 0, 1, 1], [0, 1, 1, 0, 1]), 1)
+
+    def test_codimension_zero_means_every_weight_works(self):
+        """A join block with a single block on one side constrains nothing."""
+        rng = random.Random(6)
+        checked = 0
+        for _ in range(1500):
+            n = rng.choice([4, 5, 6])
+            pi = _rand(rng, n, rng.choice([2, 3]))
+            sg = _rand(rng, n, rng.choice([2, 3]))
+            if not permutable(pi, sg) or codimension(pi, sg) != 0:
+                continue
+            checked += 1
+            for _ in range(4):
+                w = [Fraction(rng.randrange(1, 9)) for _ in range(n)]
+                self.assertTrue(weighted_commutes(pi, sg, w), (pi, sg, w))
+        self.assertGreater(checked, 50)
 
 
 class SingletonRigidityTests(unittest.TestCase):

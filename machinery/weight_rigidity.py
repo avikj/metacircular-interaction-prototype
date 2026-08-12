@@ -22,6 +22,11 @@ ever repair the second part.  In fact it always repairs it:
 exists **iff** they are permutable.  So *across all weights* the criterion is
 exactly permutability, and every numeric condition is a measure artifact.
 
+**Solution-variety theorem.**  More: a weight commutes iff the cell-mass matrix
+is **rank one** in every join block.  So the commuting weights are exactly the
+outer products, with the within-cell distribution entirely free, and the
+numeric constraints have codimension `sum_E (r_E-1)(s_E-1)`.
+
 And a **singleton block is governed entirely by the rigid part**:
 
 **Singleton rigidity.** If `B = {b}` is a singleton block of `pi` with join
@@ -145,6 +150,83 @@ def weight_exists(pi: Sequence[Label], sigma: Sequence[Label]) -> bool:
     criterion is an artifact of the measure.
     """
     return permutable(pi, sigma)
+
+
+# ------------------------------------------- the full solution variety
+
+
+def cell_matrices(
+    pi: Sequence[Label], sigma: Sequence[Label], weight: Sequence[Fraction]
+) -> List[List[List[Fraction]]]:
+    """Per join block, the matrix of cell masses `w(B_i cap D_j)`."""
+    j = join(pi, sigma)
+    out = []
+    for E in blocks_of(j).values():
+        Bs = sorted({pi[x] for x in E}, key=str)
+        Ds = sorted({sigma[x] for x in E}, key=str)
+        out.append(
+            [
+                [
+                    sum(
+                        (weight[x] for x in E if pi[x] == b and sigma[x] == d),
+                        Fraction(0),
+                    )
+                    for d in Ds
+                ]
+                for b in Bs
+            ]
+        )
+    return out
+
+
+def is_rank_one(M: Sequence[Sequence[Fraction]]) -> bool:
+    """Exact: every `2x2` minor vanishes."""
+    r, c = len(M), len(M[0])
+    for i in range(r):
+        for k in range(i + 1, r):
+            for a in range(c):
+                for b in range(a + 1, c):
+                    if M[i][a] * M[k][b] - M[i][b] * M[k][a] != 0:
+                        return False
+    return True
+
+
+def commutes_by_rank(
+    pi: Sequence[Label], sigma: Sequence[Label], weight: Sequence[Fraction]
+) -> bool:
+    r"""**Solution-variety theorem.**  A positive weight makes `pi` and `sigma`
+    commute iff they are permutable and, in every join block, the matrix of
+    cell masses has **rank one**.
+
+    *Proof.*  `(*)` says `c_ij = beta_i delta_j / T`, which is literally the
+    outer product of `beta` with `delta/T`; conversely an outer product
+    `c_ij = u_i v_j` gives `beta_i = u_i sum(v)`, `delta_j = v_j sum(u)`,
+    `T = sum(u) sum(v)`, so `beta_i delta_j / T = u_i v_j = c_ij`. ∎
+
+    So the commuting weights are exactly: choose a positive outer product of
+    cell masses in each join block, then distribute each cell's mass among its
+    points however you like.  The within-cell distribution is entirely free.
+
+    **Codimension.**  Rank-one positive `r x s` matrices form an
+    `(r+s-1)`-dimensional family inside `rs`, so the numeric constraints have
+    codimension exactly `sum_E (r_E - 1)(s_E - 1)` in the weight space.  A join
+    block with a single block on either side imposes nothing.
+    """
+    return permutable(pi, sigma) and all(
+        is_rank_one(M) for M in cell_matrices(pi, sigma, weight)
+    )
+
+
+def codimension(pi: Sequence[Label], sigma: Sequence[Label]) -> int:
+    """`sum_E (r_E - 1)(s_E - 1)` — how many independent numeric constraints
+    the criterion imposes on the weight."""
+    j = join(pi, sigma)
+    total = 0
+    for E in blocks_of(j).values():
+        r = len({pi[x] for x in E})
+        s = len({sigma[x] for x in E})
+        total += (r - 1) * (s - 1)
+    return total
 
 
 if __name__ == "__main__":

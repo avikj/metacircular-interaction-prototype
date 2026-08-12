@@ -66,6 +66,60 @@ rigidity is now a corollary rather than a separate theorem. I keep §2 because
 its mechanism is the readable one, and because it is what I actually used on
 `V(f)`.
 
+## 1.6 Solution-variety theorem: the commuting weights are the outer products
+
+Seed 2 asked whether rigidity is *graded* — "smaller blocks constrain more" —
+or a clean dichotomy. It is neither. There is an exact description.
+
+**Theorem.** A positive weight makes `pi, sigma` commute iff they are
+permutable and, in every join block, the matrix of cell masses
+`c_ij = w(B_i cap D_j)` has **rank one**.
+
+*Proof.* `(*)` says `c_ij = beta_i delta_j / T`, which is literally an outer
+product. Conversely if `c_ij = u_i v_j` then `beta_i = u_i sum(v)`,
+`delta_j = v_j sum(u)`, `T = sum(u) sum(v)`, so
+`beta_i delta_j / T = u_i v_j = c_ij`. ∎
+
+So the commuting weights are **exactly**: pick a positive outer product of cell
+masses in each join block, then distribute each cell's mass among its points
+however you like. The within-cell distribution is entirely free — the criterion
+never sees inside a cell.
+
+Checked: the rank-one route agrees with the criterion on 2500 random weighted
+pairs; and 620 weights built from random outer products all commute.
+
+**Codimension.** Rank-one positive `r x s` matrices form an `(r+s-1)`-family
+inside `rs`, so the numeric constraints have codimension exactly
+
+```text
+sum over join blocks E of  (r_E - 1)(s_E - 1).
+```
+
+That is the graded statement seed 2 was reaching for, in exact form: a join
+block with a single block on either side constrains nothing, and constraints
+grow as the product of the reduced block counts. For the five-point pair
+`00011`/`01101` the codimension is `(2-1)(2-1) = 1` — exactly the single
+equation `a e = d(b+c)` I had found by hand, now derived rather than solved.
+
+The equalizing weight of §1.5 is the particular outer product `u = v = 1`.
+
+**Prior art — and this is not new.** I searched before claiming anything, and
+the rank-one statement is the standard one. In the statistics literature a
+probability tensor is rank one exactly when the variables are independent, and
+rank one in every fiber exactly when they are conditionally independent
+(e.g. the conditional-probability-tensor decomposition literature,
+arXiv:2206.10676, fetched 2026-08-12). Since the criterion `(*)` **is**
+conditional independence given the join — which I cited from the start
+(arXiv:1307.6403 Prop. 7) — the rank-one description is that same classical
+fact in tensor language, not a new theorem.
+
+What I take from §1.6 is therefore **not** the theorem but the reading: the
+solution set is a *parametrized variety*, the within-cell distribution is free,
+and the constraint count is `sum_E (r_E-1)(s_E-1)`. The parametrization and the
+codimension are elementary consequences once rank-one is recognized as
+independence; I record them because they are what made the integrality
+corollary legible as a slice, not because they are unpublished.
+
 ## 2. Singleton rigidity
 
 **Theorem.** Let `B = {b}` be a singleton block of `pi`, lying in join block
@@ -107,6 +161,9 @@ lone block is decided before any measure is chosen.
 
 - **Proved:** §1's proposition (permutability necessary under every weight);
   §1.5's completion theorem, with the equalizing weight as explicit witness;
+  §1.6's parametrization and codimension count — but see the prior-art note
+  there: the rank-one characterization itself is the classical
+  conditional-independence fact and is **not claimed as new**;
   §2's singleton rigidity theorem, now a corollary of §1.5.
 - **Checked computation only:** the 1500 non-permutable pairs; the flip census
   and its confinement to permutable pairs; the 2500 singleton violations; the
@@ -128,10 +185,11 @@ lone block is decided before any measure is chosen.
    always, and a counterexample would be more useful than the expectation.~~ —
    **answered in §1.5, and my expectation was wrong.** It is always solvable,
    by the equalizing weight. The seed is closed.
-2. **Rigidity beyond singletons.** §2 uses only that `B` is a block; the
-   emptiness argument applies to any block. What is special about singletons is
-   that permutability then *forces* `E = D(b)`. Is there a graded statement —
-   small blocks are more rigid — or is it a clean dichotomy?
+2. ~~**Rigidity beyond singletons** — graded, or a clean dichotomy?~~ —
+   **neither; answered exactly in §1.6.** The commuting weights are the
+   rank-one cell matrices, the within-cell distribution is free, and the
+   constraints have codimension `sum_E (r_E-1)(s_E-1)`. I had posed the
+   question as a choice between two shapes and the answer was a third.
 3. **The exotic repairs.** Germs, non-archimedean coefficients. §3 makes me
    doubt them: any formalism whose criterion is a positivity-based identity on
    overlaps will inherit the same rigid part. A repair would have to change

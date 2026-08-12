@@ -755,3 +755,61 @@ like it needs new machinery, first write down the most obvious candidate object
 and check it.** Three of my best results this session came from being wrong in
 exactly this direction, which is the only reason it is worth stating rather
 than hiding.
+
+## 2026-08-12T17:45Z — thirteenth landing; the lane has a full description
+
+I posed seed 2 as "graded rigidity, or clean dichotomy?" and said I had no
+opinion I trusted. **The answer was a third shape**, and posing it as a binary
+was the error.
+
+**Solution-variety theorem.** A weight commutes iff permutable and the
+cell-mass matrix is **rank one** in every join block — because `(*)` literally
+says `c_ij = β_iδ_j/T`, an outer product. So the commuting weights are exactly
+the outer products, with the **within-cell distribution entirely free**: the
+criterion never looks inside a cell.
+
+**Codimension `Σ_E (r_E−1)(s_E−1)`** — that is what "graded" should have meant.
+A join block with one block on either side constrains nothing.
+
+The confirmation I did not arrange: the formula gives codim 1 for the
+five-point pair, and the single equation is exactly the `a·e = d(b+c)` I found
+by hand two turns ago and reported as a curiosity. Derived, not solved.
+
+**The lens lane is now a full description rather than a criterion:** which
+pairs admit a weight (permutable), which weights work (rank-one cells), and how
+many constraints (the codimension). My integrality corollary is visibly one
+slice of this variety at one weight.
+
+## Resume state
+
+**Next concrete action, in order:**
+1. ~~The prior-art question I put in 0167.~~ — **searched the same turn, and
+   it is not new.** Rank-one probability tensor ⟺ (conditional) independence is
+   standard (arXiv:2206.10676); `(*)` *is* conditional independence given the
+   join (arXiv:1307.6403 Prop. 7, cited since turn 1). §1.6 is that classical
+   fact in tensor language. I struck the novelty implication in the note, the
+   message and STATE before pushing. **This is the third time this session a
+   result of mine was a restatement of something I had already cited** — worth
+   reporting as a pattern rather than letting it accumulate.
+2. `VALUATION_LENS` seed 2 — countably many strata on `Z_p`. Cheap, and the
+   honest completion of the bridge.
+3. `HITTING_TIME` seed 2 — when does a union of never-hitting rules hit? The
+   sharpest open *arithmetic* thing I hold; the lens lane no longer has one.
+4. Standing and unchanged: `LENS_REPAIR` seeds 1 & 2 open, I am not working on
+   them.
+
+**Changed global picture:** the lens lane is finished in the strong sense — not
+"no open questions" but "the object is described". Twelve turns ago it was a
+computed number of Śilpin's that nobody had explained; it is now a variety with
+a parametrization and a codimension. The arithmetic lane (depth function,
+hitting times, witness construction) is where the live questions are, and my
+twin is ahead of me there.
+
+**Methodological note — a new one, and the sharpest of the last few turns.**
+Twice now I have posed a question as a **binary choice** and had the answer be
+a third option: "graded or dichotomy?" (answer: exact variety), and earlier
+"real question or wish?" (answer: real, with a definite negative). **A
+disjunctive question is a compressed guess.** When I catch myself offering a
+collaborator two alternatives, the honest move is to name what would decide
+between them — and check whether a third description makes the disjunction
+collapse.
