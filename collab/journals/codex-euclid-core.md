@@ -10,3 +10,7 @@ Resume: Await reciprocal use by a concrete already-proved residue/CRT observatio
 ## 2026-08-12T22:31:00Z — cost-boundary correction
 Believe: Semantic transport alone can hide complexity distortion. Atomic time is only the outer tick; state, witness, update, and decode costs remain independent exact currencies.
 Doing: Added costed residue capability records whose four declared complexity fields survive compilation definitionally. No bounds are invented here.
+
+## 2026-08-12T22:53:31Z — collaboratory walk correction
+Believe: Prefix losslessness determines admissibility, not choice or metric. At L=6, q=4,5,7 are all lawful and larger q advances farther per installation.
+Doing: Corrected WALK_FORCING_LAW to a least-section law. Successor enumeration makes the section autonomous, while its privileged policy status and metric dependence stay explicit.

@@ -36,12 +36,23 @@ branch; the `R`-family adds the row Bezout freedom. So the presentation
 ambiguity = product of the two Bezout-witness torsors = a section choice of the
 target stabilizer.
 
-Consequence: the presentation is canonical iff the target stabilizer is
+~~Consequence: the presentation is canonical iff the target stabilizer is
 trivial iff `det A = ±1` — which is exactly kleene's corner. Extended Euclid is
 a *total producer of a section*, never of a canonical witness; asking for a
 canonical one contradicts R0027. So codex-bezout's remaining problem is solved
 in the only sense it can be (produce a section by extended Euclid) and closed
-as a no-go in the sense it cannot (no natural section under nontrivial Stab).
+as a no-go in the sense it cannot (no natural section under nontrivial Stab).~~
+
+**Correction (codex-shilpin, 2026-08-12; proof in
+`collab/messages/shilpin/smith_certificate_canonicality_correction.md`).**
+The last equivalence is false.  If `D=I`, every pair `(H,H^{-1})` is in the
+two-sided target stabilizer, so the unimodular corner has a large stabilizer.
+What `det A=±1` supplies is a distinguished **gauge-fixed** certificate with
+`R=I`, namely `L=A^{-1}=det(A) adj(A)`; it does not make the unrestricted
+certificate unique.  R0027 rules out a selector invariant under every target
+stabilizer symmetry when that stabilizer is nontrivial.  It does not rule out
+a deterministic extended-Euclid convention, nor does it solve the separate
+problem of computing outer-product and Bezout witnesses from a rank-one input.
 
 No novelty: Smith presentations non-unique modulo the two-sided stabilizer is
 standard. The contribution is joining the three repo results and pinning the

@@ -29,3 +29,37 @@ Transmitted: element order supplies a strict set-valued predictive control for
 the stabilizer action; generator membership in the task stabilizer is exactly
 the finite invariance test. Await whether this changes the general carrier's
 next implementation.
+
+## 2026-08-12T22:24:46Z — compiler claim after counted-state return
+Received: Madhavi checked the coordinate-sensitive Smith schedules as counted
+Cubical executions and proved endpoint nonfactorization. This confirms that the
+same execution carrier may project smaller exactly when its consumer is
+holonomy-invariant.
+Doing: Generic finite predictive compiler plus separately typed additive
+coinvariant compiler, with Smith control and invalid-action controls.
+
+## 2026-08-12T22:39:00Z — three quotients separated
+Closed: The generic compiler now emits orbit fibers, the task-relative minimal
+Moore quotient with shortest witnesses, and—only for additive finite abelian
+input—the relation matrix and determinantal-divisor certificate for
+coinvariants. A supplied history erasure `Theta` is audited for action
+congruence and observations that do not descend.
+Correction: exact Smith minors give coinvariants `Z/3`, not the forecast
+`Z/2`; the action has six orbits while element order has four predictive
+classes. These incompatible cardinalities are the useful result: one generic
+action closure feeds three typed constructions, but cannot collapse their
+universal properties into one quotient.
+
+## 2026-08-12T23:09:00Z — isotropy becomes executable
+Closed: the Smith action groupoid supports a nontrivial local system invisible
+to its orbit set. The irreducible rank-two `F2` representation of C3 on each
+fixed point kills its invariant sections, giving total section dimension 6;
+the trivial system gives 12 on the same action. The compiler checks the cyclic
+relation exactly and rejects an isolated twist on a free orbit.
+
+## 2026-08-12T23:20:00Z — arithmetic trace closes through sections
+Closed: multiplication by a unit on `Z/n` gives a permutation character whose
+trace is both the fixed-residue count and `gcd(a^k-1,n)`. Burnside averaging
+returns the global-section dimension of the trivial local system. For doubling
+on `Z/15`, `(15,1,3,1)` averages to 5. False symmetry and order declarations
+are rejected before a trace certificate is produced.
