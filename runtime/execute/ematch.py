@@ -5,11 +5,13 @@ sees one term at a time.  An e-matcher sees an *equivalence class* at every
 position, so it fires on shapes that are not syntactically present in any single
 stored term but are present modulo the equalities already proved.
 
-The demonstration in ``runtime/demo/geodesic_demo.py`` turns on exactly that:
-the pattern ``mul(mul(mul(?u,?u),?u),?u)`` matches the class of ``3^8`` with
-``?u`` bound to the class of ``3^2``, even though no stored term has that shape
--- the four-fold left-nested product of squares was never built.  A syntactic
-matcher finds nothing there.
+The demonstration in ``runtime/demo/geodesic_demo.py`` turns on exactly that.
+The pattern ``mul(mul(mul(?u,?u),?u),?u)`` -- "a fourth power" -- matches the
+class of ``3^8`` 44 times.  Five of those have a stored realisation; **39 do
+not**, including the one that matters, ``?u`` = the class of ``3^2``, whose
+instantiated left side ``mul(mul(mul(#9,#9),#9),#9)`` is not a node of the
+e-graph at all.  A syntactic matcher over every position of every stored term
+finds only the five.
 
 THE BOUND, STATED
 -----------------
@@ -49,7 +51,7 @@ insertion-ordered dict.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Dict, Iterator, List, Optional, Sequence, Tuple
 
 from ..kernel import term as T
@@ -288,7 +290,7 @@ def _match_class(g: EGraph, pat: T.Term, root: str, csigma: Dict[str, str],
     node per term equal to ``a``.  Without memoisation the matcher re-enumerates
     the entire subpattern once per member of that class, and the cost multiplies
     by it at every spine level -- on the demo's graph that is the difference
-    between 0.5M and 50M visits.  The memo is keyed on
+    between thirty thousand visits and fifty million.  The memo is keyed on
     ``(pattern node address, class root, substitution so far)``, which is
     exactly the state the subsearch depends on, so it can only remove repeated
     work, never a result.  It lives on the per-call ``_State``, so it never

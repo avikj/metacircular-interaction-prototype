@@ -55,13 +55,15 @@ is excluded, and asserts ``is_nondominated`` refuses the claim directly.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Dict, List, Optional, Sequence, Tuple
+
+import heapq
 
 from ..kernel import check as C
 from ..kernel import term as T
 from ..kernel.egraph import EGraph
-from .rewrite import Rule, count_steps, expand_path, term_size
+from .rewrite import count_steps, term_size
 
 __all__ = [
     "COST_NAMES",
@@ -227,7 +229,6 @@ class RouteFinder:
             self.adj[k].sort(key=lambda z: z[0])
         self._memo: Dict[Tuple[str, str], Optional[Tuple[C.Step, ...]]] = {}
         self._busy: Dict[Tuple[str, str], None] = {}
-        self.expansions = 0
         self.settled = 0
 
     # -- edges ------------------------------------------------------------
@@ -276,7 +277,6 @@ class RouteFinder:
         return out
 
     def _dijkstra(self, src: str, dst: str, depth: int) -> Optional[Tuple[C.Step, ...]]:
-        import heapq
         dist: Dict[str, int] = {src: 0}
         prev: Dict[str, Tuple[str, C.Step]] = {}
         heap: List[Tuple[int, str]] = [(0, src)]

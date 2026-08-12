@@ -11,7 +11,7 @@ Updated by the integration lane as components land.
 | L5 trusted heart | `kernel/check.py` — 189 statements, trust assumptions T1–T4 stated, recomputes every address from scratch, normalizes β-witnesses itself, verifies `Iso` by running the round trip on fresh probes, imports nothing from `egraph` | **BUILT** |
 | §3.1 crystallization | `crystallize/` — derivation DAGs, contiguity-windowed sub-DAG mining, Plotkin/Reynolds anti-unification, 7-gate lemma install | **BUILT**, 27/27 tests, **seed criterion MET**: independent P4 29→12 steps, null control bit-identical at 29 |
 | §3.2 distinction compilation | `distinguish/` — collision finder, exact minimum-cardinality channel search, Moore refinement | **BUILT**, 51/51 tests, **seed criterion MET**: 46656 states → 216 blocks, independent queries 91551→28672 steps, null control +616 and removed |
-| L3 execution | rewriting, e-matching, cost-vector extraction | **designed, not built** |
+| L3 execution | `execute/` — checked rewriting, e-matching against e-classes, budget-honest saturation, Pareto extraction under a 4-component cost vector | **BUILT**, 47/47 tests, 13/13 mutants killed. **Mathematics changed the geometry**: a theorem the runtime proved itself shortened 4 geodesics (24→15 steps on one target), made 2 routes appear on the frontier and 4 vanish; null control bit-identical with 0 applications |
 | L4 consequence propagation | `propagate/` — both indices, exact forward cone, survival by homotopy class, stale-vs-dead caches, route deltas, obligation triage | **BUILT**, 26/26 tests (15 capabilities, 11 controls), 12/12 mutants dead; cone 7/45 facts, incremental 42 vs full rebuild 226, null control 1 step / 0 cost |
 | §4 reachability discipline | generated locus / completion / omitted locus declarations | **partial** — `distinguish/` attaches it to every claim (a quotient sufficient for one task family is not sufficient for the ambient problem; two later tasks collide, one recompiling to 108× compression, one to *none*, with the omitted locus identified as the endian class) |
 | plural surfaces | `render/` — channels carrying proved preservation, an explicit collision witness, and `decode` returning the **fiber** (a lossy channel structurally cannot return a guess); layered chromatic coding in exact rationals; SVG output | **BUILT**, 68/68 tests, 12/12 mutants killed. The rendered picture **verifies its own theorem**: DIGIT_CRYSTAL 2.2 (complement exchanges carry with borrow) is re-checked against every `<rect fill>` re-parsed from the file. Proxy measurement only — **no human recognition-latency claim is established, and `certify_claim` rejects any INFORMATION_GAIN claim outright** |
@@ -96,3 +96,30 @@ compilation is not free. The §3.2 compile costs 23.8M steps against 122
 steps saved per query — break-even at ~39,000 queries. Mathematics lowers
 the cost of *further* understanding; it does not pay for itself on first
 use. Any claim that it does would be measuring the wrong thing.
+
+
+## Cross-lane defect reports (open)
+
+1. **`explanations`/homotopy DFS aborts globally on `max_depth` instead of
+   backtracking.** On a 533-record graph it returns a single 240-step class
+   where the geodesic is 15 — so it cannot currently be used to find short
+   routes. Filed by the L3 lane against the L4/Part-A lane. Not a soundness
+   bug (the guarded `ClassEnumeration` still refuses to pass off a partial
+   answer as complete), but the enumeration is far from complete in practice.
+2. **`kernel/README.md` still documents the old `explanations(x,y,limit=8)
+   -> tuple` signature**, which Part A replaced with the guarded
+   `ClassEnumeration`. The contract other lanes code against is stale.
+3. **`EGraph.explain` is not a metric and must not be used as one.** Its
+   length is proof-forest route length, which depends on merge order: in an
+   early L3 draft, adding a theorem made a target go 28 → 36 steps while
+   genuinely getting *closer*. L3 added `RouteFinder` (Dijkstra over the
+   retained justification graph, congruence edges weighted by the recursive
+   geodesic between their arguments). Any future distance claim must use it.
+
+## A note on the cost vector
+
+L3 reports that on its demo task `verify` is near-collinear with `steps`:
+*a four-component vector with two near-parallel components is a
+three-component vector wearing a hat.* Recorded rather than fixed — the
+Pareto machinery is correct, but the claim "four independent costs" is not
+established on this task.

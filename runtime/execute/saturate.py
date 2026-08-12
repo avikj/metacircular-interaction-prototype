@@ -39,13 +39,13 @@ exactly one route.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Dict, List, Sequence, Tuple
 
 from ..kernel import check as C
 from ..kernel import term as T
 from ..kernel.egraph import EGraph, EGraphError
 from .ematch import EMatchBudget, EMatchResult, ematch_rule
-from .rewrite import Rule, sigma_tuple
+from .rewrite import Rule
 
 __all__ = ["Budget", "Application", "SaturationResult", "saturate", "COUNTERS"]
 
@@ -137,6 +137,8 @@ def saturate(g: EGraph, rules: Sequence[Rule], ctx: C.CheckContext,
     # This is *not* chord suppression: two different instances that happen to
     # prove the same equality are both kept (see Budget.keep_chords).
     seen: Dict[Tuple, None] = {}
+    if budget.max_iterations < 1:
+        status = "budget:iterations"
 
     for iterations in range(1, budget.max_iterations + 1):
         COUNTERS.bump("saturate.iteration")

@@ -39,7 +39,8 @@ Two consequences worth stating.
 * Bindings are required to be **closed** terms.  ``term.subst_consts`` does not
   shift de Bruijn indices, so substituting an open term underneath a binder
   would capture.  Refusing open bindings is the cheapest sound rule and it is
-  enforced in ``match`` (see ``MatchRefusal``), not documented and hoped for.
+  enforced in ``match`` (counter ``rewrite.match_open_refused``), not
+  documented and hoped for.
 
 Theorems
 --------
@@ -63,7 +64,7 @@ new assumption.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, replace as _replace
+from dataclasses import dataclass
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 from ..kernel import check as C

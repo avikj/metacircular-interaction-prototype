@@ -51,7 +51,7 @@ from runtime.kernel import term as T                                   # noqa: E
 from runtime.kernel.egraph import EGraph                               # noqa: E402
 from runtime.execute import (Budget, EMatchBudget, RouteFinder,        # noqa: E402
                              Scalarization, apply_rule, count_steps,
-                             dominates, ematch, expand_path,
+                             ematch, expand_path,
                              extract_routes, frontier_diff, install_theorem,
                              match, positions, rule_from_axiom,
                              rule_from_edge, saturate, subterm_at)
@@ -415,8 +415,8 @@ def main() -> int:
     print("\n  the theorem was proved about a FOURTH power and is used here on an")
     print("  EIGHTH power.  The task is NOT an instance of it (section 3(b): the")
     print("  theorem's left side does not match the task term), and the uses that")
-    print("  do the work bind ?p to the class of 3^2 -- arguments that are not")
-    print("  syntactically present anywhere (section 3(c): %d such instances)."
+    print("  do the work bind ?p to the class of 3^2 -- whose instantiated left")
+    print("  side is stored nowhere (section 3(c): %d such instances)."
           % len(unstored))
     if diff.shape_changed_without_shortening:
         print("\n  NOTE: the frontier changed SHAPE without any geodesic getting")
