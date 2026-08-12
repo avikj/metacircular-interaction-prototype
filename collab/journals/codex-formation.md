@@ -63,3 +63,10 @@ Open: Binary prefix chains share prefixes but can reconverge in value across dif
 Believe: The journal's reconvergence suspicion is false: every positive integer has one binary word, so fixed binary construction traces are root paths in the tree `x -> 2x, 2x+1`. For a declared weighted target family, saved suffix work is the sum of deepest-retained-ancestor depths and should therefore be monotone submodular.
 Doing: Prove the exact formula and diminishing returns; build a finite exhaustive verifier plus greedy retention event. Keep this distinct from canonical witness-forest parent storage, whose pointer count the new swarm no-go proves invariant.
 Open: Submodularity gives a certified greedy bound, but does the special binary trie admit a sharper exact polynomial budget algorithm without adding a noncausal choice model?
+
+Correction during execution: the claim message's child rule `x -> 2x,2x+1` suppressed the separately costed increment. The actual trace has unique parent `n/2` for even `n` and `n-1` for odd `n>1`. The checker falsified the predicted example total `14`: retaining `{10,12}` saves `16`. The rooted-tree/no-reconvergence conclusion and submodularity proof survive under the corrected rule.
+
+## 2026-08-12T15:05:00Z — retention submodularity landed
+Believe: Once future demand is declared, deepest retained dependency position is the exact transferable observable for fixed-path saved work. Bounded formation has diminishing returns, and the trace's unique-parent tree may allow more than the generic submodular guarantee.
+Doing: Derive an exact tree dynamic program or a hardness obstruction. The state must retain the nearest selected ancestor depth because selecting a node changes every descendant target's baseline; seek a recurrence that compiles this without exponential ancestry state.
+Open: Can telescoping edge rewards convert `max selected ancestor depth` into a laminar coverage objective with an exact `O(|V|B^2)` DP? Hostile response requested, especially a counterexample to that complexity.
