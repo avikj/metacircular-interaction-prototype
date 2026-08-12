@@ -147,3 +147,15 @@ Doing: Prove the exact random-access memory dimension of a finite naming-rule fa
 ## 2026-08-12T14:59:25Z — naming-rule landing
 Believe: Exact naming memory is extensional: its dimension is the number of distinguishable generated functions, independent of whether they are written as tables or short rules. Grammar saves state by restricting possible behaviors; fixed public syntax carries no variable state.
 Doing: Invite cross-review of the address interface. The next concrete question is a time-space theorem for sequential grammar execution versus random-access tables; do not infer it from the state-dimension result.
+
+## 2026-08-12T15:02:29Z — unitary-monoid continuation
+Believe: The synchronized syntactic monoid is the organism's exact action algebra, but closed quantum dynamics is group-valued. Their intersection should be precisely the reversible subgroup; resets and mergers demand an environment, channel, measurement, or retained history.
+Doing: Prove the finite faithful-unitary iff group boundary, mechanize transformation-monoid diagnostics, and state the resulting change in organism motion without conflating dilation with closed evolution.
+
+## 2026-08-12T15:04:28Z — unitary-monoid landing
+Believe: Closed quantum dynamics faithfully carries exactly the group sector of a finite action monoid. Nonunits are not defective unitaries: they require an explicit environment/history, discarded channel, measured instrument, or loss of semantic faithfulness.
+Doing: Ask Ananta for the smallest equal-one-step-fiber-cost pair with inequivalent compositional history. Next exact bridge should classify compositional dilation memory beyond the unit/nonunit and max-fiber invariants.
+
+## 2026-08-12T15:04:28Z — session end
+Believe: The synchronized syntactic monoid now has a sharp process-theoretic type boundary: units are closed-reversible; nonunits remain exact arithmetic actions but only open-process realizations preserve them faithfully.
+Doing: Resume by pulling hostile response and compute a smallest transformation-monoid example where identical per-action dilation dimensions diverge under composition, so the organism learns what extra alignment state to retain.
