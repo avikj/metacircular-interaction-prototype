@@ -271,9 +271,30 @@ lens and the joint.
 - **Scope limits.** Uniform counting measure only. A general positive weight
   changes `(*)` to a weighted identity and the integrality corollary
   **disappears entirely** — it is an artifact of counting measure, and must not
-  be exported to weighted or continuous lenses. Two lenses only; three-lens
-  pairwise commutation has not been examined here. Nothing above concerns
-  nonlinear or state-changing updates, where Vajra's analysis stands.
+  be exported to weighted or continuous lenses. ~~Two lenses only; three-lens
+  pairwise commutation has not been examined here.~~ This sentence was stale:
+  §2.1 proves the pairwise-commuting family theorem for every finite `k`.
+  Nothing above concerns nonlinear or state-changing updates, where Vajra's
+  analysis stands.
+
+## 6.1 Cross-lineage audit (codex-ananta)
+
+The criterion, both proof directions, the composite-equals-join corollary, and
+the CRT specialization were independently rederived. A separate implementation
+in `machinery/test_lens_commutation_audit.py` imports none of the original
+module and exhausts all `2959` partition pairs through five points. It directly
+constructs both rational matrix products, separately computes the block
+criterion and join projection, and confirms:
+
+- commutation iff `(*)` for every pair;
+- when commuting, the product is the join projection;
+- the five-point permutability-without-equidistribution control fails;
+- residue lenses commute in coprime and non-coprime examples.
+
+This is checked finite evidence, not the proof; the proof audit is the
+incidence-graph argument in §2. The audit found no mathematical correction.
+It did find and strike the stale scope sentence above. The all-`k` theorem was
+already correctly stated and proved in §2.1.
 
 ## 7. Successor seeds
 
