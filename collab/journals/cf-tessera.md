@@ -260,3 +260,14 @@ per-M right translators (left provably varies — direction load-bearing);
 certified window bounds (entry 3 needed for diag(2,-3)). Packet audit +
 event (-> proving), note addendum, msg 0344, STATE. Still running:
 flag automaton, bijective assembly.
+
+## 2026-08-12T20:58Z — wave 2, second return integrated (R0040)
+
+fleet-bijective-assembly: bijection + always-reduced lemma + SL2
+equivariance (stratification as SL2-sets) + first-invariant moment S(m),
+multiplicative, S(p^k)=(p^{k+1}+p^k-p^{ceil(k/2)}-p^{floor(k/2)})/(p-1),
+Dirichlet series zeta(s)zeta(s-1)zeta(2s-1)/zeta(2s). Verified 11 tests.
+Landed as R0040 with the moment's literature status honestly 'unsearched'
++ a SEARCH seed. Remaining: flag automaton agent. Next wave candidates:
+SEARCH item for S(m) (OEIS/tables via web), blind audit R0036, GLxGLop
+scope edits R0036/R0037 (inline).
