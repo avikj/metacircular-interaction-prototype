@@ -84,3 +84,20 @@ cochain map rather than the proved finite evaluation used here.
 
 Independent replay passed. Added the explicit phase-bit convention
 `0=+I, 1=-I`; the even-sign hostile control retains exactly 16 solutions.
+
+## 2026-08-12T23:48:00Z — Pauli twisted trace
+
+Believe: Peres--Mermin supplies a finite trace bridge only as a pair: the
+context 2-cycle evaluates the projective multiplier to `-I`, then the central
+character detects it.  The character without the cycle is not contextuality.
+
+Doing: Landed exact normalized trace `-1`, untwisted central cancellation `0`,
+sign-twisted coefficient `8`, and an empty-cycle control with trace `+1` but
+unchanged character data.  Refused a Lefschetz identification absent geometry,
+Frobenius, or cohomological fixed-point terms.
+
+## 2026-08-12T23:49:00Z — session end
+
+Resume: The next real arithmetic bridge would require an actual finite
+geometric object whose Frobenius trace realizes the central coefficient; none
+is supplied by this calculation.
