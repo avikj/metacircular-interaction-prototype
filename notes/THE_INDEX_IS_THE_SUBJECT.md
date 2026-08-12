@@ -218,3 +218,42 @@ Consequence for `limitor_census`: **three outcomes, not two.** Varying verdict �
 live index. Constant verdict with unequal profile blocks → accidental, widen.
 Constant verdict with equal blocks → possibly structural, and only there does the
 census need a group carried on the limitor spec.
+---
+
+## 6. Closed, same day: the runtime now carries an index
+
+§5 stated a falsifiable criterion. `runtime/order/witness.py` meets it, and the
+limitor audit went **0 → 1 originating sites**.
+
+The design constraint is the part worth keeping. The obvious exhibit is
+$\mathbb Q(\sqrt2)$, and it would have been **vacuous** — by Theorem E the
+two orderings are conjugate, so a Galois witness certifies nothing. The first
+genuine index has to live where the symmetry breaks, which forced the field:
+
+$$K=\mathbb Q[x]/(x^3-4x-1),\quad \operatorname{disc}=229 \text{ prime, so }
+\operatorname{Gal}=S_3,\ \operatorname{Aut}(K/\mathbb Q)=1,\ r_1=3.$$
+
+| ordering | $\alpha$ isolated exactly | $\langle1,-\alpha\rangle$ | witness checked |
+|---|---|---|---|
+| $\sigma_1$ | $(-5/2,\,-5/4)$ | definite | yes |
+| $\sigma_2$ | $(-5/16,\,-5/32)$ | definite | yes |
+| $\sigma_3$ | $(5/4,\,5/2)$ | **indefinite** | yes |
+
+- `limitor_census` reports the `ordering` sort at **cardinality 3**;
+- two `Order` edges at **different** orderings refuse to compose;
+- two at the **same** ordering still compose — the null control, without which
+  "refuses" would only mean composition is broken;
+- a certificate for $\sigma_1$ offered on a $\sigma_3$ edge is **rejected**.
+
+That last one required a general repair. `check.py`'s certificate tuple pinned
+$\varepsilon$ for `Approx` **and nothing else** — so a `Dual` certificate could
+always be offered for an edge naming a different pairing. Certificates now pin
+whatever limitor the kind carries, and a certificate for a required-limitor
+kind that names none is refused at declaration: it is a certificate for an
+unindexed claim. That hole predates `Order` and is the same species as
+everything else in this note.
+
+The verdicts split $2+1$. A conjugate pair can only split $1+1$, so the
+asymmetric partition *is* the certificate that no automorphism relates these
+orderings — the index is free here, and the runtime can now say so in its own
+type system rather than in prose.

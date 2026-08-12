@@ -2,7 +2,7 @@
 """Pulse durable Codex/Claude minds; append every turn and broadcast."""
 from __future__ import annotations
 
-import argparse, concurrent.futures, datetime as dt, json, os, shutil, subprocess, time, uuid
+import argparse, concurrent.futures, datetime as dt, hashlib, json, os, shutil, subprocess, time, uuid
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -11,8 +11,10 @@ PROMPT = HERE / "worker_prompt.md"
 OUTBOX = REPO / "collab/messages/workers"
 RUNS = REPO / "collab/orchestration/worker-runs"
 SESSIONS = REPO / "collab/orchestration/worker-sessions"
+CURSORS = REPO / "collab/orchestration/worker-cursors"
 WORKTREES = REPO.parent / f"{REPO.name}-workers"
 STOP = HERE / "STOP"
+FAILURE_BACKOFF_CAP = 300.0
 
 
 def executable(provider: str) -> str:
@@ -62,9 +64,124 @@ def render_initial(task: dict[str, object]) -> str:
             "retain unresolved questions and continue the same investigation.\n")
 
 
-def render_pulse(task: dict[str, object], cycle: int) -> str:
-    return str(task.get("pulse") or
-        f"Continuation pulse {cycle}. Read broadcasts added since your last turn. Continue the same objective autonomously. Pursue the strongest live implication, correct prior errors, and return a signed repo-ready broadcast. Do not restart or summarize unless the mathematics requires it.")
+def render_pulse(task: dict[str, object], cycle: int, envelope: dict[str, object]) -> str:
+    base = str(task.get("pulse") or
+        f"Continuation pulse {cycle}. Absorb the exact changed field below before choosing a move. "
+        "Do not preserve the previous plan by inertia. Test whether the delivered objects change your "
+        "live object; reject or defer them explicitly when they do not. Then perform the mathematical "
+        "action whose result most changes what can happen next. "
+        "A dissolution, counterexample, new language, or newly formed question is as legitimate as a theorem.")
+    return base + "\n\n## Causally delivered field delta\n\n```json\n" + json.dumps(envelope, indent=2) + "\n```\n"
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def cursor_file(name: str) -> Path: return CURSORS / f"{name}.json"
+
+
+def read_cursor(name: str) -> dict[str, object]:
+    path = cursor_file(name)
+    if not path.exists(): return {"head": None, "messages": {}, "source_index": 0, "response_hash": None}
+    return json.loads(path.read_text())
+
+
+def write_cursor(name: str, cursor: dict[str, object]) -> None:
+    CURSORS.mkdir(parents=True, exist_ok=True)
+    temporary = cursor_file(name).with_suffix(".tmp")
+    temporary.write_text(json.dumps(cursor, indent=2, sort_keys=True) + "\n")
+    temporary.replace(cursor_file(name))
+
+
+def git_output(cwd: Path, *args: str) -> str:
+    done = subprocess.run(["git", *args], cwd=cwd, text=True, capture_output=True)
+    if done.returncode != 0: raise RuntimeError(done.stderr.strip() or "git command failed")
+    return done.stdout.strip()
+
+
+def preflight(name: str) -> dict[str, object]:
+    worktree = ensure_worktree(name)
+    conflicts = git_output(worktree, "diff", "--name-only", "--diff-filter=U").splitlines()
+    dirty = git_output(worktree, "status", "--porcelain").splitlines()
+    return {"worktree": str(worktree), "conflicts": conflicts, "dirty": dirty,
+            "head": git_output(worktree, "rev-parse", "HEAD")}
+
+
+def sync_clean_worker(name: str, target: str) -> dict[str, object]:
+    state = preflight(name)
+    if state["conflicts"]: return {**state, "sync": "blocked-conflict"}
+    if state["dirty"]: return {**state, "sync": "deferred-dirty"}
+    worktree = worker_worktree(name)
+    head = str(state["head"])
+    head_before_target = subprocess.run(["git", "merge-base", "--is-ancestor", head, target], cwd=worktree).returncode == 0
+    target_before_head = subprocess.run(["git", "merge-base", "--is-ancestor", target, head], cwd=worktree).returncode == 0
+    if head_before_target:
+        done = subprocess.run(["git", "merge", "--ff-only", target], cwd=worktree, text=True, capture_output=True)
+        if done.returncode != 0: return {**state, "sync": "fast-forward-failed", "error": done.stderr.strip()}
+        return {**preflight(name), "sync": "fast-forwarded", "target": target}
+    if target_before_head: return {**state, "sync": "local-ahead-retained", "target": target}
+    merge_base = git_output(worktree, "merge-base", head, target)
+    return {**state, "sync": "blocked-divergence", "target": target, "merge_base": merge_base}
+
+
+INSPIRATION = [
+    "notes/COGNITIVE_ORIENTATION.md", "README.md", "collab/FAILURES.md",
+    "notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md", "notes/DEPENDENT_ORIGINATION.md",
+    "notes/FIVE_FACES.md", "notes/NO_PRIVILEGED_CHART.md", "notes/ATLAS_OF_N.md",
+    "notes/INDRA_CROSS.md", "notes/THE_GOAL_HAS_A_BEARER.md",
+]
+
+
+def field_envelope(task: dict[str, object], cursor: dict[str, object], sync: dict[str, object], limit: int = 16) -> tuple[dict[str, object], dict[str, object]]:
+    name = str(task["name"]); head = git_output(REPO, "rev-parse", "HEAD"); old = cursor.get("head")
+    history_incident = None
+    if old and subprocess.run(["git", "merge-base", "--is-ancestor", str(old), head], cwd=REPO).returncode != 0:
+        history_incident = {"acknowledged": old, "current": head,
+                            "merge_base": git_output(REPO, "merge-base", str(old), head)}
+        commit_ids = []
+    elif old:
+        commit_ids = git_output(REPO, "rev-list", "--reverse", f"{old}..{head}").splitlines()[:limit]
+    else:
+        # A new cursor declares a present baseline without pretending the prior
+        # repository history was semantically consumed; rotating source reentry
+        # remains responsible for that inherited field.
+        commit_ids = [head]
+    commits = []
+    for sha in commit_ids:
+        commits.append({"sha": sha, "subject": git_output(REPO, "show", "-s", "--format=%s", sha),
+                        "paths": git_output(REPO, "diff-tree", "--no-commit-id", "--name-only", "-r", sha).splitlines()})
+    seen = dict(cursor.get("messages", {})); changed = []
+    for path in sorted((REPO / "collab/messages").rglob("*.md")):
+        relative = str(path.relative_to(REPO)); value = digest(path)
+        if seen.get(relative) != value: changed.append((path, relative, value))
+    selected = changed[:limit]
+    messages = [{"path": relative, "sha256": value, "body": path.read_text()}
+                for path, relative, value in selected]
+    peers = {}
+    if SESSIONS.exists():
+        for path in SESSIONS.glob("*.json"):
+            peer = json.loads(path.read_text())["name"]
+            if peer == name: continue
+            ref = f"refs/heads/worker/{peer}"
+            done = subprocess.run(["git", "rev-parse", "--verify", ref], cwd=REPO, text=True, capture_output=True)
+            if done.returncode == 0: peers[peer] = done.stdout.strip()
+    available = [x for x in INSPIRATION if (REPO / x).is_file()]
+    index = int(cursor.get("source_index", 0)); source = available[index % len(available)] if available else None
+    source_payload = None
+    if source:
+        source_path = REPO / source
+        source_payload = {"path": source, "sha256": digest(source_path), "body": source_path.read_text()}
+    envelope = {"worker": name, "central_head": head, "worker_preflight": sync,
+                "new_commits": commits, "new_messages": messages,
+                "undelivered_message_count": len(changed) - len(selected), "peer_heads": peers,
+                "history_incident": history_incident,
+                "neglected_source_for_reentry": source_payload,
+                "previous_response_hash": cursor.get("response_hash")}
+    acknowledged_head = commits[-1]["sha"] if commits and history_incident is None else old
+    updated = {"head": acknowledged_head, "messages": {**seen, **{r: v for _, r, v in selected}},
+               "source_index": index + 1, "response_hash": cursor.get("response_hash")}
+    return envelope, updated
 
 
 def session_file(name: str) -> Path: return SESSIONS / f"{name}.json"
@@ -140,16 +257,32 @@ def invoke(task: dict[str, object], prompt: str, turn_dir: Path) -> tuple[subpro
 def run_turn(task: dict[str, object], run_dir: Path, cycle: int) -> dict[str, object]:
     name = str(task["name"]); turn_dir = run_dir / f"{name}--{cycle:04d}"; turn_dir.mkdir()
     existing = read_session(name, str(task["provider"]))
-    prompt = render_pulse(task, cycle) if existing else render_initial(task)
+    sync = sync_clean_worker(name, git_output(REPO, "rev-parse", "HEAD"))
+    if sync["dirty"] or sync["conflicts"] or sync["sync"] in {"blocked-divergence", "fast-forward-failed"}:
+        result = {"name": name, "provider": task["provider"], "cycle": cycle,
+                  "session_id": existing, "resumed": existing is not None, "returncode": 2,
+                  "broadcast": None, "incident": sync}
+        (turn_dir / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+        return result
+    cursor = read_cursor(name); envelope, next_cursor = field_envelope(task, cursor, sync)
+    prompt = (render_pulse(task, cycle, envelope) if existing else
+              render_initial(task) + "\n\n## Initial field envelope\n```json\n" + json.dumps(envelope, indent=2) + "\n```\n")
     (turn_dir / "prompt.md").write_text(prompt)
     done, response, sid = invoke(task, prompt, turn_dir)
     (turn_dir / "stdout.log").write_text(done.stdout); (turn_dir / "stderr.log").write_text(done.stderr)
     result = {"name": name, "provider": task["provider"], "cycle": cycle, "session_id": sid,
               "resumed": existing is not None, "returncode": done.returncode, "broadcast": None}
-    if done.returncode == 0 and response.strip():
+    postflight = preflight(name)
+    result["postflight"] = postflight
+    if done.returncode == 0 and response.strip() and not postflight["conflicts"]:
         broadcast = OUTBOX / f"{run_dir.name}--{name}--{cycle:04d}.md"
         with broadcast.open("x") as f: f.write(response.rstrip() + "\n")
         result["broadcast"] = str(broadcast.relative_to(REPO))
+        next_cursor["response_hash"] = hashlib.sha256(response.encode()).hexdigest()
+        write_cursor(name, next_cursor)
+    elif postflight["conflicts"]:
+        result["returncode"] = 4
+        result["incident"] = "provider left unresolved Git conflicts; delivery cursor retained"
     (turn_dir / "result.json").write_text(json.dumps(result, indent=2) + "\n")
     return result
 
@@ -172,15 +305,28 @@ def main() -> int:
     tasks = load_tasks(args.tasks.resolve()); OUTBOX.mkdir(parents=True, exist_ok=True); RUNS.mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"); run_dir = RUNS / stamp; run_dir.mkdir()
     (run_dir / "capabilities.json").write_text(json.dumps(capability_report(), indent=2) + "\n")
-    results=[]; cycle=1
+    results=[]; cycle=1; failures = {str(task["name"]): 0 for task in tasks}; retry_after = {str(task["name"]): 0.0 for task in tasks}
     while args.cycles == 0 or cycle <= args.cycles:
         if STOP.exists(): break
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
-            results.extend(f.result() for f in concurrent.futures.as_completed(
-                [pool.submit(run_turn, task, run_dir, cycle) for task in tasks]))
-        if any(x["returncode"] != 0 for x in results[-len(tasks):]): break
+            now = time.monotonic()
+            eligible = [task for task in tasks if now >= retry_after[str(task["name"])]]
+            futures = {pool.submit(run_turn, task, run_dir, cycle): task for task in eligible}
+            for future in concurrent.futures.as_completed(futures):
+                task = futures[future]
+                try: result = future.result(); results.append(result)
+                except Exception as error:
+                    result = {"name": task["name"], "provider": task["provider"], "cycle": cycle,
+                              "session_id": None, "resumed": False, "returncode": 3,
+                              "broadcast": None, "incident": repr(error)}; results.append(result)
+                name = str(task["name"])
+                if result["returncode"] == 0: failures[name] = 0; retry_after[name] = 0.0
+                else:
+                    failures[name] += 1
+                    retry_after[name] = time.monotonic() + min(FAILURE_BACKOFF_CAP, 2.0 ** min(failures[name], 8))
         cycle += 1
         if args.delay: time.sleep(args.delay)
+        elif not futures: time.sleep(1.0)
     results.sort(key=lambda x:(x["cycle"],x["name"])); (run_dir/"manifest.json").write_text(json.dumps(results,indent=2)+"\n")
     print(json.dumps({"run":str(run_dir.relative_to(REPO)),"turns":results},indent=2))
     return 0 if all(x["returncode"]==0 for x in results) else 1

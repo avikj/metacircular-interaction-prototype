@@ -34,6 +34,7 @@ from fractions import Fraction
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from . import term as T
+from . import edges as E
 from .edges import Edge, compose_path
 
 __all__ = [
@@ -123,10 +124,29 @@ class CheckContext:
             raise T.SortError("axiom %s relates terms of different sorts" % name)
         self.axioms[name] = (lhs, rhs)
 
-    def declare_certificate(self, name, kind, src, dst, eps=None) -> None:
+    def declare_certificate(self, name, kind, src, dst, eps=None,
+                            limitor=None) -> None:
+        """Declare an unproved input.
+
+        ``limitor`` pins the index the certificate is *for*.  A certificate
+        that does not name its limitor is a certificate for an unindexed
+        claim, and offering it for an indexed edge is exactly the error this
+        kernel's own mathematics is about (notes/THE_INDEX_IS_THE_SUBJECT.md).
+        For ``Approx`` the limitor is the epsilon, so ``eps`` is accepted as
+        its spelling and the two must agree.
+        """
         if isinstance(eps, float):
             raise T.KernelError("certificate epsilon must be exact")
-        self.certificates[name] = (kind, src, dst, eps)
+        if eps is not None and limitor is not None and eps != limitor:
+            raise T.KernelError("certificate names two different limitors")
+        if limitor is None:
+            limitor = eps
+        spec = E.LIMITORS.get(kind)
+        if spec is not None and spec.required and limitor is None:
+            raise T.KernelError(
+                "a %s certificate must name its limitor (%s): without it the "
+                "certificate is for an unindexed claim" % (kind, spec.sort))
+        self.certificates[name] = (kind, src, dst, limitor)
 
 
 def _fail(ctx: CheckContext, msg: str) -> bool:
@@ -280,11 +300,16 @@ def check_edge(edge: Edge, ctx: CheckContext) -> bool:
         if isinstance(edge.witness, Certificate) else None
     if got is None:
         return _fail(ctx, "%s edge needs a declared Certificate" % edge.kind)
-    kind, src, dst, eps = got
+    kind, src, dst, cert_limitor = got
     if (kind, src, dst) != (edge.kind, edge.src, edge.dst):
         return _fail(ctx, "certificate does not match the edge it is offered for")
-    if edge.kind == "Approx" and eps != edge.eps:
-        return _fail(ctx, "certificate epsilon %r does not match edge epsilon %r" % (eps, edge.eps))
+    # The certificate must be for the SAME index as the edge.  Previously this
+    # was checked for Approx alone, so a Dual certificate could be offered for
+    # an edge naming a different pairing -- the kernel's own species of error.
+    spec = E.LIMITORS.get(edge.kind)
+    if spec is not None and cert_limitor != spec.get(edge):
+        return _fail(ctx, "certificate limitor %r does not match edge %s %r"
+                     % (cert_limitor, spec.sort, spec.get(edge)))
     ctx.counters.bump("check.certificate")
     return True
 
