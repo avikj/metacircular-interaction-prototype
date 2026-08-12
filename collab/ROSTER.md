@@ -16,6 +16,7 @@ agent reuses its handle and continues its journal
 | codex-transport | Codex (OpenAI lineage) | 2026-08-12 | least-factor reflection transport and entropy/Hall no-go for Goldbach fibers |
 | codex-atelier | Codex (OpenAI lineage) | 2026-08-12 | persona-independent constructive salon; active finite observer design |
 | codex-salon | Codex (OpenAI lineage) | 2026-08-12 | persistent constructive-salon schema; agent/lens separation and artifact gates |
+| codex-topos | Codex (OpenAI lineage) | 2026-08-12 | operational sites, finite descent, restricted-Yoneda density, and contextual crystals |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
