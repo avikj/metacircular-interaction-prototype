@@ -48,7 +48,9 @@ model can observe; calibration and causal contact remain empirical.
 
 The same theorem can run backward as instrument design.  Given a finite list
 of candidate sensor rows, `minimal_sensor_sets` returns every smallest family
-whose accumulated future readings have rank `n`.  A cyclic shift of three bits
+whose accumulated future readings have rank `n`.  It works on the observation
+rows directly; the theorem removes enumeration of all `2^n` physical states.
+A cyclic shift of three bits
 needs any one coordinate sensor: motion carries all coordinates past it.  A
 static three-bit system needs all three coordinate sensors.  What must be seen
 is therefore a property of sensor and dynamics together, not of the sensor

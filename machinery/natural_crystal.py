@@ -481,7 +481,16 @@ def linear_observation_classes(
 
     # Each signature coordinate is a linear functional.  Evaluate it on the
     # coordinate basis to recover its row vector and hence the observability rank.
-    functional_rows = []
+    functional_rows = _observable_rows(dimension, rows, sensor)
+    return tuple(tuple(fiber) for fiber in signatures.values()), _binary_rank(functional_rows)
+
+
+def _observable_rows(
+    dimension: int, rows: Sequence[int], sensor: int
+) -> tuple[int, ...]:
+    """Rows C, CA, ..., CA^(n-1), encoded as binary integers."""
+    world, observation = linear_observation_world(dimension, rows, sensor)
+    result = []
     for time in range(dimension):
         row = 0
         for coordinate in range(dimension):
@@ -489,8 +498,8 @@ def linear_observation_classes(
             for _ in range(time):
                 current = world.transition[current, "evolve"]
             row |= observation[current] << coordinate
-        functional_rows.append(row)
-    return tuple(tuple(fiber) for fiber in signatures.values()), _binary_rank(functional_rows)
+        result.append(row)
+    return tuple(result)
 
 
 def minimal_sensor_sets(
@@ -503,23 +512,15 @@ def minimal_sensor_sets(
     # Validate the dynamics and every sensor before searching.
     for sensor in sensors:
         linear_observation_world(dimension, rows, sensor)
-    target = 1 << dimension
     for size in range(len(sensors) + 1):
         solutions = []
         for choice in combinations(sensors, size):
-            joint_signatures = set()
-            for state in range(target):
-                signature = []
-                for sensor in choice:
-                    world, observation = linear_observation_world(
-                        dimension, rows, sensor
-                    )
-                    current = state
-                    for _ in range(dimension):
-                        signature.append(observation[current])
-                        current = world.transition[current, "evolve"]
-                joint_signatures.add(tuple(signature))
-            if len(joint_signatures) == target:
+            joint_rows = tuple(
+                row
+                for sensor in choice
+                for row in _observable_rows(dimension, rows, sensor)
+            )
+            if _binary_rank(joint_rows) == dimension:
                 solutions.append(choice)
         if solutions:
             return tuple(solutions)
