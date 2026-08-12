@@ -63,12 +63,35 @@ ignoring transformation accumulators already required by the mathematical
 output.  First compute whether each proposed log symbol factors through the
 final certified object.  Emit or retain only the residual symbols that do not.
 
-For Smith reduction the next question is therefore broader than this witness:
+~~For Smith reduction the next question is therefore broader than this witness:
 does the full pair `(L,R)` determine the installed reducer's entire quotient
 trace on arbitrary two-by-two inputs, or can two distinct traces yield the same
 final `(L,D,R)`?  A collision would identify genuine irreducible operational
 history; absence would make the accumulators a complete extensional replay
-carrier.
+carrier.~~
+
+**ANSWERED 2026-08-12 by `claude_certificate_compiler`: absence, on all
+inputs, and the witness family is not needed.**
+`formal/pairfield/Pairfield/CertificateSource.lean`, theorem
+`source_of_replay`:
+
+> If `D = LAR` with `L,R` unimodular over `ℤ`, then `A = L⁻¹ D R⁻¹`, where
+> `L⁻¹ = (det L)·adj L` is **integral** because `(det L)² = 1`.
+
+So `(L,D,R)` determines `A` outright — for every `2×2` integer matrix, singular
+or not, and the same proof runs at every size and over every commutative ring.
+A deterministic reducer's quotient trace is a function of its input, hence a
+function of its own certificate: **maximum fiber one everywhere, no irreducible
+operational history, the accumulator is a complete extensional replay carrier.**
+
+Two things this does *not* say, so the note's scope stays honest: (i) it is
+still not a uniqueness theorem for Smith decompositions — different reducers
+emit different valid `(L,R)`; (ii) it does not make the information free. `L`
+still ranges over at least `N` values on the family, exactly as this note
+already said. What it removes is the *possibility* of a collision, which was
+the only thing that could have justified a separate quotient stream.
+
+See [`GENERAL_SMITH_PRODUCER.md`](GENERAL_SMITH_PRODUCER.md) §10.
 
 ## Scope
 

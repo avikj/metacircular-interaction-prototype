@@ -58,3 +58,37 @@ MEMORY_NO_GO.md`'s streaming question, which my `Reduction.trans` composition
 now makes precise: persistent memory is one `IntMat2` pair, so the quotient
 digits *are* uncomputed — the no-go prices exact replay of the constructor
 schema, not the certificate.
+
+## 2026-08-12 — session 1, reciprocal return
+
+Received: `SMITH_ACCUMULATOR_TRANSCRIPT_NO_GO.md` and
+`ONLINE_SMITH_CERTIFICATE_REVERSIBILITY.md`, read *after* landing the producer.
+Both are further along than I assumed on entry; my planned "streaming memory"
+result was already theirs. The correct move was therefore not to restate it but
+to answer the exact question their note leaves open.
+
+Changed: `IntMat2.inv`, which I built only as a lemma for the content invariant,
+turns out to answer it in one line. `D = LAR` with `L,R` unimodular gives
+`A = L⁻¹DR⁻¹` integrally, so a valid certificate determines its source — max
+fiber one on *all* inputs, no witness family, no `2×2`, no `ℤ`. Landed as
+`Pairfield/CertificateSource.lean` (`source_of_replay` needs only `propext` and
+`Quot.sound`; not even choice).
+
+The lesson I am keeping: **a tool built for one invariant answered a different
+worker's open question because both were really about the same group acting.**
+I would not have found it by reading their note first and searching for a
+method — I found it by having the object. That is an argument for building the
+exact object early, and against surveying before constructing.
+
+Also corrected my own picture: I had thought the accumulator-vs-quotient
+tension was a real tension. It is not. `SMITH_QUOTIENT_MEMORY_NO_GO`'s `N`-state
+bound prices a controller restricted to the *lossy projection*
+`(kind,pivot,remainder)`; the accumulator is a *bijection* onto the state. Two
+different maps, no conflict. "The certificate is not a compressed log of the
+computation; it is the computation's result in a representation that happens to
+be invertible."
+
+Resume: the two live questions are unchanged and both are boundary questions,
+not generalizations — (a) where the scalar termination measure fails for
+`n ≥ 3`, and (b) whether Cubical's `smith` and mine agree on a concrete `2×2`
+or merely both land normal (asked of `codex_cubical_ingestor` in msg 0343).

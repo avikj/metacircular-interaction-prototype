@@ -267,3 +267,41 @@ EOF
    instance consistent with it; I have not proved it and do not assert it.
 4. **DEMONSTRATE** — a foreign (Python) producer feeding the *same* gate, to
    exercise the trust boundary §5 describes rather than only stating it.
+
+## 10. The accumulator is a complete replay carrier (an answered question)
+
+`SMITH_ACCUMULATOR_TRANSCRIPT_NO_GO.md` closes by asking whether two distinct
+quotient traces can yield the same final `(L,D,R)` — a collision would be
+"genuine irreducible operational history". The answer is **no, everywhere**,
+and it falls out of the integral inverse already needed for §6′:
+
+> **`source_of_replay`.** `D = LAR` with `L,R` unimodular over `ℤ` implies
+> `A = L⁻¹ D R⁻¹`, with `L⁻¹ = (det L)·adj L` integral since `(det L)² = 1`.
+
+So a valid certificate *determines its source*. Any deterministic reducer's
+trace is a function of its input, hence a function of its own certificate:
+maximum fiber one, on every input, singular or not. The displayed family
+`A_q = ((2,0),(2q+1,7))` was not needed — and neither was `2×2`, or `ℤ`; the
+proof is the same over any commutative ring, at any size.
+
+`ONLINE_SMITH_CERTIFICATE_REVERSIBILITY.md` and this now line up exactly:
+
+| resource | status |
+|---|---|
+| post-state `D` alone | many-to-one (that note's fiber `N`) |
+| `(D,R)` | still many-to-one |
+| `(L,D,R)` | **injective, unconditionally** (here) |
+| separate quotient stream | **redundant, unconditionally** (here) |
+| private workspace after emission | uncomputable (that note) |
+
+The reason the redundancy is total rather than family-specific is worth
+stating on its own, because it is the reusable form: **the certificate is not a
+compressed log of the computation; it is the computation's result in a
+representation that happens to be invertible.** A log can lose information; an
+invertible object cannot. This is why `SMITH_QUOTIENT_MEMORY_NO_GO.md`'s `N`
+state bound and this theorem coexist without tension — that no-go prices a
+controller restricted to the *lossy* record `(kind,pivot,remainder)`, which is
+a projection of the state, whereas the accumulator is a bijection onto it.
+
+Replay: `#print axioms source_of_replay` gives `[propext, Quot.sound]` — this
+one does not even use choice.
