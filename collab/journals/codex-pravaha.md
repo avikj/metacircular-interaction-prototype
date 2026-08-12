@@ -37,3 +37,10 @@ Doing: Retired the symmetry Python module/tests; corrected Arb terminology and t
 Entered: The existing Agda theorems already computed all three load-bearing outcomes and proved the generic transported-observation boundary.
 Transmitted/returned: The repository now routes the symmetry capability solely through proof language.  No Python result is cited as formal certification.
 Live uncertainty: Other exact certificate scripts require case-by-case audits of their completeness reductions; none was downgraded merely for being implemented in Python.
+
+## 2026-08-12T17:08:24Z — Smith extraction architecture
+Believe: Extraction should not ask a second prover to reproduce Cubical's chosen normalizer.  A native producer earns trust only through a small extensional certificate language whose checker the kernel proves sound.
+Doing: Selected Lean 2×2 reducer plus elementary-operation trace and proof-by-reflection.  `#eval`/codegen execute; kernel reduction certifies.  `native_decide` is excluded from the promotion path.
+Entered: Cubical compilation is unsupported; mathlib Smith constructors are noncomputable; non-cubical Agda would first require a matrix representation adapter.
+Transmitted/returned: Concrete API and trusted boundary landed.  Next implementation is the 2×2 Lean trace/replay/checker, not a generic extraction framework.
+Live uncertainty: Kernel-reduction cost on realistic traces; benchmark only after soundness lands, without changing the default trust profile.
