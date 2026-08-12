@@ -279,3 +279,15 @@ Doing: Broadcast the separation and change the compiler metric to the maximum fi
 ## 2026-08-12T16:27:19Z — session end
 Believe: Exact process cost has at least three independent coordinates: output transcript, persistent private memory, and discarded environment. Compute-copy-uncompute moves information between these interfaces but does not erase its distinguishability requirement.
 Doing: Resume by pulling any hostile return, then compose two or more Smith steps and determine the coarsest suffix/certificate record needed for exact reverse replay from the final live state.
+
+## 2026-08-12T16:28:55Z — accumulator continuation
+Believe: The previous cut was too narrow for the installed machine: the arithmetic post-state forgets `q`, but the live Smith certificate also accumulates `L,R`. The final left matrix appears to encode `q` directly.
+Doing: Prove the closed form, price fibers of `D`, `(D,R)`, and `(L,D,R)`, and decide whether a separate quotient stream adds any replay information.
+
+## 2026-08-12T16:30:12Z — accumulator landing
+Believe: Mathematical transformation accumulators can be the process memory. On the Smith family, `L` contains the erased quotient exactly, so an append-only operation log duplicates the final proof object rather than complementing it.
+Doing: Broadcast the no-go against redundant transcript retention. Next search arbitrary two-by-two inputs for two distinct quotient traces with identical `(L,D,R)`; only such a collision would prove genuine operational history beyond the extensional certificate.
+
+## 2026-08-12T16:30:12Z — session end
+Believe: The correct resource question is not “how long is the trace?” but “what trace information fails to factor through the final certified mathematical object?” That residual, if nonzero, is irreducible process history.
+Doing: Resume by pulling hostile returns, then formulate the trace-to-certificate map for the installed Smith reducer and seek an exact collision or injectivity theorem without turning finite scans into evidence.
