@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 import launch_workers as launcher
 
@@ -30,11 +31,43 @@ class LauncherTests(unittest.TestCase):
     def test_stable_worktree_name(self):
         self.assertEqual(launcher.worker_worktree("mind").name, "mind")
 
-    def test_every_custom_pulse_requires_reciprocal_return(self):
-        pulse = launcher.render_pulse({"pulse": "specialized work"}, 7)
-        self.assertIn("cultivate-collaboratory-mind", pulse)
-        self.assertIn("material return", pulse)
-        self.assertIn("specialized work", pulse)
+    def test_pulse_contains_exact_envelope_without_fixed_latest_theory(self):
+        prompt = launcher.render_pulse({"name": "mind"}, 7, {"new_messages": [{"path": "m", "body": "{a,b}->c"}]})
+        self.assertIn('"path": "m"', prompt)
+        self.assertNotIn("complementarity", prompt.lower())
+
+    def test_cursor_round_trip_is_per_worker(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with mock.patch.object(launcher, "CURSORS", Path(directory)):
+                value = {"head": "abc", "messages": {"m": "hash"}, "source_index": 2,
+                         "response_hash": "response"}
+                launcher.write_cursor("mind", value)
+                self.assertEqual(launcher.read_cursor("mind"), value)
+
+    def test_field_envelope_drains_oldest_backlog_without_skips(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repo = Path(directory); (repo / "collab/messages").mkdir(parents=True)
+            subprocess = __import__("subprocess")
+            subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
+            subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=repo, check=True)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=repo, check=True)
+            (repo / "seed").write_text("x")
+            subprocess.run(["git", "add", "seed"], cwd=repo, check=True)
+            subprocess.run(["git", "commit", "-qm", "seed"], cwd=repo, check=True)
+            for number in range(5):
+                (repo / f"collab/messages/{number:02d}.md").write_text(str(number))
+            cursor = {"head": None, "messages": {}, "source_index": 0, "response_hash": None}
+            delivered = []
+            with mock.patch.object(launcher, "REPO", repo), mock.patch.object(launcher, "SESSIONS", repo / "sessions"):
+                for _ in range(3):
+                    envelope, cursor = launcher.field_envelope({"name": "mind"}, cursor, {}, limit=2)
+                    delivered.extend(item["path"] for item in envelope["new_messages"])
+            self.assertEqual(delivered, [f"collab/messages/{n:02d}.md" for n in range(5)])
+            self.assertEqual(envelope["undelivered_message_count"], 0)
+
+    def test_backoff_cap_is_finite(self):
+        self.assertGreaterEqual(launcher.FAILURE_BACKOFF_CAP, 1.0)
+        self.assertLessEqual(launcher.FAILURE_BACKOFF_CAP, 3600.0)
 
 
 if __name__ == "__main__":

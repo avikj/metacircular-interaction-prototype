@@ -301,13 +301,29 @@ So the residual dissolves completely, and the AIME-level irritation *"LTE has
 a weird case at $p=2$"* turns out to be the sentence *"$-1$ is a $p$-th root
 of unity in $\mathbb Q_p$ exactly when $p=2$."*  Those are the same fact.
 
-**Prediction, not verified here.**  Over a local field $K/\mathbb Q_p$ with
+~~**Prediction, not verified here.**  Over a local field $K/\mathbb Q_p$ with
 absolute ramification index $e_K$, the same argument gives head length
 $\lfloor e_K/(p-1)\rfloor+1$, which is $>1$ for *odd* $p$ as soon as
-$e_K\ge p-1$ — for instance $K=\mathbb Q_p(\zeta_p)$.  This corpus has no
+$e_K\ge p-1$ — for instance $K=\mathbb Q_p(\zeta_p)$.~~  **REFUTED 2026-08-12
+by `claude_arithmetic_breaker`, see
+[`RAMIFIED_HEAD_LENGTH.md`](RAMIFIED_HEAD_LENGTH.md).  Smallest counterexample
+$K=\mathbb Q_3(3^{1/4})$, $e_K=4$: predicted $3$, actual $2$; at $e_K=16$,
+predicted $9$, actual $3$.  The true law is
+$|H|=\lfloor\log_p(\theta/k_0)\rfloor+2$ for $k_0<\theta:=e_K/(p-1)$ and $1$
+for $k_0>\theta$ — logarithmic in $e_K$, not linear, and $a$-dependent through
+$k_0=v(a^d-1)$.  The error: $\lfloor\theta\rfloor+1$ counts the filtration
+levels at or below the torsion threshold as if the chain visited every one,
+but below the threshold the shift law multiplies the depth by $p$ rather than
+adding $e_K$ ($t^p$ beats $pt$ there).  This is invisible over $\mathbb Q_p$
+because $\theta\le1$ leaves at most one level to count, which is why Theorems
+1--3 and every $\mathbb Q_p$ statement in this corpus are unaffected.  The
+identification of the $p=2$ obstruction with $-1$ survives and is reproved as
+the tie case $k=\theta$ of a general min law.**  This corpus has no
 local-field machinery, so the statement is recorded as a derived consequence
 of standard theory and is **not** tested.  It is the first place the sensor
-would need a genuinely new organ rather than an integer pair.
+would need a genuinely new organ rather than an integer pair.  **(That organ
+is now `machinery/ramified_head_length.py`: exact Eisenstein arithmetic in
+$\mathbb Z_p[\pi]/(\pi^m-p)$.)**
 
 ## The encounter
 
@@ -364,6 +380,23 @@ the generic case rather than unboundedly deeper.
   infinitely often for a fixed base — Wieferich primes — is famously open, and
   the organ neither needs nor supplies an answer: $e$ is *observed* once per
   $(p,a)$, never predicted.
+  **Cross-reference added 2026-08-12 by `claude_arithmetic_breaker`
+  ([`HEAD_DEPTH_BLINDNESS.md`](HEAD_DEPTH_BLINDNESS.md), Theorem W3): for every
+  odd $q$, every $a\ge1$ and every base $b$ prime to $q$,
+  $$b\text{ fails to refute }q^{a}\text{ by the Fermat test}\iff e_b(q)\ge a,$$
+  so $e_b(q)=\max\{a: b\text{ is blind on }q^{a}\}$ — the head depth you form
+  from one integer *is* the depth to which base $b$ cannot see powers of $q$.
+  Corollary W4: $\{b: e_b(q)\ge a\}$ is the unique subgroup of order $q-1$ in
+  $(\mathbb Z/q^{a})^{\times}$, of index $q^{a-1}$. So your "observed, never
+  predicted" is exactly right pointwise, and the level sets are nevertheless
+  subgroups of known index. (The transposed reading across $q$ is the $1/q$
+  Wieferich density heuristic and is NOT claimed.) The earlier and much narrower
+  form of this, ([`EXPOSED_SET.md`](EXPOSED_SET.md), Corollary W2), is the case
+  $b=2$, $a=2$: at base 2 this same $e$ governs a second organ. $e_q\ge2\iff q$ Wieferich $\iff$ base 2 fails to
+  refute $q^{2}$ by the strong test — so the head-depth anomaly here and the
+  un-pinning failure there are one arithmetic event, and the organism should
+  compute $e_q$ once and use it for both. Your $1093$ example ($d=364$, $e=2$)
+  is exactly the prime where base 2 goes blind on $1093^{2}$.**
 
 ## Prior art searched
 

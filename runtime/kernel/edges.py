@@ -35,6 +35,11 @@ __all__ = [
     "compose",
     "compose_path",
     "invert",
+    "LimitorSpec",
+    "LIMITORS",
+    "limitor_of",
+    "combine_limitors",
+    "limitor_census",
     "is_symmetric",
     "preserves",
     "composition_table",
@@ -145,6 +150,186 @@ _NEUTRAL_ABSORBERS: Tuple[str, ...] = (
     "Interp",
 )
 
+
+# --------------------------------------------------------------------------
+# limitors
+# --------------------------------------------------------------------------
+# Three kinds carry a payload that delimits what the edge claims: Approx an
+# exact epsilon, Dual a pairing, Order an ordering.  They were written as three
+# bespoke validations and three bespoke composition rules before anyone noticed
+# they are one structure.
+#
+# A LIMITOR is the Navya-Nyaya *avacchedaka*: the mode under which a relation
+# is taken.  Two edges between the same pair of objects under different
+# limitors are DIFFERENT edges, not one edge with a label.  What varies between
+# the three is only how limitors combine along a path, and each rule is a
+# partial monoid operation:
+#
+#     Approx : epsilons ADD                      (total)
+#     Dual   : pairings must MATCH               (partial)
+#     Order  : orderings must MATCH              (partial)
+#
+# ``combine`` returns None for "not licensed", which is how a mismatch becomes
+# an unlicensed composition rather than a silently transported property.
+#
+# Naming the structure buys one thing the three copies could not: the value
+# space of a limitor becomes a first-class object, so its CARDINALITY can be
+# measured.  See ``limitor_census``.
+
+
+@dataclass(frozen=True)
+class LimitorSpec:
+    """How one edge kind's limitor is carried, checked and combined."""
+
+    field: str          # the Edge field holding the value
+    sort: str           # a name for the value space (the index sort)
+    required: bool      # may the edge exist without it?
+    why: str            # what is silently wrong if it is dropped
+
+    def get(self, edge) -> Any:
+        return getattr(edge, self.field)
+
+
+def _check_eps(v: Any) -> None:
+    if isinstance(v, float):
+        raise EdgeError("epsilon must be an exact Fraction, never a float")
+    if not isinstance(v, Fraction):
+        raise EdgeError("Approx requires an exact Fraction epsilon")
+    if v < 0:
+        raise EdgeError("Approx epsilon must be >= 0")
+
+
+def _check_name(v: Any) -> None:
+    if not isinstance(v, str) or not v:
+        raise EdgeError("limitor must be a non-empty name")
+
+
+def _add(a, b):
+    return (a if a is not None else Fraction(0)) + (b if b is not None else Fraction(0))
+
+
+def _match(a, b):
+    """Equal-or-unlicensed.  A None limitor never matches: an edge whose
+    limitor was dropped cannot be composed, because there is nothing to check
+    agreement against."""
+    return a if (a is not None and a == b) else None
+
+
+LIMITORS: Dict[str, LimitorSpec] = {
+    "Approx": LimitorSpec("eps", "error-bound", True,
+                          "an unbounded error would read as a bounded one"),
+    "Dual": LimitorSpec("pairing", "pairing", False,
+                        "two different dualities would compose to an identity"),
+    "Order": LimitorSpec("ordering", "ordering", True,
+                         "sign would transport between orderings that disagree"),
+}
+
+_CHECK = {"Approx": _check_eps, "Dual": _check_name, "Order": _check_name}
+_COMBINE = {"Approx": _add, "Dual": _match, "Order": _match}
+
+
+def limitor_of(kind: str) -> Optional[LimitorSpec]:
+    _require_kind(kind)
+    return LIMITORS.get(kind)
+
+
+def combine_limitors(kind: str, a: Any, b: Any) -> Tuple[bool, Any]:
+    """``(licensed, value)`` for composing two limitors of one kind."""
+    if kind not in _COMBINE:
+        return True, None
+    v = _COMBINE[kind](a, b)
+    if v is None and kind != "Approx":
+        return False, None
+    return True, v
+
+
+def limitor_census(edges, verdict=None, profile=None) -> Dict[str, Dict[str, Any]]:
+    """Distinct limitor values observed per sort, and the singleton verdict.
+
+    An index that cannot be observed to have been dropped is one whose values
+    are INDISTINGUISHABLE where the claim was checked: there the delimited and
+    undelimited statements have the same extension, every check passes, and no
+    correction is generated.
+
+    Cardinality 1 is the crude test and it is NOT the criterion.  Theorem E of
+    notes/INDEX_LAW.md (claude_arithmetic_breaker): if a group acts on the
+    value space TRANSITIVELY, all fibres are carried onto one another by the
+    action, so an invariant claim has the same verdict at every value however
+    many there are.  Q(sqrt2) has two orderings, exchanged by conjugation, and
+    the index is still unobservable for Galois-invariant objects.
+
+    So ``latent_erratum`` below reports only the degenerate case.  A
+    cardinality of 2 or more is NOT a clearance: it is a clearance only if no
+    symmetry acts transitively on those values, which this function cannot see
+    because the group is not carried on the edge.  Widening the value space
+    does not help if the symmetry widens with it; only breaking it does.
+    ``verdict(edge)`` is the claim's value at that index (default: the edge's
+    target, which is what an Order edge records).  If it is NON-constant across
+    the index values, the index is plainly OBSERVABLE and nothing further is
+    needed.
+
+    When the verdict IS constant the index is unobservable, and the useful
+    question becomes WHY, because the two causes have opposite cures
+    (notes/CONSTANCY_NOT_TRANSITIVITY.md, claude_arithmetic_breaker):
+
+        structural (a transitive symmetry)  -> widening cannot help; the
+                                               symmetry widens with the region.
+                                               Break the symmetry.
+        accidental (an unsampled cell)      -> widening is exactly the cure.
+
+    Theorem D separates them WITHOUT knowing the group: if some other recorded
+    invariant ``profile(edge)`` is non-constant across the index values, then no
+    profile-preserving group acts transitively on them, so the verdict's
+    constancy is accidental and widening is worth doing.  Passing ``profile``
+    enables that test.  Without it this function cannot tell the two apart, and
+    says so rather than guessing.
+
+    Background: notes/THE_INDEX_IS_THE_SUBJECT.md, notes/INDEX_LAW.md
+    Theorem E, notes/CONSTANCY_NOT_TRANSITIVITY.md Theorem D,
+    notes/POSITIVITY_HAS_A_PLACE.md SS10.
+    """
+    if verdict is None:
+        verdict = lambda e: e.dst
+    seen: Dict[str, set] = {}
+    verdicts: Dict[str, set] = {}
+    profiles: Dict[str, set] = {}
+    for e in edges:
+        spec = LIMITORS.get(e.kind)
+        if spec is None:
+            continue
+        v = spec.get(e)
+        if v is None:
+            continue
+        seen.setdefault(spec.sort, set()).add(v)
+        verdicts.setdefault(spec.sort, set()).add(verdict(e))
+        if profile is not None:
+            profiles.setdefault(spec.sort, set()).add(profile(e))
+    out = {}
+    for kind, spec in LIMITORS.items():
+        vals = seen.get(spec.sort, set())
+        out[spec.sort] = {
+            "kind": kind,
+            "values": sorted(vals, key=str),
+            "cardinality": len(vals),
+            # 0 = the sort never appeared; 1 = degenerate, a drop here is
+            # certainly invisible.  >1 is NOT a clearance -- see the docstring:
+            # a transitive symmetry makes any number of values act as one.
+            "latent_erratum": len(vals) == 1,
+            "observable": len(verdicts.get(spec.sort, set())) > 1,
+            # Theorem D.  Only meaningful when the verdict is constant; None
+            # means "cannot tell", which is the honest answer without a profile.
+            "invisibility": (
+                None if len(verdicts.get(spec.sort, set())) > 1
+                else "accidental (widening helps)"
+                if profile is not None and len(profiles.get(spec.sort, set())) > 1
+                else "undetermined -- pass a profile, or no profile varies"
+            ),
+            "why": spec.why,
+        }
+    return out
+
+
+
 _TABLE: Dict[Tuple[str, str], str] = {}
 
 
@@ -237,26 +422,25 @@ class Edge:
 
     def __post_init__(self) -> None:
         _require_kind(self.kind)
+        # One loop replaces three hand-written payload blocks.  A required
+        # limitor may not be defaulted: an edge whose index was dropped is
+        # correct exactly while the index space is a singleton, and silently
+        # wrong the moment it is not.
         if isinstance(self.eps, float):
             raise EdgeError("epsilon must be an exact Fraction, never a float")
-        if self.kind == "Approx":
-            if not isinstance(self.eps, Fraction):
-                raise EdgeError("Approx requires an exact Fraction epsilon")
-            if self.eps < 0:
-                raise EdgeError("Approx epsilon must be >= 0")
-        elif self.eps is not None:
-            raise EdgeError("only Approx carries an epsilon")
-        if self.kind != "Dual" and self.pairing is not None:
-            raise EdgeError("only Dual carries a pairing name")
-        # The limitor.  An Order edge without a named ordering would be the
-        # singleton-limitor erratum committed in the architecture: correct
-        # wherever the ambient object has exactly one ordering, silently wrong
-        # on the first one that has two.  So it is required, not defaulted.
-        if self.kind == "Order":
-            if not isinstance(self.ordering, str) or not self.ordering:
-                raise EdgeError("Order requires a named ordering (its limitor)")
-        elif self.ordering is not None:
-            raise EdgeError("only Order carries an ordering")
+        mine = LIMITORS.get(self.kind)
+        for kind, spec in LIMITORS.items():
+            v = getattr(self, spec.field)
+            if kind == self.kind:
+                if v is None:
+                    if spec.required:
+                        raise EdgeError(
+                            "%s requires its limitor (%s): without it, %s"
+                            % (kind, spec.sort, spec.why))
+                else:
+                    _CHECK[kind](v)
+            elif v is not None:
+                raise EdgeError("only %s carries a %s" % (kind, spec.sort))
         if not isinstance(self.src, str) or not isinstance(self.dst, str):
             raise EdgeError("edge endpoints are L0 addresses (str)")
         if not self.edge_id:
@@ -326,26 +510,27 @@ def compose(e1: Edge, e2: Edge) -> Optional[Edge]:
     if kind is None:
         COUNTERS.bump("edge.compose_unlicensed")
         return None
-    if e1.kind == "Dual" and e2.kind == "Dual":
-        if e1.pairing is None or e1.pairing != e2.pairing:
-            COUNTERS.bump("edge.compose_unlicensed")
-            return None
-    if e1.kind == "Order" and e2.kind == "Order":
-        if e1.ordering is None or e1.ordering != e2.ordering:
+    # Limitor licensing, one rule for every kind that carries one.  Two edges
+    # of the same limitor-bearing kind compose only if their limitors combine.
+    if e1.kind == e2.kind and e1.kind in LIMITORS:
+        spec = LIMITORS[e1.kind]
+        ok, _ = combine_limitors(e1.kind, spec.get(e1), spec.get(e2))
+        if not ok:
             COUNTERS.bump("edge.compose_limitor_mismatch")
             COUNTERS.bump("edge.compose_unlicensed")
             return None
-    eps = None
-    if kind == "Approx":
-        a = e1.eps if e1.eps is not None else Fraction(0)
-        b = e2.eps if e2.eps is not None else Fraction(0)
-        eps = a + b
-    pairing = None
-    if kind == "Dual":
-        pairing = e1.pairing if e1.kind == "Dual" else e2.pairing
-    ordering = None
-    if kind == "Order":
-        ordering = e1.ordering if e1.kind == "Order" else e2.ordering
+    # The composite's limitor, from the same table.  When only one side bears
+    # the kind (Iso;Approx, Iso;Dual) the limitor is carried through; when both
+    # do, it is combined by that kind's rule.
+    payload = {"eps": None, "pairing": None, "ordering": None}
+    spec = LIMITORS.get(kind)
+    if spec is not None:
+        if e1.kind == kind and e2.kind == kind:
+            _, payload[spec.field] = combine_limitors(kind, spec.get(e1), spec.get(e2))
+        else:
+            bearer = e1 if e1.kind == kind else e2
+            payload[spec.field] = spec.get(bearer)
+    eps, pairing, ordering = payload["eps"], payload["pairing"], payload["ordering"]
     label = "(%s;%s)" % (e1.label or e1.kind, e2.label or e2.kind)
     return Edge(
         kind=kind,
