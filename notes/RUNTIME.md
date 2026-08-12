@@ -363,6 +363,61 @@ report `EXHAUSTED` while carrying an extension. A verdict contaminated by a
 previous run is a lie told with true data; `classify` now clears every field
 it can set.
 
+---
+
+## 9. The cycle: a residual generates the next attempt
+
+`python3 machinery/crystal/demo_chakravala.py`
+
+§8 records why a transport failed and stops. That leaves the useful half on
+the table: a verdict does not merely *describe* a failure, it *determines*
+the next move. Bhaskara II's cyclic method for Pell's equation is the model
+— a near-solution's error is exactly what selects the next intermediate —
+and Kepler is the same discipline in a life: eight arcminutes of residual in
+Mars's orbit, kept rather than rounded away because Tycho's data was better
+than the error, and the ellipse came out of the leftover.
+
+Each verdict selects its own successor, and only one of the five is
+"spend more":
+
+| verdict | move |
+|---|---|
+| `FATAL` | **terminal.** The impossibility is the result; proposing a successor would be a category error. |
+| `EXTENDS` | adopt T ∪ Obs as the target and re-run — the failure named the theory the map actually goes into |
+| `OUT_OF_SCOPE` | widen the declared signature by the unmapped symbols and re-run |
+| `UNORIENTABLE` | re-orient. If **no** precedence on the signature orients the residual — checked exhaustively over all permutations — that is a result: beyond LPO, requirement named (completion modulo AC), not attempted |
+| `EXHAUSTED` | and only here, spend more |
+
+Measured, three pursuits:
+
+- **monoid → semigroup: SUCCEEDED in 3 steps.** Two *different* failures in
+  sequence. Step 1: the **map** was incomplete → widen the signature by
+  `e`. Step 2: the **theory** was too small → adopt the two unit rules.
+  Step 3: checks. A single `UNDECIDED` could not have produced either move;
+  it would have doubled the budget twice and given up with nothing.
+- **right-zero → left-zero: IMPOSSIBLE in 1 step**, yielding `?x = ?y`. The
+  one place where *not* continuing is the correct move.
+- **commutative → semigroup: BEYOND_LPO in 1 step.** Commutativity is
+  symmetric in both argument positions, so no precedence orients it —
+  verified over every permutation rather than assumed.
+
+**Termination.** Each move strictly decreases a component of a lexicographic
+measure — unmapped symbols, unadopted residuals, untried precedences,
+remaining doublings — and none increases an earlier component, so the
+pursuit cannot cycle. A self-directing loop that can spin is worse than one
+that stops.
+
+Building this immediately caught a bug of the same class as §8's stale
+fields: `pursue` re-classified an already-classified obstruction, and since
+`OUT_OF_SCOPE` is decided *before* the mathematics, the second `classify()`
+silently overwrote it with a meaningless `EXTENDS` — producing an infinite
+run of "adopt 0 residual equations". The budget is now passed *in* rather
+than applied by re-classification. Contamination by re-execution is
+apparently this design's characteristic failure, and it is worth naming as
+such: it has now appeared twice in different clothing.
+
+53 tests.
+
 ### How the §7 test got here, since the first version was wrong
 
 The obvious example was groups: compile the left-axiom presentation,

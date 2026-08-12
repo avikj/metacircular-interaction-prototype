@@ -444,5 +444,72 @@ class TestObstruction(unittest.TestCase):
         self.assertTrue(any(n.startswith("obstruction:") for n, _, _ in pres))
 
 
+class TestPursuit(unittest.TestCase):
+    """The cycle: each residual must select its own next move."""
+
+    def setUp(self):
+        from machinery.crystal.chakravala import Outcome, pursue
+        from machinery.crystal.transport import Interpretation, arg
+
+        self.Outcome, self.pursue = Outcome, pursue
+        self.Interp, self.arg = Interpretation, arg
+        self.order = LPO(["*", "e"])
+        self.assoc = ("assoc", op(op(x, y), z), op(x, op(y, z)))
+        self.E = mk("e")
+        self.ident = {("*", 2): mk("*", arg(0), arg(1))}
+
+    def _run(self, source, target, sig, clauses=None, **kw):
+        cl = clauses or self.ident
+        return self.pursue(lambda t: self.Interp("phi", cl, source, t),
+                           target, self.order, sig, **kw)
+
+    def test_the_cycle_closes_by_repairing_two_different_failures(self):
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        p = self._run(monoid, [self.assoc], {("*", 2)})
+        self.assertEqual(p.outcome, self.Outcome.SUCCEEDED)
+        kinds = [s.verdict for s in p.trace if s.verdict]
+        self.assertEqual(kinds, ["OUT_OF_SCOPE", "EXTENDS"])
+
+    def test_an_impossibility_stops_at_once_with_no_successor(self):
+        p = self._run([self.assoc, ("rz", op(x, y), y)],
+                      [self.assoc, ("lz", op(x, y), x)], {("*", 2)})
+        self.assertEqual(p.outcome, self.Outcome.IMPOSSIBLE)
+        self.assertEqual(len(p.trace), 1)
+
+    def test_a_symmetric_residual_is_beyond_lpo_under_every_precedence(self):
+        p = self._run([self.assoc, ("comm", op(x, y), op(y, x))],
+                      [self.assoc], {("*", 2)})
+        self.assertEqual(p.outcome, self.Outcome.BEYOND_LPO)
+        self.assertIn("modulo AC", str(p.yield_))
+
+    def test_no_step_is_blind_retry_when_structure_is_available(self):
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        p = self._run(monoid, [self.assoc], {("*", 2)})
+        self.assertNotIn("EXHAUSTED", [s.verdict for s in p.trace])
+
+    def test_every_step_is_individually_accountable(self):
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        p = self._run(monoid, [self.assoc], {("*", 2)})
+        for s in p.trace:
+            self.assertTrue(s.move, "a step with no stated move is blind")
+            self.assertGreaterEqual(s.cost, 0)
+
+    def test_the_pursuit_terminates_rather_than_cycling(self):
+        # The measure argument, exercised: an adopt step must not be
+        # repeatable forever. Cap the steps low; a converging cycle finishes
+        # well inside it, a spinning one would hit the cap.
+        monoid = [self.assoc, ("lu", op(self.E, x), x), ("ru", op(x, self.E), x)]
+        p = self._run(monoid, [self.assoc], {("*", 2)}, max_steps=4)
+        self.assertEqual(p.outcome, self.Outcome.SUCCEEDED)
+        self.assertLessEqual(len(p.trace), 4)
+
+    def test_a_succeeding_transport_needs_no_cycle_at_all(self):
+        p = self._run([self.assoc, ("rz", op(x, y), y)],
+                      [self.assoc, ("lz", op(x, y), x)], {("*", 2)},
+                      clauses={("*", 2): mk("*", self.arg(1), self.arg(0))})
+        self.assertEqual(p.outcome, self.Outcome.SUCCEEDED)
+        self.assertEqual(len(p.trace), 1)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -6,7 +6,8 @@ Design and honest limits: `notes/RUNTIME.md`.
 python3 machinery/crystal/demo.py             # compile a theory; ledger
 python3 machinery/crystal/demo_transport.py   # decide a theory never compiled
 python3 machinery/crystal/demo_obstruction.py # read a FAILED transport as mathematics
-python3 machinery/crystal/test_crystal.py -v  # 46 tests
+python3 machinery/crystal/demo_chakravala.py  # residuals driving the next move
+python3 machinery/crystal/test_crystal.py -v  # 53 tests
 ```
 
 Native state is content-addressed typed terms plus *checked transformations*
@@ -43,7 +44,9 @@ would have returned `a*b = b` as false.
 | `obstruction.py` | failed transports kept as objects: the residual as a presented theory extension, classified FATAL / EXTENDS / UNORIENTABLE / EXHAUSTED / OUT_OF_SCOPE |
 | `demo.py` | acceptance test: compile a theory, decide independent problems |
 | `demo_transport.py` | acceptance test: decide a theory that was never compiled |
+| `chakravala.py` | the cycle: each verdict selects its own next move; terminates by a lexicographic measure |
 | `demo_obstruction.py` | acceptance test: a failed map must yield a true theorem |
+| `demo_chakravala.py` | acceptance test: the cycle closes without blind retry |
 | `test_crystal.py` | tests, including confluence of the result, a proves-too-much control, and rejection of a mistyped map |
 
 **Failed transports are kept, not discarded** (`obstruction.py`). The

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """A failed transport, read as mathematics.
 
-    यत्र द्वौ मार्गौ समानफलौ जनयतः तत्र commuting square।
-    यत्र न जनयतः तत्र दोषः। स दोषः अपशब्दः न;
-    स एव नूतनगणितस्य बीजम्।
+Where two paths give the same result you have a commuting square. Where
+they do not you have a defect -- and the defect is the seed of new
+mathematics, not an error to discard.
 
 Acceptance test, stated before it is run:
 
@@ -153,7 +153,7 @@ def main() -> int:
     print("    OUT_OF_SCOPE : fix the MAP; there is no mathematics here")
     print()
     print("  Same machinery, six outcomes, none of them discarded.")
-    print("  अवरोधः अदृश्यमानस्य मानचित्रम्।")
+    print("  An obstruction is a map of what could not be seen.")
     print("=" * 74)
     return 0
 

@@ -1,7 +1,7 @@
 """Failed transports, kept as objects.
 
-    स दोषः अपशब्दः न; स एव नूतनगणितस्य बीजम्।
-    अवरोधः अदृश्यमानस्य मानचित्रम्।
+A defect is not a bad word; it is the seed of new mathematics. An
+obstruction is a map of what could not be seen.
 
 `transport.py` checks an interpretation and, when it fails, raises. That is
 the discipline violation this module repairs: the machine was accumulating
@@ -9,8 +9,8 @@ only successful relations, discarding the shape of every failed one. But the
 residual of a failed transport is not noise. It is a *presented theory
 extension* — precisely the set of equations the target would have to satisfy
 for the map to have been an interpretation — and asking whether that
-extension is consistent is asking a real mathematical question with three
-possible answers.
+extension is consistent is asking a real mathematical question with real
+answers.
 
 Given a map φ from source theory S into target theory T that fails on some
 subset of S's axioms, the **obstruction** is
@@ -29,15 +29,15 @@ read as a presentation on top of T. Completing T ∪ Obs(φ) trichotomises:
             newly derived rules are exactly what was missing. The failed
             transport has named a larger theory.
 
-  UNDECIDED the extension neither collapses nor completes — an unorientable
-            residual survives, or the loop hits its bound. Reported as
-            undecided; never guessed.
+and otherwise one of three TYPED failures to answer -- see `Verdict`. They
+are kept apart because they license different next actions.
 
-The five limbs are carried explicitly on every obstruction record, because a
-distinction lacking one of them is incomplete: निमित्त (which map, which
-axiom), देश (which target theory), भेद (the residual pair of normal forms),
-परिवर्तन (the verdict, i.e. what action this licenses), फल (the witness that
-makes the verdict checkable rather than asserted).
+Five things are carried explicitly on every record, because a distinction
+lacking any of them is incomplete: which map and which axiom (why this
+record exists), which target theory (the context), the residual pair of
+normal forms (what could not be separated), the verdict (what action this
+licenses), and the witness (what makes the verdict checkable rather than
+asserted).
 """
 
 from __future__ import annotations
@@ -54,7 +54,7 @@ from machinery.crystal.kernel import (
 class Verdict(Enum):
     """Two answers, and a *typed* absence of answer.
 
-        शून्यं स्थानं रक्षति। एतानि एकेन null मध्ये न निक्षिपेत्।
+    Zero holds a place. These must not be thrown into one null.
 
     A single `UNDECIDED` was the first version of this enum and it was
     wrong, in a way mutation testing detected before it was understood: the
@@ -71,19 +71,19 @@ class Verdict(Enum):
 
     # ---- the typed zero: three ways of not knowing, never merged ----
 
-    #: वर्तमानrepresentationेन अदृश्यम् — a residual equation that THIS
+    #: INVISIBLE TO THIS REPRESENTATION -- a residual equation that THIS
     #: reduction order cannot orient. Not a fact about the mathematics; a
     #: fact about the order. Licensed next action: ordered/unfailing
     #: completion, or completion modulo AC. Retrying with a bigger budget is
     #: guaranteed to waste it.
     UNORIENTABLE = "UNORIENTABLE"
 
-    #: गणनासाधनातीतम् — the budget was spent with work still pending and no
+    #: BEYOND THE MEANS WE SPENT -- the budget was spent with work still pending and no
     #: unorientable residual. Licensed next action: spend more, or read the
     #: growth diagnosis. Says nothing about whether an answer exists.
     EXHAUSTED = "EXHAUSTED"
 
-    #: अधिकारात् बहिः — the question was never in this target's jurisdiction:
+    #: OUTSIDE JURISDICTION -- the question was never in this target's jurisdiction:
     #: the source signature contains a symbol the interpretation does not
     #: map and the target does not have. Not an obstruction at all. Licensed
     #: next action: complete the signature map. Reporting this as a
@@ -115,16 +115,16 @@ class Residual:
 class Obstruction:
     """The map of what a transport could not see."""
 
-    # निमित्त — why this record exists
+    # why this record exists
     interpretation: str
-    # देश — the context it is an obstruction *in*
+    # the context it is an obstruction *in*
     target_axioms: list
     order: LPO
-    # भेद — what could not be separated
+    # what could not be separated
     residuals: list[Residual] = field(default_factory=list)
-    # परिवर्तन — what action the obstruction licenses
+    # what action the obstruction licenses
     verdict: Optional[Verdict] = None
-    # फल — the witness that makes the verdict checkable
+    # the witness that makes the verdict checkable
     collapse_witness: Optional[tuple] = None
     derived_rules: list = field(default_factory=list)
     surviving_residual: Optional[tuple] = None
@@ -192,13 +192,13 @@ class Obstruction:
             self.collapse_witness = collapses[0]
             return self.verdict
 
-        # वर्तमानrepresentationेन अदृश्यम् — this ORDER cannot see it.
+        # Invisible to THIS ORDER.
         if led.unorientable_pairs:
             self.verdict = Verdict.UNORIENTABLE
             self.surviving_residual = led.unorientable_pairs[0]
             return self.verdict
 
-        # गणनासाधनातीतम् — the budget ran out, which is a fact about us.
+        # The budget ran out, which is a fact about us, not the mathematics.
         if comp.exhausted or len(comp.rules) >= max_rules:
             self.verdict = Verdict.EXHAUSTED
             self.budget = (max_rules, max_rounds)
@@ -269,7 +269,7 @@ def _symbols(t: Term) -> set:
 
 def jurisdiction_gap(interp, target_axioms: list,
                      target_signature: Optional[set] = None) -> list:
-    """अधिकारात् बहिः — source symbols that neither the map nor the target
+    """Outside jurisdiction: source symbols that neither the map nor the target
     accounts for.
 
     `Interpretation.apply` carries an unmapped symbol through unchanged.
@@ -298,7 +298,9 @@ def jurisdiction_gap(interp, target_axioms: list,
 
 
 def obstruction_of(interp, target_axioms: list, order: LPO,
-                   target_signature: Optional[set] = None) -> Optional[Obstruction]:
+                   target_signature: Optional[set] = None,
+                   max_rules: int = 60,
+                   max_rounds: int = 400) -> Optional[Obstruction]:
     """Build the obstruction of a *failed* interpretation.
 
     Returns None when the interpretation checks — there is nothing invisible
@@ -323,5 +325,5 @@ def obstruction_of(interp, target_axioms: list, order: LPO,
         li, _ = normalize(interp.apply(l), interp.target.rules)
         ri, _ = normalize(interp.apply(r), interp.target.rules)
         obs.residuals.append(Residual(name, l, r, li, ri))
-    obs.classify()
+    obs.classify(max_rules=max_rules, max_rounds=max_rounds)
     return obs
