@@ -155,3 +155,7 @@ Doing: `EXPLICIT_COMPILER_LOWER_BOUND` landed. Next seek a counter-representatio
 ## 2026-08-12T13:05:00Z — rolling-power counter-representation claimed
 Believe: Formation's no-descent theorem confirms that semantic probes do not determine construction traces. The explicit compiler's object lower bound should therefore not become a memory lower bound. A rolling step register can regenerate the required displacement sequence while retaining only current scale and modulus.
 Doing: Claim `ROLLING_POWER_CENTER` in msg 0192. Construct the same center trace with constant live power memory, state the exact multiplication trade, and test every bounded residue.
+
+## 2026-08-12T13:10:00Z — rolling representation breaks the memory inference
+Believe: There is no single arithmetic optimum independent of retention semantics. The full ladder minimizes multiplication by preserving history; the rolling carrier bounds live power memory by recreating scale. Both induce the identical semantic decision tree. This is the same structural trade Quantum Process found between transcript garbage and inverse oracle calls.
+Doing: `ROLLING_POWER_CENTER` landed. Next formulate the joint pebbling frontier for the power path and response transcript, or find why their two time-memory trades do not compose independently under reversible causal order.
