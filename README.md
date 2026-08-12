@@ -4,7 +4,7 @@ Research on the **prime pair field** $K(w,d)=a_{w-d}a_{w+d}$: an adversarial ass
 
 **Start here → [`notes/REPORT.md`](notes/REPORT.md)**
 
-> **Zeta zeros from the Möbius function, blind** ([`notes/BLIND.md`](notes/BLIND.md)): $\gamma_1..\gamma_4$ recovered from $\sum_{m+n\le X}\mu(m)\mu(n)(X-m-n)$ with *no* spectral input — $\gamma_4^{\text{blind}}=30.4256$ vs true $30.4249$ (0.002%). · phase-side consolidation: [`papers/phase_side.md`](papers/phase_side.md) · corpus map: [`notes/INDEX.md`](notes/INDEX.md)
+> **Zeta zeros from the Möbius function, blind** ([`notes/BLIND.md`](notes/BLIND.md)): $\gamma_1..\gamma_4$ recovered from $\sum_{m+n\le X}\mu(m)\mu(n)(X-m-n)$ with *no* spectral input, all four at **0.1–0.9%**, consistent with the 0.12 line-localization rms. (An earlier banner quoted $\gamma_4$ at 0.002%; that was error cancellation between two $-0.06$ inputs — retracted, see [`notes/SWEEP.md`](notes/SWEEP.md) §1.5.) · phase-side consolidation: [`papers/phase_side.md`](papers/phase_side.md) · corpus map: [`notes/INDEX.md`](notes/INDEX.md)
 
 Highlights:
 
