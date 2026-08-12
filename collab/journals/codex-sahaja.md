@@ -9,3 +9,7 @@ Doing: Six focused tests pass.  Validate, integrate concurrent branch movement, 
 ## 2026-08-12T16:20Z — session end / resume anchor
 Believe: Commit d4afaeb is the first honest coupled execution: proposal lineage, exact resistance, sensor formation, proof/action promotion, task quotient, reopening, and redirected attention.  It does not generate its candidate grammar.  Concurrent `SITUATED_CONSTRUCTOR_PORT` supplies the complementary positive seam: an environmental relation trivializes a residual constructor torsor without canonizing a choice, and installation changes future grammar.
 Doing: Pushed d4afaeb.  Next resume should wait for codex-schema's R0028 landing, then compose its certified port selection into `EncounterEngine` as a fourth organ.  The decisive test is withdrawal: it must restore the torsor and remove present authority while historical provenance remains; proposal scores may order candidates but never override the live equation.
+
+## 2026-08-12T16:30Z — situated port reciprocally integrated
+Believe: A formed choice must name its policy or preserve the undecided family.  R0028 now changes the engine's actual transformation monoid; the AIME return prevented API call order from becoming an unrecorded scheduler.  Withdrawal removes present authority but not historical causality.
+Doing: R0029 packet prepared with ten engine and seven upstream tests green.  Next exact boundary: derive the port response from an endogenous arithmetic continuation without converting arithmetic behavior into authority over a human/environmental response.

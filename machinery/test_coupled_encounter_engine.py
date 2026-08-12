@@ -55,6 +55,62 @@ class CoupledEncounterEngineTests(unittest.TestCase):
         e.couple_task("distinguish-fixed-point-2")
         self.assertIn("reopen-forgotten-distinction", e.attention())
 
+    def test_live_port_changes_executable_future_grammar(self):
+        left, right = EncounterEngine.inherited(), EncounterEngine.inherited()
+        left.couple_constructor_port(2, "participant-A")
+        right.couple_constructor_port(0, "participant-B")
+        self.assertEqual(len(left.active_grammar), 2)
+        self.assertEqual(len(right.active_grammar), 3)
+        self.assertEqual(left.constructor_future(), (0, 1))
+        self.assertEqual(right.constructor_future(), (0, 1, 2))
+        self.assertNotEqual(left.constructor_future(), right.constructor_future())
+
+    def test_scores_order_but_cannot_overrule_live_relation(self):
+        e = EncounterEngine.inherited()
+        lawful = __import__("situated_constructor_port").transporter(3, 0, 1)
+        wanted = next(g for g in lawful if g[2] == 0)
+        other = next(g for g in lawful if g[2] == 2)
+        cert = e.couple_constructor_port(
+            0, "human", {wanted: -1000.0, other: 1000.0}
+        )
+        self.assertEqual(cert.selected, wanted)
+        self.assertTrue(cert.verifies())
+
+    def test_withdrawal_restores_torsor_and_retains_provenance(self):
+        e = EncounterEngine.inherited()
+        cert = e.couple_constructor_port(0, "living-environment")
+        lawful = e.withdraw_constructor_port()
+        self.assertEqual(len(lawful), 2)
+        self.assertIsNone(e.active_constructor)
+        self.assertIsNone(e.constructor_selection_policy)
+        self.assertEqual(e.active_grammar, ())
+        self.assertNotIn("constructor:iterate-selected", e.actions)
+        self.assertIn("constructor:torsor-unresolved", e.actions)
+        self.assertEqual(e.constructor_history, [cert])
+        with self.assertRaises(ValueError):
+            e.constructor_future()
+
+    def test_api_call_order_is_not_a_hidden_selection_policy(self):
+        left, right = EncounterEngine.inherited(), EncounterEngine.inherited()
+        # Inspect the same lawful field in opposite orders.  Neither path may
+        # install a primitive or invent an alternation schedule.
+        left_choices = left.constructor_choices()
+        left_attention = left.attention()
+        right_attention = right.attention()
+        right_choices = right.constructor_choices()
+        self.assertEqual(left_choices, right_choices)
+        self.assertEqual(left_attention, right_attention)
+        self.assertIsNone(left.active_constructor)
+        self.assertIsNone(right.active_constructor)
+        self.assertEqual(left.active_grammar, right.active_grammar)
+        self.assertIsNone(left.constructor_selection_policy)
+        self.assertIsNone(right.constructor_selection_policy)
+        # A declared relation, not call order, collapses the set.
+        left.couple_constructor_port(0, "participant")
+        self.assertEqual(left.constructor_selection_policy,
+                         "exact-live-port-equation")
+        self.assertIsNone(right.active_constructor)
+
 
 if __name__ == "__main__":
     unittest.main()

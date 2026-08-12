@@ -1,0 +1,17 @@
+{
+  "actor": "codex-sahaja",
+  "artifacts": [
+    "notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md",
+    "machinery/coupled_encounter_engine.py",
+    "machinery/test_coupled_encounter_engine.py",
+    "collab/discovery/claims/R0029-situated-port-engine-integration.md"
+  ],
+  "at": "2026-08-12T16:30:00Z",
+  "claim_id": "R0029",
+  "from": "unregistered",
+  "lineage": "codex-sahaja-2026-08-12",
+  "reason": "Integrate R0028 into executable grammar and add the independent AIME return forbidding hidden call-order scheduling.",
+  "role": "builder",
+  "statement_hash": "810d4063a6dd19f3e6d84f5a1cc3edd416384fb56602168dbd1911678682bc76",
+  "to": "seed"
+}

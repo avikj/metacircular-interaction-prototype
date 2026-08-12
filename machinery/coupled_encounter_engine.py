@@ -23,6 +23,14 @@ from observation_forgetting import (
     minimal_reversibility_example,
 )
 from smith_residual_machine import Matrix, smith_reduce
+from situated_constructor_port import (
+    Port,
+    SelectionCertificate,
+    future_trace,
+    powers,
+    select_with_port,
+    transporter,
+)
 from two_adic_confinement import confinement
 
 
@@ -70,6 +78,10 @@ class EncounterEngine:
     rich_memory_states: int = 0
     active_task: str | None = None
     task_view: ForgettingResult | None = None
+    active_constructor: tuple[int, ...] | None = None
+    active_grammar: tuple[tuple[int, ...], ...] = ()
+    constructor_selection_policy: str | None = None
+    constructor_history: list[SelectionCertificate] = field(default_factory=list)
 
     @classmethod
     def inherited(cls) -> "EncounterEngine":
@@ -238,6 +250,70 @@ class EncounterEngine:
             separating_power=len(self.task_view.rich.fibers),
             effective_action_is_group=False,
         )
+
+    def couple_constructor_port(
+        self, response: int, provenance: str,
+        scores: dict[tuple[int, ...], float] | None = None,
+    ) -> SelectionCertificate:
+        """Let a live response select and install a genuinely different grammar.
+
+        Endpoint data leaves the two-point transporter torsor unresolved.  The
+        response is not predicted or optimized by this engine: it is an
+        admitted environmental relation.  Scores can change proposal order but
+        exact port equations alone certify and install the constructor.
+        """
+        cert = select_with_port(
+            3, 0, 1, Port(2, response, provenance), scores or {}
+        )
+        self.constructor_history.append(cert)
+        self.active_constructor = cert.selected
+        self.active_grammar = powers(cert.selected)
+        self.constructor_selection_policy = "exact-live-port-equation"
+        self.actions.discard("constructor:torsor-unresolved")
+        self.actions.add("constructor:iterate-selected")
+        self.sensors.add("constructor:live-context-response")
+        self.proposals["constructor-port-withdrawal"] = Proposal(
+            "constructor-port-withdrawal",
+            "withdrawal restores the lawful transporter while retaining historical selection provenance",
+            ("R0027 transporter torsor", "R0028 situated port", provenance),
+            cost=1,
+            possible_gain=len(self.active_grammar),
+        )
+        return cert
+
+    def constructor_choices(self) -> tuple[tuple[int, ...], ...]:
+        """Return the quantified undecided set without scheduling a member.
+
+        This is intentionally read-only.  Candidate enumeration order, API
+        call order, and attention scores are not formation policies.
+        """
+        if self.active_constructor is not None:
+            return (self.active_constructor,)
+        return transporter(3, 0, 1)
+
+    def constructor_future(self, point: int = 0) -> tuple[int, ...]:
+        """The presently executable orbit, which depends on the live response."""
+        if self.active_constructor is None:
+            raise ValueError("constructor torsor unresolved: supply a live port")
+        return future_trace(self.active_constructor, point)
+
+    def withdraw_constructor_port(self) -> tuple[tuple[int, ...], ...]:
+        """Remove present authority; restore the torsor, not a default choice."""
+        if self.active_constructor is None:
+            raise ValueError("no live constructor port to withdraw")
+        self.active_constructor = None
+        self.active_grammar = ()
+        self.constructor_selection_policy = None
+        self.actions.discard("constructor:iterate-selected")
+        self.actions.add("constructor:torsor-unresolved")
+        self.sensors.discard("constructor:live-context-response")
+        old = self.proposals["constructor-port-withdrawal"]
+        self.proposals[old.name] = Proposal(
+            old.name, old.claim,
+            old.provenance + ("withdrawn; historical certificate retained",),
+            old.cost, old.possible_gain, "proved",
+        )
+        return transporter(3, 0, 1)
 
 
 def encounter_trace() -> EncounterEngine:

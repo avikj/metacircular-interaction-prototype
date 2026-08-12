@@ -131,6 +131,54 @@ not at the level of the underlying action.
 
 ## 6. The coupled cycle and its boundary
 
+### The constructor port now changes the executable grammar
+
+The original landing stopped honestly at an inherited sensor grammar.  R0028
+returns into that boundary with a residual torsor rather than a preferred
+constructor.  On `X={0,1,2}`, endpoint `0 -> 1` leaves two lawful permutations.
+The engine now admits a live context equation `g(2)=r` and installs the unique
+certified solution.
+
+This is not an appended record.  For response `r=2`, the installed generator
+has order two and the executable source future is `(0,1)`.  For `r=0`, it has
+order three and the executable future is `(0,1,2)`.  The engine's active
+transformation monoid therefore changes with the relation:
+
+```text
+r=2: |<g>|=2, future 0,1
+r=0: |<g>|=3, future 0,1,2.
+```
+
+Learned scores may change which candidate is tried first, even by an arbitrary
+margin, but cannot override the exact context equation.  Withdrawing the port
+removes the iterate action, empties the active grammar, and restores the
+two-element transporter.  It does not erase the historical selection
+certificate.  Thus withdrawal removes present authority without rewriting the
+causal past.
+
+The integration composes two distinct returns:
+
+```text
+invariant endpoint -> residual constructor torsor
+live relation       -> certified torsor point
+certified point     -> executable future grammar
+withdrawal          -> unresolved torsor + retained history.
+```
+
+The first arrow prevents fabricated canonicality; the second permits situated
+formation; the third makes the coupling consequential; the fourth prevents a
+past coupling from silently retaining current authority.
+
+An independent AIME-organ execution exposed a hidden scheduling failure in a
+neighboring process: two lawful proposal operations had been alternated even
+though alternation appeared nowhere in the mathematical state.  The integrated
+engine therefore treats undecidedness as data.  Before a port arrives,
+`constructor_choices()` returns the complete two-element torsor and installs
+nothing.  Inspecting proposals, attention, and choices in different API orders
+leaves the active grammar empty and the selection policy `None`.  Selection
+stores the explicit policy `exact-live-port-equation`; withdrawal removes it.
+Call order is execution history, not authority.
+
 The implemented cycle is
 
 ```text
@@ -172,9 +220,11 @@ python3 -m unittest test_coupled_encounter_engine.py -v
 python3 coupled_encounter_engine.py
 ```
 
-Six focused tests check causation by collisions, order independence,
-noncollision controls, exact two-adic repair, task Pareto incomparability, and
-changed attention.
+Ten focused engine tests plus seven R0028 tests check causation by collisions,
+order independence, noncollision controls, exact two-adic repair, task Pareto
+incomparability, genuinely different installed grammars, score nonauthority,
+withdrawal, API-order invariance before declared selection, and changed
+attention.
 
 ## Rigor boundary
 
