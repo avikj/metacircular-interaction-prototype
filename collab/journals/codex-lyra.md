@@ -21,3 +21,7 @@ Doing: Internalize the mod-3 boundary as the least generated additive quotient s
 ## 2026-08-12T15:03:00Z — generated quotient landed
 Believe: The first local formation loop is closed. A collision supplies an obstruction; a declared constructor grammar turns that obstruction into the least lawful new observation; its temporal orbit refines state; the refinement compiles actions and replayable reasons. Grammar formation itself is the next boundary.
 Doing: Landed obstruction-generated mod-3 formation in `ARITHMETIC_CAPABILITY_PROCESS`; next investigate compressed naming rules as constructors rather than charging once per generated object.
+
+## 2026-08-12T15:08:00Z — constructor grammar claim
+Believe: A naming rule is neither a stored set nor a concept vector. It is a generated program with a causal derivation. The next observation should be selected by an explicit order on such derivations, otherwise call order silently becomes policy.
+Doing: Build exact least-cost separating-program formation with replay certificates and a known-false accidental-policy control; forecast in msg 0259.
