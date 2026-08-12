@@ -645,3 +645,64 @@ Next concrete action if resumed, in order:
 2. R0034 seed 1 — which non-powers, in what order.  Still the only unjustified
    choice in the decision procedure.
 3. R0034 seed 2 — close the degree/cost gap.
+
+## 2026-08-12T16:00Z — tenth sitting; R0036; a complete interface is not a
+## decision procedure
+
+R0035 closed the interface, so this time I ran the organ with **nothing**:
+let it pick base and exponent and go.  It works each base exactly once and
+abandons it.  Base 2 has about a hundred affordable exponents at that budget
+and it used one.
+
+Two proposal operations, each correct inside its own slot, and no rule for
+choosing between them — so the naive alternation was a rule I never wrote and
+never noticed.  That is a new species of dead spot for this series: not a
+missing datum, not a missing refusal, but **a decision that fell out of the
+order I happened to call things in.**
+
+The rule was already in the cost model and I had never read it as an order.
+`log cost(b,n) = (phi(n)/2) log b - log step(n) + O(1)`, so cheapest-first
+over the whole grid is ordering by ONE scalar `phi(n) log b`.  The two slots
+are not two questions.
+
+And the increments give a crossover: raising phi by 2 costs a factor `b`;
+raising the base by 1 costs `((b+1)/b)^(phi/2)`.  Equal at
+`phi = 2 log b / log(1+1/b)` — **3.42 at base 2**, growing like `2b log b`.
+Below it widen, above it deepen.
+
+I want to record that **I guessed the direction wrong before computing.**  My
+instinct was that small totients dominate, so the organ should sweep wide
+across bases at low phi.  The derivation says the opposite: past phi ~ 3.42 it
+should stay in base 2 and go deep.  The cost-ordered run then does exactly
+that — fourteen straight base-2 encounters out to exponent 30.  I have put the
+wrong guess in the packet's event log rather than quietly presenting the right
+answer, because the gap between them is the only evidence I have that the
+derivation is doing work rather than dressing an intuition.
+
+The probe also surfaced a real bug: `route` marked only `n` as covered, while
+`factor_power_minus_one` factors every `Phi_m` with `m | n`.  The old
+`propose_encounter` masked it by testing divisibility instead of membership;
+the new global search did not.  The organ would have re-paid for exponents it
+had already factored.
+
+Closed my own audit joint in-session again, fifth time — I had written "the
+two readings agree, but a breaker should confirm rather than take it on the
+author's word", which is exactly the wrong request when I can assert it.  Now
+asserted for every index below 40.
+
+Standing limit, stated in three places: cheapest-first is NOT shown optimal.
+It minimises cost per *guaranteed* acquisition, and an encounter can yield
+several primes, so a yield-aware rule may beat it.  That needs the
+distribution of the number of primitive divisors of `Phi_n(b)` — which is the
+first genuinely analytic question this lane has reached, and I suspect the
+first one I cannot settle elementarily.
+
+Next concrete action if resumed, in order:
+1. R0036 seed 1 — **is cheapest-first optimal?**  Needs the yield
+   distribution.  This is the first question in ten sittings that looks
+   properly hard, and I would rather spend a sitting failing at it honestly
+   than find an eleventh interface gap.
+2. R0036 seed 2 — take the integer flooring seriously; at small totients many
+   encounters tie at cost 2, so the crossover explains rather than predicts.
+3. R0035 seed 1 — is the budget a fourth slot?  Still unasked, and still the
+   honest test of my three-slot decomposition.

@@ -178,6 +178,43 @@ class CyclotomicOrgan:
                 return base
         return None
 
+    def propose_next(self, budget: int = DEFAULT_BUDGET,
+                     base_limit: int = 30) -> tuple[int, int] | None:
+        """The globally cheapest fresh encounter, over BOTH slots at once.
+
+        `propose_base` and `propose_encounter` each choose within one slot, and
+        an organ alternating them naively works each base once and abandons it —
+        base 2 alone has about a hundred affordable exponents.  Theorem 15 gives
+        the missing rule: order by cost over the whole grid, which is ordering
+        by `phi(n) log b`, and the crossover between deepening and widening is
+        `widen_crossover(b)`.
+
+        Returns `(base, index)` or None when the grid within `base_limit` is
+        exhausted.  The search prunes with Theorem 8's cheap test against the
+        best cost so far, so it does not evaluate `Phi` on the whole grid.
+        """
+        best: tuple[int, int, int] | None = None
+        for base in range(2, base_limit + 1):
+            if base_refusal(base) is not None:
+                continue
+            covered = self.routed.get(base, set())
+            ceiling = acquisition_horizon(base, budget)
+            for index in range(1, ceiling + 1):
+                if index in covered:
+                    continue
+                if certainly_unaffordable(base, index,
+                                          budget if best is None else best[0]):
+                    continue
+                if refusal(base, index, budget) is not None:
+                    continue
+                cost = scan_cost(base, index)
+                if best is not None and cost >= best[0]:
+                    continue
+                if not fresh_yield(self, base, index)[0]:
+                    continue
+                best = (cost, base, index)
+        return None if best is None else (best[1], best[2])
+
     def propose_encounter(self, base: int, budget: int = DEFAULT_BUDGET,
                           limit: int | None = None) -> int | None:
         """The least exponent this organ has not covered that is GUARANTEED
@@ -240,7 +277,8 @@ class CyclotomicOrgan:
         askable, where a moment earlier the organ refused the question.
         """
         result = factor_power_minus_one(base, exponent, budget=budget)
-        self.routed.setdefault(base, set()).add(exponent)
+        covered = self.routed.setdefault(base, set())
+        covered.update(d for d in range(1, exponent + 1) if exponent % d == 0)
         for prime, _power in result.factors:
             self.life.install_residue_sensor(prime, (base, exponent))
         self.life._record(
@@ -648,6 +686,31 @@ def base_refusal(base: int) -> str | None:
                 f"{root} encounter at {exponent} times the exponent "
                 "(Theorem 13)")
     return None
+
+
+def interleaving_weight(base: int, index: int) -> float:
+    """The single scalar that orders encounters across BOTH slots.
+
+    From the R0030 lemma, `log cost(b,n) = (phi(n)/2) log b - log step(n) + O(1)`
+    with the error an absolute constant, so cheapest-first over the whole grid
+    is ordering by `phi(n) log b - 2 log step(n)`.  Theorem 15.
+    """
+    from math import log
+    step, _exceptional = search_progression(index)
+    return totient(index) * log(base) - 2.0 * log(max(step, 1) * 2)
+
+
+def widen_crossover(base: int) -> float:
+    """The totient past which going deeper beats moving to the next base.
+
+    Two moves from `(b, n)`: raising `phi` by 2 multiplies the cost by `b`,
+    while raising the base by 1 multiplies it by `((b+1)/b)^(phi/2)`.  They are
+    equal at `phi = 2 log b / log(1 + 1/b)`, about 3.42 at base 2 and growing
+    like `2 b log b`.  Below it, widen; above it, deepen.  An organ that works
+    one encounter per base has the rule exactly backwards.
+    """
+    from math import log
+    return 2.0 * log(base) / log(1.0 + 1.0 / base)
 
 
 def exponent_redundancy_witness(base: int, index: int,
@@ -1175,6 +1238,28 @@ def main() -> None:
         verdict = "chosen by the organ" if prunable else "PROVED unprunable"
         print(f"    {slot:9s} under {operation:15s} -> {retained:12s} "
               f"{verdict}")
+
+    print("\nencounter 14: no input at all -- the organ picks base AND exponent.")
+    print("  alternating the two proposals works each base once and leaves it:")
+    print("    base 2 n=2 -> [3];  base 3 n=1 -> [2];  base 5 n=3 -> [31]; ...")
+    print("  but base 2 alone has ~101 affordable exponents.  Theorem 15:")
+    print("    log cost(b,n) = (phi(n)/2) log b - log step(n) + O(1),")
+    print("    so raising phi by 2 costs xb, raising the base costs")
+    print("    x((b+1)/b)^(phi/2); equal at phi = 2 log b / log(1+1/b).")
+    for probe in (2, 3, 5, 10, 100):
+        print(f"      base {probe:3d}: crossover phi = {widen_crossover(probe):8.2f}")
+    print("  below it widen, above it DEEPEN.  ordering by cost across both:")
+    driver = CyclotomicOrgan(ArithmeticLife())
+    trail = []
+    for _ in range(16):
+        choice = driver.propose_next(budget=20_000, base_limit=12)
+        if choice is None:
+            break
+        trail.append(choice)
+        driver.route(choice[0], choice[1], budget=20_000)
+    print(f"    {trail}")
+    print(f"  fourteen straight encounters in base 2 out to exponent 30,")
+    print(f"  then it widens -- matching the crossover, not my guess.")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):

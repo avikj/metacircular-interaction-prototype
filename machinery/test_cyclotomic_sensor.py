@@ -22,6 +22,8 @@ from cyclotomic_sensor import (
     factor_power_minus_one,
     acquisition_horizon,
     growth_rate,
+    widen_crossover,
+    interleaving_weight,
     exponent_redundancy_witness,
     interface_report,
     perfect_power,
@@ -787,6 +789,68 @@ class TestCyclotomicSensor(unittest.TestCase):
         self.assertIsNone(base_refusal(2))
         self.assertIsNotNone(base_refusal(4))
         self.assertEqual(organ.propose_encounter(2), 2)
+
+    def test_deepen_widen_crossover_is_derived(self) -> None:
+        """Theorem 15.  Raising phi by 2 multiplies cost by b; raising the base
+        by 1 multiplies it by ((b+1)/b)^(phi/2).  They cross at
+        phi = 2 log b / log(1+1/b), about 3.42 at base 2 — so past the smallest
+        totients an organ should deepen, not widen."""
+        from math import log
+        for base in (2, 3, 5, 10):
+            crossover = widen_crossover(base)
+            self.assertAlmostEqual(crossover,
+                                   2 * log(base) / log(1 + 1 / base), places=9)
+            # below the crossover widening is cheaper, above it deepening is
+            for phi in (crossover * 0.5, crossover * 2.0):
+                widen = (phi / 2) * log((base + 1) / base)
+                deepen = log(base)
+                self.assertEqual(widen < deepen, phi < crossover)
+        self.assertLess(widen_crossover(2), 3.5)
+        self.assertGreater(widen_crossover(2), 3.4)
+
+    def test_global_proposal_goes_deep_before_it_goes_wide(self) -> None:
+        """The organ used to work each base once and abandon it.  Ordering by
+        cost over both slots keeps it in base 2 far past the first exponent."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        picks = []
+        for _ in range(14):
+            choice = organ.propose_next(budget=20_000, base_limit=12)
+            self.assertIsNotNone(choice)
+            base, index = choice
+            held = set(organ.life.moduli)
+            organ.route(base, index, budget=20_000)
+            self.assertTrue(set(organ.life.moduli) - held,
+                            f"({base},{index}) earned nothing new")
+            picks.append((base, index))
+        # every one of the first fourteen is base 2, spanning many exponents
+        self.assertEqual({base for base, _ in picks}, {2})
+        self.assertGreater(max(index for _, index in picks), 20)
+        # and the costs are non-decreasing: it really is cheapest-first
+        costs = [scan_cost(base, index) for base, index in picks]
+        self.assertEqual(costs, sorted(costs))
+
+    def test_routing_covers_the_divisors_it_actually_factored(self) -> None:
+        """`factor_power_minus_one` routes every Phi_m with m | n, so the
+        bookkeeping must mark those exponents covered, not only n."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        organ.route(2, 12)
+        self.assertEqual(organ.routed[2], {1, 2, 3, 4, 6, 12})
+        self.assertIsNone(organ.propose_next(budget=1, base_limit=3))
+
+    def test_both_coverage_readings_agree(self) -> None:
+        """`propose_encounter` reads `routed` through a divisibility test while
+        `propose_next` reads it by membership.  After the divisor-covering fix
+        the two must agree, and this asserts it rather than assuming it."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for base, index in ((2, 12), (2, 20), (3, 6)):
+            organ.route(base, index, budget=20_000)
+        for base in (2, 3):
+            covered = organ.routed.get(base, set())
+            for index in range(1, 40):
+                by_membership = index in covered
+                by_divisibility = any(done % index == 0 for done in covered)
+                self.assertEqual(by_membership, by_divisibility,
+                                 f"base {base} index {index}")
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

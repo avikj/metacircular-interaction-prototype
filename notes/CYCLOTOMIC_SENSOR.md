@@ -1033,6 +1033,81 @@ selection rule can exist.  That is the closure of the arc this note has been
 walking since the machine could not say no: the last unexamined slot turned
 out to be unexaminable, and the reason is a theorem rather than a gap.
 
+## Deep or wide: the interleaving the organ did not have
+
+The interface was complete, so the tenth sitting ran the organ with *no input
+at all* — let it pick base and exponent and go.  Fourteen steps:
+
+```text
+step  0: base  2, n=2 -> [3]        step  7: base 12, n=2 -> [13]
+step  1: base  3, n=1 -> [2]        step  8: base 13, n=3 -> [61]
+step  2: base  5, n=3 -> [31]       step  9: base 14, n=3 -> [211]
+step  3: base  6, n=1 -> [5]        step 10: base 15, n=3 -> [241]
+...
+```
+
+**It works each base exactly once and abandons it.**  Base $2$ alone has about
+a hundred affordable exponents at this budget; the organ used one and moved
+on.  Two proposal operations, each correct within its own slot, and no rule
+for interleaving them — so the naive alternation is a rule by accident.
+
+The cost model already decides this, and I had never read it that way.
+
+> **Theorem 15 (the interleaving scalar and the crossover).**  From the R0030
+> lemma, $\log\Phi_n(b)=\varphi(n)\log b+O(1)$ with the error an absolute
+> constant, so
+> $$
+>   \log\operatorname{cost}(b,n)
+>   \;=\;\tfrac{\varphi(n)}{2}\log b-\log \mathrm{step}(n)+O(1).
+> $$
+> Cheapest-first over the whole grid is therefore ordering by the single
+> scalar $\varphi(n)\log b-2\log\mathrm{step}(n)$ — one number spanning both
+> slots.  Comparing the two available moves from $(b,n)$:
+> $$
+>   \text{raise }\varphi\text{ by }2:\ \times b,
+>   \qquad
+>   \text{raise the base by }1:\ \times\bigl(\tfrac{b+1}{b}\bigr)^{\varphi/2},
+> $$
+> which are equal exactly at
+> $$
+>   \varphi \;=\; \frac{2\log b}{\log\!\left(1+\tfrac1b\right)}
+>   \;\approx\; 2b\log b .
+> $$
+> **Below that totient, widen; above it, deepen.**
+
+At base $2$ the crossover is $3.42$.  So past the very smallest totients the
+organ should stay in base $2$ and go deeper — the exact opposite of working
+one encounter per base, and the exact opposite of what I guessed before
+computing it.
+
+| $b$ | crossover $\varphi$ |
+|---|---|
+| $2$ | $3.42$ |
+| $3$ | $7.64$ |
+| $5$ | $17.65$ |
+| $10$ | $48.32$ |
+| $100$ | $925.63$ |
+
+With `propose_next` ordering by cost across both slots, the same fourteen
+steps become:
+
+```text
+base 2: n = 3, 4, 5, 7, 8, 9, 10, 12, 14, 15, 18, 20, 24, 30
+        -> 7, {3,5}, 31, 127, 17, 73, 11, 13, 43, 151, 19, 41, 241, 331
+then base 3: n = 1, 10 -> 2, 61
+```
+
+Fourteen consecutive encounters in base $2$ reaching exponent $30$, and only
+then a widening — matching the crossover rather than an alternation I imposed.
+
+**A bookkeeping defect the rewrite exposed.**  `route` marked only the
+exponent $n$ as covered, but `factor_power_minus_one` routes through every
+$\Phi_m$ with $m\mid n$, so all divisors of $n$ are worked.  The old
+`propose_encounter` masked this by testing divisibility rather than
+membership; the new global search did not, and the organ would have re-paid
+for exponents it had already factored.  Now `route` records the divisors it
+actually visited.
+
 ## The encounter
 
 ```text
@@ -1069,6 +1144,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 15.  The cost expansion is R0030's lemma read as an
+  asymptotic in both variables; the crossover is elementary calculus on the two
+  move ratios.  Elementary and surely known in the folklore of special-form
+  factoring, where one does in practice push a single base far before changing
+  it; **no novelty is claimed**.  **Not claimed:** that cheapest-first is
+  *optimal*.  It minimises cost per guaranteed acquisition, and since an
+  encounter can yield more than one prime, a yield-aware rule could beat it.
+  The greedy order is derived from the cost model, not shown to be best.
 - **Proved here, on a consumed classical input:** Theorem 14.  Parts 1 and 2
   are eq. (3) and Theorem 13; part 3 is Theorem 7 (Bang/Zsigmondy), consumed.
   What is proved here is only the *trichotomy* — that the three slots differ
