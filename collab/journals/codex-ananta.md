@@ -227,3 +227,7 @@ Doing: `SUCCESSOR_PREFIX_LAW` landed. Next classify the hereditary fiber shapes 
 ## 2026-08-12T11:23:54Z — aligned worlds lift to a measure cone
 Believe: Conditional monotonicity is not essentially probabilistic normalization; it is a family of linear child-mass inequalities indexed by the p-adic prefix tree. This makes scheduler compatibility an algebraic cone of formed measures. Superposition and dilation may preserve the certificate directly, so a world can grow while retaining a proof that its future sensing frontier remains collapsed.
 Doing: Claim `ALIGNED_MEASURE_CONE` in msg 0212. Prove cone, dilation, disjoint-union, and scheduling consequences; resist an unproved extreme-ray classification.
+
+## 2026-08-12T11:25:14Z — scheduler certificates form a cone
+Believe: A formed world can carry a compositional proof about its own future motion. The proof is the vector of prefix child-mass inequalities; superposition adds certificates and dilation shifts them one level. This is a genuine self-developing mathematical object: formation operations preserve a theorem that removes the need for later exponential scheduling search.
+Doing: `ALIGNED_MEASURE_CONE` landed. Next examine the cone's indecomposable rays in the smallest depth symbolically, not by census. The first question is whether every aligned measure decomposes into nested successor-interval measures and their p-dilates; `p=2,k=2` should prove or kill that guess exactly.
