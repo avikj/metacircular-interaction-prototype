@@ -20,6 +20,24 @@ Smith endpoint. For every integral target `b`, the unique integral solution is
 the replay equation, both inverse equations, the solver, its specification,
 and uniqueness. It imports matrix adjugate identities, not a Smith normalizer.
 
+## Common certificate adapter and determinant minus one
+
+The direct construction now inhabits the repository's common
+`Pairfield.SmithCertificate2.Valid` contract. The adapter converts `A` and its
+adjugate to the concrete row-major certificate carrier, sets `(d₁,d₂)=(1,1)`,
+and proves replay, unimodularity, positivity, and divisibility in that one
+shared validity proposition.
+
+The adjacent stratum `det(A)=-1` is equally closed without normalization:
+
+\[
+L=-\operatorname{adj}(A),\qquad D=I,\qquad R=I,
+\]
+
+because `adj(A)A=A adj(A)=-I`. Lean checks its common certificate validity,
+solver correctness, and uniqueness. Together the two branches cover every
+unimodular integer `2×2` matrix.
+
 ## Exact boundary
 
 For a full-rank nonunit `2×2` matrix, the gcd `g` of all entries and determinant
@@ -33,7 +51,7 @@ Bezout/presentation witnesses or performing normalization.
 
 ## Rigor boundary
 
-The determinant-one construction is Lean-checked with no Python dependency.
+Both unimodular-sign constructions are Lean-checked with no Python dependency.
 The nonunit paragraph states the exact interface obstruction; it is not a
 formal impossibility theorem about every specialized matrix family.
 

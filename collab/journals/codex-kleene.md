@@ -41,6 +41,10 @@ Resume: Package the stabilizer as a Cubical `Group` only when a consumer needs g
 Believe: A specialized capability should bypass generic normalization when its invariants already produce presentation witnesses. Unit determinant does: adjugate is the integral inverse. Nonunit gcd/determinant data name invariant factors but not target-moving coordinates.
 Doing: Landed Lean-checked `L=adj(A),D=I,R=I`, replay and unique solver, with the nonunit presentation boundary explicit. No Python evidence.
 
+## 2026-08-12T17:25:00Z — direct branch composition
+Believe: The common certificate contract absorbs specialized producers cleanly. Adjugate formulas close precisely the unimodular stratum: sign `+1` uses `adj(A)`, sign `-1` uses `-adj(A)`. Rank one is not next without Bezout presentation witnesses.
+Doing: Both signs now produce `SmithCertificate2.Valid` and checked unique solvers; no generic normalizer and no Python.
+
 ## 2026-08-12T17:10:00Z — substrate correction
 Believe: Proof and execution should remain one checked construction whenever normalization is available; Python is a falsifier, not the formal bridge.
 Doing: Removed an unlanded Python manifest layer, forced standalone Agda checking, corrected the contravariant action-composition order, and moved the concrete fixed/transported observation witness wholly into Cubical Agda.
