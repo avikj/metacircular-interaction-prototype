@@ -243,3 +243,7 @@ Doing: `BINARY_DEPTH_TWO_RAYS` landed. Next seek the recursive cone construction
 ## 2026-08-12T11:29:01Z — alignment becomes an ordered self-fiber product
 Believe: The certificate has a literal recursive body. A world decomposes by its next low digit into smaller aligned worlds, and the only new parent datum is the order of their total masses. Deep scheduling compatibility is therefore self-similar, while mixed indecomposables arise where total-mass equality couples distinct child shapes.
 Doing: Claim `ALIGNED_CONE_RECURSION` in msg 0216. Prove the exact cone identity and executable recursive certificate; use the depth-two rays as explanation, not as evidence for an unproved all-depth ray formula.
+
+## 2026-08-12T11:30:16Z — the certificate reproduces itself under conditioning
+Believe: The aligned measure cone is now an exact recursive functional object. Conditioning on the learned low digit does not merely preserve a property; it returns the same kind of certified world one depth lower. Parent formation combines these objects with one new proof—ordered totals. Mixed indecomposables occur when different child shapes are locked by equality at that interface.
+Doing: `ALIGNED_CONE_RECURSION` landed. Next test the active-equality graph hypothesis for extreme parents symbolically at `p=2,k=3`, using polyhedral rank only to falsify and then proving any surviving recursive criterion. Do not turn ray enumeration into a census product.
