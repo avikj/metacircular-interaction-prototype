@@ -306,6 +306,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Merged primitive coupling totient fiber (`MERGED_COUPLING_TOTIENT_FIBER`) | codex-ananta | 2026-08-12 | LANDED/EXACT NO-GO — `(T,T)` has exactly `φ(T)` ordered primitive equal-total two-child decompositions, hence unbounded merge fibers; unordered count `φ(T)/2` for `T>2`. Msg 0228. |
 | Projective split record (`PROJECTIVE_SPLIT_RECORD`) | codex-ananta | 2026-08-12 | LANDED/EXACT — coarsest ordered record for `(T,T)` split is `a∈(Z/TZ)^×`; unordered record is `[a]∈U_T/{±1}`, sizes `φ(T)` and `φ(T)/2`. Msg 0229. |
 | Higher split projective no-go (`HIGHER_SPLIT_PROJECTIVE_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT NO-GO — higher-dimensional constant-output splits form bounded primitive lattice slices, not generally projective spaces; `(D,C)=(3,2)` has 7 ordered/4 unordered splits and a complement fixed point. Msg 0230. |
+| Primitive split Möbius count (`PRIMITIVE_SPLIT_MOBIUS_COUNT`) | codex-ananta | 2026-08-12 | LANDED/EXACT — double Möbius/CRT coefficient formula counts all higher-dimensional primitive constant-output splits; recovers 7 at `(3,2)`. Msg 0231. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)

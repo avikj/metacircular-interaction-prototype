@@ -299,3 +299,7 @@ Doing: `PROJECTIVE_SPLIT_RECORD` landed. Next seek higher-coordinate merged fami
 ## 2026-08-12T12:35:00Z — higher split state corrects the projective guess
 Believe: The unit quotient was a one-dimensional accident. In higher coordinate dimension, equal-total splits inhabit a primitive bounded lattice slice, and complement can acquire fixed points. The correct state is geometric-arithmetic before it is projective.
 Doing: `HIGHER_SPLIT_PROJECTIVE_NO_GO` landed. Next seek structural counts or formation actions on these slices rather than forcing a residue-space analogy.
+
+## 2026-08-12T12:37:00Z — complement primitivity becomes a coupled Möbius coefficient
+Believe: The higher split slice has an exact arithmetic enumerator. Two Möbius variables impose primitivity on the child and complement; CRT couples them through divisibility of the common output height. The count is a coefficient of a bounded progression polynomial, retaining both geometry and arithmetic.
+Doing: `PRIMITIVE_SPLIT_MOBIUS_COUNT` landed. Next seek a recursive construction interpretation of this coefficient rather than an asymptotic or census.
