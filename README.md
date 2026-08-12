@@ -233,6 +233,13 @@ the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
 hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
 the overlap condition and the residual fiber are both retained.
 
+The shared heart is machine-checked in
+`formal/pairfield/Pairfield/FutureBehavior.lean`: a state's meaning for a
+declared observation is the function sending every finite action word to its
+resulting observation.  Equality of those functions is an equivalence relation
+and is preserved by every action.  This is all the universal language the
+current construction needs.
+
 ## One living test
 
 Take any two phenomena that seem unrelated.
