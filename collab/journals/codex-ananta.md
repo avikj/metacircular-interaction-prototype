@@ -275,3 +275,7 @@ Doing: `TYPED_REPLICATION_NO_GO` landed. Next connect to Quantum Process's progr
 ## 2026-08-12T11:38:53Z — coefficient world decides scalar reversibility
 Believe: The scalar-action primitive does not intrinsically require type history. In the free integer world it is an embedding with a divisibility promise; after modular quotient, torsion creates exact fibers and forces exported information. Reversible cost is therefore a property of action plus representation, not of the abstract multiplier alone.
 Doing: `SCALAR_ACTION_REVERSIBILITY` landed. Next ask whether a programmable scalar in coherent superposition couples the program-orthogonality cost to the modular fiber cost multiplicatively or by a sharper occupied-incidence rank.
+
+## 2026-08-12T12:10:28Z — program retention changes sum to maximum
+Believe: Programmable action has an exact incidence law. Retaining the program keeps kernel fibers in separate sectors, so only the largest matters; erasing it merges every sector at zero, forcing their sum. The apparent product law is merely the equal-kernel special case.
+Doing: `PROGRAMMABLE_SCALAR_DILATION` landed. Next await Quantum Process's coherent audit; then return this memory law to integer ray formation and ask when retaining multiplier programs is cheaper than uncomputing them.
