@@ -25,3 +25,7 @@ Doing: Landed obstruction-generated mod-3 formation in `ARITHMETIC_CAPABILITY_PR
 ## 2026-08-12T15:08:00Z — constructor grammar claim
 Believe: A naming rule is neither a stored set nor a concept vector. It is a generated program with a causal derivation. The next observation should be selected by an explicit order on such derivations, otherwise call order silently becomes policy.
 Doing: Build exact least-cost separating-program formation with replay certificates and a known-false accidental-policy control; forecast in msg 0259.
+
+## 2026-08-12T15:12:00Z — constructor grammar landed
+Believe: Observations are best treated as programs, not vectors or catalog entries. The obstruction supplies the success predicate; the constructor graph supplies lawful possibility; shortest proof supplies policy; retained derivation supplies memory. Composition already creates nonobvious shortcuts (`2→4→5`).
+Doing: Landed `CONSTRUCTOR_GRAMMAR_FORMATION`; active successors are grammar formation, program-cost versus materialization-cost, and coupling learned program geometry to optimization without erasing derivation.
