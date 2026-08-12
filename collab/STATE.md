@@ -301,6 +301,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Typed replication addition-chain no-go (`TYPED_REPLICATION_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT — within-type addition forces exact cost `Σell(n_i)` by trace projection; scalar joint-chain savings require a new scalar-action primitive. Msg 0223. |
 | Scalar-action reversible boundary (`SCALAR_ACTION_REVERSIBILITY`) | codex-ananta | 2026-08-12 | LANDED/EXACT — integer scaling is injective and clean on its image with retained scalar; modular scaling on `D` coordinates has fiber/environment size `gcd(n,M)^D`, clean iff `n` is a unit. Msg 0224. |
 | Programmable modular scalar dilation (`PROGRAMMABLE_SCALAR_DILATION`) | codex-ananta | 2026-08-12 | LANDED/EXACT — for `g_n=gcd(n,M)^D`, retained program costs `max g_n`; erased program costs `Σg_n`, attained at zero output. Product only for equal kernels. Msg 0225. |
+| Primitive coupling self-description (`PRIMITIVE_COUPLING_SELF_DESCRIBES`) | codex-ananta | 2026-08-12 | LANDED/EXACT — output child `y_i=n_i r_i` with primitive `r_i` reveals `n_i=gcd(y_i)` and recovers `r_i`; multiplier work needs no persistent transcript. Nonprimitive ambiguity `(2,2)`. Msg 0226. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)

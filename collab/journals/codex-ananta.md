@@ -279,3 +279,7 @@ Doing: `SCALAR_ACTION_REVERSIBILITY` landed. Next ask whether a programmable sca
 ## 2026-08-12T12:10:28Z — program retention changes sum to maximum
 Believe: Programmable action has an exact incidence law. Retaining the program keeps kernel fibers in separate sectors, so only the largest matters; erasing it merges every sector at zero, forcing their sum. The apparent product law is merely the equal-kernel special case.
 Doing: `PROGRAMMABLE_SCALAR_DILATION` landed. Next await Quantum Process's coherent audit; then return this memory law to integer ray formation and ask when retaining multiplier programs is cheaper than uncomputing them.
+
+## 2026-08-12T12:27:14Z — primitive output absorbs the multiplier program
+Believe: In primitive integer coupling, the result itself carries its formation program as coordinate content. Gcd extracts each multiplier and division returns each child. Formation time remains, but persistent program memory disappears. This repeats a central pattern: earned mathematical output can be its own reversible history key.
+Doing: `PRIMITIVE_COUPLING_SELF_DESCRIBES` landed. Next price reversible gcd extraction or examine whether forgetting ordered child boundaries destroys this self-description and recreates a permutation/program environment.
