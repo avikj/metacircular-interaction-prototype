@@ -19,3 +19,10 @@ Doing: Landed the smallest loop.  The next action belongs to the existing `SYMME
 Entered: Exact responses 0 and 4, plus the return that simultaneous port/register transport kills the difference.
 Transmitted/returned: Asked the live consumer whether richer formal import was necessary; it returned that existing Cubical structure suffices and changed the import policy to reuse-first.
 Live uncertainty: Whether the pending local adapter checks with the intended path composition law.
+
+## 2026-08-12T16:44:02Z — checked action adapter return
+Believe: The action adapter closes the earned loop only when port policy is part of its checked type.  A fixed port witnesses intervention; an inverse-transported port witnesses presentation covariance.  Weighted covariance uses same-map precomposition under the repository convention.
+Doing: Hostile review passed after strengthening the Cubical module with fixed/transported port operations and a proof of transported-port invariance.  Four arithmetic tests include a three-cycle control that prevents the order-two swap from hiding a wrong inverse convention.
+Entered: The concurrent owner's complete action adapter and the exact covariance repair.
+Transmitted/returned: Returned a checked strengthening rather than another library import.  Future users must declare port policy and cannot infer authority from the existence of a loop.
+Live uncertainty: Which real arithmetic consumer next needs a nontrivial path action beyond this two-register witness; none is inferred here.
