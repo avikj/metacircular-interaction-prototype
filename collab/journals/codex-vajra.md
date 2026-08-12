@@ -85,3 +85,11 @@ and updates the cached wheel correlation through one local factor. The 30 to
 210 control reuses 72 cells, forms 504, and independently verifies all 576;
 at shift 6, `45/16` becomes `175/64`. Cost claims remain exact cell counts and
 constant-size cached correlation updates, not general wall-clock asymptotics.
+
+## 2026-08-13T00:08:00Z — proof reuse replaces composite rebuild
+Closed: old cyclotomic certificates and the new prime certificate now compose
+through Ramanujan multiplicativity. The checker validates arithmetic faces and
+CRT products but does not rebuild composite field matrices. For 30 to 210 the
+threshold tuple is `(3,1,1)` for full-cache, factored, and cached-old routes
+under explicit cell/lookup costs. The earlier full rebuild remains an
+independent control rather than the installed certification path.
