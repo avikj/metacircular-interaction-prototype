@@ -147,8 +147,14 @@ gap = delta + 1 - d*.                                                (3.5)
 constant-valued iff `max(l,d) > delta`. If `l <= delta` this first happens at
 `d = delta+1`; if `l > delta` it already holds at `d = d0`. `[]`
 
-**`d*` depends on the whole formed history only through the single integer
-`l(U)`.** The index `[(Z/p^K)^* : U]` does not appear.
+~~**`d*` depends on the whole formed history only through the single integer
+`l(U)`.**~~ At `p=2`, the documented possible drop from `d0=2` to `1`
+requires one further bit: whether `U` meets `3 mod 4`. With `sigma(U)=1` in
+that case and `0` otherwise, the exact positive-cancellation formula is
+`d*=delta+1` if `l<=delta`, `d*=1` if `l>delta,sigma=0`, and `d*=2` if
+`l>delta,sigma=1`. Thus `(l(U),sigma(U))`, not `l(U)` alone, is sufficient.
+Independent proof and equal-level false controls appear in
+`TWO_ADIC_FILTRATION_SIGNATURE_REVIEW.md`.
 
 ## 4. At `p = 2` the saving is unbounded
 

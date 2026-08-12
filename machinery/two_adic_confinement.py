@@ -1,4 +1,4 @@
-"""The 2-adic confinement index is the level, so the thread's arc closes.
+"""The 2-adic confinement index is determined by the filtration signature.
 
 Companion to `notes/TWO_ADIC_CONFINEMENT.md`.
 
@@ -11,14 +11,16 @@ Its seed 3 predicted:
     level l(U) of my very first note.  I would be surprised if it did not, and
     that is testable.
 
-It does.  With `l(U)` the level of `FORMED_UNIT_FILTRATION_DEPTH.md` (3.1),
+The displayed formula holds. With `l(U)` the level of
+`FORMED_UNIT_FILTRATION_DEPTH.md` (3.1),
 
     confinement index  =  2^(l-2)   if U meets 3 mod 4,
                           2^(l-1)   otherwise.
 
-So the invariant that governs *chart depth* in my first block is the same
-invariant that counts the classes multiplication can *never reach* in my
-thirteenth.  Gauss marked this boundary himself: *Disquisitiones* art. 57 gives
+Cross-review sharpened the statement: `l(U)` alone determines neither quantity
+in the exceptional depth-one branch. The complete shared invariant is
+`(l(U), sigma(U))`, with `sigma` recording whether `U` meets `3 mod 4`.
+Gauss marked this boundary himself: *Disquisitiones* art. 57 gives
 the index for cyclic moduli, art. 90 treats powers of two separately.
 
 All arithmetic exact.
@@ -105,7 +107,7 @@ def unreachable_fraction(record: TwoAdicConfinement) -> float:
 
 
 if __name__ == "__main__":
-    print("p = 2: the confinement index is a function of the level alone")
+    print("p = 2: confinement is a function of level plus the mod-4 sign bit")
     print(f"  {'gens':>10} {'k':>3} {'|U|':>6} {'group':>6} {'index':>6} "
           f"{'l(U)':>5} {'3 mod 4':>8} {'predicted':>10} {'unreachable':>12}")
     for gens in ((3,), (5,), (7,), (9,), (17,), (15,), (31,), (3, 5), (3, 7)):

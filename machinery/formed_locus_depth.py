@@ -92,15 +92,19 @@ def unit_level(p: int, K: int, generators: Sequence[int]) -> int:
 
 def level_criterion_depth(p: int, K: int, generators: Sequence[int],
                           delta: int) -> int:
-    """Predicted d* from the level criterion (see the note, Theorem 3).
+    """Exact d* from the filtration signature (see the note, Theorem 3).
 
-    d* = delta + 1 when l(U) <= delta; otherwise d* = 1 for odd p and 2 for
-    p = 2 (where U[1] = U carries no information, every unit being odd).
+    For odd p, d* = delta+1 when l(U)<=delta and 1 otherwise.  For p=2,
+    the extra mod-4 sign bit decides the former exceptional branch: when
+    l(U)>delta, d*=1 if U is contained in 1 mod 4 and d*=2 otherwise.
     """
     ell = unit_level(p, K, generators)
     if ell <= delta:
         return delta + 1
-    return 1 if p > 2 else 2
+    if p > 2:
+        return 1
+    U = unit_subgroup(p, K, generators)
+    return 2 if any(x % 4 == 3 for x in U) else 1
 
 
 @dataclass(frozen=True)

@@ -34,8 +34,8 @@ class TwoAdicConfinementTests(unittest.TestCase):
                 self.assertTrue(all(x % 2 == 1 for x in subgroup))
                 self.assertEqual(len(subgroup) & (len(subgroup) - 1), 0)
 
-    def test_the_level_predicts_the_index_exactly(self):
-        """Theorem II, over eleven generator sets and four precisions."""
+    def test_filtration_signature_predicts_the_index_exactly(self):
+        """Theorem II uses level plus the mod-4 sign bit."""
         checked = 0
         for gens in GENERATOR_SETS:
             for k in (4, 6, 8, 10):
@@ -57,6 +57,13 @@ class TwoAdicConfinementTests(unittest.TestCase):
             else:
                 self.assertEqual(record.index, 2 ** (record.level - 1))
 
+    def test_level_alone_is_known_false(self):
+        """Equal levels can have indices differing by the missing sign bit."""
+        left = confinement((5,), 8)
+        right = confinement((3, 5), 8)
+        self.assertEqual(left.level, right.level)
+        self.assertNotEqual(left.index, right.index)
+
     def test_index_is_independent_of_precision(self):
         """The level and index do not move with k, once k exceeds the level."""
         for gens in GENERATOR_SETS:
@@ -65,8 +72,8 @@ class TwoAdicConfinementTests(unittest.TestCase):
             self.assertEqual(len(indices), 1, f"gens={gens}")
             self.assertEqual(len(levels), 1, f"gens={gens}")
 
-    def test_the_arc_closes_on_the_first_note(self):
-        """The level used for chart depth is the level that gives the index."""
+    def test_filtration_signature_joins_the_two_notes(self):
+        """Level and mod-4 image jointly control chart depth and index."""
         # FORMED_UNIT_FILTRATION_DEPTH: <3> has level 3, <3,5> has level 2
         self.assertEqual(unit_level(2, 8, [3]), 3)
         self.assertEqual(unit_level(2, 8, [3, 5]), 2)

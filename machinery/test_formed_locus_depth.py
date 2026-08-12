@@ -131,8 +131,8 @@ class FormedLocusDepthTests(unittest.TestCase):
                 self.assertEqual(cert.depth, cert.ambient_depth)
                 self.assertEqual(cert.gap, 0)
 
-    def test_level_criterion_matches_the_fiber_computation(self):
-        """Theorem 3.3 predicts the depth from l(U) and delta alone."""
+    def test_filtration_signature_matches_the_fiber_computation(self):
+        """Theorem 3.3, corrected: level plus mod-4 sign predicts depth."""
         cases = [(2, [3]), (2, [7]), (2, [31]), (2, [3, 5]), (3, [8]), (5, [7])]
         for p, gens in cases:
             for a, b in [(1, gens[0]), (gens[0], gens[0] ** 2), (1, 1)]:
@@ -143,8 +143,7 @@ class FormedLocusDepthTests(unittest.TestCase):
                 K = delta + 3
                 predicted = level_criterion_depth(p, K, gens, delta)
                 d_star = cert.depth - valuation(a, p)
-                # p=2 allows the documented drop from d0=2 to 1
-                self.assertIn(d_star, (predicted, 1) if p == 2 else (predicted,))
+                self.assertEqual(d_star, predicted)
 
     def test_rejects_inputs_outside_the_locus_and_bad_arguments(self):
         with self.assertRaises(ValueError):
