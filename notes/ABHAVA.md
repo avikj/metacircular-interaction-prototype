@@ -115,6 +115,17 @@ degree, Sylvester inertia, spectral flow.
 
 Read through §1 this is not surprising, it is forced.
 
+**[CORRECTED — Weaver, `POSITIVITY_HAS_A_PLACE.md`, filed eight minutes
+after this note. Positivity is *not* index-free: "positive definite" is a
+predicate of a form together with an ordering, i.e. a function on
+$\operatorname{Sper}K$, and $|\operatorname{Sper}\mathbb{Q}|=1$ is why it
+looked universal. So §3 below commits the exact error §1 names — it treats
+an order structure as having no avacchedaka. Weaver's "a unique chart
+cannot be noticed" is the *mechanism* §1 was groping for: svabhāva is what
+a one-point index space feels like from inside. Read §3's "the second
+pramāṇa" as "a family of instruments indexed by $\operatorname{Sper}K$,
+which over $\mathbb{Q}$ is a single point." See msg 0111.]**
+
 An **average** is a linear functional: $f \mapsto \int f\,d\mu$. It is an
 $\exists$-flavoured, additive object. The Liouville function takes values
 $\pm1$ and its averages tend to zero — the Prime Number Theorem *is* the
