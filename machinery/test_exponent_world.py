@@ -3,6 +3,8 @@
 import unittest
 
 from exponent_world import (
+    AffineSystemObstruction,
+    AffineSystemSolution,
     ExponentWorld,
     LinearCongruenceObstruction,
     LinearCongruenceSolution,
@@ -126,6 +128,41 @@ class ExponentWorldTests(unittest.TestCase):
         self.assertIsInstance(result, LinearCongruenceSolution)
         self.assertEqual(result.reduced_equation, (3, 2, 1))
         self.assertEqual(result.lifts, tuple(range(10)))
+
+    def test_nonunit_equations_intersect_as_solution_cosets(self):
+        world = ExponentWorld()
+        world.life.factor(91)  # earns prime residue sensors through 7
+        for value in (12, 18, 30, 42):
+            world.form(value)
+        result = world.solve_affine_system(((12, 18, 30), (18, 12, 42)))
+        self.assertIsInstance(result, AffineSystemSolution)
+        self.assertEqual((result.residue, result.modulus), (24, 35))
+        self.assertEqual(
+            tuple((s.residue, s.solution_modulus) for s in result.equations),
+            ((4, 5), (3, 7)),
+        )
+        self.assertEqual(12 * result.residue % 30, 18)
+        self.assertEqual(18 * result.residue % 42, 12)
+
+    def test_incompatible_solution_cosets_retain_alignment_defect(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (1, 3, 4, 6, 8):
+            world.form(value)
+        result = world.solve_affine_system(((1, 4, 6), (1, 3, 8)))
+        self.assertIsInstance(result, AffineSystemObstruction)
+        self.assertEqual((result.state_residue, result.state_modulus), (4, 6))
+        self.assertEqual((result.rejected.residue, result.rejected.solution_modulus), (3, 8))
+        self.assertEqual((result.gcd, result.difference), (2, -1))
+
+    def test_modulus_one_equation_is_neutral_in_system(self):
+        world = ExponentWorld()
+        world.life.factor(91)
+        for value in (2, 4, 5, 10):
+            world.form(value)
+        result = world.solve_affine_system(((10, 4, 2), (1, 4, 5)))
+        self.assertIsInstance(result, AffineSystemSolution)
+        self.assertEqual((result.residue, result.modulus), (4, 5))
 
 
 if __name__ == "__main__":

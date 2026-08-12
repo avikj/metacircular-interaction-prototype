@@ -81,6 +81,23 @@ class LinearCongruenceObstruction:
     overlap: int
 
 
+@dataclass(frozen=True)
+class AffineSystemSolution:
+    equations: tuple[LinearCongruenceSolution, ...]
+    residue: int
+    modulus: int
+
+
+@dataclass(frozen=True)
+class AffineSystemObstruction:
+    accepted: tuple[LinearCongruenceSolution, ...]
+    rejected: LinearCongruenceSolution
+    state_residue: int
+    state_modulus: int
+    gcd: int
+    difference: int
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -285,6 +302,41 @@ class ExponentWorld:
             (reduced_coefficient, reduced_target, reduced_modulus),
             residue, reduced_modulus, lifts,
         )
+
+    def solve_affine_system(
+        self, equations: tuple[tuple[int, int, int], ...]
+    ) -> AffineSystemSolution | LinearCongruenceObstruction | AffineSystemObstruction:
+        """Solve equations a*z=b (mod m), then intersect their exact cosets."""
+        if not equations:
+            raise ValueError("an affine system needs at least one equation")
+        solved: list[LinearCongruenceSolution] = []
+        state = CongruenceState(0, 1)
+        for equation in equations:
+            result = self.solve_linear_congruence(*equation)
+            if isinstance(result, LinearCongruenceObstruction):
+                return result
+            update = add_constraint(state, result.residue, result.solution_modulus)
+            if isinstance(update, Incompatibility):
+                obstruction = AffineSystemObstruction(
+                    tuple(solved), result,
+                    state.residue, state.modulus,
+                    update.gcd, update.difference,
+                )
+                self.life._record(
+                    "obstruction",
+                    (state.residue, state.modulus, result.residue,
+                     result.solution_modulus, update.gcd, update.difference),
+                    "solution cosets fail the generalized-CRT alignment condition",
+                )
+                return obstruction
+            solved.append(result)
+            state = update.after
+        self.life._record(
+            "form-operation",
+            (state.residue, state.modulus, len(solved)),
+            "aligned solution cosets intersect to one reusable affine state",
+        )
+        return AffineSystemSolution(tuple(solved), state.residue, state.modulus)
 
 
 def _extended_gcd(a: int, b: int) -> tuple[int, int, int]:

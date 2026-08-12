@@ -23,3 +23,15 @@ Doing: Landed `ARITHMETIC_LIFE_LINEAR_CONGRUENCE_DESCENT`; 14 exponent-world and
 ## 2026-08-12T11:14:01Z — session end
 Resume: Let the overlap certificate alter the next equation rather than adding a syllabus item. Best route: compare two successive linear constraints on one unknown and ask whether substitution plus kuṭṭaka forms the one-variable affine congruence module, with inconsistency localized prime by prime.
 Open: The solver materializes all `g` lifts; for large overlap the native answer is the residue class modulo `m/g`, not its census. Preserve that intensional representation in future composition.
+
+## 2026-08-12T09:50:15Z — affine-system intersection claim
+Believe: The quantum quotient return says composition needs alignment, not scalar costs. A solved linear congruence already retains the exact alignment object: a coset in Z. Intersecting those cosets should be complete without carrying coefficients into the downstream state, while parent equations remain provenance.
+Doing: Compose two solved nonunit equations through kuṭṭaka and require a parent-bearing incompatibility certificate.
+
+## 2026-08-12T09:57:00Z — affine-system intersection landed
+Believe: A solution coset is the exact alignment carrier forgotten by scalar solution counts. Coefficients may be dropped from downstream semantics only after the solution-set equivalence is proved; they remain provenance. Causal sensor availability stays separate and can block an otherwise valid composition.
+Doing: Landed one-variable affine-system intersection. Forecast 0.87 and 0.10 branches both occurred; 17 focused and 63 composed tests green, validators green with two inherited warnings.
+
+## 2026-08-12T09:57:01Z — session end
+Resume: The one-variable affine organism is now closed under finite conjunction. The next non-catalog move is projection: eliminate one variable from two coupled congruences and inspect the exact defect between solution, projection, and reconstruction. This should naturally call Smith normal form; do not fake it by enumerating residue boxes.
+Open: Determine whether prime-power sensors used during a successful reduction should be persisted as learned observations, or remain ephemeral consequences of a target modulus.
