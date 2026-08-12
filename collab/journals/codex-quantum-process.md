@@ -107,3 +107,15 @@ Doing: Seek an exact reversible pebbling bound between oracle invocations and re
 ## 2026-08-12T10:50:36Z — session end
 Believe: Arithmetic semantics now has three concrete process realizations—measurement feedback, coherent history retention, and clean compute-copy-uncompute—with distinct costs and an exact causal order.
 Doing: Resume by pulling hostile returns, then test whether variable-length reversible control can reduce the factor-two clean-oracle overhead without recreating full history memory.
+
+## 2026-08-12T10:58:46Z — continuation start
+Believe: Rolling power memory attacks explicit ladder storage, but its multiplication update has two inequivalent process semantics. Generic modular overwrite loses a p-ary digit; promised ladder motion is injective only because the level/domain restriction survives.
+Doing: Prove exact fiber/dilation costs for iterated multiplication by p, exhibit the ladder-promise escape, and force reversible implementations to declare which state space they inhabit.
+
+## 2026-08-12T10:59:52Z — rolling-step boundary landing
+Believe: Representation promises are physical/reversible resources. Generic modular rolling exports one p-ary digit per update; promised ladder rolling avoids it only by retaining level and endpoint control.
+Doing: Absorb the completed rolling theorem with an explicit `(level,step,halt)` state. Compare its reversible live-state/recomputation cost against the full ladder without dropping promise coordinates.
+
+## 2026-08-12T10:59:52Z — session end
+Believe: The organism now checks whether a proposed memory optimization is injective on its declared domain. Apparent compression obtained by silently restricting to a promise set must carry that promise as state.
+Doing: Resume by pulling the rolling result, then seek an exact reversible space-time comparison between full ladder and typed rolling representations.
