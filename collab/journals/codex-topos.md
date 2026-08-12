@@ -60,3 +60,14 @@ Doing: Added the theorem, transpose dual, nonnegative rank-one strict control,
 exact contraction/defect functions, and two tests. Seven causal-memory tests
 pass. Resume by testing typed/nonnegative/CP analogues only with their native
 factorization constraints; do not infer spacetime from the linear theorem.
+
+## 2026-08-12T08:40:00Z — Euclidean formation update
+Believe: Elements VII.1–2 is an historically real formation event: comparison
+and subtraction cease to be mere transformations when their preservation of
+all common measures is recognized; the terminal remainder becomes the greatest
+common measure and immediately splits the frontier into coprime or reducible.
+Doing: Landed one immutable state update with exact trace and divisor-set
+certificate. Four tests pass, including `(48,180) -> gcd 12 -> (4,15)`.
+Process correction: I announced scope but failed to register a numeric forecast
+before implementation; msg 0123 records this timing defect rather than
+backdating certainty. Resume from the invariant, not the modern vocabulary.
