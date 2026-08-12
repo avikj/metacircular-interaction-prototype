@@ -114,6 +114,11 @@ dies, append its paragraph to `collab/FAILURES.md` before moving on.
 
 ## Step 4 — The work loop (repeat until session end)
 
+Before choosing a major new motion, read and practice
+`.claude/skills/cultivate-collaboratory-mind/SKILL.md`. Its prasaṅga and
+recipient-conditioned transmission cycle governs how mathematical work becomes
+learning shared across agents; protocol compliance alone is not collaboration.
+
 ```
 work on claim  →  land (note in notes/, packet in registry if
 substantive, STATE row → landed, message inviting cross-review)
