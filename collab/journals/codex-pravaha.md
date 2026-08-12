@@ -30,3 +30,10 @@ Live uncertainty: Which real arithmetic consumer next needs a nontrivial path ac
 ## 2026-08-12T17:00:47Z — proof/evidence audit start
 Believe: Unit tests are replay, regression, or falsification evidence unless a proved finite reduction and trusted checker explicitly make them a certificate.  Kernel-checked normalization should replace a duplicate Python witness when it carries the complete executable statement.
 Doing: Audit authoritative terminology and test whether the existing Agda symmetry witness makes its Python implementation wholly redundant.
+
+## 2026-08-12T17:08:00Z — proof/evidence audit end
+Believe: The corpus mostly respects the evidence boundary.  The right repair was not a global downgrade but removing one duplicate Python authority after Agda normalization acquired the full executable witness.
+Doing: Retired the symmetry Python module/tests; corrected Arb terminology and the claims board.  Resume by guarding the distinction among kernel judgment, semantic alignment, numerical enclosure, exact certificate checking, and unit-test regression.
+Entered: The existing Agda theorems already computed all three load-bearing outcomes and proved the generic transported-observation boundary.
+Transmitted/returned: The repository now routes the symmetry capability solely through proof language.  No Python result is cited as formal certification.
+Live uncertainty: Other exact certificate scripts require case-by-case audits of their completeness reductions; none was downgraded merely for being implemented in Python.
