@@ -7,9 +7,11 @@ import json
 import sys
 from pathlib import Path
 
-KINDS = {"utterance", "construction", "question", "transport", "synthesis"}
+KINDS = {"attention", "formation_pressure", "utterance", "construction", "question", "transport", "synthesis"}
 MATH_KINDS = {"construction", "transport", "synthesis"}
-REF_KINDS = {"depends_on", "responds_to", "objects_to", "transports", "synthesizes"}
+NON_EVIDENTIARY_KINDS = {"attention", "formation_pressure"}
+PRESSURES = {"out_of_model_outcome", "structural_blindness", "translation_gap", "persistent_descent_failure"}
+REF_KINDS = {"attends_to", "released_as", "pressures", "depends_on", "responds_to", "objects_to", "transports", "synthesizes"}
 
 
 def canonical(node: dict) -> bytes:
@@ -43,6 +45,17 @@ def validate(record: dict, root: Path) -> list[str]:
             errors.append(f"{where}: nonempty execution agent required")
         if not isinstance(node.get("text"), str) or not node.get("text"):
             errors.append(f"{where}: nonempty text required")
+        if node.get("kind") == "attention":
+            if node.get("status") not in {"open", "released"}:
+                errors.append(f"{where}: attention status must be open or released")
+            forbidden = node.get("forbidden_conclusions")
+            if not isinstance(forbidden, list) or not forbidden:
+                errors.append(f"{where}: attention requires forbidden_conclusions")
+        if node.get("kind") == "formation_pressure":
+            if node.get("pressure_kind") not in PRESSURES:
+                errors.append(f"{where}: invalid formation pressure kind")
+            if not node.get("model_ref"):
+                errors.append(f"{where}: formation pressure requires model_ref")
         lens = node.get("lens")
         if lens and lens.get("provenance") != "simulated-methodological-influence-not-historical":
             errors.append(f"{where}: lens must disclaim historical attribution")
@@ -58,6 +71,8 @@ def validate(record: dict, root: Path) -> list[str]:
         if edge.get("kind") not in REF_KINDS: errors.append(f"edges[{n}]: invalid kind")
         if edge.get("from") not in by_id or edge.get("to") not in by_id:
             errors.append(f"edges[{n}]: dangling endpoint")
+        elif edge.get("kind") in {"depends_on", "transports", "synthesizes"} and by_id[edge["to"]].get("kind") in NON_EVIDENTIARY_KINDS:
+            errors.append(f"edges[{n}]: non-evidentiary node cannot support mathematics")
     branches = {b.get("id"): b for b in record.get("branches", [])}
     for n, b in enumerate(branches.values()):
         if b.get("head") not in by_id: errors.append(f"branches[{n}]: unknown head")

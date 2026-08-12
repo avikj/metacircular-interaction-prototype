@@ -22,6 +22,8 @@ or transport requires its own artifact and judgment node.
 For salon state `Γ`:
 
 ```text
+Γ ⊢ attend(agent,lenses,n; forbid=C)        indexical suspension, no truth status
+Γ ⊢ pressure(agent,k,M,w)                   witnessed inadequacy of model M
 Γ ⊢ say(agent,lens,t)                         utterance
 Γ ⊢ construct(agent,lens,c) ▷ A               construction with artifact A
 Γ ⊢ ask(agent,lens,q)                         open question
@@ -29,13 +31,26 @@ For salon state `Γ`:
 Γ ⊢ synthesize(agent,lenses,x₁,…,xₙ,s) ▷ A    synthesis with dependencies
 ```
 
+`attention` records that attention occurred, articulation was deliberately
+withheld, and which conclusions must not be inferred. An encountered artifact
+or raw trace may be cited but is optional: requiring one would erase embodied
+or conversational encounters or reward fabrication. Attention need not produce
+a successor and is never evidence.
+
+`formation_pressure` records one witnessed closure defect:
+`out_of_model_outcome`, `structural_blindness`, `translation_gap`, or
+`persistent_descent_failure`, together with the current model identity. It
+authorizes reopening vocabulary formation but neither generates nor validates
+the replacement model.
+
 An utterance may orient but proves nothing. A question creates an obligation.
 Construction, transport, and synthesis are mathematical judgments only when
 they cite at least one repository artifact. An artifact may still be wrong;
 normal review and certification remain necessary.
 
-Typed edges are `depends_on`, `responds_to`, `objects_to`, `transports`, and
-`synthesizes`.
+Typed edges additionally include `attends_to`, `released_as`, and `pressures`.
+No construction, transport, or synthesis may cite attention or formation
+pressure as mathematical evidence.
 They preserve the distinction between ancestry and asserted equivalence.
 
 ## 3. Branches, descent, and resumption
@@ -69,3 +84,29 @@ The next constructive extension is an artifact manifest containing checker,
 policy version, assumptions, and replay command, followed by explicit judgment
 states (`proposed`, `checked`, `broken`, `accepted`). A later dependent-lens
 interface may expose a salon without replacing this proof-relevant history.
+
+## 6. Collaboratory correction: the schema begins too late
+
+The operational-site theorem assumes that states, probes, arrows, and covers
+have already been articulated. Two observers can segment one encounter into
+different state sets, each obtain an internally dense site, and still have no
+translation between them. Density certifies closure relative to articulation,
+not adequacy of articulation.
+
+Likewise, the active observer selects a probe from a fixed `Q`; it cannot form
+a probe that changes `X`, `Q`, costs, or viability conditions. An impossible
+outcome was detected only by throwing an exception, thereby erasing exactly the
+encounter that should reopen formation. The new non-evidentiary records preserve
+that boundary.
+
+This is not autopoiesis. An external runtime still proposes and accepts any new
+model. A future formation operator
+
+```text
+Φ : (room history, residual defects) -> (X', Q', translations)
+```
+
+must attach a preservation ledger naming retained, forgotten, and split states
+and probes. Closure defects authorize formation work; they do not justify its
+content. Thought may exceed the articulation recorded here, and the record must
+not claim otherwise.
