@@ -95,3 +95,8 @@ Open: Positive weights cannot literally cancel a positive AND defect unless othe
 Believe: System-level diminishing returns is an exact balance of two populations indexed by each incomparable cache pair: union-only facts (joint unlocks) versus both-but-not-intersection facts (redundant routes). The visibility correction says to count verdict variation, not rules or supports; this balance does exactly that.
 Doing: Prove the Boolean transition classification, implement exact curvature reports, and execute the two-action OR/AND threshold `beta>=alpha`.
 Open: A global submodular total can conceal a locally complementary fact. Determine what observable must be retained so aggregation does not erase the changed frontier: likely the signed curvature profile over cache pairs, not the scalar total value.
+
+## 2026-08-12T15:38:00Z — weighted curvature balance landed
+Believe: Aggregate optimization type is not a faithful observable of formation. Exact system curvature is substitute-route weight minus jointly-unlocked weight. Equal terms can make the total modular while a constituent observable is born only from an AND-support. The signed curvature profile exposes the event; the scalar total hides it.
+Doing: Determine the coarsest carrier preserving curvature under a declared family of future reweightings. If all singleton fact weights are admissible, expect the full fact replayability vector to be forced; under a restricted weight subspace, expect a quotient by its annihilator.
+Open: Formalize the universal property as linear separation over the span of admissible weight vectors without confusing real-valued task weights with causal availability of facts.
