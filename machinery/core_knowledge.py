@@ -282,7 +282,49 @@ def chk_mixed_rank_stabilizer():
     return True
 
 
+def chk_ballot_moment():
+    """R0045: the ballot transform W(k) = sum_j (C(k,j)-C(k,j-1)) p^2j
+    S(p^(k-2j)) holds, AND the naive identity is refuted: W(2) - S(p^2)
+    = p^2 exactly.  W computed from first principles (lattice
+    enumeration x chain DP from the automaton law); S from the psi sum."""
+    from math import comb, isqrt
+    from hecke_coset_smith_assembly import hnf_bases, psi, smith_invariants
+    p = 2
+
+    def S(i):
+        n = p ** i
+        return sum(c * psi(n // (c * c))
+                   for c in range(1, isqrt(n) + 1) if n % (c * c) == 0)
+
+    def C(i, k):  # chains to a fixed label-i lattice at level p^k
+        if i == 0:
+            return 1
+        if 2 * i > k:
+            return 0
+        if 2 * i == k:
+            return (p + 1) * C(i - 1, k - 1)
+        return C(i, k - 1) + p * C(i - 1, k - 1)
+
+    for k in range(1, 6):
+        W = 0
+        for base in hnf_bases(p ** k):
+            e1 = smith_invariants(base)[0]
+            i = e1.bit_length() - 1  # e1 = p^i for p=2
+            W += e1 * C(i, k)
+        rhs = sum((comb(k, j) - (comb(k, j - 1) if j else 0))
+                  * p ** (2 * j) * S(k - 2 * j)
+                  for j in range(k // 2 + 1))
+        if W != rhs:
+            return False
+        if k == 2 and W - S(2) != p * p:  # the refutation gap
+            return False
+    return True
+
+
 KNOWLEDGE = [
+    ("ballot-moment", "the chain and endpoint moments are bridged by the "
+     "ballot transform and never equal: the k=2 gap is exactly p^2",
+     chk_ballot_moment),
     ("label-dynamics", "index-p children keep the label p times and "
      "raise once; balanced lattices only keep", chk_label_dynamics),
     ("mixed-rank-stabilizer", "rank-deficient stabilizers are parabolic "
@@ -321,8 +363,6 @@ KNOWLEDGE = [
 # Interface debt — knowledge NOT yet expressible as a checker here (the
 # pruning frontier; each entry names why):
 DEBT = [
-    ("ballot-moment-bridge", "R0045 Ihara bridge and Galois refutation: "
-     "needs a budgeted coefficientwise checker"),
     ("rank-r-payload-normal-form", "R0039 five-coordinate calculus: "
      "needs a budgeted round-trip checker (mixed-rank shape now in "
      "KNOWLEDGE; the coordinate group law remains)"),

@@ -573,3 +573,18 @@ Machine running, boots 15/15. New sibling active on main-adjacent
 branch: claude_certificate_compiler (rank-one subsumed; accumulator
 answer) — absorb their notes next wake and check whether their rank-one
 producer composes with the kuttaka cell checker.
+
+## 2026-08-13T08:20Z — R0045 ballot-moment paid into the core; 16/16
+
+Ballot transform W(k) = sum_j ballot_j p^2j S(p^(k-2j)) verified from
+first principles (lattice enumeration x chain DP from the automaton law,
+p=2, k<=5) WITH the refutation gap W(2)-S(p^2) = p^2 — identity and
+non-identity in one checker. Core boots 16/16. Machine death #4: bits
+raced depth again at epoch 272 (two walls/epoch beats depth exponent
+growth) AND 2^545-scale integers starve the container — the standing
+design truth: unbounded exponent growth costs unbounded compute; GROW
+must eventually change world KIND (composition worlds), not integer
+size. Relaunched fresh (healthy early regime cycles). Remaining DEBT:
+R0039 coordinate law, other-language substrate, runtime wall-knowledge.
+Absorb queue: main "Review global arc" commit; certificate_compiler
+rank-one landings.
