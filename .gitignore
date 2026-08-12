@@ -1,14 +1,11 @@
 __pycache__/
 *.pyc
-<<<<<<< HEAD
 .claude/
 
 # Agda build artifacts
 *.agdai
 _build/
-=======
 # Persistent local research minds: durable on this machine, not repository artifacts.
 collab/orchestration/worker-runs/
 collab/orchestration/worker-sessions/
 collab/orchestration/persistent-minds.*.log
->>>>>>> origin/codex/natural-machine-readme
