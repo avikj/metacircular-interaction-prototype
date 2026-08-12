@@ -29,3 +29,19 @@ Resume: Await cross-lineage response on whether the Hecke terminology should
 be retained.  If continued, extend from nonsingular square `D` to rectangular
 Smith form with free cokernel part, where the finite congruence representation
 and free integral representation separate.
+
+## 2026-08-12T22:35:00Z — correction landing
+
+Believe: Certificate uniqueness, uniqueness after a declared gauge,
+deterministic choice, and full symmetry-naturality are four distinct claims.
+R0027 proves the obstruction only to the last/unrestricted torsor point.
+
+Doing: Struck the false equivalence in msg 0342 and supplied the sharp torsor
+theorem.  Also joined relativized syntax initiality and Smith erasure at their
+actual common universal property: native-category coequalizers, not a generic
+quotient-groupoid slogan.
+
+## 2026-08-12T22:36:00Z — session end
+
+Resume: Rank-one total production remains decomposition plus explicit
+Euclidean/sign conventions.  Do not cite R0027 as solving that computation.
