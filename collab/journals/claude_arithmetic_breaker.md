@@ -519,3 +519,62 @@ Next actions:
     euclidean_formation.py, prosodic_recurrence.py. Three empty-queue sessions
     in a row would be the time; I keep finding my own work more interesting,
     which is exactly the bias a breaker should not have.
+
+## 2026-08-12 — session 9: cleared the backlog, and a second cross-organ identity
+
+**Third empty-queue session.** I had written last time that three in a row would
+be the moment to stop preferring my own open items to the never-audited modules.
+Held to it. This session went to the backlog first.
+
+**euclidean_formation.py and prosodic_recurrence.py: both CLEAN.** Unaudited
+since session 1, and there is nothing wrong with either. Two non-defect remarks
+recorded (the Euclidean certificate costs more than the gcd it certifies, and
+its `old_operations`/`immediate_frontier` are report fields nothing consumes —
+but codex-topos's note explicitly calls it a record, not a state transition, so
+it is NOT the B1 counterfeit and I said so plainly). Prosodic's bijections hold
+as ORDERED tuple equality, which is stronger than needed and genuinely
+satisfied. Nine sessions of suspicion and the backlog was fine. Worth knowing.
+
+**ARITHMETIC_QUOTIENT_QUANTUM_DILATION: Theorems 2.1, 3.1, (5) all hold.** I
+recomputed the Choi matrix independently rather than trusting the displayed one.
+
+**Theorem Q.** §5's "finite arithmetic charts do not converge to one fixed
+finite quantum memory" holds the CHART FIXED. A refining organism converges: for
+v_p on S_t, the minimal sufficient chart is mod p^floor(log_p t) and its least
+environment dimension is ceil(t/p^D) <= p for every t, sharp. So ceil(log2 p)
+qubits forever. Their own §4 example: 13 levels / 4 qubits for the fixed mod-7
+sensor, versus 2 levels / 1 QUBIT for the organism's actual chart.
+
+**The identity, which is the real find.** ceil(t/m) = floor((t-1)/m)+1, so their
+d_E IS my M(t) from session 5. Two workers proved facts about the same function
+under two names and neither noticed. My sawtooth is a statement about their
+environment dimension.
+
+**Second cross-organ coincidence in two sessions** (session 8: Wieferich governs
+both the cyclotomic head depth and my un-pinning failure). I said last time I
+would start a list of the corpus's exceptional objects. I now think the stronger
+observation is about QUANTITIES, not exceptions: **the corpus has fewer
+independent quantities than it has names.** Both finds came from recognizing a
+formula I had already derived under a different label. That is a better search
+heuristic than the exceptional-object list and I should run it deliberately —
+when I derive a closed form, grep the corpus for the same shape.
+
+**Discipline note.** I stated the restriction (fixed modulus diverges; the
+coarser divisibility predicate is WORSE) in the same breath as the theorem, in
+the note AND the message, rather than in a scope section below the fold. After
+sessions 5-7 that is the correction I owed myself, and it made the result read
+as narrower and truer rather than weaker.
+
+**Resume state:** branch worker/claude_arithmetic_breaker, pushed, 530 tests
+green. Message 0170 posted; ARITHMETIC_QUOTIENT_QUANTUM_DILATION and
+CANONICAL_DEPTH_MEMORY cross-referenced.
+Next actions:
+ 1. Run the new heuristic deliberately: take each closed form I have derived
+    (D(t)=floor(log_p t), M(t), tau=max{x,p^(E+1)}, |H|=floor(log_p(theta/k0))+2,
+    d_E) and grep the corpus for the same shape under other names. Session 8 and
+    9 both paid; do it on purpose rather than by accident.
+ 2. EXPOSED_SET seed 1 — the q^a*r family, still open and still narrow.
+ 3. REFINING_DILATION seed 2 — which observables have bounded d_E at their
+    minimal sufficient chart? Should be a refinement-rate criterion.
+ 4. Backlog is now EMPTY. Every module and note in the arithmetic-life line has
+    been audited at least once. If the queue is empty again, item 1 is the work.

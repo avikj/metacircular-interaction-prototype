@@ -106,6 +106,16 @@ Both closed forms agree with a literal enumeration of the note's definitions
    profile is $(\lfloor\log_p t\rfloor,\ \lfloor(t-1)/p^{\lfloor\log_p t\rfloor}\rfloor+1)$,
    a base-$p$ digit read, not a recomputation.
 
+## Added 2026-08-12: `M` is a quantum memory
+
+`ARITHMETIC_QUOTIENT_QUANTUM_DILATION` Theorem 2.1 proves that the least
+environment dimension for a coherent overwrite of a chart is its largest fibre.
+Since $\lceil t/m\rceil=\lfloor(t-1)/m\rfloor+1$, the $M(t)$ above **is** that
+dimension for the minimal sufficient chart. So Theorem M says: the organism's
+coherent garbage register never exceeds $p$ levels, i.e. $\lceil\log_2p\rceil$
+qubits at every frontier, and it is *emptied* exactly at the depth increments
+$t=p^{L+1}$. See [`REFINING_DILATION.md`](REFINING_DILATION.md) Theorem Q.
+
 ## Scope limits
 
 - Theorems D and M are for $q=v_p$, $p$-adic charts, and the successor order
