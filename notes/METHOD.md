@@ -61,11 +61,11 @@ Montgomery–Odlyzko; `exp12`'s refutation follows from D‴ once derived;
 
 | experiment | verdict | what should have happened |
 |---|---|---|
-| exp1/1b irreducibility to degree $2\cdot10^4$ | **S** — justified | (certificates have no closed form) |
-| exp7 prime-race tie scan | **S** — justified | |
-| exp5 GUE/Poisson zero statistics | **D** — justified | genuinely empirical |
-| exp42 blind zero extraction | **E** — justified | cannot be proved; it is a demonstration |
-| exp12 (Krein positivity fails) | **R** — half justified | the refutation is real; the *law verification* half was Stirling |
+| exp1/1b irreducibility to degree $2\cdot10^4$ | **certified symbolic — proof** | (nothing; this is the standard) |
+| exp7 prime-race tie scan | **certified symbolic — proof** | (exhaustive finite verification) |
+| exp5 GUE/Poisson zero statistics | — | rediscovery of Montgomery–Odlyzko; cite, don't measure |
+| exp42 blind zero extraction | — | its content is the noise floor, which Lemma N derives in one line (`HOLOGRAM.md` §7); the demo illustrates a theorem rather than establishing one |
+| exp12 (Krein positivity fails) | — | non-positivity is immediate from D‴ once derived (phases equidistribute); Stirling for the rest |
 | exp11 block spectral support | — | two lines from the explicit formula (now Theorem E2's own proof) |
 | exp13 D″ constants | — | the diagonal is closed-form once D‴ is known |
 | exp15/16/18/20 trace formulas | — | direct explicit-formula substitutions; "corr 0.9999" added nothing |
