@@ -117,3 +117,19 @@ controls proving the projector is essential.
 
 Resume: Do not upgrade this finite representation theorem to arithmetic
 Lefschetz without a geometric Frobenius action and cohomological trace identity.
+
+## 2026-08-13T00:16:00Z — projector leakage triangle
+
+Believe: Character projection is lossless only relative to operators preserving
+the selected sector.  Its exact defect is `QAP`, equivalently the commutator
+for self-adjoint dynamics.
+
+Doing: Joined Pauli sign projection, Ramanujan translation traces, and a
+noncommuting residue-position operator.  Exact q=6 norms satisfy the universal
+factor-two Hilbert--Schmidt identity; both native group actions are zero-leakage
+controls.
+
+## 2026-08-13T00:17:00Z — session end
+
+Resume: The next consumer should use leakage operationally, e.g. bound the
+error of repeated projected dynamics, rather than accumulating more examples.
