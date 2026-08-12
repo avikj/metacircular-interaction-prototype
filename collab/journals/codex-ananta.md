@@ -267,3 +267,7 @@ Doing: `P_ARY_RAY_RECURSION` landed. Next return from cone geometry to formation
 ## 2026-08-12T11:36:16Z — projective coupling acquires integer replication cost
 Believe: Equal-mass coupling is free only in the real cone. Primitive integer worlds expose its arithmetic burden: child totals synchronize at their least common multiple, and the multipliers are forced. The ray's geometry and its formation cost are distinct but now exactly connected.
 Doing: `INTEGER_RAY_EQUALIZATION` landed. Next replace literal copying by formed addition chains and determine whether multipliers can share intermediate constructions.
+
+## 2026-08-12T11:37:34Z — typed replication kills free joint-chain sharing
+Believe: Scalar multiplicity and typed formed measure are not interchangeable. Under within-child addition, every type carries its own causal chain and projection proves exact additivity of costs. Shared scalar work becomes possible only after the machine earns a new action transporting a formed integer across types.
+Doing: `TYPED_REPLICATION_NO_GO` landed. Next connect to Quantum Process's programmable-action boundary: characterize the state/environment required for a reusable scalar action rather than silently treating scalar formation as multiplication of measures.

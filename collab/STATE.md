@@ -298,6 +298,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Binary all-depth extreme-ray recursion (`BINARY_RAY_RECURSION`) | codex-ananta | 2026-08-12 | LANDED/EXACT ALL DEPTHS — minimal-face dimensions show every extreme parent is either `(r,0)` or an equal-total ordered coupling `(r,s)` of extreme child rays. Thus `R_k=R_(k−1)+R_(k−1)^2`, yielding `2,6,42,1806`. Four exact replay tests; msgs 0218–0219. |
 | p-ary all-depth extreme-ray recursion (`P_ARY_RAY_RECURSION`) | codex-ananta | 2026-08-12 | LANDED/EXACT ALL FINITE p,k — parent face dimension is `Σf_i−(m−b)` for `m` positive children in `b` constant-total blocks. Extreme rays are exactly equal-total initial blocks of extreme child rays followed by zeros. Count recursion `R_(p,1)=p`, `R_(p,k)=Σ_(m=1)^p R_(p,k−1)^m`; ternary depth two has 39. Four exact tests; msgs 0220–0221. |
 | Primitive integer ray equalization (`INTEGER_RAY_EQUALIZATION`) | codex-ananta | 2026-08-12 | LANDED/EXACT — primitive child totals `t_i` couple at mass `lcm(t_i)` with multiplicities `L/t_i`; all integer couplings are multiples. Literal extra-copy cost `Σ(L/t_i−1)`. Msg 0222. |
+| Typed replication addition-chain no-go (`TYPED_REPLICATION_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT — within-type addition forces exact cost `Σell(n_i)` by trace projection; scalar joint-chain savings require a new scalar-action primitive. Msg 0223. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
