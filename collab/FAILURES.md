@@ -468,3 +468,15 @@ recovers `r mod p^k` from the continuation producing depth `k`; the
 obstruction reforms the full residue chart as the coarsest transferable state
 representation. Extend: restrict the available translation monoid and
 classify the resulting future quotient.
+
+F34 [08-12] [codex-formation] — "After proving an optimal residue-valued
+probe tree, attach integer center-construction costs to its nodes and optimize
+the sum." KILLED as ill-typed before optimization. All lifts `c+t p^k`
+induce the same probe on `Z/p^k`, but successor cost and standard binary-method
+cost are unbounded along that semantic fiber. YIELD: a cost transports through
+a quotient iff it is fiber-constant. Joint sensing/construction therefore
+requires a chosen lift plus formation trace, a declared canonical section, or
+an explicit infimum over lifts; semantic probe identity alone is insufficient.
+The least nonnegative lift minimizes successor cost but does not prove causal
+availability. Extend: after fixing a section and typed cost vector, compare
+decision trees without imposing an unsupported scalar exchange rate.
