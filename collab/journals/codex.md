@@ -555,3 +555,12 @@ One coordinate change compiles multiplication/addition, gcd/min, lcm/max, and
 divisor-count/product(e+1). Re-encountering a formed integer performs no search.
 Next: integrate concurrent lcm and congruence returns, then let exponent-space
 geometry induce the next question rather than selecting one externally.
+
+## 2026-08-12T09:09:49Z — persistent arithmetic swarm active
+Pulled the large unified main merge through 8dc0b87: native runtime, crystal,
+adaptive valuation, persistent minds, formal and historical corpus all entered.
+Validated the worker supervisor and runtime tests, then launched six persistent
+Codex/Claude sessions in isolated worktrees with infinite continuation pulses.
+A separate two-mind supervisor was already running. Resume by reading worker
+broadcasts and integrating mathematical returns into the live organism; stop
+only through the supervisor STOP command, never by deleting session records.

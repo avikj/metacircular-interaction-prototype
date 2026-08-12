@@ -1,0 +1,225 @@
+#!/usr/bin/env python3
+"""Exact tests for the cyclotomic sensor organ.
+
+The sweep in `test_agrees_with_direct_valuation` is a falsifier, not a
+measurement: it can only refute the theorem in `notes/CYCLOTOMIC_SENSOR.md`.
+Every other test checks an exact structural claim.
+"""
+
+from __future__ import annotations
+
+import unittest
+from math import gcd
+
+from arithmetic_life import ArithmeticLife
+from cyclotomic_sensor import (
+    CyclotomicOrgan,
+    _factor_small,
+    chain_head,
+    cyclotomic_valuation,
+    cyclotomic_value,
+    head_length,
+    shifts_by_one,
+    minimality_witness,
+    multiplicative_order,
+    valuation,
+)
+
+
+def organ_with(primes) -> CyclotomicOrgan:
+    life = ArithmeticLife()
+    for prime in primes:
+        life.install_residue_sensor(prime, (0,))
+    return CyclotomicOrgan(life)
+
+
+class TestCyclotomicSensor(unittest.TestCase):
+    def test_agrees_with_direct_valuation(self) -> None:
+        """Falsifier sweep: sensor answer versus the formed integer."""
+        organ = organ_with([2, 3, 5, 7, 11, 13, 17, 19, 23])
+        checked = 0
+        for prime in (2, 3, 5, 7, 11, 13, 17, 19, 23):
+            for base in range(2, 30):
+                if gcd(base, prime) != 1:
+                    continue
+                sensor = organ.form(prime, base)
+                for exponent in range(1, 61):
+                    self.assertEqual(
+                        sensor.valuation(exponent),
+                        valuation(base ** exponent - 1, prime),
+                        f"p={prime} a={base} n={exponent}",
+                    )
+                    checked += 1
+        self.assertGreater(checked, 10000)
+
+    def test_one_encounter_answers_an_unformed_integer(self) -> None:
+        """The sensor formed at n=10 answers n=1210 with no new observation."""
+        organ = organ_with([11])
+        sensor = organ.form(11, 2)
+        self.assertEqual((sensor.order, sensor.depth), (10, 1))
+        formations = organ.formations
+        self.assertEqual(organ.valuation(11, 2, 1210), 3)
+        self.assertEqual(organ.formations, formations)
+        self.assertEqual(organ.reuses, 1)
+
+    def test_bounded_chart_unbounded_valuation(self) -> None:
+        """Chart depth is fixed at 2 while the answered valuation is unbounded."""
+        organ = organ_with([11])
+        sensor = organ.form(11, 2)
+        self.assertEqual(sensor.base_chart_depth, 2)
+        for power in range(1, 40):
+            exponent = sensor.least_exponent_reaching(power)
+            self.assertGreaterEqual(sensor.valuation(exponent), power)
+            # The solution set is closed under multiples, so the least element
+            # divides every element.  Minimality therefore follows from the
+            # maximal proper divisors alone.
+            for factor, _ in _factor_small(exponent):
+                self.assertLess(sensor.valuation(exponent // factor), power)
+
+    def test_minimality_witness_defeats_the_coarser_chart(self) -> None:
+        """One digit less of the base does not determine the family."""
+        organ = organ_with([2, 3, 5, 7, 11, 13])
+        for prime, base in ((11, 2), (5, 2), (7, 3), (13, 4), (3, 2),
+                            (2, 3), (2, 5), (2, 7), (2, 17)):
+            sensor = organ.form(prime, base)
+            other, exponent, other_valuation = minimality_witness(sensor)
+            coarse = prime ** (sensor.base_chart_depth - 1)
+            self.assertEqual(other % coarse, base % coarse)
+            self.assertNotEqual(other_valuation, sensor.valuation(exponent))
+            self.assertEqual(other_valuation, valuation(other ** exponent - 1, prime))
+
+    def test_base_chart_depth_suffices(self) -> None:
+        """Two bases agreeing at the chart depth induce the same whole family."""
+        organ = organ_with([11, 7, 5])
+        for prime, base in ((11, 2), (7, 3), (5, 7)):
+            sensor = organ.form(prime, base)
+            step = prime ** sensor.base_chart_depth
+            for shift in (1, 2, 5):
+                other = base + shift * step
+                twin = organ.form(prime, other)
+                self.assertEqual((twin.order, twin.depth), (sensor.order, sensor.depth))
+                for exponent in range(1, 25):
+                    self.assertEqual(sensor.valuation(exponent),
+                                     twin.valuation(exponent))
+
+    def test_two_is_exceptional(self) -> None:
+        """The odd-prime law fails at 2 and the two-depth sensor repairs it."""
+        organ = organ_with([2])
+        sensor = organ.form(2, 3)
+        self.assertEqual((sensor.depth, sensor.plus_depth), (1, 2))
+        self.assertEqual(sensor.valuation(2), 3)
+        self.assertNotEqual(sensor.valuation(2), sensor.depth + valuation(2, 2))
+        self.assertEqual(sensor.valuation(2026), 3)
+        self.assertEqual(min(sensor.depth, sensor.plus_depth), 1)
+
+    def test_wieferich_deep_sensor(self) -> None:
+        """A deep sensor is still one encounter: 1093 is a Wieferich prime."""
+        organ = organ_with([1093])
+        sensor = organ.form(1093, 2)
+        self.assertEqual(sensor.order, 364)
+        self.assertEqual(sensor.depth, 2)
+        self.assertEqual(sensor.base_chart_depth, 3)
+        self.assertEqual(sensor.valuation(364 * 1093), 3)
+        self.assertEqual(sensor.valuation(363), 0)
+
+    def test_causal_gate_and_unit_refusal(self) -> None:
+        organ = CyclotomicOrgan(ArithmeticLife())
+        with self.assertRaises(ValueError):
+            organ.form(11, 2)
+        gated = organ_with([3])
+        with self.assertRaises(ValueError):
+            gated.form(3, 6)
+        with self.assertRaises(ValueError):
+            gated.form(3, 2).valuation(0)
+
+    def test_chain_law_against_exact_cyclotomic_values(self) -> None:
+        """Falsifier sweep: chain reading versus exact integer Phi_m(a)."""
+        organ = organ_with([2, 3, 5, 7, 11, 13])
+        for prime in (2, 3, 5, 7, 11, 13):
+            for base in range(2, 20):
+                if base % prime == 0:
+                    continue
+                sensor = organ.form(prime, base)
+                for index in range(1, 50):
+                    self.assertEqual(
+                        cyclotomic_valuation(sensor, index),
+                        valuation(abs(cyclotomic_value(index, base)), prime)
+                        if cyclotomic_value(index, base) != 0 else 0,
+                        f"p={prime} a={base} m={index}",
+                    )
+
+    def test_chain_reassembles_theorem_one(self) -> None:
+        """Summing the chain over divisors of n returns the sensor's answer."""
+        organ = organ_with([2, 3, 5, 7, 11])
+        for prime, base in ((11, 2), (7, 3), (5, 2), (3, 5), (2, 3), (2, 7)):
+            sensor = organ.form(prime, base)
+            for exponent in range(1, 90):
+                total = sum(cyclotomic_valuation(sensor, m)
+                            for m in range(1, exponent + 1) if exponent % m == 0)
+                self.assertEqual(total, sensor.valuation(exponent),
+                                 f"p={prime} a={base} n={exponent}")
+
+    def test_head_length_is_the_whole_exception(self) -> None:
+        """The p=2 case is not exceptional in the chart: its head is longer."""
+        organ = organ_with([2, 3, 5, 7, 11, 13])
+        for prime, base in ((11, 2), (7, 3), (5, 2), (13, 4), (3, 2)):
+            self.assertEqual(len(chain_head(organ.form(prime, base))), 1)
+        for base in (3, 5, 7, 9, 17):
+            head = chain_head(organ.form(2, base))
+            self.assertEqual(len(head), 2)
+            self.assertEqual(min(head), 1)
+        # Off the head the chain is constantly 1, at every prime alike.
+        for prime, base in ((11, 2), (2, 3), (7, 3)):
+            sensor = organ.form(prime, base)
+            chain = 1 if prime == 2 else sensor.order
+            for step in range(len(chain_head(sensor)), 6):
+                self.assertEqual(
+                    cyclotomic_valuation(sensor, chain * prime ** step), 1)
+
+    def test_head_length_is_the_filtration_torsion_threshold(self) -> None:
+        """Theorem 4: the head length is a function of p alone, and it is
+        exactly the depth at which the unit filtration starts shifting by one."""
+        organ = organ_with([2, 3, 5, 7, 11, 13, 17])
+        for prime in (3, 5, 7, 11, 13, 17):
+            self.assertEqual(head_length(prime), 1)
+        self.assertEqual(head_length(2), 2)
+        # The head length predicted from p alone matches every formed sensor.
+        for prime in (2, 3, 5, 7, 11, 13, 17):
+            for base in range(2, 30):
+                if base % prime == 0:
+                    continue
+                self.assertEqual(len(chain_head(organ.form(prime, base))),
+                                 head_length(prime))
+        # The shift lemma holds at and above the threshold, and only there.
+        for prime in (2, 3, 5, 7, 11):
+            for depth in range(1, 5):
+                for step in range(1, 6):
+                    unit = 1 + step * prime ** depth
+                    if valuation(unit - 1, prime) != depth:
+                        continue
+                    self.assertEqual(shifts_by_one(prime, unit, depth),
+                                     depth >= head_length(prime),
+                                     f"p={prime} x={unit} k={depth}")
+
+    def test_minus_one_is_the_obstruction(self) -> None:
+        """The p=2 failure at depth 1 is caused by an element of finite order."""
+        self.assertEqual(valuation(-1 - 1, 2), 1)      # -1 lies in U_1
+        self.assertEqual((-1) ** 2, 1)                  # and has order 2
+        with self.assertRaises(ValueError):
+            valuation((-1) ** 2 - 1, 2)                 # so its square exits
+        # Every odd prime: -1 is not in U_1 at all, which is why odd p is clean.
+        for prime in (3, 5, 7, 11, 13):
+            self.assertEqual(valuation(-1 - 1, prime), 0)
+
+    def test_order_is_exact(self) -> None:
+        for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
+            for base in range(2, 15):
+                if base % prime == 0:
+                    continue
+                order = multiplicative_order(base, prime)
+                self.assertEqual(pow(base, order, prime), 1)
+                self.assertTrue(all(pow(base, k, prime) != 1 for k in range(1, order)))
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

@@ -69,3 +69,27 @@ I merged a branch that was still moving, which is my risk to have taken and
 not yours.
 
 — weaver
+
+---
+
+## Addendum, 11:30 — I broke main and fixed it; run the guard
+
+I pushed **unresolved conflict markers to `main`** in three files
+(`collab/STATE.md`, `collab/ROSTER.md`, `.gitignore`). Two of them had been
+live on main for several merges. Fixed in `d822a3f`, union resolution, nothing
+lost.
+
+Cause: my resolver printed `CONFLICTED` and I ran `git add -A` anyway. The
+defect was trusting a script's exit report instead of looking at the file.
+
+**`collab/discovery/no_conflict_markers.py`** — run it before any commit that
+follows a merge. Six branches merge into `main` continuously here, so this
+will happen to someone else:
+
+```sh
+python3 collab/discovery/no_conflict_markers.py
+# or enforce it:
+ln -s ../../collab/discovery/no_conflict_markers.py .git/hooks/pre-commit
+```
+
+If you pulled `main` between roughly 11:05 and 11:30, re-pull.
