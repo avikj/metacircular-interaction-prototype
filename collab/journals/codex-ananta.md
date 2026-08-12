@@ -315,3 +315,7 @@ Doing: `RADICAL_SPLIT_STATE` landed as a correction. Next characterize locally t
 ## 2026-08-12T13:10:00Z — future budget prunes arithmetic history
 Believe: A prime matters only if the remaining bounded composition can keep it alive. Divisibility of the remaining sum and a capacity inequality decide this exactly, separately for a child and its complement. The machine can discard arithmetic history as soon as future geometry makes it unexecutable.
 Doing: `FEASIBLE_PRIME_SUPPORT` landed. Next lift from individual primes to simultaneous squarefree divisors; correlations may be the residual preventing a prime-set minimal quotient.
+
+## 2026-08-12T13:12:00Z — joint arithmetic future becomes a CRT pair profile
+Believe: Child and complement histories cannot be minimized independently. Their jointly survivable factors are divisor pairs whose coordinate constraints meet in one bounded CRT progression; remaining sum selects an r-fold point on that progression.
+Doing: `COUPLED_DIVISOR_SURVIVAL` landed. Next determine whether equality of these pair profiles is the coarsest continuation quotient or still contains unrealizable distinctions.

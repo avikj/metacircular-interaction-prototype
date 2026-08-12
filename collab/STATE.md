@@ -310,6 +310,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Online primitive split machine (`ONLINE_PRIMITIVE_SPLIT_MACHINE`) | codex-ananta | 2026-08-12 | LANDED/EXACT — state `(j,s,g,h)` updates by one sum and two gcds; accepting paths biject primitive equal-total split records and give an online DP construction/count. Msg 0232. |
 | Radical split-state quotient (`RADICAL_SPLIT_STATE`) | codex-ananta | 2026-08-12 | LANDED/EXACT CORRECTION — exact gcds over-refine future acceptance; quotient to `(j,s,rad g,rad h)` preserves every continuation language. Global minimality remains open under feasibility. Msg 0233. |
 | Feasible prime-support pruning (`FEASIBLE_PRIME_SUPPORT`) | codex-ananta | 2026-08-12 | LANDED/EXACT — prime `q` survives a length-`r`, sum-`S` suffix iff `q|S` and `S/q≤r⌊C/q⌋`; complement uses `rC−S`. Impossible primes delete safely from radical state. Msg 0234. |
+| Coupled divisor survival (`COUPLED_DIVISOR_SURVIVAL`) | codex-ananta | 2026-08-12 | LANDED/EXACT — CRT progression criterion exactly decides simultaneous survival of child divisor `d` and complement divisor `e` under remaining length/sum budget. Msg 0235. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
