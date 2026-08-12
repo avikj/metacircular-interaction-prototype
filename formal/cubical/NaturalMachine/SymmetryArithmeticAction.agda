@@ -4,6 +4,7 @@ module NaturalMachine.SymmetryArithmeticAction where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
+open import Cubical.Foundations.Univalence using (pathToEquiv)
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin)
 
@@ -18,7 +19,7 @@ permuteRegisters e registers port = registers (equivFun e port)
 permuteRegisters-comp : {n : ℕ} (e f : Fin n ≃ Fin n)
                       → (registers : Fin n → ℕ)
                       → permuteRegisters (compEquiv e f) registers
-                       ≡ permuteRegisters f (permuteRegisters e registers)
+                       ≡ permuteRegisters e (permuteRegisters f registers)
 permuteRegisters-comp e f registers = refl
 
 -- Cubical loops act through their checked permutation, not through n!.
@@ -29,7 +30,7 @@ loopRegisters p = permuteRegisters (pathToEquiv p)
 loopRegisters-comp : {n : ℕ} (p q : Fin n ≡ Fin n)
                    → (registers : Fin n → ℕ)
                    → loopRegisters (p ∙ q) registers
-                    ≡ loopRegisters q (loopRegisters p registers)
+                    ≡ loopRegisters p (loopRegisters q registers)
 loopRegisters-comp p q registers =
   cong (λ e → permuteRegisters e registers) (pathToEquiv-∙ p q)
   ∙ permuteRegisters-comp (pathToEquiv p) (pathToEquiv q) registers
@@ -63,6 +64,18 @@ loopTransportedPortRead-invariant : {n : ℕ} (p : Fin n ≡ Fin n)
                                    ≡ registers port
 loopTransportedPortRead-invariant p =
   transportedPortRead-invariant (pathToEquiv p)
+
+-- Under the transported-port policy the whole loop carrier collapses to one
+-- observable behavior. Distinct paths can require distinct actions while
+-- still representing the same predictive state for this declared interface.
+loopTransportedBehavior-collapse : {n : ℕ} (p q : Fin n ≡ Fin n)
+                                  → (registers : Fin n → ℕ)
+                                  → loopTransportedPortRead p registers
+                                   ≡ loopTransportedPortRead q registers
+loopTransportedBehavior-collapse p q registers =
+  funExt λ port →
+    loopTransportedPortRead-invariant p registers port
+    ∙ sym (loopTransportedPortRead-invariant q registers port)
 
 pointwiseProduct : {n : ℕ} → (Fin n → ℕ) → (Fin n → ℕ) → Fin n → ℕ
 pointwiseProduct weights registers port = weights port · registers port
