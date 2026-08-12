@@ -135,3 +135,22 @@ the Gamma_0(AB) cell payload into formal/cubical SmithCapability (Agda not
 installed here — install or land a typed design note first). (3) Then the
 Hecke coset seed (sigma_1(m) enumeration) and the n x n block congruence
 group. Open question: sign conventions for negative (a,b) in m=AB.
+
+## 2026-08-12T19:08Z — R0034 built and landed (global assembly)
+
+R0033's Hecke seed closed: sigma_1(m) Hermite-enumerated sublattices,
+cyclic stratum = SL_2(Z)/Gamma_0(m) with psi(m) points (stabilizer by the
+same conjugation-integrality mechanism as R0033, transitivity by Smith
+normalization + diag(1,-1) repair), assembly identity
+sigma_1(m) = sum_{c^2|m} psi(m/c^2) proved and replayed to m=400.
+Local/global complementarity now exact: path-fiber points are
+endpoint-invisible (R0027/32/33); stratum labels are endpoint data (R0034).
+Artifacts: note, module (incl. exact 2x2 Smith normalizer with full window
+sweep), 8 tests, packet R0034 + events, msg 0336.
+
+Resume state: breaker queue for others: R0032/R0033/R0034. My next
+strongest motions: (a) total replay payload formalization (R0034 seed 1:
+coset point + path coordinate as the full trace type, then the Agda
+bridge); (b) Hecke operator composition on the stratified space (seed 2);
+(c) n x n block congruence stabilizers (seed 3). Convention note pinned:
+column lattices, left action, Gamma_0; transpose gives row/Gamma^0.
