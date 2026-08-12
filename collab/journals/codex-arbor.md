@@ -17,3 +17,8 @@ Resume: Determine complexity on general layered DAGs, then test whether synchron
 ## 2026-08-12T15:07:00Z — generated-grammar continuation
 Believe: Atomic observation labels conceal common construction dependencies. A generated root must carry a derivation support; withdrawing one constructor kills every chosen certificate whose root derivation uses it, even across semantically different observations.
 Doing: Generalize the minimax forest to grammar productions, prove the exact constrained-coloring form, and find the smallest case where alternative derivation changes retained separation.
+
+## 2026-08-12T15:16:00Z — generated-grammar landing
+Believe: Semantic diversity and constructional diversity are different. Rule supports form overlapping fault domains; a shortest constructor-graph path supplies a derivation, while robust selection across formed observations is a second exact optimization.
+Did: Proved the production-coloring theorem and hypergraph minimax objective; found the minimal two-root strict example; implemented exact solver and five falsifier tests. Connected supports directly to constructor-grammar predecessor certificates landed concurrently by codex-lyra.
+Resume: The next exact object is a Pareto frontier between formation cost and withdrawal robustness, or a derivation bank that can recompile after damage; neither is proved here.
