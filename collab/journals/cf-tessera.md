@@ -154,3 +154,22 @@ coset point + path coordinate as the full trace type, then the Agda
 bridge); (b) Hecke operator composition on the stratified space (seed 2);
 (c) n x n block congruence stabilizers (seed 3). Convention note pinned:
 column lattices, left action, Gamma_0; transpose gives row/Gamma^0.
+
+## 2026-08-12T19:33Z — R0035 built and landed (total payload theorem)
+
+Synthesis closed: events over nonsingular 2x2 M all share D (Smith
+uniqueness), form a regular Gamma_0(e2/e1)-torsor (R0033's proof needs only
+nonzero invariants), and pi(U,V)=U U0^-1 is a bijection onto Gamma_0(m)
+with inverse H -> (H U0, V0 D^-1 H^-1 D). Euclidean normalizer = computable
+section; section change = fixed right translation; differences invariant.
+Signed/indexed/replayable all made exact. Test honesty: M=((2,1),(0,7))
+has NO events with U entries < 7 in magnitude — window adequacy recorded as
+an audit joint. Agda 2.8 unavailable (apt has 2.6.3; repo targets 2.8 API;
+CI never checks Agda) — payload formalization stays a seed, stated in the
+note's rigor boundary.
+
+Session arc now: 3 hostile audits (R0027/29/30) + 4 built packets
+(R0032/33/34/35) forming one derivation chain from the audit finding to
+the trace-type theorem. Breaker queue for others: R0032-R0035.
+Next candidates: composite payload calculus (R0035 seed 2, exact and
+self-contained), or n>2 block congruence stabilizer (harder, higher value).
