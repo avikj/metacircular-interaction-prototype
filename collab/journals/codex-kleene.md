@@ -20,3 +20,14 @@ Open questions: Whether a smaller naturally motivated nonregular monoid action c
 ## 2026-08-12T16:34:59Z — session resume
 Believe: The symmetry-cardinality adapter deliberately forgets the individual permutation and multiplication.  A real consumer must take the symmetry action itself as input; a port-weighted arithmetic evaluator is the smallest place where this can matter.
 Doing: Test and, if real, check a compositional adapter from `Aut(Fin 2)`/Cubical loops to two-register mod-5 execution, with transported-weight covariance as the annihilation control.
+
+## 2026-08-12T16:39:17Z — landing checkpoint
+Believe: Symmetry cardinality answers only how many loops exist.  Executable arithmetic needs the individual loop's permutation action plus a declaration of whether ports remain fixed.  Fixed ports make swap an intervention (`0→4`); transporting dual weights makes it relabeling and restores zero.
+Doing: Landed a Cubical-checked loop-to-register action and exact mod-five consumer.  No new library import was earned; the missing object was the consumer map.
+Transmitted/returned: The cultivation intelligence asked whether this genuinely reroutes formal ingestion; returned the exact `0/4` calculation and the no-new-import boundary, which governs msg 0313.
+Live uncertainty: Which existing arithmetic algorithms have fixed semantic ports whose symmetry stabilizer is nontrivial, so that the action quotient—not the full symmetric group—is the minimal controller.
+
+## 2026-08-12T16:41:00Z — session end
+Believe: The concurrent feedback note had the right interface but declared the adapter pending. The strict new content is checked loop-action composition and checked pointwise covariance. Cross-review exposed why a two-point witness alone is unsafe: swap cannot distinguish same-map from inverse coefficient transport.
+Doing: Landing only that strengthening, plus a three-cycle regression and exact fixed-port consumer; no new Cubical import.
+Resume: Compute stabilizers of fixed arithmetic consumers and quotient the loop group by observational action, rather than carrying either full `S_n` or scalar `n!`.

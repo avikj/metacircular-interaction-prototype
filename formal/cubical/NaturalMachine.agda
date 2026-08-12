@@ -58,6 +58,7 @@ open import NaturalMachine.PathIsSymmetry public
 open import NaturalMachine.FreeMonoid public
 open import NaturalMachine.Decategorification public
 open import NaturalMachine.SymmetryCardinality public
+open import NaturalMachine.SymmetryArithmeticAction public
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
