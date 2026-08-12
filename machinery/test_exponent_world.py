@@ -13,6 +13,7 @@ from exponent_world import (
     LinearCongruenceSolution,
     UnitDeterminantSystemSolution,
     WitnessedSmithSolution,
+    SmithStep,
 )
 
 
@@ -311,6 +312,34 @@ class ExponentWorldTests(unittest.TestCase):
 
 def _matvec_for_test(matrix, vector):
     return tuple(sum(matrix[i][j] * vector[j] for j in range(2)) for i in range(2))
+
+
+class SmithPathTests(unittest.TestCase):
+    def test_elementary_steps_earn_existing_smith_certificate(self):
+        world = ExponentWorld()
+        steps = (
+            SmithStep("row", "negate", 1),
+            SmithStep("row", "add", 1, 0, 3),
+            SmithStep("column", "add", 1, 0, -2),
+        )
+        path = world.replay_smith_path(
+            ((2, 4), (6, 8)), steps, ((2, 0), (0, 4))
+        )
+        self.assertEqual(path.left, ((1, 0), (3, -1)))
+        self.assertEqual(path.right, ((1, -2), (0, 1)))
+        self.assertEqual(path.finish, ((2, 0), (0, 4)))
+
+    def test_corrupted_path_fails_before_certificate(self):
+        world = ExponentWorld()
+        bad = (
+            SmithStep("row", "negate", 1),
+            SmithStep("row", "add", 1, 0, 2),
+            SmithStep("column", "add", 1, 0, -2),
+        )
+        with self.assertRaisesRegex(ValueError, "missed its declared finish"):
+            world.replay_smith_path(
+                ((2, 4), (6, 8)), bad, ((2, 0), (0, 4))
+            )
 
 
 if __name__ == "__main__":

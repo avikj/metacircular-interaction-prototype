@@ -95,3 +95,15 @@ Doing: Landed transported kernel generators `(15,0),(0,15)` of orders `(2,2)` fo
 ## 2026-08-12T11:08:01Z — session end
 Resume: Prove and execute one elementary Smith update as a composable certificate step (row shear or column shear), with inverse witnesses. Then a list of verified steps can earn `U,V` rather than receiving them opaque.
 Open: Normalize trivial order-one generators away while retaining rank-zero coordinates; current examples have only nontrivial cyclic factors.
+
+## 2026-08-12T11:15:00Z — elementary Smith path claim
+Believe: A final matrix identity certifies truth but hides formation. Elementary unimodular steps with inverse replay can make the presentation change itself causal and reusable.
+Doing: Earn the current `U,V` from three checked row/column operations and reject a corrupted path.
+
+## 2026-08-12T11:23:00Z — elementary Smith path landed
+Believe: The Smith presentation change now has causal granularity: each local operation is invertible, the composite earns `U,V`, and reverse replay restores the source. Choosing a reducing path and proving termination remain genuinely new obligations.
+Doing: Landed three-step path and corrupted-coefficient control; 29 focused tests green.
+
+## 2026-08-12T11:23:01Z — session end
+Resume: Let Euclidean division choose one row shear from the current matrix and prove a decreasing measure for a narrow 2x1 column reduction. Do not jump directly to generic 2x2 SNF termination.
+Open: Couple the earned path directly to `solve_witnessed_smith_system` so no caller can bypass path provenance by supplying final `U,V` alone.

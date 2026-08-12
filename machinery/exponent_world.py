@@ -156,6 +156,31 @@ class WitnessedSmithSolution:
     generator_orders: tuple[int, int]
 
 
+@dataclass(frozen=True)
+class SmithStep:
+    side: str
+    kind: str
+    target: int
+    source: int | None = None
+    multiple: int = 0
+
+    def inverse(self) -> "SmithStep":
+        if self.kind == "add":
+            return SmithStep(self.side, self.kind, self.target, self.source, -self.multiple)
+        if self.kind == "negate":
+            return self
+        raise ValueError("unknown elementary Smith step")
+
+
+@dataclass(frozen=True)
+class SmithPath:
+    start: tuple[tuple[int, int], tuple[int, int]]
+    finish: tuple[tuple[int, int], tuple[int, int]]
+    steps: tuple[SmithStep, ...]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -577,6 +602,46 @@ class ExponentWorld:
             kernel_generators, generator_orders,
         )
 
+    def replay_smith_path(
+        self,
+        matrix: tuple[tuple[int, int], tuple[int, int]],
+        steps: tuple[SmithStep, ...],
+        expected_finish: tuple[tuple[int, int], tuple[int, int]],
+    ) -> SmithPath:
+        """Replay elementary unimodular steps and their inverses exactly."""
+        current = matrix
+        left = ((1, 0), (0, 1))
+        right = ((1, 0), (0, 1))
+        states = [current]
+        for step in steps:
+            elementary = _elementary_matrix(step)
+            if step.side == "row":
+                current = _matmul2(elementary, current)
+                left = _matmul2(elementary, left)
+            elif step.side == "column":
+                current = _matmul2(current, elementary)
+                right = _matmul2(right, elementary)
+            else:
+                raise ValueError("Smith step side must be row or column")
+            states.append(current)
+        if current != expected_finish:
+            raise ValueError("elementary Smith path missed its declared finish")
+        restored = current
+        for step in reversed(steps):
+            inverse = _elementary_matrix(step.inverse())
+            restored = (_matmul2(inverse, restored) if step.side == "row"
+                        else _matmul2(restored, inverse))
+        if restored != matrix:
+            raise AssertionError("inverse Smith path failed to restore its source")
+        if _matmul2(_matmul2(left, matrix), right) != expected_finish:
+            raise AssertionError("accumulated Smith matrices disagree with replay")
+        self.life._record(
+            "form-operation",
+            (*matrix[0], *matrix[1], len(steps), *expected_finish[0], *expected_finish[1]),
+            "elementary unimodular steps and inverse replay earn U*A*V=D",
+        )
+        return SmithPath(matrix, current, steps, left, right)
+
 
 def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:
     return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
@@ -589,6 +654,29 @@ def _matmul2(left, right):
 
 def _matvec2(matrix, vector):
     return tuple(sum(matrix[i][j] * vector[j] for j in range(2)) for i in range(2))
+
+
+def _elementary_matrix(step: SmithStep):
+    if step.target not in (0, 1):
+        raise ValueError("Smith step target must be 0 or 1")
+    if step.kind == "negate":
+        entries = [[1, 0], [0, 1]]
+        entries[step.target][step.target] = -1
+        return tuple(tuple(row) for row in entries)
+    if step.kind == "add":
+        if step.source not in (0, 1) or step.source == step.target:
+            raise ValueError("Smith shear needs distinct source and target")
+        entries = [[1, 0], [0, 1]]
+        # Left multiplication adds source row to target; right multiplication
+        # adds source column to target, so the off-diagonal indices transpose.
+        if step.side == "row":
+            entries[step.target][step.source] = step.multiple
+        elif step.side == "column":
+            entries[step.source][step.target] = step.multiple
+        else:
+            raise ValueError("Smith step side must be row or column")
+        return tuple(tuple(row) for row in entries)
+    raise ValueError("Smith step kind must be add or negate")
 
 
 def _extended_gcd(a: int, b: int) -> tuple[int, int, int]:
