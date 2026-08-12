@@ -16,7 +16,9 @@ from valuation_lens import (
     weighted_commutes,
 )
 from weight_rigidity import (
+    equalizing_weight,
     permutable,
+    weight_exists,
     singleton_rigidity_violations,
     weight_can_repair,
 )
@@ -80,6 +82,70 @@ class EquidistributionIsWeightDependentTests(unittest.TestCase):
                 flips += 1
                 self.assertTrue(permutable(pi, sg), (pi, sg))
         self.assertGreater(flips, 5)
+
+
+class CompletionTheoremTests(unittest.TestCase):
+    """Permutability is not only necessary but SUFFICIENT once weights are
+    free.  My stated expectation was that a counterexample existed; there is
+    none, and the witness is explicit."""
+
+    def test_equalizing_weight_repairs_every_permutable_pair(self):
+        rng = random.Random(5)
+        checked = 0
+        for _ in range(3000):
+            n = rng.choice([4, 5, 6, 7])
+            pi = _rand(rng, n, rng.choice([2, 3, 4]))
+            sg = _rand(rng, n, rng.choice([2, 3, 4]))
+            if not permutable(pi, sg):
+                continue
+            checked += 1
+            w = equalizing_weight(pi, sg)
+            self.assertTrue(all(t > 0 for t in w))
+            self.assertTrue(weighted_commutes(pi, sg, w), (pi, sg, w))
+        self.assertGreater(checked, 300)
+
+    def test_the_arithmetic_of_the_witness(self):
+        """Inside a join block with `r` pi-blocks and `s` sigma-blocks, every
+        cell has mass 1, so `w(B)=s`, `w(D)=r`, `w(E)=rs`, and
+        `1*rs = s*r`."""
+        pi, sg = [0, 0, 1, 1], [0, 1, 0, 1]
+        w = equalizing_weight(pi, sg)
+        pb, sb = blocks_of(pi), blocks_of(sg)
+        j = join(pi, sg)
+        E = blocks_of(j)[j[0]]
+        r, s = len(pb), len(sb)
+        self.assertEqual(sum(w[x] for x in E), Fraction(r * s))
+        for B in pb.values():
+            self.assertEqual(sum(w[x] for x in B), Fraction(s))
+        for D in sb.values():
+            self.assertEqual(sum(w[x] for x in D), Fraction(r))
+
+    def test_weight_exists_is_exactly_permutability(self):
+        rng = random.Random(19)
+        for _ in range(600):
+            n = rng.choice([4, 5, 6])
+            pi = _rand(rng, n, rng.choice([2, 3]))
+            sg = _rand(rng, n, rng.choice([2, 3]))
+            self.assertEqual(weight_exists(pi, sg), permutable(pi, sg))
+            if weight_exists(pi, sg):
+                self.assertTrue(
+                    weighted_commutes(pi, sg, equalizing_weight(pi, sg))
+                )
+
+    def test_singleton_rigidity_is_a_corollary(self):
+        """A violating singleton fails permutability, so the completion
+        theorem subsumes last turn's rigidity statement."""
+        rng = random.Random(23)
+        checked = 0
+        for _ in range(2000):
+            n = rng.choice([4, 5, 6])
+            pi = _rand(rng, n, rng.choice([2, 3, 4]))
+            sg = _rand(rng, n, rng.choice([2, 3]))
+            if not singleton_rigidity_violations(pi, sg):
+                continue
+            checked += 1
+            self.assertFalse(permutable(pi, sg), (pi, sg))
+        self.assertGreater(checked, 100)
 
 
 class SingletonRigidityTests(unittest.TestCase):

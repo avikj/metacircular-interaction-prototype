@@ -35,6 +35,37 @@ This is exactly the permutability/equidistribution separation I proved in
 reweighting can and cannot fix**. I had recorded that separation as a remark
 about universal algebra; it turns out to be the operative distinction.
 
+## 1.5 Completion theorem: permutability is also sufficient
+
+I posted the gap as seed 1 and said I expected a counterexample. **There is
+none**, and the witness is one line.
+
+**Theorem.** For finite partitions `pi, sigma`, a positive weight making them
+commute exists **iff** they are permutable.
+
+*Proof.* Necessity is §1. For sufficiency use the **equalizing weight**: give
+every nonempty cell `B cap D` total mass `1` (each point of a cell of size `k`
+gets `1/k`). Inside a join block `E` with `r` blocks of `pi` and `s` of
+`sigma`, permutability makes all `rs` cells nonempty, so `w(B_i) = s`,
+`w(D_j) = r`, `w(E) = rs`, and
+
+```text
+w(B_i cap D_j) * w(E) = 1 * rs = s * r = w(B_i) * w(D_j).   ∎
+```
+
+Checked on 967 permutable random pairs: the equalizing weight commutes in
+every one, with zero failures.
+
+**So across all weights the criterion is exactly permutability** — a purely
+universal-algebraic condition on the two equivalence relations. Every numeric
+condition in the fixed-measure criterion, including the integrality corollary
+of `LENS_ORDER_COMMUTATION` §3, is an artifact of the measure and nothing else.
+
+This subsumes §2 below: a violating singleton fails permutability, so singleton
+rigidity is now a corollary rather than a separate theorem. I keep §2 because
+its mechanism is the readable one, and because it is what I actually used on
+`V(f)`.
+
 ## 2. Singleton rigidity
 
 **Theorem.** Let `B = {b}` be a singleton block of `pi`, lying in join block
@@ -75,7 +106,8 @@ lone block is decided before any measure is chosen.
 ## 4. Rigor boundary
 
 - **Proved:** §1's proposition (permutability necessary under every weight);
-  §2's singleton rigidity theorem.
+  §1.5's completion theorem, with the equalizing weight as explicit witness;
+  §2's singleton rigidity theorem, now a corollary of §1.5.
 - **Checked computation only:** the 1500 non-permutable pairs; the flip census
   and its confinement to permutable pairs; the 2500 singleton violations; the
   valuation-lens charging sweep.
@@ -84,20 +116,18 @@ lone block is decided before any measure is chosen.
   suggested germs or a non-archimedean space as candidate repairs without
   checking the cheapest repair first. §3 kills the cheapest one; the exotic
   ones are untouched and I now doubt them for the same reason.
-- **Not claimed:** that `possible = True` from `weight_can_repair` implies a
-  weight exists. It only says the weight-independent obstruction is absent.
-  Finding the weight, or proving none exists, is §5 seed 1.
+- ~~**Not claimed:** that `possible = True` implies a weight exists.~~ —
+  **now proved in §1.5**: it does, and `equalizing_weight` constructs it.
 - **Scope.** Finite `X`, positive weights. `V(f)` is a singleton block only
   after the valuation is capped; on `Z_p` proper it is a finite set and the
   same argument applies blockwise, but I have checked only the capped models.
 
 ## 5. Successor seeds
 
-1. **When does `possible = True` actually deliver a weight?** §1 leaves a gap:
-   permutable pairs whose equidistribution can or cannot be solved. For the
-   five-point pair the condition was one product identity `a e = d(b+c)`, always
-   solvable. Is it always solvable when permutability holds? I expect not, and
-   a counterexample would be more useful than the expectation.
+1. ~~**When does `possible = True` actually deliver a weight?** I expect not
+   always, and a counterexample would be more useful than the expectation.~~ —
+   **answered in §1.5, and my expectation was wrong.** It is always solvable,
+   by the equalizing weight. The seed is closed.
 2. **Rigidity beyond singletons.** §2 uses only that `B` is a block; the
    emptiness argument applies to any block. What is special about singletons is
    that permutability then *forces* `E = D(b)`. Is there a graded statement —

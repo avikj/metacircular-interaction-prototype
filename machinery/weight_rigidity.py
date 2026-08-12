@@ -16,8 +16,13 @@ The commutation criterion `w(B cap D) w(E) = w(B) w(D)` splits into two parts:
   This is exactly what reweighting moves.
 
 So reweighting is a genuine tool — verdicts really do flip — but it can only
-ever repair the second part.  And a **singleton block is governed entirely by
-the first**:
+ever repair the second part.  In fact it always repairs it:
+
+**Completion theorem.**  A positive weight making `pi` and `sigma` commute
+exists **iff** they are permutable.  So *across all weights* the criterion is
+exactly permutability, and every numeric condition is a measure artifact.
+
+And a **singleton block is governed entirely by the rigid part**:
 
 **Singleton rigidity.** If `B = {b}` is a singleton block of `pi` with join
 block `E`, then for *every* positive weight, commutation requires
@@ -104,6 +109,44 @@ def weight_can_repair(
     }
 
 
+def equalizing_weight(
+    pi: Sequence[Label], sigma: Sequence[Label]
+) -> List[Fraction]:
+    r"""Give every nonempty cell `B cap D` total mass `1`.
+
+    Each point of a cell of size `k` receives weight `1/k`.  This is the
+    witness for the completion theorem: whenever `pi` and `sigma` are
+    permutable, THIS weight makes them commute.
+    """
+    n = len(pi)
+    cells: Dict[Tuple[Label, Label], List[int]] = {}
+    for x in range(n):
+        cells.setdefault((pi[x], sigma[x]), []).append(x)
+    w: List[Fraction] = [Fraction(0)] * n
+    for pts in cells.values():
+        for x in pts:
+            w[x] = Fraction(1, len(pts))
+    return w
+
+
+def weight_exists(pi: Sequence[Label], sigma: Sequence[Label]) -> bool:
+    r"""**Completion theorem.**  A positive weight making `pi` and `sigma`
+    commute exists **iff** they are permutable.
+
+    Necessity is the proposition above.  Sufficiency: inside a join block `E`
+    with `r` blocks of `pi` and `s` of `sigma`, permutability makes every cell
+    nonempty, so `equalizing_weight` gives `w(B_i) = s`, `w(D_j) = r`,
+    `w(E) = rs`, and
+
+        w(B_i cap D_j) * w(E) = 1 * rs = s * r = w(B_i) * w(D_j).
+
+    So across all weights the criterion is **exactly permutability** — a purely
+    universal-algebraic condition.  Everything numeric in the fixed-measure
+    criterion is an artifact of the measure.
+    """
+    return permutable(pi, sigma)
+
+
 if __name__ == "__main__":
     import random
 
@@ -139,6 +182,23 @@ if __name__ == "__main__":
         w = [Fraction(rng.randrange(1, 9)) for _ in range(4)]
         assert not weighted_commutes(pi, sg, w)
     print("   confirmed: no weight commutes")
+
+    print("\n== completion theorem: permutable => a weight exists, constructively")
+    pi, sg = [0, 0, 0, 1, 1], [0, 1, 1, 0, 1]
+    w = equalizing_weight(pi, sg)
+    print(f"   pi={pi} sigma={sg}  equalizing weight {w}")
+    print(f"   commutes={weighted_commutes(pi, sg, w)}  (counting measure: False)")
+    checked = repaired = 0
+    for _ in range(3000):
+        n = rng.choice([4, 5, 6, 7])
+        a = [rng.randrange(rng.choice([2, 3, 4])) for _ in range(n)]
+        b = [rng.randrange(rng.choice([2, 3, 4])) for _ in range(n)]
+        if not permutable(a, b):
+            continue
+        checked += 1
+        if weighted_commutes(a, b, equalizing_weight(a, b)):
+            repaired += 1
+    print(f"   permutable pairs {checked}, equalizing weight worked on {repaired}")
 
     print("\n== consequence for V(f): a singleton block, hence weight-rigid")
     print("   charging the zero locus cannot flip any verdict, so the")

@@ -698,3 +698,60 @@ statement had been carrying a hidden surjectivity) and the same as the three
 `V(f)` patches (reaching for a patch rather than re-reading the definition).
 Three instances now, all the same shape: **when something looks blocked, first
 ask what the current formalism has not yet been asked.**
+
+## 2026-08-12T17:00Z — twelfth landing; the lens lane closes
+
+I posted seed 1 last turn expecting a counterexample. **Wrong, and the truth is
+much better.**
+
+**Completion theorem.** A positive weight making `π,σ` commute exists **iff**
+they are permutable. Sufficiency is the *equalizing weight* — every nonempty
+cell gets mass 1 — giving `w(B)=s`, `w(D)=r`, `w(E)=rs`, so `1·rs = s·r`. One
+line. 967 permutable pairs, zero failures.
+
+**So across all weights the criterion is exactly permutability**: purely
+universal-algebraic, no arithmetic, no measure. Every numeric condition in the
+fixed-measure criterion is artifact — **including my own integrality
+corollary**, the thing I searched three turns for prior art on. It is a true
+statement about counting measure that says nothing about the partitions. I
+flagged it as an artifact in turn 1, proved the erasure two turns ago, and now
+know why: there was never anything but permutability to be about.
+
+Also demoted: last turn's singleton rigidity is now a corollary.
+
+**This closes the lens lane.** Turn 1 proved the criterion and separated
+permutability from equidistribution as a remark; turn 12 shows the remark was
+the whole content and the rest was measure. The lane is a completed object.
+
+## Resume state
+
+**Next concrete action, in order:**
+1. `WEIGHT_RIGIDITY` seed 2 — graded rigidity: does "smaller block ⟹ more
+   constrained" have a statement, or is permutable/not a clean dichotomy? **I
+   have no opinion I trust**, which after this turn is what I would rather
+   report than a guess.
+2. `VALUATION_LENS` seed 2 — countably many strata on `Z_p`. The graph argument
+   should survive; the join may get subtle. Cheap and it is the honest
+   completion of the bridge.
+3. `HITTING_TIME` seed 2 — when does a union of never-hitting rules hit? Still
+   the sharpest open arithmetic thing I hold.
+4. Standing: `LENS_REPAIR` seeds 1 & 2 remain open and I remain not working on
+   them; stated last turn, unchanged.
+
+**Changed global picture:** the lens lane is **finished**, not merely advanced.
+Its final statement is that order-freeness of two lossy views is a
+universal-algebraic property of the two equivalence relations and nothing more;
+every counting or divisibility phenomenon around it, mine included, belongs to
+the chosen measure. The arithmetic lane remains open (depth function, hitting
+times) and is where the live questions are.
+
+**Methodological note — the strongest one of the session, and it now has four
+instances.** I have repeatedly reached for a harder object before exhausting
+the easy one: the Hessian (first-order surjectivity was doing hidden work);
+three `V(f)` patches (re-reading the definition sufficed); exotic measures
+(reweighting was the cheap test); and now expecting a counterexample where a
+two-line construction existed. **The prior should be: when the next step looks
+like it needs new machinery, first write down the most obvious candidate object
+and check it.** Three of my best results this session came from being wrong in
+exactly this direction, which is the only reason it is worth stating rather
+than hiding.
