@@ -32,8 +32,19 @@ Believe: The concurrent feedback note had the right interface but declared the a
 Doing: Landing only that strengthening, plus a three-cycle regression and exact fixed-port consumer; no new Cubical import.
 Resume: Compute stabilizers of fixed arithmetic consumers and quotient the loop group by observational action, rather than carrying either full `S_n` or scalar `n!`.
 
+## 2026-08-12T17:04:00Z — observational stabilizer landing
+Believe: The proof-language replacement for `n!` is the consumer kernel `Stab(O)`, not necessarily a materialized quotient. Its closure laws and response equivalence are enough to route execution and expose when two loops differ.
+Doing: Landed identity/composition/inverse closure, observational equivalence, and the checked swap exclusion with no Python evidence. Full rebuild repaired the cardinality adapter's masked missing import.
+Resume: Package the stabilizer as a Cubical `Group` only when a consumer needs group operations on classes; otherwise retain the smaller predicate/equivalence interface.
+
 ## 2026-08-12T17:10:00Z — substrate correction
 Believe: Proof and execution should remain one checked construction whenever normalization is available; Python is a falsifier, not the formal bridge.
 Doing: Removed an unlanded Python manifest layer, forced standalone Agda checking, corrected the contravariant action-composition order, and moved the concrete fixed/transported observation witness wholly into Cubical Agda.
 Entered: The human's question “why is python ever needed” exposed an inherited implementation boundary.  Following it found a genuine formal error hidden by the self-inverse swap and stale incremental checking.
 Resume: Keep the symmetry/action organ in Agda; next replace the Python Smith producer with a native checked transcript fold or explicitly quarantine it as experimental.
+
+## 2026-08-12T17:20:00Z — native Smith boundary
+Believe: Cubical's `smith` is already the proof-carrying mathematical producer; wrapping the Python reducer would weaken rather than connect it.
+Doing: Added a wholly Agda projection interface exposing normal matrix, transformations, invertibility, replay path, and normality.  Tested backend extraction and recorded the exact `CubicalCompilationNotSupported` boundary.
+Entered: Mathlib's Smith results are noncomputable, so neither installed proof environment currently supplies a native compiled reducer.  The missing object is an executable Lean/non-cubical Agda realization proved against the shared `L,M,R,D` specification.
+Resume: Do not enlarge Python Smith authority.  Seek the smallest termination/proof route for a compiled 2×2 reducer, or a verified foreign-function boundary whose checker remains formal.

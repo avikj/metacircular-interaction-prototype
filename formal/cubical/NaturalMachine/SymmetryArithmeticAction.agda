@@ -7,6 +7,7 @@ open import Cubical.Foundations.Equiv
 open import Cubical.Foundations.Univalence using (pathToEquiv)
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin)
+open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.PathIsSymmetry
   using (pathToEquiv-∙ ; swap01-Equiv)
@@ -109,3 +110,45 @@ swap-transported-value : transportObservation swap01-Equiv
                                               successorRegister zero ≡ 1
 swap-transported-value =
   transportObservation-invariant swap01-Equiv successorRegister zero
+
+-- The observational stabilizer is the exact kernel of a consumer: these are
+-- the symmetries it cannot see.  Unlike n!, this predicate retains action.
+Stabilizes : {X : Type₀} → (X → ℕ) → (X ≃ X) → Type₀
+Stabilizes observation e = actObservation e observation ≡ observation
+
+stabilizes-id : {X : Type₀} (observation : X → ℕ)
+              → Stabilizes observation (idEquiv X)
+stabilizes-id observation = refl
+
+stabilizes-comp : {X : Type₀} (observation : X → ℕ) (e f : X ≃ X)
+                → Stabilizes observation e
+                → Stabilizes observation f
+                → Stabilizes observation (compEquiv e f)
+stabilizes-comp observation e f he hf =
+  cong (actObservation e) hf ∙ he
+
+stabilizes-inv : {X : Type₀} (observation : X → ℕ) (e : X ≃ X)
+               → Stabilizes observation e
+               → Stabilizes observation (invEquiv e)
+stabilizes-inv observation e h = funExt λ x →
+  sym (funExt⁻ h (invEq e x)) ∙ cong observation (secEq e x)
+
+-- Equality of response functions is the observational quotient relation.
+_≈[_]_ : {X : Type₀} → (X ≃ X) → (X → ℕ) → (X ≃ X) → Type₀
+e ≈[ observation ] f = actObservation e observation ≡ actObservation f observation
+
+observational-refl : {X : Type₀} (observation : X → ℕ) (e : X ≃ X)
+                   → e ≈[ observation ] e
+observational-refl observation e = refl
+
+observational-sym : {X : Type₀} (observation : X → ℕ) (e f : X ≃ X)
+                  → e ≈[ observation ] f → f ≈[ observation ] e
+observational-sym observation e f = sym
+
+observational-trans : {X : Type₀} (observation : X → ℕ) (e f g : X ≃ X)
+                    → e ≈[ observation ] f → f ≈[ observation ] g
+                    → e ≈[ observation ] g
+observational-trans observation e f g p q = p ∙ q
+
+swap-not-in-successor-stabilizer : ¬ Stabilizes successorRegister swap01-Equiv
+swap-not-in-successor-stabilizer h = znots (sym (injSuc (funExt⁻ h zero)))

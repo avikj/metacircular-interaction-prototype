@@ -7,6 +7,7 @@ open import Cubical.Foundations.Equiv
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin)
 open import Cubical.Data.FinSet
+open import Cubical.Data.FinSet.Constructors using (isFinSetAut)
 open import Cubical.Data.FinSet.Cardinality
 
 open import NaturalMachine.Decategorification using (𝔽)
