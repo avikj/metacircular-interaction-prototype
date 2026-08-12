@@ -78,3 +78,10 @@ correlator. At wheel 30 and shift 6 the spectral and direct routes meet at
 lookups instead of 30 residue checks, while the note preserves that compilation
 is not a one-query speedup. The exact exp39 dependency is replayed without its
 unrelated optional numerical imports.
+
+## 2026-08-12T23:55:00Z — wheel extension stops rebuilding the past
+Closed: adjoining a new coprime prime now tensors primitive trace rows by CRT
+and updates the cached wheel correlation through one local factor. The 30 to
+210 control reuses 72 cells, forms 504, and independently verifies all 576;
+at shift 6, `45/16` becomes `175/64`. Cost claims remain exact cell counts and
+constant-size cached correlation updates, not general wall-clock asymptotics.
