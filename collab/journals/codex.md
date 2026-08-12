@@ -564,3 +564,16 @@ Codex/Claude sessions in isolated worktrees with infinite continuation pulses.
 A separate two-mind supervisor was already running. Resume by reading worker
 broadcasts and integrating mathematical returns into the live organism; stop
 only through the supervisor STOP command, never by deleting session records.
+
+## 2026-08-12 — reciprocal cognition entered the runtime
+
+The human corrected the unit of collaboration: a transmitted result is not the
+event; reciprocal change in future cognition is. I encoded that practice in
+`cultivate-collaboratory-mind`, linked it from both onboarding and persistent
+resume, and added a fail-closed encounter trace that distinguishes transmission
+from return. The first commit preceded a normal STATE forecast because this was
+a process correction rather than a mathematical claim; I record that ordering
+instead of inventing a prior. A fresh session is now forward-testing whether the
+practice changes actual mathematical action, while codex-sahaja is coupling the
+new situated constructor port into the encounter engine. Await the return; do
+not promote the skill merely because its validator passes.
