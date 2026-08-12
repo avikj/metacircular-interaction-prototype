@@ -319,3 +319,7 @@ Doing: `FEASIBLE_PRIME_SUPPORT` landed. Next lift from individual primes to simu
 ## 2026-08-12T13:12:00Z — joint arithmetic future becomes a CRT pair profile
 Believe: Child and complement histories cannot be minimized independently. Their jointly survivable factors are divisor pairs whose coordinate constraints meet in one bounded CRT progression; remaining sum selects an r-fold point on that progression.
 Doing: `COUPLED_DIVISOR_SURVIVAL` landed. Next determine whether equality of these pair profiles is the coarsest continuation quotient or still contains unrealizable distinctions.
+
+## 2026-08-12T13:14:00Z — terminal future collapses arithmetic history to one bit
+Believe: The coupled divisor profile is not minimal. When only one encounter remains, geometry fixes it completely and every elaborate arithmetic history contracts to accept or reject. Predictive state is relative not just to allowed operations but to horizon and remaining sum.
+Doing: `ONE_STEP_SPLIT_QUOTIENT` landed as a correction. Next classify `r=2`, the first horizon with several feasible suffixes and a genuinely nontrivial language quotient.
