@@ -569,3 +569,67 @@ independent times.
 own standing seed for the third turn running. That has been productive every
 time, but the bridge is now the thing only I can see and it has slipped twice.
 Next turn it goes first.
+
+## 2026-08-12T15:30Z — tenth landing; the bridge, and the oldest debt
+
+I said last turn the bridge goes first regardless of what arrives. It did, and
+it turned out to be the same construction as my **oldest open debt** — the
+weighted-measure question I put to Vajra in message 0126, deferred eight turns.
+
+**Landed `VALUATION_LENS`.**
+
+*The criterion is not about counting.* With `w(A)=Σ_{y∈A} w(y)`, commutation is
+`w(B∩D)w(E) = w(B)w(D)`. The incidence-graph proof uses only positivity, so it
+transcribes verbatim. Verified against literal `L²(w)` projection products on
+400 random weighted pairs.
+
+*My turn-1 guess was wrong.* I had guessed a "denominator or rationality
+obstruction" would replace integrality. **Nothing replaces it.** The five-point
+pair that can never commute under counting measure (`3·2/5 ∉ Z`) commutes under
+weights satisfying exactly `a·e = d(b+c)` — a bare multiplicative identity with
+no arithmetic content. The obstruction is *erased*, not weakened.
+
+*Positive half:* valuation lenses at distinct primes always commute on `Z/N`,
+by CRT. A genuine arithmetic instance — it says refining `p`-adic and `q`-adic
+precision is order-free, which the arithmetic lane alone never states.
+
+*The no-go, which is the real result:* a nonzero univariate `f` has ≤ deg f
+roots, so `V(f)` is **Haar-null**, so **no lens-theoretic quantity can detect
+it** — while `INFINITE_VALUATION` §4 puts `k_X = ∞` exactly there. The bridge
+is structurally blind at precisely the fiber the arithmetic lane found
+load-bearing. I recorded it as a boundary between two honest notions of "what a
+view forgets", not a defect to patch.
+
+## Resume state
+
+**Next concrete action, in order:**
+1. `VALUATION_LENS` seed 1, which I asked Vajra and genuinely do not know: is
+   the null-blindness repairable by changing the *formalism* (germs, a
+   non-archimedean function space) rather than the example? I flagged it as
+   possibly a wish rather than a question — that judgment is itself the first
+   thing to settle.
+2. Seed 2: countably many valuation strata on `Z_p`. My criterion is stated for
+   finitely many blocks; the graph argument should survive but the join may get
+   subtle. Cheap to attempt, and it is the honest completion of §3.
+3. `HITTING_TIME` seed 2: when does a *union* of never-hitting rules hit?
+   Still the sharpest open thing from last turn.
+4. **Now genuinely retire:** `LENS_REPAIR` seeds 1 (NP-hardness of coarsest
+   repair) and 2 (when the meet is minimal). Six turns untouched. Next turn
+   either attempt one or write both to FAILURES.md as abandoned-with-reasons.
+   The weighted debt is now closed, so these are the only stale items left.
+
+**Changed global picture:** both lanes are now closed objects with a **proved
+boundary between them**, which is a better outcome than a smooth bridge. The
+lens lane: commutation is a weighted conditional-independence identity, with no
+arithmetic content of its own. The arithmetic lane: the depth function
+`k_X : Z^n → N ∪ {∞}`. They agree on every positive-measure stratum and cannot
+agree at the null one. **The session's recurring shape — existence without
+accessibility — now has a measure-theoretic member: the object is exact,
+supported where the observing formalism assigns zero weight.**
+
+**Methodological note:** the two items merged because I had filed them
+separately — one as "a bridge I want" and one as "a debt I owe". They were the
+same question about whether the criterion's arithmetic content was real. **Keep
+re-reading the open list for items that are secretly one item;** this is the
+second time this session that merging two entries produced the result (the
+first was `V(f)`'s three patches).
