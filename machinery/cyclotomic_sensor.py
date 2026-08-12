@@ -776,6 +776,89 @@ def beats_certainly(cheap_cost: int, rival_cost: int, rival_base: int,
     return rival_cost >= yield_bound(rival_base, rival_index) * cheap_cost
 
 
+@dataclass(frozen=True)
+class YieldBracket:
+    """Bounds on the yield after a partial scan, with the effort spent."""
+
+    low: int
+    high: int
+    spent: int
+    reached: int
+    found: tuple[int, ...]
+    cofactor: int
+
+    @property
+    def exact(self) -> bool:
+        return self.low == self.high
+
+
+def partial_bracket(base: int, index: int, effort: int) -> YieldBracket:
+    """Bracket the yield after scanning `effort` candidates of the progression.
+
+    This is the loophole R0038's no-go leaves open, and closing it needs data
+    that is not `(base, index)` alone.  After scanning the progression up to
+    limit `L`, every surviving prime factor of the cofactor `R` is primitive
+    (the exceptional prime having been stripped) and exceeds `L`.  Hence
+
+        low  = k + [R > 1],
+        high = k + max{ j : L^j < R },
+
+    with `k` the primitive primes already found.  Both bounds tighten as the
+    scan proceeds, and they meet when `R` is 1 or is known prime because
+    `L^2 >= R`.  All integer arithmetic; no logarithm is trusted.
+    """
+    if effort < 0:
+        raise ValueError("effort must be non-negative")
+    value = abs(cyclotomic_value(index, base))
+    step, exceptional = search_progression(index)
+    remaining, found, spent = value, [], 0
+    if exceptional is not None:
+        spent += 1
+        while remaining % exceptional == 0:
+            remaining //= exceptional
+    candidate = 1 + step if step > 1 else 2
+    while spent < effort and candidate * candidate <= remaining:
+        spent += 1
+        if remaining % candidate == 0:
+            found.append(candidate)
+            while remaining % candidate == 0:
+                remaining //= candidate
+        candidate += step if step > 1 else 1
+    reached = candidate - (step if step > 1 else 1)
+    survivors = 0
+    if remaining > 1:
+        # Surviving primes exceed the last tested candidate, and in any case
+        # are at least index+1 by R0027.  With no candidate tested the second
+        # floor is the only one available, which is why `reached` alone would
+        # report a spurious exact bracket at zero effort.
+        floor_prime = max(reached, index)
+        if reached > 1 and reached * reached >= remaining:
+            survivors = 1          # cofactor is prime: nothing below its root
+        else:
+            survivors = 1
+            while floor_prime ** (survivors + 1) < remaining:
+                survivors += 1
+    low = len(found) + (1 if remaining > 1 else 0)
+    return YieldBracket(low=low, high=len(found) + survivors, spent=spent,
+                        reached=max(reached, 1), found=tuple(found),
+                        cofactor=remaining)
+
+
+def certify_with_effort(left: tuple[int, int], right: tuple[int, int],
+                        effort: int) -> bool:
+    """Does a partial scan of this size already decide the near-tie?
+
+    The comparison `cost_1/Y_1 <= cost_2/Y_2` is settled for every admissible
+    pair of yields as soon as `cost_1/low_1 <= cost_2/high_2`.  R0037 used the
+    a priori pair `(1, yield_bound)`; the bracket improves both ends at a
+    fraction of the full resolution price.
+    """
+    left_bracket = partial_bracket(*left, effort=effort)
+    right_bracket = partial_bracket(*right, effort=effort)
+    return (scan_cost(*left) / max(left_bracket.low, 1)
+            <= scan_cost(*right) / max(right_bracket.high, 1))
+
+
 def actual_yield(base: int, index: int,
                  budget: int = DEFAULT_BUDGET) -> int | None:
     """The true number of primitive prime divisors, by paying for the scan.

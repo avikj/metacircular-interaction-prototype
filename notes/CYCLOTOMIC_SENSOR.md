@@ -1293,6 +1293,78 @@ The ordering theorems keep their content outside the window, where the cost
 gaps are exponential and the choice is real.  Inside it, the honest advice is
 not *choose better* but *stop choosing*.
 
+## The loophole, closed: knowledge is continuous in effort
+
+Twice I recorded the loophole in my own no-go and twice I went somewhere else.
+Theorem 17 says no bound *on $(b,n)$ alone* improves $Y\ge1$.  A partial scan
+is not such a bound.
+
+> **Theorem 19 (partial-scan bracket).**  Scan the progression for
+> $\Phi_n(b)$ through its first $e$ candidates, reaching limit $L$, finding
+> distinct primitive primes $p_1,\dots,p_k$ and leaving cofactor $R$ after the
+> exceptional prime is stripped.  Every surviving prime factor of $R$ is
+> primitive and exceeds $\max(L,n)$.  Hence
+> $$
+>   k+[R>1] \;\le\; Y(b,n) \;\le\; k+\max\{\,j:\max(L,n)^{\,j}<R\,\},
+> $$
+> and if $L^{2}\ge R>1$ the cofactor is prime, so both bounds equal $k+1$.
+
+Both ends move with effort, and they meet long before the scan finishes:
+
+| $(b,n)$ | true $Y$ | a priori bound | full scan | bracket at effort 10 | exact at |
+|---|---|---|---|---|---|
+| $(2,29)$ | 3 | 9 | 401 | $[2,3]$ | **20** |
+| $(5,19)$ | 3 | 10 | 57,466 | $[2,5]$ | **166** |
+| $(2,41)$ | 2 | 11 | 18,086 | $[1,4]$ | **164** |
+
+For $(5,19)$ the yield is known exactly after $166$ candidates where the full
+scan costs $57{,}466$ — a factor of $346$.
+
+**But those three rows are cherry-picked, and I wrote a sentence claiming
+"almost all of it arrives early" before measuring.**  Measured over the $57$
+encounters with $2\le b\le7$, $10\le n\le45$ and full scan between $50$ and
+$3\times10^{5}$:
+
+| | fraction of the full scan needed for exactness |
+|---|---|
+| best | $0.0022$ — $(5,27)$, $78$ of $36{,}170$ |
+| **median** | **$1.000$** |
+| worst | $1.000$ |
+| under $10\%$ | $30\%$ of cases |
+
+**In half the cases the bracket saves nothing at all**, and the reason is
+R0038.  When the primitive part is a single prime — the Mersenne case, which
+that packet showed is common — proving $R$ prime requires scanning to
+$\sqrt R$, which is the whole scan.  So the encounters where exactness is
+cheap are exactly those with a small primitive prime, and the ones where it is
+free are exactly the ones R0038 identified as forcing full work.
+
+The two results are the same fact from opposite sides: **the sharpness of
+Zsigmondy's bound is both why no closed form decides the yield and why a
+partial scan often cannot either.**  Knowledge of the yield is continuous in
+effort, and the continuity is worth about a $30\%$ chance of a large saving —
+not the near-certainty my three examples suggested.
+
+So the two theorems sit together without tension.  Theorem 17: no *closed
+form* in $(b,n)$ beats Zsigmondy.  Theorem 19: a *computation* does, cheaply,
+and the no-go never claimed otherwise — it was a statement about one shape of
+argument, and I said so at the time precisely so that this would remain
+available.
+
+`certify_with_effort` uses the bracket where R0037 used the a priori pair
+$(1,Y)$: the comparison is settled as soon as
+$\operatorname{cost}_1/\text{low}_1\le\operatorname{cost}_2/\text{high}_2$.
+The contested pair $(2,3)$ against $(2,11)$, which the a priori test cannot
+decide, is decided at effort $20$.
+
+**A defect the output caught.**  My first version reported `Y in [1,1] EXACT`
+at effort zero — a spurious certainty, because with no candidate tested it took
+the untested candidate as the floor for surviving primes.  With nothing
+scanned the only available floor is R0027's $n+1$, and the corrected bracket
+reports $[1,9]$ at $(2,29)$ instead.  An off-by-one that manufactures
+confidence is worse than one that loses it, and this one was visible only
+because I printed effort zero rather than starting at one.
+
 ## The encounter
 
 ```text
@@ -1329,6 +1401,13 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorem 19.  The floor on surviving primes is R0027's
+  congruence plus the scan's own limit, and the counting is integer arithmetic
+  with no logarithm trusted.  Elementary and standard practice in incremental
+  trial division; **no novelty claimed**.  **Not claimed:** any bound on the
+  effort at which the bracket becomes exact — the three rows are observations,
+  and the general question is how far one must scan before `L^2 >= R`, which
+  depends on the second-largest prime factor and is not controlled here.
 - **Proved here:** Theorem 17.  Part 1 is exhibition — the named cyclotomic
   values are prime, which is a finite exact check, and the yields are computed
   by complete factorization.  Part 2 follows: a uniform lower bound `Y >= 2`

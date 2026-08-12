@@ -870,3 +870,55 @@ Next concrete action if resumed, in order:
 2. R0039 seed 1 — bound the cost of resolving the whole contested set, or show
    it scales with the set and is not worth doing wholesale.
 3. R0039 seed 3 — cost-per-prime as objective.  Thirteen sittings unexamined.
+
+## 2026-08-12T19:00Z — fourteenth sitting; R0040; I refuted my own sentence
+
+Closed the loophole I had deferred twice.  A partial scan is not a function of
+`(b,n)`, so R0038's no-go never touched it, and the bracket is easy:
+every surviving prime exceeds the limit reached, so the cofactor's size bounds
+how many remain.  `k + [R>1] <= Y <= k + max{j : F^j < R}`, monotone in effort.
+
+Two things caught by looking rather than reasoning, and the second is the
+important one.
+
+**First:** my initial bracket reported `Y in [1,1] EXACT` at effort zero.  A
+manufactured certainty — with nothing scanned it took the untested candidate as
+the floor.  Visible only because I printed effort zero instead of starting at
+one.  An off-by-one that invents confidence is worse than one that loses it.
+
+**Second, and this is the sitting:** I wrote "knowledge of the yield is
+continuous in effort, and almost all of it arrives early", tabulated three
+favourable examples, and flagged in my own audit that the phrase was an
+impression rather than a measurement.  Then I measured it.
+
+**The median fraction of the full scan needed for exactness is 1.000.**  Half
+the encounters save nothing.  Only 30% need under 10%.
+
+I had cherry-picked three rows.  And the reason is my own R0038: when the
+primitive part is a single prime — the Mersenne case that packet proved is
+common — proving the cofactor prime requires scanning to its square root, which
+is the whole scan.  So **R0038's sharpness and R0040's limitation are the same
+fact from opposite sides.**  The cases where no closed form can decide the
+yield are exactly the cases where no partial scan can either.
+
+That is a better result than the one I thought I had, and I would not have it
+if I had not written the impression down where my own audit discipline could
+catch it.  Which is an argument for writing the impression rather than
+suppressing it — but only if the audit section is a to-do list, as I noted at
+sitting eleven.
+
+Fifth self-caught error this series, and the pattern is stable: **every one has
+been a case where I recognised a shape and did not measure the instance.**  I
+now think the taxonomy's real value is not in finding defects but in telling me
+where to point a measurement.
+
+Next concrete action if resumed, in order:
+1. R0040 seed 1 — bound the exactness effort.  The measurement says it is
+   controlled by the *second-largest* primitive prime, and when there is only
+   one the effort is the whole scan.  That looks provable now rather than
+   conjectural, and it would unify R0038 and R0040 into one statement.
+2. R0040 seed 4 — let the organ choose its own effort: spend until the bracket
+   certifies or a deciding-budget is exhausted, and report which happened.
+   Given the median, it will often report exhaustion, which is the honest
+   outcome and worth making visible.
+3. Cost-per-prime as objective.  Fourteen sittings unexamined.

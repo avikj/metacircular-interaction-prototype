@@ -24,6 +24,8 @@ from cyclotomic_sensor import (
     growth_rate,
     yield_bound,
     actual_yield,
+    partial_bracket,
+    certify_with_effort,
     quote_resolution,
     resolve_contested,
     beats_certainly,
@@ -1065,6 +1067,80 @@ class TestCyclotomicSensor(unittest.TestCase):
         self.assertEqual(verdict.winner,
                          resolve_contested((2, 3), (2, 11),
                                            budget=20_000).winner)
+
+    def test_partial_bracket_always_contains_the_truth(self) -> None:
+        """Theorem 19 falsifier: the bracket is a bound, so the true yield must
+        lie inside it at every effort, and the bracket must never widen."""
+        for base, index in ((2, 29), (2, 37), (2, 41), (5, 19), (3, 22)):
+            truth = actual_yield(base, index)
+            self.assertIsNotNone(truth)
+            previous = None
+            for effort in (0, 1, 2, 5, 10, 30, 60, 200, 500):
+                bracket = partial_bracket(base, index, effort=effort)
+                self.assertLessEqual(bracket.low, truth,
+                                     f"b={base} n={index} e={effort}")
+                self.assertLessEqual(truth, bracket.high,
+                                     f"b={base} n={index} e={effort}")
+                if previous is not None:
+                    self.assertGreaterEqual(bracket.low, previous.low)
+                    self.assertLessEqual(bracket.high, previous.high)
+                previous = bracket
+
+    def test_zero_effort_reports_no_knowledge(self) -> None:
+        """With nothing scanned the bracket must fall back to the R0027 floor
+        of index+1, not to the untested candidate — which would report a
+        spurious exact answer."""
+        for base, index in ((2, 29), (5, 19), (2, 41)):
+            bracket = partial_bracket(base, index, effort=0)
+            self.assertEqual(bracket.low, 1)
+            self.assertGreater(bracket.high, 1)
+            self.assertLessEqual(bracket.high, yield_bound(base, index))
+
+    def test_bracket_reaches_exactness_far_below_the_full_price(self) -> None:
+        """The point of the loophole: certainty at a fraction of the cost."""
+        for base, index, ceiling in ((2, 29, 60), (5, 19, 400), (2, 41, 400)):
+            bracket = partial_bracket(base, index, effort=ceiling)
+            self.assertTrue(bracket.exact, f"b={base} n={index}")
+            self.assertEqual(bracket.low, actual_yield(base, index))
+            self.assertLess(bracket.spent, scan_cost(base, index) // 3)
+
+    def test_effort_can_certify_what_the_a_priori_bound_cannot(self) -> None:
+        """R0038's no-go covers bounds on (b,n) alone; a partial scan is not
+        such a bound, and it decides pairs the a priori test leaves contested."""
+        left, right = (2, 3), (2, 11)
+        self.assertFalse(beats_certainly(scan_cost(*left), scan_cost(*right),
+                                         *right))          # contested a priori
+        self.assertTrue(certify_with_effort(left, right, effort=20))
+        # and the verdict agrees with paying in full
+        verdict = resolve_contested(left, right, budget=20_000)
+        self.assertEqual(verdict.winner, left)
+
+    def test_bracket_usually_saves_nothing(self) -> None:
+        """The measurement that refuted my own sentence.  Half the encounters
+        need the whole scan for exactness, because proving a single-prime
+        primitive part prime requires reaching its square root — R0038's
+        sharpness and R0040's limitation are the same fact."""
+        ratios = []
+        for base in (2, 3, 5, 7):
+            for index in range(10, 46):
+                full = scan_cost(base, index)
+                if full < 50 or full > 300_000:
+                    continue
+                low, high = 1, full
+                while low < high:
+                    middle = (low + high) // 2
+                    if partial_bracket(base, index, effort=middle).exact:
+                        high = middle
+                    else:
+                        low = middle + 1
+                ratios.append(low / full)
+        ratios.sort()
+        self.assertGreater(len(ratios), 50)
+        self.assertEqual(ratios[len(ratios) // 2], 1.0)     # median saves nothing
+        self.assertLess(min(ratios), 0.01)                  # but the tail is real
+        cheap = sum(1 for r in ratios if r < 0.1) / len(ratios)
+        self.assertGreater(cheap, 0.2)
+        self.assertLess(cheap, 0.5)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):
