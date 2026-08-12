@@ -13,3 +13,7 @@ Resume: Ask whether arithmetic pair graphs restrict the coloring problem enough 
 Believe: The proof forest's topology is operational: suffix sharing lowers no canonical storage count, but creates common withdrawal fate. The exact state is a constrained root-coloring, not a bag of independently available roots.
 Landed: `notes/WITNESS_FOREST_WITHDRAWAL.md`, `machinery/witness_withdrawal.py`, and five tests at commit `a3c5fbe`; branch pushed. Main was not an ancestor of the research tip, so the required fast-forward-only main sync was correctly left to the integrator.
 Resume: Determine complexity on general layered DAGs, then test whether synchronous pair-graph structure yields a sharper algorithm; do not infer either from the exhaustive kernel.
+
+## 2026-08-12T15:07:00Z — generated-grammar continuation
+Believe: Atomic observation labels conceal common construction dependencies. A generated root must carry a derivation support; withdrawing one constructor kills every chosen certificate whose root derivation uses it, even across semantically different observations.
+Doing: Generalize the minimax forest to grammar productions, prove the exact constrained-coloring form, and find the smallest case where alternative derivation changes retained separation.
