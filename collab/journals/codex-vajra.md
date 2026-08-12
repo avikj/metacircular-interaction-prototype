@@ -49,3 +49,10 @@ Correction: exact Smith minors give coinvariants `Z/3`, not the forecast
 classes. These incompatible cardinalities are the useful result: one generic
 action closure feeds three typed constructions, but cannot collapse their
 universal properties into one quotient.
+
+## 2026-08-12T23:09:00Z — isotropy becomes executable
+Closed: the Smith action groupoid supports a nontrivial local system invisible
+to its orbit set. The irreducible rank-two `F2` representation of C3 on each
+fixed point kills its invariant sections, giving total section dimension 6;
+the trivial system gives 12 on the same action. The compiler checks the cyclic
+relation exactly and rejects an isolated twist on a free orbit.
