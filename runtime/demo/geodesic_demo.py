@@ -208,13 +208,13 @@ def run(task, rules, ctx, tag):
 
 
 def show_frontier(ex, indent="    "):
-    print("%s%-46s %6s %5s %6s %7s" % (indent, "extracted term", "steps",
+    print("%s%-52s %5s %4s %5s %6s" % (indent, "extracted term", "steps",
                                        "size", "width", "verify"))
-    print(indent + "-" * 74)
+    print(indent + "-" * 76)
     for r in ex.frontier:
         c = r.cost
-        print("%s%-46s %6d %5d %6d %7d"
-              % (indent, r.pretty()[:46], c.steps, c.size, c.width, c.verify))
+        print("%s%-52s %5d %4d %5d %6d"
+              % (indent, r.pretty()[:52], c.steps, c.size, c.width, c.verify))
 
 
 def prove(lhs, rhs, rules, ctx, tag):

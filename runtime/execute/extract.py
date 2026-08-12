@@ -559,8 +559,10 @@ def frontier_diff(before: Sequence[Route],
             shortened.append((b[k], a[k]))
         else:
             unchanged.append(a[k])
-    bs = min((r.cost.steps for r in before), default=-1)
-    as_ = min((r.cost.steps for r in after), default=-1)
+    # The empty route to the presentation itself is on every frontier and is
+    # not a route in any interesting sense, so the "best" figure excludes it.
+    bs = min((r.cost.steps for r in before if r.cost.steps > 0), default=-1)
+    as_ = min((r.cost.steps for r in after if r.cost.steps > 0), default=-1)
     return FrontierDiff(appeared=appeared, vanished=vanished,
                         shortened=tuple(shortened), unchanged=tuple(unchanged),
                         best_steps_before=bs, best_steps_after=as_)
