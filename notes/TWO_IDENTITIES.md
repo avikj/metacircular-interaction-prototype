@@ -109,3 +109,13 @@ where `M_Θ ≠ M` and the excluded model is a task the fleet actually
 runs — making the charge a measured cost, not an allegory. That is a
 one-experiment note with a null control, and it closes the loop between
 §1's table and §3's test.
+
+**Landed** (`machinery/relativized_initiality.py`, 16/16 hostile tests):
+exhaustively over all 602 admissible pointed unary algebras with ≤4
+states, `T/Θ` receives a homomorphism iff `Θ` is validated — 390 in-class,
+**212 excluded** — with parity the concrete excluded task (no map exists,
+verified by enumeration), the in-class task strictly cheaper (17 < 20
+counter steps, same answer), the charge completion `T/Θ × parity ≅ T`
+verified by executable CRT round trip, the null control (trivial
+congruence) moving no counter and excluding nothing, and two planted-false
+controls caught.
