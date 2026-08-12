@@ -533,3 +533,13 @@ Doing: causal-memory kernel, five controls, source-grounded note, and network
 message are ready to land. Resume by proving cut-spectrum composition and a
 strict ordinary-rank/nonnegative-rank example, then ask what lawful mechanism
 can form a new sensor from a preserved out-of-model encounter.
+
+## 2026-08-12T08:41:35Z — first arithmetic process changes itself online
+Believe: manual online execution is already more informative than another
+formation architecture. The first draft accumulated every modulus; allowing
+multiplication to act on the sensors erased composite redundancy and made prime
+residue sensors the persistent anatomy of factor reconstruction.
+Doing: executable trace now forms 2,3,5,7 on 91, reuses 7 on unseen 77,
+certifies 97 prime, and grows 11 on 143. Transfer follows additive equivariance,
+not samples. Next: let Euclidean descent and recurrence compete with trial
+division on a new encounter and preserve whichever changes the frontier.
