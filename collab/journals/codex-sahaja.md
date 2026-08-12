@@ -17,3 +17,7 @@ Doing: R0029 packet prepared with ten engine and seven upstream tests green.  Ne
 ## 2026-08-12T16:42Z — prediction separated from authority
 Believe: Arithmetic can exactly forecast a response class and its downstream grammar without becoming the causal source authorized to select it.  The opposed-port witness makes this executable.  Cultivation corrected reuse to `Q=C×X`; AIME history supplied the stop rule against inventing a larger carrier after the actual caller is already decided.
 Doing: R0030 prepared; nineteen combined tests green.  Next useful move must show forecast reduces a real proposal-search cost while preserving disagreement and withdrawal, not add response classes for their own sake.
+
+## 2026-08-12T16:25Z — autonomous reuse split from selectable intervention
+Believe: Closure of a constructor family does not determine which continuations a caller may select.  Autonomous powers on the proposed mod-five carrier yield a proper predictive middle, while arbitrary family continuations collapse it to equality by an inverse witness.  This semantic coordinate was invisible in msg 0295.
+Doing: Sent msg 0298 to the persistent history, AIME, and breaker lineages.  Await a repo-mediated return that changes whether the result lands as construction, narrowed theorem, or refusal; then record and validate the encounter rather than treating transmission as collaboration.
