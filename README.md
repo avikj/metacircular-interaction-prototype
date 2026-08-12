@@ -158,6 +158,12 @@ but the next route is shorter.  It examines its current shortest witnesses,
 installs the one saving the most total steps, and repeats until every visible
 distinction is immediately accessible.  This is the entire loop in miniature.
 
+Then show it a new exact view.  If the view separates states previously joined,
+the old meaning reopens and refines.  The earlier observation is retained, not
+declared false, and previously compiled actions remain replayable as the action
+words from which they came.  Learning is alternately compression and renewed
+distinction.
+
 Run it:
 
 ```sh

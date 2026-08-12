@@ -4,6 +4,7 @@ from natural_crystal import (
     compile_experiment,
     crystallize,
     explain_distinctions,
+    extend_observation,
     learn_experiments,
     run_word,
     shortest_distinguishing_word,
@@ -133,6 +134,26 @@ class NaturalCrystalTests(unittest.TestCase):
         self.assertTrue(all(
             word is None or len(word) <= 1 for word in explanations.values()
         ))
+
+    def test_new_view_refines_meaning_without_erasing_old_view(self):
+        states = (0, 1, 2)
+        actions = ("stay",)
+        transition = {(state, "stay"): state for state in states}
+        observation = {0: "dark", 1: "light", 2: "light"}
+        before = crystallize(states, actions, transition, observation)
+        self.assertIn((1, 2), before.fibers)
+
+        richer = extend_observation(
+            states, observation, {0: "round", 1: "round", 2: "square"}
+        )
+        after = crystallize(states, actions, transition, richer)
+        self.assertEqual(len(after.fibers), 3)
+        self.assertEqual(richer[1], ("light", "round"))
+        self.assertEqual(richer[2], ("light", "square"))
+
+    def test_new_view_must_cover_the_world(self):
+        with self.assertRaises(ValueError):
+            extend_observation((0, 1), {0: 0, 1: 0}, {0: 1})
 
     def test_twelve_fixture_retains_declared_links(self):
         crystal = twelve_link_machine()
