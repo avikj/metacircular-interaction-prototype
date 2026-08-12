@@ -49,9 +49,10 @@ from runtime.kernel import check as C                                  # noqa: E
 from runtime.kernel import edges as E                                  # noqa: E402
 from runtime.kernel import term as T                                   # noqa: E402
 from runtime.kernel.egraph import EGraph                               # noqa: E402
-from runtime.execute import (Budget, EMatchBudget, RouteFinder,        # noqa: E402
+from runtime.execute import (Budget, ClassExtractor, EMatchBudget,     # noqa: E402
+                             RouteFinder,
                              Scalarization, apply_rule, count_steps,
-                             ematch, expand_path,
+                             ematch, expand_path, extract_class_frontier,
                              extract_routes, frontier_diff, install_theorem,
                              match, positions, rule_from_axiom,
                              rule_from_edge, saturate, subterm_at)
@@ -582,7 +583,99 @@ def main() -> int:
     want(sf.rejected > 0, "the forged rule's applications must be counted as rejected")
 
     # ---------------------------------------------------------------- 13
-    hdr("13. VERDICT")
+    hdr("13. THE MATERIALISATION CLIFF  (extraction over classes, not terms)")
+    print("  Sections 2-12 extract from the terms the e-graph *stores*, so the")
+    print("  frontier can only ever contain a term somebody materialised.  With")
+    print("  Budget.max_exhaustive_vars = 1 a multi-variable rule fires at one")
+    print("  representative per class, so most combinations are never built, and")
+    print("  a better route to an unbuilt term is invisible.  extract_class_frontier")
+    print("  runs a Pareto fixpoint over the CLASS DAG instead: a class carries a")
+    print("  Pareto set of realisations, a realisation is a node with its children")
+    print("  replaced by any realisation of their classes, and the resulting term")
+    print("  need never have been built.  Every route is still checked by")
+    print("  kernel/check.py before it is costed.\n")
+
+    cx0 = ClassExtractor(g0, finder=finder0)
+    cd0 = extract_class_frontier(g0, ctx_before, task, finder=finder0, extractor=cx0)
+    cx1 = ClassExtractor(g1, finder=finder1)
+    cd1 = extract_class_frontier(g1, ctx_after, task, finder=finder1, extractor=cx1)
+    sol0, sol1 = cx0.solve(), cx1.solve()
+    known0, known1 = set(g0.terms()), set(g1.terms())
+    print("  class fixpoint before : %s" % sol0.render())
+    print("  class fixpoint after  : %s" % sol1.render())
+    want(sol0.complete and sol1.complete,
+         "the class fixpoint must converge rather than hit a bound here")
+
+    def show_dag(tag, ex, known):
+        new = [r for r in ex.frontier if r.target not in known]
+        print("\n  %s -- %s" % (tag, ex.render()))
+        print("    %-52s %5s %4s %5s %6s  built?" % ("extracted term", "steps",
+                                                     "size", "width", "verify"))
+        print("    " + "-" * 84)
+        for r in ex.frontier:
+            c = r.cost
+            print("    %-52s %5d %4d %5d %6d  %s"
+                  % (r.pretty()[:52], c.steps, c.size, c.width, c.verify,
+                     "yes" if r.target in known else "NEVER BUILT"))
+        return new
+
+    new0 = show_dag("BEFORE the theorem", cd0, known0)
+    new1 = show_dag("AFTER the theorem", cd1, known1)
+    print("\n  stored-term frontier   : %d before, %d after"
+          % (len(ex0.frontier), len(ex1.frontier)))
+    print("  class-DAG frontier     : %d before, %d after"
+          % (len(cd0.frontier), len(cd1.frontier)))
+    print("  frontier routes to terms that were NEVER BUILT: %d before, %d after"
+          % (len(new0), len(new1)))
+    want(len(new0) > 0, "the class-DAG frontier must contain an unbuilt term")
+    want(len(cd0.frontier) > len(ex0.frontier),
+         "extraction over classes must find routes extraction over terms cannot")
+    want(cd0.rejected == 0 and cd1.rejected == 0,
+         "every class-DAG route must be accepted by the checker")
+
+    dagdiff = frontier_diff(cd0.frontier, cd1.frontier)
+    print("\n  curvature measured over the class DAG : %s" % dagdiff.render())
+    print("  curvature measured over stored terms  : %s" % diff.render())
+
+    tower = sqr(sqr(sqr(lit(BASE))))
+    dag_before = min((r.cost.steps for r in cd0.routes if r.target == tower.addr),
+                     default=-1)
+    dag_after = min((r.cost.steps for r in cd1.routes if r.target == tower.addr),
+                    default=-1)
+    print("\n  LOUD: the published number this moves.")
+    print("    route to sqr(sqr(sqr #3)), over the retained records (section 7):")
+    print("      %d -> %d steps  (-%d)" % (tower_before, tower_after,
+                                           tower_before - tower_after))
+    print("    the same target, extracted over the class DAG:")
+    print("      %d -> %d steps  (-%d)" % (dag_before, dag_after,
+                                           dag_before - dag_after))
+    print("    Both columns are checked proofs.  The class-DAG extractor finds a")
+    print("    %d-step proof BEFORE the theorem that RouteFinder's shortest route"
+          % dag_before)
+    print("    through the retained merge records does not: %d is a minimum over"
+          % tower_before)
+    print("    record-graph routes, not over checkable proofs.  So the theorem's")
+    print("    honest effect on this target is -%d, not -%d, and section 7's -%d"
+          % (dag_before - dag_after, tower_before - tower_after,
+             tower_before - tower_after))
+    print("    is partly an artifact of how thoroughly the *before* run was")
+    print("    extracted.  The direction of the claim is unchanged: the theorem")
+    print("    still shortens it, and no route got longer.")
+    want(dag_before <= tower_before,
+         "the class-DAG route may not be worse than the record-graph geodesic")
+    want(dag_after <= tower_after,
+         "the class-DAG route may not be worse than the record-graph geodesic")
+
+    cd2 = extract_class_frontier(g2, ctx_null, task, finder=finder2)
+    dag_null_same = ([(r.target, r.cost.as_tuple()) for r in cd2.frontier] ==
+                     [(r.target, r.cost.as_tuple()) for r in cd0.frontier])
+    print("\n  NULL CONTROL over the class DAG : frontier identical to before: %s"
+          % ("yes" if dag_null_same else "NO"))
+    want(dag_null_same,
+         "the null theorem must leave the class-DAG frontier bit-identical too")
+
+    # ---------------------------------------------------------------- 14
+    hdr("14. VERDICT")
     print("  task                        : evaluate 3^8, presented left-nested")
     print("  saturation before / after   : %s / %s"
           % (sat0.status, sat1.status))

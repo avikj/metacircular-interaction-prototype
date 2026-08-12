@@ -39,6 +39,10 @@ from .ematch import (  # noqa: F401
     ematch_rule,
 )
 from .extract import (  # noqa: F401
+    DEFAULT_DAG_BOUNDS,
+    ClassExtractor,
+    ClassOption,
+    ClassSolution,
     RouteFinder,
     COST_NAMES,
     CostVector,
@@ -49,6 +53,7 @@ from .extract import (  # noqa: F401
     Scalarization,
     arith_width,
     dominates,
+    extract_class_frontier,
     extract_routes,
     frontier_diff,
     is_nondominated,
@@ -92,4 +97,6 @@ __all__ = [
     "ScalarChoice", "FrontierDiff", "literal_value", "arith_width",
     "measure_route", "extract_routes", "dominates", "is_nondominated",
     "pareto", "scalarize", "frontier_diff", "RouteFinder",
+    "ClassOption", "ClassSolution", "ClassExtractor",
+    "extract_class_frontier", "DEFAULT_DAG_BOUNDS",
 ]

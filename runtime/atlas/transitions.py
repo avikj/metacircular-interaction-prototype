@@ -364,8 +364,14 @@ def _trivial_residual(key: str, statement: str) -> Residual:
 
 
 def _sym_residual(n: int) -> Residual:
+    """S_n, with its triviality *declared honestly*: trivial exactly for n < 2.
+
+    ATLAS_OF_N Thm 2.3(2): pi_0 is not faithful **for n >= 2**.  Declaring
+    S_0 and S_1 nontrivial would be caught by ``Residual.verify`` -- the same
+    machinery that catches a residual claimed trivial when it is not.
+    """
     g = symmetric_group(n)
-    return Residual("S_%d (decategorification)" % n, GROUP, g, False,
+    return Residual("S_%d (decategorification)" % n, GROUP, g, n < 2,
                     "Aut of an n-element set; pi_1(BS_n); order %d = %d!" % (g.order, n))
 
 
@@ -413,7 +419,8 @@ def _shared_locus_residual(d: DigitChart) -> Residual:
                     (("primes dividing b=%d" % d.b, d.shared_locus_with_primes()),),
                     False,
                     "charts (e) and (f) overlap exactly at the primes dividing b "
-                    "(Prop. 2.9); every 'divisibility trick' is that statement")
+                    "(Prop. 2.9); every 'divisibility trick' is that statement",
+                    trivial_test=lambda pairs: len(pairs[0][1]) == 0)
 
 
 # ---------------------------------------------------------------------------
@@ -422,6 +429,7 @@ def _shared_locus_residual(d: DigitChart) -> Residual:
 
 _N = 12                      # the exhaustive range for element-level maps
 _SET_N = 4                   # the exhaustive range for set/order-level maps
+_ATOM_N = len(ATOMS)         # charts (c),(d) cannot name a set bigger than this
 
 
 def _peano_tally() -> Transition:
@@ -495,9 +503,11 @@ def _ordinal_cardinal() -> Transition:
 def _ordinal_peano() -> Transition:
     return Transition(
         key="d->a", src="ordinal", dst="peano", kind="Iso",
-        range_note="order types of linear orders on [n], n in [0,%d]" % _N,
-        domain=lambda: [ORD.datum(n) for n in range(_N + 1)],
-        codomain=lambda: [PEANO.datum(n) for n in range(_N + 1)],
+        range_note="order types of linear orders on [n], n in [0,%d] (the ordinal "
+                   "chart's atom universe stops there); kernel edges for n in [0,%d]"
+                   % (_ATOM_N, TERM_RANGE[-1]),
+        domain=lambda: [ORD.datum(n) for n in range(_ATOM_N + 1)],
+        codomain=lambda: [PEANO.datum(n) for n in range(_ATOM_N + 1)],
         forward=lambda o: PEANO.datum(len(o)),
         residuals=(_trivial_residual(
             "trivial below omega",

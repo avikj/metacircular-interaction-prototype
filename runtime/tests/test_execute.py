@@ -31,11 +31,12 @@ from runtime.kernel import check as C                                  # noqa: E
 from runtime.kernel import edges as E                                  # noqa: E402
 from runtime.kernel import term as T                                   # noqa: E402
 from runtime.kernel.egraph import EGraph                               # noqa: E402
-from runtime.execute import (Budget, CostVector, EMatchBudget,         # noqa: E402
+from runtime.execute import (Budget, ClassExtractor, CostVector,       # noqa: E402
+                             EMatchBudget,
                              Route, RouteFinder, Rule, RewriteError,
                              Scalarization, apply_rule, arith_width,
                              compile_pattern, count_steps, dominates,
-                             ematch, expand_path,
+                             ematch, expand_path, extract_class_frontier,
                              extract_routes, frontier_diff, install_theorem,
                              is_nondominated, literal_value, match,
                              measure_route, pareto, positions, reverse_path,
@@ -778,6 +779,123 @@ def test_frontier_diff_can_report_a_shape_change_with_no_shortening():
     d = frontier_diff((a,), (a, b))
     assert d.appeared and not d.shortened
     assert d.shape_changed_without_shortening
+
+
+# --------------------------------------------------------------------------
+# 5b. Pareto extraction over the class DAG -- the materialisation cliff
+# --------------------------------------------------------------------------
+
+def test_class_dag_extraction_finds_a_route_to_a_term_nobody_built():
+    """The capability: the frontier stops being a subset of the stored terms.
+
+    ``max_exhaustive_vars = 1`` means a multi-variable rule builds its right
+    side at one representative per class, so most combinations of realisations
+    are never materialised.  Extraction over stored terms cannot see them at
+    all; extraction over the class DAG assembles them.
+    """
+    ctx, rules, task, g, sat = saturated(8)
+    finder = RouteFinder(g)
+    old = extract_routes(g, ctx, task, mode="geodesic", finder=finder)
+    new = extract_class_frontier(g, ctx, task, finder=finder)
+    built = set(g.terms())
+    unbuilt = [r for r in new.frontier if r.target not in built]
+    assert unbuilt, "the class-DAG frontier must contain a term the e-graph never built"
+    # and those are genuinely new points, not restatements of stored ones
+    old_costs = {r.cost.as_tuple() for r in old.frontier}
+    assert any(r.cost.as_tuple() not in old_costs for r in unbuilt)
+    # every one of them is a *checked* route to a term provably equal to the task
+    for r in unbuilt:
+        assert C.check_path(r.path, task.addr, r.target, ctx)
+        assert T.lookup(r.target) is not None
+    assert new.rejected == 0
+
+
+def test_class_dag_frontier_is_at_least_as_good_as_the_stored_term_frontier():
+    """The cliff, quantified: no stored-term frontier point survives unbeaten."""
+    ctx, rules, task, g, sat = saturated(8)
+    finder = RouteFinder(g)
+    old = extract_routes(g, ctx, task, mode="geodesic", finder=finder)
+    new = extract_class_frontier(g, ctx, task, finder=finder)
+    assert len(new.frontier) > len(old.frontier)
+    for r in old.frontier:
+        assert any(o.cost.as_tuple() == r.cost.as_tuple()
+                   or dominates(o.cost, r.cost) for o in new.frontier), \
+            "a stored-term frontier point must be matched or beaten: %s" % r.render()
+    # and the class-DAG route to a stored target is never worse than the geodesic
+    best_old = {}
+    for r in old.routes:
+        best_old[r.target] = min(best_old.get(r.target, r.cost.steps), r.cost.steps)
+    for r in new.routes:
+        if r.target in best_old:
+            assert r.cost.steps <= best_old[r.target], r.render()
+
+
+def test_class_fixpoint_converges_and_says_so():
+    ctx, rules, task, g, sat = saturated(6)
+    sol = ClassExtractor(g, finder=RouteFinder(g)).solve()
+    assert sol.complete and not sol.reason, sol.render()
+    assert sol.rounds >= 1 and sol.assembled > 0
+    root = g.find(task.addr)
+    best = sol.best_per_component(root)
+    assert set(best) == {"steps", "size", "width"}
+    # the per-component champions really are champions inside the class
+    for name, opt in best.items():
+        i = ("steps", "size", "width").index(name)
+        assert all(opt.triple()[i] <= o.triple()[i] for o in sol.options[root])
+
+
+def test_class_fixpoint_reports_its_bound_instead_of_truncating_silently():
+    """CONTROL: a bounded fixpoint must not present itself as converged."""
+    ctx, rules, task, g, sat = saturated(6)
+    finder = RouteFinder(g)
+    tight = ClassExtractor(g, finder=finder, bounds={"max_rounds": 1}).solve()
+    assert not tight.complete and "max_rounds" in tight.reason, tight.render()
+    capped = ClassExtractor(g, finder=finder, bounds={"max_options": 1}).solve()
+    assert not capped.complete and "max_options" in capped.reason, capped.render()
+    small = ClassExtractor(g, finder=finder, bounds={"max_terms": 5}).solve()
+    assert not small.complete and "max_terms" in small.reason, small.render()
+    # and the bound is propagated into the extraction result, not swallowed
+    ex = extract_class_frontier(g, ctx, task, finder=finder,
+                                bounds={"max_rounds": 1})
+    assert not ex.complete and ex.partial_targets and ex.reasons
+    try:
+        ClassExtractor(g, bounds={"no_such_bound": 3})
+        assert False, "an unknown bound must be refused, not ignored"
+    except ValueError:
+        pass
+
+
+def test_class_dag_extraction_never_returns_an_unchecked_route():
+    """CONTROL: assembled terms are not trusted -- every route goes to the checker."""
+    ctx, rules, task, g, sat = saturated(6)
+    ex = extract_class_frontier(g, ctx, task)
+    assert ex.routes and ex.rejected == 0
+    for r in ex.routes:
+        assert g.equal(task, r.target), "an extracted target must be in the class"
+        assert C.check_path(r.path, task.addr, r.target, ctx)
+    # a route measured against a *different* book must be refused, which is the
+    # planted falsehood: "it was assembled by our own fixpoint, so it is fine"
+    empty = C.CheckContext()
+    assembled = [r for r in ex.routes if r.cost.steps > 0]
+    assert assembled
+    assert all(not C.check_path(r.path, task.addr, r.target, empty)
+               for r in assembled[:3])
+
+
+def test_class_dag_extraction_is_deterministic():
+    ctx, rules, task, g, sat = saturated(6)
+    a = extract_class_frontier(g, ctx, task)
+    b = extract_class_frontier(g, ctx, task)
+    assert [(r.target, r.cost.as_tuple()) for r in a.frontier] == \
+           [(r.target, r.cost.as_tuple()) for r in b.frontier]
+
+
+def test_class_dag_extraction_does_not_mutate_the_egraph():
+    ctx, rules, task, g, sat = saturated(6)
+    before = (len(g.terms()), len(g.records()), len(g.classes()))
+    extract_class_frontier(g, ctx, task)
+    after = (len(g.terms()), len(g.records()), len(g.classes()))
+    assert before == after, (before, after)
 
 
 # ==========================================================================

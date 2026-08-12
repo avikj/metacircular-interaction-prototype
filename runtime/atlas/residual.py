@@ -513,6 +513,9 @@ class Residual:
     trivial: bool
     statement: str
     extra: Tuple[Tuple[str, Any], ...] = ()
+    #: for ``INVARIANT`` residuals: what "trivial" means for this invariant.
+    #: Default: all recorded values agree (i.e. the charts do not differ).
+    trivial_test: Optional[Callable[[Any], bool]] = None
 
     def __post_init__(self) -> None:
         if self.kind not in RESIDUAL_KINDS:
@@ -544,9 +547,13 @@ class Residual:
                                   not rep.class_is_nonzero, None,
                                   rep.render(), rep.is_cocycle and rep.normalized)
         if self.kind == INVARIANT:
-            # obj is a tuple of (label, value) pairs; trivial iff all values agree
-            vals = tuple(v for _, v in self.obj)
-            same = len(set(map(repr, vals))) <= 1
+            # obj is a tuple of (label, value) pairs; by default trivial means
+            # "all recorded values agree", but a residual may name its own test.
+            if self.trivial_test is not None:
+                same = bool(self.trivial_test(self.obj))
+            else:
+                vals = tuple(v for _, v in self.obj)
+                same = len(set(map(repr, vals))) <= 1
             return ResidualReport(self.key, self.kind, self.trivial, same, None,
                                   "; ".join("%s=%s" % (k, v) for k, v in self.obj), True)
         # OBSTRUCTION: obj is a callable returning (holds, witness)

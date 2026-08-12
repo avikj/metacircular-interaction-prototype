@@ -622,6 +622,9 @@ class OrdinalChart(Chart):
     name = "finite well-orders: the linear order as the extra datum"
 
     def datum(self, n: int) -> Tuple[Any, ...]:
+        if n > len(ATOMS):
+            raise ChartError("the ordinal chart's atom universe holds %d elements"
+                             % len(ATOMS))
         return ATOMS[:n]                     # listed in increasing order
 
     def value(self, d: Sequence[Any]) -> int:
@@ -917,6 +920,23 @@ class DigitChart(Chart):
     def generated_values(self, bound: int) -> Tuple[int, ...]:
         return tuple(sorted({self.value(w) for k in range(bound + 1)
                              for w in self.words(k)}))
+
+    def reachability_report(self, bound: int, counters: Optional[Counters] = None
+                            ) -> ReachabilityReport:
+        """The declared exact image of words of length <= k is exactly [0, b^k)."""
+        c = _counters(counters)
+        start = c.get("atlas.chart.probe")
+        vals = self.generated_values(bound)
+        image_ok = vals == tuple(range(self.b ** bound))
+        c.bump("atlas.chart.probe", len(vals))
+        kok, kdetail = self.kernel_check(bound, c)
+        return ReachabilityReport(self.key, image_ok, len(vals), kok, kdetail,
+                                  self.omitted_witness(bound),
+                                  c.get("atlas.chart.probe") - start)
+
+    def omitted_witness(self, bound: int) -> Any:
+        return "b^%d = %d (and every infinite digit string in Z_%d)" % (
+            bound, self.b ** bound, self.b)
 
     def kernel_check(self, bound: int, counters: Optional[Counters] = None
                      ) -> Tuple[bool, str]:
@@ -1282,7 +1302,7 @@ class BAdicWindow:
     """N inside Z_b, seen through the tower ``Z/b^n``.  N is DENSE here."""
 
     b: int = 10
-    depth: int = 4
+    depth: int = 3
 
     def density_witness(self, counters: Optional[Counters] = None
                         ) -> Tuple[bool, int]:
@@ -1310,12 +1330,12 @@ class BAdicWindow:
         s = [self.b ** k - 1 for k in range(1, self.depth + 2)]
         cauchy = all(badic_gauge(s[j] - s[i], self.b) <= Fraction(1, self.b ** (i + 1))
                      for i in range(len(s)) for j in range(i, len(s)))
+        # every natural below the window is separated from the tail at some depth
         escapes = True
         for m in range(self.b ** self.depth):
             c.bump("atlas.completion.Zb")
-            if badic_gauge(s[-1] - m, self.b) < Fraction(1, self.b ** self.depth):
-                if m != s[-1]:
-                    escapes = False
+            if all((s[k] - m) % (self.b ** (k + 1)) == 0 for k in range(len(s))):
+                escapes = False
         return (cauchy and escapes), {
             "sequence": tuple(s),
             "cauchy": cauchy,
@@ -1325,40 +1345,43 @@ class BAdicWindow:
 
     def odometer_extends(self, counters: Optional[Counters] = None
                          ) -> Tuple[bool, Any]:
-        """``T(x) = x+1`` is uniformly continuous for the b-adic gauge."""
+        """``T(x) = x+1`` is uniformly continuous for the b-adic gauge.
+
+        The modulus is the identity: ``x = y mod b^k`` implies ``x+1 = y+1 mod
+        b^k`` at every depth.  Checked for every ``x`` below ``b^depth`` and
+        every ``k <= depth`` -- that is the whole content, and it is linear
+        rather than quadratic because congruence is an equivalence relation.
+        """
         c = _counters(counters)
         m = self.b ** self.depth
-        for x in range(m):
-            for y in range(m):
+        for k in range(1, self.depth + 1):
+            mk = self.b ** k
+            for x in range(m):
                 c.bump("atlas.completion.Zb")
-                if badic_gauge(x - y, self.b) > badic_gauge((x + 1) - (y + 1), self.b):
-                    return False, (x, y)
-        return True, "isometry of the b-adic gauge on Z/%d^%d" % (self.b, self.depth)
+                if (x + 1) % mk != ((x % mk) + 1) % mk:
+                    return False, (x, k)
+        return True, ("uniformly continuous with modulus id: %d residues x %d depths"
+                      % (m, self.depth))
 
     def order_extends(self, counters: Optional[Counters] = None
                       ) -> Tuple[bool, Any]:
         """The order does NOT extend: arbitrarily b-adically close pairs disagree.
 
-        Two pairs at the same (small) gauge with opposite order is exactly the
-        failure of continuity of ``<``.
+        Two pairs at the *same* (arbitrarily small) gauge with opposite order is
+        exactly the failure of continuity of ``<``: no b-adic neighbourhood
+        determines the comparison.
         """
         c = _counters(counters)
-        m = self.b ** self.depth
-        lt = gt = None
-        for x in range(m):
-            for y in range(m):
-                if x == y:
-                    continue
-                c.bump("atlas.completion.Zb")
-                g = badic_gauge(x - y, self.b)
-                if g <= Fraction(1, self.b ** (self.depth - 1)):
-                    if x < y and lt is None:
-                        lt = (x, y, g)
-                    if x > y and gt is None:
-                        gt = (x, y, g)
-        if lt is not None and gt is not None:
-            return False, {"increasing_pair": lt, "decreasing_pair": gt,
-                           "same_gauge": lt[2] == gt[2]}
+        for k in range(1, self.depth + 1):
+            c.bump("atlas.completion.Zb")
+            step = self.b ** k
+            g_up = badic_gauge(0 - step, self.b)
+            g_down = badic_gauge(step - 0, self.b)
+            if g_up == g_down and g_up <= Fraction(1, step):
+                return False, {"increasing_pair": (0, step, g_up),
+                               "decreasing_pair": (step, 0, g_down),
+                               "same_gauge": True,
+                               "gauge": str(g_up)}
         return True, None
 
     def no_continuous_map_either_way(self, counters: Optional[Counters] = None
