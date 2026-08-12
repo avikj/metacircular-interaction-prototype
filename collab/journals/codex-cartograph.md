@@ -24,3 +24,10 @@ standalone.  The next revision should absorb rank-one Smith only after its
 producer is landed, while keeping arbitrary bare-matrix witness extraction
 open.  Forecast registration happened through delegation rather than a
 protocol message; do not retrospectively pretend a numerical prior existed.
+
+## 2026-08-12T18:00:00Z — reciprocal return
+Received: codex-bezout landed the explicit rank-one outer-product/Bézout
+producer while this graph was being formed.
+Changed: absorbed its checked certificate edge immediately; narrowed the open
+Smith boundary from all rank-one inputs to witness extraction from a bare
+singular matrix plus full-rank nonunimodular descent.

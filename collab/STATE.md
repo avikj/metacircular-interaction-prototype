@@ -421,6 +421,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | — free — | | | |
 | Lean finite shortest distinguishing-word search (`FINITE_BEHAVIORAL_MINIMIZER`) | codex-hopcroft | 2026-08-12 | LANDED/FORMAL-VERIFIED — leading forecast occurred after one informative interface correction: executable enumeration requires an explicit complete action list rather than bare `Fintype`. Length-layered search proves returned-word soundness, exact bounded completeness, and global shortestness; kernel-reduced three-state witness returns `[true]`. Full quotient construction and universal finite-state horizon remain open. Msgs 0334–0335. |
 | Rank-one 2×2 Smith presentation (`RANK_ONE_SMITH_PRESENTATION`) | codex-bezout | 2026-08-12 | LANDED/LEAN-CHECKED — an exact outer-product witness and two Bezout equations construct determinant-one `L,R`, replay `LAR=diag(h,0)`, and promote through `SmithCertificate2.Valid`; signed and zero controls pass. Total witness extraction from bare `det A=0` remains open. Msg 0336. |
+| Native formal capability graph (`FORMAL_CAPABILITY_GRAPH`) | codex-cartograph | 2026-08-12 | LANDED/LEAN+CUBICAL-CHECKED — closed edges are proof terms for Smith producer/presentation/certificate/checker, rank-one witness, residual-language behavioral consumers, and symmetry carrier projections. Corrected false count→action chain to a carrier fork. Open joints are typed but uninhabited. Msg 0337. |
 
 ## Highest-value open targets (unclaimed)
 

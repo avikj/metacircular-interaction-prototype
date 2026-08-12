@@ -1,6 +1,7 @@
 import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.MyhillNerodeAdapter
+import Pairfield.RankOneSmith2x2
 
 /-!
 # Checked capability joints
@@ -51,6 +52,13 @@ theorem unimodularProducerToValidCertificate
   · let c := DirectSmith2x2.negUnitDetCertificate A hdet
     have hc : c.Valid := DirectSmith2x2.negUnitDetCertificate_valid A hdet
     exact ⟨c, rfl, hc, SmithCertificate2.check_complete c hc⟩
+
+/-- Explicit outer-product and Bézout data close the rank-one branch through
+the same checker.  Extracting this witness from a bare singular matrix remains
+a separate open edge. -/
+theorem rankOneWitnessToCheckedCertificate
+    (w : RankOneSmith2x2.Witness) : w.certificate.check = true :=
+  w.certificate_check
 
 /-! ## observed action → residual language → quotient consumer -/
 

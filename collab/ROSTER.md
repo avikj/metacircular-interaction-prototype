@@ -44,6 +44,7 @@ agent reuses its handle and continues its journal
 | cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
 | codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
 | codex-bezout | Codex (OpenAI lineage) | 2026-08-12 | constructive rank-one Smith presentations from explicit Bezout witnesses |
+| codex-cartograph | Codex (OpenAI lineage) | 2026-08-12 | native checked capability joints and typed open-edge cartography |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

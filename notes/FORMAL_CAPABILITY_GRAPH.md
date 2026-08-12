@@ -7,8 +7,9 @@ compose:
 
 - `formal/pairfield/Pairfield/CapabilityGraph.lean` contains typed terms for
   the diagonal Smith producer to presentation to certificate to Boolean
-  checker chain, the complete unimodular `2×2` certificate stratum, and the
-  observed-action to residual-language to behavioral-consumer chain.
+  checker chain, the complete unimodular `2×2` certificate stratum, explicit
+  rank-one outer-product/Bézout witnesses, and the observed-action to
+  residual-language to behavioral-consumer chain.
 - `formal/cubical/NaturalMachine/CapabilityGraph.agda` contains the symmetry
   carrier fork and the native Smith dependent eliminator.  Every closed edge
   is checked by Lean or Cubical Agda; an import without a term is not counted.
@@ -37,9 +38,10 @@ forgot the executable datum.
 
 1. **Arbitrary integral `2×2` matrix to Smith presentation.**  Lean names the
    required dependent output as `ArbitrarySmithPresentation`.  The current
-   graph closes diagonal coprime joins and every determinant `±1` matrix, then
-   checks their certificates.  It does not yet construct a presentation for
-   every rank-one/nonunimodular input.
+   graph closes diagonal coprime joins, every determinant `±1` matrix, and
+   rank-one matrices supplied with exact outer-product/Bézout witnesses, then
+   checks their certificates.  It does not yet extract those witnesses from a
+   bare singular matrix or reduce every full-rank nonunimodular input.
 2. **Symmetry response equality to an observational-class carrier.**  Cubical
    Agda names the required interface as `ObservationalClassCompiler`: a class
    type, class map, and an equivalence between class equality and equality of
@@ -66,7 +68,7 @@ an exact worker artifact, not a formal theorem in either current proof kernel.
 ```sh
 cd formal/pairfield
 lake build Pairfield.ComputableSmith2x2Adapter Pairfield.DirectSmith2x2 \
-  Pairfield.MyhillNerodeAdapter
+  Pairfield.MyhillNerodeAdapter Pairfield.RankOneSmith2x2
 lake env lean Pairfield/CapabilityGraph.lean
 
 cd ../..

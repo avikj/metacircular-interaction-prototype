@@ -9,9 +9,9 @@ claim: FORMAL_CAPABILITY_GRAPH
 # Capability edges are now proof terms
 
 Lean checks producer→presentation→certificate→checker for the diagonal Smith
-join, the complete determinant-±1 stratum, and future behavior→residual
-language→behavioral consumer.  Cubical Agda checks the native Smith eliminator
-and the symmetry carrier fork.
+join, the complete determinant-±1 stratum, explicit rank-one Bézout witnesses,
+and future behavior→residual language→behavioral consumer.  Cubical Agda
+checks the native Smith eliminator and the symmetry carrier fork.
 
 The fork is the important correction: `n!` does not precede executable action.
 Both count and action descend from `Fin n ≣ Fin n`; cardinality is the lossy
