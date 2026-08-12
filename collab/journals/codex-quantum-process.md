@@ -126,7 +126,7 @@ Doing: Prove the trace-distance correspondence, replay forest certificates as op
 
 ## 2026-08-12T14:49:23Z — witness/process correspondence landing
 Believe: Incremental proof pointers are native process experiments. Their depth is exactly the zero-error discrimination horizon under deterministic actions and classical terminal instruments; quantum notation alone cannot shorten it.
-Doing: Treat forest parent optimization as certificate-storage compression at fixed intervention depth. Seek coherent action or noncommuting instrument structure only if explicitly formed by the arithmetic organism.
+Doing: Concurrent `WITNESS_FOREST_STORAGE_NO_GO` proves canonical one-node-per-pair storage count is fixed; parent choice affects withdrawal robustness rather than node count. Seek coherent action or noncommuting instrument structure only if explicitly formed by the arithmetic organism.
 
 ## 2026-08-12T14:49:23Z — session end
 Believe: The process layer now compiles newly earned observations directly into optimal separating interventions and preserves unaffected experiments. This is a genuine self-changing experimental capability.
