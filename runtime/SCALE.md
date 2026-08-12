@@ -20,10 +20,12 @@ Three things are measured here:
    once per query.
 2. **§4 E-matching.** The compiled automaton against the memoised recursive
    matcher, on the L3 demo and on an AC-saturated graph 20× larger. Verdict:
-   the automaton wins on wall clock everywhere measured (1.1×–5.0×) and on
-   e-match work in the demo's saturation loop (33,630 → 16,962 visits), but its
-   raw `visits` counter is *higher* on the AC graph — because the two engines
-   count different things. That is stated in full in §4.4 rather than buried.
+   **mixed and kept anyway** — 3.1× fewer total lookups, 50% fewer e-match
+   visits in the demo's saturation loop, 2.7×–4.7× faster on search-dominated
+   patterns, but **3–10% slower on two match-heavy patterns**, which are left in
+   the table. Its raw `visits` counter is *higher* on the AC graph, because the
+   two engines count different things; §4.4 says so in full rather than burying
+   it.
 3. **§5 The homotopy-class enumerator**, on the 533-record graph the defect was
    filed against.
 
@@ -284,74 +286,105 @@ fixpoint under both engines (257 applications, 32 unions, 225 chords).
 
 Match counts are identical in every row (44, 99, 229, 739, 10).
 
+The two saturation rows are printed by `geodesic_demo.py` itself
+(`ematch_visits=` in its section 2/6 lines); the five per-pattern rows come from
+a scratch harness that ran each engine in its **own process** against its own
+build of the same graph. §4.3's table is the more controlled measurement — one
+process, one graph object — and where the two disagree in sign on a per-pattern
+wall clock, §4.3 is the one to believe.
+
 ### 4.3 The harder case: an AC-saturated e-graph
 
 The demo's graph is small and its classes are narrow. The stress case is an
 e-graph saturated under **associativity + commutativity** of a product of *k*
 atoms, which merges structurally different nodes into one class, so a class
 carries many distinct child-class signatures and a multi-variable pattern really
-does branch at every level. Script: the AC benchmark described in §6.
+does branch at every level. Script: `runtime/demo/ematch_bench.py`, which builds
+the graph **once** and queries that same object with both engines, so the two
+columns are not two builds. It fails if the engines disagree on any pattern.
 
-**k = 6 atoms: 6,549 nodes, 126 classes, widest class 1,896 members.**
+**k = 6: 6,549 nodes, 126 classes, widest class 1,896 members.** `vis` is that
+engine's own `visits` counter, `hits` the lookups it serves from a cache and
+charges nothing for (memo hits / entry-signature hits) — see §4.4.
 
-| pattern | matches | recursive visits / ms | automaton visits / ms | speed-up |
-|---|---:|---:|---:|---:|
-| `mul(mul(?a,?b),?c)` | 36,554 | 14,623 / 725.0 | 20,346 / 644.5 | 1.1× |
-| `mul(mul(?a,?b),mul(?c,?u))` | 47,524 | 31,357 / 1,140.4 | 35,046 / 848.6 | 1.3× |
-| `mul(mul(mul(?a,?b),?c),?u)` | 104,856 | 18,926 / 2,429.3 | 37,566 / 1,934.9 | 1.3× |
-| `mul(mul(?a,?b),mul(?b,?a))` | 0 | 27,997 / 118.2 | 28,326 / **44.5** | **2.7×** |
-| `mul(mul(mul(?a,?b),?c),mul(?a,?b))` | 0 | 29,246 / 291.6 | 41,766 / **55.7** | **5.2×** |
-| `mul(mul(mul(?a,?b),mul(?c,?u)),mul(?v,?w))` | 17,568 | 29,186 / 780.4 | 47,046 / 411.2 | 1.9× |
-| whole-run totals | — | 237,608 visits + 722,316 memo hits = **959,924 lookups** | 317,026 visits + 54,150 entry hits = **371,176 lookups** | **2.6× less work** |
+| pattern | matches | rec vis | rec hits | rec ms | aut vis | aut hits | aut ms | |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| `mul(mul(?a,?b),?c)` | 36,554 | 14,623 | 49,649 | 721.8 | 20,346 | 4,983 | 746.6 | **−3%** |
+| `mul(mul(?a,?b),mul(?c,?u))` | 47,524 | 31,357 | 61,877 | 1,123.1 | 35,046 | 4,983 | 1,015.3 | 1.1× |
+| `mul(mul(mul(?a,?b),?c),?u)` | 104,856 | 18,926 | 130,912 | 2,343.6 | 37,566 | 4,983 | 2,576.5 | **−10%** |
+| `mul(mul(?a,?b),mul(?b,?a))` | 0 | 27,997 | 58,619 | 115.8 | 28,326 | 4,983 | **43.1** | **2.7×** |
+| `mul(mul(mul(?a,?b),?c),mul(?a,?b))` | 0 | 29,246 | 134,212 | 271.5 | 41,766 | 4,983 | **57.5** | **4.7×** |
+| `mul(mul(mul(?a,?b),mul(?c,?u)),mul(?v,?w))` | 17,568 | 29,186 | 152,674 | 751.1 | 47,046 | 4,983 | 564.9 | 1.3× |
+| **total** | | 151,335 | 587,943 | 5,326.7 | 210,096 | 29,898 | 5,003.7 | 1.06× |
+| **total lookups** | | **739,278** | | | **239,994** | | | **3.1×** |
 
-The same six patterns at **k = 5** (1,175 nodes, widest class 427) give the same
-shape: 59.1→40.7, 46.5→35.2, 97.4→79.4, 15.8→**6.7**, 19.2→**7.2**,
-14.4→**7.9** ms, with identical match counts throughout.
+Match counts are identical in every row, and so is the order.
 
-Match counts are identical in every row. The largest wins are exactly where the
-theory says they should be: patterns with **late compares and no matches**
-(rows 4 and 5) — the search that the recursive matcher must walk and abandon,
-and that the automaton's signature collapse never enters.
+**Two rows go the wrong way and are left in the table.** On the two
+match-heavy patterns (36,554 and 104,856 matches) the automaton is 3% and 10%
+*slower*. Those queries are dominated not by search but by *materialising* the
+answer — `_expand`, the `EMatch` objects, the dedup dict — which both engines do
+identically; what is left of the search there favours the recursive matcher's
+memo, which is shared across the whole call, while the automaton's entry cache
+is keyed per entry signature and so reuses less. Reproduced twice with the same
+sign (Q1 721.8/739.5 vs 746.6/760.3; Q3 2,343.6/2,483.3 vs 2,576.5/2,569.9),
+so it is not noise.
+
+**The rows that go the right way are the search-dominated ones**, exactly as the
+theory predicts: the two patterns with **late compares and no matches** are
+2.7× and 4.7× faster — that is the search the recursive matcher must walk and
+abandon, and that the automaton's signature collapse never enters.
+
+At **k = 5** (1,175 nodes, widest class 427) the same script gives totals
+256.1 → 190.5 ms (1.35×) and 61,926 → 33,852 total lookups (1.8×), with five of
+six patterns faster and `Q2` reproducibly ~15% slower.
 
 ### 4.4 The honest part: `visits` is not a cost model
 
-On the AC graph the automaton's `visits` counter is *higher* while its wall
-clock is lower, in one case by 5×. Both statements are true and they are not in
-tension, because the two engines count different events:
+The automaton's `visits` counter is *higher* on the AC graph while its total
+work is 3.1× lower. Both are true and they are not in tension, because the two
+engines count different events:
 
 * the recursive matcher charges a visit per `_match_class` / `_match_node`
-  entry, and charges **nothing** for a memo hit — of which there were 722,316,
-  each one a dict lookup with a `tuple(sorted(...))` key built to find it;
+  entry, and charges **nothing** for a memo hit — of which there were 587,943 at
+  k = 6, each a dict lookup with a `tuple(sorted(...))` key built to find it;
 * the automaton charges a visit per candidate signature considered, and charges
-  **nothing** for an entry-signature cache hit — of which there were 54,150.
+  **nothing** for an entry-signature cache hit — of which there were 29,898.
 
-Counting every lookup either engine performs (last row of §4.3) the automaton
-does **2.6× less** work. Counting only each engine's own `visits`, the recursive
-matcher looks better on this graph and worse on the demo. The conclusion is not
-that one counter is dishonest; it is that **`max_visits` is a budget, not a
-metric**, and cross-engine comparisons of it are meaningless. Where a genuine
-cross-engine number is wanted it is either "total lookups" or wall clock, and
-both are reported above.
+Counting every lookup either engine performs, the automaton does **3.1× less**
+at k = 6 and 1.8× less at k = 5. Counting raw `visits` it looks worse on the AC
+graph and better in the demo's saturation loop. The conclusion is not that one
+counter is dishonest; it is that **`max_visits` is a budget, not a metric**, and
+cross-engine comparisons of it are meaningless. Where a genuine cross-engine
+number is wanted it is "total lookups" or wall clock, and both are reported.
 
 One consequence must be stated because it is a contract change: a caller who
 pinned a specific `max_visits` against the recursive engine may see
 `exhausted=True` sooner under the automaton on AC-like graphs. The budget still
-does exactly what it promises — reports rather than truncates — but the number
+does exactly what it promises — report rather than truncate — but the number now
 means "candidate signatures considered", not "recursive calls made".
 
 ### 4.5 Verdict
 
-**The automaton is kept**, on these grounds and no others: identical answers
-(differential test, equal order), lower wall clock in **all 17** measured
-pattern queries (5 on the demo graph, 6 at k = 5, 6 at k = 6), 2.6× fewer total
-lookups on the hardest graph, 50% fewer e-match visits in the demo's saturation
-loop, and one compile per pattern instead of one per query. Saturation wall
-clock moved 153→134 ms (demo) and 981→941 ms (k = 5); at k = 6 it was
-14,311→14,334 ms, a tie inside the noise, because that loop is dominated by
-kernel checking and merging rather than by matching.
-The claim it does *not* support: it is not an asymptotic improvement. E-matching
-is still exponential in pattern size, the automaton still enumerates the same
-search tree, and the wall it postpones is the same wall.
+**The automaton is kept**, and the recursive matcher is kept alongside it
+(`engine="recursive"`), on these grounds:
+
+* identical answers — the differential test asserts equal match keys **in equal
+  order** over eight patterns × two graph sizes, plus binder patterns, and
+  `ematch_bench.py` re-asserts it on every run;
+* **3.1× fewer total lookups** at k = 6, 1.8× at k = 5, **50% fewer e-match
+  visits** in the L3 demo's saturation loop (33,630 → 16,962);
+* 2.7×–4.7× faster on the search-dominated patterns, which are the ones that
+  will grow;
+* one compile per pattern instead of one per query — saturation calls `ematch`
+  277 times in the demo and now compiles 48 programs, not 277 pattern walks.
+
+Against: it is **3–10% slower on match-materialisation-dominated queries**, its
+raw `visits` are higher on AC graphs, and — the claim it emphatically does not
+support — **it is not an asymptotic improvement**. E-matching is still
+exponential in pattern size, the automaton still enumerates the same search
+tree, and the wall it postpones is the same wall. It removes the constant
+factors and the memo's bookkeeping; it does not remove the bound.
 
 ---
 
@@ -399,24 +432,27 @@ iterated or measured without `.partial()`.
 python3 runtime/demo/scale_lemmas.py --index \
         --sizes=1,10,22,23,50,100,300,477,1000,3000
 
-# §4.2   the L3 demo under both engines (DEFAULT_ENGINE is monkeypatched)
-python3 runtime/demo/geodesic_demo.py          # automaton (the default)
+# §4.3   both e-match engines against one AC-saturated graph (k=6 is ~90 s)
+python3 runtime/demo/ematch_bench.py 5
+python3 runtime/demo/ematch_bench.py 6
 
-# §5     the enumerator, before/after, on the 533-record graph
-python3 runtime/demo/geodesic_demo.py          # section 7 prints the geodesic
+# §4.2   the demo's saturation loop under the automaton (the default engine);
+#        set ematch.DEFAULT_ENGINE = "recursive" for the other column
+python3 runtime/demo/geodesic_demo.py
 
-# all six suites
+# §5     the 533-record graph and its 15-step geodesic (demo section 7)
+python3 runtime/demo/geodesic_demo.py
+
+# the six suites, all of which must pass unchanged
 for t in kernel execute propagate crystallize distinguish render; do
     python3 runtime/tests/test_$t.py; done
 ```
 
-The §4.3 AC benchmark and the §5 before-column need a scratch harness (an
-AC-saturated e-graph at k = 5, 6 and a checkout of the pre-fix tree
-respectively); both are ~60-line scripts built from the public APIs
-(`saturate`, `ematch`, `EGraph.explanation_classes`) and neither is committed,
-because a benchmark that is not run by CI decays. The numbers above are what
-those runs printed; anyone re-deriving them should expect the counters to match
-exactly and the wall clock not to.
+The only number above that needs a scratch harness is §5's *before* column,
+which requires the pre-fix tree (`git archive` of the commit before the repair)
+and a 40-line script calling `explanation_classes` on the demo's after-theorem
+graph. Everything else is produced by the two committed scripts. Counters should
+reproduce exactly; wall clock should not.
 
 ## 7. What this file does *not* establish
 
@@ -435,6 +471,13 @@ exactly and the wall clock not to.
 * **No claim about the mining or the gates at scale.** The install column shows
   what checking 3,000 lemmas costs (2.9M work units) and nothing more; the
   miner was run on three derivations, as in the demo.
-* **Wall clock is not exact.** It is reported to show that the counter
-  reductions are not bought with hidden constants, and no claim in this file
-  rests on it alone.
+* **Wall clock is not exact, and per-query wall clock is not even stable in
+  sign.** Two of §4.2's per-pattern rows reverse sign when the same comparison
+  is made in one process against one graph object (§4.3). Totals and counters
+  are stable; individual millisecond figures are indicative. No claim in this
+  file rests on wall clock alone, and the two rows where the automaton loses are
+  in the table rather than in a footnote.
+* **§4 measures one IR.** Curried application is what makes the automaton's
+  signature collapse large; a first-order IR with n-ary application would see
+  less of it, and the crystallize substrate (§2–3, flat n-ary sums and products)
+  is exactly such an IR.
