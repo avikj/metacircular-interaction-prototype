@@ -6,7 +6,7 @@
   <string>com.avikj.math-persistent-minds</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/usr/bin/python3</string>
+    <string>/opt/homebrew/bin/python3</string>
     <string>/private/tmp/avikj-math-readme/collab/orchestration/workers/launch_workers.py</string>
     <string>/private/tmp/avikj-math-readme/collab/orchestration/workers/persistent-minds.jsonl</string>
     <string>--jobs</string><string>2</string>
