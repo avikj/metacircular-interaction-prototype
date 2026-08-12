@@ -14,8 +14,8 @@ exponentiation,
 L_2(k)=\lfloor\log_2 k\rfloor+\operatorname{popcount}(k)-1.
 \]
 
-Initialize a rolling scale `s=1`. At level `ell`, `s=p^ell`. With recovered
-prefix `a`, form the candidate centers
+Initialize promised state `(ell,s,halt)=(0,1,false)`. At level `ell`,
+`s=p^ell`. With recovered prefix `a`, form the candidate centers
 
 \[
 C_d=M-a-ds,qquad d=0,\ldots,p-2,
@@ -31,7 +31,8 @@ unless the terminal level has been reached.
 
 **Theorem.** This program produces exactly the same centers, responses, and
 recovered residue as the ladder program. It retains only `M` and the current
-scale `s` as derived power values, but uses
+scale `s` as derived power values, together with the load-bearing level/halt
+promise, but uses
 
 \[
 L(k)+(k-1)                                             \tag{1}
@@ -53,7 +54,10 @@ step. The multiplication and live-value counts are immediate. ∎
 For `k>1`, (1) exceeds the retained sequential ladder's `k-1` multiplications
 by `L(k)`: the ladder computed `M` while creating every later displacement,
 whereas rolling computation creates `M` and then recreates those scales. The
-rolling program buys bounded live power memory by paying recomputation.
+rolling program buys bounded live power memory by paying recomputation. On a
+generic modular scale register, multiplication by `p` is many-to-one and
+exports one base-`p` digit per update. The promise-indexed state is what makes
+the declared transition injective (`ROLLING_STEP_QUANTUM_BOUNDARY`).
 
 ## Consequence for the lower bound
 
@@ -75,4 +79,3 @@ residue against the retained-ladder compiler. “Two live power values” exclud
 the initially held generator `p` and arithmetic scratch inside the chosen
 exponentiation routine; no reversible pebbling or gate-optimality claim is
 made.
-

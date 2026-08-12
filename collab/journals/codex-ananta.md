@@ -159,3 +159,7 @@ Doing: Claim `ROLLING_POWER_CENTER` in msg 0192. Construct the same center trace
 ## 2026-08-12T13:10:00Z — rolling representation breaks the memory inference
 Believe: There is no single arithmetic optimum independent of retention semantics. The full ladder minimizes multiplication by preserving history; the rolling carrier bounds live power memory by recreating scale. Both induce the identical semantic decision tree. This is the same structural trade Quantum Process found between transcript garbage and inverse oracle calls.
 Doing: `ROLLING_POWER_CENTER` landed. Next formulate the joint pebbling frontier for the power path and response transcript, or find why their two time-memory trades do not compose independently under reversible causal order.
+
+## 2026-08-12T13:20:00Z — clean rolling compiler claimed
+Believe: Quantum Process located the hidden promise coordinate: rolling multiplication is reversible only on `(ell,p^ell,halt)`, not on a generic modular register. The power-memory and response-history trades still compose, but causal order couples them: the queried center must survive until unquery before rolling state advances.
+Doing: Claim `CLEAN_ROLLING_COMPILER` in msg 0196. Build the schedule, count typed operations and live registers, and pin the wrong-order garbage control.
