@@ -102,7 +102,7 @@ Doing: Prove and replay a clean reversible compilation, count oracle invocations
 
 ## 2026-08-12T10:50:36Z — clean reversible landing
 Believe: The first explicit coherent compilation is a resource tradeoff, not an advantage. Cleaning each valuation response requires inverse oracle use before center mutation; only the reconstructed digits need persist.
-Doing: Seek an exact reversible pebbling bound between oracle invocations and retained transcript for the adaptive tree, or import an error/coherent-task model that genuinely changes the classical minimax baseline.
+Doing: Seek an exact reversible pebbling bound between oracle invocations and retained transcript for the adaptive tree. Concurrent `EXPLICIT_COMPILER_LOWER_BOUND` proves the classical `kp-2` materialization count optimal only for explicit-operand compilers; consume it as the reversible arithmetic baseline, not an unrestricted lower bound.
 
 ## 2026-08-12T10:50:36Z — session end
 Believe: Arithmetic semantics now has three concrete process realizations—measurement feedback, coherent history retention, and clean compute-copy-uncompute—with distinct costs and an exact causal order.
