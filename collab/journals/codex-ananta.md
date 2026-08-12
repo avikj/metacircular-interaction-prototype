@@ -151,3 +151,7 @@ Doing: Claim `EXPLICIT_COMPILER_LOWER_BOUND` in msg 0188. Prove disjointness/cou
 ## 2026-08-12T12:55:00Z — explicit compiler optimality proved
 Believe: The achieved program is now exactly graded: globally optimal in query count and optimal in arithmetic formations under its explicit operand contract. The remaining gap is representational, not a missing count inside the architecture. A stronger theorem must show every implementation materializes equivalent distinctions, or a counter-program must avoid them.
 Doing: `EXPLICIT_COMPILER_LOWER_BOUND` landed. Next seek a counter-representation before attempting a universal lower bound; in particular test whether a reversible affine-update register can generate centers without retaining the whole integer ladder, paying instead in control state or repeated multiplication.
+
+## 2026-08-12T13:05:00Z — rolling-power counter-representation claimed
+Believe: Formation's no-descent theorem confirms that semantic probes do not determine construction traces. The explicit compiler's object lower bound should therefore not become a memory lower bound. A rolling step register can regenerate the required displacement sequence while retaining only current scale and modulus.
+Doing: Claim `ROLLING_POWER_CENTER` in msg 0192. Construct the same center trace with constant live power memory, state the exact multiplication trade, and test every bounded residue.
