@@ -710,6 +710,107 @@ $3$ smaller — hence a scan bound smaller by exactly $\sqrt3$, and
 $895{,}344/516{,}928=1.7320\ldots$  The organ's cheapest next acquisition is
 determined by a reflection identity, not by size ordering.
 
+## Two bases: a no-go, and the operation that survives it
+
+Five successive successor lists ended at the same unclaimed item — *how do the
+chains for two bases interact?* — and the sixth sitting finally forced it.  I
+worked base $2$ until the organ held $\{3,5,7,11,17,31,73,127\}$, then asked
+it about base $3$:
+
+```text
+route(3, 4)  ->  Phi_4(3) = 10 = 2 * 5   genuinely new: []
+```
+
+Nothing.  $5$ was already held from base $2$, where $\operatorname{ord}_5(2)=4$
+— and the organ had no way to know, because **every guarantee in this note has
+been per base.**  Theorem 7 promises a prime primitive for *this* base; it says
+nothing about the organ's other holdings.
+
+### The obstruction is real and exact
+
+The natural hope is that the sensor at $p$ for base $ab$ is built from the
+sensors for $a$ and $b$.  It is not.
+
+> **Theorem 10 (no composition in the base).**  $\operatorname{ord}_p(ab)$ is
+> not a function of $\bigl(\operatorname{ord}_p(a),\operatorname{ord}_p(b)\bigr)$.
+
+*Witness at $p=7$.*  $\operatorname{ord}_7(2)=3$ and $\operatorname{ord}_7(4)=3$,
+while $2\cdot4=8\equiv1$, so $\operatorname{ord}_7(2\cdot4)=1$.  But
+$\operatorname{ord}_7(2)=3$ and $\operatorname{ord}_7(2)=3$ with
+$2\cdot2=4$ give $\operatorname{ord}_7(4)=3$.  Same order pair $(3,3)$, product
+orders $1$ and $3$.  $\square$
+
+The executable searches for such a witness at any prime rather than quoting
+one, and finds them at $7,11,13,17,19$.  So the multi-base question that five
+packets deferred has a **clean negative answer**: sensors do not compose
+multiplicatively in the base, and no bookkeeping will make them.
+
+That kills the route I had been holding open — and it is worth more than
+another chart, because it is the first genuine no-go in this lane.
+
+### What survives: transport, not composition
+
+The obstruction is to *composing* sensors.  It is not an obstruction to
+*computing* them, and the difference is the whole repair.
+
+If the organ holds $p$, then $\operatorname{ord}_p(b)$ is cheap — one order
+computation modulo a prime it already has.  So the organ can map its entire
+history into the new base's exponent coordinates before spending anything:
+
+> A held prime $p$ is a primitive divisor of $\Phi_m(b)$ exactly when
+> $\operatorname{ord}_p(b)=m$.
+
+Each held prime is therefore re-delivered by **exactly one** exponent of the
+new base, and the organ can name it.  For the holdings above, transported into
+base $3$:
+
+| base-3 exponent | held primes it re-delivers | residual | fresh? |
+|---|---|---|---|
+| $4$ | $5$ | $1$ | no |
+| $5$ | $11$ | $1$ | no |
+| $6$ | $7$ | $1$ | no |
+| $12$ | $73$ | $1$ | no |
+| $16$ | $17$ | $193$ | **yes** |
+
+### Theorem 11: freshness decided without factoring
+
+> **Theorem 11 (fresh acquisition).**  Let $H=\{p \text{ held}:
+> \operatorname{ord}_p(b)=m\}$ and put
+> $$
+>   R \;=\; \Phi_m(b)\Big/\Bigl(P^{\,v_P}\prod_{p\in H}p^{\,e_p}\Bigr),
+> $$
+> where $e_p=v_p(\Phi_m(b))$ is read off $p$'s own chain head and $P$ is the
+> largest prime factor of $m$.  Then $\Phi_m(b)$ has a primitive prime divisor
+> the organ does **not** hold if and only if $R>1$.
+
+*Proof.*  By Theorem 5 every prime divisor of $\Phi_m(b)$ is primitive or is
+$P$.  The held primitive ones are exactly $H$, each occurring to the power
+$e_p$ by Theorem 3's head.  Dividing them and the $P$-part out leaves precisely
+the unheld primitive part.  $\square$
+
+Nothing is factored.  $H$ comes from orders modulo primes already held, the
+$e_p$ come from sensors already formed, and $P$ comes from $m$.  Applied to the
+collision the organ walked into: $\Phi_4(3)=10$, $H=\{5\}$ with $e_5=1$,
+$P=2$, so $R=10/(5\cdot2)=1$ — **not fresh**, decided in advance.
+
+`propose_fresh_encounter` uses it, and the per-base guarantee is finally
+closed across bases.  From holdings earned at base $2$:
+
+```text
+base 3 fresh proposal n =  1  ->  new prime 2
+base 3 fresh proposal n =  3  ->  new prime 13
+base 3 fresh proposal n =  7  ->  new prime 1093
+base 3 fresh proposal n =  8  ->  new prime 41
+base 3 fresh proposal n =  9  ->  new prime 757
+base 3 fresh proposal n = 10  ->  new prime 61
+```
+
+Six proposals, six genuinely new primes, and the exponents $4,5,6,12$ are
+skipped because the organ can see they are already harvested.  The Wieferich
+prime $1093$ arrives at base $3$, exponent $7$ — a prime the base-2 organ met
+only as a curiosity in a hand-supplied test, now earned by a machine that chose
+to go and get it.
+
 ## The encounter
 
 ```text
@@ -746,6 +847,12 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here:** Theorems 10 and 11.  Theorem 10 is a no-go with an explicit
+  witness the executable rediscovers rather than quotes; the underlying fact
+  (order is not multiplicative) is elementary and certainly known, and no
+  novelty is claimed — what is recorded is that it *is* the obstruction the
+  multi-base question runs into.  Theorem 11 is Theorem 5 applied to the
+  residual after dividing out held primes, and is elementary.
 - **Proved here, on a consumed classical input:** Theorem 9.  The two-sided
   bound (9) is my own lemma's proof read fully rather than one-sidedly.  The
   totient density `#{n : phi(n) <= x} ~ zeta(2)zeta(3)/zeta(6) x` is classical

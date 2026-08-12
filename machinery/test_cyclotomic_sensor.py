@@ -22,6 +22,9 @@ from cyclotomic_sensor import (
     factor_power_minus_one,
     acquisition_horizon,
     growth_rate,
+    fresh_yield,
+    held_at,
+    order_composition_witness,
     TOTIENT_DENSITY,
     next_budget_step,
     scan_cost,
@@ -573,6 +576,78 @@ class TestCyclotomicSensor(unittest.TestCase):
             return head + terms ** (1 - s) / (s - 1)
         self.assertAlmostEqual(TOTIENT_DENSITY,
                                zeta(2) * zeta(3) / zeta(6), places=9)
+
+    def test_sensors_do_not_compose_in_the_base(self) -> None:
+        """Theorem 10, the no-go five successor lists pointed at.  The sensor
+        at p for base a*b is NOT a function of the sensors for a and b."""
+        for prime in (7, 11, 13, 17, 19):
+            witness = order_composition_witness(prime)
+            self.assertIsNotNone(witness, f"p={prime} had no witness")
+            left, right, other_left, other_right = witness
+            self.assertEqual(multiplicative_order(left, prime),
+                             multiplicative_order(other_left, prime))
+            self.assertEqual(multiplicative_order(right, prime),
+                             multiplicative_order(other_right, prime))
+            self.assertNotEqual(
+                multiplicative_order(left * right % prime, prime),
+                multiplicative_order(other_left * other_right % prime, prime))
+
+    def test_holdings_transport_into_the_new_base(self) -> None:
+        """A held prime is re-delivered by exactly one exponent of the new
+        base, namely its order there — computed without factoring anything."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for _ in range(8):
+            organ.route(2, organ.propose_encounter(2))
+        for prime in organ.life.moduli:
+            if 3 % prime == 0:
+                continue
+            index = multiplicative_order(3, prime)
+            self.assertIn(prime, held_at(organ, 3, index))
+            for other in range(1, 20):
+                if other != index:
+                    self.assertNotIn(prime, held_at(organ, 3, other))
+
+    def test_fresh_yield_catches_the_cross_base_collision(self) -> None:
+        """The exact case the organ walked into blind: Phi_4(3) = 10 = 2*5,
+        and 5 was already held from base 2 where ord_5(2) = 4."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for _ in range(8):
+            organ.route(2, organ.propose_encounter(2))
+        self.assertIn(5, organ.life.moduli)
+        self.assertEqual(multiplicative_order(3, 5), 4)
+        is_fresh, residual, held = fresh_yield(organ, 3, 4)
+        self.assertEqual(held, (5,))
+        self.assertEqual(residual, 1)       # 10 / 5, then strip exceptional 2
+        self.assertFalse(is_fresh)
+        # exponents 5, 6, 12 are pure re-deliveries too
+        for index in (5, 6, 12):
+            self.assertFalse(fresh_yield(organ, 3, index)[0])
+        # but 16 holds 17 and is still fresh
+        is_fresh, residual, held = fresh_yield(organ, 3, 16)
+        self.assertEqual(held, (17,))
+        self.assertTrue(is_fresh)
+        # The power divided out must be EXACT, not a lower bound: too large and
+        # a fresh encounter is reported stale, which is the silent direction.
+        for index in range(1, 25):
+            for prime in held_at(organ, 3, index):
+                sensor = organ.form(prime, 3)
+                self.assertEqual(
+                    cyclotomic_valuation(sensor, index),
+                    valuation(abs(cyclotomic_value(index, 3)), prime),
+                    f"p={prime} m={index}")
+
+    def test_cross_base_proposal_always_earns_something_new(self) -> None:
+        """The per-base guarantee, finally closed across bases."""
+        organ = CyclotomicOrgan(ArithmeticLife())
+        for _ in range(8):
+            organ.route(2, organ.propose_encounter(2))
+        for _ in range(6):
+            index = organ.propose_fresh_encounter(3)
+            self.assertIsNotNone(index)
+            held = set(organ.life.moduli)
+            organ.route(3, index)
+            self.assertTrue(set(organ.life.moduli) - held,
+                            f"fresh proposal n={index} earned nothing new")
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

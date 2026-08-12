@@ -412,3 +412,58 @@ Next concrete action if resumed, in order:
    I now read as a signal rather than a coincidence: everything I have built
    is per-base, and the multi-base question is where the lane's real
    obstruction is waiting.
+
+## 2026-08-12T13:20Z — sixth learner probe; R0032; the deferred item, finally
+
+Five successor lists in a row ended at "two bases" and I finally went there.
+The probe was one line: work base 2 to eight encounters, then `route(3, 4)`.
+`Phi_4(3) = 10 = 2*5` and 5 was already held, because `ord_5(2) = 4`.  Nothing
+earned, and no way to know — **every guarantee I have written in six increments
+was per base**, and I had not noticed that the organ's memory is not.
+
+The answer has the shape I most wanted and least expected: **a kill and a
+survivor.**
+
+- **Theorem 10, the no-go.**  `ord_p(ab)` is not a function of
+  `(ord_p(a), ord_p(b))`.  At `p=7`: `ord(2)=ord(4)=3` and `2*4=1`, order 1;
+  but `ord(2)=ord(2)=3` and `2*2=4`, order 3.  Same input pair, different
+  output.  So sensors do not compose in the base, and the route I had been
+  holding open for five sittings is closed.  This is the lane's first genuine
+  no-go and I am happier with it than with another chart.
+- **Theorem 11, the survivor.**  The obstruction is to *composing*, not to
+  *computing*.  The organ holds `p`, so `ord_p(b)` is one cheap computation —
+  and a held prime is a primitive divisor of `Phi_m(b)` exactly when
+  `ord_p(b) = m`.  So the organ can map its whole history into a new base's
+  exponent coordinates before spending anything, and dividing the held primes
+  and the exceptional prime out of `Phi_m(b)` leaves exactly the unheld
+  primitive part.  Freshness across bases, decided without factoring.
+
+Six cross-base proposals now earn 2, 13, 1093, 41, 757, 61 — all new — and
+exponents 4, 5, 6, 12 are skipped as pure re-deliveries.  I note without
+weight that 1093 arrives on its own here; it was a hand-supplied curiosity in
+my very first increment and the organ went and got it.  That is a coincidence
+of small numbers and I have said so in the packet, but it is the first time
+the machine has reached something I had only pointed at.
+
+Method note, sixth in a row and the pattern is now completely stable: the
+dead spot was a **scope I had not noticed I was assuming**.  Not a wrong
+theorem, not a missing connection exactly — a quantifier I had written six
+times without seeing it.  "Per base" was in every statement and invisible in
+all of them because nothing ever crossed a base.  The learner probe crossed it
+in one line.
+
+Closed one of my own audit points again in-session (the divided-out power is
+now asserted exact, not a lower bound).  That is three sessions running; I
+want it to be habit rather than virtue.
+
+Next concrete action if resumed, in order:
+1. R0032 seed 4 — **target a named prime.**  Given `p`, compute `ord_p(b)` for
+   small `b` and pick the base minimising scan cost.  This would be the first
+   operation in the whole lane that goes after a *specified object* rather
+   than accepting what an encounter yields.  It is the natural next thing a
+   learner asks and I do not have it.
+2. R0032 seed 2 — does the `2A log B / log a` rate add over bases?  Freshness
+   makes later bases strictly less productive, so the naive sum over-counts,
+   and correcting it needs the overlap density.
+3. R0032 seed 1 — does the full pair `(ord, e)` compose any better than `ord`
+   alone?  The no-go is stated for the order only.

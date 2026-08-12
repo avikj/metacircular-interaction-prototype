@@ -189,6 +189,28 @@ class CyclotomicOrgan:
                 return index
         return None
 
+    def propose_fresh_encounter(self, base: int, budget: int = DEFAULT_BUDGET,
+                                limit: int | None = None) -> int | None:
+        """Like `propose_encounter`, but across ALL bases this organ has worked.
+
+        `propose_encounter` guarantees a prime primitive for THIS base, which
+        may still be one the organ already earned from another base — the
+        acquisition guarantee was per base for six increments.  Theorem 11
+        closes that: divide out the held primitive primes and the exceptional
+        prime, and what survives is unheld primitive part.  Decided without
+        factoring anything.
+        """
+        covered = self.routed.get(base, set())
+        ceiling = limit if limit is not None else acquisition_horizon(base, budget)
+        for index in range(1, ceiling + 1):
+            if any(done % index == 0 for done in covered):
+                continue
+            if refusal(base, index, budget) is not None:
+                continue
+            if fresh_yield(self, base, index)[0]:
+                return index
+        return None
+
     def route(self, base: int, exponent: int,
               budget: int = DEFAULT_BUDGET) -> RoutedFactorization:
         """Factor `base^exponent - 1` through its cyclotomic pieces and keep
@@ -494,6 +516,72 @@ def next_budget_step(base: int,
     if acquisition_horizon(base, best[0]) > ceiling:
         raise AssertionError("search ceiling did not contain its own answer")
     return best
+
+
+def order_composition_witness(prime: int) -> tuple[int, int, int, int] | None:
+    """Two base pairs with identical order pairs but different order of product.
+
+    Theorem 10 in `notes/CYCLOTOMIC_SENSOR.md`: the sensor at `prime` for base
+    `a*b` is NOT a function of the sensors for `a` and `b`.  Returns
+    `(a, b, c, d)` with `ord(a) = ord(c)`, `ord(b) = ord(d)`, and
+    `ord(a*b) != ord(c*d)`.  This is the obstruction five successor lists have
+    pointed at, and it is a clean no-go rather than a gap.
+    """
+    residues = range(1, prime)
+    orders = {r: multiplicative_order(r, prime) for r in residues}
+    seen: dict[tuple[int, int], tuple[int, int, int]] = {}
+    for left in residues:
+        for right in residues:
+            key = (orders[left], orders[right])
+            product_order = orders[left * right % prime]
+            if key in seen:
+                other_left, other_right, other_order = seen[key]
+                if other_order != product_order:
+                    return (left, right, other_left, other_right)
+            else:
+                seen[key] = (left, right, product_order)
+    return None
+
+
+def held_at(organ: "CyclotomicOrgan", base: int,
+            index: int) -> tuple[int, ...]:
+    """Primes this organ already holds that encounter `(base, index)` re-delivers.
+
+    A held prime `p` is a primitive divisor of `Phi_index(base)` exactly when
+    `ord_p(base) = index`.  The organ holds `p`, so computing that order is
+    cheap — no factorization of `Phi_index(base)` is involved.  This is the
+    transport of the organ's history into a new base's exponent coordinates.
+    """
+    return tuple(sorted(
+        prime for prime in organ.life.moduli
+        if base % prime and multiplicative_order(base, prime) == index
+    ))
+
+
+def fresh_yield(organ: "CyclotomicOrgan", base: int,
+                index: int) -> tuple[bool, int, tuple[int, ...]]:
+    """Does `(base, index)` deliver a prime this organ does NOT already hold?
+
+    Theorem 11.  Divide out the held primitive primes to their exact chain
+    powers; by Theorem 5 every surviving prime is either primitive-and-unheld
+    or the exceptional prime, so stripping the exceptional prime leaves exactly
+    the unheld primitive part.  Returns `(is_fresh, residual, held_primes)`.
+
+    Decided without factoring `Phi_index(base)`: the held primes are known and
+    their exponents come from their own sensors.
+    """
+    value = abs(cyclotomic_value(index, base))
+    held = held_at(organ, base, index)
+    residual = value
+    for prime in held:
+        sensor = organ.form(prime, base)
+        power = cyclotomic_valuation(sensor, index)
+        residual //= prime ** power
+    _step, exceptional = search_progression(index)
+    if exceptional is not None:
+        while residual % exceptional == 0:
+            residual //= exceptional
+    return residual > 1, residual, held
 
 
 def refusal(base: int, index: int,
@@ -852,6 +940,36 @@ def main() -> None:
     print(f"      Phi_53(2)  = {cyclotomic_value(53, 2)} = 2^53 - 1")
     print(f"    so the costs differ by exactly sqrt(3): "
           f"{scan_cost(2, 53) / scan_cost(2, 106):.4f}")
+
+    print("\nencounter 10: 'I have worked base 2.  Is base 3 worth anything?'")
+    twobase = CyclotomicOrgan(ArithmeticLife())
+    for _ in range(8):
+        twobase.route(2, twobase.propose_encounter(2))
+    print(f"  holdings from base 2: {sorted(twobase.life.moduli)}")
+    print("  the old per-base guarantee walks straight into a collision:")
+    print(f"    Phi_4(3) = {cyclotomic_value(4, 3)} = 2 * 5, and 5 is already "
+          f"held (ord_5(2) = 4)")
+    print("  transported into base-3 coordinates, before spending anything:")
+    for probe in (4, 5, 6, 12, 16):
+        is_fresh, residual, owned = fresh_yield(twobase, 3, probe)
+        print(f"    n={probe:3d}: re-delivers {str(owned):8s} residual "
+              f"{residual:6d}  fresh={is_fresh}")
+    print("  so the organ chooses across bases now:")
+    for _ in range(4):
+        pick = twobase.propose_fresh_encounter(3)
+        owned = set(twobase.life.moduli)
+        twobase.route(3, pick)
+        print(f"    base 3, n={pick:3d} -> genuinely new "
+              f"{sorted(set(twobase.life.moduli) - owned)}")
+    print("  and composition is impossible, not merely unimplemented:")
+    left, right, other_left, other_right = order_composition_witness(7)
+    print(f"    p=7: ord({left})={multiplicative_order(left, 7)}, "
+          f"ord({right})={multiplicative_order(right, 7)} -> "
+          f"ord({left * right % 7})={multiplicative_order(left * right % 7, 7)}")
+    print(f"         ord({other_left})={multiplicative_order(other_left, 7)}, "
+          f"ord({other_right})={multiplicative_order(other_right, 7)} -> "
+          f"ord({other_left * other_right % 7})="
+          f"{multiplicative_order(other_left * other_right % 7, 7)}")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):
