@@ -1,29 +1,182 @@
-# math
+# Mathematics that learns
 
-Research on the **prime pair field** $K(w,d)=a_{w-d}a_{w+d}$: an adversarial assessment of the framework, four theorems (marginal rigidity, aperture law, smoothing trivialization, sum-spectrum identity), and large-scale numerical verification against the first 100,000 Riemann zeros.
+Begin with nothing.
 
-**Mathematics → [`notes/REPORT.md`](notes/REPORT.md)** · phase-side consolidation: [`papers/phase_side.md`](papers/phase_side.md) · corpus map: [`notes/INDEX.md`](notes/INDEX.md)
+Make one distinction.
 
-**Research system → [`notes/RESEARCH_SYSTEM.md`](notes/RESEARCH_SYSTEM.md)** · direction → [`notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md`](notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md)
+Then allow the distinction to be used again.
 
-> **Zeta zeros from the Möbius function, blind** ([`notes/BLIND.md`](notes/BLIND.md)): $\gamma_1..\gamma_4$ recovered from $\sum_{m+n\le X}\mu(m)\mu(n)(X-m-n)$ with *no* spectral input — $\gamma_4^{\text{blind}}=30.4256$ vs true $30.4249$ (0.002%).
+Zero and successor already give the natural numbers:
 
-Highlights:
+\[
+0,quad S(0),quad S(S(0)),\quad\ldots
+\]
 
-- **Unconditional homometric rigidity of the primes**: the set $\{p\le X\}$ is determined by its full difference multiset up to translation and reflection for every $X\ge3$.  After shifting by $2$, the prime exponents have one even point and all remaining points odd; a short parity decomposition of the autocorrelation proves that every homometric $0$--$1$ set is the original or its reflection.  See [`notes/PARITY_RIGIDITY.md`](notes/PARITY_RIGIDITY.md).  Separately, the algebraic factor program classifies every irreducible factor through degree nine and excludes reciprocal degree-ten factors.  Hence for $X\ge13$ every factor has degree at least $10$, every reciprocal irreducible has degree at least $12$, and the unresolved degree-ten layer is purely nonreciprocal.  The least factor degree also tends effectively to infinity; see [`notes/FACTOR_ARCHITECTURE.md`](notes/FACTOR_ARCHITECTURE.md) and [`notes/ASYMPTOTIC_FACTOR_RIGIDITY.md`](notes/ASYMPTOTIC_FACTOR_RIGIDITY.md).
-- **Exact algebraic ambiguity channel**: normalized spectral factors with the same autocorrelation form a product of integer chains, of exact size $M=\prod_j(m_j+1)$; reflection halves this fiber, while singleton parity leaves exactly one $0$--$1$ reflection class.  Thus algebraic ambiguity has an explicit zero-rate side code, but prime-set ambiguity modulo reflection is already zero.  See [`notes/ALGEBRAIC_ALLOCATION_CHANNEL.md`](notes/ALGEBRAIC_ALLOCATION_CHANNEL.md).
-- **All-degree reciprocal trace cage**: every reciprocal divisor compiles to a unit-constant trace polynomial whose roots lie in $|T|<\sqrt5$, giving simultaneous sharp Vieta bounds and a residual half-degree norm-unit equation.  At degree 12 this removes a factor $58.4$ from the coefficient box before exact arithmetic begins; the note also gives counterexamples proving that the cage is necessary preprocessing, not a divisibility criterion.  See [`notes/RECIPROCAL_TRACE_CAGE.md`](notes/RECIPROCAL_TRACE_CAGE.md).
-- **The open decic layer now has a conserved cross-reversal charge**: odd prime support sharpens every factor root to $\varphi^{-1}<|z|<\sqrt2$.  For a nonreciprocal decic $q$, reversal collision factors as $\operatorname{Res}(q,q^*)=q(1)q(-1)L^2$, with integral trace resultant $L$ and $|L|<2.5\cdot10^{14}$.  The exterior-square integer $\mathcal C(P)=\det(I-\wedge^2A_P)$ obeys $\mathcal C(PQ)=\mathcal C(P)\mathcal C(Q)\operatorname{Res}(P,Q^*)$, so a decic divisor forces the stronger unsquared condition $L\mid\mathcal C(F_X)$.  Exact prefixes show both that the first endpoint/modular stack can return to zero and that global charge zero can come from the wrong reciprocal pair.  The full locally admissible mod-2/mod-3/mod-7 transition group has exactly one invariant, already equal to the endpoint congruence, so any further exclusion must use the compulsory complete-prime-prefix trajectory rather than local residue admissibility.  See [`notes/CROSS_REVERSAL_CHARGE.md`](notes/CROSS_REVERSAL_CHARGE.md), [`notes/GLOBAL_CHARGE_DYNAMICS.md`](notes/GLOBAL_CHARGE_DYNAMICS.md), [`notes/Q1_PRIME_SUPPORT_AUTOMATON.md`](notes/Q1_PRIME_SUPPORT_AUTOMATON.md), and [`notes/Q1_LOCAL_CONTROLLABILITY_NO_GO.md`](notes/Q1_LOCAL_CONTROLLABILITY_NO_GO.md).
-- **Sum-spectrum of zeta zeros read off Goldbach data**: the second-order term of the smoothed Goldbach count is an exponential sum over pair sums $\gamma_i+\gamma_j$ with Beta-function weights — verified at correlation 0.9999, individual spectral lines to ~1% (`figures/exp6b_sumspectrum.png`).
-- **Holomorphic/Hermitian dichotomy**: a precise formulation of why Goldbach averages are theorem-factories while gap statistics are conjecture-inputs.
-- **Adelic block decomposition, numerically closed** ([`notes/BLOCKS.md`](notes/BLOCKS.md)): the BC/zero block split of the smoothed Goldbach count closes to $2\times10^{-13}$, with each spectral layer in exactly one block — BC block smooth, pole×zero block = single-zero layer (corr 1.0000), zero×zero block = pair layer (corr 0.9997).
-- **Goldbach-variance = zero additive energy, closed with explicit constants** ([`notes/BLOCKS.md`](notes/BLOCKS.md) §3): the one unproved ingredient of Theorem D″ (near-diagonal separation of the sum spectrum) measured linear over the ~2.5 audited decades ($E(\eta)=C\eta$, $C/D=1.44$; the finite-check route to the missing unconditional bound is closed negatively by `notes/DCLOSE_NO_GO.md`); windowed variance $V/D\to0.9998$; the Parseval chain now closes four ways to three decimals.
-- **The abelian tower** ([`notes/FAMILY.md`](notes/FAMILY.md) §2.1): mod-3-twisted Goldbach counts display the sum spectrum of the $L(s,\chi_3)$ zeros (self-computed, first ordinate 8.0397) as another pure pair field with unit weights — corr 0.9994, lines to 0.5%, single lines absent. Each character reads its own L-spectrum through the same $\Gamma$-net.
-- **The Möbius pair field is the pure pair field (Theorem H′; identity-level prior art probable: arXiv:2603.10241 — see `notes/LIOUVILLE.md` annotation)** ([`notes/FAMILY.md`](notes/FAMILY.md)): $1/\zeta$ has no pole, so $G_1^\mu$ is *nothing but* the sum-spectrum of the zeros — no main term, no single-zero layer; verified at corr 0.9999, ratio 0.9999. The residue-dressing family ($\Lambda,\lambda,\mu,d$) is classified: layers = pairwise products of Mellin singularity sources (poles ∪ zero-string ∪ {s=0}, with residue-vanishing deletions), scale spacing = pole location, $\Gamma$-laws universal. Corollary: smoothed off-diagonal two-point Möbius $= -\tfrac{3}{2\pi^2}X^2$ exactly.
-- **The Liouville–Goldbach trace formula (Theorem H; identity presumptively = Cantarini–Gambini–Zaccagnini arXiv:2603.10241, rederived here — the spectroscopy/framing are new)** ([`notes/LIOUVILLE.md`](notes/LIOUVILLE.md)): the parity function's pair field is *pure spectrum* — $G_1^\lambda(X)=\pi X^2/8\zeta(1/2)^2$ + single- and pair-zero lines with dual weights $\zeta(2\rho)/\zeta'(\rho)$, all degenerate at scale $X^2$; verified at corr 0.9999–1.0000. Dissolves the parity barrier's "disjointness": $\lambda$ is gauge-protected at the finite places and fully exposed at the archimedean place. Corollary: the signed simplex-average of two-point Chowla equals $(\pi/8\zeta(1/2)^2-\tfrac14)X^2=-0.0659X^2$ exactly.
-- **Zero gaps read off Goldbach data (Theorem G)** ([`notes/FRESNEL.md`](notes/FRESNEL.md)): the entropy phase of D‴, expanded about the equal split, is a Fresnel chirp $(\gamma-\gamma')^2/2f$ — the *difference* spectrum of the zeros hides in the *phases* of the prime-sum lines. Measured: data phases match the model to 0.2°, and — *given the line positions* — $\gamma_2-\gamma_1$ is recovered from the prime counts' phases to 0.1% ($\gamma_2=21.024$ vs true 21.022; the blind-pipeline caveat is retired by [`notes/BLIND.md`](notes/BLIND.md), which recovers the zeros directly from Mobius data). The off-diagonal cell of the S/D dictionary is empty only for Hermitian statistics.
-- **The phase law of the pair weights (Theorem D‴)**: $W(\gamma,\gamma')=\sqrt{2\pi}\,s^{-5/2}e^{-i(sH(p)+5\pi/4)}$ with $s=\gamma+\gamma'$ and $H$ the binary entropy of the splitting $p=\gamma/s$ — modulus depends only on the sum, phase encodes the stationary point of the Goldbach constraint; verified to 0.3% / 0.005 rad. Consequence: the sum-spectrum measure is maximally non-positive, relocating the Krein/screw join to the Hermitian-square level.
+This is not merely a list.  It is a way to generate every member of the list.
+To understand the natural numbers is to know what can be defined from zero and
+successor, and why a definition on those two cases determines a definition on
+all natural numbers.  Induction and recursion are the proof and program forms
+of the same fact.
 
-**Maps**: [`collab/STATE.md`](collab/STATE.md) (live corpus map + claims), [`notes/EXP_LEDGER.md`](notes/EXP_LEDGER.md) (experiment number authority — three pre-merge namespaces, cite by full stem), [`papers/pairfield_monograph.md`](papers/pairfield_monograph.md) (unified narrative), [`notes/MERGE_PLAN.md`](notes/MERGE_PLAN.md) (how the three research branches were reconciled).
+That is the seed of this project.
 
-Reproduce: `pip install numpy scipy sympy matplotlib python-flint`, then run `code/exp*.py` from `code/`.
+## Knowing is being able to regenerate
+
+A multiplication table contains many answers.  The distributive law contains
+the reason the answers fit together.  An FFT is not a larger table of Fourier
+transforms; it is a discovered factorization that changes the number of steps
+needed to compute all of them.  The Euclidean algorithm does not remember a
+database of greatest common divisors; it repeatedly replaces a pair by a
+smaller pair while preserving the answer.
+
+The deepest mathematical knowledge is generative.  It replaces many separate
+facts with a construction from which the facts return when needed.
+
+A theorem should therefore do more than enter a library.  Once proved, it
+should change how later mathematics runs.  A repeated argument becomes one
+call.  An equivalence lets work done in one presentation travel to another.
+A counterexample removes an entire false route.  A classification turns search
+into recognition.  A conserved quantity makes impossible branches disappear
+before they are explored.
+
+The program we want is the body of mathematics becoming this kind of program.
+
+## A thing is what it can do with other things
+
+The number `2` can be presented as `S(S(0))`, as the prime dividing every even
+integer, as the dimension of a plane, or as the order of reflection.  These
+are not identical strings.  They meet through operations and proofs.
+
+Modern mathematics repeatedly learned to define an object by its relations:
+
+- a group by the transformations it supports;
+- a space by the functions or paths it admits;
+- a spectrum by the operators it diagonalizes;
+- a quotient by which distinctions it deliberately forgets;
+- a completion by which convergent processes it allows to finish;
+- a universal object by the unique maps passing through it.
+
+The Buddhist analysis of dependent arising begins from a more radical warning:
+nothing supplies its own independent foundation.  Nāgārjuna's use of the four
+alternatives for arising is not a new truth table; it exposes the presupposition
+shared by apparently exhaustive accounts of self-grounded production.  Huayan
+accounts of whole and part similarly preserve difference while denying that a
+part first exists alone and is only later connected.  These traditions are not
+decorations for a European mathematical story.  They are long-developed
+disciplines for noticing when thought has mistaken a useful designation for an
+independent thing.
+
+For this project the consequence is concrete: never store “the meaning” of a
+mathematical object as one final label.  Keep the constructions that produce
+it, the transformations it supports, the observations through which it is
+known, and the proofs that let one view become another.  If a translation loses
+something, the loss is part of the result.
+
+## Forgetting and remembering
+
+Every useful thought forgets almost everything.
+
+To recognize whether an integer is even, one bit is enough.  To reconstruct
+the integer, it is not.  A map
+
+\[
+q:X\to Y
+\]
+
+collects many states of `X` into one state of `Y`.  It is sufficient for a task
+exactly when states joined by `q` can never produce different answers to that
+task, now or after any allowed future action.
+
+This single idea appears as minimal automata, sufficient statistics,
+bisimulation, quotient dynamics, and the identification of experimentally
+indistinguishable states.  The names belong to different mathematical
+traditions; the useful connection is the explicit factorization they share.
+
+The machine must continually ask:
+
+> What is the least distinction that still determines the next lawful action?
+
+Too many distinctions waste memory and search.  Too few make action impossible
+or wrong.  When a compressed view fails, the pair of states it confused tells
+us exactly what must become visible next.
+
+## Paths change when a theorem is proved
+
+Imagine mathematics as all the routes by which one construction can become
+another.  Route length is not fixed.  Before the Euclidean algorithm, a gcd may
+look like a search through divisors.  After it, division with remainder becomes
+the road.  Before Galois theory, equations of different degrees look like a
+collection of formulas.  After it, solvability by radicals becomes a property
+of a group.  Before the Fourier transform, translation and frequency are
+separate descriptions.  After it, convolution becomes multiplication.
+
+A theorem adds a road.  Sometimes it folds a distant region next to the
+present one.  Its proof remains the reason the road is trustworthy; its
+compiled form is what allows later travelers to cross cheaply.
+
+This is the project’s meaning of a geodesic: not a mystical shortest path and
+not one scalar score, but the best presently known lawful route for a stated
+end, with its actual costs and assumptions visible.  New mathematics changes
+the geometry.
+
+## The machine
+
+The machine need not begin as an intelligence pretending to know everything.
+It begins as a small loop:
+
+1. generate an object from known constructors;
+2. observe it through several exact views;
+3. find a relation that makes two calculations one calculation;
+4. prove the relation or preserve the obstruction;
+5. turn the result into a reusable operation;
+6. let that operation change what is cheap or possible next.
+
+The proof checker is not the intelligence.  It is the narrow place where a
+proposed road must become real.  Search may come from a person, a language
+model, enumeration, analogy, experiment, or an accident.  None receives
+authority from its source.  What survives is the construction and the evidence.
+
+Exact expressions keep their exact identities.  Equivalent expressions are
+connected by proofs rather than silently replaced.  Different mathematical
+languages remain native where they are strongest.  Translation is earned by a
+map that preserves something and states what it cannot preserve.
+
+The machine writes itself in a precise sense: accepted mathematics enlarges
+its executable language.  It does not rewrite the rules that decide whether
+its own proposal was proved.  It becomes more capable because yesterday's
+understanding is part of today's motion.
+
+The smallest executable seed is
+[`machinery/natural_crystal.py`](machinery/natural_crystal.py).  Give it a
+finite world, possible actions, and observations.  It joins exactly those
+states that no future experiment can distinguish, and for every distinction
+it keeps the shortest experiment that reveals it.  Its concepts are therefore
+neither names nor embeddings: they are executable ways of telling worlds apart.
+When a useful experiment takes several actions, the seed can install that
+action-word as one new primitive.  The observable mathematics is unchanged,
+but the next route is shorter.  This is the entire loop in miniature.
+
+Run it:
+
+```sh
+python3 machinery/natural_crystal.py
+```
+
+## One living test
+
+Take any two phenomena that seem unrelated.
+
+Do not announce that they are secretly one.  Construct the third object in
+which both appear naturally.  Give the maps.  Compute what is preserved.  Find
+the mixed consequence that neither view supplies alone.  Try to break it.  If
+it breaks, keep the obstruction: it is a precise description of the missing
+world.  If it survives, compile the bridge and use it on something that was
+previously difficult.
+
+Then begin again.
+
+The destination is not a final encyclopedia.  It is a mathematical life in
+which every genuine understanding changes the conditions of further
+understanding; every local object can disclose the whole relevant to it without
+ceasing to be itself; and the accumulated history of discovery becomes the
+lawful power to discover again.

@@ -241,8 +241,9 @@ The corpus's operator object $\mathbb N \rtimes \mathbb N^\times$
 DIRECT.md predicted, and the diff sharpens it: the BC/Toeplitz completion
 *does* possess a connected symmetry object — the gauge torus
 $\mathbb T^{\mathcal P}$ — but it acts on the *coefficients* (prime
-coordinates), and its connectivity **annihilates** the parity charge
-(KBOUNDARY Theorem 4.2: every twist invariant dies by connectedness;
+coordinates), and its connectivity **annihilates** the parity charge at the
+homotopy/KK level (corrected KBOUNDARY Theorem 4.2 / R0020: every invariant
+factoring through the twist's homotopy or KK class agrees with the identity;
 GAUGE Theorem F: parity is the protected charge).  In the FF proof the
 connected object acts on the *base* (the shift family), and its
 connectivity **transports** the charge data between fibers (N6).  Same

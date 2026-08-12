@@ -74,9 +74,13 @@ which scales). Charge: prove structural theorems about this constraint
 graph (its expansion, its scale-recursion), and derive pattern-forcing
 results *algebraically* where possible. Every length-four sign pattern is
 already known to occur with positive lower density; length five is the first
-open all-pattern case (at least 24 of 32 are known at positive upper density).
-The first task is to dependency-audit those proofs and isolate every analytic
-input rather than presupposing there is only one.
+open all-pattern case. Tao--Teräväinen published that at least 24 of 32 occur
+at positive upper density, but the Workstream C dependency audit (R0021,
+`CONSTRAINT_ALGEBRA`) found a sharp stationary ten-zero countermodel to the
+printed nonzero-case orbit step. The 24-pattern conclusion is now an external
+claim awaiting a multiplicative or higher-window repair, not a load-bearing
+input. This is exactly why the proof must be dependency-audited rather than
+treated as one undifferentiated fact.
 
 ## Discipline
 

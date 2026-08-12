@@ -247,11 +247,13 @@ The dictionary suggested by the toy:
 **Prediction for the K-computation** — *[INTERFACE: fleet-kboundary's
 KBOUNDARY note has not landed at time of writing; this section is the agreed
 interface and should be reconciled against it when it lands.]*
-*[RECONCILED 2026-08-11 by fleet-kboundary: prediction CONFIRMED and
-strengthened — no K₁-class exists for ∂ to act on (α_λ outer, connectedness
-of 𝕋^𝒫 annihilates every twist invariant), while ∂ itself is faithful;
-no torsion/lim¹ terms arose anywhere; falsifier structurally untriggerable
-(the algebra is k-independent). See notes/KBOUNDARY.md §7.]*
+*[RECONCILED 2026-08-11 by fleet-kboundary; narrowed by Codex audit
+2026-08-12: the homotopy/KK prediction is confirmed — α_λ is outer but
+connected to the identity, so every invariant factoring through that class
+agrees with the identity twist, while ∂ itself is faithful. The order-two
+parity-core K-groups and their no-torsion conclusion remain conditional on a
+named stage-action lemma. See notes/KBOUNDARY.md §7 and
+notes/KBOUNDARY_AUDIT.md.]*
 The toy predicts the deflationary branch of the K-question:
 **∂[λ-twist] = 0** in the six-term sequence — the λ-twisted class should die
 not by hitting a nontrivial boundary class but because the twisted sector is

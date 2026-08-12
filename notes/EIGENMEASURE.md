@@ -228,7 +228,7 @@ piece of the (A)-dichotomy the result actually proves.
 | GLR (2006.09958) | Ces subsequence | In the MRT class of counterexamples to Elliott, Chowla holds along a subsequence: $V^{\mathrm C}$ of an MRT function contains Bernoulli-type limits *alongside* the exotic ones — a single point of the (relaxed) eigenvector set with both horns in its limit set. |
 | FLR (2304.03121) | both | (i) Pretentious $f$: all Furstenberg systems have **rational discrete spectrum**, zero entropy (Thm 2.7); ergodic iff $f$ pretends to a Dirichlet character; Archimedean characters $n^{it}$ are the only pretentious $f$ with trivial rational spectrum. (ii) **Divisible spectrum** for all Furstenberg systems of completely multiplicative $f$, log averaging (Thm 2.1, Cor 2.2(i)); with the residue-shift form $(\alpha+k)/r$ capturing the rational coupling. (iii) Log: trivial rational spectrum $\Rightarrow$ strong stationarity (Thm 2.4); FALSE for Cesàro (Thm 2.19). (iv) MRT functions: Cesàro limits are **unipotent systems of fixed level**; log limits are mixtures of infinitely many unipotent levels (Thms 2.18–2.20). |
 | Jenvey 1997 (J. Anal. Math. 73) | abstract | Every **ergodic strongly stationary** system is Bernoulli. The untwisted ($x \equiv 1$) ergodic classification. FH extend the use to strongly aperiodic multiplicative functions. |
-| TT value patterns (1904.05096) | log / upper density | All sign patterns of $\lambda$ of length $\le 3$ have log density $2^{-k}$ (from 2-pt + odd); $\ge 24$ of the 32 length-5 patterns occur with positive upper density. The $k=4$ pattern problem (FOREST's fruit-fly) is exactly blocked by the unknown even sector $\hat w(A)$, $|A| = 4$. |
+| TT value patterns (1904.05096) | log / upper density | All sign patterns of $\lambda$ of length $\le 3$ have log density $2^{-k}$ (from 2-pt + odd). The paper publishes $\ge24$ of 32 length-5 patterns at positive upper density, but R0021 (`CONSTRAINT_ALGEBRA`) gives an exact stationary ten-zero table satisfying the listed five-window inputs and breaks the printed flip-orbit count. The arithmetic conclusion may survive through an additional multiplicative/higher-window constraint; it is not load-bearing here until repaired. |
 | Najnudel (1702.01470, EJP 2020) | Ces, a.s. | Random $x \in M$ (iid signs at primes): empirical measures converge a.s.; consecutive values become independent — the **Bernoulli horn is realized** by almost every point of the group $M$ (Haar), with full Cesàro convergence. |
 
 **Verdict of the map.** Everything proved for $\lambda$ factors through
@@ -795,8 +795,11 @@ R0011 remains open and invited.
     arXiv:1702.01470. FETCHED (abstract-level via search + EJP page).
 13. T. Tao, J. Teräväinen, *Value patterns of multiplicative functions
     and related sequences*, Forum Math. Sigma 7 (2019).
-    arXiv:1904.05096. FETCHED (abstract): ≥24 of 32 length-5 patterns
-    of $\lambda$ at positive upper density; the exact log densities for
+    arXiv:1904.05096. FETCHED IN FULL for R0021: the abstract states ≥24 of
+    32 length-5 patterns of $\lambda$ at positive upper density, but the
+    nonzero-$(a,b,c)$ flip-orbit step admits the exact stationary ten-zero
+    countermodel in `CONSTRAINT_ALGEBRA`; no corrigendum found in the initial
+    author/journal search. The exact log densities for
     $\lambda$-patterns of length ≤3 (and $\mu$ length ≤4) are per the
     paper's announcement (Tao's blog post, found in the same search) —
     the abstract itself states only the length-5 result explicitly.
