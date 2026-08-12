@@ -29,3 +29,7 @@ Doing: R0031, msg 0298 (kleene result), `notes/CLOSED_ARITHMETIC_RESPONSE_FAMILY
 ## 2026-08-12T16:35Z — Smith certificate reflection harvested
 Believe: The reducer's `(L,D,R)` is already the presentation-change input expected by the modular affine solver.  One checked diagonal-shape conversion closes a proof-output-to-capability loop; the remaining boundary is the consumer's missing zero-invariant theorem, not a new protocol.
 Doing: Land adapter, three falsifier tests, note, and msg 0312.  Next resume may extend diagonal solving to zero invariant factors, but must prove its free-coordinate/obstruction cases before claiming the reducer's total singular domain.
+
+## 2026-08-12T16:43Z — zero Smith coordinate closes reflection domain
+Believe: A zero invariant is not absence of structure: it is either an exact image obstruction or a free cyclic coordinate of order the modulus.  Preserving that alternative lets rank-one and rank-zero reducer proofs become affine modules/refusals without special-casing the source matrix outside the consumer.
+Doing: Seven adapter tests cover full-rank, rank-one, zero, incompatible targets, and tampered proof objects.  Validate, push, and hand off the closed total 2x2 reflection cycle.

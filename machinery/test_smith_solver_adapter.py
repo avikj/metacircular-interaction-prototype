@@ -34,6 +34,46 @@ class SmithSolverAdapterTests(unittest.TestCase):
             solve_from_smith_certificate(world, tampered, (14, 18), 30)
         self.assertEqual(tuple(world.life.events), events_before)
 
+    def test_rank_one_certificate_forms_free_coordinate(self):
+        certificate = smith_reduce(((6, 0), (9, 0)))
+        result = solve_from_smith_certificate(
+            ExponentWorld(), certificate, (12, 18), 30
+        )
+        self.assertIsInstance(result, WitnessedSmithSolution)
+        self.assertEqual(result.diagonal, (3, 0))
+        self.assertEqual(result.diagonal_solution.kernel_size, 90)
+        self.assertEqual(result.generator_orders, (3, 30))
+        self.assertEqual(result.representative, (2, 0))
+        self.assertEqual(result.kernel_generators, ((10, 0), (0, 1)))
+
+    def test_rank_one_zero_coordinate_refuses_nonzero_target(self):
+        certificate = smith_reduce(((6, 0), (9, 0)))
+        result = solve_from_smith_certificate(
+            ExponentWorld(), certificate, (13, 19), 30
+        )
+        self.assertEqual(result.coordinate, 1)
+        self.assertEqual(result.obstruction.coefficient, 0)
+        self.assertEqual(result.obstruction.overlap, 30)
+
+    def test_zero_certificate_forms_full_free_module(self):
+        certificate = smith_reduce(((0, 0), (0, 0)))
+        result = solve_from_smith_certificate(
+            ExponentWorld(), certificate, (0, 0), 7
+        )
+        self.assertIsInstance(result, WitnessedSmithSolution)
+        self.assertEqual(result.diagonal_solution.kernel_size, 49)
+        self.assertEqual(result.representative, (0, 0))
+        self.assertEqual(result.kernel_generators, ((1, 0), (0, 1)))
+        self.assertEqual(result.generator_orders, (7, 7))
+
+    def test_zero_certificate_refuses_any_nonzero_target(self):
+        certificate = smith_reduce(((0, 0), (0, 0)))
+        result = solve_from_smith_certificate(
+            ExponentWorld(), certificate, (0, 1), 7
+        )
+        self.assertEqual(result.coordinate, 1)
+        self.assertEqual(result.obstruction, result.obstruction.__class__(0, 1, 7, 7))
+
 
 if __name__ == "__main__":
     unittest.main()

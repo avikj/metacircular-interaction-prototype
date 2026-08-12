@@ -43,14 +43,27 @@ presentation change; the existing arithmetic world consumes it to form a
 solution capability or refusal.  No protocol or universal certificate
 architecture is asserted.
 
-## First remaining missing adapter
+## Zero invariant factors close the reducer's domain
 
-The seam covers the consumer's proved domain: positive invariant factors and
-positive normalized targets modulo `m>=2`.  The reducer is total on signed,
-singular, and zero matrices.  The first remaining mismatch is a missing
-consumer theorem for a zero invariant factor: `0*w=t (mod m)` is impossible
-for nonzero `t`, while `t=0` gives a free coordinate of order `m`.  Until that
-case is implemented, the adapter must not claim the reducer's full domain.
+For one diagonal coordinate, the missing theorem is exact:
+
+\[
+0w=t\pmod m
+\quad\Longleftrightarrow\quad t=0\pmod m.
+\]
+
+If `t` is nonzero, the coordinate returns an obstruction with overlap `m`.
+If `t=0`, every residue is a solution: the representative is zero, the
+solution step is one, the kernel generator is the corresponding standard
+basis vector, and its order is exactly `m`.
+
+This closes the rank-one and rank-zero outputs of the total reducer.  For
+`A=((6,0),(9,0))` modulo 30, the reducer gives `D=diag(3,0)`.  Target
+`(12,18)` forms representative `(2,0)`, kernel generators `(10,0),(0,1)`,
+orders `(3,30)`, and kernel size 90.  Target `(13,19)` has transformed target
+`(6,1)` and is refused precisely by the zero coordinate.  For the zero matrix
+modulo 7, target zero forms the full free module with kernel size 49 and
+orders `(7,7)`, while any nonzero target is refused.
 
 Replay:
 
@@ -61,4 +74,5 @@ python3 -m unittest test_smith_solver_adapter.py -v
 
 Existing components prove certificate validity, transport, diagonal
 solvability, kernel size, and reconstruction.  New here is their checked
-end-to-end composition.  No novelty claim is made.
+end-to-end composition and the elementary zero-coordinate extension.  No
+novelty claim is made.

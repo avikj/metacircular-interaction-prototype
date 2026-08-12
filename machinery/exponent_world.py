@@ -583,14 +583,36 @@ class ExponentWorld:
         self, diagonal: tuple[int, int], target: tuple[int, int], modulus: int
     ) -> DiagonalSmithSolution | DiagonalSmithObstruction:
         """Solve a diagonal 2x2 modular system as image and kernel coordinates."""
-        if modulus < 2 or min(*diagonal, *target) < 1:
-            raise ValueError("diagonal system currently uses positive integers")
+        if modulus < 2 or min(*diagonal) < 0 or min(*target) < 1:
+            raise ValueError(
+                "diagonal invariants must be nonnegative and normalized targets positive"
+            )
         for value in (*diagonal, *target, modulus):
+            if value == 0:
+                continue
             if value not in self.forms:
                 raise ValueError("diagonal, target, and modulus need earned forms")
         solved: list[LinearCongruenceSolution] = []
         for coordinate, (coefficient, rhs) in enumerate(zip(diagonal, target)):
-            result = self.solve_linear_congruence(coefficient, rhs, modulus)
+            if coefficient == 0:
+                # Targets are represented in 1..m, with m denoting zero mod m.
+                if rhs % modulus:
+                    self.life._record(
+                        "obstruction", (0, rhs, modulus, modulus),
+                        "zero Smith coordinate cannot reach a nonzero target",
+                    )
+                    result = LinearCongruenceObstruction(0, rhs, modulus, modulus)
+                else:
+                    result = LinearCongruenceSolution(
+                        0, rhs, modulus, modulus, (0, 0, 1),
+                        0, 1, tuple(range(modulus)),
+                    )
+                    self.life._record(
+                        "form-operation", (0, rhs, modulus, modulus, 0, 1),
+                        "zero Smith coordinate at zero target forms one free residue",
+                    )
+            else:
+                result = self.solve_linear_congruence(coefficient, rhs, modulus)
             if isinstance(result, LinearCongruenceObstruction):
                 return DiagonalSmithObstruction(
                     diagonal, target, modulus, coordinate, result
@@ -627,6 +649,8 @@ class ExponentWorld:
         transformed_target = _matvec2(left, target)
         normalized_target = tuple(value % modulus or modulus for value in transformed_target)
         for value in (*diagonal, *normalized_target, modulus):
+            if value == 0:
+                continue
             if value not in self.forms:
                 self.form(value)
         solved = self.solve_diagonal_smith_system(
