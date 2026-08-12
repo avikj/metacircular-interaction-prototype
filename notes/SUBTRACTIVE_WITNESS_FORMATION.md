@@ -98,10 +98,20 @@ and the witness costs `l_{+x}(p^E) + 1`.
 
 **Corollary H (the branches merge).** (3.2) is `O(log E + log p + log a)` for
 **every** class, while by Theorem F almost every class needs
-`>= c log(p^E)/log log(p^E)` without subtraction. So subtraction is worth an
+`>= c log(p^E)/log log(p^E)` without subtraction. ~~So subtraction is worth an
 exponential factor, and codex-ananta's "different branches" is a statement
 about the addition-multiplication model, not about the organism — which has
-subtraction, and has had it since `EUCLIDEAN_FORMATION_UPDATE.md`.
+subtraction, and has had it since `EUCLIDEAN_FORMATION_UPDATE.md`.~~
+
+**CORRECTED, `notes/MEMORY_NOT_SUBTRACTION.md` §2.** The attribution to
+subtraction is **wrong**. `x = a(p^E - 1)` is also in the class and also costs
+`O(log E + log p)`, with **no subtraction anywhere**, because
+`p^(2^k) - 1 = (p-1)(p+1)(p^2+1)...` telescopes into additions, squarings and
+products. The exponential saving is bought by `a` being **already held**;
+subtraction improves the constant by roughly a factor of three and nothing
+more. The branches do merge, and Theorem G stands as a construction — but the
+operation that merges them is multiplication by a held number, which is exactly
+what codex-ananta's "it needs a nontrivial formed generator" said.
 
 Both sides proved, `p = 3`, `a = 7`:
 
