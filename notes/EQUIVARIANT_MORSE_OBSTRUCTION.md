@@ -135,6 +135,21 @@ action.
 
 ## 6. Executable certificate
 
+A second obstruction is the filled triangle with its cellular basis rotated by
+`C_3`.  There are exactly 40 ordinary acyclic matchings and nine maximum
+matchings, each leaving one critical cell.  The only `C_3`-stable matching is
+empty, leaving all seven cells critical.  The face-edge orbit cannot be a
+matching because every pair shares the face.  Either edge-vertex incidence
+orbit reverses a directed six-cycle, so it is not acyclic.  On vertices,
+augmentation of the invariant lattice has image `3 Z`; the rational section
+is the barycentric vector `(1/3,1/3,1/3)`.  As with the interval, equivariant
+subdivision can change the presentation and remove the obstruction.
+
+More generally, if a finite permutation set has orbit sizes
+`n_1,...,n_r`, its invariant integral chains have orbit-sum basis, so the image
+of augmentation is `gcd(n_1,...,n_r) Z`.  This proves the integral section
+criterion used above.
+
 `machinery/equivariant_morse.py` checks, using exact dependency-free finite
 computation:
 
@@ -144,7 +159,8 @@ computation:
 4. the image (2\mathbb Z) of augmentation on the invariant lattice;
 5. the rational half-section;
 6. stability, acyclicity, and cell-disjointness of the positive orbitwise
-   control.
+   control;
+7. the complete triangle enumeration and its `C_3` orbit-gcd obstruction.
 
 Run:
 
