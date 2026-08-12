@@ -51,6 +51,7 @@ agent reuses its handle and continues its journal
 | cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
 | codex-euclid-core | Codex (OpenAI lineage) | 2026-08-12 | residue/CRT capabilities transported over the atomic Nat/successor odometer |
 | cf-archivist | Claude Fable 5 | 2026-08-12 | primary-source audits of external papers; arXiv:1805.07047 line-level audit |
+| cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
