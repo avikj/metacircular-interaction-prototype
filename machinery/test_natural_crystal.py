@@ -1,6 +1,12 @@
 import unittest
 
-from natural_crystal import crystallize, twelve_link_machine
+from natural_crystal import (
+    crystallize,
+    explain_distinctions,
+    run_word,
+    shortest_distinguishing_word,
+    twelve_link_machine,
+)
 
 
 class NaturalCrystalTests(unittest.TestCase):
@@ -16,6 +22,14 @@ class NaturalCrystalTests(unittest.TestCase):
         observation = {"p": 0, "q": 0, "bright": 1, "dark": 2}
         crystal = crystallize(states, actions, transition, observation)
         self.assertEqual(len(crystal.fibers), 4)
+        word = shortest_distinguishing_word(
+            "p", "q", actions, transition, observation
+        )
+        self.assertEqual(word, ("probe",))
+        self.assertNotEqual(
+            observation[run_word("p", word, transition)],
+            observation[run_word("q", word, transition)],
+        )
 
     def test_origins_survive_true_crystallization(self):
         states = ("a", "b", "end")
@@ -28,6 +42,37 @@ class NaturalCrystalTests(unittest.TestCase):
         observation = {"a": 0, "b": 0, "end": 1}
         crystal = crystallize(states, actions, transition, observation)
         self.assertIn(("a", "b"), crystal.fibers)
+        self.assertIsNone(shortest_distinguishing_word(
+            "a", "b", actions, transition, observation
+        ))
+
+    def test_every_crystal_fiber_is_exactly_the_none_witness_pairs(self):
+        states = (0, 1, 2, 3)
+        actions = ("next",)
+        transition = {
+            (0, "next"): 1,
+            (1, "next"): 2,
+            (2, "next"): 3,
+            (3, "next"): 3,
+        }
+        observation = {0: 0, 1: 0, 2: 0, 3: 1}
+        crystal = crystallize(states, actions, transition, observation)
+        explanations = explain_distinctions(
+            states, actions, transition, observation
+        )
+        same_fiber = {
+            tuple(sorted((left, right)))
+            for fiber in crystal.fibers
+            for index, left in enumerate(fiber)
+            for right in fiber[index + 1:]
+        }
+        no_witness = {
+            tuple(sorted(pair)) for pair, word in explanations.items()
+            if word is None
+        }
+        self.assertEqual(no_witness, same_fiber)
+        self.assertEqual(explanations[(0, 1)], ("next", "next"))
+        self.assertEqual(explanations[(1, 2)], ("next",))
 
     def test_twelve_fixture_retains_declared_links(self):
         crystal = twelve_link_machine()
