@@ -2,6 +2,7 @@ import unittest
 
 from natural_crystal import (
     compile_experiment,
+    binary_divisibility_classes,
     crystallize,
     divisibility_world,
     explain_distinctions,
@@ -53,6 +54,28 @@ class NaturalCrystalTests(unittest.TestCase):
             divisibility_world(1, 5)
         with self.assertRaises(ValueError):
             divisibility_world(2, 0)
+
+    def test_closed_binary_theorem_matches_refinement(self):
+        for modulus in range(1, 101):
+            world, observation = divisibility_world(2, modulus)
+            computed = crystallize(
+                world.states, (0, 1), world.transition, observation
+            )
+            predicted = binary_divisibility_classes(modulus)
+            self.assertEqual(
+                {frozenset(fiber) for fiber in computed.fibers},
+                {frozenset(fiber) for fiber in predicted},
+                modulus,
+            )
+            q, exponent = modulus, 0
+            while q % 2 == 0:
+                q //= 2
+                exponent += 1
+            self.assertEqual(len(predicted), q + exponent)
+
+    def test_binary_class_formula_rejects_nonpositive_modulus(self):
+        with self.assertRaises(ValueError):
+            binary_divisibility_classes(0)
 
     def test_context_distinguishes_equal_present_outputs(self):
         states = ("p", "q", "bright", "dark")

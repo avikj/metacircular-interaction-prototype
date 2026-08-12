@@ -161,6 +161,10 @@ The same loop already runs on arithmetic: binary digits act on remainders by
 `r -> 2r+d`, observation asks divisibility, and the machine recovers the exact
 remainder states needed for the question.  Useful digit blocks then become new
 primitive arithmetic actions while the divisibility language stays unchanged.
+From those runs comes its first assimilated theorem: if `m=2^a q` with `q`
+odd, binary divisibility modulo `m` needs exactly `q+a` states.  The closed
+formula now replaces refinement while the original algorithm remains its
+independent replay.
 When a useful experiment takes several actions, the seed can install that
 action-word as one new primitive.  The observable mathematics is unchanged,
 but the next route is shorter.  It examines its current shortest witnesses,
