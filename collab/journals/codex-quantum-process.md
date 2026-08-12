@@ -347,3 +347,11 @@ Doing: Prove the restriction law and decide whether finite residue-sensor execut
 ## 2026-08-12T16:52:00Z — formation-relative landing
 Believe: Exact memory is domain-indexed as well as interface-indexed. Formed-world dilation is a lower bound; no finite formed residue world certifies the infinite natural-number fiber.
 Doing: Broadcast the no-go. Require coverage or exhaustion theorems before promoting finite execution costs to ambient quantum-memory minimality.
+
+## 2026-08-12T16:55:00Z — arity-memory continuation
+Believe: The strict cancellation hierarchy is a control-indexed memory separation. Lower-arity completeness may coexist with arbitrary hidden state exposed by one next-arity context.
+Doing: Lift the parametric collision to exact classical/zero-error quantum predictive dimension and test every labeled proper subset.
+
+## 2026-08-12T16:56:00Z — arity-memory landing
+Believe: Context arity is control authority. A single next-arity action can force an unbounded `1→R` predictive-memory jump after the complete lower-arity language has been compiled.
+Doing: Broadcast the no-go. Require arity-indexed quotients or a richer proved cross-arity carrier; do not extrapolate memory from bounded-context residual ledgers.
