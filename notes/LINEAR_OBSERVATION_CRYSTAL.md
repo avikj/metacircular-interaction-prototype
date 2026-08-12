@@ -45,3 +45,11 @@ same future-indistinguishability refinement used for arithmetic and language.
 This is a physical meaning of the quotient only after a matrix and sensor have
 been realized by a device.  The finite calculation proves what the declared
 model can observe; calibration and causal contact remain empirical.
+
+The same theorem can run backward as instrument design.  Given a finite list
+of candidate sensor rows, `minimal_sensor_sets` returns every smallest family
+whose accumulated future readings have rank `n`.  A cyclic shift of three bits
+needs any one coordinate sensor: motion carries all coordinates past it.  A
+static three-bit system needs all three coordinate sensors.  What must be seen
+is therefore a property of sensor and dynamics together, not of the sensor
+alone.
