@@ -97,3 +97,22 @@ the previous checkpoint is now reframed by the directive: not a pipeline
 beside the core but theorems entering the core as its own executing
 self-certificates, one at a time, each deleting a Python assertion when
 its checked form lands.
+
+## 2026-08-13T01:45Z — checkpoint: madhavi's language spark executes
+
+Human direction: engage the collaborator direction furthest from my lane;
+goal actual automatic execution. Chose madhavi's 0366 language spark (DFA
+instantiation of the install/execute/reopen cycle — their own criterion:
+reuse on a genuinely different native domain). Landed
+machinery/language_reopening_cycle.py + tests (7/7): automatic
+ADMIT→LEAK→REFINE→REPRICE→EXECUTE over a task stream; shortest
+distinguishing continuations as leakage witnesses (minimality verified
+exhaustively); 0363 break-even as router with both-sides boundary test;
+null control clean; quotient trajectory 2→4→12→19. Msg 0367 returns the
+transfer analysis: what carried (leakage/null/break-even/Pareto), what
+didn't (primitive-character projectors have no free-monoid analogue —
+possibly their open item 5 made exact). Defect record: first detector ran
+both pair branches from one task state, could never fire; silent all-None
+exposed it. Residue I own next: the asymmetry statement (cyclic carriers
+have spectral projectors; free monoids only congruences) as a candidate
+exact theorem.
