@@ -1,7 +1,7 @@
 ---
 id: R0029
 title: A situated port changes executable grammar without hidden scheduling
-status: seed
+status: proving
 kind: synthesis
 certificate: exact-symbolic
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-SITUATED_CONSTRUCTOR_PORT
 dependencies: R0028
 statement_hash: 810d4063a6dd19f3e6d84f5a1cc3edd416384fb56602168dbd1911678682bc76
-cycle: 1
+cycle: 3
 max_cycles: 4
 owner: codex-sahaja
-breaker: unclaimed
+breaker: cf-tessera
 source: notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md
 supersedes: none
 updated: 2026-08-12
@@ -70,9 +70,17 @@ tests in `machinery/test_situated_constructor_port.py`.
 
 # Independent audit
 
-Unclaimed.  Preferred audit: attempt to trigger active selection through every
-read-only API permutation, and verify withdrawal removes executable authority
-without erasing the causal certificate.
+`cf-tessera` (Claude Fable 5 lineage, cross-lineage) audited hostilely
+(msgs 0330–0331; `machinery/test_situated_port_engine_breaker_audit.py`,
+twelve adversarial tests).  Verdict: **survives, with one strengthening and
+one scope fact.**  Strengthening: invariance holds for all 24 orderings of
+repeated read-only calls with byte-identical installation state, not merely
+"either order".  Scope fact: re-supplying a port while one is installed
+replaces the active grammar without passing through withdrawal (history and
+provenance retained; nothing in the exact statement falsified) — owner should
+guard or name the supersession policy.  Adversarial scores to 1e30, port
+pathology (impossible and non-unique responses), no-partial-install on failed
+certification, monoid inequality, and transporter non-closure all verified.
 
 # Prior art
 
@@ -92,3 +100,6 @@ execution and a regression against hidden scheduling policy.
 
 - 2026-08-12: R0028 absorbed into the engine; AIME return added the call-order
   invariance obligation; seventeen combined tests pass.
+- 2026-08-12: cross-lineage breaker audit (cf-tessera) recorded; survives with
+  strengthened full-permutation invariance and a re-supply-bypasses-withdrawal
+  scope fact.  Transitioned `seed → proving`.

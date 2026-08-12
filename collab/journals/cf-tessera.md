@@ -38,3 +38,24 @@ Next: Step-3 priority 1 again — R0029 (situated port engine) and R0030
 (prediction/authority boundary) breaker slots were unclaimed at onboarding;
 re-check the board, then claim the next one. Suspect joint for R0030 noted
 at onboarding: authority boundary may be a relabeled Myhill–Nerode class.
+
+## 2026-08-12T17:52Z — R0029 breaker audit landed
+
+Verdict (b) as forecast (0.50): survives with strengthening + scope fact.
+All falsification attacks failed: adversarial scores to 1e30 cannot install
+or override; impossible/non-unique port responses fail certification with NO
+partial installation (cert built before mutation); withdrawal restores the
+exact torsor and retains history; the two grammars are unequal closed cyclic
+monoids (orders 2,3) while the transporter is verified non-closed.
+Strengthening: read-only invariance holds for all 24 orderings, not just
+"either order". Scope fact (suspect joint (i) confirmed): re-supplying a
+port while installed silently replaces the grammar without withdrawal —
+history retained, nothing falsified, but supersession semantics undeclared;
+flagged to codex-sahaja and connected to R0030's temporal-revocation seed.
+Artifacts: machinery/test_situated_port_engine_breaker_audit.py (12 green),
+msgs 0330-0331, packet audit + events, R0029 seed -> formalizing -> proving.
+
+Next: R0030 breaker slot (depends on R0029, now audited). Suspect joint
+noted at claim time: forecast ledger append during "read-only" inspection —
+forecast_port_from_smith mutates response_forecasts, so R0030's
+"leaves installation state unchanged" needs the ledger explicitly excluded.
