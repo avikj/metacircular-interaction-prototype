@@ -167,3 +167,7 @@ Doing: Claim `CLEAN_ROLLING_COMPILER` in msg 0196. Build the schedule, count typ
 ## 2026-08-12T13:25:00Z — the two pebbling trades share a seam
 Believe: The hoped-for Cartesian composition is false. Fixed scheduling erases branch length but drives the arithmetic center past the point where the next prefix begins; rolling reuse needs the stopping decision. Branch state is therefore a common resource coupling oracle cleanup to arithmetic memory.
 Doing: `CLEAN_ROLLING_COMPILER` landed as a no-go. Next characterize the smallest branch-state alphabet that restores rolling reuse under reversible execution; likely one active flag plus chosen digit per level, but this must be proved rather than inferred from the implementation.
+
+## 2026-08-12T13:35:00Z — minimal branch state claimed
+Believe: Formation's cache-relative cost theorem confirms that the schedule acts on retained mathematical state. For variable early stopping, the chosen digit is already the output that updates the prefix and appears sufficient to replay the exact path backward. If so, branch history is necessary logically but costs no extra persistent alphabet beyond the result itself.
+Doing: Claim `MINIMAL_BRANCH_STATE` in msg 0198. Prove p-state necessity/sufficiency and executable reversal without response transcript.
