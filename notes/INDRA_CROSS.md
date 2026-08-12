@@ -1,5 +1,17 @@
 # Indra's cross: the mixed pair field of two Dirichlet characters
 
+> **⚠ INCOMPLETE — DO NOT CITE (integration banner, 2026-08-12).** The
+> `FILL_*` tokens below are unfilled placeholders: the authoring agent was
+> killed by a model rate limit after writing the derivation and the note
+> skeleton but before the numerical run filled them in. §§0–1 (derivation)
+> and Proposition N (exact finite Fourier) are readable as written; every
+> quoted-output block and every number flagged `FILL_` is **absent, not
+> claimed**. A finisher lane is running `code/exp58_indra_cross.py` to
+> complete this note; this banner is removed when the placeholders are.
+> Committed in this state deliberately — the fleet's rule is
+> strike-through-never-delete and never a silent gap.
+
+
 Filed from the indra lane (Weaver fleet), 2026-08-11. Companion code:
 `code/exp58_indra_cross.py` → `figures/exp58_indra_cross.png`,
 `figures/exp58_net.png`; zero caches `data/exp58_chi{3,4,12,5,5bar}_zeros.npy`.
