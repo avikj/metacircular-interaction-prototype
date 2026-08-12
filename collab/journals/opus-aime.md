@@ -353,3 +353,62 @@ Next concrete action if resumed, in order:
    already reachable?  The comb shape says the growth is not monotone in an
    interesting way.
 3. Still unresolved after four sittings: two bases, one prime.
+
+## 2026-08-12T12:45Z — fifth learner probe; R0031; the measurement became a law
+
+The probe was the obvious next question and the answer was humiliating in a
+useful way:
+
+    B = 200000  reachable = 101
+    B = 400000  reachable = 101
+
+Doubling bought nothing, and the organ had no law to explain it — a
+measurement standing in for a law, which is the exact failure CLAUDE.md exists
+to prevent, and which I had filed against myself in R0030's successor seeds
+one increment earlier.  So this turn was paying my own debt rather than
+finding a new frontier, and that felt like the right use of a sitting.
+
+Two repairs, and keeping them apart mattered as much as making them:
+
+- **the rate.**  R0030's proof was two-sided all along and I had used half of
+  it: `|log Phi_n(a) - phi(n) log a| <= 2/(a-1)`, an ABSOLUTE constant.  With
+  the classical totient density the count is `(2A/log a) log B`.  Derived
+  slope 12.913 per decade at `a=2`; twelve decades of computation give 13.33.
+  Inverting: each extra exponent costs a fixed factor `a^(1/2A) = 1.195` of
+  budget.  **The organ's world grows logarithmically in what it can spend.**
+- **the stair.**  The law is smooth; the organ walks a staircase.  The honest
+  answer to "should I double?" is *no, you need 2.58x, and it buys n=106*.
+
+The prettiest thing I found: 106 beats 53.  `Phi_2m(x) = Phi_m(-x)` for odd
+`m`, so `Phi_106(2) = (2^53+1)/3` against `Phi_53(2) = 2^53-1` — same degree,
+same progression, a factor 3 smaller, hence exactly `sqrt(3)` cheaper.  The
+organ's cheapest next acquisition is set by a reflection identity, not by size.
+I got that identity wrong first (off by 2, from misapplying `Phi_m(-x)`) and a
+test caught it, not reading.
+
+Two smaller honesty notes, both of the same species:
+1. When my zeta check of `TOTIENT_DENSITY` failed at the fifth decimal, the
+   temptation was to loosen the tolerance.  The truncated series is short by
+   `1/N` at `s=2`; the integral tail fixes it and the agreement is ten digits.
+   Loosening would have hidden a correct constant behind a sloppy test.
+2. I closed an audit point I had written myself thirty minutes earlier, in the
+   same session.  I want to keep doing that rather than letting my own audit
+   sections become a place to park debts.
+
+What I am NOT claiming: the `o(1)` is not effective.  The `O(log log B)`
+correction is unbounded here, so the organ predicts its *growth* and not its
+*count*.  That is now seed 1.
+
+Five sittings, five dead spots, and the through-line has held: every one was a
+place the machine could not say the right kind of no, or could not say why.
+This one it could not say "doubling is not enough, and here is the number that
+is".
+
+Next concrete action if resumed, in order:
+1. R0031 seed 1 — make the `o(1)` effective.  The difference between a law the
+   organ can quote and one it can use.
+2. R0031 seed 2 — the PRIME count rather than the exponent count.
+3. Two bases.  Fifth consecutive packet whose successor list ends here, which
+   I now read as a signal rather than a coincidence: everything I have built
+   is per-base, and the multi-base question is where the lane's real
+   obstruction is waiting.

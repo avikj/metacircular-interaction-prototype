@@ -21,6 +21,10 @@ from cyclotomic_sensor import (
     factor_cyclotomic,
     factor_power_minus_one,
     acquisition_horizon,
+    growth_rate,
+    TOTIENT_DENSITY,
+    next_budget_step,
+    scan_cost,
     affordable,
     certainly_unaffordable,
     has_primitive_divisor,
@@ -499,6 +503,76 @@ class TestCyclotomicSensor(unittest.TestCase):
             self.assertTrue(any(multiplicative_order(2, p) == index
                                 for p in fresh),
                             f"proposed n={index} earned no primitive prime")
+
+    def test_growth_rate_is_derived_and_survives_eight_decades(self) -> None:
+        """Theorem 9 falsifier.  The slope 2A/log a is DERIVED from the totient
+        density; the sweep can only refute it.  Nothing here is fitted."""
+        from math import log
+        counts = {}
+        for exponent in (3, 11):
+            budget = 10 ** exponent
+            bound = acquisition_horizon(2, budget)
+            counts[exponent] = sum(1 for n in range(1, bound + 1)
+                                   if affordable(2, n, budget))
+        observed = (counts[11] - counts[3]) / 8.0
+        derived = growth_rate(2) * log(10)
+        # 10% over eight decades: wide enough that the staircase and the
+        # O(log log B) correction fit, tight enough to reject a wrong constant
+        # (A versus 2A would be a factor of two).
+        self.assertAlmostEqual(observed, derived, delta=0.10 * derived)
+        # the count itself is monotone in the budget
+        self.assertGreater(counts[11], counts[3])
+
+    def test_the_staircase_is_exact(self) -> None:
+        """The rate is smooth; the organ's experience is a staircase.  This is
+        the height of the next stair, and it is a fact, not an estimate."""
+        for budget in (200_000, 600_000, 2_000_000):
+            step = next_budget_step(2, budget)
+            self.assertIsNotNone(step)
+            cost, index = step
+            self.assertGreater(cost, budget)
+            self.assertFalse(affordable(2, index, budget))
+            self.assertTrue(affordable(2, index, cost))
+            # nothing cheaper is unlocked first
+            bound = acquisition_horizon(2, cost)
+            for other in range(1, bound + 1):
+                if affordable(2, other, budget):
+                    continue
+                if certainly_unaffordable(2, other, cost):
+                    continue          # cheaply excluded, no Phi evaluation
+                self.assertGreaterEqual(scan_cost(2, other), cost)
+
+    def test_doubling_the_budget_can_buy_nothing(self) -> None:
+        """The flat tread that motivated the whole increment."""
+        bound = acquisition_horizon(2, 400_000)
+        before = sum(1 for n in range(1, bound + 1) if affordable(2, n, 200_000))
+        after = sum(1 for n in range(1, bound + 1) if affordable(2, n, 400_000))
+        self.assertEqual(before, after)
+        cost, index = next_budget_step(2, 200_000)
+        self.assertEqual((cost, index), (516_928, 106))
+        self.assertGreater(cost, 400_000)          # which is why doubling failed
+
+    def test_the_cheapest_stair_is_the_reflected_index(self) -> None:
+        """Phi_{2m}(x) = Phi_m(-x) for odd m > 1, so Phi_106(2) = Phi_53(2)/3
+        and index 106 is cheaper than index 53 by exactly sqrt(3)."""
+        # Phi_106(2) = Phi_53(-2) = (2^53 + 1)/3, while Phi_53(2) = 2^53 - 1:
+        # the two differ by 2 as well as by the factor 3.
+        self.assertEqual(3 * cyclotomic_value(106, 2), 2 ** 53 + 1)
+        self.assertEqual(cyclotomic_value(53, 2), 2 ** 53 - 1)
+        ratio = scan_cost(2, 53) / scan_cost(2, 106)
+        self.assertAlmostEqual(ratio, 3 ** 0.5, delta=0.01)
+
+    def test_totient_density_constant_is_what_it_claims(self) -> None:
+        """The one hard-coded float in the module, checked against its
+        definition rather than trusted: A = zeta(2) zeta(3) / zeta(6)."""
+        def zeta(s: int, terms: int = 200_000) -> float:
+            # partial sum plus the integral tail int_N^inf x^-s dx = N^(1-s)/(s-1);
+            # without it the s=2 truncation is short by about 1/N and the
+            # comparison silently fails at the fifth decimal.
+            head = sum(k ** (-s) for k in range(1, terms + 1))
+            return head + terms ** (1 - s) / (s - 1)
+        self.assertAlmostEqual(TOTIENT_DENSITY,
+                               zeta(2) * zeta(3) / zeta(6), places=9)
 
     def test_order_is_exact(self) -> None:
         for prime in (2, 3, 5, 7, 11, 13, 101, 1093):

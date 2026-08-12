@@ -619,6 +619,97 @@ and only the second is repaired by a larger budget.  Keeping them apart is
 what makes the horizon a statement about this organ rather than about
 arithmetic.
 
+## What a bigger budget buys: the law, and the stair
+
+Fifth sitting.  The organ knows its horizon, so I asked it the question that
+follows: *if I double my budget, how much further do I see?*
+
+```text
+B = 200000  reachable = 101
+B = 400000  reachable = 101
+```
+
+Nothing.  And the organ could say nothing about why, or what would help — it
+had a count and no law, which is precisely the debt I filed against myself in
+the previous section.  Two repairs are needed, and they are different in kind:
+the asymptotic law, and the exact next stair.
+
+### The law
+
+The affordable set is $\{n:\varphi(n)\le x_B\}$.  Two inputs pin $x_B$.
+
+First, the lemma's proof gives more than the lemma.  The tail bound was
+two-sided all along:
+$$
+  \bigl|\log\Phi_n(a)-\varphi(n)\log a\bigr| \;\le\; \frac{2}{a-1},
+  \tag{9}
+$$
+an **absolute** constant, independent of $n$.  So affordability,
+$\sqrt{\Phi_n(a)}/\mathrm{step}(n)\le B$, reads
+$\varphi(n)\log a\le 2\log B+2\log \mathrm{step}(n)+O(1)$, and since
+$\mathrm{step}(n)\le 2n$ with $n\le x_B^{2}$,
+$$
+  x_B=\frac{2\log B}{\log a}\bigl(1+o(1)\bigr).
+$$
+
+Second, the density of totient values is classical:
+$\#\{n:\varphi(n)\le x\}\sim Ax$ with
+$A=\zeta(2)\zeta(3)/\zeta(6)=1.9435964\ldots$
+
+> **Theorem 9 (reachable count).**  For fixed $a\ge2$, as $B\to\infty$,
+> $$
+>   \#\{\text{reachable }n\}\;=\;\frac{2A}{\log a}\,\log B\,\bigl(1+o(1)\bigr),
+> $$
+> and inverting, the budget required for $k$ reachable exponents is
+> $B=a^{\,k/2A+o(k)}$.  **Each additional exponent costs a fixed multiplicative
+> factor $a^{1/2A}$ of budget** — about $1.195$ at $a=2$.
+
+The organ's world grows *logarithmically* in what it can spend.  That is the
+honest reading of the horizon, and it is a statement about the machine, not
+about arithmetic.
+
+**Falsifier, and nothing fitted.**  The derived slope at $a=2$ is
+$2A\log 10/\log 2 = 12.913$ reachable exponents per decade of budget.
+Computed over twelve decades, $10^{2}$ to $10^{14}$: $53\to213$, a slope of
+$13.33$.  Three percent.  The constant $A$ is derived from the totient density
+and the $2/\log a$ from (9); the sweep can only refute them.
+
+### The stair
+
+The law is smooth.  The organ's experience is a staircase, because $\varphi$
+takes values in a sparse set.  `next_budget_step` returns the exact height of
+the next stair and what it buys:
+
+| current $B$ | next stair | factor | buys |
+|---|---|---|---|
+| $200{,}000$ | $516{,}928$ | $2.58\times$ | $n=106$ |
+| $600{,}000$ | $828{,}506$ | $1.38\times$ | $n=81$ |
+| $2{,}000{,}000$ | $2{,}069{,}794$ | $1.03\times$ | $n=116$ |
+
+So the honest answer to *"should I double?"* is **no — you need $2.58\times$,
+and it buys exponent 106.**  The treads scatter around the derived average
+factor $1.195$ exactly as a staircase around its secant.
+
+The search for the cheapest unreachable encounter is bounded by a theorem
+rather than a guess: any encounter costing at most $C$ satisfies
+$\varphi(n)\log a\le2\log(6nC)$, hence lies below
+$\texttt{acquisition\_horizon}(a,C)$, and the executable checks that its
+answer's own horizon fits inside the ceiling it searched.
+
+### Why 106 and not 53
+
+The cheapest next stair at $B=200{,}000$ is index $106$, not the smaller $53$,
+and the reason is exact.  For odd $m>1$, $\Phi_{2m}(x)=\Phi_m(-x)$, so
+$$
+  \Phi_{106}(2)=\Phi_{53}(-2)=\frac{2^{53}+1}{3},
+  \qquad
+  \Phi_{53}(2)=2^{53}-1 .
+$$
+The same degree $\varphi=52$, the same progression modulus $106$, and a factor
+$3$ smaller — hence a scan bound smaller by exactly $\sqrt3$, and
+$895{,}344/516{,}928=1.7320\ldots$  The organ's cheapest next acquisition is
+determined by a reflection identity, not by size ordering.
+
 ## The encounter
 
 ```text
@@ -655,6 +746,14 @@ the generic case rather than unboundedly deeper.
   counterexample bases; the inversion `least_exponent_reaching`; the
   incompatibility analysis showing why the ananta lower bound does not apply
   to $\mathcal F_{p,a}$.
+- **Proved here, on a consumed classical input:** Theorem 9.  The two-sided
+  bound (9) is my own lemma's proof read fully rather than one-sidedly.  The
+  totient density `#{n : phi(n) <= x} ~ zeta(2)zeta(3)/zeta(6) x` is classical
+  and is **consumed, not derived**.  The slope `2A/log a` and the budget factor
+  `a^(1/2A)` follow; the twelve-decade sweep is a falsifier of those derived
+  constants and fits nothing.  The `o(1)` is not made effective here: the
+  correction is `O(log log B)` and I have not bounded its constant, so the
+  *offset* of the count is not claimed, only its rate.
 - **Proved here:** the lemma `Phi_n(a) > a^phi(n)/8` and Theorem 8.  The
   lemma's ingredients (the Mobius form of `Phi_n`, `sum mu(n/d) d = phi(n)`,
   `phi(n) >= sqrt(n)` for `n > 6`) are standard; the assembly into a finiteness

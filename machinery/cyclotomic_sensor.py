@@ -433,6 +433,69 @@ def acquisition_horizon(base: int, budget: int = DEFAULT_BUDGET) -> int:
     return index
 
 
+# zeta(2) zeta(3) / zeta(6), the classical density of totient values:
+# #{n : phi(n) <= x} ~ TOTIENT_DENSITY * x.  Consumed, not derived here.
+TOTIENT_DENSITY = 1.9435964368
+
+
+def growth_rate(base: int) -> float:
+    """Reachable exponents gained per unit increase in log(budget).
+
+    Theorem 9 in `notes/CYCLOTOMIC_SENSOR.md`: the affordable set is
+    `{n : phi(n) <= x_B}` with `x_B ~ 2 log B / log a`, and totient values
+    have density `zeta(2)zeta(3)/zeta(6)`, so the count grows like
+    `2A log B / log a`.  Derived; the executable checks it, never fits it.
+    """
+    from math import log
+    return 2.0 * TOTIENT_DENSITY / log(base)
+
+
+def budget_factor_per_exponent(base: int) -> float:
+    """Multiplicative budget cost of ONE more reachable exponent.
+
+    Inverting Theorem 9: `B = a^(k / 2A)`, so each additional exponent costs a
+    fixed factor `a^(1/2A)` — about 1.195 at base 2.  The organ's world grows
+    logarithmically in what it can spend, which is the honest reading of the
+    horizon: acquisitions are exponentially expensive in their count.
+    """
+    return base ** (1.0 / (2.0 * TOTIENT_DENSITY))
+
+
+def next_budget_step(base: int,
+                     budget: int = DEFAULT_BUDGET) -> tuple[int, int] | None:
+    """The exact budget that buys one more encounter, and which one.
+
+    Returns `(cost, index)` for the cheapest currently-unreachable encounter.
+    Theorem 9's rate is asymptotic and smooth; a particular organ's experience
+    is a staircase, and this is the height of the next stair.  At base 2 with
+    B = 200000 the answer is 516928 for index 106 — so doubling the budget
+    buys nothing, and the honest advice is "2.58x, and you get exponent 106".
+
+    The search ceiling is justified rather than chosen: any encounter costing
+    at most C has `phi(n) log a <= 2 log(6 n C)`, so it lies below
+    `acquisition_horizon(base, C)`.  We search below the horizon for `B^2`,
+    then check the answer's own horizon fits inside that.
+    """
+    ceiling = acquisition_horizon(base, max(budget, 2) ** 2)
+    best: tuple[int, int] | None = None
+    for index in range(1, ceiling + 1):
+        if affordable(base, index, budget):
+            continue
+        # Theorem 8's cheap test also prunes the search: an index unaffordable
+        # even at the best cost so far cannot beat it, and deciding that from
+        # phi alone avoids evaluating Phi_index(base).
+        if best is not None and certainly_unaffordable(base, index, best[0]):
+            continue
+        cost = scan_cost(base, index)
+        if best is None or cost < best[0]:
+            best = (cost, index)
+    if best is None:
+        return None
+    if acquisition_horizon(base, best[0]) > ceiling:
+        raise AssertionError("search ceiling did not contain its own answer")
+    return best
+
+
 def refusal(base: int, index: int,
             budget: int = DEFAULT_BUDGET) -> str | None:
     """Why this organ declines the encounter, or None if it accepts.
@@ -770,6 +833,25 @@ def main() -> None:
     print(f"  refusal(2,61): {refusal(2, 61)}")
     print(f"  refusal(2, 6): {refusal(2, 6)}")
     print("  two refusals, kept apart: nothing is there, versus I cannot get there.")
+
+    print("\nencounter 9: 'if I double my budget, how much further do I see?'")
+    for probe in (200_000, 400_000):
+        edge = acquisition_horizon(2, probe)
+        print(f"    B={probe:>8}  reachable={sum(1 for n in range(1, edge + 1) if affordable(2, n, probe)):4d}")
+    print("  doubling buys NOTHING.  the rate is smooth, the experience is a stair.")
+    print(f"    derived rate: {growth_rate(2):.3f} exponents per unit log B "
+          f"= {growth_rate(2) * 2.302585:.2f} per decade")
+    print(f"    derived cost of one more exponent: "
+          f"{budget_factor_per_exponent(2):.4f}x budget")
+    for probe in (200_000, 600_000, 2_000_000):
+        cost, which = next_budget_step(2, probe)
+        print(f"    at B={probe:>9}: next stair {cost:>9} "
+              f"({cost / probe:.2f}x), buys n={which}")
+    print("  and 106 beats 53 because Phi_2m(x) = Phi_m(-x):")
+    print(f"    3*Phi_106(2) = {3 * cyclotomic_value(106, 2)} = 2^53 + 1")
+    print(f"      Phi_53(2)  = {cyclotomic_value(53, 2)} = 2^53 - 1")
+    print(f"    so the costs differ by exactly sqrt(3): "
+          f"{scan_cost(2, 53) / scan_cost(2, 106):.4f}")
 
     print("\nthe chart behind the law: v_p on the cyclotomic factors")
     for label, formed in (("11, base 2", sensor), ("2, base 3", two)):
