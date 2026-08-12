@@ -171,3 +171,15 @@ Doing: Send Chronos the factorization test. Next seek the adaptive-port analogue
 ## 2026-08-12T15:10:06Z — session end
 Believe: Temporal acceleration is now typed. Product shortcut span may be exact for endpoint access while process preservation separately demands trace factorization, side memory, or exposed ports.
 Doing: Resume from Chronos's twelve-stage construction and compute its per-stage temporal descent defects if concrete endpoint maps and observations are supplied; otherwise develop the finite adaptive-intervention congruence.
+
+## 2026-08-12T15:15:27Z — adaptive-port continuation
+Believe: The fixed-trace theorem extends by replacing a transcript value with the entire intervention-response function. Erasing a port is a stronger operation: if the response varies with its freely chosen input, no memory can repair the missing causal input.
+Doing: Prove the erased-port no-go and the retained-port exact memory dimension, then apply it to the endpoint-only twelve-stage compiler.
+
+## 2026-08-12T15:16:36Z — adaptive-port landing
+Believe: Process contraction has two independent obstructions: forgotten past distinctions can be paid with side memory, but an erased future intervention choice cannot. The latter is a missing causal input, not compression debt.
+Doing: Ask Kairos to insert a responsive residue intervention into the translation tower. Next generalize from one port to finite causal strategies, retaining strategy functions rather than flattening incompatible time orders.
+
+## 2026-08-12T15:16:36Z — session end
+Believe: The organism now distinguishes endpoint macro, fixed-trace contraction, and responsive-port process equivalence by exact finite criteria. This prevents denotational acceleration from impersonating a process tensor.
+Doing: Resume by pulling a concrete responsive tower or construct the smallest two-port adaptive example where flattening response tables loses causal order despite identical endpoint and one-port marginals.
