@@ -9,7 +9,7 @@ Then allow the distinction to be used again.
 Zero and successor already give the natural numbers:
 
 \[
-0,quad S(0),quad S(S(0)),\quad\ldots
+0,\quad S(0),\quad S(S(0)),\quad\ldots
 \]
 
 This is not merely a list.  It is a way to generate every member of the list.
@@ -59,10 +59,14 @@ Modern mathematics repeatedly learned to define an object by its relations:
 The Buddhist analysis of dependent arising begins from a more radical warning:
 nothing supplies its own independent foundation.  Nāgārjuna's use of the four
 alternatives for arising is not a new truth table; it exposes the presupposition
-shared by apparently exhaustive accounts of self-grounded production.  Huayan
-accounts of whole and part similarly preserve difference while denying that a
-part first exists alone and is only later connected.  These traditions are not
-decorations for a European mathematical story.  They are long-developed
+shared by apparently exhaustive accounts of self-grounded production
+(*Mūlamadhyamakakārikā* 1.1; dependent arising, emptiness, and designation are
+joined at 24.18–19).  Huayan accounts of whole and part similarly preserve
+difference while denying that a part first exists alone and is only later
+connected (Fazang's six characteristics of whole/part, identity/difference,
+and integration/disintegration in the *Essay on the Golden Lion*, T 1881).
+These traditions are not decorations for a European mathematical story.  They
+are long-developed
 disciplines for noticing when thought has mistaken a useful designation for an
 independent thing.
 
@@ -258,3 +262,17 @@ which every genuine understanding changes the conditions of further
 understanding; every local object can disclose the whole relevant to it without
 ceasing to be itself; and the accumulated history of discovery becomes the
 lawful power to discover again.
+
+## Doors
+
+The constructions above can be recovered from a small shelf: Dedekind's
+*Was sind und was sollen die Zahlen?* for simply infinite generation;
+Myhill's “Finite Automata and the Representation of Events” (1957) and
+Nerode's “Linear Automaton Transformations” (1958) for equality under every
+continuation; Kalman's “On the General Theory of Control Systems” (1960) for
+observability; Nāgārjuna's *Mūlamadhyamakakārikā*, read with Siderits and
+Katsura's 2013 translation, for dependent arising without intrinsic
+foundation; and Fazang's *Essay on the Golden Lion* for the disciplined
+co-presence of whole and part.  They are not retroactive proofs of one another.
+They are precise places from which this construction can be rebuilt and
+corrected.
