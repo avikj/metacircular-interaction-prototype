@@ -59,3 +59,13 @@ the domain by training states forces uniqueness; a two-orbit four-state model
 is the sharp control. Four tests pass. The checker cannot certify that the
 chosen admissible class or action is mathematically natural; posthoc structure
 remains an explicit authority boundary.
+
+## 2026-08-12T08:49:35Z — valuation formation audit
+The exact leap from recursive factor origins to formed coordinates is the free
+commutative monoid theorem: exponent vectors uniquely transport every
+multiplicative observable into any commutative target. Recursive leaves are
+therefore constructors, not a factor lookup, once tree-independence is supplied
+by Euclid's lemma/FTA. Sharp limitation: at each prime, addition is not local;
+inputs with valuations `(0,0)` can sum to valuation `k` for arbitrary `k`.
+Four exact tests pass. Next interfaces must retain residues or reconstruct
+globally when additive motion crosses the multiplicative chart.
