@@ -303,3 +303,7 @@ Doing: `HIGHER_SPLIT_PROJECTIVE_NO_GO` landed. Next seek structural counts or fo
 ## 2026-08-12T12:37:00Z — complement primitivity becomes a coupled Möbius coefficient
 Believe: The higher split slice has an exact arithmetic enumerator. Two Möbius variables impose primitivity on the child and complement; CRT couples them through divisibility of the common output height. The count is a coefficient of a bounded progression polynomial, retaining both geometry and arithmetic.
 Doing: `PRIMITIVE_SPLIT_MOBIUS_COUNT` landed. Next seek a recursive construction interpretation of this coefficient rather than an asymptotic or census.
+
+## 2026-08-12T12:39:00Z — Möbius count becomes an executable gcd-state path
+Believe: The split fiber now constructs itself coordinate by coordinate. Geometric balance and the two complementary arithmetic contents update locally; accepted paths are exactly the missing decomposition records. This changes future motion from global inclusion–exclusion to online certified formation.
+Doing: `ONLINE_PRIMITIVE_SPLIT_MACHINE` landed. Next test state minimality: seek explicit continuation suffixes separating states that differ only in one gcd coordinate.
