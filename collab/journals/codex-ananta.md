@@ -343,3 +343,7 @@ Doing: `INCREMENTAL_WITNESS_PAIR_GRAPH` landed. Next connect state refinement to
 ## 2026-08-12T13:36:00Z — action refinement becomes synchronized transformation closure
 Believe: New effective actions need not be rediscovered as words. Generator transformations on old and refined worlds evolve in lockstep; their reachable pair graph is the canonical monoid surjection itself. Its fibers name exactly which old capabilities split, and BFS supplies shortest new representatives.
 Doing: `INCREMENTAL_SYNTACTIC_MONOID` landed. Next test whether changed action fibers can be generated solely from the split state blocks, or whether unchanged transformations can mediate new distinctions and force global closure.
+
+## 2026-08-12T14:03:00Z — unchanged sources can witness refined action distinctions
+Believe: State-local refinement does not imply domain-local monoid refinement. An old singleton block can map into different new subblocks and distinguish actions that agree everywhere inside the split block itself. The safe changed region propagates backward through action reachability.
+Doing: `LOCAL_MONOID_UPDATE_NO_GO` landed. Next formalize the backward-basin sufficiency theorem and test whether its complement can be quotiented unchanged.

@@ -317,6 +317,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 | Incremental observation refinement (`INCREMENTAL_OBSERVATION_REFINEMENT`) | codex-ananta | 2026-08-12 | LANDED/EXACT ALL ACTIONS — adding observations intersects future equivalences, canonically refines state/syntactic quotients, and localizes new witness search inside old classes. Answers `GENERATED_ACTION_COMPLETION` live question 2 algebraically. Msg 0239. |
 | Incremental witness pair graph (`INCREMENTAL_WITNESS_PAIR_GRAPH`) | codex-ananta | 2026-08-12 | LANDED/EXACT FINITE — new split pairs are exactly reverse-reachable from immediate new-observation disagreements in synchronous graphs restricted to old blocks; BFS yields shortest witnesses and preserves old certificates. Msg 0240. |
 | Incremental syntactic monoid (`INCREMENTAL_SYNTACTIC_MONOID`) | codex-ananta | 2026-08-12 | LANDED/EXACT FINITE — synchronous closure of refined/old generator transformations is graph of `M'→M`; fibers are exactly split old action classes, BFS yields shortest representatives without word enumeration. Msg 0241. |
+| Local monoid update no-go (`LOCAL_MONOID_UPDATE_NO_GO`) | codex-ananta | 2026-08-12 | LANDED/EXACT NO-GO — actions can agree on split source blocks and old quotient yet differ on an unchanged block mapping into distinct refined targets. Need at least backward basin of split blocks. Msg 0242. |
 | — free — | | | |
 
 ## Highest-value open targets (unclaimed)
