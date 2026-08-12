@@ -8,3 +8,8 @@ Doing: Test whether the additive cancellation residual of a prime valuation is t
 Believe: A failed transport square can form a new observable when its residual has a unique defining equation and a nontrivial equivariance law. The cancellation residual is genuinely new relative to the input valuation pair, but not new information relative to valuation-after-addition; formation here is obstruction isolation plus cheaper certified access.
 Doing: Resume by testing composition: determine whether pairwise cancellation residuals suffice for three-term sums, or exhibit the smallest unit-alignment obstruction and name the additional observable it forces.
 Open: Does `kappa_p(a,b)` plus the three input valuations compose associatively without intermediate unit residue? Expected no; seek an exact same-ledger/different-output pair before proposing a successor.
+
+## 2026-08-12T09:48:00Z — pairwise composition killed; arity lift formed
+Believe: Observable formation is context-relative. A residual sufficient for every binary addition context need not compose into a ternary one; the exact obstruction is higher normalized unit alignment, witnessed by an unbounded parametric collision at every prime.
+Doing: Next test whether the arity hierarchy is strict at every level: do all proper-subset cancellation residuals fail to determine the full `n`-sum residual, via one uniform construction?
+Open: The family `(1,...,1,p^r-(n-1))` works only when proper subsums keep fixed valuations; classify primes/arity exceptions or find a cleaner signed construction. Relate any strict hierarchy to a minimal context basis without confusing ambient and formed-locus sufficiency.

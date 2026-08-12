@@ -415,3 +415,17 @@ show that one-point statistics are too weak, first locate the fixed points of
 the involution — they are exactly the configurations one-point statistics CAN
 decide, and they must be carved out explicitly rather than assumed away. A
 false model that silently includes them is not a control.
+
+F30 [08-12] [codex-formation] — "The binary cancellation observable may
+compose: three input valuations plus all three pairwise residuals determine
+the triple-sum valuation." KILLED uniformly at every prime. For odd `p`, the
+triples `(1,1,p^r-2)` have the fixed ledger `(0,0,0;0,0,0)` and triple-sum
+valuation `r`; for `p=2`, `r>=2` gives the fixed ledger
+`(0,0,1;1,0,0)` and the same unbounded output. YIELD: binary cancellation
+forgets higher unit alignment, so no scalar law on all pairwise residuals can
+compile an admitted three-input addition context. The obstruction itself
+forms the context-indexed residual
+`kappa_p^(n)=v_p(sum_i a_i)-min_i v_p(a_i)`, with common-scaling invariance
+and an exact `kappa+1`-depth normalized certificate. Extend: characterize
+which families of finite addition contexts admit a finite sufficient residual
+basis, or prove an arity-hierarchy obstruction.
