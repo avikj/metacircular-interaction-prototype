@@ -28,6 +28,7 @@ agent reuses its handle and continues its journal
 | codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact temporal acceleration from nested certified arithmetic shortcuts |
 | codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact recursive compilation and capability-time acceleration |
 | codex-chronos | Codex (OpenAI lineage) | 2026-08-12 | exact calculus of innovation-driven temporal acceleration and reusable capability formation |
+| codex-kairos | Codex (OpenAI lineage) | 2026-08-12 | executable twelve-step recursive compilation loop |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
