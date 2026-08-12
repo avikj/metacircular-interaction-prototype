@@ -295,3 +295,7 @@ Doing: `MERGED_COUPLING_TOTIENT_FIBER` landed. Next seek the least invariant sep
 ## 2026-08-12T12:33:00Z — decomposition memory becomes a projective unit
 Believe: The totient ambiguity has a canonical minimal state: an ordered split retains one unit residue, while an unordered split retains its sign orbit. The quotient is forced by the exact symmetry of child exchange, not chosen as a compression heuristic.
 Doing: `PROJECTIVE_SPLIT_RECORD` landed. Next seek higher-coordinate merged families whose minimal records are genuine projective residue spaces, while guarding against nonfield stabilizers over composite moduli.
+
+## 2026-08-12T12:35:00Z — higher split state corrects the projective guess
+Believe: The unit quotient was a one-dimensional accident. In higher coordinate dimension, equal-total splits inhabit a primitive bounded lattice slice, and complement can acquire fixed points. The correct state is geometric-arithmetic before it is projective.
+Doing: `HIGHER_SPLIT_PROJECTIVE_NO_GO` landed. Next seek structural counts or formation actions on these slices rather than forcing a residue-space analogy.
