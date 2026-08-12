@@ -37,6 +37,41 @@ def future_signature(residue: int, prime: int, depth: int) -> tuple[int, ...]:
     )
 
 
+def restricted_signature(
+    residue: int, prime: int, depth: int, action_depth: int
+) -> tuple[int, ...]:
+    """Valuation future under H_s=p^s Z/p^depth translations."""
+    modulus = _chart(prime, depth)
+    if action_depth < 0 or action_depth > depth:
+        raise ValueError("action depth must lie between zero and chart depth")
+    step = prime**action_depth
+    return tuple(
+        truncated_valuation(residue + continuation, prime, depth)
+        for continuation in range(0, modulus, step)
+    )
+
+
+def restricted_meaning(
+    residue: int, prime: int, depth: int, action_depth: int
+) -> tuple[str, int]:
+    """Closed-form canonical label for the H_s behavioral quotient."""
+    modulus = _chart(prime, depth)
+    if action_depth < 0 or action_depth > depth:
+        raise ValueError("action depth must lie between zero and chart depth")
+    value = residue % modulus
+    valuation = truncated_valuation(value, prime, depth)
+    if valuation < action_depth:
+        return ("depth", valuation)
+    return ("residue", value)
+
+
+def restricted_class_count(prime: int, depth: int, action_depth: int) -> int:
+    _chart(prime, depth)
+    if action_depth < 0 or action_depth > depth:
+        raise ValueError("action depth must lie between zero and chart depth")
+    return action_depth + prime ** (depth - action_depth)
+
+
 def reconstruct_residue(signature: tuple[int, ...], prime: int, depth: int) -> int:
     """Recover r from the unique continuation c with depth-k response."""
     modulus = _chart(prime, depth)
@@ -85,3 +120,9 @@ if __name__ == "__main__":
         control = noncongruence_control(prime)
         print(prime, control, pair_profile(control.left, prime, control.depth),
               pair_profile(control.right, prime, control.depth))
+    for action_depth in range(4):
+        meanings = {
+            restricted_meaning(residue, 3, 3, action_depth)
+            for residue in range(27)
+        }
+        print("H-depth", action_depth, "meaning count", len(meanings))
