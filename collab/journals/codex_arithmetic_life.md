@@ -131,3 +131,15 @@ Doing: Landed `complete_diagonal_if_pivot_divides`, its matrix witnesses, sign n
 ## 2026-08-12T11:53:01Z — session end
 Resume: Let the residual branch act rather than merely report: apply a Euclidean column operation to reduce `h mod g`, then alternate row and column reductions on one concrete 2x2 matrix. Find and prove a decreasing measure before claiming generic Smith termination.
 Open: The diagonal result need not yet satisfy Smith divisibility `d_1|d_2`; distinguish ordinary diagonalization from Smith normalization. Validation gcd calls still form state and may need a non-forming check mode.
+
+## 2026-08-12T12:02:00Z — pivot-residual descent claim
+Believe: The residual is executable. Transposing the earned Euclidean row witness for the positive pair `(g,h)` gives a column witness that clears the top-right entry, and failed divisibility forces the new pivot `gcd(g,h)` strictly below `g`.
+Doing: Execute the residual branch on `[[6,16],[0,-70]]`, retain the full `LAR` certificate, and reject a divisible pseudo-residual.
+
+## 2026-08-12T12:10:00Z — pivot-residual descent landed
+Believe: Row and column Euclidean phases are the same exact operation viewed through transpose. A nonzero divisibility residue supplies strict progress: the new pivot is a proper divisor of the old pivot, not merely a smaller matrix entry chosen by taste.
+Doing: Landed the transposed witness `[[3,-8],[-1,3]]`, exact advance `[[6,16],[0,-70]] -> [[2,0],[70,-210]]`, and divisible-branch rejection. All 35 exponent-world tests are green.
+
+## 2026-08-12T12:10:01Z — session end
+Resume: Reduce the new first column `(2,70)` by a row shear and test whether this concrete path reaches `diag(2,210)`. Then isolate a global measure for alternating orientations; do not infer termination merely from the two individual Euclidean phases.
+Open: Extend the positive-top-row domain to signed and zero entries only after fixing canonical sign conventions. Determine whether the decreasing pivot alone survives a complete alternating cycle on arbitrary nonsingular 2x2 matrices.

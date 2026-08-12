@@ -17,6 +17,7 @@ from exponent_world import (
     EuclideanColumnReduction,
     PivotDiagonalization,
     PivotDivisibilityResidual,
+    PivotResidualColumnAdvance,
 )
 
 
@@ -389,6 +390,35 @@ class SmithPathTests(unittest.TestCase):
         self.assertIsInstance(result, PivotDivisibilityResidual)
         self.assertEqual(result.triangular, ((6, 16), (0, -70)))
         self.assertEqual((result.pivot, result.upper_right, result.residual), (6, 16, 4))
+
+    def test_pivot_residual_transposes_euclidean_path_and_strictly_descends(self):
+        world = ExponentWorld()
+        for value in (84, 30):
+            world.form(value)
+        obstruction = world.complete_diagonal_if_pivot_divides(
+            ((84, 14), (30, 10))
+        )
+        self.assertIsInstance(obstruction, PivotDivisibilityResidual)
+        advance = world.advance_positive_pivot_residual(obstruction)
+        self.assertIsInstance(advance, PivotResidualColumnAdvance)
+        self.assertEqual((advance.old_pivot, advance.new_pivot), (6, 2))
+        self.assertEqual(advance.right, ((3, -8), (-1, 3)))
+        self.assertEqual(advance.advanced, ((2, 0), (70, -210)))
+        self.assertEqual(
+            _matmul_for_test(
+                _matmul_for_test(advance.left, advance.matrix), advance.right
+            ),
+            advance.advanced,
+        )
+
+    def test_divisible_branch_cannot_masquerade_as_residual_advance(self):
+        world = ExponentWorld()
+        false_obstruction = PivotDivisibilityResidual(
+            ((6, 12), (0, 42)), ((6, 12), (0, 42)),
+            ((1, 0), (0, 1)), 6, 12, 0,
+        )
+        with self.assertRaisesRegex(ValueError, "failed pivot divisibility"):
+            world.advance_positive_pivot_residual(false_obstruction)
 
 
 def _matmul_for_test(left, right):

@@ -217,6 +217,18 @@ class PivotDiagonalization:
     quotient: int
 
 
+@dataclass(frozen=True)
+class PivotResidualColumnAdvance:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    triangular: tuple[tuple[int, int], tuple[int, int]]
+    advanced: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    old_pivot: int
+    new_pivot: int
+    reduction: EuclideanColumnReduction
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -751,6 +763,35 @@ class ExponentWorld:
             "first-column gcd plus pivot divisibility completes diagonalization",
         )
         return PivotDiagonalization(matrix, diagonal, left, right, quotient)
+
+    def advance_positive_pivot_residual(
+        self, obstruction: PivotDivisibilityResidual
+    ) -> PivotResidualColumnAdvance:
+        """Turn a positive upper-row residual into a strictly smaller pivot."""
+        triangular = obstruction.triangular
+        pivot, upper_right = triangular[0]
+        if pivot <= 0 or upper_right <= 0:
+            raise ValueError("residual column advance requires a positive top row")
+        if obstruction.residual == 0 or upper_right % pivot == 0:
+            raise ValueError("residual column advance requires failed pivot divisibility")
+        reduction = self.reduce_positive_column(pivot, upper_right)
+        right = tuple(zip(*reduction.left))
+        advanced = _matmul2(triangular, right)
+        new_pivot = reduction.finish[0]
+        if advanced[0] != (new_pivot, 0):
+            raise AssertionError("transposed Euclidean witness did not clear top row")
+        if not 0 < new_pivot < pivot:
+            raise AssertionError("nonzero pivot residual did not strictly decrease pivot")
+        if _matmul2(_matmul2(obstruction.left, obstruction.matrix), right) != advanced:
+            raise AssertionError("residual column certificate failed")
+        self.life._record(
+            "form-operation", (*triangular[0], *triangular[1], pivot, new_pivot),
+            "transposed Euclidean path turns a pivot residual into strict descent",
+        )
+        return PivotResidualColumnAdvance(
+            obstruction.matrix, triangular, advanced, obstruction.left, right,
+            pivot, new_pivot, reduction,
+        )
 
 
 def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:
