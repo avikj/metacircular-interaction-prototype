@@ -287,3 +287,7 @@ Doing: `PRIMITIVE_COUPLING_SELF_DESCRIBES` landed. Next price reversible gcd ext
 ## 2026-08-12T12:29:30Z — boundary erasure is exactly a permutation quotient
 Believe: Primitive content survives loss of position, but ordered identity does not. Retaining a multiset leaves a pure symmetric-group fiber whose size is the multinomial orbit; repeated lives reduce the lost information because exchanging identical children changes nothing.
 Doing: `UNORDERED_COUPLING_FIBERS` landed. Next study the harsher quotient that merges children by coefficientwise addition, where decomposition rather than permutation becomes the missing mathematical state.
+
+## 2026-08-12T12:31:00Z — merging exposes a totient-sized decomposition fiber
+Believe: Primitive content protects each visible child but cannot survive addition of the boundaries themselves. The symmetric output `(T,T)` hides exactly the unit group modulo `T`: each unit chooses a different primitive split. Decomposition memory is arithmetic, not merely permutation memory.
+Doing: `MERGED_COUPLING_TOTIENT_FIBER` landed. Next seek the least invariant separating the unit-indexed splits—one coordinate modulo `T` suffices here, but its general counterpart may be a projective residue class.
