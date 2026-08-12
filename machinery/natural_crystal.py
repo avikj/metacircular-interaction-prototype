@@ -124,6 +124,81 @@ def compile_experiment(
     return old_actions + (name,), result
 
 
+def _best_composite(
+    states: Sequence[State],
+    actions: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+    observation: Mapping[State, Output],
+) -> tuple[tuple[Action, ...], int] | None:
+    """Choose the current shortest witness saving most total separating steps."""
+    before = explain_distinctions(states, actions, transition, observation)
+    candidates = {word for word in before.values()
+                  if word is not None and len(word) > 1}
+    best: tuple[tuple[Action, ...], int] | None = None
+    for word in sorted(candidates, key=repr):
+        temporary_name = object()
+        new_actions, new_transition = compile_experiment(
+            states, actions, transition, temporary_name, word
+        )
+        after = explain_distinctions(
+            states, new_actions, new_transition, observation
+        )
+        gain = sum(
+            len(old) - len(after[pair])
+            for pair, old in before.items()
+            if old is not None and after[pair] is not None
+        )
+        candidate = (word, gain)
+        if best is None or gain > best[1]:
+            best = candidate
+    return best
+
+
+def learn_experiments(
+    states: Sequence[State],
+    actions: Sequence[Action],
+    transition: Mapping[tuple[State, Action], State],
+    observation: Mapping[State, Output],
+) -> tuple[
+    tuple[Action, ...],
+    dict[tuple[State, Action], State],
+    tuple[tuple[Action, tuple[Action, ...], int], ...],
+]:
+    """Compile useful composite experiments until every distinction costs <= 1.
+
+    Each returned record is ``(new action, old expansion, saved steps)``.  The
+    process terminates because every installation makes at least one previously
+    longer distinguishable pair separable in one action, and there are only
+    finitely many state pairs.
+    """
+    current_actions = tuple(actions)
+    current_transition = dict(transition)
+    original_fibers = crystallize(
+        states, current_actions, current_transition, observation
+    ).fibers
+    learned = []
+    serial = 1
+    while True:
+        best = _best_composite(
+            states, current_actions, current_transition, observation
+        )
+        if best is None:
+            break
+        word, gain = best
+        while (name := f"learned-{serial}") in current_actions:
+            serial += 1
+        current_actions, current_transition = compile_experiment(
+            states, current_actions, current_transition, name, word
+        )
+        learned.append((name, word, gain))
+        serial += 1
+        if crystallize(
+            states, current_actions, current_transition, observation
+        ).fibers != original_fibers:
+            raise AssertionError("derived action changed behavioral meaning")
+    return current_actions, current_transition, tuple(learned)
+
+
 def crystallize(
     states: Sequence[State],
     actions: Sequence[Action],
@@ -190,20 +265,23 @@ def twelve_link_machine() -> Crystal:
 
 def _living_seed() -> None:
     """Show the complete generate/distinguish/compile loop in one small world."""
-    states = (0, 1, 2, 3)
+    states = (0, 1, 2, 3, 4)
     actions = ("next",)
     transition = {
         (0, "next"): 1,
         (1, "next"): 2,
         (2, "next"): 3,
         (3, "next"): 3,
+        (4, "next"): 3,
     }
-    observation = {0: "dark", 1: "dark", 2: "dark", 3: "light"}
+    observation = {
+        0: "dark", 1: "dark", 2: "dark", 3: "light", 4: "light"
+    }
     before = crystallize(states, actions, transition, observation)
     word = shortest_distinguishing_word(0, 1, actions, transition, observation)
     assert word is not None
-    new_actions, new_transition = compile_experiment(
-        states, actions, transition, "look-two", word
+    new_actions, new_transition, learned = learn_experiments(
+        states, actions, transition, observation
     )
     after = crystallize(states, new_actions, new_transition, observation)
     shorter = shortest_distinguishing_word(
@@ -214,7 +292,7 @@ def _living_seed() -> None:
     print(f"observations: {tuple(observation[state] for state in states)}")
     print(f"meaning (indistinguishable fibers): {before.fibers}")
     print(f"discovery: 0 and 1 are separated by {word}")
-    print(f"new primitive: look-two = {word}")
+    print(f"machine chose and installed: {learned}")
     print(f"same meaning, shorter path: {shorter}")
 
 

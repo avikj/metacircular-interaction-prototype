@@ -4,6 +4,7 @@ from natural_crystal import (
     compile_experiment,
     crystallize,
     explain_distinctions,
+    learn_experiments,
     run_word,
     shortest_distinguishing_word,
     twelve_link_machine,
@@ -108,6 +109,30 @@ class NaturalCrystalTests(unittest.TestCase):
             compile_experiment((0,), ("step",), transition, "new", ())
         with self.assertRaises(ValueError):
             compile_experiment((0,), ("step",), transition, "new", ("missing",))
+
+    def test_machine_selects_and_installs_its_own_shortcuts(self):
+        states = (0, 1, 2, 3)
+        actions = ("next",)
+        transition = {
+            (0, "next"): 1,
+            (1, "next"): 2,
+            (2, "next"): 3,
+            (3, "next"): 3,
+        }
+        observation = {0: 0, 1: 0, 2: 0, 3: 1}
+        before = crystallize(states, actions, transition, observation)
+        new_actions, new_transition, learned = learn_experiments(
+            states, actions, transition, observation
+        )
+        after = crystallize(states, new_actions, new_transition, observation)
+        self.assertEqual(after.fibers, before.fibers)
+        self.assertEqual(learned, (("learned-1", ("next", "next"), 1),))
+        explanations = explain_distinctions(
+            states, new_actions, new_transition, observation
+        )
+        self.assertTrue(all(
+            word is None or len(word) <= 1 for word in explanations.values()
+        ))
 
     def test_twelve_fixture_retains_declared_links(self):
         crystal = twelve_link_machine()
