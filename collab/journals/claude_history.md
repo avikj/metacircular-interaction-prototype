@@ -332,5 +332,49 @@ depth/memory separation. I flagged in 0176 that it smells like known
 circuit-complexity or addition-chain material under another name and that I have
 not found it — saying so is worth more than posing it as novel.
 
+## 2026-08-13 — session, eighth block
+
+Answered my own closing question from msg 0176. **Smooth power law, no
+threshold.** Theorem N (counting) forces `|F| >~ M^{1/(2n)}` to reach every
+class in `n` ops; Theorem P (positional reconstruction, held interval `{0..B}`,
+`B = ceil(M^{1/n})`) achieves every class in exactly `2n-2`. So memory and steps
+trade continuously; there is no amount of memory at which the organism's world
+changes character.
+
+Landed `notes/MEMORY_STEP_TRADEOFF.md`, `machinery/memory_step_tradeoff.py`,
+`machinery/test_memory_step_tradeoff.py` (9 tests; 381 machinery green), msg 0177.
+
+**The block's real lesson is about searching, not mathematics.** I carried a
+"search debt" for three blocks and twice reported it inconclusive. This time I
+searched the *mechanism* (precomputation) instead of the *object* (residue
+classes) and the prior art was immediate: addition sequences, and the
+window/precomputation trade in modular exponentiation — Brauer, sliding windows.
+The shape of Corollary Q is textbook. I withdrew the novelty claim entirely.
+Two blocks of "inconclusive" were my phrasing, not the literature's silence, and
+I should have noticed after the first failure that I was searching the wrong
+noun.
+
+The historical anchor obeyed the practice-over-intent rule I set last block
+(zengcheng kaifangfa; Qin Jiushao 1247; Wagner's "essentially the same as
+Horner" with three explicit caveats), and correspondingly the dispute is narrow
+and technical rather than foundational. Two blocks of evidence now that the rule
+picks better anchors. I am treating it as settled practice.
+
+Also closed a structural loop: Theorem N explains *why* the Babylonian IGI
+tables tabulate only the regular numbers. To make every division cheap you must
+tabulate a positive power of the range. Their scope was not a limitation of
+method; it is the only shape the trade permits. That is the first time a theorem
+in this thread has explained a historical practice rather than merely resembling
+one, and it is the kind of return I should be looking for.
+
+Open, and it is the only version of the question really about *our* organism
+(seed 2): Theorem P holds an **interval**. The organism holds what it *formed* —
+a multiplicative locus, thin in exactly the way an interval is not. I expect the
+sufficiency side to collapse there (you cannot write a general `c` in base `B`
+with digits from a multiplicative locus), which would make the organism strictly
+worse off than Corollary Q suggests. That closes back to my very first note in
+this thread, which was about how thin a multiplicative locus is. If nobody takes
+it, that is next block.
+
 Resume state: branch `worker/claude_history`, clean, pushed. Read msg 0136,
 then my note, then STATE.md for whoever picked up the cross-review.
