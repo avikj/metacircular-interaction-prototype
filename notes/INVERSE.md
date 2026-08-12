@@ -19,47 +19,80 @@ additive convolution $\mu*\mu$, i.e. the multiset $\{\gamma_i+\gamma_j\}$
 with multiplicity — precisely the frequency data of the pair layer of every
 field in `FAMILY.md`.
 
-> **Theorem I1′ (sharpest form; corrected after audit).** Let $\mu,\mu'$ be
-> positive Borel measures on $[0,\infty)$ with $\mu*\mu=\mu'*\mu'=:\sigma$.
-> Suppose $\int e^{-\lambda t}d\sigma(t)<\infty$ for some $\lambda>0$. Then
-> $\mu=\mu'$.
+> **Theorem I1 (essentially classical — attribution below).** Let $\mu,\mu'$ be
+> positive locally finite measures on $\mathbb R$ with support bounded below.
+> If $\mu*\mu=\mu'*\mu'$ then $\mu=\mu'$.
 
-*Proof.* Tonelli: $\int e^{-\lambda t}d\sigma=F(\lambda)^2=G(\lambda)^2$, so
-both Laplace transforms are finite (hence both measures locally finite). For
-real $u\ge\lambda$, $F(u),G(u)\in[0,\infty)$ and $F(u)^2=G(u)^2$, so **$F=G$
-pointwise** on $[\lambda,\infty)$. Tilt: $dm=e^{-\lambda\gamma}d\mu$,
-$dm'=e^{-\lambda\gamma}d\mu'$ are finite; pushing forward under
-$x=e^{-\gamma}\in(0,1]$ converts $\int e^{-u\gamma}dm=\int e^{-u\gamma}dm'$
-($u\ge0$) into equality of all moments on $[0,1]$, and Weierstrass gives
-$m=m'$, hence $\mu=\mu'$. $\blacksquare$
+*Proof (three lines, no growth hypothesis).* The convolution algebra of
+measures supported in a half-line is an **integral domain**: Titchmarsh's
+theorem gives $\inf\operatorname{supp}(\mu*\nu)=\inf\operatorname{supp}\mu+
+\inf\operatorname{supp}\nu$. From $\mu*\mu=\mu'*\mu'$ we get
+$(\mu-\mu')*(\mu+\mu')=0$, so one factor vanishes; positivity kills
+$\mu+\mu'=0$ unless both are zero. $\blacksquare$
 
-**Corrections to the first version** (all from adversarial re-derivation):
+**Attribution (prior-art search, resolved).** This is **known**, and the
+earlier draft's Laplace-transform proof was the long way round:
 
-- The earlier proof asserted that positivity "excludes $F\equiv-G$". **False**:
-  if $F=-G$ then $F\le0$ and $F\ge0$, so the branch *degenerates* to
-  $F\equiv G\equiv0$ rather than being excluded — and $\mu=0$ was admitted by
-  the hypotheses. The theorem survives (the degenerate branch still gives
-  $\mu=\mu'$), but the sentence was wrong.
-- The whole integral-domain / identity-theorem apparatus is **superfluous**.
-  Nonnegativity on the real axis gives $F=G$ pointwise; no complex analysis is
-  needed anywhere.
-- Hypotheses were over-strong: "and likewise $\mu'$" is implied
-  ($\mu'([0,T])^2\le\sigma([0,2T])\le\mu([0,2T])^2$), $c>0$ is unnecessary
-  (only support in $[0,\infty)$ is used), and $O(T\log T)$ is enormously
-  stronger than required — any $O(e^{\lambda T})$ works. The natural hypothesis
-  is on the **data** $\sigma$, not on the unknowns.
+- Titchmarsh, *Proc. LMS* (2) **25** (1926) 283–302; **Weiss**, *Proc. AMS*
+  **19** (1968) 75–79 (measures on LCA groups); Lions, Mikusiński for
+  multi-dimensional versions.
+- The deautoconvolution literature has studied exactly $x*x\mapsto x$ for
+  thirty years, calling the sign ambiguity "twofoldness":
+  **Gerth–Hofmann–Birkholz–Koke–Steinmeyer**, *Inverse Probl. Sci. Eng.* **22**
+  (2014) 245–266, **Thm 4.2** is I1 for densities (+positivity to kill the
+  sign).
+- **Gorenflo–Hofmann**, *Inverse Problems* **10** (1994) 353–373, **Thm 1** is
+  *strictly stronger*: a nonnegative $x$ with $0\in\operatorname{supp}x$ is
+  determined by $x*x$ **restricted to half its support range**.
+- The discrete case is **Lambek–Moser (1959)**, via
+  $f_A(x)^2-f_A(x^2)=2f_{A(2)}(x)$ — so `REPORT.md`'s Theorem A(1) is 1959
+  folklore, and should say so.
 
-**What is actually load-bearing — not positivity, one-sidedness.** The earlier
-write-up attributed the rigidity to the integral-domain step. It does not live
-there. Positivity alone is insufficient: on $\mathbb T=\mathbb R/\mathbb Z$,
-$d\mu=(1+2a\cos2\pi x)dx$ and $d\mu'=(1-2a\cos2\pi x)dx$ ($0<a\le\tfrac12$) are
-both positive, distinct, and satisfy $\hat\mu(n)^2=\hat\mu'(n)^2$ for all $n$,
-hence $\mu*\mu=\mu'*\mu'$. **Convolution square roots of positive measures are
-not unique in general.** I1′ is a theorem about the half-line — the order
-structure, not the sign — which is the correct moral and sharpens the
-comparison with Theorem A: there too the ordering of the support does the work.
+**Two hypotheses the earlier draft imported unnecessarily.** $c>0$ does no
+work (any support bounded below, by translation), and the $N(T)=O(T\log T)$
+density bound is an *artifact of the Laplace proof* — needed only for
+convergence. Via Titchmarsh, I1 holds for all positive locally finite measures
+with support bounded below, **no density hypothesis whatsoever**. The note
+previously advertised that bound as "the only hypothesis"; it is not a
+hypothesis of the theorem at all.
 
-**Corollary I1.1 (well-posedness of the program).** *Caveat added after audit:*
+**Which hypotheses are load-bearing (counterexamples).**
+
+- **Support bounded below is essential.** Two distinct symmetric lattice laws
+  on $\mathbb R$ with equal self-convolution: $\varphi_X$ = period-2 extension
+  of $1-|t|$ on $[-1,1]$, $\varphi_Y$ = period-4 extension of $1-|t|$ on
+  $[-2,2]$, so $\varphi_X=|\varphi_Y|$ and $\varphi_X^2=\varphi_Y^2$ while
+  $X\ne_d Y$. Both have unbounded two-sided support and non-analytic
+  characteristic functions — precisely what a half-line excludes. (Khinchin–
+  Feller family; verified by construction.)
+- **The diagonal is essential — and its absence genuinely kills uniqueness.**
+  **Selfridge–Straus**, *Pacific J. Math.* **8** (1958) 847–856: an
+  $n$-multiset is determined by its *diagonal-free* pairwise sums **iff $n$ is
+  not a power of two**. Explicitly $\{0,3,5,6\}$ and $\{1,2,4,7\}$ share
+  $\{3,5,6,8,9,11\}$; Gordon–Fraenkel–Straus give three mutually
+  indistinguishable $8$-multisets. So $\mu*\mu$ — *including* the $2\gamma_i$
+  terms — is exactly the right object, and dropping the diagonal fails on
+  sizes $4,8,16,\dots$
+- **Positivity is essential**: without it, exactly the $\pm\mu$ ambiguity.
+- **Partial data**: Gorenflo–Hofmann Thm 2 — observing $x*x$ only on the lower
+  half of its range with $0\notin\operatorname{supp}x$ admits *infinitely many*
+  solutions. Relevant here, since the corpus's data is band-limited: knowing
+  the sum spectrum on $[2c,2c+L]$ recovers $\mu$ only given
+  $c=\inf\operatorname{supp}\mu$ exactly.
+
+**Corollary I1.1 (uniqueness — *not* well-posedness).** *Relabelled after
+audit: Hadamard well-posedness needs stability, which fails here.* The exact
+prior art for the missing half is **Gorenflo–Hofmann 1994, Lemma 6**: the
+nonnegative deautoconvolution problem is **locally ill-posed everywhere**
+(inversion rates: Fleischer–Hofmann, *Inverse Problems* **12** (1996) 419–435).
+That is the correct citation home for this corpus's Theorem K / conditioning
+row — and it means the slogan "uniqueness is free, conditioning is
+everything" is a **restatement of a known result, not a discovery here**.
+A second overreach, corrected: I1 says *if* the data equals $\mu*\mu$ exactly
+then $\mu$ is determined; it says nothing about whether observed data has that
+form, so it does **not** discharge the sumset assumption of `BLIND.md` — it
+only makes the inversion well-defined once that assumption is granted.
+Further caveat:
 I1′ recovers $\mu$ from the **ordered** pair multiset $\{\gamma_i+\gamma_j\}_{i,j}$
 including the diagonal $i=j$. If the observed pair layer is instead the
 unordered off-diagonal multiset $\{\gamma_i+\gamma_j\}_{i<j}
@@ -199,8 +232,8 @@ halves proved or bounded:
 
 | question | answer | status |
 |---|---|---|
-| does the data determine the zeros? | **yes, uniquely, with multiplicity** | Theorem I1, proved unconditionally |
-| how stable is the determination? | exponentially ill-conditioned in the height | Theorem K/K0, superresolution bounds |
+| does the data determine the zeros? | **yes, uniquely, with multiplicity** | Theorem I1 — *classical* (Titchmarsh; Gerth et al.) |
+| how stable is the determination? | ill-posed; exponentially so in the height | *classical* (Gorenflo–Hofmann Lemma 6); rate: Theorem K/K0 |
 | why do the weights look like that? | one saddle point on the simplex | Theorem I2, proved |
 
 Uniqueness is *free*; conditioning is *everything*. That is the honest
@@ -212,9 +245,12 @@ resting on a proof rather than on measurements.
 
 ## 4. Honesty ledger
 
-- **I1′ is unconditional**; the density bound is *not needed* and the $\mu'$
-  hypothesis is redundant. The rigidity comes from one-sidedness, not
-  positivity (circle counterexample above). Its ingredients are standard; I have
+- **I1 is classical** (Titchmarsh 1926 / Weiss 1968; Gerth et al. 2014 Thm 4.2;
+  weaker than Gorenflo–Hofmann 1994 Thm 1). The corpus's contribution here is
+  *zero*; what the search bought is the correct proof (three lines, no growth
+  hypothesis), the sharp counterexamples, and the discovery that the
+  conditioning half is also known (Gorenflo–Hofmann Lemma 6). Recorded as a
+  rediscovery, per protocol. Its ingredients are standard; I have
   not found this statement made for zero multisets, but the argument is
   elementary enough that prior art is likely and should be searched before
   any claim of novelty. The value is not difficulty — it is that it
