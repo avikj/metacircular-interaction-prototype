@@ -552,6 +552,7 @@ class CompileReport:
         "dropped_channels",
         "global_minimum",
         "counter",
+        "phases",
     )
 
     def __init__(self, **kwargs) -> None:
@@ -588,7 +589,15 @@ def compile_distinctions(
     from .channels import PairRequirement, PartitionRequirement, inclusion_minimal_set, minimum_cardinality_set
     from .observe import Observation, SignatureOracle, find_collisions, observation_blocks
 
-    oracle = SignatureOracle(system, counter)
+    phases = {
+        "collision-loop": StepCounter(),
+        "refine-and-prove": StepCounter(),
+        "redundancy-removal": StepCounter(),
+        "minimality-cross-check": StepCounter(),
+        "install": StepCounter(),
+    }
+    loop_counter = phases["collision-loop"]
+    oracle = SignatureOracle(system, loop_counter)
     reads = {channel.name: channel.reads for channel in library}
     by_name = {channel.name: channel for channel in library}
 
@@ -604,11 +613,11 @@ def compile_distinctions(
             keys = tuple(zip(*columns))
         else:
             keys = tuple(() for _ in range(system.n_states))
-        blocks = observation_blocks(keys, counter)
+        blocks = observation_blocks(keys, loop_counter)
         collisions = ()
         probe = depth
         while probe <= max_depth:
-            collisions = find_collisions(oracle, blocks, probe, collisions_per_round, counter)
+            collisions = find_collisions(oracle, blocks, probe, collisions_per_round, loop_counter)
             if collisions:
                 depth = probe
                 break
@@ -623,7 +632,7 @@ def compile_distinctions(
                 seen_pairs[key] = None
                 cumulative.append(key)
         requirement = PairRequirement(tuple(cumulative))
-        result = minimum_cardinality_set(library, values, requirement, counter, max_size=4)
+        result = minimum_cardinality_set(library, values, requirement, loop_counter, max_size=4)
         chosen = result.names
         rounds.append(
             CompileRound(round_index, depth, collisions, chosen, result.claim, result.detail, result.n_classes)
@@ -631,21 +640,29 @@ def compile_distinctions(
         round_index += 1
 
     # step 5: the coarsest sufficient quotient of the declared task family
-    initial = system.output_partition(counter)
-    refinement = moore_refine(system, initial, counter)
-    sufficiency = check_sufficient(system, refinement.classes, counter)
-    quotient = build_quotient(system, refinement.classes, counter)
-    coarseness = check_coarsest(quotient, counter)
+    prove_counter = phases["refine-and-prove"]
+    initial = system.output_partition(prove_counter)
+    refinement = moore_refine(system, initial, prove_counter)
+    sufficiency = check_sufficient(system, refinement.classes, prove_counter)
+    quotient = build_quotient(system, refinement.classes, prove_counter)
+    coarseness = check_coarsest(quotient, prove_counter)
 
     # step 6: redundant-channel removal, against the global requirement
     partition_requirement = PartitionRequirement(refinement.classes)
-    kept, dropped = inclusion_minimal_set(chosen, values, partition_requirement, counter, reads)
+    kept, dropped = inclusion_minimal_set(
+        chosen, values, partition_requirement, phases["redundancy-removal"], reads
+    )
 
     # the strong claim: the incrementally found set is also globally minimum
-    global_minimum = minimum_cardinality_set(library, values, partition_requirement, counter, max_size=4)
+    global_minimum = minimum_cardinality_set(
+        library, values, partition_requirement, phases["minimality-cross-check"], max_size=4
+    )
 
     observation = Observation([by_name[name] for name in kept])
-    compiled = build_compiled_representation(digit_system, observation, quotient, counter)
+    compiled = build_compiled_representation(digit_system, observation, quotient, phases["install"])
+
+    for name in sorted(phases):
+        counter.absorb(phases[name], name + "/")
 
     return CompileReport(
         rounds=tuple(rounds),
@@ -662,4 +679,5 @@ def compile_distinctions(
         dropped_channels=dropped,
         global_minimum=global_minimum,
         counter=counter,
+        phases=phases,
     )

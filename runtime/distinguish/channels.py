@@ -377,6 +377,12 @@ def harmonic_bound_numerator_denominator(n: int) -> tuple[int, int]:
     return num, den
 
 
+def harmonic_ceiling(n: int) -> int:
+    """The least integer ``k`` with ``H(n) <= k``.  Exact, no floating point."""
+    num, den = harmonic_bound_numerator_denominator(max(1, n))
+    return -((-num) // den)
+
+
 def _gcd(a: int, b: int) -> int:
     while b:
         a, b = b, a % b
@@ -418,11 +424,11 @@ def greedy_set(
         chosen.append(best[1])
         uncovered -= coverage[best[1]]
     columns = [values[name] for name in chosen]
-    num, den = harmonic_bound_numerator_denominator(max(1, len(requirement.pairs)))
+    ceiling = harmonic_ceiling(len(requirement.pairs))
     return ChannelSearchResult(
         tuple(chosen),
         "greedy",
-        "|C| <= H(%d) * OPT = (%d/%d) * OPT" % (len(requirement.pairs), num, den),
+        "|C| <= H(%d) * OPT <= %d * OPT  (H exact, ceiling shown)" % (len(requirement.pairs), ceiling),
         len(library),
         _class_count(columns, len(values[library[0].name])),
     )

@@ -34,7 +34,6 @@ Usage:  python3 audit_octic_v2.py <stage-letter>...   (default: A B)
 from __future__ import annotations
 
 import hashlib
-import itertools
 import json
 import random
 import shutil
@@ -551,29 +550,6 @@ def stage_d() -> None:
               in_box and gok and abs(res) == 1 and canonical in emitted,
               f"box={in_box} graeffe={gok} Res={res} emitted={canonical in emitted}")
 
-    # --- D3: independently constructed planted-good octics.
-    # Build g = q(x)*q~(x) from cyclotomic quartics; any product of two
-    # quartics with all roots on the unit circle sits inside the cage.
-    import sympy as sp
-    x = sp.symbols("x")
-    quartics = [sp.cyclotomic_poly(n, x) for n in (5, 8, 10, 12)]
-    built = 0
-    for left, right in itertools.combinations_with_replacement(quartics, 2):
-        product = sp.Poly(sp.expand(left * right), x).all_coeffs()  # descending
-        if len(product) != 9 or product[0] != 1 or product[-1] != 1:
-            continue
-        candidate = tuple(int(v) for v in product[1:8])
-        if not all(abs(v) <= CLAIMED_BOX[k] for v, k in zip(candidate, "abcdefh")):
-            continue
-        res = parity_resultant(candidate)
-        if abs(res) != 1 or not graeffe_ok(candidate):
-            continue
-        built += 1
-        canonical = candidate if candidate[0] <= 0 else sign_flip(candidate)
-        check(f"planted product {left.as_expr()}*{right.as_expr()} emitted",
-              canonical in emitted, str(candidate))
-    print(f"  {built} cyclotomic-product planted octics passed every filter")
-
     # --- D4: cross-parametrisation planted-good control.  The reciprocal
     # octic artifact code/exp34_reciprocal_octic.py enumerates the reciprocal
     # slice from a completely different parametrisation (T=x+1/x, Vieta on
@@ -820,18 +796,13 @@ def certified_moduli(candidate, precision=192):
     for factor, multiplicity in poly.factor()[1]:
         coefficients = [int(v) for v in factor.coeffs()]
         if len(coefficients) == 2:            # a rational root: certainly real
-            value = Q(-coefficients[0], coefficients[1])
-            for _ in range(multiplicity):
-                lowers.append(abs(value))
-                uppers.append(abs(value))
-            nonreal = False
-            continue
+            return None, None, False, True    # fails the no-real gate outright
         roots = None
         for attempt in range(6):
             ctx.prec = precision * (2 ** attempt)
             try:
                 roots = acb_poly(coefficients).roots(
-                    tol=2.0 ** -(precision // 3))
+                    tol=2.0 ** -(precision // 3), maxprec=1 << 16)
                 break
             except Exception:
                 continue

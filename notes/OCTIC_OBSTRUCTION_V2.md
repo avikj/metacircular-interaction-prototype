@@ -1,5 +1,37 @@
 # Octic obstruction, corrected certificate
 
+
+> **Audit annotation (integration lane, 2026-08-12) — applies E-1 and E-2 of
+> `CROSSREVIEW_OCTIC_V2.md`, which are blocking documentation edits. No number
+> in this theorem changes.**
+>
+> **E-1 (broken reference).** §1's sourcing of the coefficient box "unchanged
+> from the derivation recorded in the historical note" points at a document
+> that is quarantined *and physically absent from the tree*. The containment
+> argument is therefore not present in this artifact. The audit re-derived it
+> from scratch (extreme-point lemma for maximizing $e_k$ on
+> $\{t\in[m,M]^n:\prod t_i=1\}$, every extreme configuration enumerated
+> exactly in ℚ) and confirms the shipped bounds are a valid superset with
+> 10–55% headroom — but the *reason* now lives in the audit, not here.
+>
+> **E-2 (load-bearing uncited hypothesis).** The bounds are valid **only**
+> under the sharp odd-support cage $\varphi^{-1}<r<\sqrt2$ proved in
+> `NONRECIPROCAL_DECIC_FRONTIER.md` §1, which this note never cites. Under
+> the generic Newman cage $r<2$ — which is what "odd-support root annulus"
+> reads like, and what the code's own `OUTER = 2.0001` would suggest — all
+> seven Graeffe bounds and six of the seven box faces would be **undersized**:
+> the predecessor artifact's exact failure mode, one citation away. Read every
+> bound below as conditional on the $\sqrt2$ cage.
+>
+> **Historical correction.** The quarantine's stated premise does not
+> reproduce: on the proved cage *both* Graeffe orientations are safe
+> supersets, and the reversed-vector census is exactly the reciprocal image of
+> the corrected one. **Orientation was never the hazard; the cage was.**
+>
+> Verdict: **CONFIRMED** — three independent enumerations (including a
+> complete no-narrowing brute force over all 167,507,657,625 box points) emit
+> byte-identical censuses; downstream reproduced on disjoint primitives.
+
 For
 
 $$
