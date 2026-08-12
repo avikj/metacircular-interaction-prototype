@@ -548,3 +548,10 @@ Euclidean descent immediately won its first competition: the installed prime
 sensors compile to one batch action `gcd(n,product primes)`. The process now
 changes both representation and access cost within one execution; new prime
 sensors automatically enlarge the compiled action.
+
+## 2026-08-12T08:48:00Z — recursive origins form exponent space
+Recursive factor events now form and cache finite-support valuation vectors.
+One coordinate change compiles multiplication/addition, gcd/min, lcm/max, and
+divisor-count/product(e+1). Re-encountering a formed integer performs no search.
+Next: integrate concurrent lcm and congruence returns, then let exponent-space
+geometry induce the next question rather than selecting one externally.
