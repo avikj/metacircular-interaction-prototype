@@ -162,7 +162,9 @@ class SubspaceCriterionTests(unittest.TestCase):
                 self.assertEqual(observed, predicted, (p, slope))
         self.assertGreaterEqual(checked, 20)
 
-    def test_tangent_set_of_a_line_world_is_the_expected_subspace(self):
+    def test_tangent_directions_of_a_line_world_lie_in_the_line(self):
+        """Containment only — the trivial half.  See the next test for the
+        equality that §3.5's hypothesis actually needs."""
         big = list(range(1, 400))
         for p in (2, 3, 5):
             for slope in (0, 1, 2):
@@ -171,6 +173,40 @@ class SubspaceCriterionTests(unittest.TestCase):
                 for x in [y for y in live if v_p(evaluate(SUM, y), p) == 1][:5]:
                     for h in tangent_directions(w, SUM, x, p):
                         self.assertEqual(h[1] % p, (slope * h[0]) % p)
+
+    def test_the_line_world_tangent_set_is_the_WHOLE_line(self):
+        """§3.5's hypothesis is that `T_E(x)` IS a subspace, not merely sits
+        inside one.  For the unbounded line world that is provable (take
+        `a' = a + t p^e`); in truncations it FAILS at high-valuation points, so
+        the check is restricted to points whose witness provably fits.
+        See notes/FINITE_MODEL_AUDIT.md §3."""
+        hi = 20000
+        checked = 0
+        for p in (3, 5, 7):
+            for slope in (1, 2, 3):
+                w = line_world(range(1, hi), slope, 0)
+                live = nonzero_locus(w, SUM)
+                for x in live[:60]:
+                    e = v_p(evaluate(SUM, x), p)
+                    if e < 1 or x[0] + (p - 1) * p**e >= hi:
+                        continue
+                    checked += 1
+                    full = {(t, (slope * t) % p) for t in range(p)}
+                    self.assertEqual(tangent_directions(w, SUM, x, p), full)
+        self.assertGreater(checked, 100)
+
+    def test_truncation_really_does_break_the_hypothesis(self):
+        """The audit finding, pinned: in a short truncation the tangent set is
+        a proper subset of the line, so a finite computation cannot establish
+        §3.5's hypothesis."""
+        p, slope = 3, 2
+        w = line_world(range(1, 60), slope, 0)
+        x = (27, 54)
+        e = v_p(evaluate(SUM, x), p)
+        T = tangent_directions(w, SUM, x, p)
+        full = {(t, (slope * t) % p) for t in range(p)}
+        self.assertLess(len(T), len(full))
+        self.assertTrue(T.issubset(full))
 
 
 class GeneralFiniteNoGoTests(unittest.TestCase):

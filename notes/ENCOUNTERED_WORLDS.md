@@ -123,6 +123,14 @@ see.
 is `span{(1,s)}` and `grad f|_L (t) = t(1+s)`. So `E` transports **iff
 `s != -1 (mod p)`**.
 
+> **Audit note (same day), `notes/FINITE_MODEL_AUDIT.md` §3.** The claim
+> `T_E(x) = span{(1,s)}` holds for the **unbounded** world — proved there by
+> `a' = a + t p^e` — and **fails in truncations**, where high-valuation points
+> realize only part of the line. The 25-of-25 verification below tested the
+> *conclusion* directly, not this hypothesis, so the corollary is correct and
+> was correctly checked; what was missing was the unbounded proof of the
+> hypothesis, now supplied.
+
 The diagonal `s = 1` fails exactly when `1 = -1`, i.e. `p = 2`. At `p = 5` the
 failing world is `{(a, 4a)}`; at `p = 7` it is `{(a, 6a)}`. Twenty-five
 slope/prime combinations were predicted from the criterion and then checked
