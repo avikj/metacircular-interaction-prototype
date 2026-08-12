@@ -327,6 +327,34 @@ def divisibility_world(
     return world, {remainder: remainder == 0 for remainder in world.states}
 
 
+def binary_divisibility_classes(modulus: int) -> tuple[tuple[int, ...], ...]:
+    """Closed-form behavioral classes for binary divisibility modulo ``modulus``.
+
+    If ``modulus = 2**a * q`` with ``q`` odd, the classes are zero, the
+    nonzero residues modulo ``q``, and the ``a`` possible finite 2-adic depths
+    among nonzero multiples of ``q``.  Hence there are exactly ``q + a``.
+    """
+    if modulus < 1:
+        raise ValueError("modulus must be positive")
+    q, exponent = modulus, 0
+    while q % 2 == 0:
+        q //= 2
+        exponent += 1
+
+    classes = [(0,)]
+    for residue in range(1, q):
+        classes.append(tuple(
+            value for value in range(1, modulus) if value % q == residue
+        ))
+    for valuation in range(exponent):
+        classes.append(tuple(
+            value for value in range(1, modulus)
+            if value % q == 0
+            and (value // q) % (2 ** (valuation + 1)) == 2 ** valuation
+        ))
+    return tuple(classes)
+
+
 def twelve_link_machine() -> Crystal:
     """A minimal intervention toy, not a historical or physical model.
 
