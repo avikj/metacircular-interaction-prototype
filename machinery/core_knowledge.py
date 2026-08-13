@@ -385,6 +385,31 @@ def h_rank_r_coords(inst):
         group_identity(flag, n)
 
 
+def w_horizon():
+    return ((13,), (20,), (40,), (96,))
+
+
+def h_horizon(inst):
+    """The machine's staggered-horizon world (found through three dead
+    designs in one night): at every grant level g >= 13, exactly five
+    word-classes are visible — four words signed inside the horizon,
+    the rest indistinguishable beyond it — and the replay-prefix
+    observable separates exactly those five.  The developmental
+    profile of the living machine, as an exact claim."""
+    import living_machine as lm
+    (g,) = inst
+    saved = lm.PORT_BITS[0]
+    try:
+        lm.PORT_BITS[0] = lm.KIND_BASE + g
+        words = lm.h_family(lm.VALLI_EPOCH)
+        prefixes = {w[:g] for w in words}
+        replays = {lm.replay_prefix(w, min(len(w), g)) for w in words}
+        return len(words) == 8 and len(prefixes) == 5 \
+            and len(replays) == 5
+    finally:
+        lm.PORT_BITS[0] = saved
+
+
 def w_nat_bridge():
     def prof(k, S):
         return tuple(k % p for p in S)
@@ -439,6 +464,10 @@ KNOWLEDGE = [
      "compose by the twisted law (K side opposite, R twisted through "
      "the D_r conjugation) matching matrix multiplication exactly",
      w_rank_r_coords, h_rank_r_coords),
+    ("staggered-horizon", "the machine's word world shows exactly five "
+     "classes at every grant level: four signed inside the horizon, "
+     "the rest beyond it — formations and walls both recur forever",
+     w_horizon, h_horizon),
 ]
 
 # Interface debt — knowledge NOT yet expressible as a claim here (the

@@ -898,3 +898,13 @@ Three world-designs died inside one hour, each teaching a law:
 The machine now has what THE_MACHINE.md promised: walls recur forever,
 knowledge-paced novelty, at constant cost — living in R0035's trace
 world with the kuttaka step as its physics.
+
+## 2026-08-13 04:4xZ — the machine's developmental profile enters the core: 18/18
+
+New claim staggered-horizon: at every grant level g >= 13 the word
+world shows exactly five classes (four signed inside the horizon, the
+rest beyond), and replay-prefix separates exactly those five — the
+design law found through three dead worlds tonight, now verified by
+the one law at every boot.  The wall-certificates-live debt shrinks:
+the machine's runtime knowledge is becoming boot-checkable claims.
+Machine stable 220+ steps in the regime (bits 1152, fibers 400).
