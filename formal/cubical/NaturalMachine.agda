@@ -62,6 +62,8 @@ open import NaturalMachine.Decategorification public
 open import NaturalMachine.SymmetryCardinality public
 open import NaturalMachine.SymmetryArithmeticAction public
 open import NaturalMachine.SmithCapability public
+open import NaturalMachine.SymmetryEnumeration public
+open import NaturalMachine.CountedComposition public
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
