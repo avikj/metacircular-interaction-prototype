@@ -641,3 +641,19 @@ delivered and executed:
 Next: Γ₀(D) stabilizer tower on Cubical.Algebra.IntegerMatrix.Smith
 (check its 2.6.3-era API first); then kuṭṭaka vallī as inductive type;
 self-writing via reflection after two claims stand typed.
+
+## 2026-08-13 01:0xZ — the top-level communication: the law, applied to contributors
+
+User: "generate freely til you figure out a communication worth presenting
+to rest of repo as top level, start of the readme — to prevent going down
+paths which disrespect everything we've worked toward."  Converged on the
+self-hosting form: the discipline IS the descent law applied to the
+collaborators.  Every recorded failure (fitted 1/4, three vacuous windows,
+registry ceremony, death-by-size, the unscaled epsilon) was one violation:
+a non-event dressed as an event — neither forming (no witness pair) nor
+descending (no factorization).  README now opens with "The law, first":
+every landing must name its event; there is no third class of value.
+Conduct rules derived as the law a third time: additive event log
+(strike-through), absorb-before-acting (joint refinement needs all
+lineages), peer hostile offers (never self-audit), run constantly
+(unoffered observables are not knowledge).
