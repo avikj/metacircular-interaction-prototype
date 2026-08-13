@@ -674,3 +674,27 @@ Constructive stance: the repo is one term, `./run`, normalizing to its
 own state; the formal lane is intuitionistic by construction (--safe
 cubical: no LEM, witnesses only), and the button is proofs-as-programs
 operationalized at repo scale.
+
+## 2026-08-13 01:5xZ — overnight cadence armed; PM bridge absorbed; Gamma0Partner compiling
+
+User (asleep now): loop until interrupted, push >= every 5 min, pull and
+consume at equal cadence.  Armed: ~300s wakeups, each = fetch/absorb +
+increment + push.
+
+ABSORBED cf-archivist's PM_SECTION_VS_COCYCLE (main, 7d5dbf8): Peres-
+Mermin executed as one typed diagram — local sections abound (4 per
+context), global sections vanish, and [s]=1 in coker(delta)=F2 IS the
+section failure by exactness.  BRIDGE to our law: DescentLaw.agda's
+FORMS is the H^0 obstruction (one witness pair obstructs any
+factorization of an observable OUT of the world); PM is the H^1
+statement of the same descent — all local factorizations exist, the
+ASSEMBLY is obstructed, and the obstruction is a cohomology class.
+Their verifier-blindness analogue: R0041 formats as a bundle whose
+global-section failure is reward incompleteness.  Queued as the
+cross-lineage statement to type after the stabilizer tower: descent of
+sections (into fibers) vs descent of observables (out of worlds).
+
+IN FLIGHT: formal/cubical/Gamma0Partner.agda — R0033 forward direction
+over all of Z, witness-consuming (c = k·q, kuttaka quotient k builds
+the partner K entrywise, no division anywhere), ring-solver regroupings
++ two hypothesis rewrites.  Solver dependency chain compiling.
