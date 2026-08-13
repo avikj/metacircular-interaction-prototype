@@ -19,9 +19,10 @@
 -- that carries them honestly:
 --
 --   * `Tm`      — unary constructor terms over a countable alphabet of
---                 head shapes (the smallest term language in which a
---                 definitional body and its unfolding are
---                 non-degenerate).
+--                 head shapes (a term language in which a definitional
+--                 body and its unfolding are non-degenerate; "smallest"
+--                 is an informal judgement, not a theorem, and nothing
+--                 below depends on it).
 --   * `Vocab`   — the installed vocabulary, a list of head shapes; the
 --                 root matcher `Matches` and the full-term predicate
 --                 `Over` are Bool-membership tests against it.
@@ -42,12 +43,24 @@
 --
 --   T1 `defining-equation`      the new head unfolds by its body.
 --   T2 `unfold-elim` /
---      `propose-eliminable`     elimination: every term over the
---                               extended vocabulary unfolds to a base
---                               term — the extension is definitional,
---                               hence conservative.
---   T3 `match-conservative`     the extension changes the matcher at
---                               no old head (the D3 content).
+--      `propose-eliminable`     elimination AT THE LEVEL OF COVERAGE:
+--                               every term over the extended vocabulary
+--                               unfolds to a term all of whose heads are
+--                               base.  NOT conservativity of a theory:
+--                               no provability relation is modelled
+--                               anywhere in this file, so "conservative"
+--                               here is eliminability of the new head
+--                               from `Over`, and nothing more.  The
+--                               statement with real conservativity
+--                               content is P3 of
+--                               notes/OBSTRUCTION_AGDA_PLAN.md (the D3
+--                               counterexample `x*y := x+y`), unproved.
+--   T3 `match-conservative`     installing a head changes matchability
+--                               at no OTHER head.  This is a membership
+--                               skip lemma; calling it "the D3 content"
+--                               is borrowed collateral — gate D3 refuses
+--                               old-language left-hand sides, and that
+--                               refusal is P3, not this.
 --   T4 `match-mono`, `Over-mono` extension loses nothing.
 --   T5 `progress-after` +
 --      `progress-before` +
@@ -57,25 +70,70 @@
 --                               extended vocabulary: proposing consumes
 --                               the obstruction.
 --   T7 `extend-absorbed` /
---      `plateau`                THE PLATEAU THEOREM: a proposal drawn
+--      `plateau`                THE PLATEAU THEOREM, for the modelled
+--                               frequency proposer: a proposal drawn
 --                               from an already-matched head leaves the
 --                               matcher EQUAL (a path of functions, by
 --                               funExt), and hence any finite chain of
---                               frequency-proposals does too.
---   T8 `frequency-cannot-reach` no frequency chain, of any length,
---                               ever matches an obstruction's stuck
---                               term — while one obstruction step does
---                               (T5).  This is §7's sentence as a
---                               single checked statement.
---   T9 `obs-complete`           completeness: every term is fully
---                               covered after a finite chain of
---                               obstruction-proposals.
+--                               such proposals does too.  Read T7′
+--                               before quoting this.
+--   T7′ `freq-reaches-every-installed` /
+--      `freq-memb-absorbed` /
+--      `freq-Over-plateau`      what T7 actually says: the heads a
+--                               `FreqChain` step can name are EXACTLY
+--                               the already-installed ones, so such a
+--                               chain changes no membership test at all
+--                               — the matcher path is a shadow of an
+--                               inert vocabulary, not of an argument
+--                               about frequencies.
+--   T8 `frequency-cannot-reach` no chain of the modelled frequency
+--                               proposer ever matches an obstruction's
+--                               stuck term — while one obstruction step
+--                               does (T5).
+--   T9 `obs-complete`           coverage: every term is fully covered
+--                               after a finite chain of obstruction-
+--                               proposals.  ("Completeness" would name a
+--                               proof system; there is none here.)
+--   T10 `class-preserves-outside` /
+--      `class-cannot-reach` /
+--      `class-can-grow`         §7's argument without T7's degeneracy: a
+--                               proposer closed under a SHAPE CLASS may
+--                               install unboundedly many genuinely new
+--                               heads and still never reach an
+--                               obstruction whose residual is outside
+--                               the class.  This, not T7/T8, is the
+--                               faithful rendering of the source.
 --
--- What is deliberately not modelled here (see
--- notes/OBSTRUCTION_AGDA_PLAN.md): multi-parameter bodies, pattern
--- matching below the root, the arity/grouping structure of the B3
--- residual, and gates D2–D7.  The kernel keeps exactly the part of the
--- story where the mathematics of the plateau and its fix lives.
+--
+-- WHAT IS DELIBERATELY NOT CLAIMED
+--
+--  * Not modelled (see notes/OBSTRUCTION_AGDA_PLAN.md): multi-parameter
+--    bodies, pattern matching below the root, the arity/grouping
+--    structure of the B3 residual, and gates D2–D7.
+--  * "Conservative" is used throughout in the T2 sense — eliminability
+--    from `Over` — and never in the sense of conservativity of an
+--    equational theory.  `Provable` is not modelled.  Likewise
+--    "completeness" (T9) means coverage of a term by a vocabulary, not
+--    completeness of any deductive system.
+--  * `FreqChain` is a modelling stipulation, and by T7′ a degenerate
+--    one: its steps cannot install anything.  The source's frequency
+--    proposer installed twelve heads that were not previously present;
+--    its ceiling was closure under a shape class, which is T10.  Nothing
+--    here derives either closure property from an independent
+--    description of a frequency proposer, and nothing here reproduces
+--    the source's measurements — the header's citation of them is
+--    motivation, not a checked claim of this module.
+--  * The coverage chain (T5–T10) never mentions `witness`, `body`,
+--    `unfold` or T1–T2.  Progress here is growth of a list of installed
+--    heads; the definitional content of a proposal and the progress made
+--    by proposing it are proved side by side and never interact.  In
+--    particular every theorem in §§6–9 would hold verbatim for a
+--    proposer that installs the head and generates no definition at all.
+--  * The field `argBase` constrains how an `Obstruction` may be BUILT
+--    (the probe must work innermost-first to supply it) but is consumed
+--    by no theorem in this file.
+--  * `witness = var` everywhere a chain is constructed here; an
+--    informative body policy is `NaturalMachine.WitnessPolicy`.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Obstruction where
@@ -378,6 +436,46 @@ plateau (step {W = W} ch t m) =
   extend-absorbed W (headShape W t m) (headShape-built W t m) ∙ plateau ch
 
 ------------------------------------------------------------------------
+-- T7′.  HOW MUCH OF T7 IS THE DATATYPE.  Exactly this much — and it is
+-- more than the wording above admits, so the wording is corrected here.
+--
+-- The step constructor names `headShape W t m`, which by
+-- `headShape-built` is ALREADY INSTALLED in W.  The converse holds too:
+-- every installed head is the head of some term the vocabulary matches,
+-- namely `node s var` (`freq-reaches-every-installed`).  So the heads a
+-- frequency step can name are EXACTLY the installed ones — no fewer and
+-- no more — and the honest statement of the plateau is not about the
+-- matcher at all, it is about membership:
+--
+--   `freq-memb-absorbed` : a frequency chain changes NO membership test.
+--
+-- `plateau` is that fact's `Matches` shadow and `freq-Over-plateau` is
+-- its `Over` shadow.  In this model a frequency step cannot install
+-- anything, so nothing can change.  That is strictly more degenerate
+-- than the ceiling the source reports, where the frequency proposer DID
+-- install twelve heads that were not there before and the point was that
+-- all twelve stayed inside one shape class.  T10 below is that argument
+-- without the degeneracy.
+------------------------------------------------------------------------
+
+freq-reaches-every-installed : (W : Vocab) (s : Shape) → memb s W ≡ true
+  → Σ[ t ∈ Tm ] Σ[ m ∈ Matches W t ] (headShape W t m ≡ s)
+freq-reaches-every-installed W s h = node s var , h , refl
+
+freq-memb-absorbed : {V W : Vocab} → FreqChain V W → (x : Shape) → memb x W ≡ memb x V
+freq-memb-absorbed done                  x = refl
+freq-memb-absorbed (step {W = W} ch t m) x =
+  memb-absorb (headShape W t m) W (headShape-built W t m) x ∙ freq-memb-absorbed ch x
+
+freq-Over-invariant : {V W : Vocab} → FreqChain V W → (t : Tm) → Over W t ≡ Over V t
+freq-Over-invariant ch var        = refl
+freq-Over-invariant ch (node c u) i =
+  (freq-memb-absorbed ch c i ≡ true) × freq-Over-invariant ch u i
+
+freq-Over-plateau : {V W : Vocab} → FreqChain V W → Over W ≡ Over V
+freq-Over-plateau ch = funExt (freq-Over-invariant ch)
+
+------------------------------------------------------------------------
 -- 8.  T8: the §7 sentence, as one checked statement.
 --
 -- No chain of frequency-proposals, of any length, ever matches an
@@ -392,6 +490,60 @@ frequency-cannot-reach : (V : Vocab) (o : Obstruction V) {W : Vocab}
 frequency-cannot-reach V o ch m =
   progress-before V o
     (transport (cong (λ P → P (stuckTm o)) (plateau ch)) m)
+
+------------------------------------------------------------------------
+-- T10.  §7's argument with the degeneracy removed.
+--
+-- The source's closure is over a SHAPE CLASS ("every proposal is a
+-- binary product"), not over the installed set: the reported run did
+-- install twelve new heads, and its point was that none of them was
+-- 3-ary.  A faithful model must therefore let the vocabulary GROW
+-- without bound and still deny it the obstruction.  `ClassChain C` is
+-- that proposer: it may install any head satisfying C, as often as it
+-- likes.
+--
+--   `class-preserves-outside` it changes no membership test OFF C;
+--   `class-cannot-reach`      it never matches the stuck term of an
+--                             obstruction whose residual is off C;
+--   `class-can-grow`          and — unlike `FreqChain`, which by
+--                             `freq-memb-absorbed` can never change any
+--                             membership test at all — it really does
+--                             install heads that were not there.
+--
+-- So this subsumes T8's content without T7's degeneracy.  Note what is
+-- lost in the honest version: the matcher genuinely changes (on C), so
+-- no PATH of matchers is available and `Matches W ≡ Matches V` is false
+-- in general.  T7's headline — "leaves the matcher EQUAL, not
+-- equivalent, EQUAL" — is a symptom of the degenerate model, not extra
+-- strength.  Invariance off the class is the statement that survives.
+------------------------------------------------------------------------
+
+data ClassChain (C : Shape → Bool) (V : Vocab) : Vocab → Type₀ where
+  done : ClassChain C V V
+  step : {W : Vocab} → ClassChain C V W → (s : Shape) → C s ≡ true
+       → ClassChain C V (s ∷ W)
+
+class-preserves-outside : (C : Shape → Bool) {V W : Vocab} → ClassChain C V W
+                        → (x : Shape) → C x ≡ false → memb x W ≡ memb x V
+class-preserves-outside C done             x cx = refl
+class-preserves-outside C (step {W = W} ch s cs) x cx =
+    memb-skip x s W (λ p → true≢false (sym cs ∙ sym (cong C p) ∙ cx))
+  ∙ class-preserves-outside C ch x cx
+
+class-cannot-reach : (C : Shape → Bool) (V : Vocab) (o : Obstruction V)
+                   → C (residual o) ≡ false
+                   → {W : Vocab} → ClassChain C V W → ¬ Matches W (stuckTm o)
+class-cannot-reach C V o cr ch m =
+  true≢false (sym m ∙ class-preserves-outside C ch (residual o) cr ∙ failed o)
+
+class-can-grow : (C : Shape → Bool) (V : Vocab) (s : Shape)
+               → C s ≡ true → memb s V ≡ false
+               → Σ[ W ∈ Vocab ] ( ClassChain C V W
+                                × (memb s W ≡ true)
+                                × (¬ (memb s W ≡ memb s V)) )
+class-can-grow C V s cs e =
+    (s ∷ V) , step done s cs , memb-here s V
+  , λ q → true≢false (sym (memb-here s V) ∙ q ∙ e)
 
 ------------------------------------------------------------------------
 -- 9.  T9: completeness of obstruction-indexed proposal.
