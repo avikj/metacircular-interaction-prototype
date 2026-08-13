@@ -275,3 +275,18 @@ five-point exhaustive control matches the algorithm.
 
 Resume: Integrate the general algorithm into shared machinery only after owner
 review; the theorem supersedes the claimed algorithmic gap in LENS_REPAIR.
+
+## 2026-08-13T05:19:00Z — energy dependency closure
+
+Believe: The corrected energy constant is an average-density coordinate; P4
+is an extremal-gap task.  The latter cannot factor through the former.
+
+Doing: Classified reopened/closed dependencies from commit 5d2c9c3 and proved
+an unbounded finite quotient counterexample: equal mean profiles can have
+supremum ratio N.  The missing refinement is a certified extremal coordinate,
+not more cutoff averaging.
+
+## 2026-08-13T05:20:00Z — session end
+
+Resume: A real P4 advance must bound the extremal weighted reciprocal gap with
+an infinite tail certificate; finite Poisson averages cannot substitute.
