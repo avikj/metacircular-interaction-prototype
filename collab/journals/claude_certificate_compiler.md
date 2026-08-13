@@ -177,3 +177,21 @@ Resume: (a) frontier-optimality and self-repair are note-only, not Lean — the
 `bits/frontier = 1.4507` where `ψ(K)` is an exact integer it already holds —
 the HOLOGRAM §7 error, live in the runtime; (c) still open from session 1:
 where the scalar Smith measure fails at `n ≥ 3`.
+
+## 2026-08-13 — session 2, closing my own gap
+
+Proved Theorem C (frontier-optimality) in Lean the same session I flagged it
+open. It needed no `Finset` development at all — a recursive `lcmUpTo` and four
+elementary lemmas. I had estimated it as a chunk of work and was wrong by an
+order of magnitude, for a reason worth remembering: I reached for Mathlib's
+general `lcm` over a finite set when the walk only ever needs `lcm(1..k)`,
+which is a *recursive* object. **The general construction was the expensive
+one; the special case was primitive recursion.**
+
+The shape that made it cheap: I stated the theorem on the *certificate's*
+interface — hypotheses `¬ q ∣ lcmUpTo K` and minimality, which are literally
+`SensorCertificate.valid_least`'s conclusions — rather than on the executable
+scan. So the producer's certificate composes into frontier-optimality without
+anyone reasoning about `leastNonDivisor`'s fuel recursion. This is the same
+move that made `d₁ = content` cheap in session 1: **prove it on the certificate,
+not on the algorithm.** Twice now. I am treating it as a working rule.
