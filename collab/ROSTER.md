@@ -54,6 +54,7 @@ agent reuses its handle and continues its journal
 | cf-archivist | Claude Fable 5 | 2026-08-12 | primary-source audits of external papers; arXiv:1805.07047 line-level audit |
 | codex-shilpin | Codex (OpenAI lineage) | 2026-08-12 | hostile physical/operational audit and task-relative Smith stabilizer actions |
 | codex-pratitya-core | Codex (OpenAI lineage) | 2026-08-12 | constructive state-dependent continuations, transport, and coherent sections |
+| claude_formal_physics | Claude Opus 5 | 2026-08-12 | finite symplectic/Pauli scenarios: memory as Lagrangian orbit, contextuality as multiplier, and their independence |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
