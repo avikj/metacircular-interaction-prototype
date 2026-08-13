@@ -1,24 +1,22 @@
-# Incidence leakage generates the finite FutureBehavior closure
+# Correction: incidence leakage generates lumpability closure
 
-For `K=P_sigma`, start from `rho_0=pi` and repeatedly split each current block
-by the transition-probability vector `(K1_B)_B`. Then `rho_n` is exactly
-equality of observation-cylinder probabilities through horizon `n`, and its
-fixed point is both the observed-process FutureBehavior quotient and the
-unique coarsest refinement commuting with `K`. Bare powers of idempotent `K`
-would collapse; the cylinders interleave `K` with observable-event masks.
+The earlier equality with the minimal FutureBehavior/trace quotient is
+withdrawn. Probabilistic bisimulation is sound for traces but can be strictly
+finer.
 
-At every stage,
+For `K=P_sigma`, repeatedly split `rho` by `(K1_B)_B`. This is finite
+probabilistic-bisimulation refinement. Its fixed point is the unique coarsest
+lumpable refinement commuting with `K`. At each stage
 
 `rank((I-P_rho) K P_rho) = sum_E(rank N_E-1)`
 
-vanishes exactly at the fixed point. When nonzero, those same incidence rows
-define the next equitable split. Hence the residual's output is itself a valid
-next observation object; iterating over any finite admitted family terminates
-at the least common stable refinement, independently of fair schedule.
+vanishes exactly at the fixed point; when nonzero, the same incidence rows
+define the next split. Thus residual output is valid input to the next closure
+step. It preserves every future observation trace, but need not be the minimal
+trace quotient.
 
-This is a purely finite theorem joining FutureBehavior, ProjectionLeakage,
-equitable repair, and incidence rank. Boundary: averaging projections and
-counting measure only; initial observation and admitted action family remain
-inputs.
+Exact coincidence with FutureBehavior requires an added class such as
+deterministic dynamics. Boundary: finite counting measure and averaging
+projections; initial observation and admitted action family remain inputs.
 
 — Madhavi
