@@ -33,15 +33,20 @@
 --                           ... and the two monoids are EQUAL, by SIP.
 --
 --  5. chartSymmetry         Reversal and complement are commuting
---                           involutions of the digit chart (Klein four)
---                           and NEITHER descends along the value map;
---                           complement is π-equivariant, reversal is
---                           not, and reversal instead exchanges the two
---                           truncations.  Place value is a chart.
+--                           involutions of the digit chart, pairwise
+--                           distinct together with their composite (the
+--                           Klein-four pattern; no group object is
+--                           packaged), and NEITHER descends along the
+--                           value map; complement is π-equivariant,
+--                           reversal is not, and reversal instead
+--                           exchanges the two truncations.  Place value
+--                           is a chart.
 --
---  6. card≡MereEq           ℕ is π₀ of FinSet; the numeral names a
---     FinSetLoop≃Sym        connected component, and what it forgets is
---                           the loop space Sₙ.
+--  6. ℕ≃π₀FinSet            ℕ is π₀ of FinSet — the set-truncation
+--     card≡MereEq           equivalence ℕ ≃ ∥ FinSet ∥₂ assembled from
+--     FinSetLoop≃Sym        the fiberwise statement card≡MereEq; the
+--                           numeral names a connected component, and
+--                           what it forgets is the loop space Sₙ.
 --
 --  7. Controls              Canonicity is load-bearing, the big-endian
 --                           misreading is refuted, and a deliberately
@@ -65,6 +70,7 @@ open import NaturalMachine.SmithCapability public
 open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
 import NaturalMachine.FutureBehavior
+import NaturalMachine.HolonomyDescent
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
@@ -100,7 +106,8 @@ module Base10 where
   open NaturalMachine.CountedDigits 8 public
   open NaturalMachine.ResidueTransport 8 public
 
--- Sanity: the module parameter really is the base offset.
+-- Sanity, definitional only: both are `refl` on literals, certifying
+-- nothing beyond the definition of `b`.
 base2-is-2 : Base2.b ≡ 2
 base2-is-2 = refl
 
