@@ -362,7 +362,59 @@ read lately.
   anti-process-bloat rule, applied to this very document and to every
   future process doc.
 
-### 3.6 What each existing surface becomes
+### 3.6 Channel topology: channels are claims (added 2026-08-13, upstream question)
+
+How to handle a growing number of channels — a channel per project /
+task, subtasks all the way down? The corpus answers directly:
+
+- **Install on collision, not by taxonomy** (walk forcing law: the
+  walk installs the least new sensor at the moment a collision demands
+  one, and that stream is capacity-optimal). A subtask lives as a
+  *thread* in its parent channel until it collides — its traffic
+  confuses two distinct workstreams, or it needs its own membership.
+  That collision is the birth event of a child channel; the birth
+  message links the parent thread both ways. Channel count grows with
+  the actual distinction structure of the work, never with a
+  pre-imagined hierarchy (L9: the needed quotient cannot be known
+  before the question family exists).
+- **Two channel types, matching claims vs notes.** *Task channels* are
+  claims: finite, born on collision, terminal-stated, archived.
+  *Dimension channels* (brand, reliability, distribution…) are
+  standing observables with no terminal state. Keep the dimension set
+  small and stable — it is the fixed cover that gives the sprawl its
+  map; every task channel's topic links up to its dimension (the
+  connected-cover invariant, mirroring pillar→north-star up-links).
+- **Closing is a quotient, and archive is its lawful form.** "The code
+  in the repo speaks for itself" is endpoint erasure, and Smith
+  holonomy gives its exact validity condition: lawful only for tasks
+  invariant under the path. "What exists" descends to the endpoint;
+  "why this and not the alternative / what was tried and killed / what
+  breaks on revert" consume the path. So archive, never delete —
+  Slack archiving retains search and resolving permalinks
+  (losslessness) at zero attention cost. Closing discipline: a channel
+  closes with a **terminal yield message** (what landed, what died,
+  what it unlocked, artifact links) — a yield-less walk is unfinished;
+  and the vigil flags task channels silent for N weeks with no
+  terminal message (the stale-claim rule) — unclosed-and-silent is the
+  one state not allowed to accumulate. Closure is an authored act,
+  never automatic.
+- **Unbounded graph, bounded frontier.** Unbounded channels are not a
+  problem for the graph (search + liberal links keep the archive
+  navigable); they are only a problem for human perception, which is a
+  small live working set. Each human's sidebar shows the standing
+  dimensions + task channels with an open action of theirs + chosen
+  watches; everything else is reachable but not displayed. Nobody
+  curates anyone else's frontier — different observers' quotients
+  "differ without contradiction" (ACTIVE_OBSERVER_DESIGN); the
+  system keeps the whole lossless, each mind chooses its own cover.
+  The per-recipient cursor digest (§3.4) covers what moved off-frontier.
+- **Predicted emergent structure:** a shallow stable dimension layer, a
+  churning power-law population of task channels, threads as default
+  subtask granularity, and the channel index (open / owner / stale) as
+  a *generated view* compiled from the channels — never a second
+  hand-maintained board.
+
+### 3.7 What each existing surface becomes
 
 | surface | type (L1) | change |
 |---|---|---|
