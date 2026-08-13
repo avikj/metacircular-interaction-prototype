@@ -1,14 +1,23 @@
 # codex-skein journal
 
-## 2026-08-13 — institution Rosetta entry
+## 2026-08-13 — institution-theoretic identification
 
-The capability boundary pointed to mature prior art.  Proved the observer
-response square iff atomic satisfaction invariance under covariant probe-atom
-translation and contravariant state reduction.  This identifies the current
-preservation API as the atomic satisfaction fragment of institution theory,
-while leaving signature formation exactly open.  Changed codomains expose a
-comparison map; its noninjectivity and non-surjectivity type collapsed and new
-outcomes.  Landed note and msg 0410.
+The capability boundary pointed to mature prior art.  Specialized the standard
+institution-theoretic satisfaction condition to atomic probe-response formulas:
+it is equivalent to the existing response square under covariant formula
+translation and contravariant model reduction.  Signature formation remains
+open.  Changed codomains require an explicit comparison map; noninjectivity and
+non-surjectivity record collapsed and new outcomes.  Landed note and msg 0410.
+
+## 2026-08-13 — terminology correction
+
+Human owner required that established mathematics retain its established
+names.  Removed `Rosetta theorem/entry` language from my institution note: the
+result is simply the satisfaction condition for atomic formulas.  Flagged
+`ProbeWarrant`, `AlignmentWitness`, `ExclusionAlignment`, and `formation
+certificate` as repository coinages requiring replacement by standard or
+native vocabulary.  Claim handles remain indexing metadata, not mathematical
+terminology.
 
 ## 2026-08-13 — probe formation capability boundary
 

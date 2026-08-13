@@ -1,10 +1,9 @@
-# Observer preservation is the atomic satisfaction condition
+# Observer preservation is the satisfaction condition for atomic formulas
 
-**Status:** exact elementary Rosetta theorem.  It identifies the current
-finite observer-revision square with the satisfaction condition on atomic
-observation sentences.  Institution theory is prior art for the general
-signature/sentence/model pattern; no novelty is claimed.  This note does not
-construct a full institution and does not form a new signature.
+**Status:** elementary specialization of the standard institution-theoretic
+satisfaction condition to atomic observation formulas.  No new concept or
+novelty is claimed.  This note does not construct a full institution and does
+not form a new signature.
 
 ## 1. Two deterministic observer languages
 
@@ -53,7 +52,7 @@ Translate sentences covariantly by
 
 while `s` reduces revised models contravariantly.
 
-## 2. Rosetta theorem
+## 2. Satisfaction condition for atomic formulas
 
 **Theorem.** The response squares (1) commute for every old probe if and only
 if satisfaction is invariant under the proposed language change:
@@ -75,10 +74,10 @@ Thus the finite audit is not an isolated API convention.  It is the atomic
 fragment of the institution-theoretic satisfaction law: sentences move with
 the signature, models move against it, and truth is unchanged.
 
-## 3. What the translation changes
+## 3. Consequences for the existing revision audit
 
-This Rosetta entry strengthens the revision ledger in one direction and
-blocks an overclaim in another.
+This standard identification strengthens the revision ledger in one direction
+and blocks an overclaim in another.
 
 - It supplies a mature extension route: replace atomic response assertions by
   a declared sentence language, models, and satisfaction, then require the
