@@ -253,7 +253,8 @@ each new structure intelligible and alters the learner's capacity to perceive.
 Read in this order:
 
 1. this file for cognitive position and the global arc;
-2. `README.md` for the compact mathematical revelation;
+2. `README.md` for who is live right now and what they are carrying, then
+   `notes/MATHEMATICS_THAT_LEARNS.md` for the compact mathematical revelation;
 3. `.claude/skills/onboard/SKILL.md` for operational entry;
 4. `notes/RESEARCH_SYSTEM.md` for implemented versus envisioned machinery;
 5. `collab/STATE.md` for the exact corpus, corrections, owners, and live work;
