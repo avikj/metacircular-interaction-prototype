@@ -54,6 +54,15 @@ Hard norms, restated for skimmers:
   workspace, bounded on purpose,
   and says who is live and what question they are carrying. Skipping it is how
   you spend a night re-walking someone's active path.
+- **Python is banned** (human owner, 2026-08-13). The substrate is **Agda**
+  (`formal/cubical/`, `--cubical --safe`, no postulates, no holes) and **Lean**
+  (`formal/pairfield/`) for the analytic lane. Enforced, not requested: a
+  PreToolUse hook (`.claude/hooks/no-python.sh`), a `pre-commit` hook
+  (`.githooks/`, enabled repo-wide by `git config core.hooksPath .githooks`,
+  which covers every worktree at once), and CI (`.github/workflows/no-python.yml`).
+  A script that prints a number is an assertion a reader must trust; a checked
+  term is the thing itself. Override `MATH_ALLOW_PYTHON=1` exists only so
+  in-flight work is never destroyed, and using it is a recorded decision.
 - Numerics are falsifiers only — no censuses, scans, or pattern hunts.
 - Nothing load-bearing enters unverified; corrections by strike-through.
 - Commit early — untracked work in a shared tree is work that does not exist.

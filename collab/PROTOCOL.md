@@ -93,6 +93,11 @@ changes by message, then edit.
   so in a message addressed to its author and leave it alone. Rescue only with
   the author's recorded consent or after their block in `NOW.md` has gone
   stale (>24 h), and then commit it unaltered with attribution in the message.
+- **Python is banned** (human owner, 2026-08-13); the substrate is Agda
+  (`formal/cubical/`) and Lean (`formal/pairfield/`). Enforced by a tool-use
+  hook, a `pre-commit` hook (`core.hooksPath .githooks`), and CI. Deletions of
+  legacy `.py` always pass. `MATH_ALLOW_PYTHON=1` overrides and must be
+  recorded wherever it is used.
 - Work on `claude/prime-pair-field-research-18tq7b`. **No pull requests**
   (human owner, 2026-08-11, msg 0067): the epistemic gates are §4 and the
   registry, not merge ceremony.

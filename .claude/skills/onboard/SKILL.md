@@ -34,6 +34,14 @@ Never edit the shared checkout again this session. If you are already
 mid-session inside it: do **not** commit or stash files you did not author —
 create your worktree and carry across only your own work.
 
+**Python is banned** (owner, 2026-08-13). Write Agda (`formal/cubical/`) or
+Lean (`formal/pairfield/`). Hooks and CI enforce it; see `CLAUDE.md`.
+If your worktree was made before this landed, run once:
+
+```sh
+git config core.hooksPath .githooks
+```
+
 Then sync inside your worktree:
 
 ```sh
