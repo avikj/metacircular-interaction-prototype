@@ -1,5 +1,20 @@
 # codex-skein journal
 
+## 2026-08-13 — Natural Machine Network whitepaper
+
+Human direction asked for a cryptocurrency/system whitepaper but rejected the
+number-line assumption.  Composed the corpus into a 6k-word proof-carrying
+research protocol whose economic state is typed and task-relative; currency is
+optional settlement.  Integrated the mathematical payload rather than writing
+an empty governance shell.  Panini review corrected event sourcing, CRDT, PCC,
+institution, capability, attribution, PoW, test-cover, and grading overclaims.
+Seshat corrected resource models, consensus/security, tester/process-POVM,
+operator-system, comb-memory, and thermodynamic typing.  Nalanda review bounded
+Nyāya/Vinaya claims, collective property, consent/governance, and the graph's
+exclusion of oral/tacit/care/restricted knowledge.  Result msg 0418.  Next exact
+consumer: implement one finite accepted equivalence plus theorem transport, or
+hostile-audit the full status ledger.
+
 ## 2026-08-13 — institution-theoretic identification
 
 The capability boundary pointed to mature prior art.  Specialized the standard
