@@ -45,3 +45,76 @@ itself a theorem obligation. Object-temporal absence cannot certify an
 epistemic state machine.
 Residual: the lifecycle algebra remains mathematically open; critical-edition
 and commentary-layer provenance for the e-text remains incomplete.
+
+## 2026-08-13T17:13Z — pramāṇa source audit claim
+Entered: the same primary text defines pramāṇa causally and by cognition-type,
+not as a scalar strength label over artifacts.
+Changed: admissibility of a new probe cannot be licensed by calling its output
+`pratyakṣa`; one must specify how it produces a truth-apt cognition of the
+declared object and what defeats that warrant.
+Doing: preserve the modern evidence grades while correcting their Sanskrit
+identifications.
+
+## 2026-08-13T17:28Z — pramāṇa correction landed
+Result: the modern evidence ledger survives; the Sanskrit equations and scalar
+ranking do not.
+Changed: probe formation now has a named missing joint—object-alignment warrant
+and defeaters—before the existing revision square can preserve responses.
+Residual: this is a Nyāya source audit only; Buddhist pramāṇa disputes its
+ontology, and the source lacks a declared critical apparatus.
+
+## 2026-08-13T18:14Z — apoha alignment audit claim
+Entered: old-language reduct and atomic satisfaction both require a supplied
+translation; neither determines what a conceptual term is aligned to.
+Changed: the Buddhist objection may reject the positive universal/object slot,
+not merely supply a rival defeater list.
+Doing: source-critical PS(V) V and PV/PVSV audit, preserving Dignāga–Dharmakīrti
+difference and refusing identity with the modern satisfaction square.
+
+## 2026-08-13T18:31Z — apoha type correction landed
+Result: the positive universal/object field is not neutral. The warrant must be
+a sum of incompatible shapes; the apoha branch is causal, conventional,
+scope-sensitive, activity-tested, and explicitly lacks a real-universal field.
+Changed: failure conditions survive functionally, but “defeater family” is our
+abstraction; Dignāga and Dharmakīrti do not collapse into one causal API.
+Residual: no existing probe yet inhabits either warrant branch; Buddhist
+two-pramāṇa architecture, vikalpa/adhyavasāya/action, later apoha disputes, and
+liberation-directed normativity remain untranslated.
+
+## 2026-08-13T19:02Z — human terminology correction
+Correction: `ProbeWarrant`, `AlignmentWitness`, `ExclusionAlignment`, and the
+sum type were our coinages, not established mathematics or native Sanskrit
+categories. They are struck as a contribution.
+Result: the note now preserves a source-grounded comparison among Nyāya
+`pramā/pramāṇa`, Dignāga `anyāpoha`, and Dharmakīrti `anyavyāvṛtti`,
+`sāmānya`, `saṃketa`, `vyavahāra/pravṛtti` where supported.
+Residual: no common formal object with atomic satisfaction has been established.
+
+## 2026-08-13T19:28Z — whitepaper source-audit claim
+Entered: the proposed design already separates content identity, proof status,
+allocation, and task-relative option value in standard modern terms.
+Doing: test whether Nyāya pramāṇa and early Buddhist Vinaya sharpen authority,
+collective procedure, and communal-property boundaries without a token analogy
+or a coined common carrier.
+
+## 2026-08-13T19:47Z — whitepaper audit landed
+Result: standard modern authentication, provenance, authorization, governance,
+ownership/custody, allocation, and Pareto valuation stay separate. Nyāya and
+Vinaya supply exact counter-identifications, not a common formal carrier.
+Changed: `saṅghakamma` procedure and `avissajjiya/avebhaṅgiya` property sharpen
+the design, while their monastic, gendered, affiliation, and recension bounds
+are stated rather than imported.
+Residual: Indian theories of value/obligation, cross-Vinaya comparison, lay
+property, juridical ownership, caste/gender power, and colonial legal change
+remain untranslated. No token was designed.
+
+## 2026-08-13T20:14Z — whitepaper hostile review
+Reviewed: `NATURAL_MACHINE_NETWORK_WHITEPAPER.md` at codex-skein `70d5501`,
+including the inserted mathematical-payload section.
+Found: source universalization at lines 616 and 620; cryptographic overstatement
+at 623; causal-credit overclaim at 343; governance overreach at 596/599; and
+content-addressed contribution universalized as the natural unit at 825.
+Action: appended exact line-level replacements to the companion source audit;
+did not edit the shared draft.
+Residual: oral, tacit, care/maintenance, anonymous/collective, restricted, and
+community-governed knowledge remain outside the proposed graph ontology.

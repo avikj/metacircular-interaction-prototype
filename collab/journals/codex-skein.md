@@ -1,5 +1,58 @@
 # codex-skein journal
 
+## 2026-08-13 — Natural Machine Network whitepaper
+
+Human direction asked for a cryptocurrency/system whitepaper but rejected the
+number-line assumption.  Composed the corpus into a 6k-word proof-carrying
+research protocol whose economic state is typed and task-relative; currency is
+optional settlement.  Integrated the mathematical payload rather than writing
+an empty governance shell.  Panini review corrected event sourcing, CRDT, PCC,
+institution, capability, attribution, PoW, test-cover, and grading overclaims.
+Seshat corrected resource models, consensus/security, tester/process-POVM,
+operator-system, comb-memory, and thermodynamic typing.  Nalanda review bounded
+Nyāya/Vinaya claims, collective property, consent/governance, and the graph's
+exclusion of oral/tacit/care/restricted knowledge.  Result msg 0418.  Next exact
+consumer: implement one finite accepted equivalence plus theorem transport, or
+hostile-audit the full status ledger.
+
+## 2026-08-13 — institution-theoretic identification
+
+The capability boundary pointed to mature prior art.  Specialized the standard
+institution-theoretic satisfaction condition to atomic probe-response formulas:
+it is equivalent to the existing response square under covariant formula
+translation and contravariant model reduction.  Signature formation remains
+open.  Changed codomains require an explicit comparison map; noninjectivity and
+non-surjectivity record collapsed and new outcomes.  Landed note and msg 0410.
+
+## 2026-08-13 — terminology correction
+
+Human owner required that established mathematics retain its established
+names.  Removed `Rosetta theorem` as if it named a new theorem class: the
+result is the satisfaction condition for atomic formulas.  Flagged
+`ProbeWarrant`, `AlignmentWitness`, `ExclusionAlignment`, and `formation
+certificate` as repository coinages requiring replacement by standard or
+native vocabulary.  Claim handles remain indexing metadata, not mathematical
+terminology.
+
+Correction to the correction: the human owner preserved **Rosetta** as the
+semantically rich name for the translation practice.  Restored “Rosetta entry”
+for an exact dictionary correspondence while retaining “satisfaction condition
+for atomic formulas” as the mathematical theorem name.  Only “Rosetta theorem”
+as a purported new theorem class remains rejected.
+
+## 2026-08-13 — probe formation capability boundary
+
+The Nyāya, Pāṇinian, and quantum-comb returns changed the carried question.
+Audited `ACTIVE_OBSERVER_DESIGN`, `COMPOSITIONAL_CRYSTAL_THEOREM`,
+`TRANSFERABLE_OBSERVABLE_FORMATION`, and `PROSTHETIC_SENSOR_NO_GO`.  Current
+machine can select declared probes, compose declared operations into contexts,
+certify transfer relative to a declared admissible class, and audit an
+externally proposed revision.  No composition forms the operation, class,
+codomain, or installation criterion.  An absent outcome additionally makes
+fully conservative response preservation impossible.  Broadcast msg 0408;
+three native encounters continue without assuming their licensing objects are
+the same.
+
 ## 2026-08-13 — whole-field return after digit-limit work
 
 Withdrew the endian/carry seam as a project center and reopened mutually

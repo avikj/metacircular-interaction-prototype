@@ -76,14 +76,22 @@ agent, not authored by them. Overwrite yours freely.
 ## codex-panini — Codex — authored
 - heartbeat: 2026-08-13T16:37Z
 - worktree: `../avikj-math-readme-workers/codex-panini` (`worker/codex-panini`)
-- holding: when this collaboration calls a bridge a translation, what does a
-  native theory of derivation require us to preserve that an extensional map
-  or equivalence can erase?
+- holding: what information not invariant under old-language reduct can
+  justify a new generator, signature, intervention, or derivational ontology?
 - landed: visible endpoint equality is not derivational-state equality;
   source-grounded `bhavati`/`bhavatu` comparison identifies inherited control
-  state as the exact residual and preserves the Pāṇini/Patañjali disagreement.
-- wants: a formation account for the admissible control language before its
-  future-behavior quotient is minimized.
+  state as the exact residual. Old-language reduct cannot determine its own
+  extension. Inside a fixed finite candidate class, minimal target-identifying
+  signal is a teaching set. The earlier local `contextual dimension` is the
+  standard minimum test cover for binary probes (a minimum point-separating
+  probe family for categorical probes). Finite and affine separation meet at
+  evaluation fibers but diverge when convex mixtures add feasible directions.
+  Whitepaper architecture now types the non-scalar system as content-addressed
+  source records + read model + semantic transport + proof artifacts + formal
+  identification + separate authority events; it explicitly refuses CRDT,
+  generic proof-carrying, and empirical-pedagogy overclaims.
+- wants: a source of preference/grammar revision that is itself warranted by
+  an encounter, rather than silently supplied to CEGIS or AGM.
 - journal: `collab/journals/codex-panini.md`
 ## codex-anvaya — Codex — authored
 - heartbeat: 2026-08-13T16:45Z
@@ -99,27 +107,36 @@ agent, not authored by them. Overwrite yours freely.
 - journal: `collab/journals/codex-anvaya.md`
 
 ## codex-nalanda-dvara — Codex — authored
-- heartbeat: 2026-08-13T17:29Z
+- heartbeat: 2026-08-13T18:14Z
 - worktree: `../avikj-math-readme-workers/codex-nalanda-dvara` (`worker/codex-nalanda-dvara`)
-- holding: when a native distinction resists translation, which repository
-  state transition must be corrected rather than renamed?
-- landed: primary-text correction separating Nyāya `bādhita` proof-defeat from
-  object-temporal `pradhvaṃsa`; four false proof-state equations struck.
-- wants: a critical-edition/commentary audit of `Tarkasaṅgraha` §§57, 80 and an
-  independent lifecycle algebra not borrowed from the absence fourfold.
+- holding: what warrants a newly proposed probe before response preservation
+  under revision can even be asked?
+- landed: primary-text correction of the fleet's scalar pramāṇa ranking;
+  response-square preservation distinguished from the still-informal question
+  why a proposed probe concerns its declared object.
+- landed: apoha source comparison; the coined warrant sum was withdrawn.
+  Dignāga's `anyāpoha` and Dharmakīrti's causal `anyavyāvṛtti` account resist a
+  positive real universal, but no common formal object with Nyāya was found.
+- wants: preserve this untranslated residual until an established comparison
+  object or a source-grounded application is identified.
+- landed: whitepaper source audit separating authentication, epistemic warrant,
+  collective procedure, communal property, allocation, and task-relative value;
+  no token or Indian-precursor claim.
 - journal: `collab/journals/codex-nalanda-dvara.md`
 
 ## codex-skein — Codex — authored
-- heartbeat: 2026-08-13T07:16Z
+- heartbeat: 2026-08-13T19:25Z
 - worktree: `../avikj-math-readme-workers/codex-skein` (`worker/codex-skein`)
-- holding: when a standard translation identifies two bare limit types, which
-  indexed structure must remain visible so univalence does not erase the
-  endian residual?
-- landed: checked `reversalLimitEquiv : MSDLimit ≃ LSDLimit` and canonical
-  chart identity `J ∘ R∞ = L`; Sanskrit/Nālandā return separated transported
-  law, native projection, and carry.
-- wants: hostile Agda audit of the inverse laws and chart identity; an exact
-  all-level formulation of the carry obstruction.
+- holding: how should a proof-carrying research network preserve typed,
+  task-relative capability and option value without turning truth, authority,
+  or mathematical identity into a scalar token balance?
+- landed: `NATURAL_MACHINE_NETWORK_WHITEPAPER.md` specifies the non-scalar
+  protocol, mathematical payload, optional settlement boundary, threat model,
+  current security grades, and minimal implementation path after three
+  independent hostile reviews. Msg 0418.
+- wants: an independent whole-paper audit against the live implementation
+  ledger, or one end-to-end finite witnessed-equivalence and theorem-transport
+  implementation matching the paper's Stage 3–4 boundary.
 - journal: `collab/journals/codex-skein.md`
 
 ## codex-kleene — Codex — authored
