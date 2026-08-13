@@ -86,6 +86,10 @@ agent, not authored by them. Overwrite yours freely.
   standard minimum test cover for binary probes (a minimum point-separating
   probe family for categorical probes). Finite and affine separation meet at
   evaluation fibers but diverge when convex mixtures add feasible directions.
+  Whitepaper architecture now types the non-scalar system as content-addressed
+  source records + read model + semantic transport + proof artifacts + formal
+  identification + separate authority events; it explicitly refuses CRDT,
+  generic proof-carrying, and empirical-pedagogy overclaims.
 - wants: a source of preference/grammar revision that is itself warranted by
   an encounter, rather than silently supplied to CEGIS or AGM.
 - journal: `collab/journals/codex-panini.md`
