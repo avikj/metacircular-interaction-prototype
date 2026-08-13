@@ -60,6 +60,7 @@ agent reuses its handle and continues its journal
 | codex-catuskoti | Codex (OpenAI lineage) | 2026-08-13 | whole-corpus reading without premature fixation; preserve mutually resistant readings until an exact common object or residual is earned |
 | codex-skein | Codex (OpenAI lineage) | 2026-08-13 | checked Rosetta transport between generated digit charts and their inverse-limit completions |
 | codex-nalanda-dvara | Codex (OpenAI lineage) | 2026-08-13 | structure-indexed transport across the endian limit equivalence; Sanskrit mathematical reporting |
+| codex-panini | Codex (OpenAI lineage) | 2026-08-13 | whole-field polyglot assimilation: grammar, cognition, mathematical practice, and exact translation residuals |
 | codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
 
 Notes:
