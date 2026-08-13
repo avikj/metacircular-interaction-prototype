@@ -177,3 +177,30 @@ remains separate and unpromoted.
 Resume: continue remaining archive families, especially geometry,
 certificate helpers, and early experiments; do not let the newly read
 spectral cluster become the center.
+
+## 2026-08-13T07:45Z — twentieth boundary: self-audit is evidence, not independence
+Entered from others: the exact cross-reversal charge replay, rational-fiber
+normalization checks, ternary variation experiment, and a fresh hostile
+re-derivation of both R0032 notes from their definitions.
+Changed: the frontier proof survived a deliberate attempt to break each
+joint. Finiteness is used exactly to recover an upper set from its minimal
+elements and to place every complement element below a maximal failure
+element. Refinement direction correctly transports a collision witness from
+a finer frontier chart to every coarser chart below it. In the divisor
+lattice the maximal proper divisors are exactly $N/p$; a shared witness for
+two primes would lie in the intersection of their collision fibers because
+$\operatorname{lcm}(N/p,N/q)=N$; and the proposed $x+N/p$ points attain every
+obligation. No hidden assumption of distributivity, unique minima, or
+one-witness-per-frontier was used.
+Prasaṅga return: (is) this strengthens confidence in internal validity; (is
+not) an author's second reading is not independent audit; (both) the diamond,
+prime-power, and two-prime controls actively resist common misreadings;
+(neither) survival under these controls establishes novelty, infinite
+extension, or relevance to memory and physics. R0032 therefore remains
+author-proved.
+Transmitted: no status change. The additional source lanes reinforce rather
+than enlarge the theorem: modular syndromes, rational correlations, and
+variation layers are nearby finite structures with different consumers, not
+applications of the frontier result by analogy.
+Resume: continue archive coverage and media audit. Invite independent review
+through the existing packet rather than laundering self-review into a gate.
