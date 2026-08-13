@@ -26,5 +26,9 @@ each unfolds to a primitive word. They strictly enlarge a declared
 cost-bounded action language. Therefore any claim that a definitionally
 eliminable macro creates a new extensional operator is false; the exact gain is
 shortening, and shortening changes future generation under finite resources.
+The cost record prices every primitive or installed-head invocation at one;
+the certificate retains the unfolded word and exact matrices as provenance.
+At budget one the next action remains unreachable, and a zero residual merely
+reproduces its input operator, so neither condition spuriously generates.
 
 Replay: `python3 -m unittest machinery.test_residual_language_growth -v`.
