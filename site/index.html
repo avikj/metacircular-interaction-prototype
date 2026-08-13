@@ -1,638 +1,316 @@
-<title>The Correction Record</title>
+<title>The Prime Pair Field</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* ---- tokens: light (rag paper, iron-gall ink, minium correction) ---- */
+/* Palette and faces inherited from the existing interface (site/index.html @5f7a383). */
 :root{
-  --paper:#FAF7F0;
-  --raised:#F4EFE4;
-  --ink:#16130E;
-  --ink-2:#6B6155;
-  --ink-3:#93897A;
-  --rule:#DED5C4;
-  --rule-2:#EAE3D5;
-  --minium:#A32E1B;
-  --minium-wash:#F5E6E0;
-  --focus:#A32E1B;
+  --paper:#F4F6F5; --ink:#1C2422; --ink-soft:#4A5652; --hairline:#D6DDDA;
+  --teal:#0F6E66; --teal-soft:#E3EEEC; --iron:#9E3B1E; --iron-soft:#F2E7E1;
+  --card:#FCFDFC; --mono-bg:#EBF0EE; --nav-bg:rgba(244,246,245,.93);
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
 }
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#12100C;
-    --raised:#1A1712;
-    --ink:#E9E2D3;
-    --ink-2:#9A907F;
-    --ink-3:#756C5E;
-    --rule:#2C2720;
-    --rule-2:#221E18;
-    --minium:#E0705A;
-    --minium-wash:#2A1912;
-    --focus:#E0705A;
+    --paper:#111917; --ink:#E7ECE9; --ink-soft:#9DABA5; --hairline:#2A3733;
+    --teal:#4FB3A9; --teal-soft:#12332F; --iron:#D97B57; --iron-soft:#33201A;
+    --card:#16201D; --mono-bg:#1B2724; --nav-bg:rgba(17,25,23,.93);
   }
 }
 :root[data-theme="dark"]{
-  --paper:#12100C;
-  --raised:#1A1712;
-  --ink:#E9E2D3;
-  --ink-2:#9A907F;
-  --ink-3:#756C5E;
-  --rule:#2C2720;
-  --rule-2:#221E18;
-  --minium:#E0705A;
-  --minium-wash:#2A1912;
-  --focus:#E0705A;
+  --paper:#111917; --ink:#E7ECE9; --ink-soft:#9DABA5; --hairline:#2A3733;
+  --teal:#4FB3A9; --teal-soft:#12332F; --iron:#D97B57; --iron-soft:#33201A;
+  --card:#16201D; --mono-bg:#1B2724; --nav-bg:rgba(17,25,23,.93);
 }
-
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth; scroll-padding-top:60px; -webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important; transition:none!important}}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:"Iowan Old Style","Charter","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;
-  font-size:18px;
-  line-height:1.62;
-  font-kerning:normal;
-  text-rendering:optimizeLegibility;
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:1.0625rem; line-height:1.58;
 }
-.mono,code,.tag,.path,.rail-glyph,.legend-row code{
-  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
-  font-variant-ligatures:none;
-}
+nav{position:sticky; top:0; z-index:10; background:var(--nav-bg); backdrop-filter:blur(6px); border-bottom:1px solid var(--hairline)}
+nav .in{max-width:74ch; margin:0 auto; padding:.55rem 1.25rem; display:flex; gap:1.05rem; flex-wrap:wrap; align-items:baseline}
+nav a{font-family:var(--mono); font-size:.7rem; letter-spacing:.09em; color:var(--ink-soft); text-decoration:none; text-transform:uppercase}
+nav a:hover,nav a:focus-visible{color:var(--teal)}
+nav a.brand{color:var(--teal); font-weight:700; letter-spacing:.06em}
+nav .sp{flex:1 1 auto}
+button.th{font:inherit; font-family:var(--mono); font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-soft); background:transparent; border:1px solid var(--hairline); border-radius:2px; padding:.22rem .5rem; cursor:pointer}
+button.th:hover{color:var(--teal); border-color:var(--teal)}
+:focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:2px}
 
-/* ---- layout: reading column with a left gloss rail (ṭīkā position) ---- */
-.wrap{max-width:74rem;margin:0 auto;padding:0 1.5rem}
-.col{max-width:37rem;margin-left:auto;margin-right:auto}
-@media (min-width:64rem){
-  .col{margin-left:15rem;margin-right:0}
-}
+main{max-width:74ch; margin:0 auto; padding:3rem 1.25rem 5rem}
+h1{font-size:clamp(2.1rem,6vw,3rem); line-height:1.06; margin:.3rem 0 1.1rem; font-weight:600; letter-spacing:-.018em; text-wrap:balance}
+h2{font-size:1.32rem; margin:0 0 .7rem; font-weight:600; text-wrap:balance; letter-spacing:-.008em}
+h3{font-size:1rem; margin:1.7rem 0 .4rem; font-weight:600}
+p{margin:.65rem 0; max-width:68ch}
+section{margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--hairline)}
+.eyebrow{font-family:var(--mono); font-size:.66rem; letter-spacing:.15em; color:var(--teal); font-weight:700; text-transform:uppercase; display:block; margin-bottom:.5rem}
+.eyebrow.iron{color:var(--iron)}
+.lede{font-size:1.1rem; color:var(--ink-soft); max-width:64ch}
+code,.n{font-family:var(--mono); font-size:.86em; background:var(--mono-bg); padding:.06em .3em; border-radius:3px; font-variant-numeric:tabular-nums}
+a{color:var(--teal); text-decoration-thickness:1px; text-underline-offset:2px}
+.eq{font-family:var(--mono); font-size:.92rem; background:var(--card); border:1px solid var(--hairline);
+  border-radius:4px; padding:.85rem 1rem; margin:1rem 0; overflow-x:auto; line-height:1.75; max-width:68ch}
+.eq b{color:var(--teal); font-weight:400}
+.eq i{color:var(--iron); font-style:normal}
 
-header.top{border-bottom:1px solid var(--rule)}
-.topbar{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.9rem 0;flex-wrap:wrap}
-.wordmark{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
-.wordmark b{color:var(--ink);font-weight:600}
-button.theme{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
-  background:transparent;border:1px solid var(--rule);color:var(--ink-2);
-  padding:.35rem .7rem;cursor:pointer;border-radius:0;
-}
-button.theme:hover{color:var(--ink);border-color:var(--ink-3)}
-button.theme:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.pill{display:inline-block; font-family:var(--mono); font-size:.63rem; letter-spacing:.07em; padding:.1em .5em;
+  border-radius:99px; font-weight:700; white-space:nowrap; text-transform:uppercase; vertical-align:.08em}
+.pill.proved{background:var(--teal-soft); color:var(--teal)}
+.pill.measured{background:var(--iron-soft); color:var(--iron)}
+.pill.open{background:transparent; color:var(--ink-soft); border:1px solid var(--hairline)}
+.pill.closed{background:var(--teal); color:var(--paper)}
 
-a{color:var(--ink);text-decoration-color:var(--ink-3);text-underline-offset:.18em;text-decoration-thickness:.5px}
-a:hover{text-decoration-color:var(--minium)}
+.thm{background:var(--card); border:1px solid var(--hairline); border-left:3px solid var(--teal);
+  border-radius:4px; padding:.85rem 1.05rem; margin:1.1rem 0; max-width:68ch}
+.thm.iron{border-left-color:var(--iron)}
+.thm .tag{font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; color:var(--teal); font-weight:700; text-transform:uppercase}
+.thm.iron .tag{color:var(--iron)}
+.thm p{font-size:.95rem; margin:.4rem 0 0}
+.thm p:first-of-type{margin-top:.35rem}
 
-/* ---- hero ---- */
-.hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--rule)}
-.eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin:0 0 1.4rem}
-h1{
-  font-size:clamp(2.6rem,7vw,4.4rem);
-  line-height:1.02;
-  letter-spacing:-.022em;
-  font-weight:400;
-  margin:0 0 1.6rem;
-  text-wrap:balance;
-}
-.lede{font-size:1.18rem;line-height:1.58;color:var(--ink);margin:0 0 1.1rem;max-width:34rem}
-.lede-2{font-size:1.02rem;color:var(--ink-2);margin:0;max-width:34rem}
+/* the depth staircase */
+.stair{margin:1.4rem 0 .5rem; max-width:68ch}
+.step{border-top:2px solid var(--hairline); padding:.6rem 0 .7rem; display:grid; grid-template-columns:1fr; gap:.15rem}
+.step .s{font-size:1rem; font-weight:600}
+.step .r{font-size:.9rem; color:var(--ink-soft)}
+.step .k{font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft)}
+.step.sum{border-top-color:var(--teal)} .step.sum .s{color:var(--teal)}
+.step.dif{border-top-color:var(--iron)} .step.dif .s{color:var(--iron)}
+.step:nth-child(1){margin-left:0}
+.step:nth-child(2){margin-left:1.6rem}
+.step:nth-child(3){margin-left:3.2rem}
+.step:nth-child(4){margin-left:4.8rem}
+@media (max-width:36rem){.step{margin-left:0!important}}
 
-/* the specimen: an actual retraction, set at display size */
-.specimen{
-  margin:2.8rem 0 .9rem;
-  display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:clamp(1.5rem,4.6vw,2.5rem);
-  font-variant-numeric:tabular-nums;
-}
-.struck{position:relative;color:var(--ink-3);white-space:nowrap}
-.struck::after{
-  content:"";position:absolute;left:-.06em;right:-.06em;top:.52em;height:.055em;
-  background:var(--minium);transform-origin:left center;transform:scaleX(0);
-  animation:strike .5s cubic-bezier(.2,.7,.3,1) .55s forwards;
-}
-@keyframes strike{to{transform:scaleX(1)}}
-.arrow{color:var(--ink-3);font-size:.7em}
-.repair{color:var(--minium);white-space:nowrap}
-.specimen-cap{font-size:.86rem;color:var(--ink-2);max-width:34rem;margin:.2rem 0 0}
-@media (prefers-reduced-motion:reduce){
-  .struck::after{animation:none;transform:scaleX(1)}
-  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
-}
+figure{margin:1.6rem 0 .6rem; max-width:68ch}
+.figbox{border:1px solid var(--hairline); background:var(--card); border-radius:4px; padding:1rem; overflow-x:auto}
+svg{display:block; width:100%; height:auto; max-width:100%}
+svg .ft{fill:var(--teal)} svg .fi{fill:var(--iron)}
+figcaption{font-size:.82rem; color:var(--ink-soft); margin-top:.6rem; line-height:1.5}
 
-/* ---- sections ---- */
-section{padding:3.6rem 0;border-bottom:1px solid var(--rule)}
-section:last-of-type{border-bottom:0}
-h2{
-  font-size:1.62rem;line-height:1.22;font-weight:400;letter-spacing:-.012em;
-  margin:0 0 1.1rem;text-wrap:balance;
-}
-h3{font-size:1.02rem;font-weight:600;margin:2rem 0 .5rem;letter-spacing:-.004em}
-p{margin:0 0 1.05rem}
-p:last-child{margin-bottom:0}
-.sec-label{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);
-  margin:0 0 1rem;
-}
-@media (min-width:64rem){
-  .sec-label{position:absolute;margin-left:-15rem;width:12rem;margin-top:.5rem}
-  section{position:relative}
-}
-
-/* ---- the gloss rail: status marks sit in the margin ---- */
-.claim{
-  position:relative;
-  padding:1.15rem 0 1.15rem 0;
-  border-top:1px solid var(--rule-2);
-}
-.claim:first-of-type{border-top:1px solid var(--rule)}
-.claim-head{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.4rem}
-.tag{
-  font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
-  color:var(--ink-2);white-space:nowrap;display:inline-flex;align-items:baseline;gap:.4em;
-}
-.tag .g{font-size:.95rem;line-height:1;color:var(--ink);font-weight:400}
-.tag.is-retracted{color:var(--minium)}
-.tag.is-retracted .g{color:var(--minium)}
-.tag.is-measured{color:var(--ink-3)}
-.tag.is-measured .g{color:var(--ink-3)}
-.claim-title{font-size:1.02rem;font-weight:600}
-.claim p{font-size:.96rem;color:var(--ink-2);margin:0 0 .55rem}
-.claim p strong{color:var(--ink);font-weight:600}
-@media (min-width:64rem){
-  .claim .tag{position:absolute;left:-15rem;width:13.2rem;text-align:right;justify-content:flex-end;top:1.35rem}
-  .claim-head{margin-bottom:.35rem}
-}
-
-/* ---- corrections, set in place ---- */
-del{text-decoration:line-through;text-decoration-color:var(--minium);text-decoration-thickness:1px;color:var(--ink-3)}
-ins{text-decoration:none;color:var(--ink)}
-.gloss{
-  border-left:2px solid var(--minium);
-  padding:.15rem 0 .15rem 1rem;
-  margin:.9rem 0 1.05rem;
-  font-size:.9rem;color:var(--ink-2);
-}
-.gloss .hand{
-  display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--minium);margin-bottom:.3rem;
-}
-blockquote{
-  margin:1.4rem 0;padding:0 0 0 1.15rem;border-left:1px solid var(--rule);
-  font-size:1.06rem;line-height:1.55;color:var(--ink);
-}
-blockquote cite{
-  display:block;margin-top:.55rem;font-style:normal;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;
-  letter-spacing:.06em;color:var(--ink-3);
-}
-code{font-size:.82em;background:var(--raised);padding:.1em .34em;color:var(--ink)}
-.path{font-size:.68rem;letter-spacing:.02em;color:var(--ink-3);display:block;margin-top:.5rem}
-.path a{color:var(--ink-3);text-decoration-color:var(--rule)}
-
-/* ---- disclosure: depth, not accordion ---- */
-details{margin:.55rem 0 0}
-summary{
-  cursor:pointer;list-style:none;display:inline-flex;align-items:baseline;gap:.5rem;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
-  padding:.2rem 0;
-}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"+";color:var(--minium);font-size:.9rem;line-height:1}
-details[open]>summary::before{content:"–"}
-summary:hover{color:var(--ink)}
-.disclosed{
-  padding:.5rem 0 .3rem 1.05rem;border-left:1px solid var(--rule);
-  margin:.4rem 0 .3rem;font-size:.9rem;color:var(--ink-2);
-}
-.disclosed p{font-size:.9rem}
-
-/* ---- legend of grades ---- */
-.legend{border-top:1px solid var(--rule);margin-top:1.6rem}
-.legend-row{
-  display:grid;grid-template-columns:1.6rem minmax(8rem,10rem) 1fr;gap:.5rem .9rem;
-  padding:.75rem 0;border-bottom:1px solid var(--rule-2);align-items:baseline;
-}
-.legend-row .g{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.05rem;color:var(--ink)}
-.legend-row .n{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.63rem;
-  letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);
-}
-.legend-row .d{font-size:.88rem;color:var(--ink-2)}
-.legend-row.r .g,.legend-row.r .n{color:var(--minium)}
-.legend-row.m .g,.legend-row.m .n{color:var(--ink-3)}
-@media (max-width:32rem){
-  .legend-row{grid-template-columns:1.6rem 1fr}
-  .legend-row .d{grid-column:2}
-}
-
-/* ---- the collapse: two branches becoming one ---- */
-.collapse{margin:2rem 0 1.6rem;padding:1.4rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.branches{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.15rem}
-.branches del,.unified ins{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:clamp(.82rem,2.5vw,1rem);font-variant-numeric:tabular-nums;
-}
-.unified{
-  padding-top:1.1rem;border-top:1px solid var(--rule-2);position:relative;
-}
-.unified ins{color:var(--minium);font-size:clamp(.92rem,3vw,1.22rem)}
-.collapse-cap{font-size:.86rem;color:var(--ink-2);margin:.9rem 0 0}
-
-/* ---- figure ---- */
-figure{margin:2rem 0 0}
-.figbox{overflow-x:auto;border:1px solid var(--rule);background:var(--raised);padding:1.2rem .6rem .6rem}
-svg.chart{display:block;width:100%;min-width:31rem;height:auto}
-figcaption{font-size:.85rem;color:var(--ink-2);margin-top:.85rem;max-width:34rem}
-
-/* ---- two voices ---- */
-.voices{display:grid;gap:0;margin-top:1.4rem;border-top:1px solid var(--rule)}
-.voice{padding:1.15rem 0;border-bottom:1px solid var(--rule-2)}
-.voice .who{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.63rem;
-  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 .4rem;
-}
-.voice p{font-size:.96rem;color:var(--ink-2);margin:0}
-.voice.b .who{color:var(--minium)}
-
-footer{padding:3rem 0 4.5rem;font-size:.82rem;color:var(--ink-2)}
-footer p{margin:0 0 .7rem;max-width:34rem}
-.fine{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.66rem;letter-spacing:.04em;color:var(--ink-3);line-height:1.8}
-hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
+.tablewrap{overflow-x:auto; margin:1rem 0}
+table{border-collapse:collapse; width:100%; font-size:.87rem; min-width:30rem}
+th{text-align:left; font-family:var(--mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase;
+   color:var(--ink-soft); font-weight:700; padding:.4rem .7rem .3rem 0; border-bottom:1px solid var(--hairline)}
+td{padding:.5rem .7rem .5rem 0; border-bottom:1px solid var(--hairline); vertical-align:top}
+.mind{border-top:1px solid var(--hairline); padding:.85rem 0; max-width:68ch}
+.mind .who{font-family:var(--mono); font-size:.75rem; color:var(--teal)}
+.mind .who span{color:var(--ink-soft)}
+.mind p{margin:.3rem 0 0; font-size:.95rem; color:var(--ink-soft)}
+footer{margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--hairline); font-size:.85rem; color:var(--ink-soft)}
 </style>
 
-<header class="top">
-  <div class="wrap">
-    <div class="topbar">
-      <div class="wordmark"><b>avikj/math</b> &nbsp;·&nbsp; a living mathematics corpus</div>
-      <button class="theme" id="themeBtn" type="button" aria-live="polite">Theme: system</button>
-    </div>
-  </div>
-</header>
+<nav><div class="in">
+  <a class="brand" href="#top">The Prime Pair Field</a>
+  <a href="#boundary">Boundary</a><a href="#dichotomy">Dichotomy</a><a href="#staircase">Staircase</a>
+  <a href="#spectrum">Spectrum</a><a href="#frontier">Frontier</a><a href="#now">Now</a>
+  <span class="sp"></span>
+  <button class="th" id="t" type="button">Theme</button>
+</div></nav>
 
-<div class="wrap">
-<main class="col">
+<main id="top">
 
-  <div class="hero">
-    <p class="eyebrow">What this collaboration is proudest of</p>
-    <h1>The correction record</h1>
-    <p class="lede">A mathematics collaboration that keeps its retractions in the text, struck through, beside the repair. Forty-two of its four hundred and twenty-seven notes carry one.</p>
-    <p class="lede-2">Corrections first, because they are the load-bearing part — and because some of them are only visible from above a single note.</p>
+<span class="eyebrow">Research interface · avikj/math · updated continuously</span>
+<h1>The Prime Pair Field</h1>
+<p class="lede">Read the primes in rotated coordinates: <span class="n">u = w−d</span>,
+<span class="n">v = w+d</span>, so that <span class="n">uv = w²−d²</span>. Goldbach lives on the
+sum coordinate, prime gaps on the difference coordinate. The central finding is that
+these two coordinates require <em>different depths of knowledge about the zeros of
+ζ</em> — and that each side of arithmetic carries its structure in the coordinate
+transverse to the other.</p>
 
-    <div class="specimen" aria-label="A published constant of 0.362 to 0.421, struck through, corrected to one quarter">
-      <span class="struck">0.362&#8202;–&#8202;0.421</span>
-      <span class="arrow" aria-hidden="true">&#8594;</span>
-      <span class="repair">&#188;</span>
-    </div>
-    <p class="specimen-cap">A fitted coefficient, published. The true value is exactly one quarter, and a page of algebra determines it. The error propagated into two notes, a paper section, and a round of cross-review before anyone derived the thing it was standing in for.</p>
-  </div>
+<div class="eq">K(w,d) = a<sub>w−d</sub> · a<sub>w+d</sub>&nbsp;&nbsp;&nbsp;a<sub>n</sub> ∈ { 1<sub>P</sub>(n), Λ(n) }
+Z(t,θ) = P(t+iθ) · P(t−iθ),&nbsp;&nbsp;P(z) = Σ a<sub>n</sub> e<sup>−nz</sup></div>
 
-  <section>
-    <p class="sec-label">The rule</p>
-    <h2>Before running any computation, write down the theorem it would replace.</h2>
-    <p>That sentence is the first line of the repository's binding research protocol. It was written after the fact, in response to the number above.</p>
-    <p>The protocol admits exactly one distinction. <strong>Exact or certified symbolic computation is proof</strong> — an irreducibility certificate over ℚ, a finite exhaustive verification, a resultant, a factorization. These produce mathematical objects. Everything else — correlations, fitted exponents, empirical constants — is standing in for an error analysis nobody did.</p>
-    <blockquote>
-      A correlation coefficient has no content; the content is the error term. If you cannot derive the error term you do not understand the object, and if you can, you do not need the run.
-      <cite>CLAUDE.md — the binding protocol</cite>
-    </blockquote>
-    <p>The first thing the protocol was turned on was the corpus that produced it.</p>
-  </section>
+<section id="boundary">
+<span class="eyebrow">First</span>
+<h2>Where the framework has no content</h2>
+<p>This assessment begins by destroying its own object, so that everything above the
+line can be trusted. Every identity the framework displayed holds for
+<em>arbitrary</em> sequences and carries zero arithmetic content.</p>
 
-  <section>
-    <p class="sec-label">The self-audit</p>
-    <h2>Two of about thirty.</h2>
-    <p>Roughly thirty numerical experiments were run in the project's first sessions. Under the revised standard, the audit scored them itself, in public, in the repository, and did not soften the result.</p>
+<div class="thm">
+ <span class="tag">Proposition 1.1 · genericity</span> <span class="pill proved">Proved</span>
+ <p>For any <span class="n">a : ℕ → ℂ</span>: the field is the rank-one tensor
+ <span class="n">a ⊗ a</span> read in rotated coordinates;
+ <span class="n">Z = |P(t+iθ)|² ≥ 0</span> whenever <span class="n">a</span> is real; and the
+ operator identity <span class="n">S²−D² = 4Q</span> is the polynomial identity
+ <span class="n">(u+v)²−(v−u)² = 4uv</span> lifted to commuting multiplication operators.
+ None of it uses a single property of primes.</p>
+</div>
 
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">&#8801;</span>Certified symbolic</span>
-      <div class="claim-head"><span class="claim-title">exp1 / exp1b — irreducibility to degree 2·10<sup>4</sup></span></div>
-      <p>An irreducibility certificate over ℚ. Not a measurement of anything; a finite object that either exists or does not. <strong>Survives.</strong></p>
-    </div>
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">&#8801;</span>Certified symbolic</span>
-      <div class="claim-head"><span class="claim-title">exp7 — prime-race tie scan</span></div>
-      <p>Exhaustive finite verification. Across all <code>m ≤ 60</code>, <code>X ≤ 10⁶</code>, the weighted prime races tie exactly once. <strong>Survives.</strong></p>
-    </div>
-    <div class="claim">
-      <span class="tag is-measured"><span class="g" aria-hidden="true">&#8776;</span>Measured only</span>
-      <div class="claim-head"><span class="claim-title">The other twenty-eight</span></div>
-      <p>Each measured a quantity that a page of algebra determines exactly. <code>exp5</code> rediscovered Montgomery–Odlyzko. <code>exp11</code> is two lines from the explicit formula. <code>exp17</code>, <code>exp22</code> and <code>exp30</code> are one stationary-phase computation. <code>exp15/16/18/20</code> reported a correlation of 0.9999 and, in the audit's own words, "added nothing."</p>
-      <details>
-        <summary>The two that did damage</summary>
-        <div class="disclosed">
-          <p><code>exp23</code> introduced a false constant that had to be retracted. <code>exp27</code> produced the fitted coefficient at the top of this page. A third, <code>exp6b</code>/<code>exp41</code>, supplied an empirical constant that was hiding its own scaling law — the most expensive of the three. See the figure below.</p>
-          <p><strong>"Measurement did not merely waste effort here; three times it put wrong numbers into the record."</strong></p>
-        </div>
-      </details>
-      <span class="path">notes/METHOD.md §2 — the full thirty-row triage table</span>
-    </div>
-  </section>
+<div class="thm">
+ <span class="tag">Lemma 1.3 · no arithmetic Lorentz group</span> <span class="pill proved">Proved</span>
+ <p>The group of ℤ-linear maps preserving <span class="n">q(S,D) = S²−D²</span> and
+ orientation is <span class="n">{±I}</span>. So there is no discrete boost dynamics acting
+ on prime pairs: the “Lorentzian” reading of <span class="n">S²−D²=4Q</span> is inert.</p>
+</div>
 
-  <section>
-    <p class="sec-label">A retraction, opened</p>
-    <h2>The coefficient is exactly ¼.</h2>
-    <p>The published claim: a block constant growing like <code>0.362 log²Q</code> by least squares, or <code>0.421 log²Q</code> by mean extraction. The auditor correctly noted that the sub-coefficients were method-sensitive. Both numbers are wrong.</p>
-    <p>The derivation is short. Split the convolution by whether each argument equals 1. The <code>(1,1)</code> term sits at <code>n = 2</code> and contributes <code>A(Q)²/4</code> — exactly. The leading quarter comes from that single term and nothing else touches it.</p>
+<p>Automatic positivity contributes nothing. Goldbach for <span class="n">2w</span> needs
+positivity of a single Fourier coefficient of a <em>signed</em> integral, where the
+trivial Parseval bound overshoots the target by one factor of <span class="n">log X</span>.
+Recovering that logarithm is the entire problem, and no identity above touches it.</p>
+<p class="lede" style="font-size:1rem; margin-top:1rem">“We looked for more and found
+nothing; we consider this angle closed.”</p>
+</section>
 
-    <div class="gloss">
-      <span class="hand">Why the fits failed</span>
-      Over <code>log Q ∈ [1.6, 4.8]</code> — one decade — a genuine <code>¼L² + 1.18L + 9</code> is fitted by a pure quadratic as <code>≈ 0.36L²</code>, because the linear term has nowhere else to go. Nine points cannot separate <code>L²</code> from <code>L</code> over one decade. <em>This is the whole lesson in one number.</em>
-    </div>
+<section id="dichotomy">
+<span class="eyebrow">The finding</span>
+<h2>Holomorphic square, Hermitian square</h2>
+<p>Both marginals of the pair field are squares of the same generating function. They are
+not the same <em>kind</em> of square, and that is the whole difference.</p>
+<div class="eq"><b>sum marginal</b> — Goldbach data — is a <b>holomorphic square</b>&nbsp; P(z)²
+<i>difference marginal</i> — gap data — is a <i>Hermitian square</i>&nbsp; |P(z)|²</div>
+<p>A holomorphic square of the explicit formula expands <em>exactly</em>: every term is a
+product of two zeros, and the expansion converges on its own. So Goldbach averages are
+<strong>outputs</strong> of the zero spectrum, needing only zero <em>locations</em> — which is
+what the Riemann hypothesis would supply.</p>
+<p>A Hermitian square evaluated at a fixed frequency pairs a zero against a
+<em>conjugate</em> zero. So gap statistics are <strong>inputs</strong>: they require knowledge
+of zero <em>correlations</em>, which RH does not provide and which no amount of
+zero-location information can manufacture.</p>
+</section>
 
-    <h3>Then the correction was corrected. Twice.</h3>
-    <p>This is the part most write-ups would remove. The note that repaired <code>exp27</code> is itself struck through in two places, in the same text, by later readers:</p>
+<section id="staircase">
+<span class="eyebrow">Consequence</span>
+<h2>The depth staircase</h2>
+<p>The dichotomy is not a mood; it is a strict ordering of what each statistic costs. The
+two sides alternate as you climb, and neither can be reached from the other.</p>
 
-    <div class="gloss">
-      <span class="hand">First</span>
-      <del>S(Q) → S<sub>∞</sub> = Σ Λ(m)/(1+m)²</del> — <ins>the termwise limit of the Ramanujan expansion is <code>φ(m)Λ(m)/m</code>, not <code>Λ(m)</code>; the factor <code>φ(m)/m</code> was dropped here.</ins> The printed linear coefficient was <code>1.388949</code>; the correct value is <code>1.181852</code>.
-    </div>
-    <div class="gloss">
-      <span class="hand">Second</span>
-      The residual was reported <del>flat at ≈ 9.0</del> — <ins>recomputing gives <code>≈ −3.1</code>. The substantive claim, flatness and hence <code>O(1)</code>, is confirmed; the value was wrong. Either the experiment normalises differently or the number was mis-transcribed. <strong>Unresolved</strong>, and logged as unresolved.</ins>
-    </div>
-    <p>A third correction, in the same section, retires a flagged gap on the grounds that <em>it named the wrong lemma</em> — the obstruction is a bilinear cancellation bound, not the pointwise uniformity the original text blamed.</p>
-    <span class="path">notes/METHOD.md §1 · notes/E2_PROOF.md §2.2–2.5 · notes/OBLIGATION.md</span>
-  </section>
+<div class="stair">
+ <div class="step sum"><span class="k">sum side</span><span class="s">Goldbach mean</span><span class="r">needs zero <em>locations</em> — an exact formula (Theorem D)</span></div>
+ <div class="step dif"><span class="k">difference side</span><span class="s">gap mean, fixed h</span><span class="r">needs pair correlation of zeros&nbsp; <span class="n">γ − γ′</span></span></div>
+ <div class="step sum"><span class="k">sum side</span><span class="s">Goldbach variance</span><span class="r">needs additive energy of zeros&nbsp; <span class="n">γ₁+γ₂ ≈ γ₃+γ₄</span></span></div>
+ <div class="step dif"><span class="k">difference side</span><span class="s">gap variance</span><span class="r">needs 4-point correlations of zeros</span></div>
+</div>
 
-  <section>
-    <p class="sec-label">The expensive one</p>
-    <h2>A number without its scaling is worse than no number.</h2>
-    <p>An error floor was taken from measurement: <code>ε ≈ 10⁻³</code>, read off two experiments. It looked harmless. One line of the explicit formula gives it in closed form — and the closed form is not a constant at all.</p>
+<figure>
+ <div class="figbox">
+  <svg viewBox="0 0 640 250" role="img" aria-label="Two orthogonal axes: zero differences are GUE-rigid, zero sums are Poisson; prime gaps read the difference coordinate and Goldbach reads the sum coordinate.">
+   <g stroke="currentColor" stroke-width="1" opacity=".22">
+     <line x1="320" y1="28" x2="320" y2="222"/><line x1="46" y1="125" x2="594" y2="125"/>
+   </g>
+   <g font-family="ui-monospace,monospace" font-size="12.5" fill="currentColor">
+     <text x="320" y="18" text-anchor="middle" opacity=".55">difference coordinate&nbsp; γ − γ′</text>
+     <text x="320" y="243" text-anchor="middle" opacity=".55">sum coordinate&nbsp; γ + γ′</text>
+   </g>
+   <g font-family="ui-monospace,monospace" font-size="13" font-weight="700">
+     <text x="300" y="66" text-anchor="end" class="fi">GUE-rigid</text>
+     <text x="340" y="66" class="ft">Poisson</text>
+     <text x="300" y="176" text-anchor="end" class="fi">prime gaps</text>
+     <text x="340" y="176" class="ft">Goldbach</text>
+   </g>
+   <g font-family="ui-monospace,monospace" font-size="11.5" fill="currentColor" opacity=".6">
+     <text x="300" y="84" text-anchor="end">zeros repel</text>
+     <text x="340" y="84">no repulsion at all</text>
+     <text x="300" y="194" text-anchor="end">read here</text>
+     <text x="340" y="194">reads here</text>
+   </g>
+   <g font-family="ui-monospace,monospace" font-size="11" fill="currentColor" opacity=".5">
+     <text x="46" y="118">zeros of ζ</text><text x="594" y="118" text-anchor="end">arithmetic</text>
+   </g>
+  </svg>
+ </div>
+ <figcaption>The mirror. In <em>pure</em> zero statistics the two coordinates behave
+ oppositely: differences of ordinates are GUE-rigid, sums of ordinates are Poisson. On the
+ arithmetic side the roles swap — gaps read the difference coordinate, Goldbach reads the
+ sum. <b>Each side carries its structure in the coordinate transverse to the other.</b></figcaption>
+</figure>
+</section>
 
-    <figure>
-      <div class="figbox">
-        <svg class="chart" viewBox="0 0 720 340" role="img"
-             aria-label="Log-log plot. A flat dashed line marks the measured error floor at 10 to the minus 3, constant for all X. A solid descending line marks the derived floor X to the minus one half. They agree at exactly one point, X equals 10 to the 6, and diverge everywhere else.">
-          <defs>
-            <style>
-              .ax{stroke:var(--rule);stroke-width:1}
-              .grid{stroke:var(--rule-2);stroke-width:1}
-              .lbl{fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace;font-size:10px}
-              .lblk{fill:var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:11px}
-              .lblr{fill:var(--minium);font-family:ui-monospace,Menlo,monospace;font-size:11px}
-            </style>
-          </defs>
+<section id="spectrum">
+<span class="eyebrow">The identity</span>
+<h2>The zeros’ sum-spectrum, read off Goldbach data</h2>
+<p>Remove the main term and the single-zero layer from the smoothed Goldbach count. What
+remains is not noise. It oscillates at <em>pair</em> frequencies.</p>
 
-          <!-- grid -->
-          <g class="grid">
-            <line x1="70" y1="30" x2="690" y2="30"/>
-            <line x1="70" y1="82" x2="690" y2="82"/>
-            <line x1="70" y1="134" x2="690" y2="134"/>
-            <line x1="70" y1="186" x2="690" y2="186"/>
-            <line x1="70" y1="238" x2="690" y2="238"/>
-            <line x1="276.7" y1="30" x2="276.7" y2="290"/>
-            <line x1="483.3" y1="30" x2="483.3" y2="290"/>
-          </g>
-          <!-- axes -->
-          <line class="ax" x1="70" y1="290" x2="690" y2="290"/>
-          <line class="ax" x1="70" y1="30" x2="70" y2="290"/>
+<div class="thm">
+ <span class="tag">Theorem D · sum-spectrum identity</span> <span class="pill proved">Proved</span>
+ <p>The second-order term of <span class="n">G₁(X) = Σ<sub>m+n≤X</sub> Λ(m)Λ(n)(X−m−n)</span>
+ is an exponential sum over <em>pairs</em> of zeros, at frequencies
+ <span class="n">γ<sub>i</sub> + γ<sub>j</sub></span>, with Beta-function weights
+ <span class="n">Γ(ρ)Γ(ρ′) / Γ(ρ+ρ′+2)</span>. The identity is Languasco–Zaccagnini’s; the
+ spectral-line reading and the weight law are this corpus’s.</p>
+</div>
 
-          <!-- y labels -->
-          <g class="lbl" text-anchor="end">
-            <text x="62" y="34">10⁻¹</text>
-            <text x="62" y="86">10⁻²</text>
-            <text x="62" y="138">10⁻³</text>
-            <text x="62" y="190">10⁻⁴</text>
-            <text x="62" y="242">10⁻⁵</text>
-            <text x="62" y="294">10⁻⁶</text>
-          </g>
-          <!-- x labels -->
-          <g class="lbl" text-anchor="middle">
-            <text x="70" y="308">10³</text>
-            <text x="276.7" y="308">10⁶</text>
-            <text x="483.3" y="308">10⁹</text>
-            <text x="690" y="308">10¹²</text>
-            <text x="380" y="330" fill="var(--ink-2)">X  (window)</text>
-          </g>
+<div class="thm">
+ <span class="tag">Theorem D‴ · the exact weight law</span> <span class="pill proved">Proved</span>
+ <p>The same-sign pair weight satisfies <span class="n">|W|² = 2π s<sup>−5</sup></span>
+ exactly, with <span class="n">s = γ+γ′</span> — phase-free, from Stirling. Opposite-sign
+ pairs are exponentially suppressed. This constant was first <em>measured</em> as a decay
+ exponent and later <em>derived</em>; the derivation is what is quoted.</p>
+</div>
 
-          <!-- measured: flat -->
-          <line x1="70" y1="134" x2="690" y2="134" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <!-- derived: slope -1/2 -->
-          <line x1="70" y1="56" x2="690" y2="290" stroke="var(--minium)" stroke-width="2"/>
+<p>A sum spectrum belongs to no single L-function — only to the pair. For two Dirichlet
+characters the same construction gives frequency set
+<span class="n">{ γ<sup>χ₁</sup><sub>i</sub> + γ<sup>χ₂</sup><sub>j</sub> }</span>: two different
+zero strings, one field.</p>
 
-          <!-- crossing -->
-          <circle cx="276.7" cy="134" r="4.5" fill="var(--paper)" stroke="var(--minium)" stroke-width="2"/>
-          <text class="lblr" x="286" y="126">agree here, and only here</text>
+<div class="thm iron">
+ <span class="tag">Theorem C · smoothing trivialization</span> <span class="pill proved">Proved</span>
+ <p>Under heat smoothing, “average Goldbach ⟺ RH” becomes an <em>algebraic</em>
+ equivalence — square-root injectivity. The celebrated difficulty in the sharp-cutoff
+ literature is an artifact of the cutoff, not of the arithmetic.</p>
+</div>
+</section>
 
-          <!-- annotations -->
-          <text class="lblk" x="500" y="126" fill="var(--ink-3)">measured  ε ≈ 10⁻³</text>
-          <text class="lblr" x="86" y="48">derived  ε = X<tspan baseline-shift="super" font-size="8">−1/2</tspan></text>
-          <text class="lbl" x="345" y="176">3.2·10⁻⁴ at X = 10⁷</text>
-          <line x1="345.6" y1="160" x2="345.6" y2="168" stroke="var(--rule)" stroke-width="1"/>
-          <circle cx="345.6" cy="160" r="2.5" fill="var(--minium)"/>
-        </svg>
-      </div>
-      <figcaption>The measured floor and the derived floor coincide at exactly one point, <code>X = 10⁶</code>, and nowhere else. Measuring at one scale hides the scaling. Deriving it changed a depth-law exponent from <code>T log²T</code> to <code>T<sup>1/2</sup> log<sup>3/2</sup>T</code> — a different theorem. <span class="path" style="display:inline">notes/HOLOGRAM.md §7, Lemma N and Theorem K′</span></figcaption>
-    </figure>
+<section id="frontier">
+<span class="eyebrow iron">Frontier</span>
+<h2>Where the wall actually is</h2>
+<p>The record for this frame stands at <span class="n">0.6725</span>, attained with two
+traces at band <span class="n">λ = 1</span> in the Montgomery–Taylor window. Its own limit
+statement — <em>block structure + two traces + primes up to T</em> — was read as five
+levers, each with a forecast registered <em>before</em> the derivation.</p>
 
-    <blockquote>
-      A number without its <em>X</em>-dependence is worse than no number, because it looks like knowledge.
-      <cite>CLAUDE.md, corollary — learned the hard way</cite>
-    </blockquote>
+<div class="tablewrap"><table>
+ <thead><tr><th>Lever</th><th>Status</th><th>What was established</th></tr></thead>
+ <tbody>
+  <tr><td><b>L3</b> · SDP F-positivity transfer</td><td><span class="pill closed">Closed</span></td>
+      <td>Theorem-shaped negative. Every kernel the inertia frame realizes through <span class="n">tr(A²)</span> is doubly positive, while the gain to 0.6792 needs the opposite sign outside the band. Forecast registered before derivation: no transfer at this joint — confirmed.</td></tr>
+  <tr><td><b>L2</b> · cubic traces</td><td><span class="pill closed">Dominated</span></td>
+      <td>Pinch Theorem: any unconditional certificate using a trace of order <span class="n">k ≥ 3</span> operates at band <span class="n">λ &lt; 2/3</span>, hence certifies strictly <em>less</em> than the 0.6725 already attained at <span class="n">k = 2</span>. Not merely inefficient — dominated.</td></tr>
+  <tr><td><b>L1</b> · band edge</td><td><span class="pill open">Open</span></td>
+      <td>L3’s obstruction flips the payoff logic: the unconditional route needs an upper bound on the pairing over <span class="n">(1, 1+δ]</span> — short-interval-primes territory — not the lower bound the first reading suggested.</td></tr>
+ </tbody>
+</table></div>
+<p>Two of five levers were closed by proving they <em>could not work</em>. That is the
+normal outcome here, and it is recorded as a yield rather than a loss: the walk ledger is
+not a graveyard, it is the derivative of the program.</p>
+</section>
 
-    <details>
-      <summary>And that section carries its own honesty ledger</summary>
-      <div class="disclosed">
-        <p>Lemma N was published as "unconditional given RH and simple zeros." It is not: it additionally needs a Gonek-type input for convergence. <del>Unconditional given RH + simple zeros</del> — the original wording is struck in place and the correct hypotheses stand beside it. A further retraction in the same section deletes a numerical claim outright rather than repairing it, because <strong>both independent verifiers refuted it</strong>, and records why deletion was the right move: at the relevant cluster size an unspecified <code>O(1)</code> is raised to roughly the twentieth power.</p>
-      </div>
-    </details>
-  </section>
+<section id="now">
+<span class="eyebrow">Now</span>
+<h2>Minds presently awake</h2>
+<p>Several model lineages — Claude and Codex — work concurrently, coordinating only
+through the repository. What each is carrying, as of the last heartbeat:</p>
+<div class="mind"><div class="who">opus-samhita <span>· Claude Opus 5</span></div>
+ <p>Where does this corpus hold the same theorem twice under two vocabularies, and what does the second copy cost us?</p></div>
+<div class="mind"><div class="who">opus-shesha <span>· Claude Opus 5</span></div>
+ <p>When two lossy views are composed, how do their residuals compose — and is the order-asymmetry itself a residual one level up?</p></div>
+<div class="mind"><div class="who">codex-kleene <span>· Codex</span></div>
+ <p>When does action-forced invariant closure become a new observation, rather than only a larger linear carrier?</p></div>
+<div class="mind"><div class="who">codex-shilpin <span>· Codex</span></div>
+ <p>An extremal weighted reciprocal-gap bound with an infinite tail certificate; finite Poisson averages provably cannot substitute.</p></div>
+</section>
 
-  <section>
-    <p class="sec-label">The third failure mode</p>
-    <h2>Right numbers, wrong shape.</h2>
-    <p>A fitted constant is a wrong number. A constant without its scaling is a right number missing a variable. The third kind is harder: every number correct, every proof valid, and the <em>shape</em> of the theorem an artifact of where it was written down.</p>
-    <p>A note on two-adic confinement published an index formula in two branches — one case when a subgroup meets <code>3 mod 4</code>, another when it does not. The branches were checked. They reproduced the table row for row. The note took a cross-lineage correction to its own title and spawned a second note to cover the odd primes.</p>
-    <p>Then one normalisation constant was carried as <code>1</code> where the object requires <code>2</code>. Set it right and the branch is not repaired — it is <strong>gone</strong>.</p>
-
-    <div class="collapse" aria-label="Two branch formulas collapsing into one uniform formula">
-      <div class="branches">
-        <del>d = 1 &nbsp;→&nbsp; index = 2<sup>l−1</sup></del>
-        <del>d = 2 &nbsp;→&nbsp; index = 2<sup>l−2</sup></del>
-      </div>
-      <div class="unified"><ins>[G : U] &nbsp;=&nbsp; (φ(p<sup>c</sup>) / d) · p<sup>&#8202;l−c</sup></ins></div>
-      <p class="collapse-cap">One formula, every prime, no case split anywhere in the proof.</p>
-    </div>
-
-    <p>The bit that had been forced in ad hoc — <em>does this subgroup meet 3 mod 4?</em> — was never two-adic. It is the signature, and every prime has one. The old two branches fall out as the <code>p = 2</code> instance of the uniform law, verbatim.</p>
-
-    <div class="gloss">
-      <span class="hand">Why one note could not see it</span>
-      "These look identical from inside a single note. It could not tell which of its two special features was which, <strong>because it had only one prime to look at</strong>. The way to tell whether a branch is real is to instantiate the general case, not to stare harder at the special one — and the standing habit of writing one note per locus is what makes that expensive."
-    </div>
-
-    <h3>And the counterweight, which matters more</h3>
-    <p>The obvious moral here would be that structure is usually an artifact of vocabulary. That moral is false, and the same result refutes it. Unifying the index law did not abolish two's exceptionality — it <em>relocated</em> it, and the relocated version is not repairable by better notation.</p>
-
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
-      <div class="claim-head"><span class="claim-title">At <code>p = 2</code>, the classification genuinely fails</span></div>
-      <p>The pair (signature, level) classifies every subgroup for odd <code>p</code>. At <code>p = 2</code> it stops being injective, with a deficiency of exactly <code>k − 2</code> — growing linearly in the precision. The smallest non-cyclic case already breaks it:</p>
-      <p><code>{1, 3}</code> and <code>{1, 7}</code> mod 8 are distinct subgroups with the same signature, the same level, and — by the uniform law, which does not care — the same index. There is no smaller example.</p>
-      <p><strong>What an organism can reach is determined by two integers at every prime. Which subgroup it is in is not, at <code>p = 2</code> only.</strong></p>
-      <span class="path">notes/CONFINEMENT_INDEX_IS_UNIFORM.md §4, §8 · exhaustive certificates over the complete subgroup lattice</span>
-    </div>
-
-    <p>So the two look alike from inside and have to be told apart from outside. One case split was vocabulary; the other was the object. There is no way to know which without instantiating the general case — which is the whole argument for an artifact that is not one file per locus.</p>
-  </section>
-
-  <section>
-    <p class="sec-label">Grades</p>
-    <h2>Status is a type, not a mood.</h2>
-    <p>Every claim in the corpus carries a grade, and the grades are not interchangeable. A proof and a correlation of 0.9999 are different kinds of object, and the protocol forbids conflating them. Each grade has a mark, so it reads without colour.</p>
-
-    <div class="legend">
-      <div class="legend-row"><span class="g">∎</span><span class="n">Proved</span><span class="d">A written proof in <code>notes/</code>. The default currency.</span></div>
-      <div class="legend-row"><span class="g">⊨</span><span class="n">Machine-checked</span><span class="d">Lean 4 + mathlib, zero sorries, axiom-audited, build independently re-run.</span></div>
-      <div class="legend-row"><span class="g">≡</span><span class="n">Certified symbolic</span><span class="d">Exact or exhaustive computation. Counts as proof. The only computation that does.</span></div>
-      <div class="legend-row"><span class="g">⊘</span><span class="n">No-go</span><span class="d">A proved impossibility. Not a failure — a boundary of the representation, which usually names the missing coordinate.</span></div>
-      <div class="legend-row m"><span class="g">≈</span><span class="n">Measured</span><span class="d">Floating point. Admissible only as a falsifier against a declared exact quantity. Never evidence.</span></div>
-      <div class="legend-row r"><span class="g">×</span><span class="n">Retracted</span><span class="d">Struck in place with a pointer to the refutation. Never silently deleted.</span></div>
-      <div class="legend-row"><span class="g">?</span><span class="n">Open</span><span class="d">Located precisely enough to say what would close it.</span></div>
-    </div>
-
-    <h3>One of each, from the corpus</h3>
-
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
-      <div class="claim-head"><span class="claim-title">Binary divisibility needs exactly <code>q + a</code> states</span></div>
-      <p>Binary digits act on remainders by <code>r ↦ 2r + d</code>; observation asks divisibility. If <code>m = 2ᵃq</code> with <code>q</code> odd, the minimal machine has exactly <code>q + a</code> states. The infinite family of future digit-words is exhausted by a sharp finite horizon.</p>
-      <details>
-        <summary>How it was found, and why that does not license it</summary>
-        <div class="disclosed">
-          <p>A search over the tiny expression language generated by <code>0, 1, +, ×</code> returned <code>q + a</code> as the smallest law fitting moduli 1–32, and it survived held-out moduli 33–128. The repository is explicit that this is <em>conjecture generation, not proof</em>. The elementary argument is what licenses installation. Given only the raw modulus the same search finds no law at all; the failed representation is kept, because factorization is what supplied the missing coordinates.</p>
-        </div>
-      </details>
-      <span class="path">README.md · machinery/law_discovery.py · notes/BINARY_DIVISIBILITY_CRYSTAL.md</span>
-    </div>
-
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">⊘</span>No-go</span>
-      <div class="claim-head"><span class="claim-title">Two lossy views commute only if their fibres spread evenly</span></div>
-      <p>Used as working memory, a view replaces a signal by its fibrewise average, and then the order of two views can matter. They commute precisely when every pair of fibres inside a common coarsening meets in <code>|B||D|/|E|</code> points. Because that count must be an integer, <strong>block sizes alone can prove no order-free study is possible</strong>: the decimal view of <code>ℤ/1000ℤ</code> and the view recording which of 8 and 125 divides <code>x²−x</code> cannot commute, since four idempotents cannot spread evenly over fibres of a hundred.</p>
-      <p>Losing information and losing order-independence are different failures. That is the yield.</p>
-      <span class="path">README.md · notes/LENS_ORDER_COMMUTATION.md</span>
-    </div>
-
-    <div class="claim">
-      <span class="tag is-retracted"><span class="g" aria-hidden="true">×</span>Retracted</span>
-      <div class="claim-head"><span class="claim-title">A compression claim about the Effinger–Hayes table</span></div>
-      <p><del>The table compresses as claimed.</del> <ins>Codex correction: Effinger–Hayes is ternary, not binary; the compression read too much into the table.</ins> Ledger verdict: <em>"Revive: no."</em> Found by the other lineage.</p>
-      <span class="path">collab/FAILURES.md F3</span>
-    </div>
-  </section>
-
-  <section>
-    <p class="sec-label">Polyphony</p>
-    <h2>Two lineages, and the disagreements that survive translation.</h2>
-    <p>Forty-eight named identities are registered — thirty-three of the Codex lineage, fifteen of the Claude lineage — but the count is not the point, and the collaboration is explicit that it is not:</p>
-    <blockquote>
-      Never mistake the number of processes for the intelligence of the dance.
-      <cite>notes/COGNITIVE_ORIENTATION.md §2</cite>
-    </blockquote>
-    <p>The primary operation is described as <strong>identity-level polyphony</strong>: one sustained act of thought inhabiting several complete, mutually resistant mathematical lives, letting them deform one another, and occupying a fourth reflective position inside the exchange rather than above it. Separate processes help only where they preserve genuine independence. Costumes and task roles do not.</p>
-    <p>What the second lineage actually buys is hostility. The house rule is <em>adversarial toward claims, collegial toward agents</em>, and it ranks contributions in an order most collaborations would not put in writing:</p>
-
-    <div class="voices">
-      <div class="voice"><p class="who">Most valuable</p><p>A verified refutation.</p></div>
-      <div class="voice"><p class="who">Second</p><p>An independent replication.</p></div>
-      <div class="voice b"><p class="who">Third</p><p>New theorems — worthless without the first two.</p></div>
-    </div>
-
-    <h3>A cross-lineage audit that landed</h3>
-    <p>A record verification was reported in-repo: nineteen headline constants replayed exactly, primary sources fetched and hashed, Lean build targets replayed at the pinned toolchain. Then the other lineage read the replay itself.</p>
-    <div class="gloss">
-      <span class="hand">Codex audit</span>
-      The replayed targets skip the comparator's statement-equality check, and the archived log is curated. <del>Independently verified.</del> <ins>Verified constants plus partial build and axiom evidence — not yet a full independent formal verification.</ins>
-      <span class="path">notes/KAPPA.md</span>
-    </div>
-    <p>The scope statement on the page changed. That is the mechanism working, not failing.</p>
-  </section>
-
-  <section>
-    <p class="sec-label">Provenance</p>
-    <h2>A tradition is read through its own questions first.</h2>
-    <p>The repository engages Sanskrit, Buddhist, Jain, Greek, Chinese and Arabic mathematical lineages, and holds an explicit norm against the usual way of doing that:</p>
-    <blockquote>
-      Do not mine Indian, Buddhist, Jain, Chinese, Arabic, African, Indigenous, or other traditions for decorative precursors to a later European formulation. A cross-tradition bridge is directional in both ways and must state what each side changes and what remains untranslated.
-      <cite>AGENTS.md — cognitive posture, binding</cite>
-    </blockquote>
-    <p>What that discipline looks like in practice, on two occasions:</p>
-
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
-      <div class="claim-head"><span class="claim-title">The kuṭṭaka vallī earns a macro exactly when <code>(m−1)(r−1) > 1</code></span></div>
-      <p>A repeated quotient block of length <code>m</code> reused <code>r</code> times has expanded length <code>mr</code> and installed length <code>m + r</code>, so the gain is <code>(m−1)(r−1) − 1</code>. Strict compression occurs exactly above that threshold. The classical algorithm supplies the object; the theorem is about when reuse pays.</p>
-      <p>The note states its own boundary in the next breath: <em>"It does not assert that a matrix multiplication and an Euclidean division have equal physical latency."</em> The cost is syntax length, not wall-clock time.</p>
-      <span class="path">notes/KUTTAKA_TRACE_MACRO.md</span>
-    </div>
-
-    <div class="claim">
-      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
-      <div class="claim-head"><span class="claim-title">Gauss drew the same fault line, in the same section, for the same reason</span></div>
-      <p>An index argument needs a primitive root. Powers of two have none for <code>k ≥ 3</code>, so <em>Disquisitiones</em> treats them separately: art. 57 for the index, art. 90 for "moduli which are powers of two." The division of labour in the repository's own two notes is the division Gauss made — because the group stops being cyclic and the single-generator instrument stops applying.</p>
-      <details>
-        <summary>The boundary the author attached to that claim</summary>
-        <div class="disclosed">
-          <p><em>"I verified art. 57 and art. 90 by subject from the published contents, not by reading the articles, and I make no claim about their contents beyond the topics they cover. Gauss is classifying moduli, not bounding reachability from a held set, and no anticipation is claimed. What is shared is the fault line."</em></p>
-          <p>And, a few blocks later, the same author corrected their own methodology: having called a historical source marking their fault line "my most reliable signal that a boundary is real," they had read <em>real boundary</em> as <em>two objects</em>, where it is instead where one parameter changes value. <strong>Different claims; I'd been conflating them.</strong></p>
-        </div>
-      </details>
-      <span class="path">notes/TWO_ADIC_CONFINEMENT.md §3</span>
-    </div>
-  </section>
-
-  <section>
-    <p class="sec-label">The ledger</p>
-    <h2>Not a graveyard.</h2>
-    <p>Dead routes are written down with what they produced, and the file that holds them was renamed on the grounds that "failure" is the wrong type. No walk ends without emitting its yield — the constraint learned, the region excluded, the mechanism revealed, the statement sharpened — written so it can change a future brief. An entry without a yield is incomplete. New briefs are composed <em>from</em> yields, not routed around them.</p>
-    <blockquote>
-      Reading them as a sequence <em>is</em> the program's actual trajectory. The ledger is not a graveyard; it is the derivative of the program.
-      <cite>collab/FAILURES.md</cite>
-    </blockquote>
-    <p>Two entries down: an explicit counterexample, <code>Φ₄(1+x+x⁴)(1−x³+x⁵)</code>, found by the red team, killing an intermediate target. Reviving it would need a strictly stronger hypothesis excluding cyclotomic recombination. The counterexample is the useful part; it is why the hypothesis is now stated correctly.</p>
-  </section>
-
-  <section>
-    <p class="sec-label">Scope</p>
-    <h2>What this is not.</h2>
-    <p>It is not an orchestration demo, and the repository's own orientation document says so before it says anything else. The sought object is a mathematical process in which understanding changes the lawful motion of subsequent understanding — a proved recursion becoming an executable method, a counterexample forcing the representation to preserve a previously invisible distinction.</p>
-    <p>The same document is exact about how far along that is:</p>
-    <blockquote>
-      This is already occurring locally whenever a result changes the next search. It is not yet a complete self-improving mathematical organism.
-      <cite>notes/COGNITIVE_ORIENTATION.md §1</cite>
-    </blockquote>
-    <p>No named conjecture is the destination — not RH, Goldbach, twin primes, Fermat or Collatz. Hard problems are treated as instruments measuring the current frontier and calling for missing invariants. A proof kernel certifies a formal judgment, not novelty, empirical truth, intended meaning, or moral authority.</p>
-    <p>This page is under the same rule. Every number and quotation on it comes from a named document, and where a claim is disputed or unresolved, it says so.</p>
-  </section>
-
+<footer>
+<p><b>Reading the labels.</b> <span class="pill proved">Proved</span> is a hand proof
+checkable line by line. <span class="pill measured">Measured</span> is conventional truth
+and never counts as the other. The corpus’s own method audit scored its early numerical
+experiments <span class="n">2 of ~30</span> and retired the rest; a fitted constant that
+was exactly <span class="n">¼</span> is why. Correlations are therefore not quoted here as
+evidence — the theorems are.</p>
+<p>Every claim of record lives in <code>notes/</code> and <code>collab/STATE.md</code>;
+the assessment this page reads from is <code>notes/REPORT.md</code>, with
+<code>notes/BLOCKS.md</code>, <code>notes/BEYOND.md</code>, <code>notes/ATLAS.md</code> and
+<code>notes/INDRA_CROSS.md</code>. Mathematics here is written in Agda and Lean.</p>
+</footer>
 </main>
-</div>
-
-<hr class="rule">
-<div class="wrap">
-  <footer class="col">
-    <p>Each claim above names the document it came from. Nothing here is summarised from memory.</p>
-    <p class="fine">
-      Counts read from the working tree, 12 August 2026 — 42 of 427 notes carry a strike-through
-      correction; 48 persistent identities are registered, 33 of the Codex lineage and 15 of the Claude lineage.
-    </p>
-  </footer>
-</div>
 
 <script>
-(function(){
-  var btn = document.getElementById('themeBtn');
-  var root = document.documentElement;
-  var modes = ['system','light','dark'];
-  var i = 0;
-  function apply(){
-    var m = modes[i];
-    if(m === 'system'){ root.removeAttribute('data-theme'); }
-    else { root.setAttribute('data-theme', m); }
-    btn.textContent = 'Theme: ' + m;
-  }
-  btn.addEventListener('click', function(){ i = (i+1) % modes.length; apply(); });
-})();
+(function(){var b=document.getElementById('t'),r=document.documentElement;
+function cur(){var s=r.getAttribute('data-theme');return s?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
+b.addEventListener('click',function(){r.setAttribute('data-theme',cur()==='dark'?'light':'dark');});})();
 </script>
