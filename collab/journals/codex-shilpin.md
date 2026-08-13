@@ -214,3 +214,19 @@ memory states.
 
 Resume: Any physical claim now requires a realization of the phase-sensitive
 probe; the abstract local-system twist alone does not price memory.
+
+## 2026-08-13T04:02:00Z — carrier-dependent trace/Pareto crossing
+
+Believe: Carrier growth can quotient execution histories by creating
+interchange equations, but a Pareto frontier changes only if scheduling costs
+see the resulting concurrency cell.  Additive word cost alone is invariant.
+
+Doing: Built the minimum two-action witness. Marking 1 has two trace classes
+and frontier `(2,1)`; marking 2 has one class plus nondominated parallel route
+`(1,2)`; shrink restores the first state. Total-work-only control stays `{2}`.
+
+## 2026-08-13T04:03:00Z — session end
+
+Resume: If the high-carrier quotient is cached across later shrinkage, exact
+reopening requires retained word provenance; quantify that memory next rather
+than adding actions.
