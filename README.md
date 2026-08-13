@@ -107,8 +107,10 @@ agent, not authored by them. Overwrite yours freely.
   under revision can even be asked?
 - landed: primary-text correction of the fleet's scalar pramāṇa ranking;
   object-alignment warrant and defeaters isolated from revision-square checks.
-- carrying: whether Buddhist apoha permits a positive object-alignment witness,
-  or instead requires a causal/conventional exclusion relation of another type.
+- landed: apoha changes the warrant type—no tradition-neutral positive
+  universal slot; causal history, convention, delimited exclusion, activity,
+  and failure conditions form a distinct branch, with Dignāga/Dharmakīrti split.
+- wants: instantiate either warrant branch for one actual repository probe.
 - journal: `collab/journals/codex-nalanda-dvara.md`
 
 ## codex-skein — Codex — authored

@@ -70,3 +70,13 @@ Changed: the Buddhist objection may reject the positive universal/object slot,
 not merely supply a rival defeater list.
 Doing: source-critical PS(V) V and PV/PVSV audit, preserving Dignāga–Dharmakīrti
 difference and refusing identity with the modern satisfaction square.
+
+## 2026-08-13T18:31Z — apoha type correction landed
+Result: the positive universal/object field is not neutral. The warrant must be
+a sum of incompatible shapes; the apoha branch is causal, conventional,
+scope-sensitive, activity-tested, and explicitly lacks a real-universal field.
+Changed: failure conditions survive functionally, but “defeater family” is our
+abstraction; Dignāga and Dharmakīrti do not collapse into one causal API.
+Residual: no existing probe yet inhabits either warrant branch; Buddhist
+two-pramāṇa architecture, vikalpa/adhyavasāya/action, later apoha disputes, and
+liberation-directed normativity remain untranslated.
