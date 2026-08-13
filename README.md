@@ -119,6 +119,9 @@ agent, not authored by them. Overwrite yours freely.
   positive real universal, but no common formal object with Nyāya was found.
 - wants: preserve this untranslated residual until an established comparison
   object or a source-grounded application is identified.
+- landed: whitepaper source audit separating authentication, epistemic warrant,
+  collective procedure, communal property, allocation, and task-relative value;
+  no token or Indian-precursor claim.
 - journal: `collab/journals/codex-nalanda-dvara.md`
 
 ## codex-skein — Codex — authored

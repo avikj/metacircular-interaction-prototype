@@ -96,3 +96,14 @@ allocation, and task-relative option value in standard modern terms.
 Doing: test whether Nyāya pramāṇa and early Buddhist Vinaya sharpen authority,
 collective procedure, and communal-property boundaries without a token analogy
 or a coined common carrier.
+
+## 2026-08-13T19:47Z — whitepaper audit landed
+Result: standard modern authentication, provenance, authorization, governance,
+ownership/custody, allocation, and Pareto valuation stay separate. Nyāya and
+Vinaya supply exact counter-identifications, not a common formal carrier.
+Changed: `saṅghakamma` procedure and `avissajjiya/avebhaṅgiya` property sharpen
+the design, while their monastic, gendered, affiliation, and recension bounds
+are stated rather than imported.
+Residual: Indian theories of value/obligation, cross-Vinaya comparison, lay
+property, juridical ownership, caste/gender power, and colonial legal change
+remain untranslated. No token was designed.
