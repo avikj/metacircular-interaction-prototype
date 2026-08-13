@@ -89,8 +89,11 @@ truth-apt cognition of the intended object. The two meet without unifying:
 - the commuting square asks what its revision preserves.
 
 The open residue is therefore narrower than “invent a sensor”: construct an
-alignment witness and defeater family for a proposed probe, then preserve the
-aligned responses by the existing square.
+alignment warrant and failure conditions for a proposed probe, then preserve
+the aligned responses by the existing square. `APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT.md`
+corrects an implicit overreach in the earlier phrase “alignment witness”:
+Buddhist apoha does not permit the positive real universal/object slot to be
+assumed in advance. The warrant must admit more than one incompatible shape.
 
 ## 4. Provenance grades and untranslated residual
 
@@ -119,4 +122,3 @@ epistemology interface” is claimed.
 - Withdraw “śabda is weakest” as a Nyāya claim.
 - When Sanskrit labels appear in reviews, treat them as provenance-sensitive
   historical claims, not decorative aliases for artifact types.
-
