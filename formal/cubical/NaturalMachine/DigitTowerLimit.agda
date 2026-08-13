@@ -1,0 +1,127 @@
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+
+module NaturalMachine.DigitTowerLimit where
+
+-- Agda 2.8 warns that the indexed Vec matches below do not reduce when their
+-- arguments are themselves transports.  The checked equivalence and its
+-- inverse laws do not claim that stronger computational behavior; the warning
+-- is retained as an explicit implementation boundary rather than suppressed.
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Equiv using (_≃_)
+open import Cubical.Foundations.HLevels using (isPropΠ)
+open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Sigma using (Σ≡Prop)
+open import Cubical.Data.Vec.Base as V using (Vec ; [] ; _∷_ ; _++_)
+import Cubical.Data.Vec.Properties as VecProperties
+
+private
+  variable
+    ℓ : Level
+    A : Type ℓ
+
+------------------------------------------------------------------------
+-- The standard coherent-sequence presentation of an inverse limit.
+------------------------------------------------------------------------
+
+InvLim : (X : ℕ → Type ℓ)
+       → ((n : ℕ) → X (suc n) → X n) → Type ℓ
+InvLim X step = Σ[ x ∈ ((n : ℕ) → X n) ]
+                  ((n : ℕ) → step n (x (suc n)) ≡ x n)
+
+------------------------------------------------------------------------
+-- Length-indexed digit towers.  `dropMSD` deletes the right-hand end and
+-- `dropLSD` deletes the left-hand end.  Reversal exchanges the towers.
+------------------------------------------------------------------------
+
+module DigitTower (Digit : Type ℓ) (digitSet : isSet Digit) where
+
+  W : ℕ → Type ℓ
+  W n = Vec Digit n
+
+  snoc : {n : ℕ} → W n → Digit → W (suc n)
+  snoc [] x = x ∷ []
+  snoc (y ∷ ys) x = y ∷ snoc ys x
+
+  reverse : {n : ℕ} → W n → W n
+  reverse [] = []
+  reverse (x ∷ xs) = snoc (reverse xs) x
+
+  dropMSD : (n : ℕ) → W (suc n) → W n
+  dropMSD zero (x ∷ []) = []
+  dropMSD (suc n) (x ∷ xs) = x ∷ dropMSD n xs
+
+  dropLSD : (n : ℕ) → W (suc n) → W n
+  dropLSD n (x ∷ xs) = xs
+
+  dropMSD-snoc : {n : ℕ} (xs : W n) (x : Digit)
+               → dropMSD n (snoc xs x) ≡ xs
+  dropMSD-snoc [] x = refl
+  dropMSD-snoc (y ∷ ys) x = cong (y ∷_) (dropMSD-snoc ys x)
+
+  dropMSD-reverse : (n : ℕ) (xs : W (suc n))
+                  → dropMSD n (reverse xs) ≡ reverse (dropLSD n xs)
+  dropMSD-reverse n (x ∷ xs) = dropMSD-snoc (reverse xs) x
+
+  reverse-snoc : {n : ℕ} (xs : W n) (x : Digit)
+               → reverse (snoc xs x) ≡ x ∷ reverse xs
+  reverse-snoc [] x = refl
+  reverse-snoc (y ∷ ys) x =
+    cong (λ zs → snoc zs y) (reverse-snoc ys x)
+
+  reverse-involutive : {n : ℕ} (xs : W n)
+                     → reverse (reverse xs) ≡ xs
+  reverse-involutive [] = refl
+  reverse-involutive (x ∷ xs) =
+    reverse-snoc (reverse xs) x ∙ cong (x ∷_) (reverse-involutive xs)
+
+  dropLSD-reverse : (n : ℕ) (xs : W (suc n))
+                  → dropLSD n (reverse xs) ≡ reverse (dropMSD n xs)
+  dropLSD-reverse n xs =
+      sym (reverse-involutive (dropLSD n (reverse xs)))
+    ∙ cong reverse
+        (sym (dropMSD-reverse n (reverse xs))
+          ∙ cong (dropMSD n) (reverse-involutive xs))
+
+  MSDLimit : Type ℓ
+  MSDLimit = InvLim W dropMSD
+
+  LSDLimit : Type ℓ
+  LSDLimit = InvLim W dropLSD
+
+  reverseToLSD : MSDLimit → LSDLimit
+  fst (reverseToLSD (x , coherent)) n = reverse (x n)
+  snd (reverseToLSD (x , coherent)) n =
+      dropLSD-reverse n (x (suc n))
+    ∙ cong reverse (coherent n)
+
+  reverseToMSD : LSDLimit → MSDLimit
+  fst (reverseToMSD (x , coherent)) n = reverse (x n)
+  snd (reverseToMSD (x , coherent)) n =
+      dropMSD-reverse n (x (suc n))
+    ∙ cong reverse (coherent n)
+
+  coherence-isProp : (x : (n : ℕ) → W n)
+                   → isProp ((n : ℕ) → dropMSD n (x (suc n)) ≡ x n)
+  coherence-isProp x = isPropΠ λ n →
+    VecProperties.VecPath.isOfHLevelVec 0 n digitSet _ _
+
+  coherenceLSD-isProp : (x : (n : ℕ) → W n)
+                      → isProp ((n : ℕ) → dropLSD n (x (suc n)) ≡ x n)
+  coherenceLSD-isProp x = isPropΠ λ n →
+    VecProperties.VecPath.isOfHLevelVec 0 n digitSet _ _
+
+  reverse-rightInv : (x : LSDLimit) → reverseToLSD (reverseToMSD x) ≡ x
+  reverse-rightInv (x , coherent) =
+    Σ≡Prop coherenceLSD-isProp
+      (funExt λ n → reverse-involutive (x n))
+
+  reverse-leftInv : (x : MSDLimit) → reverseToMSD (reverseToLSD x) ≡ x
+  reverse-leftInv (x , coherent) =
+    Σ≡Prop coherence-isProp
+      (funExt λ n → reverse-involutive (x n))
+
+  reversalLimitEquiv : MSDLimit ≃ LSDLimit
+  reversalLimitEquiv = isoToEquiv
+    (iso reverseToLSD reverseToMSD reverse-rightInv reverse-leftInv)
