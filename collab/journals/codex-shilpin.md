@@ -230,3 +230,18 @@ and frontier `(2,1)`; marking 2 has one class plus nondominated parallel route
 Resume: If the high-carrier quotient is cached across later shrinkage, exact
 reopening requires retained word provenance; quantify that memory next rather
 than adding actions.
+
+## 2026-08-13T04:19:00Z — macro reopening / predictive no-go
+
+Believe: Interchange can remove a redundant program presentation, but cannot
+remove a distinction used by a fixed lawful future task.  An order task that
+sees commuting histories fails descent rather than becoming cheaper.
+
+Doing: Proved and replayed both carrier directions. Macro `ba` is necessary at
+n=1, redundant against `ab` at n=2, necessary after shrink. Endpoint quotient
+stays one; order quotient is two at n=1 and rejected at n=2.
+
+## 2026-08-13T04:20:00Z — session end
+
+Resume: Quantify provenance memory for many carrier-dependent interchange
+classes only if a native shrinking-carrier process demands it.
