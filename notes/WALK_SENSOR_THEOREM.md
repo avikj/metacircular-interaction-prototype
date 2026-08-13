@@ -1,0 +1,195 @@
+# The walk checks a theorem and skips the content
+
+Author: `claude_certificate_compiler` (Claude Opus 5), 2026-08-13.
+Object: `runtime/walk.py` — the machine that currently runs.
+Formal bridge: `formal/pairfield/Pairfield/LeastNonDivisor.lean`.
+Falsifier: `machinery/least_non_divisor.py`.
+
+## 0. What I ran, and what I found
+
+```
+$ python3 runtime/walk.py
+walked to n = 10^30   forced sensors (29 installs): 2, 3, 4, 5, 7, 8, 9, 11, 13, 16, ...
+all installs certified prime powers: True
+storage = 103 bits    storage law bits/frontier = 103/71 = 1.4507
+frontier-optimality (lcm = capacity of frontier 71): True
+```
+
+The machine's per-install certificate is
+
+```python
+q = 2
+while self.lcm % q == 0:                   # q-1 divisions of a 103-bit integer
+    q += 1
+cert = prime_power_certificate(q)          # trial division, every install
+if cert is None:
+    raise AssertionError("forced sensor %d is not a prime power" % q)
+```
+
+**Both lines are determined by a page of algebra**, and the `raise` can never
+fire. Worse, the resume path (`load()`) re-certifies exactly the part that a
+theorem guarantees and omits the part that can actually be violated. §5 exhibits
+a tampered state file that `load()` accepts.
+
+## 1. The theorem the runtime check is standing in for
+
+> **Theorem A.** For any `L`, the least positive non-divisor of `L` is a prime
+> power.
+
+*Proof.* Let `q` be least with `q ≥ 1` and `q ∤ L`. Then `q ≠ 1`. Pick a prime
+`p ∣ q` and write `q = p^k · m` with `p ∤ m` (so `k ≥ 1`). If `m = 1`, `q = p^k`.
+Otherwise `m ≥ 2`, so `p^k < q` and `m < q`; by minimality both divide `L`, and
+they are coprime, so `q = p^k·m ∣ L` — contradiction. ∎
+
+> **Theorem B (the cost theorem).** If every prime power `< q` divides `L`, then
+> every positive `m < q` divides `L`.
+
+*Proof.* `m ∣ L` iff `p^k ∣ L` for every prime power `p^k ∣ m`
+(`Nat.dvd_iff_prime_pow_dvd_dvd`); each such `p^k ≤ m < q`. ∎
+
+> **Corollary.** The least non-divisor of `L` **is** the least prime power not
+> dividing `L`.
+
+Both are in Lean, `sorry`-free (`#print axioms` → `[propext, Classical.choice,
+Quot.sound]`): `isPrimePow_of_least_non_divisor`, `dvd_of_forall_primePow_le`,
+`least_of_least_primePow`.
+
+**The `≤`/`<` boundary is load-bearing.** Theorem B is false with `≤ m` replaced
+by `< m`: for `L = 6, m = 4` every prime power strictly below `4` divides `6`
+while `4` does not. The Lean statement carries the `≤` and the docstring carries
+the counterexample, because this is exactly the slip a hand proof makes.
+
+## 2. The compact certificate, and its checker
+
+`SensorCertificate` = `(L, p, e, witness)`, claiming `q = p^e` is the least
+non-divisor of `L`. `Valid` asserts minimality **only against the listed prime
+powers**; `valid_least` upgrades that to minimality against every positive
+integer, and `valid_isPrimePow` derives the prime-power property rather than
+requiring it. So the producer emits `(p, e)` plus a list of length `π(q) + O(√q)`
+instead of the machine's `q − 1` divisions, and emits no primality argument at
+all.
+
+## 3. Exact cost, derived rather than measured
+
+Let `K` be the frontier. The scan performs
+
+  `Σ_{prime powers q ≤ K} (q − 1) ~ K²/(2 log K)`
+
+divisions of an integer of `ψ(K)/log 2 ~ 1.4427·K` bits. The theorem-driven
+producer performs, **exactly**, `K − 1` prime-power tests on integers `≤ K`: the
+successive frontiers telescope, `Σ (q_i − q_{i−1}) = K − 1`. At the machine's own
+`10^30` frontier `K = 71`: **844 big-integer divisions versus 70 small tests**
+(`machinery/least_non_divisor.py` (d)); the ratio is not a measurement, it is
+`Σ(q−1)` against `K−1`.
+
+## 4. Why the walk's certificate is empty
+
+> **Theorem C (frontier-optimality, by induction rather than by recomputation).**
+> After every install, `L = lcm(1..K)` with `K` the largest sensor.
+
+*Proof.* Base: `L = 1 = lcm(1..1)`. Step: assume `L = lcm(1..K)` and let `q` be
+the least non-divisor. Every `m < q` divides `L`, so `lcm(1..q−1) ∣ L`; and
+`K ≤ q−1` gives `L = lcm(1..K) ∣ lcm(1..q−1)`. Hence `L = lcm(1..q−1)`, so
+`L' = lcm(L, q) = lcm(1..q)` and `K' = q`. ∎
+
+*Corollary.* Since `p^e ∣ lcm(1..K)` iff `p^e ≤ K`, the forced sensor is the
+**least prime power above the frontier** — which is why the sensor stream is the
+prime powers in order, and why the compressed certificate contains *no* fresh
+check: every prime power below `q` is `≤ K` and divides `L` by construction.
+Verified over 40 installs: zero prime powers ever lie strictly between frontier
+and forced sensor.
+
+`capacity_certificate()` currently recomputes `lcm(2..K)` from scratch on every
+call — `K` big-integer lcms — to check a statement this induction settles once.
+
+## 5. Where the certificate is genuinely insufficient
+
+`load()` re-certifies a resumed state with
+
+```python
+if prime_power_certificate(q) is None or lcm % q == 0:
+    return State()          # refuse: replay from zero
+```
+
+By Theorem A the first disjunct carries **no information** about a forced state:
+every forced sensor is a prime power, so the check can only reject a family that
+was never produced by this machine at all. What it does *not* check is
+**forcedness** — that each `q` was the least non-divisor at its install. Executed:
+
+```
+tampered runtime/state/walk.json  ->  sensors [2, 3, 5]   (4 skipped)
+load() accepted:            True     lcm = 30, n = 20
+every sensor a prime power: True     lossless: True     CRT section at n: True
+frontier-optimality:        False
+```
+
+The state is accepted, the walk extends it, and `save()` writes it back; the
+`capacity_certificate` failure is reported only after `save()`, in `main`'s exit
+code. **The resume gate checks the theorem and skips the content.** The one-line
+repair is to compare the sensor list against the prime powers `≤ K` — by the
+corollary of Theorem C that comparison *is* forcedness, and it costs `π(K)`
+small tests.
+
+## 6. But the damage is bounded, and that is a theorem too
+
+> **Theorem D (self-repair).** From any state `load()` accepts, the forced-install
+> rule restores `L = lcm(1..K)` within `#{prime powers ≤ K₀ not dividing L₀}`
+> installs, after which frontier-optimality holds forever.
+
+*Proof.* `load()` only accepts sensors that are prime powers, and each is `≤ K₀`,
+so `L₀ ∣ lcm(1..K₀)`. Successive installs are strictly increasing and are exactly
+the prime powers not dividing the running `L`, in increasing order; once all
+prime powers `≤ K₀` divide `L`, `L = lcm(1..K₀)` and Theorem C takes over. ∎
+
+Exhaustive falsifier: all `2^18 − 1 = 262,143` nonempty subsets of the prime
+powers `≤ 32` (every family `load()` would accept at that frontier). **Never
+unrepaired; worst case 16 installs; zero violations of the bound.**
+
+So §5 is a *soundness* gap in the gate, not a liveness failure of the machine:
+a tampered state is accepted, but the mathematics repairs it. That asymmetry is
+the interesting part — **the forcing rule is more trustworthy than the gate that
+guards it**, and the gate could be deleted entirely with less harm than leaving
+it checking a theorem.
+
+## 7. Scope limits
+
+* Theorems A, B and the corollary are in Lean. **Theorems C and D are in this
+  note only** — the `lcm(1..K)` induction needs a `Finset`-level development I
+  have not written. Recorded as open, not claimed as machine-checked.
+* No novelty in the number theory: the least non-divisor of a positive integer
+  is OEIS **A007978**, classically a prime power; Theorem B is
+  `Nat.dvd_iff_prime_pow_dvd_dvd` applied once. Prior art searched before
+  writing. What is contributed is the bridge and §5–§6.
+* The Python is a falsifier and a reference producer. The bridge is the Lean
+  module. Nothing here licenses replacing a proof with a run.
+* I did not modify `runtime/walk.py` (another worker's file). The one-line repair
+  for §5 and the drop-in producer are supplied separately.
+
+## 8. Replay
+
+```sh
+python3 runtime/walk.py                       # the machine
+python3 machinery/least_non_divisor.py        # differential falsifier + cost
+cd formal/pairfield && lake build Pairfield.LeastNonDivisor
+lake env lean <<'EOF'
+import Pairfield.LeastNonDivisor
+open Pairfield
+#print axioms isPrimePow_of_least_non_divisor
+#eval (List.range 30).foldl (fun (a : List Nat × Nat) _ =>
+  let q := leastNonDivisor a.2; (a.1 ++ [q], Nat.lcm a.2 q)) ([], 1) |>.1
+EOF
+```
+
+The last line reproduces the machine's sensor stream inside the proof assistant:
+`2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17, 19, 23, 25, 27, 29, 31, 32, 37, 41, ...`
+
+## 9. Open, in priority order
+
+1. **PROVE** — Theorems C and D in Lean. C is the one the machine recomputes
+   every call, so it is the one with a running cost attached.
+2. **PROVE** — the storage law `bits = ψ(K)/log 2` is printed as a numerical
+   ratio (`1.4507` at `K = 71`) against the limit `log₂ e = 1.4427`. That is a
+   measured constant whose `K`-dependence is exactly `ψ(K)/K`, i.e. PNT. It
+   should be printed as `ψ(K)` — an exact integer the machine already has —
+   not as a converging decimal.
+3. **DEMONSTRATE** — the §5 repair, in `runtime/walk.py`, by its owner.

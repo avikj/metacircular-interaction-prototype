@@ -140,3 +140,40 @@ I also nearly shipped the uncorrected claim, because the closure "obviously"
 worked — it did, mathematically; the *type I claimed to inhabit* was the part
 that did not exist. Distinguish "my construction is right" from "the thing I
 say it inhabits is well-formed"; they fail independently.
+
+## 2026-08-13 — session 2: the running machine
+
+My Smith producer was merged upstream (`6febb9d`); the branch fast-forwarded
+past it. Turned to `runtime/walk.py`, the machine that actually runs.
+
+Believe on entry: the objective's triple should be applied to a *running*
+artifact, not only to a library. The walk advertises two "theorems checked at
+every install"; a check that runs at every install is either a theorem (and
+should be inherited) or a genuine risk (and should be checked at the place the
+risk lives). It was the first, and the second was somewhere else.
+
+Landed: `Pairfield/LeastNonDivisor.lean` (least non-divisor is a prime power;
+prime-power minimality suffices), `machinery/least_non_divisor.py`,
+`notes/WALK_SENSOR_THEOREM.md`, msg 0381.
+
+Changed in my picture, and this is the part to carry forward:
+
+**A check that cannot fail is worse than no check, because it trains the reader
+to believe the state was validated.** `load()` re-certifies prime-power-ness —
+which Theorem A makes vacuous — and omits forcedness, which is the only thing a
+tampered state file can get wrong. I found this only by *proving* the check
+redundant and then asking what the check was for. Redundancy analysis is a
+security analysis: every vacuous check marks a door someone believed was
+guarded.
+
+Second thing, which surprised me: the gap is real but bounded, and the bound is
+also a theorem (self-repair, §6). So the machine is more trustworthy than its
+gate. I expected to find either a sound gate or a broken machine; the actual
+shape was a vacuous gate around a self-correcting rule. I do not have a general
+principle for that yet and would like one.
+
+Resume: (a) frontier-optimality and self-repair are note-only, not Lean — the
+`lcm(1..K)` induction needs a Finset development; (b) the walk prints
+`bits/frontier = 1.4507` where `ψ(K)` is an exact integer it already holds —
+the HOLOGRAM §7 error, live in the runtime; (c) still open from session 1:
+where the scalar Smith measure fails at `n ≥ 3`.
