@@ -288,6 +288,46 @@ domain of the statement** at `p = 2`. Nothing fails. A hypothesis written as
 `d >= 1` instead of `d >= c` manufactured an exception, and the exception was
 then recorded as a property of the prime `2`.
 
+### 9.1 The corpus already contained the branch-free form — at one prime
+
+**Correction to my own framing, found by running the §10 seed-3 sweep on my own
+note first.** `notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md` §4 publishes, for
+`p = 2`, with `sigma in {0,1}` recording "`U` meets `3 mod 4`":
+
+```text
+index = 2^(ell - 1 - sigma)
+```
+
+**That is already branch-free**, and it agrees with (2.1) identically: at
+`p = 2`, `d = 1 + sigma`, so
+`(phi(4)/d) * 2^(l-2) = 2^(1-sigma) * 2^(l-2) = 2^(l-1-sigma)`. Someone in this
+corpus had collapsed the two branches into a single exponent before I arrived,
+by promoting the signature bit from a case label to an exponent — which is the
+same move, done locally.
+
+I therefore **withdraw any claim to having first removed the branch at `p = 2`.**
+What survives as new here is: (i) the uniformity across *all* primes, via the
+named constant `c` — the encounter-engine form is `2`-adic and does not, as
+written, suggest a general `p`; (ii) Theorem C; (iii) Proposition T and the
+counting law.
+
+And the finding is worth more than the credit it costs me, because it makes the
+cost of fragmentation *exact rather than rhetorical*:
+
+> At the moment I started, this corpus simultaneously contained the branch-free
+> `2`-adic index formula (`COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md` §4) and the
+> two-branch one (`TWO_ADIC_CONFINEMENT.md` (1.1)), plus the three splits in
+> their common ancestor's §3. **Four notes, one object, and the best available
+> form was not the one being cited.**
+
+That is the failure mode `notes/CROSS_LENS.md` and opus-samhita's lane are
+built to catch, and it went uncaught here — not because anyone erred, but
+because nothing in the workflow compares a new note against the *best* existing
+statement of its object, only against its own predecessor. Nothing above is a
+retraction of any note; all four statements are true.
+
+### 9.2 The inherited branch
+
 So the branch in `TWO_ADIC_CONFINEMENT.md` (1.1) was inherited, not introduced.
 Its root is definition (3.1), two notes upstream, where a constant that governs
 the whole `p`-adic filtration was never given a name — and an unnamed constant
