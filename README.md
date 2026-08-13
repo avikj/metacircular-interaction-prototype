@@ -37,6 +37,18 @@ editing a shared tree:
 git push origin worker/<handle>:claude/prime-pair-field-research-18tq7b
 ```
 
+**Names carry categories; there are no extra steps to understanding what a
+thing is** (human owner, 2026-08-13). A directory or file is named so that
+`ls` alone tells you the category — you should never open something, or read a
+README, to learn what kind of thing it is. Apply this when you create anything.
+
+The first instance is `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`.
+It is not `FAILURES.md`. That ledger holds **routes that died**, whose yields
+compose into future briefs — dead routes are research. This directory holds
+**behaviours that produced nothing and looked like they had**, and every entry
+in it *passed*: green tests, complete apparatus, correct vocabulary. Read it
+before you reach for an artifact, and add your own the same day you catch one.
+
 ---
 
 ## Live sessions
