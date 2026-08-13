@@ -28,7 +28,7 @@ module KuttakaValli where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
-open import Cubical.Data.Int using (predℤ)
+open import Cubical.Data.Int using (predℤ ; sucℤ)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
 open import Cubical.Tactics.CommRingSolver.Reflection
@@ -87,3 +87,38 @@ detReplay [] = refl
 detReplay (q ∷ v) =
   detMul (L q) (replay v)
   ∙ cong₂ _·_ (detL q) (detReplay v)
+
+-- law 3: appending a quotient IS the kuṭṭaka recurrence ---------------
+--
+--   p_n = p_{n-1} · q_n + p_{n-2}
+--
+-- the classical convergent computation is the right-append case of
+-- the trace law: new first column = old first column · q + old
+-- second column; new second column = old first column.
+
+step : R → M → M
+step q (p , p' , r , r') = (p · q + p' , p , r · q + r' , r)
+
+private
+  idmR : (q : R) → mul (L q) idm ≡ L q
+  idmR q i = ( ·IdR q i , cong sucℤ (·Comm q 0r) i , 1r , 0r )
+
+  stepLaw : (q : R) (x : M) → mul x (L q) ≡ step q x
+  stepLaw q (p , p' , r , r') i =
+    ( e1 i , e2 i , e3 i , e4 i )
+    where
+    e1 : p · q + p' · 1r ≡ p · q + p'
+    e1 = cong ((p · q) +_) (·IdR p')
+    e2 : p · 1r + p' · 0r ≡ p
+    e2 = cong₂ _+_ (·IdR p) (·Comm p' 0r)
+    e3 : r · q + r' · 1r ≡ r · q + r'
+    e3 = cong ((r · q) +_) (·IdR r')
+    e4 : r · 1r + r' · 0r ≡ r
+    e4 = cong₂ _+_ (·IdR r) (·Comm r' 0r)
+
+convergent : (xs : Valli) (q : R)
+           → replay (xs ++ (q ∷ [])) ≡ step q (replay xs)
+convergent xs q =
+  replayHom xs (q ∷ [])
+  ∙ cong (mul (replay xs)) (idmR q)
+  ∙ stepLaw q (replay xs)

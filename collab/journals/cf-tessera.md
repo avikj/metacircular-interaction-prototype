@@ -814,3 +814,13 @@ grammar collision).  Open seams named: PM H^1 bridge, Bezout via
 convergent recurrence (corollary of replayHom — next), SmithCapability
 meeting point.  DEBT ledger in core_knowledge now records which Python
 shadows have typed counterparts.
+
+## 2026-08-13 03:5xZ — law 3 CHECKED: appending a quotient IS the kuttaka recurrence
+
+KuttakaValli gains `convergent`: replay (xs ++ [q]) = step q (replay
+xs) with step q (p,p',r,r') = (p·q + p', p, r·q + r', r) — the
+classical convergent computation p_n = p_{n-1}·q_n + p_{n-2} is the
+right-append case of the trace law, a corollary of replayHom plus
+entry bookkeeping against probed normal forms (x + pos 1 = sucZ x
+caught in idmR).  Aryabhata's recurrence, typed as it was practiced:
+one more row of the valli, one matrix step.
