@@ -14,6 +14,7 @@ open import Cubical.Data.Nat using (ℕ)
 module NaturalMachine.ResidueTransport (k : ℕ) where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import NaturalMachine.Digits k
 
 private
@@ -88,8 +89,8 @@ compileCosted source = record
 -- Transport preserves the declared complexity profile; atomic counted time
 -- does not collapse any component to one or zero.
 complexity-preserved : (source : CostedObservation A)
-  → CompiledObservation.stateSize (compileCosted source) ≡ stateSize source
-  × CompiledObservation.witnessDepth (compileCosted source) ≡ witnessDepth source
-  × CompiledObservation.updateCost (compileCosted source) ≡ updateCost source
-  × CompiledObservation.decodeCost (compileCosted source) ≡ decodeCost source
+  → (CompiledObservation.stateSize (compileCosted source) ≡ stateSize source)
+  × (CompiledObservation.witnessDepth (compileCosted source) ≡ witnessDepth source)
+  × (CompiledObservation.updateCost (compileCosted source) ≡ updateCost source)
+  × (CompiledObservation.decodeCost (compileCosted source) ≡ decodeCost source)
 complexity-preserved source = refl , refl , refl , refl

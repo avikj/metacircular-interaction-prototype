@@ -9,6 +9,7 @@ open import Cubical.Data.Fin using (Fin)
 open import Cubical.Data.FinSet
 open import Cubical.Data.FinSet.Constructors using (isFinSetAut)
 open import Cubical.Data.FinSet.Cardinality
+import Cubical.Data.Fin.LehmerCode as LehmerCode
 
 open import NaturalMachine.Decategorification using (𝔽)
 
@@ -21,5 +22,12 @@ symmetryCarrier n = (Fin n ≃ Fin n) , isFinSetAut (𝔽 n)
 symmetryCount : ℕ → ℕ
 symmetryCount n = card (symmetryCarrier n)
 
+-- cardAut computes the automorphism count as LehmerCode.factorial; this and the
+-- Data.Nat factorial _!_ are the same function by structural induction (they are
+-- propositionally, not definitionally, equal for a variable argument).
+factorial≡! : (n : ℕ) → LehmerCode.factorial n ≡ n !
+factorial≡! zero = refl
+factorial≡! (suc n) = cong (suc n ·_) (factorial≡! n)
+
 symmetryCount≡factorial : (n : ℕ) → symmetryCount n ≡ n !
-symmetryCount≡factorial n = cardAut (𝔽 n)
+symmetryCount≡factorial n = cardAut (𝔽 n) ∙ factorial≡! n
