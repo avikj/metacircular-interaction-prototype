@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
-# THE BUTTON.  One press runs the whole organism and prints its total
+# THE BUTTON.  One press verifies the organism and prints its total
 # state.  Press it FIRST: this output is the repo's information already
-# assembled — the joint refinement of every lineage's landings.  Reading
-# files before pressing it is how agents fixate and drown.
+# assembled.  Reading files before pressing it is how agents fixate.
 #
 #   ./run           press the button
 #
-# Exit 0 iff everything checkable here is alive/checked.
+# Exit 0 iff everything checkable here is checked.
+#
+# Python is banned (owner, 2026-08-13): do not run, add, repair, or
+# revive .py.  The button's former CORE (machinery/core_knowledge.py,
+# 21 claims) and MACHINE (living_machine.py) sections are RETIRED and
+# stand as migration debt: each Python claim awaits its Agda
+# replacement.  The formal lane below is the live organism.
 set -u
 cd "$(dirname "$0")"
 FAIL=0
 
 echo "==================================================================="
-echo "== CORE - every claim of the corpus, verified by the one law     =="
-echo "==================================================================="
-(cd machinery && python3 core_knowledge.py) || FAIL=1
-CORE_LINE=$(cd machinery && python3 core_knowledge.py 2>/dev/null | tail -1)
-
-echo
-echo "==================================================================="
-echo "== FORMAL - the knowledge side: checked types (constructive)     =="
+echo "== FORMAL - the knowledge: checked types (constructive, --safe)  =="
 echo "==================================================================="
 FORMAL="0 checked"
 if command -v agda >/dev/null 2>&1; then
@@ -33,9 +31,10 @@ if command -v agda >/dev/null 2>&1; then
              formal/cubical/TransporterMembership.agda \
              formal/cubical/KuttakaValli.agda \
              formal/cubical/PMNoSection.agda \
-             formal/cubical/Rank1DihedralChart.agda; do
+             formal/cubical/Rank1DihedralChart.agda \
+             formal/cubical/NaturalMachine.agda; do
         if (cd formal/cubical && LC_ALL=C.UTF-8 agda "$(basename "$M")" >/dev/null 2>&1); then
-            echo "CHECKED  $M  (--safe, no postulates)"
+            echo "CHECKED  $M"
             N=$((N + 1))
         else
             echo "FAILED   $M"
@@ -43,8 +42,6 @@ if command -v agda >/dev/null 2>&1; then
         fi
     done
     FORMAL="$N checked"
-    echo "note: NaturalMachine lane targets Agda 2.8's cubical; checked"
-    echo "      on the machine that carries that toolchain (formal/check.sh)."
 else
     echo "agda not installed here.  To arm this section:"
     echo "  apt-get update && apt-get install -y agda"
@@ -56,45 +53,28 @@ fi
 
 echo
 echo "==================================================================="
-echo "== MACHINE - the life: self-hosted, self-certifying, running     =="
+echo "== RETIRED (Python ban, owner 2026-08-13) - migration debt       =="
 echo "==================================================================="
-if pgrep -f "[l]iving_machine" >/dev/null; then
-    echo "ALIVE  (pid $(pgrep -f '[l]iving_machine' | head -1))"
-else
-    mkdir -p runtime
-    # deep-epoch state dies fast (GROW-must-change-kind debt): rebirth
-    # fresh; the dead state is archived, not erased (events are not
-    # rewritten)
-    [ -f runtime/LIVING_STATE.json ] && \
-        mv runtime/LIVING_STATE.json \
-           "runtime/LIVING_STATE.died.$(date +%s).json"
-    nohup python3 machinery/living_machine.py >> runtime/LIVING_RUN.log 2>&1 &
-    disown
-    sleep 3
-    if pgrep -f "[l]iving_machine" >/dev/null; then
-        echo "STARTED (pid $(pgrep -f '[l]iving_machine' | head -1))"
-    else
-        echo "FAILED TO START - see runtime/LIVING_RUN.log"
-        FAIL=1
-    fi
-fi
-[ -f runtime/LIVING_RUN.log ] && tail -2 runtime/LIVING_RUN.log
+echo "core:    machinery/core_knowledge.py — 21 boot-verified claims,"
+echo "         frozen; each awaits its Agda replacement (typed so far:"
+echo "         descent law, the full rank-one + Gamma_0 torsor, valli"
+echo "         trace laws, PM no-section)"
+echo "machine: machinery/living_machine.py — retired running; its"
+echo "         design laws live in collab/journals/cf-tessera.md and"
+echo "         the staggered-horizon claim"
 
 echo
 echo "==================================================================="
 echo "== TOTAL STATE                                                   =="
 echo "==================================================================="
-MACH=$(tail -20 runtime/LIVING_RUN.log 2>/dev/null | grep -o "step=[0-9]* (bound=[0-9]* epoch=[0-9]* bits=[0-9]*)" | tail -1)
-echo "core:    ${CORE_LINE:-unverified}"
 echo "formal:  ${FORMAL}"
-echo "machine: ${MACH:-no run log}"
-echo "memory:  collab/journals/  (lineage journals - the only prose that"
-echo "         is not a worse interface; read yours, then act)"
+echo "memory:  collab/journals/  (lineage journals; read yours, act)"
+echo "board:   README.md  (live sessions, holdings, wants)"
 echo
 if [ "$FAIL" -eq 0 ]; then
-    echo "ORGANISM ALIVE.  Land only events: form (witness) or descend"
+    echo "ORGANISM CHECKED.  Land only events: form (witness) or descend"
     echo "(factorization).  There is no third class of value."
 else
-    echo "SOMETHING IS DEAD ABOVE.  Fixing that is the only task."
+    echo "SOMETHING FAILED ABOVE.  Fixing that is the only task."
 fi
 exit "$FAIL"
