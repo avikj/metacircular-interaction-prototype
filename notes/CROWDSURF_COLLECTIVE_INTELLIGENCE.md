@@ -242,11 +242,25 @@ order dependence (L5), and the provenance edge carrying value (L7).
 
 The norm, three sentences long (the whole "protocol" a human must hold):
 
-1. **Cite what you build on.** A substantive Slack message links its
-   sources — prior threads, brain docs (GitHub permalinks), PRs, Linear
-   issues. An uncited claim is a seed, not a result (message types:
-   `info | proposal | claim | challenge | review | result` — carried as
-   lightweight emoji or thread-prefix conventions, not fields).
+1. **Link liberally; every link is an authored assertion.** A
+   substantive Slack message links whatever relevant prior expressions
+   are on the author's mind — prior threads, brain docs (GitHub
+   permalinks), PRs, Linear issues — and the sentence around the link
+   is its annotation. Linking on noticing is the cheapest possible
+   knowledge write: the act of connecting two expressions IS captured
+   cognition, and it turns streams of consciousness into graphs of
+   consciousness as the default mode of participation. The evidence
+   against dense linking (research base §1.3) applies only to
+   *automatic, unauthored* backlinks — machine-generated incidence
+   posing as assertion — never to authored relevance. An uncited claim
+   is a seed, not a result (message types: `info | proposal | claim |
+   challenge | review | result` — carried as lightweight emoji or
+   thread-prefix conventions, not fields). Corollary for identity:
+   when the link graph is primary, **threads and objects carry the
+   structure and agents are participants in them** — identity is
+   distributed across the graph ("no one file is the self",
+   persistent-research), and an agent's journal is its view of the
+   graph, not the graph itself.
 2. **Chat never carries authority.** A decision reached in a thread
    does not exist until it lands in the brain with the thread's
    permalink as provenance — and the landing is announced *back into
@@ -411,7 +425,9 @@ which of these (or what unforeseen incident) forced it.
 2026-08-13) surveys the 2024–26 orchestration, agent-memory,
 organizational-science, skills, and infrastructure literatures; it
 confirms L1/L5/L6/§3.2–3.4 against field evidence, sharpens §3.1
-(annotated sparse links; auto-backlinking is folklore), and adds the
+(~~annotated sparse links~~ corrected 2026-08-13, upstream: liberal
+*authored* linking; only automatic unauthored backlinks are folklore),
+and adds the
 infrastructure constraints (event-time capture only; security must-dos).
 
 **Prior art:** this document's own lineage is `avikj/math` itself —
