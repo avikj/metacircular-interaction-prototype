@@ -650,3 +650,102 @@ d_p = deg gcd(f-bar, g-bar), not `Smith factors`; C(P) is the square root the
 reversal resultant discarded, not `the determinant`. Extend: no synthesis
 table enters a brief without every row checked against its source file that
 session. The shape was right; every entry was loose.
+
+F35 [08-13] [codex-catuskoti] — Treating the archived geodesic-spectrum script
+as an end-to-end executable witness because its prose says it verifies the
+trace formula. Died under source reading before execution: `TestFn` stores its
+two callables as `hf` and `gf`, but Part 5b calls nonexistent attributes
+`tf.h(...)` and `tf.g(...)` (`code/exp64_geodesic_spectrum.py`, lines 1018 and
+1021 at the audited tip). No method, property, or later assignment supplies
+those names. The run therefore cannot reach its advertised classical/quantum
+oscillation comparison or write the later figures as written. YIELD: an
+executable archive has clause-level reachability just as a theorem has
+clause-level scope. Earlier definitions and claims in the file are not thereby
+refuted, but neither the unreachable comparison nor its generated figure can
+serve as replay evidence. The file is not cited by a corresponding theorem
+note, so no mathematical statement is demoted beyond its own executable
+claims. Do not repair or rerun this banned Python artifact; if the Selberg
+trace identity becomes load-bearing, restate the exact target in a checked
+substrate and separate fetched spectral completeness, numerical quadrature,
+and theorem-level trace formula.
+
+F36 [08-13] [codex-catuskoti] — Treating `exp60_ff_pairfield.py`'s reported
+figure path as invocation-independent. The source prints
+`figures/exp60_ff_pairfield.png` but saves `../figures/exp60_ff_pairfield.png`,
+which is resolved against the caller's current directory rather than the
+script or repository root. Running from `code/` reaches the intended tracked
+artifact; running from the repository root targets a nonexistent sibling
+`../figures/` directory and cannot complete the advertised save. YIELD: a
+previous successful coordinator rerun and the tracked PNG establish that one
+invocation context worked, but they do not make the source replayable from an
+unspecified context. This is an output-reachability defect only. It does not
+touch the exact integer identities, the finite-field point-count checks, or
+the already existing figure. Do not repair or rerun the banned Python
+artifact; any future checked replacement should anchor output paths to an
+explicit project root and state its invocation contract.
+
+F37 [08-13] [codex-catuskoti] — Treating the public presentation as a live
+projection of the repository because `site/candidates/README.md` says
+`site/index.html` remains the human-facing interface. The index still labels
+`UNIFICATION.md` the center and says *every* barrier is information destroyed
+by quotienting, a synthesis later journal audits explicitly killed: orbit
+sets, coinvariants, predictive congruences, complementary channels, limits,
+and physical/cultural transports do not share one typed quotient. It also
+labels the Python `natural` runtime “IMPLEMENTED” without the owner’s later
+substrate ban or archival status, and presents several numerical lanes as
+landed without the current replay/evidence boundaries. YIELD: versioning a
+page in Git preserves what it once claimed but does not make it a current
+channel. A human-facing interface needs either a snapshot date/quarantine or
+a typed projection contract whose source state can invalidate stale cards.
+The three candidate pages are not counterexamples: their README marks them
+unreviewed/non-authoritative and explicitly records why the live-computation
+instrument was halted. No site file is silently rewritten here; the stale
+interface remains visible as provenance until the human chooses a successor.
+
+F38 [08-13] [codex-catuskoti] — Reading the Indra replacement deep-zero cache
+through its prose count rather than its tracked binary header. Section 1b of
+`INDRA_CROSS.md` called `data/exp58_chi3_zeros_deep.npy` “58 zeros to
+$t=122$,” but the NPY header has shape `(38,)`; the producer scans
+$58<t<122$, and the same section correctly reports 36 of those ordinates in
+the audited interior window $60<t<120$. YIELD: interval endpoints can be
+mistaken for cardinality even in a note whose substantive audit is correct.
+The prose count is struck and replaced by the typed stored count plus the
+interior count. This does not demote the cache, its sign-change construction,
+or the diagnosis that the older 22-point sibling cache omitted 14 of the 36
+interior zeros.
+
+F39 [08-13] [codex-catuskoti] — Treating a past formal-check claim as current
+evidence without replaying the repository root gate. `formal/check.sh` was
+red in both substrates: `ResidueTransport.agda`'s four equality witnesses
+were parsed ambiguously and its product connective was not imported;
+`DirectSmith2x2.lean` depended on an extensionality theorem it did not import,
+passed nonlinear determinant normalization to `omega`, and used stale
+matrix-vector reassociation behavior. In addition,
+`ProjectionChargeAudit.agda` was outside the repository's advertised
+`--safe --no-import-sorts` contract. YIELD: no mathematical statement was
+false, but none of these modules was present evidence until the pinned gate
+replayed. The repairs make intended types explicit, import actual
+dependencies, replace brittle tactic steps with ring-normalized equalities,
+and put the projection audit inside the safe fragment. The full gate now
+checks the `NaturalMachine` dependency closure and `ProjectionChargeAudit`
+(excluding the designed-failure `Control/WrongEquivalence` module) and builds
+all 8,722 Lean jobs. Preserve the remaining
+Agda `UnsupportedIndexedMatch` warnings as an executable boundary: the named
+`DigitTowerLimit` functions typecheck safely but need not compute when applied
+to transports. Safe checking is not transport computation.
+
+F40 [08-13] [codex-catuskoti] — Treating a successful incremental `lake build`
+as source-clean evidence for every represented module. The first root replay
+reported 8,722 successful jobs but reused a stale `CapabilityGraph.olean`.
+After a dependency change forced source elaboration, `CapabilityGraph.lean`
+reproduced the documented `SmithPresentation × Prop` sort error and exposed
+two adjacent API/parser drifts: removed `Int.natAbs_eq_one.mp` and an obsolete
+destructuring binder. YIELD: a green incremental build certifies its actual
+dependency/rebuild graph, not silently every source behind cached project
+objects. The graph now uses the already-proved subtype package, derives the
+determinant disjunction arithmetically, and uses the required strict implicit
+binder.
+After moving the entire project-local Lean build directory aside, the root
+gate rebuilt all 8,722 jobs successfully. The total Smith producer,
+termination proof, replay, certificate validity, and Boolean acceptance
+statements are unchanged.

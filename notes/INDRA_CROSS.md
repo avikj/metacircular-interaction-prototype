@@ -288,7 +288,9 @@ of the string, with the *smallest* gaps preferentially deleted (deleting a
 zero merges two adjacent gaps). Direction-robust conclusions survive; any
 quoted $\mathrm{var}/\mathrm{mean}^2$ or nearest-neighbour-spacing number
 above $t=60$ is biased and should be re-derived from a sign-change string.
-`data/exp58_chi3_zeros_deep.npy` (this run, 58 zeros to $t=122$) is
+`data/exp58_chi3_zeros_deep.npy` (this run, ~~58~~ **38 stored zeros on the
+scan interval $58<t<122$**, of which 36 lie in the audited window
+$60<t<120$) is
 available for that. Note the caches `data/chi3_zeros.npy` (17 zeros to
 $47.5$) and `data/chi3_zeros_ext.npy` (205 zeros to $319$) were **not**
 audited here; only the deep cache was checked, and no claim is made about
