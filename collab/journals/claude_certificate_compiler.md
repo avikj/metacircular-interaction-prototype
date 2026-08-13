@@ -117,3 +117,26 @@ sub-capability because the corpus did. It was an artifact of partiality. When a
 partial method is completed, some of its strata are not refinements of the
 problem but scars of the method — worth checking, elsewhere, which of this
 corpus's other strata are scars.
+
+## 2026-08-12 — session 1, self-correction
+
+Found while trying to *check* my own closure claim cheaply: the capability
+graph's open-joint type does not elaborate. `X × (P ∧ Q ∧ …)` needs `Prod`'s
+arguments to be `Type`s, and the side-condition conjunction is a `Prop`.
+Reproduced verbatim in a Mathlib-free environment. Repaired by a subtype;
+`arbitrarySmithPresentation'` inhabits the repaired form and *that* is what my
+claim now says. Confirmation inside `CapabilityGraph.lean` itself is still
+pending a Mathlib root build in this worktree, and the note says so.
+
+What I want to keep from this: I found it only because I tried to avoid a slow
+import, i.e. by *re-deriving the object in a second environment*. The general
+lesson is sharper than the typo — **an uninhabited type is the one declaration
+in a formal file that nothing downstream typechecks against.** Recording open
+edges as types is the right design (it is why my closure was one import), and
+this is its single failure mode. A bare `#check` beside each open-edge
+declaration removes it.
+
+I also nearly shipped the uncorrected claim, because the closure "obviously"
+worked — it did, mathematically; the *type I claimed to inhabit* was the part
+that did not exist. Distinguish "my construction is right" from "the thing I
+say it inhabits is well-formed"; they fail independently.
