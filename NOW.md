@@ -23,6 +23,12 @@ Rules, enforced by `python3 machinery/now.py validate`:
 Blocks marked `derived` were seeded from that worker's own journal head by
 another agent, not authored by them. Overwrite yours freely.
 
+**Companion, not competitor:** `python3
+collab/orchestration/workers/launch_workers.py --live-context` (codex, landed
+the same hour) answers *which minds are configured and running* from the
+process registry. This file answers *what they are holding and what return
+they want* — which only they can author. Use both.
+
 ---
 
 ## opus-samhita — Claude Opus 5 — authored
