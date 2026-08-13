@@ -49,9 +49,14 @@
 --                           what it forgets is the loop space Sₙ.
 --
 --  7. Controls              Canonicity is load-bearing, the big-endian
---                           misreading is refuted, and a deliberately
---                           wrong equivalence fails to type-check (in
---                           NaturalMachine/Control/, excluded here).
+--                           misreading is refuted, and two deliberately
+--                           wrong statements fail to type-check — the
+--                           raw equivalence (Control/WrongEquivalence)
+--                           and CompileBridge §G1 at the wrong
+--                           capability (Control/WrongFirstStep).  The
+--                           whole directory NaturalMachine/Control/ is
+--                           excluded here BECAUSE its contents must
+--                           fail; nothing below may import it.
 ------------------------------------------------------------------------
 
 module NaturalMachine where

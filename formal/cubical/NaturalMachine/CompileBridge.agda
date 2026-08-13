@@ -102,6 +102,15 @@
 --                               obstruction whose residual is literally
 --                               `resumeCap`.  Not "some step of the
 --                               chain": the FIRST one, by computation.
+--                               NEGATIVE CONTROL, landed and excluded
+--                               from the aggregate because it must fail:
+--                               `NaturalMachine/Control/WrongFirstStep.agda`
+--                               asserts the same `refl` at `tickCap` and
+--                               is rejected with `0 != 1 of type
+--                               Agda.Builtin.Nat.Nat` (exit 42, error
+--                               quoted verbatim in that file's header).
+--                               So G1's `refl` is not the empty kind of
+--                               `refl`.
 --   G2 `taskObstruction`,
 --      `taskObstruction-names`  that obstruction, extracted, with its
 --                               naming proof.
@@ -148,6 +157,17 @@
 --                               for all m, n.  One term, one vocabulary,
 --                               many answers.  The loop's state names the
 --                               capability; it does not carry the object.
+--   H3 `decoder-exists-pointwise`
+--                               POSITIVE CONTROL FOR H2, proved here.
+--                               At FIXED `m n` the Σ-type H2 negates is
+--                               inhabited (by a constant function).  So
+--                               H2 is not true for want of an inhabitant
+--                               of `CanWord` or by a degeneracy of `Σ`:
+--                               it is exactly a statement about
+--                               UNIFORMITY in the arguments — the
+--                               quantifier `(m n : ℕ)` cannot be pushed
+--                               inside.  The witness is constant, so this
+--                               certifies non-vacuity and nothing more.
 --
 --   H2 is why `compileTm` takes `m n : ℕ` natively: that signature is
 --   FORCED, not chosen.  §E-§G are exactly the part of the story that
@@ -205,7 +225,18 @@
 --    NOT claim the step is the first, nor that it is unique, nor that
 --    `X ≡ V`.  Only in the concrete instance §G is the step shown to be
 --    the first, and that is by computation on numerals (G1 is `refl`),
---    which generalises to nothing.
+--    which generalises to nothing.  That the computation has a SPECIFIC
+--    answer rather than being satisfied by any `refl` is the negative
+--    control `NaturalMachine/Control/WrongFirstStep.agda` (excluded from
+--    `NaturalMachine.agda`; it must fail, and does).
+--  * H2 negates a Σ-type and is therefore worth nothing until that
+--    Σ-type is known to be inhabitable.  It is, at fixed arguments:
+--    H3 `decoder-exists-pointwise` in this file.  Both controls for this
+--    module are landed and are cited by path, not described — the
+--    positive one here as H3, the negative one at
+--    `NaturalMachine/Control/WrongFirstStep.agda`.  Neither control
+--    builds a decoder that reads anything off `(V , t)`: H3's witness is
+--    a constant function and certifies non-vacuity only.
 --  * D3 is a statement about `ObsChain`s, not about the loop's search
 --    strategy.  It says a chain that made a head appear must have named
 --    it.  It says nothing about which head the probe picks, in what
@@ -557,6 +588,31 @@ module Bridge (k : ℕ) (checkpoint : Shape) where
             ((m n : ℕ) → decode V t ≡ exec (resume m (suc n))) )
   state-underdetermines-answer V t (decode , h) =
     answers-differ (sym (h 0 0) ∙ h 1 0)
+
+  ----------------------------------------------------------------------
+  -- H3.  THE POSITIVE CONTROL FOR H2 (designed annihilation,
+  -- collab/PROTOCOL.md §7; the matching negative control is
+  -- `NaturalMachine/Control/WrongFirstStep.agda`, which must fail).
+  --
+  -- WHAT IT RULES OUT.  H2 negates a Σ-type, so it would be true for a
+  -- boring reason if that Σ-type were empty for want of an inhabitant of
+  -- `CanWord`, or by some degeneracy of `Σ`, or because no `decode` of
+  -- the stated type exists at all.  Drop the uniformity — fix `m` and `n`
+  -- before choosing `decode` instead of after — and the Σ-type IS
+  -- inhabited, by a constant function.  So H2 is a statement about
+  -- UNIFORMITY IN THE ARGUMENTS and nothing else: it says the quantifier
+  -- `(m n : ℕ)` cannot be pushed inside the Σ.  The answer type is not
+  -- empty; the state simply cannot track it as `m` and `n` vary.
+  --
+  -- The witness is a constant function, so this certifies non-vacuity and
+  -- nothing more: no decoder that reads anything off `(V , t)` is built
+  -- here, and none is claimed to exist.
+  ----------------------------------------------------------------------
+
+  decoder-exists-pointwise :
+    (V : Vocab) (t : Tm) (m n : ℕ)
+    → Σ[ decode ∈ (Vocab → Tm → CanWord) ] (decode V t ≡ exec (resume m (suc n)))
+  decoder-exists-pointwise V t m n = (λ _ _ → exec (resume m (suc n))) , refl
 
 ------------------------------------------------------------------------
 -- I.  THE OPEN JOINT, named only by its required interface.

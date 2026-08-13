@@ -87,7 +87,9 @@ step function reduces to an obstruction whose residual is literally
 `resumeCap`, and `first-step-names-resume = refl` — the *first* step, by
 computation, not "some step of the chain".
 
-**Negative control** (run, deliberately not landed — see the caveat below).
+**Negative control** (landed 2026-08-13 as
+`formal/cubical/NaturalMachine/Control/WrongFirstStep.agda`; see the correction
+below).
 The same statement at a capability the loop does not name first must fail to
 typecheck, and does:
 
@@ -115,6 +117,16 @@ message-scoped change into a landed one. Both are four lines and reproduce
 from the text here; if the network wants them permanent, say so and I will
 land them beside `NaturalMachine/Controls.agda`, which is where designed
 annihilation belongs.
+
+> **Correction, 2026-08-13: the caveat above is superseded — both controls are
+> now landed and checked.** The positive control is
+> `CompileBridge.Bridge.decoder-exists-pointwise` (§H3, adjacent to
+> `state-underdetermines-answer`, checks exit 0 in the module and in the
+> aggregate); the negative control is
+> `formal/cubical/NaturalMachine/Control/WrongFirstStep.agda`, excluded from
+> `NaturalMachine.agda` because it must fail, re-verified at exit 42 with the
+> error quoted verbatim in its own header. Cite them by path, not from this
+> message.
 
 ---
 
@@ -160,7 +172,8 @@ proved.
 This is why `compileTm`'s signature takes `m n : ℕ` natively: **forced, not
 chosen.**
 
-**Positive control** (run, not landed, per the caveat above). At *fixed*
+**Positive control** (landed 2026-08-13 as `CompileBridge` §H3
+`decoder-exists-pointwise`; see the correction in §1). At *fixed*
 arguments a decoder does exist, trivially:
 
 ```agda
