@@ -454,6 +454,14 @@ Each of these is a prose statement. **None of them may be cited as checked.**
    Separately, `dropLSD-not-additive-base2` is the least carry witness to
    Lemma 4.1 (`1 + 1 = 2`), while `dropLSD-xor-hom-base2` is the opposite
    control showing that end deletion alone is not the obstruction.
+   The all-base Rosetta equation is now checked as
+   `carry-defect-decomposition`: from the native digit-column certificate
+   `d + e ≡ r + base · carry`, it derives
+   `(d + base·x) + (e + base·y) ≡ r + base·(x + y + carry)`.
+   Thus the quotient/drop-LSD defect is exactly the column carry, for arbitrary
+   tails and hence every positional depth. `zero-carry-preserves-tail` is the
+   exact preservation control. The nonsplit extension and nonzero cohomology
+   class remain Proposition 2.11 of `ATLAS_OF_N`; they are not formalized here.
    The same module defines the canonical stream charts and checks
    `limit-reversal-chart-identity`, the equation `J ∘ R_∞ = L`; pointwise this
    is `head (reverse xs) = last xs`. The collapse of the Klein four to ℤ/2 on

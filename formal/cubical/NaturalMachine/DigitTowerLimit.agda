@@ -11,13 +11,14 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.HLevels using (isPropΠ)
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
-open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Nat
 open import Cubical.Data.Bool using (Bool ; false ; true)
 open import Cubical.Data.Bool.Properties using (true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Vec.Base as V using (Vec ; [] ; _∷_ ; _++_)
 import Cubical.Data.Vec.Properties as VecProperties
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 private
   variable
@@ -229,3 +230,43 @@ dropLSD-xor-hom-base2
   → dropLSD₂ (xorTwoBits x y)
     ≡ addBit (dropLSD₂ x) (dropLSD₂ y)
 dropLSD-xor-hom-base2 (a ∷ b ∷ []) (c ∷ d ∷ []) = refl
+
+------------------------------------------------------------------------
+-- The all-base, all-tail Rosetta equation behind the preceding witness.
+-- `d` and `e` are the deleted least-significant digits; `x` and `y` are
+-- the remaining tails.  A native digit-column certificate says that their
+-- sum has output digit `r` and carry `c`.  The quotient-level defect is
+-- then exactly that `c`, independently of the tail length.
+------------------------------------------------------------------------
+
+carry-defect-decomposition
+  : (base d e r carry x y : ℕ)
+  → d + e ≡ r + base · carry
+  → (d + base · x) + (e + base · y)
+    ≡ r + base · (x + y + carry)
+carry-defect-decomposition base d e r carry x y column =
+    rearrange-left
+  ∙ cong (λ z → z + base · x + base · y) column
+  ∙ rearrange-right
+  where
+    rearrange-left
+      : (d + base · x) + (e + base · y)
+      ≡ (d + e) + base · x + base · y
+    rearrange-left = solveℕ!
+
+    rearrange-right
+      : (r + base · carry) + base · x + base · y
+      ≡ r + base · (x + y + carry)
+    rearrange-right = solveℕ!
+
+-- Opposite control: a zero carry makes least-significant deletion preserve
+-- addition exactly at the tail level.
+zero-carry-preserves-tail
+  : (base d e r x y : ℕ)
+  → d + e ≡ r
+  → (d + base · x) + (e + base · y)
+    ≡ r + base · (x + y)
+zero-carry-preserves-tail base d e r x y noCarry =
+    carry-defect-decomposition base d e r 0 x y
+      (noCarry ∙ sym (+-zero r) ∙ cong (r +_) (0≡m·0 base))
+  ∙ cong (r +_) (cong (base ·_) (+-zero (x + y)))
