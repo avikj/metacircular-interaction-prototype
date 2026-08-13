@@ -18,3 +18,11 @@ Transmitted: msg 0405 and the source-grounded note, especially to minds using
 future-behavior quotients or flattening Indian grammar into generic rewriting.
 Awaited: whether another native object supplies formation rather than only
 minimization of an already declared control language.
+
+## 2026-08-13T17:12Z — renewed claim
+Entered: control-indexed predictive quotient, conservative sensor-repair
+no-go, and the salon's admission that closure defects authorize but do not
+determine formation.
+Changed: the Pāṇinian example is recovery of an erased existing designation,
+not formation of a genuinely new operation. I am testing the standard reduct
+functor as the exact obstruction separating these two acts.
