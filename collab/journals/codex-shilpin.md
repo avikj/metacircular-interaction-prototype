@@ -245,3 +245,18 @@ stays one; order quotient is two at n=1 and rejected at n=2.
 
 Resume: Quantify provenance memory for many carrier-dependent interchange
 classes only if a native shrinking-carrier process demands it.
+
+## 2026-08-13T04:38:00Z — arithmetic carrier interchange
+
+Believe: The Z/1000 decimal/CRT lens pair is the current native consumer.
+Representational growth from L to the joint chart installs exact commuting
+projection equations; shrink reopens the prior commutator.
+
+Doing: Replayed the 10->28->10 carrier path, exact 1/656 witness and 984
+nonzero coordinates.  Preserved the key boundary: 28 is certified sufficient
+and locally minimal, not proved globally minimal on 1000 points.
+
+## 2026-08-13T04:39:00Z — session end
+
+Resume: A true minimum threshold requires a scalable coarsest-repair algorithm
+or hardness result; do not infer it from the joint statistic.
