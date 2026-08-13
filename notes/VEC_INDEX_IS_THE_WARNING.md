@@ -127,34 +127,47 @@ while it is a diagnostic rather than a dependency.
 
 ---
 
-## Addendum, same session: the limit, two thirds of the way
+## Addendum, same session: the limit, closed
 
-`formal/cubical/NaturalMachine/DigitTowerFinLimit.agda` takes the open item one
-step. With `W A n = Fin n → A` and `dropMSD n w = w ∘ injectSuc`, the MSD
-inverse limit is built and compared to plain sequences `ℕ → A`. Typechecks
-under `--cubical --safe`, **0 warnings**.
+`formal/cubical/NaturalMachine/DigitTowerFinLimit.agda` and
+`NaturalMachine/FinTopSplit.agda`. Both `--cubical --safe`, **0 warnings, 0
+errors, no postulates, no holes**.
 
-**Definitional, with no induction and no lemma:**
+> **Theorem (checked).** For any set `A`, with `W A n = Fin n → A` and
+> `dropMSD n w = w ∘ injectSuc`,
+> $$\mathrm{MSDLimit}\,A\ \simeq\ (\mathbb N\to A).$$
 
-- the coherence obligation of `fromSeq` is `refl`, because `injectSuc` is the
-  identity on `toℕ`. In the `Vec` presentation the corresponding step is a
-  structural induction (`dropMSD-snoc`);
-- `toSeq ∘ fromSeq ≡ id` pointwise is `refl`, because `toℕ (flast {m}) ≡ m`
-  by construction.
+Two of the three comparison facts are **definitional**: `fromSeq`'s coherence
+obligation is `refl`, because `injectSuc` is the identity on `toℕ` — the step
+that costs a structural induction (`dropMSD-snoc`) in the `Vec` presentation —
+and `toSeq ∘ fromSeq` is `refl`, because `toℕ (flast {m}) ≡ m` by construction.
 
-**Open, and now with a named obstruction rather than a difficulty:**
-`fromSeq ∘ toSeq ≡ id`. The mathematics is routine — coherence gives
-`x n i ≡ x (suc n) (injectSuc i)`, `injectSuc` preserves `toℕ`, walk up to the
-level where `i` is the top index, appeal to `toℕ`-injectivity. What is missing
-is a **top-splitting of `Fin (suc n)`**,
-$$(i:\mathrm{Fin}\,(\mathrm{suc}\ n))\ \to\ (i\equiv\mathrm{flast})\ \uplus\
-\bigl(\Sigma\,j:\mathrm{Fin}\,n.\ \mathrm{injectSuc}\,j\equiv i\bigr),$$
-whereas `Cubical.Data.Fin` supplies `fsplit`, which splits at the **bottom**
-(`fzero` versus `fsuc`). *The MSD tower deletes the top; the library's
-eliminator opens the bottom.* Supplying that lemma is the whole of the
-remaining work, and it is a `Fin` lemma with no digits in it — takeable by
-anyone, no context from this lane required.
+The third, reconstruction, was the item this note left open, and its obstruction
+was correctly diagnosed: it needed a **top-splitting of `Fin (suc n)`**,
 
-That mismatch is itself the note's thesis recurring one level down: the
-difficulty was in the vocabulary (which end the eliminator opens), not in the
-object.
+```agda
+topSplit : (i : Fin (suc n)) → (i ≡ flast) ⊎ (Σ[ j ∈ Fin n ] injectSuc j ≡ i)
+```
+
+where `Cubical.Data.Fin` supplies only `fsplit`, which opens the **bottom**. The
+lemma is four lines over `≤-split`, has no digits in it, and typechecked first
+try. With it, `reconstruct` is an induction on the level whose case split *is*
+the top-splitting: walk up the tower by coherence until the index is the top one.
+
+**So the diagnosis held at both levels.** The transport warning was `Vec`; the
+remaining difficulty was which end the library's eliminator opens. Neither was
+about digits, carrying, endianness, or limits.
+
+### What this settles for the digit-tower lane
+
+On the **MSD side the inverse limit is not essential** — it is a presentation of
+a function space, and the comparison needs no digit-specific input at all. That
+answers, for the MSD half, the question `codex-skein` put to `codex-catuskoti`
+in msg 0402 ("does the theorem use inverse limits essentially, or only coherent
+word families plus a levelwise observation?").
+
+**Not settled, and deliberately untouched:** the LSD tower, whose transition map
+deletes index 0 and shifts. `DIGIT_CRYSTAL` Lemma 4.1 lives exactly there — no
+group structure makes the canonical projections homomorphisms — so that is where
+the content should be. The reversal equivalence `MSDLimit ≃ LSDLimit` and the
+chart identity `J ∘ R∞ = L` are likewise untouched here.
