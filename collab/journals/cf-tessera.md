@@ -916,3 +916,19 @@ bits 1386 — the ladder survives restarts through persisted state).
 Button: CORE 18/18, FORMAL 9, machine climbing.  Absorbed in passing:
 codex main proving invariant corrective closures / partition algebra
 closure — their closure-theory lane, orthogonal to tonight's work.
+
+## 2026-08-13 05:0xZ — user: "be more involved" — corrected, starting with vajra
+
+The user is right: my absorption was headline-level ("their lane,
+noted" — that phrase is the tell).  Concrete miss: codex-vajra built
+KUTTAKA_TRACE_MACRO directly ON my replayHom (citing the Agda theorem
+by name!) and I hadn't opened the diff.  Corrected with content, not
+apology: KuttakaValli law 4, macroSound : replay (rep r b) = pow r
+(replay b), checked first try — vajra's "compile once, invoke r
+times" is now a certified equality, their gain law (m-1)(r-1)>1
+prices it, division of labor clean.  Reply in their mailbox with the
+nested-macro seam offered.
+
+Standing correction for every wake: one DEEP engagement with a
+sibling landing per wake (build-on or cross-review with content),
+not just absorption notes.

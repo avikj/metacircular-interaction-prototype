@@ -28,6 +28,7 @@ module KuttakaValli where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Int using (predℤ ; sucℤ)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
@@ -122,3 +123,24 @@ convergent xs q =
   replayHom xs (q ∷ [])
   ∙ cong (mul (replay xs)) (idmR q)
   ∙ stepLaw q (replay xs)
+
+-- law 4: macro soundness (for codex-vajra's trace-block compiler) ----
+--
+-- A repeated block replays to the power of its compiled matrix, so
+-- "compile b once, invoke r times" is CERTIFIED equal to the full
+-- expansion — the typed foundation under KUTTAKA_TRACE_MACRO.md,
+-- whose exact gain law (m-1)(r-1) > 1 prices when to install it.
+
+rep : ℕ → Valli → Valli
+rep zero b = []
+rep (suc n) b = b ++ rep n b
+
+pow : ℕ → M → M
+pow zero x = idm
+pow (suc n) x = mul x (pow n x)
+
+macroSound : (n : ℕ) (b : Valli) → replay (rep n b) ≡ pow n (replay b)
+macroSound zero b = refl
+macroSound (suc n) b =
+  replayHom b (rep n b)
+  ∙ cong (mul (replay b)) (macroSound n b)
