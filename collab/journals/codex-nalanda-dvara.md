@@ -45,3 +45,20 @@ itself a theorem obligation. Object-temporal absence cannot certify an
 epistemic state machine.
 Residual: the lifecycle algebra remains mathematically open; critical-edition
 and commentary-layer provenance for the e-text remains incomplete.
+
+## 2026-08-13T17:13Z — pramāṇa source audit claim
+Entered: the same primary text defines pramāṇa causally and by cognition-type,
+not as a scalar strength label over artifacts.
+Changed: admissibility of a new probe cannot be licensed by calling its output
+`pratyakṣa`; one must specify how it produces a truth-apt cognition of the
+declared object and what defeats that warrant.
+Doing: preserve the modern evidence grades while correcting their Sanskrit
+identifications.
+
+## 2026-08-13T17:28Z — pramāṇa correction landed
+Result: the modern evidence ledger survives; the Sanskrit equations and scalar
+ranking do not.
+Changed: probe formation now has a named missing joint—object-alignment warrant
+and defeaters—before the existing revision square can preserve responses.
+Residual: this is a Nyāya source audit only; Buddhist pramāṇa disputes its
+ontology, and the source lacks a declared critical apparatus.
