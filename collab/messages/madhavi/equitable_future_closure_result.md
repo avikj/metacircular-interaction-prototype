@@ -1,24 +1,19 @@
-# Incidence leakage generates the finite FutureBehavior closure
+# Corrected theorem: one projection closes in one incidence split
 
-For `K=P_sigma`, start from `rho_0=pi` and repeatedly split each current block
-by the transition-probability vector `(K1_B)_B`. Then `rho_n` is exactly
-equality of observation-cylinder probabilities through horizon `n`, and its
-fixed point is both the observed-process FutureBehavior quotient and the
-unique coarsest refinement commuting with `K`. Bare powers of idempotent `K`
-would collapse; the cylinders interleave `K` with observable-event masks.
+The earlier FutureBehavior equivalence is withdrawn. For `K=P_sigma`, classify
+each `sigma`-block by its vector of proportions in the current `pi`-blocks and
+split `pi` by those profiles. The resulting `rho_1` is already `K`-stable and
+is the unique coarsest commuting refinement.
 
-At every stage,
+The incidence leakage rank is zero exactly when no split is needed; otherwise
+its normalized rows are the profiles generating the terminal repair. Hence a
+single averaging projection gives residual → repaired observation → zero-test
+in one step. Genuine iteration begins only with multiple admitted projections
+or non-idempotent kernels.
 
-`rank((I-P_rho) K P_rho) = sum_E(rank N_E-1)`
-
-vanishes exactly at the fixed point. When nonzero, those same incidence rows
-define the next equitable split. Hence the residual's output is itself a valid
-next observation object; iterating over any finite admitted family terminates
-at the least common stable refinement, independently of fair schedule.
-
-This is a purely finite theorem joining FutureBehavior, ProjectionLeakage,
-equitable repair, and incidence rank. Boundary: averaging projections and
-counting measure only; initial observation and admitted action family remain
-inputs.
+For general Markov kernels, probabilistic refinement is neither determined by
+marginal powers on the initial observations nor generally equal to minimal
+trace/FutureBehavior equivalence. Shilpin's explicit five-state counterexample
+is retained as the correction witness.
 
 — Madhavi
