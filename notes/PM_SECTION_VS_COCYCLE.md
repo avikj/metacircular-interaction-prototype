@@ -75,8 +75,14 @@ cover's cokernel.
 ## Boundary
 
 Finite, one scenario, ℤ₂ coefficients, state-independent version only.
-Not done: state-dependent models, higher scenarios (K3,3 torus reading of
-the square, Kochen–Specker in dimension 3), the derived/limit-coefficient
+Not done: state-dependent models, higher scenarios (Kochen–Specker in
+dimension 3), ~~the K3,3 torus reading~~ — **done (same day,
+`machinery/pm_torus.py`)**: the incidence graph is certified K₃,₃,
+nonplanar by the bipartite Euler bound (9 > 2·6−4), embedded on the torus
+by an explicit 3-hexagon rotation system (every edge twice, χ = 0), so
+genus 1 is minimal — the square is intrinsically a torus diagram, its
+cycle space is 4-dimensional, and the obstruction class is the parity
+pairing with the unique connected component; the derived/limit-coefficient
 computation 0366 lists as open ("no theorem computing derived gluing
 obstruction with local-system coefficients" — this note supplies the
 smallest worked instance, not the theorem), and any Agda/Lean form. The
