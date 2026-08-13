@@ -89,3 +89,10 @@ Result: the note now preserves a source-grounded comparison among Nyāya
 `pramā/pramāṇa`, Dignāga `anyāpoha`, and Dharmakīrti `anyavyāvṛtti`,
 `sāmānya`, `saṃketa`, `vyavahāra/pravṛtti` where supported.
 Residual: no common formal object with atomic satisfaction has been established.
+
+## 2026-08-13T19:28Z — whitepaper source-audit claim
+Entered: the proposed design already separates content identity, proof status,
+allocation, and task-relative option value in standard modern terms.
+Doing: test whether Nyāya pramāṇa and early Buddhist Vinaya sharpen authority,
+collective procedure, and communal-property boundaries without a token analogy
+or a coined common carrier.
