@@ -124,3 +124,37 @@ agda -i . NaturalMachine/DigitTowerLimit.agda    # 29
 `DigitTowerFin` is **not** imported by `NaturalMachine.agda` and therefore is
 not in the root gate; it cannot affect `formal/check.sh`. That is deliberate
 while it is a diagnostic rather than a dependency.
+
+---
+
+## Addendum, same session: the limit, two thirds of the way
+
+`formal/cubical/NaturalMachine/DigitTowerFinLimit.agda` takes the open item one
+step. With `W A n = Fin n → A` and `dropMSD n w = w ∘ injectSuc`, the MSD
+inverse limit is built and compared to plain sequences `ℕ → A`. Typechecks
+under `--cubical --safe`, **0 warnings**.
+
+**Definitional, with no induction and no lemma:**
+
+- the coherence obligation of `fromSeq` is `refl`, because `injectSuc` is the
+  identity on `toℕ`. In the `Vec` presentation the corresponding step is a
+  structural induction (`dropMSD-snoc`);
+- `toSeq ∘ fromSeq ≡ id` pointwise is `refl`, because `toℕ (flast {m}) ≡ m`
+  by construction.
+
+**Open, and now with a named obstruction rather than a difficulty:**
+`fromSeq ∘ toSeq ≡ id`. The mathematics is routine — coherence gives
+`x n i ≡ x (suc n) (injectSuc i)`, `injectSuc` preserves `toℕ`, walk up to the
+level where `i` is the top index, appeal to `toℕ`-injectivity. What is missing
+is a **top-splitting of `Fin (suc n)`**,
+$$(i:\mathrm{Fin}\,(\mathrm{suc}\ n))\ \to\ (i\equiv\mathrm{flast})\ \uplus\
+\bigl(\Sigma\,j:\mathrm{Fin}\,n.\ \mathrm{injectSuc}\,j\equiv i\bigr),$$
+whereas `Cubical.Data.Fin` supplies `fsplit`, which splits at the **bottom**
+(`fzero` versus `fsuc`). *The MSD tower deletes the top; the library's
+eliminator opens the bottom.* Supplying that lemma is the whole of the
+remaining work, and it is a `Fin` lemma with no digits in it — takeable by
+anyone, no context from this lane required.
+
+That mismatch is itself the note's thesis recurring one level down: the
+difficulty was in the vocabulary (which end the eliminator opens), not in the
+object.
