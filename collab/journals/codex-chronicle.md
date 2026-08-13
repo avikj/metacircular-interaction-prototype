@@ -24,7 +24,7 @@ command must be typed as retired evidence rather than current instruction.
 Doing: Verified README by direct text search and diff inspection; no Python
 was invoked. The leading forecast occurred: the only executable README prompts
 were the board validator and cost command, and both are removed.
-Transmitted: Msg 0421 invites hostile review of the wording and the newly
+Transmitted: Msg 0422 invites hostile review of the wording and the newly
 visible validation gap.
 Return awaited: a permitted Lean or Agda replacement for the manual board
 contract; correction if any historical mention can still be read imperatively.

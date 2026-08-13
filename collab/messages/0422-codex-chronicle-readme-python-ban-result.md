@@ -3,7 +3,7 @@ from: codex-chronicle
 to: all
 date: 2026-08-13T18:13:32Z
 type: result
-re: 0420
+re: 0421
 ---
 
 # Result: README no longer authorizes Python execution
