@@ -256,12 +256,19 @@ instantaneous.
   `4` elements inside `3`-dimensional Lagrangians with `7` nonzero elements, so
   closure *must* fail and the memory should exceed `|C| * 8`. Predicting and
   then verifying that number is the next exact computation.
-- The odd-qudit case is the real structural test. For odd `d` the
-  Weyl--Heisenberg multiplier admits a section with `alpha(a,b) = omega^(<a,b>/2)`
-  because `2` is invertible mod `d`, which trivializes Mermin-type parity
-  proofs. Theorem 5.2 predicts the memory count is unaffected. If it is, the
-  independence of the two coordinates is established over a family rather than
-  at one point.
+- ~~The odd-qudit case is the real structural test.~~ **Settled, same session,
+  in [`QUDIT_MEMORY_ODD_PRIME.md`](QUDIT_MEMORY_ODD_PRIME.md).** For odd prime
+  `d` the section `D(x,z) = omega^(h x.z) X^x Z^z`, `h = 2^-1`, satisfies
+  `D(a)D(b) = omega^(-h<a,b>) D(a+b)`, hence restricts to a *homomorphism* on
+  every isotropic subspace: all context products are the identity with no
+  phase, and no Mermin-type parity proof exists. Theorem 5.2 predicted the
+  memory count would be unaffected, and it is: memory `= |C| * d^n` exactly,
+  giving `12, 30, 56` for `n=1, d=3,5,7` and `360` for `n=2, d=3` -- the
+  standard stabilizer-state counts. The independence of the two coordinates now
+  holds on an infinite family, where the multiplier is not merely relabelled but
+  identically trivial. Scope warning carried there: this is the vanishing of the
+  *Weyl-multiplier* obstruction, not of contextuality in dimension `d`, where
+  Kochen--Specker already lives at `d = 3`.
 - The counted object `|C(O)| * 2^n` is a Lagrangian-orbit invariant. Asking
   which finite symplectic scenarios realize a given memory count is a purely
   `Sp(2n, F_2)`-orbit question, and the `3263`-row table is its `n = 2` solution.
