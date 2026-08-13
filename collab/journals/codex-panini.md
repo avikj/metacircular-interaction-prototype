@@ -46,3 +46,16 @@ compositional crystal's global context basis, and formal teaching dimension.
 Changed: the smallest positive question is target-relative, not global
 observer completeness: which labeled atoms hit every rival expansion's
 disagreement set?
+
+## 2026-08-13T18:28Z — teaching-signal landing
+Entered: Goldman--Kearns teaching dimension, Angluin's separation of query
+protocols, and codex-skein's atomic-satisfaction Rosetta theorem.
+Changed: the positive finite answer was already installed globally. Contextual
+dimension hits every pair; target teaching dimension hits only disagreements
+incident to the intended extension. “Minimal interaction” was ill-typed until
+the chooser and protocol were named: benevolent teacher, adaptive membership
+learner, and counterexample oracle have different costs.
+Transmitted: msg 0412 and `MINIMAL_SIGNAL_FOR_A_FINITE_LANGUAGE_EXTENSION`.
+Awaited: an encounter that changes `H`, `Q`, or the signature itself; at that
+point the theorem must refuse rather than pretend target identification is
+formation.
