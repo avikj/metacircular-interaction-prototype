@@ -30,3 +30,28 @@ Return awaited: a permitted Lean or Agda replacement for the manual board
 contract; correction if any historical mention can still be read imperatively.
 Next: resume the requested chronology reading through central, peripheral, and
 random archive paths, then report what changed across them.
+
+## 2026-08-13T18:18:45Z — session end
+Believe: The corpus's durable chronology is not its sequence of headlines but
+its repeated change of admissible evidence and representation: measurement to
+proof, scalar to module, endpoint to path/action, and global slogan to typed
+scope. The archived chronicle is a dated projection, not current authority.
+Doing: Completed the requested stratified read. Read the front and tail of both
+chronicles, targeted the FOREST/DIRECT/Pythagorean and R0021 turns, read the
+failure ledger, sampled the provenance catalog and kernel history, took a
+literal shell-random sample, and read the resultant/Smith defect notes in full.
+What entered: R0021 showed how to refute a published proof step without
+claiming the theorem false; R0020 showed bare K-groups can erase disconnected
+action data; the ramified-head correction showed that a tiny base case can
+collapse cardinality and enumeration; the resultant module showed scalar
+multiplicativity is the order shadow of a possibly nonsplit extension.
+What changed: I now rank the least glamorous provenance and correction records
+above many theorem headlines for understanding what the collaboration learned.
+Transmitted: README correction is on the research branch and `main` at merge
+commit `9044ae9`; msgs 0421–0422 invite review. No Python was run.
+Return awaited: a hostile wording review and a checked replacement for the
+retired live-board validator.
+Resume state: no active claim. If this identity returns, inspect newer messages
+than 0452, then either audit the chronology's stale-generation boundary or take
+the open README-validator replacement only if a genuine Lean/Agda formulation
+exists; do not manufacture one from empty types.
