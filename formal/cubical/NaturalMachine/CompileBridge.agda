@@ -61,17 +61,21 @@
 --                               improvement is now derived, not
 --                               hypothesised.
 --
--- F. `Tm` terms compiling to `Plan`s (§F).
+-- F. A compiler that is a function of the term too (§F).
 --
 --   `GenerativeLoop`'s disclaimer says §C "does not exhibit `Tm` terms
 --   compiling to `Plan`s" — the compiler there reads only the vocabulary.
---   Here the compiler is a total function of the TERM as well:
+--   Here the compiler is a total function of the TERM as well.  READ §H
+--   BEFORE READING THIS AS AN INTEGRATION: the term contributes exactly
+--   one bit (which capability the task demands); the task's arithmetic
+--   arguments are carried NATIVELY as `ℕ`, and §H proves they have to be.
 --
 --   F1 `compileTm : Vocab → Tm → ℕ → ℕ → Plan`
 --                               the task term is scanned for the
 --                               capability it demands; the vocabulary is
 --                               consulted for whether that capability is
---                               installed.
+--                               installed; `m n : ℕ` are the task's own
+--                               arguments and are NOT encoded in the term.
 --   F2 `compileTm-agrees`       on tasks that demand `checkpoint` it
 --                               agrees with the stipulated `compile`
 --                               (so nothing new is smuggled in), and
@@ -108,6 +112,60 @@
 --                               condition supplied by G2.
 --   G4 `ConcreteTask.task-compiles-better`
 --                               F4 at the concrete task.
+--   G5 `ConcreteTask.task-underdetermined`
+--                               and the boundary at the same instance:
+--                               after all of the above, the state
+--                               (baseVocab , taskTm) still does not
+--                               determine the answer (§H2 applied).
+--
+-- H. THE NEGATIVE RESULT: the loop's state underdetermines the answer.
+--
+--   `notes/GENERATIVE_LOOP_ARITHMETIC_BOUNDARY.md` (codex-vajra,
+--   2026-08-13) proves that the natural arithmetic plug into this
+--   substrate FAILS, by an exact collision: on Z/30 the signals
+--   F = (1,…,1) and G = (2,…,2) generate the same order-1 cyclotomic
+--   sector, hence translate to the identical formal term with identical
+--   `deficit`, while their autocorrelations are (30,…,30) and
+--   (120,…,120).  Support survives translation; coefficients do not.  So
+--   no decoder from the present `Tm`/`Vocab` state recovers the
+--   arithmetic answer, and encoding a sector number into a `Shape` would
+--   be a bridge that passes the kernel while missing the mathematics.
+--
+--   That constraint is honoured here by proving its analogue INSIDE this
+--   substrate rather than by asserting compliance:
+--
+--   H1 `answers-differ`         two runs of the improved plan at
+--                               different arithmetic arguments compute
+--                               different digit words (via `valueC` and
+--                               `AcceptanceTest.replay-observed`, so the
+--                               separation is by the certified observer,
+--                               not by inspection of constructors).
+--   H2 `state-underdetermines-answer`
+--                               THE NO-GO, in vajra's shape:
+--                               for EVERY vocabulary V and EVERY term t,
+--                               there is no `decode : Vocab → Tm → CanWord`
+--                               with `decode V t ≡ exec (resume m (suc n))`
+--                               for all m, n.  One term, one vocabulary,
+--                               many answers.  The loop's state names the
+--                               capability; it does not carry the object.
+--
+--   H2 is why `compileTm` takes `m n : ℕ` natively: that signature is
+--   FORCED, not chosen.  §E-§G are exactly the part of the story that
+--   survives H2 — which capability the task needs, whether generation
+--   supplies it, and which of two plans is emitted — and nothing in
+--   §E-§G decodes an arithmetic answer from a term.
+--
+-- I. The interface that would close what H2 leaves open (§I).
+--
+--   `ArithmeticPayload` is a record with vajra's five required items:
+--   shape-indexed native data, a composition law, semantics from
+--   installed payloads to answers, semantic preservation under
+--   `unfold`, and a cost that is a separate field from the structural
+--   measure — plus `payload-separates`, the field that demands the F/G
+--   collision be resolvable.  IT IS DEFINED AND NOT INHABITED.  Nothing
+--   in this file constructs one and no claim is made that one exists;
+--   it is a named open joint in the style of
+--   `CapabilityGraph.ObservationalClassCompiler`.
 --
 --
 -- WHAT IS DELIBERATELY NOT CLAIMED
@@ -142,6 +200,19 @@
 --    "Strictly cheaper" means strictly fewer scheduled transitions of the
 --    certified odometer.  No native-work theorem is claimed here, and the
 --    open cost edge of the corpus is not closed.
+--  * NO ARITHMETIC INTEGRATION IS CLAIMED, and by H2 none is available
+--    from this state.  In particular §F does NOT unify the substrates:
+--    `compileTm` reads one bit off the term (`demands checkpoint t`) and
+--    takes the task's numbers natively.  A reader who wants "the term
+--    determines the program" gets only that bit; everything numerical is
+--    passed around the term, not through it.  The corresponding sector-
+--    number encoding, which would look like integration, is refused here
+--    on vajra's grounds and is not present anywhere in this file.
+--  * H2 is a no-go about DECODERS FROM THE STATE, not an impossibility
+--    theorem about the enterprise: it says a function of `(Vocab , Tm)`
+--    cannot be the answer.  It does not say no extension of the substrate
+--    can carry the answer — §I names one that could.  §I is not proved to
+--    be sufficient, only to be a type; and no term of it is built.
 --  * The witness policy is still degenerate wherever the loop builds
 --    obstructions (`witness = var`); conservativity holds for any base
 --    witness, and nothing here makes bodies informative.
@@ -154,7 +225,7 @@
 module NaturalMachine.CompileBridge where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; znots)
 open import Cubical.Data.Nat.Order using (_<_ ; _≤_)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Bool
@@ -170,6 +241,7 @@ open Obstruction
 open import NaturalMachine.GenerativeLoop
 
 import NaturalMachine.AcceptanceTest
+import NaturalMachine.Digits
 
 ------------------------------------------------------------------------
 -- D1.  What a task DEMANDS.
@@ -259,7 +331,8 @@ namedAt s (step {W = X} ch o) (inr p) = X , o , p
 module Bridge (k : ℕ) (checkpoint : Shape) where
 
   open NaturalMachine.AcceptanceTest k
-    using (Plan ; restart ; resume ; cost ; exec ; betterProgram) public
+    using (Plan ; restart ; resume ; cost ; exec ; betterProgram ; replay-observed) public
+  open NaturalMachine.Digits k using (CanWord ; valueC) public
   open Compile k checkpoint public
 
   ----------------------------------------------------------------------
@@ -423,6 +496,99 @@ module Bridge (k : ℕ) (checkpoint : Shape) where
       , fst (betterProgram m n)
       , snd (betterProgram m n)
 
+  ----------------------------------------------------------------------
+  -- H.  THE NEGATIVE RESULT.
+  --
+  -- codex-vajra's collision, transported into this substrate.  There the
+  -- signals F = (1,…,1) and G = (2,…,2) on Z/30 have the same cyclotomic
+  -- support — hence the same translated term and the same `deficit` —
+  -- and different autocorrelations.  Here the corresponding fact is that
+  -- the pair (V , t) is constant in the task's arithmetic arguments while
+  -- the answer is not: the loop's state records WHICH CAPABILITY is
+  -- needed and never WHICH OBJECT the task is about.
+  --
+  -- The separation is made by the certified observer `valueC` through
+  -- `AcceptanceTest.replay-observed`, not by inspecting digit-word
+  -- constructors.
+  ----------------------------------------------------------------------
+
+  answers-differ : ¬ (exec (resume 0 (suc 0)) ≡ exec (resume 1 (suc 0)))
+  answers-differ q =
+    znots (injSuc ( sym (replay-observed 0 (suc 0))
+                  ∙ cong valueC q
+                  ∙ replay-observed 1 (suc 0) ))
+
+  -- H2.  No function of the loop's state is the task's answer — for any
+  -- vocabulary and any target term whatsoever.  This is why `compileTm`
+  -- takes the arithmetic arguments natively: the signature is forced.
+  state-underdetermines-answer :
+    (V : Vocab) (t : Tm)
+    → ¬ ( Σ[ decode ∈ (Vocab → Tm → CanWord) ]
+            ((m n : ℕ) → decode V t ≡ exec (resume m (suc n))) )
+  state-underdetermines-answer V t (decode , h) =
+    answers-differ (sym (h 0 0) ∙ h 1 0)
+
+------------------------------------------------------------------------
+-- I.  THE OPEN JOINT, named only by its required interface.
+--
+-- `notes/GENERATIVE_LOOP_ARITHMETIC_BOUNDARY.md` lists five items the
+-- missing object must carry.  They are the five fields below, plus
+-- `payload-separates`, which is the demand that the F/G collision be
+-- resolvable — exactly what §H proves the present state cannot do.
+--
+-- THIS RECORD IS DEFINED AND NOT INHABITED.  Nothing in this file, and
+-- nothing in this corpus that I am aware of, constructs a term of it.
+-- No claim is made that one exists, nor that these fields are sufficient
+-- for the arithmetic task; the record is a statement-to-prove written in
+-- the type language, in the style of
+-- `CapabilityGraph.ObservationalClassCompiler`.
+------------------------------------------------------------------------
+
+record ArithmeticPayload : Type₁ where
+  field
+    -- (1) native coefficient/certificate data, indexed by the shape that
+    --     names its sector.  This is what a `Shape` alone does not carry.
+    Datum   : Shape → Type₀
+    -- the task answers (correlation vectors, certificates, …)
+    Ans     : Type₀
+    -- installed payloads: a store attached to a vocabulary
+    Store   : Vocab → Type₀
+    atom    : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+    -- installing a definitional extension installs a payload with it
+    installP : {V : Vocab} → Store V → (d : Shape) (b : Tm) → Over V b
+             → Datum d → Store (d ∷ V)
+
+    -- (2) a checked composition law: the answer of a composite task is
+    --     built from the answer of its head and the answer of the rest.
+    combine : Ans → Ans → Ans
+    -- (3) semantics: installed payloads plus a covered task term give an
+    --     answer, compositionally.
+    sem     : {V : Vocab} → Store V → (t : Tm) → Over V t → Ans
+    sem-node : {V : Vocab} (st : Store V) (c : Shape) (u : Tm)
+             → (hc : memb c V ≡ true) (hu : Over V u)
+             → sem st (node c u) (hc , hu) ≡ combine (atom st c hc) (sem st u hu)
+
+    -- (4) unfolding a generated definition preserves the semantics.  This
+    --     is `Obstruction.unfold-elim` upgraded from coverage to meaning.
+    unfold-preserves :
+      {V : Vocab} (st : Store V) (d : Shape) (b : Tm) (bB : Over V b)
+      (x : Datum d) (t : Tm) (h : Over (d ∷ V) t)
+      → sem (installP st d b bB x) t h
+        ≡ sem st (unfold d b t) (unfold-elim V d b bB t h)
+
+    -- (5) a cost that is a SEPARATE field from the structural measure.
+    --     Nothing may identify `vcost` with `deficit`; the termination
+    --     argument of `GenerativeLoop` must remain the structural one.
+    Cost    : Type₀
+    vcost   : {V : Vocab} → Store V → (t : Tm) → Over V t → Cost
+
+    -- The F/G requirement: one term, one vocabulary, two payloads, two
+    -- different answers.  A carrier without this field would collide
+    -- exactly as `state-underdetermines-answer` says the bare state does.
+    payload-separates :
+      Σ[ V ∈ Vocab ] Σ[ t ∈ Tm ] Σ[ h ∈ Over V t ]
+      Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] (¬ (sem st t h ≡ sem st' t h))
+
 ------------------------------------------------------------------------
 -- G.  A concrete task, with the naming step COMPUTED.
 --
@@ -521,6 +687,15 @@ module ConcreteTask (k : ℕ) where
     (m n : ℕ) → Σ[ X ∈ Vocab ] Σ[ o ∈ Obstruction X ] TermImprovementAt X o taskTm m n
   task-compiles-better =
     generation-compiles-better baseVocab taskTm resumeCap-absent task-demands-resume
+
+  -- G5: and the boundary, at the same concrete task.  After all of the
+  -- above, the state `(baseVocab , taskTm)` STILL does not determine the
+  -- answer — §H at this instance.  What generation supplied is the
+  -- capability, not the object.
+  task-underdetermined :
+    ¬ ( Σ[ decode ∈ (Vocab → Tm → CanWord) ]
+          ((m n : ℕ) → decode baseVocab taskTm ≡ exec (resume m (suc n))) )
+  task-underdetermined = state-underdetermines-answer baseVocab taskTm
 
 ------------------------------------------------------------------------
 -- Base-10 witness that the parameterised bridge really instantiates.

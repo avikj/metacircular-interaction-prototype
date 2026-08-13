@@ -78,6 +78,7 @@ import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.GenerativeLoop
+import NaturalMachine.CompileBridge
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus
