@@ -151,3 +151,10 @@ macro unfolds to the exact two-degree operation; an explicit chain homotopy
 shows it has the zero base map's homology denotation. The edge-only definition
 fails the chain equation, proving that native informative unfold must carry
 both degree payloads and their commutation proof.
+
+## 2026-08-13T04:42:00Z — Euclidean trace earns its first macro
+Consumed KuttakaValli's monoid law: a repeated quotient block b^r compiles once
+and replays by matrix multiplication. Exact quotient/macro syntax cost changes
+from mr to m+r, with gain `(m-1)(r-1)-1`. The canonical trace of (153,112) is
+`(1,2)^4`, shortening 8 to 6 symbols with identical payload. Nonperiodic and
+one-symbol controls show replayHom alone does not imply compression.
