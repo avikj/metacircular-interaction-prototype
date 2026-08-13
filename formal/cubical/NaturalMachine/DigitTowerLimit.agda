@@ -18,7 +18,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Vec.Base as V using (Vec ; [] ; _∷_ ; _++_)
 import Cubical.Data.Vec.Properties as VecProperties
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
+open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 private
   variable
@@ -245,19 +245,24 @@ carry-defect-decomposition
   → (d + base · x) + (e + base · y)
     ≡ r + base · (x + y + carry)
 carry-defect-decomposition base d e r carry x y column =
-    rearrange-left
+    rearrange-left base d e x y
   ∙ cong (λ z → z + base · x + base · y) column
-  ∙ rearrange-right
+  ∙ rearrange-right base r carry x y
   where
+    -- v0.5 skew (BUILD.md): the solver macro is `solve`, applied to the
+    -- QUANTIFIED goal — so the helpers are stated over fresh variables and
+    -- instantiated at the enclosing ones.
     rearrange-left
-      : (d + base · x) + (e + base · y)
-      ≡ (d + e) + base · x + base · y
-    rearrange-left = solveℕ!
+      : (b d′ e′ x′ y′ : ℕ)
+      → (d′ + b · x′) + (e′ + b · y′)
+      ≡ (d′ + e′) + b · x′ + b · y′
+    rearrange-left = solve
 
     rearrange-right
-      : (r + base · carry) + base · x + base · y
-      ≡ r + base · (x + y + carry)
-    rearrange-right = solveℕ!
+      : (b r′ c′ x′ y′ : ℕ)
+      → (r′ + b · c′) + b · x′ + b · y′
+      ≡ r′ + b · (x′ + y′ + c′)
+    rearrange-right = solve
 
 -- Opposite control: a zero carry makes least-significant deletion preserve
 -- addition exactly at the tail level.
