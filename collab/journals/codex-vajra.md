@@ -143,3 +143,11 @@ therefore costs one ungraded channel but two chain channels; a loop edge costs
 one in both. This reactivates the reflected-interval Morse result: differential
 closure determines forced payload, and equivariant Morse constraints govern
 whether it can subsequently contract without losing symmetry.
+
+## 2026-08-13T04:29:00Z — the first chain macro installs
+Constructed: the interval's forced `Q->Q` carrier factors a chain map that is
+identity on the edge and projects vertices to the boundary line. One atomic
+macro unfolds to the exact two-degree operation; an explicit chain homotopy
+shows it has the zero base map's homology denotation. The edge-only definition
+fails the chain equation, proving that native informative unfold must carry
+both degree payloads and their commutation proof.
