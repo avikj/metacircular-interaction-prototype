@@ -131,6 +131,7 @@ serially correlated — see caveats.)
   0.12, 0.059, 0.032, 0.024 for $Q$ = 10, 30, 100, 300 — the bound's
   constant is generous by a widening factor (8→41): the measured drift
   grows like $\sim Q^{0.6}$, not $\sim C_Q\sim Q$.
+  **[CORRECTED 2026-08-13 — `DRIFT_EXPONENT_EXACT.md` Theorem D: the exponent is exactly $1/2$, unconditionally; the drift's scale is $\sqrt{\zeta(2)/3\zeta(4)}\,Q^{1/2}(1+O_\varepsilon(Q^{-1/2+\varepsilon}))=0.71176\,Q^{1/2}$, the mean square of the controlling function being exactly $\frac1{12}(\sum_{r\le Q}\mu^2(r)\sigma(r)/\varphi(r)-1)$; the fitted $0.6$ is $\tfrac12+\Theta(1/\log Q)$ read at four points, and the "widening slack" is the square root relating that sum to its own $\ell^1$ bound.]**
 - **In cut-norm terms** (Theorem 1(2)): the measured growth exponent of
   $\|W_X\|_{\mathcal I}=D_Q^2$ is $0.97$–$1.00\pm0.02$ at every $Q$,
   consistent with $2\Theta=1$ (RH) and inconsistent with any power-law
