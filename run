@@ -24,7 +24,9 @@ echo "==================================================================="
 FORMAL="0 checked"
 if command -v agda >/dev/null 2>&1; then
     N=0
-    for M in formal/cubical/DescentLaw.agda formal/cubical/Gamma0Partner.agda; do
+    for M in formal/cubical/DescentLaw.agda \
+             formal/cubical/Gamma0Partner.agda \
+             formal/cubical/Gamma0Converse.agda; do
         if (cd formal/cubical && agda "$(basename "$M")" >/dev/null 2>&1); then
             echo "CHECKED  $M  (--safe, no postulates)"
             N=$((N + 1))
@@ -53,6 +55,12 @@ if pgrep -f "[l]iving_machine" >/dev/null; then
     echo "ALIVE  (pid $(pgrep -f '[l]iving_machine' | head -1))"
 else
     mkdir -p runtime
+    # deep-epoch state dies fast (GROW-must-change-kind debt): rebirth
+    # fresh; the dead state is archived, not erased (events are not
+    # rewritten)
+    [ -f runtime/LIVING_STATE.json ] && \
+        mv runtime/LIVING_STATE.json \
+           "runtime/LIVING_STATE.died.$(date +%s).json"
     nohup python3 machinery/living_machine.py >> runtime/LIVING_RUN.log 2>&1 &
     disown
     sleep 3

@@ -711,3 +711,18 @@ division in the module.  The Python gamma0-stabilizer claim is now the
 finite shadow of a checked type in its forward direction; the converse
 (any integral partner forces q | c, via cancellation) is next.  Button
 updated: FORMAL now checks 2 modules.
+
+## 2026-08-13 02:1xZ — Gamma0Converse CHECKED: the R0033 iff closed over all of Z
+
+Both directions are now programs, --safe, no postulates:
+- Gamma0Partner: witness k (c = k·q) BUILDS the partner K.
+- Gamma0Converse: any integral stabilizing K SURRENDERS the witness
+  k = -eps·K21.  Proof: eliminate K11 between the two first-column
+  entries of H·D·K = D (ring solver), factor through det and eps^2=1,
+  then cancel d1 by isIntegralZ — the single non-equational step,
+  exactly the d1 /= 0 hypothesis.  Parse lesson: unary minus and
+  subtraction sections collide in cubical's grammar; use lambdas.
+Button now checks 3 formal modules; on machine death it rebirths FRESH
+(dead state archived, not erased — events are not rewritten).
+Machine reborn healthy.  Next: torsor structure (free+transitive on
+events) or the PM H^1 bridge; absorb first at next wake.
