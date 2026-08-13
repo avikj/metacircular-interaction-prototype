@@ -7,7 +7,7 @@
 **Status.** This paper composes results, protocols, and implementation work
 already present in this repository with established mathematics and computer
 science. It is not a claim that the complete network described here has been
-built. Section 15 separates operating components, proved finite results,
+built. Section 16 separates operating components, proved finite results,
 specified interfaces, and open engineering. “Rosetta” names the practice of
 recording exact translations between languages; it does not rename the
 mathematics being translated.
@@ -581,7 +581,7 @@ Mitigation: scoped capabilities, expiry and revocation, threshold controls,
 content-addressed dependencies, reproducible environments, availability rules,
 rate/resource limits, private-by-default operation, and recoverable forks.
 These are design requirements where the corresponding mechanism is not listed
-as operating in Section 15.
+as operating in Section 16.
 
 ## 14. Governance constitution
 
@@ -634,9 +634,99 @@ recommendations. No common formal object uniting these traditions with the
 modern protocol has been established. The full source audit and untranslated
 residuals are recorded in `WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT.md`.
 
-## 15. What exists now
+## 15. The mathematical payload
 
-### 15.1 Operating
+The network is not proposed around an empty ledger. Its present corpus contains
+checked terms, exact finite theorems, prior-art translations, counterexamples,
+and open joints across several mathematical lives.
+
+### 15.1 Generation and behavioral quotients
+
+The common standard construction behind several implemented examples is the
+Myhill–Nerode/future-behavior equivalence: two states are identified when every
+admitted continuation produces the same observation. This yields:
+
+- remainder automata for positional divisibility;
+- substring-recognition automata;
+- quotient dynamics and finite process discrimination;
+- unobservable-subspace quotients for finite linear systems;
+- shortest distinguishing experiments and minimum test collections.
+
+The Lean development checks that complete-future equality is an equivalence,
+is preserved by actions, supports quotient actions and observations, and is the
+coarsest relation preserving the declared futures. Domain-specific calculations
+then identify its arithmetic, linguistic, or control-theoretic form.
+
+### 15.2 Arithmetic and construction
+
+For binary divisibility by `m=2^a q` with `q` odd, the exact minimal state count
+is `q+a`. The coordinates can be recovered dynamically: `q` is the stable image
+size of repeated multiplication by two modulo `m`, and `a` is the number of
+strict image contractions. More general base/modulus developments prove finite
+future horizons and compile useful action words while retaining their expansion.
+
+The formal corpus also contains executable and verified `2×2` Smith normal-form
+certificates, counted executions, residue transports, addition-chain and
+valuation witnesses, and precise no-gos showing where coefficients, histories,
+or action carriers cannot be replaced by their cardinalities.
+
+### 15.3 Charts, univalence, and symmetry
+
+The safe Cubical Agda development proves, without postulates or holes:
+
+- loop spaces of finite types correspond to their symmetric groups;
+- the natural-number algebra is rigid although its bare carrier has
+  nontrivial permutations;
+- tally and canonical digit presentations are equivalent to `ℕ`;
+- transport of addition along univalence computes as native ripple-carry
+  addition on canonical words;
+- reversal and complement are chart symmetries with different compatibility
+  with truncation and value maps;
+- cardinality is a truncation that forgets the permutation loop space;
+- explicit most-significant- and least-significant-digit inverse limits are
+  equivalent under reversal, while canonical group-diagram structure and carry
+  expose what the bare type equivalence forgets.
+
+This is the formal center of the system's identity discipline: equivalence can
+transport structure only after the structure and morphism type are named.
+
+### 15.4 Gluing, observers, and residuals
+
+For residue views modulo `m` and `n`, compatibility is equality modulo
+`gcd(m,n)` and each compatible pair retains a fiber of that size; coprime views
+reconstruct exactly. For averaging projections, commutation is controlled by
+incidence geometry, and leakage measures the failure of one observation space
+to remain invariant under another action. In contextual quantum examples,
+operator phase, cover, local system, and downstream obstruction class remain
+separate objects.
+
+Across these cases the network stores the standard kernel, fiber, cokernel,
+cocycle, commutator, obstruction, or missing hypothesis—not a generic
+“mystery residual.” A Rosetta entry is complete only when the native residual
+has been identified or honestly left open.
+
+### 15.5 Analytic and spectral research
+
+The larger corpus includes exact and corrected work on prime-pair spectral
+expansions, positivity criteria, arithmetic regularity, Mellin/Fourier
+translations, rigidity and homometry, operator algebras, eigenmeasures, and
+finite optimization certificates. These results carry individual hypotheses,
+correction ledgers, and evidence grades. This whitepaper does not flatten them
+into one tokenizable claim or restate their hundreds of pages; the research
+graph is their lossless index.
+
+### 15.6 Open typed joints
+
+The formal capability graph records missing maps rather than inferring them
+from imports. Current examples include an observational-class carrier for a
+declared complete response relation and an adapter from a classical response
+oracle to a coherent phase oracle with explicit compute–phase–uncompute cost.
+An open joint means no checked inhabitant is installed, not that impossibility
+has been proved.
+
+## 16. What exists now
+
+### 16.1 Operating
 
 - private Git synchronization and isolated worktrees;
 - builder, breaker, auditor, and integrator collaboration;
@@ -647,7 +737,7 @@ residuals are recorded in `WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT.md`.
 - content-addressed snapshots of existing source state;
 - explicit privacy and release policy.
 
-### 15.2 Proved or exactly checked in scoped models
+### 16.2 Proved or exactly checked in scoped models
 
 - task-relative cache option value is not determined by scalar present cost;
 - finite teaching sets are disagreement-hypergraph hitting sets;
@@ -663,7 +753,7 @@ residuals are recorded in `WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT.md`.
 - numerous domain-specific theorems, no-gos, and formal capabilities recorded
   elsewhere in the repository.
 
-### 15.3 Specified but not generally implemented
+### 16.3 Specified but not generally implemented
 
 - versioned presentation and equivalence-theory records;
 - a general verified morphism/groupoid kernel;
@@ -673,7 +763,7 @@ residuals are recorded in `WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT.md`.
 - causal contribution accounting;
 - equivalence-assisted evaluation caches.
 
-### 15.4 Not built
+### 16.4 Not built
 
 - a native cryptocurrency or public chain;
 - decentralized consensus or Sybil-resistant federation;
@@ -684,7 +774,7 @@ residuals are recorded in `WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT.md`.
 - end-to-end empirical evidence that the proposed allocation layer outperforms
   expert integration.
 
-## 16. Minimal implementation path
+## 17. Minimal implementation path
 
 1. **Preserve the operating research loop.** Do not replace working social and
    formal checks with a protocol simulation.
@@ -710,7 +800,7 @@ specify principals and keys, admission and Sybil assumptions, rotation and
 compromise recovery, authenticated checkpoints, rollback/equivocation
 detection, fault thresholds, and explicit safety and liveness properties.
 
-## 17. Evaluation
+## 18. Evaluation
 
 Any pilot reports a vector, not one headline score:
 
@@ -730,7 +820,7 @@ Any pilot reports a vector, not one headline score:
 Baselines, workloads, policies, and stopping rules are preregistered. Allocation
 gains cannot excuse semantic or privacy failures.
 
-## 18. Conclusion
+## 19. Conclusion
 
 The natural unit of mathematical coordination is not a coin. It is a typed,
 content-addressed contribution situated in a graph of dependencies, proofs,
