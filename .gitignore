@@ -10,3 +10,5 @@ collab/orchestration/persistent-minds.*.log
 collab/orchestration/worker-runs/
 collab/orchestration/worker-sessions/
 vigil-state.json
+runtime/LIVING_RUN.log
+runtime/LIVING_STATE.json
