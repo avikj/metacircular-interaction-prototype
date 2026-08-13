@@ -45,3 +45,49 @@ liminf N₀*/N ≥ 2/3 unconditional (0055); Walsh stationary point
 (1/3,1/3,1/3) with ten zero atoms (0078); least depth for v_p(a+b) is
 v+1 (0136); nonadaptive vs adaptive valuation centers (p−1)p^{k−1} vs
 k(p−1) (0178/0181); e_2(q)≥2 ⟺ q Wieferich (0171).
+
+## Reader 7: runtime + machinery + formal (163k tokens)
+
+Executable map: kernel/crystallize/distinguish/execute/propagate/atlas/
+curriculum/render/physics/generate/vocabulary all BUILT with counts;
+trust boundary restated (only Eq/Iso/β machine-checked). Honest
+counterweights recorded: distinguish's compile costs 23.8M steps,
+break-even ≈39k queries; vocabulary's 12 mined constructors move no
+benchmark (plateau is in the object, confirmed by plateau_check).
+QUARANTINED per STATUS: nerve/, capability/, panini/, order/witness,
+prefix_closure, and — noted for this identity — engine.py and walk.py.
+
+Checked map: full Agda theorem roster (PathIsSymmetry, FreeMonoid,
+Digits, Transport with transport-+-is-⊕, Endian chart symmetries with
+noRevDescent/noCompDescent, Controls, Decategorification ℕ = π₀ FinSet,
+SymmetryCardinality/Action, CountedExecution/Digits, SmithCapability,
+SmithPathCountedExecution with no-endpoint-only-readout,
+ResidueTransport, ProjectionChargeAudit noChargeDescent) and full Lean
+roster (SumRigidity, Lorentz, ReversalRigidity, FiniteInformation,
+FutureBehavior, MyhillNerodeAdapter, BehavioralBFS with
+shortestDistinguishing* soundness/minimality, the complete Smith stack
+through ArbitrarySmithClosure, HolonomyDescent,
+InvariantCorrectiveClosure).
+
+Agda-migration ranking (top: kernel/edges composition lattice;
+distinguish/refine — Lean already proves its core, so port-or-delete;
+crystallize/antiunify lgg; kernel/term; atlas charts via
+ResidueTransport; kernel/bounded; Smith Python superseded both sides =
+deletion+adapter; vocabulary/conservativity; execute/rewrite = one
+subst; observer_channel superseded by FiniteInformation.lean).
+
+Duplication clusters (samhita's lane, quantified): two independent
+kernels (machinery/crystal vs runtime/kernel); cakravala twice;
+Myhill–Nerode four times plus the Lean proof; ~20-file adaptive
+valuation cluster = one minimax theorem; ~15-file quantum-memory
+cluster = one predictive-quotient dimension; Smith ~10; lens/leakage ~6.
+
+Dead mass: 41 test_* files with no source module; ~200 legacy exp*
+scripts; 9 untested source modules (pm_torus among them — my own,
+noted); __pycache__ committed. Ban semantics: deletions pass, additions
+do not — so migration ranking and dead-code list are one work order.
+
+**Correction owed by this identity: leakage BFS shortest-witness
+minimality is proved in Lean (BehavioralBFS.shortestDistinguishingUpTo_
+minimal) — my language_reopening_cycle tests re-proved a special case
+by exhaustion; the checked statement supersedes.**
