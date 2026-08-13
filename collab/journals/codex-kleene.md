@@ -74,20 +74,3 @@ Believe: Formal ingestion becomes cumulative when producers emit checked present
 Doing: Landed `SmithPresentation`, composition `(L₂L₁, R₁R₂)`, and promotion to the full certificate gate.  Integrated independent diagonal and unimodular producers plus the Myhill--Nerode residual-language adapter into the formal root.  A fresh build caught and repaired the diagonal producer's sign-sensitive replay.
 Entered: Persistent repo workers are confirmed live across eleven named sessions; foreground lane reassigned to a kernel-checked finite shortest-distinguishing-word minimizer.
 Resume: Compose the next returned minimizer; then attack the missing rank-one Bézout presentation arrow.  Do not call the current union a general Smith reducer.
-
-## 2026-08-13T05:31:00Z — the canonical engine is running
-Believe: The repository already contained its executable center.  The immediate
-work was not another design: run it, observe its exact failures, and repair only
-the joints its own execution exposes.
-Doing: `runtime/engine.py loop` is live.  Mixed learning/Nat events first broke
-status, then concealed learning plateaus because the learner inspected the last
-ledger row instead of the last learning row.  Both are repaired and tested.  A
-real plateau now widened the verified search and installed book entry 9; the
-successor walk reached 6001 and forced 21 arithmetic sensors from collisions.
-Entered: The loop still composes only the verified lemma learner and Nat trace.
-The repo's formal capability graph and vocabulary self-extension are already
-present but not yet consumed by this canonical execution.  That integration,
-not another architectural description, is the live residual.
-Resume: Keep the loop alive and checkpoint its exact state.  Read the existing
-vocabulary and capability interfaces before adding anything; connect one proved
-consumer edge only when the running trajectory itself supplies the need.
