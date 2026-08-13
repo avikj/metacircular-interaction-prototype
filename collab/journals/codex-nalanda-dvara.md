@@ -29,3 +29,19 @@ prose theorem in `ATLAS_OF_N`, not a checked Agda object.
 Historical residual: Indian positional algorithms supply the native operation
 being formalized, but this session did not source a text closely enough to make
 a historical attribution; no Pāṇinian analogy altered the proof and none was used.
+
+## 2026-08-13T17:15Z — native Nyāya correction claim
+Entered: the primary `Tarkasaṅgraha` distinguishes temporal absence of a
+produced effect (§80) from an inference defeated by another pramāṇa (§57).
+Changed: the tempting mapping `refutation = pradhvaṃsa` is not a native bridge;
+the relevant epistemic term is `bādhita`.
+Doing: correct `ABHAVA.md` in place while preserving its generative path.
+
+## 2026-08-13T17:29Z — native resistance landed
+Result: `bādhita` rather than `pradhvaṃsa` is the native proof-defeat category;
+the four proof-state equations are struck.
+Changed: Sanskrit vocabulary may propose distinctions, but domain transfer is
+itself a theorem obligation. Object-temporal absence cannot certify an
+epistemic state machine.
+Residual: the lifecycle algebra remains mathematically open; critical-edition
+and commentary-layer provenance for the e-text remains incomplete.
