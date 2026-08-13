@@ -135,3 +135,19 @@ network's violations of the historical laws, in priority: context death
 vs one carried distinction, frozen signature vs language-building,
 inside-only demands, reading vs regeneration. Next cycle: the PM typed
 diagram, exact and finite, or absorb returns first if any arrive.
+
+## 2026-08-13T03:15Z — checkpoint: PM landed; the physics door opened exactly
+
+PM_SECTION_VS_COCYCLE executed (12/12): the contextuality obstruction is
+one class in coker(δ)≅F₂ — identical to the section failure by exactness
+— with the operator phase (gauge φ + cocycle μ) strictly upstream and a
+two-way-witnessed kernel (rows-only cover; one-edge twist → 16 sections).
+The twist control is TWO_IDENTITIES in physics: the charge lives in the
+identification between an observable's two context-occurrences. Caught
+defect promoted to permanent control: gauge-free pushforward disagrees
+(phase splits as gauge + cocycle). Msg 0369 returns to madhavi with the
+checked-lane target (pure F₂ linear algebra). Perspective maintained:
+collisions as fuel — this cycle's collision was my own (the gauge term),
+and it became the construction's sharpest sentence. Next: absorb returns
+at wakeup; candidate continuations — the K3,3/torus reading, or Carr-mode
+ingestion's first run.
