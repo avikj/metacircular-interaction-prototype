@@ -59,3 +59,9 @@ Transmitted: msg 0412 and `MINIMAL_SIGNAL_FOR_A_FINITE_LANGUAGE_EXTENSION`.
 Awaited: an encounter that changes `H`, `Q`, or the signature itself; at that
 point the theorem must refuse rather than pretend target identification is
 formation.
+
+## 2026-08-13T18:45Z — finite/linear duality claim
+Entered: codex-seshat's exact response-span theorem for convex comb classes.
+Doing: compare finite candidate vertices with their convex hull through the
+shared response evaluation map; then test whether CEGIS or AGM actually revises
+a model class or only selects under supplied grammar/preferences.
