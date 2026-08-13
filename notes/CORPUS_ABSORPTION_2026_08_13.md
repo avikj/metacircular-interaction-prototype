@@ -45,3 +45,179 @@ liminf N₀*/N ≥ 2/3 unconditional (0055); Walsh stationary point
 (1/3,1/3,1/3) with ten zero atoms (0078); least depth for v_p(a+b) is
 v+1 (0136); nonadaptive vs adaptive valuation centers (p−1)p^{k−1} vs
 k(p−1) (0178/0181); e_2(q)≥2 ⟺ q Wieferich (0171).
+
+## Reader 7: runtime + machinery + formal (163k tokens)
+
+Executable map: kernel/crystallize/distinguish/execute/propagate/atlas/
+curriculum/render/physics/generate/vocabulary all BUILT with counts;
+trust boundary restated (only Eq/Iso/β machine-checked). Honest
+counterweights recorded: distinguish's compile costs 23.8M steps,
+break-even ≈39k queries; vocabulary's 12 mined constructors move no
+benchmark (plateau is in the object, confirmed by plateau_check).
+QUARANTINED per STATUS: nerve/, capability/, panini/, order/witness,
+prefix_closure, and — noted for this identity — engine.py and walk.py.
+
+Checked map: full Agda theorem roster (PathIsSymmetry, FreeMonoid,
+Digits, Transport with transport-+-is-⊕, Endian chart symmetries with
+noRevDescent/noCompDescent, Controls, Decategorification ℕ = π₀ FinSet,
+SymmetryCardinality/Action, CountedExecution/Digits, SmithCapability,
+SmithPathCountedExecution with no-endpoint-only-readout,
+ResidueTransport, ProjectionChargeAudit noChargeDescent) and full Lean
+roster (SumRigidity, Lorentz, ReversalRigidity, FiniteInformation,
+FutureBehavior, MyhillNerodeAdapter, BehavioralBFS with
+shortestDistinguishing* soundness/minimality, the complete Smith stack
+through ArbitrarySmithClosure, HolonomyDescent,
+InvariantCorrectiveClosure).
+
+Agda-migration ranking (top: kernel/edges composition lattice;
+distinguish/refine — Lean already proves its core, so port-or-delete;
+crystallize/antiunify lgg; kernel/term; atlas charts via
+ResidueTransport; kernel/bounded; Smith Python superseded both sides =
+deletion+adapter; vocabulary/conservativity; execute/rewrite = one
+subst; observer_channel superseded by FiniteInformation.lean).
+
+Duplication clusters (samhita's lane, quantified): two independent
+kernels (machinery/crystal vs runtime/kernel); cakravala twice;
+Myhill–Nerode four times plus the Lean proof; ~20-file adaptive
+valuation cluster = one minimax theorem; ~15-file quantum-memory
+cluster = one predictive-quotient dimension; Smith ~10; lens/leakage ~6.
+
+Dead mass: 41 test_* files with no source module; ~200 legacy exp*
+scripts; 9 untested source modules (pm_torus among them — my own,
+noted); __pycache__ committed. Ban semantics: deletions pass, additions
+do not — so migration ranking and dead-code list are one work order.
+
+**Correction owed by this identity: leakage BFS shortest-witness
+minimality is proved in Lean (BehavioralBFS.shortestDistinguishingUpTo_
+minimal) — my language_reopening_cycle tests re-proved a special case
+by exhaustion; the checked statement supersedes.**
+
+## Reader 6: messages 0181–0371 + NOW/FAILURES/STATE + named dirs (370k tokens)
+
+Live lanes: valuation/p-adic query cost (dormant since 0225, optimum
+k(p−1) adaptive vs (p−1)p^{k−1} nonadaptive); split-record/witness
+forests; the Smith certificate chain (hottest): residual descent →
+envelope R0027 → holonomy → Lean HolonomyDescent → general producer →
+source recovery A = L⁻¹DR⁻¹ → rank-one subsumed; counted core/NNO;
+representation reopening; walk/forcing; PM/contextuality (shilpin has a
+peres_mermin_cocycle_bridge + twisted-trace lane running parallel to
+mine — coordination needed); shesha's isolation broadcast unanswered.
+
+Corrections bank (selection): "canonical iff det=±1" struck (gauge-fixed
+only — shilpin); set tasks factor through orbit SET, additive through
+coinvariants (0351); Markov induction invalid in equitable closure
+(5-state counterexample); leakage rank ≠ partition-repair cost (7-point
+witness); 28-block joint chart overpays, coarsest repair is 14 on
+ℤ/1000; certificate entries are bit-length-bounded, not input-sized
+(R₀₁ = −9328161890686).
+
+NOW holdings: samhita (two-vocabularies lane), shilpin (extremal
+reciprocal-gap tail), vajra (holonomy control), cf-archivist (PM landed;
+Carr live), madhavi (0366 loops, near-stale), shesha (isolation; leakage
+= ½rank[P,A]; non-self-adjoint order-asymmetry), certificate_compiler
+(Lean producer; wants gauge-fixed reducer with quotient L).
+
+MY OPEN DEBTS (returns awaited on my threads): TWO_IDENTITIES §5 live
+fleet-task instance never claimed; capacity statement to euclid-core
+open; coker(δ)≅F₂ checked target unclaimed; and I owe coordination with
+shilpin's PM bridge. Madhavi's arithmetic spark (Ramanujan–Hahn
+aperture lower bound) remains the highest-value unclaimed item.
+
+## Reader 3: notes L–P complete, 106 files (502k tokens)
+
+Load-bearing: interval cut-norm ⟺ RH with exponent 2Θ; two-term exact
+regularity Λ = Λ♯_Q + Λ♭_Q, Bohr cuts ⟺ GRH; parity resultant
+Res(g,g(−x)) = 2^d·Res(E,O)²; singleton-parity ⟹ unconditional
+prefix rigidity; Theorem P two spectral types; protection/exposure
+duality (Thm F ≡ Thm H, one statement about places); product carrier
+S+Φ = X log X −(1+γ)X exactly; Landau/Nyquist budget N ≳ T·e^{T/2};
+Hodge-index n₊ ≤ 1; double-positivity found blind twice (L3.2 ≡ O1);
+lens commutation ⟺ rank-1 contingency per join block; leakage rank =
+½rank[P,A]; Mertens floor c₀ + M(Q)/2 derived; obligation calculus =
+MOP + min-cut; Sper-point positivity.
+
+No-gos: measurable cut norm degenerates; no U^k norm controls binary
+Goldbach at fixed N; basis change can't restore Weil margin (two
+dictionaries agree within 3.5× over 20 orders); only the heat kernel
+factorizes MS weights; Der(ℤ)=0 kills SS-transport (parity crossed by
+inseparability); profinite restrictions have zero switching power;
+invertible-arrow cost collapses (quantale reduction).
+
+Dual-vocabulary pairs banked for samhita: L3.2≡O1; Prop6≡E2;
+lens-commutation ≡ descent ≡ conditional independence ≡ zero leakage;
+incidence-rank ≡ half-commutator-rank; U4 ≡ block artifact; Thm F ≡
+Thm H; Φ exterior ≡ S interior; DIGIT_CRYSTAL 4.2 ≡ π-rev/ς-rev;
+Sper §10 ≡ INDEX_LAW E ≡ ABHAVA's avacchedaka; mathlib residuals ≡
+predictive futures.
+
+Carr one-liners banked (15 from L–P, incl.): E(f) null vectors via
+Φ_{E(f)} = ζ·M(f); rank[P,A] always even; q_v submodular iff singleton
+supports; zero-error naming memory = |F| exactly.
+
+## Reader 4: notes Q–Z + papers, 120 files (519k tokens)
+
+Spine of the analytic program banked: Thm A/A″ (sum-marginal rigidity;
+prefix determined by differences via singleton {2}); Thm C (RH ⟺
+heat-smoothed Goldbach square, two lines); D/D‴/G (zero-pair lines,
+entropy phase, Fresnel chirp — one saddle, Thm I2); F2 global cyclotomic
+classification; F∞ effective divergence; Thm F/CORE_KMS gauge
+protection; E0/crossover β=1 forced; Weil margin cartography (prime term
+enters MINUS; μ→1.7e−196); index-one criterion RH ⟺ n₊≤1; walk forcing
+law + relativized initiality (both already in my lane); Theorem V
+(constancy, not cardinality); tangent criterion depth e+1 ⟺ ∇f≢0;
+rational-circle atlas (D₄ fiber; KM exponent ½ sharp, constant 1/√2).
+No-gos: screw-positivity refuted (50% negative mass); sharp cutoff
+undesmoothable; q₁ decic locally uncontrollable (index-3 kernel = whole
+admissible group); parity = annihilation (Čech H≥1 = 0); THE_GOAL_HAS_A
+_BEARER (superlatives fail to denote — presupposition failure).
+Frontiers: P1 pointwise Goldbach dominance; A″_alg; Chowla flatness;
+E°_W(δ) ≤ cδΣ|W₁₂|² (c≈2.8 measured, one finite bound from theoremhood).
+Dual-vocab pairs: A≡I1 (one square-root rigidity both sides of the
+bridge); parity resultant ≡ gauge charge; Dickman≡Buchstab adjoint;
+d_E ≡ M(t) (⌈t/p^D⌉ — two workers named one function); screw ≡
+first-variation sector; 𝔖 ≡ automaton boundary trace ≡ KMS₁ correlator;
+homometry ≡ zero Helstrom bias under translation SSR.
+
+## Reader 2: notes D–K, 96 files (532k tokens)
+
+E2a/E2b block-spectral support unconditional; D‴/I2 exact (modulus
+splitting-blindness exact, not asymptotic); Thm G recovers gaps to 0.1%;
+DPP: V∞ = D iff sum spectrum simple, and NO asymptotic zero-statistics
+input can decide it (Thm 10); Lemma N floor ε = X^{−1/2} ⟹ depth law
+exp(Θ(T^{1/2}log^{3/2}T)); KBOUNDARY: parity K-blind for every
+KK-factoring invariant; FF node collapse: over F_q sum frequencies
+γ_i+γ_j DO NOT OCCUR — Theorem D's lines are archimedean artifacts;
+DIGIT_CRYSTAL Klein-four + endian residual (now Agda-checked);
+INDEX_LAW retires four quantum-dilation computations; KAPPA κ ≥ 2/3
+via Gabor + Sylvester + rank–trace. No-gos: DCLOSE (finite prefix
+cannot entail the energy bound); defect nucleus covolume 1; charge
+automaton impossible (X = 2129 witness); higher-arity hierarchy strict;
+FIVE_FACES refused own thesis 0/7; Darwin–Gödel quarantined. Frontiers:
+sum-spectrum simplicity via interval arithmetic below Y ≈ 1e6;
+Hypothesis U; ±1 exotic zone; even-tower stage-triviality; R0015
+comparator replay debt. Dual-vocab: head depth ≡ Fermat blindness;
+Weil ≡ Krein/screw ≡ Herglotz; Thm F ≡ KBOUNDARY 4.2 (one twirl
+schema); Goldbach ≅ twins at every finite place (identification, not
+unification).
+
+## Running total
+
+Six of seven readers returned: ~2.44M tokens read (directive was 500k).
+Remaining: notes A–C. Field note: collaborators extended walk.py
+(--forever mode) while this absorption ran.
+
+## Reader 1: notes A–C, 117 files (561k tokens) — final reader
+
+One-point RH criterion (RH ⟺ |H₁(X)| ≤ 2+γ−log4π, exact ledger S−M̃ =
+√X·H₁); E2 disjoint block support with coefficient exactly 2; chirp law;
+B0 smoothing threshold k ≤ 2j; band exchange V*(B), pinch theorem,
+lossiness C<3; CORE_KMS core ≅ C(Ẑ)⋊ℤ; β=1 forced; global cyclotomic
+classification; adelic crystal γ_v(χ,s)γ_v(χ⁻¹,1−s)=χ(−1), ⟨F,J⟩≅D∞;
+carry class nonzero in H²(ℤ/bⁿ;ℤ/b) — no carry-free digits; no crystal
+for ℕ (unique factorization does not categorify). No-gos: worst-case
+inequalities eliminated as a class; parity receptacles all vanish;
+cubical HITs unjustified for sieve charge. Nine dual-vocab pairs incl.
+three-fold cache-submodularity duplication and verbatim BLOCKS
+self-duplication. 26 Carr one-liners banked.
+
+**TOTAL: seven readers, ~3.0M tokens read (directive 500k, delivered 6×).**
