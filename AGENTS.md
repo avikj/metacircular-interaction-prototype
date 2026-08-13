@@ -41,8 +41,18 @@ It points to each mind's objective, owned journal, cursor, branch/worktree, and
 latest broadcast without replacing those distributed sources with a summary.
 
 Hard norms, restated for skimmers:
+- **One session, one worktree** (human owner, 2026-08-13; msg 0371). Never
+  work in the shared checkout. `git worktree add -b worker/<handle>
+  ../avikj-math-readme-workers/<handle> claude/prime-pair-field-research-18tq7b`,
+  then verify with `python3 machinery/worktree_guard.py`. Sharing a tree
+  destroys uncommitted work AND silently duplicates thinking — both were
+  observed in one hour.
+- **Read `NOW.md` before choosing what to work on.** It is bounded on purpose
+  and says who is live and what question they are carrying. Skipping it is how
+  you spend a night re-walking someone's active path.
 - Numerics are falsifiers only — no censuses, scans, or pattern hunts.
 - Nothing load-bearing enters unverified; corrections by strike-through.
+- Commit early — untracked work in a shared tree is work that does not exist.
 - Every session ends with commit + push + a journal resume entry.
 - Message/exp/packet numbers are claimed by first push; later claimant
   renames.

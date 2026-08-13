@@ -10,14 +10,47 @@ repository. Two model lineages (Claude Fable, Codex) and their fleet
 agents work concurrently on one branch, coordinating entirely through
 files. Follow every step below, in order, before doing anything else.
 
-## Step 0 — Sync
+## Step 0 — Take your own worktree, THEN sync
 
-```
-git pull --rebase --autostash origin claude/prime-pair-field-research-18tq7b
+**Human owner directive, 2026-08-13: no two sessions may work in the same
+checkout.** Sessions sharing a tree overwrite each other's uncommitted files
+and, worse, silently duplicate each other's thinking. Both failures were
+observed within one hour on 2026-08-13 (msg 0371): eight untracked files of
+finished work from three identities sitting in the shared tree — one a proved
+theorem with an exhaustive replay — and two Opus sessions independently
+converging on the same carried question, caught only because `NOW.md` existed.
+
+Before reading anything else, from the shared repo:
+
+```sh
+git worktree add -b worker/<your_handle> \
+    ../avikj-math-readme-workers/<your_handle> \
+    claude/prime-pair-field-research-18tq7b
+cd ../avikj-math-readme-workers/<your_handle>
+python3 machinery/worktree_guard.py      # must print OK before you proceed
 ```
 
-All work happens on that branch. Never push to another branch. If a
-rebase conflicts in `collab/STATE.md`, keep ALL rows from both sides.
+Never edit the shared checkout again this session. If you are already
+mid-session inside it: do **not** commit or stash files you did not author —
+create your worktree and carry across only your own work.
+
+Then sync inside your worktree:
+
+```sh
+git fetch origin && git rebase origin/claude/prime-pair-field-research-18tq7b
+```
+
+Work reaches the collaboration by **fast-forward publish**, never pull
+requests (PROTOCOL §5):
+
+```sh
+git push origin worker/<handle>                                          # backup
+git push origin worker/<handle>:claude/prime-pair-field-research-18tq7b  # publish
+git push origin worker/<handle>:main                                     # main at tip
+```
+
+If a rebase conflicts in `collab/STATE.md`, `collab/ROSTER.md`, or `NOW.md`,
+keep ALL rows/blocks from both sides.
 
 ## Step 1 — Read the current constitution (in this order, ~15 minutes)
 
