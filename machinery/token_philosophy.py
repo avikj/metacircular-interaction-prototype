@@ -363,6 +363,95 @@ CAUSAL_COLLAPSE: List[Tuple[Sequence[int], str, bool]] = [
 ]
 
 
+# ------------------------------------------------- the spectator model X
+#
+# Does the collective category retain anything beyond the multiset of
+# occurrences?  Yes, and exactly where one would not look for it.  `X` is a
+# commutative monoidal category in which a *single* strand remembers the order
+# of what it did and two or more strands do not:
+#
+#     X(0, 0) = {*}          X(1, 1) = free monoid on the transition names
+#     X(n, n) = N^names      for n >= 2        X(n, m) = empty for n != m
+#
+# Composition is concatenation on one strand and addition above; the tensor
+# abelianises.  X satisfies every axiom of a commutative monoidal category
+# (proof in notes/TOKEN_PHILOSOPHY.md §5), so by soundness it witnesses that
+# the collective theory does NOT prove t ; t' = t' ; t.  But the theory does
+# prove (t ; t') (x) id = (t' ; t) (x) id -- one idle spectator token erases
+# the order.  Both facts are checked below.
+
+Spectator = Tuple[int, object]  # (strand count, word if 1 else sorted multiset)
+
+
+def x_id(n: int) -> Spectator:
+    return (n, () if n != 1 else ())
+
+
+def x_gen(name: str) -> Spectator:
+    return (1, (name,))
+
+
+def _x_ab(v: Spectator) -> Tuple[str, ...]:
+    return tuple(sorted(v[1]))
+
+
+def x_comp(a: Spectator, b: Spectator) -> Spectator:
+    if a[0] != b[0]:
+        raise TypeError_("spectator composite mismatch")
+    n = a[0]
+    if n == 1:
+        return (1, tuple(a[1]) + tuple(b[1]))          # concatenation: order kept
+    return (n, tuple(sorted(tuple(a[1]) + tuple(b[1]))))  # addition: order lost
+
+
+def x_tens(a: Spectator, b: Spectator) -> Spectator:
+    if a[0] == 0:
+        return b
+    if b[0] == 0:
+        return a
+    return (a[0] + b[0], tuple(sorted(_x_ab(a) + _x_ab(b))))
+
+
+def interpret_spectator(t: Term, sig: Signature) -> Spectator:
+    kind = t[0]
+    if kind == "id":
+        return x_id(len(t[1]))
+    if kind == "gen":
+        d, c = sig[t[1]]
+        if len(d) != 1 or len(c) != 1:
+            raise TypeError_("spectator model needs unary generators")
+        return x_gen(t[1])
+    if kind == "sym":
+        return x_id(len(t[1]) + len(t[2]))          # the symmetry IS the identity
+    if kind == "comp":
+        return x_comp(interpret_spectator(t[1], sig), interpret_spectator(t[2], sig))
+    if kind == "tens":
+        return x_tens(interpret_spectator(t[1], sig), interpret_spectator(t[2], sig))
+    raise TypeError_(f"unknown term head {kind!r}")
+
+
+def collapse_derivation(path_prefix: Sequence[int] = ()) -> List[Tuple[Sequence[int], str, bool]]:
+    """The six checked steps proving `(g1 ; g2) (x) id_s = g1 (x) g2` for any
+    two unary generators -- so a single spectator token forgets their order."""
+    p = tuple(path_prefix)
+    return [
+        (p + (1,), "UNIT_L", False),    # id -> id ; id
+        (p, "INTERCHANGE", False),      # -> (g1 (x) id) ; (g2 (x) id)
+        (p + (1,), "COMM", True),       # -> (g1 (x) id) ; (id (x) g2)
+        (p, "INTERCHANGE", True),       # -> (g1 ; id) (x) (id ; g2)
+        (p + (0,), "UNIT_R", True),     # -> g1 (x) (id ; g2)
+        (p + (1,), "UNIT_L", True),     # -> g1 (x) g2
+    ]
+
+
+#   t1 ; t2  and  t2 ; t1  as executions of the single-token marking s.
+SEQ_12 = comp(T1, T2)
+SEQ_21 = comp(T2, T1)
+#   the same two, each beside one idle token
+SPECTATOR_12 = tens(SEQ_12, idm(("s",)))
+SPECTATOR_21 = tens(SEQ_21, idm(("s",)))
+
+
 def report() -> str:
     lines = []
     chain = check_derivation(F_EXEC, COLLECTIVE_IDENTIFICATION, G_EXEC, SIG_TWO)
@@ -378,6 +467,14 @@ def report() -> str:
     lines.append(f"  threads((u;u)(x)id) = {thread_multiset(CAUSAL_COLLAPSE_START, SIG_ONE)}")
     lines.append(f"  threads(u(x)u)      = {thread_multiset(CAUSAL_COLLAPSE_TARGET, SIG_ONE)}")
     lines.append(f"  occurrences agree:   {occurrences(CAUSAL_COLLAPSE_START, SIG_ONE) == occurrences(CAUSAL_COLLAPSE_TARGET, SIG_ONE)}")
+    lines.append("spectator: X(t1;t2) = "
+                 f"{interpret_spectator(SEQ_12, SIG_TWO)}, X(t2;t1) = "
+                 f"{interpret_spectator(SEQ_21, SIG_TWO)}  -> order kept on one strand")
+    a = interpret_spectator(SPECTATOR_12, SIG_TWO)
+    b = interpret_spectator(SPECTATOR_21, SIG_TWO)
+    lines.append(f"  beside one idle token: {a} vs {b}  -> order gone")
+    chain = check_derivation(SPECTATOR_12, collapse_derivation(), tens(T1, T2), SIG_TWO)
+    lines.append(f"  and derivably so, in {len(chain) - 1} checked steps")
     return "\n".join(lines)
 
 

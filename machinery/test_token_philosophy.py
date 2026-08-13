@@ -31,12 +31,18 @@ from token_philosophy import (
     T1,
     T2,
     TypeError_,
+    SEQ_12,
+    SEQ_21,
+    SPECTATOR_12,
+    SPECTATOR_21,
     boundary_orbit,
     check_derivation,
+    collapse_derivation,
     comp,
     dom_cod,
     gen,
     idm,
+    interpret_spectator,
     interpret_threads,
     occurrences,
     report,
@@ -47,6 +53,10 @@ from token_philosophy import (
     w_id,
     w_sym,
     w_tens,
+    x_comp,
+    x_gen,
+    x_id,
+    x_tens,
 )
 
 
@@ -182,6 +192,70 @@ class ThreadModel(unittest.TestCase):
         # pre-composing with the swap exchanges which label sits on which strand.
         self.assertEqual(interpret_threads(comp(sym(("s",), ("s",)), F_EXEC), SIG_TWO),
                          ((1, 0), ("t2t2", "t1t1")))
+
+
+class SpectatorModel(unittest.TestCase):
+    """The successor conjecture of notes/TOKEN_PHILOSOPHY.md §5 -- that a
+    collective execution is exactly its occurrence multiset -- is false.  X is
+    the model that kills it, and the same tests show precisely how much of the
+    order survives: none of it, once one idle token stands beside."""
+
+    def test_order_survives_on_a_single_strand(self):
+        self.assertNotEqual(interpret_spectator(SEQ_12, SIG_TWO),
+                            interpret_spectator(SEQ_21, SIG_TWO))
+        # ...while the occurrence multiset, the refuted conjecture's invariant,
+        # cannot tell them apart.
+        self.assertEqual(occurrences(SEQ_12, SIG_TWO), occurrences(SEQ_21, SIG_TWO))
+
+    def test_one_spectator_token_erases_the_order(self):
+        self.assertEqual(interpret_spectator(SPECTATOR_12, SIG_TWO),
+                         interpret_spectator(SPECTATOR_21, SIG_TWO))
+        for start in (SPECTATOR_12, SPECTATOR_21):
+            target = tens(T1, T2) if start is SPECTATOR_12 else tens(T2, T1)
+            chain = check_derivation(start, collapse_derivation(), target, SIG_TWO)
+            self.assertEqual(len(chain), 7)
+        # and the two targets are COMM-equal, closing the square
+        check_derivation(tens(T2, T1), [((), "COMM", True)], tens(T1, T2), SIG_TWO)
+
+    def test_spectator_model_is_constant_along_every_derivation(self):
+        """Soundness, used as a falsifier: X must validate every axiom the
+        derivations invoke.  If X were not a commutative monoidal category this
+        test would break."""
+        for start, steps, target, sig in (
+                (F_EXEC, COLLECTIVE_IDENTIFICATION, G_EXEC, SIG_TWO),
+                (CAUSAL_COLLAPSE_START, CAUSAL_COLLAPSE, CAUSAL_COLLAPSE_TARGET, SIG_ONE),
+                (SPECTATOR_12, collapse_derivation(), tens(T1, T2), SIG_TWO)):
+            chain = check_derivation(start, steps, target, sig)
+            values = {interpret_spectator(t, sig) for t in chain}
+            self.assertEqual(len(values), 1)
+
+    def test_spectator_model_satisfies_the_axioms(self):
+        atoms = [x_id(1), x_gen("t1"), x_gen("t2")]
+        wide = [x_id(2), x_tens(x_gen("t1"), x_id(1)), x_tens(x_id(1), x_gen("t2"))]
+        unit = x_id(0)
+        for a, b, c in itertools.product(atoms, repeat=3):
+            self.assertEqual(x_comp(x_comp(a, b), c), x_comp(a, x_comp(b, c)))
+        for a in atoms + wide + [unit]:
+            self.assertEqual(x_comp(a, x_id(a[0])), a)
+            self.assertEqual(x_comp(x_id(a[0]), a), a)
+            self.assertEqual(x_tens(a, unit), a)
+            self.assertEqual(x_tens(unit, a), a)
+        self.assertEqual(x_tens(x_id(1), x_id(1)), x_id(2))
+        for a, b, c, d in itertools.product(atoms, repeat=4):
+            # interchange
+            self.assertEqual(x_comp(x_tens(a, c), x_tens(b, d)),
+                             x_tens(x_comp(a, b), x_comp(c, d)))
+        for a, b in itertools.product(atoms + wide, repeat=2):
+            # the symmetry is the identity, so naturality is commutativity
+            self.assertEqual(x_tens(a, b), x_tens(b, a))
+
+    def test_threads_and_spectator_disagree_exactly_where_they_should(self):
+        """Phi keeps order on any number of strands; X keeps it on one.  The
+        difference between the philosophies is that gap."""
+        self.assertNotEqual(interpret_threads(SPECTATOR_12, SIG_TWO),
+                            interpret_threads(SPECTATOR_21, SIG_TWO))
+        self.assertEqual(interpret_spectator(SPECTATOR_12, SIG_TWO),
+                         interpret_spectator(SPECTATOR_21, SIG_TWO))
 
 
 class Report(unittest.TestCase):

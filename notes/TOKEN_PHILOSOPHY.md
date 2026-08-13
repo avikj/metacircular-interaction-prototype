@@ -1,7 +1,11 @@
 # What the collective-token view forgets: my own guess, refuted
 
 **Status: proved, and machine-replayed.** `machinery/token_philosophy.py`,
-`machinery/test_token_philosophy.py` (13/13, three hostile controls).
+`machinery/test_token_philosophy.py` (18/18, four hostile controls). Two
+conjectures were stated and killed in this note's own lifetime — §0's and
+§3's; §5 is what replaced them and §6 states the third one with its guard
+rails visible.
+
 Companion and correction to `notes/STATEBOX.md` §7, written the same day by the
 same worker. Nothing here is measured; the derivations are checked term
 rewritings and the separation is a model.
@@ -145,8 +149,11 @@ boundary orbits. The two multisets differ. $\square$
 Theorem 3 gives the sharper reading: what the collective view retains is the
 multiset of transition occurrences — constant along both derivations, checked
 in `test_occurrence_multiset_survives_every_step` — and what it destroys is the
-assignment of occurrences to threads. Collective-token semantics is
-occurrence-counting; individual-token semantics is threading. The received
+assignment of occurrences to threads. ~~Collective-token semantics is
+occurrence-counting; individual-token semantics is threading.~~
+**[OVERSTATED — §5 Theorem 8. Occurrence-counting is what survives *here*, at
+the marking $2s$; at the marking $s$ the collective category still separates
+$t_1;t_2$ from $t_2;t_1$. The correct slogan is §5's.]** The received
 slogan ("the collective philosophy loses causality") is here derived, with a
 two-element witness, rather than cited.
 
@@ -171,26 +178,100 @@ two-element witness, rather than cited.
   pre-net repair changes the *syntax* — one cannot recover threading by
   quotienting or by naming boundary tokens afterwards.
 
-## 5. Queue
+## 5. The successor conjecture, also false: a spectator token erases the order
 
-- `PROVE` — **Is a collective execution exactly its occurrence multiset?**
-  Theorems 2 and 3 identify every pair I have tried that shares an occurrence
-  multiset and a boundary. Conjecture: for markings $a,b$ and $m\in\mathbb
-  N[T]$ with $b=a-\partial_0m+\partial_1m$, the hom-set of the free commutative
-  monoidal category is in bijection with the set of such $m$ that are fireable
-  from $a$. Existence needs a fireability argument (the empty marking admits no
-  execution with a nonempty occurrence multiset, so realizability is a real
-  constraint); uniqueness needs an induction on derivations using Lemma 1.
-  *Stated as a conjecture; two instances are not a theorem, and the last guess
-  in this lane lasted an hour.*
-- `PROVE` — **The exact fibre.** Granted the conjecture, the fibre of $q$ over
-  $m$ is the set of individual-token executions with occurrence multiset $m$,
-  i.e. all threadings of $m$ compatible with the causal constraints — which
-  would make "what is forgotten" a combinatorial object (a set of threadings)
-  rather than a group orbit.
-- `DEMONSTRATE` (optional) — extend the checker to a decision procedure for the
-  commutative theory on bounded terms, which would let the conjecture be
-  falsified cheaply on a finite fragment before anyone tries to prove it.
+§3 ended by conjecturing that a collective execution is *exactly* its
+occurrence multiset (subject to fireability), and warned that two instances are
+not a theorem. They were not. The conjecture is false, and the way it fails is
+worth more than the conjecture would have been.
+
+**The spectator category $X$.** Objects $\mathbb N$; $X(n,m)=\varnothing$ for
+$n\ne m$; and, writing $A$ for the free monoid on the transition names and
+$\mathbb N[A_1]$ for the free commutative monoid on the names,
+
+$$X(0,0)=\{*\},\qquad X(1,1)=A,\qquad X(n,n)=\mathbb N[A_1]\ (n\ge2).$$
+
+Composition is concatenation on one strand and addition above it; the tensor is
+$f\otimes g=\mathrm{ab}(f)+\mathrm{ab}(g)$ when both factors have at least one
+strand, and is strictly unital against $n=0$. One strand remembers the order of
+what it did; two or more strands remember only how much was done.
+
+> **Proposition 7.** $X$ is a commutative monoidal category.
+
+*Proof.* Composition is associative and unital in each arity (concatenation;
+addition). Interchange: for $f,h\in X(m,m)$ and $g,k\in X(n,n)$ with
+$m,n\ge1$, both sides of $(f\otimes g);(h\otimes k)=(f;h)\otimes(g;k)$ equal
+$\mathrm{ab}(f)+\mathrm{ab}(g)+\mathrm{ab}(h)+\mathrm{ab}(k)$, because
+$\mathrm{ab}$ is a monoid homomorphism and the target arity is $\ge2$; when
+$n=0$ both sides are $f;h$. Identities tensor to identities. The object monoid
+$\mathbb N$ is commutative, so the identity is a legitimate symmetry, and its
+naturality is $f\otimes g=g\otimes f$, which holds because $\mathrm{ab}$ lands
+in a commutative monoid. All remaining coherence is trivial by strictness.
+$\square$
+
+> **Theorem 8.** For $t_1,t_2:s\to s$, the collective theory does **not** prove
+> $t_1;t_2=t_2;t_1$. Hence a collective execution is not determined by its
+> occurrence multiset, and the §3 conjecture is false.
+
+*Proof.* Interpret $s\mapsto1$, $t_i\mapsto$ the corresponding generator of
+$A$. By Proposition 7 and soundness, any derivable equation holds in $X$; but
+$t_1t_2\ne t_2t_1$ in the free monoid $A=X(1,1)$. The two executions have the
+same source $s$ and the same occurrence multiset $\{t_1,t_2\}$. $\square$
+
+> **Theorem 9 (one idle token is enough).** Nevertheless
+> $(t_1;t_2)\otimes\mathrm{id}_s=(t_2;t_1)\otimes\mathrm{id}_s$ in the
+> collective theory.
+
+*Proof.* Six steps, twice: by unit, interchange, Lemma 1, interchange, unit,
+unit, $(g_1;g_2)\otimes\mathrm{id}_s=g_1\otimes g_2$ for any unary $g_1,g_2$ —
+this is Theorem 3's derivation with the two generators left distinct. Apply it
+to both sides and close with Lemma 1: $t_1\otimes t_2=t_2\otimes t_1$.
+$\square$
+
+> **Corollary 10.** The information that distinguishes $t_1;t_2$ from
+> $t_2;t_1$ exists at the marking $s$ and is destroyed at the marking $2s$. The
+> collective quotient's kernel is therefore not a function of the execution: it
+> grows when idle context is added.
+
+This is the opposite of the usual direction. In this corpus a richer context
+*refines* — "adding a new operation adds new contexts and may split old
+classes" (`COMPOSITIONAL_CRYSTAL_THEOREM`, engine law). Here adding an inert
+spectator token *merges* two previously distinct executions. There is no
+contradiction, and saying exactly why is the useful part: $(-)\otimes
+\mathrm{id}_s$ is not a context in the crystal sense. A crystal context is an
+endo-operation on one carrier, and refinement is monotone on that carrier;
+$(-)\otimes\mathrm{id}_s$ is a *map between different hom-sets*,
+$C(s,s)\to C(2s,2s)$, and nothing makes such a map injective. The engine law's
+monotonicity is a statement about observations of a fixed object, not about
+embedding an object into a larger one.
+
+So the honest slogan for the collective-token philosophy is neither "it forgets
+which token" (§3) nor "it keeps only the counts" (this section's dead
+conjecture), but:
+
+> **A collective execution remembers the order of its transitions exactly as
+> far as the tokens carrying them are the only tokens present.**
+
+## 6. Queue
+
+- `PROVE` — **What is $C(a,b)$?** Both easy answers are dead. What survives:
+  for $a=s$ the hom-set contains the free monoid's worth of distinctions
+  (Theorem 8), for $a=2s$ Theorems 2, 3 and 9 collapse everything with the same
+  occurrence multiset that I have tested. Conjecture, third attempt, and stated
+  as *strictly weaker than the last two*: the collapse is complete from
+  $|a|\ge2$ tokens on, i.e. $C(a,b)\cong\{m$ fireable from $a\}$ whenever $a$
+  has at least two tokens in some place used by $m$. I have not tested the
+  boundary of this and will not report it as anything but a guess.
+- `PROVE` — **Which $\otimes\mathrm{id}$ maps are injective?** Corollary 10
+  makes this the sharp question: the loss of the collective view is the failure
+  of injectivity of $C(a,b)\to C(a+r,b+r)$, and the two theorems above locate
+  one failure at $r=s$. A criterion would be the exact loss statement this
+  lane has been circling since `STATEBOX.md`.
+- `DEMONSTRATE` (optional) — a decision procedure for the collective theory on
+  bounded terms, which would let the third conjecture be falsified cheaply
+  before anyone tries to prove it. The first two guesses died in two hours and
+  one hour respectively; a falsifier is now clearly worth more than a proof
+  attempt.
 
 ## 6. Honesty ledger
 
@@ -200,5 +281,8 @@ two-element witness, rather than cited.
 | Theorems 2, 3 | **proved**; each step machine-checked as a typed axiom instance |
 | Proposition 4 ($W$ is an SSMC) | **proved**; exhaustively re-checked on a finite fragment |
 | Theorem 5, Corollary 6 | **proved** by soundness — a model, not a normal-form theorem |
-| "collective = occurrence counting" | **conjecture** (§5), two supporting instances |
+| ~~"collective = occurrence counting" — **conjecture** (§5), two supporting instances~~ | **REFUTED** the same session, §5 Theorem 8 |
+| Proposition 7 ($X$ is a commutative monoidal category) | **proved**; exhaustively re-checked on a fragment |
+| Theorems 8, 9, Corollary 10 | **proved** — a model, and a checked derivation |
+| §6 third conjecture (collapse is complete from two tokens on) | **guess**, deliberately weaker, untested at its boundary |
 | The `STATEBOX.md` §7 guess | **refuted** here; struck through there |
