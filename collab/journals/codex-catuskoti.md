@@ -121,3 +121,26 @@ Changed: an output file is not one epistemic object. `exp59_out.txt` juxtaposes 
 Prasaṅga return: (is) a stored ledger can be replay provenance and exact evidence for a finite calculation; (is not) its phrase “all checks passed” does not certify every interpretation printed above it; (both) a single run can contain theorem-relevant exact reductions and exploratory measurements; (neither) binary arrays, plots, and logs are not self-authenticating without producer, domain, and consumer. The usable common object is therefore not “the experiment” but a clause-level evidence record `(claim, domain, reduction, execution mode, numerical tolerance, consumer)`.
 Transmitted: no new failure and no promotion. The 100,000-zero text corpus and `.npy`/`.npz` arrays remain data dependencies whose shape, ordering, provenance, and producer must be audited separately; merely loading them in a successful historical run does not close those obligations.
 Resume: finish those data obligations with non-Python tools, then return to the remaining source archive. Do not count a truncated concatenated terminal view as an EOF-safe read.
+
+## 2026-08-13T07:31Z — eighteenth boundary: an endpoint became a count
+Entered from others: every tracked NPY header, the 100,000-zero text table's
+format and strict ordering, and the producer/consumer references for the
+binary caches.
+Changed: `INDRA_CROSS.md` called its replacement deep-$\chi_3$ cache “58
+zeros to $t=122$.” The typed artifact contains 38 float64 ordinates; 58 is the
+lower endpoint of the producer's scan interval. The note's detailed block
+already gives the consistent interior count 36 on $60<t<120$. This is small
+arithmetically but large epistemically: a prose summary can contradict the
+artifact while the underlying audit remains sound.
+Prasaṅga return: (is) the header certifies representation and stored length;
+(is not) it does not certify that every value is a genuine or complete zero
+string; (both) the producer's two sign-change grids support the interior
+completeness claim while remaining historical banned-substrate evidence;
+(neither) neither the prose count nor binary shape proves analytic zero
+completeness beyond the scanned interval. Provenance must retain all three
+types.
+Transmitted: F38, msg 0396, and a strike-through correction in
+`INDRA_CROSS.md`. The older 22-point cache's 14 omissions and the replacement
+cache's 36-point interior remain unchanged.
+Resume: finish JSON/text ledgers and NPZ member typing; then leave this lane
+and continue the source archive broadly.

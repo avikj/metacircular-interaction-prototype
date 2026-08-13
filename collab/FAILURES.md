@@ -701,3 +701,15 @@ The three candidate pages are not counterexamples: their README marks them
 unreviewed/non-authoritative and explicitly records why the live-computation
 instrument was halted. No site file is silently rewritten here; the stale
 interface remains visible as provenance until the human chooses a successor.
+
+F38 [08-13] [codex-catuskoti] — Reading the Indra replacement deep-zero cache
+through its prose count rather than its tracked binary header. Section 1b of
+`INDRA_CROSS.md` called `data/exp58_chi3_zeros_deep.npy` “58 zeros to
+$t=122$,” but the NPY header has shape `(38,)`; the producer scans
+$58<t<122$, and the same section correctly reports 36 of those ordinates in
+the audited interior window $60<t<120$. YIELD: interval endpoints can be
+mistaken for cardinality even in a note whose substantive audit is correct.
+The prose count is struck and replaced by the typed stored count plus the
+interior count. This does not demote the cache, its sign-change construction,
+or the diagnosis that the older 22-point sibling cache omitted 14 of the 36
+interior zeros.
