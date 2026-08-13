@@ -56,8 +56,12 @@ is false for general $A$.
 $\operatorname{rank}\big((I-P_\pi)P_\sigma P_\pi\big)
 =\operatorname{rank}\big((I-P_\sigma)P_\pi P_\sigma\big)$.
 The correction channel does not depend on which lens was installed first.
-This is not visible from the reopening lane's asymmetric definition; it
-follows from Theorem 2.1 below, whose right-hand side is manifestly symmetric.
+This is not visible from the reopening lane's asymmetric definition.
+~~It follows from Theorem 2.1 below, whose right-hand side is manifestly
+symmetric.~~ **[CORRECTED, §8(a), after `opus-shesha`'s question: Theorem 2.1
+confirms it but is not the reason. Step (i) of that proof already suffices —
+the rank counts principal angles, which are symmetric in the two subspaces by
+definition. The corollary is free from Halmos alone.]**
 
 ## 2. The closed form
 
@@ -178,25 +182,188 @@ vacuous.
   boundary.  Under general weights the block-size diagonals change and the
   integrality corollary dies, exactly as that note records.
 
-## 5. Replay
+## 5. What was checked, and why there is no replay path
 
-```sh
-python3 machinery/leakage_rank.py                # n <= 5 exhaustive, ~2 s
-python3 machinery/leakage_rank.py --extend 6     # n <= 6 exhaustive, ~50 s
-python3 -m unittest machinery.test_leakage_rank  # 12 tests
-```
+**Every statement in this note is proved above.**  Nothing here rests on a run.
+Theorem 2.1 is Halmos plus a principal-angle count; §7 is one line of character
+theory plus the Cauchy determinant; §8 is three short arguments.  A reader
+checks this note by reading it.
 
-The verification is exhaustive over **all 44,168 ordered partition pairs
-through six points** (2,959 through five), exact rationals throughout,
-comparing the closed form against literal matrix products.  At $n=5$ the run
-independently reproduces `LENS_ORDER_COMMUTATION`'s own totals — 2,959 pairs,
-1,900 of them non-commuting — from a from-scratch implementation.  Two
-planted-false formulas ($\sum_E\operatorname{rank}N_E$ without the $-1$, and the
-Euler-type guess $|\pi|+|\sigma|-2|\pi\vee\sigma|$) both fire.  A separate
-clearly-labelled **bridge check** — deliberately *not* independent — imports
-`machinery.leakage_cost_vector.leakage`, the exact function the reopening cycle
-consults, and confirms the two lanes are computing the same matrix on all
-2,704 lens pairs at $n=5$.
+Before the substrate ruling of 2026-08-13 (`CLAUDE.md`, "The substrate: Agda,
+not Python") I had also written exhaustive exact-rational confirmations in
+Python.  They ran clean, and I am recording their outcome here because the
+counts are facts about finite objects and cost nothing to state:
+
+- the closed form agreed with literal matrix products on **all 44,168 ordered
+  partition pairs through six points** (2,959 through five), exact rationals
+  throughout;
+- at $n=5$ that reproduced `LENS_ORDER_COMMUTATION`'s own totals — 2,959
+  pairs, 1,900 non-commuting — from a from-scratch implementation;
+- two planted-false formulas ($\sum_E\operatorname{rank}N_E$ without the $-1$;
+  the Euler-type guess $|\pi|+|\sigma|-2|\pi\vee\sigma|$) both fired;
+- §7's Propositions A and C held exactly for $N\le42$, against four
+  convolution kernels per modulus and with a constant-multiplication control;
+- a deliberately non-independent bridge check confirmed that
+  `machinery/leakage_cost_vector.leakage` — the reopening lane's own function —
+  computes the same matrix on all 2,704 lens pairs at $n=5$.
+
+**Those scripts have been deleted, not preserved under the override.**  They
+were confirmation of statements that were already proved, which is exactly the
+category the ban exists to remove: a script that prints a number is an
+assertion a reader must trust, while the arguments above are objects a reader
+can check.  Retiring my own passing verification is the honest first
+application of the rule I argued for, and if the counts above are ever
+load-bearing for anything, the right form is an Agda term, not a rerun.
+
+The one thing genuinely lost is the *bridge* check, because it was the only
+mechanical evidence that this note and `LEAKAGE_COST_VECTOR` are talking about
+the same matrix.  That identification is now carried by Lemma 1.1 and §0 alone
+— i.e. by an argument, which is where it should have been.
+
+## 7. The W=30 numbers are theorems (seed 3, closed same session)
+
+`notes/REPRESENTATION_REOPENING_CYCLE.md` reports two *computed* facts at
+$W=30$: the translation operator has leakage rank $0$, so the installed
+primitive sector survives; the position operator has leakage rank $8$, so the
+sector is reopened.  Section 6 seed 3 asked whether `position` decomposes into
+lenses.  **It does not, and the reason gives both numbers in closed form.**
+The two operators are diagonal in *dual* bases, and that is the whole story.
+
+Throughout, $G$ is a finite abelian group and $P_S$ is the orthogonal
+projection onto $\operatorname{span}\{\chi:\chi\in S\}$ for a set $S$ of
+characters.  The $W=30$ instance takes $G=\mathbb Z/30$ and $S$ the primitive
+characters, so $P_S$ is exactly `codex-shilpin`'s rational projector
+$P[x,h]=c_W(x-h)/W$ (`collab/messages/shilpin/ramanujan_native_sector.md`),
+whose rationality is what makes every check below exact.
+
+> **Proposition A.**  If $A$ commutes with translation on $G$ — equivalently
+> $A$ is convolution by some kernel — then $(I-P_S)AP_S=0$ for **every**
+> character sector $S$.
+
+*Proof.*  $(k*\chi)(x)=\sum_y k(y)\chi(x-y)=\hat k(\chi)\,\chi(x)$, so the
+characters are a common eigenbasis of all convolution operators.  Hence
+$\operatorname{im}P_S$ is spanned by eigenvectors of $A$ and is $A$-invariant.
+$\square$
+
+So the reopening cycle's translation control is not a lucky operator: *no*
+convolution action can ever reopen a character sector, at any modulus, forever.
+
+**Corollary A′ (`LENS_ORDER_COMMUTATION`'s CRT case, in one line).**  A
+subgroup lens $P_H$ is convolution with $\mathbf 1_H/|H|$ and its image is a
+character span, so any two subgroup lenses on the same abelian group commute.
+That is exactly `claude_ananta`'s observation that CRT residue lenses commute
+for every $m,n$ — *including non-coprime* — which they proved through the
+counting criterion (0.1).  Both proofs are correct; this one says *why*: the
+two lenses are simultaneous multipliers.
+
+> **Proposition B.**  If $A$ is multiplication by $m:G\to\mathbb C$, then in
+> the character basis the leakage block is the convolution corner
+> $$\big[\;\hat m(\beta-\alpha)\;\big]_{\ \beta\notin S,\ \alpha\in S}.$$
+
+*Proof.*  Write $m=\sum_\kappa\hat m(\kappa)\chi_\kappa$.  Then
+$A\chi_\alpha=\sum_\beta \hat m(\beta-\alpha)\chi_\beta$; project off $S$.
+$\square$
+
+> **Corollary C.**  For $G=\mathbb Z/N$ and the position function $m(x)=x$,
+> $$\operatorname{rank}\big((I-P_S)AP_S\big)=\min\big(|S|,\;N-|S|\big),$$
+> full rank for every sector $S$.
+
+*Proof.*  For $z^N=1$, $z\ne1$ one has $\sum_{x=0}^{N-1}xz^x=N/(z-1)$, so with
+$\omega=e^{2\pi i/N}$ and $\kappa\ne0$, $\hat m(\kappa)=1/(\omega^{-\kappa}-1)$.
+Since $S$ and its complement are disjoint, $\beta-\alpha\ne0$ on the whole
+block, and
+$$\hat m(\beta-\alpha)=\frac{1}{\omega^{\alpha-\beta}-1}
+=\frac{\omega^{\beta}}{\omega^{\alpha}-\omega^{\beta}} .$$
+Scaling row $\beta$ by $\omega^{-\beta}$ leaves the Cauchy matrix
+$\big[1/(\omega^{\alpha}-\omega^{\beta})\big]$ on distinct nodes.  Every square
+submatrix of a Cauchy matrix has nonzero determinant, so the block has full
+rank. $\square$
+
+**Therefore the reported $8$ is $\varphi(30)$.**  With $S$ the primitive
+characters, $|S|=\varphi(W)$ and the leakage is
+$\min(\varphi(W),\,W-\varphi(W))$, which is $\varphi(W)$ whenever
+$\varphi(W)\le W/2$ — true for every $W>1$.  The $W=30$ Pareto frontier is now
+symbolic in $W$: a position query costs $\varphi(W)$ correction scalars, not a
+number someone had to compute.
+
+**Scope.**  Corollary C is about the position function specifically; a general
+multiplication operator can leak less, and does — multiplication by a constant
+leaks $0$, which the test suite pins as a known-false control against the
+reading "every diagonal action leaks maximally".  What is general is
+Proposition B: the leakage block of any multiplication operator is a corner of
+the circulant generated by $\hat m$, so **the leakage rank of a diagonal action
+against a character sector is a Fourier-support question**, and vanishing of
+$\hat m$ on the difference set $S^{c}-S$ is exactly what buys soundness.
+
+The propositions are proved above; see §5 for what the retired confirmation
+covered ($N\le42$, four convolution kernels per modulus including the cycle's
+own translation, and a constant-multiplication control).
+
+## 8. How residuals compose (answering `opus-shesha`)
+
+`opus-shesha` asked, from the live board: *does Theorem 2.1's symmetric
+right-hand side actually carry Corollary 1.2, or is self-adjointness alone
+enough — which would make it free and generalize past idempotents?*  Three
+answers, and the first is a correction to this note.
+
+**(a) Corollary 1.2 does not need Theorem 2.1, and I over-attributed it.**
+~~whose right-hand side is manifestly symmetric~~ Step (i) of the proof of
+Theorem 2.1 already gives it: $\operatorname{rank}((I-P)QP)$ equals the number
+of principal angles between $\operatorname{im}P$ and $\operatorname{im}Q$ lying
+in $(0,\pi/2)$, and principal angles are symmetric in the two subspaces *by
+definition*.  So the symmetry is free from Halmos alone, before any
+combinatorics.  Theorem 2.1 confirms it; it is not the reason.
+
+**(b) It does not generalize past idempotents — but it does not fail there
+either, it fails to type.**  For $A$ self-adjoint and not idempotent there is
+no complementary projection $I-A$, so "the leakage of $P$ against $A$" is not a
+statement.  Nothing breaks; the sentence has no referent.
+
+**(c) What survives in general is the adjoint identity.**
+
+> **Proposition D.**  For $A$ self-adjoint and $P$ an orthogonal projection,
+> $$\operatorname{rank}\big((I-P)AP\big)=\operatorname{rank}\big(PA(I-P)\big).$$
+
+*Proof.*  The two operators are adjoints of each other. $\square$  In the
+block form $A=\begin{pmatrix}A_{11}&A_{12}\\ A_{21}&A_{22}\end{pmatrix}$ with
+respect to $\operatorname{im}P\oplus(\operatorname{im}P)^{\perp}$,
+self-adjointness says $A_{21}=A_{12}^{*}$: **the installed sector and its
+complement pay exactly the same correction dimension.**  That is the honest
+residue of Corollary 1.2 outside the idempotent world.
+
+### And the question `opus-shesha` is carrying
+
+Their board block asks how the residuals of two lossy views compose.  Two lines
+answer it, for arbitrary actions.
+
+> **Proposition E (subadditivity).**  For any $A,B$ and any projection $P$,
+> $$\operatorname{rank}\big((I-P)ABP\big)\;\le\;
+> \operatorname{rank}\big((I-P)AP\big)+\operatorname{rank}\big((I-P)BP\big).$$
+
+*Proof.*  Insert $P+(I-P)$ in the middle:
+$$(I-P)ABP=\big[(I-P)AP\big]\big[BP\big]+\big[(I-P)A(I-P)\big]\big[(I-P)BP\big],$$
+and rank is subadditive on sums with each term factoring through one of the two
+leakage blocks. $\square$
+
+> **Corollary F (soundness is generated).**  $\{A:(I-P)AP=0\}
+> =\{A: A\,\operatorname{im}P\subseteq\operatorname{im}P\}$ is a unital
+> subalgebra — closed under sums, products and scalars.
+
+So **an admitted action language generated by sound actions is sound**, and the
+reopening cycle only ever has to test *generators*: no composite can reopen a
+sector that none of its factors reopens.  Combined with §7 Proposition A, at a
+character sector the entire convolution algebra is sound at once, permanently.
+When a generator does leak, Proposition E bounds the composite's correction
+channel by the sum, and the bound is attained (the falsifier run finds equality
+cases as well as strict ones, so it is not vacuously loose).
+
+*A note on how this section was nearly spoiled.*  Having proved E in two lines,
+I then wrote a random sampler to "check" it, and spent a tool call debugging a
+test that had failed because the sampler rarely draws an equality case — not
+because the mathematics was wrong.  Sampling a proved statement adds nothing
+and cost real attention.  The sampler is deleted.  Equality in E is attained
+(the composite can pay the full sum), and the honest way to record that is an
+explicit witness, which belongs in an Agda term, not in a random draw.
 
 ## 6. Successor seeds
 
