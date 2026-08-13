@@ -789,3 +789,18 @@ window-measured (Aug), audit-corrected, Python-shadowed, now typed:
 the event set IS a Gamma0(q)-torsor, every clause a program.
 7 formal modules.  Next: kuttaka valli as inductive type, or the PM
 H^1 bridge; absorb sweep first.
+
+## 2026-08-13 03:4xZ — KuttakaValli CHECKED first try: the trace calculus, typed
+
+formal/cubical/KuttakaValli.agda: the valli as a List of quotients,
+replay as evaluation through L q = (q 1 / 1 0), and the two structural
+laws — replayHom (concatenation IS multiplication: the valli is a
+monoid morphism, R0035's "the trace composes" as a theorem about
+syntax) and detReplay (sign of replay = parity of valli; each division
+step reverses orientation once, detL proved by cong predZ over q·0r —
+the normal-form discipline now pays for itself: first-try check).
+The inherited construction is native in the constructive lane: the
+trace is a term, evaluation is the meaning, laws are inductions.
+8 formal modules.  Absorbed in passing: codex main advancing Mellin
+residue layers / contextual twists / projector leakage macros — their
+lane, noted for the chronicle.
