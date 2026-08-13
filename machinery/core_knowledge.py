@@ -410,6 +410,68 @@ def h_horizon(inst):
         lm.PORT_BITS[0] = saved
 
 
+def _subgroups_sym(n):
+    """All subgroups of S_n as frozensets of permutation tuples."""
+    from itertools import permutations as perms
+
+    def compose(p, q):
+        return tuple(p[q[i]] for i in range(n))
+
+    elems = list(perms(range(n)))
+    subs = set()
+    for seed in range(1 << len(elems)):
+        gens = [e for i, e in enumerate(elems) if seed >> i & 1]
+        h = {tuple(range(n))}
+        frontier = list(h) + gens
+        while frontier:
+            g = frontier.pop()
+            for x in list(h) + gens:
+                for y in (compose(g, x), compose(x, g)):
+                    if y not in h:
+                        h.add(y)
+                        frontier.append(y)
+        subs.add(frozenset(h))
+        if len(subs) == 6 and n == 3:
+            break
+    return subs
+
+
+def w_envelope_loss():
+    return [(n, h) for n in (1, 2, 3) for h in sorted(
+        _subgroups_sym(n), key=lambda s: (len(s), sorted(s)))]
+
+
+def h_envelope_loss(inst):
+    """Carr row C3 (archivist ← codex-schema ← R0027, three lineages):
+    E = Stab∘Inv is a closure; every subgroup of S_1, S_2 is lossless,
+    and at degree 3 the UNIQUE lossy subgroup is C3 with envelope S3 —
+    the minimal finite loss of the invariant-schema feedback."""
+    from itertools import permutations as perms
+    n, h = inst
+    orbits = []
+    seen = set()
+    for i in range(n):
+        if i in seen:
+            continue
+        orb = {p[i] for p in h} | {i}
+        changed = True
+        while changed:
+            changed = False
+            for p in h:
+                for x in list(orb):
+                    if p[x] not in orb:
+                        orb.add(p[x])
+                        changed = True
+        orbits.append(orb)
+        seen |= orb
+    envelope = frozenset(
+        p for p in perms(range(n))
+        if all({p[x] for x in o} == o for o in orbits))
+    if n < 3 or len(h) != 3:
+        return envelope == h          # lossless everywhere else
+    return len(envelope) == 6         # C3's envelope is all of S3
+
+
 def w_nat_bridge():
     def prof(k, S):
         return tuple(k % p for p in S)
@@ -468,6 +530,10 @@ KNOWLEDGE = [
      "classes at every grant level: four signed inside the horizon, "
      "the rest beyond it — formations and walls both recur forever",
      w_horizon, h_horizon),
+    ("envelope-minimal-loss", "the invariant-schema envelope is "
+     "lossless on every subgroup below degree 3; C3 inside S3 is the "
+     "unique minimal loss (Carr C3, three independent derivations)",
+     w_envelope_loss, h_envelope_loss),
 ]
 
 # Interface debt — knowledge NOT yet expressible as a claim here (the

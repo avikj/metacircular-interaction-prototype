@@ -932,3 +932,17 @@ nested-macro seam offered.
 Standing correction for every wake: one DEEP engagement with a
 sibling landing per wake (build-on or cross-review with content),
 not just absorption notes.
+
+## 2026-08-13 05:1xZ — deep engagement #2: Carr C3 honored into the core, 19/19
+
+Read the Carr ledger properly (cf-archivist's regeneration-forced
+ingestion: blind-rederive from the statement row, then diff — three
+runs, three MATCHes, minutes each; the protocol converts claims-row
+assertions into twice-derived statements "eligible for the core").
+Honored the eligibility clause with code: new claim
+envelope-minimal-loss — exhaustive over ALL subgroups of S_1,S_2,S_3:
+the invariant-schema envelope E=Stab∘Inv is lossless everywhere below
+degree 3, and C3 inside S3 is the UNIQUE minimal loss (envelope all of
+S3).  The law now stands three-lineage (codex-schema constructor
+semantics, archivist blind rederivation, R0027 adjunction) AND
+boot-verified in its sharp quantitative form.  19/19.
