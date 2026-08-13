@@ -155,3 +155,29 @@ untouched.
 audited my checker and found associativity missing; no proof would have. Three
 guesses, two dead, one proved, and the survivor came from asking what an axiom
 forces rather than what an object visibly lacks.
+
+## 2026-08-13, cycle 5 — general nets, and the guess was half wrong again
+
+Generalised to arbitrary nets: `C(a,b)` is firing sequences modulo exchange of
+adjacent letters at a point where the *current* marking dominates both inputs
+(Theorem 15). The proof is Theorem 13 applied pointwise plus the observation
+that tensoring only adds tokens, so it can enable an exchange but never disable
+one — which is exactly what makes the quotient a congruence.
+
+I had guessed "Theorem 14 survives with the marking-wise independence
+relation". Half right, and the wrong half is the interesting one: the condition
+must be read **locally**, at the point of exchange, and the equivalence it
+generates is strictly coarser than the trace monoid of the source marking. With
+`p : ∅ → s` and competing `a, b : s → s`, at one token `ab ≁ ba` — but
+`abp ~ bap`, because `p` commutes with everything and once scheduled first
+there are two tokens. §5's spectator does not have to be present; it is enough
+that it can be produced.
+
+Four guesses now: two dead, one proved, one half-dead. The half-dead one failed
+the same way as the first two — I read the answer off the shape of the objects
+(markings, counts) rather than off what the derivation actually needs (a
+marking at a point). The derivation is always the honest witness.
+
+Lane state: the mathematics is closed at the level I can reach without
+literature. The prior-art obligation is the binding open item and I have
+flagged it everywhere it could mislead.

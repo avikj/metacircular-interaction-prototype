@@ -689,3 +689,87 @@ def two_steps(a: str, b: str, n: int, arities: Dict[str, int]) -> Term:
 def concurrency_threshold(a: str, b: str, arities: Dict[str, int]) -> int:
     """The token count at which the order of `a` and `b` stops existing."""
     return arities[a] + arities[b]
+
+
+# --------------------------------------------------- arbitrary nets: locality
+#
+# Nothing above needs one place, and nothing needs the transitions to preserve
+# the marking.  For a general net, a firing sequence from a marking `a` is a
+# word of transitions, each enabled where it stands; two adjacent letters may
+# be transposed exactly when the marking *at that point* dominates both their
+# inputs.  The condition is local, so the resulting equivalence is a
+# context-dependent (local) trace equivalence, and it is the answer:
+#
+#     C(a,b) = firing sequences a -> b, modulo marking-relative transposition.
+#
+# Upper bound: each valid transposition is the Theorem 13 derivation applied at
+# that point.  Lower bound: the quotient is a commutative monoidal category --
+# concatenation is a congruence because a transposition's validity depends only
+# on the marking where it happens, and tensoring only adds tokens, which can
+# enable transpositions but never disable one.
+
+Marking = Tuple[Tuple[str, int], ...]   # sorted (place, count) pairs
+Net = Dict[str, Tuple[Marking, Marking]]
+
+
+def marking(**counts: int) -> Marking:
+    return tuple(sorted((p, c) for p, c in counts.items() if c))
+
+
+def _add(a: Marking, b: Marking, sign: int = 1) -> Marking:
+    d = dict(a)
+    for p, c in b:
+        d[p] = d.get(p, 0) + sign * c
+    return tuple(sorted((p, c) for p, c in d.items() if c))
+
+
+def _dominates(a: Marking, b: Marking) -> bool:
+    d = dict(a)
+    return all(d.get(p, 0) >= c for p, c in b)
+
+
+def fire(a: Marking, t: str, net: Net) -> Marking:
+    pre, post = net[t]
+    if not _dominates(a, pre):
+        raise TypeError_(f"{t} is not enabled at {a}")
+    return _add(_add(a, pre, -1), post)
+
+
+def run(a: Marking, word: Sequence[str], net: Net) -> List[Marking]:
+    """The markings visited, including both ends.  Raises if not a firing
+    sequence."""
+    out = [a]
+    for t in word:
+        out.append(fire(out[-1], t, net))
+    return out
+
+
+def transposable(a: Marking, t: str, u: str, net: Net) -> bool:
+    """May `t u` be exchanged when the marking on arrival is `a`?  Exactly when
+    both firings fit side by side there -- Theorem 13, read locally."""
+    return _dominates(a, _add(net[t][0], net[u][0]))
+
+
+def local_trace_class(a: Marking, word: Sequence[str], net: Net) -> frozenset:
+    """Every firing sequence equal to `word` in the collective category:
+    the closure of `word` under marking-relative adjacent transposition."""
+    start = tuple(word)
+    run(a, start, net)                      # validity check
+    seen = {start}
+    frontier = [start]
+    while frontier:
+        w = frontier.pop()
+        marks = run(a, w, net)
+        for i in range(len(w) - 1):
+            if not transposable(marks[i], w[i], w[i + 1], net):
+                continue
+            swapped = w[:i] + (w[i + 1], w[i]) + w[i + 2:]
+            if swapped not in seen:
+                seen.add(swapped)
+                frontier.append(swapped)
+    return frozenset(seen)
+
+
+def collectively_equal(a: Marking, w1: Sequence[str], w2: Sequence[str],
+                       net: Net) -> bool:
+    return tuple(w2) in local_trace_class(a, w1, net)

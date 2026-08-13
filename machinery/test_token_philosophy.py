@@ -59,7 +59,13 @@ from token_philosophy import (
     padding_is_injective,
     report,
     rewrite_component,
+    collectively_equal,
+    fire,
+    local_trace_class,
+    marking,
+    run,
     trace_equivalent,
+    transposable,
     two_steps,
     sym,
     tens,
@@ -380,6 +386,61 @@ class Concurrency(unittest.TestCase):
         self.assertTrue(trace_equivalent(("t1", "t2"), ("t2", "t1"), 2, ARITIES_UNARY))
         self.assertEqual(normal_form(SEQ_12, SIG_TWO)[0], "word")
         self.assertEqual(normal_form(SPECTATOR_12, SIG_TWO)[0], "multiset")
+
+
+class GeneralNets(unittest.TestCase):
+    """Nothing in the mechanism needed one place or a marking-preserving
+    transition.  In general the transposition condition is *local* -- read at
+    the marking where the exchange happens -- and the equivalence it generates
+    is strictly coarser than the relation at the source marking."""
+
+    NET = {"p": (marking(), marking(s=1)),
+           "a": (marking(s=1), marking(s=1)),
+           "b": (marking(s=1), marking(s=1))}
+
+    def test_locality_is_not_a_technicality(self):
+        one = marking(s=1)
+        # at one token a and b compete, so their order is real...
+        self.assertFalse(collectively_equal(one, ("a", "b"), ("b", "a"), self.NET))
+        self.assertFalse(transposable(one, "a", "b", self.NET))
+        # ...but a transition that *produces* a token can be scheduled early,
+        # and then it is not.  The relation is local; its closure is not.
+        self.assertTrue(collectively_equal(one, ("a", "b", "p"), ("b", "a", "p"), self.NET))
+        self.assertEqual(len(local_trace_class(one, ("p", "a", "b"), self.NET)), 6)
+
+    def test_two_tokens_restores_the_theorem_13_threshold(self):
+        two = marking(s=2)
+        self.assertTrue(transposable(two, "a", "b", self.NET))
+        self.assertTrue(collectively_equal(two, ("a", "b"), ("b", "a"), self.NET))
+
+    def test_agrees_with_the_one_place_theorem(self):
+        """Where Theorem 14 applies, the general construction reproduces it."""
+        net = {"t1": (marking(s=1), marking(s=1)), "t2": (marking(s=1), marking(s=1))}
+        for n in (1, 2, 3):
+            self.assertEqual(
+                collectively_equal(marking(s=n), ("t1", "t2"), ("t2", "t1"), net),
+                trace_equivalent(("t1", "t2"), ("t2", "t1"), n, ARITIES_UNARY))
+        binary = {"b1": (marking(s=2), marking(s=2)), "b2": (marking(s=2), marking(s=2))}
+        for n in (2, 3, 4, 5):
+            self.assertEqual(
+                collectively_equal(marking(s=n), ("b1", "b2"), ("b2", "b1"), binary),
+                trace_equivalent(("b1", "b2"), ("b2", "b1"), n, ARITIES_BIN))
+
+    def test_disabled_sequences_are_refused(self):
+        with self.assertRaises(TypeError_):
+            run(marking(), ("a",), self.NET)
+        with self.assertRaises(TypeError_):
+            local_trace_class(marking(s=1), ("a", "a", "b", "b", "b"), 
+                              {"a": (marking(s=1), marking()),
+                               "b": (marking(s=1), marking(s=1))})
+
+    def test_the_class_never_leaves_its_boundary_or_its_occurrences(self):
+        one = marking(s=1)
+        cls = local_trace_class(one, ("p", "a", "b"), self.NET)
+        for w in cls:
+            visited = run(one, w, self.NET)
+            self.assertEqual(visited[-1], marking(s=2))
+            self.assertEqual(tuple(sorted(w)), ("a", "b", "p"))
 
 
 class Report(unittest.TestCase):
