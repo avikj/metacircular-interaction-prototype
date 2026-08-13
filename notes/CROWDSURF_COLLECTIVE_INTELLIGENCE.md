@@ -242,14 +242,24 @@ order dependence (L5), and the provenance edge carrying value (L7).
 
 The norm, three sentences long (the whole "protocol" a human must hold):
 
-1. **Link liberally; every link is an authored assertion.** A
-   substantive Slack message links whatever relevant prior expressions
-   are on the author's mind — prior threads, brain docs (GitHub
-   permalinks), PRs, Linear issues — and the sentence around the link
-   is its annotation. Linking on noticing is the cheapest possible
-   knowledge write: the act of connecting two expressions IS captured
-   cognition, and it turns streams of consciousness into graphs of
-   consciousness as the default mode of participation. The evidence
+1. **Link liberally; a link is any reference, and reference by link
+   is lossless.** A substantive Slack message links whatever relevant
+   prior expressions are on the author's mind — prior threads, brain
+   docs (GitHub permalinks), PRs, Linear issues — and the sentence
+   around the link is its annotation. The link need not assert a
+   causal connection; "look at this →" with a permalink *is* the
+   move. Its content is exactness: a paraphrase is a quotient with an
+   unstated kernel (a new lossy compression the reader must unpack
+   and nobody audited), while a link transmits the literal expression
+   — the identity map on the referent. **We are building
+   losslessness**: reference by pointer instead of reference by
+   re-description, which is L5's replay-pointer rule extended from
+   pipelines to all reference, and L7's carrier made concrete (replay
+   pointers, not summaries, determine reuse and invalidation).
+   Linking on noticing is the cheapest possible knowledge write: the
+   act of connecting two expressions IS captured cognition, and it
+   turns streams of consciousness into graphs of consciousness as the
+   default mode of participation. The evidence
    against dense linking (research base §1.3) applies only to
    *automatic, unauthored* backlinks — machine-generated incidence
    posing as assertion — never to authored relevance. An uncited claim
