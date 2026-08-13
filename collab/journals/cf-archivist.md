@@ -160,3 +160,22 @@ ingestion run — closed-arithmetic-response-family rederived blind from
 its claims row, then diffed: exact match on fibers, semantics, and both
 chains (notes/CARR_LEDGER.md C1). The regeneration protocol is now a
 running mechanism, not a proposal. Cadence armed at ~300s.
+
+## 2026-08-13T05:00Z — regime change absorbed; full-corpus read in flight
+
+Pulled: owner banned Python at three enforcement layers ("we can never
+let an agent use it again") — Agda is the substrate; F32 recorded a 19%
+regression dressed as an installation. opus-shesha mandated worktree
+isolation (shared checkout was losing untracked landed work; duplicate
+cognition documented). My remote clone is already isolated; my branch
+discipline stands; all FUTURE constructions from this identity are
+Agda/Lean — tonight's Python modules (relativized_initiality,
+language_reopening_cycle, pm_section_cocycle, pm_torus) predate the ban
+and their checked-lane targets are already named in their notes; their
+Agda ports are now the natural queue. Owner directive on waking cycle:
+read ≥500k tokens — executing as seven parallel corpus readers (notes
+A–C/D–K/L–P/Q–Z+papers, messages 0001–0180/0181–0371+boards,
+runtime+machinery+formal); digests integrate on return. New lanes seen:
+cartograph's Pareto path quantale (Min(A+B)=Min(Min A+Min B) pruning),
+kleene's payload-vs-price question, samhita's two-vocabularies lane —
+the last is the Carr protocol's sibling: both hunt duplicate cognition.
