@@ -113,3 +113,58 @@ class ClosureCriterion(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Necessity(unittest.TestCase):
+    """Triangle-freeness is necessary too, under a stated non-degeneracy."""
+
+    def test_pentagram_triangles_are_all_nondegenerate(self):
+        from machinery.incidence_closure import nondegenerate_triangles
+
+        nd = nondegenerate_triangles(pentagram_observables(), pentagram_contexts(), 3)
+        self.assertEqual(nd["triangles"], 10)
+        self.assertEqual(nd["vertex_checks"], 30)
+        self.assertEqual(nd["degenerate"], [])
+        self.assertTrue(nd["all_nondegenerate"])
+
+    def test_two_qubit_edge_type_scenarios_are_forced_triangle_free(self):
+        """When contexts are Lagrangians, E1 itself forbids a triangle.
+
+        Exhaustive over all 3263 two-qubit union-of-context scenarios: exactly
+        ten are edge-type -- the Mermin squares -- and they carry zero
+        triangles between them. So necessity cannot even be tested at n = 2;
+        the hypothesis is vacuous there, for a provable reason.
+        """
+        from itertools import combinations as _c
+
+        from machinery.incidence_closure import incidence as _inc
+
+        count = triangles = 0
+        for chosen in pcm.all_context_covers(2):
+            ctx = pcm.lagrangians(chosen, 2)
+            inc = _inc(chosen, ctx, 2)
+            if not inc["edge_type"]:
+                continue
+            count += 1
+            edges = set(inc["on"].values())
+            triangles += sum(
+                1
+                for t in _c(range(len(ctx)), 3)
+                if all(frozenset(p) in edges for p in _c(t, 2))
+            )
+        self.assertEqual(count, 10)
+        self.assertEqual(triangles, 0)
+
+    def test_no_edge_type_counterexample_to_necessity_at_n_two(self):
+        """No two-qubit edge-type scenario has a triangle and still closes."""
+        from machinery.incidence_closure import incidence as _inc
+        from machinery.incidence_closure import stars_and_triangles as _st
+
+        for chosen in pcm.all_context_covers(2):
+            ctx = pcm.lagrangians(chosen, 2)
+            inc = _inc(chosen, ctx, 2)
+            if not inc["edge_type"]:
+                continue
+            st = _st(inc["on"], len(ctx))
+            closed = pcm.pure_memory(chosen, 2) == len(ctx) * 4
+            self.assertFalse(st["triangles"] > 0 and closed)
