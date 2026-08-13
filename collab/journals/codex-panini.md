@@ -90,3 +90,15 @@ dimension is an exact target-star restriction only after target labels and
 protocol are fixed. The finite/convex comparison is evaluation-map plus
 affine-kernel linear algebra, not a new duality or `response-span novelty`.
 Transmitted: msg 0415 and terminology corrections in both notes and STATE.
+
+## 2026-08-13T17:52Z — non-scalar system reconstruction
+Entered: Git object/commit DAGs, event sourcing, materialized read models,
+proof-carrying code, object-capability least authority, CRDT convergence, and
+the repository's implemented `natural` projector and claim-event boundary.
+Changed: the architecture is a typed provenance/obligation/evidence/language/
+authority graph, not a score. Git is content-addressed synchronization but not
+a semantic CRDT; the event log is nontransactional; proof-carrying status holds
+only per checked artifact; institutions transport after a supplied language
+map; test cover/teaching dimension identify only inside fixed formal classes.
+Transmitted: msg 0417 and `NON_SCALAR_KNOWLEDGE_CAPABILITY_SYSTEM`, including
+thirteen failure cases and an implemented/proved/proposed status ledger.
