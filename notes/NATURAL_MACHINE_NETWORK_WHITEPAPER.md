@@ -14,8 +14,8 @@ mathematics being translated.
 
 ## Abstract
 
-Cryptocurrencies usually compress value to a point on a number line and use a
-replicated ledger to agree who controls how much of it. Mathematical research
+Many cryptocurrency systems compress exchange value to a scalar balance and
+use a replicated ledger to agree who controls how much of it. Mathematical research
 has a different state space. A proof, counterexample, formal translation,
 dataset, instrument, cache, permission, and theorem-prover environment are not
 fungible units. Their future value depends on the task, admissible language,
@@ -23,21 +23,26 @@ trust policy, dependency graph, and available transformations. Equal present
 cost can leave incomparable future capabilities. A scalar balance therefore
 cannot be the primary state without destroying information.
 
-We specify a content-addressed, proof-carrying research network whose durable
-state is a versioned graph of mathematical presentations, claims, obligations,
-evidence, theory morphisms, verification events, permissions, and provenance.
-Hashes establish artifact and presentation identity. Mathematical equivalence
-requires a typed witness checked under a pinned theory and verifier. Theorem
-transport requires a checked morphism path and target proof replay. Authority
-is append-only, scoped, revocable, and separate from verification. Resource
+We specify a target content-addressed, proof-carrying research network whose
+proposed durable state is a versioned graph of mathematical presentations,
+claims, obligations, evidence, theory morphisms, verification events,
+permissions, and provenance. Hashes establish byte identity, and establish
+presentation-record identity only under a pinned schema and identity
+projection. Mathematical equivalence requires a typed witness checked under a
+pinned theory and verifier. Theorem transport requires a checked morphism path
+and target proof replay. Authority history is designed to be append-only;
+scope and revocation are policy-controlled and separate from verification.
+Resource
 allocation consumes plural, task-relative signals; it cannot promote a theorem.
 
 The economic object is not a universal coin. Resources and capabilities form
 typed vectors with partial orders and composition laws. A scalar price is an
 optional, local decision rule declared for one allocation problem. Settlement
 may use ordinary money, mutual credit, escrow, or no transferable asset at all.
-The protocol’s invariant is not price stability but preservation of truth,
-provenance, dissenting witnesses, replayability, and future option value.
+The protocol’s hard objectives are no false automatic promotion, replayable
+provenance, visibility of dissenting witnesses, and preservation of future
+option value. A protocol cannot itself preserve truth independently of its
+formal semantics, checkers, evidence, and authority assumptions.
 
 ## 1. The problem with one-dimensional value
 
@@ -60,7 +65,8 @@ the first cache forms `4` at zero additional cost and `3` at cost one, while
 the second reverses those costs. Their future profiles on `F={3,4}` are
 incomparable. No scalar function of present cost and cache size recovers both.
 
-This is not peculiar to arithmetic caches. The same obstruction appears when:
+This is not peculiar to arithmetic caches. Related failures of scalar
+compression appear when:
 
 - two proofs discharge different downstream obligation sets;
 - two experiments distinguish different hypothesis pairs;
@@ -74,22 +80,26 @@ the semantic representation of mathematical value.
 
 ### 1.1 Standard economic structure
 
-For a fixed interface, resource holdings may be modeled by a commutative
-monoid `R`; feasibility and preference add a preorder `≤`. Multiple resource
-coordinates produce a preordered commutative monoid, familiar from resource
-theories and multiobjective optimization. Task-relative evaluation is a map
+For a fixed interface, composable resource bundles may be modeled by a
+commutative monoid `R`, or by a partially defined monoidal operation when not
+all bundles compose. Feasibility and a declared preference or
+resource-convertibility relation may add a preorder `≤`. Multiple resource
+coordinates are familiar from resource theories and multiobjective
+optimization. Task-relative evaluation is a map
 
 \[
 e_T:R\longrightarrow C_T,                             \tag{2}
 \]
 
-where `C_T` may itself be partially ordered. A price is a monotone functional
-`p:R→ℝ` chosen for a declared market or decision problem. It is not intrinsic
-to `R`, and different tasks need not admit the same useful scalarization.
+where `C_T` may itself be partially ordered. When the preorder means
+no-less-desirable or no-less-capable, a compatible price or utility may be
+chosen monotone. Such a functional `p:R→ℝ` belongs to a declared market or
+decision problem; it is not intrinsic to `R`, and different tasks need not
+admit the same useful scalarization.
 
-The network therefore retains Pareto frontiers. It scalarizes only at an
-explicit decision boundary, with the policy, task, and information loss
-recorded.
+The proposed allocation representation therefore retains resource vectors and
+may compute Pareto frontiers. It scalarizes only at an explicit decision
+boundary, with the policy, task, and information loss recorded.
 
 ## 2. System thesis
 
@@ -103,7 +113,7 @@ separate planes:
 3. **Authority plane:** acceptance, quarantine, revocation, permissions,
    privacy, release, and governance events.
 4. **Allocation plane:** tasks, budgets, compute, attention, deadlines,
-   prospective funding, and retrospective causal credit.
+   prospective funding, and retrospective contribution attribution.
 
 No plane may impersonate another:
 
@@ -117,8 +127,10 @@ No plane may impersonate another:
 
 ## 3. State model
 
-The durable state is an append-only directed graph. Its principal node types
-use standard names:
+The specified durable state is a versioned directed graph with append-only
+authority/history events. The current repository approximates it through
+mutable, Git-versioned source records plus partial append-only logs. Its
+principal node types use standard names:
 
 - content-addressed artifacts;
 - normalized mathematical presentations;
@@ -131,7 +143,9 @@ use standard names:
 - tasks, capabilities, permissions, and resource commitments;
 - provenance and dependency edges.
 
-Human-readable names are mutable views. They never determine identity.
+Human-readable names are not by themselves stable semantic identifiers. A
+versioned manifest or identity projection may nevertheless include a path or
+name when the declared presentation semantics require it.
 
 The present repository only approximates event sourcing. Claim events are
 intended to reconstruct current status, but interrupted multi-file updates can
@@ -148,12 +162,12 @@ synchronization transport; semantic integration remains an explicit judgment.
 
 The implementation must state which equality it asserts.
 
-| level | equality asserted | mechanism |
+| level | equality asserted | mechanism or target interface |
 |---|---|---|
-| artifact | exact stored bytes | domain-separated cryptographic hash |
+| artifact | exact stored bytes | domain-separated hash plus byte replay; collision or unequal resolution is fatal |
 | presentation | same admitted canonical representation and dependencies | versioned canonicalizer and schema |
-| witnessed equivalence | a supplied equivalence or isomorphism has passed its checker | typed morphism, witness, verifier, policy |
-| class at a ledger head | connected by currently accepted invertible morphisms | immutable graph snapshot |
+| witnessed equivalence | a supplied equivalence or isomorphism has passed its checker | proposed generic typed morphism/verification/policy record; selected artifacts already instantiate the pattern |
+| class at a ledger head | connected under one declared equivalence theory and ambient structure by currently accepted invertible morphisms | proposed immutable graph snapshot at one authority head |
 
 A later proof can join two earlier classes without changing either
 presentation. Class snapshots are therefore head-relative views, not eternal
@@ -182,8 +196,8 @@ equality, isomorphism, observational equivalence, or theoremhood.
 The Rosetta layer records exact correspondences using established morphism
 notions: definitional equality, homomorphism, isomorphism, equivalence of
 categories, chain homotopy equivalence, conjugacy, interpretation, institution
-morphism, simulation, reduction, or observer quotient. These relations are not
-interchangeable.
+morphism, simulation, reduction, kernel quotient, or behavioral-equivalence
+quotient. These relations are context-specific and not interchangeable.
 
 A candidate morphism contains:
 
@@ -206,6 +220,10 @@ Selected Agda, Lean, and exact certificate artifacts instantiate this contract.
 The generic research registry does not yet; many obligations remain prose and
 certification transitions are disabled. “Proof-carrying research network” is
 the design target, not the present implementation grade.
+This is an analogy to proof-carrying code's producer/proof/fixed-consumer-policy
+separation, not an implementation of proof-carrying code for arbitrary
+mathematics. A proof term alone is not proof-carrying code unless the consumer
+policy and checker contract are fixed and bound.
 
 ### 4.1 Theorem transport
 
@@ -249,8 +267,12 @@ atomic truths exactly when
 r'_{\tau(q)}(x')=r_q(s(x'))                          \tag{4}
 \]
 
-for every `q,x'`. This is a Rosetta entry: equation (4) is the standard
-satisfaction condition specialized to atomic formulas.
+for every `q,x'`. This is a Rosetta entry only after the probe and state maps
+are components of the required sentence and model functors for declared
+institutions and a supplied signature morphism. Under that typing, equation
+(4) is the standard satisfaction condition specialized to atomic formulas. A
+bare commuting square of response functions does not itself construct an
+institution or institution morphism.
 
 Institution theory audits a supplied language morphism. It does not choose the
 new signature. Indeed, a two-element algebra can have two expansions of the
@@ -294,9 +316,11 @@ session resumption. It cannot promote, refute, merge, allocate, or mutate.
 
 ## 7. Capability security and delegation
 
-The proposed operational authority layer uses capability-based security and
-least privilege. Capabilities would be scoped, delegable, expiring, and
-revocable rights to perform specific actions on specific resources. Examples
+The proposed operational authority layer uses object-capability security and
+the principle of least authority. Capabilities would be scoped and attenuable
+rights to perform specific actions on specific resources. Expiry and revocation
+are not intrinsic to capability possession; the design must supply explicit
+indirection, revocation proxies, epoch/key rotation, or expiry. Examples
 include:
 
 - read a private artifact class;
@@ -338,19 +362,20 @@ Funds may be escrowed and released on policy-compliant acceptance events. The
 payment condition is the event, not an oracle claim that the mathematics is
 true. A defective policy remains defective even if every signature is valid.
 
-### 8.2 Retrospective causal credit
+### 8.2 Retrospective contribution attribution
 
-Retrospective credit follows recorded reuse and dependency discharge. A lemma,
+Retrospective attribution follows recorded reuse and dependency discharge. A lemma,
 counterexample, translation, source correction, or checker may later affect
 many claims. Credit attaches to content-addressed contributions and witnessed
 dependency paths, not only to persistent agent identities.
 
-This is causal attribution on a graph, not a unique solution to cooperative
-game theory. Shared causation, substitutable proofs, delayed reuse, and
-counterfactual dependence can produce several defensible allocations. The
-system retains the underlying graph and may display Shapley values, marginal
-contributions, dependency cuts, or other established allocations only with
-their assumptions visible.
+This is provenance and contribution attribution, not identified
+counterfactual causation. Shared contribution, substitutable proofs, delayed
+reuse, and counterfactual dependence can produce several defensible
+allocations. The system retains the underlying graph and may display Shapley
+values only after a characteristic function is declared; dependency paths do
+not supply one. Marginal contributions, dependency cuts, or causal estimates
+likewise require their own explicit model and assumptions.
 
 ### 8.3 No permanent scientific score
 
@@ -385,8 +410,10 @@ credit. These token classes must not be silently interchangeable.
 
 ### 9.1 Why “proof of work” is insufficient
 
-Hash expenditure proves resource consumption under a consensus rule. It does
-not prove mathematical usefulness or truth. Proof-of-stake signatures prove
+Proof of work proves possession of a nonce satisfying a difficulty predicate.
+Under hash-function and hardware assumptions it implies expected search work,
+not a receipt for exact compute or energy consumption. It does not prove
+mathematical usefulness or truth. Proof-of-stake signatures prove
 control of stake and agreement under a protocol; they do not make a theorem
 valid. Verifiable computation can certify that a program ran on committed
 inputs, but the program specification and theorem interpretation remain
@@ -420,8 +447,10 @@ would need to choose separately:
 - confidential computation and selective disclosure;
 - legal responsibility and release authority.
 
-Consensus need only order shared events and make equivocation visible. It must
-not vote on theorem truth. Different communities may retain different accepted
+Any consensus protocol must declare membership/admission, adversary and fault
+thresholds, safety, liveness, availability, finality, and fork assumptions. Its
+scope is shared operational state; no consensus protocol can vote a theorem
+true. Different communities may retain different accepted
 edge heads, axiom profiles, or authority policies while sharing artifacts and
 candidate morphisms.
 
@@ -435,31 +464,37 @@ about private work, but none is assumed by the current system.
 
 | property | present grade | boundary |
 |---|---|---|
-| content integrity | implemented, narrow | hashes and validators detect changes relative to trusted bytes; they do not prove authorship, truth, availability, or semantic equality |
+| content integrity | implemented, narrow | when trusted expected hashes/bytes exist and verification runs, hashes and validators detect mismatch; they do not prove authorship, truth, availability, or semantic equality |
+| authorship/authentication | not established as a protocol property | Git-host credentials and commit metadata are operational mechanisms; no mandatory signature scheme, key binding, rotation, revocation, or compromise-recovery protocol is specified |
 | mathematical verification | implemented for selected artifacts | Agda, Lean, and exact certificate checkers establish specified judgments, not novelty, authorization, or economic value |
 | claim/history validation | implemented, limited | schemas and legal transitions are checked; historical artifact gaps remain visible |
 | access and release control | procedural | private Git and explicit human policy; no end-to-end cryptographic access-control protocol is specified |
 | epistemic authority | procedurally centralized | parallel work is integrated by a high-context human/root process; privileged approval is not enforced by repository access control |
 | resource allocation | manual or proposed | no automatic allocator, market, token, or causal-credit engine is operating |
-| Byzantine consensus and finality | not implemented | Git workflow is not an adversarial consensus protocol |
+| Byzantine consensus and finality | not implemented | Git workflow is not a Byzantine-fault-tolerant consensus protocol |
 | Sybil resistance | not implemented | handles, branches, and model lineages are not costly or externally authenticated identities |
 | adversarial data availability | not established | ordinary clones and a private remote provide redundancy, not a retrievability or availability theorem |
 | economic security | not implemented | no issuance, fees, stake, slashing, or incentive-compatibility analysis governs the repository |
-| quantum cryptographic security | not claimed | quantum process theory is not QKD, post-quantum signatures, or a composable adversarial security proof |
+| quantum cryptographic security | not claimed | there is no QKD or device-independent protocol, post-quantum signature profile, quantum adversary model, or composable security definition |
 
 The current controls address accidental corruption, malformed records, illegal
-status transitions, some filesystem attacks, unsupported promotion, and replay
-failures. They do not establish protection against a malicious host,
+status transitions, unsupported promotion, and replay failures. For compiled
+graph artifact reads, repository-root confinement rejects absolute paths,
+parent traversal, and symlink escape; this is not general filesystem hardening.
+The controls do not establish protection against a malicious host,
 compromised credentials, colluding writers, censorship, denial of service,
 supply-chain compromise, metadata leakage, or quantum cryptanalysis.
 
 ## 11. Experiments, learning, and instrument choice
 
-For a fixed finite hypothesis class, the standard teaching-dimension theorem
+For a fixed finite hypothesis class, target, labels, and teaching protocol, the standard teaching-dimension theorem
 characterizes the minimum labeled examples that identify one target: the
 selected queries must hit every rival disagreement set. Separating every pair
-is the minimum test cover problem for binary tests, or a minimum
-point-separating family for finite-valued functions.
+is the minimum test cover problem for binary tests. For finite-valued probes,
+the corresponding established objects are a categorical generalized test
+collection or a minimum point-separating family of functions/partitions.
+Atomizing one grouped categorical probe into independently selectable binary
+outcome fibers changes the feasible selections and can change the optimum.
 
 These results optimize inside a supplied hypothesis class and query language.
 They do not form the class or language. Benevolent teaching, adaptive
@@ -468,9 +503,10 @@ cost models; there is no protocol-independent minimum interaction.
 
 ### 11.1 Physical experiments
 
-For a convex finite-dimensional quantum-comb model class `C`, old affine
-responses `f_i`, and a proposed process-POVM outcome response `g`, the new
-response distinguishes an unresolved feasible direction exactly when
+For a convex finite-dimensional class `C` of quantum combs, old affine outcome
+responses `f_i` of physically admissible testers, and a proposed tester outcome
+response `g`, the new response distinguishes an unresolved feasible direction
+exactly when (process POVMs are the one-slot channel-measurement case)
 
 \[
 \exists\Delta\in\operatorname{span}(C-C):
@@ -478,24 +514,38 @@ f_i(\Delta)=0\ \forall i,
 \quad g(\Delta)\ne0.                                  \tag{5}
 \]
 
-Equivalently, the restriction of `g` lies outside the linear span of the old
-restricted responses. This is the standard linear-span/annihilator criterion
-for refinement of a statistical experiment.
+In this finite-dimensional setting, equivalently, the restriction of `g` lies
+outside the linear span of the old restricted responses. This is the standard
+linear-span/annihilator criterion for refinement of a statistical experiment.
 
 Physical admissibility, statistical informativeness, task utility, calibration,
 implementation cost, and authority to add an instrument are separate. Equality
-of process-POVM statistics is a kernel quotient of the restriction map; at
-matrix levels the standard carrier is an Archimedean quotient operator system.
-Blackwell equivalence is coarser when outcome garbling is free. Identical
-statistics need not imply identical realization cost.
+of tester statistics—process-POVM statistics in the one-slot case—is the kernel
+quotient of the restriction map. If the outcome representatives form an
+operator system `S` whose order unit is the deterministic effect, and
+evaluation on compact `C` is the associated unital positive map into a
+commutative function system, then the matrix-ordered carrier is the
+Archimedean quotient operator system `S/ker(q_C)`. This conditional refinement
+does not follow from the bare vector quotient. Blackwell equivalence is coarser
+when outcome garbling is free. Identical statistics need not imply identical
+realization cost.
 
-The allocation plane must therefore price implementations, not quotient
-statistics alone.
+Allocation for physical deployment must retain implementation feasibility and
+resource vectors; quotient statistics alone suffice only for decision problems
+declared invariant under implementation.
 
-Logical memory and matrix rank are not thermodynamic work. Applying Landauer's
-bound requires a physical erasure/reset protocol, reservoirs and temperature,
-an error tolerance, and an implementation. None is inferred from a Git event,
-proof step, quotient, or abstract memory coordinate.
+For an actual multi-time comb, coherent memory is the ancillary system retained
+between teeth in a sequential realization. With free classical side
+information, its memory cost is a global positive-decomposition/rank
+optimization in the quantum-comb literature; independently minimizing each cut
+can be incompatible. Ordinary matrix rank or a list of cutwise minima is not
+comb memory cost.
+
+Logical memory and matrix rank are not thermodynamic work. Applying a Landauer
+bound requires specified logically irreversible erasure/reset in a
+thermodynamic model with reservoir temperature, error tolerance, and control
+protocol. None is inferred from a Git event, proof step, quotient, or abstract
+memory coordinate.
 
 ## 12. Rosetta practice
 
@@ -536,10 +586,6 @@ provenance.
 - **Axiom laundering:** classical, unsafe, or environment-specific assumptions
   disappear from the record.
 - **Canonicalizer overreach:** a heuristic normal form silently merges objects.
-
-Mitigation: typed relations, pinned schemas and axiom profiles, checked
-morphisms, target proof replay, and fail-closed canonicalizers.
-
 - **Semantic merge mistaken for text merge:** Git merges without textual
   conflict while two claims disagree mathematically, or conflicts textually
   while their theorems are equivalent. Mitigation requires explicit semantic
@@ -547,6 +593,14 @@ morphisms, target proof replay, and fail-closed canonicalizers.
 - **Torn event update:** an authority event and its source record diverge after
   interruption. Mitigation requires transactional append or deterministic
   replay plus fail-closed validation.
+- **Proof-policy mismatch:** a certificate checks against the wrong statement,
+  axioms, toolchain, environment, or safety policy.
+- **Unwitnessed schema migration:** a canonicalizer or identity projection
+  changes and silently changes presentation identity.
+
+Mitigation: typed relations, pinned schemas and axiom profiles, checked
+morphisms, target proof replay, migration witnesses, transactional or replayed
+authority state, and fail-closed canonicalizers.
 
 ### 13.2 Epistemic and economic attacks
 
@@ -562,6 +616,16 @@ morphisms, target proof replay, and fail-closed canonicalizers.
   totals and later become unusable.
 - **Self-dealing:** a proposer chooses its own checker, acceptance policy, and
   reward.
+- **Stale read model:** a cached materialized view is treated as current
+  authority.
+- **Authority laundering:** evidence, prediction, payment, or reputation is
+  treated as permission to install, accept, or publish.
+- **Empty-version-space arbitrariness:** inconsistency triggers an unrecorded
+  enlargement of the hypothesis class.
+- **Categorical-probe atomization:** a grouped experiment is split into
+  independently selectable outcome tests, falsifying its cost model.
+- **Revocation as erasure:** withdrawal deletes prior evidence or scholarly
+  history rather than changing current authority.
 
 Mitigation: separated roles, disclosed dependencies, plural audits, frozen
 controls, graph-based provenance, retained negative results, vector-valued
@@ -575,29 +639,33 @@ allocation signals, and no self-approval.
 - dependency substitution and environment drift;
 - denial of verification through costly witnesses;
 - privacy leakage through public metadata;
-- governance capture of budgets or release authority.
+- governance capture of budgets or release authority;
+- hidden equivocation between forked authority heads.
 
-Mitigation: scoped capabilities, expiry and revocation, threshold controls,
-content-addressed dependencies, reproducible environments, availability rules,
-rate/resource limits, private-by-default operation, and recoverable forks.
-These are design requirements where the corresponding mechanism is not listed
-as operating in Section 16.
+Operating mitigations are content-addressed dependencies, selected reproducible
+environments, private-by-default release policy, and limited validators.
+Proposed mitigations are scoped capabilities, explicit expiry/revocation,
+threshold controls, availability rules, resource limits, authenticated
+checkpoints, and specified fork choice and recovery.
 
 ## 14. Governance constitution
 
 Governance controls operation, not mathematical truth.
 
 1. Verification policies and trusted kernels are versioned and replaceable.
-2. Acceptance, quarantine, and revocation are append-only events.
+2. The target authority model uses append-only acceptance, quarantine, and
+   revocation events; current repository enforcement is incomplete.
 3. Budget allocation cannot alter claim status.
 4. Stake, reputation, seniority, or model confidence cannot waive a proof
    obligation.
 5. Private release requires explicit human or institutional authority.
-6. Affected participants retain authority over consequential live inputs;
-   prediction cannot substitute for consent.
+6. For each consequential live input, policy must identify authorized
+   principals, consent or objection rules, conflicts, appeals, and emergency
+   powers; prediction cannot silently substitute for an authorized response.
 7. Policy changes create new heads; they do not rewrite old history.
-8. Forks preserve evidence when communities disagree about axioms, policies,
-   or governance.
+8. Forks should preserve evidence when communities disagree about axioms,
+   policies, or governance, subject to availability, privacy, legal, and safety
+   constraints.
 
 The protocol permits plural evaluators and communities while keeping every
 accepted statement relative to a visible theory, verifier policy, environment,
@@ -613,23 +681,27 @@ cryptography nor historical analogy licenses their merger.
 A source-grounded Indian audit sharpens the separation without proposing an
 Indian cryptocurrency or governance algorithm:
 
-- In Nyāya, a digitally authenticated utterance is not thereby `āptavākya` or
-  `śabda-pramāṇa`; competence, truthfulness, sentence conditions, and truth-apt
-  cognition are additional questions. Conversely, Nyāya supplies no digital
-  signature or key-management scheme.
-- Pāli Vinaya treatments of `saṅghakamma` distinguish presence, procedural
-  eligibility, quorum, motion (`ñatti`), proclamation (`anussāvana`), effective
-  protest (`paṭikkosanā`), and conformity to governing norms. A threshold
-  signature proves only that a threshold signed under the cryptographic rule;
-  it does not prove eligibility, legitimacy, or truth.
-- `Cullavagga` VI.16 describes specified `saṅgha` property as `avissajjiya` and
+- In Annambhaṭṭa's `Tarkasaṅgraha` §§35–41 and 59–63, a digitally authenticated
+  utterance is not thereby `āptavākya` or `śabda-pramāṇa`; competence,
+  truthfulness, sentence conditions, and truth-apt cognition are additional
+  questions. Conversely, this Nyāya text supplies no digital signature or
+  key-management scheme.
+- The Theravāda Pāli `Mahāvagga` IX.3–4, for the specified monks'
+  `saṅghakamma`, distinguishes presence, procedural eligibility, quorum,
+  motion (`ñatti`), proclamation (`anussāvana`), effective protest
+  (`paṭikkosanā`), and conformity to governing norms. A threshold-signature
+  verifier establishes its specified statement only under the declared scheme,
+  keys, and security assumptions; it does not by itself prove human identity,
+  procedural eligibility, legitimacy, or truth.
+- For the enumerated monastic property in the cited Theravāda `Cullavagga`
+  VI.16 passage, `saṅgha` property is described as `avissajjiya` and
   `avebhaṅgiya`—not to be transferred or divided. This defeats the general
   equation “collective property equals freely divisible balances of current
   members.” It does not itself specify a modern trust, corporation, token, or
   smart contract.
 
 The historical gender, affiliation, territorial, monastic, and institutional
-exclusions in these sources are provenance boundaries, not design
+exclusions in the cited `Mahāvagga` transaction passage are provenance boundaries, not design
 recommendations. No common formal object uniting these traditions with the
 modern protocol has been established. The full source audit and untranslated
 residuals are recorded in `WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT.md`.
@@ -649,30 +721,41 @@ admitted continuation produces the same observation. This yields:
 - remainder automata for positional divisibility;
 - substring-recognition automata;
 - quotient dynamics and finite process discrimination;
-- unobservable-subspace quotients for finite linear systems;
-- shortest distinguishing experiments and minimum test collections.
+- unobservable-subspace quotients for finite linear systems.
+
+On finite systems, a separate pair-graph breadth-first search supplies shortest
+distinguishing experiments. A further set-cover optimization over the admitted
+probe family supplies a minimum test collection. Neither extra optimization is
+part of the Myhill–Nerode theorem itself.
 
 The Lean development checks that complete-future equality is an equivalence,
 is preserved by actions, supports quotient actions and observations, and is the
-coarsest relation preserving the declared futures. Domain-specific calculations
-then identify its arithmetic, linguistic, or control-theoretic form.
+compatible with execution before and after quotienting. By definition it is
+equality of the complete behavior functions; this prose fact is not presented
+as an additional kernel-checked universal-property theorem. Domain-specific
+calculations then identify its arithmetic, linguistic, or control-theoretic
+form.
 
 ### 15.2 Arithmetic and construction
 
 For binary divisibility by `m=2^a q` with `q` odd, the exact minimal state count
-is `q+a`. The coordinates can be recovered dynamically: `q` is the stable image
-size of repeated multiplication by two modulo `m`, and `a` is the number of
-strict image contractions. More general base/modulus developments prove finite
-future horizons and compile useful action words while retaining their expansion.
+is the established `q+a` result. The repository adds an exact dynamical
+reconstruction of its coordinates: `q` is the stable image size of repeated
+multiplication by two modulo `m`, and `a` is the number of strict image
+contractions. General-radix divisibility notes give explicitly bounded finite
+signatures under their stated base/modulus hypotheses; compiled action words
+retain their expansion.
 
-The formal corpus also contains executable and verified `2×2` Smith normal-form
-certificates, counted executions, residue transports, addition-chain and
+The formal corpus also contains Lean-checked `2×2` Smith certificate theorems,
+Cubical-Agda checked Smith interfaces, and separately executable exact replay
+certificates, together with counted executions, residue transports, addition-chain and
 valuation witnesses, and precise no-gos showing where coefficients, histories,
 or action carriers cannot be replaced by their cardinalities.
 
 ### 15.3 Charts, univalence, and symmetry
 
-The safe Cubical Agda development proves, without postulates or holes:
+The Cubical Agda development is accepted under `--cubical --safe`, with no user
+postulates or holes. It proves:
 
 - loop spaces of finite types correspond to their symmetric groups;
 - the natural-number algebra is rigid although its bare carrier has
@@ -688,7 +771,8 @@ The safe Cubical Agda development proves, without postulates or holes:
   expose what the bare type equivalence forgets.
 
 This is the formal center of the system's identity discipline: equivalence can
-transport structure only after the structure and morphism type are named.
+transport a particular structure only after the structure and morphism type are
+named.
 
 ### 15.4 Gluing, observers, and residuals
 
@@ -713,15 +797,19 @@ translations, rigidity and homometry, operator algebras, eigenmeasures, and
 finite optimization certificates. These results carry individual hypotheses,
 correction ledgers, and evidence grades. This whitepaper does not flatten them
 into one tokenizable claim or restate their hundreds of pages; the research
-graph is their lossless index.
+graph compiler provides a typed, partial index whose omissions and dangling
+artifacts remain visible. It is not a lossless semantic index of every note.
 
 ### 15.6 Open typed joints
 
-The formal capability graph records missing maps rather than inferring them
-from imports. Current examples include an observational-class carrier for a
-declared complete response relation and an adapter from a classical response
-oracle to a coherent phase oracle with explicit compute–phase–uncompute cost.
-An open joint means no checked inhabitant is installed, not that impossibility
+The specified capability graph records missing maps rather than inferring them
+from imports. Some closed edges are actual Lean or Agda terms; some open joints
+are checked interface types; others are explicitly prose-level boundaries.
+Current examples include an observational-class carrier for a declared complete
+response relation and an adapter from a classical response oracle to a coherent
+phase oracle with explicit compute–phase–uncompute cost. “No checked inhabitant”
+is asserted only for an interface that actually elaborates as a type; an open
+prose joint merely says no implementation is recorded, not that impossibility
 has been proved.
 
 ## 16. What exists now
@@ -730,7 +818,8 @@ has been proved.
 
 - private Git synchronization and isolated worktrees;
 - builder, breaker, auditor, and integrator collaboration;
-- append-only claim/event records with validators;
+- Git-versioned claim source records plus conventionally append-only event
+  fragments with limited validators; transactional replay is not implemented;
 - exact proof and certificate work in Cubical Agda and Lean;
 - adversarial reviews, corrections, and provenance messages;
 - deterministic read-only compilation of the research graph;
@@ -744,7 +833,7 @@ has been proved.
 - all-pairs binary separation is minimum test cover;
 - old-language reducts cannot determine a new operation;
 - observer response-square preservation is the satisfaction condition for
-  atomic formulas;
+  atomic formulas once the required institution/signature typing is supplied;
 - process-POVM refinement has the affine annihilator/span criterion;
 - equality of tester statistics is a kernel quotient and can erase realization
   cost;
@@ -760,7 +849,7 @@ has been proved.
 - theorem transport across accepted paths;
 - deterministic class snapshots at authority heads;
 - recursive capability and budget delegation;
-- causal contribution accounting;
+- dependency/reuse-based contribution attribution;
 - equivalence-assisted evaluation caches.
 
 ### 16.4 Not built
@@ -822,18 +911,24 @@ gains cannot excuse semantic or privacy failures.
 
 ## 19. Conclusion
 
-The natural unit of mathematical coordination is not a coin. It is a typed,
+The protocol's durable machine-readable unit is not a coin. It is a typed,
 content-addressed contribution situated in a graph of dependencies, proofs,
-permissions, and possible future uses. Cryptography can preserve integrity,
-ordering, provenance, and scoped control. Formal methods can verify witnesses
-and transports. Economic mechanisms can allocate scarce resources. None alone
-determines mathematical truth or scientific value.
+permissions, and possible future uses. This does not exhaust mathematical
+coordination: oral and tacit knowledge, care and maintenance, anonymous or
+collective work, and restricted knowledge may remain outside such records.
+Cryptographic hashes, signatures, commitments, encryption, and consensus
+protocols can support specific integrity, authentication, confidentiality, or
+ordering properties under explicit security and fault assumptions; none is
+implemented merely by content addressing. Formal methods can verify specified
+witnesses and transports. Economic mechanisms can allocate scarce resources.
+None alone determines mathematical truth or scientific value.
 
 The network therefore keeps the rich object and treats currency as an optional
-projection. It uses Rosetta entries to connect mature mathematical languages,
-proof-carrying morphisms to move results safely, append-only authority to make
-revision visible, and task-relative partial orders to preserve incomparable
-forms of value. The intended result is not money for mathematics. It is
+projection. It uses Rosetta entries to connect mature mathematical languages
+and proposes checked morphism/transport records, append-only authority history,
+and task-relative partial orders to preserve incomparable forms of value.
+Selected artifacts instantiate pieces of this design; the general engine is
+unbuilt. The intended result is not money for mathematics. It is
 mathematics whose exact relations, provenance, capabilities, and transformations
 remain alive enough to coordinate their own further development.
 
