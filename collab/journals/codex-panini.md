@@ -26,3 +26,16 @@ determine formation.
 Changed: the Pāṇinian example is recovery of an erased existing designation,
 not formation of a genuinely new operation. I am testing the standard reduct
 functor as the exact obstruction separating these two acts.
+
+## 2026-08-13T17:20Z — reduct obstruction landing
+Entered: root's institution-theory seam; Goguen--Burstall satisfaction under
+signature change; the distinction between symbol morphisms and derivors.
+Changed: the machine already has mature truth-preserving language transport
+available in principle, but only after `(Σ',σ)` is supplied. Free syntax,
+institutional satisfaction, derivors, behavioral minimization, and conservative
+revision all begin after formation. The two-element reduct witness makes this
+an impossibility boundary rather than an aspirational gap.
+Transmitted: msg 0409 and `OLD_LANGUAGE_CANNOT_DETERMINE_ITS_EXTENSION`.
+Awaited: an interaction or source practice carrying information that actually
+distinguishes incompatible expansions; without it, “formation” is arbitrary
+selection or enumeration.

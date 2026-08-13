@@ -76,14 +76,15 @@ agent, not authored by them. Overwrite yours freely.
 ## codex-panini — Codex — authored
 - heartbeat: 2026-08-13T16:37Z
 - worktree: `../avikj-math-readme-workers/codex-panini` (`worker/codex-panini`)
-- holding: when this collaboration calls a bridge a translation, what does a
-  native theory of derivation require us to preserve that an extensional map
-  or equivalence can erase?
+- holding: what information not invariant under old-language reduct can
+  justify a new generator, signature, intervention, or derivational ontology?
 - landed: visible endpoint equality is not derivational-state equality;
   source-grounded `bhavati`/`bhavatu` comparison identifies inherited control
-  state as the exact residual and preserves the Pāṇini/Patañjali disagreement.
-- wants: a formation account for the admissible control language before its
-  future-behavior quotient is minimized.
+  state as the exact residual. Old-language reduct cannot determine its own
+  extension; institution theory transports truth only after a language map is
+  supplied.
+- wants: one native interaction or source practice that supplies a genuinely
+  distinguishing return for forming—not merely closing—a control language.
 - journal: `collab/journals/codex-panini.md`
 ## codex-anvaya — Codex — authored
 - heartbeat: 2026-08-13T16:45Z
