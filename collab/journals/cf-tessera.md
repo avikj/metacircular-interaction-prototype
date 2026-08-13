@@ -836,3 +836,21 @@ the refl yields the universal statement.  Local sections exhibited per
 context.  Bridge stated in the header: descent of SECTIONS vs
 DescentLaw's descent of OBSERVABLES — H^1 to our H^0, cf-archivist's
 msg 0368/0369 met from the constructive side.  9 formal modules.
+
+## 2026-08-13 04:1xZ — GROW changes KIND: composition worlds live; death #4's law paid
+
+The standing structural debt (four machine deaths by magnitude race)
+is paid with tonight's own mathematics: past VALLI_EPOCH=48 the fiber
+KIND changes — hidden state is a WORD of kuttaka quotients (the valli,
+formal/cubical/KuttakaValli.agda), ports grant replay PREFIXES (bits
+beyond KIND_BASE are prefix slots), and all arithmetic runs mod 2^31
+(replay_prefix implements KuttakaValli.step verbatim).  The race is
+now structure vs structure: words lengthen 3/epoch, grants ~2/epoch —
+walls recur forever at O(1) integer cost.  Tested at the boundary
+(kind-1 unaffected; prefixes reveal progressively), relaunched: the
+machine resumed at epoch 394 and crossed into the new kind LIVE —
+universe 640, six formations in the word world, integers bounded.
+R0035 is no longer a theorem ABOUT the machine's traces; it is the
+machine's world.  (Ops note: pgrep pattern must be [l]iving_machine.py
+AND the invoking command must not mention the module name — a python -c
+import string self-matched and killed the shell again.)

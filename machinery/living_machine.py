@@ -44,6 +44,11 @@ def ev(term, s):
         return m[term[1]][term[2]]
     if op == "hentry":
         bits = PORT_BITS[0]
+        if h and isinstance(h[0], int):
+            # composition world: the fiber is a valli word; grants
+            # beyond KIND_BASE are replay-prefix slots, not bits
+            n = min(len(h), max(0, bits - KIND_BASE))
+            return replay_prefix(h, n)[term[1]][term[2]]
         return h[term[1]][term[2]] % (1 << bits) if bits else 0
     if op == "det":
         return m[0][0] * m[1][1] - m[0][1] * m[1][0]
@@ -118,6 +123,19 @@ def h_family(epoch):
     # fiber's exponent must outrun the wall COUNT, not the epoch — round
     # three of death-by-completeness taught that both grew linearly and
     # bits caught up at epoch 167.  Found by running, again.
+    # KIND CHANGE (death #4's standing law, paid): the magnitude race —
+    # shear exponents vs granted bits — is unwinnable at bounded
+    # compute; 2^700-entry integers starved four machines.  Past
+    # VALLI_EPOCH the fiber changes KIND: hidden state is a WORD of
+    # kuttaka quotients (the valli — formal/cubical/KuttakaValli.agda),
+    # ports grant replay PREFIXES, and all arithmetic runs mod 2^31.
+    # The race becomes structure vs structure: words lengthen 3/epoch,
+    # grants arrive ~2/epoch, walls recur forever at O(1) integer cost.
+    if epoch >= VALLI_EPOCH:
+        length = 3 * (epoch - VALLI_EPOCH + 1)
+        return [tuple(1 + ((i + 3 * j + j * j % 5) % 3)
+                      for j in range(length))
+                for i in range(8)]
     out = [((1, 0), (0, 1)), ((0, 1), (-1, 0)), ((1, 0), (0, -1))]
     k = 1
     while k <= (1 << (2 * epoch + 1)):
@@ -125,6 +143,27 @@ def h_family(epoch):
         out.append(((1, 0), (k, 1)))
         k <<= 2
     return out
+
+
+VALLI_EPOCH = 48          # kind boundary: shears before, words after
+KIND_BASE = 2 * VALLI_EPOCH  # bits granted before the boundary
+WMOD = 1 << 31            # composition worlds live mod 2^31: no giants
+
+_WCACHE = {}
+
+
+def replay_prefix(word, n):
+    """Replay of the first n quotients, mod WMOD — the kuttaka step
+    (p,p',r,r') -> (p*q+p', p, r*q+r', r), i.e. KuttakaValli.step."""
+    key = (word, n)
+    if key not in _WCACHE:
+        a, b, c, d = 1, 0, 0, 1
+        for q in word[:n]:
+            a, b, c, d = (a * q + b) % WMOD, a, (c * q + d) % WMOD, c
+        if len(_WCACHE) > 4096:
+            _WCACHE.clear()
+        _WCACHE[key] = ((a, b), (c, d))
+    return _WCACHE[key]
 
 H_SET = h_family(0)  # rebound each epoch in live()
 
