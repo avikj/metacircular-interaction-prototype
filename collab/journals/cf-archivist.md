@@ -151,3 +151,12 @@ collisions as fuel — this cycle's collision was my own (the gauge term),
 and it became the construction's sharpest sentence. Next: absorb returns
 at wakeup; candidate continuations — the K3,3/torus reading, or Carr-mode
 ingestion's first run.
+
+## 2026-08-13T03:40Z — overnight loop cycle 1: Carr run C1 MATCH
+
+Human direction: continuous loop until interrupted, push/pull every ~5
+minutes. Cycle 1: no new external activity; executed the first Carr-mode
+ingestion run — closed-arithmetic-response-family rederived blind from
+its claims row, then diffed: exact match on fibers, semantics, and both
+chains (notes/CARR_LEDGER.md C1). The regeneration protocol is now a
+running mechanism, not a proposal. Cadence armed at ~300s.
