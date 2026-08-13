@@ -12,6 +12,9 @@ open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.HLevels using (isPropΠ)
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Bool using (Bool ; false ; true)
+open import Cubical.Data.Bool.Properties using (true≢false)
+open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Vec.Base as V using (Vec ; [] ; _∷_ ; _++_)
 import Cubical.Data.Vec.Properties as VecProperties
@@ -125,3 +128,71 @@ module DigitTower (Digit : Type ℓ) (digitSet : isSet Digit) where
   reversalLimitEquiv : MSDLimit ≃ LSDLimit
   reversalLimitEquiv = isoToEquiv
     (iso reverseToLSD reverseToMSD reverse-rightInv reverse-leftInv)
+
+  ----------------------------------------------------------------------
+  -- A law on the LSD limit transported through reversal.  This is kept
+  -- at the binary-operation level: group laws follow by the same inverse
+  -- equations, while a Group record would obscure the structural boundary
+  -- tested below (the native finite projections are not homomorphisms for
+  -- carry addition).
+  ----------------------------------------------------------------------
+
+  transportLawToLSD : (MSDLimit → MSDLimit → MSDLimit)
+                    → LSDLimit → LSDLimit → LSDLimit
+  transportLawToLSD op x y =
+    reverseToLSD (op (reverseToMSD x) (reverseToMSD y))
+
+  transportLawToLSD-conjugacy
+    : (op : MSDLimit → MSDLimit → MSDLimit) (x y : LSDLimit)
+    → reverseToMSD (transportLawToLSD op x y)
+      ≡ op (reverseToMSD x) (reverseToMSD y)
+  transportLawToLSD-conjugacy op x y =
+    reverse-leftInv (op (reverseToMSD x) (reverseToMSD y))
+
+------------------------------------------------------------------------
+-- The least native carry obstruction (DIGIT_CRYSTAL Lemma 4.1).
+-- At base two, 1 + 1 = 2.  Deleting the least-significant digit after
+-- addition therefore returns 1, whereas deleting first returns 0 + 0 = 0.
+-- This is deliberately separate from the transported law above.
+------------------------------------------------------------------------
+
+private
+  xor : Bool → Bool → Bool
+  xor false b = b
+  xor true false = true
+  xor true true = false
+
+  and : Bool → Bool → Bool
+  and false b = false
+  and true b = b
+
+  addBit : Vec Bool 1 → Vec Bool 1 → Vec Bool 1
+  addBit (a ∷ []) (c ∷ []) = xor a c ∷ []
+
+  -- Little-endian addition modulo four.
+  addTwoBits : Vec Bool 2 → Vec Bool 2 → Vec Bool 2
+  addTwoBits (a ∷ b ∷ []) (c ∷ d ∷ []) =
+    xor a c ∷ xor (xor b d) (and a c) ∷ []
+
+  xorTwoBits : Vec Bool 2 → Vec Bool 2 → Vec Bool 2
+  xorTwoBits (a ∷ b ∷ []) (c ∷ d ∷ []) =
+    xor a c ∷ xor b d ∷ []
+
+  one₂ : Vec Bool 2
+  one₂ = true ∷ false ∷ []
+
+  dropLSD₂ : Vec Bool 2 → Vec Bool 1
+  dropLSD₂ (a ∷ b ∷ []) = b ∷ []
+
+dropLSD-not-additive-base2
+  : ¬ (dropLSD₂ (addTwoBits one₂ one₂)
+       ≡ addBit (dropLSD₂ one₂) (dropLSD₂ one₂))
+dropLSD-not-additive-base2 p = true≢false (cong V.head p)
+
+-- Planted opposite setting: end deletion itself is not the obstruction.
+-- Without carry, the same projection preserves pointwise XOR exactly.
+dropLSD-xor-hom-base2
+  : (x y : Vec Bool 2)
+  → dropLSD₂ (xorTwoBits x y)
+    ≡ addBit (dropLSD₂ x) (dropLSD₂ y)
+dropLSD-xor-hom-base2 (a ∷ b ∷ []) (c ∷ d ∷ []) = refl

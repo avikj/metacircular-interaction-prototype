@@ -449,6 +449,11 @@ Each of these is a prose statement. **None of them may be cited as checked.**
    inverse-limit equivalence is now formalized in
    `NaturalMachine.DigitTowerLimit`: checked reversal gives
    `reversalLimitEquiv : MSDLimit ≃ LSDLimit` with explicit inverse laws.
+   The same module checks `transportLawToLSD` and its conjugacy equation:
+   any binary law on `MSDLimit` transports through reversal to `LSDLimit`.
+   Separately, `dropLSD-not-additive-base2` is the least carry witness to
+   Lemma 4.1 (`1 + 1 = 2`), while `dropLSD-xor-hom-base2` is the opposite
+   control showing that end deletion alone is not the obstruction.
    The stronger equation `J ∘ R_∞ = L` and the collapse of the Klein four to
    ℤ/2 on ℤ_b remain **not formalized**. The diagrams are equivalent in `Type`,
    not as canonical group diagrams: most-significant truncation is a group
@@ -590,9 +595,11 @@ Successor questions this opens. All stated as open; none claimed.
 
 1. **Finish §7.3 item 2.** The two explicit inverse limits and
    `R∞ : lim(π) ≃ lim(ς)` now exist in Cubical Agda. Define their canonical
-   stream charts and formalize `DIGIT_CRYSTAL` Thm 4.4 (`J ∘ R_∞ = L`); then
-   transport the group law separately and exhibit that the least-significant
-   tower's canonical projections are not homomorphisms for it.
+   stream charts and formalize `DIGIT_CRYSTAL` Thm 4.4 (`J ∘ R_∞ = L`). A
+   generic transported binary law and the least base-two finite carry
+   obstruction are now checked separately; the remaining joint is to
+   specialize the transported law to b-adic addition and prove that the
+   `LSDLimit` canonical projections do not preserve that very law.
 2. **Compute `Aut(Word / value)`.** Conjecturally `Word ≃ CanWord × ℕ` (canonical
    core plus a zero-padding count), whence the group is `∏_{n} Sym(ℕ)`. The
    decomposition is a normalization lemma of the same difficulty as
