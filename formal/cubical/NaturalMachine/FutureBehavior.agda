@@ -17,6 +17,16 @@
 -- (equations (1)–(2)), with the set-quotient realized as the HIT
 -- `Cubical.HITs.SetQuotients._/_` instead of Lean's `Quotient`.
 --
+-- This module also absorbs the parallel port that briefly lived in
+-- `NaturalMachine/PortQueue.agda` (see notes/LEAN_TO_CUBICAL_PORT_MAP.md
+-- §4; the two landed the same day from two directions).  Everything
+-- PortQueue proved is here under this module's names — its liftQ is
+-- `factor`, its runQ ledger is `run quotStep` / `quotRun-[]`, its
+-- stepQ/observeQ/behaviorQ(-inj) are quotStep/quotObserve/
+-- quotBehavior(-injective) — plus its one genuinely new statement, the
+-- effectivity ISO `[]-effectiveIso` (the univalent strengthening of
+-- Lean's Quotient.exact/Quotient.sound pair).
+--
 -- Contents (all proved, no holes, --safe):
 --
 --   run, behavior, FutureEq        the relation (Lean: run/behavior/
@@ -32,8 +42,11 @@
 --     quotStep, quotObserve          descent of step and observation
 --     quotRun-[]                     execution commutes with quotienting
 --                                    (Lean: quotientRun_mk)
---     []-effective                   the quotient is effective: a path
---                                    of meanings yields future equality
+--     []-effective,                  the quotient is effective: a path
+--     []-effectiveIso                of meanings yields future equality,
+--                                    and in fact the path space at two
+--                                    named states IS future equality
+--                                    (an Iso, available for transport)
 --     quotBehavior,                  full abstraction: meanings embed
 --     quotBehavior-injective         into complete behaviors (Lean:
 --                                    quotientBehavior_injective)
@@ -57,6 +70,7 @@
 module NaturalMachine.FutureBehavior where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Isomorphism using (Iso)
 open import Cubical.Foundations.HLevels
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
@@ -271,6 +285,12 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
 
   []-effective : (x y : X) → Path Meaning [ x ] [ y ] → x ≈ y
   []-effective = SQ.effective isProp≈ ≈-isEquivRel
+
+  -- Strictly more: the path space of the quotient at two named states
+  -- IS future equality — an isomorphism of types, not just a function
+  -- (the univalent form of Lean's Quotient.exact / Quotient.sound).
+  []-effectiveIso : (x y : X) → Iso (Path Meaning [ x ] [ y ]) (x ≈ y)
+  []-effectiveIso = SQ.isEquivRel→effectiveIso isProp≈ ≈-isEquivRel
 
   ----------------------------------------------------------------------
   -- 5c.  Full abstraction: meanings embed into complete behaviors
