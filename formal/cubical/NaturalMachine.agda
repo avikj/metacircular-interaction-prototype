@@ -64,6 +64,7 @@ open import NaturalMachine.SymmetryArithmeticAction public
 open import NaturalMachine.SmithCapability public
 open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
+import NaturalMachine.FutureBehavior
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
