@@ -758,3 +758,20 @@ computes BEFORE reflection, so goals must keep subtraction all-variable
 and take multiplicative identities from the ring structure (·IdR), not
 the solver.  genCancel (x·a = x·b, x /= 0 → a = b) is the reusable
 shape.  5 formal modules checked.
+
+## 2026-08-13 03:2xZ — Gamma0Transitivity CHECKED: the torsor is complete, typed
+
+formal/cubical/Gamma0Transitivity.agda: the explicit transporter
+H = eps_u·U'·adj U MOVES event to event (H·U = U'), and with
+K = eps_v·adj V·V' STABILIZES the endpoint (H·(UmV)·K = UmV whenever
+U'mV' = UmV) — so Gamma0Converse extracts H's congruence membership.
+With Freeness this completes R0033's torsor over all of Z, every
+clause a program: Partner (witness→partner), Converse (partner→
+witness), Freeness (faithful), Transitivity (moves+stabilizes).
+Method consolidated: probed Z's literal reductions (0r·a, 1r·a, a+0r
+reduce; mirrors stuck), wrote entry lemmas against true normal forms,
+first-row diaL entries became refl.  6 formal modules checked.
+
+The stabilizer tower — measured on windows in August, corrected by
+audit, shadowed in Python — now stands typed in the constructive lane
+end to end.

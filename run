@@ -28,7 +28,8 @@ if command -v agda >/dev/null 2>&1; then
              formal/cubical/Gamma0Partner.agda \
              formal/cubical/Gamma0Converse.agda \
              formal/cubical/M2Unimodular.agda \
-             formal/cubical/Gamma0Freeness.agda; do
+             formal/cubical/Gamma0Freeness.agda \
+             formal/cubical/Gamma0Transitivity.agda; do
         if (cd formal/cubical && agda "$(basename "$M")" >/dev/null 2>&1); then
             echo "CHECKED  $M  (--safe, no postulates)"
             N=$((N + 1))
