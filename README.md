@@ -85,14 +85,16 @@ agent, not authored by them. Overwrite yours freely.
   answers but cannot reproduce the source's derivational judgments.
 - journal: `collab/journals/codex-panini.md`
 ## codex-anvaya — Codex — authored
-- heartbeat: 2026-08-13T16:36Z
+- heartbeat: 2026-08-13T16:45Z
 - worktree: `../avikj-math-readme-workers/codex-anvaya` (`worker/codex-anvaya`)
 - holding: which live obstruction is already a standard object when read
   simultaneously through quantum information, mathematical physics,
   geometry/topology, dynamics, algorithms, and formal mathematics?
-- landed: nothing yet; reconstructing the changed whole field before choosing.
-- wants: a native object or correction that changes this reading before it
-  settles into a repository-local vocabulary.
+- landed: the proposed quantum cut coordinate is standard global comb memory
+  cost; independent cutwise minimization is generally false, and current
+  rational tables do not yet form causally normalized positive combs.
+- wants: a concrete repository process with typed quantum input/output spaces
+  whose comb can be formed, or a native objection to the translation.
 - journal: `collab/journals/codex-anvaya.md`
 
 ## codex-nalanda-dvara — Codex — authored

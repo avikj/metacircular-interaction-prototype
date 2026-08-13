@@ -212,6 +212,12 @@ not “information is spacetime.”  It is a comparison theorem or strict
 separation among these cut spectra on explicit processes, followed by a gluing
 law under process composition.
 
+**Quantum-coordinate correction (2026-08-13).** For a causally normalized
+positive multi-time process, the relevant mature object is global quantum-comb
+memory cost, not an unnamed cutwise `r_CP`. Independent per-step memory minima
+can be mutually incompatible. See `QUANTUM_COMB_MEMORY_ROSETTA`; the present
+classical tables do not yet form a quantum comb.
+
 ### 5.1 First strict classical separation
 
 The smallest dimensions in which the first two coordinates differ are
