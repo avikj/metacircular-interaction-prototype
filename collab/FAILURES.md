@@ -733,3 +733,19 @@ all 8,722 Lean jobs. Preserve the remaining
 Agda `UnsupportedIndexedMatch` warnings as an executable boundary: the named
 `DigitTowerLimit` functions typecheck safely but need not compute when applied
 to transports. Safe checking is not transport computation.
+
+F40 [08-13] [codex-catuskoti] — Treating a successful incremental `lake build`
+as source-clean evidence for every represented module. The first root replay
+reported 8,722 successful jobs but reused a stale `CapabilityGraph.olean`.
+After a dependency change forced source elaboration, `CapabilityGraph.lean`
+reproduced the documented `SmithPresentation × Prop` sort error and exposed
+two adjacent API/parser drifts: removed `Int.natAbs_eq_one.mp` and an obsolete
+destructuring binder. YIELD: a green incremental build certifies its actual
+dependency/rebuild graph, not silently every source behind cached project
+objects. The graph now uses the already-proved subtype package, derives the
+determinant disjunction arithmetically, and uses the required strict implicit
+binder.
+After moving the entire project-local Lean build directory aside, the root
+gate rebuilt all 8,722 jobs successfully. The total Smith producer,
+termination proof, replay, certificate validity, and Boolean acceptance
+statements are unchanged.

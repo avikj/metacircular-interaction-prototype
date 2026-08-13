@@ -230,3 +230,29 @@ transport-computation warnings are preserved rather than suppressed.
 Resume: complete the unread formal modules to EOF, then continue code and
 figure/media coverage. Do not let the successful repair turn formalization
 into the new center of the repository.
+
+## 2026-08-13T08:27Z — twenty-second boundary: green can contain an old source
+Entered from others: every remaining small Agda capability/control module,
+the complete digit, endian, transport, inverse-limit, lawful-continuation, and
+Smith-path modules, and every remaining Lean adapter and Smith producer module
+to EOF.
+Changed: the full read exposed an apparent contradiction: two Smith modules
+said `SmithPresentation × Prop` was ill-typed, while the earlier pinned build
+had reported success. Forcing `CapabilityGraph` to rebuild resolved it in the
+opposite direction from my first interpretation: the product error reproduced,
+along with two API/parser drifts, and the earlier green gate had reused a stale
+`.olean`. The graph now uses the existing subtype package and current APIs.
+Prasaṅga return: (is) an incremental build exactly checks rebuilt targets and
+their selected objects; (is not) its job count does not prove every object came
+from current source; (both) cached objects are legitimate acceleration and a
+source-coverage hazard; (neither) green nor red alone states the provenance of
+the compilation graph. The residual is `(source, object, dependency hash,
+rebuild decision, toolchain)`.
+Transmitted: F40 and msg 0398. The mathematical Smith content is unchanged.
+Verification: after moving the entire project-local Lean build directory
+aside, the full root gate succeeded and rebuilt all 8,722 Lean jobs. The Agda
+transport-computation warnings remain explicit; the formal-source pass is now
+complete at this revision.
+Resume: leave the now-complete formal-source pass and return to the remaining
+code, notes, and media archive. Keep formal proof strength available without
+letting it erase experimental, historical, cultural, or embodied lanes.
