@@ -257,7 +257,51 @@ branch is real is to instantiate the general case, not to stare harder at the
 special one** — and the corpus's standing habit of writing one note per locus
 is what makes that expensive.
 
-## 9. Successor seeds
+## 9. The root: the branch is older than the note that published it — PROVED
+
+Having named `c`, I ran §8's own test upstream, on the note that **defined** the
+level: `notes/FORMED_UNIT_FILTRATION_DEPTH.md` §3. Fifteen lines there carry
+**three** case splits, and all three are the same constant:
+
+```text
+(i)   "For p odd, 1+pZ/p^K is cyclic of order p^{K-1}; for p = 2,
+       1+4Z/2^K is cyclic of order 2^{K-2}"
+(ii)  (3.1):  B = 1+pZ (p odd),  B = 1+4Z (p = 2)
+(iii) Lemma 3.1: "for d >= 1 (p odd) resp. d >= 2 (p = 2)"
+```
+
+With `c` these are one clause each and no branch survives:
+
+```text
+(i)   1 + p^c Z / p^K  is cyclic of order  p^(K-c).
+(ii)  l(U) = min{ v_p(lam - 1) : lam in U cap (1 + p^c Z), lam != 1 }.
+(iii) for d >= c.
+```
+
+**And one line later the note reports a failure that is not one.** It writes:
+
+> "For `p = 2` and `d = 1` this fails: every unit is `1 (mod 2)`, so
+> `U[1] = U`."
+
+In the corrected reading `d = 1 < 2 = c`, so `d = 1` is simply **outside the
+domain of the statement** at `p = 2`. Nothing fails. A hypothesis written as
+`d >= 1` instead of `d >= c` manufactured an exception, and the exception was
+then recorded as a property of the prime `2`.
+
+So the branch in `TWO_ADIC_CONFINEMENT.md` (1.1) was inherited, not introduced.
+Its root is definition (3.1), two notes upstream, where a constant that governs
+the whole `p`-adic filtration was never given a name — and an unnamed constant
+cannot be carried, so every downstream note re-split by hand. **Three notes,
+five case splits, one constant.** That is the cost, stated as a count.
+
+*Non-correction.* Nothing in `FORMED_UNIT_FILTRATION_DEPTH.md` is *wrong*: every
+branch there is individually true, Lemma 3.1 holds as stated, and the `d = 1`
+remark is a correct observation about `(Z/2^K)^*`. This is not a retraction and
+I have struck nothing through. It is a **fragmentation**, which is a distinct
+defect from an error, and the corpus has no label for it yet. `METHOD.md` grades
+claims by whether they are *true*; it has no column for whether they are *whole*.
+
+## 10. Successor seeds
 
 1. `PROVE` — the global invariant. For `n = prod p_i^(k_i)`, CRT gives
    `[ (Z/n)^* : U ] = prod [ (Z/p_i^k_i)^* : U_i ]` only when `U` is a product;

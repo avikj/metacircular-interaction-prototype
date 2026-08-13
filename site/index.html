@@ -226,6 +226,19 @@ summary:hover{color:var(--ink)}
   .legend-row .d{grid-column:2}
 }
 
+/* ---- the collapse: two branches becoming one ---- */
+.collapse{margin:2rem 0 1.6rem;padding:1.4rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.branches{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.15rem}
+.branches del,.unified ins{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:clamp(.82rem,2.5vw,1rem);font-variant-numeric:tabular-nums;
+}
+.unified{
+  padding-top:1.1rem;border-top:1px solid var(--rule-2);position:relative;
+}
+.unified ins{color:var(--minium);font-size:clamp(.92rem,3vw,1.22rem)}
+.collapse-cap{font-size:.86rem;color:var(--ink-2);margin:.9rem 0 0}
+
 /* ---- figure ---- */
 figure{margin:2rem 0 0}
 .figbox{overflow-x:auto;border:1px solid var(--rule);background:var(--raised);padding:1.2rem .6rem .6rem}
@@ -261,10 +274,10 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 <main class="col">
 
   <div class="hero">
-    <p class="eyebrow">What this repository is proudest of</p>
+    <p class="eyebrow">What this collaboration is proudest of</p>
     <h1>The correction record</h1>
-    <p class="lede">A mathematics collaboration that keeps its retractions in the text, struck through, next to the repair. Forty-two of its four hundred and twenty-six notes carry one.</p>
-    <p class="lede-2">This page shows the corrections first, because they are the load-bearing part.</p>
+    <p class="lede">A mathematics collaboration that keeps its retractions in the text, struck through, beside the repair. Forty-two of its four hundred and twenty-seven notes carry one.</p>
+    <p class="lede-2">Corrections first, because they are the load-bearing part — and because some of them are only visible from above a single note.</p>
 
     <div class="specimen" aria-label="A published constant of 0.362 to 0.421, struck through, corrected to one quarter">
       <span class="struck">0.362&#8202;–&#8202;0.421</span>
@@ -424,6 +437,44 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
         <p>Lemma N was published as "unconditional given RH and simple zeros." It is not: it additionally needs a Gonek-type input for convergence. <del>Unconditional given RH + simple zeros</del> — the original wording is struck in place and the correct hypotheses stand beside it. A further retraction in the same section deletes a numerical claim outright rather than repairing it, because <strong>both independent verifiers refuted it</strong>, and records why deletion was the right move: at the relevant cluster size an unspecified <code>O(1)</code> is raised to roughly the twentieth power.</p>
       </div>
     </details>
+  </section>
+
+  <section>
+    <p class="sec-label">The third failure mode</p>
+    <h2>Right numbers, wrong shape.</h2>
+    <p>A fitted constant is a wrong number. A constant without its scaling is a right number missing a variable. The third kind is harder: every number correct, every proof valid, and the <em>shape</em> of the theorem an artifact of where it was written down.</p>
+    <p>A note on two-adic confinement published an index formula in two branches — one case when a subgroup meets <code>3 mod 4</code>, another when it does not. The branches were checked. They reproduced the table row for row. The note took a cross-lineage correction to its own title and spawned a second note to cover the odd primes.</p>
+    <p>Then one normalisation constant was carried as <code>1</code> where the object requires <code>2</code>. Set it right and the branch is not repaired — it is <strong>gone</strong>.</p>
+
+    <div class="collapse" aria-label="Two branch formulas collapsing into one uniform formula">
+      <div class="branches">
+        <del>d = 1 &nbsp;→&nbsp; index = 2<sup>l−1</sup></del>
+        <del>d = 2 &nbsp;→&nbsp; index = 2<sup>l−2</sup></del>
+      </div>
+      <div class="unified"><ins>[G : U] &nbsp;=&nbsp; (φ(p<sup>c</sup>) / d) · p<sup>&#8202;l−c</sup></ins></div>
+      <p class="collapse-cap">One formula, every prime, no case split anywhere in the proof.</p>
+    </div>
+
+    <p>The bit that had been forced in ad hoc — <em>does this subgroup meet 3 mod 4?</em> — was never two-adic. It is the signature, and every prime has one. The old two branches fall out as the <code>p = 2</code> instance of the uniform law, verbatim.</p>
+
+    <div class="gloss">
+      <span class="hand">Why one note could not see it</span>
+      "These look identical from inside a single note. It could not tell which of its two special features was which, <strong>because it had only one prime to look at</strong>. The way to tell whether a branch is real is to instantiate the general case, not to stare harder at the special one — and the standing habit of writing one note per locus is what makes that expensive."
+    </div>
+
+    <h3>And the counterweight, which matters more</h3>
+    <p>The obvious moral here would be that structure is usually an artifact of vocabulary. That moral is false, and the same result refutes it. Unifying the index law did not abolish two's exceptionality — it <em>relocated</em> it, and the relocated version is not repairable by better notation.</p>
+
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
+      <div class="claim-head"><span class="claim-title">At <code>p = 2</code>, the classification genuinely fails</span></div>
+      <p>The pair (signature, level) classifies every subgroup for odd <code>p</code>. At <code>p = 2</code> it stops being injective, with a deficiency of exactly <code>k − 2</code> — growing linearly in the precision. The smallest non-cyclic case already breaks it:</p>
+      <p><code>{1, 3}</code> and <code>{1, 7}</code> mod 8 are distinct subgroups with the same signature, the same level, and — by the uniform law, which does not care — the same index. There is no smaller example.</p>
+      <p><strong>What an organism can reach is determined by two integers at every prime. Which subgroup it is in is not, at <code>p = 2</code> only.</strong></p>
+      <span class="path">notes/CONFINEMENT_INDEX_IS_UNIFORM.md §4, §8 · exhaustive certificates over the complete subgroup lattice</span>
+    </div>
+
+    <p>So the two look alike from inside and have to be told apart from outside. One case split was vocabulary; the other was the object. There is no way to know which without instantiating the general case — which is the whole argument for an artifact that is not one file per locus.</p>
   </section>
 
   <section>
