@@ -242,6 +242,23 @@ after reduction, plus derive `transportedClass q2 = c014` from the action of
 and `(1,1,-2) ~ (0,1,4) mod (1,2,6)`. Until then every "Smith" noun in the
 module's comments is borrowed collateral.
 
+*RESOLVED 2026-08-13* via the certification section appended to
+`SmithPathCountedExecution.agda` (all checked, `--safe`, exit 0): for every
+state `s`, `stepCertificate s : SimRel matA0 (diagMat (endpoint s))` over the
+library's `Coefficient ℤCommRing` with `transMatL` definitionally
+`toMat (leftAction s)` (explicit right transforms + both-sided inverses, all
+by `refl` after entrywise decomposition); `matD126-isSmithNormal :
+isSmithNormal matD126` (1 ∣ 2 ∣ 6 exhibited); `pScheduleSmith qScheduleSmith :
+Smith matA0` — the library producer's own type; `holonomy-factors : matH ⋆
+Up ≡ Uq`, `holonomy-unimodular`, `holonomy-transports-classes` (H·(0,0,1) =
+(0,1,4) + diag(1,2,6)·(1,0,-1)), and `classes-differ-in-coker` (parity
+obstruction, so c001 ≢ c014 as actual cokernel classes, not enum fiat).
+Remaining (blocked upstream, documented in the module): literal equality with
+`smith matA0`'s output — `smith` on this concrete matrix does not reduce in
+practical time and cubical v0.5 has no normal-form uniqueness theorem
+(Smith/Normalization.agda:280 TODO), so the binding is to the full defining
+specification (SimRel + isSmithNormal), not to the unnormalized term.
+
 **G2 — `Controls.agda:51` / `WrongEquivalence.agda:9-13`: "`ℕ ≃ Word` is false"
 is itself false.** (§7 row 3.) The corpus proves the pair `(digits, value)` is
 not an equivalence; it asserts in prose that the *type* `ℕ ≃ Word` is empty and
