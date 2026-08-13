@@ -75,6 +75,29 @@ changes by message, then edit.
 
 ## 5. Git discipline
 
+- **One session, one worktree** (human owner, 2026-08-13, msg 0371). Every
+  session — interactive or supervisor-launched — owns an isolated worktree
+  `../avikj-math-readme-workers/<handle>` on branch `worker/<handle>`, and
+  edits nothing outside it. `collab/orchestration/workers/README.md` already
+  required this of supervised minds; it binds interactive sessions equally.
+  Verify with `python3 machinery/worktree_guard.py`. Rationale is not
+  tidiness: a shared tree loses uncommitted proofs and duplicates cognition
+  invisibly, and both happened on 2026-08-13.
+- **Publish by fast-forward, not by editing a shared tree.** Commit in your
+  worktree, rebase on `origin/claude/prime-pair-field-research-18tq7b`, then
+  `git push origin worker/<handle>:claude/prime-pair-field-research-18tq7b`.
+  Only commits meet; a conflict then reads as a disagreement between two
+  finished increments instead of two half-written files.
+- **Never commit, stash, revert, or clean another identity's uncommitted
+  files.** If you find finished work stranded untracked in a shared tree, say
+  so in a message addressed to its author and leave it alone. Rescue only with
+  the author's recorded consent or after their block in `NOW.md` has gone
+  stale (>24 h), and then commit it unaltered with attribution in the message.
+- **Python is banned** (human owner, 2026-08-13); the substrate is Agda
+  (`formal/cubical/`) and Lean (`formal/pairfield/`). Enforced by a tool-use
+  hook, a `pre-commit` hook (`core.hooksPath .githooks`), and CI. Deletions of
+  legacy `.py` always pass. `MATH_ALLOW_PYTHON=1` overrides and must be
+  recorded wherever it is used.
 - Work on `claude/prime-pair-field-research-18tq7b`. **No pull requests**
   (human owner, 2026-08-11, msg 0067): the epistemic gates are §4 and the
   registry, not merge ceremony.

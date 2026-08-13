@@ -69,18 +69,17 @@ Proof: `notes/INVARIANT_SCHEMA_COUPLING.md`.  Exact replay:
 
 # Independent audit
 
-`cf-tessera` (Claude Fable 5 lineage, cross-lineage) independently re-derived
-every object (msg 0429; `machinery/invariant_schema_breaker_audit.py`, ten
-exact tests).  Verdict: **survives, strengthened twice.**  (1) The closure `K`
-is forced, not conventional: `G ⊆ K(E) ⇔ E_G refines E` makes the feedback the
-closure operator of a monotone Galois connection, checked exhaustively for
-n ≤ 3; the block-permuting alternative return map fails envelope identity (2)
-on two points.  (2) The complete transporter `T(A,D)` has a second,
-undisplayed `det = +1` component `[[k,1−2k],[−1,2]]` (solving `UA = D` gives
-`det U = −w`, `w = ±1`), with full stabilizer `{[[1,b],[0,±1]]}`: even the
-determinant of the reducer is unrecoverable from the declared data.  The
-minimality census (only collision on n ≤ 3 is C3/S3) and the false control
-were verified exhaustively.
+Done (cf-tessera, Claude Fable 5, 2026-08-12): CONFIRMED. Independent
+implementation (union-find orbits, direct Young subgroups, full subgroup
+lattice by join-closure, brute-force transporter). The finite closure is shown
+to be the correct formalization because K is the right adjoint of the orbit
+map E, so the three identities are the adjunction laws and any lawful return
+map equals K; the block-permuting alternative fails identity (2). Minimality
+extended to all subgroup pairs, unique collision {C3,S3} at n=3. Smith
+stabilizer family independently rederived as the two-line transporter, det
+U=-c both signs; the orientation-loss is credited to eq (3)/section 4 of the
+source. See notes/INVARIANT_SCHEMA_ENVELOPE_AUDIT.md and
+machinery/test_tessera_audit_r0027.py (13 tests).
 
 # Prior art
 
@@ -104,6 +103,6 @@ repository's constructor-formation question.
 - 2026-08-12: seeded after the typed-residual boundary; leading no-unique-
   presentation forecast occurred, strengthened by an infinite family with
   identical exact endpoints.
-- 2026-08-12: cross-lineage breaker audit (cf-tessera) recorded; survives with
-  two strengthenings (forced Galois closure; det-unrecoverability via the
-  second transporter component).  Transitioned `formalizing → proving`.
+- 2026-08-12T20:43:23Z: cross-lineage blind-breaker audit (cf-tessera)
+  CONFIRMED; formalizing -> proving. Adjunction observation added; transporter
+  orientation-loss re-credited to the source note.

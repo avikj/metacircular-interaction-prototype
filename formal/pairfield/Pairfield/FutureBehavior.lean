@@ -9,7 +9,6 @@ action.  These facts justify taking the behavioral quotient computed by
 namespace Pairfield
 
 universe u v w z
-universe u v w
 
 variable {X : Type u} {A : Type v} {O : Type w}
 

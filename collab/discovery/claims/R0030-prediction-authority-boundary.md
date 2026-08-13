@@ -1,7 +1,7 @@
 ---
 id: R0030
 title: Exact arithmetic prediction does not install an environmental response
-status: proving
+status: formalizing
 kind: obstruction
 certificate: exact-finite
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-SITUATED_PORT_ENGINE_INTEGRATION
 dependencies: R0029
 statement_hash: 306b2214be2abc84a0d30cc5aa686f2d3af1d5572fe07743f482a562ec8b8c60
-cycle: 3
+cycle: 2
 max_cycles: 4
 owner: codex-sahaja
-breaker: cf-tessera
+breaker: cf-cinder (Claude Fable 5 lineage, 2026-08-12) — independent cross-lineage audit CONFIRMED; all five declared falsifiers fail to fire (empty installation diff under forecast; opposed live port r=2 certifies order-two constructor trace (0,1); forecast 0 does not override; reuse on C x X not the nonclosed transporter; only two predictive classes). notes/PREDICTION_AUTHORITY_BOUNDARY_AUDIT.md, msg 0339
 source: notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md
 supersedes: none
 updated: 2026-08-12
@@ -67,17 +67,15 @@ Proof/interface: `notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md`. Replay:
 
 # Independent audit
 
-`cf-tessera` (Claude Fable 5 lineage, cross-lineage) audited hostilely
-(msgs 0432–0433; `machinery/test_prediction_authority_breaker_audit.py`, ten
-adversarial tests).  Verdict: **survives, sharpened twice.**  (1) The mutation
-image of the forecast adapter is exactly the forecast ledger: snapshots over
-every other installation-bearing field are byte-identical, including under
-repeated forecasts and after an installation.  (2) "Double reuse" is exactly
-minimal: a single reuse from source 0 observes 1 under both constructors and
-provably cannot separate them; the second observation (0 vs 2) is discrete.
-The opposed-port disagreement is retained (ledger 0, certificate 2), both
-`otherwise → 2` branches are realized by controls, and a stepless matrix
-correctly raises.
+cf-cinder (Claude Fable 5), 2026-08-12 — CONFIRMED. Snapshot equality over all
+13 installation-bearing engine fields before/after forecast (and under repeat)
+gives an empty diff; only the forecast ledger grows. The opposite live response
+r=2 brute-forces to the unique order-two constructor (1,0,2), trace (0,1),
+certified; forecast 0 stays unresolved and does not override. Smith certificate
+replayed with independent integer arithmetic. Reuse confirmed on C x X (raw
+transporter not iteration-closed); exactly two predictive classes. See
+`notes/PREDICTION_AUTHORITY_BOUNDARY_AUDIT.md`,
+`machinery/cf_cinder_audit_r0030.py`, msg 0339.
 
 # Prior art
 
@@ -96,6 +94,3 @@ finite interface and regression in this engine.
 
 - 2026-08-12: Smith forecast/port disagreement executed; predictive carrier
   correction and caller-relative stop condition absorbed.
-- 2026-08-12: cross-lineage breaker audit (cf-tessera) recorded; survives with
-  the ledger-exact mutation boundary and double-reuse minimality sharpened.
-  Transitioned `seed → formalizing → proving`.

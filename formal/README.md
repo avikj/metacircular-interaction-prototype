@@ -40,3 +40,9 @@ normalization whenever possible.  Python machinery may falsify a candidate or
 compare implementations; it is not the certificate bridge.  In particular,
 `NaturalMachine.SymmetryArithmeticAction` now contains both the general action
 law and its concrete normalizing witness entirely in Cubical Agda.
+
+`NaturalMachine.SmithCapability` similarly exposes Cubical's constructive
+Smith normalizer with its transformations, replay path, invertibility, and
+normality proof.  Agda 2.8.0 does not backend-compile Cubical modules, so this
+is executable normalization inside the proof assistant, not yet a native
+binary.  See `notes/SMITH_NATIVE_CAPABILITY.md`.

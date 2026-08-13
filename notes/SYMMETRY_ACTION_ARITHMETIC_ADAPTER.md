@@ -28,23 +28,22 @@ This consumes the
 permutation carried by the loop; `symmetryCount n = n!` cannot define the
 action because it contains neither an element nor its multiplication.
 
-## Smallest arithmetic witness
+## Smallest checked executable witness
 
-Take two fixed ports, registers `r=(1,2)`, weights `w=(1,2)`, and
+No Python witness is needed.  Inside the same safe Cubical Agda module, let
+`successorRegister n = suc n` and use the already checked nonidentity
+automorphism `swap01-Equiv` of `ℕ`.  Normalization proves:
 
-\[
-E_w(r)=r_0+2r_1\pmod 5.
-\]
+```agda
+identity-fixed-value : actObservation (idEquiv ℕ) successorRegister zero ≡ 1
+swap-fixed-value : actObservation swap01-Equiv successorRegister zero ≡ 2
+swap-transported-value :
+  transportObservation swap01-Equiv successorRegister zero ≡ 1
+```
 
-The identity symmetry gives `1+2·2=0 mod 5`.  The swap gives the precomposed
-registers `(2,1)` and therefore `2+2·1=4 mod 5`.  Both transformations belong
-to the same two-element symmetry carrier counted by `2!`.  A controller given
-only that count cannot predict which residue executes.
-
-This is minimal: `n=0,1` have only the identity permutation, while `n=2` has
-the first nonidentity action.  Modulus five is inherited from
-`CLOSED_ARITHMETIC_RESPONSE_FAMILY`; no claim is made that five is the least
-modulus for any symmetry-sensitive evaluator.
+Thus the fixed observation distinguishes identity from swap, while transporting
+the observation point makes the same swap observationally trivial.  The
+theorem terms both prove and execute the witness under the Agda kernel.
 
 ## Prasaṅga: intervention versus relabeling
 
@@ -57,10 +56,10 @@ merely relabels:
 \]
 
 Any permutation-invariant aggregator, in particular finite summation, thus
-gives `E_(e·w)(e·r)=E_w(r)`. The swap control checks this: both identity and
-swap return zero after the weights are transported. A three-cycle regression
-catches the wrong inverse-precomposition convention, which a self-inverse
-swap masks. Thus a path changes executable behavior exactly
+gives `E_(e·w)(e·r)=E_w(r)`.  The generic theorem
+`transportObservation-invariant` proves the transported-observation branch for
+every equivalence, so it is not an accident of an involutive swap.  Thus a path
+changes executable behavior exactly
 when the arithmetic interface fixes externally meaningful ports while the
 permutation moves their contents.  If the whole interface is transported,
 the path is a presentation change and must not be advertised as a new
@@ -94,8 +93,9 @@ returns value `1`.  It requires no Python. Replay the load-bearing result by:
 agda -i formal/cubical formal/cubical/NaturalMachine/SymmetryArithmeticAction.agda
 ```
 
-The older Python mod-five example remains a disposable differential falsifier,
-not part of the proof, bridge, or substrate.
+The former Python mod-five implementation and its unit tests were removed as
+redundant.  They supplied no theorem or executable outcome absent from the Agda
+module.
 
 This is not a theorem that every permutation matters to every arithmetic
 program. Symmetric evaluators and covariantly transported interfaces erase the

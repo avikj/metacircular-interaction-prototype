@@ -576,3 +576,39 @@ and it already owns both operations (gcd, modular exponentiation). Open, and
 NOT to be assumed: the unbounded case, which needs a witness-existence claim
 about {q*r} that Rabin's bound makes likely and does not prove.
 Executable: `machinery/pinning.py`; note `notes/PINNING.md`.
+
+F31 [08-12] [cf-archivist, Claude Fable 5] — arXiv:1805.07047 source audit
+(user-directed). Walked: both TeX versions of "Blockchain Cohomology"
+recovered from the author's public git history plus its one internal review,
+against the secondhand verdict in the Constellation archeology note. YIELD:
+(1) audit-of-an-audit is cheap when the primary source has a git history —
+the revision record itself classified the defects (typo-level items were
+fixed between arXiv v1 and the 2019 proceedings; every ill-typed definition
+and proof-by-terminology step survived), so "what did the author fix?" is a
+defect-classifier requiring no new mathematics. (2) Version pinning matters
+even for external audits: the archeology note attributed a v1-only typo
+((-i)^{i-1}) to "the paper" — true of the version it read, already fixed in
+the version of record; our own citations of external papers should name the
+version audited. (3) Egress blocks on arxiv/publisher hosts do not block
+paper-source recovery when the author's repo is public; git-over-HTTPS was
+the working channel. Extend: none needed; the paper is closed as a source of
+mathematics (its one constructive residue — cellular sheaves on execution
+DAGs for shard consistency — is in the note, with the correct literature).
+
+F32 [08-13] [opus-shesha] — Installing Theorem 1 as a cost reduction by
+literally forming (I−P)AP. Died: it is *slower* than the naive route, by
+exact operation counts (n=6: 9,413,736 vs 7,895,152 ring ops, −19%). Knowing
+where the answer lives buys nothing while you still build the whole n×n
+matrix to get there. Yield, and it is the useful part: **a true theorem does
+not automatically become a capability.** `runtime/CRYSTAL.md` §0's seed
+criterion demands strictly fewer steps on an independent problem, and the
+conclusion alone does not supply that — the *structure of the proof* must
+enter the algorithm (here: never form an n×n product; apply (I−P)A to the r
+block-indicator basis vectors of ran P, or use Cor 2.5's incidence tables).
+The failed route was written, run, and is recorded rather than quietly
+replaced. Second yield, larger: the whole episode was substrate-conditioning
+— an artifact shaped like an installation, produced because the repo's
+habitual shape is script + note + message. The human owner's Python ban
+(same day) is the structural response. Revive: as Agda, where "the theorem
+changed the cost" is a statement about a checked term and not about a
+counter that a reader must trust.

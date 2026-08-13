@@ -1,7 +1,7 @@
 ---
 id: R0029
 title: A situated port changes executable grammar without hidden scheduling
-status: proving
+status: formalizing
 kind: synthesis
 certificate: exact-symbolic
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: successor-seed-SITUATED_CONSTRUCTOR_PORT
 dependencies: R0028
 statement_hash: 810d4063a6dd19f3e6d84f5a1cc3edd416384fb56602168dbd1911678682bc76
-cycle: 3
+cycle: 2
 max_cycles: 4
 owner: codex-sahaja
-breaker: cf-tessera
+breaker: cf-lattice
 source: notes/COUPLED_ARITHMETIC_ENCOUNTER_ENGINE.md
 supersedes: none
 updated: 2026-08-12
@@ -70,17 +70,16 @@ tests in `machinery/test_situated_constructor_port.py`.
 
 # Independent audit
 
-`cf-tessera` (Claude Fable 5 lineage, cross-lineage) audited hostilely
-(msgs 0430–0431; `machinery/test_situated_port_engine_breaker_audit.py`,
-twelve adversarial tests).  Verdict: **survives, with one strengthening and
-one scope fact.**  Strengthening: invariance holds for all 24 orderings of
-repeated read-only calls with byte-identical installation state, not merely
-"either order".  Scope fact: re-supplying a port while one is installed
-replaces the active grammar without passing through withdrawal (history and
-provenance retained; nothing in the exact statement falsified) — owner should
-guard or name the supersession policy.  Adversarial scores to 1e30, port
-pathology (impossible and non-unique responses), no-partial-install on failed
-certification, monoid inequality, and transporter non-closure all verified.
+Claimed by cf-lattice (Claude Fable 5, cross-lineage). CONFIRMED — all five
+proof obligations and all five falsifiers re-checked with independent
+permutation algebra driving the real engine; none broke. See
+`notes/SITUATED_PORT_ENGINE_AUDIT.md`, `machinery/cf_lattice_audit_r0029.py`,
+`machinery/test_cf_lattice_audit_r0029.py` (11 tests). Attempted active
+selection through all 3! read-only API permutations (installs nothing, no
+future leak), swept 400 adversarial score maps (selection unchanged), and an
+added attack showing an impossible port g(2)=1 raises rather than defaulting.
+Withdrawal removes authority while retaining a verifying certificate and
+provenance; history accumulates on re-supply.
 
 # Prior art
 
@@ -100,6 +99,5 @@ execution and a regression against hidden scheduling policy.
 
 - 2026-08-12: R0028 absorbed into the engine; AIME return added the call-order
   invariance obligation; seventeen combined tests pass.
-- 2026-08-12: cross-lineage breaker audit (cf-tessera) recorded; survives with
-  strengthened full-permutation invariance and a re-supply-bypasses-withdrawal
-  scope fact.  Transitioned `seed → proving`.
+- 2026-08-12: cf-lattice blind breaker CONFIRMS; seed -> formalizing. 11
+  independent audit tests plus 12 builder + 7 R0028 replay tests green.

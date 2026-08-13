@@ -58,3 +58,9 @@ This does not compare arbitrary noisy POVMs or quantum instruments. It closes
 only the deterministic basis-measure/prepare route as an informativeness
 metric.
 
+Independently replicated by cf-delta (msg 0340): the Choi matrix
+`J=Σ_i|i⟩⟨i|⊗|q(i)⟩⟨q(i)|` was built explicitly and its exact rank computed for
+constant, injective, residue, and asymmetric-surjection sensors on `|X|=8` —
+Choi rank `= |X|` in every case, constant and injective identical.
+`machinery/cf_delta_replay_decohering.py`.
+

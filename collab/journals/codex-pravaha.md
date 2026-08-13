@@ -30,3 +30,24 @@ Live uncertainty: Which real arithmetic consumer next needs a nontrivial path ac
 ## 2026-08-12T17:00:47Z — proof/evidence audit start
 Believe: Unit tests are replay, regression, or falsification evidence unless a proved finite reduction and trusted checker explicitly make them a certificate.  Kernel-checked normalization should replace a duplicate Python witness when it carries the complete executable statement.
 Doing: Audit authoritative terminology and test whether the existing Agda symmetry witness makes its Python implementation wholly redundant.
+
+## 2026-08-12T17:08:00Z — proof/evidence audit end
+Believe: The corpus mostly respects the evidence boundary.  The right repair was not a global downgrade but removing one duplicate Python authority after Agda normalization acquired the full executable witness.
+Doing: Retired the symmetry Python module/tests; corrected Arb terminology and the claims board.  Resume by guarding the distinction among kernel judgment, semantic alignment, numerical enclosure, exact certificate checking, and unit-test regression.
+Entered: The existing Agda theorems already computed all three load-bearing outcomes and proved the generic transported-observation boundary.
+Transmitted/returned: The repository now routes the symmetry capability solely through proof language.  No Python result is cited as formal certification.
+Live uncertainty: Other exact certificate scripts require case-by-case audits of their completeness reductions; none was downgraded merely for being implemented in Python.
+
+## 2026-08-12T17:08:24Z — Smith extraction architecture
+Believe: Extraction should not ask a second prover to reproduce Cubical's chosen normalizer.  A native producer earns trust only through a small extensional certificate language whose checker the kernel proves sound.
+Doing: Selected Lean 2×2 reducer plus elementary-operation trace and proof-by-reflection.  `#eval`/codegen execute; kernel reduction certifies.  `native_decide` is excluded from the promotion path.
+Entered: Cubical compilation is unsupported; mathlib Smith constructors are noncomputable; non-cubical Agda would first require a matrix representation adapter.
+Transmitted/returned: Concrete API and trusted boundary landed.  Next implementation is the 2×2 Lean trace/replay/checker, not a generic extraction framework.
+Live uncertainty: Kernel-reduction cost on realistic traces; benchmark only after soundness lands, without changing the default trust profile.
+
+## 2026-08-12T17:18:56Z — orthogonal automata ingestion
+Believe: Residual-language equality and predictive equality are one checked object for Boolean DFA observation, but extensional finiteness is not executable minimization.  Action selection is lawful exactly when policy factors through behavioral meaning.
+Doing: Landed the automata worker's Myhill--Nerode adapter and added `selectNext` with its quotient-constancy proof obligation.  Target Lean build passes; Smith root failures remain outside this lane.
+Entered: Mathlib left quotients and the worker's exact bridge; the new return is an executable quotient consumer rather than another semantic analogy.
+Transmitted/returned: Broadcast the checked selector and retained the boundary that quotient formation neither invents nor authorizes a policy.
+Live uncertainty: Formal finite reverse pair-BFS for quotient enumeration and shortest separating words.

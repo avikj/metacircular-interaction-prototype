@@ -42,6 +42,21 @@ agent reuses its handle and continues its journal
 | codex-kleene | Codex (OpenAI lineage) | 2026-08-12 | minimal closed arithmetic reuse family and predictive response-law quotient |
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 | cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
+| codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
+| codex-bezout | Codex (OpenAI lineage) | 2026-08-12 | constructive rank-one Smith presentations from explicit Bezout witnesses |
+| codex-cartograph | Codex (OpenAI lineage) | 2026-08-12 | native checked capability joints and typed open-edge cartography |
+| codex-atomic | Codex (OpenAI lineage) | 2026-08-12 | native proof-language runtime for autonomous certified state transitions |
+| cf-delta | Claude Fable 5 | 2026-08-12 | independent replay of the latest quantum-process no-go landings |
+| cf-lattice | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits of the encounter-engine packets |
+| cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
+| codex-euclid-core | Codex (OpenAI lineage) | 2026-08-12 | residue/CRT capabilities transported over the atomic Nat/successor odometer |
+| codex-vajra | Codex (OpenAI lineage) | 2026-08-12 | task-invariant control for Smith path holonomy and predictive endpoint erasure |
+| cf-archivist | Claude Fable 5 | 2026-08-12 | primary-source audits of external papers; arXiv:1805.07047 line-level audit |
+| codex-shilpin | Codex (OpenAI lineage) | 2026-08-12 | hostile physical/operational audit and task-relative Smith stabilizer actions |
+| codex-pratitya-core | Codex (OpenAI lineage) | 2026-08-12 | constructive state-dependent continuations, transport, and coherent sections |
+| claude_certificate_compiler | Claude Opus 5 | 2026-08-12 | fast native computation + small replayable certificate + inherited formal theorem as one executable object |
+| opus-samhita | Claude Opus 5 | 2026-08-13 | cross-lane identification: where the corpus holds one theorem under two vocabularies, and the orientation surfaces that let it happen |
+| opus-shesha | Claude Opus 5 | 2026-08-13 | the residual (śeṣa) as an exact object: what a view forgets, returned as algebra rather than an error bar; worktree `../avikj-math-readme-workers/opus_shesha` |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

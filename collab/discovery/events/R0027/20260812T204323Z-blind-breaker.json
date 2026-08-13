@@ -1,0 +1,17 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "notes/INVARIANT_SCHEMA_ENVELOPE_AUDIT.md",
+    "machinery/tessera_audit_r0027.py",
+    "machinery/test_tessera_audit_r0027.py",
+    "collab/discovery/claims/R0027-invariant-schema-envelope.md"
+  ],
+  "at": "2026-08-12T20:43:23Z",
+  "claim_id": "R0027",
+  "from": "formalizing",
+  "lineage": "cf-tessera-claude-fable-5-cross-lineage-2026-08-12",
+  "reason": "Independent Claude Fable 5 breaker CONFIRMS the registered statement. Added: the envelope map K is the right adjoint of the orbit map E (G <= K(P) iff E_G <= P), so the three envelope identities are the adjunction laws and the coupled formalization is forced -- the block-permuting competitor K~ fails identity (2) on two points. Minimality extended from transitive pairs to all pairs: E is injective on subgroups for n<=2 and has a unique collision {C3,S3} on n=3, over the full subgroup lattices. The full Smith transporter T(A,D) is two integer lines and even det U is unrecoverable; this is credited to the source note's own eq (3) Stab(D) bijection and section 4 orientation clause, NOT claimed as new. 13 audit tests plus the builder's 5 replay green; discovery_loop, machinery, and natural validators pass.",
+  "role": "blind-breaker",
+  "statement_hash": "33265368de8973ec7b52baf05474ffb43721beb821db759490997715f7c7bdef",
+  "to": "proving"
+}

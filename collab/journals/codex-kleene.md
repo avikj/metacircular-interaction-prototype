@@ -32,10 +32,24 @@ Believe: The concurrent feedback note had the right interface but declared the a
 Doing: Landing only that strengthening, plus a three-cycle regression and exact fixed-port consumer; no new Cubical import.
 Resume: Compute stabilizers of fixed arithmetic consumers and quotient the loop group by observational action, rather than carrying either full `S_n` or scalar `n!`.
 
+## 2026-08-12T21:05:00Z — counted execution core
+Believe: The NaturalMachine core was already present: canonical digit words are equivalent to ℕ and their odometer is successor.  The missing engineering joint was only the universal counted execution law, not a scheduler or intelligent runtime.
+Doing: Landed the `--safe` Cubical primitive recursion `run seed step n` and its compilation theorem: seed preservation plus one-step commutation implies preservation of the whole execution.
+Entered: Two concrete compilation lanes now consume only existing results: the certified digit odometer and the residue/CRT organ.  No new theorem search is in scope.
+Resume: Integrate concrete counted organs.  Then compile further existing arithmetic transformations as endomorphisms/observations over the same core, keeping the atomic kernel unchanged.
+
 ## 2026-08-12T17:04:00Z — observational stabilizer landing
 Believe: The proof-language replacement for `n!` is the consumer kernel `Stab(O)`, not necessarily a materialized quotient. Its closure laws and response equivalence are enough to route execution and expose when two loops differ.
 Doing: Landed identity/composition/inverse closure, observational equivalence, and the checked swap exclusion with no Python evidence. Full rebuild repaired the cardinality adapter's masked missing import.
 Resume: Package the stabilizer as a Cubical `Group` only when a consumer needs group operations on classes; otherwise retain the smaller predicate/equivalence interface.
+
+## 2026-08-12T17:12:00Z — direct Smith capability
+Believe: A specialized capability should bypass generic normalization when its invariants already produce presentation witnesses. Unit determinant does: adjugate is the integral inverse. Nonunit gcd/determinant data name invariant factors but not target-moving coordinates.
+Doing: Landed Lean-checked `L=adj(A),D=I,R=I`, replay and unique solver, with the nonunit presentation boundary explicit. No Python evidence.
+
+## 2026-08-12T17:25:00Z — direct branch composition
+Believe: The common certificate contract absorbs specialized producers cleanly. Adjugate formulas close precisely the unimodular stratum: sign `+1` uses `adj(A)`, sign `-1` uses `-adj(A)`. Rank one is not next without Bezout presentation witnesses.
+Doing: Both signs now produce `SmithCertificate2.Valid` and checked unique solvers; no generic normalizer and no Python.
 
 ## 2026-08-12T17:10:00Z — substrate correction
 Believe: Proof and execution should remain one checked construction whenever normalization is available; Python is a falsifier, not the formal bridge.
@@ -48,3 +62,15 @@ Believe: Cubical's `smith` is already the proof-carrying mathematical producer; 
 Doing: Added a wholly Agda projection interface exposing normal matrix, transformations, invertibility, replay path, and normality.  Tested backend extraction and recorded the exact `CubicalCompilationNotSupported` boundary.
 Entered: Mathlib's Smith results are noncomputable, so neither installed proof environment currently supplies a native compiled reducer.  The missing object is an executable Lean/non-cubical Agda realization proved against the shared `L,M,R,D` specification.
 Resume: Do not enlarge Python Smith authority.  Seek the smallest termination/proof route for a compiled 2×2 reducer, or a verified foreign-function boundary whose checker remains formal.
+
+## 2026-08-12T17:35:00Z — Lean certificate gate
+Believe: The first native executable joint is an independent kernel gate, not a prematurely trusted producer.
+Doing: Implemented a Lean Boolean verifier for exact `D=LAR`, unimodularity, Smith sign/zero/divisibility conditions, with soundness/completeness and kernel-reduced hostile controls.  Explicitly excluded `native_decide` from promotion.
+Entered: Two independently generated producer fragments now check—closed-form diagonal coprime join and determinant-one adjugate—but neither is misnamed a general reducer.
+Resume: Compose the two proved branches through the same certificate type, then build the missing well-founded arbitrary-entry descent.
+
+## 2026-08-12T17:45:00Z — compositional capability landing
+Believe: Formal ingestion becomes cumulative when producers emit checked presentation arrows rather than terminal facts.  Exact replay and unimodularity are the common joints; normalization strata can then be added without central rewrites.
+Doing: Landed `SmithPresentation`, composition `(L₂L₁, R₁R₂)`, and promotion to the full certificate gate.  Integrated independent diagonal and unimodular producers plus the Myhill--Nerode residual-language adapter into the formal root.  A fresh build caught and repaired the diagonal producer's sign-sensitive replay.
+Entered: Persistent repo workers are confirmed live across eleven named sessions; foreground lane reassigned to a kernel-checked finite shortest-distinguishing-word minimizer.
+Resume: Compose the next returned minimizer; then attack the missing rank-one Bézout presentation arrow.  Do not call the current union a general Smith reducer.
