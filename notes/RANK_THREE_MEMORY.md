@@ -187,3 +187,107 @@ Replay:
 python3 -m machinery.pentagram_labels
 python3 -m unittest machinery.test_pentagram_labels -v
 ```
+
+## 8. Closure is triangle-freeness of the incidence graph
+
+Added after §7, which left two things verified but not derived: the bound
+`|S| <= 3`, and why the Mermin square is closed while the pentagram is not.
+Both follow from one lemma, and the lemma turns the closure hypothesis of
+`PAULI_MEMORY_LAGRANGIAN.md` Cor. 3.2 into a **graph-theoretic test**.
+
+### 8.1 Edge-type scenarios
+
+Call a scenario `O` **edge-type** when
+
+- **(E1)** every observable lies on exactly two contexts, and
+- **(E2)** two observables commute exactly when their contexts meet.
+
+Write `G` for the **incidence graph**: vertices the contexts, edges the
+observables. Both the Mermin square and the Mermin pentagram are edge-type
+(checked exactly, all `36` resp. `45` pairs):
+
+| scenario | `G` | vertices | edges |
+|---|---|---|---|
+| Mermin square | `K_{3,3}` (rows vs columns) | 6 | 9 |
+| Mermin pentagram | `K_5` | 5 | 10 |
+
+**(E1) is a real restriction, not decoration**: the full two-qubit Pauli set
+fails it (its observables lie on many contexts each), and `main()` reports the
+failure rather than silently proceeding.
+
+### 8.2 The lemma and the derived bound
+
+**Lemma 8.1.** In an edge-type scenario the commutation graph of `O` is the
+**line graph** of `G`. Hence a pairwise-commuting set of observables is an
+*intersecting family of edges* of `G`.
+
+**Corollary 8.2 (classical).** A maximal intersecting family of edges in a
+graph is a **star** (all edges at one vertex) or a **triangle**. Defining the
+*label* of a family as the set of vertices it covers at least twice -- the
+centre of a star, all three vertices of a triangle -- the label therefore has
+size `1` or `3`.
+
+That is the bound `|S| <= 3` of §7, now derived rather than verified. It also
+explains the shape of §7's table exactly: the pentagram's `K_5` has `5` stars
+(the contexts, four observables each) and `10` triangles (three observables
+each), and the size-`2` labels are the edge Lagrangians that carry a single
+observable.
+
+Verified: the maximal pairwise-commuting subsets are `6` stars for the square
+(sizes `{3: 6}`) and `5` stars plus `10` triangles for the pentagram (sizes
+`{4: 5, 3: 10}`), matching the star/triangle classification exactly.
+
+**Theorem 8.3 (closure criterion).** For an edge-type scenario, if `G` is
+triangle-free then every label has size one and the reachable Lagrangians are
+the contexts -- closure holds, and `memory = |C| * 2^n`.
+
+    Mermin square:     G = K_{3,3}, bipartite, 0 triangles  ->  closed, 6 * 4 = 24
+    Mermin pentagram:  G = K_5,     10 triangles            ->  open,   25 * 8 = 200
+
+So the two computations of §1--§2 were never two facts. They are one criterion
+evaluated at a bipartite graph and at a complete graph. **`K_{3,3}` is
+triangle-free and `K_5` is not; that is the whole of the difference.**
+
+### 8.3 Two transition rules, now proved
+
+Lemma 8.1 also upgrades part of §7's Theorem 7.2 from verification to proof.
+
+**Growth from a star.** Let `L` be the context Lagrangian at vertex `v`, and
+measure the observable `e = {a,b}` with `v ∉ e`. Among the four edges at `v`,
+those commuting with `e` are exactly `va` and `vb` (the other two are disjoint
+from `e`). Since `e ∉ L`, the subspace `L ∩ e^⊥` is two-dimensional, hence
+equals `<va, vb>`, and the updated Lagrangian is `<va, vb, e>` -- whose
+observables are the triangle `{v,a,b}`. So the label grows to `S ∪ e`. ∎
+
+**Collapse from a triangle onto a shared vertex.** Let `L` be the triangle
+Lagrangian on `T = {v,a,b}` and measure `e = {v,c}` with `c ∉ T`. Of `T`'s
+three edges, `va` and `vb` meet `e` and commute; `ab` is disjoint from `e` and
+anticommutes. So `L ∩ e^⊥ = <va, vb>` and the update is `<va, vb, vc>` -- three
+independent edges at `v`, spanning the context Lagrangian at `v`. So the label
+collapses to `S ∩ e`. ∎
+
+**Still verified, not derived:** the remaining branch from a triangle (edge
+disjoint from it, label `-> e`) and both branches from a size-two label. The
+latter genuinely depend on the edge Lagrangian's non-observable elements, which
+the incidence graph does not see, so Lemma 8.1 cannot reach them.
+
+### 8.4 Scope
+
+Proved: Lemma 8.1 given (E1)--(E2), Corollary 8.2 (classical), Theorem 8.3's
+sufficiency, and the two transition rules of §8.3. Verified exhaustively on the
+two named scenarios: (E1), (E2), the star/triangle counts, and the closure
+outcomes.
+
+**Not claimed:** that triangle-freeness is *necessary* for closure -- a triangle
+could in principle exist and be unreachable, and I have two data points, not a
+theorem. Nothing about scenarios failing (E1), which includes every full Pauli
+set and the rank-three quadric of §1; those are closed for the different reason
+that their contexts are already maximal totally singular subspaces. No claim
+about `n >= 4` or about odd `d`.
+
+### 8.5 Replay
+
+```sh
+python3 -m machinery.incidence_closure
+python3 -m unittest machinery.test_incidence_closure -v
+```

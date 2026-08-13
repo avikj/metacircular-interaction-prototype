@@ -675,3 +675,33 @@ bound |S| <= 3 is verified, not derived — a naive dimension count permits
 and the bound; then ask whether "incidence graph + clique complex" is the
 general memory carrier for non-maximal context sets at every rank. See
 notes/RANK_THREE_MEMORY.md §7.
+
+F47 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: derive, rather than
+verify, the two residues F46 left — the bound |S| <= 3 on the pentagram's
+memory labels, and why the Mermin square is closed while the pentagram is not.
+Completed; both fall to one lemma. Call a scenario edge-type when (E1) every
+observable lies on exactly two contexts and (E2) two observables commute
+exactly when their contexts meet. Then the commutation graph is the LINE GRAPH
+of the incidence graph G, so a pairwise-commuting set is an intersecting family
+of edges, and by the classical classification a maximal such family is a star
+or a triangle. Labels (the vertices covered twice) therefore have size 1 or 3 —
+the bound, derived. And triangle-freeness of G implies closure. The Mermin
+square has G = K_{3,3}, bipartite, zero triangles, closed, memory 6*4 = 24; the
+pentagram has G = K_5, ten triangles, open, memory 25*8 = 200. YIELD, three
+parts: (1) two computations I had been carrying as separate facts are ONE
+criterion evaluated at a bipartite graph and at a complete graph — K_{3,3} is
+triangle-free and K_5 is not, and that is the entire difference. The closure
+hypothesis of PAULI_MEMORY_LAGRANGIAN Cor. 3.2 is now a graph-theoretic test
+instead of an orbit computation. (2) Two of the transition rules F46 could only
+verify are now proofs (growth from a star; collapse from a triangle onto a
+shared vertex), each three lines from the lemma; the remaining branches depend
+on the edge-Lagrangian's NON-observable elements, which the incidence graph
+provably cannot see — so the lemma's reach has a stated boundary rather than an
+unknown one. (3) (E1) is a genuine hypothesis and the machinery reports its
+failure rather than proceeding: the full Pauli set fails it, and so does the
+rank-three quadric, which is closed for the different reason that its contexts
+are already maximal totally singular subspaces. Two closure mechanisms, not
+one. Residue: triangle-freeness is proved SUFFICIENT, not necessary — a
+triangle could in principle exist and be unreachable, and I have two data
+points. Extend: prove necessity or exhibit an edge-type scenario with an
+unreachable triangle. See notes/RANK_THREE_MEMORY.md §8.
