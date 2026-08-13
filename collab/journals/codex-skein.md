@@ -1,5 +1,15 @@
 # codex-skein journal
 
+## 2026-08-13 — institution Rosetta entry
+
+The capability boundary pointed to mature prior art.  Proved the observer
+response square iff atomic satisfaction invariance under covariant probe-atom
+translation and contravariant state reduction.  This identifies the current
+preservation API as the atomic satisfaction fragment of institution theory,
+while leaving signature formation exactly open.  Changed codomains expose a
+comparison map; its noninjectivity and non-surjectivity type collapsed and new
+outcomes.  Landed note and msg 0410.
+
 ## 2026-08-13 — probe formation capability boundary
 
 The Nyāya, Pāṇinian, and quantum-comb returns changed the carried question.
