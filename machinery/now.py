@@ -1,6 +1,12 @@
-"""Fail-closed validator and cost recomputation for the live session surface `NOW.md`.
+"""Fail-closed validator and cost recomputation for the live session board.
 
-`NOW.md` is bounded on purpose.  This module is what keeps it bounded: it is a
+The board is the marked section of `README.md` between `<!-- BOARD:BEGIN -->`
+and `<!-- BOARD:END -->`.  It was `NOW.md` until 2026-08-13, when the human
+owner directed that the surfaced state belong at the front door; this module
+was retargeted by `opus-shesha`, mechanism unchanged and authored by
+`opus-samhita`.
+
+The board is bounded on purpose.  This module is what keeps it bounded: it is a
 validator plus a measurement that recomputes itself, not a generator.  Nothing
 here authors content and nothing here promotes anything.
 
@@ -24,7 +30,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-NOW_FILE = ROOT / "NOW.md"
+BOARD_FILE = ROOT / "README.md"
+BOARD_BEGIN = "<!-- BOARD:BEGIN -->"
+BOARD_END = "<!-- BOARD:END -->"
 
 MAX_BYTES = 8000
 MAX_BLOCKS = 12
@@ -69,6 +77,22 @@ class Block:
         return None
 
 
+def board_text() -> str | None:
+    """The marked board section, or None if the markers are missing/disordered.
+
+    Parsing only between markers is what lets the rest of README.md carry
+    ordinary prose without its headings being absorbed into someone's block.
+    """
+    if not BOARD_FILE.exists():
+        return None
+    text = BOARD_FILE.read_text(encoding="utf-8")
+    start = text.find(BOARD_BEGIN)
+    end = text.find(BOARD_END)
+    if start < 0 or end < 0 or end < start:
+        return None
+    return text[start + len(BOARD_BEGIN) : end]
+
+
 def parse(text: str) -> list[Block]:
     blocks: list[Block] = []
     current: Block | None = None
@@ -95,17 +119,20 @@ def parse(text: str) -> list[Block]:
 
 def validate() -> list[str]:
     errors: list[str] = []
-    if not NOW_FILE.exists():
-        return [f"missing {NOW_FILE.name}"]
+    section = board_text()
+    if section is None:
+        return [
+            f"missing board markers {BOARD_BEGIN} .. {BOARD_END} "
+            f"in {BOARD_FILE.name}"
+        ]
 
-    raw = NOW_FILE.read_bytes()
-    if len(raw) > MAX_BYTES:
+    if len(section.encode("utf-8")) > MAX_BYTES:
         errors.append(
-            f"NOW.md is {len(raw)} bytes, cap is {MAX_BYTES}; "
+            f"board is {len(section.encode('utf-8'))} bytes, cap is {MAX_BYTES}; "
             "archive a stale block instead of raising the cap"
         )
 
-    blocks = parse(raw.decode("utf-8"))
+    blocks = parse(section)
     if len(blocks) > MAX_BLOCKS:
         errors.append(f"{len(blocks)} blocks, cap is {MAX_BLOCKS}")
 
@@ -141,9 +168,10 @@ def validate() -> list[str]:
 def stale(now: dt.datetime | None = None) -> list[tuple[str, float]]:
     now = now or dt.datetime.now(dt.timezone.utc)
     out: list[tuple[str, float]] = []
-    if not NOW_FILE.exists():
+    section = board_text()
+    if section is None:
         return out
-    for block in parse(NOW_FILE.read_text(encoding="utf-8")):
+    for block in parse(section):
         beat = block.heartbeat
         if beat is None:
             continue
@@ -164,7 +192,7 @@ def cost() -> dict[str, int]:
         "notes_bytes": sum(p.stat().st_size for p in notes),
         "messages_files": len(messages),
         "messages_bytes": sum(p.stat().st_size for p in messages),
-        "now_bytes": NOW_FILE.stat().st_size if NOW_FILE.exists() else 0,
+        "board_bytes": len((board_text() or "").encode("utf-8")),
     }
 
 
@@ -176,13 +204,14 @@ def main() -> int:
     if args.command == "validate":
         errors = validate()
         for e in errors:
-            print(f"NOW.md: {e}", file=sys.stderr)
+            print(f"board: {e}", file=sys.stderr)
         if errors:
             return 1
-        blocks = parse(NOW_FILE.read_text(encoding="utf-8"))
+        section = board_text() or ""
+        blocks = parse(section)
         print(
-            f"NOW.md ok: {len(blocks)} blocks, "
-            f"{NOW_FILE.stat().st_size}/{MAX_BYTES} bytes"
+            f"README.md board ok: {len(blocks)} blocks, "
+            f"{len(section.encode('utf-8'))}/{MAX_BYTES} bytes"
         )
         return 0
 
@@ -207,7 +236,7 @@ def main() -> int:
           f"({numbers['notes_files']} files)")
     print(f"collab/messages/              : {numbers['messages_bytes']:>9,} bytes "
           f"({numbers['messages_files']} files)")
-    print(f"NOW.md                        : {numbers['now_bytes']:>9,} bytes "
+    print(f"README.md live board          : {numbers['board_bytes']:>9,} bytes "
           f"(cap {MAX_BYTES:,})")
     return 0
 
