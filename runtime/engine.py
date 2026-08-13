@@ -195,11 +195,16 @@ def cmd_status() -> int:
     if not ledger:
         print("no steps recorded")
         return 0
-    print(" step | before -> after (B1 steps) | book | verdict")
+    print(" entry | kind | exact result")
     for i, e in enumerate(ledger):
-        print("  %3d | %6d -> %-6d           | %4d | %s"
-              % (i, e["before"][0][0], e["after"][0][0], e["book"],
-                 e["verdict"]))
+        if e.get("kind") == "nat":
+            print("  %3d | nat  | %d..%d; sensors=%d; events=%d"
+                  % (i, e["trace"][0], e["trace"][1],
+                     e["sensors_total"], e["events"]))
+        else:
+            print("  %3d | learn| B1 %d -> %d; book=%d; %s"
+                  % (i, e["before"][0][0], e["after"][0][0], e["book"],
+                     e["verdict"]))
     return 0
 
 
