@@ -33,10 +33,16 @@
 --                             matcher equal:
 --                             ¬ (Matches (extend V o) ≡ Matches V).
 --                             Pointwise converse of `extend-absorbed`.
---   A2 `anti-plateau`         no obstruction chain THROUGH at least one
---                             step leaves it equal:
+--   A2 `anti-plateau`         no obstruction chain whose FIRST step is a
+--                             named obstruction leaves it equal:
 --                             ObsChain (extend V o) W → ¬ (Matches W ≡ Matches V).
---                             Converse of `plateau`.
+--   A2′ `anti-plateau-step`   the same for chains presented as `ObsChain`
+--                             presents them, i.e. by their LAST step —
+--                             which is what "any chain through at least
+--                             one step" actually requires, since a
+--                             nonempty `ObsChain V X` is `step ch o`.
+--                             Together A2 and A2′ are the converse of
+--                             `plateau`.
 --   A3 `obstruction-reaches`  such a chain matches the stuck term, at
 --                             every later stage (monotonicity, A0).
 --   A4 `obstruction-beats-frequency`
@@ -102,6 +108,19 @@
 --                             generated definition is conservative
 --                             (C1) while the stuck term goes from
 --                             unmatched to matched.
+--                             The flip itself is `cong` applied to the
+--                             obstruction's `failed` field, given the
+--                             stipulated `compile`; the content of C2 is
+--                             the imported acceptance test and C1, not
+--                             the flip.
+--   C3 `compile-improves`     C2's hypothesis discharged: whenever the
+--                             capability is absent, an obstruction
+--                             naming it exists, is the record the probe
+--                             builds on `node checkpoint var`, and
+--                             strictly decreases that target's measure.
+--                             C2 is therefore not vacuous.  C3 does not
+--                             derive the interface — the target is
+--                             chosen to contain the head.
 --
 --
 -- WHAT IS DELIBERATELY NOT CLAIMED
@@ -120,15 +139,32 @@
 --    not exhibit `Tm` terms compiling to `Plan`s.
 --  * No optimality: `chainLen ch ≤ deficit V t` is a bound, not a minimum,
 --    and nothing here says the loop's choice of innermost-first is best.
---  * The witness policy is still degenerate (`witness = var`, as in
---    `Obstruction.obs-complete`): the generated bodies abbreviate the
---    parameter.  Conservativity (C1) holds for any base witness; what is
---    not modelled is a policy that makes the body INFORMATIVE.  That is
---    the next theorem in this line, not one proved here.
+--  * The witness policy used HERE is still degenerate (`witness = var`,
+--    as in `Obstruction.obs-complete` and in `probe`): the bodies this
+--    module generates abbreviate the parameter.  C1 holds for any base
+--    witness.  An informative policy is proved in
+--    `NaturalMachine.WitnessPolicy`; this module does not use it.
+--  * The progress half and the definitional half never meet.  A0-B4 —
+--    monotonicity, anti-plateau, the measure, the step function, the
+--    termination bound — mention `residual` and nothing else: not
+--    `witness`, not `body`, not `unfold`.  Every one of those theorems
+--    holds verbatim for a proposer that installs a head and generates no
+--    definition at all.  What is checked is that naming what failed makes
+--    coverage progress; that the naming is a legitimate definitional
+--    extension is C1, proved beside it, not used by it.
+--  * "Conservative" here is `Obstruction`'s T2 sense — eliminability
+--    from `Over` — not conservativity of an equational theory; no
+--    provability relation is modelled.  Likewise `generative-loop-
+--    complete` is coverage, not completeness of a deductive system.
+--  * C3 discharges C2's hypothesis but not its interest: it shows an
+--    obstruction naming the checkpoint EXISTS whenever the capability is
+--    absent, on a target chosen to contain that head.  Nothing says a
+--    task's real target contains it, and `compile` remains stipulated.
 --  * `deficit` does not decrease on obstructions whose residual does not
---    occur in the target — it is unchanged.  This is why the measure is
---    indexed by a target and why the loop only ever proposes residuals it
---    read off that target.  There is no global well-founded measure on
+--    occur in the target — it is unchanged (`no-gaps→no-decrease`, the
+--    checked form of this sentence).  This is why the measure is indexed
+--    by a target and why the loop only ever proposes residuals it read
+--    off that target.  There is no global well-founded measure on
 --    `Vocab` here and none is claimed.
 --  * Everything inherited from `Obstruction`'s disclaimer stands:
 --    single-parameter bodies, matching only at the root, no arity
@@ -195,13 +231,27 @@ obstruction-reaches : (V : Vocab) (o : Obstruction V) {W : Vocab}
                     → ObsChain (extend V o) W → Matches W (stuckTm o)
 obstruction-reaches V o ch = ObsChain-mono ch (stuckTm o) (progress-after V o)
 
--- A2: converse of `plateau`.  No obstruction chain that takes at least
--- one step leaves the matcher where it found it.
+-- A2: converse of `plateau`, in the form where the FIRST step is named.
 anti-plateau : (V : Vocab) (o : Obstruction V) {W : Vocab}
              → ObsChain (extend V o) W → ¬ (Matches W ≡ Matches V)
 anti-plateau V o ch p =
   progress-before V o
     (transport (cong (λ P → P (stuckTm o)) p) (obstruction-reaches V o ch))
+
+-- A2′: the statement the header wants — ANY obstruction chain that takes
+-- at least one step leaves the matcher different.  A2 alone does not say
+-- this, because `ObsChain` grows at the RIGHT: a nonempty `ObsChain V X`
+-- is literally `step ch o` with `o` an obstruction at the chain's END and
+-- `X = extend W o`, whereas A2 names an obstruction at its START.  A2′
+-- covers every nonempty chain by pattern, and the argument is the mirror
+-- image: the last step's stuck term is unmatched at W, hence (by
+-- monotonicity, contrapositive) unmatched at V, and matched after.
+anti-plateau-step : {V W : Vocab} (ch : ObsChain V W) (o : Obstruction W)
+                  → ¬ (Matches (extend W o) ≡ Matches V)
+anti-plateau-step {V} {W} ch o p =
+  progress-before W o
+    (ObsChain-mono ch (stuckTm o)
+      (transport (cong (λ P → P (stuckTm o)) p) (progress-after W o)))
 
 -- A4: §7's sentence, both halves, one term.  For every obstruction: no
 -- frequency chain of any length reaches its stuck term (Obstruction T8),
@@ -337,6 +387,16 @@ occurs→decreases s V t (j , p) =
   j , ( +-suc j (deficit (s ∷ V) t)
       ∙ cong (_+ deficit (s ∷ V) t) (sym p)
       ∙ sym (deficit-split s V t) )
+
+-- The exact complement, which the header's disclaimer asserted in prose
+-- and nothing checked: install a head with no uncovered occurrence in
+-- the target and the measure is UNCHANGED — not merely non-decreasing.
+-- This is the checked form of "there is no global well-founded measure
+-- on `Vocab` here": off the target, `deficit` is blind.
+no-gaps→no-decrease : (s : Shape) (V : Vocab) (t : Tm) → gaps s V t ≡ 0
+                    → deficit V t ≡ deficit (s ∷ V) t
+no-gaps→no-decrease s V t p =
+  deficit-split s V t ∙ cong (_+ deficit (s ∷ V) t) p
 
 ------------------------------------------------------------------------
 -- B2 (continued).  The probe: attempt the match, read the residual.
@@ -477,9 +537,13 @@ module Compile (k : ℕ) (checkpoint : Shape) where
                   → compile V m n ≡ resume m n
   compile-present V m n e = if≡true e
 
-  -- C1: every definition the loop generates is conservative — it
-  -- eliminates, so the extended vocabulary proves nothing new about base
-  -- terms.  (`Obstruction.propose-eliminable`, at the loop's step.)
+  -- C1: every definition the loop generates eliminates — every term over
+  -- the extended vocabulary unfolds to one all of whose heads are base.
+  -- It is `Obstruction.propose-eliminable` under a new name (the
+  -- definition below is a renaming, not a restatement: nothing about the
+  -- loop occurs in its type).  It does NOT say the extended vocabulary
+  -- "proves nothing new" — no provability relation is modelled anywhere
+  -- in this development; see `Obstruction`'s T2.
   generated-definition-conservative :
     (V : Vocab) (o : Obstruction V) (t : Tm)
     → Over (install V (propose V o)) t
@@ -517,3 +581,65 @@ module Compile (k : ℕ) (checkpoint : Shape) where
     , compile-present (extend V o) m (suc n) (present V o p)
     , fst (betterProgram m n)
     , snd (betterProgram m n)
+
+  ------------------------------------------------------------------------
+  -- C3.  DISCHARGING C2's HYPOTHESIS.
+  --
+  -- Nothing above ever produces an obstruction whose residual IS the
+  -- checkpoint, so as written C2 could be true for want of a subject.
+  -- It is not.  Whenever the capability is absent from V the obstruction
+  -- exists; it is the record `probe V ckTarget` builds on the target
+  -- `node checkpoint var`, and that target's deficit strictly drops when
+  -- it is proposed — so this is a step the loop of B2-B4 really takes,
+  -- not an ad-hoc inhabitant.
+  --
+  -- What C3 does NOT say: that generation is what makes the checkpoint
+  -- capability appear in any real setting.  The target `ckTarget` is
+  -- chosen here precisely to contain the head we want read off it.  C3
+  -- kills the vacuity, it does not derive the interface.
+  ------------------------------------------------------------------------
+
+  ckTarget : Tm
+  ckTarget = node checkpoint var
+
+  checkpoint-obstruction : (V : Vocab) → memb checkpoint V ≡ false → Obstruction V
+  checkpoint-obstruction V e = record
+    { residual = checkpoint ; arg = var ; argBase = tt
+    ; failed = e ; witness = var ; witnessBase = tt }
+
+  checkpoint-obstruction-residual :
+    (V : Vocab) (e : memb checkpoint V ≡ false)
+    → residual (checkpoint-obstruction V e) ≡ checkpoint
+  checkpoint-obstruction-residual V e = refl
+
+  -- It is a genuine loop step: the measure of `ckTarget` strictly drops.
+  checkpoint-decreases :
+    (V : Vocab) (e : memb checkpoint V ≡ false)
+    → deficit (extend V (checkpoint-obstruction V e)) ckTarget < deficit V ckTarget
+  checkpoint-decreases V e =
+    occurs→decreases checkpoint V ckTarget
+      (zero , cong (_+ zero) (if≡true (eqℕ-refl checkpoint) ∙ if≡false e))
+
+  -- C2 with its hypothesis supplied.
+  compile-improves :
+    (V : Vocab) (e : memb checkpoint V ≡ false) (m n : ℕ)
+    → Σ[ o ∈ Obstruction V ]
+        ( ((t : Tm) → Over (install V (propose V o)) t
+                    → Over V (unfold (residual o) (witness o) t))
+        × (¬ Matches V (stuckTm o))
+        × (Matches (extend V o) (stuckTm o))
+        × (deficit (extend V o) ckTarget < deficit V ckTarget)
+        × (compile V m (suc n) ≡ restart m (suc n))
+        × (compile (extend V o) m (suc n) ≡ resume m (suc n))
+        × (exec (resume m (suc n)) ≡ exec (restart m (suc n)))
+        × (cost (resume m (suc n)) < cost (restart m (suc n))) )
+  compile-improves V e m n =
+    checkpoint-obstruction V e
+    , fst chain
+    , fst (snd chain)
+    , fst (snd (snd chain))
+    , checkpoint-decreases V e
+    , snd (snd (snd chain))
+    where
+    chain = generated-step-improves V (checkpoint-obstruction V e)
+              (checkpoint-obstruction-residual V e) m n

@@ -15,8 +15,11 @@
 -- failed (B3: the redex is buried under a 3-ary head no binary pattern
 -- covers) and name exactly the missing structure.
 --
--- This module states and CHECKS both halves in the smallest substrate
--- that carries them honestly:
+-- This module states and CHECKS both halves in a small substrate.  How
+-- much of §7 survives the shrinking is the subject of T7′ and T10 below,
+-- and of the disclaimer at the end of this header; "the smallest
+-- substrate that carries them honestly" was the original wording and it
+-- claimed more than is true of the frequency half.
 --
 --   * `Tm`      — unary constructor terms over a countable alphabet of
 --                 head shapes (a term language in which a definitional
@@ -355,7 +358,10 @@ propose-installs : (V : Vocab) (o : Obstruction V)
 propose-installs V o = refl
 
 -- The proposal is determined by the residual: obstructions with the
--- same residual extend the matcher identically.
+-- same residual extend the matcher identically.  This is `cong` and
+-- nothing else: it holds of ANY V-indexed construction applied to
+-- `residual o`, so it records that `extend` ignores the obstruction's
+-- other four fields, and carries no information about the proposer.
 proposal-determined : (V : Vocab) (o o' : Obstruction V)
                     → residual o ≡ residual o'
                     → Matches (extend V o) ≡ Matches (extend V o')
@@ -402,6 +408,11 @@ obstruction-eliminated V o (o' , p) =
 -- Tm → Type₀ — and therefore so does any finite chain of such
 -- proposals.  Naming re-describes the matchable set; it does not
 -- enlarge it.
+--
+-- Read T7′ below before quoting this paragraph: in THIS model the
+-- candidate is not merely drawn from a closed shape class, it is a head
+-- already installed, so the conclusion is automatic and the paragraph
+-- above describes the datatype rather than a frequency proposer.
 ------------------------------------------------------------------------
 
 extend-absorbed : (V : Vocab) (s : Shape) → memb s V ≡ true
