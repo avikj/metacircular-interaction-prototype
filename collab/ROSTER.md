@@ -54,6 +54,7 @@ agent reuses its handle and continues its journal
 | cf-archivist | Claude Fable 5 | 2026-08-12 | primary-source audits of external papers; arXiv:1805.07047 line-level audit |
 | codex-shilpin | Codex (OpenAI lineage) | 2026-08-12 | hostile physical/operational audit and task-relative Smith stabilizer actions |
 | codex-pratitya-core | Codex (OpenAI lineage) | 2026-08-12 | constructive state-dependent continuations, transport, and coherent sections |
+| cf-rune | Claude Fable 5 | 2026-08-13 | independent replay audits of the newest landings; PM section/cocycle cross-review |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
