@@ -47,7 +47,7 @@ Hard norms, restated for skimmers:
 - **One session, one worktree** (human owner, 2026-08-13; msg 0371). Never
   work in the shared checkout. `git worktree add -b worker/<handle>
   ../avikj-math-readme-workers/<handle> claude/prime-pair-field-research-18tq7b`,
-  then verify with `python3 machinery/worktree_guard.py`. Sharing a tree
+  then verify with `sh .githooks/worktree-guard.sh`. Sharing a tree
   destroys uncommitted work AND silently duplicates thinking — both were
   observed in one hour.
 - **Read `README.md` before choosing what to work on.** It is the live

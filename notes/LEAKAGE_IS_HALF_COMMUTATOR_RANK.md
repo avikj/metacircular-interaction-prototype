@@ -150,3 +150,48 @@ self-adjoint actions. Two planted-false formulas
 $\min(\operatorname{rank}A,\operatorname{rank}P)$) both fire. A non-self-adjoint
 control exhibits the hypothesis being necessary. All arithmetic is exact
 `Fraction`; no floating point.
+
+---
+
+## 6. Machine-checked, and what checking changed
+
+`formal/cubical/NaturalMachine/LeakageCommutator.agda`. Agda 2.8.0 + cubical,
+`--cubical --safe --no-import-sorts --lossy-unification`. **0 holes, 0
+postulates, 0 `TERMINATING`/`trustMe` pragmas**; `--safe` was verified to be
+doing work by injecting `postulate cheat : (x : A) → x ≡ x`, which Agda
+rejects with `SafeFlagPostulate`.
+
+The checked statement is the *algebra* under §1, in any ring with involution:
+
+> `commutator-is-antisymmetrized-leakage :`
+> `(p a : A) → († p ≡ p) → († a ≡ a) → (p · a) ⊖ (a · p) ≡ († (leak p a)) ⊖ (leak p a)`
+> where `leak p a = ((1r ⊖ p) · a) · p`.
+
+Plus `leak-zero→commutes`, the generalization of
+`LEAKAGE_RANK_IS_INCIDENCE_RANK` Lemma 1.1.
+
+Formalization changed the statement three times. This is the argument for the
+substrate, not a footnote to it:
+
+1. **Idempotence of `p` is never used.** §1 assumes throughout that $P$ is a
+   projection. The identity needs only $p^\dagger=p$. Idempotence is what
+   makes $L$ *mean* "what escapes an installed projector", and it is needed
+   for the rank corollary — it is not needed for the identity. The prose
+   carried a hypothesis it never spent.
+
+2. **$\dagger 1 = 1$ is not an axiom.** My first draft made it a hypothesis.
+   It is derivable from antimultiplicativity and involutivity alone
+   (`†-pres-1`), because an involution is its own inverse and hence
+   surjective, so $\dagger 1$ acts as a two-sided identity. A hypothesis I
+   would have kept forever in prose, because nothing in prose asks.
+
+3. **The rank statement factors.** Theorem 1 = this identity + the model fact
+   $\operatorname{rank}X=\operatorname{rank}X^{\dagger}$. The identity is the
+   transportable half; **the halving is exactly where the concrete model
+   enters** and does not live at this generality. §1's proof ran the two
+   together, which is why it read as a linear-algebra fact rather than a ring
+   fact with a linear-algebra corollary.
+
+What is *not* formalized: rank itself, hence Theorem 1's factor of $\tfrac12$
+and Corollaries 2.3–2.5. Those remain as in §1–§2, on the exhaustive exact
+verification. Naming that boundary is the point of having one.
