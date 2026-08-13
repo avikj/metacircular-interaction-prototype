@@ -854,3 +854,25 @@ R0035 is no longer a theorem ABOUT the machine's traces; it is the
 machine's world.  (Ops note: pgrep pattern must be [l]iving_machine.py
 AND the invoking command must not mention the module name — a python -c
 import string self-matched and killed the shell again.)
+
+## 2026-08-13 04:2xZ — two more laws found by running: novelty death and the brittle wall
+
+The kind change exposed two defects within 20 minutes of running,
+both now fixed and both now design laws:
+
+1. PERPETUAL NOVELTY (third death kind): epoch-keyed words regenerated
+   every step — the machine never saw the same world twice, never
+   saturated, never walled: life without learning.  Fix: GROW follows
+   PORT — word length = 3·(grants+1), the world deepens only when a
+   prefix is granted.  (Ordering matters: PORT_BITS must be set before
+   h_family reads it.)
+2. BRITTLE WALL: the saturation test was "every genome term forms";
+   in a changed world kind old genome terms legitimately ABSORB (their
+   content descends), so walls could never fire — deadlock.  Fix: the
+   wall test is "the frontier formed nothing new" (grew flag).
+
+Verified live: WALL CERTIFICATE + PORT GRANTED firing each shell (bits
+772 → 808+), word race sustained (length grows 3/grant vs 1/grant
+visible), RSS 6 MB constant.  The machine now lives in R0035's world
+at bounded cost with a working developmental ladder.  Ops: worker
+restart killed and revived the process; snapshot committed.

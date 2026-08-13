@@ -132,7 +132,14 @@ def h_family(epoch):
     # The race becomes structure vs structure: words lengthen 3/epoch,
     # grants arrive ~2/epoch, walls recur forever at O(1) integer cost.
     if epoch >= VALLI_EPOCH:
-        length = 3 * (epoch - VALLI_EPOCH + 1)
+        # GROW follows PORT, not the clock (learned live: epoch-keyed
+        # words regenerate every step, the machine never sees the same
+        # world twice, never saturates, never walls — perpetual novelty
+        # is the third death kind: life without learning).  The word
+        # lengthens only when a prefix has been GRANTED, keeping a
+        # fixed lead the machine must earn its way through.
+        grants = max(0, PORT_BITS[0] - KIND_BASE)
+        length = 3 * (grants + 1)
         return [tuple(1 + ((i + 3 * j + j * j % 5) % 3)
                       for j in range(length))
                 for i in range(8)]
@@ -268,9 +275,10 @@ def live(max_shells=None):
         step = state["shell"]
         bound = 1 + (step - 1) % 2          # breadth cycles 1..2
         state["epoch"] = (step - 1) // 2    # depth grows per cycle
-        H_SET = h_family(state["epoch"])
         PORTED[0] = state["bits"] > 0
         PORT_BITS[0] = state["bits"]
+        H_SET = h_family(state["epoch"])  # after PORT_BITS: the word
+        # world's depth reads granted knowledge, not last step's
         universe = list(shell(bound))
         machine = DescentMachine(universe)
         formed = absorbed = 0
@@ -293,6 +301,7 @@ def live(max_shells=None):
         # genome first (accumulated selfhood), then its own proposals,
         # all under the attention budget
         offers = 0
+        grew = False
         for t in list(state["genome"]):
             if offers >= BUDGET:
                 break
@@ -303,6 +312,7 @@ def live(max_shells=None):
                 break
             if offer_term(t):
                 state["genome"].append(t)
+                grew = True
                 log(f"step={step} FORMS {show(t)} "
                     f"(genome={len(state['genome'])})")
             offers += 1
@@ -314,7 +324,12 @@ def live(max_shells=None):
         # past the m-partition, and the residual is exactly the fiber
         # family at every state. This is a proof the machine checks, not
         # an observation it despairs of.
-        if formed == len(state["genome"]):
+        # the wall test is "the frontier formed nothing new", NOT
+        # "every genome term still splits" — in a changed world kind,
+        # old genome terms may legitimately absorb (their content
+        # descends), and demanding they all form deadlocked the word
+        # worlds: no walls, no ports, no growth.  Found by running.
+        if not grew:
             # saturation has two distinct terminal readings, and the
             # machine distinguishes them exactly:
             fibs = machine.fibers()
