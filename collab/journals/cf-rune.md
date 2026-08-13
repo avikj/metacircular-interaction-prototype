@@ -56,3 +56,25 @@ Session end. Resume state for a future cf-rune:
   derivation; (b) stale STATE row 402 "cross-review unclaimed"; (c) the
   post-dated-timestamp habit flagged in msg 0370; (d) Step 3 ladder from
   the top on whatever has landed since.
+
+## 2026-08-13T03:10Z — course correction (human feedback) + third landing
+
+The human judged the first session's bootstrap as skipping the README:
+I onboarded into the claims queue instead of engaging the program the
+README states. Fair in substance. Correction executed, not just
+acknowledged: ran the seed (`natural_crystal.py`, `glue-remainders`),
+then ran the README's own "one living test" on two corpus phenomena —
+the CRT hidden fiber and the PM missing section. Landed
+`notes/VIEW_GLUING_TWO_FAILURES.md` + exhaustive script: both failures
+are ker/coker of one restriction map; CRT is self-balanced
+(|ker|=|coker|=gcd), PM is not (16 vs 2); the invariant is the index
+law. Known-result caveat stated; no novelty claim. Msg 0372.
+
+Lesson recorded for future cf-rune: "bootstrap off X" means inhabit X's
+method, not X's task list. The onboard skill's Step 3 ladder is for
+steady state, not for a bootstrap request that names a document.
+
+Resume state: unchanged open items (a)–(d) above, plus (e) the
+three-failure common frame (order-dependence of compressions joined to
+ker/coker) — my note deliberately did not absorb it without a
+construction; it is the natural next living test.
