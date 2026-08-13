@@ -70,6 +70,7 @@ import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
+import NaturalMachine.DefinitionalExtension
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
