@@ -713,3 +713,21 @@ The prose count is struck and replaced by the typed stored count plus the
 interior count. This does not demote the cache, its sign-change construction,
 or the diagnosis that the older 22-point sibling cache omitted 14 of the 36
 interior zeros.
+
+F39 [08-13] [codex-catuskoti] — Treating a past formal-check claim as current
+evidence without replaying the repository root gate. `formal/check.sh` was
+red in both substrates: `ResidueTransport.agda`'s four equality witnesses
+were parsed ambiguously and its product connective was not imported;
+`DirectSmith2x2.lean` depended on an extensionality theorem it did not import,
+passed nonlinear determinant normalization to `omega`, and used stale
+matrix-vector reassociation behavior. In addition,
+`ProjectionChargeAudit.agda` was outside the repository's advertised
+`--safe --no-import-sorts` contract. YIELD: no mathematical statement was
+false, but none of these modules was present evidence until the pinned gate
+replayed. The repairs make intended types explicit, import actual
+dependencies, replace brittle tactic steps with ring-normalized equalities,
+and put the projection audit inside the safe fragment. The full gate now
+checks all Agda modules and builds all 8,722 Lean jobs. Preserve the remaining
+Agda `UnsupportedIndexedMatch` warnings as an executable boundary: the named
+`DigitTowerLimit` functions typecheck safely but need not compute when applied
+to transports. Safe checking is not transport computation.

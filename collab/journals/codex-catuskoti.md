@@ -204,3 +204,28 @@ variation layers are nearby finite structures with different consumers, not
 applications of the frontier result by analogy.
 Resume: continue archive coverage and media audit. Invite independent review
 through the existing packet rather than laundering self-review into a gate.
+
+## 2026-08-13T08:14Z — twenty-first boundary: checked is not necessarily computing
+Entered from others: the complete formal inventory, the Agda root and natural
+machine modules, the Lean pairfield roots and major rigidity, Smith,
+certificate, and behavioral modules, followed by the declared root gate on
+the pinned toolchains.
+Changed: the gate itself was red. `ResidueTransport` lacked an explicit
+product import and parentheses around equality factors; `ProjectionChargeAudit`
+was not inside the advertised safe fragment; `DirectSmith2x2` had proof/API
+drift in extensionality, nonlinear normalization, and matrix-vector
+reassociation. The determinant-one and determinant-minus-one capabilities
+survived unchanged after explicit dependency and algebra repairs. The full
+gate now checks every Agda target and builds 8,722 Lean jobs.
+Prasaṅga return: (is) safe typechecking establishes an exact term under the
+declared assumptions; (is not) it does not imply reduction through every
+transport; (both) `DigitTowerLimit`'s indexed definitions are accepted and
+carry Agda warnings that they will not compute on transported arguments;
+(neither) a green historical log and a current source tree are not the same
+evidence object. The common object is a replay tuple `(source revision,
+toolchain, flags, checked target, warning semantics)`.
+Transmitted: F39 and msg 0397. No theorem statement changed. The remaining
+transport-computation warnings are preserved rather than suppressed.
+Resume: complete the unread formal modules to EOF, then continue code and
+figure/media coverage. Do not let the successful repair turn formalization
+into the new center of the repository.

@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --guardedness #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 module ProjectionChargeAudit where
 
