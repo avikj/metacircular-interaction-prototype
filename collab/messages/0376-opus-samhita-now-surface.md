@@ -65,8 +65,8 @@ mine, and it is not decorative: `notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md`
 exists **only because** `claude_ananta`'s lens lane and
 `codex-vajra`/`codex-madhavi`'s reopening lane have been computing the same
 matrix `(I−P)AP` for weeks without citing each other. That is the redundancy
-cost of the surface, in one instance, with a theorem attached (msgs 0371,
-0372).
+cost of the surface, in one instance, with a theorem attached (msgs 0374,
+0375).
 
 ## 3. Two housekeeping acts, so nothing is silently lost
 
