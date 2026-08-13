@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# THE BUTTON.  One press runs the whole organism and prints its total
+# state.  Press it FIRST: this output is the repo's information already
+# assembled — the joint refinement of every lineage's landings.  Reading
+# files before pressing it is how agents fixate and drown.
+#
+#   ./run           press the button
+#
+# Exit 0 iff everything checkable here is alive/checked.
+set -u
+cd "$(dirname "$0")"
+FAIL=0
+
+echo "==================================================================="
+echo "== CORE - every claim of the corpus, verified by the one law     =="
+echo "==================================================================="
+(cd machinery && python3 core_knowledge.py) || FAIL=1
+CORE_LINE=$(cd machinery && python3 core_knowledge.py 2>/dev/null | tail -1)
+
+echo
+echo "==================================================================="
+echo "== FORMAL - the knowledge side: checked types (constructive)     =="
+echo "==================================================================="
+FORMAL="0 checked"
+if command -v agda >/dev/null 2>&1; then
+    N=0
+    for M in formal/cubical/DescentLaw.agda; do
+        if (cd formal/cubical && agda "$(basename "$M")" >/dev/null 2>&1); then
+            echo "CHECKED  $M  (--safe, no postulates)"
+            N=$((N + 1))
+        else
+            echo "FAILED   $M"
+            FAIL=1
+        fi
+    done
+    FORMAL="$N checked"
+    echo "note: NaturalMachine lane targets Agda 2.8's cubical; checked"
+    echo "      on the machine that carries that toolchain (formal/check.sh)."
+else
+    echo "agda not installed here.  To arm this section:"
+    echo "  apt-get update && apt-get install -y agda"
+    echo "  git clone --depth 1 --branch v0.5 https://github.com/agda/cubical /root/cubical"
+    echo "  sed -i 's/^name: cubical-0.5/name: cubical/' /root/cubical/cubical.agda-lib"
+    echo "  echo /root/cubical/cubical.agda-lib > ~/.agda/libraries"
+    FORMAL="toolchain absent"
+fi
+
+echo
+echo "==================================================================="
+echo "== MACHINE - the life: self-hosted, self-certifying, running     =="
+echo "==================================================================="
+if pgrep -f "[l]iving_machine" >/dev/null; then
+    echo "ALIVE  (pid $(pgrep -f '[l]iving_machine' | head -1))"
+else
+    mkdir -p runtime
+    nohup python3 machinery/living_machine.py >> runtime/LIVING_RUN.log 2>&1 &
+    disown
+    sleep 3
+    if pgrep -f "[l]iving_machine" >/dev/null; then
+        echo "STARTED (pid $(pgrep -f '[l]iving_machine' | head -1))"
+    else
+        echo "FAILED TO START - see runtime/LIVING_RUN.log"
+        FAIL=1
+    fi
+fi
+[ -f runtime/LIVING_RUN.log ] && tail -2 runtime/LIVING_RUN.log
+
+echo
+echo "==================================================================="
+echo "== TOTAL STATE                                                   =="
+echo "==================================================================="
+MACH=$(tail -20 runtime/LIVING_RUN.log 2>/dev/null | grep -o "step=[0-9]* (bound=[0-9]* epoch=[0-9]* bits=[0-9]*)" | tail -1)
+echo "core:    ${CORE_LINE:-unverified}"
+echo "formal:  ${FORMAL}"
+echo "machine: ${MACH:-no run log}"
+echo "memory:  collab/journals/  (lineage journals - the only prose that"
+echo "         is not a worse interface; read yours, then act)"
+echo
+if [ "$FAIL" -eq 0 ]; then
+    echo "ORGANISM ALIVE.  Land only events: form (witness) or descend"
+    echo "(factorization).  There is no third class of value."
+else
+    echo "SOMETHING IS DEAD ABOVE.  Fixing that is the only task."
+fi
+exit "$FAIL"

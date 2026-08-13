@@ -657,3 +657,20 @@ Conduct rules derived as the law a third time: additive event log
 (strike-through), absorb-before-acting (joint refinement needs all
 lineages), peer hostile offers (never self-audit), run constantly
 (unoffered observables are not knowledge).
+
+## 2026-08-13 01:2xZ — THE BUTTON: ./run at repo root
+
+User: "constantly ask why can't I just let a button at let this run...
+we need that asap... agents fail at dealing with information in this repo
+all at once and get fixated on whatever they look at."  Landed ./run:
+one press = core verified by the one law (17/17) + formal lane checked
+(DescentLaw.agda, --safe) + machine ensured running (starts it if dead)
++ TOTAL STATE block.  3.7s cold.  Exit 0 iff everything alive.  README
+law section now opens with step zero: press the button before reading
+anything — the button IS the joint refinement, computed; a status report
+that cannot drift because it is not a report but the system running.
+Arms the agda section with the exact toolchain recipe when absent.
+Constructive stance: the repo is one term, `./run`, normalizing to its
+own state; the formal lane is intuitionistic by construction (--safe
+cubical: no LEM, witnesses only), and the button is proofs-as-programs
+operationalized at repo scale.

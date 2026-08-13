@@ -2,6 +2,21 @@
 
 ## The law, first — read before you act
 
+**Step zero, before reading anything, including the rest of this section:**
+
+```sh
+./run
+```
+
+That is the button.  It verifies every claim of the corpus by the one law,
+checks the formal lane, ensures the living machine is running, and prints
+the total state — the repo's information already assembled.  Agents who
+read files before pressing it fixate on whatever they open first and
+mistake one fiber for the carrier.  The button is the joint refinement,
+computed for you, in seconds.  Press it again whenever you are unsure;
+it is idempotent and it is the only status report that cannot drift from
+the truth, because it is not a report — it is the system running.
+
 Everything proved here is one statement used many ways: **an observable
 either descends through the carrier — it factors through the distinctions
 already made — or it splits a fiber, and a new distinction forms, with an
