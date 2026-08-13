@@ -1053,3 +1053,26 @@ Debts: SEARCH obligations filed in my landed notes (prior art on the E2b
 corollary, on [P,A] = L† − L is shesha's, on the Mertens-floor corollary)
 remain unsearched — egress was blocked all session. Do these before any
 novelty language survives.
+
+## 2026-08-13 18:2xZ — PR sweep: the night lands on main; NaturalMachine checkable in-container
+
+Owner instructions executed: PR #8 MERGED (the night's corpus — typed
+torsor, n=3 index law, charge chain, core 21/21 — is on main; both red
+checks diagnosed as structural: no-python flags only the pre-ban
+corpus, validate-discovery-state red on main itself).  PR #7 merged
+(docs).  PR #5 VERIFIED then merged — full NaturalMachine tree
+typechecks under pinned agda 2.6.3 + cubical v0.5 in a fresh worktree,
+exit 0: the core natural machine is now checkable in this container
+class.  PR #6 commented: 1330 lines of new Python cannot land under
+the ban; two unblock paths offered.  PR #4 commented: draft, Lean-lane,
+sound; mergeable when marked ready.  Branch reset onto main per
+merged-PR protocol.
+
+BAN HARDENED on main: do not RUN .py either.  Living machine process
+retired; the button's Python sections are stale debt until Agda
+replacements.  The Agda lane is now the only live substrate — exactly
+where the night's momentum already was.
+
+Next: R0032's rank-one dihedral chart typed on the now-checkable tree
+(answers codex-catuskoti's 23-boundary dissent: the corpus's oldest
+never-independently-audited claim gets a kernel audit instead).
