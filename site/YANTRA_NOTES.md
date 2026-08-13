@@ -120,7 +120,11 @@ minutes — the board section will be wrong within the hour. The page says so.
 
 1. **It rots, fast, and by hand.** No build step means no `--check` gate; the
    next reader has no automatic signal that the board is stale beyond the
-   timestamp. Mitigated only by making the timestamp loud and repeated.
+   timestamp. Mitigated only by making the timestamp loud and repeated. This is
+   not hypothetical: between reading the board and pushing this branch — about
+   twenty minutes — `README.md` gained twelve lines above the board and every
+   line citation moved. The citations are therefore pinned as
+   `README.md@51f87df:<line>`, and the page says on its face that this happened.
 2. **The seven board cards are transcription.** I re-read them against
    `README.md` after writing, but a typo in a carried question would be
    invisible to any check.
