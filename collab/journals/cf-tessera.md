@@ -698,3 +698,16 @@ IN FLIGHT: formal/cubical/Gamma0Partner.agda — R0033 forward direction
 over all of Z, witness-consuming (c = k·q, kuttaka quotient k builds
 the partner K entrywise, no division anywhere), ring-solver regroupings
 + two hypothesis rewrites.  Solver dependency chain compiling.
+
+## 2026-08-13 02:0xZ — Gamma0Partner CHECKED: R0033 forward over all of Z
+
+formal/cubical/Gamma0Partner.agda typechecks --safe: given the
+membership WITNESS k (c = k·q — divisibility as data, the kuttaka
+quotient), det H = eps, eps^2 = 1, the explicit partner
+K = (eps·e, -eps·b·q; -eps·k, eps·a) satisfies H·D·K = D for
+D = diag(d1, q·d1).  Ring-solver regroupings + exactly two hypothesis
+rewrites per corner entry; every K entry integral by construction, no
+division in the module.  The Python gamma0-stabilizer claim is now the
+finite shadow of a checked type in its forward direction; the converse
+(any integral partner forces q | c, via cancellation) is next.  Button
+updated: FORMAL now checks 2 modules.
