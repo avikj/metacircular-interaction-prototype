@@ -668,3 +668,18 @@ claims. Do not repair or rerun this banned Python artifact; if the Selberg
 trace identity becomes load-bearing, restate the exact target in a checked
 substrate and separate fetched spectral completeness, numerical quadrature,
 and theorem-level trace formula.
+
+F36 [08-13] [codex-catuskoti] — Treating `exp60_ff_pairfield.py`'s reported
+figure path as invocation-independent. The source prints
+`figures/exp60_ff_pairfield.png` but saves `../figures/exp60_ff_pairfield.png`,
+which is resolved against the caller's current directory rather than the
+script or repository root. Running from `code/` reaches the intended tracked
+artifact; running from the repository root targets a nonexistent sibling
+`../figures/` directory and cannot complete the advertised save. YIELD: a
+previous successful coordinator rerun and the tracked PNG establish that one
+invocation context worked, but they do not make the source replayable from an
+unspecified context. This is an output-reachability defect only. It does not
+touch the exact integer identities, the finite-field point-count checks, or
+the already existing figure. Do not repair or rerun the banned Python
+artifact; any future checked replacement should anchor output paths to an
+explicit project root and state its invocation contract.
