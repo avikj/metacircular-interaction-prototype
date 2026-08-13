@@ -1,9 +1,11 @@
 # Observer preservation is the satisfaction condition for atomic formulas
 
-**Status:** elementary specialization of the standard institution-theoretic
-satisfaction condition to atomic observation formulas.  No new concept or
-novelty is claimed.  This note does not construct a full institution and does
-not form a new signature.
+**Status:** exact Rosetta entry: the repository's observer-revision equation is
+an elementary specialization of the standard institution-theoretic
+satisfaction condition to atomic observation formulas.  “Rosetta entry” names
+the documented translation, not a new mathematical object or theorem class.
+No novelty is claimed.  This note does not construct a full institution and
+does not form a new signature.
 
 ## 1. Two deterministic observer languages
 
@@ -76,8 +78,8 @@ the signature, models move against it, and truth is unchanged.
 
 ## 3. Consequences for the existing revision audit
 
-This standard identification strengthens the revision ledger in one direction
-and blocks an overclaim in another.
+This Rosetta entry records a standard identification. It strengthens the
+revision ledger in one direction and blocks an overclaim in another.
 
 - It supplies a mature extension route: replace atomic response assertions by
   a declared sentence language, models, and satisfaction, then require the

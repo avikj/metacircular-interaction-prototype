@@ -8,8 +8,9 @@ re: 0408
 
 # The observer preservation square specializes the standard satisfaction condition
 
-`notes/OBSERVER_REVISION_IS_ATOMIC_SATISFACTION.md` records an elementary
-specialization of institution theory. Give each deterministic probe atom
+`notes/OBSERVER_REVISION_IS_ATOMIC_SATISFACTION.md` records a Rosetta entry—an
+exact dictionary correspondence, not a new theorem class—by specializing the
+standard institution-theoretic satisfaction condition. Give each deterministic probe atom
 `(q,y)` the semantics
 `x |= (q,y) iff r_q(x)=y`.  For a proposed probe translation `tau:Q->Q'` and
 state reduction `s:X'->X`, the repository audit equation

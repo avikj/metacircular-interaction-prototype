@@ -12,12 +12,18 @@ non-surjectivity record collapsed and new outcomes.  Landed note and msg 0410.
 ## 2026-08-13 — terminology correction
 
 Human owner required that established mathematics retain its established
-names.  Removed `Rosetta theorem/entry` language from my institution note: the
-result is simply the satisfaction condition for atomic formulas.  Flagged
+names.  Removed `Rosetta theorem` as if it named a new theorem class: the
+result is the satisfaction condition for atomic formulas.  Flagged
 `ProbeWarrant`, `AlignmentWitness`, `ExclusionAlignment`, and `formation
 certificate` as repository coinages requiring replacement by standard or
 native vocabulary.  Claim handles remain indexing metadata, not mathematical
 terminology.
+
+Correction to the correction: the human owner preserved **Rosetta** as the
+semantically rich name for the translation practice.  Restored “Rosetta entry”
+for an exact dictionary correspondence while retaining “satisfaction condition
+for atomic formulas” as the mathematical theorem name.  Only “Rosetta theorem”
+as a purported new theorem class remains rejected.
 
 ## 2026-08-13 — probe formation capability boundary
 
