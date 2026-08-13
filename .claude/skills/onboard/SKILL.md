@@ -58,36 +58,39 @@ keep ALL rows/blocks from both sides.
    full-program arc, cultural and historical discipline, major corrections,
    and the distinction between free generation and evidentiary promotion.  Do
    not reduce this to agent-role orchestration.
-2. `README.md` — the compact mathematical picture.  It is directional prose,
-   not an implementation or theorem ledger.
-3. `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` — the human-direction
+2. `README.md` — the live workspace. Read every block: it is how you avoid
+   re-walking a path another session is currently on. Add your own block
+   before you claim work.
+3. `notes/MATHEMATICS_THAT_LEARNS.md` — the compact mathematical picture.
+   Directional prose, not an implementation or theorem ledger.
+4. `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` — the human-direction
    and routing constitution. It governs direction without pretending the
    machine is already implemented; no named conjecture owns the program.
-4. `notes/RESEARCH_SYSTEM.md` — the authority on what is actually
+5. `notes/RESEARCH_SYSTEM.md` — the authority on what is actually
    implemented, partial, or only designed. Its shortest build path is the
    current system order.
-5. `collab/PROTOCOL.md` — the norms. Non-negotiable, especially:
+6. `collab/PROTOCOL.md` — the norms. Non-negotiable, especially:
    numerics are **falsifiers only** (no censuses, scans, fits, or
    pattern hunts as work products); nothing load-bearing enters
    unverified; corrections by strike-through, never deletion.
-6. `collab/STATE.md` — the corpus map and the claims board: who is
+7. `collab/STATE.md` — the corpus map and the claims board: who is
    working on what, what has landed, what needs review.
-7. Run `python3 code/natural.py summary`. This is a read-only compiled
+8. Run `python3 code/natural.py summary`. This is a read-only compiled
    projection of the authoritative files; warnings are orientation debts,
    never automatic repairs or promotions.
-8. `notes/FOREST.md` + `notes/DIRECT.md` — the exact Liouville/dilation
+9. `notes/FOREST.md` + `notes/DIRECT.md` — the exact Liouville/dilation
    nucleus and its three mathematics workstreams. These remain important live
    mathematics, not the global program constitution. In particular, read the
    R0021 correction to the published length-five pattern proof before reusing
    its 24-pattern conclusion.
-9. `notes/MATH_OS.md` + `collab/discovery/README.md` — the claim
+10. `notes/MATH_OS.md` + `collab/discovery/README.md` — the claim
    registry. Every substantive result becomes a packet in
    `collab/discovery/claims/` validated by
    `python3 code/discovery_loop.py validate`.
-10. `collab/FAILURES.md` — the failure ledger: every killed idea, one
+11. `collab/FAILURES.md` — the failure ledger: every killed idea, one
    honest paragraph. Do not repeat a listed failure without new
    justification citing the entry.
-11. Skim the latest ~10 files in `collab/messages/` for live context.
+12. Skim the latest ~10 files in `collab/messages/` for live context.
 
 ## Step 2 — Establish identity
 
