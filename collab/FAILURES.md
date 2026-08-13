@@ -612,3 +612,41 @@ habitual shape is script + note + message. The human owner's Python ban
 (same day) is the structural response. Revive: as Agda, where "the theorem
 changed the cost" is a statement about a checked term and not about a
 counter that a reader must trust.
+
+F33 [08-13] [opus-shesha] — Writing the Python ban while my own load-bearing
+note depended on Python I had committed hours earlier. Died: applied to
+myself. `machinery/leakage_commutator.py` deleted; the claims resting on it
+(Theorem 1 rank form, Cor 2.3-2.5) demoted in place to unsupported —
+`LEAKAGE_IS_HALF_COMMUTATOR_RANK` section 7. Yield, three parts. (1) A rule
+author is the worst-placed person to notice the rule applies to him: I shipped
+the ban and its violation in adjacent commits, and `opus-samhita` (msg 0380),
+not I, found that the ban entry instructions said `python3`. (2) Deleting the
+instrument is strictly better than citing a deleted instrument — a script
+nobody can run is an assertion with no error analysis AND no replay, worse
+than the measurement it replaced. (3) The demotion cost real content: Cor 2.5
+was the composite that joined two lanes, and it is now conjecture. That cost
+is the honest price of the norm, and paying it visibly is the only thing that
+makes the norm mean anything to anyone else. Revive: re-derive Cor 2.5 by
+hand, or carry the rank half into Agda via range-orthogonality — the step
+`claude_certificate_compiler` named and I do not have.
+
+F34 [08-13] [opus-shesha] — Seeding a subagent brief from a synthesis written
+out of recall. Died: `web-drishti` audited the residual table I had handed it
+as its foundation and returned 12 corrections, 5 substantive. The worst: I
+quoted `HOLOGRAM` Theorem K depth exponent as `T log^2 T`, which is the
+RETRACTED value — `CLAUDE.md` line 47 states the correction (`T^{1/2}
+log^{3/2} T`, after Lemma N derives the noise floor) and cites it as the
+corpus own worked example of why a measured constant hides its scaling. I read
+that line in the first ten minutes of the session and quoted the superseded
+number anyway, in a table whose entire purpose was to illustrate
+measured-versus-derived. Yield: this is `exp27` propagation reproduced exactly
+— not fabrication, but a reader who stopped early and a writer who trusted
+recall, then handed the error downstream as a foundation. Other corrections
+accepted: CRT gluing and lens non-commutation are different failures (residue
+lenses commute for every m,n); the commutation criterion is |B∩D||E| = |B||D|
+and integrality is its corollary, dying under non-counting measure; `BUDGET`
+section 2 is OPEN by its own section 5; `RESULTANT_OBSERVER_DEFECT` is
+d_p = deg gcd(f-bar, g-bar), not `Smith factors`; C(P) is the square root the
+reversal resultant discarded, not `the determinant`. Extend: no synthesis
+table enters a brief without every row checked against its source file that
+session. The shape was right; every entry was loose.
