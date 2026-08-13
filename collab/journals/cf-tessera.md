@@ -876,3 +876,25 @@ Verified live: WALL CERTIFICATE + PORT GRANTED firing each shell (bits
 visible), RSS 6 MB constant.  The machine now lives in R0035's world
 at bounded cost with a working developmental ladder.  Ops: worker
 restart killed and revived the process; snapshot committed.
+
+## 2026-08-13 04:3xZ — the word world stabilizes: honest walls, staggered horizon
+
+Three world-designs died inside one hour, each teaching a law:
+1. mod-3-degenerate words (8 were secretly 3) — caught by the HONEST
+   WALL (frontier-exhaustion fix: a wall claim needs the whole
+   frontier as evidence; budget-truncated search had certified false
+   walls).
+2. First-quotient identity — everything distinguishable at prefix 1:
+   complete treadmill, nothing forms.  Fixed by GROW-on-COMPLETE
+   (a finished world must still deepen) — which held the machine
+   alive through the treadmill.
+3. Staggered signatures around the visible horizon — the balance:
+   word i signs at grants-12+3i, so every grant level has freshly
+   distinguishable words (formations) AND words past the horizon
+   (honest walls).  Verified live: fibers 400 = 80 m-classes x 5
+   word-classes exactly as designed, WALL certificates with the
+   frontier exhausted, ports advancing, RSS bounded.
+
+The machine now has what THE_MACHINE.md promised: walls recur forever,
+knowledge-paced novelty, at constant cost — living in R0035's trace
+world with the kuttaka step as its physics.

@@ -138,11 +138,24 @@ def h_family(epoch):
         # is the third death kind: life without learning).  The word
         # lengthens only when a prefix has been GRANTED, keeping a
         # fixed lead the machine must earn its way through.
+        # Staggered signatures around the visible horizon (three world
+        # designs died tonight: mod-3-degenerate words — 8 were 3, the
+        # honest wall caught it; first-quotient identity — everything
+        # distinguishable instantly, complete treadmill, nothing forms;
+        # this one holds the balance): word i carries its signature at
+        # position grants-12+3i, so at EVERY grant level some words
+        # are freshly distinguishable (formations recur) and some sit
+        # past the horizon (walls recur, honestly), forever, at
+        # constant cost.  The world changes only when a grant lands:
+        # knowledge-paced novelty.
         grants = max(0, PORT_BITS[0] - KIND_BASE)
-        length = 3 * (grants + 1)
-        return [tuple(1 + ((i + 3 * j + j * j % 5) % 3)
-                      for j in range(length))
-                for i in range(8)]
+        length = 3 * (grants + 4)
+        words = []
+        for i in range(8):
+            sig = max(0, min(grants - 12 + 3 * i, length - 1))
+            words.append(tuple((2 + i % 2) if j == sig else 1
+                               for j in range(length)))
+        return words
     out = [((1, 0), (0, 1)), ((0, 1), (-1, 0)), ((1, 0), (0, -1))]
     k = 1
     while k <= (1 << (2 * epoch + 1)):
@@ -308,7 +321,12 @@ def live(max_shells=None):
             offer_term(t)
             offers += 1
         for t in frontier(state["genome"], state["value_pool"]):
-            if offers >= BUDGET:
+            # attention is budgeted, but a WALL claims "no term of mine
+            # can form" — that claim needs the whole frontier as
+            # evidence.  Budget-truncating the search certified false
+            # walls: with genome 9 and budget 12, the same three
+            # shallow terms were retried forever.  Found by running.
+            if offers >= BUDGET and grew:
                 break
             if offer_term(t):
                 state["genome"].append(t)
@@ -354,6 +372,11 @@ def live(max_shells=None):
                     log(f"step={step} COMPLETE at bits={state['bits']}: "
                         f"carrier discrete on {len(universe)} states "
                         f"(certificate unavailable: {exc}); growing.")
+                # GROW on completeness: in the word kind the world only
+                # deepens through grants, so a genuinely complete world
+                # must grant too — else the machine grinds a finished
+                # world forever (death kind #2, would-be return of)
+                state["bits"] += 1
             else:
                 # WALL: stuck strictly below discreteness — provably,
                 # by grammar induction, no term sees the fiber beyond
