@@ -1,336 +1,600 @@
-<title>The Prime Pair Field — Research Interface</title>
+<title>The Correction Record</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* ---- tokens: light (rag paper, iron-gall ink, minium correction) ---- */
 :root{
-  --paper:#F4F6F5; --ink:#1C2422; --ink-soft:#4A5652; --hairline:#D6DDDA;
-  --teal:#0F6E66; --teal-soft:#E3EEEC; --iron:#9E3B1E; --iron-soft:#F2E7E1;
-  --card:#FCFDFC; --mono-bg:#EBF0EE; --nav-bg:rgba(244,246,245,.92);
+  --paper:#FAF7F0;
+  --raised:#F4EFE4;
+  --ink:#16130E;
+  --ink-2:#6B6155;
+  --ink-3:#93897A;
+  --rule:#DED5C4;
+  --rule-2:#EAE3D5;
+  --minium:#A32E1B;
+  --minium-wash:#F5E6E0;
+  --focus:#A32E1B;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#111917; --ink:#E7ECE9; --ink-soft:#9DABA5; --hairline:#2A3733;
-    --teal:#4FB3A9; --teal-soft:#12332F; --iron:#D97B57; --iron-soft:#33201A;
-    --card:#16201D; --mono-bg:#1B2724; --nav-bg:rgba(17,25,23,.92);
+    --paper:#12100C;
+    --raised:#1A1712;
+    --ink:#E9E2D3;
+    --ink-2:#9A907F;
+    --ink-3:#756C5E;
+    --rule:#2C2720;
+    --rule-2:#221E18;
+    --minium:#E0705A;
+    --minium-wash:#2A1912;
+    --focus:#E0705A;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#111917; --ink:#E7ECE9; --ink-soft:#9DABA5; --hairline:#2A3733;
-  --teal:#4FB3A9; --teal-soft:#12332F; --iron:#D97B57; --iron-soft:#33201A;
-  --card:#16201D; --mono-bg:#1B2724; --nav-bg:rgba(17,25,23,.92);
+  --paper:#12100C;
+  --raised:#1A1712;
+  --ink:#E9E2D3;
+  --ink-2:#9A907F;
+  --ink-3:#756C5E;
+  --rule:#2C2720;
+  --rule-2:#221E18;
+  --minium:#E0705A;
+  --minium-wash:#2A1912;
+  --focus:#E0705A;
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:64px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+html{-webkit-text-size-adjust:100%}
 body{
-  background:var(--paper); color:var(--ink); margin:0;
-  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
-  font-size:17px; line-height:1.55;
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Iowan Old Style","Charter","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.62;
+  font-kerning:normal;
+  text-rendering:optimizeLegibility;
 }
-nav{
-  position:sticky; top:0; z-index:10; background:var(--nav-bg); backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--hairline);
+.mono,code,.tag,.path,.rail-glyph,.legend-row code{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-variant-ligatures:none;
 }
-nav .inner{max-width:80ch; margin:0 auto; padding:.5rem 1.25rem; display:flex; gap:1.1rem; flex-wrap:wrap; align-items:baseline}
-nav a{font-family:ui-monospace,"SF Mono",Consolas,monospace; font-size:.72rem; letter-spacing:.08em;
-  color:var(--ink-soft); text-decoration:none}
-nav a:hover,nav a:focus-visible{color:var(--teal)}
-nav a.brand{color:var(--teal); font-weight:700}
-main{max-width:80ch; margin:0 auto; padding:2.6rem 1.25rem 5rem}
-h1{font-size:2.05rem; line-height:1.12; margin:.2rem 0 .6rem; text-wrap:balance; font-weight:600}
-h2{font-size:1.3rem; margin:0 0 .55rem; text-wrap:balance; font-weight:600}
-h3{font-size:1.02rem; margin:.9rem 0 .3rem; font-weight:600}
-p{margin:.55rem 0; max-width:68ch}
-.eyebrow{font-family:ui-monospace,monospace; font-size:.68rem; letter-spacing:.14em; color:var(--teal); font-weight:600}
-.eyebrow.iron{color:var(--iron)}
-section{margin-top:2.8rem; padding-top:1.4rem; border-top:1px solid var(--hairline)}
-.lede{font-size:1.06rem; color:var(--ink-soft); max-width:68ch}
-code,.num{font-family:ui-monospace,"SF Mono",Consolas,monospace; font-size:.86em; background:var(--mono-bg);
-  padding:.06em .3em; border-radius:3px; font-variant-numeric:tabular-nums}
-.spectrum{display:block; width:100%; height:auto; margin:1.1rem 0 .4rem}
-.speclegend{display:flex; gap:1.4rem; font-size:.78rem; color:var(--ink-soft); font-family:ui-monospace,monospace; flex-wrap:wrap}
-.sw{display:inline-block;width:.85em;height:.85em;border-radius:2px;vertical-align:-.12em;margin-right:.35em}
-table{border-collapse:collapse; width:100%; font-size:.86rem}
-.tablewrap{overflow-x:auto; margin:.9rem 0}
-th{text-align:left; font-family:ui-monospace,monospace; font-size:.68rem; letter-spacing:.1em;
-   color:var(--ink-soft); font-weight:600; padding:.45rem .7rem .35rem 0; border-bottom:1px solid var(--hairline)}
-td{padding:.5rem .7rem .5rem 0; border-bottom:1px solid var(--hairline); vertical-align:top}
-td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
-.pill{display:inline-block; font-family:ui-monospace,monospace; font-size:.66rem; letter-spacing:.06em;
-  padding:.12em .55em; border-radius:99px; font-weight:600; white-space:nowrap}
-.pill.proved{background:var(--teal-soft); color:var(--teal)}
-.pill.measured{background:var(--iron-soft); color:var(--iron)}
-.pill.open{background:transparent; color:var(--ink-soft); border:1px solid var(--hairline)}
-.pill.flight{background:var(--mono-bg); color:var(--ink-soft)}
-.pill.done{background:var(--teal); color:var(--paper)}
-figure{margin:1.2rem 0}
-figure img{max-width:100%; height:auto; border:1px solid var(--hairline); border-radius:4px; background:#fff}
-figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:.45rem}
-.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem}
-.grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; margin-top:1rem}
-.card{background:var(--card); border:1px solid var(--hairline); border-radius:6px; padding:.9rem 1rem}
-.card h3{margin:.1rem 0 .4rem; font-size:.95rem}
-.card p{font-size:.85rem; color:var(--ink-soft); margin:.25rem 0}
-.card .links{margin-top:.5rem; font-size:.75rem; font-family:ui-monospace,monospace}
-a{color:var(--teal); text-decoration-thickness:1px; text-underline-offset:2px}
-a:focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:2px}
-.thm{background:var(--card); border:1px solid var(--hairline); border-left:3px solid var(--teal);
-  border-radius:4px; padding:.9rem 1.1rem; margin:1.1rem 0}
-.thm.iron{border-left-color:var(--iron)}
-.thm .tag{font-family:ui-monospace,monospace; font-size:.7rem; letter-spacing:.1em; color:var(--teal); font-weight:700}
-.thm.iron .tag{color:var(--iron)}
-.thm p{font-size:.92rem}
-.thm .meta{font-size:.75rem; color:var(--ink-soft); font-family:ui-monospace,monospace; margin-top:.5rem}
-.pathcard{border-left:3px solid var(--iron)}
-footer{margin-top:3.5rem; padding-top:1.2rem; border-top:1px solid var(--hairline);
-  font-size:.8rem; color:var(--ink-soft); font-family:ui-monospace,monospace}
-.backtop{font-family:ui-monospace,monospace; font-size:.7rem}
+
+/* ---- layout: reading column with a left gloss rail (ṭīkā position) ---- */
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.5rem}
+.col{max-width:37rem;margin-left:auto;margin-right:auto}
+@media (min-width:64rem){
+  .col{margin-left:15rem;margin-right:0}
+}
+
+header.top{border-bottom:1px solid var(--rule)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.9rem 0;flex-wrap:wrap}
+.wordmark{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+.wordmark b{color:var(--ink);font-weight:600}
+button.theme{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--rule);color:var(--ink-2);
+  padding:.35rem .7rem;cursor:pointer;border-radius:0;
+}
+button.theme:hover{color:var(--ink);border-color:var(--ink-3)}
+button.theme:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+a{color:var(--ink);text-decoration-color:var(--ink-3);text-underline-offset:.18em;text-decoration-thickness:.5px}
+a:hover{text-decoration-color:var(--minium)}
+
+/* ---- hero ---- */
+.hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin:0 0 1.4rem}
+h1{
+  font-size:clamp(2.6rem,7vw,4.4rem);
+  line-height:1.02;
+  letter-spacing:-.022em;
+  font-weight:400;
+  margin:0 0 1.6rem;
+  text-wrap:balance;
+}
+.lede{font-size:1.18rem;line-height:1.58;color:var(--ink);margin:0 0 1.1rem;max-width:34rem}
+.lede-2{font-size:1.02rem;color:var(--ink-2);margin:0;max-width:34rem}
+
+/* the specimen: an actual retraction, set at display size */
+.specimen{
+  margin:2.8rem 0 .9rem;
+  display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:clamp(1.5rem,4.6vw,2.5rem);
+  font-variant-numeric:tabular-nums;
+}
+.struck{position:relative;color:var(--ink-3);white-space:nowrap}
+.struck::after{
+  content:"";position:absolute;left:-.06em;right:-.06em;top:.52em;height:.055em;
+  background:var(--minium);transform-origin:left center;transform:scaleX(0);
+  animation:strike .5s cubic-bezier(.2,.7,.3,1) .55s forwards;
+}
+@keyframes strike{to{transform:scaleX(1)}}
+.arrow{color:var(--ink-3);font-size:.7em}
+.repair{color:var(--minium);white-space:nowrap}
+.specimen-cap{font-size:.86rem;color:var(--ink-2);max-width:34rem;margin:.2rem 0 0}
+@media (prefers-reduced-motion:reduce){
+  .struck::after{animation:none;transform:scaleX(1)}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+
+/* ---- sections ---- */
+section{padding:3.6rem 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+h2{
+  font-size:1.62rem;line-height:1.22;font-weight:400;letter-spacing:-.012em;
+  margin:0 0 1.1rem;text-wrap:balance;
+}
+h3{font-size:1.02rem;font-weight:600;margin:2rem 0 .5rem;letter-spacing:-.004em}
+p{margin:0 0 1.05rem}
+p:last-child{margin-bottom:0}
+.sec-label{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);
+  margin:0 0 1rem;
+}
+@media (min-width:64rem){
+  .sec-label{position:absolute;margin-left:-15rem;width:12rem;margin-top:.5rem}
+  section{position:relative}
+}
+
+/* ---- the gloss rail: status marks sit in the margin ---- */
+.claim{
+  position:relative;
+  padding:1.15rem 0 1.15rem 0;
+  border-top:1px solid var(--rule-2);
+}
+.claim:first-of-type{border-top:1px solid var(--rule)}
+.claim-head{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.4rem}
+.tag{
+  font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-2);white-space:nowrap;display:inline-flex;align-items:baseline;gap:.4em;
+}
+.tag .g{font-size:.95rem;line-height:1;color:var(--ink);font-weight:400}
+.tag.is-retracted{color:var(--minium)}
+.tag.is-retracted .g{color:var(--minium)}
+.tag.is-measured{color:var(--ink-3)}
+.tag.is-measured .g{color:var(--ink-3)}
+.claim-title{font-size:1.02rem;font-weight:600}
+.claim p{font-size:.96rem;color:var(--ink-2);margin:0 0 .55rem}
+.claim p strong{color:var(--ink);font-weight:600}
+@media (min-width:64rem){
+  .claim .tag{position:absolute;left:-15rem;width:13.2rem;text-align:right;justify-content:flex-end;top:1.35rem}
+  .claim-head{margin-bottom:.35rem}
+}
+
+/* ---- corrections, set in place ---- */
+del{text-decoration:line-through;text-decoration-color:var(--minium);text-decoration-thickness:1px;color:var(--ink-3)}
+ins{text-decoration:none;color:var(--ink)}
+.gloss{
+  border-left:2px solid var(--minium);
+  padding:.15rem 0 .15rem 1rem;
+  margin:.9rem 0 1.05rem;
+  font-size:.9rem;color:var(--ink-2);
+}
+.gloss .hand{
+  display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--minium);margin-bottom:.3rem;
+}
+blockquote{
+  margin:1.4rem 0;padding:0 0 0 1.15rem;border-left:1px solid var(--rule);
+  font-size:1.06rem;line-height:1.55;color:var(--ink);
+}
+blockquote cite{
+  display:block;margin-top:.55rem;font-style:normal;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;
+  letter-spacing:.06em;color:var(--ink-3);
+}
+code{font-size:.82em;background:var(--raised);padding:.1em .34em;color:var(--ink)}
+.path{font-size:.68rem;letter-spacing:.02em;color:var(--ink-3);display:block;margin-top:.5rem}
+.path a{color:var(--ink-3);text-decoration-color:var(--rule)}
+
+/* ---- disclosure: depth, not accordion ---- */
+details{margin:.55rem 0 0}
+summary{
+  cursor:pointer;list-style:none;display:inline-flex;align-items:baseline;gap:.5rem;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+  padding:.2rem 0;
+}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";color:var(--minium);font-size:.9rem;line-height:1}
+details[open]>summary::before{content:"–"}
+summary:hover{color:var(--ink)}
+.disclosed{
+  padding:.5rem 0 .3rem 1.05rem;border-left:1px solid var(--rule);
+  margin:.4rem 0 .3rem;font-size:.9rem;color:var(--ink-2);
+}
+.disclosed p{font-size:.9rem}
+
+/* ---- legend of grades ---- */
+.legend{border-top:1px solid var(--rule);margin-top:1.6rem}
+.legend-row{
+  display:grid;grid-template-columns:1.6rem minmax(8rem,10rem) 1fr;gap:.5rem .9rem;
+  padding:.75rem 0;border-bottom:1px solid var(--rule-2);align-items:baseline;
+}
+.legend-row .g{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.05rem;color:var(--ink)}
+.legend-row .n{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.63rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);
+}
+.legend-row .d{font-size:.88rem;color:var(--ink-2)}
+.legend-row.r .g,.legend-row.r .n{color:var(--minium)}
+.legend-row.m .g,.legend-row.m .n{color:var(--ink-3)}
+@media (max-width:32rem){
+  .legend-row{grid-template-columns:1.6rem 1fr}
+  .legend-row .d{grid-column:2}
+}
+
+/* ---- figure ---- */
+figure{margin:2rem 0 0}
+.figbox{overflow-x:auto;border:1px solid var(--rule);background:var(--raised);padding:1.2rem .6rem .6rem}
+svg.chart{display:block;width:100%;min-width:31rem;height:auto}
+figcaption{font-size:.85rem;color:var(--ink-2);margin-top:.85rem;max-width:34rem}
+
+/* ---- two voices ---- */
+.voices{display:grid;gap:0;margin-top:1.4rem;border-top:1px solid var(--rule)}
+.voice{padding:1.15rem 0;border-bottom:1px solid var(--rule-2)}
+.voice .who{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.63rem;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 .4rem;
+}
+.voice p{font-size:.96rem;color:var(--ink-2);margin:0}
+.voice.b .who{color:var(--minium)}
+
+footer{padding:3rem 0 4.5rem;font-size:.82rem;color:var(--ink-2)}
+footer p{margin:0 0 .7rem;max-width:34rem}
+.fine{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.66rem;letter-spacing:.04em;color:var(--ink-3);line-height:1.8}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 </style>
 
-<nav><div class="inner">
-  <a class="brand" href="#top">PAIR FIELD</a>
-  <a href="#read">READ</a>
-  <a href="#theorems">THEOREMS</a>
-  <a href="#measure">MEASUREMENTS</a>
-  <a href="#structure">STRUCTURE</a>
-  <a href="#docs">DOCUMENTS</a>
-  <a href="#fleet">FLEET</a>
-  <a href="#frontier">FRONTIER</a>
-  <a href="#open">OPEN</a>
-</div></nav>
+<header class="top">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="wordmark"><b>avikj/math</b> &nbsp;·&nbsp; a living mathematics corpus</div>
+      <button class="theme" id="themeBtn" type="button" aria-live="polite">Theme: system</button>
+    </div>
+  </div>
+</header>
 
-<main id="top">
-  <span class="eyebrow">RESEARCH INTERFACE · AVIKJ/MATH · UPDATED CONTINUOUSLY</span>
-  <h1>The Prime Pair Field</h1>
-  <p class="lede">One object — the pair field K(w,d) = Λ(w−d)Λ(w+d) — interrogated adversarially until it yielded theorems. Goldbach data and prime-gap data are its two marginals; the Riemann zeros are its spectrum; the singular series is its critical equilibrium; the parity barrier is its protected charge.</p>
+<div class="wrap">
+<main class="col">
 
-  <svg class="spectrum" viewBox="0 0 720 96" role="img" aria-label="Spectrum strip: single zero frequencies in teal above the axis, pair-sum frequencies in red below, drawn from the first Riemann zeros">
-    <line x1="10" y1="48" x2="710" y2="48" stroke="var(--hairline)" stroke-width="1"/>
-    <g stroke="var(--teal)" stroke-width="2.5">
-      <line x1="82.3" y1="14" x2="82.3" y2="46"/><line x1="202.9" y1="14" x2="202.9" y2="46"/>
-      <line x1="272.7" y1="14" x2="272.7" y2="46"/><line x1="367.4" y1="14" x2="367.4" y2="46"/>
-      <line x1="411.4" y1="14" x2="411.4" y2="46"/><line x1="492.8" y1="14" x2="492.8" y2="46"/>
-      <line x1="551.1" y1="14" x2="551.1" y2="46"/><line x1="593.3" y1="14" x2="593.3" y2="46"/>
-      <line x1="633.5" y1="14" x2="633.5" y2="46"/><line x1="680.0" y1="14" x2="680.0" y2="46"/>
-    </g>
-    <g stroke="var(--iron)" stroke-width="2.5">
-      <line x1="329.7" y1="50" x2="329.7" y2="82"/><line x1="450.2" y1="50" x2="450.2" y2="82"/>
-      <line x1="520.0" y1="50" x2="520.0" y2="82"/><line x1="570.7" y1="50" x2="570.7" y2="82"/>
-      <line x1="614.8" y1="50" x2="614.8" y2="82"/><line x1="640.5" y1="50" x2="640.5" y2="82"/>
-    </g>
-    <text x="82.3" y="10" text-anchor="middle" font-size="9" fill="var(--teal)" font-family="monospace">γ₁</text>
-    <text x="202.9" y="10" text-anchor="middle" font-size="9" fill="var(--teal)" font-family="monospace">γ₂</text>
-    <text x="329.7" y="93" text-anchor="middle" font-size="9" fill="var(--iron)" font-family="monospace">2γ₁</text>
-    <text x="450.2" y="93" text-anchor="middle" font-size="9" fill="var(--iron)" font-family="monospace">γ₁+γ₂</text>
-  </svg>
-  <div class="speclegend">
-    <span><span class="sw" style="background:var(--teal)"></span><b>single zeros γᵢ</b> — first variation · <a href="#thm-blocks">mixed block</a></span>
-    <span><span class="sw" style="background:var(--iron)"></span><b>pair sums γᵢ+γⱼ</b> — second variation · <a href="#thm-d">Goldbach fluctuation</a></span>
+  <div class="hero">
+    <p class="eyebrow">What this repository is proudest of</p>
+    <h1>The correction record</h1>
+    <p class="lede">A mathematics collaboration that keeps its retractions in the text, struck through, next to the repair. Forty-two of its four hundred and twenty-six notes carry one.</p>
+    <p class="lede-2">This page shows the corrections first, because they are the load-bearing part.</p>
+
+    <div class="specimen" aria-label="A published constant of 0.362 to 0.421, struck through, corrected to one quarter">
+      <span class="struck">0.362&#8202;–&#8202;0.421</span>
+      <span class="arrow" aria-hidden="true">&#8594;</span>
+      <span class="repair">&#188;</span>
+    </div>
+    <p class="specimen-cap">A fitted coefficient, published. The true value is exactly one quarter, and a page of algebra determines it. The error propagated into two notes, a paper section, and a round of cross-review before anyone derived the thing it was standing in for.</p>
   </div>
 
-  <section id="read">
-    <span class="eyebrow">READ</span>
-    <h2>Three ways in</h2>
-    <div class="grid3">
-      <div class="card pathcard"><h3>10 minutes</h3>
-        <p>Look at the two figures in <a href="#measure">Measurements</a>: the sum-spectrum of the zeta zeros read directly off Goldbach data, and the two spectral types (Λ atomic, Liouville atomless). Then read <a href="#open">where the wall is</a>.</p></div>
-      <div class="card pathcard"><h3>One hour</h3>
-        <p>Read the <a href="#theorems">theorem ledger</a> top to bottom — each entry links to its full statement — then <a href="#structure">Structure</a> for how they interlock: blocks, dictionary, gauge protection.</p></div>
-      <div class="card pathcard"><h3>Deep</h3>
-        <p>The <a href="#docs">documents</a> carry complete proofs and honest attributions; every number is reproducible from <code>code/exp*.py</code> against the bundled 100k Odlyzko zeros.</p></div>
+  <section>
+    <p class="sec-label">The rule</p>
+    <h2>Before running any computation, write down the theorem it would replace.</h2>
+    <p>That sentence is the first line of the repository's binding research protocol. It was written after the fact, in response to the number above.</p>
+    <p>The protocol admits exactly one distinction. <strong>Exact or certified symbolic computation is proof</strong> — an irreducibility certificate over ℚ, a finite exhaustive verification, a resultant, a factorization. These produce mathematical objects. Everything else — correlations, fitted exponents, empirical constants — is standing in for an error analysis nobody did.</p>
+    <blockquote>
+      A correlation coefficient has no content; the content is the error term. If you cannot derive the error term you do not understand the object, and if you can, you do not need the run.
+      <cite>CLAUDE.md — the binding protocol</cite>
+    </blockquote>
+    <p>The first thing the protocol was turned on was the corpus that produced it.</p>
+  </section>
+
+  <section>
+    <p class="sec-label">The self-audit</p>
+    <h2>Two of about thirty.</h2>
+    <p>Roughly thirty numerical experiments were run in the project's first sessions. Under the revised standard, the audit scored them itself, in public, in the repository, and did not soften the result.</p>
+
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">&#8801;</span>Certified symbolic</span>
+      <div class="claim-head"><span class="claim-title">exp1 / exp1b — irreducibility to degree 2·10<sup>4</sup></span></div>
+      <p>An irreducibility certificate over ℚ. Not a measurement of anything; a finite object that either exists or does not. <strong>Survives.</strong></p>
+    </div>
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">&#8801;</span>Certified symbolic</span>
+      <div class="claim-head"><span class="claim-title">exp7 — prime-race tie scan</span></div>
+      <p>Exhaustive finite verification. Across all <code>m ≤ 60</code>, <code>X ≤ 10⁶</code>, the weighted prime races tie exactly once. <strong>Survives.</strong></p>
+    </div>
+    <div class="claim">
+      <span class="tag is-measured"><span class="g" aria-hidden="true">&#8776;</span>Measured only</span>
+      <div class="claim-head"><span class="claim-title">The other twenty-eight</span></div>
+      <p>Each measured a quantity that a page of algebra determines exactly. <code>exp5</code> rediscovered Montgomery–Odlyzko. <code>exp11</code> is two lines from the explicit formula. <code>exp17</code>, <code>exp22</code> and <code>exp30</code> are one stationary-phase computation. <code>exp15/16/18/20</code> reported a correlation of 0.9999 and, in the audit's own words, "added nothing."</p>
+      <details>
+        <summary>The two that did damage</summary>
+        <div class="disclosed">
+          <p><code>exp23</code> introduced a false constant that had to be retracted. <code>exp27</code> produced the fitted coefficient at the top of this page. A third, <code>exp6b</code>/<code>exp41</code>, supplied an empirical constant that was hiding its own scaling law — the most expensive of the three. See the figure below.</p>
+          <p><strong>"Measurement did not merely waste effort here; three times it put wrong numbers into the record."</strong></p>
+        </div>
+      </details>
+      <span class="path">notes/METHOD.md §2 — the full thirty-row triage table</span>
     </div>
   </section>
 
-  <section id="theorems">
-    <span class="eyebrow">LEDGER</span>
-    <h2>Theorems</h2>
+  <section>
+    <p class="sec-label">A retraction, opened</p>
+    <h2>The coefficient is exactly ¼.</h2>
+    <p>The published claim: a block constant growing like <code>0.362 log²Q</code> by least squares, or <code>0.421 log²Q</code> by mean extraction. The auditor correctly noted that the sub-coefficients were method-sensitive. Both numbers are wrong.</p>
+    <p>The derivation is short. Split the convolution by whether each argument equals 1. The <code>(1,1)</code> term sits at <code>n = 2</code> and contributes <code>A(Q)²/4</code> — exactly. The leading quarter comes from that single term and nothing else touches it.</p>
 
-    <div class="thm" id="thm-a"><span class="tag">THEOREM A · MARGINAL RIGIDITY</span>
-      <p>The sum marginal (Goldbach data) determines a nonnegative sequence uniquely — square-root argument in ℝ[x]. The difference marginal (gap data) has exactly the classical homometry kernel: minimal 0-1 example <code>{0,1,2,6,8,11} ~ {0,1,6,7,9,11}</code>. Heat resolution restores completeness for both.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> · <a href="https://github.com/avikj/math/blob/main/notes/REPORT.md">REPORT §2</a> · <a href="https://github.com/avikj/math/blob/main/code/exp1_rigidity.py">exp1</a></p></div>
+    <div class="gloss">
+      <span class="hand">Why the fits failed</span>
+      Over <code>log Q ∈ [1.6, 4.8]</code> — one decade — a genuine <code>¼L² + 1.18L + 9</code> is fitted by a pure quadratic as <code>≈ 0.36L²</code>, because the linear term has nowhere else to go. Nine points cannot separate <code>L²</code> from <code>L</code> over one decade. <em>This is the whole lesson in one number.</em>
+    </div>
 
-    <div class="thm" id="thm-a2"><span class="tag">THEOREM A′ · THE PRIMES ARE HOMOMETRICALLY RIGID</span>
-      <p>If the non-cyclotomic part of F_X(x) = Σ_{p≤X} x^(p−2) is irreducible, the primes ≤ X are determined by their difference multiset up to reflection. Verified: irreducible for every prime cutoff X ≤ 2000 except X=11 (sporadic palindromic Φ₆ — provably harmless), and at degree 19,995. Across all m ≤ 60, X ≤ 10⁶ the ζ_m-weighted prime races tie exactly once, ever.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> <span class="pill measured">MEASURED</span> · <a href="https://github.com/avikj/math/blob/main/notes/REPORT.md">REPORT §2.1</a> · <a href="https://github.com/avikj/math/blob/main/code/exp7_racetics.py">exp7</a></p></div>
+    <h3>Then the correction was corrected. Twice.</h3>
+    <p>This is the part most write-ups would remove. The note that repaired <code>exp27</code> is itself struck through in two places, in the same text, by later readers:</p>
 
-    <div class="thm" id="thm-b"><span class="tag">THEOREM B · APERTURE LAW</span>
-      <p>In the zero-pair expansion of Z(t,θ), the radial coordinate log|z| is conjugate to γ+γ′ and the angular coordinate arg z to γ−γ′ — marginal to marginal, without mixing. The phase aperture opens the zero spectrum at rate γ_max ≈ (θ/t)·log(1/ε): measured constants 12.2–14.6 against predicted 13.8.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> <span class="pill measured">MEASURED</span> · <a href="https://github.com/avikj/math/blob/main/notes/REPORT.md">REPORT §3</a> · <a href="https://github.com/avikj/math/blob/main/code/exp2_bridge.py">exp2</a></p></div>
-
-    <div class="thm" id="thm-c"><span class="tag">THEOREM C · SMOOTHING TRIVIALIZATION</span>
-      <p>RH ⟺ Σ(Λ*Λ)(N)e^(−Nt) = (1/t − log 2π)² + O(t^(−3/2−ε)) — a two-line square-root equivalence. The difficulty in the sharp-cutoff literature is a property of the cutoff, not the arithmetic.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> · <a href="https://github.com/avikj/math/blob/main/notes/REPORT.md">REPORT §4</a></p></div>
-
-    <div class="thm iron" id="thm-d"><span class="tag">THEOREM D · THE SUM-SPECTRUM IDENTITY</span>
-      <p>The second-order term of the smoothed Goldbach count is Σ_{ρ,ρ′} Γ(ρ)Γ(ρ′)/Γ(ρ+ρ′+2)·X^(ρ+ρ′+1): an absolutely convergent exponential sum over pair sums γᵢ+γⱼ with weights ≍ (γ+γ′)^(−5/2) (measured −2.500), opposite-sign pairs exponentially suppressed. Verified: band correlation 0.9999, lines to 0.2–1.1%. Variance = weighted additive energy of zeros (Theorem D″), Parseval chain closed at 0.0025.</p>
-      <p class="meta"><span class="pill proved">IDENTITY (Languasco–Zaccagnini)</span> <span class="pill measured">corr 0.9999</span> · <a href="https://github.com/avikj/math/blob/main/notes/APPENDIX_D.md">APPENDIX_D</a> · <a href="https://github.com/avikj/math/blob/main/code/exp6b_sumspectrum.py">exp6b</a></p></div>
-
-    <div class="thm" id="thm-e"><span class="tag">PROPOSITIONS E0 · E1 · CRITICALITY AND THE POSITIVE CONE</span>
-      <p>E0: renormalized Bost–Connes pair correlators are finite iff β = 1 — the Hardy–Littlewood singular series is a critical phenomenon; the pole of ζ re-derived as the unique temperature with finite pair correlations. E1: for even sequences autocorrelation = convolution, so on the signed line gap data <i>is</i> Goldbach data — the crystallographic phase problem is an artifact of the positive cone. The β-crossover law C(β_z)/C(1) → exp[−(k−1)·Ein(λ)] verified to 3–4 decimals.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> <span class="pill measured">MEASURED</span> · <a href="https://github.com/avikj/math/blob/main/notes/ADELIC.md">ADELIC</a> · <a href="https://github.com/avikj/math/blob/main/code/exp8_adelic.py">exp8</a> · <a href="https://github.com/avikj/math/blob/main/code/exp9_crossover_L.py">exp9</a></p></div>
-
-    <div class="thm" id="thm-f"><span class="tag">THEOREM F · PARITY AS PROTECTED CHARGE</span>
-      <p>The multiplicative gauge torus 𝕋^𝒫 acts on Cuntz's affine algebra commuting with the dynamics; uniqueness of the critical KMS state forces it to annihilate every charged sector. Liouville λ = charge (−1,−1,…): the sieve parity barrier is exact gauge protection. Closure (CORE_KMS): the gauge-neutral core is the Bunce–Deddens algebra with unique trace = the restriction of the critical state — no hidden equilibria at any temperature, for any intermediate charge core. Parity-blindness is intrinsic.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/GAUGE.md">GAUGE</a> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/CORE_KMS.md">CORE_KMS</a> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/code/exp11_gauge.py">exp11</a></p></div>
-
-    <div class="thm iron" id="thm-blocks"><span class="tag">THE BLOCK DECOMPOSITION · MEASURED AND PROVED</span>
-      <p>Λ = Λ♯ + Λ♭ (conditional expectation onto the Bost–Connes diagonal) splits the Goldbach count into blocks with disjoint spectral supports: BC block = local model at ratio 1.00000; mixed block = first variation, coefficient exactly 2 (lemma; measured 2.08), single-γ band 34× dominant; zero block = second variation, pair band 360× dominant, rms = Parseval. RH enters at first order, pair correlation at second — two orthogonal frequency bands of one signal.</p>
-      <p class="meta"><span class="pill proved">PROVED</span> <span class="pill measured">MEASURED</span> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/BLOCKS.md">BLOCKS</a> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/code/exp13_blocks.py">exp13</a></p></div>
+    <div class="gloss">
+      <span class="hand">First</span>
+      <del>S(Q) → S<sub>∞</sub> = Σ Λ(m)/(1+m)²</del> — <ins>the termwise limit of the Ramanujan expansion is <code>φ(m)Λ(m)/m</code>, not <code>Λ(m)</code>; the factor <code>φ(m)/m</code> was dropped here.</ins> The printed linear coefficient was <code>1.388949</code>; the correct value is <code>1.181852</code>.
+    </div>
+    <div class="gloss">
+      <span class="hand">Second</span>
+      The residual was reported <del>flat at ≈ 9.0</del> — <ins>recomputing gives <code>≈ −3.1</code>. The substantive claim, flatness and hence <code>O(1)</code>, is confirmed; the value was wrong. Either the experiment normalises differently or the number was mis-transcribed. <strong>Unresolved</strong>, and logged as unresolved.</ins>
+    </div>
+    <p>A third correction, in the same section, retires a flagged gap on the grounds that <em>it named the wrong lemma</em> — the obstruction is a bilinear cancellation bound, not the pointwise uniformity the original text blamed.</p>
+    <span class="path">notes/METHOD.md §1 · notes/E2_PROOF.md §2.2–2.5 · notes/OBLIGATION.md</span>
   </section>
 
-  <section id="measure">
-    <span class="eyebrow iron">MEASUREMENT</span>
-    <h2>The two decisive figures</h2>
-    <h3>The zeros' sum-spectrum, read off Goldbach data</h3>
-    <p>Remove the main term and the single-zero layer from the smoothed Goldbach count; what remains oscillates at pair frequencies γᵢ+γⱼ with Beta-function amplitudes. Data and model are pointwise indistinguishable: correlation <code>0.9999</code>, amplitude ratio <code>0.9991</code>. Full details: <a href="#thm-d">Theorem D</a>.</p>
+  <section>
+    <p class="sec-label">The expensive one</p>
+    <h2>A number without its scaling is worse than no number.</h2>
+    <p>An error floor was taken from measurement: <code>ε ≈ 10⁻³</code>, read off two experiments. It looked harmless. One line of the explicit formula gives it in closed form — and the closed form is not a constant at all.</p>
+
     <figure>
-      <img src="data:image/png;base64,__FIG6B__" alt="Power spectrum of the second-order Goldbach residual showing lines at pair sums, and the pointwise band-passed match between data and zero-pair model at correlation 1.000">
-      <figcaption>exp6b — primes to 4·10⁶ against 100,000 zeros.</figcaption>
+      <div class="figbox">
+        <svg class="chart" viewBox="0 0 720 340" role="img"
+             aria-label="Log-log plot. A flat dashed line marks the measured error floor at 10 to the minus 3, constant for all X. A solid descending line marks the derived floor X to the minus one half. They agree at exactly one point, X equals 10 to the 6, and diverge everywhere else.">
+          <defs>
+            <style>
+              .ax{stroke:var(--rule);stroke-width:1}
+              .grid{stroke:var(--rule-2);stroke-width:1}
+              .lbl{fill:var(--ink-3);font-family:ui-monospace,Menlo,monospace;font-size:10px}
+              .lblk{fill:var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:11px}
+              .lblr{fill:var(--minium);font-family:ui-monospace,Menlo,monospace;font-size:11px}
+            </style>
+          </defs>
+
+          <!-- grid -->
+          <g class="grid">
+            <line x1="70" y1="30" x2="690" y2="30"/>
+            <line x1="70" y1="82" x2="690" y2="82"/>
+            <line x1="70" y1="134" x2="690" y2="134"/>
+            <line x1="70" y1="186" x2="690" y2="186"/>
+            <line x1="70" y1="238" x2="690" y2="238"/>
+            <line x1="276.7" y1="30" x2="276.7" y2="290"/>
+            <line x1="483.3" y1="30" x2="483.3" y2="290"/>
+          </g>
+          <!-- axes -->
+          <line class="ax" x1="70" y1="290" x2="690" y2="290"/>
+          <line class="ax" x1="70" y1="30" x2="70" y2="290"/>
+
+          <!-- y labels -->
+          <g class="lbl" text-anchor="end">
+            <text x="62" y="34">10⁻¹</text>
+            <text x="62" y="86">10⁻²</text>
+            <text x="62" y="138">10⁻³</text>
+            <text x="62" y="190">10⁻⁴</text>
+            <text x="62" y="242">10⁻⁵</text>
+            <text x="62" y="294">10⁻⁶</text>
+          </g>
+          <!-- x labels -->
+          <g class="lbl" text-anchor="middle">
+            <text x="70" y="308">10³</text>
+            <text x="276.7" y="308">10⁶</text>
+            <text x="483.3" y="308">10⁹</text>
+            <text x="690" y="308">10¹²</text>
+            <text x="380" y="330" fill="var(--ink-2)">X  (window)</text>
+          </g>
+
+          <!-- measured: flat -->
+          <line x1="70" y1="134" x2="690" y2="134" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <!-- derived: slope -1/2 -->
+          <line x1="70" y1="56" x2="690" y2="290" stroke="var(--minium)" stroke-width="2"/>
+
+          <!-- crossing -->
+          <circle cx="276.7" cy="134" r="4.5" fill="var(--paper)" stroke="var(--minium)" stroke-width="2"/>
+          <text class="lblr" x="286" y="126">agree here, and only here</text>
+
+          <!-- annotations -->
+          <text class="lblk" x="500" y="126" fill="var(--ink-3)">measured  ε ≈ 10⁻³</text>
+          <text class="lblr" x="86" y="48">derived  ε = X<tspan baseline-shift="super" font-size="8">−1/2</tspan></text>
+          <text class="lbl" x="345" y="176">3.2·10⁻⁴ at X = 10⁷</text>
+          <line x1="345.6" y1="160" x2="345.6" y2="168" stroke="var(--rule)" stroke-width="1"/>
+          <circle cx="345.6" cy="160" r="2.5" fill="var(--minium)"/>
+        </svg>
+      </div>
+      <figcaption>The measured floor and the derived floor coincide at exactly one point, <code>X = 10⁶</code>, and nowhere else. Measuring at one scale hides the scaling. Deriving it changed a depth-law exponent from <code>T log²T</code> to <code>T<sup>1/2</sup> log<sup>3/2</sup>T</code> — a different theorem. <span class="path" style="display:inline">notes/HOLOGRAM.md §7, Lemma N and Theorem K′</span></figcaption>
     </figure>
-    <h3>The two spectral types: sieve-visible vs gauge-protected</h3>
-    <p>Λ's rational atoms sit exactly at μ(q)²/φ(q)² — including the vanishing atom at q=4 — while every Liouville atom is dead and falling. The profinite block sees all of Λ's conjectural structure and none of λ's: <a href="#thm-f">Theorem F</a> made visible.</p>
-    <figure>
-      <img src="data:image/png;base64,__FIG10__" alt="Lambda's rational spectral atoms persisting at mu squared over phi squared, versus Liouville's atoms decaying to zero">
-      <figcaption>exp10 — atomic (Λ) vs atomless (λ), to 2·10⁶.</figcaption>
-    </figure>
-    <div class="tablewrap"><table>
-      <tr><th>Headline number</th><th class="num">Measured</th><th class="num">Predicted</th><th>Where</th></tr>
-      <tr><td>Sum-spectrum band correlation</td><td class="num">0.9999</td><td class="num">1</td><td><a href="#thm-d">D</a></td></tr>
-      <tr><td>Line at 2γ₁ = 28.269, amplitude ratio</td><td class="num">1.002</td><td class="num">1</td><td><a href="#thm-d">D</a></td></tr>
-      <tr><td>Pair-weight decay exponent</td><td class="num">−2.500</td><td class="num">−5/2</td><td><a href="#thm-d">D′</a></td></tr>
-      <tr><td>BC block vs local model</td><td class="num">1.00000</td><td class="num">1</td><td><a href="#thm-blocks">blocks</a></td></tr>
-      <tr><td>Mixed-block first-variation coefficient</td><td class="num">2.08</td><td class="num">2</td><td><a href="#thm-blocks">blocks</a></td></tr>
-      <tr><td>Zero-block rms / Parseval</td><td class="num">0.0024 / 0.0025</td><td class="num">1</td><td><a href="#thm-d">D″</a></td></tr>
-      <tr><td>β-crossover, k=2, λ=1 (extrapolated)</td><td class="num">0.45106</td><td class="num">0.45086</td><td><a href="#thm-e">H</a></td></tr>
-      <tr><td>Operator identity (L), q=5</td><td class="num">3.8·10⁻¹⁰</td><td class="num">0</td><td><a href="https://github.com/avikj/math/blob/main/notes/PARITY.md">PARITY §1</a></td></tr>
-      <tr><td>Λ atom at 2/5</td><td class="num">0.06250</td><td class="num">1/16</td><td><a href="#thm-f">P</a></td></tr>
-      <tr><td>Liouville windowed-variance flatness</td><td class="num">0.994–1.039</td><td class="num">1 (Bernoulli)</td><td><a href="#thm-f">F</a></td></tr>
-      <tr><td>Aperture constants (θ/t units)</td><td class="num">12.2–14.6</td><td class="num">13.8</td><td><a href="#thm-b">B</a></td></tr>
-      <tr><td>Ternary first/second variation coefficients</td><td class="num">3.004 / 3.022</td><td class="num">3 / 3</td><td><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/TERNARY.md">TERNARY</a></td></tr>
-      <tr><td>Prime polynomial irreducible to degree</td><td class="num">49,997</td><td class="num">∀X (conj.)</td><td><a href="#thm-a2">A′</a></td></tr>
-      <tr><td>Depth closed form ζ·∏(1−p⁻ˢ) vs e^{−γ}e^{Ein}/λ, y=10⁷</td><td class="num">8·10⁻⁷</td><td class="num">0 (PNT-scale)</td><td><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/BUCHSTAB_LADDER.md">D1</a></td></tr>
-      <tr><td>Toy presheaf exact-rational checks</td><td class="num">33/33</td><td class="num">33/33</td><td><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/TOY_OBSTRUCTION.md">toy</a></td></tr>
-    </table></div>
+
+    <blockquote>
+      A number without its <em>X</em>-dependence is worse than no number, because it looks like knowledge.
+      <cite>CLAUDE.md, corollary — learned the hard way</cite>
+    </blockquote>
+
+    <details>
+      <summary>And that section carries its own honesty ledger</summary>
+      <div class="disclosed">
+        <p>Lemma N was published as "unconditional given RH and simple zeros." It is not: it additionally needs a Gonek-type input for convergence. <del>Unconditional given RH + simple zeros</del> — the original wording is struck in place and the correct hypotheses stand beside it. A further retraction in the same section deletes a numerical claim outright rather than repairing it, because <strong>both independent verifiers refuted it</strong>, and records why deletion was the right move: at the relevant cluster size an unspecified <code>O(1)</code> is raised to roughly the twentieth power.</p>
+      </div>
+    </details>
   </section>
 
-  <section id="structure">
-    <span class="eyebrow">STRUCTURE</span>
-    <h2>How it interlocks</h2>
-    <h3>The 2×2 dictionary</h3>
-    <div class="tablewrap"><table>
-      <tr><th></th><th>prime-side S (Goldbach)</th><th>prime-side D (gaps)</th></tr>
-      <tr><td><b>zero-side S</b> (γ+γ′)</td><td>Fujii/LZ · <a href="#thm-d">Thm D</a> · variance = additive energy</td><td>—</td></tr>
-      <tr><td><b>zero-side D</b> (γ−γ′)</td><td>—</td><td>Montgomery pair correlation · Goldston–Montgomery · measured here: F-plateau 1.001±0.007, Var/h = 0.983·log(X/h) − 2.208</td></tr>
-    </table></div>
-    <p>The diagonal holds theorems; the off-diagonal is empty because the Laplace–Mellin bridge is marginal-to-marginal (<a href="#thm-b">Theorem B</a>). The holomorphic square P² (sums) expands exactly in zero locations — a theorem-factory; the Hermitian square |P|² at fixed frequency (gaps) needs zero <i>correlations</i> — conjecture territory. Depth staircase: Goldbach mean → zero locations; gap mean → pair correlation; Goldbach variance → additive energy; gap variance → 4-point correlations.</p>
-    <h3>The three-level parity dictionary</h3>
-    <div class="tablewrap"><table>
-      <tr><th>Arithmetic</th><th>Dynamical meaning</th><th>Status</th></tr>
-      <tr><td>Davenport: no rational atoms for λ</td><td>return to equilibrium of the charged sector</td><td><span class="pill proved">PROVED</span></td></tr>
-      <tr><td>Chowla: correlations of λ vanish</td><td>mixing / Lebesgue flatness</td><td><span class="pill open">OPEN</span> (2-pt log-avg known)</td></tr>
-      <tr><td>Sarnak: λ ⊥ zero-entropy sequences</td><td>disjointness from deterministic samplers</td><td><span class="pill open">OPEN</span></td></tr>
-    </table></div>
-    <p><a href="#thm-f">Theorem F</a> supplies level zero: equilibrium itself carries no parity information — the hierarchy starts where it does because the ground floor is structurally empty.</p>
-  </section>
+  <section>
+    <p class="sec-label">Grades</p>
+    <h2>Status is a type, not a mood.</h2>
+    <p>Every claim in the corpus carries a grade, and the grades are not interchangeable. A proof and a correlation of 0.9999 are different kinds of object, and the protocol forbids conflating them. Each grade has a mark, so it reads without colour.</p>
 
-  <section id="docs">
-    <span class="eyebrow">DOCUMENTS</span>
-    <h2>The corpus</h2>
-    <div class="grid2">
-      <div class="card"><h3>REPORT</h3><p>The adversarial assessment: what collapses (rank-one triviality, no arithmetic Lorentz group), Theorems A–D, the holomorphic/Hermitian dichotomy, verdict.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/main/notes/REPORT.md">full text ↗</a></p></div>
-      <div class="card"><h3>APPENDIX_D</h3><p>Goldbach variance ⟺ weighted additive energy of zeros: Fejér-window proof, Ω-result, closed Parseval chain.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/main/notes/APPENDIX_D.md">full text ↗</a></p></div>
-      <div class="card"><h3>ADELIC</h3><p>Critical-BC correlator = singular series (verified to 10⁻¹²), β=1 criticality, positive-cone rigidity, the two-body adelic decomposition.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/main/notes/ADELIC.md">full text ↗</a></p></div>
-      <div class="card"><h3>PARITY</h3><p>Audit of the affine-field program; Theorem P (two spectral types); the L-operator identity; GNS formulation of the barrier.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/main/notes/PARITY.md">full text ↗</a></p></div>
-      <div class="card"><h3>GAUGE</h3><p>Theorem F: the gauge torus, the no-go, the three-level dictionary, boundary-extension lemma.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/GAUGE.md">full text ↗</a></p></div>
-      <div class="card"><h3>CORE_KMS</h3><p>The core is Bunce–Deddens with unique trace; the no-go closes at every temperature and every intermediate charge core.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/CORE_KMS.md">full text ↗</a></p></div>
-      <div class="card"><h3>BLOCKS</h3><p>The measured block table and the coefficient-2 lemma; pins the screw kernel to the mixed block.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/BLOCKS.md">full text ↗</a></p></div>
-      <div class="card"><h3>PRODUCT / string kernel</h3><p>The adversarial collision resolved: Codex's no-go + the Kreĭn-string carrier min(1,X/n) are one theorem. Positive pair layer with MS masses; corrected D.6(3) proved; free Jensen variance floor; Ω-result 0.00861; the remaining wall is now phase-free. corr 1.000000.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/PRODUCT.md">full text ↗</a></p></div>
-      <div class="card"><h3>WIDTH</h3><p>The parity barrier's width measured: all attainable results live at exponent θ ≤ 1; certification needs θ → ∞. Two layers: Buchstab density defect (computable) vs charge layer (structurally uncontrolled). Barrier invisible at polynomial level — the null result is the point.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/WIDTH.md">full text ↗</a></p></div>
-      <div class="card"><h3>ATIYAH / pair surface</h3><p>The index lens: Weil's RH proof lives on the pair surface C×C — our S²−D²=4Q is its Néron–Severi hyperbolic plane, and RH lives in the negativity orthogonal to it. The parity barrier falls over function fields (Sawin–Shusterman) — by monodromy, not sieves.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/ATIYAH.md">full text ↗</a></p></div>
-      <div class="card"><h3>VV / V3 ledger <span class="pill done">V3 ACHIEVED</span></h3><p>Machine-checked in Lean 4 + mathlib, zero sorries, axiom-audited: Theorem A(i) (sum-marginal injectivity), Lemma 1.3 (SO(1,1)(ℤ)=±I), and the A′ reversal-rigidity core. Build independently re-run by the coordinator. The V0–V3 grading + obstruction-class topology.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/VV.md">full text ↗</a></p></div>
-      <div class="card"><h3>FOREST <span class="pill done">EXACT NUCLEUS</span></h3><p>The compressed center is a rigid point with two noncommuting actions. Exactly: T<sub>m</sub>λ = λ(m)λ; the prime eigenvalues −1 characterize λ up to global sign; and shift meets dilation through ST<sub>m</sub> = T<sub>m</sub>S<sup>m</sup>. Additive randomness is not a formal consequence—Chowla is the open theorem about the shift orbit of this uniquely selected point. All length-4 sign patterns have positive lower density; length 5 is the first all-pattern frontier. The finite k≤6 census is a falsifier only.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/FOREST.md">full text ↗</a></p></div>
-      <div class="card"><h3>UNIFICATION <span class="pill done">CENTER</span></h3><p>The program's reorganized center: arithmetic hardness as reconstruction failure under symmetry-restricted observables. Every barrier in this corpus is an instance of one schema — information destroyed by quotienting — with the charge group naming what is lost. Homometry = (ℤ/2)^{#factors}, parity = the gauge ℤ/2, and the twirl idempotent (1+z)/2 is the local annihilator.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/UNIFICATION.md">full text ↗</a></p></div>
-      <div class="card"><h3>METALOOP</h3><p>The strategic engine extracted from the night's own data: refutation-with-repair (6 instances) and tension-dissolution ranked highest-yield; our theorems re-read as meta-moves (marginal rigidity → informational no-gos; gauge protection → the barrier–symmetry dictionary).</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/METALOOP.md">full text ↗</a></p></div>
-      <div class="card"><h3>JEWELS</h3><p>Five distant machines that are secretly this program: Viazovska/LP certificates, Lee–Yang & de Bruijn–Newman, Dyson's quasicrystals, Kadison–Singer paving, and the sum-product horizon.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/JEWELS.md">full text ↗</a></p></div>
-      <div class="card"><h3>CODEX_UNIFICATION <span class="pill done">CONSTITUTION</span></h3><p>The form–content isomorphism made explicit: six correspondences in which the corpus's theorems ARE its system-design principles — conservation laws ⇔ verification gates, annihilation theaters ⇔ provenance quarantine, homometry ⇔ quotient-aware addressing, rigidity-by-symmetry-collapse ⇔ identity-by-structure, walk-derivative ⇔ yield ledger, side-information bit ⇔ registered forecast.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/CODEX_UNIFICATION.md">full text ↗</a></p></div>
-      <div class="card"><h3>PYTHAGOREAN–EUCLIDEAN DIRECTION <span class="pill done">CURRENT</span></h3><p>The current constitution no longer lets a named conjecture own the program: structural perception and explicit reconstruction co-generate frontier and interior, while mathematics changes the metric for the next search. Prime/RH work remains one region of the atlas, not its predetermined destination.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md">direction ↗</a> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/RESEARCH_SYSTEM.md">implementation truth ↗</a></p></div>
-      <div class="card"><h3>NATURAL RUNTIME <span class="pill done">IMPLEMENTED</span></h3><p>A deterministic read-only compiler now makes claims, obligations, evidence, event artifacts, dependencies, messages, and journal resume anchors queryable as one content-addressed graph. It reports provenance debt and reverse impact but cannot promote claims or replace source authority.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/NATURAL_RUNTIME.md">runtime contract ↗</a></p></div>
-      <div class="card"><h3>FIDELITY</h3><p>Statement fidelity as a homometry problem: a formal statement is an observable projection of intended meaning; fidelity failure = two meanings, one shadow. Verification = build + clean axioms + fidelity suite (kernel-checked expected-consequence theorems per definition). New theorem class: definitional rigidity — when does a consequence-web pin a definition up to iso?</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/FIDELITY.md">full text ↗</a></p></div>
-      <div class="card"><h3>ECOLOGY</h3><p>The content-addressed evolution charter: agents, briefs, evaluators, and operators as immutable objects in one Merkle-DAG; genotype ≠ phenotype mandatory; addressing up to equivalence (h₀ → h_α → h_obs) with the fail-closed correction that observation never merges objects — homometry is the reason.</p>
-        <p class="links"><a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/ECOLOGY.md">full text ↗</a></p></div>
-      <div class="card"><h3>Repository</h3><p>All code, figures, data (100k zeros), and the PR trail.</p>
-        <p class="links"><a href="https://github.com/avikj/math">repo ↗</a> · <a href="https://github.com/avikj/math/pull/2">PR #2 ↗</a></p></div>
+    <div class="legend">
+      <div class="legend-row"><span class="g">∎</span><span class="n">Proved</span><span class="d">A written proof in <code>notes/</code>. The default currency.</span></div>
+      <div class="legend-row"><span class="g">⊨</span><span class="n">Machine-checked</span><span class="d">Lean 4 + mathlib, zero sorries, axiom-audited, build independently re-run.</span></div>
+      <div class="legend-row"><span class="g">≡</span><span class="n">Certified symbolic</span><span class="d">Exact or exhaustive computation. Counts as proof. The only computation that does.</span></div>
+      <div class="legend-row"><span class="g">⊘</span><span class="n">No-go</span><span class="d">A proved impossibility. Not a failure — a boundary of the representation, which usually names the missing coordinate.</span></div>
+      <div class="legend-row m"><span class="g">≈</span><span class="n">Measured</span><span class="d">Floating point. Admissible only as a falsifier against a declared exact quantity. Never evidence.</span></div>
+      <div class="legend-row r"><span class="g">×</span><span class="n">Retracted</span><span class="d">Struck in place with a pointer to the refutation. Never silently deleted.</span></div>
+      <div class="legend-row"><span class="g">?</span><span class="n">Open</span><span class="d">Located precisely enough to say what would close it.</span></div>
+    </div>
+
+    <h3>One of each, from the corpus</h3>
+
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
+      <div class="claim-head"><span class="claim-title">Binary divisibility needs exactly <code>q + a</code> states</span></div>
+      <p>Binary digits act on remainders by <code>r ↦ 2r + d</code>; observation asks divisibility. If <code>m = 2ᵃq</code> with <code>q</code> odd, the minimal machine has exactly <code>q + a</code> states. The infinite family of future digit-words is exhausted by a sharp finite horizon.</p>
+      <details>
+        <summary>How it was found, and why that does not license it</summary>
+        <div class="disclosed">
+          <p>A search over the tiny expression language generated by <code>0, 1, +, ×</code> returned <code>q + a</code> as the smallest law fitting moduli 1–32, and it survived held-out moduli 33–128. The repository is explicit that this is <em>conjecture generation, not proof</em>. The elementary argument is what licenses installation. Given only the raw modulus the same search finds no law at all; the failed representation is kept, because factorization is what supplied the missing coordinates.</p>
+        </div>
+      </details>
+      <span class="path">README.md · machinery/law_discovery.py · notes/BINARY_DIVISIBILITY_CRYSTAL.md</span>
+    </div>
+
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">⊘</span>No-go</span>
+      <div class="claim-head"><span class="claim-title">Two lossy views commute only if their fibres spread evenly</span></div>
+      <p>Used as working memory, a view replaces a signal by its fibrewise average, and then the order of two views can matter. They commute precisely when every pair of fibres inside a common coarsening meets in <code>|B||D|/|E|</code> points. Because that count must be an integer, <strong>block sizes alone can prove no order-free study is possible</strong>: the decimal view of <code>ℤ/1000ℤ</code> and the view recording which of 8 and 125 divides <code>x²−x</code> cannot commute, since four idempotents cannot spread evenly over fibres of a hundred.</p>
+      <p>Losing information and losing order-independence are different failures. That is the yield.</p>
+      <span class="path">README.md · notes/LENS_ORDER_COMMUTATION.md</span>
+    </div>
+
+    <div class="claim">
+      <span class="tag is-retracted"><span class="g" aria-hidden="true">×</span>Retracted</span>
+      <div class="claim-head"><span class="claim-title">Pair measure as a complex-phased object</span></div>
+      <p><del>The pair measure carries complex phase.</del> <ins>Sign error — the measure is real with positive masses.</ins> Corrected through the string-kernel resolution. The ledger entry ends: <em>"Revive: nothing to revive; the corrected form is stronger."</em></p>
+      <span class="path">collab/FAILURES.md F1 · notes/APPENDIX_D.md §D.6(3)</span>
+    </div>
+
+    <div class="claim">
+      <span class="tag is-retracted"><span class="g" aria-hidden="true">×</span>Retracted</span>
+      <div class="claim-head"><span class="claim-title">A compression claim about the Effinger–Hayes table</span></div>
+      <p><del>The table compresses as claimed.</del> <ins>Codex correction: Effinger–Hayes is ternary, not binary; the compression read too much into the table.</ins> Ledger verdict: <em>"Revive: no."</em> Found by the other lineage.</p>
+      <span class="path">collab/FAILURES.md F3</span>
     </div>
   </section>
 
-  <section id="fleet">
-    <span class="eyebrow">FLEET</span>
-    <h2>Threads</h2>
-    <div class="grid2">
-      <div class="card"><h3>Core-KMS extension <span class="pill done">LANDED</span></h3><p>Core = Bunce–Deddens, unique trace, no-go complete. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/CORE_KMS.md">CORE_KMS</a></p></div>
-      <div class="card"><h3>Screw-kernel join <span class="pill done">LANDED</span></h3><p>MS screw function = our first-variation sector in Krein normal form; arithmetic side matches at corr 1.0000. Off-line zeros detected sharply (λ_min → −0.98). A conjecture of ours refuted: screw positivity does not extend to the pair layer. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/SCREW.md">SCREW</a></p></div>
-      <div class="card"><h3>Crossover paper <span class="pill done">LANDED+</span></h3><p>Novelty sustained. All-orders closed form found: D_z = Ein(λ) − log[δζ(1+δ)] — the crossover's entire finite-size ladder IS ζ's Laurent expansion at its pole; third-order coefficient = (γ²+2γ₁)/2 exactly (Stieltjes), verified to 10⁻⁶ at z=10⁸. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/papers/crossover.md">paper</a> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/K2.md">K2</a></p></div>
-      <div class="card"><h3>Rigidity frontier <span class="pill done">LANDED</span></h3><p>F1: no factors of degree ≤ 2. F2: cyclotomic ties classified for ALL m ≤ 1000 — only (3,2) and (11,6) ever; further cyclotomic factors need φ(m) ≥ 240; m=4 near-ties recur (Littlewood, 111 observed) but never hit. Irreducible at degree 49,997. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/RIGIDITY_FRONTIER.md">FRONTIER</a></p></div>
-      <div class="card"><h3>Buchstab window (Codex) <span class="pill done">CROSS-REVIEWED</span></h3><p>Polynomial-depth mean defect e^γω(u); fixed-W fourth-energy = unresolved Ramanujan shell; critical shape energy C_∞·I_arch·X³/log⁴X, I_arch = 0.18147 independently confirmed. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/BUCHSTAB_WINDOW.md">BUCHSTAB</a></p></div>
-      <div class="card"><h3>Weil positivity <span class="pill done">LANDED</span></h3><p>Explicit formula verified to 1.8e−10 (16 test families); margin cartography (thinnest in the spectral gap, exactly 1 on the Connes–Consani prime-free window); Prop W3: automatic pair-field positivity bounds Weil from <i>above</i> — the wrong direction for RH. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/WEIL.md">WEIL</a></p></div>
-      <div class="card"><h3>Divisor solvable model <span class="pill done">LANDED</span></h3><p>Both marginals proven on one local object σ₋₁ (ratios 0.99–1.05); the dictionary: provability is which side of the fraction bar ζ sits on — poles (−ζ′/ζ) vs zeros (ζ²); the divisor field's Hilbert–Pólya operator exists. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/DIVISOR.md">DIVISOR</a></p></div>
-      <div class="card"><h3>Zero additive energy <span class="pill done">LANDED</span></h3><p>Density-corrected Poisson ratio 1.000±0.009 (no additive structure in zero pair sums); off/diag = 2.8·δ → Theorem D″ supported, its input now a finite-checkable inequality. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/ENERGY.md">ENERGY</a></p></div>
-      <div class="card"><h3>D-side Montgomery <span class="pill done">LANDED</span></h3><p>F-plateau 1.001±0.007; GM variance ratios 1.01/1.03/1.01, constant −2.35 vs predicted −2.415; conditional gap formula with the exact F-integral ledger. Both diagonals of the 2×2 dictionary now measured in-repo. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/DSIDE.md">DSIDE</a></p></div>
-      <div class="card"><h3>Ternary calibration <span class="pill done">LANDED</span></h3><p>Coefficients verified 3.004/3.022 (predicted 3/3); ternary/binary ratio 3.012; the (∞,2,2) Hölder chain vs the binary deadlock, exact. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/TERNARY.md">TERNARY</a></p></div>
-      <div class="card"><h3>Toy presheaf verdict <span class="pill done">LANDED</span></h3><p>The finite toy model X_S delivers its verdict: the parity sector is <i>annihilated</i>, not obstructed — the local twirl idempotent (1+z)/2 kills it at p=2k−1, and every cohomological receptacle (lim¹, Čech H¹, the charge torsor) vanishes structurally. Prediction lodged for the K-theory thread: ∂[λ-twist]=0. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/TOY_OBSTRUCTION.md">TOY_OBSTRUCTION</a></p></div>
-      <div class="card"><h3>Circuit ladder <span class="pill done">LANDED</span></h3><p>SIEVE_d(S,Q) formalized: depth is free (periodicity collapse), provably incomparable with AC⁰; four unconditional λ-orthogonality theorems (small-lcm, effective dyadic Green port, BV-window, mixed via W-trick restriction); the Håstad transfer fails exactly at the Siegel wall (Prop 5.1). Open rung R3 named. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/LENS_CIRCUIT.md">LENS_CIRCUIT</a></p></div>
-      <div class="card"><h3>Regularity lens <span class="pill done">LANDED</span></h3><p>Interval cut norm of the flat pair array ⟺ RH (exponent 2Θ); Bohr cuts ⟺ GRH; Λ = Λ♯+Λ♭ is an <i>exact</i> arithmetic regularity decomposition (no small-L² term, vs Green–Tao's tower); binary Goldbach = one anti-diagonal slice no Gowers norm controls. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/LENS_REGULARITY.md">LENS_REGULARITY</a></p></div>
-      <div class="card"><h3>Buchstab ladder <span class="pill done">CROSS-REVIEWED</span></h3><p>TENSIONS §3 resolved: Theorem D1 — ζ(s)∏_{p≤y}(1−p⁻ˢ) = e^{−γ}e^{Ein(λ)}/λ = 1+ω̂(λ), the Stieltjes ladder cancelling identically; adjunction ρ̂·(1+ω̂)=1/s = unique factorization smooth×rough; interval ladder = the ω-jet, factorially divergent, provably not zeta-Laurent. c₁(u) = 1−ω(u−1)/ω(u). → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/BUCHSTAB_LADDER.md">BUCHSTAB_LADDER</a></p></div>
-      <div class="card"><h3>Parity KK-homotopy obstruction — R0020 <span class="pill open">FORMALIZING</span></h3><p>Corrected cross-lineage verdict: the boundary map is maximally faithful (∂ injective on K₁, iso on K₀), while α_λ is outer but point-norm homotopic and KK-equal to the identity. Thus invariants factoring through that class cannot detect parity. The order-two crossed product is Morita to the parity core, but its displayed K-groups await a stage-action proof. Cuntz computes the same final abstract K-groups for reflection Q_ℤ and Q_ℕ, so reflection is only an action/core-level control. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/KBOUNDARY_AUDIT.md">AUDIT</a></p></div>
-      <div class="card"><h3>LP negativity landscape <span class="pill done">LANDED</span></h3><p>The Hodge-index question answered in the Weil form itself: the naive "W ≤ 0 on primitives" is trivial (LP1); the real object is I = prime − arch = pole − W, with RH ⟺ I|_P ≤ 0 and at most ONE positive eigenvalue globally — the pole form is the null-diagonal hyperbolic plane, Castelnuovo verbatim (LP2). Measured: inertia (1,·,rest) on every dictionary; each prime power ≥ 3 individually load-bearing (leave-one-out makes W|_P indefinite); collocation wall at K≈15–20 knots forces the prolate/Connes–Consani basis. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/LP_CERT.md">LP_CERT</a></p></div>
-      <div class="card"><h3>Incompleteness lens <span class="pill done">AUDITED &amp; RESCOPED</span></h3><p>The corrected statement (R0012): the Selberg pair ν± = (1±λ)dn is a two-point fiber over its declared axiom map — exact identities (1.1)–(1.3), prime target separated 0 vs 2π(X), minimum side alphabet two. Lemma C1 is scoped finite two-model semantics, not an independence theorem; the whole-cube fiber, exact AP equality, and proof-mass claims are struck through in the note. Cross-lineage breaker audit passed (exp46). → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/LENS_CHAITIN.md">LENS_CHAITIN</a></p></div>
-      <div class="card"><h3>κ record verification — R0015 <span class="pill done">VERIFIED</span> <span class="pill open">BREAKER OPEN</span></h3><p>The 2026-08-10 Claude/Anthropic manuscript (≥2/3 of zeta zeros on the critical line, unconditional; 0.6725 optimized; distinct 0.83625) independently checked in-repo: primary PDFs fetched and hashed, exp47 replays all 19 headline constants exactly (19/19 symbolic), Lean repo build targets replayed at the pinned toolchain, trusted statement layer read adversarially against the paper. Honest scope: a Codex audit found the replayed targets skip the comparator's statement-equality check and the archived log is curated — so this is verified constants + partial build/axiom evidence, not yet a full independent formal verification. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/KAPPA.md">KAPPA</a></p></div>
-      <div class="card"><h3>Red team <span class="pill done">LANDED</span></h3><p>exp6b independently replicated (corr 0.99997, fresh code); Theorems C/E0/F sound; A′ proof gaps patched; one substantive error found (Problem 8.1 intermediate target) — refuted by counterexample and corrected in place. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/REDTEAM.md">REDTEAM</a></p></div>
+  <section>
+    <p class="sec-label">Polyphony</p>
+    <h2>Two lineages, and the disagreements that survive translation.</h2>
+    <p>Forty-eight named identities are registered — thirty-three of the Codex lineage, fifteen of the Claude lineage — but the count is not the point, and the collaboration is explicit that it is not:</p>
+    <blockquote>
+      Never mistake the number of processes for the intelligence of the dance.
+      <cite>notes/COGNITIVE_ORIENTATION.md §2</cite>
+    </blockquote>
+    <p>The primary operation is described as <strong>identity-level polyphony</strong>: one sustained act of thought inhabiting several complete, mutually resistant mathematical lives, letting them deform one another, and occupying a fourth reflective position inside the exchange rather than above it. Separate processes help only where they preserve genuine independence. Costumes and task roles do not.</p>
+    <p>What the second lineage actually buys is hostility. The house rule is <em>adversarial toward claims, collegial toward agents</em>, and it ranks contributions in an order most collaborations would not put in writing:</p>
+
+    <div class="voices">
+      <div class="voice"><p class="who">Most valuable</p><p>A verified refutation.</p></div>
+      <div class="voice"><p class="who">Second</p><p>An independent replication.</p></div>
+      <div class="voice b"><p class="who">Third</p><p>New theorems — worthless without the first two.</p></div>
+    </div>
+
+    <h3>A cross-lineage audit that landed</h3>
+    <p>A record verification was reported in-repo: nineteen headline constants replayed exactly, primary sources fetched and hashed, Lean build targets replayed at the pinned toolchain. Then the other lineage read the replay itself.</p>
+    <div class="gloss">
+      <span class="hand">Codex audit</span>
+      The replayed targets skip the comparator's statement-equality check, and the archived log is curated. <del>Independently verified.</del> <ins>Verified constants plus partial build and axiom evidence — not yet a full independent formal verification.</ins>
+      <span class="path">notes/KAPPA.md</span>
+    </div>
+    <p>The scope statement on the page changed. That is the mechanism working, not failing.</p>
+  </section>
+
+  <section>
+    <p class="sec-label">Provenance</p>
+    <h2>A tradition is read through its own questions first.</h2>
+    <p>The repository engages Sanskrit, Buddhist, Jain, Greek, Chinese and Arabic mathematical lineages, and holds an explicit norm against the usual way of doing that:</p>
+    <blockquote>
+      Do not mine Indian, Buddhist, Jain, Chinese, Arabic, African, Indigenous, or other traditions for decorative precursors to a later European formulation. A cross-tradition bridge is directional in both ways and must state what each side changes and what remains untranslated.
+      <cite>AGENTS.md — cognitive posture, binding</cite>
+    </blockquote>
+    <p>What that discipline looks like in practice, on two occasions:</p>
+
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
+      <div class="claim-head"><span class="claim-title">The kuṭṭaka vallī earns a macro exactly when <code>(m−1)(r−1) > 1</code></span></div>
+      <p>A repeated quotient block of length <code>m</code> reused <code>r</code> times has expanded length <code>mr</code> and installed length <code>m + r</code>, so the gain is <code>(m−1)(r−1) − 1</code>. Strict compression occurs exactly above that threshold. The classical algorithm supplies the object; the theorem is about when reuse pays.</p>
+      <p>The note states its own boundary in the next breath: <em>"It does not assert that a matrix multiplication and an Euclidean division have equal physical latency."</em> The cost is syntax length, not wall-clock time.</p>
+      <span class="path">notes/KUTTAKA_TRACE_MACRO.md</span>
+    </div>
+
+    <div class="claim">
+      <span class="tag"><span class="g" aria-hidden="true">∎</span>Proved</span>
+      <div class="claim-head"><span class="claim-title">Gauss drew the same fault line, in the same section, for the same reason</span></div>
+      <p>An index argument needs a primitive root. Powers of two have none for <code>k ≥ 3</code>, so <em>Disquisitiones</em> treats them separately: art. 57 for the index, art. 90 for "moduli which are powers of two." The division of labour in the repository's own two notes is the division Gauss made — because the group stops being cyclic and the single-generator instrument stops applying.</p>
+      <details>
+        <summary>The boundary the author attached to that claim</summary>
+        <div class="disclosed">
+          <p><em>"I verified art. 57 and art. 90 by subject from the published contents, not by reading the articles, and I make no claim about their contents beyond the topics they cover. Gauss is classifying moduli, not bounding reachability from a held set, and no anticipation is claimed. What is shared is the fault line."</em></p>
+          <p>And, a few blocks later, the same author corrected their own methodology: having called a historical source marking their fault line "my most reliable signal that a boundary is real," they had read <em>real boundary</em> as <em>two objects</em>, where it is instead where one parameter changes value. <strong>Different claims; I'd been conflating them.</strong></p>
+        </div>
+      </details>
+      <span class="path">notes/TWO_ADIC_CONFINEMENT.md §3</span>
     </div>
   </section>
 
-  <section id="frontier">
-    <span class="eyebrow iron">FRONTIER</span>
-    <h2>Beyond 0.6725: the lever board</h2>
-    <p class="lede">The new record's own limit statement — "block structure + two traces + primes up to T" — read as five levers (<a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/BEYOND.md">BEYOND</a>). Status per lever, forecasts registered per protocol.</p>
-    <div class="grid2">
-      <div class="card"><h3>L3 · SDP F-positivity transfer <span class="pill done">CLOSED — NO TRANSFER</span></h3><p>Theorem-shaped negative (R0017): every kernel the inertia frame realizes through tr(A²) is doubly positive (ĝ = ∫z² ≥ 0), while the CGdL 0.6792 gain needs ĝ &lt; 0 outside the band. Intersection = band-limited Fejér cone, optimum = Montgomery–Taylor 1.3274992. Theorem D's limit extends by "+ F-positivity outside the band". Forecast registered before derivation: no transfer at exactly this joint — confirmed. → <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/L3_SDP.md">L3_SDP</a> · <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/notes/LEVER3.md">LEVER3</a></p></div>
-      <div class="card"><h3>L2 · cubic traces <span class="pill flight">RUNNING</span></h3><p>Dead as a moment bound (manuscript §7.5 + Rudnick–Sarnak cap), but tr(G³) is a triple product, not a square — the only place sign-indefinite pair weights survive the double-positivity obstruction. Tasks: a three-matrix rank inequality, then the unconditional band-≤1 fragment of the triple-correlation prime side.</p></div>
-      <div class="card"><h3>L1 · band edge <span class="pill open">OPEN, SIGN CORRECTED</span></h3><p>L3's obstruction flips the payoff logic: the unconditional route needs an <i>upper</i> bound or evaluation of the F-pairing on (1,1+δ] — short-interval-primes territory — not the lower bound the first reading suggested.</p></div>
-      <div class="card"><h3>Workstream C · pattern constraint algebra <span class="pill flight">R0021 FORMALIZING</span></h3><p>The exact length-5 Walsh polytope has a stationary 10-zero law at (a,b,c)=(1/3,1/3,1/3), breaking the printed flip-orbit step behind the published 24/32 claim. This is a method countermodel, not a Liouville counterexample: a repair must add multiplicative dilation or higher-window structure. Grid evidence was replaced by a continuous facet proof and exact replay.</p></div>
-      <div class="card"><h3>L4 / L5 · hybrid &amp; transplant <span class="pill open">OPEN</span></h3><p>Inertia × mollifier contact (even an incompatibility would be structural); Selberg-class axiomatization of the compression argument; q-aspect Dirichlet families; our D″/ENERGY variance forms as second moments of the same species.</p></div>
-    </div>
+  <section>
+    <p class="sec-label">The ledger</p>
+    <h2>Not a graveyard.</h2>
+    <p>Dead routes are written down with what they produced, and the file that holds them was renamed on the grounds that "failure" is the wrong type. No walk ends without emitting its yield — the constraint learned, the region excluded, the mechanism revealed, the statement sharpened — written so it can change a future brief. An entry without a yield is incomplete. New briefs are composed <em>from</em> yields, not routed around them.</p>
+    <blockquote>
+      Reading them as a sequence <em>is</em> the program's actual trajectory. The ledger is not a graveyard; it is the derivative of the program.
+      <cite>collab/FAILURES.md</cite>
+    </blockquote>
+    <p>Two entries down: an explicit counterexample, <code>Φ₄(1+x+x⁴)(1−x³+x⁵)</code>, found by the red team, killing an intermediate target. Reviving it would need a strictly stronger hypothesis excluding cyclotomic recombination. The counterexample is the useful part; it is why the hypothesis is now stated correctly.</p>
   </section>
 
-  <section id="open">
-    <span class="eyebrow">OPEN</span>
-    <h2>Where the wall actually is</h2>
-    <p><span class="pill open">OPEN</span> <b>Pointwise Goldbach</b> = positivity of the zero block against a single-N functional — beating Parseval by one logarithm in a signed integral. Untouched by everything above; located exactly.</p>
-    <p><span class="pill open">OPEN</span> <b>Prime phase rigidity</b> (Conjecture A″): irreducibility of the non-cyclotomic part of the prime polynomial for every X. The only observed failure mode — cyclotomic race ties — happened once, ever.</p>
-    <p><span class="pill open">OPEN</span> <b>Chowla flatness</b>: the charged sector's mixing. Theorem F says the ground floor is empty; all parity content lives in fluctuations — precisely where entropy-decrement methods operate.</p>
-    <p class="backtop"><a href="#top">↑ top</a></p>
+  <section>
+    <p class="sec-label">Scope</p>
+    <h2>What this is not.</h2>
+    <p>It is not an orchestration demo, and the repository's own orientation document says so before it says anything else. The sought object is a mathematical process in which understanding changes the lawful motion of subsequent understanding — a proved recursion becoming an executable method, a counterexample forcing the representation to preserve a previously invisible distinction.</p>
+    <p>The same document is exact about how far along that is:</p>
+    <blockquote>
+      This is already occurring locally whenever a result changes the next search. It is not yet a complete self-improving mathematical organism.
+      <cite>notes/COGNITIVE_ORIENTATION.md §1</cite>
+    </blockquote>
+    <p>No named conjecture is the destination — not RH, Goldbach, twin primes, Fermat or Collatz. Hard problems are treated as instruments measuring the current frontier and calling for missing invariants. A proof kernel certifies a formal judgment, not novelty, empirical truth, intended meaning, or moral authority.</p>
+    <p>And the page you are reading is under the same rule as everything else: every number and quotation on it is taken from a named file in the repository, and where a claim is disputed or unresolved, it says so.</p>
   </section>
 
-  <footer>
-    repo <a href="https://github.com/avikj/math">avikj/math</a> · branch claude/prime-pair-field-research-18tq7b ·
-    <a href="https://github.com/avikj/math/pull/2">PR #2</a> · data: first 100,000 Riemann zeros (Odlyzko), primes to 4·10⁶ ·
-    this page is versioned at <a href="https://github.com/avikj/math/blob/claude/prime-pair-field-research-18tq7b/site/index.html">site/index.html</a>
-  </footer>
 </main>
+</div>
+
+<hr class="rule">
+<div class="wrap">
+  <footer class="col">
+    <p class="fine">
+      Sources on this page, in order of appearance:<br>
+      CLAUDE.md · notes/METHOD.md · notes/E2_PROOF.md · notes/OBLIGATION.md · notes/HOLOGRAM.md · README.md ·
+      machinery/law_discovery.py · notes/BINARY_DIVISIBILITY_CRYSTAL.md · notes/LENS_ORDER_COMMUTATION.md ·
+      collab/FAILURES.md · notes/APPENDIX_D.md · notes/COGNITIVE_ORIENTATION.md · collab/PROTOCOL.md ·
+      notes/KAPPA.md · AGENTS.md · notes/KUTTAKA_TRACE_MACRO.md · notes/TWO_ADIC_CONFINEMENT.md · collab/ROSTER.md
+    </p>
+    <p class="fine">
+      Counts stated above were taken from the working tree: 42 of 426 files in <code>notes/</code> contain a
+      strike-through correction; <code>collab/ROSTER.md</code> lists 48 persistent identities.
+    </p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeBtn');
+  var root = document.documentElement;
+  var modes = ['system','light','dark'];
+  var i = 0;
+  function apply(){
+    var m = modes[i];
+    if(m === 'system'){ root.removeAttribute('data-theme'); }
+    else { root.setAttribute('data-theme', m); }
+    btn.textContent = 'Theme: ' + m;
+  }
+  btn.addEventListener('click', function(){ i = (i+1) % modes.length; apply(); });
+})();
+</script>
