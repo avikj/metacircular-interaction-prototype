@@ -86,11 +86,8 @@ nothing outside for the span to reach.
   contextual scenarios, three different memories, no correlation with the
   obstruction. Consistent with `PAULI_MEMORY_LAGRANGIAN.md` Theorem 5.1 and
   `QUDIT_MEMORY_ODD_PRIME.md` Theorem 3.1.
-- The number `25` is not yet explained. `5 + 10 + 10` is suggestive of the
-  pentagram's own incidence combinatorics and I do not have a derivation. That
-  is the honest residue of this increment: I can compute it exactly and cannot
-  yet predict it, which is the same position I was in at `n = 2` before the Arf
-  identification.
+- ~~The number `25` is not yet explained.~~ **Derived, same session; see §7.**
+  It is `5 + 10 + 10 =` the vertices, edges and triangles of `K_5`.
 
 ## 4. Prior art
 
@@ -117,4 +114,76 @@ computed and would be large).
 ```sh
 python3 -m machinery.rank_three_scenarios
 python3 -m unittest machinery.test_rank_three_scenarios -v
+```
+
+## 7. The `25`, derived
+
+Added after §1--§6, closing the residue they left open.
+
+**The pentagram's incidence structure is the complete graph `K_5`.** Its five
+contexts are the vertices and its ten observables are the edges: each
+observable lies on exactly two contexts, each pair of contexts meets in exactly
+one observable, and each context holds four observables -- the four edges at a
+vertex. (This `(10_2, 5_4)` configuration is elementary and classical; the
+`K_5` reading is standard in the Saniga--Lévay--Planat treatment of the
+pentagram. The reading is not what is new here.)
+
+**Theorem 7.1 (the labelling).** The `25` reachable Lagrangians are in
+canonical bijection with the cliques of size `1, 2, 3` in `K_5`, i.e. with the
+nonempty subsets `S` of the five contexts with `|S| <= 3`:
+
+| `\|S\|` | Lagrangians | how many pentagram observables it holds |
+|---|---|---|
+| 1 | the 5 context Lagrangians | 4 (the edges at that vertex) |
+| 2 | 10 edge Lagrangians | 1 (that edge) |
+| 3 | 10 triangle Lagrangians | 3 (the triangle's edges) |
+
+Hence
+
+    25 = 5 + 10 + 10 = C(5,1) + C(5,2) + C(5,3),      memory = 25 * 2^3 = 200.
+
+The label is read off the overlap: a Lagrangian holding four observables lies
+in a unique context (its vertex); one holding three holds exactly the three
+edges of a triangle (verified: all `10` triangles occur, each once); one
+holding a single observable is labelled by that edge (verified: all `10` edges
+occur, each once). No reachable Lagrangian holds two or zero.
+
+**Theorem 7.2 (the automaton).** Measuring the observable with edge `e` from
+the state labelled `S`:
+
+1. **comparable** -- `e ⊆ S` when `|S| >= 2`, or `S ⊆ e` when `|S| = 1` -- the
+   observable already lies in the Lagrangian, the outcome is deterministic and
+   `S` is unchanged;
+2. else if `|S ∪ e| <= 3`, the label **grows**: `S ↦ S ∪ e`;
+3. else the label **collapses**: for `|S| = 2` to `e ∪ (V ∖ (S ∪ e))`, the
+   triangle on `e` plus the one remaining vertex; for `|S| = 3` to `S ∩ e`,
+   the single shared vertex, or to `e` itself when the edge misses the triangle.
+
+Verified on the **entire** transition relation: `3520` transitions, every one
+matching the closed formula, and the determinism criterion in (1) holding
+exactly (measurement is deterministic *iff* the labels are comparable).
+
+**What the label means for the closure question.** The label size is exactly
+the diagnostic of Corollary 3.2. For the Mermin square the contexts *are*
+maximal Lagrangians, rule (2) never fires, every label has size one, and the
+reachable set is the six contexts -- closure. For the pentagram the contexts
+are not maximal, rule (2) fires, and the labels grow to size three. So
+
+    closure  <=>  the label never leaves size one,
+
+which is a statement one can check without computing the orbit at all. That is
+the general form of what §2 exhibited as a counterexample.
+
+**Scope.** Theorems 7.1 and 7.2 are exhaustive verifications over a finite
+declared domain, hence proved on it. I have *not* derived rule (3) from the
+symplectic geometry -- I computed which collapse occurs and checked the formula
+everywhere. The bound `|S| <= 3` is likewise verified, not derived; the naive
+dimension count permits `|S| = 4` (the six edges of a `4`-clique span three
+dimensions) and something finer excludes it, which I have not identified.
+
+Replay:
+
+```sh
+python3 -m machinery.pentagram_labels
+python3 -m unittest machinery.test_pentagram_labels -v
 ```

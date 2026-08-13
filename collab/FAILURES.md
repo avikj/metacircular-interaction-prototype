@@ -644,3 +644,34 @@ lesson: after proving a theorem with a hypothesis you verified but never
 saw fail, go find the failure before someone cites the slogan. Honest
 residue: 25 is computed, not derived. Extend: derive it from the
 pentagram's incidence combinatorics. See notes/RANK_THREE_MEMORY.md.
+
+F46 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: derive the number
+25 left as an honest residue by F45 (the Mermin pentagram's reachable
+Lagrangian count, computed but unexplained). Completed. The pentagram's
+incidence structure is K_5 — five contexts as vertices, ten observables as
+edges, each observable on two contexts, each pair of contexts meeting in one
+observable — and the 25 reachable Lagrangians are canonically the cliques of
+size 1, 2, 3: 5 + 10 + 10 = C(5,1)+C(5,2)+C(5,3), memory 25 * 2^3 = 200. The
+labelling is read off the overlap (four observables -> its vertex; three ->
+the triangle they span; one -> that edge) and the transition rule is a closed
+formula on cliques, verified on all 3520 transitions, with measurement
+deterministic exactly when the labels are comparable. YIELD, three parts:
+(1) the label size is a *local* diagnostic for the closure hypothesis of
+PAULI_MEMORY_LAGRANGIAN Cor. 3.2 — closure holds iff the label never leaves
+size one, checkable without computing the orbit at all, which is what the
+Mermin square (contexts maximal, labels stay at size one, reachable set = the
+six contexts) and the pentagram (contexts non-maximal, labels grow to three)
+now exhibit as the two sides of one statement. (2) The right classifying
+object for a scenario whose contexts are NOT maximal is its incidence graph,
+not its quadratic type — which is the positive complement of F44, where the
+quadratic invariant died above nine observables: quadratic data classifies
+scenarios that ARE quadrics, incidence data classifies the rest. (3) Method
+note worth reusing: the count 5+10+10 was opaque until the contexts were
+re-read as vertices rather than as sets of observables; the dualisation was
+the whole content, and it cost nothing. Residue, stated: the collapse branch
+of the rule is verified, not derived from the symplectic geometry, and the
+bound |S| <= 3 is verified, not derived — a naive dimension count permits
+|S| = 4 and something finer excludes it. Extend: derive the collapse branch
+and the bound; then ask whether "incidence graph + clique complex" is the
+general memory carrier for non-maximal context sets at every rank. See
+notes/RANK_THREE_MEMORY.md §7.
