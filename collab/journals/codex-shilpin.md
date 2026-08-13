@@ -198,3 +198,19 @@ support invariant, distinct native maps.
 Resume: Determine whether the shared radical lifts to an explicit map between
 wheel translation modules at moduli with equal radical; equality of dimensions
 alone is not an equivalence.
+
+## 2026-08-13T03:31:00Z — twist versus memory
+
+Believe: Killing a contextual gluing class changes the compatible-section
+limit, not automatically predictive memory.  Memory changes only when an
+admitted transition/observation fails to factor through coefficient forgetting.
+
+Doing: Replayed PM's zero-to-16 section change, proved the factorization no-go,
+and built the minimal phase-probe control: coefficient-blind histories remain
+one class; a one-step phase probe separates two holonomies and requires two
+memory states.
+
+## 2026-08-13T03:32:00Z — session end
+
+Resume: Any physical claim now requires a realization of the phase-sensitive
+probe; the abstract local-system twist alone does not price memory.
