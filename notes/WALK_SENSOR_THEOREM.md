@@ -3,7 +3,10 @@
 Author: `claude_certificate_compiler` (Claude Opus 5), 2026-08-13.
 Object: `runtime/walk.py` — the machine that currently runs.
 Formal bridge: `formal/pairfield/Pairfield/LeastNonDivisor.lean`.
-Falsifier: `machinery/least_non_divisor.py`.
+Falsifier: `formal/pairfield/Pairfield/WalkFalsifier.lean`.
+(Was `machinery/least_non_divisor.py`; **deleted 2026-08-13 under the human
+owner's Python ban** and re-implemented in Lean. Every figure below was
+reproduced there by an independent implementation — see §10.)
 
 ## 0. What I ran, and what I found
 
@@ -78,9 +81,9 @@ Let `K` be the frontier. The scan performs
 divisions of an integer of `ψ(K)/log 2 ~ 1.4427·K` bits. The theorem-driven
 producer performs, **exactly**, `K − 1` prime-power tests on integers `≤ K`: the
 successive frontiers telescope, `Σ (q_i − q_{i−1}) = K − 1`. At the machine's own
-`10^30` frontier `K = 71`: **844 big-integer divisions versus 70 small tests**
-(`machinery/least_non_divisor.py` (d)); the ratio is not a measurement, it is
-`Σ(q−1)` against `K−1`.
+`10^30` frontier `K = 71`: **844 big-integer divisions versus 70 small tests**.
+The ratio is not a measurement: `example : costs 29 = (844, 70, 71) := by decide`
+is a kernel-reduced identity between two exact sums.
 
 ## 4. Why the walk's certificate is empty
 
@@ -143,7 +146,10 @@ prime powers `≤ K₀` divide `L`, `L = lcm(1..K₀)` and Theorem C takes over.
 
 Exhaustive falsifier: all `2^18 − 1 = 262,143` nonempty subsets of the prime
 powers `≤ 32` (every family `load()` would accept at that frontier). **Never
-unrepaired; worst case 16 installs; zero violations of the bound.**
+unrepaired; worst case 16 installs; zero violations of the bound.** Produced
+first in Python and then, after the ban, reproduced digit-for-digit by an
+independent Lean implementation (`selfRepairReport`); the small end
+(`pool ≤ 8`, 63 families) is `by decide`, hence proved rather than run.
 
 So §5 is a *soundness* gap in the gate, not a liveness failure of the machine:
 a tampered state is accepted, but the mathematics repairs it. That asymmetry is
@@ -198,3 +204,34 @@ The last line reproduces the machine's sensor stream inside the proof assistant:
    should be printed as `ψ(K)` — an exact integer the machine already has —
    not as a converging decimal.
 3. **DEMONSTRATE** — the §5 repair, in `runtime/walk.py`, by its owner.
+
+## 10. What the Python ban did to this note
+
+Every falsifier here was Python when §0–§9 were written. The human owner banned
+Python on 2026-08-13; `machinery/least_non_divisor.py` is deleted and
+`Pairfield/WalkFalsifier.lean` replaces it. The migration was not neutral:
+
+| claim | before | after |
+|---|---|---|
+| prime-power search = full scan on a box | differential run of two Python functions | `by decide` on `L ≤ 120` — a **finite exhaustive verification**, i.e. a proof about `Nat` |
+| the sensor stream is the prime powers | printed list | `example : sensorStream 10 = [2,3,4,5,7,8,9,11,13,16] := by decide` |
+| the cost ratio 844 : 70 | two counters | `example : costs 29 = (844, 70, 71) := by decide` |
+| self-repair over 262,143 families | Python loop | `by decide` at pool `≤ 8`; `#eval` at pool `≤ 32`, same four numbers |
+
+**Three of the four moved from measurement to proof**, because the statements
+were finite all along and Python was the only reason they were being *run*
+rather than *decided*. That is the ban's actual mathematical content in this
+lane, and I did not expect it: I had classified these as falsifiers, which
+`CLAUDE.md` permits, and so never asked whether they were theorems.
+
+One thing the migration made visible that no note had said: **everything in
+`WalkFalsifier.lean` is written by structural recursion on fuel, not by
+well-founded recursion, precisely so `decide` can reduce it.** A well-founded
+definition is `#eval`-able and *not* `decide`-able — exactly the boundary
+`GENERAL_SMITH_PRODUCER.md` §5 found for `smith`. Choosing fuel over
+well-founded recursion is choosing which of compute/check/prove the object
+supports. That is a design rule, not an implementation detail.
+
+The one figure that did **not** upgrade is the 262,143-family self-repair run:
+at that scale it is still `#eval`, i.e. compiled code, i.e. a falsifier. Theorem
+D remains unproved.

@@ -195,3 +195,38 @@ scan. So the producer's certificate composes into frontier-optimality without
 anyone reasoning about `leastNonDivisor`'s fuel recursion. This is the same
 move that made `d₁ = content` cheap in session 1: **prove it on the certificate,
 not on the algorithm.** Twice now. I am treating it as a working rule.
+
+## 2026-08-13 — session 2, the Python ban hits my lane
+
+`opus-shesha` relayed the human owner's directive (2026-08-13): Python is
+banned; Agda/Lean are the substrate. Verified independently — `51f87df` upstream
+carries `.githooks/pre-commit` and the CI workflow. Rebased, enabled
+`core.hooksPath .githooks` on this worktree, deleted
+`machinery/least_non_divisor.py` (which I had committed hours earlier), and
+re-implemented it as `Pairfield/WalkFalsifier.lean`.
+
+**The migration was not neutral, and this is the thing to keep.** Three of my
+four "falsifiers" became *proofs*:
+
+* prime-power search = full scan on `L ≤ 120` → `by decide`
+* the sensor stream is the first ten prime powers → `by decide`
+* the cost ratio 844 : 70 → `by decide` on `costs 29 = (844, 70, 71)`
+
+They were finite statements the whole time. Python was the only reason they were
+being **run** rather than **decided**. `CLAUDE.md` permits falsifiers, so I had
+classified them and stopped asking — the licence itself stopped the question.
+A ban I would have argued against found a class of measurements-that-were-
+theorems that my own protocol-compliance had hidden from me.
+
+Second finding, which no note in the corpus had stated: everything in the new
+module is structural recursion **on fuel**, not well-founded recursion,
+*precisely so `decide` can reduce it*. Well-founded ⇒ `#eval`-able and not
+`decide`-able (the `smith` boundary, GENERAL_SMITH_PRODUCER §5). **Choosing fuel
+over well-founded recursion is choosing which of compute/check/prove the object
+supports.** That is a design rule for this whole lane and I only saw it by being
+forced to rewrite.
+
+Honest residual: the 262,143-family self-repair run is still `#eval`, i.e.
+compiled, i.e. a falsifier. Theorem D unproved. The Lean reproduction did match
+the deleted Python digit-for-digit — which is the only reason the number
+survives at all.

@@ -16,6 +16,7 @@ import Pairfield.SmithContent
 import Pairfield.CertificateSource
 import Pairfield.LeastNonDivisor
 import Pairfield.FrontierOptimality
+import Pairfield.WalkFalsifier
 -- `Pairfield.ArbitrarySmithClosure` inhabits `CapabilityGraph`'s named open
 -- edge.  It is kept out of the default target for the same reason
 -- `Pairfield.CapabilityGraph` always was: that module imports all of Mathlib.
