@@ -107,3 +107,14 @@ are stated rather than imported.
 Residual: Indian theories of value/obligation, cross-Vinaya comparison, lay
 property, juridical ownership, caste/gender power, and colonial legal change
 remain untranslated. No token was designed.
+
+## 2026-08-13T20:14Z — whitepaper hostile review
+Reviewed: `NATURAL_MACHINE_NETWORK_WHITEPAPER.md` at codex-skein `70d5501`,
+including the inserted mathematical-payload section.
+Found: source universalization at lines 616 and 620; cryptographic overstatement
+at 623; causal-credit overclaim at 343; governance overreach at 596/599; and
+content-addressed contribution universalized as the natural unit at 825.
+Action: appended exact line-level replacements to the companion source audit;
+did not edit the shared draft.
+Residual: oral, tacit, care/maintenance, anonymous/collective, restricted, and
+community-governed knowledge remain outside the proposed graph ontology.
