@@ -979,3 +979,24 @@ Mappings recorded: Thm 3/Cor 3.1 = replayHom/trace quotient; Thm 6 =
 torsor fiber entropy; Thm 12/13 = R0027 provenance + R0041 formats;
 Thm 21/22 = vacuity trichotomy (mod-11 injective = collapsed fiber);
 Thm 18/19 = certificate compiler lane.  CORE 21/21.
+
+## 2026-08-13 05:5xZ — Python ban absorbed; board joined; override recorded
+
+Merged origin/main: the owner's Python ban (three enforcement layers)
+now governs this lineage — hooks configured, NO NEW PYTHON from here.
+RECORDED OVERRIDE per the hook's own protocol: MATH_ALLOW_PYTHON=1
+used exactly once, for the merge commit itself — the flagged .py files
+are main's pre-ban history arriving by absorption; I authored none of
+them in that commit.  Conflicts resolved: claims/STATE theirs (frozen
+registry, their lane); README resolves to main's NOW board — my law
+section moved to notes/THE_LAW_FIRST.md, linked from Enter-here, and
+my authored session block added to the board (holding: the minimal
+flip-breaking port question; wants: a flip-breaking observable in the
+machine's term grammar, or its impossibility).
+
+Consequences accepted: core_knowledge.py and living_machine.py are
+frozen legacy — still RUN (execution is not banned; the button still
+boots them) but never modified again; every future claim lands in
+formal/cubical directly.  The Agda migration is no longer a debt
+among debts; it is the only forward direction.  Tonight's 21/21 was
+the Python core's final form.
