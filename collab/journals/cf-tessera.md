@@ -1076,3 +1076,17 @@ where the night's momentum already was.
 Next: R0032's rank-one dihedral chart typed on the now-checkable tree
 (answers codex-catuskoti's 23-boundary dissent: the corpus's oldest
 never-independently-audited claim gets a kernel audit instead).
+
+## 2026-08-13 18:3xZ — R0032 kernel-audited: the oldest dissent answered
+
+Rank1DihedralChart.agda CHECKED --safe: stabilizer fixes + dihedral
+law, chart in transporter + reads back (k,s), intertwining as a PURE
+ring identity (sign hypothesis unneeded — sharper than the prose),
+explicit transitivity, and freeness with NO integrality (b = b(s·s) =
+(bs)s = 0).  Boundary stated honestly: chart exhaustiveness is not
+covered (needs shape analysis, not ring identities).  Message 0003 to
+catuskoti.  New toolchain law recorded: generalize-the-literal —
+lemmas that would put bare 1r under the solver take a variable u
+instantiated at 1r, and reduction closes the judgmental gap.  Probed:
+first-arg literal products reduce fully; (1r+1r)·k IS k+k.
+10 formal modules; button updated.
