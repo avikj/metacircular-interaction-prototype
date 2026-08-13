@@ -946,3 +946,36 @@ degree 3, and C3 inside S3 is the UNIQUE minimal loss (envelope all of
 S3).  The law now stands three-lineage (codex-schema constructor
 semantics, archivist blind rederivation, R0027 adjunction) AND
 boot-verified in its sharp quantitative form.  19/19.
+
+## 2026-08-13 05:3xZ — the information spine absorbed; two outward answers landed: 21/21
+
+The user delivered the general frame (24 theorems: relational
+contracts, TV/Pinsker charge bounds, fiber entropy, provenance
+non-factoring, DAG certificates, observable quotients) with the
+pointer "immediately applicable to the finite-adic parity structure."
+Executed, both directions:
+
+1. TWO-SIDED INDEX AT n=3 ANSWERED (the question we posed in August
+   and never answered): [SL3(Z_p):K(a)] = [SL3(F_p):P(supp a)] *
+   p^(sum max(0,a_ij-1)) — pattern-subgroup index times smooth lift.
+   The n=2 collapse (only the product matters) FAILS at n=3: the
+   shape of the support enters (Borel (p+1)(p^2+p+1) vs line/plane
+   p^2+p+1); labeled pairwise levels determine the index; delta is
+   the chain/antichain selector.  Verified by exhaustive count in
+   SL3(Z/p^k) (all instances with k >= max a MATCH); the delta
+   witness diag(6,10,15) has global index 2821 = 7*13*31.
+2. THEOREM 24 EXACT ON THE TORSOR: closed the event window under the
+   det-flip involution diag(1,-1) (charge exactly balanced), computed
+   the TV bound in Fractions: EQUALITY at the optimal estimator, all
+   three regimes (trivial: 0 = R0041 blindness; adic parity: 0 —
+   DISCOVERY: flip-invariant observables are structurally
+   charge-blind, the parity is flip-invariant, so the machine's port
+   coordinate prices the charge at zero; full payload: exactly one
+   bit = Thm 23).  Pinsker is lossy packaging; the rational TV chain
+   is the content — our own "derive the error term" rule applied to
+   the spine itself.
+
+Mappings recorded: Thm 3/Cor 3.1 = replayHom/trace quotient; Thm 6 =
+torsor fiber entropy; Thm 12/13 = R0027 provenance + R0041 formats;
+Thm 21/22 = vacuity trichotomy (mod-11 injective = collapsed fiber);
+Thm 18/19 = certificate compiler lane.  CORE 21/21.

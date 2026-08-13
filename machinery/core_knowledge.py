@@ -472,6 +472,49 @@ def h_envelope_loss(inst):
     return len(envelope) == 6         # C3's envelope is all of S3
 
 
+def w_index_n3():
+    return [(2, 1, (0, 0, 1)), (2, 1, (0, 1, 1)), (3, 1, (0, 0, 1)),
+            (2, 2, (0, 1, 2)), ("delta-global",)]
+
+
+def h_index_n3(inst):
+    """The delta question answered: [SL3(Z_p):K(a)] =
+    [SL3(F_p):P(supp a)] * p^{sum max(0,a_ij-1)} — the n=2 product
+    collapse fails at n=3, the pattern's shape enters, and the
+    delta-witness diag(6,10,15) has global index 7*13*31 = 2821."""
+    from two_sided_index_n3 import (count_sl3_pattern, pattern_of,
+                                    predicted_index, sl3_size,
+                                    delta_witness_global_index)
+    if inst == ("delta-global",):
+        return delta_witness_global_index() == 2821
+    p, k, e = inst
+    a = pattern_of(e)
+    return sl3_size(p, k) // count_sl3_pattern(p, k, a) == \
+        predicted_index(p, k, a)
+
+
+def w_charge():
+    return ("trivial", "adic-bit", "payload")
+
+
+def h_charge(inst):
+    """Theorem 24 (the information spine), exact on the torsor: the
+    TV bound holds with EQUALITY at the optimal estimator; the
+    det-flip involution makes flip-invariant observables (the adic
+    parity) charge-blind at price exactly zero; the full payload is
+    exactly one bit."""
+    from fractions import Fraction
+    from charge_information_obstruction import verify
+    rows = {name: (two_tv, corr, adv, tight)
+            for name, two_tv, corr, adv, tight in verify()}
+    two_tv, corr, adv, tight = rows[inst]
+    if not tight:
+        return False
+    if inst in ("trivial", "adic-bit"):
+        return adv == 0
+    return adv == Fraction(1, 2)
+
+
 def w_nat_bridge():
     def prof(k, S):
         return tuple(k % p for p in S)
@@ -534,6 +577,14 @@ KNOWLEDGE = [
      "lossless on every subgroup below degree 3; C3 inside S3 is the "
      "unique minimal loss (Carr C3, three independent derivations)",
      w_envelope_loss, h_envelope_loss),
+    ("two-sided-index-n3", "the local index is the pattern-subgroup "
+     "index times the smooth lift p^(a_ij-1); the n=2 product "
+     "collapse fails at n=3 and diag(6,10,15) has index 2821",
+     w_index_n3, h_index_n3),
+    ("charge-obstruction", "the balanced det-charge obeys the TV "
+     "bound with equality at the optimum; flip-invariant observables "
+     "are charge-blind at price zero; the payload is one bit",
+     w_charge, h_charge),
 ]
 
 # Interface debt — knowledge NOT yet expressible as a claim here (the
