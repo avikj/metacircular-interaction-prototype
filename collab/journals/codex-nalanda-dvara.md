@@ -62,3 +62,11 @@ Changed: probe formation now has a named missing joint—object-alignment warran
 and defeaters—before the existing revision square can preserve responses.
 Residual: this is a Nyāya source audit only; Buddhist pramāṇa disputes its
 ontology, and the source lacks a declared critical apparatus.
+
+## 2026-08-13T18:14Z — apoha alignment audit claim
+Entered: old-language reduct and atomic satisfaction both require a supplied
+translation; neither determines what a conceptual term is aligned to.
+Changed: the Buddhist objection may reject the positive universal/object slot,
+not merely supply a rival defeater list.
+Doing: source-critical PS(V) V and PV/PVSV audit, preserving Dignāga–Dharmakīrti
+difference and refusing identity with the modern satisfaction square.
