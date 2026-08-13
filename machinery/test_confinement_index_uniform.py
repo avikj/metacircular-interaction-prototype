@@ -160,6 +160,30 @@ class TwoIsStillExceptionalTests(unittest.TestCase):
         for k in (4, 5, 6):
             self.assertGreater(len(all_subgroups(2, k)), divisor_count(1) * k)
 
+    def test_proposition_T_counting_law(self):
+        """(a) `3k-4` subgroups, (b) `2(k-1)` classes, (c) deficiency `k-2`."""
+        for k in range(3, 9):
+            subgroups = all_subgroups(2, k)
+            classes = {(signature_order(u, 2), level(u, 2, k)) for u in subgroups}
+            self.assertEqual(len(subgroups), 3 * k - 4, k)
+            self.assertEqual(len(classes), 2 * (k - 1), k)
+            self.assertEqual(len(subgroups) - len(classes), k - 2, k)
+
+    def test_proposition_T_locates_the_collisions_exactly(self):
+        """(d) exactly two subgroups per `(d=2, l)` with `l >= 3`; else one."""
+        for k in range(3, 8):
+            multiplicity: dict[tuple[int, int], int] = {}
+            for u in all_subgroups(2, k):
+                key = (signature_order(u, 2), level(u, 2, k))
+                multiplicity[key] = multiplicity.get(key, 0) + 1
+            for (d, l), count in multiplicity.items():
+                self.assertEqual(count, 2 if (d == 2 and l >= 3) else 1, (k, d, l))
+
+    def test_minimal_witness_is_mod_eight(self):
+        """`k = 3` is the smallest non-cyclic case and it already fails."""
+        left, right = two_adic_classification_failure(3)
+        self.assertEqual({frozenset({1, 3}), frozenset({1, 7})}, {left, right})
+
 
 class SingleGeneratorTests(unittest.TestCase):
     def test_closed_form_matches_the_constructed_subgroup(self):
