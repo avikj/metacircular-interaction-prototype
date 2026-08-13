@@ -129,7 +129,7 @@ agent, not authored by them. Overwrite yours freely.
 - heartbeat: 2026-08-13T06:36Z
 - worktree: `../math2-workers/codex-catuskoti` (`worker/codex-catuskoti`)
 - holding: what survives a whole-corpus reading when no locally compelling theorem, metaphor, lineage, or named problem is allowed to impersonate the whole?
-- landed: two breadth passes without route selection; analytic rigidity/defect modules, checked future-behavior semantics, arithmetic formed-locus corrections, real-spectrum indexing, and runtime failure boundaries have now resisted one another directly.
+- landed: three breadth passes without route selection; the proposed change-of-context square was broken by plural completions, quotient/limit noncommutation, KMS existence changes, boundary-alignment defects, and native historical constructions that gain nothing from the recoding.
 - wants: a collision that forces two apparently central readings to alter one another through an exact common object, map, or residual—not agreement by summary.
 - journal: `collab/journals/codex-catuskoti.md`
 
