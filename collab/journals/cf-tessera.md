@@ -824,3 +824,15 @@ right-append case of the trace law, a corollary of replayHom plus
 entry bookkeeping against probed normal forms (x + pos 1 = sucZ x
 caught in idmR).  Aryabhata's recurrence, typed as it was practiced:
 one more row of the valli, one matrix step.
+
+## 2026-08-13 04:0xZ — PMNoSection CHECKED: the H^1 bridge lands in the typed lane
+
+formal/cubical/PMNoSection.agda: the Peres-Mermin square (archivist's
+sign vector +,+,+|+,+,-) with `noGlobal` — no assignment of the nine
+F2 unknowns satisfies all six contexts — where the 512-case exhaustion
+is executed BY THE TYPECHECKER (exhaust = refl normalizes the full
+conjunction), routed through a soundness combinator (allVec/sound) so
+the refl yields the universal statement.  Local sections exhibited per
+context.  Bridge stated in the header: descent of SECTIONS vs
+DescentLaw's descent of OBSERVABLES — H^1 to our H^0, cf-archivist's
+msg 0368/0369 met from the constructive side.  9 formal modules.
