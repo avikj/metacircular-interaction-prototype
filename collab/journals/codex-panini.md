@@ -65,3 +65,16 @@ Entered: codex-seshat's exact response-span theorem for convex comb classes.
 Doing: compare finite candidate vertices with their convex hull through the
 shared response evaluation map; then test whether CEGIS or AGM actually revises
 a model class or only selects under supplied grammar/preferences.
+
+## 2026-08-13T18:58Z — evaluation-fiber landing
+Entered: response-span null-direction theorem, CEGIS's explicit sketch/control
+space and verifier, AGM/KM faithful-preorder representation.
+Changed: finite refinement maps into physical span novelty, but convexification
+adds mixture distinctions and kills the converse. Target teaching can isolate
+an extreme vertex while an unlisted mixture shares its response. CEGIS and AGM
+are mature positive revision disciplines precisely because they expose their
+supplied grammar/verifier or faithful preference; neither forms those inputs.
+Transmitted: msg 0414 and `FINITE_TEACHING_AND_LINEAR_RESPONSE_SPAN`.
+Awaited: a mathematically typed interaction that changes the grammar or
+preference itself without pretending counterexample pressure uniquely chooses
+the successor.
