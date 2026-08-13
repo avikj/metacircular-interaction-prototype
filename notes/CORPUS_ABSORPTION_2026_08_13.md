@@ -153,3 +153,55 @@ predictive futures.
 Carr one-liners banked (15 from L–P, incl.): E(f) null vectors via
 Φ_{E(f)} = ζ·M(f); rank[P,A] always even; q_v submodular iff singleton
 supports; zero-error naming memory = |F| exactly.
+
+## Reader 4: notes Q–Z + papers, 120 files (519k tokens)
+
+Spine of the analytic program banked: Thm A/A″ (sum-marginal rigidity;
+prefix determined by differences via singleton {2}); Thm C (RH ⟺
+heat-smoothed Goldbach square, two lines); D/D‴/G (zero-pair lines,
+entropy phase, Fresnel chirp — one saddle, Thm I2); F2 global cyclotomic
+classification; F∞ effective divergence; Thm F/CORE_KMS gauge
+protection; E0/crossover β=1 forced; Weil margin cartography (prime term
+enters MINUS; μ→1.7e−196); index-one criterion RH ⟺ n₊≤1; walk forcing
+law + relativized initiality (both already in my lane); Theorem V
+(constancy, not cardinality); tangent criterion depth e+1 ⟺ ∇f≢0;
+rational-circle atlas (D₄ fiber; KM exponent ½ sharp, constant 1/√2).
+No-gos: screw-positivity refuted (50% negative mass); sharp cutoff
+undesmoothable; q₁ decic locally uncontrollable (index-3 kernel = whole
+admissible group); parity = annihilation (Čech H≥1 = 0); THE_GOAL_HAS_A
+_BEARER (superlatives fail to denote — presupposition failure).
+Frontiers: P1 pointwise Goldbach dominance; A″_alg; Chowla flatness;
+E°_W(δ) ≤ cδΣ|W₁₂|² (c≈2.8 measured, one finite bound from theoremhood).
+Dual-vocab pairs: A≡I1 (one square-root rigidity both sides of the
+bridge); parity resultant ≡ gauge charge; Dickman≡Buchstab adjoint;
+d_E ≡ M(t) (⌈t/p^D⌉ — two workers named one function); screw ≡
+first-variation sector; 𝔖 ≡ automaton boundary trace ≡ KMS₁ correlator;
+homometry ≡ zero Helstrom bias under translation SSR.
+
+## Reader 2: notes D–K, 96 files (532k tokens)
+
+E2a/E2b block-spectral support unconditional; D‴/I2 exact (modulus
+splitting-blindness exact, not asymptotic); Thm G recovers gaps to 0.1%;
+DPP: V∞ = D iff sum spectrum simple, and NO asymptotic zero-statistics
+input can decide it (Thm 10); Lemma N floor ε = X^{−1/2} ⟹ depth law
+exp(Θ(T^{1/2}log^{3/2}T)); KBOUNDARY: parity K-blind for every
+KK-factoring invariant; FF node collapse: over F_q sum frequencies
+γ_i+γ_j DO NOT OCCUR — Theorem D's lines are archimedean artifacts;
+DIGIT_CRYSTAL Klein-four + endian residual (now Agda-checked);
+INDEX_LAW retires four quantum-dilation computations; KAPPA κ ≥ 2/3
+via Gabor + Sylvester + rank–trace. No-gos: DCLOSE (finite prefix
+cannot entail the energy bound); defect nucleus covolume 1; charge
+automaton impossible (X = 2129 witness); higher-arity hierarchy strict;
+FIVE_FACES refused own thesis 0/7; Darwin–Gödel quarantined. Frontiers:
+sum-spectrum simplicity via interval arithmetic below Y ≈ 1e6;
+Hypothesis U; ±1 exotic zone; even-tower stage-triviality; R0015
+comparator replay debt. Dual-vocab: head depth ≡ Fermat blindness;
+Weil ≡ Krein/screw ≡ Herglotz; Thm F ≡ KBOUNDARY 4.2 (one twirl
+schema); Goldbach ≅ twins at every finite place (identification, not
+unification).
+
+## Running total
+
+Six of seven readers returned: ~2.44M tokens read (directive was 500k).
+Remaining: notes A–C. Field note: collaborators extended walk.py
+(--forever mode) while this absorption ran.
