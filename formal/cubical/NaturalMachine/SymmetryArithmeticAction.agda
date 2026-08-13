@@ -100,6 +100,7 @@ transportObservation-invariant e observation x =
 successorRegister : ℕ → ℕ
 successorRegister n = suc n
 
+-- Worked example, definitional only (`refl` on literals).
 identity-fixed-value : actObservation (idEquiv ℕ) successorRegister zero ≡ 1
 identity-fixed-value = refl
 

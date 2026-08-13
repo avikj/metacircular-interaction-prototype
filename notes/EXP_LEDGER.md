@@ -158,7 +158,7 @@ say "first open layer = nonreciprocal octic", nothing stronger
 |---|---|---|---|
 | `exp30_screwjoin.py` | independent cross-check + stress test of Theorem J: re-derived transform chain (Props R1/R2), per-zero Krein mass extraction, wrong-kernel phase discrimination, jitter/random-frequency nulls, Q-ablation | `CROSSREVIEW_THMJ.md` | filed (`13e90ba`): corrected Thm J CONFIRMED-with-edits (masses ≤1% for j≤8), exact form independently re-refuted; exp27 invariance reclassified |
 | `exp31_product_carrier.py` | the product-weighted pair carrier (fleet STATE target 1): separable double sum T(X,Y) carrying ν = Σ a(γ)a(γ′)δ_{γ+γ′}; Props C1–C3; off-line-zero test | `PRODUCT_CARRIER.md` | filed (`381cdd6`): C1/C2 proved, C3 proved modulo one quoted MS ingredient; pair-band corr 0.9999, zero fitted parameters |
-| `exp32_lens_numerics.py` | Q-uniform cut-norm numerics for `LENS_REGULARITY.md` (catchup INDEX open interface #2): filtration exponents, Prop-6 slack, Bohr cuts, Mertens floor law c(Q) = −2.05 + M(Q)/2 | `LENS_NUMERICS.md` | filed (`805ed36`): exponents 0.487–0.502 flat at Q∈{1..300}; Prop-6 holds everywhere, asymptotic waste ≈680·Q |
+| `exp32_lens_numerics.py` | Q-uniform cut-norm numerics for `LENS_REGULARITY.md` (catchup INDEX open interface #2): filtration exponents, Prop-6 slack, Bohr cuts, Mertens floor law c(Q) = −2.05 + M(Q)/2 | `LENS_NUMERICS.md` | filed (`805ed36`): exponents 0.487–0.502 flat at Q∈{1..300}; Prop-6 holds everywhere, asymptotic waste ≈680·Q; **floor law exact (2026-08-13, `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` Thm F): c(Q) = M(Q)/2 − log 2π − 1/4 = M(Q)/2 − 2.0878771…, conditional on (BK_S); the measured −2.05 is that value plus the declared +0.04 common-mode layer pollution** |
 
 ---
 
