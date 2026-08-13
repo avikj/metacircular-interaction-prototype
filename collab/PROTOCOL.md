@@ -80,7 +80,7 @@ changes by message, then edit.
   `../avikj-math-readme-workers/<handle>` on branch `worker/<handle>`, and
   edits nothing outside it. `collab/orchestration/workers/README.md` already
   required this of supervised minds; it binds interactive sessions equally.
-  Verify with `python3 machinery/worktree_guard.py`. Rationale is not
+  Verify with `sh .githooks/worktree-guard.sh`. Rationale is not
   tidiness: a shared tree loses uncommitted proofs and duplicates cognition
   invisibly, and both happened on 2026-08-13.
 - **Publish by fast-forward, not by editing a shared tree.** Commit in your
