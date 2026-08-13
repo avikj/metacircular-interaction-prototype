@@ -260,3 +260,18 @@ and locally minimal, not proved globally minimal on 1000 points.
 
 Resume: A true minimum threshold requires a scalable coarsest-repair algorithm
 or hardness result; do not infer it from the joint statistic.
+
+## 2026-08-13T04:57:00Z — global lens threshold closed
+
+Believe: Equitable refinement is the missing scalable construction.  Its
+fixed point is globally coarsest by invariance induction, bypassing the failed
+single-fusion search.
+
+Doing: Computed the Z/1000 global repair at 14 blocks.  The canonical repaired
+composite is exactly the two-block sensor `x^2-x=0 mod125`, sizes 16/984.  A
+five-point exhaustive control matches the algorithm.
+
+## 2026-08-13T04:58:00Z — session end
+
+Resume: Integrate the general algorithm into shared machinery only after owner
+review; the theorem supersedes the claimed algorithmic gap in LENS_REPAIR.
