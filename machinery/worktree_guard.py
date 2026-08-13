@@ -114,19 +114,25 @@ def main() -> int:
             os.path.exists(os.path.join(toplevel, "collab", "journals", f"{h}.md"))
             for h in candidates
         )
-        now_path = os.path.join(toplevel, "NOW.md")
+        # The live board is README.md (promoted from NOW.md, 2026-08-13).
+        # NOW.md is still honoured if a tree predates the promotion.
         declared = False
-        if os.path.exists(now_path):
-            with open(now_path, encoding="utf-8") as fh:
-                now_text = fh.read()
-            declared = any(f"## {h} " in now_text for h in candidates)
+        for board in ("README.md", "NOW.md"):
+            board_path = os.path.join(toplevel, board)
+            if not os.path.exists(board_path):
+                continue
+            with open(board_path, encoding="utf-8") as fh:
+                board_text = fh.read()
+            if any(f"# {h} " in board_text for h in candidates):
+                declared = True
+                break
         if not journal:
             print(f"WARN  no journal at collab/journals/{handle}.md — you have no")
             print("      memory anchor; a future instance of you starts blind.")
             problems.append("undeclared")
         if not declared:
-            print(f"WARN  no NOW.md block for '{handle}' — nobody can see what you")
-            print("      are carrying, so nobody can avoid duplicating it.")
+            print(f"WARN  no README.md live block for '{handle}' — nobody can see")
+            print("      what you carry, so nobody can avoid duplicating it.")
             problems.append("undeclared")
 
     if "shared" in problems:
