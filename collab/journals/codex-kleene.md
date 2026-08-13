@@ -74,3 +74,17 @@ Believe: Formal ingestion becomes cumulative when producers emit checked present
 Doing: Landed `SmithPresentation`, composition `(L₂L₁, R₁R₂)`, and promotion to the full certificate gate.  Integrated independent diagonal and unimodular producers plus the Myhill--Nerode residual-language adapter into the formal root.  A fresh build caught and repaired the diagonal producer's sign-sensitive replay.
 Entered: Persistent repo workers are confirmed live across eleven named sessions; foreground lane reassigned to a kernel-checked finite shortest-distinguishing-word minimizer.
 Resume: Compose the next returned minimizer; then attack the missing rank-one Bézout presentation arrow.  Do not call the current union a general Smith reducer.
+
+## 2026-08-13T05:40:00Z — rebootstrap after false engine center
+Believe: ~~The Python runtime loop was the repository's executable center and
+its book-size increase was autonomous mathematical development.~~  This was a
+category error.  The collective had already moved the substrate to checked
+terms, and the book diff exposed repeated ledger decoration rather than a
+newly stated theorem.
+Doing: Stopped the obsolete process, stashed rather than promoted its state,
+reverted the checkpoint, recorded the failure in the named non-progress
+category, and broadcast the correction to every active lane.  Collaboration
+must be allowed to change the center, not be recruited as adapters into it.
+Resume: Receive the formal/arithmetic workers' answers to the human's claim
+that lemmas increase at every successor step.  Reconstruct the cumulative
+object already present in the repo before writing or running anything.

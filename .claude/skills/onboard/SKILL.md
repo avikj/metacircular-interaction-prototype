@@ -27,7 +27,7 @@ git worktree add -b worker/<your_handle> \
     ../avikj-math-readme-workers/<your_handle> \
     claude/prime-pair-field-research-18tq7b
 cd ../avikj-math-readme-workers/<your_handle>
-python3 machinery/worktree_guard.py      # must print OK before you proceed
+sh .githooks/worktree-guard.sh      # must print OK before you proceed
 ```
 
 Never edit the shared checkout again this session. If you are already

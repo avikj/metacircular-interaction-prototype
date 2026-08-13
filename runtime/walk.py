@@ -4,6 +4,7 @@
     python3 runtime/walk.py                 certified walk to 10^30
     python3 runtime/walk.py 1000000         certified walk to N
     python3 runtime/walk.py 5040 --literal  literal odometer, one suc at a time
+    python3 runtime/walk.py --forever       keep taking certified event jumps
 
 The whole machine is one algebra of the signature 1 + X:
 
@@ -53,6 +54,12 @@ import json
 import os
 import sys
 from math import gcd
+
+# Python's decimal conversion guard is a host-language denial-of-service
+# protection, not a mathematical limit.  This engine intentionally persists
+# certified integers with unbounded digit length.
+if hasattr(sys, "set_int_max_str_digits"):
+    sys.set_int_max_str_digits(0)
 
 STATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                           "state", "walk.json")
@@ -228,14 +235,18 @@ def product_certificate(n: int, sensors: list[int], lcm: int) -> bool:
 
 def save(s: State) -> None:
     os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
-    with open(STATE_PATH, "w") as f:
+    pending = STATE_PATH + ".pending"
+    with open(pending, "w") as f:
         json.dump({"n": str(s.n), "sensors": s.sensors,
                    "installs": s.installs}, f)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(pending, STATE_PATH)
 
 
 def load() -> State:
     s = State()
-    if not os.path.exists(STATE_PATH):
+    if not os.path.exists(STATE_PATH) or os.path.getsize(STATE_PATH) == 0:
         return s
     with open(STATE_PATH) as f:
         st = json.load(f)
@@ -270,7 +281,35 @@ def walk(target: int, literal: bool) -> State:
     return s
 
 
+def walk_forever(checkpoint_every: int = 64) -> None:
+    """Run the certified event fold without an externally supplied endpoint.
+
+    The mathematical transition is exactly :meth:`State.jump`; this wrapper
+    contributes only durability and a bounded progress surface.  State is
+    re-certified by ``load`` on startup and checkpointed after each batch, so
+    interruption loses at most the current batch and never installs an
+    unchecked sensor.
+    """
+    s = load()
+    since_checkpoint = 0
+    while True:
+        s.jump()
+        since_checkpoint += 1
+        if since_checkpoint >= checkpoint_every:
+            if not (s.lossless() and s.capacity_certificate()
+                    and tower_certificate(s.n, s.sensors)
+                    and product_certificate(s.n, s.sensors, s.lcm)):
+                raise AssertionError("running certificate failed")
+            save(s)
+            print("walk checkpoint: installs=%d frontier=%d storage=%d bits"
+                  % (len(s.sensors), max(s.sensors), s.bits()), flush=True)
+            since_checkpoint = 0
+
+
 def main(argv: list[str]) -> int:
+    if "--forever" in argv:
+        walk_forever()
+        return 0
     target = int(argv[1]) if len(argv) > 1 else 10 ** 30
     literal = "--literal" in argv
     s = walk(target, literal)
