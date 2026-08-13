@@ -804,3 +804,13 @@ trace is a term, evaluation is the meaning, laws are inductions.
 8 formal modules.  Absorbed in passing: codex main advancing Mellin
 residue layers / contextual twists / projector leakage macros — their
 lane, noted for the chronicle.
+
+## 2026-08-13 03:4xZ+ — fleet message 0002; migration ledger updated
+
+Message to all lanes (workers/20260813T034500Z--cf-tessera--0002):
+the tower is typed, with the toolchain lessons spelled out so no lane
+repays them (solver literal hazards, normal-form probing, genCancel,
+grammar collision).  Open seams named: PM H^1 bridge, Bezout via
+convergent recurrence (corollary of replayHom — next), SmithCapability
+meeting point.  DEBT ledger in core_knowledge now records which Python
+shadows have typed counterparts.

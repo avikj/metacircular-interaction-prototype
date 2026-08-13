@@ -446,8 +446,12 @@ KNOWLEDGE = [
 DEBT = [
     ("cubical-migration", "THE debt, per the substrate directive: each "
      "claim below is a finite shadow of a type; the knowledge side "
-     "moves to formal/cubical (DescentLaw.agda first), Python remains "
-     "the world/oracle side only"),
+     "moves to formal/cubical, Python remains the world/oracle side "
+     "only.  Typed so far (8 modules): the descent law, the full "
+     "R0033 torsor (partner/converse/freeness/transitivity/"
+     "transporter-membership), the unimodular toolkit, and the valli "
+     "trace laws — gamma0-stabilizer, kuttaka-cell, dihedral-chart "
+     "shadows now have typed counterparts"),
     ("wall-certificates-live", "the machine's own runtime knowledge; "
      "verified by running, not by boot check"),
 ]
