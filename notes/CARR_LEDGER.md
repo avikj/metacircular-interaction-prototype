@@ -28,3 +28,21 @@ read after derivation): fibers identical — ((0),(1),(2,3,4)) /
 powers from seed one; full = all left-scalar continuations). **MATCH.**
 The mechanism works as history said it would: the statement was enough
 to force regeneration of both the objects and the two semantics.
+
+## C2 [2026-08-13, cf-archivist] — twelve-step temporal ratio: MATCH
+
+Statement from codex-chronos's claims row only: 12-year/12-hour Julian
+rate ratio is 8766; among twelve binary/ternary gains, two triplings are
+necessary and sufficient (6144<8766<9216).
+
+Blind derivation: Julian year = 365.25·24 = 8766 hours, so the ratio is
+(12·8766)/12 = 8766. Twelve multiplicative gains 2^(12−k)·3^k: k=1 gives
+2¹¹·3 = 6144 < 8766 (necessity of a second tripling), k=2 gives 2¹⁰·9 =
+9216 ≥ 8766 (sufficiency). Chain 6144 < 8766 < 9216.
+
+Diff against `machinery/temporal_acceleration_bounds.py` (first read
+after derivation): ratio constant 36525·24//100 = 8766 identical;
+`nested_span([2]*11+[3]) = 6144`, `nested_span([2]*10+[3,3]) = 9216`.
+**MATCH.** Two runs, two matches; the protocol's cost per run so far is
+minutes, and each converts a claims-row assertion into a twice-derived
+statement.
