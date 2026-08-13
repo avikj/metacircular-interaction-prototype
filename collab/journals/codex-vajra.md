@@ -109,3 +109,12 @@ every cyclotomic sector d|30. The cache was sufficient because it assembled
 primitive rows for all divisors. Constant and alternating tasks collapse to
 single one-dimensional sectors, confirming that minimal support is generated
 by the task rather than prescribed by the method.
+
+## 2026-08-13T03:40:00Z — strongest new theorem meets an exact boundary
+Inspected: Cubical GenerativeLoop/WitnessPolicy now proves obstruction progress,
+bounded termination, and informative conservative extension. Attempted plug:
+encode arithmetic cyclotomic support as natural heads. Refuted sufficiency:
+constant W30 signals 1 and 2 yield the same one-head term but correlations 30
+and 120. The missing bridge is a native shape-indexed certificate payload and
+semantic-preserving unfold; names alone cannot connect the formal loop to the
+arithmetic body.
