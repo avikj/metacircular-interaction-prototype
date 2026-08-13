@@ -14,6 +14,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
+open import NaturalMachine.CountedExecution as CE using (run)
 
 ------------------------------------------------------------------------
 -- State-dependent lawful motion and counted histories
@@ -33,6 +34,41 @@ data CountedPath {ℓ ℓ′} (W : World {ℓ} {ℓ′})
   step : {s : State W} {n : ℕ} (move : Lawful W s)
        → CountedPath W (next W s move) n
        → CountedPath W s (suc n)
+
+endpoint : ∀ {ℓ ℓ′} {W : World {ℓ} {ℓ′}} {s : State W} {n : ℕ}
+         → CountedPath W s n → State W
+endpoint (stop s) = s
+endpoint (step move tail) = endpoint tail
+
+-- A displayed choice in every lawful fiber turns dependent availability into
+-- one ordinary deterministic transition.  Coherence is not needed for this
+-- forgetting map; it becomes relevant only when the choices must survive the
+-- declared comparison edges below.
+selectedStep : ∀ {ℓ ℓ′} (W : World {ℓ} {ℓ′})
+             → ((s : State W) → Lawful W s) → State W → State W
+selectedStep W choose s = next W s (choose s)
+
+selectedPath : ∀ {ℓ ℓ′} (W : World {ℓ} {ℓ′})
+             → (choose : (s : State W) → Lawful W s)
+             → (s : State W) (n : ℕ) → CountedPath W s n
+selectedPath W choose s zero = stop s
+selectedPath W choose s (suc n) =
+  step (choose s) (selectedPath W choose (selectedStep W choose s) n)
+
+run-shift : {S : Type₀} (s : S) (advance : S → S) (n : ℕ)
+          → run (advance s) advance n ≡ advance (run s advance n)
+run-shift s advance zero = refl
+run-shift s advance (suc n) = cong advance (run-shift s advance n)
+
+selectedPath-endpoint : ∀ {ℓ′} (W : World {ℓ-zero} {ℓ′})
+                      → (choose : (s : State W) → Lawful W s)
+                      → (s : State W) (n : ℕ)
+                      → endpoint (selectedPath W choose s n)
+                      ≡ run s (selectedStep W choose) n
+selectedPath-endpoint W choose s zero = refl
+selectedPath-endpoint W choose s (suc n) =
+    selectedPath-endpoint W choose (selectedStep W choose s) n
+  ∙ run-shift s (selectedStep W choose) n
 
 ------------------------------------------------------------------------
 -- Fiber shapes are evidence, not an assumed global trichotomy.

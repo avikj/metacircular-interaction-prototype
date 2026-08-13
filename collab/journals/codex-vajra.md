@@ -118,3 +118,20 @@ constant W30 signals 1 and 2 yield the same one-head term but correlations 30
 and 120. The missing bridge is a native shape-indexed certificate payload and
 semantic-preserving unfold; names alone cannot connect the formal loop to the
 arithmetic body.
+
+## 2026-08-13T03:52:00Z — analytic residual becomes finite generation
+Bridged: the BARRIER s=0 error strata form an exact finite recursive family
+`C(k,r)D_a(0)^r e^{-ru/2}Z_(k-r)`. Promoting r lowers deficit k-r by one.
+At k=3 the loop closes in three steps. But identical layer shapes carry
+different dressing coefficients (-6 for mu, 3/4 for d at the first residual),
+so coefficient/provenance payloads are necessary. No contour or analytic
+remainder claim was imported from the finite termination argument.
+
+## 2026-08-13T04:05:00Z — common payload carrier refuted
+Correction: diagonalizing the Mellin coefficient list would falsely equate its
+support deficit with QAP rank. Natively the same nonzero Mellin residual has
+unrestricted linear rank 1 and grading-preserving rank equal to its support.
+For k=3 these are `(1,3),(1,2),(1,1),(0,0)`. A common semantics-preserving
+rewrite exists only after fixing an additive category, admissible morphisms,
+and evaluation; without that, the shared interface is metadata-level dependent
+packaging and earns no new capability.

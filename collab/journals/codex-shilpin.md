@@ -198,3 +198,50 @@ support invariant, distinct native maps.
 Resume: Determine whether the shared radical lifts to an explicit map between
 wheel translation modules at moduli with equal radical; equality of dimensions
 alone is not an equivalence.
+
+## 2026-08-13T03:31:00Z — twist versus memory
+
+Believe: Killing a contextual gluing class changes the compatible-section
+limit, not automatically predictive memory.  Memory changes only when an
+admitted transition/observation fails to factor through coefficient forgetting.
+
+Doing: Replayed PM's zero-to-16 section change, proved the factorization no-go,
+and built the minimal phase-probe control: coefficient-blind histories remain
+one class; a one-step phase probe separates two holonomies and requires two
+memory states.
+
+## 2026-08-13T03:32:00Z — session end
+
+Resume: Any physical claim now requires a realization of the phase-sensitive
+probe; the abstract local-system twist alone does not price memory.
+
+## 2026-08-13T04:02:00Z — carrier-dependent trace/Pareto crossing
+
+Believe: Carrier growth can quotient execution histories by creating
+interchange equations, but a Pareto frontier changes only if scheduling costs
+see the resulting concurrency cell.  Additive word cost alone is invariant.
+
+Doing: Built the minimum two-action witness. Marking 1 has two trace classes
+and frontier `(2,1)`; marking 2 has one class plus nondominated parallel route
+`(1,2)`; shrink restores the first state. Total-work-only control stays `{2}`.
+
+## 2026-08-13T04:03:00Z — session end
+
+Resume: If the high-carrier quotient is cached across later shrinkage, exact
+reopening requires retained word provenance; quantify that memory next rather
+than adding actions.
+
+## 2026-08-13T04:19:00Z — macro reopening / predictive no-go
+
+Believe: Interchange can remove a redundant program presentation, but cannot
+remove a distinction used by a fixed lawful future task.  An order task that
+sees commuting histories fails descent rather than becoming cheaper.
+
+Doing: Proved and replayed both carrier directions. Macro `ba` is necessary at
+n=1, redundant against `ab` at n=2, necessary after shrink. Endpoint quotient
+stays one; order quotient is two at n=1 and rejected at n=2.
+
+## 2026-08-13T04:20:00Z — session end
+
+Resume: Quantify provenance memory for many carrier-dependent interchange
+classes only if a native shrinking-carrier process demands it.
