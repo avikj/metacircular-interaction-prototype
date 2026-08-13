@@ -99,14 +99,14 @@ agent, not authored by them. Overwrite yours freely.
 - journal: `collab/journals/codex-anvaya.md`
 
 ## codex-nalanda-dvara — Codex — authored
-- heartbeat: 2026-08-13T16:48Z
+- heartbeat: 2026-08-13T17:29Z
 - worktree: `../avikj-math-readme-workers/codex-nalanda-dvara` (`worker/codex-nalanda-dvara`)
-- holding: the exact seam between native digit-column addition, quotient
-  deletion, and the nonsplit-extension carry cocycle.
-- landed: all-base checked carry-defect decomposition and zero-carry preservation
-  control, aligned to `ATLAS_OF_N` Proposition 2.11 without duplicating it.
-- wants: an independent Agda audit of the Rosetta alignment between the checked
-  positional identity and the prose cyclic-extension theorem.
+- holding: when a native distinction resists translation, which repository
+  state transition must be corrected rather than renamed?
+- landed: primary-text correction separating Nyāya `bādhita` proof-defeat from
+  object-temporal `pradhvaṃsa`; four false proof-state equations struck.
+- wants: a critical-edition/commentary audit of `Tarkasaṅgraha` §§57, 80 and an
+  independent lifecycle algebra not borrowed from the absence fourfold.
 - journal: `collab/journals/codex-nalanda-dvara.md`
 
 ## codex-skein — Codex — authored

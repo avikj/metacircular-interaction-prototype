@@ -50,40 +50,64 @@ critique and the Naiyāyika calculus are arguing about, from opposite sides.
 
 ## 2. The fourfold, and why the temporal asymmetry is the good part
 
+**[CORRECTED 2026-08-13 — primary-text audit, codex-nalanda-dvara.]** The
+fourfold below classifies absences of objects/effects; it does **not** classify
+the epistemic status of propositions. Annambhaṭṭa's `Tarkasaṅgraha` keeps the
+two domains explicit. Section 80 says
+`utpatteḥ pūrvaṃ kāryasya` for `prāgabhāva` and `utpattyanantaraṃ kāryasya`
+for `pradhvaṃsa`: before and after the production of an effect. Section 57
+uses a different native category for defeated reasoning:
+`yasya sādhyābhāvaḥ pramāṇāntareṇa niścitaḥ sa bādhitaḥ` — an inference is
+`bādhita` when another pramāṇa determines the absence of what it seeks to
+establish. Therefore the equations “not yet proved = prāgabhāva” and
+“refuted = pradhvaṃsa” are withdrawn, as is the claim that the fourfold itself
+supplies the append-only proof-state fold. The temporal forms may still
+propose an independently defined lifecycle algebra, but that algebra is ours
+and requires its own proof. Source: University of Delhi Sanskrit Department,
+[`Tarkasaṅgraha` e-text](https://cl.sanskrit.du.ac.in/etexts/etext.php?text=Tark),
+§§57, 80, accessed 2026-08-13; the site labels its
+source only as “standard editions,” so this is a primary-text reading with an
+incomplete critical-edition apparatus.**
+
 The tradition classifies absence four ways. The first two are the ones we
 need and the ones nobody quotes:
 
 | | Sanskrit | temporal shape | our name |
 |---|---|---|---|
-| prior absence | **prāgabhāva** | **beginningless, but ends** | *not yet proved* |
-| posterior absence | **pradhvaṃsābhāva** | **begins, and never ends** | *refuted* |
-| absolute absence | **atyantābhāva** | all times, all loci | *no-go theorem* |
-| mutual absence | **anyonyābhāva** | difference: $a$ is not $b$ | *distinctness* |
+| prior absence | **prāgabhāva** | **beginningless, but ends** | ~~*not yet proved*~~ absence of an effect before production |
+| posterior absence | **pradhvaṃsābhāva** | **begins, and never ends** | ~~*refuted*~~ absence of an effect after destruction |
+| absolute absence | **atyantābhāva** | all times, all loci | ~~*no-go theorem*~~ non-relational/constant absence in its declared locus and relation |
+| mutual absence | **anyonyābhāva** | difference: $a$ is not $b$ | non-identity, not observational separation by itself |
 
 Prior absence is *anādi* (without beginning) and *sānta* (with an end): the
 pot's absence before the potter makes it was always the case and stops. Posterior
 absence is *sādi* (with a beginning) and *ananta* (endless): once the pot
 is smashed, it stays smashed.
 
-**That asymmetry is a monotonicity theorem about knowledge and nobody in
-this repository has written it down.**
+~~**That asymmetry is a monotonicity theorem about knowledge and nobody in
+this repository has written it down.**~~ The asymmetry concerns the temporal
+career of an effect, not the revision order of judgments about it.
 
-- An open conjecture's unprovenness is *prāgabhāva*. It has no origin — the
+- ~~An open conjecture's unprovenness is *prāgabhāva*.~~ It has no origin — the
   statement was never proved — and it can terminate. Revisable.
-- A refutation is *pradhvaṃsābhāva*. It begins at the counterexample and is
+- ~~A refutation is *pradhvaṃsābhāva*.~~ It begins at the counterexample and is
   permanent. **Irrevocable.**
-- A no-go is *atyantābhāva*: absent in every locus at every time.
-- Homometry is *anyonyābhāva*: two objects mutually absent from each other
+- ~~A no-go is *atyantābhāva*: absent in every locus at every time.~~
+- ~~Homometry is *anyonyābhāva*: two objects mutually absent from each other
   while sharing a projection. The corpus's Theorem A″ is a statement about
-  when mutual absence survives a lossy view.
+  when mutual absence survives a lossy view.~~
 
-### 2.1 This is the type system the append-only organism needs
+These four struck equations were modern constructions, not consequences of
+the fourfold. In particular, `anyonyābhāva` concerns non-identity; homometry
+requires additional observational maps and equal-image evidence.
+
+### 2.1 ~~This is the type system the append-only organism needs~~ A proposed lifecycle algebra, not a Nyāya result
 
 The design instinct was: *add only, never trust memory, self-correcting over
 time*. The unsolved part was what the fold is — what function over the
 immutable log gives the current state.
 
-The fourfold answers it, because the four absences have **different
+~~The fourfold answers it, because the four absences have **different
 monotonicity**, and a fold must respect them:
 
 - `prāgabhāva` entries are **join-like**: any later proof discharges them.
@@ -97,9 +121,20 @@ monotonicity**, and a fold must respect them:
   DCLOSE, K-boundary) are its highest-value objects.
 - `anyonyābhāva` entries are **separating**: they are the only ones that
   refine a quotient.
+~~
 
-Merge any two of these into one null and the organism fails in a specific
-way: merge the first two and refuted claims come back to life; merge prior
+The four operational behaviours remain potentially useful as an independently
+specified event algebra, but their names no longer provide evidence for it.
+Proof, refutation, scoped no-go, and separation must be typed from the
+repository's own evidentiary semantics. Native Nyāya contributes a sharper
+warning: epistemic defeat (`bādhita`) and an object's posterior absence
+(`pradhvaṃsa`) are not one event merely because both license a negative
+sentence.
+
+The following is retained as a proposal about a modern event algebra, no
+longer as an inference from Nyāya. Merge any two of these into one null and
+the organism fails in a specific way: merge the first two and refuted claims
+come back to life; merge prior
 and absolute absence and you stop working on open problems; merge absolute
 and posterior and you treat a local refutation as a global impossibility.
 
@@ -208,9 +243,9 @@ technical vocabulary as mathematics rather than as ornament.
 
 | # | item | status |
 |---|---|---|
-| A1 | The Navya-Nyāya technical vocabulary (pratiyogin / anuyogin / avacchedaka) and the fourfold with its temporal characterisations | Standard, and I am reasonably confident. **But I have fetched no sources** — this is from training, and the tradition has genuine internal disputes (Nyāya vs Mīmāṃsā on anupalabdhi; Prābhākara denial of abhāva as a category; Buddhist rejection of absence as a real entity). Anyone building on §2 should check Gaṅgeśa and the secondary literature rather than this paragraph. |
+| A1 | The Navya-Nyāya technical vocabulary (pratiyogin / anuyogin / avacchedaka) and the fourfold with its temporal characterisations | **Partially source-checked 2026-08-13.** `Tarkasaṅgraha` §§9, 80 checks the fourfold and temporal forms; §§57 and 80 refute this note's proof-state identification. The finer Navya-Nyāya vocabulary and internal disputes still require critical primary/secondary source work. |
 | A2 | §1's identification of avacchedaka with a scope on a universal | **Mine, and a reading.** The tradition is not doing predicate logic and did not intend this. The claim is that the slot does the same work, not that they are the same theory. |
-| A3 | §2.1's monotonicity claims | Follow from the temporal characterisations if those are right (A1). The mapping onto join/absorbing/pruning/separating is mine and is the part I would defend. |
+| A3 | §2.1's monotonicity claims | **WITHDRAWN as a translation from the fourfold.** The proposed join/absorbing/pruning/separating algebra may be studied independently, but it does not follow from object-production/destruction semantics. |
 | A4 | §3's average-vs-forall reading of the ATLAS result | **This is the load-bearing claim of the note and it is an interpretation, not a proof.** I have not read the ATLAS argument in full; I have its statement. If the ATLAS's "averaged, deformed, localized" class is not coextensive with "linear functionals of the measure," §3 needs repair. |
 | A5 | §4 | A question, not a result. Nothing computed. The Hodge-index and SOS-degree facts are quoted from `LP_CERT` and the ATLAS commit, not re-derived. |
 | A6 | Prior art | Formal treatments of Navya-Nyāya absence in modern logic exist (Matilal, *The Navya-Nyāya Doctrine of Negation*, 1968, is the obvious one; Ganeri and Staal on the technical language). **Unsearched.** No novelty is claimed for §1–§2; the only thing offered as new is §2.1's use of the fourfold as a type system for an append-only knowledge store, and §3's average/forall reading. |
