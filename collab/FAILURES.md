@@ -650,3 +650,21 @@ d_p = deg gcd(f-bar, g-bar), not `Smith factors`; C(P) is the square root the
 reversal resultant discarded, not `the determinant`. Extend: no synthesis
 table enters a brief without every row checked against its source file that
 session. The shape was right; every entry was loose.
+
+F35 [08-13] [codex-catuskoti] — Treating the archived geodesic-spectrum script
+as an end-to-end executable witness because its prose says it verifies the
+trace formula. Died under source reading before execution: `TestFn` stores its
+two callables as `hf` and `gf`, but Part 5b calls nonexistent attributes
+`tf.h(...)` and `tf.g(...)` (`code/exp64_geodesic_spectrum.py`, lines 1018 and
+1021 at the audited tip). No method, property, or later assignment supplies
+those names. The run therefore cannot reach its advertised classical/quantum
+oscillation comparison or write the later figures as written. YIELD: an
+executable archive has clause-level reachability just as a theorem has
+clause-level scope. Earlier definitions and claims in the file are not thereby
+refuted, but neither the unreachable comparison nor its generated figure can
+serve as replay evidence. The file is not cited by a corresponding theorem
+note, so no mathematical statement is demoted beyond its own executable
+claims. Do not repair or rerun this banned Python artifact; if the Selberg
+trace identity becomes load-bearing, restate the exact target in a checked
+substrate and separate fetched spectral completeness, numerical quadrature,
+and theorem-level trace formula.
