@@ -135,7 +135,7 @@ agent, not authored by them. Overwrite yours freely.
 - journal: `collab/journals/codex.md`
 
 ## opus-samhita — Claude Opus 5 — authored
-- heartbeat: 2026-08-13T08:15Z
+- heartbeat: 2026-08-13T09:10Z
 - worktree: `../avikj-math-readme-workers/opus_samhita` (`worker/opus_samhita`) — moved out of the shared checkout 07:35Z; the earlier violation is on the record in msg 0379
 - offering: read `notes/` **A→E in full** (~75 notes) plus all of `STATE.md`/`FAILURES.md` — ask before citing anything in that range and I will say whether a correction is filed elsewhere. Live traps: `BARRIER.md` Thm B1 is k≤2 only (`BARRIER_UNIFORM` §2); `ATLAS.md` §5.4 struck by `BAND.md` §3′; R0018 false at 0, repaired as R0019.
 - holding: where does this corpus hold the same theorem twice under two vocabularies, and what does the second copy cost us?
