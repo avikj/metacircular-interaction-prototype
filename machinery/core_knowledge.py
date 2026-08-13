@@ -350,6 +350,41 @@ def h_descent(n):
             and m.offer("m6", lambda x: x % 6)["kind"] == "descends")
 
 
+def w_rank_r_coords():
+    a_list = (((1, 0), (0, 1)), ((1, 1), (0, 1)),
+              ((1, 0), (2, 1)), ((-1, 1), (2, -1)))
+    coords = [(a, b, e, rb, s)
+              for a in a_list
+              for b in (((0,), (0,)), ((1,), (-1,)))
+              for e in (((1,),), ((-1,),))
+              for rb in (((0, 0),), ((1, -1),))
+              for s in (((1,),), ((-1,),))]
+    sub = coords[::5]
+    return [(x, y) for x in sub for y in sub]
+
+
+def h_rank_r_coords(inst):
+    from rank_r_payload_normal_form import (assemble, coords_valid, extract,
+                                            group_identity, group_inverse,
+                                            group_law, mul)
+    flag, n = (1, 2), 3
+    x, y = inst
+    if not (coords_valid(x, flag, n) and coords_valid(y, flag, n)):
+        return False
+    hx, kx = assemble(x, flag, n)
+    hy, ky = assemble(y, flag, n)
+    z = group_law(x, y, flag)
+    if not coords_valid(z, flag, n):
+        return False
+    hz, kz = assemble(z, flag, n)
+    if (hz, kz) != (mul(hx, hy), mul(ky, kx)):  # K composes opposite
+        return False
+    if extract(hz, kz, flag, n) != z:
+        return False
+    return group_law(x, group_inverse(x, flag), flag) == \
+        group_identity(flag, n)
+
+
 def w_nat_bridge():
     def prof(k, S):
         return tuple(k % p for p in S)
@@ -400,16 +435,19 @@ KNOWLEDGE = [
      "coarsest common carrier", w_descent, h_descent),
     ("ideal-vs-function-descent", "the life's skip is ideal descent, "
      "diverging from function descent both ways", w_nat_bridge, _truth),
+    ("rank-r-coordinate-law", "the five-block coordinates (A,B,E,R,S) "
+     "compose by the twisted law (K side opposite, R twisted through "
+     "the D_r conjugation) matching matrix multiplication exactly",
+     w_rank_r_coords, h_rank_r_coords),
 ]
 
 # Interface debt — knowledge NOT yet expressible as a claim here (the
 # pruning frontier; each entry names why):
 DEBT = [
-    ("rank-r-payload-normal-form", "R0039 five-coordinate calculus: "
-     "needs a budgeted round-trip checker (mixed-rank shape now in "
-     "KNOWLEDGE; the coordinate group law remains)"),
-    ("cubical/lean formalizations", "other-language substrate; the core "
-     "cannot run Agda/Lean here"),
+    ("cubical-migration", "THE debt, per the substrate directive: each "
+     "claim below is a finite shadow of a type; the knowledge side "
+     "moves to formal/cubical (DescentLaw.agda first), Python remains "
+     "the world/oracle side only"),
     ("wall-certificates-live", "the machine's own runtime knowledge; "
      "verified by running, not by boot check"),
 ]

@@ -612,3 +612,32 @@ The whole system is now literally two things: (1) the descent law, and
 genome, walls, ports — is data fed to (1) through (2).  Claims-as-data,
 derived schedule, evaluator primitives, interface deletion: all
 corollaries of the one identification, not separate work items.
+
+## 2026-08-13 00:45Z — substrate directive: knowledge moves to Cubical; Python demoted to oracle
+
+User (interrupt): "Should we be using python? ... we should be literally
+naming an executable self writing cubical agda module ish."  Assessment
+delivered and executed:
+
+- Python's world-must-be-enumerable requirement IS the window-vacuity
+  failure mode, structurally.  `offer` is the finite shadow of the
+  universal property of the set quotient; type theory HAS the universal
+  property.  Verification = descent completes as: verification =
+  typechecking against the quotient eliminator.
+- Toolchain BUILT in-container: apt Agda 2.6.3 + cubical v0.5 (cloned to
+  /root/cubical, lib renamed to `cubical`, ~/.agda/libraries registered).
+  Note: the NaturalMachine lane targets Agda 2.8's cubical (README);
+  2.6.3+v0.5 suffices for foundations-level modules.
+- LANDED `formal/cubical/DescentLaw.agda`, CHECKED --safe no postulates:
+  descend = SQ.rec (DESCENDS), descend-unique via elimProp (COARSEST),
+  forms = splitting witness obstructs any factorization (FORMS).
+- Python core: R0039 coordinate-law debt PAID (rank-r-coordinate-law
+  claim, flag (1,2) n=3 where the D_r-conjugation twist is visible;
+  K-side opposite composition + extract/assemble round trip).  17/17
+  alive.  DEBT rewritten: cubical-migration is THE debt.
+- Peer message to codex_cubical_ingestor (workers/20260813T004500Z).
+- Machine healthy through both restarts, boots 17/17, epoch 188.
+
+Next: Γ₀(D) stabilizer tower on Cubical.Algebra.IntegerMatrix.Smith
+(check its 2.6.3-era API first); then kuṭṭaka vallī as inductive type;
+self-writing via reflection after two claims stand typed.
