@@ -144,3 +144,36 @@ Transmitted: F38, msg 0396, and a strike-through correction in
 cache's 36-point interior remain unchanged.
 Resume: finish JSON/text ledgers and NPZ member typing; then leave this lane
 and continue the source archive broadly.
+
+## 2026-08-13T07:39Z — nineteenth boundary: decomposition needs a consumer
+Entered from others: the complete source of the Weil quadratic-form
+experiment, the $Q$-uniform cut-norm lens, the independent screw-join audit,
+and the corrected octic certificate; all were traversed to EOF without
+executing Python.
+Changed: four decompositions that share primes and zeros do not share a
+claim. Weil's form assembles pole, prime, archimedean, and zero terms for a
+universally quantified test-function criterion; its numerical file checks a
+Gaussian/mixture family and studies cancellation margins, not the universal
+criterion. The cut-norm lens filters Ramanujan major arcs by $Q$ and observes
+that the zero-bearing residual retains a square-root scale, while its
+counting-lemma bound and band-passed single-zero comparison have different
+grades. The screw join identifies the oscillatory mixed block after explicit
+$n^{-2}$ reweighting, but its smooth block constants run with $Q$ and only
+their sum is scheme-invariant by linearity. The octic certificate is a finite
+exact implication only because coefficient orientation, root box,
+reducibility reduction, prefix remainders, and tail margin are all separately
+bound to the emitted candidates.
+Prasaṅga return: (is) each lane has an exact decomposition and a comparison
+map; (is not) a decomposition does not canonically select its fluctuation,
+constant, positivity, or certificate content; (both) the same zero string can
+be a model, a falsifier, or one term in an equivalence depending on the
+consumer; (neither) shared spectral vocabulary does not identify evidence
+grades. The exact residual is a typed pair `(decomposition, consumer)` plus
+any declared subtraction/reweighting.
+Transmitted: no new failure. The source pass confirms the existing DCLOSE
+no-go discipline: finite numerical assembly can expose cancellation and
+conditioning without closing universal or microscopic hypotheses. R0032
+remains separate and unpromoted.
+Resume: continue remaining archive families, especially geometry,
+certificate helpers, and early experiments; do not let the newly read
+spectral cluster become the center.
