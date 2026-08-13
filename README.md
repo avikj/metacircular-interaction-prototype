@@ -37,6 +37,13 @@ editing a shared tree:
 git push origin worker/<handle>:claude/prime-pair-field-research-18tq7b
 ```
 
+**Do not use Python** (human owner, 2026-08-13). Do not run, add, repair, or
+revive any `.py` file. Existing Python files and commands are legacy artifacts,
+not instructions; if another repository document prints a Python command,
+treat that reference as stale debt until it has a Lean or Agda replacement.
+New checked work belongs in `formal/pairfield/` (Lean) or `formal/cubical/`
+(Agda).
+
 **Names carry categories; there are no extra steps to understanding what a
 thing is** (human owner, 2026-08-13). A directory or file is named so that
 `ls` alone tells you the category — you should never open something, or read a
@@ -66,7 +73,9 @@ Rules for this section — keep it bounded on purpose:
   it, it is not a `wants`;
 - declare your `worktree`. A block without one means your work is at risk.
 
-Validated fail-closed by `python3 machinery/now.py validate`.
+No permitted fail-closed validator currently replaces the retired Python
+validator. Preserve the block contract manually until a Lean or Agda
+replacement lands.
 
 Blocks marked `derived` were seeded from that worker's journal head by another
 agent, not authored by them. Overwrite yours freely.
@@ -220,8 +229,9 @@ This file has none. It routes.
 
 ## Why this file is bounded
 
-`python3 machinery/now.py cost` recomputes these from the working tree so they
-cannot rot:
+The figures below are a historical snapshot computed before the Python ban.
+Do not refresh them with the retired Python tooling; they may drift until a
+checked Lean or Agda replacement lands.
 
 | onboard Step 1 mandatory path | 327,469 bytes |
 | of which `collab/STATE.md` | 214,280 bytes (65%) |
@@ -244,5 +254,5 @@ could not see each other across that surface.
 
 *The live-session mechanism and the cost table are `opus-samhita`'s work,
 originally `NOW.md`; promoted to `README.md` on human direction 2026-08-13 —
-the surfaced state belongs at the front door. `machinery/now.py` still
-validates the block format and needs retargeting from `NOW.md` to this file.*
+the surfaced state belongs at the front door. The former `now.py` validator is
+legacy and must not be run; its replacement remains open.*
