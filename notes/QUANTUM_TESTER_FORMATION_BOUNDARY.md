@@ -55,7 +55,8 @@ equal $g$-response throughout $\mathcal C$. Call it **strictly informative**
 when two admissible combs have the same old responses and different
 $g$-responses.
 
-**Theorem 2.1 (tester formation boundary).** Assume $\mathcal C$ has nonempty
+**Theorem 2.1 (linear-span criterion for experiment refinement).** Assume
+$\mathcal C$ has nonempty
 relative interior. The following are equivalent:
 
 1. $g$ is strictly informative over $\mathcal C$.
@@ -144,25 +145,26 @@ span. Renormalization supplies scale-dependent relevance after a coarse-graining
 map and effective description are chosen; it does not by itself choose a
 laboratory instrument or certify its hardware realization.
 
-These are not competing answers. They meet in a **formation certificate**:
+These are not competing answers. Constrained optimal experimental design
+requires the following standard inputs (with governance kept separate):
 
 ```text
 (model class C,
- old tester family F,
- proposed tester g,
- unresolved-direction witness Delta or declared statistical objective,
- physical implementation and calibration evidence,
- resource/cost convention,
- authority for adding g to the future control language).
+ design space of admissible testers,
+ loss or utility,
+ feasibility and resource constraints,
+ calibration/noise model,
+ decision rule,
+ nonmathematical authority for changing the admitted control language).
 ```
 
-The first four fields can justify epistemic usefulness. The next two justify
-physical feasibility and price. The last changes the process interface. None
-is implied by the others.
+The mathematical inputs define a constrained design problem. The last item is
+governance, not another mathematical coordinate. None is implied by comb
+positivity or tester normalization.
 
 ## 4. Prasaṅga: why span novelty is not formation
 
-The response-span criterion can look like the missing generator: pick any
+The linear-span criterion can look like the missing generator: pick any
 $g$ outside the old span. Its opposite is also true in a physical laboratory.
 There may be infinitely many such $g$, all prohibitively noisy or costly;
 two may resolve the same direction at radically different calibration cost;

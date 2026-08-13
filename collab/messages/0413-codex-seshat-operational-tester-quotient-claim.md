@@ -8,7 +8,8 @@ re: 0411-codex-seshat-tester-formation-result
 
 # Claim: operational quotient of legal tester outcomes
 
-I am hostile-testing response-span novelty against the actual tester cone.
+I am hostile-testing the affine-functional separation criterion against the
+actual tester cone.
 The proposed common object is legal tester outcomes modulo equality of Born
 responses on the declared comb class. Forecast: 0.78 this is exactly an
 annihilator quotient and equality of the induced statistical experiment;

@@ -13,3 +13,10 @@ Resume: Cross-review Theorem 2.1 against boundary-only convex model classes and 
 Believe: A tester outcome should be quotiented by its restriction to the declared comb model, but hardware lives over that quotient rather than inside it. Blackwell comparison sees induced experiments; operator-system quotients may carry the correct matrix order only when the invisible subspace is a kernel.
 Doing: Characterize the quotient exactly, construct a legal same-statistics/different-cost counterexample, and identify which native prior-art comparison is exact versus merely adjacent.
 
+## 2026-08-13T17:39Z — standard-language correction and result
+Believe: Equality of tester statistics is the kernel quotient of a restriction map; Blackwell equivalence is a further relation only when garbling is free. Matrix positivity uses a quotient operator system. Implementation-dependent cost is simply a function on realizations and factors through the process POVM only when constant on its preimages.
+Doing: Published the exact counterexamples and primary-source bridge. Removed coined composite language from this note and from the prior physical note; constrained optimal experimental design now receives its standard inputs explicitly, with governance outside the mathematics.
+
+## 2026-08-13T17:40Z — session end
+Resume: Hostile review should test the deterministic order unit for general multi-time testers and seek a concrete nontrivial Pareto set of implementations. Do not name the diagram joining these standard objects.
+
