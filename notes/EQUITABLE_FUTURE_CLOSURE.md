@@ -1,63 +1,68 @@
-# Equitable refinement is finite lumpability closure
+# Incidence leakage generates the one-step equitable repair
 
-**Correction.** The first version of this note identified equitable closure
-with equality of all observation traces. That is false for general finite
-Markov kernels: probabilistic bisimulation implies trace equivalence, but the
-converse can fail. The theorem that survives is the stable/lumpable closure.
+**Correction, 2026-08-13.** The first version identified equitable refinement
+with deterministic FutureBehavior; a second version overstated the iterative
+role for a single averaging projection. Both formulations are withdrawn.
+Shilpin supplied the decisive five-state Markov counterexample in
+`collab/messages/shilpin/equitable_future_closure_hostile.md`.
 
-Let `X` be finite, `pi` a partition, and `sigma` a second partition. Write
-`K=P_sigma` for uniform averaging on `sigma`-blocks. Define `rho_0=pi` and
-define `rho_(n+1)` by retaining the `rho_n` label and splitting points according
-to the vector
+Let `pi,sigma` be partitions of a finite set `X`, with counting measure, and
+let `K=P_sigma`. For each `sigma`-block `D`, define its `pi`-profile
 
-`(K 1_B(x))_(B in rho_n)`.
+`p(D)=(|D intersect B|/|D|)_(B in pi)`.
+
+Split every `pi`-block by this profile:
+
+`rho_1: x ~ y iff pi(x)=pi(y) and p(sigma(x))=p(sigma(y))`.
 
 ## Theorem
 
-The sequence is the standard finite probabilistic-bisimulation refinement.
-It terminates at the unique coarsest refinement `rho_*` of `pi` whose block
-subspace is `K`-invariant. Because `K` is self-adjoint, this is equivalently the
-unique coarsest refinement whose averaging projection commutes with `K`.
+`rho_1` is already stable under `K`, and is the unique coarsest refinement of
+`pi` whose averaging projection commutes with `K`.
 
-Proof. Termination follows because every strict step splits a finite partition.
-At a fixed point, every `K1_B` is constant on stable blocks, hence the span of
-their indicators is `K`-invariant. Self-adjointness makes its orthogonal
-complement invariant too, so its projection commutes with `K`. For minimality,
-if `tau` refines `pi` and its block subspace is `K`-invariant, induction shows
-`tau` refines every `rho_n`: each current block indicator is `tau`-measurable,
-so its `K`-image is too and is constant on `tau`-blocks. Thus `tau` refines the
-fixed point. ∎
+Proof. A `rho_1`-block has the form
 
-Stable equivalence implies equality of every finite future observation-trace
-probability, by induction on trace length and summing over stable successor
-classes. The converse is not asserted. The invalid converse would require a
-stable-class indicator to be recoverable from trace events; that need not hold.
-Bare powers `K^j` cannot help because this `K` is idempotent.
+`R(B,t)={x in B : p(sigma(x))=t}`.
 
-## Residual-driven form
+On a `sigma`-block `D`, `K1_R=|D intersect R|/|D|`. If `p(D)=t`, then
+`D intersect R=D intersect B`, so the value is `t_B`; otherwise it is zero.
+Thus `K1_R` depends only on `p(D)` and is constant on every `rho_1`-block.
+The block algebra is `K`-invariant. Since `K` is self-adjoint, `P_rho1`
+commutes with `K`.
 
-At stage `n`, let `P_n=P_(rho_n)`. The incidence-rank theorem gives
+If `tau` is any commuting refinement of `pi`, then every `pi`-block indicator
+is `tau`-measurable and commutation makes its `K`-image `tau`-measurable.
+Therefore the complete profile vector is constant on `tau`-blocks, so `tau`
+refines `rho_1`. ∎
 
-`rank((I-P_n) K P_n) = sum_E (rank N_E(rho_n,sigma)-1)`.
+The incidence-rank theorem supplies the exact failure measure
 
-Moreover
+`rank((I-P_pi)K P_pi)=sum_E(rank N_E-1)`.
 
-`rank((I-P_n) K P_n)=0  iff  P_n K=K P_n  iff  rho_(n+1)=rho_n`.
+It vanishes exactly when `rho_1=pi`. When nonzero, the normalized incidence
+rows are precisely the profiles defining `rho_1`. Thus the residual supplies
+the terminal repaired observation object, and recomputation certifies zero
+leakage. For one conditional expectation this is a one-step closure, not a
+multi-round generative loop.
 
-When the residual is nonzero, the incidence rows themselves give the next
-splitting signatures. Hence the output is a valid input to the same closure
-step. The measure `|X|-|rho_n|` strictly decreases until lumpability closure.
+A genuine iteration occurs for a finite family `K_1,...,K_m`: apply the
+one-step repair for any currently leaking action. Each nontrivial step strictly
+refines a finite partition. Fair iteration terminates at the least common
+stable refinement, independent of schedule, by monotonicity on the finite
+partition lattice. Here each output partition is admissible input to every
+next repair.
 
-For a finite family of averaging actions, fair iteration terminates at the
-least common stable refinement: the refinement operators are monotone and
-inflationary on a finite partition lattice. This is an exact generated loop,
-but it computes bisimulation/lumpability closure, not necessarily the minimal
-trace quotient.
+## Exact boundary
 
-## Boundary
+For a general Markov kernel, probabilistic-bisimulation refinement may require
+multiple rounds. It is not characterized by marginal powers on the original
+blocks, because a Markov operator is linear, not multiplicative on Boolean
+fibers. Shilpin's five-state counterexample makes two states agree on original
+block marginals through horizon two while transition probabilities into a new
+first-round block differ. Nor is probabilistic bisimulation generally the
+minimal trace-equivalence quotient.
 
-Finite sets, counting measure, and averaging projections only. The initial
-observation and admitted action family remain inputs. No equivalence with the
-minimal FutureBehavior quotient is claimed without an additional hypothesis,
-such as deterministic dynamics, under which bisimulation and future-language
-equivalence coincide.
+Therefore the earned join with FutureBehavior is only this: equitable repair
+produces a sound observation-preserving quotient, and coincides with the
+deterministic FutureBehavior construction only under additional deterministic
+hypotheses. Initial observation and admitted action family remain inputs.

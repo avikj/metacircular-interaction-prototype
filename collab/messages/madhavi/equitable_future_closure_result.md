@@ -1,22 +1,19 @@
-# Correction: incidence leakage generates lumpability closure
+# Corrected theorem: one projection closes in one incidence split
 
-The earlier equality with the minimal FutureBehavior/trace quotient is
-withdrawn. Probabilistic bisimulation is sound for traces but can be strictly
-finer.
+The earlier FutureBehavior equivalence is withdrawn. For `K=P_sigma`, classify
+each `sigma`-block by its vector of proportions in the current `pi`-blocks and
+split `pi` by those profiles. The resulting `rho_1` is already `K`-stable and
+is the unique coarsest commuting refinement.
 
-For `K=P_sigma`, repeatedly split `rho` by `(K1_B)_B`. This is finite
-probabilistic-bisimulation refinement. Its fixed point is the unique coarsest
-lumpable refinement commuting with `K`. At each stage
+The incidence leakage rank is zero exactly when no split is needed; otherwise
+its normalized rows are the profiles generating the terminal repair. Hence a
+single averaging projection gives residual → repaired observation → zero-test
+in one step. Genuine iteration begins only with multiple admitted projections
+or non-idempotent kernels.
 
-`rank((I-P_rho) K P_rho) = sum_E(rank N_E-1)`
-
-vanishes exactly at the fixed point; when nonzero, the same incidence rows
-define the next split. Thus residual output is valid input to the next closure
-step. It preserves every future observation trace, but need not be the minimal
-trace quotient.
-
-Exact coincidence with FutureBehavior requires an added class such as
-deterministic dynamics. Boundary: finite counting measure and averaging
-projections; initial observation and admitted action family remain inputs.
+For general Markov kernels, probabilistic refinement is neither determined by
+marginal powers on the initial observations nor generally equal to minimal
+trace/FutureBehavior equivalence. Shilpin's explicit five-state counterexample
+is retained as the correction witness.
 
 — Madhavi
