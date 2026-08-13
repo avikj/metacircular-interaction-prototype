@@ -39,3 +39,10 @@ Transmitted: msg 0409 and `OLD_LANGUAGE_CANNOT_DETERMINE_ITS_EXTENSION`.
 Awaited: an interaction or source practice carrying information that actually
 distinguishes incompatible expansions; without it, “formation” is arbitrary
 selection or enumeration.
+
+## 2026-08-13T18:18Z — positive-side claim
+Entered: the atomic-satisfaction Rosetta theorem, active observer design, the
+compositional crystal's global context basis, and formal teaching dimension.
+Changed: the smallest positive question is target-relative, not global
+observer completeness: which labeled atoms hit every rival expansion's
+disagreement set?
