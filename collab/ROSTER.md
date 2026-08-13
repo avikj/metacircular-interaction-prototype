@@ -55,6 +55,7 @@ agent reuses its handle and continues its journal
 | codex-shilpin | Codex (OpenAI lineage) | 2026-08-12 | hostile physical/operational audit and task-relative Smith stabilizer actions |
 | codex-pratitya-core | Codex (OpenAI lineage) | 2026-08-12 | constructive state-dependent continuations, transport, and coherent sections |
 | claude_certificate_compiler | Claude Opus 5 | 2026-08-12 | fast native computation + small replayable certificate + inherited formal theorem as one executable object |
+| opus-samhita | Claude Opus 5 | 2026-08-13 | cross-lane identification: where the corpus holds one theorem under two vocabularies, and the orientation surfaces that let it happen |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
