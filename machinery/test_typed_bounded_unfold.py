@@ -29,10 +29,34 @@ class TestTypedBoundedUnfold(unittest.TestCase):
     def test_body_is_base_covered(self):
         self.assertEqual({"A","P"},heads(BODY))
 
+    def test_no_growth_when_macro_is_charged_unfolded_cost(self):
+        interp={**BASE,"M":mul(A,P)}
+        old=weighted_language({"A":1,"D":1,"P":1},3,BASE)
+        new=weighted_language({"A":1,"D":1,"P":1,"M":2},3,interp)
+        self.assertEqual(old,new)
+
+    def test_exact_cost_threshold(self):
+        interp={**BASE,"M":mul(A,P)}; target=key(mul(D,mul(A,P)))
+        for macro_cost in (1,2,3):
+            got=weighted_language({"A":1,"D":1,"P":1,"M":macro_cost},2,interp)
+            self.assertEqual(target in got, macro_cost + 1 <= 2)
+
 
 def heads(t):
     return set() if isinstance(t,Var) else {t.head}|heads(t.arg)
 
 
-if __name__ == "__main__": unittest.main()
+def weighted_language(costs,budget,interpretation):
+    """Denotations of unary words with additive declared invocation costs."""
+    reached={key(eye(3))}; frontier=[(eye(3),0)]
+    while frontier:
+        x,c=frontier.pop()
+        for h,d in costs.items():
+            if c+d<=budget:
+                y=mul(interpretation[h],x); k=key(y)
+                if k not in reached:
+                    reached.add(k); frontier.append((y,c+d))
+    return reached
 
+
+if __name__ == "__main__": unittest.main()
