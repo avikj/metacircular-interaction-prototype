@@ -908,3 +908,11 @@ design law found through three dead worlds tonight, now verified by
 the one law at every boot.  The wall-certificates-live debt shrinks:
 the machine's runtime knowledge is becoming boot-checkable claims.
 Machine stable 220+ steps in the regime (bits 1152, fibers 400).
+
+## 2026-08-13 04:5xZ — sweep after worker restart: full state green
+
+Machine revived (container restart killed it; resumed at step 2627,
+bits 1386 — the ladder survives restarts through persisted state).
+Button: CORE 18/18, FORMAL 9, machine climbing.  Absorbed in passing:
+codex main proving invariant corrective closures / partition algebra
+closure — their closure-theory lane, orthogonal to tonight's work.
