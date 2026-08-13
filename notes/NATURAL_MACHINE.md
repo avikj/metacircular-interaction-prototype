@@ -445,14 +445,31 @@ Each of these is a prose statement. **None of them may be cited as checked.**
    (ℤ/2)²)* is done here in prose. No group object is constructed for
    `⟨D, E⟩ ≤ Sym(Word)`, and the three remaining pairwise distinctions
    (D≠E, D≠DE, E≠DE) are not separately checked.
-2. **`DIGIT_CRYSTAL` Thm 4.4 / Cor 4.5 (the completion).** `J ∘ R_∞ = L` — "the
-   limit of word reversal is the identity in canonical digit charts" — and the
-   collapse of the Klein four to ℤ/2 on ℤ_b are **not formalized**. No profinite
-   limit, no `Σ_b`, no ℤ_b appears in the Agda. What is formalized is the
-   *finite-word residual* that forces them: the intertwiner `π∘rev = rev∘ς` and
-   the failure of π-equivariance. This is the honest weakening of mission item 4,
-   and closing it would require inverse limits of the two truncation systems as
-   an explicit construction.
+2. **`DIGIT_CRYSTAL` Thm 4.4 / Cor 4.5 (the completion).** The bare-type
+   inverse-limit equivalence is now formalized in
+   `NaturalMachine.DigitTowerLimit`: checked reversal gives
+   `reversalLimitEquiv : MSDLimit ≃ LSDLimit` with explicit inverse laws.
+   The same module checks `transportLawToLSD` and its conjugacy equation:
+   any binary law on `MSDLimit` transports through reversal to `LSDLimit`.
+   Separately, `dropLSD-not-additive-base2` is the least carry witness to
+   Lemma 4.1 (`1 + 1 = 2`), while `dropLSD-xor-hom-base2` is the opposite
+   control showing that end deletion alone is not the obstruction.
+   The all-base Rosetta equation is now checked as
+   `carry-defect-decomposition`: from the native digit-column certificate
+   `d + e ≡ r + base · carry`, it derives
+   `(d + base·x) + (e + base·y) ≡ r + base·(x + y + carry)`.
+   Thus the quotient/drop-LSD defect is exactly the column carry, for arbitrary
+   tails and hence every positional depth. `zero-carry-preserves-tail` is the
+   exact preservation control. The nonsplit extension and nonzero cohomology
+   class remain Proposition 2.11 of `ATLAS_OF_N`; they are not formalized here.
+   The same module defines the canonical stream charts and checks
+   `limit-reversal-chart-identity`, the equation `J ∘ R_∞ = L`; pointwise this
+   is `head (reverse xs) = last xs`. The collapse of the Klein four to ℤ/2 on
+   ℤ_b remains **not formalized**. The diagrams are equivalent in `Type`,
+   not as canonical group diagrams: most-significant truncation is a group
+   homomorphism under positional value, while least-significant truncation is
+   not. Transporting a group law to `LSDLimit` does not make its native finite
+   projections homomorphisms. Bare univalence must not erase this residual.
 3. **"Aut of the digit chart over the value map."** Mission item 5 asked for this
    group to be computed. It is not. What is checked instead is the contrast at
    both ends: `Aut(ℕ, 0, suc)` is trivial, `Aut(ℕ as a type)` is not, and the
@@ -586,10 +603,13 @@ implementation.**
 
 Successor questions this opens. All stated as open; none claimed.
 
-1. **Close §7.3 item 2.** Construct `ℤ_b = lim(π)` and `Σ_b = lim(ς)` in Cubical
-   Agda and formalize `DIGIT_CRYSTAL` Thm 4.4 (`J ∘ R_∞ = L`). The finite-word
-   intertwiner proved here is exactly the input an inverse-limit argument needs,
-   so the remaining work is the limit construction, not the mathematics.
+1. **Finish §7.3 item 2.** The two explicit inverse limits,
+   `R∞ : lim(π) ≃ lim(ς)`, canonical stream charts, and
+   `DIGIT_CRYSTAL` Thm 4.4 (`J ∘ R_∞ = L`) now exist in Cubical Agda. A
+   generic transported binary law and the least base-two finite carry
+   obstruction are now checked separately; the remaining joint is to
+   specialize the transported law to b-adic addition and prove that the
+   `LSDLimit` canonical projections do not preserve that very law.
 2. **Compute `Aut(Word / value)`.** Conjecturally `Word ≃ CanWord × ℕ` (canonical
    core plus a zero-padding count), whence the group is `∏_{n} Sym(ℕ)`. The
    decomposition is a normalization lemma of the same difficulty as

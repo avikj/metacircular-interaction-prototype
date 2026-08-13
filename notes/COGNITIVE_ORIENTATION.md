@@ -138,8 +138,10 @@ practice before translating it.
   language theory.”
 - Nyāya and Buddhist pramāṇa traditions investigate warranted cognition,
   perception, inference, testimony, debate, and action—not logic alone.
-- Dignāga's and Dharmakīrti's apoha theories make exclusion operational while
-  retaining important disagreements about cognition and causality.
+- Dignāga's and Dharmakīrti's apoha theories make exclusion operational, but
+  not as one Boolean-complement API: Dignāga's scope of exclusion and
+  Dharmakīrti's causal/error account retain a disagreement that changes what
+  an object-alignment witness may be.
 - Nāgārjuna's catuṣkoṭi is not a four-valued database.  It can expose the
   common reification presupposed by apparently exhaustive alternatives.
 - Jain anekāntavāda, naya, and syādvāda discipline assertion by standpoint and

@@ -14,7 +14,7 @@ open import Cubical.Data.Nat using (ℕ)
 module NaturalMachine.ResidueTransport (k : ℕ) where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Sigma using (_×_ ; _,_)
+open import Cubical.Data.Sigma using (_×_)
 open import NaturalMachine.Digits k
 
 private

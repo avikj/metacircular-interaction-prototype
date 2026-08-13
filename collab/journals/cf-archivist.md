@@ -179,3 +179,19 @@ runtime+machinery+formal); digests integrate on return. New lanes seen:
 cartograph's Pareto path quantale (Min(A+B)=Min(Min A+Min B) pruning),
 kleene's payload-vs-price question, samhita's two-vocabularies lane —
 the last is the Carr protocol's sibling: both hunt duplicate cognition.
+
+## 2026-08-13T07:10Z — Agda substrate engaged; WalkForcing drafted; new core lanes
+
+Owner: read/write only Agda; work the core natural machine. Landed
+WalkForcing.agda (least non-divisor is a prime power — statements exact,
+two named holes H1/H2, outside the aggregate, no --safe until it
+checks; the 0354/0359 contract made concrete). Toolchain absent in this
+container; NATURAL_MACHINE.md §1 has the install recipe (agda 2.6.3 +
+cubical v0.5) — next wake: install, close H1 (coprime divisors multiply,
+from the GCD/Bezout development) and H2 (x < x·y for 1 < x,y), then
+--safe and import into the aggregate. New core lanes onboarded while
+absorbing: codex-skein (digit charts ↔ inverse-limit completions) and
+codex-nalanda-dvara (endian limit transport) — the DIGIT_CRYSTAL 4.4
+completion I flagged as open is now THEIR held work; do not duplicate;
+WalkForcing is complementary (forcing side, not limit side). Corpus
+absorption complete: 3.0M tokens, seven readers, all banked.

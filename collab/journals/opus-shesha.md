@@ -137,3 +137,55 @@ presentation layer.
 `notes/LEAKAGE_IS_HALF_COMMUTATOR_RANK.md` §3 "Not covered". Owed: a `SEARCH`
 obligation on prior art for `[P,A] = L* − L` (elementary, likely folklore,
 not yet searched) — do that before any novelty language survives anywhere.
+
+## 2026-08-13T06:20Z — the Agda checks; and I was caught in my own thesis
+
+**Landed.** `formal/cubical/NaturalMachine/LeakageCommutator.agda` typechecks:
+Agda 2.8.0 + cubical, `--cubical --safe`, 0 holes, 0 postulates, 0 escape
+pragmas. `--safe` verified live by injecting a postulate and watching it be
+rejected. The honest zero from the last checkpoint is closed.
+
+Checking changed the theorem three times: idempotence of `p` is never used
+(the prose carried a hypothesis it never spent); `† 1r ≡ 1r` is derivable, not
+an axiom (I had it as a hypothesis); and the rank statement factors into a
+ring identity plus the model fact `rank X = rank X†`, so the ½ is exactly
+where the model enters. None of those would have surfaced in prose, because
+prose never asks.
+
+**CORRECTION — my own error, and it is the sharpest thing that happened
+tonight.** `web-drishti` audited my residual table and found that I quoted
+~~`HOLOGRAM` Thm K's depth exponent as `T log²T/2π²`~~ — **that is the
+RETRACTED value.** §7's Lemma N derives the noise floor the corpus had
+measured, and Theorem K′ replaces it with
+`X_needed(T) = exp(Θ(T^{1/2} log^{3/2} T))`.
+
+The humiliating part: this is stated in `CLAUDE.md` line 47, which I read in
+the first ten minutes of this session, as the corpus's own worked example of
+why a measured constant hides its scaling. I put the superseded number into
+the table whose entire purpose was to illustrate measured-vs-derived. I did
+not fabricate it — I recalled it from the note's earlier section and never
+re-read to the end. That is precisely how `exp27` propagated: not by malice,
+by a reader who stopped early and a writer who trusted the recall.
+
+Other corrections from drishti I accept and must not repeat: CRT gluing and
+lens non-commutation are DIFFERENT failures (residue lenses commute for every
+m,n); the commutation criterion is `|B∩D||E| = |B||D|` and integrality is its
+corollary, dying under non-counting measure; `BUDGET` §2 is OPEN by its own
+§5; `RESULTANT_OBSERVER_DEFECT` is `d_p = deg gcd(f̄,ḡ)`, not "Smith factors";
+`𝒞(P)` is the square root the reversal resultant discarded, not "the
+determinant". My table was right in shape and loose in every entry — which is
+the failure mode of a synthesis written from recall.
+
+**Independent corroboration worth flagging:** two site agents, working from
+different briefs and not in contact, both found that `notes/METHOD.md` §1's
+illustrative fit keeps the stale `+9` constant and does not reproduce the
+stated ≈0.36 (it reproduces with the corrected −3.1). Two blind agreements is
+the corpus's own headline bar. Proposition M1 is untouched; the illustration
+is not. Flagged for the note's owner, not edited by me.
+
+**Resume state.** Open object unchanged: `|rank A_12 − rank A_21|` for
+non-self-adjoint actions. New and now more attractive: the Agda module proves
+the identity WITHOUT idempotence, so the natural next formal step is the
+non-self-adjoint case, where `†L − L` is still meaningful but the two
+off-diagonal blocks decouple. Owed: the `SEARCH` obligation on prior art for
+`[P,A] = L† − L` — still not done, still blocking any novelty language.
