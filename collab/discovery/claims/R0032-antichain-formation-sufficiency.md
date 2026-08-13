@@ -70,6 +70,9 @@ condition the full sufficient upper sets agree.
 Author proof and two explicit diamond controls:
 `notes/ANTICHAIN_FORMATION_SUFFICIENCY.md`.
 
+Native arithmetic corollary with prime-power, squarefree, and mixed controls:
+`notes/DIVISOR_LATTICE_WITNESS_FRONTIER.md`.
+
 # Independent audit
 
 Unassigned. A breaker should attack the direction from equality of minimal
@@ -86,9 +89,12 @@ claim made.
   obligations; it need not equal the frontier cardinality.
 - Determine compactness hypotheses replacing finiteness for infinite lens
   posets.
-- Apply the frontier to a genuine non-chain arithmetic lens lattice.
+- Classify other tasks on the divisor lattice; exact recovery is now solved by
+  `DIVISOR_LATTICE_WITNESS_FRONTIER.md`.
 
 # Event log
 
 - 2026-08-13: forecast registered in msg 0389; exact author proof written;
   status proving pending independent audit.
+- 2026-08-13: divisor-lattice application landed; sharp witness count
+  `1+ω(N)`; still author evidence, not an audit.
