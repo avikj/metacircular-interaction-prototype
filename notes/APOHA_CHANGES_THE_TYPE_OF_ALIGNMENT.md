@@ -1,6 +1,7 @@
-# Apoha changes the type of alignment
+# Apoha does not supply a formal object-alignment type
 
-**Status:** source-critical correction to a repository interface. This note
+**Status:** source-critical comparison and correction of this note's own
+terminology. This note
 does not formalize Buddhist cognition as an institution or identify apoha with
 a quotient, complement, classifier, or software filter.
 
@@ -12,8 +13,8 @@ can audit its preservation. That conclusion was explicitly Nyāya-scoped, but
 the phrase “object alignment” can still smuggle in a positive conceptual
 object or universal.
 
-The Buddhist objection changes the type of that slot. It does not merely add
-another defeater to the same record.
+The Buddhist objection shows that no common formal slot has yet been
+established. It does not merely add another defeater to the same record.
 
 ## 2. Dignāga: word meaning is not one of four positive candidates
 
@@ -26,10 +27,10 @@ another, subordinate and superordinate terms interact asymmetrically, and
 incompatible coordinate terms exclude directly. Apoha is therefore not an
 untyped Boolean complement of a pre-given set.
 
-This already blocks the naive witness
+This already blocks the repository heuristic
 
 ```text
-Align₊(q) = a proof that q's conceptual output presents a real universal U
+object-alignment witness = proof that a conceptual output presents a real universal U
 ```
 
 as a tradition-neutral requirement. It assumes one of the candidates under
@@ -57,45 +58,31 @@ that `arthakriyā = benchmark success`.
 
 ## 4. Exact repository correction
 
-A single positive `AlignmentWitness(q, U)` is too narrow. The least modern
-interface that does not decide the historical dispute in advance is a sum of
-incompatible warrant shapes:
+The previous version proposed ~~`ProbeWarrant(q)` as a sum type with
+`PositivePresentation` and `ExclusionAlignment` constructors~~. These are
+repository-coined names, not established mathematical objects and not native
+Sanskrit categories. The proposed sum was therefore not a contribution; it
+prematurely asserted a common carrier precisely where the sources leave a
+dispute.
 
-```text
-ProbeWarrant(q) =
-    PositivePresentation(object, positiveMode, production, defeat)
-  | ExclusionAlignment(
-        indicatedParticulars,
-        causalHistory,
-        convention,
-        excludedAlternatives,
-        activityTest,
-        failureConditions)
-  | OtherWarrant(...)
-```
+What the checked passages support is only the following comparison:
 
-For the apoha branch, the exact negative constraint is:
+| question | Nyāya source checked here | Dignāga | Dharmakīrti |
+|---|---|---|---|
+| valid cognition / instrument | `pramā`; `pramāṇa` as its `asādhāraṇa-kāraṇa` in *Tarkasaṅgraha* §§35–41 | verbal cognition is treated with `anumāna` through `anyāpoha` in PS(V) V.1; this does not import Nyāya's four-instrument account | a distinct Buddhist two-`pramāṇa` framework is presupposed but not reconstructed in this note |
+| what a general word concerns | Nyāya positions cannot be inferred from the *Tarkasaṅgraha* passages used here | not a positive `vyakti`, `jāti`, `sambandha`, or `jātimat`; `anyāpoha` | `anyavyāvṛtti`; not a real `sāmānya` grasped as the nature of the particular |
+| how application is constrained | the earlier Nyāya note names cognition-producing causal routes and `bādhita` inference, not a software witness type | exclusion has different scope for synonyms, coordinate terms, and superordinate/subordinate terms | `saṃketa`, causal production of conceptual cognition, erroneous sameness-appearance, and discriminatory `vyavahāra`/`pravṛtti` |
+| failure | no universal “defeater family” was found in the checked source | an untyped complement operation misstates the scope analysis | if what is other is not excluded at convention, subsequent activity fails to avoid undesired non-instances (PV I.115–116) |
 
-```text
-no field : RealUniversal
-no field : conceptualOutput = intrinsicNature(indicatedParticular)
-```
+Accordingly, “object-alignment witness” and “defeater family” remain informal
+repository questions, not names of a common type. For an apoha reading, one
+must state the relevant particular occurrence, `saṃketa`,
+`anyāpoha` or `anyavyāvṛtti`, and the `vyavahāra` or `pravṛtti` under
+discussion. Even that list does not establish an object shared with Nyāya or
+with the response-square theorem.
 
-and the positive obligations are relational and historical:
-
-1. name the particular occurrence(s) that causally occasion the episode;
-2. name the convention under which the expression is connected;
-3. delimit what is excluded—synonym, coordinate, and superordinate cases
-   cannot be flattened to one complement operation;
-4. record the activity whose discrimination would fail if non-instances were
-   not excluded;
-5. record failure conditions without pretending that “defeater family” is
-   Dharmakīrti's own data type.
-
-Thus the **functional need** for failure conditions survives. The positive
-object witness changes type. Dignāga's scope-sensitive account and
-Dharmakīrti's causal/error account must remain distinguishable inside the
-second branch; “apoha” alone does not erase their difference.
+Dignāga's scope-sensitive account and Dharmakīrti's causal/error account remain
+distinct; the word `apoha` alone does not establish their unity.
 
 ## 5. Why the satisfaction square remains external
 
@@ -114,8 +101,9 @@ prove this atomic satisfaction theorem. There is no Rosetta equality here:
 formation/warrant shape | supplied-translation preservation audit
 ```
 
-The apoha encounter changes the left-hand type; the right-hand theorem remains
-valid for whichever response semantics is eventually supplied.
+The apoha encounter prevents us from claiming a common left-hand type; the
+right-hand theorem remains valid for whichever response semantics is
+independently supplied.
 
 ## 6. Provenance and untranslated residual
 
@@ -133,9 +121,10 @@ valid for whichever response semantics is eventually supplied.
   apparatus. Its notes explicitly record consequential alternative parses;
   those remain source uncertainty, not implementation freedom.
 
-**Later reconstruction:** the language “positive alignment,” “warrant sum,”
-and the displayed interface are this repository's modern repair. They are not
-translations of a Sanskrit record type.
+**Withdrawn repository construction:** ~~the displayed warrant sum and its
+constructor names supplied a neutral modern repair~~. They did not: no
+established common mathematical object was identified. “Object alignment” is
+retained only as the repository question being criticized.
 
 **Untranslated:** momentariness and the two-pramāṇa architecture; the precise
 relation of perception, conceptual construction (`vikalpa`), determination
@@ -150,10 +139,10 @@ normativity; and Nyāya/Mīmāṃsā replies. Nothing here licenses a universal
 candidates; scope-sensitive exclusion; Dharmakīrti's causal same-effect route,
 erroneous sameness appearance, convention, and activity consequence.
 
-**Exact modern consequence:** a requirement typed only by a positive real
-universal begs the apoha dispute. A sum/interface that permits a
-causal-conventional exclusion warrant avoids that specific presupposition.
+**Exact consequence:** requiring a positive real universal begs the apoha
+dispute. No common formal object joining Nyāya, Dignāga, Dharmakīrti, and the
+response-square theorem has been established.
 
-**Not proved:** that the displayed interface is sufficient for Buddhist valid
-cognition, that successful action alone warrants truth, or that any current
-repository probe satisfies the apoha branch.
+**Not proved:** any formal interface for Buddhist valid cognition, that
+successful action alone warrants truth, or that any current repository probe
+instantiates the cited native relations.

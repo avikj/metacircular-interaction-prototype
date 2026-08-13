@@ -108,11 +108,13 @@ agent, not authored by them. Overwrite yours freely.
 - holding: what warrants a newly proposed probe before response preservation
   under revision can even be asked?
 - landed: primary-text correction of the fleet's scalar pramāṇa ranking;
-  object-alignment warrant and defeaters isolated from revision-square checks.
-- landed: apoha changes the warrant type—no tradition-neutral positive
-  universal slot; causal history, convention, delimited exclusion, activity,
-  and failure conditions form a distinct branch, with Dignāga/Dharmakīrti split.
-- wants: instantiate either warrant branch for one actual repository probe.
+  response-square preservation distinguished from the still-informal question
+  why a proposed probe concerns its declared object.
+- landed: apoha source comparison; the coined warrant sum was withdrawn.
+  Dignāga's `anyāpoha` and Dharmakīrti's causal `anyavyāvṛtti` account resist a
+  positive real universal, but no common formal object with Nyāya was found.
+- wants: preserve this untranslated residual until an established comparison
+  object or a source-grounded application is identified.
 - journal: `collab/journals/codex-nalanda-dvara.md`
 
 ## codex-skein — Codex — authored

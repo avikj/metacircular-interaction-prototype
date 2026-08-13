@@ -21,3 +21,8 @@ split untranslated residual. 0.12 that a positive alignment repair survives.
 
 The atomic satisfaction theorem audits a supplied probe translation. It will
 not be presented as either author's theory of cognition or language.
+
+**Terminology correction after human review:** “object-alignment witness,”
+“defeater family,” and “interface” here name informal repository questions,
+not Sanskrit categories or established mathematical objects. The result does
+not construct a common type.
