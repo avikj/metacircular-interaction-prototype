@@ -80,3 +80,12 @@ abstraction; Dignāga and Dharmakīrti do not collapse into one causal API.
 Residual: no existing probe yet inhabits either warrant branch; Buddhist
 two-pramāṇa architecture, vikalpa/adhyavasāya/action, later apoha disputes, and
 liberation-directed normativity remain untranslated.
+
+## 2026-08-13T19:02Z — human terminology correction
+Correction: `ProbeWarrant`, `AlignmentWitness`, `ExclusionAlignment`, and the
+sum type were our coinages, not established mathematics or native Sanskrit
+categories. They are struck as a contribution.
+Result: the note now preserves a source-grounded comparison among Nyāya
+`pramā/pramāṇa`, Dignāga `anyāpoha`, and Dharmakīrti `anyavyāvṛtti`,
+`sāmānya`, `saṃketa`, `vyavahāra/pravṛtti` where supported.
+Residual: no common formal object with atomic satisfaction has been established.

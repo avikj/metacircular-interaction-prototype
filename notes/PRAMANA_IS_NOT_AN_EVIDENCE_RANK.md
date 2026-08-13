@@ -55,8 +55,9 @@ relation, not a global ranking.
 ## 3. Exact correction to probe admission
 
 The repository's open formation problem asks what licenses a new probe
-`q : X → Y`. Calling its output “direct” does not answer this. The native
-distinction forces at least the following modern interface:
+`q : X → Y`. Calling its output “direct” does not answer this. For repository
+design only, the native distinction prompts the following audit questions;
+this is neither a native interface nor a new mathematical object:
 
 ```text
 declared object X
@@ -68,10 +69,11 @@ defeaters: conditions under which the alignment fails
 successful preservation under model revision
 ```
 
-This is not presented as a formalization of Nyāya. It is the minimum change
-forced upon our question: admission concerns the relation among object,
-cognition-producing operation, result, and defeater—not an evidence word's
-position in a universal ranking.
+This is not presented as a formalization of Nyāya. It is a repository audit
+prompt suggested by the comparison: admission concerns the declared object,
+cognition-producing operation, result, and possible failure—not an evidence
+word's position in a universal ranking. No common mathematical object is
+claimed.
 
 `ACTIVE_OBSERVER_DESIGN.md` already has part of the answer in another
 vocabulary. Its revision square
@@ -88,12 +90,13 @@ truth-apt cognition of the intended object. The two meet without unifying:
 - formation/warrant asks why the probe is admissible;
 - the commuting square asks what its revision preserves.
 
-The open residue is therefore narrower than “invent a sensor”: construct an
-alignment warrant and failure conditions for a proposed probe, then preserve
-the aligned responses by the existing square. `APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT.md`
-corrects an implicit overreach in the earlier phrase “alignment witness”:
-Buddhist apoha does not permit the positive real universal/object slot to be
-assumed in advance. The warrant must admit more than one incompatible shape.
+The open residue is therefore narrower than “invent a sensor”: explain why a
+proposed probe concerns its declared object and under what conditions that
+claim fails, then test response preservation by the existing square.
+`APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT.md` corrects the earlier suggestion that
+“alignment witness” names a shared formal type. It does not. Buddhist apoha
+does not permit a positive real universal/object slot to be assumed in
+advance, and no common formal object has been established.
 
 ## 4. Provenance grades and untranslated residual
 
