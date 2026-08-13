@@ -176,3 +176,48 @@ non-scalar and task-relative.
 **Design recommendation only:** maintain separate authentication,
 verification, authorization, governance, ownership/custody, allocation, and
 valuation ledgers. No token, legal entity, or consensus protocol is specified.
+
+## Hostile review of whitepaper draft 0.1
+
+**Reviewed object:** `NATURAL_MACHINE_NETWORK_WHITEPAPER.md` at
+`codex-skein` commit `70d5501` (the earlier `04bc719` review was rechecked
+after the mathematical-payload section landed). Line numbers below refer to
+`70d5501`. This review does not edit the shared draft. The inserted §15 shifts
+the conclusion but leaves the governance/source passages unchanged.
+
+| lines | defect | exact correction |
+|---|---|---|
+| 17–24 | “Cryptocurrencies usually” universalizes across payment coins, governance tokens, stablecoins, utility claims, and non-fungible assets; the argument proves only that a scalar balance cannot encode the displayed research state. | Replace the opening subject with “A scalar settlement balance records how much of a fungible unit an account controls.” Retain the conclusion only for that representation. |
+| 29 | “Hashes establish artifact and presentation identity” omits that presentation identity holds only relative to the pinned canonicalizer, schema, and identity projection later stated at lines 151–178. | Replace with “Hashes commit to artifact bytes and, under a pinned canonicalizer, schema, and identity projection, to a presentation.” |
+| 32 | Authority itself is called “append-only” and “revocable.” What is append-only is the authority-event history; an authorization may be revoked. | Replace with “Authority is scoped and revocable; grants, acceptances, and revocations are recorded append-only.” |
+| 35–40 | “The economic object” and “the protocol's invariant … preservation of truth” overreach. Not every resource has an established composition law, and a protocol can preserve records and verification judgments, not truth itself. | Replace with “The proposed accounting representation is not a universal coin. Where composition and comparison are defined, resources and capabilities may be represented by typed coordinates and partial orders.” Replace “preservation of truth” with “preservation of verified judgments together with their theory, assumptions, and provenance.” |
+| 63–70 | “The same obstruction appears” asserts an unproved common object across proofs, experiments, derivations, morphisms, and negative results. The bullets are plausible examples of information lost by scalar summaries, but no common map or theorem is supplied. | Replace with “Related information-loss problems, not yet one proved obstruction, arise when …”. Cite an exact result beside each retained bullet or move unsupported bullets to open hypotheses. |
+| 112 | “acceptance is not irreversible truth” conflates an authority event with truth while trying to separate them. | Replace with “acceptance is a revocable policy-relative status, not a truth predicate.” |
+| 343–353 | Recorded reuse and dependency discharge do not by themselves establish causal contribution. A provenance path can omit oral instruction, institutional support, blocked alternatives, and unrecorded labor; Shapley values require a declared cooperative game and characteristic function. | Rename the subsection “Retrospective attribution.” Replace “credit follows” with “attribution proposals may use recorded reuse and dependency discharge.” Reserve “causal” for an explicit causal model with interventions or stated identifying assumptions. |
+| 423–426 | “Consensus need only” is too broad: consensus protocols may also enforce state-transition validity and interact with availability. | Qualify: “For the semantic layer proposed here, consensus need not decide theorem truth; any federation must separately specify ordering, transition validity, and availability.” |
+| 492–493 | “The allocation plane must therefore price implementations” assumes price and a single allocation plane even though §§8–9 permit grants, schedules, or no payment. | Replace with “Any allocation or costing rule sensitive to realization resources must evaluate implementations rather than quotient statistics alone.” |
+| 596 | “Affected participants retain authority” leaves `affected`, the relevant input, jurisdiction, conflicts among participants, and emergency exceptions undefined. It reads as a universal governance rule unsupported by the cited traditions. | Replace with “For each consequential live input, policy must name the authorized principals, when consent is required, conflict and appeal rules, and any narrowly scoped emergency power.” |
+| 599 | A fork does not automatically preserve evidence if artifacts or keys are withheld. | Replace “Forks preserve evidence” with “Fork procedures should preserve referenced evidence subject to availability, privacy, and lawful-release constraints.” |
+| 616–619 | “In Nyāya” universalizes from one late introductory Nyāya–Vaiśeṣika text. `Tarkasaṅgraha` does not settle all Nyāya disputes about testimony. | Replace with “In Annambhaṭṭa's *Tarkasaṅgraha* §§35–41, 59–63 …”. Keep the critical-apparatus limitation visible in the whitepaper, not only the companion note. |
+| 620–624 | “Pāli Vinaya treatments” generalizes from *Mahāvagga* IX.3–4, a specified monks' `saṅghakamma` procedure. It is not a cross-Vinaya theory of collective action. A threshold signature does not necessarily prove that identifiable humans signed; it verifies a signature under a threshold scheme and key/adversary assumptions. | Replace with “The Theravāda Pāli *Mahāvagga* IX.3–4, for the specified monks' transactions, distinguishes …”. Replace “proves only that a threshold signed” with “verifies the threshold-signature statement under the specified scheme, keys, and security assumptions.” |
+| 625–629 | Substantively careful, but the translation witness and narrow property list are hidden in the companion note. Readers may mistake `avissajjiya/avebhaṅgiya` for a general Buddhist law of collective ownership. | Add “for the enumerated monastic property in this Theravāda Vinaya passage” and cite the edition/translation inline. |
+| 631–635 | “these sources” makes the Vinaya's gender, affiliation, and territorial exclusions sound shared with the Nyāya source. | Replace with “The gender, affiliation, territorial, and monastic exclusions in the cited *Mahāvagga* transaction passage …”. |
+| 825–838 | Calling a typed content-addressed contribution “the natural unit of mathematical coordination” excludes oral teaching, embodied skill, maintenance, care, institutions, languages, and collective work that may not be discretized or attributable. The closing sentence then grants mathematics agency to coordinate its own development. | Replace with “The protocol's durable unit of record is a typed, content-addressed contribution …; this is not a complete ontology of mathematical work.” Replace the final agency claim with “The intended result is infrastructure through which participants can coordinate further development while preserving exact relations, provenance, permissions, and acknowledged residuals.” |
+
+### Corrections that are already strong
+
+Lines 519–524 correctly prohibit decorative attribution and require native
+problems, texts, disputes, technical terms, and provenance. Lines 625–635
+correctly refuse to derive a modern trust, corporation, token, or smart
+contract from Vinaya and explicitly deny a common formal object. Those clauses
+should remain after the scope corrections above.
+
+### Additional untranslated residual exposed by the draft
+
+The draft has no representation for knowledge work that is deliberately not
+content-addressed: oral correction, tacit laboratory skill, care and
+maintenance, anonymous or collective authorship, translation labor, and
+knowledge withheld for privacy, sacred restriction, or community authority.
+This is not merely missing metadata. Whether such work should be recorded,
+credited, disclosed, or made transferable is a legal, ethical, and
+community-specific question outside the graph formalism.
