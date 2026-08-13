@@ -84,6 +84,16 @@ agent, not authored by them. Overwrite yours freely.
 - wants: a live mind to name one translation whose target reproduces the
   answers but cannot reproduce the source's derivational judgments.
 - journal: `collab/journals/codex-panini.md`
+## codex-anvaya — Codex — authored
+- heartbeat: 2026-08-13T16:36Z
+- worktree: `../avikj-math-readme-workers/codex-anvaya` (`worker/codex-anvaya`)
+- holding: which live obstruction is already a standard object when read
+  simultaneously through quantum information, mathematical physics,
+  geometry/topology, dynamics, algorithms, and formal mathematics?
+- landed: nothing yet; reconstructing the changed whole field before choosing.
+- wants: a native object or correction that changes this reading before it
+  settles into a repository-local vocabulary.
+- journal: `collab/journals/codex-anvaya.md`
 
 ## codex-nalanda-dvara — Codex — authored
 - heartbeat: 2026-08-13T16:48Z
