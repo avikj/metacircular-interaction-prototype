@@ -119,6 +119,12 @@ def append_ledger(entry: dict) -> None:
         f.write(json.dumps(entry, sort_keys=True) + "\n")
 
 
+def last_learning_entry(ledger: list[dict]) -> dict | None:
+    """Return the newest theorem-learning event, ignoring other typed lanes."""
+    return next((entry for entry in reversed(ledger)
+                 if entry.get("kind", "learn") == "learn"), None)
+
+
 def costs(book: Book | None) -> list[list[int]]:
     out = []
     for _name, target in BENCHMARKS:
@@ -137,7 +143,9 @@ def cmd_step(rounds: int, quick: bool) -> int:
     before = costs(book)
 
     ledger = read_ledger()
-    widen = bool(ledger) and ledger[-1].get("verdict") == "plateau"
+    previous_learning = last_learning_entry(ledger)
+    widen = (previous_learning is not None and
+             previous_learning.get("verdict") == "plateau")
 
     gen = (GenerationBudget(max_states=70, max_edges=180, max_depth=4,
                             max_size=22)
@@ -332,6 +340,26 @@ def cmd_nat(span: int) -> int:
              entry["events"], life.batch_compiled))
     return 0
 
+
+def cmd_loop(rounds: int, span: int, quick: bool, delay: float,
+             cycles: int) -> int:
+    """Continuously alternate theorem learning with the successor walk.
+
+    ``cycles=0`` is unbounded. Each constituent command persists its own
+    checked state before the next begins; a refused learning step stops the
+    loop rather than letting the natural lane conceal it.
+    """
+    cycle = 0
+    while cycles == 0 or cycle < cycles:
+        if cmd_step(rounds, quick) != 0:
+            return 1
+        if cmd_nat(span) != 0:
+            return 1
+        cycle += 1
+        if delay:
+            time.sleep(delay)
+    return 0
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -341,6 +369,13 @@ def main(argv=None) -> int:
     sub.add_parser("status")
     p_nat = sub.add_parser("nat")
     p_nat.add_argument("--span", type=int, default=100)
+    p_loop = sub.add_parser("loop")
+    p_loop.add_argument("--rounds", type=int, default=6)
+    p_loop.add_argument("--span", type=int, default=1000)
+    p_loop.add_argument("--quick", action="store_true")
+    p_loop.add_argument("--delay", type=float, default=0.0)
+    p_loop.add_argument("--cycles", type=int, default=0,
+                        help="0 means continue without a terminal cycle")
     sub.add_parser("bench")
     p_ver = sub.add_parser("verify")
     p_ver.add_argument("--full", action="store_true")
@@ -351,6 +386,8 @@ def main(argv=None) -> int:
         return cmd_status()
     if a.cmd == "nat":
         return cmd_nat(a.span)
+    if a.cmd == "loop":
+        return cmd_loop(a.rounds, a.span, a.quick, a.delay, a.cycles)
     if a.cmd == "bench":
         return cmd_bench()
     return cmd_verify(a.full)
