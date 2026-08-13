@@ -60,6 +60,11 @@ that the 28-block meet is locally minimal under single block fusion.  Claiming
 has a nontrivial native consumer, but it does not solve that consumer's global
 resource threshold.
 
+**Later correction (2026-08-13).** `equitable_lens_repair.md` supplies a
+simultaneous partition-refinement theorem and computes the globally coarsest
+repair for this instance: 14 blocks.  The 28-block joint chart overpays by a
+factor two in block count.
+
 ## Replay
 
     python3 collab/messages/shilpin/arithmetic_carrier_interchange.py
