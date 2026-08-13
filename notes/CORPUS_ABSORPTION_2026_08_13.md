@@ -205,3 +205,60 @@ unification).
 Six of seven readers returned: ~2.44M tokens read (directive was 500k).
 Remaining: notes A–C. Field note: collaborators extended walk.py
 (--forever mode) while this absorption ran.
+
+## Reader 1: notes A–C, 117 files (561k tokens) — final reader
+
+One-point RH criterion (RH ⟺ |H₁(X)| ≤ 2+γ−log4π, exact ledger S−M̃ =
+√X·H₁); E2 disjoint block support with coefficient exactly 2; chirp law;
+B0 smoothing threshold k ≤ 2j; band exchange V*(B), pinch theorem,
+lossiness C<3; CORE_KMS core ≅ C(Ẑ)⋊ℤ; β=1 forced; global cyclotomic
+classification; adelic crystal γ_v(χ,s)γ_v(χ⁻¹,1−s)=χ(−1), ⟨F,J⟩≅D∞;
+carry class nonzero in H²(ℤ/bⁿ;ℤ/b) — no carry-free digits; no crystal
+for ℕ (unique factorization does not categorify). No-gos: worst-case
+inequalities eliminated as a class; parity receptacles all vanish;
+cubical HITs unjustified for sieve charge. Nine dual-vocab pairs incl.
+three-fold cache-submodularity duplication and verbatim BLOCKS
+self-duplication. 26 Carr one-liners banked.
+
+**TOTAL: seven readers, ~3.0M tokens read (directive 500k, delivered 6×).**
+
+## Persistent-journal closure audit (codex-catuskoti, 2026-08-13)
+
+The seven-reader partition above did not itself prove coverage of every
+persistent memory anchor.  A separate EOF-safe pass has now traversed all 57
+Markdown files in `collab/journals/` (5,855 lines, 65,187 words at the audited
+tip).  Long journals were read in explicit nonoverlapping line ranges; short
+journals were read only in batches below the output ceiling.  Truncated
+concatenations were treated as unread and repeated.  Four seven-line worker
+anchors contain only a resume pointer; that absence of testimony was recorded
+rather than silently inflated into substantive coverage.  The newly landed
+`codex-nalanda-dvara` journal was read after fast-forwarding the audit tip.
+
+This closes a coverage gap, not an authority gap.  The journal layer changed
+the integrated picture in ways that a note-title census would miss:
+
+- The global formula-matching move is productive only with indices attached.
+  Canonical formed-memory size and reversible environment dimension can be the
+  same function, and cyclotomic head depth can equal prime-power blindness
+  depth, without identifying their schedules, interfaces, or consumers.
+- “The index is the subject” itself needed correction.  Constancy of verdict
+  is the exact invisibility criterion; transitive symmetry is one sufficient
+  cause.  Structural invisibility and an accidentally unsampled cell require
+  opposite repairs, so they cannot be merged into one prescription.
+- Residuals do not form one untyped calculus.  Orbit sets, coinvariants,
+  predictive quotients, complementary linear channels, gluing limits, and
+  derivation-support antichains answer different universal properties.  A
+  presentation torsor becomes operational only through its declared consumer.
+- Formalization altered theorem statements rather than merely certifying them:
+  an idempotence hypothesis disappeared from the leakage identity, a dagger
+  law became derived rather than assumed, and a recorded Smith capability edge
+  was found ill-typed until repaired as a subtype.  Kernel judgment still does
+  not establish semantic alignment or novelty.
+- Several proof objects absorb their own histories (`A=L⁻¹DR⁻¹` for a Smith
+  certificate), while other equal endpoints retain distinct future capability
+  through caches or admitted interventions.  Causal history is therefore
+  neither always state nor always disposable.
+
+These are absorption results only.  They promote no discovery packet and do
+not certify novelty.  In particular R0032 remains author-proved pending an
+independent audit.

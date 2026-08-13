@@ -306,7 +306,7 @@ a projection of the state, whereas the accumulator is a bijection onto it.
 Replay: `#print axioms source_of_replay` gives `[propext, Quot.sound]` — this
 one does not even use choice.
 
-## 11. A defect in the joint's own type, found by trying to close it
+## 11. A defect in the joint's own type, confirmed source-clean
 
 While checking the closure without the Mathlib-heavy import chain, I
 transcribed `CapabilityGraph.ArbitrarySmithPresentation` verbatim and it did
@@ -318,10 +318,12 @@ Application type mismatch: the argument
 has type Prop of sort `Type` but is expected to have type Type ?u
 ```
 
-`×` is `Prod : Type u → Type v → Type (max u v)`; the second factor is a
-`Prop`. The repair that preserves the intended content — *a presentation
-together with the four side conditions* — replaces the product with a subtype,
-whose predicate may be a `Prop`:
+The initial incremental root build appeared to contradict this diagnosis, but
+that success reused a stale `CapabilityGraph.olean`. Touching a dependency
+forced source elaboration and reproduced the error on the pinned toolchain.
+Thus the product spelling really is defective in the current source. The
+repair preserves the intended content—a presentation together with the four
+side conditions—by using a subtype whose predicate may be a `Prop`:
 
 ```lean
 def ArbitrarySmithPresentation' :=
@@ -330,30 +332,25 @@ def ArbitrarySmithPresentation' :=
       0 ≤ d₁ ∧ 0 ≤ d₂ ∧ (d₁ = 0 → d₂ = 0) ∧ d₁ ∣ d₂ }
 ```
 
-`Pairfield.arbitrarySmithPresentation'` inhabits it, and *that* is the checked
-form of the closure claim in this note.
+`Pairfield.arbitrarySmithPresentation'` inhabits this form, and the capability
+graph now names the same subtype. Source-clean replay also exposed two adjacent
+API drifts in that graph: the removed `Int.natAbs_eq_one` theorem name and an
+obsolete destructuring binder. Both are repaired without changing any
+mathematical statement.
 
-**Status, stated exactly.** Reproduced in an environment importing
-`Pairfield.ComputableSmith2x2Adapter` and `Pairfield.MyhillNerodeAdapter`.
-Whether it also fails inside `CapabilityGraph.lean` itself — which additionally
-imports all of Mathlib through `DirectSmith2x2` — is **not yet confirmed in
-this worktree**, because that build is still running here. I am recording the
-finding before confirmation, with the confirmation missing, rather than after,
-because the correction to *my own* claim is due now: what is checked is
-`ArbitrarySmithPresentation'`, not the upstream spelling.
+**Correction to the earlier verification claim.** A successful incremental
+`lake build` is evidence about the dependency state it actually rebuilt, not
+automatically every source file represented by a cached object. The gate must
+be replayed after removing or isolating project build artifacts before it can
+support a source-wide claim.
 
-Two things worth separating, if it does reproduce:
+The transferable point is therefore stronger than the original typo:
 
-* `CapabilityGraph.lean`'s *closed* edges are all terms with real types and are
-  unaffected. The defect is confined to the one declaration that was
-  deliberately left uninhabited.
-* That is not a coincidence. **An uninhabited type is the one declaration in a
-  formal file that nothing else typechecks against**, so an error in it is
-  invisible to every downstream use. The graph module's own design — record
-  open edges as types — is right, and this is its one failure mode: a type
-  nobody inhabits is a type nobody tests. The cheap fix is a `#check` or an
-  `example : Nonempty _ → True` next to every open-edge declaration, which
-  forces elaboration without asserting an inhabitant.
+* open-edge declarations need source-clean elaboration even when cached
+  downstream objects exist;
+* a build report must record whether project objects were reused;
+* the subtype repair changes packaging only, not the total Smith producer,
+  replay, termination proof, or certificate theorem.
 
 That last paragraph is the transferable content, and it is worth more than the
 typo.
