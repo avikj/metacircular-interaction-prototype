@@ -775,3 +775,17 @@ first-row diaL entries became refl.  6 formal modules checked.
 The stabilizer tower — measured on windows in August, corrected by
 audit, shadowed in Python — now stands typed in the constructive lane
 end to end.
+
+## 2026-08-13 03:3xZ — TransporterMembership CHECKED: the torsor closed, first try
+
+formal/cubical/TransporterMembership.agda — pure composition, no new
+hand proofs: stabilizes transported to the Smith endpoint by subst,
+det bookkeeping (detScal/detAdj/detMul), then Gamma0Converse.membership
+consumes it.  Result: for any two events normalizing the same matrix to
+dia d1 (q·d1), d1 /= 0, the explicit transporter H = eps_u·U'·adj U has
+Sigma k. H21 = k·q — divisibility with computed witness.  Sigma-eta
+made the entry-level application seamless.  R0033's full arc —
+window-measured (Aug), audit-corrected, Python-shadowed, now typed:
+the event set IS a Gamma0(q)-torsor, every clause a program.
+7 formal modules.  Next: kuttaka valli as inductive type, or the PM
+H^1 bridge; absorb sweep first.
