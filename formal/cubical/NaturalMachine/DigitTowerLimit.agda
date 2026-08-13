@@ -51,6 +51,20 @@ module DigitTower (Digit : Type ℓ) (digitSet : isSet Digit) where
   reverse [] = []
   reverse (x ∷ xs) = snoc (reverse xs) x
 
+  last : {n : ℕ} → W (suc n) → Digit
+  last {zero} (x ∷ []) = x
+  last {suc n} (x ∷ xs) = last xs
+
+  head-snoc : {n : ℕ} (xs : W (suc n)) (x : Digit)
+            → V.head (snoc xs x) ≡ V.head xs
+  head-snoc (y ∷ ys) x = refl
+
+  head-reverse-is-last : {n : ℕ} (xs : W (suc n))
+                       → V.head (reverse xs) ≡ last xs
+  head-reverse-is-last {zero} (x ∷ []) = refl
+  head-reverse-is-last {suc n} (x ∷ xs) =
+    head-snoc (reverse xs) x ∙ head-reverse-is-last xs
+
   dropMSD : (n : ℕ) → W (suc n) → W n
   dropMSD zero (x ∷ []) = []
   dropMSD (suc n) (x ∷ xs) = x ∷ dropMSD n xs
@@ -128,6 +142,25 @@ module DigitTower (Digit : Type ℓ) (digitSet : isSet Digit) where
   reversalLimitEquiv : MSDLimit ≃ LSDLimit
   reversalLimitEquiv = isoToEquiv
     (iso reverseToLSD reverseToMSD reverse-rightInv reverse-leftInv)
+
+  ----------------------------------------------------------------------
+  -- The canonical stream charts.  The MSD tower grows on the right, so its
+  -- newly exposed digit is `last`; the LSD tower grows on the left, so its
+  -- newly exposed digit is `head`.  Finite reversal makes these observations
+  -- identical at every level: this is DIGIT_CRYSTAL Theorem 4.4's
+  -- `J ∘ R∞ = L`, at the exact set/type scope implemented here.
+  ----------------------------------------------------------------------
+
+  MSDChart : MSDLimit → ℕ → Digit
+  MSDChart (x , coherent) n = last (x (suc n))
+
+  LSDChart : LSDLimit → ℕ → Digit
+  LSDChart (x , coherent) n = V.head (x (suc n))
+
+  limit-reversal-chart-identity : (x : MSDLimit)
+                                → LSDChart (reverseToLSD x) ≡ MSDChart x
+  limit-reversal-chart-identity (x , coherent) =
+    funExt λ n → head-reverse-is-last (x (suc n))
 
   ----------------------------------------------------------------------
   -- A law on the LSD limit transported through reversal.  This is kept

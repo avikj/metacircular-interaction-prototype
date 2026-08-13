@@ -454,8 +454,10 @@ Each of these is a prose statement. **None of them may be cited as checked.**
    Separately, `dropLSD-not-additive-base2` is the least carry witness to
    Lemma 4.1 (`1 + 1 = 2`), while `dropLSD-xor-hom-base2` is the opposite
    control showing that end deletion alone is not the obstruction.
-   The stronger equation `J ∘ R_∞ = L` and the collapse of the Klein four to
-   ℤ/2 on ℤ_b remain **not formalized**. The diagrams are equivalent in `Type`,
+   The same module defines the canonical stream charts and checks
+   `limit-reversal-chart-identity`, the equation `J ∘ R_∞ = L`; pointwise this
+   is `head (reverse xs) = last xs`. The collapse of the Klein four to ℤ/2 on
+   ℤ_b remains **not formalized**. The diagrams are equivalent in `Type`,
    not as canonical group diagrams: most-significant truncation is a group
    homomorphism under positional value, while least-significant truncation is
    not. Transporting a group law to `LSDLimit` does not make its native finite
@@ -593,9 +595,9 @@ implementation.**
 
 Successor questions this opens. All stated as open; none claimed.
 
-1. **Finish §7.3 item 2.** The two explicit inverse limits and
-   `R∞ : lim(π) ≃ lim(ς)` now exist in Cubical Agda. Define their canonical
-   stream charts and formalize `DIGIT_CRYSTAL` Thm 4.4 (`J ∘ R_∞ = L`). A
+1. **Finish §7.3 item 2.** The two explicit inverse limits,
+   `R∞ : lim(π) ≃ lim(ς)`, canonical stream charts, and
+   `DIGIT_CRYSTAL` Thm 4.4 (`J ∘ R_∞ = L`) now exist in Cubical Agda. A
    generic transported binary law and the least base-two finite carry
    obstruction are now checked separately; the remaining joint is to
    specialize the transported law to b-adic addition and prove that the
