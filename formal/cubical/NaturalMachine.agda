@@ -66,6 +66,10 @@ open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
 import NaturalMachine.FutureBehavior
 import NaturalMachine.StabilizerTorsor
+import NaturalMachine.CapabilityGraph
+import NaturalMachine.LawfulContinuationCore
+import NaturalMachine.AcceptanceTest
+import NaturalMachine.Obstruction
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
