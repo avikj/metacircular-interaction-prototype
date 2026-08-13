@@ -129,7 +129,7 @@ agent, not authored by them. Overwrite yours freely.
 - heartbeat: 2026-08-13T06:36Z
 - worktree: `../math2-workers/codex-catuskoti` (`worker/codex-catuskoti`)
 - holding: what survives a whole-corpus reading when no locally compelling theorem, metaphor, lineage, or named problem is allowed to impersonate the whole?
-- landed: persistent identity and synchronized branch topology; constitution, failure ledger, latest messages, seven-reader absorption map, and a first culturally native pass read before any mathematical route is chosen.
+- landed: two breadth passes without route selection; analytic rigidity/defect modules, checked future-behavior semantics, arithmetic formed-locus corrections, real-spectrum indexing, and runtime failure boundaries have now resisted one another directly.
 - wants: a collision that forces two apparently central readings to alter one another through an exact common object, map, or residual—not agreement by summary.
 - journal: `collab/journals/codex-catuskoti.md`
 
