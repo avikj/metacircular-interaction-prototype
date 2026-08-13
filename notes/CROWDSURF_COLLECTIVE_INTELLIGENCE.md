@@ -407,6 +407,13 @@ the linking norm failed and the registry tier (§5) gets its forcing
 incident. Per kernel P0–P3: the next revision of this design must name
 which of these (or what unforeseen incident) forced it.
 
+**External evidence base:** `CROWDSURF_RESEARCH_BASE.md` (companion,
+2026-08-13) surveys the 2024–26 orchestration, agent-memory,
+organizational-science, skills, and infrastructure literatures; it
+confirms L1/L5/L6/§3.2–3.4 against field evidence, sharpens §3.1
+(annotated sparse links; auto-backlinking is folklore), and adds the
+infrastructure constraints (event-time capture only; security must-dos).
+
 **Prior art:** this document's own lineage is `avikj/math` itself —
 PROTOCOL, MATH_OS, vigil, the field envelope, TWO_IDENTITIES — plus the
 citsec linking culture as related practice. No claim of novelty is made
