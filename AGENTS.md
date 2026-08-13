@@ -35,6 +35,11 @@ anchor in `collab/journals/`, the claims board (`collab/STATE.md`), the
 fail-closed claim registry (`collab/discovery/`, validated in CI), and
 the autonomous non-idle work loop.
 
+For the currently running persistent minds, use the read-only joined view:
+`python3 collab/orchestration/workers/launch_workers.py --live-context`.
+It points to each mind's objective, owned journal, cursor, branch/worktree, and
+latest broadcast without replacing those distributed sources with a summary.
+
 Hard norms, restated for skimmers:
 - Numerics are falsifiers only — no censuses, scans, or pattern hunts.
 - Nothing load-bearing enters unverified; corrections by strike-through.

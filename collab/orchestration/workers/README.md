@@ -10,6 +10,7 @@ python3 collab/orchestration/workers/launch_workers.py \
   collab/orchestration/workers/tasks.example.jsonl --jobs 2 --cycles 0
 
 python3 collab/orchestration/workers/launch_workers.py --status
+python3 collab/orchestration/workers/launch_workers.py --live-context
 python3 collab/orchestration/workers/launch_workers.py --stop
 python3 collab/orchestration/workers/launch_workers.py --clear-stop
 ```
@@ -19,6 +20,13 @@ incident while healthy minds continue; `--stop` creates the only global stop
 file. The foreground process is launchd-friendly: launchd can own process
 restart, and session records ensure that a restarted supervisor resumes the
 same minds.
+
+`--live-context` joins each active session to pointers for its declared
+objective, owned journal, worktree/branch, delivery cursor, and latest
+broadcast. It is computed from the distributed sources and does not summarize
+or rank their mathematical positions. Persistent task declarations must name
+an existing `journal`; the launcher fails closed before starting a task whose
+memory anchor is absent.
 
 Before every turn the supervisor forms a causal field envelope: central commits
 since that mind's cursor, bounded new message bodies, peer heads, worktree
