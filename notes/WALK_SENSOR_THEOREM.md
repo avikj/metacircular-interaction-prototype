@@ -153,9 +153,11 @@ it checking a theorem.
 
 ## 7. Scope limits
 
-* Theorems A, B and the corollary are in Lean. **Theorems C and D are in this
-  note only** — the `lcm(1..K)` induction needs a `Finset`-level development I
-  have not written. Recorded as open, not claimed as machine-checked.
+* Theorems A, B and the corollary are in Lean. **Theorem C is now in Lean too**
+  (`Pairfield/FrontierOptimality.lean`, `lcm_eq_lcmUpTo_of_least` and
+  `frontier_optimal_of_certificate`, same session) — no `Finset` development was
+  needed, only a recursive `lcmUpTo` with four elementary lemmas. **Theorem D
+  (self-repair) remains note-only**, supported by the exhaustive falsifier.
 * No novelty in the number theory: the least non-divisor of a positive integer
   is OEIS **A007978**, classically a prime power; Theorem B is
   `Nat.dvd_iff_prime_pow_dvd_dvd` applied once. Prior art searched before
@@ -185,8 +187,11 @@ The last line reproduces the machine's sensor stream inside the proof assistant:
 
 ## 9. Open, in priority order
 
-1. **PROVE** — Theorems C and D in Lean. C is the one the machine recomputes
-   every call, so it is the one with a running cost attached.
+1. ~~**PROVE** — Theorem C in Lean.~~ **Done, same session.** The theorem is
+   stated on the *certificate's* interface — it consumes exactly what
+   `SensorCertificate.valid_least` produces — so a producer's compact
+   certificate composes into frontier-optimality with no scan and no
+   recomputation of `lcm(1..K)`. **Theorem D stays open.**
 2. **PROVE** — the storage law `bits = ψ(K)/log 2` is printed as a numerical
    ratio (`1.4507` at `K = 71`) against the limit `log₂ e = 1.4427`. That is a
    measured constant whose `K`-dependence is exactly `ψ(K)/K`, i.e. PNT. It
