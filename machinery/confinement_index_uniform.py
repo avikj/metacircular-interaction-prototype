@@ -294,12 +294,14 @@ def single_generator_index(a: int, p: int, k: int) -> int:
         power = (power * a) % p ** c
         order_mod_pc += 1
     residual = a ** order_mod_pc - 1
-    l = 0
-    while residual % p == 0:
-        residual //= p
-        l += 1
-    if l > k:
+    if residual == 0:
+        # `a` has order `d` on the nose, so `U cap P` is trivial and `l = k`.
+        # Reached at `a = 1`, and at any `a` with `a^d = 1` over the integers.
         l = k
-    if k < l:
-        raise ValueError("precision k is below the level; the formula does not apply")
+    else:
+        l = 0
+        while residual % p == 0:
+            residual //= p
+            l += 1
+        l = min(l, k)
     return predicted_index(p, l, order_mod_pc)
