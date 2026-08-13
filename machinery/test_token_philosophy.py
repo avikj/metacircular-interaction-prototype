@@ -45,7 +45,12 @@ from token_philosophy import (
     dom_cod,
     gen,
     idm,
+    ARITIES_BIN,
+    ARITIES_UNARY,
+    SIG_BIN,
     arity,
+    commutation_derivation,
+    concurrency_threshold,
     equal_collectively,
     interpret_spectator,
     interpret_threads,
@@ -54,6 +59,8 @@ from token_philosophy import (
     padding_is_injective,
     report,
     rewrite_component,
+    trace_equivalent,
+    two_steps,
     sym,
     tens,
     thread_multiset,
@@ -314,6 +321,65 @@ class DecisionProcedure(unittest.TestCase):
         # ...and never the arity-1 pair, which no derivation identifies
         found1 = rewrite_component(SEQ_12, SIG_TWO, max_leaves=4, cap=800)
         self.assertNotIn(SEQ_21, found1)
+
+
+class Concurrency(unittest.TestCase):
+    """Dropping unarity does not break the mechanism; it shows what the
+    mechanism was measuring.  Two padded steps commute exactly when both
+    firings fit in the marking, so the collective category is a trace monoid
+    with independence = resource-disjointness."""
+
+    def test_derivation_exists_exactly_at_the_threshold(self):
+        n = concurrency_threshold("b1", "b2", ARITIES_BIN)
+        self.assertEqual(n, 4)
+        for a, b in (("b1", "b2"), ("b2", "b1")):
+            chain = check_derivation(two_steps(a, b, n, ARITIES_BIN),
+                                     commutation_derivation(a, b, n, ARITIES_BIN),
+                                     tens(gen(a), gen(b)), SIG_BIN)
+            self.assertEqual(len(chain), 5)
+        check_derivation(tens(gen("b2"), gen("b1")), [((), "COMM", True)],
+                         tens(gen("b1"), gen("b2")), SIG_BIN)
+
+    def test_the_same_script_is_refused_one_token_short(self):
+        """The control that locates the mechanism: at n = 3 the two tensor
+        splits are (2,1) and (1,2), so interchange has nothing to act on."""
+        script = commutation_derivation("b1", "b2", 4, ARITIES_BIN)
+        with self.assertRaises(DerivationError):
+            check_derivation(two_steps("b1", "b2", 3, ARITIES_BIN), script,
+                             tens(gen("b1"), gen("b2")), SIG_BIN)
+        with self.assertRaises(TypeError_):
+            commutation_derivation("b1", "b2", 3, ARITIES_BIN)
+
+    def test_trace_model_thresholds(self):
+        for arities, threshold in ((ARITIES_UNARY, 2), (ARITIES_BIN, 4),
+                                   ({"t1": 1, "t2": 2}, 3)):
+            a, b = sorted(arities)
+            self.assertEqual(concurrency_threshold(a, b, arities), threshold)
+            for n in range(1, threshold + 3):
+                if arities[a] > n or arities[b] > n:
+                    continue
+                self.assertEqual(trace_equivalent((a, b), (b, a), n, arities),
+                                 n >= threshold)
+
+    def test_trace_normal_form_is_an_invariant_of_the_relation(self):
+        ar = {"t1": 1, "t2": 1, "t3": 3}
+        # at n = 2, t1 and t2 commute but neither fits beside t3
+        self.assertTrue(trace_equivalent(("t1", "t2"), ("t2", "t1"), 2, ar))
+        self.assertFalse(trace_equivalent(("t1", "t2"), ("t2", "t2"), 2, ar))
+        # at n = 4, t1 and t3 fit side by side; t2 and t3 do not at n = 3
+        self.assertTrue(trace_equivalent(("t1", "t3"), ("t3", "t1"), 4, ar))
+        self.assertFalse(trace_equivalent(("t2", "t3"), ("t3", "t2"), 3, ar))
+        # longer traces: partial commutation, not full
+        self.assertTrue(trace_equivalent(("t1", "t2", "t3"), ("t2", "t1", "t3"), 2, ar))
+        self.assertFalse(trace_equivalent(("t1", "t3", "t2"), ("t3", "t2", "t1"), 2, ar))
+
+    def test_unary_case_is_theorem_11(self):
+        """The k = 1 specialisation must reproduce the decided class."""
+        self.assertEqual(concurrency_threshold("t1", "t2", ARITIES_UNARY), 2)
+        self.assertFalse(trace_equivalent(("t1", "t2"), ("t2", "t1"), 1, ARITIES_UNARY))
+        self.assertTrue(trace_equivalent(("t1", "t2"), ("t2", "t1"), 2, ARITIES_UNARY))
+        self.assertEqual(normal_form(SEQ_12, SIG_TWO)[0], "word")
+        self.assertEqual(normal_form(SPECTATOR_12, SIG_TWO)[0], "multiset")
 
 
 class Report(unittest.TestCase):

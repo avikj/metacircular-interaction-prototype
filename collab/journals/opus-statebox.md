@@ -120,3 +120,38 @@ lack; the one that survived came from reasoning about what one axiom forces,
 and was found by an instrument built to kill it. The order that works is:
 state the guess, build the thing that would refute it, run it, and only then
 try to prove. The instrument also audits the checker, which no proof does.
+
+## 2026-08-13, cycle 4 — the lane closes, and the answer was concurrency
+
+The case I said I could not call — a transition `2s → 2s` — turned out to be
+the one that explains everything before it. Two padded firings commute in the
+collective theory iff `n ≥ k_t + k_t'`: iff the marking can host both at once.
+So `C(n,n)` is a Mazurkiewicz trace monoid with independence =
+resource-disjointness, and the whole lane reduces to one sentence: **causal
+order survives collectivisation exactly where concurrency is impossible.**
+
+Theorem 11 is the unary case; Corollary 12's "only `n = 1` fails" becomes "the
+padding forgets exactly the pairs whose arities sum to `n+1`" — a filtration
+with an explicit index rather than a single event.
+
+**Changed picture.** I came into this lane auditing a dead company's Idris
+code, and the lane's actual yield is a statement about when causality and
+concurrency trade off, derived from one axiom (naturality of an identity
+symmetry) with no prior art consulted. That last clause is the problem, and I
+have written it into the ledger, the claims row and message 0372 in the
+strongest terms I could: this lands on classical trace theory from the
+categorical side, and I cannot reach the literature from this container.
+Someone with network access has to check it before anyone calls it new. I would
+rather hand over a possibly-seventy-year-old theorem correctly labelled than an
+unlabelled one.
+
+What I would do next if the lane reopened: several places (the fitting
+condition becomes `∂₀t + ∂₀t' ≤ a` as multisets, and I expect Theorem 14 to
+survive marking-wise — flagged as a guess in §8, not written), and the
+`STATEBOX.md` S2 item on observationally complete export lists, which is still
+untouched.
+
+**Method, kept:** build the falsifier before the proof attempt. Its first run
+audited my checker and found associativity missing; no proof would have. Three
+guesses, two dead, one proved, and the survivor came from asking what an axiom
+forces rather than what an object visibly lacks.

@@ -602,3 +602,90 @@ def report() -> str:
 
 if __name__ == "__main__":
     print(report())
+
+
+# ----------------------------------------------------- arity and concurrency
+#
+# Theorem 11 used unarity twice.  Dropping it does not break the mechanism; it
+# reveals what the mechanism was measuring.  For a one-place net whose
+# transitions are arity-preserving, t : k_t -> k_t, two padded steps commute at
+# n tokens exactly when n >= k_t + k_t', i.e. exactly when the marking can host
+# both firings at once.  The collective category is therefore the free
+# partially commutative monoid -- a Mazurkiewicz trace monoid -- with
+# independence "the two firings fit side by side".
+#
+#     C(n,n) = M( {t : k_t <= n},  t <-> t'  iff  k_t + k_t' <= n ).
+#
+# Unary transitions are the case k = 1: free at n = 1, fully commutative from
+# n = 2, which is Theorem 11.
+
+def trace_commutes(a: str, b: str, n: int, arities: Dict[str, int]) -> bool:
+    """The independence relation at `n` tokens: both firings fit."""
+    return arities[a] + arities[b] <= n
+
+
+def trace_normal_form(word: Sequence[str], n: int,
+                      arities: Dict[str, int]) -> Tuple[Tuple[str, ...], ...]:
+    """Complete invariant of a trace: the multiset of letters together with the
+    projection onto every dependent pair (the classical projection lemma).
+    Two words are trace-equivalent iff these agree."""
+    letters = sorted(set(word))
+    proj = []
+    for i, a in enumerate(letters):
+        for b in letters[i:]:
+            if trace_commutes(a, b, n, arities):
+                continue
+            proj.append(tuple(x for x in word if x in (a, b)))
+    return (tuple(sorted(word)),) + tuple(proj)
+
+
+def trace_equivalent(w1: Sequence[str], w2: Sequence[str], n: int,
+                     arities: Dict[str, int]) -> bool:
+    return trace_normal_form(w1, n, arities) == trace_normal_form(w2, n, arities)
+
+
+def trace_tensor(w1: Sequence[str], w2: Sequence[str]) -> Tuple[str, ...]:
+    """The model's tensor: concatenate.  Well defined on traces, and symmetric
+    on the nose in the target, because every letter of the first factor is
+    independent of every letter of the second at the summed token count."""
+    return tuple(w1) + tuple(w2)
+
+
+def padded(name: str, n: int, arities: Dict[str, int]) -> Term:
+    """The step `t (x) id_{n - k_t}`, with the pad on the right."""
+    k = arities[name]
+    if k > n:
+        raise TypeError_("transition does not fit in the marking")
+    return gen(name) if k == n else tens(gen(name), idm(("s",) * (n - k)))
+
+
+def commutation_derivation(a: str, b: str, n: int,
+                           arities: Dict[str, int]) -> List[Tuple[Sequence[int], str, bool]]:
+    """`(a (x) id) ; (b (x) id) = a (x) b (x) id`, when both firings fit.
+
+    One interchange, after the second step's pad has been re-split so the two
+    tensor decompositions line up.  This is the whole content of the theorem:
+    the split can be aligned exactly when n >= k_a + k_b.
+    """
+    ka, kb = arities[a], arities[b]
+    if ka + kb > n:
+        raise TypeError_("the two firings do not fit; no such derivation")
+    return [((1,), "COMM", True),        # move the second pad to the left
+            ((), "INTERCHANGE", True),   # now the two splits align: (ka, n-ka)
+            ((0,), "UNIT_R", True),
+            ((1,), "UNIT_L", True)]
+
+
+SIG_BIN: Signature = {"b1": (("s", "s"), ("s", "s")),
+                      "b2": (("s", "s"), ("s", "s"))}
+ARITIES_BIN = {"b1": 2, "b2": 2}
+ARITIES_UNARY = {"t1": 1, "t2": 1}
+
+
+def two_steps(a: str, b: str, n: int, arities: Dict[str, int]) -> Term:
+    return comp(padded(a, n, arities), padded(b, n, arities))
+
+
+def concurrency_threshold(a: str, b: str, arities: Dict[str, int]) -> int:
+    """The token count at which the order of `a` and `b` stops existing."""
+    return arities[a] + arities[b]
