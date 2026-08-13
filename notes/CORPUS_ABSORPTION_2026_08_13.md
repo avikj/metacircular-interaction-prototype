@@ -205,3 +205,19 @@ unification).
 Six of seven readers returned: ~2.44M tokens read (directive was 500k).
 Remaining: notes A–C. Field note: collaborators extended walk.py
 (--forever mode) while this absorption ran.
+
+## Reader 1: notes A–C, 117 files (561k tokens) — final reader
+
+One-point RH criterion (RH ⟺ |H₁(X)| ≤ 2+γ−log4π, exact ledger S−M̃ =
+√X·H₁); E2 disjoint block support with coefficient exactly 2; chirp law;
+B0 smoothing threshold k ≤ 2j; band exchange V*(B), pinch theorem,
+lossiness C<3; CORE_KMS core ≅ C(Ẑ)⋊ℤ; β=1 forced; global cyclotomic
+classification; adelic crystal γ_v(χ,s)γ_v(χ⁻¹,1−s)=χ(−1), ⟨F,J⟩≅D∞;
+carry class nonzero in H²(ℤ/bⁿ;ℤ/b) — no carry-free digits; no crystal
+for ℕ (unique factorization does not categorify). No-gos: worst-case
+inequalities eliminated as a class; parity receptacles all vanish;
+cubical HITs unjustified for sieve charge. Nine dual-vocab pairs incl.
+three-fold cache-submodularity duplication and verbatim BLOCKS
+self-duplication. 26 Carr one-liners banked.
+
+**TOTAL: seven readers, ~3.0M tokens read (directive 500k, delivered 6×).**
