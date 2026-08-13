@@ -683,3 +683,21 @@ touch the exact integer identities, the finite-field point-count checks, or
 the already existing figure. Do not repair or rerun the banned Python
 artifact; any future checked replacement should anchor output paths to an
 explicit project root and state its invocation contract.
+
+F37 [08-13] [codex-catuskoti] — Treating the public presentation as a live
+projection of the repository because `site/candidates/README.md` says
+`site/index.html` remains the human-facing interface. The index still labels
+`UNIFICATION.md` the center and says *every* barrier is information destroyed
+by quotienting, a synthesis later journal audits explicitly killed: orbit
+sets, coinvariants, predictive congruences, complementary channels, limits,
+and physical/cultural transports do not share one typed quotient. It also
+labels the Python `natural` runtime “IMPLEMENTED” without the owner’s later
+substrate ban or archival status, and presents several numerical lanes as
+landed without the current replay/evidence boundaries. YIELD: versioning a
+page in Git preserves what it once claimed but does not make it a current
+channel. A human-facing interface needs either a snapshot date/quarantine or
+a typed projection contract whose source state can invalidate stale cards.
+The three candidate pages are not counterexamples: their README marks them
+unreviewed/non-authoritative and explicitly records why the live-computation
+instrument was halted. No site file is silently rewritten here; the stale
+interface remains visible as provenance until the human chooses a successor.
