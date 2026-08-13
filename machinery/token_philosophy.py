@@ -140,6 +140,8 @@ def is_typed(t: Term, sig: Signature, collective: bool = False) -> bool:
 
 # --------------------------------------------------- the commutative theory
 
+#   ASSOC_COMP   (f ; g) ; h            =  f ; (g ; h)
+#   ASSOC_TENS   (f (x) g) (x) h        =  f (x) (g (x) h)
 #   INTERCHANGE  (f (x) g) ; (h (x) k)  =  (f ; h) (x) (g ; k)
 #   UNIT_L       id ; f                 =  f
 #   UNIT_R       f ; id                 =  f
@@ -152,15 +154,30 @@ def is_typed(t: Term, sig: Signature, collective: bool = False) -> bool:
 # It is the only axiom below that fails in the symmetric (individual-token)
 # theory, which is why withholding it is the control in the tests.
 
-AXIOMS = ("INTERCHANGE", "UNIT_L", "UNIT_R", "TENS_ID", "COMM")
+AXIOMS = ("ASSOC_COMP", "ASSOC_TENS", "INTERCHANGE", "UNIT_L", "UNIT_R",
+          "TENS_ID", "COMM")
 
 
-def _rewrite_here(t: Term, axiom: str, forward: bool, sig: Signature) -> Term:
+def _rewrite_here(t: Term, axiom: str, forward: bool, sig: Signature,
+                  param: int = 1) -> Term:
     """Apply one axiom at the root of `t`, in the stated direction."""
     if axiom == "COMM":
         if t[0] != "tens":
             raise DerivationError("COMM applies to a tensor")
         return tens(t[2], t[1])
+
+    if axiom in ("ASSOC_COMP", "ASSOC_TENS"):
+        head = "comp" if axiom == "ASSOC_COMP" else "tens"
+        build = comp if head == "comp" else tens
+        if forward:   # (a . b) . c  ->  a . (b . c)
+            if t[0] != head or t[1][0] != head:
+                raise DerivationError(f"{axiom}-> wants a left-nested {head}")
+            a, b, c = t[1][1], t[1][2], t[2]
+            return build(a, build(b, c))
+        if t[0] != head or t[2][0] != head:
+            raise DerivationError(f"{axiom}<- wants a right-nested {head}")
+        a, b, c = t[1], t[2][1], t[2][2]
+        return build(build(a, b), c)
 
     if axiom == "INTERCHANGE":
         if forward:
@@ -201,7 +218,13 @@ def _rewrite_here(t: Term, axiom: str, forward: bool, sig: Signature) -> Term:
             if t[0] != "tens" or t[1][0] != "id" or t[2][0] != "id":
                 raise DerivationError("TENS_ID-> wants id (x) id")
             return idm(_key(t[1][1] + t[2][1], True))
-        raise DerivationError("TENS_ID<- needs a split point; not supported")
+        # id_w  ->  id_{w[:k]} (x) id_{w[k:]}, the split point given by `param`
+        if t[0] != "id":
+            raise DerivationError("TENS_ID<- wants an identity")
+        w = t[1]
+        if not 0 <= param <= len(w):
+            raise DerivationError("TENS_ID<- split point out of range")
+        return tens(idm(w[:param]), idm(w[param:]))
 
     raise DerivationError(f"unknown axiom {axiom!r}")
 
@@ -222,14 +245,14 @@ def _replace(t: Term, path: Sequence[int], new: Term) -> Term:
 
 
 def step(t: Term, path: Sequence[int], axiom: str, forward: bool,
-         sig: Signature, allowed: Sequence[str] = AXIOMS) -> Term:
+         sig: Signature, allowed: Sequence[str] = AXIOMS, param: int = 1) -> Term:
     """One checked rewrite of `t` at `path`.  Raises unless it is a typed
     instance of `axiom`, and `axiom` is in the permitted set."""
     if axiom not in allowed:
         raise DerivationError(f"axiom {axiom!r} is not permitted here")
     before, after = dom_cod(t, sig, collective=True)
     sub = _at(t, path)
-    out = _replace(t, path, _rewrite_here(sub, axiom, forward, sig))
+    out = _replace(t, path, _rewrite_here(sub, axiom, forward, sig, param))
     if dom_cod(out, sig, collective=True) != (before, after):
         raise DerivationError("rewrite changed the boundary")
     return out
@@ -450,6 +473,105 @@ SEQ_21 = comp(T2, T1)
 #   the same two, each beside one idle token
 SPECTATOR_12 = tens(SEQ_12, idm(("s",)))
 SPECTATOR_21 = tens(SEQ_21, idm(("s",)))
+
+
+# ------------------------------------------- the decision procedure, and why
+#
+# For the one-place net with unary transitions the free commutative monoidal
+# category is *determined*, and it is X (notes/TOKEN_PHILOSOPHY.md §7):
+#
+#     C(0,0) = {*},   C(1,1) = free monoid on T,   C(n,n) = N[T] for n >= 2,
+#
+# with C(n,m) empty for n != m.  The mechanism is one line: for n >= 2 two
+# adjacent padded steps commute,
+#
+#     (t (x) id_{n-1}) ; (t' (x) id_{n-1})  =  ((t ; t') (x) id) (x) id_{n-2}
+#                                           =  (t (x) t') (x) id_{n-2}
+#                                           =  (t' (x) t) (x) id_{n-2}
+#                                           =  (t' (x) id_{n-1}) ; (t (x) id_{n-1}),
+#
+# because the padding leaves an idle strand for Theorem 9's trick to act on.
+# At n = 1 there is no idle strand and no such move exists.  So `normal_form`
+# below decides equality: a word when one token is present, a multiset when two
+# or more are.
+
+def arity(t: Term, sig: Signature) -> int:
+    return len(dom_cod(t, sig, collective=True)[0])
+
+
+def normal_form(t: Term, sig: Signature) -> Tuple[str, Tuple[str, ...]]:
+    """The complete invariant for the one-place unary class.  Decides equality
+    in the free commutative monoidal category."""
+    n = arity(t, sig)
+    v = interpret_spectator(t, sig)
+    if n == 0:
+        return ("unit", ())
+    if n == 1:
+        return ("word", tuple(v[1]))
+    return ("multiset", tuple(sorted(v[1])))
+
+
+def equal_collectively(t1: Term, t2: Term, sig: Signature) -> bool:
+    if dom_cod(t1, sig, collective=True) != dom_cod(t2, sig, collective=True):
+        return False
+    return normal_form(t1, sig) == normal_form(t2, sig)
+
+
+def _paths(t: Term) -> List[Tuple[int, ...]]:
+    out: List[Tuple[int, ...]] = [()]
+    if t[0] in ("comp", "tens"):
+        for i in (0, 1):
+            out.extend((i,) + p for p in _paths(t[i + 1]))
+    return out
+
+
+def _leaves(t: Term) -> int:
+    if t[0] in ("comp", "tens"):
+        return _leaves(t[1]) + _leaves(t[2])
+    return 1
+
+
+def rewrite_component(start: Term, sig: Signature, max_leaves: int = 6,
+                      cap: int = 4000) -> set:
+    """Every term reachable from `start` by axiom rewriting, in either
+    direction, staying under `max_leaves`.  This is the falsifier: it is built
+    without reference to `normal_form`, so if the normal form were incomplete
+    the component would contain two different normal forms, and if it were
+    unsound two terms in one component would disagree."""
+    seen = {start}
+    frontier = [start]
+    while frontier and len(seen) < cap:
+        t = frontier.pop()
+        for path in _paths(t):
+            for axiom in AXIOMS:
+                for forward in (True, False):
+                    for param in range(0, 4):
+                        try:
+                            out = step(t, path, axiom, forward, sig, param=param)
+                        except (DerivationError, TypeError_, IndexError, KeyError):
+                            continue
+                        if _leaves(out) <= max_leaves and out not in seen:
+                            seen.add(out)
+                            frontier.append(out)
+                        if axiom != "TENS_ID" or forward:
+                            break
+    return seen
+
+
+#   The engine of the determination: for n >= 2, two adjacent padded steps
+#   commute.  `STEP_12` and `STEP_21` are the two orders; each reduces to a
+#   tensor, and the tensors are COMM-equal.
+STEP_12 = comp(tens(T1, idm(("s",))), tens(T2, idm(("s",))))
+STEP_21 = comp(tens(T2, idm(("s",))), tens(T1, idm(("s",))))
+STEPS_TO_TENSOR: List[Tuple[Sequence[int], str, bool]] = (
+    [((), "INTERCHANGE", True), ((1,), "UNIT_L", True)] + collapse_derivation()
+)
+
+
+def padding_is_injective(n: int) -> bool:
+    """Answer to `notes/TOKEN_PHILOSOPHY.md` §6 for this class: the padding
+    C(n,n) -> C(n+1,n+1) is injective except at n = 1."""
+    return n != 1
 
 
 def report() -> str:

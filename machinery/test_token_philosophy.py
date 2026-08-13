@@ -33,6 +33,9 @@ from token_philosophy import (
     TypeError_,
     SEQ_12,
     SEQ_21,
+    STEPS_TO_TENSOR,
+    STEP_12,
+    STEP_21,
     SPECTATOR_12,
     SPECTATOR_21,
     boundary_orbit,
@@ -42,10 +45,15 @@ from token_philosophy import (
     dom_cod,
     gen,
     idm,
+    arity,
+    equal_collectively,
     interpret_spectator,
     interpret_threads,
+    normal_form,
     occurrences,
+    padding_is_injective,
     report,
+    rewrite_component,
     sym,
     tens,
     thread_multiset,
@@ -256,6 +264,56 @@ class SpectatorModel(unittest.TestCase):
                             interpret_threads(SPECTATOR_21, SIG_TWO))
         self.assertEqual(interpret_spectator(SPECTATOR_12, SIG_TWO),
                          interpret_spectator(SPECTATOR_21, SIG_TWO))
+
+
+class DecisionProcedure(unittest.TestCase):
+    """For the one-place unary class the free commutative monoidal category is
+    determined: a word on one strand, a multiset on two or more.  These tests
+    are the falsifier that found the gap in the axiom set (associativity was
+    missing) and the derivation that drives the theorem."""
+
+    def test_adjacent_padded_steps_commute_from_two_tokens_on(self):
+        self.assertEqual(len(check_derivation(STEP_12, STEPS_TO_TENSOR,
+                                              tens(T1, T2), SIG_TWO)), 9)
+        self.assertEqual(len(check_derivation(STEP_21, STEPS_TO_TENSOR,
+                                              tens(T2, T1), SIG_TWO)), 9)
+        check_derivation(tens(T2, T1), [((), "COMM", True)], tens(T1, T2), SIG_TWO)
+        self.assertTrue(equal_collectively(STEP_12, STEP_21, SIG_TWO))
+
+    def test_no_such_move_at_one_token(self):
+        self.assertFalse(equal_collectively(SEQ_12, SEQ_21, SIG_TWO))
+        self.assertEqual(normal_form(SEQ_12, SIG_TWO), ("word", ("t1", "t2")))
+        self.assertEqual(normal_form(SEQ_21, SIG_TWO), ("word", ("t2", "t1")))
+
+    def test_padding_injective_except_at_one(self):
+        self.assertEqual([padding_is_injective(n) for n in range(4)],
+                         [True, False, True, True])
+        # the n = 1 failure, exhibited
+        self.assertFalse(equal_collectively(SEQ_12, SEQ_21, SIG_TWO))
+        self.assertTrue(equal_collectively(SPECTATOR_12, SPECTATOR_21, SIG_TWO))
+
+    def test_rewriting_never_crosses_a_normal_form(self):
+        """Soundness of the invariant, as a search falsifier: no axiom rewrite
+        from any of these seeds ever reaches a different normal form.  This is
+        the test that caught the missing associativity axioms."""
+        for seed, sig, cap in ((SEQ_12, SIG_TWO, 400),
+                               (SPECTATOR_12, SIG_TWO, 400),
+                               (F_EXEC, SIG_TWO, 400),
+                               (CAUSAL_COLLAPSE_START, SIG_ONE, 400)):
+            found = rewrite_component(seed, sig, max_leaves=4, cap=cap)
+            self.assertGreater(len(found), 5)
+            self.assertEqual(len({normal_form(x, sig) for x in found}), 1)
+            for x in found:
+                self.assertEqual(arity(x, sig), arity(seed, sig))
+
+    def test_search_connects_the_pairs_the_theorem_identifies(self):
+        found = rewrite_component(SPECTATOR_12, SIG_TWO, max_leaves=4, cap=800)
+        self.assertIn(SPECTATOR_21, found)
+        self.assertIn(tens(T1, T2), found)
+        self.assertIn(STEP_12, found)
+        # ...and never the arity-1 pair, which no derivation identifies
+        found1 = rewrite_component(SEQ_12, SIG_TWO, max_leaves=4, cap=800)
+        self.assertNotIn(SEQ_21, found1)
 
 
 class Report(unittest.TestCase):

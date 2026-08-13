@@ -3,8 +3,10 @@
 **Status: proved, and machine-replayed.** `machinery/token_philosophy.py`,
 `machinery/test_token_philosophy.py` (18/18, four hostile controls). Two
 conjectures were stated and killed in this note's own lifetime — §0's and
-§3's; §5 is what replaced them and §6 states the third one with its guard
-rails visible.
+§3's — and the third, stated with its guard rails visible, was then **proved**
+for the class in question (§6, Theorem 11). The instrument that closed it was
+the falsifier built after the second death, and its first run found a gap in
+my own axiom set.
 
 Companion and correction to `notes/STATEBOX.md` §7, written the same day by the
 same worker. Nothing here is measured; the derivations are checked term
@@ -252,28 +254,99 @@ conjecture), but:
 > **A collective execution remembers the order of its transitions exactly as
 > far as the tokens carrying them are the only tokens present.**
 
-## 6. Queue
+## 6. The class is determined, and the falsifier found the gap first
 
-- `PROVE` — **What is $C(a,b)$?** Both easy answers are dead. What survives:
-  for $a=s$ the hom-set contains the free monoid's worth of distinctions
-  (Theorem 8), for $a=2s$ Theorems 2, 3 and 9 collapse everything with the same
-  occurrence multiset that I have tested. Conjecture, third attempt, and stated
-  as *strictly weaker than the last two*: the collapse is complete from
-  $|a|\ge2$ tokens on, i.e. $C(a,b)\cong\{m$ fireable from $a\}$ whenever $a$
-  has at least two tokens in some place used by $m$. I have not tested the
-  boundary of this and will not report it as anything but a guess.
-- `PROVE` — **Which $\otimes\mathrm{id}$ maps are injective?** Corollary 10
-  makes this the sharp question: the loss of the collective view is the failure
-  of injectivity of $C(a,b)\to C(a+r,b+r)$, and the two theorems above locate
-  one failure at $r=s$. A criterion would be the exact loss statement this
-  lane has been circling since `STATEBOX.md`.
+I said in §6 that a falsifier was now worth more than a proof attempt, and
+built one: `rewrite_component` explores every axiom rewrite in both directions
+from a seed, under a size bound, with no reference to any invariant. Its first
+run reported classes of terms that ought to have been connected and were not.
+The cause was not mathematics: **the axiom set in the checker was missing
+associativity of $\circ$ and of $\otimes$**. My hand derivations were shallow
+enough never to need them, so nothing had caught it. That is what a falsifier
+is for, and it paid for itself in one run.
+
+With `ASSOC_COMP` and `ASSOC_TENS` in place the search closes, and the picture
+it showed is a theorem.
+
+> **Theorem 11.** Let $N$ have one place $s$ and transitions $T$, all unary
+> ($s\to s$). Then in the free commutative monoidal category $C(N)$:
+> $C(n,m)=\varnothing$ for $n\ne m$, $C(0,0)=\{*\}$, $C(1,1)$ is the **free
+> monoid** on $T$, and $C(n,n)=\mathbb N[T]$, the **free commutative** monoid,
+> for every $n\ge2$. In other words $C(N)\cong X$: the spectator category of §5
+> is not merely a model, it is the free object.
+
+*Proof.* Every morphism is a composite of padded generators: $f\otimes
+g=(f\otimes\mathrm{id});(\mathrm{id}\otimes g)$ reduces a tensor to a
+composite, and induction on the term does the rest. Since no generator changes
+the token count, $C(n,m)=\varnothing$ for $n\ne m$, and $C(0,0)=\{*\}$ because
+no generator has arity $0$.
+
+*Arity 1.* A morphism $1\to1$ cannot use $\otimes$ nontrivially (the other
+factor would have arity $0$, and $C(0,0)$ is trivial), so it is a word in $T$,
+and the counting model together with $X$ shows distinct words stay distinct.
+Hence $C(1,1)=T^*$.
+
+*Arity $\ge2$.* Adjacent padded steps commute:
+
+$$(t\otimes\mathrm{id}_{n-1});(t'\otimes\mathrm{id}_{n-1})
+=\bigl((t;t')\otimes\mathrm{id}\bigr)\otimes\mathrm{id}_{n-2}
+\overset{\text{Thm 9}}{=}(t\otimes t')\otimes\mathrm{id}_{n-2}
+\overset{\text{Lem 1}}{=}(t'\otimes t)\otimes\mathrm{id}_{n-2}
+=(t'\otimes\mathrm{id}_{n-1});(t\otimes\mathrm{id}_{n-1}),$$
+
+using interchange at both ends. Adjacent transpositions generate every
+permutation, so a composite of padded steps depends only on its multiset of
+occurrences; the counting model shows the multiset is a complete invariant.
+$\square$
+
+**The mechanism, in one sentence.** Theorem 9 needs an idle strand to act on;
+padding by $\mathrm{id}_{n-1}$ supplies one exactly when $n\ge2$, and at $n=1$
+there is none. So:
+
+> **Corollary 12 (answer to §6's first question, for this class).** The padding
+> $C(n,n)\to C(n+1,n+1)$ is injective for every $n$ **except** $n=1$, where it
+> is the abelianisation $T^*\twoheadrightarrow\mathbb N[T]$. All of the
+> collective view's forgetting happens in one step, when the second token
+> arrives.
+
+`normal_form` is therefore a decision procedure for this class: a word at one
+token, a multiset at two or more. The search remains in the module as the
+falsifier it was built to be — `test_rewriting_never_crosses_a_normal_form`
+verifies that no rewrite from any seed ever reaches a different normal form,
+which is what would break if the invariant were unsound.
+
+**What the search does *not* establish.** It is a bounded, one-sided
+instrument: within `max_leaves` and a node cap it can fail to connect terms
+that the theory does equate (at three occurrences on three strands it does, and
+raising the bound to 5 leaves and 3000 nodes leaves 2 of 18 members of one
+class unreached at 44 s). Non-connection is never evidence of inequality here;
+inequality comes from the models $X$ and $W$ only. Reported so the numbers
+cannot be mistaken for a completeness claim.
+
+## 7. Queue
+
+- ~~`PROVE` — **What is $C(a,b)$?** … the collapse is complete from $|a|\ge2$
+  tokens on.~~ **[PROVED for the one-place unary class — §6 Theorem 11, and it
+  is exactly the third conjecture's statement. The general case, several places
+  and non-unary transitions, is open and is now the lane's main `PROVE` item:
+  the proof of Theorem 11 uses unarity twice (to know $C(1,1)$ has no tensor
+  decomposition, and to pad by $\mathrm{id}_{n-1}$), and neither survives a
+  transition with $\partial_0t=2s$.]**
+- ~~`PROVE` — **Which $\otimes\mathrm{id}$ maps are injective?**~~ **[ANSWERED
+  for this class — Corollary 12: all of them except $n=1\to2$, which is
+  abelianisation. Open in general.]**
+- `PROVE` — **Non-unary transitions.** The first genuinely new case is a
+  transition $2s\to2s$: padding no longer produces an idle strand of the right
+  shape, so the Theorem 11 mechanism is unavailable and I do not know the
+  answer. This is where the next model should be built, and where I expect the
+  third conjecture to break if it is going to.
 - `DEMONSTRATE` (optional) — a decision procedure for the collective theory on
   bounded terms, which would let the third conjecture be falsified cheaply
   before anyone tries to prove it. The first two guesses died in two hours and
   one hour respectively; a falsifier is now clearly worth more than a proof
   attempt.
 
-## 6. Honesty ledger
+## 8. Honesty ledger
 
 | claim | grade |
 |---|---|
@@ -284,5 +357,7 @@ conjecture), but:
 | ~~"collective = occurrence counting" — **conjecture** (§5), two supporting instances~~ | **REFUTED** the same session, §5 Theorem 8 |
 | Proposition 7 ($X$ is a commutative monoidal category) | **proved**; exhaustively re-checked on a fragment |
 | Theorems 8, 9, Corollary 10 | **proved** — a model, and a checked derivation |
-| §6 third conjecture (collapse is complete from two tokens on) | **guess**, deliberately weaker, untested at its boundary |
+| ~~§6 third conjecture (collapse is complete from two tokens on) — **guess**~~ | **PROVED** for the one-place unary class, §6 Theorem 11; open in general |
+| Theorem 11, Corollary 12 | **proved**; the engine derivation is machine-checked |
+| The bounded rewrite search | **falsifier only** — one-sided, bound-limited; it found the missing associativity axioms and establishes no inequality |
 | The `STATEBOX.md` §7 guess | **refuted** here; struck through there |
