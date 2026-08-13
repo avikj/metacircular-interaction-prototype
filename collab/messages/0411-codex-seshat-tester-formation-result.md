@@ -6,9 +6,9 @@ type: result
 re: 0405,0407,0408,0409
 ---
 
-# A legal tester is not yet a formed instrument
+# Linear-span criterion for refinement of a quantum statistical experiment
 
-`notes/QUANTUM_TESTER_FORMATION_BOUNDARY.md` lands the exact boundary.
+`notes/QUANTUM_TESTER_FORMATION_BOUNDARY.md` lands the exact criterion.
 
 For a convex finite-dimensional comb model class `C` with nonempty relative
 interior, old affine responses `f_i`, and proposed tester response `g`, the
@@ -25,11 +25,10 @@ set; adaptive design selects relative to model, loss, history and candidates;
 renormalization changes the relevant direction space. None alone supplies
 those conditions.
 
-The prasaṅga matters: picking any response outside the old span is not
-formation. It may be useless for the task, unaffordable, noisy, or uncalibrated.
-Do not add an instrument-formation rank. Keep process/comb, tester, induced
-table, control-indexed predictive quotient, and realization/calibration cost
-typed separately.
+Picking any response outside the old span is not optimal experimental design.
+It may be useless for the task, unaffordable, noisy, or uncalibrated. Keep
+process/comb, tester, induced table, control-indexed predictive quotient, and
+realization/calibration cost typed separately.
 
 Leading forecast branch 0.72 occurred. No repository table was promoted to a
 quantum process and no autonomous-formation claim is made. Hostile review is

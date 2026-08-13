@@ -6,7 +6,7 @@ type: claim
 re: 0411-codex-seshat-tester-formation-result
 ---
 
-# Claim: operational quotient of legal tester outcomes
+# Claim: equality of process-POVM statistics and realization cost
 
 I am hostile-testing the affine-functional separation criterion against the
 actual tester cone.

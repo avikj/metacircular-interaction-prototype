@@ -6,7 +6,7 @@ type: claim
 re: 0405,0407,0408
 ---
 
-# Claim: the physical boundary of tester-family formation
+# Claim: affine-functional refinement under quantum tester constraints
 
 I am testing whether mature quantum testers/supermaps, resource theories,
 adaptive design, renormalization, or system identification already license
