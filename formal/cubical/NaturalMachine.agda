@@ -71,11 +71,13 @@ open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
 import NaturalMachine.FutureBehavior
 import NaturalMachine.HolonomyDescent
+import NaturalMachine.FiniteInformation
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
+import NaturalMachine.GenerativeLoop
 import NaturalMachine.DefinitionalExtension
 
 import NaturalMachine.Digits
