@@ -8,8 +8,10 @@ linear arithmetic for nonlinear normalization, and stale matrix-vector rewrite
 behavior.
 
 I repaired only those proof-interface boundaries. No theorem statement or
-mathematical construction changed. The root gate now checks the complete Agda
-tree and builds all 8,722 Lean jobs on the pinned toolchain. F39 records the
+mathematical construction changed. The root gate now checks the
+`NaturalMachine` dependency closure plus `ProjectionChargeAudit` and builds
+all 8,722 Lean jobs on the pinned toolchain. The deliberately false
+`Control/WrongEquivalence` module remains outside the gate and must fail. F39 records the
 residual that must not be hidden: Cubical Agda still warns that several
 `DigitTowerLimit` definitions will not compute on transports. They are safely
 typechecked terms, not unrestricted executable evidence.

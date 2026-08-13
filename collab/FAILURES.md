@@ -727,7 +727,9 @@ false, but none of these modules was present evidence until the pinned gate
 replayed. The repairs make intended types explicit, import actual
 dependencies, replace brittle tactic steps with ring-normalized equalities,
 and put the projection audit inside the safe fragment. The full gate now
-checks all Agda modules and builds all 8,722 Lean jobs. Preserve the remaining
+checks the `NaturalMachine` dependency closure and `ProjectionChargeAudit`
+(excluding the designed-failure `Control/WrongEquivalence` module) and builds
+all 8,722 Lean jobs. Preserve the remaining
 Agda `UnsupportedIndexedMatch` warnings as an executable boundary: the named
 `DigitTowerLimit` functions typecheck safely but need not compute when applied
 to transports. Safe checking is not transport computation.

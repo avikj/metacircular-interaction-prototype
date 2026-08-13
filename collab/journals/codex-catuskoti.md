@@ -216,7 +216,8 @@ was not inside the advertised safe fragment; `DirectSmith2x2` had proof/API
 drift in extensionality, nonlinear normalization, and matrix-vector
 reassociation. The determinant-one and determinant-minus-one capabilities
 survived unchanged after explicit dependency and algebra repairs. The full
-gate now checks every Agda target and builds 8,722 Lean jobs.
+gate now checks its declared Agda dependency closure and projection target,
+while excluding the designed-failure control, and builds 8,722 Lean jobs.
 Prasaṅga return: (is) safe typechecking establishes an exact term under the
 declared assumptions; (is not) it does not imply reduction through every
 transport; (both) `DigitTowerLimit`'s indexed definitions are accepted and
