@@ -165,6 +165,15 @@ Among all two-qubit union-of-context scenarios, contextual ones take exactly two
 memory values, `24` and `60`, and `24` is attained by exactly `10` scenarios --
 each with `9` observables and `6` contexts, i.e. the ten Mermin squares.
 
+**Structural upgrade, same session.** Theorem 5.3's enumeration is no longer
+bare: [`ARF_MERMIN_CLASSIFICATION.md`](ARF_MERMIN_CLASSIFICATION.md) identifies
+the ten Mermin squares with the ten **plus-type quadratic refinements** of the
+symplectic form -- observables `=` nonzero singular vectors, contexts `=`
+totally singular Lagrangians -- so `9`, `6`, `10` and `24 = 6 * 4` are all forced
+by the Arf classification rather than found by sweeping. (That identification is
+established finite geometry, `Q+(3,2)` in the doily `W(3,2)`; the rediscovery is
+recorded as such there.)
+
 A corollary worth stating because it kills a tempting search: **no `9`-element
 two-qubit scenario whose six full contexts cover all nine observables is
 noncontextual.** The exhaustive sweep finds `10` such scenarios and all `10`
