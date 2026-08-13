@@ -37,6 +37,8 @@ error quoted in `notes/NATURAL_MACHINE.md:524-526` (`Unit !=< (Canonical w)` at
 | 9 | Controls: canonicity load-bearing, big-endian refuted, wrong equivalence fails to check (:46-49) | PROVED | Controls.agda:54-65, 76-82; WrongEquivalence failure re-verified 2026-08-13. But see §7 row 3 for a false prose claim inside Controls itself. |
 | 10 | `base2-is-2`, `base10-is-10` "the module parameter really is the base offset" (:94-99) | VACUOUS | Both are `refl` on literals (`suc (suc 0) ≡ 2`). Honestly labeled "Sanity"; zero content beyond the definition of `b`. |
 
+*Row 7 RESOLVED 2026-08-13* — pairwise distinctness landed in Endian (see G5); headline 5 reworded to disclaim the group object. *Row 8 RESOLVED* — `ℕ≃π₀FinSet` landed (see G3); headline 6 now names it. *Row 10 DOWNGRADED comment* — the "Sanity" note now says explicitly: definitional only, `refl` on literals, nothing beyond the definition of `b`.
+
 **Caveat on row 1**: the umbrella does **not** import `CapabilityGraph`,
 `SymmetryEnumeration`, or `LawfulContinuationCore` (imports: NaturalMachine.agda:57-71).
 Three corpus modules live outside the aggregated build; the sweep catches them, the
@@ -89,6 +91,8 @@ actually there.
 | 6 | "The profinite statements of DIGIT_CRYSTAL §4.3 are NOT formalized here" (:23-25) | PROVED | Honest negative disclosure. Model prose. |
 | 7 | `ChartSymmetry` "Summary object: the Klein four data, packaged" (:273-276) | DEFINED-ONLY | The record packages eleven proved fields (:290-303), but "Klein four" remains a label: no `Group` instance, no statement that the generated subgroup has order 4. |
 
+*Row 3 RESOLVED 2026-08-13 via `D≢E`/`DE≢D`/`DE≢E`* (see G5); *row 7 partially addressed*: the record now carries all six inequalities (fourteen fields) and its header explicitly disclaims the missing `Group` instance.
+
 ## 6. `Transport.agda`
 
 | # | Claim | Status | Evidence |
@@ -116,6 +120,8 @@ Clean module.
 |---|---|---|---|
 | 1 | "The successor equation computes by reduction" (:8-9) | VACUOUS | `run-suc = refl` (:16) restates the second defining clause of `run` (:12). It is honest about being definitional, but as a named theorem it certifies nothing the definition doesn't already say. |
 | 2 | "A map... is valid exactly when it preserves the seed and commutes with one step. Then it commutes with every counted execution" (:18-19) | PROVED | `compile` :20-28, real induction. (Note: prose says "exactly when" — an iff — but only the ⇐ direction is a theorem; the ⇒ direction is trivially the instantiation at 0 and 1 and is not stated. Minor.) |
+
+*Row 1 DOWNGRADED comment 2026-08-13* — `run-suc` now labeled "Definitional sanity only... not a theorem beyond the definition". *Row 2 DOWNGRADED comment* — "exactly when" weakened to "when", with an explicit note that the converse is not stated (it would hold only on reachable states). Exit 0.
 
 ## 9. `SmithPathCountedExecution.agda`
 
@@ -153,6 +159,8 @@ Clean module.
 | 3 | "The open joint is named only by its required interface... no installed quotient carrier satisfying this exact classification law" (:37-39) | DEFINED-ONLY | Honest: `ObservationalClassCompiler` is an empty interface, and the comment says so. This is how to write an open obligation. |
 | 4 | "Smith is already a closed native producer/consumer joint: the dependent eliminator **prevents** a consumer from receiving a normal matrix without its replay, invertibility, and normality witnesses" (:48-50) | OVERSTATED | False as an enforcement claim. `SmithCapability` **publicly exports** `normalMatrix : Mat m n → Mat m n` (SmithCapability.agda:29-30), plus bare `leftTransform`/`rightTransform`. Any consumer takes the normal matrix witness-free with one function call. `withSmith` is an optional convenience, not a boundary; nothing is prevented. (`smithPipeline = withSmith` at :51 is a pure rename adding nothing.) The missing obligation is not a theorem but an abstraction boundary: make the unbundled projections `private`, or delete the word "prevents". |
 
+*Row 4 RESOLVED 2026-08-13 via comment rewrite* (see G4).
+
 ## 13. `ResidueTransport.agda`
 
 | # | Claim | Status | Evidence |
@@ -163,6 +171,8 @@ Clean module.
 | 4 | "Transport preserves the declared complexity profile; atomic counted time does not collapse any component to one or zero" (:89-90) | VACUOUS | `complexity-preserved = refl , refl , refl , refl` (:96) — because `compileCosted` (:80-87) is *defined* to copy the four ℕ fields verbatim. The "theorem" certifies that a record copy is a copy. Moreover the cost fields are free-floating: **no law ties `stateSize`/`updateCost` to the function `observe`**, so "the declared complexity profile" is unconstrained decoration. A false declaration transports just as faithfully. |
 | 5 | Cost boundary header: "Existing exact bounds enter as data and remain visible after transport; this module does not manufacture or erase them" (:57-59) | PROVED | Accurate description of rows 4's *definition* — the honest half of the same coin. The dishonest half is presenting :91-96 as a named theorem. |
 
+*Row 4 RESOLVED 2026-08-13 via deletion of `complexity-preserved`* (see G6).
+
 ## 14. `ProjectionChargeAudit.agda`
 
 | # | Claim | Status | Evidence |
@@ -170,6 +180,8 @@ Clean module.
 | 1 | "The smallest positive example: local coordinate plus total charge" — `localChargeEquiv` (:14, :40-41) | PROVED | Finite exhaustive case check :28-38. |
 | 2 | "Minimal negative descent example... charge is the original Boolean value" — `noChargeDescent` (:43-46, :55-62) | PROVED | Real quotient obstruction via `eq/`. |
 | 3 | (implicit, via corpus headline "--safe") | OVERSTATED | Only file in the audited corpus **without `--safe`** (:1). It would almost certainly accept the flag; until it carries it, the corpus-wide "no postulates, --safe" hygiene claim has a hole exactly at the module the Endian header cites as its methodological precedent. |
+
+*Row 3 RESOLVED (verified in-tree 2026-08-13)* — the file now carries `--safe` (see G8).
 
 ## 15. `Decategorification.agda`
 
@@ -181,12 +193,16 @@ Clean module.
 | 4 | "only the Type-level version is packaged as a group here" (:96-98) | PROVED | Honest scope disclosure; `ΩFin≃Symₙ` :99-100. |
 | 5 | "The first carries no information, the second carries n! of it" (:21-23) | DEFINED-ONLY | Rhetoric; the n! count is proved, but "carries no information" (contractibility/propositionality of the relevant identification data) is not a stated theorem. Harmless flourish. |
 
+*Row 1 RESOLVED 2026-08-13 via `ℕ≃π₀FinSet`* (see G3). *Row 2 upgraded as a side effect*: `card-Fin` is now load-bearing — it is the retract half of `ℕ≃π₀FinSet`'s round trip, no longer mere definitional decoration.
+
 ## 16. `SymmetryCardinality.agda`
 
 | # | Claim | Status | Evidence |
 |---|---|---|---|
 | 1 | "this adapter compiles its size to the **fast arithmetic certificate** n!" (:17-18) | OVERSTATED (adjective only) | `symmetryCount≡factorial` (:32-33) is a genuine propositional equality via library `cardAut` — PROVED. But "fast" is an unbacked performance adjective: `_!_` is the naive recursive factorial, and no cost theorem exists anywhere in the corpus (CountedDigits.agda:50-54 explicitly says so). Under this repo's CLAUDE.md, an underivable speed claim is exactly the class of assertion the protocol bans. Delete the adjective or derive a cost model. |
 | 2 | "propositionally, not definitionally, equal for a variable argument" (:25-27) | PROVED | `factorial≡!` :28-30; the definitional/propositional distinction is stated correctly (base case is `refl`, step needs `cong`). |
+
+*Row 1 RESOLVED 2026-08-13 — "fast" deleted, no-speed-claim disclosure added* (see G7).
 
 ## 17. `SymmetryEnumeration.agda`
 
@@ -209,6 +225,8 @@ Clean module. Note: not imported by the umbrella `NaturalMachine.agda`.
 | 4 | Stabilizer closure (id, comp, inv) and `swap-not-in-successor-stabilizer` (:114-154) | PROVED | All real; `stabilizes-inv` :130-134 is a genuine funExt argument. |
 | 5 | `pointwiseProduct-covariant` "merely relabels" (:73-81) | PROVED | `refl`, definitional-by-mathematics. |
 | 6 | `identity-fixed-value ≡ 1` (:103-104) | VACUOUS | `refl` on literals; a worked example, harmless but content-free. |
+
+*Row 6 DOWNGRADED comment 2026-08-13* — now labeled "Worked example, definitional only (`refl` on literals)". Exit 0.
 
 ## 19. `LawfulContinuationCore.agda`
 
@@ -280,6 +298,8 @@ Missing statement, closable from landed parts in ~15 lines:
 and `card≡MereEq` + `fibre-connected`. Until it exists, the headline names an
 equivalence the corpus only holds fiberwise.
 
+*RESOLVED 2026-08-13* via `ℕ≃π₀FinSet : ℕ ≃ ∥ FinSet ℓ-zero ∥₂` (Decategorification.agda, exactly the proposed assembly: forward `∣ 𝔽 n ∣₂`, backward `SetTrunc.rec isSetℕ card`, round trips `card-Fin` and `fibre-connected`); umbrella headline 6 now names it. Exit 0.
+
 **G4 — `CapabilityGraph.agda:48-50`: "the dependent eliminator prevents a
 consumer from receiving a normal matrix without... witnesses".** (§12 row 4.)
 Contradicted by the same development's public export
@@ -289,12 +309,16 @@ prevented. Close it structurally, not by theorem: make `normalMatrix`,
 Unsafe` clearly named), leaving `withSmith` as the sole exit — or rewrite the
 comment to "offers a bundled consumer interface".
 
+*RESOLVED 2026-08-13* via the second sanctioned fix: CapabilityGraph.agda:48-55 rewritten to "offers a bundled consumer interface", explicitly stating the unbundled projections remain exported and nothing is prevented ("an offered convention, not an enforced abstraction boundary"). `private` was not used because `replaySmith`'s public type mentions the projections. Exit 0.
+
 **G5 — `Endian.agda:111`: "pairwise distinct... faithful" with 3 of 6
 inequalities and no group.** (§5 row 3.) Closing statements:
 `D≢E : ¬ ((w : Word) → rev w ≡ compw w)` (witness `w0`: `rev w0 ≡ w0` by
 `refl`, `compw w0 ≢ w0` by `E≢id`); `DE≢D` and `DE≢E` from involutivity plus
 `E≢id`/`D≢id`; or, better, build the K₄ `Group` and the hom into `Word → Word`
 with a trivial-kernel proof, which is what "faithful" means.
+
+*RESOLVED 2026-08-13* via `D≢E`, `DE≢D`, `DE≢E` landed in Endian.agda (witnesses w0, w0, w01 as proposed; DE≢E through `dcomp-involutive`), added to the `ChartSymmetry` record; the §3 header and the umbrella's headline 5 now say "pairwise distinct" (true, all six inequalities) and explicitly disclaim the K₄ group object/hom, so "faithful" no longer floats. Exit 0.
 
 **G6 — `ResidueTransport.agda:89-96`: `complexity-preserved` is a theorem-shaped
 copy of a copy.** (§13 row 4.) Either delete it (the honest header :57-59
@@ -306,10 +330,14 @@ computation* rather than about record syntax. As it stands, the claim "atomic
 counted time does not collapse any component" is certified only against
 declarations that nothing constrains.
 
+*RESOLVED 2026-08-13* via the first prescribed fix: `complexity-preserved` deleted from ResidueTransport.agda together with its overstating comment, replaced by an explicit negative disclosure naming the missing `Eval`/`observes-within` judgment as the open joint. Exit 0.
+
 **G7 — `SymmetryCardinality.agda:18`: "fast".** (§16 row 1.) No cost model
 exists in the corpus (CountedDigits.agda:50-54 admits it). One adjective, zero
 backing. Delete "fast" or install the carry-cost/arithmetic-cost theorem the
 corpus already knows it lacks.
+
+*RESOLVED 2026-08-13* — "fast" deleted from SymmetryCardinality.agda:18 and replaced with an explicit no-speed-claim disclosure (naive recursive `_!_`, no cost model, pointer to CountedDigits' cost boundary). Exit 0.
 
 **G8 — `ProjectionChargeAudit.agda:1` lacks `--safe`; umbrella excludes three
 modules.** (§1 caveat, §14 row 3.) Mechanical fixes: add `--safe` (the file
@@ -317,6 +345,8 @@ uses nothing unsafe) and add `CapabilityGraph`, `SymmetryEnumeration`,
 `LawfulContinuationCore` to `NaturalMachine.agda`'s import block so the
 "HEADLINE... all checked" umbrella actually covers the corpus the directory
 ships.
+
+*RESOLVED (verified in-tree 2026-08-13)* — ProjectionChargeAudit.agda:1 now carries `--safe`, and NaturalMachine.agda imports `SymmetryEnumeration` (public), `CapabilityGraph`, and `LawfulContinuationCore` (lines 65, 69-70); both fixes landed with the first-fixes commit, re-verified today, exit 0. The "not imported by the umbrella" remarks in §17 and §19 are accordingly stale.
 
 ---
 

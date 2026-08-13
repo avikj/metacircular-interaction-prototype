@@ -15,7 +15,9 @@ open import NaturalMachine.Decategorification using (𝔽)
 
 -- The finite carrier of the loop symmetries at the canonical n-element set.
 -- Decategorification.FinSetLoop≃Sym identifies this carrier with the loop
--- space; this adapter compiles its size to the fast arithmetic certificate n!.
+-- space; this adapter compiles its size to the arithmetic certificate n!.
+-- (No speed claim: `_!_` is the naive recursive factorial and the corpus has
+-- no cost model — see CountedDigits' cost boundary.)
 symmetryCarrier : ℕ → FinSet ℓ-zero
 symmetryCarrier n = (Fin n ≃ Fin n) , isFinSetAut (𝔽 n)
 

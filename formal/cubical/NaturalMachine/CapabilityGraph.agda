@@ -45,7 +45,11 @@ record ObservationalClassCompiler (n : ℕ)
     complete : (e f : Fin n ≃ Fin n)
              → (classOf e ≡ classOf f) ≃ (e ≈[ observation ] f)
 
--- Smith is already a closed native producer/consumer joint: the dependent
--- eliminator prevents a consumer from receiving a normal matrix without its
--- replay, invertibility, and normality witnesses.
+-- Smith offers a bundled consumer interface: a consumer that goes through
+-- `withSmith` receives the normal matrix together with its replay,
+-- invertibility, and normality witnesses in one call.  Nothing is *prevented*:
+-- SmithCapability also exports the unbundled projections (`normalMatrix`,
+-- `leftTransform`, `rightTransform`), so a consumer can take the normal matrix
+-- witness-free.  The bundling is an offered convention, not an enforced
+-- abstraction boundary.
 smithPipeline = withSmith
