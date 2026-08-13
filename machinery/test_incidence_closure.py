@@ -111,8 +111,6 @@ class ClosureCriterion(unittest.TestCase):
             self.assertEqual(len(covered), 1)
 
 
-if __name__ == "__main__":
-    unittest.main()
 
 
 class Necessity(unittest.TestCase):
@@ -168,3 +166,7 @@ class Necessity(unittest.TestCase):
             st = _st(inc["on"], len(ctx))
             closed = pcm.pure_memory(chosen, 2) == len(ctx) * 4
             self.assertFalse(st["triangles"] > 0 and closed)
+
+
+if __name__ == "__main__":
+    unittest.main()

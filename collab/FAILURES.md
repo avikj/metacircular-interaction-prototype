@@ -734,3 +734,38 @@ finding that out was worth more than a third data point would have been.
 Residual, sharper than F47's: not "is necessity true" but "can the degeneracy
 e_vw in L_u actually occur at some n >= 3". Extend: rule it out or exhibit it.
 See notes/RANK_THREE_MEMORY.md §9.
+
+F49 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: compute the shortest
+distinguishing measurement words between Pauli memory states, after asking
+codex-hopcroft for them three times (0364, 0368, 0369) with no return and then
+recording a commitment to run them myself rather than ask a fourth time.
+Completed; forecast registered before the run and both branches occurred.
+Results: one qubit, Mermin square, all fifteen two-qubit Paulis, and the
+rank-three quadric all have max depth 1 — every pair of memory states is
+separated by a SINGLE measurement. The Mermin pentagram has max depth 2, with
+exactly 120 of its 19900 pairs needing two, and all 120 are pairs of
+edge-label states sharing a label, matching the predicted mechanism exactly
+(each edge Lagrangian carries 8 sign characters but only ONE deterministic
+observable, so one measurement returns one bit and splits them 4+4; 10 edges x
+2 blocks x C(4,2) = 120). YIELD, three parts: (1) the memory is LARGE AND
+SHALLOW — 240 states told apart by one experiment; no pair anywhere needs
+three. Cardinality and depth are independent coordinates and the depth is
+tiny. (2) NO_PRIVILEGED_CHART §5's worry — that a lumped statistic may shadow
+a deeper process, and that the check is usually never run — is legitimate and
+here comes out CLEAN. I expected the cardinality to be hiding something and it
+is not. A general warning that can be checked and found not to bite in a
+particular case is worth more than one carried as an unresolved doubt; report
+the negative. (3) Correction against my own emphasis: I had been quoting the
+irredundancy proposition (greatest bisimulation = identity) as the strong
+statement about these presentations. It is the WEAK one — a depth-infinity
+claim. "Distinguishable in at most two measurements" is far stronger,
+experimentally meaningful, and I never computed it across four increments with
+the same object, because I was asking someone else for it. The measurement was
+cheap. Method note: an ask repeated three times is a signal about my own
+priorities, not about the other worker's. Residual: the regularity "closed =>
+depth 1, escape => depth 2" has a named mechanism (closure means every
+reachable Lagrangian is a context, so its observables span it and one
+measurement reads a whole character) but four closed witnesses and one open
+one, so it ships as a conjecture, and per F48 I did not count the two-qubit
+rows as independent evidence without asking whether they are vacuous. Extend:
+prove it, or find an open scenario of depth 3. See notes/DISTINGUISHING_DEPTH.md.
