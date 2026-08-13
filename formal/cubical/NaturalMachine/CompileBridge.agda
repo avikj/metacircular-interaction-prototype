@@ -167,6 +167,23 @@
 --   it is a named open joint in the style of
 --   `CapabilityGraph.ObservationalClassCompiler`.
 --
+--   I2 `ArithmeticPayloadOver`  THE CORRECTED JOINT, and why it exists.
+--   `notes/PAYLOAD_MORPHISM_BOUNDARY.md` (codex-vajra, 2026-08-13)
+--   showed that `ArithmeticPayload` fixes DATA and never fixes the
+--   TRANSFORMATIONS under which that data may be re-presented — so any
+--   carrier or minimality notion it implies is underdetermined.  Its
+--   instance: the k = 3 Möbius residual has unrestricted carrier rank 1
+--   and graded carrier rank 3, the same payload under two morphism
+--   classes.  That separation is now PROVED inside the substrate in
+--   `NaturalMachine.PayloadMorphism` (§F there), together with the
+--   chain-closure phenomenon of `notes/CHAIN_PAYLOAD_CLOSURE.md` (§G
+--   there).  Accordingly `ArithmeticPayloadOver Ans M` takes the
+--   morphism class `M` AS A PARAMETER and demands a minimal carrier IN
+--   THAT CLASS; `payload-carrier-determined` then proves the demanded
+--   number is unique, which is exactly what the parameter buys and what
+--   `ArithmeticPayload` could not say.  IT TOO IS DEFINED AND NOT
+--   INHABITED.
+--
 --
 -- WHAT IS DELIBERATELY NOT CLAIMED
 --
@@ -213,6 +230,17 @@
 --    cannot be the answer.  It does not say no extension of the substrate
 --    can carry the answer — §I names one that could.  §I is not proved to
 --    be sufficient, only to be a type; and no term of it is built.
+--  * NEITHER §I RECORD IS INHABITED, and `ArithmeticPayloadOver` is not
+--    claimed to be sufficient either — it is `ArithmeticPayload` with
+--    one omission repaired, not a construction.  Its `carrier` field
+--    demands a minimal carrier for a task's ANSWER in the declared
+--    class; nothing here relates that number to `deficit`, and the
+--    corpus's termination measure remains the structural one.  The
+--    morphism class the ARITHMETIC wants is still unfixed (see the "not
+--    claimed" section of `NaturalMachine.PayloadMorphism`): what is
+--    fixed is that the interface must name one.
+--  * `ArithmeticPayload` is kept, superseded, so that the correction is
+--    legible; it is not deleted and it is not inhabited.
 --  * The witness policy is still degenerate wherever the loop builds
 --    obstructions (`witness = var`); conservativity holds for any base
 --    witness, and nothing here makes bodies informative.
@@ -239,6 +267,8 @@ open import Cubical.Relation.Nullary using (¬_)
 open import NaturalMachine.Obstruction
 open Obstruction
 open import NaturalMachine.GenerativeLoop
+open import NaturalMachine.PayloadMorphism
+  using (MorphismClass ; MinCarrier ; min-unique)
 
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Digits
@@ -588,6 +618,90 @@ record ArithmeticPayload : Type₁ where
     payload-separates :
       Σ[ V ∈ Vocab ] Σ[ t ∈ Tm ] Σ[ h ∈ Over V t ]
       Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] (¬ (sem st t h ≡ sem st' t h))
+
+------------------------------------------------------------------------
+-- I2.  THE SAME JOINT WITH ITS OMISSION REPAIRED.
+--
+-- `notes/PAYLOAD_MORPHISM_BOUNDARY.md` (codex-vajra, 2026-08-13): the
+-- record above fixes the payload's DATA and never fixes the class of
+-- transformations under which the data may be re-presented, so its
+-- implied "minimal carrier" is underdetermined — the note's instance,
+-- the k = 3 Möbius residual with unrestricted carrier rank 1 and graded
+-- carrier rank 3, is proved as `PayloadMorphism.minimal-carrier-depends-
+-- on-class`, with the promotion table (1,3), (1,2), (1,1), (0,0) checked
+-- there as the control.  `notes/CHAIN_PAYLOAD_CLOSURE.md` (same author,
+-- same day) adds a third class in which a differential forces a larger
+-- carrier; that too is proved there (`chain-min-interval`), with the
+-- note's own zero-boundary false control (`chain-min-loop`).
+--
+-- The repair is one parameter and one field: the class `M` is now part
+-- of the interface, and the payload must have a MINIMAL CARRIER IN `M`.
+-- By `PayloadMorphism.min-unique` that number is then unique — see
+-- `payload-carrier-determined` below, which is the precise sense in
+-- which naming the class buys something.
+--
+-- THIS RECORD IS ALSO DEFINED AND NOT INHABITED.  Nothing in this file
+-- constructs one; the five original items are unchanged, `Ans` has moved
+-- from a field to a parameter (the class must be over it), and no claim
+-- is made that the fields are sufficient for the arithmetic task.
+------------------------------------------------------------------------
+
+record ArithmeticPayloadOver (Ans : Type₀) (M : MorphismClass Ans) : Type₁ where
+  field
+    -- (1) native coefficient/certificate data, indexed by the shape that
+    --     names its sector, and a store attached to a vocabulary.
+    Datum   : Shape → Type₀
+    Store   : Vocab → Type₀
+    atom    : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+    installP : {V : Vocab} → Store V → (d : Shape) (b : Tm) → Over V b
+             → Datum d → Store (d ∷ V)
+
+    -- (2) a checked composition law.
+    combine : Ans → Ans → Ans
+    -- (3) semantics, compositionally.
+    sem     : {V : Vocab} → Store V → (t : Tm) → Over V t → Ans
+    sem-node : {V : Vocab} (st : Store V) (c : Shape) (u : Tm)
+             → (hc : memb c V ≡ true) (hu : Over V u)
+             → sem st (node c u) (hc , hu) ≡ combine (atom st c hc) (sem st u hu)
+
+    -- (4) unfolding a generated definition preserves the semantics.
+    unfold-preserves :
+      {V : Vocab} (st : Store V) (d : Shape) (b : Tm) (bB : Over V b)
+      (x : Datum d) (t : Tm) (h : Over (d ∷ V) t)
+      → sem (installP st d b bB x) t h
+        ≡ sem st (unfold d b t) (unfold-elim V d b bB t h)
+
+    -- (5) a cost that is a SEPARATE field from the structural measure.
+    Cost    : Type₀
+    vcost   : {V : Vocab} → Store V → (t : Tm) → Over V t → Cost
+
+    -- (6) THE CORRECTION.  A payload has no minimal carrier until the
+    --     admissible transformations are declared; they are declared by
+    --     the parameter `M`, and this pair of fields demands that every
+    --     covered task's answer have a minimal carrier IN THAT CLASS.
+    --     Nothing identifies `carrier` with `deficit`: as with `vcost`,
+    --     the structural measure stays untouched.
+    carrier : {V : Vocab} → Store V → (t : Tm) → Over V t → ℕ
+    carrier-minimal : {V : Vocab} (st : Store V) (t : Tm) (h : Over V t)
+                    → MinCarrier M (sem st t h) (carrier st t h)
+
+    -- The F/G requirement, unchanged.
+    payload-separates :
+      Σ[ V ∈ Vocab ] Σ[ t ∈ Tm ] Σ[ h ∈ Over V t ]
+      Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] (¬ (sem st t h ≡ sem st' t h))
+
+-- WHAT THE PARAMETER BUYS, proved about the record without inhabiting
+-- it: with the class named, `carrier` is not a choice.  Any number
+-- satisfying the same minimality demand is that number.
+module _ {Ans : Type₀} {M : MorphismClass Ans} (P : ArithmeticPayloadOver Ans M) where
+
+  open ArithmeticPayloadOver P
+
+  payload-carrier-determined :
+    {V : Vocab} (st : Store V) (t : Tm) (h : Over V t) (m : ℕ)
+    → MinCarrier M (sem st t h) m → m ≡ carrier st t h
+  payload-carrier-determined st t h m mc =
+    min-unique M (sem st t h) m (carrier st t h) mc (carrier-minimal st t h)
 
 ------------------------------------------------------------------------
 -- G.  A concrete task, with the naming step COMPUTED.
