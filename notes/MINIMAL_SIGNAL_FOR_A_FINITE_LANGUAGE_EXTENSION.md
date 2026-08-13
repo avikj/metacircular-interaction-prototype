@@ -102,22 +102,37 @@ these protocols. Teaching dimension instead models a helpful teacher choosing
 a succinct labeled sample. Conflating them hides who chooses the interaction
 and what they know.
 
-## 5. Existing corpus theorem under another vocabulary
+## 5. Terminology correction: test cover, not a new dimension
 
-The repository had already solved the global sibling of Theorem 1.
-`COMPOSITIONAL_CRYSTAL_THEOREM` defines contextual dimension as the minimum
-number of contexts whose observation vectors separate **every** pair of
-behavioral classes—an all-pairs hitting set. Theorem 1 uses only the star of
-pairs `(h_*,h)` incident to one intended extension.
+The repository had already solved the global sibling of Theorem 1, but gave it
+the local name *contextual dimension*.  The underlying finite optimization is
+standard.
 
-Thus:
+For **binary-valued** probes, let the items be the behavioral classes and let
+the test belonging to a probe `q` be `{h:h(q)=1}`.  A probe separates `h` and
+`h'` exactly when its test contains exactly one of them.  Therefore the minimum
+number of probes separating every pair is exactly the **minimum test cover**,
+also called the **minimum test collection** or **minimum test set** problem.
+The local phrase *contextual dimension* adds no mathematical object and is
+retained only when quoting the historical claim handle.
 
-\[
-\begin{array}{ll}
-\text{contextual dimension} & \text{one probe basis identifies every state},\\
-\text{target teaching dimension} & \text{one labeled set identifies }h_*.
-\end{array}
-\]
+For an arbitrary finite-valued probe `q:H→Y_q`, the exact object is a minimum
+point-separating family of functions, equivalently a minimum family of the
+partitions into `q`-fibers whose common refinement is discrete.  Literature on
+the **generalized test collection problem** allows categorical sensor outputs.
+One must not silently replace a categorical probe by its binary outcome fibers:
+ordinary test cover can then select individual outcome fibers, while the
+original problem charges once for the whole probe.  That atomization changes
+the feasible selections and can change the optimum.
+
+Theorem 1 uses only the star of pairs `(h_*,h)` incident to the intended target.
+Thus target teaching dimension is the optimum of the **star-restricted
+pair-separation constraints** after target labels are supplied.  This is an
+exact reduction to a restricted test-cover instance in the binary case, not a
+claim that “star-restricted test cover” is an established synonym for teaching
+dimension.  The global test-cover objective chooses one unlabeled probe family
+that identifies every item; target teaching dimension chooses a labeled sample
+for one known target.
 
 The active-observer machinery already contains the disagreement tables needed
 for both. What was missing was the target-versus-global distinction, not a new
@@ -160,7 +175,19 @@ Learning,” *Machine Learning* 2 (1988), distinguishes membership,
 equivalence, subset, superset, disjointness, and exhaustiveness queries. The
 publisher record and Angluin paper text were checked. No novelty claimed.
 
-**Already in the corpus:** global all-pairs hitting-set characterization in
+De Bontridder, Lageweg, Lenstra, Orlin, and Stougie, “Branch-and-Bound
+Algorithms for the Test Cover Problem,” ESA 2002, pp. 223–233, defines the
+binary all-pairs problem under the standard name *test cover*.  Crowston,
+Gutin, Jones, Saurabh, and Yeo, “Parameterized Study of the Test Cover
+Problem,” MFCS 2012, gives the same pair-separation definition.  The names
+*minimum test collection* and *minimum test set* are also used for this binary
+problem.  Douek-Pinkovich, Raviv, and Ben-Gal, “The Generalized Test Collection
+Problem” (2019 manuscript), explicitly generalizes binary sensors to arbitrary
+categorical outputs.  These sources ground the dictionary above; no new
+umbrella term is proposed.
+
+**Already in the corpus:** global minimum test-cover / point-separating-family
+characterization, locally named `contextual dimension`, in
 `COMPOSITIONAL_CRYSTAL_THEOREM`; finite probe tables and myopic active choice
 in `ACTIVE_OBSERVER_DESIGN`; atomic response satisfaction in
 `OBSERVER_REVISION_IS_ATOMIC_SATISFACTION`.

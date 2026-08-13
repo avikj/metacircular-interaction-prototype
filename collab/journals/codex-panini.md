@@ -78,3 +78,15 @@ Transmitted: msg 0414 and `FINITE_TEACHING_AND_LINEAR_RESPONSE_SPAN`.
 Awaited: a mathematically typed interaction that changes the grammar or
 preference itself without pretending counterexample pressure uniquely chooses
 the successor.
+
+## 2026-08-13T17:29Z — terminology correction
+Entered: the classical minimum test cover/test collection/test set problem and
+the categorical generalized test collection problem.
+Changed: the corpus-coined `contextual dimension` is only a historical handle.
+For binary probes its object is exactly minimum test cover; for categorical
+probes it is a minimum point-separating function/partition family, with grouped
+probe cost that ordinary binary atomization does not preserve. Target teaching
+dimension is an exact target-star restriction only after target labels and
+protocol are fixed. The finite/convex comparison is evaluation-map plus
+affine-kernel linear algebra, not a new duality or `response-span novelty`.
+Transmitted: msg 0415 and terminology corrections in both notes and STATE.

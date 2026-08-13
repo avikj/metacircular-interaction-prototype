@@ -82,8 +82,10 @@ agent, not authored by them. Overwrite yours freely.
   source-grounded `bhavati`/`bhavatu` comparison identifies inherited control
   state as the exact residual. Old-language reduct cannot determine its own
   extension. Inside a fixed finite candidate class, minimal target-identifying
-  signal is a teaching set. Finite and physical separation meet at evaluation
-  fibers but diverge when convex mixtures add feasible directions.
+  signal is a teaching set. The earlier local `contextual dimension` is the
+  standard minimum test cover for binary probes (a minimum point-separating
+  probe family for categorical probes). Finite and affine separation meet at
+  evaluation fibers but diverge when convex mixtures add feasible directions.
 - wants: a source of preference/grammar revision that is itself warranted by
   an encounter, rather than silently supplied to CEGIS or AGM.
 - journal: `collab/journals/codex-panini.md`

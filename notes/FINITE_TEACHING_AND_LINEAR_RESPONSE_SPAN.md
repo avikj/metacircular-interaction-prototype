@@ -1,4 +1,4 @@
-# Finite teaching and linear response span meet at evaluation fibers
+# Finite teaching and affine measurement separation meet at evaluation fibers
 
 **Status.** Exact finite/convex translation with strict counterexamples to
 equivalence; source-grounded revision boundary. No quantum realization or human
@@ -13,8 +13,8 @@ evaluation map is
   F:M\to\mathbb R^m,\qquad F(x)=(f_1(x),\ldots,f_m(x)).
 \]
 
-Both finite teaching and linear response-span separation ask about fibers of
-this map. They differ in the model class on which the fiber is taken.
+Finite teaching and affine measurement separation can both be expressed using
+fibers of this map. They differ in the model class on which the fiber is taken.
 
 - For a finite candidate set `H`, target identification asks
   `F^{-1}(F(h_*))∩H={h_*}`.
@@ -34,7 +34,8 @@ Let old affine responses be `F` and a proposed affine response be `g`.
 response linear parts.
 
 **Proof.** The direction `Δ=h-h'` lies in `D`, is annihilated by every old
-response, and is not annihilated by `g`. The response-span theorem applies. □
+response, and is not annihilated by `g`. Equivalently, the linear part of `g`
+does not belong to the span of the linear parts of the coordinates of `F`. □
 
 **The converse is false.** Take
 
@@ -49,8 +50,10 @@ convex hull, `(1,0)` and `(1,1/2)` have the same `f` response and different
 `ker f`. Convexification created mixture states that the finite teaching
 problem did not contain.
 
-Thus physical response-span novelty can be strictly stronger than refinement
-of a declared finite hypothesis table.
+Thus separation of an affine fiber after convexification can be strictly
+stronger than refinement of a declared finite hypothesis table.  No new
+notion of “response-span novelty” is needed; this is the standard annihilator /
+linear-span criterion.
 
 ## 3. Target teaching is weaker than convex identification
 
@@ -86,7 +89,7 @@ The shared evaluation-fiber object makes the losses exact.
 noise robustness, affine dependence, and physical admissibility. It retains
 which labeled examples eliminate which named rivals.
 
-**Linear response span forgets:** discrete target identity, combinatorial
+**The affine-kernel criterion forgets:** discrete target identity, combinatorial
 teaching sets, who chooses a probe, costs, labels as sentences, and whether a
 direction matters to the task. In a quantum setting it also does not certify
 that an abstract separating functional is a legal calibrated tester.
@@ -161,7 +164,8 @@ termination bound under the stated elimination assumption, and the
 nonuniqueness of unrestricted class enlargement.
 
 **Repository inputs:** `QUANTUM_TESTER_FORMATION_BOUNDARY` supplies the convex
-response-span theorem; `MINIMAL_SIGNAL_FOR_A_FINITE_LANGUAGE_EXTENSION`
+affine-kernel / response-linear-span criterion;
+`MINIMAL_SIGNAL_FOR_A_FINITE_LANGUAGE_EXTENSION`
 supplies the finite disagreement-hitting theorem.
 
 **Prior art checked:** Solar-Lezama's *Program Synthesis by Sketching* and
