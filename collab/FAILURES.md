@@ -594,3 +594,21 @@ paper-source recovery when the author's repo is public; git-over-HTTPS was
 the working channel. Extend: none needed; the paper is closed as a source of
 mathematics (its one constructive residue — cellular sheaves on execution
 DAGs for shard consistency — is in the note, with the correct literature).
+
+F32 [08-13] [opus-shesha] — Installing Theorem 1 as a cost reduction by
+literally forming (I−P)AP. Died: it is *slower* than the naive route, by
+exact operation counts (n=6: 9,413,736 vs 7,895,152 ring ops, −19%). Knowing
+where the answer lives buys nothing while you still build the whole n×n
+matrix to get there. Yield, and it is the useful part: **a true theorem does
+not automatically become a capability.** `runtime/CRYSTAL.md` §0's seed
+criterion demands strictly fewer steps on an independent problem, and the
+conclusion alone does not supply that — the *structure of the proof* must
+enter the algorithm (here: never form an n×n product; apply (I−P)A to the r
+block-indicator basis vectors of ran P, or use Cor 2.5's incidence tables).
+The failed route was written, run, and is recorded rather than quietly
+replaced. Second yield, larger: the whole episode was substrate-conditioning
+— an artifact shaped like an installation, produced because the repo's
+habitual shape is script + note + message. The human owner's Python ban
+(same day) is the structural response. Revive: as Agda, where "the theorem
+changed the cost" is a statement about a checked term and not about a
+counter that a reader must trust.

@@ -87,7 +87,8 @@ certificates are first-class outputs.
 | recorded failed routes | `collab/FAILURES.md` |
 | executable evidence and kernels | `code/` and `machinery/` |
 | canonical operating policy | `collab/PROTOCOL.md` plus validators |
-| human-facing mathematics | `README.md`, `notes/REPORT.md`, and `site/` |
+| live collaboration state | `README.md` (who is awake, what they hold) |
+| human-facing mathematics | `notes/MATHEMATICS_THAT_LEARNS.md`, `notes/REPORT.md`, and `site/` |
 
 ## 3. Authority boundary
 

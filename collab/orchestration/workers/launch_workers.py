@@ -17,6 +17,13 @@ STOP = HERE / "STOP"
 FAILURE_BACKOFF_CAP = 300.0
 
 
+def display_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return str(path.resolve())
+
+
 def executable(provider: str) -> str:
     found = shutil.which(provider)
     if found is None: raise RuntimeError(f"required CLI not found: {provider}")
@@ -35,7 +42,7 @@ def capability_report() -> dict[str, object]:
     return report
 
 
-def load_tasks(path: Path) -> list[dict[str, object]]:
+def load_tasks(path: Path, require_journal: bool = False) -> list[dict[str, object]]:
     tasks, names = [], set()
     for number, line in enumerate(path.read_text().splitlines(), 1):
         if not line.strip() or line.lstrip().startswith("#"): continue
@@ -52,8 +59,64 @@ def load_tasks(path: Path) -> list[dict[str, object]]:
             candidate = (REPO / relative).resolve()
             if REPO.resolve() not in candidate.parents or not candidate.is_file():
                 raise ValueError(f"line {number}: bad context {relative}")
+        journal = task.get("journal")
+        if require_journal and not isinstance(journal, str):
+            raise ValueError(f"line {number}: persistent task must declare journal")
+        if journal is not None:
+            if not isinstance(journal, str):
+                raise ValueError(f"line {number}: journal must be string")
+            candidate = (REPO / journal).resolve()
+            if REPO.resolve() not in candidate.parents or not candidate.is_file():
+                raise ValueError(f"line {number}: bad journal {journal}")
+        task["_task_source"] = display_path(path)
         names.add(name); tasks.append(task)
     return tasks
+
+
+def persistent_task_index() -> dict[str, dict[str, object]]:
+    """Join task declarations without interpreting worker-authored content."""
+    index: dict[str, dict[str, object]] = {}
+    for path in sorted(HERE.glob("*.jsonl")):
+        if path.name == "tasks.example.jsonl":
+            continue
+        for task in load_tasks(path, require_journal=True):
+            name = str(task["name"])
+            if name in index:
+                raise ValueError(f"persistent task {name} declared in multiple files")
+            index[name] = task
+    return index
+
+
+def latest_broadcast(name: str) -> str | None:
+    candidates = sorted(OUTBOX.glob(f"*--{name}--*.md")) if OUTBOX.exists() else []
+    return str(candidates[-1].relative_to(REPO)) if candidates else None
+
+
+def live_context() -> dict[str, object]:
+    """Return live pointers; never synthesize a worker's mathematical position."""
+    tasks = persistent_task_index()
+    sessions = ([json.loads(path.read_text()) for path in sorted(SESSIONS.glob("*.json"))]
+                if SESSIONS.exists() else [])
+    minds = []
+    for session in sessions:
+        name = str(session["name"]); task = tasks.get(name)
+        minds.append({
+            "name": name,
+            "provider": session["provider"],
+            "session_record": display_path(session_file(name)),
+            "task_source": task.get("_task_source") if task else None,
+            "objective": task.get("task") if task else None,
+            "journal": task.get("journal") if task else None,
+            "worktree": session.get("worktree"),
+            "branch": f"worker/{name}",
+            "cursor": (display_path(cursor_file(name))
+                       if cursor_file(name).exists() else None),
+            "latest_broadcast": latest_broadcast(name),
+            "declared": task is not None,
+        })
+    declared_without_session = sorted(set(tasks) - {str(x["name"]) for x in sessions})
+    return {"stopped": STOP.exists(), "minds": minds,
+            "declared_without_session": declared_without_session}
 
 
 def render_initial(task: dict[str, object]) -> str:
@@ -292,17 +355,21 @@ def main() -> int:
     p.add_argument("--jobs", type=int, default=max(1, min(8, os.cpu_count() or 1)))
     p.add_argument("--cycles", type=int, default=1, help="turns per mind; 0 means continue until STOP file")
     p.add_argument("--delay", type=float, default=0.0); p.add_argument("--detect", action="store_true")
-    p.add_argument("--status", action="store_true"); p.add_argument("--stop", action="store_true")
+    p.add_argument("--status", action="store_true"); p.add_argument("--live-context", action="store_true")
+    p.add_argument("--stop", action="store_true")
     p.add_argument("--clear-stop", action="store_true")
     args = p.parse_args()
     if args.detect: print(json.dumps(capability_report(), indent=2)); return 0
     if args.stop: STOP.touch(exist_ok=True); print(STOP); return 0
     if args.clear_stop: STOP.unlink(missing_ok=True); return 0
+    if args.live_context:
+        print(json.dumps(live_context(), indent=2)); return 0
     if args.status:
         sessions = [json.loads(x.read_text()) for x in sorted(SESSIONS.glob("*.json"))] if SESSIONS.exists() else []
         print(json.dumps({"stopped": STOP.exists(), "sessions": sessions}, indent=2)); return 0
     if not args.tasks: p.error("tasks JSONL required")
-    tasks = load_tasks(args.tasks.resolve()); OUTBOX.mkdir(parents=True, exist_ok=True); RUNS.mkdir(parents=True, exist_ok=True)
+    tasks = load_tasks(args.tasks.resolve(), require_journal=True)
+    OUTBOX.mkdir(parents=True, exist_ok=True); RUNS.mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"); run_dir = RUNS / stamp; run_dir.mkdir()
     (run_dir / "capabilities.json").write_text(json.dumps(capability_report(), indent=2) + "\n")
     results=[]; cycle=1; failures = {str(task["name"]): 0 for task in tasks}; retry_after = {str(task["name"]): 0.0 for task in tasks}

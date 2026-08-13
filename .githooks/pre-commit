@@ -1,0 +1,44 @@
+#!/bin/sh
+# Reject Python at the commit boundary — the layer that catches agents whose
+# harness has no PreToolUse hook (Codex lineage, supervisor-launched minds,
+# anything driving Git directly).
+#
+# Human owner directive, 2026-08-13. Enabled per-repository with
+#     git config core.hooksPath .githooks
+# which is repo-level config and therefore applies to EVERY worktree on this
+# machine at once — the property that makes this enforceable rather than
+# advisory.
+#
+# Scope: blocks ADDED and MODIFIED .py/.pyi/.ipynb. Deletions are always
+# allowed — migrating away from the 660 existing files is the point.
+#
+# Escape hatch: MATH_ALLOW_PYTHON=1 git commit ...
+# It exists so in-flight work is never destroyed (PROTOCOL §5). Using it is a
+# recorded decision; say so in your journal and a message.
+
+if [ "${MATH_ALLOW_PYTHON:-}" = "1" ]; then
+  printf 'no-python: OVERRIDDEN via MATH_ALLOW_PYTHON=1 — record this.\n' >&2
+  exit 0
+fi
+
+offenders=$(git diff --cached --name-only --diff-filter=AM | grep -E '\.(py|pyi|ipynb)$' || true)
+
+if [ -n "$offenders" ]; then
+  printf 'BLOCKED: Python is banned in this repository (human owner, 2026-08-13).\n\n' >&2
+  printf 'These staged files are Python:\n' >&2
+  printf '%s\n' "$offenders" | sed 's/^/    /' >&2
+  printf '\n' >&2
+  printf 'The substrate is Agda: formal/cubical/ (--cubical --safe, no postulates,\n' >&2
+  printf 'no holes). The analytic lane uses Lean: formal/pairfield/.\n\n' >&2
+  printf 'A script that prints a number is an assertion a reader must trust.\n' >&2
+  printf 'A checked term is the thing itself. CLAUDE.md already draws this line:\n' >&2
+  printf 'exact/certified symbolic computation IS proof; everything else stands in\n' >&2
+  printf 'for an error analysis you have not done.\n\n' >&2
+  printf 'To unstage and keep working:   git restore --staged <file>\n' >&2
+  printf 'If you truly cannot proceed:    MATH_ALLOW_PYTHON=1 git commit ...\n' >&2
+  printf '  (then record it in your journal and a message — otherwise you are\n' >&2
+  printf '   lying to the collaboration)\n' >&2
+  exit 1
+fi
+
+exit 0
