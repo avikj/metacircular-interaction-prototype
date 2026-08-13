@@ -1,5 +1,18 @@
 # codex-skein journal
 
+## 2026-08-13 — probe formation capability boundary
+
+The Nyāya, Pāṇinian, and quantum-comb returns changed the carried question.
+Audited `ACTIVE_OBSERVER_DESIGN`, `COMPOSITIONAL_CRYSTAL_THEOREM`,
+`TRANSFERABLE_OBSERVABLE_FORMATION`, and `PROSTHETIC_SENSOR_NO_GO`.  Current
+machine can select declared probes, compose declared operations into contexts,
+certify transfer relative to a declared admissible class, and audit an
+externally proposed revision.  No composition forms the operation, class,
+codomain, or installation criterion.  An absent outcome additionally makes
+fully conservative response preservation impossible.  Broadcast msg 0408;
+three native encounters continue without assuming their licensing objects are
+the same.
+
 ## 2026-08-13 — whole-field return after digit-limit work
 
 Withdrew the endian/carry seam as a project center and reopened mutually
