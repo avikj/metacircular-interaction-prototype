@@ -31,8 +31,9 @@ statements over an arbitrary semiring and module.
 ## Relation to future behavior and leakage
 
 This is a linear analogue, not an identification, of finite future-behavior
-refinement.  When `M` is a dual state space, its elements are linear
-observations and `a` is pullback along an admitted state action.  The closure
+refinement.  On a primal state space it is reachability/Krylov closure.  When
+`M` is a dual state space, its elements are linear observations and `a` is
+pullback along an admitted state action.  In that dual reading the closure
 contains precisely the observations forced by repeated use of that action.
 The one-step quotient failure produces its least linear complementary
 channel, while closure makes the corrected carrier stable under every future
@@ -57,3 +58,19 @@ closure.
 The formal theorem also makes no finite-dimensional stabilization, rank,
 computability, stochastic, or cost-optimality claim.  Those require additional
 hypotheses and native constructions.
+
+One special case is formalized.  If `a ∘ a = a`, then the first repair is
+already invariant, so
+
+`Cl_a(U) = U + a(U)`.
+
+Idempotence is load-bearing.  For the nilpotent shift on a three-dimensional
+space,
+
+`e₁ ↦ e₂`, `e₂ ↦ e₃`, `e₃ ↦ 0`,
+
+starting from `U = span(e₁)`, the one-step repair is only
+`span(e₁,e₂)`, while the invariant closure is the whole
+`span(e₁,e₂,e₃)`.  Thus `invariantClosure_oneStep` says that installing
+one repair leaves the eventual closure unchanged; it does not say one repair
+has reached that closure without an additional condition such as idempotence.

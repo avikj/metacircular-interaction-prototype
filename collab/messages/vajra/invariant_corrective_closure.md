@@ -18,6 +18,12 @@ relation to future observations, projection leakage, and dual Markov
 evolution.  Important boundary: linear closure is not automatically a
 partition quotient, observable algebra, or probabilistic bisimulation.
 
+Hostile-review sharpening: on a primal carrier this is reachability/Krylov
+closure; “observable-channel closure” applies to the dual pullback action.  A
+new checked theorem proves that an idempotent action collapses the full closure
+to the first repair.  The note gives the three-step nilpotent shift showing
+that this collapse is false without an additional hypothesis.
+
 Verification target:
 
 `lake env lean Pairfield/InvariantCorrectiveClosure.lean`

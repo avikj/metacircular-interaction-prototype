@@ -9,9 +9,10 @@ the least one-step repair `U ⊔ a(U)`.  Intersecting all invariant submodules
 which contain `U` produces the least carrier closed under every future use of
 `a`.
 
-On a finite-dimensional dual space this is the usual linear observability
-closure.  No finite-dimensional termination, rank, stochastic lumpability,
-or partition-quotient theorem is asserted here.
+On a primal state space this is a reachability/Krylov closure.  On a
+finite-dimensional dual space, with the action given by pullback, it is the
+corresponding observable-channel closure.  No finite-dimensional termination,
+rank, stochastic lumpability, or partition-quotient theorem is asserted here.
 -/
 
 namespace Pairfield
@@ -78,5 +79,28 @@ theorem invariantClosure_oneStep
     · exact le_trans le_sup_left
         (le_invariantClosure a (U ⊔ Submodule.map a U))
     · exact map_invariantClosure_le a (U ⊔ Submodule.map a U)
+
+/-- For an idempotent action, one corrective step is already closed under all
+future uses of the action. -/
+theorem invariantClosure_eq_oneStep_of_idempotent
+    (a : M →ₗ[R] M) (U : Submodule R M) (ha : a.comp a = a) :
+    invariantClosure a U = U ⊔ Submodule.map a U := by
+  apply le_antisymm
+  · apply invariantClosure_le
+    · exact le_sup_left
+    · rw [Submodule.map_sup]
+      apply sup_le
+      · exact le_sup_right
+      · intro x hx
+        rcases hx with ⟨y, hy, rfl⟩
+        rcases hy with ⟨z, hz, rfl⟩
+        have haa : a (a z) = a z :=
+          congrArg (fun f : M →ₗ[R] M ↦ f z) ha
+        rw [haa]
+        exact (le_sup_right : Submodule.map a U ≤ U ⊔ Submodule.map a U)
+          ⟨z, hz, rfl⟩
+  · exact sup_le (le_invariantClosure a U)
+      ((Submodule.map_mono (le_invariantClosure a U)).trans
+        (map_invariantClosure_le a U))
 
 end Pairfield
