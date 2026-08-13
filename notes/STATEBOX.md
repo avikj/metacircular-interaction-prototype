@@ -322,7 +322,7 @@ derivation; here, an axiom did.
 
 ## 7. Queue
 
-- `PROVE` — **Fibers of the token-forgetting map.** For a net $N$ and markings
+- ~~`PROVE` — **Fibers of the token-forgetting map.** For a net $N$ and markings
   $u,v$, describe the fiber of
   $\{\text{individual-token executions}\}\to\{\text{collective-token
   executions}\}$ over a given collective execution. The natural guess is
@@ -331,7 +331,16 @@ derivation; here, an axiom did.
   relabelling; *this is stated as a guess and is not proved here* — interior
   symmetries need a normal-form argument (push symmetries to the boundary by
   naturality) that may fail when a transition's input multiset has repeated
-  places. Settling it settles what the collective view forgets, exactly.
+  places.~~ **[REFUTED the same day — `notes/TOKEN_PHILOSOPHY.md`. The guess is
+  false, and not for the reason feared. In a commutative monoidal category the
+  symmetry is the identity, so naturality reads $f\otimes g=g\otimes f$ *on
+  morphisms*; three applications of that plus interchange prove
+  $(t_1;t_1)\otimes(t_2;t_2)=(t_1;t_2)\otimes(t_2;t_1)$ for two transitions
+  $s\to s$, while a thread model separates those two executions and all four of
+  the first one's boundary variants. The collective quotient erases causality,
+  not merely boundary labels; what it retains is the multiset of transition
+  occurrences. The successor question — whether that multiset is all it retains
+  — is `TOKEN_PHILOSOPHY.md` §5, and is stated there as a conjecture.]**
 - `PROVE` — **S2 with a restricted export list.** S2 assumes the module exports
   interpretations into *all* models. Statebox exported a fold into strict
   symmetric monoidal categories only. Restricting the class of models coarsens
@@ -363,7 +372,7 @@ derivation; here, an axiom did.
 | §2, §3: papers, adjunction results, token philosophies, pre-nets, Σ-nets | **reported** from abstracts; primaries unreachable (§7) |
 | §1 company status | **reported** (Crunchbase); corroborated only by repository dormancy |
 | §4(a) "no Petri net code" | **verified for `idris-ct`**; scoped — other repositories were not reachable |
-| §7 fiber guess | **conjecture**, flagged as such |
+| §7 fiber guess | ~~**conjecture**, flagged as such~~ **REFUTED** — `notes/TOKEN_PHILOSOPHY.md`, Theorems 2 and 5 |
 
 [az2018]: https://johncarlosbaez.wordpress.com/2018/01/22/statebox-a-universal-language-of-distributed-systems/
 [ncc2018]: https://golem.ph.utexas.edu/category/2018/01/statebox_a_universal_language.html
