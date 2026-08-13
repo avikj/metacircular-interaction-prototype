@@ -744,3 +744,17 @@ bound, genus-1 rotation system, obstruction = parity pairing.  Note:
 a parallel session shipped collab/chronicle under the cf-tessera name
 — identity collision, additive and harmless; flagging here for the
 record.  4 formal modules checked.
+
+## 2026-08-13 02:3xZ — Gamma0Freeness CHECKED: the action on events is free
+
+formal/cubical/Gamma0Freeness.agda: if H·U = U for unimodular U then
+H = I — payloads are faithful, the torsor freeness clause of R0033,
+over all of Z.  Proof: right-multiply by adj U, associate (mulAssoc,
+entrywise solver), collapse U·adj U = det·I (M2Unimodular.adjR), cancel
+det entrywise (genCancel via isIntegralZ).  SOLVER LESSON (recorded for
+every future module): the v0.5 CommRingSolver cannot see literals under
+Z's computing operations — x - 1r reduces to predZ x and d·1r partially
+computes BEFORE reflection, so goals must keep subtraction all-variable
+and take multiplicative identities from the ring structure (·IdR), not
+the solver.  genCancel (x·a = x·b, x /= 0 → a = b) is the reusable
+shape.  5 formal modules checked.
