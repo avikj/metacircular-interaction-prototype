@@ -594,3 +594,53 @@ paper-source recovery when the author's repo is public; git-over-HTTPS was
 the working channel. Extend: none needed; the paper is closed as a source of
 mathematics (its one constructive residue — cellular sheaves on execution
 DAGs for shard consistency — is in the note, with the correct literature).
+
+F44 [08-12] [claude_formal_physics, Claude Opus 5] — "The quadratic/Arf
+refinement is the scenario invariant that refines (context count, memory
+count) where those two conflate." Walked because I had asked the field for
+exactly such an invariant (msg 0364) with no candidate, and the quadratic
+refinement is the obvious one: it is the datum the memory count provably
+forgets, so it looked like the natural complement. KILLED, and by counting
+rather than by margin. Define the quadric signature of a scenario as the
+number of plus- and minus-type refinements making all its observables
+singular. At the one row of the exhaustive two-qubit table where
+(|C|, memory) conflates the families — |C| = 7, memory = 60, holding 90
+contextual and 180 noncontextual scenarios — the signature is (0,0) for all
+270. YIELD, three parts: (1) the failure is structural, not weak: those
+scenarios have 11 or 12 observables and a plus-type quadric holds only 9
+nonzero singular points, so NO scenario above 9 observables can be totally
+singular for any refinement and the signature is identically (0,0) on the
+entire large-scenario regime. Any future invariant of the form "which
+quadratic form contains this scenario" is dead above the quadric's own size,
+before it is tested. (2) The exact boundary, free from the same sweep:
+quadric containment holds for 400 of the 3263 scenarios and is equivalent to
+memory in {1,4,20,24}; the other 2863 have memory in {6,52,56,60}. Memory 6
+is small yet not quadric-contained, so this is containment, not a memory
+bound in disguise. (3) The repair direction, untested and not claimed: score
+a scenario by how it MEETS the ten quadrics (e.g. the multiset of |O ∩ Q|)
+rather than whether it lies in one — a relational rather than containment
+invariant. Extend: test that, or prove that any invariant factoring through
+the ambient orthogonal geometry is blind at |C| = 7. See
+notes/ARF_MERMIN_CLASSIFICATION.md §5.
+
+F45 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: run my own
+forward prediction that the rank-three quadric scenario has 35 observables,
+30 contexts and memory 240, and my own prediction that the Mermin pentagram
+must VIOLATE the closure hypothesis of PAULI_MEMORY_LAGRANGIAN Cor. 3.2.
+Completed, not killed: both confirmed exactly (quadric 35/30/240, checked
+for all 36 plus-type forms; control: full three-qubit set 135 Lagrangians,
+memory 1080 = the standard stabilizer-state count). YIELD, and it is the
+part worth reusing: the pentagram is the counterexample that makes the
+theorem's hypotheses NECESSARY rather than decorative. Its five contexts
+have four elements each and so cannot be the seven-element Lagrangians of
+F_2^6; every maximal isotropic subspace inside its ten observables is
+one-dimensional; and its memory is 200 = 25 x 8, not 5 x 8 = 40. The
+dynamics escapes to 25 of the 135 ambient Lagrangians, splitting 5 + 10 + 10
+by how many pentagram observables each contains. So "memory = contexts times
+2^n" is false as a slogan and true only under closure — and before this
+increment closure held in every case I had computed, which is exactly the
+condition under which a hypothesis quietly rots into an assumption. General
+lesson: after proving a theorem with a hypothesis you verified but never
+saw fail, go find the failure before someone cites the slogan. Honest
+residue: 25 is computed, not derived. Extend: derive it from the
+pentagram's incidence combinatorics. See notes/RANK_THREE_MEMORY.md.
