@@ -16,6 +16,8 @@ exhaustively on a generated fragment.
 import itertools
 import unittest
 
+from compositional_crystal import factor_map
+
 from token_philosophy import (
     AXIOMS,
     CAUSAL_COLLAPSE,
@@ -59,7 +61,9 @@ from token_philosophy import (
     padding_is_injective,
     report,
     rewrite_component,
+    boundary_crystal,
     collectively_equal,
+    collective_factors_through_boundary,
     fire,
     local_trace_class,
     marking,
@@ -441,6 +445,44 @@ class GeneralNets(unittest.TestCase):
             visited = run(one, w, self.NET)
             self.assertEqual(visited[-1], marking(s=2))
             self.assertEqual(tuple(sorted(w)), ("a", "b", "p"))
+
+
+class CorpusCrystal(unittest.TestCase):
+    """Corollary 6 is not a new construction.  The boundary relation is the
+    compositional crystal of the two symmetry operations, and this corpus
+    already has that object, its universal property, and a runtime that emits
+    it with a minimum separating context basis.  So compute it there."""
+
+    def test_boundary_fibres_are_the_orbits(self):
+        elements, crystal = boundary_crystal([F_EXEC, G_EXEC], SIG_TWO)
+        self.assertEqual(len(elements), 8)
+        self.assertEqual(len(crystal.fibers), 2)
+        self.assertEqual({len(f) for f in crystal.fibers}, {4})
+        self.assertEqual(set(crystal.observations),
+                         {("t1t1", "t2t2"), ("t1t2", "t2t1")})
+
+    def test_collective_factors_but_is_not_injective(self):
+        """factor_map succeeds: the collective normal form is constant on the
+        boundary fibres, so the collective relation is coarser.  It takes the
+        SAME value on both fibres, so it is strictly coarser -- Corollary 6,
+        computed rather than argued."""
+        crystal, values, injective = collective_factors_through_boundary(
+            [F_EXEC, G_EXEC], SIG_TWO)
+        self.assertEqual(len(values), 2)
+        self.assertEqual(values[0], values[1])
+        self.assertFalse(injective)
+
+    def test_one_context_separates_the_orbits(self):
+        _, crystal = boundary_crystal([F_EXEC, G_EXEC], SIG_TWO)
+        self.assertEqual(len(crystal.separating_contexts), 1)
+        self.assertEqual(len(crystal.equations), 12)   # 2 orbits, C(4,2) each
+
+    def test_factor_map_refuses_a_finer_observation(self):
+        """Control: a map that separates two members of one orbit does not
+        factor -- the runtime's universal property is doing real work."""
+        elements, crystal = boundary_crystal([F_EXEC, G_EXEC], SIG_TWO)
+        with self.assertRaises(ValueError):
+            factor_map(crystal, {e: e for e in elements})
 
 
 class Report(unittest.TestCase):

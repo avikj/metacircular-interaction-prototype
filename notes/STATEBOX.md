@@ -322,45 +322,38 @@ derivation; here, an axiom did.
 
 ## 7. Queue
 
-- ~~`PROVE` — **Fibers of the token-forgetting map.** For a net $N$ and markings
-  $u,v$, describe the fiber of
-  $\{\text{individual-token executions}\}\to\{\text{collective-token
-  executions}\}$ over a given collective execution. The natural guess is
-  "orbits of $\prod_s\mathfrak S_{u(s)}\times\prod_s\mathfrak S_{v(s)}$ acting
-  at the boundary", which would say the loss is exactly boundary token
-  relabelling; *this is stated as a guess and is not proved here* — interior
-  symmetries need a normal-form argument (push symmetries to the boundary by
-  naturality) that may fail when a transition's input multiset has repeated
-  places.~~ **[REFUTED the same day — `notes/TOKEN_PHILOSOPHY.md`. The guess is
-  false, and not for the reason feared. In a commutative monoidal category the
-  symmetry is the identity, so naturality reads $f\otimes g=g\otimes f$ *on
-  morphisms*; three applications of that plus interchange prove
-  $(t_1;t_1)\otimes(t_2;t_2)=(t_1;t_2)\otimes(t_2;t_1)$ for two transitions
-  $s\to s$, while a thread model separates those two executions and all four of
-  the first one's boundary variants. The collective quotient erases causality,
-  not merely boundary labels; what it retains is the multiset of transition
-  occurrences. The successor question — whether that multiset is all it retains
-  — is `TOKEN_PHILOSOPHY.md` §5, and is stated there as a conjecture.]**
-- `PROVE` — **S2 with a restricted export list.** S2 assumes the module exports
-  interpretations into *all* models. Statebox exported a fold into strict
-  symmetric monoidal categories only. Restricting the class of models coarsens
-  the observational equivalence; compute the greatest congruence for the
-  restricted class and check it still equals $\approx$. (It does for SSMCs, by
-  taking the free one — but the general statement, "which export lists are
-  observationally complete", is the `cdim` question of
-  `COMPOSITIONAL_CRYSTAL_THEOREM` §Contextual dimension.)
-- `SEARCH` — **The three unread papers.** arXiv is egress-blocked here. §2–§3
-  are abstracts only; before any of §3 is cited as established in a paper of
-  this corpus, `1906.07629`, `1904.12974` and `2101.04238` must be read from
-  primary source.
+Both mathematical items this note opened are closed by construction, one of
+them by refutation. What remains is reachability, not mathematics.
+
+- ~~`PROVE` — **Fibers of the token-forgetting map** … the natural guess is
+  boundary orbits.~~ **[REFUTED, and replaced by a theorem —
+  `notes/TOKEN_PHILOSOPHY.md`. In a commutative monoidal category the symmetry
+  is the identity, so naturality forces $f\otimes g=g\otimes f$ on morphisms;
+  the collective quotient erases causality rather than boundary labels, and the
+  final statement (Theorems 13–15) is that two firings commute exactly when the
+  marking can host both at once. The fibre is a local trace class.]**
+- ~~`PROVE` — **S2 with a restricted export list.** … compute the greatest
+  congruence for the restricted class and check it still equals $\approx$.~~
+  **[DISCHARGED by construction, not by argument. The question "is this export
+  list observationally complete" is `COMPOSITIONAL_CRYSTAL_THEOREM`'s
+  $\mathrm{cdim}$, and `machinery/compositional_crystal.py` computes it: an
+  export list is complete exactly when the crystal it induces is discrete, the
+  minimum complete sublist is `separating_contexts`, and `factor_map` decides
+  whether a candidate observation factors. Run on the boundary algebra of
+  `TOKEN_PHILOSOPHY.md` §9 it returns two fibres, twelve invisible equations
+  and $\mathrm{cdim}=1$. Nothing here needed a new construction.]**
+- `SEARCH` — **The three unread papers.** arXiv is egress-blocked from this
+  container. §2–§3 are abstracts only. Before any of §3 is cited as established
+  in a paper of this corpus, `1906.07629`, `1904.12974` and `2101.04238` must
+  be read from primary source.
 - `SEARCH` — **The PureScript stack.** Whether `stbx-core`/`stbx-lang` exist
-  publicly under other names decides whether §4(a) is "the nets were never
-  formalized" or only "the nets were never formalized *in Idris*". The current
-  note claims only the latter.
-- `DEMONSTRATE` (lowest priority, and optional) — port `Quotient.idr`'s
-  universal property to the Lean development beside `FutureBehavior.lean`, so
-  the corpus owns a checked statement of the object Statebox postulated. The
-  content is already checked; this is packaging.
+  publicly under other names decides whether §4(a) reads "the nets were never
+  formalized" or only "the nets were never formalized *in Idris*". This note
+  claims only the latter.
+- `SEARCH` — **Trace theory**, inherited from `TOKEN_PHILOSOPHY.md` §10: the
+  theorems that lane produced reach Mazurkiewicz traces from the categorical
+  side and must be checked against that literature before being described as
+  new.
 
 ## 8. Honesty ledger
 

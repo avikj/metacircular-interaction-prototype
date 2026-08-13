@@ -773,3 +773,62 @@ def local_trace_class(a: Marking, word: Sequence[str], net: Net) -> frozenset:
 def collectively_equal(a: Marking, w1: Sequence[str], w2: Sequence[str],
                        net: Net) -> bool:
     return tuple(w2) in local_trace_class(a, w1, net)
+
+
+# ------------------------------- the boundary relation, via the corpus's own
+#
+# Corollary 6 said the boundary-orbit relation is strictly finer than the
+# collective one.  That is not a new construction: the boundary relation is the
+# compositional crystal of the two symmetry operations, and this corpus already
+# proves it exists, carries the operations, and comes with a minimum separating
+# context basis (`notes/COMPOSITIONAL_CRYSTAL_THEOREM.md`,
+# `machinery/compositional_crystal.py`).  So compute it there rather than argue
+# it here.  The element set below is closed under both operations and finite by
+# inspection -- pre- and post-composition with a single symmetry, on the two
+# orbits in question -- so no truncation and no sink is involved.
+
+from compositional_crystal import Operation, crystallize_algebra, factor_map
+
+SIGMA = sym(("s",), ("s",))
+
+
+def boundary_variant(seed: Term, pre: int, post: int) -> Term:
+    """One of the four boundary relabellings of `seed`.  There are four and not
+    infinitely many because the symmetry is an involution -- a law of the
+    symmetric theory (`freeSymmetryIsInvolution` in anyone's presentation), and
+    checked in the thread model -- so the index is (Z/2)^2, not a free monoid."""
+    t = comp(SIGMA, seed) if pre else seed
+    return comp(t, SIGMA) if post else t
+
+
+def boundary_algebra(seeds: Sequence[Term]) -> Tuple[Tuple[int, int, int], ...]:
+    """The (Z/2)^2 orbit index over the given seeds: finite and closed by
+    construction, with both operations total."""
+    return tuple((k, pre, post) for k in range(len(seeds))
+                 for pre in (0, 1) for post in (0, 1))
+
+
+def boundary_crystal(seeds: Sequence[Term], sig: Signature):
+    """The greatest congruence inside the kernel of the thread invariant, under
+    boundary relabelling.  Computed by `machinery/compositional_crystal.py`."""
+    elements = boundary_algebra(seeds)
+    pre_op = Operation("pre_sigma", 1,
+                       {(e,): (e[0], 1 - e[1], e[2]) for e in elements})
+    post_op = Operation("post_sigma", 1,
+                        {(e,): (e[0], e[1], 1 - e[2]) for e in elements})
+    observation = {e: thread_multiset(boundary_variant(seeds[e[0]], e[1], e[2]), sig)
+                   for e in elements}
+    return elements, crystallize_algebra(elements, [pre_op, post_op], observation)
+
+
+def collective_factors_through_boundary(seeds: Sequence[Term], sig: Signature):
+    """`factor_map` succeeds iff the collective normal form is constant on the
+    boundary fibres, i.e. iff the collective relation is coarser.  It is, and it
+    is not injective on fibres -- which is Corollary 6, computed rather than
+    argued."""
+    elements, crystal = boundary_crystal(seeds, sig)
+    values = factor_map(
+        crystal,
+        {e: normal_form(boundary_variant(seeds[e[0]], e[1], e[2]), sig)
+         for e in elements})
+    return crystal, values, len(set(values)) == len(values)

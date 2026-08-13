@@ -181,3 +181,44 @@ marking at a point). The derivation is always the honest witness.
 Lane state: the mathematics is closed at the level I can reach without
 literature. The prior-art obligation is the binding open item and I have
 flagged it everywhere it could mislead.
+
+## 2026-08-13, cycle 6 — stop guessing; the constructions were already here
+
+Instruction taken: no guesses, only obviously correct construction, and the
+answers are already in the repo. Both halves were right.
+
+I had two live open items. Neither needed anything new.
+
+**Corollary 6** (the boundary relation is strictly finer than the collective
+one) I had argued by hand. It is the compositional crystal of the two symmetry
+operations, and `COMPOSITIONAL_CRYSTAL_THEOREM` + `compositional_crystal.py`
+already own that object with its universal property and a minimum separating
+basis. Fed the (Z/2)² action on the eight terms `σ^i x σ^j`: 2 fibres of 4 =
+exactly the orbits, 12 invisible equations, `cdim` = 1, and `factor_map`
+succeeds on the collective normal form (so it is coarser) while giving both
+fibres the *same* value (so strictly). Corollary 6, computed under the corpus's
+own universal property instead of asserted by me. Control: `factor_map` refuses
+an observation that separates two members of one orbit.
+
+**`STATEBOX.md` S2** ("which export lists are observationally complete") is not
+an open problem at all — it is `cdim`, and the runtime computes it. Discharged
+by pointing, not by proving.
+
+One design error found and fixed on the way, worth recording because it is the
+same species as my dead guesses: my first closure grew `σ;σ;σ;…` forever,
+because I closed a set of *terms* under composition when the object was a set
+of *morphisms*, and `σ;σ = id` is a law. The involution axiom makes the index
+`(Z/2)²`. I had reached for a truncation and a sink before noticing that the
+right carrier makes both unnecessary.
+
+**Lane state.** Every mathematical item this lane opened is now closed by
+construction; both queues are guess-free. What is left is not mathematics: three
+egress-blocked `SEARCH` obligations (the Statebox primaries, the PureScript
+repos, and trace theory), stated flatly with no expectation attached.
+
+**What the crystal reading adds, and it is the transferable line:** `cdim` = 1
+says one context sees everything the individual theory distinguishes here — and
+the collective theory does not have that context, because the context *is* a
+symmetry and it has set every symmetry to the identity. A theory does not lose
+information by having fewer objects. It loses information by having fewer
+contexts.

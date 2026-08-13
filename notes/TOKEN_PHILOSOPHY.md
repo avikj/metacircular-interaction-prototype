@@ -1,7 +1,7 @@
 # What the collective-token view forgets: causality, exactly up to concurrency
 
 **Status: proved, and machine-replayed.** `machinery/token_philosophy.py`,
-`machinery/test_token_philosophy.py` (33/33, seven hostile controls). Two
+`machinery/test_token_philosophy.py` (37/37, eight hostile controls). Two
 conjectures were stated and killed in this note's own lifetime — §0's and
 §3's — and the third, stated with its guard rails visible, was then **proved**
 for the class in question (§6, Theorem 11). The instrument that closed it was
@@ -428,43 +428,66 @@ for the independence relation read off the source marking $a$. It is not; it is
 a *local* trace object, and §7's clean monoid is exactly the degenerate case
 where the marking never changes, so locality cannot be seen.
 
-## 9. Queue
+## 9. Corollary 6 is an object this corpus already owns
 
-- ~~`PROVE` — **What is $C(a,b)$?** … the collapse is complete from $|a|\ge2$
-  tokens on.~~ **[PROVED for the one-place unary class — §6 Theorem 11, and it
-  is exactly the third conjecture's statement. The general case, several places
-  and non-unary transitions, is open and is now the lane's main `PROVE` item:
-  the proof of Theorem 11 uses unarity twice (to know $C(1,1)$ has no tensor
-  decomposition, and to pad by $\mathrm{id}_{n-1}$), and neither survives a
-  transition with $\partial_0t=2s$.]**
-- ~~`PROVE` — **Which $\otimes\mathrm{id}$ maps are injective?**~~ **[ANSWERED
-  for this class — Corollary 12: all of them except $n=1\to2$, which is
-  abelianisation. Open in general.]**
-- ~~`PROVE` — **Non-unary transitions.**~~ **[PROVED — §7 Theorems 13 and 14.
-  The mechanism survives and generalises: commutation at $n\ge k_t+k_{t'}$, and
-  $C(n,n)$ is a trace monoid. My expectation that the third conjecture would
-  break here was wrong in the useful direction.]**
-- ~~`PROVE` — **Several places.** … I expect Theorem 14 to survive with the
-  marking-wise independence relation; I have not written it and it is a
-  guess.~~ **[PROVED, and the guess was half wrong — §8 Theorem 15. The
-  marking-wise condition is right, but it must be read *locally*, at the point
-  of exchange, and the resulting equivalence is strictly coarser than the trace
-  monoid of the source marking: a transition that produces tokens can be
-  scheduled early to unlock an exchange that was unavailable at the start.]**
-- `SEARCH` — **Trace monoids and net semantics.** Theorem 14 lands on
-  Mazurkiewicz traces from the categorical side. The relation between trace
-  languages and Petri net step semantics is a large classical literature
-  (Mazurkiewicz, Diekert–Rozenberg's handbook) which I have not read and cannot
-  reach from here. Before this is cited as new anywhere, it must be checked
-  against that literature; the derivation is mine, the statement may well not
-  be.
-- `DEMONSTRATE` (optional) — a decision procedure for the collective theory on
-  bounded terms, which would let the third conjecture be falsified cheaply
-  before anyone tries to prove it. The first two guesses died in two hours and
-  one hour respectively; a falsifier is now clearly worth more than a proof
-  attempt.
+Corollary 6 — the boundary relation is strictly finer than the collective one —
+was argued by hand in §3. It did not need to be. The boundary relation is the
+**compositional crystal** of the two symmetry operations, and
+`notes/COMPOSITIONAL_CRYSTAL_THEOREM.md` already proves that object exists, is
+the greatest congruence inside the kernel of the observation, carries the
+operations, and has a universal factorisation; `machinery/compositional_crystal.py`
+already computes it together with a minimum separating context basis. So it is
+computed there, not re-argued here.
 
-## 10. Honesty ledger
+The algebra is finite and closed with no truncation and no sink: the symmetry
+is an involution, so pre- and post-composition generate $(\mathbb Z/2)^2$
+acting on the eight terms $\sigma^i x\sigma^j$, $x\in\{f,g\}$. The observation
+is the thread invariant $\theta$. `crystallize_algebra` returns:
+
+| | |
+|---|---|
+| elements | $8$ |
+| fibres | $2$, of size $4$ each — **exactly the two boundary orbits** |
+| fibre observations | $\{t_1t_1,t_2t_2\}$ and $\{t_1t_2,t_2t_1\}$ |
+| invisible equations | $12=2\binom42$ |
+| minimum separating context basis | $\mathbf 1$ — one context distinguishes the orbits |
+
+Then `factor_map` is applied to the collective normal form. It **succeeds**,
+which is the statement that the collective relation is coarser than the
+boundary one; and the two fibres receive the **same** collective value, which is
+the statement that it is strictly coarser. That is Corollary 6, computed by the
+corpus's runtime under its own universal property rather than asserted by me.
+The control is that `factor_map` *refuses* an observation separating two
+members of one orbit.
+
+The reading that matters for the corpus: $\mathrm{cdim}=1$ here says one
+context suffices to see everything the individual theory distinguishes at this
+boundary — and the collective theory does not have that context, because the
+context is a symmetry and it has set every symmetry to the identity. **A theory
+does not lose information by having fewer objects; it loses information by
+having fewer contexts.**
+
+## 10. Queue
+
+Every mathematical item this note opened is closed by construction. What
+remains is one obligation that cannot be discharged from inside this container,
+stated flatly and with no expectation attached to it.
+
+- **Done, by construction, with pointers:** the fibre of the token-forgetting
+  map (§0–§3, refuted and replaced); what the collective view retains (§5,
+  refuted and replaced); the one-place unary class (§6, Theorem 11); the
+  padding maps (§6, Corollary 12 and §7); non-unary transitions (§7, Theorems
+  13–14); several places and non-marking-preserving transitions (§8, Theorem
+  15); the decision procedure (`normal_form`, `local_trace_class`); the
+  boundary relation as a crystal (§9, computed by
+  `machinery/compositional_crystal.py`).
+- `SEARCH` — **Trace theory.** Theorems 13–15 reach Mazurkiewicz traces from
+  the categorical side. That literature is not in this repository and the
+  network paths to it are blocked here. The obligation is to check these
+  statements against it before any of them is described as new anywhere. No
+  claim is made about the outcome.
+
+## 11. Honesty ledger
 
 | claim | grade |
 |---|---|
@@ -479,5 +502,6 @@ where the marking never changes, so locality cannot be seen.
 | Theorem 11, Corollary 12 | **proved**; the engine derivation is machine-checked |
 | Theorem 15 (general nets, local traces) | **proved**; the locality example is machine-computed |
 | Theorems 13, 14 (trace monoid) | **proved** — derivation machine-checked, model verified; **not searched for prior art**, see §8 |
+| §9 crystal, fibres, `cdim`=1, `factor_map` behaviour | **computed** by `machinery/compositional_crystal.py`, an already-verified corpus construction |
 | The bounded rewrite search | **falsifier only** — one-sided, bound-limited; it found the missing associativity axioms and establishes no inequality |
 | The `STATEBOX.md` §7 guess | **refuted** here; struck through there |
