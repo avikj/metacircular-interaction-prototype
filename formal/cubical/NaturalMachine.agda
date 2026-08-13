@@ -86,6 +86,7 @@ import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.WitnessPolicy
+import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus

@@ -211,6 +211,60 @@ component is where the policy would start to matter; `WitnessPolicy.inform` is
 the candidate. **Not landed** — flagged as the next theorem in this line.
 Recorded in `Obstruction`'s and `GenerativeLoop`'s NOT-CLAIMED sections.
 
+**RESOLVED** via `definitional-separation` (`formal/cubical/NaturalMachine/
+ProgressDefinition.agda`, new module; a separate file rather than an extension
+of `GenerativeLoop` because the separation needs `WitnessPolicy`, which imports
+`GenerativeLoop`). Agda exit 0 for the module and for the aggregate
+`NaturalMachine.agda`. Three findings, in order of importance:
+
+1. **The statement proposed above is landed and is NOT a closure.**
+   `generative-step-unfolds` checks verbatim. But `unfold-deficit-split`
+   — `deficit V t ≡ gaps d V t + deficit V (unfold d b t)`, the definitional-
+   side analogue of `deficit-split`, proved here — holds for **every** base
+   body, `var` included; and `install-unfold-agree` then gives
+   `deficit (d ∷ V) t ≡ deficit V (unfold d b t)`, so the unfolded measure is a
+   function of the residual alone. `generative-step-unfolds-null` exhibits the
+   null proposer satisfying the proposed theorem. *No statement built from
+   `deficit` can close gap D.* This corrects §4-D above; the suggestion was
+   correct mathematics and insufficient as a separator.
+
+2. **The separating measure is `size` under `unfold`.** `unfold-grows`
+   (informative body, payload of size > 1, residual occurring uncovered in the
+   target ⟹ `size t < size (unfold …)`) against `null-unfold-shrinks`
+   (`size (unfold d var t) < size t` on the same hypothesis) — the strict
+   sharpening of `WitnessPolicy.degenerate-never-grows`, which only gave `≤`.
+   The property `Expands V o t = size t < size (unfold (residual o) (witness o) t)`
+   is true of `inform` and its **negation is checked** for `degenerate`
+   (`null-never-expands`).
+
+3. **The null-proposer separation is proved**, and the null proposer is a real
+   proposer: `null-step₀`/`null-loop`/`null-generative-loop`/`null-loop-drops-in`
+   re-run B2–B4 with every body pinned to `var`, same measure, same bound
+   `chainLen ch ≤ deficit V t`, and forgetting nullity returns
+   `generative-loop`'s conclusion verbatim. `definitional-separation` puts both
+   sides in one term: two obstructions off the same probe, same `residual`
+   (`refl`, hence definitionally the same `extend`, `Matches`, `Over`,
+   `deficit`), same deficit drop, same unfolded drop — and opposite truth
+   values of `Expands`. Chain-level control: `null-chain-generates-nothing`
+   (`AllNull ch → totalBody ch ≡ 0`, every chain, every length) against
+   `informative-step-grows`.
+
+**Remaining obligation** (recorded in the module's NOT-CLAIMED section, not
+claimed as closed): (i) `Expands` is per-step; no loop-level or chain-level
+form is proved, and no lower bound on `totalBody` of `generative-loop`'s own
+output is available, since the bodies depend on the order the probe reads the
+target. (ii) The separation carries the hypothesis `1 < size (arg o)`, which is
+**sharp** — `trivial-payload-collapses` shows the two policies generate the
+same body when the payload is `var` — but it means the closing theorem's fourth
+component is an implication, not a fact about every target. (iii) "No theorem
+of `Obstruction` §§6–9 or `GenerativeLoop` §§A–B distinguishes the two
+proposers" remains a reading of those statements, not an Agda judgement; what
+is checked is the residual identity and the null proposer's discharge of
+B2–B4. (iv) Gap **F** (`argBase` decoration) is untouched here — though
+`witnessBase`, the field `WitnessPolicy` derives from `argBase`, is now
+load-bearing in a *progress* statement (`unfold-progress`), which it was not
+before.
+
 ### E. "Conservative", "completeness", "compile" are all narrower than the words
 
 - **conservative** = eliminability from `Over` (O5, G12). No `Provable`. P3 open.
@@ -249,7 +303,8 @@ section; no theorem needed.
 | A12 | **Added** a "WHAT IS DELIBERATELY NOT CLAIMED" section in the siblings' style: no unprovability claims, `cost` declared not derived, the saving is uncharged reuse, `Plan` is an enumeration not a language, the task is prose, no vocabulary/generation content. | `AcceptanceTest.agda:57-85` |
 | O1, O5, O6, O11, O14, O17 | **Downgraded in place** — superlative removed; "hence conservative" and "the D3 content" replaced with the coverage-level statement and a pointer to P3; `proposal-determined` marked as `cong`; "completeness" marked as coverage; §7 preamble pointed at T7′. | `Obstruction.agda` header :18-22, :48-66, :96-99 and :360-364, :412-416 |
 | G12, G13, G15 | **Downgraded in place** — C1 marked as a renaming with no provability content; C2's flip marked as `cong` on `failed` given a stipulated `compile`; the stale witness-policy bullet now cites `NaturalMachine.WitnessPolicy`. | `GenerativeLoop.agda` header :98-124, :126-… and :541-547 |
-| D, F | **Not closed** — recorded as explicit NOT-CLAIMED items with the theorem that would close D. | `Obstruction.agda` header; `GenerativeLoop.agda` header |
+| D | **Closed** — see the RESOLVED block in §4-D. `unfold-deficit-split`, `install-unfold-agree`, `generative-step-unfolds` (this note's own proposal, landed), `generative-step-unfolds-null` (and refuted as a separator), `unfold-grows` / `null-unfold-shrinks` / `Expands`, `defining-step` / `null-step` / `definitional-separation`, and the null-proposer control `null-loop` / `null-generative-loop` / `null-chain-generates-nothing`. | `NaturalMachine/ProgressDefinition.agda` (new) |
+| F | **Not closed** — recorded as an explicit NOT-CLAIMED item. (`witnessBase`, which `WitnessPolicy` derives from `argBase`, is now load-bearing in a progress statement — `ProgressDefinition.unfold-progress` — but `argBase` itself is still eliminated by no theorem.) | `Obstruction.agda` header; `GenerativeLoop.agda` header |
 | O2, O10, A5, A11 | **No action** — DEFINED-ONLY/VACUOUS but honestly labelled where it matters. | — |
 
 ### Msg 0370 §2 items, adjudicated
