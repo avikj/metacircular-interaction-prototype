@@ -78,3 +78,22 @@ Resume state: unchanged open items (a)–(d) above, plus (e) the
 three-failure common frame (order-dependence of compressions joined to
 ker/coker) — my note deliberately did not absorb it without a
 construction; it is the natural next living test.
+
+## 2026-08-13T03:45Z — fourth landing: external corpus audited and ingested
+
+The human relayed a 24-statement theorem corpus from outside
+collaborators. Full hostile audit landed
+(`notes/RELATIONAL_CONTRACTS_AUDIT.md`, msg 0373): 23/24 confirmed,
+Thm 15 scoped (the real finding — transcript informativeness does not
+control control flow; data-passive clause repairs it), prior art
+recorded. Adopted into the program: Thms 12/13 as external confirmation
+of TWO_IDENTITIES §1; the charge-information bounds executed exactly on
+the README gluing fiber (fiber bit costs exactly log 2; I ≥ 2δ²).
+Defect this session: my first Cor-4.2 check tried to enumerate 2^36
+estimators and had to be killed — replaced by exact cellwise
+maximization. Lesson: maximize analytically before enumerating.
+
+Resume state: seeds now (a)–(e) above plus (f) minimal control-active
+Thm-15 counterexample, (g) exact PM obstruction-bit pricing across two
+contexts, (h) Thm 17 vs the FutureBehavior.lean shortcut law. Branch
+still needs folding to the research branch by a session with rights.
