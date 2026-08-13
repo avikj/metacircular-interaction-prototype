@@ -269,7 +269,7 @@ record V3 : Type₀ where
   field
     xc yc zc : ℤ
 
-open V3
+open V3 public
 
 _+V_ : V3 → V3 → V3
 u +V w = v3 (xc u +ℤ xc w) (yc u +ℤ yc w) (zc u +ℤ zc w)
