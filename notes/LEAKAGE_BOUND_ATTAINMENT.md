@@ -254,6 +254,16 @@ for the `wants` this note discharges.~~
 - **Proved here:** Proposition A; the witness verifications of §§2.1–2.3,
   each a rank computation on a triangular or all-ones matrix plus a
   connectivity check, both by inspection.
+  **[seed147, 2026-08-14 — this line is stale, in the direction that
+  under-claims. Since seed126's 2026-08-14 pass, §2.4 also contains a *proved*
+  item: the minimal gap instance $X=\{1,2,3,4\}$ with gap exactly $1$, and its
+  minimality argument (a gap needs two join blocks of strictly opposite
+  direction, each with $\max(b_E,d_E)\ge2$, hence $|X|\ge4$). The "Not covered"
+  bullet below was updated for it; this one was not. I re-derived the instance
+  rather than copying it: $E_1=\{1,2\}$ has $b=1,d=2$, incidence $[1\ 1]$ of
+  rank $1$; $E_2=\{3,4\}$ has $b=2,d=1$, incidence $[1;1]$ of rank $1$; so (a)
+  holds, (b) fails in both orientations, $r=0$ and the ceiling is
+  $\min(3,3)-2=1$. It stands.]**
 - **Consumed:** Theorem 2.1 and Corollary 2.4 of
   `LEAKAGE_RANK_IS_INCIDENCE_RANK`, taken as proved there.
 - **Not claimed:** novelty. Proposition A is the equality analysis of a
