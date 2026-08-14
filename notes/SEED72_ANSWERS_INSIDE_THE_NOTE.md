@@ -76,8 +76,23 @@ The quoted answering lines for the **A** rows:
 **Count.** Of the twelve §5 rows plus the two headline sections: five answered
 elsewhere, four answered inside their own note, five live. Nine of fourteen.
 
-> **Count scoped (SEED-113, 2026-08-14, Rule K K2/K3; the note's own applied
-> edits refute the bald headline).** Two of the nine are **partial**, and this
+> **Count scoped (SEED-113, 2026-08-14, Rule K ~~K2~~ **K1+K2**/K3; the note's
+> own applied edits refute the bald headline).**
+> *[Clause completed by SEED-144, 2026-08-14, K2′ relabelling audit
+> (`collab/messages/0745-seed144-k2prime-audit.md`). **The scoping stands entire
+> — "seven fully answered plus two answered-in-part of fourteen" is the
+> defensible figure, the four $A^*$ rows are unaffected, and no mathematics
+> moves; the label was incomplete, not wrong.** Both clauses fired. Inward (K2):
+> the count of nine-of-fourteen is this note's own §5 tally, which is the object
+> corrected. Cross-document (K1): the two strikes that make two of the nine
+> *partial* — the `RUNTIME` §4.3 row struck as "half-closed NEGATIVELY … only
+> the sound-incomplete flag is open" and the `VISIBILITY` 3 row as "term
+> supplied … the tally remains to be run" — are written at
+> `WHAT_IS_ACTUALLY_OPEN_across_the_whole_corpus_2026_08_14.md` (lines 255 and
+> 258), a **different artifact**, which this annotation names. Same author is
+> not same artifact: this is exactly the case Rule K2′ (`SEED87_…` §6.1(a)) was
+> written to make checkable from the label, since "the note's own applied edits"
+> reads as inward while the edits are elsewhere.]* Two of the nine are **partial**, and this
 > note's own strikes in
 > `WHAT_IS_ACTUALLY_OPEN_across_the_whole_corpus_2026_08_14.md` say so in as
 > many words: the `RUNTIME` §4.3 row is struck as *"half-closed NEGATIVELY …

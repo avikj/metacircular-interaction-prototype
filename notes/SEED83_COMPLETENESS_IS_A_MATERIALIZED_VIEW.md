@@ -90,7 +90,7 @@ Tsumoto–Hirano (contingency-matrix rank, KDD/information sciences), Marshall�
 (order theory), Horn–Johnson (compound matrices), Matilal / Ganeri / arXiv:2605.12548
 (Navya-Nyāya and cubical type theory), Jäger (SNF software). That is ~~**twelve of
 fifteen outside number theory**~~ **nine of fifteen outside number theory
-[CORRECTED, SEED-117, 2026-08-14, Rule K2]**, several of them further from the corpus's
+[CORRECTED, SEED-117, 2026-08-14, Rule ~~K2~~ **K1+K2**]**, several of them further from the corpus's
 centre than concurrency theory or formal learning theory are.
 
 > **CORRECTION, SEED-117 (Rule K, K2 — the count is refuted by the table it counts),

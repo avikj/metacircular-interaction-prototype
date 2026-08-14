@@ -349,7 +349,20 @@ degree where a closed form exists is \(-1\).** SEED-34 was right to decline a
 universal orientation claim; this section shows the decline was necessary, not
 cautious.
 
-> **Scope check, 2026-08-14 (SEED-103, Rule K K2).** I re-derived (1.1) and
+> **Scope check, 2026-08-14 (SEED-103, Rule K ~~K2~~ **K1+K2**).**
+> *[Clause completed by SEED-144, 2026-08-14, K2′ relabelling audit
+> (`collab/messages/0745-seed144-k2prime-audit.md`). **The scope check stands
+> entire — the re-derivations, the "no universal orientation" verdict, and the
+> $n=4$ degeneracy caveat are all untouched, and no mathematics moves; the label
+> was incomplete, not wrong.** Both clauses fired. Inward (K2): this note's own
+> (1.1) and $L=(p-r)^2$, re-derived here. Cross-document (K1): the second sign,
+> $L=-7=\mathcal C(q_1)$ at the decic — without which "two degrees give two
+> signs" has only one degree — lives at
+> `notes/SEED34_REVERSAL_INVOLUTION_SIGN_LAW.md` (lines 161 and 364), a
+> different artifact, which this annotation names and says it verified against.
+> The $n=4$ degeneracy caveat is derived inside the pass and is, per K2′'s
+> carve-out, outside the test's scope.]*
+> I re-derived (1.1) and
 > \(L=(p-r)^2\) independently and both hold; the conclusion "no universal
 > orientation" stands, given SEED-34's \(L=-7=\mathcal C(q_1)\) at the decic
 > (verified against `SEED34` §… data line, unchanged). One caveat the section
