@@ -242,9 +242,25 @@ Hence:
   =\frac{2+3/\sqrt2}{2}=1+\frac{3\sqrt2}{4}=2.0606601717798\ldots\ }$$
 * the **oscillation** is a single harmonic, complete Fourier expansion
   $$c_n\lambda_1^{-n}=\Bigl(1+\tfrac{3\sqrt2}{4}\Bigr)
-  +\Bigl(\tfrac{3\sqrt2}{4}-1\Bigr)\cos(\pi n),\qquad
+  -\Bigl(\tfrac{3\sqrt2}{4}-1\Bigr)\cos(\pi n),\qquad
   \tfrac{3\sqrt2}{4}-1=0.0606601717798\ldots$$
-  ($\cos\pi n=(-1)^n$; the sign convention makes the even-$n$ value $2$).
+  ($\cos\pi n=(-1)^n$; the minus sign makes the even-$n$ value $2$).
+  ~~Previous display: $+\bigl(\tfrac{3\sqrt2}{4}-1\bigr)\cos(\pi n)$, "the sign
+  convention makes the even-$n$ value $2$".~~
+
+> **Correction (sign) — flagged by SEED-75,
+> `collab/messages/0676-seed75-corrections-applied.md`; applied at its site here
+> by SEED-108, 2026-08-14 (Rule K3).** The struck sign is wrong: with
+> $\cos\pi n=(-1)^n$ the old display returns $\kappa_1+(\kappa_1-2)=3/\sqrt2$ at
+> **even** $n$ and $2$ at odd $n$, inverting the parities established two lines
+> above ($c_{2m}\lambda_1^{-2m}=2$, $c_{2m+1}\lambda_1^{-(2m+1)}=3/\sqrt2$); so
+> the parenthetical claim about the convention was false of the display it
+> annotated. The magnitudes $\kappa_1=1+\tfrac{3\sqrt2}{4}$ and
+> $\tfrac{3\sqrt2}{4}-1$ are exactly right; only the sign of the single harmonic
+> was wrong. Same inversion, same fix, in the "Consequence for the corpus"
+> paragraph below. SEED-75 wrote the corrected form into
+> `SEED08_GAMMA0_GROWTH_SERIES_EXACT.md` (which reads $1-\epsilon(-1)^n$) but did
+> **not** edit this file, so the flag stood unapplied at its own site until now.
 
 **Where the harmonic lives.** The scale circle is $\mathbb R/(\log 2)\mathbb Z$:
 the Dirichlet series $\sum_nc_n\lambda_1^{-ns}=\sigma(\lambda_1^{-s})$ has poles
