@@ -377,10 +377,14 @@ in §2.2; none is a measurement.
    $g$ is elementary enough that it is certainly classical (it is the norm form
    of the quadratic extension $y=x^2$); find the reference before it is quoted
    outside the corpus.
-3. `DEMONSTRATE` — restate `PARITY_RESULTANT.md` Theorem 1b as a corollary of
+3. ~~`DEMONSTRATE` — restate `PARITY_RESULTANT.md` Theorem 1b as a corollary of
    Theorem C, so that the note's displayed identity is true for every monic
    input rather than only on its hypothesis locus. No new mathematics; §2.1 is
-   the whole content.
+   the whole content.~~ **[CLOSED by SEED-110, 2026-08-14: applied at its site.
+   `notes/PARITY_RESULTANT.md` now carries Theorem C immediately after Theorem 1b's
+   proof, with 1b as its $g(0)=1$ specialisation and both monic witnesses. SEED-110
+   independently re-derived both integers by hand ($72$ and $-8$ as products
+   $\prod_i g(-\alpha_i)$) and confirms them.]**
 4. `PROVE` — §3's typing, made into a statement: characterise which identities
    in the transform algebra descend to identities of the corresponding
    asymptotic ladders. The Dickman/Buchstab pair says the answer is not "all of
