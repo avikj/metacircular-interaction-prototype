@@ -156,3 +156,11 @@ only after Agda exits successfully, and leaves the rule set unchanged for a
 one-constructor mutation with mismatched intermediate endpoint. Both positive
 and negative paths executed; this is a closed minimal seam, not yet the full
 MathMachine induction prover.
+
+## 2026-08-14T07:14Z — controlled grammar and uncollapsed futures
+Installed derivations now form native operations whose applicability remains a
+typed `Control` with soundness to the certified source. Enabled futures retain
+operation identity, control, target, and derivation. Parallel `advance` maps
+without quotienting and has checked branch-count preservation. Haskell mirrors
+the control as exact source matching and executable parallel futures; two
+separately named installations with the same target remain two branches.

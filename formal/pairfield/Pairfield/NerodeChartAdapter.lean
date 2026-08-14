@@ -14,6 +14,10 @@ universe u v
 
 variable {A : Type u} {X : Type v}
 
+universe w
+
+variable {Y : Type w}
+
 /-- A prefix witnessing that a Mathlib Nerode state is a left quotient. -/
 noncomputable def residualPrefix (M : DFA A X)
     (state : Set.range M.accepts.leftQuotient) : List A :=
@@ -162,5 +166,58 @@ theorem accepts_isRegular_iff_nonempty_finiteBehavioralPresentation
     exact ⟨nerodePresentation M regular⟩
   · rintro ⟨presentation⟩
     exact presentation.accepts_isRegular
+
+/-- Send a residual state of `M` to the state reached by a chosen witnessing
+prefix in another DFA.  This map uses the same classical representative
+choice as `nerodePresentation`; it is a proof device, not an executable
+minimization routine. -/
+noncomputable def residualToState (M : DFA A X) (N : DFA A Y)
+    (state : Set.range M.accepts.leftQuotient) : Y :=
+  N.eval (residualPrefix M state)
+
+/-- Any DFA recognizing the same language must distinguish all distinct
+left quotients.  Thus the canonical residual states inject into its ambient
+state type, even when that DFA contains unreachable or duplicate states. -/
+theorem residualToState_injective (M : DFA A X) (N : DFA A Y)
+    (accepts_eq : N.accepts = M.accepts) :
+    Function.Injective (residualToState M N) := by
+  intro left right heval
+  apply Subtype.ext
+  rw [← leftQuotient_residualPrefix M left,
+    ← leftQuotient_residualPrefix M right]
+  calc
+    M.accepts.leftQuotient (residualPrefix M left) =
+        N.accepts.leftQuotient (residualPrefix M left) := by
+      rw [accepts_eq]
+    _ = stateLanguage N (N.eval (residualPrefix M left)) :=
+      leftQuotient_eq_stateLanguage_eval N _
+    _ = stateLanguage N (N.eval (residualPrefix M right)) := by
+      rw [heval]
+    _ = N.accepts.leftQuotient (residualPrefix M right) :=
+      (leftQuotient_eq_stateLanguage_eval N _).symm
+    _ = M.accepts.leftQuotient (residualPrefix M right) := by
+      rw [accepts_eq]
+
+/-- Myhill--Nerode cardinal minimality: the canonical reachable reduced chart
+has no more states than any finite DFA accepting the same language.  The
+comparison permits garbage and behavioral duplicates in the competitor, so
+it is the global finite-DFA lower bound rather than a reduced-chart-only
+statement. -/
+theorem nerodePresentation_card_le (M : DFA A X)
+    (regular : M.accepts.IsRegular) (N : DFA A Y) [Fintype Y]
+    (accepts_eq : N.accepts = M.accepts) :
+    Fintype.card (nerodePresentation M regular).State ≤ Fintype.card Y := by
+  classical
+  exact Fintype.card_le_of_injective
+    (residualToState_injective M N accepts_eq)
+
+/-- In particular, the canonical chart is cardinal-minimal among all explicit
+finite behavioral presentations of the same original DFA. -/
+theorem nerodePresentation_card_le_presentation (M : DFA A X)
+    (regular : M.accepts.IsRegular) (presentation : FiniteBehavioralPresentation M) :
+    Fintype.card (nerodePresentation M regular).State ≤
+      Fintype.card presentation.State := by
+  exact nerodePresentation_card_le M regular presentation.toDFA
+    presentation.accepts_eq
 
 end Pairfield

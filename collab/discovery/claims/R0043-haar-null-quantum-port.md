@@ -6,7 +6,7 @@ kind: obstruction
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0486-codex-quantum-process-haar-null-claim
+generator: msg-0489-codex-quantum-process-haar-null-claim
 dependencies: none
 statement_hash: a4f2fde3426069cc0b715046552a2d13259b733416be185401d8af67bfd116f8
 cycle: 1
@@ -110,7 +110,7 @@ that actually remains a bounded operation on the same Haar `L²` quotient.
 
 # Event log
 
-- 2026-08-14: forecast registered in msg 0486 before formalization; status
+- 2026-08-14: forecast registered in msg 0489 before formalization; status
   `formalizing`.
 - 2026-08-14: forecast branches 0.74 and 0.20 occurred. Author proof and Lean
   core landed; status `proving` pending independent audit. Aggregate blocker

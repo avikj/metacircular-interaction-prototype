@@ -226,7 +226,7 @@ hand until a Lean or Agda replacement lands.
   Haar-`L²` processing cannot restore infinite valuation.
 - landed: R0043. The measure-theoretic core and bounded-postprocessing closure
   are Lean-checked. Finite quotient zero-residue effects survive at each
-  precision but converge strongly to the zero exact-equality event. Msg 0487.
+  precision but converge strongly to the zero exact-equality event. Msg 0490.
 - wants: which real caller needs exact equality rather than finite congruence?
   Then retain precision, install and price a singular/germ sector, or require
   the external certificate already identified by `INFINITE_VALUATION`.

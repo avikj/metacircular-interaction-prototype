@@ -76,13 +76,34 @@ validateWithAgda repo c = do
       pure (code == ExitSuccess))
     `finally` removePathForcibly tmp
 
-type Rules = [(Term, Term)]
+data NativeRule = NativeRule
+  { ruleName :: String
+  , ruleSource :: Term
+  , ruleTarget :: Term
+  , ruleCertificate :: Certificate
+  } deriving (Eq, Show)
+
+type Rules = [NativeRule]
+
+-- Applicability is retained as an exact source match. A checked theorem does
+-- not become a globally firing rewrite.
+applyNative :: NativeRule -> Term -> Maybe Term
+applyNative rule input
+  | input == ruleSource rule = Just (ruleTarget rule)
+  | otherwise = Nothing
+
+-- Preserve operation identity and multiplicity. Equal targets are parallel
+-- futures, not evidence that the branches may be collapsed.
+parallelFutures :: Rules -> Term -> [(NativeRule, Term)]
+parallelFutures rules input =
+  [ (rule, output) | rule <- rules, Just output <- [applyNative rule input] ]
 
 -- The rule enters the executable set only on Agda's successful exit.
-validateAndInstall :: FilePath -> Rules -> Certificate -> IO (Bool, Rules)
-validateAndInstall repo rules c = do
+validateAndInstall :: FilePath -> String -> Rules -> Certificate -> IO (Bool, Rules)
+validateAndInstall repo name rules c = do
   accepted <- validateWithAgda repo c
-  pure (accepted, if accepted then rules ++ [(source c, target c)] else rules)
+  let native = NativeRule name (source c) (target c) c
+  pure (accepted, if accepted then rules ++ [native] else rules)
 
 good :: Certificate
 good = Certificate
@@ -119,17 +140,25 @@ underRightReversed = Certificate
 main :: IO ()
 main = do
   repo <- getCurrentDirectory
-  (ok, rules1) <- validateAndInstall repo [] good
-  (bad, rules2) <- validateAndInstall repo rules1 mutated
-  (leftOk, rules3) <- validateAndInstall repo rules2 underLeft
-  (rightReverseOk, rules4) <- validateAndInstall repo rules3 underRightReversed
+  (ok, rules1) <- validateAndInstall repo "good" [] good
+  (bad, rules2) <- validateAndInstall repo "mutated" rules1 mutated
+  (leftOk, rules3) <- validateAndInstall repo "under-left" rules2 underLeft
+  (rightReverseOk, rules4) <- validateAndInstall repo "under-right-reversed" rules3 underRightReversed
+  -- A second checked installation with the same extensional action remains a
+  -- second future. This is the executable no-premature-collapse control.
+  (duplicateOk, rules5) <- validateAndInstall repo "good-second-source" rules4 good
+  let futures = parallelFutures rules5 (source good)
+      controlled = case rules1 of
+        [rule] -> applyNative rule (source good) == Just (target good)
+               && applyNative rule Zero == Nothing
+        _ -> False
   if ok && not bad && leftOk && rightReverseOk
-      && rules1 == [(source good, target good)]
+      && duplicateOk
+      && length rules1 == 1
       && rules2 == rules1
-      && rules4 == rules1
-          ++ [(source underLeft, target underLeft)
-             ,(source underRightReversed, target underRightReversed)]
-    then putStrLn "AGDA REWRITE GATE CHECKED: contexts + reversal installed; mutation rejected"
+      && controlled
+      && map (ruleName . fst) futures == ["good", "good-second-source"]
+    then putStrLn "AGDA GRAMMAR GATE CHECKED: controlled rules + two uncollapsed futures"
     else do
       putStrLn ("gate failure: accepted=" ++ show ok ++ ", mutated=" ++ show bad
                 ++ ", installed=" ++ show rules2)
