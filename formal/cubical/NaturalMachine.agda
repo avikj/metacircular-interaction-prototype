@@ -477,6 +477,7 @@ import NaturalMachine.BalanceWithoutTransitivity
 -- of the 6×10 affine solution chart costs the ten-state eliminated kernel,
 -- while overwrite to its one symbolic coset costs all sixty basis states.
 import NaturalMachine.AffineProjectionQuantumBoundary
+import NaturalMachine.SmithKernelQuantumBoundary
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.
