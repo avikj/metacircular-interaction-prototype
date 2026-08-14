@@ -367,6 +367,7 @@ import NaturalMachine.PhysicalLearningCore
 -- S¹ has local facts but no global section, while pulling it back to its
 -- rooted total space supplies a canonical coherent repair.
 import NaturalMachine.RelationalProcessCore
+import NaturalMachine.RelationalHolonomyInteraction
 -- Univalence is the source geometry of that compiled physical state: a phase
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.

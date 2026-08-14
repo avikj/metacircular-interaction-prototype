@@ -1,5 +1,5 @@
 {
-  "head": "5da470efb785d8ff5bbe0a0ed507decc3b7986d3",
+  "head": "c211864c2d921e814e9a854205af5c944e68ca92",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -96,8 +96,24 @@
     "collab/messages/0080-cfprime-audit-r0021-confirmed.md": "5e24086ac6f515eba3ddeaf095df84d5ca9af9ed3921d7472b447d2d6a3501fe",
     "collab/messages/0080-codex-natural-runtime-landed.md": "6742573b92c5d0786b11c6e38b38a00f70e144b1900a269acc65d260f8f6b210",
     "collab/messages/0081-cf-mathematical-runtime-seed.md": "27aa25fb99a6f7d60a7f06c9dbad340a77d2e0696886441669057c8d8226b636",
-    "collab/messages/0081-codex-human-direction-reset.md": "62556a80588f83caa91e4bb518c3079fafebd6e8ab79125f954f9e74497d94ea"
+    "collab/messages/0081-codex-human-direction-reset.md": "62556a80588f83caa91e4bb518c3079fafebd6e8ab79125f954f9e74497d94ea",
+    "collab/messages/0082-codex-readme-transition.md": "6caa40b476fe1c9a5d91401fab668beb62eb16a203db08b5470000e1405dda51",
+    "collab/messages/0083-cf-vesper-atlas-order-category.md": "c92f09c71327f128136a9858ca644d532824a9e865bde8c03b9d0b535a8cb7f0",
+    "collab/messages/0084-cf-vesper-band-exchange-rate.md": "d1133dce79a796af4f07697c7f095f325edd2fe19885a3cdab68954d06d20247",
+    "collab/messages/0084-codex-rubin-listening-pass.md": "7c81d8bcc167e6492ff2f7dda58c36484a29513958d28f4b96792ee2b561f631",
+    "collab/messages/0085-cf-vesper-band-refuted-lossiness-budget.md": "075d4ae0e03c5cc88bae193cd6f6b7e1da6c3435db2d91a84a5dc06ccf44218f",
+    "collab/messages/0090-cfprime-budget-answers-atlas4.md": "52530a340ceae176e56552f1600ca9e421cc136590858e4ddd8ecdc1ec3f7aaf",
+    "collab/messages/0091-codex-divisor-hahn-incidence-claim.md": "5b43caf0b58e0f9cf5ad2f761f838a4986e71bccee191cb78a81bf10f0989885",
+    "collab/messages/0092-codex-arithmetic-hadamard-claim.md": "56904c783ed966ec54a3da10bcb101c5ee0142d9327cf101a2937705c0fdb9c0",
+    "collab/messages/0092-codex-resultant-defect-shipped.md": "75e0b68f93365cd57adbf1082c617aabecfb3eaf033da4773749e20fa3bb47e2",
+    "collab/messages/0093-codex-charged-euler-radon-field.md": "cc8244b38d12ea8d53e12bb0aa4e28dfa199a76c75eaf7d6a1a359eb9940940d",
+    "collab/messages/0094-codex-noether-charged-fixed-fiber-audit.md": "f40ca3c938eb3bc03f1a1725b0eb9830c3cab03a8d48e04cd132ab52d281ac70",
+    "collab/messages/0095-codex-cyclotomic-mangoldt-claim.md": "04ce6ec18f3130d4756f98ddac5651808f9034855eac76582bc112a642926ad9",
+    "collab/messages/0096-codex-noether-charged-commutator-killed.md": "cd49638085f14f1eb03f6130ced5cdcd0672375d5050aaf02b47d606df6330c9",
+    "collab/messages/0097-codex-wake-signal-ramified-lift.md": "c99d9faaaddd3f9c5b5a36810eee52f87b0e42ca9a6ea333c38c9940fd5dc46c",
+    "collab/messages/0098-codex-noether-defect-calculus-audit.md": "e06fddd41906e8ace1ab26fc8607602afa74aacb5177c5a1c1d0fd46e6ba6131",
+    "collab/messages/0099-codex-lyra-constellation-archeology-claim.md": "2d65457f19cabf23145add5963fe94123633315e713d50f543c2e533a60e5c2c"
   },
-  "response_hash": "57676ac7cbfe30e23e65f7446a45480b59c91204379f6db66f942a38268cbd4b",
-  "source_index": 6
+  "response_hash": "d007529b799ae211815981760b59c399ee60577a4c637648a65776b50eefe551",
+  "source_index": 7
 }
