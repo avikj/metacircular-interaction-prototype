@@ -112,6 +112,45 @@ reading. `exp1/1b` and `exp7` are of that kind and are not covered by this note.
 | **O1** | output recorded, script missing / unidentifiable / superseded in place | **not datable** (fails D1); statement may be retained only if independently derivable, else struck |
 | **O2** | the note records a value quoted from another note, which quotes the run | **struck on sight.** This is the `exp27` transmission path: $0.362$ entered two notes, a paper section, and a review round without anyone re-reading the run |
 
+| **O3** | the script text present, but what it records is a **comparison**, not a value: the run compared its own float against a numeral quoted from elsewhere and printed a pass | **not datable as a value** (fails D2 in substance); the numeral is O2 with respect to its true source, and the run dates only the *agreement* |
+
+> **O3 added (SEED-101, 2026-08-14, K1 — from `notes/SEED43_KAPPA_RESOLVENT_POLES.md`,
+> written after this protocol).** The three grades above are **not
+> exhaustive**, and the missing case is not exotic: SEED-43 §0 exhibits
+> `exp47`'s check block, whose entries read
+> `check("C6: (3-1/c1*)/2 = 0.8362503...", …)` — seven quoted digits compared
+> against a computed float, with a boolean as the only output. Every grade
+> above presumes the record's support is *a number the run produced*. Here the
+> run produced no number; it produced a **pass**. That breaks the scheme in
+> three places:
+>
+> - **D2 is satisfied on its face and violated in substance.** The parameters
+>   are recorded, so the row looks datable — but the proposition being dated is
+>   "the run agreed with `0.8362503`", which attaches the date to the
+>   *comparison*, not to the constant. Quoting the constant on this witness is
+>   a category error the D-grade as written does not catch.
+> - **D3 misroutes it.** The record does cite the run, so it passes "primary
+>   witness" — yet the numeral's provenance is whatever text the seven digits
+>   were copied from, and *with respect to that source the record is O2*. A
+>   numeral match is the O2 transmission path wearing the costume of a primary
+>   witness, which makes it more dangerous than O2, not less.
+> - **It is the one shape that looks like independent confirmation and is
+>   not.** As SEED-43 puts it: a computed float against seven quoted digits
+>   "certifies nothing about either side; it is an agreement of two numerals",
+>   and it conceals the only structural question — where the number comes from
+>   and what the next term is. In the κ case the answer was a closed form
+>   (`κ = 3/2 − (1/√2)cot(1/√2)`), and the digits contained no trace of the
+>   whole $\zeta(2n)$, $n \ge 2$ tail that the truncation had deleted.
+>
+> **Disposition for O3.** The permitted sentence is *"a run of `X` reported
+> that its computation of $q$ agreed with the quoted value $v$ to $k$
+> digits"* — and the obligation it creates is to name where $v$ came from,
+> after which the record is graded against **that** source. Agreement of
+> numerals is never grounds for promotion to A, and never grounds for treating
+> $v$ as dated. The promotion path is unchanged and is §3 rule 4: derive the
+> closed form, at which point the digits become a shadow it casts on demand
+> rather than the thing itself.
+
 The asymmetry to internalise: O2 is *not* a weaker version of O0. It is a
 different failure. A quotation of a quotation carries the *appearance* of two
 independent supports while having one, and it launders a dated number into a
@@ -307,6 +346,7 @@ a better fit.
 | $C/D=1.44$; $L^*=14.5$; "$\le6.5\%$"; "$2.3\%$ tail"; "linear over five decades" | `BLOCKS.md` Part I §3–4 (`exp13_energy`) | O0 | **split.** Identity $C/D=\langle\rho\rangle_{|c|^2}$: **P** (Lemma 1). Band-convergence and $O(S^{-2}\log^4S)$: **P** (Thm O). Bottom-domination: **P** (Thm O′). The numeral $1.44$: **D only**, and ambiguous by a factor $2$ (§4.3). "Five decades of linearity": **struck** — structurally impossible (Lemma 2). "$2.3\%$ tail": **struck as a value**, retained as a loose bound (Cor. O2). $L^*$, $6.5\%$: identities in $C/D$, hence P-relative-to-$C/D$; the *instruction* to restate them as band-dependent is withdrawn (Cor. O1). |
 | $\gamma_4=30.4256$ "at $0.002\%$" | `phase_side` §11, README banner (`exp26_fresnel_deep`, un-audited) | O0 | **DATED, and the claim struck.** `SWEEP.md` §1.5 shows the $0.002\%$ is cancellation of two $-0.063/-0.064$ inputs; the honest bar is the line rms $\approx0.12$ absolute. Permitted sentence: "a run of `exp26` reported $30.4256$"; forbidden: any precision claim. The escape of this number into a README banner is the O2 transmission failure, again. |
 | "closure $2\times10^{-13}$" | `BLOCKS.md` Part I §1 (`exp11_blocks`) | O0 | **not a record at all.** `CROSSREVIEW_BLOCKS.md` relabelled it a sanity check: it verifies an identity that holds by construction. Theorem E2 is P on its own (explicit formula). Dating it is harmless; citing it as support is circular. |
+| κ constants $0.6725007$, $0.8362503$, $1.3274992$ | `KAPPA.md` §3 Thm D (`exp47` check block) | **O3** (added above) | **numerals struck as results.** SEED-43 §§2–3 derives them: $\kappa = \tfrac32-\tfrac1{\sqrt2}\cot\tfrac1{\sqrt2}$ and $\kappa_{\text{distinct}} = \tfrac54-\tfrac1{2\sqrt2}\cot\tfrac1{\sqrt2}$, with $1/c_1^\* = \tfrac12+\tfrac1{\sqrt2}\cot\tfrac1{\sqrt2}$ — identities, so grade **P**, and the exp47 check block is retired rather than dated. Listed here as the calibration case for grade O3, the way $0.362$ is for O2. (Row added by SEED-101, 2026-08-14.) |
 | block constant $0.362$–$0.421$ | `BLOCKS.md` §5.1 (`exp27_running`) — historical control | O2 by the time it reached the paper | **struck, 2026-08-13**; true value $\tfrac14$ (`METHOD.md` §1). Retained here only as the calibration case for grade O2. |
 
 ---
