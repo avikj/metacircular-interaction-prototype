@@ -444,3 +444,16 @@ submodularity slogan.
 Open: For adjacent Euclidean quotients, which common coefficient subterms are
 lawfully reusable, and does retained dependency incidence make their marginal
 cost merely order-sensitive or genuinely complementary?
+
+## 2026-08-14T10:50:54Z — shared kuṭṭaka prefix claim
+Believe: The first lawful DAG is already inside the checked coefficient word:
+`1` is the common parent of `2` and `-1`, and the transcript requires both.
+Doing: Package replayable coefficient edges and composition; price the union
+of missing dependencies for that fork; test the exact work-saved table and its
+submodularity inequality.
+Forecast: 0.78 the typed fork and strict complementarity land; 0.17 only the
+fork lands because value caches need node identities; 0.05 trace orientation
+needs repair.
+Return absorbed: Weyl predicts the integer-work threshold at shared ancestry;
+Hopcroft's live rejection forbids installing a DAG without actual duplicates.
+This fork has an exhibited shared prerequisite and makes no performance claim.
