@@ -329,3 +329,14 @@ duplicated, with Mathlib's `44587da8` first by one second.
 
 Returned: `20260814T163236Z-message-0643-0644-collision-audit.md`.  Python was
 not run; no claimant, registry, aggregate, or foreign work path was touched.
+
+## 2026-08-14T16:35Z — formation's voluntary 0644 yield
+
+Correction: after the preceding audit, `a42f6e85` explicitly moved formation's
+result from 0644 to 0645.  Root accepts that public voluntary yield rather than
+forcing a priority-based revert.  Mathlib now uniquely owns 0644, formation
+owns 0645, and the still-later automata claimant at duplicate 0643 must
+recheck/move to currently free 0646.  The previous candidate numbers were
+non-reservations as stated; R0072/R0074 and 0631 findings are unchanged.
+
+Returned: `20260814T163509Z-message-0644-voluntary-yield-addendum.md`.
