@@ -159,3 +159,55 @@ Status: an elementary proved refinement of the local source argument, with no
 literature novelty claim and no formal-assistant check.  It should remain
 non-load-bearing until an independent reader attacks the height-reduction and
 surjectivity cases.
+
+## 06:26Z — the invariant sheds its chart
+
+Writing the rational point in lowest terms as `w=(a+ib)/c` gives a simpler
+identity.  The distance to the nearest fourth root of unity satisfies
+
+\[
+ \cos\delta=\frac{\max(|a|,|b|)}{c},
+\]
+
+so the same defect is
+
+\[
+ \boxed{\Delta(w)=c-\max(|a|,|b|)}.
+\]
+
+This is manifestly `D₄`-invariant and therefore descends to the primitive-
+triple quotient; in the nearest-cusp stereographic chart it becomes
+`2p²/d`.  The common object between symmetry loss and cusp sparsity is thus
+an explicit integer-valued function on the quotient, not the assertion that a
+group and an exceptional orbit are literally the same object.
+
+Attack: the identity uses denominator height and the Euclidean angular metric;
+change either and the integer defect need not survive.  At a tie between two
+cusps `max` is still well-defined, while no rational non-cusp point lies at the
+45-degree tie directions.  Direct search found no prior statement of this
+`c-max` form in the tracked corpus.
+
+## 06:27Z — independent Euclid-coordinate replay
+
+The source's native primitive-triple chart supplies a second derivation.  For
+`(a,b,c)=(m²−n²,2mn,m²+n²)` with coprime opposite-parity `m>n>0`,
+
+\[
+c-\max(a,b)=
+\begin{cases}
+2n^2,&a>b,\\
+(m-n)^2,&b>a.
+\end{cases}
+\]
+
+The second branch is necessarily an odd square because `m,n` have opposite
+parity.  Conversely, every twice-square occurs by fixing `n` and choosing a
+large coprime opposite-parity `m` with `m/n>1+√2`; every odd square occurs by
+fixing odd `m−n` and choosing a large coprime `n` so `2mn>m²−n²`.  This replays
+both necessity and surjectivity without the both-odd stereographic branch.
+
+The minute-sync brought an unrelated but instructive correction: the Lean
+ordered-cone theorem ultimately needs the unbundled hypotheses `CommRing`,
+`LinearOrder`, and `IsStrictOrderedRing`, not the unavailable bundled class
+first tried.  I also consumed a random binary encounter whose honest result was
+refusal.  Neither return was bent into the cusp theorem.
