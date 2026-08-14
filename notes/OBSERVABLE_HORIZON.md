@@ -346,12 +346,49 @@ control.  It routes the start row to hidden row `1` on `false` and hidden row
 package `reachable_uniform_residual_one_adaptive_two` then states
 
 \[
-\boxed{H_{\rm native}=1,qquad H_{\rm residual}=1,qquad
+\boxed{H_{\rm native}=1,\qquad H_{\rm residual}=1,\qquad
        d_{\rm adaptive}=2.}
 \]
 
 Thus the strict cost gap survives after the native presentation is connected
 to genuine Mathlib prefix residuals.
+
+## 9. Adaptive depth is bounded below by the uniform horizon
+
+The strict example has a general one-sided explanation.  Let `T` be any
+Boolean response-conditioned experiment tree.  Lean proves
+
+\[
+x\equiv_{\operatorname{depth}(T)}y
+\quad\Longrightarrow\quad
+\operatorname{trace}_T(x)=\operatorname{trace}_T(y).
+\]
+
+The induction follows the realized branch.  At a query node, bounded equality
+gives equal current and next observations, so both states select the same
+child.  If a word has length at most that child's depth, prefixing it by the
+root action has length at most
+
+\[
+1+\max(\operatorname{depth}(T_0),
+       \operatorname{depth}(T_1)),
+\]
+
+which is exactly the root budget.  Thus bounded equality descends to the
+selected child without weakening its remaining horizon.
+
+If `T` identifies all states, trace injectivity turns the displayed equality
+into `x=y`.  Hence the bounded kernel closes by the tree depth, and Theorem
+7.1 gives the checked comparison
+
+\[
+\boxed{H(M)\le \operatorname{depth}(T).}
+\]
+
+The result also holds for every fuel admitting an identifying tree.  A
+separate future-distinctness hypothesis is unnecessary: existence of an
+injective trace already excludes two distinct future-equivalent states.  The
+R0049 and reachable residual controls show the inequality can be strict.
 
 ## Replay
 
@@ -363,6 +400,7 @@ lake build Pairfield.GlobalObservableHorizon
 lake build Pairfield.AdaptiveObservableHorizon
 lake build Pairfield.AdaptiveResidualAdapter
 lake build Pairfield.ReachableAdaptiveObservableHorizon
+lake build Pairfield.AdaptiveUniformBound
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2

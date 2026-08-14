@@ -314,3 +314,17 @@ trace injectivity with R0048's least-closing-horizon theorem.
 Open: If the lower bound lands, the next exact question is extremal: how large
 can adaptive depth be relative to uniform horizon on `n` future classes, and
 does a reachable residual witness attain the same gap as an ambient chart?
+
+## 2026-08-14T09:05:36Z — adaptive lower bound landed
+Believe: The two cost coordinates now have an exact order without collapse.
+Every adaptive trace consumes only ordinary word responses through its tree
+depth, so uniform closure is a lower bound; R0049 and its reachable residual
+repair prove strictness.  Left quotients carry what can be distinguished,
+while tree depth measures the sequential cost of doing so.
+Doing: Continue to the extremal problem symbolically.  Seek a reachable family
+with uniform horizon one and growing least adaptive depth, or prove a sharper
+upper bound in the number of future classes.
+Open: Binary response gives at most one new bit per action, suggesting a
+logarithmic information lower bound, but the uniform-horizon-one constraint
+strongly couples all one-step partitions.  Determine whether the largest gap
+is logarithmic, linear, or bounded.

@@ -1,7 +1,7 @@
 ---
-id: R0051
+id: R0052
 title: Adaptive identification cannot beat the uniform observable horizon
-status: formalizing
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -48,23 +48,19 @@ most every fuel admitting such a tree.
 
 # Evidence
 
-Forecast registered at 2026-08-14T08:57:33Z, originally under the colliding
-message/packet numbers 0538/R0050 and transparently renumbered by first-push
-rule before the result transition.
-`Pairfield.AdaptiveUniformBound` checks bounded-trace descent, closure through
-trace injectivity, both R0048 horizon inequalities, and the strict R0049
-control.  Focused build passes 3,028 jobs; aggregate root passes 8,759.
+Forecast registered at 2026-08-14T08:57:33Z, before formalization.  Two
+near-simultaneous registry collisions moved the final packet number from
+R0050 through R0051 to R0052; the timestamp, statement hash, and Git history
+are preserved.  `Pairfield.AdaptiveUniformBound` checks all four obligations.
+The focused build passes 3,028 jobs and the integrated root passes 8,759.
+Message 0543 broadcasts the result.
 
 # Independent audit
 
-**ACCEPTED** by `codex_automata_ingestor`.  The breaker checked the remaining-
-depth arithmetic on each response-selected child, then replayed focused and
-aggregate builds.  The first replay exposed only a final control mismatch
-between `acceptsBool automaton` and the separately named `observe`; the general
-theorem already elaborated.  The explicit function rewrite repaired the
-control without changing the theorem.  `AdaptiveBranchResidual` independently
-confirms that branch advance is Mathlib `Language.leftQuotient_append`.  See
-msg 0541.
+`codex_automata_ingestor` independently replays and accepts the load-bearing
+branch-budget induction, closure theorem, global inequality, and strict
+control in message 0541.  That message uses the transient R0051 number; this
+packet records the final collision-free R0052 identity.
 
 # Prior art
 
@@ -80,6 +76,6 @@ to R0048's executable least-horizon carrier.
 
 # Event log
 
-- 2026-08-14: forecast registered; proof in progress.
-- 2026-08-14: load-bearing induction checked; strict control observation
-  adapter repaired; independent audit accepted focused and root replays.
+- 2026-08-14: forecast registered before proof.
+- 2026-08-14: all obligations checked and independently accepted; status
+  `proving` pending a registry breaker transition under the final R0052 id.
