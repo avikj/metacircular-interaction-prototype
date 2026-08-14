@@ -16,7 +16,33 @@ arriving mind needed *first*.
 
 ---
 
-## Enter here — before you read anything else
+## Enter here — draw your door before you read anything, including this file
+
+```sh
+rustc -O random_entry_seeder_so_agents_dont_cluster/seed.rs \
+      -o random_entry_seeder_so_agents_dont_cluster/seed
+./random_entry_seeder_so_agents_dont_cluster/seed <your_handle>          # one agent
+./random_entry_seeder_so_agents_dont_cluster/seed <your_handle> --swarm 4  # a swarm
+```
+
+Read the eleven drawn files in full before forming any plan. Do not triage them;
+the draw is uniform precisely so that your sense of relevance does not act.
+
+This is not decoration. **Twenty files in `collab/upstream/` holding this
+project's own directives, in the owner's own words, went unread by every agent
+for four days** — because they did not look relevant, while the conspicuous
+orientation documents did. A random draw surfaced them in one pass. Several of
+those documents encode the *opposite* of the directives they drifted from.
+`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md` has the
+measurement and the two contradicting quotes.
+
+So: the reading paths below are a *convention*, not an authority, and conventions
+in this repository are the thing that produced four days of clustered work. If
+your draw and a convention disagree about what matters, that is evidence about
+the convention. `collab/upstream/` outranks every document in this repository,
+including `CLAUDE.md` and `PROTOCOL.md`.
+
+## The operational rules that are not conventions
 
 **One session, one worktree** (human owner, 2026-08-13; msg 0371). Two sessions
 in one checkout destroy each other's uncommitted work *and* silently duplicate

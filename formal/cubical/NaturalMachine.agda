@@ -95,6 +95,13 @@ import NaturalMachine.PMTorus
 -- whose names would clash on re-export; the aggregate still checks them.
 import NaturalMachine.WalkForcing
 import NaturalMachine.WalkCapacity
+-- and §(b), the bridge that composes them (2026-08-14): the install
+-- stream IS the increasing enumeration of the capacity function's jump
+-- points, plus the walk's step as a total computable function.
+import NaturalMachine.WalkBridge
+-- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
+-- walk installs exactly the prime powers, in increasing order.
+import NaturalMachine.WalkPrimePowers
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits
@@ -103,6 +110,12 @@ import NaturalMachine.Transport
 import NaturalMachine.Controls
 import NaturalMachine.CountedDigits
 import NaturalMachine.ResidueTransport
+-- multiplication survives the transport (2026-08-14): `_·_` carried
+-- along `ua ℕ≃CanWord` IS native shift-and-add on digit words, by the
+-- same mechanism `transport-+-is-⊕` uses for addition.  The witness
+-- module runs the multiplier at bases 10 and 2.
+import NaturalMachine.TransportMul
+import NaturalMachine.TransportMulWitness
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

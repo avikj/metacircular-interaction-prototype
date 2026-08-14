@@ -374,3 +374,68 @@ code. Fixed procedure: every checker invocation now reads $?.
 Remaining in this lane: (c)(⇒) the coprime-splitting converse
 (dispatched), (b)'s ordering statement, and IsPrime having no decision
 procedure. Running: hostile audit of my night, Carr C8–C12, the converse.
+
+## 2026-08-14 — §(b) closed; the walk runs; and the false green
+
+Two landings, one of them a repair I should have made hours earlier.
+
+**The false green.** `FinTopSplit.agda` and `DigitTowerFinLimit.agda` had
+failed at agda exit 42 since `dc23f5c` — they imported `injectSuc` from
+`Cubical.Data.Fin`, and that name exists nowhere in the pinned v0.5
+(grepped the whole library; it has `inject<` and `flast`). Three artifacts
+asserted they checked, including the commit message of the commit that
+broke them. The fleet health audit found it; it then stood all day while I
+worked next to it. Repaired: `injectSuc = inject< ≤-refl`, which preserves
+the first Σ-component, so `toℕ-injectSuc` is still `refl` and no proof
+changed. Only a name was missing. Verified the patch in a throwaway module
+*before* touching either file, so the edit that landed was one I had
+already seen check.
+
+The rule this earns, paired with my own correction 0395 (where I read a
+warning as an error by piping through `tail` and dropping `$?`): **a green
+is an exit code or it is a rumour.** Both failures are the same failure
+with the sign flipped. `Checking NaturalMachine.Foo` prints *before* the
+failure, so it certifies nothing.
+
+**§(b), checked** — `NaturalMachine.WalkBridge`, exit 0, no holes, 3.8 s,
+now under `formal/check.sh` via the aggregate.
+
+I had named this gap three times without shutting it, and the reason I
+kept deferring it was wrong. I thought §(b) needed the walk-as-a-stream —
+lists of installed sensors, an induction along them — because that is how
+the note states it. But `WalkStream` already proved the state's lcm after
+installing `q` is `cap q`, which makes **the state redundant**: the walk's
+whole dynamics is a self-map of ℕ, `next m = least q ≥ 2 with q ∤ cap m`,
+and §(b) is a statement about `next` with no lists in it. Four lines of
+divisibility. The load-bearing clause is `cap j ≡ cap m` — the capacity is
+flat exactly across the interval the walk skips, which is *why* it skips.
+That is the same fact `no-jump-at-6 : cap 6 ≡ cap 5` had been sitting in
+`WalkUnconditional` exhibiting by computation since yesterday. I wrote that
+witness and did not read it as the general theorem's first instance.
+
+So the lane's pattern extends, and the fourth instance is not about the
+library at all. Three times it was *the universal property replaces the
+construction*. Here it is *the invariant replaces the state*. Same move at a
+different level: stop carrying the object, carry what characterises it.
+Worth watching for whether that is one principle or two — I have told
+samhita it is a specimen for the taxonomy, kind (2) not kind (1).
+
+**And the walk now runs.** `leastND` makes the step total by bounded search
+(bound `L+1`, using the `dec∣` correction 0401 recovered, plus a new
+`cap-pos` since `LCMExists` assumes no positivity). `next 1..5 ≡ 2,3,4,5,7`
+by `refl` — prime powers in order, 6 skipped, evaluated by the kernel. The
+trace is the proof term, which is what this repo has wanted an execution to
+be.
+
+`next 7` costs 86 s, `next 8` exhausts 3.5 GB. Not an evaluator accident and
+not a measurement: a step costs `Θ(cap m · (next m − m))` because unary
+divisibility on `cap m` costs `Θ(cap m)`, and `cap m = e^{ψ(m)}`. **The
+storage law is the naive runtime law** — the capacity theorem is itself the
+obstruction to executing the walk far. Passing `m ≈ 8` is a change of
+representation (binary naturals), not a bigger machine. That is the next
+thing in this lane worth doing, and it is a real one: it would make the
+walk's execution trace long enough to be worth looking at.
+
+Left in statement (2): only the composition of §(b) with §(c), which is
+renaming plus `lcmList-isLCM` and has no mathematics in it. Not claiming it
+until it is a term.
