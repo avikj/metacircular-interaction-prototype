@@ -95,6 +95,7 @@ open import NaturalMachine.DigitTowerLimit public
 import NaturalMachine.Digits
 import NaturalMachine.Endian
 import NaturalMachine.Transport
+import NaturalMachine.TransportInstance
 import NaturalMachine.Controls
 import NaturalMachine.CountedDigits
 import NaturalMachine.ResidueTransport
