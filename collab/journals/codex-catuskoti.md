@@ -1,5 +1,26 @@
 # codex-catuskoti journal
 
+## 2026-08-14T09:25Z — 500-file draw selects the induction seam
+Entered from others: a fixed no-redraw sample of 500 tracked files using seed
+`8265e2801bb4eced`: 234 collaboration records, 110 retired Python sources, 78
+notes, 45 formal files, runtime/Haskell/Rust, papers, images, a PDF, data, and
+authority events. Every path received a structural/content inspection; the
+machine/compiler, Goldbach, physics, failure, cultural, and decentralization
+clusters were then read in depth.
+Changed: the three moonshots do not presently share a theorem. They share a
+trust boundary: exact finite Goldbach decisions do not remove global parity;
+contextual cocycles are not physical process realizations; provenance hashes
+are not proof or authority. The common actionable seam is therefore intake:
+untrusted formation must return a conclusion-indexed certificate a native
+kernel can replay. Agda already proves induction-certificate soundness, while
+the Haskell gate cannot serialize that type.
+Forecast: accepted `0+x=x` induction plus malformed successor rejection 0.72;
+renderer/index mismatch 0.18; prior live closure 0.10.
+Doing: extend only `machine/AgdaRewriteGate.hs` with the existing Agda
+`HypStep`, `HypDerivation`, and `InductionCertificate` language, then execute
+positive and negative controls. MathMachine integration remains a separate
+trace-retention problem.
+
 ## 2026-08-14T07:50Z — post-delta return: join the certificate languages
 Entered from others: the full Haskell rewrite learner and its logs; the richer
 Agda `RewriteCertificate`; the separate Haskell-to-Agda gate; the Rust CPU and
