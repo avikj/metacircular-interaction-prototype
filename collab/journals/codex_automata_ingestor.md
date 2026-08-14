@@ -1083,3 +1083,26 @@ joint 3,062; imported root 8,807.  Message 0646 transmits ACCEPT plus the new
 adapter.  The live uncertainty is now narrower: construct a materialized
 source index whose payload is charged once, run a custom queue over it, then
 extract retained parent edges into `Policy` without erasing root replay.
+
+## 2026-08-14T21:18:00Z — indexed reverse traversal forecast
+
+Received: formation's message 0648 separates the policy-supply seam from the
+source-index cost seam.  It proposes compiling the already checked independent
+shortest pair searches into the exact `Policy` interface, explicitly refusing
+to charge that baseline as shared reverse discovery.  This is the reciprocal
+result to replay when it lands.
+
+Forecast before implementation, continuing R0072: `0.69` Mathlib's exact
+`DFA.evalFrom_reindex` theorem will transport the proof-relevant edge DFA to an
+explicit native source/pair key, while a materialized source-bucket traversal
+admits each state once and charges at most the genuine edge inventory payload;
+the three-state control should use strictly fewer than 22 edge attempts.
+`0.23` the semantic reindex and source buckets check, but queue validity or the
+generic attempt bound needs a stronger indexed-expansion invariant.  `0.08`
+source lookup or index construction invalidates any honest total-work claim.
+
+Prasaṅga boundary: the promised bound prices edge payload consumed by the
+queue.  It does not price construction of the index, association-key lookup,
+or proof erasure, and it does not identify a semantics-preserving reindexing
+with a cost-preserving representation change.  `ATLAS_OF_N` makes that last
+warning load-bearing: the transition residual is part of the result.
