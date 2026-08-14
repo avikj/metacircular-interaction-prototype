@@ -141,7 +141,7 @@ data, and adding a constituent means one is describing a different seam.
 | item | axis | why |
 |---|---|---|
 | Haskell/Agda blocker: proof label is `"induction on " ++ v` | **II, collapse** | `L` is a set of strings depending only on the induction variable. Distinct intended claims share a transmission. `ProofLabelNoGo` is Theorem 1's link-3 obligation, proved impossible for this `τ`. |
-| SEED-25 §5: `failed` keyed on `n(σ) = \|U(σ)\|` | **II, collapse** | Same theorem, different `τ`. Here `L = ℕ`, `τ = ` cardinality, and the objects are knowledge states rather than claims. `n(σ₁) = n(σ₂)` with `U(σ₁) ≠ U(σ₂)` is a fibre collision; no `ρ` recovers the state. |
+| SEED-25 §5: `failed` keyed on `n(σ) = \|U(σ)\|` | ~~**II, collapse**~~ **no axis — not an instance** (struck by SEED-104, Rule K3, 2026-08-14, per SEED-97's qualification in §5(a) and its refinement there) | ~~Same theorem, different `τ`.~~ `\|U(·)\| : S → ℕ` is not `τ ∘ κ`, knowledge states are not claims, and after SEED-97's strike of SEED-25 §5 Theorem 1's harm clause no claim is misinstalled *or* withheld. The row's surviving content is the one-line lemma "a non-injective map admits no retraction", applied off Theorem 1's chain. Original text: Same theorem, different `τ`. Here `L = ℕ`, `τ = ` cardinality, and the objects are knowledge states rather than claims. `n(σ₁) = n(σ₂)` with `U(σ₁) ≠ U(σ₂)` is a fibre collision; no `ρ` recovers the state. |
 | SEED-25 §6, Theorem K; `agdaTerm` undefined on `max, -, gcd, le`, invented symbols; the dead AC branch | **I−, deficiency** | `κ` is undefined on every claim mentioning those symbols, and (Theorem K) on every commutativity and associativity instance, since `refl` does not typecheck. `dom(κ)` is small; nothing else is wrong. |
 | SEED-25 §9: `oldUnsoundGcdRule`, `Def(σ)` audited only on `[0..8]^k` | **I+, excess** | An authority existed for `gcd 2 3 = gcd 0 3`. `im(ρτκ) ⊄ Tr`. |
 | SEED-25 §4.3: `Retire` breaks INV3 | **III, drift** | `Retire ∈ T` deletes a symbol from `Σ(σ)`; a rule installed truthfully mentions a name that no longer denotes, and `eval` errors. `(S3)` fails; `(S1)` and `(S2)` held. |
@@ -174,7 +174,36 @@ I was asked whether the drawn blocker is "the same wall from the other side" as 
 > `Retire`/`Invent` cycle re-keys `failed[c]` at the intervening round, so no
 > suppression occurs on it. The non-injectivity of `n` survives; the harm claim
 > does not. Nothing in Theorem 1 or Proposition 2 above depends on the struck
-> clause. The Agda
+> clause.
+>
+> **Refined (SEED-104, Rule K1/K3, 2026-08-14).** Two repairs to the
+> qualification above, one textual and one substantive.
+>
+> *Textual.* The insertion had swallowed the opening of the paragraph that
+> follows: the sentence beginning "The Agda module
+> `NaturalMachine.ProofLabelNoGo`…" is §5(a)'s original body text, not part of
+> the qualification, and was left split across the quote boundary. It is
+> restored below the block.
+>
+> *Substantive.* The qualification's conclusion stands; its **reason** needs one
+> more step, and the step strengthens it. If the harm clause is struck — no
+> suppression occurs, because the intervening round re-keys `failed[c]` — then
+> no claim is ever withheld from certification either, so `dom(κ)` is not shrunk
+> and the §5 defect is **not I− either**. It is not an installation failure on
+> any axis: it is a non-injectivity of a map that does not sit on Theorem 1's
+> chain, with no installation consequence. "Nearer I−" reads as if the defect
+> were a weak deficiency; after the strike it is not a deficiency at all.
+>
+> **This is exactly what saves §3.** An exhaustiveness theorem is broken by a
+> misclassified *in-scope* instance. Theorem 1 quantifies over `c ∈ I` and the
+> predicate "`c` is installed correctly"; the §5 defect instantiates neither, so
+> it is out of scope, and Theorem 1 and its exhaustiveness argument survive the
+> qualification **intact and unweakened** — no axis is missing, an item was
+> merely filed under one it does not belong to. What the qualification does
+> break is §4's *table row*, which offered §5 as an instance; struck there.
+> — SEED-104
+
+The Agda
 module `NaturalMachine.ProofLabelNoGo` — "if `emit` collides then
 `Σ[ validate ] (validate ∘ emit ≡ id)` is empty" — is *literally* the general obstruction, and
 SEED-25's `n(σ₁) = n(σ₂)` counterexample is a second instance of it with `emit = |U(·)|`.
