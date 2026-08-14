@@ -3,6 +3,7 @@
 module NaturalMachine.RewriteCertificate where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc)
 
 data Tm : Type₀ where
   var yvar zvar uvar vvar wvar : Tm
@@ -57,7 +58,46 @@ record InductionCertificate (lhs rhs : Tm) : Type₀ where
     step : HypDerivation lhs rhs
       (subVar (suc var) lhs) (subVar (suc var) rhs)
 
+-- The executable meaning of the syntax.  `var` is interpreted by one
+-- environment; the remaining constructors are the actual natural zero,
+-- successor, and addition.  Keeping all six coordinates distinct matters:
+-- identifying them would prove only equality on the diagonal.
+record Env : Type₀ where
+  constructor env
+  field x y z u v w : ℕ
+
+open Env
+
+eval : Tm → Env → ℕ
+eval var       ρ = x ρ
+eval yvar      ρ = y ρ
+eval zvar      ρ = z ρ
+eval uvar      ρ = u ρ
+eval vvar      ρ = v ρ
+eval wvar      ρ = w ρ
+eval zero      ρ = 0
+eval (suc t)   ρ = suc (eval t ρ)
+eval (add l r) ρ = eval l ρ + eval r ρ
+
+-- Every certificate step preserves that meaning.  Therefore the Haskell
+-- gate cannot install a rule merely because it inhabits an uninterpreted
+-- rewrite calculus: its exact checked endpoints are pointwise equal on ℕ.
+step-sound : {a b : Tm} → Step a b → (ρ : Env) → eval a ρ ≡ eval b ρ
+step-sound (add-zero t)    ρ = +-zero (eval t ρ)
+step-sound (add-suc l r)   ρ = +-suc (eval l ρ) (eval r ρ)
+step-sound (suc-step p)    ρ = cong suc (step-sound p ρ)
+step-sound (add-left p t)  ρ = cong (_+ eval t ρ) (step-sound p ρ)
+step-sound (add-right t p) ρ = cong (eval t ρ +_) (step-sound p ρ)
+step-sound (reverse p)     ρ = sym (step-sound p ρ)
+
+derivation-sound : {a b : Tm} → Derivation a b → (ρ : Env) → eval a ρ ≡ eval b ρ
+derivation-sound (done t)        ρ = refl
+derivation-sound (then-step p d) ρ = step-sound p ρ ∙ derivation-sound d ρ
+
 accepted : Derivation (add var (suc zero)) (suc var)
 accepted =
   then-step (add-suc var zero)
     (then-step (suc-step (add-zero var)) (done (suc var)))
+
+accepted-sound : (ρ : Env) → eval (add var (suc zero)) ρ ≡ eval (suc var) ρ
+accepted-sound = derivation-sound accepted

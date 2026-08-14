@@ -24,8 +24,9 @@ data Derivation
   deriving (Eq, Show)
 
 -- Unlike MathMachine's current String, the certificate carries its exact
--- conclusion. Agda, not this Haskell declaration, checks that the derivation
--- really has these endpoints.
+-- conclusion. Agda checks both that the derivation has these endpoints and,
+-- through RewriteCertificate.derivation-sound, that the installed endpoints
+-- denote pointwise-equal functions Nat -> Nat.
 data Certificate = Certificate
   { source :: Term
   , target :: Term
