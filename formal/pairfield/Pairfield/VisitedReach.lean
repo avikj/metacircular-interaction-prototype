@@ -285,7 +285,8 @@ theorem advanceReachQueue_nodes_mono_le [DecidableEq X]
   | succ n ih =>
       simpa [Nat.add_assoc, runReachQueue] using
         advanceReachQueue_nodes_mono M alphabet
-          (runReachQueue M alphabet (first + n)) ih
+          (runReachQueue M alphabet (first + n))
+          (ih (Nat.le_add_right first n))
 
 theorem mem_expandFrontier_word_length (M : DFA A X) (alphabet : List A)
     (frontier : List (ReachNode A X)) (round : Nat)

@@ -137,3 +137,86 @@ tear-persists : (depth : ℕ)
   → Tear left-architecture (Net.view (iterate depth optimizerNet))
 tear-persists zero = optimizer-tear
 tear-persists (suc depth) = tear-persists depth
+
+------------------------------------------------------------------------
+-- Repair: retain the incompatible local optima as a dependent cover.
+-- Coherence is required only after projection to their common semantics.
+------------------------------------------------------------------------
+
+OptimizerCover : Type₀
+OptimizerCover = (root : Architecture) → LocalOptimizer root
+
+repairedCover : OptimizerCover
+repairedCover = optimizer
+
+selectedPoint : OptimizerCover → Architecture → SemanticFiber false
+selectedPoint cover root = cover root .fst
+
+cover-projects-to-common-semantics : (root : Architecture)
+  → semantics (selectedPoint repairedCover root .fst) ≡ false
+cover-projects-to-common-semantics root = selectedPoint repairedCover root .snd
+
+cover-preserves-root-distinction :
+  ¬ (selectedPoint repairedCover left-architecture .fst
+      ≡ selectedPoint repairedCover right-architecture .fst)
+cover-preserves-root-distinction = left≠right-configuration
+
+CoveredPoint : Type₀
+CoveredPoint = Σ[ root ∈ Architecture ] LocalOptimizer root
+
+data RepairJewel : Type₀ where
+  raw : Configuration → RepairJewel
+  covered : CoveredPoint → RepairJewel
+
+repairSemantics : RepairJewel → Bool
+repairSemantics (raw configuration) = semantics configuration
+repairSemantics (covered (root , choice)) = semantics (choice .fst .fst)
+
+repairRoot : RepairJewel → Architecture
+repairRoot (raw configuration) = configuration .fst
+repairRoot (covered (root , choice)) = root
+
+tearView : TotalView Architecture RepairJewel
+tearView root target = raw (optimizer root .fst .fst)
+
+coverView : TotalView Architecture RepairJewel
+coverView root target = covered (root , repairedCover root)
+
+tear-stage : Tear left-architecture tearView
+tear-stage = tear right-architecture left-architecture refute
+  where
+  refute : ¬ (tearView left-architecture left-architecture
+              ≡ tearView right-architecture left-architecture)
+  refute equality = left≠right (cong repairRoot equality)
+
+cover-semantically-coherent : (left right target : Architecture)
+  → repairSemantics (coverView left target)
+    ≡ repairSemantics (coverView right target)
+cover-semantically-coherent left right target = refl
+
+cover-still-distinguishes-roots : (target : Architecture)
+  → ¬ (coverView left-architecture target
+          ≡ coverView right-architecture target)
+cover-still-distinguishes-roots target equality =
+  left≠right (cong repairRoot equality)
+
+mutual
+  repairNet : Net Architecture RepairJewel
+  Net.view repairNet = tearView
+  Net.next repairNet = repairedNet
+
+  repairedNet : Net Architecture RepairJewel
+  Net.view repairedNet = coverView
+  Net.next repairedNet = repairedNet
+
+repair-three : observe 3 repairNet ≡
+  tearView ∷ coverView ∷ coverView ∷ []
+repair-three = refl
+
+repair-next-is-covered : Net.view (Net.next repairNet) ≡ coverView
+repair-next-is-covered = refl
+
+repair-next-semantics : (left right target : Architecture)
+  → repairSemantics (Net.view (Net.next repairNet) left target)
+    ≡ repairSemantics (Net.view (Net.next repairNet) right target)
+repair-next-semantics = cover-semantically-coherent

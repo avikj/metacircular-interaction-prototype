@@ -251,6 +251,10 @@ import NaturalMachine.CarryObstruction
 -- chart: MSD deletion agrees with reduction after forced normalization, while
 -- raw deletion itself is proved not to preserve canonical words.
 import NaturalMachine.CarryChartBridge
+-- Retaining the finite level repairs composition: the existing Fin-indexed
+-- digit tower maps strictly through raw words to the same carry reduction,
+-- with normalization used only as a stagewise projection.
+import NaturalMachine.FixedCarryChart
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers

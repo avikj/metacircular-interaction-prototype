@@ -398,6 +398,16 @@ be precisely the premature-collapse shape warned against by
 `DSOFinite`/`DSOArchitecture`, but resemblance of shapes is not an
 instantiation.
 
+The live Delta 26 abstract continuation module sharpens this refusal. Its
+extended-natural `Cost` makes infinity structural unreachability, its
+`Argmin` retains the active intermediate witness, and its Dirac continuations
+reconstruct every entry of a finite cost relation. Consequently equality for
+one chosen optimum is not full abstraction: equality against **all**
+continuations is strong enough to force equality of the underlying relation.
+A sevenfold label is therefore a valid DSO interface only after the whole
+contextual cost relation is proved to descend through it; matching one
+predication or one continuation value is insufficient.
+
 ### Mixed-radix rank as a lossless interface
 
 The tuple joint behaves differently because `rank` has the explicit inverse
@@ -414,6 +424,13 @@ equivalence while retaining the round-trip witness. Infimal composition then
 agrees after transport **only when** the conversion costs are included or
 proved irrelevant. Neither present-cost superiority nor runtime speedup
 follows from an equivalence alone.
+
+At the proof-relevant level, an active intermediate tuple is carried to the
+active index `rank(a)` and recovered by `unrank`; no argmin witness is deleted.
+At the fully abstract level, transport conjugates the entire relation and all
+continuations, rather than merely preserving one scalar minimum. This is the
+condition under which the Delta 26 continuation transformer treats the two
+interfaces as a relabeling rather than an optimization shortcut.
 
 This gives zero information-theoretic architecture regret for replacing the
 tuple carrier by its ranked carrier, but not zero implementation cost. Delta
@@ -441,7 +458,7 @@ does not contribute a new cost model, continuation, or Natural Machine theorem.
 | Proposition 1 / Corollary 1.1 | exact elementary hand proof; not machine checked; scope limited to the nonempty-subset code with union substitution |
 | Mixed-radix equivalence | established elementary mathematics with an induction/division-algorithm proof sketched here; not newly formalized or independently machine checked in this encounter |
 | Tarski separation | primary 1944 semantic methodology; used as a typing discipline, not asserted as a historical influence on Jain thought |
-| Delta 26 comparison | `DSOFinite`, `DSOOption`, and `DSOArchitecture` were inspected as checked prior source; their Agda builds were not replayed in this encounter |
+| Delta 26 comparison | `DSOFinite`, `DSOBellmanFinite`, `DSOOption`, and `DSOArchitecture` were inspected as checked prior source; their Agda builds were not replayed in this encounter. `DSOContinuationFullAbstract` appeared as another identity's live uncommitted file and was read but not treated as a landed verification artifact |
 
 ### Forecast adjudication
 

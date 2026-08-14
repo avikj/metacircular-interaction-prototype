@@ -154,14 +154,21 @@ data SearchProjection = SearchProjection
 -- only when another class is pointwise no worse and strictly better somewhere.
 data DSORoute = DSORoute
   { dsoWitness :: !String
-  , dsoBoundary :: !Bool
+  , dsoBoundary :: !Int
   , dsoLocalCost :: !Int
   } deriving (Eq, Show)
 
 data DSOContinuation = DSOContinuation
   { dsoContext :: !String
   , dsoDependency :: !String
-  , dsoFutureCost :: Bool -> Int
+  , dsoFutureCost :: Int -> Int
+  }
+
+data DSOTask = DSOTask
+  { dsoTaskName :: !String
+  , dsoTaskDependencies :: [String]
+  , dsoTaskContinuations :: [DSOContinuation]
+  , dsoTaskRoutes :: [DSORoute]
   }
 
 data DSOClass = DSOClass
@@ -191,6 +198,21 @@ compileDSO active continuations routes =
     survivors = [c | c <- classes, not (any (\d -> dominates d c) classes)]
     rawCount = length routes * length continuations
     activeCount = length routes * length live
+
+-- Existing bounded-search witnesses become architecture routes without
+-- losing their native values.  The declared observation is the ordered-fibre
+-- objective justified by `leastCovered`: it charges the witness index itself.
+-- This is a consumer of that theorem-generated fibre, not a second search.
+boundedDSOTask :: String -> BoundedSearch -> DSOTask
+boundedDSOTask name plan = DSOTask name ["ordered-fibre"] observations routes
+  where
+    projection = executeBoundedSearch plan
+    routes = [DSORoute (name ++ "/" ++ show n) n 0
+             | n <- derivationFiber projection]
+    observations =
+      [ DSOContinuation "least-witness" "ordered-fibre" id
+      , DSOContinuation "parity-audit" "audit" (`mod` 2)
+      ]
 
 executeBoundedSearch :: BoundedSearch -> SearchProjection
 executeBoundedSearch plan =
@@ -843,10 +865,17 @@ data Machine = Machine
   , mRound   :: Int
   , mBoundedSearches :: [BoundedSearch]
   , mAtlases :: [FiniteAtlas]
+  , mDSOTasks :: [DSOTask]
   }
 
+squareThresholdSearch :: BoundedSearch
+squareThresholdSearch = BoundedSearch [0..20] (\n -> n * n >= 30)
+  (Just (Coverage 12))
+
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 [] [endianAtlas2]
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
+  [squareThresholdSearch] [endianAtlas2]
+  [boundedDSOTask "square-threshold" squareThresholdSearch]
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1051,6 +1080,18 @@ round1 logh libh ref = do
       atlasRaw = sum (map assignmentBranches atlases)
       atlasFixed = sum (map (toInteger . length . coherentFamilies) atlases)
       atlasTears = sum (map (length . holonomyFailures) atlases)
+      dsoCompiled =
+        [ compileDSO (dsoTaskDependencies task)
+            (dsoTaskContinuations task) (dsoTaskRoutes task)
+        | task <- mDSOTasks m ]
+      dsoRoutes = sum (map (length . dsoTaskRoutes) (mDSOTasks m))
+      dsoClassesN = sum (map (length . dsoClasses) dsoCompiled)
+      dsoSurvivorsN = sum (map (length . dsoSurvivors) dsoCompiled)
+      dsoRawWork = sum (map dsoRawEvaluations dsoCompiled)
+      dsoActiveWork = sum (map dsoActiveEvaluations dsoCompiled)
+      dsoWitnessFiber = sum
+        [ sum (map (length . dsoWitnesses) (dsoSurvivors compiled))
+        | compiled <- dsoCompiled ]
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
@@ -1098,6 +1139,8 @@ round1 logh libh ref = do
     witnessBranches derivationBranches
   hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
     atlasRaw atlasFixed atlasTears
+  hPrintf logh "  DSO  routes=%d classes=%d survivors=%d survivor-witnesses=%d continuation-work=%d->%d\n"
+    dsoRoutes dsoClassesN dsoSurvivorsN dsoWitnessFiber dsoRawWork dsoActiveWork
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
@@ -1252,15 +1295,15 @@ main = do
     -- The second active probe makes contextual comparison non-scalar, while
     -- `diagnostic` is outside this query's dependency cone and is not run.
     let routes =
-          [ DSORoute "true/direct" True 0
-          , DSORoute "false/direct" False 1
-          , DSORoute "false/factored" False 1
-          , DSORoute "true/detour" True 3
+          [ DSORoute "true/direct" 1 0
+          , DSORoute "false/direct" 0 1
+          , DSORoute "false/factored" 0 1
+          , DSORoute "true/detour" 1 3
           ]
         continuations =
-          [ DSOContinuation "goal" "answer" (\b -> if b then 2 else 0)
-          , DSOContinuation "robustness" "answer" (\b -> if b then 4 else 0)
-          , DSOContinuation "diagnostic" "audit" (\b -> if b then 0 else 100)
+          [ DSOContinuation "goal" "answer" (\b -> if b == 1 then 2 else 0)
+          , DSOContinuation "robustness" "answer" (\b -> if b == 1 then 4 else 0)
+          , DSOContinuation "diagnostic" "audit" (\b -> if b == 1 then 0 else 100)
           ]
         compiled = compileDSO ["answer"] continuations routes
         localGreedy = dsoWitness (head (sortOn dsoLocalCost routes))
