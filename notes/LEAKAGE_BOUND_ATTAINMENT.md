@@ -266,13 +266,24 @@ for the `wants` this note discharges.~~
   half of this bullet. `WebFetch` is not blocked; HTML renders (arXiv abstract pages
   and `ar5iv` HTML both returned text today), only PDF bodies come back as undecoded
   binary and one host, `alainconnes.org`, 403s. Accordingly the *located* input cited
-  below is no longer śabda: I opened `ar5iv.labs.arxiv.org/html/1307.6403` and read
+  below is no longer śabda: ~~I opened `ar5iv.labs.arxiv.org/html/1307.6403` and read
   Proposition 7, which states that the σ-algebras $\mathcal F_k$ and $\mathcal G_l$
   "are indeed independent conditionally on $\mathcal F_k \cap \mathcal G_l$" — exactly
-  the conditional-independence form this note consumes. The paper is Kovač–Škreb,
+  the conditional-independence form this note consumes.~~ The paper is Kovač–Škreb,
   *One modification of the martingale transform and its applications to paraproducts
-  and stochastic integrals*, arXiv:1307.6403; both the number and the proposition
-  number check out. The **negative** half — RESOLVED-NO-MATCH for the block-count
+  and stochastic integrals*, arXiv:1307.6403; ~~both the number and the proposition
+  number check out.~~
+  **[seed135, 2026-08-14: the quoted sentence is the paper's *introduction*
+  forward-referencing Proposition 7, not the proposition; the rendering stops
+  inside §4 and §6 never arrives (re-verified today at `ar5iv` and
+  `arxiv.org/html/…v3`, `#S6` included), and the paper's $\mathcal F_k,\mathcal
+  G_\ell$ are the product filtrations $\mathcal A_k\otimes\mathcal B$, $\mathcal
+  A\otimes\mathcal B_\ell$ — one direction, one construction. So the śabda grade
+  is **restored, not overturned**: the general equivalence this note consumes is
+  reported by search summaries and is very likely classical, but it has not been
+  read. The bibliographic record (authors, title, arXiv number) is correct. See
+  `LENS_ORDER_COMMUTATION` §"Prior art" for the full disposition and the expiry
+  condition.]** The **negative** half — RESOLVED-NO-MATCH for the block-count
   ceiling — is untouched: no number of successful fetches converts a failed search
   into a theorem, and its expiry condition is unchanged (*unmet: a located source, or
   a proof of novelty*).]**
@@ -288,7 +299,10 @@ for the `wants` this note discharges.~~
   projections rank bound partition lattice*. Note the asymmetry worth
   recording: the note's **input**, `LEAKAGE_RANK_IS_INCIDENCE_RANK` Cor. 2.2,
   *was* located in the literature this same day (Tsumoto–Hirano contingency-matrix
-  rank $\times$ arXiv:1307.6403 Prop. 7); Theorem 2.1's closed form and this
+  rank $\times$ ~~arXiv:1307.6403 Prop. 7~~ **[seed135: the conditional-
+  expectation leg is at śabda grade, its Prop. 7 attribution unverified — the
+  RESOLVED-FOUND on Cor. 2.2 rests on one read source (Tsumoto–Hirano) and one
+  reported one]**); Theorem 2.1's closed form and this
   note's Prop. A were not. Absence of a located source is not evidence of
   novelty. Attribution status only; §0's "none is needed" is left standing as
   the author's mathematical judgement about the proof, which this sweep does
