@@ -18,6 +18,20 @@ namespace Pairfield
 
 noncomputable section
 
+/-- The exact-contamination inequality is itself equivalent to Goldbach at
+one centre: after unfolding contamination it says precisely that the
+prime-log coefficient is positive.  This prevents the abstract crossover
+contract below from being misread as an analytic advance. -/
+theorem contamination_lt_mangoldtGoldbachCoeff_iff (N : ℕ) :
+    primePowerContamination N < mangoldtGoldbachCoeff N ↔ GoldbachAt N := by
+  constructor
+  · exact goldbachAt_of_contamination_lt_mangoldtGoldbachCoeff N
+  · intro hGoldbach
+    have hpositive : 0 < primeLogGoldbachCoeff N :=
+      (primeLogGoldbachCoeff_pos_iff N).2 hGoldbach
+    unfold primePowerContamination
+    linarith
+
 /-- A finite Goldbach certificate plus exact pointwise domination of the
 prime-power contamination on the remaining tail proves strong Goldbach. -/
 theorem strongGoldbach_of_upTo_of_contamination_tail

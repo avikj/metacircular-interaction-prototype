@@ -57,18 +57,20 @@ module _ (G : Group ℓg) where
   _∘I_ : {X : Type ℓx} {Y : Type ℓy} {Z : Type ℓz}
     {A : Action G X} {B : Action G Y} {C : Action G Z}
     → Intertwiner B C → Intertwiner A B → Intertwiner A C
-  (h , h-equiv) ∘I (f , f-equiv) =
+  _∘I_ {A = A} {B = B} {C = C} (h , h-equiv) (f , f-equiv) =
     (λ x → h (f x)) , λ g x → h-equiv g (f x) ∙ cong h (f-equiv g x)
 
   ∘I-idL : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
     → idIntertwiner B ∘I f ≡ f
-  ∘I-idL f = intertwinerPath refl
+  ∘I-idL {A = A} {B = B} f =
+    intertwinerPath {A = A} {B = B} refl
 
   ∘I-idR : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
     → f ∘I idIntertwiner A ≡ f
-  ∘I-idR f = intertwinerPath refl
+  ∘I-idR {A = A} {B = B} f =
+    intertwinerPath {A = A} {B = B} refl
 
   ∘I-assoc : {W : Type ℓo} {X : Type ℓx}
     {Y : Type ℓy} {Z : Type ℓz}
@@ -76,7 +78,8 @@ module _ (G : Group ℓg) where
     {C : Action G Y} {D : Action G Z}
     (h : Intertwiner C D) (g : Intertwiner B C) (f : Intertwiner A B)
     → h ∘I (g ∘I f) ≡ (h ∘I g) ∘I f
-  ∘I-assoc h g f = intertwinerPath refl
+  ∘I-assoc {A = A} {B = B} {C = C} {D = D} h g f =
+    intertwinerPath {A = A} {B = D} refl
 
   -- The intertwiner equation is precisely the local gauge-invariance square
   -- at the vertex, exposed under a physics-facing name.
@@ -97,17 +100,19 @@ module _ (G : Group ℓg) where
   contract : {X : Type ℓx} {Y : Type ℓy} {Z : Type ℓz}
     {A : Action G X} {B : Action G Y} {C : Action G Z}
     → RefinedIntertwiner A B C → Intertwiner A C
-  contract (f , h) = h ∘I f
+  contract {A = A} {B = B} {C = C} (f , h) =
+    _∘I_ {A = A} {B = B} {C = C} h f
 
   subdivideIntertwiner : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y}
     → Intertwiner A B → RefinedIntertwiner A A B
-  subdivideIntertwiner f = idIntertwiner _ , f
+  subdivideIntertwiner {A = A} f = idIntertwiner A , f
 
   contract-subdivide : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
     → contract (subdivideIntertwiner f) ≡ f
-  contract-subdivide = ∘I-idR
+  contract-subdivide {A = A} {B = B} f =
+    intertwinerPath {A = A} {B = B} refl
 
   -- Every downstream set-valued evaluation is cylindrically consistent on
   -- the canonical subdivision because contraction is an equality of typed

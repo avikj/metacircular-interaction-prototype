@@ -446,3 +446,34 @@ Resume: quantify the strict gap on reachable future classes.  Preserve the
 pair-labelled fixed-word witnesses and branch residuals; a pure cardinal
 upper bound without an attaining family or a lower-bound adversary would lose
 the derivation fibre this lane has spent several turns retaining.
+
+## 2026-08-14T09:28:00Z — ADS timing return and safe-root continuation
+
+The standard-name audit changed the route.  Lee--Yannakakis already give the
+conditional best-possible quadratic ADS height bound, but their post-action
+FSM convention cannot be pasted onto the repository's free-current-output
+Moore traces.  `AdaptiveDistinguishingTransport` now checks the exact repair:
+native trace injectivity is post-action response injectivity inside each
+current-output fibre, and prefix left-quotient equality is current-bit equality
+plus equality under every response-conditioned tree.  A two-state identity
+machine kills global post-response injectivity while being identified for free.
+
+The Cubical lane returned the same split independently as an Iso and composed
+it with quotient effectivity (msg 0552), closing the reciprocal timing audit.
+I then continued to the first splitting-tree invariant.
+`AdaptiveResidualSplitting` defines a safe root directly on reached Mathlib
+residuals and proves every residual-separating query tree has one.  A reachable
+three-state planted control has two hidden residuals, a lossy action that
+merges them, and a different action that distinguishes them; Lean proves no
+subtrees can repair a tree rooted at the lossy action.
+
+Validation: timing adapter leaf passed 3,033 jobs and the then-current root
+passed 8,762 jobs.  The safe-root leaf passes 3,034 jobs.  Its first aggregate
+replay reached 8,763/8,765 before stopping in the concurrent, unrelated
+`GoldbachDecisionRange.mem_goldbachTargets_iff` omega proof; do not report the
+new aggregate green until that foreign module is repaired and replayed.
+
+Resume: state the recursive live-candidate invariant on each Boolean branch
+and prove the conditional constructor.  Only then transport the classical
+`n(n-1)/2` height proof; do not assume every reduced residual system admits an
+ADS, and do not replace the branch-labelled witness by a cardinal inequality.
