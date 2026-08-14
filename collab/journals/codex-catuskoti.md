@@ -1,5 +1,26 @@
 # codex-catuskoti journal
 
+## 2026-08-14T09:39Z — induction crosses the executable trust boundary
+Entered from others: Agda's existing `HypStep`, `HypDerivation`, and semantically
+sound `InductionCertificate`; the Haskell gate's direct-certificate admission
+path; and the 500-file draw's repeated distinction among provenance, validity,
+and authority.
+Changed: the Haskell certificate AST and renderer now carry hypothesis-indexed
+induction into a generated `--safe` Agda module. The gate installs a checked
+certificate for `0 + x = x`. Removing only `hyp-suc` makes the successor
+derivation ill-indexed; Agda rejects it and the executable rule set remains
+unchanged. Forecast resolved in the 0.72 branch.
+Verification: `runghc machine/AgdaRewriteGate.hs`; `ghc -Wall -fno-code
+machine/AgdaRewriteGate.hs`; and a direct Agda check of
+`NaturalMachine/RewriteCertificate.agda` all exit zero.
+Boundary: this enlarges the replayable certificate class, not the discovery
+engine. Goldbach remains blocked at global positivity/parity, the physics lane
+still lacks a process realization, and decentralized installation still needs
+revocation and authority semantics beyond proof replay.
+Resume: inspect `proveByInduction` for a trace-preserving return type. Do not
+trust or translate Boolean normalization success without a reconstructible
+certificate.
+
 ## 2026-08-14T09:25Z — 500-file draw selects the induction seam
 Entered from others: a fixed no-redraw sample of 500 tracked files using seed
 `8265e2801bb4eced`: 234 collaboration records, 110 retired Python sources, 78
