@@ -43,7 +43,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Int
   using (ℤ ; pos ; negsuc ; posNotnegsuc ; injPos ; sucℤ· ; ·lCancel)
-open import Cubical.Data.Nat using (snotz)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz)
 open import Cubical.Algebra.AbGroup.Base
   using (AbGroup ; AbGroupStr ; AbGroup→Group)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
@@ -205,6 +205,54 @@ module DefectCoordinate
       × (TwoStepCocycle x → PreservesRealizedResidual x)
   two-step-cocycle-iff-realized-preservation x =
     preservation→two-step-cocycle x , two-step-cocycle→preservation x
+
+  -- A global subtraction law is stronger than the exact two-step boundary,
+  -- but it is precisely what compiles every finite iterate into a streaming
+  -- fold of local residuals.
+  module CompiledIteration
+    (predict-sub : (a b : ⟨ A ⟩)
+                 → predict (a - b) ≡ predict a - predict b)
+    where
+
+    iterate : ℕ → X → X
+    iterate zero    x = x
+    iterate (suc n) x = step (iterate n x)
+
+    predictIterate : ℕ → ⟨ A ⟩ → ⟨ A ⟩
+    predictIterate zero    y = y
+    predictIterate (suc n) y = predict (predictIterate n y)
+
+    globalResidual : ℕ → X → ⟨ A ⟩
+    globalResidual n x =
+      q (iterate n x) - predictIterate n (q x)
+
+    -- Executable update: receive the next local residual, then update the
+    -- accumulated defect entirely in the old observable codomain.
+    compiledResidual : ℕ → X → ⟨ A ⟩
+    compiledResidual zero    x = 0g
+    compiledResidual (suc n) x =
+      residual (iterate n x) + predict (compiledResidual n x)
+
+    globalResidual-step : (n : ℕ) (x : X)
+      → globalResidual (suc n) x
+        ≡ residual (iterate n x) + predict (globalResidual n x)
+    globalResidual-step n x =
+        sym (telescope (q (step (iterate n x)))
+                       (predict (q (iterate n x)))
+                       (predict (predictIterate n (q x))))
+      ∙ cong (residual (iterate n x) +_)
+          (sym (predict-sub (q (iterate n x))
+                            (predictIterate n (q x))))
+
+    -- Proof compilation: the streaming fold is extensionally the exact
+    -- n-step failure of equivariance for every finite n.
+    compiledResidual-sound :
+      (n : ℕ) (x : X) → globalResidual n x ≡ compiledResidual n x
+    compiledResidual-sound zero x = +InvR (q x)
+    compiledResidual-sound (suc n) x =
+        globalResidual-step n x
+      ∙ cong (residual (iterate n x) +_)
+          (cong predict (compiledResidual-sound n x))
 
 ------------------------------------------------------------------------
 -- 2.  Translation supplies a predictor without an external choice

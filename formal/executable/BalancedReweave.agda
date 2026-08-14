@@ -5,6 +5,7 @@ module BalancedReweave where
 open import Agda.Builtin.Equality
 open import Agda.Builtin.Nat
 open import Agda.Builtin.Bool
+open import Agda.Builtin.Sigma
 
 -- A perfect tree contains 2^rank endomorphisms.  The left subtree is newer:
 -- it acts first, followed by the older right subtree.
@@ -226,3 +227,108 @@ fused-balanced-flip (suc n) x
   rewrite composeBoolTable-sound not (repeatFusedFlip n) x
   | fused-balanced-flip n (not x)
   | push-sound not (repeatBalancedFlip n) x = refl
+
+-- Adaptive online selection.  A lazy epoch records its total chain length and
+-- the consecutive reads since its latest write.  A write resets the latter:
+-- earlier reads had a different chain length and cannot honestly contribute
+-- to the current break-even calculation.
+data AdaptiveMode : Set where
+  lazyMode : Plan Bool → Nat → Nat → AdaptiveMode
+  fusedMode : BoolTable → AdaptiveMode
+
+pred : Nat → Nat
+pred zero = zero
+pred (suc n) = n
+
+-- For |Bool| = 2, q(k-1) > k(|X|-1) reduces to k < q(k-1).
+shouldFuse : Nat → Nat → Bool
+shouldFuse k q = k < q * pred k
+
+normaliseBool : Plan Bool → BoolTable
+normaliseBool p = tabulateBool (runPlan p)
+
+normaliseBool-sound : (p : Plan Bool) (x : Bool)
+  → applyBoolTable (normaliseBool p) x ≡ runPlan p x
+normaliseBool-sound p x = tabulateBool-sound (runPlan p) x
+
+runMode : AdaptiveMode → Bool → Bool
+runMode (lazyMode p k q) x = runPlan p x
+runMode (fusedMode t) x = applyBoolTable t x
+
+updateMode : (Bool → Bool) → AdaptiveMode → AdaptiveMode
+updateMode f (lazyMode p k q) = lazyMode (push f p) (suc k) zero
+updateMode f (fusedMode t) = fusedMode (composeBoolTable f t)
+
+updateMode-sound : (f : Bool → Bool) (m : AdaptiveMode) (x : Bool)
+  → runMode (updateMode f m) x ≡ runMode m (f x)
+updateMode-sound f (lazyMode p k q) x = push-sound f p x
+updateMode-sound f (fusedMode t) x = composeBoolTable-sound f t x
+
+-- A read returns both its observation and the representation for the next
+-- operation.  Crossing the threshold changes representation, never value.
+readMode : AdaptiveMode → Bool → Σ Bool (λ _ → AdaptiveMode)
+readMode (fusedMode t) x = applyBoolTable t x , fusedMode t
+readMode (lazyMode p k q) x with shouldFuse k (suc q)
+... | false = runPlan p x , lazyMode p k (suc q)
+... | true = runPlan p x , fusedMode (normaliseBool p)
+
+readMode-value : (m : AdaptiveMode) (x : Bool)
+  → fst (readMode m x) ≡ runMode m x
+readMode-value (fusedMode t) x = refl
+readMode-value (lazyMode p k q) x with shouldFuse k (suc q)
+... | false = refl
+... | true = refl
+
+readMode-next : (m : AdaptiveMode) (x y : Bool)
+  → runMode (snd (readMode m x)) y ≡ runMode m y
+readMode-next (fusedMode t) x y = refl
+readMode-next (lazyMode p k q) x y with shouldFuse k (suc q)
+... | false = refl
+... | true = normaliseBool-sound p y
+
+record AdaptiveBoolProfile (R O : Set) : Set where
+  constructor adaptiveBool
+  field
+    adaptiveMode : AdaptiveMode
+    adaptiveBase : Profile R Bool O
+
+open AdaptiveBoolProfile
+
+readAdaptiveBool : {R O : Set} → AdaptiveBoolProfile R O → R → Bool
+  → Σ O (λ _ → AdaptiveBoolProfile R O)
+readAdaptiveBool C r x =
+  adaptiveBase C r (fst step) , adaptiveBool (snd step) (adaptiveBase C)
+  where
+  step = readMode (adaptiveMode C) x
+
+readAdaptiveBool-value : {R O : Set} (C : AdaptiveBoolProfile R O)
+  (r : R) (x : Bool)
+  → fst (readAdaptiveBool C r x) ≡ adaptiveBase C r (runMode (adaptiveMode C) x)
+readAdaptiveBool-value C r x
+  rewrite readMode-value (adaptiveMode C) x = refl
+
+updateAdaptiveBool : {R O : Set} → (Bool → Bool) → AdaptiveBoolProfile R O
+  → AdaptiveBoolProfile R O
+updateAdaptiveBool f C = adaptiveBool (updateMode f (adaptiveMode C)) (adaptiveBase C)
+
+updateAdaptiveBool-sound : {R O : Set} (f : Bool → Bool)
+  (C : AdaptiveBoolProfile R O) (r : R) (x : Bool)
+  → adaptiveBase C r (runMode (adaptiveMode (updateAdaptiveBool f C)) x)
+    ≡ adaptiveBase C r (runMode (adaptiveMode C) (f x))
+updateAdaptiveBool-sound f C r x
+  rewrite updateMode-sound f (adaptiveMode C) x = refl
+
+writeFlips : Nat → AdaptiveMode
+writeFlips zero = lazyMode empty zero zero
+writeFlips (suc n) = updateMode not (writeFlips n)
+
+readRepeatedly : Nat → AdaptiveMode → AdaptiveMode
+readRepeatedly zero m = m
+readRepeatedly (suc n) m = readRepeatedly n (snd (readMode m false))
+
+isFused : AdaptiveMode → Bool
+isFused (lazyMode p k q) = false
+isFused (fusedMode t) = true
+
+adaptiveSelected : Nat → Nat → Bool
+adaptiveSelected writes reads = isFused (readRepeatedly reads (writeFlips writes))

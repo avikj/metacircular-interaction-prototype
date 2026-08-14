@@ -34,7 +34,9 @@ def patch (a : B) (z x : Fin n → B) : Fin n → B :=
 theorem eval_patch (p : BooleanFunction B n) (a : B) (z x : Fin n → B) :
     eval p (patch a z x) = (a ⊓ eval p z) ⊔ (aᶜ ⊓ eval p x) := by
   induction p <;>
-    simp_all [eval, patch, ← inf_sup_left, ← inf_sup_right, compl_inf, compl_sup]
+    simp_all [eval, patch, inf_sup_left, inf_sup_right, sup_inf_left, sup_inf_right,
+      inf_assoc, inf_left_comm, inf_comm, sup_assoc, sup_left_comm, sup_comm,
+      compl_inf, compl_sup]
 
 def lowenheimBA (p : BooleanFunction B n) (zero x : Fin n → B) : Fin n → B :=
   patch (eval p x) zero x

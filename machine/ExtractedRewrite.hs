@@ -7,6 +7,7 @@ import qualified MAlonzo.Code.Agda.Builtin.Sigma as Sigma
 import qualified MAlonzo.Code.Agda.Builtin.Bool as Bool
 import qualified MAlonzo.Code.RewriteDynamics as R
 import qualified MAlonzo.Code.RootedReweave as W
+import qualified MAlonzo.Code.BalancedReweave as B
 
 showTm :: R.T_Tm_2 -> String
 showTm R.C_var_4 = "x"
@@ -25,6 +26,9 @@ main = do
   putStrLn ("eval@7: " ++ show before ++ " = " ++ show after)
   putStrLn ("all-root reweave: north=" ++ showBool W.d_north'45'after_404
     ++ " south=" ++ showBool W.d_south'45'after_406)
+  putStrLn ("adaptive fusion after 100 writes: read1="
+    ++ showBool (B.d_adaptiveSelected_848 100 1)
+    ++ " read2=" ++ showBool (B.d_adaptiveSelected_848 100 2))
   if before == after then pure () else fail "extracted dynamics violated its checked semantics"
   where
     showBool Bool.C_false_8 = "false"
