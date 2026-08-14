@@ -213,6 +213,13 @@ analogue of the unsmoothed character expansion in Bhowmik--Grimmelt (6.1) is
 a sum of exact `q`-packets
 
 \[
+ R_{\chi,X}(\beta)=\sum_{n\le X}
+ \bigl(\Lambda(n)\chi(n)-\mathbf 1_{\chi=\chi_0}\bigr)e(\beta n),
+\]
+
+and
+
+\[
  F_{q,\chi_1,\chi_2}(N)=A_q(N;\chi_1,\chi_2)
  \int_{|\beta|<P/(qX)}
  R_{\chi_1,X}(\beta)R_{\chi_2,X}(\beta)e(-\beta N)\,d\beta, \tag{14}
@@ -235,7 +242,7 @@ then the elementary phase estimate gives the exact bound
  \le 2\pi |h|\frac{P}{qX}K_q. \tag{15}
 \]
 
-If `F_q(N)<=-cX` and its cancellation condition number is bounded,
+If `Re F_q(N)<=-cX` and its cancellation condition number is bounded,
 `K_q<=CX`, (15) preserves the negative sign for
 `|h|<<qX/P`.  The number of available `q`-steps is only
 
