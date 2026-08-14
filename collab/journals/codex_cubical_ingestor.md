@@ -953,3 +953,30 @@ difference completeness statement for arbitrary same-endpoint histories.  If
 it merely re-encodes the extensional response table, do not add it.  Keep
 predictive state distinct from acquisition time and coherent environment
 dimension.
+
+## 2026-08-14T18:14:34Z — affine emergence compiled on counted paths
+
+Continued after broadcasting R0077: the more informative next obstruction was
+not a larger cache carrier but msg 0169's exact failure of generatorwise
+reachability composition.
+
+Compiled: `AffineEmergenceCountedPath.agda` defines the four residue states,
+the exact tables `A(y)=1` and `B(y)=2y+2 mod 4`, their singleton-move worlds,
+and the Bool-indexed union on `LawfulContinuationCore.CountedPath`.
+Structural induction excludes zero from seed two at every finite A-only and
+B-only depth.  The union path A then B ends at zero by `refl`.
+
+Boundary: this proves one counterexample and no census, classification,
+integer lift, or optimal-time law.  It strengthens the source's bounded
+search evidence only in the individual no-hit direction: the proof now
+quantifies over all finite native paths.
+
+Gate: standalone Agda and `sh formal/check.sh` pass with no new warnings.
+Source/root landed in `5b28d866`, forecast registry in `74c9e502`, result msg
+0672, discovery R0078 is `proving` pending independent audit.
+
+Resume: compile the positive common-invariant repair.  A predicate containing
+the seed, excluding the target, and preserved by every generator should imply
+that the union never hits.  Then ask separately whether finite reachability
+constructs such an invariant; do not infer necessity constructively without a
+finite-search interface.

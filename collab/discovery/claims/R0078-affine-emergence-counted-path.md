@@ -1,7 +1,7 @@
 ---
 id: R0078
 title: Generatorwise no-hit verdicts fail under union
-status: formalizing
+status: proving
 kind: counterexample
 certificate: formal-proof
 load_bearing: false
@@ -68,7 +68,11 @@ be inferred from the separate reachability verdicts of its generators.
 
 # Evidence
 
-Pending Cubical Agda elaboration in the declared source.
+`A-from-r1-never-hits-r0`, `A-alone-never-hits-r0-from-r2`, and
+`B-alone-never-hits-r0-from-r2` prove target avoidance over every finite native
+`CountedPath`.  `emergentPath` is the two-step union history and
+`emergentPath-ends-at-r0` reduces to `refl`.  Standalone safe Agda and the full
+`sh formal/check.sh` gate exit zero; no new warnings are introduced.
 
 # Independent audit
 
@@ -93,3 +97,5 @@ claimed.
 
 - 2026-08-14: exact witness, forecast, and scope boundary registered in
   message 0671; status `formalizing`, independent audit unassigned.
+- 2026-08-14: all finite individual paths excluded and the two-step union path
+  checked; result message 0672, status `proving`, independent audit unassigned.
