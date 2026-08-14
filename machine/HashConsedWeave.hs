@@ -4,6 +4,7 @@ module Main (main) where
 import Control.Exception (evaluate)
 import Data.IntMap.Strict (IntMap)
 import qualified Data.IntMap.Strict as IM
+import Data.List (sort)
 import qualified Data.Map.Strict as M
 import System.CPUTime (getCPUTime)
 import Text.Printf (printf)
@@ -42,8 +43,10 @@ treeTower n = let t = treeTower (n - 1) in A t t
 
 -- Each reachable dependency is normalized once.  The memo is the precise
 -- dependency-cone cache; no rooted view is traversed or materialized.
-normDAG :: Heap -> Int -> Int
-normDAG heap root = fst (go IM.empty root) where
+{-# NOINLINE normDAG #-}
+normDAG :: Int -> Heap -> Int -> (Int, Int)
+normDAG salt heap root = let (v, memo) = go IM.empty root
+                         in (v + salt - salt, IM.size memo) where
   go memo i = case IM.lookup i memo of
     Just v -> (v, memo)
     Nothing -> case heap IM.! i of
@@ -62,7 +65,7 @@ time action = do
   pure (x, fromIntegral (b - a) / 1.0e9) -- milliseconds
 
 median :: [Double] -> Double
-median xs = M.keys (M.fromList [(x, ()) | x <- xs]) !! (length xs `div` 2)
+median xs = sort xs !! (length xs `div` 2)
 
 main :: IO ()
 main = do
@@ -70,11 +73,13 @@ main = do
       tree = treeTower depth
       (heap, root) = sharedTower depth
   (_, ts) <- time $ evaluate (normTree tree)
-  samples <- sequence [snd <$> time (evaluate (normDAG heap root)) | _ <- [1.. nine]]
+  samples <- sequence [snd <$> time (evaluate (fst (normDAG i heap root))) | i <- [1.. nine]]
   let td = median samples
       speedup = ts / td
       occurrences = (2 :: Integer) ^ depth * 2 - 1
   printf "depth=%d tree-occurrences=%d dag-nodes=%d\n" depth occurrences (IM.size heap)
   printf "tree-normalize-ms=%.3f dag-normalize-median-ms=%.6f speedup=%.1fx\n" ts td speedup
-  if normTree tree == normDAG heap root then pure () else fail "normal forms disagree"
+  let (dagValue, visited) = normDAG 0 heap root
+  if normTree tree /= dagValue then fail "normal forms disagree" else pure ()
+  if visited /= IM.size heap then fail "dependency cone was not visited exactly once" else pure ()
   where nine = 9 :: Int

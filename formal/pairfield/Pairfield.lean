@@ -12,6 +12,7 @@ import Pairfield.MyhillNerodeAdapter
 import Pairfield.ResidualBFS
 import Pairfield.NerodeChartAdapter
 import Pairfield.ChartStateBFS
+import Pairfield.ChartQuotient
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter

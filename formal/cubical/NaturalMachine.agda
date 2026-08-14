@@ -95,6 +95,11 @@ import NaturalMachine.StructuredDefect
 -- returns its minimal conservative repair: the product observer.  Its
 -- universal factorisation and collision-forced strictness are checked.
 import NaturalMachine.ActionRefinement
+-- A declared quotient predictor turns the same one-step encounter into an
+-- equivariance residual; pointed translations choose the standard
+-- cross-effect, and square under successor forms the faithful integer sensor
+-- 2x.  Root-covered checked formation event.
+import NaturalMachine.ActionResidual
 import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
