@@ -220,6 +220,7 @@ import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
 import NaturalMachine.SemanticCrystal
 import NaturalMachine.KnowledgeProcess
+import NaturalMachine.ObservableInterface
 import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct
