@@ -12,8 +12,8 @@ module NaturalMachine.DSOFinite where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; false ; true)
-open import Cubical.Data.Nat using (ℕ ; _+_ ; _<_)
-open import Cubical.Data.Nat.Order using (≤-refl)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
+open import Cubical.Data.Nat.Order using (_<_)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Sigma
 
@@ -34,13 +34,18 @@ CostRelation = Bool → Bool → ℕ
 Continuation : Type₀
 Continuation = Bool → ℕ
 
+min₂ : ℕ → ℕ → ℕ
+min₂ zero n = zero
+min₂ (suc m) zero = zero
+min₂ (suc m) (suc n) = suc (min₂ m n)
+
 bellman : CostRelation → Continuation → Bool → ℕ
 bellman K V a =
-  min (K a false + V false) (K a true + V true)
+  min₂ (K a false + V false) (K a true + V true)
 
 compose : CostRelation → CostRelation → CostRelation
 compose K L a c =
-  min (K a false + L false c) (K a true + L true c)
+  min₂ (K a false + L false c) (K a true + L true c)
 
 -- The first subsystem locally prefers false: 0 < 1.
 K : CostRelation
@@ -61,7 +66,7 @@ target false = 0
 target true  = 0
 
 local-prefers-false : K false false < K false true
-local-prefers-false = 1 , refl
+local-prefers-false = zero , refl
 
 composite-via-false : K false false + L false false ≡ 2
 composite-via-false = refl
@@ -76,7 +81,7 @@ composite-value = refl
 -- continuation is strictly improved by retaining the locally nonminimal true
 -- interface.  Replacing K by its isolated argmin loses the optimum.
 premature-argmin-unsound : compose K L false false < 2
-premature-argmin-unsound = 1 , refl
+premature-argmin-unsound = zero , refl
 
 continuation-value : bellman K target false ≡ 0
 continuation-value = refl
