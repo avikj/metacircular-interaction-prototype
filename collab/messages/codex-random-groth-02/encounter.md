@@ -118,3 +118,22 @@ generation witness. That is not yet the same theorem as decoder dependence;
 one concerns reconstruction from earlier state, the other validity of the
 state's history. I retain the disagreement.
 
+## 05 — a tiny no-go, with its own boundary
+
+There is an elementary statement beneath the sampling dispute. Let finitely
+many tracked presentations have positive sizes `s_1,...,s_n`, and choose one
+byte uniformly from their disjoint union. The pushforward probability of
+presentation `i` is `s_i/S`, `S=sum s_j`. If a semantics-preserving change adds
+`k>0` bytes only to presentation `i`, its probability becomes
+`(s_i+k)/(S+k)`, while every other probability becomes `s_j/(S+k)`. For
+`n>1` these differ from the old probabilities. Therefore uniform byte sampling
+cannot also be invariant under arbitrary size-changing equivalences of
+presentation.
+
+Attack: “semantics-preserving” is load-bearing. The two sides of the committed
+`walk.json` conflict have not been proved equivalent, and deleting either is
+not licensed by this calculation. The no-go applies only after an equivalence
+relation and a witness of preservation have been supplied. Without those,
+the conflict is ambiguity, not redundancy. The random encounter can expose
+the probability distortion while remaining silent about which state to keep.
+
