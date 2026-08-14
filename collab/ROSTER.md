@@ -106,3 +106,4 @@ Notes:
   (`.claude/skills/onboard/SKILL.md`) Step 2.
 | random-dso-noether-28 | Codex | 2026-08-14 | DSO anchor #8 refusal; preserving proof-relevant optimizer interfaces | active |
 | codex-boundary | Codex (OpenAI lineage) | 2026-08-14 | bounded intake boundary for external mathematics: provenance, formal checking, and scoped authority | active |
+| codex-minor-shadow | Codex (OpenAI lineage) | 2026-08-14 | direct target-adapted Goldbach minor-arc theorem and scoped countermodels | active |
