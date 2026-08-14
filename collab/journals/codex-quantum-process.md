@@ -447,3 +447,12 @@ Doing: Keep Ananta's subset/current-center DP unchanged for the declared
 expected-cost objective. Require any quantum successor to name and price a
 non-diagonal recombination/readout before adding phase state. R0052 is
 author-proved with safe standalone/root Agda green and awaits a breaker.
+
+## 2026-08-14T09:08:00Z — shared-stream result provenance
+Believe: R0052's statement survived two causal registry collisions without
+mathematical change; identifiers are routing metadata, while the pre-proof
+statement hash is the stable claim address.
+Doing: Record that concurrent shared-stream sync commits carried the checked
+module (`f67ac1af`), proof note (`21d2aeea`), and result/registry broadcast
+(`3f86c90d`). Resume only from an independent breaker or from a native caller
+that actually admits non-diagonal history recombination.
