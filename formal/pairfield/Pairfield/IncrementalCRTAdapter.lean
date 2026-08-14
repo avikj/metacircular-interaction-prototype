@@ -1,4 +1,5 @@
 import Mathlib.Data.Nat.ModEq
+import Mathlib.Data.Int.ModEq
 import Mathlib.Tactic.NormNum
 
 /-!
@@ -54,11 +55,85 @@ def merge {left right : CongruenceState}
     (h : Compatible left right) : CongruenceState :=
   ⟨mergeResidue h, Nat.lcm left.modulus right.modulus⟩
 
+/-- The explicit coefficients produced by Mathlib's extended Euclidean
+algorithm.  This is a Bézout certificate, not a historical vallī trace. -/
+structure BezoutCertificate (leftModulus rightModulus : ℕ) where
+  leftCoefficient : ℤ
+  rightCoefficient : ℤ
+  identity :
+    (Nat.gcd leftModulus rightModulus : ℤ) =
+      leftModulus * leftCoefficient + rightModulus * rightCoefficient
+
+/-- Expose the coefficient pair used by the generalized CRT constructor. -/
+def mathlibBezoutCertificate (leftModulus rightModulus : ℕ) :
+    BezoutCertificate leftModulus rightModulus :=
+  ⟨Nat.gcdA leftModulus rightModulus,
+    Nat.gcdB leftModulus rightModulus,
+    Nat.gcd_eq_gcd_ab leftModulus rightModulus⟩
+
+/-- A proof-relevant successful transition.  Erasing its coefficient witness
+recovers the extensional `merge` state exactly. -/
+structure MergeCertificate (left right : CongruenceState) where
+  compatible : Compatible left right
+  bezout : BezoutCertificate left.modulus right.modulus
+  combined : CongruenceState
+  combined_eq : combined = merge compatible
+
+def certifiedMerge {left right : CongruenceState}
+    (h : Compatible left right) : MergeCertificate left right :=
+  ⟨h, mathlibBezoutCertificate left.modulus right.modulus, merge h, rfl⟩
+
+/-- A signed failure certificate.  Unlike a bare negation, it retains the
+actual gcd and integer residue difference named by the native note. -/
+structure SignedObstruction (left right : CongruenceState) where
+  gcd : ℕ
+  delta : ℤ
+  gcd_eq : gcd = Nat.gcd left.modulus right.modulus
+  delta_eq : delta = (right.residue : ℤ) - left.residue
+  not_dvd : ¬ (gcd : ℤ) ∣ delta
+
+def signedObstructionOfNotCompatible {left right : CongruenceState}
+    (h : ¬ Compatible left right) : SignedObstruction left right := by
+  refine ⟨Nat.gcd left.modulus right.modulus,
+    (right.residue : ℤ) - left.residue, rfl, rfl, ?_⟩
+  intro hdvd
+  exact h (Nat.modEq_iff_dvd.mpr hdvd)
+
+/-- The total checked transition returns either the successful state together
+with Bézout coefficients or the signed divisibility obstruction. -/
+inductive CheckedOutcome (left right : CongruenceState) where
+  | merged (certificate : MergeCertificate left right)
+  | obstructed (certificate : SignedObstruction left right)
+
+private def compatibleDecidable (left right : CongruenceState) :
+    Decidable (Compatible left right) := by
+  unfold Compatible Nat.ModEq
+  infer_instance
+
+def checkedOutcome (left right : CongruenceState) : CheckedOutcome left right := by
+  letI := compatibleDecidable left right
+  exact if h : Compatible left right then
+    .merged (certifiedMerge h)
+  else
+    .obstructed (signedObstructionOfNotCompatible h)
+
 /-- The returned residue satisfies both input constraints. -/
 theorem mergeResidue_spec {left right : CongruenceState}
     (h : Compatible left right) :
     Holds left (mergeResidue h) ∧ Holds right (mergeResidue h) := by
   exact (Nat.chineseRemainder' h).property
+
+/-- Integer realization of a natural congruence state. -/
+def HoldsInt (state : CongruenceState) (x : ℤ) : Prop :=
+  x ≡ state.residue [ZMOD state.modulus]
+
+/-- The constructor's proof fields transport to the full integer cosets. -/
+theorem mergeResidue_spec_int {left right : CongruenceState}
+    (h : Compatible left right) :
+    HoldsInt left (mergeResidue h) ∧ HoldsInt right (mergeResidue h) := by
+  exact
+    ⟨Int.natCast_modEq_iff.mpr (mergeResidue_spec h).1,
+      Int.natCast_modEq_iff.mpr (mergeResidue_spec h).2⟩
 
 @[simp]
 theorem merge_modulus {left right : CongruenceState}
@@ -84,6 +159,32 @@ theorem holds_merge_iff {left right : CongruenceState}
       (hx.1.trans (mergeResidue_spec h).1.symm)
       (hx.2.trans (mergeResidue_spec h).2.symm)
 
+/-- The same intersection theorem on the actual integer solution cosets. -/
+theorem holdsInt_merge_iff {left right : CongruenceState}
+    (h : Compatible left right) (x : ℤ) :
+    HoldsInt (merge h) x ↔ HoldsInt left x ∧ HoldsInt right x := by
+  constructor
+  · intro hx
+    change x ≡ (mergeResidue h : ℤ)
+      [ZMOD (Nat.lcm left.modulus right.modulus : ℕ)] at hx
+    have hleftDvd :
+        (left.modulus : ℤ) ∣ (Nat.lcm left.modulus right.modulus : ℕ) := by
+      exact_mod_cast Nat.dvd_lcm_left left.modulus right.modulus
+    have hrightDvd :
+        (right.modulus : ℤ) ∣ (Nat.lcm left.modulus right.modulus : ℕ) := by
+      exact_mod_cast Nat.dvd_lcm_right left.modulus right.modulus
+    exact
+      ⟨(hx.of_dvd hleftDvd).trans (mergeResidue_spec_int h).1,
+        (hx.of_dvd hrightDvd).trans (mergeResidue_spec_int h).2⟩
+  · intro hx
+    have hpair :
+        x ≡ (mergeResidue h : ℤ) [ZMOD left.modulus] ∧
+          x ≡ (mergeResidue h : ℤ) [ZMOD right.modulus] :=
+      ⟨hx.1.trans (mergeResidue_spec_int h).1.symm,
+        hx.2.trans (mergeResidue_spec_int h).2.symm⟩
+    simpa [HoldsInt, merge] using
+      (Int.modEq_and_modEq_iff_modEq_lcm.mp hpair)
+
 /-- The overlap condition is not merely sufficient: it is equivalent to the
 existence of any common representative. -/
 theorem compatible_iff_exists_common (left right : CongruenceState) :
@@ -101,6 +202,17 @@ theorem no_common_of_not_compatible (left right : CongruenceState)
     (h : ¬ Compatible left right) :
     ¬ ∃ x, Holds left x ∧ Holds right x := by
   exact fun hexists ↦ h ((compatible_iff_exists_common left right).2 hexists)
+
+/-- The signed obstruction still proves the complete extensional no-solution
+statement after its proof-relevant data are retained. -/
+theorem SignedObstruction.no_common {left right : CongruenceState}
+    (obstruction : SignedObstruction left right) :
+    ¬ ∃ x, Holds left x ∧ Holds right x := by
+  apply no_common_of_not_compatible left right
+  intro hcompat
+  apply obstruction.not_dvd
+  rw [obstruction.gcd_eq, obstruction.delta_eq]
+  exact Nat.modEq_iff_dvd.mp hcompat
 
 /-- For nonzero moduli, Mathlib's representative is normalized below the
 least-common-multiple modulus of the combined state. -/
