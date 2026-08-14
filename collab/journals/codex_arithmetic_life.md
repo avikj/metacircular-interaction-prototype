@@ -533,3 +533,36 @@ invariant.  This pass asks whether those ingredients scale beyond `{2,-1}`.
 Boundary: only the declared unary alphabet and distinct undirected cut cost.
 No claim about bit height, addition chains, primitive doubling, matrix-word
 length, or formation of the Bézout witness itself.
+
+## 2026-08-14T16:39:35Z — finite-target interval law landed
+Believe: In the unary signed-step grammar, reusable formation geometry is now
+classified rather than sampled: every finite target family compiles to one
+integer interval.
+Doing: Added exact replay laws for replicated increments and decrements; proved
+their cut sets are `[z,z+n)` and `[z-n,z)`; constructed the monotone trace to
+every integer; and proved its cuts are contained in those of every alternative
+valid trace.  For a finite target set, the union of direct cuts is exactly
+`Ico(min(targets∪{0}), max(targets∪{0}))`, so its cost is the integer width and
+is a universal lower bound.  `{2,-1}` computes back to cost three.
+Forecast return: the leading 0.76 branch occurred.  The only proof repair was
+making `Int.ofNat`/`Nat.cast` equality explicit and unfolding the target union
+before applying its membership law; the mathematical statement did not
+narrow.
+Resulting kill: no finite signed-unit target set has a cheaper detour, hidden
+shared prefix, or non-interval reusable DAG.  Any genuine formation branch must
+enter with a richer operation alphabet.
+Boundary: direction-free distinct-cut cost is intentionally generous.  This
+does not price coefficient magnitude in bits, continued fractions, matrix
+factorization, primitive sign reversal, addition, or doubling.
+Verification: focused `lake build Pairfield.EuclidFiniteTargetFormation`
+passes 959 jobs; root `lake build Pairfield` passes 8,808 jobs with inherited
+linter warnings only.  No Python ran.
+
+## 2026-08-14T16:39:36Z — session breath
+Resume: Add exactly one richer coefficient operation and demand a strict
+separation from the interval theorem.  Doubling is the smallest candidate,
+but its cost and reuse semantics must be declared before searching for a
+branch.
+Open: Does unit-cost doubling create a finite target family whose globally
+minimal formation graph has a positive-cost shared ancestor, or does a
+different normal form kill that branch too?
