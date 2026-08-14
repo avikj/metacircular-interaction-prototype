@@ -104,6 +104,11 @@ import NaturalMachine.ActionResidual
 -- modulo its kernel.  In particular every sign character annihilates the
 -- classically injective square/successor residual 2x.
 import NaturalMachine.ActionResidualPhase
+-- A residual/two-reading carrier predicts its own action exactly when the
+-- third reading descends through it.  A checked four-state clock supplies the
+-- collision no-go and the strict three-reading repair; the repaired carrier
+-- reconstructs state and compiles its next update.
+import NaturalMachine.PredictorFormation
 import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon

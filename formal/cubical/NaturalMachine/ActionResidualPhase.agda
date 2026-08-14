@@ -88,18 +88,46 @@ module RelativeSignPhase
   relativePhase : X → Sign
   relativePhase x = char (D.after x) ·s char (predict (q x))
 
+  character-difference-is-relative :
+    (a b : ⟨ A ⟩) → char (a - b) ≡ char a ·s char b
+  character-difference-is-relative a b =
+      RK.Character.char-mul χ a (- b)
+    ∙ cong (char a ·s_) (char-neg b)
+
   -- Exact pointwise phase identity.  Because every sign is self-inverse,
   -- multiplication by the predicted phase is multiplication by its inverse.
   character-residual-is-relative :
     (x : X) → char (D.residual x) ≡ relativePhase x
   character-residual-is-relative x =
-      RK.Character.char-mul χ (D.after x) (- predict (q x))
-    ∙ cong (char (D.after x) ·s_) (char-neg (predict (q x)))
+    character-difference-is-relative (D.after x) (predict (q x))
 
   relative-phase-is-character-residual :
     (x : X) → relativePhase x ≡ char (D.residual x)
   relative-phase-is-character-residual x =
     sym (character-residual-is-relative x)
+
+  -- Exact quotient boundary: two additive values have the same sign phase
+  -- iff their difference lies in the character kernel.
+  same-phase→difference-in-kernel :
+    (a b : ⟨ A ⟩) → char a ≡ char b → char (a - b) ≡ plus
+  same-phase→difference-in-kernel a b h =
+      character-difference-is-relative a b
+    ∙ cong (_·s char b) h
+    ∙ sign-square (char b)
+
+  difference-in-kernel→same-phase :
+    (a b : ⟨ A ⟩) → char (a - b) ≡ plus → char a ≡ char b
+  difference-in-kernel→same-phase a b h =
+    sym (sign-right-inverse-self (char a) (char b)
+      (sym (character-difference-is-relative a b) ∙ h))
+
+  same-phase-iff-kernel-difference :
+    (a b : ⟨ A ⟩)
+    → (char a ≡ char b → char (a - b) ≡ plus)
+      × (char (a - b) ≡ plus → char a ≡ char b)
+  same-phase-iff-kernel-difference a b =
+    same-phase→difference-in-kernel a b ,
+    difference-in-kernel→same-phase a b
 
 ------------------------------------------------------------------------
 -- 2. The checked R0044 event is classically faithful and sign-phase trivial
