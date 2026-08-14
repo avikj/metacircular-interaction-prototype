@@ -153,6 +153,55 @@ def runReachQueue [DecidableEq X] (M : DFA A X) (alphabet : List A) :
   | 0 => initialReachQueue M
   | n + 1 => advanceReachQueue M alphabet (runReachQueue M alphabet n)
 
+theorem ReachQueue.state_mem_states {queue : ReachQueue A X}
+    {node : ReachNode A X} (hnode : node ∈ queue.nodes) :
+    node.state ∈ queue.states := by
+  simp only [ReachQueue.states, List.mem_map]
+  exact ⟨node, hnode, rfl⟩
+
+theorem advanceReachQueue_nodes_mono [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    {node : ReachNode A X} (hnode : node ∈ queue.nodes) :
+    node ∈ (advanceReachQueue M alphabet queue).nodes := by
+  let next := freshNodes queue.states
+    (expandFrontier M alphabet queue.frontier)
+  change node ∈ queue.nodes ++ next
+  exact List.mem_append.mpr (Or.inl hnode)
+
+theorem advanceReachQueue_states_mono [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    {state : X} (hstate : state ∈ queue.states) :
+    state ∈ (advanceReachQueue M alphabet queue).states := by
+  simp only [ReachQueue.states, List.mem_map] at hstate ⊢
+  obtain ⟨node, hnode, rfl⟩ := hstate
+  exact ⟨node, advanceReachQueue_nodes_mono M alphabet queue hnode, rfl⟩
+
+theorem advanceReachQueue_frontier_successor [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    {node : ReachNode A X} (hnode : node ∈ queue.frontier)
+    {action : A} (haction : action ∈ alphabet) :
+    M.step node.state action ∈
+      (advanceReachQueue M alphabet queue).states := by
+  let candidate := node.child M action
+  have hcandidate : candidate ∈
+      expandFrontier M alphabet queue.frontier := by
+    simp only [expandFrontier, List.mem_flatMap, List.mem_map]
+    exact ⟨node, hnode, action, haction, rfl⟩
+  rcases freshNodes_covers_candidate queue.states
+      (expandFrontier M alphabet queue.frontier) hcandidate with
+    hold | hfresh
+  · exact advanceReachQueue_states_mono M alphabet queue hold
+  · obtain ⟨kept, hkept, heq⟩ := hfresh
+    have hkeptState : kept.state ∈
+        (advanceReachQueue M alphabet queue).states := by
+      apply ReachQueue.state_mem_states
+        (queue := advanceReachQueue M alphabet queue)
+        (node := kept)
+      change kept ∈ queue.nodes ++ freshNodes queue.states
+        (expandFrontier M alphabet queue.frontier)
+      exact List.mem_append.mpr (Or.inr hkept)
+    simpa [candidate, ReachNode.child, heq] using hkeptState
+
 theorem mem_expandFrontier_valid (M : DFA A X) (alphabet : List A)
     (frontier : List (ReachNode A X))
     (hvalid : ∀ node ∈ frontier, node.Valid M) :
