@@ -260,6 +260,65 @@ theorem shortestLeftQuotientWitnessUpTo_card_sq_none_iff
   · intro heq word _
     rw [heq]
 
+/-- The finite-state search with its proved sufficient horizon installed. -/
+def shortestLeftQuotientWitness
+    [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (left right : List A) : Option (List A) :=
+  shortestLeftQuotientWitnessUpTo M alphabet left right
+    (Fintype.card X * Fintype.card X)
+
+theorem shortestLeftQuotientWitness_eq_none_iff
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) :
+    shortestLeftQuotientWitness M alphabet left right = none ↔
+      M.accepts.leftQuotient left = M.accepts.leftQuotient right :=
+  shortestLeftQuotientWitnessUpTo_card_sq_none_iff
+    M alphabet complete left right
+
+theorem shortestLeftQuotientWitness_sound
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) {word : List A}
+    (h : shortestLeftQuotientWitness M alphabet left right = some word) :
+    ¬ (word ∈ M.accepts.leftQuotient left ↔
+      word ∈ M.accepts.leftQuotient right) :=
+  (shortestLeftQuotientWitnessUpTo_sound M alphabet complete left right h).2
+
+theorem shortestLeftQuotientWitness_minimal
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) {word : List A}
+    (h : shortestLeftQuotientWitness M alphabet left right = some word) :
+    ∀ candidate : List A,
+      ¬ (candidate ∈ M.accepts.leftQuotient left ↔
+        candidate ∈ M.accepts.leftQuotient right) →
+      word.length ≤ candidate.length :=
+  shortestLeftQuotientWitnessUpTo_minimal
+    M alphabet complete left right h
+
+/--
+A proof-producing decision procedure for equality of two reachable residual
+languages.  The equality is extensional; its `Decidable` evidence is obtained
+from the finite executable above rather than assumed as a language oracle.
+ -/
+def reachableLeftQuotientEqDecidable
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) :
+    Decidable (M.accepts.leftQuotient left = M.accepts.leftQuotient right) :=
+  if h : shortestLeftQuotientWitness M alphabet left right = none then
+    isTrue ((shortestLeftQuotientWitness_eq_none_iff
+      M alphabet complete left right).1 h)
+  else
+    isFalse fun heq => h ((shortestLeftQuotientWitness_eq_none_iff
+      M alphabet complete left right).2 heq)
+
 namespace ResidualBFSWitness
 
 /-- A reachable three-state DFA: `false` reaches state `1`, then `true`

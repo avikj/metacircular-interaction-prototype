@@ -157,9 +157,13 @@ the elementary fact `Hom(Z/3,Z/2)=0`; no novelty is claimed.
 ```sh
 cd formal/cubical
 agda ResponseCharacterKickback.agda
-agda Everything.agda
 ```
 
 `ResponseCharacterKickback.agda` is `--cubical --safe`, with no postulates and
-no holes. `Everything.agda` imports it, so the aggregate gate covers the new
-module.
+no holes, and checks exit 0 on the current host. `Everything.agda` imports it,
+so aggregate coverage is wired. The attempted aggregate replay did **not** exit
+0 on this host: it stopped earlier at the unrelated
+`Gamma0Partner.agda:55` toolchain-skew boundary, where the installed
+Agda/Cubical exports `solve!` but the pinned source asks for `solve`. Therefore
+no aggregate-green claim is made here; the new theorem's present evidence is
+its standalone safe check.

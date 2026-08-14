@@ -144,29 +144,41 @@ conclude "delete the Lean Smith lane".
 | `Pairfield.FutureEq step observe` at `O = Prop`/`Bool` | kernel of `DFA.acceptsFrom`; the equivalence is `MyhillNerodeAdapter.futureEq_iff_stateLanguage_eq` | **SUBSUMES** (already bridged by us) | (a) |
 | `Pairfield.FutureEq` at **arbitrary observation type `O`** | *nothing* — mathlib's automata are Boolean-acceptance only; there is no Moore machine, no `σ → O` output map anywhere in `Computability/` | **UNCOVERED** | — |
 | `futureEq_of_finer`, `futureEq_pair_iff` (refinement / joint observation lattice) | *nothing* | **UNCOVERED** (they are only meaningful for general `O`) | — |
-| `Pairfield.futureSetoid` + `quotientStep` + `quotientObserve` (state-side behavioural quotient) | `Language.toDFA` is the *language-side* Nerode automaton; mathlib never quotients a given DFA's state set | **UNCOVERED as stated**, but every consequence for the accepted language follows from `leftQuotient_accepts_apply` | — |
-| `quotientBehavior_injective` (distinct meanings ⇒ distinct futures) | *nothing*; mathlib does **not** prove `Language.toDFA` is minimal, nor that its states are pairwise distinguishable | **UNCOVERED** | — |
-| `Pairfield.BehavioralBFS` (executable shortest distinguishing word) | *nothing* — no minimization algorithm, no Hopcroft/Moore partition refinement, no distinguishing-word search in mathlib | **UNCOVERED** | — |
+| `Pairfield.futureSetoid` + `quotientStep` + `quotientObserve` (state-side behavioural quotient) | `Language.toDFA` is the *language-side* Nerode automaton; mathlib never quotients a given DFA's state set | **BRIDGED ON THE REACHABLE CARRIER** — `behavioralLanguage_image_reachable` identifies its residual-language image exactly with `Set.range M.accepts.leftQuotient`; unreachable ambient meanings deliberately remain outside the theorem. | (a) |
+| `quotientBehavior_injective` (distinct meanings ⇒ distinct futures) | *nothing* in mathlib; the local adapter theorem is `behavioralLanguage_injective` | **BRIDGED LOCALLY** for Boolean DFA observation; mathlib still does not state automaton minimality | (a) |
+| `Pairfield.BehavioralBFS` (executable shortest distinguishing word) | *nothing* — no minimization algorithm, no Hopcroft/Moore partition refinement, no distinguishing-word search in mathlib | **UNCOVERED BY MATHLIB, NOW CONNECTED** — `ResidualBFS` transports its bounded shortest certificates to prefix left quotients. | (a), local |
 | Agda `NaturalMachine/FutureBehavior.agda` (445 lines) | same as the three rows above, plus `PFunctor.M` / `QPF.Cofix` for the coalgebraic framing (§6) | **SUBSUMED in content** for `O = Bool`; the general-`O` and cubical-effectivity parts are ours | (b), high cost |
 
-### 3.3 What `MyhillNerodeAdapter.lean` bridges, and what it left unbridged
+### 3.3 What `MyhillNerodeAdapter.lean` now bridges, and what remains
 
-Bridged (all nine declarations in the file): `stateLanguage`, `run_eq_evalFrom`,
+Original bridge: `stateLanguage`, `run_eq_evalFrom`,
 `futureEq_iff_stateLanguage_eq`, `leftQuotient_eq_stateLanguage_eval`,
 `stateLanguage_step`, `leftQuotient_eq_iff_futureEq_eval`, `BehavioralState`,
 `selectNext` / `selectNext_mk`, `quotient_action_residual`. In mathlib terms it
 bridges to exactly three declarations: `DFA.acceptsFrom`, `DFA.evalFrom`, and
 `Language.leftQuotient_accepts_apply`.
 
-**Left unbridged — every one of these is one import away:**
+The 2026-08-14 ingestion adds `behavioralLanguage`, proves it injective,
+identifies its image on `reachableBehavioralStates` exactly with the range of
+left quotients, and transports
+`Language.isRegular_iff_finite_range_leftQuotient` to
 
-1. `Language.isRegular_iff_finite_range_leftQuotient` — *the* Myhill–Nerode theorem. The adapter reaches the residual-language equivalence and stops before the finiteness characterisation. Our `FiniteInformation.lean` is about factorization through an observable; it never meets this.
-2. `Language.toDFA` and `accepts_toDFA` — the canonical minimal automaton. `Pairfield.BehavioralState` is a quotient of `X`; mathlib's is a subset of `Language α`. The comparison map `BehavioralState M → Set.range (M.accepts.leftQuotient)` is not written down anywhere in our lane.
-3. `DFA.pumping_lemma` — never invoked.
-4. `DFA.union` / `inter` / `Compl` / `IsRegular.add` / `IsRegular.inf` / `IsRegular_compl` — the Boolean algebra of behaviours. `futureEq_pair_iff` is the observation-side shadow of `DFA.inter`; the connection is unmade.
-5. `Language.leftQuotient_append` — our `stateLanguage_step` is only the one-letter case; the word case is free from mathlib.
-6. `NFA.toDFA` / `isRegular_reverse_iff` — nothing in our corpus is nondeterministic, but `ReversalRigidity` and `CROSS_REVERSAL_CHARGE` are about reversal, and `Language.reverse` + `isRegular_reverse_iff` exist.
-7. `KleeneAlgebra (Language α)` — the semiring structure on behaviours. Unused.
+```lean
+M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite.
+```
+
+The concurrent `ResidualBFS` return then connects bounded shortest witnesses
+to prefix residuals. It does not convert `Set.Finite` into enumeration or a
+global terminating horizon.
+
+**Still unbridged:**
+
+1. `Language.toDFA` and `accepts_toDFA` — the canonical residual automaton. `Pairfield.BehavioralState` is a quotient of `X`; mathlib's is a subtype of `Language α`. The adapter proves equality of the reachable image but does not yet package a subtype equivalence or executable enumeration. Mathlib itself does not prove minimality.
+2. `DFA.pumping_lemma` — never invoked.
+3. `DFA.union` / `inter` / `Compl` / `IsRegular.add` / `IsRegular.inf` / `IsRegular_compl` — the Boolean algebra of behaviours. `futureEq_pair_iff` is the observation-side shadow of `DFA.inter`; the connection is unmade.
+4. `Language.leftQuotient_append` — our `stateLanguage_step` is only the one-letter case; the word case is free from mathlib.
+5. `NFA.toDFA` / `isRegular_reverse_iff` — nothing in our corpus is nondeterministic, but `ReversalRigidity` and `CROSS_REVERSAL_CHARGE` are about reversal, and `Language.reverse` + `isRegular_reverse_iff` exist.
+6. `KleeneAlgebra (Language α)` — the semiring structure on behaviours. Unused.
 
 **Genuine gap, stated plainly:** mathlib has no **Kleene theorem**. `RegularExpression.matches'` is never connected to `Language.IsRegular`; there is no `IsRegular_iff_exists_regularExpression`. It also has no DFA **minimality** theorem and no **bisimulation** for automata (it has bisimulation only for M-types, §6). If the corpus wants any of those three it must prove them.
 
@@ -370,7 +382,7 @@ verified present at the pinned `v4.33.0`.
 
 1. **[easy] `Mathlib.GroupTheory.GroupAction.Basic` + `…GroupAction.Quotient` into `HolonomyDescent.lean`.** Delete `orbitSetoid`; use `MulAction.orbitRel`. Immediately inherits `orbitRel.Quotient`, `orbitEquivQuotientStabilizer`, `stabilizerEquivStabilizer`, `selfEquivSigmaOrbitsQuotientStabilizer`. Highest ratio of gain to effort in the whole list.
 
-2. **[easy] `Mathlib.Computability.MyhillNerode`'s finiteness half into `MyhillNerodeAdapter.lean`.** The adapter already imports the module and stops one theorem short. Add the corollary connecting `BehavioralState M` finiteness to `Language.isRegular_iff_finite_range_leftQuotient`. This is the Myhill–Nerode theorem the file is named after and does not yet state.
+2. **[landed 2026-08-14] `Mathlib.Computability.MyhillNerode`'s finiteness half into `MyhillNerodeAdapter.lean`.** The correct carrier is the set of *reachable* `BehavioralState M` values, not the whole ambient quotient. `accepts_isRegular_iff_reachableBehavioralStates_finite` is Lean-checked; whole-ambient finiteness is false in the presence of unreachable states. The executable residual-BFS return preserves the further boundary between extensional finiteness and an enumerated global horizon.
 
 3. **[easy] `Mathlib.LinearAlgebra.FreeModule.Int` + `Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient` into the Smith thread.** `AddSubgroup.index_eq_natAbs_det` and `Basis.SmithNormalForm.toAddSubgroup_index_eq_pow_mul_prod` give the cokernel order of `A : IntMat2` for free, which several Smith notes compute by hand.
 
