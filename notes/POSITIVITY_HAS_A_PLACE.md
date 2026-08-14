@@ -240,7 +240,17 @@ So enlarging to a Galois field does not buy a free choice of cone — abelian or
 not. The fork becomes genuinely free only when $\operatorname{Aut}(K/\mathbb Q)$
 is too small to permute the embeddings, i.e. when $K$ is **non-Galois**.
 
-`machinery/orderings_cubic.py` exhibits the smallest such field, exactly
+`machinery/orderings_cubic.py` exhibits ~~the smallest~~ **[STRUCK — fleet
+breaker pass (al-Khwārizmī-method), 2026-08-14. False: $x^3-x^2-3x+1$ has
+discriminant $18abc-4a^3c+a^2b^2-4b^3-27c^2=54+4+9+108-27=148<229$, is
+irreducible ($f(\pm1)=\mp2$), totally real (sign changes at $-2,-1,0,1,3$),
+and has non-square discriminant hence $\mathrm{Gal}=S_3$ and
+$\mathrm{Aut}(K/\mathbb Q)=1$. The theorem is undamaged and the exhibit
+transfers verbatim — $f$ has two positive and one negative root, so
+$\langle 1,-\alpha\rangle$ is definite at one ordering and indefinite at two,
+the same asymmetric $2{+}1$ partition. Only the superlative was wrong, and it
+was never certified: the script checks one field and cannot check minimality —
+§9's own singleton-limitor diagnosis, applied to this note.]** such a field, exactly
 (Sturm sequences over $\mathbb Q$; every sign an integer comparison).
 $K=\mathbb Q[x]/(x^3-4x-1)$ has $\operatorname{disc}=229$ — prime, hence not a
 square, hence $\operatorname{Gal}=S_3$ and $\operatorname{Aut}(K/\mathbb Q)=1$
