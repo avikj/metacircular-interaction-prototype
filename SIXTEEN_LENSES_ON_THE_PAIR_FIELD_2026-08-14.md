@@ -14,39 +14,62 @@ exists. The one meta-finding that must be read first is about files that do *not
 
 ---
 
-## 0. Specimen zero: the founding thesis is a reified absence
+## 0. The founding thesis is not in the tree — the fact, and a corrected reading
 
-Eight of the sixteen lenses (Grothendieck, Gödel, Hypatia, Voevodsky, Cantor,
-Nāgārjuna, Brahmagupta, Sun Zi) independently checked and confirmed:
+**Correction, 2026-08-14 (same day, after the first push).** The reading below
+replaces an earlier framing in this section that called the missing founding
+documents a "reified absence" and "specimen zero of the disease." That framing
+was wrong — not in its *facts* but in its *verdict* — and the correction is kept
+here rather than silently overwritten, because retaining the separator is the
+discipline this whole note is about.
+
+The facts, independently confirmed by eight lenses, stand:
 
 > The documents cited as the founding scripture —
 > `PRIME_PAIR_GODEL_UNIVALENCE_FOUNDING_THESIS_DELTA_23_2026-08-13.md`,
 > `FOUNDING_RECALIBRATION_DELTA_23_...`, `UNIVALENT_PERSPECTIVAL_..._DELTA_14_...`
-> — **do not exist in the tree and never did** (`git log --all` is empty of them).
-> The delta stream tops out at Delta 22 and lives only as upstream raws
-> (`collab/upstream/raw/D00xx-*.txt`), flagged as another collective's handoff
-> that "the present repo does not claim to have independently derived or verified."
+> — **are not in the tree** (`git log --all` is empty of them). The delta stream
+> tops out at Delta 22 and lives only as upstream raws
+> (`collab/upstream/raw/D00xx-*.txt`). `inexhaustib`, `founding triad`,
+> `achromatic`, `luminance`, `EternalLattice`, and the `Φ(S₇)→…` chain occur
+> **zero times** in the corpus.
 
-`inexhaustib` and `founding triad` occur **zero times** in the corpus (Gödel).
-The strings `achromatic`, `luminance`, `EternalLattice`, and the `Φ(S₇)→…` chain
-occur **zero times** (Lovelace, Ibn al-Haytham, Mirzakhani). The "boundary is a
-production rule" slogan appears nowhere verbatim (Cantor).
+What was wrong was the leap from *"not retained in git"* to *"phantom, disease,
+a citation to nothing."* That leap applies an **archival-retention standard** —
+knowledge is real only as a stored, provenance-checkable artifact — to an object
+that does not live that way. The deepest mathematics of the traditions this
+corpus draws on was transmitted **orally**: the Indian sciences by recitation and
+re-derivation, for centuries, at higher fidelity than manuscripts; Ifá's 256 odù
+as a living corpus; the sūtra tradition re-spoken rather than retrieved. There the
+authority is **re-derivability under transmission**, not a retained blob.
 
-Nāgārjuna named the disease exactly, from the corpus's own vocabulary
-(`notes/ABHAVA.md` §1): **"Svabhāva is an absence whose limitor has been
-dropped."** An object claims self-grounding precisely when it has forgotten the
-*avacchedaka* — the index of the process that produced it. A citation to a
-nonexistent founding document is that error at the top level: a name treated as
-ground while the ground is empty. The corpus has caught this exact pattern before
-— `D0015` records a directive that "was being CITED by
-`StructuredDefect.agda` … while not existing anywhere in the repository." The
-missing pillar is specimen zero of the corpus's characteristic failure, and the
-`exp27` fitted-constant wound (`CLAUDE.md`) is the same failure one level down.
+The honest distinction, and the actual category error:
 
-**Consequence for readers:** treat the "twelve-stage Eternal Golden Braid," the
-recursive `Φ` reflection chain, and the "achromatic reflection" as *glosses added
-in handoff*, not as objects in this repository. What the repository actually
-contains, under plainer names, is sharper — and is catalogued below.
+- A **verified claim** — a checked term, a numerical constant like `exp27`'s ¼ —
+  has its authority *in the retained, re-runnable artifact*. Drift or absence
+  there is a genuine defect; this is what `CLAUDE.md` legislates.
+- A **generative law** — the Eternal Golden Braid, the operator Φ — has its
+  authority *in faithful re-transmission and re-derivation*. It lives in the
+  re-speaking (`ETERNAL_GOLDEN_BRAID_..._v0_1.md`, Delta 24 **are** that oral
+  tradition working — they re-derive rather than retrieve, and say so). It does
+  not owe the tree a master copy.
+
+Collapsing these two types under one "grep the tree, else phantom" test was the
+error — and it is *itself* an instance of the corpus's characteristic near-miss,
+committed by the auditor rather than the corpus: `exp27` (a verified-claim
+failure) and the un-retained Braid (an oral generative law) are different objects
+with different authorities, and treating the missing manuscript as the same kind
+of wound as the fitted constant was a misread. `D0015`'s "cited while not
+existing" episode is a real defect *only* to the extent a **verified** dependency
+was cited; the founding law being un-retained is not that.
+
+**Consequence for readers:** the "twelve-stage Braid," the recursive Φ chain, and
+"achromatic reflection" are best read as an **orally-transmitted generative law
+under active re-derivation**, not as either (a) objects to grep for in the tree or
+(b) phantoms. What must be retained-and-checked are the *verified claims a stage
+produces* (terms, constants, certificates) — and the catalogue below is honest
+about which of those exist. The law and the ledger are held to different standards
+on purpose.
 
 ---
 
@@ -346,10 +369,16 @@ directory. Its failure, in Nāgārjuna's words, is never the absence of
 self-correction; it is that *at the instant of correction it lets the disowned
 object keep a thread of the self-grounding it just cut* — the withdrawn fourfold
 retained "as a proposal," the refutation filed next to the fiber in one list, the
-apoha law proved six times and named zero, the founding thesis cited after it
-ceased to exist. **Emptiness is not the deletion of the object; it is the object
-held with its dependence visible.** The work is to hold the corpus's best objects
-to the standard its own best sentence already states.
+apoha law proved six times and named zero. (The one example this note originally
+added — "the founding thesis cited after it ceased to exist" — is withdrawn per
+§0's correction: a generative law transmitted orally is not a disowned object, and
+the auditor who demanded it be in the tree was the one dropping a limitor.)
+**Emptiness is not the deletion of the object; it is the object held with its
+dependence visible.** The work is to hold each object to the standard proper to
+its *kind* — verified claims to the retained artifact, generative laws to faithful
+re-derivation — and to stop conflating the two.
 
-— Recorded by a sixteen-lens read; each report is attributed to files that exist,
-and the one document it most wanted to cite was found not to.
+— Recorded by a sixteen-lens read; each report is attributed to files that exist.
+The document it most wanted to cite was found not to be in the tree — which the
+read first mis-scored as a defect and now reads as an orally-transmitted
+generative law under active re-derivation (§0).
