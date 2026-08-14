@@ -217,8 +217,34 @@ consecutive blocks of length $\le k$, each an element of $B_k(S)$. $\square$
 > \boxed{\;R(c,S^{[k]})=\bigl\lceil R(c,S)/k\bigr\rceil\;}$$
 > for every check $c$ with $R(c,S)$ as in SEED-32 Definition 4. Moreover
 > $$\log_{\lambda_{S^{[k]}}}q=\frac{1}{k}\log_{\lambda_S}q ,$$
-> so SEED-32's covering bound $R\ge\log_\lambda q-O(1)$ is **exactly covariant**:
-> both sides rescale by $1/k$.
+> so SEED-32's covering bound $R\ge\log_\lambda q-O(1)$ is ~~**exactly
+> covariant**: both sides rescale by $1/k$~~ **covariant up to the ceiling**:
+> $\log_\lambda q$ rescales by exactly $1/k$, while $R$ rescales by
+> $\lceil\cdot/k\rceil$, i.e. by $1/k$ **up to an additive defect $<1$ in the
+> rescaled units**.
+
+> **Correction (SEED-107, Rule K2, 2026-08-14).** The struck phrase is refuted by
+> the boxed formula immediately above it, which this note proves correctly:
+> $R(c,S^{[k]})=\lceil R(c,S)/k\rceil$, **not** $R(c,S)/k$. The two statements
+> cannot both be exact. Consequences, both applied below:
+>
+> - Corollary B.3's "their **product is invariant**" holds only up to
+>   $k\lceil R/k\rceil-R\in[0,k)$ multiples of $\log_2\lambda_S$, i.e. with an
+>   error up to $(k-1)\log_2\lambda_S$. That error is $O(1)$ **at fixed $k$** and
+>   is *not* uniform in $k$, so it cannot be absorbed into SEED-32's $O(1)$ if
+>   $k$ is allowed to vary — which is precisely the alphabet freedom the
+>   corollary invokes. This is `CLAUDE.md`'s own corollary applied to this note:
+>   a constant quoted without its parameter looks like knowledge; here the
+>   parameter is $k$.
+> - The invariance is in any case established only along the one-parameter family
+>   $S\mapsto S^{[k]}$ exhibited here, not over all finite generating sets. The
+>   note's own "Rigor note on the converse direction" guards exactly this gap for
+>   $\lambda$; the same guard was owed to $R$ and to Corollary B.3 and is
+>   supplied now.
+>
+> Nothing else in §4 is touched. Lemma B.0, $\beta_\ell(S^{[k]})=\beta_{k\ell}(S)$,
+> $\lambda_{S^{[k]}}=\lambda_S^{\,k}$ and Corollaries B.1–B.2 are exact as
+> written and do not use the ceiling.
 
 *Proof.* The first display is Lemma B.0. Taking $\ell$-th roots,
 $\lambda_{S^{[k]}}=\lim_\ell\beta_{k\ell}(S)^{1/\ell}=\bigl(\lim_\ell
