@@ -17,6 +17,7 @@ import Pairfield.ReachableSubDFA
 import Pairfield.ExecutableMinimization
 import Pairfield.ShortestReach
 import Pairfield.VisitedReach
+import Pairfield.VisitedReachCardinality
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
