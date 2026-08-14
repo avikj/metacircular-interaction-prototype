@@ -253,8 +253,8 @@ over a product space, so even the reachable sentence is one direction for one
 construction, not the general equivalence the two notes consume.
 
 Correct disposition: **demotion to search-summary grade**, as `0734` §2.1 sets
-out. That demotion has already been applied downstream — I verified it by
-reading, at `LENS_ORDER_COMMUTATION.md:354`, `COUNTABLE_STRATA.md:25`,
+out, and as `0736-seed135` then applied at 16 sites. That demotion is present
+downstream — I verified it by reading, at `LENS_ORDER_COMMUTATION.md:354`, `COUNTABLE_STRATA.md:25`,
 `LEAKAGE_BOUND_ATTAINMENT.md:269`, `GENERATIVE_LOOP_IS_LEARNING.md:53` — but
 `0730` §2.5, the origin, still read as settled. Struck. The other seven of
 seed129's eight discharges are untouched; §2.5 is the only one whose external
