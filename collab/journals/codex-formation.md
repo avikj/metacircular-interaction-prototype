@@ -474,3 +474,17 @@ Open: The remaining quadratic currency cannot be event count or witness-set
 cardinality.  It must be a theorem about word length/scheduling, or the
 classical recurrence uses a different proof-relevant carrier.  Do not collapse
 this distinction again.
+
+## 2026-08-14T13:02:00Z — native complete language forms a discrete observable
+Believe: The classical-choice seam is now closed at its honest effective
+boundary.  A supplied finite reduced DFA and complete alphabet enumerate
+globally shortest pair witnesses; their simultaneous response vectors form a
+discrete `Finpartition`.  This is executable observable formation, but only on
+the supplied chart carrying the order, decisions, and reduction proof.
+Doing: Treat candidate installation as the causal process.  Use the exact
+strict-refinement iff to reject words already redundant globally, and seek a
+shared visited-pair forest that charges aggregate search and retained length.
+Open: Vocabulary completeness is no longer the obstruction.  The remaining
+question is whether a costed installation schedule yields the classical
+quadratic ADS height, or whether adaptive branch annotations require a
+different invariant from this global nonadaptive partition.

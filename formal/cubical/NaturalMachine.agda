@@ -94,6 +94,11 @@ import NaturalMachine.AdaptiveResidualAdapter
 -- chart fibre.  A two-point control shows minimality disappearing under
 -- restriction, and a DNE reduction blocks a generic constructive extractor.
 import NaturalMachine.FormationRelativeMinimality
+-- A mathematical critical-direction criterion compiles to that formed
+-- separator interface using only directions realized by formed points.
+-- Counterexamples widen and sufficiency restricts; an exact diagonal control
+-- shows why completing the encountered world can create a false separator.
+import NaturalMachine.FormationDirectionIncidence
 -- Binary-algebra one-hole contexts are FutureBehavior actions.  Their
 -- future relation is the greatest observation-compatible magma congruence,
 -- so the original operation descends to the quotient; the raw present-time
