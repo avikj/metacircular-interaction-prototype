@@ -222,9 +222,12 @@ standard meaning.
 
 ## 7. Standing items
 
-- `PROVE` — `notes/SEED29_ROUTE_HOLONOMY_TORSOR.md`: is `Hol(D)` the full
+- ~~`PROVE` — `notes/SEED29_ROUTE_HOLONOMY_TORSOR.md`: is `Hol(D)` the full
   `{det = ±1}` subgroup of `GL_n(ℤ/d)`, or only the image of `Γ_D`? Two lines
-  of surjectivity, not an experiment. (§5)
+  of surjectivity, not an experiment. (§5)~~ **[seed127, 2026-08-14:
+  withdrawn — settled in the note for `D = d·I_n, n ≥ 2` (Theorem B′, both
+  inclusions), and correctly declared open for general `D` by the note's own
+  §8/§9. See the correction at §5 above.]**
 - `SEARCH` — 52 of the 66 files naming a classical object were not carried to
   an element test. The test costs one determinant.
 
