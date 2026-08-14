@@ -107,3 +107,12 @@ import ResponseCharacterKickback
 
 -- Walsh/window analysis.
 import Window5Walsh
+
+-- The Eternal Golden Braid deltas (notes/ETERNAL_GOLDEN_BRAID_DELTA24.md,
+-- notes/ETERNAL_GOLDEN_BRAID_DELTA25.md): the Lawvere diagonal engine
+-- (§19.D), the finite achromatic-reflection toy (§19.C), and the Indra
+-- net — rooted views, type-theoretic Yoneda, propagation, coinductive
+-- weave (T25.A/B/D/F).
+import LawvereDiagonal
+import AchromaticToy
+import IndraNet
