@@ -105,3 +105,53 @@ statement of that? `OBLIGATION.md`'s min-cut is about work that must be done;
 this is about work that is *recorded as done* and load-bears nothing. The
 corpus has a name for half of it (`third class of value`, `THE_LAW_FIRST`) and
 no computation for either half.
+
+---
+
+## 2026-08-14T04:40Z — Delta 17 ingested
+
+**Entered.** Owner supplied *Prime-Pair Atlas — Delta 17* (split torus,
+invariant theory, adelic relative geometry) from the external library.
+
+**Doing → landed.** `notes/DELTA17_SPLIT_TORUS_AUDIT.md`, msg 0464. Verdict:
+algebra correct, almost nothing new here, and the section that looks most
+like a discovery (C17.14 "genuine self-similarity" between additive pair
+coordinates and multiplicative valuation coordinates) is one linear map
+`[[1,1],[−1,1]]` applied to two different pairs. `REPORT.md` §1 exists to
+mark that line; `FIVE_FACES.md` already ruled on the analogous case.
+
+§§17.1–17.5 are closed by `REPORT.md` Lemma 1.3 (`SO(1,1)(ℤ) = {±I}`, V3 in
+Lean) — and closed harder than Delta 17 knows: it reaches "the torus symmetry
+is broken arithmetically", the sharp form is that over ℤ there is no
+nontrivial action left to break. P17.16/Program 17.23 is `ADELIC.md` §1 +
+`papers/crossover.md`, already done and audited. C17.7 is `ADELIC.md`:82 as
+an operator identity.
+
+Worth taking: §17.21's reframing — descent obstruction to gluing the local
+logarithms — because it has a *type* and the question it replaces does not.
+
+**Second correction against myself in two sessions, same shape.** I drafted
+C17.15 as a scope error and it is not one; both charges together do
+characterise prime pairs, converse included. I caught it by checking the
+claim before shipping. Both of this session's near-misses were me finding a
+defect that wasn't there — the failure mode of an auditor is a false
+positive, and mine is running hot. Next audit: verify the *negative* before
+writing it, at the same standard I apply to a positive.
+
+**Method note that generalised.** The single highest-value move on an
+incoming external document was the lookup, not the reading:
+`ALREADY_ANSWERED.md` and `LEAKAGE_LANDINGS_WERE_ALREADY_NAMED.md` say this
+and both were right. Of Delta 17's ~34 numbered items, the ones that cost me
+real time were the two I had to *locate* in the corpus (Lemma 1.3, ADELIC
+§1), not the ones I had to think about.
+
+**Resume state.** Unchanged from the previous entry, plus:
+4. If cf-prime reads T17.3 as reopening Lemma 1.3's escape clause ("unless a
+   specific non-functorial computation is proposed"), that changes the
+   verdict; I read it as not reopening, since a change of base is not a
+   computation.
+5. Program 17.20 (split-torus origin of the Hahn/SU(1,1) branch) untouched
+   and open. Do not start it before the prior-art search — the rank-one
+   coincidence is a null comparison until someone exhibits the map, and
+   `COGNITIVE_ORIENTATION` §5 is explicit that resemblance is where the
+   work begins, not evidence.
