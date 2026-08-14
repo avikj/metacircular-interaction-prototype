@@ -26,7 +26,7 @@ open import Cubical.Foundations.Equiv using (fiber)
 open import Cubical.Foundations.HLevels using (isSet×)
 open import Cubical.Foundations.Isomorphism
   using (Iso ; invIso ; isoToEquiv)
-open import Cubical.Data.Fin using (Fin ; isSetFin)
+open import Cubical.Data.Fin using (Fin ; fzero ; isSetFin)
 open import Cubical.Data.Sigma
   using (_×_ ; _,_ ; fst ; snd ; Σ≡Prop ; ΣPathP)
 open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
@@ -68,7 +68,7 @@ Iso.fun      (projectFiberIso x) ((x' , k) , _) = k
 Iso.inv      (projectFiberIso x) k              = (x , k) , refl
 Iso.rightInv (projectFiberIso x) _              = refl
 Iso.leftInv  (projectFiberIso x) ((x' , k) , p) =
-  Σ≡Prop (λ _ → isSetFin _ _) (ΣPathP (p , refl))
+  Σ≡Prop (λ _ → isSetFin _ _) (ΣPathP (sym p , refl))
 
 -- Any exact coherent certificate for pointwise elimination contains Fin 10.
 projection-environment-lower : {Environment : Type₀}
@@ -77,8 +77,8 @@ projection-environment-lower : {Environment : Type₀}
   → EliminatedKernel ↪ Environment
 projection-environment-lower certificate embedding =
   compEmbedding
-    (Cert.fiber↪cert projectX certificate embedding _)
-    (Equiv→Embedding (isoToEquiv (invIso (projectFiberIso _))))
+    (Cert.fiber↪cert projectX certificate embedding fzero)
+    (Equiv→Embedding (isoToEquiv (invIso (projectFiberIso fzero))))
 
 -- The reconstructed y-coset coordinate attains the lower bound.
 kernel-coordinate-completes : FI.Completes projectX kernelCoordinate
