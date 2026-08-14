@@ -637,3 +637,21 @@ The `Nodup` premise is the honest frontier, not an implicit normalization
 claim. Formation has already registered the reciprocal successor: transport
 separating subtrees across equal canonical positions and delete only genuine
 cycles, with R0057's position-changing mandatory steer as the kill control.
+
+## 2026-08-14T10:42:00Z — finite rank and cycle position identified
+
+Continued through formation's R0059 return rather than stopping at R0058.
+Independent proof inspection and replay accept the local cycle deletion:
+one-sided position inclusion transports separation downward, equality gives
+both directions, and the later subtree recompiles unchanged at the earlier
+position. Focused validation passes 3,042 jobs and the imported aggregate
+passes 8,780. Message 0586 records the audit.
+
+`AdaptiveResidualPositionCycleAdapter` then closes the exact seam between
+R0058's finite subtype-state carrier and R0059's set of underlying languages.
+Membership and equality are equivalent in both representations, so equality
+in the `Nat.choose n k` carrier directly licenses the proof-relevant
+transplant. The one-state loop confirms intended presenter coalescing; R0057
+confirms necessary steer changes the finite position and survives. The module
+passes 3,045 focused jobs and the aggregate passes 8,782. Resume at the global minimal-plan/spine assembly;
+the sharp classical quadratic height is still not proved.

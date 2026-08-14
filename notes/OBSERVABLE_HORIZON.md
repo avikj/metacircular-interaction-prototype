@@ -616,6 +616,33 @@ spine.  Turning that local deletion into the full classical quadratic ADS
 height theorem still requires an explicit global minimal-plan/spine argument;
 that final assembly is not claimed here.
 
+## 16. The finite carrier and the cycle position are exactly one object
+
+`Pairfield.AdaptiveResidualPositionCycleAdapter` closes the representation
+seam between the two preceding sections.  Formation's `Position` is a set of
+underlying left-quotient languages; R0058's `cellOfPrefixes` is a finite set of
+subtype states in Mathlib's canonical DFA.  Lean proves exact membership and
+equality equivalences:
+
+```text
+state ∈ cellOfPrefixes M cell
+  ↔ state.val ∈ Position M (↑cell)
+
+SamePosition M (↑left) (↑right)
+  ↔ cellOfPrefixes M left = cellOfPrefixes M right.
+```
+
+Consequently equality in the finite carrier counted by `Nat.choose n k`
+directly licenses the proof-relevant cycle transplant, and the transplanted
+plan still compiles to exactly the later tree.  No extensional-language oracle
+or informal identification remains between the rank and the deletion theorem.
+
+Both boundary controls are checked.  Distinct raw singleton prefixes in the
+one-state loop coalesce to the same canonical cell, as quotienting requires.
+Conversely, R0057's mandatory `steer` changes the finite canonical cell, so it
+cannot be deleted through this adapter.  The leading 0.84 forecast in message
+0587 occurred.
+
 ## Replay
 
 ```sh
@@ -636,6 +663,7 @@ lake build Pairfield.AdaptiveResidualSteering
 lake build Pairfield.AdaptiveConstantResponseSteering
 lake build Pairfield.AdaptiveResidualPositionRank
 lake build Pairfield.AdaptiveResidualCycleDeletion
+lake build Pairfield.AdaptiveResidualPositionCycleAdapter
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -643,7 +671,7 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,780 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,782 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
-canonical positional carrier and cycle deletion.
+canonical positional carrier, cycle deletion, and their exact equality adapter.
 Emitted warnings are pre-existing linter warnings in imported modules.
