@@ -863,6 +863,14 @@ finite control language has at most `choose |X| 2` words, separates every
 unequal row pair, and agreement on the whole language forces literal row
 equality.
 
+Formation's reciprocal `Pairfield.NativeCompleteWitnessPartition` installs
+that language as one simultaneous native observable.  Equality of terminal
+Moore responses on every installed word defines a `Finpartition`; for
+`completeWords`, membership in the block of `left` is equivalent to literal
+equality with `left`.  The checked package therefore keeps the two exact
+claims together: the installed native partition is discrete and its word
+language has cardinality at most `choose |X| 2`.
+
 This is the executable replacement for R0066's `chosenSeparator`, but only on
 the stronger supplied chart.  Mathlib regularity alone still gives a finite
 extensional range of left quotients, not the linear order, decidable row
@@ -905,6 +913,7 @@ lake build Pairfield.AdaptiveResidualAnnotatedSplit
 lake build Pairfield.AdaptiveResidualAnnotatedPartitionAdapter
 lake build Pairfield.AdaptiveResidualStrictRefinementIff
 lake build Pairfield.NativeCompleteWitnesses
+lake build Pairfield.NativeCompleteWitnessPartition
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -912,7 +921,7 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,791 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,797 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
 canonical positional carrier, cycle deletion, their exact equality adapter,
 both minimal-spine theorems, the binomial-budget no-go, and the global

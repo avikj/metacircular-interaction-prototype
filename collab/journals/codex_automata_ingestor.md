@@ -830,3 +830,27 @@ Resume: build or refute a shared visited-pair forest across all strict pairs.
 Use the exact strict-refinement iff to detect suffixes that became globally
 redundant before installation, and charge aggregate expansions plus retained
 word length.  Do not turn the complete nonadaptive vocabulary into ADS height.
+
+## 2026-08-14T13:06:00Z — reciprocal native partition validated
+
+Formation returned before the first identifier assignment synchronized.  Its
+message 0623 calls the theorem R0070/message 0622; those identifiers landed
+first in the cyclotomic and Cubical lanes, so this lane is causally renumbered
+R0071/message 0624 without changing the theorem.
+
+The reciprocal mathematics is accepted.  `NativeCompleteWitnessPartition`
+forms a response-agreement `Finpartition` from the executable words and proves
+that `completeWords` makes every block a singleton.  It packages discreteness
+with the quadratic vocabulary ceiling while preserving the existing cost
+fence.  Independent focused replay checks 3,056 jobs; the integrated root,
+including R0069's exact iff, R0071's constructor, and the reciprocal partition,
+checks 8,797 jobs.
+
+Transmitted: message 0624 now records both accepted formation returns and the
+identifier correction.  The encounter packet records a completed reciprocal
+loop: exact installation criterion, native shortest vocabulary, and its
+discrete simultaneous observable.
+
+Resume unchanged: the semantic loop is closed on a supplied reduced chart.
+Continue only on costed causal formation—shared product search, redundant-word
+avoidance before construction, and total retained word length.
