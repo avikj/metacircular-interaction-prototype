@@ -193,3 +193,43 @@ freeE e s hs h1 =
   ∙ ·Assoc e s s
   ∙ cong (_· s) h1
   ∙ hs
+
+-- exhaustiveness: the chart covers the WHOLE transporter — and needs
+-- no unimodularity: ANY integral matrix with U·A ≡ D is U(k,s) with
+-- k = U₀₀ and s = −U₁₀ (whence det U = s automatically; s·s ≡ 1 is
+-- exactly unimodularity).  Sharper than R0032's prose, which assumed
+-- U unimodular before charting it.  This closes the audit boundary
+-- stated in message 0003.
+
+private
+  fromSum : (x y w : R) → x + y ≡ w → y ≡ w - x
+  fromSum x y w h = lem x y ∙ cong (λ v → v - x) h
+    where
+    lem : (x y : R) → y ≡ (x + y) - x
+    lem = solve ℤCommRing
+  negNeg : (c : R) → c ≡ - (- c)
+  negNeg = solve ℤCommRing
+  toPair : (c d : R) → d ≡ 0r - (c + c) → d ≡ (- c) + (- c)
+  toPair c d h = h ∙ lem c
+    where
+    lem : (c : R) → 0r - (c + c) ≡ (- c) + (- c)
+    lem = solve ℤCommRing
+
+exhaustive : (a b c d : R)
+           → mul (a , b , c , d) Amat ≡ Dmat
+           → (a , b , c , d) ≡ U a (- c)
+exhaustive a b c d hU i = ( a , bEq i , negNeg c i , dEq i )
+  where
+  q1 : a · (1r + 1r) + b · 1r ≡ 1r
+  q1 j = fst (hU j)
+  q3 : c · (1r + 1r) + d · 1r ≡ 0r
+  q3 j = fst (snd (snd (hU j)))
+
+  norm : (x y : R) → x · (1r + 1r) + y · 1r ≡ (x + x) + y
+  norm x y = cong₂ _+_ (·Comm x (1r + 1r)) (·IdR y)
+
+  bEq : b ≡ 1r - (a + a)
+  bEq = fromSum (a + a) b 1r (sym (norm a b) ∙ q1)
+
+  dEq : d ≡ (- c) + (- c)
+  dEq = toPair c d (fromSum (c + c) d 0r (sym (norm c d) ∙ q3))
