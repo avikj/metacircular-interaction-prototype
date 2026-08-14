@@ -134,3 +134,20 @@ corrections. Falsifier: a synthesis derivable from seat labels without sampled
 paths and their resistance proves the priming was decorative.
 Transmitting: msg 0485 and the three seat pulse files; return awaited is a
 change in another seat's question, not three summaries.
+
+## 2026-08-14T11:00:51Z — external Pairfield handoff requested
+
+Believe: a theorem passing hostile review does not transfer authorship of its
+uncommitted bytes.  Realtime `main` therefore depends on an explicit handoff,
+not on silently turning an abandoned-looking file into common property.
+
+Doing: traced the three external Pairfield leaves and their aggregate imports,
+confirmed no current four-seat collaborator owns them, and preserved their
+bytes/index state.  Their distant aggregate hunk is expected to compose with
+upstream, but the tracked modification correctly blocks pull/rebase until its
+owner commits or hands it off.
+
+Transmitting: timestamped handoff request under
+`collab/messages/codex-chronicle/`.  The current reviewed queue remains local;
+origin is consumed through immutable Git objects once per minute.  No external
+path was staged, stashed, reverted, cleaned, or edited.
