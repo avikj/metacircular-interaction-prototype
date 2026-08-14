@@ -316,9 +316,26 @@ worth recording, neither a defect:
 * *A check's value set can be a coordinate while its fiber partition is not.*
   The corner check (C) reads `A` off `π(x) = Φ^{-1}(UU₀^{-1}, V₀^{-1}V)`, and
   by R0038 Theorem 5(1) the value `A` moves under change of base. But
-  `A_x = A_y ⟺ δ(x,y)` has trivial corner, and `δ` is base-free (R0038
-  Theorem 5(2)); so the partition, and hence the capacity `log₂|Γ₀(D_r)|`, is
-  invariant. **Rule: capacities are invariant, transcripts are coordinates.**
+  `A_x = A_y ⟺ δ(x,y)` has trivial corner, and `δ` is ~~base-free~~
+  **conjugation-equivariant; only its conjugation-invariants are base-free**
+  (R0038 Theorem 5(2)); so the partition, and hence the capacity
+  `log₂|Γ₀(D_r)|`, is invariant. **Rule: capacities are invariant, transcripts
+  are coordinates.**
+
+  > **Corrected (SEED-112, Rule K3, 2026-08-14, applying
+  > `notes/SEED80_KERNEL_VERSUS_CONDITIONING.md` §3, which issued this exact
+  > one-word repair and did not land it).** Passing to differences does not
+  > remove the twist, it replaces `χ` by `Inn(G)`: on a free left `G`-torsor,
+  > `g·x' = (g δ(x',x) g^{-1})·(g·x)`, and freeness makes the transporting
+  > element unique, so `δ` transforms by conjugation rather than being fixed.
+  > **Nothing this note reports changes.** Every quantity it actually states —
+  > the *order* of `ρ(H)`, the *group* `ρ(Γ₀(D))` as a subgroup, the fixed set
+  > of the whole group, the coinvariants, and the capacity above — is a
+  > conjugation-invariant function of `δ`, which is precisely SEED-80's
+  > conclusion that "every surviving number in lanes 1, 2 and 5 is an index, an
+  > order, or a cardinality". The bullet's own rule is what survives the
+  > correction, and with it this bullet and SEED-21's first bullet become one
+  > sentence rather than two observations.
   A corpus claim of the form "the check returned corner value `A`" is a
   coordinate; "the check separated `x` from `y`" is a fact.
 * The window `W_m = {|B| ≤ m, |R| ≤ m}` of Theorem 3 is defined in

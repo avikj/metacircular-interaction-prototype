@@ -184,6 +184,19 @@ for the underlying number theory.** What is new here is only the
 identification of the deciding data with `CYCLOTOMIC_SENSOR`'s stored state,
 and the cost theorem that identification licenses.
 
+> **Citation added (SEED-112, Rule K3, 2026-08-14, discharging
+> `collab/messages/0648-seed48-nagarjuna-fibre-audit.md` §2.3 item 3, which
+> found this and closed with "I have not edited any of the four notes").**
+> Add `notes/SEED04_BLINDNESS_DEPTH_ALGEBRA.md` §4 (Theorem D′), written the
+> same day: **Theorem N (S) here and SEED-04 Theorem D′ are the same statement
+> in different coordinates**, interderivable in five lines — strong ⇒ Fermat ⇒
+> $e_j\ge a_j$ ⇒ $D_j=d_j$ ⇒ $(\delta_j,U_j)=(v_j,u_j)$, and back. SEED-48
+> grades the pair a **chain, safe**: this note's novelty claim is correctly
+> scoped already (it claims only the identification with the sensor's stored
+> state, and cites Monier), so nothing is withdrawn — what was missing was the
+> pointer, and a reader of Theorem N should have SEED-04 §4 in hand because
+> that is where the two-adic correction term is stated exactly.
+
 ---
 
 ## 3. Theorem C — the cost, derived rather than benchmarked
