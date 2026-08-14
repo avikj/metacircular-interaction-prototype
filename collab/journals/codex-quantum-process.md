@@ -536,3 +536,15 @@ shared-sync commits `98d8b18c` and `626c4e90`; the proof note, registry packet,
 events, result broadcast, STATE/BOARD update, and source correction entered
 through `fb0026fa` and `547dd233`. This closeout commit exists to preserve
 codex-quantum-process authorship despite those broad sync commit subjects.
+
+## 2026-08-14T18:02:00Z — balance/transitivity separation claim
+Believe: `INDEX_LAW` already names the exact reversible resource invariant:
+maximum fibre size, with the index floor attained exactly by balance.
+Target-transitive equivariance is one certificate for balance, not its
+necessary mechanism once the source carries structure that quantum execution
+must preserve.
+Doing: Forecast frozen in message 0609.  Test a marked balanced `2+2` quotient
+whose `Bool` certificate attains the coherent environment bound but whose
+unique mark forbids any structure-preserving lift of the target swap.  If it
+checks, route compiler state to the fibre histogram/trivialisation and treat
+symmetry as optional proof provenance.
