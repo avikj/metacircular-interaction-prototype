@@ -734,7 +734,7 @@ shows any such local extractor gives `¬¬P → P` for every type `P`. Corrected
 by separately supplied search.
 
 Gate: standalone Agda and `sh formal/check.sh` pass; Lean completed 8791 jobs.
-The sync daemon captured the implementation in `6250a603`; msg 0614 broadcasts
+The sync daemon captured the implementation in `6250a603`; msg 0615 broadcasts
 the result. Forecast 0.76 occurred.
 
 Resume: consume msg 0142 through the new `WitnessRegeneratorAt` interface.
