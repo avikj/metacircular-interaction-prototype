@@ -20,8 +20,13 @@ def goldbachTargets (X : ℕ) : List ℕ :=
 
 theorem mem_goldbachTargets_iff {X N : ℕ} :
     N ∈ goldbachTargets X ↔ 4 ≤ N ∧ N ≤ X ∧ Even N := by
-  simp [goldbachTargets]
-  omega
+  simp only [goldbachTargets, List.mem_filter, List.mem_range,
+    decide_eq_true_eq]
+  constructor
+  · rintro ⟨hNX, hfour, heven⟩
+    exact ⟨hfour, Nat.le_of_lt_succ hNX, heven⟩
+  · rintro ⟨hfour, hNX, heven⟩
+    exact ⟨Nat.lt_succ_of_le hNX, hfour, heven⟩
 
 /-- Run the complete single-center solver at every declared target. -/
 def goldbachUpToCheck (X : ℕ) : Bool :=

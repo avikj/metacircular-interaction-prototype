@@ -69,7 +69,8 @@ theorem bounded_one_injective (n : Nat) (left right : Option (Fin n))
             have hne : right ≠ left := Ne.symm heq
             simp [behavior, run, step, observe, heq, hne] at hprobe
 
-theorem closesAt_one (n : Nat) : ObservableClosesAt step observe 1 := by
+theorem closesAt_one (n : Nat) :
+    ObservableClosesAt (@step n) (@observe n) 1 := by
   rw [observableClosesAt_iff_bounded_implies_future]
   intro left right hbounded
   rw [bounded_one_injective n left right hbounded]
@@ -184,8 +185,8 @@ theorem linear_trace_ne_of_mem {n : Nat} (actions : List (Fin n))
           simp [linear, trace, responses, step, observe, hleft]
         · have htail : left ∈ actions ∨ right ∈ actions := by
             rcases hmem with (h | h)
-            · exact h.resolve_left hleft
-            · exact h.resolve_left hright
+            · exact Or.inl (h.resolve_left hleft)
+            · exact Or.inr (h.resolve_left hright)
           intro heq
           apply ih htail
           simpa [linear, trace, responses, step, observe, hleft, hright] using
@@ -251,7 +252,7 @@ theorem adaptive_depth_lower_bound {n : Nat}
       exact Option.some.inj (hidentifies
         (trace_eq_some_of_not_mem_falseSpine tree hleft' hright')))
   have hqueried : queried.card ≤ (falseSpine tree).length := by
-    exact List.toFinset_card_le
+    simpa [queried] using (falseSpine tree).toFinset_card_le
   have hspine := falseSpine_length_le_depth tree
   have htotal := Finset.card_add_card_compl queried
   simp only [Fintype.card_fin] at htotal

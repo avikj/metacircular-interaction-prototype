@@ -17,8 +17,6 @@ module NaturalMachine.AbstractSpinNetworkKinematics where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
-open import Cubical.Foundations.HLevels using (isPropΠ)
-open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Prod using (_×_ ; _,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
@@ -37,57 +35,52 @@ module _ (G : Group ℓg) where
 
   -- A bivalent spin-network vertex: the label is not a bare function but a
   -- function carrying the gauge-equivariance equation.
-  Intertwiner : {X : Type ℓx} {Y : Type ℓy}
-    → Action G X → Action G Y → Type (ℓ-max ℓg (ℓ-max ℓx ℓy))
-  Intertwiner {X = X} {Y = Y} A B =
-    Σ[ f ∈ (X → Y) ]
-      ((g : ⟨ G ⟩) (x : X)
-        → Action._▸_ B g (f x) ≡ f (Action._▸_ A g x))
+  record Intertwiner {X : Type ℓx} {Y : Type ℓy}
+      (A : Action G X) (B : Action G Y)
+      : Type (ℓ-max ℓg (ℓ-max ℓx ℓy)) where
+    field
+      map : X → Y
+      equivariant : (g : ⟨ G ⟩) (x : X)
+        → Action._▸_ B g (map x) ≡ map (Action._▸_ A g x)
 
-  intertwinerPath : {X : Type ℓx} {Y : Type ℓy}
-    {A : Action G X} {B : Action G Y}
-    {f h : Intertwiner A B}
-    → fst f ≡ fst h → f ≡ h
-  intertwinerPath {B = B} =
-    Σ≡Prop (λ _ → isPropΠ λ _ → isPropΠ λ _ → Action.isSetX B _ _)
+  open Intertwiner
 
   idIntertwiner : {X : Type ℓx} (A : Action G X) → Intertwiner A A
-  idIntertwiner A = (λ x → x) , (λ g x → refl)
+  map (idIntertwiner A) x = x
+  equivariant (idIntertwiner A) g x = refl
 
   _∘I_ : {X : Type ℓx} {Y : Type ℓy} {Z : Type ℓz}
     {A : Action G X} {B : Action G Y} {C : Action G Z}
     → Intertwiner B C → Intertwiner A B → Intertwiner A C
-  _∘I_ {A = A} {B = B} {C = C} (h , h-equiv) (f , f-equiv) =
-    (λ x → h (f x)) , λ g x → h-equiv g (f x) ∙ cong h (f-equiv g x)
+  map (_∘I_ {A = A} {B = B} {C = C} h f) x = map h (map f x)
+  equivariant (_∘I_ {A = A} {B = B} {C = C} h f) g x =
+    equivariant h g (map f x) ∙ cong (map h) (equivariant f g x)
 
   ∘I-idL : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
-    → idIntertwiner B ∘I f ≡ f
-  ∘I-idL {A = A} {B = B} f =
-    intertwinerPath {A = A} {B = B} refl
+    → (x : X) → map (idIntertwiner B ∘I f) x ≡ map f x
+  ∘I-idL f x = refl
 
   ∘I-idR : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
-    → f ∘I idIntertwiner A ≡ f
-  ∘I-idR {A = A} {B = B} f =
-    intertwinerPath {A = A} {B = B} refl
+    → (x : X) → map (f ∘I idIntertwiner A) x ≡ map f x
+  ∘I-idR f x = refl
 
   ∘I-assoc : {W : Type ℓo} {X : Type ℓx}
     {Y : Type ℓy} {Z : Type ℓz}
     {A : Action G W} {B : Action G X}
     {C : Action G Y} {D : Action G Z}
     (h : Intertwiner C D) (g : Intertwiner B C) (f : Intertwiner A B)
-    → h ∘I (g ∘I f) ≡ (h ∘I g) ∘I f
-  ∘I-assoc {A = A} {B = B} {C = C} {D = D} h g f =
-    intertwinerPath {A = A} {B = D} refl
+    → (x : W) → map (h ∘I (g ∘I f)) x ≡ map ((h ∘I g) ∘I f) x
+  ∘I-assoc h g f x = refl
 
   -- The intertwiner equation is precisely the local gauge-invariance square
   -- at the vertex, exposed under a physics-facing name.
   vertexGaugeSquare : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y}
     (f : Intertwiner A B) (g : ⟨ G ⟩) (x : X)
-    → Action._▸_ B g (fst f x) ≡ fst f (Action._▸_ A g x)
-  vertexGaugeSquare f = snd f
+    → Action._▸_ B g (map f x) ≡ map f (Action._▸_ A g x)
+  vertexGaugeSquare f = equivariant f
 
   -- Subdividing a labelled edge by inserting the identity vertex is a
   -- proof-relevant pair of vertex labels.  Contracting it returns the
@@ -110,18 +103,17 @@ module _ (G : Group ℓg) where
 
   contract-subdivide : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
-    → contract (subdivideIntertwiner f) ≡ f
-  contract-subdivide {A = A} {B = B} f =
-    intertwinerPath {A = A} {B = B} refl
+    → (x : X) → map (contract (subdivideIntertwiner f)) x ≡ map f x
+  contract-subdivide f x = refl
 
   -- Every downstream set-valued evaluation is cylindrically consistent on
   -- the canonical subdivision because contraction is an equality of typed
   -- intertwiners.
   refinementTransport : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} {O : Type ℓo}
-    (observe : Intertwiner A B → O) (f : Intertwiner A B)
-    → observe (contract (subdivideIntertwiner f)) ≡ observe f
-  refinementTransport observe f = cong observe (contract-subdivide f)
+    (observe : (X → Y) → O) (f : Intertwiner A B)
+    → observe (map (contract (subdivideIntertwiner f))) ≡ observe (map f)
+  refinementTransport observe f = cong observe (funExt (contract-subdivide f))
 
   -- A group action represents a holonomy by transport on its carrier.
   -- Composition of the refined holonomy agrees with doing the two transports
