@@ -32,6 +32,7 @@ module NaturalMachine.PredictorFormation where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Bool using (Bool ; false ; true ; false≢true)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma
   using (_×_ ; Σ-syntax ; _,_ ; fst ; snd ; ΣPathP)
 open import Cubical.Relation.Nullary using (¬_)
@@ -146,7 +147,117 @@ module Window
     (λ z → snd (fst z) , snd z) , λ _ → refl
 
 ------------------------------------------------------------------------
--- 3. Exact formation event: cyclic successor modulo four
+-- 3. Every finite horizon has the same exact obstruction
+------------------------------------------------------------------------
+
+module FiniteWindows
+  {X : Type ℓx} {O : Type ℓo}
+  (q : X → O) (step : X → X) where
+
+  iterate : ℕ → X → X
+  iterate zero    x = x
+  iterate (suc n) x = iterate n (step x)
+
+  reading : ℕ → X → O
+  reading n x = q (iterate n x)
+
+  -- A left-associated exact prefix carrier:
+  --
+  --   WindowCode 0       = O
+  --   WindowCode (n + 1) = WindowCode n × O.
+  --
+  -- Thus window n contains readings 0 through n, inclusive.
+  WindowCode : ℕ → Type ℓo
+  WindowCode zero    = O
+  WindowCode (suc n) = WindowCode n × O
+
+  window : (n : ℕ) → X → WindowCode n
+  window zero    x = reading zero x
+  window (suc n) x = window n x , reading (suc n) x
+
+  nextReading : (n : ℕ) → X → O
+  nextReading n = reading (suc n)
+
+  -- Shift a prefix one action forward after supplying its single new final
+  -- reading.  This operation is structural; it does not inspect X.
+  shift : (n : ℕ) → WindowCode n → O → WindowCode n
+  shift zero    _          next = next
+  shift (suc n) (prefix , latest) next =
+    shift n prefix latest , next
+
+  last : (n : ℕ) → WindowCode n → O
+  last zero    z       = z
+  last (suc _) (_ , z) = z
+
+  last-window :
+    (n : ℕ) (x : X) → last n (window n x) ≡ reading n x
+  last-window zero    x = refl
+  last-window (suc n) x = refl
+
+  shift-window :
+    (n : ℕ) (x : X)
+    → shift n (window n x) (nextReading n x) ≡ window n (step x)
+  shift-window zero    x = refl
+  shift-window (suc n) x =
+    ΣPathP (shift-window n x , refl)
+
+  PredictorAt : ℕ → Type _
+  PredictorAt n = Closure (window n) step
+
+  NextDescentAt : ℕ → Type _
+  NextDescentAt n = AR.Refines (window n) (nextReading n)
+
+  next-descent→predictor :
+    (n : ℕ) → NextDescentAt n → PredictorAt n
+  next-descent→predictor n (readNext , replayNext) =
+    (λ z → shift n z (readNext z)) , λ x →
+        cong (shift n (window n x)) (replayNext x)
+      ∙ shift-window n x
+
+  predictor→next-descent :
+    (n : ℕ) → PredictorAt n → NextDescentAt n
+  predictor→next-descent n (predict , replay) =
+    (last n ∘ predict) , λ x →
+        cong (last n) (replay x)
+      ∙ last-window n (step x)
+
+  predictor-iff-next-descent :
+    (n : ℕ)
+    → (NextDescentAt n → PredictorAt n)
+      × (PredictorAt n → NextDescentAt n)
+  predictor-iff-next-descent n =
+    next-descent→predictor n , predictor→next-descent n
+
+  NextCollisionAt : ℕ → Type _
+  NextCollisionAt n = AR.ActionCollision (window n) (nextReading n)
+
+  collision-obstructs-predictor-at :
+    (n : ℕ) → NextCollisionAt n → ¬ PredictorAt n
+  collision-obstructs-predictor-at n collision predictor =
+    SD.separatedPair→reopens (window n) (nextReading n) collision
+      (predictor→next-descent n predictor)
+
+  repairedWindow : (n : ℕ) → X → WindowCode n × O
+  repairedWindow n x = window n x , nextReading n x
+
+  -- This is definitionally the next prefix window.  The equality records
+  -- that adjoining the obstruction does not create a parallel hierarchy.
+  repair-is-next-window :
+    (n : ℕ) (x : X) → repairedWindow n x ≡ window (suc n) x
+  repair-is-next-window n x = refl
+
+  module RepairAt (n : ℕ) =
+    AR.ProductRefinement (window n) (nextReading n)
+
+  collision-forces-next-window :
+    (n : ℕ) → NextCollisionAt n
+    → AR.Refines (window (suc n)) (window n)
+      × SD.Reopens (window n) (window (suc n))
+  collision-forces-next-window n =
+    RepairAt.collision-forces-strict-refinement n
+
+------------------------------------------------------------------------
+-- 4. Exact formation event: cyclic successor modulo four
 ------------------------------------------------------------------------
 
 data Four : Type₀ where
