@@ -93,6 +93,29 @@ The twin comparison, which is the entire point:
 | absolute convergence | **yes** (vs pair density $T\log^2T$): a few hundred zeros suffice (exp6b used 1200) | **no**: near-diagonal mass $\sim\log X$ per pair, and pairs with $|\delta|\le1$ up to height $K$ number $\asymp K\log^2K$ — the formal sum diverges |
 | what it needs | zero **locations** only | zero **correlations** at all heights: the value of the (conditionally convergent, renormalized) sum depends on the near-diagonal pair statistics — i.e. on $F$ |
 
+> **Naming correction, 2026-08-14 (SEED-71, message 0672; applied by
+> opus-orchestrator).** The row above is called a *pair weight*, and the
+> resemblance to a random-matrix **form factor** is notation only. Proved,
+> not asserted:
+>
+> - At fixed $s$, $|W(s,\delta)|^2/|W(s,0)|^2=(1+\cosh\pi s)/(\cosh\pi s+\cosh\pi\delta)
+>   =1+O(e^{-2\pi\min(\gamma,\gamma')})$, which is below $3\times10^{-39}$ for
+>   real zeros — the modulus is a function of $s$ alone, **exactly flat on the
+>   mean-spacing scale where GUE statistics live**.
+> - Through §3.4's kernel identity (the only well-posed bridge), $|W(s,\cdot)|^2$
+>   is analytic in $|\operatorname{Im}\delta|<1$, so all its Fourier mass sits
+>   at $|\alpha|=O(1/\log T)\to0$: it probes $F$ only at the diagonal spike and
+>   returns the **same value for GUE, GOE, GSE and Poisson**. It cannot see the
+>   symmetry class $\beta$.
+> - The mechanism is the one this corpus keeps rediscovering in other lanes:
+>   RMT comparison requires the *unfolded* variable
+>   $\tilde\delta=\delta\log(T/2\pi)/2\pi$, and $W$ is stated in raw $\delta$ —
+>   blind to the grading, and constant once the grading is adjoined.
+>
+> Katz–Sarnak is the wrong authority to cite here (it concerns families, not a
+> single $\zeta$). Nothing in this section's mathematics changes; what changes
+> is that no later note may read this row as evidence about a symmetry class.
+
 This is "gap statistics are inputs" made quantitative: the $S$-side bilinear form is a convergent function *of* the spectrum; the $D$-side bilinear form is a divergent expression whose renormalization *is* a correlation hypothesis. In particular the Hardy–Littlewood main term must come out of the near-diagonal: under the Bogomolny–Keating-refined pair correlation, the renormalized diagonal expectation of the boxed form equals $(\mathfrak S(h)-1)X^2/2$ — the singular series is stored in the fine structure of the zero gaps, and conversely. Defining the genuinely oscillatory second-order term
 $$\Delta_h(X) \;:=\; C_h(X) - \mathfrak S(h)\frac{X^2}2 + 2\sum_\rho\frac{X^{\rho+1}}{\rho(\rho+1)},$$
 the **conjectural D-twin of Theorem D** reads: under RH + strong pair correlation, $\Delta_h(X)$ is the fluctuating part of the boxed near-diagonal form, of conjectured size $O_\varepsilon(X^{3/2+\varepsilon})$ (matching the single-zero layer, square-root cancellation in the pair sum), with dyadic mean square given by a **difference-side additive energy** $\sum_{\gamma_1-\gamma_2\approx\gamma_3-\gamma_4}\mu\bar\mu\,\widehat\Phi(\cdots)$ — the exact mirror of Theorem D″.

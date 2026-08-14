@@ -185,11 +185,18 @@ check's coset count and index agree only because `Γ₀(D_1) = {±1}` is finite 
 The joint check `L ∧ R` is the
 product check `c_L × c_R`, whose blind subgroup is `N_L ∩ N_R = {1}`, giving
 `[G : 1] = |W_m|` by Theorem 1(3). The overlap identity is the table read
-aloud: `log₂ 4(2m+1) + log₂ 4(2m+1) − log₂ 8(2m+1)² = log₂ 2 = 1`. In general
+aloud: `log₂ 4(2m+1) + log₂ 4(2m+1) − log₂ 8(2m+1)² = log₂ 2 = 1`. ~~In general
 rank the same subtraction reads
 `log(|Γ₀|·|ℤ^{r×s}|·|GL_s|) + log(|Γ₀|·|ℤ^{s×r}|·|GL_s|) −
  log(|Γ₀|·|ℤ^{r×s}|·|GL_s|·|ℤ^{s×r}|·|GL_s|) = log|Γ₀(D_r)|`,
-the corner counted once on each side and once in the joint check. ∎
+the corner counted once on each side and once in the joint check.~~ ∎
+
+> **Struck (SEED-75, 2026-08-14; SEED-50 message 0650, SEED-48 §2.3(ii),
+> repaired by SEED-65 Theorem B).** All three logarithms are infinite for
+> `r ≥ 2` (`ℤ^{r×s}`, `GL_s(ℤ)`, `Γ₀(D_r)`): this is `∞ + ∞ − ∞` cancelled
+> formally inside a proof whose only discharged case has every factor equal to
+> `{±1}` or `ℤ`. It is replaced by the finite box identity `(★)` quoted above,
+> which needs no cancellation of infinities and holds uniformly in the window.
 
 No floating point appears anywhere above, and no constant is fitted: every
 number is a cardinality.

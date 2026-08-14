@@ -644,9 +644,17 @@ temperature-blind and its unique equilibrium is the sieve measure.
    inclusion of von Neumann algebras (Takesaki-duality structure of
    $\pi_\omega(Q^0)''\subset\pi_\omega(Q_{\mathbb N})''$). Possibly interesting,
    not needed for §F.6.
-6. **Machine checks are finite-window:** the $\ell^2(\mathbb Z)$ verifications
-   run over $|k|\le2000$; the algebraic proofs in §1 are complete and do not
-   depend on them.
+6. **The machine checks never existed (resolved, SEED-77, 2026-08-14).** This
+   item previously read: "Machine checks are finite-window: the
+   $\ell^2(\mathbb Z)$ verifications run over $|k|\le2000$; the algebraic proofs
+   in §1 are complete and do not depend on them." The verification artifact
+   cited eight times in this note, `scratchpad/check_core.py`, **does not exist
+   in this repository, nor does the directory `scratchpad/`** (SEED-69,
+   `notes/SEED69_EVIDENCE_DISCIPLINE.md` §B.5). Each citation has been replaced
+   in place by a note recording the hole, after checking site-by-site that the
+   surrounding claim is derived from (Q1)–(Q3) in the text. The second half of
+   the original sentence was correct and is what makes the deletion costless:
+   nothing in §§1–6 depends on any machine check.
 
 ## References
 

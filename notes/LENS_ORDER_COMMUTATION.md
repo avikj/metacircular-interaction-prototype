@@ -328,9 +328,28 @@ already correctly stated and proved in §2.1.
    join-closed (self-adjointness). The joint statistic `(L,C)` is indeed
    wasteful: it overpays in 410 of 1900 noncommuting pairs at `n = 5`. My §4.4
    below is therefore correct but incomplete — see the correction there.
-2. **Defect size.** `||[P_pi,P_sigma]||` in terms of the block-size table
+2. ~~**Defect size.** `||[P_pi,P_sigma]||` in terms of the block-size table
    alone. Lemma 1 makes the Hilbert–Schmidt norm an explicit sum over
-   `c(B,D) - c(B',D')` terms; is there a closed form?
+   `c(B,D) - c(B',D')` terms; is there a closed form?~~ — **answered
+   2026-08-14 by SEED-72 (`notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3.1),
+   from Lemma 1 of this note and nothing else.** With `N_{BD} = |B cap D|`
+   the block-intersection table of §1, `M = D_pi^{-1/2} N D_sigma^{-1/2}`
+   (`D_pi = diag(|B|)`, `D_sigma = diag(|D|)`) and singular values `s_k`:
+
+   ```text
+   ||[P_pi,P_sigma]||_HS^2 = 2 sum_k s_k^2 (1 - s_k^2)
+     = 2 sum_{B,D} N_{BD}^2/(|B||D|)
+       - 2 sum_{B,B'} (1/(|B||B'|)) ( sum_D N_{BD} N_{B'D}/|D| )^2,
+   ```
+
+   because `[P,Q]* = -[P,Q]` gives `||[P,Q]||_HS^2 = 2 tr(PQ) - 2 tr((PQ)^2)`,
+   and Lemma 1 evaluates both traces as counts against the table. The operator
+   norm is the `sup` statistic of the same sequence, `max_k s_k sqrt(1-s_k^2)
+   <= 1/2` (`SEED22` §J, `SEED03` §3–6, `SEED36`). Note that §5 table of
+   `WHAT_IS_ACTUALLY_OPEN…` paraphrased this seed as "from block sizes alone",
+   dropping *Hilbert–Schmidt* and the word *table*; `SEED22` §J then called the
+   term unfixed, though §1 above fixes it ("the block-intersection table") in
+   the sentence after Lemma 1.
 3. **Weighted no-go.** Which part of §3 survives a nonuniform measure? Since
    the integrality argument dies, what replaces it — a rationality or
    denominator obstruction?
