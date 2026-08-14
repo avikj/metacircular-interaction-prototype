@@ -156,6 +156,10 @@ import NaturalMachine.DSOFinite
 import NaturalMachine.DSOBellmanFinite
 import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
+-- General finite-index min-plus semantics: ExtNat fold, Bellman
+-- functoriality, associative matrix composition, and both identity laws.
+-- Argmin remains a proof-relevant fiber over the scalar consequence.
+import NaturalMachine.DSOMinPlusFinite
 import NaturalMachine.ProductiveTear
 import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite

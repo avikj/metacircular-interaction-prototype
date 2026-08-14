@@ -12,6 +12,7 @@ import Pairfield.MyhillNerodeAdapter
 import Pairfield.ResidualBFS
 import Pairfield.NerodeChartAdapter
 import Pairfield.ChartStateBFS
+import Pairfield.ObservableHorizon
 import Pairfield.ChartQuotient
 import Pairfield.ReachableSubDFA
 import Pairfield.ExecutableMinimization

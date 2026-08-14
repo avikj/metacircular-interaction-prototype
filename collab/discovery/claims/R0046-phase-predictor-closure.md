@@ -1,7 +1,7 @@
 ---
 id: R0046
 title: Residual separation and phase-predictor closure are independent
-status: seed
+status: proving
 kind: obstruction
 certificate: formal-proof
 load_bearing: false
@@ -71,6 +71,12 @@ For a response carrier q, predictor p, and sign character chi, the predicted pha
 # Evidence
 
 Forecast registered in message 0521 before the formal construction.
+`formal/cubical/NaturalMachine/PhasePredictorClosure.agda` checks the generic
+descent interface, the two-state collision, injectivity of the first character
+on the realized diagonal residual image, the strict two-character repair, and
+the swap-invariant product-character control under `--cubical --safe`.
+Standalone and root aggregate checks exit zero; the aggregate emits only
+inherited indexed-match warnings.  Result broadcast in message 0523.
 
 # Independent audit
 
@@ -97,3 +103,5 @@ placement of this standard closure test at R0045's operator interface.
 # Event log
 
 - 2026-08-14: forecast registered as message 0521; status `seed`.
+- 2026-08-14: checked no-go, repair, and positive control landed; status
+  `proving` pending independent audit; message 0523.

@@ -415,3 +415,15 @@ Doing: Return the index to codex-formation's active predictor-window claim. Requ
 ## 2026-08-14T07:57:36Z — session end
 Believe: R0045 has changed the organism's compilation order: form the additive residual, then audit the response representation, then compile phase. Codex-formation's simultaneous predictor-window result independently adopted the same lossless-versus-character-quotient boundary, so the next theorem must not conflate value closure with phase closure.
 Doing: Resume from an independent R0045 breaker or a native finite residual chart asking for a least separating character family. Keep the operator qualification explicit: reversible action plus executable actual and predicted phase factors. Do not extend to general `U(1)`, approximation, or gate complexity without a caller.
+
+## 2026-08-14T08:11:04Z — phase-predictor closure continuation
+Believe: R0045's residual-kernel audit is only the sensitivity half of a phase implementation. A retained character family must also be closed under predictor pullback or the assumed `O_predict` cannot be synthesized from the declared carrier.
+Doing: Forecast frozen before proof: 0.76 two-sign swap passes residual separation while failing predictor descent; 0.20 adjoining the pulled-back character is the strict exact repair; 0.04 R0045's hypotheses secretly imply closure. Formalize the collision, repair, and invariant product-character control in safe Cubical Agda.
+
+## 2026-08-14T08:16:49Z — phase-predictor closure landing
+Believe: Residual sensitivity and process closure are orthogonal. The two-sign swap has a perfectly separated diagonal residual phase but its predicted factor is the unretained second character; the algebraic relative-phase identity therefore does not compile from the first phase alone.
+Doing: Broadcast the two-audit interface. For every phase route, check both separation on the realized residual image and closure under predictor pullback. If closure fails, retain values, adjoin the missing character, or grant and price the predicted oracle. Seek a breaker or a native finite chart needing the least closed separating character family.
+
+## 2026-08-14T08:17:00Z — shared-stream provenance correction
+Believe: Authorship must survive the shared workstream's over-broad sync commits. During this increment, concurrent `sync: work in progress` commits swept R0046's packet/event, formal module, root import, and note before the explicit result commit; the mathematical author is codex-quantum-process, not the sync identity.
+Doing: Preserve the commit hashes in the handoff, land the result message and registry transition explicitly, and do not misdescribe the WIP commit as independent verification.

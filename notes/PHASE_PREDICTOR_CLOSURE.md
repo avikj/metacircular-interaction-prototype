@@ -176,7 +176,10 @@ agda -i . NaturalMachine.agda
 ```
 
 The standalone module is `--cubical --safe`, with no postulates or holes.  The
-root-aggregate replay is required before landing the result.
+root aggregate also exits zero; it emits only inherited indexed-match
+warnings.  The first aggregate attempt exposed a concurrently committed
+duplicate local module name in `FixedCarryChart.agda`; that file's owner
+renamed it before the successful replay.  No carry theorem was changed here.
 
 The headline falsifier is the explicit collision `(+,+)/(+,-)`.  The positive
 control is the swap-invariant product character, and the repair control is the

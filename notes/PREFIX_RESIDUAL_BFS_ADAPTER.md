@@ -242,6 +242,45 @@ witnesses.  This is the automata instance of Hopcroft's independent
 `derivationFiber` / `activeWitnesses` separation, now checked on the Mathlib
 DFA interface.
 
+## Visited-state execution closes the word-enumeration gap
+
+The Mathlib return in msg 0519 transported
+`List.Nodup.length_le_card` to the new queue and asked for the three missing
+clauses: completeness at round `|X|`, an empty frontier there, and agreement
+with the earlier shortest-word specification.  `Pairfield.VisitedReach` now
+checks all three.
+
+The native queue stores `ReachNode`s, each containing a state and the word that
+first discovered it.  A round expands only the current frontier, moves it
+permanently to `closed`, and filters candidate successors against every state
+already retained.  Lean proves the mutually supporting invariants:
+
+1. every retained word evaluates to its stored state;
+2. retained states are duplicate-free, so a row enters the expandable
+   frontier at most once;
+3. closed rows have every typed action represented in the visited set;
+4. every word of length `n` has its endpoint visited by round `n`;
+5. every retained word is globally shortest to its state;
+6. `visitedReachNode? = none` exactly when the target is unreachable;
+7. at round `Fintype.card X` the frontier is empty and another round is a
+   fixed point;
+8. completed state expansions are bounded by `Fintype.card X`.
+
+Clause 7 is where Mathlib's `DFA.evalFrom_split` returns decisively.  A node
+remaining at the cardinal frontier would carry a shortest word of length
+`|X|`, while loop deletion supplies another reaching word of length `< |X|`,
+a contradiction.  The companion
+`Pairfield.VisitedReachCardinality` uses Mathlib's
+`List.Nodup.length_le_card` for the finite discovery budget.  Finally,
+`visitedReachNode?_length_eq_shortestReachingWord` proves that the queue and
+the previous exhaustive word-layer specification return the same minimum
+length, while allowing different equal-length tie choices.
+
+The four-state native control visits exactly states `[0,1,2]`, retains words
+`[[],[false],[false,true]]`, returns `[false,true]` for target `2`, returns
+`none` for unreachable target `3`, and leaves the full derivation fibre from
+the preceding section untouched.
+
 ## Falsifier and replay
 
 The internal three-state DFA has prefixes `[]` and `[false]` separated first by
@@ -254,10 +293,10 @@ cd formal/pairfield
 lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
   Pairfield.ChartStateBFS Pairfield.ChartQuotient \
   Pairfield.ReachableSubDFA Pairfield.ExecutableMinimization \
-  Pairfield.ShortestReach
+  Pairfield.ShortestReach Pairfield.VisitedReachCardinality
 ```
 
-The newest focused target passes (`3019` jobs).  Its native controls return
+The newest focused target passes (`3021` jobs).  Its native controls return
 `[false, true]` for reachable state `2` and `none` for unreachable state `3`
 in the four-state quotient witness.  `Pairfield.lean` imports the
 adapter and both reducers.  A root
@@ -273,13 +312,12 @@ still means only bounded equality; at the proved quadratic horizon it means
 full residual equality.  The canonical quotient DFA and its global cardinal
 minimality are now proved, but the canonical construction is noncomputable.
 The executable chart must still be supplied as data.  Given that data, the
-native path now removes unreachable rows and emits the future quotient, but
-its searches enumerate words by length rather than maintaining visited-state
-or visited-pair predecessor forests.  No algorithmic-efficiency claim is made,
-and the new predecessor theorem describes certificate structure rather than a
-visited-state construction or improved cost bound.  The quotient carrier is
-executable Lean data rather than a serialized external transition table.  The
-linear reachability and quadratic pair horizons are safe rather than sharp.
+native path now removes unreachable rows and emits the future quotient.  Start
+reachability uses a checked visited-state traversal with at most `|X|` completed
+row expansions; future distinction still uses exhaustive word layers on the
+pair automaton.  No visited-**pair** efficiency claim is made.  The quotient
+carrier is executable Lean data rather than a serialized external transition
+table.  The linear and quadratic horizons are safe rather than sharp.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked
