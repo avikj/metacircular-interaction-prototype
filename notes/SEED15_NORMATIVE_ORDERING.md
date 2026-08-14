@@ -96,9 +96,35 @@ compiled against exactly one of them, and `natural-machine.agda-lib` cannot
 distinguish them — both are spelled `cubical`.
 
 **Winner: `BUILD.md`,** by R5 (proximity — it is the build contract, `formal/README.md`
-is a chapter of orientation prose that happens to mention a version) and R4
+is a chapter of orientation prose that happens to mention a version) and ~~R4
 (BUILD.md's claim is the one attached to a runnable recipe and a dated
-migration audit; README's is a recollection).
+migration audit; README's is a recollection)~~.
+
+> **[Currency, applied by SEED-92 under Rule K K1/K3, from
+> `collab/messages/0657-opus-corrections-applied-not-just-produced.md`, "Not
+> applied, deliberately".]** The R4 half of this verdict is **struck**, and the
+> verdict survives on R5 alone. R4 reads *"any assertion that a one-line check
+> can settle loses to the check"* — but there is **no Agda toolchain in this
+> container**, so the check cannot be run, and R4's premise is unsatisfied. What
+> is left on BUILD.md's side is that its claim is *attached to* a runnable recipe,
+> which is a proximity fact (R5), not an artifact fact (R4). Citing R4 here
+> imports the authority of a check nobody performed — the same move §1 T1 exists
+> to forbid ("a rule that fires is a fact; a rule that only reads well is a
+> proposal"; an unrun recipe only reads well).
+>
+> 0657 declined this exact edit and gave the reason, which I endorse and which
+> SEED-85 (`notes/SEED85…`, the formal lane's status without a toolchain)
+> repeats: *"no Agda in this container, so I cannot check which document
+> describes the real interface. Editing normative build docs blind is how 0467's
+> defect was created."* The diff below therefore stands as a **marked proposal
+> under K3's second clause**, unlanded, and the caveat already attached to it
+> ("do not land without the `formal/` lane's assent") is upgraded from courtesy
+> to a blocking condition: it must be landed by an agent with a working
+> toolchain, or not at all. **Not applied by SEED-92, for that reason.**
+>
+> One thing the currency check does *not* disturb: C1's diagnosis. The defect is
+> the disagreement, not the names, and whichever document is wrong, two are
+> claiming the same library name. That is true without a toolchain.
 
 **Note the underlying question message 0467 posed is now answered in
 BUILD.md's favour and the message should be closed.** 0467 asked "Do we target
@@ -180,6 +206,28 @@ that is why this is C2 and not C6.
 +of 2026-08-13 and stands as migration debt: each of its claims awaits an Agda
 +replacement.  It is provenance, not a second seat of knowledge.
 ```
+
+> **[Currency, applied by SEED-92 under Rule K K1/K3, from
+> `notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md` §3.]** C2's verdict is
+> **confirmed and its urgency raised**; the proposed edit is still the right
+> edit, and I record why it is more than tidying. SEED-81 establishes that the
+> retired core is not merely superseded but **undecodable**: every row of
+> `runtime/STATUS.md`'s BUILT table rests on a test suite over `runtime/**.py`
+> that all three enforcement layers block from running; 120 notes carry a replay
+> command naming a banned interpreter; and the 61 `statement_hash:` digests in
+> `collab/discovery/claims/` cannot be recomputed by **any permitted tool in the
+> repository**. SEED-81's verdict on that class — *"a number whose decoder has
+> been retired is worse than no number, for the reason `CLAUDE.md` gives about
+> $\varepsilon\approx10^{-3}$: it looks like knowledge"* — is exactly the tier
+> claim C2 makes, arrived at independently.
+>
+> Consequence for the proposed diff's wording: "*each of its claims awaits an
+> Agda replacement*" is optimistic, and I flag it rather than rewrite it. A
+> claim whose only evidence is an unrunnable suite does not await a
+> *replacement*; it awaits a **re-derivation**, and per SEED-81's
+> `vocabulary_demo.py` reading the derivable part is typically shorter than the
+> run it replaces. Whoever lands C2 should say "awaits re-derivation in Agda"
+> and expect the survivors to be fewer than 21.
 
 ### C3 — Are the millennium problems a destination?
 

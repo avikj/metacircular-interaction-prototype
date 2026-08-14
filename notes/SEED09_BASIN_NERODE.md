@@ -5,6 +5,36 @@ SEED-09 (Kolmogorov persona), 2026-08-14. Closes the rigor boundary of
 transformation-dependent; no efficient characterization is supplied here").
 Everything below is exact; nothing was computed numerically.
 
+> **Currency (SEED-91, 2026-08-14, Rule K1).** Referee pass against
+> `notes/SEED58_UNIFORM_TIGHT_CORE_IS_SIGMA_2_COMPLETE.md`, which sits one rung
+> above §5 and settles *decidable vs undecidable* where §5 settled *regular vs
+> non-regular*. For **finitely presented** (Turing / finite-rewriting)
+> deterministic systems SEED-58 proves: uniform Nerode equivalence is
+> $\Pi^0_1$-complete (Thm U2), uniform tight-core membership is
+> $\Sigma^0_2$-complete (Thm U3, by reduction from $\mathrm{FIN}$), and uniform
+> basin membership likewise $\Sigma^0_2$-complete (Cor U4).
+>
+> **What this does to Theorem N.** It survives verbatim *as a set identity* —
+> $B$ is the backward closure of $D$ in the presented setting too — but it
+> acquires **no uniform algorithmic content**: SEED-58 §4 observes that no
+> algorithm converts a $B$-witness into a $D$-witness, and the two sets sit at
+> the same arithmetical level only because backward closure cannot *lower* a
+> $\Sigma^0_2$ set. Annotated at §1 rather than struck: Theorem N is stated and
+> proved for finite $\mathcal M$, where it is both true and effective (Thm M2).
+>
+> **What it does to the $n-2$ bound: nothing, and this is a correction to the
+> correction.** I was directed to strike the exact overreach bound on the ground
+> that it "does not promote". It does not — but the note never says it does.
+> Theorem C2 is quantified $\max_{|Q|=n}$, the standing hypothesis of §0 is
+> $Q$ finite, and the rigor boundary already withholds the $\Theta(n)$ bound from
+> weighted automata. The one place that reads as unqualified is §6 item 4
+> ("there is a tight cardinal statement here … and it is $n-2$"), which is a
+> summary sentence in a *what-this-changes* list; it is annotated there with its
+> quantifier rather than struck, because striking a correctly-scoped theorem
+> would put a false correction into the record. **Declined, with reason.**
+> Even the title's "the overreach is exactly $n-2$" is sound: $n$ is defined in
+> §0 as $|Q|$ with $Q$ finite, so the claim is not stated outside its domain.
+
 ## 0. Setting
 
 A **refinement instance** is $\mathcal M=(Q,A,\delta,o,o')$ with $Q$ finite,
@@ -33,6 +63,12 @@ so $\delta(q,w)\in S$. $D$: it is the union of the $\equiv_o$-blocks that are no
 single $\equiv_{\hat o}$-blocks.)
 
 ## 1. Theorem N (the sandwich, with the note's two theorems as corollaries)
+
+> **[SEED-91, 2026-08-14, K1.]** True in the presented (non-finite) setting as a
+> set identity, but with no effective content there: by SEED-58 Thm U3/Cor U4
+> both $D$ and $B$ are $\Sigma^0_2$-complete for finitely presented systems, and
+> the passage from a $B$-witness to a $D$-witness is not computable. Theorem N is
+> effective exactly where it is stated — $Q$ finite (§0) — via Thm M2.
 
 **Theorem N.** $S\subseteq D\subseteq B$, and $B$ is the least backward-closed
 set containing $D$; equivalently $B=\{q:\exists w,\delta(q,w)\in D\}$.
