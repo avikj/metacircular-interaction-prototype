@@ -23,8 +23,8 @@ module SameResponses
   (s : X′ → X)
   where
 
-  Square : Type _
-  Square = (q : Q) (x′ : X′) → r′ q x′ ≡ r q (s x′)
+  ResponseSquare : Type _
+  ResponseSquare = (q : Q) (x′ : X′) → r′ q x′ ≡ r q (s x′)
 
   _⊨_ : X → ((q : Q) → Y q) → Type _
   x ⊨ atom = (q : Q) → r q x ≡ atom q
@@ -40,12 +40,12 @@ module SameResponses
       (r′ q x′ ≡ y → r q (s x′) ≡ y)
       × (r q (s x′) ≡ y → r′ q x′ ≡ y)
 
-  square→satisfaction : Square → SatisfactionInvariant
+  square→satisfaction : ResponseSquare → SatisfactionInvariant
   square→satisfaction square x′ q y =
     ((λ revised≡y → sym (square q x′) ∙ revised≡y) ,
      (λ old≡y → square q x′ ∙ old≡y))
 
-  satisfaction→square : SatisfactionInvariant → Square
+  satisfaction→square : SatisfactionInvariant → ResponseSquare
   satisfaction→square invariant q x′ =
     snd (invariant x′ q (r q (s x′))) refl
 
@@ -58,8 +58,8 @@ module ChangedResponses
   (j : (q : Q) → Y q → Y′ q)
   where
 
-  Square : Type _
-  Square = (q : Q) (x′ : X′) → r′ q x′ ≡ j q (r q (s x′))
+  ResponseSquare : Type _
+  ResponseSquare = (q : Q) (x′ : X′) → r′ q x′ ≡ j q (r q (s x′))
 
   InjectiveComparisons : Type _
   InjectiveComparisons =
@@ -72,12 +72,12 @@ module ChangedResponses
       × (r q (s x′) ≡ y → r′ q x′ ≡ j q y)
 
   square→satisfaction :
-    InjectiveComparisons → Square → SatisfactionInvariant
+    InjectiveComparisons → ResponseSquare → SatisfactionInvariant
   square→satisfaction injective square x′ q y =
     ((λ revised≡jy →
         injective q (sym (square q x′) ∙ revised≡jy)) ,
      (λ old≡y → square q x′ ∙ cong (j q) old≡y))
 
-  satisfaction→square : SatisfactionInvariant → Square
+  satisfaction→square : SatisfactionInvariant → ResponseSquare
   satisfaction→square invariant q x′ =
     snd (invariant x′ q (r q (s x′))) refl
