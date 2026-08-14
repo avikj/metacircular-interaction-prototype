@@ -590,6 +590,7 @@ agdaCertificate (l,r) = do
     , "candidate x y z u v w = refl"
     ]
 
+
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
 kernelAccept logh roundNo ((l,r),_) =
   case agdaCertificate (l,r) of
