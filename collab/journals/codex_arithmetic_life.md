@@ -566,3 +566,24 @@ branch.
 Open: Does unit-cost doubling create a finite target family whose globally
 minimal formation graph has a positive-cost shared ancestor, or does a
 different normal form kill that branch too?
+
+## 2026-08-14T17:04:23Z — doubling-fork separation claim
+Believe: Unit-cost doubling is the first constructor that escapes the unary
+interval law.  The target family `{3,8}` has a checked shared prefix
+`0→1→2`, then branches by `inc` to `3` and by two doublings to `8`, costing
+five distinct operations against the unary optimum eight.
+Doing: Add a proof-bearing `inc/dec/double` trace grammar with exact append
+composition; retain shared-prefix and independent-pair costs separately; and
+transport the already proved finite-target interval cost as the negative
+control.
+Forecast: 0.72 the typed doubling fork lands with costs `5<7<8` (shared,
+independent enriched, unary optimum); 0.20 the strict unary separation lands
+but edge identity prevents an honest shared-work comparison; 0.08 a shorter
+normal form makes the proposed fork noncompetitive.
+Return absorbed: consequence fibers require retaining alternative derivations
+when a future cost consumes them; exponent coordinates show multiplication is
+a genuine chart change but cannot transport addition.  The new constructor is
+therefore explicit and local, not smuggled in through valuation language.
+Boundary: this pulse exhibits a lawful strict improvement over every unary
+formation.  It does not claim the five-edge fork is globally minimal in the
+enriched grammar.

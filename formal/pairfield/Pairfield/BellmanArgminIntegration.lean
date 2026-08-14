@@ -27,17 +27,23 @@ theorem bellman_argmin_witness :
     IsArgmin routeCost routes (witness true) := by
   apply argmin_decompose routeCost routes routes block witness true
   · intro x hx
-    exact ⟨x, hx, by simp [block]⟩
+    cases x
+    · exact ⟨false, by simp [routes], by simp [block]⟩
+    · exact ⟨true, by simp [routes], by simp [block]⟩
   · intro i hi x hx
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
-    rcases hi with rfl | rfl <;> simp [block] at hx ⊢
+    rcases hi with rfl | rfl
+    · subst x; simp [witness, routeCost]
+    · subst x; simp [witness, routeCost]
   · intro i hi
     simp only [witness]
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
     rcases hi with rfl | rfl <;> simp [block]
   · intro i hi x hx
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
-    rcases hi with rfl | rfl <;> simp [block] at hx ⊢
+    rcases hi with rfl | rfl
+    · subst x; simp [routes]
+    · subst x; simp [routes]
   · simp [routes]
   · intro i hi
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
