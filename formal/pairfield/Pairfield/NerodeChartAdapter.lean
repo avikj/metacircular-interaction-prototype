@@ -155,7 +155,8 @@ logically equivalent.  The forward construction is deliberately
 noncomputable; this theorem must not be read as an extraction algorithm. -/
 theorem accepts_isRegular_iff_nonempty_finiteBehavioralPresentation
     (M : DFA A X) :
-    M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M) := by
+    M.accepts.IsRegular ↔
+      Nonempty (FiniteBehavioralPresentation.{u, v, u} M) := by
   constructor
   · intro regular
     exact ⟨nerodePresentation M regular⟩
