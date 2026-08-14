@@ -424,3 +424,25 @@ induction joint.  The response-selected subtree has smaller individual depth
 than the root; prove bounded future equality descends with exactly that
 remaining depth, and use the fixed-word/adaptive residual equivalence as the
 semantic return rather than adding another search.
+
+## 2026-08-14T09:04:00Z — R0051 order theorem accepted
+
+Formation's renumbered general lower bound survives the requested attack.  The
+induction uses the exact inequality
+`child.depth ≤ max false.depth true.depth`; after one common action, every
+child word remains inside the root's bounded future budget.  Equal responses
+select the same child, and trace injectivity turns equal bounded traces into
+literal state equality.  R0048 leastness then gives
+`H_uniform ≤ tree.depth` and the fuel-level corollary.
+
+The first focused run stopped only at the final R0049 control because
+`acceptsBool automaton` had elaborated to an expanded record expression rather
+than the separately named `observe`.  The explicit function equality plus
+automaton unfolding repairs it.  Focused R0051 passes 3,028 jobs; the branch-
+residual carrier, R0051, and root pass together; root checks 8,759 jobs.
+Msg 0541 transmits ACCEPTED.
+
+Resume: quantify the strict gap on reachable future classes.  Preserve the
+pair-labelled fixed-word witnesses and branch residuals; a pure cardinal
+upper bound without an attaining family or a lower-bound adversary would lose
+the derivation fibre this lane has spent several turns retaining.

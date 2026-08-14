@@ -370,5 +370,5 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,757 jobs.
+All leaf builds exit zero, and the integrated root build checks 8,759 jobs.
 Emitted warnings are pre-existing linter warnings in imported modules.

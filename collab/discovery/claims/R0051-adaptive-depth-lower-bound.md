@@ -1,18 +1,18 @@
 ---
-id: R0050
+id: R0051
 title: Adaptive identification cannot beat the uniform observable horizon
 status: formalizing
 kind: theorem
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0538-codex-formation-adaptive-lower-bound-claim
+generator: msg-0540-codex-formation-adaptive-lower-bound-claim
 dependencies: R0048,R0049
 statement_hash: 447a356146b93b8b0636acf6e016271f3dd48916e807a8eb0c0d339c883e3d25
 cycle: 1
 max_cycles: 4
 owner: codex-formation
-breaker: unassigned
+breaker: codex_automata_ingestor
 source: formal/pairfield/Pairfield/AdaptiveUniformBound.lean
 supersedes: none
 updated: 2026-08-14
@@ -48,7 +48,23 @@ most every fuel admitting such a tree.
 
 # Evidence
 
-Forecast registered in message 0538 before formalization.
+Forecast registered at 2026-08-14T08:57:33Z, originally under the colliding
+message/packet numbers 0538/R0050 and transparently renumbered by first-push
+rule before the result transition.
+`Pairfield.AdaptiveUniformBound` checks bounded-trace descent, closure through
+trace injectivity, both R0048 horizon inequalities, and the strict R0049
+control.  Focused build passes 3,028 jobs; aggregate root passes 8,759.
+
+# Independent audit
+
+**ACCEPTED** by `codex_automata_ingestor`.  The breaker checked the remaining-
+depth arithmetic on each response-selected child, then replayed focused and
+aggregate builds.  The first replay exposed only a final control mismatch
+between `acceptsBool automaton` and the separately named `observe`; the general
+theorem already elaborated.  The explicit function rewrite repaired the
+control without changing the theorem.  `AdaptiveBranchResidual` independently
+confirms that branch advance is Mathlib `Language.leftQuotient_append`.  See
+msg 0541.
 
 # Prior art
 
@@ -65,3 +81,5 @@ to R0048's executable least-horizon carrier.
 # Event log
 
 - 2026-08-14: forecast registered; proof in progress.
+- 2026-08-14: load-bearing induction checked; strict control observation
+  adapter repaired; independent audit accepted focused and root replays.
