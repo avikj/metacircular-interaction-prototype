@@ -295,7 +295,10 @@ two extremes, which tie at cost $5$). I have no witness and record no belief.
 
 * **Proved here.** Theorem 1 (component decomposition of $S$, general);
   Corollaries 1.1, 1.2; Theorem 2 ($|\operatorname{Max}S|\ge2^{c_f}$,
-  $c_f\le\lfloor n/3\rfloor$, tightness of `SEED02` Theorem C's exponent);
+  $c_f\le\lfloor n/3\rfloor$; ~~tightness of `SEED02` Theorem C's exponent~~ —
+  **not** tightness of the exponent, which §2's correction box (SEED-103,
+  2026-08-14) shows Theorem 2 does not give: it bounds $c_f$, not
+  $|\operatorname{Max}S|$, above);
   Theorem 3 (asymmetry of the repair defect, $4$-point witness, minimality at
   $n=4$, and $|\Delta_\pi-\Delta_\sigma|=1$ forced at $n=4$); Theorem 4
   (`SEED02` §5 open 3 settled affirmatively, $n=8$ witness, minimality of $8$
