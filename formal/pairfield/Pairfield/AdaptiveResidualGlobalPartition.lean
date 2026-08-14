@@ -43,7 +43,8 @@ def suffixSetoid (M : DFA A X) (tests : Finset (List A)) :
 /-- Mathlib's `Finpartition` induced by a finite suffix control language on
 the exact canonical left-quotient state carrier. -/
 noncomputable def experimentPartition
-    (M : DFA A X) [Fintype (State M)] (tests : Finset (List A)) :
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
+    (tests : Finset (List A)) :
     Finpartition (Finset.univ : Finset (State M)) := by
   classical
   exact Finpartition.ofSetoid (suffixSetoid M tests)
@@ -51,7 +52,7 @@ noncomputable def experimentPartition
 /-- Membership in a global experiment block is exactly agreement on every
 suffix in the declared control language. -/
 theorem mem_part_experimentPartition_iff
-    (M : DFA A X) [Fintype (State M)]
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
     (tests : Finset (List A)) (left right : State M) :
     right ∈ (experimentPartition M tests).part left ↔
       ∀ suffix ∈ tests,
@@ -63,7 +64,8 @@ theorem mem_part_experimentPartition_iff
 /-- Adding a suffix refines the whole canonical partition simultaneously.
 The order on `Finpartition` points from fine to coarse. -/
 theorem insert_refines
-    (M : DFA A X) [Fintype (State M)]
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
+    [DecidableEq A]
     (tests : Finset (List A)) (suffix : List A) :
     experimentPartition M (insert suffix tests) ≤
       experimentPartition M tests := by
@@ -119,11 +121,12 @@ theorem exists_separator_of_not_isDiag
       have hne : left ≠ right := by
         simpa [Sym2.mk_isDiag_iff] using hpair
       by_contra hnone
-      push_neg at hnone
       apply hne
       apply Subtype.ext
       ext suffix
-      exact hnone suffix
+      by_contra hdifferent
+      exact hnone ⟨suffix,
+        (separates_mk_iff M left right suffix).mpr hdifferent⟩
 
 /-- One chosen distinguishing suffix for an unordered unequal residual pair.
 The choice is classical; the resulting theorem is checked but is not an
@@ -141,14 +144,16 @@ theorem chosenSeparator_separates (M : DFA A X)
 /-- The global control language containing one chosen witness for every
 unordered pair of distinct canonical residual states. -/
 noncomputable def completeWitnesses
-    (M : DFA A X) [Fintype (State M)] : Finset (List A) := by
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
+    [DecidableEq A] : Finset (List A) := by
   classical
   exact Finset.univ.image (chosenSeparator M)
 
 /-- There are at most `choose n 2` globally chosen suffix witnesses.  Duplicate
 suffixes for different pairs only make the control language smaller. -/
 theorem card_completeWitnesses_le_choose_two
-    (M : DFA A X) [Fintype (State M)] :
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
+    [DecidableEq A] :
     (completeWitnesses M).card ≤
       Nat.choose (Fintype.card (State M)) 2 := by
   classical
@@ -165,6 +170,7 @@ theorem card_completeWitnesses_le_choose_two
 global witness construction. -/
 noncomputable def regularCompleteWitnesses
     (M : DFA A X) (regular : M.accepts.IsRegular) : Finset (List A) := by
+  classical
   letI : Fintype (State M) := residualFintype M regular
   exact completeWitnesses M
 
@@ -180,7 +186,8 @@ theorem card_regularCompleteWitnesses_le_choose_two
 /-- Agreement on the complete global witness language forces equality of
 canonical residual states. -/
 theorem eq_of_agree_completeWitnesses
-    (M : DFA A X) [Fintype (State M)]
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
+    [DecidableEq A]
     (left right : State M)
     (hagree : ∀ suffix ∈ completeWitnesses M,
       (suffix ∈ (left.val : Language A) ↔
@@ -204,7 +211,8 @@ theorem eq_of_agree_completeWitnesses
 This is the checked partition-level certificate missing from arbitrary
 fixed-cardinality histories. -/
 theorem mem_completePartition_part_iff_eq
-    (M : DFA A X) [Fintype (State M)] (left right : State M) :
+    (M : DFA A X) [Fintype (State M)] [DecidableEq (State M)]
+    [DecidableEq A] (left right : State M) :
     right ∈ (experimentPartition M (completeWitnesses M)).part left ↔
       left = right := by
   constructor
