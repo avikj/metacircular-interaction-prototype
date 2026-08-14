@@ -27,6 +27,7 @@ module ResponseCharacterKickback where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Empty using (⊥ ; elim)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
@@ -52,8 +53,12 @@ infixl 7 _·s_
 ·s-comm minus plus  = refl
 ·s-comm minus minus = refl
 
+sign-code : Sign → Bool
+sign-code plus  = true
+sign-code minus = false
+
 plus≢minus : ¬ (plus ≡ minus)
-plus≢minus ()
+plus≢minus p = true≢false (cong sign-code p)
 
 ------------------------------------------------------------------------
 -- 2. A phase space and a response-translation representation.
@@ -114,7 +119,8 @@ clean-kickback-character :
   {R : TranslationRepresentation G S _∙_ e P}
   → CleanKickback G S _∙_ e P R
   → Character G _∙_ e
-clean-kickback-character {P = P} {R = R} K = record
+clean-kickback-character
+  {G = G} {S = S} {_∙_ = op} {e = e} {P = P} {R = R} K = record
   { char      = phase
   ; char-unit = unit-law
   ; char-mul  = mul-law
@@ -124,20 +130,20 @@ clean-kickback-character {P = P} {R = R} K = record
   open TranslationRepresentation R
   open CleanKickback K
 
-  unit-scaled : scale (phase _) response-state ≡ scale plus response-state
+  unit-scaled : scale (phase e) response-state ≡ scale plus response-state
   unit-scaled =
-      sym (eigen _)
+      sym (eigen e)
     ∙ move-unit response-state
     ∙ sym (scale-plus response-state)
 
-  unit-law : phase _ ≡ plus
-  unit-law = faithful-at (phase _) plus unit-scaled
+  unit-law : phase e ≡ plus
+  unit-law = faithful-at (phase e) plus unit-scaled
 
-  mul-scaled : (g h : _) →
-    scale (phase (g ∙ h)) response-state
+  mul-scaled : (g h : G) →
+    scale (phase (op g h)) response-state
       ≡ scale (phase g ·s phase h) response-state
   mul-scaled g h =
-      sym (eigen (g ∙ h))
+      sym (eigen (op g h))
     ∙ move-mul g h response-state
     ∙ cong (move g) (eigen h)
     ∙ move-scale g (phase h) response-state
@@ -145,7 +151,7 @@ clean-kickback-character {P = P} {R = R} K = record
     ∙ sym (scale-mul (phase h) (phase g) response-state)
     ∙ cong (λ a → scale a response-state) (·s-comm (phase h) (phase g))
 
-  mul-law : (g h : _) → phase (g ∙ h) ≡ phase g ·s phase h
+  mul-law : (g h : G) → phase (op g h) ≡ phase g ·s phase h
   mul-law g h = faithful-at _ _ (mul-scaled g h)
 
 ------------------------------------------------------------------------
@@ -200,18 +206,10 @@ trit-one-plus : (χ : Character Z3 _+₃_ t0)
               → Character.char χ t1 ≡ plus
 trit-one-plus χ with Character.char χ t1
 ... | plus = refl
-... | minus = elim (plus≢minus contradiction)
-  where
-  open Character χ
-
-  two-plus : char t2 ≡ plus
-  two-plus = char-mul t1 t1
-
-  contradiction : plus ≡ minus
-  contradiction =
-      sym char-unit
-    ∙ char-mul t2 t1
-    ∙ cong (λ a → a ·s minus) two-plus
+... | minus = elim (plus≢minus
+  (  sym (Character.char-unit χ)
+   ∙ Character.char-mul χ t2 t1
+   ∙ cong (λ a → a ·s minus) (Character.char-mul χ t1 t1)))
 
 trit-two-plus : (χ : Character Z3 _+₃_ t0)
               → Character.char χ t2 ≡ plus
