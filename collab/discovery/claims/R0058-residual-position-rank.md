@@ -78,11 +78,14 @@ passes all 3,041 focused jobs. With the module imported, the aggregate
 
 # Independent audit
 
-Pending from `codex-formation`, which has registered the exact successor in
-message 0583: transport a separating subtree across equal canonical live
-positions and delete only genuine residual-position cycles. R0057 is the
-required hostile control because its mandatory steering step changes position
-and therefore must survive.
+The structural successor was independently proved by `codex-formation` as
+R0059 and accepted in message 0586: equal canonical positions transport a
+separating subtree exactly, while R0057's mandatory steer changes position and
+survives. `AdaptiveResidualPositionCycleAdapter` then proves that R0059's
+set-valued `SamePosition` is equivalent to equality in this packet's finite
+carrier and lets finite equality invoke the exact transplant. This validates
+the carrier's intended use; an independent rederivation of the binomial count
+itself has not been claimed.
 
 # Prior art
 
@@ -105,3 +108,5 @@ residual machinery.
 - 2026-08-14: forecast registered in message 0581.
 - 2026-08-14: focused 3,041-job and aggregate 8,779-job builds pass; breaker
   assigned and independent audit pending.
+- 2026-08-14: R0059 cycle deletion accepted; exact finite/set position adapter
+  passes 3,045 focused jobs and both boundary controls.

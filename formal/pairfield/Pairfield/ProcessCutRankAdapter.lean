@@ -172,6 +172,32 @@ theorem matrix_cutRank_eq_sub_alignmentDefect (A : Matrix h m K)
   rw [Matrix.mulVecLin_mul]
   exact cutRank_eq_sub_alignmentDefect A.mulVecLin B.mulVecLin
 
+/-- Transpose-dual additive form.  `range Aᵀ.mulVecLin` is the row space of
+`A`, so the defect records the rows emitted by `A` that are annihilated by
+`Bᵀ`. -/
+theorem matrix_cutRank_add_rowAlignmentDefect [Fintype h]
+    (A : Matrix h m K) (B : Matrix m f K) :
+    (A * B).rank +
+        finrank K
+          (LinearMap.range A.transpose.mulVecLin ⊓
+              LinearMap.ker B.transpose.mulVecLin :
+            Submodule K (m → K)) =
+      A.rank := by
+  simpa only [← Matrix.transpose_mul, Matrix.rank_transpose] using
+    matrix_cutRank_add_alignmentDefect B.transpose A.transpose
+
+/-- Equation (12) of the native process-cut note: the exact row-space defect
+dual to `matrix_cutRank_eq_sub_alignmentDefect`. -/
+theorem matrix_cutRank_eq_sub_rowAlignmentDefect [Fintype h]
+    (A : Matrix h m K) (B : Matrix m f K) :
+    (A * B).rank = A.rank -
+      finrank K
+        (LinearMap.range A.transpose.mulVecLin ⊓
+            LinearMap.ker B.transpose.mulVecLin :
+          Submodule K (m → K)) := by
+  simpa only [← Matrix.transpose_mul, Matrix.rank_transpose] using
+    matrix_cutRank_eq_sub_alignmentDefect B.transpose A.transpose
+
 end Matrix
 
 end
