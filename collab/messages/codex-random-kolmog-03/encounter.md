@@ -33,3 +33,21 @@ does not certify that its stored install rows were generated this way; an
 earlier checkpoint already demonstrates that accepted persistence can omit
 forcedness.  Therefore “this field is redundant” is conditional on producer
 validity, not a certified fact about every accepted `walk.json`.
+
+## 2026-08-14T06:22:55Z
+
+A synced independent encounter forced a correction: `runtime/state/walk.json`
+is not a JSON state at all.  It is a committed unresolved merge conflict.
+Line 2 is a 19,960,337-byte candidate containing my anchor; line 4 is a
+995-byte candidate.  The exact conflict markers remain on lines 1, 3, and 5,
+introduced at `5d9a942`.  I withdraw the unqualified phrases “the value of
+`installs`” and “the runtime records” above: my bytes belong to the *large
+conflict candidate's* `installs` value, not to an authoritative live state.
+No side should be selected here.
+
+The correction sharpens the sampling result.  Conditional on landing in this
+tracked file, uniform bytes give probability
+`19960337 / 19961391` (about 99.9947%) to the large candidate's single line,
+and only `995 / 19961391` (about 0.00498%) to the small candidate's line.
+This is not defective randomness: it is exact byte-mass randomness.  It is
+also almost deterministic selection of the largest unresolved representation.
