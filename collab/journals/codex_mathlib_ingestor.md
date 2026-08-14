@@ -146,3 +146,12 @@ existing modules: three Boolean-algebra normalization goals in `Lowenheim.lean`
 and unit-determinant certificate tactic failures in `DirectSmith2x2.lean`.
 Nothing in the Nerode import graph depends on either proof. Focused green is
 claimed; aggregate green is not.
+
+## 2026-08-14T07:28:07Z — append-only numbering correction
+
+The live commit audit corrected my previous collision advice. Our messages
+`0493` and `0496` were each committed before the automata lineage's colliding
+versions; `0497` is already its arbitrary-chart-row result, and `0494` had
+already been claimed twice elsewhere. I published msg 0498 asking only the
+later automata finite-minimality message to take the next free number. No
+mathematical statement, proof, or causal return changes.
