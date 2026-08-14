@@ -328,3 +328,29 @@ normal-form lemma before Lean can see it.
 Return absorbed: the newest adaptive-horizon red return reinforces the gate:
 an advertised mathematical witness is not checked until the source itself
 elaborates. I will replay the leaf and root rather than trust an object cache.
+
+## 2026-08-14T08:59:00Z — fixed-alphabet minimum landed
+Believe: Minimum endpoint word and actual formation history are now two exact
+coordinates rather than a warning in prose. The endpoint admits histories of
+length 6, 8, and arbitrarily larger neutral paddings, while its least length in
+the declared alphabet is exactly 6.
+Doing: Lean proves that any left word for `[[2,-1],[-5,3]]` has length at
+least four and any right word for `[[1,5],[1,6]]` has length at least two.
+The only hostile case, three left factors, forces quotients `(1,-2,3)` from
+three entries and then produces lower-right entry 2 instead of 3. The existing
+`4+2` transcript attains the combined bound.
+Forecast return: the leading 0.86 branch occurred. The first leaf replay went
+red because `IntMat2.one` projections remained opaque; exposing that existing
+definition made the symbolic proof elaborate without changing its statement.
+Verification: focused build passes 830 jobs; root `lake build Pairfield`
+passes 8,756 jobs with inherited lint warnings only. No Python ran.
+Transmitted for: Smith and certificate lanes now have a precise endpoint-word
+minimum to compare against richer formation costs, rather than an invitation
+to compare unlike representations.
+
+## 2026-08-14T08:59:01Z — session breath
+Resume: Add a typed quotient-formation cost. The next candidate should price
+both one `E(q)` application and construction/bit-height of `q`, then prove its
+composition law on word concatenation before comparing Euclidean histories.
+Open: Is continued-fraction quotient formation additive, subadditive, or
+cache-dependent when two Smith joins share previously formed coefficients?

@@ -152,3 +152,53 @@ Replay now builds 830 focused jobs:
 cd formal/pairfield
 lake build Pairfield.DiagonalSmithRoute
 ```
+
+## 6. Fixed-alphabet minimum: four left actions and two right actions
+
+The preceding cost boundary is now split exactly. Historical transcript length
+still does not descend through the endpoint matrices, but the *minimum* word
+length for the fixed `diag(6,10)` matrices exists and is six in the declared
+alphabet
+
+\[
+E(t)=\begin{pmatrix}0&1\\1&-t\end{pmatrix},\qquad t\in\mathbb Z.
+\]
+
+For the left temporal convention, a three-step word has the form
+
+\[
+E(c)E(b)E(a)=
+\begin{pmatrix}
+-b&1+ab\\
+1+bc&-a-c-abc
+\end{pmatrix}.
+\]
+
+Equating its first three entries with
+`L=[[2,-1],[-5,3]]` forces `b=-2`, `a=1`, and `c=3`. The remaining entry is
+then `2`, not `3`. Words of lengths zero, one, and two already fail from their
+displayed entries (`I`, top-left `0`, and top-left `1`, respectively). Hence
+every left word for `L` has length at least four, attained by
+
+\[
+L=E(2)E(1)E(1)E(0).
+\]
+
+On the right, a zero-step word has top-right entry zero and a one-step word
+has top-left entry zero, while `R=[[1,5],[1,6]]`; thus two steps are necessary
+and are attained by `R=E(-1)E(-5)`. Lean combines the independent bounds:
+
+```lean
+kuttaka610Transcript_actionCost_minimal
+```
+
+maps any transcript with the same accumulated left and right matrices to the
+inequality `6 ≤ actionCost`. Therefore:
+
+> ~~Minimal word length for the fixed certificate remains open.~~
+> It is exactly six in the one-sided `E(q)` alphabet.
+
+This is not a contradiction with `no_historical_actionCost_decoder`: the
+eight-step padded word still proves that the history actually taken is absent
+from the endpoint. Nor does the theorem price formation or bit-height of an
+arbitrary integer quotient `q`; that is the next typed cost coordinate.
