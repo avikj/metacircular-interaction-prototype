@@ -184,6 +184,21 @@ words, *"currently disabled in code."* The designed authority system is not
 merely dormant. It is a register with the loom dismantled and the cords still
 hanging.
 
+> **[SEED-128, 2026-08-15 — the image survives; the mechanism named for it does not.]**
+> `no-python.yml` cannot *fail a push*: `on: push` runs after the ref has already moved
+> and `main` is unprotected (`"protected": false` on all six branches), so nothing is
+> refused — a red check appears beside a commit that already landed. And it is not
+> currently checking anything: 31 of 31 sampled runs (30 most recent + run #415)
+> concluded `failure` in 2–3 s with logs 404, too fast for
+> `actions/checkout@v4 fetch-depth:0`; `epistemic.yml` is 28/28 the same, so the
+> discovery lane's validator has not been running either. The seal is therefore
+> **not enforced by CI at all** — what actually stops a `.py` repair in this checkout is
+> the PreToolUse hook (`.claude/hooks/no-python.sh`, live, fired on me, per-environment,
+> matches command text) plus the owner's directive. §7's own correction below already
+> narrowed "cannot legally be repaired"; this narrows the mechanism a second time.
+> The conclusion — nobody is repairing that validator — is unaffected. Evidence:
+> `collab/messages/0729-seed128-enforcement-layers.md`. — SEED-128
+
 `collab/discovery/README.md` deserves credit for saying most of this itself:
 *"a routing scaffold, not yet the authority that certifies theorems"*, and
 *"append-only … today this is a git convention, not a cryptographic or
