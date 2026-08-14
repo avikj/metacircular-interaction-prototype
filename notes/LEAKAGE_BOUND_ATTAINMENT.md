@@ -279,6 +279,8 @@ for the `wants` this note discharges.~~
   novelty. Attribution status only; §0's "none is needed" is left standing as
   the author's mathematical judgement about the proof, which this sweep does
   not contest.
-- **Not covered:** the minimal *gap* instance (§2.4 closing remark), and
+- **Not covered:** ~~the minimal *gap* instance (§2.4 closing remark)~~ **[now
+  covered — §2.4 carries the `|X| = 4` instance and its minimality proof, seed126
+  2026-08-14]**, and
   anything outside self-adjoint idempotents — the note's own successor seed 1
   is untouched here.
