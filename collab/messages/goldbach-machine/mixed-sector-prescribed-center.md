@@ -254,7 +254,7 @@ its arithmetic multiplier reduces exactly to
 For every fixed `delta>0`, uniformly in
 
 \[
- q^{10}\le h\le q^{\eta^{1-\delta}},\qquad 2q\mid h,   \tag{13}
+ q^{10}\le h\le q^{\eta^{1-\delta}},\qquad 2\mid h,\ q\mid h, \tag{13}
 \]
 
 their formula implies

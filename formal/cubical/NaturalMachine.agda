@@ -222,6 +222,10 @@ import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct
 import NaturalMachine.DSONucleusMiddleProduct
+-- The exhaustive finite associativity/residuation audit modules remain
+-- focused-safe checks, but are not aggregate imports: their current
+-- definitional normalization makes a clean root check take minutes.  The
+-- structural operators above stay live while those proof terms are factored.
 import NaturalMachine.BehavioralHankel
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.

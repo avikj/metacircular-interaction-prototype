@@ -411,6 +411,36 @@ leaving downward motion free.  If this is at most
 square-energy lower bound.  No arithmetic theorem presently supplies this
 one-sided budget for the prime minor coefficients.
 
+**Direction-reversal correction.**  That premise is logically weaker than a
+uniform first-difference estimate, but it is not a plausible output of the
+existing global norm.  The companion module
+`Pairfield.UpwardEscapeNecessity` checks the converse pressure
+
+\[
+ \sum_{i\in H}(a(i)-a(i_0))_+
+ \ge (depth-\varepsilon)
+ \left(|H|-\frac{B}{\varepsilon^2}\right)
+\]
+
+whenever `a(i_0)<=-depth` and `sum_(i in H) a(i)^2<=B`, for
+`0<epsilon<depth`.  In the analytic normalization `depth=cX`, substitute
+`epsilon=epsilon_0 X`; the exceptional-cardinality term becomes
+`B/(epsilon_0^2 X^2)`.  Thus, once `H` is larger than the spike budget, the
+same `ell^2` estimate which was supposed to contradict persistence says that
+most shifted coefficients are small and have escaped upward by almost the
+full depth.
+
+Before absolute values, total upward escape is exactly a supremum over all
+selectors `0<=u_h<=1` of a prescribed-centre shifted minor-arc correlation.
+It is already a conditioned signed theorem, not an ordinary dispersion norm.
+The finite odd-character model in
+[`upward-escape-duality-no-go.md`](upward-escape-duality-no-go.md) has one
+order-scale negative convolution residual, `O(1)` residual elsewhere, and
+square-root nontrivial Fourier marginals, yet violates every
+`(UP_gamma)` budget with `gamma<1`.  The surviving arithmetic target is an
+inverse theorem which recovers a conductor/packet-aligned shift family, or a
+new conditioned correlation proving persistence on such a family.
+
 ## 6. Other machine routes that were tested and refused
 
 - **Delta 27 factor rank/nucleus.**  Actual-prime future matrices have exact
@@ -441,6 +471,15 @@ one-sided budget for the prime minor coefficients.
   isolated exceptions.  Upgrading it would require a new failure-propagation
   law; short-interval success and prime-gap theorems have the opposite logical
   direction.
+- **Odd exceptional-character remainder.**  At an even conductor multiple,
+  Matomaki--Merikoski's main bracket is `1+chi(-1)`.  For odd `chi` it
+  vanishes exactly and the theorem leaves only an unsigned upper error, not a
+  positive next term.  Even when that error is relatively `o(1)`, it cannot
+  produce a prime-pair witness; its published envelope also remains above the
+  checked prime-power scale.  The exact surviving implication runs backward:
+  assumed main-scale Goldbach mass excludes the specified odd exceptional
+  zero.  See
+  [`odd-siegel-conductor-multiple-no-go.md`](odd-siegel-conductor-multiple-no-go.md).
 - **The historical Haskell executable.**  Its term language has no Goldbach
   proposition or command.  Adding a flag without a primality certificate path
   would only create an unverified side program.  The checked Lean search is the
@@ -449,24 +488,21 @@ one-sided budget for the prime minor coefficients.
 ## 7. Most important next work
 
 The next work is not a larger finite verification and not another quotient.
-It is to seek prime-specific arithmetic anti-concentration across centers:
+It is to retain and control the arithmetic mode which a prescribed bad center
+would force:
 
 1. for the shortest logarithmic route, stay on Pintz's common prime-log
-   carrier and prove one-sided propagation of its negative minor coefficient;
-   a sufficient condition is a small average positive escape
-   `sum_h (a(m+h)-a(m))_+`, which is strictly weaker than a uniform
-   first-difference bound;
-2. for the target-adapted or power-cutoff route, retain a common ambient
-   polynomial and arc decomposition across a dyadic
-   interval, and prove the missing transport from the target-adapted
-   logarithmic normalization when using an exception as a spike;
-3. express the coefficient family through shared Dirichlet-zero or Type-II
-   dispersion data before absolute values, and keep logarithmic- and
-   power-cutoff major arcs distinct;
-4. prove either the logarithmic-cutoff pointwise one-sided margin directly,
-   or control the power-cutoff zero modes and then prove an anti-spike
-   propagation theorem strong enough to contradict the corresponding
-   `ell^2` or exceptional-set budget;
+   carrier and prove the direct edge margin `(H_edge)`, or prove an inverse
+   theorem extracting a conductor/Type-II packet from a negative coefficient;
+2. retain the resulting character/bilinear mode on both sides of the center
+   and control the prescribed mixed coefficient, rather than replacing it by
+   sector marginals or an unconditioned norm;
+3. if a persistence route is attempted, choose its shift family from that
+   recovered mode and prove the conditioned selector correlation explicitly;
+   do not infer `(UP_gamma)` from the current `ell^2` or dispersion estimates;
+4. for a power-cutoff alternative, formulate zero-mode positivity on one
+   common carrier `(CZM)` and keep the raw minor and smoothed explicit-formula
+   residual distinct;
 5. then feed that theorem to the already checked crossover contract.
 
 This is narrower than “solve the minor arcs” and names the required direction
@@ -502,11 +538,14 @@ contract, recorded precisely in `arithmetic-antispike.md`:
 - `(AC)`: a conditional signed covariance that spreads a large negative raw
   minor coefficient over more than the `X^(3/5) log^5 X` residual budget.
 
-**Residual refinement.**  `(AC)` is sufficient but not minimal.  It can be
-replaced by `(UP_gamma)`, a first-moment bound only on positive escape from
-the negative spike.  Cauchy--Schwarz shows the old `(AC)` implies such a
-budget with `gamma=1/sqrt(8)`, while arbitrarily large downward jumps show the
-converse need not hold.
+**Residual correction.**  `(AC)` can be logically replaced by `(UP_gamma)`,
+a first-moment bound only on positive escape from the negative spike, and the
+checked Markov implication is valid.  But `(UP_gamma)` is not an easier
+consequence of the available estimates: selector duality makes it a maximal
+conditioned correlation, while `Pairfield.UpwardEscapeNecessity` shows that
+the global norm forces near-maximal escape on any family larger than its
+spike budget.  It should be treated as an alternative statement of the
+missing persistence theorem, not as a route derived from dispersion.
 
 Current zero-density, Linnik, and dispersion estimates provide upper mass or
 equidistribution statements, not these signed prescribed-center inequalities.
@@ -525,7 +564,8 @@ or a direct edge-margin theorem.
   contamination bounds; exception signature; finite-prefix/tail crossover;
   finite first-difference AntiSpike propagation.
   The one-sided Markov survivor and energy inequalities are checked in
-  `Pairfield.UpwardEscape`.
+  `Pairfield.UpwardEscape`; the converse `ell^2` pressure is checked in
+  `Pairfield.UpwardEscapeNecessity`.
 - **Primary-source grade, not locally formalized:** Bhowmik--Grimmelt major-arc
   formula and minor-arc mean square; Zhao exceptional-set exponent.
 - **Proved in collaboration notes:** the exact analytic implication, amplifier
@@ -545,7 +585,9 @@ or a direct edge-margin theorem.
   (`34b98c9a`), and
   [`AntiSpike`](../../../formal/pairfield/Pairfield/AntiSpike.lean)
   (`9aff3cd8`), plus the weaker one-sided
-  [`UpwardEscape`](../../../formal/pairfield/Pairfield/UpwardEscape.lean).
+  [`UpwardEscape`](../../../formal/pairfield/Pairfield/UpwardEscape.lean) and
+  its converse-pressure audit
+  [`UpwardEscapeNecessity`](../../../formal/pairfield/Pairfield/UpwardEscapeNecessity.lean).
   The analytic normalization and amplifier audits are
   [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
@@ -557,6 +599,10 @@ or a direct edge-margin theorem.
   [`common-carrier-elimination.md`](common-carrier-elimination.md); the
   conditional zero-mode and upward-escape audit is
   [`zero-mode-terminal-and-upward-escape.md`](zero-mode-terminal-and-upward-escape.md);
+  the reversal/no-go is
+  [`upward-escape-duality-no-go.md`](upward-escape-duality-no-go.md), and the
+  odd exceptional-character closure is
+  [`odd-siegel-conductor-multiple-no-go.md`](odd-siegel-conductor-multiple-no-go.md);
   the
   executable audit is [`execution-compiler.md`](execution-compiler.md)
   (`7a02f908`).
