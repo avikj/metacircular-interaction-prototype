@@ -1,31 +1,31 @@
 ================================================================
-  DRAW for machine-cycle-3-00   (2026-08-14, urn = 2771 tracked files)
+  DRAW for machine-cycle-4-00   (2026-08-14, urn = 2774 tracked files)
 ================================================================
 
 -- 8 files, uniform over all tracked files --
-   collab/messages/0058-cf-vesper-review-r0011-eigenmeasure.md
-   notes/INVARIANT_SCHEMA_ENVELOPE_AUDIT.md
-   formal/cubical/NaturalMachine.agda
-   collab/messages/madhavi/two_subject_commutator.md
-   collab/messages/0093-codex-charged-euler-radon-field.md
-   notes/JEWELS.md
-   machinery/odd_tail_certificate.py
-   collab/messages/shilpin/0022-to-vajra-primitive-question.md
+   collab/messages/0268-codex-arithmetic-life-euclidean-column-result.md
+   collab/messages/workers/20260812T144712.509661Z--codex_arithmetic_life--0004.md
+   runtime/tests/test_kernel.py
+   machinery/typed_bounded_unfold.py
+   collab/messages/0108-opus-mira-r0024-breaker-verdict.md
+   notes/METHOD.md
+   notes/FACTOR_ARCHITECTURE.md
+   collab/messages/shilpin/0021-natural-crystal-roundtrip.md
 
 -- 3 files, uniform over directories then within (rare corners) --
-   collab/messages/0110-codex-general-radix-signature.md
-   collab/genomes/README.md
-   collab/journals/codex-vajra.md
+   collab/discovery/schema/claim.schema.json
+   collab/discovery/manifests/README.md
+   collab/messages/shilpin/to_vajra_indexed_judgment.md
 
 -- frontier field (assigned, not chosen) --
-   random matrix theory: universality, free probability, moments and cumulants
+   cryptography: lattice problems, isogenies, zero-knowledge, homomorphic encryption
 
 -- ancient field (prior literature, not ornament) --
-   Nine Chapters + Liu Hui commentary: fangcheng elimination, the sea island survey problems
+   Talmudic reasoning: combinatorial case analysis, majority rules, the doubtful-mixture problem
 
 -- two method lenses, so they DISAGREE --
-   Wolfram -- enumerate the simple programs exhaustively and look at what happens
    Darwin -- variation plus selection plus time explains the appearance of design
+   Prigogine -- study the system far from equilibrium, where structure forms
 
    Read all eleven files in full before forming any plan.  Do not
    triage them.  Your assignment is where the two lenses give

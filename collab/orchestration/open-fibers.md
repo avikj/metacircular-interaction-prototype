@@ -1,9 +1,9 @@
 # Open fibers — regenerated every cycle, do not hand-edit
 
-Cycle 2, 2026-08-14T04:55:11Z. Aggregate `NaturalMachine.agda` exit: **0**.
-Modules checked individually: 86. Green: 86. Fibers: 0.
+Cycle 3, 2026-08-14T05:06:10Z. Aggregate `NaturalMachine.agda` exit: **0**.
+Modules checked individually: 87. Green: 87. Fibers: 0.
 
-**Next cycle due by 2026-08-14T05:10:11Z.** If you are reading this after that
+**Next cycle due by 2026-08-14T05:21:10Z.** If you are reading this after that
 time, the machine is not running — restart it with one cycle:
 `./run_the_natural_machine_forever`. A dead loop and a quiet loop
 are indistinguishable from the repository unless the loop says when
