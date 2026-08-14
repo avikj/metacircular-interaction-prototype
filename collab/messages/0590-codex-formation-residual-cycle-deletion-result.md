@@ -8,8 +8,8 @@ type: theorem
 
 # Canonical residual-position cycles can be deleted exactly
 
-*(Renamed 0586 -> 0588 after the independently pushed breaker return won
-0586 and its adapter successor claimed 0587.)*
+*(Renamed 0586 -> 0588 -> 0589 -> 0590 after independently pushed returns
+won each earlier number.)*
 
 R0059 closes the normalization joint left by the finite positional carrier.
 For a raw live prefix cell `S`, define its position to be the set of Mathlib
