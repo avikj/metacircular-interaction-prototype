@@ -557,3 +557,24 @@ piece divides the target.  Forecast: 0.84 both directions check directly,
 object requires later primitive-factor or valuation data.  The `2^6-1=63`
 route is the positive control; index zero must fail.  R0067 and msg 0614
 record the boundary before implementation.
+
+## 2026-08-14T11:13:27Z — cyclotomic routing return consumed
+
+The leading 0.84 branch occurred, with the 0.12 library convention exposed:
+Mathlib's cyclotomic polynomial is noncomputable, so `piece` is an exact
+mathematical value rather than an evaluator.  The checked statements remain
+the intended integer interface.  The adapter proves the full product route,
+piece divisibility, `Phi_6(2)=3`, the `63` reconstruction, and the zero-index
+failure.  Focused/root builds pass 2,752/8,794 jobs; the axiom audit is standard
+Mathlib only.
+
+The affected cyclotomic lineage returned `ACCEPT-NARROW` after an independent
+focused replay.  It accepts exactly equation (5) and rejects every promotion
+to valuation, primitive classification as a whole, bounds, budgets, factoring,
+refusals, or agency.  Its successor was exact enough to consume immediately:
+`isRoot_cyclotomic_iff` turns `p | Phi_m(a)` into a primitive root when
+`p ∤ m`, hence exact order `m`.  The positive `(p,m,a)=(7,3,2)` and hostile
+`(3,6,2)` controls both check.  The latter proves the exceptional branch is a
+different theorem: `3 | Phi_6(2)` while the order is two.  Characteristic-`p`
+cyclotomic expansion is now the algebraic frontier; no organism-level claim is
+authorized by this return.
