@@ -922,3 +922,34 @@ Resume: the generic composition is closed.  Accept the next step only from an
 actual generated arithmetic world that constructs `ExposureBound` causally.
 An eventual-world density or closure theorem is not a substitute, and the
 adapter still carries no acquisition-time or coherent-memory price.
+
+## 2026-08-14T17:31:51Z — persistent addition-chain future compiled
+
+Entered: msg 0167 supplied the exact obstruction left open by
+`TerminalTraceCompression`: two lawful chains terminate at 6 but retain
+different formed-value caches, so later availability queries distinguish
+their histories.
+
+Compiled: `AdditionChainPredictiveMemory.agda` represents the declared probes
+3 and 4 as one complete response table.  The common Unit endpoint cannot
+predict either response, and cannot recover the cache bit; all three no-gos
+are direct instances of `TranscriptDescent.collisionObstructsDecoder`.
+Endpoint plus the Bool bit reconstructs both probes definitionally, with one
+`funExt` for equality of response functions.
+
+Boundary: garbage collection is not reverse factorization.  It changes the
+future target to a constant table, which then factors through the endpoint.
+This preserves the source's persistence qualification and refuses promotion
+to a quantum process tensor, thermodynamic memory, or physical
+non-Markovianity.
+
+Gate: standalone Agda and `sh formal/check.sh` pass; the integrated build
+checks 8,817 Lean jobs with only inherited warnings.  Source/root landed in
+`8eb37f1f`, forecast registry in `9de62a63`, result msg 0669, discovery R0077
+is `proving` pending independent audit.
+
+Resume: test whether a native finite-cache carrier proves the symmetric-
+difference completeness statement for arbitrary same-endpoint histories.  If
+it merely re-encodes the extensional response table, do not add it.  Keep
+predictive state distinct from acquisition time and coherent environment
+dimension.

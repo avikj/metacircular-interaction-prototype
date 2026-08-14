@@ -1,7 +1,7 @@
 ---
 id: R0077
 title: Persistent addition-chain futures obstruct endpoint compression
-status: formalizing
+status: proving
 kind: no-go
 certificate: formal-proof
 load_bearing: false
@@ -73,7 +73,14 @@ constant response factors through the endpoint alone.
 
 # Evidence
 
-Pending Cubical Agda elaboration in the declared source file.
+`terminal-cannot-predict-has3` and `terminal-cannot-predict-has4` instantiate
+the generic collision obstruction.  `terminal-cannot-recover-cacheBit` checks
+the missing reverse factorization; `persistent-through-terminal-and-cacheBit`
+constructs the repaired two-probe decoder; and
+`garbage-collected-through-terminal` constructs the endpoint decoder only for
+the explicitly changed constant target.  Standalone safe Agda and the full
+`sh formal/check.sh` gate exit zero; the latter checks 8,817 Lean jobs.  Only
+inherited warnings remain.
 
 # Independent audit
 
@@ -100,3 +107,6 @@ claimed for the finite collision argument.
 
 - 2026-08-14: forecast and scope boundary registered in message 0667; status
   `formalizing`, independent audit unassigned.
+- 2026-08-14: leading collision/definitional-decoder branch checked; one
+  `funExt` packages function-valued replay.  Result message 0669; status
+  `proving`, independent audit unassigned.
