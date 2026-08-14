@@ -258,6 +258,7 @@ import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
 import NaturalMachine.ChenTwoChargeProjector
+import NaturalMachine.FiniteOccupancyChannelNoGo
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 -- A total response square maps each revised univalent response image into
