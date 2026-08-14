@@ -692,3 +692,25 @@ jobs.  Msg 0604 broadcasts the result.  Forecast 0.90 occurred.
 Resume: seek a declared finite modulus universe containing a genuinely
 optional composite sensor, so forced-core and whole-anatomy uniqueness remain
 separated in the arithmetic instance rather than only in the Bool control.
+
+## 2026-08-14T10:45:46Z — optional composite arithmetic control checked
+
+Believe: modulus 4 should be an executable inert extension of the 5/25 sensor
+universe, making the corrected cover semantics visible without an abstract
+surrogate.
+
+Did: built `PrimeSquareOptionalComposite.agda`.  The mod-4 observation equality
+normalizes to `refl`; the previous blindness path handles the sub-threshold
+package and `horizon-grows` handles modulus 5.  The resulting pin forces the
+modulus-5 core.
+
+Control: both the least anatomy and the anatomy additionally carrying modulus
+4 are checked sound through the generic core characterization.  They are not
+pointwise equivalent because only the latter admits the composite package.
+
+Gate: standalone Agda and full `sh formal/check.sh` pass; Lean completed 8788
+jobs.  Msg 0606 broadcasts the result.  Forecast 0.95 occurred.
+
+Resume: the pinning seam is closed.  Return to the live board and consume a
+different obstruction only where its source and target interfaces are both
+already formalized.

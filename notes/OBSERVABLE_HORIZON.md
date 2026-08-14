@@ -693,6 +693,38 @@ cardinality-only rank.  It is deliberately not advertised as the classical
 sharp quadratic ADS height.  The remaining joint is a sharper checked
 recurrence across informative splits.
 
+## 18. The exact binomial carrier is still too large
+
+R0058's fixed-cardinality bound is not merely an upper estimate on its local
+premises.  `Pairfield.AdaptiveResidualBinomialBudgetNoGo` lists every
+`k`-subset of a finite state carrier and proves that this history is `Nodup`,
+every member has size `k`, and its length is exactly
+
+\[
+\binom{n}{k}.
+\]
+
+The first decisive control occurs already at six states:
+
+\[
+\binom{6}{3}=20>15=\frac{6(6-1)}2.
+\]
+
+At the registered lower boundary, the strict inequality correctly does not
+fire: `choose 5 2 = 10 = 5*4/2`.  Thus even one abstract fixed-cardinality
+layer allowed by `Nodup + size k` can exceed the entire classical quadratic
+target.  Refining R0061's powerset count by R0058 and summing local budgets is
+therefore a dead proof route.
+
+This is a method-class countermodel, not a residual automaton trajectory.  It
+forgets transition realizability and the global compatibility among live
+cells.  That loss locates the missing object rather than refuting the ADS
+theorem.  The checked Lee--Yannakakis exposition supplies the same diagnosis
+from the positive side: the quadratic construction first builds a global
+splitting tree, refines all largest blocks together, and only then derives the
+adaptive experiment.  Native formation must reconstruct that partition-level
+certificate; another scalar live-cell rank cannot close the gap.
+
 ## Replay
 
 ```sh
@@ -717,6 +749,7 @@ lake build Pairfield.AdaptiveResidualPositionCycleAdapter
 lake build Pairfield.AdaptiveResidualMinimalSpine
 lake build Pairfield.AdaptiveResidualNodeMinimalSpine
 lake build Pairfield.AdaptiveResidualNodeMinimalDepth
+lake build Pairfield.AdaptiveResidualBinomialBudgetNoGo
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -724,8 +757,8 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,786 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,788 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
 canonical positional carrier, cycle deletion, their exact equality adapter,
-and both minimal-spine theorems.  Emitted warnings are pre-existing linter
-warnings in imported modules.
+both minimal-spine theorems, and the binomial-budget no-go.  Emitted warnings
+are pre-existing linter warnings in imported modules.
