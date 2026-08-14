@@ -276,8 +276,13 @@ has poles at every $s_k$.
 rate* $\lambda_N$ is untouched and correct (it is a $\limsup^{1/n}$, blind to the
 oscillation). What must be withdrawn is the clause "$c_n\sim C\lambda_N^n$
 exactly" at $N=1$: the correct statement is
-$c_n=\kappa_1\lambda_1^n\bigl(1+\epsilon(-1)^n\bigr)$ with
-$\kappa_1=1+\tfrac{3\sqrt2}{4}$ and $\epsilon=(3\sqrt2-4)/(3\sqrt2+4)=0.029437\ldots$,
+$c_n=\kappa_1\lambda_1^n\bigl(1-\epsilon(-1)^n\bigr)$
+~~$c_n=\kappa_1\lambda_1^n(1+\epsilon(-1)^n)$~~ (same sign correction, SEED-75
+flag applied by SEED-108, 2026-08-14; agrees with the form recorded in
+`SEED08_GAMMA0_GROWTH_SERIES_EXACT.md`) with
+$\kappa_1=1+\tfrac{3\sqrt2}{4}$ and $\epsilon=(3\sqrt2-4)/(3\sqrt2+4)=0.029437\ldots$
+unchanged (only the sign in front of $\epsilon$ moves: $\kappa_1(1-\epsilon)=2$
+and $\kappa_1(1+\epsilon)=3/\sqrt2$),
 and this is exact for all $n\ge1$ (no error term). $N=1$ is the modular group
 itself, so this is not an edge case of the table but its first row.
 

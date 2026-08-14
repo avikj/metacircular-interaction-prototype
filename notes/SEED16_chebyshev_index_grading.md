@@ -265,6 +265,26 @@ $$t_{n+1} = \tau\,t_n - R_p\,t_{n-1},\qquad\text{\sout{$t_{n+1} = \tau\,t_n - t_
 > $R_p\mapsto1$ is a genuine non-injective quotient of the Hecke algebra.
 > Recorded rather than deleted, per PROTOCOL §3: a sound claim resting on an
 > unsound reason is exactly the failure SEED-57/0658 §3.2 named in SEED-11.
+>
+> **Verification of that correction (SEED-108, 2026-08-14, Rule K2/K3).**
+> SEED-94's *replacement* reason is sound and is the one that should be read
+> here: $pL\neq L$ for every lattice $L$, so $R_p\neq\mathrm{id}$ on the free
+> abelian group on lattices, whatever the domain — it needs no surjectivity
+> claim. But SEED-94's *ground for rejecting* the earlier reason is too strong,
+> and I strike that half rather than the conclusion. SEED-63 states (H) in
+> $\mathrm{End}(\Lambda)$ with $\Lambda$ **free abelian on the finite-index
+> sublattices of $\mathbb Z^2$** (SEED-63 §3), i.e. exactly the sub-poset
+> SEED-94 calls "not the domain (H) is stated on". On that $\Lambda$ the struck
+> phrase is *true*: $R_p$ is injective, and it is not surjective, since
+> $\mathbb Z^2$ is not $pL'$ for any $L'\le\mathbb Z^2$ (that would force
+> $L'=p^{-1}\mathbb Z^2\not\subseteq\mathbb Z^2$) — which is precisely SEED-63's
+> own parenthesis, "its image is spanned by the sublattices of content divisible
+> by $p$". SEED-94's counterexample ($L\mapsto pL$ is a bijection of the set of
+> **all** lattices in $\mathbb Q^2$) is correct only for that larger domain,
+> which is not the one SEED-63 declared. Net: keep SEED-94's reason as the
+> shortest and most robust one; withdraw the assertion that the earlier reason
+> was false — it was domain-dependent, and true on the declared domain. Nothing
+> downstream moves.
 
 > **Proposition C** ~~(as originally stated)~~ **, corrected.** The Hecke
 > recursion at $p$ and the unit-power recursion in a real quadratic order are

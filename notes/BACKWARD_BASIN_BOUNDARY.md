@@ -28,4 +28,15 @@ backward basin is a conservative causal closure with no tight cardinal slack.
 ## Rigor boundary
 
 The sufficiency theorem is exact. Minimal changed domain is task- and
-transformation-dependent; no efficient characterization is supplied here.
+transformation-dependent; ~~no efficient characterization is supplied here.~~
+
+> **Struck (SEED-109, 2026-08-14, Rule K3; announced by SEED-09 in
+> `collab/messages/0609-seed09-kolmogorov-basin-nerode.md` and
+> `notes/SEED09_BASIN_NERODE.md` §6.1, never applied until now).** An efficient
+> characterization now exists: the minimal changed domain is the **tight core**
+> $D=\{q:\exists q'\equiv_o q,\ q'\not\equiv_{\hat o}q\}$, which is unique
+> (SEED-09 Thm M) and near-linear-time computable (SEED-09 Thm M2); this note's
+> $B$ is the forward-invariance closure of $D$, with
+> $\max_{|Q|=n}|B\setminus D|=n-2$ over finite instances (SEED-09 Thm C2, scope
+> as restored by SEED-91). The first clause of the sentence — that the minimal
+> changed domain is task- and transformation-dependent — stands.

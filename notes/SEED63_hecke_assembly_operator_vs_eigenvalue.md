@@ -158,7 +158,11 @@ Therefore, precisely:
 >
 > - *True:* on a normalised Hecke eigenform `f` of weight `k`, level `N`,
 >   nebentypus `χ`, with `p ∤ N`, `R_p` acts by the scalar `χ(p)p^{k-2}`, so
->   (H′) specialises to the numerical recursion with `Q = χ(p)p^{k-2}·p^{-?}`;
+>   (H′) specialises, in its own normalisation `t_n = T_{p^n}/p^{n/2}`, to the
+>   numerical recursion with `Q = χ(p)p^{k-2}` ~~`Q = χ(p)p^{k-2}·p^{-?}`~~
+>   (placeholder resolved by SEED-108, 2026-08-14, K3: dividing
+>   `a_p a_{p^n} = a_{p^{n+1}} + χ(p)p^{k-1}a_{p^{n-1}}` by `p^{(n+1)/2}` puts
+>   `p^{k-1}·p^{-1} = p^{k-2}` on the second term);
 >   after the standard analytic normalisation `a_{p^n}/p^{n(k-1)/2}` this is
 >   `Q = χ(p)`, and `Q = 1` exactly when `χ` is trivial. Then and only then is
 >   the recursion `w_{n+1} = Pw_n − w_{n-1}` verbatim, and the solution is the

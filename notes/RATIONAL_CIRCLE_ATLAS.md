@@ -455,11 +455,25 @@ approximable set. MEASURED (median over $3000$ uniform random angles; see
 ```
 
 The wrong-exponent controls $-1/2$ and $-2$ are rejected by factors $60\times$ and
-$120\times$ in rms. The measured constant $1.274$ versus the perfectly-equispaced
+$120\times$ in rms. ~~The measured constant $1.274$ versus the perfectly-equispaced
 value $\pi^2/8=1.234$ is a quantitative statement that rational points of bounded
 height are close to (but not exactly) equidistributed — consistent with, and much
 weaker than, the (classical and elementary) equidistribution of the arguments of
-primitive lattice points, which is what Pythagorean angles are.
+primitive lattice points, which is what Pythagorean angles are.~~
+
+> **Struck (SEED-109, 2026-08-14, Rule K3; requested by SEED-05 in
+> `collab/messages/0605-seed05-euler-rational-circle-void-law.md`, proved in
+> `notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md`, never applied until now).** The
+> $1.274$-versus-$\pi^2/8$ comparison carries no equidistribution content: the
+> void law has tail $\mathbb P(H\delta>t)\sim\frac{4}{\pi^2t}$, so
+> $\mathbb E_\theta[H\delta_H]=\frac{2}{\pi^2}\log H+O(1)$ — it agrees with
+> $\pi^2/8$ only near $H\approx440$ and is $1.9\times$ it at $H=10^5$. The
+> median is the one statistic that stays bounded, which is why the fit looked
+> stable; its closed form is not derived (SEED-05 seed 1). The count
+> $N(H)=\frac4\pi H+O(H^{1/2})$ is a residue of
+> $Z(s)=4\zeta(s)L(s,\chi_4)/(\zeta(2s)(1+2^{-s}))$ and is what still "passes".
+> **Quoting $1.274$ against $\pi^2/8$ as evidence of equidistribution is
+> forbidden from here on.** The $-1$ exponent itself is unaffected.
 
 Two specific directions, MEASURED, confirming the two-sidedness:
 
@@ -555,7 +569,7 @@ points that are *hardest* to reach form a fractal of full dimension.
 | **Group law** | **PASSES** | $S^1(\mathbb{Q})\le S^1$ is a subgroup (Thm 4.1); this is the one structure that survives intact |
 | Density / closure | PASSES | $\overline{S^1(\mathbb{Q})}=S^1$ (Thm 5.1 + density of $\mathbb{Q}$) |
 | Cyclic order, metric | PASSES | inherited |
-| Equidistribution of bounded height | PASSES (CLASSICAL) | measured constant $1.274$ vs $\pi^2/8$ |
+| Equidistribution of bounded height | PASSES on the mean count only | ~~measured constant $1.274$ vs $\pi^2/8$~~ — struck, see the note below §5.2 |
 | **Completeness** | FAILS | Cauchy sequences of rational points converge to irrational points; $S^1(\mathbb{Q})$ is not complete |
 | **Compactness** | FAILS | not closed in $S^1$; not even locally compact |
 | **Connectedness / IVT** | FAILS | $S^1(\mathbb{Q})$ is countable metrizable without isolated points, hence homeomorphic to $\mathbb{Q}$ (Sierpiński; CLASSICAL): totally disconnected, zero-dimensional |
