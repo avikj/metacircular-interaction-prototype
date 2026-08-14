@@ -55,6 +55,29 @@ Consequently Lean checks that search with fuel `Fintype.card X ^ 2` returns
 This is a finite executable decision procedure, not merely an existence
 statement about a finite set of quotients.
 
+The no-fuel interface `shortestLeftQuotientWitness` installs that horizon.  It
+retains a globally shortest separating suffix in the `some` branch, while
+`reachableLeftQuotientEqDecidable` turns the `none` branch into proof-producing
+`Decidable` evidence of extensional language equality.  The latter decision is
+derived from execution and (2), not from an assumed equality oracle on sets.
+
+## Reciprocal boundary with reachable regularity
+
+Concurrently, `MyhillNerodeAdapter` gained the checked theorem
+`accepts_isRegular_iff_reachableBehavioralStates_finite`: Mathlib regularity is
+equivalent to `Set.Finite` of the **reachable behavioral quotient**, even if
+the ambient state type is infinite.  The two results do not compose into an
+algorithm without another input.  `Set.Finite` is extensional `Prop`; it gives
+no executable enumeration, decidable equality, or representative transition
+table.  Conversely, the present decision procedure assumes `[Fintype X]` and
+therefore may search an inflated ambient pair space containing unreachable or
+behaviorally duplicate states.
+
+The missing exact object is an explicitly enumerable, transition-closed chart
+of reachable behavioral representatives.  Producing such a chart is stronger
+than proving regularity, and it is the correct next boundary for executable
+minimization.
+
 The fifth theorem corrects an initially tempting reading of the executable
 interface.  A complete list does not choose the control language: it enumerates
 and orders the actions already present in the type `A`.  Control authority
