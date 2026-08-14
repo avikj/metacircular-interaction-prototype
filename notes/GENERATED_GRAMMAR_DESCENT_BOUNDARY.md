@@ -17,18 +17,20 @@ The sole native-`uint32` draw `568223411` selected zero-based index 567
 
 ## Exact checked boundary
 
-The sampled support table has two derivations assigned the same declared
-`q3` semantic observation:
+The sampled control declares two named productions, plants their support
+sets, and assigns them the same `q3` observation label:
 
 ```text
 shared derivation : {quotient, modulus}
 direct derivation : {directRule}
 ```
 
-The Agda module retains that table as `uses`.  After withdrawal of the shared
-`quotient` rule, the shared derivation does not survive and the direct one
-does.  Nevertheless `semantic sharedDerivation ≡ semantic directDerivation`
-is `refl`.  Agda checks both the named fibre split and the descent obstruction:
+The Agda module retains that planted table as `uses`; it does not carry a
+parser, derivation tree, or provenance certificate.  After withdrawal of the
+shared `quotient` rule, the shared production does not survive and the direct
+one does.  Nevertheless
+`semantic sharedDerivation ≡ semantic directDerivation` is `refl`.  Agda
+checks both the named fibre split and the descent obstruction:
 
 ```text
 semantic-fiber-splits-withdrawal :

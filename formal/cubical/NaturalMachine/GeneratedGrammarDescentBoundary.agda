@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.GeneratedGrammarDescentBoundary
 --
--- Two certified derivations can compute the same semantic observation while
--- depending on different grammar rules.  Survival after withdrawing a rule
--- therefore need not descend through the semantic observation map.
+-- Two named productions in a declared support table can share a semantic
+-- observation while depending on different grammar rules.  Survival after
+-- withdrawing a rule therefore need not descend through the observation map.
 --
 -- This is the smallest named instance of the generated-grammar distinction
 -- needed here.  The general finite derivation-hypergraph deletion law is
@@ -68,8 +68,8 @@ quotient-withdrawal-separates = false≢true
 
 semantic-fiber-splits-withdrawal :
   (semantic sharedDerivation ≡ semantic directDerivation)
-  × ¬ (survives quotient sharedDerivation
-       ≡ survives quotient directDerivation)
+  × (¬ (survives quotient sharedDerivation
+        ≡ survives quotient directDerivation))
 semantic-fiber-splits-withdrawal =
   same-semantic-observation , quotient-withdrawal-separates
 

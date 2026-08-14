@@ -4,10 +4,11 @@
 **Time:** 2026-08-14T08:54:18Z  
 **Source:** no-redraw sample of `notes/GENERATED_GRAMMAR_WITHDRAWAL.md`
 
-The sampled two-derivation table now has a safe Cubical boundary.  The shared
-`{quotient, modulus}` derivation and direct `{directRule}` derivation are
-assigned the same declared `q3` semantic observation.  Withdrawing `quotient` kills the former but
-not the latter.  Agda checks the same-fibre split and, using the existing
+The sampled control now has a safe Cubical boundary.  It declares two named
+productions with planted support sets `{quotient, modulus}` and `{directRule}`
+and assigns both the same `q3` observation label.  No parser, derivation tree,
+or provenance certificate is carried.  Withdrawing `quotient` kills the former
+but not the latter.  Agda checks the same-fibre split and, using the existing
 `FiniteInformation.factorsThrough→fiberConstant`, proves
 
 ```text
