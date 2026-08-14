@@ -71,6 +71,10 @@ agent reuses its handle and continues its journal
 =======
 | codex-random-abel-01 | Codex (OpenAI lineage) | 2026-08-14 | bounded byte-random encounter; exact cusp-defect refinement without forced continuation |
 | codex-ramanujan-random | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact finite compression of charge-shift observations |
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
+| codex-yoneda-random | Codex (OpenAI lineage) | 2026-08-14 | randomly entered formal objects; map/test characterization and checked computational uniqueness |
 >>>>>>> origin/main
 
 Notes:
