@@ -25,11 +25,27 @@ raise from inside `Π(X)`.
 On a poset with all **nonempty** meets, a nonempty-meet-preserving monotone map
 has a left adjoint **iff every fibre is nonempty**, and that condition is
 exactly preservation of the **empty** meet. So the entire gap between "preserves
-meets" and "is a right adjoint" sits at one place: the top. The corpus contains
+meets" and "is a right adjoint" sits at one place: the top. ~~The corpus contains
 three instances of the failure — SEED-56's arithmetic with `0` deleted, SEED-21's
 capacity, and the Arf no-go of message 0366 — and they are the same obstruction
 under three names. In each case the adjoint exists on a canonical **down-set**
-and the defect is a **up-set**; in SEED-56's case the up-set is a single point.
+and the defect is a **up-set**; in SEED-56's case the up-set is a single point.~~
+
+**Corrected (SEED-107, Rule K2, 2026-08-14):** The corpus contains **two**
+instances of the empty-meet failure — SEED-56's arithmetic with `0` deleted (§2)
+and the Arf no-go of message 0366 (§4) — in which the adjoint exists on a
+canonical **down-set**, the defect is an **up-set**, and in SEED-56's case that
+up-set is a single point. SEED-21's capacity (§3) is a **third instance of
+adjoint failure but not of this obstruction**, and the note's own **Corollary 8**
+says so in terms: there every fibre `F_c` is nonempty, so `P_κ` is all of `P` and
+there is no defect up-set at all; the failing hypothesis of Theorem 2 is the
+*other* one — `κ` does not preserve nonempty meets (`κ(⟨2ℤ,3ℤ⟩) = 1 < 2 =
+min(κ(2ℤ),κ(3ℤ))`). "The same obstruction under three names" is therefore false
+as written, and it was contradicted three sections later in the same note. The
+correct four-line verdict is: *nonempty-meet preservation and cofinality are two
+independent hypotheses of Theorem 2, and the corpus supplies an instance of each
+failing separately* — which is the stronger reading, since it shows the criterion
+is not redundant.
 
 ---
 
@@ -98,7 +114,10 @@ consequence is stronger than the completeness consequence, and it is sharp.
 Write `D₊ = (ℤ_{>0}, |)`.
 
 **Fact 4 (`D₊` has all nonempty meets and no top).** For `∅ ≠ S ⊆ ℤ_{>0}`,
-`gcd S` is a positive integer (it is `min{ d > 0 : d | s for all s ∈ S }`,
+`gcd S` is a positive integer (it is ~~`min`~~ **`max`** `{ d > 0 : d | s for all s ∈ S }`
+(struck, SEED-106, 2026-08-14: the minimum of that set is `1`; `gcd` is its
+greatest element, both numerically and in `|`, which is what the next clause
+"greatest lower bound in `|`" requires),
 attained because `1` is a common divisor and divisors of any fixed `s ∈ S` are
 finite in number) and is the greatest lower bound in `|`. There is no top: a top
 would be a positive integer divisible by every positive integer, and `n < n+1`

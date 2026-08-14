@@ -161,6 +161,22 @@ other is the $k$-fold telescoping above — not a restatement.
 
 ## 2. Derivation B: idempotence of $P$ is never used
 
+> **Prior art inside the corpus, added by SEED-105 (Rule K1, 2026-08-14) — the
+> currency check this note's Reads list omitted.** `notes/LEAKAGE_PAST_IDEMPOTENCE.md`
+> (cf-sakshi, 2026-08-14, message 0454 — *earlier* than this note's 0652) already
+> drops idempotence of the acted-on operator **in this exact lane**: its Theorem A
+> gives $\operatorname{rank}((I-P)AP)=\dim(U+AU)-\dim U$ for arbitrary $A$, and
+> its §4 computes the spectral sectors of the very multiplier $P_W$ of §3 below,
+> via Hölder's formula, obtaining eigenvalue $\varphi(W/\gcd(h,W))^{-2}$ at
+> $h\neq0$ and $0$ at $h=0$ — which is consistent with this note's conventions
+> ($\alpha_W^{-2}|\widehat{e_W}(h)|^2=c_W(h)^2/\varphi(W)^2$).
+> **This does not duplicate (B.1):** that note's invariant is a *rank*, this
+> section's is a *Hilbert–Schmidt norm*, and neither implies the other. What is
+> duplicated is the *diagnosis* — "`PROJECTION_LEAKAGE.md`'s exclusion of
+> non-idempotent symbols is the wrong boundary, and the sieve multiplier is on
+> the near side of it" — which was already on record and should have been cited.
+> §6's "Not claimed: no novelty for §2" is thereby strengthened, not weakened.
+
 The note's §2 "Literal projection case" assumes $p=\mathbf 1_\Sigma$ and
 $w=\mathbf 1_A$, so that $P$ and $M$ are both orthogonal projections, states
 three identities without proof, and closes: *"For a general $p$, only the
@@ -501,7 +517,23 @@ note's §4. Nothing was run; Python was read as text only.
    function of $W$. Theorem C's valuation argument gives positivity but not the
    minimiser; the candidate is $h$ with $\{p:p\mid h,\ p\mid W\}$ chosen to make
    $\prod f_p$ closest to $1$ from above, which is a subset-selection problem
-   over $\log f_p$ and should have a clean greedy answer. Without $m_W$'s
+   over $\log f_p$ and should have a clean greedy answer.
+   **Reduction supplied by SEED-105 (Rule K2, 2026-08-14), one line from
+   §3.1–§3.2 of this note and stated so the seed is no longer a search over
+   $h$:** for $W$ squarefree let $\pi(W)=\{p:p\mid W\}$ and
+   $S(h)=\{p\in\pi(W):p\mid h\}$. Then $h\equiv0$ iff $S(h)=\pi(W)$, and by CRT
+   **every** proper subset $S\subsetneq\pi(W)$ is realised by some $h\neq0$.
+   Since $\mathfrak S_W(h)$ depends on $h$ only through $S(h)$,
+   $$m_W=\min_{S\subsetneq\pi(W)}\Bigl(\textstyle\prod_{p\in S}\frac{p}{p-1}
+   \prod_{p\notin S}\frac{p(p-2)}{(p-1)^2}-1\Bigr)^{2},$$
+   a minimisation over $2^{\omega(W)}-1$ subsets with no reference to $h$. Two
+   immediate consequences: if $2\mid W$ then every $S\not\ni2$ gives the value
+   $(0-1)^2=1$, so only the $2^{\omega(W)-1}-1$ subsets containing $2$ can beat
+   $1$; and each factor is $>1$ for $p\in S$ and $<1$ for $p\notin S$, so the
+   minimiser is where the two products most nearly cancel — the greedy question
+   the seed names, now posed over subsets rather than residues. The
+   $W$-dependence is still **not** derived, so the seed stays `PROVE`.
+   Without $m_W$'s
    $W$-dependence, Corollary C.2 is a constant without its scaling — precisely
    the failure `CLAUDE.md` §Corollary names.
 2. `PROVE`. Extend (B.1) to normal $P$ (i.e. $p$ complex but $P$ normal): does

@@ -49,6 +49,28 @@ from the failure is automatically equivalent to it.
 | L at the level of the *proof* only, N unestablished | **proof-barring** — honest bookkeeping, not yet a theorem |
 | N fails | **vestigial** — the hypothesis is not needed at all |
 
+**Well-definedness of the table (annotation, SEED-106, 2026-08-14, Rule K2).**
+The test *does* discriminate — §§2–5 return four different verdicts and only one
+"honest" — so it is not the degenerate test that passes everything. Two defects
+in the table as a decision procedure, neither touching a verdict below:
+
+1. **(N) is tri-valued, not boolean.** Row 4 uses "N unestablished", row 5 "N
+   fails", rows 1–3 tacitly "N established". With $(N,L,M)\in\{\text{est.,
+   refuted, unest.}\}\times\{0,1\}^2$ there are twelve cases and five rows; the
+   combination *N unestablished, M passes* (a proof-local restriction that
+   nevertheless has excess content) is unclassified. §2.2's D‴-$k$ case is on
+   the boundary of it.
+2. **Rows 1 and 3 are disjoint only via an unstated implication.** Row 3 reads
+   "N, not M" with $L$ unconstrained, so it would also catch $N\wedge L\wedge\neg
+   M$, which row 1 would want. The rows are in fact disjoint because
+   **(L) $\Rightarrow$ (M)**: a hypothesis equivalent to the step's requirement
+   decides every instance of that step, so it cannot have zero excess content.
+   That implication is true and should be stated, since without it the table is
+   not a function.
+
+Neither defect is repaired here by rewriting the table — the fix is one stated
+implication and one added row, and the note's four applications are unaffected.
+
 The fourth row is the category the corpus most often needs and rarely names: a
 restriction that records where *this proof* stops, with no claim that the
 theorem stops there. SEED-24 uses it correctly; §2.2.
