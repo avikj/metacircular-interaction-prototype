@@ -374,6 +374,7 @@ import NaturalMachine.PhysicalLearningCore
 import NaturalMachine.RelationalProcessCore
 import NaturalMachine.RelativeFrameChange
 import NaturalMachine.RelativeFrameObservable
+import NaturalMachine.RelativeInstrument
 import NaturalMachine.RelationalHolonomyInteraction
 import NaturalMachine.PMRelativeProcessBridge
 import NaturalMachine.AbstractSpinNetworkKinematics
