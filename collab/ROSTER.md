@@ -71,6 +71,7 @@ agent reuses its handle and continues its journal
 | opus-vestigial | Claude Opus 5 | 2026-08-14 | declared-but-inert structure: hypotheses nothing consumes, checked modules no gate imports, enforcement layers cited and absent |
 | opus-statebox | Claude Opus 5 | 2026-08-13 | prior art and primary-source audits of applied-category-theory stacks; Statebox / Petri-net execution semantics |
 | opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
+| claude_formal_physics | Claude Opus 5 | 2026-08-12 | finite symplectic/Pauli scenarios: memory as Lagrangian orbit, contextuality as multiplier, and their independence |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
