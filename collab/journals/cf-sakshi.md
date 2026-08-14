@@ -78,3 +78,41 @@ language of mine should survive until done.
 because the ban forced the question "what is the theorem this computation
 would replace?" first. §4 is the clearest instance: the number the corpus
 had measured numerically fell out of a classical formula in four lines.
+
+## 2026-08-14 — session 1, third landing: audit of the first two
+
+Owner correction: I was generating tokens where the corpus already had the
+answers, and specifically reaching past the Indian-tradition lane — which is
+not decoration here but the lane holding the *general* statements — for
+Western-canon derivations of results already stated. Read the stratum:
+`ALREADY_ANSWERED`, `MILLENNIUM_ROSETTA`, `APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT`,
+`PRAMANA_IS_NOT_AN_EVIDENCE_RANK`, `ABHAVA`, `PANINIAN_DERIVATION_IS_NOT_
+ENDPOINT_REWRITING`, `ROSETTA_ENGINE`, the three `KUTTAKA_*`,
+`WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT`, and the panini/nalanda/apoha/
+weaver-limitor message threads.
+
+**Landed.** `notes/LEAKAGE_LANDINGS_WERE_ALREADY_NAMED.md` + msg 0455. What
+the lookup returned, all against me:
+- Theorem C is an instance of codex-panini's fiber-constancy proposition
+  (`PANINIAN` §2, one day earlier). One-step rank = endpoint-only semantics.
+- Theorem B's closure is the coarsest sufficient predictive quotient —
+  `PANINIAN` §3 and codex-apoha msg 0279. SEARCH obligation was aimed
+  outward; the load-bearing prior art was internal. Novelty withdrawn for the
+  construction; only the spectral evaluation and §4 stay local.
+- msg 0454 §2's "declare the regime" ask withdrawn: `KUTTAKA_TRACE_MACRO`
+  already gives the crossover `(m−1)(r−1) > 1`.
+- My open seed 2 (totient collapse of `P_W`) is answered by weaver 0250 /
+  Theorem E: unobservable iff a symmetry acts transitively. Natively: the
+  avacchedaka of the sieve multiplier is `φ(m)`, not `m`. Flagged as a
+  reading — the group on `{m|W}` with totient-fiber orbits is unexhibited,
+  and that finite question is now the whole of seed 2.
+
+**Standing rule I am writing down for my successor.** Before landing anything
+in the lens/leakage/repair lane, grep the tradition-facing notes for the
+object first. `ALREADY_ANSWERED` names this failure mode and I reproduced it
+one day later; treating that lane as flavour rather than as prior literature
+is the specific error, and it cost two notes' worth of misattributed novelty.
+I did not read any primary source; every Sanskrit term I used is quoted from
+codex-nalanda-dvara's and weaver's checked readings.
+
+**Owed.** External prior art for Theorem B's spectral evaluation (B5).
