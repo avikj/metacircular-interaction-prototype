@@ -54,50 +54,57 @@ SEED-21, and closes a successor seed of SEED-21 with it.
 Everything below lives in one structure.
 
 > **Definition 1 (a checked torsor with an experiment alphabet).** A tuple
-> $(G,X,c,S)$ where $G$ is a group acting simply transitively on a set $X$
-> (written on the left), $c:X\to\Sigma$ is a *check* (any function), and
-> $S\subseteq G$ is a generating set closed under the operations the
-> experimenter can actually perform.
+> $(G,X,c,S)$ where $G$ acts simply transitively **on the right** of $X$
+> (write $x\cdot g$), $c:X\to\Sigma$ is a *check* (any function), and
+> $S\subseteq G$ generates $G$ as a monoid.
 
-Two derived objects.
+**Handedness is the whole subtlety of this section, and is fixed here once.** A
+right torsor carries a second, commuting action: its automorphism group
+$\Phi=\mathrm{Aut}_G(X)$ of $G$-equivariant bijections. Choosing a base point
+identifies $X\cong G$, the given action with right multiplication, and $\Phi$
+with $G$ acting by **left** multiplication. The two commute; the first is what
+the *check* is blind to, the second is what the *experimenter* applies.
+Conflating them is the error these definitions exist to prevent.
 
 > **Definition 2 (blindness subgroup).**
-> $$N(c)\;=\;\{n\in G:\ c(n\cdot x)=c(x)\ \text{for all }x\in X\}.$$
-> This is the stabiliser of $c\in\Sigma^X$ under the $G$-action
-> $(g\cdot c)(x)=c(g^{-1}x)$, hence a subgroup. Write $q(c)=[G:N(c)]$.
+> $$N(c)\;=\;\{n\in G:\ c(x\cdot n)=c(x)\ \text{for all }x\in X\}.$$
+> A subgroup: the stabiliser of $c\in\Sigma^X$ under the right-translation
+> action of $G$ on $\Sigma^X$. Write $q(c)=[G:N(c)]$.
 
 > **Definition 3 (completion).**
-> $c^{*}:X\to\Sigma^{G}$, $c^{*}(x)=\bigl(g\mapsto c(g\cdot x)\bigr)$: the
-> record of the check's value on *every* translate of the object.
+> $c^{*}:X\to\Sigma^{\Phi}$, $c^{*}(x)=\bigl(\varphi\mapsto c(\varphi x)\bigr)$:
+> the value of the check on the object *and on every equivariant re-basing of
+> it*.
 
 These three notes each compute $N(c)$; they differ in whether they then use $c$
 or $c^{*}$, and that difference is where SEED-16's index and SEED-21's capacity
 part company (§4.2).
 
 > **Theorem 1 (the completion has index-many fibers).**
-> $c^{*}(x)=c^{*}(y)\iff y\in N(c)\cdot x$. Hence $c^{*}$ has exactly $q(c)$
+> $c^{*}(x)=c^{*}(y)\iff y\in x\cdot N(c)$. Hence $c^{*}$ has exactly $q(c)$
 > fibers, its confusability graph is a disjoint union of $q(c)$ cliques, and by
 > SEED-21 Theorem 1 its zero-error capacity is
 > $$\Theta = \vartheta = \alpha = q(c),\qquad \text{capacity}=\log_2[G:N(c)]
 > \ \text{bits per use, exactly.}$$
 
-*Proof.* Fix $x$ and let $y=h\cdot x$ (possible, uniquely, by simple
-transitivity). $c^{*}(x)=c^{*}(y)$ says $c(g\cdot x)=c(gh\cdot x)$ for all
-$g\in G$. As $g$ ranges over $G$, $z=g\cdot x$ ranges over all of $X$ and
-$gh\cdot x = (ghg^{-1})\cdot z$; substituting $g=1$ first and then noting that
-the condition is equivalent to $c(z)=c(h\cdot z)$ for all $z$ — take $g$ with
-$g\cdot x=z$, then $c(z)=c(gh g^{-1}\cdot z)$, and letting $g$ range shows the
-condition is exactly the $h$-invariance $c\circ h=c$ — we get
-$h\in N(c)$. Conversely $h\in N(c)$ gives $c(g\cdot h\cdot x)=c(g\cdot x)$
-because $N(c)$ is normalised by nothing in particular but $c\circ h = c$ is used
-after moving $h$ to the front: $c(gh\cdot x)=c(g\cdot(h\cdot x))$ and
-$h\cdot x$ and $x$ have the same $c$-value under every translate since
-$c\circ h=c$ as functions on $X$. The fibers are therefore the orbits
-$N(c)\cdot x$, of which there are $[G:N(c)]$. The rest is SEED-21 Theorem 1(2,4)
-applied to the function $c^{*}$, whose fibers are these orbits. $\square$
+*Proof.* Identify $X=G$ as above, so each $\varphi\in\Phi$ is $z\mapsto gz$ for a
+unique $g\in G$, and $c^{*}(x)=c^{*}(y)$ reads
+$$c(gx)=c(gy)\quad\text{for all }g\in G. \tag{$\dagger$}$$
+($\Leftarrow$) If $y=xn$ with $n\in N(c)$ then $c(gy)=c((gx)\cdot n)=c(gx)$ for
+every $g$, by Definition 2 applied at the point $gx$; so $(\dagger)$ holds.
+($\Rightarrow$) Assume $(\dagger)$ and put $n:=x^{-1}y$. For arbitrary $z\in G$
+take $g:=zx^{-1}$; then $gx=z$ and $gy=zx^{-1}y=zn$, so $(\dagger)$ gives
+$c(z)=c(z\cdot n)$. As $z$ was arbitrary, $n\in N(c)$ and $y=xn\in xN(c)$.
+**No normality is used or needed:** the blindness is on the right, the
+completion translates on the left, and the two actions commute. The fibers are
+the cosets $xN(c)$, of which there are $[G:N(c)]$; the rest is SEED-21
+Theorem 1(2,4) applied to $c^{*}$. $\square$
 
-*(Handedness matters and is fixed once: $N(c)$ is a left-invariance group, the
-fibers are right cosets $Nx$, and the count is the index either way.)*
+**Remark (the trap).** Had blindness and completion been taken on the *same*
+side, the ($\Leftarrow$) direction would have required $gng^{-1}\in N(c)$, i.e.
+$N(c)\trianglelefteq G$ — which fails for SEED-21's $N_L,N_R$ inside
+$\mathrm{Stab}^2(D)$. The two-sided convention is not bookkeeping; it is what
+makes Theorem 1 true for non-normal blindness.
 
 **SEED-21 is the case $c=c^{*}$.** Its Theorem 2 hypothesis —
 "$c(x)=c(y)\iff y=x\cdot n$ for some $n\in N$" — says exactly that $c$ already
