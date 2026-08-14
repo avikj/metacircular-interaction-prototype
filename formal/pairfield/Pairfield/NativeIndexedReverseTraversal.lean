@@ -888,6 +888,39 @@ theorem advanceQueue_remaining_covers (inventory : List (ReverseEdge M))
   simp only [advanceQueue, List.map_append, List.mem_append, List.mem_map]
   exact Or.inr ⟨node, hnode, heq.symm⟩
 
+theorem frontier_state_not_mem_closed (queue : IndexedQueue M)
+    (hnodup : queue.states.Nodup)
+    {node : ReachNode (ReverseEdge M) (SourceState X)}
+    (hnode : node ∈ queue.frontier) :
+    node.state ∉ queue.closed.map ReachNode.state := by
+  change ((queue.closed ++ queue.frontier).map ReachNode.state).Nodup at hnodup
+  rw [List.map_append, List.nodup_append'] at hnodup
+  rw [List.disjoint_left] at hnodup
+  intro hclosed
+  exact hnodup.2.2 (List.mem_map.mpr ⟨node, hnode, rfl⟩) hclosed
+
+theorem advanceQueue_closed_expanded (inventory : List (ReverseEdge M))
+    (queue : IndexedQueue M) (hclosed : queue.ClosedExpanded M inventory)
+    (hcover : queue.RemainingCovers M inventory)
+    (hsound : IndexSound M queue.remaining)
+    (hkeys : IndexKeysNodup M queue.remaining)
+    (hnodup : queue.states.Nodup) :
+    (advanceQueue M queue).ClosedExpanded M inventory := by
+  intro node hnode edge hedge hsource
+  change node ∈ queue.closed ++ queue.frontier at hnode
+  rcases List.mem_append.mp hnode with hold | hfrontier
+  · exact advanceQueue_states_mono M queue
+      (hclosed node hold edge hedge hsource)
+  · have hnotClosed :=
+      frontier_state_not_mem_closed M queue hnodup hfrontier
+    have hedgeRemaining := hcover edge hedge (fun hsourceClosed =>
+      hnotClosed (hsource ▸ hsourceClosed))
+    obtain ⟨candidate, hcandidate, htarget⟩ :=
+      consumeFrontier_covers_edge M queue.frontier queue.remaining
+        hsound hkeys hedgeRemaining ⟨node, hfrontier, hsource⟩
+    rw [← htarget]
+    exact advanceQueue_candidate_state M queue hcandidate
+
 theorem advanceQueue_nodes_valid (queue : IndexedQueue M)
     (hvalid : ∀ node ∈ queue.nodes, node.Valid (indexedEdgeDFA M)) :
     ∀ node ∈ (advanceQueue M queue).nodes,

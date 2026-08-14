@@ -627,6 +627,10 @@ or a direct edge-margin theorem.
   [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md);
   the additive-packet inverse boundary is
   [`fixed-prime-packet-rigidity.md`](fixed-prime-packet-rigidity.md);
+  the two-sided packet typing and continuation obstruction is
+  [`packet-two-sided-middle.md`](packet-two-sided-middle.md), and the
+  scale-natural `mu*log` coherence audit is
+  [`lambda-cross-scale-coherence.md`](lambda-cross-scale-coherence.md);
   the
   arithmetic coherence audit is
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the

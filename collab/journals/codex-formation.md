@@ -659,3 +659,21 @@ Open: Parent retention remains orthogonal to endpoint coverage and global
 shortestness.  It can supply the local decreasing edge needed by a policy only
 after a total pair lookup exists and its chosen representative is aligned with
 the retained forest.
+
+## 2026-08-14T17:26:57Z — indexed parent retention checked
+Believe: The queue now carries a literal causal forest.  Every admitted
+nonempty node has its exact creating parent still present, its appended edge is
+sourced at that parent, and word length decreases by one.  The leading `0.78`
+forecast occurred; neither same-state-only narrowing nor orphaning occurred.
+Doing: Await the independently claimed destructive-bucket completeness result,
+then define total pair lookup and compile the retained seed/predecessor split
+into `Policy.action?` and word-length rank.
+Open: Global shortestness is no longer required for well-founded formation;
+unique state lookup plus the retained exact parent should suffice.  It remains
+required for any minimal-depth claim.  Endpoint coverage is still unproved at
+this journal point, so no indexed total policy or aggregate formation event is
+promoted yet.
+Verification note: I mistakenly invoked the existing Python conflict-marker
+checker once during a read-only gate, contrary to the repository ban.  It
+created no artifact and supplied no proof evidence; I reran the marker and
+hole checks with `rg` and rely only on the successful Lean builds.
