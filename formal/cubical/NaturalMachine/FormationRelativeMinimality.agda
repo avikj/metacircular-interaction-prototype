@@ -20,13 +20,13 @@ module NaturalMachine.FormationRelativeMinimality where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
-  using (Bool ; false ; true ; true≢false)
+  using (Bool ; false ; true ; true≢false ; _≟_)
 open import Cubical.Data.Empty as Empty using (⊥ ; rec)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma
   using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt)
-open import Cubical.Relation.Nullary using (¬_)
+open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
 private
   variable
@@ -83,6 +83,40 @@ module AtPoint
     → ¬ FormedCounterexampleAt x
   formed-sufficient→no-counterexample x sufficient witness =
     counterexample→not-sufficient x witness sufficient
+
+  -- The exact constructive repair for a searchable formed fibre.  Negative
+  -- separator search becomes positive sufficiency only because equality of
+  -- task values is itself decidable; chart equality is supplied as a premise
+  -- and never needs to be decided.
+  no-counterexample→formed-sufficient :
+      (x : X)
+    → ((y : X) → Dec (value y ≡ value x))
+    → ¬ FormedCounterexampleAt x
+    → FormedSufficientAt x
+  no-counterexample→formed-sufficient x decide-value no-counterexample
+      y formed same-chart
+    with decide-value y
+  ... | yes same-value = same-value
+  ... | no different-value =
+    Empty.rec
+      (no-counterexample
+        (y , (formed , (same-chart , different-value))))
+
+  searchable-insufficiency→counterexample :
+      (x : X)
+    → ((y : X) → Dec (value y ≡ value x))
+    → Dec (FormedCounterexampleAt x)
+    → ¬ FormedSufficientAt x
+    → FormedCounterexampleAt x
+  searchable-insufficiency→counterexample
+      x decide-value (yes counterexample) not-sufficient =
+    counterexample
+  searchable-insufficiency→counterexample
+      x decide-value (no no-counterexample) not-sufficient =
+    Empty.rec
+      (not-sufficient
+        (no-counterexample→formed-sufficient
+          x decide-value no-counterexample))
 
 ------------------------------------------------------------------------
 -- 2. A chain of charts: ambient next-depth sufficiency plus an explicit
@@ -270,3 +304,32 @@ singleton-depth-zero-sufficient :
   SingletonControl.FormedSufficientAt zero false
 singleton-depth-zero-sufficient false formed same-chart = refl
 singleton-depth-zero-sufficient true formed same-chart = Empty.rec formed
+
+-- Searchable repair control: the two-state formed fibre exposes the witness
+-- through the exact interface.  The decision procedure is supplied data; the
+-- theorem does not infer it from the carrier's name.
+module AllAtDepthZero =
+  AtPoint AllFormed (controlChart zero) controlValue
+
+bool-value-decidable-at-false :
+  (y : Bool) → Dec (controlValue y ≡ controlValue false)
+bool-value-decidable-at-false y = y ≟ false
+
+all-at-zero-counterexample :
+  AllAtDepthZero.FormedCounterexampleAt false
+all-at-zero-counterexample =
+  true , (tt , (refl , true≢false))
+
+all-at-zero-insufficient :
+  ¬ AllAtDepthZero.FormedSufficientAt false
+all-at-zero-insufficient sufficient =
+  true≢false (sufficient true tt refl)
+
+search-recovers-all-at-zero-counterexample :
+  AllAtDepthZero.FormedCounterexampleAt false
+search-recovers-all-at-zero-counterexample =
+  AllAtDepthZero.searchable-insufficiency→counterexample
+    false
+    bool-value-decidable-at-false
+    (yes all-at-zero-counterexample)
+    all-at-zero-insufficient
