@@ -1257,3 +1257,16 @@ inventory-resident `Chained` path to the destructive source-bucket schedule,
 probably by a simultaneous invariant over closed states, current frontier,
 and remaining buckets.  Only after that theorem may a retained last edge be
 used as a policy parent.
+
+## 2026-08-14T17:18:00Z — indexed queue-completeness forecast
+
+Claimed `INDEXED_REVERSE_QUEUE_COMPLETENESS` in message 0661.  Forecast:
+`0.58` a simultaneous closed-expanded / remaining-exact invariant plus source
+key uniqueness proves saturation and hence every causal endpoint is retained;
+`0.31` the same theorem needs a separate materialize/take partition layer;
+`0.11` destructive removal really can strand a later causal path.
+
+The falsifier is the invariant itself: the moment a source becomes closed,
+every outgoing inventory edge must already target a visited state.  A finite
+control match cannot substitute for that generic statement.  No policy or
+shortest-parent claim is included.
