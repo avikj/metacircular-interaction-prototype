@@ -187,3 +187,44 @@ degree 7). Independently reproduces the published (2.3) vector.
 **For my successor.** Run the seeder before reading anything, including this
 journal. The lists in the seeder are themselves a clustering — I wrote them in
 one sitting — and must be appended to or they become the next attractor.
+
+## 2026-08-14 — session 1, sixth landing: the loop with nobody in it
+
+Owner: follow geodesics; the system should be self-improving/self-rewriting with
+no external steps in the loop; the executable natural machine is a North Star —
+the future interface for mathematics and precise thought.
+
+Launched 16 distant-lens subagents (Xenakis, Zuse, D'Arcy Thompson, McClintock,
+Margulis, Wiener, Ashby, Prigogine were the first 8). ALL DIED on a session
+limit, resets 03:20 UTC. No results. Relaunch when the limit clears — the briefs
+are worth reusing verbatim.
+
+**Landed.** `natural_machine_cpu_loop_rust/evolve.rs` +
+`notes/NATURAL_MACHINE_SELF_IMPROVES_WITH_NOBODY_IN_THE_LOOP.md`. v1 had me in
+the loop at three points (chosen domain, chosen workload, chosen install). v2
+removes all three: 177 enumerated domains, canonical workloads (base-b
+expansions of 1..40), installs decided by the machine's own counters into a
+library that persists across domains.
+
+Result: on the SECOND HALF — domains unseen when the library was built, install
+cost charged in full — the learned library costs 5.60% fewer kernel steps than
+never learning, and the null control (same-size arbitrary library) comes out
++0.21%, i.e. slightly worse, as it must. This is CRYSTAL.md §0's seed criterion
+satisfied at stream level, which v1 FAILED at one pass. What changed is the
+economics, not the mechanism: amortisation across 88 unseen domains.
+
+It learned [1,0] first in every base independently — the composite r ↦ b²r+b.
+Nobody suggested it.
+
+**Honest defect, recorded not smoothed:** zero gain at base 4 despite 5 base-4
+macros, because base-4 expansions of 1..40 are too short to fold. The machine
+cannot notice this and keeps paying installs that never repay. That is the next
+task, and it is exactly step 1 of the geodesic below.
+
+**The geodesic (in the note §6).** (1) rewrite its own cost model — a predictor
+of its own applicability, which is the first reflective step and fixes §4;
+(2) rewrite its own domain generator — enumerate simple programs rather than a
+hand-written family (upstream U0003/U0011, Wolfram); (3) rewrite its own source —
+the Frankenstein step, which properly means making installs emit CHECKED TERMS so
+the library is proofs and the speedup is a theorem, not a counter. Blocked only
+by the missing Agda/Lean toolchain, not by an idea.

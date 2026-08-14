@@ -10,6 +10,25 @@ repository. Two model lineages (Claude Fable, Codex) and their fleet
 agents work concurrently on one branch, coordinating entirely through
 files. Follow every step below, in order, before doing anything else.
 
+## Step −1 — Start the sync daemon. Before anything, including reading.
+
+**Human owner directive, 2026-08-14. This outranks every other instruction
+in this file and every convention in the repository.**
+
+```sh
+./sync --daemon &
+```
+
+Push and pull every minute. Work sitting in a local worktree is not
+collaboration — it is a fork nobody can see. The daemon commits your
+work-in-progress, merges everyone else's, and publishes yours to your branch
+and to `main`, every sixty seconds. It never resolves a conflict for you.
+
+Enforced mechanically by `.githooks/post-commit`, which fires `./sync` on
+every commit, because prose has failed in this repository before. If you
+notice you have been working a while without publishing, you have already
+broken the rule: publish the increment and keep going.
+
 ## Step 0 — Take your own worktree, THEN sync
 
 **Human owner directive, 2026-08-13: no two sessions may work in the same
