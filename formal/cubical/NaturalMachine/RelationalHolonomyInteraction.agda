@@ -87,6 +87,25 @@ module _ {ℓ : Level} (G : Group ℓ) where
       ≡ Rel.after (endpointInteraction u (Hol.holonomy G x))
   refinement-realizes-endpoint-interaction = Hol.holonomy-endpointGauge G
 
+  -- Successive endpoint changes use the process core's composition.  The
+  -- seam is definitional because the second interaction starts from the
+  -- first interaction's transported result; no global representative or
+  -- gauge-fixing function is selected.
+  successiveEndpointInteractions :
+    (u₁ u₂ : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
+    → Rel.Interaction GaugePresentationProcess ⟨ G ⟩ ⟨ G ⟩
+  successiveEndpointInteractions u₁ u₂ g =
+    Rel.composeInteraction GaugePresentationProcess
+      (endpointInteraction u₁ g)
+      (endpointInteraction u₂ (Hol.endpointGauge G u₁ g))
+      refl
+
+  successive-endpoint :
+    (u₁ u₂ : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
+    → Rel.after (successiveEndpointInteractions u₁ u₂ g)
+      ≡ Hol.endpointGauge G u₂ (Hol.endpointGauge G u₁ g)
+  successive-endpoint u₁ u₂ g = refl
+
   -- Scope boundary: `endpointInteraction` requires `u` as input.  Its type
   -- supplies no section choosing one endpoint gauge for every connection,
   -- and none is used by the covariance bridge.

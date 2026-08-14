@@ -23,6 +23,8 @@
 module NaturalMachine.RelationalProcessCore where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.GroupoidLaws using (assoc ; lUnit ; rUnit)
+open import Cubical.Foundations.Transport using (substComposite)
 open import Cubical.Data.Bool
   using (Bool ; true ; false ; notEq ; true≢false ; isSetBool)
 open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
@@ -71,6 +73,90 @@ path   (follow P p x) = p
 before (follow P p x) = x
 after  (follow P p x) = subst (Fact P) p x
 lawful (follow P p x) = refl
+
+------------------------------------------------------------------------
+-- Path groupoid and compositional interaction semantics
+------------------------------------------------------------------------
+
+ProcessArrow : (P : RelativeProcess { ℓ} { ℓ'})
+             → Locus P → Locus P → Type ℓ
+ProcessArrow P source target = source ≡ target
+
+identityArrow : (P : RelativeProcess { ℓ} { ℓ'}) {o : Locus P}
+              → ProcessArrow P o o
+identityArrow P = refl
+
+composeArrow : (P : RelativeProcess { ℓ} { ℓ'})
+             {a b c : Locus P}
+             → ProcessArrow P a b → ProcessArrow P b c
+             → ProcessArrow P a c
+composeArrow P p q = p ∙ q
+
+reverseArrow : (P : RelativeProcess { ℓ} { ℓ'})
+             {a b : Locus P} → ProcessArrow P a b → ProcessArrow P b a
+reverseArrow P = sym
+
+transportFact : (P : RelativeProcess { ℓ} { ℓ'})
+              {a b : Locus P} → ProcessArrow P a b
+              → Fact P a → Fact P b
+transportFact P p = subst (Fact P) p
+
+transport-identity : (P : RelativeProcess { ℓ} { ℓ'})
+                   {a : Locus P} (x : Fact P a)
+                   → transportFact P (identityArrow P) x ≡ x
+transport-identity P x = substRefl {B = Fact P} x
+
+transport-composition : (P : RelativeProcess { ℓ} { ℓ'})
+  {a b c : Locus P} (p : ProcessArrow P a b) (q : ProcessArrow P b c)
+  (x : Fact P a)
+  → transportFact P (composeArrow P p q) x
+    ≡ transportFact P q (transportFact P p x)
+transport-composition P p q x = substComposite (Fact P) p q x
+
+arrow-left-unit : (P : RelativeProcess { ℓ} { ℓ'})
+                {a b : Locus P} (p : ProcessArrow P a b)
+                → composeArrow P (identityArrow P) p ≡ p
+arrow-left-unit P p = sym (lUnit p)
+
+arrow-right-unit : (P : RelativeProcess { ℓ} { ℓ'})
+                 {a b : Locus P} (p : ProcessArrow P a b)
+                 → composeArrow P p (identityArrow P) ≡ p
+arrow-right-unit P p = sym (rUnit p)
+
+arrow-associativity : (P : RelativeProcess { ℓ} { ℓ'})
+  {a b c d : Locus P}
+  (p : ProcessArrow P a b) (q : ProcessArrow P b c)
+  (r : ProcessArrow P c d)
+  → composeArrow P p (composeArrow P q r)
+    ≡ composeArrow P (composeArrow P p q) r
+arrow-associativity P = assoc
+
+identityInteraction : (P : RelativeProcess { ℓ} { ℓ'})
+                    {o : Locus P} (x : Fact P o)
+                    → Interaction P o o
+identityInteraction P x = follow P refl x
+
+composeInteraction : (P : RelativeProcess { ℓ} { ℓ'})
+  {a b c : Locus P}
+  (first : Interaction P a b) (second : Interaction P b c)
+  → after first ≡ before second → Interaction P a c
+path   (composeInteraction P first second seam) = path first ∙ path second
+before (composeInteraction P first second seam) = before first
+after  (composeInteraction P first second seam) = after second
+lawful (composeInteraction P first second seam) =
+    substComposite (Fact P) (path first) (path second) (before first)
+  ∙ cong (subst (Fact P) (path second)) (lawful first)
+  ∙ cong (subst (Fact P) (path second)) seam
+  ∙ lawful second
+
+interaction-path-associativity : (P : RelativeProcess { ℓ} { ℓ'})
+  {a b c d : Locus P}
+  (first : Interaction P a b) (second : Interaction P b c)
+  (third : Interaction P c d)
+  → path first ∙ (path second ∙ path third)
+    ≡ (path first ∙ path second) ∙ path third
+interaction-path-associativity P first second third =
+  assoc (path first) (path second) (path third)
 
 -- Every dependent assignment is automatically natural under interaction.
 -- This is the exact comparison law: no external viewpoint is inserted.
