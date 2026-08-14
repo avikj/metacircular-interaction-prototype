@@ -47,7 +47,9 @@ theorem ResidualCell.advance_currentConstant
     ResidualCell.CurrentConstant M
       (ResidualCell.advance M cell action response) := by
   intro left right hleft hright
-  exact hleft.2.2.trans hright.2.2.symm
+  rcases hleft with ⟨leftPre, _hleftPre, rfl, hleftResponse⟩
+  rcases hright with ⟨rightPre, _hrightPre, rfl, hrightResponse⟩
+  exact hleftResponse.trans hrightResponse.symm
 
 /-- A root action is safe on one live cell when equality after the action
 cannot merge two distinct residuals in that cell.  Current-output equality is
@@ -147,19 +149,39 @@ theorem BoolExperimentTree.residualSplitting_iff_separatesOn
             have hrightResponse :
                 acceptsBool M (M.eval (right ++ [action])) = false := by
               rw [← hresponse, hleftResponse]
+            have hleftResponseStep :
+                acceptsBool M (M.step (M.eval left) action) = false := by
+              simpa [DFA.eval_append_singleton] using hleftResponse
+            have hrightResponseStep :
+                acceptsBool M (M.step (M.eval right) action) = false := by
+              simpa [DFA.eval_append_singleton] using hrightResponse
+            have hchildBranch :
+                BranchTrace M onFalse (left ++ [action]) =
+                  BranchTrace M onFalse (right ++ [action]) := by
+              simpa [hleftResponseStep, hrightResponseStep] using hchild
             have hadvanced := hfalseSeparates
               ⟨left, hleft, rfl, hleftResponse⟩
               ⟨right, hright, rfl, hrightResponse⟩
-              (by simpa [hleftResponse, hrightResponse] using hchild)
+              hchildBranch
             exact hsafe hleft hright hadvanced
         | true =>
             have hrightResponse :
                 acceptsBool M (M.eval (right ++ [action])) = true := by
               rw [← hresponse, hleftResponse]
+            have hleftResponseStep :
+                acceptsBool M (M.step (M.eval left) action) = true := by
+              simpa [DFA.eval_append_singleton] using hleftResponse
+            have hrightResponseStep :
+                acceptsBool M (M.step (M.eval right) action) = true := by
+              simpa [DFA.eval_append_singleton] using hrightResponse
+            have hchildBranch :
+                BranchTrace M onTrue (left ++ [action]) =
+                  BranchTrace M onTrue (right ++ [action]) := by
+              simpa [hleftResponseStep, hrightResponseStep] using hchild
             have hadvanced := htrueSeparates
               ⟨left, hleft, rfl, hleftResponse⟩
               ⟨right, hright, rfl, hrightResponse⟩
-              (by simpa [hleftResponse, hrightResponse] using hchild)
+              hchildBranch
             exact hsafe hleft hright hadvanced
       · intro hseparates
         have hsafe : ResidualCell.SafeAction M cell action := by
@@ -183,12 +205,24 @@ theorem BoolExperimentTree.residualSplitting_iff_separatesOn
               have hrightResponse :
                   acceptsBool M (M.eval (right ++ [action])) = false := by
                 rw [← hnext, hleftResponse]
-              simp [hleftResponse, hrightResponse, hfalse]
+              have hleftResponseStep :
+                  acceptsBool M (M.step (M.eval left) action) = false := by
+                simpa [DFA.eval_append_singleton] using hleftResponse
+              have hrightResponseStep :
+                  acceptsBool M (M.step (M.eval right) action) = false := by
+                simpa [DFA.eval_append_singleton] using hrightResponse
+              simp [hleftResponseStep, hrightResponseStep, hfalse]
           | true =>
               have hrightResponse :
                   acceptsBool M (M.eval (right ++ [action])) = true := by
                 rw [← hnext, hleftResponse]
-              simp [hleftResponse, hrightResponse, htrue]
+              have hleftResponseStep :
+                  acceptsBool M (M.step (M.eval left) action) = true := by
+                simpa [DFA.eval_append_singleton] using hleftResponse
+              have hrightResponseStep :
+                  acceptsBool M (M.step (M.eval right) action) = true := by
+                simpa [DFA.eval_append_singleton] using hrightResponse
+              simp [hleftResponseStep, hrightResponseStep, htrue]
         refine ⟨hsafe, ?_, ?_⟩
         · apply (ihFalse (ResidualCell.advance M cell action false)
             (ResidualCell.advance_currentConstant
@@ -201,7 +235,13 @@ theorem BoolExperimentTree.residualSplitting_iff_separatesOn
             apply hseparates hleft hright
             rw [branchTrace_query, branchTrace_query]
             rw [hconstant hleft hright]
-            simp [hleftResponse, hrightResponse, hchild]
+            have hleftResponseStep :
+                acceptsBool M (M.step (M.eval left) action) = false := by
+              simpa [DFA.eval_append_singleton] using hleftResponse
+            have hrightResponseStep :
+                acceptsBool M (M.step (M.eval right) action) = false := by
+              simpa [DFA.eval_append_singleton] using hrightResponse
+            simp [hleftResponseStep, hrightResponseStep, hchild]
           exact prefixResidual_append_action_eq_of_eq
             M horiginal action
         · apply (ihTrue (ResidualCell.advance M cell action true)
@@ -215,7 +255,13 @@ theorem BoolExperimentTree.residualSplitting_iff_separatesOn
             apply hseparates hleft hright
             rw [branchTrace_query, branchTrace_query]
             rw [hconstant hleft hright]
-            simp [hleftResponse, hrightResponse, hchild]
+            have hleftResponseStep :
+                acceptsBool M (M.step (M.eval left) action) = true := by
+              simpa [DFA.eval_append_singleton] using hleftResponse
+            have hrightResponseStep :
+                acceptsBool M (M.step (M.eval right) action) = true := by
+              simpa [DFA.eval_append_singleton] using hrightResponse
+            simp [hleftResponseStep, hrightResponseStep, hchild]
           exact prefixResidual_append_action_eq_of_eq
             M horiginal action
 

@@ -34,11 +34,11 @@ module _ {ℓ : Level} (G : Group ℓ) where
   Iso.inv (leftMultiplyIso a) x = GS.inv a GS.· x
   Iso.rightInv (leftMultiplyIso a) x =
       sym (GS.·Assoc a (GS.inv a) x)
-    ∙ cong (GS._· x) (GS.·InvR a)
+    ∙ cong (λ z → z GS.· x) (GS.·InvR a)
     ∙ GS.·IdL x
   Iso.leftInv (leftMultiplyIso a) x =
       sym (GS.·Assoc (GS.inv a) a x)
-    ∙ cong (GS._· x) (GS.·InvL a)
+    ∙ cong (λ z → z GS.· x) (GS.·InvL a)
     ∙ GS.·IdL x
 
   rightMultiplyIso : (a : ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
@@ -46,11 +46,11 @@ module _ {ℓ : Level} (G : Group ℓ) where
   Iso.inv (rightMultiplyIso a) x = x GS.· GS.inv a
   Iso.rightInv (rightMultiplyIso a) x =
       GS.·Assoc x (GS.inv a) a
-    ∙ cong (x GS.·_) (GS.·InvL a)
+    ∙ cong (λ z → x GS.· z) (GS.·InvL a)
     ∙ GS.·IdR x
   Iso.leftInv (rightMultiplyIso a) x =
       GS.·Assoc x a (GS.inv a)
-    ∙ cong (x GS.·_) (GS.·InvR a)
+    ∙ cong (λ z → x GS.· z) (GS.·InvR a)
     ∙ GS.·IdR x
 
   -- Endpoint covariance is invertible: t acts on the left and s⁻¹ on
