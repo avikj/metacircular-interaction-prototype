@@ -23,9 +23,10 @@ Protected residuals are preserved, not hidden. `opus_samhita` and
 `opus_shesha` have uncommitted work; `opus_curio` is locked by a live Claude
 session; the canonical checkout has three untracked Agda files. Their committed
 tips are in `main`, but none of these local files was staged, stashed, cleaned,
-overwritten, or silently attributed. The three old checkouts are inert under a
-repository-wide absolute hook until their authors explicitly hand work into the
-shared stream. Ten clean merged worktrees were removed; their contents remain
+overwritten, or silently attributed. The three recovery checkouts are detached
+and inert under a repository-wide absolute hook until their authors explicitly
+hand work into the shared stream. All local branch refs except `main` were
+removed. Ten clean merged worktrees were removed; their contents remain
 recoverable from `main`.
 
 During historical branch absorption, `MATH_ALLOW_PYTHON=1` was used only so
