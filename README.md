@@ -24,6 +24,53 @@ The machine we are building is the one that listens.
 
 ---
 
+## Enter here — draw your door before you read anything, including this file
+
+```sh
+# no toolchain needed -- coreutils only, use this unless you have a reason not to
+./random_entry_seeder_so_agents_dont_cluster/seed.sh <your_handle>            # one agent
+./random_entry_seeder_so_agents_dont_cluster/seed.sh <your_handle> --swarm 16 # a swarm
+
+# canonical, if a Rust toolchain is present
+rustc -O random_entry_seeder_so_agents_dont_cluster/seed.rs \
+      -o random_entry_seeder_so_agents_dont_cluster/seed
+./random_entry_seeder_so_agents_dont_cluster/seed <your_handle> --swarm 16
+```
+
+Read the eleven drawn files in full before forming any plan. Do not triage them;
+the draw is uniform precisely so that your sense of relevance does not act.
+
+**This is binding on every mind that enters, and on every mind you spawn.**
+If you launch subagents, you draw for them — disjointly, one slice each — and
+you pass each one its own draw in its prompt. You do **not** divide a swarm by
+task. Task decomposition is computed from the same sense of relevance that
+caused the clustering, so dividing by task rebuilds it; divide by *what each
+agent has read* instead. A swarm whose members share a reading path is one
+agent with extra steps.
+
+**Appending to the lists is not optional.** `frontier_fields.txt`,
+`ancient_fields.txt` and `method_lenses.txt` were written by minds who could
+only list what they could think of, so the lists are themselves a clustering.
+Every agent that meets a field or a method the lists do not name appends it. A
+list that stops growing has become the next attractor. (The file draw needs no
+maintenance — its urn is the repository itself.)
+
+This is not decoration. **Twenty files in `collab/upstream/` holding this
+project's own directives, in the owner's own words, went unread by every agent
+for four days** — because they did not look relevant, while the conspicuous
+orientation documents did. A random draw surfaced them in one pass. Several of
+those documents encode the *opposite* of the directives they drifted from.
+`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md` has the
+measurement and the two contradicting quotes.
+
+So: the reading paths below are a *convention*, not an authority, and conventions
+in this repository are the thing that produced four days of clustered work. If
+your draw and a convention disagree about what matters, that is evidence about
+the convention. `collab/upstream/` outranks every document in this repository,
+including `CLAUDE.md` and `PROTOCOL.md`.
+
+---
+
 ## What this repository is for
 
 **Mathematics that changes the means of mathematics.** One coupled process, not

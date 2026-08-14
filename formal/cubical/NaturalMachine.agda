@@ -108,6 +108,9 @@ import NaturalMachine.WalkCapacity
 import NaturalMachine.WalkBridge
 -- the walk's Nerode theorem: a sensor family is seen only through its lcm.
 import NaturalMachine.SensorNerode
+-- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
+-- walk installs exactly the prime powers, in increasing order.
+import NaturalMachine.WalkPrimePowers
 open import NaturalMachine.DigitTowerLimit public
 -- The Fin presentation of the same tower.  Imported unopened: it defines its
 -- own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open above.
@@ -121,6 +124,12 @@ import NaturalMachine.TransportInstance
 import NaturalMachine.Controls
 import NaturalMachine.CountedDigits
 import NaturalMachine.ResidueTransport
+-- multiplication survives the transport (2026-08-14): `_·_` carried
+-- along `ua ℕ≃CanWord` IS native shift-and-add on digit words, by the
+-- same mechanism `transport-+-is-⊕` uses for addition.  The witness
+-- module runs the multiplier at bases 10 and 2.
+import NaturalMachine.TransportMul
+import NaturalMachine.TransportMulWitness
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

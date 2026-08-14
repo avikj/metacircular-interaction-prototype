@@ -209,3 +209,43 @@ is checked in `WalkJumps` in terms of `IsLCM (range1 n)`; §(c)(⇒) in
 statements about the same `cap`, so gluing them is renaming plus
 `lcmList-isLCM`, with no mathematics left in it. Whoever does it should
 land it as `install-is-prime-power` and delete this paragraph.
+
+## STATEMENT (2) IS A TERM (same day): `NaturalMachine.WalkPrimePowers`
+
+`--cubical --safe`, exit 0, 2.7 s, no postulates, no holes, in the root
+gate. **The walk installs exactly the prime powers, in increasing order.**
+
+```agda
+install-mono                : (n : ℕ) → install n < install (suc n)
+installs-are-prime-powers   : (n : ℕ) → IsPrimePower (install n)
+prime-powers-are-installed  : (q : ℕ) → IsPrimePower q → Σ[ n ∈ ℕ ] install n ≡ q
+```
+
+Strictly increasing, image inside the prime powers, image containing all of
+them: `install` is the increasing enumeration of the prime powers, and it is
+the walk's own execution. The excuse this note was written to retire —
+"needs prime-power machinery cubical v0.5 does not supply" — is now retired
+four times over and there is nothing left of statement (2) to inherit.
+
+### Correction to the WalkBridge commit message, made before anyone relied on it
+
+That commit said the composition was "renaming plus `lcmList-isLCM`, with no
+mathematics left in it." ~~Half of that was true.~~ It was half true, and the
+half that was false is the interesting half:
+
+- `installs-are-prime-powers` **is** three lines — and, unexpectedly, it does
+  not use §(b) at all. The walk's step already carries a `LeastNonDivisor`
+  certificate (`next-lnd`), which is exactly what `CoprimeSplitting`'s
+  theorem consumes. You do not need the ordering theorem to know that each
+  install is a prime power.
+
+- `prime-powers-are-installed` is **not** renaming. §(b)'s exhaustiveness
+  clause is *local*: nothing is skipped **between consecutive installs**.
+  Going from that to "every jump point is hit" needs an induction that
+  *locates* a given jump point in the stream, and locating it needs the
+  stream to outrun its index (`install-grows : n < install n`) so the search
+  has a starting stage that has already overshot. That is `locate`, and it is
+  the only genuinely new argument in the file.
+
+Recorded because the two halves of a claim can have different truth values
+and the shorter half is the one that gets quoted.
