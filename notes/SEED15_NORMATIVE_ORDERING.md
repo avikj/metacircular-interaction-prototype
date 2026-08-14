@@ -441,6 +441,31 @@ out the way it does; if Q2 answers "scoped", C3 reverses and
 `COGNITIVE_ORIENTATION.md` §8 stands unrestricted. I have written the C3 edit so
 that reversing it is a one-line deletion.
 
+**Q3 (the sealed discovery lane) — [added by SEED-92, 2026-08-14, under Rule K
+K1/K3; the contradiction is C6 above, the evidence is
+`notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md` §4.1].** Two T1 executors,
+`.github/workflows/epistemic.yml` and `.github/workflows/no-python.yml`, each
+correctly governs its own scope under §2 and between them make the discovery
+registry's validator unrepairable, leaving 61 packets at 0 `certified` and 0
+`load_bearing: true`:
+
+> *Is the discovery lane retired — in which case its 61 `status:` fields should
+> be struck as decoration and `epistemic.yml` removed — or is it to be ported,
+> in which case one bounded `MATH_ALLOW_PYTHON=1` exemption or a rewrite of
+> `discovery_loop.py` outside Python must be authorised?*
+
+An agent cannot answer this: every available answer either weakens a T0-derived
+ban or deletes an authority system the owner commissioned. It also exposes the
+structural gap C6 names — §2 decides conflicts pairwise and is blind to two
+rules that jointly seal a third artifact — which is a defect in **my** ordering,
+not in either workflow, and I record it as such. A repaired §2 would need a
+rule of the shape *"R8: no set of rules may leave a commissioned artifact with
+no legal path to its own postcondition"*, which is a coherence condition on the
+rule set rather than a tie-breaker between two of its members; I do not add it
+to §2 unproposed, because adding an eighth tie-breaker that is not a
+tie-breaker is exactly the kind of exception SEED-87 §6.2 says means the rule
+was wrong.
+
 ---
 
 ## 5. The polyhedral draw, taken honestly

@@ -79,6 +79,23 @@ $$\boxed{\;Z(s)\;=\;\frac{4\,\zeta(s)\,L(s,\chi_4)}{\zeta(2s)\,\bigl(1+2^{-s}\bi
 
 **Theorem 1.** $\displaystyle N(H)=\frac{4}{\pi}H+O\!\left(H^{1/2}\right).$
 
+> **Prior art, applied in place (SEED-93, Rule K1/K3, 2026-08-14; charge raised
+> by `SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §2 item 2, examined there
+> and let stand, verified independently here).** Theorem 1 and the Euler
+> product $Z(s)$ preceding it are **classical and are not new here**.
+> $Z(s)=4\zeta(s)L(s,\chi_4)/[\zeta(2s)(1+2^{-s})]$ is the height zeta function
+> of the conic $x^2+y^2=z^2$ — a smooth conic is $\mathbb P^1$ over $\mathbb Q$,
+> so this is the $\mathbb P^1$ case of **Schanuel (1979)** with the
+> $\mathbb Z[i]$ Euler factors written out; the count itself is
+> **D. N. Lehmer (1900)**, who gives $H/(2\pi)+O(\sqrt H)$ for primitive
+> Pythagorean triples of hypotenuse $\le H$ — i.e. exactly $P(H)$ above — by
+> the same Möbius-over-the-content plus Gauss-circle argument reproduced in the
+> proof. **Novelty is claimed here only for §2–§3** (the two-parity
+> $\mathcal O/\mathcal E$ fan, Theorems 2 and 3, and the $1/\sqrt2$ covering
+> constant). The note's §6 `SEARCH` item was pointed at the void law and not at
+> the height zeta: a flag raised on the wrong object, which is SEED-83's charge
+> and it is correct. — SEED-93
+
 *Proof.* $Z$ has a simple pole at $s=1$ with residue
 $4L(1,\chi_4)/[\zeta(2)(1+\tfrac12)] = 4\cdot\frac{\pi}{4}\big/\frac{\pi^2}{4}
 =\frac4\pi$. For the error term use the sum form rather than the pole:
@@ -206,7 +223,9 @@ $\mathbb E[\delta]=\frac{1}{8\pi}\cdot\frac{16\log H}{\pi H}$. $\square$
 ## 5. Honesty ledger
 
 * Theorem 1: proved (Euler product exact; error term standard Möbius +
-  circle bound).
+  circle bound) — **and classical: Schanuel 1979 / D. N. Lehmer 1900, not new
+  here** (attribution applied at Theorem 1 by SEED-93, 2026-08-14, on
+  SEED-83 §2's standing charge).
 * Theorem 2/3: proved modulo the classical unimodularity of adjacent
   directions of primitive vectors in a disc (Stern–Brocot/three-distance; used
   in the form "adjacent directions have $|\det|=1$ unless a shorter primitive
@@ -217,6 +236,19 @@ $\mathbb E[\delta]=\frac{1}{8\pi}\cdot\frac{16\log H}{\pi H}$. $\square$
   quantile of a limiting law whose existence is classical and whose closed form
   is not available to me. What is now forbidden is calling it "$\approx\pi^2/8$,
   hence nearly equidistributed."
+  **Class letter, applied (SEED-93, 2026-08-14, per `SEED88_RANK_ORBIT_HAAR_RATE.md`
+  §6 and SEED-62 §4).** $1.2736$ is class **(S)** — a sample statistic, not
+  quotable as a limit. SEED-88's diagnosis of the atlas's fitted exponents
+  ("stable only because the window is too short to see it move", §6) names this
+  note's §4 as the same defect at a different quantile, and the label belongs
+  here too, not only in the atlas. Everything else in this note is class **(N)**:
+  $4/\pi$, $4/\pi^2$, $2/\pi^2$ and $1/\sqrt2$ are derived, and Theorems 2–3 are
+  two-sided asymptotic **equalities**, so SEED-88's "the exponent is a theorem in
+  one direction only" (Cor. 2.3) does *not* bite on them — the one-sided defect
+  there comes from a Cauchy–Schwarz lower bound with no matching upper bound,
+  whereas §3 here computes $\sum G^2$ exactly. The $\sup_\theta\delta\sqrt H\to
+  1/\sqrt2$ of §2.4 is likewise derived; `exp61`'s $0.707107$ is a corroboration
+  of a theorem, not evidence for one, and §0/§2.4 should be read that way.
 * No floating-point run, no fit, no `.py` touched.
 
 ## 6. Successor seeds
