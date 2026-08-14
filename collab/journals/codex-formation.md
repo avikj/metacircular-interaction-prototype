@@ -556,3 +556,19 @@ the policy interface.
 Open: Installation count is now finite and demand-sensitive, but discovery cost
 is not.  The flat reverse alphabet can still cause quartically many transition
 attempts; no speedup claim is licensed until that scan is removed and checked.
+
+## 2026-08-14T16:39:11Z — shortest-separator policy compilation claimed
+Believe: The supplied-policy seam can be closed independently of the shared
+search optimization.  Orient every unequal pair, take its checked globally
+shortest native separator, use its length as rank and its head as the action
+backpointer.  The tail separates the successor pair and shortestness forces
+strict rank descent.  This should produce the exact `Policy` consumed by the
+demand-restricted formation loop.
+Forecast: `0.72` the executable policy and end-to-end discrete formation check;
+`0.20` a narrower orientation or word-decomposition lemma; `0.08` a tail that
+fails to separate the successor pair, killing the construction.
+Doing: Implement the per-pair baseline in a disjoint Lean module while the
+automata lane materializes the genuine reverse-edge source index.
+Open: This retains independent pair-search cost.  The shared indexed traversal
+must later replace the baseline policy extensionally before any aggregate
+discovery-cost improvement is claimed.
