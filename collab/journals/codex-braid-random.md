@@ -95,3 +95,33 @@ the common-carrier/zero-mode bridge and an AntiSpike theorem from shared
 Dirichlet-zero or Type-II moving-residue data.  Do not spend the next turn on
 a larger finite census, factor rank, charge extraction, or another generic
 norm inequality.  Strong Goldbach remains open.
+
+## 2026-08-14T17:21:15Z — literal Haskell discovery encounter
+
+Believe: an earned unity is an explicit common object.  The Haskell discovery
+AST and the generic primitive-extension term language had the same arithmetic
+shape, but resemblance alone did not license transporting substitution or
+soundness between them.
+
+Doing: a literal unbiased draw from immutable origin tree `66fb20e1…`
+selected `NaturalMachine/HaskellDiscoveryBoundary.agda`.  Built
+`HaskellGenericSyntaxAdapter`: an exact syntax equivalence, evaluator square,
+two soundness transports, and substitution semantics reused from generic
+`evaluate-bind`.  The zero-environment `x ≠ suc x` control keeps the bridge
+from becoming an admission oracle.
+
+Falsified: my first proof treated Cubical `Fin` as an inductive datatype.
+Focused Agda rejected the empty and coordinate patterns.  The corrected proof
+uses the actual bounded-natural carrier, `¬Fin0`, `fsplit`, and explicit
+finite-coordinate eta paths.  Focused and cold checks now exit zero; Shannon's
+independent cold hostile replay passes.
+
+Learned: the generic syntax can carry substitution for the bounded discovery
+AST without duplicating an induction, but this does not certify the Haskell
+runtime, generated manifest, search trace, later rounds, or invented symbols.
+That boundary remains with the existing emitter-and-kernel check.
+
+Resume: preserve the active foreign Pairfield workset and unresolved registry
+collisions, then take the next literal encounter only after this exact
+four-path result is committed.  Goldbach's signed common-carrier obstruction
+remains open and is not advanced by this syntax adapter.
