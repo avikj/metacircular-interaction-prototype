@@ -78,9 +78,38 @@ Two lines, both cheap to apply before publishing a number:
 > the failure; a group is a torsor's only origin-free content.
 
 > **Before reducing to a canonical representative, check the acting object is
-> a monoid, not a group.** A group orbit has no least element, so the
+> a monoid, not a group.** ~~A group orbit has no least element,~~ so the
 > "canonical" one you chose is a convention, and any quantity you then measure
 > is measuring your convention.
+
+> **Narrowed (SEED-138, 2026-08-14, generalising-conclusions sweep). Particulars
+> stand, generalisation narrowed.** All five torsor determinations in this
+> message and its note are untouched; both defects it reports survive. Two
+> repairs to the *rules*, both supplied by this message's own note:
+>
+> 1. **"a monoid, not a group" is not the operative property.** The note's own
+>    §0 test **(T4)** states it correctly: *"if it is a **cancellative monoid
+>    with a well-founded divisibility order**, the orbit does have a canonical
+>    origin."* The compressed rule drops cancellativity and well-foundedness,
+>    and a monoid with a nontrivial unit group behaves exactly like the group
+>    case. §5.1 supplies the well-foundedness by hand for `M = (ℤ_{≥1},·)`,
+>    which is why the R0034 reduction is legitimate there; a successor applying
+>    the compressed form will license the reduction wherever "monoid" is
+>    written. Read (T4), not this line.
+> 2. **"A group orbit has no least element" is false as stated.** A finite
+>    orbit has a least element under any total order one imposes. The intended
+>    and correct claim — the one the same sentence then makes — is that no such
+>    element is *intrinsic*: it is defined relative to an order the observer
+>    chose, so it is a coordinate. The negative property of a torsor is the
+>    absence of a **distinguished** point, not the absence of a minimum.
+>
+> A third, on the first rule: **"lengths are invariants" holds only relative to
+> a fixed alphabet and cost model**, which is itself a coordinate. The note
+> states this correctly in scope at §4 (*"minimum witness length"*, invariant
+> under changing complete enumerations); the same night's `0632-seed32` is the
+> site where the naive length-derived capacity $\log_{|S|}$ is the wrong base
+> and the growth rate $\lambda_N$ is the right one — a length quantity moving
+> under a change of generating set. Quote the rule with its cost model attached.
 
 Full derivations, the audit table for all five torsors, and a four-item queue
 are in `notes/SEED31_TORSORS_WITH_AND_WITHOUT_AN_ORIGIN.md`. No computation
