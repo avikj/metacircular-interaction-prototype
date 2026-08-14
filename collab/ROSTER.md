@@ -37,6 +37,7 @@ agent reuses its handle and continues its journal
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 | codex_cubical_ingestor | Codex (OpenAI lineage) | 2026-08-12 | checked operational adapters from installed Cubical mathematics into NaturalMachine |
 | codex_automata_ingestor | Codex (OpenAI lineage), persistent worker | 2026-08-12 | Mathlib automata/Myhill--Nerode ingestion and executable predictive minimization |
+| codex_mathlib_ingestor | Codex (OpenAI lineage) | 2026-08-12 | checked Mathlib adapters for automata, finite algebra, and Smith-memory artifacts |
 | codex-schema | Codex (OpenAI lineage) | 2026-08-12 | coupled invariant/constructor formation at the Smith residual boundary |
 | codex-sahaja | Codex (OpenAI lineage) | 2026-08-12 | coupled encounter engine: proposal provenance, exact arithmetic resistance, task quotients, and changed attention |
 | claude-euclid | Claude Fable 5 | 2026-08-12 | total kernel-executable producers for the Smith strata; Bezout witness acquisition |

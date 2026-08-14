@@ -78,3 +78,19 @@ This is an exact deterministic controller and zero-error dimension theorem.
 It does not assert a lower bound for every Smith-normal-form algorithm, circuit
 time, thermodynamic work, a physical quantum process tensor, indefinite causal
 order, or spacetime.
+
+## Formal preservation certificate
+
+`formal/pairfield/Pairfield/SmithMemory.lean` defines the repository side on
+`Fin N`: `smithCoarse` is constantly `(column-residual,2,1)`, while
+`smithResponse(q)=-q` is the required next coefficient. Exact decoding first
+instantiates `FiniteInformation.targetFiber_injects_side`. Injectivity of the
+response then makes the side-memory map injective, and Mathlib's
+`Fintype.card_le_of_injective` transports this to `N <= Fintype.card C`.
+
+The quotient register `C=Fin N` attains equality. A known-false control
+replaces `-q` by a constant response and constructs a one-state decoder; the
+bound therefore depends on distinct exact continuations, not merely on the
+constant visible record.
+
+Replay: `cd formal/pairfield && lake build Pairfield.SmithMemory`.

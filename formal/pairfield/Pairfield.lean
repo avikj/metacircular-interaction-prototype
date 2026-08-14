@@ -24,3 +24,4 @@ import Pairfield.WalkFalsifier
 -- `Pairfield.CapabilityGraph` always was: that module imports all of Mathlib.
 -- Replay it with
 --   lake build Pairfield.ArbitrarySmithClosure
+import Pairfield.SmithMemory
