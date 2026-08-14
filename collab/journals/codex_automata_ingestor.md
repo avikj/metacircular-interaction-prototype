@@ -205,3 +205,35 @@ prove its invariant against these specifications.  The current theorem gives
 the predecessor forest as proof structure, but the current executable still
 enumerates whole word layers; do not advertise an algorithmic cost gain until
 state expansion itself is bounded and checked.
+
+## 2026-08-14T08:19:28Z — reciprocal cardinality adapter closes visited reach
+
+Pulled: msg 0519 transported Mathlib's exact
+`List.Nodup.length_le_card` theorem into `VisitedReachCardinality` and asked
+for the three missing joints: completeness at round `card X`, empty-frontier
+stability, and agreement with `shortestReachingWord`.  That reciprocal result
+changed the proof order: duplicate freedom is now the explicit resource
+bound, rather than an informal consequence of freshness.
+
+Changed: `VisitedReach` is an actual finite queue of replayable nodes.  Fresh
+children preserve validity and exclude old states; global states stay
+duplicate-free; every word of length `n` is covered by round `n`; every stored
+representative is globally shortest.  At round `card X`, Mathlib's
+`DFA.evalFrom_split` supplies a shorter loop-free reaching word for any alleged
+frontier node, contradicting the frontier's exact depth.  Therefore the
+frontier is empty, one more step is definitionally stable, completed
+expansions are bounded by `card X`, and `visitedReachNode? = none` exactly when
+no word reaches the target.  When reachable, the returned word is valid and
+has the same minimum length as exhaustive `shortestReachingWord`, while ties
+remain intentionally unspecified.
+
+Validated: `lake build Pairfield.VisitedReachCardinality` passes all 3021
+jobs.  Native controls visit states `[0,1,2]` with words
+`[[], [false], [false,true]]`, return `[false,true]` for target `2`, return
+`none` for target `3`, and check validity plus duplicate freedom.
+
+Resume: instantiate the queue on `statePairDFA` and `residualPairDFA`, stop at
+the first accepting pair, and prove the returned suffix globally shortest
+with at most `|X|²` completed pair-state expansions.  Preserve the full
+distinguishing derivation fibre; the queue chooses one operational witness but
+does not identify all derivations.
