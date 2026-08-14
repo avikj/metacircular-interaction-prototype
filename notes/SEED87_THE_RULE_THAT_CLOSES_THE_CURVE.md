@@ -49,7 +49,7 @@ the same claim `CLAUDE.md` makes about experiments — *the run happens because
 the run was scheduled, not because the quantity was unknown* — one level up,
 with notes in place of experiments. The relevant comparison is the
 constitution's own: **~5 useful results per 30 experiments.** Tonight produced
-81 notes (SEED-01 … SEED-82; 75 and 81 absent). SEED-42, grading the first
+81 notes (SEED-01 … SEED-82; 75 ~~and 81~~ absent).[^k119a] SEED-42, grading the first
 35 by `CLAUDE.md`'s own test, reported **18/35** and then — correctly — spent
 three paragraphs discounting the number.
 
@@ -205,7 +205,7 @@ name at least one **SEED-$nn$ note of the same night**?
 | 42, 47, 52, 57, 62, 67, 72, 77 | **yes** (all eight) |
 | 82 | no — codex messages and Lean files |
 
-Self-reference fraction: **1/6 among seeds 02–27; 9/11 among seeds 32–82.**
+Self-reference fraction: **1/6 among seeds 02–27; ~~9/11~~ 10/11 among seeds 32–82.**[^k119b]
 The crossover sits between sample points 27 and 32, i.e. **around seed index
 30**, which is within one sample step of exactly where SEED-42 was commissioned
 to audit.
