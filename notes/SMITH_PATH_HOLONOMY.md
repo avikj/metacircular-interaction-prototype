@@ -179,5 +179,7 @@ python3 -m unittest machinery/test_smith_path_holonomy.py -v
 ```
 
 The replay checks (1)--(6), enumerates all twelve cokernel elements, verifies
-the fixed set and order-three action, and includes a false-control matrix that
+the fixed set and order-three action **(of $\langle H\rangle$ only — its
+assertions are true but strictly weaker than the $G_{\text{rewrite}}$-invariance
+their prose suggests; SEED-55 §6, applied SEED-106)**, and includes a false-control matrix that
 does not preserve the relation lattice.

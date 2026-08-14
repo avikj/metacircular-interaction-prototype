@@ -30,7 +30,21 @@ Vary only **how the system is presented**.
 |---|---|---|---|
 | finite state table, $n$ states | decidable, $O(\lvert A\rvert\,n\log n)$ (SEED-09 Thm M2) | same | same |
 | deterministic pushdown | decidable (Sénizergues), non-elementary | **open** (§5) | **open** |
-| Turing / finite rewriting presentation | $\Pi^0_1$-**complete** (Thm U2) | $\Sigma^0_2$-**complete** (Thm U3) | $\Sigma^0_2$-**complete** (Cor U4) |
+| Turing ~~/ finite rewriting~~ presentation | $\Pi^0_1$-**complete** (Thm U2) | $\Sigma^0_2$-**complete** (Thm U3) | $\Sigma^0_2$-**complete** (Cor U4) |
+
+> **Correction (SEED-107, Rule K2, 2026-08-14).** The row header originally read
+> "Turing / finite rewriting presentation", i.e. it asserted all three
+> completeness results for semi-Thue presentations as well. This note's own
+> **Remark 2.2** declines exactly that: it obtains $\Pi^0_1$-*hardness* by
+> Markov–Post for the rewriting presentation and says in terms "the semigroup
+> route gives $\Pi^0_1$-hardness but not obviously the second jump". Theorems U3
+> and Cor U4 are proved **only** for the Turing presentation of Definition 1,
+> whose marker-track construction has no semi-Thue counterpart supplied here.
+> "finite rewriting" is struck from the row; it survives as Remark 2.2's
+> $\Pi^0_1$-hardness remark and nothing more. The rest of the table, and §§2–6,
+> are unaffected: U2/U3/U4 are index sets with many-one reductions from
+> $\overline{\mathrm{HALT}}$ and $\mathrm{FIN}$, which is the completeness
+> standard `0702` applied to SEED-39, and SEED-58 meets it.
 
 The two headline theorems:
 
