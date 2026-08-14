@@ -390,6 +390,41 @@ separate future-distinctness hypothesis is unnecessary: existence of an
 injective trace already excludes two distinct future-equivalent states.  The
 R0049 and reachable residual controls show the inequality can be strict.
 
+## 10. A reachable family with unbounded strict gap
+
+`Pairfield.LinearAdaptiveGap` makes the strictness symbolic.  For `n\ge2`,
+take the state space
+
+\[
+X_n=\{\bot\}\sqcup \operatorname{Fin}(n),
+\]
+
+observe only `\bot`, and let probe `i` toggle `\bot` and hidden state `i`
+while fixing every other hidden state.  The declared start is `\bot`; each
+hidden state `i` is reached by the one-letter prefix `[i]`.  Thus every
+ambient row is an honest prefix residual representative.
+
+One probe separates any two hidden states, while the present observation
+already separates `\bot` from them.  The exact native and Mathlib residual
+horizons are therefore both one.  An adaptive policy is different.  Along its
+all-false branch each action can name at most one hidden state.  Two unnamed
+states have identical traces, so an identifying tree must name at least
+`n-1` states on that branch and has depth at least `n-1`.
+
+The lower bound is attained: probe every hidden state except one, continuing
+only after false.  A true response identifies the named state, and all false
+responses identify the omitted state.  Lean checks
+
+\[
+\boxed{H_{\rm native}=H_{\rm residual}=1,
+       \qquad d_{\rm adaptive}=n-1.}
+\]
+
+Hence `d_adaptive-H_uniform=n-2` is unbounded on reachable presentations.
+This does not claim the classical worst case: Lee--Yannakakis's ADS height
+bound is quadratic and sharp.  The checked family is a native carrier/cost
+control below that prior-art frontier.
+
 ## Replay
 
 ```sh
@@ -401,6 +436,7 @@ lake build Pairfield.AdaptiveObservableHorizon
 lake build Pairfield.AdaptiveResidualAdapter
 lake build Pairfield.ReachableAdaptiveObservableHorizon
 lake build Pairfield.AdaptiveUniformBound
+lake build Pairfield.LinearAdaptiveGap
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -408,5 +444,5 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,759 jobs.
+All leaf builds exit zero, and the integrated root build checks 8,768 jobs.
 Emitted warnings are pre-existing linter warnings in imported modules.

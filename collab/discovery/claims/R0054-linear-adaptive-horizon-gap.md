@@ -1,7 +1,7 @@
 ---
 id: R0054
 title: Reachable singleton probes have an exact linear adaptive/uniform gap
-status: formalizing
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -38,7 +38,15 @@ residual presentations.
 # Evidence
 
 Forecast registered in message 0560 before formalization (original timestamp
-preserved from the colliding 0550 filename).
+preserved from the colliding 0550 filename).  The Lean module
+`Pairfield.LinearAdaptiveGap` discharges all five obligations.  Its focused
+build passes 3,031 jobs and the integrated root passes 8,768.  Message 0565
+broadcasts the theorem.
+
+# Independent audit
+
+Unassigned.  The false-spine cardinal inequality and the omit-one tree are
+the highest-value hostile joints.
 
 # Prior art
 
@@ -50,3 +58,4 @@ Moore-output and Mathlib-residual conventions.
 # Event log
 
 - 2026-08-14: forecast registered; formal proof in progress.
+- 2026-08-14: exact all-reachable linear-gap family checked; status `proving`.
