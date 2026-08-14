@@ -2,9 +2,8 @@
 Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
-Global cycle freedom for node-minimal residual splitting plans.  The local
-cycle splice is promoted to a duplicate-free theorem on every root-to-leaf
-spine, then counted inside Mathlib's finite left-quotient carrier.
+Proper descendant spines of recursively splitting residual experiments, and
+the exact theorem that depth minimality forbids canonical-position cycles.
 -/
 import Pairfield.AdaptiveResidualPositionCycleAdapter
 
@@ -16,307 +15,216 @@ variable {A : Type u} {X : Type v}
 
 namespace BoolExperimentTree
 
-/-- The number of queries in a native adaptive experiment.  This secondary
-cost is deliberately separate from depth: depth-minimality alone does not
-force a non-maximal sibling to be minimal. -/
-def queryCount : BoolExperimentTree A → Nat
-  | .done => 0
-  | .query _ onFalse onTrue =>
-      onFalse.queryCount + onTrue.queryCount + 1
+/-- A proof-relevant descendant carries both the selected experiment subtree
+and the response-conditioned live prefix cell on which it runs. -/
+inductive ResidualCellDescendant
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
+    BoolExperimentTree A → Set (List A) →
+      BoolExperimentTree A → Set (List A) → Prop
+  | refl (tree : BoolExperimentTree A) (cell : Set (List A)) :
+      ResidualCellDescendant M tree cell tree cell
+  | false {action : A} {onFalse onTrue subtree : BoolExperimentTree A}
+      {cell later : Set (List A)}
+      (tail : ResidualCellDescendant M onFalse
+        (ResidualCell.advance M cell action false) subtree later) :
+      ResidualCellDescendant M (.query action onFalse onTrue)
+        cell subtree later
+  | true {action : A} {onFalse onTrue subtree : BoolExperimentTree A}
+      {cell later : Set (List A)}
+      (tail : ResidualCellDescendant M onTrue
+        (ResidualCell.advance M cell action true) subtree later) :
+      ResidualCellDescendant M (.query action onFalse onTrue)
+        cell subtree later
 
-@[simp] theorem queryCount_done :
-    (BoolExperimentTree.done : BoolExperimentTree A).queryCount = 0 := rfl
+/-- Proper descendants consume at least one query before reaching the
+selected subtree and live cell. -/
+inductive ProperResidualCellDescendant
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
+    BoolExperimentTree A → Set (List A) →
+      BoolExperimentTree A → Set (List A) → Prop
+  | false {action : A} {onFalse onTrue subtree : BoolExperimentTree A}
+      {cell later : Set (List A)}
+      (tail : ResidualCellDescendant M onFalse
+        (ResidualCell.advance M cell action false) subtree later) :
+      ProperResidualCellDescendant M (.query action onFalse onTrue)
+        cell subtree later
+  | true {action : A} {onFalse onTrue subtree : BoolExperimentTree A}
+      {cell later : Set (List A)}
+      (tail : ResidualCellDescendant M onTrue
+        (ResidualCell.advance M cell action true) subtree later) :
+      ProperResidualCellDescendant M (.query action onFalse onTrue)
+        cell subtree later
 
-@[simp] theorem queryCount_query
-    (action : A) (onFalse onTrue : BoolExperimentTree A) :
-    (.query action onFalse onTrue).queryCount =
-      onFalse.queryCount + onTrue.queryCount + 1 := rfl
+theorem ResidualCellDescendant.depth_le
+    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
+    {tree subtree : BoolExperimentTree A} {cell later : Set (List A)}
+    (descendant : ResidualCellDescendant M tree cell subtree later) :
+    subtree.depth ≤ tree.depth := by
+  induction descendant with
+  | refl => rfl
+  | false tail ih =>
+      simp only [depth]
+      have hbranch : tail.subtree.depth ≤
+          max tail.tree.depth tail.onTrue.depth :=
+        ih.trans (Nat.le_max_left _ _)
+      omega
+  | true tail ih =>
+      simp only [depth]
+      have hbranch : tail.subtree.depth ≤
+          max tail.onFalse.depth tail.tree.depth :=
+        ih.trans (Nat.le_max_right _ _)
+      omega
+
+theorem ProperResidualCellDescendant.toDescendant
+    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
+    {tree subtree : BoolExperimentTree A} {cell later : Set (List A)}
+    (descendant : ProperResidualCellDescendant M tree cell subtree later) :
+    ResidualCellDescendant M tree cell subtree later := by
+  cases descendant with
+  | false tail => exact .false tail
+  | true tail => exact .true tail
+
+theorem ProperResidualCellDescendant.depth_lt
+    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
+    {tree subtree : BoolExperimentTree A} {cell later : Set (List A)}
+    (descendant : ProperResidualCellDescendant M tree cell subtree later) :
+    subtree.depth < tree.depth := by
+  cases descendant with
+  | false tail =>
+      have htail := tail.depth_le
+      simp only [depth]
+      have hbranch : tail.subtree.depth ≤
+          max tail.tree.depth tail.onTrue.depth :=
+        htail.trans (Nat.le_max_left _ _)
+      omega
+  | true tail =>
+      have htail := tail.depth_le
+      simp only [depth]
+      have hbranch : tail.subtree.depth ≤
+          max tail.onFalse.depth tail.tree.depth :=
+        htail.trans (Nat.le_max_right _ _)
+      omega
+
+/-- Recursive splitting certificates restrict to every selected descendant
+subtree on its exact response-conditioned live cell. -/
+theorem ResidualCellDescendant.residualSplitting
+    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
+    {tree subtree : BoolExperimentTree A} {cell later : Set (List A)}
+    (descendant : ResidualCellDescendant M tree cell subtree later)
+    (splitting : tree.ResidualSplitting M cell) :
+    subtree.ResidualSplitting M later := by
+  induction descendant with
+  | refl => exact splitting
+  | false tail ih => exact ih splitting.2.1
+  | true tail ih => exact ih splitting.2.2
+
+/-- Current-output constancy is preserved along every selected live-cell
+descendant. -/
+theorem ResidualCellDescendant.currentConstant
+    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
+    {tree subtree : BoolExperimentTree A} {cell later : Set (List A)}
+    (descendant : ResidualCellDescendant M tree cell subtree later)
+    (constant : ResidualCell.CurrentConstant M cell) :
+    ResidualCell.CurrentConstant M later := by
+  induction descendant with
+  | refl => exact constant
+  | false tail ih =>
+      exact ih (ResidualCell.advance_currentConstant M _ _ false)
+  | true tail ih =>
+      exact ih (ResidualCell.advance_currentConstant M _ _ true)
+
+/-- Minimality is intentionally quantified over recursive splitting
+certificates on the same root cell, not merely over tree syntax. -/
+def DepthMinimalResidualSplitting
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (tree : BoolExperimentTree A) (cell : Set (List A)) : Prop :=
+  tree.ResidualSplitting M cell ∧
+    ∀ candidate : BoolExperimentTree A,
+      candidate.ResidualSplitting M cell → tree.depth ≤ candidate.depth
+
+/-- Global no-cycle theorem.  A proper descendant of a depth-minimal
+residual-splitting tree cannot revisit the root's canonical live position:
+R0059 would transplant that strictly shallower subtree back to the root. -/
+theorem DepthMinimalResidualSplitting.no_samePosition_properDescendant
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (tree subtree : BoolExperimentTree A) (cell later : Set (List A))
+    (minimal : DepthMinimalResidualSplitting M tree cell)
+    (constant : ResidualCell.CurrentConstant M cell)
+    (descendant : ProperResidualCellDescendant M tree cell subtree later) :
+    ¬ ResidualCell.SamePosition M cell later := by
+  intro samePosition
+  have descendantSplitting : subtree.ResidualSplitting M later :=
+    descendant.toDescendant.residualSplitting minimal.1
+  have laterConstant : ResidualCell.CurrentConstant M later :=
+    descendant.toDescendant.currentConstant constant
+  have laterSeparates : subtree.SeparatesPrefixResidualsOn M later :=
+    (subtree.residualSplitting_iff_separatesOn
+      M later laterConstant).1 descendantSplitting
+  have rootSeparates : subtree.SeparatesPrefixResidualsOn M cell :=
+    (subtree.separatesPrefixResidualsOn_congr_position
+      M cell later samePosition).2 laterSeparates
+  have rootSplitting : subtree.ResidualSplitting M cell :=
+    (subtree.residualSplitting_iff_separatesOn
+      M cell constant).2 rootSeparates
+  have minimalDepth : tree.depth ≤ subtree.depth :=
+    minimal.2 subtree rootSplitting
+  exact (Nat.not_lt_of_ge minimalDepth) descendant.depth_lt
 
 end BoolExperimentTree
 
-namespace ResidualSplitPlan
+namespace AdaptiveResidualMinimalSpineControl
 
-/-- A plan is node-minimal on its own live cell when no other certified plan
-on that cell uses fewer query nodes. -/
-def NodeMinimal
-    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
-    {cell : Set (List A)} (plan : ResidualSplitPlan M cell) : Prop :=
-  ∀ candidate : ResidualSplitPlan M cell,
-    plan.toTree.queryCount ≤ candidate.toTree.queryCount
+open AdaptiveConstantResponseSteering
 
-/-- Every inhabited plan type has a node-minimal representative. -/
-theorem exists_nodeMinimal
-    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
-    {cell : Set (List A)} (initial : ResidualSplitPlan M cell) :
-    ∃ plan : ResidualSplitPlan M cell, NodeMinimal plan := by
-  let existsCost : ∃ cost : Nat, ∃ plan : ResidualSplitPlan M cell,
-      plan.toTree.queryCount = cost :=
-    ⟨initial.toTree.queryCount, initial, rfl⟩
-  obtain ⟨plan, hcost⟩ := Nat.find_spec existsCost
-  refine ⟨plan, ?_⟩
-  intro candidate
-  rw [hcost]
-  exact Nat.find_min' existsCost ⟨candidate, rfl⟩
+/-- Insert one redundant constant-response steering query before the useful
+reveal.  It still separates, but its extra query makes it nonminimal. -/
+def redundantSteeringTree : BoolExperimentTree (Fin 3) :=
+  .query steer
+    (.query steer (.query reveal .done .done) .done)
+    .done
 
-/-- Proof-relevant strict descent through either child of a splitting plan. -/
-inductive StrictSubplan
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
-    {childCell rootCell : Set (List A)} →
-      ResidualSplitPlan M childCell →
-      ResidualSplitPlan M rootCell → Prop
-  | onFalse {cell : Set (List A)}
-      (action : A) (safe : ResidualCell.SafeAction M cell action)
-      (left : ResidualSplitPlan M
-        (ResidualCell.advance M cell action false))
-      (right : ResidualSplitPlan M
-        (ResidualCell.advance M cell action true)) :
-      StrictSubplan M left (.query action safe left right)
-  | onTrue {cell : Set (List A)}
-      (action : A) (safe : ResidualCell.SafeAction M cell action)
-      (left : ResidualSplitPlan M
-        (ResidualCell.advance M cell action false))
-      (right : ResidualSplitPlan M
-        (ResidualCell.advance M cell action true)) :
-      StrictSubplan M right (.query action safe left right)
-  | trans {childCell middleCell rootCell : Set (List A)}
-      {child : ResidualSplitPlan M childCell}
-      {middle : ResidualSplitPlan M middleCell}
-      {root : ResidualSplitPlan M rootCell} :
-      StrictSubplan M child middle →
-      StrictSubplan M middle root →
-      StrictSubplan M child root
+theorem redundantSteering_traces_ne :
+    BranchTrace automaton redundantSteeringTree [] ≠
+      BranchTrace automaton redundantSteeringTree [reach] := by
+  native_decide
 
-/-- A strict subplan has strictly fewer query nodes. -/
-theorem queryCount_lt_of_strictSubplan
-    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
-    {childCell rootCell : Set (List A)}
-    {child : ResidualSplitPlan M childCell}
-    {root : ResidualSplitPlan M rootCell}
-    (hsub : StrictSubplan M child root) :
-    child.toTree.queryCount < root.toTree.queryCount := by
-  induction hsub with
-  | onFalse action safe left right =>
-      simp [toTree, BoolExperimentTree.queryCount]
-  | onTrue action safe left right =>
-      simp [toTree, BoolExperimentTree.queryCount]
-  | trans hchild hroot ihChild ihRoot =>
-      exact ihChild.trans ihRoot
+theorem redundantSteeringTree_separates :
+    redundantSteeringTree.SeparatesPrefixResidualsOn automaton liveCell := by
+  intro left right hleft hright htrace
+  have hleft' : left ∈ representatives := hleft
+  have hright' : right ∈ representatives := hright
+  have hleftCases : left = [] ∨ left = [reach] :=
+    (mem_representatives_iff left).mp hleft'
+  have hrightCases : right = [] ∨ right = [reach] :=
+    (mem_representatives_iff right).mp hright'
+  rcases hleftCases with rfl | rfl <;>
+    rcases hrightCases with rfl | rfl
+  · rfl
+  · exact False.elim (redundantSteering_traces_ne htrace)
+  · exact False.elim (redundantSteering_traces_ne htrace.symm)
+  · rfl
 
-/-- Every strict descendant live cell has a constant current response. -/
-theorem currentConstant_of_strictSubplan
-    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
-    {childCell rootCell : Set (List A)}
-    {child : ResidualSplitPlan M childCell}
-    {root : ResidualSplitPlan M rootCell}
-    (hsub : StrictSubplan M child root) :
-    ResidualCell.CurrentConstant M childCell := by
-  induction hsub with
-  | onFalse action safe left right =>
-      exact ResidualCell.advance_currentConstant M _ action false
-  | onTrue action safe left right =>
-      exact ResidualCell.advance_currentConstant M _ action true
-  | trans hchild hroot ihChild ihRoot =>
-      exact ihChild
+/-- The redundant separator is the planted-false control: separation alone
+does not imply minimality. -/
+theorem redundantSteeringTree_not_depthMinimal :
+    ¬ redundantSteeringTree.DepthMinimalResidualSplitting
+      automaton liveCell := by
+  intro minimal
+  have usefulSplitting :
+      steeringTree.ResidualSplitting automaton liveCell :=
+    (steeringTree.residualSplitting_iff_separatesOn automaton liveCell
+      liveCell_currentConstant).2 steeringTree_separates
+  have hdepth := minimal.2 steeringTree usefulSplitting
+  native_decide at hdepth
 
-/-- Node-minimality is inherited by every strict subplan.  This is the
-branch-local quantifier that depth-only arguments miss. -/
-theorem nodeMinimal_of_strictSubplan
-    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
-    {childCell rootCell : Set (List A)}
-    {child : ResidualSplitPlan M childCell}
-    {root : ResidualSplitPlan M rootCell}
-    (hminimal : NodeMinimal root)
-    (hsub : StrictSubplan M child root) :
-    NodeMinimal child := by
-  induction hsub with
-  | onFalse action safe left right =>
-      intro candidate
-      have hle := hminimal (.query action safe candidate right)
-      simp only [toTree, BoolExperimentTree.queryCount] at hle
-      omega
-  | onTrue action safe left right =>
-      intro candidate
-      have hle := hminimal (.query action safe left candidate)
-      simp only [toTree, BoolExperimentTree.queryCount] at hle
-      omega
-  | trans hchild hroot ihChild ihRoot =>
-      exact ihChild (ihRoot hminimal)
+/-- The positive boundary control remains the exact R0057 result: its
+mandatory first step changes position and therefore is not removed by the
+minimal-spine theorem. -/
+theorem mandatorySteer_survives :
+    ¬ ResidualCell.SamePosition automaton liveCell
+      (ResidualCell.advance automaton liveCell steer false) :=
+  AdaptiveResidualCycleDeletionControl.steer_changes_canonical_position
 
-/-- A node-minimal plan cannot revisit its canonical Mathlib residual
-position at any strict descendant.  Otherwise R0059 transplants the later
-subtree to the earlier cell and strictly lowers the native query count. -/
-theorem position_ne_of_strictSubplan
-    {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
-    {childCell rootCell : Set (List A)}
-    {child : ResidualSplitPlan M childCell}
-    {root : ResidualSplitPlan M rootCell}
-    (rootConstant : ResidualCell.CurrentConstant M rootCell)
-    (rootMinimal : NodeMinimal root)
-    (hsub : StrictSubplan M child root) :
-    ¬ ResidualCell.SamePosition M rootCell childCell := by
-  intro hsame
-  let candidate : ResidualSplitPlan M rootCell :=
-    transplantAtSamePosition M child.toTree rootCell childCell
-      rootConstant (currentConstant_of_strictSubplan hsub) hsame
-      child.toTree_residualSplitting
-  have hle := rootMinimal candidate
-  have htree : candidate.toTree = child.toTree := by
-    exact transplantAtSamePosition_toTree M child.toTree rootCell childCell
-      rootConstant (currentConstant_of_strictSubplan hsub) hsame
-      child.toTree_residualSplitting
-  rw [htree] at hle
-  exact (Nat.not_le_of_lt (queryCount_lt_of_strictSubplan hsub)) hle
-
-end ResidualSplitPlan
-
-namespace ResidualPlanSpine
-
-/-- A dependent residual plan node packaged so several live-cell types can
-appear in one spine. -/
-structure Node
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] where
-  cell : Set (List A)
-  plan : ResidualSplitPlan M cell
-
-def Position
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (node : Node M) : Set (Language A) :=
-  ResidualCell.Position M node.cell
-
-def StrictDescendant
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (child root : Node M) : Prop :=
-  ResidualSplitPlan.StrictSubplan M child.plan root.plan
-
-/-- Pairwise strict descent plus local node-minimality converts cycle deletion
-into the promised `Nodup` theorem. -/
-theorem positions_nodup
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (nodes : List (Node M))
-    (hconstant : ∀ node ∈ nodes,
-      ResidualCell.CurrentConstant M node.cell)
-    (hminimal : ∀ node ∈ nodes,
-      ResidualSplitPlan.NodeMinimal node.plan)
-    (hchain : nodes.Pairwise fun earlier later =>
-      StrictDescendant M later earlier) :
-    (nodes.map (Position M)).Nodup := by
-  induction nodes with
-  | nil => simp
-  | cons head tail ih =>
-      rw [List.map_cons, List.nodup_cons]
-      have hpair := List.pairwise_cons.mp hchain
-      constructor
-      · intro hmem
-        rcases List.mem_map.mp hmem with ⟨later, hlater, heq⟩
-        have hdesc := hpair.1 later hlater
-        have hne := ResidualSplitPlan.position_ne_of_strictSubplan
-          (hconstant head (by simp)) (hminimal head (by simp)) hdesc
-        exact hne heq.symm
-      · apply ih
-        · intro node hnode
-          exact hconstant node (by simp [hnode])
-        · intro node hnode
-          exact hminimal node (by simp [hnode])
-        · exact hpair.2
-
-/-- A root-minimal spine automatically satisfies node-minimality and current
-constancy at every later node. -/
-theorem rooted_positions_nodup
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (root : Node M) (tail : List (Node M))
-    (rootConstant : ResidualCell.CurrentConstant M root.cell)
-    (rootMinimal : ResidualSplitPlan.NodeMinimal root.plan)
-    (hchain : (root :: tail).Pairwise fun earlier later =>
-      StrictDescendant M later earlier) :
-    ((root :: tail).map (Position M)).Nodup := by
-  apply positions_nodup M (root :: tail)
-  · intro node hnode
-    rcases List.mem_cons.mp hnode with rfl | htail
-    · exact rootConstant
-    · exact ResidualSplitPlan.currentConstant_of_strictSubplan
-        ((List.pairwise_cons.mp hchain).1 node htail)
-  · intro node hnode
-    rcases List.mem_cons.mp hnode with rfl | htail
-    · exact rootMinimal
-    · exact ResidualSplitPlan.nodeMinimal_of_strictSubplan rootMinimal
-        ((List.pairwise_cons.mp hchain).1 node htail)
-  · exact hchain
-
-/-- The set-valued formation position, repackaged as a subset of Mathlib's
-finite canonical left-quotient state type. -/
-def FinitePosition
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (node : Node M) : Set (CanonicalResidualPosition.State M) :=
-  { state | state.val ∈ Position M node }
-
-/-- The finite-state repackaging loses no equality information. -/
-theorem finitePosition_eq_iff_position_eq
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (left right : Node M) :
-    FinitePosition M left = FinitePosition M right ↔
-      Position M left = Position M right := by
-  constructor
-  · intro hfinite
-    apply Set.ext
-    intro language
-    constructor
-    · rintro ⟨pre, hpre, rfl⟩
-      have hleft :
-          CanonicalResidualAdapter.branchState M pre ∈
-            FinitePosition M left := ⟨pre, hpre, rfl⟩
-      have hright :
-          CanonicalResidualAdapter.branchState M pre ∈
-            FinitePosition M right := by
-        rw [← hfinite]
-        exact hleft
-      exact hright
-    · rintro ⟨pre, hpre, rfl⟩
-      have hright :
-          CanonicalResidualAdapter.branchState M pre ∈
-            FinitePosition M right := ⟨pre, hpre, rfl⟩
-      have hleft :
-          CanonicalResidualAdapter.branchState M pre ∈
-            FinitePosition M left := by
-        rw [hfinite]
-        exact hright
-      exact hleft
-  · intro hposition
-    ext state
-    exact Set.ext_iff.mp hposition state.val
-
-/-- The reciprocal global bound.  A node-minimal spine in a regular language
-visits at most all subsets of Mathlib's finite left-quotient carrier.  This is
-an exact exponential bound, not the sharper classical ADS bound. -/
-theorem rooted_spine_length_le_two_pow_stateCount
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (regular : M.accepts.IsRegular)
-    (root : Node M) (tail : List (Node M))
-    (rootConstant : ResidualCell.CurrentConstant M root.cell)
-    (rootMinimal : ResidualSplitPlan.NodeMinimal root.plan)
-    (hchain : (root :: tail).Pairwise fun earlier later =>
-      StrictDescendant M later earlier) :
-    (root :: tail).length ≤
-      2 ^ CanonicalResidualPosition.stateCount M regular := by
-  classical
-  letI : Fintype (CanonicalResidualPosition.State M) :=
-    CanonicalResidualPosition.residualFintype M regular
-  have hposition := rooted_positions_nodup M root tail
-    rootConstant rootMinimal hchain
-  have hfinite :
-      ((root :: tail).map (FinitePosition M)).Nodup := by
-    apply hposition.map_on
-    intro left hleft right hright heq
-    have hposEq :=
-      (finitePosition_eq_iff_position_eq M left right).1 heq
-    exact List.inj_on_of_nodup_map hposition left hleft right hright hposEq
-  calc
-    (root :: tail).length =
-        ((root :: tail).map (FinitePosition M)).length := by simp
-    _ ≤ Fintype.card (Set (CanonicalResidualPosition.State M)) :=
-      hfinite.length_le_card
-    _ = 2 ^ CanonicalResidualPosition.stateCount M regular := by
-      simp [CanonicalResidualPosition.stateCount]
-
-end ResidualPlanSpine
+end AdaptiveResidualMinimalSpineControl
 
 end Pairfield
