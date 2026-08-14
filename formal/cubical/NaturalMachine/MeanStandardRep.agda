@@ -16,9 +16,9 @@
 --   T14.12  `Σ_{j≥0} tr(τ|Symʲ V_k) tʲ = 1/((1−t)^{k−2}(1+t))`.
 --   T14.13  (char 0, `R[V_k]^{S_k}` polynomial on degrees 2..k) — Delta
 --           14 labels this a **Known anchor**; it is CITED here and is
---           deliberately NOT re-proved.  Chevalley–Shephard–Todd for the
---           symmetric group, i.e. the fundamental theorem of symmetric
---           polynomials.  Nothing below depends on it.
+--           deliberately NOT re-proved.  It is Chevalley–Shephard–Todd
+--           for the symmetric group, i.e. the fundamental theorem of
+--           symmetric polynomials.  Nothing below depends on it.
 --
 -- `NaturalMachine.CenterRelative` is imported, not edited; §2 proves that
 -- its `Φ` **is** the k = 2 mean-split followed by the identification
@@ -28,48 +28,47 @@
 -- WHAT IS A TERM HERE, AND WHAT IS NOT
 --
 --   T14.8    k = 2 (`split₂`) and k = 3 (`split₃`).  General `k`: NOT
---            attempted — see the closing note.
+--            attempted — see §5.
 --   T14.9    k = 2 (`mean₂-inv`, `dev₂-equivariant`) and k = 3 for all
 --            three transpositions, which generate `S₃`
 --            (`mean₃-inv-*`, `dev₃-equivariant-*`).  The statement is
---            proved for the generators; it is NOT lifted to a homomorphism
---            out of an abstract `S₃`, because no group object is built.
+--            proved for the generators; it is NOT lifted to a
+--            homomorphism out of an abstract `S₃`, because no group
+--            object is built.  Saying "the `S₃` action" of the three
+--            checked transpositions would overstate by exactly that gap.
 --   C14.10   `sign-rep₂` — the swap acts on `V₂ ≅ R` by `x ↦ −x`.
 --   T14.11   k = 3, in the STRONG form: an explicit basis change
 --            `V₃ ≃ R × R` in which the transposition is `diag(−1,+1)`
---            (`sw01-diagonalised`), which is exactly "eigenvalue −1 with
---            multiplicity 1, +1 with multiplicity k−2 = 1"; plus the
---            two eigenvectors exhibited (`sw01-u`, `sw01-v`) and the
+--            (`sw01-diagonalised`), which IS "eigenvalue −1 with
+--            multiplicity 1, +1 with multiplicity k−2 = 1"; plus the two
+--            eigenvectors exhibited (`sw01-u`, `sw01-v`) and the
 --            non-scalarity corollary in its sharp form: a transposition
 --            on `V₃` is scalar ONLY in characteristic 2
---            (`sw01-scalar→char2`), hence never when 2 is invertible in a
---            nontrivial ring (`sw01-not-scalar`).
---   T14.12   **NOT PROVED, AND NOT FAKED.**  See §5.  What is a term is
---            its arithmetic half at k = 3, `altSum-even` / `altSum-odd`
---            (`Σ_{i≤j} (−1)ⁱ = 1` for `j` even, `0` for `j` odd), which
---            is what the trace reduces to *given* the monomial eigenbasis
---            of `Symʲ` of a diagonalised rank-2 module.  `Symʲ` does not
---            exist in this development and no trace is computed.
+--            (`sw01-scalar→char2`), hence never when 2 is invertible in
+--            a nontrivial ring (`sw01-not-scalar`).
+--   T14.12   **NOT PROVED, AND NOT FAKED.**  See §5 for the three
+--            missing objects.  What is a term is the arithmetic the
+--            trace reduces to at k = 3 once the eigenbasis is granted:
+--            `altSum-even` / `altSum-odd`.
 --
 --
 -- HYPOTHESIS STRATIFICATION, deliberately
 --
--- The file is layered so that each result is stated under exactly the
--- arithmetic it needs, which is the point `CenterRelative` makes about
--- `half+half ≡ 1r` and is worth keeping:
+-- Each result is stated under exactly the arithmetic it needs — the
+-- point `CenterRelative` makes about `half+half ≡ 1r`, kept:
 --
 --   §3.1  no `half`, no `third`  — `V₃`, the transpositions, the two
 --                                  eigenvectors, and `sw01-scalar→char2`.
 --                                  **T14.11's obstruction needs no
---                                  invertibility at all.**
+--                                  invertibility hypothesis at all.**
 --   §3.2  `half` only            — the diagonalising basis `V₃ ≃ R × R`,
 --                                  `sw01-diagonalised`, `sw01-not-scalar`.
 --   §3.3  `third` only           — T14.8 and T14.9 at k = 3.  The mean
 --                                  needs `3` invertible and nothing else.
 --
--- That `k` invertible is needed for the SPLIT while `k` invertible is
--- NOT needed for the ACTION to be non-scalar is a real distinction and
--- the layering is how it is recorded.
+-- That `k` invertible is needed for the SPLIT while it is NOT needed for
+-- the ACTION to be non-scalar is a real distinction, and the layering is
+-- how it is recorded rather than asserted.
 --
 --
 -- PRIOR ART (searched before proving, per CLAUDE.md)
@@ -79,14 +78,15 @@
 -- Result: **none exists to reuse.**  mathlib4 has
 -- `Mathlib/RepresentationTheory/` but no `standardRep`, no Specht
 -- modules, and no permutation-module decomposition (grep for "standard
--- representation", "standardRep", "Specht": zero hits).  agda-unimath has
--- `finite-group-theory/sign-homomorphism` — the sign CHARACTER, not the
--- sign representation as a module — and no representation theory above
--- it.  cubical v0.5 has `Algebra/SymmetricGroup.agda`, `Algebra/Module`,
--- `Algebra/Matrix`, and no representation theory whatsoever.  Hand-rolling
--- at k = 2, 3 is therefore not a rediscovery.  The MATHEMATICS is of
--- course entirely classical and no novelty is claimed for it; what is new
--- is only that the machine core now holds it as terms.
+-- representation", "standardRep", "Specht": zero hits across
+-- `Mathlib/`).  agda-unimath has `finite-group-theory/sign-homomorphism`
+-- — the sign CHARACTER, not the sign representation as a module — and no
+-- representation theory above it.  cubical v0.5 has
+-- `Algebra/SymmetricGroup.agda`, `Algebra/Module`, `Algebra/Matrix`, and
+-- no representation theory whatsoever.  Hand-rolling at k = 2, 3 is
+-- therefore not a rediscovery of available formal material.  The
+-- MATHEMATICS is entirely classical and no novelty is claimed for it;
+-- what is new is only that the machine core now holds it as terms.
 ------------------------------------------------------------------------
 
 module NaturalMachine.MeanStandardRep where
@@ -111,15 +111,13 @@ module _ (R : CommRing ℓ) where
  open CommRingStr (snd R)
 
  private
-   -- `x₀ + x₁ + x₂ ≡ 0r` is a path in a set, hence a proposition; this is
-   -- what lets `V₂`/`V₃` be compared by their vector components alone.
-   isPropSum : (x y : ⟨ R ⟩) → isProp (x ≡ y)
-   isPropSum x y = is-set x y
+   -- `Σxᵢ ≡ 0r` is a path in a set, hence a proposition; this is what
+   -- lets `V₂`/`V₃` be compared by their vector components alone.
+   isPropEq : (x y : ⟨ R ⟩) → isProp (x ≡ y)
+   isPropEq x y = is-set x y
 
  ---------------------------------------------------------------------
- -- 1.  k = 2.
- --
- -- `V₂ = {(a,b) : a + b = 0}`.  T14.8, then `V₂ ≅ R`, then C14.10.
+ -- 1.  k = 2:  `V₂ = {(a,b) : a + b = 0}`, T14.8, `V₂ ≅ R`, C14.10.
  ---------------------------------------------------------------------
 
  Vec2 : Type ℓ
@@ -141,11 +139,14 @@ module _ (R : CommRing ℓ) where
  swap2-sum : (x : Vec2) → sum2 (swap2 x) ≡ sum2 x
  swap2-sum (a , b) = sw2sum a b
 
- -- the swap restricted to `V₂` — this is the `S₂`-action on `V₂`
+ -- the `S₂`-action on `V₂`
  swap2V : V₂ → V₂
  swap2V (x , p) = (swap2 x , swap2-sum x ∙ p)
 
- -- `V₂ ≅ R`, by the second coordinate.  (`a` is determined: `a = −b`.)
+ swap2V-invol : (x : V₂) → swap2V (swap2V x) ≡ x
+ swap2V-invol ((a , b) , p) = Σ≡Prop (λ v → isPropEq (sum2 v) 0r) refl
+
+ -- `V₂ ≅ R`, by the second coordinate: `a` is determined, `a = −b`.
  private
    negFromSum : (a b : ⟨ R ⟩) → a + b ≡ 0r → (- b) ≡ a
    negFromSum a b p = sym (sym (e1 a b) ∙ cong (_+ (- b)) p ∙ e2 b)
@@ -169,20 +170,16 @@ module _ (R : CommRing ℓ) where
  Iso.inv      V₂Iso = R→V₂
  Iso.rightInv V₂Iso b = refl
  Iso.leftInv  V₂Iso ((a , b) , p) =
-   Σ≡Prop (λ v → isPropSum (sum2 v) 0r) (≡-× (negFromSum a b p) refl)
+   Σ≡Prop (λ v → isPropEq (sum2 v) 0r) (≡-× (negFromSum a b p) refl)
 
  V₂≃R : V₂ ≃ ⟨ R ⟩
  V₂≃R = isoToEquiv V₂Iso
 
- -- C14.10.  THE SIGN REPRESENTATION at k = 2: under `V₂ ≅ R`, the
+ -- C14.10.  THE SIGN REPRESENTATION at k = 2: under `V₂ ≅ R` the
  -- transposition is multiplication by `−1`.  One line, because `V₂` is
- -- the line `{(−b, b)}` and swapping its two entries negates `b`.
+ -- the line `{(−b, b)}` and swapping its entries negates `b`.
  sign-rep₂ : (x : V₂) → V₂→R (swap2V x) ≡ - (V₂→R x)
  sign-rep₂ ((a , b) , p) = sym (negFromSum a b p)
-
- -- … and it really is an action of order 2, not merely a map.
- swap2V-invol : (x : V₂) → swap2V (swap2V x) ≡ x
- swap2V-invol (x , p) = Σ≡Prop (λ v → isPropSum (sum2 v) 0r) refl
 
  module _ (half : ⟨ R ⟩) (half+half : half + half ≡ 1r) where
 
@@ -199,19 +196,14 @@ module _ (R : CommRing ℓ) where
     d2a : (h a b : ⟨ R ⟩) → (a - h · (a + b)) + (b - h · (a + b))
                           ≡ (a + b) - (h + h) · (a + b)
     d2a = solve R
-
     d2b : (s : ⟨ R ⟩) → s - 1r · s ≡ 0r
     d2b = solve R
-
     m2a : (h m a b : ⟨ R ⟩) → h · ((m + a) + (m + b)) ≡ h · ((m + m) + (a + b))
     m2a = solve R
-
     m2b : (h m : ⟨ R ⟩) → h · ((m + m) + 0r) ≡ (h + h) · m
     m2b = solve R
-
     s2a : (m a : ⟨ R ⟩) → (m + a) - m ≡ a
     s2a = solve R
-
     s2b : (m a : ⟨ R ⟩) → m + (a - m) ≡ a
     s2b = solve R
 
@@ -228,20 +220,12 @@ module _ (R : CommRing ℓ) where
   split₂-inv : ⟨ R ⟩ × V₂ → Vec2
   split₂-inv (m , ((a , b) , _)) = (m + a , m + b)
 
-  private
-    mean-of-shift₂ : (m : ⟨ R ⟩) (x : Vec2) → sum2 x ≡ 0r
-                   → mean₂ (split₂-inv (m , (x , refl-irrelevant))) ≡ m
-      where refl-irrelevant = tt-unused
-    mean-of-shift₂ = _
-
-  -- (the helper above is replaced by the direct computation below)
-
   split₂Iso : Iso Vec2 (⟨ R ⟩ × V₂)
   Iso.fun      split₂Iso = split₂-fun
   Iso.inv      split₂Iso = split₂-inv
   Iso.rightInv split₂Iso (m , ((a , b) , p)) =
     ≡-× meanPath
-        (Σ≡Prop (λ v → isPropSum (sum2 v) 0r)
+        (Σ≡Prop (λ v → isPropEq (sum2 v) 0r)
                 (cong (λ u → shift₂ u (m + a , m + b)) meanPath
                  ∙ ≡-× (s2a m a) (s2a m b)))
     where
@@ -252,8 +236,8 @@ module _ (R : CommRing ℓ) where
       ∙ m2b half m
       ∙ cong (_· m) half+half
       ∙ ·IdL m
-  Iso.leftInv  split₂Iso (a , b) = ≡-× (s2b (mean₂ (a , b)) a)
-                                       (s2b (mean₂ (a , b)) b)
+  Iso.leftInv  split₂Iso (a , b) =
+    ≡-× (s2b (mean₂ (a , b)) a) (s2b (mean₂ (a , b)) b)
 
   split₂ : Vec2 ≃ (⟨ R ⟩ × V₂)
   split₂ = isoToEquiv split₂Iso
@@ -262,18 +246,18 @@ module _ (R : CommRing ℓ) where
   mean₂-inv : (x : Vec2) → mean₂ (swap2 x) ≡ mean₂ x
   mean₂-inv x = cong (half ·_) (swap2-sum x)
 
-  -- … and the deviation is equivariant, so the split intertwines the
+  -- … and the deviation is equivariant, so `split₂` intertwines the
   -- `S₂`-action on `R²` with (trivial on the centre) × (sign on `V₂`).
   dev₂-equivariant : (x : Vec2) → dev₂ (swap2 x) ≡ swap2 (dev₂ x)
-  dev₂-equivariant x = cong (λ u → shift₂ u (swap2 x)) (mean₂-inv x)
+  dev₂-equivariant (a , b) = cong (λ u → shift₂ u (b , a)) (mean₂-inv (a , b))
 
   ------------------------------------------------------------------
-  -- 2.  The bridge to `CenterRelative`.
+  -- 2.  THE BRIDGE TO `CenterRelative`.
   --
   -- The k = 2 mean-split, followed by `V₂ ≅ R`, IS that file's `Φ`.
   -- So C14.10's sign representation is `CenterRelative.ρ`'s second
-  -- component, and `Φ∘τ≡ρ∘Φ` (proved there) is the intertwining
-  -- statement — neither is a second object and neither is re-proved.
+  -- component, and `CenterRelative.Φ∘τ≡ρ∘Φ` is already the intertwining
+  -- statement — neither is a second object and neither is re-proved here.
   ------------------------------------------------------------------
 
   private
@@ -301,7 +285,7 @@ module _ (R : CommRing ℓ) where
  V₃ : Type ℓ
  V₃ = Σ[ x ∈ Vec3 ] (sum3 x ≡ 0r)
 
- -- the three transpositions of `S₃`, which generate it
+ -- the three transpositions, which generate `S₃`
  sw01 sw12 sw02 : Vec3 → Vec3
  sw01 (a , b , c) = (b , a , c)
  sw12 (a , b , c) = (a , c , b)
@@ -322,17 +306,16 @@ module _ (R : CommRing ℓ) where
  sw02-sum : (x : Vec3) → sum3 (sw02 x) ≡ sum3 x
  sw02-sum (a , b , c) = p02 a b c
 
- -- the transpositions restrict to `V₃`: this is the standard
- -- representation, as a map
+ -- the transpositions restrict to `V₃`: the standard representation, as
+ -- maps.  (No group object; see the header.)
  sw01V sw12V sw02V : V₃ → V₃
  sw01V (x , p) = (sw01 x , sw01-sum x ∙ p)
  sw12V (x , p) = (sw12 x , sw12-sum x ∙ p)
  sw02V (x , p) = (sw02 x , sw02-sum x ∙ p)
 
  sw01V-invol : (x : V₃) → sw01V (sw01V x) ≡ x
- sw01V-invol (x , p) = Σ≡Prop (λ v → isPropSum (sum3 v) 0r) refl
+ sw01V-invol ((a , b , c) , p) = Σ≡Prop (λ v → isPropEq (sum3 v) 0r) refl
 
- -- scaling on `V₃`
  private
    scale-sum : (c a b d : ⟨ R ⟩) → (c · a) + (c · b) + (c · d) ≡ c · (a + b + d)
    scale-sum = solve R
@@ -346,61 +329,66 @@ module _ (R : CommRing ℓ) where
  ------------------------------------------------------------------
  -- 3.1  T14.11's OBSTRUCTION, with NO invertibility hypothesis.
  --
- -- The two eigenvectors, and the exact conclusion they force.
+ -- Two eigenvectors, and the exact conclusion they force.
  ------------------------------------------------------------------
 
  private
-   uSum : (1r + (- 1r) + 0r) ≡ 0r
-   uSum = lem 1r where
+   uSum : 1r + (- 1r) + 0r ≡ 0r
+   uSum = lem 1r
+     where
      lem : (x : ⟨ R ⟩) → x + (- x) + 0r ≡ 0r
      lem = solve R
 
-   vSum : (1r + 1r + (- (1r + 1r))) ≡ 0r
-   vSum = lem 1r where
+   vSum : 1r + 1r + (- (1r + 1r)) ≡ 0r
+   vSum = lem 1r
+     where
      lem : (x : ⟨ R ⟩) → x + x + (- (x + x)) ≡ 0r
      lem = solve R
 
- -- `u = (1, −1, 0)` : the `−1` eigenvector of the transposition (0 1)
+ -- `u = (1, −1, 0)`: the `−1` eigenvector of the transposition (0 1)
  uVec : V₃
  uVec = ((1r , - 1r , 0r) , uSum)
 
- -- `v = (1, 1, −2)` : the `+1` eigenvector
+ -- `v = (1, 1, −2)`: the `+1` eigenvector
  vVec : V₃
  vVec = ((1r , 1r , - (1r + 1r)) , vSum)
 
  private
-   uNegSnd : (- 1r) ≡ (- 1r) · 1r
-   uNegSnd = lem 1r where
-     lem : (x : ⟨ R ⟩) → (- x) ≡ (- x) · x
+   uc0 : (- 1r) ≡ (- 1r) · 1r
+   uc0 = lem 1r
+     where
+     lem : (x : ⟨ R ⟩) → (- x) ≡ (- x) · 1r
      lem = solve R
-   uNegFst : 1r ≡ (- 1r) · (- 1r)
-   uNegFst = lem 1r where
-     lem : (x : ⟨ R ⟩) → x ≡ (- x) · (- x)
+   uc1 : 1r ≡ (- 1r) · (- 1r)
+   uc1 = lem 1r
+     where
+     lem : (x : ⟨ R ⟩) → x ≡ (- 1r) · (- x)
      lem = solve R
-   uNegThd : 0r ≡ (- 1r) · 0r
-   uNegThd = lem 1r where
+   uc2 : 0r ≡ (- 1r) · 0r
+   uc2 = lem 1r
+     where
      lem : (x : ⟨ R ⟩) → 0r ≡ (- x) · 0r
      lem = solve R
-   vOneA : 1r ≡ 1r · 1r
-   vOneA = lem 1r where
-     lem : (x : ⟨ R ⟩) → x ≡ x · x
+   vc0 : 1r ≡ 1r · 1r
+   vc0 = lem 1r
+     where
+     lem : (x : ⟨ R ⟩) → x ≡ x · 1r
      lem = solve R
-   vOneC : (- (1r + 1r)) ≡ 1r · (- (1r + 1r))
-   vOneC = lem 1r where
-     lem : (x : ⟨ R ⟩) → (- (x + x)) ≡ x · (- (x + x))
+   vc2 : (- (1r + 1r)) ≡ 1r · (- (1r + 1r))
+   vc2 = lem 1r
+     where
+     lem : (x : ⟨ R ⟩) → (- (x + x)) ≡ 1r · (- (x + x))
      lem = solve R
 
  -- T14.11, the exhibition: `(0 1)` scales `u` by `−1` …
  sw01-u : sw01V uVec ≡ scaleV (- 1r) uVec
- sw01-u = Σ≡Prop (λ v → isPropSum (sum3 v) 0r)
-                 (≡-× uNegSnd (≡-× uNegFst uNegThd))
+ sw01-u = Σ≡Prop (λ v → isPropEq (sum3 v) 0r) (≡-× uc0 (≡-× uc1 uc2))
 
  -- … and fixes `v`.
  sw01-v : sw01V vVec ≡ scaleV 1r vVec
- sw01-v = Σ≡Prop (λ v → isPropSum (sum3 v) 0r)
-                 (≡-× vOneA (≡-× vOneA vOneC))
+ sw01-v = Σ≡Prop (λ v → isPropEq (sum3 v) 0r) (≡-× vc0 (≡-× vc0 vc2))
 
- -- "the transposition acts by a scalar", as a type to be refuted
+ -- "the transposition acts on `V₃` by a scalar", as a type to be refuted
  Scalar01 : Type ℓ
  Scalar01 = Σ[ c ∈ ⟨ R ⟩ ] ((x : V₃) → sw01V x ≡ scaleV c x)
 
@@ -410,15 +398,18 @@ module _ (R : CommRing ℓ) where
 
    c1 : (c : ⟨ R ⟩) → c · 1r ≡ c
    c1 = solve R
-
    char2lem : (x : ⟨ R ⟩) → x + x ≡ x - (- x)
    char2lem = solve R
+   selfSub : (x : ⟨ R ⟩) → x - x ≡ 0r
+   selfSub = solve R
 
- -- **T14.11, sharp.**  If the transposition (0 1) acts on `V₃` by a
+ -- **T14.11, SHARP.**  If the transposition (0 1) acts on `V₃` by a
  -- scalar then `1 + 1 ≡ 0`.  No invertibility hypothesis of any kind:
- -- the two eigenvectors force the scalar to be both `−1` and `+1`.
+ -- the two eigenvectors force the scalar to be both `−1` and `+1`, and
+ -- that is already the whole content.
  sw01-scalar→char2 : Scalar01 → 1r + 1r ≡ 0r
- sw01-scalar→char2 (c , h) = step
+ sw01-scalar→char2 (c , h) =
+   char2lem 1r ∙ cong (λ u → 1r - u) neg1≡1 ∙ selfSub 1r
    where
    fromU : (- 1r) ≡ c
    fromU = cong fstOf (h uVec) ∙ c1 c
@@ -426,11 +417,6 @@ module _ (R : CommRing ℓ) where
    fromV = cong fstOf (h vVec) ∙ c1 c
    neg1≡1 : (- 1r) ≡ 1r
    neg1≡1 = fromU ∙ sym fromV
-   step : 1r + 1r ≡ 0r
-   step = char2lem 1r ∙ cong (1r -_) neg1≡1 ∙ z 1r
-     where
-     z : (x : ⟨ R ⟩) → x - x ≡ 0r
-     z = solve R
 
  ------------------------------------------------------------------
  -- 3.2  With `half`: the DIAGONALISING BASIS, and T14.11 in full.
@@ -463,7 +449,7 @@ module _ (R : CommRing ℓ) where
     negOfSum3 a b c p =
       sym (sym (r4 a b c) ∙ cong (_+ (- (a + b))) p ∙ r5 (a + b))
 
-  -- the basis `u = (1,−1,0)`, `v = (1,1,−2)` of `V₃`, as coordinates
+  -- coordinates in the basis `u = (1,−1,0)`, `v = (1,1,−2)` of `V₃`
   coords₃ : V₃ → ⟨ R ⟩ × ⟨ R ⟩
   coords₃ ((a , b , _) , _) = (half · (a - b) , half · (a + b))
 
@@ -476,15 +462,16 @@ module _ (R : CommRing ℓ) where
   Iso.rightInv V₃Iso (α , β) =
     ≡-× (q1 half α β ∙ unit½ α) (q2 half α β ∙ unit½ β)
   Iso.leftInv  V₃Iso ((a , b , c) , p) =
-    Σ≡Prop (λ v → isPropSum (sum3 v) 0r)
+    Σ≡Prop (λ v → isPropEq (sum3 v) 0r)
       (≡-× (r1 half a b ∙ unit½ a)
            (≡-× (r2 half a b ∙ unit½ b)
                 (r3 half a b
                  ∙ cong (λ u → - (u · (a + b))) half+half
-                 ∙ cong -_ (·IdL (a + b))
+                 ∙ cong (λ u → - u) (·IdL (a + b))
                  ∙ negOfSum3 a b c p)))
 
-  -- T14.8's companion at k = 3: `V₃` is free of rank 2.
+  -- `V₃` is free of rank 2 — the companion of T14.8 that makes the
+  -- multiplicity statement below meaningful.
   V₃≃R² : V₃ ≃ (⟨ R ⟩ × ⟨ R ⟩)
   V₃≃R² = isoToEquiv V₃Iso
 
@@ -494,26 +481,25 @@ module _ (R : CommRing ℓ) where
     f2 : (h a b : ⟨ R ⟩) → h · (b + a) ≡ h · (a + b)
     f2 = solve R
 
-  -- **T14.11 IN FULL, at k = 3.**  In the basis `(u,v)` the
-  -- transposition (0 1) is `diag(−1, +1)`: eigenvalue `−1` with
-  -- multiplicity 1, eigenvalue `+1` with multiplicity `k − 2 = 1`.
-  -- This is the eigenvalue-multiplicity statement, not a sample of it.
+  -- **T14.11 IN FULL, at k = 3.**  In the basis `(u,v)` the transposition
+  -- (0 1) is `diag(−1, +1)`: eigenvalue `−1` with multiplicity 1,
+  -- eigenvalue `+1` with multiplicity `k − 2 = 1`.  This is the
+  -- eigenvalue-multiplicity statement itself, not a sample of it.
   sw01-diagonalised :
-    (x : V₃) → coords₃ (sw01V x)
-             ≡ (- (coords₃ x .fst) , coords₃ x .snd)
+    (x : V₃) → coords₃ (sw01V x) ≡ (- (coords₃ x .fst) , coords₃ x .snd)
   sw01-diagonalised ((a , b , c) , p) = ≡-× (f1 half a b) (f2 half a b)
 
-  -- and hence, when 2 is invertible in a NONTRIVIAL ring, the
-  -- transposition is not scalar — Delta 14 T14.11's own phrasing.
-  sw01-not-scalar : (1r ≡ 0r → ⊥) → Scalar01 → ⊥
-  sw01-not-scalar nz s = nz (sym half+half ∙ g half ∙ cong (half ·_) ch2 ∙ z half)
-    where
-    ch2 : 1r + 1r ≡ 0r
-    ch2 = sw01-scalar→char2 s
+  private
     g : (h : ⟨ R ⟩) → h + h ≡ h · (1r + 1r)
     g = solve R
     z : (h : ⟨ R ⟩) → h · 0r ≡ 0r
     z = solve R
+
+  -- … and hence, when 2 is invertible in a NONTRIVIAL ring, the
+  -- transposition is not scalar — Delta 14 T14.11's own phrasing.
+  sw01-not-scalar : (1r ≡ 0r → ⊥) → Scalar01 → ⊥
+  sw01-not-scalar nz s =
+    nz (sym half+half ∙ g half ∙ cong (half ·_) (sw01-scalar→char2 s) ∙ z half)
 
  ------------------------------------------------------------------
  -- 3.3  With `third`: T14.8 and T14.9 at k = 3.
@@ -565,7 +551,7 @@ module _ (R : CommRing ℓ) where
   Iso.inv      split₃Iso = split₃-inv
   Iso.rightInv split₃Iso (m , ((a , b , c) , p)) =
     ≡-× meanPath
-        (Σ≡Prop (λ v → isPropSum (sum3 v) 0r)
+        (Σ≡Prop (λ v → isPropEq (sum3 v) 0r)
                 (cong (λ u → shift₃ u (m + a , m + b , m + c)) meanPath
                  ∙ ≡-× (g5 m a) (≡-× (g5 m b) (g5 m c))))
     where
@@ -592,16 +578,19 @@ module _ (R : CommRing ℓ) where
   mean₃-inv-02 : (x : Vec3) → mean₃ (sw02 x) ≡ mean₃ x
   mean₃-inv-02 x = cong (third ·_) (sw02-sum x)
 
-  -- … and the deviation is equivariant, so under `split₃` the `S₃`-action
-  -- on `R³` is (trivial on the centre) × (the action on `V₃`), which by
+  -- … and the deviation is equivariant, so under `split₃` the action on
+  -- `R³` is (trivial on the centre) × (the action on `V₃`), which by
   -- §3.2 is `diag(−1,+1)` for a transposition.  That is the standard
   -- representation at k = 3.
   dev₃-equivariant-01 : (x : Vec3) → dev₃ (sw01 x) ≡ sw01 (dev₃ x)
-  dev₃-equivariant-01 x = cong (λ u → shift₃ u (sw01 x)) (mean₃-inv-01 x)
+  dev₃-equivariant-01 (a , b , c) =
+    cong (λ u → shift₃ u (b , a , c)) (mean₃-inv-01 (a , b , c))
   dev₃-equivariant-12 : (x : Vec3) → dev₃ (sw12 x) ≡ sw12 (dev₃ x)
-  dev₃-equivariant-12 x = cong (λ u → shift₃ u (sw12 x)) (mean₃-inv-12 x)
+  dev₃-equivariant-12 (a , b , c) =
+    cong (λ u → shift₃ u (a , c , b)) (mean₃-inv-12 (a , b , c))
   dev₃-equivariant-02 : (x : Vec3) → dev₃ (sw02 x) ≡ sw02 (dev₃ x)
-  dev₃-equivariant-02 x = cong (λ u → shift₃ u (sw02 x)) (mean₃-inv-02 x)
+  dev₃-equivariant-02 (a , b , c) =
+    cong (λ u → shift₃ u (c , b , a)) (mean₃-inv-02 (a , b , c))
 
  ---------------------------------------------------------------------
  -- 5.  T14.12, AND WHY IT IS NOT HERE.
@@ -611,34 +600,31 @@ module _ (R : CommRing ℓ) where
  --     Σ_{j≥0} tr(τ | Symʲ V_k) tʲ  =  1 / ((1−t)^{k−2} (1+t)),
  --
  -- with `(−1)ʲ` at k = 2 and `1 / 0` alternating at k = 3.  It is NOT
- -- proved here and is NOT approximated here.  The missing objects are
- -- specific and worth naming rather than gesturing at:
+ -- proved here and NOT approximated here.  The missing objects are
+ -- specific, and naming them is more useful than gesturing:
  --
  --   * `Symʲ M` for a module `M` over a `CommRing`.  cubical v0.5 has
  --     `Cubical.Algebra.Module` but no symmetric power, no tensor
- --     algebra, and no graded quotient construction to build one from.
- --   * a TRACE.  A trace needs a finite basis and a proof that the
- --     trace is basis-independent; v0.5's `Cubical.Algebra.Matrix` has
- --     matrices but no determinant/trace theory for module
- --     endomorphisms.
+ --     algebra, and no graded quotient to build one from.
+ --   * a TRACE.  A trace needs a finite basis and basis-independence;
+ --     v0.5's `Cubical.Algebra.Matrix` has matrices but no trace or
+ --     determinant theory for module endomorphisms.
  --   * the fact that `Symʲ` of a diagonalised rank-2 module has the
  --     monomial eigenbasis `{uⁱ v^{j−i}}`.  This is the actual content
- --     of T14.12 at k = 3 and it is a theorem about `Symʲ`, so it is
+ --     of T14.12 at k = 3, and it is a theorem ABOUT `Symʲ`, hence
  --     downstream of the first bullet.
  --
- -- Building all three is a module of its own and is out of scope for
- -- Program 14.73.  Writing a hand-rolled "Symʲ := free module on
- -- monomials, acting diagonally" and computing its trace would be
- -- MODELLING the answer, not proving it, and would be exactly the
- -- promotion `PerspectiveCore` refuses for T14.6's iff.
+ -- Building all three is a module of its own.  Hand-rolling
+ -- `Symʲ := free module on monomials, acting diagonally` and computing
+ -- its trace would be MODELLING the answer rather than proving it —
+ -- exactly the promotion `PerspectiveCore` refuses for T14.6's iff.
  --
- -- What CAN be checked, and is checked below, is the arithmetic the
- -- trace reduces to at k = 3 once the eigenbasis is granted: the
- -- diagonal entries on `Symʲ` are `(−1)ⁱ` for `i = 0 … j`, so the trace
- -- is `Σ_{i≤j} (−1)ⁱ`, which is `1` for `j` even and `0` for `j` odd —
- -- i.e. the coefficients of `1/((1−t)(1+t)) = 1/(1−t²)`.  This is an
- -- identity in `R`, is a term, and is **not** T14.12; the conditional is
- -- the whole point of stating it separately.
+ -- What CAN be checked, and is, is the arithmetic the trace reduces to
+ -- at k = 3 once the eigenbasis is GRANTED: by §3.2 the diagonal entries
+ -- on `Symʲ` are `(−1)ⁱ` for `i = 0 … j`, so the trace would be
+ -- `Σ_{i≤j} (−1)ⁱ`, which is `1` for `j` even and `0` for `j` odd — the
+ -- coefficients of `1/((1−t)(1+t)) = 1/(1−t²)`.  The two lemmas below
+ -- are that identity in `R`.  They are terms; T14.12 is not.
  ---------------------------------------------------------------------
 
  -- `(−1)ʲ`
@@ -651,36 +637,31 @@ module _ (R : CommRing ℓ) where
  altSum zero    = 1r
  altSum (suc j) = altSum j + negPow (suc j)
 
+ dbl : ℕ → ℕ
+ dbl zero    = zero
+ dbl (suc n) = suc (suc (dbl n))
+
  private
    np1 : (x : ⟨ R ⟩) → (- 1r) · ((- 1r) · x) ≡ x
    np1 = solve R
-   as1 : (s : ⟨ R ⟩) → s + (- 1r) · s ≡ 0r
-   as1 = solve R
-   as2 : (x : ⟨ R ⟩) → 0r + (- 1r) · ((- 1r) · x) ≡ x
-   as2 = solve R
+   ah  : (s p : ⟨ R ⟩) → (s + (- 1r) · p) + p ≡ s
+   ah  = solve R
+   a0  : (x : ⟨ R ⟩) → x + (- 1r) · x ≡ 0r
+   a0  = solve R
 
- -- the two-step recursion, in the form the induction needs
  negPow-two : (j : ℕ) → negPow (suc (suc j)) ≡ negPow j
  negPow-two j = np1 (negPow j)
 
- -- `Σ_{i≤2n} (−1)ⁱ = 1` and `Σ_{i≤2n+1} (−1)ⁱ = 0`.
- altSum-even : (n : ℕ) → altSum (double n) ≡ 1r
- altSum-odd  : (n : ℕ) → altSum (suc (double n)) ≡ 0r
+ -- the two-step recursion: `Σ_{i≤j+2} (−1)ⁱ = Σ_{i≤j} (−1)ⁱ`
+ altSum-two : (j : ℕ) → altSum (suc (suc j)) ≡ altSum j
+ altSum-two j =
+   cong (λ u → (altSum j + (- 1r) · negPow j) + u) (negPow-two j)
+   ∙ ah (altSum j) (negPow j)
 
+ altSum-even : (n : ℕ) → altSum (dbl n) ≡ 1r
  altSum-even zero    = refl
- altSum-even (suc n) =
-   cong (_+ negPow (suc (suc (double n)))) (altSum-odd n)
-   ∙ cong (0r +_) (negPow-two (double n))
-   ∙ lem (altSum (double n))
-   ∙ altSum-even n
-   where
-   -- `negPow (double n)` is `+1` only after the induction; keep the step
-   -- purely arithmetic by rewriting through `altSum`
-   lem : (s : ⟨ R ⟩) → 0r + negPow (double n) ≡ negPow (double n)
-   lem _ = solve R _
+ altSum-even (suc n) = altSum-two (dbl n) ∙ altSum-even n
 
- altSum-odd n = cong (_+ negPow (suc (double n))) (altSum-even n)
-                ∙ as1' (negPow (double n))
-   where
-   as1' : (s : ⟨ R ⟩) → 1r + negPow (suc (double n)) ≡ 0r
-   as1' _ = solve R _
+ altSum-odd : (n : ℕ) → altSum (suc (dbl n)) ≡ 0r
+ altSum-odd zero    = a0 1r
+ altSum-odd (suc n) = altSum-two (suc (dbl n)) ∙ altSum-odd n
