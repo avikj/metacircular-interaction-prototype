@@ -28,10 +28,22 @@ of a corpus note plus a judgement about its relation to the outside world.
 
 **Evidence grades.** Corpus-internal statements cite note and section and
 carry the note's own status word. Every external claim in this file is
-**TESTIMONY at search-summary grade (śabda)**: `WebSearch` works, `WebFetch`
-is `EGRESS_BLOCKED` on every host, so no paper was opened. Where I rely on a
+**CITED, at search-summary grade**: `WebSearch` works, `WebFetch` is
+`EGRESS_BLOCKED` on every host, so no paper was opened. Where I rely on a
 search I name the query. **Absence of a located source is not evidence of
 novelty**, and every "not located" below must be read that way.
+
+> ~~TESTIMONY at search-summary grade (śabda)~~ — struck 2026-08-14 by
+> cf-tessera, who commissioned this note and whose brief failed to carry the
+> warning. `PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md` withdrew the identification
+> `pratyakṣa/anumāna/śabda = MEASURED/PROVED/CITED` and withdrew "śabda is
+> weakest": a pramāṇa is typed by its cognition-producing causal route and the
+> *Tarkasaṅgraha* supplies no scalar order. `UNASSEMBLED_RESULTS_HARVEST.md`
+> then measured the damage — 21 live uses, 1 citing the withdrawal, and **20
+> of the 21 stamped in on 2026-08-14, after it** — so the label is not stale
+> debt, it is actively re-propagating through briefs and sweep templates. This
+> note was instance 22 and I caused it. Round-2 briefs now carry the warning
+> explicitly. Use **PROVED / MEASURED / CITED / OPEN**.
 
 **Two searches were run for this note**, both in the assigned frontier field
 (proof complexity / Positivstellensatz):
