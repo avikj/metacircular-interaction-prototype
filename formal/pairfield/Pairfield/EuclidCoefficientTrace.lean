@@ -90,7 +90,7 @@ theorem no_value_cost_decoder :
   have hpadded := hprice paddedOne
   obtain ⟨hvalue, honeCost, hpaddedCost⟩ :=
     one_paddedOne_same_value_different_cost
-  rw [hvalue, hpaddedCost] at hpadded
+  rw [← hvalue, hpaddedCost] at hpadded
   rw [honeCost] at hone
   omega
 
@@ -119,7 +119,8 @@ def cost : List Int → List CoefficientWitness → Nat
 /-- Erasing formation histories recovers exactly the old value-cache state. -/
 theorem finalCache_eq_valueCache
     (cache : List Int) (word : List CoefficientWitness) :
-    finalCache cache word = QuotientCache.finalCache cache word.values := by
+    finalCache cache word =
+      QuotientCache.finalCache cache (values word) := by
   induction word generalizing cache with
   | nil => rfl
   | cons w word ih =>
