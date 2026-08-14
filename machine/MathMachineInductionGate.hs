@@ -7,6 +7,7 @@ module Main (main) where
 import Control.Exception (finally)
 import Control.Monad (unless)
 import Data.Char (isSpace)
+import qualified Data.Map.Strict as Map
 import System.Directory
   ( createDirectoryIfMissing
   , doesFileExist
@@ -167,10 +168,60 @@ data ExecutableRule = ExecutableRule
 
 type RuleSet = [ExecutableRule]
 
+data PatternVariable = X | Y | Z deriving (Eq, Ord, Show)
+
+type Substitution = Map.Map PatternVariable Term
+
+patternVariable :: Term -> Maybe PatternVariable
+patternVariable Var = Just X
+patternVariable YVar = Just Y
+patternVariable ZVar = Just Z
+patternVariable _ = Nothing
+
+-- This is MathMachine's matching discipline specialized to the three
+-- variables supported by this certificate. Repeated occurrences must receive
+-- one consistent substitution; constructors must agree exactly.
+matchTerm :: Term -> Term -> Maybe Substitution
+matchTerm patternTerm input = go patternTerm input Map.empty
+  where
+  go patternNode inputNode substitution =
+    case patternVariable patternNode of
+      Just variable ->
+        case Map.lookup variable substitution of
+          Nothing -> Just (Map.insert variable inputNode substitution)
+          Just previous
+            | previous == inputNode -> Just substitution
+            | otherwise -> Nothing
+      Nothing ->
+        case (patternNode, inputNode) of
+          (Zero, Zero) -> Just substitution
+          (Suc patternChild, Suc inputChild) ->
+            go patternChild inputChild substitution
+          (Add patternLeft patternRight, Add inputLeft inputRight) -> do
+            afterLeft <- go patternLeft inputLeft substitution
+            go patternRight inputRight afterLeft
+          _ -> Nothing
+
+applySubstitution :: Substitution -> Term -> Term
+applySubstitution substitution term =
+  case patternVariable term of
+    Just variable -> Map.findWithDefault term variable substitution
+    Nothing ->
+      case term of
+        Zero -> Zero
+        Suc child -> Suc (applySubstitution substitution child)
+        Add left right ->
+          Add
+            (applySubstitution substitution left)
+            (applySubstitution substitution right)
+        Var -> Var
+        YVar -> YVar
+        ZVar -> ZVar
+
 applyRule :: ExecutableRule -> Term -> Maybe Term
-applyRule rule input
-  | input == ruleLhs rule = Just (ruleRhs rule)
-  | otherwise = Nothing
+applyRule rule input = do
+  substitution <- matchTerm (ruleLhs rule) input
+  pure (applySubstitution substitution (ruleRhs rule))
 
 runRuleSet :: RuleSet -> Term -> Maybe Term
 runRuleSet [] _ = Nothing
@@ -239,22 +290,42 @@ main = do
   (mutatedAccepted, rulesAfterMutation) <-
     validateAndInstall repo "mutated-hypothesis-transport"
       rulesAfterGood mutatedAssociativity
-  let executed = runRuleSet rulesAfterMutation lhs == Just rhs
+  let one = Suc Zero
+      two = Suc one
+      compound = Add Zero one
+      concreteInput = Add one (Add compound two)
+      concreteOutput = Add (Add one compound) two
+      repeatedPattern = Add Var Var
+      consistentRepeated =
+        matchTerm repeatedPattern (Add compound compound) /= Nothing
+      inconsistentRepeated =
+        matchTerm repeatedPattern (Add compound two) == Nothing
+      nonmatchingTerm = runRuleSet rulesAfterMutation (Suc compound) == Nothing
+      concreteExecuted =
+        runRuleSet rulesAfterMutation concreteInput == Just concreteOutput
+      concreteIsNotPattern = concreteInput /= lhs
       nonDefinitional = lhs /= rhs
       mutationDidNotInstall = rulesAfterMutation == rulesAfterGood
       exactlyOneRule = length rulesAfterMutation == 1
   if accepted
       && not mutatedAccepted
       && nonDefinitional
-      && executed
+      && concreteIsNotPattern
+      && concreteExecuted
+      && consistentRepeated
+      && inconsistentRepeated
+      && nonmatchingTerm
       && mutationDidNotInstall
       && exactlyOneRule
     then putStrLn
-      "MATHMACHINE INDUCTION GATE CHECKED: accepted rule executes; mutated certificate absent"
+      "MATHMACHINE INDUCTION GATE CHECKED: concrete rewrite + consistent matching; mutation absent"
     else do
       putStrLn
         ("induction gate failure: accepted=" ++ show accepted
           ++ ", mutatedAccepted=" ++ show mutatedAccepted
-          ++ ", executed=" ++ show executed
+          ++ ", concreteExecuted=" ++ show concreteExecuted
+          ++ ", consistentRepeated=" ++ show consistentRepeated
+          ++ ", inconsistentRepeated=" ++ show inconsistentRepeated
+          ++ ", nonmatchingTerm=" ++ show nonmatchingTerm
           ++ ", installedRules=" ++ show rulesAfterMutation)
       exitFailure
