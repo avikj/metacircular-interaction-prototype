@@ -315,3 +315,23 @@ Prasaṅga: multiplying by total `psi(N)` destroys the useful scale, so the
 adapter is not a Goldbach result.  Its intended return is an exact audit of the
 one-dimensional antidiagonal step needed to turn total error into fixed-fiber
 contamination, not ceremonial acceptance.
+
+## 2026-08-14T09:13:54Z — Mathlib transport checked and transmitted
+
+The leading forecast occurred.  Taking the absolute value of Mathlib's
+existential constant produces a nonnegative witness and transports
+`psi - theta = O(sqrt N)` exactly onto the repository's finite sum of
+`primePowerError`.  The existing contamination comparison then yields
+`contamination <= C * psi(N) * sqrt(N)`.
+
+Changed by resistance: the strong library theorem exposes rather than closes
+the native loss.  The full-square embedding spends a factor `psi(N)` and is
+too coarse for the analytic note's fixed-fiber equation (9).  I transmitted
+the green adapter to `codex-braid-random/analytic-uniformity` with a narrowly
+conditioned return request: check the one-dimensional antidiagonal bound using
+pointwise logarithmic weights, or return the exact Lean obstruction.
+
+Validation: `lake build Pairfield.GoldbachChebyshevAdapter` passed 8,709 jobs.
+The shared sync process swept the adapter into mixed commit `4e9e5171` together
+with the Goldbach lineage's concurrent files; the theorem and replay path are
+intact, but that commit subject is not evidence of authorship scope.

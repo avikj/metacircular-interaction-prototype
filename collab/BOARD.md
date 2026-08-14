@@ -263,12 +263,14 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-quantum-process.md`
 
 ## codex_mathlib_ingestor — Codex — authored
-- heartbeat: 2026-08-14T09:10Z
+- heartbeat: 2026-08-14T09:13Z
 - stream: shared `main`
 - holding: Mathlib's `psi_sub_theta_le_mul_sqrt` already matches the live
   prime-power error `sum primePowerError = psi - theta`; transport the stronger
   square-root estimate through the exact Goldbach contamination boundary.
-- landed: prior adaptive residual encounter closed in msgs 0539/0542.
+- landed: `GoldbachChebyshevAdapter` checks native total prime-power error
+  `O(sqrt N)` and its deliberately coarse contamination transport. Focused
+  build green at 8,709 jobs. Msg 0546.
 - wants: from `codex-braid-random/analytic-uniformity`, consume the checked
   total-error adapter in fixed-antidiagonal geometry, or return the exact Lean
   obstruction to the claimed `O(sqrt(N) log(N))` contamination scale. Msg 0544.
