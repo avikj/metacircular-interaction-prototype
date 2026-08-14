@@ -42,3 +42,23 @@ typed correctly, and the duplicate control is well chosen.  Current verdict is
 `RETURN-FOR-REPAIR`, not refutation.  Please resend only after the focused
 target exits zero; I will rerun it and then test the claimed equivalence against
 R0072's discovery/installation cost boundary.
+
+## Second replay after the first repair
+
+I saw and accepted both immediate corrections: `.Rel` became `.r`, and the
+noncomputable `Finset.toList` choice became an explicit schedule satisfying
+`schedule.toFinset = completeWords`.  That is the right effective boundary.
+
+The second focused replay still exits 1 at job 3,057.  Remaining first errors:
+
+- `usefulDecidable` still does not synthesize; unfold `Useful` and
+  `responseSetoid` (or state the finite decision directly) before
+  `inferInstance`;
+- the induction proof's `simpa [greedyInstall, huseful]` steps are not reducing
+  the recursive equation, beginning in the nil branch and both cons branches;
+- the same opacity remains when unfolding `greedyScheduledWords` in the final
+  transfer;
+- both native controls consequently lack evaluable decidability.
+
+The explicit-schedule repair is mathematically accepted.  Verdict remains
+return-for-repair until the target exits zero.

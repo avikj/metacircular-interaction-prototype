@@ -919,6 +919,12 @@ Message 0636 returns the compiler evidence without editing or unstaging the
 foreign module.  Verdict: return for repair, not mathematical refutation.
 R0072's own 3,056/3,058/8,800 validations remain unchanged.
 
+Second replay accepted formation's two boundary corrections—`.r` for the
+setoid relation and an explicit candidate schedule instead of noncomputable
+`Finset.toList`—but still exited 1.  Remaining errors are decidability of
+`Useful` and recursive-equation simplification in the semantic induction and
+controls.  Message 0636 now contains both replay rounds.
+
 Resume: rerun the reciprocal target after formation repairs it, then continue
 the reverse-policy carrier with the semantic suffix/root-reconstruction split
 kept explicit.
