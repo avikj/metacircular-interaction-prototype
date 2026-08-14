@@ -14,6 +14,7 @@ open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc ; isSetFin)
 import Cubical.Data.Sum.Properties as Sum
 import Cubical.Data.Prod as P
@@ -83,19 +84,23 @@ cycle₀₁₂ : ⟨ S₃ ⟩
 cycle₀₁₂ = s₀₁ S.· s₁₂
 
 -- Sum no-confusion helpers used by the finite separation proofs.
-outerInject : {n : ℕ} {x y : Fin n} → fsuc x ≡ fsuc y → x ≡ y
-outerInject {x} {y} p = lower (Sum.⊎Path.encode (fsuc x) (fsuc y) p)
+outerInject3 : {x y : Fin 2} → fsuc x ≡ fsuc y → x ≡ y
+outerInject3 {x = x} {y = y} p =
+  lower (Sum.⊎Path.encode (fsuc x) (fsuc y) p)
 
-zeroNotSucc : {n : ℕ} {x : Fin n} → fzero ≡ fsuc x → ⊥
-zeroNotSucc {x} p = lower (Sum.⊎Path.encode fzero (fsuc x) p)
+zeroNotSucc3 : {x : Fin 2} → fzero ≡ fsuc x → ⊥
+zeroNotSucc3 {x = x} p = lower (Sum.⊎Path.encode fzero (fsuc x) p)
 
-succNotZero : {n : ℕ} {x : Fin n} → fsuc x ≡ fzero → ⊥
-succNotZero {x} p = lower (Sum.⊎Path.encode (fsuc x) fzero p)
+succNotZero3 : {x : Fin 2} → fsuc x ≡ fzero → ⊥
+succNotZero3 {x = x} p = lower (Sum.⊎Path.encode (fsuc x) fzero p)
+
+zeroNotSucc2 : {x : Fin 1} → fzero ≡ fsuc x → ⊥
+zeroNotSucc2 {x = x} p = lower (Sum.⊎Path.encode fzero (fsuc x) p)
 
 cycle-no-fixed : Fixed cycle₀₁₂ → ⊥
-cycle-no-fixed (fzero , p) = succNotZero p
-cycle-no-fixed (fsuc fzero , p) = zeroNotSucc p
-cycle-no-fixed (fsuc (fsuc fzero) , p) = zeroNotSucc (outerInject p)
+cycle-no-fixed (fzero , p) = succNotZero3 p
+cycle-no-fixed (fsuc fzero , p) = zeroNotSucc3 p
+cycle-no-fixed (fsuc (fsuc fzero) , p) = zeroNotSucc2 (outerInject3 p)
 
 swap-fixed : Fixed s₀₁
 swap-fixed = fsuc (fsuc fzero) , refl
