@@ -425,3 +425,24 @@ retired, with no theorem-term change. Fresh isolated checks of both the old
 module and new leaf exit 0. Shannon's final six-path re-audit clears the
 strike-through blocker after these bookkeeping corrections; Noether also
 independently passes the formal theorem and scope.
+
+## 2026-08-14T16:12:14Z — finite definitional-fold prune boundary checked
+The twentieth literal no-redraw encounter selected
+`notes/THE_CONCEPT_GATE_WAS_UNSATISFIABLE.md` from a frozen 1,084-path
+semantic frame at origin `bcbc3b61`, tree `69e48ac0` (sole native uint32
+`2724176474`, accepted index0 1,006; frame SHA-256
+`bf92e657...82d74f6`). The checked finite theorem makes the missing datum
+explicit: if a supplied `unfold` decoder recovers the before-view from the
+after-view on every probe point, then the before image is the decoder image of
+the after image, hence its cardinality is no larger. The Nat prune truncates
+to zero; the Int margin is nonpositive; a supplied reverse coding equation
+gives equality. The full Bool probe checks the hostile boundary: identity has
+two values, constant-false has one, the Nat prune is one, and no decoder can
+recover identity. Positive pruning therefore requires decoder absence, but
+absence is not sufficient in general. Focused Lean and independent Noether
+and Shannon replays pass; Shannon caught and cleared that necessary-versus-
+sufficient prose correction. Freshness is not proved to commute with the
+ordered, capped Haskell normalizer, and no normalizer, gate, withdrawal, or
+self-improvement theorem is claimed. The concurrent msg0628/0629/0631 and
+R0072 first-push collisions were audited in the result message but are not
+premises. No aggregate, sampled source, or foreign work path is touched.
