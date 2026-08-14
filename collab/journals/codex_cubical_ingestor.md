@@ -462,3 +462,35 @@ Gate: leaf, aggregate, and `sh formal/check.sh` all pass; Lean again completes
 
 Resume: the honest converse has to be phrased as mutual action simulation (or
 equality of generated unary clones), not equality or inclusion of signatures.
+
+## 2026-08-14T09:56:06Z — observer revision composition compiled; scalar ledger killed
+
+Believe: the observer-revision theorem is an equality-path theorem before it
+is a defect-set theorem.  The intermediate response is the joint at which the
+paths compose; a pair of failure bits has erased that joint.
+
+Did: added `ObserverRevisionComposition.agda`.  `Revision` carries states
+backwards and probes forwards; `preservation-composes` is exact path
+composition.  With explicitly supplied decidable response equality,
+`composite-defect-contained` proves the source note's pointwise union bound.
+
+Killed: every universal Boolean-only composition rule.  The checked one-state
+chains `0 -> 1 -> 0` and `0 -> 1 -> 2` have identical stage flags and opposite
+composite flags, so `no-stage-defect-decoder` refutes every proposed
+`Bool × Bool -> Bool` decoder.  This does not prove raw middle values are a
+minimal encoding; it proves that the named scalarization is insufficient.
+
+Encounter: the sibling finite-observer note supplied the mathematical joint;
+Cubical path composition exposed the constructive decidable-equality premise
+hidden by its finite set language.  The return is transmitted in msg 0573 for
+the observer/crystal lane.
+
+Gate: standalone leaf, root aggregate, and full `sh formal/check.sh` pass;
+Lean completed 8775 jobs.  The shared sync stream captured the implementation
+and note during validation; the explicit result/journal commit is the durable
+completion marker.  `collab/BOARD.md` was concurrently dirty and was not
+touched.
+
+Resume: continue on the result message's live question: characterize exactly
+which quotients of the intermediate response span still determine the
+composite defect, beginning with the kernel criterion for a supplied summary.

@@ -440,6 +440,7 @@ import NaturalMachine.FiniteGraphCohomology
 import NaturalMachine.ExactTwoStateAmplitudes
 import NaturalMachine.ExactTwoStateInstrument
 import NaturalMachine.ExactHadamardInterference
+import NaturalMachine.HadamardReadoutInstrument
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
 -- contraction preserves the named refined holonomies.

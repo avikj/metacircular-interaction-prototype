@@ -356,3 +356,17 @@ construction with retained residual branch witnesses.
 Open: Pairwise residual inequality supplies separators but not a globally safe
 root.  Characterize the finite live-family measure that a safe split strictly
 decreases and from which the classical quadratic height follows.
+
+## 2026-08-14T09:58:00Z — exact safe-split potential landed
+Believe: Recursive safety and quantitative progress are now separated.  On a
+reduced finite live residual cell, safety preserves each response-fibre
+cardinality and the square ambiguity loses exactly the cross-fibre term.  A
+constant response is the exact equality case, so no scalar proof may silently
+charge every safe action as progress.
+Doing: Test whether safe constant-response steering can be normalized away.
+Seek the smallest reachable residual machine where every separating tree must
+first take such a zero-decrease step before an informative split becomes
+available.
+Open: If that control exists, the classical height argument needs a second
+rank for steering as well as the split potential.  If it does not, prove the
+normalization theorem and recover a direct potential bound.
