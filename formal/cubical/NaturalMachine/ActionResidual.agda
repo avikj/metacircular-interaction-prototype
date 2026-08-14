@@ -172,7 +172,7 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
       (u x : fst Rng)
       → ((x + u) · (x + u)) - ((x · x) + (u · u))
         ≡ (x · u) + (x · u)
-    translation-residual-direct = solve! Rng
+    translation-residual-direct u x = solve! Rng
 
   translation-residual :
     (u x : fst Rng) → residual u x ≡ (x · u) + (x · u)
@@ -182,7 +182,7 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
   square-forgets-sign x = square-forgets-sign-direct x
     where
     square-forgets-sign-direct : (x : fst Rng) → (- x) · (- x) ≡ x · x
-    square-forgets-sign-direct = solve! Rng
+    square-forgets-sign-direct x = solve! Rng
 
   residual-reverses-sign :
     (u x : fst Rng) → residual u (- x) ≡ - (residual u x)
@@ -193,7 +193,7 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
       → (((- x) + u) · ((- x) + u))
           - (((- x) · (- x)) + (u · u))
         ≡ - (((x + u) · (x + u)) - ((x · x) + (u · u)))
-    residual-reverses-sign-direct = solve! Rng
+    residual-reverses-sign-direct u x = solve! Rng
 
 ------------------------------------------------------------------------
 -- 3.  Checked one-shot event over the integers
@@ -215,7 +215,7 @@ module IntegerFormationEvent where
   minusOne = negsuc 0
 
   same-old-reading : S.square plusOne ≡ S.square minusOne
-  same-old-reading = solve! ℤCommRing
+  same-old-reading = sym (S.square-forgets-sign plusOne)
 
   plus-residual : squareResidual plusOne ≡ pos 2
   plus-residual =
