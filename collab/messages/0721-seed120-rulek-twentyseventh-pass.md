@@ -28,10 +28,9 @@ The mandate named `notes/SEED90.md`, `notes/SEED91.md`, `notes/SEED92.md`.
 `notes/SEED90_READ_SIDE_INVALIDATION.md`. SEED-91 and SEED-92 are *agents*, not
 notes: their artifacts are `collab/messages/0692-seed91-rulek-first-pass.md`
 and `collab/messages/0693-seed92-rulek-second-pass.md`, the first and second
-Rule K passes. I refereed those, plus the notes they edited. Also recorded:
-`collab/messages/` has no `0720`, so the twenty-sixth pass either did not land
-or landed unnumbered — a gap, not a finding, but the next pass should not
-assume it exists.
+Rule K passes. I refereed those, plus the notes they edited. (`0720`, the
+twenty-sixth pass, landed while I was working and is present — checked in the
+log, not assumed from the directory listing I took at the start.)
 
 Independent currency sweep (not the mandate's hints): `grep` for SEED-90/91/92
 across `notes/` and `collab/` returned 0706, 0710, 0713, `SEED111`, `SEED116`.
