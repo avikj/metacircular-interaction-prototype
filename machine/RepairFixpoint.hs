@@ -142,6 +142,45 @@ coarsestRepair pi_ sigma = go pi_
     go rho = let rho' = refineStep rho sigma
              in if rho' == rho then rho else go rho'
 
+-- THE CLOSED FORM.  No iteration: one step is already stable, because for
+-- B = A & q^-1(c) the function P_sigma 1_B is d_{A,c} * 1_{q^-1(c)}, and
+-- q^-1(c) is a union of blocks of that very partition.  So
+--
+--     rho* = pi  /\  q^-1(~)
+--
+-- where q(x) is the sigma-block of x and E ~ E' iff |A&E|/|E| = |A&E'|/|E'|
+-- for every block A of pi.  Two points survive together iff they share a
+-- pi-block AND their sigma-blocks have the same pi-density profile.
+closedForm :: Part -> Part -> Part
+closedForm pi_ sigma = canon [ (pi_ !! i, profileOf (sigAt i)) | i <- [0 .. n - 1] ]
+  where
+    n = length pi_
+    sigAt i = [ k | k <- [0 .. n - 1], sigma !! k == sigma !! i ]
+    profileOf e = [ toInteger (length (filter (`elem` a) e)) % toInteger (length e)
+                  | a <- blocksOf pi_ ]
+
+-- SEED 2 of the same note: "Characterize when the meet is minimal.  Which
+-- (pi,sigma) have pi ^ sigma as their coarsest repair?  A block-size
+-- condition would be ideal."
+--
+-- The closed form answers it.  rho* = pi /\ sigma exactly when ~ is
+-- discrete on sigma-blocks: if E ~ E' with E /= E', any pi-block meeting E
+-- has positive density there, hence positive density at E', hence meets E'
+-- too -- so the two fuse and rho* is strictly coarser.  Criterion:
+--
+--   the meet is optimal  <=>  distinct sigma-blocks have distinct
+--                             pi-density profiles.
+meetIsOptimal :: Part -> Part -> Bool
+meetIsOptimal pi_ sigma = length profiles == length (nub profiles)
+  where
+    n = length pi_
+    profiles = [ [ toInteger (length (filter (`elem` a) e)) % toInteger (length e)
+                 | a <- blocksOf pi_ ]
+               | e <- blocksOf sigma ]
+
+meet :: Part -> Part -> Part
+meet a b = canon (zip a b)
+
 -- how many rounds the fixpoint takes, for the bound in the write-up
 rounds :: Part -> Part -> Int
 rounds pi_ sigma = go pi_ 0
@@ -170,6 +209,26 @@ main = do
   putStrLn "CERT 2: density-profile fixpoint == join of all repairs (brute force)"
   c2 <- mapM cert2 [1 .. 6]
   putStrLn ""
+  putStrLn ""
+  putStrLn "CERT 3: the CLOSED FORM  rho* = pi /\\ q^-1(~)  equals the fixpoint"
+  forM_ [1 .. 7 :: Int] $ \n -> do
+    let ps = partitions n
+        bad = [ (p, s) | p <- ps, s <- ps, closedForm p s /= coarsestRepair p s ]
+    putStrLn ("  n = " ++ show n ++ ": " ++ show (length ps * length ps)
+              ++ " pairs, " ++ show (length bad) ++ " disagreements")
+  putStrLn ""
+  putStrLn "CERT 4: seed 2's criterion, and the note's own 410/1900 count at n = 5"
+  forM_ [4, 5, 6 :: Int] $ \n -> do
+    let ps = partitions n
+        prs = [ (p, s) | p <- ps, s <- ps ]
+        noncomm = [ (p, s) | (p, s) <- prs, not (commutesGrid p s) ]
+        strictly = [ (p, s) | (p, s) <- noncomm, closedForm p s /= meet p s ]
+        crit = [ (p, s) | (p, s) <- prs
+               , meetIsOptimal p s /= (closedForm p s == meet p s) ]
+    putStrLn ("  n = " ++ show n ++ ": " ++ show (length noncomm)
+              ++ " noncommuting ordered pairs, of which " ++ show (length strictly)
+              ++ " have rho* strictly coarser than the meet;  criterion mismatches: "
+              ++ show (length crit))
   putStrLn ""
   putStrLn "SCAN: how many refinement rounds are actually needed?"
   putStrLn "  (n <= 6 all showed 1.  If that is a theorem it should survive n = 8;"
