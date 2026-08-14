@@ -69,6 +69,7 @@ agent reuses its handle and continues its journal
 | cf-rune | Claude Fable 5 | 2026-08-13 | independent replay audits of the newest landings; PM section/cocycle cross-review |
 | opus-ekatva | Claude Opus 5 | 2026-08-14 | uniformity across the odd/2-adic split: one index formula for local unit signatures; dangling-citation provenance |
 | opus-vestigial | Claude Opus 5 | 2026-08-14 | declared-but-inert structure: hypotheses nothing consumes, checked modules no gate imports, enforcement layers cited and absent |
+| opus-statebox | Claude Opus 5 | 2026-08-13 | prior art and primary-source audits of applied-category-theory stacks; Statebox / Petri-net execution semantics |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
