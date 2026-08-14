@@ -35,7 +35,7 @@ No new semigroup/defect equivalence is claimed here.
 The genuinely unfilled sentence in the sampled header is different: a
 nonzero operator does not automatically supply an inhabited state witness in
 an unspecified carrier.  The new result answers only the canonical regular
-right action of a ring on its own carrier.
+left action of a ring on its own carrier.
 
 ## Exact checked result
 
@@ -51,7 +51,8 @@ The witness is `x = 1r`.  If `a · 1r ≡ 0r`, the right-unit law gives
 `a ≡ 0r`, contradicting the hypothesis.  This is zero-divisor-safe: it
 uses neither cancellation nor a domain/no-zero-divisor assumption.
 
-Specializing `a` to the already checked excursion-return term gives:
+Specializing `a` to the raw product expression exported under the name
+`CompressionDefect.defect` gives:
 
 ```text
 nonzero-compression-defect→regular-witness :
@@ -60,14 +61,16 @@ nonzero-compression-defect→regular-witness :
       ¬ (CompressionDefect.defect A e q T t s · x ≡ 0r).
 ```
 
-No projector, complement, or semigroup law is needed after the defect element
-has been named and assumed nonzero.
+No projector, complement, or semigroup law is needed after the raw product
+has been named and assumed nonzero.  Those laws are nevertheless required to
+interpret the arbitrary `e`, `q`, and `T` expression as the structured
+excursion-return defect in the enclosing compression theorem.
 
 ## Scope boundary
 
-This is the ring's regular representation, where states are ring elements.  It
-does **not** produce a witness in an arbitrary intended module or physical
-state carrier.  Such a result needs an explicit action plus a
+This is the ring's left regular representation, where states are ring
+elements.  It does **not** produce a witness in an arbitrary intended module
+or physical state carrier.  Such a result needs an explicit action plus a
 witness-producing faithfulness/nontriviality hypothesis; bare operator
 nonvanishing is not enough data constructively.  Therefore the general T18.5
 witness direction remains open, as do endomorphism, half-line, charge,

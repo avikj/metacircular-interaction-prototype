@@ -4,9 +4,11 @@
 -- NaturalMachine.CompressionDefectRegularWitness
 --
 -- A nonzero element of a ring has an explicit witness in the ring's regular
--- right action: act on `1r`.  Specializing the element to the checked
--- excursion-return defect converts nonvanishing into an inhabited witness
--- type for this regular representation.
+-- left action: act on `1r`.  Specializing the element to the raw product
+-- expression exported as `CompressionDefect.defect` converts nonvanishing
+-- into an inhabited witness type for this regular representation.  Reading
+-- that expression as a structured compression defect additionally requires
+-- the enclosing idempotent/complement/semigroup laws.
 --
 -- This does not extract a state in an arbitrary intended module or carrier.
 -- Such an extraction needs a declared action and a witness-producing
@@ -41,7 +43,8 @@ module _ (A : Ring ℓ) where
   regular-action-detects-nonzero a nonzero =
     1r , λ acts-zero → nonzero (sym (·IdR a) ∙ acts-zero)
 
-  -- The sampled CompressionDefect term, observed through the regular action.
+  -- The sampled raw CompressionDefect product, observed through the regular
+  -- action.
   -- No projector, complement, or semigroup law is needed to expose a witness
   -- once this particular ring element is assumed nonzero.
   nonzero-compression-defect→regular-witness :

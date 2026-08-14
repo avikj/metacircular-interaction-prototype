@@ -10,7 +10,7 @@ The sampled file's one-way semigroup wording is stale:
 not duplicate it.  The remaining exact seam is witness extraction.
 
 Safe Agda now checks that every nonzero ring element has a named witness in
-the ring's regular right action:
+the ring's left regular action:
 
 ```text
 (a : ⟨ A ⟩) → ¬ (a ≡ 0r)
@@ -21,8 +21,11 @@ The witness is `1r`, because `a · 1r ≡ a`.  Hence no cancellation,
 integral-domain, or no-zero-divisor hypothesis is used.  Instantiating `a` by
 `CompressionDefect.defect A e q T t s` gives the checked
 `nonzero-compression-defect→regular-witness` theorem.
+Here `defect` is the raw product expression; the enclosing idempotent,
+complement, and semigroup laws are still required for its structured
+compression interpretation.
 
-Strict boundary: this is the regular representation only.  It does not
+Strict boundary: this is the left regular representation only.  It does not
 extract a state from an arbitrary module/carrier, close T18.5 generally,
 instantiate an endomorphism or arithmetic model, or claim novelty/physical
 realization.  Those require explicit action and witness-producing faithfulness
