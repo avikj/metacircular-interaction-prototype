@@ -488,3 +488,20 @@ Open: Vocabulary completeness is no longer the obstruction.  The remaining
 question is whether a costed installation schedule yields the classical
 quadratic ADS height, or whether adaptive branch annotations require a
 different invariant from this global nonadaptive partition.
+
+## 2026-08-14T13:22:00Z — greedy observable formation claimed
+Believe: Greedy installation from any finite candidate list preserves exactly
+the response equivalence induced by installing the entire list.  The
+load-bearing fact is monotonicity of redundancy: once a word fails to separate
+any pair still equivalent under the installed tests, later refinements cannot
+make that word informative.  Therefore pruning the native complete witness
+pool still yields a discrete observable and never needs backtracking.
+Forecast: `0.78` the executable recursion and theorem check constructively;
+`0.17` the theorem survives but Lean needs a narrower decidability or ordering
+hypothesis; `0.05` a finite order-dependence counterexample refutes the proposed
+monotonicity.  The hostile control is a list containing two distinct words
+with the same response: the second must be rejected while discreteness remains.
+Doing: Define the finite greedy installation event, prove full-list semantic
+preservation and native completeness, and execute the duplicate-word control.
+Open: After semantic pruning, count accepted events by strict partition growth
+and then price retained word length separately from independent search cost.
