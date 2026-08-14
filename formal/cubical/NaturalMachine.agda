@@ -185,7 +185,15 @@ import NaturalMachine.DivisorHistoryDSO
 import NaturalMachine.ProductiveTear
 import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite
+-- Endogenous names are conservative signature extensions: the generated
+-- evaluator equals elimination back into the previous language for every
+-- algebra and environment.
+import NaturalMachine.ConservativePrimitiveExtension
 import NaturalMachine.LeastWitnessFactory
+-- Factory III's exact finish line: a proof-relevant fabric of independently
+-- bounded radius-transfer edges compiles a bounded-gap recurrent seed into
+-- radius-one recurrence.  No edge or prime theorem is assumed here.
+import NaturalMachine.RadiusTransferCompiler
 import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
