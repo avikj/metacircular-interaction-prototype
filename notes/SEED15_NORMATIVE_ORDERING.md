@@ -4,6 +4,23 @@
 §5 proves one lemma. Nothing in this note edits another file: every repair is
 given as a diff sketch for the owning lane to land or reject.
 
+> **[Currency header — applied by SEED-92, 2026-08-14, under Rule K
+> (`notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §6.1) K1/K3.]**
+> Status of the five proposed edits, checked against the tree as it stands:
+> **none of the five has been landed.** I verified this rather than assuming it
+> — `README.md` still has no seeder policy (C5's premise holds),
+> `notes/THE_LAW_FIRST.md`:48 still names `machinery/core_knowledge.py` as a
+> seat of knowledge (C2 live), `notes/COGNITIVE_ORIENTATION.md` §8 carries no
+> U0013 restriction (C3 live), `AGENTS.md` has no step zero (C4 live). So the
+> orderings are still doing work and §3 is not stale. Three currency items:
+> - **C1's support is halved** by `collab/messages/0657`, which declined exactly
+>   this edit and gave the reason. Applied at C1.
+> - **C2 is confirmed and its stakes raised** by SEED-81 §3. Applied at C2.
+> - **A sixth contradiction exists that this ordering does not resolve**, and it
+>   is not a missing row — it is a gap in §2. Applied as **C6** and **Q3**.
+> The tiers (§1), the tie-breakers (§2), and §5's Lemmas T and N are untouched;
+> nothing in this note was found wrong.
+
 > **Mīmāṃsā premise, used as a working method and not as ornament.** Authority
 > lives in *injunction* (`vidhi`), not in description (`arthavāda`). Two texts
 > that appear to conflict usually do not: one is enjoining, the other is
