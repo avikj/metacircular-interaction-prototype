@@ -46,6 +46,13 @@
 --   refute prime-power-ness, so form (A)'s hypothesis is exactly the
 --   negation of form (C)'s).
 --
+--   NON-VACUITY.  Both theorems are fired on inhabited hypotheses, not
+--   left as implications: `split-6` splits 6 = 2·3 (hence
+--   `6-not-least-non-divisor`: the walk never installs 6), and
+--   `lnd-4 : LeastNonDivisor 6 4` — 4 really is the least non-divisor of
+--   lcm(1,2,3) = 6, the walk's third install — is pushed through form (C)
+--   to give `4-is-prime-power`.
+--
 -- WHAT REMAINS OPEN.
 --
 --   * The other direction of §(c), (⇐), is NaturalMachine.WalkJumps
@@ -419,3 +426,41 @@ split-6 =
 6-not-prime-power : ¬ (IsPrimePower 6)
 6-not-prime-power =
   two-primes→¬prime-power 6 2 3 isPrime2 isPrime3 2≢3 (∣-left 3) (∣-right 2)
+
+------------------------------------------------------------------------
+-- NON-VACUITY: a real LeastNonDivisor, pushed through the main theorem
+------------------------------------------------------------------------
+
+-- Everything above is stated under hypotheses; nothing so far exhibits a
+-- LeastNonDivisor at all.  Here is one — 4 is the least non-divisor of
+-- lcm(1,2,3) = 6, the walk's third install — and the form-(C) theorem
+-- applied to it, so the implication is fired on an inhabited hypothesis.
+
+¬4∣6 : ¬ (4 ∣ 6)
+¬4∣6 h = go (∣-untrunc h)
+  where
+  go : Σ[ c ∈ ℕ ] ((c · 4) ≡ 6) → ⊥
+  go (zero          , e) = znots e
+  go (suc zero      , e) = znots (injSuc (injSuc (injSuc (injSuc e))))
+  go (suc (suc c)   , e) =
+    snotz (injSuc (injSuc (injSuc (injSuc (injSuc (injSuc e))))))
+
+below-4 : (r : ℕ) → 2 ≤ r → r < 4 → r ∣ 6
+below-4 zero                      2≤r r<4 = Empty.rec (¬-<-zero 2≤r)
+below-4 (suc zero)                2≤r r<4 = Empty.rec (¬m<m 2≤r)
+below-4 (suc (suc zero))          2≤r r<4 = ∣-left 3
+below-4 (suc (suc (suc zero)))    2≤r r<4 = ∣-right 2
+below-4 (suc (suc (suc (suc r)))) 2≤r r<4 =
+  Empty.rec (¬-<-zero
+    (pred-≤-pred (pred-≤-pred (pred-≤-pred (pred-≤-pred r<4)))))
+
+lnd-4 : LeastNonDivisor 6 4
+lnd-4 = ¬4∣6 , below-4
+
+1<4 : 1 < 4
+1<4 = suc-≤-suc (suc-≤-suc zero-≤)
+
+-- 4 IS a prime power (and the proof term is the one the theorem builds:
+-- prime divisor 2, strip, cofactor 1).
+4-is-prime-power : IsPrimePower 4
+4-is-prime-power = leastNonDivisor-isPrimePower 6 4 1<4 lnd-4
