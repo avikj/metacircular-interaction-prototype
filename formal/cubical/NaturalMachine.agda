@@ -91,6 +91,9 @@ import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus
+-- and the operator layer under it: the Peres-Mermin sign vector derived
+-- from the Weyl representation, rather than transcribed from a script.
+import NaturalMachine.PauliWeyl
 import NaturalMachine.FlipObservable
 import NaturalMachine.AtlasResiduals
 import NaturalMachine.LinearOrderFinite
