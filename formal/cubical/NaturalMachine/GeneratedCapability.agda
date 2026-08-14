@@ -28,6 +28,7 @@ open import Cubical.Data.Bool using (Bool ; false ; true)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.List using ([] ; _∷_)
 open import Cubical.Data.Nat.Order using (_<_ ; ¬m<m)
+open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.FutureBehavior using (FutureEq)
@@ -76,8 +77,8 @@ work-future-changed m n same =
 generated-capability-changes-future : (m n : ℕ)
   → (Σ[ X ∈ Vocab ] Σ[ o ∈ Obstruction X ]
        TermImprovementAt X o taskTm m n)
-    × FutureEq installStep (answer m n) false true
-    × ¬ FutureEq installStep (work m n) false true
+    × (FutureEq installStep (answer m n) false true)
+    × (¬ FutureEq installStep (work m n) false true)
 generated-capability-changes-future m n =
   task-compiles-better m n
   , answer-future-preserved m n
