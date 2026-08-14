@@ -276,6 +276,11 @@ import NaturalMachine.TranscriptDescent
 -- corresponding input fibre.  A Bool-to-Unit control rejects one-way erasure
 -- of branch-changing history as "compression".
 import NaturalMachine.TerminalTraceCompression
+-- Equal arithmetic endpoints do not license the preceding compression when
+-- construction intermediates persist.  The two chains to 6 have opposite
+-- future availability at 3/4; one retained cache bit repairs the decoder,
+-- while explicit garbage collection changes the target to a constant table.
+import NaturalMachine.AdditionChainPredictiveMemory
 import NaturalMachine.SingletonWitnessStabilization
 import NaturalMachine.ExposureStabilizationAdapter
 -- Fixed random base-4 borrow-table contact, returned to the decoder core:

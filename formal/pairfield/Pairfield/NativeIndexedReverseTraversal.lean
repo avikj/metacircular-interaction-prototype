@@ -1101,12 +1101,87 @@ theorem runQueue_frontier_eq_nil [Fintype X]
     List.length_pos_iff.mpr hfrontier
   omega
 
+def IndexedQueue.Saturated (inventory : List (ReverseEdge M))
+    (queue : IndexedQueue M) : Prop :=
+  ∀ state ∈ queue.states, ∀ edge ∈ inventory,
+    reverseEdgeSourceState M edge = state →
+      reverseEdgeTargetState M edge ∈ queue.states
+
+theorem closed_expanded_saturated_of_frontier_eq_nil
+    (inventory : List (ReverseEdge M)) (queue : IndexedQueue M)
+    (hclosed : queue.ClosedExpanded M inventory)
+    (hfrontier : queue.frontier = []) :
+    queue.Saturated M inventory := by
+  intro state hstate edge hedge hsource
+  simp only [IndexedQueue.states, IndexedQueue.nodes, hfrontier,
+    List.append_nil, List.mem_map] at hstate
+  obtain ⟨node, hnode, rfl⟩ := hstate
+  exact hclosed node hnode edge hedge hsource
+
+/-- Saturation turns a causal inventory trace into actual visited-state
+coverage.  Endpoint DFA validity alone is deliberately not sufficient. -/
+theorem saturated_covers_chained (inventory : List (ReverseEdge M))
+    (queue : IndexedQueue M) (hsaturated : queue.Saturated M inventory)
+    {start finish : SourceState X} {edges : List (ReverseEdge M)}
+    (hstart : start ∈ queue.states)
+    (hchain : EdgeTrace.Chained M start edges finish)
+    (hinventory : ∀ edge ∈ edges, edge ∈ inventory) :
+    finish ∈ queue.states := by
+  induction hchain with
+  | nil state => exact hstart
+  | cons edge hsource tail ih =>
+      apply ih
+      · exact hsaturated _ hstart edge
+          (hinventory edge List.mem_cons_self) hsource
+      · intro next hnext
+        exact hinventory next (List.mem_cons_of_mem edge hnext)
+
+theorem runQueue_source_mem (edges : List (ReverseEdge M)) (fuel : Nat) :
+    SourceState.source ∈ (runQueue M edges fuel).states := by
+  induction fuel with
+  | zero => simp [runQueue, initialQueue, IndexedQueue.states,
+      IndexedQueue.nodes]
+  | succ fuel ih =>
+      exact advanceQueue_states_mono M (runQueue M edges fuel) ih
+
 /-- One source-indexed traversal through the finite source/product state
 space. -/
 def indexedTraversal [LinearOrder X] [Fintype X]
     (alphabet : List A) : IndexedQueue M :=
   runQueue M (edgeInventory M alphabet)
     (Fintype.card X * Fintype.card X + 1)
+
+theorem indexedTraversal_frontier_eq_nil [LinearOrder X] [Fintype X]
+    (alphabet : List A) :
+    (indexedTraversal M alphabet).frontier = [] := by
+  simpa [indexedTraversal] using
+    runQueue_frontier_eq_nil M (edgeInventory M alphabet)
+
+theorem indexedTraversal_saturated [LinearOrder X] [Fintype X]
+    (alphabet : List A) :
+    (indexedTraversal M alphabet).Saturated M (edgeInventory M alphabet) := by
+  apply closed_expanded_saturated_of_frontier_eq_nil M
+  · simpa [indexedTraversal] using
+      runQueue_closed_expanded M (edgeInventory M alphabet)
+        (Fintype.card X * Fintype.card X + 1)
+  · exact indexedTraversal_frontier_eq_nil M alphabet
+
+/-- Every genuine causal path in the materialized inventory has its endpoint
+retained by the native source-indexed traversal. -/
+theorem indexedTraversal_covers_chained [LinearOrder X] [Fintype X]
+    (alphabet : List A) {edges : List (ReverseEdge M)}
+    {finish : SourceState X}
+    (hchain : EdgeTrace.Chained M .source edges finish)
+    (hinventory : ∀ edge ∈ edges,
+      edge ∈ edgeInventory M alphabet) :
+    finish ∈ (indexedTraversal M alphabet).states := by
+  apply saturated_covers_chained M (edgeInventory M alphabet)
+      (indexedTraversal M alphabet) (indexedTraversal_saturated M alphabet)
+  · simpa [indexedTraversal] using
+      runQueue_source_mem M (edgeInventory M alphabet)
+        (Fintype.card X * Fintype.card X + 1)
+  · exact hchain
+  · exact hinventory
 
 /-- The complete executable traversal exposes the causal invariant directly,
 not only at the internal fuel-indexed queue. -/

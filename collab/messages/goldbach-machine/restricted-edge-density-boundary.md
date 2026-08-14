@@ -90,7 +90,7 @@ the missing premise remains prime-specific signed propagation.
 
 The new Lean module
 
-[`Pairfield.RestrictedGoldbachEdge`](../../formal/pairfield/Pairfield/RestrictedGoldbachEdge.lean)
+[`Pairfield.RestrictedGoldbachEdge`](../../../formal/pairfield/Pairfield/RestrictedGoldbachEdge.lean)
 
 defines
 
@@ -198,24 +198,24 @@ needs no prime-power term.
 
 ## 3. Why separate arc conversion costs more
 
-Let
+Let `L<X`, and let
 
 \[
- S_\Lambda(\alpha)=\sum_{n\le X}\Lambda(n)e(n\alpha),
+ S_{\Lambda,L}(\alpha)=\sum_{L<n\le X}\Lambda(n)e(n\alpha),
  \quad
- S_{\mathbb P}(\alpha)=\sum_{n\le X}\vartheta(n)e(n\alpha),
- \quad D=S_\Lambda-S_{\mathbb P}.                       \tag{14}
+ S_{\mathbb P,L}(\alpha)=\sum_{L<n\le X}\vartheta(n)e(n\alpha),
+ \quad D_L=S_{\Lambda,L}-S_{\mathbb P,L}.              \tag{14}
 \]
 
-For any measurable arc mask `A` and any center `N`,
+For any measurable arc mask `A` and any center `N<=X`,
 
 \[
 \begin{aligned}
 &\left|
- \int_A(S_\Lambda^2-S_{\mathbb P}^2)e(-N\alpha)d\alpha
+ \int_A(S_{\Lambda,L}^2-S_{\mathbb P,L}^2)e(-N\alpha)d\alpha
  \right|\\
 &\qquad\le
- \|D\|_2(\|S_\Lambda\|_2+\|S_{\mathbb P}\|_2).
+ \|D_L\|_2(\|S_{\Lambda,L}\|_2+\|S_{\mathbb P,L}\|_2).
                                                                \tag{15}
 \end{aligned}
 \]
@@ -223,7 +223,7 @@ For any measurable arc mask `A` and any center `N`,
 The checked Chebyshev input gives
 
 \[
- \|D\|_2^2
+ \|D_L\|_2^2
  \le(\log X)[\psi(X)-\vartheta(X)]
  \ll\sqrt X(\log X)^2,                                 \tag{16}
 \]
@@ -231,11 +231,12 @@ The checked Chebyshev input gives
 while
 
 \[
- \|S_\Lambda\|_2^2+\|S_{\mathbb P}\|_2^2\ll X\log X. \tag{17}
+ \|S_{\Lambda,L}\|_2^2+\|S_{\mathbb P,L}\|_2^2
+ \ll X\log X.                                          \tag{17}
 \]
 
-Equations (15)--(17) yield (5).  The same bound holds for a lower-truncated
-polynomial by discarding nonnegative square mass.
+Equations (15)--(17) yield (5).  The bounds follow from their untruncated
+versions by discarding nonnegative square mass.
 
 If `Delta_M` and `Delta_m` are the Lambda-to-prime differences on complementary
 major and minor masks, Fourier orthogonality gives the exact relation

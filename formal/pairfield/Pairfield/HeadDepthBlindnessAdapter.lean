@@ -15,7 +15,7 @@ import Mathlib.FieldTheory.Finite.Basic
 namespace Pairfield.HeadDepthBlindnessAdapter
 
 /-- The actual multiplicative order used by the native cyclotomic sensor. -/
-def headOrder (q : ℕ) (b : ℤ) : ℕ :=
+noncomputable def headOrder (q : ℕ) (b : ℤ) : ℕ :=
   orderOf ((b : ℤ) : ZMod q)
 
 /-- Mathlib LTE identifies the cyclotomic head multiplicity with the
@@ -30,18 +30,17 @@ theorem emultiplicity_fermatExponent_eq_head
   let _ : Fact q.Prime := ⟨hq⟩
   let z : ZMod q := b
   have hz : z ≠ 0 := by
-    rw [show z = (b : ZMod q) by rfl, ZMod.intCast_zmod_eq_zero_iff_dvd]
-    exact hb
+    change (b : ZMod q) ≠ 0
+    exact fun hzero ↦ hb ((ZMod.intCast_zmod_eq_zero_iff_dvd b q).mp hzero)
   have hdvd : headOrder q b ∣ q - 1 := by
     exact ZMod.orderOf_dvd_card_sub_one hz
   obtain ⟨k, hk⟩ := hdvd
+  have hqsubpos : 0 < q - 1 := Nat.sub_pos_of_lt hq.one_lt
   have hdpos : 0 < headOrder q b := by
-    exact orderOf_pos z
+    exact Nat.pos_of_dvd_of_pos hdvd hqsubpos
   have hkpos : 0 < k := by
-    by_contra hkzero
-    have : k = 0 := Nat.eq_zero_of_not_pos hkzero
-    simp [this] at hk
-    exact hq.ne_one hk.symm
+    rw [hk] at hqsubpos
+    exact (Nat.mul_pos_iff.mp hqsubpos).2
   have hkle : k ≤ headOrder q b * k := by
     exact Nat.le_mul_of_pos_left k hdpos
   have hklt : k < q := by
@@ -54,12 +53,13 @@ theorem emultiplicity_fermatExponent_eq_head
     exact (not_lt_of_ge (Nat.le_of_dvd hkpos hqk)) hklt
   have hhead : (q : ℤ) ∣ b ^ headOrder q b - 1 := by
     rw [← ZMod.intCast_zmod_eq_zero_iff_dvd]
-    change (z ^ headOrder q b - 1 : ZMod q) = 0
+    simp only [Int.cast_sub, Int.cast_pow, Int.cast_one]
+    change z ^ orderOf z - 1 = 0
     rw [pow_orderOf_eq_one, sub_self]
   have hbpow : ¬(q : ℤ) ∣ b ^ headOrder q b := by
     intro h
     have hqInt : Prime (q : ℤ) := by
-      exact_mod_cast hq
+      exact Nat.prime_iff_prime_int.mp hq
     exact hb (hqInt.dvd_of_dvd_pow h)
   have hlte :=
     Int.emultiplicity_pow_sub_pow hq hqodd hhead hbpow k
