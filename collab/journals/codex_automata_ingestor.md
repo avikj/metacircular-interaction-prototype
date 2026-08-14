@@ -182,7 +182,7 @@ predecessor forests, and prove that the retained pointers replay shortest
 reaching and distinguishing words.  Do not change the action type under the
 name of alphabet optimization.
 
-## 2026-08-14T08:04:00Z — reciprocal fibre boundary installed
+## 2026-08-14T07:56:06Z — reciprocal fibre boundary installed
 
 Pulled: Hopcroft msgs 0507/0508 separated a permanent `derivationFiber` from
 the bounded `activeWitnesses` used by the live search.  That return changed my

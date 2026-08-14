@@ -77,6 +77,53 @@ module Bridge (k n' : ℕ) where
   normalizeMSD : D.CanWord → D.CanWord
   normalizeMSD (w , _) = D.digitsC (D.value (E.π w))
 
+  normalizeMSD-value : (w : D.CanWord)
+                     → D.valueC (normalizeMSD w) ≡ D.value (E.π (fst w))
+  normalizeMSD-value (w , _) = D.value-digits (D.value (E.π w))
+
+  ----------------------------------------------------------------------
+  -- A second obstruction: normalization cannot simply be iterated to model
+  -- fixed-width tower truncation.  On [1,0,1], the first normalized drop
+  -- contracts [1,0] all the way to [1].  A second actual-MSD drop therefore
+  -- deletes the remaining 1, whereas two raw place drops leave [1].
+  --
+  -- The next tower adapter must retain the level/width as state; CanWord
+  -- alone has forgotten which zero place was removed by normalization.
+  ----------------------------------------------------------------------
+
+  normalizeTwoRawMSDs : D.CanWord → D.CanWord
+  normalizeTwoRawMSDs (w , _) =
+    D.digitsC (D.value (E.π (E.π w)))
+
+  rawπ-counterexample-value-one :
+      D.value (E.π (fst rawπ-counterexample)) ≡ 1
+  rawπ-counterexample-value-one = E.value-v1
+
+  normalizeMSD-once :
+      normalizeMSD rawπ-counterexample ≡ D.digitsC 1
+  normalizeMSD-once = cong D.digitsC rawπ-counterexample-value-one
+
+  normalizeMSD²-value-zero :
+      D.valueC (normalizeMSD (normalizeMSD rawπ-counterexample)) ≡ 0
+  normalizeMSD²-value-zero =
+      normalizeMSD-value (normalizeMSD rawπ-counterexample)
+    ∙ cong (λ z → D.value (E.π (fst z))) normalizeMSD-once
+
+  normalizeTwoRawMSDs-value-one :
+      D.valueC (normalizeTwoRawMSDs rawπ-counterexample) ≡ 1
+  normalizeTwoRawMSDs-value-one =
+      D.value-digits (D.value (E.π (E.π (fst rawπ-counterexample))))
+    ∙ E.value-u1
+
+  normalizeMSD-not-iterable :
+    ¬ ((w : D.CanWord) →
+      normalizeMSD (normalizeMSD w) ≡ normalizeTwoRawMSDs w)
+  normalizeMSD-not-iterable iterates =
+    znots
+      ( sym normalizeMSD²-value-zero
+      ∙ cong D.valueC (iterates rawπ-counterexample)
+      ∙ normalizeTwoRawMSDs-value-one )
+
   ----------------------------------------------------------------------
   -- Residue coordinates of a canonical word at the two adjacent levels.
   -- These are total: values outside the displayed digit width are reduced.
@@ -133,11 +180,6 @@ module Bridge (k n' : ℕ) where
     ∙ cong (λ z → (D.value xs + z) mod C.N)
         (high-place-vanishes xs y len)
     ∙ cong (_mod C.N) (+-zero (D.value xs))
-
-  -- `normalizeMSD` agrees with literal raw-word truncation after decoding.
-  normalizeMSD-value : (w : D.CanWord)
-                     → D.valueC (normalizeMSD w) ≡ D.value (E.π (fst w))
-  normalizeMSD-value (w , _) = D.value-digits (D.value (E.π w))
 
   -- On an explicit snoc, normalization produces the canonical numeral for
   -- the lower word.  No canonicity premise on `xs` is needed: normalization

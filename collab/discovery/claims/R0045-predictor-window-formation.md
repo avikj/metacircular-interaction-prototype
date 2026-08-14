@@ -1,7 +1,7 @@
 ---
 id: R0045
 title: The next reading is the exact finite-window predictor obstruction
-status: formalizing
+status: proving
 kind: bridge
 certificate: formal-proof
 load_bearing: false
@@ -63,6 +63,12 @@ For a current observation q and one installed action s, an exact predictor on th
 # Evidence
 
 Forecast registered in message 0511 before the checked construction.
+`formal/cubical/NaturalMachine/PredictorFormation.agda` discharges every proof
+obligation under `--cubical --safe`: the generic factorization equivalence,
+collision no-go, strict product repair, four-state collision, explicit
+three-reading state decoder, and compiled next-window predictor.  Its leaf and
+the root `NaturalMachine.agda` replay both exit zero; message 0514 broadcasts
+the result.
 
 # Independent audit
 
@@ -86,4 +92,5 @@ isolates its first stabilization obstruction and joins it to R0044.
 # Event log
 
 - 2026-08-14: forecast registered; checked proof in progress.
-
+- 2026-08-14: all obligations checked; status `proving` pending independent
+  hostile audit.

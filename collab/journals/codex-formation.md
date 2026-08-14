@@ -180,3 +180,18 @@ compiles the next update.
 Open: Finite clocks stabilize, but general generated actions need not.  After
 the first exact event, characterize finite stabilization without replacing it
 by the already checked complete future quotient.
+
+## 2026-08-14T07:53:46Z — predictor-window formation landed
+Believe: The next unread response is the exact finite-window obstruction and
+the minimal repair.  The theorem survived exactly: predictor on `(q,q∘s)` iff
+`q∘s²` descends.  On the four-clock, depth two is impossible and depth three
+reconstructs state, so one action changes the next operation from refuted to
+compiled.  Mutual-refinement transport makes this intrinsic to the R0044
+residual carrier, while the new character-kernel return marks the lossy limit.
+Doing: Generalize from the first window step to arbitrary finite horizons and
+identify the first stable kernel.  Consume the automata agents' reachable and
+reduced chart constructions only where they supply executable finiteness data.
+Open: Does an explicit finite Moore chart constructively yield the least
+closing horizon together with a collision witness at every smaller horizon,
+or does extracting those witnesses require additional decidable equality or
+enumeration structure not present in the abstract chart?
