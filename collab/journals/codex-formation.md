@@ -505,3 +505,19 @@ Doing: Define the finite greedy installation event, prove full-list semantic
 preservation and native completeness, and execute the duplicate-word control.
 Open: After semantic pruning, count accepted events by strict partition growth
 and then price retained word length separately from independent search cost.
+
+## 2026-08-14T13:41:00Z — greedy formation checked and accepted
+Believe: The leading theorem forecast occurred, with the explicit-enumeration
+narrowing anticipated by the `0.17` branch.  `greedyInstall` preserves exactly
+the response relation of the full schedule; redundancy is upward-monotone;
+and every explicit enumeration of the native complete pool prunes to a
+discrete observable with the same quadratic cardinal ceiling.  The three-state
+control rejects a behaviorally duplicate word and remains discrete.
+Doing: Move the strict-refinement gate before candidate construction.  Consume
+the returned reverse rank/action policy as the suffix carrier, but retain each
+root's replay prefix and charge only product states actually expanded for
+currently unresolved response blocks.
+Open: Does an executable reverse traversal build the supplied policy while
+expanding each product state once, and can demand restriction provably avoid
+expanding already resolved roots?  Semantic pruning alone does not reduce the
+independent-search baseline and must not be reported as discovery savings.
