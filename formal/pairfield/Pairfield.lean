@@ -60,6 +60,7 @@ import Pairfield.AdaptiveResidualPositionCycleAdapter
 import Pairfield.AdaptiveResidualMinimalSpine
 import Pairfield.AdaptiveResidualNodeMinimalSpine
 import Pairfield.AdaptiveResidualNodeMinimalDepth
+import Pairfield.AdaptiveResidualNonhomogeneousSpine
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
