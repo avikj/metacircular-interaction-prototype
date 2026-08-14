@@ -118,3 +118,9 @@ import Window5Walsh
 import LawvereDiagonal
 import AchromaticToy
 import IndraNet
+
+-- The head-depth merge (WHAT_IS_ACTUALLY_OPEN §1 executed): e_b(q)
+-- defined once, its three corpus names certified as threshold readings,
+-- the 1048-triple W3 replay upgraded from dead Python to kernel fact,
+-- and the strong-test seed closed (strong = Fermat on odd prime powers).
+import HeadDepthMerge
