@@ -414,7 +414,8 @@ and hence
 uniformly for every center `m`.  But at the prescribed center (25),
 
 \[
- \boxed{[e(m_s\alpha)]W_s(\alpha)^2=0;}                \tag{30}
+ \boxed{
+ \int_0^1W_s(\alpha)^2e(-m_s\alpha)\,d\alpha=0.}       \tag{30}
 \]
 
 equivalently, the full target convolution of the shadow weight is zero.
