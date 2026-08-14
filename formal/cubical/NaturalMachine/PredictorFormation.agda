@@ -245,8 +245,13 @@ module FiniteWindows
   -- An explicit decoder of state from a window is sufficient to compile its
   -- action update.  This is the constructive datum used by the clock below;
   -- bare injectivity without a supplied decoder would not define a program.
+  StateDecoderAt : (n : ℕ) → Type _
+  StateDecoderAt n =
+    Σ[ decode ∈ (WindowCode n → X) ]
+      ((x : X) → decode (window n x) ≡ x)
+
   state-reconstruction→predictor :
-    (n : ℕ) → AR.Refines (window n) (λ x → x) → PredictorAt n
+    (n : ℕ) → StateDecoderAt n → PredictorAt n
   state-reconstruction→predictor n (decode , replay) =
     (window n ∘ step ∘ decode) , λ x →
       cong (window n ∘ step) (replay x)
