@@ -271,13 +271,13 @@ fingerprint sem envs t = map (\e -> eval sem e t) envs
 -- --------------------------------------------------------- generation
 
 genTerms :: [(String,Int)] -> Int -> Int -> [Term]
-genTerms = genTermsModulo []
+genTerms = genTermsModulo [] []
 
 -- Compile a proved commutativity law into the grammar: for a binary symbol
 -- in `comm`, generate one representative of the transposition orbit.  This
 -- removes the losing branch before a `Term` exists.
-genTermsModulo :: [String] -> [(String,Int)] -> Int -> Int -> [Term]
-genTermsModulo comm sig nv maxSize = concat table
+genTermsModulo :: [String] -> [String] -> [(String,Int)] -> Int -> Int -> [Term]
+genTermsModulo comm assoc sig nv maxSize = concat table
   where
     -- a lazy list, not a strict map: `build n` consults `ofSize m` only
     -- for m < n, so the knot ties, but only if the table's entries stay
@@ -289,8 +289,17 @@ genTermsModulo comm sig nv maxSize = concat table
     build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1)
                           , canonical f args ]
       where
+        canonical f [l,r] | f `elem` comm && f `elem` assoc =
+          not (headed f l) && sortedBy cmpTerm (flatten f l ++ flatten f r)
         canonical f [l,r] | f `elem` comm = cmpTerm l r /= GT
         canonical _ _ = True
+        headed f (F g _) = f == g
+        headed _ _ = False
+        flatten f (F g [l,r]) | f == g = flatten f l ++ flatten f r
+        flatten _ t = [t]
+        sortedBy _ [] = True
+        sortedBy _ [_] = True
+        sortedBy cmp (x:y:xs) = cmp x y /= GT && sortedBy cmp (y:xs)
         argsOf 1 k | k >= 1 = map (:[]) (ofSize k)
                    | otherwise = []
         argsOf a k = [ t:rest | i <- [1..k-a+1]
@@ -770,6 +779,16 @@ provedCommutative m =
   , M.member law (mKnown m) || M.member (swap law) (mKnown m) ]
   where swap (a,b) = (b,a)
 
+provedAssociative :: Machine -> [String]
+provedAssociative m =
+  [ symName s
+  | s <- take (mVocab m) vocabulary ++ mInvented m
+  , symArity s == 2
+  , let f = symName s
+        law = canonVars (F f [F f [x_,y_],z_], F f [x_,F f [y_,z_]])
+  , M.member law (mKnown m) || M.member (swap law) (mKnown m) ]
+  where swap (a,b) = (b,a)
+
 round1 :: Handle -> Handle -> IORef Machine -> IO ()
 round1 logh libh ref = do
   m <- readIORef ref
@@ -780,7 +799,8 @@ round1 logh libh ref = do
       nv = kVars
       envs = assignments nv kAssign
       rules = usableRules m
-      raw = genTermsModulo (provedCommutative m) sig nv (mSize m)
+      raw = genTermsModulo (provedCommutative m) (provedAssociative m)
+              sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
       normed = ordNub (map (normalize rules) raw)
       classes = M.elems (M.fromListWith (++)
@@ -966,12 +986,26 @@ main = do
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]
         raw = genTerms sig 2 7
-        quotient = genTermsModulo ["+"] sig 2 7
+        quotient = genTermsModulo ["+"] [] sig 2 7
         commLaw = (bin "+" x_ y_, bin "+" y_ x_)
         oldNF = ordNub (map (normalize (lemmaRules [commLaw])) raw)
         newNF = ordNub (map (normalize (lemmaRules [commLaw])) quotient)
     unless (oldNF == newNF && length quotient < length raw) exitFailure
     hPrintf stdout "COMMUTATIVE GRAMMAR CHECKED: raw=%d representatives=%d eliminated=%d coverage=exact\n"
+      (length raw) (length quotient) (length raw - length quotient)
+    exitSuccess
+  when (args == ["--ac-grammar-self-test"]) $ do
+    let sig = [("0",0),("+",2)]
+        raw = genTerms sig 2 7
+        quotient = genTermsModulo ["+"] ["+"] sig 2 7
+        commLaw = (bin "+" x_ y_, bin "+" y_ x_)
+        assocLaw = (bin "+" (bin "+" x_ y_) z_,
+                    bin "+" x_ (bin "+" y_ z_))
+        theory = lemmaRules [commLaw, assocLaw]
+        oldNF = ordNub (map (normalize theory) raw)
+        newNF = ordNub (map (normalize theory) quotient)
+    unless (oldNF == newNF && length quotient < length raw) exitFailure
+    hPrintf stdout "AC GRAMMAR CHECKED: raw=%d multisets=%d eliminated=%d coverage=exact\n"
       (length raw) (length quotient) (length raw - length quotient)
     exitSuccess
   when (args == ["--check-thought-format"]) $ do
