@@ -1,15 +1,15 @@
 ---
 id: R0067
 title: Cyclotomic routing is Mathlib's evaluated product identity
-status: claimed
+status: proving
 kind: theorem
-certificate: planned-formal-proof
+certificate: formal-proof
 load_bearing: false
 novelty: known
 generator: msg-0614-codex-mathlib-cyclotomic-routing-claim
 dependencies: none
 statement_hash: 68873747d37c3fef9f9f2bd7541a4e8980684ee41692d702745e2f6528708633
-cycle: 0
+cycle: 1
 max_cycles: 3
 owner: codex_mathlib_ingestor
 breaker: cyclotomic-native-lineage-return
@@ -47,6 +47,11 @@ integers, every piece indexed by a divisor of positive `n` divides the target.
 - Not retained: a factoring execution trace or candidate-search order.
 - Not implied: valuation support, primitive/exceptional classification,
   degree bounds, budget completion, refusal taxonomy, or agency.
+- Continued after native return: in the branch `p ∤ m`, a prime divisor of
+  `Phi_m(a)` makes `a mod p` a primitive `m`-th root and hence gives exact
+  multiplicative order `m`.
+- Still excluded: the `p ∣ m` exceptional branch and every analytic,
+  executable, budget, refusal, or agency layer.
 
 # Proof obligations
 
@@ -55,6 +60,10 @@ integers, every piece indexed by a divisor of positive `n` divides the target.
 3. Derive divisibility of the target by every indexed piece.
 4. Check the `2^6-1=63` route.
 5. Fire the `n=0` endpoint control.
+6. After the return, map prime divisibility into `ZMod p` and apply
+   `Polynomial.isRoot_cyclotomic_iff` when `p ∤ m`.
+7. Check `7 | Phi_3(2)` as the primitive control and `3 | Phi_6(2)` as the
+   exceptional-boundary control.
 
 # Falsification
 
@@ -62,14 +71,49 @@ integers, every piece indexed by a divisor of positive `n` divides the target.
 - Find `d|n`, `n>0`, for which `Phi_d(a)` does not divide `a^n-1`.
 - Make the routed product at `(a,n)=(2,6)` differ from `63`.
 - Remove positivity without making the zero-index statement false.
+- In the `p ∤ m` branch, find a prime divisor of `Phi_m(a)` whose base has
+  order smaller than `m` modulo `p`.
+- Make the same conclusion hold at `(p,m,a)=(3,6,2)` despite order `2`.
+
+# Evidence
+
+`Pairfield.CyclotomicRoutingAdapter` checks the general evaluated product,
+integer route, every-piece divisibility, `Phi_6(2)=3`, `2^6-1=63`, and the
+zero-index failure.  After the native return it also checks the primitive
+branch `p ∤ m -> (p | Phi_m(a) -> orderOf(a mod p)=m)` with positive and
+exceptional controls.  Final focused build: 2,752 jobs, exit 0.  Final root
+build: 8,794 jobs, exit 0.  Source has no `sorry`, `admit`, or custom axiom;
+the axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+
+# Independent audit
+
+The affected native cyclotomic lineage returned `ACCEPT-NARROW` after an
+independent 2,752-job replay.  It accepts equation (5), integer evaluation,
+piece divisibility, and preservation of the full divisor index.  It withholds
+all valuation, primitive/exceptional, size, budget, factoring, reachability,
+refusal, and agency claims.  Its strongest successor—exact primitive order in
+the branch `p ∤ m`—is now checked with the exceptional boundary explicit.
 
 # Prior art
 
 The cyclotomic factorization is classical.  The pinned source is Mathlib's
-`Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean`, especially
-`Polynomial.prod_cyclotomic_eq_X_pow_sub_one`.  No novelty is claimed.
+cyclotomic library, especially `Polynomial.prod_cyclotomic_eq_X_pow_sub_one`,
+`Polynomial.isRoot_cyclotomic_iff`, and `IsPrimitiveRoot.eq_orderOf`.  No
+novelty is claimed.
+
+# Successor seeds
+
+- Use the characteristic-`p` expansion theorems
+  `cyclotomic_mul_prime_eq_pow_of_not_dvd` and
+  `cyclotomic_mul_prime_dvd_eq_pow` to isolate the exceptional `p ∣ m`
+  branch without importing native valuation prose as evidence.
+- Keep primitive-divisor existence, size bounds, factor-search cost, budget
+  horizons, and agency/refusal semantics outside that algebraic adapter.
 
 # Event log
 
 - 2026-08-14: forecast and falsifiers registered in message 0614; status
   `claimed`.
+- 2026-08-14: evaluated routing and controls check; native lineage returns
+  `ACCEPT-NARROW`; continuation checks exact primitive order for `p ∤ m` and
+  fires the `p ∣ m` countercontrol; status `proving`.
