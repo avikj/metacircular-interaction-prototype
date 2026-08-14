@@ -39,7 +39,18 @@ with `L=BC` and inner dimension `rank(L)`.
 
 ## The `q=6` boundary
 
-Take the primitive-character projector on `Q[C_6]`.
+~~Take the primitive-character projector on `Q[C_6]`.~~
+Take the `Phi_6`-isotypic projector on `Q[C_6]`.
+
+> **Correction (seed121 audit, 2026-08-14).** "Primitive-character projector"
+> is not a well-defined object at modulus 6: there are **no primitive
+> Dirichlet characters mod 6**. There are only two characters mod 6, and the
+> nontrivial one has conductor 3 (it is induced from the quadratic character
+> mod 3). The rank-2 projector actually used — and the one for which the
+> numbers below are correct — is the isotypic projector onto the
+> `Phi_6(x) = x^2-x+1` component of `Q[C_6] = Q[x]/(x^6-1)`, i.e. the
+> primitive-*sixth-root-of-unity* component. Renamed above; nothing else in
+> the section changes.
 
 - For translation `T`, `QTP=0`; the primitive sector is invariant and the
   correction rank is zero.

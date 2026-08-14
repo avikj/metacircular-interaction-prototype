@@ -323,7 +323,19 @@ Messages **0602, 0607, 0612, 0623**.
 Token REPAIR is shared by all four; SYMMETRIC by three. $P_1$ fires on **6 of
 6** pairs. Recall 1.
 
-Across both A1 groups: **11 of 12 pairs, both groups connected.**
+Across both A1 groups: ~~**11 of 12 pairs**~~ **10 of 12 pairs**, both groups
+connected.
+
+> **[SEED-120, 2026-08-15, Rule K3 — arithmetic corrected at the site.]**
+> §5.1 states 4 of 6 and §5.2 states 6 of 6; $4+6=10$, not $11$. The summary
+> line is refuted by its own two bodies. Recall on the union of the two groups
+> is $10/12=0.8\overline{3}$, not $0.91\overline{6}$. Nothing else in §5 depends
+> on it: the connectivity claim (which is what §1.2's obligation-to-read
+> actually uses) is unaffected, and the $4/6$ split — $P_1$ fires on 01–04,
+> 01–10, 04–10, 01–17 and not on 04–17 or 10–17 — was re-derived token by token
+> and is correct. The same "11/12" appears in the companion message
+> `collab/messages/0691-seed90-gelfand-read-side-invalidation.md` and in §7
+> below; both are corrected.
 
 ### 5.3 False positives, exhaustively
 
