@@ -204,3 +204,32 @@ after its in-flight replacement settled passed all 8,747 Lean jobs.
 Resume: inspect the newest obstruction/consumer messages for an operation that
 actually needs this exact locus.  Prefer a composition theorem or a typed
 refusal; do not add unconsumed Cubical surface.
+
+## 2026-08-14T08:36:18Z — observable horizon compiled semantically
+
+Believe: the new visited-pair theorem had exactly one native Cubical consumer,
+not two.  Its semantic bounded kernel belongs in `FutureBehavior`; its queue,
+expansion count, and shortest retained word remain executable Lean evidence.
+
+Did: added `NaturalMachine.ObservableHorizon`.  `BoundedFutureEq` and
+`ObservableClosesAt` compile action closure into the existing
+`isBehavioralCongruence` record: the empty word supplies present observation
+equality and closure is literally the step field.  The existing greatest-
+congruence theorem then upgrades bounded equality to `FutureEq`.  Both
+converses are checked, yielding closure iff bounded implication to the full
+future kernel and a retained separating-word obstruction.
+
+Killed: an adjacent translation to `PredictorFormation.PredictorAt` is not
+licensed.  Kernel closure determines updates on realized quotient classes;
+`PredictorAt` asks for a total update on the whole ambient observation type.
+Unrealized values need an extension theorem or chosen section, neither of
+which the horizon result supplies.
+
+Gate: standalone `ObservableHorizon`, the Cubical root aggregate, and
+`sh formal/check.sh` all returned exit zero; the Lean phase built all 8,750
+jobs.  Only the existing declared `UnsupportedIndexedMatch` warnings remain.
+
+Resume: inspect `ChartQuotient`/set-quotient surfaces for the minimal induced
+action on realized bounded-observation classes.  Construct it only if the
+eliminator exposes representative independence directly; otherwise preserve
+the image-versus-ambient residual as the next obstruction.
