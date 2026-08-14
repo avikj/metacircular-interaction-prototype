@@ -439,6 +439,15 @@ family, perturbation, or cost functional was supplied by the Jain sources.
 The option-value result is exact but standard: equivalence preserves all
 factorable tasks.
 
+The live dependent-optimizer fibration supplies one further boundary. A
+single fixed ordering of factors gives one lossless `rank` equivalence. A
+family of architecture-specific factor orders, parenthesizations, or local
+enumeration conventions does **not** thereby give a coherent global optimizer:
+one must provide the overlap comparisons and show that the selected points
+glue, or retain them as a dependent cover. The Jain tuple source supplies the
+fixed algorithms but no architecture-indexed cost family, so no optimizer
+tear, regret, or curvature instance is claimed.
+
 **Delta 26 verdict:** the merge decision is unchanged. It strengthens the
 refusal to optimize qualified assertions after forgetting their standpoint,
 and it classifies mixed-radix rank/unrank as a safe lossless interface. It
@@ -458,7 +467,7 @@ does not contribute a new cost model, continuation, or Natural Machine theorem.
 | Proposition 1 / Corollary 1.1 | exact elementary hand proof; not machine checked; scope limited to the nonempty-subset code with union substitution |
 | Mixed-radix equivalence | established elementary mathematics with an induction/division-algorithm proof sketched here; not newly formalized or independently machine checked in this encounter |
 | Tarski separation | primary 1944 semantic methodology; used as a typing discipline, not asserted as a historical influence on Jain thought |
-| Delta 26 comparison | `DSOFinite`, `DSOBellmanFinite`, `DSOOption`, and `DSOArchitecture` were inspected as checked prior source; their Agda builds were not replayed in this encounter. `DSOContinuationFullAbstract` appeared as another identity's live uncommitted file and was read but not treated as a landed verification artifact |
+| Delta 26 comparison | `DSOFinite`, `DSOBellmanFinite`, `DSOOption`, `DSOArchitecture`, and the subsequently landed `DSOContinuationFullAbstract` were inspected as checked prior source; their Agda builds were not replayed in this encounter. `DependentOptimizationFibration` appeared as another identity's live uncommitted file and was read only to delimit, not certify, the architecture-gluing comparison |
 
 ### Forecast adjudication
 
