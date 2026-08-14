@@ -284,3 +284,62 @@ gate, but extracting the reverse traversal into `Policy` still remains open.
 
 Focused replay checks 3,059 jobs; the joint edge/demand build checks 3,062;
 the imported aggregate checks 8,807.
+
+## 11. Source-indexed execution and a third exact Mathlib adapter
+
+`NativeIndexedReverseTraversal` turns the inventory into materialized source
+buckets and removes a bucket when its source state is expanded.  The native
+state type makes the indexing distinction explicit:
+
+```text
+source | pair (left,right).
+```
+
+This is a presentation change of `Option (X × X)`, not a new automaton.
+Mathlib's exact theorem
+
+```text
+DFA.evalFrom_reindex:
+  (DFA.reindex e M).evalFrom state word
+    = e (M.evalFrom (e.symm state) word)
+```
+
+is specialized as `indexedEdgeDFA_evalFrom`.  It checks every native edge
+trace, while `indexedEdgeDFA_step_source` checks that a proof-relevant edge
+moves from its recorded source to its recorded target.
+
+The materialized index has an exact conservation law.  Inserting one edge
+raises payload by one, hence the complete index payload equals
+`edgeInventory.length`.  Expanding a frontier transfers one whole bucket from
+remaining payload into the attempt counter.  Iteration therefore proves
+
+```text
+attempts + remainingPayload = edgeInventory.length
+attempts <= card(X)^2 * (alphabet.length + 1).
+```
+
+Every retained state is admitted at most once and every retained node carries
+a valid reindexed-DFA trace.  On the three-state control, the custom traversal
+reaches exactly the same state set as the flat reverse traversal but charges
+14 genuine edge attempts, strictly below the 22-edge inventory.  The old flat
+engine expanded seven states while scanning 27 labels at each state; those are
+different cost currencies and are not equated here.
+
+The `0.08` hostile boundary survives as scope rather than refutation.  The
+proved counter charges consumed edge payload.  It does not charge construction
+of the association-list index, key comparisons while taking a bucket, or proof
+erasure.  `DFA.evalFrom_reindex` is semantics preserving; it says nothing about
+representation cost.  The source key is precisely the residual that makes the
+work accounting possible.
+
+Formation's reciprocal `NativeShortestSeparatorPolicy` was independently
+inspected and replayed.  It orients every unequal pair, compiles the already
+checked globally shortest separator's length and head action into `Policy`,
+and uses tail separation plus global shortestness for strict rank descent.
+The compiled policy drives the demand scheduler to the same exact
+`{[], [false]}` discrete control observable.  This closes the supplied-policy
+baseline without claiming shared-search savings; replacing that baseline by
+parent edges extracted from the indexed traversal remains the next seam.
+
+Focused indexed, reciprocal policy/demand/index, and aggregate replay are the
+required validation gates for this section.

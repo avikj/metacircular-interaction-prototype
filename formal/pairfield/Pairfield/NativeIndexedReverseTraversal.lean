@@ -253,6 +253,33 @@ theorem consumeFrontier_payload
       have htail := ih (takeBucket M node.state index).2
       omega
 
+theorem consumeFrontier_remaining_sound
+    (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
+    (index : List (SourceBucket M)) (hsound : IndexSound M index) :
+    IndexSound M (consumeFrontier M frontier index).remaining := by
+  induction frontier generalizing index with
+  | nil => simpa [consumeFrontier] using hsound
+  | cons node rest ih =>
+      simp only [consumeFrontier]
+      exact ih _ (takeBucket_remaining_sound M node.state index hsound)
+
+theorem consumeFrontier_candidates_valid
+    (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
+    (index : List (SourceBucket M))
+    (hvalid : ∀ node ∈ frontier, node.Valid (indexedEdgeDFA M)) :
+    ∀ candidate ∈ (consumeFrontier M frontier index).candidates,
+      candidate.Valid (indexedEdgeDFA M) := by
+  induction frontier generalizing index with
+  | nil => simp [consumeFrontier]
+  | cons node rest ih =>
+      intro candidate hcandidate
+      simp only [consumeFrontier, List.mem_append, List.mem_map] at hcandidate
+      rcases hcandidate with ⟨edge, _hedge, rfl⟩ | htail
+      · exact ReachNode.child_valid (indexedEdgeDFA M)
+          (hvalid node List.mem_cons_self) edge
+      · exact ih _ (fun old hold =>
+          hvalid old (List.mem_cons_of_mem node hold)) candidate htail
+
 /-- The queue stores the unexpanded source index and an exact charged edge
 attempt counter alongside the ordinary proof-relevant reachability nodes. -/
 structure IndexedQueue where
@@ -288,6 +315,27 @@ theorem advanceQueue_total (queue : IndexedQueue M) :
   have hpayload := consumeFrontier_payload M queue.frontier queue.remaining
   omega
 
+theorem advanceQueue_remaining_sound (queue : IndexedQueue M)
+    (hsound : IndexSound M queue.remaining) :
+    IndexSound M (advanceQueue M queue).remaining := by
+  simpa [advanceQueue] using
+    consumeFrontier_remaining_sound M queue.frontier queue.remaining hsound
+
+theorem advanceQueue_nodes_valid (queue : IndexedQueue M)
+    (hvalid : ∀ node ∈ queue.nodes, node.Valid (indexedEdgeDFA M)) :
+    ∀ node ∈ (advanceQueue M queue).nodes,
+      node.Valid (indexedEdgeDFA M) := by
+  intro node hnode
+  let expansion := consumeFrontier M queue.frontier queue.remaining
+  let next := freshNodes queue.states expansion.candidates
+  change node ∈ queue.nodes ++ next at hnode
+  rcases List.mem_append.mp hnode with hold | hfresh
+  · exact hvalid node hold
+  · apply consumeFrontier_candidates_valid M queue.frontier queue.remaining
+    · intro old hfrontier
+      exact hvalid old (List.mem_append.mpr (Or.inr hfrontier))
+    · exact mem_freshNodes_imp_mem hfresh
+
 theorem runQueue_total (edges : List (ReverseEdge M)) (fuel : Nat) :
     (runQueue M edges fuel).attempts +
         indexPayload M (runQueue M edges fuel).remaining = edges.length := by
@@ -296,6 +344,25 @@ theorem runQueue_total (edges : List (ReverseEdge M)) (fuel : Nat) :
   | succ fuel ih =>
       rw [runQueue, advanceQueue_total]
       exact ih
+
+theorem runQueue_remaining_sound (edges : List (ReverseEdge M)) (fuel : Nat) :
+    IndexSound M (runQueue M edges fuel).remaining := by
+  induction fuel with
+  | zero => simpa [runQueue, initialQueue] using materializeIndex_sound M edges
+  | succ fuel ih =>
+      exact advanceQueue_remaining_sound M (runQueue M edges fuel) ih
+
+theorem runQueue_nodes_valid (edges : List (ReverseEdge M)) (fuel : Nat) :
+    ∀ node ∈ (runQueue M edges fuel).nodes,
+      node.Valid (indexedEdgeDFA M) := by
+  induction fuel with
+  | zero =>
+      intro node hnode
+      simp [runQueue, initialQueue, IndexedQueue.nodes] at hnode
+      rcases hnode with rfl
+      rfl
+  | succ fuel ih =>
+      exact advanceQueue_nodes_valid M (runQueue M edges fuel) ih
 
 theorem advanceQueue_states_nodup (queue : IndexedQueue M)
     (hnodup : queue.states.Nodup) :
