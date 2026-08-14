@@ -125,6 +125,55 @@ General constant-time table lookup assumes a RAM array backend and is not
 claimed for Agda's inductive vectors.  No claim is made that arbitrary rewrite
 languages admit finite tabulation or algebraic fusion.
 
+## Adaptive online selection
+
+`AdaptiveMode` now makes the choice executable rather than advisory.  A lazy
+mode carries `(plan,k,q)`, where `k` is its chain length and `q` counts reads in
+the current write epoch.  Every write extends the plan and resets `q`, because
+reads paid before the write used a different chain length.  After a read, the
+two-state specialization switches exactly when
+
+```text
+k < q * (k - 1),
+```
+
+the `|X|=2` instance of `q(k-1) > k(|X|-1)`.  This is an online ski-rental
+threshold: past lazy reads pay for the decision; subsequent reads receive the
+fused representation.  A fused update remains fused.
+
+The representation change is not observational.  `readMode-value` proves the
+returned value equals the pre-read mode semantics.  `readMode-next` proves the
+returned mode has the same behavior at every next input.  `updateMode-sound`
+proves writes commute with interpretation.  The rooted wrapper exports the
+same laws as `readAdaptiveBool-value` and `updateAdaptiveBool-sound`.
+
+The extracted rooted runtime exercises the boundary after 100 writes:
+
+```text
+adaptive fusion after 100 writes: read1=false read2=true
+```
+
+Here `false`/`true` report the representation, not the mathematical
+observation: one read remains lazy; the second crosses `100 < 2*99`.
+
+The benchmark also executes identical mixed workloads through always-lazy,
+adaptive, and always-fused strategies and rejects any disagreement.  One
+native run gave:
+
+| epochs | writes/epoch | reads/epoch | lazy ms | adaptive ms | fused ms |
+|---:|---:|---:|---:|---:|---:|
+| 100 | 100 | 1 | 10.160 | 9.454 | 0.178 |
+| 100 | 100 | 4 | 32.355 | 0.788 | 0.194 |
+| 20 | 1,000 | 100 | 332.180 | 1.557 | 0.373 |
+| 10 | 1,000 | 2,000 | 1,689.556 | 2.185 | 0.336 |
+
+The last adaptive/lazy ratio is about `773x`; it is a workload-specific
+measurement, not a universal acceleration factor.  Always-fused wins these
+two-state workloads because its table has only two entries.  Adaptation exists
+for the general situation where table construction and persistent table space
+are not effectively free; this Boolean instance validates the switching law
+and extraction path, not that broader engineering tradeoff.
+
 ## Prior-art boundary
 
 The binary-digit forest is the standard binary random-access-list technique

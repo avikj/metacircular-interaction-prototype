@@ -380,48 +380,6 @@ normalize rs = go (200 :: Int)
                Nothing -> t
                Just t' -> go (k-1) t'
 
-data NormEntry = NormEntry
-  { cachedNormal :: !Term
-  , cachedHeads  :: !(M.Map String ())
-  }
-
--- Besides the normal form, retain every constructor head present at every
--- state of the actual reduction.  A newly installed non-variable rule can
--- alter this trajectory only if its left-hand head occurred in that trace.
-normalizeTrace :: [Rule] -> Term -> NormEntry
-normalizeTrace rs = go (200 :: Int) M.empty
-  where
-    go 0 seen t = NormEntry t (record t seen)
-    go k seen t =
-      let seen' = record t seen
-      in case step rs t of
-           Nothing -> NormEntry t seen'
-           Just t' -> go (k-1) seen' t'
-    record t seen = foldl' (\m h -> M.insert h () m) seen (symbolsIn t)
-
-ruleHead :: Rule -> Maybe String
-ruleHead (F f _, _) = Just f
-ruleHead (V _, _) = Nothing
-
-normalizePersistent :: [Rule] -> [Rule] -> M.Map Term NormEntry -> [Term]
-  -> ([Term], M.Map Term NormEntry, Int, Int)
-normalizePersistent oldRules rules oldCache terms =
-  (reverse outputs, cache, hits, misses)
-  where
-    removed = any (`notElem` rules) oldRules
-    added = [ r | r <- rules, r `notElem` oldRules ]
-    wildcard = any (\r -> ruleHead r == Nothing) added
-    heads = M.fromList [ (h, ()) | Just h <- map ruleHead added ]
-    safe entry = not removed && not wildcard
-      && M.null (M.intersection heads (cachedHeads entry))
-    choose t = case M.lookup t oldCache of
-      Just entry | safe entry -> (entry, True)
-      _ -> (normalizeTrace rules t, False)
-    (outputs, cache, hits, misses) = foldl' install ([], M.empty, 0, 0) terms
-    install (out, memo, h, m) t =
-      let (entry, reused) = choose t
-      in (cachedNormal entry : out, M.insert t entry memo,
-          h + if reused then 1 else 0, m + if reused then 0 else 1)
 
 
 -- Which way should a proved equation be run?  Getting this wrong is
@@ -678,12 +636,10 @@ data Machine = Machine
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
-  , mNormRules :: [Rule]
-  , mNormCache :: M.Map Term NormEntry
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 [] M.empty
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -807,9 +763,7 @@ round1 logh libh ref = do
       rules = usableRules m
       raw = genTerms sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
-      (normalizedRaw, nextNormCache, normHits, normMisses) =
-        normalizePersistent (mNormRules m) rules (mNormCache m) raw
-      normed = ordNub normalizedRaw
+      normed = ordNub (map (normalize rules) raw)
       classes = M.elems (M.fromListWith (++)
                   [ (fingerprint sem envs t, [t]) | t <- normed ])
       conjectures = ordNub
@@ -890,16 +844,14 @@ round1 logh libh ref = do
              , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
                           [ c | c <- fresh, notElem c (map fst checkedResults) ]
-             , mRound = mRound m + 1
-             , mNormRules = rules
-             , mNormCache = nextNormCache }
+             , mRound = mRound m + 1 }
   forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
   hFlush libh
   hPrintf logh
-    "round %d  vocab=%d size=%d  terms=%d cache=%d/%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
-    (mRound m) (mVocab m) (mSize m) (length raw) normHits normMisses (length normed)
+    "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
+    (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
     prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
   hFlush logh

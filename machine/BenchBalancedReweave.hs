@@ -52,7 +52,7 @@ main = do
       (AB.C_true_10, AB.C_true_10) -> pure ()
       _ -> fail "checked-equivalent flip implementations disagreed") sizes
   let regimes =
-        [(100, 100, 1), (100, 100, 4), (20, 1000, 100), (20, 1000, 1000)]
+        [(100, 100, 1), (100, 100, 4), (20, 1000, 100), (10, 1000, 2000)]
   mapM_ (\regime -> do
     lazy <- timedMixed "mixed-lazy" B.d_lazyMixed_966 regime
     adaptive <- timedMixed "mixed-adaptive" B.d_adaptiveMixed_912 regime

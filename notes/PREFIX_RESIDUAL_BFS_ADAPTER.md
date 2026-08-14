@@ -147,6 +147,46 @@ lives in the action type or typed intervention interface.  List order can only
 choose between equally short certificates.  This is the checked contact with
 `CONTROL_INDEXED_PREDICTIVE_QUOTIENT.md`.
 
+## Native quotient and removal of unreachable rows
+
+`Pairfield.ChartQuotient` now consumes the arbitrary-row decision directly.
+Its state type is Mathlib's ordinary quotient
+
+```lean
+Quotient (dfaFutureSetoid M)
+```
+
+and its transition is the checked `quotientStep`.  The key interface lemma
+`acceptsBool_behavioralQuotientDFA` identifies the quotient DFA's native
+acceptance bit pointwise with the observation descended through the quotient.
+From that equality Lean proves recognized-language preservation and
+reducedness in the ordinary executable `acceptsBool` interface.  Mathlib's
+`Quotient.fintype` becomes executable because
+`ChartStateBFS.stateFutureEqDecidable` supplies the setoid decision.  The
+four-row control has only three complete futures, and `native_decide` computes
+the quotient cardinality as `3`.
+
+The reciprocal audit first rejected five elaboration defects in this adapter:
+an invalid quotient binder, an incorrect equivalence interface, an unstated
+acceptance decision, a bad definitional-equality shortcut, and a downstream
+native-control failure.  After those repairs, the independent Mathlib lineage
+accepted the quotient and requested the pointwise acceptance lemma above.
+That request changed the final interface: reducedness is no longer stated only
+for a private descended observation.
+
+The accepted quotient deliberately retains behaviorally unique garbage.
+`Pairfield.ReachableSubDFA` closes that boundary constructively.  A second use
+of Mathlib's `DFA.evalFrom_split` proves that every start-reachable state has a
+reaching word of length strictly less than `Fintype.card X`.  Thus the bounded
+native list `reachableRows M alphabet` is equivalent to unbounded start
+reachability.  Its subtype is closed under every typed action, all of its
+states carry reaching words, and its DFA accepts exactly the original
+language.  Composing this carrier with the accepted future quotient gives
+`reachableReducedDFA`: a finite executable DFA with the same language in
+which every state is start-reachable and no two states have the same complete
+accepted future.  On the four-row control, the reachable carrier and the
+composed reducer both have cardinality `3` by `native_decide`.
+
 ## Falsifier and replay
 
 The internal three-state DFA has prefixes `[]` and `[false]` separated first by
@@ -157,10 +197,12 @@ certifies residual-membership disagreement.  The control prefixes `[]` and
 ```sh
 cd formal/pairfield
 lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
-  Pairfield.ChartStateBFS
+  Pairfield.ChartStateBFS Pairfield.ChartQuotient \
+  Pairfield.ReachableSubDFA
 ```
 
-This passes (`3014` jobs).  `Pairfield.lean` imports the adapter.  A root
+The newest focused target passes (`3016` jobs).  `Pairfield.lean` imports the
+adapter and both reducers.  A root
 `lake build Pairfield` reaches the adapter but remains red in the unrelated
 pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no
 aggregate-green claim is made.
@@ -172,12 +214,13 @@ quotients of prefixes reachable from `M.start`.  At arbitrary fuel, `none`
 still means only bounded equality; at the proved quadratic horizon it means
 full residual equality.  The canonical quotient DFA and its global cardinal
 minimality are now proved, but the canonical construction is noncomputable.
-The executable chart must still be supplied as data.  Arbitrary chart-row
-equality is now decidable, but the current search enumerates all words by
-length rather than maintaining a visited pair graph, and no quotient table is
-yet emitted.  No algorithmic-efficiency or automatic extraction claim is
-made.  The quadratic pair horizon is safe rather than sharp; no linear bound
-is claimed.
+The executable chart must still be supplied as data.  Given that data, the
+native path now removes unreachable rows and emits the future quotient, but
+its searches enumerate words by length rather than maintaining visited-state
+or visited-pair predecessor forests.  No algorithmic-efficiency claim is made,
+and the quotient carrier is executable Lean data rather than a serialized
+external transition table.  The linear reachability and quadratic pair
+horizons are safe rather than sharp.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked
