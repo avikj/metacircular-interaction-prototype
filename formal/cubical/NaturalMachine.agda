@@ -126,6 +126,10 @@ import NaturalMachine.DefectCalculus
 -- invertible -- the composites are doubling, which is what `half` was
 -- dividing away, plus C17.7's two-involutions distinction.
 import NaturalMachine.CenterRelativeIntegral
+-- Delta 18 T18.4-T18.6: the excursion-return defect -- what a
+-- non-invariant selected sector costs dynamically, and the
+-- observability kernel that decides whether it can ever be seen again.
+import NaturalMachine.CompressionDefect
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
