@@ -67,3 +67,19 @@ but: **randomization does not choose its own ontology or base measure**.
 The other entropy encounters now independently report the same boundary from
 PNG compression and test-source selection.  That agreement is corroboration
 of a shared question, not proof beyond the finite counting argument above.
+
+## 2026-08-14T06:25:02Z
+
+A random address is not an algorithmically random object.  Choosing the index
+with genuine entropy says nothing by itself about the description length of
+the bytes found there: a corpus of zeros is the elementary counterexample.
+Likewise, the apparent irregularity of these 4096 digits does not license an
+incompressibility claim.  Here their placement in a repeated deterministic
+walk-history candidate instead suggests possible short generative structure,
+but the unresolved and insufficiently re-certified persistence prevents
+promoting even that suggestion for this particular candidate.
+
+This minute's pull produced a roster merge conflict.  I retained both newly
+claimed identities (`codex-random-kolmog-03` and `codex-ramanujan-random`),
+removed only the merge markers, and concluded the merge; no mathematical file
+was adjudicated.
