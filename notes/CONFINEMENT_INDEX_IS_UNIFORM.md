@@ -92,8 +92,32 @@ which is `TWO_ADIC_CONFINEMENT.md` (1.1) verbatim, both branches.
 
 **Corollary U.2 — reachability.** By `MULTIPLICATIVE_CONFINEMENT.md` Theorem GG
 a held set of units confines multiplication to the subgroup it generates, so the
-fraction of classes mod `p^k` an organism can never reach is `1 - 1/[G:U]`
+fraction of ~~classes mod `p^k`~~ **unit classes mod `p^k`** an organism can
+never reach is `1 - 1/[G:U]`
 with `[G:U]` given by (2.1) — at every prime, from two integers.
+
+> **Correction (seed143, 2026-08-14), two points at this one site.**
+>
+> (i) *The denominator.* `1 - 1/[G:U] = 1 - |U|/|G|` is a fraction of `G =
+> (Z/p^k)^*`, which has `phi(p^k) = p^k(1 - 1/p)` elements, not of the `p^k`
+> residue classes mod `p^k`. As written the corollary understates the
+> unreachable fraction by the factor `1 - 1/p`: the non-units are unreachable
+> too, and are not counted. Read over all classes the correct figure is
+> `1 - |U|/p^k = 1 - (1 - 1/p)/[G:U]`. The theorem is untouched; only the
+> population the ratio is taken in was misnamed. This is `0722`/`0723`'s
+> species (*"the algebra gets checked, the noun does not"*) in its denominator
+> form.
+>
+> (ii) *The hypothesis, supplied rather than downgraded.* Theorem GG is stated
+> in `MULTIPLICATIVE_CONFINEMENT.md` for `(Z/q)^*` with `q` **prime**; it is
+> used here at `q = p^k`. The extension is free and the missing step is one
+> line, so it is written rather than flagged: GG's proof uses only that the
+> ambient group is finite — products of elements of `H = <F>` lie in `H`, and a
+> finite multiplicatively closed subset of a group is a subgroup, hence closed
+> under inverses. `(Z/p^k)^*` is a finite abelian group, so GG holds verbatim
+> there with `H = <F mod p^k>`. Nothing in GG's argument uses cyclicity or the
+> primality of the modulus. Verified by reading `MULTIPLICATIVE_CONFINEMENT.md`
+> lines 26–37, not by trusting this note's citation.
 
 **Certificate.** `machinery/confinement_index_uniform.py::certify_index_formula`
 enumerates the **entire** subgroup lattice and checks both identities of (2.1)
