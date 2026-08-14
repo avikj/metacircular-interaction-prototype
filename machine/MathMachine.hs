@@ -526,6 +526,10 @@ patternsOf t = [ p | p <- subterms t, size p >= 3, size p <= 5
     subterms u@(F _ ts) = u : concatMap subterms ts
     subterms u = [u]
 
+symbolsIn :: Term -> [String]
+symbolsIn (V _) = []
+symbolsIn (F f ts) = f : concatMap symbolsIn ts
+
 canonTerm :: Term -> Term
 canonTerm t = applySub ren t
   where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
@@ -549,8 +553,29 @@ bestOf :: [Sym] -> [Term] -> [(Term,Int)]
 bestOf syms terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
              [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
-                  , not (alreadyNamed p), not (trivialApp p) ])
+                  , not (alreadyNamed p), not (trivialApp p)
+                  , mentionsPrimitive p ])
   where
+    -- A TOWER IS NOT A THOUGHT.  With the description-length gate live,
+    -- the machine's first name was `c0 := x+x` — exactly the `double`
+    -- this code was written to hope for.  Its second was `c1 := c0(c0(x))`,
+    -- its third `c2 := c1(c0(x))`, and so on: 2x, 4x, 8x, forever, each
+    -- one shortening the probe and each one proving nothing.
+    --
+    -- That is not a threshold that needs raising, it is the gate being
+    -- the wrong shape.  Description length ALWAYS improves under
+    -- composition — naming f∘g saves a symbol at every occurrence, for
+    -- any f and g — so no bound on compression can rule out the tower.
+    -- The constraint has to be about content: a pattern assembled purely
+    -- from names the machine already has contains no operation that was
+    -- not already named.  It is a re-abbreviation.
+    --
+    -- So: concepts may appear INSIDE a pattern (the Lovelace point above
+    -- stands — abstraction must be able to stack), but the pattern must
+    -- contribute at least one primitive of its own.  c0(x)+x is a new
+    -- function; c0(c0(x)) is c0 said twice.
+    mentionsPrimitive p =
+      any (`elem` map symName vocabulary) (symbolsIn p)
     counts = M.toList (M.fromListWith (+)
                [ (canonTerm p, 1::Int) | t <- terms, p <- patternsOf t ])
     -- Lovelace: rejecting c-headed patterns caps the tower of
