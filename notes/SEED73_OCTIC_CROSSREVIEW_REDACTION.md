@@ -31,7 +31,7 @@ only with the reduced charge. §5 is the Cantor check. §6 lists the edits.
 | `OCTIC_OBSTRUCTION_V2.md` / `exp38` | — | Theorem F8 for all degree-eight irreducible divisors | corrected the index; sourced its coefficient box to the now-deleted predecessor |
 | `CROSSREVIEW_OCTIC_V2.md` | — | independent containment proof (§2), three enumerations, disjoint downstream; E-1…E-7 | showed the **quarantine premise was wrong** (both orientations are safe supersets on the proved cage); showed the cage, not the orientation, was the hazard |
 | SEED-34 | 2026-08-14 | $\mathcal C(P^*)=(-1)^{\binom n2}\mathcal C(P)$; exact zero locus; two-element exception table | — |
-| SEED-45 | 2026-08-14 | the law is **vacuous** on $g=g^*$; the content is $\mathcal C(g)=0$; the reduced charge $\mathcal C^\circ(P)=\operatorname{disc}\widehat G$, $\operatorname{disc}P=P(1)P(-1)\mathcal C^\circ(P)^2$; pinned msg 0023's parity split to $u=x^2$ | corrected the reading "octic ⇒ $n\equiv0\ (4)$ ⇒ conserved ⇒ informative" |
+| SEED-45 | 2026-08-14 | the law is **vacuous** on $g=g^*$; the content is $\mathcal C(g)=0$; the reduced charge $\mathcal C^\circ(P)=\operatorname{disc}\widehat G$, ~~$\operatorname{disc}P=P(1)P(-1)\mathcal C^\circ(P)^2$~~ $\operatorname{disc}P=(-1)^mP(1)P(-1)\mathcal C^\circ(P)^2$ (sign corrected 2026-08-14, SEED-103; the octic use in §3.1 and E-11 has $m=4$ and is unaffected); pinned msg 0023's parity split to $u=x^2$ | corrected the reading "octic ⇒ $n\equiv0\ (4)$ ⇒ conserved ⇒ informative" |
 | SEED-73 (this note) | 2026-08-14 | §§1–3 below; two scope corrections to the cross-review | — |
 
 ## 1. The census sits inside $\mathcal R_8$, and the involution is $\rho$

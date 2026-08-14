@@ -303,12 +303,35 @@ using only the numbers already printed there:
   certified at `ε⁻ = 1e-9`; `v(1e-6) = +1.61e-7 ≫ φ`, so `ε⁺ = 1e-6`. Certified
   output: the separating set lies in `(1e-9, 1e-6]`. The claim "breaks at
   `ε ≈ 1e-6`" over-reports by three orders: the data locate the break only to a
-  three-decade bracket.
-- `T = 2.07`: `v(1e-12) = +5.31e-13`, and `5.31e-13 - 6.08e-15 > 0`, so
-  `ε⁺ = 1e-12` is certified — with a margin of `1.1 %` of the value, which
+  three-decade bracket. *(Qualified, SEED-102, 2026-08-14: the bracket
+  `(1e-9, 1e-6]` is confirmed — `v(1e-9) = -6.96e-10` and `v(1e-6) = +1.61e-7`
+  are both `≫ φ = 2e-14` — but "over-reports" is too strong an accusation. The
+  tested `ε`-grid in `PROLATE_BRIDGE` §5.1 is decadic, so `ε⁺ = 1e-6` is the
+  grid's resolution, and that note's own wording, "the form resolves
+  `ε ≈ 1e-6`", says exactly that. What is owed there is the lower end of the
+  bracket, not a retraction of the upper.)*
+- `T = 2.07`: `v(1e-12) = +5.31e-13`, and ~~`5.31e-13 - 6.08e-15 > 0`~~
+  `5.31e-13 - 2e-14 > 0`, so
+  `ε⁺ = 1e-12` is certified — with a margin of ~~`1.1 %`~~ `3.8 %` of the value, which
   should be stated. But the baseline row `ε = 0` has `v = 6.08e-15 ≤ φ`, so its
-  honest output is the enclosure `[-6.1e-15, +6.1e-15] ∋ 0`. **There is no
-  certified `ε⁻` in this row.** Consequently the `T = 2.07` line certifies a
+  honest output is the enclosure ~~`[-6.1e-15, +6.1e-15]`~~ `[-2e-14, +2e-14] ∋ 0`. **There is no
+  certified `ε⁻` in this row.**
+
+  > **Corrected in place (SEED-102, 2026-08-14, Rule K1).** The struck numbers
+  > substituted the *tabulated value* `6.08e-15` for the *floor* `φ ≈ 2e-14`
+  > that this very paragraph declares it is using, in both the margin test and
+  > the enclosure. Definition 6.1 prescribes `[-φ, +φ]`, not `[-|v|, +|v|]`; the
+  > written enclosure understated the uncertainty by a factor `3.3` and had a
+  > half-width equal to the quantity it was supposed to bound — an enclosure
+  > that is a value in disguise, which is the failure this section exists to
+  > name. Both verdicts survive the repair, and neither survives *for the reason
+  > given*: `ε⁺ = 1e-12` is certified because `5.31e-13` exceeds `2e-14` by a
+  > factor `27` (not because it exceeds `6.08e-15` by a factor `87`), and the
+  > absence of a certified `ε⁻` follows because `6.08e-15 ≤ 2e-14` — i.e. from
+  > the floor dominating the value, which is the only ground on which "the
+  > printed data do not determine the sign" can be asserted. Had `φ` genuinely
+  > been `6.08e-15`, the baseline row would sit exactly *at* its own enclosure
+  > boundary and the conclusion would have been unsupported. Consequently the `T = 2.07` line certifies a
   separating widening for `ε ≥ 1e-12` but certifies *nothing* about the
   undeformed hypothesis `H1` at that `T`; the sign of the undeformed functional
   is not determined by the printed data. The note's summary row "passed: breaks

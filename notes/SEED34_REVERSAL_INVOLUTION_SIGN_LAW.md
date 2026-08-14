@@ -82,7 +82,11 @@ Equivalently, the charge is **conserved** by reversal when
 > for reciprocal \(P\in\mathcal R_{2m}\) written \(P=x^m\widehat G(T)\),
 > \(T=x+x^{-1}\), deleting the \(m\) forced vanishing factors gives
 > \(\mathcal C^{\circ}(P)=\operatorname{disc}\widehat G\) and
-> \(\operatorname{disc}P=P(1)P(-1)\,\mathcal C^{\circ}(P)^2\). Read Theorem 2.1
+> ~~\(\operatorname{disc}P=P(1)P(-1)\,\mathcal C^{\circ}(P)^2\)~~
+> \(\operatorname{disc}P=(-1)^m\,P(1)P(-1)\,\mathcal C^{\circ}(P)^2\)
+> (sign corrected 2026-08-14, SEED-103, at `SEED45` Thm 3.2; the struck form
+> holds for even \(m\), which covers the octic stratum this box is about, and
+> fails at \(m=1\): \(\operatorname{disc}(x^2+x+1)=-3\ne3\)). Read Theorem 2.1
 > as a statement about the **non**-reciprocal stratum; there it is not vacuous,
 > and Corollary 2.4's decic \(q_1\) is non-reciprocal
 > (\(q_1^*=x^{10}+x^9+x^8+x^2+1\neq q_1\)), so Corollary 2.4 is unaffected.
