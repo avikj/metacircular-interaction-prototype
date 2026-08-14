@@ -11,8 +11,9 @@ open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Univalence using (ua ; uaβ)
-open import Cubical.Data.Sigma using (Σ≡Prop ; isSetΣ)
+open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Prod using (_×_ ; _,_)
+open import Cubical.Data.Prod.Properties using (isOfHLevelProd)
 open import Cubical.HITs.SetQuotients as SQ using (_/_ ; [_] ; eq/ ; squash/)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
@@ -72,7 +73,7 @@ module _ (G : Group ℓ) where
 
   quotientCollapse : RefinedModuloMidpoint → CoarseNetwork
   quotientCollapse = SQ.rec
-    (isSetΣ G.is-set (λ _ → isSetΣ G.is-set (λ _ → G.is-set)))
+    (isOfHLevelProd 2 G.is-set (isOfHLevelProd 2 G.is-set G.is-set))
     collapseNetwork
     (λ x y r → sym (collapse-midpointGauge (fst r) x)
       ∙ cong collapseNetwork (snd r))
