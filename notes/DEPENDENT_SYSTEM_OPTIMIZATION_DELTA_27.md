@@ -585,3 +585,314 @@ These rank lower bounds are state-complexity lower bounds. A converse needs
 compatibility with action-induced shifts and is not automatic for arbitrary
 semirings.
 
+## 33. Relation to Myhill–Nerode
+
+For a Boolean language,
+
+\[
+H_L(u,v)=\mathbf 1[uv\in L].
+\]
+
+Equality of rows is Myhill–Nerode equivalence. Three distinct objects meet:
+
+\[
+\boxed{\begin{aligned}
+\text{behavioral quotient}&=\text{future-indistinguishable histories},\\
+\text{Boolean/Hankel rank}&=\text{latent certificates or modes required},\\
+\text{concept nucleus}&=\text{all stable past–future concepts}.
+\end{aligned}}
+\]
+
+## 34. Trellis calibration — source pin required
+
+The supplied Delta reports a 2026 result for binary linear codes. For the
+conditional decoding matrix across a coordinate cut,
+
+\[
+W(x_L,x_R)=d\bigl((x_L,x_R),C\bigr),
+\]
+
+it states that min-plus factor rank and tropical rank both equal \(2^s\), with
+\(s\) the classical minimum trellis-state exponent at the cut. If the precise
+source confirms this statement, it is a powerful calibration: conditional
+optimal-value matrices can encode exact interface complexity; rank may be
+exponential while global optimization remains polynomial; bounded-radius
+views may miss a nonlocal dependency state. Until the paper/theorem is pinned,
+this paragraph is ancestry to verify, not a repository theorem.
+
+## 35. Multiobjective extension
+
+Choose a quantale of upward-closed feasible resource sets or Pareto antichains
+with a proved monoidal convolution. A matrix then stores boundary tradeoff
+sets, composition convolves resources and Pareto-reduces, continuations carry
+future antichain objectives, and the nucleus stores saturated dual Pareto
+concepts. Scalar formulas do not transfer until the chosen representation's
+quantale laws are checked.
+
+## 36. Rank-aware certified self-improvement
+
+A rewrite between two factorizations of the same semantics may improve
+interface width, runtime, verification, communication, context coverage,
+approximation, or witness preservation. Its certificate should contain:
+
+- semantic/contextual equivalence;
+- cost/Pareto comparison;
+- rank or interface-size comparison;
+- proof that no supported future is lost;
+- provenance/migration from old modes to new.
+
+A rank decrease is not an improvement if obtained by silently shrinking the
+context family, decategorifying witnesses, underestimating cost, or deleting
+option value.
+
+## 37. Architecture invention as nucleus discovery
+
+New contexts, witness topology, cost dimensions, constraints, or theorems can
+change the semantic relation itself:
+
+\[
+K\rightsquigarrow K',
+\qquad
+\operatorname{Nuc}(K)\rightsquigarrow\operatorname{Nuc}(K').
+\]
+
+Self-improving DSO alternates between completing the present semantics and
+revising them when new distinctions become operational. It is not one fixed
+low-rank problem.
+
+## 38. Research memory as a past–future matrix
+
+Let \(H\) be research histories, \(T\) future theorem tasks, and \(K(h,t)\) the
+least additional verified cost of solving \(t\) from \(h\). The nucleus holds
+saturated research concepts; a finite memory selects generators. Then
+
+\[
+\boxed{\operatorname{rank}_{\min+}(K)=
+\text{minimum latent memory width preserving exact future task costs}.}
+\]
+
+A prose summary is warranted only relative to a declared task family and a
+safe approximation claim.
+
+## 39. Agent-swarm coordination
+
+Rows may be local states/artifacts, columns future subtasks, entries remaining
+certified costs, and latent modes reusable theorems or interfaces. Factor rank
+lower-bounds exact shared semantic state; Boolean rank lower-bounds certificate
+coordination; contextual rank prices the mission; the nucleus is the complete
+space of saturated reusable concepts. A scheduler should seek artifacts that
+create low-cost modes, safely reduce rank, split a false mode, transport across
+many columns, or collapse modes by proved equivalence.
+
+## 40. Prime-Pair calibration
+
+At finite scale \(X\), construct a precise matrix \(K_X(u,v)\) where:
+
+- \(u\) is a proof-relevant arithmetic state (sieve observation, charge,
+  affine/Buchstab state, spectral packet, or bounded certificate context);
+- \(v\) is a future continuation (scale refinement, shift, centre/gap query,
+  charge-one test, boundary evaluation, or proof obligation);
+- \(K_X(u,v)\) is the least additional *certified* work for the selected
+  Prime-Pair target.
+
+Then compute or lower-bound
+
+\[
+\operatorname{rank}_{\min+}(K_X),\qquad
+\operatorname{rank}_{\mathcal V_X}(K_X),\qquad
+\operatorname{Nuc}(K_X).
+\]
+
+Concrete hypotheses:
+
+- **H27.1 — critical rank growth.** Near \(z\sim\sqrt X\), exact semantic rank
+  grows faster than in subcritical smoothed regimes.
+- **H27.2 — parity as missing generator.** Small-prime sieve states generate a
+  proper subsemimodule; charge-one distinctions require another saturated
+  mode.
+- **H27.3 — separating continuations.** Equal visible sieve states admit a
+  future whose costs differ; families of separators yield fooling sets or
+  tropical minors.
+- **H27.4 — breakthrough criterion.** A representation matters if it lowers
+  contextual rank, supplies missing nucleus generators, proves a safe error
+  bound, or separates and excludes an architecture class.
+
+This program requires the bounded proof-relevant prime-pair carrier currently
+being installed; a matrix of undocumented heuristic costs would not qualify.
+
+## 41. Refoliation/physics calibration
+
+For boundary hypersurfaces, factor transport as
+
+\[
+K=K_{\Sigma\to\mathrm{out}}\star K_{\mathrm{in}\to\Sigma}.
+\]
+
+Minimal exact rank measures boundary state crossing the cut. Refoliation asks
+whether different factorization paths have equal continuation transformers.
+The nucleus supplies saturated boundary concepts; anomaly/curvature occurs
+when factorizations are path-dependent, modes fail to transport, or cuts need
+incompatible interfaces. This is shared grammar, not an identification of
+arithmetic with gravity.
+
+## 42. Relation to the Eternal Golden Braid
+
+A DSO factorization is one concrete dependency braid. Its nucleus contains all
+saturated concepts licensed by complete boundary semantics. A finite
+factorization selects strands; failure produces a separator or rank lower
+bound; a semantic discovery changes the nucleus. The exact local question is
+which dependencies the next weave must retain—no larger metaphysical claim is
+needed.
+
+## 43. Theorem ledger
+
+Inherited/proved at mathematical level in Delta 27:
+
+1. Bellman representation of complete min-plus linear maps.
+2. Full abstraction by continuation transformers.
+3. Exact interface width equals min-plus factor rank.
+4. Rank-one additive-minor identity.
+5. Boolean rank equals minimum true-rectangle cover.
+6. Standard nondeterministic coordination bound.
+7. Context-rank monotonicity.
+8. Dirac-complete contextual rank equals full rank.
+9. Conservative factorization gives uniform Bellman error.
+10. Scalar rank lower-bounds proof-relevant witness rank.
+11. Strict decategorification example via Euler characteristic.
+12. Isbell conjugacy/residuation.
+13. Nucleus modes are saturated rank-one majorants.
+14. Termwise factor saturation.
+15. Factor rank equals minimum nucleus-mode cover.
+16. Boolean nucleus is the formal concept lattice.
+17. Sequential realizations factor behavioral Hankel matrices.
+
+“Inherited/proved” here does not mean every item is already kernel-checked in
+this repository. The checked-foothold ledger below names only replayed local
+formalizations.
+
+Open/programmatic:
+
+18. efficient finite nucleus generation;
+19. exact/approximate minimum nucleus cover;
+20. context-restricted tropical factorization algorithms;
+21. proof-relevant or homotopical nuclei;
+22. a checked Pareto-antichain quantale;
+23. rank stability under rewrites;
+24. Prime-Pair critical-rank growth;
+25. arithmetic fooling sets/tropical minors;
+26. nucleus-based research memory;
+27. a certified self-improving factorization compiler.
+
+## 44. Executable compiler sketch
+
+Input \((A,C,K,\mathcal V,\varepsilon,\text{proof requirements})\).
+
+1. **Semantic audit:** verify the relation and contexts; keep implementation
+   witnesses separate from scalar costs.
+2. **Nucleus generation:** propose \(x\), close by
+   \(y=K^\uparrow x\), \(x\leftarrow K^\downarrow y\), retain fixed modes.
+3. **Rank lower bounds:** fooling sets, additive minors, tropical minors,
+   information cuts, witness-topology invariants.
+4. **Finite cover:** optimize rank, execution, verification, communication,
+   safe error, and option value.
+5. **Context verification:** prove exact equality or the one-sided
+   \(\varepsilon\) Bellman bound for all required contexts.
+6. **Proof-relevant lift:** show scalar modes admit compatible witnesses.
+7. **Persist:** relation, modes, generators, lower-bound certificates,
+   contexts, approximation, provenance, and rewrite proof.
+
+## 45. Immediate experiments
+
+- **Boolean:** compare Boolean rank, concept-lattice size, minimum concept
+  cover, Myhill–Nerode quotient, and fooling-set bounds on finite relations.
+- **Tropical:** compute rank-one saturation, small nucleus covers, and tropical
+  lower bounds; compare arbitrary and nucleus-restricted factorizations.
+- **Sequential:** compare state count, Hankel factor rank, behavioral quotient,
+  and contextual rank on finite weighted automata.
+- **Proof-relevant:** construct equal cost decategorifications with unequal
+  witness rank.
+- **Prime-Pair:** define a non-heuristic bounded past/future matrix, compute its
+  observational quotient, produce separating futures, and locate certified
+  rank changes without treating a finite scan as number theory.
+
+## 46. Deep compression
+
+Delta 26:
+
+\[
+\text{a subsystem is its continuation transformer}.
+\]
+
+Delta 27:
+
+\[
+\boxed{\text{an architecture is a factorization of that transformer}},
+\]
+
+\[
+\boxed{\text{exact dependency width is min-plus/quantale factor rank}},
+\]
+
+\[
+\boxed{\operatorname{Nuc}(K)=
+\text{the canonical complete space of saturated dual modes}}.
+\]
+
+Thus DSO is completion into the nucleus plus selection of a finite,
+context-safe generating architecture.
+
+## 47. Sanskrit compression
+
+केवलं मूल्यं न पश्य।  
+Do not look only at value.
+
+मूल्यस्य सर्वभविष्यसन्दर्भेषु क्रियां पश्य।  
+Look at its action on every future context.
+
+व्यवस्थायाः न्यूनतममध्यरूपसंख्या तस्य min-plus-rank इति।  
+The minimum number of intermediate dependency forms is its min-plus rank.
+
+सम्पूर्णाः परिपक्वाः मध्यभावाः तस्य Isbell-nucleus इति।  
+The totality of saturated intermediate concepts is its Isbell nucleus.
+
+स्थानीयं न्यूनतमं canonical न आवश्यकम्।  
+The local minimum need not be canonical.
+
+पूर्णं canonical रूपं लघु न आवश्यकम्।  
+The canonical complete form need not be small.
+
+अतः प्रथमं semantics पूर्णीकुरु। ततः तस्य सुरक्षितं लघुतमजनकसमूहं
+अन्विष्य।  
+First complete the semantics. Then find its smallest safe generating family.
+
+## 48. Primary ancestry
+
+- Lawvere: generalized metric spaces enriched over \([0,\infty]\).
+- Quantales, quantaloids, \(Q\)-matrices, residuation.
+- Pavlović: profunctor nuclei and enriched formal concept analysis.
+- Willerton: Isbell completions, tight spans, semi-tropical modules, and
+  Legendre–Fenchel duality through a nucleus.
+- Fujii: Isbell hulls of quantale matrices and complete semimodules.
+- Formal Concept Analysis and rectangle covers.
+- Tropical factor/Barvinok rank and tropical rank.
+- Weighted automata and behavioral Hankel matrices.
+- Boolean communication complexity.
+- The user-supplied 2026 trellis result, pending an exact bibliographic pin.
+
+## Checked footholds in the repository
+
+At this ingestion point:
+
+- `NaturalMachine.DSOMinPlusFinite` checks arbitrary finite min-plus matrix
+  composition, Bellman functoriality, associativity, identities, and an argmin
+  witness fiber.
+- `NaturalMachine.DSOContinuationFullAbstract` checks finite Dirac
+  reconstruction/full abstraction on the existing extended-natural carrier.
+- `NaturalMachine.DSORankFinite`, `DSOFactorRankFinite`,
+  `DSONucleusFinite`, and `BehavioralHankel` are concurrent work. They are not
+  called landed until committed and replayed through the aggregate.
+- `Pairfield.PrimePairDecomposition` checks the actual prime-triplet
+  classification and a real `{0,4}` endpoint destroyed by the `+2` waypoint.
+- `Pairfield.BoundedPrimePair` now supplies a finite witness-bearing carrier;
+  its integration and first declared past/future matrix remain active work.
+

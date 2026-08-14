@@ -11,7 +11,7 @@ This finite congruence theorem is not progress on Goldbach coverage.  It
 certifies that a particular intermediate ontology is strictly smaller than
 the endpoint relation it was proposed to represent.
 -/
-import Mathlib
+import Pairfield.BoundedPrimePair
 
 namespace Pairfield
 
@@ -62,5 +62,22 @@ emptiness of the proposed waypoint fiber at that endpoint. -/
 theorem primePairDecompositionLoss :
     PrimeEndpoint04 7 ∧ ¬ PrimeWaypoint024 7 :=
   ⟨endpoint04_seven, waypoint024_seven_obstructed⟩
+
+/-- The same actual witness installed in the common finite pair carrier. -/
+def endpoint04SevenPair : BoundedPrimePair 11 :=
+  mkBoundedPrimePair (by decide) (by decide) (by decide) (by decide)
+
+@[simp] theorem endpoint04SevenPair_center :
+    pairCenter endpoint04SevenPair = 18 := rfl
+
+@[simp] theorem endpoint04SevenPair_gap :
+    pairGap endpoint04SevenPair = 4 := rfl
+
+/-- Goldbach/centre and gap views retain the identical pair witness. -/
+def endpoint04SevenCenterFiber : PrimeCenterFiber 11 18 :=
+  ⟨endpoint04SevenPair, endpoint04SevenPair_center⟩
+
+def endpoint04SevenGapFiber : PrimeGapFiber 11 4 :=
+  ⟨endpoint04SevenPair, endpoint04SevenPair_gap⟩
 
 end Pairfield
