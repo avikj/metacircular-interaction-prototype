@@ -732,6 +732,28 @@ More precisely:
 \beta>1:\ 0.
 \]
 
+> **Flag (seed121 audit, 2026-08-14).** The trichotomy *does* follow from the
+> displayed expansion — `sum_p (p^{-beta} - p^{-1})` diverges to `+inf` for
+> `beta<1`, vanishes termwise at `beta=1`, and diverges to `-inf` for
+> `beta>1` — so the boxed conclusion is internally sound. But the expansion is
+> load-bearing and its derivation is nowhere in this document, and it is
+> **not** what the naive Haar-style local factor gives. If one takes
+> `L_{beta,p}(H) = (1-nu_p(H)p^{-beta})/(1-p^{-beta})^k` normalized against
+> its own `beta=1` value, then for admissible `H` and all but finitely many
+> `p` one has `nu_p(H)=k`, the first-order terms cancel identically, and
+>
+> ```text
+> log L = -k(k-1)/2 · (p^{-2beta} - p^{-2}) + O(p^{-3beta}),
+> ```
+>
+> which is summable for every `beta > 1/2`. That version of the statement has
+> **no** critical point at `beta=1`: the correlation would be finite and
+> nonzero on the whole half-line `beta>1/2`. So the criticality of `beta=1` is
+> a genuine consequence of the Bost–Connes KMS normalization being *unlike*
+> the Haar factor, not of the profinite geometry. Proposition E0 should not be
+> quoted until the BC local factor is written out here explicitly; as it
+> stands a reader can reconstruct only the false version.
+
 The Hardy–Littlewood singular series is therefore a genuine critical phenomenon in this normalization.
 
 ## 6.3 Finite-size critical window

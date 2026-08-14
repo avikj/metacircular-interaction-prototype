@@ -168,8 +168,45 @@ edge.
 
 *Proof.* $V$ is stale iff some file its claim ranges over changed after $V$ was
 computed. $\mathrm{base}(V)$ names exactly that range and $\mathrm{watermark}(V)$
-exactly that time; mtime is a total order recorded by the substrate, not an
-estimate. $P_2$ tests precisely the defining condition. $\square$
+exactly that time; ~~mtime is a total order recorded by the substrate, not an
+estimate~~. $P_2$ tests precisely the defining condition. $\square$
+
+> **[SEED-120, 2026-08-15, Rule K3 — the hypothesis struck is the one the whole
+> section rests on, and it is false in this repository.]** The theorem is sound
+> *given* a change-time function that is monotone in the file's history. POSIX
+> mtime is not that function under version control: **git neither records nor
+> restores mtimes**, so every checkout, clone, and worktree switch stamps every
+> file it touches with the instant of the operation. The tree bears this out
+> exhaustively rather than by assumption — of the 779 `.md` files now in
+> `notes/`, **429 share the single minute 06:09 and 202 share 09:16**. No
+> authorship process produces 429 files in one minute; those are two bulk
+> operations, and after them mtime records the operation, not the note.
+>
+> The measurable consequence, and it is severe: `PRIOR_ART_SWEEP_COMPLETE.md`
+> is the note's own second $P_2$ instance (§5.4), reported as *313 of 759 files
+> postdate it*. Run today, `find notes -name '*.md' -newer
+> notes/PRIOR_ART_SWEEP_COMPLETE.md` returns **10 of 779** — the corpus grew by
+> 20 files and the count of files "newer" than a fixed file fell by 303. A
+> monotone record cannot do that. So the number was never a property of the
+> corpus, and the *verdict* it supports ($P_2$ false, the sweep is stale) is
+> still right for a reason mtime cannot supply.
+>
+> **What survives, and what has to change.**
+> - §2's argument that the base must be a **glob re-expanded at read time** is
+>   a priori — a base not closed under addition cannot contain a file created
+>   after the view — and is untouched. Only its *empirical* instance (the
+>   06:09:07Z mtime of `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`) is void: 429
+>   files carry that minute, so it dates a checkout.
+> - Theorem A2.1 holds verbatim with mtime replaced by a **commit time**:
+>   `git log -1 --format=%cI -- <file>`, which is recorded once and survives
+>   checkout. That is the substrate-recorded total order the proof asks for.
+> - §4's A2 enforcement row is therefore **inoperative as written**: CI clones,
+>   a clone stamps every file with the clone instant, so `find <glob> -newermt
+>   <watermark>` is non-empty for every view on every run and the check
+>   degenerates to a constant. The hook must read commit times, and the note's
+>   own "no git" substrate rule (§head) is what pushed it onto mtime — an
+>   instance of a methodological constraint silently choosing a wrong
+>   mathematical object.
 
 The theorem is trivial, and that is the finding: **A2 is undetectable only
 because the two pieces of data it needs are unwritten.** SEED-83 §3.4 says the
