@@ -139,6 +139,7 @@ import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.ProductiveIndraNet
 import NaturalMachine.RootedIndraTotal
 import NaturalMachine.ProductiveTear
+import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
