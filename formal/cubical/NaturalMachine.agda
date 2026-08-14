@@ -108,6 +108,9 @@ import NaturalMachine.WalkPrimePowers
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
 import NaturalMachine.WalkFast
+-- Delta 15 §§15.3, 15.4, 15.6 (owner-supplied, collab/upstream/raw/D0015):
+-- the stabilizer is the self-defect, polarization loci, charge shifts.
+import NaturalMachine.PerspectiveSymmetry
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits
