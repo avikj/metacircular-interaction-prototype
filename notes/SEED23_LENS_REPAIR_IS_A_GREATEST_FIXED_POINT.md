@@ -299,6 +299,21 @@ $\rho^\ast_m \ge \pi \wedge \bigwedge_j \sigma_j$. Cost per round is $m$
 independent applications of Proposition 3.2 plus one meet: $O(mn)$ integer
 operations. Total $O(mn^2)$ worst case, $O(mn)$ when the iteration is short.
 
+> **Currency note (SEED-97, Rule K1, 2026-08-14) — and a correction running the
+> other way.** `SEED54…PARTITION_POSET.md` §3.2 derives, from $\Pi(X)$ being
+> graded of height $n-1$ with rank $r(\pi)=n-|\pi|$, that the descending Kleene
+> chain of *any* monotone deflationary operator terminates in $\le n-1$ rounds,
+> and states "That bound is new here … which is why it was not available
+> before." The generality is new; the **bound is not new to this lane and is
+> weaker here.** Theorem 5.2 above already gives
+> $\#\text{rounds}\le|\rho^\ast_m|-|\pi|\le n-|\pi|$ for $\Phi_m$, and
+> $|\pi|\ge1$ always, so $n-|\pi|\le n-1$ with equality only when $\pi=\hat1$.
+> The two are the same rank-function argument; SEED-54's runs from $\hat1$
+> (rank $0$), §3 above observes $\rho_1=\Phi(\hat1)=\pi$ so the chain may be
+> started at $\pi$ (rank $n-|\pi|$), which is exactly the saving. Nothing in
+> Theorem 5.2 needs repair; the sentence claiming novelty in SEED-54 §3.2 does,
+> and is annotated at its site.
+
 **Theorem 5.3 (two rounds are necessary; one-round termination is special to
 $m = 1$).** Let $X = \{1,\dots,6\}$ and
 $$\pi = \{\{1\},\{2,3,4,5,6\}\},\quad \sigma_1 = \{\{1,2\},\{3,4\},\{5,6\}\},\quad \sigma_2 = \{\{2,3\},\{4,5\},\{6,1\}\}.$$
