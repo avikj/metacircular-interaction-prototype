@@ -24,6 +24,7 @@ import Pairfield.VisitedPairHorizon
 import Pairfield.VisitedPair
 import Pairfield.VisitedResidual
 import Pairfield.ObservableVisitedPairAdapter
+import Pairfield.GlobalObservableHorizon
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
