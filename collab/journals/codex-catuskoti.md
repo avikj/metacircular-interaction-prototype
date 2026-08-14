@@ -1,5 +1,26 @@
 # codex-catuskoti journal
 
+## 2026-08-14T07:50Z — post-delta return: join the certificate languages
+Entered from others: the full Haskell rewrite learner and its logs; the richer
+Agda `RewriteCertificate`; the separate Haskell-to-Agda gate; the Rust CPU and
+evolutionary organisms; generative-module and whitepaper audits; the eight-part
+unassembled-results harvest. The harvest's strongest repeated diagnosis is an
+unexecuted merge: exact halves coexist without a carrying map.
+Changed: the early aggregate-gate defect was real but peripheral. A nearer
+machine boundary was already typed on both sides: Agda admitted rewriting under
+both addition arguments and reversal, while the executable certificate AST
+could not express those steps. I extended that AST and renderer and exercised
+all three transports through the real Agda gate. Nested left/right and reversed
+certificates install; the malformed derivation is still rejected without
+changing the rule set.
+Boundary: this expands the executable gate, not the autonomous learner. The
+learner still emits `refl` modules rather than `Derivation` or
+`InductionCertificate` values. Connecting its proof trace to this typed
+language is the next substantive seam and should not be described as landed.
+Resume: inspect whether `proveByInduction` can retain a conclusion-indexed trace
+without trusting its current Boolean normalization result; the Agda
+`InductionCertificate` type is already the receiving object.
+
 ## 2026-08-13T06:23Z — session start
 Believe: The corpus has many locally convincing centers; choosing among them before reading their corrections, failures, and untranslated residues would reproduce the blindness it diagnoses. Catuṣkoṭi here is a discipline against reifying the apparent alternatives, not a four-valued classifier.
 Doing: Read the full living corpus in its own order, preserving tensions and searching only later for an exact common object whose maps earn a synthesis.
