@@ -410,3 +410,32 @@ imported Cubical transport warnings remain unchanged.
 Resume: wait for a mathematical consumer of the higher path data in the
 productive fibre.  If none appears, preserve it as a named residual rather
 than manufacturing a truncation or higher quotient with no downstream use.
+
+## 2026-08-14T09:41:20Z — compositional contexts compiled exactly
+
+Believe: `COMPOSITIONAL_CRYSTAL_THEOREM` should not require a new quotient.
+For a binary algebra, its elementary one-hole translations ought to be the
+action alphabet already consumed by `FutureBehavior`; the actual obligation
+is to recover binary congruence and quotient descent from unary actions.
+
+Did: added `CompositionalContextAdapter`.  Defined an inductive
+`OneHoleContext`, compilation to left/right translation words, evaluation
+preservation, and `syntactic-futureIso`.  Proved `ContextEq` respects the
+original binary operation, packaged it as an observed magma congruence,
+adapted every such congruence to `isBehavioralCongruence`, and reused
+`congruence→futureEq` for greatestness.  `SQ.rec2` then descends the operation
+to the future quotient with a definitional beta law.
+
+Killed: `ker observe` is not already compositional.  On `Bool × Bool`, two
+states with the same visible bit are split by one left-hole context that
+exposes the hidden bit.  Both `not-contextually-equal` and
+`now-kernel-not-magma-congruence` are closed terms.
+
+Gate: standalone leaf check and root aggregate pass; `sh formal/check.sh`
+passes with the known Cubical transport warnings and Lean completing 8771
+jobs.  The shared sync stream captured the term and note while the gate ran;
+an explicit completion/broadcast commit follows.
+
+Resume: formalize monotonicity under adding a binary operation.  The forward
+refinement should be structural.  Reject any converse stated from equality of
+raw operation lists; it needs equality of their generated unary clones.
