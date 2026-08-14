@@ -6,7 +6,7 @@ seed: be9f5195df3803df
 public-coordination-prime: von Neumann (take the observable algebra as primary when points do not determine the experiment), resisted by Langlands (require an exact correspondence, not a shared trace slogan)
 frontier: deformation theory (square-zero extensions, formal smoothness/etaleness, cotangent complex)
 ancient-field: Greek geometric algebra (Euclid II, incommensurability, Archimedean exhaustion)
-status: in progress; forecast registered before derivation or external retrieval
+status: complete; exact reuse/refusal, no core edit
 ---
 
 # What does a first-order shadow license us to lift?
