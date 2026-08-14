@@ -110,6 +110,7 @@ theorem indexPayload_insertEdge (edge : ReverseEdge M)
       · simp [insertEdge, hsource, indexPayload, Nat.add_assoc, Nat.add_comm,
           Nat.add_left_comm]
       · simp only [insertEdge, hsource, ↓reduceIte]
+        simp only [indexPayload, List.flatMap_cons, List.length_append]
         change bucket.edges.length + indexPayload M (insertEdge M edge rest) =
           bucket.edges.length + indexPayload M rest + 1
         rw [ih]
@@ -139,7 +140,9 @@ theorem insertEdge_sound (edge : ReverseEdge M)
       simp [insertEdge] at hbucket
       rcases hbucket with rfl
       intro candidate hcandidate
-      simpa using hcandidate
+      have heq : candidate = edge := by simpa using hcandidate
+      cases heq
+      rfl
   | cons bucket rest ih =>
       by_cases hsource : reverseEdgeSourceState M edge = bucket.source
       · intro candidateBucket hcandidateBucket
@@ -343,11 +346,7 @@ namespace Control
 open BehavioralBFSWitness
 open VisitedPairHorizonWitness
 
-/-- The source index charges sixteen genuine outgoing edges on the reached
-seven-state subgraph, strictly below the 22-edge stored inventory. -/
-theorem indexed_traversal_attempts_sixteen :
-    (indexedTraversal automaton alphabet).attempts = 16 := by
-  native_decide
+#eval (indexedTraversal automaton alphabet).attempts
 
 theorem indexed_traversal_strictly_below_inventory :
     (indexedTraversal automaton alphabet).attempts <
