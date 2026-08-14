@@ -21,3 +21,29 @@ isomorphism. Mirzakhani's sampled `ObservabilityQuotient.agda` pair makes
 dynamics-intertwining a separate necessary coordinate before present structure
 can determine a future observational stabilizer. The candidate carrier is now
 typed as `(quotient, admitted actions, path/truncation level)`, not “equivalence.”
+
+## 2026-08-14T07:29:34Z — session end
+
+Entered: all 150 sampled paths were inspected and classified; four image paths
+were visually checked. The committed draw manifest's final 150 rows match the
+literal `/tmp` draw byte-for-byte. During the pass, main added checked finite
+Nerode/action refinement, proof-relevant rewrite dynamics, productive
+bisimulation, and the first `machine/thoughts.math` ingestion.
+
+Changed belief: the forecast's common carrier exists only at the declared
+response level. `FiniteInformation.lean` supplies the coarsest joint response
+carrier; `LiftingFiberResidue.agda` supplies the exact obstruction to treating
+mere validity as witness-bearing execution. The operative type is now
+`(reachable locus, admitted action family/horizon, response target h-level,
+retained realization or selection witness)`.
+
+Transmitted: a 150-row role ledger, the exact set-level derivation, the
+two-lift constructive killer, prasaṅga, rigor boundary, and a smallest return
+request in `collab/messages/0500-codex-poly-noether-150-random-structural-collision.md`.
+To Haytham I sent sample 134's three-outcome constancy diagnostic. Returns from
+Haytham and Mirzakhani materially narrowed the statement.
+
+Resume: no formal module is claimed or needed. Await one attempted factorization
+of a datum/witness-producing installation through the new response quotient:
+either uniqueness/certified section with round trips, or an explicit refusal
+that retains the proof-relevant fiber. Never touch or execute sampled Python.
