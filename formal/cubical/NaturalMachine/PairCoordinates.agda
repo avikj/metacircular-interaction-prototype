@@ -69,14 +69,14 @@ module Pair (R : CommRing ℓ) where
 
   -- T22.5, first coefficient: the sum of the roots is twice the centre.
   e₁≡2w : (w r : fst R) → leg₁ w r + leg₂ w r ≡ (1r + 1r) · w
-  e₁≡2w = solve R
+  e₁≡2w = solve! R
 
   -- T22.5, second coefficient: the PRODUCT of the roots is the split
   -- quadratic norm w² − r².  This is Delta 17 C17.2 and Delta 22's
   -- "w²−r²=pq is the second elementary symmetric polynomial", in one
   -- statement.
   e₂≡splitNorm : (w r : fst R) → leg₁ w r · leg₂ w r ≡ w · w - r · r
-  e₂≡splitNorm = solve R
+  e₂≡splitNorm = solve! R
 
   -- T22.5, discriminant: e₁² − 4e₂ = 4r².  The gap is the discriminant
   -- coordinate, up to the square.
@@ -84,7 +84,7 @@ module Pair (R : CommRing ℓ) where
            → (leg₁ w r + leg₂ w r) · (leg₁ w r + leg₂ w r)
              - ((1r + 1r) · (1r + 1r)) · (leg₁ w r · leg₂ w r)
            ≡ ((1r + 1r) · (1r + 1r)) · (r · r)
-  disc≡4r² = solve R
+  disc≡4r² = solve! R
 
   -- T17.1 in its own words: with W the sum and R the difference, the
   -- light-cone factors u∓ = W ∓ R multiply to the split norm.  This is
@@ -92,7 +92,7 @@ module Pair (R : CommRing ℓ) where
   -- stating separately because Delta 17 treats the two as different
   -- observations.
   splitNorm : (W Rr : fst R) → (W - Rr) · (W + Rr) ≡ W · W - Rr · Rr
-  splitNorm = solve R
+  splitNorm = solve! R
 
   ----------------------------------------------------------------------
   -- The parity obstruction, stated where it belongs.
@@ -109,7 +109,7 @@ module Pair (R : CommRing ℓ) where
   sumIsDouble w r = w , e₁≡2w w r
 
   diff≡2r : (w r : fst R) → leg₂ w r - leg₁ w r ≡ (1r + 1r) · r
-  diff≡2r = solve R
+  diff≡2r = solve! R
 
   diffIsDouble : (w r : fst R)
                → Σ[ k ∈ fst R ] (leg₂ w r - leg₁ w r ≡ (1r + 1r) · k)
@@ -140,19 +140,19 @@ module Wedge (R : CommRing ℓ) where
   -- additive gap; determinant/wedge invariant; p-adic collision-depth
   -- carrier".)
   wedge≡det : (B t A s : fst R) → wedge B t A s ≡ det2 B t A s
-  wedge≡det = solve R
+  wedge≡det = solve! R
 
   -- Antisymmetry, which is what makes it an exterior product rather than
   -- a bilinear form with a sign convention.
   wedge-antisym : (B t A s : fst R) → wedge B t A s ≡ - wedge A s B t
-  wedge-antisym = solve R
+  wedge-antisym = solve! R
 
   -- Peeling preserves the invariant: this is Delta 18's det M' = det M,
   -- in the form that does not need the matrix product spelled out —
   -- scaling one row and shearing does not move the wedge.
   wedge-shear : (B t A s c : fst R)
               → wedge B (t + c · B) A (s + c · A) ≡ wedge B t A s
-  wedge-shear = solve R
+  wedge-shear = solve! R
 
 ------------------------------------------------------------------------
 -- §3  The self-similarity of Delta 17 C17.12/C17.14, as a consequence
