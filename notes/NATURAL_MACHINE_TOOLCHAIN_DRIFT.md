@@ -51,6 +51,62 @@ In v0.5, `cardAut` is stated with `LehmerCode.factorial`; the module expects
 
 Both are API-drift symptoms of a cubical **newer** than v0.5.
 
+## 2b. EXTENDED — the exact partition (fleet breaker pass, Voevodsky-method, 2026-08-14)
+
+A full sweep with `_build/` removed (so no cached `.agdai` could mask a failure)
+gives the complete picture. **My "two blockers" was a lower bound, as §7 said; the
+true count is four**, and the damage is bounded to one subtree.
+
+**All 11 top-level modules PASS against v0.5** — `Gamma0Converse`,
+`Gamma0Freeness`, `Gamma0Partner`, `Gamma0Transitivity`, `KuttakaValli`,
+`M2Unimodular`, `PMNoSection`, `ProjectionChargeAudit`, `TransporterMembership`,
+`DescentLaw`, and `CenterRelative`. **The drift is confined to
+`NaturalMachine/`.** The Γ₀/Smith/Kuṭṭaka lane is reproducible exactly as
+documented, which answers seed 1 below.
+
+Within `NaturalMachine/`: **11 of 24 modules pass, 13 fail**, from four
+independent causes:
+
+| cause | site | kills |
+|---|---|---|
+| **(A)** `SymGroup` not in scope (v0.5: `Symmetric-Group`) | `PathIsSymmetry.agda:98` | `PathIsSymmetry`, `Decategorification`, `SymmetryCardinality`, `SymmetryArithmeticAction`, `CapabilityGraph`, `TransportCost`, aggregate |
+| **(B)** `solveℕ!` not exported (v0.5: `solve`) — **new** | `Transport.agda:46`, `DigitTowerLimit.agda:21` | `Transport`, `CountedDigits`, `DigitTowerLimit` |
+| **(C)** `injectSuc` not exported (v0.5: `inject<`) — **new** | `FinTopSplit.agda:19` | `FinTopSplit`, `DigitTowerFinLimit` |
+| **(D)** two unsolved interaction metas, self-labelled `PENDING CHECK`, no `--safe` | `WalkForcing.agda:44,48` | `WalkForcing` |
+
+My Blocker 2 (`cardAut`'s `LehmerCode.factorial` vs `_!`) is confirmed real but
+is **third in line** — it surfaces only after (A) is patched.
+
+**Three further defects in `NATURAL_MACHINE.md`'s own ledger:**
+
+1. **§7.1 is 50% unreproducible.** Of the 8 files listed as checked, **4 do not
+   check** on the stated toolchain: `NaturalMachine.agda`, `PathIsSymmetry.agda`,
+   `Transport.agda`, `Decategorification.agda`. §7.2 defines "checked" as
+   *appears with the stated type in the named file, and that file is in the
+   transitive closure of a successful run* — **both conjuncts fail** for the
+   `PathIsSymmetry` block.
+2. **§7.2 quotes types that are not in the source.** It lists
+   `ΩGroup≃Symmetric … (Symmetric-Group X h)`; the file says `SymGroup X isSetX`.
+   §5.2's prose credits `solve`; the code calls `solveℕ!`. A verbatim ledger that
+   does not match the file it names is the exact failure this development was
+   written to refuse.
+3. **§7.4's safety audit is now false as written.** It claims every module
+   declares `--cubical --safe --no-import-sorts` and that a hole grep over "all 9
+   `.agda` files" finds nothing. Actual: 19 modules use
+   `--guardedness --safe`, one adds `--lossy-unification`, **one has no `--safe`
+   at all** (`WalkForcing`), and the hole grep now has **two real code matches**.
+   `NaturalMachine.agda`'s header still reads "all checked, no postulates, no
+   holes, --safe".
+
+**What survives.** `Control/WrongEquivalence.agda` still fails with the
+byte-identical §8 error, and its dependency cone (`Digits`) passes — so the
+designed falsifier is intact and not vacuously failing for a drift reason.
+
+**Repair is bounded and needs no new mathematics:** (A)–(C) are pure renames,
+(D) is two short `Cubical.Data.Nat.Order`/`GCD` arguments, and `cardAut` needs a
+one-line bridge since v0.5 does not make the two factorials definitionally
+equal. Roughly 15 lines. It remains the module author's call (§6).
+
 ## 3. What this does and does not show
 
 **Shows.** The recipe in `NATURAL_MACHINE.md` §1 installs a working toolchain,

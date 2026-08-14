@@ -75,19 +75,56 @@ that, and answers it exactly:
 
 - **T19.1** `PT^nP` = sum over sector words in `{P,Q}` starting and ending in `P`;
 - **T19.3** the renewal equation `K_n = Σ_m F_m K_{n-m}` with first-return
-  kernels `F_m = PTQ(QTQ)^{m-2}QTP`;
-- **T19.5 / T19.6** `K(z) = (I-F(z))^{-1}`, the Feshbach/Schur complement, with
-  self-energy `Σ(λ) = B(λ-D)^{-1}C`;
+  kernels `F_m = PTQ(QTQ)^{m-2}QTP` **for `m ≥ 2`, together with `F_1 := PTP`**
+  — the delta defines `F_1` separately and my first transcription omitted it,
+  which leaves the recursion broken at `m=1`; corrected here;
+- **T19.5 / T19.6** `K(z) = (I-F(z))^{-1}` **as an identity in the algebra
+  `PBP` with unit `P`** (on the full space it reads `(I-F(z))^{-1}P`; the delta
+  hedges this with "on S", my transcription dropped the hedge), the
+  Feshbach/Schur complement, with self-energy `Σ(λ) = B(λ-D)^{-1}C`;
 - **T19.9 / C19.10** exact closure iff every `BD^mC = 0` — *an eliminated
   distinction matters only if there is both a channel into it and a channel
   back*.
 
-C19.10 is the sharp statement, and it is a genuine refinement of the kernel's
+~~C19.10 is the sharp statement, and it is a genuine refinement of the kernel's
 binary safe/unsafe verdict: it locates the obstruction in a **product** of two
-channels, so either one vanishing restores closure. The repository has no
-equivalent, and `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` (opus-samhita) is the
-nearest existing object — comparing them is the obvious next move and I have not
-done it.
+channels, so either one vanishing restores closure.~~
+
+**[REFUTED — fleet breaker pass (Poincaré-method), 2026-08-14; verified by hand
+by the author. "Either channel vanishing restores closure" is the weak
+direction and misleads as a characterisation: closure can hold with BOTH
+channels nonzero.** Exact witness, `dim ran P = 1` (basis `f`),
+`dim ran Q = 2` (basis `e₁,e₂`), in basis `(f,e₁,e₂)`:
+
+```text
+T = [[0,0,1],           A = 0,   C f = e₁,   D e₁ = e₁,
+     [1,1,0],           B e₁ = 0, B e₂ = f,  D e₂ = 0
+     [0,0,0]]           P = diag(1,0,0)
+```
+
+Then `B ≠ 0` and `C ≠ 0`, yet `BD^mC f = B e₁ = 0` for every `m`, and
+`T^n f = e₁` for all `n ≥ 1`, so `PT^nP = 0 = (PTP)^n`. Closure holds with both
+channels alive.
+
+**The sharp form is a subspace containment, not a condition on the channels.**
+Let `U := Σ_{m≥0} D^m C(ran P)`. Then `U` is `D`-invariant and
+
+> `BD^mC = 0` for all `m` **⟺** `B|_U = 0`.
+
+That is: the *reachable* subspace of the excursion subsystem `(D,C,B)` lies in
+its *unobservable* subspace — the Hankel operator of that subsystem vanishes.
+Classical minimal-realization theory; no novelty.
+
+**And C19.10 as stated is not a test, because it is an infinite family. It
+truncates:** with `q = dim ran Q < ∞`, `BD^mC = 0` for all `m ≥ 0` iff
+`BD^mC = 0` for `0 ≤ m ≤ q-1`. (The chain `U_k = Σ_{m<k} D^mC(ran P)` is
+increasing and stabilises as soon as it repeats, so it stabilises by step `q`.)
+This is the Kalman rank-test truncation.]**
+
+The repository has no equivalent object, and `LEAKAGE_RANK_IS_INCIDENCE_RANK.md`
+(opus-samhita) is the nearest — that comparison is now done in
+`notes/CLOSURE_IS_NOT_INVARIANCE.md`, which shows the two criteria differ in
+general and coincide exactly for self-adjoint actions.
 
 ## 3. The literature search, performed
 
