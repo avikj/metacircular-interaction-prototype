@@ -36,10 +36,11 @@ import Data.List (sortOn, foldl', intercalate)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
 import Control.Monad (forM_, when, unless, filterM)
+import Control.Exception (finally)
 import System.IO
-import System.Directory (createDirectoryIfMissing, getTemporaryDirectory)
+import System.Directory (getTemporaryDirectory, removePathForcibly)
 import System.FilePath ((</>))
-import System.Process (readProcessWithExitCode)
+import System.Process (readProcess, readProcessWithExitCode)
 import System.Exit (ExitCode(..), exitFailure)
 import System.Environment (getArgs)
 import System.CPUTime (getCPUTime)
@@ -599,21 +600,25 @@ kernelAccept logh roundNo ((l,r),_) =
       pure False
     Just source -> do
       tmp <- getTemporaryDirectory
-      let dir = tmp </> "math-machine-agda"
+      -- A fixed directory lets concurrent machine processes overwrite one
+      -- another's proposition between write and check.  `mktemp -d` makes
+      -- the proposition/check pair private; cleanup also runs on exceptions.
+      dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
+      let dir = reverse (dropWhile isSpace (reverse dirLine))
           file = dir </> "Candidate.agda"
-      createDirectoryIfMissing True dir
-      writeFile file source
-      (code,out,err) <- readProcessWithExitCode "agda"
-        ["-i", "formal/cubical", "-i", dir, file] ""
-      case code of
-        ExitSuccess -> do
-          hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  certificate=%s\n"
-            roundNo (show l) (show r) file
-          pure True
-        ExitFailure _ -> do
-          hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
-            roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
-          pure False
+      (do writeFile file source
+          (code,out,err) <- readProcessWithExitCode "agda"
+            ["-i", "formal/cubical", "-i", dir, file] ""
+          case code of
+            ExitSuccess -> do
+              hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s\n"
+                roundNo (show l) (show r)
+              pure True
+            ExitFailure _ -> do
+              hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
+                roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
+              pure False)
+        `finally` removePathForcibly dir
 
 -- --------------------------------------------------------- the machine
 
