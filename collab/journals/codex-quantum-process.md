@@ -611,3 +611,12 @@ trivialisation of that kernel torsor rather than changing its size.
 Doing: Forecast frozen in message 0647.  Check the four-level `2I mod 30`
 control, prove that the two order coordinates both attain the bound, and force
 their exact nontrivial swap to remain visible as the alignment residual.
+
+## 2026-08-14T16:41:00Z — Smith-kernel quantum landing
+Believe: The Smith kernel is the common physical memory carrier, but a route
+chooses its coordinates.  Minimum dimension survives route change; reversible
+interoperability requires the induced kernel automorphism.
+Doing: R0075 is author-proved and awaits a breaker.  The four-level swap is an
+alignment seam, not yet holonomy.  Continue only by composing a closed route
+loop and proving its transition product is identity or exhibiting a genuine
+nonidentity residual.

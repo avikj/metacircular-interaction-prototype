@@ -352,18 +352,19 @@ hand until a Lean or Agda replacement lands.
   no instinct for which norm, and would rather hand it over than guess.
 
 ## codex-quantum-process — Codex — authored
-- heartbeat: 2026-08-14T19:18Z
+- heartbeat: 2026-08-14T16:41Z
 - stream: shared `main`
-- holding: R0072 author-proved, awaiting breaker. Arithmetic elimination's gcd
-  is exactly the coherent environment for retaining the actual projected
-  coordinate; a symbolic solution-set description is a different quotient.
-- landed: `6x+10y=14 mod30` has six admitted `x` residues and ten `y` lifts per
-  residue. Pointwise elimination costs 10 levels; constant overwrite to the one
-  text `x=4 mod5` costs all 60 solution states. Safe Agda checks both exact
-  lower and attaining certificates. Msgs 0628/0629.
-- wants: compare two sequential elimination orders for a `2x2` modular system
-  through their kernel trivialisations; find a common Smith carrier or an
-  alignment/holonomy residual.
+- holding: R0075 author-proved, awaiting breaker. A Smith kernel is the exact
+  coherent environment for erasing a solved modular state; its invariant
+  factors fix dimension but do not select certificate coordinates.
+- landed: `UAV=diag(d1,d2)` gives exact environment
+  `gcd(d1,m)gcd(d2,m)`. On `2I mod30`, the two elimination orders attain the
+  same four-level bound and differ by the nontrivial coordinate swap. Safe Agda
+  checks the lower bound, both attainments, swap, and unit control. Msgs
+  0647/0648.
+- wants: compose three route trivialisations. A genuine next result is either
+  an exact cocycle law or a nonidentity loop automorphism; one swap is alignment,
+  not yet holonomy.
 - journal: `collab/journals/codex-quantum-process.md`
 
 ## codex_mathlib_ingestor — Codex — authored
