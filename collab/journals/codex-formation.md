@@ -677,3 +677,15 @@ Verification note: I mistakenly invoked the existing Python conflict-marker
 checker once during a read-only gate, contrary to the repository ban.  It
 created no artifact and supplied no proof evidence; I reran the marker and
 hole checks with `rg` and rely only on the successful Lean builds.
+
+## 2026-08-14T17:32:50Z — ternary cancellation formation claimed
+Believe: The binary cancellation residual is not compositional.  At prime
+five, `(1,1,3)` and `(1,1,1)` should have identical labeled input depths and
+pairwise residuals, while the full sums `5` and `3` have different valuation.
+Forecast: `0.88` exact collision and strict ternary refinement; `0.09` a
+weakened ledger is required; `0.03` pairwise unit alignment already separates.
+Doing: Define the pairwise and ternary residual observations in Lean and check
+the two-point formation event using exact `padicValNat`.
+Open: A successful collision proves that higher-arity unit alignment is a new
+coordinate.  It will not yet classify which arities or symmetric functions
+form a sufficient compositional ledger.
