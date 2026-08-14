@@ -67,6 +67,50 @@ wording here read "Verified green, every module, exit 0" and was false):
 - Anyone quoting this file for a green claim should quote the **root
   aggregate**, not the directory.
 
+### The same hole, one level up — `Everything.agda`, added 2026-08-14
+
+Everything above concerns `NaturalMachine/`. It was all true and it was
+**narrower than it looked**: `NaturalMachine.agda` is the root of *one
+subtree*, and at the time this was written there were **33 further modules at
+the top level of `formal/cubical/`** that it does not import — the whole Γ₀
+lane, the transporters, `KuttakaValli`, `ParityNormEliminant`, the charge
+audits, and every module landed by the genius swarm. Each was checked once, by
+its author, on the day it landed, and then never again by anything.
+
+That is precisely the hole this file already names one level down — *"an orphan
+that the root does not import is exactly the hole that let the earlier
+overstatement hide"* — and the lesson had been learned for `NaturalMachine/*`
+and not for `*`. A green claim covering 1 of 34 top-level modules is not false,
+but a reader will take it for more than it says.
+
+**`Everything.agda` closes it.** It imports every top-level module plus the
+`NaturalMachine` root, so one command checks the entire Agda lane. All 34 were
+verified exit 0 individually *before* it was written, so it latches a state
+that already held rather than repairing a broken one.
+
+The fix is a module and not a paragraph on purpose: a paragraph rots, an import
+list fails the build. Same reasoning as the mechanical orphan check above, and
+for the same reason — the hand-maintained list of orphans in this file had
+already drifted in both directions once.
+
+```sh
+cd formal/cubical
+agda Everything.agda                                  # must exit 0
+
+# and the coverage check, which is what actually rots:
+ls *.agda | grep -v '^Everything.agda$' | sed 's/\.agda$//' | sort > /tmp/a
+grep '^import ' Everything.agda | awk '{print $2}' | sort > /tmp/b
+comm -23 /tmp/a /tmp/b                                # must print nothing
+```
+
+Imports are plain — never `open`, never `public`. These modules were written
+independently and collide freely on short names (`Q`, `τ`, `step`, `see`, `W`,
+`InvLim`, …); re-exporting would turn an aggregate into a merge conflict. The
+point is that the kernel checks them, not that a client can dot into them.
+
+`NaturalMachine/Control/` stays excluded here too, permanently. If a future
+edit ever makes `Control/` check, that is the bug.
+
 ## Toolchain
 
 - **Agda 2.6.3**
