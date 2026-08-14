@@ -37,3 +37,7 @@ Doing: Accepted AC laws now yield sorted, right-bracketed representatives. Scope
 ## 2026-08-14T09:05Z — bounded least-witness compiler
 Believe: Existence over a finite ordered fibre is operationally stronger than a bag of witnesses: with decidability it selects a canonical least inhabitant. Finite failure over an unbounded fibre has a different type.
 Doing: Imported the generic bounded minimization object into MathMachine. Coverage is validated input; least witness retains its excluded prefix; invalid coverage is a residual. Unbounded prefix search returns `OpenBeyond`, never totality. Scoped control collapses five witnesses to one and exercises both residual branches.
+
+## 2026-08-14T09:19Z — least witness enters live search
+Believe: Canonicalization must change the active branch projection without destroying the derivation fibre from which explanation, alternative transport, or later revision may draw.
+Doing: `round1` now executes machine-state bounded searches and logs active versus derivation branches. Accepted coverage switches 15 native square-threshold witnesses to least witness 6 while retaining all 15 derivations and the same existence consequence. Invalid coverage remains a residual.

@@ -130,6 +130,32 @@ searchPrefix fibre predicate = walk [] fibre
       | predicate x = FoundLeast (LeastWitness x (reverse rejected))
       | otherwise = walk (x:rejected) xs
 
+-- The live search projection keeps mathematical provenance separate from the
+-- operational branch set.  Installing coverage changes only `activeWitnesses`;
+-- `derivationFiber` remains available to explanations and later transports.
+data BoundedSearch = BoundedSearch
+  { searchFiber :: [Int]
+  , searchPredicate :: Int -> Bool
+  , acceptedCoverage :: Maybe (Coverage Int)
+  }
+
+data SearchProjection = SearchProjection
+  { activeWitnesses :: [Int]
+  , derivationFiber :: [Int]
+  , existenceConsequence :: Bool
+  , searchResidual :: Maybe (CoverageResidual Int)
+  } deriving (Eq, Show)
+
+executeBoundedSearch :: BoundedSearch -> SearchProjection
+executeBoundedSearch plan =
+  let witnesses = filter (searchPredicate plan) (searchFiber plan)
+      consequence = not (null witnesses)
+  in case acceptedCoverage plan of
+       Nothing -> SearchProjection witnesses witnesses consequence Nothing
+       Just coverage -> case leastCovered (searchFiber plan) (searchPredicate plan) coverage of
+         Left residual -> SearchProjection [] witnesses consequence (Just residual)
+         Right least -> SearchProjection [leastValue least] witnesses consequence Nothing
+
 instance Show Term where
   show (V i) | i < 6 = [ "xyzuvw" !! i ]
              | otherwise = "n" ++ show i
@@ -707,10 +733,11 @@ data Machine = Machine
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
+  , mBoundedSearches :: [BoundedSearch]
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 []
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -908,6 +935,9 @@ round1 logh libh ref = do
       -- 10:01.  So the round folds its own discoveries back in as it goes.
       probe = take kProbe normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
+      bounded = map executeBoundedSearch (mBoundedSearches m)
+      witnessBranches = sum (map (length . activeWitnesses) bounded)
+      derivationBranches = sum (map (length . derivationFiber) bounded)
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
@@ -951,6 +981,8 @@ round1 logh libh ref = do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
   hFlush libh
+  hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
+    witnessBranches derivationBranches
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
@@ -1056,6 +1088,20 @@ main = do
             && bad == Left (WitnessRejected 15)
             && open == OpenBeyond [0..6]) exitFailure
     hPrintf stdout "LEAST WITNESS CHECKED: satisfying-fiber=5 representatives=1 least=7 open-prefix=7 residual=retained\n"
+    exitSuccess
+  when (args == ["--bounded-search-self-test"]) $ do
+    let predicate n = n * n >= 30
+        pending = BoundedSearch [0..20] predicate Nothing
+        installed = pending { acceptedCoverage = Just (Coverage 12) }
+        before = executeBoundedSearch pending
+        after = executeBoundedSearch installed
+    unless (derivationFiber before == [6..20]
+            && activeWitnesses before == [6..20]
+            && derivationFiber after == derivationFiber before
+            && activeWitnesses after == [6]
+            && existenceConsequence before == existenceConsequence after
+            && searchResidual after == Nothing) exitFailure
+    hPrintf stdout "BOUNDED SEARCH CHECKED: branches=15->1 eliminated=14 consequence=equal derivations=15\n"
     exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]

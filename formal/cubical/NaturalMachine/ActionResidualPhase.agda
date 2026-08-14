@@ -27,7 +27,7 @@ module NaturalMachine.ActionResidualPhase where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
-open import Cubical.Data.Empty using (elim)
+open import Cubical.Data.Empty using (rec)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Data.Int using (ℤ ; pos)
 open import Cubical.Algebra.AbGroup.Base
@@ -56,9 +56,9 @@ sign-right-inverse-self :
   (a b : Sign) → a ·s b ≡ plus → b ≡ a
 sign-right-inverse-self plus  plus  h = refl
 sign-right-inverse-self plus  minus h =
-  elim (plus≢minus (sym h))
+  rec (plus≢minus (sym h))
 sign-right-inverse-self minus plus  h =
-  elim (plus≢minus (sym h))
+  rec (plus≢minus (sym h))
 sign-right-inverse-self minus minus h = refl
 
 module RelativeSignPhase

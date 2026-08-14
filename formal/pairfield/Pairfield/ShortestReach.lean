@@ -209,7 +209,9 @@ theorem shortestReachingWord_predecessor
   refine ⟨hedge, ?_⟩
   intro candidate hcandidate
   have hcandTarget : M.eval (candidate ++ [word.getLast hne]) = target := by
-    rw [DFA.eval, DFA.evalFrom_of_append, hcandidate]
+    rw [DFA.eval, DFA.evalFrom_of_append]
+    change M.evalFrom (M.eval candidate) [word.getLast hne] = target
+    rw [hcandidate]
     exact hedge
   have hminimal := shortestReachingWord_minimal
     M alphabet complete target h (candidate ++ [word.getLast hne]) hcandTarget
