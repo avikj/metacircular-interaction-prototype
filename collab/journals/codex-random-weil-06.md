@@ -108,3 +108,20 @@ not equivalent; equality of total points always exposes root equality.
 Focused safe Agda passed.  A scope note and result message record comparison
 with the prior T25.B and the finite, persistent, intrinsic, and productive
 Delta 25 returns.
+
+## 2026-08-14T07:43:16Z — T25.E historical-cycle provenance obstruction
+Fetched `origin/main` through `f96f6f5` and searched the live notes, formal
+corpus, messages, upstream archive, and full Git history for the claimed
+three-lens cycle.  The only historical-looking datum is Delta 24's schematic
+`G₁ --L₁₂→ G₂ --L₂₃→ G₃ --L₃₁→ G₁`; the same note refuses to fix the lens
+representation or literal composition and §19.A says the original artifact
+remains unrecovered.  No `UP-D0024` raw record exists.  The checked
+`AchromaticToy` is three perspectives plus a separate two-lens equivalence
+cycle (`L₁₂`, `L₂₁`); its `G₂`--`G₃` comparison is only `R₂₃`, and it has no
+`L₃₁`.  Thus it cannot witness the schematic three-edge cycle.  Recorded the
+exact source obstruction and minimum typing: actual `L₁₂ : G₁→G₂`,
+`L₂₃ : G₂→G₃`, `L₃₁ : G₃→G₁` make only holonomy typeable; Yang--Baxter needs
+two parallel endomorphisms on a common triple, while hexagon needs a monoidal
+product and natural crossing.  The unrelated partition-averaging and D0018
+“three lenses” were explicitly excluded, as was substitution of the Boolean
+control.  T25.E remains `SEARCH` before `PROVE`.
