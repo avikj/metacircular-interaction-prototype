@@ -210,3 +210,15 @@ states separated by the output, while preserving the full derivation fiber.
 Open: Can the least closure horizon be compiled from shortest distinguishing
 pair paths without exhaustive word layers, and what checked queue invariant
 shows that each reachable pair is expanded only once?
+
+## 2026-08-14T08:13:54Z — finite observable-horizon claim
+Believe: Finite closure is not a separate predictor artifact.  The kernel of
+all responses through depth `n` is action-stable exactly when it has already
+stabilized to the complete future kernel.  Pair-monitor loop deletion should
+therefore turn abstract finiteness into the safe `|X|^2` horizon.
+Doing: Check the equivalence, collision obstruction, finite-DFA bound, and an
+executable three-state control with least horizon one in Lean.
+Open: The semantic bound does not yet certify the sharper running cost.  The
+visited-state return bounds discovered nodes, but a checked queue invariant
+must still show complete expansion and an empty frontier by the terminal
+round.
