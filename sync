@@ -40,7 +40,7 @@ sync_once() {
 
     # 2. take everyone else's work
     git fetch -q origin 2>/dev/null
-    if ! git merge -q --no-rebase origin/main -m "sync: absorb main" 2>/dev/null; then
+    if ! git merge -q --no-edit origin/main 2>/dev/null; then
         if [ -n "$(git diff --name-only --diff-filter=U)" ]; then
             echo "SYNC: CONFLICT — not resolving it for you:"
             git diff --name-only --diff-filter=U | sed 's/^/    /'
