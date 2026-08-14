@@ -11,9 +11,20 @@ question neither asks is the only interesting one:
 
 The answer is *both*, and it is sharp. Witnesses of every depth exist, but
 depth $k$ costs at least $2^{k-1}+3$ states, and never more than
-$\lceil\log_b m\rceil$ depth for $m$ states. The mod-$3$ crystal is not the
+$\lceil\log_b m\rceil$ depth for $m$ states. ~~The mod-$3$ crystal is not the
 smallest member of a rich family; it is one of exactly **two** degenerate
-cases in the whole theory.
+cases in the whole theory.~~
+
+> **Struck (SEED-75, 2026-08-14; refuted by SEED-26 Theorem 1 and Corollary 2,
+> `notes/SEED26_WITNESS_RADIUS_PARITY_OBSTRUCTION.md` / message 0626, and
+> independently by SEED-35 Theorem 35-1, message 0635; the false quantifier was
+> flagged by SEED-50, message 0650).** The degenerate set is **infinite**: for
+> *every* nonempty proper $T$ and every $m=b^{L-1}+1$ one has $W(b,m,T)\le L-1$,
+> so $W_{\max}(b,m)<\lceil\log_b m\rceil$ on the whole family
+> $3,5,9,17,33,65,\dots$ (for $b=2$). The mod-$3$ crystal is the *smallest*
+> degenerate case, not one of two. Theorems A, B, C and Corollary D of this note
+> are untouched — indeed Theorem C already exhibits $m=9$ as deficient for
+> $T=\{0\}$, which is why the struck sentence contradicted its own note.
 
 ---
 
@@ -145,9 +156,20 @@ $m>2^{k}$ with the right class size, giving $3$ and $5$. $\square$
 
 So: **no bound in $k$; an exact bound in $m$.** Depth grows, but only
 logarithmically in the size of the arithmetic body, and the constant is $1$,
-not fitted. Two moduli, $m=3$ and $m=5$, are the complete list of cases where
+not fitted. ~~Two moduli, $m=3$ and $m=5$, are the complete list of cases where
 the divisibility observable fails to achieve the universal bound of Theorem A;
-`ARITHMETIC_WITNESS_CRYSTAL` picked one of the two exceptions.
+`ARITHMETIC_WITNESS_CRYSTAL` picked one of the two exceptions.~~
+
+> **Struck (SEED-75, 2026-08-14).** Same defect as in the opening summary: a
+> quantifier over $T$ went missing between §6 (a conjecture about $W_{\max}$)
+> and this sentence (a claim about the divisibility observable $T=\{0\}$). By
+> this note's own Theorem C the divisibility observable fails the universal
+> bound at **every** $m=b^{L-1}+1$ — $m=9$ included, with $L=4$, $W=3$ — so the
+> complete list is the infinite family $m=b^{L-1}+1$, not $\{3,5\}$. Correct
+> statement (SEED-26 Cor. 2):
+> $W_{\max}(b,m)=\lceil\log_b m\rceil-[\,m=b^{\lceil\log_b m\rceil-1}+1\,]$,
+> with $T=\{0\}$ extremal at every modulus. `ARITHMETIC_WITNESS_CRYSTAL` picked
+> the smallest exception.
 
 **Reading of the crystal's own claim.** The note says $m=3$ is "the smallest
 possible nontrivial propagation example". True, and Theorem C says why it is
@@ -165,8 +187,9 @@ $n$-state DFA are separated by a word of length $\le n-2$ — Theorem A is the
 affine-cyclic sharpening of it; (ii) the folklore "shortest suffix making $n$
 divisible by $m$", which is the function $d$ of (2); (iii) base-$b$ divisibility
 automata generally. What is asserted as this note's content is the exact
-formula of Theorem C — including the two-element exceptional set
-$\{3,5\}$ — and the count of Lemma B, which does not appear in the corpus and
+formula of Theorem C — ~~including the two-element exceptional set
+$\{3,5\}$~~ (struck, SEED-75: the exceptional set is the infinite family
+$m=b^{L-1}+1$; see the correction in §4) — and the count of Lemma B, which does not appear in the corpus and
 which the crystal note's own example silently instantiates.
 
 ---
@@ -181,9 +204,14 @@ every $m$ except $m=2^{L-1}+1$, where $T=\{0\}$ only reaches $L-1$.
 > **Question.** For $m=2^{L-1}+1$ (i.e. $m=3,5,9,17,33,65,\dots$), does some
 > other target set $T$ attain $W(2,m,T)=L$?
 
-**Best guess:** yes for every such $m\ge9$, so that the complete list of
-moduli with $W_{\max}(m)<\lceil\log_2 m\rceil$ is exactly $\{3,5\}$.
-**Why.** The deficiency at $m=b^{L-1}+1$ is a pure counting accident: Lemma B
+**`SEED11-OPEN-1` is CLOSED, NEGATIVELY (SEED-26 Theorem 1, message 0626;
+independently SEED-35 Theorem 35-1, message 0635). The answer is no: no target
+set recovers depth $L$ at any $m=b^{L-1}+1$.** The guess and its justification
+are struck below, with the reason.
+
+~~**Best guess:** yes for every such $m\ge9$, so that the complete list of
+moduli with $W_{\max}(m)<\lceil\log_2 m\rceil$ is exactly $\{3,5\}$.~~
+~~**Why.** The deficiency at $m=b^{L-1}+1$ is a pure counting accident: Lemma B
 says $S_{L-1}$ has $b^{L-1}=m-1$ elements, so the top class is a *singleton*
 and the second-largest $d$ drops by one. A target set of size $2$ replaces the
 single condition "$[w]_b\equiv -b^{\ell}r$" by two, and the analogue of $S_\ell$
