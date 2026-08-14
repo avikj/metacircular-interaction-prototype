@@ -7,7 +7,7 @@ response-conditioned experiment trees.  It identifies the carrier of an
 adaptive experiment without identifying its sequential cost with the parallel
 uniform observation horizon.
 -/
-import Pairfield.AdaptiveObservableHorizon
+import Pairfield.ReachableAdaptiveObservableHorizon
 import Pairfield.VisitedResidual
 
 namespace Pairfield
@@ -173,6 +173,39 @@ example : ∀ tree : BoolExperimentTree Bool,
     automaton alphabet alphabet_complete [] [true]).1 (by native_decide)
 
 end AdaptiveResidualAdapterControl
+
+namespace ReachableAdaptiveResidualControl
+
+open ReachableAdaptiveObservableHorizonWitness
+
+/-- In the repaired all-state-reachable witness, the ordinary one-action tree
+already exposes a genuine unequal pair of reachable Mathlib residuals. -/
+example :
+    automaton.accepts.leftQuotient [] ≠
+      automaton.accepts.leftQuotient [false] := by
+  intro hresidual
+  have hall := (leftQuotient_eq_iff_all_adaptive_traces_eq
+    automaton [] [false]).1 hresidual
+  have hseparates :
+      (BoolExperimentTree.fixedWord [false]).trace automaton.step
+          (acceptsBool automaton) (automaton.eval []) ≠
+        (BoolExperimentTree.fixedWord [false]).trace automaton.step
+          (acceptsBool automaton) (automaton.eval [false]) := by
+    native_decide
+  exact hseparates (hall (BoolExperimentTree.fixedWord [false]))
+
+/-- The return's nontrivial positive control keeps all three exact costs in
+one checked statement: uniform words `1`, prefix residuals `1`, adaptive
+identification `2`. -/
+example :
+    globalObservableHorizon automaton alphabet = 1 ∧
+      IsLeast { fuel : Nat |
+        LeftQuotientsStabilizeAt automaton fuel } 1 ∧
+      IsLeast { fuel : Nat |
+        BoolExperimentTree.IdentifiesAtDepth step observe fuel } 2 :=
+  reachable_uniform_residual_one_adaptive_two
+
+end ReachableAdaptiveResidualControl
 
 namespace AdaptiveObservableHorizonWitness
 

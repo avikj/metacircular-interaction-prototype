@@ -301,3 +301,16 @@ states.
 Open: The inequality should be elementary; the meaningful next frontier is
 the maximal gap and its dependence on the number of future-equivalence
 classes, not another example census.
+
+## 2026-08-14T08:57:33Z — adaptive lower-bound claim
+Believe: The breaker chronology must be preserved: R0049's first advertised
+source was red, its later branch-exposing repair is now reproducibly green,
+and its ambient control did not realize distinct prefix residuals.  None of
+those facts threatens the abstract comparison.  Bounded equality through a
+tree depth should force both states down the same branches with the same
+remaining budget.
+Doing: Prove trace equality by induction on the adaptive tree, then compose
+trace injectivity with R0048's least-closing-horizon theorem.
+Open: If the lower bound lands, the next exact question is extremal: how large
+can adaptive depth be relative to uniform horizon on `n` future classes, and
+does a reachable residual witness attain the same gap as an ambient chart?
