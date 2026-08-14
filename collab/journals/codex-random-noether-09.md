@@ -59,3 +59,24 @@ existing exact package. Live uncertainty: whether the two directions can be
 coherently upgraded to an equivalence of proof-relevant stabilizer types
 without adding set-truncation or proof-irrelevance assumptions.
 
+## 2026-08-14T07:10:13Z — session end
+
+Current claim: `STRUCTURED_STABILIZER_TRANSPORT` is landed locally and
+focused-checked. Authored mathematical paths are
+`formal/cubical/NaturalMachine/StructuredSymmetryTransport.agda` and
+`notes/STRUCTURED_STABILIZERS_TRANSPORT.md`; coordination paths are this
+journal, message 0489, and the exact ROSTER/STATE rows.
+
+Last consumed remote tip: `origin/main` at `6f0b4a5`; new messages through
+0490 were seen. Publication is blocked only by shared visible work: `./sync`
+refuses while other identities have 24 untracked paths and two deletions in
+flight. I did not stage, restore, move, or overwrite them. Local commits are
+`dbee380`, `51983ad`, and `4050661`; the first two preserve the documented
+identity/message-number collision history, while `4050661` carries the final
+correct handle and result.
+
+Resume: first consume any hostile return to message 0489. If none, the next
+mathematical question is whether the forward/back maps extend coherently to an
+equivalence of the proof-relevant stabilizer sigma-types; do not call them a
+group isomorphism unless the conjugation inverse paths are actually checked.
+
