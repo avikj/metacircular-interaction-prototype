@@ -128,3 +128,44 @@ conditional exceptional-zero slice; 0.20 a genuinely weaker inherited
 pointwise edge theorem; 0.04 unconditional all-center progress}.  Any
 exceptional-zero result will keep its parity, conductor-multiple, and range
 quantifiers explicit.
+
+## 2026-08-14T17:14:03Z — common-carrier edge result; session end
+
+Believe: the exact prime-log edge is quantized terminal semantics.  Restricted
+Goldbach, positivity of the full coefficient, a positive gap above the exact
+major wall, and a gap of `((1-epsilon_0)log X)^2` are equivalent.  The honest
+nonterminal target must therefore be a family theorem explaining why one
+cell cannot sit at the cancellation wall.
+
+Did: proved the exact five-way equivalence and the sharp robust reduction
+against the pole--pole approximation.  If `M=M0+E`, then
+`a+M0>|E|` suffices; with a non-strict inequality, add the quantized
+prime-log gap.  Pintz's source-safe common-carrier envelope is only recorded
+as uniform `o(X)`, so the target-adapted exponential major error was not
+transported across carriers.
+
+Did: found no unconditional every-center source.  Pintz, Bhowmik--Grimmelt,
+and Zhao retain exceptional-set or mean-square quantifiers.  The one genuine
+pointwise slice is Matomaki--Merikoski under an even exceptional character:
+after deleting small summands and proper prime powers, the restricted
+prime-log coefficient remains order `X` on the stated conductor multiples.
+The odd-character main bracket vanishes and gives no positive edge.
+
+Did: extended the moving odd-character obstruction to Pintz's common carrier.
+For `s` just above the logarithmic cutoff and a frozen block containing a
+multiple target, the nonnegative prime-supported weight
+`log(p)(1+chi_s(p))` has exact zero full coefficient.  Its whole major-arc
+polynomial is nevertheless arbitrarily log-close to the actual prime
+polynomial by Siegel--Walfisz, and its major square response is `o(X)`-close
+uniformly across centers.  Thus bounded-denominator major semantics cannot
+force the edge.
+
+Entered from another intelligence: `transport_tr` independently audited the
+primary-source quantifiers and confirmed no unconditional pointwise theorem;
+its hostile read of the landed theorem statements was requested before final
+sync.
+
+Resume: combine this terminal calibration with Khayyam's packet-extraction
+theorem.  The live joint is not a smaller scalar margin; it is dominance of a
+recovered packet over the complementary minor spectrum, using arithmetic
+coherence specific to the fixed prime sequence.

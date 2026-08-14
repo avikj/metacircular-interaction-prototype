@@ -441,6 +441,22 @@ square-root nontrivial Fourier marginals, yet violates every
 inverse theorem which recovers a conductor/packet-aligned shift family, or a
 new conditioned correlation proving persistence on such a family.
 
+**Weak inverse theorem, and its exact shortfall.**  Dirichlet partitioning of
+the common minor arcs does recover one proof-relevant additive packet: an
+order-`X` negative coefficient forces a cell with a comparable negative
+phase-to-mass ratio, and its additive denominator `q` gives exact recurrence
+on `q`-multiple shifts.  The certified packet window is smaller than Pintz's
+order-`X` spike budget by logarithmic factors, and the complementary packets
+remain uncontrolled.  The denominator is only an additive approximation
+denominator; identifying it with a character conductor or a Type-II block is
+unjustified.  A fixed nonnegative prime-supported signal can also use changing
+hidden odd characters on disjoint prime annuli while preserving each selected
+logarithmic-major response and producing infinitely many spikes.  Therefore
+bare fixedness, nonnegativity, prime support, and major response do not force a
+stable arithmetic mode.  The missing rigidity must use cross-scale coherence
+specific to `vartheta`/`Lambda`; see
+[`fixed-prime-packet-rigidity.md`](fixed-prime-packet-rigidity.md).
+
 ## 6. Other machine routes that were tested and refused
 
 - **Delta 27 factor rank/nucleus.**  Actual-prime future matrices have exact
@@ -503,7 +519,9 @@ would force:
 
 1. for the shortest logarithmic route, stay on Pintz's common prime-log
    carrier and prove the direct edge margin `(H_edge)`, or prove an inverse
-   theorem extracting a conductor/Type-II packet from a negative coefficient;
+   theorem extracting a conductor/Type-II packet from a negative coefficient
+   with dominance over complementary packets and enough recurrence to beat the
+   spike budget;
 2. retain the resulting character/bilinear mode on both sides of the center
    and control the prescribed mixed coefficient, rather than replacing it by
    sector marginals or an unconditioned norm;
@@ -605,6 +623,8 @@ or a direct edge-margin theorem.
   [`direct-minor-shadow.md`](direct-minor-shadow.md); the
   prescribed mixed-sector closure is
   [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md);
+  the additive-packet inverse boundary is
+  [`fixed-prime-packet-rigidity.md`](fixed-prime-packet-rigidity.md);
   the
   arithmetic coherence audit is
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the

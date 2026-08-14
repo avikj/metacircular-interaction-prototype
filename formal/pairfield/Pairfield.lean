@@ -79,6 +79,7 @@ import Pairfield.NativeReversePairTraversal
 import Pairfield.NativeReverseEdgeInventory
 import Pairfield.NativeIndexedReverseTraversal
 import Pairfield.NativeIndexedPolicyBoundary
+import Pairfield.NativeIndexedParentExtraction
 import Pairfield.NativeDemandRestrictedFormation
 import Pairfield.NativeShortestSeparatorPolicy
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
