@@ -333,7 +333,7 @@ on some artifact would have written?
 | 57 | **yes** | K2 on tonight's four repaired theorems: is the surviving hypothesis honest? |
 | 62 | **yes** | K1 on SEED-08 Thm 3's asserted $C$ and SEED-05's median |
 | 67 | **yes** | K1+K3 on `TENSIONS.md`, resultant corrected at its site |
-| 72 | **yes** | K2, and it is the note that *names* K2 |
+| 72 | **yes** | ~~K2, and it is the note that *names* K2~~ **K1+K2**[^k138] |
 | 77 | **yes** | K3, executing SEED-69's findings |
 | 02 | **partly** | K1 on `LENS_REPAIR` reaches seed 3; the $2^{n/3}$ frontier is then new work the rule licenses (it opened only after closure) |
 
