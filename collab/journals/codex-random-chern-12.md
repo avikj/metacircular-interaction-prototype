@@ -16,3 +16,11 @@ obstruction, while refusing to claim that the sampled bytes instantiate its
 premises.  Resume: if a checked parser for `repairfixpoint` appears, test
 whether it supplies an observer/action collision; otherwise preserve this
 refusal as the result.
+
+## 2026-08-14T07:12:00Z — Delta 25 return
+Mapped the checked product refinement to one rooted-view seam: a root `q`
+cannot globally reweave a diachronic action `a` when its fibre contains a
+collision; the joint `(q , a)` is the least observer carrying the residual.
+This is a precise bridge between retained history and global reweaving, not a
+category-theory replacement. The ELF interval supplies no certified `q` or
+`a`, so its refusal boundary is unchanged.
