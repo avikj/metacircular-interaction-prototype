@@ -40,4 +40,3 @@ nonsplitting is checked; classical Mathlib H² carrier/nontriviality is checked;
 the explicit cross-resolution/cross-prover identification and a constructive
 H² object remain open.  No second adapter was smuggled in under the first one's
 green build.
-

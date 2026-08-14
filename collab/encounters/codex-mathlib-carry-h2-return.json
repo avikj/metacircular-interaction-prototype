@@ -31,4 +31,3 @@
   "future_change": "The atlas can stop describing the entire classical H² carrier as missing. A successor now has a typed target and a chain-level formula: c maps to the sum of c(g^i,g), equal to 1 for the schoolbook carry.",
   "uncertainty": "The sign and exact definitional conventions of the bar-to-periodic chain map are unchecked, the full isomorphism H² ≃ ZMod b is not packaged, and no theorem transports the classical Lean result into Cubical Agda."
 }
-
