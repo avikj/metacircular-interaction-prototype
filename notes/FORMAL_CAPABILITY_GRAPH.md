@@ -74,6 +74,15 @@ forgot the executable datum.
    the checked Lean/Cubical graph, so no edge is asserted here.  This is an
    upstream semantic gap, not a missing import.
 
+   **Refinement 2026-08-14.**
+   `formal/cubical/ResponseCharacterKickback.agda` now checks the algebraic
+   boundary of this joint: a clean returned response eigenstate induces a
+   response-group character; the Boolean character supplies the Grover sign,
+   while every additive-trit sign character is trivial. This does **not** close
+   the circuit-semantics joint above. It replaces one untyped open edge by a
+   typed fork and identifies exactly which interface a future circuit must
+   realize.
+
 ## Rigor boundary
 
 The Lean and Agda source files are kernel-checked capability witnesses.  This

@@ -64,11 +64,22 @@ This result violates none of them.
 ## 4. Load-bearing oracle boundary
 
 The one-call statement is for the Boolean **phase threshold oracle** above. The
-installed classical machinery returns an integer valuation response. A
-reversible response-register oracle can compile the phase predicate by
+installed classical machinery returns an integer valuation response.
+
+~~A reversible response-register oracle can compile the phase predicate by
 compute--phase--uncompute, generally costing two calls unless a direct phase
-interface is admitted. The organism must therefore expose which oracle it has;
-it may not count this compilation as free.
+interface is admitted.~~
+
+**Correction 2026-08-14 (`RESPONSE_CHARACTER_KICKBACK_BOUNDARY`).** “Response
+oracle” is not a sufficient type for that price. If the response is already the
+Boolean threshold bit under XOR, its nontrivial `Z/2` character produces the
+Grover sign in **one** call by phase kickback. If the response is an additive
+trit, every sign character is trivial, so no nonconstant clean ±1 phase exists
+in one character-state call. For an integer valuation register, two-call
+compute–phase–uncompute is a generic upper bound, not a universal lower bound;
+the group law, encoding, and threshold-extraction circuit must be named. The
+organism must expose which interface it has and may not count an interface
+change as free.
 
 The fair exact comparison is one coherent threshold-oracle call versus two
 worst-case classical threshold tests per ternary digit. Center construction,
@@ -79,15 +90,20 @@ diffusion gates, noise, and fault tolerance are not priced.
 The zero-error quantum lane should no longer search for nonorthogonal memory
 compression of exact profiles. It should search for coherent access to the
 orthogonal control languages the organism already formed. The immediate
-engineering obligation is an explicit reversible adapter from valuation
-response to the phase-threshold interface, with its doubled-call boundary kept
-visible.
+engineering obligation is now sharper: choose and type the response
+representation. Install a Boolean threshold coordinate to retain the one-call
+advantage, or price reversible extraction of that bit from the native value
+encoding. There is no representation-independent “doubled-call boundary.”
 
 ## 6. Replay
+
+The Python commands below are historical provenance and are retired under the
+2026-08-13 substrate ban. The checked successor is
+`formal/cubical/ResponseCharacterKickback.agda`; see
+`RESPONSE_CHARACTER_KICKBACK_BOUNDARY` for the current replay.
 
 ```sh
 cd machinery
 python3 -m unittest test_ternary_grover_valuation.py -v
 python3 ternary_grover_valuation.py
 ```
-

@@ -39,6 +39,11 @@ import Control.Monad (forM_, when, unless)
 import System.IO
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
+import Text.ParserCombinators.ReadP
+import Data.Char (isAlphaNum, isSpace)
+import System.Environment (getArgs)
+import System.Directory (doesFileExist)
+import System.Exit (exitFailure, exitSuccess)
 -- (imports for the unbuilt evolve step removed; they were dead, and a
 -- dead import is a claim about what a program does)
 
@@ -86,6 +91,62 @@ instance Show Term where
   show (F f [a,b])
     | f `elem` ["+","*","^","gcd","max"] = "(" ++ show a ++ f ++ show b ++ ")"
   show (F f as) = f ++ "(" ++ intercalate "," (map show as) ++ ")"
+
+-- ------------------------------------------------ researcher thought input
+
+-- A candidate line becomes the machine's own equation object.  Any line
+-- which does not parse is retained exactly as a residual; known vocabulary
+-- names inside residuals can still widen the language needed for the next
+-- round, but are never mistaken for equations.
+data ThoughtBatch = ThoughtBatch
+  { thoughtCandidates :: [(Term,Term)]
+  , thoughtResiduals  :: [String]
+  } deriving (Eq, Show)
+
+splitTabs :: String -> [String]
+splitTabs s = case break (== '\t') s of
+  (a, [])     -> [a]
+  (a, _:rest) -> a : splitTabs rest
+
+identifier :: ReadP String
+identifier = munch1 (\c -> isAlphaNum c || c `elem` "+*-^#_")
+
+termP :: ReadP Term
+termP = do
+  name <- identifier
+  args <- option Nothing (Just <$> between (char '(') (char ')')
+                    (sepBy termP (char ',')))
+  case (name, args) of
+    ([v], Nothing) | Just i <- lookup v (zip "xyzuvw" [0..]) -> pure (V i)
+    (_, Nothing) -> pure (F name [])
+    (_, Just ts) -> pure (F name ts)
+
+parseTerm :: String -> Maybe Term
+parseTerm s = case [ t | (t, rest) <- readP_to_S (termP <* eof) s, null rest ] of
+  [t] -> Just t
+  _   -> Nothing
+
+parseThoughts :: String -> ThoughtBatch
+parseThoughts = foldl' parseLine (ThoughtBatch [] []) . lines
+  where
+    parseLine b line
+      | all isSpace line = b
+      | otherwise = case splitTabs line of
+          ["candidate", l, r]
+            | Just lt <- parseTerm l, Just rt <- parseTerm r ->
+                b { thoughtCandidates = thoughtCandidates b ++ [(lt,rt)] }
+          _ -> b { thoughtResiduals = thoughtResiduals b ++ [line] }
+
+residualWords :: String -> [String]
+residualWords = words . map (\c -> if isAlphaNum c || c `elem` "+*-^#_" then c else ' ')
+
+requiredVocabulary :: ThoughtBatch -> Int
+requiredVocabulary b = maximum (3 : demanded)
+  where
+    names = concatMap (\(l,r) -> symbolsIn l ++ symbolsIn r)
+              (thoughtCandidates b)
+            ++ concatMap residualWords (thoughtResiduals b)
+    demanded = [ i + 1 | (i,s) <- zip [0..] vocabulary, symName s `elem` names ]
 
 size :: Term -> Int
 size (V _) = 1
@@ -498,13 +559,15 @@ data Machine = Machine
   , mInvented :: [Sym]        -- concepts the machine named for itself
   , mRetired :: [Term]        -- patterns it named, never used, and withdrew
   , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
+  , mThoughts :: [(Term,Term)] -- researcher candidates, as native terms
+  , mResiduals :: [String]     -- exact lines not promoted to equations
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty 3 4 0
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -632,13 +695,17 @@ round1 logh libh ref = do
       classes = M.elems (M.fromListWith (++)
                   [ (fingerprint sem envs t, [t]) | t <- normed ])
       conjectures = ordNub
-        [ canonVars (rep, other)
-        | cls <- classes
-        , length cls > 1
-        , let sorted = sortOn (\t -> (size t, t)) cls
-        , let rep = head sorted
-        , other <- tail sorted
-        ]
+        ( [ canonVars (rep, other)
+          | cls <- classes
+          , length cls > 1
+          , let sorted = sortOn (\t -> (size t, t)) cls
+          , let rep = head sorted
+          , other <- tail sorted
+          ]
+        ++ [ canonVars (l,r)
+           | (l,r) <- mThoughts m
+           , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+           , fingerprint sem envs l == fingerprint sem envs r ] )
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
       -- what it wrote down last round is not learning, it is looping
@@ -803,12 +870,32 @@ round1 logh libh ref = do
 
 main :: IO ()
 main = do
+  args <- getArgs
+  when (args == ["--check-thought-format"]) $ do
+    let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
+        b = parseThoughts raw
+        expectedResiduals = ["candidate\tgcd(x,y\ty", "free prose asks for max"]
+    unless (thoughtCandidates b == [(F "+" [V 0,F "0" []], V 0)]
+            && thoughtResiduals b == expectedResiduals
+            && requiredVocabulary b == 7) exitFailure
+    putStrLn "THOUGHT-FORMAT CHECKED: candidate object + exact residual demand"
+    exitSuccess
+  exists <- doesFileExist "machine/thoughts.math"
+  batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
+                     else pure (ThoughtBatch [] [])
   logh <- openFile "machine/machine.log" AppendMode
   libh <- openFile "machine/library.txt" AppendMode
   hSetBuffering logh LineBuffering
   hSetBuffering libh LineBuffering
   hPutStrLn logh "=== MathMachine start ==="
-  ref <- newIORef start
+  hPrintf logh "  THOUGHTS  candidates=%d residuals=%d required-vocab=%d\n"
+    (length (thoughtCandidates batch)) (length (thoughtResiduals batch))
+    (requiredVocabulary batch)
+  forM_ (thoughtResiduals batch) $ \r -> hPrintf logh "  RESIDUAL  %s\n" r
+  let seeded = start { mThoughts = thoughtCandidates batch
+                     , mResiduals = thoughtResiduals batch
+                     , mVocab = requiredVocabulary batch }
+  ref <- newIORef seeded
   -- A machine that halts is not a machine.  The old loop stopped when the
   -- size horizon passed its cap, which is to say: it enumerated a finite
   -- space and finished.  Nothing about arithmetic is finite; what was
