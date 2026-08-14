@@ -122,6 +122,10 @@ import NaturalMachine.CenterRelative
 -- equivalence, the structured defect type, stabilisers, polarization,
 -- charge shift, kernel-pair descent, and refutation transport.
 import NaturalMachine.DefectCalculus
+-- Delta 17 sections 17.4 and 17.8: the same chart when 2 is NOT
+-- invertible -- the composites are doubling, which is what `half` was
+-- dividing away, plus C17.7's two-involutions distinction.
+import NaturalMachine.CenterRelativeIntegral
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
