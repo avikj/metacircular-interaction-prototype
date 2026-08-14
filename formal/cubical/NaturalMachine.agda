@@ -373,6 +373,7 @@ import NaturalMachine.PhysicalLearningCore
 -- rooted total space supplies a canonical coherent repair.
 import NaturalMachine.RelationalProcessCore
 import NaturalMachine.RelativeFrameChange
+import NaturalMachine.RelativeFrameObservable
 import NaturalMachine.RelationalHolonomyInteraction
 import NaturalMachine.PMRelativeProcessBridge
 import NaturalMachine.AbstractSpinNetworkKinematics

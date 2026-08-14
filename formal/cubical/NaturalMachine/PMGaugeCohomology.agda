@@ -22,6 +22,13 @@ import NaturalMachine.PMTorus as Torus
 import NaturalMachine.PMCokernel as PM
 import NaturalMachine.PauliWeyl as Weyl
 import NaturalMachine.PMMonodromyDerivationNoGo as NoGo
+import NaturalMachine.FiniteGraphCohomology as Generic
+
+pmSource pmTarget : Torus.Obs → Torus.Ctx
+pmSource observable = fst (Torus.pmContexts observable)
+pmTarget observable = snd (Torus.pmContexts observable)
+
+module PMGraph = Generic.Graph Torus.Ctx Torus.Obs pmSource pmTarget
 
 EdgeSign : Type₀
 EdgeSign = Torus.Obs → Bool
@@ -146,6 +153,14 @@ gauge-cycle-zero gauge =
              (gauge Torus.R1) (gauge Torus.C1)
              (gauge Torus.R2) (gauge Torus.C2)
 
+-- The named PM cycle is an instance of the generic graph-cochain interface.
+pmCycleEvaluation : PMGraph.CycleEvaluation
+pmCycleEvaluation = record
+  { evaluate = cycleParity
+  ; additive = cycle-additive
+  ; closed = gauge-cycle-zero
+  }
+
 cycle-gauge-invariant : (signs : EdgeSign) (gauge : ContextGauge)
   → cycleParity (signs ⋆ gauge) ≡ cycleParity signs
 cycle-gauge-invariant signs gauge =
@@ -205,6 +220,25 @@ every-gauge-translate-is-derived-total : (gauge : ContextGauge)
 every-gauge-translate-is-derived-total gauge =
   every-zz-gauge-translate-is-odd gauge
   ∙ sym NoGo.derived-total-is-odd
+
+-- Recovery through the generic quotient, rather than the local presentation
+-- above: the descended generic evaluation computes the same derived odd sign.
+generic-pm-class-is-derived-total :
+  PMGraph.descendedEvaluation pmCycleEvaluation
+    (PMGraph.classOf NoGo.zzRepresentative)
+  ≡ PM.total Weyl.derived-s
+generic-pm-class-is-derived-total =
+  refl ∙ sym NoGo.derived-total-is-odd
+
+generic-pm-gauge-translate-is-derived-total : (gauge : PMGraph.C⁰)
+  → PMGraph.descendedEvaluation pmCycleEvaluation
+      (PMGraph.classOf
+        (PMGraph.gaugeTranslate NoGo.zzRepresentative gauge))
+    ≡ PM.total Weyl.derived-s
+generic-pm-gauge-translate-is-derived-total gauge =
+  sym (cong (PMGraph.descendedEvaluation pmCycleEvaluation)
+        (PMGraph.gaugePath NoGo.zzRepresentative gauge))
+  ∙ generic-pm-class-is-derived-total
 
 ------------------------------------------------------------------------
 -- Rigor boundary
