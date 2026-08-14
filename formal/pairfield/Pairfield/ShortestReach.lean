@@ -182,6 +182,32 @@ theorem shortestReachingWord_minimal
       word.length ≤ candidate.length :=
   shortestReachingUpTo_minimal alphabet complete M target h
 
+/-- The complete proof-history fibre of reaching words.  Selecting one active
+shortest witness below never identifies or deletes the other inhabitants. -/
+def ReachDerivationFiber (M : DFA A X) (target : X) :=
+  { word : List A // M.eval word = target }
+
+/-- The active shortest-witness projection is inhabited exactly when the full
+derivation fibre is inhabited.  This is the checked automata instance of the
+reciprocal `derivationFiber` / `activeWitnesses` separation. -/
+theorem shortestReachingWord_exists_iff_derivationFiber
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (target : X) :
+    (∃ word : List A, shortestReachingWord M alphabet target = some word) ↔
+      Nonempty (ReachDerivationFiber M target) := by
+  constructor
+  · rintro ⟨word, hword⟩
+    exact ⟨⟨word,
+      shortestReachingWord_sound M alphabet complete target hword⟩⟩
+  · rintro ⟨⟨candidate, hcandidate⟩⟩
+    cases hresult : shortestReachingWord M alphabet target with
+    | none =>
+        exact False.elim
+          (((shortestReachingWord_eq_none_iff
+            M alphabet complete target).1 hresult candidate) hcandidate)
+    | some word => exact ⟨word, hresult⟩
+
 /-- A nonempty shortest reaching word carries its own predecessor edge, and
 its `dropLast` prefix is already a globally shortest word to that predecessor.
 Thus shortest witnesses form a well-founded predecessor forest under word

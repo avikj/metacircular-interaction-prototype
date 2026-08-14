@@ -10,6 +10,7 @@ open import Cubical.Relation.Nullary using (Dec)
 open import Cubical.HITs.PropositionalTruncation as Trunc
   using (∥_∥₁ ; ∣_∣₁)
 open import Cubical.Data.Bool using (Bool ; false ; true)
+open import Cubical.Data.List using ([] ; _∷_)
 
 open import NaturalMachine.PolynomialRewrite
 open import NaturalMachine.ProductiveIndraNet
@@ -52,9 +53,9 @@ canonicalNet : ∀ {ℓ} {Root : Type₀} {S : Signature}
   → (ℕ → Term S)
   → MereWitness P
   → Net Root (Term S)
-view (canonicalNet proposition decide candidates existence) _ _ =
+Net.view (canonicalNet proposition decide candidates existence) _ _ =
   canonicalPolynomial proposition decide candidates existence
-next (canonicalNet proposition decide candidates existence) =
+Net.next (canonicalNet proposition decide candidates existence) =
   canonicalNet proposition decide candidates existence
 
 ------------------------------------------------------------------------
@@ -87,7 +88,7 @@ polynomial-two :
 polynomial-two = refl
 
 productive-two :
-  view (canonicalNet {Root = Bool} isPropIsTwo isTwo? numeral mereTwo)
+  Net.view (canonicalNet {Root = Bool} isPropIsTwo isTwo? numeral mereTwo)
     false true
     ≡ aSuc (aSuc aZero)
 productive-two = refl
