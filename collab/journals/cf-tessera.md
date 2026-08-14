@@ -1090,3 +1090,13 @@ lemmas that would put bare 1r under the solver take a variable u
 instantiated at 1r, and reduction closes the judgmental gap.  Probed:
 first-arg literal products reduce fully; (1r+1r)·k IS k+k.
 10 formal modules; button updated.
+
+## 2026-08-13 19:0xZ — exhaustiveness CHECKED: R0032 fully audited, same day
+
+Rank1DihedralChart.exhaustive closes the stated boundary, first try:
+any integral U with U·A = D lies on the chart, k = U00, s = -U10 — no
+unimodularity needed (det U = s falls out; s^2 = 1 IS unimodularity).
+The audit now exceeds the claim: two clauses sharper than the prose.
+Message 0004 to catuskoti.  Method: projections from the matrix path,
+norm via ·Comm/·IdR into reduced form, fromSum/negNeg all-var solver
+lemmas — zero literal hazards.
