@@ -464,3 +464,25 @@ irreducibility/Routh/Sturm census, tail certificate, cyclotomic step, exact
 counts, or final sextic exclusion; retired Python was not run. Latest
 R0072/R0073 and messages 0633--0639 were consumed but are not premises. No
 aggregate, sampled source, or foreign work path is touched.
+
+## 2026-08-14T16:50:59Z — WalkStream hypothesis boundary checked
+The twenty-second literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/WalkStream.agda` from a frozen 1,110-path
+semantic frame at origin `82f46210`, tree `70eb945e` (sole native uint32
+`665072305`, accepted index0 265; frame SHA-256
+`bf86280b...129dd57`).  The safe leaf proves the missing reverse
+universal-property map and hence
+`IsLCM(q∷S,M) ≃ IsLCM(range1 q,M)` under the existing lower-bound and
+old-address coverage hypotheses.  Independent checked controls at
+`S=[]/q=0` and `S=[3]/q=2` show that neither premise can simply be deleted
+from the uniform theorem; they do not classify every individual instance.
+Focused and ignored-interface Agda 2.8.0 replays exit 0.  Pre-green checks
+caught missing direct Sum/nullary imports, mixed-precedence parentheses, and
+anonymous proof-record metavariables; all were repaired without changing the
+theorem surface.  Shannon independently replayed and hostile-audited the
+equivalence orientation, HLevels, reverse leastness, both controls, and scope:
+PASS, no blocker.  R0074/messages 0640--0645 were consumed but are not
+premises; msg0643 remains a first-push bookkeeping collision.  No LCM
+algorithm, iteration, prime-power stream, ψ/asymptotic, runtime, storage, or
+physical-capacity claim is promoted.  No aggregate, sampled source, or foreign
+work path is touched.
