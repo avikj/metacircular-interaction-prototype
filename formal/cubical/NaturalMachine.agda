@@ -102,6 +102,10 @@ import NaturalMachine.WalkBridge
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers
+-- and the exchange rate that makes the walk cheap to execute: `next m` is
+-- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
+-- is replaced by a test at size ~m.  The theorem is the speedup.
+import NaturalMachine.WalkFast
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits

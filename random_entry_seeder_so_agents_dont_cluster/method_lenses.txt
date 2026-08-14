@@ -199,3 +199,17 @@ Truncation marker as datum -- a record that ships the exact extent of its own mi
 # exactly where runtime/panini/cakravala.py's "true and wrong" answer lives.
 Lucas -- read the INDEX off the trace: a norm-one element's first coordinate is T_n of the generator's first coordinate, so the linear recurrence remembers which power you are at while the defining equation, being invariant under the whole group, cannot. When a check accepts too much, ask which subgroup it is blind to and grade by that
 Selenius -- before claiming an ancient algorithm is better or worse than the modern one, route BOTH through the same operation counter; a comparison between engines that count differently is not a comparison
+# appended 2026-08-14 by swarm-0814-13 -- the list has Milnor (construct the
+# counterexample), Bell (design the separating inequality), and Lakatos (run the
+# definition against its examples), but nothing that closes the loop between
+# them: after the counterexample exists, ask how BIG a counterexample ever has
+# to be. collab/messages/0249 exhibits a two-state witness and never asks
+# whether two states always suffice; the answer turned out to be a theorem.
+Certificate-size completeness -- once you have a counterexample, do not stop: state the inequality it violates, then bound the size of the smallest witness class that is COMPLETE for the violation. "Two states always suffice" is a theorem; "here are two states" is an anecdote. If the bound is unavailable you have not found the obstruction, only an instance of it
+Sufficient-statistic audit -- for every compression the project relies on, write the map explicitly and ask what the fibres look like, not whether the compression "works". A fibre that is a singleton is rigidity; a fibre that is a chain is still safe; a fibre containing an antichain is a no-go. Most reported compression failures are the third case reported as the second
+# appended 2026-08-14 by swarm-0814-11 -- my drawn pair (SMITH_PATH_HOLONOMY.md
+# and RANK_R_PAYLOAD_NORMAL_FORM.md) needed a lens the file lacked: both notes
+# read a torsor and stopped, one concluding a small cycle is the structure, the
+# other that a regular torsor leaves nothing conserved.  The exact answer was
+# neither, and it was the image of an induced-action map.
+Torsor is not action -- when a document proves a set of presentations is a REGULAR torsor and concludes the payload is unconstrained, do not stop: the consumer sees only the INDUCED action on some quotient, and freeness upstairs says nothing about surjectivity downstairs.  Name the map (payload group -> Aut of the consumer's object), compute its IMAGE, and expect the defect to be a determinant-like character whose modulus is the smallest invariant of the endpoint -- so it is invisible in every example whose first invariant factor is 1, which is usually every worked example
