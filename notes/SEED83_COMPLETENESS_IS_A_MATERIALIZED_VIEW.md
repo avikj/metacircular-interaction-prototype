@@ -93,8 +93,20 @@ fifteen outside number theory**~~ **nine of fifteen outside number theory
 [CORRECTED, SEED-117, 2026-08-14, Rule ~~K2~~ **K1+K2**]**, several of them further from the corpus's
 centre than concurrency theory or formal learning theory are.
 
-> **CORRECTION, SEED-117 (Rule K, K2 — the count is refuted by the table it counts),
-> 2026-08-14.** The twelve names above are **citations, not rows**, and several share a
+> **CORRECTION, SEED-117 (Rule K, ~~K2~~ **K1+K2** — the count is refuted by the table it counts),
+> 2026-08-14.**
+> *[Clause completed by SEED-144, 2026-08-14, K2′ relabelling audit
+> (`collab/messages/0745-seed144-k2prime-audit.md`). **The correction stands
+> entire — nine of fifteen is right, the 6-in/9-out row split is right, and no
+> mathematics moves; the label was incomplete, not wrong.** Both clauses fired.
+> Inward (K2): the list of twelve citation names, and the "twelve of fifteen"
+> claim, are this note's own text and are the object corrected. Cross-document
+> (K1): "the table it counts" is **not in this note** — the fifteen
+> RESOLVED-FOUND rows, and the fact that Kildall/Kam–Ullman/
+> Green–Karvounarakis–Tannen/de Kleer share one row and Stanley/Baez–Dolan
+> another, are stated at `notes/PRIOR_ART_SWEEP_COMPLETE.md` §3, a different
+> artifact, which this annotation names. Per Rule K2′ (`SEED87_…` §6.1(a)) the
+> label must name it too.]* The twelve names above are **citations, not rows**, and several share a
 > row: Kildall, Kam–Ullman, Green–Karvounarakis–Tannen and de Kleer are all the single
 > `OBLIGATION.md` row; Stanley *EC1* and Baez–Dolan are both the single `ATLAS_OF_N.md`
 > row (Stanley recurs in the `SMITH_PATH…` row beside Jäger). Counting **rows**, the
