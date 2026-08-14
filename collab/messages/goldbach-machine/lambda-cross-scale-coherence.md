@@ -207,6 +207,10 @@ The same estimate holds after imposing the common lower truncation; deleting
 terms can only improve the displayed `L2` bounds.  Thus an order-`X` negative
 prime-log minor coefficient transfers to the von-Mangoldt carrier, where the
 exact tensor (7) is available, without hiding a prime-power-scale premise.
+Precisely, the annular von-Mangoldt polynomial is the pushforward of
+`T_X-T_Y` with `Y=X^(1-epsilon_0)` (and an integer part understood).  It is
+not itself a prefix under change of `X`; the two endpoint tensors separately
+obey (8).  This distinction is necessary when asking for a restriction map.
 
 This is a real compiler seam:
 

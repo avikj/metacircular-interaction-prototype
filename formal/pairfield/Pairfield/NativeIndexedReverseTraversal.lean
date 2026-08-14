@@ -864,6 +864,30 @@ theorem advanceQueue_remaining_sound (queue : IndexedQueue M)
   simpa [advanceQueue] using
     consumeFrontier_remaining_sound M queue.frontier queue.remaining hsound
 
+theorem advanceQueue_remaining_keys_nodup (queue : IndexedQueue M)
+    (hkeys : IndexKeysNodup M queue.remaining) :
+    IndexKeysNodup M (advanceQueue M queue).remaining := by
+  simpa [advanceQueue] using
+    consumeFrontier_remaining_keys_nodup M queue.frontier queue.remaining hkeys
+
+theorem advanceQueue_remaining_covers (inventory : List (ReverseEdge M))
+    (queue : IndexedQueue M) (hsound : IndexSound M queue.remaining)
+    (hcover : queue.RemainingCovers M inventory) :
+    (advanceQueue M queue).RemainingCovers M inventory := by
+  intro edge hedge hsource
+  have holdClosed :
+      reverseEdgeSourceState M edge ∉ queue.closed.map ReachNode.state := by
+    intro hold
+    apply hsource
+    simp only [advanceQueue, List.map_append, List.mem_append]
+    exact Or.inl hold
+  apply consumeFrontier_remaining_covers_edge M queue.frontier queue.remaining
+      hsound (hcover edge hedge holdClosed)
+  intro node hnode heq
+  apply hsource
+  simp only [advanceQueue, List.map_append, List.mem_append, List.mem_map]
+  exact Or.inr ⟨node, hnode, heq.symm⟩
+
 theorem advanceQueue_nodes_valid (queue : IndexedQueue M)
     (hvalid : ∀ node ∈ queue.nodes, node.Valid (indexedEdgeDFA M)) :
     ∀ node ∈ (advanceQueue M queue).nodes,
@@ -910,6 +934,27 @@ theorem runQueue_remaining_sound (edges : List (ReverseEdge M)) (fuel : Nat) :
   | zero => simpa [runQueue, initialQueue] using materializeIndex_sound M edges
   | succ fuel ih =>
       exact advanceQueue_remaining_sound M (runQueue M edges fuel) ih
+
+theorem runQueue_remaining_keys_nodup (edges : List (ReverseEdge M))
+    (fuel : Nat) :
+    IndexKeysNodup M (runQueue M edges fuel).remaining := by
+  induction fuel with
+  | zero =>
+      simpa [runQueue, initialQueue] using
+        materializeIndex_keys_nodup M edges
+  | succ fuel ih =>
+      exact advanceQueue_remaining_keys_nodup M (runQueue M edges fuel) ih
+
+theorem runQueue_remaining_covers (edges : List (ReverseEdge M)) (fuel : Nat) :
+    (runQueue M edges fuel).RemainingCovers M edges := by
+  induction fuel with
+  | zero =>
+      intro edge hedge _hsource
+      simpa [runQueue, initialQueue] using
+        (mem_materializeIndex_iff M edge edges).mpr hedge
+  | succ fuel ih =>
+      exact advanceQueue_remaining_covers M edges (runQueue M edges fuel)
+        (runQueue_remaining_sound M edges fuel) ih
 
 theorem runQueue_nodes_valid (edges : List (ReverseEdge M)) (fuel : Nat) :
     ∀ node ∈ (runQueue M edges fuel).nodes,
