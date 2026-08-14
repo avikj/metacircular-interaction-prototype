@@ -266,6 +266,7 @@ import NaturalMachine.TranscriptDescent
 -- corresponding input fibre.  A Bool-to-Unit control rejects one-way erasure
 -- of branch-changing history as "compression".
 import NaturalMachine.TerminalTraceCompression
+import NaturalMachine.SingletonWitnessStabilization
 -- Fixed random base-4 borrow-table contact, returned to the decoder core:
 -- complement transports borrow to carry, positive borrow excludes every
 -- nonzero least-significant digit, but a literal observation collision

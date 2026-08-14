@@ -61,7 +61,7 @@ theorem upwardEscape_bad_card
       _ ≤ gamma * depth * (s.card : ℝ) := hcombined
       _ = (gamma * (s.card : ℝ)) * depth := by ring
   have hhalf : (bad.card : ℝ) / 2 ≤ gamma * (s.card : ℝ) :=
-    (mul_le_mul_right hdepth).mp hscaled
+    le_of_mul_le_mul_right hscaled hdepth
   change (bad.card : ℝ) ≤ 2 * gamma * (s.card : ℝ)
   linarith
 
@@ -90,8 +90,6 @@ theorem upwardEscape_good_card
           ((s.filter fun i ↦ -depth / 2 < a i).card : ℝ) =
         (s.card : ℝ) := by
     exact_mod_cast (by simpa only [not_le] using hpartitionNat)
-  have _ := hgamma0
-  have _ := hgammaHalf
   linarith
 
 /-- The same one-sided budget forces an explicit square-energy lower bound.

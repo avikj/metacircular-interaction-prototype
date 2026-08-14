@@ -13,13 +13,14 @@ open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma using (Σ≡Prop)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc ; isSetFin)
 import Cubical.Data.Sum.Properties as Sum
 import Cubical.Data.Prod as P
 
 open import NaturalMachine.FiniteNonabelianHolonomy
+open import NaturalMachine.FiniteGraphCylindricalEquivalence
 open import NaturalMachine.RelationalHolonomyRefinement
   using (closedLoopGaugeInvariant ; endpointGauge)
 
@@ -79,6 +80,21 @@ fixedProfile-gauge : (h g : ⟨ S₃ ⟩)
 fixedProfile-gauge =
   closedLoopGaugeInvariant S₃ fixedProfile fixedProfile-conjugation
 
+coarseLoopProfile : CoarseNetwork S₃ → Type₀
+coarseLoopProfile x = fixedProfile (P.proj₂ (P.proj₂ x))
+
+refinedLoopProfile : RefinedNetwork S₃ → Type₀
+refinedLoopProfile x = coarseLoopProfile (collapseNetwork S₃ x)
+
+-- The loop coordinate is untouched by stem subdivision, and this remains true
+-- when refinement is crossed as the actual univalent network path.
+fixedProfile-refinement : (x : RefinedNetwork S₃)
+  → coarseLoopProfile
+      (subst (λ X → X) (networkCylindricalPath S₃) (networkClass S₃ x))
+    ≡ refinedLoopProfile x
+fixedProfile-refinement x =
+  cong coarseLoopProfile (networkCylindricalTransport S₃ x)
+
 -- A concrete three-cycle.
 cycle₀₁₂ : ⟨ S₃ ⟩
 cycle₀₁₂ = s₀₁ S.· s₁₂
@@ -120,9 +136,27 @@ swap-fixed = fsuc (fsuc fzero) , refl
 identity-fixed : Fixed S.1g
 identity-fixed = fzero , refl
 
+identity-fixed-one : Fixed S.1g
+identity-fixed-one = fsuc fzero , refl
+
+swap-fixed-contractible : isContr (Fixed s₀₁)
+fst swap-fixed-contractible = swap-fixed
+snd swap-fixed-contractible (fzero , p) = Empty.rec (succNotZero3 p)
+snd swap-fixed-contractible (fsuc fzero , p) = Empty.rec (zeroNotSucc3 p)
+snd swap-fixed-contractible (fsuc (fsuc fzero) , p) =
+  Σ≡Prop (λ _ → isSetFin _ _) refl
+
+identity-fixed-distinct : identity-fixed ≡ identity-fixed-one → ⊥
+identity-fixed-distinct p = zeroNotSucc3 (cong fst p)
+
 -- Identity, transposition and three-cycle profiles are not collapsed together.
 identity-not-cycle : fixedProfile S.1g ≡ fixedProfile cycle₀₁₂ → ⊥
 identity-not-cycle p = cycle-no-fixed (subst (λ X → X) p identity-fixed)
 
 swap-not-cycle : fixedProfile s₀₁ ≡ fixedProfile cycle₀₁₂ → ⊥
 swap-not-cycle p = cycle-no-fixed (subst (λ X → X) p swap-fixed)
+
+identity-not-swap : fixedProfile S.1g ≡ fixedProfile s₀₁ → ⊥
+identity-not-swap p = identity-fixed-distinct
+  ((subst (λ X → isProp X) (sym p)
+    (isContr→isProp swap-fixed-contractible)) identity-fixed identity-fixed-one)

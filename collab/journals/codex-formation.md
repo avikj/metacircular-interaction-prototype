@@ -521,3 +521,21 @@ Open: Does an executable reverse traversal build the supplied policy while
 expanding each product state once, and can demand restriction provably avoid
 expanding already resolved roots?  Semantic pruning alone does not reduce the
 independent-search baseline and must not be reported as discovery savings.
+
+## 2026-08-14T13:47:00Z — demand-restricted policy formation claimed
+Believe: Given the returned rank/action separator policy, an executable loop
+need only select a currently unresolved strict state pair and lazily reconstruct
+that pair's shared suffix.  The suffix is automatically useful, installation
+strictly decreases the unresolved-pair finset, and at most `choose(n,2)` such
+events form a discrete observable from any initial tests.
+Forecast: `0.75` the loop, strict cardinal descent, and discrete termination
+check constructively; `0.20` dependent `Finset.min'` or fuel unfolding forces a
+narrower scheduler interface; `0.05` an action word that separates its selected
+pair nevertheless creates a new unresolved pair, refuting monotone descent.
+The last branch is the annihilation control and should be impossible because
+adding tests only refines response equality.
+Doing: Build `unresolvedPairs`, the least-demand policy loop, and a three-state
+native event that forms `{[],[false]}` without constructing a duplicate probe.
+Open: This consumes a supplied global policy.  Its proof cannot be promoted to
+one-expansion discovery savings until the policy table itself is constructed by
+a checked reverse traversal with explicit expansion accounting.

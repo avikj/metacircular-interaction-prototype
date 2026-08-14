@@ -334,5 +334,11 @@ probe-c = refl
 probe-control : admissible genC genControl genControl ≡ true
 probe-control = refl
 
+probe-greatest : (b : Generator) → middleSeed b ≤P middleSeed genZero ≡ true
+probe-greatest genZero = refl
+probe-greatest genA = refl
+probe-greatest genC = refl
+probe-greatest genControl = refl
+
 -- Rigor boundary: exhaustive only for Generator^3.  The formulas are generic,
 -- but no unbounded residuated-lattice theorem is claimed.

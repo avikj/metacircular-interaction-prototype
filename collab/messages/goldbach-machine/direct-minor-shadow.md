@@ -139,7 +139,7 @@ Under `(H_min)`, Fourier orthogonality and `(MA)` give
 \]
 
 Since `\mathfrak S_2(N)\ge s_0` and `E_M(N)=o(N)`, the right side is at
-least `(eta/2) mathfrak S_2(N)N` for all sufficiently large even `N`.
+least `(eta/2) \mathfrak S_2(N)N` for all sufficiently large even `N`.
 
 Conversely, `(HL_lb)` and `(MA)` give
 
@@ -223,7 +223,7 @@ prime-power boundary.
 ### Theorem 4.1 (scoped major-semantics no-go)
 
 Fix the exponent `B>0` used in the logarithmic major arcs.  There are
-arbitrarily large even targets `N`, primes `r congruent to 3 (mod 4)` with
+arbitrarily large even targets `N`, primes `r ≡ 3 (mod 4)` with
 
 \[
  Q_N<r\ll Q_N,
@@ -261,7 +261,7 @@ weight family.
 
 #### Construction
 
-Let `r congruent to 3 (mod 4)` be prime and let `chi_r` be the quadratic
+Let `r ≡ 3 (mod 4)` be prime and let `chi_r` be the quadratic
 character modulo `r`.  Choose an even multiple `N` of `r` with
 `Q_N<r\ll Q_N`; existence for arbitrarily large `N` is checked below.  Put
 
@@ -273,7 +273,7 @@ w_N(n)=
 Thus a prime in a nonzero quadratic-residue class receives weight `2 log p`,
 and every other integer receives weight zero.
 
-The involution `n mapsto N-n` is negation modulo `r`.  Since
+The involution `n ↦ N-n` is negation modulo `r`.  Since
 `chi_r(-1)=-1`, if `r` divides neither `n` nor `N-n`, then
 
 \[
@@ -359,7 +359,7 @@ proves (23).  Full-circle Fourier orthogonality and (22) then give (24).
 
 #### Existence of the target/conductor pairs
 
-There are infinitely many primes `r congruent to 3 (mod 4)`.  For each
+There are infinitely many primes `r ≡ 3 (mod 4)`.  For each
 sufficiently large such `r`, put
 
 \[
