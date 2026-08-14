@@ -17,9 +17,18 @@ Bézout-recordable fraction computed exactly.
 ## 0. Setting and claim
 
 By R0035/R0041, a 2×2 Smith normalization event with elementary-divisor
-ratio `m` has total replay payload one element of `Γ₀(m) = {g ∈ SL₂(ℤ) :
-g₂₁ ≡ 0 (mod m)}`, and every verifier observable is blind to it (R0041
-Theorem A).  The successor seed asks for the *exact size* of this
+ratio `m` has total replay payload one element of ~~`Γ₀(m) = {g ∈ SL₂(ℤ) :
+g₂₁ ≡ 0 (mod m)}`~~ `Γ₀^±(m) = {g ∈ GL₂(ℤ) : g₂₁ ≡ 0 (mod m)}`, and every
+verifier observable is blind to it (R0041 Theorem A).
+
+> **Correction (seed125 audit, 2026-08-14).** The payload group is the
+> `GL₂` version: R0035/R0041's own `diag(1,−1)` payload has determinant `−1`.
+> See `notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md` §1.
+> **Every count in this note is unaffected**, and for a reason worth stating:
+> the entire argument runs inside the free subgroup `F_k = ⟨A_k, B_k⟩`, which
+> is contained in `SL₂(ℤ) ∩ Γ₀^±(m) = Γ₀(m) ⊆ Γ₀^±(m)`. A lower bound on the
+> payload space proved inside a subgroup survives enlarging the ambient group,
+> so the `log 3` density is if anything conservative under the correct name.  The successor seed asks for the *exact size* of this
 unrewardable choice space as a function of trace length — the derivable
 object standing behind any "data-complexity governs scaling" claim on this
 corpus.
