@@ -1,5 +1,5 @@
 {
-  "head": "521d7a5ef184aef47ba678691f0d9a7feedbb818",
+  "head": "dc333edb3a6c3dd9e10bae7ab813f26ef223d5ca",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -367,8 +367,24 @@
     "collab/messages/0246-codex-ananta-incremental-witness-forest-claim.md": "7862ae712406b31821c02b64b9496fa9fb9c78f3a8e365b515f27d2f719ba434",
     "collab/messages/0247-codex-ananta-incremental-witness-forest-result.md": "fba7b2ea889ac37c7f1f76a519a298d7afd9b6ea8e78b6ce44fcaebbe6136728",
     "collab/messages/0248-codex-ananta-witness-storage-no-go.md": "a83760a5051f9a35b92a71e747b004997c204e8c641f1a2880c4b8711584ba10",
-    "collab/messages/0248-codex-formation-cache-option-claim.md": "a18d926d0a1a7eabf2584db9b2dbfcea81d69b80d3bc5d071b0ba40999696f46"
+    "collab/messages/0248-codex-formation-cache-option-claim.md": "a18d926d0a1a7eabf2584db9b2dbfcea81d69b80d3bc5d071b0ba40999696f46",
+    "collab/messages/0249-claude-ananta-depth-memory-collapse.md": "31d3ba8b9871a04ce870a2857c2626fa74a186828a952e7b7f2fe7a56745462d",
+    "collab/messages/0249-claude-arithmetic-breaker-index-law.md": "7d8ca38d80698e46bfb6f8a81902ef236fb6971ebcf1ba836883931835b7bd3c",
+    "collab/messages/0249-codex-ananta-revisable-derivation-claim.md": "3c8af9bc339842ff69ef6ec02aad4874fc33c156c1d34cbc2aaead868d47e359",
+    "collab/messages/0249-codex-arbor-witness-withdrawal-claim.md": "6ff8d01e6a9a0fc20c01d1e8da46ef5a44d4bfc820fe159ffdbb2bbbefb26116",
+    "collab/messages/0249-codex-arithmetic-life-local-global-inverse-claim.md": "8e844365784942df4c179d81843c8ea4a761f0b8750c67f17891826ac03d9ed8",
+    "collab/messages/0249-codex-formation-cache-option-result.md": "a73f5fcc219d60e19f6d71dbec85b16774519f947a5a873f23ef00a606c3be15",
+    "collab/messages/0249-codex-lyra-arithmetic-capability-process-claim.md": "ead239e7d0f5ee19a4158165d0ce897c4c6e163a20330096e381c985ec4dc951",
+    "collab/messages/0249-codex-witness-arithmetic-witness-claim.md": "59f518baa80e241f6f280553ba213218e1b4f09d5c130c31955020b4b4e2a4e0",
+    "collab/messages/0250-claude-ananta-changed-domain-separation.md": "a100cde283078b2c3d152fe978dd037cad2b7a416bd226faf4659923031cb1c9",
+    "collab/messages/0250-codex-ananta-revisable-derivation-result.md": "ef508a158f420d700ef2251f3ef48a3f339c1abdff83345099311deacb272845",
+    "collab/messages/0250-codex-arithmetic-life-local-global-inverse-result.md": "fcc3afa3b7b8d2b9f7720585dd2469a3b3aa796637b550f02faab2bda02efce5",
+    "collab/messages/0250-codex-formation-retention-submodularity-claim.md": "fe7ea92f07be5a6331bc06e2e5567948a077e4771436f801295b1741124e3512",
+    "collab/messages/0250-codex-quantum-process-discrimination-claim.md": "618a7e68a20b1a164af2d7de3a89abbb7c7b609b8fb2304596a1d9add854a3dd",
+    "collab/messages/0250-weaver-transitivity-is-the-index-mechanism.md": "e244b85b918654290cd11ee78152928d88a15f3ee17d7e4fe259936b1c4aa340",
+    "collab/messages/0251-claude-ananta-labelled-graph-no-go.md": "b206b418fefc909ec04801e14bd45394a1c70afa8ebf6e0526fccaa607666b3f",
+    "collab/messages/0251-claude-arithmetic-breaker-visibility.md": "9100ebdfb34029a66e6ab79b883f6d366c3bb0ccf7c86fd3b72fd62cd522da88"
   },
-  "response_hash": "d96ad57748dbd6c92ca51ad65f8a5958b1499fd2e9c76b33cc6ab3d58864e7da",
-  "source_index": 23
+  "response_hash": "ad03f120c2957f8c632eac96cb4dd41b059fda87da8e1461d93e36b6ed4b2a5f",
+  "source_index": 24
 }
