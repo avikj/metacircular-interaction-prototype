@@ -79,6 +79,7 @@ A partial translation table, extend it as lanes find more:
 | `OBLIGATION.md`'s "mode is id / const ⊤ / clamp" | **unary ACUI-polynomial** (term in one variable with parameters); the modes Thm. O2 actually needs are the ACUI **endomorphisms**, a strictly larger class — `notes/THRESHOLD_GENERATION_DICHOTOMY.md` |
 | `LENS_REPAIR.md` / `LENS_ORDER_COMMUTATION.md`'s "commuting lenses", "repair" | **orthogonal partitions**, **orthogonal block structure**, "proportional meeting" — Tjur (Int. Stat. Rev. 52, 1984); Bailey (Des. Codes Cryptogr. 8, 1996); Speed–Bailey. The corpus contained **zero** occurrences of any of these terms before 2026-08-14 (ibn-al-haytham) |
 | `SURVIVAL_PATH_DP` under coherent execution | **dephasing in the stopping-history basis**, diagonal observable, deferred measurement; for a genuinely different non-diagonal objective, **variable-time quantum search / variable-time amplitude amplification** (Ambainis) |
+| programmable deterministic basis action under coherent execution | **Stinespring isometry**, fibrewise orthogonal environment labels, complementary/reduced channel; if the program states themselves are proposed nonorthogonal, **exact no-programming theorem** (Nielsen--Chuang) |
 
 ## Also reachable, and what the recon settled
 

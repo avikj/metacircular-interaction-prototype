@@ -62,9 +62,14 @@ cycle-additive x y =
 
 -- Successively erase the repeated vertices of a closed walk.
 chain-step : (a b c : Bool) → (a ⊕ b) ⊕ (b ⊕ c) ≡ a ⊕ c
-chain-step a b c =
-  sym (⊕-assoc (a ⊕ b) b c)
-  ∙ cong (_⊕ c) (Torus.⊕-cancel a b)
+chain-step false false false = refl
+chain-step false false true  = refl
+chain-step false true  false = refl
+chain-step false true  true  = refl
+chain-step true  false false = refl
+chain-step true  false true  = refl
+chain-step true  true  false = refl
+chain-step true  true  true  = refl
 
 closed-six : (a b c d e f : Bool)
   → Torus.sum3 (a ⊕ b) (c ⊕ b) (c ⊕ d)

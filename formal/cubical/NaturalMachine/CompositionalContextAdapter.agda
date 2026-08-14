@@ -30,6 +30,7 @@ open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true ; isSetBool)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.HITs.SetQuotients as SQ
   using (_/_ ; [_] ; eq/ ; squash/)
 open import Cubical.Relation.Nullary using (¬_)
@@ -38,7 +39,7 @@ import NaturalMachine.FutureBehavior as FB
 
 private
   variable
-    ℓX ℓO ℓR : Level
+    ℓX ℓO ℓR ℓA ℓB ℓS ℓY : Level
     X : Type ℓX
     O : Type ℓO
 
@@ -304,3 +305,92 @@ now-kernel-not-magma-congruence congruence =
       {y = controlFixed} {y′ = controlFixed}
       same-now
       (reflexive congruence controlFixed))
+
+------------------------------------------------------------------------
+-- 5.  Adding operations refines the residual; the converse is false
+------------------------------------------------------------------------
+
+-- Reindex an experiment word along an action embedding.
+reindexWord : {A : Type ℓA} {B : Type ℓB}
+  → (A → B) → List A → List B
+reindexWord embed [] = []
+reindexWord embed (action ∷ word) = embed action ∷ reindexWord embed word
+
+-- Execution commutes with action reindexing whenever the large machine
+-- realizes every embedded small action exactly.
+run-reindex : {A : Type ℓA} {B : Type ℓB} {S : Type ℓS}
+    (smallStep : S → A → S) (largeStep : S → B → S) (embed : A → B)
+  → ((state : S) (action : A)
+      → largeStep state (embed action) ≡ smallStep state action)
+  → (state : S) (word : List A)
+  → FB.run largeStep state (reindexWord embed word)
+    ≡ FB.run smallStep state word
+run-reindex smallStep largeStep embed realizes state [] = refl
+run-reindex smallStep largeStep embed realizes state (action ∷ word) =
+  cong (λ next → FB.run largeStep next (reindexWord embed word))
+    (realizes state action)
+  ∙ run-reindex smallStep largeStep embed realizes
+      (smallStep state action) word
+
+-- More available actions can only split future-equivalence classes.  This is
+-- alphabet monotonicity, distinct from `futureEq-of-finer`, which refines the
+-- observation rather than the interventions.
+futureEq-restrict-actions :
+    {A : Type ℓA} {B : Type ℓB} {S : Type ℓS} {Y : Type ℓY}
+    (smallStep : S → A → S) (largeStep : S → B → S) (embed : A → B)
+    (observe : S → Y)
+  → ((state : S) (action : A)
+      → largeStep state (embed action) ≡ smallStep state action)
+  → {left right : S}
+  → FB.FutureEq largeStep observe left right
+  → FB.FutureEq smallStep observe left right
+futureEq-restrict-actions smallStep largeStep embed observe realizes
+    {left} {right} related word =
+  cong observe (sym (run-reindex smallStep largeStep embed realizes left word))
+  ∙ related (reindexWord embed word)
+  ∙ cong observe (run-reindex smallStep largeStep embed realizes right word)
+
+ExtendedAction : Type ℓX → Type ℓX
+ExtendedAction X = ContextAction X ⊎ ContextAction X
+
+extendedStep : (X → X → X) → (X → X → X)
+  → X → ExtendedAction X → X
+extendedStep old new state (inl action) = contextStep old state action
+extendedStep old new state (inr action) = contextStep new state action
+
+ExtendedContextEq : (X → X → X) → (X → X → X)
+  → (X → O) → X → X → Type _
+ExtendedContextEq old new observe = FB.FutureEq (extendedStep old new) observe
+
+adding-operation-refines :
+    (old new : X → X → X) (observe : X → O) {left right : X}
+  → ExtendedContextEq old new observe left right
+  → ContextEq old observe left right
+adding-operation-refines old new observe =
+  futureEq-restrict-actions
+    (contextStep old) (extendedStep old new) inl observe (λ _ _ → refl)
+
+-- Strictness control.  The old left-projection operation never exposes the
+-- hidden bit, while adding `leakingOperation` supplies exactly the context
+-- that does.  Therefore the converse of `adding-operation-refines` is false.
+blindOperation : ControlState → ControlState → ControlState
+blindOperation left _ = left
+
+blind-context-equal :
+  ContextEq blindOperation controlObserve controlLeft controlRight
+blind-context-equal [] = same-now
+blind-context-equal ((false , fixed) ∷ word) = blind-context-equal word
+blind-context-equal ((true , fixed) ∷ word) = refl
+
+extended-not-contextually-equal :
+  ¬ ExtendedContextEq blindOperation leakingOperation controlObserve
+      controlLeft controlRight
+extended-not-contextually-equal related =
+  false≢true (related (inr (false , controlFixed) ∷ []))
+
+adding-operation-converse-fails :
+  ContextEq blindOperation controlObserve controlLeft controlRight
+  × ¬ ExtendedContextEq blindOperation leakingOperation controlObserve
+      controlLeft controlRight
+adding-operation-converse-fails =
+  blind-context-equal , extended-not-contextually-equal

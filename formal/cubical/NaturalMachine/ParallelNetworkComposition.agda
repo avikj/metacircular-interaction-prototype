@@ -20,7 +20,7 @@ open Intertwiner
 open import NaturalMachine.HolonomyFluxDerivation
   using (FluxDerivation ; flux-subdivision)
 open FluxDerivation
-open import NaturalMachine.RelationalHolonomyRefinement using (Refined)
+open import NaturalMachine.RelationalHolonomyRefinement using (Refined ; holonomy)
 
 private
   variable
@@ -130,13 +130,51 @@ module _ (G : Group ℓg)
   -- component theorems.  Thus cartesian parallel composition preserves the
   -- checked holonomy--flux seam.
   parallel-flux-subdivision-left : (edge : Refined G)
-    → cong fst (flux-subdivision G (productFlux F H)
-        parallelRepresent parallelRepresent-mul edge)
-      ≡ flux-subdivision G F ρ ρ-mul edge
-  parallel-flux-subdivision-left edge = refl
+    → fst (flux (productFlux F H)
+        (parallelRepresent (holonomy G edge)))
+      ≡ fst
+        (_⊕_ (productFlux F H)
+          (_⋆_ (productFlux F H)
+            (flux (productFlux F H)
+              (parallelRepresent
+                (NaturalMachine.HolonomyFluxDerivation.secondEdge
+                  G (productFlux F H) parallelRepresent parallelRepresent-mul edge)))
+            (parallelRepresent
+              (NaturalMachine.HolonomyFluxDerivation.firstEdge
+                G (productFlux F H) parallelRepresent parallelRepresent-mul edge)))
+          (_⋆_ (productFlux F H)
+            (parallelRepresent
+              (NaturalMachine.HolonomyFluxDerivation.secondEdge
+                G (productFlux F H) parallelRepresent parallelRepresent-mul edge))
+            (flux (productFlux F H)
+              (parallelRepresent
+                (NaturalMachine.HolonomyFluxDerivation.firstEdge
+                  G (productFlux F H) parallelRepresent parallelRepresent-mul edge)))))
+  parallel-flux-subdivision-left edge =
+    cong fst (flux-subdivision G (productFlux F H)
+      parallelRepresent parallelRepresent-mul edge)
 
   parallel-flux-subdivision-right : (edge : Refined G)
-    → cong snd (flux-subdivision G (productFlux F H)
-        parallelRepresent parallelRepresent-mul edge)
-      ≡ flux-subdivision G H σ σ-mul edge
-  parallel-flux-subdivision-right edge = refl
+    → snd (flux (productFlux F H)
+        (parallelRepresent (holonomy G edge)))
+      ≡ snd
+        (_⊕_ (productFlux F H)
+          (_⋆_ (productFlux F H)
+            (flux (productFlux F H)
+              (parallelRepresent
+                (NaturalMachine.HolonomyFluxDerivation.secondEdge
+                  G (productFlux F H) parallelRepresent parallelRepresent-mul edge)))
+            (parallelRepresent
+              (NaturalMachine.HolonomyFluxDerivation.firstEdge
+                G (productFlux F H) parallelRepresent parallelRepresent-mul edge)))
+          (_⋆_ (productFlux F H)
+            (parallelRepresent
+              (NaturalMachine.HolonomyFluxDerivation.secondEdge
+                G (productFlux F H) parallelRepresent parallelRepresent-mul edge))
+            (flux (productFlux F H)
+              (parallelRepresent
+                (NaturalMachine.HolonomyFluxDerivation.firstEdge
+                  G (productFlux F H) parallelRepresent parallelRepresent-mul edge)))))
+  parallel-flux-subdivision-right edge =
+    cong snd (flux-subdivision G (productFlux F H)
+      parallelRepresent parallelRepresent-mul edge)

@@ -373,15 +373,19 @@ of information: a single Dirac continuation at each even center must be
 controlled, not only an averaged family norm.
 
 The follow-up arithmetic audit found one genuine but conditional coherence
-mechanism.  For a **specified** Siegel-zero self-pair of conductor `r`, the
-secondary term has a fixed sign on conductor multiples and recurs at about
-`X/r` centers.  It strictly outruns an `X^(3/5+epsilon)` exceptional budget
-when `r<=X^(2/5-delta)`.  No current theorem reverses this statement: one bad
-Goldbach center does not imply that such a zero exists, that its conductor
-divides the center, or that its packet dominates.
+mechanism.  For a **specified** real zero `tilde beta` of a primitive real
+character of conductor `r`, the self-pair secondary term has the fixed sign
+`tilde chi(-1)` on even multiples of `r`.  When
+`(1-tilde beta) log X=O(1)`, it has order `X` and recurs at about
+`X/lcm(2,r)` centers.  It strictly outruns an
+`O_epsilon(X^(3/5+epsilon))` exceptional budget when
+`r<=X^(2/5-delta)` and `epsilon<delta`.  No current theorem reverses this
+statement: one bad Goldbach center does not imply that such a zero exists,
+that its conductor divides the center, or that its packet dominates.
 
-At the power cutoff, the remaining sufficient interface splits into two
-independent statements recorded precisely in `arithmetic-antispike.md`:
+After the common-dyadic transport in item 1, a sufficient power-cutoff
+interface splits into two independent statements recorded precisely in
+`arithmetic-antispike.md`:
 
 - `(ZM)`: prescribed-center positivity of the main-plus-zero-mode major term;
 - `(AC)`: a conditional signed covariance that spreads a large negative raw
