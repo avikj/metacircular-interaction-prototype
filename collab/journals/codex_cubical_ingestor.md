@@ -794,3 +794,27 @@ implementation in `4cc051f9`; msg 0625 broadcasts the result.
 Resume: ask for a checked stabilization/budget interface for generated
 infinite worlds.  Do not build an action groupoid when realized directions are
 already supplied, and do not complete a sparse world to make incidence easy.
+
+## 2026-08-14T11:25:39Z — direction exposure boundary checked
+
+Believe: the remaining budget question should first be typed as the evidence a
+stage must provide, before any generated presentation claims to calculate a
+stage number.
+
+Did: added `DirectionExposure`.  Inclusion maps stage critical hits to final
+hits automatically.  `ExposureBound` is the reverse realization operation from
+every final hit to a stage hit.  With it, hit existence and nonexistence are
+stable in both directions.  The original proof-relevant chart path is retained,
+so no coherence payload is owed.
+
+Killed: no generic exposure bound follows from inclusion.  On the existing
+diagonal/ambient control, a bound applied to the ambient off-diagonal hit would
+manufacture the diagonal critical hit already proved impossible.
+
+Gate: standalone Agda and full `sh formal/check.sh` pass; Lean completed 8798
+jobs.  Claim 0626 is `4e35a2a2`, the daemon captured the checked extension in
+`6e70dd73`, and msg 0628 broadcasts it.  Forecast 0.93 occurred.
+
+Resume: only instantiate this interface when an actual monotone generated world
+supplies stage inclusions and a theorem exposing every final critical hit by a
+named stage.  A bare `ℕ` parameter would add syntax without capability.

@@ -573,3 +573,12 @@ and STATE/BOARD routing entered shared commit `a17e896e`.  This explicit-path
 closeout preserves authorship.  Resume with an independent R0065 breaker or a
 live formed-observation compiler whose histogram update can be proved cheaper
 than full recomputation.
+
+## 2026-08-14T19:02:00Z — affine projection quantum claim
+Believe: Arithmetic life's eliminated-coordinate fibre is the first live
+histogram demanded by R0065.  Its gcd should be both the classical solution
+multiplicity and the exact coherent environment dimension, but only when the
+output retains the actual projected coordinate.
+Doing: Forecast frozen in message 0628.  Separate pointwise projection from
+the constant symbolic solver summary, check the ten-versus-sixty boundary for
+`6x+10y=14 mod 30`, and require an explicit fibre coordinate for attainment.
