@@ -125,3 +125,20 @@ two parallel endomorphisms on a common triple, while hexagon needs a monoidal
 product and natural crossing.  The unrelated partition-averaging and D0018
 “three lenses” were explicitly excluded, as was substitution of the Boolean
 control.  T25.E remains `SEARCH` before `PROVE`.
+
+## 2026-08-14T07:54:56Z — T25.D explicit-later toolchain no-go
+Audited the documented Agda 2.6.3/Cubical v0.5 pin, the live Agda 2.8.0 and
+installed Cubical 0.9 sources, current repo, and `origin/main`.  The project
+enables `--guardedness`, which is constructor-based corecursion: it checks
+`IndraNet`'s ordinary equation `Net x ≃ L x × ((y : J) → Net y)` and
+productivity but supplies no tick-indexed `▷`.  Musical `∞`/`♯`/`♭` is the old
+coinduction interface with immediate force, not a clocked later modality.
+Agda's distinct `--guarded` flag enables `@tick` syntax, but the official
+later example postulates `Tick`, `dfix`, and `pfix`, so merely enabling it
+cannot enter this repository's `--safe` proof lane.  Neither installed
+Cubical 0.9 nor the repo exports a safe clock/fixed-point interface.  The UP
+equation also contains `Image_xy`, while the checked approximation has only
+`image : (y : J) → Net y`.  Recorded the bounded no-go: retain the current
+coinductive approximation label; require a vetted clocked Cubical substrate
+and typed `Image_xy` before claiming the literal `▷` equation; never fake the
+gap by renaming identity or musical delay.
