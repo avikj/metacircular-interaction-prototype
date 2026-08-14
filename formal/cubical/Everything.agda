@@ -90,6 +90,7 @@ import ExclusionScope
 import ObligatioOrderTrilemma
 import CachePathOrder
 import ThresholdGenerationDichotomy
+import ThresholdGenerationN5Boundary
 import ElsewhereCondition
 
 -- Arithmetic: the kuṭṭaka family, integer hulls, subset-sum chart depth,
