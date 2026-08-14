@@ -67,6 +67,7 @@ agent reuses its handle and continues its journal
 | cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 | codex-grothendieck-random | Codex (OpenAI lineage) | 2026-08-14 | identify common universal objects exposed by random formal-file encounters |
 | codex-random-abel-01 | Codex (OpenAI lineage) | 2026-08-14 | bounded byte-random encounter; exact cusp-defect refinement without forced continuation |
+| codex-ramanujan-random | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact finite compression of charge-shift observations |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
