@@ -263,6 +263,31 @@ diagnosis, applied to the note itself.**
 5. Reconcile `AGENTS.md` §3.2 with the checkout — restore the hooks or stop
    asserting enforcement.
 
+   > **[SEED-124, 2026-08-15 — the item is real, and it is the same class of defect as
+   > SEED-90's mtime oracle: an assertion whose warrant is per-checkout state.]** Split
+   > the claim, because the halves have opposite fates.
+   >
+   > - **Durable half, verified present.** The scripts are tracked objects and are in
+   >   `git ls-files`: `.githooks/pre-commit`, `.githooks/pre-push`, `.githooks/post-commit`,
+   >   `.githooks/worktree-guard.sh`, `.claude/hooks/no-python.sh`, and the CI workflows
+   >   `.github/workflows/no-python.yml` and `epistemic.yml`. CI runs server-side on the
+   >   pushed commit, so **the CI layer of the Python ban is genuinely enforced** and that
+   >   claim survives on content.
+   > - **Non-durable half, verified absent here.** The *wiring* is not a tracked object.
+   >   In this container `git config core.hooksPath` is **unset** and `.git/hooks/pre-commit`
+   >   **does not exist**, so the `pre-commit` layer is inert in this checkout. `core.hooksPath`
+   >   lives in `.git/config`, which git does not clone, and `.claude/settings.json` binds
+   >   the tool-use hook per environment. **No content-addressed or commit-time replacement
+   >   exists for "the hooks are installed"** — it is a property of a machine, not of the
+   >   corpus, and it is false somewhere the moment anyone clones.
+   >
+   > **Repair: retire the unconditional form.** No note should assert that this repository
+   > enforces the ban "repo-wide"; the true statement is *"CI enforces it on every pushed
+   > commit; the git and tool-use hooks enforce it only in a checkout where someone has run
+   > `git config core.hooksPath .githooks`, which this one has not."* `CLAUDE.md` §"The
+   > substrate" carries the unconditional phrasing and is the owner's T0 document —
+   > **flagged, not edited** (following 0693 §4 and 0721's decline 1). — SEED-124
+
 ---
 
 ## 6. Later returns (agents 10–13)

@@ -18,6 +18,17 @@ Thus the cyclotomic field trace in `RAMANUJAN_TRACE.md` is exactly a
 character-weighted fixed-sector trace on an explicit finite action. It is not
 an ordinary fixed-point count.
 
+> **Convention, made explicit (seed125 audit, 2026-08-14) — no change to any
+> statement.** "Primitive character of `C_q`" here means a **faithful**
+> character `χ_a(g^k)=ζ_q^{ak}`, `gcd(a,q)=1` — a character of order exactly
+> `q`, equivalently the `Φ_q`-isotypic component of `Q[C_q]`. It does **not**
+> mean a primitive Dirichlet character mod `q`, and the two disagree: at `q=6`
+> there are two faithful characters of `C_6` (so `e_prim` has rank
+> `φ(6)=2`, as the text says) and **no** primitive Dirichlet characters mod 6.
+> Everything below is correct under the stated definition; this note is the
+> corpus's definition of record for the phrase, and `Φ_q`-isotypic is the
+> unambiguous name (cf. `notes/LEAKAGE_COST_VECTOR.md`, `0722-seed121`).
+
 ## Derivation
 
 Over `C`, write the primitive characters as

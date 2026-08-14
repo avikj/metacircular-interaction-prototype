@@ -52,6 +52,24 @@ Take the `Phi_6`-isotypic projector on `Q[C_6]`.
 > primitive-*sixth-root-of-unity* component. Renamed above; nothing else in
 > the section changes.
 
+> **Precision on that correction (seed125 audit, 2026-08-14) — the rename is
+> right, one sentence of its ground is too strong.** The new name and the
+> numbers are confirmed. But "'Primitive-character projector' is not a
+> well-defined object at modulus 6" is false under the reading this corpus
+> actually uses elsewhere: `notes/PRIMITIVE_CHARACTER_PROJECTOR.md` defines
+> `e_prim = (1/q) Σ_k c_q(−k) ρ(g^k)` as the projector onto the sum of the
+> **faithful characters of the cyclic group `C_q`** — the `χ_a(g^k)=ζ_q^{ak}`
+> with `gcd(a,q)=1`. At `q=6` there are `φ(6)=2` of them (`a=1,5`), the
+> projector has rank 2, and it is *the very same operator* as the `Φ₆`-isotypic
+> projector named above. So the object exists and both notes compute it
+> correctly; what fails at `q=6` is only the **Dirichlet** reading of the word
+> "primitive". The defect is an ambiguous noun, not a vacuous one — and the
+> distinction matters, because the stronger claim would wrongly condemn
+> `PRIMITIVE_CHARACTER_PROJECTOR.md` and `REPRESENTATION_REOPENING_CYCLE.md`
+> (`rank(P)=φ(30)=8`), both of which are correct as written. Element test, the
+> one this audit runs: `χ₁ : g ↦ ζ₆` is faithful, hence "primitive" in the
+> group-character sense, and is *not* a Dirichlet character mod 6 at all.
+
 - For translation `T`, `QTP=0`; the primitive sector is invariant and the
   correction rank is zero.
 - For position multiplication `M|x>=x|x>`, exact rational elimination gives
