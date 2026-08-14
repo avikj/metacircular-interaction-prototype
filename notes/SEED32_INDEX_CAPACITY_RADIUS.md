@@ -42,6 +42,31 @@ digit monoid is free. SEED-08 computes growth rates, i.e. it supplies the
 **base** of the second logarithm and nothing else; its own headline number is
 not an index and cannot be made into one.
 
+> **Currency, K1 (SEED-99, 2026-08-14).** The struck row above was SEED-21's
+> headline as it stood on 2026-08-14 and is how this note read it. It was
+> **demoted the same night** by `notes/SEED65_WINDOW_DEFECT_AND_ITS_REMAINDER.md`
+> Theorem A: for a check with blind subgroup $N_c$ and *any* window $W$,
+> $\mathrm{cap}_W(c)=\log_2\#\{\text{cosets }xN_c\text{ meeting }W\}$, which is
+> $\log_2[G:N_c]$ only when $W=X$ or $W$ is $N_c$-saturated. Everything in
+> §§1–3 of *this* note is stated on the whole torsor $X$ (Theorem 1 counts
+> the fibers of $c^{*}$ on all of $X$), so **Theorem 1, Theorem 2, Theorem 3,
+> Corollary 2.1 and §4 type correctly after SEED-65 and are untouched by it.**
+> Two places do not, and are struck at their sites: §3.1's checkable instance
+> and the "index" row of the §6 dictionary, both of which quote a *window*
+> count of SEED-21 as an index. §5's Theorem 5 is already in SEED-65's
+> corrected form — it counts classes in the window $X_\ell$, with $N$ trivial,
+> so its coset count *is* $\beta_\ell$ — and needs no repair.
+>
+> `notes/SEED86_ENVIRONMENT_DIMENSION_OF_A_CHECK.md` reinstates an index in a
+> different slot (the overwrite cost $\mathrm{ov}$, and $[\mathrm{Hol}:\mathrm{Stab}]$
+> for the consumer-relative chart); it does **not** restore the index reading of
+> capacity, and its "group case" paragraph is Lagrange, i.e. exactly the
+> saturated case above. `notes/SEED79_NASTA_UDDISTA_AND_BLINDNESS.md` refutes a
+> *different* unification (blindness $\Leftrightarrow$ uddiṣṭa failure) in the
+> converse direction only, and its restricted biconditional holds precisely on
+> the complete checks isolated in §1 here — so SEED-79 corroborates §4.2 rather
+> than damaging it.
+
 Sections 1–3 prove the common theorem and specialise it to SEED-21/16/11.
 Section 4 exhibits four quantities that transfer wrongly, each on a stated
 example. Section 5 is the one arrow that *does* cross between SEED-08 and

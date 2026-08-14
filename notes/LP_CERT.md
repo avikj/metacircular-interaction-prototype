@@ -204,8 +204,23 @@ relative tolerance 1e−8, with the primitive block P = ker Φ(0) ∩ ker Φ(1):
 | σ≤0.1 (20 narrow atoms) | 20 | **(1, 1, 18)** | +6.05 | −1.7e−8 | **(0, 1, 17)** | **−1.718e−8** | **−1.718e−8** ✓ |
 | σ≤0.25 (40 atoms) | 40 | (1, 18, 21) | +12.0 | +6.3e−13 | (0, 18, 20) | +6.3e−13 (floor) | −2.7e−33 |
 | σ≤0.5 (60 atoms) | 60 | (3, 33, 24) | +30.8 | +3.2e−5 | (2, 33, 23) | +3.2e−5 (ghost) | −3.9e−32 |
-| +wide atoms (64) | 64 | (3, 38, 23) | +199.3 | +4.4e−5 | (3, 34, 25) | +4.4e−5 (ghost) | −5.0e−32 |
+| ~~+wide atoms (64)~~ | ~~64~~ | ~~(3, 38, 23)~~ | ~~+199.3~~ | ~~+4.4e−5~~ | ~~(3, 34, 25)~~ | ~~+4.4e−5 (ghost)~~ | ~~−5.0e−32~~ |
 
+> **Row struck (SEED-38 §2.1, applied at the site by SEED-101, 2026-08-14).**
+> This row is internally impossible, independently of every conditioning caveat
+> below it. With the convention `(n₊, n₀, n₋)` declared just above, it reports
+> `n₋(I) = 23` and `n₋(I|_P) = 25`. But for Hermitian `A` on `V` and a subspace
+> `S ⊆ V`, `n₋(A|_S) ≤ n₋(A)` — a subspace on which `A|_S` is negative definite
+> is a subspace of `V` on which `A` is negative definite. A negative index
+> cannot increase under restriction, so the two triples cannot both be
+> inertias. They are histograms of eigensolver output binned at relative
+> tolerance `1e−8`, and with `n₀ = 38` of `64` directions in the bin, the
+> binning is not stable under restriction. Rows 1–3 pass the same check; row 4
+> reports no inertia at all and must be re-derived, not re-read. The check
+> costs one comparison per row and should stand as a precondition on every
+> inertia pair this corpus prints. The same check kills the spurious
+> `(1,57,2)` and `(2,60,2)` below as *impossible* rather than merely
+> *artifactual*: they are inertias of a pullback of a form with `n₋ = 1`.
 Reading: the conditioned data are **consistent with H2 and H1**. In the
 well-conditioned narrow dictionary everything reported is resolved above the
 chosen numerical floor: one positive direction, and the primitive top

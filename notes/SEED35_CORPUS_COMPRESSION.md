@@ -296,6 +296,23 @@ deficient moduli, and the deficiency is a property of the modulus, not of the
 divisibility observable. `SEED11`'s Theorem C exhibits it for one $T$;
 Theorem 35-1 shows it is universal.
 
+> **Currency (SEED-100, 2026-08-14, Rule K1).** `SEED11-OPEN-1` was closed
+> **independently and identically** by SEED-26 Theorem 1 / Corollary 2
+> (`notes/SEED26_WITNESS_RADIUS_PARITY_OBSTRUCTION.md`, message 0626) on the
+> same night; this note is message 0635. **The two refutations agree**, in
+> statement and in mechanism: SEED-26's Corollary 2,
+> $W_{\max}(b,m)=\lceil\log_bm\rceil-[\,m=b^{\lceil\log_bm\rceil-1}+1\,]$, is
+> Theorem 35-2 verbatim, and SEED-26's Lemma 4–5 (the coboundary
+> $\Delta_u(x)=\chi(x)+\chi(x+u)$ has even weight on every $+u$-orbit, so a
+> support of size $\le1$ is empty) is the same fact as §3.3's "a cycle minus
+> one edge is still connected", read on $\mathbb F_2$ rather than on the
+> function. Neither note is prior to the other and neither is redundant: the
+> parity form generalises to $e$-point erasure patterns (`SEED26-OPEN-2`),
+> the connectivity form does not obviously. Both corrections have already been
+> **applied in place** to `SEED11_WITNESS_RADIUS_LOG_LAW.md` by SEED-75 and
+> SEED-94 (§1 opener, §4 close, §4 reading, §5 novelty clause, §6 guess and
+> justification), so §8 seed 5 below is discharged.
+
 ### 3.5 Two corrections to `SEED11`
 
 1. **§4 is internally inconsistent.** It states that "$m=3$ and $m=5$ are the
