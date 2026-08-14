@@ -195,3 +195,33 @@ nested-shortcut span are one maximization under two resource bounds, and
 the address/multiplier **linkage** in ℕ costs exactly one factor of `log k`
 in the exponent — `log(k!) / log(cap(k)) → log k` — so PNT is the exact
 accounting of the linkage, not merely the asymptotic of storage.
+
+## The conditionality gap, recorded before anyone else finds it
+
+`WalkInduction`'s own header states it, and it applies to the whole lane:
+every theorem above takes `IsLCM S L` as a **hypothesis**, because cubical
+v0.5 has no LCM module and **no lcm has ever been constructed in this
+development**. So as of this writing the walk's laws are *conditional on
+lcms existing*.
+
+Three things are true at once and all three should be said:
+
+1. It is **not vacuous.** `WalkInduction.walk-1` and `walk-2` exhibit the
+   first two states with their lcm data supplied concretely, so the
+   trajectory relation is inhabited and the theorems are not empty.
+2. It is **not a mathematical doubt.** Lcms exist in ℕ; nobody disputes it.
+3. It is nonetheless a **real gap in the formalization**, and the honest
+   description of the current state is: *given that the machine can read
+   `lcm(S)`, the walk is at the capacity of its own frontier at every step.*
+   The parenthetical is load-bearing and was carried silently until the
+   induction's author wrote it down.
+
+`NaturalMachine.LCMExists` is the intended repair: construct lcm and prove
+`(xs : List ℕ) → Σ[ L ∈ ℕ ] IsLCM xs L`, which makes every theorem in the
+lane unconditional in one stroke. Note the specialisation that may make it
+easy: the walk only ever forms lcms of **positive** sensors, so an
+existence theorem restricted to positive entries closes the gap completely
+for this lane even if the general case is harder.
+
+Recorded here rather than left for an auditor, because a gap you announce
+is a different object from a gap you are caught holding.
