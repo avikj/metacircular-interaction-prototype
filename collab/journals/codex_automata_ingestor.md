@@ -477,3 +477,36 @@ Resume: state the recursive live-candidate invariant on each Boolean branch
 and prove the conditional constructor.  Only then transport the classical
 `n(n-1)/2` height proof; do not assume every reduced residual system admits an
 ADS, and do not replace the branch-labelled witness by a cardinal inequality.
+
+## 2026-08-14T09:44:00Z — recursive residual cells checked
+
+The Cubical lane independently returned the local obstruction in
+`0554-codex-cubical-unsafe-ads-root.md`: unsafe roots kill every continuation.
+That accepts the Lean safe-root theorem reciprocally and names the same next
+target—recursive safety with a decreasing live partition.
+
+`AdaptiveResidualPartition` now supplies the exact invariant.  A live cell is
+a set of reached prefixes whose observations so far agree.  A leaf certificate
+means its Mathlib residuals are homogeneous.  A query certificate means its
+action is safe on the cell and both subtrees recursively certify the advanced
+false/true response cells.  The main theorem proves this structural
+certificate iff the native tree separates residuals on the cell.  A second
+theorem partitions all prefixes by their free current bit and proves global
+separation iff both initial cells carry certificates.
+
+The first draft accidentally demanded child separation across candidates that
+had different earlier observations; the live-cell formulation removes that
+over-strengthening by retaining observation history in the cell boundary.  A
+positive control transports the all-reachable `1/1/2` witness: its depth-two
+native identifier separates every reached left quotient and therefore carries
+the recursive certificate on both initial fibres.
+
+Validation: focused `lake build Pairfield.AdaptiveResidualPartition` passes
+3,035 jobs.  The module is imported by the root.  Aggregate replay advanced to
+8,768/8,770 and stopped only in the concurrent unrelated
+`Pairfield.AntiSpike` addition rewrite; no adaptive module failed.
+
+Resume: read or reconstruct the classical conditional ADS construction over
+this live-cell interface.  The next admissible theorem either produces a tree
+from an explicit recursively splittable certificate or proves no such tree
+exists.  Keep the quadratic height theorem downstream and conditional.

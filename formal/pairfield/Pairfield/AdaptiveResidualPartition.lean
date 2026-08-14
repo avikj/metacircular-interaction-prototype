@@ -9,6 +9,7 @@ two continuation trees must recursively split the response-selected advanced
 cells.
 -/
 import Pairfield.AdaptiveResidualSplitting
+import Pairfield.LinearAdaptiveGap
 
 namespace Pairfield
 
@@ -344,5 +345,46 @@ theorem adaptiveTree_initialResidualSplitting :
     automaton adaptiveTree).1 adaptiveTree_separatesPrefixResiduals
 
 end AdaptiveResidualPartitionControl
+
+namespace LinearAdaptiveResidualPartitionControl
+
+open LinearAdaptiveGap
+
+/-- Every member of the reachable linear-gap family transports from native
+state identification to separation of its reached Mathlib residuals. -/
+theorem omitOneTree_separatesPrefixResiduals {n : Nat}
+    (omitted : Fin n) :
+    (omitOneTree omitted).SeparatesPrefixResiduals (automaton n) := by
+  intro left right htrace
+  have heval : (automaton n).eval left = (automaton n).eval right := by
+    apply omitOneTree_identifies omitted
+    rw [← acceptsBool_automaton n]
+    change
+      (omitOneTree omitted).trace (automaton n).step
+          (acceptsBool (automaton n)) ((automaton n).eval left) =
+        (omitOneTree omitted).trace (automaton n).step
+          (acceptsBool (automaton n)) ((automaton n).eval right)
+    simpa [BranchTrace] using htrace
+  calc
+    BranchResidual (automaton n) left =
+        stateLanguage (automaton n) ((automaton n).eval left) :=
+      leftQuotient_eq_stateLanguage_eval (automaton n) left
+    _ = stateLanguage (automaton n) ((automaton n).eval right) := by
+      rw [heval]
+    _ = BranchResidual (automaton n) right :=
+      (leftQuotient_eq_stateLanguage_eval (automaton n) right).symm
+
+/-- The symbolic depth-`n-1` family therefore carries the same recursive
+safe-action/live-cell certificate for every `n` and every omitted state. -/
+theorem omitOneTree_initialResidualSplitting {n : Nat}
+    (omitted : Fin n) :
+    ∀ response : Bool,
+      (omitOneTree omitted).ResidualSplitting (automaton n)
+        (ResidualCell.initial (automaton n) response) :=
+  (BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting
+    (automaton n) (omitOneTree omitted)).1
+      (omitOneTree_separatesPrefixResiduals omitted)
+
+end LinearAdaptiveResidualPartitionControl
 
 end Pairfield

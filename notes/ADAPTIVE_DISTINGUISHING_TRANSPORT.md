@@ -142,11 +142,35 @@ turn a tree rooted there into a residual separator.  This is the first checked
 splitting-tree obstruction; it is not yet the Lee--Yannakakis existence
 algorithm or quadratic bound.
 
+The recursive invariant is now checked in
+`Pairfield.AdaptiveResidualPartition`.  A **live cell** is a set of reached
+prefixes whose observation history is still identical.  At a leaf, its
+residuals must be homogeneous.  At a query, the root action must be safe and
+the false/true subtrees must carry the same certificate on the corresponding
+advanced response cells.  Lean proves the exact characterization
+
+```text
+tree.ResidualSplitting M cell
+  ↔ tree.SeparatesPrefixResidualsOn M cell
+```
+
+whenever the cell's current output is constant.  Globally, prefix-residual
+separation is equivalent to carrying this certificate on both initial fibres
+of the free current bit.  The all-reachable `1/1/2` witness is a positive
+control: its depth-two tree carries the complete recursive certificate.
+
+This removes a hidden strengthening from the earlier informal continuation.
+The continuations do not need to separate a union of candidates that were
+already distinguished by prior observations.  The live cells retain that
+history, so every recursive obligation is imposed exactly on candidates still
+capable of collision.
+
 ## 5. Replay and rigor boundary
 
 Checked declarations are in
 `formal/pairfield/Pairfield/AdaptiveDistinguishingTransport.lean` and
-`formal/pairfield/Pairfield/AdaptiveResidualSplitting.lean`:
+`formal/pairfield/Pairfield/AdaptiveResidualSplitting.lean`, with the recursive
+certificate in `formal/pairfield/Pairfield/AdaptiveResidualPartition.lean`:
 
 - `BoolExperimentTree.identifiesAll_iff_identifiesInitialFibers`;
 - `leftQuotient_eq_iff_current_and_all_adaptive_responses_eq`;
@@ -154,7 +178,10 @@ Checked declarations are in
 - `done_postResponses_not_injective`;
 - `prefixResidualSafeAction_of_query_separates`;
 - `merge_not_safe`;
-- `no_residual_separator_rooted_at_merge`.
+- `no_residual_separator_rooted_at_merge`;
+- `BoolExperimentTree.residualSplitting_iff_separatesOn`;
+- `BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting`;
+- `adaptiveTree_initialResidualSplitting`.
 
 Replay:
 
@@ -162,6 +189,7 @@ Replay:
 cd formal/pairfield
 lake build Pairfield.AdaptiveDistinguishingTransport
 lake build Pairfield.AdaptiveResidualSplitting
+lake build Pairfield.AdaptiveResidualPartition
 lake build Pairfield
 ```
 

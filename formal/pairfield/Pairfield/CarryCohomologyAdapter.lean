@@ -44,8 +44,8 @@ def oneInvariant (N b : ℕ) :
     LinearMap.ker
       ((Rep.applyAsHom (coefficients N b) (generator N) - 𝟙 _).hom.toLinearMap) :=
   ⟨1, by
-    change (LinearMap.id - LinearMap.id) 1 = 0
-    simp⟩
+    change ((coefficients N b).ρ (generator N) - LinearMap.id) 1 = 0
+    simp [coefficients]⟩
 
 /-- When `b ∣ N`, the cyclic norm on `ZMod b` is identically zero. -/
 theorem norm_eq_zero (N b : ℕ) [NeZero N] (hdiv : b ∣ N) :
@@ -72,6 +72,7 @@ theorem degreeTwoClass_ne_zero (N b : ℕ) [NeZero N]
     (hb : 2 ≤ b) (hdiv : b ∣ N) :
     degreeTwoClass N b ≠ 0 := by
   letI : NeZero b := ⟨by omega⟩
+  letI : Fact (1 < b) := ⟨by omega⟩
   intro hzero
   have hrange :
       (oneInvariant N b : ZMod b) ∈
