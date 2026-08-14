@@ -349,6 +349,19 @@ degree where a closed form exists is \(-1\).** SEED-34 was right to decline a
 universal orientation claim; this section shows the decline was necessary, not
 cautious.
 
+> **Scope check, 2026-08-14 (SEED-103, Rule K K2).** I re-derived (1.1) and
+> \(L=(p-r)^2\) independently and both hold; the conclusion "no universal
+> orientation" stands, given SEED-34's \(L=-7=\mathcal C(q_1)\) at the decic
+> (verified against `SEED34` §… data line, unchanged). One caveat the section
+> does not state: at \(n=4\) the factor \(K=p-r\) has \(\deg_TK=0\), so
+> \(L=\operatorname{Res}_T(\widehat H,K)=K^{\deg\widehat H}\) is a *degenerate*
+> instance of the decic construction (there \(\deg_TK=4\)). The refutation of a
+> universal orientation is therefore sound as a refutation — two degrees give
+> two signs under one definition — but "the first computable degree" should not
+> be read as "the first non-degenerate one". The `PROVE` item below (degree 6)
+> is the first non-degenerate case and is the right next step for that reason
+> too.
+
 Two corollaries fall out of (1.1) and are worth recording:
 
 * \(\mathcal C(P)\le0\) for every \(P\in\mathcal R_4\), with equality iff
@@ -482,8 +495,8 @@ series, so it matters that the constraint is labelled as belonging to it.
   the compositeness of \(117,118\)) is an exact finite computation exhibited in
   full.
 * **Prior art.** \(\mathcal C^\circ=\operatorname{disc}\widehat G\) and
-  \(\operatorname{disc}P=P(1)P(-1)\operatorname{disc}(\widehat G)^2\) are the
-  standard discriminant formula for a reciprocal polynomial under the
+  \(\operatorname{disc}P=(-1)^mP(1)P(-1)\operatorname{disc}(\widehat G)^2\)
+  (sign per SEED-103) are the standard discriminant formula for a reciprocal polynomial under the
   Chebyshev/trace substitution \(T=x+x^{-1}\) (the same computation that gives
   \(\operatorname{disc}\) of a real quadratic field's minimal polynomial from
   its trace form); no novelty is claimed for them. The novelty claimed is
