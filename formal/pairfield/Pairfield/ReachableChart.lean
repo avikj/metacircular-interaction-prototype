@@ -107,18 +107,22 @@ theorem accepts_eq : C.toDFA.accepts = M.accepts := by
   rw [show word ∈ C.toDFA.accepts ↔
       word ∈ M.acceptsFrom (C.rep C.start) from
     C.mem_acceptsFrom_iff C.start word]
-  exact iff_of_eq (by
-    simpa [behavior, DFA.eval, run_eq_evalFrom] using (C.start_sound word))
+  change M.evalFrom (C.rep C.start) word ∈ M.accept ↔
+    M.eval word ∈ M.accept
+  simpa [behavior, DFA.eval, run_eq_evalFrom] using (C.start_sound word)
 
 theorem leftQuotient_eq (pre : List A) :
     C.toDFA.accepts.leftQuotient pre = M.accepts.leftQuotient pre := by
   rw [C.accepts_eq]
 
-/-- An explicit finite behavioral presentation is constructive data strictly
-stronger than the proposition that the language is regular. -/
-theorem accepts_isRegular : M.accepts.IsRegular := by
+/-- An explicitly supplied presentation proves regularity.  Conversely,
+`NerodeChartAdapter` constructs such a presentation from regularity using
+classical choice; the strengthening here is operational, not logical. -/
+theorem accepts_isRegular (P : FiniteBehavioralPresentation M) :
+    M.accepts.IsRegular := by
   apply Language.isRegular_iff.mpr
-  exact ⟨C.State, C.fintypeState, C.toDFA, C.accepts_eq⟩
+  refine ⟨_, P.fintypeState, P.toDFA, ?_⟩
+  exact P.accepts_eq
 
 /-- Install the chart cardinality as the sufficient search horizon. -/
 def shortestLeftQuotientWitness

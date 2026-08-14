@@ -147,16 +147,16 @@ module _ (R : CommRing ℓ) where
 
  private
   lem₁ : (p q : ⟨ R ⟩) → (p + q) - (q - p) ≡ (1r + 1r) · p
-  lem₁ = solve R
+  lem₁ = solve! R
 
   lem₂ : (p q : ⟨ R ⟩) → (p + q) + (q - p) ≡ (1r + 1r) · q
-  lem₂ = solve R
+  lem₂ = solve! R
 
   lem₃ : (s d : ⟨ R ⟩) → (s - d) + (s + d) ≡ (1r + 1r) · s
-  lem₃ = solve R
+  lem₃ = solve! R
 
   lem₄ : (s d : ⟨ R ⟩) → (s + d) - (s - d) ≡ (1r + 1r) · d
-  lem₄ = solve R
+  lem₄ = solve! R
 
  ΨΦ′-is-double : (x : Pair) → Ψ (Φ′ x) ≡ (two · x .fst , two · x .snd)
  ΨΦ′-is-double (p , q) = ≡-× (lem₁ p q) (lem₂ p q)
@@ -197,10 +197,10 @@ module _ (R : CommRing ℓ) where
 
  private
   lemτ : (p q : ⟨ R ⟩) → q · p ≡ p · q
-  lemτ = solve R
+  lemτ = solve! R
 
   lemJ : (p q : ⟨ R ⟩) → p · (- q) ≡ - (p · q)
-  lemJ = solve R
+  lemJ = solve! R
 
  -- The Weyl reflection preserves the split norm …
  τ-preserves-Q : (x : Pair) → Q (τ x) ≡ Q x
@@ -227,7 +227,7 @@ module _ (R : CommRing ℓ) where
    -- The solver takes the QUANTIFIED goal, never the intro'd one — the
    -- same convention `BUILD.md` records for `NatSolver`.
    step : (h x : ⟨ R ⟩) → h · ((1r + 1r) · x) ≡ (h + h) · x
-   step = solve R
+   step = solve! R
 
    halve : (x : ⟨ R ⟩) → half · ((1r + 1r) · x) ≡ x
    halve x = step half x ∙ cong (_· x) half+half ∙ ·IdL x

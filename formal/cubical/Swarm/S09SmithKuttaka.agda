@@ -93,31 +93,31 @@ record Cert (a m : R) : Type where
 
 private
   pad : (x c : R) → x ≡ x + c · 0r
-  pad = solve ℤCommRing
+  pad = solve! ℤCommRing
 
   tidy : (x : R) → 1r · 1r · x ≡ x
-  tidy = solve ℤCommRing
+  tidy = solve! ℤCommRing
 
   keyA : (a m u ε p q r s : R)
        → (ε · u · s) · (u · (a · p + m · r))
          + (- (ε · u · r)) · (u · (a · q + m · s))
          ≡ (u · u) · (ε · (p · s - q · r)) · a
-  keyA = solve ℤCommRing
+  keyA = solve! ℤCommRing
 
   keyM : (a m u ε p q r s : R)
        → (- (ε · u · q)) · (u · (a · p + m · r))
          + (ε · u · p) · (u · (a · q + m · s))
          ≡ (u · u) · (ε · (p · s - q · r)) · m
-  keyM = solve ℤCommRing
+  keyM = solve! ℤCommRing
 
   dSum : (a m u p r : R) → a · (u · p) + m · (u · r) ≡ u · (a · p + m · r)
-  dSum = solve ℤCommRing
+  dSum = solve! ℤCommRing
 
   repFactor : (d x y z k : R) → (x · d) · z + (y · d) · k ≡ d · (x · z + y · k)
-  repFactor = solve ℤCommRing
+  repFactor = solve! ℤCommRing
 
   distT : (a m x y t : R) → a · (x · t) + m · (y · t) ≡ (a · x + m · y) · t
-  distT = solve ℤCommRing
+  distT = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- The theorems.

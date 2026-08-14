@@ -47,27 +47,27 @@ regA : (a b c e d1 q k11 k21 : R)
      → c · ((a · d1 + b · 0r) · k11 + (a · 0r + b · (q · d1)) · k21)
        - a · ((c · d1 + e · 0r) · k11 + (c · 0r + e · (q · d1)) · k21)
        ≡ (b · c - a · e) · ((q · d1) · k21)
-regA = solve ℤCommRing
+regA = solve! ℤCommRing
 
 regB : (a c d1 : R) → c · d1 - a · 0r ≡ c · d1
-regB = solve ℤCommRing
+regB = solve! ℤCommRing
 
 regNeg : (a b c e : R) → b · c - a · e ≡ - (a · e - b · c)
-regNeg = solve ℤCommRing
+regNeg = solve! ℤCommRing
 
 regZ : (c d1 q ε k21 : R)
      → d1 · (c - (- (ε · k21)) · q)
        ≡ c · d1 - (- ε) · ((q · d1) · k21)
-regZ = solve ℤCommRing
+regZ = solve! ℤCommRing
 
 cancelSelf : (x : R) → x - x ≡ 0r
-cancelSelf = solve ℤCommRing
+cancelSelf = solve! ℤCommRing
 
 regF : (c kq : R) → c ≡ (c - kq) + kq
-regF = solve ℤCommRing
+regF = solve! ℤCommRing
 
 zeroL : (x : R) → 0r + x ≡ x
-zeroL = solve ℤCommRing
+zeroL = solve! ℤCommRing
 
 -- the theorem ---------------------------------------------------------
 

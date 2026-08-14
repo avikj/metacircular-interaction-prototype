@@ -10,12 +10,15 @@ import Pairfield.Lowenheim
 import Pairfield.ResourceBalance
 import Pairfield.MyhillNerodeAdapter
 import Pairfield.ResidualBFS
+import Pairfield.NerodeChartAdapter
+import Pairfield.ChartStateBFS
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.SmithPresentation
 import Pairfield.GeneralSmith2x2
+import Pairfield.DiagonalSmithRoute
 import Pairfield.SmithContent
 import Pairfield.CertificateSource
 import Pairfield.RankOneSmith2x2
@@ -29,3 +32,4 @@ import Pairfield.WalkFalsifier
 -- Replay it with
 --   lake build Pairfield.ArbitrarySmithClosure
 import Pairfield.SmithMemory
+import Pairfield.HaarNullProcess

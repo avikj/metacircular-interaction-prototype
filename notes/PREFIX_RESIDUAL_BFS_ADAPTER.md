@@ -66,17 +66,54 @@ derived from execution and (2), not from an assumed equality oracle on sets.
 Concurrently, `MyhillNerodeAdapter` gained the checked theorem
 `accepts_isRegular_iff_reachableBehavioralStates_finite`: Mathlib regularity is
 equivalent to `Set.Finite` of the **reachable behavioral quotient**, even if
-the ambient state type is infinite.  The two results do not compose into an
-algorithm without another input.  `Set.Finite` is extensional `Prop`; it gives
-no executable enumeration, decidable equality, or representative transition
-table.  Conversely, the present decision procedure assumes `[Fintype X]` and
-therefore may search an inflated ambient pair space containing unreachable or
-behaviorally duplicate states.
+the ambient state type is infinite.
 
-The missing exact object is an explicitly enumerable, transition-closed chart
-of reachable behavioral representatives.  Producing such a chart is stronger
-than proving regularity, and it is the correct next boundary for executable
-minimization.
+The first reading of this return was too strong.  `Set.Finite` is extensional
+`Prop`; by itself it does not expose an executable enumeration, decidable
+equality, or representative transition table.  But Mathlib regularity does
+classically imply existence of a finite chart.  `Pairfield.NerodeChartAdapter`
+chooses a prefix for every residual and builds
+
+```lean
+nerodePresentation M regular : FiniteBehavioralPresentation M
+```
+
+whose state type is exactly `Set.range M.accepts.leftQuotient`.  Lean proves
+that its start and transitions simulate the concrete DFA up to `FutureEq`,
+that every chart state is reachable, and that equality under all futures
+forces literal equality of chart states.  Consequently
+
+```lean
+M.accepts.IsRegular ↔
+  Nonempty (FiniteBehavioralPresentation M)
+```
+
+at the appropriate universe.  This kills the claim that a finite chart is
+logically stronger than regularity.  The correct residual is operational:
+the forward construction uses `Classical.choose`, whereas a supplied
+`FiniteBehavioralPresentation` is data that native search can execute.
+
+`Pairfield.ReachableChart` supplies exactly this data boundary.  Its start and
+one-step behavioral simulation laws already imply coverage of every reached
+meaning; coverage is not an additional axiom.  The chart's finite native DFA
+recognizes exactly `M.accepts`, and the pair-search theorems transport to it
+with `|Chart.State|²` in place of the ambient `|X|²`.  An internal control has
+ambient state type `Nat` but chart state type `Fin 3`; native reduction returns
+the shortest separator `[true]` without assuming `[Fintype Nat]`.
+
+The reciprocal construction also closes the extensional minimality half.
+For any finite DFA `N` accepting the same language, send a residual state to
+the state reached in `N` by its chosen witnessing prefix.  Distinct residuals
+cannot land at the same state, because equal reached states have equal left
+quotients.  Lean therefore proves
+
+```lean
+Fintype.card (nerodePresentation M regular).State ≤ Fintype.card N.State
+```
+
+even when `N` contains unreachable or behaviorally duplicate states.  This is
+the usual Myhill--Nerode cardinal lower bound, now connected to the executable
+chart while retaining the noncomputable/executable distinction.
 
 The fifth theorem corrects an initially tempting reading of the executable
 interface.  A complete list does not choose the control language: it enumerates
@@ -94,24 +131,25 @@ certifies residual-membership disagreement.  The control prefixes `[]` and
 
 ```sh
 cd formal/pairfield
-lake build Pairfield.ResidualBFS
+lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart
 ```
 
-This passes (`3012` jobs).  The module is imported by `Pairfield.lean`.  A full
-`lake build Pairfield` reaches and replays it, then fails in the unrelated
-existing `Pairfield.Lowenheim` Boolean-algebra proof; no green aggregate claim
-is made.
+This passes (`3014` jobs).  `Pairfield.lean` imports the adapter.  A root
+`lake build Pairfield` reaches the adapter but remains red in the unrelated
+pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no
+aggregate-green claim is made.
 
 ## Rigor boundary
 
-All statements and both controls are Lean-checked.  The result concerns left
+All statements and controls are Lean-checked.  The result concerns left
 quotients of prefixes reachable from `M.start`.  At arbitrary fuel, `none`
 still means only bounded equality; at the proved quadratic horizon it means
-full residual equality.  The theorem does not enumerate or remove unreachable
-ambient states, prove the sharper linear distinguishing bound, construct the
-quotient DFA, or prove full DFA minimality.  The present executable also
-enumerates all words by length rather than maintaining a visited pair graph,
-so finiteness is proved without claiming algorithmic efficiency.
+full residual equality.  The canonical quotient DFA and its global cardinal
+minimality are now proved, but the canonical construction is noncomputable.
+The executable chart must still be supplied as data, and the current search
+enumerates all words by length rather than maintaining a visited pair graph.
+No algorithmic-efficiency or automatic extraction claim is made.  The
+quadratic pair horizon is safe rather than sharp; no linear bound is claimed.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked

@@ -162,16 +162,16 @@ module _ (R : CommRing ℓ) where
 
   private
     lemΨΦ₁ : (h p q : ⟨ R ⟩) → h · (p + q) - h · (q - p) ≡ (h + h) · p
-    lemΨΦ₁ = solve R
+    lemΨΦ₁ = solve! R
 
     lemΨΦ₂ : (h p q : ⟨ R ⟩) → h · (p + q) + h · (q - p) ≡ (h + h) · q
-    lemΨΦ₂ = solve R
+    lemΨΦ₂ = solve! R
 
     lemΦΨ₁ : (h w r : ⟨ R ⟩) → h · ((w - r) + (w + r)) ≡ (h + h) · w
-    lemΦΨ₁ = solve R
+    lemΦΨ₁ = solve! R
 
     lemΦΨ₂ : (h w r : ⟨ R ⟩) → h · ((w + r) - (w - r)) ≡ (h + h) · r
-    lemΦΨ₂ = solve R
+    lemΦΨ₂ = solve! R
 
     unit : (x : ⟨ R ⟩) → (half + half) · x ≡ x
     unit x = cong (_· x) half+half ∙ ·IdL x
@@ -218,7 +218,7 @@ module _ (R : CommRing ℓ) where
   ρ-invol (w , r) = ≡-× refl (lem r)
     where
     lem : (x : ⟨ R ⟩) → - (- x) ≡ x
-    lem = solve R
+    lem = solve! R
 
   ----------------------------------------------------------------------
   -- 4.  THE INTERTWINER, as a path of functions.
@@ -226,10 +226,10 @@ module _ (R : CommRing ℓ) where
 
   private
     lemτ₁ : (h p q : ⟨ R ⟩) → h · (q + p) ≡ h · (p + q)
-    lemτ₁ = solve R
+    lemτ₁ = solve! R
 
     lemτ₂ : (h p q : ⟨ R ⟩) → h · (p - q) ≡ - (h · (q - p))
-    lemτ₂ = solve R
+    lemτ₂ = solve! R
 
   Φ∘τ≡ρ∘Φ : Φ ∘ τ ≡ ρ ∘ Φ
   Φ∘τ≡ρ∘Φ = funExt λ { (p , q) → ≡-× (lemτ₁ half p q) (lemτ₂ half p q) }

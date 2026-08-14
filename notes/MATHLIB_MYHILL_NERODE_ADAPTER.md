@@ -110,11 +110,78 @@ prefix residuals are equal.  This is a total proof-producing equality decision
 for an explicitly finite DFA presentation, though the bound is deliberately
 non-sharp.
 
-The two theorems still do not compose from regularity alone.  Regularity gives
-`Set.Finite` of reachable behavioral meanings; the quadratic decision assumes
-an ambient `Fintype X`, which may be inflated by unreachable and duplicate
-states.  The missing carrier is an explicitly enumerable, transition-closed
-chart of reachable behavioral representatives.
+The two theorems still do not compose into an algorithm from regularity alone.
+Regularity gives `Set.Finite` of reachable behavioral meanings; the quadratic
+decision assumes an ambient `Fintype X`, which may be inflated by unreachable
+and duplicate states.  The missing effective carrier was an explicitly
+enumerable, transition-closed chart of reachable behavioral representatives.
+
+## Return: the canonical chart and its exact boundary
+
+The automata lineage returned that carrier as
+`FiniteBehavioralPresentation M`.  It contains a finite chart state type,
+concrete representatives, start and transition operations, and proofs that
+the representatives simulate the ambient start and transitions up to complete
+future equality.  Its existing theorem `accepts_eq` transports the recognized
+language, while `ResidualBFS` uses the chart cardinality rather than the
+ambient cardinality.
+
+`Pairfield.NerodeChartAdapter` now identifies the strongest Mathlib object
+already matching it: `Language.toDFA`.  Given
+`regular : M.accepts.IsRegular`, `nerodePresentation M regular` has state type
+
+```lean
+Set.range M.accepts.leftQuotient
+```
+
+and its start and step are definitionally Mathlib's `toDFA.start` and
+`toDFA.step`.  A residual state's range witness supplies a prefix; evaluating
+that prefix in `M` gives a concrete representative.  Lean proves
+
+```lean
+stateLanguage M (residualRepresentative M state) = state.val
+```
+
+and from this one preservation boundary obtains start soundness, transition
+soundness, equality of accepting states, and equality of recognized languages.
+The canonical chart is additionally proved `AllStatesReachable` and
+`IsReduced`: every residual is reached by its witnessing prefix, and equality
+of all future observations forces literal equality of residual states.
+
+This closes the *mathematical* chart identification but deliberately does not
+erase the effective boundary.  `Set.Finite.fintype`, the residual prefix, and
+the representative all use classical choice; `nerodePresentation` is marked
+`noncomputable`.  Regularity therefore proves that the canonical finite chart
+exists and is reduced, but does not emit runnable rows, decidable residual
+equality, or a transition table.  A supplied `FiniteBehavioralPresentation`
+remains strictly stronger operational data, and constructive reduction of such
+a chart is the next live automata seam.
+
+The immediate automata return strengthened this to the exact logical and
+minimality statements. Lean now proves
+
+```lean
+M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M)
+```
+
+at the pinned state universe. Thus an explicit chart is not mathematically
+stronger than regularity; it is only operationally stronger because the
+forward implication is noncomputable.
+
+For any other DFA `N` recognizing `M.accepts`, the map
+
+```lean
+state ↦ N.eval (residualPrefix M state)
+```
+
+from canonical residual states to `N.State` is injective. If two chosen
+prefixes reach the same `N` state, Mathlib's
+`leftQuotient_eq_stateLanguage_eval` makes their residual languages equal.
+Consequently `nerodePresentation_card_le` proves that the canonical chart has
+at most as many states as every finite recognizing DFA, even one containing
+unreachable garbage or behavioral duplicates. Reachability, reduction, and
+global cardinal minimality are therefore all checked; constructive reduction
+of a supplied chart remains the separate executable question.
 
 ## Rigor boundary
 
@@ -122,9 +189,12 @@ Kernel-checked here: word-execution alignment, future equality iff residual
 language equality, prefix-left-quotient transport, policy factorization to the
 behavioral quotient, injectivity of residual language on behavioral meanings,
 exact identification of reachable meanings with the left-quotient range, and
-regularity iff finiteness of the reachable behavioral quotient.
+regularity iff finiteness of the reachable behavioral quotient.  The returned
+adapter also checks the canonical residual representative, start/step/accept
+preservation, recognized-language equality, reachability of every canonical
+state, and absence of behavioral duplicates.
 
-Not supplied by the regularity adapter: a finite quotient enumeration,
+Not supplied computably by the regularity adapter: a finite quotient enumeration,
 decidable residual equality, or a global minimization horizon.  `ResidualBFS`
 supplies all three only from the stronger input of an explicit ambient
 `Fintype X` plus decidable acceptance and a complete action enumeration; it
@@ -137,5 +207,5 @@ Replay in proof language only:
 
 ```text
 cd formal/pairfield
-lake build Pairfield.MyhillNerodeAdapter Pairfield.ResidualBFS
+lake build Pairfield.MyhillNerodeAdapter Pairfield.ResidualBFS Pairfield.NerodeChartAdapter
 ```

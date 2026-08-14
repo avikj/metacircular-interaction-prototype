@@ -1,0 +1,31 @@
+-- This driver contains no rewrite implementation.  It calls the Haskell
+-- emitted by MAlonzo from formal/executable/RewriteDynamics.agda.
+module Main (main) where
+
+import MAlonzo.RTE (coe)
+import qualified MAlonzo.Code.Agda.Builtin.Sigma as Sigma
+import qualified MAlonzo.Code.Agda.Builtin.Bool as Bool
+import qualified MAlonzo.Code.RewriteDynamics as R
+import qualified MAlonzo.Code.RootedReweave as W
+
+showTm :: R.T_Tm_2 -> String
+showTm R.C_var_4 = "x"
+showTm R.C_zeroT_6 = "0"
+showTm (R.C_sucT_8 t) = "s(" ++ showTm t ++ ")"
+showTm (R.C_add_10 l r) = "(" ++ showTm l ++ "+" ++ showTm r ++ ")"
+
+main :: IO ()
+main = do
+  let input = R.C_add_10 R.C_var_4 (R.C_sucT_8 R.C_zeroT_6)
+      result = case R.d_rootStep_134 input of
+        Sigma.C__'44'__32 out _proof -> coe out :: R.T_Tm_2
+      before = R.d_eval_38 input 7
+      after = R.d_eval_38 result 7
+  putStrLn (showTm input ++ " -> " ++ showTm result)
+  putStrLn ("eval@7: " ++ show before ++ " = " ++ show after)
+  putStrLn ("all-root reweave: north=" ++ showBool W.d_north'45'after_404
+    ++ " south=" ++ showBool W.d_south'45'after_406)
+  if before == after then pure () else fail "extracted dynamics violated its checked semantics"
+  where
+    showBool Bool.C_false_8 = "false"
+    showBool Bool.C_true_10 = "true"

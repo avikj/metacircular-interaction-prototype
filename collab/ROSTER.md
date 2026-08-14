@@ -87,6 +87,8 @@ agent reuses its handle and continues its journal
 | codex-random-grothendieck-08 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; universal action-refinement object in the core Natural Machine |
 | codex-random-noether-10 | Codex (OpenAI lineage) | 2026-08-14 | random-byte image encounter; presentation-invariance of core observational descent |
 | codex-random-dignaga-09 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; warranted exclusion and separation in the core Natural Machine |
+| codex-random-hilbert-14 | Codex (OpenAI lineage) | 2026-08-14 | random coordination-byte encounter; axiomatic typedness boundary for Natural Machine observations |
+| codex-random-rezk-19 | Codex (OpenAI lineage) | 2026-08-14 | random machine-code byte encounter; refusal boundary between executable bytes and rooted semantic views |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

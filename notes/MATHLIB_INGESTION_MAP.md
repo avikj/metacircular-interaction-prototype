@@ -170,12 +170,24 @@ M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite.
 The concurrent `ResidualBFS` return then connects shortest witnesses to prefix
 residuals and, under an explicit ambient `[Fintype X]`, uses the synchronous
 pair monitor plus `DFA.evalFrom_split` to install the safe horizon `|X|^2`.
-It still does not convert the regularity theorem's extensional `Set.Finite`
-into an enumeration or transition-closed finite presentation.
+The later `ReachableChart` return supplies the missing effective datum as
+`FiniteBehavioralPresentation M`.  `NerodeChartAdapter` now turns Mathlib's
+`Language.toDFA` into the canonical instance: its states are exactly the left
+quotients, its chosen concrete representatives preserve state language, and
+Lean proves the chart reachable, reduced, and language-preserving.  The
+construction from regularity is explicitly `noncomputable`; it does not
+extract executable rows from `Set.Finite`.
+
+The reciprocal audit now also proves
+`M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M)` and the
+global Myhill--Nerode cardinal lower bound: the canonical residual state type
+injects into the state type of every finite DFA recognizing the same language.
+So mathematical existence/minimality is closed; only constructive reduction
+of supplied executable chart data remains open.
 
 **Still unbridged:**
 
-1. `Language.toDFA` and `accepts_toDFA` — the canonical residual automaton. `Pairfield.BehavioralState` is a quotient of `X`; mathlib's is a subtype of `Language α`. The adapter proves equality of the reachable image but does not yet package a subtype equivalence or executable enumeration. Mathlib itself does not prove minimality.
+1. **Bridged 2026-08-14:** `Language.toDFA` and `accepts_toDFA` — `NerodeChartAdapter` packages the canonical residual automaton as a native `FiniteBehavioralPresentation`, proves all states reachable and behaviorally reduced, and preserves all DFA operations used here. The bridge is classical/noncomputable, not an executable enumeration extracted from regularity. Mathlib itself still does not state DFA minimality.
 2. `DFA.pumping_lemma` — never invoked.
 3. `DFA.union` / `inter` / `Compl` / `IsRegular.add` / `IsRegular.inf` / `IsRegular_compl` — the Boolean algebra of behaviours. `futureEq_pair_iff` is the observation-side shadow of `DFA.inter`; the connection is unmade.
 4. `Language.leftQuotient_append` — our `stateLanguage_step` is only the one-letter case; the word case is free from mathlib.
@@ -384,7 +396,7 @@ verified present at the pinned `v4.33.0`.
 
 1. **[easy] `Mathlib.GroupTheory.GroupAction.Basic` + `…GroupAction.Quotient` into `HolonomyDescent.lean`.** Delete `orbitSetoid`; use `MulAction.orbitRel`. Immediately inherits `orbitRel.Quotient`, `orbitEquivQuotientStabilizer`, `stabilizerEquivStabilizer`, `selfEquivSigmaOrbitsQuotientStabilizer`. Highest ratio of gain to effort in the whole list.
 
-2. **[landed 2026-08-14] `Mathlib.Computability.MyhillNerode`'s finiteness half into `MyhillNerodeAdapter.lean`.** The correct carrier is the set of *reachable* `BehavioralState M` values, not the whole ambient quotient. `accepts_isRegular_iff_reachableBehavioralStates_finite` is Lean-checked; whole-ambient finiteness is false in the presence of unreachable states. `ResidualBFS` now decides equality at the ambient finite horizon `|X|^2`; the remaining boundary is extracting an explicit transition-closed chart from reachable `Set.Finite`, not finding another bounded search.
+2. **[landed twice 2026-08-14] `Mathlib.Computability.MyhillNerode` into the native reachable chart.** `MyhillNerodeAdapter` first proved regularity iff finiteness of *reachable* behavioral meanings; `NerodeChartAdapter` now packages Mathlib's `Language.toDFA` as the canonical `FiniteBehavioralPresentation`, with representative-language preservation, reachable/reduced proofs, and recognized-language equality. `ResidualBFS` decides equality from a supplied finite chart. Exact residual: the canonical construction from regularity uses classical choice and is noncomputable, so it does not replace explicit chart data.
 
 3. **[easy] `Mathlib.LinearAlgebra.FreeModule.Int` + `Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient` into the Smith thread.** `AddSubgroup.index_eq_natAbs_det` and `Basis.SmithNormalForm.toAddSubgroup_index_eq_pow_mul_prod` give the cokernel order of `A : IntMat2` for free, which several Smith notes compute by hand.
 

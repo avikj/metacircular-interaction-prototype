@@ -79,7 +79,7 @@ private
 
 private
   negIs : (x : R) → (- 1r) · x ≡ - x
-  negIs = solve ℤCommRing
+  negIs = solve! ℤCommRing
 
 ∣-neg : {k x : ℤ} → k ∣ x → k ∣ (- x)
 ∣-neg {k = k} {x = x} h = subst (k ∣_) (negIs x) (∣-right· {n = - 1r} h)
@@ -90,10 +90,10 @@ private
 
 private
   back : (x y : R) → x + (- (x + (- y))) ≡ y
-  back = solve ℤCommRing
+  back = solve! ℤCommRing
 
   forth : (x y : R) → (x + (- y)) + y ≡ x
-  forth = solve ℤCommRing
+  forth = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- §2  The engine.
@@ -192,7 +192,7 @@ Cong-mask M (false ∷ bs) (_ ∷ zs)       c = Cong-mask M bs zs (snd c)
 private
   regroup : (x y sx sy : R)
           → (x + sx) + (- (y + sy)) ≡ (x + (- y)) + (sx + (- sy))
-  regroup = solve ℤCommRing
+  regroup = solve! ℤCommRing
 
 Cong-sum : (M : ℤ) (zs : List (ℤ × ℤ))
          → Cong M zs → M ∣ (sumL zs + (- sumR zs))

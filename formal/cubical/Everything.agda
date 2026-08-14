@@ -60,10 +60,8 @@ import NaturalMachineRun
 
 -- Charts and descent.
 import CayleyPairChart
-import CenterRelative
 import DescentLaw
 import DynamicDescent
-import PrimePairField
 import Rank1DihedralChart
 import SetTruncationDescentBoundary
 
@@ -87,7 +85,6 @@ import OrbitSeparation
 import TotientFibreSymmetry
 
 -- Observation, description, exclusion.
-import BehavioralApartness
 import ExtremalDescription
 import ExclusionScope
 import ObligatioOrderTrilemma

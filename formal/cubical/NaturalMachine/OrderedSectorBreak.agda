@@ -138,16 +138,16 @@ module _ (R : CommRing ℓ) where
    -- The three ring identities the file uses.  Each is discharged by the
    -- solver on the quantified goal, per BUILD.md's convention.
    diag0 : (h x : ⟨ R ⟩) → h · (x - x) ≡ 0r
-   diag0 = solve R
+   diag0 = solve! R
 
    sub2 : (x : ⟨ R ⟩) → x - (x + x) ≡ - x
-   sub2 = solve R
+   sub2 = solve! R
 
    negIdR : (x : ⟨ R ⟩) → (- x) + 0r ≡ - x
-   negIdR = solve R
+   negIdR = solve! R
 
    negInvR : (x : ⟨ R ⟩) → (- x) + x ≡ 0r
-   negInvR = solve R
+   negInvR = solve! R
 
  ----------------------------------------------------------------------
  -- 0.  The order, as a parameter.

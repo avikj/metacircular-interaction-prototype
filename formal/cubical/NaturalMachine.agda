@@ -125,6 +125,12 @@ import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
 import NaturalMachine.RewriteCertificate
+-- Execution and semantic preservation are eliminations of one intrinsically
+-- indexed rewrite run; no external candidate/validation seam is involved.
+import NaturalMachine.IntrinsicRewrite
+import NaturalMachine.ControlledGrammar
+import NaturalMachine.GenerativeKernel
+import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
@@ -215,6 +221,10 @@ import NaturalMachine.StabilizerSubgroup
 import NaturalMachine.RadixSymptoma
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
+-- The quotient-level obstruction now acts on the actual canonical numeral
+-- chart: MSD deletion agrees with reduction after forced normalization, while
+-- raw deletion itself is proved not to preserve canonical words.
+import NaturalMachine.CarryChartBridge
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers

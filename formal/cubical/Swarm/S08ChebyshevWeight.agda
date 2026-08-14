@@ -85,7 +85,7 @@ private
     →   (a · c + D · (b · d)) · (a · c + D · (b · d))
       - D · ((a · d + b · c) · (a · d + b · c))
     ≡ (a · a - D · (b · b)) · (c · c - D · (d · d))
-  bhavana-raw = solve ℤCommRing
+  bhavana-raw = solve! ℤCommRing
 
 bhavana-norm : (D : R) (p q : Sol) → N D (mulS D p q) ≡ N D p · N D q
 bhavana-norm D (a , b) (c , d) = bhavana-raw D a b c d
@@ -110,7 +110,7 @@ T u (suc (suc n)) = ((1r + 1r) · u) · T u (suc n) - T u n
 
 private
   one-step : (D u v : R) → 1r · u + D · (0r · v) ≡ u
-  one-step = solve ℤCommRing
+  one-step = solve! ℤCommRing
 
   -- The whole content, with the defect displayed rather than assumed:
   -- the Chebyshev recurrence holds for ANY norm, up to the factor
@@ -119,10 +119,10 @@ private
   step-raw : (D u v x y : R)
     →   (x · u + D · (y · v)) · u + D · ((x · v + y · u) · v)
     ≡   ((1r + 1r) · u) · (x · u + D · (y · v)) - (u · u - D · (v · v)) · x
-  step-raw = solve ℤCommRing
+  step-raw = solve! ℤCommRing
 
   sub1 : (a x : R) → a - 1r · x ≡ a - x
-  sub1 = solve ℤCommRing
+  sub1 = solve! ℤCommRing
 
   step : (D u v x y : R) → (u · u - D · (v · v) ≡ 1r)
     →   (x · u + D · (y · v)) · u + D · ((x · v + y · u) · v)
@@ -168,7 +168,7 @@ trace-is-Chebyshev D u v h n = fst (both D u v h n)
 
 private
   T2gen : (e u : R) → ((e + e) · u) · u - e ≡ (e + e) · (u · u) - e
-  T2gen = solve ℤCommRing
+  T2gen = solve! ℤCommRing
 
 -- T 2 u = 2u^2 - 1.  `is_bhavana_square` solves this for u, i.e. tests
 -- whether (x+1)/2 is a perfect square: it is the weight-2 test and only
