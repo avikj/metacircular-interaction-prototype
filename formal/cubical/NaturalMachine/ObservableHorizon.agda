@@ -19,6 +19,8 @@
 module NaturalMachine.ObservableHorizon where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Equiv using (_≃_)
+open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
 open import Cubical.Foundations.HLevels
   using (isSetΠ ; isSetΣ)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
@@ -27,6 +29,7 @@ open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤)
 open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Functions.Image
   using (Image ; isPropIsInImage ; restrictToImage)
+open import Cubical.HITs.SetQuotients as SQ using ([_] ; eq/)
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.FutureBehavior as FB
@@ -229,6 +232,126 @@ module RealizedWindow
     → imageStep (restrictToImage window x) action
       ≡ restrictToImage window (step x action)
   imageStep-restrict x action = snd (actionFactors action) x
+
+  ----------------------------------------------------------------------
+  -- The realized finite window is exactly the complete future quotient
+  ----------------------------------------------------------------------
+
+  -- Kernel equality alone does not identify these two types.  The maps
+  -- below are constructed independently from the universal properties of
+  -- Image and SetQuotient, and their inverse laws are proved before an
+  -- equivalence is exposed.
+  module FQ = FB.FutureQuotient step setO observe
+
+  meaningOf : X → FQ.Meaning
+  meaningOf x = [ x ]
+
+  -- This is the only direction that uses bounded closure: equal realized
+  -- windows must determine equal complete futures before quotient paths can
+  -- be formed.
+  meaning-fiber-constant : FI.FiberConstant window meaningOf
+  meaning-fiber-constant x y same-window =
+    eq/ x y
+      (boundedClosure→futureEq step observe fuel closes
+        (responseWindow≡→bounded step observe fuel same-window))
+
+  meaningFactors : FI.FactorsThrough window meaningOf
+  meaningFactors =
+    FI.fiberConstant→factorsThrough FQ.isSetMeaning window meaningOf
+      meaning-fiber-constant
+
+  toMeaning : Carrier → FQ.Meaning
+  toMeaning = fst meaningFactors
+
+  toMeaning-restrict : (x : X) → toMeaning (restrictToImage window x) ≡ [ x ]
+  toMeaning-restrict x = snd meaningFactors x
+
+  -- The reverse direction needs no closure: complete future equality always
+  -- restricts to equality of every bounded response window.
+  imageOf : X → Carrier
+  imageOf = restrictToImage window
+
+  image-future-constant :
+    {x y : X} → FB.FutureEq step observe x y → imageOf x ≡ imageOf y
+  image-future-constant future =
+    FI.sameObservation→samePoint window
+      (bounded→responseWindow≡ step observe fuel
+        (futureEq→bounded step observe fuel future))
+
+  fromMeaning : FQ.Meaning → Carrier
+  fromMeaning =
+    FQ.factor isSetCarrier imageOf image-future-constant
+
+  fromMeaning-[] : (x : X) → fromMeaning [ x ] ≡ imageOf x
+  fromMeaning-[] x =
+    FQ.factor-[] isSetCarrier imageOf image-future-constant x
+
+  meaning-future-constant :
+    {x y : X} → FB.FutureEq step observe x y → meaningOf x ≡ meaningOf y
+  meaning-future-constant {x} {y} future = eq/ x y future
+
+  to-from : (meaning : FQ.Meaning)
+    → toMeaning (fromMeaning meaning) ≡ meaning
+  to-from meaning =
+    FQ.factor-unique FQ.isSetMeaning meaningOf meaning-future-constant
+      (λ m → toMeaning (fromMeaning m))
+      (λ x → cong toMeaning (fromMeaning-[] x) ∙ toMeaning-restrict x)
+      meaning
+    ∙ sym
+      (FQ.factor-unique FQ.isSetMeaning meaningOf meaning-future-constant
+        (λ m → m) (λ x → refl) meaning)
+
+  roundTripFactors : FI.FactorsThrough window imageOf
+  roundTripFactors =
+    (λ carrier → fromMeaning (toMeaning carrier)) ,
+    (λ x → cong fromMeaning (toMeaning-restrict x) ∙ fromMeaning-[] x)
+
+  identityFactors : FI.FactorsThrough window imageOf
+  identityFactors = (λ carrier → carrier) , (λ x → refl)
+
+  from-to : (carrier : Carrier)
+    → fromMeaning (toMeaning carrier) ≡ carrier
+  from-to carrier =
+    funExt⁻
+      (cong fst
+        (FI.isPropFactorsThrough isSetCarrier window imageOf
+          roundTripFactors identityFactors))
+      carrier
+
+  realizedMeaningIso : Iso Carrier FQ.Meaning
+  realizedMeaningIso = iso toMeaning fromMeaning to-from from-to
+
+  realizedMeaningEquiv : Carrier ≃ FQ.Meaning
+  realizedMeaningEquiv = isoToEquiv realizedMeaningIso
+
+  -- The equivalence is an adapter of machines, not only of carriers: the
+  -- realized-image action and the future-quotient action commute exactly.
+  leftStepFactors : (action : A)
+    → FI.FactorsThrough window (λ x → [ step x action ])
+  leftStepFactors action =
+    (λ carrier → toMeaning (imageStep carrier action)) ,
+    (λ x →
+      cong toMeaning (imageStep-restrict x action)
+      ∙ toMeaning-restrict (step x action))
+
+  rightStepFactors : (action : A)
+    → FI.FactorsThrough window (λ x → [ step x action ])
+  rightStepFactors action =
+    (λ carrier → FQ.quotStep (toMeaning carrier) action) ,
+    (λ x →
+      cong (λ m → FQ.quotStep m action) (toMeaning-restrict x)
+      ∙ FQ.quotStep-[] x action)
+
+  toMeaning-step : (carrier : Carrier) (action : A)
+    → toMeaning (imageStep carrier action)
+      ≡ FQ.quotStep (toMeaning carrier) action
+  toMeaning-step carrier action =
+    funExt⁻
+      (cong fst
+        (FI.isPropFactorsThrough FQ.isSetMeaning window
+          (λ x → [ step x action ])
+          (leftStepFactors action) (rightStepFactors action)))
+      carrier
 
 ------------------------------------------------------------------------
 -- Retained obstruction
