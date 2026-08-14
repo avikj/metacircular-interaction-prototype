@@ -39,16 +39,20 @@ import Control.Monad (forM_, when, unless)
 import System.IO
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
-import System.Process (readProcessWithExitCode)
-import System.Directory (renameFile, createDirectoryIfMissing, doesFileExist)
-import System.Environment (getArgs)
-import System.Exit (ExitCode(..), exitSuccess)
-import System.Posix.Process (executeFile)
+-- (imports for the unbuilt evolve step removed; they were dead, and a
+-- dead import is a claim about what a program does)
 
 -- ===================================================================
--- KNOBS.  The machine's own tunable constants, written so that it can
--- find and change them in its own source text.  Every line below is
--- rewritten by the machine itself during evolution; do not reformat.
+-- KNOBS.  The machine's tunable constants, laid out so that they CAN be
+-- found and rewritten in this source text.
+--
+-- HONEST STATUS: nothing rewrites them yet.  An earlier version of this
+-- banner said "every line below is rewritten by the machine itself
+-- during evolution" — that was aspiration written in the present tense,
+-- which is the exact sin this repository was founded to stop.  The
+-- evolve step (mutate source, compile variant, race it, exec the
+-- winner) is designed and not built; the imports for it below are dead
+-- until it is.  Two visiting readers caught this in the same hour.
 -- ===================================================================
 kProbe :: Int
 kProbe = 400
@@ -61,7 +65,7 @@ kConceptMin = 8
 kVars :: Int
 kVars = 3
 kSizeCap :: Int
-kSizeCap = 9
+kSizeCap = 7
 
 -- ---------------------------------------------------------------- terms
 
@@ -138,6 +142,14 @@ vocabulary =
       [ (bin "gcd" x_ zero_, x_)
       , (bin "gcd" zero_ x_, x_)
       , (bin "gcd" (su x_) (su y_), bin "gcd" (F "-" [su x_, su y_]) (su y_)) ]
+  , Sym "le"  2 (\vs -> if vs !! 0 <= vs !! 1 then 1 else 0)
+      -- Eleven of the machine's thirty-five theorems were `max`-shaped
+      -- restatements of x <= y.  It was not producing junk; it was
+      -- reaching for a predicate it had no name for.  (x+y) = ((x+y)max x)
+      -- IS x <= x+y wearing a costume.
+      [ (bin "le" zero_ x_,          su zero_)
+      , (bin "le" (su x_) zero_,     zero_)
+      , (bin "le" (su x_) (su y_),   bin "le" x_ y_) ]
   , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
       [ (bin "-" x_ zero_,          x_)
       , (bin "-" zero_ x_,          zero_)
@@ -308,7 +320,15 @@ precedence :: String -> Int
 precedence f =
   case [ i | (i,s) <- zip [0..] vocabulary, symName s == f ] of
     (i:_) -> i
-    []    -> -1          -- the eigenconstant sits below everything
+    [] -> case f of
+      -- An invented concept must sit BELOW everything its defining
+      -- pattern mentions, so that rewriting folds into it; and later
+      -- concepts below earlier ones, so a concept built from concepts
+      -- still folds.  Giving them all -1 left the machine's own ideas
+      -- mutually unorderable — second-class citizens in its own order.
+      ('c':ds) | all (`elem` "0123456789") ds, not (null ds) ->
+        -2 - read ds
+      _ -> -1            -- the eigenconstant sits below everything
 
 lpo :: Term -> Term -> Bool
 lpo s t
@@ -493,7 +513,10 @@ bestOf syms terms =
   where
     counts = M.toList (M.fromListWith (+)
                [ (canonTerm p, 1::Int) | t <- terms, p <- patternsOf t ])
-    headIsNotFresh (F f _) = take 1 f /= "c"
+    -- Lovelace: rejecting c-headed patterns caps the tower of
+    -- abstraction at height one — a concept could appear beneath a head
+    -- but never as one, so no concept is ever built from concepts.
+    headIsNotFresh (F _ _) = True
     headIsNotFresh _ = False
     -- f(x,y) is not a concept, it is f with a costume on.  A name earns
     -- its place by capturing structure the signature cannot say in one
@@ -660,7 +683,7 @@ main = do
   let loop = do
         round1 logh libh ref
         m <- readIORef ref
-        when (mSize m <= 12) loop
+        when (mSize m <= kSizeCap) loop
   loop
   hPutStrLn logh "=== horizon reached ==="
   hClose logh

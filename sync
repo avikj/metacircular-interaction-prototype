@@ -35,7 +35,7 @@ sync_once() {
     if [ -n "$(git status --porcelain)" ]; then
         git add -A
         git commit -q -m "sync: work in progress on ${BRANCH}" \
-            --no-verify 2>/dev/null || true
+            2>/dev/null || true
     fi
 
     # 2. take everyone else's work
