@@ -16,6 +16,9 @@ data StepCert
   = AddZero Term
   | AddSuc Term Term
   | SucStep StepCert
+  | AddLeft StepCert Term
+  | AddRight Term StepCert
+  | Reverse StepCert
   deriving (Eq, Show)
 
 data Derivation
@@ -45,6 +48,9 @@ renderStep = \case
   AddZero x -> "(add-zero " ++ renderTerm x ++ ")"
   AddSuc x y -> "(add-suc " ++ renderTerm x ++ " " ++ renderTerm y ++ ")"
   SucStep p -> "(suc-step " ++ renderStep p ++ ")"
+  AddLeft p z -> "(add-left " ++ renderStep p ++ " " ++ renderTerm z ++ ")"
+  AddRight z p -> "(add-right " ++ renderTerm z ++ " " ++ renderStep p ++ ")"
+  Reverse p -> "(reverse " ++ renderStep p ++ ")"
 
 renderDerivation :: Derivation -> String
 renderDerivation = \case
@@ -94,13 +100,36 @@ mutated = Certificate
   (Then (AddSuc Var Zero)
     (Then (AddZero Var) (Done (Suc Var))))
 
+-- The executable gate used to expose only `suc-step`, although the checked
+-- calculus also permits rewriting under either argument of addition and
+-- reversing a certified step.  These controls keep all three transports live.
+underLeft :: Certificate
+underLeft = Certificate
+  (Add (Add Var Zero) Var)
+  (Add Var Var)
+  (Then (AddLeft (AddZero Var) Var) (Done (Add Var Var)))
+
+underRightReversed :: Certificate
+underRightReversed = Certificate
+  (Add Var Var)
+  (Add Var (Add Var Zero))
+  (Then (AddRight Var (Reverse (AddZero Var)))
+    (Done (Add Var (Add Var Zero))))
+
 main :: IO ()
 main = do
   repo <- getCurrentDirectory
   (ok, rules1) <- validateAndInstall repo [] good
   (bad, rules2) <- validateAndInstall repo rules1 mutated
-  if ok && not bad && rules1 == [(source good, target good)] && rules2 == rules1
-    then putStrLn "AGDA REWRITE GATE CHECKED: accepted installed; mutation rejected"
+  (leftOk, rules3) <- validateAndInstall repo rules2 underLeft
+  (rightReverseOk, rules4) <- validateAndInstall repo rules3 underRightReversed
+  if ok && not bad && leftOk && rightReverseOk
+      && rules1 == [(source good, target good)]
+      && rules2 == rules1
+      && rules4 == rules1
+          ++ [(source underLeft, target underLeft)
+             ,(source underRightReversed, target underRightReversed)]
+    then putStrLn "AGDA REWRITE GATE CHECKED: contexts + reversal installed; mutation rejected"
     else do
       putStrLn ("gate failure: accepted=" ++ show ok ++ ", mutated=" ++ show bad
                 ++ ", installed=" ++ show rules2)

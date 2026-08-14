@@ -99,17 +99,17 @@ module Bridge (k n' : ℕ) where
              → D.value (xs ++ (y ∷ []))
              ≡ D.value xs + D.b ^ length xs · toℕ y
   value-snoc [] y =
-      cong (toℕ y +_) (sym (0≡m·0 D.b))
+      cong (λ z → toℕ y + z) (sym (0≡m·0 D.b))
     ∙ +-zero (toℕ y)
     ∙ sym (·-identityˡ (toℕ y))
   value-snoc (d ∷ xs) y =
-      cong (toℕ d + D.b ·_) (value-snoc xs y)
-    ∙ cong (toℕ d +_)
+      cong (λ z → toℕ d + D.b · z) (value-snoc xs y)
+    ∙ cong (λ z → toℕ d + z)
         (·-distribˡ D.b (D.value xs) (D.b ^ length xs · toℕ y))
-    ∙ sym (+-assoc (toℕ d) (D.b · D.value xs)
-        (D.b · (D.b ^ length xs · toℕ y)))
-    ∙ cong ((toℕ d + D.b · D.value xs) +_)
+    ∙ cong (λ z → toℕ d + (D.b · D.value xs + z))
         (sym (·-assoc D.b (D.b ^ length xs) (toℕ y)))
+    ∙ sym (+-assoc (toℕ d) (D.b · D.value xs)
+        ((D.b · D.b ^ length xs) · toℕ y))
 
   -- At exactly n lower digits, the removed place is a multiple of C.N.
   high-place-vanishes : (xs : D.Word) (y : D.Digit)

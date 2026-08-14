@@ -71,7 +71,8 @@ theorem positiveDiagonalIdentityCertificate_valid {a b : Nat}
   dsimp [positiveDiagonalIdentityCertificate, positiveDiagonal]
   refine ⟨?_, by decide, by decide, by omega, by omega, ?_,
     Int.natCast_dvd_natCast.mpr hab⟩
-  · rw [IntMat2.one_mul, IntMat2.mul_one]
+  · apply IntMat2.ext <;>
+      simp [IntMat2.mul, IntMat2.one, IntMat2.diagonal]
   · omega
 
 theorem positiveDiagonalSwapCertificate_valid {a b : Nat}
@@ -83,6 +84,34 @@ theorem positiveDiagonalSwapCertificate_valid {a b : Nat}
     by omega, by omega, ?_, Int.natCast_dvd_natCast.mpr hba⟩
   · exact (IntMat2.swap_diagonal (a : Int) (b : Int)).symm
   · omega
+
+theorem positiveDiagonalIdentityCertificate_valid_iff {a b : Nat}
+    (ha : 0 < a) :
+    (positiveDiagonalIdentityCertificate a b).Valid ↔ a ∣ b := by
+  constructor
+  · rintro ⟨_, _, _, _, _, _, hdiv⟩
+    exact Int.natCast_dvd_natCast.mp hdiv
+  · exact positiveDiagonalIdentityCertificate_valid ha
+
+theorem positiveDiagonalSwapCertificate_valid_iff {a b : Nat}
+    (hb : 0 < b) :
+    (positiveDiagonalSwapCertificate a b).Valid ↔ b ∣ a := by
+  constructor
+  · rintro ⟨_, _, _, _, _, _, hdiv⟩
+    exact Int.natCast_dvd_natCast.mp hdiv
+  · exact positiveDiagonalSwapCertificate_valid hb
+
+/-- The incomparable route is exactly the failure of both closed-form
+diagonal orderings.  This is the proved boundary; no claim is made about an
+unspecified larger class of “weak” operations. -/
+theorem positiveDiagonalRoute_nontrivialJoin_iff_two_simple_fail {a b : Nat}
+    (ha : 0 < a) (hb : 0 < b) :
+    positiveDiagonalRoute a b = .nontrivialJoin ↔
+      ¬ (positiveDiagonalIdentityCertificate a b).Valid ∧
+      ¬ (positiveDiagonalSwapCertificate a b).Valid := by
+  rw [positiveDiagonalRoute_nontrivialJoin_iff,
+    not_congr (positiveDiagonalIdentityCertificate_valid_iff ha),
+    not_congr (positiveDiagonalSwapCertificate_valid_iff hb)]
 
 /-- Execute the action selected by `positiveDiagonalRoute`.  The first two
 branches are closed-form; only the mutually nondividing branch invokes the
@@ -125,10 +154,16 @@ the surviving mutually nondividing branch. -/
 
 example : ¬ (6 : Nat) ∣ 2 := by decide
 example : positiveDiagonalRoute 6 2 = .swapToSmith := by decide
+example : positiveDiagonalCertificate 6 2 =
+    positiveDiagonalSwapCertificate 6 2 :=
+  positiveDiagonalCertificate_of_swapRoute (by decide)
 example : (positiveDiagonalCertificate 6 2).check = true :=
   positiveDiagonalCertificate_check (by decide) (by decide)
 
 example : positiveDiagonalRoute 6 10 = .nontrivialJoin := by decide
+example : positiveDiagonalCertificate 6 10 =
+    smithCertificate (positiveDiagonal 6 10) :=
+  positiveDiagonalCertificate_of_joinRoute (by decide)
 example : (positiveDiagonalCertificate 6 10).check = true :=
   positiveDiagonalCertificate_check (by decide) (by decide)
 

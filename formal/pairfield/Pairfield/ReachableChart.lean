@@ -115,8 +115,9 @@ theorem leftQuotient_eq (pre : List A) :
     C.toDFA.accepts.leftQuotient pre = M.accepts.leftQuotient pre := by
   rw [C.accepts_eq]
 
-/-- An explicit finite behavioral presentation is constructive data strictly
-stronger than the proposition that the language is regular. -/
+/-- An explicitly supplied presentation proves regularity.  Conversely,
+`NerodeChartAdapter` constructs such a presentation from regularity using
+classical choice; the strengthening here is operational, not logical. -/
 theorem accepts_isRegular (P : FiniteBehavioralPresentation M) :
     M.accepts.IsRegular := by
   apply Language.isRegular_iff.mpr

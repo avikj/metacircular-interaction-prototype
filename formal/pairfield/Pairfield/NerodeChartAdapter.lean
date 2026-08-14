@@ -150,4 +150,16 @@ theorem nerodePresentation_accepts_eq_toDFA (M : DFA A X)
       M.accepts.toDFA.accepts := by
   rw [(nerodePresentation M regular).accepts_eq, Language.accepts_toDFA]
 
+/-- Mathlib regularity and existence of a finite behavioral presentation are
+logically equivalent.  The forward construction is deliberately
+noncomputable; this theorem must not be read as an extraction algorithm. -/
+theorem accepts_isRegular_iff_nonempty_finiteBehavioralPresentation
+    (M : DFA A X) :
+    M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M) := by
+  constructor
+  · intro regular
+    exact ⟨nerodePresentation M regular⟩
+  · rintro ⟨presentation⟩
+    exact presentation.accepts_isRegular
+
 end Pairfield
