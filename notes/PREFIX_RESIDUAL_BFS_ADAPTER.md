@@ -134,7 +134,10 @@ cd formal/pairfield
 lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart
 ```
 
-This passes (`3014` jobs).  `Pairfield.lean` imports the adapter.
+This passes (`3014` jobs).  `Pairfield.lean` imports the adapter.  A root
+`lake build Pairfield` reaches the adapter but remains red in the unrelated
+pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no
+aggregate-green claim is made.
 
 ## Rigor boundary
 
