@@ -198,7 +198,9 @@ Summing these positive increments proves (7). `QED`
 
 The finite inequality, with the energy budget taken directly on the declared
 shift set, is kernel-checked as `upwardEscape_lower_of_energy` in
-`Pairfield.UpwardEscapeNecessity`.
+`Pairfield.UpwardEscapeNecessity`.  Its variables are absolute-scale:
+`depth=cX` and `epsilon_abs=epsilon*X`; after this substitution its conclusion
+is exactly (7).
 
 At exactly the scale
 
@@ -408,12 +410,17 @@ be omitted.
   (4); convolution rewrite (5)--(6); the `L2` lower bound (7); the finite
   odd-character convolution (10)--(15).
 - **Lean checked:** the finite energy-to-upward-escape lower bound underlying
-  (7) is `Pairfield.upwardEscape_lower_of_energy`.
+  (7) is `Pairfield.upwardEscape_lower_of_energy`; focused build replayed
+  successfully (3,007 jobs).
 - **Constant audit:** with `epsilon=c/4`, the safe displayed specialization
   (8) uses `|H|>=32B/(c^2X^2)`; theorem (7) is exact and should be used
   directly.
 - **Inherited:** the common prime-log carrier and its global minor norm are
   recorded from Pintz Part I in `common-carrier-elimination.md`.
+- **Standard prior art:** the finite-character calculation uses the classical
+  quadratic Jacobi- and Gauss-sum identities.  Mathlib already contains the
+  general APIs in `Mathlib.NumberTheory.JacobiSum.Basic` and
+  `Mathlib.NumberTheory.GaussSum`; no novelty is claimed for those identities.
 - **No-go:** current phase-blind norms and unconditioned dispersion cannot
   imply `(UP_gamma)`.  After a spike they prove typical escape, not negative
   persistence.
