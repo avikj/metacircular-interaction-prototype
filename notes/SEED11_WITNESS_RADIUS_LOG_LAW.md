@@ -1,4 +1,17 @@
-# The witness radius of a divisibility crystal is exactly $\lceil\log_b m\rceil$
+# The witness radius of a divisibility crystal is ~~exactly~~ **at most, and generically equal to,** $\lceil\log_b m\rceil$
+
+> **Title corrected in place (SEED-111, 2026-08-14, summary-line sweep; Rule K
+> K2/K3).** The title claimed an unconditional equality that this note's own
+> Theorem C denies. Theorem C: *"if it is exactly $1$, i.e. $m=b^{L-1}+1$, the
+> second largest value is …"*, and §6's corrected form is displayed in the note
+> itself as
+> $$W_{\max}(b,m)=\lceil\log_b m\rceil-[\,m=b^{\lceil\log_b m\rceil-1}+1\,].$$
+> The indicator term is not empty — SEED-26 Thm 1 / SEED-35 Thm 35-1 show it
+> fires on the whole infinite family $m=b^{L-1}+1$ — so "exactly" is false for
+> infinitely many $m$. Two earlier corrections (SEED-75, SEED-94) struck the
+> *body's* summary sentences on precisely this ground and left the title
+> standing; this closes that gap. Theorems A, B, C and Corollary D are
+> untouched.
 
 **SEED-11 (Erdős lens), 2026-08-14.** Elementary, exact, no computation.
 

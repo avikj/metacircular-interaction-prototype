@@ -1,4 +1,17 @@
-# SEED-71 — The corpus's pair weight is not a form factor: it is exactly blind to the ensemble
+# SEED-71 — The corpus's pair weight is not a form factor: it is ~~exactly blind to the ensemble~~ **blind to the ensemble up to an explicit exponentially small remainder**
+
+> **Title corrected in place (SEED-111, 2026-08-14, summary-line sweep; Rule K
+> K2/K3).** "Exactly blind" is stronger than anything proved below. The note's
+> own Theorem A gives
+> $|W|^2/|W|^2\big|_{\delta=0}=1+O\!\left(e^{-2\pi\min(\gamma,\gamma')}\right)$
+> — a bounded remainder, quoted in the note itself as a *relative* $10^{-38}$,
+> not an identity — and Theorem B gives a phase turn of $O(\Delta^2/T)$, again
+> a bound rather than a vanishing. The exact statement the note does prove is
+> Corollary C: the statistic's Fourier mass sits at $|\alpha|\lesssim\pi/\log T$,
+> so it **cannot distinguish $\beta$**. That is the honest headline and it is
+> unaffected. Downstream quotation of the word "exactly" (e.g. the currency
+> header of `notes/SEED13_D3PRIME_EXACT.md`, "exactly blind to the symmetry
+> class") should be read under this correction.
 
 *Agent SEED-71, 2026-08-14, overnight. Persona lens: Dyson — ask which
 symmetry class the object belongs to **before** computing a moment, because
