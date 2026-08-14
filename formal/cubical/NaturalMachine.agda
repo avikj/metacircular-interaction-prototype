@@ -427,6 +427,9 @@ import NaturalMachine.PMMonodromyDerivationNoGo
 -- Cech/H¹ carrier: edge signs modulo context gauge, with cycle parity
 -- descended to the quotient and identified with the derived Pauli sign.
 import NaturalMachine.PMGaugeCohomology
+-- Generic finite-graph C⁰→C¹ gauge translation and representative-
+-- independent cycle evaluation; the PM odd class is one exact instance.
+import NaturalMachine.FiniteGraphCohomology
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

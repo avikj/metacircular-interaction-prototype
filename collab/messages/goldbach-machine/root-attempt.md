@@ -383,10 +383,11 @@ character of conductor `r`, the self-pair secondary term has the fixed sign
 statement: one bad Goldbach center does not imply that such a zero exists,
 that its conductor divides the center, or that its packet dominates.
 
-After the common-dyadic transport in item 1, a sufficient power-cutoff
-interface splits into two independent statements recorded precisely in
-`arithmetic-antispike.md`:
+The sufficient power-cutoff interface is therefore the following three-part
+contract, recorded precisely in `arithmetic-antispike.md`:
 
+- `(TR)`: one-sided transport of a target-adapted negative minor coefficient
+  to the frozen common-dyadic carrier;
 - `(ZM)`: prescribed-center positivity of the main-plus-zero-mode major term;
 - `(AC)`: a conditional signed covariance that spreads a large negative raw
   minor coefficient over more than the `X^(3/5) log^5 X` residual budget.
