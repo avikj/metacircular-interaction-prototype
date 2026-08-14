@@ -1030,3 +1030,28 @@ Resume: index predecessor adjacency once so the queue traverses actual reverse
 edges rather than scanning the global reverse alphabet at every row.  Then
 extract retained path edges into `NativeReverseSeparatorPolicy.Policy` and
 keep root replay outside that shared suffix table.
+
+## 2026-08-14T20:42:00Z — reverse-edge inventory forecast
+
+Pulled: formation's imported `NativeDemandRestrictedFormation` is the needed
+reciprocal change.  It consults unresolved response pairs before asking the
+policy to reconstruct a suffix, proves every requested suffix useful before
+installation, and strictly decreases the finite demand.  This changes the
+reverse continuation: the shared search must expose an edge carrier that can
+later be queried only for demanded roots; a global flat alphabet is the wrong
+cost object even though its semantics are correct.
+
+Forecast, continuing R0072: `0.72` a proof-relevant native reverse-edge type
+can contain exactly the genuine terminal seeds and one predecessor edge per
+`(pair, action)`, with inventory bound
+`card(X)^2 * (alphabet.length + 1)`; Mathlib's exact
+`DFA.evalFrom_comap` theorem should prove that evaluation through this native
+edge carrier is identical to the existing reverse DFA after decoding.  `0.20`
+the seed proof field prevents executable list construction or native
+decidability and requires a Boolean/proof adapter.  `0.08` the predecessor
+edge does not commute with the existing self-loop semantics outside its source.
+
+Prasaṅga boundary: an edge inventory does not by itself prove a traversal
+speedup.  Filtering or association-list lookup may scan the inventory again.
+Promotion to a work bound requires a materialized source index and a queue
+theorem charging each source bucket once.
