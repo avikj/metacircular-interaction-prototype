@@ -30,13 +30,13 @@ open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.Equiv
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Data.Sigma
-open import Cubical.Data.Nat using (ℕ ; suc ; zero)
+open import Cubical.Data.Nat using (ℕ ; suc ; zero) renaming (_+_ to _+ℕ_)
 open import Cubical.Data.Bool using (Bool ; true ; isSetBool)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥rec)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Int
   using (ℤ ; pos ; negsuc ; _+_ ; _-_ ; _·_ ; -_ ; isSetℤ ; isEven
-        ; posNotnegsuc ; injPos ; ·lCancel ; fromNatℤ)
+        ; posNotnegsuc ; injPos ; ·lCancel ; fromNatℤ ; pos+)
 open import Cubical.Data.Int.IsEven using (isEvenTrue ; trueIsEven)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
@@ -331,3 +331,106 @@ corollary16-5 :
   ((x : ℤ × ℤ) → InCone x → InCone (τCR x)) ×
   ((x : ℤ × ℤ) → InCone x → ¬ InCone (J₂CR x))
 corollary16-5 = exchangePreservesCone , thm16-4
+
+------------------------------------------------------------------------
+-- 8.  Delta 17 — the same cone at every place
+--
+-- Delta 17 §17.1 names u₋ = W - R and u₊ = W + R the "light-cone
+-- coordinates" and observes they are the original factors doubled.
+-- That is thm16-3-diff / thm16-3-sum above; it is restated here under
+-- Delta 17's names and reused, not reproved.
+--
+-- The new content is T17.13 and C17.14: at every finite place ℓ the
+-- valuation pair (v_ℓ p , v_ℓ q) carries its own centre-relative cone,
+--   s = v_ℓ p + v_ℓ q,   d = v_ℓ q - v_ℓ p,   s ≥ |d|,  s ≡ d mod 2,
+-- which Delta 17 calls "a genuine self-similarity" with the archimedean
+-- pair geometry.  Section 8.3 makes precise in what sense it is one.
+------------------------------------------------------------------------
+
+-- 8.1  Light-cone coordinates (Delta 17 §17.1)
+
+u₋ u₊ : ℤ × ℤ → ℤ
+u₋ (W , R) = W - R
+u₊ (W , R) = W + R
+
+thm17-1-lower : (p q : ℤ) → u₋ (Φraw (p , q)) ≡ p + p
+thm17-1-lower = thm16-3-diff
+
+thm17-1-upper : (p q : ℤ) → u₊ (Φraw (p , q)) ≡ q + q
+thm17-1-upper = thm16-3-sum
+
+-- 8.2  T17.13 — the quadrant is exactly the closed cone
+
+-- Valuations are non-negative, so the relevant cone is closed (s ≥ |d|),
+-- not open (W > |R|) as in Delta 16's archimedean case.
+NonNeg : ℤ → Type
+NonNeg n = Σ[ m ∈ ℕ ] n ≡ pos m
+
+-- s ≥ |d| without an absolute value: both light-cone coordinates ≥ 0.
+ConeNN : ℤ × ℤ → Type
+ConeNN x = NonNeg (u₋ x) × NonNeg (u₊ x)
+
+private
+  negsucDouble : (k : ℕ) → negsuc k + negsuc k ≡ negsuc (k +ℕ suc k)
+  negsucDouble k = eNeg (pos (suc k)) ∙ cong -_ (sym (pos+ (suc k) (suc k)))
+    where
+    eNeg : (a : ℤ) → (- a) + (- a) ≡ - (a + a)
+    eNeg = solve ℤCommRing
+
+  nonNegDouble : (n : ℤ) → NonNeg n → NonNeg (n + n)
+  nonNegDouble n (m , p) = (m +ℕ m) , (cong₂ _+_ p p ∙ sym (pos+ m m))
+
+  nonNegUndouble : (n : ℤ) → NonNeg (n + n) → NonNeg n
+  nonNegUndouble (pos m) _ = m , refl
+  nonNegUndouble (negsuc k) (m , p) =
+    ⊥rec (posNotnegsuc m (k +ℕ suc k) (sym p ∙ negsucDouble k))
+
+-- T17.13, forward: a non-negative valuation pair lands in the cone.
+thm17-13-fwd : (a b : ℤ) → NonNeg a × NonNeg b → ConeNN (Φraw (a , b))
+thm17-13-fwd a b (na , nb) =
+  subst NonNeg (sym (thm17-1-lower a b)) (nonNegDouble a na) ,
+  subst NonNeg (sym (thm17-1-upper a b)) (nonNegDouble b nb)
+
+-- T17.13, backward: the cone contains nothing else.
+thm17-13-bwd : (a b : ℤ) → ConeNN (Φraw (a , b)) → NonNeg a × NonNeg b
+thm17-13-bwd a b (cl , cu) =
+  nonNegUndouble a (subst NonNeg (thm17-1-lower a b) cl) ,
+  nonNegUndouble b (subst NonNeg (thm17-1-upper a b) cu)
+
+-- 8.3  C17.14 — in what sense the self-similarity is real
+--
+-- Delta 17 reads the repetition of (sum , difference) at the archimedean
+-- place and at every finite place as a self-similarity between additive
+-- pair geometry and multiplicative valuation geometry.
+--
+-- It is real, and it is weaker than it looks: there are not two theorems
+-- here that happen to match.  There is ONE theorem about a pair of
+-- integers, used twice.  The two instantiations below are the SAME TERM;
+-- Agda accepts them by definition, with no proof in between.
+--
+--   archimedeanCone — a and b are the two legs (p , q);
+--   localCone       — a and b are the two valuations (v_ℓ p , v_ℓ q).
+--
+-- So C17.14 is earned, but what it earns is a re-use, not a coincidence.
+-- The parity constraint s ≡ d mod 2 that Delta 17 states alongside is
+-- likewise not new here: it is exactly the sublattice CR of section 6,
+-- and Pair≃CR already gives the equivalence for arbitrary integers.
+
+archimedeanCone : (p q : ℤ) → NonNeg p × NonNeg q → ConeNN (Φraw (p , q))
+archimedeanCone = thm17-13-fwd
+
+localCone : (vp vq : ℤ) → NonNeg vp × NonNeg vq → ConeNN (Φraw (vp , vq))
+localCone = thm17-13-fwd
+
+sameTheorem : archimedeanCone ≡ localCone
+sameTheorem = refl
+
+-- Control — the closed cone is strictly larger than Delta 16's open one:
+-- the zero valuation pair is in ConeNN and not in InCone.
+zeroInClosedCone : ConeNN (Φraw (pos 0 , pos 0))
+zeroInClosedCone = (0 , refl) , (0 , refl)
+
+zeroNotInOpenCone : ¬ InCone (Φraw (pos 0 , pos 0))
+zeroNotInOpenCone ((m , p) , _) = snotz (sym (injPos p))
+  where
+  open import Cubical.Data.Nat using (snotz)

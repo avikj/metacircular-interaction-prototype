@@ -246,3 +246,76 @@ queue row, a machine-checked artifact whose check does not run. None was caused
 by bad mathematics; all were caused by nobody re-running the pointer. When you
 arrive, do not trust a marker — re-derive it. It is cheap, and tonight it was
 right three times out of three.
+
+## 2026-08-14T07:00Z — fifth landing (Delta 17)
+
+Delta 17 pasted directly. Its §17.23.6 says formalize only after the
+mathematics is clear, so I formalized exactly one thing and audited the rest.
+
+**Landed — `notes/DELTA17_SPLIT_TORUS_AUDIT.md`, `CenterRelative.agda` §8.**
+
+Three of Delta 17's claims were **already checked** from the Delta 16 work and
+the delta did not know it: T17.1 (light-cone coordinates are the doubled
+factors — my `thm16-3-diff`/`thm16-3-sum`), C17.2 (`Q = 4pq`), C17.7 (the two
+involutions stay distinct). I reused those terms rather than reproving them.
+
+New and checked: **T17.13**, the valuation quadrant is exactly the closed cone,
+both directions. The backward direction is the content and needs that doubling
+reflects non-negativity.
+
+**The finding I care about is C17.14.** Delta 17 calls the recurrence of
+(sum, difference) at the archimedean place and at every finite place "a genuine
+self-similarity" and "striking". It is genuine — and it is *one theorem used
+twice*. `archimedeanCone` and `localCone` are the same term; `sameTheorem` is
+`refl`. The cone statement never looks at whether the pair is legs or
+valuations, because both are just a pair of integers.
+
+That cuts both ways and I wrote both. It earns the claim definitionally, which
+is the strongest form. It also deflates it: COGNITIVE_ORIENTATION §5 says when
+two things resemble each other, find the third object — here the third object
+exists and is *thin*. ℤ² with a parity sublattice, carrying no arithmetic. Two
+structures agreeing because they instantiate one indifferent construction is
+not evidence of a deep addition/multiplication link.
+
+I think this is the right service to perform on a delta: not to amplify its
+excitement and not to dismiss it, but to make the claim exact enough that its
+size becomes visible.
+
+**Sharpening recorded (not proved in Agda):** over ℤ the split torus has only
+two points, `G_m(ℤ) = {±1}`. So P17.10's "symmetry breaking" is total at the
+level of ℤ-points — no continuous orbit survives to be broken — which is *why*
+§17.7 must move to the valuation lattice, where the action is by translation
+and is genuinely rich.
+
+**Escalating, because it is now a pattern.** Delta 16 target 9 and Delta 17
+§17.17/17.22/17.33 all say: search the literature (binary quadratic forms,
+O(1,1), `xy=Q`, prehomogeneous vector spaces, adelic harmonic analysis) before
+claiming anything. Neither delta did it. I have not done it. Two deltas have
+now deferred the same search; a third would make it a habit. PROTOCOL §4
+requires a recorded search before novelty. **This should come before more
+formalisation**, and I have put it as seed 1 rather than picking a more
+enjoyable target.
+
+## 2026-08-14T07:05Z — session end (third)
+
+**Resume state.** Five landings pushed on `claude/readme-discussion-f0y7m3`.
+`CenterRelative.agda`: 436 lines, 39 names, `--safe`, exit 0, audit clean.
+
+**Next concrete action, in priority order.**
+1. `SEARCH` — the deferred literature search above. Highest priority; two
+   deltas deep. Do not formalize more until this is recorded.
+2. Delta 16 target 5 / Delta 17 §17.16: the k-ary case, "binary parity is
+   exceptional". Both deltas want it. Finite representation theory.
+3. T17.5 (Weyl conjugation) as a 2×2 identity — cheap, `M2Unimodular.agda` has
+   the toolkit, makes C17.6 concrete rather than nominal.
+4. Transport a structure along `Pair≡CR` (still owed — I hold my own module to
+   NATURAL_MACHINE's "an asserted isomorphism is not transport" and have not
+   met it).
+5. The NaturalMachine toolchain decision (msg 0454, not mine to make).
+
+**Standing caution for my next instance.** I have now processed two deltas in
+one session and both times the useful output was *shrinking* a claim to its
+exact size, not extending it. The deltas generate faster than they verify —
+that is movement 6 of `context_dump.md`'s arc, recurring. If a third delta
+arrives, the highest-value response is probably still the literature search,
+not another formalisation.
