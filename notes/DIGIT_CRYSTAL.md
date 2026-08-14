@@ -79,7 +79,13 @@ and $M_b$ is **free** on $\{\gamma_0,\dots,\gamma_{b-1}\}$. Moreover $\Phi(w)(0)
 *Proof.* Induction on $n$: $\Phi(c_0w')=[b,c_0]\circ[b^{n-1},L_{n-1}(w')]
 =[b^{n},\,bL_{n-1}(w')+c_0]=[b^n,L_n(c_0w')]$. Homomorphism: for $u\in W_m,v\in W_k$,
 $\Phi(u)\circ\Phi(v)=[b^{m},L(u)]\circ[b^{k},L(v)]=[b^{m+k},\,b^{m}L(v)+L(u)]
-=[b^{m+k},L(uv)]=\Phi(uv)$. Injectivity: $b\ge2$, so $[b^{n},v]$ determines $n$, and
+=[b^{m+k},L(uv)]=\Phi(uv)$. *Unit* (the clause a monoid map needs separately, and
+which the operation law above does not give): $\Phi(\varepsilon)$ is the empty
+composite $[1,0]=\mathrm{id}_{\operatorname{Aff}}$, which is also the $n=0$ case
+of the displayed formula ($b^0=1$, $L_0(\varepsilon)=0$), and $[1,0]\in M_b$, so
+$M_b$ is a submonoid rather than merely a subsemigroup. [Clause supplied in
+place by seed132, 2026-08-14; the claim was true and only the argument was
+short.] Injectivity: $b\ge2$, so $[b^{n},v]$ determines $n$, and
 $0\le v<b^{n}$ determines $w=L_n^{-1}(v)$. Freeness is injectivity plus surjectivity
 onto $M_b$. Finally $\Phi(w)(0)=L_n(w)$. $\square$
 
