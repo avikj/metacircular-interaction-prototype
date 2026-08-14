@@ -15,7 +15,7 @@ module NaturalMachine.FullSequentialTableNormalization where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; false ; true ; not)
-open import Cubical.Data.Nat using (snotz ; _+_ ; +-comm)
+open import Cubical.Data.Nat using (znots ; _+_ ; +-comm)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
@@ -91,7 +91,8 @@ generated-table-X-covariant state = funExt λ where
 x-table-nonzero : (table : FullSequentialTable)
   → NonzeroTable table → NonzeroTable (xFullTable table)
 x-table-nonzero table (predecessor , positive) =
-  predecessor , +-comm _ _ ∙ positive
+  predecessor ,
+    +-comm (fst (fst (table true))) (fst (fst (table false))) ∙ positive
 
 normalize-table-X-data : (table : FullSequentialTable)
   (nonzero : NonzeroTable table)
@@ -101,7 +102,9 @@ normalize-table-X-data : (table : FullSequentialTable)
     in (Born.denominator transported ≡ Born.denominator original)
       × ((Born.numerator₀ transported ≡ Born.numerator₁ original)
          × (Born.numerator₁ transported ≡ Born.numerator₀ original))
-normalize-table-X-data table nonzero = +-comm _ _ , (refl , refl)
+normalize-table-X-data table nonzero =
+  +-comm (fst (fst (table true))) (fst (fst (table false))) ,
+  (refl , refl)
 
 ------------------------------------------------------------------------
 -- 3. Forgetting a branch recreates the obstruction
@@ -128,5 +131,4 @@ complete-tables-separate :
   ¬ (fullSequentialTable Obstruction.onlyPort₀
        ≡ fullSequentialTable Obstruction.bothPorts)
 complete-tables-separate equalTables =
-  snotz (cong (fst ∘ fst ∘ (λ table → table true)) equalTables)
-
+  znots (cong (λ table → fst (fst (table true))) equalTables)

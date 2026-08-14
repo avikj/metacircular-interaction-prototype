@@ -320,9 +320,23 @@ On a declared major arc
 we have `(q,r)=1` and `rq\ll Q_N^2\ll(\log N)^{2B}`.  Expanding the additive
 phase on reduced residue classes modulo `q`, every character appearing in
 `T_{r,N}` contains the nontrivial conductor-`r` factor `chi_r`; it cannot be
-principal because `r` does not divide `q`.  The classical Siegel--Walfisz
-theorem, applied at modulus `rq`, and partial summation therefore give, for
-every fixed `K`,
+principal because `r` does not divide `q`.  Terms from primes dividing `q`
+are finite prime-power errors.
+
+For completeness, the partial-summation quantifier needs a prefix split.
+Choose `D` large.  On prefixes `t>=N(log N)^(-D)`, one has
+`log t asymp log N`, so Siegel--Walfisz applies uniformly to every
+nonprincipal product character at modulus `rq` with an arbitrarily strong
+logarithmic saving.  On shorter prefixes, Chebyshev's bound is
+`O(N(log N)^(-D))`.  Partial summation costs at most
+
+\[
+ 1+N|\beta|\le1+Q_N/q,
+\]
+
+and the finite character expansion costs only another polylogarithmic factor.
+Taking the Siegel--Walfisz saving and `D` beyond those losses gives, for every
+fixed `K`,
 
 \[
  \sup_{\alpha\in\mathfrak M_B(N)}|T_{r,N}(\alpha)|
@@ -379,6 +393,66 @@ Then `N_r` is even and divisible by `r`, while
 Hence `Q_{N_r}<r<3Q_{N_r}` for all sufficiently large `r`.  This completes
 the construction.
 
+### Proposition 4.2 (the exact two-sided character sector)
+
+The shadow also identifies the mixed object which the actual prime weight
+retains.  Under the hypotheses of Theorem 4.1, define
+
+\[
+ \vartheta_{r,+}(n)
+ =\vartheta(n)(1+\chi_r(n))\mathbf1_{r\nmid n},
+ \qquad
+ \vartheta_{r,-}(n)
+ =\vartheta(n)(1-\chi_r(n))\mathbf1_{r\nmid n}.           \tag{30}
+\]
+
+If `r|N` and `N>2r`, then
+
+\[
+ (\vartheta_{r,+}*\vartheta_{r,+})(N)=0,
+ \qquad
+ (\vartheta_{r,-}*\vartheta_{r,-})(N)=0,                 \tag{31}
+\]
+
+and
+
+\[
+ \boxed{
+ R_\vartheta(N)
+ =\frac12(\vartheta_{r,+}*\vartheta_{r,-})(N).}          \tag{32}
+\]
+
+#### Proof
+
+The proof of (22) applies to both signs and gives (31).  Away from the prime
+`r`,
+
+\[
+ \vartheta=\frac12(\vartheta_{r,+}+\vartheta_{r,-}).
+\]
+
+The omitted `r` atom cannot contribute at this target: its complement `N-r`
+is a multiple of `r` larger than `r`, hence is not prime; the atom--atom term
+would require `N=2r`.  Expanding the convolution square, using (31), and using
+commutativity of convolution gives (32).  QED.
+
+In Fourier language, if `W_{r,+}` and `W_{r,-}` are the two sector
+polynomials, then the full target coefficient of each square is zero, while
+the target coefficient of `W_{r,+}W_{r,-}` is `2R_vartheta(N)`.  The same
+Siegel--Walfisz argument as above makes **each** sector polynomial agree with
+`S_{vartheta,N}` on the declared major arcs.  Thus each self-sector minor
+packet necessarily contributes `-mathfrak S_2(N)N+o(N)`, and all actual-prime
+positivity is carried by the single mixed sector coefficient (32).
+
+No current input controls that prescribed mixed coefficient from below.
+Siegel--Walfisz controls each sector's one-point rational responses.  The
+large-sieve and Bhowmik--Grimmelt estimates in the current audit control
+averages or the aggregate coefficient family; they allow exceptional centers
+and do not supply a lower bound for (32).  In fact positivity of (32) is
+exactly `GoldbachAt N`, while a fixed positive-proportion lower bound for it is
+the sector form of Proposition 2.1.  The identity sharpens the missing
+interface but does not solve it.
+
 ### What Theorem 4.1 does and does not rule out
 
 It rules out an implication from the following interface alone:
@@ -424,11 +498,11 @@ to the frozen common-`X` family
 Collapsing the former to the scalar verdict `H_min(N)` loses the target/frozen
 context distinction and cannot support anti-spike transport.  The moving
 character construction identifies the reusable middle object more sharply:
-retain the character/conductor-labelled minor packet and its action under
-center complementation.  A theorem excluding such packets for the actual
-fixed prime signal, or coupling them coherently across many centers, would be
-middle mathematics.  The one-sided terminal inequality would then be its
-boundary consequence.
+retain the two character/conductor-labelled sectors, their mixed convolution
+(32), and their action under center complementation.  A theorem bounding that
+mixed carrier for the actual fixed prime signal, or coupling it coherently
+across many centers, would be middle mathematics.  The one-sided terminal
+inequality would then be its boundary consequence.
 
 No bridge to Delta 29 is claimed beyond this classification.
 
@@ -442,6 +516,7 @@ No bridge to Delta 29 is claimed beyond this classification.
 * The exact quadratic-character annihilation in Theorem 4.1.
 * The major-arc comparison (26)--(29), conditional only on the standard
   Siegel--Walfisz theorem and the already pinned target major formula.
+* The exact actual-prime cross-sector identity (30)--(32).
 
 ### Inherited or externally pinned
 
@@ -475,6 +550,11 @@ also partly occurred: `(H_edge)` is a genuinely weaker sufficient premise and
 `H_min` is classified exactly as a quantitative Hardy--Littlewood lower bound.
 No unconditional estimate for the actual `Lambda` minor coefficient was
 proved.
+
+Independent hostile return: `cycle1-khayyam` checked the exact annihilation,
+the conductor/principal-character issue, and the `rq` Siegel--Walfisz range.
+The review required the now-explicit short/long prefix split before partial
+summation; no remaining flaw was found.
 
 ### Execution
 

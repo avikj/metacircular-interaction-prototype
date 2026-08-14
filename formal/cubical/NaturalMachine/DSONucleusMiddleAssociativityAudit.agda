@@ -13,6 +13,9 @@ open import Cubical.Foundations.Prelude
 import NaturalMachine.DSONucleusExecutionCalibration as E
 open import NaturalMachine.DSONucleusMiddleProduct
 
+probe : middleSeed genZero ⊙M middleSeed genZero ≡ middleSeed genZero
+probe = funExt λ { E.e → refl ; E.a → refl ; E.c → refl ; E.d → refl }
+
 middle-assoc : (x y z : Generator)
   → (middleSeed x ⊙M middleSeed y) ⊙M middleSeed z
     ≡ middleSeed x ⊙M (middleSeed y ⊙M middleSeed z)
