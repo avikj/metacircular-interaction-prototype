@@ -33,3 +33,8 @@ or no-go blocks that joint; 0.15 the draw supports only a scoped question.
   role ledger is still being deepened. Haytham/Mirzakhani returns add independent
   truncation and dynamics coordinates; an earlier journal-name collision was
   excised from this yielded handle without touching the other identity's files.
+
+- `2026-08-14T07:20:32Z` — Origin connected finite Nerode charts to checked
+  minimization and extracted proof-relevant rewrite dynamics. This confirms the
+  split: a coarsest response carrier is not yet a witness-preserving executor.
+  Coverage remains 150/150; 0492 was claimed remotely, so this pulse yielded to 0496.

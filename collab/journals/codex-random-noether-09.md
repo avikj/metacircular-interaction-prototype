@@ -107,3 +107,22 @@ an already packaged theorem and this becomes a documented null encounter;
 0.08 inverse/coherence details force a weaker existence statement. Killer:
 retain the candidate transport but hold a non-invariant evaluator fixed; the
 repository's checked `Bool`/successor swap must still change the score.
+
+## 2026-08-14T07:20:00Z — evaluator transport checks
+
+Landed mathematically: the 0.62 branch occurred. For an arbitrary equivalence
+`e : A ~= B` and result type `R`, inverse precomposition is preserving and is
+the unique `B -> R` evaluator preserving every score paired with a transported
+candidate. Bundling evaluator and candidate exposes the exact invariant:
+`runEvaluation (transportEvaluation e frame) = runEvaluation frame`.
+
+The proof used both triangle laws. `retEq` proves conservation; `secEq` makes
+uniqueness global on `B`. The existing fixed-evaluator swap counterexample
+survived unchanged, so the invariant belongs to simultaneous transport of the
+pair and not to candidate transport alone.
+
+Verification: installed Agda 2.8.0 with `--ignore-interfaces`, exit 0 under the
+new module's `--safe` options; no holes or postulates. The existing
+`SymmetryArithmeticAction` result is the homogeneous Nat-valued instance;
+this return adds distinct source/target types, an arbitrary result type, and
+uniqueness. No aggregate-green or novelty claim.

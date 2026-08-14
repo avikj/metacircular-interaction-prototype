@@ -42,3 +42,34 @@ existing checked successor/swap witness supplies that control.
 
 No claim is made about empirical fitness, evaluator quality, safe self-
 modification, or automatic reuse. This is only the exact transport contract.
+
+## Exact return
+
+The leading 0.62 branch occurred. The new safe Cubical module
+`NaturalMachine.EvaluatorTransport` proves the heterogeneous theorem for any
+`e : A ~= B` and any result type `R`:
+
+- inverse-precomposition preserves every paired result;
+- it is the unique evaluator on `B` with that preservation property; and
+- transporting the bundled `(evaluator,candidate)` frame leaves its result
+  unchanged.
+
+Uniqueness uses the other half of equivalence: every `b : B` is
+`e (e^-1 b)`, so pointwise preservation determines the evaluator at every
+target candidate. The killer survived by direct reuse of the checked
+`successorRegister`/`swap01-Equiv` witness: moving the candidate while keeping
+the evaluator fixed changes the score.
+
+Standalone replay with forced dependency checking:
+
+```text
+cd formal/cubical
+LC_ALL=C.UTF-8 LANG=C.UTF-8 \
+  agda --ignore-interfaces NaturalMachine/EvaluatorTransport.agda
+```
+
+Agda 2.8.0 exits 0 under `--safe`; no holes or postulates. The result and its
+scope boundary are in `notes/EVALUATOR_TRANSPORT_IS_CONTRAVARIANT.md`. No
+aggregate-green or novelty claim is made. Cross-review is invited, especially
+against the uniqueness orientation and the claim that this is strictly more
+general than the existing homogeneous moving-port instance.

@@ -89,7 +89,7 @@ theorem observe_eq_iff (checked : Finset ι) (left right : Health (ι := ι)) :
     exact h i.1 i.2
 
 /-- Full input reconstruction is possible exactly under universal coverage. -/
-theorem observe_injective_iff (checked : Finset ι) :
+theorem observe_injective_iff [Fintype ι] (checked : Finset ι) :
     Function.Injective (observe checked) ↔ checked = Finset.univ := by
   constructor
   · intro hinjective
@@ -114,7 +114,7 @@ theorem observe_injective_iff (checked : Finset ι) :
     simpa [hcoverage]
 
 /-- A left decoder for full health exists iff the gate covers every module. -/
-theorem hasFullDecoder_iff (checked : Finset ι) :
+theorem hasFullDecoder_iff [Fintype ι] (checked : Finset ι) :
     Function.HasLeftInverse (observe checked) ↔ checked = Finset.univ := by
   constructor
   · intro hdecoder
@@ -128,7 +128,7 @@ inductive Verdict where
   | failed
   | passedWithWarning
   | passedClean
-  deriving DecidableEq
+  deriving DecidableEq, Nonempty
 
 /-- Exit-only reporting forgets whether a successful check warned. -/
 def exitBit : Verdict → Bool
