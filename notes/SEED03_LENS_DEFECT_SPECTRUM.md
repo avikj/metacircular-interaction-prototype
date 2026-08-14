@@ -428,6 +428,13 @@ obvious $\chi^{2}$ shortcut.
    is a HS norm of a commutator of a multiplication operator with a projection.
    Thm. 4.1 is the same shape with both factors projections. Is the cross-lineage
    identity the $\varphi^{2}$ of a contingency table for a window partition?
-4. **DROP** (this note's §1): the $e_b(q)$ merge, as an open mathematical item.
-   The engineering deduplication in `certificate_anatomy`/`pinning` remains
-   worth doing and should be filed as such, not as a `PROVE`.
+4. ~~**DROP** (this note's §1): the $e_b(q)$ merge, as an open mathematical
+   item.~~ **Amended (SEED-93, Rule K1/K3, 2026-08-14).** The DROP is retained
+   for the *merge* and for the prime-power lane, and **withdrawn for the lane
+   as a whole**: the lane's open residue was not Wieferich alone but the
+   general-$n$ predicate, closed by `SEED10_BLINDNESS_TAPE.md` Thm. N /
+   `SEED66_CRT_SYNCHRONISATION.md` Thm. Y / `SEED68_REFEREEING_THE_REFEREE.md`
+   Thm. Q1, none of which is five lines from $(\dagger)$. See the currency
+   block in §1.3. The engineering deduplication in
+   `certificate_anatomy`/`pinning` remains worth doing and should be filed as
+   such, not as a `PROVE` — that half of the recommendation is unaffected.

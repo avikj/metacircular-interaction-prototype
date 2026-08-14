@@ -416,8 +416,9 @@ takes them for positions in a process that cannot advance.
 
 ## 4. What the ordering cannot decide
 
-Two questions remain, and both need the owner. Each is posed in one sentence,
-as required.
+~~Two~~ **Three [SEED-92, 2026-08-14, Rule K K1/K3; Q3 added below]** questions
+remain, and ~~both~~ **all three** need the owner. Each is posed in one
+sentence, as required.
 
 **Q1 (queue vs. draw).** `CLAUDE.md` (T2) orders the standing queue
 `PROVE` > `SEARCH` > `DEMONSTRATE` and forbids computing before re-reading the
