@@ -496,6 +496,7 @@ data Machine = Machine
   , mLemmas  :: [(Term,Term)] -- proved but unorientable (e.g. commutativity)
   , mKnown   :: M.Map (Term,Term) ()  -- everything already stated
   , mInvented :: [Sym]        -- concepts the machine named for itself
+  , mRetired :: [Term]        -- patterns it named, never used, and withdrew
   , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
@@ -503,7 +504,7 @@ data Machine = Machine
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] M.empty 3 4 0
+start = Machine [] [] M.empty [] [] M.empty 3 4 0
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -534,7 +535,7 @@ canonTerm :: Term -> Term
 canonTerm t = applySub ren t
   where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
 
-inventConcept syms terms n =
+inventConcept syms retired terms n =
   case best of
     []        -> Nothing
     ((p,_):_) ->
@@ -545,16 +546,17 @@ inventConcept syms terms n =
       in Just (Sym nm ar (\args -> eval sem args p)
                  [ (p, F nm (map V [0 .. ar-1])) ])
   where
-    best = bestOf syms terms
+    best = bestOf syms retired terms
 
 -- candidate concepts, best first: how often a shape appears times how
 -- much naming it would save.  A shape already named is not a new idea.
-bestOf :: [Sym] -> [Term] -> [(Term,Int)]
-bestOf syms terms =
+bestOf :: [Sym] -> [Term] -> [Term] -> [(Term,Int)]
+bestOf syms retired terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
              [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
                   , not (alreadyNamed p), not (trivialApp p)
-                  , mentionsPrimitive p ])
+                  , mentionsPrimitive p
+                  , canonTerm p `notElem` retired ])
   where
     -- A TOWER IS NOT A THOUGHT.  With the description-length gate live,
     -- the machine's first name was `c0 := x+x` — exactly the `double`
@@ -737,7 +739,8 @@ round1 logh libh ref = do
               in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
                      (M.keys (mKnown m'))
       candidate = if stuck && lastNameUsed
-                    then inventConcept syms normed (length (mInvented m'))
+                    then inventConcept syms (mRetired m') normed
+                           (length (mInvented m'))
                     else Nothing
       invented = case candidate of
         Just s | let (pat,fold) = head (symDefs s)
