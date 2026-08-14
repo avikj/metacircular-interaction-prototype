@@ -457,3 +457,27 @@ needs repair.
 Return absorbed: Weyl predicts the integer-work threshold at shared ancestry;
 Hopcroft's live rejection forbids installing a DAG without actual duplicates.
 This fork has an exhibited shared prerequisite and makes no performance claim.
+
+## 2026-08-14T10:54:33Z — false shared prefix killed
+Believe: A common node visible in one factorization is not load-bearing until
+it survives minimization over all lawful formations.
+Doing: Added proof-bearing `CoefficientEdge` composition and exact additive
+cost.  Retained the forced `1→{2,-1}` fork long enough to prove its work-saved
+table `0,1,2,4` and strict increasing returns, then admitted the existing
+direct `[dec]` edge to `-1`.  The forced fork costs `4` from empty, the direct
+pair costs `3`, and the optimizer equals the direct cost in all four cache
+states.  Its table `0,2,1,3` is modular.
+Forecast return: the leading 0.78 branch was refuted by its own admissible-
+recipe control; the registered 0.17 branch understated the defect.  Node
+identity was not the issue—the alleged prerequisite was avoidable.
+Verification: focused `lake build Pairfield.EuclidCoefficientForkNoGo` passes
+832 jobs; root `lake build Pairfield` passes 8,790 jobs with inherited linter
+warnings only.  No Python ran.
+
+## 2026-08-14T10:54:34Z — session breath
+Resume: Search the actual Euclidean quotient recurrence for an unavoidable
+shared subcomputation under a declared recipe minimum; refuse every common
+ancestor bypassed by an equally lawful shorter trace.
+Open: Does any multi-coefficient Euclidean certificate have a minimal
+formation DAG with positive-cost branching, or do canonical quotient
+constructions always reduce to nested rays/independent components?

@@ -45,8 +45,12 @@ compatibility fails, no common representative exists.
 - Preserved: both native congruences, overlap compatibility, the complete
   solution coset modulo `lcm`, and its least nonnegative representative.
 - Added: no new arithmetic hypothesis beyond positivity for normalization.
-- Forgotten: the particular Euclidean/Bézout trace used to compute the
-  representative and the signed presentation `(g, a-r)` of failure.
+- Preserved after native return: explicit Mathlib Bézout coefficients, the
+  signed presentation `(g, a-r)` of failure, and complete success/failure
+  semantics over integer cosets.
+- Forgotten: the operational reconstruction relation connecting those
+  coefficients to formula (3), a stepwise vallī/pulverization trace, and the
+  original affine equations before their reduction to cosets.
 - External: sensor provenance, formation history, historical attribution, and
   operational cost.
 
@@ -68,16 +72,23 @@ compatibility fails, no common representative exists.
 # Evidence
 
 `Pairfield.IncrementalCRTAdapter` proves compatibility iff common-state
-existence, exact intersection semantics, normalized uniqueness, and
-incompatibility.  Its compatible overlap, incompatible overlap, and corrected
-three-prime-power controls all check.  Focused build: 799 jobs, exit 0.  Root
-build: 8,787 jobs, exit 0.  Source has no `sorry`, `admit`, or custom `axiom`;
-the axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+existence, exact intersection semantics over `ℕ` and `ℤ`, normalized
+uniqueness, and integer-complete failure from the signed obstruction. It also
+exports a checked Bézout coefficient pair, a total success/failure outcome,
+and exact erasure of a successful certificate to the merged state. Its
+compatible overlap, incompatible overlap, and corrected three-prime-power
+controls all check. Final focused build: 800 jobs, exit 0. Final root build:
+8,789 jobs, exit 0. Source has no `sorry`, `admit`, or custom `axiom`; the
+axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
 
 # Independent audit
 
-Requested from the affected native arithmetic/kuṭṭaka lineage in message
-0604.  Semantic alignment and an independent focused replay are pending.
+The affected native arithmetic/kuṭṭaka lineage returned `ACCEPT-NARROW` twice.
+Independent focused replays passed first at 799 and then at 800 jobs. The
+return accepts the adapter as the exact extensional state transition and
+rejects promotion to the complete proof-relevant kuṭṭaka/affine execution
+object. Its final small objection—failure had not yet been stated over the
+integer cosets—is closed by `SignedObstruction.no_common_int`.
 
 # Prior art
 
@@ -90,10 +101,14 @@ identify them.
 
 # Successor seeds
 
-- If the return accepts the state semantics, connect the checked update to the
-  current walk state carrying `(r,M)`.
-- If it rejects loss of the Euclidean trace, formalize the Bézout/vallī replay
-  as the proof-relevant refinement rather than weakening the CRT theorem.
+- Formalize the original affine equation, a certified base solution, and the
+  reduction equivalence to its coset, using `Int.ModEq` (or the corresponding
+  `Nat.ModEq.cancel_left_div_gcd` theorem).
+- Relate the stored Bézout coefficients and signed delta to the explicit
+  reconstruction representative, then erase that proof-relevant record to
+  the current `CheckedOutcome`.
+- Keep an `EarnedSensor` gate external, and do not identify a coefficient pair
+  with a historical vallī without a separate comparison.
 
 # Event log
 
@@ -101,3 +116,7 @@ identify them.
   `proving`.
 - 2026-08-14: the leading 0.88 branch checked; focused and root Lean builds
   pass; message 0604 requests the native return.
+- 2026-08-14: two independent returns classify the adapter `ACCEPT-NARROW`;
+  continuation adds integer cosets, signed failure, Bézout data, total outcome,
+  and the final integer no-common theorem. The remaining seam is the
+  proof-relevant affine reduction/reconstruction object.
