@@ -51,6 +51,7 @@ Replay:
 
 ```text
 lake build Pairfield.AdaptiveResidualGlobalPartition  # 3,052 jobs, exit 0
+lake build Pairfield                                  # 8,791 jobs, exit 0
 ```
 
 R0066 records the exact scope.  Best hostile return: connect one informative

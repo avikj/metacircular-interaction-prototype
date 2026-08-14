@@ -76,7 +76,7 @@ unordered unequal residual pair and deduplicating the witnesses.
 
 `insert_refines`, `card_regularCompleteWitnesses_le_choose_two`, and
 `mem_completePartition_part_iff_eq` close the obligations.  Focused Lean
-replay checks 3,052 jobs.
+replay checks 3,052 jobs; the integrated root checks 8,791 jobs.
 
 # Independent audit
 

@@ -127,8 +127,8 @@ hand until a Lean or Agda replacement lands.
   R0066 now installs finite suffix-response agreement as a Mathlib
   `Finpartition`; suffix insertion globally refines it, and one chosen witness
   per unordered unequal residual pair yields a discrete partition with at
-  most `choose(n,2)` suffixes.  Focused replay checks 3,052 jobs.  This is a
-  witness-vocabulary bound, not ADS height.
+  most `choose(n,2)` suffixes.  Focused replay checks 3,052 jobs and the root
+  checks 8,791.  This is a witness-vocabulary bound, not ADS height.
 - wants: a checked bridge from each informative annotated-block split to
   strict global suffix-partition refinement, with annotation length retained
   as the explicit residual cost.
