@@ -1,5 +1,5 @@
 {
-  "head": "dc333edb3a6c3dd9e10bae7ab813f26ef223d5ca",
+  "head": "5da470efb785d8ff5bbe0a0ed507decc3b7986d3",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -303,8 +303,24 @@
     "collab/messages/0183-codex-ananta-adaptive-center-chain-result.md": "e07facab63c754ac9e0feb16fdc3d98668531a93ddc8607c61fe0251c06cb8fb",
     "collab/messages/0184-claude-history-unified-confinement.md": "9c8bd8cd3f614e87b821eddca74409ecb154f27c35c7078936a48ba01b11ce2f",
     "collab/messages/0184-codex-quantum-process-program-center-claim.md": "2fc9b12f9f7c56fd0108e45a60240c2467acc588e27a2861482060f27a582ef0",
-    "collab/messages/0185-codex-quantum-process-program-center-result.md": "d8bc2f7d5e8241b48d808c67f3313e342f7167d1e2931f35eb1ea5f5070d87ad"
+    "collab/messages/0185-codex-quantum-process-program-center-result.md": "d8bc2f7d5e8241b48d808c67f3313e342f7167d1e2931f35eb1ea5f5070d87ad",
+    "collab/messages/0186-codex-ananta-end-to-end-valuation-program-claim.md": "db68b5180cb6af3a234c6938efca61fe9482112751641b6bc65e522e15b2bd50",
+    "collab/messages/0187-codex-ananta-end-to-end-valuation-program-result.md": "6b9f954f32a8602c16974775e960bad476ce88cec20a4dd740b21929df2dab27",
+    "collab/messages/0188-codex-ananta-explicit-compiler-lower-bound-claim.md": "fd5c5f33b88c51415612e09d58ff2b46bcb27de17f45ff65020c550ee1568733",
+    "collab/messages/0189-codex-quantum-process-clean-reversible-claim.md": "5bd5a7c99c680f40fe9339bc6ddd1a02c499d974907e3ad9e473825947c7e215",
+    "collab/messages/0190-codex-quantum-process-clean-reversible-result.md": "80921da8b7ad2d3407e025b26820ba395a295e7f654b3c0b70b0da38a05103b4",
+    "collab/messages/0191-codex-ananta-explicit-compiler-lower-bound-result.md": "814297fdb8b6ab1d29ae22bb35ecab71ee6f51a58502473d76696a6fa06877e3",
+    "collab/messages/0192-codex-ananta-rolling-power-center-claim.md": "e16d866cd9d6745899a4822fe850bc5314ba54a362abc405b27f2b5665cb7c4d",
+    "collab/messages/0193-codex-ananta-rolling-power-center-result.md": "2749e58514a7a53f7b51d2af7311f6ae04097a6a1003b57aa58524b501d64a6b",
+    "collab/messages/0194-codex-quantum-process-rolling-step-claim.md": "30c86db65436cbb935b553451f22cd64d667bc69e7ef7d59772a3f17b03524a8",
+    "collab/messages/0195-codex-quantum-process-rolling-step-result.md": "f4a046e3ad8566f076271d5e8c0e2bc9a90d0881b41764419c41d622c2c01597",
+    "collab/messages/0196-codex-ananta-clean-rolling-compiler-claim.md": "6998fd217e07f8986989bd4924ccb036e84323e65a0501ed0972abe3a38b4b27",
+    "collab/messages/0197-codex-ananta-clean-rolling-compiler-result.md": "035656ddb76a702097301d199b377ec908dfa8a58ee00e738b6b388ca3e74c24",
+    "collab/messages/0198-codex-ananta-minimal-branch-state-claim.md": "49b1b0b984fb3c2df5a4df9e5fa8efe5f0061510ff60aa9935010343a1f80444",
+    "collab/messages/0199-codex-ananta-minimal-branch-state-result.md": "5925a91829f3595c855af5f3320616213791fe8de6d2c6727fb33dc5d5e435a2",
+    "collab/messages/0200-codex-ananta-output-sensitive-clean-cost-claim.md": "5051e90e30c665bdcadc907101ef6807c2ac9b07aad9b6e5caa0467786e4c675",
+    "collab/messages/0201-codex-ananta-output-sensitive-clean-cost-result.md": "d6366833da93b3fc07494b4f1f91b7b619f32103b63cc2cec2ae68d26c1740e2"
   },
-  "response_hash": "a792eadf8dbd3a057fa0783a45228a43c6e6c63134e6abdb6b56385d28d197a6",
-  "source_index": 19
+  "response_hash": "f27b0d574f6c37e111cf1cd59fe148d5468e6369971690e544bb492fce3cd8e1",
+  "source_index": 20
 }

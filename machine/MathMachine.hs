@@ -347,6 +347,17 @@ compileHistoryArchitectures m selected demand = (adequate, result)
     result = compileDSOArchitectures ["history-demand"] [context]
       (map historyCandidate adequate)
 
+-- Orientation control for the corrected divisor-history statement.  Reversing
+-- an increasing construction removes the largest factor first.  Least-factor
+-- peeling is the reverse of the decreasing construction word, not increasing.
+increasingConstruction, decreasingConstruction :: Int -> [Int]
+increasingConstruction m = [0..m-1]
+decreasingConstruction m = reverse (increasingConstruction m)
+
+reverseRemoval, leastFactorPeeling :: Int -> [Int]
+reverseRemoval = reverse . increasingConstruction
+leastFactorPeeling = reverse . decreasingConstruction
+
 executeBoundedSearch :: BoundedSearch -> SearchProjection
 executeBoundedSearch plan =
   let witnesses = filter (searchPredicate plan) (searchFiber plan)
@@ -1246,8 +1257,10 @@ round1 logh libh ref = do
       architectureRegretWork = sum
         [ work | result <- architectureResults, (_, (_,work)) <- dsoArchitectureRegret result ]
       retainedHistoryFibre = sum
-        [ sum (map (sum . map length . historyFibres) selected)
-        | (selected,_) <- historyArchitectureResults ]
+        [ sum [sum (map length (historyFibres architecture))
+              | architecture <- adequate
+              , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
+        | (adequate,result) <- historyArchitectureResults ]
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
@@ -1523,6 +1536,45 @@ main = do
             && maybe False (all ((== "square-threshold/least/6") . snd)) compiledMigration)
       exitFailure
     hPrintf stdout "DSO ARCHITECTURE CHECKED: transformer=[6]=[6] direct=(15,15) compiled=(1,1) pareto=compiled regret=(14,14) migrations=15 origins=retained\n"
+    exitSuccess
+  when (args == ["--divisor-history-self-test"]) $ do
+    let architecture m checkpoints name =
+          head [a | a <- fst (compileHistoryArchitectures m checkpoints EndpointDemand),
+                    historyArchitectureName a == name]
+        checkArchitecture m checkpoints name expectedClasses expectedFibre =
+          let a = architecture m checkpoints name
+              fibres = historyFibres a
+              predicted = product (map factorial (historyBlocks m checkpoints))
+              origins = dsoArchitectureOrigin (historyCandidate a)
+              migrated = map fst (dsoArchitectureMigration (historyCandidate a))
+          in length fibres == expectedClasses
+             && all ((== expectedFibre) . length) fibres
+             && predicted == expectedFibre
+             && sort origins == sort migrated
+             && length origins == factorial m
+        (_, endpoint4) = compileHistoryArchitectures 4 [2] EndpointDemand
+        (snapshotArchitectures4, snapshot4) =
+          compileHistoryArchitectures 4 [2] (SnapshotDemand [2])
+        (_, full4) = compileHistoryArchitectures 4 [2] FullDemand
+        selectedSnapshotFibre =
+          [historyFibres a | a <- snapshotArchitectures4,
+             historyArchitectureName a `elem` dsoParetoArchitectures snapshot4]
+    unless (checkArchitecture 2 [] "history/endpoint" 1 2
+            && checkArchitecture 2 [1] "history/snapshot" 2 1
+            && checkArchitecture 2 [1] "history/full" 2 1
+            && checkArchitecture 4 [] "history/endpoint" 1 24
+            && checkArchitecture 4 [2] "history/snapshot" 6 4
+            && checkArchitecture 4 [1,2,3] "history/full" 24 1
+            && dsoParetoArchitectures endpoint4 == ["history/endpoint"]
+            && dsoParetoArchitectures snapshot4 == ["history/snapshot"]
+            && dsoParetoArchitectures full4 == ["history/full"]
+            && map (map length) selectedSnapshotFibre == [replicate 6 4]
+            && reverseRemoval 4 == [3,2,1,0]
+            && leastFactorPeeling 4 == [0,1,2,3]
+            && leastFactorPeeling 4 == reverse (decreasingConstruction 4)
+            && leastFactorPeeling 4 /= reverse (increasingConstruction 4))
+      exitFailure
+    hPrintf stdout "DIVISOR HISTORY CHECKED: m=2 endpoint=1x2 full=2x1; m=4 endpoint=1x24 snapshot=6x4 full=24x1; selected=snapshot eliminated=18 retained-history=24 orientation=corrected\n"
     exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]
