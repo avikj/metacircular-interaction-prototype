@@ -370,5 +370,6 @@ specification.  It proves no new Goldbach case, no coverage theorem, no prime
 distribution estimate, and no impossibility theorem about future machine
 attacks.
 
-The collaboration sync daemon first swept this report into commit `7e7e1d7b`;
-the final receipt below is committed with this file as the sole pathspec.
+The collaboration sync daemon swept the report body into `7e7e1d7b` and its
+first closing receipt into `9a6a681e`; this final correction is the explicit
+single-path close.
