@@ -57,20 +57,25 @@ noncomputable def advanceCell (M : DFA A X)
   exact cell.image fun pre =>
     CanonicalResidualAdapter.branchState M (pre ++ [action])
 
+/-- Pointwise Mathlib-DFA advance of a canonical residual cell. -/
+noncomputable def stepCell (M : DFA A X)
+    (cell : Finset (State M)) (action : A) : Finset (State M) := by
+  classical
+  exact cell.image fun state => M.accepts.toDFA.step state action
+
 /-- The native cell update is exactly pointwise stepping in Mathlib's
 canonical left-quotient DFA. -/
 theorem advanceCell_eq_toDFA_step_image
     (M : DFA A X) (cell : Finset (List A)) (action : A) :
     advanceCell M cell action =
-      (cellOfPrefixes M cell).image
-        (fun state => M.accepts.toDFA.step state action) := by
+      stepCell M (cellOfPrefixes M cell) action := by
   classical
   ext state
-  simp only [advanceCell, cellOfPrefixes, Finset.mem_image]
+  simp only [advanceCell, stepCell, cellOfPrefixes, Finset.mem_image]
   constructor
   · rintro ⟨pre, hpre, rfl⟩
     refine ⟨CanonicalResidualAdapter.branchState M pre, ⟨pre, hpre, rfl⟩, ?_⟩
-    exact (CanonicalResidualAdapter.branchState_step M pre action).symm
+    exact CanonicalResidualAdapter.branchState_step M pre action
   · rintro ⟨source, ⟨pre, hpre, rfl⟩, rfl⟩
     refine ⟨pre, hpre, ?_⟩
     exact CanonicalResidualAdapter.branchState_step M pre action
