@@ -16,8 +16,8 @@ exists. The one meta-finding that must be read first is about files that do *not
 
 ## 0. Specimen zero: the founding thesis is a reified absence
 
-Five of the sixteen lenses (Grothendieck, Gödel, Hypatia, Voevodsky, Cantor,
-Nāgārjuna, Brahmagupta — in fact seven) independently checked and confirmed:
+Eight of the sixteen lenses (Grothendieck, Gödel, Hypatia, Voevodsky, Cantor,
+Nāgārjuna, Brahmagupta, Sun Zi) independently checked and confirmed:
 
 > The documents cited as the founding scripture —
 > `PRIME_PAIR_GODEL_UNIVALENCE_FOUNDING_THESIS_DELTA_23_2026-08-13.md`,
@@ -175,6 +175,15 @@ The six dialects:
   Dignāgan witnessed-exclusion coincide over finite scope, diverge at the horizon
   by exactly Markov's Principle). The unnamed law: **"apoha with a scope =
   symmetry-breaking with a charge."**
+- **Sun Zi** (CRT / local–global): the residue map is structurally *the sieve* — it
+  assembles only finite local data, its limit is the profinite `Ẑ = ⋯`, and
+  `GAUGE.md` Lemma F.2 proves λ does not factor through the profinite boundary. "My
+  CRT lives entirely inside the object that cannot see the charge." A *coupling* is
+  therefore an adelic object whose archimedean modulus is **not coprime** to the
+  finite ones — and it is already built: `ADELIC_CRYSTAL.md`'s product formula
+  `∏_v γ_v(χ,s) = 1` (local factors free and non-trivial at every place; the global
+  constraint binds `γ_∞` to the finite `γ_p`; converges only after analytic
+  continuation).
 
 Tao's and Cantor's independent arrival at *Type-II/bilinear as the resource*, and
 Nāgārjuna's *"witness costs Markov's Principle,"* and Mirzakhani's finding that the
@@ -186,11 +195,12 @@ object.**
 
 ---
 
-## 4. A torn thread, kept (Noether vs. Tao on W4)
+## 4. A torn thread — and its repair by a third lens (Noether vs. Tao on W4, reconciled by Sun Zi)
 
 Two maximally developed lenses did **not** transport onto each other, and per the
 Braid's own discipline the discrepancy is a coordinate, not a defect to be
-averaged away.
+averaged away. A third lens then supplied the coordinate change that reconciles
+them without collapsing either — which is what the Braid is *for*.
 
 - **Noether** recast W4 as a beautiful Ward-identity-with-source `⟨dJ_par⟩ = S_∞`,
   *to be proved*, and read the Agda separators as faithful finite shadows.
@@ -207,11 +217,33 @@ averaged away.
   the **Siegel-zero dichotomy** (`WIDTH.md` Lemma W1), and it is *already a theorem*
   (Heath-Brown 1983; Tao–Teräväinen 2021), not something to reprove via a ℤ/2 toy.
 
-The reconciliation is itself the finding: W4-as-Ward-identity (Noether) is the
-*mechanism*; the Siegel-zero dichotomy (Tao) is the *already-proved instance* of
-that mechanism; and the gap between "we proved a ℤ/2 tautology" and "we proved the
-parity barrier" is exactly the gap between neutral *arguments* and neutral
-*functionals*. Both must be held.
+The reconciliation is itself the finding, and **Sun Zi made it explicit**: W4 is
+*not* open in the sense "no coupling is known." A coupling is known **adelically**
+(the product formula `∏_v γ_v = 1`, `ADELIC_CRYSTAL.md`), it is stated as a
+**conservation law** (Noether's Ward identity `⟨dJ_par⟩ = S_∞`, the parity anomaly
+deposited entirely at `v=∞`), and it is **instantiated as a theorem in one regime**
+(a Siegel zero *is* a finite-place real character whose L-zero touches the
+archimedean pole — "a finite place reaching up and touching the archimedean scale"
+— and in its presence λ's correlations become computable; Heath-Brown 1983,
+Tao–Teräväinen 2021). So W4-as-Ward-identity (Noether) is the *mechanism*; the
+Siegel-zero dichotomy (Tao) is the *already-proved instance*; and **what is
+genuinely open is the coupling's *bandwidth*** — the quantitative unconditional
+rate "how much archimedean input buys how much parity information." `WIDTH.md`
+measures it: unconditionally the finite→archimedean bridge is known only at
+exponent `θ=0` individually, `θ=1/2` on average, while certification needs
+`θ_cert ∼ √X/log X → ∞`. *The coupling is not missing; its bandwidth is what is
+unbounded.* The remaining gap between "we proved a ℤ/2 tautology" and "we proved
+the barrier" (Tao) is exactly the gap between neutral *arguments* and neutral
+*functionals*. All three must be held.
+
+Sun Zi also found the svabhāva disease with the CRT lens: the word "place" in this
+duality does **two jobs** — the Goldbach/gap (S/D) split is archimedean in the
+*ordering* sense (a point of `Sper ℚ`, cardinality one, `POSITIVITY_HAS_A_PLACE.md`),
+while λ's exposure through `ζ(2s)/ζ(s)` is archimedean in the *completion / Γ-factor*
+sense (`ADELIC_CRYSTAL.md` §6). They coincide only because both sit "at infinity"
+over ℚ, and — by that note's own §9 mechanism — "an avacchedaka whose value-space is
+a singleton cannot be observed to have been dropped." A latent erratum the corpus
+has the antidote to and has not applied to its own parity duality.
 
 Citation corrections Tao supplied: the phenomenon is **Selberg's** (~1949), not
 Bombieri's; a formalization *does* exist — Friedlander–Iwaniec, *Opera de Cribro*
@@ -290,6 +322,19 @@ Ranked by tractability, not importance. Each is exact, finite, or a checked-lane
    the "witness costs Markov's Principle" horizon-jump as one object. The
    publishable direction is W4 via the Siegel-zero dichotomy, which already has
    partial theorems in the literature.
+9. **The two-body root number** (Sun Zi): `ADELIC_CRYSTAL.md`'s product formula is
+   rank-one (`∏_v γ_v = 1`). Does the two-variable λ pair field admit an adelic
+   factorization whose global holonomy is *not* 1 but a nontrivial finite object —
+   a rank-two root number / sign? Conjecture: the Goldbach-vs-gap signature (a point
+   of `Sper ℚ`), the archimedean root number `ε_∞`, and Noether's parity Ward
+   anomaly `S_∞` are **one ℤ/2 datum carried by the archimedean place**, so
+   "coupling the places" for the pair field reduces to computing a single global
+   sign the finite CRT can never manufacture but can propagate once handed it. The
+   check is a certified root-number computation (permitted), not a correlation.
+10. **Fix the "place does two jobs" erratum** (Sun Zi): separate the ordering-sense
+    archimedean (S/D cone, `Sper ℚ`) from the completion-sense archimedean (Γ-factor)
+    in the protection/exposure duality; the corpus's own `POSITIVITY_HAS_A_PLACE.md`
+    §9 already names why a singleton value-space hides the conflation.
 
 ---
 
