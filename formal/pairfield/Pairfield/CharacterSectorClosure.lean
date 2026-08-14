@@ -85,7 +85,7 @@ theorem diagonalOrbit_linearIndependent
   apply Matrix.linearIndependent_cols_of_det_ne_zero
   change (diagonalOrbitMatrix m v).det ≠ 0
   rw [det_diagonalOrbitMatrix]
-  exact mul_ne_zero (Finset.prod_ne_zero_iff.mpr (fun i _ → hv i))
+  exact mul_ne_zero (Finset.prod_ne_zero_iff.mpr (fun i _ ↦ hv i))
     (Matrix.det_vandermonde_ne_zero_iff.mpr hm)
 
 end Pairfield
