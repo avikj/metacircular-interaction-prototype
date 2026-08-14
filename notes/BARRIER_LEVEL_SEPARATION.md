@@ -1,4 +1,4 @@
-# Windows separate levels, not layers: the Vandermonde behind B2′, and the exact level ($\nu=k-1$) at which finitely many windowed reads stop
+# ~~Windows separate levels, not layers: the exact finite stopping level is $\nu=k-1$~~ Windows separate constant modes; moving modes have a Lagrange frequency response
 
 Closes the one named gap in the honesty ledger of `BARRIER_SMOOTH_TERM.md`,
 row **W6**:
@@ -442,7 +442,7 @@ Apply $\sum_pa_{\nu p}$, use $\sum_pa_{\nu p}\xi_{\nu'}^{p-1}=\delta_{\nu\nu'}$
 $\nu<0$ block is bounded as in Theorem L5 (its $\xi_\nu^{p-1}\le1$ since
 $\xi_\nu<1$ there). $\square$
 
-**Corollary L7′ (what the family reaches, exactly).** The drift bracket
+**Corollary L7′ (constant fibers, and the corrected moving-target boundary).** The drift bracket
 vanishes for every level whose fiber consists of $q=0$ layers only, since then
 $\mathcal W_{k,\nu}$ is constant in $u$ (for $a\ne d$: the $q=0$ layers are
 pure constants $\binom{k}{r,m,0}g_a^rD_a(0)^m/\Gamma(r\theta_a+j+1)$). By
@@ -450,16 +450,18 @@ Theorem L1 those levels are, for $a=\Lambda$, exactly $\nu=\pm k$. Hence:
 
 | target level | what must be annihilated | drift incurred | verdict |
 |---|---|---|---|
-| $\nu=k$ ($\Lambda$) | nothing (it is the top) | none — a *single* window reads it, relative error $O(X^{-1/2})$ | **exact** |
-| $\nu=k-1$ ($\Lambda$) | level $k$ only, which is constant | none | **exact** |
-| $\nu\le k-2$ ($\Lambda$, so in particular $\nu=0$, $k\ge2$) | level $k-1$, whose layer is $\mathcal Z^{[(k-1)\theta_a]}_1$ — arity $1$, oscillating | raw drift enters L7's upper bound; exact mode response is $\ell_\nu(\xi_{k-1}e^{i\gamma\Delta})$ | ~~obstructed for every spacing~~ **generic fixed spacings leak; selected spacings open (§5.3)** |
+| $\nu=k$ ($\Lambda$) | nothing (it is the top and constant) | none — a *single* window reads the leading coefficient with relative error $O(X^{-1/2})$ from lower levels | **asymptotically exact** |
+| $\nu=k-1$ ($\Lambda$) | level $k$ is constant, but the **target itself moves** | self-response $\ell_{k-1}(\xi_{k-1}e^{i\gamma\Delta})-1$ | ~~exact~~ **generically distorted; top subtraction leaves lower-order contamination** |
+| $\nu\le k-2$ ($\Lambda$, so in particular $\nu=0$, $k\ge2$) | moving higher levels and the moving target | non-target leakage $\ell_\nu(\xi_\mu e^{i\gamma\Delta})$ plus target self-response minus $1$ | ~~obstructed for every spacing~~ **generic fixed spacings leak/distort; selected spacings open (§5.3)** |
 | $\nu=0$ ($\mu$) | nothing (it is the top, and the fiber is $\{\mathcal Z_k\}$) | none | **exact**, one window |
 | $\nu=0$ ($\lambda$) | nothing — but the fiber is the whole ladder | none, and no separation either | **degenerate (§6)** |
 
 The $k=1$ row of the $\Lambda$ column is worth stating separately: at $k=1$ the
-level above $0$ is $\nu=1$, fiber $\{(1,0,0)\}$, constant — so **the signal
-level is finitely extractable at $k=1$**, which is why every unconditional
-statement in `BARRIER_ERROR_WINDOW.md` U3 lives at $k=1$.
+level above $0$ is $\nu=1$, fiber $\{(1,0,0)\}$, constant.  ~~Therefore the
+signal level is finitely extractable.~~  The higher level can be subtracted
+exactly, but a translated-window Vandermonde still distorts the moving
+level-$0$ target by its self-response.  A single-window subtraction is
+asymptotically exact once negative levels and the remainder are bounded.
 
 ### 5.3 The obstruction, and the regime it bites
 
@@ -612,7 +614,7 @@ layer has arity $1$, whose Bohr coefficients are unconditionally nonzero.
 |---|---|---|
 | B2′ **sufficiency** | not claimed (W6) | **proved** as B2″ (Theorem L5), with the test function corrected to the anchored taper $\widehat{w^{(\nu)}}$ and the levels $\nu<0$ shown vacuous for $X_0\ge(6\beta_k\Sigma_k\|\phi\|_1/\epsilon)^2$ |
 | B2′ **necessity** | asserted from "the observer may vary $X$" | **proved** in that regime (Theorem L6, Corollary L6′), and sharpened: at fixed tolerance the positive levels must agree **exactly** in the resolved band |
-| "levels separable by finitely many windows" | unwritten | **written, and corrected**: nonsingular Vandermonde with explicit determinant and inverse (L4); exact constant-mode separation down to $\nu=k-1$ for $\Lambda$, and to $\nu=0$ for $\mu$ (L7′); ~~false below $\nu=k-2$ for every finite family~~ **generic non-resonant spacings leak, while the universal quantitative no-go is open** (corrected L8) |
+| "levels separable by finitely many windows" | unwritten | **written, and corrected**: nonsingular Vandermonde with explicit determinant and inverse (L4); exact separation only for constant modes, with the $\Lambda$ top level asymptotically isolated and the one-window $\mu$ target un-mixed at level $0$; ~~exact through $\nu=k-1$ and false below for every family~~ **moving targets have self-response and non-target modes leak at generic spacings; selected quantitative separation is open** (corrected L7′/L8) |
 | the window family | unspecified | $P^+=|\mathcal N^{\ge0}|$ log-translates of one window, spacing $\Delta$, nodes $\xi_\nu=e^{\nu\Delta/2}$: **$k+1$ windows for $\Lambda$, one for $\mu$ and $\lambda$**, stable under shift depth (Corollary L1′) |
 | $\lambda$ | "no scale separation, separate by frequency" (S1 §5.1) | **theorem**: the Vandermonde has all nodes equal, rank $1$; no family of any size separates the $r$-grading (L9), and the frequency route is the resolution limit exp19 measured |
 | which dressing to probe with | $\mu$ (empty $\mathrm{Smooth}$) | $\mu$, on a second and independent ground: multiplicity-free grading, target at the top of the ladder, one window, unconditional |

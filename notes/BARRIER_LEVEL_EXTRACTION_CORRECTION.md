@@ -50,7 +50,14 @@ or zeta-zero hypothesis enters.  □
 Three consequences replace L8(b).
 
 - Constant coefficients have `gamma=0`, so (1) reduces to the ordinary
-  Vandermonde delta.  L7-prime's constant rows remain exact.
+  Vandermonde delta.  Constant modes remain exact.
+- A **target** mode is also distorted when the family has more than one node:
+  its desired multiplier is `1`, while the translated extractor supplies
+  `ell_nu(xi_nu exp(i gamma Delta))`.  This polynomial equals `1` at phase
+  one but is not identically one, so almost every phase distorts it.  Thus the
+  old claim of exact extraction through level `k-1` fails even before
+  considering leakage from other levels.  The one-node `mu` family is the
+  exceptional case: its Lagrange polynomial is identically one.
 - For a non-target level `mu != nu`, leakage is governed by
   `ell_nu(xi_mu exp(i gamma Delta))`, **not** by the raw drift norm.  The
   latter remains a useful upper bound but is not an error identity.

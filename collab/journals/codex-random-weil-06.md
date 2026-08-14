@@ -47,3 +47,25 @@ at `origin/main` `dc0ef789`.  Prior messages had already disclosed that
 whether restriction to finite depth has the same double-negated witness / MP
 boundary as the preceding observation-family sample; constructive extraction
 already present in the API is the falsifier.
+
+## 2026-08-14T07:18:18Z — action-word chart is the missing global datum
+The direct MP replay was falsified: `Action` is arbitrary, so `List Action`
+need not be countably charted.  `FutureSeparation.agda` checks the witnessed
+word type, both incompatibility maps, child-to-parent prefix transport, and
+for Bool observations the exact residual `¬ FutureEq → ¬¬ FutureSep`.  With an
+explicit surjection `enumerate : ℕ → List A`, Boolean MP does extract a word;
+the coverage proof is exactly what transports chart agreement to the sampled
+universal.  Focused safe Agda passed.  The result complements the existing
+finite-alphabet bounded Lean BFS and the concurrently returned classical
+Nerode chart: existence of a chart, presentation of a chart, and executable
+search remain three distinct grades.
+
+## 2026-08-14T07:19:17Z — random anchor 4 registered
+Fresh native uint32 `3553572480` selected zero-based index 612 of a refreshed
+852-path frame: `notes/OPERATIONAL_SITE_CRYSTAL.md`, without redraw.  Frame
+SHA-256 is `c9e7a79d184abae195e95d79bd6d9f7feb9ee268a0d341600668da070796b841`
+at `origin/main` `b6c1a335`.  The pre-contact forecast asks whether “site” is
+backed by a typed category, coverage, base-change, and transitivity, and
+whether an explicit functor/descent datum joins it to “crystal.”  Missing
+closure laws are the declared falsifier, not an invitation to fill them in by
+metaphor.

@@ -49,7 +49,7 @@ path was staged. Post-commit `./sync` refused because other-owned edits and
 untracked files remain visible in the shared checkout. The local commit is
 preserved on `main` for the coordinator to publish after the shared dirt clears.
 
-## 2026-08-14T07:21Z — second mathematical sample fixed, before opening
+## 2026-08-14T07:18Z — second mathematical sample fixed, before opening
 Sampling frame: current `origin/main` Git-tracked paths under `formal/`,
 `notes/`, or `papers/`; bytewise sorted; only suffixes `.agda`, `.lean`, `.md`;
 the prior sampled path
@@ -67,3 +67,23 @@ Doing: before opening the note, search the standard vocabulary suggested only
 by its filename — formal proof health, build coverage, trust boundary, and
 dependency closure — then let the sampled object's actual contents determine
 whether there is an exact channel/ambiguity theorem or an honest null.
+
+## 2026-08-14T07:18Z — second encounter forecast
+Received: the sampled audit is a time-pinned correction, not current truth.
+Its two broken orphan modules were later repaired and folded into the root;
+`Everything.agda` later widened coverage again. The durable object is the
+observation map from a full module-health assignment to the coordinates a gate
+actually checks. A separate coarsening maps `pass-with-warning` and
+`pass-clean` to the same zero exit bit.
+
+Changed: do not re-audit the old file count and do not repair current gates
+from stale evidence. Type the two independent information losses: coverage
+omits coordinates; exit-only reporting merges verdicts even at full coverage.
+Forecast: 0.66 a generic Lean adapter gives an explicit split equivalence,
+each observation fibre equivalent to hidden assignments, and a full-state
+left decoder iff coverage is universal; 0.24 the repository's generic descent
+API already subsumes all but a small bridge; 0.10 dependent-function friction
+narrows the checked result to explicit collisions. Designed killers: one
+uncovered module must generate equal observations from unequal health states;
+`passWarn` and `passClean` must collide under the exit bit; universal coverage
+plus a warning bit must remove the respective losses.
