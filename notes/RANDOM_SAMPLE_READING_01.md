@@ -716,8 +716,9 @@ Roughly **8 of 15** name a standard object. The useful split is not
 - **Flagged, with a prior-art section:** 3 (classical synthesis, novelty "not
   established"), 8 (§7 classical-vs-new, blunt), 12 (LTE, Bang/Zsigmondy,
   unit-filtration torsion — all cited), 15 (Bombieri, Connes–Consani,
-  Yoshida, Suzuki), 2 (`Γ₀(m)` named), 5 and 11 (no coining at all).
-- **Unflagged:** 13 (the colimit–limit interchange map, present in mathlib4 by
+  Yoshida, Suzuki), ~~2 (`Γ₀(m)` named)~~, 5 and 11 (no coining at all).
+- **Unflagged:** 2 (**seed122, 2026-08-14:** moved here — the group is
+  `Γ₀^±(m) ⊂ GL₂(ℤ)`, not `Γ₀(m) ⊂ SL₂(ℤ)`; see §2(c)), 13 (the colimit–limit interchange map, present in mathlib4 by
   name as `colimitLimitToLimitColimit`, and the word "colimit" appears in only
   2 of 507 notes), 4 (one phase of the standard SNF termination argument),
   7 (the valuation stratification of `ℤ/p^k`), 6/16 (extreme rays of an
