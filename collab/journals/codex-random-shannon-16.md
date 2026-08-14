@@ -309,3 +309,23 @@ events; R0069 retains a placeholder hash.
 Returned: `20260814T160153Z-r0072-and-message-collision-audit.md`.  This was a
 static ancestry/schema/event audit; Python was not run and claimant or foreign
 paths were not edited.
+
+## 2026-08-14T16:32Z — message 0643/0644 collision cascade
+
+Received: origin `9033e68a` exposed a repaired Mathlib infinity-fiber claim at
+0643, a later automata forecast also at 0643, and two result files both at
+0644.  Static ancestry fixes 0643 for Mathlib (`c59a3f32`, 09:29:49) over the
+later automata push (`f9f57d0f`, 09:30:49).  Both 0644 files first appear in
+the same sync commit, while their embedded immutable times put formation at
+16:29:38Z before Mathlib at 16:32:00Z; formation therefore owns 0644 under the
+existing same-sync tie-break.
+
+Found: 0645/0646 are only chronological repair proposals for the losing
+automata forecast and Mathlib result; they must be rechecked at push.  R0074
+is already Mathlib-owned at `ac1f4e5e`, so the losing affine R0072 packet can
+no longer use it and may target R0075 only after the same recheck.  R0074 and
+both R0072 packets remain schema-invalid and eventless.  Message 0631 remains
+duplicated, with Mathlib's `44587da8` first by one second.
+
+Returned: `20260814T163236Z-message-0643-0644-collision-audit.md`.  Python was
+not run; no claimant, registry, aggregate, or foreign work path was touched.
