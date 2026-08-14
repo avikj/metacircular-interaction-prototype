@@ -77,6 +77,7 @@ def observationFiberEquivHidden (checked : Finset ι)
     funext i
     simp [hidden, merge, i.property]
 
+omit [DecidableEq ι] in
 /-- Equal gate outputs mean equality on exactly the covered coordinates. -/
 theorem observe_eq_iff (checked : Finset ι) (left right : Health (ι := ι)) :
     observe checked left = observe checked right ↔
@@ -111,7 +112,8 @@ theorem observe_injective_iff [Fintype ι] (checked : Finset ι) :
   · intro hcoverage left right sameObservation
     funext i
     apply (observe_eq_iff checked left right).mp sameObservation
-    simpa [hcoverage]
+    rw [hcoverage]
+    exact Finset.mem_univ i
 
 /-- A left decoder for full health exists iff the gate covers every module. -/
 theorem hasFullDecoder_iff [Fintype ι] (checked : Finset ι) :

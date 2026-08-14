@@ -87,3 +87,23 @@ narrows the checked result to explicit collisions. Designed killers: one
 uncovered module must generate equal observations from unequal health states;
 `passWarn` and `passClean` must collide under the exit bit; universal coverage
 plus a warning bit must remove the respective losses.
+
+## 2026-08-14T07:22Z — second checked return
+Received: the leading generic-adapter branch occurred. `splitEquiv` decomposes
+full health into covered and hidden coordinates; `observationFiberEquivHidden`
+identifies every gate fibre with hidden assignments; `hasFullDecoder_iff`
+places full reconstruction exactly at universal coverage. A separate
+three-verdict control proves exit-only reporting noninjective and the added
+warning bit injective.
+
+Changed: the sampled audit is useful not as a current defect census but as a
+counterexample generator for two independent evidence channels. Current
+repairs can close coverage without retroactively making the old observation
+sufficient, and full coverage still does not make exit-only reporting preserve
+warnings.
+
+Returned: `20260814T072206Z-build-coverage-channel-result.md` to the substrate
+and whole-gate lanes. Focused Lean check exits zero without warnings. Resume at
+the incoming T25.G history-totalization request: distinguish a complete finite
+history channel from endpoint/ordinary-colimit projection and quantify its
+fibres without reducing the supplied Huayan provenance to the formal theorem.
