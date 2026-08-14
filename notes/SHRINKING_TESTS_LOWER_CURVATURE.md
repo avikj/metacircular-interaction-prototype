@@ -430,6 +430,57 @@ $\mathfrak h=\mathrm{id}$. It does add solutions at $(2,2,2)$ — the two consta
 endomaps of $X$ — which detect only one point rather than two. E1 remains
 minimal; it is no longer unique.
 
+*Remark 5.4 (seed148, restored: the chart-count bound is convention-dependent).*
+Seed148 additionally claimed $|\mathcal F|\ge2$ charts are needed, under its own
+convention that a loop is a string $(i_0,\dots,i_n,i_0)$ with $n\ge1$ and that
+self-transitions $\rho_{ii}$ are not admitted. Seed146's Def. 1.3 imposes
+$\rho_{ii}=\mathrm{id}$, which likewise excludes a one-chart witness. **The
+referee flags this as a convention, not a theorem**, exactly as seed148 did: if
+one admits $\rho_{ii}=\mathrm{sw}$, a single chart suffices and the bound drops
+to $|I|=1$. Neither agent inflated this, and it is not part of Theorem 5's
+minimality claim, which is in $(|X|,|\mathcal T|,|Q|)$ only.
+
+*Remark 5.5 (referee: adjudicating $\operatorname{SearchSep}$).* The mandate asks
+whether seed146's Def. — $\operatorname{SearchSep}_{\mathcal T}(\mathcal T')=1
+\iff\ \sim_{\mathcal T'}=\sim_{\mathcal T}$ — is the right reading of §G, and
+whether it is circular. Four findings, in order.
+
+1. **The transmission's predicate is unary.** §G writes
+   $\operatorname{SearchSep}(\mathcal T_\alpha)=1$, a predicate of one test set.
+   The literal reading is therefore seed148's *absolute* one: $\mathcal T_\alpha$
+   is **separating**, i.e. $\sim_{\mathcal T_\alpha}$ is equality on $X$.
+   Seed146's binary $\operatorname{SearchSep}_{\mathcal T}(\mathcal T')$ is a
+   **generalisation**, relative to a reference set; it specialises to the
+   absolute reading when the reference $\mathcal T$ is itself separating.
+2. **It is not circular.** Circularity would mean the definition makes
+   $\delta=0\Rightarrow\operatorname{Advance}$ true by construction. It is used
+   in the opposite direction — to make a conjunct of Advance *fail* — so the
+   danger, if any, is the mirror one: a definition rigged to be easy to falsify.
+   That is also not the case. $\operatorname{SearchSep}_{\mathcal T}$ does **not**
+   fail on every proper shrink: deleting a test that is redundant in seed146's
+   own sense (Cor. 3.2) leaves $\sim_{\mathcal T'}=\sim_{\mathcal T}$ and the
+   predicate holds with $\mathcal T'\subsetneq\mathcal T$. The predicate is
+   therefore non-trivial in both truth values on proper shrinks, which is the
+   test a rigged definition fails.
+3. **It is productive, not stipulative.** Under seed146's Def. one has a theorem,
+   not a tautology: if $\sim_{\mathcal T'}=\sim_{\mathcal T}$ then
+   $\delta^{\mathcal T'}_\sigma=\delta^{\mathcal T}_\sigma$ for every $\sigma$
+   (immediate from Def. 1.5, since $\mathfrak h_\sigma x\sim_{\mathcal T'}x
+   \iff \mathfrak h_\sigma x\sim_{\mathcal T}x$). So SearchSep is exactly the
+   condition making a shrink $\delta$-faithful. Under seed148's absolute reading
+   one has Prop. 3.4 instead. Both readings carry content; neither is an escape
+   hatch.
+4. **The refutation does not depend on the choice.** In E1,
+   $\mathcal T'=\{t_2\}$ has $x_0\sim_{\mathcal T'}x_1$, so $\sim_{\mathcal T'}$
+   is the total relation. It is therefore neither equal to $\sim_{\mathcal T}$
+   (seed146's reading fails) nor equality on $X$ (seed148's reading fails).
+   **E1 falsifies the SearchSep conjunct under both readings**, so Prop. 5.1
+   stands under either, and the residual risk seed146 flagged in §6 is smaller
+   than seed146 believed — though not zero, since a *third* definition of
+   SearchSep not of the form "the working tests separate as much as X" could in
+   principle still rescue the implication. The referee has not found a
+   defensible such reading and does not claim none exists.
+
 *Remark 5.3.* Two charts suffice: with $I=\{0,1\}$, $\rho_{01}=\mathrm{sw}$,
 $\rho_{10}=\mathrm{id}$ and $\sigma=(0,1,0)$ one gets
 $\mathfrak h_\sigma=\rho_{00}^{-1}\rho_{10}\rho_{01}=\mathrm{sw}$. The
@@ -460,6 +511,101 @@ $Q$.
 
 ---
 
+### E2′ — seed148's variant of the §J3 witness, restored
+
+Seed148 gave a different §J3 counterexample, and it is worth keeping alongside
+E2 because its projection is the shape the transmission's *seven components*
+actually have, rather than a collapse to a point.
+
+$X=\{a,b\}$, $\mathcal T=\{t\}$, $Q=\{0,1\}^2$ read as (sem, prov),
+$e(a,t)=(0,0)$, $e(b,t)=(0,1)$, $\mathfrak h_\sigma=\mathrm{sw}$,
+$\pi=$ first projection $Q\to\{0,1\}$.
+
+- Base: $\pi e(\mathfrak h_\sigma a,t)=\pi(0,1)=0=\pi e(a,t)$, and symmetrically
+  for $b$. So $\delta^{\mathrm{base}}_\sigma=\emptyset$.
+- Total: $e(\mathfrak h_\sigma a,t)=(0,1)\ne(0,0)=e(a,t)$, so
+  $\delta_\sigma=\{a,b\}\ne\emptyset$.
+
+Four evaluations, all displayed. The base is flat, the total is not: D0016's
+गुह्यवक्रता, with the hidden curvature living in the provenance coordinate
+specifically. E2′ is *not* smaller than E2 ($|Q|=4$ against $|Q|=2$), so E2
+retains the minimality claim of §5; E2′ is retained for its interpretive value,
+not as a competing minimal example. **The referee records that seed148 did not
+claim minimality for E2′, and none is claimed here.**
+
+---
+
+## 5A. Referee: the exhaustive count, recomputed from scratch
+
+Theorem 5's count is a finite exhaustive verification, hence proof per
+`CLAUDE.md` — but only if it is right. The referee redid it independently rather
+than reading seed146's enumeration back. It is right.
+
+**Setup.** $X=\{x_0,x_1\}$, $Q=\{0,1\}$, $\mathcal T=\{t_1,t_2\}$. A matrix is a
+choice of two columns, each a pair $(e(x_0,t),e(x_1,t))\in Q^2$: $4\times4=16$.
+Required: $\mathfrak h\in\operatorname{Aut}(X)$ and $\emptyset\ne\mathcal T'\subsetneq\mathcal T$
+with $\delta^{\mathcal T'}=\emptyset\ne\delta^{\mathcal T}$.
+
+**Step 1 — $\mathfrak h$.** $\operatorname{Aut}(\{x_0,x_1\})=\{\mathrm{id},\mathrm{sw}\}$.
+$\mathfrak h=\mathrm{id}$ gives $D_\sigma(x)=\emptyset$ for both $x$, so
+$\delta^{S}=\emptyset$ for every $S$, and $\delta^{\mathcal T}\ne\emptyset$ fails.
+So $\mathfrak h=\mathrm{sw}$. **1 of the 2 automorphisms survives.**
+
+**Step 2 — the detector sets under $\mathrm{sw}$.**
+$D(x_0)=\{t : e(x_1,t)\ne e(x_0,t)\}$ and $D(x_1)=\{t : e(x_0,t)\ne e(x_1,t)\}$
+— *the same set*, namely the set of non-constant columns. Write $N$ for it. Then
+$\delta^{S}=X$ if $S\cap N\ne\emptyset$ and $\delta^{S}=\emptyset$ otherwise. So
+$\delta$ takes only the two values $\emptyset$ and $X$ here; there is no
+intermediate case to overlook.
+
+**Step 3 — the constraint.** With $\mathcal T'=\{t_2\}$ (the other choice
+$\{t_1\}$ is the same by the relabelling $t_1\leftrightarrow t_2$, which is an
+isomorphism of Chu spaces): $\delta^{\{t_2\}}=\emptyset$ forces $t_2\notin N$,
+i.e. $t_2$ **constant**; $\delta^{\mathcal T}\ne\emptyset$ then forces
+$t_1\in N$, i.e. $t_1$ **non-constant**.
+
+**Step 4 — the count.** Constant columns: $(0,0),(1,1)$ — two. Non-constant:
+$(0,1),(1,0)$ — two. Admissible matrices: $2\times2=\mathbf{4}$ out of
+$\mathbf{16}$. **Seed146's count is confirmed.**
+
+**Step 5 — the isomorphism claim, which seed146 asserted rather than exhibited.**
+The relabelling group acting is generated by $\tau_X$ (swap the rows) and
+$\tau_Q$ (swap the two values of $Q$, acting on *both* columns simultaneously —
+this is the point at which a sloppy argument would double-count). Orbit of
+E1 $=\bigl(t_1=(0,1),\,t_2=(0,0)\bigr)$:
+
+| | $t_1$ | $t_2$ |
+|---|---|---|
+| E1 | $(0,1)$ | $(0,0)$ |
+| $\tau_X$E1 | $(1,0)$ | $(0,0)$ |
+| $\tau_Q$E1 | $(1,0)$ | $(1,1)$ |
+| $\tau_X\tau_Q$E1 | $(0,1)$ | $(1,1)$ |
+
+Four distinct matrices, and they are precisely the four admissible ones. So the
+orbit is the whole solution set: **a single isomorphism class, as claimed.**
+(Note $\tau_X$ fixes constant columns and swaps the non-constant ones, while
+$\tau_Q$ swaps both pairs; the two generators therefore act independently on the
+two coordinates, which is why the orbit has size exactly $4$ and not $2$.)
+
+**Step 6 — Remark 5.2 (invertibility dropped), also recomputed.** The
+non-invertible self-maps of $X$ are the two constants $c_0,c_1$ ($c_i$ sends
+everything to $x_i$). Take $\mathfrak h=c_0$: $D(x_0)=\emptyset$ and
+$D(x_1)=\{t : e(x_0,t)\ne e(x_1,t)\}=N$. So $\delta^{S}=\{x_1\}$ if
+$S\cap N\ne\emptyset$, else $\emptyset$. The constraint is the *same* ($t_2$
+constant, $t_1$ non-constant), giving $4$ further solutions with $\mathfrak h=c_0$
+and $4$ with $\mathfrak h=c_1$. These are **not** isomorphic to E1: $|\delta^{\mathcal T}|=1$
+against $|\delta^{\mathcal T}|=2$, and cardinality of the defect is a relabelling
+invariant. So uniqueness genuinely fails without invertibility, while the
+minimality bounds are untouched ($|X|=1$ still forces $\mathfrak h=\mathrm{id}$).
+**Remark 5.2 is confirmed in both of its clauses.**
+
+**Referee's conclusion on §5.** The count holds, the isomorphism claim holds, the
+invertibility caveat holds. This is the one part of the night's work that is
+proof in the strict sense of `CLAUDE.md` — a complete finite enumeration — and it
+survives independent recomputation. No number in it was measured.
+
+---
+
 ## 6. What this does **not** prove
 
 Stated explicitly, because the transmission's §J4 asks for it and because a
@@ -483,7 +629,11 @@ program written as a boxed display is still a program.
   and I do not define them. Prop. 5.1 refutes the implication by falsifying
   $\operatorname{SearchSep}$ **under my Def. in §5**; a different definition of
   $\operatorname{SearchSep}$ could in principle rescue the implication, and I
-  say so rather than hiding it. What is unconditional is the *mathematical*
+  say so rather than hiding it. *(Referee, Rem. 5.5: this residual risk is
+  narrower than stated — E1 falsifies the conjunct under seed146's relative
+  reading **and** under seed148's absolute reading, which is the transmission's
+  literal unary one. Both were checked. A reading not of the form "the working
+  tests separate as much as X" is not excluded.)* What is unconditional is the *mathematical*
   half: $\delta$ vanishing under a shrunken $\mathcal T$ while non-vanishing
   under a larger one (E1) — that needs no definition of Advance at all.
 - **The Yang–Baxter defect §D.** Untouched.
@@ -547,6 +697,77 @@ contribution:
 
 An honestly-labelled rediscovery beats a false novelty claim. This is one.
 
+**Seed148's additional citation (restored).** Seed148 traced the
+separated/extensional Chu space and the *biextensional collapse* to
+**M. Barr, *\*-Autonomous Categories*, LNM 752 (1979), §6**, attribution quoted
+from `arxiv.org/html/2412.11478` Def. 2.4 and its following remark — HTML, which
+did decode — and stated explicitly that it did **not** read Barr 1979 itself.
+Seed146 cited the same body of work through the nLab page and Pratt's notes, and
+added De Nicola–Hennessy 1984 from its standard statement, no PDF opened. The
+referee opened no new source and adds no citation. **No PDF is claimed as read
+by anyone in this chain.**
+
+---
+
+## 7A. Referee: what the replication does and does not buy
+
+Two independent proofs of one theorem is an experiment, and the result of this
+one should be stated at its true strength and no higher.
+
+**What it buys.**
+
+1. *The definitional choices are not idiosyncratic.* Both agents, without
+   contact, arrived at the same observational reading of $\ominus 1$ — the
+   defect as the locus where the tests can see the holonomy move a point — and
+   at the same detector/witness set. That two independent readings of an
+   under-specified transmission converge is genuine evidence that this is the
+   reading §G intends, and it is the strongest thing the replication supplies.
+   It is evidence about **D0016's intent**, not about the mathematics.
+2. *The refutation is robust to the definition of SearchSep.* Seed146 defined it
+   relatively, seed148 absolutely, and E1 kills the conjunct either way
+   (Rem. 5.5). A counterexample that survives two independent formalisations of
+   the disputed predicate is worth more than one that survives one.
+3. *Neither agent inflated weak monotonicity to strict.* Two independent refusals
+   is mild evidence that the temptation was visible and resisted rather than
+   never noticed.
+
+**What it does not buy, and this is the larger half.**
+
+4. *Two proofs of a classical theorem is weak evidence.* Theorems 1 and 3 are the
+   monotone half of a Birkhoff polarity. Two agents rederiving a 1940 result
+   agree because the result is easy, not because independent agreement is
+   informative. Replication is informative in proportion to the probability that
+   an error would have been *independent*; for a one-line monotonicity argument
+   that probability is near zero on both sides, so the correlation of the two
+   outcomes carries almost no information. **A replication of an easy theorem
+   measures the difficulty of the theorem, not the reliability of the agents.**
+5. *The one genuinely checkable claim was replicated by only one agent.* The
+   exhaustive count at $(2,2,2)$ appears in seed146 alone; seed148 proved the
+   minimality *bounds* but did not enumerate. So the count was **not**
+   independently replicated by the two agents — it was replicated by the referee
+   in §5A, which is a second check but not an independent one in the same sense.
+6. *Convergence on a definition is not validation of a definition.* Both agents
+   chose the weakest reading under which the slogan is true. Two agents
+   optimising the same objective under the same instruction will converge whether
+   or not the objective is right; the convergence in (1) is therefore weaker
+   evidence than it first looks, and the referee downgrades it accordingly.
+
+**Still unproved, in full.** Nothing in §6's list was touched by either agent or
+by the referee: the ordinal ladder §C ($\delta^{(n)}\to\chi^{(n+1)}\to\delta^{(n+1)}$,
+the hocolim at limits, $\kappa$, the well-definedness of $\Gamma$); the step
+functor $\mathfrak F$ and $\mathfrak F_{\alpha+1}\succeq\mathfrak F_\alpha$;
+$\mathbb B=\int^{\alpha}\Diamond_\alpha$ and the closure claim §E; the seven
+components of $\delta_\sigma$ (independence, well-definedness, exhaustiveness);
+the Yang–Baxter defect §D; and four of the five conjuncts of $\operatorname{Advance}$
+($\operatorname{Verify}$, $\operatorname{PreserveProv}$,
+$\operatorname{UsefulEscape}$, $\operatorname{DeclaredBoundaryPreserved}$), which
+remain undefined in the transmission and undefined here. Also unproved, and
+worth naming because §F says it is the interesting case: everything under
+$\mathcal T'\not\subseteq\mathcal T$, where Theorem 1 is false.
+
+**What one §J2 discharge buys against D0016 as a whole:** one boxed display of
+roughly forty, and the easiest one. That is the honest accounting.
+
 ---
 
 ## 8. What the theorem licenses, and at what generality
@@ -570,6 +791,17 @@ someone says what $X$, $\mathcal T$ and $e$ are, and I have not.
 
 ---
 
-*Question and framework: the repository owner, D0016, 2026-08-14. Definitions
-1.2–1.7, Theorems 1–5 and the counterexamples: this note. No experiment was
-run; no floating-point number appears above.*
+*Question and framework: the repository owner, D0016, 2026-08-14.*
+
+*Attribution of the mathematics. Definitions 1.1–1.7, Theorems 1–5, Cor. 3.1–3.3,
+E1, E2, Rem. 5.2–5.3: **seed146** (`0747`). Cor. 2.3, Prop. 3.4, Rem. 5.4, E2′,
+and the Barr 1979 §6 citation: **seed148** (`0749`), restored here after seed146's
+commit `e08c07ab` silently overwrote seed148's file. §3A, §5A, Rem. 5.5, §7A, and
+this merge: **seed150** (referee, `0751`). The two agents worked without sight of
+each other and their results agree; §3A proves the agreement rather than assuming
+it, and §5A recomputes the only claim that is proof in the strict sense.*
+
+*No experiment was run; no floating-point number appears above. No Agda or Lean
+was authored and none was typechecked — there is no toolchain in this container,
+and no machine verification is claimed by anyone in this chain. No PDF was
+decoded or claimed as read.*
