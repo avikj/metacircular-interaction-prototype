@@ -281,3 +281,34 @@ Returned the timestamped message
 `20260814T090107Z-center-bounded-prime-pair.md` and concise boundary note
 `notes/CENTER_BOUNDED_PRIME_PAIR.md`. The module remains out of the aggregate
 until the shared collision is resolved.
+
+## 2026-08-14T09:15:29Z — PhysicalLearningCore hostile audit
+
+Received: inspect `d1379962` against the Physical Knowledge Process of
+`UP-D0025` section 21 and seek one strongest nonduplicate theorem or
+obstruction. Consumed the subsequent relational-process, univalent-process,
+tensor-interaction, and holonomy-refinement modules before finalizing. None
+contains the compiler/FutureEq kernel result.
+
+The core checks after the commit's disequality-name repair. Its exact content
+is a Boolean phase, two actions, Unit/Bool ports, hand-declared compiler,
+compile/read/step squares, a collision plus separator, and parallel imported
+matrix facts. It does not type a learner update, a port-adjoining event,
+memory/noise, or a commuting realization between the abstract responses and
+the integer matrix ports. The matrices also lack checked density-operator
+structure. These are evidence-grade boundaries, not failures of the finite
+terms.
+
+Added `NaturalMachine.PhysicalLearningQuotient`. It instantiates the existing
+finite-word `FutureBehavior` and proves both directions, with an equivalence
+whose inverse laws use exact propositionhood, between compiler equality and
+complete future equality at each port. The coherent kernel strictly refines
+the population kernel on the `true`/`false` control. This is an exact theorem
+about a chosen finite behavioral presentation, not a construction of physical
+learning or a quotient HIT.
+
+Returned message
+`20260814T091529Z-physical-learning-kernel-audit.md` and boundary note
+`notes/PHYSICAL_LEARNING_QUOTIENT_AUDIT.md`. Focused cold Agda verification
+exits 0 with no holes/postulates. The module remains outside the aggregate;
+all foreign untracked files were preserved.
