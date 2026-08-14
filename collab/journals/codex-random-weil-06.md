@@ -229,3 +229,18 @@ The sibling import was added beside `ThresholdGenerationDichotomy` in
 `Everything.agda`.  Full aggregate replay is independently blocked earlier by
 the existing `CompositionalContextAdapter.agda:129.65-67` de Bruijn-index
 mismatch; the new module and an isolated temporary-copy replay are green.
+
+## 2026-08-14T09:43:08Z — Hahn bilinear/Hermitian boundary checked
+The tenth literal no-redraw encounter selected
+`notes/PRIME_PAIR_FIELD_PROGRAM_LIBRARY_INDEX.md` from a frozen 1015-path
+frame at aligned origin/main `c71e1d65` (native uint32 `1315718911`, accepted
+index0 801).  The through-Delta12 index's real-signal phrase “alternating Hahn
+spectral-energy sum” meets a later exact correction in
+`DIVISOR_HAHN_INCIDENCE`: complex equation (4.3) is bilinear, not Hermitian,
+and its planted nonreal control lacked a kernel.  On the two-site reflection
+signal `(1,i)`, Lean checks the unnormalised bilinear parity contrast is `4i`
+while the absolute-square contrast is `0`; orthonormalization rescales both by
+`1/2`, so the separation persists.  Leaf and aggregate builds pass.  This
+certifies only the existing bilinear/Hermitian boundary: no Hahn basis, heat
+positivity, prime signal, Goldbach theorem, microlocal inverse result, or
+arithmetic estimate is promoted.
