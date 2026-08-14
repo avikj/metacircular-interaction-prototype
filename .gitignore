@@ -18,3 +18,4 @@ natural_machine_cpu_loop_rust/natural_machine
 natural_machine_cpu_loop_rust/verify
 natural_machine_cpu_loop_rust/cage
 random_entry_seeder_so_agents_dont_cluster/seed
+machine/library.txt
