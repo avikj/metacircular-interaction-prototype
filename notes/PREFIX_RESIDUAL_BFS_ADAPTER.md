@@ -397,7 +397,10 @@ first separate after one action.  Its whole-state horizon is `1`, but its
 accepted language has one reachable residual and stabilizes at depth `0`.
 Thus a language-level horizon cannot see arbitrary unreachable chart rows.
 
-The focused residual target passes `3028` jobs.  After root integration, the
-aggregate reaches and accepts the adapter but is presently red in the
-unrelated clean tracked `Pairfield.BoundedPrimePair` proof, where `simp`
-already closes a goal before a following `ring`; no root-green claim is made.
+The focused residual target passes `3028` jobs.  The first root replay reached
+and accepted the adapter but was red in the unrelated clean tracked
+`Pairfield.BoundedPrimePair` proof, where `simp` already closed a goal before
+a following `ring`.  That redundant tactic was subsequently removed upstream.
+The current root is again red, now in the explicitly in-flight
+`AdaptiveObservableHorizon` successor whose structural recursion has not yet
+been accepted; no root-green claim is made for this checkpoint.

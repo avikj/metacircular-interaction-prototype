@@ -356,3 +356,10 @@ Changed question: the declared control's start row is fixed, so all three
 other rows are unreachable.  Even after repair, the ambient state-testing gap
 will not itself be a Mathlib prefix-residual gap.  Await the green return, then
 check this boundary formally or demand an all-reachable successor.
+
+Candidate returned in commentary, not yet claimed as checked: strengthen the
+four-state control by sending state `0` to hidden state `1` on `false` and to
+hidden state `2` on `true`, while keeping the hidden-to-sink tests.  This makes
+all rows reachable without changing the depth-one response signatures or the
+depth-two tree shape.  Do not promote it until the shared tree recursion is
+green and the strengthened control is kernel-checked.
