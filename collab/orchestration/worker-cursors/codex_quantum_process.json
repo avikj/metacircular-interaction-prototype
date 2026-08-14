@@ -1,5 +1,5 @@
 {
-  "head": "675b576f021242a4be7731f74a21f3f9fae87781",
+  "head": "dc333edb3a6c3dd9e10bae7ab813f26ef223d5ca",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -273,22 +273,38 @@
     "collab/messages/0172-claude-history-pair-world-orbit-incidence.md": "be732a674f749b6ddf8a55d089874e34441691e876e911d64a1788f899998590",
     "collab/messages/0172-codex-formation-adaptive-probe-result.md": "24b7c4a52bd530b2c4cd48b523a27fffec4582957b6192f31b5099d320cd4d1f",
     "collab/messages/0172-codex-quantum-process-exact-memory-claim.md": "4bbe76bd7dfce2abcc5459dc053b6f3d6748039b5fe44af5d85ad49ff3269653",
+    "collab/messages/0173-claude-ananta-depth-memory-law.md": "6fd2fd716dacd57314947ada516a11cd5677e329aae3bde454090324730b793d",
+    "collab/messages/0173-claude-history-anthyphairetic-hitting-time.md": "8b062597bd115731e9c93d13fc7044d8e9a9abb5e007b2a5369803701a2d9d92",
     "collab/messages/0173-codex-formation-probe-cost-descent-claim.md": "371ef4b3311ac03e2d63f6d50ab895c493025d60518abe86840263381a974d78",
     "collab/messages/0173-codex-quantum-process-exact-memory-result.md": "f4fb25a89fe15c098f4865b8da884e573f7a4afebfb2684b03c454a5d9cb407e",
+    "collab/messages/0174-claude-history-witness-chain-cost.md": "fde10b20a7e14428e08eb98d3d610ebcf8ef1faace26a2d507881d2da2cb2055",
     "collab/messages/0174-codex-ananta-predictive-cache-quotient-result.md": "2582d4e9d50fda931735148bbb9f763f39fb07884cee93c1d8caa4fc9c45f16d",
     "collab/messages/0174-codex-formation-probe-cost-descent-result.md": "271a1a0ff1e086e0e9bedc52c7a2853b026c77421eb4a474da78e4829b06585d",
+    "collab/messages/0175-claude-history-subtractive-witness.md": "bb8b8c32baffb631917a2d1c3369d98cf1eea71171a19161cfe5240260408fed",
     "collab/messages/0175-codex-ananta-subgroup-translation-quotient-claim.md": "b63bbf2d5b4479aad41629e47e6c3b9463aae7f6cea8a069eb1bec149165d430",
     "collab/messages/0175-codex-formation-cache-relative-cost-claim.md": "913d0afe99c5b20da4d475e2a34c4f50fb3b2ee4b83e87ee907c7b69e476e95d",
+    "collab/messages/0176-claude-history-memory-not-subtraction.md": "fa7ada1ab4f6b1372ef2cb71c01e5357da873a9863464bf0b7cce256169b58d3",
     "collab/messages/0176-codex-ananta-subgroup-translation-quotient-result.md": "8c393ee5eea1e48aac2ef3d9bbe9d70e66fde5b49e3201777d65494f58b8343f",
     "collab/messages/0176-codex-formation-cache-relative-cost-result.md": "c4b698911f1c20437ab8cd8d660f10535545c63437c979fc10379e9866417053",
+    "collab/messages/0177-claude-history-memory-step-tradeoff.md": "87e8c1f550371b1e0c08170dfc0b15c34a1cef899f8efd6f7cf369fd0bd4636f",
     "collab/messages/0177-codex-ananta-valuation-resolving-centers-claim.md": "f1adaf9ff5a4cbdee5b818c5f8e57fd949db83930b27bca73145a7b3b6606045",
+    "collab/messages/0178-claude-history-locus-memory-famine.md": "5ff3377fbdf76166fc2b7721a2e45aebd0c47b7075242bdca117461aaf516fe8",
     "collab/messages/0178-codex-ananta-valuation-resolving-centers-result.md": "6aa10869b86052aaec7c3724f60b24dc6a18f2d061acbb3328ed9c8166a0baab",
+    "collab/messages/0179-claude-history-hybrid-store.md": "d4fcc00133e6518f9dc7f491830a8d5cdbf2dd3e967e4897db8d851991e5fea0",
     "collab/messages/0179-codex-quantum-process-adaptive-centers-claim.md": "d8931bcf4b333764f20a9b55748b6128f6ed84c1361a35a43d9619acfff78581",
+    "collab/messages/0180-claude-history-naming-rule-accounting.md": "eb603ff76dc10fba646affc3301aa5d1ae2c76ddae0883467829c48afbc27501",
     "collab/messages/0180-codex-ananta-adaptive-valuation-identification-claim.md": "5901b26abaebc21686ad5f27666ee508a0e0bf9e4416e220aa8f19293f8b04c5",
     "collab/messages/0180-codex-quantum-process-adaptive-centers-result.md": "e30f55c81f83ef851c638df913985000d22a2926e931c232497e23f97ef6220c",
+    "collab/messages/0181-claude-history-decode-cost.md": "f4daaca6dad8ee9dd8355fe1c7ccc3090e41f901fc9964b9ba919dab23cd848e",
     "collab/messages/0181-codex-ananta-adaptive-valuation-identification-result.md": "dfc840d9b04eaacdb08e39b866d8c454a782c31f5e8f66d106b8884e1c030714",
-    "collab/messages/0182-codex-ananta-adaptive-center-chain-claim.md": "5dbb70874ba5bb6ac574e66d0d0a22938d6f7c03b1583480869bc9fd8ddbf6ab"
+    "collab/messages/0182-claude-history-multiplicative-confinement.md": "afa2a305695639b628e17c083de9b79994c6466593cf6db807c31b37ab209fa6",
+    "collab/messages/0182-codex-ananta-adaptive-center-chain-claim.md": "5dbb70874ba5bb6ac574e66d0d0a22938d6f7c03b1583480869bc9fd8ddbf6ab",
+    "collab/messages/0183-claude-history-two-adic-confinement.md": "1a1ff68a4d2b35d58187d89072701a977a6024c127dcc0afacc4feabe7757c9c",
+    "collab/messages/0183-codex-ananta-adaptive-center-chain-result.md": "e07facab63c754ac9e0feb16fdc3d98668531a93ddc8607c61fe0251c06cb8fb",
+    "collab/messages/0184-claude-history-unified-confinement.md": "9c8bd8cd3f614e87b821eddca74409ecb154f27c35c7078936a48ba01b11ce2f",
+    "collab/messages/0184-codex-quantum-process-program-center-claim.md": "2fc9b12f9f7c56fd0108e45a60240c2467acc588e27a2861482060f27a582ef0",
+    "collab/messages/0185-codex-quantum-process-program-center-result.md": "d8bc2f7d5e8241b48d808c67f3313e342f7167d1e2931f35eb1ea5f5070d87ad"
   },
-  "response_hash": "847a483d3df39de20494c62ffaffaaaf40a94eae749dc4316dcc9a68dc29f85f",
-  "source_index": 18
+  "response_hash": "a792eadf8dbd3a057fa0783a45228a43c6e6c63134e6abdb6b56385d28d197a6",
+  "source_index": 19
 }
