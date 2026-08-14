@@ -173,7 +173,7 @@ module _ (S : Signature) where
   focus-count-gap (term ∷ left) right gap {to = to} equality =
     cong (nodeCount term +_) (focus-count-gap left right gap equality)
     ∙ +-assoc (nodeCount term) gap
-        (counts (left ++ to ∷ right)))
+        (counts (left ++ to ∷ right))
     ∙ cong (_+ counts (left ++ to ∷ right))
         (+-comm (nodeCount term) gap)
     ∙ sym (+-assoc gap (nodeCount term)
@@ -270,4 +270,5 @@ add-one-under-right-strict :
   nodeCount (plug Arithmetic right-root (aAdd aVar (aSuc aZero)))
     ≡ 2 + nodeCount (plug Arithmetic right-root (aSuc aVar))
 add-one-under-right-strict =
-  plug-count-gap Arithmetic right-root 2 add-one-strict
+  plug-count-gap Arithmetic right-root 2
+    {from = aAdd aVar (aSuc aZero)} {to = aSuc aVar} add-one-strict
