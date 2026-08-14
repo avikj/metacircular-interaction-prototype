@@ -211,7 +211,45 @@ Therefore there are two independent obstructions:
 2. the stated absolute-error envelope is far above the checked contamination
    scale.
 
-## 5. Exact conditional conclusion and merge decision
+## 5. What does survive: a terminal zero-exclusion obstruction
+
+The odd branch is useful in the reverse direction.  Corollary 1.2 states the
+following with exact quantifiers: for every fixed `delta>0` there is
+`eta_0=eta_0(delta)>=100` such that, if `chi` is a primitive quadratic
+character modulo `q` and there is an even
+
+\[
+ q^{10}\le h\le q^{\eta_0^{99/100}},\qquad q\mid h,          \tag{14}
+\]
+
+with
+
+\[
+ R_\Lambda(h)\ge\delta\mathfrak S_hh,                       \tag{15}
+\]
+
+then, when `chi(-1)=-1`, `L(s,chi)` has no real zero
+
+\[
+ \beta_0\ge1-\frac1{\eta_0\log q}.                          \tag{16}
+\]
+
+The source explicitly notes that only the lower bound in its displayed
+two-sided hypothesis is needed for the odd character.  Thus (14)--(16) is a
+genuine one-target terminal **zero-exclusion** theorem.  It is not a Goldbach
+theorem: `GoldbachAt h` supplies only a nonzero prime-pair summand, not the
+fixed-fraction lower bound (15).
+
+Equivalently, assuming the zero in (16), every conductor multiple in the
+source range obeys fixed-fraction suppression once `eta_0` is chosen large
+relative to `delta`.  This is the exact useful residue of the vanishing
+branch.  It obstructs simultaneous exceptional-zero and main-scale Goldbach
+mass; it does not manufacture any mass.
+
+Primary source: Corollary 1.2 and the sentence immediately following it in
+the same paper.
+
+## 6. Exact conditional conclusion and merge decision
 
 The earned odd-character statement is the following no-go.
 
@@ -220,7 +258,9 @@ The earned odd-character statement is the following no-go.
 > It supplies a relative upper asymptotic exactly in the regime (8), but no
 > value of `q,eta,h` turns that unsigned upper bound into a positive
 > full-coefficient or prime-pair theorem.  Its published error envelope also
-> cannot descend to the proper-prime-power scale.
+> cannot descend to the proper-prime-power scale.  The surviving terminal
+> use is the reverse implication (14)--(16): main-scale coefficient mass
+> excludes such an odd exceptional zero.
 
 This corrects any reading of the odd branch as a weaker analogue of the even
 terminal slice.  The even branch has a positive main coefficient `2`; the odd

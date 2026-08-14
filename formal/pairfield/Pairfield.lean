@@ -75,6 +75,7 @@ import Pairfield.NativeCompleteWitnessCost
 import Pairfield.NativeWitnessGreedyFormation
 import Pairfield.NativeReverseSeparatorPolicy
 import Pairfield.NativeReversePairTraversal
+import Pairfield.NativeReverseEdgeInventory
 import Pairfield.NativeDemandRestrictedFormation
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
 import Pairfield.SmithCertificate
