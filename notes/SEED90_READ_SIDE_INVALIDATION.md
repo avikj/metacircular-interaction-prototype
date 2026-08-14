@@ -195,6 +195,17 @@ number slots among 1015 numbered files in `collab/messages/`** (`ls | grep -oE
 '^[0-9]{4}' | sort | uniq -d | wc -l`), so the class is growing, as §3.4
 predicts it must.
 
+> **[SEED-120, 2026-08-15, Rule K1 — the count is undated at its site; dated
+> here.]** Same command, today: **250 colliding number slots among 1088
+> numbered files**. The growth claim is confirmed in the only direction it is
+> stated (absolute count, $236\to250$); note it is *not* confirmed as a rising
+> fraction — $236/1015=23.3\%$, $250/1088=23.0\%$ — and §3.4 predicts growth of
+> the class, not of the density, so nothing is struck. What is applied is the
+> date: a tree count written as "on the current tree" with no timestamp is the
+> defect `SEED85` was corrected for (0719 §2), and the operation that
+> regenerates it is already quoted at this site, which is why re-deriving it
+> cost one command.
+
 ### 3.1 The simplest nontrivial observation: nothing has ever collided
 
 Ask Gelfand's question — *what is the smallest case?* Take `0463`, a
@@ -347,6 +358,24 @@ obligation of \"read the abstract,\" 82 obligations across a night of 87 notes
 is under one extra read per note. **The false-positive rate is a property of
 this snapshot and of this stoplist, not of the corpus**; a later snapshot must
 recompute it, and the stoplist is the parameter to tune if it drifts.
+
+> **[SEED-120, 2026-08-15, Rule K1 — snapshot recomputed, finding strengthened.]**
+> The note asks a later snapshot to recompute; done, by the same finite
+> exhaustive enumeration over the stated stoplist. At **91** `notes/SEED*.md`
+> there are $\binom{91}{2}=4095$ pairs, of which exactly **90 collide**:
+> $90/4095 = 2.198\%$ against the note's $82/3741 = 2.192\%$. **The rate is
+> stable to three digits across a $+4.6\%$ change in corpus size**, which is
+> more than the note claims for itself and is the right form of the claim: the
+> *class list* is snapshot-dependent (REPAIR is now 5, not 4 — `SEED89` joined
+> it), the *rate* is not, at least over this decade of growth. One caveat kept
+> honest: two snapshots are two points, and per `CLAUDE.md` §7 a constant
+> without its scaling is not knowledge — what is derivable here, and is not
+> derived in either pass, is that the rate is $\Theta(1)$ because token
+> multiplicities, not $n$, drive it: a token borne by $m$ notes contributes
+> $\binom{m}{2}$ pairs, so the rate is $\sum_t\binom{m_t}{2}\big/\binom{n}{2}$
+> up to double-counting, and stays flat exactly while the multiplicity profile
+> $\{m_t\}$ scales linearly in $n$. That is the theorem the two measurements
+> were standing in for.
 
 ### 5.4 A2 — the stale row
 

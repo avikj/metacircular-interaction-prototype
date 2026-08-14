@@ -141,7 +141,9 @@ scale-dependent** — the exp27 shape; `X` retracted/closed already.
 >
 > **Corrected status.** All three fitted exponents — $r=1$ included, which this
 > sweep missed — are **sample statistics of a quantity whose provable envelope
-> does not close** (SEED-88 §5, class (S) in the SEED-62 scheme). They are `F`,
+> does not close** (SEED-88 ~~§5~~ **§6** — *the class-letter table is §6; §5 is the
+> Furstenberg-correspondence section. SEED-119, 2026-08-14, Rule K3′*, class (S) in
+> the SEED-62 scheme). They are `F`,
 > not `F`-blocked, and they must be quoted with the envelope rather than with
 > an appeal to Baker.
 | **I** | $\mathrm{Var}/h=0.983\log(X/h)-2.208$ vs predicted $1.000\log(X/h)-2.415$ | `DSIDE.md`:52 | `V`/`F` | the $\log$ coefficient is a `V` (predicted 1). The constant $-2.208$ vs $-(\gamma+\log2\pi)=-2.415$ is a $0.21$ gap **quoted as "within $0.07$–$0.21$"** — note that $0.21$ is the *same* gap size, and the *same* mechanism (an omitted smooth bilinear term), as the Mertens-floor $-0.21$ that Theorem F closed to $-\tfrac14$. **This is the highest-value untriaged item in the corpus.** See §5(I) |

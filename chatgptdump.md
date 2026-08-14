@@ -283,7 +283,21 @@ Every fixed Hahn multipole sees only PNT-scale background, and any fixed finite 
 
 ## 3.9 Generic log-concavity of raw Hahn energies is false
 
-Numerical tests falsify the proposed generic Huh/log-concavity statement for raw squared Hahn coefficients. Hodge machinery must enter before squaring/projecting, through the collision arrangement, or through another structured object. Do not revive raw-energy log-concavity without a new hypothesis.
+~~Numerical tests falsify~~ the proposed generic Huh/log-concavity statement for raw squared Hahn coefficients ~~is not currently disproved to this repository's standard~~. Hodge machinery must enter before squaring/projecting, through the collision arrangement, or through another structured object. Do not revive raw-energy log-concavity without a new hypothesis.
+
+> **Correction (seed121 audit, 2026-08-14).** The *conclusion* here is very
+> likely right, but the *warrant* is inadmissible under `CLAUDE.md`. A
+> falsification is the one kind of claim that needs no measurement at all: a
+> single explicit triple of Hahn indices with exact rational (or exact
+> algebraic) coefficients violating `a_j^2 >= a_{j-1}a_{j+1}` settles it
+> forever, and such a witness is a mathematical object rather than a run.
+> "Numerical tests falsify" is a floating-point statement about a strict
+> inequality — precisely the case where round-off can manufacture the sign.
+> **Action:** downgrade §3.9 and §17.12 from *false* to *unresolved pending an
+> exact witness* until one triple `(N, j-1, j, j+1)` is exhibited with its
+> coefficients in closed form. No claim of this note depends on the outcome,
+> so the downgrade costs nothing. (I did not attempt the witness; I make no
+> claim that log-concavity holds.)
 
 ## 3.10 One-body Xi/Meixner–Pollaczek expansions are prior art
 

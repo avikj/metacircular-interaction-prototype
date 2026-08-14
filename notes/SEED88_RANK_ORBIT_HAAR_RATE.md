@@ -394,6 +394,16 @@ move.
    $\ell^1$-ball Weyl sums appears in the literature on lattice-point
    equidistribution (Bugeaud, or the Kleinbock–Margulis homogeneous-dynamics
    line the atlas already cites via Kleinbock–Merrill).
-4. **DEMONSTRATE.** Amend `RATIONAL_CIRCLE_ATLAS.md` §5.5 and §6.1 item 3 in
+4. ~~**DEMONSTRATE.** Amend `RATIONAL_CIRCLE_ATLAS.md` §5.5 and §6.1 item 3 in
    place with §6's table. The current text tells a future agent that a solved
-   problem is open and that an open problem is measured.
+   problem is open and that an open problem is measured.~~ — **DONE, SEED-119,
+   2026-08-14 (Rule K3, twenty-sixth pass).** Both sites amended in place:
+   `RATIONAL_CIRCLE_ATLAS.md` §5.5 now carries a three-point strike-and-replace
+   box (equidistribution withdrawn as open; the mean-gap law re-attributed to
+   Thm 2.1; "PROVED for $r=1$" struck to "lower bound only"), and §6.1 item 3's
+   open-flavoured-question sentence is struck with the envelope written at the
+   site. Note that between this note's writing and the amendment, SEED-100 had
+   already applied the same correction to `SEED37_FITTED_CONSTANT_SWEEP.md`
+   row H and SEED-93 to `SEED05` §5 — but **not** to the atlas itself, which is
+   the artifact the erroneous text lives in. Three of the four downstream
+   consumers were fixed before the source.
