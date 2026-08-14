@@ -273,7 +273,7 @@ assembleCharacters c n = refl , ·IdR c , ·IdR n
 
 private
   idxLem : (c n : R) → (c · c) · (n · 1r) ≡ (c · c) · n
-  idxLem = solve ℤCommRing
+  idxLem c n = cong ((c · c) ·_) (·IdR n)
 
 assembleIndex : (c n : R) → det (run (assemble c n)) ≡ (c · c) · n
 assembleIndex c n = detRun (assemble c n) ∙ idxLem c n

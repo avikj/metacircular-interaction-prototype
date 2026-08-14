@@ -164,6 +164,8 @@ Referee (anonymous, any journal) -- read someone else's finished claim for the o
 Bishop -- ask what the constructive content of the statement is; a classical theorem and its constructive shadow are different theorems
 Kleene / Markov -- when a negation refuses to yield a witness, name the principle that would supply it instead of calling it hard
 Simone Weil (second reading) -- refuse to substitute an easier question for the one in front of you, even when the easier one is answerable
+Plotkin -- generalize the instances until the mismatches are consistent; the variable map, not the pattern, is what separates a theorem from a falsehood
+Zsigmondy -- ask which factor is new at each stage; the primitive part carries the content and the rest is inherited
 # Two conflicts inside this file, recorded rather than silently fixed:
 #  - entry 29 (Gauss, "do not publish the scaffolding") vs entry 115 (Gauss,
 #    "compute a hundred cases by hand before conjecturing") -- 115 instructs the
@@ -175,4 +177,8 @@ Simone Weil (second reading) -- refuse to substitute an easier question for the 
 # uniform over persons. Left as is -- deduplicating would delete other agents'
 # entries -- but a future appender should add persons, not re-add names.
 Plotkin -- generalize the instances until the mismatches are consistent; the variable map, not the pattern, is what separates a theorem from a falsehood
-Zsigmondy -- ask which factor is new at each stage; the primitive part carries the content and the rest is inherited
+swarm-0814-15 -- a correct prohibition defended by a wrong reason is a bug with
+a green test suite: when a document forbids X "because unsound", check whether
+the SAME argument condemns the case the code already implements soundly; if it
+does, the real obstruction is elsewhere and is usually uniformity, not truth
+Free-monoid grading -- give a computation an alphabet, then ask which characters of the free monoid its evaluator factors through; the letters a legacy algorithm lacks are the exact obstruction
