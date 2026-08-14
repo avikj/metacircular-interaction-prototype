@@ -53,6 +53,21 @@ theorem behavioralQuotientDFA_eval_mk
     (behavioralQuotientDFA M).eval word = Quotient.mk _ (M.eval word) := by
   exact behavioralQuotientDFA_evalFrom_mk M M.start word
 
+/-- The quotient DFA's ordinary executable acceptance bit is exactly the
+observation descended through the future quotient. -/
+@[simp]
+theorem acceptsBool_behavioralQuotientDFA
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (meaning : Quotient (dfaFutureSetoid M)) :
+    acceptsBool (behavioralQuotientDFA M) meaning =
+      quotientObserve M.step (acceptsBool M) meaning := by
+  refine Quotient.inductionOn meaning ?_
+  intro state
+  rw [quotientObserve_mk]
+  unfold acceptsBool
+  change decide (acceptsBool M state = true) = acceptsBool M state
+  cases acceptsBool M state <;> rfl
+
 /-- Quotienting preserves the recognized language exactly. -/
 theorem behavioralQuotientDFA_accepts_eq
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
@@ -84,6 +99,19 @@ theorem behavioralQuotientDFA_isReduced
     behavioralQuotientDFA_evalFrom_mk,
     quotientObserve_mk, quotientObserve_mk] at hword
   simpa only [behavior, run_eq_evalFrom] using hword
+
+/-- Reducedness in the ordinary DFA interface, obtained by the exact
+acceptance-bit comparison rather than by changing the observation language. -/
+theorem behavioralQuotientDFA_isReduced_acceptsBool
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
+    ∀ {left right : Quotient (dfaFutureSetoid M)},
+      FutureEq (behavioralQuotientDFA M).step
+        (acceptsBool (behavioralQuotientDFA M)) left right →
+      left = right := by
+  intro left right hfuture
+  apply behavioralQuotientDFA_isReduced M
+  intro word
+  simpa only [acceptsBool_behavioralQuotientDFA] using hfuture word
 
 /-- If every input row is start-reachable, every quotient class remains
 start-reachable.  Without this hypothesis the quotient merges garbage but
@@ -138,6 +166,13 @@ theorem reducedDFA_isReduced
         (quotientObserve C.toDFA.step (acceptsBool C.toDFA)) left right →
       left = right :=
   behavioralQuotientDFA_isReduced C.toDFA
+
+theorem reducedDFA_isReduced_acceptsBool
+    [DecidablePred (fun state : X => state ∈ M.accept)] :
+    ∀ {left right : Quotient (dfaFutureSetoid C.toDFA)},
+      FutureEq C.reducedDFA.step (acceptsBool C.reducedDFA) left right →
+      left = right :=
+  behavioralQuotientDFA_isReduced_acceptsBool C.toDFA
 
 theorem reducedDFA_allStatesReachable
     [DecidablePred (fun state : X => state ∈ M.accept)]

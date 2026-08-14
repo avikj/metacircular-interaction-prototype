@@ -4,6 +4,7 @@ module BalancedReweave where
 
 open import Agda.Builtin.Equality
 open import Agda.Builtin.Nat
+open import Agda.Builtin.Bool
 
 -- A perfect tree contains 2^rank endomorphisms.  The left subtree is newer:
 -- it acts first, followed by the older right subtree.
@@ -141,3 +142,87 @@ linearPlanCount-sound (suc n) = linearPlanCount-step n
     → linearPlanCount (suc m) ≡ linearCount (suc m)
   linearPlanCount-step m rewrite linearPlan-commutes-suc m zero
     | linearPlanCount-sound m = refl
+
+-- Algebra-specific normalization for the two-state carrier.  A Bool
+-- endomorphism has exactly two entries; composition is evaluated eagerly into
+-- those entries, so neither the update nor a later read retains history.
+record BoolTable : Set where
+  constructor boolTable
+  field
+    atFalse : Bool
+    atTrue : Bool
+
+open BoolTable
+
+applyBoolTable : BoolTable → Bool → Bool
+applyBoolTable t false = atFalse t
+applyBoolTable t true = atTrue t
+
+tabulateBool : (Bool → Bool) → BoolTable
+tabulateBool f = boolTable (f false) (f true)
+
+tabulateBool-sound : (f : Bool → Bool) (x : Bool)
+  → applyBoolTable (tabulateBool f) x ≡ f x
+tabulateBool-sound f false = refl
+tabulateBool-sound f true = refl
+
+composeBoolTable : (Bool → Bool) → BoolTable → BoolTable
+composeBoolTable f t = boolTable
+  (applyBoolTable t (f false))
+  (applyBoolTable t (f true))
+
+composeBoolTable-sound : (f : Bool → Bool) (t : BoolTable) (x : Bool)
+  → applyBoolTable (composeBoolTable f t) x ≡ applyBoolTable t (f x)
+composeBoolTable-sound f t false = refl
+composeBoolTable-sound f t true = refl
+
+record FusedBoolProfile (R O : Set) : Set where
+  constructor fusedBool
+  field
+    boolPlan : BoolTable
+    boolBase : Profile R Bool O
+
+open FusedBoolProfile
+
+readFusedBool : {R O : Set} → FusedBoolProfile R O → Profile R Bool O
+readFusedBool C r x = boolBase C r (applyBoolTable (boolPlan C) x)
+
+updateFusedBool : {R O : Set} → (Bool → Bool) → FusedBoolProfile R O
+  → FusedBoolProfile R O
+updateFusedBool f C = fusedBool (composeBoolTable f (boolPlan C)) (boolBase C)
+
+updateFusedBool-read : {R O : Set} (f : Bool → Bool)
+  (C : FusedBoolProfile R O) (r : R) (x : Bool)
+  → readFusedBool (updateFusedBool f C) r x ≡ readFusedBool C r (f x)
+updateFusedBool-read f C r x rewrite composeBoolTable-sound f (boolPlan C) x = refl
+
+not : Bool → Bool
+not false = true
+not true = false
+
+identityBoolTable : BoolTable
+identityBoolTable = tabulateBool (λ x → x)
+
+repeatFusedFlip : Nat → BoolTable
+repeatFusedFlip zero = identityBoolTable
+repeatFusedFlip (suc n) = composeBoolTable not (repeatFusedFlip n)
+
+fusedFlipCount : Nat → Bool
+fusedFlipCount n = applyBoolTable (repeatFusedFlip n) false
+
+repeatBalancedFlip : Nat → Plan Bool
+repeatBalancedFlip zero = empty
+repeatBalancedFlip (suc n) = push not (repeatBalancedFlip n)
+
+balancedFlipCount : Nat → Bool
+balancedFlipCount n = runPlan (repeatBalancedFlip n) false
+
+fused-balanced-flip : (n : Nat) (x : Bool)
+  → applyBoolTable (repeatFusedFlip n) x
+    ≡ runPlan (repeatBalancedFlip n) x
+fused-balanced-flip zero false = refl
+fused-balanced-flip zero true = refl
+fused-balanced-flip (suc n) x
+  rewrite composeBoolTable-sound not (repeatFusedFlip n) x
+  | fused-balanced-flip n (not x)
+  | push-sound not (repeatBalancedFlip n) x = refl

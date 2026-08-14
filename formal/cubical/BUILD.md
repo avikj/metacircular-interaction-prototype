@@ -113,8 +113,8 @@ edit ever makes `Control/` check, that is the bug.
 
 ## Toolchain
 
-- **Agda 2.6.3**
-- **cubical library v0.5** (the release tag `v0.5`, not `master`)
+- **Agda 2.8.0**
+- **cubical library v0.9** (the release tag `v0.9`, not `master`)
 
 `natural-machine.agda-lib` declares `depend: cubical`, so Agda resolves the
 name `cubical` through `~/.agda/libraries`.
@@ -122,11 +122,11 @@ name `cubical` through `~/.agda/libraries`.
 ## One-time setup on a fresh container
 
 ```sh
-# Agda + stdlib
-apt-get install -y agda agda-stdlib      # gives Agda 2.6.3
+# Install Agda 2.8.0 with the platform package manager or cabal.
+agda --version                           # must report 2.8.0
 
-# cubical v0.5, registered under the plain name `cubical`
-git clone --depth 1 --branch v0.5 https://github.com/agda/cubical ~/agda-libs/cubical
+# cubical v0.9, registered under the plain name `cubical`
+git clone --depth 1 --branch v0.9 https://github.com/agda/cubical ~/agda-libs/cubical
 sed -i 's/^name:.*/name: cubical/' ~/agda-libs/cubical/cubical.agda-lib
 mkdir -p ~/.agda
 echo "$HOME/agda-libs/cubical/cubical.agda-lib" >> ~/.agda/libraries
@@ -144,16 +144,31 @@ for f in NaturalMachine/*.agda NaturalMachine.agda ProjectionChargeAudit.agda; d
 done
 ```
 
-## Version-skew notes (v0.5)
+## Version-skew notes (v0.9 migration, 2026-08-14)
 
-The corpus was written against a newer cubical than v0.5; the following
-name/convention differences were reconciled so it checks under the pinned tag.
-Reapply the inverse if you upgrade cubical:
+The repository formerly pinned Agda 2.6.3 with cubical v0.5.  The migration to
+the current release surface changed names and, more importantly, the domain on
+which solver macros operate:
 
-- `SymGroup` → `Symmetric-Group` (`Cubical.Algebra.SymmetricGroup`).
-- `Cubical.Tactics.NatSolver.Reflection`: the macro is `solve`, used on the
-  *quantified* goal (`f = solve`), not `solveℕ!` on the intro'd goal
-  (`f x y = solveℕ!`).
+- `Symmetric-Group` is now `SymGroup`
+  (`Cubical.Algebra.SymmetricGroup`).
+- `Cubical.Tactics.CommRingSolver.Reflection.solve` is now `solve!`.  The old
+  macro introduced every leading Π-binder; the new macro parses only an
+  equality boundary.  Therefore `f = solve R` migrates to
+  `f _ … _ = solve! R`, with one explicit pattern per quantified argument.
+  Merely renaming the macro leaves a function goal and is rejected.
+- `Cubical.Tactics.NatSolver.Reflection.solve` similarly becomes `solveℕ!`
+  after explicit introduction of the quantified arguments.
+
+The polynomial statements did not change during this migration.  The explicit
+patterns make the new tactic boundary visible and preserve the kernel-checked
+equalities.  Downgrading to v0.5 requires the inverse source migration; the
+present tree is not claimed to be dual-version compatible.
+
+The remaining bullets record historical v0.5 constraints that shaped existing
+proof presentations.  They are retained as provenance, not as the current
+toolchain contract:
+
 - `CommRingSolver` and `1r` on the RIGHT of a `·`: the v0.5 solver normalizes
   `1r · x ≡ x` but *refuses* `x · 1r ≡ x`, and the refusal is
   **context-sensitive** — the same goal was accepted in a bare file and
@@ -196,9 +211,11 @@ Reapply the inverse if you upgrade cubical:
   once, under that name, in `NaturalMachine/FinTopSplit.agda`. `flast`,
   `fsplit`, `toℕ`, `toℕ-injective` are unchanged.
 
-## Verified working in a fresh remote container, 2026-08-14 (cf-sakshi)
+## Historical v0.5 remote replay, 2026-08-14 (cf-sakshi)
 
-The setup above works verbatim. Two things worth adding:
+Before the v0.9 migration, the former v0.5 setup was independently replayed in
+a fresh container.  This section is historical evidence for that earlier tree,
+not a setup recipe for the current source.  Two observations remain useful:
 
 - `apt-get install -y --no-install-recommends agda` succeeds (2.6.3 from Ubuntu
   noble). A plain `apt-get install agda` may fail on an unrelated 404 for

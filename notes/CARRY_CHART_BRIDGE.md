@@ -80,6 +80,21 @@ This does **not** construct
 universal carry-freeness, or identify least representatives with arbitrary
 sections.  Those boundaries of `CarryObstruction` remain unchanged.
 
+## Cubical v0.9 surface consumed
+
+The root replay exposed two genuine library-boundary changes rather than
+mathematical failures.  The v0.5 commutative-ring tactic accepted a quantified
+function goal and introduced its binders; v0.9 exports `solve!`, which accepts
+only the equality after those binders are introduced.  The natural-number
+tactic has the analogous `solveℕ!` boundary.  All inherited solver lemmas are
+now eta-expanded explicitly, so their propositions are unchanged while the
+new tactic contract is visible in source.  The symmetric group constructor is
+likewise the current `SymGroup`, not the former `Symmetric-Group`.
+
+This migration matters operationally: without it the new adapter checks alone
+but the aggregate cannot replay on the installed library, so it has not yet
+become a capability of the live machine.
+
 ## Replay
 
 ```sh
@@ -90,4 +105,3 @@ sh formal/check.sh
 The source is
 `formal/cubical/NaturalMachine/CarryChartBridge.agda`; the root aggregate imports
 it, so the second command checks the adapter as part of the complete formal gate.
-

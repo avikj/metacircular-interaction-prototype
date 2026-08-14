@@ -91,7 +91,7 @@
 --    **CORRECTED 2026-08-14 by another lane, and the correction is
 --    sharper than the entry it replaces.**  Both halves of that sentence
 --    were wrong.  The parameter `A ≃ A` **is** the group object —
---    cubical ships it as `Symmetric-Group A isSetA`, whose `1g`, `_·_`
+--    cubical v0.9 ships it as `SymGroup A isSetA`, whose `1g`, `_·_`
 --    and `inv` are `idEquiv`, `compEquiv`, `invEquiv`, i.e. exactly the
 --    three operations §4's three lemmas are already stated at, and they
 --    reduce definitionally, so no bridging lemma is needed either.  So
