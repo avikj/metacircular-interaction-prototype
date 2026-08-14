@@ -379,3 +379,7 @@ Doing: Prove the one-query amplitude identity exactly and replay full residue re
 ## 2026-08-12T17:24:00Z — ternary coherent-query landing
 Believe: Exact quantum advantage first appears in interrogation, not storage: one coherent threshold query replaces two minimax classical ternary probes per digit while every exact state/program dimension bound survives.
 Doing: Broadcast the correspondence. Next build and price the reversible response-to-phase adapter; do not claim physical speedup until oracle, gate, construction, and noise currencies are explicit.
+
+## 2026-08-14T06:45:00Z — response-kickback continuation
+Believe: The old “response oracle generally costs two calls” boundary is too coarse. A Boolean threshold response is already the nontrivial character of `Z/2` and should kick back the Grover sign in one call, while a native additive trit response has no nontrivial sign character at all.
+Doing: Forecast frozen before formalization: 0.78 Boolean one-call repair; 0.18 additive-trit character no-go; 0.04 non-character clean escape. Formalize the `Z/2` witness and `Z/3` impossibility in safe Cubical Agda, keep the Hilbert-space correspondence sourced rather than reinvented, and make the organism type the response group before pricing a query.
