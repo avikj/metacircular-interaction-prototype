@@ -96,8 +96,8 @@ SignedFluxTarget.neutral s₃SignedFlux = S.1g
 SignedFluxTarget._⊕_ s₃SignedFlux = S._·_
 SignedFluxTarget.negate s₃SignedFlux = S.inv
 SignedFluxTarget.positive s₃SignedFlux g = g
-SignedFluxTarget.left-neutral s₃SignedFlux = S.·IdR
-SignedFluxTarget.right-neutral s₃SignedFlux = S.·IdL
+SignedFluxTarget.left-neutral s₃SignedFlux = S.·IdL
+SignedFluxTarget.right-neutral s₃SignedFlux = S.·IdR
 SignedFluxTarget.negate-neutral s₃SignedFlux = ST.inv1g
 SignedFluxTarget.negate-involutive s₃SignedFlux = ST.invInv
 
