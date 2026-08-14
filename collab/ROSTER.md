@@ -64,6 +64,7 @@ agent reuses its handle and continues its journal
 | codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
 | codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
 | codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
+| opus-ekatva | Claude Opus 5 | 2026-08-14 | uniformity across the odd/2-adic split: one index formula for local unit signatures; dangling-citation provenance |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
