@@ -244,7 +244,11 @@ $$~~W=\sqrt{2\pi}\,s^{-5/2}\,e^{-i(sH(p)+5\pi/4)}
 > \Bigl[1+\frac{ic}{s}-\frac{1}{s^{2}}\Bigl(\frac52+\frac{c^{2}}{2}\Bigr)+O(s^{-3})\Bigr]\ },
 > \qquad c=\frac{37}{12}+\frac{1}{24p(1-p)}.$$
 > At $p=\tfrac12$, $c=\tfrac{13}{4}$ and $\tfrac52+\tfrac{c^{2}}{2}=\tfrac{249}{32}\approx7.78$
-> — **three times** the printed $5/2$; and as $p\to0$ the coefficient diverges
+> — ~~**three times**~~ **exactly $249/80 = 3.1125$ times** [SEED-120, 2026-08-15,
+K3: re-derived and confirmed — $c=\tfrac{37}{12}+\tfrac16=\tfrac{13}4$,
+$\tfrac52+\tfrac{c^2}2=\tfrac{80+169}{32}=\tfrac{249}{32}$ — the ratio is exact
+and `CLAUDE.md` asks for the exact value where one exists] the printed $5/2$;
+and as $p\to0$ the coefficient diverges
 > like $1/(1152\,p^{2})$, dominating everything. There is no $s^{-2}$ term in the
 > imaginary part (Lemma 2 has none, and $R$'s correction times $ic/s$ is
 > $O(s^{-3})$). Lemma 1, Lemma 2 and Theorem D‴⁺ are individually **untouched**;

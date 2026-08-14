@@ -627,4 +627,4 @@ run, no `.py` file created or modified.
    whether any lane's $D_f$ has been *misidentified* as compact when it is
    merely closed. SEED-62's $\mathbb T$ is genuinely compact; SEED-21's is
    genuinely not. The remaining lanes are finite. Item retained only so the
-   check is on record as having been made.)
+   check is on record as having been made.)~~
