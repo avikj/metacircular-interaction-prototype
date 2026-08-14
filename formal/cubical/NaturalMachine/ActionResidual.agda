@@ -145,7 +145,47 @@ module DefectCoordinate
       (behavior-collision→defect-collision collision)
 
 ------------------------------------------------------------------------
--- 2.  Elementary arithmetic: square under successor forms `2x`
+-- 2.  Translation supplies a predictor without an external choice
+------------------------------------------------------------------------
+
+-- For a pointed additive action language, the standard reduced cross-effect
+-- chooses the predictor from q itself.  Translation by u should contribute
+-- the already measurable increment q(u)-q(0); whatever remains is the mixed
+-- term.  This is the Eilenberg--Mac Lane cross-effect in residual coordinates.
+module TranslationCrossEffect
+  {ℓb ℓa : Level}
+  (B : AbGroup ℓb)
+  (A : AbGroup ℓa)
+  (q : ⟨ B ⟩ → ⟨ A ⟩)
+  where
+
+  open AbGroupStr (snd B)
+    renaming (_+_ to _+B_ ; 0g to 0B)
+    using ()
+  open AbGroupStr (snd A)
+    renaming (_+_ to _+A_ ; _-_ to _-A_)
+    using ()
+
+  translate : ⟨ B ⟩ → ⟨ B ⟩ → ⟨ B ⟩
+  translate u x = x +B u
+
+  translationPredict : ⟨ B ⟩ → ⟨ A ⟩ → ⟨ A ⟩
+  translationPredict u y = y +A (q u -A q 0B)
+
+  crossEffect : ⟨ B ⟩ → ⟨ B ⟩ → ⟨ A ⟩
+  crossEffect u x = q (translate u x) -A translationPredict u (q x)
+
+  module Coordinate (u : ⟨ B ⟩) =
+    DefectCoordinate A q (translate u) (translationPredict u)
+
+  -- Hence every decoder, zero criterion, and strict-formation theorem in §1
+  -- applies to the cross-effect with no separately chosen predictor.
+  crossEffect-is-coordinate :
+    (u x : ⟨ B ⟩) → crossEffect u x ≡ Coordinate.residual u x
+  crossEffect-is-coordinate u x = refl
+
+------------------------------------------------------------------------
+-- 3.  Elementary arithmetic: square under successor forms `2x`
 ------------------------------------------------------------------------
 
 module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
@@ -197,7 +237,7 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
     residual-reverses-sign-direct u x = solve! Rng
 
 ------------------------------------------------------------------------
--- 3.  Checked one-shot event over the integers
+-- 4.  Checked one-shot event over the integers
 ------------------------------------------------------------------------
 
 module IntegerFormationEvent where

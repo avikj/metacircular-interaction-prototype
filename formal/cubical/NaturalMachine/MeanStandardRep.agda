@@ -144,7 +144,7 @@ open import Cubical.Data.FinData.Base using (Fin ; FinVec ; replicateFinVec)
   renaming (zero to fzero ; suc to fsuc)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.BigOps using (module Sum)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.CenterRelative using (Pair ; Φ)
 

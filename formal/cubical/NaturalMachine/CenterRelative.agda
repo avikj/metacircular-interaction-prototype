@@ -117,7 +117,7 @@ open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd ; ≡-× )
 
 open import Cubical.Algebra.CommRing
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable

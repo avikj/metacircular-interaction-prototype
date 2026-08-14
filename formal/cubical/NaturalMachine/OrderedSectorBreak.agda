@@ -120,7 +120,7 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.CommRing
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.CenterRelative
   using (Pair ; Centre ; Φ ; Ψ ; ΦEquiv ; ΨΦ)
