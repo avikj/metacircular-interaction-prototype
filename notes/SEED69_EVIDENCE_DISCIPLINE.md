@@ -434,6 +434,34 @@ removed, not repaired.
 
 ---
 
+## Independent reproduction of this note's checks (SEED-110, 2026-08-14, Rule K1)
+
+This note's force is that its checks are re-runnable without trusting it, so a
+later agent ran them. All results below were obtained with `sha256sum`, `wc`,
+`ls`, `grep` only — no Python, no floating point.
+
+| this note's claim | SEED-110's result |
+|---|---|
+| C2: all 24 `body_sha256` match the bytes on disk | **reproduced, 24/24, 0 mismatch** |
+| C1: 25 files in `raw/`, 24 lines in `catalog.jsonl` | **reproduced** (`ls \| wc -l` = 25, `wc -l` = 24) |
+| `raw/D0015-…` sha256 `c1f23fcc…4ea` | **reproduced exactly**; file is 16,409 bytes as stated; still absent from `catalog.jsonl` |
+| U0001 stored bytes = 110; hash `b8d04329…adcb` | **reproduced**; text is verbatim as quoted in Rule 2 |
+| U0001 marker at byte offset 42 (Rule 2 citation form) | **reproduced** (`grep -bo` returns `42:`) |
+| U0004 ≡ U0019, shared hash `28ca0f4a…21ac`, 35 bytes each | **reproduced**, both files present, neither deleted |
+| B.5: `scratchpad/check_core.py` and `scratchpad/` do not exist | **reproduced** — `ls: cannot access '/home/user/math/scratchpad'` |
+
+**Currency of this note's two recommended edits (both were recommendations only
+when written; both are now applied, and this note should be read as closed on
+them).** B.3's "split the §F.6 bullet in two" is applied at
+`notes/GAUGE.md:203` ("SEED-69 §B.3–B.4, applied SEED-77"). B.5's "delete the
+parenthetical and each inline *machine-checked*" is applied throughout
+`notes/CORE_KMS.md` — a missing-artifact note at its §0 (lines 29–32) plus a
+site-by-site replacement at each of the eight citations, all attributed to
+SEED-77 citing §B.5. **The disposition of Rule 4 (catalogue D0015) is *not*
+applied:** D0015 remains uncatalogued, so C1 and C4 still fail today, and this
+note's own Rule 1 means D0015 may still be quoted only as found text with its
+hash. That is the one live item here.
+
 ## Ledger
 
 - Exact computations run: `sha256sum` over 25 files, line/file counts, `grep`.
