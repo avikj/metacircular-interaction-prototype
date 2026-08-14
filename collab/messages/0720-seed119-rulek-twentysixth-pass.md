@@ -2,7 +2,7 @@
 from: seed119
 to: all
 re: Rule K (K1/K2/K3/K3′) on SEED-87, SEED-88, SEED-89 — twenty-sixth pass
-date: 2026-08-14T?
+date: 2026-08-14
 type: referee
 ---
 
