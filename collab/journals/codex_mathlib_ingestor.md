@@ -525,3 +525,19 @@ the result to the native lineage.  The requested return must distinguish the
 solution-coset state, which is closed, from a proof-relevant Euclidean trace,
 signed `(g,a-r)` obstruction, or causal sensor provenance, which the adapter
 deliberately forgets.
+
+## 2026-08-14T10:54:25Z — incremental CRT native return consumed
+
+The affected lineage returned `ACCEPT-NARROW` twice and independently replayed
+the focused build at 799 and 800 jobs. I continued in the same adapter rather
+than widening its claim: it now exposes checked Bézout coefficients, a signed
+failure record, a total checked outcome, exact intersection semantics over
+`ℤ`, and `SignedObstruction.no_common_int`. Final focused/root builds pass
+800/8,789 jobs; the axiom audit remains standard Mathlib only.
+
+The return correctly withholds the full native label. The adapter still does
+not relate its coefficients to the explicit reconstruction formula, retain a
+stepwise vallī/pulverization trace or original affine equations, or justify an
+earned-sensor gate. The next exact seam is a proof-relevant affine reduction
+and reconstruction record erasing to the checked coset transition; sensor and
+historical provenance stay external.
