@@ -62,6 +62,14 @@ kMinPrune :: Int
 kMinPrune = 1
 kConceptMin :: Int
 kConceptMin = 8
+-- How much shorter the probe must get before a name is worth having.
+-- A fold of a pattern of size p saves p-1 symbols, and the smallest
+-- admissible pattern has size 3, so one fold saves at least 2: this
+-- threshold is "at least four real folds".  It is a gate on description
+-- length, which is the only currency a DEFINITION can be paid in — see
+-- `marginalCompress` for why the old prune-based gate could never pass.
+kConceptGain :: Int
+kConceptGain = 8
 kVars :: Int
 kVars = 3
 kSizeCap :: Int
@@ -613,7 +621,16 @@ round1 logh libh ref = do
       -- life of the process — the largest cost centre there is, and it
       -- is spent on questions already asked.
       nRules = length rules
-      fresh = [ c | c <- conjectures
+      -- ORDER MATTERS, and it was hash order.  `conjectures` comes out of
+      -- a Map keyed on fingerprints, so the machine attacked its own
+      -- questions in an order determined by a hash function.  The fold
+      -- below feeds each proof back in as it goes, so a small general
+      -- lemma proved early pays for every later conjecture in the same
+      -- round, and proved late pays for none of them — the difference
+      -- between finding x+s(y)=s(x+y) before x+y=y+x and after it.
+      -- Smallest first is the only order with that property.
+      fresh = sortOn (\(l,r) -> (size l + size r, l, r))
+              [ c | c <- conjectures
                   , not (M.member c (mKnown m))
                   , M.lookup c (mFailed m) /= Just nRules
                   , not (provedByRewriting rules c)
@@ -702,7 +719,14 @@ round1 logh libh ref = do
               m2 { mVocab = mVocab m2 + 1 }
           | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
-          | otherwise = m2 { mSize = mSize m2 + 1 }
+          -- Past this point the given vocabulary is exhausted and the
+          -- size horizon is at its cap.  The machine used to answer that
+          -- by raising the horizon anyway and then halting — growing the
+          -- one dimension its own numbers said was not the constraint
+          -- (rounds 16-18: conjectures 9k → 18k, proved 0 → 5 → 0; the
+          -- prover was the bottleneck, not the search).  It stays here
+          -- instead, and the only way out is a name it invents itself.
+          | otherwise = m2
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
@@ -719,11 +743,14 @@ main = do
   hSetBuffering libh LineBuffering
   hPutStrLn logh "=== MathMachine start ==="
   ref <- newIORef start
-  let loop = do
-        round1 logh libh ref
-        m <- readIORef ref
-        when (mSize m <= kSizeCap) loop
+  -- A machine that halts is not a machine.  The old loop stopped when the
+  -- size horizon passed its cap, which is to say: it enumerated a finite
+  -- space and finished.  Nothing about arithmetic is finite; what was
+  -- finite was the vocabulary somebody typed, and the organ for escaping
+  -- that — concept invention — was gated on a condition no definition can
+  -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
+  -- reason to keep going, so it keeps going.
+  let loop = round1 logh libh ref >> loop
   loop
-  hPutStrLn logh "=== horizon reached ==="
   hClose logh
   hClose libh
