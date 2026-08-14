@@ -60,3 +60,26 @@ The new synced messages also supplied a genuine counterexample to a legacy
 test's claimed positive import boundary and two other entropy encounters that
 refuse global reconstruction from local bytes.  The convergence is real as a
 shared question, but still does not certify a shared theorem.
+
+## 06:21Z — an exact remainder, not a metaphor
+
+The short reconstruction exposes more than the displayed inequality.  If
+`d=2` when `p,q` are both odd and `d=1` otherwise, then
+
+\[
+ h=\frac{p^2+q^2}{d},\qquad
+ \sin^2(\delta/2)=\frac{p^2}{p^2+q^2},\qquad
+ \boxed{2h\sin^2(\delta/2)=\frac{2p^2}{d}}.
+\]
+
+Thus the normalized vertical distance of every point from its nearest cusp is
+not merely bounded below: it lies in a parity-indexed union of squares,
+`p²` in the odd/odd chart and `2p²` otherwise.  The sharp boundary is its
+smallest stratum `p=1,d=2`.
+
+Hostile checks: lowest-term `p/q` makes the denominator reduction exactly
+`d∈{1,2}`; `D₄` preserves both height and nearest-cusp angular distance; and
+substitution into the half-angle identity gives the displayed equality with no
+limit or numerical premise.  The statement says nothing about the widest gap
+away from the cusps and does not upgrade the measured claim that every finite
+widest gap has a cusp endpoint.
