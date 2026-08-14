@@ -10,7 +10,8 @@ open import Cubical.Data.Prod using (_,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
 open import NaturalMachine.HolonomyFluxDerivation
-  using (FluxDerivation ; Carrier ; _⋆_ ; _⊕_ ; flux ; leibniz)
+  using (FluxDerivation)
+open FluxDerivation
 open import NaturalMachine.IteratedCylindricalConsistency
   using (Triple ; leftHolonomy ; rightHolonomy ; contractionAssociator)
 
@@ -106,4 +107,3 @@ module _ (G : Group ℓg) (F : FluxDerivation ℓa)
       sym (expandDirect x)
     ∙ flux-contraction-path x
     ∙ expandStaged x
-

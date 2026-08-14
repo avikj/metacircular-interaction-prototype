@@ -320,9 +320,16 @@ theorem adaptiveTree_separatesPrefixResiduals :
   have heval : automaton.eval left = automaton.eval right := by
     apply adaptiveTree_identifies
     rw [← acceptsBool_automaton]
+    change
+      adaptiveTree.trace automaton.step (acceptsBool automaton)
+          (automaton.eval left) =
+        adaptiveTree.trace automaton.step (acceptsBool automaton)
+          (automaton.eval right)
     simpa [BranchTrace] using htrace
-  rw [BranchResidual, leftQuotient_eq_stateLanguage_eval,
-    leftQuotient_eq_stateLanguage_eval, heval]
+  change
+    stateLanguage automaton (automaton.eval left) =
+      stateLanguage automaton (automaton.eval right)
+  rw [heval]
 
 /-- Consequently the same depth-two tree carries the full recursive
 safe-action/live-cell certificate on both free-current-output fibres. -/
