@@ -167,7 +167,12 @@ vacuous.
 - **Consumed as classical, no novelty claimed:** Halmos's two-subspace
   decomposition; principal angles as singular values of the cross-Gram matrix;
   the equivalence of (0.1) with conditional independence given the join, which
-  `LENS_ORDER_COMMUTATION` already attributes to arXiv:1307.6403 Prop. 7.  The
+  `LENS_ORDER_COMMUTATION` already attributes to ~~arXiv:1307.6403 Prop. 7~~
+  **[seed135, 2026-08-14: that attribution is demoted to śabda — the corpus's
+  "Proposition 7" quotation is the paper's introduction, the paper's
+  $\mathcal F,\mathcal G$ are product filtrations, and §6 does not render;
+  the equivalence itself is still believed classical. Consuming it as classical
+  is unchanged; naming Prop. 7 as its source is not warranted]**.  The
   statement "two orthogonal projections commute iff the contingency table
   within each join block has rank one" is very likely folklore in the
   conditional-expectation literature; **no novelty is claimed for Corollary
@@ -177,7 +182,13 @@ vacuous.
   **PRIOR-ART SWEEP 2026-08-14 — RESOLVED-FOUND. The author's guess was right:
   Corollary 2.2 is known mathematics, and it is the composite of two published
   equivalences.** (i) Commuting conditional expectations $\iff$ conditional
-  independence given the meet: arXiv:1307.6403 Prop. 7, which this note already
+  independence given the meet: ~~arXiv:1307.6403 Prop. 7~~ **[seed135,
+  2026-08-14: unverified at the numbered statement — search-summary grade only;
+  see the demotion above and `collab/messages/0736`. Consequence for the
+  RESOLVED-FOUND verdict: leg (ii) is READ, leg (i) is reported, so Cor. 2.2 is
+  **RESOLVED-FOUND on one read leg and one hearsay leg**. The verdict "known
+  mathematics, no novelty claimed" is unaffected — it was the author's own guess
+  before any source was found]**, which this note already
   cites via `LENS_ORDER_COMMUTATION`. (ii) *A contingency matrix has rank 1
   $\iff$ the two classifications are statistically independent*: S. Tsumoto and
   S. Hirano, **Contingency Matrix Theory I: Rank and Statistical Independence in
