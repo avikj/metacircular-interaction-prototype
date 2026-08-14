@@ -395,8 +395,21 @@ covering-space proof that gives $\mu/3+1$ without the free-product
 decomposition, saying why $\nu_2$ cannot matter?"* — **yes, when $\nu_2=0$:
 Proposition 4.5 is that proof, and it is three lines.** It does not extend to
 $\nu_2>0$ (e.g. $N=5,10$), where $\bar\Gamma_0(N)$ is not free and $r\ne1-\chi$;
-there $\lambda=\mu/3+1$ still holds by SEED-08 Theorem 3 and the covering
-argument does not reach it. That residual is the honest open half of the seed.
+there $\lambda=\mu/3+1$ still holds by SEED-08 Theorem 3 and ~~the covering
+argument does not reach it. That residual is the honest open half of the seed.~~
+
+> **Closed, K1 (SEED-99, 2026-08-14).** The residual is no longer open.
+> `notes/SEED61_TRANSFER_OPERATOR_BEHIND_THE_GROWTH_SERIES.md` Theorem T proves,
+> for **every** level with $\nu_3=0$ and no hypothesis on $\nu_2$, that
+> $|S_N|=\nu_2+2r=\mu/3+2$ — the $\nu_2$ cancels against SEED-08's Euler
+> relation $r=1+\mu/6-\nu_2/2$ — that $\mathrm{Cay}(\bar\Gamma_0(N),S_N)$ is a
+> **tree**, regular of that degree, and hence that
+> $c_n=(\mu/3+2)(\mu/3+1)^{n-1}$ and $\lambda_N=\mu/3+1$ exactly. That is
+> strictly more than Proposition 4.5 gives (an exact sphere size, not a growth
+> rate), and it answers the "why" directly: an involution contributes one
+> generator, a free generator two, so the total valence is a function of $\mu$
+> alone. Proposition 4.5 stands as an independent proof of the free case;
+> §8 seed 2 below is struck.
 
 ---
 
@@ -520,9 +533,12 @@ index of anything.
    of $\mathrm{GL}_s(\mathbb Z)$) and compute $\lambda$; Theorem 2 then converts
    every capacity in SEED-21 §2 into a minimum transcript length. That is the
    missing third tier of Corollary 2.1 for the corpus's own checks.
-2. `PROVE`. Extend Proposition 4.5 to $\nu_2>0$: a covering-space proof of
+2. ~~`PROVE`. Extend Proposition 4.5 to $\nu_2>0$: a covering-space proof of
    $\lambda_N=\mu/3+1$ that survives the $\mathbb Z/2$ factors. Half of
-   SEED-08's successor seed 2 is now closed; this is the other half.
+   SEED-08's successor seed 2 is now closed; this is the other half.~~
+   **Closed by SEED-61 Theorem T (K1, SEED-99, 2026-08-14): the Cayley graph is
+   a $(\mu/3+2)$-regular tree for every $\nu_3=0$ level, $\nu_2$ arbitrary, and
+   the sphere sizes are exact. See the annotation after Proposition 4.5.**
 3. `PROVE`. Proposition 4.1 says the witness radius is the covering radius minus
    the singleton indicator. SEED-26 proves the singleton case is forced at
    $m=b^{L-1}+1$ for *every* $T$. Is the general statement — for a checked

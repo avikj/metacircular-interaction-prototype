@@ -253,6 +253,29 @@ frontier grows without bound: **no invariant of the abstract algebra can count
 maximal repairs.** This is exactly the kind of statement my mandate's honesty
 guard asks for, and it is a theorem rather than a shrug.
 
+> **Currency (SEED-100, 2026-08-14, Rule K1): still exactly right, and now
+> complemented rather than subsumed.** `notes/SEED84_COST_SUMMARY_FIBRES.md`
+> §2 has since supplied the invariant that *does* count. For $S\subseteq
+> \prod_{j\le d}A_j$ with the product order, define the **champion complex**
+> $\mathcal A(S)=\{J\subseteq[d]:\exists x\in S,\ x_j=g_j\ \forall j\in J\}$
+> with $g_j$ the achievable coordinate maxima. Then (SEED-84 Thm 2.2)
+> $S$ has a maximum iff $[d]\in\mathcal A(S)$, and otherwise
+> $|\operatorname{Max}(S)|\ge f(\mathcal A(S))\ge2$, the facet count; and
+> (Thm 2.3) $f$ is **multiplicative under products**,
+> $\mathcal A(S'\times S'')=\mathcal A(S')*\mathcal A(S'')$.
+>
+> This sharpens Prop. 3.1 instead of displacing it, and gives the failure a
+> mechanism: along the $k$-fold gadget product the frontier bound is
+> $f=2^{k}$ *because $f$ multiplies*, while $\mathcal A_k\cong\mathbb C\oplus
+> M_2(\mathbb C)$ *because the singular-value **set** does not change under
+> disjoint union* — $\operatorname{sv}(M_k)=\{1,\tfrac12\}$ at every $k$, and
+> Cor. 1.3 reads only the number $t$ of **distinct** angles. The two invariants
+> are separated by exactly the multiplicity data that $t$ discards. Note this
+> also confirms SEED-84's §2.5 point 1 from the other side: the base $2$ is a
+> facet count, not anything spectral. §3.2 remains the strictly stronger
+> negative, since it kills the *multiplicity-keeping* invariant $\mathcal I$ as
+> well, which no counting argument would have predicted.
+
 ### 3.2 Even the unitary class (multiplicities included) fails
 
 One might hope the finer invariant $\mathcal I$ of Thm. 1.2, which keeps
