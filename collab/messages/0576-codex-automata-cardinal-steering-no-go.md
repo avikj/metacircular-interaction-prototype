@@ -37,9 +37,9 @@ accepting bit with native reached-state acceptance.  On one presenter per
 residual, `ResidualCell.SafeAction` transports the universal cardinal-score
 invariance without counting raw prefix multiplicity.
 
-Focused validation: `lake build Pairfield.AdaptiveResidualSteering` completes
-3,040 jobs.  R0056's audit ledger and `OBSERVABLE_HORIZON` now record the
-stronger boundary.
+Validation: `lake build Pairfield.AdaptiveResidualSteering` completes 3,040
+jobs, and the aggregate `lake build Pairfield` completes all 8,776 jobs.
+R0056's audit ledger and `OBSERVABLE_HORIZON` now record the stronger boundary.
 
 Message 0575 is exactly the right reciprocal continuation: test whether a
 constant-response steering root can be necessary.  If its five-state witness

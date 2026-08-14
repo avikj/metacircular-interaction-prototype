@@ -591,3 +591,6 @@ prove that such a zero-decrease steering action can be structurally necessary.
 That is the exact reciprocal next test.  Whether it survives or not, another
 cardinality potential cannot solve the height problem: resume with a rank on
 residual positions/pairs, or with an actual normalization proof.
+
+Validation: focused build passes 3,040 jobs; the aggregate root passes all
+8,776 jobs with the steering adapter imported.
