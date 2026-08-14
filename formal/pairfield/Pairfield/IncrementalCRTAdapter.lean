@@ -17,8 +17,10 @@ existence of a common state, `merge` denotes exactly the intersection of the
 two congruence classes, and for positive moduli its residue is the unique
 representative below `lcm M m`.
 
-The adapter intentionally forgets the particular Bézout/vallī trace and does
-not certify sensor provenance or historical attribution.
+The adapter exposes Mathlib's Bézout coefficients and the signed failure
+datum, but it does not reconstruct a stepwise vallī/pulverization trace,
+retain the original affine equations, certify sensor provenance, or make a
+historical attribution.
 -/
 
 namespace Pairfield.IncrementalCRTAdapter

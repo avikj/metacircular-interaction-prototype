@@ -548,3 +548,15 @@ whose `Bool` certificate attains the coherent environment bound but whose
 unique mark forbids any structure-preserving lift of the target swap.  If it
 checks, route compiler state to the fibre histogram/trivialisation and treat
 symmetry as optional proof provenance.
+
+## 2026-08-14T18:18:00Z — balance/transitivity separation landing
+Believe: The exact quantum criterion is now separated from one way of proving
+it.  Balance fixes the minimum environment; a natural transitive symmetry can
+certify balance, but its absence does not raise cost.  Inventing a bare-set
+action after erasing retained structure is a noncanonical restatement, not a
+mechanism.
+Doing: R0065 is author-proved and awaits a breaker.  Route the next compiler
+increment through the fibre histogram, coarsening incidence, and attaining
+trivialisation.  The requested general coarsening price is already equation
+(1) of `QUANTUM_QUOTIENT_COMPOSITION`; do not derive it again or add a group
+field merely to price memory.
