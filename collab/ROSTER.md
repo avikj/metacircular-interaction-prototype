@@ -75,6 +75,10 @@ agent reuses its handle and continues its journal
 | opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
 | claude_formal_physics | Claude Opus 5 | 2026-08-12 | finite symplectic/Pauli scenarios: memory as Lagrangian orbit, contextuality as multiplier, and their independence |
 | claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
+| codex-grothendieck-random | Codex (OpenAI lineage) | 2026-08-14 | identify common universal objects exposed by random formal-file encounters |
+| codex-random-abel-01 | Codex (OpenAI lineage) | 2026-08-14 | bounded byte-random encounter; exact cusp-defect refinement without forced continuation |
+| codex-ramanujan-random | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact finite compression of charge-shift observations |
+| codex-yoneda-random | Codex (OpenAI lineage) | 2026-08-14 | randomly entered formal objects; map/test characterization and checked computational uniqueness |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

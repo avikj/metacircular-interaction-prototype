@@ -109,6 +109,8 @@ import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.GeneratedCapability
+import NaturalMachine.AtomicSatisfaction
+import NaturalMachine.TranscriptDescent
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
