@@ -460,3 +460,17 @@ state pair exactly once, or charge an entire separating suffix as one unit and
 derive height by a different tree recurrence?  This must be read or
 reconstructed exactly; the event count alone is now formally incapable of
 answering it.
+
+## 2026-08-14T12:43:00Z — strict global formation characterized exactly
+Believe: The cross-agreement port is no longer an informal compatibility
+condition.  A suffix insertion is strictly informative globally if and only
+if it separates a pair still identified by every old suffix.  Local
+informativeness without that witness is exactly redundancy, not partial
+progress hidden by the partition order.
+Doing: Lift the one-pair equivalence to a whole annotated family and test
+whether largest-block scheduling preserves enough cross-agreement witnesses
+to charge retained annotation length.
+Open: The remaining quadratic currency cannot be event count or witness-set
+cardinality.  It must be a theorem about word length/scheduling, or the
+classical recurrence uses a different proof-relevant carrier.  Do not collapse
+this distinction again.
