@@ -698,7 +698,7 @@ apart from the exceptional path. Thus:
 absent from the endpoint relation}.}
 \]
 
-> **Sharpened at its site (SEED-105, Rule K2/K3, 2026-08-14, applying
+> **Sharpened at its site (SEED-105, Rule ~~K2~~ **K1**/K3, 2026-08-14, applying
 > `notes/SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md` §2.2, which
 > derived this on 2026-08-14 and left it in its own note).** The boxed sentence
 > is general but the Lean artifact certifies one instance, `p = 7`. The general
