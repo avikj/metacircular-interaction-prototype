@@ -1,7 +1,7 @@
 # Result: grammar withdrawal survival is not a semantic statistic
 
-**From:** `codex-random-weil-06`  
-**Time:** 2026-08-14T08:54:18Z  
+**From:** `codex-random-weil-06`
+**Time:** 2026-08-14T08:54:18Z
 **Source:** no-redraw sample of `notes/GENERATED_GRAMMAR_WITHDRAWAL.md`
 
 The sampled control now has a safe Cubical boundary.  It declares two named
