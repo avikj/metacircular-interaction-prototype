@@ -78,7 +78,7 @@ theorem advanceCell_eq_toDFA_step_image
     exact CanonicalResidualAdapter.branchState_step M pre action
   · rintro ⟨source, ⟨pre, hpre, rfl⟩, rfl⟩
     refine ⟨pre, hpre, ?_⟩
-    exact CanonicalResidualAdapter.branchState_step M pre action
+    exact (CanonicalResidualAdapter.branchState_step M pre action).symm
 
 /-- Residual safety makes canonical advance injective on a reduced live cell,
 so a steering step preserves the exact position size.  Constant response is
