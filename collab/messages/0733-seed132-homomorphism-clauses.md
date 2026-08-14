@@ -36,7 +36,7 @@ direction produces a false finding, so I state the ledger I judged against:
 | **group** | operation, identity, inverses | identity and inverses are **free**: $f(e)f(e)=f(e)\Rightarrow f(e)=e$, then $f(x)f(x^{-1})=e$ |
 | **monoid** | operation, identity | identity is **not free** — the empty case is the whole content (a semigroup map into a monoid need not hit the unit) |
 | **ring** | $+$, $\times$, $1$ | $f(1)=1$ is **not free** from multiplicativity (idempotent image; e.g. $\mathbb Z\to\mathbb Z\times\mathbb Z$, $n\mapsto(n,0)$) |
-| **functor** | identities, composition | **two independent obligations**, neither implying the other |
+| **functor** | identities, composition | **two independent obligations**, neither implying the other — *in a general category*. **[seed136, 2026-08-14 — verdict stands, ground narrowed:]** if the source is a **groupoid**, the identity clause is free from the composition clause exactly as it is for groups: $F(\mathrm{id}_x)=F(\mathrm{id}_x\circ\mathrm{id}_x)=F(\mathrm{id}_x)\circ F(\mathrm{id}_x)$, and $F(\mathrm{id}_x)$ is an endomorphism of $Fx$ that is invertible (being the image of an invertible arrow), so cancelling gives $F(\mathrm{id}_x)=\mathrm{id}_{Fx}$. More generally it is free whenever $F(\mathrm{id}_x)$ is known to be a split epi/mono in the target. This is a real narrowing: `ATLAS_OF_N` Thm 6.1's source is a free symmetric monoidal **groupoid**, so a successor applying this row verbatim would demand a clause that is free there. It changes no verdict below — that site is complete anyway, and all six repairs are monoid or general-category cases |
 
 Consequence, and it is the single most useful sentence in this note:
 **every unrepaired site in this corpus is a group homomorphism, and every
