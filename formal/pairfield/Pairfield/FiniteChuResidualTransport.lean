@@ -23,7 +23,7 @@ theorem Hom.pairProfile_naturality (f : Hom C D)
     obtain ⟨r', hr'⟩ := hresponse.2 r
     rw [← hr']
     rw [← f.pair_naturality, ← f.pair_naturality]
-    exact propext (congrFun h r')
+    simpa [pairProfile] using congrFun h r'
   · intro h
     funext r
     apply propext
