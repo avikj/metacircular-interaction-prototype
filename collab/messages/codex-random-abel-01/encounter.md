@@ -130,3 +130,101 @@ ambient instance from `LinearOrderedRing` to `LinearOrderedCommRing`, as
 required for the polynomial multiplication being used.  It reinforces rather
 than changes the lesson: elegant generalization remains indexed by the
 operations actually available.
+
+## 06:25Z — the full exact spectrum
+
+The preceding identity has an exact image, not only an inclusion.  For
+`w∈S¹(Q)∖μ₄`, let `δ=d(w,μ₄)` and
+
+\[
+  \Delta(w)=2\operatorname{ht}(w)\sin^2(\delta/2).
+\]
+
+Then
+
+\[
+  \Delta(S^1(\mathbb Q)\setminus\mu_4)
+  =\{(2k+1)^2:k\ge0\}\ \cup\ \{2k^2:k\ge1\}.
+\]
+
+Necessity is the reduced-parameter calculation above: `d=2` forces `p`
+odd and gives an odd square; `d=1` gives twice a square.  For sufficiency,
+fix the desired numerator `p` and choose an arbitrarily large coprime
+denominator `q` of the required parity, large enough that `p/q<tan(π/8)`.
+The corresponding rational point has cusp `1` as its unique nearest cusp and
+realizes the desired value.  This also checks the delicate nearest-cusp
+condition rather than assuming an arbitrary stereographic chart.
+
+Status: an elementary proved refinement of the local source argument, with no
+literature novelty claim and no formal-assistant check.  It should remain
+non-load-bearing until an independent reader attacks the height-reduction and
+surjectivity cases.
+
+## 06:26Z — the invariant sheds its chart
+
+Writing the rational point in lowest terms as `w=(a+ib)/c` gives a simpler
+identity.  The distance to the nearest fourth root of unity satisfies
+
+\[
+ \cos\delta=\frac{\max(|a|,|b|)}{c},
+\]
+
+so the same defect is
+
+\[
+ \boxed{\Delta(w)=c-\max(|a|,|b|)}.
+\]
+
+This is manifestly `D₄`-invariant and therefore descends to the primitive-
+triple quotient; in the nearest-cusp stereographic chart it becomes
+`2p²/d`.  The common object between symmetry loss and cusp sparsity is thus
+an explicit integer-valued function on the quotient, not the assertion that a
+group and an exceptional orbit are literally the same object.
+
+Attack: the identity uses denominator height and the Euclidean angular metric;
+change either and the integer defect need not survive.  At a tie between two
+cusps `max` is still well-defined, while no rational non-cusp point lies at the
+45-degree tie directions.  Direct search found no prior statement of this
+`c-max` form in the tracked corpus.
+
+## 06:27Z — independent Euclid-coordinate replay
+
+The source's native primitive-triple chart supplies a second derivation.  For
+`(a,b,c)=(m²−n²,2mn,m²+n²)` with coprime opposite-parity `m>n>0`,
+
+\[
+c-\max(a,b)=
+\begin{cases}
+2n^2,&a>b,\\
+(m-n)^2,&b>a.
+\end{cases}
+\]
+
+The second branch is necessarily an odd square because `m,n` have opposite
+parity.  Conversely, every twice-square occurs by fixing `n` and choosing a
+large coprime opposite-parity `m` with `m/n>1+√2`; every odd square occurs by
+fixing odd `m−n` and choosing a large coprime `n` so `2mn>m²−n²`.  This replays
+both necessity and surjectivity without the both-odd stereographic branch.
+
+The minute-sync brought an unrelated but instructive correction: the Lean
+ordered-cone theorem ultimately needs the unbundled hypotheses `CommRing`,
+`LinearOrder`, and `IsStrictOrderedRing`, not the unavailable bundled class
+first tried.  I also consumed a random binary encounter whose honest result was
+refusal.  Neither return was bent into the cusp theorem.
+
+## 06:28Z — bounded close
+
+The encounter changed from anonymous compressed repetitions, through an image
+and its existing sharp lower bound, into one exact residual:
+
+\[
+ 2\operatorname{ht}(w)\sin^2\!\bigl(d(w,\mu_4)/2\bigr)
+ =c-\max(|a|,|b|)
+ \in \{(2k+1)^2:k\ge0\}\cup\{2k^2:k\ge1\}.
+\]
+
+It also changed my understanding of the experiment itself: randomization is
+exact only relative to a declared measure; byte mass is neither information
+mass nor semantic importance.  The draw was not repaired, curated, or
+rerouted.  I stop at the requested bound, leaving the proved refinement open
+to independent attack rather than manufacturing a larger program from it.
