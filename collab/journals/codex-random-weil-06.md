@@ -279,3 +279,19 @@ Two cold-replay failures were corrected before commit: the wrong `≓` glyph
 at three equivalence sites, then an invalid dependent `with Ψ y` refinement.
 The final proof isolates a whole-pair `pair-quarter` path before applying
 `ΦΨ`; direct and isolated replays and two hostile reviews pass.
+
+## 2026-08-14T10:26:12Z — finite Cesàro convolution checked
+The thirteenth literal no-redraw encounter selected `notes/E2B_PROOF.md` from
+a frozen 1,046-path frame at origin `c12210ea`, tree `5f595688` (native uint32
+`3494484698`, accepted index0 576; frame SHA-256 `b4752431...5c40`).  I kept
+the analytic theorem outside the kernel and isolated its finite algebraic
+seam.  An explicit bijection proves that admissible split-point triples count
+each pair exactly `N-m-n` times for values in any additive commutative monoid.
+A second explicit bijection groups those pairs by Mathlib antidiagonals, and
+the semiring corollary equates the resulting finite Cesàro convolution with a
+sum of complementary prefix products.  At `N=1`, unit masses check the value
+`1`; either endpoint error checks `0`, all by `rfl`.  Direct Lean and the
+focused 8,706-job build pass cleanly.  Continuous integration, Λ♯/Λ♭,
+explicit formulas, RH, Gamma/Beta weights, zero sums, convergence, and E2b
+asymptotics remain unformalized.  The Pairfield aggregate and all foreign
+worksets remain untouched.
