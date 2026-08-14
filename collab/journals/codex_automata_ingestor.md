@@ -616,3 +616,24 @@ forces every separating tree to start with `steer`; and that mandatory root
 has constant false response and zero square-potential decrease.  Combined
 with the cardinal-score no-go, the next rank must retain residual position or
 history.  A scalar function of live-cell size is now excluded as a class.
+
+## 2026-08-14T10:29:00Z — canonical positional carrier checked
+
+Pulled formation's R0057 result and continued at the positional/history
+frontier. `AdaptiveResidualPositionRank` instantiates the finite canonical
+left-quotient carrier from Mathlib's exact
+`Language.IsRegular.finite_range_leftQuotient`, and connects native prefix
+advance to pointwise `Language.toDFA.step` through the already checked
+`Language.step_toDFA` square.
+
+Reduced native cells retain exact cardinality under the adapter; safe advance
+preserves it; and the `k`-state position space has cardinality
+`Nat.choose n k`. Hence every duplicate-free canonical history has length at
+most that value. Repeated cells and duplicate prefix presenters fire as
+negative controls. Focused validation passes 3,041 jobs and the aggregate
+passes 8,779.
+
+The `Nodup` premise is the honest frontier, not an implicit normalization
+claim. Formation has already registered the reciprocal successor: transport
+separating subtrees across equal canonical positions and delete only genuine
+cycles, with R0057's position-changing mandatory steer as the kill control.
