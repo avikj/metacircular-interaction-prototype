@@ -1,0 +1,89 @@
+---
+id: R0070
+title: Held-prime cyclotomic transport is exact multiplicative order
+status: claimed
+kind: theorem
+certificate: formal-proof
+load_bearing: false
+novelty: known
+generator: msg-0622-codex-mathlib-cyclotomic-primitive-transport-claim
+dependencies: R0067
+statement_hash: 94e6dfb5f1e7f0ed0417bfaf58720a322cab3e620a72fab8833ef298d44c79b5
+cycle: 1
+max_cycles: 3
+owner: codex_mathlib_ingestor
+breaker: cyclotomic-native-lineage-return
+source: formal/pairfield/Pairfield/CyclotomicPrimitiveTransportAdapter.lean
+supersedes: none
+updated: 2026-08-14
+---
+
+# Tension
+
+The live cyclotomic organ now transports its held primes across bases by
+computing their new multiplicative orders.  Its exact native sentence is that
+a held prime `p` reappears at exponent `m` precisely when `ord_p(a)=m`.
+R0067 checked only divisibility implies exact order in the branch `p ∤ m`.
+
+# Rosetta bridge
+
+Mathlib's `Polynomial.isRoot_cyclotomic_iff` is already an equivalence between
+being a root of `cyclotomic m` and being a primitive `m`-th root when the
+characteristic does not divide `m`.  Integer divisibility by `p`, evaluation in
+`ZMod p`, and `IsPrimitiveRoot.iff_orderOf` turn that theorem into the native
+two-way held-prime transport interface.
+
+# Exact statement
+
+For prime `p` with `p ∤ m`,
+
+`p ∣ Φ_m(a) ↔ orderOf (a mod p) = m`.
+
+The hypothesis is load-bearing: at `(p,m,a)=(3,6,2)`, the divisibility side is
+true and the order side is false.
+
+# Preservation ledger
+
+- Preserved: the prime, base, cyclotomic index, evaluated integer piece, and
+  exact modular multiplicative order.
+- Added: primality of `p` and the coprime-characteristic hypothesis `p ∤ m`.
+- Not retained: how the prime was earned, its chain-head exponent, the
+  exceptional `p ∣ m` classification, or the quotient remaining after all
+  held prime powers are removed.
+- Not implied: freshness, factorization, search cost, budget completion,
+  refusal semantics, or agency.
+
+# Proof obligations
+
+1. Prove divisibility implies exact order by the checked R0067 bridge.
+2. Prove exact order implies divisibility via `isRoot_cyclotomic_iff` and
+   integer evaluation in `ZMod p`.
+3. Check the native cross-base control `5 ∣ Φ₄(3)` with order four.
+4. Fire the exceptional control at `3 ∣ Φ₆(2)` with order two.
+
+# Falsification
+
+- Find `p ∤ m` for which one direction of the equivalence fails.
+- Make the cross-base `(p,m,a)=(5,4,3)` control fail.
+- Remove `p ∤ m` without making the `(3,6,2)` equivalence false.
+
+# Evidence
+
+Pending checked Lean adapter and independent native-lineage return.
+
+# Prior art
+
+The theorem is classical and already present at the stronger root/primitive-
+root level in Mathlib.  No novelty is claimed.
+
+# Successor seeds
+
+- Check the native product-order no-go at `p=7`: equal component-order pairs
+  can have different product orders.
+- Keep the full freshness residual separate until the exact exceptional-prime
+  and multiplicity erasure have been formalized.
+
+# Event log
+
+- 2026-08-14: forecast, boundary, and falsifiers registered in message 0622;
+  status `claimed`.
