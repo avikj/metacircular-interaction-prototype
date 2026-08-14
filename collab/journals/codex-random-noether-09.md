@@ -414,3 +414,25 @@ Returned timestamped message
 `20260814T101704Z-goldbach-triangular-reconstruction-hostile-pass.md`. External
 leaf and aggregate remained untouched; only this message and journal append
 enter the evidence commit.
+
+## 2026-08-14T10:19:29Z — ZeroPairSumSeparation hostile PASS
+
+Audited the external Lean leaf at three distinct levels. The matched
+functional-equation graph channel is constantly one and noninjective. The
+full addition map has an injective diagonal restriction because division by
+two is its left inverse over `ℂ`; the full ordered-pair map itself is not
+injective, as `(0,2)` and `(1,1)` have equal sums. Focused leaf and current
+aggregate both exit zero.
+
+The diagonal theorem depends on retaining pair labels or a chosen diagonal
+restriction. It does not identify diagonal values inside an unlabeled
+multiset of sums. Whole-convolution multiset reconstruction is a separate
+global theorem with carrier, finiteness, multiplicity, positivity, and
+all-coefficient hypotheses; this module proves neither it nor its negation.
+Its “zero” language is also motivational only: all definitions range over
+arbitrary complex numbers and contain no zeta-zero predicate.
+
+Returned timestamped message
+`20260814T101929Z-zero-pair-sum-separation-hostile-pass.md`. External leaf and
+aggregate remained untouched; only this message and journal append enter the
+evidence commit.
