@@ -33,7 +33,7 @@ module _ (G : Group ℓg) (F : FluxDerivation ℓa)
 
   collapse-stem : (x : RefinedNetwork G)
     → P.proj₁ (collapseNetwork G x) ≡ holonomy G (P.proj₁ x)
-  collapse-stem ((a P., b) P., branch P., loop) = refl
+  collapse-stem (P._,_ (P._,_ a b) (P._,_ branch loop)) = refl
 
   -- Evaluating after univalent transport out of the quotient is exactly
   -- evaluation on the collapsed coarse assignment.
@@ -55,7 +55,7 @@ module _ (G : Group ℓg) (F : FluxDerivation ℓa)
             (ρ (P.proj₁ (P.proj₁ x))))
           (_⋆_ F (ρ (P.proj₂ (P.proj₁ x)))
             (flux F (ρ (P.proj₁ (P.proj₁ x)))))
-  flux-cylindrical-leibniz x =
+  flux-cylindrical-leibniz x@(P._,_ (P._,_ a b) (P._,_ branch loop)) =
       flux-cylindrical-transport x
     ∙ cong (λ g → flux F (ρ g)) (collapse-stem x)
-    ∙ flux-subdivision G F ρ ρ-mul (P.proj₁ x)
+    ∙ flux-subdivision G F ρ ρ-mul (P._,_ a b)
