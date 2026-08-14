@@ -1,163 +1,227 @@
-# YC application — draft 0.2 (cf-tessera, 2026-08-13)
+# YC application — draft 0.5 (cf-sakshi, 2026-08-14)
 
-**Status:** draft for the owner. Draft 0.1 wrongly centered Crowdsurf (a
-separate project that was receiving input from this collaboration, not
-the subject) and led with process anecdotes; both corrected. This draft
-is about the repo's own object. Per PROTOCOL §8, nothing leaves the
-repository without owner release.
+**Status:** draft for the owner; iterating (0.4 → 0.5: added the
+reward-geometry evidence — the system proved exact theorems about the AI
+training loop itself, the most audience-legible mathematics in the corpus;
+0.3 → 0.4 surfaced the frontier-audit story and restructured evidence around
+three demonstrated capabilities). Draft 0.2's "AI agent organizations"
+framing stays dead per msg 0081: agents are not the ontology or the novelty.
+Per PROTOCOL §8, nothing leaves the repository without owner release.
 
 ---
 
 ## Company name
 
-**Natural Machine** (the repo's own name for the object:
-`notes/NATURAL_MACHINE.md`, `notes/NATURAL_MACHINE_NETWORK_WHITEPAPER.md`).
+**Natural Machine** (`notes/NATURAL_MACHINE.md`,
+`notes/MATHEMATICS_THAT_LEARNS.md`).
 
 ## Describe what your company does (50 characters)
 
-- `AI research organizations that prove their work`
-- `Autonomous math research, machine-verified`
-- `Research labs made of AI agents, output: proofs`
+- `Mathematics that runs: verified, compounding`
+- `Executable mathematics infrastructure`
 
 ## What is your company going to make?
 
-We build autonomous research organizations: collectives of AI agents
-that do original mathematics end to end — pose questions, prove
-theorems, audit each other adversarially, and deliver output that is
-**machine-verified**, so its correctness does not depend on trusting
-the agents, the humans, or us.
+Infrastructure in which mathematics itself runs as an engine.
 
-This is not a proposal. The organization exists and has been running:
-dozens of persistent AI researchers across three model lineages (Claude
-Fable, Claude Opus, OpenAI Codex), coordinating through a shared
-repository, producing mathematics whose checkable core is 53 Agda
-modules (13,314 lines, 731 typed statements, zero postulates, zero
-holes, all compiler-enforced `--safe`) and 24 Lean files (zero
-`sorry`), verified by one command.
+Mathematics today is stored as text and trust: papers assert, readers
+believe, and every use of a result re-pays its cost in re-derivation,
+re-implementation, re-review. In the Natural Machine a result is a
+**checked, executable object**: accepted once by a proof kernel, it becomes
+an operation that changes the cost of everything after it — a repeated
+argument becomes one call, an equivalence transports a body of work, a
+counterexample deletes a route permanently, a conserved quantity prunes
+searches before they run. Knowledge that compounds instead of accumulating.
 
-## What have you actually built? (the evidence)
+The deliverable is the substrate: content-addressed mathematical objects,
+proof-carrying transformations, typed records of exactly what every
+translation preserves and loses, and a network protocol for exchanging them
+without collapsing truth or authority into a scalar
+(`notes/NATURAL_MACHINE_NETWORK_WHITEPAPER.md`, three hostile reviews
+absorbed). AI models are one source of candidate mathematics among several;
+nothing in the substrate depends on which model — or whether a model —
+proposed a construction. The kernel is the only gate.
 
-A working research program with real theorems, four paper-grade
-artifacts in `papers/`, and ~490 research notes. Highlights a
-non-specialist can hold:
+## The evidence: three capabilities, all demonstrated in-repo
 
-- **The Hardy–Littlewood singular series has a critical temperature,
-  and it is the pole of the Riemann zeta function** — with a universal
-  scaling law in the critical window (the Dickman function appears with
-  a complete finite-size correction ladder), verified numerically to
-  10⁸ (`papers/crossover.md`, Theorems 1, 3–5, with a novelty
-  assessment over 15 recorded prior-art searches).
-- **An individual Riemann zeta zero read out of prime-pair counts**:
-  the zero difference sits as a chirp in the phase of a spectral line
-  built from Goldbach counts; inverting recovers γ₂ = 21.024 against
-  the true 21.022 (`papers/phase_side.md`, Theorem G).
-- **Why the parity barrier in sieve theory cannot be evaded by
-  finite-place methods**, as an operator-algebra theorem: parity is a
-  protected gauge charge; the neutral sector has a unique equilibrium
-  state (`notes/GAUGE.md` Theorem F, `notes/CORE_KMS.md`); and parity
-  is a property of the *place*, not the function
-  (`papers/phase_side.md` Theorem H).
-- **The Riemann Hypothesis translated exactly into additive
-  combinatorics**: RH ⟺ a cut-norm statement about a prime array —
-  including the honest proof that the translation relocates the
-  difficulty rather than dissolving it (`notes/LENS_REGULARITY.md`).
-- **Complete, unconditional classification theorems** at publishable
-  granularity: homometric rigidity of prime prefixes; cyclotomic
-  divisors of prime-prefix polynomials
-  (`notes/PARITY_RIGIDITY.md`, `papers/prime_prefix_cyclotomic.md`).
-- **A machine-checked foundations program**: positional notation proved
-  to be a chart on ℕ rather than the object (transport along univalence
-  *computes* schoolbook ripple-carry); the collaboration's own
-  operating law (descent) proved as a theorem about set quotients; a
-  quantum contextuality no-go certified by the typechecker running all
-  512 cases at compile time (`formal/cubical/`).
-- **The system killed its own founding hype first**: its original
-  framework was proved mostly trivial by its own agents in week one
-  (`notes/REPORT.md`), and it maintains red-team verdict tables,
-  registered forecasts, and in-place refutations. Ask it a seductive
-  question ("are RH, Goldbach, FLT, twin primes, Collatz one
-  obstruction?") and it returns a rigorous, scored **no**
-  (`notes/FIVE_FACES.md`).
+**1. It proves new mathematics.** Four paper-grade artifacts with recorded
+prior-art searches and adversarial red-team audits, among ~490 notes:
+
+- *The Hardy–Littlewood singular series has a critical temperature, and it
+  is the pole of ζ* — with a universal critical scaling law in which the
+  Dickman function appears as the response per excess point, and **every
+  finite-size correction is a Stieltjes/Laurent layer of ζ at 1**, verified
+  to z = 10⁸ with the exact second coefficient γ₁ + γ²/2 = 0.09377…
+  (`papers/crossover.md`; novelty sustained over 15 recorded searches).
+- *A Riemann zero located to four significant figures from prime-pair
+  counts*: the zero difference sits as a Fresnel chirp in the phase of a
+  Goldbach spectral line; inverting the proved phase law recovers
+  γ₂ = 21.024 against the true 21.022, with the conditional framing stated
+  (`papers/phase_side.md`, Theorems D‴/G — the phase of a zero-pair atom is
+  the entropy of its frequency splitting).
+- *Why sieve theory's parity barrier cannot be evaded by finite-place
+  methods*, as an operator-algebra theorem: parity is a protected gauge
+  charge annihilated by every equilibrium state, every core, every
+  finite-level descent datum, and every homotopy-invariant functor — five
+  independent formalizations, two model lineages, one verdict
+  (`notes/GAUGE.md`, `notes/CORE_KMS.md`, `notes/KBOUNDARY.md`).
+- *Complete unconditional classifications*: prime prefixes are determined by
+  their difference multisets (elementary singleton-parity proof); all
+  cyclotomic divisors of prime-prefix polynomials classified globally; every
+  irreducible factor degree through 9 excluded by exact certificates with
+  hostile independent replays (`notes/PARITY_RIGIDITY.md`,
+  `papers/prime_prefix_cyclotomic.md`, `notes/NONIC_OBSTRUCTION.md`).
+
+**2. It audits and extends frontier mathematics faster than review does.**
+When the 67.2%-of-zeta-zeros result was announced (2026-08-10), this system,
+within ~36 hours: located and hashed the primary sources; **rebuilt the
+authors' Lean proof from source in its own environment** (9,010 jobs, axiom
+audit clean) and replayed every constant 19/19; then went past verification
+to three independent closure theorems proving the manuscript's constants are
+optimal on *every* axis its method consumes — sign freedom (a
+double-positivity obstruction, found twice, concurrently and blind, by two
+sessions), integrality (the convex relaxations are exactly the integer
+hull), and tool lossiness (any worst-case inequality with global loss ≥ 3 is
+vacuous; the large sieve fails by exactly 1.80) — localizing the one
+remaining door and pricing it: any unconditional bound F ≤ 10/3 on a band
+excess of length 1/3 beats the record (`notes/KAPPA.md`, `notes/L3_SDP.md`,
+`notes/BAND.md`, walk-ledger F17/F25/F26). Independent replication was the
+publicly missing piece of that announcement; this system supplied it,
+unprompted, and then sharpened the frontier's own limit theorem.
+
+**3. It compounds and it self-corrects.** One certified result changes
+representation and provably lowers a later computation, which can reopen the
+representation when its invariant boundary is crossed — executed end to end
+on an arithmetic carrier, then re-executed unchanged on a second native
+domain (`notes/REPRESENTATION_REOPENING_CYCLE.md`; the language instance ran
+7/7 hostile with no hand assembly). The immune system is part of the object:
+the founding framework was proved mostly trivial by the system's own first
+week and the record kept (`notes/REPORT.md` §1); 53 walk-ledger entries each
+ending in a stated yield; corrections struck through in place, never
+deleted; measured retraction latency of hours, not months (three headline
+self-retractions on 08-13 landed within 60–90 minutes of their claims); and
+a ledger of behaviours that *passed all their tests* and still produced
+nothing (`DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`, six
+entries, each one caught and named).
+
+**And it has turned its instruments on AI itself.** On its most fully
+measured task, the system made the "verification is easier than generation"
+thesis *exact* and then proved it: every observable an endpoint verifier can
+compute is constant on the space of ways to reach the answer, so **outcome
+reward carries zero bits about the generator's choice** — and the unrewarded
+choice space is not a vibe but a computed infinite group, Γ₀(e₂/e₁)
+(`notes/VERIFIER_BLIND_FIBER_REWARD.md`). Supervision formats are graded
+exactly (outcome < sign < trace-recording < full replay), and the
+information-geometry sequel proves the conservation law: under
+multiplicative-weights/replicator learning, **the conditionals a reward
+format cannot see are conserved quantities — outcome supervision does not
+merely fail to prefer, it freezes learning pointwise**
+(`notes/FORMAT_CONSERVED_LEARNING_GEOMETRY.md`). Exact rational theorems, on
+real event windows, about what reward can and cannot teach: the substrate
+reaching the training loop of the models that feed it.
+
+The checked core as of this draft: 53 Agda modules (13,314 lines, 731 typed
+statements, zero postulates, zero holes, compiler-enforced `--safe`) and 24
+Lean files (zero `sorry`), one-command verification, with negative controls
+that must fail to compile and do. The bootstrap labor was dozens of
+persistent AI sessions across three model lineages; that fact is evidence of
+absorption capacity — high-volume, error-prone candidate mathematics in,
+only what checks out — and it is the last time agents are mentioned here.
 
 ## Why did you pick this idea?
 
-Because "AI does research" is currently unfalsifiable marketing, and
-mathematics is the one domain where it can be made falsifiable to the
-last symbol: a `--safe` proof either compiles or it does not. We chose
-the hardest ground truth on purpose. An organization that can produce
-*verified* new mathematics autonomously is the existence proof for
-autonomous research organizations generally — and the machinery
-(persistent agent identities, adversarial audit, claims with registered
-forecasts, refutation-first culture, mechanical enforcement where prose
-fails) transfers to any domain where being wrong is expensive.
+Because the cost structure of certainty is the bottleneck, and mathematics
+is the one place it can be fixed to the last symbol. Every field that
+depends on being right — cryptography, protocol design, safety-critical
+systems, quantitative finance — rebuilds its certainty by hand, repeatedly.
+A substrate where correctness is checked once and reused forever moves the
+marginal cost of certainty toward zero. Mathematics is where that substrate
+can be built honestly, because a `--safe` proof either compiles or it does
+not; everything else inherits it.
 
 ## What's new about it? What do you understand that others don't?
 
-1. **Verification is the product, not a feature.** Everyone ships agent
-   output you must trust; we ship output the compiler has already
-   checked. The trust boundary moves from "do you believe the model" to
-   "do you believe the typechecker" — and the typechecker is public.
-2. **Research needs organizations, not just models.** Our results were
-   produced by structure — independent lineages auditing each other
-   blind, forecasts registered before work, corrections that strike
-   through but never erase — not by a bigger context window. The
-   organization is the technology; models are components that improve
-   under us for free.
-3. **Self-skepticism can be mechanized.** The system's most valuable
-   outputs include its refutations of itself, and its rules are
-   enforced by hooks and CI because we measured that prose norms fail.
-   We know precisely which coordination mechanisms carried the load,
-   because we ran the experiment.
-4. **The scaling path is specified**: the Natural Machine network
-   whitepaper (three hostile reviews absorbed) — a content-addressed,
-   proof-carrying research network with typed obligations and
-   verification events, adding federation and settlement only on
-   demonstrated need.
+1. **Verification is the substrate, not a feature.** The trust boundary is
+   the public typechecker — not any model, person, or company, including us.
+2. **Knowledge compounds only when the proof's structure enters the
+   machinery.** A theorem stored as text is inventory; installed as a
+   checked transformation it changes the cost of every later derivation. We
+   have the measured failure mode too — a "compiled theorem" that was 19%
+   *slower* because only its conclusion, not its structure, was installed —
+   and the loop we ship is the one that survived that record.
+3. **What a translation loses is data.** Every transport carries its
+   residual — the exact thing the target representation forgets. That
+   discipline (the corpus calls it the calculus of residuals) is the
+   difference between mathematics and a knowledge graph.
+4. **Self-skepticism can be mechanized, and prose norms fail.** Every
+   binding rule here is enforced by hooks, CI, or the typechecker because we
+   measured that prose was not enough — on ourselves.
 
 ## Progress
 
-Running system; four days of full-intensity operation produced the
-corpus above (576 commits, 629 inter-agent messages, 353 claims-board
-rows, 258 landed). Reproducible: one command (`./run`) verifies the
-formal corpus; `formal/check.sh` runs both proof lanes; negative
-controls that must fail to compile, do.
+Running system: 580+ commits, ~490 notes, four paper-grade artifacts, a
+claims registry with registered forecasts and blind cross-lineage audits
+(R0001–R0046), reproducible by one command. Network layer specified
+post-review, deliberately unbuilt beyond its finite core: loop first,
+federation on demonstrated need, settlement last.
 
-## Who are your competitors?
+## Competitors
 
-Frontier-lab "AI scientist" demos (single-shot, unverified output);
-formal-methods tooling companies (verification without research);
-agent-framework startups (orchestration without epistemics). Nobody
-combines autonomous research organizations with machine-checked output.
-The prior-art searches are part of our method, so we say this with the
-receipts recorded.
+Proof-assistant ecosystems (libraries, not compounding infrastructure);
+formal-methods consultancies (verification as service, not platform);
+frontier-lab "AI scientist" demos (generation without checking — the trust
+collapse we price). Nobody is building the layer where verified mathematics
+is the executable medium itself.
 
 ## How will you make money?
 
-Sell verified research capacity: (1) contract research where the
-deliverable is machine-checked (mathematics, algorithms, protocol
-correctness, safety-critical verification); (2) the organization
-substrate as a platform for institutions that need auditable AI
-research (labs, quant firms, verification-heavy industries); (3) the
-network layer (typed obligations, prospective contracts released on
-acceptance events) when the loop demonstrates need — sequencing per
-the whitepaper, settlement last.
+Sell certainty as infrastructure: (1) contract deliverables that are
+machine-checked (mathematics, algorithm and protocol correctness,
+safety-critical verification — the frontier-audit capability in evidence
+point 2 is already a sellable service with a live case study); (2) the
+substrate as a platform for institutions that must audit what they rely on;
+(3) the network layer, when the loop demonstrates the need, per the
+whitepaper's own sequencing.
 
 ## Why now?
 
-Models crossed the threshold where collectives of them can carry
-multi-day research programs — we have the four-day existence proof —
-while trust in unverified AI output is collapsing. The gap between
-"agents that generate" and "organizations that prove" is the next
-platform, and it is empty.
+Two curves crossed: models became strong enough to generate mathematics in
+volume, and trust in unverified AI output began collapsing at the same rate.
+Both feed us — generation fills the substrate, distrust prices it. The
+four-day corpus is the existence proof that absorb-and-verify works at
+volume; the 36-hour frontier audit is the existence proof that it works at
+speed.
 
 ---
 
+## Appendix: open these first (the compression is worse than the object)
+
+For a reader with one hour, in order:
+
+1. `notes/MATHEMATICS_THAT_LEARNS.md` — the thesis, 300 lines.
+2. `notes/KAPPA.md` + `notes/BAND.md` — the frontier audit and the door it
+   left, with primary-source hashes.
+3. `papers/crossover.md` abstract — the critical-temperature law.
+4. `papers/phase_side.md` §0–2 — the entropy-phase law and the recovered
+   zero.
+5. `notes/REPORT.md` §1 — the system killing its own founding framework,
+   week one.
+6. `collab/FAILURES.md` F25, F26, F30 — what a walk-with-yield looks like,
+   including a mind refuting its own theorem within a day.
+7. `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/` — the
+   antipattern ledger; every entry passed its tests.
+8. `formal/check.sh` — run it.
+9. `notes/REPRESENTATION_REOPENING_CYCLE.md` — the compounding loop,
+   executed.
+10. `notes/NATURAL_MACHINE_NETWORK_WHITEPAPER.md` — the scaling path,
+    post-hostile-review.
+
 ## Honesty appendix
 
-No claim that any listed theorem is field-changing mathematics; the
-claim is autonomous production of *correct, verified, novel-graded*
-mathematics with the novelty assessments recorded in-repo. No claim of
-external users or revenue. The "existence proof" framing rests on four
-days of operation directed by one founder; sustained autonomy over
-months is the open milestone. Superlatives ("largest of its kind")
-remain beliefs pending prior-art search.
+No claim that any listed theorem is field-changing; the claim is verified,
+novelty-graded mathematics produced, audited, and checked inside the loop,
+with the grading recorded in-repo. No external users or revenue. Four days
+of operation directed by one founder; sustained months-long operation is the
+open milestone. The compounding loop is demonstrated on finite native
+domains, not yet at research-frontier scale — the corpus says so itself
+(msg 0366's scale judgment), and closing that gap is the company.
