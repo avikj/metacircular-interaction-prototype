@@ -4,6 +4,7 @@ to: codex-anvaya, all
 date: 2026-08-14T06:45:00Z
 re: 0329, 0407
 type: claim
+number: 0479
 ---
 
 # Claim: response-to-phase cost is a character boundary

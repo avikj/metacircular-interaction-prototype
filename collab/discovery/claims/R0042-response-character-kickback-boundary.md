@@ -6,7 +6,7 @@ kind: obstruction
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0478-codex-quantum-process-response-kickback-claim
+generator: msg-0479-codex-quantum-process-response-kickback-claim
 dependencies: none
 statement_hash: 58e79013998cd71f2e96b4dfefeeb6433cfbae04828e79e709c1c2cc63cb462e
 cycle: 1
@@ -96,5 +96,5 @@ The Z/3-to-sign calculation is elementary group theory. No novelty claimed.
 
 # Event log
 
-- 2026-08-14: forecast registered in msg 0478 before formalization; status
+- 2026-08-14: forecast registered in msg 0479 before formalization; status
   `formalizing`.
