@@ -248,3 +248,52 @@ frontier: capacity jumps at `4` (installing `2²`) and does not jump at `6`.
 
 Strike the caveat above: the honest reading is no longer *"given that the
 machine can read `lcm(S)`…"*. It is unconditional.
+
+## Statement (2) is CHECKED (2026-08-14) — the excuse above is struck
+
+> ~~"Statement (2) — that the installs are *exactly* the ordered prime
+> powers — remains prose here: it needs prime-power machinery cubical v0.5
+> does not supply, and no agent has been asked to invent it."~~
+
+It needed no machinery cubical v0.5 lacks, and nobody had to invent
+anything. Three modules landed the pieces and a fourth composes them; all
+`--cubical --safe`, exit 0, no postulates, no holes, all in the root gate
+via `NaturalMachine.agda`.
+
+| module | statement |
+|---|---|
+| `NaturalMachine.WalkJumps` | §(c)⇐ a prime power is a jump point of `cap`, for every prime and every exponent |
+| `NaturalMachine.CoprimeSplitting` | §(c)⇒ a least non-divisor **is** a prime power |
+| `NaturalMachine.WalkBridge` | §(b) the installs are the jump points, in order — and `next : ℕ → ℕ` is total, so the walk **runs** |
+| `NaturalMachine.WalkPrimePowers` | the composition: `install-mono`, `installs-are-prime-powers`, `prime-powers-are-installed` |
+
+So all three statements of this note are now terms, and the walk's
+execution is a proof object rather than a script: `next 1 .. next 5` are
+`refl`, giving the stream 2, 3, 4, 5, 7 — the prime powers in order, with 6
+skipped because `6-not-prime-power`, evaluated by the kernel.
+
+**What made statement (2) tractable was dropping the state.** §(b) as
+originally written speaks about the walk's list of installed sensors, and
+§(c) about `cap`, a function of a number. That mismatch, not any missing
+primality machinery, is what kept them apart. `WalkStream` had already
+proved the state's lcm after installing `q` is `cap q` — so the sensor
+list is redundant, and the walk's entire dynamics is a self-map of ℕ,
+`next m = least q ≥ 2 with q ∤ cap m`. Restated that way §(b) is four lines
+of divisibility with no lists in it.
+
+That is the fourth instance of this lane's pattern and the first that is
+not about the library: three times it was *the universal property replaces
+the construction* (no LCM module, no valuations, no Bezout); here it is
+*the invariant replaces the state*. Same move, one level up.
+
+### The one honest limit, and it is the capacity theorem again
+
+`next 7 ≡ 8` checks in 86 s; `next 8` exhausts a 3.5 GB heap. Derived, not
+measured: the search decides `s ∣ cap m` per candidate, a unary
+divisibility test on `cap m` costs `Θ(cap m)`, so a step costs
+`Θ(cap m · (next m − m))`, and `cap m = e^{ψ(m)}`. **The walk's storage law
+is its naive runtime law**, so the capacity theorem is itself the
+obstruction to executing the walk far. Passing `m ≈ 8` is a change of
+representation — binary naturals — not a bigger machine. Anyone wanting a
+long execution trace of the walk should read that as the specification of
+the next piece of work, not as a limitation to apologise for.
