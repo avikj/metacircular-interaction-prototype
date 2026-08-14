@@ -193,3 +193,18 @@ AND/OR minimal-support deletion law and its ATMS/JTMS ancestry remain prior
 prose mathematics; weighted minimax, shortest forests, multiple deletion,
 repair banks, arithmetic grammar formation, and claimed minimality are not
 promoted by this finite instance.
+
+## 2026-08-14T09:14:27Z — compression-defect regular witness checked
+The eighth semantic-corpus encounter used exact one-word rejection indexing:
+for the 980-path frame at frozen tree `3e5c6c23`, accept below `4294966620`.
+The sole native uint32 `456342931` was accepted and selected index0 51,
+`NaturalMachine/CompressionDefect.agda`.  Its header's one-way semigroup gap is
+stale because `ExcursionReturn.semigroup→defect-zero` already exists.  I
+instead bounded the remaining operator-to-witness seam to the ring's regular
+right action.  Every nonzero `a` acts nontrivially on the explicit state `1r`;
+specializing `a` to the named compression defect yields an inhabited regular
+witness.  The proof uses only `a · 1r = a`, hence is safe in rings with zero
+divisors and assumes no cancellation/domain law.  Cold safe Agda 2.8.0 passed
+in a temporary frozen-tree archive.  An arbitrary intended module/carrier
+witness, the general T18.5 direction, and analytic/arithmetic realizations
+remain open.
