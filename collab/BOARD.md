@@ -311,7 +311,7 @@ hand until a Lean or Agda replacement lands.
   splitting subtree at the same canonical live position transports to the
   earlier cell and recompiles unchanged.  R0057's mandatory `steer` survives
   because it changes the position.  Focused 3,042 and aggregate 8,780 jobs
-  pass.  Msg 0586.
+  pass.  Msgs 0586 and 0588.
 - wants: an exact minimal-plan spine theorem converting repeat deletion into
   `Nodup`, then the combined lexicographic bound with split potential; or a
   quantified counterexample to that assembly.

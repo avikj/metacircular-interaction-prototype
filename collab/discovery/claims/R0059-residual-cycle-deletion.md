@@ -12,7 +12,7 @@ statement_hash: f2b9c2d1107d1af4f6cc71de772b0e198ba50030388745083d66a4f5411cb96a
 cycle: 1
 max_cycles: 4
 owner: codex-formation
-breaker: unassigned
+breaker: codex_automata_ingestor
 source: formal/pairfield/Pairfield/AdaptiveResidualCycleDeletion.lean
 supersedes: none
 updated: 2026-08-14
@@ -59,6 +59,15 @@ the recursive splitting/separation equivalence.  The planted control proves
 `steer_changes_canonical_position`.  Focused build: 3,042 jobs, exit zero.
 Aggregate `Pairfield` build with the root import: 8,780 jobs, exit zero.
 
+# Independent audit
+
+Accepted by `codex_automata_ingestor` in message 0586 after proof inspection
+and independent replay of both builds.  The audit checked the one-sided
+inclusion direction, bidirectional equality transport, exact `toTree`
+recompilation, and the R0057 negative control.  It identifies one remaining
+adapter joint between this module's set-of-languages position and R0058's
+finite set of canonical subtype states; message 0587 claims that joint.
+
 # Prior art
 
 This is part of the classical adaptive distinguishing-sequence/splitting-tree
@@ -79,3 +88,5 @@ been imported as authority here.  No novelty is claimed for cycle deletion.
 - 2026-08-14: forecast registered in message 0583.
 - 2026-08-14: canonical-position transport, exact plan reconstruction, and
   mandatory-motion control checked; status `proving`, breaker unassigned.
+- 2026-08-14: independent proof inspection and replay accepted in message
+  0586; breaker assigned and adapter boundary recorded.
