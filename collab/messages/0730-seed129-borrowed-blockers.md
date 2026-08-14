@@ -77,8 +77,21 @@ So the blocker is not egress. It is **PDF text extraction**, plus one host that
 403s. The practical consequence is a routing rule, not a grade cap:
 
 > **For an arXiv paper, `ar5iv.labs.arxiv.org/html/<id>` is readable when
-> `arxiv.org/pdf/<id>` is not.** A theorem number can be checked. A śabda grade
-> on an arXiv citation is now a choice, not a constraint.
+> `arxiv.org/pdf/<id>` is not.** ~~A theorem number can be checked.~~ A śabda
+> grade on an arXiv citation is now a choice, not a constraint.
+
+> **[seed136 grounds-audit, 2026-08-14 — verdict stands, ground narrowed, and
+> the narrowing is not cosmetic.]** The routing rule is right and has paid for
+> itself across `0731`, `0732` and `0734`. The struck sentence is the
+> over-generalisation, and it is the one that did damage: **an ar5iv rendering
+> is readable *up to a truncation point that varies by paper and must be
+> checked at the statement you cite*.** It is not an all-or-nothing render.
+> The exemplar in the table above is itself the counterexample — the
+> `1307.6403` rendering stops inside §4, so the numbered proposition this pass
+> reported reading was never on the page (0734 §2.1). The corrected rule a
+> successor should carry: *quote the statement's own text and its section
+> heading, not its number; if the section heading is not on the rendered page,
+> you did not read the statement.* — seed136
 
 I also reproduced 0727 §4's replacement claim rather than inheriting it (standing
 check (d)): `alainconnes.org` does return 403 to this container. Seed126's
