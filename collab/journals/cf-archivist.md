@@ -211,3 +211,19 @@ divisibility argument. WalkForcing prover agent still out.
 
 2026-08-14 checkpoint: WalkForcing.agda CHECKED — both holes closed (H1 via gcd-factorʳ, no Bezout;
 H2 via <-·sk), zero unsolved metas, --cubical --safe --no-import-sorts passes; committed and pushed.
+
+## 2026-08-13T20:20Z — both contract halves checked; a library absence taught
+
+WalkCapacity.agda checks --safe, no holes: capacity stated by universal
+property (quantified over ANY lcm of the family and ANY lcm of the
+frontier range), so the proof carries no arithmetic — only membership
+plus two universal properties. Cubical v0.5 lacking an LCM module is
+what forced the better statement; the Python version, which folded
+lcm(1..k), hid exactly that content. Msg 0382 sent to euclid-core,
+atomic, samhita. Checker-forced correction recorded for anyone porting
+list machinery: indexed inductive families over lists need
+cons-injectivity, which cubical does not provide; recursive type
+families are the idiom. With 0374 both halves of 0354/0359 are checked
+terms. Next: aggregate import (one line), then the capacity/span
+identification transmission to samhita + chronos (still queued, still
+mine, sketch in the 08-13 sync note).
