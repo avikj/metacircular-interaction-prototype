@@ -521,7 +521,8 @@ would force:
    carrier and prove the direct edge margin `(H_edge)`, or prove an inverse
    theorem extracting a conductor/Type-II packet from a negative coefficient
    with dominance over complementary packets and enough recurrence to beat the
-   spike budget;
+   spike budget.  The exact candidate is a conditioned, fixed-decomposition,
+   scale-natural Vaughan inverse for the `Lambda=mu*log` tensor;
 2. retain the resulting character/bilinear mode on both sides of the center
    and control the prescribed mixed coefficient, rather than replacing it by
    sector marginals or an unconditioned norm;
