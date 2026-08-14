@@ -22,12 +22,12 @@ Status vocabulary, and the distinction is the point:
 | **15** | T15.1/T15.2 transport & inverse | CHECKED | `StructuredDefect.defect-id` |
 | 15 | D15.5 structured equivalence | CHECKED | `StructuredDefect.StructuredEquiv` |
 | 15 | P15.6/C15.7 bare ≠ structured | CHECKED | `witness-defect` + positive control |
-| 15 | §15.3 symmetry breaking, stabilizer | OPEN | — |
-| 15 | §15.4 polarization defect set | OPEN | — |
+| 15 | §15.3 symmetry breaking, stabilizer | CHECKED | `PerspectiveSymmetry.Stab` (T15.9, C15.10) — **row was wrong**, see the ledger-error note below |
+| 15 | §15.4 polarization defect set | CHECKED | `PerspectiveSymmetry` (T15.12–T15.14, Program 15.16) — same |
 | 15 | §15.5 conditioning vs transport | OPEN | — |
-| 15 | §15.6–15.7 charge grading, parity as truncation | OPEN | — |
+| 15 | §15.6–15.7 charge grading, parity as truncation | CHECKED | `PerspectiveSymmetry` (T15.22/24) and `ChargeGrading` (C15.23/25, T15.27, C15.28, P15.29). **Shift/shift-comp are duplicated** across the two — see below |
 | 15 | §15.8 fixed-charge coefficient extraction | OPEN | — |
-| 15 | §15.9 two projections, commutator | NOTE | `LEAKAGE_RANK_IS_INCIDENCE_RANK` |
+| 15 | §15.9 two projections, commutator | CHECKED | `TwoProjections`: T15.36 confirmed **and** its hypothesis shown load-bearing; P15.37 and C15.38 witnessed. Prose companion: `LEAKAGE_RANK_IS_INCIDENCE_RANK` |
 | 15 | T15.40/C15.41 descent through quotient | CHECKED | `StructuredDefect.Descent` |
 | 15 | §15.11–15.14 lifting, Čech, triples, holonomy | OPEN | — |
 | 15 | T15.57 transport composes | CHECKED | `StructuredDefect.defect-comp` |
@@ -43,10 +43,11 @@ Status vocabulary, and the distinction is the point:
 | 17 | C17.7 J₂ ≠ Weyl reflection | NOTE | `EXCURSION_RETURN…` §4, via T18.2 |
 | 17 | §17.5–17.6 torsor, two symmetry breakings | OPEN | — |
 | 17 | C17.12 cross-level self-similarity | CHECKED | `PairCoordinates` §3, as a consequence |
-| 17 | T17.13 cone, parity constraint | PARTIAL | parity CHECKED (`sumIsDouble`); full cone equivalence OPEN |
+| 17 | T17.13 cone, parity constraint | CHECKED (both halves) | `ConeImage.cone-image` over any commutative ring (parity = image condition), and `ConeOrder` over ℕ, where parity and the inequality turn out to be **one** condition `Σ[m] s ≡ d + m + m`. Signed cone over ℤ not claimed |
 | 17 | §17.9–17.12 charge sector, characters, G_m×Weyl | OPEN | — |
 | 17 | Programs 17.20–17.23 SU(1,1), adelic | OPEN | — |
-| 17 | T17.24/C17.25 A_{k−1} root lattice | NOTE | used by the singular-series note; T17.24 itself OPEN |
+| 17 | T17.24 A_{k−1} root lattice | **CORRECTED** + CHECKED (k=2) | `RootWeightIndex`: ℤ^k/ℤδ is the **weight** lattice, not the root lattice; they differ by ℤ/k. At k=2 that ℤ/2 **is** the cone's parity constraint |
+| 17 | C17.25 additive/multiplicative share A_{k−1} | NOTE | used by the singular-series note |
 | 17 | §17.17–17.19 log bridge, formal groups, p-adic log | OPEN | — |
 | 17 | Synthesis 17.32 contextual equivalence | OPEN | — |
 | 17 | C17.34 humility boundary | CITED | quoted in the singular-series note |
@@ -58,8 +59,9 @@ Status vocabulary, and the distinction is the point:
 | 18 | T18.4 excursion–return identity | CHECKED | `ExcursionReturn.excursion-return` |
 | 18 | T18.5 dynamic sufficiency, both directions | CHECKED | `defect-zero→semigroup`, `semigroup→defect-zero` |
 | 18 | T18.6 observability kernel = FutureEq | CHECKED | `ExcursionReturn` §2, both directions |
-| 18 | T18.7 charge-one composition | OPEN | — |
-| 18 | Feshbach/Schur, half-line, Buchstab targets | OPEN | Buchstab is the falsifiable one |
+| 18 | T18.7 charge-one composition | CHECKED (structural half) | `ChargeGrading.no-cancellation` + `shift-comp`; the analytic half (off-sector contributions vanish) is OPEN |
+| 18 | Buchstab target | **FALSIFIED** | `BuchstabDegree`: child selection is a *grading* truncation, not a sector compression, so it is not a T18.4 excursion–return correction. Replacement claim proved |
+| 18 | Feshbach/Schur, half-line targets | OPEN | — |
 | **22** | T22.1 collision divisor, ν_p geometry | NOTE | `SINGULAR_SERIES_LOCAL_FACTOR…` |
 | 22 | admissibility as a rank inequality | NOTE | same |
 | 22 | T22.2 finite-observer impossibility | OPEN | needs infinitude of primes; schema only |
@@ -71,26 +73,107 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 19 · NOTE 7 · CITED 2 · PARTIAL 1 · OPEN 27.**
+**CHECKED 26 · FALSIFIED 1 · CORRECTED 1 · NOTE 7 · CITED 2 · PARTIAL 1 · OPEN 22.**
 
-The honest reading: the *foundational* half of Delta 15 and 18 is in the machine
-and running; Delta 17 and 22 are largely on paper. Everything in the OPEN column
-is supplied material that is **not** in the machine, and the directive is that it
-should be.
+FALSIFIED and CORRECTED are new rows in this vocabulary and they are the most
+valuable ones: a supplied claim was checked, came back wrong, and the right
+statement was proved in its place.
 
-## The three that should go next, and why
+- Delta 18 flagged exactly one of its targets as falsifiable; that is the one
+  that fell (`BuchstabDegree`).
+- Delta 17 T17.24 names the wrong lattice — the quotient by the diagonal
+  character is the weight lattice, and the root lattice is the sum-zero
+  sublattice. They differ by ℤ/k. This was worth catching because T17.24 is
+  load-bearing for `SINGULAR_SERIES_LOCAL_FACTOR…`; that note survives, because
+  it uses **rank** only, and rank does not see the index.
 
-1. **Delta 18's Buchstab target.** The only supplied item that can come back
-   *negative*. Everything else on the list is a translation expected to succeed;
-   this one asks whether the least-prime stopped kernel really is an
-   excursion–return correction, and Delta 18 calls it falsifiable. A negative
-   would be worth more than three successful translations.
-2. **Delta 15 §15.6–15.8, charge grading and fixed-charge extraction.** Delta 18
-   T18.7 depends on it (charge-one composition is the canonical-sector instance
-   of T18.4), so one module unlocks two items.
-3. **Delta 17 T17.13's full cone equivalence.** The parity half is checked; the
-   cone half is a small finite-flavoured equivalence and Delta 17 item 6
-   explicitly asks for exact equivalences in Cubical Agda.
+Both corrections came from writing the theorem down rather than from a run,
+which is what CLAUDE.md's rule predicts and is the second time in two days it
+has paid.
+
+(Delta 15 §15.6–15.7 and Delta 18 T18.7 landed 2026-08-14 in
+`NaturalMachine/ChargeGrading.agda`; T18.7 counts as PARTIAL because only its
+structural half — a composite of shifts δ, ε preserves the installed sector only
+when δ + ε ≡ 0, and over ℕ that forces both to vanish — is a checked term.)
+
+The honest reading, updated after the 2026-08-14 run of six modules: Delta 15's
+structural spine (transport, descent, no-go, charge grading, projections) and all
+of Delta 18's exact algebra are in the machine and running. What is left OPEN is
+of three kinds, and lumping them together would misrepresent the state:
+
+- **Analytic**, and not formalizable as it stands: T18.1's tanh identification,
+  §15.8's coefficient extraction, the Feshbach/Schur and half-line targets,
+  Delta 17's log bridge and formal groups. These need the analytic lane
+  (`formal/pairfield/`), not Cubical Agda.
+- ~~**Order-theoretic**: the inequality half of T17.13's cone.~~ Landed
+  (`ConeOrder`), and it dissolved: over ℕ the parity and the inequality are one
+  condition, so there was never a second half to do.
+- **Geometric setup** that is standard and would be gratuitous to re-encode:
+  §17.2–17.3's split torus and Weyl group, §17.9–17.12's characters.
+
+So "OPEN 24" is not 24 units of the same work. The formalizable residue is
+closer to four items.
+
+## The three that were named next — all three landed
+
+1. ~~**Delta 18's Buchstab target.**~~ Run, and it came back **negative**, which
+   is why it was ranked first. `BuchstabDegree.agda`: on the rooted tree the
+   child operator raises the level grading by one and the parent operator lowers
+   it, so "keep only the children" is a degree truncation of the adjacency, not
+   a restriction of it to a subspace — and C15.25 says a level sector is
+   preserved only by degree-zero maps, so for t ≥ 1 there is no sector for the
+   t-step child kernel to be the compression of. The finite witness is
+   `A²r≡2` / `C²r≡0`: the two-step walk returns weight 2 to the root and the
+   two-step child kernel returns 0. Delta 18's phrase
+   "parent/forbidden/order-forgetting sector" merged the excursion–return defect
+   of T18.4 with the grading defect of §15.6; they are different objects.
+2. ~~**Delta 15 §15.6–15.8, charge grading.**~~ Landed: `ChargeGrading.agda`, and
+   it did unlock T18.7's structural half as predicted. What remains of §15.8 is
+   fixed-charge *coefficient extraction*, which is analytic, not structural.
+3. ~~**Delta 17 T17.13's full cone equivalence.**~~ Landed: `ConeImage.agda`. The
+   parity constraint is now proved to be *exactly* the image condition, in both
+   directions, over an arbitrary commutative ring — so Delta 17's congruence is
+   the datum that reconstructs the pair, not a filter on it. The inequality half
+   of the cone needs an order and is a separate, smaller item.
+
+Landed the same day, unprompted by the list, because they were the load-bearing
+ones: `RootWeightIndex` (T17.24 corrected, and the correction turned out to be
+the cone parity constraint again) and `TwoProjections` (§15.9, with T15.36's
+hypothesis shown necessary).
+
+## The next three, chosen on the same criterion
+
+1. ~~**The cone inequality**, T17.13's second half.~~ Landed (`ConeOrder`), and
+   the answer was that it is not a second condition at all.
+2. **Delta 15 §15.5**, conditioning vs transport — the only remaining structural
+   row in Delta 15, now that §15.3/§15.4 have been found already done.
+3. **T22.2 in full**, which needs the infinitude of primes. Currently a schema in
+   `EndogenousHorizon`. Standard, but it is the one place where the machine
+   states an impossibility it cannot yet inhabit for every threshold.
+
+## A ledger error, recorded rather than quietly fixed
+
+When this file was first written it marked Delta 15 §§15.3, 15.4 and 15.6 OPEN.
+They were not open: `NaturalMachine/PerspectiveSymmetry.agda` had already checked
+T15.9, C15.10, T15.12–T15.14, Program 15.16, T15.22 and T15.24, and that module
+was already imported by the `NaturalMachine` root. The ledger was built by
+reading the Delta documents against `StructuredDefect`, `ExcursionReturn`,
+`EndogenousHorizon` and `PairCoordinates` — and missed a module that says
+"Delta 15 §§15.3, 15.4, 15.6" in its own first line.
+
+Two consequences, both worth more than the two rows:
+
+1. **`ChargeGrading` duplicates `PerspectiveSymmetry`'s `Shift` and
+   `shift-comp`.** The duplication is real and is not being hidden. It is left in
+   place for now because the two are stated over different bases (that module's
+   is fibred over `Str`, this one's over a bare ℕ-grading) and merging them is a
+   refactor, not a proof; but a later block should merge them, and until then
+   this paragraph is the pointer.
+2. **This is the failure mode this repository already named.** An agent building
+   a coverage map from the documents *it* had read produced a map of its own
+   attention, and then acted on it. `random_entry_seeder_so_agents_dont_cluster/`
+   exists for exactly this, and the fix is the one it prescribes: before adding a
+   row, grep the corpus for the section number, not for the concept.
 
 ## Standing rule for this file
 

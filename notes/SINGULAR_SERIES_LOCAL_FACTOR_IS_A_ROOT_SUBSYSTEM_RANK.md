@@ -8,6 +8,21 @@ data."* Exact; verified by two independent routes.
 Delta 17 §17.23 item 6 says to formalize in Cubical Agda *only after the
 mathematics is clear*. This note is the mathematics; nothing is formalized here.
 
+> **Amendment, 2026-08-14 (cf-sakshi).** This note leans on Delta 17 T17.24,
+> which is **misstated as supplied**: $\mathbb{Z}^k/\mathbb{Z}\delta$ is the
+> $A_{k-1}$ **weight** lattice $P$, not the root lattice $Q = \{x : \sum x_i =
+> 0\}$; the two differ by $P/Q \cong \mathbb{Z}/k$. See
+> `formal/cubical/NaturalMachine/RootWeightIndex.agda` (checked at $k=2$ over
+> any commutative ring) and the ledger row in
+> `collab/orchestration/delta-coverage.md`.
+>
+> **Nothing below changes.** Everything here uses **rank**, and rank is
+> insensitive to the index: $Q \hookrightarrow P$ is injective with finite
+> cokernel, so $\operatorname{rank} \Phi_p(H)$ is the same computed in either
+> lattice. That is why the amendment is a note and not a retraction — but it had
+> to be checked rather than assumed, since a load-bearing citation naming the
+> wrong object is exactly how an off-by-an-index error propagates.
+
 ## 1. The two inputs
 
 **From the corpus.** `ADELIC.md` §1 carries the $k$-tuple local density with

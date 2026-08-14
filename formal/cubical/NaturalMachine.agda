@@ -86,6 +86,12 @@ import NaturalMachine.StructuredDefect
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
 import NaturalMachine.PairCoordinates
+import NaturalMachine.ChargeGrading
+import NaturalMachine.ConeImage
+import NaturalMachine.BuchstabDegree
+import NaturalMachine.RootWeightIndex
+import NaturalMachine.TwoProjections
+import NaturalMachine.ConeOrder
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
