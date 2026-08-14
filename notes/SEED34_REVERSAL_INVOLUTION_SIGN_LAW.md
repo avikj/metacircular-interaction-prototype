@@ -276,7 +276,11 @@ no leading-zero ambiguity in either direction. Reversing gives the integer
    nothing to quote a \(b\) with.
 2. **Not an artifact of base \(10\) or base \(2\).** Neither base occurs
    anywhere in the reversal corpus. Proposition 4.1 shows the *only* way a
-   base could enter is as a digit lift of a polynomial, and by Theorem 2.1
+   base could enter is as a digit lift of a polynomial, and ~~by Theorem 2.1~~
+   **by the definition of \(\mathcal C\) in §1** (K3, SEED-99, 2026-08-14:
+   \(\mathcal C\) is a symmetric function of the roots of \(P\) and no \(b\)
+   occurs in it; Theorem 2.1 is a statement *about* \(\mathcal C\) and cannot
+   be the ground of \(\mathcal C\)'s base-independence)
    the charge depends on the polynomial, so any two admissible bases give
    the same charge. Concretely, \(q_1\) has coefficients in \(\{0,1\}\), so
    Proposition 4.1 applies for every \(b\ge2\) simultaneously, and

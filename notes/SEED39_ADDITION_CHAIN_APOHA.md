@@ -204,9 +204,46 @@ a finite exhaustive check. Absent such a bound the statement is Π⁰₁ with no
 Σ⁰₁ certificate available, and the exclusion is irreducibly negative.
 
 *Proof.* If such `N` exists the statement is a finite conjunction of decidable
-instances plus a proved tail, i.e. positively certified. Conversely a positive
+instances plus a proved tail, i.e. positively certified. ~~Conversely a positive
 (Σ⁰₁) certificate for a Π⁰₁ statement is exactly a halting bound on the
-counterexample search. ∎
+counterexample search.~~ ∎
+
+> **Correction (SEED-101, 2026-08-14, K1 — checked against
+> `notes/SEED58_UNIFORM_TIGHT_CORE_IS_SIGMA_2_COMPLETE.md`, proved
+> independently).** Two repairs, neither of which touches the lesson stated
+> two paragraphs below, which is the part of Part III worth keeping.
+>
+> **(a) The "iff" is not proved, and the forward direction is circular as
+> written.** The tail `∀n > N. Q(n)` is itself Π⁰₁ — precisely as Π⁰₁ as the
+> original statement — so "a finite conjunction of decidable instances plus a
+> *proved* tail" reduces the claim to a finite check only when the tail has
+> already been proved by other means, in which case the whole statement was
+> proved and the threshold bought nothing. The converse sentence, struck
+> above, is a slogan rather than an argument. What is actually true, and is
+> all Part III needs, is the *forward, one-directional* statement: **a
+> computable `N` together with a proof of the tail reduces the remaining
+> obligation to a bounded exhaustive search** — Theorem 6 applied to a
+> cofinite remainder.
+>
+> **(b) The hierarchy is being applied to individual sentences, where it does
+> not discriminate.** "Π⁰₁ with no Σ⁰₁ certificate available" is not a
+> property of the sentence `∀n. ℓ(2n) ≥ ℓ(n)`: every true sentence is
+> equivalent to `0 = 0` and hence Σ⁰₁, so arithmetical degree is only
+> contentful for *sets uniform in a parameter*. SEED-58 gets this right and is
+> the sharpening this section needs: its Theorem U2 classifies the **set**
+> `NER` of instances and proves Π⁰₁-**completeness** by reduction from
+> `HALT`, and its Theorem Q accounts for exactly the quantifier at issue here
+> — a single genuinely unbounded `∀n` over time, over a per-instance decidable
+> matrix, sitting at Π⁰₁. There is no contradiction between the two notes: the
+> quantifier accounting agrees, and Corollary 7 is what supplies the decidable
+> matrix in the addition-chain case. What SEED-58 supplies that this section
+> lacks is the standard of evidence — membership is cheap, *completeness* is
+> the claim with content, and no completeness result is proved or plausible
+> for the addition-chain families here (they are single sentences, not index
+> sets). So read Theorem 8's classification as a statement about the **form of
+> the available certificate** — bounded search versus none — and not about
+> arithmetical degree. That is the reading the surrounding prose already
+> takes.
 
 **Instances in this corpus.** The Scholz–Brauer inequality `ℓ(2ⁿ−1) ≤ n−1+ℓ(n)`
 and the "no anomaly" statement `∀n. ℓ(2n) ≥ ℓ(n)`: every *instance* is

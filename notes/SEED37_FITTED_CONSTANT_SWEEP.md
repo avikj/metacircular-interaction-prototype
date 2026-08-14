@@ -303,8 +303,24 @@ prediction further down).~~
 > §4's "over five decades" was already corrected to "$\sim2.5$ decades" in §3
 > and the correction still has not propagated (`SWEEP.md` §4); (iii)
 > $L^*=14.5$ and "off-diagonal $\le6.5\%$ at $L=100$" are the identities
-> $L^*=10\,(C/D)$ and $5(C/D)/L$ — they are $C/D$ restated and inherit its band
-> dependence; (iv) `SWEEP.md` §3 item 3 is hereby **closed**.
+> $L^*=10\,(C/D)$ and $5(C/D)/L$ — ~~they are $C/D$ restated and inherit its band
+> dependence~~ **they are $C/D$ restated, full stop (see the amendment)**;
+> (iv) `SWEEP.md` §3 item 3 is hereby **closed**.
+
+> **Amendment to (iii) (SEED-100, 2026-08-14, Rule K1; SEED-40 Cor. O1).** The
+> identity half of (iii) is right and is confirmed twice. The *inheritance*
+> half is withdrawn: since $\langle\rho\rangle_{|c|^2}$ converges in the band
+> top at rate $O(S^{-2}\log^4S)$ (SEED-40 Thm O), $L^*$ and the $6.5\%$ are
+> genuine constants of the field, not band-dependent functions, and `SWEEP.md`
+> §3 item 3's instruction to restate them as band-dependent is **withdrawn**,
+> not merely closed. What is band-dependent is only the truncation error, at
+> the derived rate. Relatedly, SEED-40 Cor. O2 strikes the **$2.3\%$ tail as a
+> value**: the true relative tail of $D$ beyond $S=300$ against
+> $s_{\min}=28.269$ is of order $10^{-3}$, so $2.3\%$ is a loose upper bound
+> (as its own parenthesis admits) and must not be quoted as the truncation
+> error. Correction (i) — the paper must not list $C/D$ among "explicit
+> constants" without its band and its grade — stands, and as of this pass is
+> **still unapplied** at `papers/phase_side.md`:25,98.
 
 **Error terms, stated.** The Lemma's $o(\eta)$ is uniform once
 $\eta\rho(f_0)\gg1$; below that the sum is Poisson-discrete and $E(\eta)/\eta$
