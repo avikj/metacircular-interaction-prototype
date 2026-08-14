@@ -147,17 +147,20 @@ double term = node fresh child
     child : Fin 1 → Term (Extended Arithmetic doubleDefinition) _
     child _ = term
 
+doubleTerm : Term (Extended Arithmetic doubleDefinition) (Fin 1)
+doubleTerm = double (var fzero)
+
 double-computes : (n : ℕ)
   → evaluate (extendAlgebra doubleDefinition NatAlgebra) (λ _ → n)
-      (double (var fzero))
+      doubleTerm
     ≡ n + n
 double-computes n = refl
 
 double-is-conservative : (n : ℕ)
   → evaluate (extendAlgebra doubleDefinition NatAlgebra) (λ _ → n)
-      (double (var fzero))
+      doubleTerm
     ≡ evaluate NatAlgebra (λ _ → n)
-        (unfold doubleDefinition (double (var fzero)))
+        (unfold doubleDefinition doubleTerm)
 double-is-conservative n =
   unfold-preserves-evaluation doubleDefinition NatAlgebra (λ _ → n)
-    (double (var fzero))
+    doubleTerm

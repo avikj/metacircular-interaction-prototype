@@ -197,12 +197,55 @@ realized response classes.  Extending it to every unrealized observation
 requires extra extension or chosen-section data.  Silently identifying these
 two interfaces remains an unsound translation.
 
+## 7. Exact least global horizon
+
+The checked module `Pairfield.GlobalObservableHorizon` assigns an ordered pair
+`(x,y)` the length of its globally shortest visited separator, or zero if the
+visited query returns `none`.  It then takes the finite supremum
+
+\[
+H(M)=\max_{(x,y)\in X^2} h(x,y).
+\]
+
+The zero convention handles both boundary cases correctly.  A pair separated
+by the empty word has delay zero because it never belongs to bounded equality,
+while a future-equivalent pair has delay zero because it never obstructs any
+horizon.
+
+**Theorem 7.1 (least global horizon).**
+
+\[
+\boxed{H(M)=\min\{n:\operatorname{ClosesAt}(n)\}.}
+\]
+
+Closure at `H(M)` follows because any returned separator has length at most
+the supremum and would contradict bounded equality at that depth.  Conversely,
+the proof extracts a pair attaining the supremum.  When `n<H(M)`, global
+shortestness shows that pair is equal under every word of length at most `n`,
+while its retained word of length `H(M)` separates it.  The extracted data are
+
+\[
+(x,y,w),\qquad x\equiv_n y,\qquad |w|=H(M),
+\qquad q(s_wx)\ne q(s_wy),
+\]
+
+not merely the number `H(M)`.  Lean checks the extraction as
+`exists_pair_witness_of_lt_globalObservableHorizon` and leastness as
+`globalObservableHorizon_isLeast`.  The three-state control evaluates
+`H(M)=1` and checks the corresponding `IsLeast` certificate.
+
+The next distinction is uniform versus adaptive formation.  `H(M)` is the
+least depth at which the carrier containing all words through that depth
+closes.  An adaptive decision tree may choose a different next action after
+each response and can have a different cost geometry; no equality is claimed.
+
 ## Replay
 
 ```sh
 cd /Users/avikjain/Desktop/math2/formal/pairfield
 lake build Pairfield.ObservableHorizon
 lake build Pairfield.VisitedPairHorizon
+lake build Pairfield.GlobalObservableHorizon
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -210,5 +253,5 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-Both leaf builds exit zero, and the integrated root build checks 8,747 jobs.
+All leaf builds exit zero, and the integrated root build checks 8,751 jobs.
 Emitted warnings are pre-existing linter warnings in imported modules.

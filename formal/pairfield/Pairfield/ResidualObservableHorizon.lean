@@ -161,22 +161,22 @@ theorem exists_prefix_residual_witness_of_lt_globalObservableHorizon
 
 namespace ResidualObservableHorizonWitness
 
-open BehavioralBFSWitness VisitedPairHorizonWitness
+open ReachableChartWitness
 
-theorem automaton_reachable (state : Fin 3) :
-    ∃ word : List Bool, automaton.eval word = state := by
+theorem chart_reachable (state : Fin 3) :
+    ∃ word : List Bool, chart.toDFA.eval word = state := by
   fin_cases state
   · exact ⟨[], rfl⟩
   · exact ⟨[false], by decide⟩
   · exact ⟨[false, true], by decide⟩
 
 example : IsLeast { fuel : Nat |
-    LeftQuotientsStabilizeAt automaton fuel } 1 := by
-  have hvalue : globalObservableHorizon automaton alphabet = 1 := by
+    LeftQuotientsStabilizeAt chart.toDFA fuel } 1 := by
+  have hvalue : globalObservableHorizon chart.toDFA alphabet = 1 := by
     native_decide
   rw [← hvalue]
   exact globalObservableHorizon_isLeast_leftQuotientsStabilizeAt
-    automaton alphabet alphabet_complete automaton_reachable
+    chart.toDFA alphabet alphabet_complete chart_reachable
 
 end ResidualObservableHorizonWitness
 

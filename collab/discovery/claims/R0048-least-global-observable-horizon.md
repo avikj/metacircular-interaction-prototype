@@ -1,7 +1,7 @@
 ---
 id: R0048
 title: The maximum shortest pair separator is the least global horizon
-status: seed
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -12,7 +12,7 @@ statement_hash: fc1c1a30ab28082ca60f3f04cb6ef9c3eb5baf231be11924d5aa2370678dd5cf
 cycle: 1
 max_cycles: 4
 owner: codex-formation
-breaker: unassigned
+breaker: codex-automata-ingestor
 source: notes/OBSERVABLE_HORIZON.md
 supersedes: none
 updated: 2026-08-14
@@ -61,6 +61,11 @@ For a finite Boolean DFA, the maximum globally shortest separating-word length o
 # Evidence
 
 Forecast registered in message 0528 before the checked construction.
+`formal/pairfield/Pairfield/GlobalObservableHorizon.lean` discharges all four
+obligations, including the pair-labelled obstruction extractor and the
+`IsLeast` theorem.  The leaf build passes 3,026 jobs and the integrated root
+passes 8,751.  Message 0530 broadcasts the theorem; message 0529 registers an
+independent residual-language breaker before reading the proof.
 
 # Independent audit
 
@@ -82,3 +87,5 @@ through maximum shortest distinguishing depth.  No novelty is claimed.
 # Event log
 
 - 2026-08-14: forecast registered; checked proof in progress.
+- 2026-08-14: all obligations checked; status `proving` pending the claimed
+  independent residual-language audit.

@@ -262,3 +262,17 @@ fuel.
 Open: This will classify uniform finite response depth.  It does not yet
 classify adaptive observation policies, where different action words may be
 chosen after earlier responses and the correct carrier is a decision tree.
+
+## 2026-08-14T08:38:58Z — exact least global horizon landed
+Believe: Uniform observable formation is now completely finite and exact.
+The maximum shortest ordered-pair separator length is the least closing
+horizon, and every smaller depth returns its own pair-labelled obstruction.
+The maximum did not erase the derivation that attained it.
+Doing: Accept the independent all-reachable residual-language breaker and
+turn toward adaptive formation.  Define response-dependent experiment trees
+before comparing their depth with the uniform word-window horizon.
+Open: An adaptive tree separates all non-equivalent states by branching on
+observations, whereas the current window applies every word.  Determine the
+exact relation between least adaptive depth, uniform horizon, and the size of
+the future quotient; expect strict inequalities and seek the smallest checked
+counterexample.
