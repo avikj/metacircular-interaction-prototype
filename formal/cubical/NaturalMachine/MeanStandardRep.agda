@@ -27,8 +27,13 @@
 --
 -- WHAT IS A TERM HERE, AND WHAT IS NOT
 --
---   T14.8    k = 2 (`split₂`) and k = 3 (`split₃`).  General `k`: NOT
---            attempted — see §5.
+--   T14.8    k = 2 (`split₂`), k = 3 (`split₃`), and **GENERAL `k`**
+--            (`splitₖ`, §4), with "`k` invertible" presented as the
+--            hypothesis the proof consumes: an element `kinv` with
+--            `Σ_{i<k} kinv ≡ 1r`.
+--   T14.11    non-scalarity also at **every `k ≥ 3`** (`sw01ₖ-scalar→char2`,
+--            §4.1); the eigenvalue MULTIPLICITIES stay at k = 3, since
+--            they need a basis of `V_k` and not one vector pair.
 --   T14.9    k = 2 (`mean₂-inv`, `dev₂-equivariant`) and k = 3 for all
 --            three transpositions, which generate `S₃`
 --            (`mean₃-inv-*`, `dev₃-equivariant-*`).  The statement is
@@ -69,6 +74,43 @@
 -- That `k` invertible is needed for the SPLIT while it is NOT needed for
 -- the ACTION to be non-scalar is a real distinction, and the layering is
 -- how it is recorded rather than asserted.
+--
+--
+-- THE ONE THING THIS FILE IS NOT SILENT ABOUT: 5 WARNINGS
+--
+-- `agda NaturalMachine/MeanStandardRep.agda` exits 0 but prints five
+-- `UnsupportedIndexedMatch` warnings, all from §4.1, all of the form
+--
+--   "It relies on injectivity of the data constructor suc, which is not
+--    yet supported … will not compute when applied to transports."
+--
+-- This is a property of the PINNED TOOLCHAIN, not of the mathematics,
+-- and it is unavoidable here: in Agda 2.6.3 + cubical v0.5, **every**
+-- definition by pattern matching on `Cubical.Data.FinData`'s `Fin`
+-- raises it as soon as the length index is a constructor applied to a
+-- variable — verified at depth one (a bare `cons`) as well as depth two.
+-- cubical v0.5's own `Cubical.Algebra.Ring.BigOps.∑Mulr1` matches `Fin`
+-- the same way.  §4.1 needs the transposition of the first two
+-- coordinates of a length-`(n+3)` vector, and that map cannot be built
+-- from the library's warning-free combinators (`rec`, `replicateFinVec`,
+-- `_++Fin_`), which can produce constant and concatenated vectors but
+-- cannot permute.
+--
+-- The warning says the function may fail to REDUCE under a transport.
+-- It does not weaken any statement: every theorem below is a checked
+-- term under `--safe`, with no postulate, hole, or `TERMINATING`.  §§1–4
+-- and §5 are warning-free; deleting §4.1 would remove five warnings and
+-- one theorem (T14.11's obstruction at every `k ≥ 3`).  It is kept, and
+-- disclosed here, rather than dropped to make a log look cleaner.
+--
+-- For calibration, since a bare warning count invites the wrong
+-- inference: `agda NaturalMachine.agda` (the root aggregate, exit 0)
+-- already prints this SAME warning at ~57 sites across five modules
+-- already in the tree — `PMTorus`, `PayloadMorphism`, `DigitTowerLimit`,
+-- `SmithPathCountedExecution`, `PMCokernel`.  Five more is not a new
+-- category of defect in this corpus; it is the pinned toolchain's
+-- standing cost for indexed families, and `BUILD.md`'s version-skew list
+-- is where it belongs if anyone wants it recorded once.
 --
 --
 -- PRIOR ART (searched before proving, per CLAUDE.md)
