@@ -252,9 +252,48 @@ support and the asymptotic is simply not yet valid). Rescaling by the same
 factor:
 $$C/D\ \big|_{\text{predicted}}=3.276\times\frac{3108}{6598}=1.54
 \qquad\text{vs measured }1.44 .$$
-$7\%$, with **zero fitted parameters**, and in the right direction (the true
+~~$7\%$, with **zero fitted parameters**, and in the right direction (the true
 correction is $s$-dependent and largest at the bottom, i.e. it pushes the
-prediction further down).
+prediction further down).~~
+
+> **Struck (SEED-100, 2026-08-14, Rule K1; refuted by SEED-40 §4.2–§4.3).**
+> The agreement is not evidence and the parameter count is not zero.
+>
+> (a) **The density model is invalid exactly where all the weight sits.** The
+> corrected asymptotic pair density is
+> $\rho^{\mathrm{ord}}(s)=\frac{s}{4\pi^2}P(\ell)$ with
+> $P(\ell)=(\ell-1)^2+1-\zeta(2)$, $\ell=\log(s/2\pi)$ — not the
+> $s\log^2(s/2\pi)/(8\pi^2)$ used above, which drops the $-2\ell+1-\zeta(2)$
+> correction. And **$P(\ell)<0$ for $s<2\pi e^{1+\sqrt{\zeta(2)-1}}=38.13\ldots$**,
+> whereas this confrontation's band bottom is $f_0=2\gamma_1=28.269$. The
+> asymptotic density is meaningless on the stretch that dominates both
+> integrals. SEED-40 evaluates the same object with the corrected $P$ at
+> bottom cut-offs $s_0=40,50$ — the first points where the density is
+> non-negative — and gets $\langle\rho\rangle\approx5.0$ and $5.8$. The
+> continuum model does not reproduce $1.44$ and cannot be expected to.
+>
+> (b) **The rescaling factor $2.12$ is a fitted parameter.** It is obtained by
+> dividing the model's predicted atom count by exp13's published count and
+> applying the ratio to a different functional of the same density. That is one
+> free multiplicative parameter chosen to make a $2.3\times$ discrepancy into a
+> $7\%$ one, whatever its provenance. The note's own ledger row **L4** already
+> calls this "a *test*, not a derivation"; the mistake is calling it "zero
+> fitted parameters" three lines earlier, which the ledger then does not
+> retract.
+>
+> (c) **The numeral is ambiguous by a factor of $2$ anyway.** The Lemma assumes
+> the sum $\sum_{f\ne f'}$ runs over ordered pairs; if `code/exp13_energy.py`
+> loops over unordered pairs, every conclusion holds with
+> $C/D=\tfrac12\langle\rho\rangle_{|c|^2}$, and the corpus does not currently
+> determine which (SEED-40 §4.3, filed `DEMONSTRATE`).
+>
+> **What survives untouched:** Proposition A (the identity and its units),
+> the enclosure $\rho(f_0)\le C/D\le\rho(F)$ of ledger row L2 — which uses only
+> monotonicity of the *true* $\rho$ and positivity of $w$, so it is independent
+> of (a), though "unconditional" overstates it: monotonicity of the true atom
+> density on the band is an unproved hypothesis, not a consequence of the
+> asymptotic (which is negative there) — and the shot-noise error analysis below.
+> What does *not* survive is the claim that the model was confirmed at $7\%$.
 
 > **Verdict A.** $1.44$ is not a constant of $\zeta$; it is
 > $\langle\rho_2\rangle_{|c|^2}$ on the band $[2\gamma_1,300]$ at zero height

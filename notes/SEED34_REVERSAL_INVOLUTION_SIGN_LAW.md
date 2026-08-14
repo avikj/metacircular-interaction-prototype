@@ -365,7 +365,20 @@ without its dependence looks like knowledge; here the dependence is
   supply it (Corollary 2.2). No novelty is claimed for the identity; the
   claim is that the decic sector is anti-conserving and that the reciprocal
   fixed locus has exactly two charged points.
-* Open, tagged `PROVE`: does the sign law constrain which \(L\) can occur in
+* ~~Open, tagged `PROVE`~~ **CLOSED, negatively, by
+  `notes/SEED45_REVERSAL_CHARGE_CORRECTION_TERMS.md` §4 (K1, SEED-99,
+  2026-08-14).** There is **no** universal orientation. SEED-45 computes the
+  quartic charge in closed form via the resolvent cubic,
+  \(P=x^4+px^3+qx^2+rx+1\Rightarrow\mathcal C(P)=-(p-r)^2\), and the trace
+  resultant there is \(L=(p-r)^2\); so \(\mathcal C=-L\) **identically in
+  degree 4**, while the decic witness has \(\mathcal C(q_1)=+L\). The
+  orientation sign is therefore a degree-by-degree invariant, not a universal
+  one, and it is \(-1\) at the first degree where a closed form exists. The
+  item's own reversal-parity reasoning survives as a consistency check and is
+  not what fails; what fails is the hoped-for universality. SEED-45 records
+  that this note was right to decline the universal claim. The struck text
+  follows, for the record:
+* ~~Open, tagged `PROVE`: does the sign law constrain which \(L\) can occur in
   degree \(n\equiv2,3\pmod4\)? Anti-conservation plus \(\mathcal C(q)=\pm L\)
   says the orientation of \(L\) flips under reversal, so any orientation
   convention for \(L\) in `CROSS_REVERSAL_INDEX.md` must be
@@ -375,4 +388,4 @@ without its dependence looks like knowledge; here the dependence is
   this matches Theorem 2.1 at \(n=10\) and pins the sign in (0.2)
   consistently. Verifying that this determines \(\mathcal C(q)=+L\) rather
   than \(-L\) for all nonreciprocal decics — the note declines to claim a
-  universal orientation — is the natural next item.
+  universal orientation — is the natural next item.~~

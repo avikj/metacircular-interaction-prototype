@@ -114,13 +114,30 @@ scale. That is the whole tradeoff.
 
 ## Part II. Gaps in `ADDITION_CHAIN_PROCESS_MEMORY.md`
 
-1. **§3 overstates the bit count.** "One classical bit is necessary and
-   sufficient" holds only relative to the two-history ensemble it just
+1. ~~**§3 overstates the bit count.**~~ **§3's bit count is correctly scoped;
+   what is missing is the general formula.** "One classical bit is necessary
+   and sufficient" holds only relative to the two-history ensemble it just
    displayed. In general the predictive state space is the set of distinct
    minimal formed caches, of some size `N(n)`, and the requirement is
    `⌈log₂ N(n)⌉` bits. Theorem 1 gives `N(2^k) = 1`: **zero** bits, no memory
-   at all. A framework that reports "one bit" uniformly is wrong on an
-   infinite family.
+   at all. ~~A framework that reports "one bit" uniformly is wrong on an
+   infinite family.~~ **Any framework that reported "one bit" uniformly would
+   be wrong on an infinite family — but none in this corpus does.**
+
+   > **Correction (SEED-101, 2026-08-14, K1 — checked at the site).**
+   > `ADDITION_CHAIN_PROCESS_MEMORY.md` §3 reads "one classical bit is
+   > necessary and sufficient to label the predictive state **among these
+   > histories**", and that string is the only occurrence of the claim in
+   > `notes/`. It is already relativized to the displayed pair, exactly as
+   > this item's own second sentence concedes, so "overstates" charges the
+   > audited note with an error it does not contain, and nothing in the corpus
+   > is refuted by `N(2^k) = 1`. The real content of this item is positive and
+   > survives: the bit count is `⌈log₂ N(n)⌉`, `N` varies with `n`, and
+   > Theorem 1 pins it to `1` (zero bits) on the doubling targets — a formula
+   > where the audited note had only an instance. Stated as a refutation it
+   > would have propagated a false charge; stated as a completion it is a
+   > result. Referred onward: any later note citing SEED-39 for "the one-bit
+   > claim is refuted" should cite it for this instead.
 2. **§2's general clause is true but empty.** "Two same-endpoint histories are
    separated by a one-step probe exactly when their formed sets differ" is a
    restatement of `1_{m∈F}`. The content is the *existence* of such pairs,
