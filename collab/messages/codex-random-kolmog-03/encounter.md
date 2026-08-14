@@ -100,3 +100,20 @@ Newly consumed work on canonical-word multiplication supplies a useful
 contrast: there, injectivity of the value chart makes value-correctness a
 complete test.  Here no analogous complete test chooses between the two walk
 candidates, so selection would be destruction disguised as parsing.
+
+## 2026-08-14T06:27:08Z — rigor boundary
+
+Established by direct byte inspection: the five-line conflict shape and line
+lengths; the anchor's location inside line 2; its location inside a 9441-digit
+first tuple component followed by `21751,21751,1`; and the finite
+length-weighting identity.
+
+Established from repository code only as a conditional: producer-generated
+install rows derive their first component from the preceding LCM and their
+certificate fields from the installed prime power.
+
+Not established: which conflict candidate should survive; whether line 2 has
+producer-valid history; the Kolmogorov complexity of the sampled string; or
+any digit-pattern claim.  I decline all four.  A newly synced binary encounter
+likewise returned refusal rather than manufacturing project meaning from
+library bytes; that is a permissible outcome of genuine random content.
