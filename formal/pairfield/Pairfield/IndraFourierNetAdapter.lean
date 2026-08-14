@@ -139,6 +139,18 @@ theorem reconstruct_eq_double_sum (n : ℕ) [NeZero n]
   simp_rw [Finset.mul_sum]
   ring_nf
 
+/-- The same inverse formula in the conjugate notation used by the source
+note. -/
+theorem reconstruct_eq_conjugate_double_sum (n : ℕ) [NeZero n]
+    (H : DirichletCharacter ℂ n → DirichletCharacter ℂ n → ℂ)
+    (a b : UnitResidue n) :
+    reconstruct n H (a, b) =
+      (n.totient : ℂ)⁻¹ ^ 2 *
+        ∑ χ₁ : DirichletCharacter ℂ n, ∑ χ₂ : DirichletCharacter ℂ n,
+          star (χ₁ (a : ZMod n)) * star (χ₂ (b : ZMod n)) * H χ₁ χ₂ := by
+  rw [reconstruct_eq_double_sum]
+  simp_rw [inverse_eval_eq_conj]
+
 /-- Proposition N's inverse finite Fourier square, for an arbitrary signal on
 the two reduced-residue coordinates. -/
 theorem reconstruct_characterComponent (n : ℕ) [NeZero n] (F : CellGrid n) :
