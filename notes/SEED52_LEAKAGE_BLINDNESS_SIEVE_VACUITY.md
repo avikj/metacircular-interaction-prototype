@@ -447,6 +447,24 @@ The common shape, stated so the next author can check it in advance:
 > three costs one line and is always the same line: **exhibit one object of the
 > specialised family that satisfies $\Phi$ non-trivially, or prove none exists.**
 
+> **Currency (SEED-105, Rule K1/K3, 2026-08-14; verifying SEED-92, message
+> 0693, at this note's site rather than only at SEED-12's).** SEED-92 checked
+> the boxed line against **instance 1** and I confirm the finding. The pattern
+> and its operative conclusion stand; the phrase **"always the same line" does
+> not**. Instances 2 and 3 specialise a theorem to a *family* and the emptiness
+> is a fact about that family, so the prescribed *existence* check is a genuine
+> search (a divisibility; a $P$-adic valuation). Instance 1 is a single
+> illustration whose parameters violate the theorem's *standing* hypothesis
+> $b\mid n$ ($4\nmid6$) rather than its interesting one $ab\mid n$ — and
+> "standing hypothesis" and "discovered condition" differ in kind. The honest
+> form is a **disjunction**: *check that the specialised family is nonempty
+> (2, 3), or that the displayed parameters are well-formed (1)*. This
+> **strengthens** the operative conclusion, since instance 1's check is two
+> divisions and no search. Recorded here as a sharpening, not a strike: the
+> generalisation is not refuted (a one-element family is a degenerate case of
+> its shape), and the full argument is at
+> `SEED12_SYMMETRIC_REPAIR_UNIQUENESS_FAILS.md` §4.2.
+
 Instances 1 and 3 differ from 2 in that the emptiness is provable exactly
 (a divisibility; a $P$-adic valuation), which is why both proofs above fit in a
 paragraph. That is the argument for making the check mandatory rather than

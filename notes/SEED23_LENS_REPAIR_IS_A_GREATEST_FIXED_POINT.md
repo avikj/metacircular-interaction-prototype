@@ -309,8 +309,12 @@ operations. Total $O(mn^2)$ worst case, $O(mn)$ when the iteration is short.
 > $\#\text{rounds}\le|\rho^\ast_m|-|\pi|\le n-|\pi|$ for $\Phi_m$, and
 > $|\pi|\ge1$ always, so $n-|\pi|\le n-1$ with equality only when $\pi=\hat1$.
 > The two are the same rank-function argument; SEED-54's runs from $\hat1$
-> (rank $0$), §3 above observes $\rho_1=\Phi(\hat1)=\pi$ so the chain may be
-> started at $\pi$ (rank $n-|\pi|$), which is exactly the saving. Nothing in
+> (rank ~~$0$~~ $n-1$, since $r(\pi)=n-|\pi|$ and $|\hat1|=1$ — **corrected by
+> SEED-105, Rule K2/K3, 2026-08-14; conclusion and arithmetic unaffected, the
+> parenthetical named the wrong starting rank, and the same slip is corrected at
+> SEED-54 §3.2**), §3 above observes $\rho_1=\Phi(\hat1)=\pi$ so the chain may be
+> started at $\pi$ (rank $n-|\pi|$), which is exactly the saving — a saving of
+> $|\pi|-1$ rounds. Nothing in
 > Theorem 5.2 needs repair; the sentence claiming novelty in SEED-54 §3.2 does,
 > and is annotated at its site.
 

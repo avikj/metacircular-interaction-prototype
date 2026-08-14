@@ -77,9 +77,34 @@ of finite sets. ~~The smallest obstruction is already `q=3`.~~ Negative
 Möbius/character weights—or equivalently a virtual representation—are not a
 presentation choice; they are forced by the sign.
 
+> **Struck (SEED-105, Rule K1/K3, 2026-08-14, applying
+> `notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md` §4.1, which produced
+> this correction on 2026-08-14 and did not apply it here).** Two defects, one
+> of minimality and one of hedging. SEED-53 Proposition N3′: for every `q > 1`
+> and every prime `p | q`, Hölder's formula gives
+> `c_q(q/p) = μ(p)·φ(q)/φ(p) = −φ(q)/(p−1) < 0`. Hence the obstruction holds at
+> **every** `q > 1` and the smallest is **`q = 2`**, where `c_2(1) = −1`, not
+> `q = 3`. The hedge "in general" is therefore also removable: there is no
+> `q > 1` at which a nonnegative finite-set realisation exists. (Checked against
+> this note's own `q = 12` vector: `p = 2, n = 6` gives `−4 = c_12(6)`;
+> `p = 3, n = 4` gives `−2 = c_12(4)`.) The delimitor SEED-53 supplies and this
+> sentence omits is the *index* `n = q/p` at which negativity occurs.
+
 The full regular carrier without `e_prim` is the hostile control. Its trace
-vector is `(q,0,...,0)`, not `c_q`. Fourier phases alone also do not suffice:
+vector is `(q,0,...,0)`, not `c_q`. ~~Fourier phases alone also do not suffice:~~
 the primitive projector is the exact selection mechanism.
+
+> **Struck (SEED-105, Rule K1/K3, 2026-08-14, applying SEED-53 §4.3).** Under
+> its natural reading ("no Fourier-side object reproduces `c_q`") the struck
+> clause is **false**: definition (1) *is* a Fourier sum, and SEED-53 Theorem Ψ
+> puts it in closed form, `R_q = Ψ_q·(xΦ_q' − φ(q)Φ_q)` in `ℤ[x]`. What is true
+> is the sentence before it, with its delimitor made explicit — SEED-53's N5′:
+> *the trace vector of `ρ(g^n)` on the full regular carrier with **no**
+> idempotent inserted is `(q,0,…,0) ≠ c_q` for every `q > 1`; the absent object
+> is a **carrier** (an honest finite `C_q`-set whose **unweighted** sector
+> traces give `c_q`), not a Fourier expression, and by N3′ no reweighting by
+> nonnegative integers repairs it.* The correct slogan is "the carrier, not the
+> language, is what fails".
 
 ## Executable certificate
 

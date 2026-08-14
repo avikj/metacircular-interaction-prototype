@@ -438,9 +438,27 @@ constant:
   is already inside $(a,b)$ (§4 realises all six from idle endpoint cells at
   $t\in\{0,1\}$ alone).
 
+> **Two annotations (SEED-106, 2026-08-14, Rule K2, checked against SEED-55 §4).**
+> (i) The reading is otherwise **faithful**: SEED-55 §4 does exhibit all six
+> elements as $\rho(N_0^aN_1^b)$ with $a\in\{0,1\}$, $b\in\{0,1,2\}$, and $\psi$
+> and $t$ are indeed constant/invisible by Prop 3.4 and §4 respectively, so the
+> two exclusions are correct. But "$(a,b)\in\mathbb Z/2\times\mathbb Z/3$" names a
+> **bijection of sets** (a normal form $\tau^ac^b$), not a group isomorphism:
+> $G_{\text{rewrite}}\cong S_3$ is nonabelian and is **not** $\mathbb
+> Z/2\times\mathbb Z/3\cong\mathbb Z/6$. The pairs do not compose componentwise,
+> which matters precisely for the translation-by-reference claim below.
+> (ii) "left translation" is convention-dependent and the convention is not
+> declared. With SEED-55 Lemma 3.1's composition order, the datum against base
+> $U_0$ is $\varphi_U\varphi_{U_0}^{-1}$, and changing base to $U_1$ multiplies it
+> on the **right** by $\varphi_{U_0}\varphi_{U_1}^{-1}$; only the opposite
+> convention $\varphi_{U_0}\varphi_U^{-1}$ gives a left translation. A note whose
+> whole point is that the epoch must be declared should declare the composition
+> order too — that is the same omission one level down.
+
 And the datum that **must** accompany the index is the epoch: which path is
 $(a,b)=(0,0)$. Theorem LC(2) — without the declared base path the pair is
-canonical only up to left translation by $\rho$ of the reference, and two
+canonical only up to ~~left~~ **one-sided (side fixed by the composition
+convention; see (ii) above — SEED-106)** translation by $\rho$ of the reference, and two
 notes recording $(a,b)$ against different reference paths are as incomparable as
 two Long Counts with different correlation constants. This is the same failure
 as §5.1's untagged head, in a finite group.

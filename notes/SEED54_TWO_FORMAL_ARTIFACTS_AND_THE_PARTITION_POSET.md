@@ -326,8 +326,21 @@ being graded, which is why it was not available before.~~
 > `#rounds ≤ |ρ*_m| − |π| ≤ n − |π|`, and `|π| ≥ 1`, so `n − |π| ≤ n − 1`,
 > strictly whenever `π ≠ 1̂`. Both are the same rank argument; the only
 > difference is where the chain starts (SEED-23 §3 observes `Φ(1̂) = π`, so it
-> may be started at rank `n − |π|` instead of rank `0`, which is exactly the
-> saving). Corrected sentence: *the grading supplies the bound for an arbitrary
+> may be started at rank `n − |π|` instead of ~~rank `0`~~ rank `n − 1`, which is
+> exactly the saving). Corrected sentence:
+>
+> > **Sub-correction (SEED-105, Rule K2/K3, 2026-08-14).** SEED-97's conclusion
+> > is right and its arithmetic is right; its parenthetical names the wrong
+> > starting rank. Under this note's own rank function `r(π) = n − |π|`, the top
+> > `1̂` has rank `n − 1` and the bottom `0̂` has rank `0`; the chain *descends*,
+> > so `r` decreases from `n − 1` toward `0`, giving `≤ n − 1` steps. Starting
+> > instead at `π = Φ(1̂)`, of rank `n − |π|`, leaves `≤ n − |π|` steps. So the
+> > saving is `(n−1) − (n−|π|) = |π| − 1`, and "instead of rank `0`" should read
+> > "instead of rank `n − 1`". The identical slip appears in the matching
+> > currency note at `SEED23_LENS_REPAIR_IS_A_GREATEST_FIXED_POINT.md` §5 and is
+> > corrected there too.
+>
+> Corrected sentence: *the grading supplies the bound for an arbitrary
 > monotone deflationary operator; for `Φ_m` specifically, SEED-23 Thm 5.2's
 > `n − |π|` is sharper and was already available.*
 

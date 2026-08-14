@@ -204,10 +204,15 @@ $\gcd(S)=\alpha(S)$ (for $S=\emptyset$, $\alpha(S)=0$ and every $n$ divides $0$,
 matching $\emptyset\subseteq n\mathbb Z$). Hence $n\mid\alpha(S)$ iff $n$ divides
 every element of $S$ iff $S\subseteq\gamma(n)$. $\square$
 
-In lattice terms this is $n\le_D\alpha(S)\iff\gamma(n)\subseteq_P S$ read on the
+~~In lattice terms this is $n\le_D\alpha(S)\iff\gamma(n)\subseteq_P S$ read on the
 *generated subgroup*, i.e. $\gamma\dashv\alpha$ with **$\alpha$ the right
 adjoint** into $D$ — equivalently $\alpha\dashv\gamma$ once one passes to
-$D^{\mathrm{op}}$. *This sign is the whole point.* Getting it backwards is
+$D^{\mathrm{op}}$.~~ **(Struck, SEED-106: the displayed equivalence contradicts
+the box two lines above — the box says $S\subseteq n\mathbb Z$, this says
+$n\mathbb Z\subseteq S$, and the latter is false at $n=2$, $S=\{2\}$. The box is
+the correct statement and it is an *antitone* Galois connection, both maps
+order-reversing; neither $\gamma\dashv\alpha$ nor $\alpha\dashv\gamma$ holds as
+stated between $P$ and $D$.)** *This sign is the whole point.* Getting it backwards is
 exactly what turns "gcd" into "lcm" in prose, and it is the error latent in
 0126.
 
@@ -248,9 +253,12 @@ $$\alpha(S\cap T)\ \ne\ \operatorname{lcm}(\alpha S,\alpha T)\quad\text{in gener
 $S\cap T=\emptyset$, $\alpha(\emptyset)=0$. But
 $\operatorname{lcm}(\alpha S,\alpha T)=\operatorname{lcm}(2,3)=6$. And $0\ne 6$;
 worse, in $D$ we have $6\mid 0$, i.e. $\alpha(S\cap T)=0$ sits **strictly above**
-the abstract meet $6$. So $\operatorname{lcm}$ as an abstract transformer for
+the abstract meet $6$. ~~So $\operatorname{lcm}$ as an abstract transformer for
 $\cap$ is **UNSOUND on $\mathcal P(\mathbb Z)$** — it under-approximates, which
-is the one thing an abstract interpretation may never do.
+is the one thing an abstract interpretation may never do.~~ **(Struck,
+SEED-106: sound but imprecise — $\emptyset\subseteq6\mathbb Z$; see the boxed
+correction above. "Above in $D$" is *below* in the abstraction order
+$D^{\mathrm{op}}$, i.e. over-approximation.)**
 
 **Where it *is* sound, and exactly so.** Restrict the concrete domain to the
 image of $\gamma$, the subgroup lattice $\mathrm{Sub}(\mathbb Z)$:
@@ -262,8 +270,11 @@ $\mathrm{Sub}(\mathbb Z)$, $\alpha\circ\gamma=\mathrm{id}$ and
 $\gamma\circ\alpha=\mathrm{id}$: this is a lattice **anti-isomorphism**, not an
 abstraction at all. So:
 
-> **Sound and complete on $\mathrm{Sub}(\mathbb Z)$; complete-but-unsound as a
-> transformer of $\cap$ on $\mathcal P(\mathbb Z)$.**
+> ~~**Sound and complete on $\mathrm{Sub}(\mathbb Z)$; complete-but-unsound as a
+> transformer of $\cap$ on $\mathcal P(\mathbb Z)$.**~~
+> **Sound and complete on $\mathrm{Sub}(\mathbb Z)$; sound but forward-incomplete
+> (imprecise) as a transformer of $\cap$ on $\mathcal P(\mathbb Z)$.**
+> (Struck, SEED-106, 2026-08-14.)
 
 **Sound $\ne$ complete, spelled out for this pair.**
 - *Soundness (over-approximation):* $S\subseteq\gamma(\alpha(S))$ — every set is
@@ -280,8 +291,12 @@ abstraction at all. So:
 - Orthogonally, *forward completeness for an operation* ($\alpha\circ f=
   f^\#\circ\alpha$) holds for $f=\cup$ with $f^\#=\gcd$, and **fails** for
   $f=\cap$ with $f^\#=\operatorname{lcm}$, by the $\{2\},\{3\}$ witness above —
-  and there it fails by being unsound, not merely imprecise. Soundness and
-  completeness are independent axes and this single example separates them.
+  ~~and there it fails by being unsound, not merely imprecise.~~ **and there it
+  fails by being imprecise only; soundness holds (SEED-106, boxed proof above).**
+  Soundness and
+  completeness are independent axes and this single example separates them
+  **— it separates them in the direction "sound but forward-incomplete", which is
+  the ordinary direction, not the alarming one.**
 
 **What this settles for message 0126.** The "join" the message wants lives in
 $D=(\mathbb N,\mid)$. Under the natural Galois connection to sets of integers it
