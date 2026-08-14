@@ -251,6 +251,7 @@ import NaturalMachine.LeastWitnessFactory
 -- bounded radius-transfer edges compiles a bounded-gap recurrent seed into
 -- radius-one recurrence.  No edge or prime theorem is assumed here.
 import NaturalMachine.RadiusTransferCompiler
+import NaturalMachine.MixedCornerTransferCompiler
 import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
