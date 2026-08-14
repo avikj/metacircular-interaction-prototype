@@ -491,7 +491,7 @@ transliterations are as returned. Do not cite §6 as scholarship.
 | B | Berkovich line an ℝ-tree; type-2 branching; skeleton a model-independent invariant | **CITED** (search summaries only) | §3 |
 | R2 | one-hot is rank-maximal over all encodings | **PROVED** (written) | §4.2 |
 | R3 | 4-state witness: `rank = 3 < 4 = m` for **all** words and **all** encodings | **PROVED / REFUTES** a reading of the audit | §4.3 |
-| R4 | `rank(T_onehot) ≤ |W|(|O|−1)+1` | **PROVED** (written) | §4.3 |
+| R4 | `rank(T_onehot)` is at most `#W_nc · (#O − 1) + 1` | **PROVED** (written) | §4.3 |
 | R5 | shift register: `m = 2^ℓ`, `rank = ℓ+1` exactly | **PROVED** (written), **CITED as known** (Fliess / Kalman) | §4.4 |
 | R6 | rank descends to `π₀(LinSys)` but not along `LinSys → Sys`; explicit disconnected fibre | **PROVED** (written) | §4.5 |
 | V | `base_answers_unchanged` is an inert falsifier | **REFUTED** (the check, not the property) | §5 |
