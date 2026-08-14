@@ -15,13 +15,14 @@ universe u v
 variable {A : Type u} {X : Type v}
 
 /-- The residual carried by the branch reached through `prefix`. -/
-def BranchResidual (M : DFA A X) (prefix : List A) :=
-  M.accepts.leftQuotient prefix
+def BranchResidual (M : DFA A X) (pre : List A) :=
+  M.accepts.leftQuotient pre
 
 /-- The observation trace of a tree when entered at a reached prefix. -/
 def BranchTrace (M : DFA A X) (tree : BoolExperimentTree A)
-    (prefix : List A) : List Bool :=
-  tree.trace M.step (acceptsBool M) (M.eval prefix)
+    [DecidablePred (fun state : X => state ∈ M.accept)]
+    (pre : List A) : List Bool :=
+  tree.trace M.step (acceptsBool M) (M.eval pre)
 
 /-- Adaptive observation factors through the branch residual carrier. -/
 theorem branchTrace_eq_of_branchResidual_eq
@@ -29,13 +30,14 @@ theorem branchTrace_eq_of_branchResidual_eq
     (tree : BoolExperimentTree A) {left right : List A}
     (hresidual : BranchResidual M left = BranchResidual M right) :
     BranchTrace M tree left = BranchTrace M tree right := by
-  exact (leftQuotient_eq_iff_all_adaptive_traces_eq M left right).1 hresidual tree
+  simpa [BranchTrace] using
+    (leftQuotient_eq_iff_all_adaptive_traces_eq M left right).1 hresidual tree
 
 /-- Advancing a branch by an action is the residual left-quotient update. -/
 theorem branchResidual_step
-    (M : DFA A X) (prefix : List A) (action : A) :
-    BranchResidual M (prefix ++ [action]) =
-      (BranchResidual M prefix).leftQuotient [action] := by
-  exact prefixResidual_append_action M prefix action
+    (M : DFA A X) (pre : List A) (action : A) :
+    BranchResidual M (pre ++ [action]) =
+      (BranchResidual M pre).leftQuotient [action] := by
+  exact prefixResidual_append_action M pre action
 
 end Pairfield
