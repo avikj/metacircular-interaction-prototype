@@ -82,10 +82,10 @@ module _ (G : Group ℓg) where
     (p : X₀ × Y₀)
     → map (contract G (parallelRefinement f g)) p
       ≡ map (parallelIntertwiner (contract G f) (contract G g)) p
-  contract-parallel f g (x , y) = refl
+  contract-parallel (P._,_ f₀ f₁) (P._,_ g₀ g₁) (x , y) = refl
 
   canonical-refinement-parallel :
-    {X : Type ℓx} {Y : Type ℓy} {Z : Type ℓz} {W : Type ℓw}
+    {X Z : Type ℓx} {Y W : Type ℓy}
     {AX : Action G X} {AY : Action G Y}
     {AZ : Action G Z} {AW : Action G W}
     (f : Intertwiner G AX AY) (g : Intertwiner G AZ AW)
@@ -129,9 +129,14 @@ module _ (G : Group ℓg)
   -- The product-network flux subdivision theorem is exactly the pair of the
   -- component theorems.  Thus cartesian parallel composition preserves the
   -- checked holonomy--flux seam.
-  parallel-flux-subdivision : (edge : Refined G)
-    → flux-subdivision G (productFlux F H)
-        parallelRepresent parallelRepresent-mul edge
-      ≡ ( flux-subdivision G F ρ ρ-mul edge
-        , flux-subdivision G H σ σ-mul edge )
-  parallel-flux-subdivision edge = refl
+  parallel-flux-subdivision-left : (edge : Refined G)
+    → cong fst (flux-subdivision G (productFlux F H)
+        parallelRepresent parallelRepresent-mul edge)
+      ≡ flux-subdivision G F ρ ρ-mul edge
+  parallel-flux-subdivision-left edge = refl
+
+  parallel-flux-subdivision-right : (edge : Refined G)
+    → cong snd (flux-subdivision G (productFlux F H)
+        parallelRepresent parallelRepresent-mul edge)
+      ≡ flux-subdivision G H σ σ-mul edge
+  parallel-flux-subdivision-right edge = refl
