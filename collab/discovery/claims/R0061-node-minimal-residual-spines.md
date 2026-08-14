@@ -1,5 +1,5 @@
 ---
-id: R0060
+id: R0061
 title: Node-minimal residual spines are cycle-free
 status: proving
 kind: theorem
@@ -55,8 +55,7 @@ root-to-descendant canonical-position cycle.
 - Forgotten by the finite bound: position cardinality and the response-split
   history; hence the result gives `2^n`, not the sharper constant-cardinality
   or classical quadratic estimate.
-- Not claimed: construction of a depth-realizing spine or the Lee--Yannakakis
-  recurrence.
+- Not claimed: the Lee--Yannakakis recurrence or sharp quadratic bound.
 
 # Proof obligations
 
