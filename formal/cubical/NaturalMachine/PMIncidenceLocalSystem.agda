@@ -31,7 +31,7 @@ import NaturalMachine.StructuredDefect as Defect
 
 data CoverBase : Type₀ where
   context : PM.Ctx → CoverBase
-  overlap : (observable : PM.Obs)
+  incidencePath : (observable : PM.Obs)
     → context (fst (PM.pmContexts observable))
       ≡ context (snd (PM.pmContexts observable))
 
@@ -50,13 +50,13 @@ overlapPath PM.ZZ = ua Defect.notEquiv
 
 ObstructionSheet : CoverBase → Type₀
 ObstructionSheet (context c) = Bool
-ObstructionSheet (overlap observable i) = overlapPath observable i
+ObstructionSheet (incidencePath observable i) = overlapPath observable i
 
 -- Eight overlaps preserve the sheet; ZZ exchanges it.
-xi-transport : subst ObstructionSheet (overlap PM.XI) true ≡ true
+xi-transport : subst ObstructionSheet (incidencePath PM.XI) true ≡ true
 xi-transport = refl
 
-zz-transport : subst ObstructionSheet (overlap PM.ZZ) true ≡ false
+zz-transport : subst ObstructionSheet (incidencePath PM.ZZ) true ≡ false
 zz-transport = refl
 
 ------------------------------------------------------------------------
@@ -66,12 +66,12 @@ zz-transport = refl
 -- R0 -XI- C0 -IY- R1 -YI- C1 -YX- R2 -ZZ- C2 -XX- R0.
 coverCycle : context PM.R0 ≡ context PM.R0
 coverCycle =
-    overlap PM.XI
-  ∙ sym (overlap PM.IY)
-  ∙ overlap PM.YI
-  ∙ sym (overlap PM.YX)
-  ∙ overlap PM.ZZ
-  ∙ sym (overlap PM.XX)
+    incidencePath PM.XI
+  ∙ sym (incidencePath PM.IY)
+  ∙ incidencePath PM.YI
+  ∙ sym (incidencePath PM.YX)
+  ∙ incidencePath PM.ZZ
+  ∙ sym (incidencePath PM.XX)
 
 cycle-carries-true-to-false :
   subst ObstructionSheet coverCycle true ≡ false
