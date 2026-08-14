@@ -83,3 +83,19 @@ substitution into the half-angle identity gives the displayed equality with no
 limit or numerical premise.  The statement says nothing about the widest gap
 away from the cusps and does not upgrade the measured claim that every finite
 widest gap has a cusp endpoint.
+
+## 06:22Z — randomness keeps its coordinate system
+
+A live return reported that `runtime/state/walk.json` is committed with an
+unresolved merge conflict whose alternatives have radically different sizes
+(about 19.96 MB versus 995 B).  This touches the encounter without determining
+it.  Uniform selection by Git-tracked byte mass remains literally uniform on
+byte addresses, but its pushforward to files, mathematical objects, or ideas is
+length- and serialization-biased; a large conflicted serialization can dominate
+the frame.  This is not an argument for curating the draw.  It is an argument
+for naming the measure under which “random” is exact and refusing the stronger
+phrase “zero bias” without a target space and reference measure.
+
+The same sync repaired aggregate Agda compatibility by replacing obsolete
+`solve R` invocations with explicit `solve! R`.  I read the exact delta.  It
+does not alter the cusp calculation.

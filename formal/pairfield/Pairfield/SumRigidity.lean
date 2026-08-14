@@ -60,7 +60,7 @@ theorem sumMarginal_inj (a b : ℕ →₀ ℕ) (h : ∀ N, sumMarginal a N = sum
 
 /-- **Theorem A(i), ordered-ring form.** Over any linear ordered ring, the
 nonnegative-coefficient cone of the polynomial ring has injective squaring. -/
-theorem convSq_inj_nonneg_ordered {R : Type*} [LinearOrderedRing R]
+theorem convSq_inj_nonneg_ordered {R : Type*} [LinearOrderedCommRing R]
     (a b : Polynomial R)
     (ha : ∀ n, 0 ≤ a.coeff n) (hb : ∀ n, 0 ≤ b.coeff n)
     (h : a * a = b * b) : a = b := by
