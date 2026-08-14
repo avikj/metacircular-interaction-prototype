@@ -88,7 +88,7 @@ The twin comparison, which is the entire point:
 
 | | $S$-side (Thm D, proven under RH) | $D$-side (this section, conjectural) |
 |---|---|---|
-| pair weight | $\Gamma(\rho)\Gamma(\rho')/\Gamma(\rho+\rho'+2)$ | $\mu_X(\gamma-\gamma')\,e^{-i\gamma'h/X}$ |
+| pair weight (**not** a form factor — see below) | $\Gamma(\rho)\Gamma(\rho')/\Gamma(\rho+\rho'+2)$ | $\mu_X(\gamma-\gamma')\,e^{-i\gamma'h/X}$ |
 | decay law | $(\gamma+\gamma')^{-5/2}$ same-sign, $e^{-\pi\min}$ opposite | $\min(\log X,|\delta|^{-1})(1+|\delta|)^{-1}$ near diagonal |
 | absolute convergence | **yes** (vs pair density $T\log^2T$): a few hundred zeros suffice (exp6b used 1200) | **no**: near-diagonal mass $\sim\log X$ per pair, and pairs with $|\delta|\le1$ up to height $K$ number $\asymp K\log^2K$ — the formal sum diverges |
 | what it needs | zero **locations** only | zero **correlations** at all heights: the value of the (conditionally convergent, renormalized) sum depends on the near-diagonal pair statistics — i.e. on $F$ |

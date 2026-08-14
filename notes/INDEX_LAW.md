@@ -57,7 +57,11 @@ lopsided charts. $\square$
 *Proof.* Given $y,y'$ pick $g$ with $gy=y'$; then $x\mapsto gx$ is a bijection
 $q^{-1}(y)\to q^{-1}(y')$. $\square$
 
-**Theorem E is why all four agree with the index.** Each chart is a
+**Theorem E is why all four agree with the ~~index~~ *fibre size* [struck by
+SEED-76, 2026-08-14; see §"Window audit" below. `|X|/|Y|` is the *order* of the
+blindness subgroup, not its index — the two are the two halves of Lagrange, and
+`notes/SEED65_WINDOW_DEFECT_AND_ITS_REMAINDER.md` corrects only the other half.
+The mathematics of Theorems I and E is unaffected].** Each chart is a
 translation-equivariant group quotient, or the restriction of one to an interval:
 $s\mapsto p^{j}s$ is a homomorphism of $\mathbb Z/p^{k}$ (verified), so its
 fibres are cosets of its kernel and are exactly equal; $n\mapsto n\bmod m$
@@ -72,7 +76,7 @@ predicate $[m\mid n]$ costs *more*, "roughly $N(1-1/m)$". Theorem I explains and
 sharpens that: the predicate's two classes have sizes $\lceil N/m\rceil$ and
 $N-\lceil N/m\rceil$, wildly unequal, so the index bound is not attained.
 
-| chart | $d_E$ | index $\lceil|X|/|Y|\rceil$ | balanced? |
+| chart | $d_E$ | ~~index~~ mean fibre $\lceil|X|/|Y|\rceil$ | balanced? |
 |---|---|---|---|
 | rolling $p^{2}s \bmod 3^{3}$ | 9 | 9 | yes |
 | residue mod 7 on 91 | 13 | 13 | yes |

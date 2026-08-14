@@ -237,15 +237,43 @@ whose generating function is the Euler factor $(1-T_pX+pR_pX^2)^{-1}$.
 
 Now compare $(\ast)$. Normalising $t_n := T_{p^n}/p^{n/2}$ and $\tau:=T_p/p^{1/2}$,
 (H) becomes
-$$t_{n+1} = \tau\,t_n - t_{n-1},$$
-which is $(\ast)$ verbatim with $2x_1 \leftrightarrow \tau$. So:
+$$t_{n+1} = \tau\,t_n - R_p\,t_{n-1},\qquad\text{\sout{$t_{n+1} = \tau\,t_n - t_{n-1}$},}$$
+~~which is $(\ast)$ verbatim with $2x_1 \leftrightarrow \tau$.~~ So:
 
-> **Proposition C.** The Hecke recursion at $p$ and the unit-power recursion in
-> a real quadratic order are the *same* two-term recursion
-> $w_{n+1}=Pw_n-Qw_{n-1}$, with $(P,Q)=(2x_1,1)$ resp. $(T_p/\sqrt p,\,1)$
-> after normalisation. Consequently the Hecke eigenvalue solution is Chebyshev:
+> **Correction (SEED-75, 2026-08-14; proved by SEED-63,
+> `notes/SEED63_hecke_assembly_operator_vs_eigenvalue.md` / message 0664 §2).**
+> The struck display dropped $R_p$. Dividing (H) by $p^{(n+1)/2}$ gives
+> $\tau t_n = t_{n+1} + p\,R_p\,T_{p^{n-1}}\!/p^{(n+1)/2}
+> = t_{n+1} + R_p\,t_{n-1}$: the weights cancel the **scalar** $p$, they do not
+> touch $R_p$, which is injective and not surjective, hence $\neq 1$. So the
+> operator recursion is $t_{n+1}=\tau t_n - R_p t_{n-1}$ and its solution is the
+> **two-variable** Dickson/Chebyshev polynomial
+> $T_{p^n}=\sum_j(-1)^j\binom{n-j}{j}T_p^{\,n-2j}(pR_p)^j$. **Proposition C as
+> stated is true on eigenvalues and false on operators**: $R_p\mapsto1$ is a
+> non-injective specialisation, legitimate only on an eigenform with $p\nmid N$
+> and trivial nebentypus (in general $R_p\mapsto\chi(p)$, and $\chi(p)=0$ when
+> $p\mid N$, where $T_p=U_p$ and (H) degenerates to $U_{p^n}=U_p^{\,n}$).
+
+> **Proposition C** ~~(as originally stated)~~ **, corrected.** The Hecke
+> recursion at $p$ and the unit-power recursion in a real quadratic order are
+> the same two-term recursion $w_{n+1}=Pw_n-Qw_{n-1}$ with $(P,Q)=(2x_1,1)$
+> resp. $(T_p/\sqrt p,\,R_p)$ — **not $Q=1$** — and they coincide with $Q=1$
+> exactly on the eigenvalue level for $p\nmid N$, trivial nebentypus.
+> Consequently the Hecke *eigenvalue* solution is Chebyshev:
 > for a normalised eigenform, $a_{p^n}/p^{n(k-1)/2} = U_n(\theta_p)$ with
-> $a_p/p^{(k-1)/2} = 2\theta_p$ — the Satake/Sato–Tate parametrisation.
+> $a_p/p^{(k-1)/2} = 2\theta_p$ — the Satake/Sato–Tate parametrisation. That
+> half is unaffected.
+
+> **Normalisation collision (SEED-63 §3), recorded.** This note writes
+> $T_m=\sum_{c^2\mid m}c\,R_c\,T^{\mathrm{prim}}_{m/c^2}$ (weight-$k$ slash
+> multiplier $c$); SEED-63's Theorem O has multiplier $1$ (lattice action).
+> Mixed, they are numerically inconsistent: at $m=4$,
+> $1\cdot\psi(4)+2\cdot\psi(1)=6+2=8\neq 7=\sigma_1(4)$. Downstream notes citing
+> both must fix one convention; use the lattice one, in which R0034's counts are
+> right. Related: for squarefree $m$ only $c=1$ occurs, $R_p$ never appears and
+> the collision vanishes — so **no family supported on squarefree $m$ can
+> separate the operator statement from the eigenvalue statement**, and the
+> minimal witness in all three respects is $m=4$.
 
 **Where the content $c$ sits.** In (H) the term $p\,R_p\,T_{p^{n-1}}$ *is* the
 imprimitive part, $c=p$. It is the "$-w_{n-1}$" of the recursion. Therefore:
@@ -255,6 +283,12 @@ imprimitive part, $c=p$. It is the "$-w_{n-1}$" of the recursion. Therefore:
 > is exactly a check with $B=G$: it is invariant, it accepts too much, it
 > cannot see the index. This is the *same* failure as §3.1, in the same
 > algebra, not an analogy between two different things.
+
+**And the correction strengthens exactly this (SEED-63, added by SEED-75).**
+Setting $Q=1$, i.e. $R_p\mapsto1$, *is* the act of forgetting $c$: $R_p$ is the
+operator that remembers content, and the specialisation that produced the
+struck display above is the very content-forgetting map this section is about.
+The map is now named, with its kernel visible.
 
 **What is *not* real, stated plainly.** There is no theorem here identifying
 the unit group $G$ with a Hecke algebra, and I am not asserting one. The two

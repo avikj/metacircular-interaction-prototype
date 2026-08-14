@@ -22,9 +22,25 @@ by the core's inability to feel $\beta$ at all, not by extra states. §5 states
 this carefully, and generalizes it to every intermediate core, including the
 $\mathbb Z/2$ parity core of `PARITY.md` §2.2.)
 
-All small algebraic identities below were verified by hand and, independently,
-machine-checked in the representation on $\ell^2(\mathbb Z)$
-(`scratchpad/check_core.py`, all checks pass on the window $|k|\le2000$).
+All small algebraic identities below are verified by hand, in the text, from
+(Q1)–(Q3); the representation on $\ell^2(\mathbb Z)$ ($u=$ bilateral shift,
+$s_n\delta_k=\delta_{nk}$) is used only for intuition.
+
+> **Missing-artifact note (SEED-77, 2026-08-14; audit SEED-69,
+> `notes/SEED69_EVIDENCE_DISCIPLINE.md` §B.5).** Earlier versions of this note
+> claimed these identities were "independently machine-checked" in that
+> representation by `scratchpad/check_core.py`, "all checks pass on the window
+> $|k|\le2000$". **No such file exists in this repository, and neither does the
+> directory `scratchpad/`;** the only mentions of that path anywhere in the tree
+> were the eight citations in this note. The citations are therefore recorded as
+> a hole rather than deleted silently. **No claim in this note depends on them:**
+> each site is checked below, and at every one the identity is derived in the
+> surrounding text from (Q1)–(Q3) and Lemmas 1.1–1.6, with the $\ell^2$ picture
+> appearing as an illustration of an already-completed proof. A finite-window
+> numerical check of an exact algebraic identity would in any case be forbidden
+> by `CLAUDE.md`, and "$|k|\le2000$" is a number quoted without its
+> scale-dependence (`HOLOGRAM.md` §7) — harmless here only because the proofs
+> are present, which is the evidence that the artifact was never load-bearing.
 
 ---
 
@@ -147,7 +163,9 @@ $\square$
 $e_3=e_6+u^3e_6u^{-3}$; the only pair of translates $2i\equiv3j\pmod 6$ with
 $2i,3j<6$ is $(0,0)$; so $e_2e_3=e_6$. On $\ell^2(\mathbb Z)$
 ($u=$ shift, $s_n\delta_k=\delta_{nk}$): $1_{2\mathbb Z}1_{3\mathbb Z}
-=1_{6\mathbb Z}$. ✓ (machine-checked).
+=1_{6\mathbb Z}$. ✓ [Formerly "(machine-checked)": the cited artifact
+`scratchpad/check_core.py` does not exist in this repository; the identity is
+the hand check just given, together with Lemma 1.4, and does not depend on it.]
 
 **Lemma 1.5 (CRT).** $(u^ae_nu^{-a})(u^be_mu^{-b})=u^ce_lu^{-c}$ if
 $d:=\gcd(m,n)$ divides $a-b$, where $c$ solves $c\equiv a\ (n)$,
@@ -160,7 +178,9 @@ $c$ is unique mod $l$. $\square$
 
 *Hand check*: $x\equiv0\ (2)$, $x\equiv1\ (3)$ $\Rightarrow x\equiv4\ (6)$:
 $e_2\,(ue_3u^{-1})=u^4e_6u^{-4}$; and $e_2(ue_4u^{-1})=0$ since
-$\gcd(2,4)=2\nmid1$. ✓ (machine-checked).
+$\gcd(2,4)=2\nmid1$. ✓ [Formerly "(machine-checked)": the cited artifact
+`scratchpad/check_core.py` does not exist in this repository; both cases are
+instances of Lemma 1.5, proved above, and do not depend on it.]
 
 **Lemma 1.6 (normal ordering).** Let $d=\gcd(m,n)$. If $d\nmid a$ then
 $s_n^*u^as_m=0$. If $d\mid a$, choose $\beta\in\mathbb Z$ with
@@ -192,8 +212,12 @@ claim $s_2^*us_3=u^{-1}s_3s_2^*u$. On $\ell^2(\mathbb Z)$, for $k=2j+1$ odd both
 sides send $\delta_k\mapsto\delta_{3j+2}$, and both kill even $k$:
 LHS $\delta_k=s_2^*\delta_{3k+1}=\delta_{(3k+1)/2}$ iff $2\mid 3k+1$ iff $k$
 odd; RHS $\delta_k=u^{-1}s_3s_2^*\delta_{k+1}=u^{-1}\delta_{3(k+1)/2}
-=\delta_{(3k+1)/2}$, same parity condition. ✓ Also machine-checked, together
-with $n=4,m=6,a=2$ and the zero case $s_2^*us_2=0$.
+=\delta_{(3k+1)/2}$, same parity condition. ✓ [Formerly "Also machine-checked,
+together with $n=4,m=6,a=2$ and the zero case $s_2^*us_2=0$": the cited artifact
+`scratchpad/check_core.py` does not exist in this repository. Lemma 1.6 is
+proved above for all $(n,m,a)$, the two extra cases included, so nothing here
+depends on the missing check; the $\ell^2$ computation displayed is complete as
+written.]
 
 **Lemma 1.7 (spanning).** $\mathcal M:=\operatorname{span}
 \{u^as_ms_n^*u^b: a,b\in\mathbb Z,\ m,n\ge1\}$ is a dense unital
@@ -278,8 +302,11 @@ $B_M:=\overline{\operatorname{span}}\{u^ae_Mu^b\}$. Setting
 $v=u$, $p_j=p^{(M)}_j$, one gets matrix units $E_{ij}=u^ie_Mu^{-j}$
 ($0\le i,j<M$): indeed $E_{ij}E_{kl}=u^i e_M u^{k-j}e_M u^{-l}$ and
 $e_Mu^re_M=\delta_{M\mid r}u^re_M$ (Lemmas 1.1–1.2), so
-$E_{ij}E_{kl}=\delta_{jk}E_{il}$ and $\sum_iE_{ii}=1$ (machine-checked at
-$M=3$). The corner unitary $z=e_Mu^Me_M=u^Me_M$ generates the relative
+$E_{ij}E_{kl}=\delta_{jk}E_{il}$ and $\sum_iE_{ii}=1$ [formerly
+"(machine-checked at $M=3$)": the cited artifact `scratchpad/check_core.py`
+does not exist in this repository; the matrix-unit relations are derived in the
+preceding sentence from Lemmas 1.1–1.2 for every $M$, and (Q3) gives
+$\sum_iE_{ii}=1$, so the claim does not depend on the missing check]. The corner unitary $z=e_Mu^Me_M=u^Me_M$ generates the relative
 commutant $C^*(z)\cong C(\mathbb T)$ ($z$ acts on
 $\ell^2(M\mathbb Z)$ as a bilateral shift, so its spectrum is all of
 $\mathbb T$, and the composite $M_M(C(\mathbb T))\to B_M\subset
@@ -290,7 +317,10 @@ limit, with the additive modulus $M$ (not the multiplicative scale $n$) as the
 filtration parameter. Finally, conjugation by the scale isometries does **not**
 enlarge the core: by (Q2) and Lemma 1.3,
 $$s_n\,(u^ae_Nu^b)\,s_n^*=u^{na}\,e_{nN}\,u^{nb}\in B_{nN}\subset Q^0,$$
-(machine-checked for $n=2$, $N=3$), so the maps $x\mapsto s_nxs_n^*$ are corner
+[formerly "(machine-checked for $n=2$, $N=3$)": the cited artifact
+`scratchpad/check_core.py` does not exist in this repository; the displayed
+identity is (Q2) plus Lemma 1.3 for all $n,N$, so the claim does not depend on
+it], so the maps $x\mapsto s_nxs_n^*$ are corner
 endomorphisms of $Q^0$ (range the corner $e_nQ^0e_n$) and the "inductive limit
 over scales of copies of $B$" collapses into the single Bunce–Deddens algebra.
 $\blacksquare$

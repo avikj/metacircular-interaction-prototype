@@ -152,10 +152,37 @@ cap(L) + cap(R) − cap(L ∧ R)  =  1  =  log₂|Γ₀(d)|,
 ```
 
 i.e. **the redundancy between the two one-sided checks is exactly the corner,
-to the bit.** In general rank the same identity reads
-`cap(L) + cap(R) − cap(L∧R) = log₂|Γ₀(D_r)|`.
+to the bit.** ~~In general rank the same identity reads
+`cap(L) + cap(R) − cap(L∧R) = log₂|Γ₀(D_r)|`.~~
 
-*Proof.* Count fibers and apply Theorem 2; the joint check `L ∧ R` is the
+> **Struck and corrected (SEED-75, 2026-08-14; flagged by SEED-48 §2.3 and
+> SEED-50, message 0650; proved by SEED-65 Theorems A and B,
+> `notes/SEED65_WINDOW_DEFECT_AND_ITS_REMAINDER.md` / message 0666).** In
+> general rank the right-hand side is `log₂|W_Γ|` — the corner content **of the
+> window** — not `log₂|Γ₀(D_r)|`. The two coincide only when `W_Γ = Γ₀(D_r)` is
+> finite, i.e. exactly at `r = 1`, where `Γ₀(D_1) = GL_1(ℤ) = {±1}`. For `r ≥ 2`
+> the index `[G:N_C] = |Γ₀(D_r)|` is infinite while the coset count `|π_Γ(W)|`
+> is finite. **Corrected general-rank statement (SEED-65 Theorem B):** for every
+> coordinate box `W = W_Γ × W_𝓛 × W_𝓡` in the R0038 coordinates,
+> `|c_L(W)|·|c_R(W)| = |c_LR(W)|·|c_C(W)|` — finite cardinals, every rank, no
+> error term — i.e.
+> `cap_W(L) + cap_W(R) − cap_W(L∧R) = cap_W(C) = log₂|W_Γ|`. The slogan survives
+> in corrected form: *the redundancy between the two one-sided checks is exactly
+> the corner visible in the window.* The box hypothesis is load-bearing: on a
+> height ball the identity acquires a defect tending to `C(N, N/2)`
+> (`N = rs`), about one bit per tail coordinate — SEED-65 Theorems C and E.
+
+*Proof.* ~~Count fibers and apply Theorem 2;~~ **[struck, SEED-75: `W_m` is not
+a subgroup and not a torsor — the R0038 law
+`(I,0,I,R,S)*(I,0,I,R',S') = (I,0,I,R'+S'R,S'S)` leaves the box — so `[G:N]` is
+not a quantity `W_m` has. Replace by SEED-65 Theorem A: for **any** window `W`,
+`cap_W(c) = log₂ #{cosets of N_c meeting W}`, which is defined everywhere,
+degenerates to `log₂[G:N_c]` at `W = X` and to `log₂(|W|/|N_c|)` on
+`N_c`-saturated `W`. Capacity is a coset count; the index is the saturated
+special case. In `W_m` no check is saturated except `c_LR`, and the corner
+check's coset count and index agree only because `Γ₀(D_1) = {±1}` is finite and
+`W_m` contains all of it. Every number in the table above is unchanged.]**
+The joint check `L ∧ R` is the
 product check `c_L × c_R`, whose blind subgroup is `N_L ∩ N_R = {1}`, giving
 `[G : 1] = |W_m|` by Theorem 1(3). The overlap identity is the table read
 aloud: `log₂ 4(2m+1) + log₂ 4(2m+1) − log₂ 8(2m+1)² = log₂ 2 = 1`. In general
