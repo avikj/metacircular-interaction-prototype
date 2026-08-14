@@ -1,5 +1,5 @@
 {
-  "head": "cf3c24c5ccb5f04f3ebb57e93a730013132f0576",
+  "head": "675b576f021242a4be7731f74a21f3f9fae87781",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -32,8 +32,24 @@
     "collab/messages/0026-fleet-graphon-lens-regularity-landed.md": "d48cb531bab207b1084b273b7eab23ba30e5dca13e66237287f06adaaf90cba0",
     "collab/messages/0027-fleet-buchladder-depth-mirror-landed.md": "78f640719898eecf6a360554605826350f5dcf9b9372cda692e12c5f4f7b50e4",
     "collab/messages/0028-cf-review-lens-circuit.md": "e75cc8ffa3b6ecb1196459d5d3a47110432b47722189c1b1bd49f82c9356c5ef",
-    "collab/messages/0029-cf-review-lens-regularity.md": "3bae547605ed15ad9048dbd69e4fc04d6a6b005b3548582f4e6fe401589d17e9"
+    "collab/messages/0029-cf-review-lens-regularity.md": "3bae547605ed15ad9048dbd69e4fc04d6a6b005b3548582f4e6fe401589d17e9",
+    "collab/messages/0030-cf-review-buchstab-ladder.md": "35639e4f8370d23733ae73fb2755c2a05cce7792aa84cc67f9f0e98b1774ea72",
+    "collab/messages/0031-fleet-lp2-negativity-landscape.md": "08db4e52c3a9041e3756fe7edf346b0e31a5723b85e7e198950a79ac61133f15",
+    "collab/messages/0032-cf-status-wave4-integrated.md": "97ee67c487cb82e1f08ffe5e0b8d7db64564bdc960ccf52fff6802135e41ccc9",
+    "collab/messages/0033-codex-projection-cubical-octic-quarantine.md": "cb8912eb2c7591ad2fe6bbc8fcfd30af880fec1a8fa3497d1b80bfb6ffbcc33f",
+    "collab/messages/0034-cf-lpcert-stash-notice.md": "8aa7fc3afcacd3c86656877711bc03f31687ae25f62ef55019270a75f6a1806c",
+    "collab/messages/0035-cf-mathos-adoption-r0003.md": "7be25185b18d80466bb35d3cdb630d39a36b4b19e4dbac635c80f77f24523c1c",
+    "collab/messages/0036-cf-ack-quarantine-convergence.md": "a4e830e9ececdce03bf31b7e08f9e5541a329128d2948ebfd0cb5e783bc28d53",
+    "collab/messages/0037-cf-theorem-k-landed-r0004.md": "cd0a33e079a22e741bdd825e85ee17ae586831db6ec8c30fb3859bfc0eed74eb",
+    "collab/messages/0038-cf-review-codex-cubical-leakage.md": "ca5ef66975ddcc04a0b35ea55b071c33c771b9b11e1a723f5886dadf62c98fda",
+    "collab/messages/0039-cf-ci-fix-bound-contract.md": "2d0eef69187eb9a2146f006ca725328aa604e1fc7ba9357e8884067955aa31d5",
+    "collab/messages/0039-weaver-integration-landed.md": "b96e17e3edf9c22f08248cf2597824faa31d77b7bd06d0e06e0e8ea62860decb",
+    "collab/messages/0040-cf-chaitin-lens-r0007.md": "682bdb71fdebf3c2ba8d7c82d50125ddc8cf5bdef228d335a706073fb7926a7d",
+    "collab/messages/0042-cf-forest-simplification.md": "6571b25e6de083d82e9a4ae0fcc73b16d882787b0703bb76d3d45673f4089342",
+    "collab/messages/0043-cf-direct-structure-turn.md": "d21ef8f9a4f3e32ca15279e0c8f0f4a7b8240550f625be2e76d35063a0fb9882",
+    "collab/messages/0044-fleet-chaitin-proof-mass.md": "bd02999417f34f9db8ef60ae50fa93d1a280439b777dfeacf4c437524c3033d5",
+    "collab/messages/0045-codex-nonic-integration.md": "d81578609de22570c1004ecc2cac66e10733624ecbf3c086a1395ebab17a0ee7"
   },
-  "response_hash": "d311f43e9c7e49feb4f35ee8e4bc82d43aaea6d1c0a7a05af2b61a1cac98b4e5",
-  "source_index": 2
+  "response_hash": "6ce2acf6efdf647365207e003f14f91ec1c3562b31c47a337fd659e3bd8db679",
+  "source_index": 3
 }
