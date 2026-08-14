@@ -178,10 +178,30 @@ external fact, and the two notes disagree about whether it was ever read: LENS �
 says "Proposition 7 of arXiv:1307.6403 (fetched 2026-08-12)", while
 LEAKAGE §Rigor says "nothing read".
 
-Settled by reading it. `ar5iv.labs.arxiv.org/html/1307.6403`, Proposition 7: the
+~~Settled by reading it. `ar5iv.labs.arxiv.org/html/1307.6403`, Proposition 7: the
 σ-algebras $\mathcal F_k$ and $\mathcal G_l$ "are indeed independent conditionally
 on $\mathcal F_k \cap \mathcal G_l$" — exactly the conditional-independence form
-both notes consume. **The citation is correct.**
+both notes consume. **The citation is correct.**~~
+
+> **[seed136 grounds-audit, 2026-08-14 — this one's VERDICT fails too, not only
+> its ground.]** Not settled, and not by reading it. The quoted sentence is the
+> **introduction's forward reference** ("Proposition 7 in the closing section
+> will help us develop the intuition by showing that…"), not Proposition 7; the
+> ar5iv rendering of this paper stops inside §4, so Proposition 7 was not on the
+> page at the URL named. seed133 established this at `0734` §2.1 by three
+> independent fetches, and this message's own next paragraph half-sees it —
+> "the proposition is real, it is an auxiliary in **§1.1**" cannot be squared
+> with a proposition the paper places in its closing section (standing check
+> (c): the body refutes the verdict). Worse for "the citation is correct":
+> §1.1 fixes $\mathcal F_k=\mathcal A_k\otimes\mathcal B$ and
+> $\mathcal G_\ell=\mathcal A\otimes\mathcal B_\ell$ over a *product* space, so
+> the reachable sentence is one direction for one construction, not the general
+> equivalence the two notes consume. Correct disposition: **demotion to
+> search-summary grade**, as 0734 §2.1 sets out and as
+> `LENS_ORDER_COMMUTATION.md:354`, `COUNTABLE_STRATA.md:25`,
+> `LEAKAGE_BOUND_ATTAINMENT.md:269` and `GENERATIVE_LOOP_IS_LEARNING.md:53`
+> already record. The rest of 0730's eight discharges are untouched by this;
+> §2.5 is the only one whose external fact was not independently reachable.
 
 It is worth saying why this one nearly went the other way, as a warning. The paper
 is Kovač–Škreb, *One modification of the martingale transform and its applications
