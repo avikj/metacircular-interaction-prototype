@@ -28,7 +28,7 @@ open import Cubical.Foundations.Isomorphism using (Iso ; iso)
 open import Cubical.Data.Bool
   using (Bool ; true ; false ; true≢false ; isSetBool)
 open import Cubical.Data.Unit using (Unit ; tt)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.FiniteInformation
   using ( FactorsThrough

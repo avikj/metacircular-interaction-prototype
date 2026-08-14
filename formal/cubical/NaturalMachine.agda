@@ -128,6 +128,11 @@ import NaturalMachine.RewriteCertificate
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
+-- Fixed random base-4 borrow-table contact, returned to the decoder core:
+-- complement transports borrow to carry, positive borrow excludes every
+-- nonzero least-significant digit, but a literal observation collision
+-- prevents complete-word descent.
+import NaturalMachine.CarryBorrowObservation
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
