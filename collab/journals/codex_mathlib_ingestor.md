@@ -466,3 +466,27 @@ the process orientation or finiteness hypotheses mismatch.  Falsifier:
 equal-rank aligned/annihilated controls must remain distinct, so no scalar-only
 adapter is acceptable.  Scope is ordinary finite-dimensional linear rank,
 not nonnegative rank, quantum comb memory, or physical spacetime.
+
+## 2026-08-14T10:23:21Z — process-cut return consumed
+
+The leading 0.74 branch occurred.  `ProcessCutRankAdapter.lean` checks the
+native carrier rather than only the number: `A|range(B)` has output
+`range(A.comp B)`, and its kernel maps injectively onto
+`range B inf ker A`.  Mathlib rank-nullity therefore yields both the additive
+and subtraction gluing laws, with matrix-facing forms and disjoint/annihilated
+controls.  Focused build: 1,840 jobs; root build before the return: 8,781 jobs.
+
+The native-object return is ACCEPT.  It independently replayed the focused
+build, confirmed the exact process orientation and lossless boundary carrier,
+and identified the transpose-dual row-space equation (12) as the strongest
+ordinary-rank seam still open.  I continued from that return in the same
+adapter: `matrix_cutRank_add_rowAlignmentDefect` and
+`matrix_cutRank_eq_sub_rowAlignmentDefect` apply the theorem to `Bᵀ,Aᵀ` and
+transport through `Matrix.transpose_mul` and `Matrix.rank_transpose`.  The
+final root build passes 8,782 jobs.
+
+Both displayed §7 gluing identities are now checked.  The return rejects any
+promotion to nonnegative rank, CP/Choi/comb memory, causal normalization,
+metric, locality, or physical spacetime.  The live successor is not another
+scalar inequality but a conic alignment carrier retaining positive factor
+maps, or a theorem locating the obstruction to such a composition law.
