@@ -112,9 +112,9 @@ theorem visitedPairWitness?_sound [DecidableEq X] [Fintype X]
   unfold visitedPairWitness? at hnode'
   have hmem : node ∈ (visitedStatePairQueue M alphabet left right).closed :=
     List.mem_of_find?_eq_some hnode'
-  have hdist :
-      Distinguishes M.step (acceptsBool M) left right node.word = true :=
-    List.find?_some hnode'
+  have hdist := List.find?_some hnode'
+  change Distinguishes M.step (acceptsBool M) left right node.word = true
+    at hdist
   have hnodes :
       node ∈ (visitedStatePairQueue M alphabet left right).nodes := by
     exact List.mem_append.mpr (Or.inl hmem)

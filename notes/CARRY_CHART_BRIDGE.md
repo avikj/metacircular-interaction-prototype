@@ -144,8 +144,8 @@ into the type `LevelWord (suc n)`.  The stagewise map
 called a tower morphism.  Doing so would reinstate the already checked false
 translation `normalizeMSD-not-iterable`.
 
-The first exact compatibility locus is now checked as well.  If the retained
-top digit is nonzero, then `toWord w` is already canonical and
+The exact compatibility locus is now checked as well.  If the retained top
+digit is nonzero, then `toWord w` is already canonical and
 
 \[
  \operatorname{normalizeMSD}(\operatorname{canonicalize}(w))
@@ -158,9 +158,30 @@ This is `canonicalize-drop-natural`; its premise is used to identify
 At binary width three, the fixed word `[1,0,0]` canonicalizes to `[1]` before
 the transition; normalized deletion therefore produces `[]`, while deleting
 the fixed top place first leaves `[1,0]`, whose canonicalization is `[1]`.
-`canonicalize-not-a-tower-map` checks the resulting universal no-go.  This
-proves a positive locus and a sharp warning; it does not yet classify every
-zero-top word for which the square happens to commute.
+`canonicalize-not-a-tower-map` checks the resulting universal no-go.
+
+The zero-top remainder is not left empirical.  `π-value-strict` proves that
+deleting the MSD of every nonempty canonical word strictly lowers its value;
+hence `normalizeMSD-fixed-zero` says that the only canonical fixed point of
+normalized deletion represents zero.  It follows that, for every fixed-width
+word `w`, the square commutes exactly on
+
+\[
+ \boxed{
+  \bigl(0<\operatorname{top}(w)\bigr)
+  \ \lor\
+  \bigl(\operatorname{levelValue}(\operatorname{dropMSD}(w))=0\bigr).}
+\]
+
+The two directions are
+`locus→canonicalize-drop-natural` and
+`canonicalize-drop-natural→locus`.  In particular, on the zero-top stratum
+the retained lower value must be zero and that condition is sufficient.  The
+lower fixed-width word need not be literally empty: its leading zero places
+remain real level data even though all of its digits evaluate to zero.  Binary
+`[0,0,0]` is the checked exceptional positive control, while `[1,0,0]` lies
+outside the locus.  Thus the theorem classifies stagewise compatibility
+without reviving a global tower morphism.
 
 ## What changed
 
