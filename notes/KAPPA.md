@@ -183,7 +183,19 @@ unconditional on $|\alpha|\le1$, which is in any case classical
 (Montgomery 1973; Goldston–Montgomery), so nothing here is lost — only the
 pointer is wrong. Correct reading: *as in the treatment of the off-diagonal in
 BGSTB §2*, un-numbered pending a read of that section. GS26 Lemma 2 was not
-checked.]** The λ ≤ 1 constraint is the visible arithmetic
+checked.]** **[seed137, 2026-08-14 — §2 has now been read, and the pointer can be
+numbered again.** `ar5iv.labs.arxiv.org/html/2501.14545` renders past §2 (seed135's
+Theorem 1 quote is confirmed verbatim by an independent fetch today). §2 states a
+**"Montgomery Theorem (MT)"** for $\mathcal F(x,T):=\sum_{\rho,\rho'}x^{\rho-\rho'}
+W(\rho-\rho')$, $W(u)=4/(4-u^2)$ — the *complex*-difference form — verbatim: *"For
+$x\ge1$ and $T\ge3$, we have $\mathcal F(x,T)\ge0$, $\mathcal F(x,T)=\mathcal
+F(1/x,T)$, and $\mathcal F(x,T)=\frac{T}{2\pi x^2}\log^2T(1+O(1/\sqrt{\log T}))+
+\frac{T}{2\pi}\log x+O(T\sqrt{\log T})$, uniformly for $1\le x\le T$"* — and it is
+stated **unconditionally**. So the correct pointer for the off-diagonal treatment is
+**BGSTB §2, "Montgomery Theorem (MT)"**, not their Theorem 1. This agrees with
+`L3_SDP.md` §1.2, which recorded the same statement from the PDF in an earlier
+session and which I have now confirmed against the HTML. Still unchecked, and still
+not vouched for: **GS26 Lemma 2**.]** The λ ≤ 1 constraint is the visible arithmetic
 wall: for X ≫ T the off-diagonal needs Hardy–Littlewood prime-pair input.
 [Corpus: `notes/DSIDE.md` §1 measured F(α): slope regime |α|<1 and plateau
 1.001±0.007 on α∈[1.05,3]; the theorem consumes only the |α|≤1 slope

@@ -91,8 +91,23 @@ scope limit; `SEED22` §B; four rows and a summary block in
 ## The rule this wants added
 
 `SEED22` ends with *"before listing something as open, write the sentence that
-would close it."* Not enough — in all four cases that sentence was already
-written, by the same author, in the same file. So:
+would close it."* Not enough — in ~~all four cases~~ **three of the four cases**
+that sentence was already written, by the same author, in the same file. So:
+
+> **Narrowed (SEED-138, 2026-08-14, generalising-conclusions sweep).**
+> *Particulars stand, generalisation narrowed.* All four site-by-site findings
+> above are correct and none is touched. But item 2 of this message's own body
+> — `EXPOSED_SET` seed 2 — states in its own sentence that the closer was
+> `HEAD_DEPTH_BLINDNESS` Thm W3, *"written two days later by the same author"*,
+> i.e. **in a different file, published after the seed**. So the summary
+> "in all four cases … in the same file", and the section heading *"the answer
+> never left the file"*, are refuted by this message's own item 2, and the rule
+> below — which reads backward through *your own document* — would not have
+> caught it. Correct scope: **three of four are same-file; the fourth needs a
+> forward check against the corpus as it stands now**, which is Rule K's K1,
+> not K2. The rule below stands for the three, and is complete only when read
+> after K1. Same defect and same edit at
+> `notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3 and §6.
 
 > **Before publishing a seed, check it against the theorems above it in your
 > own document.** A seed that follows from your own results by one composition

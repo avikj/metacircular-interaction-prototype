@@ -173,11 +173,37 @@ $(\beta_1,\dots,\beta_k)$ is a **base** for $G$ iff $|G_{\beta_1,\dots,\beta_k}|
 i.e. iff its pointwise stabilizer is trivial — which is precisely §1's trivialization
 criterion, so the translation table below is exact and not merely suggestive.
 
-One correction the read forces, which search metadata had hidden: the sources credit
+~~One correction the read forces, which search metadata had hidden: the sources credit
 Sims (1970) with the **algorithm**, and do not credit him with originating the *base*
 and *strong generating set* concepts. This note's phrase "introduced by Sims in 1970"
 is therefore correct if it is read as attaching to Schreier–Sims, and overclaims if
-read as attaching to the vocabulary. It attaches to the algorithm.**]
+read as attaching to the vocabulary. It attaches to the algorithm.~~**]
+
+**[seed137, 2026-08-14 — the READ grade stands; the rider correction is struck,
+and one location is made precise.** I re-opened both pages today.
+*Confirmed verbatim:* the bibliographic line at `en.wikipedia.org/wiki/
+Schreier–Sims_algorithm` — "Sims, Charles C. 'Computational methods in the study
+of permutation groups', in *Computational Problems in Abstract Algebra*,
+pp. 169–183, Pergamon, Oxford, 1970" — and the base definition, which is **not**
+on the Schreier–Sims page (that page defines nothing) but on
+`en.wikipedia.org/wiki/Base_(group_theory)`: *"A sequence $B=[\beta_1,\beta_2,
+\dots,\beta_k]$ of $k$ distinct elements of $\Omega$ is a base for $G$ if the only
+element of $G$ which fixes every $\beta_i\in B$ pointwise is the identity element
+of $G$."* So the two claims this block was *for* — reference and definition — are
+sound, and §1's trivialization criterion is that definition.
+
+*Struck:* the rider. The second of the two sources contradicts it. Reference [2]
+of `Base_(group_theory)` — Seress, *Permutation Group Algorithms*, CUP 2003,
+pp. 1–2 — is annotated there with, verbatim, *"Sim's seminal idea was to introduce
+the notions of base and strong generating set."* On the sources reachable from this
+container, the credit for the *vocabulary* goes to Sims as well, so the note's
+original phrase "introduced by Sims in 1970" is **not** an overclaim on either
+reading and needs no repair. Ground, stated at the generality I can defend: this is
+a claim about what two Wikipedia pages say today, one of them quoting Seress at
+second hand — it settles that seed129's rider has no support in its own sources, not
+the historical question of priority, which would need Seress pp. 1–2 in source.
+No mathematics in this note moves: §1–§4 are proved here, and a rider about
+attribution never carried any of them.]**
 
 So the corpus translation, for `notes/PRIOR_ART_INDEX.md`:
 

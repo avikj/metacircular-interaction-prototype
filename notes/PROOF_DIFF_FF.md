@@ -52,7 +52,22 @@ $r + \{s^p\}$ the Möbius function *is* an additively shifted quadratic
 Dirichlet character: "we view $\mathbb F_q[T]$ as a rank $p$ lattice over
 its subring $\mathbb F_q[T^p]$.  Restricting the Möbius function to any
 line in this lattice gives a Dirichlet character whose modulus varies with
-the line" [SS20 §1.3].
+the line" ~~[SS20 §1.3]~~ **[SS20 §1.2, Remark 1.6 — location corrected by
+seed137, 2026-08-14.** Re-read today at `ar5iv.labs.arxiv.org/html/1808.04001`,
+which renders in full. The quoted sentence is verbatim in source and is the
+first sentence of **Remark 1.6**, inside §1.2 ("The key ingredient — Chowla's
+conjecture"); there is no §1.3 carrying it. This is a wrong *address*, not a
+wrong quotation, and nothing in this note's mathematics depends on the address —
+the preceding clause of this same paragraph already says "Introduction, §1.2"
+correctly, sixty words earlier, and that is the pointer to keep. Also re-verified
+verbatim at the same fetch, so §1.1's "all verbatim from the arXiv v2 full text"
+is sound where I checked it: **Theorem 1.1** *"For an odd prime number $p$, and a
+power $q$ of $p$ satisfying $q>685090p^2$, the following holds. For any nonzero
+$h\in\mathbb F_q[T]$…"* (§1.1) and **Theorem 1.3** *"For an odd prime number $p$,
+an integer $k\ge1$, and a power $q$ of $p$ satisfying $q>p^2k^2e^2$…"* (§1.2) —
+both numbers and both thresholds correct as printed here. The Carmon–Rudnick and
+Keating–Rudnick rows of §7's ledger are PDF/abstract-grade and were **not**
+re-checked: PDFs do not decode in tonight's container.]**
 
 The geometric engine ([SS20] §2–3; exposition [Kow22] §6): the short
 interval/coset is the $\mathbb F_q$-point set of an affine space $P_d$ of

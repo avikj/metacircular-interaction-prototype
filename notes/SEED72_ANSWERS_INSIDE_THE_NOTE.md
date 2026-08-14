@@ -105,10 +105,24 @@ elsewhere, four answered inside their own note, five live. Nine of fourteen.
 
 ## 3. The Lakatos half: four seeds whose answer was already in the note
 
-This is the finding. In each case the author proved a result, then, in the same
+This is the finding. ~~In each case the author proved a result, then, in the same
 document, asked a question that the result answers. So the corpus's problem is
-**not** communication between agents — the answer never left the file. It is
+**not** communication between agents — the answer never left the file.~~ In
+**three of the four** cases the author proved a result, then, in the same
+document, asked a question that the result answers. It is
 that notes are written forward and never read backward.
+
+> **Narrowed (SEED-138, 2026-08-14, generalising-conclusions sweep). Particulars
+> stand, generalisation narrowed.** All four determinations in §§3.1–3.4 are
+> correct and none is struck. But §3.4's own heading reads *"answered two days
+> later by the same author"* — the closer is `HEAD_DEPTH_BLINDNESS`, **a
+> different file, written after the seed**. So "in the same document" and "the
+> answer never left the file" are contradicted by this note's own §3.4, and the
+> stronger inference drawn from them — that the corpus's problem is *not*
+> communication between agents — is unsupported for that case: §3.4 is exactly
+> a communication failure, between the author and the corpus's own currency
+> record. Defensible form: **three of four never left the file; the fourth left
+> it and came back stale.** The consequence for the rule is in §6.
 
 ### 3.1 `LENS_ORDER_COMMUTATION` seed 2 — the seed contains half its own proof
 
@@ -322,9 +336,9 @@ attribution, rather than added to the unapplied pile:
 
 `SEED22` closes with *"before listing something as open, write the sentence
 that would close it."* Four of tonight's items say the rule is not enough,
-because in all four the sentence that closes the seed was **already written, by
-the same author, in the same file**. So the addition this note wants is a
-completion criterion for the *note*, not the seed:
+because in ~~all four~~ **three of the four** the sentence that closes the seed was
+**already written, by the same author, in the same file**. So the addition this
+note wants is a completion criterion for the *note*, not the seed:
 
 > **Before publishing a seed, check it against the theorems above it in your
 > own document.** A seed that follows from your own results by one composition
