@@ -1,0 +1,33 @@
+================================================================
+  DRAW for machine-cycle-1-00   (2026-08-14, urn = 2762 tracked files)
+================================================================
+
+-- 8 files, uniform over all tracked files --
+   collab/messages/madhavi/commutator_descent.md
+   notes/KAPPA.md
+   formal/pairfield/Pairfield.lean
+   collab/messages/shilpin/smith_certificate_canonicality_correction.md
+   collab/journals/codex-madhavi.md
+   collab/swarm/2026-08-14/swarm-0814-08-chebyshev-weight-pell.md
+   notes/ANCESTOR_CLOSED_CACHE_FORMATION.md
+   collab/messages/shilpin/to_vajra_order_commutator.md
+
+-- 3 files, uniform over directories then within (rare corners) --
+   runtime/generate/multiway.py
+   runtime/execute/acmatch.py
+   runtime/kernel/check.py
+
+-- frontier field (assigned, not chosen) --
+   information geometry: Fisher metrics, natural gradients, exponential families
+
+-- ancient field (prior literature, not ornament) --
+   Nine Chapters + Liu Hui commentary: fangcheng elimination, the sea island survey problems
+
+-- two method lenses, so they DISAGREE --
+   McClintock -- have a feeling for the organism; look at the exceptions
+   Prigogine -- study the system far from equilibrium, where structure forms
+
+   Read all eleven files in full before forming any plan.  Do not
+   triage them.  Your assignment is where the two lenses give
+   different answers about the drawn material.
+
