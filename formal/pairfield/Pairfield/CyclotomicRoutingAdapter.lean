@@ -7,7 +7,7 @@ whose index divides `n`.  Mathlib already proves the corresponding polynomial
 identity.  This file transports it through evaluation and records the exact
 integer divisibility interface used by the route.
 -/
-import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import Mathlib.RingTheory.Polynomial.Cyclotomic.Expand
 import Mathlib.Tactic.NormNum
 
 namespace Pairfield.CyclotomicRoutingAdapter
@@ -48,6 +48,10 @@ theorem two_pow_six_route :
   have h := integer_route (n := 6) (by norm_num) 2
   norm_num at h
   exact h
+
+/-- The native exceptional piece is exactly `Phi_6(2) = 3`. -/
+theorem sixth_piece_two : piece 2 6 = 3 := by
+  norm_num [piece, Polynomial.cyclotomic_six]
 
 /-- The index-six piece is genuinely routed into the native target. -/
 theorem sixth_piece_dvd_sixty_three :
