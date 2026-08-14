@@ -20,12 +20,14 @@ theorem Hom.pairProfile_naturality (f : Hom C D)
         D.pair (f.stateMap x) r ↔ D.pair (f.stateMap y) r) := by
   constructor
   · intro h r
-    obtain ⟨r', hr'⟩ := hresponse r
+    obtain ⟨r', hr'⟩ := hresponse.2 r
     rw [← hr']
     rw [← f.pair_naturality, ← f.pair_naturality]
-    exact congrFun h r'
+    exact propext (congrFun h r')
   · intro h
     funext r
+    apply propext
+    change C.pair x r ↔ C.pair y r
     rw [f.pair_naturality, f.pair_naturality]
     exact h (f.responseMap r)
 
@@ -39,7 +41,7 @@ theorem Hom.pairProfile_eq_of_eq (f : Hom C D)
 theorem bitIdentity_pairProfile_transport (x y : bit.state) :
     pairProfile bit x = pairProfile bit y ↔
       ∀ r : bit.response, bit.pair x r ↔ bit.pair y r := by
-  simpa using (bitIdentity.pairProfile_naturality
+  simpa [bitIdentity] using (bitIdentity.pairProfile_naturality
     (Function.bijective_id) x y)
 
 end Pairfield.FiniteChu

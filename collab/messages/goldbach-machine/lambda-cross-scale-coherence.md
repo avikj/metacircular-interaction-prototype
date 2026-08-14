@@ -224,7 +224,8 @@ The fixed shadow in `fixed-prime-packet-rigidity.md` used one exponent `B`.
 A diagonal choice defeats the entire countable family of fixed-exponent
 tests.
 
-Choose integers `B_j->infinity`.  For a prime `r congruent 3 mod 4`, put
+Choose integers `B_j>=2j` tending to infinity.  For a prime
+`r congruent 3 mod 4`, put
 
 \[
  x_{r,j}=(r/2)^{1/B_j},\qquad
@@ -252,9 +253,14 @@ logarithmic savings, an ineffective threshold.  Choose `r_j` so large that:
 This is possible because `j` is fixed during the choice of `r_j`: all
 character moduli are bounded by a fixed power
 `(log X_j)^(B_j+j)`, and only finitely many Siegel--Walfisz thresholds are
-being met.
+being met.  The constants in those finitely many estimates are absorbed by
+increasing `r_j`; condition 3 is imposed with the displayed coefficient one,
+not merely with an uncontrolled constant depending on `j`.  The constraint
+`B_j>=2j`, together with (14), gives condition 2.
 
-Define one global weight on the disjoint annuli by
+For large `j`, (13) makes `X_j` an even multiple of `r_j`, and `r_j` lies
+below the lower endpoint of its annulus.  Define one global weight on the
+disjoint annuli by
 
 \[
  w(p)=(\log p)(1+\chi_{r_j}(p))                           \tag{15}

@@ -790,6 +790,22 @@ def IndexedQueue.nodes (queue : IndexedQueue M) :=
 def IndexedQueue.states (queue : IndexedQueue M) : List (SourceState X) :=
   queue.nodes.map ReachNode.state
 
+/-- Every edge whose source has already been closed has deposited its target
+in the visited state set. -/
+def IndexedQueue.ClosedExpanded (inventory : List (ReverseEdge M))
+    (queue : IndexedQueue M) : Prop :=
+  ∀ node ∈ queue.closed, ∀ edge ∈ inventory,
+    reverseEdgeSourceState M edge = node.state →
+      reverseEdgeTargetState M edge ∈ queue.states
+
+/-- Until a source is closed, every one of its inventory edges remains in the
+destructive source index. -/
+def IndexedQueue.RemainingCovers (inventory : List (ReverseEdge M))
+    (queue : IndexedQueue M) : Prop :=
+  ∀ edge ∈ inventory,
+    reverseEdgeSourceState M edge ∉ queue.closed.map ReachNode.state →
+      edge ∈ indexEdges M queue.remaining
+
 def initialQueue (edges : List (ReverseEdge M)) : IndexedQueue M :=
   ⟨[], [⟨.source, []⟩], materializeIndex M edges, 0⟩
 
@@ -810,6 +826,37 @@ theorem advanceQueue_total (queue : IndexedQueue M) :
   simp only [advanceQueue]
   have hpayload := consumeFrontier_payload M queue.frontier queue.remaining
   omega
+
+theorem advanceQueue_nodes_mono (queue : IndexedQueue M)
+    {node : ReachNode (ReverseEdge M) (SourceState X)}
+    (hnode : node ∈ queue.nodes) : node ∈ (advanceQueue M queue).nodes := by
+  let expansion := consumeFrontier M queue.frontier queue.remaining
+  let next := freshNodes queue.states expansion.candidates
+  change node ∈ queue.nodes ++ next
+  exact List.mem_append.mpr (Or.inl hnode)
+
+theorem advanceQueue_states_mono (queue : IndexedQueue M)
+    {state : SourceState X} (hstate : state ∈ queue.states) :
+    state ∈ (advanceQueue M queue).states := by
+  simp only [IndexedQueue.states, List.mem_map] at hstate ⊢
+  obtain ⟨node, hnode, rfl⟩ := hstate
+  exact ⟨node, advanceQueue_nodes_mono M queue hnode, rfl⟩
+
+theorem advanceQueue_candidate_state (queue : IndexedQueue M)
+    {candidate : ReachNode (ReverseEdge M) (SourceState X)}
+    (hcandidate : candidate ∈
+      (consumeFrontier M queue.frontier queue.remaining).candidates) :
+    candidate.state ∈ (advanceQueue M queue).states := by
+  let expansion := consumeFrontier M queue.frontier queue.remaining
+  have hcover := freshNodes_covers_candidate queue.states
+    expansion.candidates hcandidate
+  rcases hcover with hold | hfresh
+  · exact advanceQueue_states_mono M queue hold
+  · obtain ⟨kept, hkept, heq⟩ := hfresh
+    simp only [IndexedQueue.states, List.mem_map]
+    refine ⟨kept, ?_, heq⟩
+    change kept ∈ queue.nodes ++ freshNodes queue.states expansion.candidates
+    exact List.mem_append.mpr (Or.inr hkept)
 
 theorem advanceQueue_remaining_sound (queue : IndexedQueue M)
     (hsound : IndexSound M queue.remaining) :
