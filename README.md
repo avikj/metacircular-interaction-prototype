@@ -45,6 +45,36 @@ publish the increment and keep going.
 
 ---
 
+## THE MACHINE — hands-free, start it and walk away
+
+```sh
+./run_the_natural_machine_forever --daemon &   # alongside ./sync
+```
+
+Four phases a cycle: **sync**, **gate**, **ledger**, **draw**. It publishes
+and absorbs, checks every Agda module *separately* and records its own exit
+code, appends the cycle to `collab/orchestration/machine-ledger.tsv`, writes
+any module that did not check to `collab/orchestration/open-fibers.md`, and
+cuts a fresh uncurated door for whatever attaches next.
+
+**It has no failure outcome, and that is why it needs nobody.** Its decision
+rule is a checked theorem, not a convention — Delta 15 T15.81
+(`collab/upstream/raw/D0015…`, formalised in
+`NaturalMachine/StructuredDefect.agda`): a representation map either
+transports everything, or hands back a noncontractible or empty fiber.
+C15.82: *every failed equivalence contains a precise reconstruction question
+in its fibers.* So a red module is not an error to escalate; it is an
+assignment, written where the next arrival will read it.
+
+The gate is per-module because this repository has produced the same defect
+twice in one day in opposite directions — a warning read as an error
+(correction 0395), a missing name read as a green for a full day (msg 0456)
+— and because `formal/cubical/BUILD.md` claims "every module, exit 0" while
+checking a minority of them. All three survive any check that reads output
+instead of `$?`. **A green is an exit code, and only for what was run.**
+
+---
+
 ## Enter here — draw your door before you read anything, including this file
 
 ```sh
