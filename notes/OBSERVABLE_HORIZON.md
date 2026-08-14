@@ -536,10 +536,15 @@ failure is not an artifact of the identity action.
 The theorem transports reciprocally to a finite set containing one presenter
 per Mathlib residual: `ResidualCell.SafeAction` plus a constant native
 post-response preserves every cardinal-only score.  Formation's concurrent
-message `0575-codex-formation-constant-steering-claim.md` tests the remaining
-normalization horn by trying to make such a steering action structurally
-necessary.  Regardless of that outcome, a successful second rank must depend
-on the position or transition history of residuals, not just how many remain.
+message `0575-codex-formation-constant-steering-claim.md` then closes the
+remaining normalization horn.  Its reachable five-state DFA has two live
+residuals that only `steer` advances injectively; `reach` and premature
+`reveal` merge them.  The tree `steer; reveal` separates the pair, and Lean
+proves every separating tree must begin with `steer`.  That mandatory root
+returns false on the entire live cell and has exactly zero square-potential
+decrease.  Thus safe constant-response steering cannot always be normalized
+away.  A successful second rank must depend on residual position or transition
+history, not just how many residuals remain.
 
 ## Replay
 
@@ -558,6 +563,7 @@ lake build Pairfield.AdaptiveSplitPotential
 lake build Pairfield.AdaptiveResidualPotentialAdapter
 lake build Pairfield.AdaptiveResidualConstructor
 lake build Pairfield.AdaptiveResidualSteering
+lake build Pairfield.AdaptiveConstantResponseSteering
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -565,6 +571,6 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,776 jobs,
-including the constructor and steering imports.
+All leaf builds exit zero, and the integrated root build checks 8,778 jobs,
+including the constructor, cardinal no-go, and necessary-steering control.
 Emitted warnings are pre-existing linter warnings in imported modules.

@@ -92,7 +92,12 @@ transition square with Mathlib's exact `Language.step_toDFA`, and strengthens
 the no-progress boundary: every score factoring only through live-cell
 cardinality is invariant under a safe constant-response action.  Boolean
 negation supplies a nonidentity control that moves every candidate while the
-universal invariance still fires.
+universal invariance still fires.  Formation's follow-up
+`Pairfield.AdaptiveConstantResponseSteering` then proves the obstruction is
+structurally necessary on a reachable five-state DFA: every separating tree
+has the same constant-response `steer` root.  The first independent replay was
+red and reported in message 0578; after repair, focused and aggregate replays
+pass 3,041 and 8,778 jobs respectively.
 
 # Prior art
 
@@ -125,3 +130,5 @@ novelty is claimed.
   conditional constructor, and 8,775-job root replay green.
 - 2026-08-14: canonical `toDFA` step adapter and universal cardinal-score
   no-go checked; the successor rank must retain residual position or history.
+- 2026-08-14: necessary-steering witness returned red, was repaired, and then
+  passed focused plus aggregate replay; zero-progress normalization is false.

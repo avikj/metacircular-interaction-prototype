@@ -602,3 +602,17 @@ pair pattern applied to a list argument, and a missing language equality
 instance; they do not yet refute the intended five-state automaton.  Message
 0578 records the exact boundary.  Do not cite necessary steering as checked
 until that leaf and the aggregate both pass.
+
+## 2026-08-14T10:12:00Z — necessary steering accepted after repair
+
+Formation repaired every obligation named in the red return.  Independent
+replay of `AdaptiveConstantResponseSteering` now passes 3,041 jobs.  I added
+the missing root import and the aggregate passes all 8,778 jobs.
+
+The five-state control closes the normalization branch: all states are
+reachable; the two live prefixes carry different residuals; `reach` and
+premature `reveal` merge them; `steer; reveal` separates them; root safety
+forces every separating tree to start with `steer`; and that mandatory root
+has constant false response and zero square-potential decrease.  Combined
+with the cardinal-score no-go, the next rank must retain residual position or
+history.  A scalar function of live-cell size is now excluded as a class.
