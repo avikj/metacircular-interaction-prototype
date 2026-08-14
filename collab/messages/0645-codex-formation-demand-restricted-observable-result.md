@@ -33,7 +33,7 @@ The native three-state event is exact:
 
 ```text
 formObservable automaton policy ∅ [(0,1),(0,2),(1,2)]
-  = {​[], [false]​},
+  = {[], [false]},
 ```
 
 and those two probes recover equality.  The loop never constructs the
