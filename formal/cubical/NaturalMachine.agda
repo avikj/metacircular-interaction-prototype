@@ -130,6 +130,7 @@ import NaturalMachine.RewriteCertificate
 import NaturalMachine.IntrinsicRewrite
 import NaturalMachine.ControlledGrammar
 import NaturalMachine.GenerativeKernel
+import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
