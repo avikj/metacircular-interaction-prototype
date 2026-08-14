@@ -228,6 +228,29 @@ module FiniteWindows
   predictor-iff-next-descent n =
     next-descent→predictor n , predictor→next-descent n
 
+  -- Once one prefix predicts itself, every longer prefix does too.  The
+  -- second application of the old predictor supplies the one new reading
+  -- needed by the extended window.  Thus closure, once reached, persists;
+  -- any least closing horizon is a genuine stabilization frontier.
+  predictor-persists :
+    (n : ℕ) → PredictorAt n → PredictorAt (suc n)
+  predictor-persists n oldPredictor@(predict , replay) =
+    next-descent→predictor (suc n)
+      ( (λ z → last n (predict (predict (fst z))))
+      , λ x →
+          cong (last n ∘ predict) (replay x)
+        ∙ cong (last n) (replay (step x))
+        ∙ last-window n (step (step x)) )
+
+  -- An explicit decoder of state from a window is sufficient to compile its
+  -- action update.  This is the constructive datum used by the clock below;
+  -- bare injectivity without a supplied decoder would not define a program.
+  state-reconstruction→predictor :
+    (n : ℕ) → AR.Refines (window n) (λ x → x) → PredictorAt n
+  state-reconstruction→predictor n (decode , replay) =
+    (window n ∘ step ∘ decode) , λ x →
+      cong (window n ∘ step) (replay x)
+
   NextCollisionAt : ℕ → Type _
   NextCollisionAt n = AR.ActionCollision (window n) (nextReading n)
 
