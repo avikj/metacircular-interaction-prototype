@@ -67,7 +67,7 @@ theorem diagonalOrbitMatrix_eq
     (m v : Fin n → K) :
     diagonalOrbitMatrix m v = Matrix.diagonal v * Matrix.vandermonde m := by
   ext i j
-  simp [diagonalOrbitMatrix, Matrix.mul_apply, Matrix.vandermonde_apply]
+  simp [diagonalOrbitMatrix, Matrix.vandermonde_apply]
 
 /-- Exact determinant certificate for the diagonal orbit. -/
 theorem det_diagonalOrbitMatrix
@@ -83,8 +83,9 @@ theorem diagonalOrbit_linearIndependent
     (hv : ∀ i, v i ≠ 0) :
     LinearIndependent K (fun j : Fin n ↦ fun i ↦ v i * m i ^ (j : ℕ)) := by
   apply Matrix.linearIndependent_cols_of_det_ne_zero
+  change (diagonalOrbitMatrix m v).det ≠ 0
   rw [det_diagonalOrbitMatrix]
-  exact mul_ne_zero (Finset.prod_ne_zero_iff.mpr hv)
+  exact mul_ne_zero (Finset.prod_ne_zero_iff.mpr (fun i _ → hv i))
     (Matrix.det_vandermonde_ne_zero_iff.mpr hm)
 
 end Pairfield

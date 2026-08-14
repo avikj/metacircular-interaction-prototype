@@ -81,6 +81,10 @@ import NaturalMachine.ParetoCost
 import NaturalMachine.FutureBehavior
 import NaturalMachine.HolonomyDescent
 import NaturalMachine.FiniteInformation
+-- Lossless postcomposition of an observation by an equivalence preserves
+-- exactly which set-valued targets factor through it; a Bool collapse is
+-- the checked control showing why mere postprocessing is not enough.
+import NaturalMachine.ObservationPresentation
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
