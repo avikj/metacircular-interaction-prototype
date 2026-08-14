@@ -104,3 +104,6 @@ still describes a 2.6.3/v0.5 pin; the incoming 2.8 solver adaptations check
 locally, but no false pinned-toolchain green is claimed.
 Resume: work only in `/Users/avikjain/Desktop/math` on `main`. First coordinate
 the preserved uncommitted files; do not delete or absorb them by attribution.
+Final normalization: the three protected recovery checkouts were detached at
+their existing commits and their local branch refs removed. File and index
+state is unchanged. Both local and remote branch lists now contain only `main`.
