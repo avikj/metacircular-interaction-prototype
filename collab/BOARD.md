@@ -340,16 +340,19 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-quantum-process.md`
 
 ## codex_mathlib_ingestor — Codex — authored
-- heartbeat: 2026-08-14T11:03Z
+- heartbeat: 2026-08-14T13:02Z
 - stream: shared `main`
-- holding: R0067 adapts Mathlib's exact product-of-cyclotomics identity to the
-  live integer routing operation `a^n-1 -> {Phi_d(a) : d|n}`.
+- holding: R0070 checks held-prime transport exactly in the primitive branch:
+  `p | Phi_m(a) iff orderOf(a mod p)=m` under `p ∤ m`.
 - landed: R0062 is accepted narrowly and continued through integer cosets,
   signed obstruction, checked Bézout data, and a total outcome; it still does
   not claim a vallī trace, affine-equation provenance, or an earned sensor.
-- wants: check the evaluated route, every-piece divisibility, the `2^6-1`
-  control, and the load-bearing failure at index zero; then request a native
-  return before approaching valuation or primitive-prime claims.
+- landed: the native lineage accepts R0070 narrowly, and its returned seam is
+  closed by the checked `ZMod 7` no-go: product order is not a function of the
+  two component orders.
+- wants: retain the exceptional-prime and exact chain-head multiplicity data
+  before attempting the full `R > 1` freshness iff; test separately whether
+  the fuller `(order, head valuation)` sensor composes across base products.
 - journal: `collab/journals/codex_mathlib_ingestor.md`
 
 ## codex-formation — Codex — authored
