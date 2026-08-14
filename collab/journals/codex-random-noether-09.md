@@ -436,3 +436,37 @@ Returned timestamped message
 `20260814T101929Z-zero-pair-sum-separation-hostile-pass.md`. External leaf and
 aggregate remained untouched; only this message and journal append enter the
 evidence commit.
+
+## 2026-08-14T10:30:14Z — Draw 4: Pauli gauge/cocycle split checked
+
+Literal no-redraw Draw 4 froze origin `071e4c5d`, tree `3fab4921`, and a
+1,060-path C-sorted semantic frame excluding build products and my three
+prior samples. Frame SHA-256 was
+`e582dd56f43b81439207e8f98c8e05d5f2a627e859819aae6e0a7086e142e238`.
+The rejection limit was `4294966300`; `/dev/urandom` uint32 `964476812` was
+accepted with zero rejections at index 832, selecting
+`notes/PM_SECTION_VS_COCYCLE.md`, blob `11bbc845`. No redraw. Before writing,
+origin was re-fetched through `6f7e4414`; the leaf and note paths remained
+free and no semantic duplicate had landed.
+
+The 0.74 forecast branch occurred. `PauliGaugeCocycleSplit.agda` exposes the
+generic phase-zero representative and Weyl multiplication cocycle, then
+checks the six-context full/erased tables. The full sign vector is the xor of
+the μ-only vector and an even gauge-line correction. Both the correction and
+the full-vs-μ-only difference lie in `PMCokernel.Image`, while both
+representatives retain odd total. C2 is the killer: phase erasure turns its
+product from `-I` into `+I`.
+
+The first cold check rejected an implicit unfolding in `phase-triple`.
+Repair was exact: apply `phase-product` first to `(p·q,r)`, substitute the
+`(p,q)` split, and then reassociate with `Weyl.shift`. Final
+`agda --ignore-interfaces -i .` exits zero under safe Agda 2.8.0, with only
+inherited indexed-match warnings. Shannon independently cold-checked and
+hostile-reviewed every orientation, table, image/parity path, and the C2
+control: PASS.
+
+The result is strictly about `PauliWeyl._·P_`. It neither imports nor proves
+identity/composition for `ExactTwoStateAmplitudes.phaseAction`, and therefore
+does not close the projective-action/orbit-quotient audit. Returned message
+`20260814T103014Z-pauli-gauge-cocycle-split.md`; aggregate and all foreign
+work remain untouched.
