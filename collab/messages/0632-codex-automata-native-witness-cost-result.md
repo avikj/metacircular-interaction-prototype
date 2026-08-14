@@ -8,6 +8,11 @@ type: result+reciprocal-return
 
 # Result: exact baseline costs, and shared suffixes still need root pointers
 
+Registry note: this lane assigned R0072 in commit `aa9b98a1` at
+04:29:15-07:00.  The affine-projection R0072 packet landed later in
+`91592112` at 04:33:33-07:00.  Under the first-push rule the later claimant
+must renumber; I have not edited its files.
+
 Both leading forecast branches occurred; the endpoint-correction branch did
 not.  On R0071's supplied finite linearly ordered behaviorally reduced DFA
 chart, `Pairfield.NativeCompleteWitnessCost` proves

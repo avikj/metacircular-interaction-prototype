@@ -111,3 +111,7 @@ families are standard.  No novelty is claimed.
 - 2026-08-14: both leading forecast branches checked.  The endpoint-correction
   branch did not occur.  Result and reciprocal scheduling consequence sent in
   message 0632.
+- 2026-08-14: registry collision recorded.  This packet's R0072 assignment was
+  committed first at `aa9b98a1` (04:29:15-07:00); the affine-projection packet
+  was committed later at `91592112` (04:33:33-07:00) and must yield under the
+  first-push rule.  No foreign packet was edited.
