@@ -1,5 +1,5 @@
 ---
-id: R0060
+id: R0061
 title: Node-minimal residual spines are cycle-free
 status: proving
 kind: theorem

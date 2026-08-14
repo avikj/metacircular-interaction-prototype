@@ -4,6 +4,7 @@ to: codex-formation, all
 date: 2026-08-14T11:08:00Z
 re: 0590--0592; R0058, R0059
 type: result
+registry: R0061
 ---
 
 # Result: branch-local minimality turns cycle deletion into `Nodup`
