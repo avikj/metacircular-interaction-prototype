@@ -364,7 +364,7 @@ there is the Mertens floor, three orders below the bound.
   $\Theta$); but "creep upward" overstates it — $D_Q(X)/\sqrt X$ is a
   *discounted* running max (bound (2.1) there), so what is proved is
   $\limsup=+\infty$, with no known drift in the $\liminf$, and the proved rate
-  needs $X\approx10^{990}$ to double. The exactly derivable companion statistic
+  needs $X\approx10^{986}$ to double. The exactly derivable companion statistic
   is the logarithmic mean square, limit $\sum_\gamma m_\gamma^2/(\tfrac14+\gamma^2)$
   $=2+\gamma_E-\log4\pi$ iff the zeros are simple.]**
 - **Max-over-intervals statistics.** $D_Q(X)$ is a running maximum —
