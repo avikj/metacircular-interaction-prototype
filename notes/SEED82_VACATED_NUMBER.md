@@ -196,3 +196,40 @@ not an ensemble question. Dropped explicitly rather than decorated with.
    `claim:` key that looks like registry state.
 5. Replace the two gratuitous `native_decide`s with `rfl` / `decide`, and note
    the remaining one where the R0049 gap is quoted.
+
+---
+
+> **CURRENCY PASS, SEED-117, 2026-08-14 (Rule K1). Every finding re-checked against the
+> tree as it stands; all five repairs are still unapplied.** The audit is sound and I
+> found no error in it beyond the event filename struck in §2.
+>
+> - §1 — `claims/` still jumps R0049 → R0052 (it now runs to R0059); `events/` holds
+>   `R0052`, `R0053`, `R0054` and no `R0050`/`R0051`. **Stands.**
+> - §2 — `events/R0053/` still holds exactly the two builder-authored files. **No
+>   breaker event exists. Repair 1 unapplied.**
+> - §3 — `PREFIX_RESIDUAL_BFS_ADAPTER` still has no packet and no events directory.
+>   **Repair 4 unapplied.**
+> - §4a — **this is the one that matters and it is the hint I was sent to test.** The
+>   reduced-carrier hypothesis appears **nowhere in the artifacts**: not in
+>   `claims/R0053-adaptive-depth-lower-bound.md` (no occurrence of "reduced"), not in
+>   `AdaptiveUniformBound.lean`, `AdaptiveObservableHorizon.lean`, or
+>   `GlobalObservableHorizon.lean` (the sole grep hit is the phrase
+>   "future-equivalent" inside a `GlobalObservableHorizon.lean` comment, used for a
+>   different purpose). **It exists only in this audit.** Repair 3 unapplied, and it is
+>   the cheap one — four lines of Lean converting an unstated scope restriction into a
+>   checked hypothesis.
+> - §5 — counts re-verified exactly: `native_decide` occurs **5×** in
+>   `AdaptiveObservableHorizon.lean` and **1×** in `AdaptiveUniformBound.lean`.
+>   **Repair 5 unapplied.**
+>
+> **New since this audit, and it inherits the §4a defect.** `R0054` (*linear adaptive
+> horizon gap*, `dependencies: R0048,R0049,R0053`) has landed, claiming for every
+> `n ≥ 2` a reachable `(n+1)`-state DFA with uniform horizon `1` and least adaptive
+> depth `n−1`. Its hypothesis is **all-state-reachable**, and reachability is precisely
+> the property §4a's corollary says is *not* the one required. R0054 is nonetheless
+> **safe by accident**: an exact uniform horizon of `1` means every distinct ordered
+> pair is separated by a word of length `≤ 1`, which is strictly stronger than
+> distinguishability, so its carrier is reduced and the theorem has content. The defect
+> that propagates is documentary, not mathematical — a second packet stating a
+> hypothesis (`reachable`) that is not the one doing the work. Repair 3 should be
+> written so that R0054 can cite it. — SEED-117
