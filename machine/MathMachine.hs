@@ -109,8 +109,16 @@ vocabulary =
       , (bin "max" zero_ x_,          x_)
       , (bin "max" (su x_) (su y_),   su (bin "max" x_ y_)) ]
   , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
+      -- gcd needs its recursion, not just its base cases: a symbol the
+      -- machine can compute but not unfold is a black box it can test
+      -- and never reason about.
       [ (bin "gcd" x_ zero_, x_)
-      , (bin "gcd" zero_ x_, x_) ]
+      , (bin "gcd" zero_ x_, x_)
+      , (bin "gcd" (su x_) (su y_), bin "gcd" (F "-" [su x_, su y_]) (su y_)) ]
+  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
+      [ (bin "-" x_ zero_,          x_)
+      , (bin "-" zero_ x_,          zero_)
+      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   ]
 
 definitionsOf :: [Sym] -> [Rule]
@@ -234,11 +242,26 @@ step rs t =
 -- oscillated, and the successor law — which everything about addition
 -- depends on — became unprovable.  Deference to the stronger order is
 -- what keeps rewriting terminating.
+-- The fallback must agree with the precedence, not with Haskell's
+-- derived Ord — which compares symbol names as ASCII ("*" < "+" < "0"
+-- < "gcd" < "max" < "s"), an order orthogonal to the one the machine
+-- reasons with.  Sorting by a stranger's alphabet is why a third of the
+-- library came out as `max`-shaped restatements of single facts.
+cmpTerm :: Term -> Term -> Ordering
+cmpTerm (V a) (V b) = compare a b
+cmpTerm (V _) (F _ _) = LT
+cmpTerm (F _ _) (V _) = GT
+cmpTerm s@(F f as) t@(F g bs) =
+  compare (size s) (size t)
+    <> compare (precedence f) (precedence g)
+    <> compare (length as) (length bs)
+    <> mconcat (zipWith cmpTerm as bs)
+
 decreases :: Term -> Term -> Bool
 decreases u v
   | lpo u v = True
   | lpo v u = False
-  | otherwise = (size v, v) < (size u, u)
+  | otherwise = cmpTerm v u == LT
 
 normalize :: [Rule] -> Term -> Term
 normalize rs = go (200 :: Int)
@@ -337,6 +360,36 @@ proveByInduction rs (l,r) =
            then Just ("induction on " ++ show (V v))
            else Nothing
 
+-- f(a,b) = f(a',b') where a=a' and b=b' are already known is not a
+-- discovery, it is congruence.  Most of what an unfiltered explorer
+-- emits is this: one law wearing a hat.  Stating it costs a proof
+-- search and buys nothing, so it is filtered before induction is spent.
+congruent :: [Rule] -> M.Map (Term,Term) () -> (Term,Term) -> Bool
+congruent rs known (F f as, F g bs)
+  | f == g, length as == length bs, or (zipWith (/=) as bs) =
+      and [ a == b
+            || provedByRewriting rs (a,b)
+            || M.member (canonVars (a,b)) known
+            || M.member (canonVars (b,a)) known
+          | (a,b) <- zip as bs ]
+congruent _ _ _ = False
+
+-- What is a theorem worth?  The machine already measures its own
+-- progress as the fraction of the term space its knowledge removes.
+-- That same measurement, applied to ONE candidate, is its value: how
+-- many distinct terms collapse if this equation is installed.  A law
+-- that collapses nothing is a true statement with no consequences, and
+-- the machine has proved a hundred and eighty of those.  Now it must
+-- pay its way in.
+marginalPrune :: [Rule] -> [Term] -> (Term,Term) -> Int
+marginalPrune rules probe c =
+  let before = length (ordNub (map (normalize rules) probe))
+      extra = case orient c of
+                Just r  -> [r]
+                Nothing -> lemmaRules [c]
+      after = length (ordNub (map (normalize (extra ++ rules)) probe))
+  in before - after
+
 -- x+y = y+x and z+u = u+z are the same discovery.  Renaming variables
 -- to their order of first appearance makes that a syntactic fact, so
 -- the machine states each theorem once instead of once per alphabet.
@@ -359,13 +412,76 @@ data Machine = Machine
   { mRules   :: [Rule]        -- proved equations, working as operations
   , mLemmas  :: [(Term,Term)] -- proved but unorientable (e.g. commutativity)
   , mKnown   :: M.Map (Term,Term) ()  -- everything already stated
+  , mInvented :: [Sym]        -- concepts the machine named for itself
+  , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
   }
 
 start :: Machine
-start = Machine [] [] M.empty 3 4 0
+start = Machine [] [] M.empty [] M.empty 3 4 0
+
+-- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
+-- else typed can only ever compress the consequences of that list; when
+-- the consequences run out it is finished, and every genuinely new idea
+-- in its life came from outside.  So it must be able to name things.
+--
+-- The criterion is description length: take the shapes that keep
+-- recurring across the terms the machine actually works with, and give
+-- a name to the one that would shorten the most.  `double` and `square`
+-- are not primitive to arithmetic — they are the names worth having
+-- because x+x and x*x keep showing up.  A named concept enters the
+-- vocabulary with its defining equation, so everything downstream can
+-- reason about it, and it is given the lowest precedence so that
+-- rewriting FOLDS into it: the machine's own abbreviation becomes the
+-- normal form.
+patternsOf :: Term -> [Term]
+patternsOf t = [ p | p <- subterms t, size p >= 3, size p <= 5
+                   , not (null (vars p)), length (ordNub (vars p)) <= 2 ]
+  where
+    subterms u@(F _ ts) = u : concatMap subterms ts
+    subterms u = [u]
+
+canonTerm :: Term -> Term
+canonTerm t = applySub ren t
+  where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
+
+inventConcept syms terms n =
+  case best of
+    []        -> Nothing
+    ((p,_):_) ->
+      let vs = ordNub (vars p)
+          ar = length vs
+          nm = "c" ++ show n
+          sem = semantics syms
+      in Just (Sym nm ar (\args -> eval sem args p)
+                 [ (p, F nm (map V [0 .. ar-1])) ])
+  where
+    best = bestOf syms terms
+
+-- candidate concepts, best first: how often a shape appears times how
+-- much naming it would save.  A shape already named is not a new idea.
+bestOf :: [Sym] -> [Term] -> [(Term,Int)]
+bestOf syms terms =
+    take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
+             [ pc | pc@(p,c) <- counts, c >= 8, headIsNotFresh p
+                  , not (alreadyNamed p), not (trivialApp p) ])
+  where
+    counts = M.toList (M.fromListWith (+)
+               [ (canonTerm p, 1::Int) | t <- terms, p <- patternsOf t ])
+    headIsNotFresh (F f _) = take 1 f /= "c"
+    headIsNotFresh _ = False
+    -- f(x,y) is not a concept, it is f with a costume on.  A name earns
+    -- its place by capturing structure the signature cannot say in one
+    -- application: a repeated argument (x+x), or nesting (s(x+x)).
+    trivialApp (F _ args) =
+      all isVar args && length (ordNub (concatMap vars args)) == length args
+      where isVar (V _) = True
+            isVar _ = False
+    trivialApp _ = True
+    alreadyNamed p =
+      any (\s -> any ((== canonTerm p) . canonTerm . fst) (symDefs s)) syms
 
 -- ordered rewriting lets unorientable theorems (commutativity) still be
 -- used: apply them only in the direction that decreases the term.
@@ -385,7 +501,7 @@ round1 :: Handle -> Handle -> IORef Machine -> IO ()
 round1 logh libh ref = do
   m <- readIORef ref
   t0 <- getCPUTime
-  let syms = take (mVocab m) vocabulary
+  let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
       nv = 3
@@ -407,22 +523,46 @@ round1 logh libh ref = do
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
       -- what it wrote down last round is not learning, it is looping
+      -- A conjecture that failed is not retried until the machine knows
+      -- something it did not know then.  Without this the same hundreds
+      -- of failures are re-derived and re-attempted every round for the
+      -- life of the process — the largest cost centre there is, and it
+      -- is spent on questions already asked.
+      nRules = length rules
       fresh = [ c | c <- conjectures
                   , not (M.member c (mKnown m))
-                  , not (provedByRewriting rules c) ]
+                  , M.lookup c (mFailed m) /= Just nRules
+                  , not (provedByRewriting rules c)
+                  , not (congruent rules (mKnown m) c) ]
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
+      probe = take 400 normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
             case proveByInduction acc c of
               Nothing -> (acc, out)
-              Just pf ->
-                let acc' = acc ++ maybe [] (:[]) (orient c)
-                            ++ (if isJust (orient c) then [] else lemmaRules [c])
-                in (acc', (c,pf):out)
+              Just pf
+                -- a proof is not enough: it must also make the world
+                -- smaller, or it is a true statement with no consequences
+                | marginalPrune acc probe c <= 0 -> (acc, out)
+                | otherwise ->
+                    let acc' = acc ++ maybe [] (:[]) (orient c)
+                                ++ (if isJust (orient c) then []
+                                    else lemmaRules [c])
+                    in (acc', (c,pf):out)
+  -- The timer used to bracket a lazy `let`, so nothing had been computed
+  -- when it stopped and every round reported 0.00s.  A dead instrument is
+  -- worse than none: it is the one that would have shown the rule set
+  -- slowing the machine down.  Force the work before stopping the clock.
+  let nRaw = length raw
+      nNormed = length normed
+      nConj = length conjectures
+      nFresh = length fresh
+      nRes = length results
+  nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
@@ -434,6 +574,8 @@ round1 logh libh ref = do
       m' = m { mRules = mRules m ++ newRules
              , mLemmas = mLemmas m ++ newLemmas
              , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) results
+             , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
+                          [ c | c <- fresh, notElem c (map fst results) ]
              , mRound = mRound m + 1 }
   forM_ results $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
@@ -446,17 +588,40 @@ round1 logh libh ref = do
     (length (mRules m') + length (mLemmas m')) secs
   hFlush logh
   -- GROW: nothing new means the machine must change what it is looking at
+  -- When the machine runs dry it first tries to think of a new idea:
+  -- name the shape that keeps recurring in its own working terms.  Only
+  -- if it cannot does it fall back to widening the given vocabulary or
+  -- looking further out.
   let stuck = null results
-      m'' | not stuck = m'
-          | mVocab m' < length vocabulary && even (mRound m') =
-              m' { mVocab = mVocab m' + 1 }
-          | mSize m' < 9 = m' { mSize = mSize m' + 1 }
-          | mVocab m' < length vocabulary = m' { mVocab = mVocab m' + 1 }
-          | otherwise = m' { mSize = mSize m' + 1 }
-  when (stuck && mVocab m'' > mVocab m') $
+      -- a name must pay for itself in exactly the currency a theorem
+      -- does: it enters only if folding the shape into it makes the
+      -- machine's own working set smaller
+      candidate = if stuck
+                    then inventConcept syms normed (length (mInvented m'))
+                    else Nothing
+      invented = case candidate of
+        Just s | let (pat,fold) = head (symDefs s)
+               , marginalPrune (usableRules m') (take 400 normed) (pat,fold) > 0
+               -> Just s
+        _ -> Nothing
+  case invented of
+    Just s -> hPrintf logh "  CONCEPT  named %s := %s  (arity %d)\n"
+                (symName s) (show (fst (head (symDefs s)))) (symArity s)
+    Nothing -> return ()
+  let m2 = case invented of
+             Just s  -> m' { mInvented = mInvented m' ++ [s] }
+             Nothing -> m'
+      stuck' = stuck && not (isJust invented)
+      m'' | not stuck' = m2
+          | mVocab m2 < length vocabulary && even (mRound m2) =
+              m2 { mVocab = mVocab m2 + 1 }
+          | mSize m2 < 9 = m2 { mSize = mSize m2 + 1 }
+          | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
+          | otherwise = m2 { mSize = mSize m2 + 1 }
+  when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
-  when (stuck && mSize m'' > mSize m') $
+  when (stuck && mSize m'' > mSize m2) $
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
   hFlush logh
   writeIORef ref m''

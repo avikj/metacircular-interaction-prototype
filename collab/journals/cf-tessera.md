@@ -1145,3 +1145,70 @@ Toolchain notes: ℤ literals do not resolve through `fst ℤCommRing`
 (instance search does not see through the projection) — write `pos n`.
 Univalence transport on these words is fast; unary ℕ digit generation
 is the cost, so keep run inputs modest.  13 modules on the button.
+
+## 2026-08-14 — seven visiting lenses; the machine rebuilt around their findings
+
+Owner: "constantly have subagents sampling repo files and public
+frontier across every conceivable domain... friends entering the
+collaboration with novel lenses."  Convened nine; seven returned within
+the hour (msg 0460 carries the digest and the six questions they put to
+each other).  They found more real defects in one hour than I found in
+a night.  Acted on, all of it, same session:
+
+DEFECTS THEY FOUND, NOW FIXED IN machine/MathMachine.hs:
+- the round timer bracketed a lazy `let`, so every round reported
+  0.00s — the one instrument that would have shown the rule set slowing
+  the machine was dead (compilers lens);
+- no selection at all: every conjecture induction closed was accepted,
+  so 180 "theorems" were one law wearing hats, 42 sharing an LHS
+  (biology + compilers, independently, from different vocabularies);
+- failures were never recorded, so hundreds of failed conjectures were
+  re-attempted every round forever — including x+y=y+x, which is why
+  commutativity of ADDITION was missing while multiplication's was
+  present (automated reasoning lens);
+- the order fallback used Haskell's derived Ord, which compares symbol
+  names as ASCII — an order orthogonal to the machine's own precedence,
+  which is why a third of the library was max-shaped restatements;
+- gcd had base cases but no recursion: a symbol it could test and never
+  unfold, exactly the black box the file's own header warns about (ML
+  lens).
+
+MECHANISMS ADDED: marginal-pruning selection (a theorem must make the
+world smaller to be kept); congruence filtering before induction is
+spent; failure memory keyed on rule count; concept invention — the
+machine names recurring shapes and adds them to its own vocabulary with
+defining equations, gated by the same payment test (it named x+x, then
+s(x+x): double, then the odd numbers).
+
+RESULT: 180 junk -> 35 real theorems, INCLUDING commutativity of
+addition; pruning 73% -> 91.7%, past the 79.2% ceiling the automated
+reasoning lens computed for the old design — which it said could only
+be crossed by changing the semantic quotient, which is what concept
+invention does.  Timings real (18s rounds at 60,460 terms).
+
+THE HARDEST RETURNS (recorded, not yet acted on):
+- category theory: DescentLaw.agda is a TAUTOLOGY used as an acceptance
+  gate.  In a topos every equivalence relation is effective, so
+  "descends or splits" cannot fail.  A law that cannot fail cannot
+  organize.  The real descent phenomena here (Gamma_0 torsor, PM class,
+  higher coequalizer boundary) are not instances of it.  Fix named:
+  restate as Fam(A/R) ~ Desc(R) at groupoid level.
+- number theory: papers/crossover.md Theorems 3-5 are the classical
+  zeta(s,y) smooth-number asymptotic (de Bruijn/Dickman, Tenenbaum
+  III.5), verified numerically at z=10^6 to three digits; Prop 2 is a
+  tautology; the headline is circular (the correlation content cancels).
+  What IS new: notes/DPP.md, "worth a paper".  YC draft corrected
+  accordingly the same hour.
+- economics: both reward-geometry theorems are known (Blackwell
+  garbling / maximal invariants; Bayesian sufficiency).  The instance
+  (the unrewarded choice space is exactly Gamma_0(e2/e1)) is ours.
+- linguistics: fourteen Sanskrit-named agents, zero Paninian content in
+  the code — and the one transferable principle (apavada as LHS
+  subsumption ordering) is exactly what nobody implemented.
+- physics: GAUGE.md computes the beta>1 branch in the symmetric KMS
+  state, which is the state no system occupies below T_c.
+
+Prior art we are reimplementing and must cite: QuickSpec / HipSpec /
+Hipster (this architecture, already built), Twee (ordered completion
+with ground joinability), IsaCoSy (generate only irreducible terms),
+egg / Ruler / CCLemma, ENIGMA (learned clause selection).
