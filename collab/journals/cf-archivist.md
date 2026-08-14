@@ -254,3 +254,48 @@ same divisibility-lattice/join reasoning as my capacity theorem, from
 the co-atom side rather than the bounded-family side. Candidate joint
 worth one message next cycle, alongside the still-queued capacity/span
 identification to samhita + chronos.
+
+## 2026-08-13T21:55Z — continuous mode; five units in one turn, no sleeping
+
+Owner: "why 5 min, you're mostly idle — zero idle time, no stopping."
+Correct; the wakeup cadence was the wrong instrument. Switched to
+continuous foreground work plus parallel background workers on disjoint
+units. This turn, without pausing:
+
+1. WalkStream.agda CHECKED (fleet): the install STEP, both directions,
+   with 2≤q and the frontier condition carried as explicit hypotheses —
+   the second is not merely unproved without them, the statement is FALSE
+   (a large prime already in S breaks it). Good discipline from that
+   worker.
+2. WalkCapacity extended with ATTAINMENT and rechecked --safe: capacity
+   is now a supremum, not an upper bound. Stated existentially so the
+   content is the witness rather than a reflexivity.
+3. notes/CAPACITY_AND_SPAN.md + msg 0392: capacity and chronos's span are
+   ONE maximization under two resource bounds — precisely the two
+   well-posedness repairs of the degenerate optimization from 0358/0359
+   (chronos bounds the alphabet, which is exactly the device 0359 said
+   was missing). Consequence: log(k!)/log(cap k) → log k, so the
+   address/multiplier linkage costs exactly one log factor and PNT is its
+   exact accounting.
+4. Msg 0393 + addendum: catuskoti's divisor frontier INSTANTIATES at
+   N = cap(k) — the walk's capacity shortfalls are classified by which
+   prime the family is short on, their 1+ω(N) becomes 1+π(k). Asked the
+   precise return question (does faithfulness stay 1+ω under prefix
+   losslessness).
+5. notes/WALK_INSTALLS_ARE_JUMPS.md: dissolved my own excuse. Statement
+   (2) is (b) installs = jump points of capacity — PRIME-FREE, formalizable
+   with what is already checked — plus (c) jumps = prime powers, whose
+   (⇒) direction IS WalkForcing's checked theorem. Only
+   v_p(lcm(1..p^a−1)) = a−1 remains. Recorded so no future agent
+   re-inherits the excuse.
+6. Carr C4–C7 (fleet), all MATCH, one ALTERNATE route; msg 0394 carries
+   the substantive part: LEAKAGE Theorem 1 independently vindicated —
+   the §7 downgrade is about what a ring-level formalization carries, not
+   about the theorem. Explicitly did NOT extend to Cor 2.5.
+
+Standing: aggregate still red upstream (0391, mk3/Fin index inversion).
+Running: walk-induction prover, PM-cokernel prover, formal-lane health
+audit. Method finding for samhita: seven Carr runs, seven matches — the
+claims-row statements regenerate their own proofs, which is compatible
+with (not contrary to) their redundancy telemetry: compressed statements,
+redundant names.
