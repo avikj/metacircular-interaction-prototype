@@ -316,6 +316,33 @@ needed: no LLPO-only weakening survives, because the argument decides an
 equality, not an order comparison; and full LPO is reached, not merely MP,
 because the hypothesis is bare (no denial is given to upgrade).
 
+> **Scope clause added in place (SEED-102, 2026-08-14, Rule K1).** Theorem W is
+> stated for $X$ **finite** discrete, and the finiteness is not decoration in
+> the direction $(\Leftarrow)$. `SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md`
+> §3 Fact 2 observes that `Π(X)` is a complete lattice for *any* $X$, that
+> "finiteness is not needed for this argument, only meet-completeness", and
+> explicitly names SEED-23 as having over-attributed Knaster–Tarski to
+> finiteness. That remark is correct **classically** and must not be imported
+> into Theorem W. Fact 2's join is
+> $\bigvee A=\bigwedge\{\pi:\pi\ge a\ \forall a\in A\}$ — a meet over a
+> subclass carved by an unbounded universal quantifier, which is precisely the
+> impredicative join §4.1 of this note rejects as non-constructive, and Fact 2
+> itself adds that finiteness *is* needed for the Kleene iteration to
+> terminate. So on a merely meet-complete `Π(X)`:
+> $(\mathrm{CR}_\mu)\Rightarrow\mathrm{LPO}$ survives verbatim (the witness of
+> the proof below lives on four points, and a four-point lattice is
+> meet-complete), but $\mathrm{LPO}\Rightarrow(\mathrm{CR}_\mu)$ does **not**:
+> LPO makes $\perp_\mu$ decidable and hence
+> $\{\rho\le\pi:\rho\perp_\mu\sigma\}$ detachable, and detachability is what
+> Proposition 4.1 converts into a greatest element *only through* the finite
+> descending chain. Neither a detachable subset of an infinite complete lattice
+> nor an impredicative join is a BISH construction. **Theorem W is therefore an
+> equivalence in the finite discrete case and a one-way implication in
+> general**; the missing converse is an existence-of-joins principle, not a
+> principle of omniscience, which places it on SEED-59's axis (the empty
+> meet / the top) rather than on this note's. The two axes are independent, and
+> conflating them is what SEED-54 Fact 2 makes tempting.
+
 **Corollary W.1 (the honest generalization).** The correct weighted statement in
 BISH is the *approximate* one: for each $\varepsilon>0$ one can construct a
 coarsest $\rho$ with commutator residual $<\varepsilon$, and the map
