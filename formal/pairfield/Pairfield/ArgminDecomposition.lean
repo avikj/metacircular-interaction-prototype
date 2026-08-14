@@ -30,9 +30,7 @@ theorem argmin_decompose
     (houter : ∀ i ∈ indices, cost (witness chosen) ≤ cost (witness i)) :
     IsArgmin cost search (witness chosen) := by
   refine ⟨?_, ?_⟩
-  · obtain ⟨i, hi, hxi⟩ := hcover (witness chosen) ?_
-    · exact hxi
-    · exact hblock chosen hchosen (witness chosen) (hwitness chosen hchosen)
+  · exact hblock chosen hchosen (witness chosen) (hwitness chosen hchosen)
   · intro x hx
     obtain ⟨i, hi, hxi⟩ := hcover x hx
     exact le_trans (houter i hi) (hlocal i hi x hxi)
