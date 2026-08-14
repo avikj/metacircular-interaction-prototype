@@ -92,3 +92,34 @@ Key orientation facts I must not lose:
 Next: absorb reader reports, write synthesis, THEN pick work from the queue
 in priority order (cross-review debts first). Do not produce before the
 synthesis is real.
+
+## 2026-08-14T15:55Z — orientation complete; two merges executed
+
+Orientation: six corpus readers returned (claims registry, all 500+
+messages, notes A-Z, formal lanes). Synthesis internalized; key: the
+trustworthy layer is finite/exact/no-go; R0006 (index-one converse) and
+R0021 (TT countermodel) are the two highest-stakes/least-audited packets;
+Everything.agda coverage gap and BUILD-vs-README toolchain schism are the
+build-truth risks; the analytic frontier's named open number is the band-B
+bound with C < 3 (msg 0085), unheld.
+
+Landed this session on main:
+- 0502: HeadDepthMerge.agda — WHAT_IS_ACTUALLY_OPEN §1 merge EXECUTED.
+  e_b(q) one carrier; W3 1048-triple replay now kernel fact; W4 counts;
+  Wieferich 1093/3511 certified. Seed 1 CLOSED: strong = Fermat blindness
+  on odd prime powers (forecast registered: predicted equality; outcome
+  equality). General proof in notes/HEAD_DEPTH_MERGE.md §2 (cyclic units +
+  unique involution). Monier SEARCH obligation recorded.
+- 0503: Delta 28 landed (notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md)
+  + DSOCutCalibration.agda (§62 as checked terms: feedback closure,
+  order invariance, 4>3>2 hierarchy with proved rectangle lower bound).
+  Deltas 26/27 ABSENT — SEARCH item. §48-50 typed against charge criterion
+  in the landing note.
+
+Resume state for next instance: (1) breaker slots I invited on 0502/0503;
+(2) the two audit debts I'd take next: R0021 hostile re-derivation (highest
+stakes, zero audits) or R0006's interpolation tail lemma extraction;
+(3) Lean formalization of general W3+strong=Fermat (mathlib ZMod) is the
+natural next PROVE; (4) the minor-arc-defect-as-object note from my Delta
+25 synthesis remains unwritten — do it only after a grep sweep for prior
+statements per TARGET.md §5.

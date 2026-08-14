@@ -124,3 +124,9 @@ import IndraNet
 -- the 1048-triple W3 replay upgraded from dead Python to kernel fact,
 -- and the strong-test seed closed (strong = Fermat on odd prime powers).
 import HeadDepthMerge
+
+-- Delta 28's executable calibration (notes/DEPENDENT_SYSTEM_OPTIMIZATION_
+-- DELTA_28.md §62): tropical feedback closure, elimination-order
+-- invariance, and the strict interface hierarchy raw 4 > deterministic 3
+-- > latent 2, with the rank lower bound proved against all rectangles.
+import DSOCutCalibration
