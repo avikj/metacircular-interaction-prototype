@@ -62,6 +62,7 @@ A partial translation table, extend it as lanes find more:
 | our name | standard name to grep |
 |---|---|
 | future-behavior quotient | Myhill–Nerode, syntactic monoid, final coalgebra, minimal realization, bisimulation |
+| response-conditioned experiment tree | adaptive distinguishing sequence (ADS), decision-tree experiment, state identification in FSM testing |
 | obstruction-indexed generation | conservative / definitional extension |
 | leakage rank | commutator rank, principal angles, CS decomposition |
 | confinement index | filtration depth in ℤ_p^× |

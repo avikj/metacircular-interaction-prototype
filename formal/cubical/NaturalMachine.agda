@@ -84,6 +84,11 @@ import NaturalMachine.FutureBehavior
 -- preserves it.  The resulting congruence upgrades bounded equality to
 -- complete future equality without importing the Lean visited-pair queue.
 import NaturalMachine.ObservableHorizon
+-- Adaptive distinguishing trees and ordinary word tests induce exactly the
+-- same residual relation.  Cubical quotient effectivity upgrades that iff to
+-- an Iso with the path space between named FutureQuotient meanings; adaptive
+-- depth remains a separate cost coordinate.
+import NaturalMachine.AdaptiveResidualAdapter
 import NaturalMachine.HolonomyDescent
 import NaturalMachine.FiniteInformation
 -- Lossless postcomposition of an observation by an equivalence preserves

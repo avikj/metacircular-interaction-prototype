@@ -55,8 +55,7 @@ theorem primeLogWeight_le_vonMangoldt (n : ℕ) :
     primeLogWeight n ≤ Λ n := by
   by_cases hn : n.Prime
   · simp [primeLogWeight, hn, ArithmeticFunction.vonMangoldt_apply_prime hn]
-  · simpa [primeLogWeight, hn] using
-      (ArithmeticFunction.vonMangoldt_nonneg (n := n))
+  · simp [primeLogWeight, hn]
 
 theorem primePowerError_nonneg (n : ℕ) : 0 ≤ primePowerError n := by
   exact sub_nonneg.mpr (primeLogWeight_le_vonMangoldt n)
@@ -252,6 +251,17 @@ theorem goldbachAt_of_contamination_lt_mangoldtGoldbachCoeff (N : ℕ)
   apply (primeLogGoldbachCoeff_pos_iff N).1
   unfold primePowerContamination at h
   linarith
+
+/-- A fully explicit (but intentionally very demanding) sufficient condition:
+if the Mangoldt coefficient exceeds the checked Chebyshev upper bound for all
+prime-power contamination, then a genuine prime pair exists. -/
+theorem goldbachAt_of_explicit_lt_mangoldtGoldbachCoeff
+    (N : ℕ) (hN : 1 ≤ N)
+    (h : 4 * (Real.log 4 + 4) * N * Real.sqrt N * Real.log N <
+      mangoldtGoldbachCoeff N) :
+    GoldbachAt N := by
+  apply goldbachAt_of_contamination_lt_mangoldtGoldbachCoeff N
+  exact lt_of_le_of_lt (primePowerContamination_le_explicit N hN) h
 
 end
 

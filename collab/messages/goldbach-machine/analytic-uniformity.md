@@ -357,15 +357,16 @@ Thus the pinned lower bound is logarithmically too weak even on targets where
 the singular series is exactly constant.  This diagnoses failure of the
 bound, not negativity of the actual minor-arc coefficient.
 
-If `(MA_unif)` is separately granted, exact positivity improves (10) to
+With the externally pinned `(MA_unif)`, exact positivity improves (10) to
 
 \[
  I_{\mathfrak m}(N)\ge-\mathfrak S_2(N)N+o(N). \tag{13}
 \]
 
-That reaches only the cancellation boundary `eta=0`.  A fixed positive
-fraction `eta S_2(N)N` is still missing, so even the audited major arcs plus
-positivity do not prove Goldbach.
+This is now an unconditional statement at the external-source grade specified
+in section 1.  It reaches only the cancellation boundary `eta=0`.  A fixed
+positive fraction `eta S_2(N)N` is still missing, so even the audited major
+arcs plus positivity do not prove Goldbach.
 
 Parseval gives
 
@@ -506,26 +507,163 @@ That statement retains the carrier, the Fourier map, the normalization, the
 uniform quantifier, and the exact place sign cancellation is needed.  It is
 not proved here.
 
-## 6. Source and rigor ledger
+## 6. The 2026 fully explicit formula: retained witnesses, aggregate residual
+
+### 6.1 Exact statements supplied by the preprint
+
+The strongest statements in Bhowmik--Grimmelt lie on different axes and must
+not be collapsed into one claim.
+
+1. **Sharp logarithmic major arcs, pointwise.**  Section 4.2 supplies the
+   externally pinned `(MA_unif)` described in section 1.  This is the part that
+   matches Theorem G exactly.
+2. **Classical minor arcs, mean-square.**  Lemma 4.2 states, in the paper's
+   common-`X` family normalization,
+
+   \[
+   \sum_{N\le X}|r_{\mathfrak m}(N)|^2
+   \ll (X^3/R+X^{13/5})(\log X)^5. \tag{17}
+   \]
+
+   With `R=(log X)^A`, Chebyshev gives an arbitrarily strong logarithmic
+   exceptional-set saving, but leaves a nonempty possible exceptional set.
+   The preprint also imports Pintz's stronger unconditional result
+   `|E(X)|<X^0.72`; that is its strongest stated Goldbach exceptional-set
+   exponent, not a theorem for every center.
+3. **New fully explicit smoothed formula, still mean-square.**  Section 7 fixes
+   a nonnegative `phi in C_c^infinity(1/5,4/5)` with
+   `integral phi(t)phi(1-t)dt=1`, and uses
+
+   \[
+   S_\phi(\alpha)=\sum_n\Lambda(n)\phi(n/N)e(\alpha n),\qquad
+   r_\phi(N)=\sum_{n_1+n_2=N}\Lambda(n_1)\Lambda(n_2)
+      \phi(n_1/N)\phi(n_2/N).
+   \]
+
+   For `R=X^vartheta`, `0<vartheta<4/9`, `eta=R^(-1/4)`, and
+   `T_q=eta Xq/R`, Proposition 7.5 states
+
+   \[
+   \sum_{N\le X}\left|r_\phi(N)-N\mathfrak S(N)
+      -\mathcal M(N;R)-\mathcal Z(N;R)\right|^2
+   \ll (X^{3-\vartheta}+X^{13/5})(\log X)^5. \tag{18}
+   \]
+
+   Here `M` retains every pole--zero term and `Z` every zero--zero term,
+   including the primitive characters, the finite `q<=R` arithmetic
+   coefficient, and the smoothed archimedean integral
+   `I_q^phi(N;rho_1,rho_2)`.  “Fully explicit” describes this retention of all
+   zero terms.  It does not turn the residual in (18) into a pointwise error.
+   Replacing `Lambda` by the prime-log weight changes `r_phi(N)` by only
+   `O_phi(sqrt(N) log^2 N)`, so a positive lower bound of order `N` would still
+   yield a genuine prime pair.
+4. **New sparse-Hardy--Littlewood consequence.**  Proposition 8.1 gives an
+   exceptional-zero expansion for `r_2(N)` outside
+   `O_epsilon(X^(3/5+epsilon))` even centers, conditional on a nearby real
+   zero.  Theorem 8.2 uses a two-sided Hardy--Littlewood bound on all but
+   `X^(3/5)` multiples of a conductor to rule out such a zero.  It is a
+   converse constraint on zeros, not a Goldbach existence theorem.
+
+### 6.2 Why no specified exceptional center continues
+
+Let
+
+\[
+ D_R(N)=r_\phi(N)-N\mathfrak S(N)-\mathcal M(N;R)-\mathcal Z(N;R).
+\]
+
+For one specified `N_0`, (18) supplies only the coordinate bound
+
+\[
+ |D_R(N_0)|\le\|D_R\|_{\ell^2(N\le X)}
+ \ll\left(X^{(3-\vartheta)/2}+X^{13/10}\right)(\log X)^{5/2}. \tag{19}
+\]
+
+Even at the endpoint `vartheta -> 4/9`, the right side is at least of order
+`X^(13/10)`, larger than the `Theta(X)` Goldbach main term.  Chebyshev can
+instead show that `|D_R(N)|<=X^(1-epsilon_0)` away from at most
+
+\[
+ O\!\left(
+ X^{1-\vartheta+2\varepsilon_0}+X^{3/5+2\varepsilon_0}
+ \right)(\log X)^5 \tag{20}
+\]
+
+centers.  For `vartheta>=2/5` this is the `3/5` exceptional-set floor used in
+section 8, after adjusting epsilon.  But (20) does not decide whether a
+declared `N_0` belongs to that set.
+
+The same quantifier obstruction appears in Theorem 8.2.  Its proof has
+`asymp X^(1-1/A)` multiples of the conductor, discards the two exceptional
+sets, and selects at least one survivor because `1-1/A>3/5`.  There is no map
+from this pigeonhole survivor to a prescribed multiple.  The paper notes a
+Matomaki--Merikoski result needing only one multiple, but that single
+multiple's expected Goldbach count is a **hypothesis used to exclude a Siegel
+zero**, not a conclusion producing a representation.
+
+Thus the new formula offers a richer diagnosis of why a center may be bad,
+but no pointwise route for a single exceptional `N`.  At logarithmic major
+arcs, (17) similarly proves `(H_min)` with room for almost all centers after a
+Chebyshev step, never for every center.
+
+### 6.3 Delta 26 continuation object and exact obstruction
+
+The genuinely sharper continuation object is the family
+
+\[
+ \mathcal C_R(S_\phi)(N)
+ :=\int_0^1S_\phi(\alpha)^2\widehat b_R(\alpha)e(-N\alpha)\,d\alpha,
+ \qquad
+ b_R(n)=\sum_{q\le R}c_q(n)G_{T_q}(n). \tag{21}
+\]
+
+- **Carrier:** the coefficient family indexed by centers `N<=X`, together
+  with the zero/character labels retained in `M` and `Z`.
+- **Map and operation:** square the smoothed prime signal, multiply by the
+  smooth rational-frequency selector `hat b_R`, then take every Fourier
+  coefficient.  Varying `(R,eta,T_q)` is the continuation family.
+- **Proof-relevant composition:** pole--pole, pole--zero, and zero--zero terms
+  remain separately named before the residual norm is taken.  This is more
+  informative than the earlier absolute-value treatment.
+- **Architecture regret/curvature:** the squared residual exponent is
+  `g(vartheta)=max(3-vartheta,13/5)`.  It decreases with slope `-1` until
+  `vartheta=2/5`, then hits the Vinogradov floor `13/5`; the construction only
+  permits `vartheta<4/9`.  This kink is the exact option-value boundary, not a
+  metaphor.
+- **Contextual-interface obstruction:** evaluation at a declared center is
+  the map `ev_N : ell^2({1,...,X}) -> C`.  Composing the retained-zero formula
+  with `ev_N` yields only (19), which loses the `N`-scale sign.  A pointwise
+  continuation into `(H_min)` needs an `ell^infinity` or localized maximal
+  residual bound `o(X)`, plus control of the negative part of `M+Z`.  Neither
+  is in the preprint.
+
+The Natural Machine consequence is exact: retain (21) and its zero-pair
+witnesses as an informative continuation family, but do not expose its
+`ell^2` certificate through a point-evaluation interface as though it were a
+pointwise positivity witness.  No core edit is earned by this audit.
+
+## 7. Source and rigor ledger
 
 - **Proved here:** Theorem G conditional on `(MA_unif)` and `(H_min)`, including
   the elementary `O(sqrt(N) log^2 N)` removal of proper prime powers; the
   implication `(H_unif) => (H_min)`; (10)--(13); and the exact Fourier identity
   (finite orthogonality).
-- **Explicit premise, locally unpinned:** `(MA_unif)`.  The exact source audit
-  is in section 1.  The local notes pin its expected main term and local
-  Ramanujan coefficient, but not the stated error theorem or dyadic
-  quantifier.
+- **Externally pinned, locally unformalized:** `(MA_unif)`, by Bhowmik--Grimmelt
+  section 4.2 and the proof of Theorem 4.3, in the exact normalization audited
+  in section 1.  Only its uniform `o(N)` consequence is consumed here.
 - **Pinned classical input, not re-proved:** positivity/lower bound (4)--(5);
   Chen's `p+P_2` theorem; the exact-prime almost-all result and the reported
   Montgomery--Vaughan exceptional-set refinement; Parseval, the prime number
-  theorem, and the standard Vinogradov minor-arc estimate.  These are taken
-  from the local corpus; no new web search was used.
+  theorem, and the standard Vinogradov minor-arc estimate.  The 2026 update
+  additionally read the cited primary preprint and its TeX source; no
+  secondary web source was used.
 - **Checked local facts:** the four Lean modules listed in §5, the zero
   charge/projection theorem, and the correction chain across all six
   `BARRIER*.md` files.
-- **Not claimed:** an effective threshold, `(MA_unif)`, the estimate `(H_min)`
-  or `(H_unif)`, progress on Chen's theorem, a new circle-method lemma, or a
-  theorem that the needed uniform estimate is impossible.
+- **Not claimed:** an effective threshold, a local proof or formalization of
+  `(MA_unif)`, the estimate `(H_min)` or `(H_unif)`, pointwise control from the
+  fully explicit mean-square formula, progress on Chen's theorem, a new
+  circle-method lemma, or a theorem that the needed uniform estimate is
+  impossible.
 - **Execution:** no Python file was run, imported, edited, added, or repaired;
   no numerical hunt was performed.
