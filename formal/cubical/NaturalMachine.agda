@@ -535,6 +535,7 @@ import NaturalMachine.S3FiniteSpinNetwork
 import NaturalMachine.S3EquivariantEndomorphismRigidity
 import NaturalMachine.S3IntegerPermutationModule
 import NaturalMachine.S3IntegerRelativeCoordinates
+import NaturalMachine.S3FixedPointCharacter
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

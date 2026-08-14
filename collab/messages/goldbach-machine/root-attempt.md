@@ -619,7 +619,8 @@ or a direct edge-margin theorem.
   the
   executable audit is [`execution-compiler.md`](execution-compiler.md)
   (`7a02f908`).
-- **Open:** the pointwise signed minor-arc margin or a prime-specific AntiSpike
-  theorem.
+- **Open:** the pointwise edge margin `(H_edge)`, or an actual-prime inverse
+  theorem extracting a conductor/Type-II packet together with a conditioned
+  persistence estimate on its aligned shifts.
 - **Not run:** no Python; no numerical census, scan, or large finite Goldbach
   evaluation; no unverified Haskell Goldbach command.
