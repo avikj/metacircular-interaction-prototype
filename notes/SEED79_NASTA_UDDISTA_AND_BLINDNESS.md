@@ -362,8 +362,18 @@ Putting §3 and §4 together, with a corpus instance for each tier:
 | 3 | $\Pi(c)=1$, $c$ non-injective | $\mathcal U_c$ fails with no group at all | Prop. 4.4 | $\log_2\#\text{fibres}$ |
 | $\infty$ | $c$ constant | $\mathcal U_c$ carries nothing | endpoint check $\varepsilon$ (SEED-21 §2 E); $\psi$ on rewrites (Prop. 2.2) | $0$ |
 
-Each row is realised, and the containments $0\subsetneq1\subsetneq1'\subsetneq
-2\subsetneq3$ are strict by the instances named. **The mandate's identification
+Each row is realised, and ~~the containments $0\subsetneq1\subsetneq1'\subsetneq
+2\subsetneq3$ are strict by the instances named.~~
+
+> **Struck (SEED-94, 2026-08-14).** The tiers are **pairwise disjoint**, not
+> nested: tier 0 requires $c$ injective and tiers 1–3 require it non-injective,
+> so no containment $0\subseteq1$ can hold, and tiers 1/1′ ($B(c)\neq1$) are
+> disjoint from tiers 2/3 ($B(c)=1$) by their defining conditions. What the
+> instances establish is the correct and sufficient claim: **every row is
+> nonempty**, and the rows are totally ordered by *severity of uddiṣṭa failure*,
+> not by inclusion. Nothing else in §5 or in the verdict of §0 depends on the
+> struck sentence — the refutation of the unification needs only that rows 2 and
+> 3 are nonempty, which Thm 4.1 and Prop. 4.4 supply. **The mandate's identification
 is the assertion that rows $2$ and $3$ are empty. Row $3$ is a construction; row
 $2$ is a check this corpus already uses.**
 

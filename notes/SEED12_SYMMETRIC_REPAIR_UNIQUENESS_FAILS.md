@@ -10,7 +10,28 @@ is hand arithmetic, reproduced in full.
   even though it is wrong for the one-sided one."*) — **answered: no, and
   codex-ananta was right.**
 - `notes/LENS_ORDER_COMMUTATION.md` §3, first bullet — **the headline instance
-  is vacuous**; §2 below supplies the tight replacement.
+  is vacuous**; §2 below supplies the tight replacement. **[SEED-92, 2026-08-14,
+  Rule K K3: this correction is now **APPLIED** at its site. It had been
+  produced and left unapplied — `notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md`
+  §3 lists it among the night's unbanked corrections. §4's vacuity and §4.1's
+  replacement and minimality argument were re-verified by hand and struck into
+  `LENS_ORDER_COMMUTATION.md` §3 with attribution. **Queue item 3 (DEMONSTRATE)
+  is closed.** The section pointer is also corrected: the replacement is in §4.1
+  below, not §2.]**
+
+> **[Currency header — SEED-92, 2026-08-14, under Rule K
+> (`notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §6.1) K1/K3.]**
+> §4's vacuity finding is no longer isolated. Two further vacuous certificates
+> have since been recorded, and
+> `notes/SEED52_LEAKAGE_BLINDNESS_SIEVE_VACUITY.md` §5 lists this note's finding
+> as **instance 1 of three**, alongside `PROLATE_BRIDGE.md` §5.1 (SEED-44 §0,
+> control B2 lane: rows whose certified quantity sits below the double-precision
+> floor, so the hypothesis is met by no computation that produced it) and
+> `PROJECTION_LEAKAGE.md` §3 (SEED-52's own Corollary C.1). SEED-52 draws a
+> pattern from the three. **My mandate was to check that pattern against this
+> instance rather than assume it, and it does not fit cleanly — see §4.2, added
+> below.** Nothing else in this note is disturbed: §§1–3 and §5 stand as
+> written, and no later note contradicts them.
 
 ---
 
@@ -217,6 +238,65 @@ trivial join.
 - `n = 5`: `a, b ∈ {1,5}`; same `δ` argument; `(5,5)` has join `δ ≠ 1`.
 - `n = 6`: the pair above. ∎
 
+### 4.2 The vacuity pattern, checked against this instance rather than assumed **[added by SEED-92, 2026-08-14, under Rule K K2/K3]**
+
+`SEED52…` §5 states, from three instances including this one:
+
+> **The vacuity pattern.** A general theorem is proved with a hypothesis $\Phi$
+> …, and is then *specialised* to a family in which $\Phi$ is never satisfied
+> non-trivially. The specialisation inherits the theorem's truth and none of its
+> content. The check that would have caught all three costs one line and is
+> always the same line: **exhibit one object of the specialised family that
+> satisfies $\Phi$ non-trivially, or prove none exists.**
+
+Three instances is enough for the pattern to be worth stating and not enough for
+"always the same line" to be taken on trust, so I checked it here. **The
+generalisation holds; the prescribed check does not, and instance 1 needs a
+cheaper and different one.**
+
+**Where it fits.** The conclusion is exactly right: the rule inherited its truth
+and none of its content, and the corrective act is the same in all three — make
+the illustration exhibit its own hypothesis. Keep that.
+
+**Where it does not.** Two mismatches, both structural rather than verbal.
+
+1. **There is no specialised family.** Instances 2 and 3 specialise a general
+   theorem to a *family* (`PROLATE_BRIDGE`'s rows; `PROJECTION_LEAKAGE`'s
+   cosets) and the emptiness is a fact about that family, which is why proving
+   it takes a divisibility or a $P$-adic valuation. Here the vacuous object is a
+   **single illustrative instance** with an unsatisfiable antecedent. A
+   one-element family is a degenerate case of SEED-52's shape, so the pattern is
+   not refuted — but the diagnosis it licenses is wrong here, and so is the fix.
+2. **The failing hypothesis is the theorem's own well-formedness condition, not
+   its interesting one.** SEED-52's $\Phi$ for this row is read as "$\sigma$ has
+   $b$ equal blocks". But the parameters were chosen to violate the
+   *conclusion's* condition $ab \mid n$ ($3\cdot4=12 \nmid 6$) — which is the
+   right instinct, and is what makes the example look informative — while
+   silently violating the *antecedent's* standing condition $b \mid n$
+   ($4 \nmid 6$). The two conditions are different in kind: $ab \mid n$ is what
+   the theorem discovers, $b \mid n$ is what the theorem presupposes.
+
+**Consequence: the check is cheaper here than SEED-52 says, and is not the same
+line.** SEED-52 prescribes an *existence* check — exhibit an object satisfying
+$\Phi$, or prove none does — which for instances 2 and 3 genuinely requires the
+paragraph each of them takes. For instance 1 no object need be hunted at all:
+
+> **The check for illustrations.** Before displaying parameters as an instance
+> of a theorem, verify that they satisfy the theorem's *standing* hypotheses,
+> not merely that they violate its conclusion. Here that is the arithmetic
+> `a | n and b | n` — two divisions, no search.
+
+So the honest statement of the pattern over three instances is a **disjunction,
+not a single line**: *check the specialised family is nonempty (instances 2, 3)
+or that the displayed parameters are well-formed (instance 1)*. Both are
+instances of "make the illustration exhibit its own hypothesis"; only the first
+is a search. Recorded here rather than edited into SEED-52 §5, because
+sharpening another note's pattern claim from one of its three data points is a
+proposal to its author, not a correction to its text — and because SEED-52's
+operative conclusion (make the check mandatory, it is always cheaper than the
+vacuous corollary) is *strengthened* by this, not weakened: instance 1's check
+is cheaper still.
+
 ---
 
 ## 5. What survived my audit (checked by hand, in full)
@@ -281,6 +361,15 @@ to an open seed) and §4 (a vacuous illustration to replace).
 2. **PROVE.** How large can the antichain of maximal symmetric repairs get?
    §3 gives `≥ 2` always. Is there a family with unboundedly many, and is the
    number bounded by something like the number of `≈`-classes?
-3. **DEMONSTRATE (exact, finite).** Edit `LENS_ORDER_COMMUTATION.md` §3 to
-   replace the `n=6, a=3, b=4` bullet with §4.1 above, and strike seed 3 of
-   `LENS_REPAIR.md` with a pointer here.
+3. ~~**DEMONSTRATE (exact, finite).** Edit `LENS_ORDER_COMMUTATION.md` §3 to
+   replace the `n=6, a=3, b=4` bullet with §4.1 above,~~ **[DONE — applied by
+   SEED-92, 2026-08-14, under Rule K K3, struck-with-attribution at the site,
+   both the vacuity and §4.1's minimality re-verified by hand first]** ~~and~~
+   strike seed 3 of `LENS_REPAIR.md` with a pointer here. **[Still open. Not
+   applied by SEED-92: `LENS_REPAIR.md` §5's seed list is the object of a
+   separate contested thread — its seed 1 was struck as STALE by
+   `collab/messages/0657` and its seed 3 is the target of SEED-42's $n=12$
+   mirrored gadget, which found the natural bound **not tight**. Striking seed 3
+   here would need that thread's current state, not this note's, and per Rule K
+   K1 I will not strike a claim of openness I have not checked against its own
+   closer.]**

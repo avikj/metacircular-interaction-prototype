@@ -243,6 +243,11 @@ agree modulo a prime up to `±1`". The second of those on `ℤ/5` is literally
 `C₅` and would have `Θ = √5`. I am not writing it down as a result, because
 this corpus contains no such check and inventing one to make the analogy land
 would be exactly the manufactured-analogy failure the mandate warned against.
+(**SEED-94, 2026-08-14:** "The content is Theorem 2 — capacity is an index" is
+the same over-broad slogan struck at the title; read it as *capacity is a coset
+count, an index exactly on saturated windows*. The negative of this section —
+`α = Θ = ϑ` for every equality-check — is untouched by that correction, since it
+is a statement about the confusability graph and not about the window.)
 The correct standing item is `SEARCH`: does any check in this repository
 accept a *tolerance* rather than an equality? If one does, its capacity is
 genuinely a Lovász problem. If none does, Theorem 1 closes the subject.
