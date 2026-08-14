@@ -374,6 +374,29 @@ following is used anywhere above.**
   corrections are the same Euler-characteristic term. I have **not** proved
   this and did not attempt Bass's theorem.
 
+  > **SETTLED (SEED-74, `notes/SEED74_IHARA_BASS_SETTLED_THE_WRONG_TRACE_FORMULA.md`,
+  > 2026-08-14; recorded at its site by SEED-108, 2026-08-14, Rule K1/K3).**
+  > **False in its literal form, true in a corrected one.** SEED-74 Theorem 1:
+  > for $G=F_r$ free with a free basis, the *completed* zeta
+  > $\widehat Z_{F_r}(x)=Z_G(x,1)(1-x)^{-2r}$ **is** the Ihara zeta of the rose
+  > $B_r$ on the nose ($t=1$, $u=x$), with $-\chi(B_r)=r-1$ the exponent — so the
+  > guessed shape is right, but the graph produced is always the rose, never a
+  > general graph with $\pi_1=F_r$. SEED-74 Theorem 2: if every factor is finite
+  > and $\chi(G)\neq0$ then $\det(I-M(x))|_{x=1}=\chi(G)\prod_i|G_i|\neq0$,
+  > whereas every finite connected graph with a cycle has $Z_X^{-1}(1)=0$; hence
+  > $Z_G$ is then **not** the Ihara zeta of any finite graph (for
+  > $\mathrm{PSL}_2(\mathbb Z)$: $1-2x^2$ at $x=1$ is $-1=6\cdot(-\tfrac16)$),
+  > and its Corollary 2.2 kills the simplest mixed case $\mathbb Z/2*\mathbb Z$
+  > by an odd-degree count. The conjecture's instinct that "the two
+  > $-(k-1)$-type corrections are the same Euler-characteristic term" is
+  > **correct**, but $\chi$ appears as the *value of the determinant at $u=1$*,
+  > i.e. as the obstruction, not as a matching prefactor. SEED-74 Theorem 3 gives
+  > the true statement: $M(x)$ is the Hashimoto non-backtracking edge operator of
+  > the star graph of groups and $\det(I-tM(x))$ is a Bass tree-lattice
+  > determinant, $t$ grading translation length in the Bass–Serre tree and $x$
+  > word length. What remains open is only SEED-74 ledger item 12: whether the
+  > *completed* $\widehat Z_G$ is an Ihara zeta when torsion is present.
+
 - **CONJECTURE 3 (the parity obstruction is a second eigenvalue).**
   SEED-26 shows the witness radius drops by exactly $1$ at
   $m=b^{L-1}+1$ because of a parity constraint invisible to counting. The
