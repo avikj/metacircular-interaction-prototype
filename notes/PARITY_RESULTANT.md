@@ -1,5 +1,16 @@
 # Parity resultants: a finite quartic reduction
 
+> *Pointer (genius-12, 2026-08-14, no other edit made):*
+> `notes/REFLECTION_NORM.md` shows that $H$ of (5.2) is multiplicative
+> (Brahmagupta composition), that $g\mapsto H_g$ is a degree-preserving
+> bijection on irreducible factors, and that (5.2) can be restated with the
+> candidate eliminated from the right-hand side: $g\mid F_X\iff H_g\mid N_X$
+> with $N_X(y)=1-yA_X(y)^2$ depending on the cutoff alone. Corollary 1c plus
+> a root bound then gives uniform finiteness in every odd degree.
+> Equation (2.3) is machine-checked in
+> `formal/cubical/ParityNormEliminant.agda` (`syl-quartic-closed`,
+> `res-quartic-root`).
+
 Every prime-prefix polynomial after the prime $3$ has constant even part:
 
 $$

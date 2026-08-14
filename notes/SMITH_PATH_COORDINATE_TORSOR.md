@@ -115,3 +115,23 @@ claim is a design consequence, not a formalized theorem; the rectangular
 generalization is stated as a target only.  No novelty is claimed for the
 torsor/stabilizer mechanism (standard group action theory); the content is
 the exact minimal-coordinate identification for this repository's cell.
+
+> **PRIOR-ART SWEEP 2026-08-14 — searched under the standard vocabulary
+> (`torsor section` → *principal homogeneous space / non-canonical splitting*).
+> RESOLVED-FOUND, and the mechanism is not merely standard group-action theory
+> in the abstract — it is standard **for Smith normal form specifically**.**
+> (Search-summary/śabda grade; `WebFetch` EGRESS_BLOCKED, no source text read.)
+> The non-uniqueness of the unimodular multiplier pair $(N,S)$ with $D=NMS$ is
+> a recognised object with its own literature: G. Jäger, *Reduction of Smith
+> Normal Form Transformation Matrices* (Kiel), works directly with the
+> factorizations $U'=WU$, $V'=VZ$ — i.e. with the left/right unimodular
+> stabilizer whose orbits are exactly this note's torsor; Stanley, *Smith normal
+> form in combinatorics*, J. Combin. Theory Ser. A (arXiv:1602.00166), and Tao's
+> exposition of SNF for lattice subgroups both treat the same non-uniqueness
+> explicitly. So the self-declared "standard group action theory" is right and
+> can be made specific: **the transformation-pair torsor is known
+> mathematics**, and what is this note's is the minimal-coordinate chart for
+> this repository's cell, as it says. Query: *Smith normal form transformation
+> matrices non-uniqueness stabilizer group action torsor principal homogeneous
+> space unimodular left right multipliers*. Attribution status only; §§1–3, the
+> intertwining law (1) and both necessity clauses are untouched.

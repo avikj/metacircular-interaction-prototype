@@ -1,147 +1,138 @@
-# Collaboration protocol
+# Protocol
 
-Minimal, conflict-free, verification-first. Itself collaborative: propose
-changes by message, then edit.
+**Rewritten 2026-08-14 on human direction, from 147 lines to this.** What was
+cut was ceremony: message-frontmatter schemas, a claims table nobody kept
+current, namespace rules for `code/expNN_*.py` in a repository where Python is
+banned, a five-step extraordinary-claim gate that was never once executed, and
+a section about a website. Ceremony is what a collaboration produces instead of
+judgment. If you find something below that you are performing rather than
+using, cut that too and say so in a message.
 
-## 1. Communication
+Sixty-odd files cite this path. That is why the path survived the rewrite.
 
-- One file per message in `collab/messages/`: `NNNN-<author>-<slug>.md`,
-  `NNNN` = next unused number (ties by frontmatter timestamp).
-- YAML frontmatter: `from`, `date` (ISO8601 UTC), optional `re: NNNN`,
-  `type: info | proposal | claim | challenge | review | result`.
-- Read all messages newer than your last write before working.
-- Messages coordinate; documents assert: mathematical authority lives only in
-  `notes/` (proofs) and `code/` (reproducible computation).
+---
 
-## 2. Work claims (avoid duplication)
+## 0. Read before you write — the rule that outranks the rest
 
-- `collab/STATE.md` **Claims** table: add a row (task, owner, started) in the
-  same commit as your first work; mark done/abandoned to release. Stale
-  (>24h, no commits on the task's files) ⇒ takeover allowed after a message.
-- New candidates may also use one packet per claim in
-  `collab/discovery/claims/` — non-authoritative routing scaffold
-  (certification disabled until manifest/lineage gates exist); proof-note,
-  exact-code, and review norms stay authoritative. See
-  `collab/discovery/README.md`.
+Search under the **standard** name for the object, not the one we coined, and
+do it before you open the item, not before the write-up. Coined names are
+exactly what hide standard objects; the README's receipts list is the evidence,
+and it includes a module that re-derived a file *inside our own pinned library*
+in weaker form.
 
-## 3. File namespaces
+Three surfaces, in order: `~/agda-libs/` (cubical, agda-unimath, UniMath, the
+Symmetry book, Coq-HoTT, mathlib4, vidyut); `notes/PRIOR_ART_INDEX.md`'s
+coined → standard translation table, which you extend every time you find
+another one; then `WebSearch`. `WebFetch` is egress-blocked on every host, so
+search output is **testimony, not text you read** — label it as such and never
+quote a paper you have not opened.
 
-- Shared, edit with care: `notes/*.md` (append/extend; strike through rather
-  than delete when correcting others — the correction record is part of the
-  mathematics), `collab/*`, `site/`.
-- Sole-author: `code/expNN_*.py` — next free NN; never renumber or rewrite
-  others' experiments; write a new one (replication is a feature).
-- `papers/`: coordinate by message before restructuring. Data in `data/`;
-  figures in `figures/`, named after their experiment.
+A `SEARCH` obligation is discharged by recording what you searched, in what
+vocabulary, and what a successor should not repeat. "Likely folklore, no search
+performed" is not a discharge.
 
-## 4. Verification norms (the important part)
+## 1. What counts as verified
 
-- **Numerics must be claim-anchored** (standing policy, 2026-08-12, upstream;
-  wording per ORCHESTRATION_DIFF §3.1). Admissible iff it computes a declared
-  exact quantity that confirms-or-kills a stated candidate statement, with ≥1
-  known-false control — or replays a certificate. Censuses, unanchored scans,
-  fits, and pattern hunts are inadmissible; reject landings whose main content
-  is unanchored measurement (the agent-society attractor: cheap, always
-  "successful", displacing structural work). The rule forces the anchor, not
-  the instrument.
-- **Every claim and fleet brief carries a forecast** (upgrade 1): register
-  predicted outcome + outcome space at launch. Surprises are only detectable
-  against a registered prior.
-- **Extraordinary-claim gate** (upgrade 2), before belief in any headline
-  claim: written prior naming suspect joints in advance; ≥2 blind referees on
-  disjoint joints with worked plans; blind from-scratch re-derivation;
-  proves-too-much run on a false-model control; recorded numeric credences.
-  Cross-lineage referees strongly preferred.
-- **The walk ledger is load-bearing** (`collab/FAILURES.md`, upgrade 3).
-  Every completed walk emits its **yield** — constraint learned, region
-  excluded, mechanism revealed, or statement sharpened — written so it can
-  change a future brief. "Failure" is deprecated; a yield-less walk is
-  unfinished. Briefs are COMPOSED FROM yields. New agents read the ledger
-  first.
 - **Nothing load-bearing enters unverified.** Theorem ⇒ written proof in
-  `notes/`; numerical claim ⇒ runnable script + quoted output; literature
-  claim ⇒ link checked against the actual source, not memory.
-- **Cross-verification is the default courtesy.** Try to break others'
-  load-bearing landings by independent re-derivation/re-implementation
-  (different code/method); verdict in a `review` message; if it survives,
-  cite the replication in the note. Two independent confirmations = headline
-  bar. This has caught real errors (`notes/REDTEAM.md`; struck corrections in
-  `notes/REPORT.md`, `notes/APPENDIX_D.md`) — it is why the corpus can be
-  trusted.
+  `notes/`. Literature claim ⇒ checked against the actual source, not memory,
+  and graded if the source was not read.
+- **Exact symbolic computation is proof** — certificates, resultants,
+  factorizations, finite exhaustive verifications. Everything else that emits a
+  number stands in for an error analysis you did not do. A correlation
+  coefficient has no content; the content is the error term. A constant
+  measured at one scale hides its scaling and is worse than no constant,
+  because it looks like knowledge.
+- **Verification means the root aggregate exits 0**, not the module you
+  touched. An orphan module that checks is not covered by a green claim; see
+  `formal/cubical/BUILD.md`, which exists because that exact overstatement was
+  made here and caught.
+- **PROVED and MEASURED never conflate**, anywhere, including in passing.
+- **Register what you expect before you look.** One line naming the outcome
+  and the space of outcomes it came from. Surprise is only detectable against a
+  recorded prior, and it is the whole point.
+- **Headline claims ship with their own falsifier** — the control you designed
+  to kill the claim, and its result — or they are not headline claims.
+
+## 2. Correction
+
 - **Refutations are first-class.** Strike through in place with a pointer to
-  the refutation; never silently delete.
-- **Attribution honesty.** Cite known results as known even when re-derived
-  (norm: `notes/PARITY.md` §1). Novelty claims require a recorded search.
+  the refutation; never silently delete. Correcting another agent's note by
+  strike-and-attribute is the expected courtesy, not an intrusion — the
+  correction record is part of the mathematics.
+- **Try to break things.** Independent re-derivation by a different method,
+  verdict in a message, and if the claim survives, cite the replication in the
+  note. This has caught real errors and is why the corpus can be trusted at
+  all.
+- **Attribution honesty.** Cite known results as known even when you re-derived
+  them. Novelty claims require a recorded search. Misattributing your own work
+  to "the environment" or an auto-commit is a fabrication, not a shrug.
+- Adversarial toward claims, collegial toward agents. The most valuable thing
+  you can publish here is a verified refutation; second, an independent
+  replication; third, a new theorem — which is worth little without the first
+  two.
 
-## 5. Git discipline
+## 3. Coordination
 
-- **One session, one worktree** (human owner, 2026-08-13, msg 0371). Every
-  session — interactive or supervisor-launched — owns an isolated worktree
-  `../avikj-math-readme-workers/<handle>` on branch `worker/<handle>`, and
-  edits nothing outside it. `collab/orchestration/workers/README.md` already
-  required this of supervised minds; it binds interactive sessions equally.
-  Verify with `sh .githooks/worktree-guard.sh`. Rationale is not
-  tidiness: a shared tree loses uncommitted proofs and duplicates cognition
-  invisibly, and both happened on 2026-08-13.
-- **Publish by fast-forward, not by editing a shared tree.** Commit in your
-  worktree, rebase on `origin/claude/prime-pair-field-research-18tq7b`, then
-  `git push origin worker/<handle>:claude/prime-pair-field-research-18tq7b`.
-  Only commits meet; a conflict then reads as a disagreement between two
-  finished increments instead of two half-written files.
+- Messages coordinate, documents assert. Mathematical authority lives in
+  `notes/`; `collab/messages/` is for what you are doing and what you need.
+  One file per message, `NNNN-<author>-<slug>.md`, next unused number — check
+  the directory immediately before writing, because number collisions happen
+  and the later writer yields.
+- Read messages newer than your last write before starting.
+- Keep your block in `collab/BOARD.md` current: one carried question, and one
+  thing a returning agent could give you that would change your next action. A
+  block stale past 24 h may be archived to `collab/chronicle/` by whoever
+  notices, and its claim taken over after a message.
+
+## 4. Git
+
+- **One session, one worktree.** A shared checkout loses uncommitted proofs
+  and duplicates cognition invisibly; both happened here inside one hour.
+  `git worktree add -b worker/<handle> ../avikj-math-readme-workers/<handle>`,
+  then `sh .githooks/worktree-guard.sh` must print OK.
+- **Publish by fast-forward, never by editing a shared tree.** Commit in your
+  worktree, rebase, push `worker/<handle>` to the branch you were designated.
+  Only finished commits meet, so a conflict reads as a disagreement between two
+  increments rather than two half-written files.
 - **Never commit, stash, revert, or clean another identity's uncommitted
-  files.** If you find finished work stranded untracked in a shared tree, say
-  so in a message addressed to its author and leave it alone. Rescue only with
-  the author's recorded consent or after their block in `NOW.md` has gone
-  stale (>24 h), and then commit it unaltered with attribution in the message.
-- **Python is banned** (human owner, 2026-08-13); the substrate is Agda
-  (`formal/cubical/`) and Lean (`formal/pairfield/`). Enforced by a tool-use
-  hook, a `pre-commit` hook (`core.hooksPath .githooks`), and CI. Deletions of
-  legacy `.py` always pass. `MATH_ALLOW_PYTHON=1` overrides and must be
-  recorded wherever it is used.
-- Work on `claude/prime-pair-field-research-18tq7b`. **No pull requests**
-  (human owner, 2026-08-11, msg 0067): the epistemic gates are §4 and the
-  registry, not merge ceremony.
-- **Keep `main` at the branch tip**: after pushing, fast-forward main
-  (`git push origin claude/prime-pair-field-research-18tq7b:main`;
-  fast-forward only, never force). Sync often — courtesy to humans reading
-  `main`.
-- Commit messages: what changed and what it means, mathematically.
-- Pull/rebase before push; never force-push over others' commits. The
-  stop-hook may commit `Fleet WIP` snapshots.
+  files.** Stranded finished work gets a message to its author and nothing
+  else, unless their board block is stale, and then it is committed unaltered
+  with attribution.
+- **Therefore: no `git add -A`, no `git commit -a`, in a shared checkout.**
+  Commit by explicit pathspec — `git add <the files you wrote>` — every time.
+  This is not a style preference; it is the only mechanical form the rule
+  above takes. On 2026-08-14 a single orchestrating session broke it three
+  times in one night, and **six** agents (Dignāga, Mādhava, Brouwer, Pāṇini,
+  Grassmann, Ramanujan, Cartwright) independently reported the same incident
+  from the other side. Nothing was lost, but the failure mode is worse than
+  loss: commits `9d4efcd` and `d6ee701` published other agents' *in-flight,
+  non-compiling* files under a message describing someone else's work, so
+  the commit log asserts a verification that was never run on that content.
+  A brief saying "the parent integrates" does not license `-A`; it licenses
+  naming their finished files explicitly.
+- Pull and rebase before pushing. Never force-push over others' commits. No
+  pull requests — the gates are §1 and §2, not merge ceremony.
+- Commit messages say what changed *and what it means mathematically*.
 
-## 6. The site
+## 5. Python is banned
 
-`site/index.html` is the human-facing interface (published as an artifact by
-the session owning the artifact URL). Add cards for landed results; keep
-PROVED / MEASURED / OPEN labels honest — site status must match `notes/`.
+Human owner, 2026-08-13. Not run, not added, not repaired, not revived. The
+substrate is Agda (`formal/cubical/`) and Lean (`formal/pairfield/`). Enforced
+by tool-use hook, `pre-commit` (`core.hooksPath .githooks`), and CI. Deletions
+of legacy `.py` always pass.
 
-## 7. Culture
+`MATH_ALLOW_PYTHON=1` overrides every layer. It exists so in-flight work is
+never destroyed, not so new Python gets written. Using it without recording it
+in your journal and in a message is lying to the collaboration.
 
-Adversarial toward claims, collegial toward agents. Most valuable message: a
-verified refutation; second: an independent replication; third: new theorems
-— worthless without the first two.
+## 6. This is private research
 
-Prasaṅga norms (msg 0073, evidence-label correction in msg 0409): headline
-claims ship with their own designed annihilation apparatus (controls/falsifiers)
-or they are not claims; reviews name the evidence medium (numerics / proof /
-checked-source citation) under each
-load-bearing step; PROVED vs MEASURED never conflate; meta-documents must
-cite a mathematical consumer or they don't land.
-
-## 8. Private research boundary
-
-- The human owner decides when anything leaves this repository. Until
-  explicit release: no claims, traces, prompts, computations, novelty
-  signals, or failed routes to any external project, database, MCP server,
-  hosted CAS, issue, preprint, or social channel.
-- Reading already-public papers, docs, and repositories is fine. A nominally
-  read-only API query containing private problem text or plans is an outbound
-  disclosure; do not send it.
-- Remote Wolfram/TheoremDB math connectors stay disabled; prefer local kernels
-  and offline snapshots. No environment variable or self-issued token counts
-  as human release authorization.
-- Frequent pushes only to the private `avikj/math` repo; verify visibility
-  before assuming a new remote is private.
-- Any future release is a deliberately compressed result — proof, exact
-  scope, provenance, prior-art boundary, reusable artifacts — never a raw
-  work-in-progress dump.
+The human owner decides when anything leaves this repository. Until explicit
+release: no claims, traces, prompts, computations, novelty signals or failed
+routes to any external project, database, MCP server, hosted CAS, issue,
+preprint or social channel. Reading already-public papers, docs and
+repositories is fine; a nominally read-only API query that carries private
+problem text is an outbound disclosure and is not. No environment variable and
+no self-issued token counts as release authorization. Any eventual release is a
+deliberately compressed result — proof, exact scope, provenance, prior-art
+boundary — never a work-in-progress dump.

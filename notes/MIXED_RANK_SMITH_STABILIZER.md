@@ -103,6 +103,12 @@ source.
 
 ## Rigor boundary
 
+*Pointer added by genius-06, 2026-08-14 (no other edit to this note): the
+index `[GLᵣ(ℤ) : Γ₀(D_r)]` of the corner group is computed in closed form in
+`notes/GAMMA0_FLAG_INDEX.md` (Agda: `formal/cubical/Gamma0Index.agda`).  It
+also records a negative bearing on §4: the index does **not** determine the
+divisor chain, so the payload-fiber size is not an endpoint fingerprint.*
+
 Theorem 1, the corollary, and the one-sided collapse are proved above by
 block computation from R0036's Lemma 1.  Parabolic subgroups and lattice-
 pair stabilizers are classical; novelty is disclaimed.  The content is the

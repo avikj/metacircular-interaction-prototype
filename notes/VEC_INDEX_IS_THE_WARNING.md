@@ -100,6 +100,15 @@ adding machinery would be a suspect one.
 - **No prior-art search.** That indexed matching defeats cubical transport is
   well known to Agda users; nothing here is new mathematics, and the only thing
   offered is the *located* diagnosis for this module.
+  **PRIOR-ART SWEEP 2026-08-14 — flag reviewed; NO OBLIGATION, no search run.**
+  The note claims no mathematics, so there is no statement to attribute: what
+  it asserts is a fact about *this repository's* `formal/cubical/` module, and
+  the general phenomenon it invokes is declared folklore in the same breath.
+  Recorded so the corpus-wide sweep is complete and this line is not
+  re-triaged as an open debt. Should a later block want the citation anyway,
+  the standard reference is the cubical-Agda transport literature on indexed
+  inductive families and `transp` on `Vec`/`Fin`-indexed types — not searched
+  here. Attribution status only.
 
 ## Why it is worth having
 

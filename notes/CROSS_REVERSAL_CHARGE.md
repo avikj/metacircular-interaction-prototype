@@ -276,3 +276,19 @@ factorization. The project-specific contribution is the prime-prefix
 collision-charge application and exact syndrome kernel. No targeted
 prior-art search for that packaging has been recorded, so no novelty claim
 is made.
+
+> **PRIOR-ART SWEEP 2026-08-14 — searched. RESOLVED-FOUND for the abstract
+> formula, RESOLVED-NO-MATCH for the packaging** (search-summary/śabda grade;
+> `WebFetch` EGRESS_BLOCKED, no source text read). The self-declared
+> attribution above checks out and can be made specific: the second compound /
+> second additive compound $L^{[2]}$, defined by
+> $L^{[2]}(u\wedge v)=Lu\wedge v+u\wedge Lv$ with spectrum the pairwise sums of
+> eigenvalues, is standard matrix theory — Horn–Johnson, *Topics in Matrix
+> Analysis*, ch. 6, and see arXiv:1806.07162 for a modern determinant formula
+> and applications; the resultant-as-Sylvester-determinant and its use to
+> eliminate a variable is textbook. **The abstract formula is known
+> mathematics.** Nothing was located for the prime-prefix collision-charge
+> application or the exact syndrome kernel. Query: *second compound matrix
+> exterior square reciprocal polynomial resultant square factorization
+> discriminant collision detection*. Absence of a located source is not
+> evidence of novelty. Attribution status only; no claim is altered.

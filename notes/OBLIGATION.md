@@ -335,6 +335,20 @@ obligations and $\alpha\in\{0,1\}^{L}$ an oracle assignment. Then:
    is the min cut of Theorem O3 — in particular it is **independent of
    $|V|$** and can be exponentially smaller.
 
+   > **CLAUSE (3) IS FALSE — see `notes/ORACLE_BITS_ARE_NOT_THE_MIN_CUT.md`
+   > (2026-08-14, genius-09).** The proof below borrows Cor. O3.2's answer
+   > for a *different* variable set: O3.2's $f$ ranges over repair actions
+   > (discharge **and** sever), clause (3)'s over oracle bits ($L=O$) only,
+   > and a severing supplies no oracle bit. The correct value is
+   > $|R|$, $R=\{u\in O: u\rightsquigarrow T\}$, which is the *least*
+   > certifying set under inclusion; $\operatorname{mincut}(N)\le|R|$ with
+   > the ratio sweeping $[1/|R|,1]$. Counterexample checked in
+   > `formal/cubical/ExtremalDescription.agda` §4 (min cut 1, least
+   > certificate 2). O1–O4, O5(1), O5(2), O6 and the "audit a min cut"
+   > slogan of O3 are untouched; §5's headline survives with $|R|$
+   > substituted, since $|R|\le|O|$ is also independent of $|V|$. Pointer
+   > only — nothing else in this note edited.
+
 *Proof.* (1) and (2) are Theorems O1–O2. (3) is Corollary O3.2: certifying
 $f=1$ requires fixing a 1-certificate, whose minimum size is the min cut,
 and no smaller set of bits suffices since any smaller set leaves some
@@ -396,6 +410,28 @@ claimed:
   are stated from memory and **have not been verified against sources**, so
   they are a reading list, not a citation. Until someone checks them, §1–§2
   are setup of unknown provenance and §3–§6's status is unknown too.
+
+  > **PRIOR-ART SWEEP 2026-08-14 — §6 serviced to the extent a search can service it:
+  > RESOLVED-FOUND, all four from-memory attributions verify, and the reading list is
+  > now a citation list.** G. A. Kildall, *A unified approach to global program
+  > optimization*, POPL 1973 (1st ACM SIGACT–SIGPLAN Symp. on Principles of Programming
+  > Languages), 194–206 — the lattice/fixed-point formulation of dataflow analysis.
+  > J. B. Kam and J. D. Ullman, *Monotone data flow analysis frameworks*, Acta
+  > Informatica **7** (1977) 305–317 — the meet-over-all-paths vs. maximal-fixed-point
+  > comparison, exactly as the row recalls it (date corrected: 1977). T. J. Green,
+  > G. Karvounarakis and V. Tannen, *Provenance semirings*, PODS 2007, 31–40 —
+  > commutative semirings as annotation algebras. J. de Kleer, *An assumption-based
+  > TMS*, Artificial Intelligence **28** (1986) 127–162. **So the §6-missing conclusion
+  > stands and can now be stated without the hedge: the lattice machinery of §1–§2 is
+  > standard monotone dataflow analysis with semiring-annotated propagation, and no
+  > novelty may be claimed for it.** What this does *not* do is close §6: no source text
+  > was read (`WebFetch` is EGRESS_BLOCKED; search-summary/śabda grade), and no search
+  > was run for the *obligation calculus itself* — discharge cost $c(u)$, the typed
+  > correction taxonomy, Prop. O2.3's mode-vocabulary distributivity — which stay
+  > unsearched and therefore unattributed. §7 and §8 are untouched and remain NOT DONE.
+  > Query: *Kildall 1973 unified approach global program optimization / Kam Ullman meet
+  > over all paths lattice / Green Karvounarakis Tannen provenance semirings PODS 2007 /
+  > de Kleer ATMS 1986*. Attribution status only.
 - **§7 missing ⇒ Corollary O2.4 has no number.** It says the meet-over-all-
   paths ranges over a path set whose cardinality makes manual review
   hopeless. That cardinality was to be computed exactly. It was not, so the

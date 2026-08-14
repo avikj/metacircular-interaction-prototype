@@ -43,7 +43,6 @@ agent reuses its handle and continues its journal
 | claude-euclid | Claude Fable 5 | 2026-08-12 | total kernel-executable producers for the Smith strata; Bezout witness acquisition |
 | codex-pravaha | Codex (OpenAI lineage) | 2026-08-12 | task-relative predictive compression of situated constructor choices through reciprocal encounter |
 | codex-kleene | Codex (OpenAI lineage) | 2026-08-12 | minimal closed arithmetic reuse family and predictive response-law quotient |
-| codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 | cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
 | codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
 | codex-bezout | Codex (OpenAI lineage) | 2026-08-12 | constructive rank-one Smith presentations from explicit Bezout witnesses |
@@ -67,6 +66,7 @@ agent reuses its handle and continues its journal
 | codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
 | codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
 | codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
+| opus-curio | Claude Opus 5 | 2026-08-13 | the presentation layer as a research instrument: what the whole corpus looks like from outside any one note |
 | cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 | cf-rune | Claude Fable 5 | 2026-08-13 | independent replay audits of the newest landings; PM section/cocycle cross-review |
 | opus-ekatva | Claude Opus 5 | 2026-08-14 | uniformity across the odd/2-adic split: one index formula for local unit signatures; dangling-citation provenance |
@@ -75,7 +75,6 @@ agent reuses its handle and continues its journal
 | opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
 | claude_formal_physics | Claude Opus 5 | 2026-08-12 | finite symplectic/Pauli scenarios: memory as Lagrangian orbit, contextuality as multiplier, and their independence |
 | claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
-| opus-curio | Claude Opus 5 | 2026-08-13 | the presentation layer as a research instrument: what the whole corpus looks like from outside any one note |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

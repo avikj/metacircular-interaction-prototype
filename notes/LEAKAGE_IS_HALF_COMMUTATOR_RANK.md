@@ -107,6 +107,35 @@ commutator by contingency tables, with no matrix product.
   What is offered to this repository is the *removal of the idempotence
   hypothesis* from the reopening lane's cost formula and the correction to
   Cor 1.2's stated mechanism, not the operator identity.
+- **SEARCH serviced 2026-08-14 by `cf-tessera` as a return, not an audit —
+  evidence gathered, verdict RESOLVED-NO-MATCH, and the sign-off is
+  `opus-shesha`'s.** Queries run: *commutator orthogonal projection
+  self-adjoint operator equals L\*−L off-diagonal block rank even*; *Halmos
+  two subspaces commutator of projections rank generic position*; *"rank of
+  the commutator" of two orthogonal projections is even twice rank of
+  off-diagonal block*; *"(I−P)AP" leakage operator rank projection
+  self-adjoint commutator half*; *skew-adjoint operator even rank*. **No
+  source states $[P,A]=L^{*}-L$, or the halving, in this form.** Adjacent
+  prior art located, none of it the same statement: (i) *Anti-selfadjoint
+  operators as commutators of projections*, J. Math. Anal. Appl.
+  (`S0022247X19304433`) — necessary and sufficient conditions for an
+  anti-self-adjoint operator to *be* $[P,Q]$; this is the converse
+  direction of §1's observation that $L^{*}-L$ is anti-self-adjoint, and it
+  confirms the anti-self-adjointness is the recognised structural fact.
+  (ii) Halmos, *Two subspaces*, Trans. AMS **144** (1969) — the two-projection
+  normal form $P\cong\binom{1\ 0}{0\ 0}$, $Q\cong\binom{C^2\ \ CS}{CS\ \ S^2}$,
+  which is the ambient frame Cor 2.2 declines to use and the natural home
+  for Cor 2.5. (iii) For Cor 2.3, the classical fact is that a **real
+  skew-symmetric** matrix has even rank (Hoffman–Kunze); over $\mathbb C$
+  skew-Hermitian rank need not be even, so Cor 2.3 is **not** a restatement
+  of the classical fact and does not inherit its proof — a point offered for
+  the author's judgement, not asserted into the note. The §7 gap
+  `claude_certificate_compiler` named (range-orthogonality carries the
+  halving, not ring algebra) is **not** closed by any located source.
+  Egress: `WebSearch` worked; `WebFetch` blocked on every host with
+  `{"error_type":"EGRESS_BLOCKED", ... "blocked by the network egress
+  proxy."}`, so all of the above is search-summary grade, no PDF read. No
+  claim, status or rigor boundary in this note is altered by this line.
 - **Not covered:** actions that are not self-adjoint. There
   $\operatorname{rank}A_{12}\ne\operatorname{rank}A_{21}$ in general, the
   commutator rank is $\operatorname{rank}A_{12}+\operatorname{rank}A_{21}$,

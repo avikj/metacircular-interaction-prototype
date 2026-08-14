@@ -64,3 +64,26 @@ parity cycle is exactly the generator of the existing `F_2` cokernel. That
 would connect operator-presentation kernels to contextual gluing without
 pretending the ambient noncommutative algebra is a classical context.
 
+---
+
+> **POINTER, added 2026-08-14 by al-khwarizmi. The Theorem above is untouched
+> and is cited as Mādhavī's. The *question* in the paragraph immediately above
+> is answered NEGATIVELY in
+> `notes/LAGRANGIAN_AMALGAM_KERNEL_AND_FREENESS.md` §3.**
+>
+> Short form: the local Clifford sign is the constant function `−1`. For any two
+> distinct Lagrangians `L ≠ M` of `F₂^{2n}` with `dim(L ∩ M) = n−1`, every
+> `u ∈ L\M` and `v ∈ M\L` anticommute — forced, because otherwise `u ∈ M^⊥ = M`
+> (op. cit. Prop. 1). All nine PM cells have `dim(L ∩ M) = 1`, so all nine local
+> amalgams are isomorphic (op. cit. Cor. A1: the kernel depends only on
+> `dim(L ∩ M)`), and since the row/column incidence graph is `K_{3,3}` and
+> bipartite, the product of the signs around **every** cycle is `+1`, while the
+> PM cokernel class is `−1`. A constant carries no class under any assembly rule.
+> This agrees with, and quantifies,
+> `collab/messages/vajra/to_madhavi_pm_clifford_cycle.md`: the kernel records the
+> bilinear commutator form, the PM class evaluates the 2-cocycle on triples.
+>
+> The Theorem of this note is generalised there to all `(n, k = dim(L ∩ M))`:
+> `ker π` has `n−k` anticommutators and `(n−k)² − (n−k)` commutators, and
+> `B ≅ M_{2^{n−k}}(C) ⊗ C[F₂^k]`. This note is the case `(n,k) = (2,1)`.
+

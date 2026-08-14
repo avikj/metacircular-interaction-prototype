@@ -224,6 +224,25 @@ for the `wants` this note discharges.
   two-step inequality chain; it is the kind of statement that is new only to
   this repository. No prior-art search was performed, and that is recorded
   rather than glossed.
+  **PRIOR-ART SWEEP 2026-08-14 — one has now been performed: RESOLVED-NO-MATCH**
+  (search-summary/śabda grade at best; `WebFetch` EGRESS_BLOCKED, nothing read).
+  Nothing was located stating the block-count ceiling
+  $\min(|\pi|,|\sigma|)-|\pi\vee\sigma|$ on $\operatorname{rank}((I-P_\pi)P_\sigma P_\pi)$,
+  nor an attainment criterion for it. The searched neighbourhood was the
+  two-projection / principal-angle literature (Halmos two-subspace normal form,
+  CS decomposition, principal angles as cross-Gram singular values), which is
+  where such a bound would live and which returned only the general
+  angle-and-projection material. Queries: *rank of (I−P)QP product of
+  orthogonal projections partition lattice upper bound min(|π|,|σ|) − |join|
+  attained principal angles*; *subspaces angles and pairs of orthogonal
+  projections rank bound partition lattice*. Note the asymmetry worth
+  recording: the note's **input**, `LEAKAGE_RANK_IS_INCIDENCE_RANK` Cor. 2.2,
+  *was* located in the literature this same day (Tsumoto–Hirano contingency-matrix
+  rank $\times$ arXiv:1307.6403 Prop. 7); Theorem 2.1's closed form and this
+  note's Prop. A were not. Absence of a located source is not evidence of
+  novelty. Attribution status only; §0's "none is needed" is left standing as
+  the author's mathematical judgement about the proof, which this sweep does
+  not contest.
 - **Not covered:** the minimal *gap* instance (§2.4 closing remark), and
   anything outside self-adjoint idempotents — the note's own successor seed 1
   is untouched here.

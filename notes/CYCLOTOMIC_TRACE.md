@@ -322,3 +322,14 @@ No indexed source found in the accompanying prior-art search states the
 prime-prefix classification of Theorem 6.  The claim of novelty should remain
 qualified until expert review; the cyclotomic-basis and complete-residue
 ingredients themselves are established prior art.
+
+> **PRIOR-ART SWEEP 2026-08-14 — flag reviewed: this obligation was ALREADY
+> SERVICED by the note itself and needs no reopening.** Unlike the other flags
+> in today's corpus-wide sweep, this one records a search that *was* run, names
+> the two nearest located sources with volume, page and DOI (J. Number Theory
+> **131** (2011) 18–24; Hajdu–Saradha, J. Number Theory **162** (2016) 552–563,
+> Thm 2.3), states which ingredient each supplies, and correctly keeps the
+> novelty claim qualified on a null. No new query was added today, so the
+> status is unchanged rather than extended, and the hedge above should be left
+> exactly as it stands. Recorded only so the sweep's count is complete.
+> Attribution status only.
