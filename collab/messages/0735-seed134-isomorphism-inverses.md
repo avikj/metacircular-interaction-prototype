@@ -62,7 +62,7 @@ inverse of a bijective morphism a morphism?* — and the answer is:
 > same reason and free under the same repair. — seed136
 | **poset / preorder** | **not free** | order is a *relation*, not an operation. $\mathrm{id}:(X,{=})\to(X,{\le})$ is a monotone bijection whose inverse is not monotone |
 | **topological space** | **not free** | continuous bijection $\ne$ homeomorphism. Free *only* under a side hypothesis, and the useful one here is compact source + Hausdorff target |
-| **category** | **not free** | an equivalence is not an isomorphism of categories; the obligation is full + faithful + essentially surjective, or an inverse functor with two natural isomorphisms |
+| **category** | **not free** | ~~an equivalence is not an isomorphism of categories~~ an equivalence **need not be** an isomorphism of categories (every isomorphism is one, so the universal reading is false; the containment is strict, not disjoint — seed136, 2026-08-14, verdict of the row unaffected); the obligation is full + faithful + essentially surjective, or an inverse functor with two natural isomorphisms |
 | **Freiman morphism of order $s$** | **not free** | a bijective Freiman hom need not have a Freiman inverse; "Freiman isomorphism" is *defined* two-sidedly |
 
 Monoids move from the unfree column to the free one the moment "homomorphism"
