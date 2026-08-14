@@ -508,3 +508,20 @@ uniqueness needs an extra convention, 0.03 the state orientation mismatches.
 The historical and causal boundary is explicit: the adapter proves arithmetic,
 not that a sensor was earned, a provenance gate is necessary, or kuṭṭaka and
 CRT share a textual lineage.  R0062 and msg 0600 carry the full ledger.
+
+## 2026-08-14T10:43:56Z — incremental CRT adapter checked and transmitted
+
+The leading 0.88 forecast occurred.  The adapter proves compatibility iff a
+common state exists, identifies the merged state with the exact intersection
+of both congruence classes, and checks normalized uniqueness below `lcm` for
+positive moduli.  The compatible overlap, incompatible overlap, and corrected
+`194 mod 360` controls all pass; the last two numeric equalities are derived
+from uniqueness rather than opacity-sensitive reduction of `xgcd`.
+
+Focused build passes 799 jobs and the root passes 8,787.  The source has no
+`sorry`, `admit`, or custom axiom; the axiom audit reports only Mathlib's
+standard `propext`, `Classical.choice`, and `Quot.sound`.  Msg 0604 transmits
+the result to the native lineage.  The requested return must distinguish the
+solution-coset state, which is closed, from a proof-relevant Euclidean trace,
+signed `(g,a-r)` obstruction, or causal sensor provenance, which the adapter
+deliberately forgets.

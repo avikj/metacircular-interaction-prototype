@@ -48,6 +48,28 @@ def IsQuery
         (ResidualCell.advance M node.cell action true)),
     node.plan = .query action safe onFalse onTrue
 
+/-- Finset presentation of a node's canonical position, using exactly the
+Mathlib finite residual carrier supplied by regularity. -/
+noncomputable def finitePositionFinset
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (regular : M.accepts.IsRegular) (node : Node M) :
+    Finset (CanonicalResidualPosition.State M) := by
+  classical
+  letI : Fintype (CanonicalResidualPosition.State M) :=
+    CanonicalResidualPosition.residualFintype M regular
+  exact Finset.univ.filter fun state => state ∈ FinitePosition M node
+
+@[simp] theorem mem_finitePositionFinset
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (regular : M.accepts.IsRegular) (node : Node M)
+    (state : CanonicalResidualPosition.State M) :
+    state ∈ finitePositionFinset M regular node ↔
+      state ∈ FinitePosition M node := by
+  classical
+  letI : Fintype (CanonicalResidualPosition.State M) :=
+    CanonicalResidualPosition.residualFintype M regular
+  simp [finitePositionFinset]
+
 /-- Following a deepest child records exactly the query nodes on a
 depth-realizing root-to-leaf route.  Unlike `exists_depthRealizingSpine`, the
 terminal leaf is omitted, so every recorded position is nonhomogeneous in a
@@ -129,19 +151,21 @@ prefix cell homogeneous. -/
 theorem homogeneous_of_finitePosition_card_le_one
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (regular : M.accepts.IsRegular) (node : Node M)
-    (hcard : ((FinitePosition M node).toFinset).card ≤ 1) :
+    (hcard : (finitePositionFinset M regular node).card ≤ 1) :
     ResidualCell.Homogeneous M node.cell := by
   classical
   letI : Fintype (CanonicalResidualPosition.State M) :=
     CanonicalResidualPosition.residualFintype M regular
   intro left right hleft hright
   have hleftMem : CanonicalResidualAdapter.branchState M left ∈
-      (FinitePosition M node).toFinset := by
-    simp only [Set.mem_toFinset, FinitePosition]
+      finitePositionFinset M regular node := by
+    rw [mem_finitePositionFinset]
+    simp only [FinitePosition]
     exact ⟨left, hleft, rfl⟩
   have hrightMem : CanonicalResidualAdapter.branchState M right ∈
-      (FinitePosition M node).toFinset := by
-    simp only [Set.mem_toFinset, FinitePosition]
+      finitePositionFinset M regular node := by
+    rw [mem_finitePositionFinset]
+    simp only [FinitePosition]
     exact ⟨right, hright, rfl⟩
   have heq := (Finset.card_le_one.mp hcard)
     _ hleftMem _ hrightMem
@@ -154,18 +178,19 @@ theorem two_le_finitePosition_card_of_query
     (regular : M.accepts.IsRegular) (node : Node M)
     (minimal : ResidualSplitPlan.NodeMinimal node.plan)
     (query : IsQuery M node) :
-    2 ≤ ((FinitePosition M node).toFinset).card := by
+    2 ≤ (finitePositionFinset M regular node).card := by
   classical
   letI : Fintype (CanonicalResidualPosition.State M) :=
     CanonicalResidualPosition.residualFintype M regular
   by_contra hnot
-  have hcard : ((FinitePosition M node).toFinset).card ≤ 1 := by omega
+  have hcard : (finitePositionFinset M regular node).card ≤ 1 := by omega
+  have homogeneous := homogeneous_of_finitePosition_card_le_one
+    M regular node hcard
+  rcases node with ⟨cell, plan⟩
   rcases query with ⟨action, safe, onFalse, onTrue, hplan⟩
-  subst node.plan
+  subst plan
   exact ResidualSplitPlan.not_homogeneous_of_nodeMinimal_query
-    action safe onFalse onTrue minimal
-    (homogeneous_of_finitePosition_card_le_one M regular
-      ⟨node.cell, .query action safe onFalse onTrue⟩ hcard)
+    action safe onFalse onTrue minimal homogeneous
 
 /-- The empty canonical position followed by all singleton positions.  These
 are precisely the finite subsets a node-minimal query spine cannot visit. -/
@@ -183,7 +208,13 @@ theorem smallPositions_nodup
   classical
   letI : Fintype (CanonicalResidualPosition.State M) :=
     CanonicalResidualPosition.residualFintype M regular
-  simp [smallPositions, Function.Injective.list_map_nodup]
+  rw [smallPositions, List.nodup_cons]
+  constructor
+  · intro hmem
+    rcases List.mem_map.mp hmem with ⟨state, _hstate, hzero⟩
+    simpa using hzero.symm
+  · exact Finset.univ.nodup_toList.map fun left right heq => by
+      simpa using heq
 
 theorem smallPositions_length
     (M : DFA A X) (regular : M.accepts.IsRegular) :
@@ -225,7 +256,7 @@ theorem nodeMinimal_depth_add_one_le_two_pow_sub_stateCount
   obtain ⟨nodes, hlength, hchain, hquery, hrooted⟩ :=
     exists_depthRealizingQuerySpine M plan
   let positions : List (Finset (CanonicalResidualPosition.State M)) :=
-    nodes.map fun node => (FinitePosition M node).toFinset
+    nodes.map fun node => finitePositionFinset M regular node
   have hconstant : ∀ node ∈ nodes,
       ResidualCell.CurrentConstant M node.cell := by
     intro node hnode
@@ -241,11 +272,13 @@ theorem nodeMinimal_depth_add_one_le_two_pow_sub_stateCount
   have hpositionNodup : (nodes.map (Position M)).Nodup :=
     positions_nodup M nodes hconstant hminimal hchain
   have hpositionsNodup : positions.Nodup := by
-    apply List.Nodup.map_on hpositionNodup
+    have hnodesNodup : nodes.Nodup := hpositionNodup.of_map (Position M)
+    apply hnodesNodup.map_on
     intro left hleft right hright heq
     have hset : FinitePosition M left = FinitePosition M right := by
       ext state
-      simpa using Finset.ext_iff.mp heq state
+      have hmem := Finset.ext_iff.mp heq state
+      simpa using hmem
     exact (finitePosition_eq_iff_position_eq M left right).1 hset
   have hlarge : ∀ position ∈ positions, 2 ≤ position.card := by
     intro position hposition
@@ -262,11 +295,20 @@ theorem nodeMinimal_depth_add_one_le_two_pow_sub_stateCount
     List.nodup_append'.2
       ⟨hpositionsNodup, smallPositions_nodup M regular, hdisjoint⟩
   have hcarrier := happend.length_le_card
+  have hpositionsLength : positions.length = plan.toTree.depth := by
+    simp [positions, hlength]
+  have hstateCard : Fintype.card (CanonicalResidualPosition.State M) =
+      CanonicalResidualPosition.stateCount M regular := rfl
+  have hfinsetCard :
+      Fintype.card (Finset (CanonicalResidualPosition.State M)) =
+        2 ^ CanonicalResidualPosition.stateCount M regular := by
+    rw [Fintype.card_finset, hstateCard]
   have hbudget : plan.toTree.depth +
         (CanonicalResidualPosition.stateCount M regular + 1) ≤
       2 ^ CanonicalResidualPosition.stateCount M regular := by
-    simpa [positions, hlength, smallPositions_length M regular,
-      Fintype.card_finset] using hcarrier
+    rw [List.length_append, hpositionsLength,
+      smallPositions_length M regular, hfinsetCard] at hcarrier
+    exact hcarrier
   omega
 
 end ResidualPlanSpine
