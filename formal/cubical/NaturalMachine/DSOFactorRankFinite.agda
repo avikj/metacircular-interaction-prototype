@@ -11,7 +11,6 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; false ; true)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm ; +-assoc)
-open import Cubical.Data.Empty using (⊥)
 
 -- The crossed finite cost matrix: diagonal entries are cheap, off-diagonal
 -- entries carry one unit of boundary cost.
@@ -42,18 +41,15 @@ additive-minor : (x y : Bool → ℕ) → RankOne x y →
   crossed false true + crossed true false
 additive-minor x y r =
   cong₂ _+_ (r false false) (r true true)
-  ∙ rearrange (x false) (y false) (x true) (y true)
+  ∙ cong (λ q → (x false + y false) + q) (+-comm (x true) (y true))
+  ∙ rearrange (x false) (y false) (y true) (x true)
+  ∙ cong (λ q → (x false + y true) + q) (+-comm (y false) (x true))
   ∙ sym (cong₂ _+_ (r false true) (r true false))
-
-one≠zero : suc zero ≡ zero → ⊥
-one≠zero ()
 
 -- The crossed matrix violates the identity, hence it cannot pass through a
 -- one-state exact interface.  The conclusion is intentionally stated only
 -- as non-factorability through one separable mode.
 crossed-not-rank-one :
-  (x y : Bool → ℕ) → RankOne x y → ⊥
+  (x y : Bool → ℕ) → RankOne x y → suc (suc zero) ≡ zero
 crossed-not-rank-one x y r =
-  one≠zero (
-    sym (additive-minor x y r)
-    ∙ refl)
+  sym (additive-minor x y r) ∙ refl

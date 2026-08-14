@@ -69,6 +69,7 @@ if command -v ghc >/dev/null 2>&1 && command -v runghc >/dev/null 2>&1; then
        && ghc -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
        && runghc machine/MathMachine.hs --check-definitions \
        && runghc machine/MathMachine.hs --check-thought-format \
+       && runghc machine/MathMachine.hs --concept-invention-self-test \
        && runghc machine/MathMachine.hs --dso-context-self-test \
        && runghc machine/MathMachine.hs --smoke-rounds 5 \
        && runghc machine/MathMachine.hs --emit-agda-manifest \

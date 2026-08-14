@@ -163,13 +163,49 @@ namespace ResidualObservableHorizonWitness
 
 open ReachableChartWitness
 
+/-- The earlier pair witness deliberately contains unreachable rows: from its
+start state, every word stays at zero. -/
+theorem unreachableAutomaton_eval_eq_zero (word : List Bool) :
+    VisitedPairHorizonWitness.automaton.eval word = 0 := by
+  change VisitedPairHorizonWitness.automaton.evalFrom 0 word = 0
+  induction word with
+  | nil => rfl
+  | cons action tail ih =>
+      rw [DFA.evalFrom_cons]
+      simpa [VisitedPairHorizonWitness.automaton,
+        BehavioralBFSWitness.step] using ih
+
+theorem unreachableAutomaton_not_mem_accepts (word : List Bool) :
+    word ∉ VisitedPairHorizonWitness.automaton.accepts := by
+  rw [DFA.mem_accepts, unreachableAutomaton_eval_eq_zero]
+  decide
+
+/-- Without all-state reachability, the whole-state horizon can strictly
+exceed the horizon of Mathlib's reachable prefix residuals. -/
+theorem reachability_is_essential :
+    LeftQuotientsStabilizeAt VisitedPairHorizonWitness.automaton 0 ∧
+      globalObservableHorizon VisitedPairHorizonWitness.automaton
+        BehavioralBFSWitness.alphabet = 1 := by
+  constructor
+  · intro left right _
+    apply Set.ext
+    intro word
+    constructor
+    · intro hleft
+      exact False.elim
+        (unreachableAutomaton_not_mem_accepts (left ++ word) hleft)
+    · intro hright
+      exact False.elim
+        (unreachableAutomaton_not_mem_accepts (right ++ word) hright)
+  · native_decide
+
 def automaton : DFA Bool (Fin 3) where
   step := chartStep
   start := 0
   accept := { state | state = 2 }
 
-instance : DecidablePred (fun state : Fin 3 ⇒ state ∈ automaton.accept) :=
-  fun state ⇒ inferInstanceAs (Decidable (state = 2))
+instance : DecidablePred (fun state : Fin 3 ↦ state ∈ automaton.accept) :=
+  fun state ↦ inferInstanceAs (Decidable (state = 2))
 
 theorem automaton_reachable (state : Fin 3) :
     ∃ word : List Bool, automaton.eval word = state := by

@@ -318,3 +318,270 @@ The first inequality is monotonicity; the second follows by evaluating an
 arbitrarily near-optimal endpoint for \(K\). The one-sided condition forbids an
 approximation from inventing infeasible or unrealistically cheap paths.
 
+## 16. Proof-relevant implementation rank
+
+Let \(\mathbf K:A\times C\to\mathcal U\) be an implementation-valued relation
+with witness costs. Its scalar decategorification is
+
+\[
+K(a,c)=\inf_{w:\mathbf K(a,c)}\operatorname{cost}(w).
+\]
+
+A witness-preserving factorization through \(B\) is an equivalence
+
+\[
+\boxed{
+\mathbf K(a,c)\simeq
+\sum_{b:B}\mathbf M(a,b)\times\mathbf L(b,c),
+}
+\]
+
+or the appropriate proof-relevant coend when symmetries are present, with
+additive costs. Let \(\operatorname{wrank}(\mathbf K)\) be its least width.
+Decategorification gives
+
+\[
+\boxed{\operatorname{rank}_{\min+}(K)\le
+\operatorname{wrank}(\mathbf K).}
+\]
+
+## 17. Strict loss under decategorification
+
+For \(A=C=\{0,1\}\), take finite CW witness types
+
+\[
+\mathbf K(0,0)=\mathbf K(1,1)=S^1,
+\qquad
+\mathbf K(0,1)=\mathbf K(1,0)=\mathbf 1,
+\]
+
+all at cost zero. The scalar matrix is constantly zero and has min-plus rank
+one. A rank-one witness factorization would make the Euler-characteristic
+matrix an outer product, but
+
+\[
+\begin{bmatrix}0&1\\1&0\end{bmatrix}
+\]
+
+has determinant \(-1\). Hence witness rank is strictly larger than scalar
+rank. Equal optimal values need not preserve proof identity, provenance,
+topology, alternatives, or future composability.
+
+## 18. Quantale generalization
+
+For a commutative quantale \(Q\), a \(Q\)-matrix
+\(K:A\nrightarrow C\) is a quantale-valued profunctor with composition
+
+\[
+(L\circ M)(a,c)=\bigvee_bM(a,b)\otimes L(b,c).
+\]
+
+These matrices form a quantaloid: homs are complete lattices, composition
+preserves arbitrary joins, and right extensions/liftings exist. Boolean
+relations, min/max-plus quantities, fuzzy relations, Lawvere metrics, and
+suitably defined Pareto resource semantics are specializations.
+
+## 19. Residuation synthesizes the missing side
+
+Given \(X:A\nrightarrow B\) and \(K:A\nrightarrow C\), the right extension
+\(K\swarrow X:B\nrightarrow C\) is the greatest \(Y\) with
+\(Y\circ X\le_QK\). Dually, \(Y\searrow K\) is the greatest compatible
+upstream factor. Thus
+
+\[
+Y\le K\swarrow X
+\iff Y\circ X\le K
+\iff X\le Y\searrow K.
+\]
+
+Architecture repair therefore has exact adjoint synthesis operators; it is
+not necessarily blind search.
+
+## 20. Explicit min-plus conjugacy
+
+For finite real-valued \(K\), a sound rank-one majorant satisfies
+\(K(a,c)\le x(a)+y(c)\). Define
+
+\[
+\boxed{K^\uparrow x(c)=\sup_a\bigl(K(a,c)-x(a)\bigr)},
+\]
+
+\[
+\boxed{K^\downarrow y(a)=\sup_c\bigl(K(a,c)-y(c)\bigr)}.
+\]
+
+These are the least compatible downstream/upstream potentials and form an
+antitone Galois correspondence. The finite-real hypothesis avoids undefined
+extended-real subtraction.
+
+## 21. Optimization nucleus
+
+Define
+
+\[
+\boxed{
+\operatorname{Nuc}(K)=
+\{(x,y):y=K^\uparrow x,\ x=K^\downarrow y\}.
+}
+\]
+
+Abstractly,
+
+\[
+\operatorname{Isb}(K)=
+\{(X,Y):Y=K\swarrow X,\ X=Y\searrow K\}.
+\]
+
+This is the Isbell hull/nucleus of the profunctor.
+
+## 22. Nucleus modes are tight majorants
+
+Every nucleus pair obeys \(K(a,c)\le x(a)+y(c)\), and neither profile can be
+reduced independently while remaining sound against the other. The two
+profiles are the upstream burden of entering a latent mode and the downstream
+burden of completing from it; mutual conjugacy makes both saturated.
+
+## 23. Saturation theorem
+
+Suppose \(K\le x+y\), and set
+
+\[
+\bar y=K^\uparrow x,
+\qquad
+\bar x=K^\downarrow\bar y.
+\]
+
+Then
+
+1. \((\bar x,\bar y)\in\operatorname{Nuc}(K)\);
+2. \(K\le\bar x+\bar y\);
+3. \(\bar x+\bar y\le x+y\).
+
+Minimality gives \(\bar y\le y\); soundness of \(x+\bar y\) gives
+\(\bar x\le x\); the Galois closure identities give the remaining fixed-point
+equation.
+
+## 24. Nucleus cover theorem
+
+For finite real-valued \(K\),
+
+\[
+\boxed{
+\operatorname{rank}_{\min+}(K)=
+\min\left\{r:
+K=\min_{1\le i\le r}(x_i+y_i),\ (x_i,y_i)\in\operatorname{Nuc}(K)
+\right\}.
+}
+\]
+
+Every nucleus cover is a factorization. Conversely, saturate every term of an
+optimal factorization. Each new term stays above \(K\) and below the old term,
+so their lower envelope remains exactly \(K\) without increasing the number
+of modes.
+
+## 25. The central duality
+
+\[
+\boxed{\begin{aligned}
+\operatorname{Nuc}(K)
+  &=\text{all saturated exact dependency concepts},\\
+\operatorname{rank}_{\min+}(K)
+  &=\text{smallest number whose lower envelope is }K.
+\end{aligned}}
+\]
+
+Architecture synthesis therefore splits into semantic completion of the
+nucleus and finite generation/cover inside it. This is the **nucleus
+compiler**.
+
+## 26. Mature specializations
+
+- For a Boolean relation, the nucleus is the formal concept lattice.
+- For a poset order, it is the Dedekind–MacNeille completion.
+- For a Lawvere metric, Isbell completion gives the directed tight span or
+  generalized injective hull.
+- For vector/dual pairing, it recovers lower-semicontinuous convex functions
+  and Legendre–Fenchel conjugacy.
+- For tropical matrices, it is a complete semi-tropical semimodule generated
+  by row/column data.
+
+The common operation is completing a relation into the stable dual concepts it
+already implies.
+
+## 27. Boolean concepts
+
+For \(R\subseteq A\times C\), a formal concept is a pair \((X,Y)\) satisfying
+
+\[
+Y=\{c:\forall a\in X,\ R(a,c)\},
+\qquad
+X=\{a:\forall c\in Y,\ R(a,c)\}.
+\]
+
+Then \(X\times Y\subseteq R\) is a maximal true rectangle. Every Boolean
+rectangle can be saturated to a concept rectangle without increasing cover
+size. Hence Boolean rank is the minimum number of formal concepts covering the
+relation. The lattice is the complete interface; a minimum concept cover is a
+smallest exact finite interface.
+
+## 28. Canonical versus minimal
+
+The nucleus is canonical but may be large or infinite. A minimum-rank
+factorization is small but can be nonunique, hard to compute, unstable,
+context-dependent, or destructive of witness structure. The compiler must
+preserve both the nucleus as semantic reference and selected finite generators
+as executable architectures.
+
+## 29. Architecture synthesis by conjugate closure
+
+A finite search loop may:
+
+1. propose upstream potentials \(x_i\);
+2. compute \(y_i=K^\uparrow x_i\);
+3. tighten \(x_i\leftarrow K^\downarrow y_i\);
+4. form \(\widehat K=\min_i(x_i+y_i)\);
+5. measure the conservative gap \(\widehat K-K\ge0\);
+6. add, split, or move modes until the contextual error target is met.
+
+Each retained mode is saturated. No global convergence or optimality claim is
+made for naïve alternating updates.
+
+## 30. Active dependency cells
+
+For a factorization, define
+
+\[
+\operatorname{Act}(a,c)=
+\operatorname*{argmin}_i\bigl(x_i(a)+y_i(c)\bigr).
+\]
+
+Different modes govern different cells of \(A\times C\). Ties lie on tropical
+walls and remain proof-relevant when downstream behavior depends on the
+realizing mode.
+
+## 31. Rank stratification under change
+
+For \(K_\theta\), parameter space is stratified by factor/contextual rank,
+nucleus combinatorics, active cells, and wall crossings. Perturbations can
+preserve rank, move active regions, split modes, or cause discontinuous rank
+jumps. These are dependency phase transitions.
+
+## 32. Sequential systems and behavioral Hankel matrices
+
+For \(f:\Sigma^*\to\overline{\mathbb R}\), define
+
+\[
+\boxed{H_f(u,v)=f(uv).}
+\]
+
+A finite-state min-plus realization with state carrier \(B\) factors this
+past–future matrix through \(B\). Hence every finite submatrix satisfies
+
+\[
+\operatorname{rank}_{\min+}(H_f)\le|B|.
+\]
+
+These rank lower bounds are state-complexity lower bounds. A converse needs
+compatibility with action-induced shifts and is not automatic for arbitrary
+semirings.
+
