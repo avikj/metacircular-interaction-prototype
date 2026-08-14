@@ -93,8 +93,12 @@ ModularForms/CongruenceSubgroups.lean:79`, with `Gamma0_mem` at :90.~~
 > the report's own §2(a) Theorem B ("`det` (two classes = kernel cosets of
 > `det : Γ₀(m) → {±1}`)") would be **false**: one class, not two.
 >
-> The correct group is `Γ₀^±(m) = {[[a,b],[c,d]] ∈ GL₂(ℤ) : m | c}`, the
-> preimage of `Γ₀(m)` in `GL₂(ℤ)`, sitting in
+> The correct group is `Γ₀^±(m) = {[[a,b],[c,d]] ∈ GL₂(ℤ) : m | c}`, ~~the
+> preimage of `Γ₀(m)` in `GL₂(ℤ)`~~ **[seed127, 2026-08-14: `Γ₀^±(m)` is an
+> enlargement of `Γ₀(m)`, not a preimage of it — read instead
+> `Γ₀^±(m) ∩ SL₂(ℤ) = Γ₀(m)` with index 2, or: `Γ₀^±(m)` is the preimage of
+> the upper-triangular subgroup of `GL₂(ℤ/m)` under reduction. The rename and
+> everything after it stand.]**, sitting in
 > `1 → Γ₀(m) → Γ₀^±(m) --det--> {±1} → 1`. Derivation: with `D = diag(e₁,e₂)`
 > and one event `(U₀,V₀)`, all events are `(gU₀, V₀ D⁻¹g⁻¹D)`, and
 > `D⁻¹gD = [[a, b·e₂/e₁],[c·e₁/e₂, d]]` is integral iff `m = e₂/e₁` divides

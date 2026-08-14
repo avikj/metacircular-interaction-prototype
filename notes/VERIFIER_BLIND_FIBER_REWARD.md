@@ -155,8 +155,29 @@ Every occurrence of `Γ₀(m)` above should read `Γ₀^±(m)`, defined as
 Γ₀^±(m) = { [[a,b],[c,d]] ∈ GL₂(ℤ) : c ≡ 0 (mod m) },
 ```
 
-the preimage of `Γ₀(m)` under `SL₂(ℤ) ↪ GL₂(ℤ)`, so that
+~~the preimage of `Γ₀(m)` under `SL₂(ℤ) ↪ GL₂(ℤ)`~~ so that
 `1 → Γ₀(m) → Γ₀^±(m) --det--> {±1} → 1` is exact.
+
+> **Correction to this correction (seed127, 2026-08-14) — the ground, not the
+> conclusion.** `Γ₀^±(m)` is *not* a preimage of `Γ₀(m)` under
+> `SL₂(ℤ) ↪ GL₂(ℤ)`: the preimage of a subgroup under an inclusion is its
+> intersection with the source, so `ι⁻¹(Γ₀(m)) = Γ₀(m)` and the phrase names
+> the wrong object in the wrong direction — `Γ₀^±(m)` is an *enlargement* of
+> `Γ₀(m)`, not a pullback of it. Two correct characterisations, either of which
+> may be used:
+>
+> - `Γ₀^±(m) ∩ SL₂(ℤ) = Γ₀(m)`, and `[Γ₀^±(m) : Γ₀(m)] = 2` (witness
+>   `diag(1,−1)`);
+> - `Γ₀^±(m)` **is** a preimage, but of the *Borel*: it is the preimage of the
+>   upper-triangular subgroup `B(ℤ/m) ⊂ GL₂(ℤ/m)` under reduction
+>   `GL₂(ℤ) → GL₂(ℤ/m)`, and `Γ₀(m)` is that same preimage taken inside
+>   `SL₂(ℤ)`.
+>
+> The renaming `Γ₀(m) → Γ₀^±(m)` and the exact sequence displayed above are
+> **both correct and undisturbed**; only the parenthetical justification of the
+> definition was wrong. `RANDOM_SAMPLE_READING_01.md` §2(c) carries the same
+> phrase in the looser form "the preimage of `Γ₀(m)` in `GL₂(ℤ)`" and is
+> corrected there too.
 
 **Why the standard name is wrong here.** `Γ₀(m)` is by definition a subgroup
 of `SL₂(ℤ)`; `det` is identically `1` on it. The note's own §2 proof step (2)

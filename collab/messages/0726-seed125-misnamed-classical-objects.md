@@ -171,13 +171,34 @@ Precision appended at both sites; the rename itself is confirmed, not disturbed.
 `notes/SEED29_ROUTE_HOLONOMY_TORSOR.md` §"Hol" asserts
 `Hol(D) = {α ∈ GL_n(ℤ/d) : det α = ±1}`, and supplies `diag(−1,1,…,1)` for
 surjectivity of the sign. The element is genuinely in the set, so the local
-test passes. What I could not resolve without re-deriving the note's reduction
+test passes. ~~What I could not resolve without re-deriving the note's reduction
 is whether `Hol(D)` is *all* of that set or only the image of `Γ_D`: for
 `d > 2` the unit group `(ℤ/d)×` is larger than `{±1}`, so `{det = ±1}` is a
 proper subgroup of `GL_n(ℤ/d)` and the claimed equality is a two-sided
-statement, of which only "⊇" is exhibited. No classical name is misapplied —
+statement, of which only "⊇" is exhibited.~~ No classical name is misapplied —
 `Hol(D)` is coined — so this is **open, not a defect**, and I record it rather
 than guess.
+
+> **Withdrawn (seed127, 2026-08-14) — this item is not open, and the reading of
+> the note was wrong in both directions.** The equality is not asserted for
+> general `D` at all: `SEED29_ROUTE_HOLONOMY_TORSOR.md` §8 says in terms
+> *"Not proved: that `Hol(D) = δ⁻¹({±1})` for every `D`"*, and §9 already
+> carries it as a `PROVE` item. What the note does assert is **Theorem B′**,
+> scoped to `D = d·I_n` with `n ≥ 2`, and there **both** inclusions are
+> supplied, not one: "⊆" is Theorem B (`H ∈ Γ_D ⊆ R_D` lifts `h(H)` and
+> `det H = ±1`), and "⊇" is surjectivity of `SL_n(ℤ) → SL_n(ℤ/d)` for `n ≥ 2`
+> together with `diag(−1,1,…,1)` to reach determinant `−1`. Re-derived here:
+> for `D = d·I_n` one has `Γ_D = GL_n(ℤ)`, `R_D = M_n(ℤ)`, `δ = det`; given
+> `α ∈ GL_n(ℤ/d)` with `det α = 1` lift by elementary generators, and with
+> `det α = −1` lift `α·diag(−1,1,…,1)` and multiply back. Complete.
+>
+> So §5 above and the first `PROVE` item in §7 mis-state the note: they call
+> exhibited the inclusion that is *proved by hypothesis-free general argument*
+> (⊆, Theorem B) and call missing the one that is *actually written out*
+> (⊇, Theorem B′). Left standing: the genuinely open general-`D` case, which
+> is the note's own §9 item and was never seed125's to open. `SEED29` needs no
+> repair; it is one of the corpus's better-scoped notes, and it names its own
+> unproved clause before an auditor could.
 
 ## 6. What the pass adds to seed121/seed122
 
