@@ -445,8 +445,9 @@ No bridge to Delta 29 is claimed beyond this classification.
 
 ### Inherited or externally pinned
 
-* Bhowmik--Grimmelt v2, section 4.2: the target-adapted major formula, already
-  source-audited in `analytic-uniformity.md`.
+* [Bhowmik--Grimmelt v2](https://arxiv.org/abs/2607.27282v2), section 4.2:
+  the target-adapted major formula, already source-audited in
+  `analytic-uniformity.md`.
 * Siegel--Walfisz for prime weights and character twists of polylogarithmic
   conductor; standard inherited input, ineffective constants accepted.
 * Dirichlet's theorem for primes `3 mod 4`.
@@ -460,10 +461,11 @@ claim.  Local searches used the standard terms `Siegel--Walfisz`, `parity
 problem`, `quadratic character`, and `Goldbach`; the nearest local objects are
 `PARITY.md`, `WIDTH.md`, and `LENS_REGULARITY.md` Proposition 4.  Public
 primary-source searches for `sieve parity problem quadratic character weight
-Goldbach` and `sequence 1+chi(n)` located Friedlander--Iwaniec's asymptotic
-sieve and Green--Harper's inverse-large-sieve work, but no exact match to this
-moving-target antidiagonal construction.  Absence of a located match is not a
-novelty claim.
+Goldbach` and `sequence 1+chi(n)` located
+[Friedlander--Iwaniec's asymptotic sieve](https://arxiv.org/abs/math/9811186)
+and [Green--Harper's inverse-large-sieve
+work](https://arxiv.org/abs/1311.6176), but no exact match to this moving-target
+antidiagonal construction.  Absence of a located match is not a novelty claim.
 
 ### Forecast return
 

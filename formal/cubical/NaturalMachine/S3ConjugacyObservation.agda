@@ -84,18 +84,30 @@ cycle₀₁₂ : ⟨ S₃ ⟩
 cycle₀₁₂ = s₀₁ S.· s₁₂
 
 -- Sum no-confusion helpers used by the finite separation proofs.
-outerInject3 : {x y : Fin 2} → fsuc x ≡ fsuc y → x ≡ y
+raise2 : Fin 2 → Fin 3
+raise2 x = fsuc x
+
+raise1 : Fin 1 → Fin 2
+raise1 x = fsuc x
+
+zero3 : Fin 3
+zero3 = fzero
+
+zero2 : Fin 2
+zero2 = fzero
+
+outerInject3 : {x y : Fin 2} → raise2 x ≡ raise2 y → x ≡ y
 outerInject3 {x = x} {y = y} p =
-  lower (Sum.⊎Path.encode (fsuc x) (fsuc y) p)
+  lower (Sum.⊎Path.encode (raise2 x) (raise2 y) p)
 
-zeroNotSucc3 : {x : Fin 2} → fzero ≡ fsuc x → ⊥
-zeroNotSucc3 {x = x} p = lower (Sum.⊎Path.encode fzero (fsuc x) p)
+zeroNotSucc3 : {x : Fin 2} → zero3 ≡ raise2 x → ⊥
+zeroNotSucc3 {x = x} p = lower (Sum.⊎Path.encode zero3 (raise2 x) p)
 
-succNotZero3 : {x : Fin 2} → fsuc x ≡ fzero → ⊥
-succNotZero3 {x = x} p = lower (Sum.⊎Path.encode (fsuc x) fzero p)
+succNotZero3 : {x : Fin 2} → raise2 x ≡ zero3 → ⊥
+succNotZero3 {x = x} p = lower (Sum.⊎Path.encode (raise2 x) zero3 p)
 
-zeroNotSucc2 : {x : Fin 1} → fzero ≡ fsuc x → ⊥
-zeroNotSucc2 {x = x} p = lower (Sum.⊎Path.encode fzero (fsuc x) p)
+zeroNotSucc2 : {x : Fin 1} → zero2 ≡ raise1 x → ⊥
+zeroNotSucc2 {x = x} p = lower (Sum.⊎Path.encode zero2 (raise1 x) p)
 
 cycle-no-fixed : Fixed cycle₀₁₂ → ⊥
 cycle-no-fixed (fzero , p) = succNotZero3 p

@@ -319,5 +319,20 @@ middle-right-residuation genControl genControl genA = refl
 middle-right-residuation genControl genControl genC = refl
 middle-right-residuation genControl genControl genControl = refl
 
+admissible : Generator → Generator → Generator → Bool
+admissible x z y = (middleSeed x ⊙M middleSeed y) ≤P middleSeed z
+
+probe-zero : admissible genC genControl genZero ≡ true
+probe-zero = refl
+
+probe-a : admissible genC genControl genA ≡ true
+probe-a = refl
+
+probe-c : admissible genC genControl genC ≡ true
+probe-c = refl
+
+probe-control : admissible genC genControl genControl ≡ true
+probe-control = refl
+
 -- Rigor boundary: exhaustive only for Generator^3.  The formulas are generic,
 -- but no unbounded residuated-lattice theorem is claimed.
