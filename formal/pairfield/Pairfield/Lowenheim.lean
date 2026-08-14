@@ -51,12 +51,26 @@ private theorem select_right (a u v : B) :
 private theorem select_inf_left (a u v r s : B) :
     a ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊓ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
       a ⊓ (u ⊓ r) := by
-  simp [inf_sup_left, inf_sup_right, inf_assoc, inf_left_comm, inf_comm]
+  let p := (a ⊓ u) ⊔ (aᶜ ⊓ v)
+  let q := (a ⊓ r) ⊔ (aᶜ ⊓ s)
+  calc
+    a ⊓ (p ⊓ q) = (a ⊓ a) ⊓ (p ⊓ q) := by rw [inf_idem]
+    _ = (a ⊓ p) ⊓ (a ⊓ q) := by ac_rfl
+    _ = (a ⊓ u) ⊓ (a ⊓ r) := by rw [select_left, select_left]
+    _ = (a ⊓ a) ⊓ (u ⊓ r) := by ac_rfl
+    _ = a ⊓ (u ⊓ r) := by rw [inf_idem]
 
 private theorem select_inf_right (a u v r s : B) :
     aᶜ ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊓ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
       aᶜ ⊓ (v ⊓ s) := by
-  simp [inf_sup_left, inf_sup_right, inf_assoc, inf_left_comm, inf_comm]
+  let p := (a ⊓ u) ⊔ (aᶜ ⊓ v)
+  let q := (a ⊓ r) ⊔ (aᶜ ⊓ s)
+  calc
+    aᶜ ⊓ (p ⊓ q) = (aᶜ ⊓ aᶜ) ⊓ (p ⊓ q) := by rw [inf_idem]
+    _ = (aᶜ ⊓ p) ⊓ (aᶜ ⊓ q) := by ac_rfl
+    _ = (aᶜ ⊓ v) ⊓ (aᶜ ⊓ s) := by rw [select_right, select_right]
+    _ = (aᶜ ⊓ aᶜ) ⊓ (v ⊓ s) := by ac_rfl
+    _ = aᶜ ⊓ (v ⊓ s) := by rw [inf_idem]
 
 private theorem select_sup_left (a u v r s : B) :
     a ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊔ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
@@ -70,13 +84,13 @@ private theorem select_sup_right (a u v r s : B) :
 
 private theorem select_compl_left (a u v : B) :
     a ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v))ᶜ = a ⊓ uᶜ := by
-  simp [compl_inf, compl_sup, inf_sup_left, inf_sup_right,
-    inf_assoc, inf_left_comm, inf_comm]
+  rw [← sdiff_eq, ← sdiff_eq]
+  exact sdiff_eq_sdiff_iff_inf_eq_inf.mpr (select_left a u v)
 
 private theorem select_compl_right (a u v : B) :
     aᶜ ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v))ᶜ = aᶜ ⊓ vᶜ := by
-  simp [compl_inf, compl_sup, inf_sup_left, inf_sup_right,
-    inf_assoc, inf_left_comm, inf_comm]
+  rw [← sdiff_eq, ← sdiff_eq]
+  exact sdiff_eq_sdiff_iff_inf_eq_inf.mpr (select_right a u v)
 
 private theorem eq_of_select (a u v : B)
     (left : a ⊓ u = a ⊓ v)

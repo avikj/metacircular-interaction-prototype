@@ -32,7 +32,7 @@
 module Main (main) where
 
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, foldl', intercalate)
+import Data.List (sortOn, sortBy, foldl', intercalate)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
 import Control.Monad (forM_, when, unless, filterM)
@@ -305,6 +305,17 @@ genTermsModulo comm assoc sig nv maxSize = concat table
         argsOf a k = [ t:rest | i <- [1..k-a+1]
                               , t <- ofSize i
                               , rest <- argsOf (a-1) (k-i) ]
+
+acCanonical :: String -> Term -> Term
+acCanonical f = rebuild . sortBy cmpTerm . collect
+  where
+    collect (F g [l,r]) | f == g = collect l ++ collect r
+    collect t = [mapChildren t]
+    mapChildren (F g ts) = F g (map (acCanonical f) ts)
+    mapChildren t = t
+    rebuild [] = error "acCanonical: empty product"
+    rebuild [t] = t
+    rebuild (t:ts) = F f [t, rebuild ts]
 
 -- --------------------------------------------------------- rewriting
 --
@@ -775,19 +786,30 @@ provedCommutative m =
   [ symName s
   | s <- take (mVocab m) vocabulary ++ mInvented m
   , symArity s == 2
-  , let law = canonVars (F (symName s) [x_,y_], F (symName s) [y_,x_])
-  , M.member law (mKnown m) || M.member (swap law) (mKnown m) ]
-  where swap (a,b) = (b,a)
+  , any (isCommutativity (symName s)) (M.keys (mKnown m)) ]
+
+isCommutativity :: String -> (Term,Term) -> Bool
+isCommutativity f (F g [V a,V b], F h [V c,V d]) =
+  f == g && g == h && a /= b && a == d && b == c
+isCommutativity _ _ = False
 
 provedAssociative :: Machine -> [String]
 provedAssociative m =
   [ symName s
   | s <- take (mVocab m) vocabulary ++ mInvented m
   , symArity s == 2
-  , let f = symName s
-        law = canonVars (F f [F f [x_,y_],z_], F f [x_,F f [y_,z_]])
-  , M.member law (mKnown m) || M.member (swap law) (mKnown m) ]
-  where swap (a,b) = (b,a)
+  , any (isAssociativity (symName s)) (M.keys (mKnown m)) ]
+
+isAssociativity :: String -> (Term,Term) -> Bool
+isAssociativity f equation = forward equation || forward (swap equation)
+  where
+    swap (a,b) = (b,a)
+    forward (F g [F g' [V a,V b],V c],
+             F h [V d,F h' [V e,V k]]) =
+      f == g && g == g' && g == h && h == h'
+      && a == d && b == e && c == k
+      && length (ordNub [a,b,c]) == 3
+    forward _ = False
 
 round1 :: Handle -> Handle -> IORef Machine -> IO ()
 round1 logh libh ref = do
@@ -990,7 +1012,12 @@ main = do
         commLaw = (bin "+" x_ y_, bin "+" y_ x_)
         oldNF = ordNub (map (normalize (lemmaRules [commLaw])) raw)
         newNF = ordNub (map (normalize (lemmaRules [commLaw])) quotient)
-    unless (oldNF == newNF && length quotient < length raw) exitFailure
+        renamedComm = (F "+" [V 9,V 4], F "+" [V 4,V 9])
+        renamedAssoc = (F "+" [F "+" [V 8,V 3],V 11],
+                        F "+" [V 8,F "+" [V 3,V 11]])
+    unless (oldNF == newNF && length quotient < length raw
+            && isCommutativity "+" renamedComm
+            && isAssociativity "+" renamedAssoc) exitFailure
     hPrintf stdout "COMMUTATIVE GRAMMAR CHECKED: raw=%d representatives=%d eliminated=%d coverage=exact\n"
       (length raw) (length quotient) (length raw - length quotient)
     exitSuccess
@@ -998,12 +1025,8 @@ main = do
     let sig = [("0",0),("+",2)]
         raw = genTerms sig 2 7
         quotient = genTermsModulo ["+"] ["+"] sig 2 7
-        commLaw = (bin "+" x_ y_, bin "+" y_ x_)
-        assocLaw = (bin "+" (bin "+" x_ y_) z_,
-                    bin "+" x_ (bin "+" y_ z_))
-        theory = lemmaRules [commLaw, assocLaw]
-        oldNF = ordNub (map (normalize theory) raw)
-        newNF = ordNub (map (normalize theory) quotient)
+        oldNF = ordNub (map (acCanonical "+") raw)
+        newNF = ordNub (map (acCanonical "+") quotient)
     unless (oldNF == newNF && length quotient < length raw) exitFailure
     hPrintf stdout "AC GRAMMAR CHECKED: raw=%d multisets=%d eliminated=%d coverage=exact\n"
       (length raw) (length quotient) (length raw - length quotient)

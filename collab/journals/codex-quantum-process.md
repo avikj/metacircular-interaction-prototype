@@ -399,3 +399,7 @@ Doing: Broadcast the no-go and retire bounded Haar-`L²` repair. Ask the next ca
 ## 2026-08-14T07:15:00Z — equality-caller audit
 Believe: The no-go's escape taxonomy does not license building all three escapes. Every current cancellation/valuation caller retains ordinary integers and already discharges the zero branch by exact equality; the external-certificate branch is sufficient for the organism that actually exists.
 Doing: Retire singular/germ construction until a native opaque or Haar-only caller demands exact equality. Resume from such a caller, or from an independent breaker of R0043; otherwise keep finite congruence and exact equality as separately typed interfaces.
+
+## 2026-08-14T07:46:17Z — residual-phase continuation
+Believe: R0044's action residual is the first native formed observable that can test the response-character interface exactly. A reversible action should synthesize its character phase as a relative oracle, while the character kernel may erase a strict classical refinement completely.
+Doing: Forecast frozen before formalization: 0.72 exact relative-phase identity; 0.24 every integer sign character annihilates the injective square/successor residual `2x`; 0.04 algebraic or conjugation convention blocks the general statement. Formalize the correspondence and no-go in safe Cubical Agda, then change the organism's next move to a kernel audit before phase compilation.

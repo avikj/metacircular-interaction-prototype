@@ -3,8 +3,8 @@
 module NaturalMachine.PolynomialRewrite where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-suc)
+open import Cubical.Data.Nat using
+  (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc ; +-assoc ; +-comm)
 open import Cubical.Data.Vec.Base using (Vec ; [] ; _∷_ ; _++_ ; map)
 
 record Signature : Type₁ where
@@ -162,6 +162,33 @@ module _ (S : Signature) where
   plug-count-strict (frame operation left focus right) strict =
     cong suc (focus-count-strict left right (plug-count-strict focus strict))
 
+  focus-count-gap : {m n : ℕ}
+    (left : Vec (Term S) m) (right : Vec (Term S) n) (gap : ℕ)
+    {from to : Term S} → nodeCount from ≡ gap + nodeCount to
+    → counts (left ++ from ∷ right)
+      ≡ gap + counts (left ++ to ∷ right)
+  focus-count-gap [] right gap {to = to} equality =
+    cong (_+ counts right) equality
+    ∙ sym (+-assoc gap (nodeCount to) (counts right))
+  focus-count-gap (term ∷ left) right gap {to = to} equality =
+    cong (nodeCount term +_) (focus-count-gap left right gap equality)
+    ∙ +-assoc (nodeCount term) gap
+        (counts (left ++ to ∷ right)))
+    ∙ cong (_+ counts (left ++ to ∷ right))
+        (+-comm (nodeCount term) gap)
+    ∙ sym (+-assoc gap (nodeCount term)
+        (counts (left ++ to ∷ right)))
+
+  plug-count-gap : (context : Context S) (gap : ℕ) {from to : Term S}
+    → nodeCount from ≡ gap + nodeCount to
+    → nodeCount (plug S context from)
+      ≡ gap + nodeCount (plug S context to)
+  plug-count-gap hole gap equality = equality
+  plug-count-gap (frame operation left focus right) gap {to = to} equality =
+    cong suc (focus-count-gap left right gap
+      (plug-count-gap focus gap equality))
+    ∙ sym (+-suc gap (counts (left ++ plug S focus to ∷ right)))
+
 ------------------------------------------------------------------------
 -- Arithmetic is an instance, not a privileged syntax.
 ------------------------------------------------------------------------
@@ -195,8 +222,11 @@ Algebra.operation NatAlgebra suc-op (value ∷ []) = suc value
 Algebra.operation NatAlgebra add-op (left ∷ right ∷ []) = left + right
 
 arithmetic-law : PrimitiveLaw Arithmetic ArithmeticMotion NatAlgebra
-arithmetic-law (add-zero term) environment = refl
-arithmetic-law (add-suc left right) environment = refl
+arithmetic-law (add-zero term) environment =
+  +-zero (evaluate NatAlgebra environment term)
+arithmetic-law (add-suc left right) environment =
+  +-suc (evaluate NatAlgebra environment left)
+    (evaluate NatAlgebra environment right)
 
 add-one : Run Arithmetic ArithmeticMotion (aAdd aVar (aSuc aZero))
 add-one =
@@ -215,7 +245,7 @@ add-one-semantic = run-sound Arithmetic ArithmeticMotion
   NatAlgebra arithmetic-law add-one
 
 add-one-strict : nodeCount (aAdd aVar (aSuc aZero))
-  ≡ suc (nodeCount (aSuc aVar))
+  ≡ 2 + nodeCount (aSuc aVar)
 add-one-strict = refl
 
 right-root : Context Arithmetic
@@ -238,6 +268,6 @@ add-one-under-right-semantic =
 
 add-one-under-right-strict :
   nodeCount (plug Arithmetic right-root (aAdd aVar (aSuc aZero)))
-    ≡ suc (nodeCount (plug Arithmetic right-root (aSuc aVar)))
+    ≡ 2 + nodeCount (plug Arithmetic right-root (aSuc aVar))
 add-one-under-right-strict =
-  plug-count-strict Arithmetic right-root add-one-strict
+  plug-count-gap Arithmetic right-root 2 add-one-strict
