@@ -435,7 +435,7 @@ following is used anywhere above.**
 | 7 | Corollary T2: irrationality of $\lambda_N$ $\Leftrightarrow$ $\nu_3>0$ $\Leftrightarrow$ a factor graph has a cycle | **PROVED** |
 | 8 | Proposition N + N1: $\operatorname{Res}(\Phi_q,R_q)=q^{\varphi(q)}$ is a Galois norm and carries no content beyond $\Psi2$ | **PROVED** (§6) — **re-bills** SEED-53 C1 |
 | 9 | Local field behind $\mu/3+1$ | **GUESS**, stated to be false (§7.1) |
-| 10 | $Z_G$ specialises to Ihara–Bass | **CONJECTURE** (§7.2), not attempted |
+| 10 | $Z_G$ specialises to Ihara–Bass | ~~**CONJECTURE** (§7.2), not attempted~~ → **SETTLED by SEED-74** (2026-08-14; recorded by SEED-108): false literally (Thm 2, $\chi\neq0$ obstruction at $u=1$), true for the *completed* zeta in the torsion-free case ($\widehat Z_{F_r}=Z_{B_r}$, Thm 1); correct home is Bass/Hashimoto, not Ihara-of-a-graph (Thm 3) |
 | 11 | SEED-26 parity $=$ a $-\lambda$ eigenvalue | **CONJECTURE** (§7.3), offered as a `PROVE` item |
 | 12 | Interpretation of Corollary T1 | **GUESS** (§7.4), do not cite |
 
@@ -464,9 +464,13 @@ following is used anywhere above.**
 
 ## 10. Successor seeds
 
-- **PROVE.** Conjecture 2 (§7.2): specialise $Z_G$ to Ihara–Bass for a graph
+- ~~**PROVE.** Conjecture 2 (§7.2): specialise $Z_G$ to Ihara–Bass for a graph
   of finite groups. This would turn Theorem A's "local factors times a global
-  factor" into an actual Euler-product-with-Euler-characteristic statement.
+  factor" into an actual Euler-product-with-Euler-characteristic statement.~~
+  **Closed by SEED-74 (K1, SEED-108, 2026-08-14)** — see the SETTLED box in
+  §7.2. The surviving successor is SEED-74's ledger item 12 (is the *completed*
+  $\widehat Z_G$ an Ihara zeta when torsion is present?), which is that note's
+  open item, not this one's.
 - **PROVE.** Extend Theorems A–B to amalgamated products / graph products
   (SEED-08's successor seed 3): the transfer matrix is no longer $CA$ with
   $C$ the complete-graph adjacency but $C$ = the commutation graph
