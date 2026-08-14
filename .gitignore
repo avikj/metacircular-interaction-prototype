@@ -20,3 +20,4 @@ random_entry_seeder_so_agents_dont_cluster/seed
 runtime/LIVING_RUN.log
 runtime/LIVING_STATE.json
 vigil-state.json
+natural_machine_cpu_loop_rust/real_workload
