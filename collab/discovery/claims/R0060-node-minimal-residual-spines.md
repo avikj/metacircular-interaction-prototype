@@ -8,12 +8,12 @@ load_bearing: false
 novelty: known
 generator: msg-0592-codex-formation-minimal-spine-claim
 dependencies: R0057, R0058, R0059
-statement_hash: c19364988c7f14d2e635293eb085c247c4f4c79757a30ef4b94a50fd0c70156e
+statement_hash: 753c890aaa7a22e50877f87fd249047dd12c73314209027894d18c83e0a2cd10
 cycle: 1
 max_cycles: 4
 owner: codex-formation
 breaker: codex_automata_ingestor
-source: formal/pairfield/Pairfield/AdaptiveResidualNodeMinimalSpine.lean
+source: formal/pairfield/Pairfield/AdaptiveResidualNodeMinimalDepth.lean
 supersedes: none
 updated: 2026-08-14
 ---
@@ -42,9 +42,10 @@ on `S`.  Every strict subplan of `P` is node-minimal.  No strict subplan can
 present the same set of canonical Mathlib left quotients as an ancestor.
 Therefore every proof-relevant strict spine in `P` has pairwise distinct
 canonical positions.  If `M.accepts` is regular with `n` canonical
-left-quotient states, every such spine has length at most `2^n`.  Separately,
-any depth-minimal splitting tree has no root-to-descendant canonical-position
-cycle.
+left-quotient states, every such spine has length at most `2^n`, and every
+node-minimal plan `P` on a current-constant cell satisfies
+`depth(P) + 1 ≤ 2^n`.  Separately, any depth-minimal splitting tree has no
+root-to-descendant canonical-position cycle.
 
 # Preservation ledger
 
@@ -66,7 +67,8 @@ cycle.
 5. Extract `Nodup` for a proof-relevant strict spine.
 6. Repackage positions as subsets of the finite canonical residual state type
    and apply `Fintype.card_set`.
-7. Retain the R0057 redundant-steering and mandatory-steering controls.
+7. Extract a root-to-leaf strict spine of length exactly native depth plus one.
+8. Retain the R0057 redundant-steering and mandatory-steering controls.
 
 # Falsification
 
@@ -85,8 +87,11 @@ splitting/current constancy, and the depth-minimal no-cycle theorem, with both
 R0057 controls.  `AdaptiveResidualNodeMinimalSpine.lean` proves existence and
 heredity of node minimality, strict-descendant position inequality,
 `rooted_positions_nodup`, and
-`rooted_spine_length_le_two_pow_stateCount`.  Focused builds check 3,046 jobs;
-the integrated `Pairfield` root checks 8,785 jobs, all exit zero.
+`rooted_spine_length_le_two_pow_stateCount`.
+`AdaptiveResidualNodeMinimalDepth.lean` constructs a proof-relevant spine of
+length exactly `depth + 1` and derives
+`nodeMinimal_depth_add_one_le_two_pow_stateCount`.  Focused builds check 3,047
+jobs; the integrated `Pairfield` root checks 8,786 jobs, all exit zero.
 
 # Independent audit
 
@@ -105,8 +110,6 @@ principle or the coarse powerset bound.
 
 # Successor seeds
 
-- Extract a depth-realizing root-to-leaf native plan spine rather than accept
-  a supplied pairwise strict-subplan list.
 - Refine the powerset carrier by constant position cardinality and consume
   R0058's `Nat.choose n k` theorem on zero-potential steering segments.
 - Assemble a checked recurrence across informative response splits; only then
@@ -119,3 +122,6 @@ principle or the coarse powerset bound.
 - 2026-08-14: independent replay exposed the sibling-minimality quantifier;
   node-minimal inheritance, global `Nodup`, and the exact `2^n` bound checked
   in message 0597; status `proving` with independent breaker assigned.
+- 2026-08-14: a depth-realizing strict spine was constructed recursively,
+  upgrading the supplied-spine bound to the native plan bound
+  `depth + 1 ≤ 2^n`.

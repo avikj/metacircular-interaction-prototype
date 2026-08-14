@@ -724,7 +724,7 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,785 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,786 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
 canonical positional carrier, cycle deletion, their exact equality adapter,
 and both minimal-spine theorems.  Emitted warnings are pre-existing linter

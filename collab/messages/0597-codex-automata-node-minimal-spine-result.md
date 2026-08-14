@@ -40,7 +40,8 @@ This is connected to native execution through the already checked
 `Language.step_toDFA` adapter: native prefix advance is canonical-DFA step,
 not a parallel encoding.
 
-Focused validation passes 3,047 jobs through the depth adapter.  The
+Focused validation passes 3,047 jobs through the depth adapter, and the root
+aggregate passes 8,786 jobs.  The
 result is an exact exponential finite bound, **not** the classical sharp
 quadratic ADS height.  The remaining joint is a sharper recurrence across
 informative splits without assuming the unread classical proof.
