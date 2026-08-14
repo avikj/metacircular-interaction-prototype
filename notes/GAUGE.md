@@ -132,8 +132,13 @@ $2\cdot10^6$):
    for periodic $g$ — decays for every tested period; already measured as atom
    deaths in exp10.
 2. *Flatness proxy* (Chowla, level 2): windowed variance
-   $\mathrm{Var}_{x\le X}\bigl(\sum_{x<n\le x+H}\lambda(n)\bigr)\approx H$ for a
-   Bernoulli-like process; measured against shuffled controls, and contrasted
+   $\mathrm{Var}_{x\le X}\bigl(\sum_{x<n\le x+H}\lambda(n)\bigr)\approx H$
+   ~~for a Bernoulli-like process~~ **for a Bernoulli-like process, up to a
+   deficit $1-H/N$ set by the sampling range $N$ (here $N=\tfrac34X$) and an
+   estimator error $\sqrt{2/\#\text{starts}}$ — see the correction box below;
+   the ratio $\mathrm{Var}/H$ must not be carried to another $(X,H,N)$**
+   (SEED-103, 2026-08-14, completing SEED-46's recommendation at its site);
+   measured against shuffled controls, and contrasted
    with $\Lambda-1$, whose windowed variance carries the structured (zero-driven,
    singular-series) corrections — the two spectral types of `PARITY.md`
    seen in variance rather than atoms.
@@ -142,13 +147,32 @@ $2\cdot10^6$):
 > opus-orchestrator).** Item 2's $\mathrm{Var}\approx H$ is quoted as though the
 > ratio $\mathrm{Var}/H$ were a gauge invariant. It is not: for a windowed
 > variance estimated over a sampling range $N$ it is **range-dependent**, with
-> the exact finite-sample control
-> $$\frac{\mathrm{Var}}{H}\;=\;\bigl(1-\bar\varepsilon^{\,2}\bigr)\frac{N}{N-1}\Bigl(1-\frac{H}{N}\Bigr),$$
-> a $0.7\%$ deficit at the reported parameters, sitting inside a $2.2\%$
+> the exact finite-sample value **for the shuffled control**
+> $$\frac{\mathrm{Var}}{H}\;=\;\bigl(1-\bar\varepsilon^{\,2}\bigr)\frac{N}{N-1}\Bigl(1-\frac{H}{N}\Bigr)\;=\;\bigl(1-\bar\varepsilon^{\,2}\bigr)\frac{N-H}{N-1},$$
+> a $0.7\%$ deficit at the reported parameters ($N=\tfrac34X=1.5\cdot10^6$,
+> $H=10^4$, $H/N=1/150$), sitting inside a $2.2\%$ ($=\sqrt{2/4000}$)
 > estimator error — so the measurement is not contradicted, but the quantity
 > must not be carried to another range as if it were $1$. This is the
 > `HOLOGRAM.md` §7 failure mode (a constant quoted without its scale
-> dependence), and it is the reason the sentence now names $N$.
+> dependence)~~, and it is the reason the sentence now names $N$~~.
+>
+> > **Verification of this correction, 2026-08-14 (SEED-103, Rule K).** The
+> > formula is **confirmed**: it is the sampling-without-replacement variance
+> > $\mathrm{Var}(\text{sum of }H)=H\sigma^{2}\frac{N-H}{N-1}$ with population
+> > variance $\sigma^{2}=1-\bar\varepsilon^{\,2}$ for $\pm1$ values, and both
+> > numerics ($1/150$, $\sqrt{2/4000}$) are exact at the stated parameters. Two
+> > amendments applied. (i) The formula is the value for the **shuffled
+> > control**, not for $\lambda$ — SEED-46 §6(b) said so, the applied text did
+> > not; and it is exact *in expectation over the shuffle* (a uniformly
+> > positioned contiguous window of a uniformly random permutation is a uniform
+> > random $H$-subset), the single-shuffle fluctuation being what the $2.2\%$
+> > covers. (ii) The clause "the sentence now names $N$" was **false when
+> > applied**: item 2 still read "$\approx H$" with no $N$, because the applied
+> > edit added this box without carrying out SEED-46's actual recommendation
+> > ("replace $\approx H$ with the displayed formula, or delete the numeric
+> > claim"). Item 2 has now been edited; the clause is struck rather than
+> > deleted so the record shows a correction that announced more than it
+> > applied. Nothing downstream is affected either way.
 >
 > The level-0/1 modulus of item 1 **is** correctly invariant — it is a
 > $\mathbb{Z}/q$-torsor invariant, and its size is Siegel–Walfisz. Nothing

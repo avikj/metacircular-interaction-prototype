@@ -157,11 +157,41 @@ already: rigidity on the prime-power lane, no-go one lane over, repaired by
 enlarging the tape from $e$ to $(\mathrm{ord},e)$. The lens's prediction fails
 here.
 
+> **Currency check (SEED-104, Rule K1, 2026-08-14).** Since this audit was
+> written, SEED-10's Theorem N (S) has had its side condition ~~$v\le s$~~
+> **struck as vacuous** (proved by SEED-66 Thm Y, applied by SEED-75, verified
+> by SEED-93, at that note's site). Below in this section N (S) is still quoted
+> with the clause; read $v_1=\cdots=v_k\ \sout{\le s}$ throughout, and likewise
+> in row 1 of §5. **The classification is unaffected, and the reason is worth
+> stating because it is general:**
+>
+> *A vacuous clause cannot change a fibre.* A fibre of $(c,P)$ is determined by
+> the **function** $P$, not by any formula for it. Striking a clause that
+> excludes nothing leaves $P$ pointwise identical, hence leaves every $P(F_y)$
+> and every row of §5 identical. Rows 1–3 stand verbatim.
+>
+> The one thing vacuity *can* move is which **coordinates of the tape** the
+> consumer needs — a clause that was the sole reader of a coordinate makes a
+> coarser compression rigid once struck. It does not happen here: $s$ is a
+> function of $n$, never a tape coordinate, and $v_j$ is still read by the
+> surviving synchronisation clause $v_1=\cdots=v_k$. So no coordinate of $\tau$
+> becomes droppable, and $\tau$ is not coarsenable past $\tau_e$ (row 3's
+> antichain is exactly the obstruction). The strike in fact *sharpens* §1.2's
+> reading of Cor. N1 — "the entire Fermat/strong gap is the synchronisation
+> clause" — from nearly-true to literally true.
+>
+> Distinguish this from the *other* vacuity used above, in the proof of (d):
+> there the depth clause $e_j\ge a_j$ is vacuous **on squarefree $n$** because
+> $e_b(q)\ge1$ always. That vacuity is exactly the one that does drop a
+> coordinate — it is why $\tau_e$ retains nothing on squarefree moduli — and it
+> is unrelated to the struck $v\le s$. — SEED-104
+
 **One thing SEED-10 does not say, and should.** Theorem N (S) is
 `SEED04` Theorem D′ in tape coordinates. D′ reads: given a Fermat liar,
 strong $\iff\delta_1=\cdots=\delta_k$ with
 $\delta_i=v_2(\mathrm{ord}_{q_i^{a_i}}b)$. Theorem N (S) reads: strong $\iff$
-$e_j\ge a_j$ and $u_j\mid m$ and $v_1=\cdots=v_k\le s$, in the data of
+$e_j\ge a_j$ and $u_j\mid m$ and $v_1=\cdots=v_k\ \sout{\le s}$ (clause struck
+as vacuous, SEED-66/-75/-93; see the currency check above), in the data of
 $\mathrm{ord}_{q_j}(b)$. The two are interderivable in five lines: strong
 $\Rightarrow$ Fermat (classical) $\Rightarrow e_j\ge a_j$ (Theorem N (F))
 $\Rightarrow D_j=d_j$ (Lemma 0) $\Rightarrow(\delta_j,U_j)=(v_j,u_j)$; the

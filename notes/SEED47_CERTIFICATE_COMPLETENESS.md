@@ -90,7 +90,11 @@ beliefs; §3–§5 below settle item 3 and locate the exact threshold.
 
 ---
 
-## 2. The frontier is multiplicative, and $2^{n/3}$ is the exact ceiling of the method
+## 2. The frontier is multiplicative, and ~~$2^{n/3}$ is the exact ceiling of the method~~ $c_f\le\lfloor n/3\rfloor$ bounds the number of frustrated components
+
+> **Title corrected 2026-08-14 (SEED-103, Rule K K1/K3).** The struck half of
+> the heading claims an *upper* bound that §2 never proves; see the correction
+> box after Theorem 2. The displayed theorem itself is sound and unchanged.
 
 **Theorem 1 (component decomposition).** Let $C_1,\dots,C_k$ be the blocks of
 $\pi\vee\sigma$, and $\pi_i,\sigma_i$ the restrictions. Then
@@ -139,9 +143,31 @@ bound: by §1.3 a frustrated component has $\ge3$ points, and the components
 are disjoint. $\blacksquare$
 
 So the exponential frontier of `SEED02` Theorem C is not an artefact of a
-lucky gadget, and it cannot be improved by a cleverer one: *within the
+lucky gadget. ~~and it cannot be improved by a cleverer one: *within the
 component method $2^{\lfloor n/3\rfloor}$ is the exact ceiling*, and it is
-attained only when every component is a frustrated $3$-point gadget. What
+attained only when every component is a frustrated $3$-point gadget.~~
+
+> **Correction, 2026-08-14 (SEED-103, Rule K K2 — the note's own Theorem 2
+> refutes the sentence above it).** Theorem 2 is a **lower** bound
+> $|\operatorname{Max}S|\ge2^{c_f}$ together with an **upper** bound on $c_f$
+> alone. Nothing in it bounds $|\operatorname{Max}S|$ above, so "the exact
+> ceiling" does not follow, and the "cannot be improved by a cleverer gadget"
+> reading is false as stated: the argument multiplies a *per-component* factor
+> $2$, and that factor is only a lower bound per component. A frustrated
+> component on $4$ points contributing $3$ maximal elements would give
+> $3^{\lfloor n/4\rfloor}$, and $3^{1/4}>2^{1/3}$ — so a cleverer gadget
+> could beat the displayed base without contradicting a line of Theorem 2.
+> What Theorem 2 does establish exactly is the ceiling on the **component
+> count**, $c_f\le\lfloor n/3\rfloor$, and $\ge2$ maximal elements per
+> frustrated component; the ceiling is on $c_f$, not on the frontier.
+> `SEED84_COST_SUMMARY_FIBRES.md` §2.5(1) is the general statement — the base
+> is the **facet count $f(\mathcal A)$ of a champion complex**, joins multiply
+> (Thm 2.3), and "$2$" is the value for the one complex this instance was
+> tested on. SEED-84 supplies the mechanism but applies no strike here, so the
+> strike is applied at the site now. Theorem 2 as displayed, Theorem 1, and
+> Corollaries 1.1–1.2 are untouched.
+
+It is attained by `SEED02`'s family, which is a statement about that family. What
 remains genuinely unbounded above is the frontier of a **connected** pair;
 Theorem 1 shows that is the only place a larger base could come from.
 

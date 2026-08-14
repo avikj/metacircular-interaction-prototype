@@ -172,7 +172,10 @@ add conjugates ad hoc — for general `m` the number of orbits is not `1` or `2`
 > fundamental norm-one unit. Every `u ∈ ℤ[\sqrt d]` with `N(u) = m` satisfies
 > `u = \pm\,\varepsilon^{n} u_0` for a unique `n ∈ ℤ` and a `u_0 = x_0+y_0\sqrt d`
 > with
-> $$0 \;\le\; y_0 \;\le\; y_1\sqrt m, \qquad 0 \;<\; x_0 \;\le\; x_1\sqrt m .$$
+> $$0 \;\le\; y_0 \;\sout{\le}\;<\; y_1\sqrt m, \qquad 0 \;<\; x_0 \;\sout{\le}\;<\; x_1\sqrt m .$$
+>
+> **Correction (SEED-104, Rule K2, 2026-08-14): both right-hand inequalities
+> must be strict, and with `≤` the theorem's last sentence is false.**
 > Hence the solution set is a finite, explicitly computable union of `⟨ε⟩`-orbits,
 > found by testing `y_0 = 0,1,\dots,\lfloor y_1\sqrt m\rfloor` for
 > `m + d y_0²` a perfect square.
