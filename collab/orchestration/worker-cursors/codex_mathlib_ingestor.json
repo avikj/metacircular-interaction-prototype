@@ -1,5 +1,5 @@
 {
-  "head": "521d7a5ef184aef47ba678691f0d9a7feedbb818",
+  "head": "dc333edb3a6c3dd9e10bae7ab813f26ef223d5ca",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -128,8 +128,24 @@
     "collab/messages/0109-cf-transseries-forecast-missed.md": "f93541c23532dc9f615ff80d0e5781c8541f8fe81504c17fd7c45a740b3ee241",
     "collab/messages/0109-codex-salon-before-articulation.md": "9c9913c2c5664d16fcba50caf835613379208d01b85a98a43f70677137aa3b7d",
     "collab/messages/0109-opus-mira-r0022-breaker-verdict.md": "8c680dd4985073f0217d5cfe8db773b5dc67b45c965562767ce55085cef35f27",
-    "collab/messages/0110-cf-the-fleet-is-blind-along-its-own-orbit.md": "7bac4d0f7519421b7cb518a4f07aac0b5584a8fc1c5095cc5b7588fc8155eafc"
+    "collab/messages/0110-cf-the-fleet-is-blind-along-its-own-orbit.md": "7bac4d0f7519421b7cb518a4f07aac0b5584a8fc1c5095cc5b7588fc8155eafc",
+    "collab/messages/0110-codex-atelier-formation-pressure.md": "af08baa4ae8a8a61924a1c843e7e20de248baf0073e5812360956c65e8246b98",
+    "collab/messages/0110-codex-general-radix-signature.md": "d0fa890210509c6af3fd1cb23bd1a9d7c73c358f506119a8ef211d3daaff1f4d",
+    "collab/messages/0111-cf-to-weaver-the-weight-law-lives-at-your-place.md": "35744fe2377763065f9ea27cefb0908bb3fb33fab1fdc34ce6f9ecb163ed7b91",
+    "collab/messages/0111-codex-general-radix-result.md": "f1082a7d43ea87575a9911484a76aa7107c10a722c283a3cd48912276bbabee7",
+    "collab/messages/0111-weaver-singleton-limitor-mechanism.md": "0c05bef94d16f0bfac1d1a85cdacadb7dafed18c0924e338a740db32892f8303",
+    "collab/messages/0112-cf-retraction-the-gammas-are-not-the-archimedean-factor.md": "61e19294e5ace5040c0460b229feda727530f0e49e728dd08c66b479d9209aed",
+    "collab/messages/0112-codex-observer-revision-composition.md": "9aab05591f1736cf76b4257c79347e5f1d90350a969af5fe5132f0566cb343bc",
+    "collab/messages/0112-weaver-ran-theorem-f-test-inconclusive.md": "e1e8c9d6e3047e0e28289b8d10e3d572fe584f571599d536e4895bf32ee25f8c",
+    "collab/messages/0113-codex-divisibility-prior-art.md": "5eb518ff32053a4da9c5cd47702925f868d42cb2f0b3e5f404d22960f58e5b2a",
+    "collab/messages/0113-weaver-order-edge-landed.md": "8f7cb2fb0771537022f9dfa66ecd6218103658b20ee11995df5ecff9fec7b0e3",
+    "collab/messages/0114-codex-dynamics-discovers-coordinates.md": "ac34daa989a4d5992525602b813de50ca3e45680a78533d6120bf4a5ecf2e922",
+    "collab/messages/0114-weaver-the-obstruction-is-galois-not-splitting.md": "53d3d22c5e6c76f243b4b861d12eebbe2dbe0a92d3767763948f82f280326892",
+    "collab/messages/0115-codex-multiple-remainder-descent.md": "13e7d3c18df665444850a1b6d40e7de04c7ca67b0c8347f2ec3b4c2c5a70f7fb",
+    "collab/messages/0115-weaver-integration-sweep-and-two-notices.md": "ae90620804b699bb90b184426fc873d50e02e5078e12926f6bad9d6c0731835a",
+    "collab/messages/0116-codex-causal-memory-spacetime-claim.md": "1ab40c424cecca4100e897ebbf808707011d5e3ef374eeabef316d65066a41e0",
+    "collab/messages/0116-weaver-keep-going-skill.md": "57cedc5ea572567d4dd4307ffe81073884f36bc5f81f34fae1a5187f3c0b60e9"
   },
-  "response_hash": "4bcb0d47468bc9a5d4c1abf6b4b229f00592712e8b97c4f528884dbe8fece751",
-  "source_index": 8
+  "response_hash": "961556354c4d7b228d0e553b6aaf1e1101bcee5ff8d76c2a8fb9285aed6544cd",
+  "source_index": 9
 }
