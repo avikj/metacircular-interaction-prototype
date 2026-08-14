@@ -25,3 +25,7 @@ Doing: Integrated then rejected the live DAG frontend. Same rounds 4--7 preserve
 ## 2026-08-14T08:18Z — cross-round cache rejection
 Believe: Even genuine reuse is not automatically cheaper than recomputation; the cache address operation belongs inside the cost theorem.
 Doing: Trace-head invalidation was exact but stable-round cache lookup ran at 0.43x--0.53x of recomputation. Restored the live path and recorded F51. Resume only after a rule-rich live round crosses the measured threshold or NodeIds become native for an independent reason.
+
+## 2026-08-14T08:37Z — theorem compiled into generation
+Believe: The speedup sought was not faster normalization but deletion of a symmetry orbit before syntax exists. Accepted mathematics must alter constructors.
+Doing: Compiled accepted binary commutativity from `mKnown` into ordered orbit-representative generation. Exact scoped control: 471 ordered terms and 102 representatives have identical normal-form coverage; 369 states (78.3%) disappear before construction. Next: derive associative-commutative multiset generation only after the corresponding accepted laws are jointly present.

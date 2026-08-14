@@ -289,7 +289,7 @@ genTermsModulo comm sig nv maxSize = concat table
     build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1)
                           , canonical f args ]
       where
-        canonical f [l,r] | f `elem` comm = l <= r
+        canonical f [l,r] | f `elem` comm = cmpTerm l r /= GT
         canonical _ _ = True
         argsOf 1 k | k >= 1 = map (:[]) (ofSize k)
                    | otherwise = []
@@ -967,9 +967,9 @@ main = do
     let sig = [("0",0),("+",2)]
         raw = genTerms sig 2 7
         quotient = genTermsModulo ["+"] sig 2 7
-        commRule = (bin "+" y_ x_, bin "+" x_ y_)
-        oldNF = ordNub (map (normalize [commRule]) raw)
-        newNF = ordNub (map (normalize [commRule]) quotient)
+        commLaw = (bin "+" x_ y_, bin "+" y_ x_)
+        oldNF = ordNub (map (normalize (lemmaRules [commLaw])) raw)
+        newNF = ordNub (map (normalize (lemmaRules [commLaw])) quotient)
     unless (oldNF == newNF && length quotient < length raw) exitFailure
     hPrintf stdout "COMMUTATIVE GRAMMAR CHECKED: raw=%d representatives=%d eliminated=%d coverage=exact\n"
       (length raw) (length quotient) (length raw - length quotient)
