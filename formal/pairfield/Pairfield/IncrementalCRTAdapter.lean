@@ -214,6 +214,26 @@ theorem SignedObstruction.no_common {left right : CongruenceState}
   rw [obstruction.gcd_eq, obstruction.delta_eq]
   exact Nat.modEq_iff_dvd.mp hcompat
 
+/-- Failure is complete on the integer cosets as well: the stored signed
+nondivisibility certificate rules out every integer common representative. -/
+theorem SignedObstruction.no_common_int {left right : CongruenceState}
+    (obstruction : SignedObstruction left right) :
+    ¬ ∃ x : ℤ, HoldsInt left x ∧ HoldsInt right x := by
+  rintro ⟨x, hxLeft, hxRight⟩
+  apply obstruction.not_dvd
+  rw [obstruction.gcd_eq, obstruction.delta_eq]
+  have hleftDvd :
+      (Nat.gcd left.modulus right.modulus : ℤ) ∣ left.modulus := by
+    exact_mod_cast Nat.gcd_dvd_left left.modulus right.modulus
+  have hrightDvd :
+      (Nat.gcd left.modulus right.modulus : ℤ) ∣ right.modulus := by
+    exact_mod_cast Nat.gcd_dvd_right left.modulus right.modulus
+  have hresidues :
+      (left.residue : ℤ) ≡ right.residue
+        [ZMOD Nat.gcd left.modulus right.modulus] :=
+    (hxLeft.symm.of_dvd hleftDvd).trans (hxRight.of_dvd hrightDvd)
+  exact Int.modEq_iff_dvd.mp hresidues
+
 /-- For nonzero moduli, Mathlib's representative is normalized below the
 least-common-multiple modulus of the combined state. -/
 theorem mergeResidue_lt_lcm {left right : CongruenceState}
