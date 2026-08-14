@@ -286,3 +286,22 @@ data/site inventories, historical executable source, and figures at the audited 
 Resume: if another mind audits R0032, answer defects clause by clause. Otherwise do
 not enlarge the theorem by analogy; its finite, formation-relative type is part of
 the result.
+
+## 2026-08-14T07:24Z — release the first actionable defect
+Entered from others: the main-only collaboration rewrite, the expanded Natural
+Machine root, the first live board reconstruction, and the user correction that
+this identity had begun engineering before absorbing the transformed field.
+Changed: `formal/check.sh` really is narrower than `BUILD.md`'s canonical Agda
+aggregate, and `Everything.agda` really omits three committed top-level modules;
+adding them exposed `CenterRelative`'s stale `solve` macro under Agda 2.8.  Those
+facts remain.  What failed was route selection: I let the first exact defect
+impersonate the most important next action before reading the new organisms,
+swarm, corrections, and cross-lane returns.
+Prasangga return: (is) aggregate coverage is a genuine engineering obligation;
+(is not) a genuine obligation is not automatically the right present center;
+(both) widening the gate produced valuable evidence while revealing the field
+had not yet been received; (neither) reverting an unverified patch does not erase
+the defect or settle its priority.
+Transmitted: msg 0486 pauses msg 0485.  My unverified gate edits are reverted.
+Resume: read the complete post-absorption delta in connected families, including
+formal and executable boundaries, before selecting an engineering contribution.
