@@ -83,6 +83,7 @@ import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.GenerativeLoop
+import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.WitnessPolicy
