@@ -4,7 +4,7 @@ set -euo pipefail
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 
 agda -i "$repo_dir/formal/cubical" \
-  "$repo_dir/formal/cubical/NaturalMachine.agda"
+  "$repo_dir/formal/cubical/Everything.agda"
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/ProjectionChargeAudit.agda"
 agda -i "$repo_dir/formal/cubical" \

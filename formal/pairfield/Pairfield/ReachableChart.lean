@@ -27,9 +27,9 @@ structure FiniteBehavioralPresentation (M : DFA A X) where
   start : State
   step : State → A → State
   start_sound :
-    FutureEq M.step (fun state ⇒ state ∈ M.accept) (rep start) M.start
+    FutureEq M.step (fun state => state ∈ M.accept) (rep start) M.start
   step_sound : ∀ state action,
-    FutureEq M.step (fun x ⇒ x ∈ M.accept)
+    FutureEq M.step (fun x => x ∈ M.accept)
       (rep (step state action)) (M.step (rep state) action)
 
 attribute [instance] FiniteBehavioralPresentation.fintypeState
@@ -45,8 +45,8 @@ def toDFA : DFA A C.State where
   accept := { state | C.rep state ∈ M.accept }
 
 instance [DecidablePred (fun state : X ⇒ state ∈ M.accept)] :
-    DecidablePred (fun state : C.State ⇒ state ∈ C.toDFA.accept) :=
-  fun state ⇒ show Decidable (C.rep state ∈ M.accept) from inferInstance
+    DecidablePred (fun state : C.State => state ∈ C.toDFA.accept) :=
+  fun state => show Decidable (C.rep state ∈ M.accept) from inferInstance
 
 /-- Future equality remains true after executing a common whole word. -/
 theorem futureEq_run {Y : Type v} {O : Type w} {B : Type u}
@@ -60,15 +60,15 @@ theorem futureEq_run {Y : Type v} {O : Type w} {B : Type u}
 
 /-- Chart execution and concrete execution remain behaviorally equal. -/
 theorem rep_run_futureEq (state : C.State) (word : List A) :
-    FutureEq M.step (fun x ⇒ x ∈ M.accept)
+    FutureEq M.step (fun x => x ∈ M.accept)
       (C.rep (run C.step state word))
       (run M.step (C.rep state) word) := by
   induction word generalizing state with
-  | nil => exact futureEq_refl M.step (fun x ⇒ x ∈ M.accept) (C.rep state)
+  | nil => exact futureEq_refl M.step (fun x => x ∈ M.accept) (C.rep state)
   | cons action word ih =>
-      exact futureEq_trans M.step (fun x ⇒ x ∈ M.accept)
+      exact futureEq_trans M.step (fun x => x ∈ M.accept)
         (ih (C.step state action))
-        (futureEq_run M.step (fun x ⇒ x ∈ M.accept)
+        (futureEq_run M.step (fun x => x ∈ M.accept)
           (C.step_sound state action) word)
 
 @[simp] theorem toDFA_evalFrom_eq_run (state : C.State) (word : List A) :
@@ -82,14 +82,14 @@ theorem rep_run_futureEq (state : C.State) (word : List A) :
 /-- Start and transition simulation already cover every reached meaning;
 coverage is not an additional chart axiom. -/
 theorem covers_eval (word : List A) :
-    FutureEq M.step (fun x ⇒ x ∈ M.accept)
+    FutureEq M.step (fun x => x ∈ M.accept)
       (C.rep (C.toDFA.eval word)) (M.eval word) := by
   have hchart := C.rep_run_futureEq C.start word
-  have hstart := futureEq_run M.step (fun x ⇒ x ∈ M.accept)
+  have hstart := futureEq_run M.step (fun x => x ∈ M.accept)
     C.start_sound word
   rw [C.toDFA_eval_eq_run]
   simpa [DFA.eval, run_eq_evalFrom] using
-    futureEq_trans M.step (fun x ⇒ x ∈ M.accept) hchart hstart
+    futureEq_trans M.step (fun x => x ∈ M.accept) hchart hstart
 
 /-- The chart started at a representative accepts exactly the concrete
 residual language of that representative. -/
@@ -110,8 +110,8 @@ theorem accepts_eq : C.toDFA.accepts = M.accepts := by
   exact iff_of_eq (by simpa [behavior, DFA.eval, run_eq_evalFrom] using
     C.start_sound word)
 
-theorem leftQuotient_eq (prefix : List A) :
-    C.toDFA.accepts.leftQuotient prefix = M.accepts.leftQuotient prefix := by
+theorem leftQuotient_eq (pre : List A) :
+    C.toDFA.accepts.leftQuotient pre = M.accepts.leftQuotient pre := by
   rw [C.accepts_eq]
 
 /-- An explicit finite behavioral presentation is constructive data strictly
@@ -122,12 +122,12 @@ theorem accepts_isRegular : M.accepts.IsRegular := by
 
 /-- Install the chart cardinality as the sufficient search horizon. -/
 def shortestLeftQuotientWitness
-    [DecidablePred (fun state : X ⇒ state ∈ M.accept)]
+    [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (left right : List A) : Option (List A) :=
   Pairfield.shortestLeftQuotientWitness C.toDFA alphabet left right
 
 theorem shortestLeftQuotientWitness_eq_none_iff
-    [DecidableEq A] [DecidablePred (fun state : X ⇒ state ∈ M.accept)]
+    [DecidableEq A] [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
     (left right : List A) :
     C.shortestLeftQuotientWitness alphabet left right = none ↔
@@ -137,7 +137,7 @@ theorem shortestLeftQuotientWitness_eq_none_iff
     C.leftQuotient_eq, C.leftQuotient_eq]
 
 theorem shortestLeftQuotientWitness_sound
-    [DecidableEq A] [DecidablePred (fun state : X ⇒ state ∈ M.accept)]
+    [DecidableEq A] [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
     (left right : List A) {word : List A}
     (h : C.shortestLeftQuotientWitness alphabet left right = some word) :
@@ -148,7 +148,7 @@ theorem shortestLeftQuotientWitness_sound
   simpa only [C.leftQuotient_eq] using hs
 
 theorem shortestLeftQuotientWitness_minimal
-    [DecidableEq A] [DecidablePred (fun state : X ⇒ state ∈ M.accept)]
+    [DecidableEq A] [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
     (left right : List A) {word : List A}
     (h : C.shortestLeftQuotientWitness alphabet left right = some word) :
@@ -164,7 +164,7 @@ theorem shortestLeftQuotientWitness_minimal
 /-- Proof-producing extensional equality obtained from the executable chart,
 not from a classical `Set.Finite` witness. -/
 def leftQuotientEqDecidable
-    [DecidableEq A] [DecidablePred (fun state : X ⇒ state ∈ M.accept)]
+    [DecidableEq A] [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
     (left right : List A) :
     Decidable (M.accepts.leftQuotient left = M.accepts.leftQuotient right) :=
@@ -172,7 +172,7 @@ def leftQuotientEqDecidable
     isTrue ((C.shortestLeftQuotientWitness_eq_none_iff
       alphabet complete left right).1 h)
   else
-    isFalse fun heq ⇒ h ((C.shortestLeftQuotientWitness_eq_none_iff
+    isFalse fun heq => h ((C.shortestLeftQuotientWitness_eq_none_iff
       alphabet complete left right).2 heq)
 
 /-- Optional strengthening: no garbage rows in the finite presentation. -/
@@ -203,8 +203,8 @@ def ambient : DFA Bool Nat where
   start := 0
   accept := { state | state = 2 }
 
-instance : DecidablePred (fun state : Nat ⇒ state ∈ ambient.accept) :=
-  fun state ⇒ by
+instance : DecidablePred (fun state : Nat => state ∈ ambient.accept) :=
+  fun state => by
     change Decidable (state = 2)
     infer_instance
 
@@ -219,14 +219,14 @@ def chart : FiniteBehavioralPresentation ambient where
   rep state := state
   start := 0
   step := chartStep
-  start_sound := futureEq_refl ambient.step (fun state ⇒ state ∈ ambient.accept) 0
+  start_sound := futureEq_refl ambient.step (fun state => state ∈ ambient.accept) 0
   step_sound := by
     intro state action
     have heq : ((chartStep state action : Fin 3) : Nat) =
         ambientStep state action := by
       fin_cases state <;> cases action <;> simp [chartStep, ambientStep]
     rw [heq]
-    exact futureEq_refl ambient.step (fun x ⇒ x ∈ ambient.accept)
+    exact futureEq_refl ambient.step (fun x => x ∈ ambient.accept)
       (ambient.step state action)
 
 def alphabet : List Bool := [false, true]
