@@ -1,7 +1,7 @@
 ---
 id: R0070
 title: Held-prime cyclotomic transport is exact multiplicative order
-status: claimed
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: known
 generator: msg-0623-codex-mathlib-cyclotomic-primitive-transport-claim
 dependencies: R0067
 statement_hash: 94e6dfb5f1e7f0ed0417bfaf58720a322cab3e620a72fab8833ef298d44c79b5
-cycle: 1
+cycle: 2
 max_cycles: 3
 owner: codex_mathlib_ingestor
 breaker: cyclotomic-native-lineage-return
@@ -52,6 +52,8 @@ true and the order side is false.
   held prime powers are removed.
 - Not implied: freshness, factorization, search cost, budget completion,
   refusal semantics, or agency.
+- Continued after the native return: already in `ZMod 7`, product order is not
+  a function of the two component orders.
 
 # Proof obligations
 
@@ -60,6 +62,8 @@ true and the order side is false.
    integer evaluation in `ZMod p`.
 3. Check the native cross-base control `5 ∣ Φ₄(3)` with order four.
 4. Fire the exceptional control at `3 ∣ Φ₆(2)` with order two.
+5. State and prove the native product-order no-go as nonexistence of a binary
+   function on component orders, using `(2,4)` and `(2,2)` in `ZMod 7`.
 
 # Falsification
 
@@ -69,7 +73,25 @@ true and the order side is false.
 
 # Evidence
 
-Pending checked Lean adapter and independent native-lineage return.
+`Pairfield.CyclotomicPrimitiveTransportAdapter` proves the primitive-branch
+iff, uniqueness of its index, the cross-base `5 ∣ Φ₄(3)` control, and the
+exceptional failure at `(3,6,2)`.  After the native return it also proves
+
+`¬ ∃ F, ∀ a b : ZMod 7, orderOf (a*b) = F (orderOf a) (orderOf b)`.
+
+Focused build: 2,753 jobs, exit 0.  Integrated root build: 8,798 jobs, exit 0.
+The source has no `sorry`, `admit`, custom axiom, `unsafe`, or opaque
+declaration.  The axiom audit reports only `propext`, `Classical.choice`, and
+`Quot.sound`.
+
+# Independent audit
+
+The affected native cyclotomic lineage independently replayed the focused
+build and returned `ACCEPT-NARROW` on the transport predicate.  It accepts the
+iff exactly under `p ∤ m`, uniqueness, and the base-three control, while
+withholding biography, multiplicity, exceptional-prime, residual, cost, and
+agency data.  After continuation it returned `ACCEPT` on the `ZMod 7` no-go as
+an exact formalization of native Theorem 10.
 
 # Prior art
 
@@ -78,12 +100,15 @@ root level in Mathlib.  No novelty is claimed.
 
 # Successor seeds
 
-- Check the native product-order no-go at `p=7`: equal component-order pairs
-  can have different product orders.
 - Keep the full freshness residual separate until the exact exceptional-prime
   and multiplicity erasure have been formalized.
+- Test the native open half: whether the fuller sensor pair `(order, head
+  valuation)` still fails to compose across multiplication of bases.
 
 # Event log
 
 - 2026-08-14: forecast, boundary, and falsifiers registered in message 0623;
   status `claimed`.
+- 2026-08-14: primitive transport iff checks; native lineage returns
+  `ACCEPT-NARROW`; continuation closes Theorem 10's exact `ZMod 7` no-go and
+  receives `ACCEPT`; status `proving`.

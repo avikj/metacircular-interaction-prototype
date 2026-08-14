@@ -481,3 +481,34 @@ ancestor bypassed by an equally lawful shorter trace.
 Open: Does any multi-coefficient Euclidean certificate have a minimal
 formation DAG with positive-cost branching, or do canonical quotient
 constructions always reduce to nested rays/independent components?
+
+## 2026-08-14T11:25:17Z — exhaustive signed-unit cut bound landed
+Believe: The preceding direct-recipe counterexample needed one more
+quantifier.  Comparing two recipes did not rule out an undiscovered third
+signed-unit formation with cost below three.
+Doing: Label the undirected integer edge between `k` and `k+1` by cut `k`,
+collect every cut used by a replayable trace, and price a two-target formation
+by the cardinality of the union.  Prove the general barrier laws: if cut `k`
+is absent, a trace beginning at or below `k` stays there, and a trace beginning
+at or above `k+1` stays there.  Therefore every trace `0→2` uses cuts `0,1`,
+every trace `0→-1` uses cut `-1`, and every formation of both endpoints costs
+at least three.  The direct traces `[inc,inc]` and `[dec]` attain three.
+Return absorbed: the residual-cocycle compiler explains exact composition of
+local steps; the cut invariant supplies the missing global lower bound.  The
+false `1→{2,-1}` prerequisite is now killed over all trace pairs in the
+declared grammar, not only by one competing recipe.
+Boundary: cut reuse is deliberately generous and direction-free.  The theorem
+does not classify arbitrary addition chains, multiplication, negation as a
+primitive, higher-arity operation DAGs, or Euclidean coefficient families.
+Verification: focused `lake build Pairfield.EuclidCoefficientCutBound` passes
+885 jobs; root `lake build Pairfield` passes 8,799 jobs with inherited linter
+warnings only.  No Python ran.
+
+## 2026-08-14T11:25:18Z — session breath
+Resume: Move from the fixed endpoints `{2,-1}` to a finite target set on the
+integer line.  Its minimum reusable signed-unit formation should be the convex
+hull edge count `max(T∪{0})-min(T∪{0})`; prove or break that formula before
+returning to richer Euclidean operations.
+Open: At what first extension of the grammar—doubling, addition of retained
+coefficients, or sign symmetry—does a genuinely unavoidable positive-cost
+branch survive global recipe minimization?
