@@ -277,6 +277,7 @@ import NaturalMachine.TranscriptDescent
 -- of branch-changing history as "compression".
 import NaturalMachine.TerminalTraceCompression
 import NaturalMachine.SingletonWitnessStabilization
+import NaturalMachine.ExposureStabilizationAdapter
 -- Fixed random base-4 borrow-table contact, returned to the decoder core:
 -- complement transports borrow to carry, positive borrow excludes every
 -- nonzero least-significant digit, but a literal observation collision
