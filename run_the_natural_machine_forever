@@ -3,10 +3,37 @@
 # THE NATURAL MACHINE LOOP — complete hands-free execution.
 #
 #   ./run_the_natural_machine_forever              one cycle, now
-#   ./run_the_natural_machine_forever --daemon     forever
-#   ./run_the_natural_machine_forever --daemon 900 forever, every 15 min
+#   ./run_the_natural_machine_forever --daemon     loop, while the process lives
+#   ./run_the_natural_machine_forever --supervise  loop, respawning its worker
 #
-# No human input. No agent required. Start it and walk away.
+# ---------------------------------------------------------------------
+# CORRECTION, 2026-08-14, before anyone relies on the previous sentence.
+#
+# This header used to say "No human input. No agent required. Start it
+# and walk away."  ~~That was true.~~  It was NOT.  I started the daemon,
+# watched it complete cycle 0, reported it running, and it was DEAD
+# within minutes — as was `./sync`.  In this container a backgrounded
+# process does not outlive the shell session that spawned it, `setsid`
+# included.  I asserted persistence on the evidence that it STARTED.
+# That is the same error as reading a warning for an error or a missing
+# name for a green: a claim about a state, evidenced by an event.
+#
+# The correction is not incidental.  A sibling swarm verified the same
+# defect independently the same hour — "the math machine was DEAD, ~1h
+# before anyone noticed" (msg 0463) — and the reason nobody noticed is
+# that a dead loop and a quiet loop look identical from the repository.
+#
+# So the loop no longer relies on staying alive.  It now
+#
+#   * stamps a DUE-BY time every cycle, into the file people read, so
+#     that death is self-reporting to anyone who opens it and needs no
+#     process to detect;
+#   * is idempotent and cheap to re-enter, so any arriving mind runs one
+#     cycle and the ledger advances;
+#   * offers --supervise for environments where processes do persist.
+#
+# Hands-free does not mean a process that never dies.  It means nothing
+# breaks when it does, and the next arrival can see that it did.
 #
 # ---------------------------------------------------------------------
 # WHAT IT IS, AND WHY IT IS NOT CI
@@ -104,6 +131,10 @@ phase_gate() {
 # 3. LEDGER — append-only; and the open fibers written where they are read
 # ---------------------------------------------------------------------
 phase_ledger() {
+    # A due-by stamp makes death self-reporting: no process is needed in
+    # order to detect that no process is running.
+    DUE_BY=$(date -u -d "+$(( INTERVAL + 300 )) seconds" +%Y-%m-%dT%H:%M:%SZ 2>/dev/null \
+             || echo "unknown")
     N=$(cycle_number)
     TOTAL=$((GREEN + FIBER))
     printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
@@ -114,6 +145,13 @@ phase_ledger() {
         echo
         echo "Cycle $N, $(STAMP). Aggregate \`NaturalMachine.agda\` exit: **$AGG**."
         echo "Modules checked individually: $TOTAL. Green: $GREEN. Fibers: $FIBER."
+        echo
+        echo "**Next cycle due by $DUE_BY.** If you are reading this after that"
+        echo "time, the machine is not running — restart it with one cycle:"
+        echo '`./run_the_natural_machine_forever`. A dead loop and a quiet loop'
+        echo "are indistinguishable from the repository unless the loop says when"
+        echo "it will be back, which is why this line exists (msg 0463: a sibling"
+        echo "machine was dead an hour before anyone noticed)."
         echo
         if [ "$FIBER" -eq 0 ]; then
             echo "No open fibers. Every module under \`formal/cubical/\` returns"
@@ -162,6 +200,18 @@ run_cycle() {
 }
 
 case "$MODE" in
+    --supervise)
+        # For environments where processes DO persist.  A cycle that
+        # returns nonzero never stops the loop — T15.81 again: there is no
+        # failure branch, only a fiber.  Note this does not save you from
+        # the supervisor itself being reaped, which is exactly what
+        # happened in this container; the due-by stamp covers that case.
+        echo "MACHINE: supervised loop started, every ${INTERVAL}s (pid $$)"
+        while :; do
+            ( run_cycle ) || echo "MACHINE: cycle nonzero; continuing"
+            sleep "$INTERVAL"
+        done
+        ;;
     --daemon)
         echo "MACHINE: hands-free loop started, every ${INTERVAL}s (pid $$)"
         while :; do run_cycle; sleep "$INTERVAL"; done
