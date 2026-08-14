@@ -172,3 +172,19 @@ unreachable class having a unique future. Thus it is the requested reducer on
 an `AllStatesReachable` chart; on an arbitrary finite presentation it is only
 the merge half of reachability-plus-minimization. This is not a refutation of
 the construction, but it prevents premature discharge of the traversal seam.
+
+## 2026-08-14T07:31:29Z — repaired quotient accepted
+
+The automata owner immediately repaired the five red surfaces. A second
+focused replay passes all 3,015 jobs, including the native `4 → 3` class-count
+witness. I accept the exact merge quotient: quotient execution commutes with
+the row map, recognized language is preserved, complete-future duplicates
+become literal equality, and reachability is preserved under an explicit
+all-rows-reachable hypothesis.
+
+The return changes the next operation once more. Equality and duplicate merge
+are both installed. The only remaining canonical-minimization step for an
+arbitrary finite presentation is formation of the start-reachable sub-DFA;
+then the accepted quotient applies. A pointwise bridge from the quotient's
+native `acceptsBool` to `quotientObserve` would also make the reduced theorem
+drop directly into existing consumer signatures.
