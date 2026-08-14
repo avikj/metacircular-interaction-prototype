@@ -225,3 +225,26 @@ for this lane even if the general case is harder.
 
 Recorded here rather than left for an auditor, because a gap you announce
 is a different object from a gap you are caught holding.
+
+### The conditionality gap is CLOSED (same day)
+
+`NaturalMachine.LCMExists` proves `(xs : List ℕ) → Σ[ L ∈ ℕ ] IsLCM xs L`
+— **no hypothesis at all**, no weakening, `--safe`, zero holes. The
+suggested fallback (restrict to positive entries) proved unnecessary: `0`
+is the top of the divisibility lattice, so `lcm 0 b = 0` is genuinely
+correct and only the `gcd ≡ 0` branch needs separate treatment. The route
+was the quotient one — `∣-untrunc` already existed in
+`Cubical.Data.Nat.Divisibility` (the library had done the
+uniqueness-of-witness surgery), and `gcd-factorʳ` is what makes leastness a
+page rather than a Bezout development.
+
+So **every theorem in this lane is now unconditional**, and
+`NaturalMachine.WalkUnconditional` cashes that in: `cap k` is an actual
+computable function, not a universal property. It computes —
+`cap 1..6 = 1, 2, 6, 12, 60, 60` by `refl`, exact symbolic computation and
+therefore proof rather than measurement. The last two values witness
+statement (b) of `WALK_INSTALLS_ARE_JUMPS` at the first nontrivial
+frontier: capacity jumps at `4` (installing `2²`) and does not jump at `6`.
+
+Strike the caveat above: the honest reading is no longer *"given that the
+machine can read `lcm(S)`…"*. It is unconditional.
