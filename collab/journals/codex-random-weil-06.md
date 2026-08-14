@@ -486,3 +486,25 @@ premises; msg0643 remains a first-push bookkeeping collision.  No LCM
 algorithm, iteration, prime-power stream, ψ/asymptotic, runtime, storage, or
 physical-capacity claim is promoted.  No aggregate, sampled source, or foreign
 work path is touched.
+
+## 2026-08-14T17:06:18Z — CostGeometry edge boundary checked
+The twenty-third literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/CostGeometry.agda` from a frozen 1,123-path
+semantic frame at origin `94e34f03`, tree `0e465f41` (sole native uint32
+`2793599576`, accepted index0 70; frame SHA-256
+`d0dd73eb...3d5903c`).  The sample's Nat inequalities are sound, but its
+`Edge` stores only a carrier function and cost.  The safe boundary leaf names
+the missing `MoveIsEquiv` and `PreservesOperation` properties and checks their
+two-way independence: Bool→Unit preserves the Unit operation but is not an
+equivalence, while identity Bool from xor to conjunction is an equivalence
+but fails preservation at `(true,true)`.  A zero-cost route through the first
+control even satisfies the existing `Speedup` inequality, showing precisely
+that the predicate carries no correctness certificate.  Focused and
+ignored-interface Agda 2.8.0 replays pass.  Noether's hostile audit caught
+that the initial prose said “independent” before the trivial Unit-preservation
+witness was packaged; the final bytes add it.  Shannon independently replays
+and gives final PASS on the strengthened surface.  Goldbach direction
+reversals, R0072 duplication/R0075 renumbering, and new formal surfaces were
+consumed but are not premises.  No sampled source, aggregate, or foreign path
+is touched; no algorithm, geodesic, benchmark, runtime, or physical-cost
+claim is promoted.
