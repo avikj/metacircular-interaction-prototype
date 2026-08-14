@@ -973,6 +973,20 @@ $\sum_{X:BS_n}\mathrm{LinOrd}(X)$, a two-line univalent proof that is the whole 
 together with Proposition 2.11 (the carry class), which is the pair that makes
 Theorem 4.2's dependency claim machine-visible.
 
+*Status (2026-08-14).* Checked in `formal/cubical/NaturalMachine/AtlasResiduals.agda`
+(Agda 2.6.3 + cubical v0.5, `--safe`, exit 0 standalone and via the root
+`NaturalMachine.agda`): Theorem 2.1's contractibility half — `ℕ-isInitial`,
+`ℕ-recursor-unique`, `ℕ-algebra-endo-is-id`, and Residual 2.1(1) in general as
+`isContrAlgIso` (the type of algebra isomorphisms between two initial algebras is
+contractible) — and the **univalence half only** of Theorem 3.2, `isContrOrdTotal`,
+which defines $\mathrm{LinOrd}(X) := (X\simeq\mathrm{Fin}\,n)$ by fiat and therefore
+proves the based-path-space contractibility but **not** the order-theoretic
+identification; the exact remaining obligation ($\mathrm{LinOrd}'(X)\simeq
+(X\simeq\mathrm{Fin}\,n)$ against a decidable total order) is stated in that file's
+"WHAT IS DELIBERATELY NOT CLAIMED". Theorem 3.1's loop-group half was already
+covered by `PathIsSymmetry`/`Decategorification`; Theorem 2.7 + Proposition 2.11
+remain unclaimed.
+
 ---
 
 ## 8. The residual table

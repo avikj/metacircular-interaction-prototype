@@ -91,6 +91,7 @@ import NaturalMachine.TypedUnfold
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus
 import NaturalMachine.FlipObservable
+import NaturalMachine.AtlasResiduals
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits
