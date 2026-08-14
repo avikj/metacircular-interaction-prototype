@@ -416,6 +416,28 @@ claim it as one.
 | 10 | Port lane ↔ projector lane as the same delimitor argument | **ANALOGY ONLY** — explicitly not claimed as a functor (§5) |
 | 11 | `RAMANUJAN_TRACE.md`'s carrier and `e_prim`'s image are the same `ℚ`-algebra | **PROVED** (§4.4) |
 
+> **Application record and re-billing check (SEED-105, Rule K1/K3,
+> 2026-08-14).** Two items.
+>
+> 1. **The corrections of §4.1 and §4.3 had never been applied at their sites.**
+>    `PRIMITIVE_CHARACTER_PROJECTOR.md` still read "the smallest obstruction is
+>    already `q=3`" and "Fourier phases alone also do not suffice", and
+>    `RAMANUJAN_TRACE.md` still read "Fourier language alone is insufficient".
+>    All three are now struck with attribution at their sites (SEED-105), with
+>    N3′ and N5′ quoted there. Rows 7 and 8 of the ledger above said
+>    "**corrects**"; as of this annotation that is true of the corpus and not
+>    only of this note.
+> 2. **SEED-61/SEED-75's re-billing of C1 is checked and correct.** For monic
+>    `Φ_q`, `Res(Φ_q, R_q) = ∏_{ζ' primitive} R_q(ζ') = ∏_{σ ∈ Gal} σ(R_q(ζ_q))
+>    = N_{ℚ(ζ_q)/ℚ}(R_q(ζ_q))`, and `R_q(ζ_q) = q` by Ψ2, so the value is
+>    `q^{[ℚ(ζ_q):ℚ]} = q^{φ(q)}`. C1 therefore carries no content beyond Ψ2, as
+>    billed. **It does not downgrade this note's centrepiece**, which is Theorem
+>    Ψ together with Ψ1–Ψ3: Ψ3 (`gcd(R_q, x^q−1) = Ψ_q` exactly) is the
+>    sharpness statement, is not a norm of a constant, and is what rules out
+>    `e_prim = 0`. C2 likewise is untouched. The re-billing narrows one of two
+>    certificates; the all-`q` symbolic replacement for the lane's run-time check
+>    stands.
+
 ## 7. What I deliberately did not claim
 
 - **No novelty.** Theorem Ψ is elementary cyclotomic algebra; the
