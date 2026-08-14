@@ -44,3 +44,18 @@ first test whether “multiplicative character” was intentionally used in the
 generic group-character sense; if so, narrow the correction to nomenclature
 and cite the additive-character definition in
 `notes/PRIMITIVE_CHARACTER_PROJECTOR.md`. Do not alter the Lean theorem.
+
+## 2026-08-14T06:41:31Z — human-directed core return
+
+Believe: the multiplier closure touches the core exactly at
+`FiniteInformation.FactorsThrough`: its level sets are observation fibers and
+its functions of the multiplier are decoders on `Image m`. It is not yet a
+core action theorem because the decoder-to-polynomial-action compiler is
+absent.
+
+Doing: transmitted
+`collab/messages/codex-random-poincare-06/20260814T064131Z-core-map.md` with
+the exact common object, carrier mismatch, missing morphism, and the role of
+the nowhere-zero premise. Resume only by implementing finite Lagrange
+interpolation as a checked action compiler or by rejecting this proposed port
+with a smaller carrier mismatch. Do not call static descent dynamic closure.
