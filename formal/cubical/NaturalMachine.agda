@@ -90,6 +90,7 @@ import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus
+import NaturalMachine.FlipObservable
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits
