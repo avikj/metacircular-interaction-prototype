@@ -41,12 +41,9 @@ namespace ResidualPlanSpine
 def IsQuery
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (node : Node M) : Prop :=
-  ∃ (action : A) (safe : ResidualCell.SafeAction M node.cell action)
-      (onFalse : ResidualSplitPlan M
-        (ResidualCell.advance M node.cell action false))
-      (onTrue : ResidualSplitPlan M
-        (ResidualCell.advance M node.cell action true)),
-    node.plan = .query action safe onFalse onTrue
+  match node.plan with
+  | .done _ => False
+  | .query _ _ _ _ => True
 
 /-- Finset presentation of a node's canonical position, using exactly the
 Mathlib finite residual carrier supplied by regularity. -/
@@ -112,7 +109,7 @@ theorem exists_depthRealizingQuerySpine
         · exact List.pairwise_cons.mpr ⟨hrootAll, hchain⟩
         · intro node hnode
           rcases List.mem_cons.mp hnode with rfl | htail
-          · exact ⟨action, safe, onFalse, onTrue, rfl⟩
+          · trivial
           · exact hquery node htail
         · intro node hnode
           rcases List.mem_cons.mp hnode with rfl | htail
@@ -139,7 +136,7 @@ theorem exists_depthRealizingQuerySpine
         · exact List.pairwise_cons.mpr ⟨hrootAll, hchain⟩
         · intro node hnode
           rcases List.mem_cons.mp hnode with rfl | htail
-          · exact ⟨action, safe, onFalse, onTrue, rfl⟩
+          · trivial
           · exact hquery node htail
         · intro node hnode
           rcases List.mem_cons.mp hnode with rfl | htail
@@ -186,11 +183,15 @@ theorem two_le_finitePosition_card_of_query
   have hcard : (finitePositionFinset M regular node).card ≤ 1 := by omega
   have homogeneous := homogeneous_of_finitePosition_card_le_one
     M regular node hcard
-  rcases node with ⟨cell, plan⟩
-  rcases query with ⟨action, safe, onFalse, onTrue, hplan⟩
-  subst plan
-  exact ResidualSplitPlan.not_homogeneous_of_nodeMinimal_query
-    action safe onFalse onTrue minimal homogeneous
+  cases hplan : node.plan with
+  | done doneHomogeneous =>
+      simp [IsQuery, hplan] at query
+  | query action safe onFalse onTrue =>
+      have hminimal : ResidualSplitPlan.NodeMinimal
+          (.query action safe onFalse onTrue) := by
+        simpa [hplan] using minimal
+      exact ResidualSplitPlan.not_homogeneous_of_nodeMinimal_query
+        action safe onFalse onTrue hminimal homogeneous
 
 /-- The empty canonical position followed by all singleton positions.  These
 are precisely the finite subsets a node-minimal query spine cannot visit. -/
@@ -279,7 +280,10 @@ theorem nodeMinimal_depth_add_one_le_two_pow_sub_stateCount
       ext state
       have hmem := Finset.ext_iff.mp heq state
       simpa using hmem
-    exact (finitePosition_eq_iff_position_eq M left right).1 hset
+    have hpositionEq :=
+      (finitePosition_eq_iff_position_eq M left right).1 hset
+    exact List.inj_on_of_nodup_map hpositionNodup
+      hleft hright hpositionEq
   have hlarge : ∀ position ∈ positions, 2 ≤ position.card := by
     intro position hposition
     rcases List.mem_map.mp hposition with ⟨node, hnode, rfl⟩
