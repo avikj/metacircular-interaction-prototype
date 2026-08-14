@@ -7,14 +7,15 @@ module NaturalMachine.ParallelNetworkComposition where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
-open import Cubical.Data.Prod using (_×_ ; _,_)
+open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
 open import NaturalMachine.StabilizerTorsor using (Action)
-open import NaturalMachine.TransporterPortReduction using (prodAction)
+open import TransporterPortReduction using (prodAction)
 open import NaturalMachine.AbstractSpinNetworkKinematics
-  using (Intertwiner ; map ; equivariant ; idIntertwiner ; _∘I_
+  using (Intertwiner ; idIntertwiner ; _∘I_
         ; RefinedIntertwiner ; contract ; subdivideIntertwiner)
+open Intertwiner
 open import NaturalMachine.HolonomyFluxDerivation
   using (FluxDerivation ; flux-subdivision)
 open FluxDerivation
@@ -132,4 +133,3 @@ module _ (G : Group ℓg)
       ≡ ( flux-subdivision G F ρ ρ-mul edge
         , flux-subdivision G H σ σ-mul edge )
   parallel-flux-subdivision edge = refl
-

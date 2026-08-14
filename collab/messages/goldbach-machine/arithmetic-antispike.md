@@ -83,16 +83,24 @@ Bhowmik--Grimmelt Theorem 6.3, instead has the form
 
 \[
  \int_{M(P)}S_N(\alpha)^2e(-N\alpha)\,d\alpha
- =\mathfrak S(N)N+Z_P(N)+o(N), \tag{4}
+ =\mathfrak S(N)N+Z_P(N)+E_\tau(N), \tag{4}
 \]
 
-after taking the finite zero cutoffs `H,T` sufficiently large.  Here `Z_P`
-includes the generalized exceptional-zero packets (and, in the full Pintz
-formula, the pole--zero mixed packets).  Thus
+where, for any fixed `tau>0`, the finite zero cutoffs `H,T` may be taken
+sufficiently large that
 
 \[
- A_{L,P}(N)=Z_P(N)+o(N),\qquad
- r_2(N)=\mathfrak S(N)N+Z_P(N)+m_P(N)+o(N). \tag{5}
+ |E_\tau(N)|\le \tau N+O(N^{1-\varepsilon}).
+\]
+
+Writing `o(N)` here without this prior choice would incorrectly strengthen
+the source's fixed-`H,T` error.  The quantity `Z_P` includes the generalized
+exceptional-zero packets (and, in the full Pintz formula, the pole--zero
+mixed packets).  Thus
+
+\[
+ A_{L,P}(N)=Z_P(N)+E_\tau(N)+o(N),\qquad
+ r_2(N)=\mathfrak S(N)N+Z_P(N)+m_P(N)+E_\tau(N). \tag{5}
 \]
 
 Consequently an exception gives only the dichotomy
@@ -100,7 +108,7 @@ Consequently an exception gives only the dichotomy
 \[
  m_P(N)\le-\lambda\mathfrak S(N)N
  \quad\hbox{or}\quad
- Z_P(N)\le-(1-\lambda)\mathfrak S(N)N+o(N) \tag{6}
+ Z_P(N)\le-(1-\lambda)\mathfrak S(N)N+O(\tau N)+o(N) \tag{6}
 \]
 
 for any fixed `0<lambda<1`.  It does **not** by itself give the first
@@ -197,13 +205,17 @@ given; it does not turn a bad center into that zero.
 
 ## 3. The exact moving-residue identity reaches the same exponent wall
 
-The unsmoothed power-major contribution in Bhowmik--Grimmelt (6.1) is a sum
-of exact `q`-packets
+For this paragraph freeze one ambient endpoint `X`, use
+`S_X(alpha)=sum_(n<=X) Lambda(n)e(n alpha)`, and let the target vary in
+`[X/2,X]`.  This still gives the exact full Goldbach coefficient, since
+`n_1+n_2=N` forces both summands to be at most `X`.  The common-dyadic
+analogue of the unsmoothed character expansion in Bhowmik--Grimmelt (6.1) is
+a sum of exact `q`-packets
 
 \[
  F_{q,\chi_1,\chi_2}(N)=A_q(N;\chi_1,\chi_2)
  \int_{|\beta|<P/(qX)}
- R_{\chi_1}(\beta)R_{\chi_2}(\beta)e(-\beta N)\,d\beta, \tag{14}
+ R_{\chi_1,X}(\beta)R_{\chi_2,X}(\beta)e(-\beta N)\,d\beta, \tag{14}
 \]
 
 where `A_q` contains the generalized Ramanujan sum
@@ -213,7 +225,7 @@ where `A_q` contains the generalized Ramanujan sum
 \[
  K_q=|A_q(N;\chi_1,\chi_2)|
  \int_{|\beta|<P/(qX)}
- |R_{\chi_1}(\beta)R_{\chi_2}(\beta)|\,d\beta,
+ |R_{\chi_1,X}(\beta)R_{\chi_2,X}(\beta)|\,d\beta,
 \]
 
 then the elementary phase estimate gives the exact bound
@@ -276,12 +288,12 @@ What current dispersion supplies has the wrong direction and quantifiers:
 upper averages of progression errors over moduli/residues or upper weighted
 mass of zeros for one fixed modulus.  It does not give a lower signed
 covariance conditional on the value at `N_0`, and it does not retain the
-proof-relevant exact-sum phase in (14).  The weakest missing analytic content
-is therefore:
+proof-relevant exact-sum phase in (14).  The missing analytic content
+therefore separates as follows:
 
-1. a prescribed-center zero-mode alternative proving `(ZM)`, or identifying
-   a single dominant packet of conductor `q<=X^(2/5-delta)` with a stable
-   generalized-singular-series sign; and
+1. for the full Goldbach implication, prescribed-center positivity `(ZM)`;
+   merely identifying a dominant coherent packet describes a failure of
+   `(ZM)` but does not remove it; and
 2. the conditional moving-center covariance `(AC)` for the residual if the
    zero mode is not responsible.
 

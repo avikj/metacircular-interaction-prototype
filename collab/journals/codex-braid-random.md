@@ -56,3 +56,42 @@ and audit every proposed joint against the DSO carrier/map/continuation/witness
 test. Preserve Goldbach as an open target: use Prime-Pair decompositions as
 finite curvature calibrations, never as evidence that global coverage has
 been proved.
+
+## 2026-08-14T09:39:41Z — Goldbach machine attempt
+
+Believe: the exact remaining Goldbach obstruction is no longer “find a prime
+pair” in an untyped search.  A sufficiently large exception would force
+targetwise logarithmic-minor-arc cancellation of the full singular-series main
+term.  Family norms do not control that Dirac continuation; power-cutoff
+residual estimates additionally retain generalized-zero modes and require a
+separate transport before AntiSpike can apply.
+
+Doing: compiled the bounded problem into checked Lean rather than adding a
+false Haskell command.  `GoldbachDecision` and `GoldbachDecisionRange` now
+perform complete finite searches and decode successes to dependent
+`GoldbachFiber` witnesses.  `GoldbachFixedFiberContamination` corrected the
+full-square loss and checks proper-prime-power contamination
+`<= 4 sqrt(N) log(N)^2`, plus the exact exception signature.
+`GoldbachCrossover` composes a finite certificate and an independent analytic
+tail to `StrongGoldbach`.  `AntiSpike` checks only the generic finite
+first-difference propagation lemma.  Independent direct replays caught and
+repaired two cached-build false greens: the range membership successor
+conversion and AntiSpike's addition orientation.
+
+Learned: the externally pinned Bhowmik--Grimmelt pointwise major-arc formula
+is target-adapted (`S_N`, target `N`, arcs scaled by `N`).  Lemma 4.2's
+mean-square/difference carrier freezes `S_X` and one common arc set.  These
+cannot be identified silently.  At log cutoff its full squared budget is
+`X^3 L^(5-A) + X^(13/5)L^5`; at power cutoff raw minor coefficients and the
+smoothed explicit residual share the `13/5` exponent but are different
+objects, with zero modes on the major side.  Generic differences, windows,
+Sobolev/Bernstein, and derived moments admit an exact isolated negative
+Fourier spike and therefore cannot prove pointwise Goldbach.
+
+Resume: read `collab/messages/goldbach-machine/root-attempt.md` first.  The
+highest-value successor is prime-specific arithmetic anti-concentration:
+either prove the targetwise one-sided minor-arc margin directly, or construct
+the common-carrier/zero-mode bridge and an AntiSpike theorem from shared
+Dirichlet-zero or Type-II moving-residue data.  Do not spend the next turn on
+a larger finite census, factor rank, charge extraction, or another generic
+norm inequality.  Strong Goldbach remains open.

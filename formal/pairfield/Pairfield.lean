@@ -13,6 +13,7 @@ import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
 import Pairfield.CharacterAnchor
+import Pairfield.CarryCohomologyAdapter
 import Pairfield.FiniteInformation
 import Pairfield.FutureBehavior
 import Pairfield.PointwiseRevision
