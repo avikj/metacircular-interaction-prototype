@@ -400,6 +400,7 @@ At `P=(log X)^A`, the right side is
 
 \[
  X(\log X)^{9-A}+X^{3/5}(\log X)^9.                    \tag{28}
+\]
 
 If `kappa` is fixed and `|H(m_0)|>=c_1X`, then (27) holds for sufficiently
 large `X` as soon as `A>9`.  Therefore:
