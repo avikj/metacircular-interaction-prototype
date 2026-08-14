@@ -223,3 +223,87 @@ diagonal-counterexample-widens :
   → AmbientDirections.World.FormedCounterexampleAt basePair
 diagonal-counterexample-widens =
   DiagonalCompletion.narrow-counterexample→wide basePair
+
+------------------------------------------------------------------------
+-- 4. Intensional exposure boundary
+--
+-- Inclusion exposes every stage hit to the final world.  Stabilization at a
+-- stage is exactly the missing reverse realization operation.  This packages
+-- what a budget theorem must deliver without pretending to derive the budget
+-- from an arbitrary generator presentation.
+------------------------------------------------------------------------
+
+module DirectionExposure
+  {X : Type ℓX} {C : Type ℓC} {V : Type ℓV} {D : Type ℓD}
+  (Stage : X → Type ℓN)
+  (Final : X → Type ℓW)
+  (include : (x : X) → Stage x → Final x)
+  (chart : X → C)
+  (value : X → V)
+  (base : X)
+  (direction : (y : X) → chart y ≡ chart base → D)
+  (Critical : D → Type ℓK)
+  (critical→different :
+    (y : X) (same-chart : chart y ≡ chart base)
+    → Critical (direction y same-chart)
+    → ¬ (value y ≡ value base))
+  (different→critical :
+    (y : X) (same-chart : chart y ≡ chart base)
+    → ¬ (value y ≡ value base)
+    → Critical (direction y same-chart))
+  where
+
+  module StageDirections =
+    DirectionCriterion
+      Stage chart value base direction Critical
+      critical→different different→critical
+
+  module FinalDirections =
+    DirectionCriterion
+      Final chart value base direction Critical
+      critical→different different→critical
+
+  stage-hit→final-hit :
+    StageDirections.DirectionHit → FinalDirections.DirectionHit
+  stage-hit→final-hit hit =
+    fst hit ,
+      (include (fst hit) (fst (snd hit)) ,
+        snd (snd hit))
+
+  -- This is the exact certificate owed by a finite exposure or stabilization
+  -- theorem.  It is positive data, not the negation of a missed search.
+  ExposureBound : Type _
+  ExposureBound =
+    FinalDirections.DirectionHit → StageDirections.DirectionHit
+
+  StableIncidence : Type _
+  StableIncidence =
+    (StageDirections.DirectionHit → FinalDirections.DirectionHit)
+    × (FinalDirections.DirectionHit → StageDirections.DirectionHit)
+
+  exposure→stable-incidence : ExposureBound → StableIncidence
+  exposure→stable-incidence expose = stage-hit→final-hit , expose
+
+  final-no-hit→stage-no-hit :
+    ¬ FinalDirections.DirectionHit → ¬ StageDirections.DirectionHit
+  final-no-hit→stage-no-hit no-final stage-hit =
+    no-final (stage-hit→final-hit stage-hit)
+
+  stage-no-hit→final-no-hit :
+    ExposureBound
+    → ¬ StageDirections.DirectionHit
+    → ¬ FinalDirections.DirectionHit
+  stage-no-hit→final-no-hit expose no-stage final-hit =
+    no-stage (expose final-hit)
+
+module DiagonalExposure =
+  DirectionExposure
+    Diagonal AmbientFormed diagonal-inclusion constantChart parity basePair
+    pairDirection CriticalPair
+    critical-pair→different different→critical-pair
+
+-- The diagonal/ambient inclusion is the hostile control: inclusion alone
+-- cannot expose the final off-diagonal separator at the diagonal stage.
+no-diagonal-exposure-bound : ¬ DiagonalExposure.ExposureBound
+no-diagonal-exposure-bound expose =
+  no-diagonal-critical-hit (expose ambient-critical-hit)

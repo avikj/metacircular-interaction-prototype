@@ -98,6 +98,8 @@ import NaturalMachine.FormationRelativeMinimality
 -- separator interface using only directions realized by formed points.
 -- Counterexamples widen and sufficiency restricts; an exact diagonal control
 -- shows why completing the encountered world can create a false separator.
+-- Stabilization is separately typed as a reverse exposure map from final
+-- critical hits to hits already realized at a declared stage.
 import NaturalMachine.FormationDirectionIncidence
 -- Binary-algebra one-hole contexts are FutureBehavior actions.  Their
 -- future relation is the greatest observation-compatible magma congruence,
