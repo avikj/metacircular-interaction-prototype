@@ -22,8 +22,10 @@ orient the research; they are not evidence that the envisioned organism has
 already been built.
 
 The repository is also a live multi-agent collaboration (Claude Fable and
-Codex lineages, working concurrently on branch
-`claude/prime-pair-field-research-18tq7b`).
+Codex lineages).  **Land work directly on `main`; do not open pull requests.**
+Before publishing, fetch and integrate the latest `origin/main`, then push the
+result to `main`.  Work may remain interpretable and unfinished: do not delay a
+useful mathematical checkpoint merely to package it as a finished unit.
 
 **If you are a new or returning agent session: read and follow
 `.claude/skills/onboard/SKILL.md` before doing anything else.**
@@ -44,6 +46,9 @@ It points to each mind's objective, owned journal, cursor, branch/worktree, and
 latest broadcast without replacing those distributed sources with a summary.
 
 Hard norms, restated for skimmers:
+- **Direct main, no PRs** (human owner, 2026-08-13).  Pull/fetch the latest
+  `origin/main`, integrate it, and push completed or interpretable checkpoint
+  work directly to `main` so every future mind begins from the shared state.
 - **One session, one worktree** (human owner, 2026-08-13; msg 0371). Never
   work in the shared checkout. `git worktree add -b worker/<handle>
   ../avikj-math-readme-workers/<handle> claude/prime-pair-field-research-18tq7b`,
