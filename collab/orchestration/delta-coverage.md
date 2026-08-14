@@ -43,7 +43,7 @@ Status vocabulary, and the distinction is the point:
 | 17 | C17.7 J₂ ≠ Weyl reflection | NOTE | `EXCURSION_RETURN…` §4, via T18.2 |
 | 17 | §17.5–17.6 torsor, two symmetry breakings | OPEN | — |
 | 17 | C17.12 cross-level self-similarity | CHECKED | `PairCoordinates` §3, as a consequence |
-| 17 | T17.13 cone, parity constraint | PARTIAL | parity CHECKED (`sumIsDouble`); full cone equivalence OPEN |
+| 17 | T17.13 cone, parity constraint | CHECKED (parity half) | `ConeImage.cone-image`: (s,d) is in the image of the pair map **iff** s+d is a double, over any commutative ring, with an explicit decoder. The *inequality* half (\|d\| ≤ s) is an order statement and stays OPEN |
 | 17 | §17.9–17.12 charge sector, characters, G_m×Weyl | OPEN | — |
 | 17 | Programs 17.20–17.23 SU(1,1), adelic | OPEN | — |
 | 17 | T17.24/C17.25 A_{k−1} root lattice | NOTE | used by the singular-series note; T17.24 itself OPEN |
@@ -71,7 +71,7 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 20 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
+**CHECKED 21 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
 
 (Delta 15 §15.6–15.7 and Delta 18 T18.7 landed 2026-08-14 in
 `NaturalMachine/ChargeGrading.agda`; T18.7 counts as PARTIAL because only its
@@ -93,9 +93,11 @@ should be.
 2. ~~**Delta 15 §15.6–15.8, charge grading.**~~ Landed: `ChargeGrading.agda`, and
    it did unlock T18.7's structural half as predicted. What remains of §15.8 is
    fixed-charge *coefficient extraction*, which is analytic, not structural.
-3. **Delta 17 T17.13's full cone equivalence.** The parity half is checked; the
-   cone half is a small finite-flavoured equivalence and Delta 17 item 6
-   explicitly asks for exact equivalences in Cubical Agda.
+3. ~~**Delta 17 T17.13's full cone equivalence.**~~ Landed: `ConeImage.agda`. The
+   parity constraint is now proved to be *exactly* the image condition, in both
+   directions, over an arbitrary commutative ring — so Delta 17's congruence is
+   the datum that reconstructs the pair, not a filter on it. The inequality half
+   of the cone needs an order and is a separate, smaller item.
 
 ## Standing rule for this file
 
