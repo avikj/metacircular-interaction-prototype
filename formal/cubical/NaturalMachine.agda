@@ -441,6 +441,7 @@ import NaturalMachine.ExactTwoStateAmplitudes
 import NaturalMachine.ExactTwoStateInstrument
 import NaturalMachine.ExactHadamardInterference
 import NaturalMachine.ExactProjectivePhase
+import NaturalMachine.ExactProjectiveCircuits
 import NaturalMachine.HadamardReadoutInstrument
 import NaturalMachine.SequentialHadamardReadout
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
@@ -453,6 +454,7 @@ import NaturalMachine.FiniteGraphHolonomyGroupoid
 import NaturalMachine.FiniteGraphCylindricalEquivalence
 import NaturalMachine.FiniteGraphFluxCylindrical
 import NaturalMachine.OrientedSurfaceFlux
+import NaturalMachine.SurfaceFluxCylindricalSquare
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
