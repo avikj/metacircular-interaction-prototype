@@ -87,3 +87,68 @@ Focused replay builds 731 jobs. The aggregate `lake build Pairfield` reaches
 this module and then fails only in the previously recorded unrelated
 `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no aggregate-green
 claim is made.
+
+## 5. Correction and next operation: the incomparable branch is a direct kuṭṭaka join
+
+The preceding sections record the first route refinement. Their final branch
+has now been made strictly cheaper and more specific:
+
+> ~~Mutual nondivisibility sends a positive diagonal to the general `2×2`
+> Smith producer.~~  It sends the diagonal to the existing closed-form
+> kuṭṭaka join after one gcd normalization.
+
+Let
+
+\[
+g=(a,b),\qquad p=a/g,\qquad q=b/g.
+\]
+
+For positive `a,b`, `g>0` and `(p,q)=1`. Executable extended Euclid supplies
+integers `x,y` with `xp+yq=1`. Define
+
+\[
+L=\begin{pmatrix}x&y\\-q&p\end{pmatrix},\qquad
+R=\begin{pmatrix}1&-yq\\1&xp\end{pmatrix}.
+\]
+
+Then the already-checked diagonal join gives
+
+\[
+\det L=\det R=1,\qquad
+L\operatorname{diag}(gp,gq)R=\operatorname{diag}(g,gpq).
+\]
+
+`positiveDiagonalJoinPresentation` transports this exact arrow into the common
+`IntMat2`/`SmithPresentation` language. `positiveDiagonalCertificate` now uses
+it in the `nontrivialJoin` branch; the general producer remains only as the
+total wrapper's safe zero-gcd fallback, outside the positive-diagonal theorem.
+
+For the hostile control `diag(6,10)`, `g=2`, `(p,q)=(3,5)`, and the executable
+Bézout coefficients are `(x,y)=(2,-1)`. Lean checks the emitted data exactly:
+
+\[
+\begin{pmatrix}2&-1\\-5&3\end{pmatrix}
+\begin{pmatrix}6&0\\0&10\end{pmatrix}
+\begin{pmatrix}1&5\\1&6\end{pmatrix}
+=\begin{pmatrix}2&0\\0&30\end{pmatrix}.
+\]
+
+This kills a second false formation: mutual nondivisibility does not require
+entering a general alternating matrix descent. It requires formation of a
+Bézout witness for the normalized pair, after which the matrix action is a
+closed formula.
+
+The cost boundary is retained rather than hidden. A `SmithPresentation` treats
+the two accumulated unimodular matrices as one presentation arrow; a grammar
+of one-sided matrix multiplications sees two actions; a grammar of elementary
+shears must also price the Euclidean history that formed `x,y`. Therefore this
+result does **not** prove an intrinsic minimal operation count. It identifies
+the missing cost coordinate and changes the dispatcher without pretending that
+coefficient formation is free.
+
+Replay now builds 830 focused jobs:
+
+```sh
+cd formal/pairfield
+lake build Pairfield.DiagonalSmithRoute
+```
