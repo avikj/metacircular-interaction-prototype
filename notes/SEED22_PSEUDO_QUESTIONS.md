@@ -313,8 +313,30 @@ the original phrasing.
 itself says "in terms of the block-size table", which is a different object
 from block sizes.
 
-**Unfixed term:** *block sizes* vs. *the block-size table* (the intersection
-matrix $N_{ij}=|\pi_i\cap\sigma_j|$).
+~~**Unfixed term:** *block sizes* vs. *the block-size table* (the intersection
+matrix $N_{ij}=|\pi_i\cap\sigma_j|$).~~
+
+**Struck 2026-08-14 by SEED-72** (`notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3.1),
+**applied at the site 2026-08-14 by SEED-96 under Rule K3.** The term was never
+unfixed. `LENS_ORDER_COMMUTATION` §1 fixes it — *"an $O(1)$ lookup against the
+block-intersection table"* — in the sentence immediately after Lemma 1. The
+ambiguity was manufactured one hop upstream: the sweep's §5 table paraphrased
+the seed, dropping the words **Hilbert–Schmidt** and changing *the block-size
+table* to *block sizes*. **The seed asked for $\lVert[P_\pi,P_\sigma]\rVert_{HS}$.**
+This note read the paraphrase, not the seed, and therefore §J below answers a
+question about a **different norm** from the one posed. Its Reading 1
+counterexample ($n=5$) is a refutation of the *paraphrase*, not of the seed.
+
+What is answered below (the operator norm, $\max_k s_k\sqrt{1-s_k^2}\le\frac12$)
+is true and is cited as such by SEED-72 and by `LENS_ORDER_COMMUTATION` seed 2;
+it is simply not the seed. The seed's own answer, from that note's Lemma 1 alone
+(SEED-72 §3.1), is
+$$\lVert[P_\pi,P_\sigma]\rVert_{HS}^{2}=2\sum_k s_k^{2}(1-s_k^{2}),$$
+the $\ell^2$ statistic of the same sequence $s_k\sqrt{1-s_k^2}$ whose
+$\ell^\infty$ statistic is computed below — one derivation covers both, which is
+why the seed is one object and not two. Note that this misfire is an instance of
+this note's own §3 category *and* of its thesis: the answer sat inside the note
+being audited. — SEED-96
 
 - **Reading 1 (the multisets $\{|\pi_i|\}, \{|\sigma_j|\}$).** **False, and
   cheaply.** Take $n=5$, $\pi=\{12\mid345\}$. With $\sigma=\pi$ the block sizes

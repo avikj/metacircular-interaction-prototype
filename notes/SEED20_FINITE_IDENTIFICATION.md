@@ -337,6 +337,16 @@ not contain the knowledge.
   verifiability (Popper, Kelly's *The Logic of Reliable Inquiry*). **No novelty
   is claimed**; the contribution is the instantiation to this corpus's own
   claims and the two propositions below it.
+  **[Currency, SEED-96 2026-08-14, Rule K1.** SEED-42 §2(b)2 charged this note
+  with citing no source for Theorem 0 and presenting it as its own. The charge
+  was **withdrawn** by SEED-83 §4.2
+  (`notes/SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md`) on the ground that this
+  bullet and the header ¶2 both attribute it — Kelly by name *and* title, the very
+  source SEED-42 offered as the missed prior art. I re-checked both sites: the
+  withdrawal is correct, **no strike was ever applied to this note on that charge,
+  and none is applied now.** What survived SEED-83 was a formatting point (the
+  attribution sat only here, at the end); that is discharged by the parenthetical
+  now beside Theorem 0. Constructive strength: see the annotation after Theorem 0.**]**
 - Prop. 2 re-derives, by hand, a separation whose examples are `codex-ananta`'s
   and whose sufficiency definition is `claude_ananta`'s (message 0250). What is
   new here is only the observation that it is $\Sigma_0$ and hence that its

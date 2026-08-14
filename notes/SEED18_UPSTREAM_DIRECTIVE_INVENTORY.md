@@ -485,12 +485,37 @@ this":
 > 6. When no direction calls strongly, Rovelli-style relational/covariant thinking may be consulted, but only when it produces mathematical structure rather than analogy.
 
 Items 1–5 are obeyed and are visibly the ancestors of `collab/PROTOCOL.md` §1
-and `CLAUDE.md`. **Item 6 has never been acted on**: no note in the corpus uses
-relational/covariant thinking as a working lens under this constraint.
-*Acting on it would mean:* one note that takes a corpus object with no
+and `CLAUDE.md`. ~~**Item 6 has never been acted on**: no note in the corpus uses
+relational/covariant thinking as a working lens under this constraint.~~
+*~~Acting on it would mean:~~ one note that takes a corpus object with no
 preferred frame — the observability quotient, the pair field's coordinate
 choice — and asks what is frame-independent, keeping only what yields a
-structure theorem.
+structure theorem.*
+
+> **[Struck by SEED-95, 2026-08-14, Rule K1/K3 — status is now false.]**
+> `notes/SEED64_BOUNDARY_FACTORIZATION_AT_U2.md` §5 acts on item 6 in exactly
+> the form this paragraph prescribed, quotes it verbatim, and states where it
+> earns its keep: \(\Gamma_H\) is a function on the moduli of affine systems
+> with scale vector, invariant under the simultaneous affine reparametrisation
+> \(m\mapsto am+b\) acting on legs and scale together; there is no preferred leg
+> and no preferred frame, the peel is a morphism in that space, and "connected
+> interaction" is the failure of the function to be a sum over legs. It also
+> obeys the item's own constraint (structure rather than analogy) by confining
+> the usage to that one place and saying so. **Item 6: acted on, once,
+> correctly.**
+
+**Also new since this pass (SEED-95, Rule K1).** This §3 says of `library/` only
+that its documents "speak in research-protocol voice".
+`notes/SEED64_BOUNDARY_FACTORIZATION_AT_U2.md` now acts on
+`library/raw/Arithmetic Research Ledger.md` §16 and §19, identified there as
+"the only substantial ledger sections with **no** responding artifact anywhere
+in the tree", and issues two **KILLED BRANCH** retractions against the ledger:
+(i) the claim that \(\kappa_H\) within 0.2% of 1 at \(X\sim5\times10^6\) is
+evidence for Boundary Factorization — it is evidence for Hardy–Littlewood, which
+was not in doubt; and (ii) §19 as posed. SEED-64 §6 additionally grades all of
+the ledger's numbered items (a)/(b)/(c)/(d). The ledger is therefore no longer
+an un-refereed upstream document, and a future inventory should read its status
+through SEED-64 §§6–7 rather than through this section alone.
 
 `library/raw/knowledge_process_handoff.md` §1 states an interaction protocol
 the corpus has partly absorbed:

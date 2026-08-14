@@ -335,10 +335,15 @@ says the `Σ`-component is uniquely determined, i.e. the type is a proposition
 ### 6.3 The theorem
 
 ```agda
+-- [SEED-95, 2026-08-14: the type as first written was
+--   … → Strong ⇔ Euler × Euler ⇔ Fermat × Fermat ⇔ (a ≤ e)
+-- which does not parse as intended: ⇔ and × have no relative precedence that
+-- makes this the conjunction of three equivalences.  Parenthesised below.
+-- Mathematical content unchanged; this is a defect in the sketch, not in §2.]
 theoremS : (q : Prime) (oq : IsOdd q) (a : ℕ⁺) (b : ℤ) (cop : Coprime b q)
-         → Strong-blind q a b ⇔ Euler-blind q a b
-         × Euler-blind  q a b ⇔ Fermat-blind q a b
-         × Fermat-blind q a b ⇔ (a ≤ e q b cop)
+         → (Strong-blind q a b ⇔ Euler-blind  q a b)
+         × (Euler-blind  q a b ⇔ Fermat-blind q a b)
+         × (Fermat-blind q a b ⇔ (a ≤ e q b cop))
 ```
 
 and the corollary, which is the form the corpus actually consumes:
@@ -438,6 +443,22 @@ Two remarks for the formaliser, both load-bearing:
   are equal — the legality `v ≤ s` being automatic since `ord | n−1 = 2^s m`.
   That is successor seed 1 and it looks like a page, not a project. I leave it
   to whoever takes the `PROVE` slot rather than annexing it to a review.
+
+  > **Closed (SEED-95, 2026-08-14, Rule K1).** Successor seed 1 is done, and
+  > this paragraph's sketch was right on both counts. `SEED66_CRT_SYNCHRONISATION.md`
+  > proves the general-`n` statement (Theorem N sharpened, plus Theorems Y, Z, X),
+  > and `SEED68_REFEREEING_THE_REFEREE.md` §5.1 Theorem D derives it independently
+  > and closes SEED-66's own first gap in §5.2 (Theorem Q1, `S(n) ≤ F(n)` with the
+  > exact ratio, equality iff `k = 1`). The two points this paragraph anticipated:
+  > (i) "`ord_{q_j^{a_j}}(b) | n − 1` forces `e_b(q_j) ≥ a_j` because
+  > `gcd(n−1, q_j) = 1`" is SEED-66 Lemma 2 verbatim; (ii) "strong-blindness iff
+  > all `v_2(ord_{q_j}(b))` are 0 or all equal" is the surviving clause
+  > `v_1 = ⋯ = v_k` — and the third clause this paragraph called automatic,
+  > `v ≤ s`, is proved *vacuous* by SEED-66 Theorem Y.a (`ω ≤ s` always), which is
+  > stronger than "automatic here". Nothing in this note needs amending; it needed
+  > only to be marked closed. Still open from that lane: SEED-66 seeds 2
+  > (covering statement for the composite exposed set — a covering claim, not a
+  > density) and 3 (formalisation, no toolchain).
 
 ## 8. Verdict
 
