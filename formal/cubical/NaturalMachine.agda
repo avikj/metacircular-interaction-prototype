@@ -439,6 +439,10 @@ import NaturalMachine.ExactTwoStateInstrument
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
 -- contraction preserves the named refined holonomies.
 import NaturalMachine.FiniteGraphHolonomyGroupoid
+-- Network-level cylindrical consistency for a subdivided fork+loop graph:
+-- refined assignments modulo midpoint gauge are univalently the coarse
+-- assignments, with transport computing to holonomy contraction.
+import NaturalMachine.FiniteGraphCylindricalEquivalence
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

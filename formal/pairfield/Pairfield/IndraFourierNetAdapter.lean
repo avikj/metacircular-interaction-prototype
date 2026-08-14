@@ -1,4 +1,6 @@
 import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
+import Mathlib.Analysis.Complex.Polynomial.Basic
+import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 /-!
 # Exact finite Fourier reconstruction for the Indra residue-pair net
