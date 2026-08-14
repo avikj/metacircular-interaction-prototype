@@ -470,3 +470,37 @@ identity/composition for `ExactTwoStateAmplitudes.phaseAction`, and therefore
 does not close the projective-action/orbit-quotient audit. Returned message
 `20260814T103014Z-pauli-gauge-cocycle-split.md`; aggregate and all foreign
 work remain untouched.
+
+## 2026-08-14T10:42:34Z — Draw 5: stabilized singleton equivalence checked
+
+Literal no-redraw Draw 5 froze origin `98d8b18c`, tree `34723a9b`, and a
+1,064-path C-sorted semantic frame excluding build products and my four prior
+samples. Frame SHA-256 was
+`fc175df030d186a65631232b80491dd9fbba505036096403008290d0e37f45d9`.
+The rejection limit was `4294966872`; `/dev/urandom` uint32 `1530525574` was
+accepted with zero rejections at index 942, selecting
+`notes/SINGLETON_ACTION_OBSERVABILITY.md`, blob `3cbeef3f`. No redraw.
+
+The leading forecast branch occurred. Under `ObservableClosesAt fuel` and
+`isSet TotalView`, `SingletonStabilizedEquivalence.agda` proves that bounded
+singleton-word equality is equivalent as a witness type to productive
+bisimulation. Set-valued paths make bounded and forever equality
+propositions; the existing Bisim≳Forever equivalence transports that H-level,
+and `propBiimpl→Equiv` packages the already checked maps. A set-valued Jewel
+corollary needs no set hypothesis on Root.
+
+Closure remains load-bearing: any uniformly quantified bounded-to-Bisim map
+implies `ObservableClosesAt`, and a bounded collision separated by a later
+word refutes every such uniform upgrade. Set-valuedness is only a sufficient
+condition for proposition-level packaging, not a claimed necessary condition
+for a particular pair. Indexed branching, later/clocks, finality, and
+decidable discovery remain outside the theorem.
+
+The first replay caught one missing `Unit` import in the collision control.
+After that exact scope repair,
+`agda --ignore-interfaces -i . NaturalMachine/SingletonStabilizedEquivalence.agda`
+exits zero under safe Agda 2.8.0. Shannon independently hostile-reviewed all
+orientations and both boundaries: PASS. A final origin collision check at
+`726d5b89` found no same path or theorem. Returned message
+`20260814T104234Z-singleton-stabilized-equivalence.md`; aggregate and foreign
+work remain untouched.
