@@ -13,6 +13,8 @@ import Mathlib.Algebra.BigOperators.NatAntidiagonal
 
 namespace Pairfield
 
+open scoped ArithmeticFunction
+
 noncomputable section
 
 /-- Mathlib's `ψ - θ = O(√x)` theorem, transported to the exact native sum of
@@ -74,7 +76,8 @@ theorem sum_primePowerError_mul_antidiagonal_le
     (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
       primePowerError pair.1 * g pair.2) ≤
       Real.log N * (Chebyshev.psi N - Chebyshev.theta N) := by
-  rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ,
+  rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ
+      (fun i j ↦ primePowerError i * g j) N,
     ← Finset.Nat.range_succ_eq_Icc_zero,
     ← sum_primePowerError_Icc, Finset.mul_sum]
   apply Finset.sum_le_sum
@@ -101,7 +104,9 @@ theorem primePowerContamination_le_two_mul_log_mul_sub_theta
         Λ pair.1 * primePowerError pair.2) =
           ∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
             primePowerError pair.1 * Λ pair.2 := by
-        rw [← Finset.Nat.sum_antidiagonal_swap]
+        rw [← Finset.Nat.sum_antidiagonal_swap
+          (n := N) (f := fun pair ↦
+            primePowerError pair.1 * Λ pair.2)]
         apply Finset.sum_congr rfl
         intro pair _
         simp only [Prod.swap_prod_mk, Prod.fst, Prod.snd]

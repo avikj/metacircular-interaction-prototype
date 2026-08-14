@@ -25,15 +25,18 @@ open Finset
 theorem sum_antidiagonal_fst_eq_sum_Icc (N : ℕ) (f : ℕ → ℝ) :
     (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N, f pair.1) =
       ∑ n ∈ Finset.Icc 0 N, f n := by
-  rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ]
-  rw [Finset.range_succ_eq_Icc_zero]
+  simpa [Finset.range_succ_eq_Icc_zero] using
+    (Finset.Nat.sum_antidiagonal_eq_sum_range_succ (fun a _ => f a) N)
 
 theorem sum_antidiagonal_snd_eq_sum_Icc (N : ℕ) (f : ℕ → ℝ) :
     (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N, f pair.2) =
       ∑ n ∈ Finset.Icc 0 N, f n := by
-  rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ]
   calc
-    (∑ k ∈ Finset.range N.succ, f (N - k)) =
+    (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N, f pair.2) =
+        ∑ k ∈ Finset.range N.succ, f (N - k) := by
+          simpa using
+            (Finset.Nat.sum_antidiagonal_eq_sum_range_succ (fun _ b => f b) N)
+    _ =
         ∑ k ∈ Finset.range N.succ, f k := by
           simpa using (Finset.sum_range_reflect f N.succ)
     _ = ∑ k ∈ Finset.Icc 0 N, f k := by
@@ -42,12 +45,15 @@ theorem sum_antidiagonal_snd_eq_sum_Icc (N : ℕ) (f : ℕ → ℝ) :
 theorem vonMangoldt_le_log_of_le_center {m N : ℕ}
     (hN : 1 ≤ N) (hmN : m ≤ N) :
     ArithmeticFunction.vonMangoldt m ≤ Real.log (N : ℝ) := by
+  by_cases hm0 : m = 0
+  · subst m
+    simpa using Real.log_nonneg (by exact_mod_cast hN : (1 : ℝ) ≤ N)
   calc
     ArithmeticFunction.vonMangoldt m ≤ Real.log (m : ℝ) :=
-      ArithmeticFunction.vonMangoldt_le_log m
+      ArithmeticFunction.vonMangoldt_le_log
     _ ≤ Real.log (N : ℝ) := by
       apply Real.log_le_log
-      · exact_mod_cast (Nat.zero_lt_of_lt hN)
+      · exact_mod_cast (Nat.pos_of_ne_zero hm0)
       · exact_mod_cast hmN
 
 theorem primeLogWeight_le_log_of_le_center {m N : ℕ}
@@ -69,7 +75,7 @@ theorem sum_vonMangoldt_mul_error_antidiagonal_le (N : ℕ) (hN : 1 ≤ N) :
       apply Finset.sum_le_sum
       intro pair hpair
       have hsum : pair.1 + pair.2 = N :=
-        Finset.mem_antidiagonal.mp hpair
+        Finset.HasAntidiagonal.mem_antidiagonal.mp hpair
       have hfst : pair.1 ≤ N := by omega
       exact mul_le_mul_of_nonneg_right
         (vonMangoldt_le_log_of_le_center hN hfst)
@@ -98,7 +104,7 @@ theorem sum_error_mul_primeLog_antidiagonal_le (N : ℕ) (hN : 1 ≤ N) :
       apply Finset.sum_le_sum
       intro pair hpair
       have hsum : pair.1 + pair.2 = N :=
-        Finset.mem_antidiagonal.mp hpair
+        Finset.HasAntidiagonal.mem_antidiagonal.mp hpair
       have hsnd : pair.2 ≤ N := by omega
       exact mul_le_mul_of_nonneg_left
         (primeLogWeight_le_log_of_le_center hN hsnd)

@@ -21,7 +21,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
   using (Iso ; iso ; compIso)
 open import Cubical.Foundations.HLevels
-  using (isPropΠ ; isSetΣ)
+  using (isPropΠ ; isPropΣ ; isSetΣ)
 open import Cubical.Data.Bool
   using (Bool ; false ; true ; isSetBool ; false≢true)
 open import Cubical.Data.List
@@ -208,8 +208,8 @@ adaptive-currentAndPostIso step observe left right =
 -- Moore/Mealy identification boundary
 ------------------------------------------------------------------------
 
-Injective : (X → Trace) → Type _
-Injective function =
+Injective : {X : Type ℓX} → (X → Trace) → Type ℓX
+Injective {X = X} function =
   {left right : X} → function left ≡ function right → left ≡ right
 
 IdentifiesAll : (X → A → X) → (X → Bool)
