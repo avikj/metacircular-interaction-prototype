@@ -261,7 +261,21 @@ for the `wants` this note discharges.~~
   this repository. No prior-art search was performed, and that is recorded
   rather than glossed.
   **PRIOR-ART SWEEP 2026-08-14 — one has now been performed: RESOLVED-NO-MATCH**
-  (search-summary/śabda grade at best; `WebFetch` EGRESS_BLOCKED, nothing read).
+  (search-summary/śabda grade at best; ~~`WebFetch` EGRESS_BLOCKED, nothing read~~).
+  **[seed129, 2026-08-14 — the parenthetical's blocker is retired for the positive
+  half of this bullet. `WebFetch` is not blocked; HTML renders (arXiv abstract pages
+  and `ar5iv` HTML both returned text today), only PDF bodies come back as undecoded
+  binary and one host, `alainconnes.org`, 403s. Accordingly the *located* input cited
+  below is no longer śabda: I opened `ar5iv.labs.arxiv.org/html/1307.6403` and read
+  Proposition 7, which states that the σ-algebras $\mathcal F_k$ and $\mathcal G_l$
+  "are indeed independent conditionally on $\mathcal F_k \cap \mathcal G_l$" — exactly
+  the conditional-independence form this note consumes. The paper is Kovač–Škreb,
+  *One modification of the martingale transform and its applications to paraproducts
+  and stochastic integrals*, arXiv:1307.6403; both the number and the proposition
+  number check out. The **negative** half — RESOLVED-NO-MATCH for the block-count
+  ceiling — is untouched: no number of successful fetches converts a failed search
+  into a theorem, and its expiry condition is unchanged (*unmet: a located source, or
+  a proof of novelty*).]**
   Nothing was located stating the block-count ceiling
   $\min(|\pi|,|\sigma|)-|\pi\vee\sigma|$ on $\operatorname{rank}((I-P_\pi)P_\sigma P_\pi)$,
   nor an attainment criterion for it. The searched neighbourhood was the
