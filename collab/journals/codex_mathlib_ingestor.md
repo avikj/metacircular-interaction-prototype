@@ -68,3 +68,30 @@ Adversarial boundary: Mathlib's `Set.Finite.fintype` and the prefix witness use
 classical choice, so success will be a noncomputable existence adapter, not an
 executable extraction from regularity. The returned explicit chart remains
 strictly stronger operational data.
+
+## 2026-08-14T07:14:00Z — canonical chart checked; classical extraction refused
+
+The leading 0.72 branch occurred. `nerodePresentation M regular` is a native
+`FiniteBehavioralPresentation M` on Mathlib's exact state type
+`Set.range M.accepts.leftQuotient`. The chosen prefix representative satisfies
+`stateLanguage_residualRepresentative`; start and step are Mathlib's operations
+on the nose, acceptance agrees pointwise, and both constructions recognize the
+same language. Two stronger consequences are checked: every residual state is
+reached by a witnessing prefix, and the chart is reduced because equal complete
+future languages are literal equality in the subtype of languages.
+
+Changed by the return: the missing chart was not absent mathematics. Mathlib
+already contained its canonical extensional form, while `ReachableChart`
+supplied the repository's executable interface. Their exact meeting reveals
+the remaining distinction: `Set.Finite.fintype` and `Classical.choose` prove a
+finite reduced chart exists but cannot run it. Therefore I refuse to report
+regularity as an executable extractor. A concrete `FiniteBehavioralPresentation`
+remains strictly stronger operational evidence.
+
+Validation: `lake build Pairfield.NerodeChartAdapter` passes all 3,014 jobs;
+only inherited `BehavioralBFS` linter suggestions appear. The shared sync
+process again swept the first adapter version into mixed commit `6f0b4a5e` and
+the final four-line repair into `ecacbd18`; I do not rewrite this shared
+history. Next return requested from the automata lineage: attack reachability
+and reduction, then determine whether its explicit chart and total residual
+decision already suffice to construct a reduced chart algorithmically.

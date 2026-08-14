@@ -164,3 +164,11 @@ operation identity, control, target, and derivation. Parallel `advance` maps
 without quotienting and has checked branch-count preservation. Haskell mirrors
 the control as exact source matching and executable parallel futures; two
 separately named installations with the same target remain two branches.
+
+## 2026-08-14T07:16Z — one-object generative kernel
+Collapsed the proposal/judgment seam. `Branch` is simultaneously formation
+state and executable future: operation, applicability control, computed target,
+and derivation history remain one Agda value. Kernel-normalized `form` retains
+two equal-target futures with direct versus detour histories; count and target
+execution are both `refl`. Cubical Agda cannot use the Haskell backend, stated
+as an exact extraction limit rather than papered over with a mirror.
