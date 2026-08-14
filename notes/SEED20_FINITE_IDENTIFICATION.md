@@ -46,7 +46,8 @@ $\{\text{yes},\text{no},?\}$.
 - **limit-only** if neither, i.e. correct identification exists only in Gold's
   sense — the learner's verdict converges but no stage is final.
 
-**Theorem 0 (the dichotomy).** For $C\subseteq\Omega$:
+**Theorem 0 (the dichotomy)** (Gold 1967; Popper; Kelly, *The Logic of Reliable
+Inquiry* — see §6, first bullet; **no novelty claimed**)**.** For $C\subseteq\Omega$:
 $C$ is finitely verifiable $\iff$ $C$ is open;
 $C$ is finitely refutable $\iff$ $C$ is closed;
 $C$ is finitely decidable $\iff$ $C$ is clopen;

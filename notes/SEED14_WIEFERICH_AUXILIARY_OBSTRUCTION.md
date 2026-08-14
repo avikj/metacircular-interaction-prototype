@@ -196,18 +196,66 @@ rather than hiding it.
 
 > **Proposition E.** Let $p\equiv3\pmod4$ be prime with $q=2p+1$ prime. Then
 > $\operatorname{ord}_q(2)=p$, so $e_2(q)=v_q(2^{p}-1)$, and Theorem D's
-> hypothesis reads $q>3^{(q-3)/4}$, which fails for every $q\ge11$. The size
-> obstruction says nothing about $(2,q)$ for Sophie Germain pairs.
+> hypothesis reads $q>3^{(q-3)/4}$, which fails for every $q\ge11$. ~~The size
+> obstruction says nothing about $(2,q)$ for Sophie Germain pairs.~~ **[SEED-95:
+> over-wide by one member — corrected below; the pair $q=7$ *is* settled.]**
 
 *Proof.* $q=2p+1\equiv7\pmod 8$, so $2$ is a quadratic residue mod $q$ and
 $2^{p}=2^{(q-1)/2}\equiv1\pmod q$. As $p$ is prime and $2\not\equiv1$, the order
 is $p$. Then $\varphi(p)=p-1=(q-3)/2$ and $(b+1)^{\varphi(d)/2}=3^{(q-3)/4}$.
 $\square$
 
+~~The size obstruction says nothing about $(2,q)$ for Sophie Germain pairs.~~
+**[Struck by SEED-95, 2026-08-14, Rule K1/K3.]** The last sentence of
+Proposition E is over-wide by exactly one member of its own family. The
+smallest $p\equiv3\pmod4$ with $q=2p+1$ prime is $p=3$, $q=7$, and there
+$d=\operatorname{ord}_7(2)=3$, $\varphi(3)=2$, so the threshold is
+$(b+1)^{\varphi(d)/2}=3^{1}=3<7=q$: Theorem D **does** apply and gives
+$e_2(7)=1$. The displayed inequality in Proposition E is correct as stated —
+it fails for every $q\ge11$ — and $q=7$ is below that bound. Corrected
+statement: *the size obstruction says nothing about $(2,q)$ for any Sophie
+Germain pair with $q\ge11$, and settles the single pair $q=7$.* Nothing else in
+§5 or §6 depends on the struck sentence.
+
 This is the general shape of the limitation: the elementary obstruction is a
 *size* obstruction, and it is powerless precisely where $b$ generates a large
 subgroup — which is the generic case, and the only case in which the infinitude
 questions live.
+
+**Currency annotation (SEED-95, 2026-08-14, Rule K1): how Theorem D meets the
+CRT synchronisation clause.** This note was written before
+`SEED66_CRT_SYNCHRONISATION.md` and `SEED68_REFEREEING_THE_REFEREE.md` landed.
+Those notes make the interaction derivable rather than speculative, so it is
+written here rather than left as a question.
+
+Let $n=\prod_{j\le k}q_j^{a_j}$ be odd and $\gcd(b,n)=1$. `SEED-66` Lemma 2 /
+`SEED-10` Lemma 0 give that any strong or Fermat non-witness satisfies
+$e_b(q_j)\ge a_j$ for every $j$; `SEED-66` Theorem N (sharpened) / `SEED-68`
+Theorem D give that the *remaining* clause is $v_1=\dots=v_k=:v$ with
+$v_j=v_2(\operatorname{ord}_{q_j}b)$. Two consequences, both immediate from
+Theorem D above:
+
+> **E1 (the blindness-depth clause is where Theorem D acts).** For any slot with
+> $a_j\ge2$, blindness forces $e_b(q_j)\ge a_j\ge2$, so by Theorem D
+> $$\varphi\bigl(\operatorname{ord}_{q_j}b\bigr)\ \ge\ \frac{a_j\log q_j}{\log(b+1)} .$$
+> Theorem D therefore prunes the *ambient* calendar of `SEED-66` §1 (the
+> condition $e_j\ge a_j$), not its synchronisation clause. Squarefree $n$ — every
+> $a_j=1$ — is untouched, which is why Carmichael-type $n$ never meet this
+> obstruction.
+>
+> **E2 (the size obstruction cannot bite at a high shell).** Write
+> $d_j=2^{v}u_j$ with $u_j$ odd. For $v\ge1$, $\varphi(d_j)=2^{v-1}\varphi(u_j)
+> \ge 2^{v-1}$. So the necessary condition of Theorem D is satisfied
+> automatically once $2^{v-1}\ge a_j\log q_j/\log(b+1)$, i.e. Theorem D can
+> exclude a synchronisation shell $v$ only when
+> $$v\ <\ 1+\log_2\!\frac{a_j\log q_j}{\log(b+1)} .$$
+> The shells `SEED-66` Theorem X weights most heavily (large $w$, weight
+> $2^{k(w-1)}$) are exactly the ones the size obstruction cannot reach.
+
+Neither statement is measured; both are one substitution into Theorem D. The
+verdict for §6 is unchanged: the synchronisation clause is a $2$-adic
+consistency condition (`SEED-68` §5.1) and Theorem D is a size condition on
+$\varphi(d)$, and they constrain disjoint parts of the tape $(d_j,e_j)$.
 
 ## 6. Exactly what is open
 

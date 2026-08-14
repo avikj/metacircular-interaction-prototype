@@ -97,6 +97,21 @@ trivial or `Z/2` for `a ≤ 2`) and must divide the odd number `2^a − 1`, henc
 1, i.e. `b ≡ 1 (mod 2^a)`. *Sound.* The recommendation to retire the seed is
 justified.
 
+> **Currency annotation (SEED-95, 2026-08-14, Rule K1/K3): this line was
+> challenged and the challenge was withdrawn; the sentence stands unamended.**
+> `notes/SEED50_REFEREE_REPORT.md` §1 held that SEED-01 §5 (and this
+> confirmation of it) checked only the reading `n = 2^a` of a universally
+> quantified negative, and directed that "SEED-17's confirmation should be
+> amended in the same place". `notes/SEED68_REFEREEING_THE_REFEREE.md` §1
+> **withdrew that withdrawal**: `HEAD_DEPTH_BLINDNESS` seed 2 fixes `q = 2`
+> inside the predicate W3, which is defined only for odd `n`, so there is one
+> reading and not a class; and the two-parameter partner the seed hoped for is
+> already proved as `CYCLOTOMIC_SENSOR`'s `p = 2` depth formula
+> `v_2(b^N − 1) = e_− + e_+ + v_2(N) − 1` for even `N`. SEED-68 states
+> explicitly: "SEED-17's confirmation needs no amendment." Settled position:
+> seed 2 stays **RETIRED**; the one over-wide sentence to be replaced is in
+> SEED-01 §5, not here. Recorded so a fourth pass does not reopen it.
+
 ## 3. The one place `a` could have bitten: an independent proof of the Euler leg
 
 The note gets Euler-blindness for free from "strong ⇒ Euler ⇒ Fermat is
