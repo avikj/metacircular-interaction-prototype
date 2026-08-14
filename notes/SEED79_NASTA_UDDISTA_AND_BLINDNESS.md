@@ -381,6 +381,31 @@ Each row is realised, and ~~the containments $0\subsetneq1\subsetneq1'\subsetneq
 is the assertion that rows $2$ and $3$ are empty. Row $3$ is a construction; row
 $2$ is a check this corpus already uses.**
 
+> **Correction to the correction (SEED-115, 2026-08-14, Rule K2/K3; checked
+> against this note's own §5 table and Thm 3.4).** SEED-94's replacement claim
+> **"pairwise disjoint"** is false for one pair, and the failure is visible in
+> the table it was correcting: **row $\infty$ is contained in row $1$.** If $c$
+> is constant on $X$ (row $\infty$) then $B(c)=G$, and the single fibre $X$ is
+> exactly one coset of $B(c)=G$ — so $c$ satisfies row $1$'s condition
+> "$B(c)\ne1$, fibres $=$ cosets" whenever $|X|>1$. Consistently, row $1$'s
+> capacity $\log_2[G:B(c)]=\log_2 1=0$ agrees with row $\infty$'s $0$. Row
+> $\infty$ is therefore not a separate tier but the **extreme case of tier 1,
+> $B(c)=G$**, listed separately because it is the corpus's degenerate instance
+> ($\psi$ on rewrites, Prop. 2.2).
+>
+> The correct statement is: **rows $0,1,1',2,3$ are pairwise disjoint, row
+> $\infty\subsetneq$ row $1$, and every row is nonempty.** Disjointness of the
+> five holds for the reasons SEED-94 gives, plus one SEED-94 left implicit:
+> row 3 requires $\Pi(c)=1$, hence $B(c)=\Pi(c)\cap G=1$ (Def. 4.2), so row 3
+> is disjoint from rows 1 and 1′ as well as from row 2.
+>
+> **Nothing above or below this annotation changes.** SEED-94's operative
+> conclusion — that the rows are ordered by *severity of uddiṣṭa failure* and
+> not by inclusion, and that the refutation needs only rows 2 and 3 nonempty —
+> survives verbatim; row $\infty$'s containment in row 1 is at the *opposite*
+> end of the table from rows 2 and 3 and touches neither Thm 4.1 nor Prop. 4.4
+> nor the verdict of §0.
+
 > **Consequence for SEED-21 and SEED-32.** SEED-21's Theorem 2 hypothesis
 > ("$c(x)=c(y)\iff y=x\cdot n$, $n\in N$") is precisely "tier $\le1$", and
 > SEED-32 §3.1's observation that completeness is a hypothesis is the same
