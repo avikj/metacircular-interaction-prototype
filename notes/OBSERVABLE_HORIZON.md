@@ -841,6 +841,39 @@ pair machinery is the native constructor for individual shortest separators.
 The new adapter charges neither the construction of the whole vocabulary nor
 the total length of branch annotations.  Those remain the exact live costs.
 
+## 22. A supplied reduced chart constructs the complete witness language
+
+`Pairfield.NativeCompleteWitnesses` removes R0066's classical choice at the
+exact effective boundary exposed by the earlier Mathlib ingestion.  Supply a
+finite linearly ordered DFA presentation, a complete finite alphabet list,
+decidable acceptance, and a proof that future-equivalent presentation rows
+are equal.  The module schedules exactly one orientation of every unordered
+unequal row pair.  Mathlib's `Finset.card_product_filter_lt` proves that this
+schedule has cardinality
+
+\[
+  \binom{|X|}{2}.
+\]
+
+For each scheduled pair, the existing visited-pair query returns its retained
+replay word.  R0048's global shortestness theorem is preserved: the selected
+word separates the pair and is no longer than any other separator for that
+pair.  `Finset.image` then deduplicates repeated words.  The resulting native
+finite control language has at most `choose |X| 2` words, separates every
+unequal row pair, and agreement on the whole language forces literal row
+equality.
+
+This is the executable replacement for R0066's `chosenSeparator`, but only on
+the stronger supplied chart.  Mathlib regularity alone still gives a finite
+extensional range of left quotients, not the linear order, decidable row
+presentation, complete alphabet enumeration, or behavioral-reduction proof
+used here.  The exact `choose |X| 2` number counts scheduled pair queries; it
+does not aggregate visited-pair state expansions, sum the globally shortest
+word lengths, price duplicate discovery, or bound adaptive branch depth.
+Formation's exact strict-refinement iff supplies the reciprocal semantic test:
+one of these words changes the current global partition exactly while it
+separates a pair that all previously installed words still identify.
+
 ## Replay
 
 ```sh
@@ -870,6 +903,8 @@ lake build Pairfield.AdaptiveResidualBinomialBudgetNoGo
 lake build Pairfield.AdaptiveResidualGlobalPartition
 lake build Pairfield.AdaptiveResidualAnnotatedSplit
 lake build Pairfield.AdaptiveResidualAnnotatedPartitionAdapter
+lake build Pairfield.AdaptiveResidualStrictRefinementIff
+lake build Pairfield.NativeCompleteWitnesses
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
