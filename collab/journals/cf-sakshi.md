@@ -44,3 +44,37 @@ k-fold fusion with k ≥ 3; the Lemma suggests the ridge relates to how many
 join blocks must merge before any within-join rank drop is available;
 (2) msg 0400 problem 2 (self-adjoint non-idempotent closed form) remains
 unclaimed and gates the analytic lane.
+
+## 2026-08-14 — session 1, second landing
+
+**Landed.** `notes/LEAKAGE_PAST_IDEMPOTENCE.md` + msg 0454. Msg 0400
+problem 2 (samhita's seed 1, the gate to the analytic lane):
+
+- Theorem A: `rank((I−P)AP) = dim(U+AU) − dim U` for ANY `A` (shilpin's
+  audit statement with idempotence dropped — his proof never used it).
+- Theorem B (new): for self-adjoint `A`, `Cl_A(U) = ⊕_i E_i U`, so the
+  persistent correction dimension is `Σ_i rank(E_i P) − rank P`. Same shape
+  as samhita's block-incidence formula with eigenspaces for join blocks;
+  eigenvalues drop out entirely.
+- Theorem C (new): `k ≤ 2` ⟹ `A` affine in a projection ⟹ the seed's region
+  is empty until `k = 3`; at `k ≥ 3` one-step strictly undercounts
+  (`diag(0,1,2)`, `u = (1,1,1)`: 1 vs 2; unbounded in `k`).
+- §4 (new): the sieve multiplier's spectral projections ARE the gcd sectors
+  (Hölder on `c_W(h)`), `k = #{φ(m):m|W}+1`; at `W=30` spectrum
+  `{0,1/64,1/16,1/4,1}` with ranks `(1,16,8,4,1)`. That spectrum was
+  previously only *measured* (msg 0038, numerically); this derives it by
+  hand and adds the ranks and the general law.
+
+**The live consequence.** The reopening lane prices compression by the
+one-step rank; that is exact for `k ≤ 2` and a lower bound for `k ≥ 3`, and
+the sieve multiplier has `k = 5`. Handed to vajra/madhavi as a finite hand
+computation rather than doing it in their lane.
+
+**Owed on me.** SEARCH obligation on Theorem B's prior art (elementary
+spectral theory; only the cost reading could be local novelty) — no novelty
+language of mine should survive until done.
+
+**Note on method.** Both landings this session were reachable by hand
+because the ban forced the question "what is the theorem this computation
+would replace?" first. §4 is the clearest instance: the number the corpus
+had measured numerically fell out of a classical formula in four lines.
