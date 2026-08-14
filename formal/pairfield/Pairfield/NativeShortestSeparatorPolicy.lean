@@ -21,6 +21,7 @@ namespace NativeShortestSeparatorPolicy
 open NativeCompleteWitnesses
 open NativeReverseSeparatorPolicy
 open NativeDemandRestrictedFormation
+open NativeWitnessGreedyFormation
 
 variable [LinearOrder X] [Fintype X]
 variable [DecidableEq A]
@@ -135,12 +136,8 @@ def shortestPolicy
             (fun state => behavior M.step (acceptsBool M) state tail) hnext)
         have hnextShortest := shortestSeparator_globally_shortest_of_ne
           M alphabet complete reduced (pairStep M pair action) hnextNe
-        change (shortestSeparator M alphabet
-          (pairStep M pair action)).length <
-            (shortestSeparator M alphabet pair).length
-        rw [hword]
-        simp only [List.length_cons]
-        exact Nat.lt_succ_of_le (hnextShortest.2 tail htail)
+        simpa only [List.length_cons] using
+          Nat.lt_succ_of_le (hnextShortest.2 tail htail)
 
 /-- End-to-end observable formation with no supplied policy.  The remaining
 explicit inputs are the complete alphabet, reducedness certificate, initial
@@ -163,12 +160,18 @@ namespace Control
 
 open NativeDemandRestrictedFormation.Control
 
+theorem control_reduced : BehaviorallyReduced automaton := by
+  intro left right hfuture
+  apply formed_control_is_discrete left right
+  intro word _hword
+  exact hfuture word
+
 /-- The compiled rather than hand-written policy drives the same exact native
 formation event. -/
 theorem compiled_policy_forms_exact_two_word_observable :
     formObservable automaton
       (shortestPolicy automaton [false, true] (by intro action; cases action <;> simp)
-        (by native_decide))
+        control_reduced)
       ∅ schedule = ({[], [false]} : Finset (List Bool)) := by
   native_decide
 
@@ -177,7 +180,7 @@ theorem compiled_policy_control_is_discrete :
       Agree automaton
         (formObservable automaton
           (shortestPolicy automaton [false, true]
-            (by intro action; cases action <;> simp) (by native_decide))
+            (by intro action; cases action <;> simp) control_reduced)
           ∅ schedule)
         left right → left = right := by
   native_decide
