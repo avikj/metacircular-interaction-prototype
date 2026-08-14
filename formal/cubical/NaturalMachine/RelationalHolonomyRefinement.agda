@@ -127,11 +127,11 @@ module _ {ℓ : Level} (G : Group ℓ) where
     where
     first : (t G.· b) G.· (a G.· G.inv s)
           ≡ ((t G.· b) G.· a) G.· G.inv s
-    first = sym (G.·Assoc (t G.· b) a (G.inv s))
+    first = G.·Assoc (t G.· b) a (G.inv s)
 
     second : ((t G.· b) G.· a) G.· G.inv s
            ≡ (t G.· (b G.· a)) G.· G.inv s
-    second = cong (λ z → z G.· G.inv s) (G.·Assoc t b a)
+    second = cong (λ z → z G.· G.inv s) (sym (G.·Assoc t b a))
 
   -- For a closed loop the source and target gauges coincide, hence holonomy
   -- changes by conjugation.  A class function is the abstract trace-like
