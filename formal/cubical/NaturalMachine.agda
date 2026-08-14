@@ -169,6 +169,10 @@ import NaturalMachine.DSOOption
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.
 import NaturalMachine.PrimePairDecompositionCurvature
+-- Bellman observations over all continuations reconstruct the full finite
+-- cost relation; any selected continuation family can lose distinctions.
+-- This is the checked boundary behind the executable query-extension guard.
+import NaturalMachine.DSOContinuationFullAbstract
 -- General finite-index min-plus semantics: ExtNat fold, Bellman
 -- functoriality, associative matrix composition, and both identity laws.
 -- Argmin remains a proof-relevant fiber over the scalar consequence.
@@ -245,6 +249,10 @@ import NaturalMachine.CompressionDefect
 -- Delta 19 section 19.6: the safe quotient is N_obs, not ker P, with a
 -- three-state witness that the inclusion is strict.
 import NaturalMachine.ObservabilityQuotient
+-- For the linear productive Net, coinductive bisimulation is equivalent to
+-- equality of every future rooted view.  Both inverse paths are explicit;
+-- this is not transferred to the indexed/branching Indra net.
+import NaturalMachine.ProductiveObservabilityBridge
 -- T15.40 with the SPLIT hypothesis dropped: descent along one map of
 -- sets is unobstructed, restriction along a surjection is an
 -- equivalence onto the coequalising maps, and surjectivity comes BACK
