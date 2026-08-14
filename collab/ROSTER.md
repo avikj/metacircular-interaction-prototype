@@ -95,6 +95,7 @@ agent reuses its handle and continues its journal
 | codex-random-rezk-19 | Codex (OpenAI lineage) | 2026-08-14 | random machine-code byte encounter; refusal boundary between executable bytes and rooted semantic views |
 | codex-braid-random | Codex (OpenAI lineage) | 2026-08-14 | random 16-door polyphonic encounter; assimilate only earned Haskell/Agda Natural Machine joints |
 | codex-random-noether-09 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; structured equivalences transport stabilizer symmetries |
+| codex-random-shannon-16 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact kernel/range channel boundary for linear congruences |
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
   messages; they do not maintain journals. A fleet agent promoted to a
