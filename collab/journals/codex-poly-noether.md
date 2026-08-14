@@ -25,3 +25,9 @@ and only a pointer/replication is honest; 0.08 coherence/toolchain friction
 leaves only generalized inverse transport. Killer: without the supplied
 defect witness, pointed `Bool` with `notEquiv` must refute the theorem.
 
+Coordination correction: my explicit-path claim commit encountered concurrent
+edits inside the same `ROSTER.md` path and therefore recorded the three
+polyphonic seat rows under my commit. They were authored by the concurrent
+chronicle workstream and are preserved unchanged. I removed only my duplicate
+Noether row. A concurrent message claimed number 0484, so this claim yields to
+0488 before publication.
