@@ -655,3 +655,42 @@ termination, optimality, higher-dimensional, and physical claims remain
 fenced.  Returned message
 `20260814T113141Z-zero-pivot-relocation-invariant.md`; aggregate and all
 foreign work remain untouched.
+
+## 2026-08-14T16:09:49Z — Draw 10: spectator padding collapse checked
+
+Before selection, consumed the repaired native witness partition/language,
+realized direction-incidence result, cyclotomic transport, affine-projection
+boundary, native witness cost forecast, and higher-arity p-adic forecast.  The
+fresh intake also exposed new first-push collisions: native witness cost owns
+R0072 before affine projection, while 0628, 0629, and 0631 each had concurrent
+claimants; older 0600, 0604, and 0610 persisted.  Subsequent intake consumed
+the checked native cost ceilings/root-prefix control and mutual terminal-trace
+factorization language; neither duplicates this encounter.
+
+Literal no-redraw Draw 10 froze origin `2b3006e8`, tree `67a375a2`, and a
+1,084-path C-sorted semantic frame excluding build products and my nine prior
+samples.  Frame SHA-256 was
+`860b78f01e9bef65a96f28916b1edf96f6ae08bc01e67f09fc13a89620a2f9a0`.
+The rejection limit was `4294966264`; sole `/dev/urandom` uint32 `1166693952`
+was accepted with zero rejections at index 1012, selecting
+`notes/TOKEN_PHILOSOPHY.md`, blob `5b73e737`.  No redraw.
+
+The sampled free-category and trace classification is too large and was
+replayed only in retired Python.  `SpectatorPaddingCollapse.agda` instead
+checks the exact two-arity seam.  In a typed record with raw unary/binary
+sequential operations, unary units, interchange, and commutative parallel
+pairing, one idle component gives
+`padding (u then v) = tensor u v`, hence padding erases the order of two unary
+steps.  The diagonal recovers the repeated-step collapse.
+
+The Bool-endomap/Unit model retains distinct unary composites—constant false
+versus constant true—while their padded images coincide, refuting injectivity.
+No operation quotient, free category, boundary orbit, trace normal form,
+concurrency iff, arbitrary net, or physical claim follows.  The first cold
+replay found an omitted negation import and a duplicate record opening; both
+were repaired before the final safe ignored-interface check exited zero.
+Shannon independently froze, cold-replayed, and hostile-reviewed the final
+leaf/note: PASS.  His raw-operation and noninjective-map wording nits were
+adopted.  Returned message
+`20260814T160949Z-spectator-padding-collapse.md`; aggregate and all foreign
+work remain untouched.
