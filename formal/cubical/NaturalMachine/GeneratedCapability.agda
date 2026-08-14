@@ -70,7 +70,7 @@ answer-future-preserved m n (tt ∷ word) = refl
 work-future-changed : (m n : ℕ)
   → ¬ FutureEq installStep (work m n) false true
 work-future-changed m n same =
-  ¬m<m (transport (λ z → work m n true < z) (same []) (resume-cheaper m n))
+  ¬m<m (subst (λ z → work m n true < z) (same []) (resume-cheaper m n))
 
 -- The full checked cycle in one type.  The first component is the actual
 -- generated obstruction/definition/compilation proof from CompileBridge;
