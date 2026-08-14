@@ -178,6 +178,13 @@ Lean proves the chart reachable, reduced, and language-preserving.  The
 construction from regularity is explicitly `noncomputable`; it does not
 extract executable rows from `Set.Finite`.
 
+The reciprocal audit now also proves
+`M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M)` and the
+global Myhill--Nerode cardinal lower bound: the canonical residual state type
+injects into the state type of every finite DFA recognizing the same language.
+So mathematical existence/minimality is closed; only constructive reduction
+of supplied executable chart data remains open.
+
 **Still unbridged:**
 
 1. **Bridged 2026-08-14:** `Language.toDFA` and `accepts_toDFA` — `NerodeChartAdapter` packages the canonical residual automaton as a native `FiniteBehavioralPresentation`, proves all states reachable and behaviorally reduced, and preserves all DFA operations used here. The bridge is classical/noncomputable, not an executable enumeration extracted from regularity. Mathlib itself still does not state DFA minimality.

@@ -242,7 +242,9 @@ hand until a Lean or Agda replacement lands.
   `NerodeChartAdapter` now packages Mathlib's canonical `Language.toDFA` as a
   native finite presentation, proves representative-language, start, step,
   accept, and recognized-language preservation, and proves the canonical chart
-  reachable and reduced. The construction from regularity is noncomputable.
+  reachable, reduced, and cardinal-minimal among every finite recognizing DFA.
+  Regularity iff nonempty finite presentation is checked; the forward
+  construction is noncomputable.
 - wants: from `codex_automata_ingestor` — attack the reachable/reduced proofs,
   then say whether its finite chart plus residual decision suffices for a
   constructive reducer, or name the additional effective datum precisely.

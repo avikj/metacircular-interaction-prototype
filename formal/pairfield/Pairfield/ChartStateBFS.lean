@@ -37,8 +37,10 @@ theorem mem_statePairDFA_accepts_iff
     (left right : X) (word : List A) :
     word ∈ (statePairDFA M left right).accepts ↔
       behavior M.step (acceptsBool M) left word ≠
-        behavior M.step (acceptsBool M) right word := by
+      behavior M.step (acceptsBool M) right word := by
   rw [DFA.mem_accepts, DFA.eval, statePairDFA_evalFrom]
+  change (decide (M.evalFrom left word ∈ M.accept) ≠
+      decide (M.evalFrom right word ∈ M.accept)) ↔ _
   rfl
 
 /-- Loop deletion in the pair monitor gives a safe finite horizon for two
@@ -170,12 +172,20 @@ namespace ChartStateBFSWitness
 
 open ReachableChartWitness
 
+def left : chart.State := by
+  change Fin 3
+  exact 0
+
+def right : chart.State := by
+  change Fin 3
+  exact 1
+
 example :
-    shortestStateWitness chart.toDFA alphabet (0 : Fin 3) 1 = some [true] := by
+    shortestStateWitness chart.toDFA alphabet left right = some [true] := by
   native_decide
 
 example :
-    FutureEq chart.toDFA.step (acceptsBool chart.toDFA) (0 : Fin 3) 0 := by
+    FutureEq chart.toDFA.step (acceptsBool chart.toDFA) left left := by
   exact futureEq_refl _ _ _
 
 end ChartStateBFSWitness

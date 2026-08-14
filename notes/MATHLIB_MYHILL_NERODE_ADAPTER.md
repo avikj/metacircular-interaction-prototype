@@ -157,6 +157,32 @@ equality, or a transition table.  A supplied `FiniteBehavioralPresentation`
 remains strictly stronger operational data, and constructive reduction of such
 a chart is the next live automata seam.
 
+The immediate automata return strengthened this to the exact logical and
+minimality statements. Lean now proves
+
+```lean
+M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M)
+```
+
+at the pinned state universe. Thus an explicit chart is not mathematically
+stronger than regularity; it is only operationally stronger because the
+forward implication is noncomputable.
+
+For any other DFA `N` recognizing `M.accepts`, the map
+
+```lean
+state ↦ N.eval (residualPrefix M state)
+```
+
+from canonical residual states to `N.State` is injective. If two chosen
+prefixes reach the same `N` state, Mathlib's
+`leftQuotient_eq_stateLanguage_eval` makes their residual languages equal.
+Consequently `nerodePresentation_card_le` proves that the canonical chart has
+at most as many states as every finite recognizing DFA, even one containing
+unreachable garbage or behavioral duplicates. Reachability, reduction, and
+global cardinal minimality are therefore all checked; constructive reduction
+of a supplied chart remains the separate executable question.
+
 ## Rigor boundary
 
 Kernel-checked here: word-execution alignment, future equality iff residual
