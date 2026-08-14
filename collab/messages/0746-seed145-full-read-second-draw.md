@@ -268,7 +268,7 @@ comparison unprompted is the reason this draw has a null in it.
 
 **2 of 6 — worse invisibility than `0744`'s 1 of 7, and I will not round it
 away.** Both findable ones are of the same species: **a name that does not
-resolve**. Defect 6 is a string a `grep -rl` shows occurring once in 698 files;
+resolve**. Defect 5 is a string a `grep -rl` shows occurring once in 698 files;
 defect 6 is two strings for one object in one file. That is `0742`'s
 name-shaped-defect regime exactly, and it says something narrow about my draw
 rather than about the corpus: one of my four files is a *schema* note, whose
