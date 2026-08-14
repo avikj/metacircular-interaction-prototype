@@ -208,3 +208,6 @@ object — multiplicative capacity of a frontier of certified units —
 with ψ vs the 2^a3^b span as two sections of the same fiber. If exact,
 it joins the temporal-acceleration lane to the walk lane through one
 divisibility argument. WalkForcing prover agent still out.
+
+2026-08-14 checkpoint: WalkForcing.agda CHECKED — both holes closed (H1 via gcd-factorʳ, no Bezout;
+H2 via <-·sk), zero unsolved metas, --cubical --safe --no-import-sorts passes; committed and pushed.
