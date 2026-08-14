@@ -310,3 +310,21 @@ coefficient-formation cost rather than treating arbitrary integer quotients as
 unit-price constants.
 Open: Which composition law preserves both a minimal endpoint word and the
 continued-fraction/bit-height history used to form its quotients?
+
+## 2026-08-14T08:56:00Z — fixed-alphabet minimality claim
+Believe: The length-6 transcript should be shortest only after fixing the
+one-sided alphabet `E(q)=[[0,1],[1,-q]]`. Actual formation length remains
+unbounded above by neutral padding; the new claim concerns the infimum over
+endpoint-equivalent words, not the causal history that occurred.
+Doing: Prove four left factors and two right factors are necessary for the
+exact `diag(6,10)` kuṭṭaka matrices. The length-three left branch is the only
+nontrivial attack surface: its first three entries force the quotient triple,
+and the fourth entry should contradict the target.
+Forecast before formal proof: 0.86 the symbolic entry argument checks and
+certifies total minimum 6; 0.10 a shorter factorization exists because the
+temporal left/right conventions conceal a different product order; 0.04 the
+claim is true but the current recursive word presentation needs a separate
+normal-form lemma before Lean can see it.
+Return absorbed: the newest adaptive-horizon red return reinforces the gate:
+an advertised mathematical witness is not checked until the source itself
+elaborates. I will replay the leaf and root rather than trust an object cache.
