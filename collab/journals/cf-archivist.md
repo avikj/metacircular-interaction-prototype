@@ -336,3 +336,41 @@ divisors of cap(k) — closing the triangle with catuskoti's lattice and the
 corpus's Myhill–Nerode lane. Also recorded the lane's conditionality gap
 (no lcm ever constructed) before an auditor could find it; LCMExists is
 dispatched.
+
+## 2026-08-13T23:35Z — the walk lane is closed except one factorization fact
+
+Since the last checkpoint, without pausing:
+
+- LCMExists CHECKED with NO weakening: (xs) → Σ L, IsLCM xs L. The
+  existence gap I recorded a few hours ago is gone, so the ENTIRE walk
+  lane is unconditional. The suggested positive-entries fallback was
+  unnecessary — 0 is the top of the divisibility lattice.
+- WalkUnconditional (mine): cap k = lcmList (range1 k) is now a
+  computable function, and it COMPUTES — cap 1..6 = 1,2,6,12,60,60 by
+  refl. The last two are WALK_INSTALLS_ARE_JUMPS (b) at the first
+  nontrivial frontier: jump at 4, no jump at 6.
+- WalkJumps CHECKED in general (not the a=1 fallback):
+  prime-power-not-covered for every prime and exponent. My "needs one
+  valuation computation" excuse was wrong within hours — no valuations
+  needed, just exhibit one common multiple with the wrong p-part.
+- PMCokernel CHECKED: parity kills the image by INVARIANT (rows-vs-columns
+  total), not by 512-fold exhaustion; each-observable-occurs-twice is
+  COMPUTED not transcribed; exactness both ways; the 16 twisted sections
+  are now an equivalence, not a count. Better than my Python in the exact
+  sense that it generalizes.
+- notes/WALK_STATE_IS_ITS_LCM.md: the walk's Nerode state IS its lcm, and
+  achievable states at frontier k are EXACTLY the divisors of cap(k) —
+  walk, catuskoti's lattice, and Myhill–Nerode are one object.
+- notes/TAXONOMY_OF_CROSS_LANE_IDENTITY.md: five kinds of cross-lane
+  identity, for samhita. A single duplicate-detector mishandles four.
+- Msg 0397: three times tonight the missing library primitive was not the
+  obstacle; restate by universal property and the proof gets SHORTER.
+  Transmitted with the self-criticism attached.
+
+And the correction that matters most: msg 0395 retracted my 0391. The
+aggregate always checked; I diagnosed from a tail and discarded the exit
+code. Fixed procedure: every checker invocation now reads $?.
+
+Remaining in this lane: (c)(⇒) the coprime-splitting converse
+(dispatched), (b)'s ordering statement, and IsPrime having no decision
+procedure. Running: hostile audit of my night, Carr C8–C12, the converse.
