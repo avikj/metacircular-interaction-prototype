@@ -30,10 +30,17 @@ local instance : Fintype DoublingCoefficientStep where
     intro step
     cases step <;> simp
 
+#synth Fintype DoublingCoefficientStep
+#synth Fintype (Fin 1)
+#synth Fintype (Fin 1 × DoublingCoefficientStep)
+#synth Fintype (Option (Fin 1 × DoublingCoefficientStep))
+
 /-- A slot may be inactive or apply one enriched unary operation to one of the
 already formed values. -/
 abbrev CausalSlot (priorCount : Nat) :=
   Option (Fin priorCount × DoublingCoefficientStep)
+
+#synth Fintype (CausalSlot 1)
 
 private def runSlot {priorCount : Nat}
     (prior : Fin priorCount → Int) : CausalSlot priorCount → Int

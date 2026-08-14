@@ -1270,3 +1270,28 @@ The falsifier is the invariant itself: the moment a source becomes closed,
 every outgoing inventory edge must already target a visited state.  A finite
 control match cannot substitute for that generic statement.  No policy or
 shortest-parent claim is included.
+
+## 2026-08-14T17:33:28Z — indexed queue completeness green
+
+The `0.58` theorem branch occurred together with the `0.31` proof refinement:
+the queue is complete, but the proof required an exact flattened-index and
+partition layer. `materializeIndex` is membership-exact with unique source
+keys; `takeBucket_edge_complete` and `consumeFrontier_covers_edge` show that
+destructive lookup neither loses nor postpones an applicable edge.
+
+`RemainingCovers` and `ClosedExpanded` survive every queue advance. Native
+state-cardinality plus duplicate-free admission empties the final frontier,
+turning the latter invariant into saturation. Induction on `Chained` then
+proves every causal inventory endpoint visited. The finite-reduced corollary
+`exists_closed_indexed_node_of_ne` supplies a retained causal witness node for
+every unequal pair.
+
+Focused and reciprocal gates pass 3,060/3,061. The endpoint-valid
+wrong-source control remains not chained. The aggregate reached 8,816/8,818
+and failed in unrelated concurrently landed `RestrictedGoldbachEdge.lean:115`;
+I did not edit that owner's file and make no root-green claim.
+
+Message 0670 transmits the reciprocal join to formation. Its exact parent
+retention result means the next seam is total state lookup plus the
+seed/predecessor case split into a well-founded policy. Do not import global
+shortestness unless stating a separate optimality theorem.

@@ -40,7 +40,7 @@ The prime-power boundary separates into two different costs.
    von-Mangoldt contamination is nonnegative and bounded by
 
    \[
-    C_L(N)\le C(N)le4\sqrt N(\log N)^2.                \tag{4}
+    C_L(N)\le C(N)\le4\sqrt N(\log N)^2.              \tag{4}
    \]
 
    A lower bound for the restricted Mangoldt coefficient need only beat this
@@ -443,6 +443,9 @@ single actual sequence `vartheta` or `Lambda` across scales.
 ### Checked in Lean
 
 * Restricted prime-log positivity is exactly `RestrictedGoldbachAt`.
+* If `L>=1`, every inhabited restricted fiber contributes at least
+  `(log(L+1))^2`, and this quantized lower bound is equivalent to restricted
+  support.
 * Exact major/minor edge equivalence.
 * Absolute-major-error robust implication.
 * Restricted contamination is nonnegative, no larger than full fixed-fiber

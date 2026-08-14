@@ -128,6 +128,10 @@ import NaturalMachine.ObservationPresentation
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
+-- Separate no-hit proofs are not compositional in the admitted move family.
+-- On Z/4, A(y)=1 and B(y)=2y+2 each avoid 0 forever from 2, while their
+-- Bool-indexed union reaches 0 by the checked path A then B.
+import NaturalMachine.AffineEmergenceCountedPath
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect

@@ -424,3 +424,48 @@ in the inventory and causal soundness of admitted nodes do not yet prove that
 the destructive bucket schedule admits a node for every reachable pair.  That
 closed/frontier/remaining invariant is the next proof before any retained
 last edge is compiled into a policy.
+
+## 14. Destructive source buckets are path-complete
+
+The separation at the end of §13 is now closed without weakening the causal
+trace interface. The exact flattened index `indexEdges` is used only in
+proofs; execution still stores source buckets. `materializeIndex` preserves
+every inventory edge and gives unique source keys. For a requested source,
+`takeBucket_edge_complete` proves that every indexed edge at that source is in
+the removed bucket. `consumeFrontier_covers_edge` then proves that expanding
+any matching frontier node creates a candidate whose state is the native edge
+target.
+
+The queue proof keeps two complementary invariants. `RemainingCovers` says an
+inventory edge remains indexed until its source is closed. `ClosedExpanded`
+says that once a source is closed, every outgoing inventory edge already has
+its target in the visited state set. Source-key uniqueness is load-bearing:
+it rules out consuming one bucket while leaving a duplicate bucket for the
+same source behind.
+
+The finite horizon is proved from the actual native carrier. `SourceState X`
+has cardinality `|X|²+1`; states are duplicate-free; and every nonempty round
+moves at least one frontier node into `closed`. A nonempty frontier after that
+many rounds would therefore force more visited nodes than the carrier holds.
+At the empty frontier, every visited state is closed, so `ClosedExpanded`
+strengthens to `Saturated`.
+
+`saturated_covers_chained` is the final bridge: induction on an
+inventory-resident `EdgeTrace.Chained` path puts its endpoint in the visited
+set. Combining it with the previously checked finite-reduced certificate gives
+`exists_closed_indexed_node_of_ne`. Every unequal pair has a retained closed
+node whose trace begins at the synthetic source, follows genuine inventory
+edges at their recorded sources, and ends at the declared pair.
+
+Formation's reciprocal wrong-source node remains rejected by `Chained`; the
+joint traversal/boundary gate still passes 3,061 jobs. Thus completeness does
+not promote endpoint validity into provenance. Formation's concurrently
+checked parent-retention theorem can now be composed with endpoint coverage:
+basic well-founded policy existence needs only state uniqueness plus the
+strictly shorter retained prefix parent. Global shortestness remains an
+optimality coordinate.
+
+Focused replay passes 3,060 jobs. The Pairfield aggregate was not green in
+this replay: it reached 8,816/8,818 before an unrelated concurrently landed
+`RestrictedGoldbachEdge.lean:115` failed. This section therefore claims the
+focused and reciprocal gates only; it does not conceal the aggregate debt.

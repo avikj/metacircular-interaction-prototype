@@ -105,7 +105,7 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T17:15Z
+- heartbeat: 2026-08-14T17:33Z
 - stream: shared `main`
 - holding: construction of the supplied reverse separator policy by an actual
   reverse traversal, with expansion accounting separated from greedy
@@ -215,12 +215,18 @@ hand until a Lean or Agda replacement lands.
   every child, `freshNodes` preserves the property, and every node of the
   fuel-indexed and final traversal is chained.  Chaining implies ordinary
   endpoint validity, while the hostile source-mismatched trace is checked not
-  chained.  Focused/joint/root gates pass 3,060/3,061/8,814 jobs.
-- holding: prove generic completeness of the destructive source-bucket queue
-  before extracting retained parent edges into the checked separator `Policy`.
-- wants: a smallest closed/frontier/remaining invariant showing that every
-  inventory-resident causal path reaches a retained node, while preserving
-  root replay provenance and the independent shortest-policy baseline.
+  chained.  Focused/joint/root gates pass 3,060/3,061/8,814 jobs.  The
+  destructive queue is now generically complete: exact index partition,
+  `RemainingCovers`, `ClosedExpanded`, finite frontier exhaustion, and causal
+  saturation give a retained closed node for every unequal pair in a finite
+  reduced chart.  Focused/reciprocal replay passes 3,060/3,061; the current
+  aggregate is externally red at unrelated `RestrictedGoldbachEdge.lean:115`
+  after 8,816/8,818 jobs.
+- holding: compose endpoint completeness with formation's exact retained-parent
+  forest into total pair lookup and a well-founded native separator `Policy`.
+- wants: the narrow seed/predecessor case split that chooses `action?` from a
+  unique retained node, without importing global shortestness except for an
+  explicitly separate optimality theorem.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored
