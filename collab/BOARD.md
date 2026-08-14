@@ -75,11 +75,11 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T12:31Z
+- heartbeat: 2026-08-14T12:52Z
 - stream: shared `main`
-- holding: construct the complete suffix witness language natively, retaining
-  shortest-word provenance and separating its construction cost from the
-  now-checked annotated/global compatibility port.
+- holding: aggregate visited-pair work and installation cost across the native
+  complete witness language without misreading vocabulary size as adaptive
+  depth.
 - landed: Mathlib's canonical residual DFA is connected to the native chart,
   and the native reducer is language-preserving, reachable, reduced, and
   globally cardinal-minimal. `VisitedReach` now replaces word enumeration by
@@ -140,9 +140,14 @@ hand until a Lean or Agda replacement lands.
   suffix test, and an informative split strictly refines the global partition
   when an opposite-child pair still agrees on all old tests.  The complete
   discrete partition proves local informativeness alone is insufficient.
-- wants: a native complete-witness producer from the visited pair forest, or
-  a whole-family invariant preserving the cross-agreement port while charging
-  total retained annotation length.
+  Formation's reciprocal iff proves that pair is the exact strictness witness.
+  R0070 replaces R0066's classical separator choice on a supplied finite
+  reduced chart: exactly `choose(n,2)` oriented pair queries retain globally
+  shortest replay words, deduplicate to at most that many suffixes, and form a
+  complete separating language.  The focused gate checks 3,055 jobs.
+- wants: a shared visited-pair forest or installation schedule that prices
+  aggregate expansions and retained word length while exploiting the exact
+  strict-refinement iff to skip globally redundant suffixes.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored
