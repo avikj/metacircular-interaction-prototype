@@ -1,62 +1,68 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- The converse arithmetic fact needed to turn
--- NaturalMachine.WalkForcing.leastNonDivisor-no-coprime-split into the
--- direction (⇒) of notes/WALK_INSTALLS_ARE_JUMPS.md §(c).
+-- Direction (⇒) of notes/WALK_INSTALLS_ARE_JUMPS.md §(c), CLOSED.
 --
--- WalkForcing proves: a least non-divisor admits NO proper coprime
--- splitting.  To read that as "a least non-divisor is a prime power" one
--- needs the converse: everything that is not a prime power DOES admit a
--- proper coprime splitting.
+-- NaturalMachine.WalkForcing proves that a least non-divisor admits NO
+-- proper coprime splitting.  Reading that as "a least non-divisor is a
+-- prime power" needs the converse arithmetic fact, which is what this
+-- file supplies.
 --
--- FORM PROVED: (A) of the brief, the positive form, which needs no
--- negative hypothesis and no definition of "not a prime power":
+-- WHAT IS PROVED.
 --
---     if p ≠ r are primes both dividing n > 0, then n admits a proper
---     coprime splitting  n = a·b, gcd a b = 1, 1 < a, 1 < b.
+--   (A) `two-primes→coprime-split` -- the brief's recommended target, in
+--       its positive form, needing no negative hypothesis and no
+--       definition of "not a prime power":
 --
---   `two-primes→coprime-split`.  The splitting is explicit: a = p^e is
---   the full p-part of n and b = n/p^e its p-free part, both produced by
---   `NaturalMachine.WalkJumps.strip` (fuel recursion whose case split is
---   `prime-alt`, so no decidable divisibility is used anywhere -- exactly
---   the technique the brief asked to be reused rather than reinvented).
+--         p ≠ r primes, both dividing n > 0
+--           ⟹  n = a·b with gcd a b = 1 and 1 < a, 1 < b.
 --
--- Composed with WalkForcing this gives the payoff theorem
+--       The splitting is explicit: a = p^e is the full p-part of n and
+--       b its p-free cofactor, both produced by
+--       `NaturalMachine.WalkJumps.strip` -- the fuel recursion whose case
+--       split is `prime-alt`, so no valuation function and no decidable
+--       divisibility enters here (the technique the brief asked to be
+--       reused rather than reinvented).
 --
---     `leastNonDivisor-prime-divisors-agree`:
---     any two prime divisors of a least non-divisor are EQUAL.
+--   (C) `leastNonDivisor-isPrimePower` -- the full form, which turned out
+--       to be reachable after all:
 --
---   which is the prime-power property of a least non-divisor in the only
---   form statable without a factorisation existence theorem (see scope).
+--         q > 1 a least non-divisor of L  ⟹  q = p^a, p prime, a ≥ 1.
 --
--- Form (C) is also recorded, but only in its cheap half: `IsPrimePower`
--- is defined and `two-primes→¬prime-power` shows two distinct prime
--- divisors really do refute prime-power-ness, so the hypothesis of form
--- (A) is genuinely the negation of the form-(C) hypothesis, not a
--- weakening of it.
+--       The missing ingredient was the EXISTENCE of a prime divisor of an
+--       arbitrary n > 1.  That needs `Dec (d ∣ n)`, which cubical v0.5
+--       does not provide -- but it is derivable in ten lines from
+--       `Cubical.Data.Nat.Mod` (`≡remainder+quotient` one way,
+--       `zero-charac-gen` the other), and `dec∣` below does so.  With it,
+--       a bounded search (`searchDiv`) plus a fuel recursion
+--       (`primeDivisor`) give the prime divisor, and the argument closes:
+--       strip q at p, and if the p-free cofactor u exceeded 1 it would
+--       carry a second prime r ≠ p, hence a coprime splitting of q,
+--       contradicting WalkForcing.  So u = 1 and q = p^e.
 --
--- WHAT REMAINS OPEN, precisely.
+--   Also recorded: `leastNonDivisor-prime-divisors-agree` (any two prime
+--   divisors of a least non-divisor are equal -- the weaker statement
+--   that needs no prime-divisor existence) and
+--   `two-primes→¬prime-power` (two distinct prime divisors really do
+--   refute prime-power-ness, so form (A)'s hypothesis is exactly the
+--   negation of form (C)'s).
 --
---   * Full form (C), "n > 1 not a prime power ⟹ n splits", needs the
---     EXISTENCE of a prime divisor of an arbitrary n > 1 (and then of a
---     second one).  That is the one step this file does not supply, and
---     the obstruction is exactly located: producing a least divisor > 1
---     of n requires DECIDING `d ∣ n` for each candidate d, and cubical
---     v0.5 has no decidable divisibility (`Cubical.Data.Nat.Divisibility`
---     defines `_∣_` as a propositional truncation and provides no
---     `Dec`).  Everything else here dodges that by taking the prime as
---     GIVEN and case-splitting with `prime-alt` instead of a decision
---     procedure; a prime-divisor existence proof cannot dodge it, since
---     it has no prime in hand to split on.  (A route exists -- transport
---     `d ∣ n` across `n % d ≡ 0` using the library's `_%_` and
---     `discreteℕ` -- but the specification lemmas for `%` needed to close
---     it are not in v0.5's Divisibility module and were not attempted
---     here.)
---   * Consequently "a least non-divisor IS p^a for some prime p and
---     a ≥ 1" is still not a checked term: what is checked is that it has
---     at most one prime divisor.
---   * §(b) of the note (the walk installs exactly the jump points) is
---     untouched, as before.
+-- WHAT REMAINS OPEN.
+--
+--   * The other direction of §(c), (⇐), is NaturalMachine.WalkJumps
+--     (`prime-power-not-covered`), already checked.  Together with this
+--     file, §(c) is now closed in both directions -- but note the two
+--     halves are phrased against different objects: WalkJumps works with
+--     `IsLCM (range1 n)` and this file with `LeastNonDivisor`, and the
+--     bridge between them (that the walk's least non-divisor of cap(k) is
+--     the frontier's jump point) is §(b) of the note, which is still not
+--     formalised.  Composing the two into the single statement "the
+--     installs are exactly the prime powers in increasing order" requires
+--     that bridge.
+--   * No decision procedure for PRIMALITY is provided; `dec∣` decides
+--     divisibility only.  `primeDivisor` produces a prime together with
+--     its primality proof, which is all that is needed here.
+--   * `searchDiv` and `primeDivisor` are linear searches with fuel; they
+--     are proofs, not algorithms, and nothing here claims otherwise.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
 -- No postulates, no holes.
@@ -68,10 +74,11 @@ open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order
 open import Cubical.Data.Nat.Divisibility
 open import Cubical.Data.Nat.GCD
+open import Cubical.Data.Nat.Mod
 open import Cubical.Data.Sigma
 open import Cubical.Data.Sum
 open import Cubical.Data.Empty as Empty using (⊥)
-open import Cubical.Relation.Nullary using (¬_; yes; no)
+open import Cubical.Relation.Nullary using (¬_; Dec; yes; no)
 
 open import NaturalMachine.WalkForcing
   using (ProperCoprimeSplit; LeastNonDivisor;
@@ -84,7 +91,7 @@ open import NaturalMachine.WalkJumps
 -- Coprimality lemmas (gcd-side throughout; no Bezout, no valuations)
 ------------------------------------------------------------------------
 
--- coprimality restricts along divisors of either argument
+-- coprimality restricts along divisors of the second argument
 coprime-∣ʳ : (a c d : ℕ) → isGCD a c 1 → d ∣ c → isGCD a d 1
 coprime-∣ʳ a c d g d∣c =
   (∣-oneˡ a , ∣-oneˡ d) , least
@@ -93,8 +100,8 @@ coprime-∣ʳ a c d g d∣c =
   least d' cd = g .snd d' (cd .fst , ∣-trans (cd .snd) d∣c)
 
 -- coprimality is multiplicative in the first argument.  Proof: a common
--- divisor d of a·b and c is coprime to a (it divides c), hence divides b
--- by `coprime-cancel`; but it is coprime to b too, so it divides 1.
+-- divisor d of a·b and c is coprime to a (because it divides c), hence
+-- divides b by `coprime-cancel`; but it is coprime to b too, so d ∣ 1.
 coprime-·ˡ : (a b c : ℕ) → isGCD a c 1 → isGCD b c 1 → isGCD (a · b) c 1
 coprime-·ˡ a b c ga gb =
   (∣-oneˡ (a · b) , ∣-oneˡ c) , least
@@ -106,7 +113,7 @@ coprime-·ˡ a b c ga gb =
     d∣b = coprime-cancel d a b
             (symGCD (coprime-∣ʳ a c d ga (cd .snd))) (cd .fst)
 
--- hence a power of p is coprime to anything p is coprime to
+-- hence a power of p is coprime to whatever p is coprime to
 coprime-^ˡ : (p u : ℕ) → isGCD p u 1 → (e : ℕ) → isGCD (p ^ e) u 1
 coprime-^ˡ p u g zero    = symGCD (oneGCD u)
 coprime-^ˡ p u g (suc e) = coprime-·ˡ p (p ^ e) u g (coprime-^ˡ p u g e)
@@ -130,7 +137,7 @@ pos-≢1→1< (suc zero)    0<u h = Empty.rec (h refl)
 pos-≢1→1< (suc (suc u)) 0<u h = suc-≤-suc (suc-≤-suc zero-≤)
 
 ------------------------------------------------------------------------
--- THE THEOREM (form (A)): two distinct prime divisors force a proper
+-- THE THEOREM, form (A): two distinct prime divisors force a proper
 -- coprime splitting
 ------------------------------------------------------------------------
 
@@ -169,7 +176,7 @@ two-primes→coprime-split n p r 0<n pp pr p≢r p∣n r∣n =
   cop : isGCD (p ^ e) u 1
   cop = coprime-^ˡ p u gpu e
 
-  -- p divides the p-part (it divides n = p^e · u but not u)
+  -- p divides the p-part: it divides n = p^e · u, but not u
   p∣pe : p ∣ (p ^ e)
   p∣pe with prime-∣-· p (p ^ e) u pp (subst (p ∣_) (sym peu) p∣n)
   ... | inl h = h
@@ -194,14 +201,12 @@ two-primes→coprime-split n p r 0<n pp pr p≢r p∣n r∣n =
   1<u = pos-≢1→1< u 0<u u≢1
 
 ------------------------------------------------------------------------
--- PAYOFF: composed with WalkForcing
+-- Composed with WalkForcing: prime divisors of an install coincide
 ------------------------------------------------------------------------
 
--- A least non-divisor has AT MOST ONE prime divisor.  This is the
--- prime-power property of the walk's installs, in the strongest form
--- available without a prime-divisor existence theorem: WalkForcing says
--- such a q admits no proper coprime splitting, and the theorem above
--- says two distinct prime divisors would produce one.
+-- A least non-divisor has AT MOST ONE prime divisor.  WalkForcing says
+-- such a q admits no proper coprime splitting; the theorem above says
+-- two distinct prime divisors would produce one.
 leastNonDivisor-prime-divisors-agree :
   (L q : ℕ) → 0 < q → LeastNonDivisor L q →
   (p r : ℕ) → IsPrime p → IsPrime r → p ∣ q → r ∣ q →
@@ -214,17 +219,17 @@ leastNonDivisor-prime-divisors-agree L q 0<q lnd p r pp pr p∣q r∣q
                   (two-primes→coprime-split q p r 0<q pp pr p≢r p∣q r∣q))
 
 ------------------------------------------------------------------------
--- Form (C), the half that is cheap: two distinct prime divisors really
--- do refute prime-power-ness
+-- Prime powers, and the cheap half of form (C)
 ------------------------------------------------------------------------
 
 IsPrimePower : ℕ → Type
-IsPrimePower n = Σ[ p ∈ ℕ ] Σ[ a ∈ ℕ ] (IsPrime p × ((p ^ a) ≡ n))
+IsPrimePower n =
+  Σ[ p ∈ ℕ ] Σ[ a ∈ ℕ ] (IsPrime p × (0 < a) × ((p ^ a) ≡ n))
 
 two-primes→¬prime-power :
   (n p r : ℕ) → IsPrime p → IsPrime r → ¬ (p ≡ r) →
   p ∣ n → r ∣ n → ¬ (IsPrimePower n)
-two-primes→¬prime-power n p r pp pr p≢r p∣n r∣n (s , a , ps , sa≡n) =
+two-primes→¬prime-power n p r pp pr p≢r p∣n r∣n (s , a , ps , _ , sa≡n) =
   p≢r (p≡s ∙ sym r≡s)
   where
   p≡s : p ≡ s
@@ -235,18 +240,162 @@ two-primes→¬prime-power n p r pp pr p≢r p∣n r∣n (s , a , ps , sa≡n) =
   r≡s = prime-∣-prime r s pr ps
           (prime-∣-^ r s a pr (subst (r ∣_) (sym sa≡n) r∣n))
 
--- Hence, for a least non-divisor q > 0 with two prime divisors: the
--- hypothesis of form (A) and the negated hypothesis of form (C) coincide
--- on q, and both are impossible.  (Stated as the contrapositive so that
--- no existence theorem is needed.)
-leastNonDivisor-two-primes-absurd :
-  (L q : ℕ) → 0 < q → LeastNonDivisor L q →
-  (p r : ℕ) → IsPrime p → IsPrime r → ¬ (p ≡ r) → p ∣ q → r ∣ q → ⊥
-leastNonDivisor-two-primes-absurd L q 0<q lnd p r pp pr p≢r p∣q r∣q =
-  p≢r (leastNonDivisor-prime-divisors-agree L q 0<q lnd p r pp pr p∣q r∣q)
+------------------------------------------------------------------------
+-- Decidable divisibility (absent from cubical v0.5, derivable from Mod)
+------------------------------------------------------------------------
+
+-- `Cubical.Data.Nat.Divisibility` defines _∣_ as a propositional
+-- truncation and supplies no decision procedure; `Cubical.Data.Nat.Mod`
+-- supplies the two halves of the specification of _mod_ needed to build
+-- one.  This is the only place in the file where divisibility is decided,
+-- and it is needed only to FIND a prime divisor: everything downstream of
+-- a given prime uses `prime-alt` instead.
+∣-from-mod : (d n : ℕ) → (n mod (suc d)) ≡ 0 → (suc d) ∣ n
+∣-from-mod d n r≡0 = subst ((suc d) ∣_) qeq (∣-left (quotient n / suc d))
+  where
+  qeq : (suc d) · (quotient n / suc d) ≡ n
+  qeq = cong (_+ ((suc d) · (quotient n / suc d))) (sym r≡0)
+       ∙ ≡remainder+quotient (suc d) n
+
+mod-from-∣ : (d n : ℕ) → (suc d) ∣ n → (n mod (suc d)) ≡ 0
+mod-from-∣ d n h =
+  cong (_mod (suc d)) (sym (∣-untrunc h .snd))
+  ∙ zero-charac-gen (suc d) (∣-untrunc h .fst)
+
+dec∣ : (d n : ℕ) → 0 < d → Dec (d ∣ n)
+dec∣ zero    n 0<d = Empty.rec (¬-<-zero 0<d)
+dec∣ (suc d) n _   with discreteℕ (n mod (suc d)) 0
+... | yes r≡0 = yes (∣-from-mod d n r≡0)
+... | no  r≢0 = no (λ h → r≢0 (mod-from-∣ d n h))
 
 ------------------------------------------------------------------------
--- The theorem fired on a concrete number
+-- Existence of a prime divisor
+------------------------------------------------------------------------
+
+DivBelow : ℕ → ℕ → Type
+DivBelow n k = Σ[ d ∈ ℕ ] ((1 < d) × (d ≤ k) × (d ∣ n))
+
+NoDivBelow : ℕ → ℕ → Type
+NoDivBelow n k = (d : ℕ) → 1 < d → d ≤ k → ¬ (d ∣ n)
+
+extendNoDiv : (n k : ℕ) → NoDivBelow n k → ¬ ((suc k) ∣ n) → NoDivBelow n (suc k)
+extendNoDiv n k none ¬sk d 1<d d≤sk d∣n with ≤-split d≤sk
+... | inl d<sk = none d 1<d (pred-≤-pred d<sk) d∣n
+... | inr d≡sk = ¬sk (subst (_∣ n) d≡sk d∣n)
+
+-- bounded search for a nontrivial divisor ≤ k
+searchDiv : (n k : ℕ) → DivBelow n k ⊎ NoDivBelow n k
+searchDiv n zero =
+  inr (λ d 1<d d≤0 → Empty.rec (¬-<-zero (<≤-trans 1<d d≤0)))
+searchDiv n (suc zero) =
+  inr (λ d 1<d d≤1 → Empty.rec (¬m<m (<≤-trans 1<d d≤1)))
+searchDiv n (suc (suc k)) with searchDiv n (suc k)
+... | inl (d , 1<d , d≤sk , d∣n) = inl (d , 1<d , ≤-suc d≤sk , d∣n)
+... | inr none with dec∣ (suc (suc k)) n (suc-≤-suc zero-≤)
+...   | yes h = inl (suc (suc k) , suc-≤-suc (suc-≤-suc zero-≤) , ≤-refl , h)
+...   | no ¬h = inr (extendNoDiv n (suc k) none ¬h)
+
+-- no nontrivial divisor below n makes n prime
+noDiv→prime : (m : ℕ) → 1 < suc m → NoDivBelow (suc m) m → IsPrime (suc m)
+noDiv→prime m 1<sm none = 1<sm , divs
+  where
+  small : (d : ℕ) → d ∣ suc m → d ≤ m → d ≡ 1
+  small d d∣sm d≤m with splitℕ-≤ 2 d
+  ... | inl 2≤d = Empty.rec (none d 2≤d d≤m d∣sm)
+  ... | inr d<2 = ≤-antisym (pred-≤-pred d<2) (m∣sn→z<m d∣sm)
+
+  divs : (d : ℕ) → d ∣ suc m → (d ≡ 1) ⊎ (d ≡ suc m)
+  divs d d∣sm with ≤-split (m∣sn→m≤sn d∣sm)
+  ... | inl d<sm = inl (small d d∣sm (pred-≤-pred d<sm))
+  ... | inr d≡sm = inr d≡sm
+
+primeDivisor-fuel :
+  (fuel n : ℕ) → 1 < n → n ≤ fuel → Σ[ p ∈ ℕ ] (IsPrime p × (p ∣ n))
+primeDivisor-fuel zero    n       1<n n≤f =
+  Empty.rec (¬-<-zero (<≤-trans 1<n n≤f))
+primeDivisor-fuel (suc f) zero    1<n n≤f = Empty.rec (¬-<-zero 1<n)
+primeDivisor-fuel (suc f) (suc m) 1<n n≤f with searchDiv (suc m) m
+... | inr none = suc m , noDiv→prime m 1<n none , ∣-refl refl
+... | inl (d , 1<d , d≤m , d∣sm) =
+      recur .fst , recur .snd .fst , ∣-trans (recur .snd .snd) d∣sm
+  where
+  recur : Σ[ p ∈ ℕ ] (IsPrime p × (p ∣ d))
+  recur = primeDivisor-fuel f d 1<d (≤-trans d≤m (pred-≤-pred n≤f))
+
+-- EVERY n > 1 HAS A PRIME DIVISOR.
+primeDivisor : (n : ℕ) → 1 < n → Σ[ p ∈ ℕ ] (IsPrime p × (p ∣ n))
+primeDivisor n 1<n = primeDivisor-fuel n n 1<n ≤-refl
+
+------------------------------------------------------------------------
+-- THE THEOREM, form (C): a least non-divisor IS a prime power
+------------------------------------------------------------------------
+
+^-exp-pos : (p e q : ℕ) → 1 < q → (p ^ e) ≡ q → 0 < e
+^-exp-pos p zero    q 1<q pe≡q = Empty.rec (¬m<m (subst (1 <_) (sym pe≡q) 1<q))
+^-exp-pos p (suc e) q 1<q pe≡q = suc-≤-suc zero-≤
+
+-- Direction (⇒) of WALK_INSTALLS_ARE_JUMPS §(c), in full.  Take a prime
+-- divisor p of q and strip q at p, q = p^e · u with p ∤ u.  If u were
+-- > 1 it would have a prime divisor r, necessarily ≠ p, and then q would
+-- have two distinct prime divisors, hence a proper coprime splitting —
+-- which WalkForcing forbids.  So u = 1 and q = p^e.
+leastNonDivisor-isPrimePower :
+  (L q : ℕ) → 1 < q → LeastNonDivisor L q → IsPrimePower q
+leastNonDivisor-isPrimePower L q 1<q lnd =
+  p , e , pp , ^-exp-pos p e q 1<q pe≡q , pe≡q
+  where
+  0<q : 0 < q
+  0<q = <-trans (suc-≤-suc zero-≤) 1<q
+
+  pd : Σ[ p ∈ ℕ ] (IsPrime p × (p ∣ q))
+  pd = primeDivisor q 1<q
+
+  p    = pd .fst
+  pp   = pd .snd .fst
+  p∣q  = pd .snd .snd
+
+  st : Strip p q
+  st = strip p pp q q 0<q ≤-refl
+
+  e     = st .fst
+  u     = st .snd .fst
+  0<u   = st .snd .snd .fst
+
+  peu : ((p ^ e) · u) ≡ q
+  peu = st .snd .snd .snd .fst
+
+  ¬p∣u : ¬ (p ∣ u)
+  ¬p∣u = st .snd .snd .snd .snd
+
+  u∣q : u ∣ q
+  u∣q = subst (u ∣_) peu (∣-right (p ^ e))
+
+  -- if u > 1 it carries a second prime, and q splits
+  u≡1 : u ≡ 1
+  u≡1 with discreteℕ u 1
+  ... | yes h = h
+  ... | no  h =
+        Empty.rec (leastNonDivisor-no-coprime-split L q lnd
+          (two-primes→coprime-split q p r 0<q pp pr p≢r p∣q
+            (∣-trans r∣u u∣q)))
+    where
+    rd : Σ[ p' ∈ ℕ ] (IsPrime p' × (p' ∣ u))
+    rd = primeDivisor u (pos-≢1→1< u 0<u h)
+
+    r    = rd .fst
+    pr   = rd .snd .fst
+    r∣u  = rd .snd .snd
+
+    p≢r : ¬ (p ≡ r)
+    p≢r p≡r = ¬p∣u (subst (_∣ u) (sym p≡r) r∣u)
+
+  pe≡q : (p ^ e) ≡ q
+  pe≡q = sym (·-identityʳ (p ^ e))
+         ∙ sym (cong ((p ^ e) ·_) u≡1)
+         ∙ peu
+
+------------------------------------------------------------------------
+-- The theorems fired on concrete numbers
 ------------------------------------------------------------------------
 
 2≢3 : ¬ (2 ≡ 3)
@@ -255,19 +404,18 @@ leastNonDivisor-two-primes-absurd L q 0<q lnd p r pp pr p≢r p∣q r∣q =
 0<6 : 0 < 6
 0<6 = suc-≤-suc zero-≤
 
--- 6 = 2 · 3 splits properly and coprimely.  (Stated existentially: the
--- content is that the construction runs, not any particular numeral.)
+-- 6 = 2 · 3 splits properly and coprimely.
 split-6 : ProperCoprimeSplit 6
 split-6 =
   two-primes→coprime-split 6 2 3 0<6 isPrime2 isPrime3 2≢3
     (∣-left 3) (∣-right 2)
 
--- …and therefore 6 is never a least non-divisor of anything.
+-- …hence 6 is never a least non-divisor: the walk never installs it.
 6-not-least-non-divisor : (L : ℕ) → ¬ (LeastNonDivisor L 6)
 6-not-least-non-divisor L lnd =
   leastNonDivisor-no-coprime-split L 6 lnd split-6
 
--- 6 is not a prime power, by the form-(C) corollary.
+-- …and 6 is not a prime power, by the form-(C) corollary.
 6-not-prime-power : ¬ (IsPrimePower 6)
 6-not-prime-power =
   two-primes→¬prime-power 6 2 3 isPrime2 isPrime3 2≢3 (∣-left 3) (∣-right 2)
