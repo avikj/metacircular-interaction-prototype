@@ -59,7 +59,8 @@ Status vocabulary, and the distinction is the point:
 | 18 | T18.5 dynamic sufficiency, both directions | CHECKED | `defect-zero→semigroup`, `semigroup→defect-zero` |
 | 18 | T18.6 observability kernel = FutureEq | CHECKED | `ExcursionReturn` §2, both directions |
 | 18 | T18.7 charge-one composition | CHECKED (structural half) | `ChargeGrading.no-cancellation` + `shift-comp`; the analytic half (off-sector contributions vanish) is OPEN |
-| 18 | Feshbach/Schur, half-line, Buchstab targets | OPEN | Buchstab is the falsifiable one |
+| 18 | Buchstab target | **FALSIFIED** | `BuchstabDegree`: child selection is a *grading* truncation, not a sector compression, so it is not a T18.4 excursion–return correction. Replacement claim proved |
+| 18 | Feshbach/Schur, half-line targets | OPEN | — |
 | **22** | T22.1 collision divisor, ν_p geometry | NOTE | `SINGULAR_SERIES_LOCAL_FACTOR…` |
 | 22 | admissibility as a rank inequality | NOTE | same |
 | 22 | T22.2 finite-observer impossibility | OPEN | needs infinitude of primes; schema only |
@@ -71,7 +72,12 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 21 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
+**CHECKED 21 · FALSIFIED 1 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
+
+FALSIFIED is a new row in this vocabulary and it is the most valuable one: a
+supplied claim was checked, came back false, and the correct statement was
+proved in its place. Delta 18 flagged exactly one of its targets as falsifiable;
+that is the one that fell.
 
 (Delta 15 §15.6–15.7 and Delta 18 T18.7 landed 2026-08-14 in
 `NaturalMachine/ChargeGrading.agda`; T18.7 counts as PARTIAL because only its
@@ -85,11 +91,17 @@ should be.
 
 ## The three that should go next, and why
 
-1. **Delta 18's Buchstab target.** The only supplied item that can come back
-   *negative*. Everything else on the list is a translation expected to succeed;
-   this one asks whether the least-prime stopped kernel really is an
-   excursion–return correction, and Delta 18 calls it falsifiable. A negative
-   would be worth more than three successful translations.
+1. ~~**Delta 18's Buchstab target.**~~ Run, and it came back **negative**, which
+   is why it was ranked first. `BuchstabDegree.agda`: on the rooted tree the
+   child operator raises the level grading by one and the parent operator lowers
+   it, so "keep only the children" is a degree truncation of the adjacency, not
+   a restriction of it to a subspace — and C15.25 says a level sector is
+   preserved only by degree-zero maps, so for t ≥ 1 there is no sector for the
+   t-step child kernel to be the compression of. The finite witness is
+   `A²r≡2` / `C²r≡0`: the two-step walk returns weight 2 to the root and the
+   two-step child kernel returns 0. Delta 18's phrase
+   "parent/forbidden/order-forgetting sector" merged the excursion–return defect
+   of T18.4 with the grading defect of §15.6; they are different objects.
 2. ~~**Delta 15 §15.6–15.8, charge grading.**~~ Landed: `ChargeGrading.agda`, and
    it did unlock T18.7's structural half as predicted. What remains of §15.8 is
    fixed-charge *coefficient extraction*, which is analytic, not structural.
