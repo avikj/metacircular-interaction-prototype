@@ -108,11 +108,15 @@ theorem log_succ_sq_le_restrictedPrimeLogGoldbachCoeff
       _ ≤ Real.log p * Real.log q :=
         mul_le_mul_of_nonneg_right hlogp hq.log_pos.le
   unfold restrictedPrimeLogGoldbachCoeff
+  have hmem : (p, q) ∈
+      (Finset.HasAntidiagonal.antidiagonal N).filter
+        (fun pair ↦ L < pair.1 ∧ L < pair.2) := by
+    exact Finset.mem_filter.mpr
+      ⟨Finset.HasAntidiagonal.mem_antidiagonal.mpr hsum, hpL, hqL⟩
   exact hterm.trans <| Finset.single_le_sum
     (fun pair _ ↦ mul_nonneg (primeLogWeight_nonneg pair.1)
       (primeLogWeight_nonneg pair.2))
-    (Finset.mem_filter.mpr
-      ⟨Finset.HasAntidiagonal.mem_antidiagonal.mpr hsum, hpL, hqL⟩)
+    hmem
 
 /-- Above a positive cutoff, the universal prime-log gap is equivalent to
 restricted support because the coefficient is otherwise exactly zero. -/

@@ -546,6 +546,11 @@ import NaturalMachine.S3EquivariantEndomorphismRigidity
 import NaturalMachine.S3IntegerPermutationModule
 import NaturalMachine.S3IntegerRelativeCoordinates
 import NaturalMachine.S3FixedPointCharacter
+-- Factory VI diagonal endpoint compiler: a uniform near-boundary family plus
+-- a certified subcritical scale choice produces an exact unit-boundary state.
+-- The arithmetic family/threshold proof remains an explicit input; no prime
+-- theorem is claimed by this generic compiler.
+import NaturalMachine.DiagonalEndpoint
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

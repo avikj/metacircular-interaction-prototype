@@ -47,7 +47,22 @@ structure AtMostFourFormation where
   second : CausalSlot 2
   third : CausalSlot 3
   fourth : CausalSlot 4
-  deriving DecidableEq, Fintype
+  deriving DecidableEq
+
+private def atMostFourEquiv :
+    AtMostFourFormation ≃
+      CausalSlot 1 × CausalSlot 2 × CausalSlot 3 × CausalSlot 4 where
+  toFun formation :=
+    (formation.first, formation.second, formation.third, formation.fourth)
+  invFun slots :=
+    ⟨slots.1, slots.2.1, slots.2.2.1, slots.2.2.2⟩
+  left_inv := by intro formation; cases formation; rfl
+  right_inv := by intro slots; rcases slots with ⟨a, b, c, d⟩; rfl
+
+local instance : Fintype AtMostFourFormation :=
+  Fintype.ofEquiv
+    (CausalSlot 1 × CausalSlot 2 × CausalSlot 3 × CausalSlot 4)
+    atMostFourEquiv.symm
 
 namespace AtMostFourFormation
 
@@ -55,14 +70,16 @@ def valueOne (formation : AtMostFourFormation) : Int :=
   runSlot (fun _ => 0) formation.first
 
 def valueTwo (formation : AtMostFourFormation) : Int :=
-  runSlot ![0, formation.valueOne] formation.second
+  runSlot (fun parent => [0, formation.valueOne].get parent) formation.second
 
 def valueThree (formation : AtMostFourFormation) : Int :=
-  runSlot ![0, formation.valueOne, formation.valueTwo] formation.third
+  runSlot (fun parent =>
+    [0, formation.valueOne, formation.valueTwo].get parent) formation.third
 
 def valueFour (formation : AtMostFourFormation) : Int :=
-  runSlot ![0, formation.valueOne, formation.valueTwo,
-    formation.valueThree] formation.fourth
+  runSlot (fun parent =>
+    [0, formation.valueOne, formation.valueTwo,
+      formation.valueThree].get parent) formation.fourth
 
 /-- The root and all four slot outputs.  Inactive padding contributes only the
 already available root value zero. -/
@@ -76,9 +93,13 @@ def formsBoth (formation : AtMostFourFormation) : Prop :=
 /-- No causal formation using at most four declared unary operations forms
 both targets.  This decides the complete finite schedule type, not a sampled
 collection of traces. -/
-theorem not_formsBoth (formation : AtMostFourFormation) :
-    ¬ formation.formsBoth := by
+theorem noFormationFormsBoth :
+    ∀ formation : AtMostFourFormation, ¬ formation.formsBoth := by
   native_decide
+
+theorem not_formsBoth (formation : AtMostFourFormation) :
+    ¬ formation.formsBoth :=
+  noFormationFormsBoth formation
 
 end AtMostFourFormation
 
@@ -91,8 +112,9 @@ structure FiveFormation extends AtMostFourFormation where
 namespace FiveFormation
 
 def valueFive (formation : FiveFormation) : Int :=
-  runSlot ![0, formation.valueOne, formation.valueTwo, formation.valueThree,
-    formation.valueFour] formation.fifth
+  runSlot (fun parent =>
+    [0, formation.valueOne, formation.valueTwo, formation.valueThree,
+      formation.valueFour].get parent) formation.fifth
 
 def values (formation : FiveFormation) : Finset Int :=
   insert formation.valueFive formation.toAtMostFourFormation.values
@@ -134,7 +156,7 @@ theorem threeEight_global_causal_minimum :
       threeEightFork.sharedCost = 5 ∧
       (∀ formation : AtMostFourFormation, ¬ formation.formsBoth) := by
   exact ⟨minimalThreeEightFormation_formsBoth, by native_decide,
-    AtMostFourFormation.not_formsBoth⟩
+    AtMostFourFormation.noFormationFormsBoth⟩
 
 end KuttakaDoublingFork
 end Pairfield

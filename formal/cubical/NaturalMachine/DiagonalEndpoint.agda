@@ -16,7 +16,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-trans ; ¬m<m)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
-open import Cubical.Data.Empty using (elim)
+open import Cubical.Data.Empty as Empty using (⊥ ; rec)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 
 record FactorState (m⋆ : ℕ) : Type₀ where
@@ -60,7 +60,7 @@ DiagonalEndpoint F C x with
     (NearFamily.witness F (DiagonalCertificate.choose C x) x
       (DiagonalCertificate.applicable C x))
 ... | inl unit = unit
-... | inr nonunit = elim (¬m<m
+... | inr nonunit = Empty.rec (¬m<m
     (≤-trans (DiagonalCertificate.small C x) nonunit))
 
 -- A small exact control: once a certificate has selected a factor below 2,
@@ -69,4 +69,4 @@ binary-gap-control : {a : ℕ} →
   (a ≡ 1) ⊎ (2 ≤ a) → a < 2 → a ≡ 1
 binary-gap-control gap small with gap
 ... | inl unit = unit
-... | inr nonunit = elim (¬m<m (≤-trans small nonunit))
+... | inr nonunit = Empty.rec (¬m<m (≤-trans small nonunit))
