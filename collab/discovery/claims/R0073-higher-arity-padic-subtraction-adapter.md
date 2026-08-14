@@ -102,8 +102,11 @@ Mathlib's `padicValRat.add_eq_min`; no novelty is claimed.
 
 # Successor seeds
 
-- Lift the numeric identity to an explicitly indexed proper-subset sum theorem
-  for the entire native tuple family.
+- Connect the checked labeled subset valuations to normalized cancellation
+  residuals without erasing the context index.
+- Formalize the separate prefix-chain binary reconstruction theorem for the
+  addition-closed language, preventing the context collision from being read
+  as a language-level arity obstruction.
 - Keep formed-world incidence and minimal sufficient context families outside
   the valuation adapter.
 
