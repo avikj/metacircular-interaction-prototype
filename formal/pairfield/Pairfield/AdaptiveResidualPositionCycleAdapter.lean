@@ -114,6 +114,40 @@ theorem transplantAtEqualFinitePosition_toTree
 
 namespace Control
 
+open AdaptiveConstantResponseSteering
+
+/-- The finite raw prefix cell after R0057's mandatory false-response steer. -/
+noncomputable def steeredRepresentatives : Finset (List (Fin 3)) := by
+  classical
+  exact representatives.image (fun pre => pre ++ [steer])
+
+theorem coe_steeredRepresentatives_eq_advance :
+    (↑steeredRepresentatives : Set (List (Fin 3))) =
+      ResidualCell.advance automaton liveCell steer false := by
+  classical
+  ext next
+  constructor
+  · intro hnext
+    rcases Finset.mem_image.mp hnext with ⟨pre, hpre, rfl⟩
+    exact ⟨pre, hpre, rfl, by
+      exact steer_response_constant pre hpre⟩
+  · rintro ⟨pre, hpre, rfl, _hresponse⟩
+    exact Finset.mem_image.mpr ⟨pre, hpre, rfl⟩
+
+/-- The R0057 hostile control survives the adapter: its mandatory steer moves
+to a genuinely different element of the finite position carrier. -/
+theorem steer_changes_finite_position :
+    cellOfPrefixes automaton representatives ≠
+      cellOfPrefixes automaton steeredRepresentatives := by
+  intro hequal
+  apply AdaptiveResidualCycleDeletionControl.steer_changes_canonical_position
+  change ResidualCell.SamePosition automaton
+    (↑representatives : Set (List (Fin 3)))
+    (ResidualCell.advance automaton liveCell steer false)
+  rw [← coe_steeredRepresentatives_eq_advance]
+  exact (samePosition_iff_cellOfPrefixes_eq automaton
+    representatives steeredRepresentatives).2 hequal
+
 /-- Different native singleton presenters of the one-state loop deliberately
 coalesce to the same finite canonical position. -/
 theorem loop_presenters_coalesce :
