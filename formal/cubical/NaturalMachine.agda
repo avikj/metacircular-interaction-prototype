@@ -218,6 +218,7 @@ import NaturalMachine.DSOFinite
 import NaturalMachine.DSOBellmanFinite
 import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
+import NaturalMachine.SemanticCrystal
 import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct

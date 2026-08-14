@@ -33,8 +33,10 @@ theorem bellman_argmin_witness :
   · intro i hi x hx
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
     rcases hi with rfl | rfl
-    · subst x; simp [witness, routeCost]
-    · subst x; simp [witness, routeCost]
+    · have h : x = false := by simpa [block] using hx
+      rw [h]; simp [routes]
+    · have h : x = true := by simpa [block] using hx
+      rw [h]; simp [routes]
   · intro i hi
     simp only [witness]
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
@@ -42,8 +44,10 @@ theorem bellman_argmin_witness :
   · intro i hi x hx
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi
     rcases hi with rfl | rfl
-    · subst x; simp [routes]
-    · subst x; simp [routes]
+    · have h : x = false := by simpa [block] using hx
+      rw [h]; decide
+    · have h : x = true := by simpa [block] using hx
+      rw [h]; decide
   · simp [routes]
   · intro i hi
     simp only [routes, Finset.mem_insert, Finset.mem_singleton] at hi

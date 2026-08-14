@@ -93,6 +93,7 @@ import Pairfield.EuclidCoefficientTrace
 import Pairfield.EuclidCoefficientForkNoGo
 import Pairfield.EuclidCoefficientCutBound
 import Pairfield.EuclidFiniteTargetFormation
+import Pairfield.EuclidDoublingFork
 import Pairfield.SmithContent
 import Pairfield.CertificateSource
 import Pairfield.RankOneSmith2x2

@@ -107,3 +107,24 @@ Resume: the next honest middle theorem is a signed common-`X` covariance or a
 fixed-prime rigidity theorem excluding the moving hidden character.  Do not
 spend another cycle deriving progression marginals and calling them a mixed
 coefficient lower bound.
+
+## 2026-08-14T17:05:00Z — common-carrier edge pass start
+
+Believe: on the prime-log carrier the exact edge is sharper than the earlier
+von-Mangoldt threshold because there is no prime-power contamination.  A
+positive gap above the *exact* major/minor cancellation wall is probably
+equivalent to a restricted Goldbach witness, while a gap stated against only
+the pole--pole approximation must additionally dominate its signed error.
+
+Doing: audit Pintz's frozen carrier and the current Bhowmik--Grimmelt, Zhao,
+and Matomaki--Merikoski pointwise outputs.  Separate exact-major, approximated-
+major, and mean-square statements.  Derive the smallest robust conditional
+margin, quantify the discrete prime-log gap, and test the declared major
+interface with a common-carrier moving odd character.
+
+Forecast: outcome space {0.48 exact equivalence/robust-error reduction plus a
+scoped common-carrier shadow; 0.28 no unconditional pointwise source and one
+conditional exceptional-zero slice; 0.20 a genuinely weaker inherited
+pointwise edge theorem; 0.04 unconditional all-center progress}.  Any
+exceptional-zero result will keep its parity, conductor-multiple, and range
+quantifiers explicit.
