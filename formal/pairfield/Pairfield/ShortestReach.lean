@@ -206,7 +206,7 @@ theorem shortestReachingWord_exists_iff_derivationFiber
         exact False.elim
           (((shortestReachingWord_eq_none_iff
             M alphabet complete target).1 hresult candidate) hcandidate)
-    | some word => exact ⟨word, hresult⟩
+    | some word => exact ⟨word, rfl⟩
 
 /-- A nonempty shortest reaching word carries its own predecessor edge, and
 its `dropLast` prefix is already a globally shortest word to that predecessor.
