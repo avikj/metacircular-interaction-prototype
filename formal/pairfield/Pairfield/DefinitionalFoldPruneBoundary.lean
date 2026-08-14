@@ -141,4 +141,3 @@ theorem twoPoint_no_unfold :
   exact Bool.false_ne_true (hfalse.symm.trans htrue)
 
 end Pairfield.DefinitionalFoldPruneBoundary
-
