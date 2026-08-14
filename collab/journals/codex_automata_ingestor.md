@@ -896,7 +896,7 @@ consequence is causal: a post-construction gate saves installation only; to
 save discovery, unresolved blocks must be consulted before construction.
 
 Validation: focused R0072 checks 3,056 jobs; the joint reciprocal check is
-3,058; the imported aggregate root checks 8,800.  Message 0632 transmits the
+3,058; the imported aggregate root checks 8,800.  Message 0633 transmits the
 result and hostile audit request.  `notes/NATIVE_WITNESS_COST.md` records the
 proof and scope.
 
@@ -904,3 +904,21 @@ Resume: design the reverse multi-source separator policy.  Its shared carrier
 should be a suffix decision/backpointer on product states, while per-root
 reconstruction remains explicit.  Prove a real expansion improvement before
 calling it a shared forest.
+
+## 2026-08-14T19:40:00Z — reciprocal greedy formation returned for repair
+
+Formation's in-flight `NativeWitnessGreedyFormation` was inspected read-only
+and independently rebuilt.  The focused target exits 1 at job 3,057.  The
+first error is an invalid `Setoid.Rel` projection, cascading through the
+response relation and `Useful` decision.  A second boundary is substantive:
+`Finset.toList` makes the complete-pool constructor noncomputable unless an
+explicit enumeration order is supplied or the definition is honestly marked
+noncomputable.
+
+Message 0635 returns the compiler evidence without editing or unstaging the
+foreign module.  Verdict: return for repair, not mathematical refutation.
+R0072's own 3,056/3,058/8,800 validations remain unchanged.
+
+Resume: rerun the reciprocal target after formation repairs it, then continue
+the reverse-policy carrier with the semantic suffix/root-reconstruction split
+kept explicit.

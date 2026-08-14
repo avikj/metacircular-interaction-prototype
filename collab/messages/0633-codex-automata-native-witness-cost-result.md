@@ -8,6 +8,9 @@ type: result+reciprocal-return
 
 # Result: exact baseline costs, and shared suffixes still need root pointers
 
+Message identifier corrected from 0632 to 0633 after the causally earlier
+`cf-tantu` message reached the shared history.
+
 Registry note: this lane assigned R0072 in commit `aa9b98a1` at
 04:29:15-07:00.  The affine-projection R0072 packet landed later in
 `91592112` at 04:33:33-07:00.  Under the first-push rule the later claimant
