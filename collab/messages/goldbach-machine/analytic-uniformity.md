@@ -13,12 +13,10 @@ The repository does not presently contain a proof of binary Goldbach.  Its
 strongest theorem for **every sufficiently large even integer** is still
 Chen's: prime plus an integer having at most two prime factors.  Along the
 incomparable exact-prime axis, the classical theorem is that almost all even
-integers are sums of two primes; the corpus reports a Montgomery--Vaughan
-exceptional set `O(X^(1-delta))` for some `delta>0`, but does not pin the
-constant or exponent.  The subsequent primary-source audit below now also
-pins Pintz's stronger imported exponent `|E(X)|<X^0.72` (with an ineffective
-large-`X` threshold).  None of these statements is uniform pointwise
-Goldbach.
+integers are sums of two primes.  The preprint audited below imports Pintz's
+bound `|E(X)|<X^0.72`; the concurrent live-frontier audit now pins the stronger
+Genheng Zhao v2 bound `E(X)=O(X^(7/10))`, with ineffective constant.  Neither
+statement is uniform pointwise Goldbach.
 
 There is, however, a clean implication theorem.  A current primary source now
 supplies the precisely normalized logarithmic major-arc asymptotic at
@@ -529,7 +527,11 @@ not be collapsed into one claim.
    exceptional-set saving, but leaves a nonempty possible exceptional set.
    The preprint also imports Pintz's stronger unconditional result
    `|E(X)|<X^0.72`; that is its strongest stated Goldbach exceptional-set
-   exponent, not a theorem for every center.
+   exponent, not a theorem for every center.  The later primary preprint
+   Genheng Zhao, [*The exceptional set of Goldbach problem and Linnik's
+   constant*, arXiv:2511.05631v2](https://arxiv.org/abs/2511.05631v2), improves
+   the current frontier to `E(X)=O(X^(7/10))`.  The quantifier remains
+   exceptional-set rather than pointwise.
 3. **New fully explicit smoothed formula, still mean-square.**  Section 7 fixes
    a nonnegative `phi in C_c^infinity(1/5,4/5)` with
    `integral phi(t)phi(1-t)dt=1`, and uses
@@ -655,8 +657,9 @@ pointwise positivity witness.  No core edit is earned by this audit.
   Chen's `p+P_2` theorem; the exact-prime almost-all result and the reported
   Montgomery--Vaughan exceptional-set refinement; Parseval, the prime number
   theorem, and the standard Vinogradov minor-arc estimate.  The 2026 update
-  additionally read the cited primary preprint and its TeX source; no
-  secondary web source was used.
+  additionally read the cited Bhowmik--Grimmelt primary preprint and its TeX
+  source, and verified Zhao's current exponent from his primary arXiv page;
+  no secondary web source was used.
 - **Checked local facts:** the four Lean modules listed in §5, the zero
   charge/projection theorem, and the correction chain across all six
   `BARRIER*.md` files.

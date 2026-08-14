@@ -3,6 +3,7 @@ import Pairfield.SumRigidity
 import Pairfield.BoundedPrimePair
 import Pairfield.CenterBoundedPrimePair
 import Pairfield.GoldbachBoundary
+import Pairfield.GoldbachWeightedBoundary
 import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity

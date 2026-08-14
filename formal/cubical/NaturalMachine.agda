@@ -357,6 +357,15 @@ import NaturalMachine.LeakageCommutator
 -- observation needs one state; a coherent port reopens the quotient and
 -- retains the phase bit, with both claims connected to exact density matrices.
 import NaturalMachine.PhysicalLearningCore
+-- Interaction-relative facts form a dependent family over loci; comparison
+-- is transport along an explicit interaction path.  The Bool double cover of
+-- S¹ has local facts but no global section, while pulling it back to its
+-- rooted total space supplies a canonical coherent repair.
+import NaturalMachine.RelationalProcessCore
+-- Univalence is the source geometry of that compiled physical state: a phase
+-- symmetry is a nontrivial universe loop, and observation is conserved only
+-- when evaluator and state transport together.
+import NaturalMachine.UnivalentPhysicalProcess
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
