@@ -375,6 +375,10 @@ import NaturalMachine.UnivalentPhysicalProcess
 -- joint sector.  Its exchange is retained as a nontrivial universe path;
 -- admitting a joint interference port reopens exactly the forgotten fibre.
 import NaturalMachine.UnivalentTensorInteraction
+-- The relational S¹ obstruction and the tensor reconstruction obstruction
+-- share the Bool/negation residual but require different diagrams: global
+-- descent versus a quotient retraction.  A bare local choice separates them.
+import NaturalMachine.RelationalTensorObstructionBridge
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

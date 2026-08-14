@@ -17,6 +17,7 @@ module NaturalMachine.AbstractSpinNetworkKinematics where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Foundations.HLevels using (isPropΠ)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Prod using (_×_ ; _,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
@@ -57,7 +58,7 @@ module _ (G : Group ℓg) where
     {A : Action G X} {B : Action G Y} {C : Action G Z}
     → Intertwiner B C → Intertwiner A B → Intertwiner A C
   (h , h-equiv) ∘I (f , f-equiv) =
-    (h ∘ f) , λ g x → h-equiv g (f x) ∙ cong h (f-equiv g x)
+    (λ x → h (f x)) , λ g x → h-equiv g (f x) ∙ cong h (f-equiv g x)
 
   ∘I-idL : {X : Type ℓx} {Y : Type ℓy}
     {A : Action G X} {B : Action G Y} (f : Intertwiner A B)
@@ -124,9 +125,15 @@ module _ (G : Group ℓg) where
     → ⟨ G ⟩ → X → X
   representedHolonomy A = Action._▸_ A
 
+  firstEdge : Refined G → ⟨ G ⟩
+  firstEdge (a , b) = a
+
+  secondEdge : Refined G → ⟨ G ⟩
+  secondEdge (a , b) = b
+
   representedRefinement : {X : Type ℓx} (A : Action G X)
     (edge : Refined G) (x : X)
     → representedHolonomy A (holonomy G edge) x
-      ≡ representedHolonomy A (snd edge)
-          (representedHolonomy A (fst edge) x)
+      ≡ representedHolonomy A (secondEdge edge)
+          (representedHolonomy A (firstEdge edge) x)
   representedRefinement A (a , b) x = Action.▸-· A b a x
