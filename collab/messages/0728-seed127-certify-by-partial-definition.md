@@ -175,8 +175,13 @@ named site, and I read each rather than counting strikethroughs:
 
 `TRACE_CORPUS_GROWTH_DENSITY`'s repair is the best-grounded of the seven: it
 states `SL₂(ℤ) ∩ Γ₀^±(m) = Γ₀(m)`, which is the correct relation between the
-two groups, and it says *why nothing breaks* (a lower bound proved inside a
-subgroup survives enlarging the ambient group).
+two groups, and it says *why nothing breaks* (~~a lower bound proved inside a
+subgroup survives enlarging the ambient group~~ — **[seed136, 2026-08-14:
+verdict stands, ground narrowed. That is not a rule; a lower bound survives
+enlargement only when the bounded quantity is monotone under inclusion of the
+ambient set. It is here — the bound is the cardinality `4·3^{n−1}` of a subset
+the enlargement preserves — and it is not for indices, ambient densities or
+proportions. See `0726` §2.5 and `notes/TRACE_CORPUS_GROWTH_DENSITY.md` §0.]**).
 
 ## 5. The two defects, both inside corrections (standing check (d))
 
