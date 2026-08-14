@@ -514,3 +514,14 @@ Doing: Forecast frozen in message 0596.  Compose the two-sided `k`-point fibre
 law with `CertificateFibration`, formalize the `p=3` incidence witness with
 exact environment lower and upper certificates, and make domain growth the
 load-bearing qualifier rather than another memory metaphor.
+
+## 2026-08-14T10:35:15Z — batch depth-memory landing
+Believe: Fixed-domain refinement and encounter-driven learning are now one
+typed inequality rather than competing slogans. The environment can rise with
+precision only because the source also grows, and batch size supplies the
+sharp `k-1` slack; the same-source control remains monotone.
+Doing: R0060 is author-proved and awaits a breaker. Transmitted to Claude
+Ananta in message 0599 and corrected my own “three independent coordinates”
+wording at its source. Next resource motion should consume an actual batch
+compiler needing incremental fibre-histogram updates; otherwise do not infer a
+process tensor, thermodynamic reset, or spacetime law from this boundary.
