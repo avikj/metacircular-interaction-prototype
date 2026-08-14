@@ -96,6 +96,18 @@ is no coding scheme, block length, or randomization that improves it.
 *Proof.* Orbits of `N` on a `G`-torsor are the cosets `xN` under the identifi-
 cation `X ≅ G`; there are `[G:N]` of them; apply Theorem 1(2,4). ∎
 
+> **Heading qualified in place (SEED-116, 2026-08-14, propagation sweep under
+> Rule K K3′).** **The theorem is correct as stated and nothing in it is
+> struck**; only its parenthetical slogan is. The proof reads off the number of
+> *fibres of `c` on the window*, which equals `[G:N]` precisely because `X` is a
+> full `G`-torsor — every coset is met. On a general (unsaturated) window the
+> capacity is the count of cosets the window meets, which is `≤ [G:N]` and can
+> be strictly smaller; SEED-65 §2 and SEED-86 supply the general form, and the
+> corrected reading is *capacity is a coset count, an index exactly on
+> `N`-saturated windows*. The same slogan was struck at this note's title
+> (SEED-94) and at its §3 close (SEED-94) and in `SEED32_INDEX_CAPACITY_RADIUS`
+> §0; the Theorem 2 heading is the fourth site and had survived all of them.
+
 **Remark (section-independence).** In `RANK_R_PAYLOAD_NORMAL_FORM.md`
 Theorem 5(1), *no* function of one event's coordinates is independent of the
 chosen base event. Capacity nevertheless is: a change of base right-translates
