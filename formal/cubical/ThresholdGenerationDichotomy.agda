@@ -59,7 +59,7 @@ module ThresholdGenerationDichotomy where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit; tt)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥rec)
 open import Cubical.Data.Sum using (_⊎_; inl; inr)
 open import Cubical.Data.Sigma using (Σ-syntax; _,_)
 open import Cubical.Data.Bool using (Bool; true; false; if_then_else_)
@@ -475,3 +475,345 @@ module T4 = Terms _∧₄_ d3 ∧₄-idem ∧₄-comm ∧₄-assoc ∧₄-unit
 ψ-is-meet-of-two-thresholds d1 = refl
 ψ-is-meet-of-two-thresholds d2 = refl
 ψ-is-meet-of-two-thresholds d3 = refl
+
+------------------------------------------------------------------------
+-- 3.  M3, the five-element non-distributive lattice (here `Diam`):
+--     thresholds do NOT generate the admissible modes.
+--
+--     This is the singular case OBLIGATION.md steps around.  Its
+--     Definition 2 declares "for this corpus S is a product of chains" and
+--     then never uses that hypothesis: Theorems O1-O6 need only a finite
+--     meet-semilattice.  Section 3 below shows the hypothesis is exactly
+--     what the mode-vocabulary question consumes.
+------------------------------------------------------------------------
+
+data Diam : Type where
+  dbot da db dc dtop : Diam
+
+_∧ᴰ_ : Diam → Diam → Diam
+dbot ∧ᴰ _    = dbot
+da   ∧ᴰ dbot = dbot
+da   ∧ᴰ da   = da
+da   ∧ᴰ db   = dbot
+da   ∧ᴰ dc   = dbot
+da   ∧ᴰ dtop = da
+db   ∧ᴰ dbot = dbot
+db   ∧ᴰ da   = dbot
+db   ∧ᴰ db   = db
+db   ∧ᴰ dc   = dbot
+db   ∧ᴰ dtop = db
+dc   ∧ᴰ dbot = dbot
+dc   ∧ᴰ da   = dbot
+dc   ∧ᴰ db   = dbot
+dc   ∧ᴰ dc   = dc
+dc   ∧ᴰ dtop = dc
+dtop ∧ᴰ y    = y
+
+∧ᴰ-idem : (a : Diam) → a ∧ᴰ a ≡ a
+∧ᴰ-idem dbot = refl
+∧ᴰ-idem da   = refl
+∧ᴰ-idem db   = refl
+∧ᴰ-idem dc   = refl
+∧ᴰ-idem dtop = refl
+
+∧ᴰ-unit : (a : Diam) → dtop ∧ᴰ a ≡ a
+∧ᴰ-unit _ = refl
+
+∧ᴰ-comm : (a b : Diam) → a ∧ᴰ b ≡ b ∧ᴰ a
+∧ᴰ-comm dbot dbot = refl
+∧ᴰ-comm dbot da = refl
+∧ᴰ-comm dbot db = refl
+∧ᴰ-comm dbot dc = refl
+∧ᴰ-comm dbot dtop = refl
+∧ᴰ-comm da dbot = refl
+∧ᴰ-comm da da = refl
+∧ᴰ-comm da db = refl
+∧ᴰ-comm da dc = refl
+∧ᴰ-comm da dtop = refl
+∧ᴰ-comm db dbot = refl
+∧ᴰ-comm db da = refl
+∧ᴰ-comm db db = refl
+∧ᴰ-comm db dc = refl
+∧ᴰ-comm db dtop = refl
+∧ᴰ-comm dc dbot = refl
+∧ᴰ-comm dc da = refl
+∧ᴰ-comm dc db = refl
+∧ᴰ-comm dc dc = refl
+∧ᴰ-comm dc dtop = refl
+∧ᴰ-comm dtop dbot = refl
+∧ᴰ-comm dtop da = refl
+∧ᴰ-comm dtop db = refl
+∧ᴰ-comm dtop dc = refl
+∧ᴰ-comm dtop dtop = refl
+
+∧ᴰ-assoc : (a b c : Diam) → (a ∧ᴰ b) ∧ᴰ c ≡ a ∧ᴰ (b ∧ᴰ c)
+∧ᴰ-assoc dbot dbot dbot = refl
+∧ᴰ-assoc dbot dbot da = refl
+∧ᴰ-assoc dbot dbot db = refl
+∧ᴰ-assoc dbot dbot dc = refl
+∧ᴰ-assoc dbot dbot dtop = refl
+∧ᴰ-assoc dbot da dbot = refl
+∧ᴰ-assoc dbot da da = refl
+∧ᴰ-assoc dbot da db = refl
+∧ᴰ-assoc dbot da dc = refl
+∧ᴰ-assoc dbot da dtop = refl
+∧ᴰ-assoc dbot db dbot = refl
+∧ᴰ-assoc dbot db da = refl
+∧ᴰ-assoc dbot db db = refl
+∧ᴰ-assoc dbot db dc = refl
+∧ᴰ-assoc dbot db dtop = refl
+∧ᴰ-assoc dbot dc dbot = refl
+∧ᴰ-assoc dbot dc da = refl
+∧ᴰ-assoc dbot dc db = refl
+∧ᴰ-assoc dbot dc dc = refl
+∧ᴰ-assoc dbot dc dtop = refl
+∧ᴰ-assoc dbot dtop dbot = refl
+∧ᴰ-assoc dbot dtop da = refl
+∧ᴰ-assoc dbot dtop db = refl
+∧ᴰ-assoc dbot dtop dc = refl
+∧ᴰ-assoc dbot dtop dtop = refl
+∧ᴰ-assoc da dbot dbot = refl
+∧ᴰ-assoc da dbot da = refl
+∧ᴰ-assoc da dbot db = refl
+∧ᴰ-assoc da dbot dc = refl
+∧ᴰ-assoc da dbot dtop = refl
+∧ᴰ-assoc da da dbot = refl
+∧ᴰ-assoc da da da = refl
+∧ᴰ-assoc da da db = refl
+∧ᴰ-assoc da da dc = refl
+∧ᴰ-assoc da da dtop = refl
+∧ᴰ-assoc da db dbot = refl
+∧ᴰ-assoc da db da = refl
+∧ᴰ-assoc da db db = refl
+∧ᴰ-assoc da db dc = refl
+∧ᴰ-assoc da db dtop = refl
+∧ᴰ-assoc da dc dbot = refl
+∧ᴰ-assoc da dc da = refl
+∧ᴰ-assoc da dc db = refl
+∧ᴰ-assoc da dc dc = refl
+∧ᴰ-assoc da dc dtop = refl
+∧ᴰ-assoc da dtop dbot = refl
+∧ᴰ-assoc da dtop da = refl
+∧ᴰ-assoc da dtop db = refl
+∧ᴰ-assoc da dtop dc = refl
+∧ᴰ-assoc da dtop dtop = refl
+∧ᴰ-assoc db dbot dbot = refl
+∧ᴰ-assoc db dbot da = refl
+∧ᴰ-assoc db dbot db = refl
+∧ᴰ-assoc db dbot dc = refl
+∧ᴰ-assoc db dbot dtop = refl
+∧ᴰ-assoc db da dbot = refl
+∧ᴰ-assoc db da da = refl
+∧ᴰ-assoc db da db = refl
+∧ᴰ-assoc db da dc = refl
+∧ᴰ-assoc db da dtop = refl
+∧ᴰ-assoc db db dbot = refl
+∧ᴰ-assoc db db da = refl
+∧ᴰ-assoc db db db = refl
+∧ᴰ-assoc db db dc = refl
+∧ᴰ-assoc db db dtop = refl
+∧ᴰ-assoc db dc dbot = refl
+∧ᴰ-assoc db dc da = refl
+∧ᴰ-assoc db dc db = refl
+∧ᴰ-assoc db dc dc = refl
+∧ᴰ-assoc db dc dtop = refl
+∧ᴰ-assoc db dtop dbot = refl
+∧ᴰ-assoc db dtop da = refl
+∧ᴰ-assoc db dtop db = refl
+∧ᴰ-assoc db dtop dc = refl
+∧ᴰ-assoc db dtop dtop = refl
+∧ᴰ-assoc dc dbot dbot = refl
+∧ᴰ-assoc dc dbot da = refl
+∧ᴰ-assoc dc dbot db = refl
+∧ᴰ-assoc dc dbot dc = refl
+∧ᴰ-assoc dc dbot dtop = refl
+∧ᴰ-assoc dc da dbot = refl
+∧ᴰ-assoc dc da da = refl
+∧ᴰ-assoc dc da db = refl
+∧ᴰ-assoc dc da dc = refl
+∧ᴰ-assoc dc da dtop = refl
+∧ᴰ-assoc dc db dbot = refl
+∧ᴰ-assoc dc db da = refl
+∧ᴰ-assoc dc db db = refl
+∧ᴰ-assoc dc db dc = refl
+∧ᴰ-assoc dc db dtop = refl
+∧ᴰ-assoc dc dc dbot = refl
+∧ᴰ-assoc dc dc da = refl
+∧ᴰ-assoc dc dc db = refl
+∧ᴰ-assoc dc dc dc = refl
+∧ᴰ-assoc dc dc dtop = refl
+∧ᴰ-assoc dc dtop dbot = refl
+∧ᴰ-assoc dc dtop da = refl
+∧ᴰ-assoc dc dtop db = refl
+∧ᴰ-assoc dc dtop dc = refl
+∧ᴰ-assoc dc dtop dtop = refl
+∧ᴰ-assoc dtop dbot dbot = refl
+∧ᴰ-assoc dtop dbot da = refl
+∧ᴰ-assoc dtop dbot db = refl
+∧ᴰ-assoc dtop dbot dc = refl
+∧ᴰ-assoc dtop dbot dtop = refl
+∧ᴰ-assoc dtop da dbot = refl
+∧ᴰ-assoc dtop da da = refl
+∧ᴰ-assoc dtop da db = refl
+∧ᴰ-assoc dtop da dc = refl
+∧ᴰ-assoc dtop da dtop = refl
+∧ᴰ-assoc dtop db dbot = refl
+∧ᴰ-assoc dtop db da = refl
+∧ᴰ-assoc dtop db db = refl
+∧ᴰ-assoc dtop db dc = refl
+∧ᴰ-assoc dtop db dtop = refl
+∧ᴰ-assoc dtop dc dbot = refl
+∧ᴰ-assoc dtop dc da = refl
+∧ᴰ-assoc dtop dc db = refl
+∧ᴰ-assoc dtop dc dc = refl
+∧ᴰ-assoc dtop dc dtop = refl
+∧ᴰ-assoc dtop dtop dbot = refl
+∧ᴰ-assoc dtop dtop da = refl
+∧ᴰ-assoc dtop dtop db = refl
+∧ᴰ-assoc dtop dtop dc = refl
+∧ᴰ-assoc dtop dtop dtop = refl
+
+Codeᴰ : Diam → Diam → Type
+Codeᴰ dbot dbot = Unit
+Codeᴰ da   da   = Unit
+Codeᴰ db   db   = Unit
+Codeᴰ dc   dc   = Unit
+Codeᴰ dtop dtop = Unit
+Codeᴰ _    _    = ⊥
+
+encodeᴰ : (x : Diam) → Codeᴰ x x
+encodeᴰ dbot = tt
+encodeᴰ da   = tt
+encodeᴰ db   = tt
+encodeᴰ dc   = tt
+encodeᴰ dtop = tt
+
+decodeᴰ : {x y : Diam} → x ≡ y → Codeᴰ x y
+decodeᴰ {x} p = subst (Codeᴰ x) p (encodeᴰ x)
+
+module TD = Terms _∧ᴰ_ dtop ∧ᴰ-idem ∧ᴰ-comm ∧ᴰ-assoc ∧ᴰ-unit
+
+boolCase : {A : Type} (x : Bool) → (x ≡ true → A) → (x ≡ false → A) → A
+boolCase true  f g = f refl
+boolCase false f g = g refl
+
+-- A filter test true at the bottom is true everywhere.
+χ-from-bot : (χ : Diam → Bool)
+           → ((x y : Diam) → χ (x ∧ᴰ y) ≡ (χ x) && (χ y))
+           → χ dbot ≡ true → (s : Diam) → χ s ≡ true
+χ-from-bot χ mult hb s =
+  sym (sym hb ∙ mult dbot s ∙ cong (λ z → z && (χ s)) hb)
+
+-- Two distinct atoms with chi true force chi true at the bottom: this is
+-- the only place multiplicativity of the filter test is used, and it is
+-- exactly where non-distributivity bites, since in M3 distinct atoms meet
+-- at the bottom.
+χ-bot-ab : (χ : Diam → Bool)
+         → ((x y : Diam) → χ (x ∧ᴰ y) ≡ (χ x) && (χ y))
+         → χ da ≡ true → χ db ≡ true → χ dbot ≡ true
+χ-bot-ab χ mult ha hb = mult da db ∙ cong (λ z → z && (χ db)) ha ∙ hb
+
+χ-bot-ac : (χ : Diam → Bool)
+         → ((x y : Diam) → χ (x ∧ᴰ y) ≡ (χ x) && (χ y))
+         → χ da ≡ true → χ dc ≡ true → χ dbot ≡ true
+χ-bot-ac χ mult ha hc = mult da dc ∙ cong (λ z → z && (χ dc)) ha ∙ hc
+
+χ-bot-bc : (χ : Diam → Bool)
+         → ((x y : Diam) → χ (x ∧ᴰ y) ≡ (χ x) && (χ y))
+         → χ db ≡ true → χ dc ≡ true → χ dbot ≡ true
+χ-bot-bc χ mult hb hc = mult db dc ∙ cong (λ z → z && (χ dc)) hb ∙ hc
+
+-- A point where the test fails lies below the floor.
+belowFloor : (χ : Diam → Bool) (b : Diam)
+           → TD.AboveId (TD.thr χ b)
+           → (s : Diam) → χ s ≡ false → s ∧ᴰ b ≡ s
+belowFloor χ b above s hf =
+  sym (cong (λ z → s ∧ᴰ (if z then dtop else b)) hf) ∙ above s
+
+-- In M3, two distinct atoms below an element force it to be the top.
+-- (In a chain this fails: there are no two incomparable atoms at all.)
+topFromTwo-ab : (b : Diam) → da ∧ᴰ b ≡ da → db ∧ᴰ b ≡ db → b ≡ dtop
+topFromTwo-ab dbot p q = ⊥rec (decodeᴰ p)
+topFromTwo-ab da   p q = ⊥rec (decodeᴰ q)
+topFromTwo-ab db   p q = ⊥rec (decodeᴰ p)
+topFromTwo-ab dc   p q = ⊥rec (decodeᴰ p)
+topFromTwo-ab dtop p q = refl
+
+topFromTwo-ac : (b : Diam) → da ∧ᴰ b ≡ da → dc ∧ᴰ b ≡ dc → b ≡ dtop
+topFromTwo-ac dbot p q = ⊥rec (decodeᴰ p)
+topFromTwo-ac da   p q = ⊥rec (decodeᴰ q)
+topFromTwo-ac db   p q = ⊥rec (decodeᴰ p)
+topFromTwo-ac dc   p q = ⊥rec (decodeᴰ p)
+topFromTwo-ac dtop p q = refl
+
+topFromTwo-bc : (b : Diam) → db ∧ᴰ b ≡ db → dc ∧ᴰ b ≡ dc → b ≡ dtop
+topFromTwo-bc dbot p q = ⊥rec (decodeᴰ p)
+topFromTwo-bc da   p q = ⊥rec (decodeᴰ p)
+topFromTwo-bc db   p q = ⊥rec (decodeᴰ q)
+topFromTwo-bc dc   p q = ⊥rec (decodeᴰ p)
+topFromTwo-bc dtop p q = refl
+
+-- KEY LEMMA.  On M3 every threshold above the identity is already the
+-- constant TOP.  Chi is true on at most one atom (else it is true at the
+-- bottom, hence everywhere), so at least two atoms lie below the floor,
+-- and in M3 that forces the floor to be TOP.
+thrAboveId-constTop :
+    (χ : Diam → Bool) (b : Diam)
+  → ((x y : Diam) → χ (x ∧ᴰ y) ≡ (χ x) && (χ y))
+  → TD.AboveId (TD.thr χ b)
+  → (s : Diam) → TD.thr χ b s ≡ dtop
+thrAboveId-constTop χ b mult above s =
+  boolCase (χ da)
+    (λ ha → boolCase (χ db)
+      (λ hb → viaBot (χ-bot-ab χ mult ha hb))
+      (λ hb → boolCase (χ dc)
+        (λ hc → viaBot (χ-bot-ac χ mult ha hc))
+        (λ hc → viaTop (topFromTwo-bc b (belowFloor χ b above db hb)
+                                        (belowFloor χ b above dc hc)))))
+    (λ ha → boolCase (χ db)
+      (λ hb → boolCase (χ dc)
+        (λ hc → viaBot (χ-bot-bc χ mult hb hc))
+        (λ hc → viaTop (topFromTwo-ac b (belowFloor χ b above da ha)
+                                        (belowFloor χ b above dc hc))))
+      (λ hb → viaTop (topFromTwo-ab b (belowFloor χ b above da ha)
+                                      (belowFloor χ b above db hb))))
+  where
+    viaBot : χ dbot ≡ true → TD.thr χ b s ≡ dtop
+    viaBot h = cong (λ z → if z then dtop else b) (χ-from-bot χ mult h s)
+    viaTop : b ≡ dtop → TD.thr χ b s ≡ dtop
+    viaTop hb = TD.thrTopFloor χ b hb s
+
+-- "f is a finite, nonempty pointwise meet of thresholds."  The generator
+-- does NOT require chi TOP = true, so this family is strictly larger than
+-- the admissible thresholds and the refutation below is correspondingly
+-- stronger.
+data MeetOfThresholds : (Diam → Diam) → Type where
+  gen : (χ : Diam → Bool) (b : Diam)
+      → ((x y : Diam) → χ (x ∧ᴰ y) ≡ (χ x) && (χ y))
+      → MeetOfThresholds (TD.thr χ b)
+  _⋏_ : {f g : Diam → Diam}
+      → MeetOfThresholds f → MeetOfThresholds g
+      → MeetOfThresholds (λ s → (f s) ∧ᴰ (g s))
+
+meetsAboveId-constTop : {f : Diam → Diam} → MeetOfThresholds f
+                      → TD.AboveId f → (s : Diam) → f s ≡ dtop
+meetsAboveId-constTop (gen χ b mult) above s = thrAboveId-constTop χ b mult above s
+meetsAboveId-constTop (_⋏_ {f} {g} mf mg) above s =
+    cong (λ z → z ∧ᴰ (g s)) (meetsAboveId-constTop mf (TD.aboveMeetL f g above) s)
+  ∙ meetsAboveId-constTop mg (TD.aboveMeetR f g above) s
+
+-- The identity IS an admissible mode on M3 ...
+idᴰ-Adm : TD.Adm (λ s → s)
+idᴰ-Adm = TD.id-Adm
+
+-- ... and it is NOT a finite pointwise meet of thresholds.  So on a
+-- non-distributive scope semilattice the threshold vocabulary, even closed
+-- under the pointwise meet that swarm-0814-02 proved Adm closed under, is
+-- still incomplete.
+diamond-id-not-meet-of-thresholds :
+    {f : Diam → Diam} → MeetOfThresholds f → ((s : Diam) → f s ≡ s) → ⊥
+diamond-id-not-meet-of-thresholds {f} mf isid =
+    decodeᴰ (sym (isid da) ∙ meetsAboveId-constTop mf above da)
+  where
+    above : TD.AboveId f
+    above s = cong (λ z → s ∧ᴰ z) (isid s) ∙ ∧ᴰ-idem s
