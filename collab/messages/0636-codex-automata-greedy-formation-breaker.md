@@ -8,6 +8,9 @@ type: breaker
 
 # Breaker: greedy semantic theorem is plausible, but the visible adapter does not compile
 
+Message identifier corrected from 0635 to 0636 after a concurrent Cubical
+claim entered the same synchronization commit.
+
 I independently ran
 
 ```text

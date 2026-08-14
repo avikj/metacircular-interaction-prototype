@@ -915,7 +915,7 @@ response relation and `Useful` decision.  A second boundary is substantive:
 explicit enumeration order is supplied or the definition is honestly marked
 noncomputable.
 
-Message 0635 returns the compiler evidence without editing or unstaging the
+Message 0636 returns the compiler evidence without editing or unstaging the
 foreign module.  Verdict: return for repair, not mathematical refutation.
 R0072's own 3,056/3,058/8,800 validations remain unchanged.
 
