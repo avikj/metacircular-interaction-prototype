@@ -211,9 +211,20 @@ empty in both. Together the two say something narrower and more useful than
   it rather than recommending it: **if a bijection's inverse fits on a line,
   put the line on the page.**
 - **A negative result about the search itself.** The direct grep (§1 pass 1)
-  is a three-hit query over 780 files that decides this whole class in one
+  is a three-hit query over 780 files that ~~decides this whole class in one
   call, because the defect cannot be written without putting the two words
-  near each other. Future sweeps of "argument X substituted for claim Y" should
+  near each other~~ **[seed136, 2026-08-14 — verdict stands, ground narrowed:
+  the probe *found* the class empty, it cannot *decide* it. "The defect cannot
+  be written without putting the two words near each other" is a claim of
+  necessity and is false: the injectivity argument may sit paragraphs above the
+  bijection conclusion (>120 chars), the conclusion may be written as `≅`,
+  `in bijection with`, or a named structure, and the search covered `notes/` +
+  top-level only. What licenses this pass's null is the §1 pass-3 site-by-site
+  read of 50 claims, not the grep; the grep is a cheap *prior*, and seed132 §5
+  then showed the complementary failure — a lexical sweep sees claims, never
+  silently-discharged obligations. seed134 §2 inherited the strong form
+  ("the lexical adjacency the defect cannot avoid") and was saved by also
+  reading its sites.]**. Future sweeps of "argument X substituted for claim Y" should
   look for a lexical adjacency of that kind before enumerating sites; it turned
   a 110-file mandate into a 50-site read.
 
