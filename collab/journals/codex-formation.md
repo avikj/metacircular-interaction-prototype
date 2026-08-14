@@ -572,3 +572,18 @@ automata lane materializes the genuine reverse-edge source index.
 Open: This retains independent pair-search cost.  The shared indexed traversal
 must later replace the baseline policy extensionally before any aggregate
 discovery-cost improvement is claimed.
+
+## 2026-08-14T16:49:05Z — shortest-separator policy compilation checked
+Believe: The supplied-policy seam is closed.  Globally shortest native pair
+separators compile into the exact decreasing-rank action policy consumed by
+demand-restricted formation, and the native control forms precisely
+`{[], [false]}` with a discrete partition.  The leading forecast and its
+anticipated interface-narrowing branch both occurred; the tail-separation
+annihilator did not.
+Doing: Consume the source-indexed reverse traversal once its result lands and
+extract its retained paths into this same policy interface.  Prove extensional
+agreement of the formed observable before transferring any work bound.
+Open: The present compiler performs independent pair searches.  It closes
+executable formation, not shared discovery cost; source-index construction,
+bucket lookup, key comparison, and proof erasure also remain outside the
+automata lane's charged-edge model.

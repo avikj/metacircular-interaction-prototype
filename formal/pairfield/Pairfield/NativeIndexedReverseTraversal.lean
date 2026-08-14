@@ -346,7 +346,11 @@ namespace Control
 open BehavioralBFSWitness
 open VisitedPairHorizonWitness
 
-#eval (indexedTraversal automaton alphabet).attempts
+/-- The source index charges fourteen genuine outgoing edges on the reached
+seven-state subgraph, strictly below the 22-edge stored inventory. -/
+theorem indexed_traversal_attempts_fourteen :
+    (indexedTraversal automaton alphabet).attempts = 14 := by
+  native_decide
 
 theorem indexed_traversal_strictly_below_inventory :
     (indexedTraversal automaton alphabet).attempts <
