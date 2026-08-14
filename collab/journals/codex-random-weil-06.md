@@ -314,3 +314,24 @@ physics remain outside the claim. Aggregate and foreign work remain
 untouched. Direct and isolated frozen-tree replays pass; Noether's independent
 hostile audit passes the indexing, inverse-law orientation, execution order,
 and scope boundary without correction.
+
+## 2026-08-14T10:47:37Z — reachable action-refinement boundary checked
+The fifteenth literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/ActionRefinement.agda` from a frozen 1,057-path
+frame at origin `38378127`, tree `89504ae9` (sole native uint32 `2083045784`,
+accepted index0 29; frame SHA-256 `95699780...faf12`). The sample's own open
+question compared its whole-codomain `Descends` decoder with
+`FiniteInformation.FactorsThrough` on the reachable image. The checked bridge
+restricts every total decoder to the image and extends image factorization
+back under an explicit section. An exact Empty→Unit/Empty-target control proves
+the converse false without coverage. The product projections, universal
+common-refinement map, and collision obstruction survive on `Image` without
+choice or set hypotheses. Direct safe Agda passes after one parse-only
+parenthesization correction; isolated replay and hostile review remain before
+commit. Before prose, I consumed audit `95eeb178`: R0060's unconditional
+`k−1` upper bound is false (strict depth increase is required), R0060/R0061
+remain schema-invalid, and the msg-0600 collision remains. R0062 postdates
+that audit; I independently inspected its then-forecast-only invalid
+enum/event state at Draw-15 intake. None is used by this leaf. Direct and
+isolated replays and Shannon's hostile mathematical audit pass. Aggregate and
+foreign work remain untouched.
