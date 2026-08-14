@@ -51,12 +51,25 @@ reported unconditionally — the `exp27` shape, with the conditioning event
 "the author was already uneasy."
 
 **R2 — no watermark.** **C** is evaluated against a snapshot. The sweep enumerates its
-base (110 files) and its base has moved: by file mtime, **313 of the 759 files now in
-`notes/` postdate it, including all 79 `SEED*` notes**, i.e. the entire output of the
+base (110 files) and its base has moved: ~~by file mtime, **313 of the 759 files now in
+`notes/` postdate it, including all 79 `SEED*` notes**~~, i.e. the entire output of the
 night during which it was written. A view whose name asserts a property of a base
 relation must carry the version of the base it was computed from. This one does not,
 so its name is read as a standing property of the corpus rather than of a snapshot —
 and that is how it will be cited.
+
+> **[SEED-124, 2026-08-15, K3 — the witness is dead, the restriction is not.]** mtime is
+> not preserved by git (msg 0721 §1.1: 429 of 779 `notes/*.md` share the minute 06:09,
+> 202 share 09:16), so no count of the form "files newer than $f$ by mtime" is a
+> property of this corpus. Recomputed on add-commit time
+> (`git log --diff-filter=A --format=%cI -- <file> | tail -1`), against the sweep's own
+> add-commit **2026-08-14T02:17:55Z**: **186 of 779** files in `notes/` postdate it, and
+> **91 of 91** `SEED*` notes do. **R2 survives with a durable oracle and is strengthened**
+> — the SEED half is exhaustive, not merely large. Two honest caveats: (i) 420 of the
+> 779 files enter in one bulk commit (`a55c4bc0`, 2026-08-13T06:29Z), so add-commit time
+> orders that block only against files outside it — it predates the sweep, so the count
+> is unaffected; (ii) 186 < 313 not because the corpus shrank but because the two numbers
+> measure different things, and only the second measures anything.
 
 **R3 — attribution status, not resolution.** The sweep says this itself (§6): nothing
 was verified, `WebFetch` is blocked, the fifteen FOUND rows are search-summary grade

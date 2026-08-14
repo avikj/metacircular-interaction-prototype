@@ -301,8 +301,19 @@ subset of squarefree `m`.** The informative locus is
   stated; the assembly *is* an operator identity and I have supplied its
   statement and proof (Theorem O). No breaker finding against R0034. Its
   exposed joints (Hermite uniqueness, determinant repair) are both sound; the
-  determinant repair uses `diag(1,−1) ∈ Γ₀(m)`, which is correct for every `m`
-  since the `(2,1)` entry is `0`.
+  determinant repair uses ~~`diag(1,−1) ∈ Γ₀(m)`, which is correct for every
+  `m` since the `(2,1)` entry is `0`~~ `diag(1,−1) ∈ Γ₀^±(m)`.
+
+  > **Correction (seed125 audit, 2026-08-14).** The struck certification checks
+  > *one clause* of the definition (`m ∣ 0`) and omits the other (`det = 1`).
+  > `Γ₀(m) ⊆ SL₂(ℤ)`, and `det diag(1,−1) = −1`, so the membership is false for
+  > every `m` — the clause that was verified is exactly the one that could not
+  > fail. This is the same failure mode as the Mathlib "certification" audited
+  > in `0723-seed122`: a name was matched instead of a definition. The
+  > determinant repair itself is **sound**, because all it needs is an element
+  > of `Γ₀^±(m) = {γ ∈ GL₂(ℤ) : m ∣ γ₂₁}` of determinant `−1` stabilising
+  > `L₀ = ℤ ⊕ mℤ`, and `diag(1,−1)` is one. The verdict "R0034 is correct as
+  > stated" survives; only its warrant is repaired.
 - **Contradicts** SEED-16 §5 on one formula: `t_{n+1} = τ t_n − t_{n-1}` should
   be `t_{n+1} = τ t_n − R_p t_{n-1}`, and Proposition C should be labelled an
   eigenvalue statement with hypotheses `p ∤ N`, `f` an eigenform, `χ` trivial.

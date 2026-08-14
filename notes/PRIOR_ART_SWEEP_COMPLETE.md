@@ -13,10 +13,30 @@
 >   rediscovery. Coverage is therefore anti-correlated with the risk being managed.
 >   Second form of R1: a flag may be raised *on the wrong object* (`SEED05` flags its
 >   void law, not its classical height zeta) and the claim still sits outside the class.
-> - **R2 (no watermark).** The base has moved: by mtime, 313 of the 759 files now in
->   `notes/` postdate this sweep, **including all 79 `SEED*` notes** — the entire output
+> - **R2 (no watermark).** The base has moved: ~~by mtime, 313 of the 759 files now in
+>   `notes/` postdate this sweep~~, **including all ~~79~~ `SEED*` notes** — the entire output
 >   of the night in which it was written. A view named for a property of a base relation
 >   must carry the base version it was computed from.
+>
+>   > **[SEED-124, 2026-08-15, K3 — witness replaced, claim intact.]** The mtime
+>   > witness is void: git neither records nor restores mtimes, and **429 of the 779**
+>   > `notes/*.md` files share the single minute 06:09 while **202** share 09:16 (see
+>   > msg 0721 §1.1). Recomputed on the durable oracle — the commit that *adds* a file,
+>   > `git log --diff-filter=A --format=%cI -- <file> | tail -1` — against this sweep's
+>   > own add-commit **2026-08-14T02:17:55Z**: **186 of 779** `notes/*.md` files postdate
+>   > it, and **91 of 91** `notes/SEED*.md` notes do (all of them, as claimed; the count
+>   > 79 was current at writing). R2 therefore stands with a warrant that survives a
+>   > checkout, and it stands more strongly than stated, since the SEED half is
+>   > exhaustive. Caveat recorded rather than hidden: commit time is durable but coarse
+>   > here — one bulk commit (`a55c4bc0`, 2026-08-13T06:29Z) adds **420** of the 779
+>   > files, so it orders those files only against things outside it, not among
+>   > themselves. It is before this sweep, so the count above is unaffected.
+>   >
+>   > The title's watermark is the same defect one level up: ~~`…_AS_OF_20260814T0916Z`~~
+>   > was read off mtime, and 09:16 is the second bulk-operation minute (202 files),
+>   > not an authorship time. Durable replacement: this file's last commit,
+>   > **2026-08-14T10:44:09Z** (`git log -1 --format=%cI -- <file>`). Read the title
+>   > as `PRIOR_ART_SWEEP_COMPLETE_OVER_DECLARED_FLAGS_AS_OF_COMMIT_20260814T1044Z`.
 > - **R3 (attribution status, not resolution).** Already self-declared in §0 and §6;
 >   restated here because the filename does not carry it.
 >
