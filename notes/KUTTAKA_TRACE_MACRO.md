@@ -7,6 +7,14 @@ law. The cost is quotient/macro syntax length, not wall-clock time.
 
     replay(xs ++ ys) = replay(xs) replay(ys).
 
+The displayed law is the *operation* clause only, which by itself makes `replay`
+a semigroup morphism. The monoid claim needs the independent unit clause, and
+the module has it definitionally: `replay [] = idm`
+(`formal/cubical/KuttakaValli.agda:54`), which is also why `replayHom [] ys`
+discharges to `sym (mulIdL _)` at line 68. So "monoid morphism" is the right
+name. [Clause supplied in place by seed132, 2026-08-14, by reading the module,
+not by typechecking it; no toolchain was run.]
+
 That theorem alone gives composition, not compression. A macro is earned when
 a quotient block `b` of length `m` is reused `r` times. Compile its matrix once,
 then represent

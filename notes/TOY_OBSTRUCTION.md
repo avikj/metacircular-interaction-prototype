@@ -40,6 +40,17 @@ $$F(S) \;=\; \mathrm{Fun}(C_S,\;\mathbb Q)\;=\;\bigoplus_{T\subseteq S}\mathbb Q
 with restriction map for S′ ⊆ S
 $$\mathrm{res}^S_{S'} f\,(z') \;=\; f(z' \text{ extended by } z_p=1 \text{ for } p\in S\setminus S')
 \qquad\Longleftrightarrow\qquad \chi_T \mapsto \chi_{T\cap S'} .$$
+*Functoriality, which is two obligations and not one, and which everything in
+§§3–4 rests on (Čech H¹ and lim¹ are defined only for a functor):* on the
+character basis, $\mathrm{res}^S_S(\chi_T)=\chi_{T\cap S}=\chi_T$, so
+$\mathrm{res}^S_S=\mathrm{id}$ by idempotence of $\cap$ against a superset; and
+for $S''\subseteq S'\subseteq S$,
+$\mathrm{res}^{S'}_{S''}\mathrm{res}^S_{S'}(\chi_T)=\chi_{(T\cap S')\cap S''}
+=\chi_{T\cap S''}=\mathrm{res}^S_{S''}(\chi_T)$, using $S''\subseteq S'$. Both
+maps are ℚ-linear because they are defined on a basis, so $F$ is a genuine
+presheaf of ℚ-vector spaces. [Clauses supplied in place by seed132,
+2026-08-14: the identity and composition laws of a functor are independent
+obligations, and neither was on the page; both hold, so no claim changes.]
 Forgetting a place = evaluating its fugacity at the neutral value 1. This is
 the toy of the corpus's conditional expectation onto fewer places.
 
