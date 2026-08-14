@@ -38,6 +38,7 @@ import Pairfield.AdaptiveBranchResidual
 import Pairfield.ReachableAdaptiveObservableHorizon
 import Pairfield.AdaptiveUniformBound
 import Pairfield.AdaptiveDistinguishingTransport
+import Pairfield.AdaptiveResidualSplitting
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter

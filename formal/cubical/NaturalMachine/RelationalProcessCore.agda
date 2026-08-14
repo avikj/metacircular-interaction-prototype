@@ -26,7 +26,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
   using (Bool ; true ; false ; notEq ; true≢false ; isSetBool)
 open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
-open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
+open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Functions.Surjection using (isSurjection)
 open import Cubical.HITs.S1 using (S¹ ; base ; loop)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
@@ -207,10 +207,13 @@ response-is-set Physical.coherent   = isSetBool
 -- its response can be computed after forgetting the relative sheet iff it
 -- is constant on the facts that forgetting identifies.
 port-descent-criterion : (p : Physical.Port)
-  → D.Factors forgetBaseFact (Physical.observe p)
-    ≣ D.ConstantOnFibres forgetBaseFact (Physical.observe p)
+  → (D.Factors forgetBaseFact (Physical.observe p)
+      → D.ConstantOnFibres forgetBaseFact (Physical.observe p))
+  × (D.ConstantOnFibres forgetBaseFact (Physical.observe p)
+      → D.Factors forgetBaseFact (Physical.observe p))
 port-descent-criterion p =
-  D.descent (response-is-set p) forgetBaseFact base-surjective
+  D.factors→constant forgetBaseFact (Physical.observe p) ,
+  D.constant→factors (response-is-set p) forgetBaseFact base-surjective
     (Physical.observe p)
   where
   base-surjective : isSurjection forgetBaseFact

@@ -162,6 +162,18 @@ theorem primePowerContamination_le_four_sqrt_mul_log_sq
       · positivity
     _ = 4 * Real.sqrt (N : ℝ) * (Real.log (N : ℝ)) ^ 2 := by ring
 
+/-- A fixed-center Mangoldt lower bound above the explicit contamination
+bound forces a representation by two actual primes.  This isolates the still
+missing analytic premise without replacing it by a prime-power statement. -/
+theorem goldbachAt_of_four_sqrt_mul_log_sq_lt_mangoldtGoldbachCoeff
+    (N : ℕ) (hN : 1 ≤ N)
+    (h : 4 * Real.sqrt (N : ℝ) * (Real.log (N : ℝ)) ^ 2 <
+      mangoldtGoldbachCoeff N) :
+    GoldbachAt N := by
+  apply goldbachAt_of_contamination_lt_mangoldtGoldbachCoeff N
+  exact lt_of_le_of_lt
+    (primePowerContamination_le_four_sqrt_mul_log_sq N hN) h
+
 end
 
 end Pairfield

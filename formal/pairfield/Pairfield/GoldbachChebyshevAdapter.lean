@@ -71,7 +71,7 @@ theorem primePowerError_le_vonMangoldt (n : ℕ) :
 /-- A one-dimensional antidiagonal estimate.  Unlike the generic full-square
 bound, it spends only the maximum of the second factor on the declared fiber. -/
 theorem sum_primePowerError_mul_antidiagonal_le
-    (N : ℕ) (hN : 1 ≤ N) (g : ℕ → ℝ)
+    (N : ℕ) (g : ℕ → ℝ)
     (hg : ∀ n, n ≤ N → g n ≤ Real.log N) :
     (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
       primePowerError pair.1 * g pair.2) ≤
@@ -109,13 +109,13 @@ theorem primePowerContamination_le_two_mul_log_mul_sub_theta
             (n := N) (f := fun pair ↦
               primePowerError pair.1 * Λ pair.2))
       _ ≤ Real.log N * (Chebyshev.psi N - Chebyshev.theta N) :=
-        sum_primePowerError_mul_antidiagonal_le N hN
+        sum_primePowerError_mul_antidiagonal_le N
           (fun n ↦ Λ n) (fun n hn ↦ vonMangoldt_le_log_horizon hN hn)
   have hright :
       (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
         primePowerError pair.1 * primeLogWeight pair.2) ≤
         Real.log N * (Chebyshev.psi N - Chebyshev.theta N) := by
-    exact sum_primePowerError_mul_antidiagonal_le N hN primeLogWeight
+    exact sum_primePowerError_mul_antidiagonal_le N primeLogWeight
       (fun n hn ↦
         (primeLogWeight_le_vonMangoldt n).trans
           (vonMangoldt_le_log_horizon hN hn))

@@ -134,7 +134,7 @@ theorem merge_not_safe : ¬ PrefixResidualSafeAction automaton merge := by
     change
       stateLanguage automaton (automaton.eval ([] ++ [merge])) =
         stateLanguage automaton (automaton.eval ([reach] ++ [merge]))
-    congr 1 <;> native_decide
+    congr 1
   have hresidual := hsafe [] [reach] hcurrent hadvanced
   have hall :=
     (leftQuotient_eq_iff_all_adaptive_traces_eq
