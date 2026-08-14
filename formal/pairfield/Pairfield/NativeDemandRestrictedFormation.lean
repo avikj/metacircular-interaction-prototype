@@ -1,0 +1,256 @@
+/-
+Copyright (c) 2026 Avik Jain and the mathematics collaboration.
+Released under Apache 2.0 license.
+
+Demand-restricted observable formation from a supplied reverse separator
+policy.  Only a pair still unresolved by the installed language requests a
+suffix.  Its policy suffix is necessarily useful, installation strictly
+decreases the unresolved-pair finset, and finite fuel forms a discrete global
+observable.
+-/
+import Mathlib.Data.Finset.Max
+import Pairfield.NativeReverseSeparatorPolicy
+import Pairfield.NativeWitnessGreedyFormation
+
+namespace Pairfield
+
+universe u v
+
+variable {A : Type u} {X : Type v}
+
+namespace NativeDemandRestrictedFormation
+
+open NativeCompleteWitnesses
+open NativeReverseSeparatorPolicy
+open NativeWitnessGreedyFormation
+
+variable [LinearOrder X] [Fintype X]
+variable [DecidableEq A]
+
+variable (M : DFA A X)
+variable [DecidablePred (fun state : X => state ∈ M.accept)]
+
+/-- The remaining construction demand: one orientation of every unequal pair
+which the installed response rows still identify. -/
+def unresolvedPairs (installed : Finset (List A)) : Finset (X × X) :=
+  (strictPairs (X := X)).filter fun pair =>
+    Agree M installed pair.1 pair.2
+
+theorem mem_unresolvedPairs_iff (installed : Finset (List A))
+    (pair : X × X) :
+    pair ∈ unresolvedPairs M installed ↔
+      pair.1 < pair.2 ∧ Agree M installed pair.1 pair.2 := by
+  simp [unresolvedPairs, strictPairs]
+
+/-- Adding a test never creates a new unresolved pair. -/
+theorem unresolvedPairs_insert_subset
+    (installed : Finset (List A)) (word : List A) :
+    unresolvedPairs M (insert word installed) ⊆
+      unresolvedPairs M installed := by
+  intro pair hpair
+  rw [mem_unresolvedPairs_iff] at hpair ⊢
+  exact ⟨hpair.1,
+    response_rel_mono M (Finset.subset_insert word installed) hpair.2⟩
+
+/-- Pre-construction strict gate: the shared policy suffix for a pair still
+in demand is guaranteed useful before that suffix is installed. -/
+theorem sharedSuffix_useful_of_mem
+    (policy : Policy M) (installed : Finset (List A)) (pair : X × X)
+    (hpair : pair ∈ unresolvedPairs M installed) :
+    Useful M installed (policy.sharedSuffix M pair) := by
+  have hdata := (mem_unresolvedPairs_iff M installed pair).1 hpair
+  exact ⟨pair.1, pair.2, hdata.2,
+    policy.sharedSuffix_separates M pair (ne_of_lt hdata.1)⟩
+
+/-- The selected demand is discharged by installing its policy suffix. -/
+theorem selected_pair_not_mem_after_sharedSuffix
+    (policy : Policy M) (installed : Finset (List A)) (pair : X × X)
+    (hpair : pair ∈ unresolvedPairs M installed) :
+    pair ∉ unresolvedPairs M
+      (insert (policy.sharedSuffix M pair) installed) := by
+  intro hafter
+  have hdata := (mem_unresolvedPairs_iff M installed pair).1 hpair
+  have hagree := (mem_unresolvedPairs_iff M
+    (insert (policy.sharedSuffix M pair) installed) pair).1 hafter |>.2
+  exact policy.sharedSuffix_separates M pair (ne_of_lt hdata.1)
+    (hagree (policy.sharedSuffix M pair) (Finset.mem_insert_self _ _))
+
+/-- Every demanded policy installation strictly lowers the finite demand. -/
+theorem unresolvedPairs_sharedSuffix_ssubset
+    (policy : Policy M) (installed : Finset (List A)) (pair : X × X)
+    (hpair : pair ∈ unresolvedPairs M installed) :
+    unresolvedPairs M (insert (policy.sharedSuffix M pair) installed) ⊂
+      unresolvedPairs M installed := by
+  apply (Finset.ssubset_iff_of_subset
+    (unresolvedPairs_insert_subset M installed
+      (policy.sharedSuffix M pair))).2
+  exact ⟨pair, hpair,
+    selected_pair_not_mem_after_sharedSuffix M policy installed pair hpair⟩
+
+theorem unresolvedPairs_sharedSuffix_card_lt
+    (policy : Policy M) (installed : Finset (List A)) (pair : X × X)
+    (hpair : pair ∈ unresolvedPairs M installed) :
+    (unresolvedPairs M
+      (insert (policy.sharedSuffix M pair) installed)).card <
+        (unresolvedPairs M installed).card :=
+  Finset.card_lt_card
+    (unresolvedPairs_sharedSuffix_ssubset M policy installed pair hpair)
+
+/-- Choose the least currently unresolved pair and lazily reconstruct only its
+policy suffix.  Fuel counts successful demand discharges, not reverse-policy
+table construction. -/
+def resolveFuel (policy : Policy M) :
+    Nat → Finset (List A) → Finset (List A)
+  | 0, installed => installed
+  | fuel + 1, installed =>
+      if h : (unresolvedPairs M installed).Nonempty then
+        let pair := (unresolvedPairs M installed).min' h
+        resolveFuel policy fuel
+          (insert (policy.sharedSuffix M pair) installed)
+      else
+        installed
+
+/-- Fuel at least the current demand cardinality empties the demand finset. -/
+theorem unresolvedPairs_resolveFuel_eq_empty
+    (policy : Policy M) :
+    ∀ fuel installed,
+      (unresolvedPairs M installed).card ≤ fuel →
+        unresolvedPairs M (resolveFuel M policy fuel installed) = ∅ := by
+  intro fuel
+  induction fuel with
+  | zero =>
+      intro installed hcard
+      exact Finset.card_eq_zero.mp (Nat.eq_zero_of_le_zero hcard)
+  | succ fuel ih =>
+      intro installed hcard
+      by_cases hnonempty : (unresolvedPairs M installed).Nonempty
+      · let pair := (unresolvedPairs M installed).min' hnonempty
+        have hpair : pair ∈ unresolvedPairs M installed := by
+          exact Finset.min'_mem _ _
+        have hdrop := unresolvedPairs_sharedSuffix_card_lt
+          M policy installed pair hpair
+        have hnext : (unresolvedPairs M
+            (insert (policy.sharedSuffix M pair) installed)).card ≤ fuel := by
+          omega
+        have hdone := ih
+          (insert (policy.sharedSuffix M pair) installed) hnext
+        simpa [resolveFuel, hnonempty, pair] using hdone
+      · have hempty : unresolvedPairs M installed = ∅ :=
+          Finset.not_nonempty_iff_eq_empty.mp hnonempty
+        simpa [resolveFuel, hnonempty] using hempty
+
+theorem unresolvedPairs_card_le_choose_two
+    (installed : Finset (List A)) :
+    (unresolvedPairs M installed).card ≤
+      Nat.choose (Fintype.card X) 2 := by
+  calc
+    (unresolvedPairs M installed).card ≤ (strictPairs (X := X)).card := by
+      exact Finset.card_le_card (Finset.filter_subset _ _)
+    _ = Nat.choose (Fintype.card X) 2 := card_strictPairs
+
+/-- Execute enough demand discharges for every possible unresolved pair. -/
+def formObservable (policy : Policy M) (installed : Finset (List A)) :
+    Finset (List A) :=
+  resolveFuel M policy (Nat.choose (Fintype.card X) 2) installed
+
+theorem unresolvedPairs_formObservable_eq_empty
+    (policy : Policy M) (installed : Finset (List A)) :
+    unresolvedPairs M (formObservable M policy installed) = ∅ := by
+  exact unresolvedPairs_resolveFuel_eq_empty M policy
+    (Nat.choose (Fintype.card X) 2) installed
+    (unresolvedPairs_card_le_choose_two M installed)
+
+theorem agree_symm {installed : Finset (List A)} {left right : X}
+    (hagree : Agree M installed left right) :
+    Agree M installed right left := by
+  intro word hword
+  exact (hagree word hword).symm
+
+/-- Empty demand is exactly enough for equality recovery on the supplied
+linearly ordered finite chart. -/
+theorem eq_of_agree_of_unresolvedPairs_eq_empty
+    (installed : Finset (List A))
+    (hempty : unresolvedPairs M installed = ∅)
+    (left right : X) (hagree : Agree M installed left right) :
+    left = right := by
+  by_contra hne
+  rcases lt_or_gt_of_ne hne with hlt | hgt
+  · have hmem : (left, right) ∈ unresolvedPairs M installed :=
+      (mem_unresolvedPairs_iff M installed (left, right)).2 ⟨hlt, hagree⟩
+    simpa [hempty] using hmem
+  · have hmem : (right, left) ∈ unresolvedPairs M installed :=
+      (mem_unresolvedPairs_iff M installed (right, left)).2
+        ⟨hgt, agree_symm M hagree⟩
+    simpa [hempty] using hmem
+
+/-- Demand-restricted formation theorem.  A supplied reverse separator policy
+forms a discrete response partition from arbitrary initial tests in at most
+`choose(n,2)` successful policy-suffix installations. -/
+theorem formObservable_partition_discrete
+    (policy : Policy M) (installed : Finset (List A)) :
+    ∀ left right : X,
+      right ∈ (responsePartition M
+        (formObservable M policy installed)).part left ↔ left = right := by
+  intro left right
+  rw [mem_part_responsePartition_iff]
+  constructor
+  · intro hagree
+    exact eq_of_agree_of_unresolvedPairs_eq_empty M
+      (formObservable M policy installed)
+      (unresolvedPairs_formObservable_eq_empty M policy installed)
+      left right (by simpa [Agree] using hagree)
+  · rintro rfl word hword
+    rfl
+
+namespace Control
+
+def step (state : Fin 3) (_action : Bool) : Fin 3 :=
+  if state = 1 then 2 else state
+
+def automaton : DFA Bool (Fin 3) where
+  step := step
+  start := 0
+  accept := { state | state = 2 }
+
+instance : DecidablePred
+    (fun state : Fin 3 => state ∈ automaton.accept) :=
+  fun state => inferInstanceAs (Decidable (state = 2))
+
+def needsStep (pair : Fin 3 × Fin 3) : Bool :=
+  decide (pair = (0, 1) ∨ pair = (1, 0))
+
+/-- One nonterminal product-state edge is sufficient; every other unequal pair
+already has distinct empty-word responses. -/
+def policy : Policy automaton where
+  rank pair := if needsStep pair then 1 else 0
+  action? pair := if needsStep pair then some false else none
+  terminal_separates := by
+    rintro ⟨left, right⟩ hne hnone
+    fin_cases left <;> fin_cases right <;> native_decide
+  step_preserves_ne := by
+    rintro ⟨left, right⟩ hne action haction
+    fin_cases left <;> fin_cases right <;>
+      cases action <;> native_decide
+  rank_decreases := by
+    rintro ⟨left, right⟩ hne action haction
+    fin_cases left <;> fin_cases right <;>
+      cases action <;> native_decide
+
+/-- Native formation event: demand restriction constructs `[false]` for the
+hidden pair, then `[]` for the last visible distinction, and stops. -/
+theorem forms_exact_two_word_observable :
+    formObservable automaton policy ∅ =
+      ({[], [false]} : Finset (List Bool)) := by
+  native_decide
+
+theorem formed_control_is_discrete :
+    ∀ left right : Fin 3,
+      Agree automaton (formObservable automaton policy ∅) left right →
+        left = right := by
+  native_decide
+
+end Control
+
+end NativeDemandRestrictedFormation
+
+end Pairfield

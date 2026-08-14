@@ -125,6 +125,9 @@ succNotZero3 {x = x} p = lower (Sum.⊎Path.encode (raise2 x) zero3 p)
 zeroNotSucc2 : {x : Fin 1} → zero2 ≡ raise1 x → ⊥
 zeroNotSucc2 {x = x} p = lower (Sum.⊎Path.encode zero2 (raise1 x) p)
 
+succNotZero2 : {x : Fin 1} → raise1 x ≡ zero2 → ⊥
+succNotZero2 {x = x} p = lower (Sum.⊎Path.encode (raise1 x) zero2 p)
+
 cycle-no-fixed : Fixed cycle₀₁₂ → ⊥
 cycle-no-fixed (fzero , p) = succNotZero3 p
 cycle-no-fixed (fsuc fzero , p) = zeroNotSucc3 p

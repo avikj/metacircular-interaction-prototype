@@ -51,7 +51,7 @@ ordered-loops-distinct A hA hB p = noncommuting (sym chain)
     ∙ cong₂ S._·_ hA hB
 
 -- Simultaneous endpoint gauge change preserves both individual loop profiles.
-IndividualProfiles : (⟨ S₃ ⟩ P.× ⟨ S₃ ⟩) → Type₁
+IndividualProfiles : (⟨ S₃ ⟩ P.× ⟨ S₃ ⟩) → Type₀
 IndividualProfiles gh =
   P._×_ (Fixed (P.proj₁ gh)) (Fixed (P.proj₂ gh))
 
@@ -70,7 +70,7 @@ ProductProfile gh = Fixed (P.proj₂ gh S.· P.proj₁ gh)
 
 product-profile-gauge : (k g h : ⟨ S₃ ⟩)
   → Fixed ((k S.· (h S.· g)) S.· S.inv k) ≡ Fixed (h S.· g)
-product-profile-gauge = fixedProfile-conjugation
+product-profile-gauge k g h = fixedProfile-conjugation k (h S.· g)
 
 reverseCycle : ⟨ S₃ ⟩
 reverseCycle = s₁₂ S.· s₀₁
@@ -78,7 +78,7 @@ reverseCycle = s₁₂ S.· s₀₁
 reverse-cycle-no-fixed : Fixed reverseCycle → ⊥
 reverse-cycle-no-fixed (fzero , p) = succNotZero3 p
 reverse-cycle-no-fixed (fsuc fzero , p) =
-  zeroNotSucc2 (outerInject3 p)
+  succNotZero2 (outerInject3 p)
 reverse-cycle-no-fixed (fsuc (fsuc fzero) , p) = zeroNotSucc3 p
 
 -- Both orderings are 3-cycles.  Their fixed-profile observations are equal,
@@ -91,4 +91,3 @@ Iso.leftInv orderedProductProfileIso x = Empty.rec (cycle-no-fixed x)
 
 orderedProductProfilesEqual : Fixed cycle₀₁₂ ≡ Fixed reverseCycle
 orderedProductProfilesEqual = ua (isoToEquiv orderedProductProfileIso)
-
