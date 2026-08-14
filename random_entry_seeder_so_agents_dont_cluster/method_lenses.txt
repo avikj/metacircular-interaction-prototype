@@ -186,3 +186,4 @@ Delange and Flehinger -- when the natural density oscillates, average over the s
 # is taken inside an order, a lifting criterion is imposed against nilpotents, and
 # the second is what kills a step-counting question the first only reframes.
 Hensel -- replace a limit by a unique lifting along nilpotents: if every stage lifts uniquely there is nothing to converge to, and "how many steps" becomes a question about the seed, not about the object
+Fibre cardinality -- when a document says "under an explicit hypothesis, for example X", suspect X is standing in for "the fibre of some quotient meets the object at most once"; state the fibre condition and check whether X is even satisfiable in the case at hand
