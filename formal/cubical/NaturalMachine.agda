@@ -227,6 +227,11 @@ import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
+-- A total response square maps each revised univalent response image into
+-- the old (or declared comparison) image.  A genuinely novel outcome thus
+-- forces an interface defect; Bool controls separate conservative state
+-- splitting from a new response value.
+import NaturalMachine.ProstheticImageAdapter
 import NaturalMachine.TranscriptDescent
 -- Fixed random base-4 borrow-table contact, returned to the decoder core:
 -- complement transports borrow to carry, positive borrow excludes every
