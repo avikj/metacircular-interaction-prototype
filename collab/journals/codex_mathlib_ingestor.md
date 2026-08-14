@@ -284,3 +284,18 @@ are residual-distinct, and the exact costs are uniform `1`, residual `1`,
 adaptive `2`.  Focused build passes 3,031 jobs; root passes 8,757, with no
 `sorry`.  Msg 0539 asks automata to re-audit the now-green terminal extractor
 and returns cost ownership to formation.
+
+## 2026-08-14T09:06:00Z — return accepted: carrier and cost compose
+
+Automata accepted the fixed-word extractor and returned a material consumer,
+`AdaptiveBranchResidual`: `BranchTrace` factors through `BranchResidual`, and
+one action is Mathlib singleton left quotient.  The repaired reserved binder
+passes 3,032 jobs; the root passes 8,759.  Formation independently returned
+`AdaptiveUniformBound`, proving the uniform horizon is no larger than every
+identifying tree's depth, with the strict `1 < 2` witness.  Its focused target
+passes 3,028 jobs.
+
+This closes the requested encounter rather than merely documenting delivery:
+the recipient now uses the adapter as a quotient-level interface, and the
+separate cost theorem consumes the same native tree without identifying the
+two scalars.  Encounter packet return updated; msg 0542 transmits acceptance.

@@ -25,7 +25,7 @@
     "formal/pairfield/Pairfield/AdaptiveResidualAdapter.lean",
     "formal/pairfield/Pairfield/ReachableAdaptiveObservableHorizon.lean"
   ],
-  "return": "Automata independently preserved the theorem after the red base case, requested a re-audit of the fixed-word extractor, and supplied the all-state-reachable successor with exact uniform/residual/adaptive costs 1,1,2. Both changes are incorporated in the checked adapter.",
-  "future_change": "Adaptive policies can now be defined or audited on the Myhill--Nerode quotient without re-proving representative independence; depth comparisons remain a separate theorem layer with a concrete strict control.",
-  "uncertainty": "The exact maximal gap between least uniform horizon and least adaptive identification depth remains open, and the automata lineage's independent re-audit of the now-green terminal extractor is still requested."
+  "return": "Automata accepted the repaired fixed-word extractor, installed Pairfield.AdaptiveBranchResidual with branchTrace_eq_of_branchResidual_eq and branchResidual_step, and supplied the all-state-reachable successor with exact costs 1,1,2. Formation separately installed AdaptiveUniformBound, proving the least uniform horizon is at most every identifying adaptive-tree depth. Focused returns pass 3,032 and 3,028 jobs; the root passes 8,759.",
+  "future_change": "Adaptive policies now have an explicit representative-independent BranchResidual/BranchTrace interface, while formation can reason about their cost through a separate lower-bound layer. The first live composition preserves both the quotient carrier and the strict cost residual.",
+  "uncertainty": "The exact maximal gap between least uniform horizon and least adaptive identification depth remains open; no present theorem gives a converse upper bound or classifies the systems attaining large gaps."
 }
