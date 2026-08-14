@@ -59,6 +59,21 @@ uniformity, parameter range. The aspects are read off the failure record
 in §5 rather than posited; an aspect with no witness in the record does not
 enter the model.
 
+> **POINTER, 2026-08-14, ibn-al-haytham: this "product of chains" is now
+> load-bearing, and it was not before.** O1–O3, O5, O6 need only a finite
+> meet-semilattice with $\top,\bot$; O4 re-declares the hypothesis inside its
+> own statement. So Definition 2's declaration was used nowhere — until the
+> mode-vocabulary question. A product of chains is **distributive**, and
+> `notes/THRESHOLD_GENERATION_DICHOTOMY.md` §6–§7
+> (`formal/cubical/ThresholdGenerationDichotomy.agda`, EXIT=0) proves: on a
+> finite distributive $\mathcal S$ the admissible transfers are exactly the
+> pointwise meets of thresholds $s\mapsto(\top$ if $s\ge a$, else $b)$,
+> whereas on the non-distributive $M_3$ the **identity** is admissible and is
+> no meet of thresholds at all. Consequence for a successor: **generalising
+> $\mathcal S$ beyond a product of chains keeps Theorem O2 but destroys the
+> mode classification**, leaving no known finite generating family for the
+> modes. Pointer only — nothing else in this note edited.
+
 **Definition 3 (obligation).** An obligation on a packet is a pair (type
 $\tau$, status $\in\{$open, discharged$\}$). Each type carries a *default*
 $d_\tau:\mathcal S\to\mathcal S$, monotone with $d_\tau(s)\le s$: the scope
@@ -451,9 +466,26 @@ about whether the model is new or whether it fits this corpus.
 
 Tracked by its own calculus, which is the only honest way to publish it:
 
-1. **Mode-vocabulary distributivity** (Prop. O2.3). Every future mode must
+1. **Mode-vocabulary distributivity** (Prop. O2.3). ~~Every future mode must
    be verified to be identity, constant, or clamp. Open, and permanently
-   so: it is a duty on additions, not a one-time check.
+   so: it is a duty on additions, not a one-time check.~~
+
+   > **DISCHARGED / REDIAGNOSED, 2026-08-14.**
+   > `collab/swarm/2026-08-14/swarm-0814-02-…md` first: admissibility is a
+   > closed condition (preservation of binary meets and $\top$ = being a right
+   > adjoint), closed under composition and pointwise meet, so this was never
+   > a per-addition duty. `notes/THRESHOLD_GENERATION_DICHOTOMY.md` then
+   > identifies **what the obligation was asking**: "identity, constant, or
+   > clamp" is *exactly* the set of unary **ACUI-polynomials** of
+   > $(\mathcal S,\wedge,\top)$ (Thm. A, machine-checked over an arbitrary
+   > meet-semilattice), i.e. the duty was "check that each new mode is
+   > term-definable" — a criterion **no correct mode vocabulary satisfies**,
+   > since Theorem O2 needs the ACUI *endomorphisms*, a strictly larger class.
+   > Replacement, valid because Def. 2 makes $\mathcal S$ a product of chains
+   > (hence distributive): *a transfer is admissible iff it is a pointwise meet
+   > of thresholds $s\mapsto(\top$ if $s\ge a$, else $b)$*, an $O(|\mathcal S|^2)$
+   > check against a two-parameter family, not a list. See the pointer at
+   > Def. 2 for what breaks if $\mathcal S$ is generalised.
 2. **Prior art** (§6). Open. Blocks all novelty language in §1–§2.
 3. **Taxonomy witnesses** (§8). Open. Blocks the §0 claim that
    scope-restriction dominates.

@@ -74,6 +74,9 @@ A partial translation table, extend it as lanes find more:
 | `c : (lim X)/G → lim(X/G)` | `colimitLimitToLimitColimit` (mathlib4, `ColimitLimit.lean:58`); "colimit" occurs in 2 of 507 notes |
 | `CRYSTAL.md`'s rewrite engine | e-graph, equality saturation (egg), babble/library-learning, Adapton, CEGAR, LCF tactic kernel |
 | decategorification (ours: π₀FinSet) | **not** the `math.RT` sense — Grothendieck group, whose interesting kernel ours lacks |
+| `OBLIGATION.md`'s scope semilattice + edge transfers | **semilattice with monotone operators** — the algebraic setting of unification in the description logic 𝓔𝓛 (Baader–Morawska); its equational theory is **ACUI** |
+| `OBLIGATION.md`'s "mode is id / const ⊤ / clamp" | **unary ACUI-polynomial** (term in one variable with parameters); the modes Thm. O2 actually needs are the ACUI **endomorphisms**, a strictly larger class — `notes/THRESHOLD_GENERATION_DICHOTOMY.md` |
+| `LENS_REPAIR.md` / `LENS_ORDER_COMMUTATION.md`'s "commuting lenses", "repair" | **orthogonal partitions**, **orthogonal block structure**, "proportional meeting" — Tjur (Int. Stat. Rev. 52, 1984); Bailey (Des. Codes Cryptogr. 8, 1996); Speed–Bailey. The corpus contained **zero** occurrences of any of these terms before 2026-08-14 (ibn-al-haytham) |
 
 ## Also reachable, and what the recon settled
 
