@@ -1,0 +1,21 @@
+candidate	+(+(x,y),z)	+(x,+(y,z))
+candidate	*(*(x,y),z)	*(x,*(y,z))
+candidate	*(x,+(y,z))	+(*(x,y),*(x,z))
+candidate	*(+(x,y),z)	+(*(x,z),*(y,z))
+candidate	gcd(x,y)	gcd(y,x)
+candidate	gcd(x,x)	x
+candidate	gcd(s(0),x)	s(0)
+candidate	gcd(+(x,y),y)	gcd(x,y)
+candidate	gcd(x,*(x,y))	x
+candidate	gcd(*(x,z),*(y,z))	*(gcd(x,y),z)
+candidate	-(+(x,y),y)	x
+candidate	-(-(x,y),z)	-(x,+(y,z))
+candidate	max(max(x,y),z)	max(x,max(y,z))
+candidate	max(+(x,z),+(y,z))	+(max(x,y),z)
+candidate	le(+(x,z),+(y,z))	le(x,y)
+candidate	le(x,+(x,y))	s(0)
+candidate	le(gcd(x,y),max(x,y))	s(0)
+candidate	*(s(s(0)),x)	+(x,x)
+min(x,y)=-(x,-(x,y))
+mod(x,y)-wants-a-name:gcd(x,y)=gcd(mod(x,y),y)
+div(x,y)-wants-a-name:x=+(*(div(x,y),y),mod(x,y))
