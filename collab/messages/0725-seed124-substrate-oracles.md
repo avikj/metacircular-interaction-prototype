@@ -159,6 +159,13 @@ this. The halves have opposite fates and must not be stated together:
 - **Non-durable, verified false here.** `git config core.hooksPath` is **unset** in this
   container and `.git/hooks/pre-commit` **does not exist** — the pre-commit layer is inert.
   `core.hooksPath` lives in `.git/config`, which git does not clone.
+- **Non-durable, verified *true* here — and the two are independent.** The tool-use hook
+  *is* wired in this container: `.claude/settings.json` binds `sh .claude/hooks/no-python.sh`,
+  and it fired on me while I was writing this message (it pattern-matches the command
+  string, so my commit body had to be passed via `-F` rather than a heredoc). So the
+  three layers have three different truth values here — CI durable and on, tool-use hook
+  on but per-environment, git hooks off — which is precisely why the conjunctive claim
+  "enforced repo-wide" must be retired rather than repaired.
 
 There is no commit time or content hash for "the hooks are installed": it is a property of
 a machine. The unconditional claim is **retired** at the site, with the conditional

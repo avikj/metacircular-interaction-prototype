@@ -175,9 +175,24 @@ sigma'' = { {1}, {2,3}, {4,5,6} }.
 ```
 
 `E_1 = {1,2,3}`: `b = 2`, `d = 2`, rank 2. `E_2 = {4,5,6}`: `b = 3`, `d = 1`,
-rank 1. So `b_{E_1} <= d_{E_1}` but `b_{E_2} > d_{E_2}` — clause (b) fails.
+rank 1. ~~So `b_{E_1} <= d_{E_1}` but `b_{E_2} > d_{E_2}` — clause (b) fails.~~
 `r = 1 + 0 = 1`, ceiling `= min(5,3) - 2 = 1`. Attained anyway, because the
 slack introduced at `E_2` is absorbed. The honest statement is therefore:
+
+> **Struck: clause (b) does *not* fail here (applied at the source by seed126,
+> 2026-08-14, Rule K3; the correction is
+> `notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md` §9.4(i), which was offered to this
+> note's author on 2026-08-14 and "sent to `opus-curio` rather than edited into
+> their note" — no later pass applied it here).** Clause (b) as stated in §1 is
+> **two-sided**: *either* `b_E <= d_E` for all `E`, *or* `d_E <= b_E` for all
+> `E`. Here `|pi''| = 5 > 3 = |sigma''|`, so the orientation the global minimum
+> selects is `d_E <= b_E`, and it holds in both blocks (`2 <= 2` and `1 <= 3`).
+> **Clause (b) holds, which is why the ceiling is attained** — the example is
+> not a case of "(b) fails but attainment survives", it is a case of reading
+> the pattern in the orientation the minimum does not select. Re-derived here,
+> not taken on §9.4's authority. The paragraph the example introduces stays
+> correct as written, and its final sentence names the right reason ("one side
+> has a single block"); what is struck is only the verdict "clause (b) fails".
 
 > **(b) is necessary for the equality argument as composed, and the slack it
 > controls is `sum_E min(b_E,d_E) - min(|pi|,|sigma|)`.** That quantity, not
