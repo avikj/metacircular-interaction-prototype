@@ -70,7 +70,7 @@ composeRevision first second = record
 PreservesAt :
     {oldResponse : Q₀ → X₀ → V}
     {newResponse : Q₁ → X₁ → V}
-  → Revision oldResponse newResponse → Q₀ → X₁ → Type ℓV
+  → Revision oldResponse newResponse → Q₀ → X₁ → Type _
 PreservesAt {oldResponse = oldResponse} {newResponse = newResponse}
   revision probe state =
   oldResponse probe (stateMap revision state)
@@ -79,7 +79,7 @@ PreservesAt {oldResponse = oldResponse} {newResponse = newResponse}
 DefectiveAt :
     {oldResponse : Q₀ → X₀ → V}
     {newResponse : Q₁ → X₁ → V}
-  → Revision oldResponse newResponse → Q₀ → X₁ → Type ℓV
+  → Revision oldResponse newResponse → Q₀ → X₁ → Type _
 DefectiveAt revision probe state = ¬ PreservesAt revision probe state
 
 -- Exact preservation needs the intermediate response value: the two paths
@@ -99,7 +99,8 @@ preservation-composes first second probe state first-ok second-ok =
   first-ok ∙ second-ok
 
 DecidableEquality : Type ℓV → Type ℓV
-DecidableEquality V = (left right : V) → (left ≡ right) ⊎ ¬ (left ≡ right)
+DecidableEquality V =
+  (left right : V) → (left ≡ right) ⊎ (¬ (left ≡ right))
 
 -- Pointwise form of
 --
