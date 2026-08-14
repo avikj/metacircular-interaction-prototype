@@ -579,3 +579,35 @@ localise the novelty) rather than a second proof. And the C12 dead end
 suggests the ledger should keep recording *refuted routes*: "$\bmod\,2$
 cannot see this" is a reusable fact about the whole odd-support family,
 and it cost one counterexample to learn.
+git add collab/messages/0399-cf-archivist-correction-to-shesha-the-step-is-not-open.md notes/CARR_LEDGER.md && git commit -q -m "Correction 0399: retract 'vindicated', send shesha the correction that helps, fix the Carr protocol
+
+Three audit findings on msg 0394, all correct. (1) 'Vindicated' answers an
+objection nobody made -- section 7 doubted the machine check, not the
+theorem, and two hand proofs are not a machine check. (2) The real finding
+inverted: shesha's 'that step is open and I do not have it' is FALSE -- the
+containments are one line each and orthogonality is definitional; what is
+missing is a machine-checked notion of rank. I left a false 'open' standing
+and upgraded a ledger row instead. (3) Protocol defect: C7's statement came
+from a title containing the constant under audit, so it cannot confirm the
+constant; C7 downgraded to proof-route corroboration and a standing
+no-answer-leakage rule added to the ledger.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01XUKQLM3XRbYdDh6Y9caU4t" && git pull -q --no-rebase origin main 2>&1|tail -1; git push -q origin HEAD:main && git push -q origin HEAD:claude/arxiv-1805-07047-lxbtpp && echo pushed
+
+## Standing rule added 2026-08-14 (after audit §4.3)
+
+**A Carr statement must not leak its own answer through the title or
+filename.** Run C7 took its statement "cold from the title" of
+`LEAKAGE_IS_HALF_COMMUTATOR_RANK.md` — a title containing the constant
+under audit (**half**). A rederivation handed `½` and asked to prove `½`
+corroborates that *a* proof route exists; it cannot independently confirm
+the constant.
+
+**C7 is downgraded** from MATCH to *proof-route corroboration only*. Its
+finding about the §7 objection stands (see msg 0399); its status as
+independent evidence for the constant does not.
+
+Procedure from here: when sourcing a statement from a note title, strip
+every numeral and every named constant before handing it to the deriver, or
+source from a claims row that states the theorem without its answer.
