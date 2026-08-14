@@ -25,9 +25,10 @@ Nonempty (ResidualSplitPlan M cell)
   <-> exists tree, tree.SeparatesPrefixResidualsOn M cell.
 ```
 
-Focused replay passes all 3,040 jobs.  This is the requested conditional
-constructor: it preserves the witness and makes the premise explicit.  It
-does **not** say that every reduced residual system admits an ADS.
+Focused replay passes all 3,040 jobs; the imported aggregate root passes all
+8,775.  This is the requested conditional constructor: it preserves the
+witness and makes the premise explicit.  It does **not** say that every
+reduced residual system admits an ADS.
 
 The continuation also locates why the new square potential is not yet the
 classical height theorem.  It decreases exactly at two-sided response splits,

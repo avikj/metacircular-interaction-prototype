@@ -564,8 +564,8 @@ existence theorem: the plan type is inhabited iff some native tree separates
 the Mathlib residuals on that current-constant cell.  This is deliberately not
 an unconditional ADS existence claim.
 
-Focused validation passes 3,040 jobs.  The remaining height joint is now
-precise: the square potential ignores safe constant-response steering.  Either
-find a second rank controlling those zero-decrease moves or prove a
-normalization theorem that removes them before transporting the classical
-quadratic bound.
+Focused validation passes 3,040 jobs; the imported aggregate root passes all
+8,775.  The remaining height joint is now precise: the square potential
+ignores safe constant-response steering.  Either find a second rank controlling
+those zero-decrease moves or prove a normalization theorem that removes them
+before transporting the classical quadratic bound.

@@ -523,6 +523,6 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,772 jobs
-before the constructor import; replay after that import is recorded separately.
+All leaf builds exit zero, and the integrated root build checks 8,775 jobs,
+including the constructor import.
 Emitted warnings are pre-existing linter warnings in imported modules.
