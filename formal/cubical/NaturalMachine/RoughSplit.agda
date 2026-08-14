@@ -419,3 +419,62 @@ isPrime7 with roughSplitSelf 7 (suc-≤-suc zero-≤) noSmall-7
 n≤X-necessary :
   (¬ (49 ≡ 1)) × (¬ (IsPrime 49)) × AllPrimeFactorsAbove (isqrt 30) 49
 n≤X-necessary = 49≢1 , ¬prime49 , 49-rough-at-30
+
+------------------------------------------------------------------------
+-- §7  SHARPNESS, second control:  the horizon cannot be lowered
+--
+-- `roughSplit` takes s with X < (s+1)².  That hypothesis is not slack.
+-- At X = 30 and s = 4 it fails by exactly one step ((s+1)² = 25 ≤ 30),
+-- and so does the conclusion: 25 ≤ 30, every prime factor of 25 exceeds
+-- 4, and 25 is neither 1 nor prime.  So `isqrt X` in §5 is the smallest
+-- horizon that works, not a convenient choice.
+------------------------------------------------------------------------
+
+private
+  ¬2∣5 : ¬ (2 ∣ 5)
+  ¬2∣5 h = go (∣-untrunc h)
+    where
+    go : Σ[ c ∈ ℕ ] c · 2 ≡ 5 → ⊥
+    go (zero , e) = znots e
+    go (suc zero , e) = znots (injSuc (injSuc e))
+    go (suc (suc zero) , e) =
+      znots (injSuc (injSuc (injSuc (injSuc e))))
+    go (suc (suc (suc c)) , e) =
+      snotz (injSuc (injSuc (injSuc (injSuc (injSuc e)))))
+
+  noSmall-5 : NoSmallDivisor (isqrt 5) 5
+  noSmall-5 d 1<d d≤2 d∣5 with ≤-antisym d≤2 1<d
+  ... | d≡2 = ¬2∣5 (subst (_∣ 5) d≡2 d∣5)
+
+isPrime5 : IsPrime 5
+isPrime5 with roughSplitSelf 5 (suc-≤-suc zero-≤) noSmall-5
+... | inl 5≡1 = Empty.rec (snotz (injSuc 5≡1))
+... | inr pp  = pp
+
+5∣25 : 5 ∣ 25
+5∣25 = ∣-left {m = 5} 5
+
+25≢1 : ¬ (25 ≡ 1)
+25≢1 p = snotz (injSuc p)
+
+¬prime25 : ¬ (IsPrime 25)
+¬prime25 pp with pp .snd 5 5∣25
+... | inl 5≡1  = snotz (injSuc 5≡1)
+... | inr 5≡25 = znots (injSuc (injSuc (injSuc (injSuc (injSuc 5≡25)))))
+
+25-rough-at-4 : AllPrimeFactorsAbove 4 25
+25-rough-at-4 p pp p∣25 =
+  subst (4 <_) (sym (prime-∣-prime p 5 pp isPrime5 p∣5)) ≤-refl
+  where
+  p∣5 : p ∣ 5
+  p∣5 with prime-∣-· p 5 5 pp p∣25
+  ... | inl h = h
+  ... | inr h = h
+
+-- 25 ≤ 30, all prime factors of 25 exceed 4, and 25 is neither 1 nor
+-- prime.  The sole hypothesis of `roughSplit 4 30 25` that fails is
+-- `30 < 5 · 5`.
+horizon-necessary :
+  (25 ≤ 30) × (¬ (25 ≡ 1)) × (¬ (IsPrime 25)) × AllPrimeFactorsAbove 4 25
+horizon-necessary =
+  (5 , refl) , 25≢1 , ¬prime25 , 25-rough-at-4

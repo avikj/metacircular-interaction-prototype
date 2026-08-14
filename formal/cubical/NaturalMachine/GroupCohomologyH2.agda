@@ -69,12 +69,14 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Data.Fin using (Fin)
+open import Cubical.Data.Fin.Arithmetic using (+ₘ-comm)
 
 open import Cubical.HITs.PropositionalTruncation as PT using (∥_∥₁ ; ∣_∣₁)
 open import Cubical.HITs.SetQuotients as SQ using ([_] ; squash/ ; effective)
 
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Relation.Binary.Base using (isEquivRel ; equivRel ; isPropValued)
+open import Cubical.Relation.Binary.Base using (module BinaryRelation)
+open BinaryRelation
 
 open import Cubical.Algebra.Group.Base
 open import Cubical.Algebra.Group.Properties
@@ -289,14 +291,14 @@ module Cochain (Q : Group ℓ) (A : Group ℓ')
   B₂ : Subgroup Z₂Group
   B₂ = B₂Subset , isSubgroupB₂
 
-  B₂normal : isNormal Z₂Group B₂
+  B₂normal : isNormal {G' = Z₂Group} B₂
   B₂normal x y hy = subst-∈ B₂Subset (sym conj) hy
     where
-      open GroupStr (snd Z₂Group) using () renaming (_·_ to _∙₂_ ; inv to inv₂)
-      conj : (x ∙₂ (y ∙₂ inv₂ x)) ≡ y
-      conj = cong (x ∙₂_) (Z₂comm y (inv₂ x))
+      open GroupStr (snd Z₂Group) using () renaming (_·_ to _⊕_ ; inv to inv₂)
+      conj : (x ⊕ (y ⊕ inv₂ x)) ≡ y
+      conj = cong (x ⊕_) (Z₂comm y (inv₂ x))
            ∙ GroupStr.·Assoc (snd Z₂Group) x (inv₂ x) y
-           ∙ cong (_∙₂ y) (GroupStr.·InvR (snd Z₂Group) x)
+           ∙ cong (_⊕ y) (GroupStr.·InvR (snd Z₂Group) x)
            ∙ GroupStr.·IdL (snd Z₂Group) y
 
   B₂NS : NormalSubgroup Z₂Group
@@ -364,8 +366,11 @@ module Cochain (Q : Group ℓ) (A : Group ℓ')
 -- 2.  The carry class of an extension, with coefficients in ker π
 ------------------------------------------------------------------------
 
+-- (Both groups at one universe level: the library's `kerSubgroup` is stated
+-- for a homomorphism between groups of the same level.  The arithmetic
+-- instance below is at level zero throughout.)
 module CarryClass
-  (G : Group ℓ) (Q : Group ℓ')
+  (G Q : Group ℓ)
   (Gcomm : (x y : ⟨ G ⟩) → GroupStr._·_ (snd G) x y
                          ≡ GroupStr._·_ (snd G) y x)
   (π : GroupHom G Q) (s : ⟨ Q ⟩ → ⟨ G ⟩)
@@ -481,29 +486,30 @@ module CarryClass
       pf : (u v : ⟨ Q ⟩) → δ f u v ≡ carryK .fst u v
       pf u v = ι-inj step
         where
+          P T : ⟨ G ⟩
+          P = s u G.· s v
+          T = S u G.· S v
+
+          first : (s u G.· G.inv (S u)) G.· (s v G.· G.inv (S v))
+                ≡ P G.· G.inv T
+          first = middle4 (s u) (G.inv (S u)) (s v) (G.inv (S v))
+                ∙ cong (P G.·_) (sym (invDistr' (S u) (S v)))
+
+          second : G.inv (s (u Q.· v) G.· G.inv (S (u Q.· v)))
+                 ≡ G.inv (s (u Q.· v)) G.· T
+          second = invDistr' (s (u Q.· v)) (G.inv (S (u Q.· v)))
+                 ∙ cong (G.inv (s (u Q.· v)) G.·_)
+                        (GroupTheory.invInv G (S (u Q.· v))
+                         ∙ σ .snd .pres· u v)
+
           step : ((s u G.· G.inv (S u)) G.· (s v G.· G.inv (S v)))
                    G.· G.inv (s (u Q.· v) G.· G.inv (S (u Q.· v)))
-               ≡ (s u G.· s v) G.· G.inv (s (u Q.· v))
+               ≡ P G.· G.inv (s (u Q.· v))
           step =
-              cong₂ G._·_ (middle4 (s u) (G.inv (S u)) (s v) (G.inv (S v)))
-                          ( cong G.inv (cong (s (u Q.· v) G.·_)
-                              (cong G.inv (σ .snd .pres· u v)))
-                          ∙ invDistr' (s (u Q.· v)) (G.inv (S u G.· S v)) )
-            ∙ cong (λ z → ((s u G.· s v) G.· (G.inv (S u) G.· G.inv (S v)))
-                            G.· (G.inv (s (u Q.· v)) G.· z))
-                   (GroupTheory.invInv G (S u G.· S v))
-            ∙ cong (λ z → ((s u G.· s v) G.· (G.inv (S u) G.· G.inv (S v)))
-                            G.· (G.inv (s (u Q.· v)) G.· z))
-                   (sym (invDistr' (G.inv (S u)) (G.inv (S v)))
-                    ∙ cong G.inv (cong₂ G._·_ (GroupTheory.invInv G (S u))
-                                              (GroupTheory.invInv G (S v)))
-                    ∙ refl)
-            ∙ middle4 (s u G.· s v) (G.inv (S u) G.· G.inv (S v))
-                      (G.inv (s (u Q.· v))) (G.inv (G.inv (S u) G.· G.inv (S v)))
-            ∙ cong ((s u G.· s v) G.· G.inv (s (u Q.· v)) G.·_) refl
-            ∙ cong (((s u G.· s v) G.· G.inv (s (u Q.· v))) G.·_)
-                   (G.·InvR (G.inv (S u) G.· G.inv (S v)))
-            ∙ G.·IdR _
+              cong₂ G._·_ first second
+            ∙ middle4 P (G.inv T) (G.inv (s (u Q.· v))) T
+            ∙ cong ((P G.· G.inv (s (u Q.· v))) G.·_) (G.·InvL T)
+            ∙ G.·IdR (P G.· G.inv (s (u Q.· v)))
 
 ------------------------------------------------------------------------
 -- 3.  The arithmetic instance: [c_n] ≠ 0 for base b ≥ 2, n ≥ 1

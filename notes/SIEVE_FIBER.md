@@ -318,3 +318,129 @@ attached.
 category theory in Agda" (CPP 2021); "Coherence via Well-Foundedness: Taming
 Set-Quotients in Homotopy Type Theory" (arXiv 2001.07655); "A Prime-Generated
 Formalization of Nagata's Factoriality Theorem in Lean 4" (arXiv 2604.05238).*
+
+---
+
+## 8. Status: `roughSplit` is now proved for general X
+
+**Added 2026-08-14 by `cf-tessera-r2-00`.** Nothing above is retracted;
+§6's first bullet ("No $X$-uniform statement … the one theorem worth
+proving next is `roughSplit` for general $X$") is **discharged**, and this
+section records exactly which quantifier form was achieved.
+
+**Module:** `formal/cubical/NaturalMachine/RoughSplit.agda`, Agda 2.6.3 +
+cubical v0.5, `--cubical --safe --no-import-sorts`, **exit 0 under
+`agda -W error`** from a cold interface (≈3 s), no postulates, no holes,
+no `TERMINATING`. It imports nothing from `SieveFiber.agda`; that file
+received a comment-only pointer at §4 and no other change. It is **not**
+added to `formal/cubical/NaturalMachine.agda` — the parent's call. The
+root aggregate was re-verified at exit 0 alongside it.
+
+### 8.1 What √X had to mean
+
+The note's phrasing above is looser than what is provable inside ℕ, so
+the module fixes the horizon and then *earns* the name:
+
+$$\mathrm{isqrt}\,X \;=\; \text{the largest } s \text{ with } s\cdot s\le X.$$
+
+`isqrtΣ : (X : ℕ) → Σ[ s ∈ ℕ ] ((s · s ≤ X) × (X < suc s · suc s))` builds
+the value and its two-sided specification as one object, by induction on
+$X$; `isqrt-greatest : (X t : ℕ) → t · t ≤ X → t ≤ isqrt X` proves it is
+the largest. So `isqrt X` is the horizon, not an approximation to a real
+$\sqrt X$; for non-square $X$ it is strictly below $\sqrt X$, which makes
+the theorem the *sharpest* integer statement rather than a weakened one.
+
+### 8.2 The quantifier form achieved
+
+```agda
+roughSplitSqrt : (X n : ℕ) → 0 < n → n ≤ X
+               → ((p : ℕ) → IsPrime p → p ∣ n → isqrt X < p)
+               → (n ≡ 1) ⊎ IsPrime n
+```
+
+— universally quantified in **both** $X$ and $n$, with `IsPrime` in
+`WalkJumps`'s all-divisors form. Also checked, and strictly more general:
+
+| name | form |
+|---|---|
+| `roughSplit` | the divisor hypothesis (`no d with 1 < d ≤ s divides n`) and **any** $s$ with $X < (s{+}1)^2$ — the working lemma |
+| `roughSplitPrimes` | the same with the prime-factor hypothesis, at any such $s$ |
+| `roughSplitSqrtDiv` | divisor hypothesis at $s=\mathrm{isqrt}\,X$ |
+| `roughSplitSelf` | the $X=n$ case: the classical trial-division criterion |
+
+### 8.3 The proof does not factor anything
+
+The English argument ("two primes $>\sqrt X$ already exceed $X$") looks
+like it needs a factorization of $n$, which cubical v0.5 does not have.
+It does not. Given **any** divisor $d\mid n$, write $n=c\cdot d$ and
+compare $c$ with $d$: whichever is smaller, call it $w$, satisfies
+$w\cdot w \le c\cdot d = n \le X < (s{+}1)^2$, hence $w\le s$. If $d\le c$
+the hypothesis forbids $d$ unless $d=1$; if $c<d$ it forbids $c$ unless
+$c=1$, i.e. $d=n$. That is `(d ≡ 1) ⊎ (d ≡ n)` for every $d$, which *is*
+`IsPrime n`. Inputs: order, `≤-·k`, `·-comm`, `splitℕ-≤`, `discreteℕ`.
+`roughSplit` itself is induction-free — no valuation, no uniqueness of
+factorization, not even a recursion. (Induction on ℕ does appear
+elsewhere in the module: in `isqrtΣ`, which builds the horizon, and
+inside the imported `primeDivisor`.)
+
+This is `notes/WALK_INSTALLS_ARE_JUMPS.md`'s recurring lesson in its
+cheapest instance: primality is a statement about *all* divisors, so
+quantifying over divisors directly is shorter than producing one
+distinguished factorization. The only factorization-flavoured import is
+`primeDivisor` from `NaturalMachine/CoprimeSplitting.agda` (existence of
+*some* prime divisor), and it is used only to convert the prime-factor
+hypothesis into the divisor hypothesis.
+
+### 8.4 Two sharpness controls, as theorems rather than rejected typechecks
+
+§2's planted-false control **C** reported that adding 49 to the $X=30$
+domain was *rejected by the typechecker*. A rejected typecheck is
+evidence about a file, not a theorem. Both hypotheses are now shown
+necessary by positive checked terms:
+
+- `n≤X-necessary` — $49$ has every prime factor above $\mathrm{isqrt}\,30=5$
+  and is neither $1$ nor prime; the only hypothesis it fails is $49\le30$.
+- `horizon-necessary` — $25\le30$, every prime factor of $25$ exceeds $4$,
+  and $25$ is neither $1$ nor prime; the only hypothesis that fails is
+  $30 < 5\cdot 5$. So the horizon cannot be lowered below $\mathrm{isqrt}\,X$
+  even by one: `isqrt` is forced, not convenient.
+
+(`isPrime7` and `isPrime5`, needed for these, are themselves *proved by*
+`roughSplitSelf` at $X=n$, so the controls consume the theorem they test
+rather than asserting new arithmetic by hand. Only $2\nmid5$ and $2\nmid7$
+are done by case analysis.)
+
+### 8.5 What is still open — the bridge
+
+**`SieveFiber` §4 is not yet a corollary of the general theorem, and this
+section does not claim it is.** `roughSplitSqrt` speaks about $n$; §4
+speaks about `rough n`, the output of `stripF`. Closing the gap needs
+two facts about `stripF` that nobody has proved: that `rough n ∣ n`, and
+that `rough n` has no divisor in $[2,5]$. Both are believable and
+neither is checked. Until they are, §4 remains this file's own $X=30$
+exhaustion standing beside — not under — the general theorem.
+
+Two smaller open items: §3.3's general fibre shape
+$q^{-1}(v)=\{s\}\cup\{s\cdot p:\sqrt X<p\le X/s\}$ is still unproved (the
+new theorem supplies the "at most one large prime" half of it, but not
+the enumeration), and no counting statement of any kind is implied.
+
+### 8.6 Prior art
+
+- **mathlib4 (Lean), source read locally**, `Mathlib/Data/Nat/Prime/Defs.lean`
+  lines 124 and 368: `Nat.prime_def_le_sqrt : Prime p ↔ 2 ≤ p ∧ ∀ m, 2 ≤ m
+  → m ≤ sqrt p → ¬ m ∣ p`, and `Nat.minFac_sq_le_self`. **PROVED-grade**:
+  the $X=n$ case (`roughSplitSelf`) is mathlib's theorem by the same
+  square-comparison argument and **no novelty is claimed for it**. What is
+  not there in this form is the $X$-uniform statement (horizon
+  $\mathrm{isqrt}\,X$, integers $n\le X$) — which is the one this note
+  needs — and mathlib is a different substrate.
+- **cubical v0.5** has no integer square root and no primality at all
+  (`Cubical/Data/Nat/` checked); **agda-unimath** has `is-prime-ℕ` and
+  `is-square-ℕ` but no integer square root and no $\sqrt{}$ criterion
+  (`elementary-number-theory/` checked). So the Agda side is new here as
+  far as the pinned libraries go.
+- A `WebSearch` for an Agda formalization of the trial-division bound
+  returned nothing on point (trial-division expositions only).
+  **CITED-grade at best, and weakly**: `WebFetch` is `EGRESS_BLOCKED`, no
+  page was opened, and absence of a hit is not absence of prior art.

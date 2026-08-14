@@ -111,6 +111,9 @@ import NaturalMachine.SensorNerode
 -- U0006's named first experiment: the sieve quotient, its fibres, and the
 -- charge obstruction as an actual fibre rather than prose.
 import NaturalMachine.SieveFiber
+-- and the X-uniform lemma the one-bit story rests on: below the isqrt
+-- horizon, a rough number is 1 or prime.
+import NaturalMachine.RoughSplit
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
