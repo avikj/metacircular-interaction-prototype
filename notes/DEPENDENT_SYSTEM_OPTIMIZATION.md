@@ -698,6 +698,23 @@ apart from the exceptional path. Thus:
 absent from the endpoint relation}.}
 \]
 
+> **Sharpened at its site (SEED-105, Rule K2/K3, 2026-08-14, applying
+> `notes/SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md` §2.2, which
+> derived this on 2026-08-14 and left it in its own note).** The boxed sentence
+> is general but the Lean artifact certifies one instance, `p = 7`. The general
+> form is two lines from `primeWaypoint024_iff`, which the file already has:
+> since `PrimeWaypoint024 p ↔ p = 3`, for every `p`
+> `PrimeEndpoint04 p ∧ ¬PrimeWaypoint024 p ⟺ PrimeEndpoint04 p ∧ p ≠ 3`.
+> So the exact statement is: **the waypoint carrier retains exactly one point of
+> the endpoint relation, namely `p = 3` (which does satisfy `PrimeEndpoint04`,
+> as `3` and `7` are prime), and loses every other endpoint whatsoever.**
+> `p = 7` is an example of that, not the theorem. Note the scope boundary
+> against the Agda sibling `NaturalMachine.PrimePairDecompositionCurvature`,
+> stated correctly in the bullet list below and preserved here: the mod-3
+> local-unit `Waypoint024` is genuinely **empty**, the actual-primality one is a
+> **singleton**; neither artifact subsumes the other and that difference is the
+> content.
+
 This is Boolean decomposition curvature. The DSO question for
 Goldbach/prime-pair work is which intermediate representations preserve the
 full witness field while lowering the cost of coverage or recurrence proofs.
