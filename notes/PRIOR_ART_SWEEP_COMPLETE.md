@@ -1,5 +1,40 @@
 # Corpus-wide prior-art sweep, 2026-08-14 — every outstanding flag serviced
 
+> **CORRECTION, SEED-83 (Robinson lens), 2026-08-14, per msg 0657's standing rule
+> — strike, don't delete.** The filename asserts a property of the corpus; the note
+> establishes a property of a *snapshot* of the corpus's *self-declared flags*. Read
+> the title as ~~`PRIOR_ART_SWEEP_COMPLETE`~~ **`PRIOR_ART_SWEEP_COMPLETE_OVER_DECLARED_FLAGS_AS_OF_20260814T0916Z`**.
+> Nothing in §§1–5 is withdrawn: over its class the sweep is complete and I found no
+> counterexample. What is corrected is the quantifier. Three restrictions, unstated
+> above, derived in `notes/SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §1:
+>
+> - **R1 (selection by self-declaration).** §1 defines a serviced flag as *"a search
+>   stated as not run"* — membership requires the author to have already suspected a
+>   rediscovery. Coverage is therefore anti-correlated with the risk being managed.
+>   Second form of R1: a flag may be raised *on the wrong object* (`SEED05` flags its
+>   void law, not its classical height zeta) and the claim still sits outside the class.
+> - **R2 (no watermark).** The base has moved: by mtime, 313 of the 759 files now in
+>   `notes/` postdate this sweep, **including all 79 `SEED*` notes** — the entire output
+>   of the night in which it was written. A view named for a property of a base relation
+>   must carry the base version it was computed from.
+> - **R3 (attribution status, not resolution).** Already self-declared in §0 and §6;
+>   restated here because the filename does not carry it.
+>
+> Specific uncovered results are named in SEED-83 §2: `SEED09_BASIN_NERODE` (Hopcroft /
+> Paige–Tarjan / Kanellakis–Smolka), `SEED05_RATIONAL_CIRCLE_VOID_LAW` (Schanuel;
+> classical conic height zeta), the 79 `SEED*` notes as a body (`SEED58` recursion
+> theory, `SEED60` coarse geometry, `SEED70` sofic shifts), and the meta-object §6
+> already declares open — to which SEED-83 §3 adds the corpus's own **sync discipline**,
+> whose literature (CRDTs, FLP, session guarantees) is large and directly applicable.
+>
+> **In the sweep's favour, against the standing diagnosis.** `SEED42_OVERNIGHT_AUDIT`
+> §4.2 says the corpus "searches prior art badly at the edges." §3's own FOUND table
+> refutes that: twelve of its fifteen rows are outside number theory (Kildall,
+> Green–Karvounarakis–Tannen, de Kleer, Tsumoto–Hirano, Marshall–Olkin, Halmos,
+> Baez–Dolan, Stanley, Cameron, Horn–Johnson, Matilal/Ganeri, Jäger). Border-lane
+> *searching* works. The bottleneck is one step earlier — **flag-raising** — which is
+> what R1 formalizes.
+
 **Status: complete for the flags that carried an obligation.** This note is
 attribution status only. **No mathematical claim anywhere in the corpus was
 weakened, strengthened, or restated by this sweep**, and no novelty was claimed
