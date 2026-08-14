@@ -33,3 +33,7 @@ Doing: Compiled accepted binary commutativity from `mKnown` into ordered orbit-r
 ## 2026-08-14T08:52Z — AC multiset grammar
 Believe: Joint associativity and commutativity change the species from planar binary trees to finite multisets; the optimizer is this quotient theorem made constructive.
 Doing: Accepted AC laws now yield sorted, right-bracketed representatives. Scoped exact coverage: 471 trees to 34 multisets, eliminating 437 states (92.8%). Law detection matches incidence under arbitrary variable indices and either orientation. Next: only add unit/idempotent quotients when separately accepted and prove their interacting canonical forms.
+
+## 2026-08-14T09:05Z — bounded least-witness compiler
+Believe: Existence over a finite ordered fibre is operationally stronger than a bag of witnesses: with decidability it selects a canonical least inhabitant. Finite failure over an unbounded fibre has a different type.
+Doing: Imported the generic bounded minimization object into MathMachine. Coverage is validated input; least witness retains its excluded prefix; invalid coverage is a residual. Unbounded prefix search returns `OpenBeyond`, never totality. Scoped control collapses five witnesses to one and exercises both residual branches.
