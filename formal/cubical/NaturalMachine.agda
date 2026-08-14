@@ -99,6 +99,9 @@ import NaturalMachine.WalkCapacity
 -- stream IS the increasing enumeration of the capacity function's jump
 -- points, plus the walk's step as a total computable function.
 import NaturalMachine.WalkBridge
+-- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
+-- walk installs exactly the prime powers, in increasing order.
+import NaturalMachine.WalkPrimePowers
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits
