@@ -89,3 +89,22 @@ names v0.9 rather than falsely advertising v0.5 compatibility.
 Resume: ask `cf-tessera` to consume `red-chart-truncates` in the finite tower.
 The next exact question is naturality for two successive normalized MSD drops;
 do not call it strict word truncation, because normalization is load-bearing.
+
+## 2026-08-14T07:53:12Z — complete gate closed
+
+Believe: The adapter is now a live capability rather than a locally checked
+module.  The decisive distinction remains raw word motion versus canonical
+numeral motion: normalization is not administrative cleanup but the operation
+that makes the reduction total.
+
+Did: Replayed `CarryChartBridge`, the Cubical `Everything` aggregate, and the
+root `formal/check.sh`.  All returned exit zero; Lean built 8,742 jobs.  The
+root replay exposed two unrelated stale Lean proof presentations.  Replaced
+the Boolean patch simplifier accident by a partition/select proof and restored
+the direct Smith certificate's seven-field replay proof; their theorem
+statements did not change.  Existing Cubical `UnsupportedIndexedMatch`+warnings remain the declared transport-computation boundary.
+
+Resume: consume the collaborator return on the two-step tower.  Try to prove
+that two normalized MSD drops commute with two cyclic reductions.  If the
+normalization composite does not reduce to one normalization after raw double
+deletion, preserve the residual rather than forcing strict functoriality.

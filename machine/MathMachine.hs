@@ -156,6 +156,47 @@ executeBoundedSearch plan =
          Left residual -> SearchProjection [] witnesses consequence (Just residual)
          Right least -> SearchProjection [leastValue least] witnesses consequence Nothing
 
+-- A finite connected-groupoid atlas.  `toChart c` is the chosen spanning-tree
+-- transport from the base; the remaining arrows are represented by loop
+-- generators acting on the base fibre.
+data FiniteAtlas = FiniteAtlas
+  { atlasCharts :: [Int]
+  , atlasCarrier :: [Int]
+  , toChart :: Int -> Int -> Int
+  , loopGenerators :: [Int -> Int]
+  }
+
+data HolonomyFailure = HolonomyFailure
+  { failedBaseValue :: !Int
+  , failedLoop :: !Int
+  , loopImage :: !Int
+  } deriving (Eq, Show)
+
+data CompiledAtlas = CompiledAtlas
+  { coherentFamilies :: [(Int, [(Int,Int)])]
+  , holonomyFailures :: [HolonomyFailure]
+  , assignmentBranches :: !Integer
+  } deriving (Eq, Show)
+
+compileAtlas :: FiniteAtlas -> CompiledAtlas
+compileAtlas atlas = CompiledAtlas families failures rawBranches
+  where
+    carrier = atlasCarrier atlas
+    loops = loopGenerators atlas
+    fixed a = all (\g -> g a == a) loops
+    families =
+      [ (a, [ (chart, toChart atlas chart a) | chart <- atlasCharts atlas ])
+      | a <- carrier, fixed a ]
+    failures =
+      [ HolonomyFailure a i (g a)
+      | a <- carrier
+      , Just (i,g) <- [firstFailure a (zip [0..] loops)] ]
+    firstFailure _ [] = Nothing
+    firstFailure a ((i,g):gs)
+      | g a == a = firstFailure a gs
+      | otherwise = Just (i,g)
+    rawBranches = toInteger (length carrier) ^ length (atlasCharts atlas)
+
 instance Show Term where
   show (V i) | i < 6 = [ "xyzuvw" !! i ]
              | otherwise = "n" ++ show i
@@ -734,10 +775,11 @@ data Machine = Machine
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
   , mBoundedSearches :: [BoundedSearch]
+  , mAtlases :: [FiniteAtlas]
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 []
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 [] []
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -938,6 +980,10 @@ round1 logh libh ref = do
       bounded = map executeBoundedSearch (mBoundedSearches m)
       witnessBranches = sum (map (length . activeWitnesses) bounded)
       derivationBranches = sum (map (length . derivationFiber) bounded)
+      atlases = map compileAtlas (mAtlases m)
+      atlasRaw = sum (map assignmentBranches atlases)
+      atlasFixed = sum (map (toInteger . length . coherentFamilies) atlases)
+      atlasTears = sum (map (length . holonomyFailures) atlases)
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
@@ -983,6 +1029,8 @@ round1 logh libh ref = do
   hFlush libh
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
+  hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
+    atlasRaw atlasFixed atlasTears
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
