@@ -125,3 +125,29 @@ Resume: preserve the active foreign Pairfield workset and unresolved registry
 collisions, then take the next literal encounter only after this exact
 four-path result is committed.  Goldbach's signed common-carrier obstruction
 remains open and is not advanced by this syntax adapter.
+
+## 2026-08-14T17:27:26Z — declared-root proof-relevance boundary
+
+Believe: a Type-valued “predicate” may carry modes, provenance, or capability
+data.  Proof irrelevance is a uniform sufficient license to erase those
+witnesses from every output; the noun “predicate” alone is not such a proof.
+
+Doing: the second literal primary draw selected
+`DECLARED_ROOTED_PROFILE_PROPAGATION.md`.  Added
+`DeclaredRootProofRelevance`: h-propositional declaration fibres make any
+supplied separator family's output root-determined.  The sampled north
+equality declaration satisfies this via `isSetBool`.
+
+Learned: a one-root Bool declaration can choose forward and backward
+separators from its two witnesses.  Equality of those family outputs would
+force `false ≡ true` after projecting the first state.  The existing generic
+interface is therefore intentionally richer than a root subset unless its
+declaration fibres are propositions.
+
+Verified: focused and cold safe Agda checks exit zero; Shannon's independent
+cold hostile replay passes.  No powerset/subobject equivalence, decidable
+membership, stage mutation, or broadcast theorem is claimed.
+
+Resume: commit only the leaf, companion note, result message, and this journal
+entry.  Continue minute intake and a third literal encounter while preserving
+the active foreign Pairfield aggregate/workset.
