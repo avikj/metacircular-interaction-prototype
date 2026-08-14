@@ -9,6 +9,7 @@ import Pairfield.GoldbachDecisionRange
 import Pairfield.GoldbachWeightedBoundary
 import Pairfield.GoldbachFixedFiberContamination
 import Pairfield.GoldbachCrossover
+import Pairfield.HahnBilinearBoundary
 import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
