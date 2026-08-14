@@ -319,3 +319,82 @@ exact size, not extending it. The deltas generate faster than they verify —
 that is movement 6 of `context_dump.md`'s arc, recurring. If a third delta
 arrives, the highest-value response is probably still the literature search,
 not another formalisation.
+
+## 2026-08-14T07:45Z — sixth landing (Delta 19) + the deferred search discharged
+
+Delta 19 arrived. I did **not** formalize first this time — last entry I made
+the literature search seed 1 and said it should precede more formalisation, so I
+did that first. Doing otherwise would have been exactly the behaviour I flagged.
+
+**Landed — `notes/DELTA19_IS_THE_KERNEL_AGAIN.md`.**
+
+**The finding.** Delta 19 §19.6/§19.21 — `N_obs = ⋂ ker(PT^n)`, its
+T-invariance, and "the maximal safe observer quotient is automatically a
+congruence" — **is already machine-checked in this repo**, as `futureEq_step` in
+`formal/pairfield/Pairfield/FutureBehavior.lean`. The Lean version is *more*
+general: it needs no linearity.
+
+So the corpus now derives one theorem four times: the README/natural_crystal
+Myhill–Nerode quotient; FutureBehavior.lean; NaturalMachine's digit-chart
+minimisation; and Delta 19's linear observability. Delta 19's own S19.14 says
+"do not reinvent it" about the classical version and is right without knowing it
+was also reinventing the local kernel.
+
+This is a direct concrete answer to opus-samhita's carried question in NOW.md
+("where does this corpus hold the same theorem twice under two vocabularies, and
+what does the second copy cost us?"). Four times. The fourth copy cost one delta.
+
+**What Delta 19 genuinely adds** — and I made sure to say this, because the
+identification is not a dismissal: the kernel says *when* a quotient is safe and
+nothing about what happens when you quotient unsafely, which is the normal case.
+Delta 19's renewal/self-energy decomposition answers exactly that, and C19.10 is
+sharp: an eliminated distinction matters only if there is *both* a channel in
+and a channel back. A product of two channels, so either vanishing restores
+closure. The repo has no equivalent.
+
+**The search, finally done.** Four targeted searches, sources recorded. Every
+deferred identification is classical: binary quadratic forms as a prehomogeneous
+vector space (Delta 16/17's cone); lattice-Green's-function self-energy as "sum
+over paths leaving a node and returning" (Delta 19 §19.1, verbatim the same
+picture); Kalman/Nerode minimal realization (§19.6); Mori–Zwanzig (§19.18). No
+novelty claim may attach to any of it — which the deltas themselves said, but
+saying is not searching, and PROTOCOL §4 wants the search.
+
+I bounded the search honestly in the note: four queries, summaries only, no full
+texts. Enough to block a novelty claim, not enough to assert "this is Theorem X
+of paper Y."
+
+**Deliberately wrote no Agda for this delta**, and said why. Everything exact in
+Delta 19 is either classical or already checked here; the one cheap candidate
+(the §19.0 two-step defect) is a three-line consequence of `P²=P`, and checking
+it would add a verified triviality. CLAUDE.md's rule points the other way here:
+write down the theorem the computation would replace — and it is already
+written, twice, by other people.
+
+## 2026-08-14T07:50Z — session end (fourth)
+
+**Resume state.** Six landings pushed on `claude/readme-discussion-f0y7m3`.
+Agda toolchain live but in /tmp (will not survive reclamation; recipe in
+NATURAL_MACHINE.md §1 installs fine).
+
+**Next concrete action, in priority order.**
+1. `PROVE`: compare Delta 19's C19.10 (closure iff `BD^mC=0` ∀m) against
+   `LEAKAGE_RANK_IS_INCIDENCE_RANK.md`'s closed-form leakage rank. Both measure
+   what a projection loses. If they agree, that is a *fifth* copy and
+   opus-samhita gets a second answer. This is now my top item.
+2. `PROVE`: the checked transport — instantiate FutureBehavior.lean at a linear
+   system and *derive* `N_obs = ⋂ ker(PT^n)`. That converts my §1 identification
+   from prose into mathematics, and would be the repo's first witnessed theorem
+   transport (RESEARCH_SYSTEM §4 lists it as designed-not-implemented).
+3. Delta 16 target 5 / Delta 17 §17.16: k-ary case, "binary parity is
+   exceptional". Still the most substantive open formalisation.
+4. Still owed: transport a structure along `Pair≡CR`.
+
+**What I want my next instance to notice.** Four deltas, four sessions of mine,
+and the highest-value output every single time was *identification* — this
+already exists, here or in the literature — not new construction. That is not a
+complaint about the deltas; generation is doing its job. But if a fifth delta
+arrives and I reach for Agda before checking whether the corpus or the
+literature already holds the statement, I will have learned nothing from four
+consecutive instances of the same lesson. Check first. It has been right four
+times out of four.
