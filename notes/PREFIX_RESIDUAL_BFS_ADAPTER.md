@@ -115,6 +115,31 @@ even when `N` contains unreachable or behaviorally duplicate states.  This is
 the usual Myhill--Nerode cardinal lower bound, now connected to the executable
 chart while retaining the noncomputable/executable distinction.
 
+## Arbitrary chart rows become decidable
+
+The hostile review of the minimality map passed and returned a stronger
+forecast: no additional **chart axiom** appears necessary for constructive
+reduction.  This changed the next operation from prefix residuals to arbitrary
+rows.  `Pairfield.ChartStateBFS` builds `statePairDFA M left right` directly on
+`X × X`; it never asks that either row be reached from `M.start` and never
+chooses a Mathlib residual representative.
+
+Mathlib's `DFA.evalFrom_split` again deletes loops in an accepting pair run.
+The adapter installs the safe `|X|²` horizon and proves
+
+```lean
+shortestStateWitness M alphabet left right = none ↔
+  FutureEq M.step (acceptsBool M) left right
+```
+
+for every pair of finite DFA states.  The `some` branch is a genuine shortest
+future separator, while `stateFutureEqDecidable` turns the `none` branch into
+proof-producing exact equality.  A `FiniteBehavioralPresentation` therefore
+already supplies every row comparison needed by a reducer once the external
+finite control enumeration and acceptance decision are given.  Reachability
+remains relevant only to removing garbage rows, not to deciding whether two
+rows should merge.
+
 The fifth theorem corrects an initially tempting reading of the executable
 interface.  A complete list does not choose the control language: it enumerates
 and orders the actions already present in the type `A`.  Control authority
@@ -131,7 +156,8 @@ certifies residual-membership disagreement.  The control prefixes `[]` and
 
 ```sh
 cd formal/pairfield
-lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart
+lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
+  Pairfield.ChartStateBFS
 ```
 
 This passes (`3014` jobs).  `Pairfield.lean` imports the adapter.  A root
@@ -146,10 +172,12 @@ quotients of prefixes reachable from `M.start`.  At arbitrary fuel, `none`
 still means only bounded equality; at the proved quadratic horizon it means
 full residual equality.  The canonical quotient DFA and its global cardinal
 minimality are now proved, but the canonical construction is noncomputable.
-The executable chart must still be supplied as data, and the current search
-enumerates all words by length rather than maintaining a visited pair graph.
-No algorithmic-efficiency or automatic extraction claim is made.  The
-quadratic pair horizon is safe rather than sharp; no linear bound is claimed.
+The executable chart must still be supplied as data.  Arbitrary chart-row
+equality is now decidable, but the current search enumerates all words by
+length rather than maintaining a visited pair graph, and no quotient table is
+yet emitted.  No algorithmic-efficiency or automatic extraction claim is
+made.  The quadratic pair horizon is safe rather than sharp; no linear bound
+is claimed.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked

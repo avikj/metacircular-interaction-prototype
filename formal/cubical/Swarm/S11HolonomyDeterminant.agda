@@ -80,7 +80,7 @@ detShift : (d1 q c11 c12 c21 c22 e11 e12 e21 e22 : R)
     ≡ (c11 · c22 - c12 · c21)
       + d1 · ( (e11 · c22 + q · (c11 · e22) + (q · d1) · (e11 · e22))
              - (e12 · c21 + q · (c12 · e21) + (q · d1) · (e12 · e21)) )
-detShift = solve! ℤCommRing
+detShift _ _ _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 2.  Necessity.  If the holonomy H = (a, b, q·k, e) is congruent
@@ -117,7 +117,7 @@ detClass d1 q a b k e ε c11 c12 c21 c22 e11 e12 e21 e22 pa pb pk pe pdet =
 sqLem : (D T Δ : R)
   → (- (Δ · T + Δ · T + D · (T · T))) · D
     ≡ Δ · Δ - (Δ + D · T) · (Δ + D · T)
-sqLem = solve! ℤCommRing
+sqLem _ _ _ = solve! ℤCommRing
 
 squareObstruction :
     (d1 δ ε t : R)

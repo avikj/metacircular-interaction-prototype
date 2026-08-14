@@ -123,52 +123,52 @@ private
       → d1 · ((a · e - b · c) · k11)
         ≡ e · ((a · d1 + b · 0r) · k11 + (a · 0r + b · (q · d1)) · k21)
           - b · ((c · d1 + e · 0r) · k11 + (c · 0r + e · (q · d1)) · k21)
-  s11 = solve! ℤCommRing
+  s11 _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
   t11 : (b e d1 : R) → e · d1 - b · 0r ≡ d1 · e
-  t11 = solve! ℤCommRing
+  t11 _ _ _ = solve! ℤCommRing
 
   s12 : (a b c e d1 q k12 k22 : R)
       → d1 · ((a · e - b · c) · k12)
         ≡ e · ((a · d1 + b · 0r) · k12 + (a · 0r + b · (q · d1)) · k22)
           - b · ((c · d1 + e · 0r) · k12 + (c · 0r + e · (q · d1)) · k22)
-  s12 = solve! ℤCommRing
+  s12 _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
   t12 : (b e q d1 : R) → e · 0r - b · (q · d1) ≡ d1 · (- (b · q))
-  t12 = solve! ℤCommRing
+  t12 _ _ _ _ = solve! ℤCommRing
 
   s21 : (a b c e d1 q k11 k21 : R)
       → d1 · ((a · e - b · c) · (q · k21))
         ≡ (- c) · ((a · d1 + b · 0r) · k11 + (a · 0r + b · (q · d1)) · k21)
           + a · ((c · d1 + e · 0r) · k11 + (c · 0r + e · (q · d1)) · k21)
-  s21 = solve! ℤCommRing
+  s21 _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
   t21 : (a c d1 : R) → (- c) · d1 + a · 0r ≡ d1 · (- c)
-  t21 = solve! ℤCommRing
+  t21 _ _ _ = solve! ℤCommRing
 
   s22 : (a b c e d1 q k12 k22 : R)
       → d1 · ((a · e - b · c) · (q · k22))
         ≡ (- c) · ((a · d1 + b · 0r) · k12 + (a · 0r + b · (q · d1)) · k22)
           + a · ((c · d1 + e · 0r) · k12 + (c · 0r + e · (q · d1)) · k22)
-  s22 = solve! ℤCommRing
+  s22 _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
   t22 : (a c q d1 : R) → (- c) · 0r + a · (q · d1) ≡ d1 · (q · a)
-  t22 = solve! ℤCommRing
+  t22 _ _ _ _ = solve! ℤCommRing
 
   oneMul : (x : R) → 1r · x ≡ x
-  oneMul = solve! ℤCommRing
+  oneMul _ = solve! ℤCommRing
 
   sqAssoc : (ε x : R) → (ε · ε) · x ≡ ε · (ε · x)
-  sqAssoc = solve! ℤCommRing
+  sqAssoc _ _ = solve! ℤCommRing
 
   swapQ : (ε q k : R) → q · (ε · k) ≡ ε · (q · k)
-  swapQ = solve! ℤCommRing
+  swapQ _ _ _ = solve! ℤCommRing
 
   negQ : (k q : R) → - (k · q) ≡ q · (- k)
-  negQ = solve! ℤCommRing
+  negQ _ _ = solve! ℤCommRing
 
   negOut : (ε k : R) → ε · (- k) ≡ - (ε · k)
-  negOut = solve! ℤCommRing
+  negOut _ _ = solve! ℤCommRing
 
   -- ε·x ≡ y  and  ε² = 1  give  x ≡ ε·y.  Used four times.
   scaleBack : (ε x y : R) → ε · ε ≡ 1r → ε · x ≡ y → x ≡ ε · y
@@ -353,7 +353,7 @@ stabAnti X Y Dm K L hX hY =
 private
   cocy : (a e k a' e' k' q : R)
        → (k · q) · a' + e · (k' · q) ≡ (k · a' + e · k') · q
-  cocy = solve! ℤCommRing
+  cocy _ _ _ _ _ _ _ = solve! ℤCommRing
 
 -- Γ₀(q) is closed under multiplication, and the witness of the product
 -- is  k·a' + e·k'  — a crossed homomorphism, not a homomorphism.
@@ -371,10 +371,10 @@ gamma0Mul a b e k a' b' e' k' q i =
 
 -- the inverse's witness (ε·adj is the inverse of a unimodular matrix)
 gamma0InvWitness : (k q ε : R) → ε · (- (k · q)) ≡ (- (ε · k)) · q
-gamma0InvWitness = solve! ℤCommRing
+gamma0InvWitness _ _ _ = solve! ℤCommRing
 
 gamma0IdWitness : (q : R) → 0r ≡ 0r · q
-gamma0IdWitness = solve! ℤCommRing
+gamma0IdWitness _ = solve! ℤCommRing
 
 -- CONTROL.  The twist is necessary: at q = 1, k = 1, e = 1, a' = 2,
 -- k' = 1 the cocycle value is 3 and the additive value is 2.  So the

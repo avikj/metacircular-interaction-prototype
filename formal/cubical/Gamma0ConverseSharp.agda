@@ -89,43 +89,43 @@ private
        → c · ((a · d1 + b · 0r) · k11 + (a · 0r + b · (q · d1)) · k21)
          - a · ((c · d1 + e · 0r) · k11 + (c · 0r + e · (q · d1)) · k21)
          ≡ (b · c - a · e) · ((q · d1) · k21)
-  regA = solve! ℤCommRing
+  regA _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
   regB : (a c d1 : R) → c · d1 - a · 0r ≡ c · d1
-  regB = solve! ℤCommRing
+  regB _ _ _ = solve! ℤCommRing
 
   regNeg : (a b c e : R) → b · c - a · e ≡ - (a · e - b · c)
-  regNeg = solve! ℤCommRing
+  regNeg _ _ _ _ = solve! ℤCommRing
 
   regZ : (c d1 q ε k21 : R)
        → d1 · (c - (- (ε · k21)) · q)
          ≡ c · d1 - (- ε) · ((q · d1) · k21)
-  regZ = solve! ℤCommRing
+  regZ _ _ _ _ _ = solve! ℤCommRing
 
   cancelSelf : (x : R) → x - x ≡ 0r
-  cancelSelf = solve! ℤCommRing
+  cancelSelf _ = solve! ℤCommRing
 
   regF : (c kq : R) → c ≡ (c - kq) + kq
-  regF = solve! ℤCommRing
+  regF _ _ = solve! ℤCommRing
 
   zeroL : (x : R) → 0r + x ≡ x
-  zeroL = solve! ℤCommRing
+  zeroL _ = solve! ℤCommRing
 
   commL : (x y : R) → x · y ≡ y · x
-  commL = solve! ℤCommRing
+  commL _ _ = solve! ℤCommRing
 
   dsimp : (x y : R) → x · y - 0r · 0r ≡ x · y
-  dsimp = solve! ℤCommRing
+  dsimp _ _ = solve! ℤCommRing
 
   -- (the ring solver of cubical v0.5 will not take `1r` on the right of
   -- a `·` inside a goal it has to normalize — the documented ℤ-solver
   -- weakness — so `1r` is kept out of every solver call and the unit law
   -- is taken from the structure instead)
   dist2 : (p x y : R) → p · (x - y) ≡ p · x - p · y
-  dist2 = solve! ℤCommRing
+  dist2 _ _ _ = solve! ℤCommRing
 
   pmul : (d k p : R) → p · (d · k) ≡ (d · p) · k
-  pmul = solve! ℤCommRing
+  pmul _ _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- §1.  The converse with no determinant hypothesis.
@@ -326,16 +326,16 @@ module partnerForced where
 private
   v11 : (a b c e k11 k21 q : R)
       → (a · 0r + b · 0r) · k11 + (a · 0r + b · (q · 0r)) · k21 ≡ 0r
-  v11 = solve! ℤCommRing
+  v11 _ _ _ _ _ _ _ = solve! ℤCommRing
   v12 : (a b c e k12 k22 q : R)
       → (a · 0r + b · 0r) · k12 + (a · 0r + b · (q · 0r)) · k22 ≡ 0r
-  v12 = solve! ℤCommRing
+  v12 _ _ _ _ _ _ _ = solve! ℤCommRing
   v21 : (a b c e k11 k21 q : R)
       → (c · 0r + e · 0r) · k11 + (c · 0r + e · (q · 0r)) · k21 ≡ 0r
-  v21 = solve! ℤCommRing
+  v21 _ _ _ _ _ _ _ = solve! ℤCommRing
   v22 : (a b c e k12 k22 q : R)
       → (c · 0r + e · 0r) · k12 + (c · 0r + e · (q · 0r)) · k22 ≡ q · 0r
-  v22 = solve! ℤCommRing
+  v22 _ _ _ _ _ _ _ = solve! ℤCommRing
 
 vacuous : (H K : M) (q : R) → mul (mul H (dia 0r (q · 0r))) K ≡ dia 0r (q · 0r)
 vacuous (a , b , c , e) (k11 , k12 , k21 , k22) q i =

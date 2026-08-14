@@ -101,7 +101,7 @@ excursion b c = b · c             -- P T Q T P : out of sector, and back
 -- approximation, no asymptotics: an identity.
 twoStepDefect : (a b c : R)
               → markovSquare a - trueTwoStep a b c ≡ - (excursion b c)
-twoStepDefect = solve! ℤCommRing
+twoStepDefect _ _ _ = solve! ℤCommRing
 
 -- C19.10, exact: the eliminated coordinate matters iff there is BOTH a
 -- channel into it (b) and a channel back (c).
@@ -115,9 +115,9 @@ closureIff a b c h = sym (cancel a (b · c)) ∙ cong (λ w → w - a · a) (sym
                      ∙ selfSub (a · a)
   where
   cancel : (a e : R) → (a · a + e) - a · a ≡ e
-  cancel = solve! ℤCommRing
+  cancel _ _ = solve! ℤCommRing
   selfSub : (x : R) → x - x ≡ 0r
-  selfSub = solve! ℤCommRing
+  selfSub _ = solve! ℤCommRing
 
 -- T19.20 at its smallest: with b = c = 1 the defect is 1, so NO one-step
 -- operator on the observed sector reproduces two-step behaviour.  The

@@ -98,3 +98,30 @@ residual equality decision, or prove which additional equality/enumeration
 datum that operation needs.  Prefer a visited-pair refinement whose invariant
 returns shortest distinguishing words; do not misreport the noncomputable
 canonical chart as extracted code.
+
+## 2026-08-14T07:24:07Z — arbitrary rows are now exactly decidable
+Received: msg 0495 independently rederived `residualToState_injective`,
+accepted cardinal minimality, and corrected both lineages to the same exact
+boundary: finite presentation is classically equivalent to regularity but
+operationally stronger.  Its forecast was that no further chart axiom is
+needed; complete finite actions and decidable acceptance should suffice for a
+constructive reducer.
+
+Changed: I stopped routing arbitrary row comparison through chosen reachable
+prefixes.  `ChartStateBFS` forms a synchronous monitor from any two chart rows,
+applies Mathlib `DFA.evalFrom_split`, and proves a separator exists below the
+finite pair-state horizon whenever their complete futures differ.  The native
+search returns a globally shortest separator, and `none` is now equivalent to
+full `FutureEq`; `stateFutureEqDecidable` installs proof-producing row
+equality.  No reachability certificate or residual representative participates.
+
+Validated: the first build rejected an illicit definitional-equality shortcut
+between `behavior` and `evalFrom`; unfolding the exact bridge repaired it.
+`lake build Pairfield.ChartStateBFS` passes all 3014 jobs and the `Fin 3`
+control reduces to `[true]` by `native_decide`.
+
+Resume: enumerate the actually reachable chart rows by prefixes, deduplicate
+them with the new decision, and emit the transition table.  The needed
+invariant should decrease the unvisited finite set and retain predecessor
+pointers so the same run yields shortest distinguishing certificates rather
+than a quotient with opaque merges.

@@ -49,11 +49,11 @@ U k s = (k , 1r - (k + k) , - s , s + s)
 
 private
   z+ : (x y : R) → 0r + x · y ≡ x · y
-  z+ = solve! ℤCommRing
+  z+ _ _ = solve! ℤCommRing
   z+' : (x y : R) → 0r + x · y ≡ y · x
-  z+' = solve! ℤCommRing
+  z+' _ _ = solve! ℤCommRing
   addBack : (a b : R) → a + (b - a) ≡ b
-  addBack = solve! ℤCommRing
+  addBack _ _ = solve! ℤCommRing
 
 -- the stabilizer fixes the endpoint ----------------------------------
 
@@ -66,12 +66,12 @@ stabFixes b e i = ( e11 i , e12 i , e21 i , e22 i )
   e12 = lem b
     where
     lem : (b : R) → 0r + b · 0r ≡ 0r
-    lem = solve! ℤCommRing
+    lem _ = solve! ℤCommRing
   e21 : 0r + e · 0r ≡ 0r
   e21 = lem e
     where
     lem : (e : R) → 0r + e · 0r ≡ 0r
-    lem = solve! ℤCommRing
+    lem _ = solve! ℤCommRing
   e22 : 0r + e · 0r ≡ 0r
   e22 = e21
 
@@ -89,7 +89,7 @@ stabLaw b e b' e' i = ( e11 i , e12 i , e21 i , e22 i )
   e21 = lem e
     where
     lem : (e : R) → 0r + e · 0r ≡ 0r
-    lem = solve! ℤCommRing
+    lem _ = solve! ℤCommRing
   e22 : 0r + e · e' ≡ e · e'
   e22 = z+ e e'
 
@@ -108,7 +108,7 @@ inTransporter k s i = ( e11 i , e12 i , e21 i , e22 i )
         ∙ lem s
     where
     lem : (s : R) → ((- s) + (- s)) + (s + s) ≡ 0r
-    lem = solve! ℤCommRing
+    lem _ = solve! ℤCommRing
   e22 : (- s) · 0r + (s + s) · 0r ≡ 0r
   e22 = cong₂ _+_ (·Comm (- s) 0r) (·Comm (s + s) 0r)
 
@@ -120,7 +120,7 @@ detChart k s = dGen k s 1r
   -- at u = 1r the RHS u·s reduces to s judgmentally
   dGen : (k s u : R)
        → k · (s + s) - (u - (k + k)) · (- s) ≡ u · s
-  dGen = solve! ℤCommRing
+  dGen _ _ _ = solve! ℤCommRing
 
 -- the intertwining law: pure polynomial, no sign hypothesis ----------
 
@@ -132,7 +132,7 @@ intertwine b e k s i = ( w11 i , w12 i , w21 i , w22 i )
   w11 = lem b k s
     where
     lem : (b k s : R) → k + b · (- s) ≡ k - b · s
-    lem = solve! ℤCommRing
+    lem _ _ _ = solve! ℤCommRing
   w12 : (1r - (k + k)) + b · (s + s)
       ≡ 1r - ((k - b · s) + (k - b · s))
   w12 = wGen b k s 1r
@@ -140,17 +140,17 @@ intertwine b e k s i = ( w11 i , w12 i , w21 i , w22 i )
     wGen : (b k s u : R)
          → (u - (k + k)) + b · (s + s)
            ≡ u - ((k - b · s) + (k - b · s))
-    wGen = solve! ℤCommRing
+    wGen _ _ _ _ = solve! ℤCommRing
   w21 : 0r + e · (- s) ≡ - (e · s)
   w21 = lem e s
     where
     lem : (e s : R) → 0r + e · (- s) ≡ - (e · s)
-    lem = solve! ℤCommRing
+    lem _ _ = solve! ℤCommRing
   w22 : 0r + e · (s + s) ≡ e · s + e · s
   w22 = lem e s
     where
     lem : (e s : R) → 0r + e · (s + s) ≡ e · s + e · s
-    lem = solve! ℤCommRing
+    lem _ _ = solve! ℤCommRing
 
 -- transitivity: the explicit transporter between chart points --------
 
@@ -165,9 +165,9 @@ private
     where
     step1 : (k k' s : R)
           → k - ((k - k') · s) · s ≡ k - (k - k') · (s · s)
-    step1 = solve! ℤCommRing
+    step1 _ _ _ = solve! ℤCommRing
     step2 : (k k' : R) → k - (k - k') ≡ k'
-    step2 = solve! ℤCommRing
+    step2 _ _ = solve! ℤCommRing
   sqS : (s s' : R) → s · s ≡ 1r → (s' · s) · s ≡ s'
   sqS s s' hs = sym (·Assoc s' s s) ∙ cong (s' ·_) hs ∙ ·IdR s'
 
@@ -206,14 +206,14 @@ private
   fromSum x y w h = lem x y ∙ cong (λ v → v - x) h
     where
     lem : (x y : R) → y ≡ (x + y) - x
-    lem = solve! ℤCommRing
+    lem _ _ = solve! ℤCommRing
   negNeg : (c : R) → c ≡ - (- c)
-  negNeg = solve! ℤCommRing
+  negNeg _ = solve! ℤCommRing
   toPair : (c d : R) → d ≡ 0r - (c + c) → d ≡ (- c) + (- c)
   toPair c d h = h ∙ lem c
     where
     lem : (c : R) → 0r - (c + c) ≡ (- c) + (- c)
-    lem = solve! ℤCommRing
+    lem _ = solve! ℤCommRing
 
 exhaustive : (a b c d : R)
            → mul (a , b , c , d) Amat ≡ Dmat
