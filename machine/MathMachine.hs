@@ -722,7 +722,21 @@ round1 logh libh ref = do
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
-      candidate = if stuck
+      -- A NAME EARNS ITS SUCCESSOR BY BEING USED.  Even with the tower
+      -- ruled out, a machine allowed to name something every time it is
+      -- stuck will name instead of prove: each new symbol multiplies the
+      -- term space (25k → 396k over four rounds of naming, with `proved`
+      -- flat at zero), so naming makes the next round harder and the one
+      -- after that harder still.  The honest test of a name is whether a
+      -- theorem was stated with it.  Until the last one has appeared in
+      -- something proved, the machine may not coin another — it must
+      -- either use the idea it has, or widen the vocabulary it was given.
+      lastNameUsed = case mInvented m' of
+        [] -> True
+        ss -> let nm = symName (last ss)
+              in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
+                     (M.keys (mKnown m'))
+      candidate = if stuck && lastNameUsed
                     then inventConcept syms normed (length (mInvented m'))
                     else Nothing
       invented = case candidate of
