@@ -44,7 +44,8 @@ def ResidualCell.advance
 theorem ResidualCell.advance_currentConstant
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (cell : Set (List A)) (action : A) (response : Bool) :
-    (ResidualCell.advance M cell action response).CurrentConstant M := by
+    ResidualCell.CurrentConstant M
+      (ResidualCell.advance M cell action response) := by
   intro left right hleft hright
   exact hleft.2.2.trans hright.2.2.symm
 
@@ -79,8 +80,9 @@ theorem branchTrace_query
           (if acceptsBool M (M.eval (pre ++ [action]))
             then onTrue else onFalse)
           (pre ++ [action]) := by
-  simp [BranchTrace, BoolExperimentTree.trace,
+  simp only [BranchTrace, BoolExperimentTree.trace,
     BoolExperimentTree.responses, DFA.eval_append_singleton]
+  cases acceptsBool M (M.step (M.eval pre) action) <;> rfl
 
 /-- The recursive certificate carried by a residual-labelled adaptive tree. -/
 def BoolExperimentTree.ResidualSplitting
@@ -100,11 +102,13 @@ safe-root theorem. -/
 theorem BoolExperimentTree.residualSplitting_iff_separatesOn
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (tree : BoolExperimentTree A) (cell : Set (List A))
-    (hconstant : cell.CurrentConstant M) :
+    (hconstant : ResidualCell.CurrentConstant M cell) :
     tree.ResidualSplitting M cell ↔
       tree.SeparatesPrefixResidualsOn M cell := by
-  induction tree generalizing cell with
+  revert cell
+  induction tree with
   | done =>
+      intro cell hconstant
       constructor
       · intro hhomogeneous left right hleft hright _htrace
         exact hhomogeneous hleft hright
@@ -115,6 +119,7 @@ theorem BoolExperimentTree.residualSplitting_iff_separatesOn
           congrArg (fun response => [response])
             (hconstant hleft hright)
   | query action onFalse onTrue ihFalse ihTrue =>
+      intro cell hconstant
       constructor
       · rintro ⟨hsafe, hfalseSplit, htrueSplit⟩
         have hfalseSeparates :=
@@ -223,7 +228,7 @@ def ResidualCell.initial
 theorem ResidualCell.initial_currentConstant
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (response : Bool) :
-    (ResidualCell.initial M response).CurrentConstant M := by
+    ResidualCell.CurrentConstant M (ResidualCell.initial M response) := by
   intro left right hleft hright
   exact hleft.trans hright.symm
 

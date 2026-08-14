@@ -91,3 +91,35 @@ carrier, tensor product, irreducible label, or multivalent invariant tensor.
 The gap is now typed rather than hidden.  The next extension must introduce a
 genuine monoidal representation interface before it may claim trivalent or
 higher spin-network vertices.
+
+## Holonomy--flux derivation boundary
+
+[`HolonomyFluxDerivation.agda`](../formal/cubical/NaturalMachine/HolonomyFluxDerivation.agda)
+adds the next justified interaction.  A represented group holonomy takes
+values in a declared observable carrier, and a declared flux operation must
+carry an explicit Leibniz witness.  Agda then proves for a subdivided edge
+
+\[
+D\rho(ba)
+=
+(D\rho(b))\star\rho(a)
+\oplus
+\rho(b)\star(D\rho(a)),
+\]
+
+as well as compatibility of flux evaluation with canonical edge insertion.
+The theorem assumes neither commutativity nor unstated ring laws.
+
+This seam is motivated by the role of holonomies and conjugate fluxes as basic
+kinematic observables in Lewandowski–Okołów–Sahlmann–Thiemann,
+[Uniqueness of diffeomorphism invariant states on holonomy-flux
+algebras](https://arxiv.org/abs/gr-qc/0504147), and by the explicit
+holonomy-flux representation program described in Okołów–Lewandowski,
+[Automorphism covariant representations of the holonomy-flux
+*-algebra](https://arxiv.org/abs/gr-qc/0405119).
+
+The checked derivation is not yet either paper's holonomy-flux algebra.  A
+faithful next model must supply oriented surfaces, edge/surface intersection
+data, the corresponding left/right invariant action, involution and operator
+domain structure, and then prove that its concrete action inhabits this
+abstract Leibniz interface.

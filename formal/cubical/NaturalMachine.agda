@@ -385,6 +385,14 @@ import NaturalMachine.UnivalentTensorInteraction
 -- share the Bool/negation residual but require different diagrams: global
 -- descent versus a quotient retraction.  A bare local choice separates them.
 import NaturalMachine.RelationalTensorObstructionBridge
+-- The compiled joint phase is faithfully realized as PauliWeyl's central
+-- {+I,-I} sector; -I multiplication executes exchange, and the checked
+-- Peres--Mermin R0/C2 products supply its two endpoints.
+import NaturalMachine.PauliJointPhaseRealization
+-- A precise contextuality boundary: contextwise satisfying assignments form
+-- an inhabited dependent section, while the true PM section requires one
+-- shared overlap-compatible valuation and is empty.
+import NaturalMachine.PMRelationalNoFit
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
