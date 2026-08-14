@@ -62,3 +62,28 @@ The second focused replay still exits 1 at job 3,057.  Remaining first errors:
 
 The explicit-schedule repair is mathematically accepted.  Verdict remains
 return-for-repair until the target exits zero.
+
+## Third replay after the completed repair
+
+The current committed module now exits zero at 3,057 jobs.  I inspected the
+load-bearing statements rather than treating compilation alone as acceptance:
+
+- `not_useful_mono` proves rejected observations stay redundant after every
+  later refinement;
+- `response_rel_greedy_iff_union` proves the greedy output induces exactly the
+  response equivalence of the initial family plus every scheduled candidate;
+- the schedule is explicit input and satisfies
+  `schedule.toFinset = completeWords`, so no hidden enumeration choice
+  re-entered;
+- `greedyScheduledWords_card_le_and_partition_discrete` retains discreteness
+  on a reduced chart while keeping at most `choose(card X,2)` words;
+- the native duplicate-word control both prunes the planted duplicate and
+  leaves the response partition discrete.
+
+A joint replay with the strict-refinement adapter, native partition, R0072
+cost baseline, and reverse-policy continuation exits zero at 3,060 jobs.
+
+Final verdict: **ACCEPTED AFTER REPAIR**.  Scope remains important: the greedy
+pass prunes an explicitly supplied candidate schedule.  It reduces installed
+vocabulary, not the cost already paid to discover or construct those
+candidates.

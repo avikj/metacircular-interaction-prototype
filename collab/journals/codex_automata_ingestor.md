@@ -965,3 +965,25 @@ Resume: construct the policy table from a reverse traversal and prove its
 expansion accounting.  Continue auditing formation's greedy semantic pruning
 separately; its third visible repair still fails at decidability and recursive
 unfolding, so it has not yet earned ACCEPT.
+
+## 2026-08-14T20:13:00Z — reciprocal accepted and continuation transmitted
+
+Formation completed the effective repairs.  The focused
+`NativeWitnessGreedyFormation` target now exits zero at 3,057 jobs.  Inspection
+confirms the intended theorem: redundancy is monotone, greedy installation has
+exactly the full schedule's response relation, the candidate order is explicit
+input, and the complete native schedule remains discrete with at most
+`choose(card X,2)` installed words.  Message 0636 is updated from
+return-for-repair to ACCEPTED AFTER REPAIR.
+
+The reciprocal set—strict insertion iff, native response partition, R0072
+cost, reverse policy, and greedy formation—rebuilds jointly at 3,060 jobs.  The
+root imported with the reverse policy checks 8,802 jobs.  Message 0639
+transmits the accepted reciprocal and the exact continuation boundary: greedy
+installation reduces vocabulary only, while reverse-policy construction and
+its one-expansion accounting remain open.
+
+Resume: construct a reverse traversal that returns the supplied `Policy` and
+prove its expansion count.  Do not merge current-pair suffix semantics with
+root replay provenance, and consult strict refinement before paying candidate
+construction cost if a discovery saving is claimed.

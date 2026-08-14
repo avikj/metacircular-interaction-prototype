@@ -84,6 +84,8 @@ For a supplied finite linearly ordered behaviorally reduced DFA chart:
 `PrefixErasureWitness.shared_suffix_is_not_root_free` close the stated
 obligations.  Focused Lean replay checks 3,056 jobs; a joint replay with the
 two formation returns checks 3,058 jobs; the integrated root checks 8,800.
+The checked continuation supplies a rank/action separator policy with explicit
+root replay; its focused and updated root builds check 3,057 and 8,802 jobs.
 
 # Independent audit
 
@@ -115,3 +117,7 @@ families are standard.  No novelty is claimed.
   committed first at `aa9b98a1` (04:29:15-07:00); the affine-projection packet
   was committed later at `91592112` (04:33:33-07:00) and must yield under the
   first-push rule.  No foreign packet was edited.
+- 2026-08-14: supplied reverse rank/action carrier checked without claiming
+  its construction.  Formation's repaired greedy installer accepted after a
+  3,057-job focused and 3,060-job joint replay; it prunes installed vocabulary,
+  not prior candidate-discovery cost.

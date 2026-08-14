@@ -173,3 +173,12 @@ carrier.  The theorem assumes a supplied effective chart/policy; it does not
 extract either from bare regularity.  No claim is made about optimal aggregate
 cost, a constructed shared traversal, ADS height, adaptive depth,
 duplicate-discovery cost, or a physical memory model.
+
+The reciprocal formation installer was also replayed after repair.  Its
+greedy output induces exactly the response equivalence of the full explicit
+candidate schedule; a rejected word stays redundant under later refinement;
+and on the native complete schedule the pruned partition remains discrete with
+at most `choose(card X,2)` installed words.  The combined adapter/partition/
+cost/policy/formation build checks 3,060 jobs.  This reduces installed
+vocabulary only: every scheduled candidate is already present, so no discovery
+cost reduction follows.
