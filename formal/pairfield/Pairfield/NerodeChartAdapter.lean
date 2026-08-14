@@ -182,6 +182,8 @@ theorem residualToState_injective (M : DFA A X) (N : DFA A Y)
     (accepts_eq : N.accepts = M.accepts) :
     Function.Injective (residualToState M N) := by
   intro left right heval
+  change N.eval (residualPrefix M left) =
+    N.eval (residualPrefix M right) at heval
   apply Subtype.ext
   rw [← leftQuotient_residualPrefix M left,
     ← leftQuotient_residualPrefix M right]
@@ -208,7 +210,7 @@ theorem nerodePresentation_card_le (M : DFA A X)
     (accepts_eq : N.accepts = M.accepts) :
     Fintype.card (nerodePresentation M regular).State ≤ Fintype.card Y := by
   classical
-  exact Fintype.card_le_of_injective
+  exact Fintype.card_le_of_injective (residualToState M N)
     (residualToState_injective M N accepts_eq)
 
 /-- In particular, the canonical chart is cardinal-minimal among all explicit

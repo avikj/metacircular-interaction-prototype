@@ -81,7 +81,7 @@ module DefectCoordinate
   -- declared prediction recovers the observed after-state.
   subAddRight : (a b : ⟨ A ⟩) → (a - b) + b ≡ a
   subAddRight a b =
-      +Assoc a (- b) b
+      sym (+Assoc a (- b) b)
     ∙ cong (a +_) (+InvL b)
     ∙ +IdR a
 
@@ -159,13 +159,13 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
   residual x = after x - predict (square x)
 
   square-successor-residual : (x : ⟨ Rng ⟩) → residual x ≡ x + x
-  square-successor-residual = solve Rng
+  square-successor-residual = solve! Rng
 
   square-forgets-sign : (x : ⟨ Rng ⟩) → square (- x) ≡ square x
-  square-forgets-sign = solve Rng
+  square-forgets-sign = solve! Rng
 
   residual-reverses-sign : (x : ⟨ Rng ⟩) → residual (- x) ≡ - (residual x)
-  residual-reverses-sign = solve Rng
+  residual-reverses-sign = solve! Rng
 
 ------------------------------------------------------------------------
 -- 3.  Checked one-shot event over the integers
@@ -180,13 +180,13 @@ module IntegerFormationEvent where
   minusOne = negsuc 0
 
   same-old-reading : S.square plusOne ≡ S.square minusOne
-  same-old-reading = solve ℤCommRing
+  same-old-reading = solve! ℤCommRing
 
   plus-residual : S.residual plusOne ≡ pos 2
-  plus-residual = solve ℤCommRing
+  plus-residual = solve! ℤCommRing
 
   minus-residual : S.residual minusOne ≡ negsuc 1
-  minus-residual = solve ℤCommRing
+  minus-residual = solve! ℤCommRing
 
   residuals-differ : ¬ (S.residual plusOne ≡ S.residual minusOne)
   residuals-differ h =
@@ -204,4 +204,3 @@ module IntegerFormationEvent where
     AR.Refines Formed.joint S.square × SD.Reopens S.square Formed.joint
   executable-formation-event =
     Formed.collision-forces-strict-refinement square-residual-collision
-
