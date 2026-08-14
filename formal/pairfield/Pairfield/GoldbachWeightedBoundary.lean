@@ -25,11 +25,11 @@ def primeLogWeight (n : ℕ) : ℝ :=
 
 /-- The additive von-Mangoldt convolution coefficient at centre `N`. -/
 def mangoldtGoldbachCoeff (N : ℕ) : ℝ :=
-  ∑ pair ∈ Finset.Nat.antidiagonal N, Λ pair.1 * Λ pair.2
+  ∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N, Λ pair.1 * Λ pair.2
 
 /-- The additive prime-log convolution coefficient at centre `N`. -/
 def primeLogGoldbachCoeff (N : ℕ) : ℝ :=
-  ∑ pair ∈ Finset.Nat.antidiagonal N,
+  ∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
     primeLogWeight pair.1 * primeLogWeight pair.2
 
 /-- The exact contribution admitted by von Mangoldt but not by prime support. -/
@@ -80,16 +80,19 @@ theorem sum_primePowerError_Icc (N : ℕ) :
 /-- A nonnegative antidiagonal convolution is bounded by its full square. -/
 theorem sum_antidiagonal_mul_le_square (N : ℕ) (f g : ℕ → ℝ)
     (hf : ∀ n, 0 ≤ f n) (hg : ∀ n, 0 ≤ g n) :
-    (∑ pair ∈ Finset.Nat.antidiagonal N, f pair.1 * g pair.2) ≤
+    (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N, f pair.1 * g pair.2) ≤
       (∑ n ∈ Finset.Icc 0 N, f n) * (∑ n ∈ Finset.Icc 0 N, g n) := by
   have hsubset :
-      Finset.Nat.antidiagonal N ⊆ Finset.Icc 0 N ×ˢ Finset.Icc 0 N := by
+      Finset.HasAntidiagonal.antidiagonal N ⊆
+        Finset.Icc 0 N ×ˢ Finset.Icc 0 N := by
     intro pair hpair
-    have hsum : pair.1 + pair.2 = N := Finset.Nat.mem_antidiagonal.mp hpair
+    have hsum : pair.1 + pair.2 = N :=
+      Finset.HasAntidiagonal.mem_antidiagonal.mp hpair
     rw [Finset.mem_product]
     constructor <;> simp only [Finset.mem_Icc, Nat.zero_le, true_and] <;> omega
   calc
-    (∑ pair ∈ Finset.Nat.antidiagonal N, f pair.1 * g pair.2) ≤
+    (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
+      f pair.1 * g pair.2) ≤
         ∑ pair ∈ Finset.Icc 0 N ×ˢ Finset.Icc 0 N,
           f pair.1 * g pair.2 := by
       exact Finset.sum_le_sum_of_subset_of_nonneg hsubset
@@ -128,11 +131,11 @@ theorem primeLogGoldbachCoeff_pos_iff (N : ℕ) :
     exact ⟨pair.1, pair.2,
       (primeLogWeight_pos_iff pair.1).1 hleft,
       (primeLogWeight_pos_iff pair.2).1 hright,
-      Finset.Nat.mem_antidiagonal.mp hpair⟩
+      Finset.HasAntidiagonal.mem_antidiagonal.mp hpair⟩
   · intro hGoldbach
     rcases (goldbachAt_iff_representation N).1 hGoldbach with
       ⟨p, q, hp, hq, hsum⟩
-    exact ⟨(p, q), Finset.Nat.mem_antidiagonal.mpr hsum,
+    exact ⟨(p, q), Finset.HasAntidiagonal.mem_antidiagonal.mpr hsum,
       mul_pos ((primeLogWeight_pos_iff p).2 hp)
         ((primeLogWeight_pos_iff q).2 hq)⟩
 
@@ -157,7 +160,7 @@ right entry has prime-power error, or when its left entry has error while the
 right entry has genuine prime support. -/
 theorem primePowerContamination_eq_error_convolutions (N : ℕ) :
     primePowerContamination N =
-      ∑ pair ∈ Finset.Nat.antidiagonal N,
+      ∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
         (Λ pair.1 * primePowerError pair.2 +
           primePowerError pair.1 * primeLogWeight pair.2) := by
   unfold primePowerContamination mangoldtGoldbachCoeff primeLogGoldbachCoeff
@@ -173,7 +176,7 @@ theorem primePowerContamination_le_two_mul_psi_mul_sub_theta (N : ℕ) :
     primePowerContamination N ≤
       2 * Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) := by
   have hleft :
-      (∑ pair ∈ Finset.Nat.antidiagonal N,
+      (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
         Λ pair.1 * primePowerError pair.2) ≤
         Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) := by
     simpa [sum_vonMangoldt_Icc, sum_primePowerError_Icc] using
@@ -182,7 +185,7 @@ theorem primePowerContamination_le_two_mul_psi_mul_sub_theta (N : ℕ) :
         (fun n ↦ ArithmeticFunction.vonMangoldt_nonneg (n := n))
         primePowerError_nonneg)
   have hright :
-      (∑ pair ∈ Finset.Nat.antidiagonal N,
+      (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N,
         primePowerError pair.1 * primeLogWeight pair.2) ≤
         (Chebyshev.psi N - Chebyshev.theta N) * Chebyshev.theta N := by
     simpa [sum_primePowerError_Icc, sum_primeLogWeight_Icc] using
@@ -200,6 +203,7 @@ theorem primePowerContamination_le_two_mul_psi_mul_sub_theta (N : ℕ) :
     _ ≤ Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) +
         (Chebyshev.psi N - Chebyshev.theta N) * Chebyshev.psi N := by
       gcongr
+      exact Chebyshev.theta_le_psi N
     _ = 2 * Chebyshev.psi N *
         (Chebyshev.psi N - Chebyshev.theta N) := by ring
 

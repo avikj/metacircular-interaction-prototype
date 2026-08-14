@@ -15,11 +15,14 @@ Chen's: prime plus an integer having at most two prime factors.  Along the
 incomparable exact-prime axis, the classical theorem is that almost all even
 integers are sums of two primes; the corpus reports a Montgomery--Vaughan
 exceptional set `O(X^(1-delta))` for some `delta>0`, but does not pin the
-constant or exponent.  Neither statement is uniform pointwise Goldbach.
+constant or exponent.  The subsequent primary-source audit below now also
+pins Pintz's stronger imported exponent `|E(X)|<X^0.72` (with an ineffective
+large-`X` threshold).  None of these statements is uniform pointwise
+Goldbach.
 
-There is, however, a clean implication theorem.  Once a precisely normalized
-major-arc asymptotic is supplied as an explicit additional hypothesis, the
-other missing analytic input is a **uniform signed
+There is, however, a clean implication theorem.  A current primary source now
+supplies the precisely normalized logarithmic major-arc asymptotic at
+external-source grade.  The remaining analytic input is a **uniform signed
 minor-arc Fourier-coefficient lower bound at scale `N`**.  The logically
 minimal form does not require an asymptotic and does not require an absolute
 minor-arc norm:
@@ -30,9 +33,9 @@ minor-arc norm:
 \]
 
 Here every symbol, normalization, and arc is defined below.  Under the
-explicit major-arc premise `(MA_unif)` below, `(H_min)` implies that every
-sufficiently large even `N` is a sum of two primes.  A more familiar but
-stronger sufficient hypothesis is
+externally pinned major-arc input `(MA_unif)` below, `(H_min)` implies that
+every sufficiently large even `N` is a sum of two primes.  A more familiar
+but stronger sufficient hypothesis is
 
 \[
  \sup_{\substack{X\le N\le2X\\2\mid N}}
@@ -140,8 +143,8 @@ the sharp cutoff `n<=N` in `S_N`; the same `N` as target Fourier coefficient;
 `Q=(log N)^B`; radii `Q/(qN)` for reduced fractions of denominator `q<=Q`;
 and the singular series (4).
 
-**Correction after source audit.**  No theorem in the local repository
-actually supplies `(MA_unif)` with all those choices.  `TERNARY.md` section
+**Local audit and subsequent external pin.**  No theorem in the local
+repository supplies `(MA_unif)` with all those choices.  `TERNARY.md` section
 2.1 says only that “the major arcs give” `N S_2(N)`.  It states neither an
 error term nor its quantifiers.  `RATIONAL_PAIR_CHANNEL.md` section 4 derives
 the pole--pole coefficient `mu(q)^2/phi(q)^2` and the Ramanujan factor
@@ -149,12 +152,67 @@ the pole--pole coefficient `mu(q)^2/phi(q)^2` and the Ramanujan factor
 control of what remains.  `RATIONAL_FIBER_SPECTRUM.md` likewise says that
 passing to pointwise asymptotics still requires uniform tail and minor-arc
 estimates.  Both point to Helfgott's *Major arcs for Goldbach's problem*, but
-the paper or a theorem statement from it is not vendored, and neither note
-matches one of its theorems to the sharp cutoff, arc widths, and dyadic
-quantifier above.  Thus `(MA_unif)` is standard-shaped classical input but is
-**locally unpinned**.  The first version of this message incorrectly called it
-a “pinned major-arc theorem.”  Theorem G is a two-premise conditional theorem,
-not a locally unconditional implication from `(H_min)` alone.
+neither local note matches a theorem there to the present normalization.
+
+After that local audit, the live primary preprint Gautami Bhowmik--Lasse
+Grimmelt, [*The exceptional set of the Goldbach problem*, arXiv:2607.27282v2
+(2026)](https://arxiv.org/abs/2607.27282v2), was supplied.  Its section 4.2
+uses
+
+\[
+ S(\alpha)=\sum_{n\le N}\Lambda(n)e(\alpha n),\qquad
+ r_2(N)=\int_0^1S(\alpha)^2e(-N\alpha)\,d\alpha,
+\]
+
+and its equation defining `M(R)` takes `q<=R` and
+`|alpha-a/q|<=R/(qN)`.  These are exactly (1)--(2), with its `R=(log N)^A`
+equal to this note's `Q=(log N)^B`.  The same section displays
+
+\[
+ r_{\mathfrak M}(N)
+ =N\mathfrak S(N)+O\!\left(N\exp(-c\sqrt{\log N})\right)
+\]
+
+“for every individual `N`”; the proof of its Theorem 4.3 restates the formula
+for every `N`.  Its Euler product
+`prod_p(1+c_p(N)/(p-1)^2)` equals (4) for even `N`.  For fixed `A`, the stated
+constants are independent of `N`, so on `X<=N<=2X` the displayed error divided
+by `N` is `O(exp(-c sqrt(log X)))`.  Thus the source supplies `(MA_unif)` with
+the requested dyadic quantifier.
+
+The grade is **externally pinned, locally unformalized**.  The preprint is a
+primary source (version 2, revised 13 August 2026, to appear in *Analysis
+Mathematica*), while no local Lean theorem or reproduced analytic proof checks
+it.  Section 4 is explicitly expository: immediately before the final display
+it says the truncated singular-series tail is negligible without displaying
+that tail's rate.  This note therefore consumes only the uniform `o(N)`
+consequence needed by Theorem G, not a locally verified value of `c` or the
+stronger exponential error.
+
+**Weight audit.**  The paper first defines the unweighted prime count
+`r'_2(N)`, but every Section 4 formula above concerns its exact
+von-Mangoldt count `r_2(N)=sum_{m+n=N} Lambda(m)Lambda(n)`.  It therefore
+matches this note directly, rather than merely matching a prime-log count.
+If one instead uses `vartheta(n)=log n` on primes and zero otherwise, put
+`E=Lambda-vartheta`.  The estimates in (8) give
+
+\[
+ \sum_{n\le N}E(n)^2\le(\log N)\sum_{n\le N}E(n)
+ =O(\sqrt N\log^2N).
+\]
+
+Parseval and Cauchy--Schwarz then show, for either major or minor measurable
+arc set `A`,
+
+\[
+ \left|\int_A\!\left(S_\Lambda^2-S_\vartheta^2\right)e(-N\alpha)d\alpha\right|
+ \le\|S_E\|_2\left(\|S_\Lambda\|_2+\|S_\vartheta\|_2\right)
+ =O(N^{3/4}\log^{3/2}N)=o(N).
+\]
+
+Thus the prime-log and von-Mangoldt arc coefficients have the same `N`-scale
+threshold, while exact witness extraction still needs the proper-prime-power
+removal in (8)--(9).
 
 The corresponding proof-relevant finite target is
 `Pairfield.PrimeCenterFiber N N`: a pair of bounded primes together with the
