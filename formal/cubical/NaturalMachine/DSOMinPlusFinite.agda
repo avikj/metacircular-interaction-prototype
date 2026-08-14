@@ -96,10 +96,18 @@ minC-medial a b c d =
   ∙ cong (minC a) (sym (minC-assoc c b d))
   ∙ minC-assoc a c (minC b d)
 
+fold-min : {n : ℕ} (f g : Ix n → Cost)
+  → foldMin (λ i → minC (f i) (g i)) ≡ minC (foldMin f) (foldMin g)
+fold-min {zero} f g = refl
+fold-min {suc n} f g =
+  cong (minC (minC (f iz) (g iz))) (fold-min (λ i → f (is i)) (λ i → g (is i)))
+  ∙ minC-medial (f iz) (g iz)
+      (foldMin (λ i → f (is i))) (foldMin (λ i → g (is i)))
+
 fold-swap : {m n : ℕ} (f : Ix m → Ix n → Cost)
   → foldMin (λ i → foldMin (f i)) ≡ foldMin (λ j → foldMin (λ i → f i j))
-fold-swap {zero} {n} f = sym fold-∞
-fold-swap {suc m} {zero} f = fold-∞
+fold-swap {zero} {n} f = sym (fold-∞ {n})
+fold-swap {suc m} {zero} f = fold-∞ {suc m}
 fold-swap {suc m} {suc n} f =
   cong (minC (minC (f iz iz) (foldMin (λ j → f iz (is j)))))
        (fold-swap (λ i j → f (is i) j))
@@ -108,7 +116,8 @@ fold-swap {suc m} {suc n} f =
       (foldMin (λ i → f (is i) iz))
       (foldMin (λ j → foldMin (λ i → f (is i) (is j))))
   ∙ cong (minC (minC (f iz iz) (foldMin (λ i → f (is i) iz))))
-       (sym (fold-swap (λ i j → f (is i) (is j))))
+       (sym (fold-min (λ j → f iz (is j))
+                      (λ j → foldMin (λ i → f (is i) (is j)))))
 
 Matrix : ℕ → ℕ → Type₀
 Matrix m n = Ix m → Ix n → Cost

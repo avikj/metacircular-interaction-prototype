@@ -35,6 +35,7 @@ open import Cubical.Data.Fin
   using (Fin ; fzero ; fone ; fsuc ; flast ; toℕ ; toℕ-injective)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 open import Cubical.Data.Sigma using (Σ≡Prop ; fst ; _,_)
+open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
@@ -150,9 +151,10 @@ module FixedBridge (k n' : ℕ) where
   canonical-snoc-positive : (xs : D.Word) (y : D.Digit)
                           → 0 < toℕ y
                           → D.Canonical (xs ++ (y ∷ []))
-  canonical-snoc-positive []       y positive = positive
-  canonical-snoc-positive (x ∷ xs) y positive =
-    canonical-snoc-positive xs y positive
+  canonical-snoc-positive []             y positive = positive
+  canonical-snoc-positive (x ∷ [])       y positive = positive
+  canonical-snoc-positive (x ∷ z ∷ xs)   y positive =
+    canonical-snoc-positive (z ∷ xs) y positive
 
   toWord-canonical : {m : ℕ} (w : LevelWord (suc m))
                    → 0 < toℕ (w flast)
@@ -247,27 +249,27 @@ private
 
 module BinaryNaturalityCounterexample where
 
-  module F₂ = FixedBridge 0 1
+  module FB = FixedBridge 0 1
 
-  w100 : F₂.LevelWord 3
+  w100 : FB.LevelWord 3
   w100 (0 , _) = fone
   w100 (1 , _) = fzero
   w100 (suc (suc _) , _) = fzero
 
   normalized-high-value-zero :
-      F₂.D.valueC (F₂.B.normalizeMSD (F₂.canonicalize w100)) ≡ 0
+      FB.D.valueC (FB.B.normalizeMSD (FB.canonicalize w100)) ≡ 0
   normalized-high-value-zero = refl
 
   canonical-lower-value-one :
-      F₂.D.valueC (F₂.canonicalize (F₂.dropMSD 2 w100)) ≡ 1
+      FB.D.valueC (FB.canonicalize (FB.dropMSD 2 w100)) ≡ 1
   canonical-lower-value-one = refl
 
   canonicalize-not-a-tower-map :
-    ¬ ((w : F₂.LevelWord 3)
-      → F₂.B.normalizeMSD (F₂.canonicalize w)
-      ≡ F₂.canonicalize (F₂.dropMSD 2 w))
+    ¬ ((w : FB.LevelWord 3)
+      → FB.B.normalizeMSD (FB.canonicalize w)
+      ≡ FB.canonicalize (FB.dropMSD 2 w))
   canonicalize-not-a-tower-map natural =
     znots
       ( sym normalized-high-value-zero
-      ∙ cong F₂.D.valueC (natural w100)
+      ∙ cong FB.D.valueC (natural w100)
       ∙ canonical-lower-value-one )

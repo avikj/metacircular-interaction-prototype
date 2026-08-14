@@ -501,6 +501,18 @@ theorem visitedReachNode?_eq_none_iff [DecidableEq X] [Fintype X]
       exact hunreachable node.word (hvalid.trans hstate)
     simp [hne]
 
+/-- The traversal expands at most one node per finite state.  `closed` is
+exactly the list of nodes expanded by completed rounds. -/
+theorem visitedReachQueue_expansion_bound [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A) :
+    (visitedReachQueue M alphabet).closed.length ≤ Fintype.card X := by
+  have hstates : (visitedReachQueue M alphabet).states.length ≤
+      Fintype.card X :=
+    (runReachQueue_states_nodup M alphabet (Fintype.card X)).length_le_card
+  simp only [ReachQueue.states, ReachQueue.nodes, List.length_map,
+    List.length_append] at hstates
+  omega
+
 namespace VisitedReachWitness
 
 open ChartQuotientWitness
@@ -510,6 +522,13 @@ example : (runReachQueue automaton alphabet 3).states = [0, 1, 2] := by
 
 example : (runReachQueue automaton alphabet 3).nodes.map ReachNode.word =
     [[], [false], [false, true]] := by
+  native_decide
+
+example : (visitedReachNode? automaton alphabet (2 : Fin 4)).map
+    ReachNode.word = some [false, true] := by
+  native_decide
+
+example : visitedReachNode? automaton alphabet (3 : Fin 4) = none := by
   native_decide
 
 example : ∀ node ∈ (runReachQueue automaton alphabet 3).nodes,

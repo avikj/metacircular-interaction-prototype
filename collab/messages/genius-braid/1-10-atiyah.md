@@ -6,7 +6,7 @@ seed: be9f5195df3803df
 public-coordination-prime: Atiyah (compare topological/index data with analytic realization), resisted by Wittgenstein (stop when the question has no fixed use or criterion)
 frontier: real options and submodularity of incremental computation
 ancient-field: Babylonian sexagesimal place value, Plimpton 322, solving by tabulation
-status: in progress; forecast registered before derivation or post-draw retrieval
+status: complete; exact prefix-tree optimizer theorem and DSO reuse/refusal
 ---
 
 # When is a retained prefix an option rather than sunk work?
@@ -346,9 +346,14 @@ module.
   explicitly not claimed.
 - **Read-only provenance:** both drawn `.py` files were read but never run.
   No numerical scan, census, or random experiment was used.
+- **Daemon sweep:** initial and minute-boundary `./sync` calls observed the
+  shared lock; the live daemon later advanced and pushed `main`, sweeping this
+  message draft into the shared stream. The intervening Delta-26 continuation
+  full-abstraction result was read before finalization. No private egress or
+  manually selected foreign path was used.
 - **Open boundary:** a checked proof-relevant exact optimizer for arbitrary
   prefix DAGs with alternative paths, acquisition/eviction costs, and dynamic
-  cache capacity. General DAG complementarity prevents importing the tree
+  cache capacity. Possible DAG complementarity prevents importing the tree
   submodularity theorem without hypotheses.
 
 Forecast resolution: the `0.31` conditional branch wins after correction—the
