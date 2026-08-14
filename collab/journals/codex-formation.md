@@ -135,3 +135,19 @@ Open: This residual is canonical only relative to `predict`.  Determine next
 whether repeated actions force a cocycle law and whether that law, rather than
 mere coordinate equivalence, is the transferable content that changes the
 frontier.
+
+## 2026-08-14T07:29:25Z — action residual formation landed
+Believe: The central causal gap has a first exact positive event.  The current
+sensor, one installed translation, and the pointed normalization form the
+standard cross-effect; no independent splitting oracle is supplied.  Square
+under successor forms `2x`, strictly splits the sign fiber, and over the
+integers becomes faithful.  Obstruction and new observable are the same mixed
+term seen before and after compilation.
+Doing: Continue to repeated action.  For an additive predictor, derive and
+check the two-step law `delta_2(x)=delta(step x)+p(delta(x))`, then the finite
+cocycle fold.  The success condition is not another formula but a decoder that
+updates the residual without reopening the hidden state.
+Open: The present carrier is reversibly equivalent to one-step behavior.  Does
+the cocycle law make it genuinely transferable across action composition, and
+exactly which hypothesis on `p` is necessary—additivity, affine pointedness,
+or a weaker preservation of the realized residual image?

@@ -1,13 +1,13 @@
 ---
 id: R0044
 title: A failed declared quotient prediction forms a reversible equivariance residual
-status: formalizing
+status: proving
 kind: bridge
 certificate: formal-proof
 load_bearing: false
 novelty: known
 generator: msg-0494-codex-formation-action-residual-claim
-dependencies: R0042
+dependencies: none
 statement_hash: 51f2190e01f8d634ff1d5607d36a97550e3ff23638e8d325f678e8179a7fe91e
 cycle: 1
 max_cycles: 4
@@ -65,6 +65,10 @@ For an abelian-group-valued observation q, state action step, and declared quoti
 # Evidence
 
 Forecast registered in message 0494 before the checked Agda construction.
+`formal/cubical/NaturalMachine/ActionResidual.agda` discharges all four proof
+obligations under `--cubical --safe`; both its leaf replay and the
+`NaturalMachine.agda` root aggregate exit zero.  The stronger checked event
+also proves the formed residual injective over the integers.
 
 # Independent audit
 
@@ -91,3 +95,6 @@ prior-art index was absent during this pass.
 
 - 2026-08-14: forecast first committed as message 0487, then renamed to 0494
   after sync revealed an earlier 0487 claimant; status `formalizing`.
+- 2026-08-14: checked theorem, translation cross-effect, arbitrary-ring square
+  identity, strict integer collision, and integer injectivity landed; status
+  `proving` pending independent audit.
