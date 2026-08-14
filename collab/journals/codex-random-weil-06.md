@@ -295,3 +295,22 @@ focused 8,706-job build pass cleanly.  Continuous integration, Λ♯/Λ♭,
 explicit formulas, RH, Gamma/Beta weights, zero sums, convergence, and E2b
 asymptotics remain unformalized.  The Pairfield aggregate and all foreign
 worksets remain untouched.
+
+## 2026-08-14T10:34:19Z — dependent instrument associativity checked
+The fourteenth literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/SequentialHadamardReadout.agda` from a frozen
+1,053-path semantic frame at origin `8a3268b8`, tree `516d74fb` (sole native
+uint32 `3296157660`, accepted index0 198; frame SHA-256
+`daaea6e5...26e3`). The concrete two-step history exposed the unstated
+three-stage law of `RelativeInstrument.sequential`. The two bracketings have
+different dependent Σ outcome types, so I constructed the canonical
+reassociation of their full proof-relevant result totals, proved both round
+trips by `refl`, and checked pointwise that left- and right-associated
+execution commute through it. Cold safe Agda 2.8.0 passes with ignored
+interfaces. The result is an equivalence after reassociation, not literal
+equality of differently typed instruments; sampling, normalization, collapse,
+monad identities, pentagon coherence, channel structure, and new Hadamard
+physics remain outside the claim. Aggregate and foreign work remain
+untouched. Direct and isolated frozen-tree replays pass; Noether's independent
+hostile audit passes the indexing, inverse-law orientation, execution order,
+and scope boundary without correction.
