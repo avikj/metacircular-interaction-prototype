@@ -683,8 +683,8 @@ Continued: `AdaptiveResidualNodeMinimalDepth` follows a maximal-depth child at
 each query and packages the selected native subtree and response-conditioned
 cell.  Lean proves that the resulting strict spine has length exactly
 `plan.toTree.depth + 1`.  Composing with the finite spine theorem closes the
-actual native statement `depth + 1 <= 2 ^ stateCount`; the focused build still
-passes 3,047 jobs.
+actual native statement `depth + 1 <= 2 ^ stateCount`; the focused build
+passes 3,047 jobs and the root aggregate passes 8,786.
 
 Resume: sharpen the exponential carrier by a checked recurrence across
 informative splits.  Do not rename this bound quadratic or import the
