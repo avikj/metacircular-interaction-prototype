@@ -34,8 +34,9 @@ s\,\prod_{j=1}^{k+1}(j^{2}+s^{2})}\;}$$
 1. `|Γ(½+iγ)|² = Γ(½+iγ)Γ(½−iγ) = π/cosh(πγ)` (Euler reflection at `½`), so
    `|Γ(ρ)Γ(ρ')|² = π²/(cosh πγ·cosh πγ')`.
 2. `|Γ(is)|² = π/(s\sinh πs)` (reflection + `Γ(1−is)=−is\,Γ(−is)`).
-3. `Γ(k+2+is)=\bigl(\prod_{j=1}^{k+1}(j+is)\bigr)Γ(is)` gives
-   `|Γ(ρ+ρ'+k+1)|² = |Γ(k+2+is)|² = s\,\prod_{j=1}^{k+1}(j^2+s^2)\cdot π/\sinh πs`
+3. `Γ(k+2+is)=\bigl(\prod_{j=0}^{k+1}(j+is)\bigr)Γ(is)` (Pochhammer; the `j=0`
+   factor is `is`), so with (2) the `s²` from `j=0` leaves
+   `|Γ(ρ+ρ'+k+1)|² = |Γ(k+2+is)|² = π\,s\,\prod_{j=1}^{k+1}(j^2+s^2)/\sinh πs`
    (note `ρ+ρ'=1+is`).
 Divide (1) by (3), and use `2\cosh πγ\cosh πγ' = \cosh π s+\cosh π\Delta`. ∎
 
