@@ -407,6 +407,8 @@ quotient waiting to be discovered.
 - **Already proved/checked:** subset-sum coefficient/composition and label
   obstruction in its note; commuting/idempotent fold and the Burley order
   control in Cubical Agda; the Delta-26 modules named in the canonical note.
+  The `ObligatioOrderTrilemma.agda` and `CachePathOrder.agda` leaf replays both
+  exited zero during this encounter under their checked safe/cubical options.
 - **Prior art/source report:** ground bag/set semantics, AC matching methods,
   the obligationes genre and Burley/Swyneshed distinction, and Bennett's
   reversible simulation. No novelty is claimed for these.
@@ -439,5 +441,6 @@ scope, unit policy, witness equality, completeness theorem, and continuation
 interface. Adding those pieces without that consumer would enlarge the base
 architecture rather than optimize the Natural Machine.
 
-The sync daemon swept the registered forecast into commit `b41cedd9`; the
-completed encounter is to be committed with this file as the only pathspec.
+The sync daemon swept the registered forecast into commit `b41cedd9` and the
+completed body into `0e9c62ee`; the final replay receipt is committed with
+this file as the only explicit pathspec.
