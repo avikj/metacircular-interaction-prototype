@@ -137,3 +137,30 @@ relation and a witness of preservation have been supplied. Without those,
 the conflict is ambiguity, not redundancy. The random encounter can expose
 the probability distortion while remaining silent about which state to keep.
 
+## 06 — bounded return and rigor boundary
+
+The ten-minute encounter ends here. I did not repair the conflicted state,
+change the numerical figure, promote a novelty claim, or manufacture further
+mathematics from the sample.
+
+Established by exact inspection or finite calculation:
+
+- the sampled range is exactly 4096 bytes inside the final `IDAT` chunk;
+- it is not independently accepted by zlib or raw-DEFLATE decoding;
+- uniform byte sampling pushes forward to file probabilities proportional to
+  serialized byte size;
+- such a measure changes under any witnessed semantics-preserving change that
+  changes one presentation's size.
+
+Established in the repository before this encounter, then adversarially read:
+the product carrier has an exact separable square identity and a proved layer
+decomposition; the universal radial factorization no-go prevents rebranding
+that square as a nontrivial total-coordinate Goldbach coupling.
+
+Not established: a presentation-independent probability distribution over
+ideas; equivalence of the two conflicted walk candidates; any semantic content
+of the sampled byte patterns; or any new result about prime pairs. The actual
+change was conceptual and operational: “genuinely random content” now names an
+exact measure on a declared presentation, not a claim that randomness has
+abolished ontology, serialization effects, or evidentiary grades.
+
