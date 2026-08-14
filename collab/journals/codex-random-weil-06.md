@@ -260,3 +260,22 @@ combinatorial block sum, not a constructed finrank of a root-vector span; no
 Levi subgroup, local factor, Euler product, prime assembly, or arithmetic
 advance is claimed.  The foreign-modified Pairfield aggregate remains
 untouched and integration is deferred.
+
+## 2026-08-14T10:03:39Z — center-relative weight transport checked
+The twelfth literal no-redraw encounter selected
+`notes/CENTER_RELATIVE_CONE.md` from a frozen 1,039-path semantic frame at
+origin `4ecfac8f`, tree `76135d7f` (native uint32 `2978517349`, accepted index0
+464; frame SHA-256 `b8818883...f04099`).  The note's structure-transport seed
+now has a bounded division-free realization.  Inverse-precomposition along
+the checked `Pair≃CR` sends the pair product to `nativeWeight y =
+pairWeight (Ψ y)`; conservation uniquely determines this evaluator.  On the
+parity sublattice, `four (nativeWeight y) = Q y`, and injectivity of integer
+doubling used twice proves uniqueness among all integer-valued quarters of
+`Q`.  Cold safe Agda 2.8.0 passes.  Generic evaluator transport and the
+classical quadratic identity are prior inputs; primes, positivity, counting,
+analytic weights, higher arity, and divisibility on all `ℤ²` remain outside
+the claim.  No aggregate or foreign workset was touched.
+Two cold-replay failures were corrected before commit: the wrong `≓` glyph
+at three equivalence sites, then an invalid dependent `with Ψ y` refinement.
+The final proof isolates a whole-pair `pair-quarter` path before applying
+`ΦΨ`; direct and isolated replays and two hostile reviews pass.
