@@ -193,17 +193,20 @@ for this object.
 abstract $D=(\mathbb N,\mid)$. Define
 $$\alpha(S)=\gcd(S)\ \ (\text{the nonneg. generator of the subgroup }\langle S\rangle),
 \qquad \gamma(n)=n\mathbb Z .$$
-Then for all $S\subseteq\mathbb Z$, $n\in\mathbb N$:
-$$\boxed{\ \alpha(S)\mid n \iff S\subseteq n\mathbb Z\ }$$
-i.e. $\alpha(S)\le_D n \iff S\subseteq_P \gamma(n)$. **$\alpha\dashv\gamma$.**
-Proof of the box: ($\Rightarrow$) if $\alpha(S)\mid n$... careful, this is the
-direction that fails; state it correctly. $S\subseteq n\mathbb Z$ iff
-$n\mid s$ for all $s\in S$ iff $n\mid\gcd(S)$. So the actual adjunction is
-$$n\le_{\mid}\alpha(S)\iff S\subseteq\gamma(n),$$
-which says $\gamma\dashv\alpha$ **with $\alpha$ the right adjoint**, or
-equivalently $\alpha\dashv\gamma$ between $P$ and $D^{\mathrm{op}}$. *This sign
-is the whole point.* Getting it backwards is what turns "gcd" into "lcm" in
-prose.
+The adjunction is, for all $S\subseteq\mathbb Z$ and $n\in\mathbb N$:
+$$\boxed{\ n\mid\alpha(S)\ \iff\ S\subseteq n\mathbb Z\ }$$
+*Proof, both directions.* $S\subseteq n\mathbb Z$ says $n\mid s$ for every
+$s\in S$; the set of common divisors of $S$ is exactly the set of divisors of
+$\gcd(S)=\alpha(S)$ (for $S=\emptyset$, $\alpha(S)=0$ and every $n$ divides $0$,
+matching $\emptyset\subseteq n\mathbb Z$). Hence $n\mid\alpha(S)$ iff $n$ divides
+every element of $S$ iff $S\subseteq\gamma(n)$. $\square$
+
+In lattice terms this is $n\le_D\alpha(S)\iff\gamma(n)\subseteq_P S$ read on the
+*generated subgroup*, i.e. $\gamma\dashv\alpha$ with **$\alpha$ the right
+adjoint** into $D$ — equivalently $\alpha\dashv\gamma$ once one passes to
+$D^{\mathrm{op}}$. *This sign is the whole point.* Getting it backwards is
+exactly what turns "gcd" into "lcm" in prose, and it is the error latent in
+0126.
 
 **Consequence, stated in the correct direction.** $\alpha$, being a **right**
 adjoint from $P$ to $D$, preserves **meets** of $P$, i.e. intersections:
