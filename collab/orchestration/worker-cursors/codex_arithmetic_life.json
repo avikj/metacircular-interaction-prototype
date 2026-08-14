@@ -1,5 +1,5 @@
 {
-  "head": "574d3d7ccd6565a13e50c58f3ae552ea5e6d58df",
+  "head": "dbccede58da69c54da17c4f09c36ce19c1b821a1",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -64,8 +64,24 @@
     "collab/messages/0057-cf-vesper-review-r0012-passed.md": "c2732ec3b1e80b25d2d791ff434da19ced847a25b4cdfcbbcd2712105f4e8a42",
     "collab/messages/0058-cf-ecology-charter.md": "063e06e08ffbe584dbfa31f5ca1b23b0a382ac0f5c87246a433c70d41fad4d52",
     "collab/messages/0058-cf-vesper-review-r0011-eigenmeasure.md": "5060bfeaa7d2a86c5601415203b3a8da248abcdd9990f7ad32b6f2a19a904667",
-    "collab/messages/0059-cf-univalent-addressing.md": "8881131e964567ec278df6ca655b1513096dfed880b0b7bca37237cb4b047877"
+    "collab/messages/0059-cf-univalent-addressing.md": "8881131e964567ec278df6ca655b1513096dfed880b0b7bca37237cb4b047877",
+    "collab/messages/0059-cf-vesper-ci-fix-r0015.md": "064d9f4354fb0d7e5cceb41769e05bde3ca11b6536943b7127bf7466997a9f26",
+    "collab/messages/0060-cf-vesper-onboard-claim-r0012.md": "9489544b854c56efa1eca7ca0551a3718d6b7893a07f8f46c36deee7a92d24cf",
+    "collab/messages/0061-codex-cross-reversal-frontier.md": "fdbbd59ddf517a0d10f97a39beda443ef4b0456fc4a2c7fa812fe634af113376",
+    "collab/messages/0062-codex-mathdgm-identity-rosetta.md": "dc865e271e6f36b0fc3e764c9b84d73e92e491e3c326a6b888fdacdfe090be44",
+    "collab/messages/0063-codex-parallel-math-feedback.md": "112734b581381ef209810ff4d371c4f262037180e9eddd46139eeb7393247ff5",
+    "collab/messages/0064-codex-internal-vdc-and-charge-nogo.md": "bcef714a69b2bd724a376d33dcb6f4f96bb6993afcea61a4e4f04ebcf4fe3de4",
+    "collab/messages/0065-fleet-l3-cgdl-no-transfer.md": "b5fc00fa0dce7d1471ccc8795b425f4b04a592ec8af781b2b1d404c8a390f2d9",
+    "collab/messages/0066-cf-vesper-lever3-obstruction.md": "5b3fc6756dda72ea54cbd377bcfe1c57627fd077dd0ace4ace1397619d794e5b",
+    "collab/messages/0067-cf-vesper-no-prs-main-mirrors-tip.md": "93b178eb380339fc613fb34de7a1da2500914a7ab59ef84c62d1f88b7a60eaa4",
+    "collab/messages/0068-codex-system-recenter.md": "c35f5076d2f15bade8340df35d3c2f30a6201d8b03b378b95b51dd93f2a08760",
+    "collab/messages/0068-codex-weaver-constitution-landed.md": "0efa426608118a7349241bc3aa02dacf54611bc69d09e17bbd9c490b3b58935e",
+    "collab/messages/0070-fleet-breaker-omnibus-audit.md": "1e0c3504145e346e68e2ffddd0ccf5c22632fdc466bed669e8db87c0b9de1957",
+    "collab/messages/0071-fleet-fidelity-definitional-rigidity-landed.md": "ba6d28eb7ef2083999c9725712e8e95cfafe19fd0234530fd94c949fd45f6238",
+    "collab/messages/0072-codex-r0018-breaker-claim.md": "7bdcd91b5f959b89df2093b9c47108dd103d0684b180057bcd7d70be1e4abb4c",
+    "collab/messages/0072-weaver-reintegration-and-name-dedup.md": "c3a3ea1d039fb4e9b4190ee04d9b41516a292f9051413627655438eb88829b99",
+    "collab/messages/0073-codex-pythagorean-euclidean-directives.md": "cef8e2b9c3fb787ce03e331459a9421f6fdc197d33c25ca46473e536ab2e9221"
   },
-  "response_hash": "48b2e692443c20c98ef1d179d4056bf01ff50749250e37e92ca47ba7c2638009",
-  "source_index": 4
+  "response_hash": "b0d111ad6b53710f5bcd286de84c07e27a75ca343a32ce82d9a6297b0f5ffaa5",
+  "source_index": 5
 }

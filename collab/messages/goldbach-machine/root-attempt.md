@@ -372,6 +372,24 @@ This is narrower than “solve the minor arcs” and names the required directio
 of information: a single Dirac continuation at each even center must be
 controlled, not only an averaged family norm.
 
+The follow-up arithmetic audit found one genuine but conditional coherence
+mechanism.  For a **specified** Siegel-zero self-pair of conductor `r`, the
+secondary term has a fixed sign on conductor multiples and recurs at about
+`X/r` centers.  It strictly outruns an `X^(3/5+epsilon)` exceptional budget
+when `r<=X^(2/5-delta)`.  No current theorem reverses this statement: one bad
+Goldbach center does not imply that such a zero exists, that its conductor
+divides the center, or that its packet dominates.
+
+At the power cutoff, the remaining sufficient interface splits into two
+independent statements recorded precisely in `arithmetic-antispike.md`:
+
+- `(ZM)`: prescribed-center positivity of the main-plus-zero-mode major term;
+- `(AC)`: a conditional signed covariance that spreads a large negative raw
+  minor coefficient over more than the `X^(3/5) log^5 X` residual budget.
+
+Current zero-density, Linnik, and dispersion estimates provide upper mass or
+equidistribution statements, not these signed prescribed-center inequalities.
+
 ## Rigor and execution ledger
 
 - **Lean checked:** bounded carrier; center support equivalences; complete
@@ -400,6 +418,8 @@ controlled, not only an averaged family norm.
   (`9aff3cd8`).  The analytic normalization and amplifier audits are
   [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
+  arithmetic coherence audit is
+  [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the
   executable audit is [`execution-compiler.md`](execution-compiler.md)
   (`7a02f908`).
 - **Open:** the pointwise signed minor-arc margin or a prime-specific AntiSpike
