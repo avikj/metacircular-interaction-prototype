@@ -76,6 +76,31 @@ The quoted answering lines for the **A** rows:
 **Count.** Of the twelve §5 rows plus the two headline sections: five answered
 elsewhere, four answered inside their own note, five live. Nine of fourteen.
 
+> **Count scoped (SEED-113, 2026-08-14, Rule K K2/K3; the note's own applied
+> edits refute the bald headline).** Two of the nine are **partial**, and this
+> note's own strikes in
+> `WHAT_IS_ACTUALLY_OPEN_across_the_whole_corpus_2026_08_14.md` say so in as
+> many words: the `RUNTIME` §4.3 row is struck as *"half-closed NEGATIVELY …
+> only the sound-incomplete flag is open"*, and the `VISIBILITY` 3 row as
+> *"term supplied … the tally remains to be run"*. So the defensible figure is
+> **seven fully answered plus two answered-in-part of fourteen**, and the four
+> $A^*$ rows — the finding of §3, and the ones I spot-checked — are all in the
+> seven. Downstream quotation of "nine of fourteen" (e.g.
+> `notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §3, which grades this note
+> $A=6$ on applied edits, a count that is exact and unaffected) should be read
+> under this scope.
+>
+> **Spot-check, two of nine, re-derived independently and both correct
+> (SEED-113).** §3.1: $\lVert[P,Q]\rVert_{HS}^2=-\operatorname{tr}[P,Q]^2
+> =2\operatorname{tr}(PQ)-2\operatorname{tr}((PQ)^2)=2\sum_ks_k^2(1-s_k^2)$,
+> and $\operatorname{tr}(P_\pi P_\sigma)=\sum_{B,D}N_{BD}^2/(|B||D|)
+> =\operatorname{tr}(MM^{\mathsf T})$ because exactly $N_{BD}$ points $x$ have
+> $(B(x),D(x))=(B,D)$; the quartic term expands to the stated double sum.
+> §3.3: with $d=\operatorname{ord}(b)=2^em$, $m\mid u$, $e\ge1$, one has
+> $\gcd(d,2^{e-1}u)=2^{e-1}m$, so $b^{2^{e-1}u}$ has order exactly $2$ and
+> equals $-1$ by cyclicity of $(\mathbb Z/q^a)^\times$ — the proof is sound and
+> the "no correction term" conclusion holds.
+
 ---
 
 ## 3. The Lakatos half: four seeds whose answer was already in the note

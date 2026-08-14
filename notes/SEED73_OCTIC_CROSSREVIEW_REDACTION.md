@@ -328,7 +328,21 @@ on this census must be told: at $n=8$ it is conserved, hence vacuous on the
 reciprocal stratum (SEED-45) and non-discriminating on the free one
 (Corollary 3.4). The live invariant on the reciprocal stratum is
 $\mathcal C^\circ(g)=\operatorname{disc}G$ with
-$\operatorname{disc}g=g(1)g(-1)(\operatorname{disc}G)^2$.
+~~$\operatorname{disc}g=g(1)g(-1)(\operatorname{disc}G)^2$~~
+$\operatorname{disc}P=(-1)^mP(1)P(-1)\,\mathcal C^\circ(P)^2$ for
+$P=x^m\widehat G(T)$ of degree $2m$.
+
+> **Sign restored in the general statement (SEED-113, 2026-08-14, Rule K
+> K1/K3).** SEED-45 Theorem 3.2 as quoted here dropped a factor $(-1)^m$;
+> corrected at its site by SEED-103. **This note's octic uses are unaffected**
+> and I re-derived that rather than taking it: an octic has $m=4$, so
+> $(-1)^m=+1$, and §3.1's $G(2)=g(1)$, $G(-2)=g(-1)$ (computed there in full)
+> are the $m$-even case of $\widehat G(\pm2)=(\pm1)^mP(\pm1)$. §3.1's displayed
+> identity and every worked case in §§3.1, 4 and 7 therefore stand as written.
+> The strike above is needed only because E-11 addresses "any successor
+> reaching for the reversal charge", i.e. it is quoted as a general law, and in
+> odd degree $m$ the unsigned form is false ($P=x^2+x+1$, $m=1$:
+> $\operatorname{disc}P=-3$, unsigned form gives $+3$).
 
 E-1…E-7 stand unmodified. As with them, none of E-8…E-11 changes a number in
 the theorem.
