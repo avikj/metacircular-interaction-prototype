@@ -270,9 +270,10 @@ repair ($P_{\hat0}=I$). For $\rho_1$: $\rho_1\vee\sigma=\{X\}$ and $B=\{1\}$,
 $E=\{1,3\}$ give the requirement $\mu(1)=\mu(1)\cdot\tfrac12$, i.e.
 $\mu(1)=0$ — false, since $\mu(1)=\tfrac14+t\ge\tfrac14$. So $\rho_1$ is never a
 repair, and symmetrically neither is $\rho_2$. Hence
-$$\{\rho\le\pi:\rho\perp_\mu\sigma\}=\begin{cases}\{\pi,\rho_1',\dots\}\ni\pi&\text{if }t=0,\\ \{\hat0\}&\text{if }t>0,\end{cases}$$
-and in either case the greatest element is $\pi$ when $t=0$ and $\hat0$ when
-$t>0$. Now $(\mathrm{CR}_\mu)$ hands us a specific partition $\rho^{*}$ of the
+$$\{\rho\le\pi:\rho\perp_\mu\sigma\}=\begin{cases}\{\pi,\hat0\}&\text{if }t=0,\\ \{\hat0\}&\text{if }t>0,\end{cases}$$
+so the greatest element is $\pi$ when $t=0$ and $\hat0$ when $t>0$ (when $t=0$,
+$\pi$ is the top of $\{\rho\le\pi\}$, so it is greatest as soon as it belongs;
+when $t>0$ the set is the singleton $\{\hat0\}$). Now $(\mathrm{CR}_\mu)$ hands us a specific partition $\rho^{*}$ of the
 four-element discrete set $X$; equality of partitions of a finite discrete set is
 decidable, so we may decide $\rho^{*}=\pi$ or $\rho^{*}=\hat0$ (these are the
 only possibilities and they are distinct). The first yields $\forall n\,\alpha_n=0$
