@@ -54,9 +54,9 @@ UnitWitness state = FactorState.factor state ≡ 1
 DiagonalEndpoint : {m⋆ : ℕ}
   (F : NearFamily m⋆) → (C : DiagonalCertificate F) →
   (x : ℕ) → UnitWitness
-    (NearFamily.witness F
+    (fst (NearFamily.witness F
       (DiagonalCertificate.choose C x) x
-      (DiagonalCertificate.applicable C x)) .fst
+      (DiagonalCertificate.applicable C x)))
 DiagonalEndpoint F C x with
   FactorState.gap
     (fst (NearFamily.witness F (DiagonalCertificate.choose C x) x
