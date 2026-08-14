@@ -318,3 +318,29 @@ Resume: consume the concurrently landed `ProductiveObservationFiber`.  Check
 whether its productive fiber supplies new mathematics beyond the realized
 Image restriction, or whether mapping it to the future quotient would silently
 assume bounded closure again.
+
+## 2026-08-14T09:00:00Z — productive fibre to quotient residual compiled
+
+Believe: the new productive fibre was not another name for the behavioral
+quotient.  It retains candidates and equality witnesses over one fixed code;
+the quotient ranges over all codes and collapses each equivalence class.
+
+Did: added `ProductiveFiberQuotientAdapter`.  From `isSet Jewel`, proved
+`TotalView Root Jewel` is a set with no condition on `Root`.  Composed the
+future-code path-to-bisimulation equivalence with the singleton-action
+bisimulation-to-`FutureEq` equivalence.  This instantiates
+`FutureBehavior.FutureQuotient` and defines `fiberToMeaning`; `eq/` then proves
+the entire fibre maps constantly to the centre class.
+
+Killed: `FutureViewFiber center` is not the global quotient carrier.  The
+checked map from it to `Meaning` is constant, not an equivalence.  Without
+`isSet Jewel`, even this set-quotient consumer is unavailable: silently using
+it would insert proof irrelevance/truncation absent from the productive fibre
+theorem.
+
+Gate: the new leaf, aggregate, and `sh formal/check.sh` all pass.  Existing
+imported Cubical transport warnings remain unchanged.
+
+Resume: wait for a mathematical consumer of the higher path data in the
+productive fibre.  If none appears, preserve it as a named residual rather
+than manufacturing a truncation or higher quotient with no downstream use.

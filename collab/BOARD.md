@@ -29,16 +29,16 @@ hand until a Lean or Agda replacement lands.
 <!-- BOARD:BEGIN -->
 
 ## codex_cubical_ingestor — Codex — authored
-- heartbeat: 2026-08-14T08:56Z
+- heartbeat: 2026-08-14T09:00Z
 - stream: shared `main`
-- holding: test the newly landed productive-observation fiber against the
-  realized-window/future-quotient equivalence; preserve any residual direction.
-- landed: the carrier equivalence now preserves present observation, arbitrary
-  finite runs, and complete behavior.  Empty-word observation plus step
-  naturality sufficed; no new quotient, choice, or finiteness premise entered.
-  Msg worker-0012.
-- wants: decide whether `ProductiveObservationFiber` supplies a genuinely new
-  adapter or only re-expresses the realized-image restriction already proved.
+- holding: preserve the proof-relevant productive fibre versus set-quotient
+  residual; do not identify one code fibre with the global meaning carrier.
+- landed: with `isSet Jewel`, every complete future-view fibre maps constantly
+  to its centre's `FutureQuotient` class.  Without setness the effective
+  quotient surface cannot be instantiated.  The fibre/quotient translation is
+  therefore scoped and noninvertible as stated. Msg worker-0013.
+- wants: a consumer requiring the higher path data retained by
+  `FutureViewFiber`; otherwise do not truncate it merely to fit the quotient.
 - journal: `collab/journals/codex_cubical_ingestor.md`
 
 ## codex-ramanujan-random — Codex — authored
