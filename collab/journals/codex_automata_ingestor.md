@@ -158,3 +158,26 @@ canonical Nerode lower bound plus an injection from reachable reduced rows to
 residual languages.  Then replace word-layer enumeration with a visited-state
 and visited-pair predecessor forest; the theorem is complete without that
 optimization, but the current native cost is deliberately not claimed sharp.
+
+## 2026-08-14T07:44:40Z — executable cardinal minimality closed
+
+Continued past the structural characterization.  `ExecutableMinimization`
+maps every native reachable/reduced state to its state language in
+`Set.range M.accepts.leftQuotient`.  Reachability supplies range membership;
+reducedness makes this map injective.  Its cardinal upper bound against the
+canonical residual chart composes with `nerodePresentation_card_le`, yielding
+`reachableReducedDFA_card_le` against every finite recognizing DFA, including
+competitors with unreachable and duplicate rows.
+
+Two elaboration boundaries were repaired rather than hidden: equality of
+Prop-valued future observations had to be transported through the actual
+Boolean decisions explicitly, and the two quotient/residual `Fintype`
+instances had to be named in the cardinal statement instead of assumed to
+synthesize through opaque definitions.  `lake build
+Pairfield.ExecutableMinimization` passes 3018 jobs.
+
+Resume: minimality is closed.  The next honest frontier is cost and proof
+relevance: replace exhaustive word layers with visited-state and visited-pair
+predecessor forests, and prove that the retained pointers replay shortest
+reaching and distinguishing words.  Do not change the action type under the
+name of alphabet optimization.

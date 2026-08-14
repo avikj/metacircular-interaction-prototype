@@ -187,6 +187,22 @@ which every state is start-reachable and no two states have the same complete
 accepted future.  On the four-row control, the reachable carrier and the
 composed reducer both have cardinality `3` by `native_decide`.
 
+`Pairfield.ExecutableMinimization` closes the cardinal statement rather than
+leaving minimality as a structural gloss.  Each native reduced state maps to
+its `stateLanguage`; all-state reachability proves this language lies in
+Mathlib's residual range, and reducedness makes the map injective.  The checked
+inequality
+
+```lean
+reachableReducedDFA_card_le M alphabet complete N accepts_eq
+```
+
+then composes this injection with `nerodePresentation_card_le`.  Hence the
+native reachable/reduced quotient has no more states than **any** finite DFA
+accepting the same language, including competitors with garbage and duplicate
+rows.  The noncomputable canonical Nerode chart participates only as a proof
+bridge; it is not invoked by the reducer.
+
 ## Falsifier and replay
 
 The internal three-state DFA has prefixes `[]` and `[false]` separated first by
@@ -198,10 +214,10 @@ certifies residual-membership disagreement.  The control prefixes `[]` and
 cd formal/pairfield
 lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
   Pairfield.ChartStateBFS Pairfield.ChartQuotient \
-  Pairfield.ReachableSubDFA
+  Pairfield.ReachableSubDFA Pairfield.ExecutableMinimization
 ```
 
-The newest focused target passes (`3016` jobs).  `Pairfield.lean` imports the
+The newest focused target passes (`3018` jobs).  `Pairfield.lean` imports the
 adapter and both reducers.  A root
 `lake build Pairfield` reaches the adapter but remains red in the unrelated
 pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no
