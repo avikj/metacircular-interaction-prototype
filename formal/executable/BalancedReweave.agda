@@ -57,6 +57,15 @@ push-sound : {A : Set} (f : A → A) (p : Plan A) (x : A)
   → runPlan (push f p) x ≡ runPlan p (f x)
 push-sound f p x = insertTree-sound (leaf f) p x
 
+-- The original suspended-composition shape, retained as the control.
+data LinearPlan (A : Set) : Set where
+  linearDone : LinearPlan A
+  linearPush : (A → A) → LinearPlan A → LinearPlan A
+
+runLinearPlan : {A : Set} → LinearPlan A → A → A
+runLinearPlan linearDone x = x
+runLinearPlan (linearPush f p) x = runLinearPlan p (f x)
+
 -- The balanced representation specializes persistent rooted reweaving to
 -- endomorphisms, the case where a long-lived state language is updated many
 -- times.  Arbitrary type-changing updates remain represented by
@@ -89,14 +98,34 @@ repeatPlan : Nat → Plan Nat
 repeatPlan zero = empty
 repeatPlan (suc n) = push suc (repeatPlan n)
 
+repeatLinearPlan : Nat → LinearPlan Nat
+repeatLinearPlan zero = linearDone
+repeatLinearPlan (suc n) = linearPush suc (repeatLinearPlan n)
+
 balancedCount : Nat → Nat
 balancedCount n = runPlan (repeatPlan n) zero
+
+linearPlanCount : Nat → Nat
+linearPlanCount n = runLinearPlan (repeatLinearPlan n) zero
 
 linearCount : Nat → Nat
 linearCount zero = zero
 linearCount (suc n) = suc (linearCount n)
 
+repeatPlan-commutes-suc : (n x : Nat)
+  → runPlan (repeatPlan n) (suc x) ≡ suc (runPlan (repeatPlan n) x)
+repeatPlan-commutes-suc zero x = refl
+repeatPlan-commutes-suc (suc n) x
+  rewrite push-sound suc (repeatPlan n) (suc x)
+  | push-sound suc (repeatPlan n) x
+  | repeatPlan-commutes-suc n (suc x) = refl
+
 balancedCount-sound : (n : Nat) → balancedCount n ≡ linearCount n
 balancedCount-sound zero = refl
 balancedCount-sound (suc n) rewrite push-sound suc (repeatPlan n) zero
+  | repeatPlan-commutes-suc n zero
   | balancedCount-sound n = refl
+
+linearPlanCount-sound : (n : Nat) → linearPlanCount n ≡ linearCount n
+linearPlanCount-sound zero = refl
+linearPlanCount-sound (suc n) rewrite linearPlanCount-sound n = refl

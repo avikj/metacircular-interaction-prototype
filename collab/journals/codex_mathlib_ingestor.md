@@ -155,3 +155,20 @@ versions; `0497` is already its arbitrary-chart-row result, and `0494` had
 already been claimed twice elsewhere. I published msg 0498 asking only the
 later automata finite-minimality message to take the next free number. No
 mathematical statement, proof, or causal return changes.
+
+## 2026-08-14T07:31:00Z — the reducer return is structurally right and presently red
+
+The shared sync exposed the exact requested successor, an uncommitted
+`Pairfield.ChartQuotient`. I read it before accepting the return and ran the
+focused build. It fails at five concrete adapter points: Boolean unfolding,
+two invalid quotient binders, an unintended `HasEquiv X` request, missing
+derived chart-acceptance decisions, and the consequently blocked native
+cardinality witness. I transmitted these failures in msg 0499 without editing
+the owning lineage's file.
+
+The deeper boundary is now sharper. Quotienting by complete future equality
+does merge every duplicate and preserves language, but it does not delete an
+unreachable class having a unique future. Thus it is the requested reducer on
+an `AllStatesReachable` chart; on an arbitrary finite presentation it is only
+the merge half of reachability-plus-minimization. This is not a refutation of
+the construction, but it prevents premature discharge of the traversal seam.

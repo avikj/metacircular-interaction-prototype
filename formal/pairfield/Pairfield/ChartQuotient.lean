@@ -53,16 +53,6 @@ theorem behavioralQuotientDFA_eval_mk
     (behavioralQuotientDFA M).eval word = Quotient.mk _ (M.eval word) := by
   exact behavioralQuotientDFA_evalFrom_mk M M.start word
 
-@[simp]
-theorem acceptsBool_behavioralQuotientDFA
-    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
-    (meaning : Quotient (dfaFutureSetoid M)) :
-    acceptsBool (behavioralQuotientDFA M) meaning =
-      quotientObserve M.step (acceptsBool M) meaning := by
-  unfold acceptsBool
-  change decide (quotientObserve M.step (acceptsBool M) meaning = true) = _
-  cases h : quotientObserve M.step (acceptsBool M) meaning <;> simp [h]
-
 /-- Quotienting preserves the recognized language exactly. -/
 theorem behavioralQuotientDFA_accepts_eq
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
@@ -79,9 +69,9 @@ theorem: equality under every future acceptance experiment is literal state
 equality in the quotient. -/
 theorem behavioralQuotientDFA_isReduced
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
-    ∀ ⟦left right : Quotient (dfaFutureSetoid M)⟧,
+    ∀ {left right : Quotient (dfaFutureSetoid M)},
       FutureEq (behavioralQuotientDFA M).step
-        (acceptsBool (behavioralQuotientDFA M)) left right →
+        (quotientObserve M.step (acceptsBool M)) left right →
       left = right := by
   intro left right
   refine Quotient.inductionOn₂ left right ?_
@@ -89,14 +79,9 @@ theorem behavioralQuotientDFA_isReduced
   apply Quotient.sound
   intro word
   have hword := hfuture word
-  change acceptsBool (behavioralQuotientDFA M)
-      ((behavioralQuotientDFA M).evalFrom (Quotient.mk _ x) word) =
-    acceptsBool (behavioralQuotientDFA M)
-      ((behavioralQuotientDFA M).evalFrom (Quotient.mk _ y) word) at hword
+  simp only [behavior, run_eq_evalFrom] at hword
   rw [behavioralQuotientDFA_evalFrom_mk,
     behavioralQuotientDFA_evalFrom_mk,
-    acceptsBool_behavioralQuotientDFA,
-    acceptsBool_behavioralQuotientDFA,
     quotientObserve_mk, quotientObserve_mk] at hword
   exact hword
 
@@ -122,7 +107,7 @@ def behavioralQuotientFintype
     [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
     Fintype (Quotient (dfaFutureSetoid M)) := by
-  letI : DecidableRel ((· ≈ ·) : X → X → Prop) :=
+  letI : DecidableRel (dfaFutureSetoid M).r :=
     fun left right => stateFutureEqDecidable M alphabet complete left right
   exact Quotient.fintype (dfaFutureSetoid M)
 
@@ -131,7 +116,8 @@ namespace FiniteBehavioralPresentation
 variable {M : DFA A X} (C : FiniteBehavioralPresentation M)
 
 /-- The executable merge quotient of the finite native chart. -/
-def reducedDFA : DFA A (Quotient (dfaFutureSetoid C.toDFA)) :=
+def reducedDFA [DecidablePred (fun state : X => state ∈ M.accept)] :
+    DFA A (Quotient (dfaFutureSetoid C.toDFA)) :=
   behavioralQuotientDFA C.toDFA
 
 def reducedFintype
@@ -140,16 +126,22 @@ def reducedFintype
     Fintype (Quotient (dfaFutureSetoid C.toDFA)) :=
   behavioralQuotientFintype C.toDFA alphabet complete
 
-theorem reducedDFA_accepts_eq : C.reducedDFA.accepts = M.accepts := by
+theorem reducedDFA_accepts_eq
+    [DecidablePred (fun state : X => state ∈ M.accept)] :
+    C.reducedDFA.accepts = M.accepts := by
   rw [reducedDFA, behavioralQuotientDFA_accepts_eq, C.accepts_eq]
 
-theorem reducedDFA_isReduced :
-    ∀ ⟦left right : Quotient (dfaFutureSetoid C.toDFA)⟧,
-      FutureEq C.reducedDFA.step (acceptsBool C.reducedDFA) left right →
+theorem reducedDFA_isReduced
+    [DecidablePred (fun state : X => state ∈ M.accept)] :
+    ∀ {left right : Quotient (dfaFutureSetoid C.toDFA)},
+      FutureEq C.reducedDFA.step
+        (quotientObserve C.toDFA.step (acceptsBool C.toDFA)) left right →
       left = right :=
   behavioralQuotientDFA_isReduced C.toDFA
 
-theorem reducedDFA_allStatesReachable (reachable : C.AllStatesReachable) :
+theorem reducedDFA_allStatesReachable
+    [DecidablePred (fun state : X => state ∈ M.accept)]
+    (reachable : C.AllStatesReachable) :
     ∀ meaning : Quotient (dfaFutureSetoid C.toDFA),
       ∃ word : List A, C.reducedDFA.eval word = meaning := by
   apply behavioralQuotientDFA_allStatesReachable C.toDFA

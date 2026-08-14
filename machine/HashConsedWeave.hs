@@ -33,12 +33,22 @@ intern k st@(tab, heap) = case M.lookup k tab of
 sharedTower :: Int -> (Heap, Int)
 sharedTower depth = let
   (st0, z) = intern KZ (M.empty, IM.empty)
+  (st1, one) = intern (KS z) st0
   go 0 st x = (snd st, x)
   go n st x = let (st', y) = intern (KA x x) st in go (n - 1) st' y
-  in go depth st0 z
+  in go depth st1 one
+
+sharedTowerChanged :: Int -> (Heap, Int)
+sharedTowerChanged depth = let
+  (st0, z) = intern KZ (M.empty, IM.empty)
+  (st1, one) = intern (KS z) st0
+  (st2, two) = intern (KS one) st1
+  go 0 st x = (snd st, x)
+  go n st x = let (st', y) = intern (KA x x) st in go (n - 1) st' y
+  in go depth st2 two
 
 treeTower :: Int -> Tm
-treeTower 0 = Z
+treeTower 0 = S Z
 treeTower n = let t = treeTower (n - 1) in A t t
 
 -- Each reachable dependency is normalized once.  The memo is the precise
@@ -72,14 +82,20 @@ main = do
   let depth = 25
       tree = treeTower depth
       (heap, root) = sharedTower depth
-  (_, ts) <- time $ evaluate (normTree tree)
-  samples <- sequence [snd <$> time (evaluate (fst (normDAG i heap root))) | i <- [1.. nine]]
+  (treeValue, ts) <- time $ evaluate (normTree tree)
+  samples <- sequence [snd <$> time
+    (let (h, r) = sharedTower (depth + i - i) in evaluate (fst (normDAG i h r)))
+    | i <- [1.. nine]]
   let td = median samples
       speedup = ts / td
-      occurrences = (2 :: Integer) ^ depth * 2 - 1
+      occurrences = 3 * (2 :: Integer) ^ depth - 1
   printf "depth=%d tree-occurrences=%d dag-nodes=%d\n" depth occurrences (IM.size heap)
   printf "tree-normalize-ms=%.3f dag-normalize-median-ms=%.6f speedup=%.1fx\n" ts td speedup
   let (dagValue, visited) = normDAG 0 heap root
-  if normTree tree /= dagValue then fail "normal forms disagree" else pure ()
+  if treeValue /= dagValue then fail "normal forms disagree" else pure ()
   if visited /= IM.size heap then fail "dependency cone was not visited exactly once" else pure ()
+  let (changedHeap, changedRoot) = sharedTowerChanged depth
+      (changedValue, changedVisited) = normDAG 0 changedHeap changedRoot
+  if changedValue /= 2 * dagValue then fail "changed-leaf control did not propagate" else pure ()
+  if changedVisited /= IM.size changedHeap then fail "changed dependency cone violated once-only traversal" else pure ()
   where nine = 9 :: Int
