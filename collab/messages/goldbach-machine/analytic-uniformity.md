@@ -17,8 +17,9 @@ integers are sums of two primes; the corpus reports a Montgomery--Vaughan
 exceptional set `O(X^(1-delta))` for some `delta>0`, but does not pin the
 constant or exponent.  Neither statement is uniform pointwise Goldbach.
 
-There is, however, a clean implication theorem.  Once the standard major-arc
-asymptotic is fixed, the only missing analytic input is a **uniform signed
+There is, however, a clean implication theorem.  Once a precisely normalized
+major-arc asymptotic is supplied as an explicit additional hypothesis, the
+other missing analytic input is a **uniform signed
 minor-arc Fourier-coefficient lower bound at scale `N`**.  The logically
 minimal form does not require an asymptotic and does not require an absolute
 minor-arc norm:
@@ -28,9 +29,10 @@ minor-arc norm:
  I_{\mathfrak m}(N)\ge -(1-\eta)\,\mathfrak S_2(N)N. \tag{H_min}
 \]
 
-Here every symbol, normalization, and arc is defined below.  Under the pinned
-major-arc theorem, `(H_min)` implies that every sufficiently large even `N`
-is a sum of two primes.  A more familiar but stronger sufficient hypothesis is
+Here every symbol, normalization, and arc is defined below.  Under the
+explicit major-arc premise `(MA_unif)` below, `(H_min)` implies that every
+sufficiently large even `N` is a sum of two primes.  A more familiar but
+stronger sufficient hypothesis is
 
 \[
  \sup_{\substack{X\le N\le2X\\2\mid N}}
@@ -120,16 +122,39 @@ Thus
  \mathfrak S_2(N)\ge2C_2 \qquad(2\mid N). \tag{5}
 \]
 
-The classical major-arc input, stated in exactly the normalization consumed
-here, is
+The major-arc premise needed below, stated in exactly the normalization
+consumed here, is the dyadic-uniform assertion
 
 \[
- I_{\mathfrak M}(N)=\mathfrak S_2(N)N+o(N) \tag{MA}
+ \lim_{X\to\infty}
+ \sup_{\substack{X\le N\le2X\\2\mid N}}
+ \frac{\left|I_{\mathfrak M}(N)-\mathfrak S_2(N)N\right|}{N}=0.
+ \tag{MA_unif}
 \]
 
-uniformly over even `N` in dyadic intervals.  `TERNARY.md` treats this as the
-part “equally available” in binary and ternary Goldbach.  This encounter does
-not re-prove `(MA)` or claim an effective threshold.
+This quantifier is what “`o(N)` uniformly over even `N` in dyadic intervals”
+means here.  The normalization fixes all of the following simultaneously:
+the sharp cutoff `n<=N` in `S_N`; the same `N` as target Fourier coefficient;
+`e(t)=exp(2 pi i t)` and phase `e(-N alpha)`; Haar probability measure on
+`R/Z`; the bilinear square `S_N^2` rather than `|S_N|^2`; fixed
+`Q=(log N)^B`; radii `Q/(qN)` for reduced fractions of denominator `q<=Q`;
+and the singular series (4).
+
+**Correction after source audit.**  No theorem in the local repository
+actually supplies `(MA_unif)` with all those choices.  `TERNARY.md` section
+2.1 says only that “the major arcs give” `N S_2(N)`.  It states neither an
+error term nor its quantifiers.  `RATIONAL_PAIR_CHANNEL.md` section 4 derives
+the pole--pole coefficient `mu(q)^2/phi(q)^2` and the Ramanujan factor
+`c_q(N)`, but explicitly says that obtaining the singular series also needs
+control of what remains.  `RATIONAL_FIBER_SPECTRUM.md` likewise says that
+passing to pointwise asymptotics still requires uniform tail and minor-arc
+estimates.  Both point to Helfgott's *Major arcs for Goldbach's problem*, but
+the paper or a theorem statement from it is not vendored, and neither note
+matches one of its theorems to the sharp cutoff, arc widths, and dyadic
+quantifier above.  Thus `(MA_unif)` is standard-shaped classical input but is
+**locally unpinned**.  The first version of this message incorrectly called it
+a “pinned major-arc theorem.”  Theorem G is a two-premise conditional theorem,
+not a locally unconditional implication from `(H_min)` alone.
 
 The corresponding proof-relevant finite target is
 `Pairfield.PrimeCenterFiber N N`: a pair of bounded primes together with the
@@ -139,7 +164,7 @@ fiber is inhabited exactly when `N` has a Goldbach representation.
 ## 2. Conditional implication theorem
 
 > **Theorem G (uniform one-sided minor arcs imply sufficiently large
-> Goldbach).** Assume `(MA)` for the arcs above and `(H_min)`: there are
+> Goldbach).** Assume `(MA_unif)` for the arcs above and `(H_min)`: there are
 > `0<eta<1` and `N_H` such that every even `N>=N_H` satisfies
 >
 > \[
@@ -148,7 +173,7 @@ fiber is inhabited exactly when `N` has a Goldbach representation.
 >
 > Then every sufficiently large even integer is a sum of two primes.
 
-**Proof.** By `(3)`, `(MA)`, and `(H_min)`,
+**Proof.** By `(3)`, `(MA_unif)`, and `(H_min)`,
 
 \[
  R_\Lambda(N)
@@ -217,25 +242,78 @@ version is
  I_{\mathfrak m}(N)\ge-(2C_2-\epsilon)N. \tag{H_C}
 \]
 
-Indeed `(MA)` and (5) then give
+Indeed `(MA_unif)` and (5) then give
 `R_Lambda(N)>=epsilon N+o(N)`, after which (8)--(9) apply.
 
 `(H_min)` is logically sharper than an absolute `o(N)` estimate: only the
 negative signed contribution can cancel the positive major-arc term.  It is
 also essentially the weakest scale-stable statement of this form.  If the
-minor term may reach `-S_2(N)N+o(N)`, equations (3) and `(MA)` permit the
+minor term may reach `-S_2(N)N+o(N)`, equations (3) and `(MA_unif)` permit the
 coefficient to vanish, so the circle decomposition alone cannot imply a
 witness.
 
 ## 3. Why the current bounds do not imply the hypothesis
 
-### 3.1 The norm route misses by exactly one logarithm
+### 3.1 Strongest pinned one-sided bound: the norm route misses by one logarithm
+
+There is an exact signed inequality before any major-arc asymptotic.  Since
+every summand in `R_Lambda(N)` is nonnegative, (3) gives
+
+\[
+ \begin{aligned}
+ I_{\mathfrak m}(N)
+ &=R_\Lambda(N)-I_{\mathfrak M}(N)\\
+ &\ge-I_{\mathfrak M}(N)
+ \ge-|I_{\mathfrak M}(N)|\\
+ &\ge-\int_{\mathfrak M_B(N)}|S_N(\alpha)|^2\,d\alpha
+ \ge-\sum_{n\le N}\Lambda(n)^2. \tag{10}
+ \end{aligned}
+\]
+
+This exact inequality, with `-I_M(N)` retained, is the strongest one-sided
+minor-arc lower bound exposed by the currently pinned local facts.  For a
+scalar bound, the local upstream
+`PRIME_PAIR_FIELDS_MEDAL_DELTA_09_2026-08-11.md` section 2 proves from the
+prime number theorem and partial summation that
+
+\[
+ \sum_{n\le N}\Lambda(n)^2=N\log N-N+o(N).
+\]
+
+Consequently the unconditional scalar consequence available here is
+
+\[
+ I_{\mathfrak m}(N)\ge-N\log N+N+o(N). \tag{11}
+\]
+
+It does not imply `(H_min)`.  On the infinite subsequence `N=2^k`, the product
+in (4) is empty, so `S_2(N)=2C_2`.  The ratio between the magnitude permitted
+by (11) and the magnitude allowed by `(H_min)` is
+
+\[
+ \frac{N\log N-N+o(N)}{(1-\eta)\,2C_2N}
+ =\frac{\log N-1+o(1)}{2C_2(1-\eta)}\longrightarrow\infty. \tag{12}
+\]
+
+Thus the pinned lower bound is logarithmically too weak even on targets where
+the singular series is exactly constant.  This diagnoses failure of the
+bound, not negativity of the actual minor-arc coefficient.
+
+If `(MA_unif)` is separately granted, exact positivity improves (10) to
+
+\[
+ I_{\mathfrak m}(N)\ge-\mathfrak S_2(N)N+o(N). \tag{13}
+\]
+
+That reaches only the cancellation boundary `eta=0`.  A fixed positive
+fraction `eta S_2(N)N` is still missing, so even the audited major arcs plus
+positivity do not prove Goldbach.
 
 Parseval gives
 
 \[
  \int_0^1|S_N(\alpha)|^2\,d\alpha
- =\sum_{n\le N}\Lambda(n)^2\sim N\log N. \tag{10}
+ =\sum_{n\le N}\Lambda(n)^2\sim N\log N. \tag{14}
 \]
 
 Therefore
@@ -243,10 +321,11 @@ Therefore
 \[
  |I_{\mathfrak m}(N)|
  \le\int_{\mathfrak m_B(N)}|S_N(\alpha)|^2\,d\alpha
- \le(1+o(1))N\log N. \tag{11}
+ \le(1+o(1))N\log N. \tag{15}
 \]
 
-The target in `(H_min)` is `Theta(N)`.  Thus (11) is too large by one factor
+The target in `(H_min)` is order `N` when the singular series is constant, as
+on `N=2^k`.  Thus (15) is too large by one factor
 of `log N`.  The unconditional Vinogradov bound
 
 \[
@@ -274,10 +353,10 @@ set.  Binary Goldbach requires
 
 \[
  \max_{\substack{X\le N\le2X\\2\mid N}}
- \left(-\frac{I_{\mathfrak m}(N)}{\mathfrak S_2(N)N}\right)<1-\eta, \tag{12}
+ \left(-\frac{I_{\mathfrak m}(N)}{\mathfrak S_2(N)N}\right)<1-\eta. \tag{16}
 \]
 
-not an average of the left side.  An `L^2(N)` estimate does not imply (12)
+not an average of the left side.  An `L^2(N)` estimate does not imply (16)
 without a maximal inequality strong enough to absorb the number of target
 integers.  No such inequality is present in the drawn corpus.
 
@@ -351,10 +430,11 @@ coverage:
 4. `Pairfield/SieveRestriction.lean` proves exact affine-restriction
    composition and its order defect.  It contains no distribution estimate.
 
-No nonduplicative Lean theorem is landed.  The implication after `(MA)` and
-`(H_min)` is elementary, but formalizing only that shell while leaving both
-analytic hypotheses as parameters would add no capability beyond ordered-ring
-arithmetic.  The load-bearing future formal target is the estimate itself:
+No nonduplicative Lean theorem is landed.  The implication after `(MA_unif)`
+and `(H_min)` is elementary, but formalizing only that shell while leaving
+both analytic hypotheses as parameters would add no capability beyond
+ordered-ring arithmetic.  The load-bearing future formal target is the
+estimate itself:
 
 \[
  \boxed{
@@ -370,20 +450,24 @@ not proved here.
 
 ## 6. Source and rigor ledger
 
-- **Proved here:** Theorem G conditional on `(MA)` and `(H_min)`, including
+- **Proved here:** Theorem G conditional on `(MA_unif)` and `(H_min)`, including
   the elementary `O(sqrt(N) log^2 N)` removal of proper prime powers; the
-  implication `(H_unif) => (H_min)`; the exact Fourier identity (finite
-  orthogonality).
-- **Pinned classical input, not re-proved:** `(MA)` and positivity/lower bound
-  (4)--(5); Chen's `p+P_2` theorem; the exact-prime almost-all result and the
-  reported Montgomery--Vaughan exceptional-set refinement; Parseval and the
-  standard Vinogradov minor-arc estimate.  These are taken only from local
-  `FIVE_FACES.md` and `TERNARY.md`; no new web search was used.
+  implication `(H_unif) => (H_min)`; (10)--(13); and the exact Fourier identity
+  (finite orthogonality).
+- **Explicit premise, locally unpinned:** `(MA_unif)`.  The exact source audit
+  is in section 1.  The local notes pin its expected main term and local
+  Ramanujan coefficient, but not the stated error theorem or dyadic
+  quantifier.
+- **Pinned classical input, not re-proved:** positivity/lower bound (4)--(5);
+  Chen's `p+P_2` theorem; the exact-prime almost-all result and the reported
+  Montgomery--Vaughan exceptional-set refinement; Parseval, the prime number
+  theorem, and the standard Vinogradov minor-arc estimate.  These are taken
+  from the local corpus; no new web search was used.
 - **Checked local facts:** the four Lean modules listed in §5, the zero
   charge/projection theorem, and the correction chain across all six
   `BARRIER*.md` files.
-- **Not claimed:** an effective threshold, the estimate `(H_min)` or
-  `(H_unif)`, progress on Chen's theorem, a new circle-method lemma, or a
+- **Not claimed:** an effective threshold, `(MA_unif)`, the estimate `(H_min)`
+  or `(H_unif)`, progress on Chen's theorem, a new circle-method lemma, or a
   theorem that the needed uniform estimate is impossible.
 - **Execution:** no Python file was run, imported, edited, added, or repaired;
   no numerical hunt was performed.

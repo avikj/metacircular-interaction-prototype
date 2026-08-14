@@ -30,6 +30,7 @@ import Pairfield.GlobalObservableHorizon
 import Pairfield.ResidualObservableHorizon
 import Pairfield.AdaptiveObservableHorizon
 import Pairfield.AdaptiveResidualAdapter
+import Pairfield.AdaptiveBranchResidual
 import Pairfield.ReachableAdaptiveObservableHorizon
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2

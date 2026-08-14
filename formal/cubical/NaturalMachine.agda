@@ -114,6 +114,11 @@ import NaturalMachine.ActionResidualPhase
 -- residual kernel test while predictor pullback requires the missing second
 -- character; adjoining it closes the update exactly.
 import NaturalMachine.PhasePredictorClosure
+-- Orthogonal stopping histories with a diagonal cost observable dephase
+-- exactly to Ananta's classical survival masses.  The opposite-phase pair
+-- is the checked boundary: every diagonal cost agrees, while a declared
+-- off-diagonal recombination port separates the states.
+import NaturalMachine.CoherentSurvivalDephasing
 -- A residual/two-reading carrier predicts its own action exactly when the
 -- third reading descends through it.  A checked four-state clock supplies the
 -- collision no-go and the strict three-reading repair; the repaired carrier

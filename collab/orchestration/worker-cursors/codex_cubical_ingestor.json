@@ -1,5 +1,5 @@
 {
-  "head": "dc333edb3a6c3dd9e10bae7ab813f26ef223d5ca",
+  "head": "5da470efb785d8ff5bbe0a0ed507decc3b7986d3",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -80,8 +80,24 @@
     "collab/messages/0071-fleet-fidelity-definitional-rigidity-landed.md": "ba6d28eb7ef2083999c9725712e8e95cfafe19fd0234530fd94c949fd45f6238",
     "collab/messages/0072-codex-r0018-breaker-claim.md": "7bdcd91b5f959b89df2093b9c47108dd103d0684b180057bcd7d70be1e4abb4c",
     "collab/messages/0072-weaver-reintegration-and-name-dedup.md": "c3a3ea1d039fb4e9b4190ee04d9b41516a292f9051413627655438eb88829b99",
-    "collab/messages/0073-codex-pythagorean-euclidean-directives.md": "cef8e2b9c3fb787ce03e331459a9421f6fdc197d33c25ca46473e536ab2e9221"
+    "collab/messages/0073-codex-pythagorean-euclidean-directives.md": "cef8e2b9c3fb787ce03e331459a9421f6fdc197d33c25ca46473e536ab2e9221",
+    "collab/messages/0073-weaver-prasanga-norms.md": "a95ba696cc2984fe2d2d62198102e30790fbec643d1763b36f8dd0ecea8e7391",
+    "collab/messages/0074-codex-r0018-repair-and-prime-field-ingest.md": "7186bda07b5455cce1d2fec9a0d99ed77d72259fa6b5386b8d08aa9d33a43ade",
+    "collab/messages/0074-weaver-carrier-join-landed.md": "00cf6982891e450df4141df6710c0cdbff9484071159e8214f59f149e16b680e",
+    "collab/messages/0075-codex-r0004-kboundary-audit-claim.md": "c14b353ce71d0b4592b6a3a823f7252e1c07cbcbd8c54d1ebdce1333bf7a79ca",
+    "collab/messages/0075-weaver-ff-decentering-landed.md": "371f870894291ed83d2e1ae8a0870456b96141325d08cf94218f3216a0051414",
+    "collab/messages/0076-codex-r0004-refuted-r0020-repair.md": "4d85d5b8e20b35bea0f37a2ae3eaf33b3e61220f2d76746765eb8f56807c9701",
+    "collab/messages/0076-weaver-indra-net-and-exp29-defect.md": "1b61155161f9e765955d4aa65101873c8532f8971d709a1cf93aa4a788d8c064",
+    "collab/messages/0077-codex-r0021-window5-countermodel-claim.md": "adccd8f5218c7ac4614d20734b6113c7ecf2e1da47204816ae5a76e4931483cd",
+    "collab/messages/0077-weaver-direction-change.md": "7a20c562f7ce6d6cd581e4a0ed9acabac28eeeabb385a6b9039d701587d7dc84",
+    "collab/messages/0078-codex-r0021-window5-countermodel-landed.md": "62565ffe5dd18f979aa9bade524932f6f98ad9c79c66965bc6a5058eb743ccb6",
+    "collab/messages/0079-codex-natural-runtime-claim.md": "efddcd85b20da525616492464467228d58450a5cc65980126bdbd6cda3af76cd",
+    "collab/messages/0080-cf-obligation-calculus-claim.md": "db3e8793ceb7ed021a022e33bf15f5fdced020e897e5251df417f018f421da04",
+    "collab/messages/0080-cfprime-audit-r0021-confirmed.md": "5e24086ac6f515eba3ddeaf095df84d5ca9af9ed3921d7472b447d2d6a3501fe",
+    "collab/messages/0080-codex-natural-runtime-landed.md": "6742573b92c5d0786b11c6e38b38a00f70e144b1900a269acc65d260f8f6b210",
+    "collab/messages/0081-cf-mathematical-runtime-seed.md": "27aa25fb99a6f7d60a7f06c9dbad340a77d2e0696886441669057c8d8226b636",
+    "collab/messages/0081-codex-human-direction-reset.md": "62556a80588f83caa91e4bb518c3079fafebd6e8ab79125f954f9e74497d94ea"
   },
-  "response_hash": "0a53b12bd70fcb9126a6cea605de3b2e68e7f60401118420765adade8ae681fb",
-  "source_index": 5
+  "response_hash": "57676ac7cbfe30e23e65f7446a45480b59c91204379f6db66f942a38268cbd4b",
+  "source_index": 6
 }

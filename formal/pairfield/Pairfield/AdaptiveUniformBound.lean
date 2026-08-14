@@ -25,7 +25,8 @@ theorem trace_eq_of_boundedFutureEq
     tree.trace step observe left = tree.trace step observe right := by
   induction tree generalizing left right with
   | done =>
-      simpa [trace, responses, depth] using hbounded [] (by simp)
+      simpa [trace, responses, depth, behavior, run] using
+        hbounded [] (by simp)
   | query action onFalse onTrue ihFalse ihTrue =>
       have hnow : observe left = observe right :=
         hbounded [] (by simp [depth])
@@ -91,7 +92,7 @@ theorem globalObservableHorizon_le_adaptive_depth
     (hidentifies : tree.IdentifiesAll M.step (acceptsBool M)) :
     globalObservableHorizon M alphabet ≤ tree.depth := by
   exact (globalObservableHorizon_isLeast M alphabet complete).2
-    tree.depth (adaptiveIdentification_closesAt_depth
+    (adaptiveIdentification_closesAt_depth
       M.step (acceptsBool M) tree hidentifies)
 
 /-- The same lower bound holds for every fuel admitting an identifying tree,
@@ -115,8 +116,17 @@ open AdaptiveObservableHorizonWitness
 
 /-- R0049 is a strict instance of the general lower bound: `1 ≤ 2`. -/
 example : globalObservableHorizon automaton alphabet ≤ adaptiveTree.depth :=
-  globalObservableHorizon_le_adaptive_depth
-    automaton alphabet alphabet_complete adaptiveTree adaptiveTree_identifies
+  by
+    have haccepts : acceptsBool automaton = observe := by
+      funext state
+      fin_cases state <;> native_decide
+    have htree : adaptiveTree.IdentifiesAll
+        automaton.step (acceptsBool automaton) := by
+      rw [haccepts]
+      change adaptiveTree.IdentifiesAll step observe
+      exact adaptiveTree_identifies
+    exact globalObservableHorizon_le_adaptive_depth
+      automaton alphabet alphabet_complete adaptiveTree htree
 
 example : globalObservableHorizon automaton alphabet < adaptiveTree.depth := by
   rw [uniform_horizon_eq_one, adaptiveTree_depth]
