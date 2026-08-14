@@ -134,7 +134,11 @@ partition refinement computes it in near-linear time.
 >   rediscovery, and diagnosed it (§4.2) as the corpus failing to search at its
 >   borders.
 > - `SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §4.1 **reclassified** that charge:
->   the corpus had already searched this literature, in writing, hours earlier —
+>   the corpus had already searched this literature, in writing, hours earlier
+>   [SEED-124, 2026-08-15: "hours earlier" was carried over from an mtime and mtime does
+>   not survive a checkout; re-derived on add-commit time, `COARSEST_REPAIR…` 05:46:14Z
+>   and `GENERATIVE_LOOP…` 02:24:10Z against this note at 09:22:56Z, so the priority is
+>   3h36m and 6h58m and the reclassification keeps its warrant] —
 >   `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` carries a Paige–Tarjan (1987) /
 >   Baier et al. / Derisavi et al. / Grohe et al. row, and
 >   `GENERATIVE_LOOP_IS_LEARNING.md` carries a graded table with Hopcroft (1971) and
