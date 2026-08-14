@@ -167,16 +167,33 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
   after u x = square (step u x)
   residual u x = after u x - predict u (square x)
 
+  private
+    translation-residual-direct :
+      (u x : fst Rng)
+      → ((x + u) · (x + u)) - ((x · x) + (u · u))
+        ≡ (x · u) + (x · u)
+    translation-residual-direct = solve! Rng
+
   translation-residual :
     (u x : fst Rng) → residual u x ≡ (x · u) + (x · u)
-  translation-residual = solve! Rng
+  translation-residual u x = translation-residual-direct u x
 
   square-forgets-sign : (x : fst Rng) → square (- x) ≡ square x
-  square-forgets-sign = solve! Rng
+  square-forgets-sign x = square-forgets-sign-direct x
+    where
+    square-forgets-sign-direct : (x : fst Rng) → (- x) · (- x) ≡ x · x
+    square-forgets-sign-direct = solve! Rng
 
   residual-reverses-sign :
     (u x : fst Rng) → residual u (- x) ≡ - (residual u x)
-  residual-reverses-sign = solve! Rng
+  residual-reverses-sign u x = residual-reverses-sign-direct u x
+    where
+    residual-reverses-sign-direct :
+      (u x : fst Rng)
+      → (((- x) + u) · ((- x) + u))
+          - (((- x) · (- x)) + (u · u))
+        ≡ - (((x + u) · (x + u)) - ((x · x) + (u · u)))
+    residual-reverses-sign-direct = solve! Rng
 
 ------------------------------------------------------------------------
 -- 3.  Checked one-shot event over the integers

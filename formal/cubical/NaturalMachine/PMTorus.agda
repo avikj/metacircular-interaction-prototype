@@ -686,15 +686,15 @@ Iso.rightInv cycleIso u = funExt lemma
 Iso.leftInv cycleIso (x , p) = Σ≡Prop isPropCycleLaw (funExt lemma)
   where
   row0 : x (k0 , k0) ⊕ x (k0 , k1) ≡ x (k0 , k2)
-  row0 = ⊕-solve! _ _ (p (inl k0))
+  row0 = ⊕-solve _ _ (p (inl k0))
   row1 : x (k1 , k0) ⊕ x (k1 , k1) ≡ x (k1 , k2)
-  row1 = ⊕-solve! _ _ (p (inl k1))
+  row1 = ⊕-solve _ _ (p (inl k1))
   col0 : x (k0 , k0) ⊕ x (k1 , k0) ≡ x (k2 , k0)
-  col0 = ⊕-solve! _ _ (p (inr k0))
+  col0 = ⊕-solve _ _ (p (inr k0))
   col1 : x (k0 , k1) ⊕ x (k1 , k1) ≡ x (k2 , k1)
-  col1 = ⊕-solve! _ _ (p (inr k1))
+  col1 = ⊕-solve _ _ (p (inr k1))
   col2 : x (k0 , k2) ⊕ x (k1 , k2) ≡ x (k2 , k2)
-  col2 = ⊕-solve! _ _ (p (inr k2))
+  col2 = ⊕-solve _ _ (p (inr k2))
 
   lemma : (e : Edge) → fillCycle (readCycle (x , p)) e ≡ x e
   lemma (k0 , k0) = refl
@@ -819,7 +819,7 @@ even-kernel-is-image y h = preimage y , funExt lemma
   c2 = y (inr k2)
 
   rc : sum3 r0 r1 r2 ≡ sum3 c0 c1 c2
-  rc = ⊕-solve! _ _ h
+  rc = ⊕-solve _ _ h
 
   lemma : (v : Vertex) → ∂ (preimage y) v ≡ y v
   lemma (inl k0) =
@@ -903,7 +903,7 @@ Iso.leftInv evenIso (y , h) = Σ≡Prop isPropEvenLaw (funExt lemma)
   lemma (inr k0) = refl
   lemma (inr k1) = refl
   lemma (inr k2) =
-      cong ((y (inr k0) ⊕ y (inr k1)) ⊕_) (⊕-solve! _ _ h)
+      cong ((y (inr k0) ⊕ y (inr k1)) ⊕_) (⊕-solve _ _ h)
     ∙ ⊕-invol (y (inr k0) ⊕ y (inr k1)) (y (inr k2))
 
 evenEquiv : Even ≃ (Fin 5 → Bool)

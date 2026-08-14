@@ -125,6 +125,9 @@ import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
 import NaturalMachine.RewriteCertificate
+-- Execution and semantic preservation are eliminations of one intrinsically
+-- indexed rewrite run; no external candidate/validation seam is involved.
+import NaturalMachine.IntrinsicRewrite
 import NaturalMachine.ControlledGrammar
 import NaturalMachine.GenerativeKernel
 import NaturalMachine.GeneratedCapability
