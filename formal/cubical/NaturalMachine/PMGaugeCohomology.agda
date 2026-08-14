@@ -164,6 +164,13 @@ GaugeStep x y =
 H¹PM : Type₀
 H¹PM = EdgeSign / GaugeStep
 
+classOf : EdgeSign → H¹PM
+classOf = [_]
+
+gauge-witness : (signs : EdgeSign) (gauge : ContextGauge)
+  → GaugeStep signs (signs ⋆ gauge)
+gauge-witness signs gauge = gauge , λ _ → refl
+
 cycleClass : H¹PM → Bool
 cycleClass = SQ.rec isSetBool cycleParity respectsGauge
   where
@@ -173,26 +180,28 @@ cycleClass = SQ.rec isSetBool cycleParity respectsGauge
     ∙ cong cycleParity (funExt equality)
 
 gauge-path : (signs : EdgeSign) (gauge : ContextGauge)
-  → [ signs ] ≡ [ signs ⋆ gauge ]
-gauge-path signs gauge = eq/ _ _ (gauge , λ _ → refl)
+  → classOf signs ≡ classOf (signs ⋆ gauge)
+gauge-path signs gauge =
+  eq/ signs (signs ⋆ gauge)
+    (gauge-witness signs gauge)
 
-zz-class-is-odd : cycleClass [ NoGo.zzRepresentative ] ≡ true
+zz-class-is-odd : cycleClass (classOf NoGo.zzRepresentative) ≡ true
 zz-class-is-odd = refl
 
 every-zz-gauge-translate-is-odd : (gauge : ContextGauge)
-  → cycleClass [ NoGo.zzRepresentative ⋆ gauge ] ≡ true
+  → cycleClass (classOf (NoGo.zzRepresentative ⋆ gauge)) ≡ true
 every-zz-gauge-translate-is-odd gauge =
   sym (cong cycleClass (gauge-path NoGo.zzRepresentative gauge))
   ∙ zz-class-is-odd
 
 -- The quotient invariant is exactly the PauliWeyl-derived PM total sign.
 zz-class-is-derived-total :
-  cycleClass [ NoGo.zzRepresentative ] ≡ PM.total Weyl.derived-s
+  cycleClass (classOf NoGo.zzRepresentative) ≡ PM.total Weyl.derived-s
 zz-class-is-derived-total =
   zz-class-is-odd ∙ sym NoGo.derived-total-is-odd
 
 every-gauge-translate-is-derived-total : (gauge : ContextGauge)
-  → cycleClass [ NoGo.zzRepresentative ⋆ gauge ] ≡ PM.total Weyl.derived-s
+  → cycleClass (classOf (NoGo.zzRepresentative ⋆ gauge)) ≡ PM.total Weyl.derived-s
 every-gauge-translate-is-derived-total gauge =
   every-zz-gauge-translate-is-odd gauge
   ∙ sym NoGo.derived-total-is-odd
