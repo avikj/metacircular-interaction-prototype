@@ -257,19 +257,28 @@ module Order (X : Type₀) (finX : isFinSet X) (L : LinOrd′ X) where
       inj {inr (z , _)}   {inr (w , _)}   p =
         cong inr (Σ≡Prop (λ v → isProp⊏ v x) (cong fst p))
 
+  -- NB: these two are written with an explicit `Dec` argument rather
+  -- than `with discX x y`.  With-abstraction normalises the goal to
+  -- find occurrences of the scrutinee, and the goal here mentions `rk`,
+  -- whose unfolding contains `discX` under `isFinSetΣ`; that normal
+  -- form is enormous and typechecking does not terminate in practice.
   rk-≤ : (x y : X) → x ⊑ y → rk x ≤ rk y
-  rk-≤ x y le with discX x y
-  ... | yes p = subst (λ w → rk x ≤ rk w) p ≤-refl
-  ... | no ¬p = <-weaken (rk-mono x y (le , ¬p))
+  rk-≤ x y le = go (discX x y)
+    where
+      go : Dec (x ≡ y) → rk x ≤ rk y
+      go (yes p) = subst (λ w → rk x ≤ rk w) p ≤-refl
+      go (no ¬p) = <-weaken (rk-mono x y (le , ¬p))
 
   rk-≥ : (x y : X) → rk x ≤ rk y → x ⊑ y
   rk-≥ x y h = Prop.rec (ax .propValued x y) step (ax .total x y)
     where
+      go : (y ⊑ x) → Dec (y ≡ x) → x ⊑ y
+      go ge (yes p) = subst (x ⊑_) (sym p) (ax .reflexive x)
+      go ge (no ¬p) = Empty.rec (<-asym (rk-mono y x (ge , ¬p)) h)
+
       step : (x ⊑ y) ⊎ (y ⊑ x) → x ⊑ y
       step (inl le) = le
-      step (inr ge) with discX y x
-      ... | yes p = subst (x ⊑_) (sym p) (ax .reflexive x)
-      ... | no ¬p = Empty.rec (<-asym (rk-mono y x (ge , ¬p)) h)
+      step (inr ge) = go ge (discX y x)
 
   rank : X → Fin (finX .fst)
   rank x = rk x , rk<card x
