@@ -95,6 +95,15 @@ import NaturalMachine.TwoProjections
 import NaturalMachine.ConeOrder
 import NaturalMachine.ParitySeparator
 import NaturalMachine.ChargeCriterion
+-- and the class theorem TARGET.md's headline promised: Signs is a TORSOR
+-- over the gauge torus, not a set with a distinguished involution, so the
+-- fibres of the transcript map are exactly the COSETS of the annihilator
+-- subgroup of the query set.  `flip` is one group element among many; the
+-- right lemma is bilinearity, not flip-law, and flip-law comes back out.
+-- Also: val lands in a group of exponent 2, so every SQUARE query lies in
+-- every annihilator -- unboundedly large queries with separating power
+-- exactly zero.
+import NaturalMachine.GaugeOrbitClasses
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
