@@ -110,6 +110,12 @@ import NaturalMachine.Transport
 import NaturalMachine.Controls
 import NaturalMachine.CountedDigits
 import NaturalMachine.ResidueTransport
+-- multiplication survives the transport (2026-08-14): `_·_` carried
+-- along `ua ℕ≃CanWord` IS native shift-and-add on digit words, by the
+-- same mechanism `transport-+-is-⊕` uses for addition.  The witness
+-- module runs the multiplier at bases 10 and 2.
+import NaturalMachine.TransportMul
+import NaturalMachine.TransportMulWitness
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
