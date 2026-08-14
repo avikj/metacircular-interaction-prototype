@@ -189,6 +189,15 @@ data ArithmeticMotion : Term Arithmetic → Term Arithmetic → Type₀ where
   add-suc : (left right : Term Arithmetic)
           → ArithmeticMotion (aAdd left (aSuc right)) (aSuc (aAdd left right))
 
+NatAlgebra : Algebra Arithmetic ℕ
+Algebra.operation NatAlgebra zero-op [] = zero
+Algebra.operation NatAlgebra suc-op (value ∷ []) = suc value
+Algebra.operation NatAlgebra add-op (left ∷ right ∷ []) = left + right
+
+arithmetic-law : PrimitiveLaw Arithmetic ArithmeticMotion NatAlgebra
+arithmetic-law (add-zero term) environment = refl
+arithmetic-law (add-suc left right) environment = refl
+
 add-one : Run Arithmetic ArithmeticMotion (aAdd aVar (aSuc aZero))
 add-one =
   advance (lift-motion (add-suc aVar aZero))
@@ -199,6 +208,16 @@ add-one =
 add-one-result : result Arithmetic ArithmeticMotion add-one ≡ aSuc aVar
 add-one-result = refl
 
+add-one-semantic : (environment : ℕ)
+  → evaluate NatAlgebra environment (aAdd aVar (aSuc aZero))
+    ≡ evaluate NatAlgebra environment (aSuc aVar)
+add-one-semantic = run-sound Arithmetic ArithmeticMotion
+  NatAlgebra arithmetic-law add-one
+
+add-one-strict : nodeCount (aAdd aVar (aSuc aZero))
+  ≡ suc (nodeCount (aSuc aVar))
+add-one-strict = refl
+
 right-root : Context Arithmetic
 right-root = frame add-op (aVar ∷ []) hole []
 
@@ -207,3 +226,18 @@ add-one-under-right :
     (reweave Arithmetic ArithmeticMotion right-root add-one)
     ≡ aAdd aVar (aSuc aVar)
 add-one-under-right = refl
+
+add-one-under-right-semantic : (environment : ℕ)
+  → evaluate NatAlgebra environment
+      (plug Arithmetic right-root (aAdd aVar (aSuc aZero)))
+    ≡ evaluate NatAlgebra environment
+      (plug Arithmetic right-root (aSuc aVar))
+add-one-under-right-semantic =
+  reweave-sound Arithmetic ArithmeticMotion NatAlgebra arithmetic-law
+    right-root add-one
+
+add-one-under-right-strict :
+  nodeCount (plug Arithmetic right-root (aAdd aVar (aSuc aZero)))
+    ≡ suc (nodeCount (plug Arithmetic right-root (aSuc aVar)))
+add-one-under-right-strict =
+  plug-count-strict Arithmetic right-root add-one-strict

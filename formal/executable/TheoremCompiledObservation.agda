@@ -122,3 +122,20 @@ directParityValue n = fst (directParity n)
 
 compiledParityValue : Nat → Bool
 compiledParityValue n = fst (compiledParity (parity n))
+
+double : Nat → Nat
+double zero = zero
+double (suc n) = suc (suc (double n))
+
+parity-double : (n : Nat) → parity (double n) ≡ false
+parity-double zero = refl
+parity-double (suc n) rewrite parity-double n = refl
+
+directEvenValue : Nat → Bool
+directEvenValue n = directParityValue (double n)
+
+compiledEvenValue : Bool
+compiledEvenValue = fst (compiledParity false)
+
+even-values-agree : (n : Nat) → directEvenValue n ≡ compiledEvenValue
+even-values-agree n rewrite directParity-value (double n) | parity-double n = refl

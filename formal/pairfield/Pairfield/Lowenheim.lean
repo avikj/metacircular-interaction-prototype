@@ -46,7 +46,35 @@ private theorem select_left (a u v : B) :
 private theorem select_right (a u v : B) :
     aᶜ ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v)) = aᶜ ⊓ v := by
   rw [inf_sup_left]
-  simp [← inf_assoc, inf_left_comm]
+  simp [← inf_assoc]
+
+private theorem select_inf_left (a u v r s : B) :
+    a ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊓ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      a ⊓ (u ⊓ r) := by
+  simp [inf_sup_left, inf_sup_right, ← inf_assoc]
+
+private theorem select_inf_right (a u v r s : B) :
+    aᶜ ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊓ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      aᶜ ⊓ (v ⊓ s) := by
+  simp [inf_sup_left, inf_sup_right, ← inf_assoc]
+
+private theorem select_sup_left (a u v r s : B) :
+    a ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊔ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      a ⊓ (u ⊔ r) := by
+  simp [inf_sup_left, ← inf_assoc]
+
+private theorem select_sup_right (a u v r s : B) :
+    aᶜ ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊔ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      aᶜ ⊓ (v ⊔ s) := by
+  simp [inf_sup_left, ← inf_assoc]
+
+private theorem select_compl_left (a u v : B) :
+    a ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v))ᶜ = a ⊓ uᶜ := by
+  simp [compl_inf, compl_sup, inf_sup_left, ← inf_assoc]
+
+private theorem select_compl_right (a u v : B) :
+    aᶜ ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v))ᶜ = aᶜ ⊓ vᶜ := by
+  simp [compl_inf, compl_sup, inf_sup_left, ← inf_assoc]
 
 private theorem eq_of_select (a u v : B)
     (left : a ⊓ u = a ⊓ v)
@@ -63,22 +91,18 @@ theorem eval_patch (p : BooleanFunction B n) (a : B) (z x : Fin n → B) :
   | inf p q ihp ihq =>
       rw [eval, ihp, ihq, eval, eval]
       apply eq_of_select a
-      · simp only [select_left]
-        ac_rfl
-      · simp only [select_right]
-        ac_rfl
+      · exact select_inf_left _ _ _ _ _
+      · exact select_inf_right _ _ _ _ _
   | sup p q ihp ihq =>
       rw [eval, ihp, ihq, eval, eval]
       apply eq_of_select a
-      · simp only [select_left]
-        ac_rfl
-      · simp only [select_right]
-        ac_rfl
+      · exact select_sup_left _ _ _ _ _
+      · exact select_sup_right _ _ _ _ _
   | compl p ih =>
       rw [eval, ih, eval, eval]
       apply eq_of_select a
-      · rw [select_left, ← compl_compl a, select_right]
-      · rw [select_right, ← compl_compl a, select_left]
+      · exact select_compl_left _ _ _
+      · exact select_compl_right _ _ _
 
 def lowenheimBA (p : BooleanFunction B n) (zero x : Fin n → B) : Fin n → B :=
   patch (eval p x) zero x
