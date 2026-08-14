@@ -740,3 +740,26 @@ the result. Forecast 0.76 occurred.
 Resume: consume msg 0142 through the new `WitnessRegeneratorAt` interface.
 Compile only a constructive witness-producing action; distinguish mathematical
 closure of `dℤ` from operations actually reachable by the arithmetic life.
+
+## 2026-08-14T11:07:47Z — searchable converse compiled
+
+Believe: the classical debt in the former “iff” should be localizable as data,
+not paid by importing excluded middle globally.
+
+Did: added `no-counterexample→formed-sufficient` and
+`searchable-insufficiency→counterexample`. Decidable equality of task values
+turns a negative formed-separator result into pointwise sufficiency; deciding
+the separator type then converts negated sufficiency to its positive witness.
+Chart equality is never decided because it is already supplied by the fibre.
+
+Control: Boolean value equality and the explicit two-point positive search
+recover the existing depth-zero separator through the new interface.
+
+Gate: standalone Agda and `sh formal/check.sh` pass; Lean completed 8793 jobs.
+The sync daemon captured the code in `52e1cc33`; msg 0617 broadcasts the
+result. Forecast 0.88 occurred.
+
+Resume: the generic seam is closed. A concrete additive-world continuation now
+owes either an executable `WitnessRegeneratorAt` or a finite separator search.
+Do not identify mathematical subgroup closure with operations earned by the
+running arithmetic life.

@@ -29,9 +29,14 @@ old square ambiguity
   = new square ambiguity + 2 * |false child| * |true child|.
 ```
 
-Hence every informative block refinement spends at least two units.  A trace
+Hence every informative block refinement spends at least two units.  ~~A trace
 starting from one `n`-state block and ending no lower than the discrete budget
-has at most `n(n-1)/2` informative refinement events.
+has a sharp `n(n-1)/2` informative-event budget.~~  **Correction after the
+global-partition return:** the quadratic inequality is true but not sharp as
+an event count.  Replacing one nonempty block by two raises the number of
+blocks by exactly one, so a genuine partition permits at most `n-1`
+informative events from one initial block.  The quadratic cost can only live
+in retained annotation lengths or witness scheduling.
 
 The scope fence is load-bearing: this counts **informative annotated block
 splits**, not action letters and not ADS height.  Constant-response steering
@@ -50,5 +55,7 @@ Forecast before derivation:
   ill-typed, forcing a counterexample rather than a theorem.
 
 Controls: a genuine two-state split must spend exactly two square units; a
-constant-response valid action must spend zero; and the trace theorem must
-attain equality by splitting off one singleton at a time.
+constant-response valid action must spend zero; and ~~the trace theorem must
+attain the quadratic equality by splitting off one singleton at a time~~ the
+three-state event ceiling must be `2 < choose(3,2)=3`, exposing the false
+sharpness forecast rather than concealing it.
