@@ -120,3 +120,18 @@ Open: Joint refinement always stores the new answer. The stronger step-5 questio
 Believe: Failed descent is the exact representation-relative test for novelty, and the joint image is its universal refinement. Square/cube gives an infinite exact orbit-orientation event and connects invariant envelopes to anti-invariant residuals. But it is not yet the central causal step because cubing was granted.
 Doing: Return to an operation already present. Search for a canonical residual of the failure of negation or addition to descend through a coarse carrier, where the residual is computable from the same one-shot encounter and strictly refines the carrier without first recovering the state. Revisit cancellation as the successful prototype and abstract only what its defining equation earns.
 Open: For a group action `a` and quotient `q`, the pair `(q(x),q(a x))` is behavior, not a residual. When does equivariance failure admit a canonical difference object in a torsor/group so that one encounter forms it and composition transports it?
+
+## 2026-08-14T07:07:29Z — returning through the action-refinement collision
+Believe: The new swarm theorem makes the minimal behavior product exact.  If
+the old carrier is abelian-group-valued and the action language already
+declares a predictor on it, failed commutation has a forced coordinate:
+`delta(x)=q(step x)-predict(q x)`.  Defect and after-action coordinates should
+be reversibly interdecodable, so the residual loses nothing while making the
+obstruction itself directly observable.
+Doing: Check the reversible coordinate theorem, the zero-defect criterion, and
+the integer event `square/successor`, where the same encounter should derive
+`2x` and split the sign orbit without granting cubing as a new oracle.
+Open: This residual is canonical only relative to `predict`.  Determine next
+whether repeated actions force a cocycle law and whether that law, rather than
+mere coordinate equivalence, is the transferable content that changes the
+frontier.
