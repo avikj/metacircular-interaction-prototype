@@ -106,10 +106,16 @@ another.
 Two elementary facts, both PROVED, both a line.
 
 **2.1 The $\sqrt X$ normalization discounts the past.** Put $u=\log x$,
-$U=\log X$, $e(u)=E(e^u)e^{-u/2}$. Then
+$U=\log X$, and — this definition is used throughout —
+
+$$e(u):=\frac{E(e^u)}{e^{u/2}},\qquad\text{so that under RH}\quad
+e(u)=-\sum_\rho\frac{e^{i\gamma u}}{\rho}+O\!\big(u\,e^{-u/2}\big)$$
+
+by the explicit formula (the $O$ absorbs $-\log2\pi-\tfrac12\log(1-x^{-2})$ and
+the half-jumps of $\psi_0$). Then, by (0.1),
 
 $$\frac{D_Q(X)}{\sqrt X}
-=\sup_{u\le U}e^{-(U-u)/2}e(u)-\inf_{u\le U}e^{-(U-u)/2}e(u)+O_Q(X^{-1/2}),$$
+=\sup_{u\le U}e^{-(U-u)/2}e(u)-\inf_{u\le U}e^{-(U-u)/2}e(u)+O_Q\!\big(X^{-1/2}\big),$$
 
 so a point $x=Xe^{-T}$ enters with weight $e^{-T/2}$ *no matter how large the
 oscillation was there*: under RH ($|e|\ll u^2$, von Koch),
@@ -128,9 +134,9 @@ proved divergence in Theorem A is Littlewood's $\log\log\log$. At $X=10^7$,
 $$\log\log\log X=\log\log 16.1181=\log 2.7799=1.0224 .$$
 
 The first $X$ at which this doubles is
-$\exp\exp\exp(2.045)=\exp\exp(7.729)=\exp(2273)\approx10^{987}$.
+$\exp\exp\exp(2.0449)=\exp\exp(7.7288)=\exp(2271.4)=10^{986.4}$.
 **To see the "constant" grow by a factor $2$ one must extend the computation
-from $10^{7}$ to $10^{990}$.** Flatness over three decades is not weak evidence
+from $10^{7}$ to $10^{986}$.** Flatness over three decades is not weak evidence
 for a limit; it is the theorem's own prediction, and it would persist over
 nine hundred decades.
 
@@ -222,10 +228,11 @@ have miscounted. **This is the step I most want refused.**
 *Proof.* ($\Leftarrow$ of 1, and 2) Theorem B.
 
 ($\Rightarrow$ of 1) Suppose $V_Q(X)\le C$ for all $X\ge2$; by (3.1) also
-$F(X):=\int_1^XE(t)^2t^{-2}dt\le C'\log X$. For $\sigma>\tfrac12$, partial
-integration gives
+$\Phi(X):=\int_1^XE(t)^2t^{-2}dt\le C'\log X$. For $\sigma>\tfrac12$,
+integrating $\int_1^\infty t^{1-2\sigma}\,d\Phi(t)$ by parts (boundary terms
+vanish: $\Phi(1)=0$ and $t^{1-2\sigma}\Phi(t)\to0$) gives
 
-$$\int_1^\infty E(t)^2t^{-2\sigma-1}dt=(2\sigma-1)\int_1^\infty F(t)\,t^{-2\sigma}dt
+$$\int_1^\infty E(t)^2t^{-2\sigma-1}dt=(2\sigma-1)\int_1^\infty \Phi(t)\,t^{-2\sigma}dt
 \ \le\ (2\sigma-1)C'\!\int_1^\infty\!\frac{\log t}{t^{2\sigma}}dt=\frac{C'}{2\sigma-1}.$$
 
 So $g_\sigma(u):=E(e^u)e^{-\sigma u}\mathbf1_{u>0}$ lies in $L^2(\mathbb R)$ with
@@ -234,13 +241,15 @@ $\widehat{g_\sigma}(\tau)=-\frac{(\zeta'/\zeta)(\sigma+i\tau)}{\sigma+i\tau}-\fr
 Plancherel: $\int|\widehat{g_\sigma}|^2d\tau\le 2\pi C'/(2\sigma-1)$.
 
 Now suppose $\zeta(\rho_0)=0$ with $\rho_0=\beta_0+i\gamma_0$, $\beta_0>\tfrac12$,
-of multiplicity $m$. Fix $\delta>0$ small. For $\tfrac12<\sigma<\beta_0$ and
-$|\tau-\gamma_0|\le\delta$,
-$|\widehat{g_\sigma}(\tau)|\ge\frac{m}{|\rho_0|\sqrt{(\beta_0-\sigma)^2+(\tau-\gamma_0)^2}}-K$
-with $K=K(\delta,\rho_0)$ fixed, so using $(a-b)^2\ge\frac12a^2-b^2$,
+of multiplicity $m$. Fix $\delta>0$ small enough that the closed disc
+$|s-\rho_0|\le2\delta$ contains no other zero and misses $s=1$; on it
+$-\zeta'/\zeta(s)+m/(s-\rho_0)$ is holomorphic, so for $\beta_0-\delta<\sigma<\beta_0$
+and $|\tau-\gamma_0|\le\delta$,
+$$|\widehat{g_\sigma}(\tau)|\ \ge\ \frac{m}{(|\rho_0|+1)\sqrt{(\beta_0-\sigma)^2+(\tau-\gamma_0)^2}}-K$$
+with $K=K(\delta,\rho_0)$ fixed. Using $(a-b)^2\ge\frac12a^2-b^2$,
 
 $$\int|\widehat{g_\sigma}|^2d\tau\ \ge\
-\frac{m^2}{2|\rho_0|^2}\cdot\frac{2}{\beta_0-\sigma}\arctan\frac{\delta}{\beta_0-\sigma}
+\frac{m^2}{2(|\rho_0|+1)^2}\cdot\frac{2}{\beta_0-\sigma}\arctan\frac{\delta}{\beta_0-\sigma}
 \;-\;2\delta K^2\ \xrightarrow[\sigma\uparrow\beta_0]{}\ +\infty,$$
 
 while the upper bound $2\pi C'/(2\sigma-1)\to2\pi C'/(2\beta_0-1)<\infty$.
@@ -310,8 +319,9 @@ I side with Serre on §7 (the paragraph should go) and with Martin-Löf on the
 deliverable (Theorem D is worth more than the deletion). A third thing both
 lenses agree on, and which I did not expect: the *repair* is cheaper than the
 *measurement*. `code/exp36_cutnorm.py` sieves to $10^7$; §§3–4 are two pages
-and reuse a constant the corpus proved months of agent-time ago in
-`SCREW.md`/`CARRIER_JOIN.md` without either lane noticing the other.
+and reuse a constant this corpus had already proved, in the carrier lane
+(`SCREW.md`, `PRODUCT_CARRIER.md`, `CARRIER_JOIN.md`), without either lane
+noticing the other. The join was available before the sieve ran.
 
 ---
 
@@ -357,12 +367,19 @@ and reuse a constant the corpus proved months of agent-time ago in
   written; if the classical constant is genuinely $\sum m_\gamma/|\rho|^2$ then
   I have miscounted a Parseval and D.2's second clause should be struck while
   D.1 and Theorem A survive untouched.
-- **Prior art.** Not searched for Theorem D specifically ("logarithmic mean
-  square of $\psi(x)-x$ bounded $\iff$ RH"). It is an easy consequence of
-  standard Mellin/Plancherel technique and I would expect it to be classical or
-  folklore; I state it as a *reformulation for this corpus's dictionary*, not
-  as a discovery. Absence of a search is recorded as absence, per
-  `CLAUDE.md`.
+- **Prior art for Theorem D.** Searched once, 2026-08-14. Query: *"mean square"
+  of psi(x)-x logarithmic average bounded equivalent to Riemann hypothesis
+  criterion integral (psi(t)-t)^2/t^2 dt*. Result: mean-square integral
+  criteria for RH are a **known family** (the $\int_2^X(\psi(t)-t)^2dt\ll
+  X^2\log^2X$ line, and the general "criteria equivalent to RH" surveys, e.g.
+  arXiv:0808.0640 — located, **not read**); the exact statement of Theorem D,
+  with the $\log$-average normalization and the limit
+  $\sum_\gamma m_\gamma^2/(\tfrac14+\gamma^2)$, was not located. Given how
+  standard the Mellin/Plancherel route is, I expect Theorem D to be classical
+  or folklore and I claim **no novelty** for it — it is stated here as a
+  *reformulation for this corpus's dictionary*, in the slot
+  `LENS_REGULARITY.md` §4 leaves empty. One search is one search; absence of a
+  located source is not evidence of novelty (`CLAUDE.md`).
 
 ## 8. Files consumed
 

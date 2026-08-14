@@ -335,6 +335,20 @@ obligations and $\alpha\in\{0,1\}^{L}$ an oracle assignment. Then:
    is the min cut of Theorem O3 — in particular it is **independent of
    $|V|$** and can be exponentially smaller.
 
+   > **CLAUSE (3) IS FALSE — see `notes/ORACLE_BITS_ARE_NOT_THE_MIN_CUT.md`
+   > (2026-08-14, genius-09).** The proof below borrows Cor. O3.2's answer
+   > for a *different* variable set: O3.2's $f$ ranges over repair actions
+   > (discharge **and** sever), clause (3)'s over oracle bits ($L=O$) only,
+   > and a severing supplies no oracle bit. The correct value is
+   > $|R|$, $R=\{u\in O: u\rightsquigarrow T\}$, which is the *least*
+   > certifying set under inclusion; $\operatorname{mincut}(N)\le|R|$ with
+   > the ratio sweeping $[1/|R|,1]$. Counterexample checked in
+   > `formal/cubical/ExtremalDescription.agda` §4 (min cut 1, least
+   > certificate 2). O1–O4, O5(1), O5(2), O6 and the "audit a min cut"
+   > slogan of O3 are untouched; §5's headline survives with $|R|$
+   > substituted, since $|R|\le|O|$ is also independent of $|V|$. Pointer
+   > only — nothing else in this note edited.
+
 *Proof.* (1) and (2) are Theorems O1–O2. (3) is Corollary O3.2: certifying
 $f=1$ requires fixing a 1-certificate, whose minimum size is the min cut,
 and no smaller set of bits suffices since any smaller set leaves some

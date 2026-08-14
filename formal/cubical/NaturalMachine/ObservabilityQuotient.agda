@@ -78,6 +78,16 @@
 --    needs, and is the part with content.  Building the quotient is
 --    routine and is left to whoever needs it.
 --
+--  * **MAXIMALITY was not proved here — it is now, elsewhere.**  This
+--    header calls `N_obs` "the maximal safe compression", but §2 checks
+--    only that `ForeverEq` refines `InstantEq` and is step-invariant,
+--    i.e. that it IS safe.  That every safe relation is contained in it
+--    is `ExtremalDescription.greatest-safe` (three lines, by induction on
+--    `n`, using exactly the `iterT` bracketing §1 chose).  With it,
+--    §3's witness sharpens: `ExtremalDescription.instant-not-invariant`
+--    shows `ker P` fails safety at the INVARIANCE clause, not at
+--    soundness.  Pointer comment only; nothing here edited.
+--
 --  * **§19.1–19.5 are absent.**  The path expansion (T19.1), the
 --    first-return kernels `F_m`, the renewal equation (T19.3), the
 --    generating resolvent `K(z) = (I − F(z))⁻¹` (T19.5) and the

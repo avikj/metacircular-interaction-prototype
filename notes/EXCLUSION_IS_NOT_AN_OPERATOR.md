@@ -140,7 +140,8 @@ $$K_S \Rightarrow K_T \;=\; K_{T \setminus S}.$$
 **The exclusion operator exists on the declared vocabulary and *is* relative
 complement in the Boolean algebra $\mathcal{P}(I)$ of vocabulary indices.**
 Three lines; proved on paper here, and checked in Agda for $I = \{1,2\}$,
-$Y_i = \mathsf{Bool}$, $S = \{1\}$, $T = \varnothing$ — Agda:
+$Y_i = \mathsf{Bool}$, $S = \{1\}$, $T = I = \{1,2\}$ (so $K_T = \Delta$ and
+$K_{T\setminus S} = K_{\{2\}} = \ker(\mathrm{snd})$) — Agda:
 `declared-vocabulary`, which exhibits the two admissible vocabulary members, the
 two inadmissible ones, and the domination.
 

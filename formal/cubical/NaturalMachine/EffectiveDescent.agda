@@ -110,14 +110,32 @@
 --
 -- WHAT IS NOT CLAIMED
 --
+--  * **§2 and §3 are already in this corpus, in prose.**  Searched
+--    before written, and found: `notes/OBSERVABLE_DESCENT_COMMON_OBJECT.md`
+--    (cf-tessera) states exactly this as its theorem (T) — "`f` factors
+--    through `q` iff `f` is constant on every `q`-fibre" — and identifies
+--    three lanes as instances of it.  Its rigor boundary names the gap
+--    this file fills: *"the formal unification in one proof language is
+--    open and named as the successor seed."*  So §2/§3 are a
+--    formalisation of a landed prose theorem, not a new one.  What is
+--    added beyond it is §4 (the representability packaging), §6 (that the
+--    hypothesis is necessary, not merely sufficient), and the closing of
+--    DefectCalculus §7's named gap together with the disproof of its
+--    guess about the cost.
+--
 --  * **No novelty.**  "Surjections of sets are effective epimorphisms"
 --    is standard; the converse is Mac Lane–Moerdijk p. 143 corollary 5,
 --    which the pinned library already has as
 --    `Cubical.Functions.Surjection.epi⇒surjective`.  §6 is a
---    same-universe repackaging of it at the subobject classifier (the
---    library's version cancels against arbitrary types one universe up;
---    §6 tests against the single set `hProp`).  That is a hypothesis
---    sharpening, not a theorem.
+--    repackaging of it at the subobject classifier.  The exact
+--    difference, stated after a first draft of this comment got it
+--    wrong: the library's `rightCancellable` quantifies over EVERY type
+--    of `Type (ℓ-suc (ℓ ⊔ ℓ'))`, and §6 needs the SINGLE object
+--    `hProp (ℓ ⊔ ℓ')` of that same universe.  `hProp` is not one level
+--    lower — the subobject classifier never is — so the sharpening is
+--    "one test object, and it is a set", not "a smaller universe".  It
+--    is what makes §6 the literal converse of §4, whose hypothesis is
+--    exactly "`C` is a set".  A hypothesis sharpening, not a theorem.
 --
 --  * **`isSet C` is not shown necessary.**  The honest ledger, since §5
 --    could be misread as strict improvement: `descends-split` needs no
@@ -310,10 +328,14 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
 --
 -- PRIOR ART, cited not reproved: this is Mac Lane–Moerdijk p. 143
 -- corollary 5, present in the pinned library as
--- `Cubical.Functions.Surjection.epi⇒surjective`.  That version cancels
--- against arbitrary types one universe up; the point of restating it is
--- that a single SET, at the same level, already suffices — which is what
--- makes it the converse of §4 rather than a neighbouring fact.
+-- `Cubical.Functions.Surjection.epi⇒surjective`.  That version demands
+-- cancellation against EVERY type of `Type (ℓ-suc (ℓ ⊔ ℓ'))`; §6 demands
+-- it against the SINGLE object `hProp (ℓ ⊔ ℓ')` of that same universe —
+-- `hProp` is not one level lower, and the library's warning that "f must
+-- cancel functions from a higher universe" applies here verbatim.  What
+-- is bought is not a smaller universe but a smaller hypothesis: one test
+-- object, which is a SET, so that §6's hypothesis is precisely an
+-- instance of §4's conclusion and the two compose into an iff.
 ------------------------------------------------------------------------
 
 module _ {A : Type ℓ} {B : Type ℓ'} (q : A → B) where

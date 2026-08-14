@@ -11,7 +11,7 @@
 -- The Elsewhere Condition (Kiparsky 1973, who coined the term reading
 -- Pāṇini; Sanders' Proper Inclusion Precedence) selects, among the rules
 -- applicable at a point, the one whose domain is contained in all the
--- others.  Four facts about that selector are proved here.
+-- others.  What is proved about that selector:
 --
 --   leastUnique     when it decides, it decides uniquely -- two least
 --                   applicable guards have the same domain.  This is the
@@ -26,6 +26,15 @@
 --                   lower bound *in the family*.  This is the repair --
 --                   the grammar must state the narrower rule for the
 --                   overlap; then the Elsewhere Condition is complete.
+--
+--   repairedRooted  directedness is strictly weaker than laminarity
+--                   ("every two domains disjoint or nested").  A three-rule
+--                   system that is Elsewhere-complete everywhere while
+--                   still containing a properly crossing pair
+--                   (`gAgB-cross`) is exhibited.  So the taxonomy under
+--                   which rule-conflict analysers flag an *intersecting*
+--                   pair as an anomaly over-flags: a crossing is harmless
+--                   whenever the overlap is separately covered.
 --
 --   noLeastCrossing / noEquivariantTiebreak
 --                   the existence half fails, and fails irreparably from
@@ -447,6 +456,35 @@ repairedLeast = least (here refl) refl nrr
     nrr h (there (here p)) _       = subst (gM ⋐_) (sym p) gM⋐gA
     nrr h (there (there (here p))) _ = subst (gM ⋐_) (sym p) gM⋐gB
     nrr h (there (there (there m))) _ = ∉[] m
+
+-- `repaired` is Elsewhere-complete at EVERY point, and it is still not
+-- laminar: gA and gB cross exactly as before.  So the folk condition
+-- "disjoint or nested" (the taxonomy under which rule-conflict analysers
+-- flag an `intersecting` pair as an anomaly) is SUFFICIENT BUT NOT
+-- NECESSARY.  The correct condition is pointwise directedness -- an
+-- intersecting pair is harmless whenever the overlap is separately
+-- covered.
+repairedRooted : Rooted repaired
+repairedRooted t0 _ = gA , least (there (here refl)) refl nrr
+  where
+    nrr : (h : Guard Three) → h ∈ repaired → Holds h t0 → gA ⋐ h
+    nrr h (here p) hh = ⊥.rec (false≢true (sym (funExt⁻ p t0) ∙ hh))
+    nrr h (there (here p)) _ = subst (gA ⋐_) (sym p) (⋐-refl gA)
+    nrr h (there (there (here p))) hh =
+      ⊥.rec (false≢true (sym (funExt⁻ p t0) ∙ hh))
+    nrr h (there (there (there m))) _ = ∉[] m
+repairedRooted t1 _ = gM , repairedLeast
+repairedRooted t2 _ = gB , least (there (there (here refl))) refl nrr
+  where
+    nrr : (h : Guard Three) → h ∈ repaired → Holds h t2 → gB ⋐ h
+    nrr h (here p) hh = ⊥.rec (false≢true (sym (funExt⁻ p t2) ∙ hh))
+    nrr h (there (here p)) hh = ⊥.rec (false≢true (sym (funExt⁻ p t2) ∙ hh))
+    nrr h (there (there (here p))) _ = subst (gB ⋐_) (sym p) (⋐-refl gB)
+    nrr h (there (there (there m))) _ = ∉[] m
+
+-- ... and the crossing pair genuinely still crosses inside `repaired`:
+gAgB-cross : (¬ (gA ⋐ gB)) × (¬ (gB ⋐ gA))
+gAgB-cross = (λ c → false≢true (c t0 refl)) , (λ c → false≢true (c t2 refl))
 
 ------------------------------------------------------------------------
 -- §6  The instance: Ethiopian / Egyptian doubling multiplication

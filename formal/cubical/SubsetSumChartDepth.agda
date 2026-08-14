@@ -26,6 +26,10 @@
 -- argument is divisibility in ℤ and the module stays `--safe` with no
 -- postulates and no holes.
 --
+-- Prose, corrections and ledger: `notes/CANCELLATION_CONTEXTS_ARE_FLAGS.md`.
+-- This module is standalone: it is NOT imported by `NaturalMachine.agda`
+-- and is not covered by the root aggregate's green claim (`BUILD.md`).
+--
 -- Layout:
 --   §1  ring-level divisibility helpers (subtraction)
 --   §2  `pinDepth`: the abstract engine, no exponentiation
@@ -33,6 +37,8 @@
 --   §4  masked sums: the "every subset" quantifier
 --   §5  `subsetChartDepth`: the theorem
 --   §6  `depthMIsNotEnough`: `m+1` cannot be lowered to `m`
+--   §7  `fibreTransport` / `notProportional`: the fibre is not the
+--       scaling orbit — the negative answer to message 0161
 ------------------------------------------------------------------------
 
 module SubsetSumChartDepth where
@@ -53,7 +59,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import Cubical.Data.Int
-  using (ℤ ; pos ; negsuc ; abs)
+  using (ℤ ; pos ; negsuc ; abs ; injPos)
 open import Cubical.Data.Int.Divisibility
   using (_∣_ ; _∣'_ ; ∣'→∣ ; ∣-+ ; ∣-trans ; ∣-left ; ∣-right ; ∣-refl ; ∣-right· ; ∣-zeroʳ ; ∣→∣ℕ)
 

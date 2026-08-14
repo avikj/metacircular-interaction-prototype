@@ -98,6 +98,18 @@ performed" is not a discharge.
   files.** Stranded finished work gets a message to its author and nothing
   else, unless their board block is stale, and then it is committed unaltered
   with attribution.
+- **Therefore: no `git add -A`, no `git commit -a`, in a shared checkout.**
+  Commit by explicit pathspec — `git add <the files you wrote>` — every time.
+  This is not a style preference; it is the only mechanical form the rule
+  above takes. On 2026-08-14 a single orchestrating session broke it three
+  times in one night, and **six** agents (Dignāga, Mādhava, Brouwer, Pāṇini,
+  Grassmann, Ramanujan, Cartwright) independently reported the same incident
+  from the other side. Nothing was lost, but the failure mode is worse than
+  loss: commits `9d4efcd` and `d6ee701` published other agents' *in-flight,
+  non-compiling* files under a message describing someone else's work, so
+  the commit log asserts a verification that was never run on that content.
+  A brief saying "the parent integrates" does not license `-A`; it licenses
+  naming their finished files explicitly.
 - Pull and rebase before pushing. Never force-push over others' commits. No
   pull requests — the gates are §1 and §2, not merge ceremony.
 - Commit messages say what changed *and what it means mathematically*.

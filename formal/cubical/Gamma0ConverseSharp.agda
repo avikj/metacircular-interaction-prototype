@@ -26,9 +26,19 @@
 --   * §2 `unitForced`: as soon as q ≠ 0, the stabilization equation
 --     ITSELF forces det H · det K ≡ 1 — H is invertible over ℤ.
 --     Unimodularity is a consequence of the Γ₀ equation, not an
---     ambient assumption on it.  So on the whole intended domain
+--     ambient assumption on it.  §2b adds the ℤ unit classification
+--     (`unitSquare`, via `abs`), giving `Derived.epsSquare`:
+--
+--         d₁ ≠ 0, q ≠ 0, H·D·K ≡ D   ⊢   det H · det H ≡ 1r
+--
+--     which is `hε` on the nose.  So on the whole intended domain
 --     (q = d₂/d₁ a nonzero level) `hε` is not merely unused: it is a
---     theorem.
+--     THEOREM.  Any statement in this lane whose hypotheses already
+--     include the stabilization equation carries `hε` as a consequence
+--     of its own other hypotheses — `Gamma0Converse` here, and
+--     `Gamma0PartnerRigidity` §2 inside its inner `hstab` module.
+--     `Gamma0Partner` is the exception: it is handed a witness, not a
+--     stabilizer, and §3b shows its `hε` really is forced.
 --
 --   * §3 `q0` is the exception, and it is nonempty: at q = 0 — the
 --     rank-drop stratum diag(d₁,0) that `notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md`
@@ -37,7 +47,10 @@
 --     integral partner K = ((1,0),(0,0)), and det H = 5 is not a unit.
 --     Every hypothesis of `Gamma0Converse` except `hε` holds; `hε`
 --     fails.  So deleting `hε` genuinely widens the theorem, and the
---     locus of the widening is exactly the degenerate stratum.
+--     locus of the widening is exactly the degenerate stratum.  The
+--     same witness has det H · det K = 5 · 0 = 0 (`notForced`), so §2's
+--     own `q ≠ 0` is load-bearing: this is the single point where the
+--     two halves of the R0033 iff come apart.
 --
 -- Summary: the Γ₀ converse is a statement about M₂(ℤ), and the group
 -- GL₂(ℤ) it is usually stated inside is recovered for free off the
@@ -51,10 +64,14 @@ module Gamma0ConverseSharp where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥rec)
+open import Cubical.Data.Sum using (_⊎_) renaming (rec to ⊎rec)
 open import Cubical.Data.Bool using (true ; false ; true≢false)
-open import Cubical.Data.Nat using (snotz ; injSuc)
-open import Cubical.Data.Int using (ℤ ; pos ; injPos ; isIntegralℤ ; isEven)
+open import Cubical.Data.Nat
+  using (ℕ ; zero ; suc ; snotz ; znots ; injSuc ; +-suc ; 0≡m·0)
+  renaming (_·_ to _·ℕ_ ; _+_ to _+ℕ_)
+open import Cubical.Data.Int
+  using (ℤ ; pos ; injPos ; isIntegralℤ ; isEven ; abs ; abs· ; abs→⊎)
 open import Cubical.Data.Int.IsEven using (trueIsEven)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
@@ -100,11 +117,12 @@ private
   dsimp : (x y : R) → x · y - 0r · 0r ≡ x · y
   dsimp = solve ℤCommRing
 
-  -- (the ring solver of cubical v0.5 rejects `p · (x · y - 1r)` in one
-  -- step over ℤ — the documented ℤ-solver weakness — so the two halves
-  -- are separated)
-  dist : (p x : R) → p · (x - 1r) ≡ p · x - p
-  dist = solve ℤCommRing
+  -- (the ring solver of cubical v0.5 will not take `1r` on the right of
+  -- a `·` inside a goal it has to normalize — the documented ℤ-solver
+  -- weakness — so `1r` is kept out of every solver call and the unit law
+  -- is taken from the structure instead)
+  dist2 : (p x y : R) → p · (x - y) ≡ p · x - p · y
+  dist2 = solve ℤCommRing
 
   pmul : (d k p : R) → p · (d · k) ≡ (d · p) · k
   pmul = solve ℤCommRing
@@ -186,7 +204,8 @@ module Forced (H K : M) (d1 q : R)
         ∙ detD
 
   zprod : P · (det H · det K - 1r) ≡ 0r
-  zprod = dist P (det H · det K)
+  zprod = dist2 P (det H · det K) 1r
+          ∙ cong (λ z → P · (det H · det K) - z) (·IdR P)
           ∙ cong (_- P) (pmul (det H) (det K) P)
           ∙ cong (_- P) key
           ∙ cancelSelf P
@@ -196,6 +215,38 @@ module Forced (H K : M) (d1 q : R)
   unitForced = regF (det H · det K) 1r
                ∙ cong (_+ 1r) (isIntegralℤ P (det H · det K - 1r) zprod Pn)
                ∙ zeroL 1r
+
+------------------------------------------------------------------------
+-- §2b.  ℤ has only the units ±1, so "det H is a unit" IS `hε`.
+--       With §2 this makes `hε : ε · ε ≡ 1r` a THEOREM of the
+--       stabilization equation whenever d₁ ≠ 0 and q ≠ 0 — it can be
+--       deleted from any statement over that domain, not merely from
+--       `Gamma0Converse` where it was already inert.
+------------------------------------------------------------------------
+
+private
+  natUnit : (m n : ℕ) → m ·ℕ n ≡ 1 → m ≡ 1
+  natUnit zero n p = ⊥rec (znots p)
+  natUnit (suc zero) n p = refl
+  natUnit (suc (suc m)) zero p = ⊥rec (znots (0≡m·0 (suc (suc m)) ∙ p))
+  natUnit (suc (suc m)) (suc n) p =
+    ⊥rec (snotz (sym (+-suc n (n +ℕ m ·ℕ suc n)) ∙ injSuc p))
+
+unitSquare : (x y : R) → x · y ≡ 1r → x · x ≡ 1r
+unitSquare x y p =
+  ⊎rec (λ r → cong₂ _·_ r r) (λ r → cong₂ _·_ r r)
+       (abs→⊎ x 1 (natUnit (abs x) (abs y) (sym (abs· x y) ∙ cong abs p)))
+
+module Derived (H K : M) (d1 q : R)
+               (d1n : (d1 ≡ 0r) → ⊥)
+               (qn : (q ≡ 0r) → ⊥)
+               (hstab : mul (mul H (dia d1 (q · d1))) K ≡ dia d1 (q · d1)) where
+
+  open Forced H K d1 q d1n qn hstab using (unitForced)
+
+  -- exactly the hypothesis `hε` of Gamma0Converse and Gamma0Partner
+  epsSquare : det H · det H ≡ 1r
+  epsSquare = unitSquare (det H) (det K) unitForced
 
 ------------------------------------------------------------------------
 -- §3.  The exception is nonempty: at q = 0 a non-unimodular H really
@@ -226,9 +277,44 @@ module q0 where
   notUnimodular : (det Hbad · det Hbad ≡ 1r) → ⊥
   notUnimodular p = snotz (injSuc (injPos p))
 
+  -- so §2's own scope condition `q ≠ 0` is load-bearing too: here
+  -- det H · det K = 5 · 0 = 0, and `unitForced` fails
+  notForced : (det Hbad · det Kbad ≡ 1r) → ⊥
+  notForced p = znots (injPos p)
+
   -- the conclusion still holds, by §1, with witness k = 0
   divides : Σ[ k ∈ R ] 0r ≡ k · 0r
   divides = Sharp.membership 1r 0r 0r (pos 5) 1r 0r 1r 0r 0r 0r hd1 hstab
+
+------------------------------------------------------------------------
+-- §3b.  The mirror control: in the FORWARD direction `hε` is forced.
+--
+-- `Gamma0Partner` is handed a divisibility witness, not a stabilizer,
+-- so §2 does not apply to it and its `hε` is a real hypothesis.  The
+-- same matrix diag(1,5) shows it cannot be dropped: at q = 3 it has a
+-- witness (c = 0 = 0·3) and, by §2, no integral partner whatsoever.
+--
+-- So the R0033 iff is asymmetric.  `hε` is INPUT to the forward
+-- direction and OUTPUT of the converse — one hypothesis, two opposite
+-- logical roles, which is why deleting it from `Gamma0Converse` is safe
+-- and deleting it from `Gamma0Partner` is not.
+------------------------------------------------------------------------
+
+module partnerForced where
+
+  Hb : M
+  Hb = (1r , 0r , 0r , pos 5)
+
+  three : (pos 3 ≡ 0r) → ⊥
+  three p = snotz (injPos p)
+
+  noPartner : (K : M)
+            → mul (mul Hb (dia 1r (pos 3 · 1r))) K ≡ dia 1r (pos 3 · 1r)
+            → ⊥
+  noPartner K hs =
+    q0.notUnimodular
+      (unitSquare (det Hb) (det K)
+        (Forced.unitForced Hb K 1r (pos 3) q0.hd1 three hs))
 
 ------------------------------------------------------------------------
 -- §4.  Control for the OTHER hypothesis: d₁ ≠ 0 is load-bearing.

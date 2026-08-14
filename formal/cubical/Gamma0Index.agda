@@ -339,3 +339,90 @@ triv3 = refl
 -- and the formula depends only on the RATIOS dᵢ/dⱼ, as Γ₀(D) itself does:
 shiftInv : idxLocal 2 (0 ∷ 1 ∷ 2 ∷ []) ≡ idxLocal 2 (5 ∷ 6 ∷ 7 ∷ [])
 shiftInv = refl
+
+------------------------------------------------------------------------------
+-- 6.  Independent cross-check against the classical sublattice count.
+--
+-- Summing the index over ALL divisor chains of a fixed level p^k must give the
+-- total number of sublattices of ℤ^r of index p^k, which is classically
+--
+--     Σ_{i₁+…+i_r = k}  p^(i₂ + 2i₃ + … + (r−1)i_r)
+--
+-- (the p-part of ζ(s)ζ(s−1)…ζ(s−r+1)).  That identity is proved by a route
+-- entirely disjoint from §4's matrix counting, so agreement is real evidence.
+------------------------------------------------------------------------------
+
+subLat2 : ℕ → ℕ → ℕ
+subLat2 p k = Σ< (suc k) λ i₂ → pow p i₂
+
+subLat3 : ℕ → ℕ → ℕ
+subLat3 p k = Σ< (suc k) λ i₃ → Σ< (suc (k ∸ i₃)) λ i₂ → pow p (i₂ + (2 · i₃))
+
+-- r = 2:  cotypes of index p^k are the chains (e₁ ≤ e₂) with e₁+e₂ = k
+cot2k1₂ : idxLocal 2 (0 ∷ 1 ∷ []) ≡ subLat2 2 1
+cot2k1₂ = refl
+
+cot2k2₂ : idxLocal 2 (0 ∷ 2 ∷ []) + idxLocal 2 (1 ∷ 1 ∷ []) ≡ subLat2 2 2
+cot2k2₂ = refl
+
+cot2k3₂ : idxLocal 2 (0 ∷ 3 ∷ []) + idxLocal 2 (1 ∷ 2 ∷ []) ≡ subLat2 2 3
+cot2k3₂ = refl
+
+cot2k3₃ : idxLocal 3 (0 ∷ 3 ∷ []) + idxLocal 3 (1 ∷ 2 ∷ []) ≡ subLat2 3 3
+cot2k3₃ = refl
+
+-- r = 3
+cot3k1₂ : idxLocal 2 (0 ∷ 0 ∷ 1 ∷ []) ≡ subLat3 2 1
+cot3k1₂ = refl
+
+cot3k2₂ : idxLocal 2 (0 ∷ 0 ∷ 2 ∷ []) + idxLocal 2 (0 ∷ 1 ∷ 1 ∷ []) ≡ subLat3 2 2
+cot3k2₂ = refl
+
+cot3k3₂ :   idxLocal 2 (0 ∷ 0 ∷ 3 ∷ [])
+          + (idxLocal 2 (0 ∷ 1 ∷ 2 ∷ []) + idxLocal 2 (1 ∷ 1 ∷ 1 ∷ []))
+          ≡ subLat3 2 3
+cot3k3₂ = refl
+
+cot3k3₃ :   idxLocal 3 (0 ∷ 0 ∷ 3 ∷ [])
+          + (idxLocal 3 (0 ∷ 1 ∷ 2 ∷ []) + idxLocal 3 (1 ∷ 1 ∷ 1 ∷ []))
+          ≡ subLat3 3 3
+cot3k3₃ = refl
+
+------------------------------------------------------------------------------
+-- 7.  A conjecture of mine, and the kernel's counterexample to it.
+--
+-- The formula is manifestly invariant under the involution
+--     e = (e₁,…,e_r)  ↦  e* = (e_r − e_r, e_r − e_{r−1}, …, e_r − e₁),
+-- which is the duality A ↦ w₀ A⁻ᵀ w₀ on Γ₀(D).  I conjectured that this is the
+-- ONLY coincidence: that at fixed r and fixed level p^m, normalised chains with
+-- equal index are equal or dual.
+--
+-- FALSIFIER (stated before the check): any p, r, m and two normalised chains
+-- e ≠ e′ with e′ ≠ e* and idxLocal p e ≡ idxLocal p e′.
+--
+-- REFUTED at r = 3, p = 2, m = 4.  (0,1,4)* = (0,3,4) and (0,2,4)* = (0,2,4),
+-- so (0,1,4) and (0,2,4) are not dual — yet both have index 672.
+------------------------------------------------------------------------------
+
+dual-invariance : idxLocal 2 (0 ∷ 0 ∷ 4 ∷ []) ≡ idxLocal 2 (0 ∷ 4 ∷ 4 ∷ [])
+dual-invariance = refl
+
+conjecture-refuted : idxLocal 2 (0 ∷ 1 ∷ 4 ∷ []) ≡ idxLocal 2 (0 ∷ 2 ∷ 4 ∷ [])
+conjecture-refuted = refl
+
+-- and it is not an accident of small numbers: for r = 3 the exponent
+-- G = Σ_{i>j}(eᵢ−eⱼ) = Σᵢ (2i−1−r) eᵢ = 2(e₃ − e₁) does not see e₂ at all, so
+-- the index at a fixed level takes exactly TWO values — whether the interior
+-- valuation is at an endpoint or strictly between.
+degeneracy-interior : idxLocal 2 (0 ∷ 1 ∷ 4 ∷ []) ≡ 672
+degeneracy-interior = refl
+
+degeneracy-endpoint : idxLocal 2 (0 ∷ 0 ∷ 4 ∷ []) ≡ 448
+degeneracy-endpoint = refl
+
+-- same refutation at p = 3, and stable under the shift e ↦ e + c
+degeneracy-p3 : idxLocal 3 (0 ∷ 1 ∷ 4 ∷ []) ≡ idxLocal 3 (0 ∷ 2 ∷ 4 ∷ [])
+degeneracy-p3 = refl
+
+degeneracy-shifted : idxLocal 3 (2 ∷ 3 ∷ 6 ∷ []) ≡ idxLocal 3 (2 ∷ 4 ∷ 6 ∷ [])
+degeneracy-shifted = refl
