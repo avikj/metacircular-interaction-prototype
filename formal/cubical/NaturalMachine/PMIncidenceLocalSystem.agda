@@ -24,6 +24,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.PMTorus as PM
 import NaturalMachine.StructuredDefect as Defect
+import NaturalMachine.RelationalProcessCore as Rel
 
 ------------------------------------------------------------------------
 -- 1. Geometric realization of the context--observable incidence graph
@@ -91,8 +92,7 @@ section-naturality :
   (section : GlobalSheet) {x y : CoverBase} (path : x ≡ y)
   → subst ObstructionSheet path (section x) ≡ section y
 section-naturality section {x} {y} path =
-  J (λ y path → subst ObstructionSheet path (section x) ≡ section y)
-    (substRefl {B = ObstructionSheet} (section x)) path
+  Rel.section-naturality ObstructionSheet section path
 
 cycle-has-no-fixed-sheet :
   (phase : Bool)
