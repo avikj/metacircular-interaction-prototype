@@ -81,8 +81,8 @@ integers, every piece indexed by a divisor of positive `n` divides the target.
 integer route, every-piece divisibility, `Phi_6(2)=3`, `2^6-1=63`, and the
 zero-index failure.  After the native return it also checks the primitive
 branch `p ∤ m -> (p | Phi_m(a) -> orderOf(a mod p)=m)` with positive and
-exceptional controls.  Final focused build: 2,752 jobs, exit 0.  Final root
-build: 8,794 jobs, exit 0.  Source has no `sorry`, `admit`, or custom axiom;
+exceptional controls.  Final focused build: 2,752 jobs, exit 0.  Current root
+build: 8,795 jobs, exit 0.  Source has no `sorry`, `admit`, or custom axiom;
 the axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
 
 # Independent audit

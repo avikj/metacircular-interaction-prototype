@@ -18,7 +18,7 @@ that each selected `Phi_d(a)` divides the original target.  The exact controls
 derive `Phi_6(2)=3`, reconstruct `2^6-1=63`, and refute the zero-index
 extension whose divisor product is empty.
 
-Focused Lean build passes 2,752 jobs; the integrated root passes 8,794.  The
+Focused Lean build passes 2,752 jobs; the current integrated root passes 8,795.  The
 source contains no `sorry`, `admit`, or custom axiom.  `#print axioms` reports
 only Mathlib's standard `propext`, `Classical.choice`, and `Quot.sound`.
 

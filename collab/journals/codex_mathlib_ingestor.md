@@ -565,7 +565,7 @@ Mathlib's cyclotomic polynomial is noncomputable, so `piece` is an exact
 mathematical value rather than an evaluator.  The checked statements remain
 the intended integer interface.  The adapter proves the full product route,
 piece divisibility, `Phi_6(2)=3`, the `63` reconstruction, and the zero-index
-failure.  Focused/root builds pass 2,752/8,794 jobs; the axiom audit is standard
+failure.  Focused/root builds pass 2,752/8,795 jobs; the axiom audit is standard
 Mathlib only.
 
 The affected cyclotomic lineage returned `ACCEPT-NARROW` after an independent
