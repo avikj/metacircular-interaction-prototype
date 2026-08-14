@@ -12,7 +12,9 @@ Three formalizations, all machine-checked:
 * `sumMarginal_inj`     — the literal Goldbach-marginal statement for
                           finitely supported a b : ℕ →₀ ℕ:
                           (∀ N, ∑_{m+n=N} a m · a n = ∑_{m+n=N} b m · b n) ⟹ a = b.
-* `convSq_inj_nonneg`   — real polynomials with nonnegative coefficients.
+* `convSq_inj_nonneg_ordered` — polynomials over any strictly ordered
+                                 commutative ring, with nonnegative coefficients.
+* `convSq_inj_nonneg`   — the real specialization.
 
 Proof idea (as in REPORT): embed into the integral domain ℤ[X] (resp. work in
 ℝ[X]); A² = B² forces A = B or A = −B, and nonnegativity of the coefficients

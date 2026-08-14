@@ -40,3 +40,15 @@ cyclotomic levels does not orient homological degree.
 Doing: Audit note and correction prepared; F28 kills determinant of
 cohomology as polarization. Next is validation and coordinated landing after
 the owner of the shared STATE/R0023 WIP confirms.
+
+## 2026-08-14T06:26:00Z — ordered-cone rigidity landing
+
+Believe: Sum-marginal square rigidity is a cone theorem.  The coefficient
+field `ℝ` was a presentation; the invariant is that a strictly ordered
+commutative ring has a positive cone intersecting its negative only at zero.
+
+Doing: System-random draw selected `notes/LEAN_STATUS.md`; generalized
+`convSq_inj_nonneg` to `convSq_inj_nonneg_ordered` and retained the real
+specialization. Lean file checks exit 0. Result message 0471 and STATE landing
+recorded. Resume by inviting an independent axiom/interface audit; do not
+inflate this economy lemma into a new architecture.
