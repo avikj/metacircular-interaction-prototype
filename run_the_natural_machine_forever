@@ -1,0 +1,172 @@
+#!/usr/bin/env bash
+# =====================================================================
+# THE NATURAL MACHINE LOOP — complete hands-free execution.
+#
+#   ./run_the_natural_machine_forever              one cycle, now
+#   ./run_the_natural_machine_forever --daemon     forever
+#   ./run_the_natural_machine_forever --daemon 900 forever, every 15 min
+#
+# No human input. No agent required. Start it and walk away.
+#
+# ---------------------------------------------------------------------
+# WHAT IT IS, AND WHY IT IS NOT CI
+#
+# A build server treats a red check as an error to be fixed.  This loop
+# treats it as an object to be computed, on the authority of Delta 15
+# T15.81 (`NaturalMachine.StructuredDefect`, checked):
+#
+#     a representation map either transports everything, or at least one
+#     of its homotopy fibers is noncontractible or empty.
+#
+# C15.82: *every failed equivalence contains a precise reconstruction
+# question in its fibers.*  So there is no "failure" outcome here.  A
+# module that does not check is a FIBER, recorded as one, and the loop
+# keeps running.  That is the whole difference, and it is why this can be
+# left unattended: nothing it meets is an exception.
+#
+# ---------------------------------------------------------------------
+# THE FOUR PHASES, each answering to a checked theorem
+#
+#   1. SYNC       publish and absorb.  Owner rule 2026-08-14.
+#   2. GATE       check every module SEPARATELY and record its own exit
+#                 code.  Never the aggregate alone.
+#   3. LEDGER     append the cycle: greens, fibers, and the walk frontier.
+#   4. DRAW       cut a fresh uncurated door so whatever attaches next
+#                 does not enter through the conspicuous documents.
+#
+# Phase 2 is per-module because this repository has produced the same
+# defect twice in one day in opposite directions:  a WARNING read as an
+# error (`UnsupportedIndexedMatch`, correction 0395), and a MISSING NAME
+# read as a green for a day (`injectSuc`, msg 0456), plus a BUILD.md
+# claiming "every module, exit 0" while checking a minority of them.
+# All three survive any check that looks at aggregate output instead of
+# `$?` per module.
+#
+#     A green is an exit code, and only for what was actually run.
+#
+# ---------------------------------------------------------------------
+# WHAT IT DOES NOT DO
+#
+# It does not invent mathematics and does not call a model.  It keeps the
+# substrate live — published, gated, ledgered, and freshly seeded — so
+# that any mind attaching to it, at any hour, starts from a true picture
+# and an unbiased door.  The mathematics is in `formal/cubical/`; this
+# file is the thing that makes it a machine rather than a directory.
+# =====================================================================
+
+set -u
+cd "$(dirname "$0")"
+
+MODE="${1:-once}"
+INTERVAL="${2:-600}"
+
+CUBICAL=formal/cubical
+LEDGER=collab/orchestration/machine-ledger.tsv
+FIBERS=collab/orchestration/open-fibers.md
+STAMP() { date -u +%Y-%m-%dT%H:%M:%SZ; }
+
+mkdir -p collab/orchestration
+[ -f "$LEDGER" ] || printf 'utc\tcycle\tmodules\tgreen\tfibers\taggregate\twalk_frontier\n' > "$LEDGER"
+
+cycle_number() { [ -f "$LEDGER" ] && echo $(( $(wc -l < "$LEDGER") - 1 )) || echo 0; }
+
+# ---------------------------------------------------------------------
+# 1. SYNC
+# ---------------------------------------------------------------------
+phase_sync() { [ -x ./sync ] && ./sync >/dev/null 2>&1; return 0; }
+
+# ---------------------------------------------------------------------
+# 2. GATE — per module, exit code recorded, never inferred from output
+# ---------------------------------------------------------------------
+phase_gate() {
+    GREEN=0; FIBER=0; FIBER_LIST=""
+    while IFS= read -r f; do
+        rel="${f#"$CUBICAL"/}"
+        ( cd "$CUBICAL" && LC_ALL=C.UTF-8 timeout 900 agda -i . "$rel" ) >/dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            GREEN=$((GREEN+1))
+        else
+            FIBER=$((FIBER+1))
+            FIBER_LIST="${FIBER_LIST}${rel}"$'\n'
+        fi
+    done < <(find "$CUBICAL" -name '*.agda' -not -path '*/_build/*' -not -path '*/Control/*' | sort)
+
+    # `Control/` is excluded BECAUSE its contents must fail to typecheck
+    # (NaturalMachine.agda's own header says so).  Counting deliberate
+    # refutations as fibers would be a false red, which is the same
+    # failure as a false green with the sign flipped.
+
+    ( cd "$CUBICAL" && LC_ALL=C.UTF-8 timeout 900 agda -i . NaturalMachine.agda ) >/dev/null 2>&1
+    AGG=$?
+}
+
+# ---------------------------------------------------------------------
+# 3. LEDGER — append-only; and the open fibers written where they are read
+# ---------------------------------------------------------------------
+phase_ledger() {
+    N=$(cycle_number)
+    TOTAL=$((GREEN + FIBER))
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+        "$(STAMP)" "$N" "$TOTAL" "$GREEN" "$FIBER" "$AGG" "$WALK" >> "$LEDGER"
+
+    {
+        echo "# Open fibers — regenerated every cycle, do not hand-edit"
+        echo
+        echo "Cycle $N, $(STAMP). Aggregate \`NaturalMachine.agda\` exit: **$AGG**."
+        echo "Modules checked individually: $TOTAL. Green: $GREEN. Fibers: $FIBER."
+        echo
+        if [ "$FIBER" -eq 0 ]; then
+            echo "No open fibers. Every module under \`formal/cubical/\` returns"
+            echo "exit 0 on its own, not merely as part of an aggregate."
+        else
+            echo "Delta 15 C15.82: each of these is a reconstruction question,"
+            echo "not an error. The module named is the one whose fiber is"
+            echo "noncontractible or empty; that fiber is the assignment."
+            echo
+            printf '%s' "$FIBER_LIST" | sed '/^$/d' | sed 's/^/- `/;s/$/`/'
+        fi
+    } > "$FIBERS"
+}
+
+# ---------------------------------------------------------------------
+#    the walk's own frontier, read from what is CHECKED, not recomputed
+# ---------------------------------------------------------------------
+phase_walk() {
+    WALK=$(grep -ho 'next [0-9]* ≡ [0-9]*' \
+            "$CUBICAL"/NaturalMachine/WalkBridge.agda 2>/dev/null \
+           | tail -1 | tr -d ' ' )
+    [ -n "$WALK" ] || WALK="-"
+}
+
+# ---------------------------------------------------------------------
+# 4. DRAW — a fresh uncurated door, so the next arrival does not enter
+#    through the conspicuous documents
+# ---------------------------------------------------------------------
+phase_draw() {
+    S=random_entry_seeder_so_agents_dont_cluster
+    [ -x "$S/seed.sh" ] || return 0
+    mkdir -p collab/orchestration/draws
+    "$S/seed.sh" "machine-cycle-$(cycle_number)" \
+        > "collab/orchestration/draws/next-door.txt" 2>/dev/null
+    return 0
+}
+
+run_cycle() {
+    phase_sync
+    phase_walk
+    phase_gate
+    phase_ledger
+    phase_draw
+    phase_sync
+    echo "MACHINE cycle $(( $(cycle_number) - 1 )): ${GREEN} green, ${FIBER} fibers, aggregate ${AGG}, walk ${WALK} — $(STAMP)"
+}
+
+case "$MODE" in
+    --daemon)
+        echo "MACHINE: hands-free loop started, every ${INTERVAL}s (pid $$)"
+        while :; do run_cycle; sleep "$INTERVAL"; done
+        ;;
+    *)
+        run_cycle
+        ;;
+esac

@@ -78,3 +78,21 @@ combinatorics of sub-multiset matching with residue, why the residue is sound at
 the root of a pattern and has no uniform derived right side at an inner node,
 and the separation between congruence closure and substitution into a pattern
 Hecke correspondences on lattices: double cosets, primitive vs imprimitive decomposition, the content c with c^2 | m, T_m as a sum over sublattices, and the Euler-product identity that makes the two agree
+quantitative dilation theory: Stinespring and environment dimension of quotient channels, coherent overwrite cost, minimal sufficient charts
+# appended 2026-08-14 by swarm-0814-05
+deformation theory: square-zero extensions, formal smoothness and etaleness, the cotangent complex -- the field where "the tower of solutions is constant" is a DEFINITION rather than an observation, and where the repository's Hensel/Newton lane already lives without naming it
+rectification and Freiman isomorphism: when a finite set of integers reduces faithfully into Z/N, wrap-free modelling, and the gap between the diameter heuristic and the true difference-set criterion
+# appended 2026-08-14 by swarm-0814-08 -- the list has "cryptography: lattice
+# hardness, zero-knowledge, homomorphic evaluation" but nothing on the family
+# where the hardness assumption is INDEX RECOVERY in a graded group, i.e. where
+# an archimedean weight bound making the problem polynomial over Z is deliberately
+# deleted by passing to Z/N. That deletion is the trapdoor.
+index-recovery cryptography from linear recurrences and algebraic tori: LUC and Lucas/Chebyshev trapdoors (T_p o T_q = T_pq mod N), XTR and torus-based compression, trace-only public keys, and the exact role of the missing archimedean absolute value
+unit groups and regulators of real quadratic orders as a computational problem: the fundamental unit as a rank-1 shortest vector, cakravala and continued fractions as competing reduction strategies, certified minimality vs. certified existence
+# appended 2026-08-14 by swarm-0814-13 -- the list has residuation theory and
+# Galois connections (poset structure as ADJUNCTION) but nothing on the poset
+# question this repo keeps hitting from the other side: when does a fibre of a
+# summary map have a representative at all? collab/messages/0249 and R0019 are
+# the two ends of that question and neither names the field it is in.
+order-theoretic sufficiency for cost summaries: fibres of a lossy summary under a product order, when a fibre has a least element, antichain obstructions to merging, exposed points of the state region as the singleton-fibre locus, and the minimal size of a completeness certificate for the obstruction
+real options and submodularity of incremental computation: option value of a retained cache under a declared target family, marginal cost as a suffix length on a labeled prefix DAG, and whether saved work is a monotone submodular set function admitting an exact optimizer stronger than greedy

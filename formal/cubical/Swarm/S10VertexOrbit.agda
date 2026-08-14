@@ -67,10 +67,10 @@ module Cage (a b : ℕ) where
   ≡→≤ p = 0 , p
 
   stepA : (s : ℕ) → s · a ≤ suc s · a
-  stepA s = ≤-·k ≤-sucℕ
+  stepA s = ≤-·k {s} {suc s} {a} ≤-sucℕ
 
   stepB : (u : ℕ) → u · b ≤ suc u · b
-  stepB u = ≤-·k ≤-sucℕ
+  stepB u = ≤-·k {u} {suc u} {b} ≤-sucℕ
 
   ----------------------------------------------------------------------
   -- (1) EXISTENCE.  Some vertex index is feasible, for every n.
@@ -171,6 +171,34 @@ module Cage (a b : ℕ) where
       d≡0 = zeroFactor (fst le) pa (inj-+m eqa)
 
 ------------------------------------------------------------------------
+-- (6) RECIPROCATION BUYS NOTHING.
+--
+-- If q is admissible then so are the root radii of its reversal
+-- q*(x) = x^{2m} q(1/x), which lie in [1/A, 1/B] with product 1 and give
+-- |a_{2m-k}(q)| = |a_k(q*)| ≤ (majorant for the cage (1/B, 1/A)).  That is
+-- a second, free bound on every coefficient, and the obvious question is
+-- whether the coordinatewise minimum of the two is sharper.
+--
+-- It is not, and the reason is (1)-(5).  Reciprocation sends log-radii
+-- x ↦ -x, so the cage (A, B) with (α, β) = (a, -b) becomes the cage
+-- (1/B, 1/A) with (α', β') = (b, -a): the SAME module with a and b
+-- swapped.  Under that swap the feasibility conditions exchange places
+-- verbatim, so the feasible indices correspond by (s, u) ↦ (u, s) and the
+-- reciprocal cage's vertex orbit is exactly the reciprocal of the original
+-- one.  Hence its majorants are b'_k = b_{2m-k}, the minimum is the
+-- original bound, and nothing is gained.
+--
+-- The proof is the identity on the pair, with its components exchanged.
+------------------------------------------------------------------------
+
+reciprocal : (a b s u : ℕ) → Cage.Feas a b s u → Cage.Feas b a u s
+reciprocal a b s u (p , q) = q , p
+
+reciprocal-involutive : (a b s u : ℕ) (F : Cage.Feas a b s u)
+                      → reciprocal b a u s (reciprocal a b s u F) ≡ F
+reciprocal-involutive a b s u F = refl
+
+------------------------------------------------------------------------
 -- What this buys, stated outside the module.
 --
 -- Fix a cage (A, B) with B ≤ 1 ≤ A and write a = log A, b = -log B in a
@@ -191,9 +219,10 @@ module Cage (a b : ℕ) where
 -- Two instances, both exact:
 --
 --   sharp cage  (A, B) = (√2, φ⁻¹):  A^{s+1} B^{n-s} = 1 would need
---     2^{(s+1)/2} = φ^{n-s}, impossible for n ≥ s ≥ 0 since φ is an
---     algebraic unit and 2 is not — so the feasible index is unique at
---     every degree, and cage.rs's loop cannot have had a choice to make.
+--     2^{s+1} = φ^{2(n-s)} with s+1 ≥ 1.  If n = s the right side is 1 and
+--     the left is ≥ 2.  If n > s then φ^{2k} = (L_{2k} + F_{2k}√5)/2 with
+--     F_{2k} ≠ 0 is irrational while 2^{s+1} is not.  So the feasible index
+--     is unique at every degree and cage.rs's loop never had a choice.
 --
 --   generic cage (A, B) = (2, ½):  the condition reads s+1 = n-s, so the
 --     feasible set has TWO indices exactly when n = m-1 is odd, i.e. at

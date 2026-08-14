@@ -32,14 +32,30 @@
 -- many r strictly between.  Both halves are decidable at size ~q by
 -- `decIsPrimePower`, built here from `primeDivisor` and `strip`.
 --
--- The payoff is at the bottom of the file.  `next 8 ≡ 9` exhausted a
--- 3.5 GB heap when computed from the definition; here it is a two-line
--- proof, and `next 32 ≡ 37` — far past where evaluation dies — costs
--- four refutations of numbers below 37.  Nothing about the machine
--- changed.  The theorem did the work.
+-- WHAT IS AND IS NOT DELIVERED HERE, stated before the theorems rather
+-- than discovered by a later auditor.
+--
+-- DELIVERED: `next-characterised`, `decIsPrimePower`, and the decision
+-- procedure's own non-vacuity (`test-9 : IsPrimePower 9`, obtained by
+-- the kernel evaluating `decIsPrimePower 9`).  Whole file, EXIT=0, 3 s.
+--
+-- NOT DELIVERED: the payoff instances.  `next-8 : next 8 ≡ 9` — built
+-- exactly as the exchange rate prescribes, with every ingredient
+-- individually cheap (`decIsPrimePower 9` evaluates in 3 s; the interval
+-- is empty; the order proofs are `refl`) — nevertheless exhausts a
+-- 3.5 GB heap after 5 minutes.  So SOMETHING still forces `next 8`, and
+-- I do not yet know what; the obvious suspect is the `with`-abstraction
+-- on `q ≟ next m` inside `next-characterised`.
+--
+-- That gap is left open and named rather than papered over.  The
+-- theorem is the speedup only once an instance of it type-checks
+-- without touching cap m, and no instance does yet.  Anyone reading
+-- this file for the headline should read this paragraph instead: the
+-- exchange rate is proved, the exchange has not been made.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
+-- No postulates, no holes.  EXIT=0 for this file and for the aggregate
+-- `NaturalMachine.agda`, which imports it.
 ------------------------------------------------------------------------
 
 module NaturalMachine.WalkFast where
@@ -245,47 +261,7 @@ noneIn m d h r m<r r<b = subst (λ z → ¬ IsPrimePower z) (sym r≡) (h t t<d)
   t<d : t < d
   t<d = <-k+-cancel (pred-≤-pred (subst (_< suc (m + d)) r≡ r<b))
 
-------------------------------------------------------------------------
--- 4.  THE PAYOFF.  Walk steps past the point where evaluation dies.
---
--- From the definition, `next 8` exhausts a 3.5 GB heap: the search
--- decides `s ∣ cap 8` and cap 8 = 840 in unary.  Here `next 8 ≡ 9` is
--- `IsPrimePower 9` plus an empty interval, and `next 32 ≡ 37` — which
--- the evaluator cannot reach at all — costs four refutations of numbers
--- below 37.  Same kernel, same machine.  The theorem is the speedup.
-------------------------------------------------------------------------
 
--- adjacent installs: the interval between is empty, so only the prime
--- power itself must be exhibited
-next-8 : next 8 ≡ 9
-next-8 = next-characterised 8 9 (7 , refl)
-  (acceptDec (decIsPrimePower 9) tt)
-  (0 , refl)
-  (noneIn 8 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
+test-9 : IsPrimePower 9
+test-9 = acceptDec (decIsPrimePower 9) tt
 
-next-16 : next 16 ≡ 17
-next-16 = next-characterised 16 17 (15 , refl)
-  (acceptDec (decIsPrimePower 17) tt)
-  (0 , refl)
-  (noneIn 16 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
-
-next-24 : next 24 ≡ 25
-next-24 = next-characterised 24 25 (23 , refl)
-  (acceptDec (decIsPrimePower 25) tt)
-  (0 , refl)
-  (noneIn 24 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
-
--- a genuine gap: 33, 34, 35, 36 are all refuted, each at size < 37
-next-32 : next 32 ≡ 37
-next-32 = next-characterised 32 37 (31 , refl)
-  (acceptDec (decIsPrimePower 37) tt)
-  (4 , refl)
-  (noneIn 32 4 gap)
-  where
-  gap : (i : ℕ) → i < 4 → ¬ IsPrimePower (suc (32 + i))
-  gap zero                      _ = refuteDec (decIsPrimePower 33) tt
-  gap (suc zero)                _ = refuteDec (decIsPrimePower 34) tt
-  gap (suc (suc zero))          _ = refuteDec (decIsPrimePower 35) tt
-  gap (suc (suc (suc zero)))    _ = refuteDec (decIsPrimePower 36) tt
-  gap (suc (suc (suc (suc i)))) p =
-    Empty.rec (¬-<-zero (pred-≤-pred (pred-≤-pred (pred-≤-pred (pred-≤-pred p)))))

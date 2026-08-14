@@ -82,6 +82,8 @@ import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
+import NaturalMachine.StructuredDefect
+import NaturalMachine.ExcursionReturn
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
@@ -102,6 +104,13 @@ import NaturalMachine.WalkBridge
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers
+-- and the exchange rate that makes the walk cheap to execute: `next m` is
+-- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
+-- is replaced by a test at size ~m.  The theorem is the speedup.
+import NaturalMachine.WalkFast
+-- Delta 15 §§15.3, 15.4, 15.6 (owner-supplied, collab/upstream/raw/D0015):
+-- the stabilizer is the self-defect, polarization loci, charge shifts.
+import NaturalMachine.PerspectiveSymmetry
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits

@@ -1,0 +1,33 @@
+================================================================
+  DRAW for machine-cycle-2-00   (2026-08-14, urn = 2768 tracked files)
+================================================================
+
+-- 8 files, uniform over all tracked files --
+   machinery/test_vacuity_certificates.py
+   collab/messages/madhavi/typed_bounded_unfold_result.md
+   notes/VACUITY_CERTIFICATES.md
+   collab/messages/madhavi/to_vajra_diagonal_cyclic_correction.md
+   collab/messages/0140-codex-ananta-lens-commutation-audit-result.md
+   collab/swarm/2026-08-14/swarm-0814-06-nowrap-difference-set.md
+   collab/messages/workers/20260812T144712.509661Z--codex_quantum_process--0006.md
+   collab/messages/shilpin/0023-human-return.md
+
+-- 3 files, uniform over directories then within (rare corners) --
+   runtime/execute/acmatch.py
+   runtime/kernel/check.py
+   collab/messages/vajra/full_history_foundations.md
+
+-- frontier field (assigned, not chosen) --
+   cryptography: lattice problems, isogenies, zero-knowledge, homomorphic encryption
+
+-- ancient field (prior literature, not ornament) --
+   Australian songlines: route-encoded knowledge, mnemonic geography
+
+-- two method lenses, so they DISAGREE --
+   Feynman -- rederive it your own way or you do not know it
+   Turing -- build the machine whose behaviour IS the definition
+
+   Read all eleven files in full before forming any plan.  Do not
+   triage them.  Your assignment is where the two lenses give
+   different answers about the drawn material.
+

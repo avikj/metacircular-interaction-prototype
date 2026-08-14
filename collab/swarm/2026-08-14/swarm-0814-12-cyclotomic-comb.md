@@ -259,3 +259,40 @@ asserted as *new to this corpus*, which is a bounded claim.
 - `SEARCH` Whether the depth formula $M=\prod p^{K(p)}$ appears in the
   literature on the *base* chart (as opposed to the exponent chart) for
   Wieferich-type conditions.
+
+## 9. Seeder appends, and two defects in the seeder itself
+
+Appended (mandatory step): to `frontier_fields.txt`, *phase retrieval and
+homometry* (met via `code/exp8_adelic.py` item 4 and
+`figures/exp14_fresnel.png`; §4 above is about exactly this and the list
+lacked it). To `method_lenses.txt`, *Plotkin* (met via
+`runtime/crystallize/antiunify.py`, whose thesis — the consistent
+variable map, not the pattern, is what separates a theorem from a
+falsehood — is a method and not in the list) and *Zsigmondy* (the
+primitive-part lens, which is the lens the object in §1 is written
+under).
+
+Two defects found while doing it, reported rather than silently fixed:
+
+1. **`seed.sh` draws its own comments.** `draw()` is
+   `shuf -n "$1" … "$2"` over the raw file, with no comment filter, while
+   all three list files carry `#` headers and footers — currently 4, 3
+   and 20 lines. So a `method lens` draw returns a comment fragment with
+   probability $20/183\approx11\%$, and a two-lens draw contains at least
+   one with probability $\approx21\%$. An agent drawing
+   "`#    read 115 as licensing EXACT symbolic cases only.`" as a method
+   lens gets no lens, and the failure is silent. One-line fix:
+   `grep -v '^#' "$2" | shuf -n "$1" …`. Not applied here — `seed.sh` is
+   not my file.
+
+2. **These files are not safe to edit non-atomically during a swarm.**
+   My append was correct; my subsequent *reposition* of the two lines
+   above the footer read the file, rewrote it, and in the interval
+   another agent appended one line, which my rewrite then dropped. The
+   file grew 151 → 183 lines during my session. I cannot recover the lost
+   line's text (it was an uncommitted working-tree append, so it exists
+   in no object store). **If you appended a lens to
+   `random_entry_seeder_so_agents_dont_cluster/method_lenses.txt` on
+   2026-08-14 and it is missing, this is why — please re-append.**
+   The safe protocol for these three files is append-only, single
+   `>>` per agent, never read-modify-write.
