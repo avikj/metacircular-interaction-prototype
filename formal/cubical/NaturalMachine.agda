@@ -422,6 +422,10 @@ import NaturalMachine.PMIncidenceLocalSystem
 -- edge: every rule using only endpoint signs has trivial six-cycle charge.
 -- The ZZ-supported twist is an explicit gauge representative of that class.
 import NaturalMachine.PMMonodromyDerivationNoGo
+-- The Peres--Mermin obstruction as a representative-independent finite
+-- Cech/H¹ carrier: edge signs modulo context gauge, with cycle parity
+-- descended to the quotient and identified with the derived Pauli sign.
+import NaturalMachine.PMGaugeCohomology
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

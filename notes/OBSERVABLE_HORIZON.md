@@ -425,6 +425,48 @@ This does not claim the classical worst case: Lee--Yannakakis's ADS height
 bound is quadratic and sharp.  The checked family is a native carrier/cost
 control below that prior-art frontier.
 
+## 11. Safe residual splits have an exact ambiguity balance
+
+`Pairfield.AdaptiveResidualPartition` identifies the recursive invariant that
+the examples above use implicitly.  A live cell contains prefixes having the
+same observed history.  A query is safe on that cell when equality of the two
+advanced Mathlib residuals cannot merge two distinct residuals that were live
+before the query.  Lean proves that a tree separates residuals on a live cell
+if and only if its root is safe and both response-selected children carry the
+same certificate recursively.  This is an exact characterization, not yet a
+constructor or a height bound.
+
+`Pairfield.AdaptiveSplitPotential` quantifies one certified step.  Choose one
+representative of each of the `m` live residuals, let `a` and `b` be the
+numbers whose advanced observations are respectively false and true, and let
+the advance map return the corresponding post-action residual.  Safety makes
+that map injective inside each response fibre, hence `m=a+b` still holds after
+forming the two branch images.  For the ordered ambiguity potential
+
+\[
+P(S)=|S|^2,
+\]
+
+Lean checks the exact balance
+
+\[
+\boxed{P(S)=P(S_0)+P(S_1)+2|S_0||S_1|.}
+\]
+
+Consequently the sum of the branch potentials is strictly smaller exactly
+when both responses occur.  Equality holds exactly when one branch is empty.
+This is the precise boundary between a safe query and an informative query:
+safety prevents irreversible merging, but a constant-response safe action
+consumes no ambiguity at all.  The two-candidate controls check both sides:
+identity advance with constant false response gives equality, while identity
+response gives a strict split.
+
+The representative hypothesis is load-bearing.  Raw prefixes may present the
+same left quotient, so prefix cardinality is not residual ambiguity.  The
+specialization `ResidualCell.safeAction_squarePotential_split` requires an
+injective residual map on the chosen representatives before transporting the
+recursive safety certificate to the finite balance law.
+
 ## Replay
 
 ```sh
@@ -437,6 +479,8 @@ lake build Pairfield.AdaptiveResidualAdapter
 lake build Pairfield.ReachableAdaptiveObservableHorizon
 lake build Pairfield.AdaptiveUniformBound
 lake build Pairfield.LinearAdaptiveGap
+lake build Pairfield.AdaptiveResidualPartition
+lake build Pairfield.AdaptiveSplitPotential
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2

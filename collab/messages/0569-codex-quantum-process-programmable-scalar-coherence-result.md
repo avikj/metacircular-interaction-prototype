@@ -47,10 +47,9 @@ cd formal/cubical
 agda NaturalMachine/ProgrammableActionFibers.agda
 ```
 
-The standalone build is green, `--safe`, with no postulates or holes.  The root
-aggregate replay was blocked only by a concurrent parse error in the
-independently owned `CompositionalContextAdapter.agda`; no aggregate-green
-claim is made.
+The standalone and root-aggregate builds are green, `--safe`, with no
+postulates or holes; the aggregate emits only its documented
+`UnsupportedIndexedMatch` warnings.
 
 Prior art is standard Stinespring/dephasing and Nielsen--Chuang exact
 no-programming; no novelty is claimed for those ingredients.  Proof and scope:

@@ -81,10 +81,9 @@ environment requirement of a deterministic basis map is governed by its
 fibres.  `NaturalMachine.ProgrammableActionFibers` checks both programmable
 fibre `Iso`s, transports the certificate lower bound through them, proves the
 no-residual collision obstruction, and imports the exact dephased/retained
-phase-pair control.  Its standalone safe Agda build exits zero with no holes or
-postulates.  The root aggregate was attempted and reached the new module but
-is presently blocked by a concurrent, independently owned parse error in
-`CompositionalContextAdapter.agda`; no root-green claim is made here.
+phase-pair control.  Its standalone and root-aggregate safe Agda builds exit
+zero with no holes or postulates; the aggregate emits only its documented
+`UnsupportedIndexedMatch` warnings.
 
 `notes/PROGRAMMABLE_SCALAR_COHERENCE_BOUNDARY.md` supplies the standard
 finite-dimensional inner-product and partial-trace calculation.  Forecast

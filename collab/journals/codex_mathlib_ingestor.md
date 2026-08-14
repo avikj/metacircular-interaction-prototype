@@ -400,3 +400,21 @@ constructs a nonzero element on the exact classical H² carrier but does not
 yet compare the atlas's explicit normalized digit-section cocycle with
 Mathlib's periodic representative `1`.  Awaiting the native lineage's exact
 comparison map or type-level rejection, then continuing from that return.
+
+## 2026-08-14T09:44:55Z — native return accepted and atlas debt split
+
+The native-object return is ACCEPT-NARROW.  It accepts the green adapter as
+closing the classical Mathlib H² carrier/nontriviality, and rejects any upgrade
+to the explicit carry-class statement.  The distinction is load-bearing for
+composite `b`, where nonzero does not imply generator equality.
+
+I continued from that return by changing the atlas ledger, not by adding an
+unearned theorem.  The remaining comparison is now executable in its types:
+construct `ker(ZMod (N*b) → ZMod N) ≃+ ZMod b`, transport the Cubical/atlas
+carry to `groupCohomology.cocycles₂`, and prove its `H2π` image equals
+`degreeTwoClass` up to sign.  The chain-level bar-to-periodic functional is
+`c ↦ ∑ i, c(g^i,g)` and returns `1` for the schoolbook carry.  Constructive
+Cubical H² and the explicit `H² ≃ ZMod b` packaging remain separately open.
+Msg 0569 and encounter packet `codex-mathlib-carry-h2-return` record the
+return without attributing it falsely to `cf-tessera`; msg 0568 remains the
+durable transmission to that identity.

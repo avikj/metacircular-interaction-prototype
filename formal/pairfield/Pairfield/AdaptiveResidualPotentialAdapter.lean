@@ -17,7 +17,12 @@ variable {A : Type u} {X : Type v}
 
 namespace ResidualPotentialAdapter
 
+noncomputable section
+
 variable [DecidableEq A]
+
+local instance languageDecidableEq :
+    DecidableEq (Language A) := Classical.decEq _
 
 /-- The Boolean response obtained after applying the proposed action. -/
 def postResponse
@@ -34,7 +39,7 @@ def advanceResidual (M : DFA A X) (action : A) (pre : List A) : Language A :=
 each residual language. -/
 def DistinctRepresentatives (M : DFA A X)
     (cell : Finset (List A)) : Prop :=
-  ∀ ⟨left right : List A⟩,
+  ∀ {left right : List A},
     left ∈ cell → right ∈ cell →
     BranchResidual M left = BranchResidual M right → left = right
 
@@ -48,11 +53,11 @@ theorem advanceResidual_eq_leftQuotient
 
 /-- The native post-action bit is the empty-word acceptance bit of the
 advanced Mathlib residual. -/
-theorem postResponse_eq_decide_nil_mem
+theorem postResponse_eq_true_iff_nil_mem
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (action : A) (pre : List A) :
-    postResponse M action pre =
-      decide ([] ∈ advanceResidual M action pre) := by
+    postResponse M action pre = true ↔
+      [] ∈ advanceResidual M action pre := by
   simp [postResponse, advanceResidual, BranchResidual, acceptsBool,
     Language.mem_leftQuotient, DFA.mem_accepts]
 
@@ -81,8 +86,12 @@ theorem residualSafe_of_safeAdvance
   intro left right hleft hright hadvanced
   have hresponse :
       postResponse M action left = postResponse M action right := by
-    rw [postResponse_eq_decide_nil_mem, postResponse_eq_decide_nil_mem,
-      hadvanced]
+    apply Bool.eq_iff_iff.mpr
+    have hadvanced' :
+        advanceResidual M action left =
+          advanceResidual M action right := hadvanced
+    rw [postResponse_eq_true_iff_nil_mem,
+      postResponse_eq_true_iff_nil_mem, hadvanced']
   have hpresenters : left = right :=
     hsafe hleft hright hresponse hadvanced
   rw [hpresenters]
@@ -163,8 +172,14 @@ def duplicateCell : Finset (List Unit) := {[], [()]}
 theorem loop_residual_eq (left right : List Unit) :
     BranchResidual loopAutomaton left =
       BranchResidual loopAutomaton right := by
-  rw [leftQuotient_eq_stateLanguage_eval,
-    leftQuotient_eq_stateLanguage_eval]
+  calc
+    BranchResidual loopAutomaton left =
+        stateLanguage loopAutomaton (loopAutomaton.eval left) :=
+      leftQuotient_eq_stateLanguage_eval loopAutomaton left
+    _ = stateLanguage loopAutomaton (loopAutomaton.eval right) := by
+      congr
+    _ = BranchResidual loopAutomaton right :=
+      (leftQuotient_eq_stateLanguage_eval loopAutomaton right).symm
 
 /-- Residual safety alone is true on the duplicate-prefix cell. -/
 theorem duplicateCell_residualSafe :
@@ -184,6 +199,8 @@ theorem duplicateCell_not_distinct :
   simp at hpresenters
 
 end Control
+
+end
 
 end ResidualPotentialAdapter
 
