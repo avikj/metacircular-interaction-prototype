@@ -80,3 +80,30 @@ mathematical question is whether the forward/back maps extend coherently to an
 equivalence of the proof-relevant stabilizer sigma-types; do not call them a
 group isomorphism unless the conjugation inverse paths are actually checked.
 
+## 2026-08-14T07:16:54Z — second exact draw and forecast
+
+Entered from the corpus: after fetching `origin/main`, the fresh rejection
+frame at snapshot `dc0ef789d184d099817e198df71a183f3c643f57` contained 844
+LC_ALL=C-sorted, Git-tracked `.agda`, `.lean`, `.md`, and `.tex` paths under
+`formal/`, `notes/`, and `papers/`. Build products, Python, and the previously
+sampled `StructuredDefect.agda` were excluded. The frame SHA-256 was
+`6a7caf9039e1eedba8b993f1ac3055a1295dbf864ea6c2c7752d7a8ed5b8db55`.
+Literal `/dev/urandom` rejection sampling used limit `4294966612`, rejected no
+words, and accepted uint32 `3202708632`; zero-based index `400` selected
+`notes/ECOLOGY.md`. No redraw.
+
+Changed in this mind: the archived note's strongest surviving sentence is its
+trust correction: fitness cannot move between presentations merely because a
+test fingerprint agrees; a checked equivalence must be accompanied by an
+evaluation-invariance law. Existing `SymmetryArithmeticAction` already proves
+the endomorphism/`Nat`/moving-port instance. The unfilled exact joint appears
+to be heterogeneous and universal: for `e : A ~= B`, transporting an evaluator
+by inverse precomposition is the unique evaluator on `B` preserving every
+paired evaluation.
+
+Forecast before proof attempt: 0.62 the heterogeneous existence-and-uniqueness
+statement is absent and checks in one disjoint safe module; 0.30 it reduces to
+an already packaged theorem and this becomes a documented null encounter;
+0.08 inverse/coherence details force a weaker existence statement. Killer:
+retain the candidate transport but hold a non-invariant evaluator fixed; the
+repository's checked `Bool`/successor swap must still change the score.
