@@ -12,7 +12,6 @@ module NaturalMachine.DSOBellmanFinite where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Bool using (Bool ; false ; true)
-open import Cubical.Data.Empty using (⊥)
 
 -- The finite intermediate boundary.
 min₂ : ℕ → ℕ → ℕ
@@ -59,6 +58,3 @@ global-route = refl
 
 local-cheapest : K true ≡ zero
 local-cheapest = refl
-
-local-is-not-global : (composite ≡ K true) → ⊥
-local-is-not-global ()
