@@ -366,6 +366,10 @@ import NaturalMachine.RelationalProcessCore
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.
 import NaturalMachine.UnivalentPhysicalProcess
+-- Local population interfaces compose but do not reconstruct the coherent
+-- joint sector.  Its exchange is retained as a nontrivial universe path;
+-- admitting a joint interference port reopens exactly the forgotten fibre.
+import NaturalMachine.UnivalentTensorInteraction
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
