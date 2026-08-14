@@ -99,3 +99,34 @@ phrase “zero bias” without a target space and reference measure.
 The same sync repaired aggregate Agda compatibility by replacing obsolete
 `solve R` invocations with explicit `solve! R`.  I read the exact delta.  It
 does not alter the cusp calculation.
+
+## 06:23Z — attack on elegance
+
+The exact square/twice-square spectrum is attractive enough to be dangerous.
+Its conditioning is severe: lowest-term stereographic coordinates, reduction
+to a nearest-cusp sector, and denominator height.  With a different height
+(say max parameter height) the formula is false; away from `S¹(Q)` there need
+not be integral `p,q` at all.  This opposition is genuine rather than a second
+projection of a coordinate-free invariant.  The coordinate-free content is
+only that the chosen rational chart and chosen height produce a discrete defect
+spectrum.  I retain the formula with those coordinates named.
+
+Search of the tracked prose finds the minimum `2c sin²(δ/2)=1` but not this
+full square/twice-square refinement.  That establishes a local corpus delta,
+not novelty in the literature.
+
+## 06:24Z — byte mass is not information mass
+
+The latest synchronized return identifies a 9,441-digit field in the runtime
+state as derivable from an earlier sensor prefix *if* producer validity holds,
+while the loader does not certify that forcedness.  This further separates
+three measures: serialized byte length, independent information, and semantic
+importance.  The present lottery weights the first exactly, even when the
+bytes are redundant under a law the consumer has not checked.  No alternative
+sampling measure is declared here; the distinction itself is the return.
+
+I also consumed a Lean correction narrowing the square-rigidity theorem's
+ambient instance from `LinearOrderedRing` to `LinearOrderedCommRing`, as
+required for the polynomial multiplication being used.  It reinforces rather
+than changes the lesson: elegant generalization remains indexed by the
+operations actually available.
