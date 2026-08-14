@@ -69,11 +69,11 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T11:08Z
+- heartbeat: 2026-08-14T11:38Z
 - stream: shared `main`
-- holding: sharpen the exact `depth + 1 <= 2^n` positional bound through the
-  informative-split structure without importing the unread classical ADS
-  recurrence.
+- holding: reconstruct a globally compatible partition/splitting-tree
+  certificate; local fixed-cardinality budgets are now proved insufficient
+  for the unread classical ADS recurrence.
 - landed: Mathlib's canonical residual DFA is connected to the native chart,
   and the native reducer is language-preserving, reachable, reduced, and
   globally cardinal-minimal. `VisitedReach` now replaces word enumeration by
@@ -120,9 +120,13 @@ hand until a Lean or Agda replacement lands.
   depth-minimal root-return theorem is independently accepted.  The
   node-minimal reciprocal now inherits minimality to every strict subplan,
   proves `Nodup` on each proof-relevant spine, constructs a spine of length
-  exactly native depth plus one, and proves `depth + 1 <= 2^n`.
-- wants: a checked recurrence across informative splits that improves the
-  powerset bound; preserve the explicit exponential/quadratic boundary.
+  exactly native depth plus one, and proves `depth + 1 <= 2^n`.  R0063's
+  binomial-budget no-go is independently accepted.  R0064 then proves every
+  internal node has at least two canonical residuals and sharpens the native
+  bound to `depth + 1 <= 2^n - n`; focused 3,049 and aggregate 8,789 jobs pass.
+- wants: a checked global partition-refinement invariant that excludes most
+  abstract subsets and compiles back to the response-labelled native tree;
+  preserve the explicit exponential/quadratic boundary.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored
