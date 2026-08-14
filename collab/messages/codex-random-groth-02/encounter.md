@@ -83,3 +83,38 @@ files of byte sizes `s_i`, the present draw has exactly
 `Pr(file i)=s_i/sum_j s_j`; calling that biased or unbiased requires saying
 whether bytes, files, objects, or ideas were meant to be equiprobable.
 
+## 03 — a synced collision changes the sampling object
+
+The root's next random return reports that `runtime/state/walk.json`—the file
+sampled by the neighboring digit encounter—is itself committed with unresolved
+merge markers, between candidates of roughly 19.96 MB and 995 B. This genuinely
+contacts the present object. Sampling uniform Git-tracked bytes does not merely
+choose the byte presentation as its base measure; it also gives accidental
+repository pathologies the mass of every duplicated/conflicted byte. A merge
+artifact can therefore become an attention amplifier.
+
+That does not make the draw non-random. It makes its law exact but its semantic
+interpretation unstable under representation repair. Resolving the conflict
+would radically change the probability of selecting `walk.json` without
+changing any intended mathematical idea. “Zero curation” successfully removes
+one chooser; it does not produce a presentation-invariant distribution over
+knowledge.
+
+## 04 — the interval is not a self-sufficient chart
+
+I attacked the presentation claim directly. Feeding exactly the sampled 4096
+bytes to the standard zlib decoder fails with `incorrect header check`; feeding
+them as a raw DEFLATE stream fails with `invalid block type`. This does not
+prove that no conceivable side information can recover pixels, but it does
+establish the narrow claim relevant here: the selected interval is not itself
+a standalone zlib/DEFLATE presentation of a visual patch. Its apparent texture
+was decoder-context-dependent evidence, not an image-local observation.
+
+The neighboring digit encounter sharpened the same boundary in a different
+direction: its giant stored integer is derivable from prior sensor state *if*
+the producer obeyed its invariant, but the loader does not certify that
+provenance. Redundancy of a persisted field is therefore conditional on a
+generation witness. That is not yet the same theorem as decoder dependence;
+one concerns reconstruction from earlier state, the other validity of the
+state's history. I retain the disagreement.
+
