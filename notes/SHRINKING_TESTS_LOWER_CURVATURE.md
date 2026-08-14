@@ -1,337 +1,455 @@
-# Shrinking the tests lowers the curvature
+# Shrinking tests lower curvature — weakly, and exactly when
+
+**Status.** Proved. The monotonicity is **weak**, not strict, and cannot be made
+strict; the exact difference set is computed (Thm 2), which is the only part
+that carries content. The non-implication δ = 0 ⇏ Advance is **refuted as an
+implication** by a finite counterexample, minimal and unique up to isomorphism
+over its parameters (Thm 5, exhaustive check). §J3's non-implication falls out
+as the second coordinate of the same lemma (Thm 3, Ex. E2).
+
+**Substance: classical.** Theorems 1 and 3 are the monotone half of a Birkhoff
+polarity and are standard. See §7 for what, if anything, is new — the honest
+answer is: the difference formula and the minimality count, both elementary.
 
 **Source of the question.** `collab/upstream/raw/D0016-owner-diamond-transmission-2026-08-14.md`
-(the owner's transmission of 2026-08-14), §G and its triage item **§J2**:
-
-$$\operatorname{Shrink}(\mathcal T)\Rightarrow\delta\downarrow,\qquad \delta=0\not\Rightarrow\operatorname{Advance},\qquad \text{शून्यवक्रता}\ne\text{सत्य}.$$
-
-The transmission asserts this and says explicitly that it is asserted, not proved, and that
-"the exact statement (which order, which $\downarrow$, strict or weak) is not written down
-anywhere above." Credit for the question and for the framework is the owner's; what follows
-is the proof, the strictness condition, and two finite counterexamples. §J3's non-implication
-$\delta_\sigma=0\;\not\Leftarrow\;\delta^{\mathrm{base}}_\sigma=0$ falls out of the same lemma
-and is settled in §6.
-
-**Verdict, stated up front, so the summary cannot outrun the body.**
-
-- The monotonicity is **true and weak** (§4, Thm 1): shrinking the test set can only shrink the
-  detected defect, and equality is the generic case. Weak monotonicity is all that holds.
-- The **strictness condition** is exactly the existence of a *sole witness* among the discarded
-  tests (§4, Thm 2). This is the content: without it the slogan would be unlicensed.
-- $\delta=0\not\Rightarrow$ truth is **proved by a 2-point, 2-test, 2-value finite
-  counterexample** (§5), verified exhaustively by hand, and minimal in each of
-  $|X|,|\mathcal T|,|Q|$ *among examples whose shrunken test set is non-empty* (§5.2 — with the
-  empty shrink the claim is Corollary 2.1 and needs no example at all).
-- The underlying Galois monotonicity is **classical** — Birkhoff polarities, formal concept
-  analysis, and the separated/extensional quotient of a Chu space (Barr 1979). See §2. What is
-  not classical, as far as the search in §2 reached, is only the *packaging*: the identification
-  of §G's `SearchSep` conjunct as precisely the hypothesis that makes $\delta=0$ informative
-  (§4, Prop 3). That is a one-line corollary, and I claim nothing more for it.
+(the owner's transmission, 2026-08-14), §G and §J2/§J3. The framework, the
+signature, the slogan *zero curvature is not truth*, and the identification of
+this as the first `PROVE` item are the owner's. Everything below §1 is derived
+from that artifact and does not amend it.
 
 ---
 
-## 1. Why this is a `PROVE` item and not a `DEMONSTRATE` item
+## 0. What the transmission fixes and what it does not
 
-`CLAUDE.md`: *before running any computation, write down the theorem it would replace.* The
-theorem a defect-sweep would be standing in for is Theorem 1 below. It is a page of algebra —
-in fact four lines — and it determines exactly the behaviour that `0742-seed141` observed by
-counting (recall 14/15 where the defect has a lexical name, 1/7 and 1/6 where it does not).
-Per §J5 that empirical coincidence is the reason the artifact was kept; it is not the reason
-the statement is true, and it is superseded by §4. No measurement is reported in this note.
+§G asserts
 
-## 2. Prior art, searched before the write-up
+$$\operatorname{Shrink}(\mathcal T)\Rightarrow\delta\downarrow,\qquad \delta=0\not\Rightarrow\operatorname{Advance},$$
 
-Searched: nLab (`Chu construction`, `formal concept analysis`), Wikipedia, arXiv HTML.
-PDFs do not decode in this container and none is claimed as read.
+and §J2 records, correctly, that *"the exact statement (which order, which ↓,
+strict or weak) is not written down anywhere above."* It is not. Neither is
+$\ominus$, nor the sense in which $\delta_\sigma$ is a number rather than an
+automorphism. So the first obligation is definitional, and the definitions
+below are **mine**, not the owner's; they are chosen to be the weakest ones
+under which the slogan is true, so that the theorem is not won by stipulation.
 
-1. **The Galois connection between test sets and distinguishability is Birkhoff's polarity**
-   (Birkhoff, *Lattice Theory*, 1940), the foundation of **formal concept analysis**
-   (Wille 1982; Ganter–Wille, *Formal Concept Analysis*, 1999). The order-reversing
-   correspondence "more attributes ⇒ finer object equivalence" is the defining property of the
-   polarity. Lemma 0 below **is** this, restricted to kernels.
-2. **Separated / extensional Chu spaces and the biextensional collapse.** A Chu space
-   $\langle X,r,A\rangle$ is *separated* iff $x=y\iff\forall a\,(\langle x,a\rangle\in r\iff\langle y,a\rangle\in r)$,
-   *extensional* dually; every Chu space has a separated-and-extensional quotient, the
-   *biextensional collapse*. The earliest source is **M. Barr, *\*-Autonomous Categories*,
-   Lecture Notes in Mathematics 752 (1979), §6**, where these were "first been considered …
-   under a slightly different terminology"; this attribution is quoted from
-   `arxiv.org/html/2412.11478` (*Properties preserved by classes of Chu transforms*),
-   Definition 2.4 and the remark following it, which is the text I actually read.
-   I did **not** read Barr 1979 and therefore quote no numbered statement from it beyond the
-   section number that source gives. Barr, *The separated extensional Chu category*, TAC 4
-   (1998), is the later dedicated treatment; I did not read it either and cite it only by title.
-   Pratt's Chu-space notes are the standard modern exposition; the arXiv source above does not
-   attribute the separation properties to him and neither do I.
-3. **Holonomy as descent obstruction** (§J3's own gloss) is standard Čech-style descent; the
-   transmission's $\mathfrak H_\sigma$ over $N(\mathcal F)$ is the usual loop-composite.
+Three things had to be pinned down.
 
-**Conclusion of the search.** *The mathematics of §4 is classical.* Theorem 1 is the polarity
-monotonicity of Birkhoff/FCA, transported along a holonomy map; Theorem 2 is the elementary
-sharpening one gets by asking when a Galois-coarsening is strict, and I found no source stating
-it in these terms, which is weak evidence of novelty and not a claim of it. §5's counterexample
-is of the kind any FCA text could produce in a line. **A rediscovery honestly labelled**: that
-is what this note is, and it is the right outcome — the transmission's §J2 asked for a proof,
-and a proof of a classical fact is still a proof, and it removes an unproved boxed display.
-
-## 3. The definitions, fixed
-
-The transmission leaves the order and the sense of $\downarrow$ unspecified. I fix them.
-
-**Definition 3.1 (Chu space).** $\mathcal C=(X,\mathcal T,e)$ with $X$ a set of *points*,
-$\mathcal T$ a set of *tests*, $e:X\times\mathcal T\to Q$ the evaluation into a *value set* $Q$.
-(The transmission writes $e_\alpha:\mathcal F_\alpha\times\mathcal T_\alpha\to Q_\alpha$; I write
-the carrier as $X$ and keep $\mathcal F$ for the chart family of Definition 3.4, per §A–§B where
-$X_\alpha$ and $\mathcal F_\alpha$ are separate slots of $\Diamond_\alpha$.)
-
-**Definition 3.2 (separation quotient).** For $S\subseteq\mathcal T$,
-$$x\sim_S x'\;:\iff\;\forall t\in S,\;e(x,t)=e(x',t).$$
-This is an equivalence relation; $q_S:X\to X/{\sim_S}$ is the quotient. $S$ is **separating**
-iff $\sim_S$ is equality on $X$, i.e. iff $(X,S,e|_{X\times S})$ is separated in Barr's sense.
-Note $\sim_\varnothing=X\times X$, the total relation.
-
-**Definition 3.3 (instrument; the order on instruments).** More generally an *instrument* is a
-map $\iota:X\to V$ into any set; its kernel $\sim_\iota$ is $x\sim_\iota x'\iff\iota x=\iota x'$.
-Order instruments by refinement of kernel: $\iota'\preceq\iota$ ("$\iota'$ is **coarser**")
-iff $\sim_\iota\;\subseteq\;\sim_{\iota'}$. A test set $S$ gives the instrument
-$\iota_S=(t\mapsto e(-,t))_{t\in S}:X\to Q^S$, whose kernel is $\sim_S$.
-
-This is the order the transmission's $\operatorname{Shrink}$ and $\downarrow$ refer to; making
-it explicit is half the work, because **two different operations are both "shrinking"**:
-discarding tests, and coarsening the value set $Q$ along a projection $\pi$. Both coarsen the
-kernel, and Lemma 0 covers both. §6 uses this.
-
-**Definition 3.4 (holonomy datum).** A *holonomy datum over $\mathcal C$* is a finite index set
-$\mathcal F=\{i_0,\dots,i_m\}$ (the charts) together with, for certain ordered pairs $(i,j)$, a
-*transport* $\rho_{ij}:X\to X$. The nerve $N(\mathcal F)$ has as its $n$-simplices the composable
-strings; for a **loop** $\sigma=(i_0,i_1,\dots,i_n,i_0)$ the *holonomy* is the composite
-$$\mathfrak h_\sigma:=\rho_{i_ni_0}\circ\rho_{i_{n-1}i_n}\circ\cdots\circ\rho_{i_0i_1}\;:\;X\to X.$$
-No invertibility and no groupoid law is assumed: transports are arbitrary self-maps, which is
-the weakest hypothesis under which everything below still holds. (If the $\rho$ are invertible
-and $\rho_{ji}=\rho_{ij}^{-1}$ then every $\mathfrak h_\sigma$ is trivial and there is nothing
-to measure; holonomy exists precisely because that is *not* assumed.)
-
-**Definition 3.5 (the defect, as an $S$-observable).** Fix a loop $\sigma$ and $S\subseteq\mathcal T$.
-$$\operatorname{Det}_\sigma(S):=\{x\in X:\ \mathfrak h_\sigma x\not\sim_S x\},\qquad
-D_\sigma(S):=\{(x,t)\in X\times S:\ e(\mathfrak h_\sigma x,t)\ne e(x,t)\}.$$
-$$\delta_\sigma(S):=\bigl[\,q_S\circ\mathfrak h_\sigma\ \text{versus}\ q_S\,\bigr],\qquad
-\delta_\sigma(S)=0\ :\iff\ q_S\circ\mathfrak h_\sigma=q_S\ \iff\ \operatorname{Det}_\sigma(S)=\varnothing .$$
-This is the transmission's $\delta_\sigma=\mathfrak H_\sigma\ominus 1$ read *through the tests*:
-$\ominus 1$ is comparison with the identity, and "comparison" is only ever available up to what
-$\mathcal T$ can see. $\operatorname{Det}$ and $D$ are the two natural refinements of the
-yes/no defect, ordered by inclusion; $|{\operatorname{Det}}|$ and $|D|$ are the numerical
-$\downarrow$. The aggregate obstruction of §B, $\mathcal O(S):=\int^{\sigma\in N(\mathcal F)}\delta_\sigma$,
-is read here as $\operatorname{Ob}(S):=\{\sigma\in N(\mathcal F)\ \text{a loop}:\delta_\sigma(S)\ne0\}$.
-
-*Remark 3.6.* $\delta_\sigma(S)=0$ implies $\mathfrak h_\sigma$ descends to $X/{\sim_S}$ and
-descends **to the identity**: from $q_S\mathfrak h_\sigma=q_S$, if $x\sim_S y$ then
-$q_S\mathfrak h_\sigma x=q_Sx=q_Sy=q_S\mathfrak h_\sigma y$. So no separate descent hypothesis
-is needed anywhere below. Note also that $\delta_\sigma(S)=0$ does **not** require
-$\mathfrak h_\sigma$ to descend before quotienting — Definition 3.5 is deliberately stated on
-$X$, not on $X/\sim_S$, for exactly this reason.
-
-## 4. The theorem
-
-**Lemma 0 (polarity monotonicity; classical, §2.1).** If $S'\subseteq S\subseteq\mathcal T$ then
-$\sim_S\ \subseteq\ \sim_{S'}$. More generally if $\iota'\preceq\iota$ then
-$\sim_\iota\subseteq\sim_{\iota'}$ by definition.
-
-*Proof.* If $x\sim_S x'$ then $e(x,t)=e(x',t)$ for all $t\in S\supseteq S'$, hence for all
-$t\in S'$. $\square$
-
-**Theorem 1 (Shrink $\Rightarrow\delta\downarrow$; weak monotonicity).**
-Let $\sigma$ be any loop in $N(\mathcal F)$ and $S'\subseteq S\subseteq\mathcal T$. Then
-$$\operatorname{Det}_\sigma(S')\subseteq\operatorname{Det}_\sigma(S),\qquad
-D_\sigma(S')= D_\sigma(S)\cap(X\times S')\subseteq D_\sigma(S),$$
-hence $|\operatorname{Det}_\sigma(S')|\le|\operatorname{Det}_\sigma(S)|$,
-$|D_\sigma(S')|\le|D_\sigma(S)|$, and
-$$\delta_\sigma(S)=0\ \Longrightarrow\ \delta_\sigma(S')=0 .$$
-Consequently $\operatorname{Ob}(S')\subseteq\operatorname{Ob}(S)$: the whole obstruction
-$\mathcal O$ is monotone. The same holds verbatim for any coarsening $\iota'\preceq\iota$ of
-instruments in place of $S'\subseteq S$.
-
-*Proof.* Let $x\in\operatorname{Det}_\sigma(S')$, i.e. $\mathfrak h_\sigma x\not\sim_{S'}x$. By
-Lemma 0, $\sim_S\subseteq\sim_{S'}$, so $\mathfrak h_\sigma x\sim_S x$ would give
-$\mathfrak h_\sigma x\sim_{S'}x$; hence $\mathfrak h_\sigma x\not\sim_S x$ and
-$x\in\operatorname{Det}_\sigma(S)$. The statement for $D$ is immediate from the definition,
-which is a restriction of the same condition to $t\in S'$. The implication on $\delta$ is the
-case $\operatorname{Det}_\sigma(S)=\varnothing$. For $\operatorname{Ob}$, apply the implication
-loopwise. The general instrument case replaces the appeal to Lemma 0's subset clause by its
-definitional clause. $\square$
-
-Four lines, as predicted. Note what is **not** claimed: nothing is asserted about
-$\delta_\sigma(S')<\delta_\sigma(S)$, and nothing about *growing* $\mathcal T$ (the transmission's
-§F warns that $\mathcal T_\alpha\subseteq\mathcal T_{\alpha+1}$ **or not** — the measurement
-domain may change non-monotonically, and then Theorem 1 says nothing at all: it is a statement
-about comparable instruments only, and §F's $\Phi_{\mathrm{cut}}$ produces incomparable ones).
-
-**Theorem 2 (the strictness condition — the content).** With $S'\subseteq S$ and $\sigma$ fixed,
-$$\operatorname{Det}_\sigma(S')\subsetneq\operatorname{Det}_\sigma(S)
-\iff \exists x\in X:\ \mathfrak h_\sigma x\not\sim_S x\ \text{ and }\ \mathfrak h_\sigma x\sim_{S'}x,$$
-i.e. iff some point's displacement is witnessed **only** by discarded tests. Writing
-$W_\sigma(x):=\{t\in\mathcal T: e(\mathfrak h_\sigma x,t)\ne e(x,t)\}$ for the witness set of $x$,
-this reads
-$$\operatorname{Det}_\sigma(S')\subsetneq\operatorname{Det}_\sigma(S)
-\iff \exists x:\ \varnothing\ne W_\sigma(x)\cap S\ \subseteq\ S\setminus S' .$$
-In particular the total collapse
-$$\delta_\sigma(S')=0\ \wedge\ \delta_\sigma(S)\ne0
-\iff \varnothing\ne\ \bigcup_{x}\bigl(W_\sigma(x)\cap S\bigr)\ \text{ and }\ W_\sigma(x)\cap S'=\varnothing\ \text{ for every }x .$$
-And $t\in S$ is **$\sigma$-critical for $S$** — its removal alone strictly lowers the defect —
-iff $\exists x$ with $W_\sigma(x)\cap S=\{t\}$.
-
-*Proof.* ($\Leftarrow$) Such an $x$ lies in $\operatorname{Det}_\sigma(S)\setminus\operatorname{Det}_\sigma(S')$,
-and the inclusion of Theorem 1 is then proper. ($\Rightarrow$) Properness of the inclusion
-supplies $x\in\operatorname{Det}_\sigma(S)\setminus\operatorname{Det}_\sigma(S')$, which is
-verbatim the displayed condition. The reformulation through $W_\sigma$ is the observation that
-$\mathfrak h_\sigma x\sim_Ux\iff W_\sigma(x)\cap U=\varnothing$ for any $U\subseteq\mathcal T$.
-The total-collapse and criticality clauses are the special cases
-$\operatorname{Det}_\sigma(S')=\varnothing\ne\operatorname{Det}_\sigma(S)$ and
-$S'=S\setminus\{t\}$. $\square$
-
-**Corollary 2.1 (the degenerate shrink, and why the slogan is licensed).** Take $S'=\varnothing$.
-Then $\sim_\varnothing$ is total, $\operatorname{Det}_\sigma(\varnothing)=\varnothing$, and
-$$\delta_\sigma(\varnothing)=0\quad\text{for every holonomy datum whatsoever,}$$
-however wild $\mathfrak h_\sigma$ is. So $\delta=0$ is *unconditionally achievable by shrinking*
-and therefore carries, by itself, exactly zero information about $\mathfrak h_\sigma$. That is
-शून्यवक्रता $\ne$ सत्य, proved. Theorem 2 says the drop from $S$ to $\varnothing$ is strict
-precisely when some $\mathfrak h_\sigma$ moved a point detectably at all — i.e. the instrument
-was doing work, and shrinking destroyed the evidence rather than the defect.
-
-**Proposition 3 (when $\delta=0$ *is* truth; §G's `SearchSep` identified).**
-If $S$ is separating (Def. 3.2) then
-$$\delta_\sigma(S)=0\iff\mathfrak h_\sigma=\operatorname{id}_X .$$
-*Proof.* $\Leftarrow$ trivial. $\Rightarrow$: $q_S$ is injective when $\sim_S$ is equality, so
-$q_S\mathfrak h_\sigma=q_S$ gives $\mathfrak h_\sigma x=x$ for all $x$. $\square$
-
-Hence in §G's predicate
-$\operatorname{Advance}\iff\operatorname{Verify}\wedge\operatorname{SearchSep}(\mathcal T)\wedge\cdots$,
-the conjunct $\operatorname{SearchSep}(\mathcal T)=1$ is **exactly** the hypothesis converting
-$\delta=0$ from vacuity into a theorem about the object. Read this way §G's anti-degeneracy
-clause is not an extra axiom but the contrapositive of Corollary 2.1: $\delta=0$ is admissible
-evidence only relative to a certified-separating instrument. This is the only sentence in this
-note I did not find already written down somewhere, and it is a corollary, not a discovery.
-
-## 5. $\delta=0\not\Rightarrow\operatorname{Advance}$: a finite counterexample, exhaustively verified
-
-Per `CLAUDE.md`, a **finite exhaustive verification is proof**. Everything below is a check of
-at most eight equalities between elements of a two-element set, done by hand and displayed in
-full, so the reader verifies it rather than trusting it.
-
-**Example 5.1 (non-degenerate shrink: $S'\ne\varnothing$).**
-$$X=\{a,b\},\qquad \mathcal T=\{t_1,t_2\},\qquad Q=\{0,1\},$$
-$$e(a,t_1)=0,\quad e(b,t_1)=1,\qquad e(a,t_2)=0,\quad e(b,t_2)=0 .$$
-Charts $\mathcal F=\{i,j\}$, transports $\rho_{ij}=\text{swap }(a\leftrightarrow b)$,
-$\rho_{ji}=\operatorname{id}$; the loop $\sigma=(i,j,i)$ has
-$\mathfrak h_\sigma=\rho_{ji}\circ\rho_{ij}=\text{swap}\ne\operatorname{id}_X$.
-(Transports are not required to be mutually inverse — Def. 3.4.)
-
-*Full instrument $S=\mathcal T$.* $e(\mathfrak h_\sigma a,t_1)=e(b,t_1)=1\ne0=e(a,t_1)$, so
-$a\in\operatorname{Det}_\sigma(S)$; likewise $e(\mathfrak h_\sigma b,t_1)=e(a,t_1)=0\ne1$, so
-$b\in\operatorname{Det}_\sigma(S)$. Thus $\operatorname{Det}_\sigma(\mathcal T)=\{a,b\}$,
-$D_\sigma(\mathcal T)=\{(a,t_1),(b,t_1)\}$, $|D|=2$, and $\delta_\sigma(\mathcal T)\ne0$.
-
-*Shrunken instrument $S'=\{t_2\}$.* $e(\mathfrak h_\sigma a,t_2)=e(b,t_2)=0=e(a,t_2)$ and
-$e(\mathfrak h_\sigma b,t_2)=e(a,t_2)=0=e(b,t_2)$. All (both) points check out:
-$\operatorname{Det}_\sigma(S')=\varnothing$, $D_\sigma(S')=\varnothing$, $\delta_\sigma(S')=0$.
-
-Four evaluations exhaust the pairs $(x,t)$ used; two more, $e(a,t_1),e(b,t_1)$, are quoted above.
-So: **$\delta=0$ under the shrunken test set, $\delta\ne0$ under the larger, with the shrunken
-set non-empty.** The transported object is genuinely wrong (it swaps $a$ and $b$) and the
-instrument reports perfection. Advance fails here for the reason Prop. 3 predicts:
-$\operatorname{SearchSep}(S')=0$, since $a\sim_{S'}b$. The strictness of Theorem 2 is visible:
-$W_\sigma(a)=W_\sigma(b)=\{t_1\}$, so $t_1$ is $\sigma$-critical, and it is exactly the discarded
-test.
-
-**Minimality 5.2.** Example 5.1 is minimal in all three parameters simultaneously, among examples
-with $S'\ne\varnothing$:
-- $|Q|\ge2$: if $|Q|=1$ then $\sim_S$ is total for every $S$ and $\delta_\sigma(S)=0$ always,
-  so no larger set can have $\delta\ne0$.
-- $|X|\ge2$: if $|X|=1$ then $\mathfrak h_\sigma=\operatorname{id}$ forcibly and $\delta\equiv0$.
-- $|\mathcal T|\ge2$: with $S'\subsetneq S\subseteq\mathcal T$ and $S'\ne\varnothing$ we need
-  $|S|\ge2$.
-- $|\mathcal F|\ge2$ **given Def. 3.4 as stated**, since a loop needs at least one edge and I
-  wrote loops as strings $(i_0,\dots,i_n,i_0)$ with $n\ge1$. If self-transitions $\rho_{ii}$ are
-  admitted, $|\mathcal F|=1$ with $\rho_{ii}=\text{swap}$ works and is smaller; I state the bound
-  under the convention actually used and note it is convention-dependent.
-
-Dropping the requirement $S'\ne\varnothing$, the minimum is $|X|=2,|\mathcal T|=1,|Q|=2$ with
-$S=\{t_1\}$, $S'=\varnothing$ — Corollary 2.1's degenerate case, which needs no example at all
-since it holds identically.
-
-**What Example 5.1 does and does not refute.** It refutes $\delta=0\Rightarrow\operatorname{Advance}$
-and, more sharply, $\delta=0\Rightarrow\mathfrak h_\sigma=\operatorname{id}$. It does **not**
-refute anything about $\operatorname{Advance}$'s other four conjuncts, which are undefined in the
-transmission at the level of precision needed to falsify them, and I make no claim about them.
-
-## 6. §J3: $\delta_\sigma=0\ \not\Leftarrow\ \delta^{\mathrm{base}}_\sigma=0$
-
-The transmission's vector-valued defect
-$\delta_\sigma=(\delta^{\mathrm{sem}},\delta^{\mathrm{proof}},\dots,\delta^{\mathrm{prov}})$ with
-"$\pi\mathfrak H_\sigma=1\wedge\widetilde{\mathfrak H}_\sigma\ne1\Rightarrow$ hidden curvature"
-is the *value-coarsening* instance of Definition 3.3, and therefore an instance of Theorem 1 —
-not a separate phenomenon. Precisely:
-
-**Proposition 4.** Let $\pi:Q\to Q^{\mathrm{base}}$ be any map, and let
-$e^{\mathrm{base}}:=\pi\circ e$ define the base Chu space on the *same* $X,\mathcal T$. Then
-$\iota^{\mathrm{base}}_{S}\preceq\iota_S$ for every $S$, hence
-$\delta_\sigma(S)=0\Rightarrow\delta^{\mathrm{base}}_\sigma(S)=0$, and the converse fails.
-
-*Proof of the implication.* $e(x,t)=e(x',t)\Rightarrow\pi e(x,t)=\pi e(x',t)$, so
-$\sim_S\subseteq\sim^{\mathrm{base}}_S$; apply Theorem 1 in its instrument form. $\square$
-
-*Proof of failure of the converse — Example 6.1, exhaustive.*
-$$X=\{a,b\},\quad\mathcal T=\{t\},\quad Q=\{0,1\}\times\{0,1\}\ \ (\text{coordinates: sem, prov}),\quad \pi=\text{first projection},$$
-$$e(a,t)=(0,0),\qquad e(b,t)=(0,1),$$
-with $\mathcal F,\rho,\sigma$ as in Example 5.1, so $\mathfrak h_\sigma=\text{swap}$.
-Base: $e^{\mathrm{base}}(a,t)=0=e^{\mathrm{base}}(b,t)$, so $a\sim^{\mathrm{base}}_{\mathcal T}b$,
-$e^{\mathrm{base}}(\mathfrak h_\sigma a,t)=0=e^{\mathrm{base}}(a,t)$ and symmetrically for $b$;
-$\delta^{\mathrm{base}}_\sigma(\mathcal T)=0$. Total: $e(\mathfrak h_\sigma a,t)=e(b,t)=(0,1)\ne(0,0)=e(a,t)$,
-so $\operatorname{Det}_\sigma(\mathcal T)=\{a,b\}$ and $\delta_\sigma(\mathcal T)\ne0$. Two
-evaluations of $e$ and their two images under $\pi$ exhaust the check. $\square$
-
-This is the transmission's गुह्यवक्रता (hidden curvature) exhibited: the *sem* component is
-flat, the *prov* component is not, and a reader who projects sees nothing. Size
-$(|X|,|\mathcal T|,|Q|)=(2,1,4)$; $|Q|=4$ is forced only by the requirement that $\pi$ be
-non-injective with a two-element fibre, i.e. $|Q|\ge2$ and $|Q^{\mathrm{base}}|\ge1$ with a
-collapsed pair — $Q=\{0,1\}$ and $\pi$ constant is smaller and works identically, at the cost of
-the "component" reading. I keep the product form because it is the transmission's own picture.
-
-**Corollary 5 (unification).** §J2 and §J3 are one theorem. Discarding tests and coarsening
-values are both coarsenings of the instrument $\iota$, and Theorem 1 is stated at that level. The
-transmission's two separate boxed non-implications are the two ways of shrinking an instrument.
-
-## 7. What is *not* proved here — scope limits
-
-Explicitly, and per §J4, which already says so:
-
-1. **The ordinal ladder §C** ($\delta^{(n)}\to\chi^{(n+1)}\to\delta^{(n+1)}$,
-   $\delta^{(\lambda)}=\operatorname{hocolim}$, $\partial\delta^{(\lambda)}\ne0\Rightarrow\lambda\mapsto\lambda+1$):
-   untouched. No convergence, no smallness, no well-definedness of $\Gamma$ on $\mathcal O_\alpha$,
-   $\kappa$ unspecified. Nothing here bears on it.
-2. **The step functor $\mathfrak F$ and $\mathbb B=\int^\alpha\Diamond_\alpha$** (§E): untouched.
-   In particular $\mathfrak F_{\alpha+1}\succeq\mathfrak F_\alpha$ is not proved and is not
-   Theorem 1 in disguise — Theorem 1 orders *instruments*, not step functors, and I assert no
-   bridge.
-3. **$\operatorname{Advance}$'s other conjuncts** (`Verify`, `PreserveProv`, `UsefulEscape`,
-   `DeclaredBoundaryPreserved`): undefined at the needed precision; §5 refutes the implication
-   from $\delta=0$ only, by making `SearchSep` fail. It does not show the implication would
-   survive if `SearchSep` held — Prop. 3 shows only that $\delta=0$ then forces
-   $\mathfrak h_\sigma=\operatorname{id}$, which is not `Advance`.
-4. **Non-monotone test change** (§F's "or not"): Theorem 1 is silent whenever $S,S'$ are
-   $\preceq$-incomparable, which is the generic case for $\Phi_{\mathrm{cut}}$'s adjunctions
-   (Fourier, Mellin, Loc, Lift, …). The slogan therefore applies to *shrinking*, not to
-   *changing*, and no note should cite it for the latter.
-5. **Yang–Baxter defect** (§D): not addressed.
-6. **Infinite $\mathcal F$, infinite $X$**: Theorems 1–2 and Props 3–4 use no finiteness; only
-   §5–§6's counterexamples are finite, which is the direction finiteness is wanted. The
-   cardinal-valued readings $|{\operatorname{Det}}|,|D|$ are monotone as cardinals in general.
-7. Per §J6: this note supplies **no licence** to relabel existing results in $\delta$-notation.
-
-**Substrate.** No Python written, modified, or run. No Agda or Lean authored and no typechecking
-claimed — there is no toolchain in this container. No PDF decoded; §2 names exactly which
-sources were read as HTML and which were not read at all. No floating-point quantity appears in
-this note; every number in §5–§6 is a cardinality of a set with at most four elements, listed.
+1. **The order on defects.** Inclusion of subsets of $X$ (with cardinality as a
+   scalar shadow). Not a norm, not a metric — those would require choices the
+   transmission does not make.
+2. **The sense of $\ominus 1$.** Observational: $\mathfrak h_\sigma \ominus 1$
+   is not "the automorphism minus the identity" (there is no subtraction in
+   $\operatorname{Aut}(X)$) but *the locus at which the tests can see that
+   $\mathfrak h_\sigma$ is not the identity.* This is forced: $\delta$ must
+   depend on $\mathcal T$ or the claim is vacuous.
+3. **Strictness.** Weak. See §3, where the failure of strictness is exhibited
+   and the exact criterion for strict decrease is proved.
 
 ---
 
-*Question and framework: the owner, D0016, 2026-08-14. Proof, strictness condition, and
-counterexamples: seed148, 2026-08-14.*
+## 1. Definitions
+
+**Definition 1.1 (Chu space).** A Chu space over a value set $Q$ is a triple
+$\mathcal C = (X,\mathcal T,e)$ with $e : X\times\mathcal T\to Q$. Elements of
+$X$ are *points*, of $\mathcal T$ are *tests*. (Barr's $\mathrm{Chu}(\mathbf{Set},Q)$;
+Pratt's matrix presentation, rows $=$ points, columns $=$ tests.)
+
+**Definition 1.2 (separation).** For $S\subseteq\mathcal T$,
+$$x\sim_S x' \iff \forall t\in S,\; e(x,t)=e(x',t).$$
+This is an equivalence relation on $X$ (not merely a preorder: it is the kernel
+of $x\mapsto e(x,-)|_S$). The mandate says "preorder"; the honest statement is
+that it is an equivalence, and I use that.
+
+**Definition 1.3 (charted Chu space).** A *charted* Chu space is
+$(\mathcal C, I, \rho)$ where $I$ is an index set and
+$\rho_{ij}\in\operatorname{Aut}(X)$ for $i,j\in I$, with $\rho_{ii}=\mathrm{id}$.
+$N(I)$ denotes the nerve: simplices are tuples $\sigma=(i_0,\dots,i_n)$.
+
+*Remark.* The transmission's $\rho_\alpha$ are transition maps between charts
+$X_i$. Taking all $X_i = X$ is the case after a choice of trivialisation; for a
+simplex based at $i_0$ the holonomy lands in $\operatorname{Aut}(X_{i_0})$
+anyway, so nothing below is lost. I do **not** treat the case where the charts
+carry *different* test sets; that is a genuine generalisation and is out of
+scope (§6).
+
+**Definition 1.4 (holonomy).** For $\sigma=(i_0,\dots,i_n)\in N(I)$,
+$$\mathfrak h_\sigma := \rho_{i_0i_n}^{-1}\,\rho_{i_{n-1}i_n}\cdots\rho_{i_0i_1}\;\in\;\operatorname{Aut}(X).$$
+$\mathfrak h_\sigma = \mathrm{id}$ for all $\sigma$ iff $\rho$ is a cocycle
+($\rho_{jk}\rho_{ij}=\rho_{ik}$); this is the standard descent obstruction, and
+it is the transmission's $\mathfrak H_\sigma$.
+
+**Definition 1.5 (observable defect).** For $S\subseteq\mathcal T$,
+$$\boxed{\;\delta^S_\sigma \;:=\; \{\,x\in X \;:\; \mathfrak h_\sigma x \not\sim_S x\,\}\;\subseteq X.\;}$$
+The *total obstruction* is $\mathcal O(S):=(\delta^S_\sigma)_{\sigma\in N(I)}$,
+ordered componentwise by inclusion. When $X$ and $N(I)$ are finite, write the
+scalar shadow $\|\mathcal O(S)\| := \sum_\sigma|\delta^S_\sigma|$.
+
+**Definition 1.6 (detector set).** For $x\in X$ and $\sigma$,
+$$D_\sigma(x) := \{\,t\in\mathcal T : e(\mathfrak h_\sigma x, t)\ne e(x,t)\,\}.$$
+Thus $x\in\delta^S_\sigma \iff D_\sigma(x)\cap S \ne \emptyset$. This
+reformulation is the whole engine; everything in §2–§3 is a remark on it.
+
+**Definition 1.7 (Shrink).** $\operatorname{Shrink}$ is the passage
+$\mathcal T\rightsquigarrow\mathcal T'$ with $\mathcal T'\subseteq\mathcal T$.
+This is the reading §F licenses ("$\mathcal T_\alpha\subseteq\mathcal T_{\alpha+1}$
+**or not**"); the case where $\mathcal T'\not\subseteq\mathcal T$ is *not*
+Shrink and nothing here applies to it. I flag that because §F explicitly warns
+that the measurement domain itself changes, and the theorem below does **not**
+cover that case.
+
+---
+
+## 2. Monotonicity
+
+**Lemma 2.1 (coarsening).** If $S'\subseteq S\subseteq\mathcal T$ then
+$\sim_S \;\subseteq\; \sim_{S'}$ as relations: $S$-indistinguishability implies
+$S'$-indistinguishability.
+
+*Proof.* If $e(x,t)=e(x',t)$ for all $t\in S$, then in particular for all
+$t\in S'\subseteq S$. $\square$
+
+**Theorem 1 (Shrink $\Rightarrow$ $\delta\downarrow$; weak).**
+Let $(\mathcal C,I,\rho)$ be a charted Chu space and $S'\subseteq S\subseteq\mathcal T$.
+Then for every $\sigma\in N(I)$,
+$$\delta^{S'}_\sigma \;\subseteq\; \delta^{S}_\sigma,$$
+hence $\mathcal O(S')\le\mathcal O(S)$ componentwise, and (finite case)
+$\|\mathcal O(S')\|\le\|\mathcal O(S)\|$. In particular
+$\delta^{\emptyset}_\sigma=\emptyset$ for every $\sigma$, whatever $\rho$ is.
+
+*Proof.* $x\in\delta^{S'}_\sigma$ means $D_\sigma(x)\cap S'\ne\emptyset$
+(Def. 1.6). Since $S'\subseteq S$, $D_\sigma(x)\cap S\supseteq D_\sigma(x)\cap S'\ne\emptyset$,
+so $x\in\delta^S_\sigma$. The last clause: $D_\sigma(x)\cap\emptyset=\emptyset$
+always. $\square$
+
+That is the theorem. It is one line, as §J2 predicted, and the prediction that
+it is *immediate* was right. **The inequality is $\le$, not $<$**, and §3 shows
+it cannot be improved to $<$: the slogan's "$\downarrow$" must be read as
+non-increase.
+
+**Remark 2.2 (why it is a Galois connection).** Consider the polarity between
+$\mathcal T$ and the set $P$ of ordered pairs from $X$, with
+$t \mathrel{R} (x,x') \iff e(x,t)\ne e(x',t)$ ("$t$ separates"). Then
+$S\mapsto \operatorname{Sep}(S):=\{(x,x') : \exists t\in S,\, tR(x,x')\}$ is the
+monotone existential image, and $\delta^S_\sigma$ is the pullback of
+$\operatorname{Sep}(S)$ along $x\mapsto(\mathfrak h_\sigma x, x)$. Monotonicity
+of an existential image is Theorem 1. The complementary map
+$S\mapsto\;\sim_S$ is antitone and is the polar; the pair
+$(\operatorname{Sep},\;\sim)$ is the standard Birkhoff polarity. Nothing here is
+new — see §7.
+
+---
+
+## 3. The exact strictness criterion — the content
+
+Weak monotonicity alone does not license *"zero curvature is not truth"*: one
+also needs to know *when* shrinking actually buys a lower defect, and when it
+buys nothing. The following is an equality, not a bound.
+
+**Theorem 2 (difference formula).** For $S'\subseteq S\subseteq\mathcal T$ and
+any $\sigma$,
+$$\boxed{\;\delta^S_\sigma\setminus\delta^{S'}_\sigma \;=\; \bigl\{\,x\in X \;:\; \emptyset\ne D_\sigma(x)\cap S \subseteq S\setminus S'\,\bigr\}.\;}$$
+Consequently:
+
+1. $\delta^{S'}_\sigma \subsetneq \delta^{S}_\sigma$ **iff** there exists a
+   point $x$ whose entire $S$-detector set is destroyed by the shrink, i.e.
+   $\emptyset\ne D_\sigma(x)\cap S\subseteq S\setminus S'$.
+2. $\delta^{S'}_\sigma = \delta^{S}_\sigma$ **iff** every $S$-detected point
+   retains at least one detector in $S'$.
+
+*Proof.* $x\in\delta^S_\sigma\setminus\delta^{S'}_\sigma$ iff
+$D_\sigma(x)\cap S\ne\emptyset$ and $D_\sigma(x)\cap S'=\emptyset$. The second
+condition says $D_\sigma(x)\cap S$ meets no element of $S'$, i.e.
+$D_\sigma(x)\cap S\subseteq S\setminus S'$. Conjoining gives the displayed set.
+(1) and (2) are the non-emptiness and emptiness of that set. $\square$
+
+**Corollary 3.1 (criticality of a single test).** Removing one test $t$ from
+$S$ strictly lowers $\delta_\sigma$ **iff** $t$ is the *unique* detector of some
+point: $\exists x,\; D_\sigma(x)\cap S=\{t\}$. Otherwise $\delta_\sigma$ is
+unchanged.
+
+*Proof.* Theorem 2 with $S'=S\setminus\{t\}$: the difference set is
+$\{x : \emptyset \ne D_\sigma(x)\cap S\subseteq\{t\}\}$. $\square$
+
+**Corollary 3.2 (strictness is impossible in general).** The map
+$S\mapsto\delta^S_\sigma$ is monotone but not injective. Any $S$ containing a
+*redundant* test — one detecting no point that is not detected by another test
+in $S$, and in particular any test that detects nothing — can be deleted with
+$\delta_\sigma$ constant. Hence **§G's $\downarrow$ is weak and no hypothesis
+short of criticality makes it strict.**
+
+*Proof.* Immediate from Cor. 3.1; a witness is Example E1 below with the roles
+of $t_1,t_2$ exchanged (delete the constant column $t_2$: $D_\sigma(x)=\{t_1\}$
+for both points, $t_2$ is nobody's detector, $\delta$ unchanged). $\square$
+
+**Corollary 3.3 (total collapse).** $\delta^{S}_\sigma=\emptyset$ for all
+$\sigma$ iff $\mathfrak h_\sigma = \mathrm{id}$ modulo $\sim_S$ for all $\sigma$;
+this holds *unconditionally* for $S=\emptyset$, and more generally whenever
+$\mathfrak h_\sigma$ preserves every $\sim_S$-class setwise. In particular
+vanishing of the obstruction is a statement about $S$ at least as much as about
+$\rho$.
+
+This is the precise form of the slogan. The obstruction $\mathcal O$ is not an
+invariant of $(\rho, X)$; it is an invariant of $(\rho, X, S)$, and it is
+monotone in $S$ with the exact defect-loss given by Theorem 2.
+
+---
+
+## 4. Resolution monotonicity: §J2 and §J3 are one lemma
+
+§J3 asserts $\delta_\sigma = 0 \not\Leftarrow \delta^{\mathrm{base}}_\sigma = 0$
+— a projection can kill curvature the total object retains. That is the same
+statement in the *other* argument of $e$.
+
+**Definition 4.1 (resolution).** A resolution of $\mathcal C$ is a pair
+$r=(S,\pi)$ with $S\subseteq\mathcal T$ and $\pi : Q\to Q_r$ any function. Set
+$$\delta^r_\sigma := \{\,x : \exists t\in S,\ \pi e(\mathfrak h_\sigma x,t)\ne \pi e(x,t)\,\},\qquad
+D^r_\sigma(x):=\{t\in S : \pi e(\mathfrak h_\sigma x,t)\ne\pi e(x,t)\}.$$
+Order resolutions by $r'\preceq r$ iff $S'\subseteq S$ and $\pi'=\varphi\circ\pi$
+for some $\varphi : Q_r\to Q_{r'}$ (i.e. $\pi'$ is coarser).
+
+**Theorem 3 (resolution monotonicity).** $r'\preceq r \Rightarrow \delta^{r'}_\sigma\subseteq\delta^r_\sigma$
+for all $\sigma$; and
+$\delta^r_\sigma\setminus\delta^{r'}_\sigma=\{x : D^r_\sigma(x)\ne\emptyset,\ D^{r'}_\sigma(x)=\emptyset\}$.
+
+*Proof.* Let $x\in\delta^{r'}_\sigma$, witnessed by $t\in S'$. Then
+$\varphi\pi e(\mathfrak h_\sigma x,t)\ne\varphi\pi e(x,t)$; since $\varphi$ is a
+function, $\pi e(\mathfrak h_\sigma x,t)\ne\pi e(x,t)$, and $t\in S'\subseteq S$,
+so $x\in\delta^r_\sigma$. The difference formula is the definition of set
+difference applied to $x\in\delta^r \iff D^r_\sigma(x)\ne\emptyset$. $\square$
+
+Theorem 1 is the case $\pi'=\pi=\mathrm{id}_Q$; §J3's implication is the case
+$S'=S$. So:
+
+**Corollary 4.2.** $\delta_\sigma = 0 \Rightarrow \delta^{\mathrm{base}}_\sigma = 0$
+holds always (take $r' = $ base, $r = $ total). The converse fails (Ex. E2).
+The arrow in §J3 is therefore correctly oriented in the transmission, and the
+transmission's *one-directional* writing of it is exactly right: the implication
+that holds is the one it does not claim, and the one it denies is the one that
+fails.
+
+---
+
+## 5. The counterexamples, and their minimality
+
+### E1 — $\delta = 0$ does not give Advance
+
+$X=\{x_0,x_1\}$, $Q=\{0,1\}$, $\mathcal T=\{t_1,t_2\}$, matrix (rows points,
+columns tests)
+
+| | $t_1$ | $t_2$ |
+|---|---|---|
+| $x_0$ | 0 | 0 |
+| $x_1$ | 1 | 0 |
+
+Charts $I=\{0,1,2\}$; $\rho_{01}=\rho_{12}=\mathrm{id}$, $\rho_{02}=\mathrm{sw}$
+(the transposition), all other $\rho_{ij}=\mathrm{id}$. For $\sigma=(0,1,2)$,
+$\mathfrak h_\sigma=\rho_{02}^{-1}\rho_{12}\rho_{01}=\mathrm{sw}$.
+
+- $\mathcal T$ (full): $D_\sigma(x_0)=D_\sigma(x_1)=\{t_1\}$, so
+  $\delta^{\mathcal T}_\sigma=\{x_0,x_1\}\ne\emptyset$.
+- $\mathcal T'=\{t_2\}$ (a shrink, and *nonempty* — the degenerate
+  $\mathcal T'=\emptyset$ is not needed): $D_\sigma(x)\cap\mathcal T'=\emptyset$
+  for both points, so $\delta^{\mathcal T'}_\sigma=\emptyset$.
+
+So the defect vanishes under the shrunken test set and does not under the larger
+one. This is Theorem 2 case (1) with $D_\sigma(x)=\{t_1\}\subseteq\mathcal T\setminus\mathcal T'$
+— a *strict* decrease, and by Cor. 3.1 the strictness is exactly because $t_1$
+is the unique detector.
+
+**Why this refutes $\delta = 0\Rightarrow\operatorname{Advance}$.** §G leaves
+$\operatorname{SearchSep}$ undefined. I define it, relative to a reference test
+set $\mathcal T$: $\operatorname{SearchSep}_{\mathcal T}(\mathcal T')=1$ iff
+$\sim_{\mathcal T'}\;=\;\sim_{\mathcal T}$, i.e. the working test set separates
+everything the reference separates. *(This definition is mine; the transmission
+supplies none, and the proposition below is only as strong as it.)*
+
+**Proposition 5.1.** In E1, $\delta^{\mathcal T'}_\sigma=\emptyset$ for every
+$\sigma\in N(I)$, yet $\operatorname{SearchSep}_{\mathcal T}(\mathcal T')=0$;
+hence $\operatorname{Advance}$ fails while $\delta=0$.
+
+*Proof.* Every $\mathfrak h_\sigma$ in E1 is $\mathrm{id}$ or $\mathrm{sw}$;
+for $\mathrm{id}$, $\delta=\emptyset$ trivially, and for $\mathrm{sw}$,
+$\delta^{\{t_2\}}=\emptyset$ as computed, since column $t_2$ is constant. And
+$x_0\sim_{\mathcal T'}x_1$ (both $0$ at $t_2$) while $x_0\not\sim_{\mathcal T}x_1$
+(they differ at $t_1$), so $\sim_{\mathcal T'}\ne\sim_{\mathcal T}$ and the
+conjunct $\operatorname{SearchSep}=1$ of §G fails. $\operatorname{Advance}$ is a
+conjunction, so it fails. $\square$
+
+**Theorem 5 (minimality of E1, by exhaustion).** Suppose $(X,\mathcal T,e)$,
+$\mathfrak h\in\operatorname{Aut}(X)$, and $\emptyset\ne\mathcal T'\subsetneq\mathcal T$
+satisfy $\delta^{\mathcal T'}=\emptyset\ne\delta^{\mathcal T}$. Then
+$|X|\ge 2$, $|Q|\ge2$, $|\mathcal T|\ge2$. Each bound is attained
+simultaneously by E1, and at $(|X|,|\mathcal T|,|Q|)=(2,2,2)$ exactly $4$ of the
+$16$ Chu matrices work, all isomorphic to E1.
+
+*Proof.*
+*(Bounds.)* If $|Q|=1$ then $e$ is constant and $D_\sigma(x)=\emptyset$ for all
+$x$, so $\delta^{\mathcal T}=\emptyset$ — contradiction. If $|X|=1$ then
+$\operatorname{Aut}(X)=\{\mathrm{id}\}$, so $\mathfrak h x = x$ and again
+$\delta^{\mathcal T}=\emptyset$. If $|\mathcal T|\le1$ then
+$\emptyset\ne\mathcal T'\subsetneq\mathcal T$ is impossible.
+
+*(Exhaustion at $(2,2,2)$.)* Take $X=\{x_0,x_1\}$, $Q=\{0,1\}$,
+$\mathcal T=\{t_1,t_2\}$, $\mathcal T'=\{t_2\}$ (the only nonempty proper
+subsets are $\{t_1\},\{t_2\}$, exchanged by relabelling). $\operatorname{Aut}(X)=\{\mathrm{id},\mathrm{sw}\}$;
+$\mathfrak h=\mathrm{id}$ gives $\delta=\emptyset$ always, so $\mathfrak h=\mathrm{sw}$.
+A column $t$ is a pair $(e(x_0,t),e(x_1,t))\in Q^2$, four possibilities. With
+$\mathfrak h=\mathrm{sw}$: $x_0\in\delta^{\{t\}}\iff e(x_1,t)\ne e(x_0,t)\iff$
+column $t$ non-constant, and symmetrically for $x_1$; so
+$\delta^{\{t\}}=X$ if $t$ is non-constant and $\emptyset$ if $t$ is constant,
+and $\delta^{S}=\bigcup_{t\in S}\delta^{\{t\}}$. Hence the requirement is:
+$t_2$ constant ($2$ columns: $(0,0),(1,1)$) **and** $t_1$ non-constant
+($2$ columns: $(0,1),(1,0)$). That is $2\times2=4$ of the $4\times4=16$
+matrices, and the four are carried onto one another by the two relabellings of
+$Q$ and of $X$, so all are isomorphic to E1. The check is finite and complete.
+$\square$
+
+*Remark 5.2.* Dropping invertibility of $\mathfrak h$ (allowing non-iso
+transition maps) does not lower the bounds: $|X|=1$ still forces
+$\mathfrak h=\mathrm{id}$. It does add solutions at $(2,2,2)$ — the two constant
+endomaps of $X$ — which detect only one point rather than two. E1 remains
+minimal; it is no longer unique.
+
+*Remark 5.3.* Two charts suffice: with $I=\{0,1\}$, $\rho_{01}=\mathrm{sw}$,
+$\rho_{10}=\mathrm{id}$ and $\sigma=(0,1,0)$ one gets
+$\mathfrak h_\sigma=\rho_{00}^{-1}\rho_{10}\rho_{01}=\mathrm{sw}$. The
+three-chart presentation is used above only because it reads more cleanly.
+
+### E2 — §J3: $\delta_\sigma = 0 \not\Leftarrow \delta^{\mathrm{base}}_\sigma = 0$
+
+$X=\{x_0,x_1\}$, $Q=\{0,1\}$, $\mathcal T=\{t_1\}$, $e(x_i,t_1)=i$,
+$\mathfrak h_\sigma=\mathrm{sw}$ as in E1. Base projection
+$\pi : Q\to Q_{\mathrm{base}}=\{*\}$.
+
+- Total resolution $r=(\mathcal T,\mathrm{id}_Q)$: $\delta^r_\sigma=\{x_0,x_1\}\ne\emptyset$.
+- Base resolution $r^{\mathrm{base}}=(\mathcal T,\pi)\preceq r$:
+  $\pi e(\mathfrak h x,t_1)=*=\pi e(x,t_1)$, so $\delta^{r^{\mathrm{base}}}_\sigma=\emptyset$.
+
+So $\delta^{\mathrm{base}}_\sigma=0$ while $\delta_\sigma\ne0$: the projection
+kills curvature the total object retains. This is the transmission's *hidden
+curvature* ($\pi\mathfrak H_\sigma=1 \wedge \widetilde{\mathfrak H}_\sigma\ne1$),
+now with a two-by-one witness.
+
+**Minimality of E2.** $|X|\ge2$ and $|Q|\ge2$ by the argument of Theorem 5;
+$|\mathcal T|\ge1$ since $\delta^r\ne\emptyset$ requires a detecting test; and
+$\pi$ must be non-injective. E2 realises $(|X|,|\mathcal T|,|Q|,|Q_{\mathrm{base}}|)=(2,1,2,1)$,
+all minimal. Up to relabelling of $X$ and $Q$ it is the unique such example:
+with $|\mathcal T|=1$ and $\mathfrak h=\mathrm{sw}$ the single column must be
+non-constant, which is $2$ of the $4$ columns, exchanged by the relabelling of
+$Q$.
+
+---
+
+## 6. What this does **not** prove
+
+Stated explicitly, because the transmission's §J4 asks for it and because a
+program written as a boxed display is still a program.
+
+- **The ordinal ladder §C.** $\delta^{(n)}\to\chi^{(n+1)}\to\delta^{(n+1)}$, the
+  hocolim at limits, and $\partial\delta^{(\lambda)}\ne0\Rightarrow\lambda\mapsto\lambda+1$:
+  untouched. No convergence, no smallness, no proof that $\Gamma$ is well
+  defined on $\mathcal O_\alpha$, no value for $\kappa$.
+- **The step functor $\mathfrak F$ and $\mathfrak F_{\alpha+1}\succeq\mathfrak F_\alpha$.**
+  Untouched. I do not know that $\mathfrak F$ is a functor.
+- **$\mathbb B=\int^{\alpha}\Diamond_\alpha$ and the closure claim §E.** Untouched.
+- **The seven components of $\delta_\sigma$** ($\delta^{\mathrm{sem}}$, …,
+  $\delta^{\mathrm{prov}}$). I prove a theorem about the *observational
+  skeleton* of a defect and about coarsening of the value set (Thm 3), which is
+  the shape a component-projection has. I do **not** prove the seven components
+  are independent, well defined, or exhaustive.
+- **$\operatorname{Advance}$ beyond one conjunct.** $\operatorname{Verify}$,
+  $\operatorname{PreserveProv}$, $\operatorname{UsefulEscape}$,
+  $\operatorname{DeclaredBoundaryPreserved}$ are undefined in the transmission
+  and I do not define them. Prop. 5.1 refutes the implication by falsifying
+  $\operatorname{SearchSep}$ **under my Def. in §5**; a different definition of
+  $\operatorname{SearchSep}$ could in principle rescue the implication, and I
+  say so rather than hiding it. What is unconditional is the *mathematical*
+  half: $\delta$ vanishing under a shrunken $\mathcal T$ while non-vanishing
+  under a larger one (E1) — that needs no definition of Advance at all.
+- **The Yang–Baxter defect §D.** Untouched.
+- **Changing test sets.** Def. 1.7 covers $\mathcal T'\subseteq\mathcal T$ only.
+  §F's warning that "the measurement domain itself changes" describes the case
+  $\mathcal T'\not\subseteq\mathcal T$, where Theorem 1 is simply false: adding
+  one test and deleting another can raise or lower $\delta$ arbitrarily. Nothing
+  here bears on that case, which is the interesting one for §C.
+- **Charts with distinct test sets.** Def. 1.3 gives every chart the same
+  $(\mathcal T, e)$. The genuinely fibred case is not treated.
+- **No machine verification.** No Agda or Lean was authored and none was
+  typechecked; there is no toolchain in this container. Every proof above is
+  finite, elementary, and checked by hand; Theorem 5 is a complete enumeration
+  of $16$ cases, done in §5 and reproducible by reading it.
+
+---
+
+## 7. Prior art, and the novelty claim
+
+Searched **before** writing, per `CLAUDE.md`. What I actually read: the nLab
+page *Chu space*; the Wikipedia page *Formal concept analysis*; search-result
+excerpts of the Wikipedia *Chu space* page and of Pratt's Chu-space notes. I did
+**not** read any PDF (they do not decode in this container), so De
+Nicola–Hennessy 1984 and Ganter–Wille 1999 are cited from their standard
+statements, not from a text I opened, and I mark them as such.
+
+- **Chu spaces**: Chu 1979 (the construction, in Barr's *\*-Autonomous
+  Categories*, LNM 752); Barr 1991/1996; Pratt 1992–1999. A Chu space is
+  *separated* when all rows are distinct and *extensional* when all columns are
+  distinct — i.e. when $\sim_{\mathcal T}$ and $\sim_X$ are trivial. The
+  separated quotient $X/\!\sim_{\mathcal T}$ is standard, as is the observation
+  that separatedness of $(X,\mathcal T,e)$ over $Q=2$ is the $T_0$ axiom.
+- **The polarity**: the pair (antitone $S\mapsto\;\sim_S$, monotone
+  $S\mapsto\operatorname{Sep}(S)$) is a Birkhoff polarity (*Lattice Theory*,
+  1940, chapter on Galois connections), and Ore's "Galois connexions" (1944).
+  In formal concept analysis the derivation operators
+  $A\mapsto A'$, $B\mapsto B'$ of a context $(G,M,I)$ form exactly this Galois
+  connection (Wille 1982; Ganter–Wille 1999); *object clarification* is the
+  quotient by $\sim_M$, and its coarsening under attribute restriction is
+  folklore there.
+- **Testing semantics**: "fewer tests distinguish fewer processes" is the
+  monotonicity underlying testing preorders, De Nicola–Hennessy, *Testing
+  equivalences for processes*, TCS 34 (1984).
+- **Holonomy/descent**: $\mathfrak h_\sigma=\mathrm{id}$ for all $\sigma$ iff
+  $\rho$ is a Čech 1-cocycle is the definition of the descent obstruction; not
+  new by any margin.
+
+**Therefore: Theorems 1 and 3 are classical in substance** — the monotone half
+of a Galois polarity, specialised along $x\mapsto(\mathfrak h_\sigma x,x)$. I
+claim no novelty for them and I would not have run an experiment to find them.
+What I have not located in the literature, and offer as at most a small
+contribution:
+
+1. the *difference formula* Thm 2 and its corollary that strict decrease is
+   exactly the destruction of some point's whole detector set (Cor. 3.1) — this
+   is elementary enough that it is probably folklore in FCA under a name like
+   "reducible attribute"; I state it as a likely rediscovery;
+2. the observation that §J2 and §J3 are the two coordinate directions of the
+   single resolution-monotonicity lemma (Thm 3);
+3. the minimal counterexample with its exhaustive uniqueness count (Thm 5).
+
+An honestly-labelled rediscovery beats a false novelty claim. This is one.
+
+---
+
+## 8. What the theorem licenses, and at what generality
+
+Only this, and I write it at the generality I can defend:
+
+> For a defect measured as *the set of points on which the tests can see the
+> holonomy move them*, deleting tests never raises the defect, and lowers it
+> exactly on those points whose every detector was deleted. Hence a report of
+> "$\delta=0$" carries no information at all unless the test set is also
+> reported, and it carries **no** information about $\rho$ when the test set is
+> not separating.
+
+Not licensed: any claim about defects measured otherwise (norms, spectra,
+probabilities); any claim under test-set *change* rather than shrinkage; any
+claim about the ordinal ladder. §J5 of the transmission notes that tonight's
+fleet measurement (`0742-seed141`) is the same statement in another vocabulary.
+It is *analogous*, and the analogy is worth recording, but Theorem 1 does not
+prove anything about grep recall — a lexical sweep is not a Chu space until
+someone says what $X$, $\mathcal T$ and $e$ are, and I have not.
+
+---
+
+*Question and framework: the repository owner, D0016, 2026-08-14. Definitions
+1.2–1.7, Theorems 1–5 and the counterexamples: this note. No experiment was
+run; no floating-point number appears above.*
