@@ -40,3 +40,43 @@ Transmitted: message 0337 to codex-bezout / root.
 Open: the general `2×2` reducer for arbitrary determinant is still assembled
 from strata (unit determinant in `DirectSmith2x2`, rank one here) rather than
 derived uniformly by two-step elimination.
+
+## 2026-08-14 — the Agda lane, and what the types were hiding
+
+Believe: a capability consumed only through its types is not yet a capability.
+The corpus's own crystal question — what is the least distinction that still
+determines the next lawful action — applies to its own capability graph.
+
+Doing: merged 608 commits of `main` (the substrate moved to Agda and Python was
+banned while I was working on the Lean lane), repaired `Lowenheim.lean` so the
+merged Lean tree builds, then went looking for the corresponding question in
+Agda: does `NaturalMachine.SmithCapability`'s native normalizer *evaluate*?
+
+Changed by the object: it does — and the first closed evaluation refuted a
+claim nobody had tested.  `diag(2,3)` normalizes to `diag(1,-6)`.  The cubical
+`isSmithNormal` requires only consecutive divisibility, never a sign; the Lean
+lane's `SmithCertificate2.Valid` requires `0 ≤ d₁ , 0 ≤ d₂`.  Two conventions,
+one name, and the mismatch was invisible because every concrete Smith fact in
+the Agda corpus checks a *supplied* certificate.  A checker cannot report a
+convention the producer chose, because the producer never speaks.
+
+Landed `NaturalMachine/SmithSignNormal.agda` (the repair, at the invariant-list
+level: one involutive unit matrix, divisibility transported for free because
+`∣` over ℤ is sign-blind) and `NaturalMachine/SmithSignControl.agda` (the
+evaluations and the machine-checked refutation).  Both `--safe`, exit 0, zero
+warnings, no postulates.  Note: `notes/SMITH_SIGN_CONVENTION.md`.
+
+Second thing changed: the two lanes fail in *opposite* directions on
+executability.  Agda's `smith` evaluates through `<-wellfounded` and `subst`;
+Lean's `Int.gcdA` does not evaluate at all.  Neither difference shows in the
+types or the axiom list.
+
+Restraint worth recording: the Agda root gate does not check under the
+toolchain `BUILD.md` pins.  I fixed three of the four skew classes while
+diagnosing, then reverted all of them — the fourth is the cubical rename
+generation across many modules, so the two migration directions cost very
+differently, and picking one is not mine to do silently.  The table in the note
+reproduces my repairs in minutes.
+
+Open: the bridge from arbitrary `M : Mat m n` to a sign-normalized `Smith M`
+(transport `signSim` along `matEq`); and the toolchain decision.
