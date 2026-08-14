@@ -59,14 +59,18 @@ and let
 E(X)=|\mathcal E_{\mathbb P}\cap[4,X]|.
 \]
 
-This is the unweighted ordered count.  On the repository's exact carrier,
-`Pairfield.GoldbachBoundary` proves
+This is the elementary unweighted ordered count.  On the repository's exact
+finite carrier, `Pairfield.GoldbachBoundary` proves the corresponding support
+statement for its cardinality:
 
 \[
-r_{\mathbb P}(N)>0
+0<\operatorname{goldbachCount}(N)
 \iff \operatorname{GoldbachAt}(N)
 \iff \operatorname{PrimeCenterFiber}(N,N)\text{ is inhabited}.
 \]
+
+Identifying this finite cardinality with the displayed indicator sum is a
+finite reindexing; only the common zero/nonzero support is used below.
 
 The concurrently present `Pairfield.GoldbachWeightedBoundary` proves the same
 support statement for the prime-log antidiagonal coefficient and keeps the
@@ -144,7 +148,7 @@ for all sufficiently large `X`.  Dividing by `X^theta` gives
 \frac{X^{1-\theta}}{4h_X}\longrightarrow\infty,
 \]
 
-contradicting `E(X)<=C X^theta`.  Therefore there is no `N_0`. `square`
+contradicting `E(X)<=C X^theta`.  Therefore there is no `N_0`. \(\square\)
 
 At `theta=0.709`, the exponent budget is exactly `1-theta=0.291`.  A fixed
 positive `h` is more than enough; the scale-dependent statement above exposes
@@ -235,7 +239,7 @@ center forces another.  The method is explicitly transference-inspired, but
 the conclusion remains “almost all”; the exceptional set is where the
 Fourier-closeness approximation is allowed to fail.
 
-Under RH, Chirre--Valas Hagen,
+Under RH, Chirre--Valås Hagen,
 [`2512.23534v1`](https://arxiv.org/html/2512.23534v1), prove that every
 `(x,x+123 log^2 x]` contains a Goldbach number.  Even this much stronger
 success-gap statement is compatible with a singleton failure between two
@@ -258,7 +262,7 @@ of failures.  Moreover, even if one incorrectly replaced it by a shift law at
 scale `h_X asymp X^0.525`, iteration would produce only `asymp X^0.475`
 exceptions, far fewer than the allowed `O(X^0.709)`.
 
-Matomaki--Merikoski,
+Matomäki--Merikoski,
 [`2112.11412v2`](https://arxiv.org/html/2112.11412v2), obtain formulas uniform
 in the shift for prime correlations under the additional hypothesis of a
 Siegel zero.  Their Goldbach theorem evaluates each center through a
@@ -365,8 +369,8 @@ current repository theorem provides it.
   `NaturalMachine.PairReflectionSector`.  The concurrent
   `Pairfield.GoldbachWeightedBoundary` source was also inspected read-only.
 - **Primary-source statement grade:** arXiv HTML for Zhao v1/v2,
-  Bhowmik--Grimmelt v2, Grimmelt v2, Chirre--Valas Hagen v1, and
-  Matomaki--Merikoski v2; journal-publisher abstract for
+  Bhowmik--Grimmelt v2, Grimmelt v2, Chirre--Valås Hagen v1, and
+  Matomäki--Merikoski v2; journal-publisher abstract for
   Baker--Harman--Pintz.  The 2025--2026 papers are preprints except where their
   pages state an accepted/to-appear status; no peer-review inference is made.
 - **Exact hand proof here:** the propagation upgrade lemma, difference
