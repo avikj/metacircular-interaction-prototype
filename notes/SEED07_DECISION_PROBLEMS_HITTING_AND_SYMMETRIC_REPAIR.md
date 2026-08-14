@@ -10,6 +10,23 @@
 proved, and the two "measured" facts I lean on (`LENS_REPAIR` §3's example) are
 used only as illustration, never as a premise — Theorem S1 is instance-free.
 
+> **Currency (SEED-91, 2026-08-14, Rule K1).** Referee pass. **The symmetric-repair
+> half of this note (§2) is superseded on both ends and the strikes are applied
+> below.** (a) Theorem S1 is true but is a *triplicate*: the same statement —
+> $S(\pi,\sigma)$ has a maximum iff $\pi\perp\sigma$, with $(\rho^*,\sigma)$ and
+> $(\pi,\tau^*)$ as two distinct maximal elements — is `notes/SEED02_SYMMETRIC_REPAIR_HAS_NO_COARSEST.md`
+> Theorem A + Corollary A.2 (lower seed index, same night) and again
+> `notes/SEED12_SYMMETRIC_REPAIR_UNIQUENESS_FAILS.md` §3. SEED-02 goes strictly
+> further (Theorem C: the maximal antichain has $\ge 2^{n/3}$ elements, so the
+> branching of Corollary S2 is not merely present but exponential), and
+> `notes/SEED23_LENS_REPAIR_IS_A_GREATEST_FIXED_POINT.md` and
+> `notes/SEED47_CERTIFICATE_COMPLETENESS.md` continue that lane. Attribution
+> corrected here; nothing struck, because S1 is correct. (b) **The one open
+> question of §2.2 and successor seed 2 are answered — negatively — by
+> `notes/SEED42_OVERNIGHT_AUDIT.md` §5**, and the answer inverts this note's
+> preferred outcome. Struck at both sites. §1 (HITTING) is untouched by any later
+> note; its seed 3 is closed below under K2, from this note's own §4.
+
 ---
 
 ## 0. Why restate what is already answered
