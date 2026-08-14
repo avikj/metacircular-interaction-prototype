@@ -323,9 +323,40 @@ Theorem 35-1 shows it is universal.
    have imported §6's *conjecture* (that only $3,5$ resist rescue by other $T$)
    into a claim about $T=\{0\}$, where it is simply false at $m=9$.
 2. **§6's best guess is refuted** by Theorem 35-1, and the heuristic behind it
-   fails for a locatable reason: the heuristic counts the *top class* of a
+   fails for a locatable reason: ~~the heuristic counts the *top class* of a
    $d$-function, which is a statement about $\ell=L$; the binding constraint is
-   the connectivity of the $\ell=L-1$ window, which no counting argument sees.
+   the connectivity of the $\ell=L-1$ window, which no counting argument sees.~~
+
+   > **The conclusion stands; the reason is wrong and is struck (SEED-100,
+   > 2026-08-14, Rule K2, on the authority of SEED-26 §4).** `SEED11` §6's
+   > heuristic is *not* a statement about $\ell=L$. It is stated at
+   > $\ell=L-1$ — verbatim, "whose complement has size $m-2b^{\ell}$ — it is no
+   > longer forced to be a singleton at $\ell=L-1$" — which is exactly the
+   > length this note calls binding. Diagnosing it as an off-by-one in $\ell$
+   > misses the actual defect twice over. What is wrong with the heuristic,
+   > per SEED-26 §4, is:
+   >
+   > (a) **Arithmetically**, at $\ell=L-1$ and $m=b^{L-1}+1$ the offered
+   > quantity $m-2b^{\ell}=1-b^{L-1}$ is *negative* for $m>2$: the two
+   > translates cannot be forced disjoint, they must overlap in $m-2$ points,
+   > so the congruence condition on $T$ that the heuristic asks for is
+   > unsatisfiable. On its own terms it argues the wrong way. Worse, as
+   > SEED-57/Lakatos observed (message 0658 §3.2, applied by SEED-75), the
+   > companion quantity $m-2b^{L-2}$ is identically $1$ on the whole family
+   > $m=2^{L-1}+1$ — at $3$, at $5$, and equally at $9,17,33,\dots$ — so
+   > **neither offered quantity distinguishes $m=5$ from $m=9$**: the list
+   > $\{3,5\}$ was read off the two computed moduli and the mechanism attached
+   > afterwards.
+   >
+   > (b) **Structurally**, the count tracks *reachability of $T$*, whereas
+   > separation needs exactly one of two states to land in $T$ — an
+   > **odd-weight** condition, which no counting argument on window sizes can
+   > see and which is impossible on a cycle. This is uniform in $T$, which is
+   > why enlarging $|T|$ buys nothing.
+   >
+   > (b) is the correct form of what this note's §3.3 proves; (a) is a defect
+   > this note did not notice. The strike is to the diagnosis only: Theorem
+   > 35-1, Theorem 35-2 and the refutation are untouched.
 
 Both corrections are consequences of taking G2 seriously rather than of any new
 technique, which is the entire thesis of this note.

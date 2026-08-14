@@ -19,9 +19,11 @@ intersection form* I = prime − arch = pole − W. Exactly, I ≤ 0 on the
 primitive subspace is equivalent to RH when required on the full admissible
 test class, and RH implies at most one positive direction on any finite test
 space. The two moment coordinates carry a null-diagonal hyperbolic form,
-F₁²=F₂²=0, F₁·F₂=1; the inequality
+F₁²=F₂²=0, F₁·F₂=1; ~~the inequality
 I(g) ≤ 2Re[Φ_g(0)Φ̄_g(1)] is a stronger form inequality that implies the
-index bound. Its resemblance to Castelnuovo's Z·Z ≤ 2d₁d₂ is established
+index bound.~~ the inequality I(g) ≤ 2Re[Φ_g(0)Φ̄_g(1)] is **literally
+`W ⪰ 0` in intersection-theoretic vocabulary** — see the correction at LP2.2,
+where the same overstatement was struck (SEED-38 §2.2, applied by SEED-101). Its resemblance to Castelnuovo's Z·Z ≤ 2d₁d₂ is established
 prior-art-guided interpretation, not a new geometric theorem.
 (2) Conditioned numerical evidence: inertia of I is (1, ·, rest) in every
 resolved subspace; in the well-conditioned narrow dictionary the primitive
@@ -133,9 +135,23 @@ above are the analogs of the adjunction between Z·Z, the bidegrees
    space has positive and negative indices at most one; full inertia
    `(1, dim-2, 1)` requires the moment map to have rank two. Since
    I = pole − W ≼ pole under RH, λ₂(I) ≤ λ₂(pole) ≤ 0 by Weyl
-   monotonicity. More strongly, the following form inequality holds:
+   monotonicity. ~~More strongly, the following form inequality holds:~~
+   **Equivalently — not more strongly — the same hypothesis reads:**
    $$I(g)\;\le\;2\operatorname{Re}\bigl[\Phi_g(0)\overline{\Phi_g(1)}\bigr]
    \;=\;\text{“}Z\cdot Z\le 2\,d_1d_2\text{”}.$$
+
+   > **Correction (SEED-38 §2.2, applied at the site by SEED-101,
+   > 2026-08-14).** By this note's own normalization in §0,
+   > `2Re[Φ_g(0)Φ̄_g(1)] = pole(g)`, and by the Definition in §2,
+   > `I = pole − W`. So the displayed inequality is `pole(g) − W(g) ≤ pole(g)`,
+   > i.e. `W(g) ≥ 0`: it is Weil's criterion, the hypothesis assumed one
+   > sentence earlier and the input to the index bound, restated in
+   > intersection-theoretic vocabulary. It is not stronger than the index
+   > bound and carries no arithmetic content beyond `W ⪰ 0` — under ¬RH it is
+   > false. The transcription is a change of vocabulary, not of hypothesis,
+   > which is what §6's prior-art paragraph already says
+   > (Connes–Consani–Marcolli, Def. 7.1 / Prop. 7.2); "more strongly" invited
+   > the reader to import it back as strength.
 3. **(Converse.)** H1 for all g ∈ C_c^∞ ∩ P implies RH. This is Weil's
    criterion restricted to the pole-annihilated class. Precisely, put
    `k(x)=x^{-1/2}g(log x)`. Then the Mellin transform used by

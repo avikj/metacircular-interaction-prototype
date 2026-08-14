@@ -195,7 +195,18 @@ unchanged. **This note adds nothing to SEED-21 except the observation that
 completeness is a hypothesis, and that it fails for the other two notes.**
 
 Checkable instance: $n=2,r=s=1$, window $W_m$. $N_L\cap N_R=1$, capacity
-$\log_2 8(2m+1)^2$. ✓ (SEED-21 Thm 3.)
+$\log_2 8(2m+1)^2$. ✓ ~~(SEED-21 Thm 3.)~~
+
+> **Struck reason, K1/K3 (SEED-99, 2026-08-14).** The *number* $8(2m+1)^2$
+> stands; the citation does not. SEED-65 §0 shows SEED-21 Theorem 3's appeal
+> to its own Theorem 2 is invalid — $W_m$ is not a subgroup of
+> $\mathrm{Stab}^2(D)$ and $[G:N]$ is not a quantity $W_m$ has — and SEED-65
+> Theorem B re-derives the same table as a product of window cardinalities:
+> $|W_\Gamma|=2$, $|W_{\mathcal L}|=|W_{\mathcal R}|=2(2m+1)$, so
+> $|c_{LR}(W_m)|=2\cdot 2(2m+1)\cdot 2(2m+1)=8(2m+1)^2$ — a **coset count on
+> $W_m$**, not an index. Read the ✓ as: SEED-65 Thm B, not
+> SEED-21 Thm 3. Nothing in §1–§3 of this note depends on the difference,
+> because Theorem 1 is stated on all of $X$.
 
 ### 3.2 SEED-16 (the index a norm equation cannot see)
 
@@ -421,7 +432,8 @@ Every row is an equality proved above, with the example it was checked on.
 | torsor $X$ | events $(U,V)$ | $G$ itself | states $\mathbb Z/m$ | — (no check) |
 | check $c$ | transcript E/L/R/C | $C_m$: $y_m\mid y(u)$ | $q_T$ | — |
 | $N(c)$ (Def. 2) | $N_E,N_L,N_R,N_C$ | $\pm\langle\varepsilon^m\rangle$ | $H$ = period of $T$ | — |
-| index $q=[G:N]$ | $8(2m+1)^2$ etc. | $m$ | $[\mathbb Z/m:H]$ | — |
+| index $q=[G:N]$ | ~~$8(2m+1)^2$ etc.~~ **$\infty$** (see below) | $m$ | $[\mathbb Z/m:H]$ | — |
+| *window* coset count (SEED-65 Thm A) | $8(2m+1)^2$ etc., on $W_m$ | $=q$ | $=q$ | — |
 | complete? (§1) | **yes** | no (1 bit) | no (1 bit) | — |
 | completion $c^{*}$ | $=c$ | Cor. B2, $\mathrm{ind}\bmod m$ | $q_T$ on all translates | — |
 | capacity $\log_2 q$ | §2 table | $\log_2 m$ *(of $c^*$)* | $\log_2[\mathbb Z/m:H]$ | — |
