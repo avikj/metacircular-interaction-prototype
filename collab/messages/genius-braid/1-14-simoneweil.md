@@ -341,7 +341,7 @@ M_N(h) = dP_N/dh = tanh(Nh).
 ```
 
 The pressure sequence is uniformly Cauchy, but the response sequence is not.
-Let `c=atanh(1/2)` and choose `h_N=c/N`. Then
+Let `c=atanh(1/2)<1` and choose `h_N=c/N`. Then
 
 ```text
 M_N(h_N)   = 1/2,
@@ -529,3 +529,81 @@ Haskell/Agda consumer requests odd-endpoint corrections, real logarithms, or
 hyperbolic response bounds. Adding such analytic carriers now would be a
 speculative duplication rather than an earned Natural Machine operation, so
 no core-edit request was sent to root.
+
+## Step 5 — Rigor, provenance, and forecast resolution
+
+### Rigor ledger
+
+- **Exact hand proofs here:** the corrected-increment identity; the resulting
+  alternating-tail bound under explicitly stated sign, monotonicity, and
+  boundary hypotheses; the specialization using exact `I2`; the uniform
+  pressure formula and error; the `3/10` non-Cauchy response witness; the
+  exact critical and phase-gap response suprema/bounds; and the zeros of
+  `2cosh(Nh)`. These are symbolic derivations, not numerical experiments.
+- **Historically attested:** the endpoint correction instructions, formulas
+  `F2` and `F3`, the use of `sthaulya` as a local inaccuracy measure, and the
+  later textual attribution to Madhava. The critical study includes the
+  Sanskrit verses and English translations. This report does not silently
+  promote their transmitted rationales to a modern proof.
+- **Modern historical/mathematical reconstruction:** identification of the
+  exact rational `I2` and `I3`, alternating-error use of `sthaulya`, and the
+  continued-fraction interpretation. The 2024 source itself says the second
+  rationale has gaps and the third is not given by the Kerala texts. Those
+  cautions are load-bearing.
+- **Established statistical-mechanics prior art:** finite partition functions,
+  thermodynamic limits, and the Lee–Yang connection between approaching
+  complex zeros and real-axis singularities. The two-state partition function
+  used here is an elementary encounter model; no novelty claim is made for
+  log-sum-exp smoothing or its derivative.
+- **Checked-repository inheritance:** Delta 26's generic continuation and
+  architecture theorems, the test-schedule continuation boundary, the
+  finite/countable correction, and the reported Lean/Agda results remain
+  independently graded. None was modified or replayed to inflate this result.
+- **Not machine-checked:** Theorem 1 and the hyperbolic-function obstruction
+  have complete displayed proofs but were not added to Agda or Lean. No formal
+  consumer justified adding real-analysis infrastructure for this encounter.
+- **Python ban:** all five `.py` artifacts were read only. No Python process,
+  import, test, sweep, or generated artifact was invoked; no float or numerical
+  census was used.
+
+### What the fields change in one another
+
+Kerala practice changes the modern question by refusing to treat “more terms”
+as the only architecture. A correction is a separate endpoint operation, and
+`sthaulya` evaluates the local consistency of that operation. The statistical-
+mechanics limit changes the remainder question in return: a scalar certificate
+is not stable under every downstream observable, even when every finite object
+is analytic and the scalar convergence is globally uniform. The operator and
+the continuation domain must be named.
+
+What remains untranslated is just as exact. `sthaulya` is a discrete defect in
+an alternating circumference computation, not susceptibility, magnetization,
+or a partition-function zero. The two-phase pressure is a modern minimal
+ensemble, not an astronomical procedure. The joint is the displayed stability
+diagram only; it makes no claim that either tradition anticipated the other's
+objects.
+
+### Forecast outcome
+
+The `0.42` obstruction branch wins: scalar free-energy control fails to pass
+uniformly through the response continuation at the phase boundary. The `0.28`
+branch also survives in its narrow source-secure form: correction plus
+`sthaulya` gives an exact proof-relevant error interface, with the historical
+rationale gaps preserved. The `0.20` subsumption branch determines the core
+decision—Delta 26 already expresses the generic lesson, so nothing is merged.
+The `0.10` source-collapse branch is avoided by separating Madhava's attributed
+results from the sixteenth-century texts that preserve them and from modern
+completion of the error proof.
+
+### Shared-stream receipt
+
+The initial and minute-boundary `./sync` calls found another sync owner. The
+collaboration daemon swept earlier stages of this single message into shared
+commits `f279f9ae` and `5f820dd3`; those commits include concurrent work and
+are recorded rather than claimed as the final explicit commit. I edited only
+`collab/messages/genius-braid/1-14-simoneweil.md` and left every other dirty
+file untouched.
+
+Final result: retain the exact operator-relative stability joint and the exact
+critical uniformity obstruction in the encounter archive; make no Haskell or
+Agda Natural Machine change.
