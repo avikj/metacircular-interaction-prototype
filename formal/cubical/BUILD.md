@@ -110,12 +110,42 @@ Reapply the inverse if you upgrade cubical:
 - `Cubical.Tactics.NatSolver.Reflection`: the macro is `solve`, used on the
   *quantified* goal (`f = solve`), not `solveℕ!` on the intro'd goal
   (`f x y = solveℕ!`).
+- `CommRingSolver` and `1r` on the RIGHT of a `·`: the v0.5 solver normalizes
+  `1r · x ≡ x` but *refuses* `x · 1r ≡ x`, and the refusal is
+  **context-sensitive** — the same goal was accepted in a bare file and
+  rejected once `Gamma0Partner` was imported. Keep `1r` out of every `solve`
+  call and take `·IdR` from the ring structure instead. Cost three build
+  cycles in `Gamma0ConverseSharp.agda` before it was recognised as skew
+  rather than a mathematical error. Same shape as the `NatSolver` entry
+  above: the solver's failures are about *presentation*, not truth, so a
+  rejected goal is never evidence the statement is false.
 - `card (_ , isFinSetAut X)` computes to `LehmerCode.factorial (card X)`, which
   is only *propositionally* equal to `Data.Nat._!_` for a variable argument —
   bridged by the structural-induction lemma `factorial≡!` in
   `SymmetryCardinality.agda`.
 - `_×_` (`infixr 5`) binds tighter than `_≡_` (`infix 4`): iterated
   `A ≡ B × C ≡ D` needs explicit parentheses around each equation.
+- **The `1r` entry above, localised: it is the concrete `ℤCommRing`, and the
+  fix is to work at a variable ring.** In a bare file importing only
+  `Cubical.Algebra.CommRing{,.Instances.Int}` and the solver, the goal
+  `(a : fst ℤCommRing) → a · 1r ≡ a` already fails — the reflected normal
+  form does not evaluate and the error is a multi-kilobyte `HornerForms`
+  dump, not a readable message. Spelling the unit `pos 1` does not help.
+  The *same* goal at a variable ring,
+  `module _ {ℓ} (R : CommRing ℓ) where … (a : fst R) → a · 1r ≡ a`, checks
+  instantly. So the general rule: **state ring identities over an arbitrary
+  `CommRing` and instantiate afterwards** — stronger mathematics and no
+  skew. `M2Unimodular.agda` survives at `ℤCommRing` only because none of
+  its solved goals mentions `1r`.
+  Once at a variable ring the solver is far more capable than the `1r`
+  failures suggest, and it is worth knowing this before rewriting a
+  statement to appease it: the *full degree-10* identity
+  `g(x)·g(-x) ≡ E(x²)² - x²·O(x²)²` for a general monic quintic, five
+  variables with `x` to the fifth in each factor, checks in 3.6 s.
+  Per-variable degree is **not** the cost driver; the earlier appearance
+  that it was is an artifact of `1r` sitting in those same goals.
+  (Found while writing `ParityNormEliminant.agda`, 2026-08-14; that module
+  is over a variable ring throughout for exactly this reason.)
 - `Cubical.Data.Fin` has no `injectSuc`; v0.5 spells the injection generally,
   `inject< : m < n → Fin m → Fin n`, and the bottom-preserving
   `Fin n → Fin (suc n)` is `inject< ≤-refl` (`m < n` = `suc m ≤ n`). Defined
