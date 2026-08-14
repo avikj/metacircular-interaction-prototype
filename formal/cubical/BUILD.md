@@ -27,13 +27,43 @@ wording here read "Verified green, every module, exit 0" and was false):
   `DigitTowerLimit`), so the root's exit 0 now covers them. That is the right
   place for them: an orphan that the root does not import is exactly the hole
   that let the earlier overstatement hide.
-- **The directory is still wider than the root.** Four further modules are not
-  imported by `NaturalMachine.agda`: `DigitTowerFin`, `LeakageCommutator`,
-  `WalkCapacity`, `WalkForcing`. All four check exit 0 today, so nothing is
-  hidden, but the same structural gap remains — the honest claim is still
-  "the root aggregate and its transitive imports", not "the directory".
-  Folding those four in (or a `NaturalMachine/All.agda`) would make the two
-  claims coincide; that is an open item for their owners.
+- ~~**The directory is still wider than the root.** Four further modules are
+  not imported by `NaturalMachine.agda`: `DigitTowerFin`, `LeakageCommutator`,
+  `WalkCapacity`, `WalkForcing`. … Folding those four in would make the two
+  claims coincide; that is an open item for their owners.~~
+  **CLOSED 2026-08-14.** `WalkCapacity` and `WalkForcing` were folded in by
+  their own lane; `DigitTowerFin`, `LeakageCommutator` and `WalkInduction`
+  are folded in here. **The root aggregate now transitively reaches every
+  module in `NaturalMachine/`**, so "the root exits 0" and "the directory
+  checks" are the same claim, and quoting either is now honest.
+
+  Note the drift this repaired, because it will recur: the paragraph above
+  said *four*, and by the time it was checked the true count was *three* —
+  two of the named four had been folded in and one new orphan
+  (`WalkInduction`) had appeared. A hand-maintained list of orphans rots in
+  both directions. **The check is mechanical and takes one command**; run it
+  rather than trusting this file:
+
+  ```sh
+  cd formal/cubical
+  rm -rf _build && agda NaturalMachine.agda            # must exit 0
+  for f in NaturalMachine/*.agda; do
+    m=$(basename "$f" .agda)
+    find _build -name "$m.agdai" -path "*NaturalMachine*" | grep -q . || echo "ORPHAN: $m"
+  done                                                 # must print nothing
+  ```
+
+  Grepping `NaturalMachine.agda` for import lines is **not** this check and
+  gives the wrong answer — it reported nine orphans where the interface files
+  showed three, because six were reached transitively. The interface files are
+  the ground truth about what the kernel actually checked.
+
+  A module under active construction by another session will show as an
+  orphan until it lands; that is expected and is not a defect.
+
+- `NaturalMachine/Control/` is excluded on purpose and always will be: its
+  contents are deliberately wrong statements that MUST fail to typecheck. It
+  is not covered by the claim above and must never be imported by the root.
 - Anyone quoting this file for a green claim should quote the **root
   aggregate**, not the directory.
 

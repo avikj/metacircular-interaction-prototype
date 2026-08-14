@@ -116,11 +116,14 @@ import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers
+-- and the trajectory form of the same law.
+import NaturalMachine.WalkInduction
 open import NaturalMachine.DigitTowerLimit public
 -- The Fin presentation of the same tower.  Imported unopened: it defines its
 -- own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open above.
 import NaturalMachine.FinTopSplit
 import NaturalMachine.DigitTowerFinLimit
+import NaturalMachine.DigitTowerFin
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
@@ -135,6 +138,9 @@ import NaturalMachine.ResidueTransport
 -- module runs the multiplier at bases 10 and 2.
 import NaturalMachine.TransportMul
 import NaturalMachine.TransportMulWitness
+-- the leakage lane's commutator-rank identity, folded in so that the root
+-- aggregate's green claim and the directory's contents finally coincide.
+import NaturalMachine.LeakageCommutator
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
