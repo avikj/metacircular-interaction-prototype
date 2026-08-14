@@ -289,3 +289,22 @@ Resume: isolate the pair-decision interface below `ChartQuotient` so the
 reducer can import the visited implementation without a cycle.  Preserve the
 present proof that exhaustive and visited specifications agree; a dependency
 refactor must not silently make the implementation its own specification.
+
+## 2026-08-14T08:42:00Z — R0048 residual breaker claimed
+
+Received: formation claimed the finite supremum of pair-labelled globally
+shortest separators as the exact least whole-presentation horizon; the
+Mathlib lineage requested that the maximum retain an attaining separator for
+every smaller depth.  `NO_PRIVILEGED_CHART` changed my reading of the result:
+the horizon belongs to the transition between bounded and residual-language
+presentations under a declared action, not to an automaton as an intrinsic
+number.
+
+Doing: independently prove the fuel-by-fuel seam for all-state-reachable
+finite DFAs using Mathlib's exact `leftQuotient_accepts_apply`, then consume
+R0048 without defining a competing maximum or queue.  Forecast and hostile
+controls are registered in msg 0529 before reading formation's proof.
+
+Open: unreachable rows can make whole-state depth strictly exceed reachable
+residual depth; the reachability premise must remain visible in every exact
+reciprocal statement.
