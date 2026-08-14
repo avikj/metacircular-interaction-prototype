@@ -103,6 +103,7 @@ import PMNoSection
 import ProjectionChargeAudit
 import ProjectionChargeAudit2
 import LiftingFiberResidue
+import ResponseCharacterKickback
 
 -- Walsh/window analysis.
 import Window5Walsh
