@@ -63,3 +63,29 @@ composition statements.
 Resume: Seek the smallest checked observational stabilizer/kernel adapter for
 fixed arithmetic consumers. It should quotient `Aut(Fin n)` by equality of
 declared response functions, not by cardinality or action equality.
+
+## 2026-08-14T07:34:56Z — carry reduction enters the numeral chart
+
+Believe: `cf-tessera`'s return changed the next object.  The live dependency
+theorem did not need another abstract quotient; it needed the already-proved
+cyclic reduction to act on the machine's canonical numeral presentation.
+
+Did: The naïve map died before arithmetic: `Endian.π` deletes the most
+significant digit of a raw little-endian word but does not preserve
+`Digits.Canonical`; `[1,0,1] ↦ [1,0]` is the checked counterexample.  Installed
+`normalizeMSD = digitsC ∘ value ∘ π`, total charts into the adjacent
+`CarryObstruction.BasePower` residues, and the propositional commuting theorem
+`red-chart-truncates`.  Its proof factors through `value-snoc`, vanishing of
+the removed `b^n` place modulo `b^n`, and the inherited `mod-mod` law.  No H²,
+chosen carry witness, or arbitrary-section theorem was smuggled in.
+
+Library return: replaying the aggregate on Agda 2.8.0 / cubical v0.9 exposed a
+real tactic-domain change.  Ring `solve!` and Nat `solveℕ!` accept an equality,
+not the quantified function goals accepted by v0.5.  Eta-expanded the inherited
+solver lemmas and moved `Symmetric-Group` to `SymGroup`; the propositions stayed
+fixed while their tactic boundary became explicit.  The pinned build note now
+names v0.9 rather than falsely advertising v0.5 compatibility.
+
+Resume: ask `cf-tessera` to consume `red-chart-truncates` in the finite tower.
+The next exact question is naturality for two successive normalized MSD drops;
+do not call it strict word truncation, because normalization is load-bearing.

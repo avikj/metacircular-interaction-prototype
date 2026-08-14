@@ -32,7 +32,6 @@
 module Main (main) where
 
 import qualified Data.Map.Strict as M
-import qualified Data.IntMap.Strict as IM
 import Data.List (sortOn, foldl', intercalate)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
@@ -381,36 +380,6 @@ normalize rs = go (200 :: Int)
                Nothing -> t
                Just t' -> go (k-1) t'
 
--- A round's generated language is downward closed: every proper subterm of a
--- generated term occurs earlier at a smaller size.  We exploit that exact
--- invariant as a collision-free content-addressed DAG.  `NodeId` is assigned
--- by full structural `Term` equality (the Map key), never by a digest.
-type NodeId = Int
-
-normalizeDAG :: [Rule] -> [Term] -> ([Term], Int)
-normalizeDAG rs terms = (map output ids, IM.size memoFinal)
-  where
-    indexed = zip [0..] terms
-    ids = map fst indexed
-    address = M.fromList [ (t, i) | (i, t) <- indexed ]
-    memoFinal = foldl' install IM.empty indexed
-    output i = IM.findWithDefault (error "normalizeDAG: missing node") i memoFinal
-    install memo (i, V v) = IM.insert i (V v) memo
-    install memo (i, F f ts) =
-      let child t = case M.lookup t address >>= (`IM.lookup` memo) of
-            Just nf -> nf
-            Nothing -> t -- external thought terms need not be in the round DAG
-          rebuilt = F f (map child ts)
-      in IM.insert i (normalize rs rebuilt) memo
-
--- Fail closed on semantic drift.  This control is intentionally retained in
--- the live path until the DAG recurrence is indexed by IntrinsicRewrite.Delta.
-normalizeRound :: [Rule] -> [Term] -> ([Term], Int)
-normalizeRound rs terms =
-  let legacy = map (normalize rs) terms
-      dag@(shared, _) = normalizeDAG rs terms
-  in if shared == legacy then dag
-     else error "DAG normalization disagrees with tree normalization"
 
 -- Which way should a proved equation be run?  Getting this wrong is
 -- not a style question: an equation oriented the wrong way makes the
@@ -793,8 +762,7 @@ round1 logh libh ref = do
       rules = usableRules m
       raw = genTerms sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
-      (normalizedRaw, dagNodes) = normalizeDAG rules raw
-      normed = ordNub normalizedRaw
+      normed = ordNub (map (normalize rules) raw)
       classes = M.elems (M.fromListWith (++)
                   [ (fingerprint sem envs t, [t]) | t <- normed ])
       conjectures = ordNub
@@ -856,12 +824,11 @@ round1 logh libh ref = do
   -- worse than none: it is the one that would have shown the rule set
   -- slowing the machine down.  Force the work before stopping the clock.
   let nRaw = length raw
-      nDag = dagNodes
       nNormed = length normed
       nConj = length conjectures
       nFresh = length fresh
       nRes = length results
-  nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nDag `seq` nRaw `seq` return ()
+  nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
   checkedResults <- filterM (kernelAccept logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
@@ -882,8 +849,8 @@ round1 logh libh ref = do
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
   hFlush libh
   hPrintf logh
-    "round %d  vocab=%d size=%d  terms=%d dag=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
-    (mRound m) (mVocab m) (mSize m) (length raw) dagNodes (length normed)
+    "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
+    (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
     prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
   hFlush logh
@@ -976,28 +943,6 @@ round1 logh libh ref = do
 main :: IO ()
 main = do
   args <- getArgs
-  when (args == ["--benchmark-normalizers"]) $ do
-    let syms = take 3 vocabulary
-        rules = definitionsOf syms
-        rounds = [4..7]
-        raws = [ genTerms (arities syms) 3 n | n <- rounds ]
-        force xss = sum [ sum (map size xs) | xs <- xss ]
-        legacy = [ map (normalize rules) raw | raw <- raws ]
-        shared = [ fst (normalizeDAG rules raw) | raw <- raws ]
-    a <- getCPUTime
-    let oldMass = force legacy
-    oldMass `seq` pure ()
-    b <- getCPUTime
-    let newMass = force shared
-    newMass `seq` pure ()
-    c <- getCPUTime
-    unless (legacy == shared && oldMass == newMass) exitFailure
-    let oldMs = fromIntegral (b - a) / (1e9 :: Double)
-        newMs = fromIntegral (c - b) / (1e9 :: Double)
-    hPrintf stdout
-      "same-rounds=4,5,6,7 terms=%d output-mass=%d tree-ms=%.3f dag-ms=%.3f speedup=%.3fx semantics=equal\n"
-      (sum (map length raws)) oldMass oldMs newMs (oldMs / newMs)
-    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw
