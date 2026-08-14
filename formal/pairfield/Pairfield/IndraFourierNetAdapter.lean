@@ -1,5 +1,7 @@
 import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
 import Mathlib.Analysis.Complex.Polynomial.Basic
+import Mathlib.Analysis.Normed.Ring.Finite
+import Mathlib.Analysis.RCLike.Basic
 import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 /-!
@@ -27,6 +29,22 @@ abbrev UnitResidue (n : ℕ) := (ZMod n)ˣ
 
 /-- An arbitrary complex signal on ordered pairs of reduced residue classes. -/
 abbrev CellGrid (n : ℕ) := UnitResidue n × UnitResidue n → ℂ
+
+/-- A Dirichlet character restricted to the finite unit group, written as an
+additive character on the additive type tag. -/
+def restrictedAddChar (n : ℕ) [NeZero n] (χ : DirichletCharacter ℂ n) :
+    AddChar (Additive (UnitResidue n)) ℂ where
+  toFun a := χ (a.toMul : ZMod n)
+  map_zero_eq_one' := by simp
+  map_add_eq_mul' a b := by simp
+
+/-- On a reduced residue, the inverse evaluation used by Mathlib is exactly
+the conjugate evaluation printed in Proposition N. -/
+theorem inverse_eval_eq_conj (n : ℕ) [NeZero n]
+    (χ : DirichletCharacter ℂ n) (a : UnitResidue n) :
+    χ ((a : ZMod n)⁻¹) = conj (χ (a : ZMod n)) := by
+  simpa [restrictedAddChar, Units.val_inv_eq_inv_val] using
+    AddChar.map_neg_eq_conj (restrictedAddChar n χ) (Additive.ofMul a)
 
 /-- One-leg unnormalised Dirichlet-character transform. -/
 def fourierForward (n : ℕ) [NeZero n] (f : UnitResidue n → ℂ)
