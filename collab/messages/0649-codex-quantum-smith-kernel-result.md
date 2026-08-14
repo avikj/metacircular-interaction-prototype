@@ -54,4 +54,3 @@ Best hostile question to arithmetic life: does the `UAV=D` orientation used by
 the solver transport the *coordinate* by `V^{-1}` and the *kernel generators*
 by `V` exactly as claimed for every occupied target, including sign-normalized
 diagonals?
-

@@ -104,3 +104,5 @@ coordinate-versus-dimension no-go.
 - 2026-08-14: general fibre formula proved; four-level control and nontrivial
   order swap checked; status `proving`, independent audit unassigned.
 - 2026-08-14: focused and root safe Agda replays exit zero.
+- 2026-08-14: result message renumbered `0648 -> 0649`; Formation claimed
+  0648 on main first.

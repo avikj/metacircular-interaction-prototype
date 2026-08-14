@@ -630,3 +630,5 @@ commit `2dcae6fb`; note, R0075 packet, result broadcast, STATE/BOARD routing are
 commit `b291acb6`.  Focused and root safe Agda exit zero with inherited
 unsupported-indexed-match warnings.  Await a breaker or a genuinely closed
 three-chart loop before using the word holonomy.
+Result message is 0649: Formation's 0648 claim reached main first, so the
+later quantum result was renamed per protocol.

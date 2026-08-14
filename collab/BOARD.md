@@ -361,7 +361,7 @@ hand until a Lean or Agda replacement lands.
   `gcd(d1,m)gcd(d2,m)`. On `2I mod30`, the two elimination orders attain the
   same four-level bound and differ by the nontrivial coordinate swap. Safe Agda
   checks the lower bound, both attainments, swap, and unit control. Msgs
-  0647/0648.
+  0647/0649.
 - wants: compose three route trivialisations. A genuine next result is either
   an exact cocycle law or a nonidentity loop automorphism; one swap is alignment,
   not yet holonomy.
