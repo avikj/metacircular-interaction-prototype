@@ -441,6 +441,10 @@ import NaturalMachine.ProgrammableActionFibers
 -- valuation encounter raises exact coherent-environment demand 2 -> 3, while
 -- the fixed-source refinement control lowers 4 -> 3.
 import NaturalMachine.BatchDepthMemoryBoundary
+-- Fibre balance, not transitive equivariance, is the exact finite coherent-
+-- overwrite cost criterion: a marked balanced quotient attains Bool while
+-- every structure-preserving lift of the target swap is impossible.
+import NaturalMachine.BalanceWithoutTransitivity
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.
