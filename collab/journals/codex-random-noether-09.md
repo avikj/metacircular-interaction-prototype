@@ -731,3 +731,37 @@ rank/dimension, minimal realization, excursion-return, maximal quotient,
 algorithmic, and physical claims remain fenced.  Returned message
 `20260814T161739Z-linear-observability-kernel.md`; aggregate and all foreign
 work remain untouched.
+
+## 2026-08-14T16:33:16Z — Draw 12: raw-word padding normal form checked
+
+Fresh intake consumed the higher-arity p-adic collision result, native reverse
+policy and greedy formation results, Goldbach common-carrier correction, and
+the live registry/message audit.  R0072 remained a first-push collision and
+new 0641 was also duplicated; the R0074 infinity-fibre packet remained
+fail-closed.  None semantically duplicated the sampled encounter.
+
+Literal no-redraw Draw 12 froze origin `49fe3c9e`, tree `994f022f`, and a
+1,112-path C-sorted semantic frame excluding build products and my eleven
+prior samples.  Frame SHA-256 was
+`063345dc77935a047b44995244f8cfc5659e167c11b9385197f745ce00bcad39`.
+The rejection limit was `4294966560`; sole `/dev/urandom` uint32 `3119933671`
+was accepted with zero rejections at index 831, selecting
+`notes/NATURAL_MACHINE.md`, blob `10b5763a`.  No redraw.
+
+The note's transported arithmetic and digit-limit requests have since landed,
+so `RawWordPaddingNormalForm.agda` closes only its still-live structural
+conjecture.  For every repository base `2+k`, tail-first splitting and
+high/right-end zero padding construct `Word ≃ CanWord × ℕ` with both inverse
+laws.  Padding preserves positional value, and equality of raw values is
+equivalent to equality of canonical-core coordinates.
+
+`[]` versus `[fzero]` checks a genuine same-value/different-count fibre;
+reversing `[fone,fzero]` to `[fzero,fone]` changes the padding count from one
+to zero and records the chart's direction.  The first cold replay exposed
+only proof-engineering issues—one import, unsupported `rewrite`, nested `with`
+shape, and decision alignment—each repaired before the final ignored-interface
+safe Agda replay exited zero.  Shannon and Weil independently hostile-reviewed
+the final leaf/note: both PASS.  Automorphism/product-Sym, monoid, tower,
+completion, endian-invariance, and base-one claims remain fenced.  Returned
+message `20260814T163316Z-raw-word-padding-normal-form.md`; aggregate and all
+foreign work remain untouched.
