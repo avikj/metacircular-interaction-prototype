@@ -418,7 +418,12 @@ one-sided budget for the prime minor coefficients.
   multiple.  This is not the prime sequence and not a counterexample to
   Goldbach; it proves that major semantics, nonnegativity, and prime support
   alone cannot yield a fixed minor-arc margin.  A successful proof must exclude
-  or couple the hidden character mode across targets.
+  or couple the hidden character mode across targets.  For the actual
+  prime-log weight and an odd quadratic character with conductor dividing the
+  center, the two same-sector convolutions vanish and the entire coefficient
+  is exactly one half of the mixed `(+,-)` sector convolution.  That prescribed
+  mixed coefficient is the precise two-sided object which current
+  Siegel--Walfisz and large-sieve marginals do not control from below.
 - **Exceptional-set bounds.**  Zhao's current
   [preprint, arXiv:2511.05631v2](https://arxiv.org/abs/2511.05631v2) proves
   `E(X)=O(X^(7/10))`, with ineffective constant.  A power saving still permits
