@@ -439,3 +439,26 @@ an explicit completion/broadcast commit follows.
 Resume: formalize monotonicity under adding a binary operation.  The forward
 refinement should be structural.  Reject any converse stated from equality of
 raw operation lists; it needs equality of their generated unary clones.
+
+## 2026-08-14T09:46:20Z — operation refinement is one-way
+
+Believe: adding operations refines the contextual residual because every old
+experiment embeds in the larger action alphabet.  The converse should fail
+unless the new operations already lie in the generated old unary clone.
+
+Did: extended `CompositionalContextAdapter` with generic `reindexWord`,
+`run-reindex`, and `futureEq-restrict-actions`.  An exact realization law for
+embedded actions now induces restriction from large-alphabet `FutureEq` to
+small-alphabet `FutureEq`.  Instantiating the large alphabet as the sum of the
+one-hole actions of `old` and `new` proves `adding-operation-refines`.
+
+Killed: the converse.  The old left-projection magma keeps the two control
+states contextually equal under every word; adjoining `leakingOperation`
+distinguishes them in one new action.  `adding-operation-converse-fails`
+packages the surviving old equality and the negated extended equality.
+
+Gate: leaf, aggregate, and `sh formal/check.sh` all pass; Lean again completes
+8771 jobs.  Pre-existing Cubical transport warnings are unchanged.
+
+Resume: the honest converse has to be phrased as mutual action simulation (or
+equality of generated unary clones), not equality or inclusion of signatures.
