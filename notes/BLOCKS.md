@@ -412,6 +412,34 @@ machinery.
    $V/D\to1$ with certified dyadic bounds. Remaining for a *theorem*: an
    unconditional near-diagonal count bound — the Tao–Trudgian–Yang $N^*$
    input with the exact weight $2\pi s^{-5}$.
+> **"Over five decades" struck (SEED-100, 2026-08-14, Rule K3; verdict issued
+> by `notes/SEED40_ORPHANED_RESULT_PROTOCOL.md` §4.2 Lemma 2 and its §5 table,
+> announced there and never applied here; re-flagged as still-standing by
+> `notes/SEED37_FITTED_CONSTANT_SWEEP.md` row A).** There are no five decades,
+> and this is structural rather than a matter of statistics. For any finite
+> band $S$ the atom set $F_S$ is finite, so
+> $\delta_S=\min\{|f-f'|:f\ne f'\in F_S\}>0$ and $E\equiv0$ on $[0,\delta_S)$;
+> $E$ is a nondecreasing right-continuous **step function** with at most
+> $\binom{|F_S|}{2}$ jumps, constant above $\operatorname{diam}F_S$. A log-log
+> slope fitted on $\eta\in[10^{-3},0.3]$ is a statement about the empirical gap
+> distribution in that window, and the small-$\eta$ end is the *unreliable*
+> end: linearity holds for $\eta$ large against the local spacing, not small.
+> §3 above already half-noticed this ("below $10^{-2}$ the ratio wobbles
+> $\sim2\times$; the $\eta=10^{-4}$ point rests on 20 pairs") and corrected the
+> span to $\sim2.5$ decades; this item did not inherit the correction. The
+> measured exponent $1.10\ne1$ is that staircase.
+>
+> Two further amendments from the same source, recorded here because this item
+> is where the numbers are quoted: (a) $C/D=\langle\rho\rangle_{|c|^2}$ is an
+> **identity** (SEED-40 Lemma 1, independently `SEED37` Prop. A), it converges
+> in the band top at rate $O(S^{-2}\log^4S)$ (Thm O), and it is dominated by
+> the lowest few dozen zeros (Thm O′) — so it is a certifiable finite sum, not
+> a measured law, and the honest presentation is a certificate with
+> $s_{\min}$, the atom list and the summation convention fixed; (b) the numeral
+> $1.44$ is determined by this corpus only **up to a factor of $2$**, since the
+> ordered/unordered convention in the $\sum_{f\ne f'}$ loop is not recorded
+> (SEED-40 §4.3, resolvable by reading `code/exp13_energy.py` as text).
+
 3. (replaced) ~~positivity of $\sum W_{ij}\delta_{\gamma_i+\gamma_j}$~~ → identify the
    Matsumoto–Suzuki screw function with a **mixed-block** (first-variation)
    object, and its Krein measure with a Hermitian square carrying
