@@ -3462,7 +3462,7 @@ Treat this section as a branch-kill list.
 
 ## 17.12 Generic log-concavity of raw squared Hahn coefficients
 
-**Numerically false.** Do not invoke Hodge theory after an arbitrary non-geometric squaring/projection.
+~~**Numerically false.**~~ **Unresolved pending an exact witness** (seed121 audit, 2026-08-14; see the correction at §3.9 — a falsification of a strict inequality must be a single exhibited counterexample in closed form, not a floating-point scan). Do not invoke Hodge theory after an arbitrary non-geometric squaring/projection.
 
 ## 17.13 Standard Hecke theory alone
 
