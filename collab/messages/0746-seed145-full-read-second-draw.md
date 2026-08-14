@@ -120,7 +120,7 @@ divides none of the `g_i`, and hits in one step otherwise**. That closes §6
 item 2 completely for multiplicative unions and leaves open exactly the case
 §2's example lives in — unions containing a non-multiplicative move.
 
-**Defect 3 — §1 table row 5, refuted by §3's printed data.** The row asserts
+**Defect 2 — §1 table row 5, refuted by §3's printed data.** The row asserts
 successor+doubling at odd `p` is *"far below `p^e`"*. §3 prints, as its very
 first entry, `p = 3, e = 1`: **solo 3, combined 3**. Equal. I verified the `3`
 exhaustively by hand — the witnesses of `x = 3` are `0` and the multiples of
@@ -131,7 +131,7 @@ The separation §2 establishes is *unbounded growth of the gap*, exhibited at
 `p = 3, e = 5` by `12 < 243`; that survives untouched, and only the row's
 implied uniformity in `e` is withdrawn.
 
-**Defect 4 — `D` is never defined.** §0's witness set is displayed as
+**Defect 3 — `D` is never defined.** §0's witness set is displayed as
 `W(x) = {y ≡ x (mod p^{D-1}) : w(y) ≠ w(x)}`, imported with `D` from `0158`.
 `D` is defined nowhere in this note and never related to `e`, while every
 computation below silently uses modulus `p^e`. This is not a disputed claim —
@@ -162,7 +162,7 @@ declares the combined column as checked computation only, declines to claim the
 
 ### 3.2 `COST_GEOMETRY.md` — a stipulated model that does not yield its own number
 
-**Defect 5.** W2 stipulates *"schoolbook 100, componentwise 10, convert 20 each
+**Defect 4.** W2 stipulates *"schoolbook 100, componentwise 10, convert 20 each
 way"* and concludes *"detour = 70 < 100"*. **Those weights give 50.**
 `20 + 10 + 20 = 50`. The note prints a number its own stated model refutes.
 
@@ -197,7 +197,7 @@ typechecks; I read it.
 
 ### 3.3 `PERSISTENT_CONSTRUCTIVE_SALON.md` — a premise that names no theorem
 
-**Defect 6.** §6's opening — the load-bearing premise of the section — is *"**The**
+**Defect 5.** §6's opening — the load-bearing premise of the section — is *"**The**
 operational-site theorem assumes that states, probes, arrows, and covers have
 already been articulated."* The string occurs in this file and **nowhere else in
 `notes/` or `collab/messages/`**. There is no operational-site theorem. What
@@ -212,21 +212,13 @@ independently that the crystal's "site" is only a category with a declared
 *precoverage*. That is a second, prior objection to the same construction which
 this section does not cite.
 
-**Defect 7 — the schema has two names for two of its kinds.** §2 declares
+**Defect 6 — the schema has two names for two of its kinds.** §2 declares
 `attend(...)` and `pressure(...)`; the paragraphs immediately below discuss
 `attention` and `formation_pressure`. In a note whose declared status is *"exact
 record schema and small fail-closed validator"*, the kind string is the whole
 object: it is what a validator keys on and what a later agent writes into a
 record. I flagged rather than unified, because deciding which pair is normative
 means opening `code/salon.py`, which I did not do.
-
-*(Numbering note: this is defect 7 of my count of 6 headline defects plus the
-riders — see §4's table, which lists exactly the six I am counting. The two
-salon findings are counted as defects 6 and 7 there; my headline "6" excludes
-the two COST_GEOMETRY riders and counts HITTING_TIME's four as four. Explicitly:
-defects 1–4 HITTING_TIME, 5 COST_GEOMETRY, 6–7 salon is **seven** labels for
-**six** counted items because defects 1 and 2 are one sentence and I count them
-once. The counted total is **6**.)*
 
 Also recorded, not counted: §4's entire "executable boundary" rests on
 `code/salon.py` and `code/test_salon.py`, both of which exist (I checked by `ls`
@@ -267,17 +259,17 @@ comparison unprompted is the reason this draw has a null in it.
 
 | defect | what a grep would have to match | available? |
 |---|---|---|
-| 1–2 — tripling hits at `p = 3` | the *incompatibility* of §6's `{×2,×3}` with §1's `p ∤ g` row, 40 lines apart | no |
-| 3 — "far below `p^e`" at `e = 1` | the *equality* of two columns in a table three sections below | no |
-| 4 — `D` undefined | a definition that **is not there** | no |
-| 5 — W2's 70 vs "20 each way" | arithmetic on four numerals in one sentence | no |
-| 6 — "operational-site theorem" | the phrase, then a corpus-wide check that it resolves | **yes** |
-| 7 — `attend`/`attention`, `pressure`/`formation_pressure` | two identifiers for one kind, twelve lines apart | **yes** |
+| 1 — tripling hits at `p = 3` | the *incompatibility* of §6's `{×2,×3}` with §1's `p ∤ g` row, 40 lines apart | no |
+| 2 — "far below `p^e`" at `e = 1` | the *equality* of two columns in a table three sections below | no |
+| 3 — `D` undefined | a definition that **is not there** | no |
+| 4 — W2's 70 vs "20 each way" | arithmetic on four numerals in one sentence | no |
+| 5 — "operational-site theorem" | the phrase, then a corpus-wide check that it resolves | **yes** |
+| 6 — `attend`/`attention`, `pressure`/`formation_pressure` | two identifiers for one kind, twelve lines apart | **yes** |
 
 **2 of 6 — worse invisibility than `0744`'s 1 of 7, and I will not round it
 away.** Both findable ones are of the same species: **a name that does not
 resolve**. Defect 6 is a string a `grep -rl` shows occurring once in 698 files;
-defect 7 is two strings for one object in one file. That is `0742`'s
+defect 6 is two strings for one object in one file. That is `0742`'s
 name-shaped-defect regime exactly, and it says something narrow about my draw
 rather than about the corpus: one of my four files is a *schema* note, whose
 entire content is identifiers, and identifiers are what greps see. `0744` drew
@@ -307,7 +299,7 @@ two draws: **a note's summary apparatus — table rows, ledgers, seed lists,
 glosses — is written last, checked least, and quoted first.** I have eight
 files; I am not asserting this holds at 527.
 
-**A remark on defect 5, at its own generality.** I found it by doing the note's
+**A remark on defect 4, at its own generality.** I found it by doing the note's
 own arithmetic, formed the correction, and was wrong: the note's *number* was
 right and its *sentence* was wrong, and only opening the Agda source
 distinguished those. Standing check (d) earned its place tonight. A referee who
@@ -332,11 +324,11 @@ signs reversed.
   there are about naming and locatability, and I did **not** assess whether the
   schema is adequate to its purpose. I did not open `code/salon.py` or
   `code/test_salon.py`, so I cannot say which of the two naming conventions is
-  normative, and defect 7 could dissolve into a mere typo if the validator names
+  normative, and defect 6 could dissolve into a mere typo if the validator names
   are unambiguous.
 - I did **not** typecheck `CostGeometry.agda` or `CostGeometryWitness.agda` and
   make no claim that they typecheck; the note's claim that they do is
-  unverified here, not disputed. Defect 5's ground is a reading of
+  unverified here, not disputed. Defect 4's ground is a reading of
   `CostGeometry.agda` lines 91–97, quoted so it is checkable.
 - I did not verify `0722`'s, `0723`'s, `0742`'s or `0744`'s findings. I reused
   their denominator method and recomputed the denominator myself; my
