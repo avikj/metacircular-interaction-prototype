@@ -146,6 +146,52 @@ data SearchProjection = SearchProjection
   , searchResidual :: Maybe (CoverageResidual Int)
   } deriving (Eq, Show)
 
+-- Delta 26: a finite continuation-aware route compiler.  This is not another
+-- Bellman implementation: DSOBellmanFinite.agda already checks the two-route
+-- counterexample.  Here a route is compiled to its observable cost vector over
+-- the continuations whose dependencies are active.  Equal vectors are one
+-- contextual class (while all proof routes are retained); a class is removed
+-- only when another class is pointwise no worse and strictly better somewhere.
+data DSORoute = DSORoute
+  { dsoWitness :: !String
+  , dsoBoundary :: !Bool
+  , dsoLocalCost :: !Int
+  } deriving (Eq, Show)
+
+data DSOContinuation = DSOContinuation
+  { dsoContext :: !String
+  , dsoDependency :: !String
+  , dsoFutureCost :: Bool -> Int
+  }
+
+data DSOClass = DSOClass
+  { dsoProfile :: [Int]
+  , dsoWitnesses :: [String]
+  } deriving (Eq, Show)
+
+data DSOCompilation = DSOCompilation
+  { dsoActiveContexts :: [String]
+  , dsoClasses :: [DSOClass]
+  , dsoSurvivors :: [DSOClass]
+  , dsoRawEvaluations :: !Int
+  , dsoActiveEvaluations :: !Int
+  } deriving (Eq, Show)
+
+compileDSO :: [String] -> [DSOContinuation] -> [DSORoute] -> DSOCompilation
+compileDSO active continuations routes =
+  DSOCompilation (map dsoContext live) classes survivors rawCount activeCount
+  where
+    live = filter (\k -> dsoDependency k `elem` active) continuations
+    profile r = [dsoLocalCost r + dsoFutureCost k (dsoBoundary r) | k <- live]
+    grouped = M.fromListWith (++) [(profile r, [dsoWitness r]) | r <- routes]
+    classes = [DSOClass costs (reverse witnesses)
+              | (costs,witnesses) <- M.toAscList grouped]
+    dominates a b = and (zipWith (<=) (dsoProfile a) (dsoProfile b))
+                  && or (zipWith (<) (dsoProfile a) (dsoProfile b))
+    survivors = [c | c <- classes, not (any (\d -> dominates d c) classes)]
+    rawCount = length routes * length continuations
+    activeCount = length routes * length live
+
 executeBoundedSearch :: BoundedSearch -> SearchProjection
 executeBoundedSearch plan =
   let witnesses = filter (searchPredicate plan) (searchFiber plan)
@@ -1199,6 +1245,33 @@ main = do
             && holonomyFailures compiled ==
                  [HolonomyFailure 1 0 2, HolonomyFailure 2 0 1]) exitFailure
     hPrintf stdout "ENDIAN ATLAS CHECKED: words=4 charts=4 assignments=256 fixed=2 eliminated=254 reversal-tears=2\n"
+    exitSuccess
+  when (args == ["--dso-context-self-test"]) $ do
+    -- `goal` is exactly the K/L table checked in DSOBellmanFinite.agda:
+    -- true has local cost 0 then future cost 2; false has 1 then 0.
+    -- The second active probe makes contextual comparison non-scalar, while
+    -- `diagnostic` is outside this query's dependency cone and is not run.
+    let routes =
+          [ DSORoute "true/direct" True 0
+          , DSORoute "false/direct" False 1
+          , DSORoute "false/factored" False 1
+          , DSORoute "true/detour" True 3
+          ]
+        continuations =
+          [ DSOContinuation "goal" "answer" (\b -> if b then 2 else 0)
+          , DSOContinuation "robustness" "answer" (\b -> if b then 4 else 0)
+          , DSOContinuation "diagnostic" "audit" (\b -> if b then 0 else 100)
+          ]
+        compiled = compileDSO ["answer"] continuations routes
+        localGreedy = dsoWitness (head (sortOn dsoLocalCost routes))
+        expectedClass = DSOClass [1,1] ["false/direct","false/factored"]
+    unless (localGreedy == "true/direct"
+            && dsoActiveContexts compiled == ["goal","robustness"]
+            && expectedClass `elem` dsoClasses compiled
+            && dsoSurvivors compiled == [expectedClass]
+            && dsoRawEvaluations compiled == 12
+            && dsoActiveEvaluations compiled == 8) exitFailure
+    hPrintf stdout "DSO CONTEXT CHECKED: local=true/0 contextual=false/1 routes=4 classes=3 survivors=1 witness-routes=2 continuation-evals=12->8\n"
     exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]

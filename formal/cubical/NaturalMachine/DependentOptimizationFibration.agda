@@ -7,6 +7,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz)
 open import Cubical.Data.Bool using (Bool ; false)
 open import Cubical.Data.Sigma
 open import Cubical.Data.List using ([] ; _∷_)
+open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.FiniteIndraWeave using (TotalView ; Tear ; tear)
@@ -66,15 +67,15 @@ optimizer right-architecture = right-optimizer
 
 left-optimal-architecture : (choice : LocalOptimizer left-architecture)
   → architectureOf (choice .fst) ≡ left-architecture
-left-optimal-architecture ((left-architecture , left-realization) , proof , optimal) = refl
-left-optimal-architecture ((right-architecture , right-realization) , proof , optimal) =
-  ⊥.rec (snotz optimal)
+left-optimal-architecture (((left-architecture , left-realization) , proof) , optimal) = refl
+left-optimal-architecture (((right-architecture , right-realization) , proof) , optimal) =
+  Empty.rec (snotz optimal)
 
 right-optimal-architecture : (choice : LocalOptimizer right-architecture)
   → architectureOf (choice .fst) ≡ right-architecture
-right-optimal-architecture ((left-architecture , left-realization) , proof , optimal) =
-  ⊥.rec (snotz optimal)
-right-optimal-architecture ((right-architecture , right-realization) , proof , optimal) = refl
+right-optimal-architecture (((left-architecture , left-realization) , proof) , optimal) =
+  Empty.rec (snotz optimal)
+right-optimal-architecture (((right-architecture , right-realization) , proof) , optimal) = refl
 
 left≠right : ¬ (left-architecture ≡ right-architecture)
 left≠right ()
@@ -123,12 +124,12 @@ right-view-optimal : cost right-architecture
   (right-point) ≡ 0
 right-view-optimal = refl
 
+iterate : ℕ → Net Architecture Configuration
+  → Net Architecture Configuration
+iterate zero net = net
+iterate (suc n) net = iterate n (Net.next net)
+
 tear-persists : (depth : ℕ)
   → Tear left-architecture (Net.view (iterate depth optimizerNet))
 tear-persists zero = optimizer-tear
 tear-persists (suc depth) = tear-persists depth
-  where
-  iterate : ℕ → Net Architecture Configuration
-    → Net Architecture Configuration
-  iterate zero net = net
-  iterate (suc n) net = iterate n (Net.next net)

@@ -132,6 +132,13 @@ def ReachQueue.nodes (queue : ReachQueue A X) : List (ReachNode A X) :=
 def ReachQueue.states (queue : ReachQueue A X) : List X :=
   queue.nodes.map ReachNode.state
 
+/-- Every closed row has already had every listed action expanded into the
+visited set. -/
+def ReachQueue.ClosedExpanded (M : DFA A X) (alphabet : List A)
+    (queue : ReachQueue A X) : Prop :=
+  ∀ node ∈ queue.closed, ∀ action ∈ alphabet,
+    M.step node.state action ∈ queue.states
+
 def expandFrontier (M : DFA A X) (alphabet : List A)
     (frontier : List (ReachNode A X)) : List (ReachNode A X) :=
   frontier.flatMap fun node => alphabet.map (node.child M)
@@ -201,6 +208,71 @@ theorem advanceReachQueue_frontier_successor [DecidableEq X]
         (expandFrontier M alphabet queue.frontier)
       exact List.mem_append.mpr (Or.inr hkept)
     simpa [candidate, ReachNode.child, heq] using hkeptState
+
+theorem advanceReachQueue_closedExpanded [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    (hclosed : queue.ClosedExpanded M alphabet) :
+    (advanceReachQueue M alphabet queue).ClosedExpanded M alphabet := by
+  intro node hnode action haction
+  change node ∈ queue.closed ++ queue.frontier at hnode
+  rcases List.mem_append.mp hnode with hold | hfrontier
+  · exact advanceReachQueue_states_mono M alphabet queue
+      (hclosed node hold action haction)
+  · exact advanceReachQueue_frontier_successor M alphabet queue
+      hfrontier haction
+
+theorem runReachQueue_closedExpanded [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (round : Nat) :
+    (runReachQueue M alphabet round).ClosedExpanded M alphabet := by
+  induction round with
+  | zero => simp [ReachQueue.ClosedExpanded, runReachQueue, initialReachQueue]
+  | succ n ih =>
+      exact advanceReachQueue_closedExpanded M alphabet
+        (runReachQueue M alphabet n) ih
+
+/-- After one queue round, the successor of every already visited node is
+visited.  Closed nodes use the expansion invariant; frontier nodes are
+expanded by this round. -/
+theorem advanceReachQueue_successor [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    (hclosed : queue.ClosedExpanded M alphabet)
+    {node : ReachNode A X} (hnode : node ∈ queue.nodes)
+    {action : A} (haction : action ∈ alphabet) :
+    M.step node.state action ∈
+      (advanceReachQueue M alphabet queue).states := by
+  change node ∈ queue.closed ++ queue.frontier at hnode
+  rcases List.mem_append.mp hnode with hold | hfrontier
+  · exact advanceReachQueue_states_mono M alphabet queue
+      (hclosed node hold action haction)
+  · exact advanceReachQueue_frontier_successor M alphabet queue
+      hfrontier haction
+
+theorem runReachQueue_successor [DecidableEq X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (round : Nat)
+    {state : X} (hstate : state ∈ (runReachQueue M alphabet round).states)
+    (action : A) :
+    M.step state action ∈ (runReachQueue M alphabet (round + 1)).states := by
+  simp only [ReachQueue.states, List.mem_map] at hstate
+  obtain ⟨node, hnode, heq⟩ := hstate
+  subst state
+  exact advanceReachQueue_successor M alphabet
+    (runReachQueue M alphabet round)
+    (runReachQueue_closedExpanded M alphabet round) hnode (complete action)
+
+/-- Completeness at the exact word length: every control word has deposited
+its endpoint into the visited queue by the corresponding round. -/
+theorem runReachQueue_covers_word [DecidableEq X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (word : List A) :
+    M.eval word ∈ (runReachQueue M alphabet word.length).states := by
+  induction word using List.reverseRecOn with
+  | nil => simp [runReachQueue, initialReachQueue, ReachQueue.states,
+      ReachQueue.nodes]
+  | append_singleton prefix action ih =>
+      have hnext := runReachQueue_successor M alphabet complete
+        prefix.length ih action
+      simpa [DFA.eval, DFA.evalFrom_of_append] using hnext
 
 theorem mem_expandFrontier_valid (M : DFA A X) (alphabet : List A)
     (frontier : List (ReachNode A X))
