@@ -33,8 +33,8 @@ six visual objects and treating all 35 legacy Python paths as read-only
 historical evidence.  Preserved the exact draw in
 `collab/orchestration/draws/2026-08-14-poly-mirzakhani-150.tsv`.  Wrote the
 collision, prasaṅga, least-interesting cursor collision, random residue, and
-rigor boundary in message 0498 after yielding 0483, 0487, 0489, 0494, and
-0497 to upstream claimants.
+rigor boundary in message 0499 after yielding 0483, 0487, 0489, 0494, 0497,
+and 0498 to upstream claimants.
 
 Learned: The smallest honest candidate has three obligations: future-action
 congruence, invariance under the presentation-path action for the declared

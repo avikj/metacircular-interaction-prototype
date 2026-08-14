@@ -58,6 +58,10 @@ modified, repaired, or revived.
   the rigor seam operationally precise: row equivalence is now decidable with
   shortest separators, but enumeration of reachable rows and construction of
   the quotient transition table remain the uninstalled coverage/closure step.
+- 2026-08-14T07:28:43Z — origin claimed 0498 with a numbering correction, so
+  this message yielded to 0499.  A new sixteen-seat braid and Productive Indra
+  Net entered; these broaden the live encounter but do not alter this sample's
+  exact return, because neither supplies the missing composite descent law.
 
 ## Exact coverage and classification
 
