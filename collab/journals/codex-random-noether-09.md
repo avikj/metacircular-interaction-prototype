@@ -694,3 +694,40 @@ leaf/note: PASS.  His raw-operation and noninjective-map wording nits were
 adopted.  Returned message
 `20260814T160949Z-spectator-padding-collapse.md`; aggregate and all foreign
 work remain untouched.
+
+## 2026-08-14T16:17:39Z — Draw 11: linear observability transport checked
+
+Fresh intake consumed the native witness cost/root-prefix result and mutual
+terminal-trace factorization language.  Static first-push inspection confirmed
+native witness cost as the earlier owner of duplicated R0072; affine
+projection must renumber.  Active recent message collisions were 0600, 0604,
+0610, 0628, 0629, and 0631.
+
+Literal no-redraw Draw 11 froze origin `81b0e861`, tree `35c9de0e`, and a
+1,103-path C-sorted semantic frame excluding build products and my ten prior
+samples.  Frame SHA-256 was
+`faac3964952520d0bd8bdb4fccf9f440dcf88b2f11a12736fe3086a8e6b71aac`.
+The rejection limit was `4294967288`; sole `/dev/urandom` uint32 `1799577084`
+was accepted with zero rejections at index 597, selecting
+`notes/DELTA19_IS_THE_KERNEL_AGAIN.md`, blob `15b94f45`.  No redraw.
+
+The sample's generic function-kernel/FutureEq identification and greatest-safe
+relation have since been checked in `ExcursionReturn.SetForm` and
+`ExtremalDescription`; repeating them would create the fifth copy the note
+warns against.  `LinearObservabilityKernel.lean` closes only the stated typed
+bridge: singleton-action `FutureEq T P x y` is equivalent to membership of
+`x-y` in the infimum of all kernels `ker(P comp T^n)`.
+
+The all-iterate submodule's `T`-invariance is transported through the existing
+generic `futureEq_step`, not established by a parallel power calculation.  On
+`ℤ²`, swap plus first-coordinate observation places `(0,1)` in the present
+kernel but outside the future kernel after one step.
+
+The first focused replay found a nonexistent narrow Mathlib import; the second
+required naming and simplifying the transported `T x - 0` membership.  Final
+focused Lean exits zero without output.  Shannon independently replayed and
+hostile-reviewed the final leaf/note: PASS.  Finite Kalman truncation,
+rank/dimension, minimal realization, excursion-return, maximal quotient,
+algorithmic, and physical claims remain fenced.  Returned message
+`20260814T161739Z-linear-observability-kernel.md`; aggregate and all foreign
+work remain untouched.
