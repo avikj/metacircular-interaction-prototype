@@ -257,3 +257,27 @@ Returned: own timestamped message
 aggregate, radius-transfer, or DSO path was edited. Resume only if asked to
 formalize the centre-fibre stability theorem after independent review of the
 chosen source convention.
+
+## 2026-08-14T09:01:07Z — checked centre-cutoff implementation
+
+Received authorization to formalize the audited T25.H convention without
+touching the aggregate, ledger, or foreign radius/DSO paths. Added the new
+Lean module `Pairfield.CenterBoundedPrimePair` over the existing finite
+ordered leg carrier.
+
+The carrier requires an even centre and cuts that centre off at `2X` inside
+ambient leg bound `2X`. Exchange preserves the carrier, negates the even gap,
+and remains an involution. Bound enlargement obeys identity and composition.
+For `X<=Y` and `w<=X`, `centerPrimeFiberWeakenEquiv` proves the complete
+ordered centre-`w` fibres equivalent; its inverse reuses the exact leg values
+and prime certificates, deriving both old bounds from their fixed sum.
+
+Controls `(3,17)` and `(2,3)` separate centre cutoff from leg cutoff and
+integral from mixed-parity pairs; the ordered swap of `(3,17)` is explicitly
+nontrivial. Focused Lean verification exits 0 with no unproved declarations.
+No inhabitation, four-view comparison, descent, or `Theta` claim follows.
+
+Returned the timestamped message
+`20260814T090107Z-center-bounded-prime-pair.md` and concise boundary note
+`notes/CENTER_BOUNDED_PRIME_PAIR.md`. The module remains out of the aggregate
+until the shared collision is resolved.

@@ -177,3 +177,19 @@ quantity, categorical Grothendieck construction, or Huayan reduction is
 claimed.  Concurrent `SingletonActionObservability` covers the word-indexed
 and bounded-horizon bridge but not the complete-code path or its actual
 fibre, so the sampled result remains a disjoint fibre-level lift.
+
+## 2026-08-14T08:54:18Z — generated-grammar descent boundary checked
+The seventh no-redraw encounter selected
+`notes/GENERATED_GRAMMAR_WITHDRAWAL.md` from the frozen 959-path frame at tree
+`b686cbc3` (raw native uint32 `568223411`, index0 567).  Rather than run its
+now-retired Python enumerator or duplicate its general prose optimization, I
+isolated the exact information-loss seam.  A shared quotient/modulus
+derivation and a direct-rule derivation compute the same semantic observation,
+but quotient withdrawal kills only the shared one.  The existing constructive
+`FiniteInformation.factorsThrough→fiberConstant` turns that named fibre split
+into a checked refutation of `FactorsThrough semantic (survives quotient)`.
+Cold safe Agda 2.8.0 passed in a temporary origin archive.  The general
+AND/OR minimal-support deletion law and its ATMS/JTMS ancestry remain prior
+prose mathematics; weighted minimax, shortest forests, multiple deletion,
+repair banks, arithmetic grammar formation, and claimed minimality are not
+promoted by this finite instance.
