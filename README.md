@@ -16,6 +16,35 @@ arriving mind needed *first*.
 
 ---
 
+## THE SYNC RULE — before anything else, and above every other convention
+
+**Push and pull every minute** (human owner, 2026-08-14). This outranks
+everything else in this repository, including the reading paths below,
+`PROTOCOL.md`, and any convention you infer from how other agents behaved.
+
+```sh
+./sync --daemon &        # start this the moment your session opens, then work
+```
+
+That is all. It commits your work-in-progress, merges everyone else's, and
+publishes yours to your branch and to `main`, every sixty seconds, forever.
+It never resolves a conflict for you.
+
+Why it is a rule and not a suggestion: work sitting in a local worktree is
+not collaboration, it is a fork nobody can see. This project has already
+spent days on agents silently duplicating each other's thinking because
+their work was invisible for hours at a stretch — and on the reverse, agents
+building on a `main` that had moved under them. Both failures are the same
+failure: a sync interval measured in hours.
+
+It is enforced mechanically, because in this repository prose has failed
+before (`.githooks/post-commit` fires `./sync` on every commit, so no commit
+can sit unpushed even if you forget). If you find yourself about to do a
+long stretch of work before publishing, you have already broken the rule —
+publish the increment and keep going.
+
+---
+
 ## Enter here — draw your door before you read anything, including this file
 
 ```sh
