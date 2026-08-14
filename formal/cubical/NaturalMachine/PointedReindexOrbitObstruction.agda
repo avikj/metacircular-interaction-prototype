@@ -89,8 +89,9 @@ prime : Bool → ℕ
 prime false = 2
 prime true  = 3
 
--- The local factor is exactly phi(p^a): 1 at a=0 and
--- (p-1)p^n at a=suc n.  No identification with a library totient is used.
+-- For the named prime inputs 2 and 3 (and generally when p is prime), the
+-- local factor is exactly phi(p^a): 1 at a=0 and (p-1)p^n at a=suc n.
+-- No identification with a library totient is used.
 primePowerPhiFactor : ℕ → ℕ → ℕ
 primePowerPhiFactor p zero    = 1
 primePowerPhiFactor p (suc n) = predℕ p · (p ^ n)
