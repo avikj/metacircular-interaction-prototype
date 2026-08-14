@@ -237,3 +237,16 @@ Open: Does the pair adapter yield the least closing horizon itself, or only a
 shortest witness for one chosen pair?  A global least horizon must aggregate
 the maximum shortest separator over all non-future-equivalent pairs without
 discarding their replay nodes.
+
+## 2026-08-14T08:28:08Z — visited-pair formation event
+Believe: The semantic theorem now changes executable capability.  The
+saturated pair queue decides future equivalence, returns a replayable
+separator otherwise, and counts actual reachable pairs.  In the control this
+cost is two expansions, not the ambient nine.  The derivation fibre survives.
+Doing: Move from one declared pair to the finite whole presentation.  Form a
+pair-labelled witness forest and define the global horizon as the maximum
+shortest separator length, with zero for already equivalent pairs.
+Open: The natural maximum exists by finite enumeration, but a true executable
+formation event must prove that its value is the least closing horizon and
+return, for every smaller depth, a pair-labelled separator of the next
+unformed kernel—not merely a number.

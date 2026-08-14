@@ -195,9 +195,32 @@ meets Mathlib's `List.Nodup.length_le_card` in
 (runReachQueue M alphabet round).states.length ≤ Fintype.card X.
 ```
 
-This bounds retained discoveries, not raw candidate edges or the number of
-rounds before completeness. A separate layer/closure invariant is still
-required before round `|X|` can be called a complete stable traversal.
+The reciprocal return then closes the missing layer invariant.  Mathlib
+`DFA.evalFrom_split` supplies loop deletion, every frontier word at round `n`
+has length exactly `n`, every retained word is globally shortest, and a
+frontier node at round `|X|` would therefore contradict its shorter loop-free
+representative.  Hence the frontier at `|X|` is empty and the queue is a fixed
+point.  The bound remains a bound on retained discoveries and completed
+expansions, not on raw candidate edges generated before freshness filtering.
+
+`VisitedPairHorizon` specializes that result to the live synchronous product
+monitor.  Mathlib `Fintype.card_prod` identifies its ambient horizon with
+`|X|²`, while the native `reachableStatePairCount` records the often smaller
+number of pairs actually expanded.  `VisitedPair` proves the first retained
+separator globally shortest and preserves the full distinguishing derivation
+fibre.  Finally `ObservableVisitedPairAdapter` checks the exact semantic seam
+
+```lean
+ObservableClosesAt M.step (acceptsBool M) fuel ↔
+  ∀ left right,
+    BoundedFutureEq M.step (acceptsBool M) fuel left right →
+      visitedPairWitness? M alphabet left right = none.
+```
+
+Thus bounded observable formation and the executable stable pair queue are
+now literally the same proposition.  The safe global horizon is `|X|²`; its
+sharp least value still requires aggregating the pair-labelled shortest
+witnesses over the whole finite presentation.
 
 **Still unbridged:**
 

@@ -161,6 +161,9 @@ import NaturalMachine.DSOFinite
 import NaturalMachine.DSOBellmanFinite
 import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
+-- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
+-- while the materialized {0,2,4} waypoint architecture is locally empty.
+import NaturalMachine.PrimePairDecompositionCurvature
 -- General finite-index min-plus semantics: ExtNat fold, Bellman
 -- functoriality, associative matrix composition, and both identity laws.
 -- Argmin remains a proof-relevant fiber over the scalar consequence.

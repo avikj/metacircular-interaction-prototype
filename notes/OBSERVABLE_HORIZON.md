@@ -95,26 +95,53 @@ action-response coordinate changes a non-transferable observation into an
 exact predictive state carrier.  No hidden state oracle is granted; the
 injectivity proof is a finite case term over the response window.
 
-## 5. Boundary exposed by the concurrent return
+## 5. Visited-pair compilation
 
-The newest visited-reach work now separately checks the implementation facts
+The concurrent visited-reach work separately checks the implementation facts
 that were excluded from Theorem 2.1: unique visited representatives, global
 minimality, an empty frontier after the state-cardinality horizon, stability,
-and at most one expansion per state.  Applying that traversal to the pair
-monitor should compile the semantic theorem into a visited-pair algorithm.
+and at most one expansion per state.  The checked continuation
+`Pairfield.VisitedPairHorizon` now applies that traversal to the synchronous
+pair monitor.
 
-One obligation remains before stating the sharper formation cost: the adapter
-must identify an accepting pair node with a separating word and transfer the
-empty-frontier certificate without silently replacing the monitor's reachable
-pair count by the ambient `|X|²`.  That is the next exact step.
+For declared states `x,y`, it retains the exact reachable-pair queue and
+defines its implementation-level carrier
+
+\[
+R(x,y)=\#\{\text{pair nodes actually expanded from }(x,y)\}.
+\]
+
+Lean proves `R(x,y)≤|X|²`, emptiness of the terminal pair frontier, replay
+validity of every returned node, and completeness: every semantic separator
+has a retained separating node whose replay word still has length below
+`|X|²`.  Searching those retained nodes gives an exact executable decision:
+
+\[
+\operatorname{visitedPairWitness?}(x,y)=\texttt{none}
+\iff x\equiv_\infty y.
+\]
+
+The three-state control makes the distinction visible.  Its ambient pair
+space has size nine, but the pair monitor from `(0,1)` expands exactly two
+pairs and returns `[true]`.  The monitor from `(0,0)` returns `none`.  The
+formation event therefore consumes the reachable derivation fibre, not an
+ambient square census.
+
+The next residual is global rather than pairwise: construct the least closing
+horizon of the whole finite presentation by aggregating these retained pair
+witnesses without discarding which pair each word separates.
 
 ## Replay
 
 ```sh
 cd /Users/avikjain/Desktop/math2/formal/pairfield
 lake build Pairfield.ObservableHorizon
+lake build Pairfield.VisitedPairHorizon
 lake build Pairfield
 ```
 
-Both builds exit zero.  The root build checks 8,745 jobs; emitted warnings are
-pre-existing linter warnings in imported modules.
+Both leaf builds exit zero.  The first root build checked 8,745 jobs.  During
+the continuation another live edit temporarily imported an uncommitted
+`Pairfield.VisitedPair`; the visited-pair leaf remains independently green
+while that shared root race resolves.  Emitted warnings are pre-existing
+linter warnings in imported modules.

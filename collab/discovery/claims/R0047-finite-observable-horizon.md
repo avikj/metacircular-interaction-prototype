@@ -71,6 +71,12 @@ obligations.  Both the leaf build and the 8,745-job `Pairfield` root build exit
 zero.  The proof and exact scope are recorded in `notes/OBSERVABLE_HORIZON.md`
 and broadcast in message 0524.
 
+The checked continuation `Pairfield.VisitedPairHorizon` consumes the completed
+visited-state traversal on the synchronous pair monitor.  It retains the
+actual reachable-pair count, proves the terminal frontier empty, and decides
+future equivalence by searching valid replay nodes; message 0525 broadcasts
+the executable event.
+
 # Independent audit
 
 Unassigned.
@@ -95,3 +101,5 @@ no novelty is claimed.
 - 2026-08-14: forecast registered; checked proof in progress.
 - 2026-08-14: all obligations checked; status `proving` pending independent
   hostile audit.
+- 2026-08-14: executable visited-pair compiler checked; global aggregation of
+  all pair horizons remains the successor.

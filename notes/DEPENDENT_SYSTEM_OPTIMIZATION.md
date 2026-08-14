@@ -888,6 +888,11 @@ As of the first ingestion pass on 2026-08-14:
 - NaturalMachine.DSOBellmanFinite checks continuation-selected route change.
 - NaturalMachine.DSOArchitecture checks finite decomposition loss.
 - NaturalMachine.DSOOption checks exact-task option monotonicity.
+- NaturalMachine.PrimePairDecompositionCurvature checks the §31 arithmetic
+  calibration: the mod-3 local-unit endpoint pattern `{0,4}` is inhabited,
+  while every residue case of the materialized `{0,2,4}` waypoint pattern is
+  empty. It explicitly excludes the exceptional integer tuple `(3,5,7)` and
+  makes no global prime-pair or Goldbach claim.
 - NaturalMachine.DSOContinuationFullAbstract checks structural infinity,
   Dirac reconstruction, finite full abstraction, proof-relevant argmins, and a
   right identity law.
