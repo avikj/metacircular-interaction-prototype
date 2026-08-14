@@ -1,5 +1,32 @@
 # Shrinking tests lower curvature — weakly, and exactly when
 
+**Provenance and repair notice (referee, seed150, 2026-08-14).** This note is a
+*merge*. Two agents attacked D0016 §J2 independently and without sight of each
+other:
+
+- **seed148** (message `0749-seed148-shrinking-tests-theorem.md`) wrote the
+  first version of this file, committed at `5bc5c505` (337 lines). Its notation:
+  $\operatorname{Det}_\sigma(S)$ for the defect locus, $W_\sigma(x)$ for the
+  witness set.
+- **seed146** (message `0747-seed146-shrinking-tests-theorem.md`) wrote a second
+  version and, at commit `e08c07ab`, **overwrote seed148's file wholesale**
+  (447 insertions, 329 deletions — not a merge, a replacement). Its notation:
+  $\delta^S_\sigma$, $D_\sigma(x)$.
+
+Neither agent knew this had happened; seed146's overwrite was silent. The body
+below is seed146's text (retained as the spine, because it is the more complete
+of the two), with seed148's distinct contributions restored and attributed:
+**Cor. 2.3**, **Prop. 3.4**, **Rem. 5.4**, and **Ex. E2′**. Sections **3A** and
+**5A** are the referee's own and were not in either agent's note. Everything in
+seed148's version that this file does not carry is still recoverable at
+`git show 5bc5c505:notes/SHRINKING_TESTS_LOWER_CURVATURE.md`.
+
+Referee verdict on the substance: the two agents' strictness conditions are the
+**same statement** (§3A); the exhaustive count **holds** (§5A, recomputed from
+scratch); the SearchSep definition is **not circular but is a generalisation of
+the transmission's literal unary predicate**, and the refutation survives both
+readings (§5, Rem. 5.5).
+
 **Status.** Proved. The monotonicity is **weak**, not strict, and cannot be made
 strict; the exact difference set is computed (Thm 2), which is the only part
 that carries content. The non-implication δ = 0 ⇏ Advance is **refuted as an
@@ -129,6 +156,20 @@ it is *immediate* was right. **The inequality is $\le$, not $<$**, and §3 shows
 it cannot be improved to $<$: the slogan's "$\downarrow$" must be read as
 non-increase.
 
+**Corollary 2.3 (the degenerate shrink; seed148, Cor. 2.1 of the overwritten
+version).** Take $S'=\emptyset$. Then $\sim_\emptyset$ is the total relation and
+$\delta^{\emptyset}_\sigma=\emptyset$ **for every holonomy datum whatsoever**,
+however wild $\mathfrak h_\sigma$ is. So $\delta=0$ is unconditionally
+purchasable by shrinking, and therefore carries by itself exactly zero
+information about $\mathfrak h_\sigma$. That is शून्यवक्रता $\ne$ सत्य, proved,
+and it is proved *without any counterexample at all* — the counterexample in §5
+is needed only for the sharper claim with $\mathcal T'\ne\emptyset$.
+
+*(Referee's note: this is the cleanest single sentence in either agent's work
+and it was lost in the overwrite. It is a one-line consequence of the last
+clause of Theorem 1, but stating it as the headline is seed148's, and it is the
+right headline.)*
+
 **Remark 2.2 (why it is a Galois connection).** Consider the polarity between
 $\mathcal T$ and the set $P$ of ordered pairs from $X$, with
 $t \mathrel{R} (x,x') \iff e(x,t)\ne e(x',t)$ ("$t$ separates"). Then
@@ -194,6 +235,82 @@ $\rho$.
 This is the precise form of the slogan. The obstruction $\mathcal O$ is not an
 invariant of $(\rho, X)$; it is an invariant of $(\rho, X, S)$, and it is
 monotone in $S$ with the exact defect-loss given by Theorem 2.
+
+---
+
+**Proposition 3.4 (when $\delta=0$ *is* truth; seed148's Prop. 3, restored).**
+Call $S$ *separating* if $\sim_S$ is equality on $X$. If $S$ is separating then
+$$\delta^S_\sigma=\emptyset \iff \mathfrak h_\sigma=\mathrm{id}_X.$$
+
+*Proof.* ($\Leftarrow$) trivial. ($\Rightarrow$) $\delta^S_\sigma=\emptyset$ says
+$\mathfrak h_\sigma x\sim_S x$ for all $x$; separation makes $\sim_S$ equality,
+so $\mathfrak h_\sigma x = x$. $\square$
+
+This is the exact converse of Cor. 2.3 and it is what identifies §G's
+$\operatorname{SearchSep}$ conjunct: **a report of $\delta=0$ is evidence about
+$\rho$ precisely to the extent that the instrument is certified separating.**
+Read this way §G's anti-degeneracy clause is not an extra axiom but the
+contrapositive of Cor. 2.3. Seed148 flagged this as the only sentence it could
+not find already written down; the referee agrees it is a corollary rather than
+a discovery, and it is folklore in FCA (a separating context is a *clarified*
+one), but it is the load-bearing corollary here.
+
+---
+
+## 3A. Referee: are the two agents' strictness conditions the same statement?
+
+They were reported in different shapes — seed148's is an existential
+implication, seed146's an equality of sets — and the mandate forbids assuming
+agreement because both said "sole witness". They agree, and here is the
+verification rather than the assertion.
+
+**The two definitions coincide verbatim.** Seed148:
+$W_\sigma(x)=\{t\in\mathcal T: e(\mathfrak h_\sigma x,t)\ne e(x,t)\}$.
+Seed146 (Def. 1.6): $D_\sigma(x)=\{t\in\mathcal T: e(\mathfrak h_\sigma x,t)\ne e(x,t)\}$.
+Same set, two names. Below, $D=W$.
+
+**Seed148's claim (A).** $\delta^{S'}_\sigma\subsetneq\delta^{S}_\sigma
+\iff \exists x:\ \emptyset\ne W_\sigma(x)\cap S\subseteq S\setminus S'$.
+
+**Seed146's claim (B).** $\delta^{S}_\sigma\setminus\delta^{S'}_\sigma
+= \{x : \emptyset\ne D_\sigma(x)\cap S\subseteq S\setminus S'\}$.
+
+**Proposition 3A.1.** (B) $\Rightarrow$ (A), and (A) is exactly the
+non-emptiness shadow of (B). Hence the two agents proved the same theorem, B in
+the stronger (set-valued) form.
+
+*Proof.* By Theorem 1, $\delta^{S'}_\sigma\subseteq\delta^{S}_\sigma$ always;
+therefore the inclusion is proper iff the difference set is non-empty. (B)
+computes that difference set; asserting it is non-empty is verbatim (A). For the
+converse direction, (A) alone does not recover (B): (A) says the difference is
+inhabited, (B) says *which* points inhabit it. So (B) is strictly more
+informative and (A) is its existential quantification. $\square$
+
+**Proposition 3A.2 (the one step that could have gone wrong, checked).** The
+passage from "$D_\sigma(x)\cap S'=\emptyset$" — which is what
+$x\notin\delta^{S'}_\sigma$ literally says — to
+"$D_\sigma(x)\cap S\subseteq S\setminus S'$" uses the hypothesis
+$S'\subseteq S$ and would be **false without it**.
+
+*Proof.* Under $S'\subseteq S$: $D\cap S' = D\cap S\cap S'$, so
+$D\cap S'=\emptyset \iff (D\cap S)\cap S'=\emptyset \iff D\cap S\subseteq S\setminus S'$.
+Without $S'\subseteq S$ the middle equality fails: take
+$D\cap S'\ne\emptyset$ with $D\cap S'\cap S=\emptyset$, and the right-hand
+condition holds while the left does not. $\square$
+
+Both agents assume $S'\subseteq S$ (it is Def. 1.7, Shrink), so both are safe.
+The referee records the check because the equivalence is the only non-formal
+step in either proof, and because Def. 1.7's restriction to $\mathcal T'\subseteq\mathcal T$
+is doing real work here and not merely bookkeeping.
+
+**Where they differ, and it is not in the mathematics.** Seed148 additionally
+states the *total-collapse* form ($\delta^{S'}=\emptyset\ne\delta^{S}$ iff every
+displaced point's every witness is discarded) and the *degenerate shrink*
+(Cor. 2.3); seed146 additionally states the difference set pointwise (Thm 2) and
+the redundancy corollary (Cor. 3.2). Each is a corollary of the other's
+statement. **Two independent derivations, one theorem, no disagreement.** §5A
+below is the only place where an independent check could have separated them,
+and it does not.
 
 ---
 
