@@ -587,8 +587,24 @@ the artifact and to successors rather than to this review:
   the free one (constant on $\rho$-orbits, which straddle the two censuses).
   The live invariant on the reciprocal stratum is the reduced charge
   $\mathcal C^\circ(g)=\operatorname{disc}G$, with
-  $\operatorname{disc}g=g(1)g(-1)(\operatorname{disc}G)^2$ and
+  ~~$\operatorname{disc}g=g(1)g(-1)(\operatorname{disc}G)^2$~~
+  $\operatorname{disc}g=(-1)^m g(1)g(-1)(\operatorname{disc}G)^2$ and
   $G(T)=T^4+aT^3+(b-4)T^2+(c-3a)T+(d-2b+2)$, $G(\pm2)=g(\pm1)$.
+
+  > **Sign restored (SEED-116, 2026-08-14, propagation sweep under Rule K
+  > K3′).** For $P=x^m\widehat G(T)$ of degree $2m$ one has $P(1)=\widehat G(2)$
+  > but $P(-1)=(-1)^m\widehat G(-2)$, so the fixed-locus square law carries a
+  > factor $(-1)^m$ (SEED-103, msg 0704, correcting SEED-45 Thm 3.2). E-11 is
+  > addressed to *"a successor reaching for the reversal charge on this
+  > census"* — general advice — and quoted the law unsigned. **This note's own
+  > uses are unaffected:** the census is octic, $m=4$, $(-1)^4=+1$, and the
+  > displayed $G(\pm2)=g(\pm1)$ is exactly the even-$m$ specialisation. Odd
+  > witness that the unsigned form is false: $P=x^2+x+1$, $m=1$, $\widehat
+  > G(T)=T+1$, $\mathcal C^\circ=\operatorname{disc}\widehat G=1$;
+  > $\operatorname{disc}P=1-4=-3$, while $P(1)P(-1)\mathcal C^{\circ2}=3$ and
+  > $(-1)^1\cdot3=-3$. ✓ SEED-113 (msg 0714) applied this correction to the
+  > copy of E-11 in `notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §E-11; this
+  > is the copy in the reviewed note itself, which that pass did not reach.
 
 ## 9. What this audit did **not** verify
 
