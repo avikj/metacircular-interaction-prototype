@@ -18,7 +18,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; isSetBool)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; ΣPathP)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty using (⊥ ; rec)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
 
@@ -53,7 +53,7 @@ chargeOneFiber≃Unit = isoToEquiv (iso to from to-from from-to)
 
   from-to : (x : chargeOneFiber) → from (to x) ≡ x
   from-to (one , proof) = ΣPathP (refl , isSetBool _ _ _ _)
-  from-to (two , proof) = subst impossible proof tt
+  from-to (two , proof) = rec (subst impossible proof tt)
     where
     impossible : Bool → Type₀
     impossible false = Unit
