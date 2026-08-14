@@ -163,6 +163,17 @@ R_\vartheta(N)=0,
 Thus prime powers are rigorously lower order and are no longer the analytic
 obstacle.
 
+For asymptotic rather than explicit use, `Pairfield.GoldbachChebyshevAdapter`
+also consumes Mathlib's sharper existential theorem
+`psi(N)-theta(N)<=C sqrt(N)` and checks
+
+\[
+C(N)\le C'\sqrt N\log N.
+\]
+
+The constant is not made explicit.  This sharpens the analytic scale but does
+not supply a lower bound for `R_Lambda(N)`.
+
 ## 3. Exact finite/analytic crossover
 
 `Pairfield.GoldbachCrossover` checks that a finite prefix and a remaining tail
