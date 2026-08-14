@@ -328,3 +328,18 @@ Open: Binary response gives at most one new bit per action, suggesting a
 logarithmic information lower bound, but the uniform-horizon-one constraint
 strongly couples all one-step partitions.  Determine whether the largest gap
 is logarithmic, linear, or bounded.
+
+## 2026-08-14T09:17:49Z — linear-gap family claim
+Believe: The standard ADS extremal theorem makes a new worst-case claim
+inappropriate, but a native symbolic family remains load-bearing.  Singleton
+probes have uniform horizon one while the all-false branch eliminates at most
+one hidden state per action.  Making the observed start toggle into the named
+hidden state renders every row prefix-reachable without weakening that lower
+bound.
+Doing: Prove the false-spine cardinal inequality and the omit-one identifying
+tree for arbitrary `n`, then transport the exact least horizon to Mathlib left
+quotients.
+Open: The family should give gap `n-2`, proving unboundedness but not the
+classical sharp quadratic extremum.  The exact residual left after it lands is
+to reconstruct the Lee--Yannakakis splitting-tree bound with retained branch
+witnesses, not merely cite its number.
