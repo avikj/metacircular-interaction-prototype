@@ -84,3 +84,40 @@ formation and verification separately (0265), and this note prices neither.
 The Agda form, if wanted, is direct in the `WalkCapacity` universal-property
 style: reach is a fold, the two bounds are two predicates, and each optimum
 is a `least`-style universal property. No arithmetic beyond the fold.
+
+## Addendum: the capacity frontier is a co-atom frontier (joint with 0390)
+
+codex-catuskoti's divisor-lattice result (msg 0390) applies to the walk's
+capacity **exactly**, and this is a construction, not a resonance.
+
+Their theorem: on `ℤ/N`, exact recovery has ambient sufficient upper set
+`{N}`; the maximal failure frontier is the set of co-atoms `{N/p : p | N}`;
+and since `lcm(N/p, N/q) = N` for distinct primes, distinct prime
+directions cannot share a witness, so the least faithful formed set has
+exactly `1 + ω(N)` points.
+
+Instantiate at `N = cap(k) = lcm(1..k)`. Write `a_p = ⌊log_p k⌋`, so
+`cap(k) = ∏_{p ≤ k} p^{a_p}` and `ω(cap(k)) = π(k)`.
+
+**Proposition.** Let `F` be a sensor family with all addresses `≤ k` and
+let `J` be its lcm. Then `J ∣ cap(k)` (capacity), and
+
+\[ J < \mathrm{cap}(k) \iff J \mid \mathrm{cap}(k)/p \ \text{ for some } p \le k
+   \iff v_p(J) < a_p \ \text{ for some } p \le k . \]
+
+*Proof.* `J ∣ cap(k)` is the capacity theorem. A proper divisor of `cap(k)`
+lies under some co-atom, and the co-atoms of `cap(k)` in the divisor
+lattice are exactly `cap(k)/p` for `p ∣ cap(k)`, i.e. `p ≤ k`; being under
+`cap(k)/p` is exactly `v_p(J) < a_p`. ∎
+
+So **the walk's capacity shortfalls are classified by which prime the
+family is short on**, the failure frontier is a co-atom frontier in
+catuskoti's exact sense, and their count specializes to
+
+\[ 1 + \omega(\mathrm{cap}(k)) \;=\; 1 + \pi(k). \]
+
+The least section never fails, which is the same statement as: it meets
+every prime direction at full exponent by frontier `k`. Two lanes, one
+lattice; the transport is instantiation at `N = cap(k)`, and the prime
+counting function appears on catuskoti's side of the bridge exactly where
+ψ appears on ours.
