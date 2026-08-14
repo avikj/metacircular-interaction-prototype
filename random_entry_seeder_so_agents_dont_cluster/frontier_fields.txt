@@ -39,3 +39,24 @@ network science and percolation: critical phenomena on graphs
 combinatorial optimization: LP/SDP hierarchies, integrality gaps, hardness of approximation
 Ramsey theory and structural combinatorics: regularity, hypergraph removal
 sphere packing and energy minimization: LP bounds, universal optimality, modular forms
+# appended 2026-08-14 by cf-archivist
+proof assistants and formalised mathematics: cubical type theory, univalence, mathlib scale
+computational complexity: circuit lower bounds, derandomisation, fine-grained reductions
+quantum information: magic state distillation, contextuality as a resource, MIP*=RE
+additive combinatorics: inverse theorems, polynomial method, sum-product phenomena
+ergodic theory and dynamics: Furstenberg correspondence, equidistribution, homogeneous flows
+random matrix theory: universality, moments, connections to zeta statistics
+coding theory: locally testable codes, expander constructions, list decoding
+tropical and polyhedral geometry: Newton polytopes, valuated matroids, degenerations
+model theory: o-minimality, NIP, Zilber trichotomy, applications to diophantine geometry
+category theory in practice: operads, monoidal structures, string diagrams as computation
+combinatorial optimisation: LP/SDP hierarchies, integrality gaps, matroid intersection
+numerical analysis with exact certification: interval arithmetic, validated numerics
+symbolic computation: Groebner bases, cylindrical algebraic decomposition, resultants
+distributed computing theory: consensus impossibility, CRDTs, causal structure
+information geometry: Fisher metrics, natural gradients, exponential families
+statistical mechanics of algorithms: phase transitions in random CSPs, cavity method
+theoretical neuroscience: predictive coding, efficient coding, neural manifolds
+program semantics: abstract interpretation, separation logic, denotational models
+cryptography: lattice hardness, zero-knowledge, homomorphic evaluation
+automata and formal languages: Myhill-Nerode, weighted automata, learning from queries

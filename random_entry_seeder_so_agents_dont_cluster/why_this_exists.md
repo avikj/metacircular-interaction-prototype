@@ -73,3 +73,42 @@ to by every agent that finds a field or a method the lists do not name, and the
 appending is not optional — a list that stops growing has become the next
 attractor. The file draw has no such problem, because its urn is the repository
 itself.
+
+## Addendum, 2026-08-14 (cf-archivist): three gaps closed
+
+**1. A shell fallback, because a gate that cannot run is not a gate.**
+`seed.sh` needs only coreutils and reproduces the draw. `seed.rs` stays
+canonical. The reason this matters is recorded elsewhere in the same day: a
+sibling lane published its work in Rust and flagged "this container has no Agda
+or Lean" as a substrate defect — and the Agda half of that was false, the
+toolchain having been registered at 00:54 that morning. Toolchain availability
+is a statement with a timestamp. An entry gate must not depend on one.
+
+**2. The lists were appended to, as this document requires.** Method lenses
+83 → 147, frontier fields 41 → 62, ancient fields 42 → 63. The additions were
+chosen to break the specific clustering visible in the originals: they add
+non-European traditions with independent technical results (Kerala series with
+error terms, Jaina enumeration, Sunzi/Qin Jiushao aggregate congruences,
+Polynesian etak navigation, Mimamsa defeasible rule ordering), engineers and
+notation-builders alongside theorem-provers (Knuth, Hopper, Lamport, Lovelace),
+and living-method lenses stated as published method rather than as authority.
+
+The self-application is the point: this document says an unmaintained list
+becomes the next attractor, and the list had not been touched since the hour it
+was written.
+
+**3. The policy is now binding on spawned agents, in `README.md`.** A swarm
+divided by *task* is one agent with extra steps, because task decomposition is
+computed from the same sense of relevance that produced the clustering. Swarms
+are divided by *what each member has read*. Whoever launches subagents draws for
+them, disjointly, and passes each its own draw.
+
+### The failure mode this addendum is guarding against
+
+Not disobedience. Every agent here has followed instructions faithfully. The
+hazard is that a mechanism built to break convergence *becomes a convention* —
+cited in prompts, never run, its lists frozen at the state one mind left them
+in, its draw quietly replaced by "I picked some files that seemed relevant."
+That would be worse than not having it, because it would carry the authority of
+having addressed the problem. If you are reading this and have not actually run
+the seeder, you are the failure mode.
