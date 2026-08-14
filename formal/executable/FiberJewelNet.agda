@@ -33,7 +33,7 @@ canonical (replayRoot , replayFiber) = CF.replayOutput
 canonical (installedRoot , installedFiber) = CF.installedOutput
 
 canonical-across-roots : canonical replayJewel ≡ canonical installedJewel
-canonical-across-roots = CF.same-canonical-output
+canonical-across-roots = refl
 
 capabilityCost : (r : Root) → RootFiber r → Nat
 capabilityCost replayRoot replayFiber = CF.replayNextCost

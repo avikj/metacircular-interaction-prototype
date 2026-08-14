@@ -66,6 +66,31 @@ load-bearing: the modulus is connected to a literal power by a path; modular
 reduction is a theorem rather than definitional computation at variable
 width; and raw truncation must be normalized before it returns to `CanWord`.
 
+## Iteration boundary: the canonical operation forgets the level
+
+The repaired one-step operation is not itself a tower action.  The same checked
+witness exposes the failure:
+
+\[
+ [1,0,1]\xmapsto{\operatorname{normalizeMSD}}[1]
+ \xmapsto{\operatorname{normalizeMSD}}[],
+ \qquad
+ [1,0,1]\xmapsto{\pi^2}[1].
+\]
+
+The first normalization contracts the noncanonical lower word `[1,0]` by
+removing its exposed zero.  A second actual-MSD deletion therefore removes a
+different place than the second fixed-width tower map would remove.  Agda
+checks the universal no-go `normalizeMSD-not-iterable`: there is no equality,
+for every canonical word, between two normalized drops and normalization after
+two raw place drops.
+
+This identifies the lost coordinate exactly: `CanWord` retains the natural
+number but not the ambient digit level.  A composable tower carrier must retain
+the width (for example, a fixed-length word chart in which leading zeros remain
+real places) and only normalize when leaving that carrier.  This conclusion is
+forced by the counterexample, not proposed as a general architecture.
+
 ## What changed
 
 `CarryObstruction` previously proved nonsplitting only in cyclic quotient
@@ -74,6 +99,8 @@ actual numeral presentation.  A consumer can move from a canonical word at one
 finite digit level to the adjacent residue coordinate without inventing a
 second evaluator.  Conversely, any future statement equating raw `π` directly
 with a `CanWord → CanWord` operation must confront the checked counterexample.
+Any future statement iterating `normalizeMSD` as though canonical words retained
+fixed-width zero places must also confront `normalizeMSD-not-iterable`.
 
 This does **not** construct
 `H²(ℤ/b^n;ℤ/b)`, exhibit a carrying pair from the constructive negation of

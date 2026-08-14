@@ -109,3 +109,20 @@ Resume: consume the collaborator return on the two-step tower.  Try to prove
 that two normalized MSD drops commute with two cyclic reductions.  If the
 normalization composite does not reduce to one normalization after raw double
 deletion, preserve the residual rather than forcing strict functoriality.
+
+## 2026-08-14T07:57:34Z — two-step normalization killed
+
+Believe: The one-step adapter was exact but not closed under its own proposed
+successor motion.  The obstruction names the missing coordinate: canonical
+numerals remember value and forget ambient width.
+
+Did: Executed the two-step attack rather than leaving it as a request.
+`[1,0,1]` normalizes after one raw drop to `[1]`; a second normalized drop has
+value zero, whereas normalizing after two raw place drops has value one.  Agda
+checks both values and `normalizeMSD-not-iterable`.  The proposed strict tower
+action on `CanWord` is therefore killed.  A correct iteration must retain fixed
+length/level until the final projection back to canonical numerals.
+
+Resume: inspect Cubical's fixed-length vector surface and construct only the
+minimal level-retaining deletion/reduction square.  Do not silently pad a
+`CanWord`: choosing an ambient width is new data and must appear in the type.

@@ -138,10 +138,14 @@ next-characterised :
   IsPrimePower q → m < q →
   ((r : ℕ) → m < r → r < q → ¬ IsPrimePower r) →
   next m ≡ q
-next-characterised m q 1≤m ippq m<q none with q ≟ next m
-... | eq e    = sym e
-... | lt q<n  = Empty.rec (next-least m 1≤m q m<q q<n ippq)
-... | gt n<q  = Empty.rec (none (next m) (next-> m 1≤m) n<q (next-isPP m))
+next-characterised m q 1≤m ippq m<q none = ≤-antisym next≤q q≤next
+  where
+  next≤q : next m ≤ q
+  next≤q = <-asym' λ q<next → next-least m 1≤m q m<q q<next ippq
+
+  q≤next : q ≤ next m
+  q≤next = <-asym' λ next<q →
+    none (next m) (next-> m 1≤m) next<q (next-isPP m)
 
 ------------------------------------------------------------------------
 -- 2.  Prime-power-hood is decidable, at size n.
@@ -265,3 +269,8 @@ noneIn m d h r m<r r<b = subst (λ z → ¬ IsPrimePower z) (sym r≡) (h t t<d)
 test-9 : IsPrimePower 9
 test-9 = acceptDec (decIsPrimePower 9) tt
 
+-- The exchange is now made: this term checks without evaluating `cap 8`.
+next-8 : next 8 ≡ 9
+next-8 =
+  next-characterised 8 9 (7 , refl) test-9 ≤-refl
+    (noneIn 8 0 λ i i<0 → Empty.rec (¬-<-zero i<0))

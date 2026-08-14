@@ -12,6 +12,7 @@ import qualified MAlonzo.Code.TheoremCompiledObservation as T
 import qualified MAlonzo.Code.InstalledRootedQuotient as I
 import qualified MAlonzo.Code.BoundedMinimization as BM
 import qualified MAlonzo.Code.ConsequenceFiber as CF
+import qualified MAlonzo.Code.FiberJewelNet as FJ
 
 showTm :: R.T_Tm_2 -> String
 showTm R.C_var_4 = "x"
@@ -47,6 +48,11 @@ main = do
     ++ " next-values=" ++ show CF.d_replayNextValue_128 ++ "/"
     ++ show CF.d_installedNextValue_130 ++ " costs="
     ++ show CF.d_replayNextCost_132 ++ "/" ++ show CF.d_installedNextCost_134)
+  putStrLn ("fiber-jewel net: outputs="
+    ++ show FJ.d_netReplayOutput_162 ++ "/" ++ show FJ.d_netInstalledOutput_164
+    ++ " rooted-costs=" ++ show FJ.d_netReplayCost_156 ++ "/"
+    ++ show FJ.d_netInstalledCost_158 ++ " transported="
+    ++ show FJ.d_transportedCost_160)
   if before == after then pure () else fail "extracted dynamics violated its checked semantics"
   where
     showBool Bool.C_false_8 = "false"
