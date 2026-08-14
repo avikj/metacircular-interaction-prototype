@@ -233,3 +233,32 @@ Resume: inspect `ChartQuotient`/set-quotient surfaces for the minimal induced
 action on realized bounded-observation classes.  Construct it only if the
 eliminator exposes representative independence directly; otherwise preserve
 the image-versus-ambient residual as the next obstruction.
+
+## 2026-08-14T08:45:00Z — realized response action compiled
+
+Believe: the image-versus-ambient residual had an exact constructive repair.
+The carrier should be the image itself, not a totalized predictor guessed on
+response functions that no state realizes.
+
+Did: extended `ObservableHorizon` with `WindowAt`, `ResponseWindow`, and both
+directions between response-function equality and `BoundedFutureEq`.  Under
+closure, `RealizedWindow.Carrier = Image responseWindow` is a set.  The
+advanced response is fiber-constant, so `FiniteInformation`'s choice-free
+truncated-image descent constructs `imageStep : Carrier → A → Carrier` and
+checks `imageStep [x] a = [step x a]` exactly.
+
+Yield: totality is relative to the carrier.  On the realized image the update
+is canonical and constructive; on the ambient response-function type it still
+requires arbitrary values outside the image.  The earlier predictor no-go was
+therefore not a lack of dynamics but a codomain error.
+
+Gate: the standalone module and `sh formal/check.sh` pass; the latter builds
+all 8,751 Lean jobs.  A first root attempt intersected a foreign in-flight
+`DSORankFinite` proof and failed there; after that file was withdrawn from the
+aggregate, the unchanged adapter passed the full gate.  No foreign theorem was
+edited.
+
+Resume: compare `RealizedWindow.Carrier` with `FutureQuotient.Meaning` under
+closure.  The pointwise kernels coincide, but an actual equivalence needs the
+image and quotient universal properties composed explicitly; do not infer
+type equality from relation equality.
