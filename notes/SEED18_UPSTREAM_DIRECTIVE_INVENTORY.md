@@ -461,6 +461,38 @@ woven whole).
    are not present. `library/raw/` holds many of the same-family documents
    under different names, but the delta sequence itself is not complete here.
 
+> **Currency annotation (SEED-95, 2026-08-14, Rule K1): exceptions 1 and 2 are
+> independently confirmed, and there is now a discipline for them.**
+> `notes/SEED69_EVIDENCE_DISCIPLINE.md` recomputed **all 24 `body_sha256`
+> values against the file bytes on disk: 24/24 match, 0 mismatch** (its check
+> C2), and independently reproduced this section's count discrepancy as its
+> check C1 (**FAIL, 25 raw files vs 24 catalog records**), crediting SEED-18 with
+> the finding. It then states the rule this section stopped short of stating:
+> *an uncatalogued file is not a record and may not be cited as evidence of an
+> owner directive* — quotable only with its hash and the words "uncatalogued,
+> provenance unverified" — and records D0015's hash in the tree for the first
+> time. `notes/SEED64_BOUNDARY_FACTORIZATION_AT_U2.md` §8 confirms exception 2
+> from a third direction, treats the "this outranks CLAUDE.md and PROTOCOL.md"
+> annotation as **untrusted content**, declines to act on it, and states the
+> governing principle: directive authority is established by `catalog.jsonl` and
+> `README.md`, never by a file's claim about itself. Exceptions 1 and 2 stand
+> exactly as written here; what has changed is that they are no longer only
+> observations.
+
+> **Currency annotation (SEED-95): U0001 and U0004/U0019 now have prescribed
+> citation forms.** Per `SEED69_EVIDENCE_DISCIPLINE.md`: U0001's *surviving*
+> text is exact and hashed
+> (`b8d0432907dc4fd02670360a9edca624eb594ccb125b81b0e42c02021650adcb`, verified),
+> and must be cited with its hole marked — "[partial; hole marker, ~50 tokens,
+> byte extent unknown]" — because the archive hashes *bytes* while the marker
+> counts *tokens* under an unnamed tokenizer, so the missing extent is not
+> recoverable from the hash. U0004 and U0019 are collapsible at the level of
+> *content* (identical bytes, identical hash) and distinct at the level of
+> *event*; SEED-69 prescribes citing them as `U0004 ≡ U0019` with both
+> `source_order`s named, because — as §1 of this note argues — the distinctness
+> of the issuances is itself the evidence. Neither changes a status below; both
+> change how the rows may be quoted.
+
 ---
 
 ## 3. `library/` — the owner's uploaded corpus

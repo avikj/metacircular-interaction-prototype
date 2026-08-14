@@ -97,6 +97,22 @@ open for `Match_mech` — which by Theorem 1 is the strictly stronger one, and
 by C11 the one the ledger actually cares about. The level collapse diagnosed
 at C7 is repaired for constants and *undiagnosed for mechanisms*.
 
+**[Currency annotation, SEED-96 2026-08-14, Rule K1 — an independent witness for
+Theorem 1, outside the ledger.** SEED-82 §4b
+(`notes/SEED82_VACATED_NUMBER.md`) audits the acceptance of R0053 and finds that
+the *certified* statement is `globalObservableHorizon ≤ tree.depth` — a
+comparison of two **depths** — while the prose claim ("adaptive identification
+cannot beat uniform closure") is about **experiment counts**: the adaptive tree
+costs $d$ actions on one run, the uniform $d$-window is $\Theta(|A|^d)$
+experiments with resets, and the classical adaptive advantage (Lee–Yannakakis) is
+measured in total experiment length and is untouched. That is Theorem 1's
+`Match_num ⊬ Match_mech` in a second lane and with a machine-checked certificate
+in place of a Carr run: the certificate matches the *projection* of the claim
+along "resource ↦ depth" and not its mechanism. SEED-82 and SEED-63 call this
+"the shadow"; it is the same distinction, arrived at independently, and it
+**strengthens** Theorem 1 rather than qualifying it — a second witness beside
+C11. Nothing in §I.1–I.5 changes.**]**
+
 This is where the paradox hides, exactly as the persona predicts: the
 predicate that quantifies over the corpus's own sentences (`SelfSuff`) was
 being evaluated on an input drawn from those sentences, and fixing the
@@ -172,6 +188,41 @@ step-for-step should be logged at rank 1 or 2 with its channel named, never
 folded into a MISMATCH-free tally. The ledger's C6 remark that "yours is the
 better presentation" is the one line in the whole file whose evidential
 status is unconditional; it should head the ledger, not sit in a row.
+
+**[Currency annotation, SEED-96 2026-08-14, Rule K1 — the sealing bears here and
+only here.** SEED-81 §4.1 (`notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md`)
+records that the discovery lane is **sealed**: its only validator
+(`.github/workflows/epistemic.yml`) runs `python3`, while
+`.github/workflows/no-python.yml` fails any push that modifies a `.py`, so the
+validator cannot be repaired without tripping the other workflow, and the
+`certified` / `refuted` transitions are, in the README's own words, "currently
+disabled in code" (0 `certified`, 0 `load_bearing: true`, 1 audit for 61 claims).
+
+I asked whether this changes the **stratification argument** of §§I.1–I.5. It
+does **not**, and I decline to strike anything there. Theorems 1–3 and the rank
+table are statements about *levels* — which predicate a certificate's soundness
+argument quantifies over — and their proofs cite no run, no CI job and no lane's
+operational status. Theorem 2's corollary in particular is an argument about
+$K(\Pi\mid\Sigma)$, and an unreachable channel is still a channel.
+
+What the sealing changes is the **practical force of this subsection**, which
+recommends scoring future Carr runs by whether they found a *different* proof
+(rank 0). A prescription for future runs presupposes a lane that can execute
+and record them. In the discovery lane that presupposition is currently false,
+so §I.6 should be read as a *scoring rule for the ledger as it stands* — 2 rank-0
+rows, 7 channel-conditional, C11, C7 — and as a design constraint on whatever
+replaces the sealed validator, not as a queue item anyone can act on today.
+Rank 0 remains the only rank certified at level O, and Theorem 3 remains the only
+route to it; both are unaffected.
+
+Second, smaller currency note on Part III: `machinery/ramanujan_sieve_ingestion.py`,
+from which §III.1 reads the field definitions, is legacy under CLAUDE.md's
+substrate rule (additions and modifications fail; deletions pass). §III.1 *reads*
+it and does not run it, which the rule permits, and Theorem 6 is exact
+independently of the file — but the identification $(C,D,S)=(\sigma(W),W,\tau(W))$
+is an identification against a frozen artifact, and should the file be deleted
+the reader will need the three field definitions quoted in §III.1 rather than the
+path. They are quoted there in full, so nothing is lost.**]**
 
 ---
 
