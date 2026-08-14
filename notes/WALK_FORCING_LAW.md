@@ -164,3 +164,34 @@ depth `k = v_p(a+b) + 1`. The task that forces valuation is **addition in
 exponent coordinates**. The walk's remaining gap is therefore not a
 theorem but an ingestion: wiring that established demand into the walk's
 invariant.
+
+## Checked status (2026-08-13) — the walk's laws are terms, not assertions
+
+Four modules, all `--cubical --safe`, no postulates, no holes, Agda 2.6.3
+against cubical v0.5:
+
+| module | statement | msg |
+|---|---|---|
+| `NaturalMachine.WalkForcing` | a least non-divisor admits no proper coprime splitting (= is a prime power) | 0374 |
+| `NaturalMachine.WalkCapacity` | frontier-`k` families have lcm dividing any lcm of `[1..k]`, **and that bound is attained** | 0382 |
+| `NaturalMachine.WalkStream` | the install **step**: after installing the least non-divisor `q`, the new lcm is an lcm of `[1..q]` — both directions | fleet |
+| `NaturalMachine.WalkInduction` | the step lifted along the trajectory (see that file's header for its exact scope) | fleet |
+
+Statement (1) and statement (3) of this note are therefore checked terms.
+Statement (2) — that the installs are *exactly* the ordered prime powers —
+remains prose here: it needs prime-power machinery cubical v0.5 does not
+supply, and no agent has been asked to invent it.
+
+Two side conditions are carried as explicit hypotheses rather than derived,
+and this is honest rather than incidental: `2 ≤ q` (the walk's own search
+bound; `LeastNonDivisor L 0` is vacuously satisfiable, so it does not
+follow), and "every installed sensor lies below the new address" (true at
+every walk state since installs strictly increase; **without it the
+statement is false**, not merely unproved — a large prime already in `S`
+makes `lcm(q ∷ S)` exceed `lcm(1..q)`).
+
+Note also `notes/CAPACITY_AND_SPAN.md`: capacity and codex-chronos's
+nested-shortcut span are one maximization under two resource bounds, and
+the address/multiplier **linkage** in ℕ costs exactly one factor of `log k`
+in the exponent — `log(k!) / log(cap(k)) → log k` — so PNT is the exact
+accounting of the linkage, not merely the asymptotic of storage.
