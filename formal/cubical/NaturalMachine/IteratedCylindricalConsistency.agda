@@ -8,7 +8,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Foundations.Equiv
   using (_≃_ ; compEquiv ; invEquiv ; invEquiv-is-linv
-        ; compEquivAssoc ; compEquivEquivId)
+        ; compEquiv-assoc ; compEquivEquivId)
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Univalence using (ua ; uaβ ; uaCompEquiv)
 open import Cubical.Data.Sigma using (Σ≡Prop)
@@ -137,8 +137,8 @@ module _ {ℓ : Level} (G : Group ℓ) where
   stagedComposite :
     compEquiv tripleToDouble (cylindricalEquiv G) ≡ tripleEquiv
   stagedComposite =
-      compEquivAssoc tripleEquiv (invEquiv (cylindricalEquiv G))
-        (cylindricalEquiv G)
+      sym (compEquiv-assoc tripleEquiv (invEquiv (cylindricalEquiv G))
+        (cylindricalEquiv G))
     ∙ cong (compEquiv tripleEquiv)
         (invEquiv-is-linv (cylindricalEquiv G))
     ∙ compEquivEquivId tripleEquiv
@@ -150,4 +150,3 @@ module _ {ℓ : Level} (G : Group ℓ) where
   cylindricalHistoryCoherent =
       cong ua (sym stagedComposite)
     ∙ uaCompEquiv tripleToDouble (cylindricalEquiv G)
-

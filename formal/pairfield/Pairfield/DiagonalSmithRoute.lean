@@ -404,6 +404,92 @@ theorem kuttaka610Transcript_actionCost_minimal
   simp only [DiagonalEuclidTranscript.actionCost] at hcost ⊢
   omega
 
+/-! ## Cache-relative coefficient acquisition
+
+The action count above assumes that every integer parameter of `E(q)` is
+already available.  The following deliberately small formation model adds a
+retained coefficient cache.  Applying a step costs one; the first acquisition
+of its coefficient costs one more.  This is not a bit-complexity model.  Its
+purpose is to type the missing state coordinate and its composition law.
+-/
+
+namespace QuotientCache
+
+/-- Retain a coefficient after its first use.  Existing entries are not
+duplicated by the transition. -/
+def acquire (cache : List Int) (q : Int) : List Int :=
+  if q ∈ cache then cache else q :: cache
+
+/-- Unit price for acquiring a coefficient that is not yet retained. -/
+def missCost (cache : List Int) (q : Int) : Nat :=
+  if q ∈ cache then 0 else 1
+
+/-- State reached after replaying a quotient word from an initial cache. -/
+def finalCache : List Int → List Int → List Int
+  | cache, [] => cache
+  | cache, q :: qs => finalCache (acquire cache q) qs
+
+/-- One unit for each `E(q)` application plus one unit for every first
+coefficient acquisition. -/
+def wordCost : List Int → List Int → Nat
+  | _, [] => 0
+  | cache, q :: qs =>
+      1 + missCost cache q + wordCost (acquire cache q) qs
+
+/-- Cache evolution composes by threading the intermediate state. -/
+theorem finalCache_append (cache qs rs : List Int) :
+    finalCache cache (qs ++ rs) = finalCache (finalCache cache qs) rs := by
+  induction qs generalizing cache with
+  | nil => rfl
+  | cons q qs ih =>
+      simp [finalCache, ih]
+
+/-- Formation cost is an exact additive cocycle over word concatenation once
+the intermediate cache is retained. -/
+theorem wordCost_append (cache qs rs : List Int) :
+    wordCost cache (qs ++ rs) =
+      wordCost cache qs + wordCost (finalCache cache qs) rs := by
+  induction qs generalizing cache with
+  | nil => rfl
+  | cons q qs ih =>
+      simp [wordCost, finalCache, ih, Nat.add_assoc]
+
+end QuotientCache
+
+namespace DiagonalEuclidTranscript
+
+/-- A declared serialization of coefficient use: left word first, then right
+word.  This is a pricing convention, not a claim that the stored transcript
+already contained an interleaving timestamp. -/
+def coefficientWord (t : DiagonalEuclidTranscript) : List Int :=
+  t.leftSteps ++ t.rightSteps
+
+/-- Cache-relative price of the serialized quotient word. -/
+def cachedActionCost (cache : List Int) (t : DiagonalEuclidTranscript) : Nat :=
+  QuotientCache.wordCost cache t.coefficientWord
+
+end DiagonalEuclidTranscript
+
+/-- The six applications use five distinct coefficients.  They therefore
+cost eleven from the empty cache and six from the fully retained cache. -/
+theorem kuttaka610Transcript_cache_costs :
+    kuttaka610Transcript.cachedActionCost [] = 11 ∧
+      kuttaka610Transcript.cachedActionCost [0, 1, 2, -1, -5] = 6 := by
+  native_decide
+
+/-- Even after the action transcript is retained, its marginal formation cost
+cannot be assigned without the initial coefficient cache. -/
+theorem no_cache_independent_actionCost :
+    ¬ ∃ price : DiagonalEuclidTranscript → Nat,
+        ∀ (cache : List Int) (t : DiagonalEuclidTranscript),
+          price t = t.cachedActionCost cache := by
+  rintro ⟨price, hprice⟩
+  have hempty := hprice [] kuttaka610Transcript
+  have hfull := hprice [0, 1, 2, -1, -5] kuttaka610Transcript
+  rw [kuttaka610Transcript_cache_costs.1] at hempty
+  rw [kuttaka610Transcript_cache_costs.2] at hfull
+  omega
+
 /-! Exact controls.  The first is the killed blanket criterion; the second is
 the surviving mutually nondividing branch. -/
 

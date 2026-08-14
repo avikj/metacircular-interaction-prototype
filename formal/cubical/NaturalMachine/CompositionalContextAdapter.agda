@@ -91,6 +91,18 @@ open isObservedMagmaCongruence
 -- A magma congruence is stable under each elementary one-hole translation,
 -- hence supplies the exact behavioral-congruence interface already checked
 -- by FutureBehavior.
+magma-step-preserves :
+    {S : X → X → Type ℓR}
+    {operation : X → X → X} {observe : X → O}
+  → isObservedMagmaCongruence operation observe S
+  → {x y : X} (action : ContextAction X)
+  → S x y
+  → S (contextStep operation x action) (contextStep operation y action)
+magma-step-preserves congruence (false , fixed) related =
+  respects-operation congruence related (reflexive congruence fixed)
+magma-step-preserves congruence (true , fixed) related =
+  respects-operation congruence (reflexive congruence fixed) related
+
 magma→behavioral :
     {S : X → X → Type ℓR}
     {operation : X → X → X} {observe : X → O}
@@ -98,15 +110,8 @@ magma→behavioral :
   → FB.isBehavioralCongruence (contextStep operation) observe S
 magma→behavioral congruence = record
   { respects-observe = respects-observe congruence
-  ; respects-step = step-preserves
+  ; respects-step = magma-step-preserves congruence
   }
-  where
-  step-preserves : {x y : X} (action : ContextAction X)
-    → _ → _
-  step-preserves (false , fixed) related =
-    respects-operation congruence related (reflexive congruence fixed)
-  step-preserves (true , fixed) related =
-    respects-operation congruence (reflexive congruence fixed) related
 
 -- Change the left input, then the right input, using the two elementary
 -- contexts; transitivity joins the two checked paths.
@@ -207,5 +212,8 @@ now-kernel-not-magma-congruence :
   ¬ isObservedMagmaCongruence leakingOperation controlObserve NowEq
 now-kernel-not-magma-congruence congruence =
   false≢true
-    (respects-operation congruence same-now
+    (respects-operation congruence
+      {x = controlLeft} {x′ = controlRight}
+      {y = controlFixed} {y′ = controlFixed}
+      same-now
       (reflexive congruence controlFixed))
