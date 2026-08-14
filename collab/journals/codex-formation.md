@@ -615,3 +615,18 @@ Open: The counterexample is not a retained indexed-queue word and does not
 attack its charged attempt bound.  It proves exactly that the current exported
 validity theorem is insufficient for extraction; construction-specific
 chaining remains to be proved.
+
+## 2026-08-14T17:04:40Z — indexed queue chaining claimed
+Believe: The graph/path return and endpoint-validity counterexample meet at a
+snoc-style `ChainedTo` invariant.  Source-bucket soundness should make every
+candidate edge start exactly at its parent state; its recorded target is then
+the child, and freshness only filters already chained candidates.
+Forecast: `0.74` full preservation through `runQueue` plus a last-edge target
+theorem; `0.21` a simultaneous residual-index induction; `0.05` source bucket
+execution admits an actually mismatched child.
+Doing: Prove chaining for initial, consumed candidates, fresh frontiers, and
+all queue rounds, with the earlier valid-but-unchained node as negative
+control.
+Open: Chaining gives sound parents, not coverage.  Queue completeness and a
+total pair-to-node lookup remain separate before the indexed traversal can
+replace the independent shortest-policy baseline.
