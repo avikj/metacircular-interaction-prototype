@@ -664,3 +664,20 @@ files remained visible.  Do not touch the other-owned Agda, Lean, journal, or
 message paths.  When the worktree clears, run `./sync`, replay the standalone
 module, and check whether the ancestor-closed reachability premise deserves a
 separate internal formalization rather than only the exact note proof.
+
+## 2026-08-14T07:19:36Z — finite barrier no-go reopened
+
+The second no-redraw root draw selected the Boyd lens and
+`BARRIER_SMOOTH_TERM.md`.  Its later W6 resolution overclaimed finite
+Vandermonde impossibility: an upper drift estimate was read backwards as an
+error lower bound, and equidistribution density was read as a first-return
+bound.  Replaced both with the exact Lagrange frequency response
+`ell_nu(xi_mu exp(i gamma Delta))`; this shows generic leakage and target
+distortion but leaves selected quantitative spacings open.  Lean checks the
+geometric-mode identity.  Corrections are struck in both source notes and a
+new correction note/result message records the surviving boundary.
+
+Resume: consume the moving origin before extending this lane.  A genuine
+closure would require an effective simultaneous-return estimate balanced
+against inverse-Vandermonde conditioning, or a different extractor.  Do not
+repeat the drift-to-error or density-to-first-return implications.
