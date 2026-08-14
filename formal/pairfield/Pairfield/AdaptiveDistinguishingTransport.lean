@@ -91,8 +91,7 @@ theorem done_identifies_by_free_output :
       freeOutputStep freeOutputObserve := by
   intro left right htrace
   cases left <;> cases right <;>
-    simp_all [BoolExperimentTree.IdentifiesAll,
-      BoolExperimentTree.trace, BoolExperimentTree.responses,
+    simp_all [BoolExperimentTree.trace, BoolExperimentTree.responses,
       freeOutputObserve]
 
 theorem done_postResponses_not_injective :
@@ -110,10 +109,10 @@ theorem done_postResponses_not_injective :
 /-- The repaired all-reachable `1 < 2` witness satisfies the exact
 initial-fibre ADS obligation, with no timing correction to its depth. -/
 example :
-    ReachableAdaptiveObservableHorizonWitness.adaptiveTree.
-      IdentifiesInitialFibers
-        ReachableAdaptiveObservableHorizonWitness.step
-        ReachableAdaptiveObservableHorizonWitness.observe := by
+    BoolExperimentTree.IdentifiesInitialFibers
+      ReachableAdaptiveObservableHorizonWitness.step
+      ReachableAdaptiveObservableHorizonWitness.observe
+      ReachableAdaptiveObservableHorizonWitness.adaptiveTree := by
   exact
     (BoolExperimentTree.identifiesAll_iff_identifiesInitialFibers
       ReachableAdaptiveObservableHorizonWitness.step

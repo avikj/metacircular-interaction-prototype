@@ -24,7 +24,7 @@ module NaturalMachine.RelationalProcessCore where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
-  using (Bool ; true ; false ; notEq ; true≠false)
+  using (Bool ; true ; false ; notEq ; true≢false)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.HITs.S1 using (S¹ ; base ; loop)
 open import Cubical.Relation.Nullary using (¬_)
@@ -37,7 +37,7 @@ private
 -- 1. Relative facts and interactions
 ------------------------------------------------------------------------
 
-record RelativeProcess : Type (lsuc (lmax ℓ ℓ')) where
+record RelativeProcess : Type (ℓ-suc (ℓ-max ℓ ℓ')) where
   field
     Locus : Type ℓ
     Fact  : Locus → Type ℓ'
@@ -48,7 +48,7 @@ open RelativeProcess public
 -- loci, a fact before the interaction, a fact after it, and the statement
 -- that the latter is exactly transport of the former.
 record Interaction (P : RelativeProcess { ℓ} { ℓ'})
-    (source target : Locus P) : Type (lmax ℓ ℓ') where
+    (source target : Locus P) : Type (ℓ-max ℓ ℓ') where
   field
     path   : source ≡ target
     before : Fact P source
@@ -72,7 +72,7 @@ section-naturality : {B : Type ℓ} (F : B → Type ℓ')
                    (s : (b : B) → F b)
                    {x y : B} (p : x ≡ y)
                    → subst F p (s x) ≡ s y
-section-naturality F s refl = refl
+section-naturality F s {x} {.x} refl = refl
 
 ------------------------------------------------------------------------
 -- 2. A genuine finite-fibre gluing obstruction
@@ -116,7 +116,7 @@ GlobalFact = (o : Observer) → RelativeFact o
 -- Local inhabitation does not imply such a global fact: naturality around
 -- the physical comparison loop would make negation fix the selected Bool.
 no-global-fact : ¬ GlobalFact
-no-global-fact s = true≠false contradiction
+no-global-fact s = true≢false contradiction
   where
   fixed : subst RelativeFact loop (s base) ≡ s base
   fixed = section-naturality RelativeFact s loop

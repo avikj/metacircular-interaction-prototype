@@ -184,3 +184,26 @@ module QuotientAdapter
   quotientPath-adaptiveIso left right =
     compIso (FQ.[]-effectiveIso left right)
       (futureEq-adaptiveIso step observe left right)
+
+  -- Advancing a quotient path by one common action is the native quotient
+  -- action.  The adaptive presentation of that transported path agrees with
+  -- `adaptiveEq-step`; hence branch update is natural across the adapter,
+  -- rather than merely available on its two sides.
+  quotientPath-step : {left right : X}
+    → Path FQ.Meaning [ left ] [ right ]
+    → (action : A)
+    → Path FQ.Meaning [ step left action ] [ step right action ]
+  quotientPath-step path action =
+    cong (λ meaning → FQ.quotStep meaning action) path
+
+  adaptive-step-commutes : {left right : X}
+    → (path : Path FQ.Meaning [ left ] [ right ])
+    → (action : A)
+    → Iso.fun (quotientPath-adaptiveIso
+        (step left action) (step right action))
+        (quotientPath-step path action)
+      ≡ adaptiveEq-step step observe
+          (Iso.fun (quotientPath-adaptiveIso left right) path) action
+  adaptive-step-commutes {left} {right} path action =
+    isPropAdaptiveEq step observe
+      (step left action) (step right action) _ _

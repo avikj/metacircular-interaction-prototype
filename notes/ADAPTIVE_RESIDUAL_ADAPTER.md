@@ -41,7 +41,11 @@ statement to
 
 Thus an adaptive branch carries the already-installed behavioral residual;
 branching does not manufacture a finer quotient.  The checked `adaptiveEq-step`
-also shows that the relation is preserved by a common next action.
+also shows that the relation is preserved by a common next action.  The
+commuting law `adaptive-step-commutes` checks more: transporting the quotient
+path by `quotStep` and then applying the adapter agrees with advancing the
+adaptive residual directly.  The transition, not either isolated carrier, is
+the theorem.
 
 ## Translation killed
 
@@ -86,4 +90,3 @@ recover complete word behavior.  The module quantifies over **all** finite
 trees and constructs those embeddings explicitly.  It does not claim that one
 tree identifies all states, that a least tree exists, or that adaptive and
 uniform depths agree.
-

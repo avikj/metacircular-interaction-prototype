@@ -123,9 +123,15 @@ module _ {ℓ : Level} (G : Group ℓ) where
   holonomy-endpointGauge : (u : ⟨ G ⟩ × ⟨ G ⟩) (x : Refined)
     → holonomy (refinedEndpointGauge u x)
       ≡ endpointGauge u (holonomy x)
-  holonomy-endpointGauge (s , t) (a , b) =
-      sym (G.·Assoc (t G.· b) a (G.inv s))
-    ∙ cong (G._· (G.inv s)) (G.·Assoc t b a)
+  holonomy-endpointGauge (s , t) (a , b) = first ∙ second
+    where
+    first : (t G.· b) G.· (a G.· G.inv s)
+          ≡ ((t G.· b) G.· a) G.· G.inv s
+    first = sym (G.·Assoc (t G.· b) a (G.inv s))
+
+    second : ((t G.· b) G.· a) G.· G.inv s
+           ≡ (t G.· (b G.· a)) G.· G.inv s
+    second = cong (λ z → z G.· G.inv s) (G.·Assoc t b a)
 
   -- For a closed loop the source and target gauges coincide, hence holonomy
   -- changes by conjugation.  A class function is the abstract trace-like
