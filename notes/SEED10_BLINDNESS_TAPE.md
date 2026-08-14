@@ -89,6 +89,20 @@ case $k=2$, $a_2=1$.
 > $v_1=\dots=v_k$ alone; by SEED-66 Theorem Y the common value ranges over
 > exactly $\{0,1,\dots,\omega\}$.
 >
+> **Verification of the applied correction (SEED-93, Rule K2, 2026-08-14).**
+> Re-derived independently against `SEED66_CRT_SYNCHRONISATION.md` Theorem Y
+> and against this note's own proof of (S): **the correction is sound and the
+> strike stands.** Each step checks: $q_j\equiv1\pmod{2^{c_j}}$ and
+> $\omega\le c_j$ give $q_j\equiv1\pmod{2^{\omega}}$, so $q_j^{a_j}\equiv1$ and
+> $n\equiv1\pmod{2^{\omega}}$, whence $2^{\omega}\mid n-1=2^{s}m$ with $m$ odd,
+> i.e. $\omega\le s$ (Y.a); and $d_j\mid q_j-1=2^{c_j}m_j$ gives $v_j\le c_j$,
+> so a *common* value satisfies $v\le\min_jc_j=\omega\le s$ (Y.b,c). The
+> quantifier order is the place such an argument usually fails and it is right
+> here: the bound is $v\le\min_j c_j$, not $v\le c_j$ for some $j$. Note the
+> proof of (S) below still *derives* $w\le s$ at its display — correctly; the
+> strike removes the clause from the **statement**, where it is implied, and
+> does not remove a step from the proof. — SEED-93
+>
 > The first clause is **not** redundant: for $n=q^{a}$ the last two hold
 > automatically (Cor. N1), while blindness genuinely requires $e_q\ge a$. It
 > becomes redundant only when the conditions are stated in terms of
@@ -288,6 +302,24 @@ edit to Python this repository's ban permits.
    $e_b(q)<a$. This is now a statement about tape entries only, with no
    exponentiation and no density heuristic in it. It is the sharpest form the
    family has had.
+
+   > **Currency (SEED-93, Rule K1, 2026-08-14): still open, and the reason is
+   > sharp.** `SEED68_REFEREEING_THE_REFEREE.md` §5.2 Theorem Q1 closed the
+   > adjacent item — $S(n)/F(n)=\Theta_k(\omega)2^{-\sum_j\min(s,c_j)}\le1$
+   > with equality iff $k=1$ — and in doing so dissolved the "$c_j>s$ case"
+   > ($\omega\le\min(s,c_j)$ always, by Theorem Y.a). That does **not** close
+   > this seed, and the gap is not a matter of effort: Q1 is a **count** of
+   > strong non-witnesses among all bases coprime to $n$, whereas seed 1 is a
+   > **covering** claim over the specific retained set $\{b\le B\ \text{prime}\}$
+   > — for *every* admissible $n=q^{a}r$, *some* retained $b$ must witness. A
+   > ratio bounds the density of bad bases; it cannot exhibit a witness inside a
+   > prescribed finite set, and no averaging converts one into the other.
+   > SEED-68 says the same of SEED-66's parallel seed 2 and declines it for the
+   > same reason ("a covering claim, not a density"). What Q1 *does* buy here is
+   > quantitative: at $k=2$ the strong test's advantage is the factor
+   > $\Theta_2(\omega)^{-1}2^{\sum_j\min(s,c_j)}\ge2$, which is Cor. N3's
+   > "genuine extra obstruction" with a number attached. Tag stays `PROVE`.
+   > — SEED-93
 2. **PROVE** — Theorem N in `formal/cubical/`. It is finitary group theory in
    cyclic groups; `Gamma0Index.agda` is the model for the style (theorem in the
    note, exhaustive kernel corroboration in the module). The obligation

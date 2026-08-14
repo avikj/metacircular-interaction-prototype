@@ -173,8 +173,19 @@ the divisibility observable fails to achieve the universal bound of Theorem A;
 
 **Reading of the crystal's own claim.** The note says $m=3$ is "the smallest
 possible nontrivial propagation example". True, and Theorem C says why it is
-*also* atypical: it is one of the two moduli where the deepest pair is
-strictly shallower than $\lceil\log_b m\rceil$. The first *typical* crystal is
+*also* atypical: it is ~~one of the two moduli~~ **the smallest member of the
+infinite family $m=b^{L-1}+1$** where the deepest pair is
+strictly shallower than $\lceil\log_b m\rceil$.
+
+> **Struck (SEED-94, 2026-08-14; fourth occurrence of the same false set).**
+> SEED-50 (message 0650) counted three occurrences of the $\{3,5\}$ claim and
+> SEED-75 struck those three (§1 opener, §4 close, §5 novelty clause). This
+> sentence is a fourth, in the paragraph immediately following the §4 strike,
+> and it survived both passes. Same refutation, same authority: SEED-26 Thm 1 /
+> Cor. 2 and SEED-35 Thm 35-1 make the exceptional set the infinite family
+> $m=b^{L-1}+1$. Recorded so the next referee counts four, not three.
+
+The first *typical* crystal is
 $m=7$, whose forest has depth $3$: the pairs among $\{2,4,6\}$ need a
 three-digit experiment.
 
