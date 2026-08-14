@@ -398,3 +398,128 @@ fusedEpochs (suc epochs) writes reads t acc =
 fusedMixed : Nat → Nat → Nat → Bool
 fusedMixed epochs writes reads =
   fusedEpochs epochs writes reads identityBoolTable false
+
+-- General finite-state fusion.  The table is intrinsically total: its length
+-- and every admissible index carry the same cardinality.
+data Fin : Nat → Set where
+  fzero : {n : Nat} → Fin (suc n)
+  fsuc : {n : Nat} → Fin n → Fin (suc n)
+
+data Vec (A : Set) : Nat → Set where
+  [] : Vec A zero
+  _∷_ : {n : Nat} → A → Vec A n → Vec A (suc n)
+
+infixr 5 _∷_
+
+lookup : {A : Set} {n : Nat} → Vec A n → Fin n → A
+lookup (x ∷ xs) fzero = x
+lookup (x ∷ xs) (fsuc i) = lookup xs i
+
+tabulateFin : {A : Set} (n : Nat) → (Fin n → A) → Vec A n
+tabulateFin zero f = []
+tabulateFin (suc n) f = f fzero ∷ tabulateFin n (λ i → f (fsuc i))
+
+lookup-tabulateFin : {A : Set} (n : Nat) (f : Fin n → A) (i : Fin n)
+  → lookup (tabulateFin n f) i ≡ f i
+lookup-tabulateFin (suc n) f fzero = refl
+lookup-tabulateFin (suc n) f (fsuc i) =
+  lookup-tabulateFin n (λ j → f (fsuc j)) i
+
+FinTable : Nat → Set
+FinTable n = Vec (Fin n) n
+
+identityFinTable : (n : Nat) → FinTable n
+identityFinTable n = tabulateFin n (λ x → x)
+
+applyFinTable : {n : Nat} → FinTable n → Fin n → Fin n
+applyFinTable = lookup
+
+composeFinTable : {n : Nat} → (Fin n → Fin n) → FinTable n → FinTable n
+composeFinTable {n} f t = tabulateFin n (λ x → applyFinTable t (f x))
+
+composeFinTable-sound : {n : Nat} (f : Fin n → Fin n)
+  (t : FinTable n) (x : Fin n)
+  → applyFinTable (composeFinTable f t) x ≡ applyFinTable t (f x)
+composeFinTable-sound {n} f t x =
+  lookup-tabulateFin n (λ y → applyFinTable t (f y)) x
+
+normaliseFin : {n : Nat} → Plan (Fin n) → FinTable n
+normaliseFin {n} p = tabulateFin n (runPlan p)
+
+normaliseFin-sound : {n : Nat} (p : Plan (Fin n)) (x : Fin n)
+  → applyFinTable (normaliseFin p) x ≡ runPlan p x
+normaliseFin-sound {n} p x = lookup-tabulateFin n (runPlan p) x
+
+data AdaptiveFinMode (n : Nat) : Set where
+  lazyFin : Plan (Fin n) → Nat → Nat → AdaptiveFinMode n
+  fusedFin : FinTable n → AdaptiveFinMode n
+
+shouldFuseFin : Nat → Nat → Nat → Bool
+shouldFuseFin n k q = k * pred n < q * pred k
+
+runFinMode : {n : Nat} → AdaptiveFinMode n → Fin n → Fin n
+runFinMode (lazyFin p k q) x = runPlan p x
+runFinMode (fusedFin t) x = applyFinTable t x
+
+updateFinMode : {n : Nat} → (Fin n → Fin n) → AdaptiveFinMode n
+  → AdaptiveFinMode n
+updateFinMode f (lazyFin p k q) = lazyFin (push f p) (suc k) zero
+updateFinMode f (fusedFin t) = fusedFin (composeFinTable f t)
+
+updateFinMode-sound : {n : Nat} (f : Fin n → Fin n)
+  (m : AdaptiveFinMode n) (x : Fin n)
+  → runFinMode (updateFinMode f m) x ≡ runFinMode m (f x)
+updateFinMode-sound f (lazyFin p k q) x = push-sound f p x
+updateFinMode-sound f (fusedFin t) x = composeFinTable-sound f t x
+
+readFinMode : {n : Nat} → AdaptiveFinMode n → Fin n
+  → Σ (Fin n) (λ _ → AdaptiveFinMode n)
+readFinMode (fusedFin t) x = applyFinTable t x , fusedFin t
+readFinMode {n} (lazyFin p k q) x with shouldFuseFin n k (suc q)
+... | false = runPlan p x , lazyFin p k (suc q)
+... | true = runPlan p x , fusedFin (normaliseFin p)
+
+readFinMode-value : {n : Nat} (m : AdaptiveFinMode n) (x : Fin n)
+  → fst (readFinMode m x) ≡ runFinMode m x
+readFinMode-value (fusedFin t) x = refl
+readFinMode-value {n} (lazyFin p k q) x with shouldFuseFin n k (suc q)
+... | false = refl
+... | true = refl
+
+readFinMode-next : {n : Nat} (m : AdaptiveFinMode n) (x y : Fin n)
+  → runFinMode (snd (readFinMode m x)) y ≡ runFinMode m y
+readFinMode-next (fusedFin t) x y = refl
+readFinMode-next {n} (lazyFin p k q) x y with shouldFuseFin n k (suc q)
+... | false = refl
+... | true = normaliseFin-sound p y
+
+record AdaptiveFinProfile (R O : Set) (n : Nat) : Set where
+  constructor adaptiveFin
+  field
+    finMode : AdaptiveFinMode n
+    finBase : Profile R (Fin n) O
+
+open AdaptiveFinProfile
+
+readAdaptiveFin : {R O : Set} {n : Nat} → AdaptiveFinProfile R O n → R → Fin n
+  → Σ O (λ _ → AdaptiveFinProfile R O n)
+readAdaptiveFin C r x =
+  finBase C r (fst step) , adaptiveFin (snd step) (finBase C)
+  where
+  step = readFinMode (finMode C) x
+
+readAdaptiveFin-value : {R O : Set} {n : Nat} (C : AdaptiveFinProfile R O n)
+  (r : R) (x : Fin n)
+  → fst (readAdaptiveFin C r x) ≡ finBase C r (runFinMode (finMode C) x)
+readAdaptiveFin-value C r x rewrite readFinMode-value (finMode C) x = refl
+
+updateAdaptiveFin : {R O : Set} {n : Nat} → (Fin n → Fin n)
+  → AdaptiveFinProfile R O n → AdaptiveFinProfile R O n
+updateAdaptiveFin f C = adaptiveFin (updateFinMode f (finMode C)) (finBase C)
+
+updateAdaptiveFin-sound : {R O : Set} {n : Nat} (f : Fin n → Fin n)
+  (C : AdaptiveFinProfile R O n) (r : R) (x : Fin n)
+  → finBase C r (runFinMode (finMode (updateAdaptiveFin f C)) x)
+    ≡ finBase C r (runFinMode (finMode C) (f x))
+updateAdaptiveFin-sound f C r x
+  rewrite updateFinMode-sound f (finMode C) x = refl

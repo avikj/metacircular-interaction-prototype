@@ -267,6 +267,28 @@ assignments nv count = go 12345 count
 fingerprint :: M.Map String ([Integer] -> Integer) -> [[Integer]] -> Term -> [Integer]
 fingerprint sem envs t = map (\e -> eval sem e t) envs
 
+-- A fixed-depth radix trie avoids repeatedly comparing long fingerprint
+-- prefixes inside `Map [Integer]`.  It is collision-free: every observation
+-- remains an exact edge label, and leaves occur only after all assignments.
+data FPTrie a = FPLeaf [a] | FPBranch (M.Map Integer (FPTrie a))
+
+emptyFP :: FPTrie a
+emptyFP = FPBranch M.empty
+
+insertFP :: [Integer] -> a -> FPTrie a -> FPTrie a
+insertFP [] x (FPLeaf xs) = FPLeaf (x:xs)
+insertFP [] x (FPBranch _) = FPLeaf [x]
+insertFP (v:vs) x (FPBranch m) =
+  FPBranch (M.alter (Just . insertFP vs x . maybe emptyFP id) v m)
+insertFP (_:_) _ (FPLeaf _) = error "fingerprint trie depth mismatch"
+
+leavesFP :: FPTrie a -> [[a]]
+leavesFP (FPLeaf xs) = [xs]
+leavesFP (FPBranch m) = concatMap leavesFP (M.elems m)
+
+groupFingerprints :: [([Integer], a)] -> [[a]]
+groupFingerprints = leavesFP . foldl' (\tr (fp,x) -> insertFP fp x tr) emptyFP
+
 -- --------------------------------------------------------- generation
 
 genTerms :: [(String,Int)] -> Int -> Int -> [Term]
@@ -764,8 +786,8 @@ round1 logh libh ref = do
       raw = genTerms sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
       normed = ordNub (map (normalize rules) raw)
-      classes = M.elems (M.fromListWith (++)
-                  [ (fingerprint sem envs t, [t]) | t <- normed ])
+      classes = groupFingerprints
+                  [ (fingerprint sem envs t, t) | t <- normed ]
       conjectures = ordNub
         ( [ canonVars (rep, other)
           | cls <- classes
@@ -944,6 +966,34 @@ round1 logh libh ref = do
 main :: IO ()
 main = do
   args <- getArgs
+  when (args == ["--phase-profile"]) $ do
+    let syms = take 3 vocabulary
+        sig = arities syms
+        sem = semantics syms
+        rules = definitionsOf syms
+        envs = assignments kVars kAssign
+        raw = genTerms sig kVars 7
+    t0 <- getCPUTime
+    let rawMass = sum (map size raw)
+    rawMass `seq` pure ()
+    t1 <- getCPUTime
+    let normed = ordNub (map (normalize rules) raw)
+        normMass = sum (map size normed)
+    normMass `seq` pure ()
+    t2 <- getCPUTime
+    let fps = [ (fingerprint sem envs t, t) | t <- normed ]
+        fpMass = sum [ length fp + size t | (fp,t) <- fps ]
+    fpMass `seq` pure ()
+    t3 <- getCPUTime
+    let classes = groupFingerprints fps
+        pairs = sum [ max 0 (length cls - 1) | cls <- classes ]
+    pairs `seq` pure ()
+    t4 <- getCPUTime
+    let ms a b = fromIntegral (b-a) / (1e9 :: Double)
+    hPrintf stdout "terms=%d normed=%d classes=%d pairs=%d gen=%.3fms norm=%.3fms fingerprint=%.3fms group=%.3fms\n"
+      (length raw) (length normed) (length classes) pairs
+      (ms t0 t1) (ms t1 t2) (ms t2 t3) (ms t3 t4)
+    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw
