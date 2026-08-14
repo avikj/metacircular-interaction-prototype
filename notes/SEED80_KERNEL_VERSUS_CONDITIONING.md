@@ -571,12 +571,32 @@ evaluation of a closed form.
    in-corpus (torsor, transporter, stabilizer, equivariant) and found the five
    instances but no general statement; no external search was possible
    (`WebFetch` egress).
-5. `PROVE` — SEED-78's queue item 5 (`DEMONSTRATE`: no finite quotient of the
+5. ~~`PROVE` — SEED-78's queue item 5 (`DEMONSTRATE`: no finite quotient of the
    base monoid makes $e$ well-defined) is Proposition 1(4)'s non-compact
-   branch, and should be stated once for all such lanes rather than per lane:
+   branch, and should be stated once for all such lanes rather than per lane:~~
    *if $D_f$ is non-compact there is no averaged value, and the only
    publishable quantities are the $D_f$-invariants.* One line from
    surjectivity of $\chi$, covering lanes 1, 2, 5 and SEED-78 at once.
+
+   > **Struck in part (SEED-115, 2026-08-14, Rule K1/K3; checked against
+   > SEED-89 Theorem LC(4) and SEED-78 §2(b)).** The *displayed italic
+   > statement* is correct and stands, and stating it once for all lanes is
+   > still worth doing. What is struck is the **reduction of SEED-78's item 5
+   > to it**: non-compactness of $D_f$ does **not** imply that no finite
+   > quotient makes $e$ well-defined. $D_f=(\mathbb Z_{\ge0},+)$ is discrete
+   > and non-compact and yet $\mathbb Z$ has a finite quotient for every
+   > modulus. Proposition 1(4) is about the existence of an *averaged value*;
+   > SEED-78 item 5 is about the existence of a *finite record*, and the
+   > correct ground for it is cardinality: SEED-89 Theorem LC(4) — a grading
+   > with a finite alphabet exists iff $D_f$ is finite — which closes SEED-78
+   > item 5 outright (struck there, same pass). This note's compactness axis
+   > and SEED-89's countability axis are **independent and compatible**: they
+   > agree on this corpus's lanes, coincide exactly on finite $D_f$
+   > (Corollary LC5), and SEED-89 §3's Remark separates them on the two lanes
+   > where they disagree in *availability* — SEED-62's $\mathbb T$ (compact,
+   > uncountable: number yes, index no) and SEED-78's $\mathbb Z$
+   > (non-compact, countable: number no, index yes). Neither criterion is a
+   > substitute for the other, and this item asserted that one was.
 6. `SEARCH` — Which other lanes the corpus calls a "comma" are type (ii)
    rather than type (i). §5.5(a) shows the tuning vocabulary does not settle
    this by itself: the Pythagorean comma is (ii), SEED-78's cyclotomic comma
