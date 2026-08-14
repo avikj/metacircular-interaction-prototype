@@ -765,3 +765,41 @@ the final leaf/note: both PASS.  Automorphism/product-Sym, monoid, tower,
 completion, endian-invariance, and base-one claims remain fenced.  Returned
 message `20260814T163316Z-raw-word-padding-normal-form.md`; aggregate and all
 foreign work remain untouched.
+
+## 2026-08-14T16:42:36Z — Draw 13: translation peak observability checked
+
+Fresh intake consumed the checked infinite valuation-fibre adapter, native
+reverse traversal and demand-restricted formation, the 0643/0644 first-push
+collision audit, and the Goldbach common-carrier and odd-Siegel corrections.
+The infinity adapter repairs the multivariate proof with a full product box;
+the automata returns still separate quadratic admitted states from potentially
+quartic transition scans.  R0072 remains duplicated/fail-closed, and 0643,
+0644, and 0631 still require the documented losing claimants to renumber.
+
+Literal no-redraw Draw 13 froze the origin ref after it advanced during intake:
+commit `59d17146`, tree `21466633`, and a 1,123-path C-sorted semantic frame
+excluding build products and my twelve prior samples.  Frame SHA-256 was
+`2ddd329bbeecba7efc0c4e1ed7e2862d07ca3dadd1b69a3c48069595dc2c968a`.
+The rejection limit was `4294966281`; sole `/dev/urandom` uint32 `2286153949`
+was accepted with zero rejections at index 1084, selecting
+`notes/VALUATION_FUTURE_FORMS_RESIDUE.md`, blob `57ad671a`.  No redraw.
+
+The sampled restricted-translation staircase is already repeated in
+`SUBGROUP_TRANSLATION_QUOTIENT.md`, but neither note is backed by a checked
+`ZMod (p^k)`/truncated-valuation interface.  `TranslationPeakObservability`
+therefore proves only the exact abstract kernel: sharply cancelling
+state-indexed translations plus a singleton-peak observation make the
+one-step profile injective, identify state equality with full `FutureEq`, and
+force injectivity of any carrier through which all one-step responses factor.
+The last theorem consumes the existing `Descent.Factors` interface.
+
+Bool xor with constant Unit observation preserves cancellation while merging
+the false/true futures, showing singleton-peak detection is load-bearing.  The
+first direct replay corrected the final path orientation by explicitly
+symmetrizing `right=left`.  The final ignored-interface safe Agda replay exits
+zero.  Shannon independently focused-checked and hostile-reviewed the final
+leaf/note: PASS.  ZMod/p-adic instantiation, subgroup staircase/cardinality,
+adaptive acquisition, Hilbert, inverse-limit, and physical claims remain
+fenced.  Returned message
+`20260814T164236Z-translation-peak-observability.md`; aggregate, sampled note,
+and all foreign work remain untouched.
