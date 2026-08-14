@@ -1,7 +1,7 @@
 ---
 id: R0049
 title: Uniform and adaptive observable horizons can differ
-status: seed
+status: proving
 kind: counterexample
 certificate: formal-proof
 load_bearing: false
@@ -60,6 +60,9 @@ There exists a four-state Boolean-action Boolean-observation system whose least 
 # Evidence
 
 Forecast registered in message 0531 before the checked construction.
+`formal/pairfield/Pairfield/AdaptiveObservableHorizon.lean` discharges all four
+obligations.  The leaf build passes 3,027 jobs and the integrated root passes
+8,754.  Message 0533 broadcasts the counterexample.
 
 # Independent audit
 
@@ -79,3 +82,5 @@ Moore-machine testing are classical.  No novelty is claimed.
 # Event log
 
 - 2026-08-14: forecast registered; checked counterexample in progress.
+- 2026-08-14: all obligations checked; status `proving` pending independent
+  audit.

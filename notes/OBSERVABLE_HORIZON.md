@@ -197,6 +197,45 @@ realized response classes.  Extending it to every unrealized observation
 requires extra extension or chosen-section data.  Silently identifying these
 two interfaces remains an unsound translation.
 
+### 6.1 Realized image versus complete future quotient
+
+Pointwise equality of the bounded and complete kernels is not, by itself, a
+type identification.  The Cubical continuation therefore constructs both
+maps from the native universal properties and proves their inverse laws:
+
+\[
+ \operatorname{Image}(X\to\operatorname{ResponseWindow}_n)
+ \;\mathop{\simeq}\;
+ X/\!\equiv_\infty.
+\]
+
+The direction from the complete future quotient to the realized image is
+unconditional: complete future equality restricts to every bounded window,
+so the state-to-image map descends through `FutureQuotient.factor`.  The
+reverse direction is exactly where closure is consumed.  Equal bounded
+windows first become complete future-equivalent by Theorem 2.1, hence define
+the same quotient point; choice-free image descent then gives `toMeaning`.
+
+`RealizedWindow.realizedMeaningIso` packages these maps as an explicit
+Cubical `Iso`, and `realizedMeaningEquiv` exposes the corresponding
+equivalence.  Neither kernel equality nor a connected-component label is
+treated as object identity.  The inverse laws follow from uniqueness of the
+two factorizations: `FutureQuotient.factor-unique` on the quotient side and
+`FiniteInformation.isPropFactorsThrough` on the image side.
+
+The adapter also preserves the installed dynamics, not merely the carrier:
+
+\[
+ \operatorname{toMeaning}(\operatorname{imageStep}(c,a))
+ =
+ \operatorname{quotStep}(\operatorname{toMeaning}(c),a).
+\]
+
+This commuting law is again obtained by uniqueness of descent from states.
+Thus the exact positive result is a machine equivalence on realized response
+classes.  The negative boundary from the preceding paragraph remains: no map
+from the whole ambient response-function type to itself has been constructed.
+
 ## 7. Exact least global horizon
 
 The checked module `Pairfield.GlobalObservableHorizon` assigns an ordered pair
@@ -239,6 +278,36 @@ least depth at which the carrier containing all words through that depth
 closes.  An adaptive decision tree may choose a different next action after
 each response and can have a different cost geometry; no equality is claimed.
 
+## 8. Adaptive and uniform depth separate
+
+`Pairfield.AdaptiveObservableHorizon` defines a Boolean experiment tree with
+leaves and action nodes.  An action node advances the state, reads the new
+Boolean observation, and selects only the corresponding child.  The current
+observation is prepended for free; tree depth counts actions.  A tree
+identifies the system when its response trace is injective on states.
+
+The four-state control has three initially unobserved states `0,1,2` and one
+observed sink `3`.  Action `false` sends only state `1` to the sink; action
+`true` sends only state `2`.  Every ordered pair has a separator of length at
+most one, and Lean computes the R0048 uniform horizon as `H(M)=1`.
+
+No adaptive tree of depth at most one identifies all states.  If its only
+action is `false`, states `0` and `2` have the same trace; if it is `true`,
+states `0` and `1` do.  A leaf already collides.  This is proved for every
+tree by first showing both children of any depth-one query have depth zero and
+therefore are leaves.
+
+The depth-two tree first applies `false`; on its unresolved false branch it
+then applies `true`.  Its four traces are injective.  Hence Lean checks
+
+\[
+\boxed{\text{least uniform horizon}=1<2=	ext{least adaptive depth}.}
+\]
+
+Uniform response formation and adaptive sensing are therefore different
+interfaces.  The former supplies all word responses in parallel; the latter
+must commit to one action at each response history.
+
 ## Replay
 
 ```sh
@@ -246,6 +315,7 @@ cd /Users/avikjain/Desktop/math2/formal/pairfield
 lake build Pairfield.ObservableHorizon
 lake build Pairfield.VisitedPairHorizon
 lake build Pairfield.GlobalObservableHorizon
+lake build Pairfield.AdaptiveObservableHorizon
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -253,5 +323,5 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,751 jobs.
+All leaf builds exit zero, and the integrated root build checks 8,754 jobs.
 Emitted warnings are pre-existing linter warnings in imported modules.

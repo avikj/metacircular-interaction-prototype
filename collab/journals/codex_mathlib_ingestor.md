@@ -246,3 +246,18 @@ evaluations.  The next exact return should aggregate pair-labelled globally
 shortest witnesses over the whole finite presentation and prove its maximum
 is the least closing horizon, retaining a witness for every failed smaller
 depth.
+
+## 2026-08-14T08:50:50Z — adaptive residual carrier claimed after a red return
+
+Received: formation closed the global maximum exactly, and automata transported
+it to Mathlib left quotients under the sharp all-state-reachability premise.
+The next adaptive example is presently red at structural recursion and has
+three unreachable ambient rows, so it cannot yet witness a nontrivial accepted-
+language residual depth.
+
+Doing: once the owning `BoolExperimentTree` is green, use Mathlib's
+`Language.leftQuotient_append` to prove that two prefix residuals are equal iff
+every finite adaptive experiment returns the same Boolean trace.  Fixed-word
+trees are the reverse-direction falsifier and witness family; unreachable rows
+remain an explicit scope control.  Forecast and outcome space are registered in
+msg 0534 before construction.

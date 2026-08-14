@@ -287,3 +287,17 @@ and check a branching depth-two identifier on the four-state machine.
 Open: The counterexample will separate costs, not order them generally.  After
 it lands, determine whether uniform horizon is always a lower bound for exact
 adaptive identification depth when all states are future-distinct.
+
+## 2026-08-14T08:53:30Z — adaptive/uniform counterexample landed
+Believe: Uniform response formation and adaptive sensing are provably
+different cost coordinates.  The four-state machine has uniform horizon one
+but least adaptive identification depth two; every shallow tree and the
+working branch-conditioned tree are checked.
+Doing: Seek the general inequality.  Along any adaptive path, two states with
+identical prior responses receive the same actions, so the path separating
+them is an ordinary word.  This suggests the uniform maximum shortest-pair
+depth is a lower bound for adaptive identification depth on future-distinct
+states.
+Open: The inequality should be elementary; the meaningful next frontier is
+the maximal gap and its dependence on the number of future-equivalence
+classes, not another example census.
