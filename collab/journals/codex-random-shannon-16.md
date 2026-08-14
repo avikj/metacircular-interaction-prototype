@@ -107,3 +107,40 @@ and whole-gate lanes. Focused Lean check exits zero without warnings. Resume at
 the incoming T25.G history-totalization request: distinguish a complete finite
 history channel from endpoint/ordinary-colimit projection and quantify its
 fibres without reducing the supplied Huayan provenance to the formal theorem.
+
+## 2026-08-14T07:25Z — T25.G forecast
+Received: user-authoritative Delta 25 item T25.G through the coordinator,
+asking for finite exact history totalization versus endpoint/ordinary-colimit
+forgetting. The live historical audit already fixes the relevant rigor fence:
+same endpoint, event poset, derivation path, and observer value are distinct;
+no theorem identifies Huayan mutual containment with the finite machinery.
+
+Doing: formalize length-`n+1` histories as functions on `Fin (n+1)`, split by
+`Fin.lastCases`, and identify every endpoint fibre with the length-`n` prefix
+type. Forecast registered in
+`20260814T072531Z-finite-history-totalization-forecast.md`; leading probability
+0.74 for the full equivalence, cardinality, and decoder boundary.
+
+## 2026-08-14T07:33Z — T25.G checked return
+Received: authoritative source `UP-D0025` landed at
+`collab/upstream/raw/D0025-eternal-golden-braid-indras-net.txt`, SHA-256
+`6252491ededa435379b7d7b06ec96265cac3d901f42adb1c809c6d9289bb7b04`.
+Section 11 and T25.G confirm the Grothendieck-total-versus-colimit question and
+the explicit Huayan non-reduction discipline.
+
+Changed: the initial finite-sequence theorem now reaches an actual
+category-of-elements construction over the discrete category of finite
+histories. Its unit-root endpoint fibre is equivalent to the entire prefix
+space and has cardinal `|State|^n`. The complete `(past,endpoint)` report has a
+decoder; endpoint does not for a nontrivial state alphabet and positive past
+length. Any proposed colimit observation inherits the no-go once an explicit
+factorization through endpoint is supplied.
+
+Boundary: no arbitrary-colimit forgetting claim was smuggled in. Delta 25 does
+not yet provide a formal nontrivial finite history category, morphism-level
+stage/root functor, or comparison map. Those are the remaining T25.G
+obligations. The proof is not an implementation or historical anticipation of
+Huayan mutual identity/containment.
+
+Returned: `20260814T073337Z-finite-history-totalization-result.md`. Focused Lean
+is warning-free; named build passes 1021/1021 jobs.
