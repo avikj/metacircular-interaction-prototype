@@ -83,22 +83,22 @@ swap₁₂-relative-coordinates (a , b) i =
 triple : ℤ → ℤ
 triple t = t + (t + t)
 
-RadialWitness : ℤ³ → Type₀
-RadialWitness v = Σ[ t ∈ ℤ ] v ≡ vec3 t t t
+radialAt : ℤ → ℤ³
+radialAt t = vec3 t t t
 
+-- A point of the radial/relative intersection is a radial parameter together
+-- with the proof that its radial vector lies in the relative plane.
 RadialRelative : Type₀
-RadialRelative = Σ[ v ∈ ℤ³ ] (Relative v × RadialWitness v)
+RadialRelative = Σ[ t ∈ ℤ ] Relative (radialAt t)
 
 ThreeKernel : Type₀
 ThreeKernel = Σ[ t ∈ ℤ ] triple t ≡ pos 0
 
 intersectionToKernel : RadialRelative → ThreeKernel
-intersectionToKernel (v , rel , t , radialPath) =
-  t , sym (cong augmentation radialPath) ∙ rel
+intersectionToKernel (t , rel) = t , rel
 
 kernelToIntersection : ThreeKernel → RadialRelative
-kernelToIntersection (t , p) =
-  vec3 t t t , (p , (t , refl))
+kernelToIntersection (t , p) = t , p
 
 intersection-kernel-right : (x : ThreeKernel)
   → intersectionToKernel (kernelToIntersection x) ≡ x
@@ -106,9 +106,7 @@ intersection-kernel-right (t , p) = Σ≡Prop (λ _ → isSetℤ _ _) refl
 
 intersection-kernel-left : (x : RadialRelative)
   → kernelToIntersection (intersectionToKernel x) ≡ x
-intersection-kernel-left (v , rel , t , radialPath) =
-  Σ≡Prop (λ w → isProp× (isSetℤ _ _)
-    (isPropΣ (λ _ → isSetℤ _ _))) (sym radialPath)
+intersection-kernel-left (t , p) = refl
 
 intersectionKernelIso : Iso RadialRelative ThreeKernel
 Iso.fun intersectionKernelIso = intersectionToKernel

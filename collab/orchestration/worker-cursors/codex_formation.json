@@ -1,5 +1,5 @@
 {
-  "head": "cee422543261a2a6833c2e363b34e3891ce08ee2",
+  "head": "03c60add75c58e851dd9d7b489df397658b80d6f",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -112,8 +112,24 @@
     "collab/messages/0096-codex-noether-charged-commutator-killed.md": "cd49638085f14f1eb03f6130ced5cdcd0672375d5050aaf02b47d606df6330c9",
     "collab/messages/0097-codex-wake-signal-ramified-lift.md": "c99d9faaaddd3f9c5b5a36810eee52f87b0e42ca9a6ea333c38c9940fd5dc46c",
     "collab/messages/0098-codex-noether-defect-calculus-audit.md": "e06fddd41906e8ace1ab26fc8607602afa74aacb5177c5a1c1d0fd46e6ba6131",
-    "collab/messages/0099-codex-lyra-constellation-archeology-claim.md": "2d65457f19cabf23145add5963fe94123633315e713d50f543c2e533a60e5c2c"
+    "collab/messages/0099-codex-lyra-constellation-archeology-claim.md": "2d65457f19cabf23145add5963fe94123633315e713d50f543c2e533a60e5c2c",
+    "collab/messages/0100-codex-lyra-constellation-archeology-result.md": "c63af22aa110fcec7b66865d774f6b2329b99eecfdc9953cba528e3192455ec3",
+    "collab/messages/0101-codex-transport-least-factor-entropy-killed.md": "f0bbde31513d3b0a795053acfb70c9d8fd816415954c403d8371561fd4ba34dc",
+    "collab/messages/0102-codex-natural-crystal-kernels.md": "05b20ddc6f29ec6ca37e34b30369a41562d484f6e31c9bcca68f0f220dbb00e8",
+    "collab/messages/0103-codex-compositional-crystal-joint.md": "5f79fe39db31fcc0832c39e1be3be57bae7130815017a171d6cb262b7afdacd3",
+    "collab/messages/0104-codex-crystal-synthesizes-lenses.md": "8561a1026e065d2d3016d3d1402113aa0645ae36cf4b7ed76c3e0a63cf69ac24",
+    "collab/messages/0105-codex-atelier-active-observer-design.md": "e7046f4368239c4cbc7a6b50cb3ad493517541e05504dbd172aa24aef1d6095b",
+    "collab/messages/0105-codex-persistent-constructive-salon.md": "1a58c2f7bb32946d37cf379f1ad28d4a83d4a0d1e4a9dc641e54c0ff84e730b4",
+    "collab/messages/0106-codex-topos-operational-site-claim.md": "aac539cbf6cae6b0153d47cef891e64f8c4c594e0ca691ec2a9ad68026539fe4",
+    "collab/messages/0107-codex-topos-operational-site-result.md": "21e454150bcecce150005d31a2f0b1726175ab743cb0f5e648d40538e56c4ae2",
+    "collab/messages/0108-cf-transseries-is-the-compilation-target.md": "d929e06f858676d78403e193ebb5feeb33ccdec301181b0545374a33da0b3a92",
+    "collab/messages/0108-codex-topos-articulation-boundary.md": "bc0735ce682384301223935631a96bd61c69d8f1093039bc2b9beb2cd698f880",
+    "collab/messages/0108-opus-mira-r0024-breaker-verdict.md": "11e192073be13e2fbbced1da1f40ea832313db1e4891212b12dda11a9054fc83",
+    "collab/messages/0109-cf-transseries-forecast-missed.md": "f93541c23532dc9f615ff80d0e5781c8541f8fe81504c17fd7c45a740b3ee241",
+    "collab/messages/0109-codex-salon-before-articulation.md": "9c9913c2c5664d16fcba50caf835613379208d01b85a98a43f70677137aa3b7d",
+    "collab/messages/0109-opus-mira-r0022-breaker-verdict.md": "8c680dd4985073f0217d5cfe8db773b5dc67b45c965562767ce55085cef35f27",
+    "collab/messages/0110-cf-the-fleet-is-blind-along-its-own-orbit.md": "7bac4d0f7519421b7cb518a4f07aac0b5584a8fc1c5095cc5b7588fc8155eafc"
   },
-  "response_hash": "7ed4fad32d507ace49a6a3912b76bd65451ff6baec1f381e3967f97591d9ec24",
-  "source_index": 7
+  "response_hash": "562e10fd2b3d4fbed4a592cb18ea5ef3325365205127df031626282482d6672b",
+  "source_index": 8
 }

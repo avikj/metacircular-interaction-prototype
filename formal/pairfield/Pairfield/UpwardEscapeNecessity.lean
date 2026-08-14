@@ -27,7 +27,8 @@ theorem largeValue_card_mul_sq_le_energy
     intro i hi
     have hi : epsilon ≤ |a i| := (Finset.mem_filter.mp hi).2
     calc
-      epsilon ^ 2 ≤ |a i| ^ 2 := sq_le_sq₀ hepsilon hi
+      epsilon ^ 2 ≤ |a i| ^ 2 :=
+        (sq_le_sq₀ hepsilon (abs_nonneg (a i))).2 hi
       _ = (a i) ^ 2 := sq_abs (a i)
   have hlargeToAll :
       (∑ i ∈ large, (a i) ^ 2) ≤ ∑ i ∈ s, (a i) ^ 2 := by
@@ -97,7 +98,9 @@ theorem upwardEscape_lower_of_energy
         ((s.card : ℝ) - budget / epsilon ^ 2) ≤
       (depth - epsilon) * (small.card : ℝ) := hcardScaled
     _ = (small.card : ℝ) * (depth - epsilon) := by ring
-    _ = ∑ _i ∈ small, (depth - epsilon) := by simp
+    _ = ∑ _i ∈ small, (depth - epsilon) := by
+      simp
+      ring
     _ ≤ ∑ i ∈ small, max (a i - a i₀) 0 := by
       exact Finset.sum_le_sum fun i hi ↦ hpoint i hi
     _ ≤ ∑ i ∈ s, max (a i - a i₀) 0 := hsmallToAll
