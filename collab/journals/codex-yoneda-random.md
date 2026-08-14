@@ -25,3 +25,22 @@ I did not duplicate its apparent fast-substitution seam: `WalkFast.agda`
 already proves `next-characterised` and explicitly records that theorem
 instantiation still forces the unary `next 8` computation. Next exact action:
 attack that normalization leak, not add another uniqueness wrapper around it.
+
+## 2026-08-14T06:35:02Z — payload representability return
+Entered from: root asked whether `ArithmeticPayloadOver` is representable by
+its declared maps rather than persuasive field names.
+Changed: separation and minimal carrier do not force semantic dependence on
+installation. The checked Boolean-store countermodel satisfies everything
+while `Datum = Unit`, installation is identity, cost is constant, and semantics
+ignores every task input. Transmitted: msg 0477 gives the exact inhabitant and
+the missing condition, without proposing new architecture vocabulary.
+Resume: land direct main after consuming concurrent updates; next repair, if
+requested, must state a standard non-inertness/dependence law rather than add
+another unconstrained field.
+
+Root return strengthened the result: the right side of `unfold-preserves` is
+independent of `x`. Composing the law at `x` with its inverse at `y` proves
+all installed data semantically indistinguishable for every inhabitant. This
+is now checked as `installed-data-semantically-indistinguishable`; a repaired
+comparison must interpret `x` on its RHS, since adding non-inertness alongside
+the old equation would be contradictory.
