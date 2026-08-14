@@ -27,25 +27,23 @@ RankOne x y = (a c : Bool) → crossed a c ≡ x a + y c
 
 -- Every rank-one matrix obeys the additive 2x2 minor identity.  This is the
 -- exact finite theorem used as a semantic-width lower-bound seam.
-additive-minor : (x y : Bool → ℕ) → RankOne x y →
-  crossed false false + crossed true true ≡
-  crossed false true + crossed true false
-additive-minor x y r =
-  r false false
-  ∙ cong (λ q → q + crossed true true) (r false false)
-  ∙ cong (λ q → (x false + y false) + q) (r true true)
-  ∙ rearrange (x false) (y false) (x true) (y true)
-  ∙ sym (cong (λ q → q + (x true + y false)) (r false true))
-  ∙ sym (cong (λ q → (x false + y true) + q) (r true false))
-
 rearrange : (a b c d : ℕ) →
   (a + b) + (c + d) ≡ (a + c) + (b + d)
 rearrange a b c d =
   sym (+-assoc a b (c + d))
+  ∙ cong (λ q → a + q) (+-assoc b c d)
   ∙ cong (λ q → a + (q + d)) (+-comm b c)
   ∙ +-assoc a (c + b) d
-  ∙ cong (λ q → q + d) (sym (+-assoc a c b))
+  ∙ cong (λ q → q + d) (+-assoc a c b)
   ∙ sym (+-assoc (a + c) b d)
+
+additive-minor : (x y : Bool → ℕ) → RankOne x y →
+  crossed false false + crossed true true ≡
+  crossed false true + crossed true false
+additive-minor x y r =
+  cong₂ _+_ (r false false) (r true true)
+  ∙ rearrange (x false) (y false) (x true) (y true)
+  ∙ sym (cong₂ _+_ (r false true) (r true false))
 
 one≠zero : suc zero ≡ zero → ⊥
 one≠zero ()

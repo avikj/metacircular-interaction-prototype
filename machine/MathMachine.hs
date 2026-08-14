@@ -1870,6 +1870,40 @@ main = do
     hPrintf stdout "AC GRAMMAR CHECKED: raw=%d multisets=%d eliminated=%d coverage=exact\n"
       (length raw) (length quotient) (length raw - length quotient)
     exitSuccess
+  when (args == ["--concept-invention-self-test"]) $ do
+    let syms = take 3 vocabulary
+        patternTerm = bin "+" x_ x_
+        workingSet = replicate 12 patternTerm
+        invented = inventConcept syms [] workingSet 0
+    case invented of
+      Nothing -> exitFailure
+      Just concept -> do
+        let expectedFold = F "c0" [x_]
+            expectedRule = (patternTerm, expectedFold)
+            extended = syms ++ [concept]
+            installedRules = definitionsOf extended
+            semanticValue = symSem concept [7]
+            folded = normalize installedRules patternTerm
+            compression = marginalCompress (definitionsOf syms)
+              workingSet expectedRule
+            towerOnly = replicate 12 (F "c0" [F "c0" [x_]])
+            towerRejected = not (isJust (inventConcept extended [] towerOnly 1))
+            retiredRejected = not (isJust
+              (inventConcept syms [canonTerm patternTerm] workingSet 1))
+        unless (symName concept == "c0"
+                && symArity concept == 1
+                && conceptRule concept == Just expectedRule
+                && semanticValue == 14
+                && null (definitionShapeFailures extended)
+                && null (definitionFailures extended definitionAuditBound)
+                && folded == expectedFold
+                && compression >= kConceptGain
+                && towerRejected
+                && retiredRejected) exitFailure
+        hPrintf stdout
+          "CONCEPT INVENTION CHECKED: collision-pattern=x+x primitive=c0/1 semantics(7)=14 definition-installed compression=%d tower=rejected retired=rejected\n"
+          compression
+        exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw

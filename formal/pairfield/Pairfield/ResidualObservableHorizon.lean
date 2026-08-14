@@ -163,20 +163,28 @@ namespace ResidualObservableHorizonWitness
 
 open ReachableChartWitness
 
-theorem chart_reachable (state : Fin 3) :
-    ∃ word : List Bool, chart.toDFA.eval word = state := by
+def automaton : DFA Bool (Fin 3) where
+  step := chartStep
+  start := 0
+  accept := { state | state = 2 }
+
+instance : DecidablePred (fun state : Fin 3 ⇒ state ∈ automaton.accept) :=
+  fun state ⇒ inferInstanceAs (Decidable (state = 2))
+
+theorem automaton_reachable (state : Fin 3) :
+    ∃ word : List Bool, automaton.eval word = state := by
   fin_cases state
   · exact ⟨[], rfl⟩
-  · exact ⟨[false], by decide⟩
-  · exact ⟨[false, true], by decide⟩
+  · exact ⟨[false], by native_decide⟩
+  · exact ⟨[false, true], by native_decide⟩
 
 example : IsLeast { fuel : Nat |
-    LeftQuotientsStabilizeAt chart.toDFA fuel } 1 := by
-  have hvalue : globalObservableHorizon chart.toDFA alphabet = 1 := by
+    LeftQuotientsStabilizeAt automaton fuel } 1 := by
+  have hvalue : globalObservableHorizon automaton alphabet = 1 := by
     native_decide
   rw [← hvalue]
   exact globalObservableHorizon_isLeast_leftQuotientsStabilizeAt
-    chart.toDFA alphabet alphabet_complete chart_reachable
+    automaton alphabet alphabet_complete automaton_reachable
 
 end ResidualObservableHorizonWitness
 
