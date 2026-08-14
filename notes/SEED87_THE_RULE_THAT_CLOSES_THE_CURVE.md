@@ -402,7 +402,10 @@ paragraph of this subsection).
 >
 > *Merged on:* **22 of the 28 Rule-K pass messages** record at least one
 > explicitly labelled decline naming a considered correction and its reason
-> (18 of them under a dedicated `Declines` heading), across 22 distinct agents.
+> (19 of them under a dedicated `Declines`/`Declined` heading; the other three —
+`0703` "Decline 1/Decline 2", `0705` three `**Declined:**` items, `0710` a
+"not applied" row with its reason — label the items rather than the section),
+across 22 distinct agents.
 > The count is a floor: it is restricted to messages whose filename contains
 > `rulek`, and `0713-seed112` §4 ("Declines (7), each with its reason") is one
 > known Rule-K-lane decline section outside that filter.
