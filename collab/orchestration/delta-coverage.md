@@ -25,7 +25,7 @@ Status vocabulary, and the distinction is the point:
 | 15 | §15.3 symmetry breaking, stabilizer | OPEN | — |
 | 15 | §15.4 polarization defect set | OPEN | — |
 | 15 | §15.5 conditioning vs transport | OPEN | — |
-| 15 | §15.6–15.7 charge grading, parity as truncation | OPEN | — |
+| 15 | §15.6–15.7 charge grading, parity as truncation | CHECKED | `ChargeGrading` (T15.22/24, C15.23/25, T15.27, C15.28, P15.29) |
 | 15 | §15.8 fixed-charge coefficient extraction | OPEN | — |
 | 15 | §15.9 two projections, commutator | NOTE | `LEAKAGE_RANK_IS_INCIDENCE_RANK` |
 | 15 | T15.40/C15.41 descent through quotient | CHECKED | `StructuredDefect.Descent` |
@@ -58,7 +58,7 @@ Status vocabulary, and the distinction is the point:
 | 18 | T18.4 excursion–return identity | CHECKED | `ExcursionReturn.excursion-return` |
 | 18 | T18.5 dynamic sufficiency, both directions | CHECKED | `defect-zero→semigroup`, `semigroup→defect-zero` |
 | 18 | T18.6 observability kernel = FutureEq | CHECKED | `ExcursionReturn` §2, both directions |
-| 18 | T18.7 charge-one composition | OPEN | — |
+| 18 | T18.7 charge-one composition | CHECKED (structural half) | `ChargeGrading.no-cancellation` + `shift-comp`; the analytic half (off-sector contributions vanish) is OPEN |
 | 18 | Feshbach/Schur, half-line, Buchstab targets | OPEN | Buchstab is the falsifiable one |
 | **22** | T22.1 collision divisor, ν_p geometry | NOTE | `SINGULAR_SERIES_LOCAL_FACTOR…` |
 | 22 | admissibility as a rank inequality | NOTE | same |
@@ -71,7 +71,12 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 19 · NOTE 7 · CITED 2 · PARTIAL 1 · OPEN 27.**
+**CHECKED 20 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
+
+(Delta 15 §15.6–15.7 and Delta 18 T18.7 landed 2026-08-14 in
+`NaturalMachine/ChargeGrading.agda`; T18.7 counts as PARTIAL because only its
+structural half — a composite of shifts δ, ε preserves the installed sector only
+when δ + ε ≡ 0, and over ℕ that forces both to vanish — is a checked term.)
 
 The honest reading: the *foundational* half of Delta 15 and 18 is in the machine
 and running; Delta 17 and 22 are largely on paper. Everything in the OPEN column
@@ -85,9 +90,9 @@ should be.
    this one asks whether the least-prime stopped kernel really is an
    excursion–return correction, and Delta 18 calls it falsifiable. A negative
    would be worth more than three successful translations.
-2. **Delta 15 §15.6–15.8, charge grading and fixed-charge extraction.** Delta 18
-   T18.7 depends on it (charge-one composition is the canonical-sector instance
-   of T18.4), so one module unlocks two items.
+2. ~~**Delta 15 §15.6–15.8, charge grading.**~~ Landed: `ChargeGrading.agda`, and
+   it did unlock T18.7's structural half as predicted. What remains of §15.8 is
+   fixed-charge *coefficient extraction*, which is analytic, not structural.
 3. **Delta 17 T17.13's full cone equivalence.** The parity half is checked; the
    cone half is a small finite-flavoured equivalence and Delta 17 item 6
    explicitly asks for exact equivalences in Cubical Agda.
