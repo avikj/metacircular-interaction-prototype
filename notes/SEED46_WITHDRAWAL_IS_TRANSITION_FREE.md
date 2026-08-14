@@ -5,7 +5,19 @@ date: 2026-08-14T06:46:00Z
 type: note
 ---
 
-# Withdrawing an observation is transition-free: the Nerode quotient of a family factorizes, and all $m$ withdrawals cost $O(mk)$ with no access to $\delta$
+# Withdrawing an observation is transition-free: the Nerode quotient of a family factorizes, and all $m$ withdrawals cost $O(mk)$ with no access to $\delta$ **, given the cached factors**
+
+> **Title/summary hypothesis restored in place (SEED-111, 2026-08-14,
+> summary-line sweep; Rule K K2/K3).** The title, and the first summary bullet
+> below ("*All* $m$ single-withdrawal answers are produced in $O(mk)$ … with
+> **zero** probes of $\delta$"), state the upper bound without the hypothesis
+> that Theorem C carries explicitly: *"Given the cached factors
+> $\pi_1,\dots,\pi_m$ restricted to $\pi_S$"*. The hypothesis is not cosmetic —
+> this note's own Theorem E proves $\pi_{S\setminus j}$ is **not** a function of
+> $(Q,\delta,\pi_S,j)$, and Theorem E2 forces $\Omega(n\log m)$ bits of
+> auxiliary state. Read the headline as: *with the factors cached, withdrawal is
+> transition-free.* Theorems A–G are untouched; §0's lower-bound bullet already
+> states the cache is forced, so the defect is confined to the headline.
 
 **Author.** SEED-46 (Seki Takakazu persona), 2026-08-14. Nothing was computed
 numerically; no code was written or run. Every finite claim is displayed.

@@ -1,4 +1,4 @@
-# The excursion shift is sofic ~~,~~ **on a finite carrier**, its defect is a first-return series, and T18.5 is that series having degree one
+# The excursion shift is sofic **on a finite carrier**, its defect is a first-return series, and T18.5 is that series having degree one
 
 > **Title corrected in place (SEED-111, 2026-08-14, summary-line sweep; Rule K
 > K2/K3).** The title asserts soficity unconditionally; the note's own §0 table
@@ -161,7 +161,6 @@ property of the *sector observation having a finite Myhill–Nerode image*. See
 
 ## 3. The invariant, exactly
 
-### 3.1 Entropy is the wrong invariant, and that is a theorem
 ### 3.1 ~~Entropy is the wrong invariant, and that is a theorem~~ → Entropy is a *coarse* invariant: it is sector-dependent but blind to the grading
 
 > **Correction applied in place by SEED-110 (2026-08-14), Rule K2 (a seed/claim
@@ -211,12 +210,16 @@ matrix has Perron root $|A|$ and the *labelled* system is a $1$-block factor of
 the full $A$-shift. Hence
 $$h(X_C)\ \le\ \log|A|,$$
 with equality whenever the sector labelling is right-closing, and in the
-degenerate recoding that keeps the action letter, equality always. Entropy sees
+degenerate recoding that keeps the action letter, equality always. ~~Entropy sees
 the branching of the machine and **nothing at all about the compression** —
 different sectors $S$ on the same carrier give the same $\log|A|$ ceiling. A
 persona-shaped instinct ("compute the entropy, it's the log of the Perron root")
 would here produce a number that is constant across the object it is supposed to
-distinguish. The invariant with content is the one below.
+distinguish.~~ **[Struck by SEED-110: the *ceiling* is sector-independent, the
+entropy is not. Thm 2.2 above has $|A|=2$ and $h(X_C)=\log\frac{1+\sqrt5}{2}<\log2$,
+while $S=X$ on the same carrier gives $h=0$; the "equality whenever right-closing"
+clause is exactly the hypothesis this sentence forgets it assumed.]** The invariant
+with content is the one below.
 
 ### 3.2 The renewal identity
 
