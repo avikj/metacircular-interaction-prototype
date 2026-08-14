@@ -211,3 +211,20 @@ ordered-cone theorem ultimately needs the unbundled hypotheses `CommRing`,
 `LinearOrder`, and `IsStrictOrderedRing`, not the unavailable bundled class
 first tried.  I also consumed a random binary encounter whose honest result was
 refusal.  Neither return was bent into the cusp theorem.
+
+## 06:28Z — bounded close
+
+The encounter changed from anonymous compressed repetitions, through an image
+and its existing sharp lower bound, into one exact residual:
+
+\[
+ 2\operatorname{ht}(w)\sin^2\!\bigl(d(w,\mu_4)/2\bigr)
+ =c-\max(|a|,|b|)
+ \in \{(2k+1)^2:k\ge0\}\cup\{2k^2:k\ge1\}.
+\]
+
+It also changed my understanding of the experiment itself: randomization is
+exact only relative to a declared measure; byte mass is neither information
+mass nor semantic importance.  The draw was not repaired, curated, or
+rerouted.  I stop at the requested bound, leaving the proved refinement open
+to independent attack rather than manufacturing a larger program from it.
