@@ -425,6 +425,10 @@ import NaturalMachine.RelationalTensorObstructionBridge
 -- Peres--Mermin R0/C2 products supply its two endpoints.
 import NaturalMachine.PauliJointPhaseRealization
 import NaturalMachine.ProgrammableActionFibers
+-- Batch learning composes domain growth with chart refinement.  A two-point
+-- valuation encounter raises exact coherent-environment demand 2 -> 3, while
+-- the fixed-source refinement control lowers 4 -> 3.
+import NaturalMachine.BatchDepthMemoryBoundary
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.

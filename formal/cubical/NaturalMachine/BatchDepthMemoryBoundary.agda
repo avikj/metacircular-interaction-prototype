@@ -29,9 +29,9 @@ open import Cubical.Foundations.Equiv using (fiber)
 open import Cubical.Foundations.Isomorphism
   using (Iso ; invIso ; isoToEquiv)
 open import Cubical.Data.Bool
-  using (Bool ; false ; true ; false≠true ; true≠false ; isSetBool)
+  using (Bool ; false ; true ; false≢true ; true≢false ; isSetBool)
 open import Cubical.Data.Fin using (Fin ; fzero ; fsuc ; isSetFin)
-open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd ; Σ≡Prop)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sum.Properties using (isSet⊎)
 open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
@@ -41,6 +41,7 @@ open import Cubical.Functions.Embedding
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.CertificateFibration as Cert
+import NaturalMachine.FiniteInformation as FI
 
 ------------------------------------------------------------------------
 -- 1. The old and encountered worlds
@@ -95,7 +96,7 @@ old-depth-zero-sufficient = ((λ _ → false) , (λ _ → refl))
 
 new-depth-zero-insufficient : ¬ Sufficient newChart₀ newValue
 new-depth-zero-insufficient (decode , replay) =
-  false≠true
+  false≢true
     (sym (replay (inl fzero)) ∙ replay (inr tt))
 
 new-depth-one-sufficient : Sufficient newChart₁ newValue
@@ -109,7 +110,8 @@ oldFiberIso : Iso (fiber oldChart tt) Bool
 Iso.fun      oldFiberIso (x , _)    = x
 Iso.inv      oldFiberIso x          = x , refl
 Iso.rightInv oldFiberIso _          = refl
-Iso.leftInv  oldFiberIso (x , refl) = refl
+Iso.leftInv  oldFiberIso (x , _) =
+  Σ≡Prop (λ _ → isSetUnit _ _) refl
 
 old-environment-lower : {Environment : Type₀}
   (certificate : Old → Environment)
@@ -123,7 +125,7 @@ old-environment-lower certificate embedding =
 oldCertificate : Old → Bool
 oldCertificate x = x
 
-old-completes : Cert.Completes oldChart oldCertificate
+old-completes : FI.Completes oldChart oldCertificate
 old-completes _ _ equality = cong snd equality
 
 old-environment-attains :
@@ -138,11 +140,12 @@ old-environment-attains =
 
 newFiberIso : Iso (fiber newChart₁ false) Three
 Iso.fun      newFiberIso (inl e , _)  = e
-Iso.fun      newFiberIso (inr tt , p) = Empty.rec (true≠false p)
+Iso.fun      newFiberIso (inr tt , p) = Empty.rec (true≢false p)
 Iso.inv      newFiberIso e            = inl e , refl
 Iso.rightInv newFiberIso _            = refl
-Iso.leftInv  newFiberIso (inl e , refl) = refl
-Iso.leftInv  newFiberIso (inr tt , p)   = Empty.rec (true≠false p)
+Iso.leftInv  newFiberIso (inl e , _) =
+  Σ≡Prop (λ _ → isSetBool _ _) refl
+Iso.leftInv  newFiberIso (inr tt , p)   = Empty.rec (true≢false p)
 
 new-environment-lower : {Environment : Type₀}
   (certificate : New → Environment)
@@ -157,12 +160,12 @@ newCertificate : New → Three
 newCertificate (inl e)  = e
 newCertificate (inr tt) = fzero
 
-new-completes : Cert.Completes newChart₁ newCertificate
+new-completes : FI.Completes newChart₁ newCertificate
 new-completes (inl e) (inl e') equality = cong inl (cong snd equality)
 new-completes (inl e) (inr tt) equality =
-  Empty.rec (false≠true (cong fst equality))
+  Empty.rec (false≢true (cong fst equality))
 new-completes (inr tt) (inl e) equality =
-  Empty.rec (true≠false (cong fst equality))
+  Empty.rec (true≢false (cong fst equality))
 new-completes (inr tt) (inr tt) _ = refl
 
 new-environment-attains :
@@ -182,7 +185,8 @@ coarseFiberIso : Iso (fiber newChart₀ tt) New
 Iso.fun      coarseFiberIso (x , _)    = x
 Iso.inv      coarseFiberIso x          = x , refl
 Iso.rightInv coarseFiberIso _          = refl
-Iso.leftInv  coarseFiberIso (x , refl) = refl
+Iso.leftInv  coarseFiberIso (x , _) =
+  Σ≡Prop (λ _ → isSetUnit _ _) refl
 
 coarse-environment-lower : {Environment : Type₀}
   (certificate : New → Environment)
@@ -196,7 +200,7 @@ coarse-environment-lower certificate embedding =
 coarseCertificate : New → New
 coarseCertificate x = x
 
-coarse-completes : Cert.Completes newChart₀ coarseCertificate
+coarse-completes : FI.Completes newChart₀ coarseCertificate
 coarse-completes _ _ equality = cong snd equality
 
 coarse-environment-attains :
