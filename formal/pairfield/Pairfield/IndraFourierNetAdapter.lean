@@ -42,7 +42,7 @@ def restrictedAddChar (n : ℕ) [NeZero n] (χ : DirichletCharacter ℂ n) :
 the conjugate evaluation printed in Proposition N. -/
 theorem inverse_eval_eq_conj (n : ℕ) [NeZero n]
     (χ : DirichletCharacter ℂ n) (a : UnitResidue n) :
-    χ ((a : ZMod n)⁻¹) = conj (χ (a : ZMod n)) := by
+    χ ((a : ZMod n)⁻¹) = star (χ (a : ZMod n)) := by
   simpa [restrictedAddChar, Units.val_inv_eq_inv_val] using
     AddChar.map_neg_eq_conj (restrictedAddChar n χ) (Additive.ofMul a)
 
