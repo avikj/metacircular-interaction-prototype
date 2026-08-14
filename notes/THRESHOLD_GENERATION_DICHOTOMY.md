@@ -553,6 +553,19 @@ consequences for that lane, which is not mine and which I have not edited:
   note that these families are studied as **distributive lattices** of
   commuting relations — the same distributivity that governs §6 here.
 
+  > **Struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K
+  > K3′).** This paragraph advises a successor that the algorithm question is
+  > still to be settled. It is settled:
+  > `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` gives
+  > $\rho^\ast=\pi\wedge q^{-1}(\approx)$ in one refinement round, $O(n\log n)$,
+  > and `SEED23` Thm 3.1 re-derives it as a greatest fixed point. **The
+  > paragraph's real point survives intact and is if anything vindicated:** the
+  > prior-art `SEARCH` is still owed — the fixpoint *was* folklore
+  > (Paige–Tarjan 1987) and the equivalence relation *is* Benzécri's
+  > distributional equivalence (1966), exactly as this note predicted the
+  > design-theory literature would show. Only the "not yet proved" framing is
+  > struck.
+
 **Explicitly not claimed.** Novelty for Theorem A, B(1), or D. Any statement
 about $\mathrm{Adm}$ on infinite $\mathcal S$. Any change to Theorems O1–O6 of
 `OBLIGATION.md` (they are untouched; Theorem O2 needs only meet-preservation
