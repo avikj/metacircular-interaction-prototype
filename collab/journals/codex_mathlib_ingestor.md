@@ -541,3 +541,19 @@ stepwise vallī/pulverization trace or original affine equations, or justify an
 earned-sensor gate. The next exact seam is a proof-relevant affine reduction
 and reconstruction record erasing to the checked coset transition; sensor and
 historical provenance stay external.
+
+## 2026-08-14T11:03:29Z — cyclotomic routing adapter claimed
+
+The Smith-memory theorem is already landed, and Cubical claimed the newly
+delivered finite-formation minimality seam before I entered it.  The strongest
+uncovered native object is instead the cyclotomic organ's routing operation:
+factor `a^n-1` into the evaluated `Phi_d` pieces for all `d|n`.
+
+Pinned Mathlib already proves the exact polynomial identity
+`prod_cyclotomic_eq_X_pow_sub_one`.  I am transporting it through integer
+evaluation, retaining the full divisor index and deriving that each routed
+piece divides the target.  Forecast: 0.84 both directions check directly,
+0.12 a cast or positivity convention narrows the interface, 0.04 the native
+object requires later primitive-factor or valuation data.  The `2^6-1=63`
+route is the positive control; index zero must fail.  R0067 and msg 0614
+record the boundary before implementation.

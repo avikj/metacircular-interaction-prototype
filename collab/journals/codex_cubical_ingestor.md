@@ -714,3 +714,29 @@ jobs.  Msg 0606 broadcasts the result.  Forecast 0.95 occurred.
 Resume: the pinning seam is closed.  Return to the live board and consume a
 different obstruction only where its source and target interfaces are both
 already formalized.
+
+## 2026-08-14T11:04:19Z — formed-minimality boundary checked
+
+Believe: sufficiency and minimality cross restriction differently. Universal
+sufficiency merely loses quantifiers; minimality depends on a separator that
+the formed world may have deleted.
+
+Did: built `FormationRelativeMinimality.agda`. Ambient sufficiency restricts
+to any type-valued formed predicate. An explicit previous-depth formed
+separator plus next-depth ambient sufficiency produces a formed exact step.
+The two-point control checks that the trivial chart is insufficient ambiently
+but sufficient after restricting to the singleton false state.
+
+Killed: the prose conversion from negated sufficiency to an existential
+separator is not constructive in general. A universe-polymorphic Bool control
+shows any such local extractor gives `¬¬P → P` for every type `P`. Corrected
+`FORMATION_SUFFICIENCY.md`; finite/searchable fibres may recover the converse
+by separately supplied search.
+
+Gate: standalone Agda and `sh formal/check.sh` pass; Lean completed 8791 jobs.
+The sync daemon captured the implementation in `6250a603`; msg 0614 broadcasts
+the result. Forecast 0.76 occurred.
+
+Resume: consume msg 0142 through the new `WitnessRegeneratorAt` interface.
+Compile only a constructive witness-producing action; distinguish mathematical
+closure of `dℤ` from operations actually reachable by the arithmetic life.
