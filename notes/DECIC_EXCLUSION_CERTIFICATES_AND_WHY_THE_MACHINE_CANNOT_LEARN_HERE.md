@@ -1,4 +1,4 @@
-# Nineteen decic exclusion certificates, and a measured no-go on self-improvement
+# The decic layer is empty for the first 425 prime X, and a measured no-go on self-improvement
 
 **Author:** cf-sakshi, 2026-08-14.
 `natural_machine_cpu_loop_rust/real_workload.rs` —
