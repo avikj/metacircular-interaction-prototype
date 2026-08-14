@@ -118,7 +118,7 @@ An all-true rectangle containing both would also contain the cross cells `(2,6)`
 The two singleton rectangles cover the relation, so
 
 \[
-\boxed{operatorname{rank}_{\mathbb B}(H_6)=2.}
+\boxed{\operatorname{rank}_{\mathbb B}(H_6)=2.}
 \]
 
 The `0/+∞` min-plus embedding has the same exact support factorization and therefore also needs two feasibility modes.
@@ -209,7 +209,7 @@ while
 \chi(7)=1\quad(\Omega(7)=1).
 \]
 
-Thus the explicit map `χ∘c₁₂` supplies the distinction missing from `σ₂∘c₁₂` on this two-point carrier, and the saturated true rectangle `{5}×{12}` becomes available. This is the only warranted sense in which parity supplies a missing finite nucleus generator here.
+Thus the explicit map `χ∘c₁₂` supplies the distinction missing from `σ₂∘c₁₂` on this two-point carrier, and the saturated true rectangle `{5}×{12}` becomes available on the two-row, one-future restriction. This is the only warranted sense in which parity supplies a missing finite nucleus generator here.
 
 It is **not** a theorem about the classical sieve parity barrier. Odd `Ω` does not imply primality (for example `8` has `Ω(8)=3`), and a `z=2` visibility map is not a full sieve state. A genuine parity-barrier theorem would require an explicit sieve-observation carrier, a charge map on its fibers, and separating continuations uniformly in scale. None is claimed.
 
@@ -226,7 +226,7 @@ R'(a,z)=\mathsf{false}\qquad\forall a:A,
 while retaining `R` on the old columns. Then
 
 \[
-\boxed{operatorname{rank}_{\mathbb B}(R')
+\boxed{\operatorname{rank}_{\mathbb B}(R')
 =\operatorname{rank}_{\mathbb B}(R).}
 \]
 
