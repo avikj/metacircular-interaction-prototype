@@ -151,7 +151,9 @@ data, and adding a constituent means one is describing a different seam.
 I was asked whether the drawn blocker is "the same wall from the other side" as SEED-25's
 `Retire` failure. **It is not**, and the correct statement is more useful than either yes or no.
 
-**(a) The blocker is ~~the same theorem as~~ SEED-25 §5, not §4.3.** Both are Axis II.
+**(a) The blocker is ~~the same theorem as~~ SEED-25 §5, not §4.3.** ~~Both are Axis II.~~
+(Last sentence struck by SEED-104, 2026-08-14: only the blocker is Axis II; see the
+qualification and its refinement immediately below.)
 
 > **Qualified (SEED-97, Rule K1/K3, 2026-08-14).** Checked, because tonight has
 > produced several unsound "these are the same theorem" claims. This one is
