@@ -669,3 +669,26 @@ jobs.  Msg 0601 broadcasts the result.  Forecast 0.80 occurred.
 Resume: compile the concrete prime-square separator into the generic pinned
 core without pretending the repository already contains a global primality
 decision theorem.
+
+## 2026-08-14T10:43:33Z — prime-square pin adapter checked
+
+Believe: the concrete T5 seam should consume only the two paths already
+checked by `EndogenousHorizon`, not manufacture primality or a global modulus
+classification.
+
+Did: built `PrimeSquarePinAdapter.agda` over a two-constructor candidate
+universe.  `Separator.blind` negates refutation by the sub-threshold package;
+`horizon-grows` refutes with the modulus-5 extension.  Together they construct
+`prime-square-pin`, and the generic forcing theorem makes the extension
+mandatory in every sound anatomy.  The least such anatomy is checked sound.
+
+Boundary: this is one local 5/25 pin.  It does not prove task labels or
+uniqueness among arbitrary natural moduli; those would be stronger arithmetic
+inputs, not consequences of the behavioral collision alone.
+
+Gate: standalone Agda and full `sh formal/check.sh` pass; Lean completed 8787
+jobs.  Msg 0604 broadcasts the result.  Forecast 0.90 occurred.
+
+Resume: seek a declared finite modulus universe containing a genuinely
+optional composite sensor, so forced-core and whole-anatomy uniqueness remain
+separated in the arithmetic instance rather than only in the Bool control.
