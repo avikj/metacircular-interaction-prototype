@@ -8,8 +8,9 @@ row **W6**:
 > I have not written."*
 
 Status: theorem-grade for L1–L7 and L9 (all proofs written out below, no
-numerics, no fitted constant); one **conditional** step isolated in L8 and
-booked in the ledger (row Y7). Conventions, notation and hypotheses are those
+numerics, no fitted constant). ~~One conditional finite no-go was isolated in
+L8.~~ That step and L8(b)'s error lower bound are retracted below and in
+`BARRIER_LEVEL_EXTRACTION_CORRECTION.md`. Conventions, notation and hypotheses are those
 of `BARRIER_SMOOTH_TERM.md` §1 and §6 throughout; $a=d$ is **out of scope**
 (struck there, §5.3, and not readmitted here).
 
@@ -51,9 +52,10 @@ different answers.
    separation there is by frequency, and `FAMILY.md` exp19 measured the
    crowding that results. (Theorems L1, L9.)
 
-So the ledger row closes as: *sufficiency proved; separability proved in the
-form in which it holds, and refuted — with the obstruction identified and its
-$X$-dependence stated — in the form in which it does not.*
+So the ledger row splits: *sufficiency is proved; asymptotic separation and
+constant-mode finite separation are proved; the claimed universal finite
+refutation is reopened, with generic-spacing leakage now stated by its exact
+frequency response.*
 
 ---
 
@@ -97,7 +99,7 @@ not a verified reading of it.* With that stated:
   and its known failure mode is exactly the one that bites here: the
   weight-recovery step is a Vandermonde solve whose conditioning degrades like
   (node separation)$^{-(P-1)}$. What is *not* in that literature, and is the
-  content of L7–L8, is the case where the "amplitudes" are themselves
+  setting of L7–L8, is the case where the "amplitudes" are themselves
   almost periodic functions of the sample point — which is what a graded ladder
   of wave layers is.
 - **Bohr's theory** supplies the two facts used: the $\varepsilon$-almost-periods
@@ -450,7 +452,7 @@ Theorem L1 those levels are, for $a=\Lambda$, exactly $\nu=\pm k$. Hence:
 |---|---|---|---|
 | $\nu=k$ ($\Lambda$) | nothing (it is the top) | none — a *single* window reads it, relative error $O(X^{-1/2})$ | **exact** |
 | $\nu=k-1$ ($\Lambda$) | level $k$ only, which is constant | none | **exact** |
-| $\nu\le k-2$ ($\Lambda$, so in particular $\nu=0$, $k\ge2$) | level $k-1$, whose layer is $\mathcal Z^{[(k-1)\theta_a]}_1$ — arity $1$, oscillating | $\ \asymp X^{(k-1)/2}\operatorname{drf}_{k-1}$ | **obstructed (§5.3)** |
+| $\nu\le k-2$ ($\Lambda$, so in particular $\nu=0$, $k\ge2$) | level $k-1$, whose layer is $\mathcal Z^{[(k-1)\theta_a]}_1$ — arity $1$, oscillating | raw drift enters L7's upper bound; exact mode response is $\ell_\nu(\xi_{k-1}e^{i\gamma\Delta})$ | ~~obstructed for every spacing~~ **generic fixed spacings leak; selected spacings open (§5.3)** |
 | $\nu=0$ ($\mu$) | nothing (it is the top, and the fiber is $\{\mathcal Z_k\}$) | none | **exact**, one window |
 | $\nu=0$ ($\lambda$) | nothing — but the fiber is the whole ladder | none, and no separation either | **degenerate (§6)** |
 
@@ -542,7 +544,8 @@ $$|\det M|\ \le\ P!\,\|E\|_\infty^{P}\ +\ P\,(P-1)!\,\|A\|_\infty\|E\|_\infty^{P
 \qquad \|E\|_\infty\le \tfrac{2}{\nu_{\min}L_{\min}}e^{-\nu_{\min}L_{\min}/2}.$$
 **Span variation separates only at strength $e^{-\nu_{\min}L/2}$: the lever
 vanishes exponentially in the span.** Moving the anchor — i.e. moving the
-centre — is the only strong lever, and Theorem L8 says what it costs.
+centre — is the only strong lever. Corrected L8 gives its exact modal response,
+but not a universal finite cost lower bound.
 
 ---
 
@@ -596,7 +599,7 @@ route is resolution-limited in a way that has already been measured".
 | H5 | $k\le2j$ | absolute convergence of every $C_\nu$, hence u.a.p. (S2) | (5.1) is not a convergent expansion |
 | **H6′** | $\eta>(k-1)(\theta_a-\tfrac12)-\tfrac12$ | pushes $\mathcal R_k$ below level $0$ so the signal level is readable at all; **replaces H6 for $k\ge3$** | $\mathcal R_k$ sits at level $k-2-2\eta\ge0$ and no separation statement about level $0$ is meaningful |
 | $(\dagger)$ | resolution of the tapered window is $\max(2\pi/L,\pi|\nu|)$, not $2\pi/L$ | Lemma L2(2): B2″'s level-$\nu$ conditions are conditions at the coarser resolution | conditions at level $\nu$ over-claim their resolving power by the factor $1+|\nu|L/2$ |
-| $(\ddagger)$ | linear independence of the ordinates over $\mathbb Q$ | **only** Theorem L8(d) | L8(a)–(c) survive: the obstruction holds for a positive proportion of spacings, but a conspiratorial $\Delta$ inside the data range is not excluded |
+| ~~$(\ddagger)$~~ | ~~linear independence of the ordinates over $\mathbb Q$~~ | ~~Theorem L8(d)~~ | **Retracted:** equidistribution density does not yield the claimed first-return bound. No surviving theorem in this note uses LI. |
 
 Nothing here needs $(\star)$ of `BARRIER_SMOOTH_TERM.md` §6: the obstructing
 layer has arity $1$, whose Bohr coefficients are unconditionally nonzero.
