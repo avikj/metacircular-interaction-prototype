@@ -110,8 +110,8 @@ stem-refinement : (G : Group ℓg) (A : Connection G BranchLoop)
   → hol (pullConnection G contractGraph A) (stem₀ ∙ stem₁) ≡ hol A stem
 stem-refinement G A = cong (hol A)
   (cong-∙ contractGraph stem₀ stem₁
-    ∙ cong₂ _∙_ contract-stem₀ contract-stem₁
-    ∙ lUnit stem)
+    ∙ (cong₂ _∙_ contract-stem₀ contract-stem₁
+      ∙ sym (lUnit stem)))
 
 loop-refinement : (G : Group ℓg) (A : Connection G BranchLoop)
   → hol (pullConnection G contractGraph A) loop′ ≡ hol A loop
