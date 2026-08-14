@@ -506,6 +506,7 @@ import NaturalMachine.ExactExperimentFullAbstraction
 import NaturalMachine.NormalizedFiniteInstrument
 import NaturalMachine.NormalizedFrameCovariance
 import NaturalMachine.SequentialNormalizationObstruction
+import NaturalMachine.FullSequentialTableNormalization
 import NaturalMachine.TwoSidedExperimentInterface
 import NaturalMachine.PairedInterfaceMinimality
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
