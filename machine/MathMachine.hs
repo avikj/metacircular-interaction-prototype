@@ -496,6 +496,7 @@ data Machine = Machine
   , mLemmas  :: [(Term,Term)] -- proved but unorientable (e.g. commutativity)
   , mKnown   :: M.Map (Term,Term) ()  -- everything already stated
   , mInvented :: [Sym]        -- concepts the machine named for itself
+  , mRetired :: [Term]        -- patterns it named, never used, and withdrew
   , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
@@ -503,7 +504,7 @@ data Machine = Machine
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] M.empty 3 4 0
+start = Machine [] [] M.empty [] [] M.empty 3 4 0
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -534,7 +535,7 @@ canonTerm :: Term -> Term
 canonTerm t = applySub ren t
   where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
 
-inventConcept syms terms n =
+inventConcept syms retired terms n =
   case best of
     []        -> Nothing
     ((p,_):_) ->
@@ -545,16 +546,17 @@ inventConcept syms terms n =
       in Just (Sym nm ar (\args -> eval sem args p)
                  [ (p, F nm (map V [0 .. ar-1])) ])
   where
-    best = bestOf syms terms
+    best = bestOf syms retired terms
 
 -- candidate concepts, best first: how often a shape appears times how
 -- much naming it would save.  A shape already named is not a new idea.
-bestOf :: [Sym] -> [Term] -> [(Term,Int)]
-bestOf syms terms =
+bestOf :: [Sym] -> [Term] -> [Term] -> [(Term,Int)]
+bestOf syms retired terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
              [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
                   , not (alreadyNamed p), not (trivialApp p)
-                  , mentionsPrimitive p ])
+                  , mentionsPrimitive p
+                  , canonTerm p `notElem` retired ])
   where
     -- A TOWER IS NOT A THOUGHT.  With the description-length gate live,
     -- the machine's first name was `c0 := x+x` — exactly the `double`
@@ -722,8 +724,23 @@ round1 logh libh ref = do
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
-      candidate = if stuck
-                    then inventConcept syms normed (length (mInvented m'))
+      -- A NAME EARNS ITS SUCCESSOR BY BEING USED.  Even with the tower
+      -- ruled out, a machine allowed to name something every time it is
+      -- stuck will name instead of prove: each new symbol multiplies the
+      -- term space (25k → 396k over four rounds of naming, with `proved`
+      -- flat at zero), so naming makes the next round harder and the one
+      -- after that harder still.  The honest test of a name is whether a
+      -- theorem was stated with it.  Until the last one has appeared in
+      -- something proved, the machine may not coin another — it must
+      -- either use the idea it has, or widen the vocabulary it was given.
+      lastNameUsed = case mInvented m' of
+        [] -> True
+        ss -> let nm = symName (last ss)
+              in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
+                     (M.keys (mKnown m'))
+      candidate = if stuck && lastNameUsed
+                    then inventConcept syms (mRetired m') normed
+                           (length (mInvented m'))
                     else Nothing
       invented = case candidate of
         Just s | let (pat,fold) = head (symDefs s)
@@ -749,14 +766,38 @@ round1 logh libh ref = do
           -- by raising the horizon anyway and then halting — growing the
           -- one dimension its own numbers said was not the constraint
           -- (rounds 16-18: conjectures 9k → 18k, proved 0 → 5 → 0; the
-          -- prover was the bottleneck, not the search).  It stays here
-          -- instead, and the only way out is a name it invents itself.
-          | otherwise = m2
+          -- prover was the bottleneck, not the search).  The only way out
+          -- is a name, and if the last name it coined is going unused
+          -- then that name is the thing standing in the way: WITHDRAW IT.
+          -- Retiring restores the term space the dead symbol was costing
+          -- and frees the coin slot for a different pattern, and the
+          -- retired pattern is remembered so it is not re-proposed.
+          --
+          -- Without this the previous rule deadlocks, and the deadlock is
+          -- provable rather than probable: with no results, no concept
+          -- and no axis moved, the next round has the same rules, vocab
+          -- and size, hence the same terms, hence the same conjectures,
+          -- all of them memoized-failed at the same rule count — fresh=0
+          -- forever.  Rounds 19 and 20 of the previous run were
+          -- bit-identical, 45 seconds each.  A machine spinning on a
+          -- state it can prove it cannot leave is worse than one that
+          -- halts, because it looks alive.
+          | not (null (mInvented m2)) =
+              m2 { mInvented = init (mInvented m2)
+                 , mRetired = mRetired m2
+                     ++ [ canonTerm (fst (head (symDefs (last (mInvented m2))))) ] }
+          -- Nothing left to withdraw and nothing left to widen: the
+          -- machine genuinely needs more room, and saying so by raising
+          -- the horizon is now the honest move rather than the lazy one.
+          | otherwise = m2 { mSize = mSize m2 + 1 }
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
   when (stuck && mSize m'' > mSize m2) $
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
+  when (stuck && length (mInvented m'') < length (mInvented m2)) $
+    hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
+      (symName (last (mInvented m2)))
   hFlush logh
   writeIORef ref m''
 
