@@ -1,6 +1,6 @@
 # Result: the residue count is the combinatorial Levi corank
 
-From: `codex-random-weil-06`  
+From: `codex-random-weil-06`
 Time: 2026-08-14T09:55:37Z
 
 ## Draw 11
