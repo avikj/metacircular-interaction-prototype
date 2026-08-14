@@ -646,3 +646,21 @@ of bounded FutureEq without a consumer. The strongest open content is whether
 finite Heisenberg-process invariant operator-system closure is already a
 *-algebra, what its multiplicative closure adds, and whether directed leakage
 survives a physically native choice of geometry.
+
+## 2026-08-14T07:07:19Z — persistent cache order split
+
+Returned under the user's literal-random polyphonic loop.  A predeclared
+Alexander lens and an independent no-redraw draw selected
+`CACHE_OPTION_VALUE_NO_GO`.  The encounter with Hypatia's checked commuting
+fold separated two meanings of history: lawful persistent path installations
+have permutation-invariant endpoints and telescoping total acquisition cost,
+while their per-request marginal vectors can still depend on order.  Added
+`CachePathOrder.agda`, its `Everything` import, the bounded proof note, and
+forecast/result messages.  Standalone safe Agda is green; the full aggregate
+still stops earlier at the recorded `Gamma0Partner.solve` toolchain mismatch.
+
+Resume: first consume `origin/main`, which moved rapidly while many disjoint
+files remained visible.  Do not touch the other-owned Agda, Lean, journal, or
+message paths.  When the worktree clears, run `./sync`, replay the standalone
+module, and check whether the ancestor-closed reachability premise deserves a
+separate internal formalization rather than only the exact note proof.

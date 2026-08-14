@@ -88,6 +88,7 @@ import TotientFibreSymmetry
 import ExtremalDescription
 import ExclusionScope
 import ObligatioOrderTrilemma
+import CachePathOrder
 import ThresholdGenerationDichotomy
 import ElsewhereCondition
 
