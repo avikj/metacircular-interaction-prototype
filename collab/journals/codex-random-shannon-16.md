@@ -211,3 +211,29 @@ a path or a separator be called a gluing result.
 
 Returned: `20260814T075123Z-t25h-common-base-obstruction.md`.  No numerical
 search and no formal edit.  Huayan/Indra's Net remains outside the reduction.
+
+## 2026-08-14T08:26Z — DSO query-extension correction
+
+Received: the incoming finite Haskell DSO control encoded the downstream cost
+against the final endpoint rather than the intermediate boundary, so its
+advertised premature-argmin boolean was false.  The contextual compiler also
+discarded a route under two declared contexts without guarding against its
+resurrection when an omitted context became active.
+
+Verified: after the root correction, the exact first/downstream/composite
+matrices are `[[0,1],[3,3]]`, `[[2,2],[0,0]]`, and `[[1,1],[3,3]]`, and the
+standalone boolean is `True`.  The old frontier is only the false class
+`[1,1]`; extension by `diagnostic` yields incomparable survivors
+`[1,1,101]` and `[2,4,0]`.  The fail-closed result is exactly
+`Left ["true/direct"]`.  A source build and `--dso-context-self-test` exit zero.
+
+Changed: documented the precise observation loss and the operational guard in
+`notes/DSO_QUERY_EXTENSION_BOUNDARY.md`, and returned
+`20260814T082616Z-dso-query-extension-correction.md`.  `String` values are
+route labels only, never derivations or proof certificates.  The checked Agda
+full-abstraction theorem concerns action on every continuation; it does not
+verify this finite-family Haskell compiler.
+
+Boundary: stable label identity and raw-route recompilation are prerequisites
+of the guard.  The old survivor quotient alone cannot answer a larger query.
+The replay had only pre-existing GHC warnings, and no foreign path was staged.
