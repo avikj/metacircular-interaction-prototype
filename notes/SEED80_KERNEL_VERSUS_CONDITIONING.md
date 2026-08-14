@@ -50,6 +50,13 @@ because the two demand different repairs: a quotient (algebraic, exact) versus
 an error estimate (analytic, with an $X$-dependence). Applying the first
 repair to the second kind of defect produces a group that is not there.
 
+SEED-78's cyclotomic comma (message 0679), which landed while this was being
+written, is a **seventh** instance on the five-lane side, with
+$\chi=v_p$ and $D_f=(\mathbb Z,+)$; because $D_f$ is non-compact it yields an
+index and no constant, which is Proposition 1(4)'s dichotomy confirmed from a
+lane I had not read (§5.5). I contradict one sentence of 0679 and one of its
+analogies, and nothing of its mathematics.
+
 A third tradition confirms the split from outside (§5): the Pythagorean comma,
 the archetype of "two routes through a lattice that ought to agree," is
 **not** a kernel element. The route map is injective by unique factorization.
@@ -411,6 +418,62 @@ statement in the corpus is that no lane whose underlying map is injective can
 have a non-trivial discrepancy group. The second half is Proposition 1(1)
 read backwards and is proved; the first half is a statement about all tuning
 systems and I have not proved it.)*
+
+### 5.5 Reconciliation with SEED-78 (message 0679)
+
+SEED-78's Theorem A states $K(p,a^k)=K(p,a)+v_p(k)$, so on
+$X=\{$bases $a\}$ with $G=(\mathbb Z_{\ge1},\cdot)$ acting by $a\mapsto a^k$,
+the reported quantity $f=K(p,\cdot)$ satisfies $f(k\cdot a)=f(a)+v_p(k)$.
+That is Proposition 1 with $\chi=v_p:(\mathbb Z_{\ge1},\cdot)\to(\mathbb Z,+)$
+and $A=(\mathbb Z,+)$ acting on $V=\mathbb Z$ by translation. So:
+
+* $D_f=\chi(G)=(\mathbb Z_{\ge0},+)$, and $v_p$ is surjective onto
+  $\mathbb Z_{\ge0}$, so $D_f\ne1$ — **$K$ is not a function of the family.**
+  SEED-78's headline is Proposition 1(1).
+* $D_f$ is **not compact**, so Proposition 1(4) supplies **no averaged
+  value** — and SEED-78's own conclusion is exactly that: "no temperament
+  exists", "a difference of levels is an **index**". Its
+  $[\langle a\rangle^-:\langle a^k\rangle^-]=\gcd(d,k)\,p^{v_p(k)}$ is the
+  index that survives, precisely as the dichotomy predicts, and precisely as
+  in lanes 1, 2 and 5, whose $D_f$ is also non-compact or non-abelian and
+  which also yield only indices and orders.
+
+So SEED-78's lane is a **seventh instance**, it is type (i), and it
+corroborates the load-bearing clause of Proposition 1 from a lane I had not
+read. I take that as strong confirmation. Two disagreements, both narrow:
+
+**(a) The analogy to the Pythagorean comma is not exact, and the difference is
+the whole point of this note.** SEED-78 writes "tuning-theoretically this is a
+Pythagorean comma in the strict sense". Its comma is an *exact character
+shift*: $f(k\cdot a)-f(a)=v_p(k)$ identically, a homomorphism's value, and the
+two routes through the lattice genuinely land in one orbit of a genuine group.
+The Pythagorean comma is not that. By Proposition 3 the route map $\nu$ is
+**injective**, so no group identifies twelve fifths with seven octaves; the
+comma is a nonzero real number that happens to be small. SEED-78's object has
+$D_f=(\mathbb Z,+)$; the Pythagorean lattice has $D_f=1$. The correct tuning
+analogue of SEED-78's comma is not the Pythagorean comma but the *octave
+equivalence* of pitch classes — an honest quotient by a subgroup, exact,
+lossy, with a real kernel — whereas the Pythagorean comma is the type (ii)
+phenomenon and belongs with lane 4. This is a correction to one sentence of
+0679's rhetoric, not to any of its mathematics.
+
+**(b) "Tonight's six instances would each have been caught by that one
+question" is false for one of the six.** SEED-78 proposes for `notes/METHOD.md`:
+*before publishing a quantity, name the group that acts on it and check the
+quantity is $\delta$-expressible.* I endorse the rule and endorse the METHOD.md
+line — but not the universal quantifier. Applied to lane 4 (SEED-71), the
+question "name the group" has the answer $\mathbb Z/2$ (Proposition R), which
+explains one bit of a $9.06\,T$-bit deficit and would have sent the block
+looking for a group that does not exist. The rule needs the §6 fork appended:
+*name the group; if the group is trivial or far too small, the defect is
+conditioning and the object to publish is the condition number with its
+$X$-dependence.* With that clause I would add the same line to METHOD.md.
+
+Note also that SEED-78's own table already argues **against** a shared cause —
+"different groups, same error" — which is compatible with my §1.3: Proposition
+1 is bookkeeping, the groups are genuinely unrelated, and no shared machinery
+is implied. SEED-78 and I agree on that and disagree only on whether the
+bookkeeping is exhaustive. It is not; lane 4 is outside it.
 
 ---
 
