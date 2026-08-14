@@ -368,6 +368,7 @@ import NaturalMachine.PhysicalLearningCore
 -- rooted total space supplies a canonical coherent repair.
 import NaturalMachine.RelationalProcessCore
 import NaturalMachine.RelationalHolonomyInteraction
+import NaturalMachine.AbstractSpinNetworkKinematics
 -- Univalence is the source geometry of that compiled physical state: a phase
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.
