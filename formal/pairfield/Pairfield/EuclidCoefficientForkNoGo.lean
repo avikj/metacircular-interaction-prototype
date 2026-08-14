@@ -27,7 +27,7 @@ def cost {source target : Int} (edge : CoefficientEdge source target) : Nat :=
   edge.trace.length
 
 /-- Compose coefficient constructions by replaying their traces in order. -/
-def then {source middle target : Int}
+def trans {source middle target : Int}
     (first : CoefficientEdge source middle)
     (second : CoefficientEdge middle target) :
     CoefficientEdge source target where
@@ -39,8 +39,8 @@ def then {source middle target : Int}
 theorem cost_then {source middle target : Int}
     (first : CoefficientEdge source middle)
     (second : CoefficientEdge middle target) :
-    (first.then second).cost = first.cost + second.cost := by
-  simp [then, cost]
+    (first.trans second).cost = first.cost + second.cost := by
+  simp [trans, cost]
 
 end CoefficientEdge
 
@@ -57,10 +57,10 @@ def oneToNegOne : CoefficientEdge 1 (-1) :=
   ⟨[.dec, .dec], by native_decide⟩
 
 def zeroToTwo : CoefficientEdge 0 2 :=
-  zeroToOne.then oneToTwo
+  zeroToOne.trans oneToTwo
 
 def zeroToNegOneViaOne : CoefficientEdge 0 (-1) :=
-  zeroToOne.then oneToNegOne
+  zeroToOne.trans oneToNegOne
 
 /-- The admissible direct formation that destroys the proposed shared fork. -/
 def zeroToNegOneDirect : CoefficientEdge 0 (-1) :=
