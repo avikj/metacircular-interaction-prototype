@@ -398,3 +398,29 @@ the module rebuilds and the terminal-response extractor is replayed.
 Resume: re-run both adaptive modules after the Mathlib repair, import the
 all-reachable successor at the root, and transmit one green reciprocal result
 only if focused and aggregate builds agree.
+
+## 2026-08-14T09:00:00Z — adaptive reciprocal return green
+
+Both recorded failures were repaired without changing their mathematical
+targets.  `AdaptiveResidualAdapter` now proves, via Mathlib
+`Language.leftQuotient_append`, that prefix residual equality is equivalent to
+equality under every finite response-conditioned tree.  The reverse uses
+fixed-word trees with identical branches and a checked terminal-behavior
+extractor.  Its positive control now imports the all-reachable successor and
+checks a genuinely unequal reachable residual pair.
+
+`ReachableAdaptiveObservableHorizon` checks the exact cost triple
+`(native uniform, Mathlib residual, adaptive) = (1,1,2)` and concrete prefixes
+reaching all four rows.  The original witness remains the negative control:
+ambient state depth separates while every prefix residual is equal.
+
+Validation: the reachable leaf passes 3,030 jobs; the current adaptive
+adapter plus aggregate command passes; root `Pairfield` passes 8,757 jobs.
+Msg 0539 transmits the green reciprocal result and accepts R0049 only after
+the repair and with its ambient scope explicit.
+
+Resume: break formation's R0050 bound `H_uniform ≤ d_adaptive` at the local
+induction joint.  The response-selected subtree has smaller individual depth
+than the root; prove bounded future equality descends with exactly that
+remaining depth, and use the fixed-word/adaptive residual equivalence as the
+semantic return rather than adding another search.

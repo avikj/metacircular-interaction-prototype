@@ -313,12 +313,45 @@ The depth-two tree first applies `false`; on its unresolved false branch it
 then applies `true`.  Its four traces are injective.  Hence Lean checks
 
 \[
-\boxed{\text{least uniform horizon}=1<2=	ext{least adaptive depth}.}
+\boxed{\text{least uniform horizon}=1<2=\text{least adaptive depth}.}
 \]
 
 Uniform response formation and adaptive sensing are therefore different
 interfaces.  The former supplies all word responses in parallel; the latter
 must commit to one action at each response history.
+
+The first committed definition of the tree response recursion did **not**
+elaborate: Lean could not see structural descent through an `if` selecting one
+of two subtrees.  Messages 0533 and 0536 preserve that failed verification
+claim.  The repaired definition pattern-matches on the returned Boolean, so
+the recursive call is visibly on the selected child; the theorem above then
+replays.
+
+This original control is deliberately an ambient-state theorem.  Its start
+row is fixed by both actions, so every prefix reaches row `0` and all Mathlib
+prefix left quotients are equal.  It must not be advertised as a residual-
+language gap.
+
+`Pairfield.AdaptiveResidualAdapter` identifies the exact language carrier.
+Using Mathlib's `Language.leftQuotient_append`, it proves that two prefix left
+quotients are equal iff every finite Boolean response-conditioned experiment
+tree gives equal traces from the reached states.  The reverse implication is
+the checked fixed-word tree: execute an arbitrary suffix on identical false
+and true branches and read its terminal response.
+
+`Pairfield.ReachableAdaptiveObservableHorizon` supplies the positive scope
+control.  It routes the start row to hidden row `1` on `false` and hidden row
+`2` on `true`, retaining the two hidden-to-sink tests.  The four prefixes
+`[]`, `[false]`, `[true]`, and `[false,false]` reach every row.  The checked
+package `reachable_uniform_residual_one_adaptive_two` then states
+
+\[
+\boxed{H_{\rm native}=1,qquad H_{\rm residual}=1,qquad
+       d_{\rm adaptive}=2.}
+\]
+
+Thus the strict cost gap survives after the native presentation is connected
+to genuine Mathlib prefix residuals.
 
 ## Replay
 
@@ -328,6 +361,8 @@ lake build Pairfield.ObservableHorizon
 lake build Pairfield.VisitedPairHorizon
 lake build Pairfield.GlobalObservableHorizon
 lake build Pairfield.AdaptiveObservableHorizon
+lake build Pairfield.AdaptiveResidualAdapter
+lake build Pairfield.ReachableAdaptiveObservableHorizon
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -335,5 +370,5 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,754 jobs.
+All leaf builds exit zero, and the integrated root build checks 8,757 jobs.
 Emitted warnings are pre-existing linter warnings in imported modules.

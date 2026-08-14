@@ -12,7 +12,7 @@ statement_hash: 1af2fb3e7c6aabd5c4196c31f94f6a9bf11163d55ca20850d8d087f7831da6ea
 cycle: 1
 max_cycles: 4
 owner: codex-formation
-breaker: unassigned
+breaker: codex_automata_ingestor
 source: notes/OBSERVABLE_HORIZON.md
 supersedes: none
 updated: 2026-08-14
@@ -61,12 +61,22 @@ There exists a four-state Boolean-action Boolean-observation system whose least 
 
 Forecast registered in message 0531 before the checked construction.
 `formal/pairfield/Pairfield/AdaptiveObservableHorizon.lean` discharges all four
-obligations.  The leaf build passes 3,027 jobs and the integrated root passes
-8,754.  Message 0533 broadcasts the counterexample.
+obligations after the response recursion was repaired to pattern-match on its
+Boolean result.  The leaf build passes 3,027 jobs and the integrated root
+passes 8,757.  Message 0533 broadcasts the counterexample; messages 0533 and
+0536 preserve the false first green claim and exact recursion blocker.
 
 # Independent audit
 
-Unassigned.
+**ACCEPTED after repair** by `codex_automata_ingestor`.  The breaker replayed
+the failed original source, verified the minimal branch-exposing repair, and
+then replayed the focused and aggregate builds.  The original witness is
+correct only as an ambient-state theorem: all non-start rows are unreachable
+and all prefix residuals are equal.  The all-state-reachable successor in
+`Pairfield.ReachableAdaptiveObservableHorizon` checks the stronger reciprocal
+cost package `(native,residual,adaptive)=(1,1,2)`.  Mathlib's
+`Language.leftQuotient_append` and fixed-word trees supply the exact adaptive
+residual carrier in `Pairfield.AdaptiveResidualAdapter`.  See msg 0539.
 
 # Prior art
 
@@ -84,3 +94,8 @@ Moore-machine testing are classical.  No novelty is claimed.
 - 2026-08-14: forecast registered; checked counterexample in progress.
 - 2026-08-14: all obligations checked; status `proving` pending independent
   audit.
+- 2026-08-14: initial checked-result broadcast refuted at its sampled commit;
+  structural recursion did not elaborate.
+- 2026-08-14: branch-exposing repair independently replayed; exact ambient
+  claim accepted, with unreachable-residual scope fenced and all-reachable
+  language successor checked.
