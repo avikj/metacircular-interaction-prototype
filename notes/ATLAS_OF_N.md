@@ -1024,8 +1024,9 @@ $+$ and $\times$ across this equivalence and land the odometer `sucC` as the tra
 successor. Nothing about Theorem 2.7 was re-proved for this note; it should be cited,
 not re-formalized.
 
-*Proposition 2.11, status (2026-08-14): **Corollary 2.11.1 RESOLVED; the $H^2$ statement
-itself deliberately NOT claimed.*** Checked in
+*Proposition 2.11, status (2026-08-14): **Corollary 2.11.1 RESOLVED
+constructively; the classical Mathlib $H^2$ carrier is now CHECKED; identification
+of the explicit carry cocycle remains OPEN.*** Checked in
 `formal/cubical/NaturalMachine/CarryObstruction.agda` (Agda 2.6.3 + cubical v0.5,
 `--safe`, no postulates, no holes, exit 0 standalone; not yet imported by the root
 aggregate `NaturalMachine.agda`, which was separately re-verified exit 0 unchanged
@@ -1064,13 +1065,45 @@ $b^n$ annihilate the kernel as well as the quotient. Non-vacuity is recorded, no
 assumed: `stdSection` is the schoolbook least-representative digit set, `stdSection-sect`
 proves it is a section, and `std-carries` is the instance for it.
 
-Two honest boundaries. (i) **$H^2$ is not constructed.** The note's Proposition 2.11
-says $[c_n]\ne0$ in $H^2(\mathbb{Z}/b^n;\mathbb{Z}/b)\cong\mathbb{Z}/b$; the module
-proves only that $c_n$ is a normalized 2-cocycle valued in the kernel and that it cannot
-be made to vanish, which is $[c_n]\ne0$ *stated without the group it lives in*. Building
-$H^2$ of a cyclic group constructively, and identifying it with $A/mA$, remains open and
-is the successor's task; the residual table's entry for the carry should keep its $H^2$
-wording, which this module supports but does not yet render machine-visible.
+Two honest boundaries. (i) **Cubical Agda still does not construct $H^2$.** The note's
+Proposition 2.11 says $[c_n]\ne0$ in
+$H^2(\mathbb{Z}/b^n;\mathbb{Z}/b)\cong\mathbb{Z}/b$; the Cubical module proves only
+that $c_n$ is a normalized 2-cocycle valued in the kernel and that it cannot be made to
+vanish, which is $[c_n]\ne0$ *stated without the group it lives in*. Building $H^2$ of
+a cyclic group constructively, and identifying it with $A/mA$, remains open.
+
+There is now a separate **classical/noncomputable Lean closure of the carrier** in
+`formal/pairfield/Pairfield/CarryCohomologyAdapter.lean`, imported by the Pairfield
+root.  It specializes Mathlib's finite-cyclic periodic resolution to
+$G=\operatorname{Multiplicative}(\mathbb{Z}/N)$ acting trivially on
+$A=\mathbb{Z}/b$.  The checked theorem `norm_eq_zero` proves that $b\mid N$ makes the
+cyclic norm identically zero, and `degreeTwoClass_ne_zero` uses
+`Rep.FiniteCyclicGroup.groupCohomologyπEven_eq_zero_iff` to prove that the positive-even
+class represented by the invariant $1$ is nonzero for $2\le b$.  The focused
+2,392-job build and the 8,771-job Pairfield root build pass, with no `sorry`, `admit`,
+or declared axiom in the adapter.
+
+**Native-lineage return: ACCEPT-NARROW.** This closes the classical Mathlib $H^2$
+carrier/nontriviality, not Proposition 2.11's displayed identification of the
+*specific* digit-section cocycle.  That distinction is essential for composite $b$:
+a nonzero element of $\mathbb{Z}/b$ need not be the generator $1$.  The exact remaining
+comparison square is now named:
+
+1. construct $\kappa:\ker(\mathbb{Z}/(Nb)\to\mathbb{Z}/N)\simeq\mathbb{Z}/b$ with
+   $\kappa(Na)=a$, and check the induced action is trivial;
+2. transport `CarryObstruction.carryOf` through $\kappa$ to a Mathlib
+   `groupCohomology.cocycles₂` term `digitCarryCocycle`;
+3. prove, up to the conventionally determined sign,
+   `groupCohomology.H2π (coefficients N b) digitCarryCocycle = degreeTwoClass N b`.
+
+At chain level the missing bar-to-periodic comparison sends a normalized cocycle $c$
+to $\sum_{i=0}^{N-1}c(g^i,g)$; for the schoolbook carry exactly the final summand is
+$1$.  Mathlib exposes both endpoint maps (`H2π` and `groupCohomologyπEven`) but the
+adapter does not yet relate them.  Packaging the full displayed isomorphism
+$H^2\cong\mathbb{Z}/b$, rather than only a nonzero class, is a second small classical
+debt.  The residual table's $H^2$ wording is therefore supported by two checked
+endpoints, while the cross-resolution and cross-prover identification remains explicit
+debt.
 (ii) **The moduli are $b^n$ up to a checked path, not on the nose.** Agda must see the
 modulus as a literal successor for `ℤGroup/_` to be the $\mathbb{Z}/m$ branch rather
 than $\mathbb{Z}$, and `b ^ n` does not reduce to `suc _` for variable `n`; so `BasePower`
@@ -1082,10 +1115,12 @@ $c_n(u,v)=b^n\lfloor(\tilde u+\tilde v)/b^n\rfloor$, and any *exhibited* carryin
 the theorem is $\neg\forall$, which constructively does not hand back the witnessing
 $(u,v)$.
 
-With this, §7's list is discharged in full except for the $H^2$ half of Proposition 2.11:
-Theorem 2.1 and Theorem 3.2 (`AtlasResiduals`, `LinearOrderFinite`), Theorem 3.1's loop
-half (`PathIsSymmetry`/`Decategorification`), Theorem 2.7 (`Digits`), Corollary 2.11.1
-(`CarryObstruction`). Theorem 4.2(2)(iii)'s "nonredundant, and irreducibly so" is now
+With this, §7's list is discharged in full except for the comparison identifying the
+explicit carry cocycle with Mathlib's periodic class, and for a constructive Cubical
+$H^2$ object: Theorem 2.1 and Theorem 3.2 (`AtlasResiduals`, `LinearOrderFinite`),
+Theorem 3.1's loop half (`PathIsSymmetry`/`Decategorification`), Theorem 2.7 (`Digits`),
+Corollary 2.11.1 (`CarryObstruction`), and the classical nonzero degree-two carrier
+(`CarryCohomologyAdapter`). Theorem 4.2(2)(iii)'s "nonredundant, and irreducibly so" is
 machine-visible: the third parameter of $\mathrm{Dig}(b,\varepsilon,s)$ cannot be chosen
 away.
 
