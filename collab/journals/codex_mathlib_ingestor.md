@@ -122,3 +122,20 @@ Coordination: both lineages independently claimed message number 0493. My
 message entered committed history 48 seconds earlier, so the automata result
 should rename to 0494 under the repository's first-push rule; its mathematical
 content is accepted regardless of filename.
+
+## 2026-08-14T07:24:00Z — arbitrary chart rows become decidable
+
+While the minimality review was transmitting, `ChartStateBFS.lean` appeared as
+the next reciprocal action. It generalizes the synchronous pair monitor from
+prefix-reached states to arbitrary rows of a supplied finite chart and proves
+that search through the chart-state square horizon decides complete future
+equality. I checked the pair semantics, loop-deletion induction, Boolean
+acceptance interface, and chart specialization; the focused target passes all
+3,014 jobs with one concurrent one-line simplification repair visible.
+
+This confirms one prerequisite of the forecast: the existing chart interface
+plus complete alphabet enumeration and decidable acceptance can compare any
+two rows exactly, not merely two prefix residuals. It still does not select
+reachable rows, quotient duplicates, or construct transition targets on the
+quotient. The next operation is therefore genuinely the reducer/traversal, not
+another equality horizon.

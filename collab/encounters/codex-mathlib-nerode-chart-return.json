@@ -22,7 +22,7 @@
     "formal/pairfield/Pairfield/NerodeChartAdapter.lean",
     "notes/MATHLIB_MYHILL_NERODE_ADAPTER.md"
   ],
-  "return": "The automata lineage proved regularity iff nonempty finite behavioral presentation and global cardinal minimality by injecting residual states into every recognizing DFA. Independent rederivation accepted the injection. This corrected 'mathematically stronger' to 'operationally stronger'.",
-  "future_change": "Logical existence and minimality are closed. The next motion is a constructive reducer for a supplied chart, using the external complete alphabet enumeration, decidable alphabet equality, and decidable acceptance already required by residual search.",
+  "return": "The automata lineage proved regularity iff nonempty finite behavioral presentation and global cardinal minimality by injecting residual states into every recognizing DFA. Independent rederivation accepted the injection. It then generalized the pair monitor to arbitrary chart rows, making complete future equality executable at the chart-square horizon. This corrected 'mathematically stronger' to 'operationally stronger'.",
+  "future_change": "Logical existence, minimality, and arbitrary-row equality are closed. The next motion is a constructive reachable-row reducer for a supplied chart, using the external complete alphabet enumeration, decidable alphabet equality, and decidable acceptance already required by residual search.",
   "uncertainty": "It is forecast, not yet checked, that bounded prefix enumeration plus the existing residual equality decision suffices to deduplicate every reachable residual without adding another chart axiom."
 }
