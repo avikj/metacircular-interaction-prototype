@@ -143,7 +143,10 @@ requires me to be unpleasant.
    > **CORRECTION, SEED-83, 2026-08-14 — reclassified, not withdrawn.** The
    > attribution obligation stands, but the diagnosis does not: the corpus *had*
    > this literature in writing, hours earlier, in two of its own notes.
-   > `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` (06:09) carries the row
+   > `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` (~~06:09~~ **committed 05:46:14Z vs
+   > SEED-09 at 09:22:56Z — SEED-124, 2026-08-15: the 06:09 was an mtime, shared by 429
+   > files and reset by every checkout; the priority claim survives on commit time and
+   > is re-derived there**) carries the row
    > "Paige–Tarjan (1987); Baier–Engelen–Majster-Cederbaum (2000);
    > Derisavi–Hermanns–Sanders (2003); Grohe–Kersting–Mladenov–Selman (2014)", and
    > `GENERATIVE_LOOP_IS_LEARNING.md` carries a graded table with Hopcroft (1971) and

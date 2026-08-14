@@ -106,7 +106,8 @@ recorded next formal step, not an assumption used anywhere above.
 
 Precisions from the blind-context audit, all additions: (1) the
 determinant pair obeys `det U · det V = sign(det M)` exactly, while each
-factor separately is free (`diag(1,−1) ∈ Γ₀(m)`) — this is the sharp form
+factor separately is free (~~`diag(1,−1) ∈ Γ₀(m)`~~ `diag(1,−1) ∈ Γ₀^±(m)`,
+see the naming correction at the head of §1) — this is the sharp form
 of "the sign is payload data"; (2) "normalized" must state positive
 diagonal entries: `diag(−e₁,e₂)` is unimodularly reachable and satisfies
 integer divisibility, so positivity is load-bearing and a deterministic

@@ -287,7 +287,12 @@ the files, and this matters because §4.2's structural diagnosis is built on all
 SEED-42 attributes the miss to the corpus not knowing the concurrency literature. But
 the corpus knew it, twice over, in writing, before SEED-09 was written:
 
-- `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` (same morning, 06:09 by mtime, i.e. hours
+- `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` (same morning, ~~06:09 by mtime~~ **added in
+  commit `9f573548`, 2026-08-14T05:46:14Z, against `SEED09_BASIN_NERODE.md` at
+  2026-08-14T09:22:56Z — 3h36m earlier [SEED-124, 2026-08-15, K3: the mtime 06:09 is
+  shared by 429 files and dates a checkout, not the note; the ordering this argument
+  needs is recorded durably in the git history and holds there, so §4.1's
+  reclassification stands on its own evidence rather than on the filesystem's]**, i.e. hours
   earlier) carries a citation row: *"coarsest equitable refinement of a given partition,
   `O(m log n)` | Paige–Tarjan (1987); Baier–Engelen–Majster-Cederbaum (2000);
   Derisavi–Hermanns–Sanders (2003); Grohe–Kersting–Mladenov–Selman (2014)."*
