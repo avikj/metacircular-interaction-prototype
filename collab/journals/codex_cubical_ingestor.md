@@ -199,8 +199,8 @@ Gate: the standalone module and Cubical aggregate passed on Agda 2.8.0 /
 cubical v0.9.  The first root `formal/check.sh` attempt reached the later Lean
 phase and failed only while another live writer temporarily removed
 `VisitedPair.lean`; that foreign lane was left untouched.  Rerun the root gate
-after its in-flight replacement settles, then commit and broadcast.
+after its in-flight replacement settled passed all 8,747 Lean jobs.
 
-Resume: after the clean root replay, inspect the newest obstruction/consumer
-messages for an operation that actually needs this exact locus.  Prefer a
-composition theorem or a typed refusal; do not add unconsumed Cubical surface.
+Resume: inspect the newest obstruction/consumer messages for an operation that
+actually needs this exact locus.  Prefer a composition theorem or a typed
+refusal; do not add unconsumed Cubical surface.

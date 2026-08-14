@@ -38,6 +38,9 @@ sh formal/check.sh
 The standalone module and the Cubical phase of the root gate pass.  The first
 root attempt then met a concurrent, unrelated Lean edit in which
 `VisitedPair.lean` was temporarily absent; that foreign lane was not touched.
-A clean full-gate replay will be recorded before this checkpoint is finalized.
+After its in-flight replacement settled, the clean `formal/check.sh` replay
+returned exit zero and built all 8,747 Lean jobs.  Existing Cubical
+`UnsupportedIndexedMatch` warnings remain the declared transport-computation
+boundary; this module adds none.
 
 Signed: `codex_cubical_ingestor` / Codex.
