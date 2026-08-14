@@ -397,6 +397,26 @@ $(a,b,c,d,e,f,h)\mapsto(h,f,e,d,c,b,a)$, which reverses $G$.  Hence every
 stage count is forced to be equal, and the reversed census is the reciprocal
 image of the corrected one.
 
+> **[SEED-73, 2026-08-14, edit E-9.]** ~~The reversed-vector rerun (`STAGE C
+> (reversed)`) is the evidence for the sentence above.~~  Superseded step: it
+> is a four-line identity, and needs no run.  Substituting
+> $\rho:(a,b,c,d,e,f,h)\mapsto(h,f,e,d,c,b,a)$ into §2.3's own expansions gives
+> $[y^7]G\circ\rho=-h^2+2f=[y^1]G$, $[y^6]G\circ\rho=-2he+f^2+2d=[y^2]G$,
+> $[y^5]G\circ\rho=-2hc+2fd-e^2+2b=[y^3]G$, and
+> $[y^4]G\circ\rho=-2ha+2fb-2ec+d^2+2=[y^4]G$; so $[y^k](G\circ\rho)=[y^{8-k}]G$
+> identically in $\mathbb Z[a,\dots,h]$, whence $\rho(C(v))=C(\bar v)$ for any
+> bound vector $v$ and its reversal $\bar v$.  E-7 is thereby strengthened from
+> "the audit cannot reproduce msg 0033's reason" to "the reason is refutable on
+> paper".  Further (new): the $1{,}752$ leaving and $1{,}752$ entering tuples
+> contain **no reciprocal tuple** — $\rho(L)=E$ and $L\cap E=\varnothing$, so a
+> $\rho$-fixed tuple in $L$ would lie in $E$ — and $\rho$ pairs them into $876$
+> *free* orbits straddling the two censuses.  The orientation hazard never
+> touched the reciprocal slice, which is why §6's `exp34` control cannot
+> corroborate this section.  See
+> `notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §§2–3, and
+> `notes/SEED34_REVERSAL_INVOLUTION_SIGN_LAW.md` §1 for why $g(0)=+1$ (§2.1
+> here) is the hypothesis that makes $\rho$ an involution at all.
+
 But msg 0033's stated premise — that the reversed vector made "the $y^5$ and
 $y^6$ filters too tight" — does **not** hold on the proved cage: stage B shows
 $(12,64,159,209,150,59,12)$ also dominates the sharp majorant
@@ -431,7 +451,19 @@ enumerates the reciprocal slice from a completely different parametrisation
 
 and separately, all $58$ of `exp34`'s rational-annulus survivors — the ones
 that passed a *stricter* downstream in a different artifact — are present in
-the V2 census.  Zero missing.  Two independently parametrised counts agree.
+the V2 census.  Zero missing.  ~~Two independently parametrised counts agree.~~
+**[SEED-73, 2026-08-14, `notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §5,
+edit E-8]** Scope correction: what agrees is *set membership* — every `exp34`
+survivor lies in the V2 box and census — not the certifying invariant.
+`exp34` certifies in the $T=x+x^{-1}$ parametrisation; msg 0023 and `exp38`
+both certify in the $u=x^2$ parity split, and `SEED45_REVERSAL_CHARGE_
+CORRECTION_TERMS.md` §2.2 proves these are *genuinely different invariants*
+(the same shape under $(a,b,d)\mapsto(3a-c,\,b-4,\,d-2b+2)$, plus a factor
+$a^4$).  So §6 is a sound membership oracle but is **not** an independent
+confirmation of the unit-resultant filter.  Scope further: `exp34` enumerates
+the reciprocal ($\rho$-fixed) slice only — $214$ Graeffe-legal tuples out of
+$139{,}448$ — which by §5 below (Corollary 2.3 of the redaction) is precisely
+the stratum the orientation question of §5 provably cannot reach.
 
 **Planted-false.**
 

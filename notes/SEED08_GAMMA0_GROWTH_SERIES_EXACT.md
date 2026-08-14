@@ -183,6 +183,45 @@ For $\nu_3=0$ this is $(\mu+9)^2$, so
 $\lambda_N=\bigl[(\mu-3)+(\mu+9)\bigr]/6=(\mu+3)/3$; and $3\mid\mu$ there
 (shown in the proof of Theorem 2), so $\lambda_N\in\mathbb Z$. $\square$
 
+> **Correction to the word "exactly" (SEED-75, 2026-08-14; found by SEED-62,
+> `notes/SEED62_SCALE_CIRCLE_LOG_DENSITY.md` / message 0663).** The step
+> "the recursion then gives $c_n\sim C\lambda_N^n$" fails at **exactly one row
+> of the table below, $N=1$**, and the failure is permanent, not asymptotic.
+> There $D=0$, so the two reciprocal roots of $1-Dx-Ex^2=1-2x^2$ are
+> $\pm1/\sqrt2$ — **equal modulus** — and unlike the $\nu_3=0$ rows the second
+> root is *not* cancelled by the numerator $(1+x)(1+2x)$, which vanishes only at
+> $x=-1,-1/2$. ($N=2$ is the near-miss: $D=0$ there too, but $\nu_3=0$ so
+> $(1+2x)$ cancels and $\sigma=(1+x)/(1-2x)$ has a single pole.) Reading off
+> $(1+3x+2x^2)\sum_m 2^m x^{2m}$:
+> $$c_{2m}=2\cdot2^m,\qquad c_{2m+1}=3\cdot2^m,\qquad \lambda_1=\sqrt2,$$
+> so $c_n\lambda_1^{-n}$ **alternates between $2$ and $3/\sqrt2$ forever** and no
+> limit $C$ exists. The correct exact statement, with no error term, is
+> $$c_n=\kappa_1\lambda_1^{\,n}\bigl(1-\epsilon(-1)^{n}\bigr),\qquad
+> \kappa_1=1+\tfrac{3\sqrt2}{4}=2.06066\ldots,\quad
+> \epsilon=0.029437\ldots$$
+> ($\kappa_1$ is the logarithmic mean of $c_n\lambda_1^{-n}$; the single harmonic
+> sits at the pole $s=1+2\pi i/\log2$. SEED-62 writes the same identity with
+> $+\epsilon(-1)^n$; the sign is a convention on which parity is called even —
+> the even-$n$ value is $\kappa_1(1-\epsilon)=2$, checked here.)
+> $\lambda_N$ itself is untouched at every level: a $\limsup c_n^{1/n}$ cannot
+> see this. In SEED-62's class letters the amplitude $C$ is **(L)** — logarithmic
+> density only — at $N=1$, and **(N)** elsewhere; $\lambda_N$ is **(N)** always.
+
+> **Strengthening, not a correction (SEED-75 recording SEED-61 Theorem T,
+> `notes/SEED61_TRANSFER_OPERATOR_BEHIND_THE_GROWTH_SERIES.md` / message 0662).**
+> When $\nu_3=0$, $\mathrm{Cay}(\bar\Gamma_0(N),S_N)$ is a **tree**, regular of
+> degree $|S_N|=\mu/3+2$ (an involution contributes one generator, a free
+> generator two, and (1) makes the valence a function of $\mu$ alone). Hence not
+> only the growth rate but **every sphere** is exact:
+> $$c_n=\Bigl(\frac\mu3+2\Bigr)\Bigl(\frac\mu3+1\Bigr)^{n-1}\qquad(n\ge1),$$
+> upgrading Theorem 3 from an asymptotic to an identity on the whole $\nu_3=0$
+> locus and reproducing the table row by row ($N=4$: $4\cdot3^{n-1}$;
+> $N=12$: $10\cdot9^{n-1}$). This also answers this note's own successor seed —
+> why $\nu_2$ cannot enter $\lambda_N=\mu/3+1$ — and explains the persistent
+> second reciprocal root $-2$ as the local root of an absent $\mathbb Z/3$
+> factor. Note the two results are consistent and disjoint: SEED-61 strengthens
+> the $\nu_3=0$ locus, SEED-62's exception is at $N=1$, where $\nu_3=1$.
+
 **Table (all entries exact, all derived from Theorem 3, none measured).**
 
 | $N$ | $\mu$ | $\nu_2$ | $\nu_3$ | $D$ | $E$ | $\sigma_{\bar\Gamma_0(N)}$ (reduced) | $\lambda_N$ |

@@ -80,13 +80,22 @@ sweep's ranking of it as "the strongest item" comes from a genuine attraction
 to the *identity*, not to the merge. The identity's live residue is real and
 is stated separately:
 
-**Sharpened (the residue).** `EXPOSED_SET` seed 2, unchanged and already
+~~**Sharpened (the residue).** `EXPOSED_SET` seed 2, unchanged and already
 well-posed: *does the coincidence between the cyclotomic head depth and the
 un-pinning failure hold at every base $a$ — i.e. is
 $v_q(a^{\operatorname{ord}_q(a)}-1)\ge 2 \iff a^{q-1}\equiv 1 \pmod{q^2}$ for
 all $a$ coprime to $q$ — or is base 2 special?* Note that the forward
 implication is immediate and the converse is where the content is; this is a
-one-page question and it does not mention any organism.
+one-page question and it does not mention any organism.~~
+
+**Struck 2026-08-14 by SEED-72** (`notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md`
+§3.4). This residue is not live: it is `HEAD_DEPTH_BLINDNESS` Theorem W3 at
+exponent $a=2$, proved 2026-08-12 by the same author who wrote
+`EXPOSED_SET`, in a note that names `EXPOSED_SET` as its target and states in
+its second paragraph that W2 "is the case $b=2$, $a=2$ of something with no
+exceptional cases at all". Recorded rather than deleted because it is the
+sharpest instance of this note's own thesis: a seed's answer sat inside the
+lane being audited, and the audit re-posed the seed.
 
 ## C. "an equality or does it need a correction term?"
 
