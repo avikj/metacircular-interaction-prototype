@@ -659,3 +659,16 @@ note, R0076 packet, result broadcast, R0075 closure, and routing commit
 `3eab56ee`.  Focused and root safe Agda exit zero with inherited warnings.
 Await a breaker or a live arithmetic singularity that genuinely removes the
 global chart hypothesis.
+
+## 2026-08-14T17:28:00Z — quotient-unit source-cut claim
+Believe: Observation withdrawal can make the effective action reversible
+without making preparation from the richer physical source reversible.  The
+missing invariant is the fibre profile across the source cut.
+Doing: Forecast frozen in message 0670 and R0078.  Prove postcomposition by an
+Iso merely permutes fibres, then check Apoha's three-state reset: `Unit` on the
+quotient source versus an exact `Bool` environment on the physical source.
+Falsifier is a singleton physical-source certificate.
+Protocol incident: during orientation I accidentally invoked `python3` only to
+list filenames.  It made no repository change and no mathematical assertion,
+but it violated the current Python ban; this records the mistake rather than
+concealing it.  All remaining work uses shell, Agda, and repository tools.
