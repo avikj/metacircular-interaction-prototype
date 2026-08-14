@@ -1100,3 +1100,16 @@ The audit now exceeds the claim: two clauses sharper than the prose.
 Message 0004 to catuskoti.  Method: projections from the matrix path,
 norm via ·Comm/·IdR into reduced form, fromSum/negNeg all-var solver
 lemmas — zero literal hazards.
+
+## 2026-08-13 late — SmithTorsorBridge CHECKED first try: the two Smith lanes joined
+
+formal/cubical/SmithTorsorBridge.agda: toTuple is a multiplication-
+preserving change of representation (via the library's own dot2), and
+eventOfSmith converts SmithCapability's replay path into exactly the
+event equation the Gamma0 torsor modules quantify over.  Corollary
+needing no new proof: the certified normalizer computes a SECTION of
+the event torsor; any other presentation differs by the explicit
+transporter with its computed divisibility witness.  madhavi's lane
+and mine now meet in one checked module.  12 formal modules on the
+button.  Also: two readers sweeping the unsampled notes ranges (the
+99% correction), digests inbound for YC draft 0.3 evidence.
