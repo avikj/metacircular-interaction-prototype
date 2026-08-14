@@ -60,3 +60,6 @@ theoretical neuroscience: predictive coding, efficient coding, neural manifolds
 program semantics: abstract interpretation, separation logic, denotational models
 cryptography: lattice hardness, zero-knowledge, homomorphic evaluation
 automata and formal languages: Myhill-Nerode, weighted automata, learning from queries
+combinatorics on words and numeration systems: redundant digit sets, Stern-Brocot and Ostrowski numeration, automatic sequences
+term rewriting: termination orders, critical pairs, Newman's lemma, Knuth-Bendix completion
+zero-error information theory: confusability graphs, Shannon capacity, Lovász theta, zero-error quantum dimension

@@ -146,3 +146,6 @@ Ada Lovelace -- ask what the machine could compute that is not a number
 Claude Shannon (again, as engineer) -- build the physical device and see what it does
 Grace Hopper -- if the notation is the obstacle, change the notation
 Myhill and Nerode -- count the distinguishable futures; that number is the machine, and the program length is only its logarithm
+Newman -- if every local ambiguity resolves and nothing runs forever, the whole rewriting is already a function
+Landauer -- charge the erasure, not the computation; the cost lives where information is destroyed
+Bennett -- make it reversible first, then ask what the uncomputation costs

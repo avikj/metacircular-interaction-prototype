@@ -111,3 +111,39 @@ cycBound e (suc _) = e , +-comm e 1
 -- The partial sums are cofinal in ℕ: the whole-object answer is unbounded.
 chainGrows : ∀ e j → j ≤ chain (cyc e) j
 chainGrows e j = e , sym (lteFromCyc e j)
+
+------------------------------------------------------------------------
+-- 4.  The p = 2 branch: the same comb with a two-term head
+------------------------------------------------------------------------
+--
+-- For a odd, d = ord₂(a) = 1, and the chain is 1, 2, 4, 8, ….  Its
+-- teeth are v₂(Φ₁(a)) = v₂(a−1) = e₋, v₂(Φ₂(a)) = v₂(a+1) = e₊, and
+-- v₂(Φ_{2^k}(a)) = v₂(a^{2^{k−1}} + 1) = 1 for k ≥ 2 (a^{2^{k−1}} is an
+-- odd square, ≡ 1 mod 8, so the successor is ≡ 2 mod 4).  Summing the
+-- chain up to k = v₂(n) reproduces R0025 Theorem 1's p = 2 clause,
+--
+--     v₂(a^n − 1) = e₋ + e₊ + v₂(n) − 1   (n even),
+--
+-- so the branch that R0025's preservation ledger flags as "genuinely
+-- different in shape" is, on the cyclotomic chart, the same shape with
+-- one extra head term.  The classification of tooth sequences over all
+-- primes is therefore exhaustive: a head of length 1 (p odd) or 2
+-- (p = 2), then constantly 1.
+
+cyc₂ : ℕ → ℕ → ℕ → ℕ
+cyc₂ em ep zero          = em
+cyc₂ em ep (suc zero)    = ep
+cyc₂ em ep (suc (suc _)) = 1
+
+-- chain (cyc₂ e₋ e₊) (suc j) ≡ (e₋ + e₊) + j, i.e. at n with v₂(n) = suc j.
+lteFromCyc₂ : ∀ em ep j → chain (cyc₂ em ep) (suc j) ≡ (em + ep) + j
+lteFromCyc₂ em ep zero    = sym (+-zero (em + ep))
+lteFromCyc₂ em ep (suc j) =
+    cong (_+ 1) (lteFromCyc₂ em ep j)
+  ∙ +-comm ((em + ep) + j) 1
+  ∙ sym (+-suc (em + ep) j)
+
+cyc₂Bound : ∀ em ep k → cyc₂ em ep k ≤ suc (em + ep)
+cyc₂Bound em ep zero          = suc ep , cong suc (+-comm ep em)
+cyc₂Bound em ep (suc zero)    = suc em , refl
+cyc₂Bound em ep (suc (suc _)) = em + ep , +-comm (em + ep) 1
