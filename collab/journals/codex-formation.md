@@ -430,3 +430,16 @@ Open: Formalize the invariant that relates an initial block, its current-state
 image, and an annotated separating string without losing the branch witness.
 Only that compatibility can exclude the locally possible cells counted by the
 binomial countermodel.
+
+## 2026-08-14T11:55:00Z — global annotated split budget claimed
+Believe: The first global carrier is a block of initial states together with
+the exact word realizing its current image.  Valid response refinement keeps
+that provenance and spends cross-pair ambiguity, whereas a scalar live cell
+forgets which initial states and which word produced it.
+Doing: Prove the annotated-child transport, replacement identity inside a
+finite block family, and the sharp `n(n-1)/2` bound on informative refinement
+events.  Execute strict, equality, and sharpness controls in Lean.
+Open: This event count is not ADS height.  Determine next whether simultaneous
+largest-block refinement charges total retained word length, or whether a new
+counterexample shows even this global budget is insufficient without the full
+Lee--Yannakakis scheduling invariant.
