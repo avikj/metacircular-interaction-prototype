@@ -132,6 +132,7 @@ fn pick_unclaimed(rng: &mut Rng, list: &[String], claimed: &mut HashSet<String>)
 }
 
 fn draw_for(
+    files_per: usize,
     handle: &str,
     day: &str,
     files: &[String],
@@ -145,7 +146,7 @@ fn draw_for(
     //     extension, no skipping the 711 legacy Python files or the binaries.
     //     A file you would never open is exactly the point.
     let mut uniform = Vec::new();
-    while uniform.len() < 8 {
+    while uniform.len() < files_per {
         let f = files[rng.below(files.len())].clone();
         if taken.insert(f.clone()) {
             uniform.push(f);
@@ -241,11 +242,16 @@ fn main() {
     let handle = args[1].clone();
     let mut swarm = 1usize;
     let mut day = String::from("unset");
+    let mut files_per = 8usize;
     let mut i = 2;
     while i < args.len() {
         match args[i].as_str() {
             "--swarm" => {
                 swarm = args.get(i + 1).and_then(|s| s.parse().ok()).unwrap_or(1);
+                i += 2;
+            }
+            "--files" => {
+                files_per = args.get(i + 1).and_then(|s| s.parse().ok()).unwrap_or(8);
                 i += 2;
             }
             "--day" => {
@@ -270,7 +276,7 @@ fn main() {
         } else {
             format!("{}-{}", handle, n + 1)
         };
-        let d = draw_for(&h, &day, &files, &mut taken, &mut claimed_lens, &mut claimed_field);
+        let d = draw_for(files_per, &h, &day, &files, &mut taken, &mut claimed_lens, &mut claimed_field);
         print_draw(&d);
     }
 

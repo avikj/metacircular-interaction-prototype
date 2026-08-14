@@ -39,6 +39,41 @@ import Control.Monad (forM_, when, unless)
 import System.IO
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
+-- (imports for the unbuilt evolve step removed; they were dead, and a
+-- dead import is a claim about what a program does)
+
+-- ===================================================================
+-- KNOBS.  The machine's tunable constants, laid out so that they CAN be
+-- found and rewritten in this source text.
+--
+-- HONEST STATUS: nothing rewrites them yet.  An earlier version of this
+-- banner said "every line below is rewritten by the machine itself
+-- during evolution" — that was aspiration written in the present tense,
+-- which is the exact sin this repository was founded to stop.  The
+-- evolve step (mutate source, compile variant, race it, exec the
+-- winner) is designed and not built; the imports for it below are dead
+-- until it is.  Two visiting readers caught this in the same hour.
+-- ===================================================================
+kProbe :: Int
+kProbe = 400
+kAssign :: Int
+kAssign = 40
+kMinPrune :: Int
+kMinPrune = 1
+kConceptMin :: Int
+kConceptMin = 8
+-- How much shorter the probe must get before a name is worth having.
+-- A fold of a pattern of size p saves p-1 symbols, and the smallest
+-- admissible pattern has size 3, so one fold saves at least 2: this
+-- threshold is "at least four real folds".  It is a gate on description
+-- length, which is the only currency a DEFINITION can be paid in — see
+-- `marginalCompress` for why the old prune-based gate could never pass.
+kConceptGain :: Int
+kConceptGain = 8
+kVars :: Int
+kVars = 3
+kSizeCap :: Int
+kSizeCap = 7
 
 -- ---------------------------------------------------------------- terms
 
@@ -108,6 +143,10 @@ vocabulary =
       [ (bin "max" x_ zero_,          x_)
       , (bin "max" zero_ x_,          x_)
       , (bin "max" (su x_) (su y_),   su (bin "max" x_ y_)) ]
+  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
+      [ (bin "-" x_ zero_,          x_)
+      , (bin "-" zero_ x_,          zero_)
+      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
       -- gcd needs its recursion, not just its base cases: a symbol the
       -- machine can compute but not unfold is a black box it can test
@@ -115,10 +154,14 @@ vocabulary =
       [ (bin "gcd" x_ zero_, x_)
       , (bin "gcd" zero_ x_, x_)
       , (bin "gcd" (su x_) (su y_), bin "gcd" (F "-" [su x_, su y_]) (su y_)) ]
-  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
-      [ (bin "-" x_ zero_,          x_)
-      , (bin "-" zero_ x_,          zero_)
-      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
+  , Sym "le"  2 (\vs -> if vs !! 0 <= vs !! 1 then 1 else 0)
+      -- Eleven of the machine's thirty-five theorems were `max`-shaped
+      -- restatements of x <= y.  It was not producing junk; it was
+      -- reaching for a predicate it had no name for.  (x+y) = ((x+y)max x)
+      -- IS x <= x+y wearing a costume.
+      [ (bin "le" zero_ x_,          su zero_)
+      , (bin "le" (su x_) zero_,     zero_)
+      , (bin "le" (su x_) (su y_),   bin "le" x_ y_) ]
   ]
 
 definitionsOf :: [Sym] -> [Rule]
@@ -285,7 +328,15 @@ precedence :: String -> Int
 precedence f =
   case [ i | (i,s) <- zip [0..] vocabulary, symName s == f ] of
     (i:_) -> i
-    []    -> -1          -- the eigenconstant sits below everything
+    [] -> case f of
+      -- An invented concept must sit BELOW everything its defining
+      -- pattern mentions, so that rewriting folds into it; and later
+      -- concepts below earlier ones, so a concept built from concepts
+      -- still folds.  Giving them all -1 left the machine's own ideas
+      -- mutually unorderable — second-class citizens in its own order.
+      ('c':ds) | all (`elem` "0123456789") ds, not (null ds) ->
+        -2 - read ds
+      _ -> -1            -- the eigenconstant sits below everything
 
 lpo :: Term -> Term -> Bool
 lpo s t
@@ -390,6 +441,38 @@ marginalPrune rules probe c =
       after = length (ordNub (map (normalize (extra ++ rules)) probe))
   in before - after
 
+-- THE CONCEPT GATE WAS UNSATISFIABLE.  For eighteen rounds the machine
+-- reached for a new idea four times and named nothing, because the test
+-- it had to pass cannot be passed.  This is a theorem, not a tuning
+-- problem:
+--
+--   Let c be a symbol occurring neither in R nor in the probe set S, and
+--   let R' = R ∪ {p → c(x₁…x_k)} where vars p = {x₁…x_k}.  Let u be the
+--   unfolding that rewrites c(t₁…t_k) ↦ p[xᵢ↦tᵢ]; u is well defined
+--   because c is fresh, and u(nf_{R'}(t)) = nf_R(t) for every c-free t.
+--   So nf_{R'} restricted to S is injective wherever nf_R is, hence
+--     |nf_{R'}(S)| ≥ |nf_R(S)|   and   marginalPrune ≤ 0,  always.
+--
+-- A definition FOLDS; it does not MERGE.  Asking a definition to collapse
+-- distinct normal forms is asking it to be a theorem.  So `marginalPrune`
+-- is the right currency for a proved equation and the wrong one for a
+-- name, and the gate rejected every candidate for a reason no amount of
+-- lowering kConceptMin would have reached.
+--
+-- The comment above `patternsOf` already said what the criterion should
+-- be — "the criterion is description length" — and the code measured
+-- something else.  This is that criterion: total size of the probe's
+-- normal forms.  Folding x+x (size 3) into c₀(x) (size 2) shortens; a
+-- name that does not shorten is not worth having.
+marginalCompress :: [Rule] -> [Term] -> (Term,Term) -> Int
+marginalCompress rules probe c =
+  let extra = case orient c of
+                Just r  -> [r]
+                Nothing -> lemmaRules [c]
+      before = sum (map (size . normalize rules) probe)
+      after  = sum (map (size . normalize (extra ++ rules)) probe)
+  in before - after
+
 -- x+y = y+x and z+u = u+z are the same discovery.  Renaming variables
 -- to their order of first appearance makes that a syntactic fact, so
 -- the machine states each theorem once instead of once per alphabet.
@@ -413,6 +496,7 @@ data Machine = Machine
   , mLemmas  :: [(Term,Term)] -- proved but unorientable (e.g. commutativity)
   , mKnown   :: M.Map (Term,Term) ()  -- everything already stated
   , mInvented :: [Sym]        -- concepts the machine named for itself
+  , mRetired :: [Term]        -- patterns it named, never used, and withdrew
   , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
@@ -420,7 +504,7 @@ data Machine = Machine
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] M.empty 3 4 0
+start = Machine [] [] M.empty [] [] M.empty 3 4 0
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -443,11 +527,15 @@ patternsOf t = [ p | p <- subterms t, size p >= 3, size p <= 5
     subterms u@(F _ ts) = u : concatMap subterms ts
     subterms u = [u]
 
+symbolsIn :: Term -> [String]
+symbolsIn (V _) = []
+symbolsIn (F f ts) = f : concatMap symbolsIn ts
+
 canonTerm :: Term -> Term
 canonTerm t = applySub ren t
   where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
 
-inventConcept syms terms n =
+inventConcept syms retired terms n =
   case best of
     []        -> Nothing
     ((p,_):_) ->
@@ -458,19 +546,44 @@ inventConcept syms terms n =
       in Just (Sym nm ar (\args -> eval sem args p)
                  [ (p, F nm (map V [0 .. ar-1])) ])
   where
-    best = bestOf syms terms
+    best = bestOf syms retired terms
 
 -- candidate concepts, best first: how often a shape appears times how
 -- much naming it would save.  A shape already named is not a new idea.
-bestOf :: [Sym] -> [Term] -> [(Term,Int)]
-bestOf syms terms =
+bestOf :: [Sym] -> [Term] -> [Term] -> [(Term,Int)]
+bestOf syms retired terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
-             [ pc | pc@(p,c) <- counts, c >= 8, headIsNotFresh p
-                  , not (alreadyNamed p), not (trivialApp p) ])
+             [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
+                  , not (alreadyNamed p), not (trivialApp p)
+                  , mentionsPrimitive p
+                  , canonTerm p `notElem` retired ])
   where
+    -- A TOWER IS NOT A THOUGHT.  With the description-length gate live,
+    -- the machine's first name was `c0 := x+x` — exactly the `double`
+    -- this code was written to hope for.  Its second was `c1 := c0(c0(x))`,
+    -- its third `c2 := c1(c0(x))`, and so on: 2x, 4x, 8x, forever, each
+    -- one shortening the probe and each one proving nothing.
+    --
+    -- That is not a threshold that needs raising, it is the gate being
+    -- the wrong shape.  Description length ALWAYS improves under
+    -- composition — naming f∘g saves a symbol at every occurrence, for
+    -- any f and g — so no bound on compression can rule out the tower.
+    -- The constraint has to be about content: a pattern assembled purely
+    -- from names the machine already has contains no operation that was
+    -- not already named.  It is a re-abbreviation.
+    --
+    -- So: concepts may appear INSIDE a pattern (the Lovelace point above
+    -- stands — abstraction must be able to stack), but the pattern must
+    -- contribute at least one primitive of its own.  c0(x)+x is a new
+    -- function; c0(c0(x)) is c0 said twice.
+    mentionsPrimitive p =
+      any (`elem` map symName vocabulary) (symbolsIn p)
     counts = M.toList (M.fromListWith (+)
                [ (canonTerm p, 1::Int) | t <- terms, p <- patternsOf t ])
-    headIsNotFresh (F f _) = take 1 f /= "c"
+    -- Lovelace: rejecting c-headed patterns caps the tower of
+    -- abstraction at height one — a concept could appear beneath a head
+    -- but never as one, so no concept is ever built from concepts.
+    headIsNotFresh (F _ _) = True
     headIsNotFresh _ = False
     -- f(x,y) is not a concept, it is f with a costume on.  A name earns
     -- its place by capturing structure the signature cannot say in one
@@ -493,7 +606,13 @@ lemmaRules = concatMap (\(a,b) -> [(a,b),(b,a)])
 -- its unorientable theorems applied only in the decreasing direction.
 usableRules :: Machine -> [Rule]
 usableRules m =
-  definitionsOf (take (mVocab m) vocabulary)
+  -- Grothendieck: the invented symbols' OWN defining equations were
+  -- missing here, while `round1` put those symbols into the term space
+  -- and the fingerprint.  So every concept the machine named for itself
+  -- became exactly the black box this file's header warns about — it
+  -- could compute with it and never unfold it.  The bug documented for
+  -- `gcd` at the top, reintroduced for the machine's own ideas.
+  definitionsOf (take (mVocab m) vocabulary ++ mInvented m)
     ++ mRules m
     ++ lemmaRules (mLemmas m)
 
@@ -504,8 +623,8 @@ round1 logh libh ref = do
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
-      nv = 3
-      envs = assignments nv 40
+      nv = kVars
+      envs = assignments nv kAssign
       rules = usableRules m
       raw = genTerms sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
@@ -529,7 +648,16 @@ round1 logh libh ref = do
       -- life of the process — the largest cost centre there is, and it
       -- is spent on questions already asked.
       nRules = length rules
-      fresh = [ c | c <- conjectures
+      -- ORDER MATTERS, and it was hash order.  `conjectures` comes out of
+      -- a Map keyed on fingerprints, so the machine attacked its own
+      -- questions in an order determined by a hash function.  The fold
+      -- below feeds each proof back in as it goes, so a small general
+      -- lemma proved early pays for every later conjecture in the same
+      -- round, and proved late pays for none of them — the difference
+      -- between finding x+s(y)=s(x+y) before x+y=y+x and after it.
+      -- Smallest first is the only order with that property.
+      fresh = sortOn (\(l,r) -> (size l + size r, l, r))
+              [ c | c <- conjectures
                   , not (M.member c (mKnown m))
                   , M.lookup c (mFailed m) /= Just nRules
                   , not (provedByRewriting rules c)
@@ -537,7 +665,7 @@ round1 logh libh ref = do
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
-      probe = take 400 normed
+      probe = take kProbe normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
@@ -547,7 +675,7 @@ round1 logh libh ref = do
               Just pf
                 -- a proof is not enough: it must also make the world
                 -- smaller, or it is a true statement with no consequences
-                | marginalPrune acc probe c <= 0 -> (acc, out)
+                | marginalPrune acc probe c < kMinPrune -> (acc, out)
                 | otherwise ->
                     let acc' = acc ++ maybe [] (:[]) (orient c)
                                 ++ (if isJust (orient c) then []
@@ -596,12 +724,28 @@ round1 logh libh ref = do
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
-      candidate = if stuck
-                    then inventConcept syms normed (length (mInvented m'))
+      -- A NAME EARNS ITS SUCCESSOR BY BEING USED.  Even with the tower
+      -- ruled out, a machine allowed to name something every time it is
+      -- stuck will name instead of prove: each new symbol multiplies the
+      -- term space (25k → 396k over four rounds of naming, with `proved`
+      -- flat at zero), so naming makes the next round harder and the one
+      -- after that harder still.  The honest test of a name is whether a
+      -- theorem was stated with it.  Until the last one has appeared in
+      -- something proved, the machine may not coin another — it must
+      -- either use the idea it has, or widen the vocabulary it was given.
+      lastNameUsed = case mInvented m' of
+        [] -> True
+        ss -> let nm = symName (last ss)
+              in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
+                     (M.keys (mKnown m'))
+      candidate = if stuck && lastNameUsed
+                    then inventConcept syms (mRetired m') normed
+                           (length (mInvented m'))
                     else Nothing
       invented = case candidate of
         Just s | let (pat,fold) = head (symDefs s)
-               , marginalPrune (usableRules m') (take 400 normed) (pat,fold) > 0
+               , marginalCompress (usableRules m') (take kProbe normed) (pat,fold)
+                   >= kConceptGain
                -> Just s
         _ -> Nothing
   case invented of
@@ -615,14 +759,45 @@ round1 logh libh ref = do
       m'' | not stuck' = m2
           | mVocab m2 < length vocabulary && even (mRound m2) =
               m2 { mVocab = mVocab m2 + 1 }
-          | mSize m2 < 9 = m2 { mSize = mSize m2 + 1 }
+          | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
+          -- Past this point the given vocabulary is exhausted and the
+          -- size horizon is at its cap.  The machine used to answer that
+          -- by raising the horizon anyway and then halting — growing the
+          -- one dimension its own numbers said was not the constraint
+          -- (rounds 16-18: conjectures 9k → 18k, proved 0 → 5 → 0; the
+          -- prover was the bottleneck, not the search).  The only way out
+          -- is a name, and if the last name it coined is going unused
+          -- then that name is the thing standing in the way: WITHDRAW IT.
+          -- Retiring restores the term space the dead symbol was costing
+          -- and frees the coin slot for a different pattern, and the
+          -- retired pattern is remembered so it is not re-proposed.
+          --
+          -- Without this the previous rule deadlocks, and the deadlock is
+          -- provable rather than probable: with no results, no concept
+          -- and no axis moved, the next round has the same rules, vocab
+          -- and size, hence the same terms, hence the same conjectures,
+          -- all of them memoized-failed at the same rule count — fresh=0
+          -- forever.  Rounds 19 and 20 of the previous run were
+          -- bit-identical, 45 seconds each.  A machine spinning on a
+          -- state it can prove it cannot leave is worse than one that
+          -- halts, because it looks alive.
+          | not (null (mInvented m2)) =
+              m2 { mInvented = init (mInvented m2)
+                 , mRetired = mRetired m2
+                     ++ [ canonTerm (fst (head (symDefs (last (mInvented m2))))) ] }
+          -- Nothing left to withdraw and nothing left to widen: the
+          -- machine genuinely needs more room, and saying so by raising
+          -- the horizon is now the honest move rather than the lazy one.
           | otherwise = m2 { mSize = mSize m2 + 1 }
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
   when (stuck && mSize m'' > mSize m2) $
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
+  when (stuck && length (mInvented m'') < length (mInvented m2)) $
+    hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
+      (symName (last (mInvented m2)))
   hFlush logh
   writeIORef ref m''
 
@@ -634,11 +809,14 @@ main = do
   hSetBuffering libh LineBuffering
   hPutStrLn logh "=== MathMachine start ==="
   ref <- newIORef start
-  let loop = do
-        round1 logh libh ref
-        m <- readIORef ref
-        when (mSize m <= 12) loop
+  -- A machine that halts is not a machine.  The old loop stopped when the
+  -- size horizon passed its cap, which is to say: it enumerated a finite
+  -- space and finished.  Nothing about arithmetic is finite; what was
+  -- finite was the vocabulary somebody typed, and the organ for escaping
+  -- that — concept invention — was gated on a condition no definition can
+  -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
+  -- reason to keep going, so it keeps going.
+  let loop = round1 logh libh ref >> loop
   loop
-  hPutStrLn logh "=== horizon reached ==="
   hClose logh
   hClose libh

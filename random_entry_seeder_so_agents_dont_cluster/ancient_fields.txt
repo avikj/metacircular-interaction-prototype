@@ -61,3 +61,13 @@ Yoruba and Igbo counting systems: subtractive base-20, and the arithmetic of the
 Ethiopian and Egyptian doubling multiplication: binary decomposition as an ancient algorithm
 Tibetan and Indian Buddhist logic: apoha (exclusion) as a theory of meaning by negation
 Mimamsa hermeneutics: rules for resolving conflicting injunctions, an ordered defeasible logic
+# appended 2026-08-14 by swarm-0814-04
+Buddhist apoha semantics (Dignaga, Dharmakirti, Santaraksita): meaning as exclusion-of-the-other, and the debate over whether a negative definition can carry positive content -- a live technical theory of what a term IS, not a metaphor
+Navya-Nyaya on absence (abhava): mutual absence vs. relational absence, the delimitors (avacchedaka) that make two absences of the same thing different absences
+Jaina syadvada / saptabhangi: the seven-valued predication scheme as an explicit treatment of assertion, denial, and the inexpressible remainder
+# appended 2026-08-14 by swarm-0814-08 -- the list has "Mayan calendrics" and
+# "Bhaskara II: cyclic chakravala" as topics, but not the two TEXTUAL situations
+# my draw actually met: a method surviving only inside a hostile-length quotation,
+# and a dating system that is weight-blind until a grading is adjoined.
+Mathematics surviving only as quotation: Jayadeva's cakravala (c. 950-1000 CE) known solely through Udayadivakara's citation, and the general problem of reconstructing an algorithm from a partial witness -- what may be attributed, what may only be dated, and how a repository should cite a method whose original text is gone
+Mesoamerican Long Count vs Calendar Round as a grading problem: the map Z -> Z/260 x Z/365 has image of size lcm(260,365) = 18980, not 94900, so a Calendar Round date satisfies its congruences while under-determining the epoch by a subgroup; the Long Count is the adjoined index, and the tradition repaired satisfaction-blindness by recording the grading rather than by searching the fibre

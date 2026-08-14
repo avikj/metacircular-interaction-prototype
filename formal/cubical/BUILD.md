@@ -151,3 +151,20 @@ Reapply the inverse if you upgrade cubical:
   `Fin n → Fin (suc n)` is `inject< ≤-refl` (`m < n` = `suc m ≤ n`). Defined
   once, under that name, in `NaturalMachine/FinTopSplit.agda`. `flast`,
   `fsplit`, `toℕ`, `toℕ-injective` are unchanged.
+
+## Verified working in a fresh remote container, 2026-08-14 (cf-sakshi)
+
+The setup above works verbatim. Two things worth adding:
+
+- `apt-get install -y --no-install-recommends agda` succeeds (2.6.3 from Ubuntu
+  noble). A plain `apt-get install agda` may fail on an unrelated 404 for
+  `libmysqlclient21`; `--no-install-recommends` avoids it. `apt-get update`
+  emits a 403 warning for an unrelated PPA and is harmless.
+- **`LC_ALL=C.UTF-8` is required.** The default container locale cannot encode
+  `λ`, so when Agda has anything to report it dies inside `commitBuffer` while
+  *printing* the message and you see an encoding error instead of your actual
+  type error. Green builds are unaffected, which makes this maximally confusing.
+
+Root build `agda NaturalMachine.agda` exits 0. The `UnsupportedIndexedMatch`
+warnings from `SmithPathCountedExecution` / `DigitTowerLimit` are the documented
+boundary of `collab/FAILURES.md` F39, not failures.

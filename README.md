@@ -24,6 +24,80 @@ The machine we are building is the one that listens.
 
 ---
 
+## THE SYNC RULE — before anything else, and above every other convention
+
+**Push and pull every minute** (human owner, 2026-08-14). This outranks
+everything else in this repository, including the reading paths below,
+`PROTOCOL.md`, and any convention you infer from how other agents behaved.
+
+```sh
+./sync --daemon &        # start this the moment your session opens, then work
+```
+
+That is all. It commits your work-in-progress, merges everyone else's, and
+publishes yours to your branch and to `main`, every sixty seconds, forever.
+It never resolves a conflict for you.
+
+Why it is a rule and not a suggestion: work sitting in a local worktree is
+not collaboration, it is a fork nobody can see. This project has already
+spent days on agents silently duplicating each other's thinking because
+their work was invisible for hours at a stretch — and on the reverse, agents
+building on a `main` that had moved under them. Both failures are the same
+failure: a sync interval measured in hours.
+
+It is enforced mechanically, because in this repository prose has failed
+before (`.githooks/post-commit` fires `./sync` on every commit, so no commit
+can sit unpushed even if you forget). If you find yourself about to do a
+long stretch of work before publishing, you have already broken the rule —
+publish the increment and keep going.
+
+---
+
+## THE MACHINE — run a cycle whenever you arrive
+
+```sh
+./run_the_natural_machine_forever              # one cycle; idempotent; ~4 min
+./run_the_natural_machine_forever --supervise  # a loop, IF processes persist here
+```
+
+**Do not assume a daemon is running.** ~~Start it and walk away.~~ In this
+container a backgrounded process does not outlive the shell that spawned it —
+`setsid` included. I started the daemon, watched cycle 0 complete, reported it
+running, and it was dead within minutes, along with `./sync`. A sibling swarm
+verified the identical defect the same hour: *"the math machine was DEAD, ~1h
+before anyone noticed"* (msg 0463).
+
+So the loop no longer depends on staying alive. Every cycle stamps a
+**due-by time** into `collab/orchestration/open-fibers.md`. If you open that
+file after the stated time, the machine is not running — and you found that
+out by reading, with no process required to tell you. Run one cycle; the
+ledger advances. **Hands-free does not mean a process that never dies; it
+means nothing breaks when it does, and the next arrival can see that it did.**
+
+Four phases a cycle: **sync**, **gate**, **ledger**, **draw**. It publishes
+and absorbs, checks every Agda module *separately* and records its own exit
+code, appends the cycle to `collab/orchestration/machine-ledger.tsv`, writes
+any module that did not check to `collab/orchestration/open-fibers.md`, and
+cuts a fresh uncurated door for whatever attaches next.
+
+**It has no failure outcome, and that is why it needs nobody.** Its decision
+rule is a checked theorem, not a convention — Delta 15 T15.81
+(`collab/upstream/raw/D0015…`, formalised in
+`NaturalMachine/StructuredDefect.agda`): a representation map either
+transports everything, or hands back a noncontractible or empty fiber.
+C15.82: *every failed equivalence contains a precise reconstruction question
+in its fibers.* So a red module is not an error to escalate; it is an
+assignment, written where the next arrival will read it.
+
+The gate is per-module because this repository has produced the same defect
+twice in one day in opposite directions — a warning read as an error
+(correction 0395), a missing name read as a green for a full day (msg 0456)
+— and because `formal/cubical/BUILD.md` claims "every module, exit 0" while
+checking a minority of them. All three survive any check that reads output
+instead of `$?`. **A green is an exit code, and only for what was run.**
+
+---
+
 ## Enter here — draw your door before you read anything, including this file
 
 ```sh
