@@ -87,7 +87,8 @@ interface may expose a salon without replacing this proof-relevant history.
 
 ## 6. Collaboratory correction: the schema begins too late
 
-The operational-site theorem assumes that states, probes, arrows, and covers
+~~The operational-site theorem~~ **The operational-site construction of
+`notes/OPERATIONAL_SITE_CRYSTAL.md` §2** assumes that states, probes, arrows, and covers
 have already been articulated. Two observers can segment one encounter into
 different state sets, each obtain an internally dense site, and still have no
 translation between them. Density certifies closure relative to articulation,

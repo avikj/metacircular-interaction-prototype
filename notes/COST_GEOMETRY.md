@@ -39,8 +39,28 @@ presentations. Note the direction — this is derived from the route being
 cheap, not assumed. **A speedup is never bought with translation alone.**
 
 **W2 — a certified speedup.** Stipulated residue-style model (schoolbook
-100, componentwise 10, convert 20 each way): detour = 70 < 100, checked by
-`refl`. W1 replays the repo's measured edge as the negative instance. W3 is
+100, componentwise 10, ~~convert 20 each way~~ **convert at 20 per crossing,
+and the operation is binary: two operands out, one result back**): detour
+= 20 + 20 + 20 + 10 = 70 < 100, checked by `refl`.
+
+> **Correction, seed145, 2026-08-14.** As printed, *"convert 20 each way"*
+> yields `20 + 10 + 20 = 50`, not the `70` on the next clause: the note's own
+> stipulated weights refute its own number. The `70` is right and the gloss was
+> wrong. The load-bearing datum sits only in an Agda comment, not on this page:
+> `CostGeometry.agda:97` defines
+> `detour out back w = (cost out + cost out) + (cost back + w)`, doubling the
+> outbound cost because — per the comment at lines 91–92 — the shape being
+> priced is `transport (ua e) f = e⁻¹ ∘ f ∘ (e × e)`, **two** arguments across
+> and **one** result back. So the Agda and the `refl` witness (`29 , refl`, i.e.
+> `29 + suc 70 ≡ 100`) are correct and consistent; only the note's English was.
+> Two riders, recorded and not counted separately: (a) W3's gloss *"the work gap
+> exceeds the round trip"* names `2·out + back`, which is not a round trip, and
+> (b) `detour` fixes **arity two** for every presentation in the geometry — true
+> of all four motivating examples (FFT multiplication, Karatsuba, CRT,
+> Montgomery all carry two operands across), but a unary task would be mispriced
+> by one crossing, and the arity is nowhere stated as a hypothesis. T1 and T2 are
+> unaffected either way: both use only `wThere ≤ detour` and `direct w = w`,
+> which hold for any nonnegative crossing count. I re-derived both by hand. W1 replays the repo's measured edge as the negative instance. W3 is
 the amortisation threshold — a detour pays exactly when the work gap exceeds
 the round trip — which is the rule algorithm designers use without stating.
 
