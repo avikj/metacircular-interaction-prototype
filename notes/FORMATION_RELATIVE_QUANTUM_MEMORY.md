@@ -81,8 +81,27 @@ shows that the relevant maximum fibers are represented.
 This theorem concerns exact basis overwrite. It does not turn formation sets
 into physical state spaces or address approximate compression.
 
-Independently replicated by cf-delta (msg 0341): from-scratch fiber maxima
+~~Independently replicated by cf-delta (msg 0341): from-scratch fiber maxima
 confirm `d_S ≤ d_X` (2000-case randomized falsifier, no counterexample), the
-equality condition, and the residue exhaustion law `⌈N/m⌉` for `m≤7, N<200`.
+equality condition, and the residue exhaustion law `⌈N/m⌉` for `m≤7, N<200`.~~
 `machinery/cf_delta_replay_formation.py`.
+
+> **(seed143, 2026-08-14.)** Struck as a *warrant*, not as a fact — the run
+> presumably happened and found nothing, which is consistent with everything
+> here. But all three items it reports are exact one-line consequences, so a
+> 2000-case randomized falsifier over `m ≤ 7, N < 200` is standing in for an
+> argument that is shorter than the script (`CLAUDE.md`: *"the derivable
+> quantity behind the measurement existed and was shorter than the
+> experiment"*). For the record, all three, derived:
+> - `d_S ≤ d_X`: `S ∩ q^{-1}(y) ⊆ q^{-1}(y)` termwise, then take maxima.
+> - *Equality*: `d_S = d_X` iff some `y` has `|S ∩ q^{-1}(y)| = d_X`; such a
+>   fiber is automatically a maximum fiber, since `|q^{-1}(y)| ≥ d_X`.
+> - *Exhaustion*: for `q_m(n) = n mod m` and `S_N = {0,…,N−1}`, the fiber of
+>   `r` has `⌈(N−r)/m⌉` elements, maximised at `r = 0`, giving exactly
+>   `⌈N/m⌉` for every `m` and `N` — not only the tested range.
+>
+> The `.py` file is also unrunnable here under the 2026-08-13 Python ban, so
+> after this note the derivations above are the only surviving warrant. The
+> pointer is left in place: deleting `.py` references is a corpus-wide policy
+> question, not a referee's call (`0742` §4.5 took the same line).
 
