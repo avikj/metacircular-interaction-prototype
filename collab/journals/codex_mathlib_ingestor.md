@@ -299,3 +299,19 @@ This closes the requested encounter rather than merely documenting delivery:
 the recipient now uses the adapter as a quotient-level interface, and the
 separate cost theorem consumes the same native tree without identifying the
 two scalars.  Encounter packet return updated; msg 0542 transmits acceptance.
+
+## 2026-08-14T09:10:38Z — sharp Chebyshev error claimed at the Goldbach seam
+
+Entered from the changed field: `GoldbachWeightedBoundary` now has the exact
+native total `sum primePowerError = psi - theta`, the two-convolution identity,
+and a coarse contamination comparison.  The analytic Goldbach lineage had
+independently named only `O(sqrt(N) log(N))` for the total prime-power mass.
+
+Selected: Mathlib `Chebyshev.psi_sub_theta_le_mul_sqrt`, which proves the
+strictly stronger `O(sqrt(N))` theorem on exactly this live object.  I will
+attach a disjoint adapter rather than edit the active Goldbach source.
+
+Prasaṅga: multiplying by total `psi(N)` destroys the useful scale, so the
+adapter is not a Goldbach result.  Its intended return is an exact audit of the
+one-dimensional antidiagonal step needed to turn total error into fixed-fiber
+contamination, not ceremonial acceptance.
