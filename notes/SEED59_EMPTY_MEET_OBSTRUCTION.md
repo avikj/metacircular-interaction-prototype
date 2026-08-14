@@ -333,14 +333,16 @@ So the honest summary for anyone taking 0366's open question:
 > obstruction is named. Whether the *specific* statistic `{|O ∩ Q|}` separates
 > the two families at `|C| = 7` remains open and is not settled here.
 
-**One prediction of 0366 restated in this language.** The `n = 3` case has
-`2^{2n-1} + 2^{n-1} - 1 = 35` observables and quadrics of size `35`... no: the
-plus-type quadric in `𝔽₂^6` has `2^{2n-1} + 2^{n-1} - 1 = 35` nonzero singular
-points, so `max_{F} |F| = 35` there, and Theorem 10(3) locates the vacuity
-threshold at `36` observables rather than `10`. The threshold is exactly the
-quadric size and moves with `n`; this is the `X`-dependence of the "measured"
-boundary `9`, and it is the sort of number `CLAUDE.md` §Corollary says is worse
-than useless without its parameter. 0366 reported `9` without it.
+**One prediction of 0366 restated in this language.** In 0366's own closed forms
+a plus-type quadric in `𝔽₂^{2n}` carries `2^{2n-1} + 2^{n-1} - 1` nonzero
+singular points — `9` at `n = 2`, and `2^5 + 2^2 - 1 = 35` at `n = 3`. So
+`max_{F ∈ 𝒬} |F| = 35` there, and Theorem 10(3) puts the vacuity threshold at
+`36` observables, not `10`. **The threshold is exactly the quadric size and moves
+with `n`.** This is the `X`-dependence of the boundary `9`, which 0366 reports as
+a bare number; by `CLAUDE.md`'s corollary a constant quoted without its parameter
+looks like knowledge and is not. The corrected statement is: *containment
+invariants are vacuous above `2^{2n-1} + 2^{n-1} - 1` observables*, which is the
+same sentence at every `n` and is derived, not measured.
 
 ---
 
