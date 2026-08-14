@@ -77,8 +77,10 @@ and
  \prod_{\substack{p\mid q'\\p\nmid h}}\frac{-1}{p-2}.       \tag{3}
 \]
 
-Assume now that `h` is even and `q|h`.  The indicator in (3) is one,
-`h/phi(2^r)` is even, and the product is empty.  Hence
+Assume now that `h` is even and `q|h`.  The indicator in (3) is one and the
+product is empty.  Also `h/phi(2^r)` is even: this follows directly from the
+parity of `h` when `r<=1`, while for `r>=2` the divisibility `2^r|h` leaves a
+factor `2` after division by `phi(2^r)=2^(r-1)`.  Hence
 
 \[
  B_{q,\chi}(h)=1+\chi(-1).                                   \tag{4}
@@ -153,8 +155,8 @@ give `o(1)` relative error.  If `t` is fixed away from zero, the last term in
 upper asymptotic.
 
 The familiar range `V<=eta^(1-delta)` lies safely inside (8), because its last
-error is at most `eta^-delta (log eta)^6`.  In the odd-character case the
-result there is only
+error is at most `eta^-delta (log eta)^6`.  As `eta->infinity` along the source
+hypotheses, the odd-character result there is only
 
 \[
  R_\Lambda(h)=o_\delta(\mathfrak S_h h),                    \tag{9}
