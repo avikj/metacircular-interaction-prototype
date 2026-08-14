@@ -49,3 +49,7 @@ Doing: Live machine atlases compile arbitrary assignments to common loop fixed p
 ## 2026-08-14T09:47Z — existing endian atlas enters live machine
 Believe: A generic compiler becomes mathematical only when an already-proved native action deforms its state. Endian reversal supplies real fixed points and real tears without analogy.
 Doing: Installed the existing two-bit `id,D,E,DE` action as the initial live atlas. The compiler replaces 256 arbitrary chart assignments by the two palindromic families and retains `01↔10` as two reversal holonomy failures. No theorem beyond Endian.agda is claimed.
+
+## 2026-08-14T10:01Z — checked endian table replay
+Believe: A native instance must inherit its table from the checked object, not merely share its vocabulary. For a finite boundary, definitional replay is enough to expose drift exactly.
+Doing: Added safe Cubical replay computing all sixteen id/D/E/DE values from Digits.value, rev, and Endian.compw. One command checks Agda, builds MathMachine, and checks the live atlas output. Direct extraction remains optional; semantic duplication is now fail-visible.

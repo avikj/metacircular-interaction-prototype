@@ -5,7 +5,7 @@ module NaturalMachine.EndianAtlasReplay where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero)
 open import Cubical.Data.Fin using (fzero ; fone)
-open import Cubical.Data.List using ([] ; _∷_)
+open import Cubical.Data.List using ([] ; _∷_ ; rev)
 open import Cubical.Data.Sigma using (_×_)
 import NaturalMachine.Endian
 import NaturalMachine.Digits
@@ -28,16 +28,16 @@ idTable : ℕ × ℕ × ℕ × ℕ
 idTable = code w00 , code w01 , code w10 , code w11
 
 revTable : ℕ × ℕ × ℕ × ℕ
-revTable = code (E.rev w00) , code (E.rev w01) ,
-           code (E.rev w10) , code (E.rev w11)
+revTable = code (rev w00) , code (rev w01) ,
+           code (rev w10) , code (rev w11)
 
 compTable : ℕ × ℕ × ℕ × ℕ
 compTable = code (E.compw w00) , code (E.compw w01) ,
             code (E.compw w10) , code (E.compw w11)
 
 revCompTable : ℕ × ℕ × ℕ × ℕ
-revCompTable = code (E.rev (E.compw w00)) , code (E.rev (E.compw w01)) ,
-               code (E.rev (E.compw w10)) , code (E.rev (E.compw w11))
+revCompTable = code (rev (E.compw w00)) , code (rev (E.compw w01)) ,
+               code (rev (E.compw w10)) , code (rev (E.compw w11))
 
 id-replay : idTable ≡ (0 , 1 , 2 , 3)
 id-replay = refl
