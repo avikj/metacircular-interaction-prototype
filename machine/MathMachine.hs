@@ -35,7 +35,7 @@ import qualified Data.Map.Strict as M
 import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
-import Control.Monad (forM_, when, unless, filterM)
+import Control.Monad (forM_, replicateM_, when, unless, filterM)
 import Control.Exception (finally)
 import System.IO
 import System.Directory (getTemporaryDirectory, removePathForcibly)
@@ -522,10 +522,9 @@ data Sym = Sym { symName :: String
                , symSem :: [Integer] -> Integer
                , symDefs :: [(Term,Term)] }
 
-x_, y_, z_ :: Term
+x_, y_ :: Term
 x_ = V 0
 y_ = V 1
-z_ = V 2
 
 zero_ :: Term
 zero_ = F "0" []
@@ -539,7 +538,9 @@ bin f a b = F f [a,b]
 vocabulary :: [Sym]
 vocabulary =
   [ Sym "0"   0 (const 0)      []
-  , Sym "s"   1 (\vs -> head vs + 1) []
+  , Sym "s"   1 (\vs -> case vs of
+                           [v] -> v + 1
+                           _   -> error "successor received wrong arity") []
   , Sym "+"   2 (\vs -> vs !! 0 + vs !! 1)
       [ (bin "+" x_ zero_,      x_)
       , (bin "+" x_ (su y_),    su (bin "+" x_ y_)) ]
@@ -555,12 +556,19 @@ vocabulary =
       , (bin "-" zero_ x_,          zero_)
       , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
-      -- gcd needs its recursion, not just its base cases: a symbol the
-      -- machine can compute but not unfold is a black box it can test
-      -- and never reason about.
+      -- These are the only unconditional gcd equations currently admitted
+      -- to the proof kernel.  The former recursive clause
+      --
+      --   gcd (s x) (s y) = gcd ((s x) - (s y)) (s y)
+      --
+      -- was false when x < y: at x=1,y=2 it asserted gcd 2 3 = gcd 0 3,
+      -- hence 1 = 3.  A correct Euclidean step needs a comparison/guard or
+      -- remainder operation.  Until the term language can express one, gcd
+      -- remains computationally visible to conjecture generation but only
+      -- its sound base cases are available to proof search.  The Agda module
+      -- NaturalMachine.HaskellDefinitionBoundary checks this exact boundary.
       [ (bin "gcd" x_ zero_, x_)
-      , (bin "gcd" zero_ x_, x_)
-      , (bin "gcd" (su x_) (su y_), bin "gcd" (F "-" [su x_, su y_]) (su y_)) ]
+      , (bin "gcd" zero_ x_, x_) ]
   , Sym "le"  2 (\vs -> if vs !! 0 <= vs !! 1 then 1 else 0)
       -- Eleven of the machine's thirty-five theorems were `max`-shaped
       -- restatements of x <= y.  It was not producing junk; it was
@@ -587,7 +595,10 @@ eval _ env (V i) = env !! i
 eval sem env (F f ts) =
   case M.lookup f sem of
     Just g  -> g (map (eval sem env) ts)
-    Nothing -> 0
+    -- Unknown syntax must never acquire the accidental meaning zero.  Term
+    -- generation and researcher input are checked before evaluation; this
+    -- branch is the final fail-loud boundary if either caller regresses.
+    Nothing -> error ("MathMachine.eval: unknown symbol " ++ show f)
 
 -- deterministic pseudo-random assignments: the machine must be
 -- reproducible, so no system entropy enters.
@@ -595,10 +606,10 @@ lcg :: Integer -> Integer
 lcg x = (6364136223846793005 * x + 1442695040888963407) `mod` (2^(62::Int))
 
 assignments :: Int -> Int -> [[Integer]]
-assignments nv count = go 12345 count
+assignments nv sampleCount = go 12345 sampleCount
   where
     go _ 0 = []
-    go s k = let vals = take nv (tail (iterate lcg s))
+    go s k = let vals = take nv (drop 1 (iterate lcg s))
                  env = map (\v -> v `mod` 9) vals
              in env : go (lcg (s + 7)) (k-1)
 
@@ -608,6 +619,206 @@ assignments nv count = go 12345 count
 fingerprint :: M.Map String ([Integer] -> Integer) -> [[Integer]] -> Term -> [Integer]
 fingerprint sem envs t = map (\e -> eval sem e t) envs
 
+-- ------------------------------------------------ definition firewall
+--
+-- Defining equations are axioms of the Haskell proof search.  Fingerprints
+-- only test conjectures; they cannot protect the kernel from a false equation
+-- already installed here.  Before doing any search, exhaustively look for a
+-- small semantic counterexample to every defining equation.  Passing this
+-- finite audit is NOT a proof of soundness.  Failing it is, however, a proof
+-- that the search must not start, so the firewall fails closed.
+
+type DefinitionFailure = (String, Term, Term, [Integer], Integer, Integer)
+
+termShapeProblems :: [Sym] -> Term -> [String]
+termShapeProblems _ (V _) = []
+termShapeProblems syms (F f ts) = arityProblem ++ concatMap (termShapeProblems syms) ts
+  where
+    arityProblem = case [ symArity s | s <- syms, symName s == f ] of
+      [] -> ["unknown symbol " ++ show f]
+      (arity:_)
+        | arity == length ts -> []
+        | otherwise -> ["symbol " ++ show f ++ " expects " ++ show arity
+                          ++ " arguments, received " ++ show (length ts)]
+
+wellFormedTerm :: [Sym] -> Term -> Bool
+wellFormedTerm syms = null . termShapeProblems syms
+
+definitionShapeFailures :: [Sym] -> [String]
+definitionShapeFailures syms =
+  [ symName s ++ ": " ++ show l ++ " = " ++ show r ++ ": " ++ problem
+  | s <- syms
+  , (l,r) <- symDefs s
+  , problem <- termShapeProblems syms l
+            ++ termShapeProblems syms r
+            ++ [ "right side introduces a variable absent from the left"
+               | not (vars r `subsetOf` vars l) ] ]
+
+smallEnvironments :: Int -> Integer -> [[Integer]]
+smallEnvironments n bound = sequence (replicate n [0 .. bound])
+
+ruleCounterexample
+  :: [Sym] -> Integer -> Rule -> Maybe ([Integer], Integer, Integer)
+ruleCounterexample syms bound (l,r) =
+  case [ (env, lv, rv)
+       | env <- smallEnvironments variableCount bound
+       , let lv = eval sem env l
+       , let rv = eval sem env r
+       , lv /= rv ] of
+    (w:_) -> Just w
+    []    -> Nothing
+  where
+    sem = semantics syms
+    used = vars l ++ vars r
+    variableCount = case used of
+      [] -> 0
+      _  -> 1 + maximum used
+
+definitionFailures :: [Sym] -> Integer -> [DefinitionFailure]
+definitionFailures syms bound =
+  [ (symName s, l, r, env, lv, rv)
+  | s <- syms
+  , (l,r) <- symDefs s
+  , Just (env,lv,rv) <- [ruleCounterexample syms bound (l,r)] ]
+
+oldUnsoundGcdRule :: Rule
+oldUnsoundGcdRule =
+  ( bin "gcd" (su x_) (su y_)
+  , bin "gcd" (bin "-" (su x_) (su y_)) (su y_) )
+
+renderDefinitionFailure :: DefinitionFailure -> String
+renderDefinitionFailure (name,l,r,env,lv,rv) =
+  name ++ ": " ++ show l ++ " = " ++ show r
+    ++ " fails at env=" ++ show env
+    ++ " (left=" ++ show lv ++ ", right=" ++ show rv ++ ")"
+
+definitionAuditBound :: Integer
+definitionAuditBound = 8
+
+definitionAudit :: Either [String] ()
+definitionAudit = case definitionShapeFailures vocabulary
+                    ++ map renderDefinitionFailure
+                         (definitionFailures vocabulary definitionAuditBound) of
+  [] -> Right ()
+  fs -> Left fs
+
+survivesSemanticFirewall :: [Sym] -> Rule -> Bool
+survivesSemanticFirewall syms =
+  not . isJust . ruleCounterexample syms definitionAuditBound
+
+parseNaturalInt :: String -> Maybe Int
+parseNaturalInt raw = case reads raw of
+  [(n,"")] | n >= 0 -> Just n
+  _                  -> Nothing
+
+runSmokeMachine :: Int -> IO Machine
+runSmokeMachine n = do
+  ref <- newIORef start
+  withFile "/dev/null" WriteMode $ \sink -> do
+    hSetBuffering sink LineBuffering
+    replicateM_ n (round1 sink sink ref)
+  readIORef ref
+
+smokeRounds :: Int -> IO ()
+smokeRounds n = do
+  m <- runSmokeMachine n
+  putStrLn ("MACHINE SMOKE CHECKED: rounds=" ++ show (mRound m)
+    ++ " known=" ++ show (M.size (mKnown m))
+    ++ " rules=" ++ show (length (mRules m))
+    ++ " lemmas=" ++ show (length (mLemmas m))
+    ++ " vocab=" ++ show (mVocab m)
+    ++ " horizon=" ++ show (mSize m))
+
+printSmokeDiscoveries :: Int -> IO ()
+printSmokeDiscoveries n = do
+  m <- runSmokeMachine n
+  forM_ (M.keys (mKnown m)) $ \(l,r) ->
+    putStrLn (show l ++ " = " ++ show r)
+
+definitionManifest :: [String]
+definitionManifest =
+  [ symName s ++ " :: " ++ show l ++ " = " ++ show r
+  | s <- vocabulary
+  , (l,r) <- symDefs s ]
+
+agdaString :: String -> String
+agdaString raw = '"' : concatMap escape raw ++ "\""
+  where
+    escape '"'  = "\\\""
+    escape '\\' = "\\\\"
+    escape c    = [c]
+
+renderAgdaList :: (a -> String) -> [a] -> String
+renderAgdaList render xs = unlines
+  (map (\entry -> "  " ++ render entry ++ " ∷") xs ++ ["  []"])
+
+emitAgdaDefinitionManifest :: FilePath -> IO ()
+emitAgdaDefinitionManifest path = writeFile path (unlines
+  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+  , "module NaturalMachine.HaskellDefinitionManifestGenerated where"
+  , "open import Cubical.Foundations.Prelude"
+  , "open import Cubical.Data.List using (List ; [] ; _∷_)"
+  , "open import Agda.Builtin.String using (String)"
+  , "open import NaturalMachine.HaskellDefinitionBoundary"
+  , "  using (expectedDefinitionManifest)"
+  , ""
+  , "generatedDefinitionManifest : List String"
+  , "generatedDefinitionManifest ="
+  ] ++ renderAgdaList agdaString definitionManifest ++ unlines
+  [ ""
+  , "definition-manifest-agrees :"
+  , "  generatedDefinitionManifest ≡ expectedDefinitionManifest"
+  , "definition-manifest-agrees = refl"
+  ])
+-- The first bridge language is intentionally only the signature reached in
+-- five deterministic rounds.  Unsupported syntax fails generation instead
+-- of being encoded as an opaque string.
+agdaDiscoveryTerm :: Term -> Either String String
+agdaDiscoveryTerm (V i) = Right ("var " ++ show i)
+agdaDiscoveryTerm (F "0" []) = Right "zeroT"
+agdaDiscoveryTerm (F "s" [t]) = do
+  rendered <- agdaDiscoveryTerm t
+  Right ("sucT (" ++ rendered ++ ")")
+agdaDiscoveryTerm (F "+" [l,r]) = do
+  leftRendered <- agdaDiscoveryTerm l
+  rightRendered <- agdaDiscoveryTerm r
+  Right ("(" ++ leftRendered ++ " +T " ++ rightRendered ++ ")")
+agdaDiscoveryTerm t = Left ("unsupported discovery syntax: " ++ show t)
+
+agdaDiscoveryEquation :: Rule -> Either String String
+agdaDiscoveryEquation (l,r) = do
+  leftRendered <- agdaDiscoveryTerm l
+  rightRendered <- agdaDiscoveryTerm r
+  Right ("(" ++ leftRendered ++ " , " ++ rightRendered ++ ")")
+
+emitAgdaDiscoveryManifest :: Int -> FilePath -> IO ()
+emitAgdaDiscoveryManifest n path = do
+  m <- runSmokeMachine n
+  case traverse agdaDiscoveryEquation (M.keys (mKnown m)) of
+    Left problem -> hPutStrLn stderr problem >> exitFailure
+    Right rendered -> writeFile path (unlines
+      [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+      , "module NaturalMachine.HaskellDiscoveryManifestGenerated where"
+      , "open import Cubical.Foundations.Prelude"
+      , "open import Cubical.Data.List using (List ; [] ; _∷_)"
+      , "open import Cubical.Data.Sigma using (_,_ )"
+      , "open import NaturalMachine.HaskellDiscoveryBoundary"
+      , "  using (Equation ; AllSound ; var ; zeroT ; sucT ; _+T_"
+      , "        ; expectedDiscoveries ; expectedDiscoveriesSound)"
+      , ""
+      , "generatedDiscoveries : List Equation"
+      , "generatedDiscoveries ="
+      ] ++ renderAgdaList id rendered ++ unlines
+      [ ""
+      , "generated-discoveries-agree :"
+      , "  generatedDiscoveries ≡ expectedDiscoveries"
+      , "generated-discoveries-agree = refl"
+      , ""
+      , "generatedDiscoveriesSound : AllSound generatedDiscoveries"
+      , "generatedDiscoveriesSound ="
+      , "  subst AllSound (sym generated-discoveries-agree)"
+      , "    expectedDiscoveriesSound"
+      ])
 
 -- --------------------------------------------------------- generation
 
@@ -1055,6 +1266,7 @@ canonTerm :: Term -> Term
 canonTerm t = applySub ren t
   where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
 
+inventConcept :: [Sym] -> [Term] -> [Term] -> Int -> Maybe Sym
 inventConcept syms retired terms n =
   case best of
     []        -> Nothing
@@ -1067,6 +1279,11 @@ inventConcept syms retired terms n =
                  [ (p, F nm (map V [0 .. ar-1])) ])
   where
     best = bestOf syms retired terms
+
+conceptRule :: Sym -> Maybe Rule
+conceptRule s = case symDefs s of
+  [r] -> Just r
+  _   -> Nothing
 
 -- candidate concepts, best first: how often a shape appears times how
 -- much naming it would save.  A shape already named is not a new idea.
@@ -1186,13 +1403,14 @@ round1 logh libh ref = do
         ( [ canonVars (rep, other)
           | cls <- classes
           , length cls > 1
-          , let sorted = sortOn (\t -> (size t, t)) cls
-          , let rep = head sorted
-          , other <- tail sorted
+          , rep:others <- [sortOn (\t -> (size t, t)) cls]
+          , other <- others
           ]
         ++ [ canonVars (l,r)
            | (l,r) <- mThoughts m
            , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+           , wellFormedTerm syms l
+           , wellFormedTerm syms r
            , fingerprint sem envs l == fingerprint sem envs r ] )
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
@@ -1263,6 +1481,11 @@ round1 logh libh ref = do
         | (adequate,result) <- historyArchitectureResults ]
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
+        -- Proof search is only as trustworthy as its current axiom set and
+        -- induction implementation.  This finite gate does not certify a
+        -- theorem; it prevents any theorem with a concrete small refutation
+        -- from becoming a new axiom and poisoning every later round.
+        | not (survivesSemanticFirewall syms c) = (acc, out)
         | otherwise =
             case proveByInduction acc c of
               Nothing -> (acc, out)
@@ -1346,22 +1569,29 @@ round1 logh libh ref = do
       -- either use the idea it has, or widen the vocabulary it was given.
       lastNameUsed = case mInvented m' of
         [] -> True
-        ss -> let nm = symName (last ss)
-              in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
-                     (M.keys (mKnown m'))
+        ss -> case reverse ss of
+          s:_ -> let nm = symName s
+                 in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
+                        (M.keys (mKnown m'))
+          [] -> True
       candidate = if stuck && lastNameUsed
                     then inventConcept syms (mRetired m') normed
                            (length (mInvented m'))
                     else Nothing
       invented = case candidate of
-        Just s | let (pat,fold) = head (symDefs s)
+        Just s | Just (pat,fold) <- conceptRule s
+               , null (definitionShapeFailures (syms ++ [s]))
+               , null (definitionFailures (syms ++ [s]) definitionAuditBound)
                , marginalCompress (usableRules m') (take kProbe normed) (pat,fold)
                    >= kConceptGain
                -> Just s
         _ -> Nothing
   case invented of
-    Just s -> hPrintf logh "  CONCEPT  named %s := %s  (arity %d)\n"
-                (symName s) (show (fst (head (symDefs s)))) (symArity s)
+    Just s -> case conceptRule s of
+      Just (pat,_) -> hPrintf logh "  CONCEPT  named %s := %s  (arity %d)\n"
+                        (symName s) (show pat) (symArity s)
+      Nothing -> hPrintf logh "  CONCEPT-REJECT  %s has no unique definition\n"
+                   (symName s)
     Nothing -> return ()
   let m2 = case invented of
              Just s  -> m' { mInvented = mInvented m' ++ [s] }
@@ -1393,14 +1623,16 @@ round1 logh libh ref = do
           -- bit-identical, 45 seconds each.  A machine spinning on a
           -- state it can prove it cannot leave is worse than one that
           -- halts, because it looks alive.
-          | not (null (mInvented m2)) =
-              m2 { mInvented = init (mInvented m2)
-                 , mRetired = mRetired m2
-                     ++ [ canonTerm (fst (head (symDefs (last (mInvented m2))))) ] }
-          -- Nothing left to withdraw and nothing left to widen: the
-          -- machine genuinely needs more room, and saying so by raising
-          -- the horizon is now the honest move rather than the lazy one.
-          | otherwise = m2 { mSize = mSize m2 + 1 }
+          | otherwise = case reverse (mInvented m2) of
+              s:rest -> case conceptRule s of
+                Just (pat,_) ->
+                  m2 { mInvented = reverse rest
+                     , mRetired = mRetired m2 ++ [canonTerm pat] }
+                Nothing -> m2 { mInvented = reverse rest }
+              -- Nothing left to withdraw and nothing left to widen: the
+              -- machine genuinely needs more room, and saying so by raising
+              -- the horizon is now the honest move rather than the lazy one.
+              [] -> m2 { mSize = mSize m2 + 1 }
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
@@ -1408,7 +1640,9 @@ round1 logh libh ref = do
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
   when (stuck && length (mInvented m'') < length (mInvented m2)) $
     hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
-      (symName (last (mInvented m2)))
+      (case reverse (mInvented m2) of
+         s:_ -> symName s
+         []  -> "<none>")
   hFlush logh
   writeIORef ref m''
 
@@ -1612,6 +1846,55 @@ main = do
             && requiredVocabulary b == 7) exitFailure
     putStrLn "THOUGHT-FORMAT CHECKED: candidate object + exact residual demand"
     exitSuccess
+  when (args == ["--check-definitions"]) $ do
+    case definitionAudit of
+      Left failures -> do
+        forM_ failures (hPutStrLn stderr)
+        exitFailure
+      Right () -> pure ()
+    when (wellFormedTerm vocabulary (F "+" [x_])) $ do
+      hPutStrLn stderr "definition firewall regression: malformed arity accepted"
+      exitFailure
+    case ruleCounterexample vocabulary definitionAuditBound oldUnsoundGcdRule of
+      Nothing -> do
+        hPutStrLn stderr "definition firewall regression: old false gcd rule escaped"
+        exitFailure
+      Just (env,lv,rv) ->
+        putStrLn ("DEFINITION FIREWALL CHECKED: current rules survive bound "
+          ++ show definitionAuditBound ++ "; rejected old gcd rule at env="
+          ++ show env ++ " (left=" ++ show lv ++ ", right=" ++ show rv ++ ")")
+    exitSuccess
+  case definitionAudit of
+    Left failures -> do
+      hPutStrLn stderr "REFUSING TO START: defining equation failed semantic firewall"
+      forM_ failures (hPutStrLn stderr)
+      exitFailure
+    Right () -> pure ()
+  case args of
+    ["--smoke-rounds", raw]
+      | Just n <- parseNaturalInt raw -> smokeRounds n >> exitSuccess
+      | otherwise -> hPutStrLn stderr "--smoke-rounds requires a nonnegative integer"
+                       >> exitFailure
+    _ -> pure ()
+  case args of
+    ["--print-smoke-discoveries", raw]
+      | Just n <- parseNaturalInt raw -> printSmokeDiscoveries n >> exitSuccess
+      | otherwise -> hPutStrLn stderr
+          "--print-smoke-discoveries requires a nonnegative integer"
+            >> exitFailure
+    _ -> pure ()
+  case args of
+    ["--emit-agda-manifest", path] ->
+      emitAgdaDefinitionManifest path >> exitSuccess
+    _ -> pure ()
+  case args of
+    ["--emit-agda-discoveries", raw, path]
+      | Just n <- parseNaturalInt raw ->
+          emitAgdaDiscoveryManifest n path >> exitSuccess
+      | otherwise -> hPutStrLn stderr
+          "--emit-agda-discoveries requires a nonnegative round count and path"
+            >> exitFailure
+    _ -> pure ()
   case args of
     ["--kernel-self-test"] -> do
       accepted <- kernelAccept stdout 0 ((bin "+" zero_ x_, x_), "positive control")
@@ -1645,7 +1928,8 @@ runMachine batch = do
   -- that — concept invention — was gated on a condition no definition can
   -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
   -- reason to keep going, so it keeps going.
-  let loop = round1 logh libh ref >> loop
+  let loop :: IO ()
+      loop = round1 logh libh ref >> loop
   loop
   hClose logh
   hClose libh

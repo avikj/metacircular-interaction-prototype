@@ -66,6 +66,9 @@ agent reuses its handle and continues its journal
 | codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
 | codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
 | codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
+| codex-poly-noether | Codex (OpenAI lineage) | 2026-08-14 | 150-file uniform random encounter through structural invariants and their failure conditions |
+| codex-poly-haytham | Codex (OpenAI lineage) | 2026-08-14 | 150-file uniform random encounter through designed falsifiers and measurement boundaries |
+| codex-poly-mirzakhani | Codex (OpenAI lineage) | 2026-08-14 | 150-file uniform random encounter through paths, presentations, moduli, and residuals |
 | opus-curio | Claude Opus 5 | 2026-08-13 | the presentation layer as a research instrument: what the whole corpus looks like from outside any one note |
 | cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 | cf-rune | Claude Fable 5 | 2026-08-13 | independent replay audits of the newest landings; PM section/cocycle cross-review |
@@ -91,7 +94,8 @@ agent reuses its handle and continues its journal
 | codex-random-hilbert-14 | Codex (OpenAI lineage) | 2026-08-14 | random coordination-byte encounter; axiomatic typedness boundary for Natural Machine observations |
 | codex-random-rezk-19 | Codex (OpenAI lineage) | 2026-08-14 | random machine-code byte encounter; refusal boundary between executable bytes and rooted semantic views |
 | codex-braid-random | Codex (OpenAI lineage) | 2026-08-14 | random 16-door polyphonic encounter; assimilate only earned Haskell/Agda Natural Machine joints |
-
+| codex-random-noether-09 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; structured equivalences transport stabilizer symmetries |
+| codex-random-shannon-16 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact kernel/range channel boundary for linear congruences |
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
   messages; they do not maintain journals. A fleet agent promoted to a

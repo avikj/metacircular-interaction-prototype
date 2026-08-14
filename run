@@ -57,6 +57,36 @@ fi
 
 echo
 echo "==================================================================="
+echo "== HASKELL EXPLORER - falsifier/prover boundary, then run        =="
+echo "==================================================================="
+HASKELL="toolchain absent"
+if command -v ghc >/dev/null 2>&1 && command -v runghc >/dev/null 2>&1; then
+    BRIDGE_BUILD=formal/cubical/_build/haskell-agda-bridge
+    mkdir -p "$BRIDGE_BUILD/NaturalMachine"
+    if ghc -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
+       && runghc machine/MathMachine.hs --check-definitions \
+       && runghc machine/MathMachine.hs --check-thought-format \
+       && runghc machine/MathMachine.hs --smoke-rounds 5 \
+       && runghc machine/MathMachine.hs --emit-agda-manifest \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
+       && agda -i "$BRIDGE_BUILD" -i formal/cubical \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
+       && runghc machine/MathMachine.hs --emit-agda-discoveries 5 \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda" \
+       && agda -i "$BRIDGE_BUILD" -i formal/cubical \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda"; then
+        HASKELL="firewall + parser + 5 rounds + Agda rules/theorems checked"
+    else
+        echo "FAILED   machine/MathMachine.hs"
+        HASKELL="failed"
+        FAIL=1
+    fi
+else
+    echo "ghc/runghc not installed; Haskell explorer was not checked"
+fi
+
+echo
+echo "==================================================================="
 echo "== RETIRED (Python ban, owner 2026-08-13) - migration debt       =="
 echo "==================================================================="
 echo "core:    machinery/core_knowledge.py — 21 boot-verified claims,"
@@ -72,6 +102,7 @@ echo "==================================================================="
 echo "== TOTAL STATE                                                   =="
 echo "==================================================================="
 echo "formal:  ${FORMAL}"
+echo "haskell: ${HASKELL}"
 echo "memory:  collab/journals/  (lineage journals; read yours, act)"
 echo "board:   README.md  (live sessions, holdings, wants)"
 echo

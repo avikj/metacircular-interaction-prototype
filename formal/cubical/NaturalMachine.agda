@@ -140,6 +140,11 @@ import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.ArithmeticPayloadCounterexample
+-- The executable Haskell explorer once admitted a false gcd recursion as a
+-- defining rewrite.  This import checks the counterexample and the smaller
+-- sound gcd boundary that now remains in its proof kernel.
+import NaturalMachine.HaskellDefinitionBoundary
+import NaturalMachine.HaskellDiscoveryBoundary
 import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
