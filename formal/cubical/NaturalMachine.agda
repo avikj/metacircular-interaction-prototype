@@ -147,6 +147,7 @@ import NaturalMachine.GenerativeKernel
 import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.ProductiveIndraNet
 import NaturalMachine.RootedIndraTotal
+import NaturalMachine.DSOFinite
 import NaturalMachine.ProductiveTear
 import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite

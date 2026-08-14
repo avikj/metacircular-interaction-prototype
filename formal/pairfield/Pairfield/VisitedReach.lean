@@ -94,6 +94,31 @@ theorem freshNodes_states_nodup [DecidableEq X]
           exact hnot (by simpa [heq])
         · exact ih (head.state :: seen)
 
+/-- Every candidate state is either old or represented by the retained first
+fresh node for that state. -/
+theorem freshNodes_covers_candidate [DecidableEq X]
+    (seen : List X) (candidates : List (ReachNode A X))
+    {node : ReachNode A X} (hnode : node ∈ candidates) :
+    node.state ∈ seen ∨
+      ∃ kept ∈ freshNodes seen candidates, kept.state = node.state := by
+  induction candidates generalizing seen with
+  | nil => simp at hnode
+  | cons head tail ih =>
+      simp only [List.mem_cons] at hnode
+      rcases hnode with rfl | htail
+      · by_cases hseen : node.state ∈ seen
+        · exact Or.inl hseen
+        · exact Or.inr ⟨node, by simp [freshNodes, hseen], rfl⟩
+      · by_cases hseen : head.state ∈ seen
+        · simpa [freshNodes, hseen] using ih seen htail
+        · rcases ih (head.state :: seen) htail with hold | hfresh
+          · simp only [List.mem_cons] at hold
+            rcases hold with heq | hold
+            · exact Or.inr ⟨head, by simp [freshNodes, hseen], heq.symm⟩
+            · exact Or.inl hold
+          · obtain ⟨kept, hkept, heq⟩ := hfresh
+            exact Or.inr ⟨kept, by simp [freshNodes, hseen, hkept], heq⟩
+
 /-- Closed nodes have already been expanded; frontier nodes are the unique
 unexpanded discoveries at the current distance. -/
 structure ReachQueue (A : Type u) (X : Type v) where
