@@ -26,19 +26,24 @@ variable [DecidableEq A]
 variable (M : DFA A X)
 variable [DecidablePred (fun state : X => state ∈ M.accept)]
 
+/-- Literal agreement of two response rows on a finite installed language. -/
+def Agree (installed : Finset (List A)) (left right : X) : Prop :=
+  ∀ word ∈ installed,
+    behavior M.step (acceptsBool M) left word =
+      behavior M.step (acceptsBool M) right word
+
+instance agreeDecidable (installed : Finset (List A)) (left right : X) :
+    Decidable (Agree M installed left right) := by
+  unfold Agree
+  exact Finset.decidableDforallFinset
+
 /-- A candidate is informative precisely when it separates a pair which the
 currently installed response vectors still identify. -/
 def Useful (installed : Finset (List A)) (word : List A) : Prop :=
   ∃ left right : X,
-    (responseSetoid M installed).r left right ∧
+    Agree M installed left right ∧
       behavior M.step (acceptsBool M) left word ≠
         behavior M.step (acceptsBool M) right word
-
-instance responseRelDecidable (installed : Finset (List A))
-    (left right : X) :
-    Decidable ((responseSetoid M installed).r left right) := by
-  unfold responseSetoid
-  infer_instance
 
 instance usefulDecidable (installed : Finset (List A)) (word : List A) :
     Decidable (Useful M installed word) := inferInstance
@@ -57,8 +62,8 @@ def greedyInstall (installed : Finset (List A)) :
 /-- Agreement on more tests implies agreement on any subfamily. -/
 theorem response_rel_mono {smaller larger : Finset (List A)}
     (hsub : smaller ⊆ larger) {left right : X}
-    (hagree : (responseSetoid M larger).r left right) :
-    (responseSetoid M smaller).r left right := by
+    (hagree : Agree M larger left right) :
+    Agree M smaller left right := by
   intro word hword
   exact hagree word (hsub hword)
 
@@ -110,25 +115,25 @@ output implies agreement on every rejected candidate as well. -/
 theorem response_rel_union_of_greedy
     (installed : Finset (List A)) (candidates : List (List A))
     {left right : X}
-    (hagree : (responseSetoid M
-      (greedyInstall M installed candidates)).r left right) :
-    (responseSetoid M (installed ∪ candidates.toFinset)).r left right := by
+    (hagree : Agree M
+      (greedyInstall M installed candidates) left right) :
+    Agree M (installed ∪ candidates.toFinset) left right := by
   induction candidates generalizing installed with
-  | nil => simpa [greedyInstall, responseSetoid] using hagree
+  | nil => simpa [greedyInstall, Agree] using hagree
   | cons word rest ih =>
       by_cases huseful : Useful M installed word
-      · have htail : (responseSetoid M
-            (greedyInstall M (insert word installed) rest)).r left right := by
-          simpa [greedyInstall, huseful, responseSetoid] using hagree
+      · have htail : Agree M
+            (greedyInstall M (insert word installed) rest) left right := by
+          simpa [greedyInstall, huseful, Agree] using hagree
         have hall := ih (installed := insert word installed) htail
         simpa [List.toFinset_cons, Finset.insert_union,
           Finset.union_assoc, Finset.union_left_comm, Finset.union_comm,
-          responseSetoid] using hall
-      · have htail : (responseSetoid M
-            (greedyInstall M installed rest)).r left right := by
-          simpa [greedyInstall, huseful, responseSetoid] using hagree
+          Agree] using hall
+      · have htail : Agree M
+            (greedyInstall M installed rest) left right := by
+          simpa [greedyInstall, huseful, Agree] using hagree
         have hall := ih (installed := installed) htail
-        have hinstalled : (responseSetoid M installed).r left right :=
+        have hinstalled : Agree M installed left right :=
           response_rel_mono M (Finset.subset_union_left) hall
         have hword : behavior M.step (acceptsBool M) left word =
             behavior M.step (acceptsBool M) right word := by
@@ -148,8 +153,8 @@ equivalence relation of the initial family plus all candidates. -/
 theorem response_rel_greedy_iff_union
     (installed : Finset (List A)) (candidates : List (List A))
     (left right : X) :
-    (responseSetoid M (greedyInstall M installed candidates)).r left right ↔
-      (responseSetoid M (installed ∪ candidates.toFinset)).r left right := by
+    Agree M (greedyInstall M installed candidates) left right ↔
+      Agree M (installed ∪ candidates.toFinset) left right := by
   constructor
   · exact response_rel_union_of_greedy M installed candidates
   · exact response_rel_mono M (greedyInstall_subset_union M installed candidates)
@@ -176,14 +181,13 @@ theorem eq_of_agree_greedyScheduledWords
     (reduced : BehaviorallyReduced M) (schedule : List (List A))
     (hschedule : schedule.toFinset = completeWords M alphabet)
     (left right : X)
-    (hagree : (responseSetoid M
-      (greedyScheduledWords M schedule)).r left right) :
+    (hagree : Agree M (greedyScheduledWords M schedule) left right) :
     left = right := by
   apply eq_of_agree_completeWords M alphabet complete reduced left right
   have hall := (response_rel_greedy_iff_union M
     (∅ : Finset (List A)) schedule left right).1
-      (by simpa [greedyScheduledWords, responseSetoid] using hagree)
-  simpa [hschedule, responseSetoid] using hall
+      (by simpa [greedyScheduledWords, Agree] using hagree)
+  simpa [hschedule, Agree] using hall
 
 /-- Checked formation theorem: greedy native installation remains discrete and
 retains no more words than the original quadratic witness ceiling. -/
@@ -203,8 +207,9 @@ theorem greedyScheduledWords_card_le_and_partition_discrete
   · intro left right
     rw [mem_part_responsePartition_iff]
     constructor
-    · exact eq_of_agree_greedyScheduledWords M alphabet complete reduced
-        schedule hschedule left right
+    · intro hagree
+      exact eq_of_agree_greedyScheduledWords M alphabet complete reduced
+        schedule hschedule left right (by simpa [Agree] using hagree)
     · rintro rfl word hword
       rfl
 
@@ -236,8 +241,8 @@ theorem duplicate_word_is_pruned :
 is discrete on all three states. -/
 theorem duplicate_control_remains_discrete :
     ∀ left right : Fin 3,
-      (responseSetoid automaton
-        (greedyInstall automaton ∅ [[], [false], [true]])).r left right →
+      Agree automaton
+        (greedyInstall automaton ∅ [[], [false], [true]]) left right →
         left = right := by
   native_decide
 
