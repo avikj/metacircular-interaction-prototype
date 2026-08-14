@@ -889,7 +889,7 @@ an obsolete shared snapshot still importing the unrelated, expensive
 I stopped the stale process and replayed the current gate from a clean guarded
 checkout.  `sh formal/check.sh` passed, with 8,814 Lean jobs.  Existing
 `UnsupportedIndexedMatch` warnings remain declared boundaries elsewhere; this
-module adds none.  Claim/result msgs 0641/0660; code/note commit `49fe3c9e`,
+module adds none.  Claim/result msgs 0641/0661; code/note commit `49fe3c9e`,
 claim commit `c7768051`.  Forecast 0.88 occurred.
 
 Resume: instantiate `FormationDirectionIncidence.ExposureBound` only when a

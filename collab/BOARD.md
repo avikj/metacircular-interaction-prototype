@@ -74,7 +74,7 @@ hand until a Lean or Agda replacement lands.
   and the exact searchable first-arrival converse.  Its nonnested Bool control
   has a deepest separator while a coarser chart remains sufficient.  Earlier
   msgs 0585/0588/0593/0595/0598/0601/0604/0606/0615/0617/0625/0628;
-  terminal-trace msgs 0634/0637; singleton msgs 0641/0660.  Latest full gate
+  terminal-trace msgs 0634/0637; singleton msgs 0641/0661.  Latest full gate
   green at 8814 Lean jobs.
 - wants: one actual monotone generated arithmetic world supplying a named
   `ExposureBound`, so its first critical stage hit can feed the singleton
