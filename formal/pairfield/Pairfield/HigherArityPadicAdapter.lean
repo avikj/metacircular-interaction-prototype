@@ -48,6 +48,65 @@ theorem nativeTuple_sum_with_last
       rw [Finset.card_erase_of_mem hlast]
       omega
 
+/-- Every nonempty proper labeled subset has the native valuation normal
+form.  The branch records whether the subset contains the moving coordinate;
+it does not quotient away the subset label. -/
+theorem nativeTuple_properSubset_valuation
+    {p r n : ℕ} [Fact p.Prime] {S : Finset (Fin (n + 1))}
+    (_hne : S.Nonempty) (hproper : S ≠ Finset.univ) (hbound : n < p ^ r) :
+    padicValNat p (∑ i ∈ S, nativeTuple p r n i) =
+      if Fin.last n ∈ S then
+        padicValNat p (n + 1 - S.card)
+      else
+        padicValNat p S.card := by
+  by_cases hlast : Fin.last n ∈ S
+  · rw [if_pos hlast, nativeTuple_sum_with_last hlast hbound]
+    have hcardlt : S.card < n + 1 := by
+      simpa using
+        Finset.card_lt_card (Finset.ssubset_univ_iff.mpr hproper)
+    have hkpos : 0 < n + 1 - S.card := Nat.sub_pos_of_lt hcardlt
+    have hcardpos : 0 < S.card := Finset.card_pos.mpr ⟨Fin.last n, hlast⟩
+    apply padicValNat_prime_pow_sub_of_pos_of_lt hkpos
+    omega
+  · rw [if_neg hlast, nativeTuple_sum_without_last hlast]
+
+/-- Proper-subset valuation profiles of two sufficiently positive native
+tuples coincide label by label. -/
+theorem nativeTuple_properSubset_profile_eq
+    {p r s n : ℕ} [Fact p.Prime]
+    (hrbound : n < p ^ r) (hsbound : n < p ^ s)
+    {S : Finset (Fin (n + 1))} (hne : S.Nonempty)
+    (hproper : S ≠ Finset.univ) :
+    padicValNat p (∑ i ∈ S, nativeTuple p r n i) =
+      padicValNat p (∑ i ∈ S, nativeTuple p s n i) := by
+  rw [nativeTuple_properSubset_valuation hne hproper hrbound,
+    nativeTuple_properSubset_valuation hne hproper hsbound]
+
+/-- The full labeled tuple sums to `p^r`. -/
+theorem nativeTuple_full_sum {p r n : ℕ} (hbound : n < p ^ r) :
+    (∑ i, nativeTuple p r n i) = p ^ r := by
+  simpa using nativeTuple_sum_with_last
+    (p := p) (r := r) (n := n) (S := Finset.univ) (by simp) hbound
+
+/-- Exact checked collision at the corrected scope: two native tuples agree
+on every nonempty proper labeled-subset valuation and disagree on the full
+sum.  This is not a claim about the addition-closed language, where prefix
+sums provide a binary flag decomposition. -/
+theorem nativeTuple_labeled_profile_collision
+    {p r s n : ℕ} [Fact p.Prime]
+    (hrbound : n < p ^ r) (hsbound : n < p ^ s) (hrs : r ≠ s) :
+    (∀ S : Finset (Fin (n + 1)), S.Nonempty → S ≠ Finset.univ →
+      padicValNat p (∑ i ∈ S, nativeTuple p r n i) =
+        padicValNat p (∑ i ∈ S, nativeTuple p s n i)) ∧
+      padicValNat p (∑ i, nativeTuple p r n i) ≠
+        padicValNat p (∑ i, nativeTuple p s n i) := by
+  constructor
+  · intro S hne hproper
+    exact nativeTuple_properSubset_profile_eq hrbound hsbound hne hproper
+  · rw [nativeTuple_full_sum hrbound, nativeTuple_full_sum hsbound,
+      padicValNat.prime_pow, padicValNat.prime_pow]
+    exact hrs
+
 /-- A positive natural strictly below `p^r` has `p`-adic valuation strictly
 below `r`.  Thus the native hierarchy's explicit maximum-valuation threshold
 is forced by its positivity bound. -/
