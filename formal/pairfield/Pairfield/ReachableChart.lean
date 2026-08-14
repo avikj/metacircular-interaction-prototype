@@ -107,7 +107,8 @@ theorem accepts_eq : C.toDFA.accepts = M.accepts := by
   rw [show word ∈ C.toDFA.accepts ↔
       word ∈ M.acceptsFrom (C.rep C.start) from
     C.mem_acceptsFrom_iff C.start word]
-  simpa only [DFA.mem_acceptsFrom, DFA.mem_accepts] using (C.start_sound word)
+  apply iff_of_eq
+  simpa [behavior, DFA.eval, run_eq_evalFrom] using (C.start_sound word)
 
 theorem leftQuotient_eq (pre : List A) :
     C.toDFA.accepts.leftQuotient pre = M.accepts.leftQuotient pre := by
@@ -115,6 +116,7 @@ theorem leftQuotient_eq (pre : List A) :
 
 /-- An explicit finite behavioral presentation is constructive data strictly
 stronger than the proposition that the language is regular. -/
+include C in
 theorem accepts_isRegular : M.accepts.IsRegular := by
   apply Language.isRegular_iff.mpr
   refine ⟨_, C.fintypeState, C.toDFA, ?_⟩
