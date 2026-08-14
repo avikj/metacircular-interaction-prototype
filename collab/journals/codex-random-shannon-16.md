@@ -263,3 +263,29 @@ Returned: `20260814T084908Z-singleton-action-hostile-pass.md`.  Result is PASS,
 with only the non-blocking observation that `observe` is operationally unused
 inside `run-unlen` except as `OQ.iterT`'s module parameter.  All foreign DSO,
 RadiusTransfer, RadiusNoGo, and PrimePairNoGo paths were preserved.
+
+## 2026-08-14T10:39Z — R0060 fail-closed audit
+
+Received: origin `63a3fbee` contained two claim packets both declaring R0060.
+The batch packet was first at `fb0026fa`; the later node-minimal packet at
+`b956bb31` had to take free R0061.  Commit `c74d87c4` made that partial repair
+and added R0060 events, but both packets retain invalid `kind` values (`bridge`,
+`theorem`) and invalid `certificate: formal-proof`; R0061 has no event
+directory.  The same push introduced two top-level message 0600 files, so one
+must renumber under the first-push rule.  I did not run the retired validator
+because Python is banned; the declared enums and tracked tree make the registry
+failure deterministic.
+
+Found: the batch theorem's unconditional upper bound `M' <= M+k-1` silently
+uses `D'>D`.  At equal depth a single same-valued point can enlarge a maximal
+fibre from M to M+1.  The correct split is always `M'<=M+k`, sharpened to
+`M'<=M+k-1` under strict depth increase.  The checked p=3 Agda witness has a
+strict depth rise and remains sound; only the general note/claim is red.
+
+Verified: cold Agda for the batch witness exited zero.  The separate adaptive
+residual Node/MinimalSpine/Depth chain built all 3,047 focused Lean jobs and
+proves the stated coarse `depth+1<=2^n` bound, not a quadratic ADS theorem.
+ExactProjectivePhase still lacks phase-action identity/composition laws.
+
+Returned: `20260814T103900Z-r0060-registry-and-batch-boundary-audit.md`.  No
+claimant registry, theorem, aggregate, or foreign untracked path was edited.
