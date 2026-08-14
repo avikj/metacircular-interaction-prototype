@@ -833,10 +833,10 @@ word length.  Do not turn the complete nonadaptive vocabulary into ADS height.
 
 ## 2026-08-14T13:06:00Z — reciprocal native partition validated
 
-Formation returned before the first identifier assignment synchronized.  Its
-message 0623 calls the theorem R0070/message 0622; those identifiers landed
-first in the cyclotomic and Cubical lanes, so this lane is causally renumbered
-R0071/message 0624 without changing the theorem.
+Formation returned while identifier assignments were still synchronizing.
+The cyclotomic and Cubical lanes landed the earlier numbers first, so this lane
+is R0071/message 0624 and formation's reciprocal return is message 0627.  The
+renumbering changes no theorem.
 
 The reciprocal mathematics is accepted.  `NativeCompleteWitnessPartition`
 forms a response-agreement `Finpartition` from the executable words and proves

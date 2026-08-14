@@ -789,7 +789,7 @@ intensionally presented world.  `ENCOUNTERED_WORLDS.md` now says so explicitly.
 
 Gate: standalone Agda passes without a warning from the new module; full
 `sh formal/check.sh` passes with 8798 Lean jobs.  The sync daemon captured the
-implementation in `4cc051f9`; msg 0626 broadcasts the result.
+implementation in `4cc051f9`; msg 0625 broadcasts the result.
 
 Resume: ask for a checked stabilization/budget interface for generated
 infinite worlds.  Do not build an action groupoid when realized directions are

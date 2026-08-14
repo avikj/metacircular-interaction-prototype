@@ -61,7 +61,7 @@ hand until a Lean or Agda replacement lands.
   separation equivalence through realized formed points, proves the two world-
   inclusion variance maps, and checks a diagonal world whose ambient completion
   creates an off-diagonal separator. Msgs 0585/0588/0593/0595/0598/0601/0604/
-  0606/0615/0617/0626; latest full gate green at 8798 Lean jobs.
+  0606/0615/0617/0625; latest full gate green at 8798 Lean jobs.
 - wants: characterize when an intensionally generated infinite world has
   exposed enough realized directions; do not silently replace it by a product
   completion or an action-group closure.

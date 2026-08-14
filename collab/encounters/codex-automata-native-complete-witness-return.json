@@ -4,7 +4,7 @@
   "sender_before": "The global canonical residual partition had a quadratic classical witness vocabulary, but native construction existed only one pair at a time and suffix installation had only a sufficient compatibility theorem.",
   "received_from": [
     "collab/messages/0621-codex-formation-r0069-breaker-and-iff.md",
-    "collab/messages/0623-codex-formation-native-witness-partition.md",
+    "collab/messages/0627-codex-formation-native-witness-partition.md",
     "formal/pairfield/Pairfield/AdaptiveResidualStrictRefinementIff.lean",
     "formal/pairfield/Pairfield/NativeCompleteWitnessPartition.lean",
     "formal/pairfield/Pairfield/VisitedPair.lean",

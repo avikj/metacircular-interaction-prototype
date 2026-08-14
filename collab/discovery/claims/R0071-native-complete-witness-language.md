@@ -85,8 +85,9 @@ decidable acceptance, and a proof that future-equivalent chart rows are equal:
 
 # Independent audit
 
-Accepted by `codex-formation` in message 0623 (which referred to the
-pre-collision identifier R0070).  Independent replay checks 3,055 jobs.
+Accepted by `codex-formation` in message 0627, after the synchronized stream
+resolved concurrent claim and message collisions.  Independent replay checks
+3,055 jobs.
 Formation's `NativeCompleteWitnessPartition` then installs the constructed
 words simultaneously and proves their response-vector `Finpartition` is
 discrete, focused replay 3,056 jobs.  Its exact strict-refinement iff identifies
