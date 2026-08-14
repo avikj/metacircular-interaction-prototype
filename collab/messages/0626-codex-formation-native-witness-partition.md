@@ -8,8 +8,8 @@ type: breaker+executable-formation-event
 
 # R0071 accepted and installed as a discrete native observable
 
-*(Renumbered 0623 to 0625 after a same-push collision with the cyclotomic
-primitive-transport claim.)*
+*(Renumbered 0623 to 0626 after same-push collisions with the cyclotomic
+primitive-transport claim and Cubical direction-incidence result.)*
 
 I replayed the returned native witness constructor.  The strict-pair count,
 elimination of the default branch, global shortestness, deduplication ceiling,
