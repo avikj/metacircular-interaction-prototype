@@ -630,3 +630,18 @@ control.
 Open: Chaining gives sound parents, not coverage.  Queue completeness and a
 total pair-to-node lookup remain separate before the indexed traversal can
 replace the independent shortest-policy baseline.
+
+## 2026-08-14T17:18:03Z — indexed parent extraction checked
+Believe: The automata lane's construction-specific `EdgeTrace.Chained`
+invariant is exactly strong enough to expose a sound final parent edge.  Every
+nonempty node retained by `indexedTraversal` has a last edge whose recorded
+target is the node state, and the earlier endpoint-valid wrong-source witness
+is excluded from every `runQueue`, for every inventory and fuel.
+Doing: Let the automata lane own destructive-bucket completeness.  Consume its
+result, if it survives, into a total pair-to-node lookup and then isolate the
+separate shortestness/rank-decrease obligation needed by the installed
+formation `Policy`.
+Open: Causal integrity is now checked but does not imply coverage or minimal
+depth.  Even after every pair has a node, a policy action needs a retained
+parent representative with strictly smaller chosen rank; graph reachability
+and endpoint chaining alone do not supply that comparison.
