@@ -159,6 +159,9 @@ import NaturalMachine.PinnedSensorForcing
 -- the declared sub-threshold and modulus-5 packages, every sound anatomy must
 -- admit the latter.  The adapter imports no global primality classifier.
 import NaturalMachine.PrimeSquarePinAdapter
+-- The same 5/25 instance with an added mod-4 package has one forced core but
+-- two sound anatomies: the composite sensor computes inertly and is optional.
+import NaturalMachine.PrimeSquareOptionalComposite
 import NaturalMachine.PairCoordinates
 import NaturalMachine.ChargeGrading
 import NaturalMachine.ConeImage
