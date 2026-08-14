@@ -314,6 +314,96 @@ theorem no_historical_actionCost_decoder :
   rw [hleft, hright] at hpadded
   omega
 
+/-! The shortest word is a different, endpoint-relative quantity.  For the
+fixed `diag(6,10)` certificate it can be determined symbolically without a
+word census. -/
+
+/-- No word of at most three left Euclidean actions accumulates to the exact
+left kuṭṭaka matrix. -/
+theorem kuttaka610_leftWord_length_ge_four {qs : List Int}
+    (h : DiagonalEuclidTranscript.leftWord qs = ⟨2, -1, -5, 3⟩) :
+    4 ≤ qs.length := by
+  cases qs with
+  | nil =>
+      have h01 := congrArg IntMat2.a01 h
+      norm_num [DiagonalEuclidTranscript.leftWord, IntMat2.one] at h01
+  | cons a qs =>
+      cases qs with
+      | nil =>
+          have h00 := congrArg IntMat2.a00 h
+          norm_num [DiagonalEuclidTranscript.leftWord, IntMat2.euclidStep,
+            IntMat2.mul, IntMat2.one] at h00
+      | cons b qs =>
+          cases qs with
+          | nil =>
+              have h00 := congrArg IntMat2.a00 h
+              norm_num [DiagonalEuclidTranscript.leftWord,
+                IntMat2.euclidStep, IntMat2.mul, IntMat2.one] at h00
+          | cons c qs =>
+              cases qs with
+              | nil =>
+                  have h00 := congrArg IntMat2.a00 h
+                  have h01 := congrArg IntMat2.a01 h
+                  have h10 := congrArg IntMat2.a10 h
+                  have h11 := congrArg IntMat2.a11 h
+                  norm_num [DiagonalEuclidTranscript.leftWord,
+                    IntMat2.euclidStep, IntMat2.mul, IntMat2.one]
+                    at h00 h01 h10 h11
+                  have hb : b = -2 := by omega
+                  subst b
+                  have ha : a = 1 := by omega
+                  subst a
+                  have hc : c = 3 := by omega
+                  subst c
+                  norm_num at h11
+              | cons d qs =>
+                  simp
+
+/-- No word of at most one right Euclidean action accumulates to the exact
+right kuṭṭaka matrix. -/
+theorem kuttaka610_rightWord_length_ge_two {qs : List Int}
+    (h : DiagonalEuclidTranscript.rightWord qs = ⟨1, 5, 1, 6⟩) :
+    2 ≤ qs.length := by
+  cases qs with
+  | nil =>
+      have h01 := congrArg IntMat2.a01 h
+      norm_num [DiagonalEuclidTranscript.rightWord, IntMat2.one] at h01
+  | cons a qs =>
+      cases qs with
+      | nil =>
+          have h00 := congrArg IntMat2.a00 h
+          norm_num [DiagonalEuclidTranscript.rightWord,
+            IntMat2.euclidStep, IntMat2.mul, IntMat2.one] at h00
+      | cons b qs =>
+          simp
+
+/-- The displayed six-action transcript is shortest among every transcript
+with the same accumulated left and right matrices in the declared `E(q)`
+alphabet.  This is minimal word length, not recovered historical cost. -/
+theorem kuttaka610Transcript_actionCost_minimal
+    (t : DiagonalEuclidTranscript)
+    (hleft : t.leftMatrix = (positiveDiagonalJoinCertificate 6 10).left)
+    (hright : t.rightMatrix = (positiveDiagonalJoinCertificate 6 10).right) :
+    kuttaka610Transcript.actionCost ≤ t.actionCost := by
+  have hleftExact :
+      DiagonalEuclidTranscript.leftWord t.leftSteps = ⟨2, -1, -5, 3⟩ := by
+    calc
+      DiagonalEuclidTranscript.leftWord t.leftSteps = t.leftMatrix := rfl
+      _ = (positiveDiagonalJoinCertificate 6 10).left := hleft
+      _ = ⟨2, -1, -5, 3⟩ := by native_decide
+  have hrightExact :
+      DiagonalEuclidTranscript.rightWord t.rightSteps = ⟨1, 5, 1, 6⟩ := by
+    calc
+      DiagonalEuclidTranscript.rightWord t.rightSteps = t.rightMatrix := rfl
+      _ = (positiveDiagonalJoinCertificate 6 10).right := hright
+      _ = ⟨1, 5, 1, 6⟩ := by native_decide
+  have hleftLength := kuttaka610_leftWord_length_ge_four hleftExact
+  have hrightLength := kuttaka610_rightWord_length_ge_two hrightExact
+  have hcost : kuttaka610Transcript.actionCost = 6 :=
+    kuttaka610Transcript_replays_compact_certificate.2.2
+  simp only [DiagonalEuclidTranscript.actionCost] at hcost ⊢
+  omega
+
 /-! Exact controls.  The first is the killed blanket criterion; the second is
 the surviving mutually nondividing branch. -/
 

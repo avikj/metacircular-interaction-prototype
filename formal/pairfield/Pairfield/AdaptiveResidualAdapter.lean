@@ -19,10 +19,10 @@ variable {A : Type u} {X : Type v} {O : Type w}
 /-- Mathlib's left-quotient composition law is exactly the residual update
 after one more action is appended to a reached prefix. -/
 theorem prefixResidual_append_action (M : DFA A X)
-    (prefix : List A) (action : A) :
-    M.accepts.leftQuotient (prefix ++ [action]) =
-      (M.accepts.leftQuotient prefix).leftQuotient [action] :=
-  Language.leftQuotient_append M.accepts prefix [action]
+    (pre : List A) (action : A) :
+    M.accepts.leftQuotient (pre ++ [action]) =
+      (M.accepts.leftQuotient pre).leftQuotient [action] :=
+  Language.leftQuotient_append M.accepts pre [action]
 
 /-- Equality of prefix residuals is stable under every common next action. -/
 theorem prefixResidual_append_action_eq_of_eq (M : DFA A X)
@@ -72,24 +72,34 @@ theorem trace_eq_of_futureEq (step : X → A → X) (observe : X → Bool)
     tree.trace step observe left = tree.trace step observe right := by
   induction tree generalizing left right with
   | done =>
-      simpa [trace, responses] using hfuture []
+      have hnow := hfuture []
+      change observe left = observe right at hnow
+      simpa [trace, responses] using congrArg (fun response => [response]) hnow
   | query action onFalse onTrue ihFalse ihTrue =>
       have hnow := hfuture []
+      change observe left = observe right at hnow
       have hnext := futureEq_step step observe hfuture action
       have hresponse := hnext []
+      change observe (step left action) = observe (step right action) at hresponse
       cases hleft : observe (step left action) with
       | false =>
           have hright : observe (step right action) = false := by
             rw [← hresponse, hleft]
           have hbranch := ihFalse hnext
-          simpa [trace, responses, hnow, hleft, hright] using
-            congrArg (List.cons (observe left)) hbranch
+          have htail :
+              responses step observe onFalse (step left action) =
+                responses step observe onFalse (step right action) := by
+            simpa [trace] using congrArg List.tail hbranch
+          simp [trace, responses, hnow, hleft, hright, htail]
       | true =>
           have hright : observe (step right action) = true := by
             rw [← hresponse, hleft]
           have hbranch := ihTrue hnext
-          simpa [trace, responses, hnow, hleft, hright] using
-            congrArg (List.cons (observe left)) hbranch
+          have htail :
+              responses step observe onTrue (step left action) =
+                responses step observe onTrue (step right action) := by
+            simpa [trace] using congrArg List.tail hbranch
+          simp [trace, responses, hnow, hleft, hright, htail]
 
 /-- Equality of traces for the fixed-word tree exposes equality of the final
 response, hence equality of the ordinary word behavior. -/
@@ -98,7 +108,7 @@ theorem behavior_eq_of_fixedWord_trace_eq
     (word : List A) {left right : X}
     (htrace : (fixedWord word).trace step observe left =
       (fixedWord word).trace step observe right) :
-    behavior step observe left word = behavior step observe right := by
+    behavior step observe left word = behavior step observe right word := by
   induction word generalizing left right with
   | nil =>
       simpa [fixedWord, trace, responses, behavior, run] using htrace
