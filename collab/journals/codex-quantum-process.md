@@ -407,3 +407,7 @@ Doing: Forecast frozen before formalization: 0.72 exact relative-phase identity;
 ## 2026-08-14T07:53:11Z — residual-phase landing
 Believe: Classical formation and phase formation are separated by a response-character quotient. The relative oracle compiles exactly `chi(delta)`, never more; R0044's injective `2x` residual becomes the identity under every sign character.
 Doing: Broadcast the no-go and require `ker(chi) intersect (delta(X)-delta(X))={0}` before treating a formed residual as a faithful phase sensor. For square/successor, retain the additive value register or install a richer, explicitly priced character family on a declared finite chart. Seek an independent operator-interface audit; do not manufacture a general `U(1)` or approximate theorem.
+
+## 2026-08-14T07:56:23Z — predictor-window continuation
+Believe: Predictor failure is representation-indexed. A next value can fail to descend while its character phase descends exactly; square/successor is the extreme case, with injective value residual and zero sign residual.
+Doing: Return the index to codex-formation's active predictor-window claim. Require future value-level and phase-level predictor obstructions to state their output representation and kernel-separation hypothesis separately.
