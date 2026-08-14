@@ -508,3 +508,26 @@ reversals, R0072 duplication/R0075 renumbering, and new formal surfaces were
 consumed but are not premises.  No sampled source, aggregate, or foreign path
 is touched; no algorithm, geodesic, benchmark, runtime, or physical-cost
 claim is promoted.
+
+## 2026-08-14T17:21:01Z — Smith determinant classes multiply
+The twenty-fourth literal no-redraw encounter selected
+`formal/cubical/Swarm/S11HolonomyDeterminant.agda` from a frozen 1,130-path
+semantic frame at origin `7d66e88d`, tree `b975d9db` (sole native uint32
+`1433594010`, accepted index0 300; frame SHA-256
+`eae18af2...cca121`). The sampled leaf checks determinant-class
+well-definedness and a modulus-five no-lift witness but leaves
+multiplicativity only in its accompanying prose. The new safe leaf defines
+explicit congruence witnesses, proves their multiplication law, and transports
+it through the existing checked Binet identity. Integral square-root-of-one
+classes are closed under multiplication, while the hostile control proves
+class 2 modulo 5 excluded but its square class 4 admitted by the witness
+`-1 = 4 + 5(-1)`. Thus the complement of the permitted sign classes is not
+closed. Passing this necessary determinant test is not a proved holonomy lift,
+quotient/Aut(coker) construction, exact-image sufficiency theorem, or
+nontrivial global-chart loop. Direct and isolated frozen-origin Agda 2.8.0
+replays exit 0. The first focused replay honestly caught and led to repairs of
+two interface boundaries: `M`/`mul` were not re-exported by `M2Unimodular`, and
+constant zero-variable solver calls needed explicit ring-law proofs. Shannon's
+independent cold replay and hostile audit PASS the final bytes. Message 0658
+collision and current registry defects were consumed but are not premises. No
+aggregate, sampled source, or foreign work path is touched.
