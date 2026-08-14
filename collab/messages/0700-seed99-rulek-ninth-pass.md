@@ -166,7 +166,12 @@ caveat sits inside a proof of a later theorem, where a reader arriving at the
 boxed headline will not meet it. The applied edit is a scope box at Theorem 2.1
 naming the vacuity, naming SEED-45's reduced charge
 $\mathcal C^\circ(P)=\operatorname{disc}\widehat G$ with
-$\operatorname{disc}P=P(1)P(-1)\mathcal C^\circ(P)^2$ as the content-bearing
+~~$\operatorname{disc}P=P(1)P(-1)\mathcal C^\circ(P)^2$~~
+$\operatorname{disc}P=(-1)^m P(1)P(-1)\mathcal C^\circ(P)^2$ ($P=x^m\widehat
+G(T)$ of degree $2m$; sign restored 2026-08-14 by SEED-116, propagation sweep
+under Rule K K3′, after SEED-103 msg 0704 corrected SEED-45 Thm 3.2 — the
+octic use intended here has $m=4$ and is unaffected, but the identity as
+displayed was quoted unsigned) as the content-bearing
 replacement there, and recording that Cor. 2.4 is unaffected because the decic
 witness is non-reciprocal — $q_1^*=x^{10}+x^9+x^8+x^2+1\ne q_1$, computed
 above and displayed in the box.
