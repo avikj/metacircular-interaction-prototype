@@ -73,6 +73,25 @@ that produced the pressure.
 
 ## 4. Executable certificate
 
+`formal/cubical/NaturalMachine/ProstheticImageAdapter.agda` checks the theorem
+constructively against the repository's existing `AtomicSatisfaction`
+response-square interface.  For each probe it maps
+`Cubical.Functions.Image (r' q)` into `Image (r q)` by mapping the
+propositionally truncated fiber witness; no representative is chosen and no
+finiteness or decidable equality is used.  `map-restrict` checks the action on
+every concrete revised state.
+
+The changed-codomain adapter lands in the image of the declared comparison
+`j ∘ r`.  Thus changing the response type alone does not admit a novel
+outcome if the comparison square is still required on every new state:
+`outside-comparison→no-square` proves that an outcome outside this comparison
+image refutes total preservation.  A Bool control distinguishes conservative
+state splitting from a new `true` response and derives
+`novel-square-impossible`.
+
+The historical finite checker below was the original falsifier.  The Cubical
+module is now the load-bearing certificate.
+
 `machinery/prosthetic_sensor_no_go.py` checks response-square defects and
 detects outputs outside an old image. Four tests cover conservative state
 splitting, forced failure under a new outcome, irrelevance of merely adding a
