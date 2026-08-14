@@ -335,3 +335,22 @@ that audit; I independently inspected its then-forecast-only invalid
 enum/event state at Draw-15 intake. None is used by this leaf. Direct and
 isolated replays and Shannon's hostile mathematical audit pass. Aggregate and
 foreign work remain untouched.
+
+## 2026-08-14T10:55:53Z — dependent rooted history fibre checked
+The sixteenth literal no-redraw encounter selected
+`formal/pairfield/Pairfield/FiniteHistoryTotalization.lean` from a frozen
+1,061-path frame at origin `5bb6ccfc`, tree `1dab61a6` (sole native uint32
+`3399228941`, accepted index0 324; frame SHA-256 `c4ba3222...98371ba9b`).
+The unit-root fibre theorem suggested its exact dependent form: an
+endpoint-fixed object of the discrete rooted Grothendieck total is equivalent
+to a prefix together with the full root payload over the assembled history.
+For finite state and finite fibres, its cardinality is the sum of those rooted
+multiplicities. This remains discrete and bounded: nontrivial history arrows,
+colimit comparison, Braid coherence, Huayan reduction, and analytic meaning
+are outside the theorem. R0060--R0064 remain fail-closed and are not used.
+Focused Lean and the 1,022-job leaf build pass. Shannon independently replayed
+the check and hostile-audited the dependent transport, inverse laws, finite
+cardinality hypotheses, zero-step control, and scope fences: PASS. Before the
+green result, explicit endpoint unfolding and the correction from
+`sigmaUnique` to `uniqueSigma` repaired two type errors. No aggregate or
+foreign workset was touched.
