@@ -159,15 +159,40 @@ $2\cdot10^6$):
 - Theorem F and Lemmas F.1–F.2: proved above (modulo Cuntz's cited theorems).
   Novelty of the arithmetic identification: searched, not found; the
   operator-algebra ingredients are standard and must be presented as such.
-- The remaining open question from `PARITY.md` §2.2 — whether the core $Q^0$
-  admits non-extending KMS states — is now **closed**: see `CORE_KMS.md`.
-  $Q^0$ is exactly the Bunce–Deddens algebra $C(\widehat{\mathbb Z})\rtimes\mathbb Z$
-  of type $\prod_p p^\infty$; $\sigma|_{Q^0}$ is trivial; $Q^0$ has a unique
-  trace (Haar $\circ$ expectation) which is $\omega|_{Q^0}$ — so the core
-  carries exactly one equilibrium at every $\beta$, the restriction of the
-  critical state, and the same holds for every intermediate charge core
-  (including the $\mathbb Z/2$ parity core). **Parity-blindness is intrinsic
-  even to the neutral world; the no-go is complete.**
+- **(Proved.)** The remaining open question from `PARITY.md` §2.2 — whether the
+  core $Q^0$ admits non-extending KMS states — is now **closed**: see
+  `CORE_KMS.md` Thm. 1 and Cor. 3. $Q^0$ is exactly the Bunce–Deddens algebra
+  $C(\widehat{\mathbb Z})\rtimes\mathbb Z$ of type $\prod_p p^\infty$;
+  $\sigma|_{Q^0}$ is trivial; $Q^0$ has a unique trace (Haar $\circ$
+  expectation) which is $\omega|_{Q^0}$ — so the core carries exactly one
+  equilibrium at every $\beta$, the restriction of the critical state. This
+  bullet is derived in `CORE_KMS.md` §§1–3 from (Q1)–(Q3); [BD]/[D] are used
+  only for the *name* Bunce–Deddens, and the uniqueness of the trace is proved
+  there (§3.3), not cited. **Parity-blindness is intrinsic to the neutral
+  world.**
+
+- **(Intermediate cores: existence elementary, uniqueness still cited.)** The
+  analogous statement for every intermediate charge core $Q^\Lambda$
+  ($\Lambda\neq\{1\}$, including the $\mathbb Z/2$ parity core) is
+  `CORE_KMS.md` Thm. 4 and does **not** have the same status; it was previously
+  folded into the bullet above, which read the whole thing as closed. Split
+  (SEED-69 §B.3–B.4, applied SEED-77):
+  - *Existence half — no citation needed.* For $\Lambda\neq\{1\}$, a KMS$_\beta$
+    state of $(Q^\Lambda,\sigma)$ forces $\beta=1$. Two lines: take
+    $k=a/b\in\Lambda$ in lowest terms, $v=s_as_b^*\in Q^\Lambda$; then
+    $vv^*=e_a$, $v^*v=e_b$, $\sigma_{i\beta}(v)=k^{-\beta}v$, and
+    $\varphi|_{Q^0}=\tau_0$ (traciality + §3.3) gives $1/a=k^{-\beta}/b$, i.e.
+    $(b/a)=(b/a)^\beta$ with $b/a\neq1$, so $\beta=1$. This uses only
+    (Q1)–(Q3), the gauge grading, and §3.3 — no groupoid model, no [N], no
+    [C1]; at $\Lambda=\mathbb Q^\times_{>0}$ it re-derives the non-existence
+    half of Cuntz's phase diagram.
+  - *Uniqueness half — carried by citation.* Uniqueness of the KMS$_1$ state on
+    $Q^\Lambda$ for $\Lambda\neq\{1\}$ rests on the adelic groupoid model plus
+    Neshveyev's correspondence [N] (`CORE_KMS.md` §5.2(c)), with the
+    measurability hypotheses of [N] not verified and [C1] section numbers
+    quoted from memory (`CORE_KMS.md` §7, gaps 1 and 3). **This is the only
+    residue; the no-go is complete modulo it, and the sentence "the no-go is
+    complete" should not be read as covering it.**
 - Quantitative widening (the barrier's "width"): uniformity level $Q$ in
   Möbius-orthogonality to limit-periodic functions ($Q\le X^{O(1)}$ known,
   $Q\sim e^{\sqrt X}$ needed for primality certification, per the sampling

@@ -285,6 +285,14 @@ index computation for this corpus's checks (§2) and the negative in §3.
    capacities are `∞` without a window. Give the *growth* of the number of
    distinguishable classes in a height-`≤ m` window — a counting problem for
    `Γ₀(D_r)` points of bounded height, not a measurement.
+   **Partly retired (SEED-75, 2026-08-14, per SEED-65 message 0666).** The
+   *identity* this seed was needed for no longer requires the count: SEED-65
+   Theorem B gives `cap_W(L)+cap_W(R)−cap_W(L∧R) = log₂|W_Γ|` on every
+   coordinate box, in every rank, with no `Γ₀`-point count. What remains open is
+   the growth question itself, and SEED-65 §8.1 flags it as the one asymptotic
+   in that note without a proved remainder term — the leading term follows from
+   the standard `SL_2` count, but no elementary explicit remainder is available,
+   and none should be quoted.
 3. `PROVE`: state the endpoint check's capacity-0 result (§2 E) wherever the
    corpus asserts "verified by normal form", and check whether any existing
    claim in the corpus rests on it.

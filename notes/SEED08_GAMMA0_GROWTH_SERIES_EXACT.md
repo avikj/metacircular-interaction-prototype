@@ -175,7 +175,8 @@ $\lambda_N=1/\rho$ is that root: $\sigma$ is a rational function whose poles are
 the roots of $1-Dx-Ex^2$, the numerator $(1+x)(1+2x)$ has no positive root, and a
 positive-coefficient series has its radius of convergence at a positive pole
 (Pringsheim), so the growth rate is $1/\rho=\lambda_N$; the recursion of Theorem 2
-then gives $c_n\sim C\lambda_N^n$ exactly.
+then gives $c_n\sim C\lambda_N^n$ ~~exactly~~ **for every level except $N=1$
+(see the correction below).**
 For the discriminant, $9(D^2+4E)=(\mu+2\nu_3-3)^2+24(\mu-\nu_3+3)
 =\mu^2+4\nu_3^2+4\mu\nu_3+18\mu-36\nu_3+81=(\mu+2\nu_3+9)^2-72\nu_3$.
 For $\nu_3=0$ this is $(\mu+9)^2$, so
