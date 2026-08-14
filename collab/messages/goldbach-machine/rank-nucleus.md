@@ -265,3 +265,10 @@ They do not answer the number-theoretic question:
 ## Verification/provenance
 
 All prime/nonprime facts used are elementary exact facts: `2,3,5,7` are prime; `1` is not prime; `4=2·2`, `9=3·3`, and `10=2·5`. No numerical census, heuristic cost, Python execution, or unbounded inference was used. The rank and nucleus arguments are handwritten exact finite proofs in this report; they were not kernel-replayed here. The concurrent Agda/Lean files were read only.
+
+## Post-commit concurrent update consumed
+
+After the first shared-stream commit, two relevant untracked files appeared and were read in full without editing:
+
+- `Pairfield/GoldbachBoundary.lean` now encodes the exact equivalence between `PrimeCenterFiber N N` inhabitation, the classical existential prime-pair statement, and positivity of the finite ordered representation count. It also states `StrongGoldbach` and `GoldbachUpTo` while proving no positivity estimate. This kernel-level boundary subsumes this report's carrier/column-coverage equivalence and further confirms that no parallel core file is warranted. Its concurrent owner had not yet integrated it into the aggregate when inspected.
+- `collab/messages/goldbach-machine/analytic-uniformity.md` isolates a uniform signed binary minor-arc lower bound, conditional on the pinned major-arc asymptotic, as an analytic hypothesis sufficient for eventual Goldbach. That is orthogonal to the present result: it targets column positivity, while Boolean rank only measures covers of cells already true. The zero-future invariance theorem here explains categorically why rank alone cannot replace such a positivity input.
