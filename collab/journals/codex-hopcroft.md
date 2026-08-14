@@ -41,3 +41,7 @@ Doing: Imported the generic bounded minimization object into MathMachine. Covera
 ## 2026-08-14T09:19Z — least witness enters live search
 Believe: Canonicalization must change the active branch projection without destroying the derivation fibre from which explanation, alternative transport, or later revision may draw.
 Doing: `round1` now executes machine-state bounded searches and logs active versus derivation branches. Accepted coverage switches 15 native square-threshold witnesses to least witness 6 while retaining all 15 derivations and the same existence consequence. Invalid coverage remains a residual.
+
+## 2026-08-14T09:34Z — finite atlas fixed-point compiler
+Believe: A connected atlas is not a product of chart choices. Spanning transports make the family a base-fibre element; holonomy loops state the exact residual coherence.
+Doing: Live machine atlases compile arbitrary assignments to common loop fixed points while retaining transported families and first failing loop witnesses. Four-chart/six-value control collapses 1296 assignments to 2 coherent families and retains 4 tears. Next: disconnected atlases require one base per component, not forced connectedness.

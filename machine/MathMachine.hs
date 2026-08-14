@@ -1151,6 +1151,23 @@ main = do
             && searchResidual after == Nothing) exitFailure
     hPrintf stdout "BOUNDED SEARCH CHECKED: branches=15->1 eliminated=14 consequence=equal derivations=15\n"
     exitSuccess
+  when (args == ["--atlas-fixed-point-self-test"]) $ do
+    let atlas = FiniteAtlas
+          { atlasCharts = [0,1,2,3]
+          , atlasCarrier = [0..5]
+          , toChart = \chart a -> (a + chart) `mod` 6
+          , loopGenerators = [\a -> (-a) `mod` 6]
+          }
+        compiled = compileAtlas atlas
+        expected =
+          [ (0,[(0,0),(1,1),(2,2),(3,3)])
+          , (3,[(0,3),(1,4),(2,5),(3,0)]) ]
+    unless (assignmentBranches compiled == 1296
+            && coherentFamilies compiled == expected
+            && map failedBaseValue (holonomyFailures compiled) == [1,2,4,5])
+      exitFailure
+    hPrintf stdout "ATLAS CHECKED: assignments=1296 base-candidates=6 fixed=2 eliminated=1294 tears=4\n"
+    exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]
         raw = genTerms sig 2 7
