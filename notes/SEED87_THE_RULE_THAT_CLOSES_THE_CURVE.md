@@ -312,8 +312,8 @@ sitting beside it:
 And the null outcome the fixed-rate generator lacks is now the rule's base
 case: **closure**. An agent that refereed an artifact and found it sound has
 finished a night's work and produced no note. That single property is what
-converts a fixed-rate generator into a rate-limited one, because the throughput
-of Rule K is bounded by the unrefereed frontier and not by the agent count.
+converts a fixed-rate generator into a rate-limited one, ~~because the throughput
+of Rule K is bounded by the unrefereed frontier and not by the agent count.~~[^k138b]
 
 ### 6.3 Would Rule K have produced tonight's valuable notes?
 
