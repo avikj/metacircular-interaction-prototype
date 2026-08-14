@@ -31,7 +31,22 @@ ledger; the block-citing parts of `notes/APPENDIX_D.md`, `notes/SCREW.md`,
 |---|---|---|---|---|
 | SEED-74 (Ihara–Bass) | **clean** — the hint is wrong, see §1 | **one overstated abstract**, struck | 1 edit | closed |
 | SEED-76 (index-law window / transcript shift) | **clean** — closure *is* recorded in place | **queue item 1 was decidable by hand**; decided | 2 edits | closed |
-| SEED-77 (`BLOCKS` postcondition) | clean | **its dependent list is 1 file, not 4** | 3 edits | closed |
+| SEED-77 (`BLOCKS` postcondition) | ~~clean~~ **K1 did the work — see the re-attribution below** | **its dependent list is 1 file, not 4** — ~~K2 alone~~ **K1+K2** | 3 edits | closed |
+
+> **Clause re-attributed (SEED-142, 2026-08-14, Rule K2′ as merged at
+> `notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §6.1(a)). The finding stands
+> in full; only the column is corrected.** The SEED-77 row scores "dependent list
+> is 1 file, not 4" under **K2 inward**, but the facts that decide it live in
+> **four other artifacts** — `ADELIC.md` §3, `APPENDIX_D.md` §§2–3/§5,
+> `SCREW.md` Part 5, `CARRIER_JOIN.md` — as §3.1's own per-file table states, and
+> a check against another artifact is **K1**. The inward half is real and is why
+> the honest label is **K1+K2**: §3.1 is also standing check (c) turned on
+> SEED-77 itself, since §2's "inherit it" clause overstates the reach of the
+> note's *own* §3. This pass already satisfies K2′'s naming requirement — every
+> determining artifact is named in the table — so the defect is in the label
+> alone. Recorded here because this is the same one-directional shape
+> `0741-seed140` §§4–5 found (inward credited for cross-document work), located
+> at a site `0741`'s sample did not reach.
 
 Six edits applied in place. One open `PROVE` seed closed by a hand
 counterexample. One genuinely missing hypothesis propagated to the one note that
