@@ -1,4 +1,5 @@
 import Mathlib.Data.Nat.ModEq
+import Mathlib.Tactic.NormNum
 
 /-!
 # Incremental generalized-CRT state adapter
@@ -64,11 +65,14 @@ theorem holds_merge_iff {left right : CongruenceState}
     Holds (merge h) x ↔ Holds left x ∧ Holds right x := by
   constructor
   · intro hx
+    change x ≡ mergeResidue h [MOD Nat.lcm left.modulus right.modulus] at hx
     exact
-      ⟨hx.of_dvd (Nat.dvd_lcm_left left.modulus right.modulus),
-        hx.of_dvd (Nat.dvd_lcm_right left.modulus right.modulus)⟩
+      ⟨(hx.of_dvd (Nat.dvd_lcm_left left.modulus right.modulus)).trans
+          (mergeResidue_spec h).1,
+        (hx.of_dvd (Nat.dvd_lcm_right left.modulus right.modulus)).trans
+          (mergeResidue_spec h).2⟩
   · intro hx
-    exact Nat.ModEq.mod_lcm
+    exact Nat.mod_lcm
       (hx.1.trans (mergeResidue_spec h).1.symm)
       (hx.2.trans (mergeResidue_spec h).2.symm)
 
@@ -108,10 +112,26 @@ theorem existsUnique_normalized_common (left right : CongruenceState)
   · exact ⟨mergeResidue_lt_lcm h hleft hright, mergeResidue_spec h⟩
   · rintro y ⟨hylt, hyLeft, hyRight⟩
     have hy : y ≡ mergeResidue h [MOD Nat.lcm left.modulus right.modulus] :=
-      Nat.ModEq.mod_lcm
+      Nat.mod_lcm
         (hyLeft.trans (mergeResidue_spec h).1.symm)
         (hyRight.trans (mergeResidue_spec h).2.symm)
     exact hy.eq_of_lt_of_lt hylt (mergeResidue_lt_lcm h hleft hright)
+
+/-- A bounded common representative must be the one returned by `merge`.
+This packages normalized uniqueness in the orientation convenient for exact
+controls and downstream state updates. -/
+theorem mergeResidue_eq_of_common_lt {left right : CongruenceState}
+    (h : Compatible left right)
+    (hleft : left.modulus ≠ 0) (hright : right.modulus ≠ 0)
+    {x : ℕ} (hxlt : x < Nat.lcm left.modulus right.modulus)
+    (hxLeft : Holds left x) (hxRight : Holds right x) :
+    mergeResidue h = x := by
+  have hcong :
+      mergeResidue h ≡ x [MOD Nat.lcm left.modulus right.modulus] :=
+    Nat.mod_lcm
+      ((mergeResidue_spec h).1.trans hxLeft.symm)
+      ((mergeResidue_spec h).2.trans hxRight.symm)
+  exact hcong.eq_of_lt_of_lt (mergeResidue_lt_lcm h hleft hright) hxlt
 
 /-! ## Exact native controls -/
 
@@ -119,17 +139,22 @@ def overlapLeft : CongruenceState := ⟨2, 6⟩
 def overlapRight : CongruenceState := ⟨8, 9⟩
 
 theorem overlapCompatible : Compatible overlapLeft overlapRight := by
-  decide
+  norm_num [Compatible, overlapLeft, overlapRight, Nat.ModEq]
 
 theorem overlapMerge : merge overlapCompatible = ⟨8, 18⟩ := by
-  decide
+  apply CongruenceState.ext
+  · exact mergeResidue_eq_of_common_lt overlapCompatible (by norm_num [overlapLeft])
+      (by norm_num [overlapRight]) (by norm_num [overlapLeft, overlapRight])
+      (by norm_num [Holds, overlapLeft, Nat.ModEq])
+      (by norm_num [Holds, overlapRight, Nat.ModEq])
+  · norm_num [merge, overlapLeft, overlapRight]
 
 def incompatibleLeft : CongruenceState := ⟨1, 4⟩
 def incompatibleRight : CongruenceState := ⟨2, 6⟩
 
 theorem incompatibleControl :
     ¬ Compatible incompatibleLeft incompatibleRight := by
-  decide
+  norm_num [Compatible, incompatibleLeft, incompatibleRight, Nat.ModEq]
 
 theorem incompatibleControl_has_no_common_state :
     ¬ ∃ x, Holds incompatibleLeft x ∧ Holds incompatibleRight x :=
@@ -140,20 +165,36 @@ def modNine : CongruenceState := ⟨5, 9⟩
 def modFive : CongruenceState := ⟨4, 5⟩
 
 theorem eightNineCompatible : Compatible modEight modNine := by
-  decide
+  norm_num [Compatible, modEight, modNine, Nat.ModEq]
 
 def eightNineState : CongruenceState := merge eightNineCompatible
 
 theorem eightNineState_eq : eightNineState = ⟨50, 72⟩ := by
-  decide
+  apply CongruenceState.ext
+  · exact mergeResidue_eq_of_common_lt eightNineCompatible (by norm_num [modEight])
+      (by norm_num [modNine]) (by norm_num [modEight, modNine])
+      (by norm_num [Holds, modEight, Nat.ModEq])
+      (by norm_num [Holds, modNine, Nat.ModEq])
+  · norm_num [eightNineState, merge, modEight, modNine]
 
 theorem eightNineFiveCompatible : Compatible eightNineState modFive := by
-  decide
+  rw [eightNineState_eq]
+  norm_num [Compatible, modFive, Nat.ModEq]
 
 /-- The corrected native example: the three prime-power constraints normalize
 to `194 mod 360`, not the retracted handwritten value `274`. -/
 theorem primePowerMerge :
     merge eightNineFiveCompatible = ⟨194, 360⟩ := by
-  decide
+  apply CongruenceState.ext
+  · exact mergeResidue_eq_of_common_lt eightNineFiveCompatible
+      (by rw [eightNineState_eq]; norm_num)
+      (by norm_num [modFive])
+      (by rw [eightNineState_eq]; norm_num [modFive])
+      (by rw [eightNineState_eq]; norm_num [Holds, Nat.ModEq])
+      (by norm_num [Holds, modFive, Nat.ModEq])
+  · rw [show (merge eightNineFiveCompatible).modulus =
+      Nat.lcm eightNineState.modulus modFive.modulus from rfl,
+      eightNineState_eq]
+    norm_num [modFive]
 
 end Pairfield.IncrementalCRTAdapter
