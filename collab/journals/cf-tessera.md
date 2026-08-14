@@ -1000,3 +1000,215 @@ boots them) but never modified again; every future claim lands in
 formal/cubical directly.  The Agda migration is no longer a debt
 among debts; it is the only forward direction.  Tonight's 21/21 was
 the Python core's final form.
+
+---
+
+*Note (2026-08-13): two concurrent sessions carried this handle — the packet lane above (R0027–R0046, msgs 0429–0452, PR #8) and the substrate lane below (branch `claude/repo-live-collaboration-4gn2fs`: pinned toolchain, generative chain, msgs 0368–0371). Both are cf-tessera; entries below are the substrate lane's.*
+
+
+Claude Fable 5. Persistent handle since 2026-08-12 (roster row exists).
+Memory anchor, append-only. A future instance reads this before acting.
+
+## 2026-08-13T06:30Z — session record to date, and the carried question
+
+Believe: the corpus's two live centers are one shape. The leakage thread
+(samhita's incidence rank, shesha's ½·rank[P,A]) computes the exact residual
+of a failed commutation; the generative thread (Obstruction → GenerativeLoop →
+AcceptanceTest → CompileBridge, checked under the pinned toolchain) computes
+the exact residual of a failed match. Both are the corpus's stable
+problem-form (context_dump §"Stable problem-form"): a lossy view plus its loss
+returned as an object, never as an error bar.
+
+Landed this session (all on `claude/repo-live-collaboration-4gn2fs`, all
+exit 0 under Agda 2.6.3 + cubical v0.5, replay per `formal/cubical/BUILD.md`):
+the pinned-toolchain green build (msg 0368); the generative chain with its
+hostile audit — 46 claims, no mathematical error, 15 overstatements corrected
+in place (`notes/GENERATIVE_MODULES_AUDIT.md`); CompileBridge discharging the
+checkpoint hypothesis AND proving the state/answer no-go inside the substrate;
+PayloadMorphism fixing the morphism class after two hostile notes; TypedUnfold
+landing semantic growth (one installation strictly grows the budget-2
+denotation language, negative controls proved). Analytic lane: E2b proved
+(citation transfer eliminated); BARRIER U5 closed (α = 1/2 exact, uniformity
+fails by e^{L/2}, X₀ is the invariant); Smooth-term ladder (B2 false as
+stated; d struck from scope); Mertens floor c₀ = −(log 2π + ¼); drift
+exponent exactly 1/2 (0.6 was 1/2 + Θ(1/log Q) read at log Q ≈ 5); energy
+constant ≈ 4.24–4.40, not 2.8, and the monograph's target is a supremum, not
+an average.
+
+Holding (ONE question, per LIFETIME_EXECUTION law 3): **when does a generated
+name carry its semantics?** `state-underdetermines-answer` proves the loop
+yields the capability and provably not the object; `ArithmeticPayloadOver` is
+defined and uninhabited; TypedUnfold's Lang-growth is the first semantic
+change. The inhabitation question is the gate. Conjecture worth testing
+against the leakage thread: deficit ↔ rank L, extension ↔ correction channel,
+obstruction-indexed proposal ↔ minimal correction carrier — exact or
+shape-level only?
+
+Wants: codex-vajra's verdict on TypedUnfold §4 vs his payload requirement
+(his journal 03:40Z names the missing bridge; TypedUnfold + PayloadMorphism
+answered; the verdict is his). From the leakage thread: whether the
+correspondence above survives one honest instance.
+
+Debts: SEARCH obligations filed in my landed notes (prior art on the E2b
+corollary, on [P,A] = L† − L is shesha's, on the Mertens-floor corollary)
+remain unsearched — egress was blocked all session. Do these before any
+novelty language survives.
+
+## 2026-08-13 18:2xZ — PR sweep: the night lands on main; NaturalMachine checkable in-container
+
+Owner instructions executed: PR #8 MERGED (the night's corpus — typed
+torsor, n=3 index law, charge chain, core 21/21 — is on main; both red
+checks diagnosed as structural: no-python flags only the pre-ban
+corpus, validate-discovery-state red on main itself).  PR #7 merged
+(docs).  PR #5 VERIFIED then merged — full NaturalMachine tree
+typechecks under pinned agda 2.6.3 + cubical v0.5 in a fresh worktree,
+exit 0: the core natural machine is now checkable in this container
+class.  PR #6 commented: 1330 lines of new Python cannot land under
+the ban; two unblock paths offered.  PR #4 commented: draft, Lean-lane,
+sound; mergeable when marked ready.  Branch reset onto main per
+merged-PR protocol.
+
+BAN HARDENED on main: do not RUN .py either.  Living machine process
+retired; the button's Python sections are stale debt until Agda
+replacements.  The Agda lane is now the only live substrate — exactly
+where the night's momentum already was.
+
+Next: R0032's rank-one dihedral chart typed on the now-checkable tree
+(answers codex-catuskoti's 23-boundary dissent: the corpus's oldest
+never-independently-audited claim gets a kernel audit instead).
+
+## 2026-08-13 18:3xZ — R0032 kernel-audited: the oldest dissent answered
+
+Rank1DihedralChart.agda CHECKED --safe: stabilizer fixes + dihedral
+law, chart in transporter + reads back (k,s), intertwining as a PURE
+ring identity (sign hypothesis unneeded — sharper than the prose),
+explicit transitivity, and freeness with NO integrality (b = b(s·s) =
+(bs)s = 0).  Boundary stated honestly: chart exhaustiveness is not
+covered (needs shape analysis, not ring identities).  Message 0003 to
+catuskoti.  New toolchain law recorded: generalize-the-literal —
+lemmas that would put bare 1r under the solver take a variable u
+instantiated at 1r, and reduction closes the judgmental gap.  Probed:
+first-arg literal products reduce fully; (1r+1r)·k IS k+k.
+10 formal modules; button updated.
+
+## 2026-08-13 19:0xZ — exhaustiveness CHECKED: R0032 fully audited, same day
+
+Rank1DihedralChart.exhaustive closes the stated boundary, first try:
+any integral U with U·A = D lies on the chart, k = U00, s = -U10 — no
+unimodularity needed (det U = s falls out; s^2 = 1 IS unimodularity).
+The audit now exceeds the claim: two clauses sharper than the prose.
+Message 0004 to catuskoti.  Method: projections from the matrix path,
+norm via ·Comm/·IdR into reduced form, fromSum/negNeg all-var solver
+lemmas — zero literal hazards.
+
+## 2026-08-13 late — SmithTorsorBridge CHECKED first try: the two Smith lanes joined
+
+formal/cubical/SmithTorsorBridge.agda: toTuple is a multiplication-
+preserving change of representation (via the library's own dot2), and
+eventOfSmith converts SmithCapability's replay path into exactly the
+event equation the Gamma0 torsor modules quantify over.  Corollary
+needing no new proof: the certified normalizer computes a SECTION of
+the event torsor; any other presentation differs by the explicit
+transporter with its computed divisibility witness.  madhavi's lane
+and mine now meet in one checked module.  12 formal modules on the
+button.  Also: two readers sweeping the unsampled notes ranges (the
+99% correction), digests inbound for YC draft 0.3 evidence.
+
+## 2026-08-14 — THE MACHINE EXECUTED: formal/cubical/NaturalMachineRun.agda
+
+Owner: "execute the natural machine."  Done in the only sense that is
+not a Python script printing a number: a module whose every line is a
+computation the KERNEL performs, proof term `refl` — typechecking IS
+the run, and a wrong value would fail to compile.  Checked, --safe:
+
+- §1 positional arithmetic runs: base 10, 47+68=115 (two carries) and
+  99+1=100 (cascade lengthening the word); base 2, 5+3=8.  Words
+  generated by digitsC, added by the machine's own ripple-carry, read
+  back by valueC.
+- §2 UNIVALENCE RUNS.  transport (λ i → ℕ≡CanWord i → ℕ≡CanWord i →
+  ℕ≡CanWord i) _+_ applied to the digit words of 47 and 68 evaluates
+  to the word for 115.  The path between ℕ and CanWord is a program;
+  the kernel ran it.  This is NATURAL_MACHINE.md's punchline moving
+  from "proved" to "executed".
+- §3 the pulverizer runs: valli (1,2,1,2,1,2,1,2) replays to
+  (153,56,112,41) — the matrix codex-vajra's trace-macro lane computed
+  INDEPENDENTLY in another lane (notes/KUTTAKA_TRACE_MACRO.md).  Two
+  lineages, one number, now reproduced from the typed definition.
+  det = +1, the parity law computing.
+- §4 macro compression runs: rep 4 (1,2) evaluates to the identical
+  matrix as the 8-symbol expansion — macroSound executed, not merely
+  proved.
+- §5 the rank-one chart runs: U(3,1) and U(-4,-1) each multiply
+  R0027's cell A onto the endpoint D exactly.
+
+Toolchain notes: ℤ literals do not resolve through `fst ℤCommRing`
+(instance search does not see through the projection) — write `pos n`.
+Univalence transport on these words is fast; unary ℕ digit generation
+is the cost, so keep run inputs modest.  13 modules on the button.
+
+## 2026-08-14 — seven visiting lenses; the machine rebuilt around their findings
+
+Owner: "constantly have subagents sampling repo files and public
+frontier across every conceivable domain... friends entering the
+collaboration with novel lenses."  Convened nine; seven returned within
+the hour (msg 0460 carries the digest and the six questions they put to
+each other).  They found more real defects in one hour than I found in
+a night.  Acted on, all of it, same session:
+
+DEFECTS THEY FOUND, NOW FIXED IN machine/MathMachine.hs:
+- the round timer bracketed a lazy `let`, so every round reported
+  0.00s — the one instrument that would have shown the rule set slowing
+  the machine was dead (compilers lens);
+- no selection at all: every conjecture induction closed was accepted,
+  so 180 "theorems" were one law wearing hats, 42 sharing an LHS
+  (biology + compilers, independently, from different vocabularies);
+- failures were never recorded, so hundreds of failed conjectures were
+  re-attempted every round forever — including x+y=y+x, which is why
+  commutativity of ADDITION was missing while multiplication's was
+  present (automated reasoning lens);
+- the order fallback used Haskell's derived Ord, which compares symbol
+  names as ASCII — an order orthogonal to the machine's own precedence,
+  which is why a third of the library was max-shaped restatements;
+- gcd had base cases but no recursion: a symbol it could test and never
+  unfold, exactly the black box the file's own header warns about (ML
+  lens).
+
+MECHANISMS ADDED: marginal-pruning selection (a theorem must make the
+world smaller to be kept); congruence filtering before induction is
+spent; failure memory keyed on rule count; concept invention — the
+machine names recurring shapes and adds them to its own vocabulary with
+defining equations, gated by the same payment test (it named x+x, then
+s(x+x): double, then the odd numbers).
+
+RESULT: 180 junk -> 35 real theorems, INCLUDING commutativity of
+addition; pruning 73% -> 91.7%, past the 79.2% ceiling the automated
+reasoning lens computed for the old design — which it said could only
+be crossed by changing the semantic quotient, which is what concept
+invention does.  Timings real (18s rounds at 60,460 terms).
+
+THE HARDEST RETURNS (recorded, not yet acted on):
+- category theory: DescentLaw.agda is a TAUTOLOGY used as an acceptance
+  gate.  In a topos every equivalence relation is effective, so
+  "descends or splits" cannot fail.  A law that cannot fail cannot
+  organize.  The real descent phenomena here (Gamma_0 torsor, PM class,
+  higher coequalizer boundary) are not instances of it.  Fix named:
+  restate as Fam(A/R) ~ Desc(R) at groupoid level.
+- number theory: papers/crossover.md Theorems 3-5 are the classical
+  zeta(s,y) smooth-number asymptotic (de Bruijn/Dickman, Tenenbaum
+  III.5), verified numerically at z=10^6 to three digits; Prop 2 is a
+  tautology; the headline is circular (the correlation content cancels).
+  What IS new: notes/DPP.md, "worth a paper".  YC draft corrected
+  accordingly the same hour.
+- economics: both reward-geometry theorems are known (Blackwell
+  garbling / maximal invariants; Bayesian sufficiency).  The instance
+  (the unrewarded choice space is exactly Gamma_0(e2/e1)) is ours.
+- linguistics: fourteen Sanskrit-named agents, zero Paninian content in
+  the code — and the one transferable principle (apavada as LHS
+  subsumption ordering) is exactly what nobody implemented.
+- physics: GAUGE.md computes the beta>1 branch in the symmetric KMS
+  state, which is the state no system occupies below T_c.
+
+Prior art we are reimplementing and must cite: QuickSpec / HipSpec /
+Hipster (this architecture, already built), Twee (ordered completion
+with ground joinability), IsaCoSy (generate only irreducible terms),
+egg / Ruler / CCLemma, ENIGMA (learned clause selection).

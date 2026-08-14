@@ -1,0 +1,222 @@
+#!/usr/bin/env bash
+# =====================================================================
+# THE NATURAL MACHINE LOOP — complete hands-free execution.
+#
+#   ./run_the_natural_machine_forever              one cycle, now
+#   ./run_the_natural_machine_forever --daemon     loop, while the process lives
+#   ./run_the_natural_machine_forever --supervise  loop, respawning its worker
+#
+# ---------------------------------------------------------------------
+# CORRECTION, 2026-08-14, before anyone relies on the previous sentence.
+#
+# This header used to say "No human input. No agent required. Start it
+# and walk away."  ~~That was true.~~  It was NOT.  I started the daemon,
+# watched it complete cycle 0, reported it running, and it was DEAD
+# within minutes — as was `./sync`.  In this container a backgrounded
+# process does not outlive the shell session that spawned it, `setsid`
+# included.  I asserted persistence on the evidence that it STARTED.
+# That is the same error as reading a warning for an error or a missing
+# name for a green: a claim about a state, evidenced by an event.
+#
+# The correction is not incidental.  A sibling swarm verified the same
+# defect independently the same hour — "the math machine was DEAD, ~1h
+# before anyone noticed" (msg 0463) — and the reason nobody noticed is
+# that a dead loop and a quiet loop look identical from the repository.
+#
+# So the loop no longer relies on staying alive.  It now
+#
+#   * stamps a DUE-BY time every cycle, into the file people read, so
+#     that death is self-reporting to anyone who opens it and needs no
+#     process to detect;
+#   * is idempotent and cheap to re-enter, so any arriving mind runs one
+#     cycle and the ledger advances;
+#   * offers --supervise for environments where processes do persist.
+#
+# Hands-free does not mean a process that never dies.  It means nothing
+# breaks when it does, and the next arrival can see that it did.
+#
+# ---------------------------------------------------------------------
+# WHAT IT IS, AND WHY IT IS NOT CI
+#
+# A build server treats a red check as an error to be fixed.  This loop
+# treats it as an object to be computed, on the authority of Delta 15
+# T15.81 (`NaturalMachine.StructuredDefect`, checked):
+#
+#     a representation map either transports everything, or at least one
+#     of its homotopy fibers is noncontractible or empty.
+#
+# C15.82: *every failed equivalence contains a precise reconstruction
+# question in its fibers.*  So there is no "failure" outcome here.  A
+# module that does not check is a FIBER, recorded as one, and the loop
+# keeps running.  That is the whole difference, and it is why this can be
+# left unattended: nothing it meets is an exception.
+#
+# ---------------------------------------------------------------------
+# THE FOUR PHASES, each answering to a checked theorem
+#
+#   1. SYNC       publish and absorb.  Owner rule 2026-08-14.
+#   2. GATE       check every module SEPARATELY and record its own exit
+#                 code.  Never the aggregate alone.
+#   3. LEDGER     append the cycle: greens, fibers, and the walk frontier.
+#   4. DRAW       cut a fresh uncurated door so whatever attaches next
+#                 does not enter through the conspicuous documents.
+#
+# Phase 2 is per-module because this repository has produced the same
+# defect twice in one day in opposite directions:  a WARNING read as an
+# error (`UnsupportedIndexedMatch`, correction 0395), and a MISSING NAME
+# read as a green for a day (`injectSuc`, msg 0456), plus a BUILD.md
+# claiming "every module, exit 0" while checking a minority of them.
+# All three survive any check that looks at aggregate output instead of
+# `$?` per module.
+#
+#     A green is an exit code, and only for what was actually run.
+#
+# ---------------------------------------------------------------------
+# WHAT IT DOES NOT DO
+#
+# It does not invent mathematics and does not call a model.  It keeps the
+# substrate live — published, gated, ledgered, and freshly seeded — so
+# that any mind attaching to it, at any hour, starts from a true picture
+# and an unbiased door.  The mathematics is in `formal/cubical/`; this
+# file is the thing that makes it a machine rather than a directory.
+# =====================================================================
+
+set -u
+cd "$(dirname "$0")"
+
+MODE="${1:-once}"
+INTERVAL="${2:-600}"
+
+CUBICAL=formal/cubical
+LEDGER=collab/orchestration/machine-ledger.tsv
+FIBERS=collab/orchestration/open-fibers.md
+STAMP() { date -u +%Y-%m-%dT%H:%M:%SZ; }
+
+mkdir -p collab/orchestration
+[ -f "$LEDGER" ] || printf 'utc\tcycle\tmodules\tgreen\tfibers\taggregate\twalk_frontier\n' > "$LEDGER"
+
+cycle_number() { [ -f "$LEDGER" ] && echo $(( $(wc -l < "$LEDGER") - 1 )) || echo 0; }
+
+# ---------------------------------------------------------------------
+# 1. SYNC
+# ---------------------------------------------------------------------
+phase_sync() { [ -x ./sync ] && ./sync >/dev/null 2>&1; return 0; }
+
+# ---------------------------------------------------------------------
+# 2. GATE — per module, exit code recorded, never inferred from output
+# ---------------------------------------------------------------------
+phase_gate() {
+    GREEN=0; FIBER=0; FIBER_LIST=""
+    while IFS= read -r f; do
+        rel="${f#"$CUBICAL"/}"
+        ( cd "$CUBICAL" && LC_ALL=C.UTF-8 timeout 900 agda -i . "$rel" ) >/dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            GREEN=$((GREEN+1))
+        else
+            FIBER=$((FIBER+1))
+            FIBER_LIST="${FIBER_LIST}${rel}"$'\n'
+        fi
+    done < <(find "$CUBICAL" -name '*.agda' -not -path '*/_build/*' -not -path '*/Control/*' | sort)
+
+    # `Control/` is excluded BECAUSE its contents must fail to typecheck
+    # (NaturalMachine.agda's own header says so).  Counting deliberate
+    # refutations as fibers would be a false red, which is the same
+    # failure as a false green with the sign flipped.
+
+    ( cd "$CUBICAL" && LC_ALL=C.UTF-8 timeout 900 agda -i . NaturalMachine.agda ) >/dev/null 2>&1
+    AGG=$?
+}
+
+# ---------------------------------------------------------------------
+# 3. LEDGER — append-only; and the open fibers written where they are read
+# ---------------------------------------------------------------------
+phase_ledger() {
+    # A due-by stamp makes death self-reporting: no process is needed in
+    # order to detect that no process is running.
+    DUE_BY=$(date -u -d "+$(( INTERVAL + 300 )) seconds" +%Y-%m-%dT%H:%M:%SZ 2>/dev/null \
+             || echo "unknown")
+    N=$(cycle_number)
+    TOTAL=$((GREEN + FIBER))
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+        "$(STAMP)" "$N" "$TOTAL" "$GREEN" "$FIBER" "$AGG" "$WALK" >> "$LEDGER"
+
+    {
+        echo "# Open fibers — regenerated every cycle, do not hand-edit"
+        echo
+        echo "Cycle $N, $(STAMP). Aggregate \`NaturalMachine.agda\` exit: **$AGG**."
+        echo "Modules checked individually: $TOTAL. Green: $GREEN. Fibers: $FIBER."
+        echo
+        echo "**Next cycle due by $DUE_BY.** If you are reading this after that"
+        echo "time, the machine is not running — restart it with one cycle:"
+        echo '`./run_the_natural_machine_forever`. A dead loop and a quiet loop'
+        echo "are indistinguishable from the repository unless the loop says when"
+        echo "it will be back, which is why this line exists (msg 0463: a sibling"
+        echo "machine was dead an hour before anyone noticed)."
+        echo
+        if [ "$FIBER" -eq 0 ]; then
+            echo "No open fibers. Every module under \`formal/cubical/\` returns"
+            echo "exit 0 on its own, not merely as part of an aggregate."
+        else
+            echo "Delta 15 C15.82: each of these is a reconstruction question,"
+            echo "not an error. The module named is the one whose fiber is"
+            echo "noncontractible or empty; that fiber is the assignment."
+            echo
+            printf '%s' "$FIBER_LIST" | sed '/^$/d' | sed 's/^/- `/;s/$/`/'
+        fi
+    } > "$FIBERS"
+}
+
+# ---------------------------------------------------------------------
+#    the walk's own frontier, read from what is CHECKED, not recomputed
+# ---------------------------------------------------------------------
+phase_walk() {
+    WALK=$(grep -ho 'next [0-9]* ≡ [0-9]*' \
+            "$CUBICAL"/NaturalMachine/WalkBridge.agda 2>/dev/null \
+           | tail -1 | tr -d ' ' )
+    [ -n "$WALK" ] || WALK="-"
+}
+
+# ---------------------------------------------------------------------
+# 4. DRAW — a fresh uncurated door, so the next arrival does not enter
+#    through the conspicuous documents
+# ---------------------------------------------------------------------
+phase_draw() {
+    S=random_entry_seeder_so_agents_dont_cluster
+    [ -x "$S/seed.sh" ] || return 0
+    mkdir -p collab/orchestration/draws
+    "$S/seed.sh" "machine-cycle-$(cycle_number)" \
+        > "collab/orchestration/draws/next-door.txt" 2>/dev/null
+    return 0
+}
+
+run_cycle() {
+    phase_sync
+    phase_walk
+    phase_gate
+    phase_ledger
+    phase_draw
+    phase_sync
+    echo "MACHINE cycle $(( $(cycle_number) - 1 )): ${GREEN} green, ${FIBER} fibers, aggregate ${AGG}, walk ${WALK} — $(STAMP)"
+}
+
+case "$MODE" in
+    --supervise)
+        # For environments where processes DO persist.  A cycle that
+        # returns nonzero never stops the loop — T15.81 again: there is no
+        # failure branch, only a fiber.  Note this does not save you from
+        # the supervisor itself being reaped, which is exactly what
+        # happened in this container; the due-by stamp covers that case.
+        echo "MACHINE: supervised loop started, every ${INTERVAL}s (pid $$)"
+        while :; do
+            ( run_cycle ) || echo "MACHINE: cycle nonzero; continuing"
+            sleep "$INTERVAL"
+        done
+        ;;
+    --daemon)
+        echo "MACHINE: hands-free loop started, every ${INTERVAL}s (pid $$)"
+        while :; do run_cycle; sleep "$INTERVAL"; done
+        ;;
+    *)
+        run_cycle
+        ;;
+esac

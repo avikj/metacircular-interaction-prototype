@@ -11,12 +11,17 @@ run : {S : Type₀} → S → (S → S) → ℕ → S
 run seed step zero    = seed
 run seed step (suc n) = step (run seed step n)
 
+-- Definitional sanity only: this re-states the second clause of `run`
+-- (it is `refl`), pinning the reduction behavior by name.  It is not a
+-- theorem beyond the definition.
 run-suc : {S : Type₀} (seed : S) (step : S → S) (n : ℕ)
         → run seed step (suc n) ≡ step (run seed step n)
 run-suc seed step n = refl
 
--- A map between executions is valid exactly when it preserves the seed and
+-- A map between executions is valid when it preserves the seed and
 -- commutes with one step.  Then it commutes with every counted execution.
+-- (Sufficient, not "exactly when": the converse would give the step
+-- equation only on reachable states, and is not stated.)
 compile : {S T : Type₀} (seedS : S) (stepS : S → S)
         → (seedT : T) (stepT : T → T) (f : S → T)
         → f seedS ≡ seedT

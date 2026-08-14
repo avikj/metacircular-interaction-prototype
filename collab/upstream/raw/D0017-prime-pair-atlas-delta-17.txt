@@ -1,0 +1,169 @@
+Prime-Pair Atlas — Delta 17
+Split torus, invariant theory, and adelic relative geometry
+Date: 2026-08-13
+Status: exact algebraic derivations + literature-facing theorem targets.
+
+17.1 Light-cone coordinates are the original factors
+From W=p+q, R=q-p define u_-=W-R=2p, u_+=W+R=2q.
+Thus center-relative coordinates are a 45-degree linear recombination of the two
+factor coordinates, and Q=W^2-R^2=u_-u_+=4pq. The "null" lines W=+-R are exactly
+p=0 and q=0.
+T17.1 The split quadratic plane (W,R,Q=W^2-R^2) is linearly equivalent to the
+product plane (u_-,u_+,Q=u_-u_+).
+C17.2 The multiplicative product pq is the split quadratic norm of the additive
+center-relative vector.
+
+17.2 Split torus action
+For t in G_m act on factor coordinates: (p,q) -> (t^-1 p, t q). This preserves pq.
+In (u_-,u_+) it is diagonal. In (W,R), using t=e^eta over R_{>0}, this is the
+hyperbolic rotation W' = cosh eta W + sinh eta R, R' = sinh eta W + cosh eta R.
+T17.3 The connected split orthogonal group SO^+(1,1) is isomorphic to G_m over
+appropriate base, acting by reciprocal scaling on p,q and preserving Q=4pq.
+C17.4 The logarithmic ratio eta=(1/2)log(q/p) is literally the split-torus group
+parameter; exchange acts by Weyl inversion t->t^-1, eta->-eta.
+This is not a physics analogy. It is the standard rank-one split torus/Weyl geometry.
+
+17.3 Weyl group
+The normalizer of the split torus has Weyl group Z/2, represented by exchange p<->q.
+T17.5 Exchange conjugates t to t^-1: tau diag(t^-1,t) tau^-1 = diag(t,t^-1).
+C17.6 Binary pair exchange is the rank-one Weyl reflection of the split torus.
+This gives a mature representation-theoretic home for the recurring Z/2.
+
+17.4 One-leg sign reflection is not the Weyl reflection
+J2(p,q)=(p,-q) changes product pq -> -pq, hence Q -> -Q.
+C17.7 Two involutions must remain distinct:
+  - Weyl/exchange: preserves split norm Q;
+  - one-leg sign reflection: swaps positive/negative norm sectors and exchanges
+    sum/gap foliations.
+This prevents future parity/boundary conflation.
+
+17.5 Fixed product orbits
+For c != 0, hyperbola pq=c is a G_m orbit over an algebraically closed/suitable
+field; over arithmetic rings it decomposes into integral/rational orbit data.
+T17.8 Over a field F, the fiber pq=c != 0 is a G_m-torsor after choosing one point.
+C17.9 Fixing product is fixing the invariant of the split-torus action; ratio is
+the orbit coordinate. So: sum W = additive observable, gap R = additive relative
+observable, product Q/4 = invariant, ratio t = orbit coordinate.
+
+17.6 Prime pairs as sparse arithmetic subset of split-torus geometry
+For primes p,q>0, the point lies in positive norm sector Q>0 with u_+- positive.
+The prime condition is not invariant under continuous G_m scaling.
+P17.10 The ambient torus symmetry is broken arithmetically by the integral
+prime-supported lattice. Thus there are TWO symmetry breakings:
+  1. positivity breaks one-leg reflection between Q signs;
+  2. integrality/primality breaks continuous torus orbits to sparse arithmetic points.
+These should not be conflated.
+
+17.7 Arithmetic torus and divisors
+At each prime l: v_l(p) -> v_l(p)-v_l(t), v_l(q) -> v_l(q)+v_l(t).
+T17.11 The split-torus action is translation on the valuation-difference
+coordinate d_l=v_l(q)-v_l(p): d_l -> d_l + 2 v_l(t), while total valuation
+s_l=v_l(p)+v_l(q)=v_l(pq) is invariant.
+C17.12 At every finite place, the same center-relative decomposition reappears:
+total valuation s_l versus relative valuation d_l.
+
+17.8 Local charge coordinates
+s_l=v_l(p)+v_l(q), d_l=v_l(q)-v_l(p); v_l(p)=(s_l-d_l)/2, v_l(q)=(s_l+d_l)/2 with
+parity constraint s_l = d_l mod 2.
+T17.13 The valuation-pair lattice Z_{>=0}^2 is equivalent to the cone
+{(s,d) in Z_{>=0} x Z : s >= |d|, s = d mod 2}.
+This is exactly the same cone algebra as p,q <-> W,R.
+C17.14 Factorization at each prime has its own discrete center-relative cone.
+
+17.9 Global factorization charge
+Sum_l s_l = Omega(p)+Omega(q). For prime p,q this equals 2. Sum_l d_l gives
+Omega(q)-Omega(p), zero for two primes.
+C17.15 The prime-pair locus is a fixed total factorization-charge sector inside
+the product of local valuation cones.
+
+17.10 For Lambda weights
+P17.16 The von Mangoldt pair field lives on pairs of valuation vectors each
+supported on one coordinate, while the product invariant combines them additively
+in divisor space.
+
+17.11 Character duality
+Two natural harmonic dualities: additive characters e(alpha R); multiplicative
+characters chi(q/p) or chi(pq).
+Program 17.17 Write the pair field on the split torus and perform simultaneous
+harmonic analysis in norm/product and torus/ratio coordinates; compare with the
+existing Laplace-Fourier W,R transform and Mellin transform. Search
+automorphic/prehomogeneous-vector-space literature first.
+
+17.12 The representation (G_m x Weyl)
+u=sqrt(pq)>0 and t=sqrt(q/p)>0. Exchange is t->t^-1. The torus acts by t->a t.
+T17.18 R_{>0}^2 ~ R_{>0} x G_m^+ as product of norm radius and split-torus orbit.
+C17.19 The binary pair geometry is a radial variable times a rank-one
+symmetric-space/Weyl variable.
+
+17.13 Relation to SU(1,1)
+Program 17.20 Re-derive the library's SU(1,1) tensor decomposition starting from
+the split quadratic pair geometry and identify radial/Casimir coordinate,
+Cartan/split-torus coordinate, Weyl reflection, discrete series basis.
+
+17.14 Positive cone as discrete-series choice?
+Program 17.21 Check whether restricting arithmetic indices n>0 is exactly the
+lowest-weight polarization underlying the SU(1,1) representation.
+
+17.15 Adelic pair geometry
+Synthesis 17.22 The same rank-one split torus acts at every place. Global
+arithmetic is the compatibility of one rational point across all local
+presentations.
+Program 17.23 Formulate prime-pair constraints as conditions on an adelic
+orbit/measure of the split pair representation.
+
+17.16 Higher arity generalization: maximal torus and root system A_{k-1}
+T17.24 For the diagonal torus action on (G_m)^k, character lattice modulo
+diagonal character is the A_{k-1} root lattice.
+C17.25 The additive relative configuration V_k and multiplicative relative torus
+T^{k-1} share Weyl group S_k and root system A_{k-1}.
+THIS is a major structural reconciliation. Additive: differences x_i-x_j.
+Multiplicative: ratios x_i/x_j. Same Weyl combinatorics; different group law.
+
+17.17 Logarithm as local bridge
+T17.26 Log identifies the positive multiplicative relative torus with additive
+relative log-coordinates.
+C17.27 The additive/multiplicative A_{k-1} geometries become literally equivalent
+after logarithm over R_{>0}, but NOT over integers/p-adics globally.
+
+17.18 Formal group perspective
+Known T17.28 Over Q-algebras, the multiplicative formal group is isomorphic to
+the additive formal group via log(1+X).
+C17.29 Addition and multiplication are locally univalently/equivalently related in
+characteristic zero formal geometry, while global arithmetic obstructions remain.
+
+17.19 p-adic logarithm
+C17.30 At every place there are local domains where multiplicative relative ratios
+become additive differences under logarithm.
+Program 17.31 Compare the failure domains/kernel/torsion of local logarithms
+across places with structures appearing in singular series and charge.
+
+17.20 Univalence interpretation
+Synthesis 17.32 The atlas is inherently contextual:
+  Gamma_inf |- G_m^+ ~ G_a,
+  Gamma_p,near1 |- U_1 ~ pZ_p,
+  Gamma_formal,Q |- G_m^ ~ G_a^,
+while globally no such equivalence exists. Do not erase Gamma.
+
+17.21 A candidate obstruction question
+Given the local equivalences between additive and multiplicative relative
+geometries, what is the exact descent obstruction to gluing them into a global
+arithmetic equivalence?
+Program 17.33 Study the exponential/logarithm exact sequences and adelic
+cohomology governing failure of global logarithms.
+
+17.22 Prime-pair-specific residual
+C17.34 Geometry can unify the ambient spaces without solving the arithmetic
+measure. This is the correct humility boundary.
+
+17.23 What to calculate next
+1. Re-open the exact Hahn/SU(1,1) library derivations and identify their
+   split-torus/Weyl coordinates.
+2. Re-open the affine determinant construction and express determinant h in
+   W,R,Q coordinates.
+3. Compute local singular series factors directly from A_{k-1} collision/root data.
+4. Compare additive root h_i-h_j and multiplicative root x_i/x_j under local
+   logarithms.
+5. Determine whether the charge-deformed Buchstab semigroup is harmonic analysis
+   on a grading dual to a torus character.
+6. Formalize the contextual equivalences in Cubical Agda only after the
+   mathematics is clear.

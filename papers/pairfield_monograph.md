@@ -387,7 +387,7 @@ by A′′; what remains here is the stronger algebraic classification.
 2. The product-weighted pair object (`SCREW §4`): construct the doubly-reweighted Goldbach sum with masses $1/((\gamma^2+\tfrac14)(\gamma'^2+\tfrac14))$, test its Krein kernel for positivity at 100k zeros; failure kills the corrected join.
 3. $[\sharp\sharp]+[\flat\flat]$ vs $G_1$ at finite $Q$ with mixed blocks averaging at the predicted $Q$-rate (`ADELIC §3` derivation 1).
 4. $X=10^5$ factorization; search a second cyclotomic tie beyond $m=1000$ (none should exist: F2∞).
-5. Derive or refute the empirical $0.0925\lambda^2/\log^2z$ third-order crossover coefficient ([CROSS] Remark 5.6).
+5. ~~Derive or refute the empirical $0.0925\lambda^2/\log^2z$ third-order crossover coefficient ([CROSS] Remark 5.6).~~ **Done (marked 2026-08-13 per `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §1): derived in [CROSS] Theorem 5 (proof §5.5, numerical check §6) and `K2.md` II — the coefficient is $(\gamma_1+\gamma^2/2)\lambda^2=0.0937731164\ldots\lambda^2$, and the empirical $0.0925$ was finite-$z$ bias.**
 6. Resolve individual Maass lines $\kappa_j$ in the divisor error at $X\sim10^9$ (segmented sieve) — the divisor analogue of exp6b (`DIVISOR §6`).
 7. The prolate/CC bridge: connect the block decomposition to Connes–Consani–Moscovici prolate positivity on windows wider than $(\tfrac12,2)$ (`WEIL §7`).
 8. Prior-art search continuation for the crossover law (15 searches negative so far; a hit would downgrade [CROSS] to rediscovery — say so if found).
