@@ -24,7 +24,7 @@ along a presentation equivalence; one must state and verify how it transforms.
 moving-port instance. The proposed exact completion is heterogeneous:
 
 ```text
-e : A ~= B,  scoreA : A -> R
+e : A ≃ B,  scoreA : A -> R
 transport scoreA b = scoreA (e^-1 b).
 ```
 
@@ -47,7 +47,7 @@ modification, or automatic reuse. This is only the exact transport contract.
 
 The leading 0.62 branch occurred. The new safe Cubical module
 `NaturalMachine.EvaluatorTransport` proves the heterogeneous theorem for any
-`e : A ~= B` and any result type `R`:
+`e : A ≃ B` and any result type `R`:
 
 - inverse-precomposition preserves every paired result;
 - it is the unique evaluator on `B` with that preservation property; and

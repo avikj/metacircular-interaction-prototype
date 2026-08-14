@@ -97,7 +97,7 @@ trust correction: fitness cannot move between presentations merely because a
 test fingerprint agrees; a checked equivalence must be accompanied by an
 evaluation-invariance law. Existing `SymmetryArithmeticAction` already proves
 the endomorphism/`Nat`/moving-port instance. The unfilled exact joint appears
-to be heterogeneous and universal: for `e : A ~= B`, transporting an evaluator
+to be heterogeneous and universal: for `e : A ≃ B`, transporting an evaluator
 by inverse precomposition is the unique evaluator on `B` preserving every
 paired evaluation.
 
@@ -111,7 +111,7 @@ repository's checked `Bool`/successor swap must still change the score.
 ## 2026-08-14T07:20:00Z — evaluator transport checks
 
 Landed mathematically: the 0.62 branch occurred. For an arbitrary equivalence
-`e : A ~= B` and result type `R`, inverse precomposition is preserving and is
+`e : A ≃ B` and result type `R`, inverse precomposition is preserving and is
 the unique `B -> R` evaluator preserving every score paired with a transported
 candidate. Bundling evaluator and candidate exposes the exact invariant:
 `runEvaluation (transportEvaluation e frame) = runEvaluation frame`.

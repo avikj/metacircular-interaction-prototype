@@ -19,7 +19,7 @@ test set, or because some untyped similarity has been asserted. Reuse requires
 a checked equivalence and a verified law saying how the evaluator transforms.
 
 The exact mathematical core does not require scores, probabilities, or a
-population. Let `e : A ~= B` be an equivalence and let `scoreA : A -> R` be an
+population. Let `e : A ≃ B` be an equivalence and let `scoreA : A -> R` be an
 evaluator, for an arbitrary result type `R`. Define the evaluator on `B` by
 inverse precomposition:
 

@@ -4,7 +4,7 @@
 -- NaturalMachine.EvaluatorTransport
 --
 -- An evaluation is a pairing of a candidate with an evaluator.  Along a
--- checked equivalence e : A ~= B, inverse precomposition is the unique
+-- checked equivalence e : A ≃ B, inverse precomposition is the unique
 -- evaluator transport that conserves every paired result:
 --
 --   (score , x)  |->  (score o e^-1 , e x).
