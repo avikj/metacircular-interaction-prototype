@@ -654,6 +654,89 @@ theorem consumeFrontier_remaining_sound
       simp only [consumeFrontier]
       exact ih _ (takeBucket_remaining_sound M node.state index hsound)
 
+theorem consumeFrontier_remaining_keys_nodup
+    (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
+    (index : List (SourceBucket M)) (hkeys : IndexKeysNodup M index) :
+    IndexKeysNodup M (consumeFrontier M frontier index).remaining := by
+  induction frontier generalizing index with
+  | nil => simpa [consumeFrontier] using hkeys
+  | cons node rest ih =>
+      simp only [consumeFrontier]
+      exact ih _ (takeBucket_remaining_keys_nodup M node.state index hkeys)
+
+/-- An edge whose source is outside the expanded frontier survives destructive
+bucket consumption. -/
+theorem consumeFrontier_remaining_covers_edge
+    (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
+    (index : List (SourceBucket M)) (hsound : IndexSound M index)
+    {edge : ReverseEdge M} (hedge : edge ∈ indexEdges M index)
+    (houtside : ∀ node ∈ frontier,
+      reverseEdgeSourceState M edge ≠ node.state) :
+    edge ∈ indexEdges M (consumeFrontier M frontier index).remaining := by
+  induction frontier generalizing index with
+  | nil => simpa [consumeFrontier] using hedge
+  | cons node rest ih =>
+      have hpartition :=
+        (mem_indexEdges_takeBucket M node.state index edge).mp hedge
+      rcases hpartition with htaken | hremaining
+      · have hsource :=
+          takeBucket_edges_source M node.state index hsound htaken
+        exact False.elim
+          (houtside node List.mem_cons_self hsource)
+      · simp only [consumeFrontier]
+        exact ih (takeBucket M node.state index).2
+          (takeBucket_remaining_sound M node.state index hsound) hremaining
+          (fun old hold =>
+            houtside old (List.mem_cons_of_mem node hold))
+
+/-- Every indexed edge whose source occurs in the frontier produces a
+candidate representing its native target, even if an earlier equal source
+already consumed the bucket. -/
+theorem consumeFrontier_covers_edge
+    (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
+    (index : List (SourceBucket M)) (hsound : IndexSound M index)
+    (hkeys : IndexKeysNodup M index) {edge : ReverseEdge M}
+    (hedge : edge ∈ indexEdges M index)
+    (hsource : ∃ node ∈ frontier,
+      reverseEdgeSourceState M edge = node.state) :
+    ∃ candidate ∈ (consumeFrontier M frontier index).candidates,
+      candidate.state = reverseEdgeTargetState M edge := by
+  induction frontier generalizing index with
+  | nil => simp at hsource
+  | cons node rest ih =>
+      rcases hsource with ⟨sourceNode, hsourceNode, hsource⟩
+      simp only [List.mem_cons] at hsourceNode
+      rcases hsourceNode with rfl | hsourceTail
+      · have htaken := takeBucket_edge_complete M node.state index hsound
+          hkeys hedge hsource
+        refine ⟨node.child (indexedEdgeDFA M) edge, ?_, ?_⟩
+        · simp only [consumeFrontier, List.mem_append, List.mem_map]
+          exact Or.inl ⟨edge, htaken, rfl⟩
+        · change (indexedEdgeDFA M).step node.state edge =
+            reverseEdgeTargetState M edge
+          rw [← hsource]
+          exact indexedEdgeDFA_step_source M edge
+      · have hpartition :=
+          (mem_indexEdges_takeBucket M node.state index edge).mp hedge
+        rcases hpartition with htaken | hremaining
+        · refine ⟨node.child (indexedEdgeDFA M) edge, ?_, ?_⟩
+          · simp only [consumeFrontier, List.mem_append, List.mem_map]
+            exact Or.inl ⟨edge, htaken, rfl⟩
+          · change (indexedEdgeDFA M).step node.state edge =
+              reverseEdgeTargetState M edge
+            have hedgeSource :=
+              takeBucket_edges_source M node.state index hsound htaken
+            rw [← hedgeSource]
+            exact indexedEdgeDFA_step_source M edge
+        · obtain ⟨candidate, hcandidate, htarget⟩ :=
+            ih (takeBucket M node.state index).2
+              (takeBucket_remaining_sound M node.state index hsound)
+              (takeBucket_remaining_keys_nodup M node.state index hkeys)
+              hremaining ⟨sourceNode, hsourceTail, hsource⟩
+          refine ⟨candidate, ?_, htarget⟩
+          simp only [consumeFrontier, List.mem_append]
+          exact Or.inr hcandidate
+
 theorem consumeFrontier_candidates_valid
     (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
     (index : List (SourceBucket M))
