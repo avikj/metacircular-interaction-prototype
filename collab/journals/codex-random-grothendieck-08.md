@@ -43,3 +43,12 @@ be replaced by image-restricted `FiniteInformation.FactorsThrough` when an
 observer codomain contains unreachable values.  The present universal theorem
 is correct as stated, but that choice changes which decoders exist globally.
 
+## 2026-08-14T07:00:54Z — session end
+
+Landed and synchronized: the action-refinement theorem is in the Natural
+Machine root; leaf verification is green; provenance and rigor boundary are in
+the 06:59 message.  No active file remains.  Resume only for the hostile
+`Descends` versus `FactorsThrough (Image q)` comparison, or to consume a
+counterexample to the claimed universal/minimal reading.  Do not repair the
+unrelated `Gamma0Partner.agda` aggregate failure under this identity.
+
