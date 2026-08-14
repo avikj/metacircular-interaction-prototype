@@ -349,7 +349,26 @@ polynomially-growing alphabet.
 > $\lambda_1=\sqrt2$ (SEED-08 Theorem 3 and its table). An index of a subgroup
 > is a positive integer. Hence there is no assignment
 > $(\bar\Gamma_0(N),S_N)\mapsto(\tilde G,\tilde N)$ with
-> $\lambda_N=[\tilde G:\tilde N]$, for any $N$ with $\nu_3>0$.
+> $\lambda_N=[\tilde G:\tilde N]$, for ~~any $N$ with $\nu_3>0$~~ **$N=1$ and
+> $N=3$, and for every $N$ at which $\lambda_N\notin\mathbb Z$**.
+
+> **Scope repair, K2 (SEED-99, 2026-08-14).** The displayed proof exhibits two
+> values, $\lambda_1=\sqrt2$ and $\lambda_3=(1+\sqrt{17})/2$; it does not
+> establish the universally quantified "any $N$ with $\nu_3>0$", and that
+> quantifier is not free. $\lambda_N$ is a root of $x^2-Dx-E$ with $D,E\in
+> \mathbb Z$, hence an algebraic integer of degree $\le2$: it is **either a
+> rational integer or a quadratic irrational**, and the argument bites exactly
+> in the second case. By SEED-08 Theorem 3 the discriminant is
+> $(\mu+2\nu_3+9)^2-72\nu_3$, so the correct criterion is *"$\lambda_N$ is not
+> an index whenever that discriminant is not a perfect square"*.
+> `notes/SEED61_TRANSFER_OPERATOR_BEHIND_THE_GROWTH_SERIES.md` Corollary T2
+> supplies one implication of this — $\nu_3=0\Rightarrow$ perfect square
+> $\Rightarrow\lambda_N=\mu/3+1\in\mathbb Z$ — but **not** the converse, so
+> "$\nu_3>0\Rightarrow$ irrational" remains unproved and is downgraded here to
+> the two checked levels. This does not touch §0's verdict: SEED-08 still does
+> not join the other three, because at $N=3$ the constant is irrational, and
+> §4.5 shows even the integer cases arise from Nielsen–Schreier and not from an
+> index law.
 
 That kills the fourth row of the table in §0 as an instance of Theorem 1. What
 *is* true is weaker and worth stating exactly, because it explains why $\mu$
@@ -441,6 +460,19 @@ Every row is an equality proved above, with the example it was checked on.
 | growth $\lambda$ | — | — | $b$ | $\mu/3+1$ ($\nu_3=0$) |
 | radius $R\ge\log_\lambda q$ | Thm 5 | — | $\lceil\log_b m\rceil$ (equality) | supplies the base |
 | checked at | $n{=}2,r{=}s{=}1$ | $d{=}2,m{=}3$ | $b{=}2,m{=}3,5,7$ | $N{=}4,12$ |
+
+> **Struck reason, K1/K3 (SEED-99, 2026-08-14).** This row was the note's one
+> real typing failure and it is checkable in one line: for SEED-21's checks
+> $N_L\cap N_R=1$ (§3.1 above), so $[G:N_{LR}]=|\mathrm{Stab}^2(D)|=\infty$,
+> and $8(2m+1)^2$ cannot be that index. It is the number of cosets meeting the
+> window $W_m$ (SEED-65 Theorem A), which is what the added row now says.
+> The failure is worse at the corner check: SEED-65 §2 notes
+> $[G:N_C]=|\Gamma_0(D_r)|=\infty$ for $r\ge2$ while the coset count is
+> $|\pi_\Gamma(W)|<\infty$; the two agree at $r=1$ only by the accident that
+> $\Gamma_0(D_1)=\{\pm1\}$ is finite and $W_m$ contains all of it. The SEED-16
+> and SEED-11 columns are genuine indices of finite-index subgroups and are
+> unaffected; so is the whole of §§1–4, whose "index" is always
+> $[G:N(c)]$ on the full torsor.
 
 **The correspondence, in one sentence.** SEED-21, SEED-16 and SEED-11 are three
 instances of one statement — *a check's blindness subgroup has an index, the

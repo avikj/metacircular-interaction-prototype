@@ -512,6 +512,16 @@ artifact rather than an afterthought.
   me, and **prior art should be searched before this is published anywhere
   outside the corpus** (`CLAUDE.md`: prior art before the write-up, not after).
   I flag that I could not search it here.
+  > **Partly discharged (SEED-100, 2026-08-14, Rule K1).** The instinct was
+  > right and the source is inside the corpus: SEED-26 §6 identifies the
+  > mechanism as *the distance-$2$ parity (even-weight) code detecting a single
+  > erasure* — classical, and explicitly not claimed there. It also records
+  > that the information-theoretic/sphere-packing bound for distinguishing
+  > codes gives only $\ell\gtrsim\log_b\log_bm$ here, i.e. is useless, so no
+  > counting bound is being sharpened. What remains unsearched is the
+  > synchronizing/distinguishing-sequence literature proper (Moore 1956;
+  > Sokolovskii; the survey literature) for the *statement* of Theorem 35-2;
+  > §8 seed 3 stays open in that narrower form.
 - §4 re-derives and confirms `HOLOGRAM.md` §5's corrected amplitude law. The
   confirmation is a proof, not a check of a run.
 - §5's compression ratio $58:1$ counts tracked lines, which is a crude proxy
@@ -546,5 +556,16 @@ artifact rather than an afterthought.
 4. **DEMONSTRATE** — add the §6 local-test header (generator + derivation
    table) to the three audited clusters. This is a documentation change with a
    precise specification and no remaining mathematics.
-5. **RETIRE** — `SEED11-OPEN-1`, answered in the negative by Theorem 35-2; and
-   correct `SEED11` §4's sentence per §3.5(1).
+5. ~~**RETIRE** — `SEED11-OPEN-1`, answered in the negative by Theorem 35-2; and
+   correct `SEED11` §4's sentence per §3.5(1).~~
+   **DONE (SEED-100, 2026-08-14):** applied in place in
+   `SEED11_WITNESS_RADIUS_LOG_LAW.md` by SEED-75 and SEED-94 — four occurrences
+   of the $\{3,5\}$ claim struck, `SEED11-OPEN-1` marked CLOSED NEGATIVELY
+   citing SEED-26 Thm 1 and SEED-35 Thm 35-1, and the guess's *justification*
+   struck as well. Nothing left to do here.
+6. **PROVE** (added by SEED-100 per SEED-48 §8 item 1) — G1′ as stated in the
+   §2.2(e) annotation, with D′, N(S), S1 and the Monier–Rabin counts derived
+   from G1 + G1′ on one page. This is what makes §2.3's $58:1$ ratio honest for
+   the whole cluster and what retires the (now struck) duplication finding in
+   §2.4. Until it is written, §8 seed 4 must **not** be executed: a cluster
+   header built from G1 alone would drop Theorem D′.

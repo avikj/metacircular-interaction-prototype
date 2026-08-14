@@ -30,7 +30,9 @@ resolved subspace; in the well-conditioned narrow dictionary the primitive
 top eigenvalue of the assembled zero-free form matches the finite-zero
 factored estimate to printed precision (−1.718e−8 both ways).
 (3) The primitive block is O(1)-definite in a prime-free window at the
-Connes–Consani support scale (λ_min/λ_max = 0.19, vs 6.9e−4 unconstrained);
+Connes–Consani support scale (~~λ_min/λ_max = 0.19, vs 6.9e−4
+unconstrained~~ — struck: that ratio is `O(1/log M)` at fixed `M = 30`, see the
+correction in §4);
 each of the first prime-power atoms then costs 3–7 orders of magnitude, and
 deleting any single tested atom n = p^k ≥ 3 makes the computed primitive
 block indefinite. This is a conditioned finite-dimensional observation,
@@ -285,7 +287,7 @@ negativity margin of I|_P = −W|_P as arithmetic enters):
 
 | regime | λ_min(W&#124;_P) | comment |
 |---|---|---|
-| T < log 2 (prime-free, at the **Connes–Consani support scale**) | **0.59–1.42** with λ_min/λ_max = 0.19 | comfortable O(1) computed definiteness: W&#124;_P = arch&#124;_P on this finite slice. This is related to, but not literally the same test slice as, CC's Sonin-space positivity; contrast the *unconstrained* λ_min = 2.1e−3 (μ = 0.001) at the same cap |
+| T < log 2 (prime-free, at the **Connes–Consani support scale**) | **0.59–1.42** with ~~λ_min/λ_max = 0.19~~ | comfortable O(1) computed definiteness: W&#124;_P = arch&#124;_P on this finite slice. This is related to, but not literally the same test slice as, CC's Sonin-space positivity; contrast the *unconstrained* λ_min = 2.1e−3 (μ = 0.001) at the same cap |
 | after 2 (T = 0.81) | 2.5e−1 | prime 2 costs a factor ~2.4 |
 | after 3 (T = 1.22) | 8.4e−5 | ×3.0e−3 |
 | after 4 (T = 1.50) | 1.1e−9 | ×1.3e−5 |
@@ -302,6 +304,28 @@ margin from zero there.
 Comparison with semilocal Sonin-space stability is heuristic: a support
 threshold for one von Mangoldt atom is not the same operation as adjoining a
 finite place.
+
+> **The ratio `0.19` is struck (SEED-38 §4, Prop. S38-1; applied at the site by
+> SEED-101, 2026-08-14).** It is scale-dependent and was quoted without its
+> scale, which is the `HOLOGRAM.md` §7 failure. On the prime-free slice
+> `R(g) = arch(g)/‖g‖²` is a weighted average of `D(τ) = Re ψ(¼+iτ/2) − log π`.
+> `D` is even and strictly increasing in `|τ|` (from
+> `Re 1/(¼+n+iτ/2) = (¼+n)/((¼+n)²+τ²/4)`, decreasing in `|τ|`), and
+> `D(τ) = log(|τ|/2π) + O(τ^{−2})` by Stirling for `ψ`. Fixing three low modes
+> gives a vector of `P` independent of `M`, so `λ_min ≤ C₁`; the three top
+> modes sit at frequency `≍ M/T` with a uniformly positive share of their mass
+> there, so `λ_max ≥ c₂ log M − C₃`. Hence `λ_min/λ_max = O(1/log M)`: the
+> denominator diverges for purely archimedean reasons — the Γ-factor weight
+> grows logarithmically — and `0.19` is a value of a quantity tending to `0` at
+> the fixed `M = 30`, not a spectral gap and not `O(1)`. Comparing it against
+> the unconstrained `6.9e−4` compares two numbers whose denominators diverge at
+> different rates. The scale-free statistic, which this table should report
+> instead, is `λ_min(arch|_P)` itself with its `M` and `T` and a dual
+> certificate. Note also `D(0) = −γ − π/2 − 3log 2 − log π < 0`: `arch` is
+> **indefinite** on the full space, so the definiteness of `arch|_P` is a
+> genuine constrained statement, not one inherited from `arch` — and whether
+> `λ_min(arch|_P)` is bounded below uniformly in `M` for `T < log 2` is an open
+> question the ratio hides.
 
 **Leave-one-atom-out (conditioned numerical experiment).**
 Deleting the term of a single prime power n from the assembled form (keeping
