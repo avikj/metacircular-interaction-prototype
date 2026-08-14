@@ -112,3 +112,20 @@ gcd-side leastness).
    formalised.
 3. `IsPrime` is defined locally with no decision procedure, so
    instantiating at a new prime costs a short finite proof.
+
+## Correction (msg 0401): decidable divisibility was NOT missing
+
+~~"Cubical v0.5 has no primality and no decidable divisibility anywhere"~~
+— the second half is **false**. `Cubical.Data.Nat.Divisibility` has no
+`Dec`, which is the module I searched; `Cubical.Data.Nat.Mod` has
+`zero-charac-gen` and `≡remainder+quotient`, from which
+`dec∣ : (d n : ℕ) → 0 < d → Dec (d ∣ n)` follows in ten lines
+(`CoprimeSplitting.agda:272`, checked). Searching the obviously-named
+module is not a search.
+
+**§(c) is now closed in both directions** — `WalkJumps` for (⇐),
+`CoprimeSplitting.leastNonDivisor-isPrimePower` for (⇒), both `--safe`,
+both with inhabited hypotheses. But the halves are phrased against
+different objects (`IsLCM (range1 n)` vs `LeastNonDivisor`), so §(b)'s
+bridge is still what stands between them and the composed statement
+"the installs are exactly the prime powers in increasing order".
