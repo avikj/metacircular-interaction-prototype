@@ -45,7 +45,7 @@ hankel-context-separates = dirac-reconstruct behavioralHankel
 -- Context changes the active dependency.  Under the zero-at-false terminal,
 -- false is the local choice, while the continuation-aware value selects the
 -- true branch for the planted finite control.
-contextual-active-false : Argmin Kᵉ (λ _ → fin zero)
+contextual-active-false : Argmin Kᵉ (λ _ → fin zero) false
 contextual-active-false = local-active
 
 contextual-active-true : Argmin Kᵉ (bellman Lᵉ terminalFalse) false
