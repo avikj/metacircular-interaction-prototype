@@ -42,7 +42,7 @@ theorem evalFrom_toDFA_val (M : DFA A X) (state : State M) (word : List A) :
   | nil => simp
   | append_singleton word action ih =>
       rw [DFA.evalFrom_append_singleton, Language.step_toDFA, ih]
-      exact Language.leftQuotient_append state.val word [action]
+      exact (Language.leftQuotient_append state.val word [action]).symm
 
 /-- Executable Moore response in the canonical DFA is exactly membership of
 the applied annotated word in the source residual language. -/
@@ -103,7 +103,10 @@ theorem opposite_children_separated
     have htrue :=
       (acceptsBool_evalFrom_toDFA_eq_true_iff M left
         (block.word ++ [action])).2 hmem
-    simp [Block.postResponse, Block.nextState, htrue] at hleftResponse
+    have htrue' :
+        block.postResponse M.accepts.toDFA action left = true := by
+      simpa [Block.postResponse, Block.nextState] using htrue
+    exact Bool.false_ne_true (hleftResponse.symm.trans htrue')
   have hrightMem :
       block.word ++ [action] ∈ (right.val : Language A) :=
     (acceptsBool_evalFrom_toDFA_eq_true_iff M right

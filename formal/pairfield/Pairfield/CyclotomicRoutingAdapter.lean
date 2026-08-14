@@ -65,4 +65,35 @@ theorem zero_index_control :
     (∏ d ∈ Nat.divisors 0, piece 2 d) ≠ (2 : ℤ) ^ 0 - 1 := by
   norm_num
 
+/-!
+## Continuation from the native return
+
+The return accepts the product route and identifies the next exact seam: when
+the prime characteristic does not divide the cyclotomic index, a prime divisor
+of one evaluated piece makes the base a *primitive* root modulo that prime.
+This is only the primitive branch of the native prime-classification theorem;
+the exceptional branch `p ∣ m` is deliberately absent.
+-/
+
+/-- In the coprime-characteristic branch, divisibility of `Phi_m(a)` by `p`
+gives a primitive `m`-th root modulo `p`, not merely an `m`-th root. -/
+theorem isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index
+    {m p : ℕ} [hp : Fact p.Prime] {a : ℤ}
+    (hpm : ¬p ∣ m) (hdiv : (p : ℤ) ∣ piece a m) :
+    IsPrimitiveRoot (a : ZMod p) m := by
+  have hmcast : (m : ZMod p) ≠ 0 := by
+    rwa [ZMod.natCast_eq_zero_iff]
+  letI : NeZero (m : ZMod p) := ⟨hmcast⟩
+  apply Polynomial.isRoot_cyclotomic_iff.mp
+  rw [Polynomial.IsRoot.def]
+  rw [Polynomial.cyclotomic.eval_apply a m (Int.castRingHom (ZMod p))]
+  exact (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mpr hdiv
+
+/-- Consequently the base has exact multiplicative order `m` modulo `p`. -/
+theorem orderOf_mod_prime_eq_index_of_dvd_piece_of_not_dvd_index
+    {m p : ℕ} [Fact p.Prime] {a : ℤ}
+    (hpm : ¬p ∣ m) (hdiv : (p : ℤ) ∣ piece a m) :
+    orderOf (a : ZMod p) = m := by
+  exact (isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index hpm hdiv).eq_orderOf.symm
+
 end Pairfield.CyclotomicRoutingAdapter
