@@ -26,6 +26,7 @@ open import Cubical.Data.Nat.Order using (zero-≤ ; suc-≤-suc)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.List using ([] ; _∷_)
 open import Cubical.Data.Sigma
+open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.Obstruction using (Shape ; Vocab ; Tm ; var ; Over)
 open import NaturalMachine.PayloadMorphism
@@ -53,6 +54,21 @@ module _ {Ans : Type₀} {M : MorphismClass Ans}
   installed-data-semantically-indistinguishable st d b bB x y t h =
       unfold-preserves st d b bB x t h
     ∙ sym (unfold-preserves st d b bB y t h)
+
+  DatumAffectsSemantics : Type₀
+  DatumAffectsSemantics =
+    Σ[ V ∈ Vocab ] Σ[ st ∈ Store V ]
+    Σ[ d ∈ Shape ] Σ[ b ∈ Tm ] Σ[ bB ∈ Over V b ]
+    Σ[ x ∈ Datum d ] Σ[ y ∈ Datum d ]
+    Σ[ t ∈ Tm ] Σ[ h ∈ Over (d ∷ V) t ]
+      ¬ (sem (installP st d b bB x) t h
+       ≡ sem (installP st d b bB y) t h)
+
+  no-installed-datum-affects-semantics : ¬ DatumAffectsSemantics
+  no-installed-datum-affects-semantics
+    (V , st , d , b , bB , x , y , t , h , separates) =
+      separates
+        (installed-data-semantically-indistinguishable st d b bB x y t h)
 
 answer : Bool → Layer 3
 answer false = r₀

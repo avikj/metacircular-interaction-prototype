@@ -108,7 +108,6 @@ import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
-import NaturalMachine.PayloadInstallationNoGo
 import NaturalMachine.ArithmeticPayloadCounterexample
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
