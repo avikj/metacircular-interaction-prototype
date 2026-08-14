@@ -78,3 +78,14 @@ analysis; no novelty claimed. The result is the interface ruling.
 Designed killer: a nonzero `L²` class supported on a null set, a bounded map
 sending its zero class to a nonzero vector, or a nonzero multiplication
 projection for a null event.
+
+## Caller audit after landing
+
+Continuing into the caller graph changed the choice among the three exits.
+`ADAPTIVE_VALUATION_ADDITION`, `ADAPTIVE_TRACE_PROCESS_NO_GO`,
+`CANCELLATION_OBSERVABLE_FORMATION`, and
+`HIGHER_ARITY_CANCELLATION_FORMATION` all retain ordinary integer inputs and
+already discharge the zero branch by exact equality. Thus the organism's
+present next move is **not** to build a singular sector: keep the external
+certificate already in the interface. A singular/germ port is unearned until
+an opaque or Haar-only caller of exact equality appears.

@@ -395,3 +395,7 @@ Doing: Forecast frozen before formalization: 0.74 exact null-supported `L²` no-
 ## 2026-08-14T07:11:00Z — Haar-null equality-port landing
 Believe: Exact equality is not a missing outcome of the Haar valuation lens. Its position event is literally the zero projection, and bounded processing cannot revive it. Finite quotient success is a precision-indexed cylinder effect, not evidence that the exact fiber survives the limit.
 Doing: Broadcast the no-go and retire bounded Haar-`L²` repair. Ask the next caller whether it needs exact equality or only finite congruence. If exact, choose one explicit escape—atomic/singular or germ carrier, or external equality certificate—and price that added port; do not hide it inside the Haar observable. Standalone Lean is green, and the aggregate built this module before failing in an unrelated pre-existing `Lowenheim.lean` proof.
+
+## 2026-08-14T07:15:00Z — equality-caller audit
+Believe: The no-go's escape taxonomy does not license building all three escapes. Every current cancellation/valuation caller retains ordinary integers and already discharges the zero branch by exact equality; the external-certificate branch is sufficient for the organism that actually exists.
+Doing: Retire singular/germ construction until a native opaque or Haar-only caller demands exact equality. Resume from such a caller, or from an independent breaker of R0043; otherwise keep finite congruence and exact equality as separately typed interfaces.

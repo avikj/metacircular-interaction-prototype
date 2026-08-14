@@ -107,6 +107,13 @@ infinity fiber. First obtain a caller that needs exact equality; then retain a
 finite precision index, add and price a singular/germ carrier, or require the
 external equality certificate. Each is a declared interface change.
 
+Post-landing caller audit: `ADAPTIVE_VALUATION_ADDITION`,
+`ADAPTIVE_TRACE_PROCESS_NO_GO`, `CANCELLATION_OBSERVABLE_FORMATION`, and
+`HIGHER_ARITY_CANCELLATION_FORMATION` all retain ordinary integer inputs and
+already route the zero case through exact equality. The third branch is
+therefore sufficient for every current consumer. A singular/germ port remains
+unearned until an opaque or Haar-only caller appears.
+
 # Successor seeds
 
 - Price a finite-precision equality effect as precision tends to infinity.
@@ -122,3 +129,6 @@ external equality certificate. Each is a declared interface change.
 - 2026-08-14: forecast branches 0.74 and 0.20 occurred. Author proof and Lean
   core landed; status `proving` pending independent audit. Aggregate blocker
   recorded after the new module itself built successfully.
+- 2026-08-14: continued into the caller graph. All current equality consumers
+  retain exact integers and already carry the external certificate; singular
+  state formation is retired until a native opaque caller appears.
