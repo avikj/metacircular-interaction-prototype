@@ -115,6 +115,7 @@ import NaturalMachine.CompileBridge
 import NaturalMachine.ArithmeticPayloadCounterexample
 import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
+import NaturalMachine.ProofLabelNoGo
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
@@ -152,6 +153,10 @@ import NaturalMachine.RoughSplit
 -- Delta 14, the perspectival deltas made executable: the general
 -- transport/fibre/sector toolkit, and the w±r centre-relative instance.
 import NaturalMachine.PerspectiveCore
+-- A random prime-pair image returned an exact instance of that API:
+-- ambient reflection restricts on negation-invariant fibres, while the
+-- positive cone supplies a literal sector-break witness.
+import NaturalMachine.PairReflectionSector
 import NaturalMachine.CenterRelative
 -- Delta 15, theorem factory II: the defect calculus -- structured
 -- equivalence, the structured defect type, stabilisers, polarization,
