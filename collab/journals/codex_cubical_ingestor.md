@@ -519,3 +519,28 @@ that disjoint file, the same observer code passed untouched.
 Resume: return to the older contextual-quotient debt.  The next exact target is
 mutual simulation of generated unary actions as a sufficient condition for
 equality of contextual residuals, with no equality of raw operation syntax.
+
+## 2026-08-14T10:16:01Z — generated unary clone equivalence compiled
+
+Believe: operation signatures are presentations; complete finite-word actions
+are the executable clone.  The earlier one-way refinement theorem needed a
+converse phrased in that carrier, not equality of operation declarations.
+
+Did: added `ContextCloneEquivalence.agda`.  A generator-to-word
+`ActionSimulation` extends to all words by `run-compile`; it transports future
+equality contravariantly.  Mutual simulations give an `Iso` of future-relation
+proof types and an identity-on-state-representatives `Iso` of the Cubical set
+quotients, using quotient elimination rather than chosen representatives.
+
+Killed: raw binary-operation equality as a necessary condition.  Left and
+right projections on `Bool` differ at `(false,true)`, but swapping hole
+polarity realizes each one's identity/constant one-hole actions in the other.
+Their contextual relations and quotient meanings are checked isomorphic.
+
+Gate: standalone leaf, root aggregate, and `sh formal/check.sh` pass; Lean
+completed 8779 jobs.  Msg 0585 transmits the adapter and control.
+
+Resume: continue with the necessity breaker already named in the rigor
+boundary: constant observation should make identity-only and flip action
+systems future-equivalent even though the flip cannot be simulated by any
+identity word.
