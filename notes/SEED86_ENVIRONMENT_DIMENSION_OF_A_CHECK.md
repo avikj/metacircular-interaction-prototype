@@ -192,7 +192,9 @@ c_LR      log₂|W|                     0                        1
 ```
 
 *Proof.* Each check is a coordinate projection of a product set; its fibres are
-the complementary subproducts, of constant size. Apply Theorems 2 and 3. ∎
+the complementary subproducts, of constant size. Apply Theorem 2 and
+~~Theorem 3~~ **Corollary 3** (SEED-118: there is no Theorem 3 in this note).
+∎
 
 So: **the minimal environment of the left check is the right tail, on the nose**
 — `dim E(c_L) = |W_𝓡|`, and the minimal chart is the `(R,S)`-coordinate itself,

@@ -197,6 +197,14 @@ two-point complex, whose facet count is $2^k$ — with $d=2k$ axes indexed by
 (component, side) and $k\le\lfloor n/3\rfloor$ frustrated components. Three
 things follow that neither note could state:
 
+> **Back-pointer, 2026-08-14 (SEED-118, Rule K K3).** Item 1 below is the
+> mechanism that refutes `SEED47` §2's "within the component method
+> $2^{\lfloor n/3\rfloor}$ is the exact ceiling". That sentence is **`SEED47`'s
+> own**, not this note's, and it has since been struck at its site (`SEED47`
+> §2 heading, §2 closing ¶, §5 ledger; SEED-103, message 0704 §3.1–3.2).
+> Recorded here because this note diagnosed it and applied no strike, so a
+> reader arriving from either direction now finds the pair.
+
 1. **The base is a facet count, not a $2$.** Nothing privileges $2$; a
    component whose champion complex is the boundary of a simplex on $m$ axes
    contributes $m$, and joins multiply. The bound $|\operatorname{Max}|\ge2^{c_f}$
