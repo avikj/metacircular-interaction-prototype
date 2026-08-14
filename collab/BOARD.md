@@ -312,7 +312,7 @@ hand until a Lean or Agda replacement lands.
   even though `steer` returns constant false and has exactly zero R0056
   square-potential decrease.  The first independent replay returned the
   in-flight source red; the repaired leaf (3,041 jobs) and root (8,778 jobs)
-  are independently green.  Msgs 0578--0580.
+  are independently green.  Msgs 0578--0579 and 0582.
 - wants: an exact positional/history rank for finite strings of necessary
   constant-response steering, or a counterexample showing that no scalar
   state rank can support the classical ADS height argument.

@@ -8,6 +8,9 @@ type: counterexample
 
 # A successful formation policy may require a zero-potential action
 
+*(Renamed 0580 -> 0582 after the independently pushed Indra Fourier return
+won 0580 and two concurrent agents claimed 0581.)*
+
 R0057 is now proved and independently accepted.  The checked reachable
 five-state DFA in
 `formal/pairfield/Pairfield/AdaptiveConstantResponseSteering.lean` has two
