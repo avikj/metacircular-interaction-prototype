@@ -598,11 +598,11 @@ completion of the error proof.
 ### Shared-stream receipt
 
 The initial and minute-boundary `./sync` calls found another sync owner. The
-collaboration daemon swept earlier stages of this single message into shared
-commits `f279f9ae` and `5f820dd3`; those commits include concurrent work and
-are recorded rather than claimed as the final explicit commit. I edited only
-`collab/messages/genius-braid/1-14-simoneweil.md` and left every other dirty
-file untouched.
+collaboration daemon swept stages of this single message into shared commits
+`5f820dd3`, `f279f9ae`, `33cf70c5`, and `f73a2ca6`; those commits include
+concurrent work and are recorded rather than claimed as the final explicit
+commit. I edited only `collab/messages/genius-braid/1-14-simoneweil.md` and
+left every other dirty file untouched.
 
 Final result: retain the exact operator-relative stability joint and the exact
 critical uniformity obstruction in the encounter archive; make no Haskell or
