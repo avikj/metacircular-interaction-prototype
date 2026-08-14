@@ -14,7 +14,6 @@
 module NaturalMachine.RelationalHolonomyInteraction where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.Equiv using (_≣_)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Foundations.Isomorphism
   using (Iso ; iso ; compIso ; isoToEquiv)
@@ -29,44 +28,41 @@ import NaturalMachine.RelationalProcessCore as Rel
 module _ {ℓ : Level} (G : Group ℓ) where
 
   private
-    module 𝒢 = GroupStr (snd G)
-    module 𝒢T = GroupTheory 𝒢
+    module GS = GroupStr (snd G)
+    module GT = GroupTheory GS
 
   leftMultiplyIso : (a : ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
-  Iso.fun (leftMultiplyIso a) x = a 𝒢.· x
-  Iso.inv (leftMultiplyIso a) x = 𝒢.inv a 𝒢.· x
+  Iso.fun (leftMultiplyIso a) x = a GS.· x
+  Iso.inv (leftMultiplyIso a) x = GS.inv a GS.· x
   Iso.rightInv (leftMultiplyIso a) x =
-      sym (𝒢.·Assoc a (𝒢.inv a) x)
-    ∙ cong (𝒢._· x) (𝒢.·InvR a)
-    ∙ 𝒢.·IdL x
+      sym (GS.·Assoc a (GS.inv a) x)
+    ∙ cong (GS._· x) (GS.·InvR a)
+    ∙ GS.·IdL x
   Iso.leftInv (leftMultiplyIso a) x =
-      sym (𝒢.·Assoc (𝒢.inv a) a x)
-    ∙ cong (𝒢._· x) (𝒢.·InvL a)
-    ∙ 𝒢.·IdL x
+      sym (GS.·Assoc (GS.inv a) a x)
+    ∙ cong (GS._· x) (GS.·InvL a)
+    ∙ GS.·IdL x
 
   rightMultiplyIso : (a : ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
-  Iso.fun (rightMultiplyIso a) x = x 𝒢.· a
-  Iso.inv (rightMultiplyIso a) x = x 𝒢.· 𝒢.inv a
+  Iso.fun (rightMultiplyIso a) x = x GS.· a
+  Iso.inv (rightMultiplyIso a) x = x GS.· GS.inv a
   Iso.rightInv (rightMultiplyIso a) x =
-      𝒢.·Assoc x (𝒢.inv a) a
-    ∙ cong (x 𝒢.·_) (𝒢.·InvL a)
-    ∙ 𝒢.·IdR x
+      GS.·Assoc x (GS.inv a) a
+    ∙ cong (x GS.·_) (GS.·InvL a)
+    ∙ GS.·IdR x
   Iso.leftInv (rightMultiplyIso a) x =
-      𝒢.·Assoc x a (𝒢.inv a)
-    ∙ cong (x 𝒢.·_) (𝒢.·InvR a)
-    ∙ 𝒢.·IdR x
+      GS.·Assoc x a (GS.inv a)
+    ∙ cong (x GS.·_) (GS.·InvR a)
+    ∙ GS.·IdR x
 
   -- Endpoint covariance is invertible: t acts on the left and s⁻¹ on
   -- the right.  This construction uses only the supplied endpoint pair.
   endpointGaugeIso : (⟨ G ⟩ × ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
   endpointGaugeIso (s , t) =
-    compIso (leftMultiplyIso t) (rightMultiplyIso (𝒢.inv s))
-
-  endpointGaugeEquiv : (⟨ G ⟩ × ⟨ G ⟩) → ⟨ G ⟩ ≣ ⟨ G ⟩
-  endpointGaugeEquiv u = isoToEquiv (endpointGaugeIso u)
+    compIso (leftMultiplyIso t) (rightMultiplyIso (GS.inv s))
 
   endpointGaugeEquiv-computes : (u : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
-    → fst (endpointGaugeEquiv u) g ≡ Hol.endpointGauge G u g
+    → Iso.fun (endpointGaugeIso u) g ≡ Hol.endpointGauge G u g
   endpointGaugeEquiv-computes (s , t) g = refl
 
   -- Types are loci and their elements are the relative facts available at
@@ -78,11 +74,12 @@ module _ {ℓ : Level} (G : Group ℓ) where
 
   endpointInteraction : (u : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
     → Rel.Interaction GaugePresentationProcess ⟨ G ⟩ ⟨ G ⟩
-  Rel.path   (endpointInteraction u g) = ua (endpointGaugeEquiv u)
+  Rel.path   (endpointInteraction u g) = ua (isoToEquiv (endpointGaugeIso u))
   Rel.before (endpointInteraction u g) = g
   Rel.after  (endpointInteraction u g) = Hol.endpointGauge G u g
   Rel.lawful (endpointInteraction u g) =
-    uaβ (endpointGaugeEquiv u) g ∙ endpointGaugeEquiv-computes u g
+    uaβ (isoToEquiv (endpointGaugeIso u)) g
+      ∙ endpointGaugeEquiv-computes u g
 
   -- The pre-existing refinement covariance theorem is exactly the statement
   -- that refined holonomy lands at the `after` fact of this interaction.

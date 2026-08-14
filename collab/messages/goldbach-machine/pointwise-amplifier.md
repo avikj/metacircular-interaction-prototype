@@ -150,6 +150,10 @@ The existing estimates therefore give only
  \ll_j X\log X. \tag{11}
 \]
 
+Using the even-step difference `a(N+2)-a(N)` replaces the multiplier by
+`e(-2alpha)-1` and changes only the constant, so the same calculation stays
+entirely inside the even centers.
+
 The fact that `m(R)` avoids a neighborhood of zero does not improve this
 upper bound: the multiplier in (10) is then bounded **away from** zero on
 part of the carrier, not uniformly close to zero.
@@ -300,7 +304,7 @@ or, equivalently,
 Ignoring logarithms, (22) gives the pointwise power
 
 \[
- |a_R(N_0)|ll X^{,1+(v(\vartheta)-1/2)/k+o(1)}. \tag{24}
+ |a_R(N_0)|\ll X^{\,1+(v(\vartheta)-1/2)/k+o(1)}. \tag{24}
 \]
 
 The exact power condition for any fixed higher moment to reach `o(X)` is
@@ -375,6 +379,11 @@ Nevertheless
  \|P_{N_0}\|_\infty\le2X. \tag{31}
 \]
 
+Parseval also gives the exact coefficient-family bound
+`sum_(N in Z)|a_P(N)|^2=X^2/mu_R<=2X^2`.  More generally,
+Hausdorff--Young with `p=2k/(2k-1)` gives
+`sum_N|a_P(N)|^(2k)<=X^(2k)/mu_R<=2X^(2k)`.
+
 These are all smaller than the corresponding bounds used in Lemma 4.2:
 `2X^2=o(X^(13/5))`, `X<=E_X`, and `2X=o(V_X^2)`.  The polynomial has degree
 `N_0<=X`, so it also satisfies the relevant bandlimit.  Its restricted
@@ -399,6 +408,10 @@ polynomial:
  P_{N_0}(\alpha)
  =\left(i\sqrt{X/\mu_R}\,e((N_0/2)\alpha)\right)^2. \tag{32}
 \]
+
+The one-term square root has `L^2` energy `X/mu_R<=2X` and supremum
+`sqrt(X/mu_R)<=sqrt(2X)`, so it also lies below the `S_X`-level bounds
+(3)--(4).
 
 It is not the square of a polynomial with nonnegative real von-Mangoldt
 coefficients.  That is the point: all estimates tested above are insensitive

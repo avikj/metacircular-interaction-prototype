@@ -72,3 +72,22 @@ Absent, and not implied:
 The next honest extension is a finite representation-labelled graph with
 intertwiner-valued vertices and a proved refinement map.  Dynamics should enter
 only after its constraint or amplitude law is itself formalized.
+
+## First abstract spin-network extension
+
+That first extension now exists in
+[`AbstractSpinNetworkKinematics.agda`](../formal/cubical/NaturalMachine/AbstractSpinNetworkKinematics.agda).
+It deliberately uses “representation” only in the minimal mathematically
+earned sense of a group action on a set.  A bivalent vertex is an equivariant
+map between two such actions; its equivariance equation is the local gauge
+square.  The checked module supplies identity and composite intertwiners,
+pointwise unit and associativity laws, insertion and contraction of an identity
+vertex, preservation of every observation of the underlying map under that
+canonical refinement, and agreement between composite holonomy action and
+sequential edge action.
+
+This is less than the spin networks of Rovelli–Smolin: there is no linear
+carrier, tensor product, irreducible label, or multivalent invariant tensor.
+The gap is now typed rather than hidden.  The next extension must introduce a
+genuine monoidal representation interface before it may claim trivalent or
+higher spin-network vertices.

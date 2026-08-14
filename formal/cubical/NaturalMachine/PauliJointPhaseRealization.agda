@@ -17,11 +17,12 @@ module NaturalMachine.PauliJointPhaseRealization where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (equivFun)
 open import Cubical.Data.Bool using (Bool ; true ; false ; not)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty using (⊥ ; rec)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.PauliWeyl as Weyl
+import NaturalMachine.PMTorus as PM
 import NaturalMachine.UnivalentTensorInteraction as Joint
 
 ------------------------------------------------------------------------
@@ -51,9 +52,9 @@ realizePhase-injective :
   {x y : Joint.JointCoherence}
   → realizePhase x ≡ realizePhase y → x ≡ y
 realizePhase-injective {true}  {true}  equality = refl
-realizePhase-injective {true}  {false} equality = ⊥.rec (Id≢-Id equality)
+realizePhase-injective {true}  {false} equality = rec (Id≢-Id equality)
 realizePhase-injective {false} {true}  equality =
-  ⊥.rec (Id≢-Id (sym equality))
+  rec (Id≢-Id (sym equality))
 realizePhase-injective {false} {false} equality = refl
 
 ------------------------------------------------------------------------
@@ -85,13 +86,13 @@ toggle-closes-on-realized-sector false = refl
 -- Joint's constructor names (plus=true, minus=false).  This explicit `not`
 -- is the entire chart transition; silently identifying the two Bool labels
 -- would reverse the physical sign.
-contextPhase : Weyl.Ctx → Joint.JointCoherence
+contextPhase : PM.Ctx → Joint.JointCoherence
 contextPhase context = not (Weyl.derived-s context)
 
-r0-context-is-plus : contextPhase Weyl.R0 ≡ Joint.plus
+r0-context-is-plus : contextPhase PM.R0 ≡ Joint.plus
 r0-context-is-plus = refl
 
-c2-context-is-minus : contextPhase Weyl.C2 ≡ Joint.minus
+c2-context-is-minus : contextPhase PM.C2 ≡ Joint.minus
 c2-context-is-minus = refl
 
 r0-product-realizes-plus :
@@ -108,8 +109,8 @@ c2-product-realizes-minus = Weyl.C2-product
 -- checked commuting contexts it records which central Pauli product occurs.
 record CheckedJointPort : Type₀ where
   field
-    plusContext : contextPhase Weyl.R0 ≡ Joint.plus
-    minusContext : contextPhase Weyl.C2 ≡ Joint.minus
+    plusContext : contextPhase PM.R0 ≡ Joint.plus
+    minusContext : contextPhase PM.C2 ≡ Joint.minus
     plusOperator :
       Weyl.XI Weyl.·P Weyl.IX Weyl.·P Weyl.XX
       ≡ realizePhase Joint.plus
