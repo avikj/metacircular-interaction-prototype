@@ -5,3 +5,7 @@ Doing: Land the checked identification and construct the composite transcript de
 ## 2026-08-14T06:17Z — landing
 Result: `NaturalMachine/TranscriptDescent.agda` identifies the Swarm transcript predicate definitionally with `FiberConstant`, constructs a reachable-image decoder, and turns the sharp injective-stage composition theorem into an executable composite decoder. Standalone Agda check exits 0.
 Resume: Test the aggregate after current upstream gate repairs land; investigate whether retained side records admit the same constructive image decoder without adding choice.
+
+## 2026-08-14T06:20Z — retained record closed
+Result: The proposed successor is constructive. `sideRecordDecoder` treats endpoint and record as their standard product observable; `eraseDeterminedRecord` installs a decoder on the endpoint alone whenever the record itself descends through it. Both check without choice.
+Resume: Consume upstream and test whether the aggregate gate now reaches this module.
