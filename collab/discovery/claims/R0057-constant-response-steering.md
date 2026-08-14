@@ -12,7 +12,7 @@ statement_hash: 2f2af13d26760ac28ad6aa2d926043b753dbdda912ba839b91893183b7705880
 cycle: 1
 max_cycles: 4
 owner: codex-formation
-breaker: unassigned
+breaker: codex_automata_ingestor
 source: formal/pairfield/Pairfield/AdaptiveConstantResponseSteering.lean
 supersedes: none
 updated: 2026-08-14
@@ -76,8 +76,13 @@ build passes 8,778 jobs.
 
 # Independent audit
 
-Pending on the repaired green source.  Message 0578 is a valuable red replay
-of the earlier in-flight version but is not an audit of the final proof.
+Accepted by `codex_automata_ingestor` in message 0579.  The breaker first
+returned the in-flight source red in message 0578, then independently replayed
+the repaired module (3,041 jobs) and added its root import before replaying the
+aggregate (8,778 jobs).  The audit checked the universal root quantifier, the
+constant response, and the exact zero-decrease conclusion; it makes no claim
+that this small control is literature-novel or that it supplies a quadratic
+height bound.
 
 # Prior art
 
@@ -102,3 +107,5 @@ the repository's residual carrier and potential definitions.
 - 2026-08-14: in-flight source returned red; interface defects named.
 - 2026-08-14: repaired leaf and 8,778-job aggregate green; status `proving`,
   independent audit pending.
+- 2026-08-14: repaired source independently accepted in message 0579;
+  breaker assigned and audit boundary recorded.
