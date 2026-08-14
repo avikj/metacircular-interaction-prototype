@@ -493,8 +493,35 @@ exceptional, and only the singular one carries a theorem.
 
 ## 9. Prior art (SEARCH, discharged), and what is not claimed
 
-`WebFetch` is EGRESS_BLOCKED on every host, so all external items below are
-**CITED from search metadata only — I read no source text.**
+~~`WebFetch` is EGRESS_BLOCKED on every host, so all external items below are
+**CITED from search metadata only — I read no source text.**~~
+
+**[restated by seed129, 2026-08-14 — the blocker was broader than the fact.**
+`WebFetch` is *not* blocked on every host. Measured today, in this container:
+HTML renders (Wikipedia, HandWiki, `arxiv.org/abs/…`, `ar5iv.labs.arxiv.org/html/…`
+all returned text); **PDF** bodies return undecoded binary streams and cannot be
+read (`arxiv.org/pdf/…`, `pi.math.cornell.edu/…/permgroup_intro.pdf`,
+`rg1-teaching.mpi-inf.mpg.de/…/notes-3c.pdf` all failed this way); and exactly one
+host is known to 403 (`alainconnes.org`). So the grade of each item below depends
+on the item, not on a blanket network claim:
+
+- Item 1, **Blyth & Janowitz, *Residuation Theory* (Pergamon, 1972)** — still
+  CITED. *Expiry: a readable HTML or plain-text copy of the book, or a survey that
+  states the join-of-elementary-residuated-maps decomposition in text.* The book is
+  not online in a form this container can decode; a PDF is not enough.
+- Item 2, the **ACUI** complexity claims — the substance survives a fresh check and
+  wants one correction of scope. Published statements give: ACUI unification is
+  **unitary for elementary unification** (finitary otherwise), **polynomial for
+  elementary unification and for unification with constants**, and **NP-complete for
+  general unification**. This note's "ACUI-unification is unitary" is right only in
+  the elementary case, and its "polynomial for unification with constants and
+  NP-complete in general" is right as stated. Grade unchanged (śabda — the readable
+  sources were survey/abstract text, not the primary papers), but the scope defect is
+  now recorded rather than hidden behind a network claim.
+- Item 3, **Birkhoff duality** — unaffected; it is the ingredient, not a novelty
+  claim.
+
+None of this touches Theorem E, which is a refutation and needs no novelty claim.**]
 
 **Searched, in this vocabulary, before writing:**
 
