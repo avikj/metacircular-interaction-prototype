@@ -354,6 +354,64 @@ what its author intended. **Fallback, if that is refused: downgrade the claim,**
 Either is a one-minute edit. Leaving both undone is what turns a mechanism into
 the convention its own last section warns about.
 
+### C6 — Two T1 executors that seal a lane between them **[added by SEED-92, 2026-08-14, under Rule K K1/K3, from `notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md` §4.1]**
+
+I add this section rather than a note in §4 because it is the one case where §2
+returns a verdict on every pair and the *joint* effect is still a defect — which
+is a finding about the ordering, not merely a sixth row for it.
+
+**`.github/workflows/epistemic.yml`** (T1) — the only CI job that validates the
+`collab/discovery/` packets, and per SEED-81 the corpus's only automated
+authority of any kind:
+
+```yaml
+- run: python3 code/discovery_loop.py validate
+- run: python3 machinery/validate.py
+- run: python3 -m unittest discover -s machinery -p 'test_*.py'
+```
+
+**`.github/workflows/no-python.yml`** (T1) — fails any push that *modifies* a
+`.py`.
+
+**What §2 says, worked through honestly.** Both are T1, so tiers do not separate
+them. R3 (executor over prose) is inapplicable: this is executor against
+executor. R1, R2, R5 have no purchase. **R6 is the operative rule and it does
+decide** — `no-python.yml` is the remedy for a documented failure (prose
+enforcement of the ban failed; `CLAUDE.md` says so in as many words) and it
+governs *that* failure, whose named scope is additions and modifications of
+`.py`. `epistemic.yml` *runs* Python; it does not modify it. **So on their
+stated objects the two do not conflict at all, and §2 correctly reports no
+contradiction.**
+
+**And that is the defect.** Each rule wins its own scope, both keep firing, and
+the *conjunction* is that the validator can never be repaired: any fix to
+`discovery_loop.py` trips `no-python.yml`, so the transitions that would make
+the registry mean anything (`certified`, `refuted`, literature-certification)
+stay, in the registry README's own words, *"currently disabled in code."*
+SEED-81's evidence that this is not hypothetical: 61 packets, **0 `certified`**,
+**0 `load_bearing: true`**, 1 audit — and message 0276 recorded both zeros at 26
+packets, so the register has grown 2.3× with both unchanged. *"A pipeline that
+has never emitted an output is not a pipeline; it is a genre with a schema … a
+register with the loom dismantled and the cords still hanging."*
+
+> **The gap in §2, stated so it can be repaired.** My ordering is a *pairwise*
+> relation: it decides, for two texts that conflict, which governs. It has no
+> move for **two rules that each win their scope and jointly render a third
+> artifact inert**. R6 in particular is written to *narrow* a remedy's authority
+> ("governs that failure, and nothing else"), which is right against
+> overreach and is exactly wrong here — narrowing is what lets each rule
+> disclaim the joint effect. A tie-breaker cannot see a sealing, because
+> sealing is not a tie.
+
+**No edit is proposed to either workflow, and this is a K3 marked proposal, not
+an applied repair.** Both are T1 artifacts with owner-directed rationale;
+`no-python.yml` in particular implements a T0 owner directive of 2026-08-13, and
+an agent must not weaken it overnight — 0657 declined a far smaller edit to the
+ban's *rationale* for this reason and was right to. The disposition is Q3 below.
+What an agent *may* do without touching either workflow, and what I recommend:
+mark the 61 `status:` fields as decoration, since SEED-81 §4.1 shows a reader
+takes them for positions in a process that cannot advance.
+
 ---
 
 ## 4. What the ordering cannot decide

@@ -221,6 +221,13 @@ Everything above is regularity for a fixed instance. The uniform question — re
 a description of $(Q,\delta,S)$ and a state, decide $B$-membership — is **not**
 regular, and the failure is cheap to exhibit.
 
+> **[SEED-91, 2026-08-14, K1.]** Superseded upward, not corrected:
+> `notes/SEED58_*` shows non-regularity is the first rung of a three-rung ladder
+> (finite table $\to$ deterministic pushdown $\to$ finitely presented), and that
+> SEED-58 Thm Q reads §5's $\Theta(p)$ refutation length as *the finite shadow of
+> the time quantifier alone* — the second, state quantifier is what lifts $D$ to
+> $\Sigma^0_2$. Theorems P, P2, P3 stand as proved.
+
 Encode the chain instance $C_{n,m}$ ($n\geq 1$, $m\geq 0$): states $0,\dots,n-1$,
 one letter $a$ with $\delta(i,a)=i+1$ for $i<n-1$ and $\delta(n-1,a)=n-1$, split
 block at state $m$ (if $m\leq n-1$), query state $0$. Write it over $\{a,\#\}$ as
@@ -268,7 +275,12 @@ $\leq\ell$ is malformed and rejected by both. $\square$
 4. The note's comparison to the tight $k-1$ depth/memory slack was right to be
    cautious for $B$ but wrong as a verdict on the object: **there is a tight
    cardinal statement here**, it is just about $D$ versus $B$ rather than about
-   $B$ alone, and it is $n-2$.
+   $B$ alone, and it is $n-2$. **[SEED-91, 2026-08-14, K1: scope, added not
+   struck. Read with Theorem C2's quantifier restored — $\max_{|Q|=n}|B\setminus D|=n-2$
+   over *finite* instances. It does not promote to presented systems, where
+   $D$ and $B$ are $\Sigma^0_2$-complete (SEED-58 Thm U3, Cor U4) and no cardinal
+   statement of this shape is available; nor to weighted automata, as this note's
+   own rigor boundary already says.]**
 5. `LENS_REPAIR`'s open hardness question (§2 of
    `WHAT_IS_ACTUALLY_OPEN_across_the_whole_corpus_2026_08_14.md`) is *not* this
    problem, and the contrast is informative: coarsest-commuting-refinement is

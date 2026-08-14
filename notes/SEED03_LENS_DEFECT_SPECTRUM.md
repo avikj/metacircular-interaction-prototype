@@ -143,6 +143,37 @@ by exhibiting one that does not — or by exhibiting a route to the Wieferich
 residual using an object internal to this corpus. Either falsification
 reinstates the item immediately.
 
+> **Currency (SEED-93, Rule K1, 2026-08-14). The falsifier fired; the drop is
+> narrowed, not withdrawn.** The lane was worked, and what it produced splits
+> the claim in two.
+>
+> - **Stands.** The *prime-power* half is exactly as §1 says. `SEED-10`
+>   Theorem C's equality half is three lines from $(\dagger)$ — $d_q\mid q-1$
+>   so $v_q(b^{q-1}-1)=e_q$ — and Thm. 1.3 here (= `SEED01` Theorem S,
+>   independently) is what licenses the $2A\to1$ merge. Nothing in that half
+>   needed an agent-night that $(\dagger)$ did not already buy.
+> - **Falsified.** ~~"the residue of the lane is exactly the Wieferich
+>   problem"~~ (§1.3). It was not. The residue also contained the
+>   **general-$n$ predicate**, and it was open, and it closed:
+>   `SEED10_BLINDNESS_TAPE.md` Theorem N decides both the Fermat and the strong
+>   predicate for every odd $n=\prod q_j^{a_j}$ from the tape $(d_{q_j},e_{q_j})$
+>   alone, with cost Theorem C′ ($2A^{k}$ exponentiation chains $\to$ none).
+>   Theorem N (S) turns on the 2-adic synchronisation clause
+>   $v_2(\operatorname{ord}_{q_1}b)=\dots=v_2(\operatorname{ord}_{q_k}b)$, which
+>   is **not** a five-line consequence of $(\dagger)$ and is not a function of
+>   $(\dagger)$'s data at all: $(\dagger)$ reports $e_q$, the clause is a
+>   statement about $d_q$ across coordinates, and $(\dagger)$ is silent on the
+>   comparison. `SEED-66` Theorem Y then fixed its solution set
+>   ($v\in\{0,\dots,\omega\}$, $\omega=\min_jv_2(q_j-1)$) and `SEED-68`
+>   Theorem Q1 the exact liar-count ratio $S(n)/F(n)$, equality iff $k=1$.
+>
+> Per §1.3's own terms ("either falsification reinstates the item
+> immediately"), the item is reinstated in the composite direction. What §1
+> correctly killed is the *merge as a merge* — the claim that head depth and
+> blindness depth are two quantities needing identification. What it wrongly
+> killed with it is the lane, whose real content was never the merge but the
+> composite predicate. — SEED-93
+
 ---
 
 ## 2. What should replace it
