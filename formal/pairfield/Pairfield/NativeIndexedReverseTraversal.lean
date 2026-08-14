@@ -28,7 +28,7 @@ open NativeCompleteWitnesses
 inductive SourceState (X : Type v) where
   | source
   | pair (value : X × X)
-deriving Repr, DecidableEq
+deriving Repr, DecidableEq, Fintype
 
 /-- The state presentation change used by the source index. -/
 def sourceStateEquiv : Option (X × X) ≃ SourceState X where
@@ -1035,6 +1035,71 @@ theorem runQueue_states_nodup (edges : List (ReverseEdge M)) (fuel : Nat) :
   | zero => simp [runQueue, initialQueue, IndexedQueue.states, IndexedQueue.nodes]
   | succ fuel ih =>
       exact advanceQueue_states_nodup M (runQueue M edges fuel) ih
+
+theorem runQueue_closed_expanded (edges : List (ReverseEdge M)) (fuel : Nat) :
+    (runQueue M edges fuel).ClosedExpanded M edges := by
+  induction fuel with
+  | zero =>
+      intro node hnode
+      simp [runQueue, initialQueue] at hnode
+  | succ fuel ih =>
+      exact advanceQueue_closed_expanded M edges (runQueue M edges fuel) ih
+        (runQueue_remaining_covers M edges fuel)
+        (runQueue_remaining_sound M edges fuel)
+        (runQueue_remaining_keys_nodup M edges fuel)
+        (runQueue_states_nodup M edges fuel)
+
+theorem advanceQueue_frontier_eq_nil_of_frontier_eq_nil
+    (queue : IndexedQueue M) (hfrontier : queue.frontier = []) :
+    (advanceQueue M queue).frontier = [] := by
+  simp [advanceQueue, hfrontier, consumeFrontier, freshNodes]
+
+/-- If work remains after `fuel` rounds, every preceding round expanded at
+least one fresh state. -/
+theorem runQueue_fuel_le_closed_length_of_frontier_ne_nil
+    (edges : List (ReverseEdge M)) (fuel : Nat)
+    (hfrontier : (runQueue M edges fuel).frontier ≠ []) :
+    fuel ≤ (runQueue M edges fuel).closed.length := by
+  induction fuel with
+  | zero => simp
+  | succ fuel ih =>
+      have hprevious : (runQueue M edges fuel).frontier ≠ [] := by
+        intro hempty
+        apply hfrontier
+        exact advanceQueue_frontier_eq_nil_of_frontier_eq_nil M _ hempty
+      have hlength := ih hprevious
+      have hpositive : 0 < (runQueue M edges fuel).frontier.length :=
+        List.length_pos_iff.mpr hprevious
+      change fuel + 1 ≤
+        ((runQueue M edges fuel).closed ++
+          (runQueue M edges fuel).frontier).length
+      simp only [List.length_append]
+      omega
+
+theorem sourceState_card [Fintype X] :
+    Fintype.card (SourceState X) =
+      Fintype.card X * Fintype.card X + 1 := by
+  rw [← Fintype.card_congr (sourceStateEquiv (X := X))]
+  simp [Fintype.card_prod, Nat.add_comm]
+
+/-- The product-state-plus-source horizon is saturated: after one round per
+possible native state, no unexpanded fresh node remains. -/
+theorem runQueue_frontier_eq_nil [Fintype X]
+    (edges : List (ReverseEdge M)) :
+    (runQueue M edges (Fintype.card X * Fintype.card X + 1)).frontier = [] := by
+  by_contra hfrontier
+  have hfuel := runQueue_fuel_le_closed_length_of_frontier_ne_nil M edges
+    (Fintype.card X * Fintype.card X + 1) hfrontier
+  have hstates :=
+    (runQueue_states_nodup M edges
+      (Fintype.card X * Fintype.card X + 1)).length_le_card
+  simp only [IndexedQueue.states, IndexedQueue.nodes, List.length_map,
+    List.length_append, sourceState_card] at hstates
+  have hpositive :
+      0 < (runQueue M edges
+        (Fintype.card X * Fintype.card X + 1)).frontier.length :=
+    List.length_pos_iff.mpr hfrontier
+  omega
 
 /-- One source-indexed traversal through the finite source/product state
 space. -/
