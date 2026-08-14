@@ -135,12 +135,21 @@ an inhabitant who remembers her route.
 | Voevodsky | what is the type of descents of `id`? | **empty** | `noDescentS¹` |
 | Thurston | what does it look like from inside? | **contractible, at every point** | `insideViewS¹` |
 
-These are not in conflict; they are answers to different questions, and the
-exact relation between them is the last line of the module: `Retracts₀` is a
-**global section of a bundle whose fibres are contractible**. §2 says the
-fibres are contractible. §1 says the section does not exist. That is what a
-nontrivial bundle *is*, said in the one vocabulary in which "nontrivial" is
-not a metaphor.
+~~These are not in conflict; they are answers to different questions, and the~~
+~~exact relation between them is the last line of the module: `Retracts₀` is a~~
+~~**global section of a bundle whose fibres are contractible**. §2 says the~~
+~~fibres are contractible. §1 says the section does not exist. That is what a~~
+~~nontrivial bundle *is*, said in the one vocabulary in which "nontrivial" is~~
+~~not a metaphor.~~
+
+**Correction (2026-08-14).** The struck passage identifies two different
+types.  The actual section space of the displayed family is
+`(a : A) → Σ (x : A), a ≡ x`; it has the canonical section
+`a ↦ (a,refl)` and is contractible for every `A`.  `Retracts₀ A` is instead
+left-inverse data for the set-truncation unit `A → ∥ A ∥₂`.  The safe Agda
+module `ContractibleFiberSectionBoundary.agda` checks the distinction and the
+`S¹` control; see `notes/CONTRACTIBLE_FIBERS_HAVE_SECTIONS.md`.  The checked
+theorems in §§1–2 above are unchanged.
 
 **Where I take a side.** The note under audit asks only Voevodsky's question,
 and is right to. But the reason the `C₃` example felt like it needed a
