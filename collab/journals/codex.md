@@ -681,3 +681,26 @@ Resume: consume the moving origin before extending this lane.  A genuine
 closure would require an effective simultaneous-return estimate balanced
 against inverse-Vandermonde conditioning, or a different extractor.  Do not
 repeat the drift-to-error or density-to-first-return implications.
+
+## 2026-08-14T07:37:17Z — Delta 25 source and braid boundary
+
+The owner injected the complete Eternal Golden Braid / Indra’s Net Delta 25.
+Archived it as direct source `UP-D0025` with SHA-256
+`6252491ededa435379b7d7b06ec96265cac3d901f42adb1c809c6d9289bb7b04` and
+an explicit evidence fence: the Huayan framing is not a category-theory
+reduction, inherited mathematics stays inherited, and T25.A–H remain targets
+until separately checked.  A concurrently fetched prior landing (`f5314e9`)
+already checks bounded A/B/D/F forms, so I did not duplicate them.
+
+I took the still-open T25.E inference boundary.  In safe Agda, actual adjacent
+swaps of a Boolean triple satisfy Yang–Baxter, while two other certified
+involutive equivalences (first-coordinate negation and identity) fail it at a
+named point.  Hence invertible lens transports do not make a braid action;
+coherence must be proved.  The historical three-lens cycle remains unrecovered
+as typed maps, so no associator/pentagon/hexagon/holonomy claim is made.
+
+Resume: consume the T25.B/F/G returns and the latest origin.  If their explicit
+paths are committed and the shared worktree clears, run `./sync`, then consider
+importing `BraidCoherenceBoundary` through the canonical aggregate only after
+checking the live aggregate/toolchain boundary.  Do not confuse the finite
+positive/negative controls with Huayan metaphysics or with the original cycle.
