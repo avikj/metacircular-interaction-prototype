@@ -73,10 +73,8 @@ theorem separatesPrefixResidualsOn_congr_position
   constructor
   · apply separatesPrefixResidualsOn_mono_position M tree right left
     · rw [hposition]
-    · assumption
   · apply separatesPrefixResidualsOn_mono_position M tree left right
     · rw [hposition]
-    · assumption
 
 end BoolExperimentTree
 
