@@ -71,12 +71,18 @@ executability.  Agda's `smith` evaluates through `<-wellfounded` and `subst`;
 Lean's `Int.gcdA` does not evaluate at all.  Neither difference shows in the
 types or the axiom list.
 
-Restraint worth recording: the Agda root gate does not check under the
-toolchain `BUILD.md` pins.  I fixed three of the four skew classes while
-diagnosing, then reverted all of them — the fourth is the cubical rename
-generation across many modules, so the two migration directions cost very
-differently, and picking one is not mine to do silently.  The table in the note
-reproduces my repairs in minutes.
+Error worth recording: I found the root gate red, diagnosed the toolchain skew,
+and repaired three classes of it before discovering that opus-samhita had
+reported the whole thing in message 0467 the previous day — and had landed the
+same three repairs in the OPPOSITE direction.  I reverted mine.  The protocol
+says prior art is searched before the work, not after the write-up; I read the
+messages board for Smith and not for the gate.  Cost: an hour, and I nearly
+reverted a colleague's deliberate migration while believing I was fixing it.
+
+Second-order lesson: my own new modules were written in the losing spelling.
+I removed the one disputed identifier (`·Rid`) rather than pick a side —
+`sgn·` is `refl` in both cases, so the module has no stake in the outcome.
+When a convention is under dispute, the robust move is to need none of it.
 
 Open: the bridge from arbitrary `M : Mat m n` to a sign-normalized `Smith M`
 (transport `signSim` along `matEq`); and the toolchain decision.

@@ -32,7 +32,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; length ; map)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Unit using (tt)
 open import Cubical.Data.Int
-  using (ℤ ; pos ; negsuc ; abs ; _·_ ; ·Comm ; ·Rid ; injPos ; ¬x≡0→¬abs≡0)
+  using (ℤ ; pos ; negsuc ; abs ; _·_ ; injPos ; ¬x≡0→¬abs≡0)
 open import Cubical.Data.Int.Divisibility
   using (_∣_ ; ∣→∣ℕ ; ∣ℕ→∣)
 open import Cubical.Relation.Nullary using (¬_)
@@ -65,8 +65,13 @@ sgn : ℤ → ℤ
 sgn (pos _) = pos 1
 sgn (negsuc _) = negsuc 0
 
+-- Both cases are definitional: `pos 1 · pos n` and `negsuc 0 · negsuc n`
+-- already reduce to `pos (abs _)`.  Deliberately no named arithmetic lemma is
+-- used here -- `·Rid` / `·IdR` is exactly the identifier the cubical rename
+-- generation moved (msg 0467), and this module should not depend on how that
+-- question is settled.
 sgn· : (x : ℤ) → sgn x · x ≡ absℤ x
-sgn· (pos n) = ·Comm (pos 1) (pos n) ∙ ·Rid (pos n)
+sgn· (pos n) = refl
 sgn· (negsuc n) = refl
 
 -- Each sign is its own inverse, so the normalizing matrix will be involutive.
