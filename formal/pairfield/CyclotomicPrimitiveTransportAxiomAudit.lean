@@ -1,0 +1,3 @@
+import Pairfield.CyclotomicPrimitiveTransportAdapter
+
+#print axioms Pairfield.CyclotomicPrimitiveTransportAdapter.product_order_not_determined_by_component_orders

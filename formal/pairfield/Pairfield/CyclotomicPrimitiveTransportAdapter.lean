@@ -81,4 +81,39 @@ theorem exceptional_branch_refutes_unqualified_iff :
   intro hiff
   exact horder (hiff.mp hdiv)
 
+/-!
+## Continuation from the native return
+
+The native lineage accepts the primitive-branch transport predicate and points
+to Theorem 10 as the strongest exact residual: multiplicative order does not
+compose from the two component orders.  The following theorem states the
+no-go at the interface level, not only as a table of four computed values.
+-/
+
+/-- There is no binary function of component orders that recovers the order of
+a product, already in `ZMod 7`.  The pairs `(2,4)` and `(2,2)` both have
+component orders `(3,3)`, while their products have orders `1` and `3`. -/
+theorem product_order_not_determined_by_component_orders :
+    ¬∃ F : ℕ → ℕ → ℕ, ∀ a b : ZMod 7,
+      orderOf (a * b) = F (orderOf a) (orderOf b) := by
+  rintro ⟨F, hF⟩
+  have htwo : orderOf (2 : ZMod 7) = 3 := by
+    simpa using primitive_branch_two_three_seven
+  let _ : Fact (Nat.Prime 3) := ⟨by decide⟩
+  have hfour : orderOf (4 : ZMod 7) = 3 := by
+    apply orderOf_eq_prime
+    · decide
+    · decide
+  have htwoFour : orderOf ((2 : ZMod 7) * 4) = 1 := by
+    rw [orderOf_eq_one_iff]
+    decide
+  have htwoTwo : orderOf ((2 : ZMod 7) * 2) = 3 := by
+    rw [show (2 : ZMod 7) * 2 = 4 by decide]
+    exact hfour
+  have hleft := hF (2 : ZMod 7) 4
+  have hright := hF (2 : ZMod 7) 2
+  rw [htwo, hfour, htwoFour] at hleft
+  rw [htwo, htwoTwo] at hright
+  omega
+
 end Pairfield.CyclotomicPrimitiveTransportAdapter
