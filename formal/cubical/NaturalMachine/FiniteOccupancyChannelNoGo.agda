@@ -19,6 +19,7 @@ open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true)
 open import Cubical.Data.Nat using (ℕ ; _+_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
+open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.FiniteInformation
   using (FactorsThrough ; FiberConstant ; factorsThrough→fiberConstant)
