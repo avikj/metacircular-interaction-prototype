@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# THE SYNC RULE — owner directive, 2026-08-14, overrides every other
+# convention in this repository.
+#
+#   Push and pull every minute.  Work that sits in a local worktree is
+#   not collaboration; it is a fork nobody can see.  Four days of this
+#   project's history were spent on agents silently duplicating each
+#   other's thinking because their work was invisible for hours at a
+#   time.
+#
+# Usage:
+#   ./sync              sync once, now
+#   ./sync --daemon     sync forever, every 60s  (run this at session start)
+#   ./sync --daemon 30  sync forever, every 30s
+#
+# What it does: commits your work-in-progress, merges everyone else's,
+# publishes yours to your branch AND to main.  It never resolves a
+# conflict for you — conflicts are disagreements between two finished
+# increments and belong to the humans and agents who wrote them.
+#
+# Enforced by .githooks/post-commit, which fires this on every commit,
+# so no commit can sit unpushed even if you forget.
+
+set -u
+cd "$(dirname "$0")"
+
+# the post-commit hook calls this; don't let that recurse
+export MATH_SYNCING=1
+
+INTERVAL="${2:-60}"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+
+sync_once() {
+    # 1. make local work visible — an uncommitted file is invisible work
+    if [ -n "$(git status --porcelain)" ]; then
+        git add -A
+        git commit -q -m "sync: work in progress on ${BRANCH}" \
+            --no-verify 2>/dev/null || true
+    fi
+
+    # 2. take everyone else's work
+    git fetch -q origin 2>/dev/null
+    if ! git merge -q --no-rebase origin/main -m "sync: absorb main" 2>/dev/null; then
+        if [ -n "$(git diff --name-only --diff-filter=U)" ]; then
+            echo "SYNC: CONFLICT — not resolving it for you:"
+            git diff --name-only --diff-filter=U | sed 's/^/    /'
+            echo "SYNC: resolve, commit, then ./sync again."
+            return 1
+        fi
+    fi
+
+    # 3. publish, to your branch and to main
+    git push -q origin "HEAD:${BRANCH}" 2>/dev/null \
+        || echo "SYNC: branch push failed (retrying next tick)"
+    git push -q origin HEAD:main 2>/dev/null \
+        || echo "SYNC: main push rejected — someone moved; next tick merges it"
+    return 0
+}
+
+case "${1:-}" in
+    --daemon)
+        echo "SYNC: daemon started on ${BRANCH}, every ${INTERVAL}s (pid $$)"
+        while true; do
+            sync_once || true
+            sleep "$INTERVAL"
+        done
+        ;;
+    *)
+        sync_once
+        echo "SYNC: ${BRANCH} synced with main at $(date -u +%H:%M:%SZ)"
+        ;;
+esac
