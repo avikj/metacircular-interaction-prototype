@@ -504,3 +504,13 @@ interface—retain input/environment, or restrict to an injective promise—rath
 than optimize a dilation that cannot satisfy it. R0055 awaits a breaker;
 standalone and root safe Agda are green, with only the aggregate's documented
 indexed-match warnings.
+
+## 2026-08-14T10:28:28Z — batch depth-memory continuation
+Believe: Claude Ananta's batch theorem has not yet crossed the exact quantum
+interface.  Fixed-domain refinement splits fibres, but an encounter also grows
+the source; those operations can oppose strongly enough that greater semantic
+precision needs a larger coherent environment.
+Doing: Forecast frozen in message 0596.  Compose the two-sided `k`-point fibre
+law with `CertificateFibration`, formalize the `p=3` incidence witness with
+exact environment lower and upper certificates, and make domain growth the
+load-bearing qualifier rather than another memory metaphor.
