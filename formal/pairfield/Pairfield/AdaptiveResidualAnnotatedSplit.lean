@@ -70,6 +70,8 @@ def child (block : Block M) (action : A) (answer : Bool)
   nonempty := inhabited
   word := block.word ++ [action]
   imageInjective := by
+    change Set.InjOn (block.nextState M action)
+      (block.childMembers M action answer)
     simpa [childMembers] using
       (FiniteLiveCell.safeAdvance_injOn_responseFiber block.members
         (block.postResponse M action) (block.nextState M action) answer valid)
@@ -126,6 +128,10 @@ theorem branchSquareAmbiguity_add_two_le (block : Block M) (action : A)
     Finset.card_pos.mpr falseInhabited
   have htrue : 0 < (block.childMembers M action true).card :=
     Finset.card_pos.mpr trueInhabited
+  have hcross :
+      2 ≤ 2 * (block.childMembers M action false).card *
+        (block.childMembers M action true).card := by
+    nlinarith
   omega
 
 /-- Square ambiguity of a finite family of annotated blocks. -/
@@ -135,15 +141,15 @@ def familySquareAmbiguity (blocks : List (Block M)) : Nat :=
 /-- Replacing one annotated parent by its two nonempty children changes the
 global family ambiguity by exactly the same cross term. -/
 theorem familySquareAmbiguity_replace
-    (prefix suffix : List (Block M)) (block : Block M) (action : A)
+    (before after : List (Block M)) (block : Block M) (action : A)
     (valid : block.ValidAction M action)
     (falseInhabited : (block.childMembers M action false).Nonempty)
     (trueInhabited : (block.childMembers M action true).Nonempty) :
-    familySquareAmbiguity M (prefix ++ block :: suffix) =
+    familySquareAmbiguity M (before ++ block :: after) =
       familySquareAmbiguity M
-        (prefix ++
+        (before ++
           block.child M action false valid falseInhabited ::
-          block.child M action true valid trueInhabited :: suffix) +
+          block.child M action true valid trueInhabited :: after) +
         2 * (block.childMembers M action false).card *
           (block.childMembers M action true).card := by
   have hsplit := block.squareAmbiguity_split M action
@@ -157,15 +163,16 @@ theorem familySquareAmbiguity_replace
 count is the correction to the forecast that the quadratic pair budget might
 be sharp as a count of informative partition events. -/
 theorem family_length_replace
-    (prefix suffix : List (Block M)) (block : Block M) (action : A)
+    (before after : List (Block M)) (block : Block M) (action : A)
     (valid : block.ValidAction M action)
     (falseInhabited : (block.childMembers M action false).Nonempty)
     (trueInhabited : (block.childMembers M action true).Nonempty) :
-    (prefix ++
+    (before ++
       block.child M action false valid falseInhabited ::
-      block.child M action true valid trueInhabited :: suffix).length =
-      (prefix ++ block :: suffix).length + 1 := by
-  simp
+      block.child M action true valid trueInhabited :: after).length =
+      (before ++ block :: after).length + 1 := by
+  simp only [List.length_append, List.length_cons]
+  omega
 
 end Block
 
@@ -227,10 +234,16 @@ def hiddenBlock : Block automaton where
   currentConstant := by native_decide
 
 theorem stay_valid : hiddenBlock.ValidAction automaton false := by
-  native_decide
+  intro left right hleft hright hresponse hnext
+  fin_cases left <;> fin_cases right <;>
+    simp_all [hiddenBlock, Block.postResponse, Block.nextState,
+      automaton, step, acceptsBool]
 
 theorem reveal_valid : hiddenBlock.ValidAction automaton true := by
-  native_decide
+  intro left right hleft hright hresponse hnext
+  fin_cases left <;> fin_cases right <;>
+    simp_all [hiddenBlock, Block.postResponse, Block.nextState,
+      automaton, step, acceptsBool]
 
 theorem reveal_false_nonempty :
     (hiddenBlock.childMembers automaton true false).Nonempty := by

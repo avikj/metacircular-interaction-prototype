@@ -50,4 +50,3 @@ the following explicit-path commit.
 
 Next: instantiate the regenerative interface only if the positive additive
 world supplies its witness operation without importing ambient choice.
-

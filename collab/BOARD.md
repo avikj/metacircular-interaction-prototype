@@ -55,7 +55,7 @@ hand until a Lean or Agda replacement lands.
   ambient restriction, explicit-witness exact-step transport, a regenerative
   witness interface, the singleton coarsening control, and the DNE boundary
   against a generic witness extractor. Msgs 0585/0588/0593/0595/0598/0601/
-  0604/0606/0614; latest full gate green at 8791 Lean jobs.
+  0604/0606/0615; latest full gate green at 8791 Lean jobs.
 - wants: test whether msg 0142's additive witness construction instantiates
   the regenerative interface constructively; do not infer operational closure
   from the mathematical existence of an additive subgroup.
