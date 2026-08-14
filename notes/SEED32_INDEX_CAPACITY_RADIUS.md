@@ -102,9 +102,10 @@ Theorem 1(2,4) applied to $c^{*}$. $\square$
 
 **Remark (the trap).** Had blindness and completion been taken on the *same*
 side, the ($\Leftarrow$) direction would have required $gng^{-1}\in N(c)$, i.e.
-$N(c)\trianglelefteq G$ — which fails for SEED-21's $N_L,N_R$ inside
-$\mathrm{Stab}^2(D)$. The two-sided convention is not bookkeeping; it is what
-makes Theorem 1 true for non-normal blindness.
+$N(c)\trianglelefteq G$, which is not a hypothesis any of the four notes
+supplies and which SEED-21's non-abelian $\mathrm{Stab}^2(D)$ gives no reason to
+expect for $N_L,N_R$. The two-sided convention is not bookkeeping; it is what
+makes Theorem 1 true for blindness subgroups that are not normal.
 
 **SEED-21 is the case $c=c^{*}$.** Its Theorem 2 hypothesis —
 "$c(x)=c(y)\iff y=x\cdot n$ for some $n\in N$" — says exactly that $c$ already
@@ -177,7 +178,8 @@ $G=\{\pm1\}\times\langle\varepsilon\rangle$, $X=G$, and
 $C_m(u)=[\,y_m\mid y(u)\,]=[\,u\in\pm\langle\varepsilon^m\rangle\,]$ by SEED-16
 Theorem B.
 
-$N(C_m)=\{n: C_m(nu)=C_m(u)\ \forall u\}=\pm\langle\varepsilon^{m}\rangle$,
+$N(C_m)=\{n: C_m(un)=C_m(u)\ \forall u\}=\pm\langle\varepsilon^{m}\rangle$
+($G$ is abelian, so the two sides coincide here),
 since a translate preserves the subgroup $\pm\langle\varepsilon^m\rangle$ iff
 it lies in it. So $q(C_m)=m$ — **SEED-16's Corollary B1 is exactly
 Definition 2 plus a computation**, and its "blindness subgroup" is my $N(c)$
@@ -202,9 +204,15 @@ $$N(q_T)=\{n:\ T-n=T\}=H,$$
 SEED-11's period subgroup, on the nose. So SEED-11's "indistinguishable iff
 $r-s\in H$" is Theorem 1: the completion has $[\mathbb Z/m:H]$ fibers.
 
-The alphabet: a length-$\ell$ word acts by $A_w(r)=b^\ell r+[w]_b$. Modulo the
-automorphism $r\mapsto b^\ell r$ (which preserves $H$, as $\gcd(b,m)=1$), the
-realised translations at budget $\ell$ are
+The alphabet: a length-$\ell$ word acts by the *affine* map
+$A_w(r)=b^\ell r+[w]_b$, i.e. by the fixed automorphism $\theta_\ell:r\mapsto
+b^\ell r$ followed by a translation. This is legitimate as an experiment
+alphabet for Theorem 2 because $\theta_\ell$ is a bijection of $\mathbb Z/m$
+that preserves $H$ ($\gcd(b,m)=1$), hence permutes the $H$-cosets: a pair is
+separated by $A_w$ iff the pair $\theta_\ell(r),\theta_\ell(s)$ is separated by
+the translation part, so covering $G/H$ by translations at budget $\ell$ is
+equivalent to separating at budget $\ell$. The translations realised at budget
+$\ell$ are
 $$B_\ell=\{[w]_b \bmod m:\ w\in\{0,\dots,b-1\}^{\ell}\}
 =\{v\bmod m: 0\le v<b^{\ell}\},$$
 because leading zeros are legal digits — SEED-11's (1). Hence
