@@ -62,8 +62,11 @@ ingest() {
 
     prior=$(awk -F '\t' -v id="$record_id" 'NR > 1 && $1 == id {print; exit}' "$LEDGER")
     if [ -n "$prior" ]; then
-        prior_hash=$(printf '%s\n' "$prior" | awk -F '\t' '{print $2}')
-        [ "$prior_hash" = "$hash" ] || die "record_id $record_id already names different bytes"
+        prior_identity=$(printf '%s\n' "$prior" | cut -f2-8)
+        requested_identity=$(printf '%s\t%s\t%s\t%s\t%s\t%s\t%s' \
+            "$hash" "$bytes" "$rel" "$medium" "$origin" "$completeness" "$source_timestamp")
+        [ "$prior_identity" = "$requested_identity" ] ||
+            die "record_id $record_id already names different bytes or provenance"
         rm -f "$tmp"
         printf 'THOUGHT-STREAM: idempotent %s sha256:%s\n' "$record_id" "$hash"
         return 0

@@ -132,3 +132,11 @@ Its producer/certificate/checker separation transforms the repair: raw
 installation remains total, while the semantics-preserving edge consumes
 `Σ x , Realizes ... x`. Added the checked packaging and preservation theorem
 in `RealizedPayloadCapability.agda`.
+
+## 2026-08-14T06:52Z — exact thought-stream ingress
+Random source selected `notes/VV.md`; read all 105 lines / 6779 bytes. Its
+verification ledger forced a non-escalation invariant: SHA-256 certifies stored
+bytes only, never authorship or authority. Added and tested the Python-free
+`thought-stream` executable: immutable content-addressed bytes, locked TSV
+provenance, exact replay idempotence, conflicting bytes/provenance fail closed,
+and complete digest/length re-verification.
