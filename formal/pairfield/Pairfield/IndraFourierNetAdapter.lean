@@ -41,16 +41,16 @@ def reconstruct (n : ℕ) [NeZero n]
   fun pair ↦
     ((n.totient : ℂ) ^ 2)⁻¹ *
       ∑ χ₁ : DirichletCharacter ℂ n, ∑ χ₂ : DirichletCharacter ℂ n,
-        χ₁ ((pair.1⁻¹ : UnitResidue n) : ZMod n) *
-          χ₂ ((pair.2⁻¹ : UnitResidue n) : ZMod n) * H χ₁ χ₂
+        χ₁ ((pair.1 : ZMod n)⁻¹) *
+          χ₂ ((pair.2 : ZMod n)⁻¹) * H χ₁ χ₂
 
 /-- Mathlib's character orthogonality theorem, stated directly on unit
 representatives. -/
 theorem character_delta (n : ℕ) [NeZero n] (a b : UnitResidue n) :
     (∑ χ : DirichletCharacter ℂ n,
-      χ ((a⁻¹ : UnitResidue n) : ZMod n) * χ (b : ZMod n)) =
+      χ ((a : ZMod n)⁻¹) * χ (b : ZMod n)) =
         if a = b then (n.totient : ℂ) else 0 := by
-  simpa using
+  simpa only [Units.val_inj] using
     (DirichletCharacter.sum_char_inv_mul_char_eq ℂ a.isUnit (b : ZMod n))
 
 end
