@@ -27,6 +27,7 @@ open import Cubical.Foundations.Isomorphism using (Iso ; iso)
 open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true ; isSetBool)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
+open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.HITs.SetQuotients as SQ
   using ([_] ; eq/ ; squash/)
 open import Cubical.Relation.Nullary using (¬_)
@@ -262,3 +263,88 @@ projection-contextual-meaningIso :
       ProjectionQuotientEquivalence.Equivalence.QB.Meaning
 projection-contextual-meaningIso =
   ProjectionQuotientEquivalence.contextualMeaningIso
+
+------------------------------------------------------------------------
+-- 5.  Necessity fails after observation collapses the action difference
+------------------------------------------------------------------------
+
+identityStep : Bool → Unit → Bool
+identityStep state tt = state
+
+flipStep : Bool → Unit → Bool
+flipStep false tt = true
+flipStep true  tt = false
+
+constantObserve : Bool → Unit
+constantObserve state = tt
+
+identity-words-do-nothing : (state : Bool) (word : List Unit)
+  → FB.run identityStep state word ≡ state
+identity-words-do-nothing state [] = refl
+identity-words-do-nothing state (tt ∷ word) =
+  identity-words-do-nothing state word
+
+-- No finite identity word realizes the flip generator.  This is a statement
+-- about state transformations before observation.
+flip-not-simulable-by-identity :
+  ¬ ActionSimulation flipStep identityStep
+flip-not-simulable-by-identity simulation =
+  false≢true
+    (identity-words-do-nothing false (compileAction simulation tt)
+    ∙ realizesAction simulation false tt)
+
+no-mutual-simulation-after-collapse :
+  ¬ MutualSimulation identityStep flipStep
+no-mutual-simulation-after-collapse simulations =
+  flip-not-simulable-by-identity (B-in-A simulations)
+
+-- The constant observer nevertheless identifies every pair of states under
+-- every word, for either action system (indeed for any Unit-action system).
+constant-futureEq : (step : Bool → Unit → Bool) (left right : Bool)
+  → FB.FutureEq step constantObserve left right
+constant-futureEq step left right word = refl
+
+collapsed-futureEqIso : (left right : Bool)
+  → Iso (FB.FutureEq identityStep constantObserve left right)
+      (FB.FutureEq flipStep constantObserve left right)
+collapsed-futureEqIso left right = iso
+  (λ _ → constant-futureEq flipStep left right)
+  (λ _ → constant-futureEq identityStep left right)
+  (λ targetEq → isPropΠ (λ word → isSetUnit _ _) _ targetEq)
+  (λ sourceEq → isPropΠ (λ word → isSetUnit _ _) _ sourceEq)
+
+module IdentityCollapsedQuotient =
+  FB.FutureQuotient identityStep isSetUnit constantObserve
+
+module FlipCollapsedQuotient =
+  FB.FutureQuotient flipStep isSetUnit constantObserve
+
+identityToFlipMeaning :
+  IdentityCollapsedQuotient.Meaning → FlipCollapsedQuotient.Meaning
+identityToFlipMeaning = SQ.rec FlipCollapsedQuotient.isSetMeaning
+  (λ state → [ state ])
+  (λ left right related →
+    eq/ left right (constant-futureEq flipStep left right))
+
+flipToIdentityMeaning :
+  FlipCollapsedQuotient.Meaning → IdentityCollapsedQuotient.Meaning
+flipToIdentityMeaning = SQ.rec IdentityCollapsedQuotient.isSetMeaning
+  (λ state → [ state ])
+  (λ left right related →
+    eq/ left right (constant-futureEq identityStep left right))
+
+collapsed-to-from : (meaning : FlipCollapsedQuotient.Meaning)
+  → identityToFlipMeaning (flipToIdentityMeaning meaning) ≡ meaning
+collapsed-to-from = SQ.elimProp
+  (λ meaning → FlipCollapsedQuotient.isSetMeaning _ _) (λ _ → refl)
+
+collapsed-from-to : (meaning : IdentityCollapsedQuotient.Meaning)
+  → flipToIdentityMeaning (identityToFlipMeaning meaning) ≡ meaning
+collapsed-from-to = SQ.elimProp
+  (λ meaning → IdentityCollapsedQuotient.isSetMeaning _ _) (λ _ → refl)
+
+collapsed-meaningIso :
+  Iso IdentityCollapsedQuotient.Meaning FlipCollapsedQuotient.Meaning
+collapsed-meaningIso =
+  iso identityToFlipMeaning flipToIdentityMeaning
+    collapsed-to-from collapsed-from-to

@@ -579,6 +579,43 @@ canonical live cell.  Formation's message 0583 has registered exactly the
 reciprocal cycle-deletion construction; R0057's mandatory `steer` is not a
 cycle because it moves the live cell to a genuinely new canonical position.
 
+## 15. Repeated canonical positions are deletable
+
+`Pairfield.AdaptiveResidualCycleDeletion` closes the exact transport joint.
+Raw prefix cells cannot literally repeat because every query lengthens their
+presenters.  The correct position of a raw cell `S` is instead
+
+\[
+\operatorname{Pos}(S)=\{w^{-1}L : w\in S\},
+\]
+
+its set of Mathlib left quotients.  Lean proves the stronger monotonicity
+statement: if `Pos(S) ⊆ Pos(T)`, then every fixed experiment tree separating
+the residuals presented by `T` also separates those presented by `S`.
+Therefore equality of positions transports residual separation in both
+directions.
+
+At the proof-relevant level, `transplantAtSamePosition` takes a recursively
+certified subtree at a later live prefix cell and reconstructs it at an earlier
+cell with the same canonical position.  Its compilation theorem is exact:
+
+```text
+(transplantAtSamePosition ... laterSubtree).toTree = laterSubtree
+```
+
+Thus no replacement experiment is invented.  A steering segment returning to
+an earlier canonical live cell can be deleted and the later separating subtree
+used immediately at the earlier occurrence.  The planted control uses R0057:
+`reveal` separates after `steer` but not before it, so Lean proves that the
+mandatory steering action changes the canonical position.  The theorem deletes
+cycles, not necessary motion.
+
+Together with the preceding finite carrier theorem, this discharges the
+qualitative `Nodup` premise for a depth-minimal constant-cardinality steering
+spine.  Turning that local deletion into the full classical quadratic ADS
+height theorem still requires an explicit global minimal-plan/spine argument;
+that final assembly is not claimed here.
+
 ## Replay
 
 ```sh
@@ -598,6 +635,7 @@ lake build Pairfield.AdaptiveResidualConstructor
 lake build Pairfield.AdaptiveResidualSteering
 lake build Pairfield.AdaptiveConstantResponseSteering
 lake build Pairfield.AdaptiveResidualPositionRank
+lake build Pairfield.AdaptiveResidualCycleDeletion
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -605,7 +643,7 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,779 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,780 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
-canonical positional carrier.
+canonical positional carrier and cycle deletion.
 Emitted warnings are pre-existing linter warnings in imported modules.
