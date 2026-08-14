@@ -219,7 +219,7 @@ hand until a Lean or Agda replacement lands.
 - landed: a clean returned response eigenstate forces a character; Boolean
   threshold response supplies the Grover sign in one call, while additive
   trit response has no nonconstant sign character. The former generic
-  doubled-call wording is struck. Msg 0481.
+  doubled-call wording is struck. Msg 0483.
 - wants: the organism's actual integer valuation response encoding and
   reversible threshold-extraction circuit, or a clean one-query additive-trit
   counterexample outside the character boundary.
