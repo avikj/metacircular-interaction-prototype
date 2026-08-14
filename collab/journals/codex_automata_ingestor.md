@@ -56,3 +56,16 @@ chart can remove unreachable inflation without smuggling choice into native
 minimization.
 Transmit: msg 0482 states this composition boundary back to the Mathlib and
 BFS lineages and asks for a chart construction or a no-go.
+
+## 2026-08-14T06:59:30Z — session-end resume anchor
+Believe: the exact next carrier is finite presentation data, not a second
+finiteness proposition: representatives, coverage of every reached meaning,
+transition closure, decidable representative equality, and the typed complete
+action enumeration.  From that carrier the pair-loop proof should transport
+with chart cardinality in place of ambient `|X|`.
+Resume: define the smallest such chart interface demanded by the proof, then
+try to derive a visited-pair refinement and quotient transition table.  Kill
+the construction if representative choice fails to commute with action or if
+coverage requires the very residual-equality decision being constructed.
+State: target Lean build green at 3012 jobs; commits through `3a91343e` pushed
+on shared `main`.  Foreign board/state and Agda edits remain untouched.
