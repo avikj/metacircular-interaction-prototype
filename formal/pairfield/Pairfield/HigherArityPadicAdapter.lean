@@ -12,6 +12,42 @@ import Mathlib.Tactic
 
 namespace Pairfield.HigherArityPadicAdapter
 
+/-- The native hierarchy tuple, reindexed as `Fin (n+1)`: `n` unit
+coordinates followed by the moving coordinate `p^r-n`. -/
+def nativeTuple (p r n : ℕ) : Fin (n + 1) → ℕ := fun i ↦
+  if i = Fin.last n then p ^ r - n else 1
+
+/-- A labeled subset omitting the moving coordinate sums to its cardinality. -/
+theorem nativeTuple_sum_without_last
+    {p r n : ℕ} {S : Finset (Fin (n + 1))}
+    (hlast : Fin.last n ∉ S) :
+    (∑ i ∈ S, nativeTuple p r n i) = S.card := by
+  rw [Finset.card_eq_sum_ones]
+  apply Finset.sum_congr rfl
+  intro i hi
+  simp only [nativeTuple, if_neg (ne_of_mem_of_not_mem hi hlast)]
+
+/-- A labeled subset containing the moving coordinate has the native normal
+form `p^r-k`, where `k` is the number of omitted unit coordinates. -/
+theorem nativeTuple_sum_with_last
+    {p r n : ℕ} {S : Finset (Fin (n + 1))}
+    (hlast : Fin.last n ∈ S) (hbound : n < p ^ r) :
+    (∑ i ∈ S, nativeTuple p r n i) = p ^ r - (n + 1 - S.card) := by
+  calc
+    (∑ i ∈ S, nativeTuple p r n i) =
+        (∑ i ∈ S.erase (Fin.last n), nativeTuple p r n i) +
+          nativeTuple p r n (Fin.last n) := by
+      exact (Finset.sum_erase_add S (nativeTuple p r n) hlast).symm
+    _ = (S.erase (Fin.last n)).card + (p ^ r - n) := by
+      rw [nativeTuple_sum_without_last (S := S.erase (Fin.last n)) (by simp)]
+      simp [nativeTuple]
+    _ = p ^ r - (n + 1 - S.card) := by
+      have hcard : S.card ≤ n + 1 := by
+        simpa using Finset.card_le_card (Finset.subset_univ S)
+      have hcardpos : 0 < S.card := Finset.card_pos.mpr ⟨Fin.last n, hlast⟩
+      rw [Finset.card_erase_of_mem hlast]
+      omega
+
 /-- A positive natural strictly below `p^r` has `p`-adic valuation strictly
 below `r`.  Thus the native hierarchy's explicit maximum-valuation threshold
 is forced by its positivity bound. -/

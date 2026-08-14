@@ -11,6 +11,8 @@ open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc)
+import Cubical.Data.Sum.Properties as Sum
+import Cubical.Data.Prod as P
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.Group.Base using (GroupStr)
@@ -58,13 +60,16 @@ s₀₁ = isoToEquiv swap01Iso
 s₁₂ = isoToEquiv swap12Iso
 
 module S = GroupStr (snd S₃)
-module ST = GroupTheory (snd S₃)
+module ST = GroupTheory S₃
 
 -- The two adjacent transpositions genuinely do not commute.  Evaluation at
 -- vertex zero reduces the proposed equality to distinct constructors.
 noncommuting : (s₀₁ S.· s₁₂ ≡ s₁₂ S.· s₀₁) → ⊥
-noncommuting p with cong (λ e → fst e fzero) p
-... | ()
+noncommuting p = lower (Sum.⊎Path.encode (fsuc fzero) fzero inner)
+  where
+  inner : fsuc fzero ≡ fzero
+  inner = lower (Sum.⊎Path.encode (fsuc (fsuc fzero)) (fsuc fzero)
+    (cong (λ e → fst e fzero) p))
 
 -- A deliberately minimal conjugation-invariant loop observation.  It records
 -- only that a loop was observed; the point is that gauge invariance is checked
@@ -78,7 +83,7 @@ loopObserved-conjugation h g = refl
 
 loopObserved-gauge : (h g : ⟨ S₃ ⟩)
   → loopObserved
-      (NaturalMachine.RelationalHolonomyRefinement.endpointGauge S₃ (h , h) g)
+      (NaturalMachine.RelationalHolonomyRefinement.endpointGauge S₃ (P._,_ h h) g)
     ≡ loopObserved g
 loopObserved-gauge =
   closedLoopGaugeInvariant S₃ loopObserved loopObserved-conjugation
