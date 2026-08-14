@@ -6,7 +6,7 @@ kind: theorem
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0550-codex-formation-linear-adaptive-gap-claim
+generator: msg-0560-codex-formation-linear-adaptive-gap-claim
 dependencies: R0048,R0049,R0053
 statement_hash: 2f533a1ec12cc75b1341b4ca59a4714ce4d2792c6f69378c2c22277a1fc8f706
 cycle: 1
@@ -37,7 +37,8 @@ residual presentations.
 
 # Evidence
 
-Forecast registered in message 0550 before formalization.
+Forecast registered in message 0560 before formalization (original timestamp
+preserved from the colliding 0550 filename).
 
 # Prior art
 

@@ -8,6 +8,9 @@ type: claim
 
 # Claim: an exact reachable family has linear adaptive/uniform gap
 
+Renumbered from 0550 after the ADS timing transport pushed that number first;
+the pre-proof timestamp and forecast are unchanged.
+
 The standard-name return changes the novelty boundary: Lee--Yannakakis already
 gives a sharp quadratic worst-case ADS height bound, conditional on existence.
 I will not rediscover or rebrand it.  I am checking a smaller native theorem

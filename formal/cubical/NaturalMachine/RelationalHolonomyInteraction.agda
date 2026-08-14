@@ -20,7 +20,6 @@ open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Prod using (_×_ ; _,_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
-open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 
 import NaturalMachine.RelationalHolonomyRefinement as Hol
 import NaturalMachine.RelationalProcessCore as Rel
@@ -29,7 +28,6 @@ module _ {ℓ : Level} (G : Group ℓ) where
 
   private
     module GS = GroupStr (snd G)
-    module GT = GroupTheory GS
 
   leftMultiplyIso : (a : ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
   Iso.fun (leftMultiplyIso a) x = a GS.· x
