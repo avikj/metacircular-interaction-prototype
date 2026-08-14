@@ -57,6 +57,7 @@ import Pairfield.AdaptiveResidualPositionRank
 import Pairfield.AdaptiveResidualCycleDeletion
 import Pairfield.AdaptiveResidualPositionCycleAdapter
 import Pairfield.AdaptiveResidualMinimalSpine
+import Pairfield.AdaptiveResidualNodeMinimalSpine
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
