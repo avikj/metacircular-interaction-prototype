@@ -4,6 +4,7 @@ module NaturalMachine.PolynomialRewrite where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
+open import Cubical.Data.Nat.Properties using (+-suc)
 open import Cubical.Data.Vec.Base using (Vec ; [] ; _∷_ ; _++_ ; map)
 
 record Signature : Type₁ where
@@ -132,6 +133,34 @@ module _ (S : Signature) where
     reweave-sound algebra law context run environment =
       run-sound algebra law (reweave context run) environment
       ∙ cong (evaluate algebra environment) (reweave-result context run)
+
+mutual
+  nodeCount : {S : Signature} → Term S → ℕ
+  nodeCount var = 1
+  nodeCount (node operation terms) = suc (counts terms)
+
+  counts : {S : Signature} {n : ℕ} → Vec (Term S) n → ℕ
+  counts [] = zero
+  counts (term ∷ terms) = nodeCount term + counts terms
+
+module _ (S : Signature) where
+
+  focus-count-strict : {m n : ℕ}
+    (left : Vec (Term S) m) (right : Vec (Term S) n)
+    {from to : Term S} → nodeCount from ≡ suc (nodeCount to)
+    → counts (left ++ from ∷ right) ≡ suc (counts (left ++ to ∷ right))
+  focus-count-strict [] right {to = to} strict =
+    cong (_+ counts right) strict
+  focus-count-strict (term ∷ left) right {to = to} strict =
+    cong (nodeCount term +_) (focus-count-strict left right strict)
+    ∙ +-suc (nodeCount term) (counts (left ++ to ∷ right))
+
+  plug-count-strict : (context : Context S) {from to : Term S}
+    → nodeCount from ≡ suc (nodeCount to)
+    → nodeCount (plug S context from) ≡ suc (nodeCount (plug S context to))
+  plug-count-strict hole strict = strict
+  plug-count-strict (frame operation left focus right) strict =
+    cong suc (focus-count-strict left right (plug-count-strict focus strict))
 
 ------------------------------------------------------------------------
 -- Arithmetic is an instance, not a privileged syntax.

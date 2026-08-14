@@ -61,7 +61,14 @@ theorem reachableReducedStateToResidual_injective
   intro word
   change decide (run R.step left word ∈ R.accept) =
     decide (run R.step right word ∈ R.accept)
-  exact congrArg decide (hfuture word)
+  have hiff : run R.step left word ∈ R.accept ↔
+      run R.step right word ∈ R.accept := iff_of_eq (hfuture word)
+  by_cases hleft : run R.step left word ∈ R.accept
+  · have hright := hiff.mp hleft
+    simp [hleft, hright]
+  · have hright : ¬ (run R.step right word ∈ R.accept) :=
+      fun h => hleft (hiff.mpr h)
+    simp [hleft, hright]
 
 /-- The executable quotient has no more states than Mathlib's canonical
 residual chart. -/
@@ -69,11 +76,19 @@ theorem reachableReducedDFA_card_le_nerode
     [DecidableEq A] [DecidableEq X] [Fintype X]
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
-    Fintype.card (Quotient (dfaFutureSetoid
-        (startReachableDFA M alphabet complete))) ≤
-      Fintype.card
-        (nerodePresentation M (finiteDFA_accepts_isRegular M)).State := by
+    @Fintype.card (Quotient (dfaFutureSetoid
+        (startReachableDFA M alphabet complete)))
+        (reachableReducedFintype M alphabet complete) ≤
+      @Fintype.card
+        (nerodePresentation M (finiteDFA_accepts_isRegular M)).State
+        (nerodePresentation M
+          (finiteDFA_accepts_isRegular M)).fintypeState := by
   classical
+  letI : Fintype (Quotient (dfaFutureSetoid
+      (startReachableDFA M alphabet complete))) :=
+    reachableReducedFintype M alphabet complete
+  letI : Fintype (Set.range M.accepts.leftQuotient) :=
+    (nerodePresentation M (finiteDFA_accepts_isRegular M)).fintypeState
   exact Fintype.card_le_of_injective
     (reachableReducedStateToResidual M alphabet complete)
     (reachableReducedStateToResidual_injective M alphabet complete)
@@ -86,8 +101,9 @@ theorem reachableReducedDFA_card_le
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
     (N : DFA A Y) [Fintype Y] (accepts_eq : N.accepts = M.accepts) :
-    Fintype.card (Quotient (dfaFutureSetoid
-        (startReachableDFA M alphabet complete))) ≤ Fintype.card Y := by
+    @Fintype.card (Quotient (dfaFutureSetoid
+        (startReachableDFA M alphabet complete)))
+        (reachableReducedFintype M alphabet complete) ≤ Fintype.card Y := by
   exact le_trans (reachableReducedDFA_card_le_nerode M alphabet complete)
     (nerodePresentation_card_le M (finiteDFA_accepts_isRegular M)
       N accepts_eq)

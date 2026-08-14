@@ -271,7 +271,13 @@ fingerprint sem envs t = map (\e -> eval sem e t) envs
 -- --------------------------------------------------------- generation
 
 genTerms :: [(String,Int)] -> Int -> Int -> [Term]
-genTerms sig nv maxSize = concat table
+genTerms = genTermsModulo []
+
+-- Compile a proved commutativity law into the grammar: for a binary symbol
+-- in `comm`, generate one representative of the transposition orbit.  This
+-- removes the losing branch before a `Term` exists.
+genTermsModulo :: [String] -> [(String,Int)] -> Int -> Int -> [Term]
+genTermsModulo comm sig nv maxSize = concat table
   where
     -- a lazy list, not a strict map: `build n` consults `ofSize m` only
     -- for m < n, so the knot ties, but only if the table's entries stay
@@ -280,8 +286,11 @@ genTerms sig nv maxSize = concat table
     ofSize n | n >= 1 && n <= maxSize = table !! (n-1)
              | otherwise = []
     build 1 = [ V i | i <- [0..nv-1] ] ++ [ F f [] | (f,0) <- sig ]
-    build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1) ]
+    build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1)
+                          , canonical f args ]
       where
+        canonical f [l,r] | f `elem` comm = l <= r
+        canonical _ _ = True
         argsOf 1 k | k >= 1 = map (:[]) (ofSize k)
                    | otherwise = []
         argsOf a k = [ t:rest | i <- [1..k-a+1]
@@ -752,6 +761,15 @@ usableRules m =
     ++ mRules m
     ++ lemmaRules (mLemmas m)
 
+provedCommutative :: Machine -> [String]
+provedCommutative m =
+  [ symName s
+  | s <- take (mVocab m) vocabulary ++ mInvented m
+  , symArity s == 2
+  , let law = canonVars (F (symName s) [x_,y_], F (symName s) [y_,x_])
+  , M.member law (mKnown m) || M.member (swap law) (mKnown m) ]
+  where swap (a,b) = (b,a)
+
 round1 :: Handle -> Handle -> IORef Machine -> IO ()
 round1 logh libh ref = do
   m <- readIORef ref
@@ -762,7 +780,7 @@ round1 logh libh ref = do
       nv = kVars
       envs = assignments nv kAssign
       rules = usableRules m
-      raw = genTerms sig nv (mSize m)
+      raw = genTermsModulo (provedCommutative m) sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
       normed = ordNub (map (normalize rules) raw)
       classes = M.elems (M.fromListWith (++)
@@ -945,6 +963,17 @@ round1 logh libh ref = do
 main :: IO ()
 main = do
   args <- getArgs
+  when (args == ["--commutative-grammar-self-test"]) $ do
+    let sig = [("0",0),("+",2)]
+        raw = genTerms sig 2 7
+        quotient = genTermsModulo ["+"] sig 2 7
+        commRule = (bin "+" y_ x_, bin "+" x_ y_)
+        oldNF = ordNub (map (normalize [commRule]) raw)
+        newNF = ordNub (map (normalize [commRule]) quotient)
+    unless (oldNF == newNF && length quotient < length raw) exitFailure
+    hPrintf stdout "COMMUTATIVE GRAMMAR CHECKED: raw=%d representatives=%d eliminated=%d coverage=exact\n"
+      (length raw) (length quotient) (length raw - length quotient)
+    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw

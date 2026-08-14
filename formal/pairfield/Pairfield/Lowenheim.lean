@@ -31,24 +31,54 @@ def eval : BooleanFunction B n → (Fin n → B) → B
 def patch (a : B) (z x : Fin n → B) : Fin n → B :=
   fun i => (a ⊓ z i) ⊔ (aᶜ ⊓ x i)
 
+private theorem partition (a u : B) :
+    u = (a ⊓ u) ⊔ (aᶜ ⊓ u) := by
+  calc
+    u = ⊤ ⊓ u := (top_inf_eq u).symm
+    _ = (a ⊔ aᶜ) ⊓ u := by rw [sup_compl_eq_top]
+    _ = (a ⊓ u) ⊔ (aᶜ ⊓ u) := inf_sup_right a aᶜ u
+
+private theorem select_left (a u v : B) :
+    a ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v)) = a ⊓ u := by
+  rw [inf_sup_left]
+  simp [← inf_assoc]
+
+private theorem select_right (a u v : B) :
+    aᶜ ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v)) = aᶜ ⊓ v := by
+  rw [inf_sup_left]
+  simp [← inf_assoc, inf_left_comm]
+
+private theorem eq_of_select (a u v : B)
+    (left : a ⊓ u = a ⊓ v)
+    (right : aᶜ ⊓ u = aᶜ ⊓ v) : u = v := by
+  rw [partition a u, partition a v, left, right]
+
 theorem eval_patch (p : BooleanFunction B n) (a : B) (z x : Fin n → B) :
     eval p (patch a z x) = (a ⊓ eval p z) ⊔ (aᶜ ⊓ eval p x) := by
   induction p with
   | var i => rfl
-  | const c =>
-      rw [← sup_inf_right, sup_compl_eq_top, top_inf_eq]
+  | const c => exact partition a c
   | bot => simp [eval]
   | top => simp [eval]
   | inf p q ihp ihq =>
       rw [eval, ihp, ihq, eval, eval]
-      simp [inf_sup_left, inf_sup_right, inf_assoc, inf_left_comm, inf_comm]
+      apply eq_of_select a
+      · simp only [select_left]
+        ac_rfl
+      · simp only [select_right]
+        ac_rfl
   | sup p q ihp ihq =>
       rw [eval, ihp, ihq, eval, eval]
-      simp [inf_sup_left, sup_assoc, sup_left_comm, sup_comm]
+      apply eq_of_select a
+      · simp only [select_left]
+        ac_rfl
+      · simp only [select_right]
+        ac_rfl
   | compl p ih =>
       rw [eval, ih, eval, eval]
-      simp [compl_inf, compl_sup, inf_sup_left, inf_sup_right,
-        inf_assoc, inf_left_comm, inf_comm]
+      apply eq_of_select a
+      · rw [select_left, ← compl_compl a, select_right]
+      · rw [select_right, ← compl_compl a, select_left]
 
 def lowenheimBA (p : BooleanFunction B n) (zero x : Fin n → B) : Fin n → B :=
   patch (eval p x) zero x
