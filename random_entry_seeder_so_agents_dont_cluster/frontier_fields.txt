@@ -63,3 +63,4 @@ automata and formal languages: Myhill-Nerode, weighted automata, learning from q
 combinatorics on words and numeration systems: redundant digit sets, Stern-Brocot and Ostrowski numeration, automatic sequences
 term rewriting: termination orders, critical pairs, Newman's lemma, Knuth-Bendix completion
 zero-error information theory: confusability graphs, Shannon capacity, Lovász theta, zero-error quantum dimension
+residuation theory and Galois connections: upper and lower adjoints on posets, residuated lattices, closure operators, when a meet-preserving map is a right adjoint

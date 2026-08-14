@@ -48,6 +48,7 @@
 module Swarm.S05AsiddhaNewton where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 open import Cubical.Algebra.CommRing
@@ -127,13 +128,13 @@ record Thickening (R' : CommRing ℓ) : Type (ℓ-suc ℓ) where
   private
     R = ⟨ R' ⟩
   field
-    I K : R → Type ℓ
-    K⊆I : {r : R} → K r → I r
-    I+  : {r s : R} → I r → I s → I (r + s)
-    I·  : (t : R) {r : R} → I r → I (t · r)
-    K−  : {r s : R} → K r → K s → K (r - s)
-    K·  : (t : R) {r : R} → K r → K (t · r)
-    I·I : {r s : R} → I r → I s → K (r · s)
+    Sh Dp : R → Type ℓ
+    Dp⊆Sh : {r : R} → Dp r → Sh r
+    Sh+   : {r s : R} → Sh r → Sh s → Sh (r + s)
+    Sh∗   : (t : R) {r : R} → Sh r → Sh (t · r)
+    Dp−   : {r s : R} → Dp r → Dp s → Dp (r - s)
+    Dp∗   : (t : R) {r : R} → Dp r → Dp (t · r)
+    Sh·Sh : {r s : R} → Sh r → Sh s → Dp (r · s)
 
 ------------------------------------------------------------------------
 -- §3  Truncation of solution sets is a bijection, with explicit
@@ -150,50 +151,50 @@ module Tower (R' : CommRing ℓ) (T : Thickening R') where
   open Core R'
 
   -- solutions of a·x = 1 at the two depths
-  SolI SolK : R → Type ℓ
-  SolI a = Σ[ x ∈ R ] I (res a x)
-  SolK a = Σ[ x ∈ R ] K (res a x)
+  SolSh SolDp : R → Type ℓ
+  SolSh a = Σ[ x ∈ R ] Sh (res a x)
+  SolDp a = Σ[ x ∈ R ] Dp (res a x)
 
   -- (1) ⇒ the lift lands at the deeper level
-  lands : (a x : R) → I (res a x) → K (res a (N a x))
-  lands a x i = subst K (sym (doubling a x)) (I·I i i)
+  lands : (a x : R) → Sh (res a x) → Dp (res a (N a x))
+  lands a x i = subst Dp (sym (doubling a x)) (Sh·Sh i i)
 
   -- (2) ⇒ the lift is well defined on I-indistinguishable inputs:
   --       ASIDDHA.  This is the only clause with content beyond
   --       bookkeeping, and it is the clause that makes "the rule reads
   --       a stale stage" legitimate rather than an approximation.
-  asiddha : (a x y : R) → I (res a x) → I (res a y)
-          → I (x - y) → K (N a x - N a y)
-  asiddha a x y ix iy d = subst K (sym (stale a x y)) (I·I d (I+ ix iy))
+  asiddha : (a x y : R) → Sh (res a x) → Sh (res a y)
+          → Sh (x - y) → Dp (N a x - N a y)
+  asiddha a x y ix iy d = subst Dp (sym (stale a x y)) (Sh·Sh d (Sh+ ix iy))
 
   -- (3) ⇒ the truncation is injective: any two deep solutions are
   --       already indistinguishable at the deep level
-  unique : (a x y : R) → K (res a x) → K (res a y) → K (x - y)
+  unique : (a x y : R) → Dp (res a x) → Dp (res a y) → Dp (x - y)
   unique a x y kx ky =
-    subst K (sym (rigid a x y)) (K− (K· x ky) (K· y kx))
+    subst Dp (sym (rigid a x y)) (Dp− (Dp∗ x ky) (Dp∗ y kx))
 
   -- (4) ⇒ the lift is a section of the truncation
-  over : (a x : R) → I (res a x) → I (N a x - x)
-  over a x i = subst I (sym (section a x)) (I· x i)
+  over : (a x : R) → Sh (res a x) → Sh (N a x - x)
+  over a x i = subst Sh (sym (section a x)) (Sh∗ x i)
 
   -- the two maps
-  trunc : (a : R) → SolK a → SolI a
-  trunc a (x , k) = x , K⊆I k
+  trunc : (a : R) → SolDp a → SolSh a
+  trunc a (x , k) = x , Dp⊆Sh k
 
-  newton : (a : R) → SolI a → SolK a
+  newton : (a : R) → SolSh a → SolDp a
   newton a (x , i) = N a x , lands a x i
 
   -- round trip 1: newton ∘ trunc is the identity, at depth K
-  newton-trunc : (a : R) (s : SolK a) → K (fst (newton a (trunc a s)) - fst s)
-  newton-trunc a (x , k) = unique a (N a x) x (lands a x (K⊆I k)) k
+  newton-trunc : (a : R) (s : SolDp a) → Dp (fst (newton a (trunc a s)) - fst s)
+  newton-trunc a (x , k) = unique a (N a x) x (lands a x (Dp⊆Sh k)) k
 
   -- round trip 2: trunc ∘ newton is the identity, at depth I
-  trunc-newton : (a : R) (s : SolI a) → I (fst (trunc a (newton a s)) - fst s)
+  trunc-newton : (a : R) (s : SolSh a) → Sh (fst (trunc a (newton a s)) - fst s)
   trunc-newton a (x , i) = over a x i
 
   -- and newton respects I-indistinguishability, so it descends
-  newton-cong : (a : R) (s t : SolI a) → I (fst s - fst t)
-              → K (fst (newton a s) - fst (newton a t))
+  newton-cong : (a : R) (s t : SolSh a) → Sh (fst s - fst t)
+              → Dp (fst (newton a s) - fst (newton a t))
   newton-cong a (x , ix) (y , iy) d = asiddha a x y ix iy d
 
 ------------------------------------------------------------------------
@@ -211,26 +212,27 @@ module Tower (R' : CommRing ℓ) (T : Thickening R') where
 -- repository protocol counts as proof rather than as measurement.
 ------------------------------------------------------------------------
 
-open Core ℤCommRing using () renaming (N to Nℤ ; res to resℤ)
+module Witness where
 
--- 1 - 5·5 = -24 : x = 5 solves 5·x = 1 at depth (24)
-start : resℤ (pos 5) (pos 5) ≡ negsuc 23
-start = refl
+  open Core ℤCommRing using () renaming (N to Nℤ ; res to resℤ)
+  open CommRingStr (ℤCommRing .snd) using (_·_ ; _+_)
 
--- one step:  N 5 5 = 5·(2 - 25) = -115
-step : Nℤ (pos 5) (pos 5) ≡ negsuc 114
-step = refl
+  -- 1 - 5·5 = -24 : x = 5 solves 5·x = 1 at depth (24)
+  start : resℤ (pos 5) (pos 5) ≡ negsuc 23
+  start = refl
 
--- the new residual is 576 = 24², exactly as identity (1) predicts
-deep : resℤ (pos 5) (Nℤ (pos 5) (pos 5)) ≡ pos 576
-deep = refl
+  -- one step:  N 5 5 = 5·(2 - 25) = -115
+  step : Nℤ (pos 5) (pos 5) ≡ negsuc 114
+  step = refl
 
-square : negsuc 23 · negsuc 23 ≡ pos 576
-  where open CommRingStr (ℤCommRing .snd) using (_·_)
-square = refl
+  -- the new residual is 576 = 24², exactly as identity (1) predicts
+  deep : resℤ (pos 5) (Nℤ (pos 5) (pos 5)) ≡ pos 576
+  deep = refl
 
--- 576 = 8·72, so the answer is already correct modulo 72:
---   -115 + 144 = 29, and 144 = 2·72
-answer : negsuc 114 + pos 144 ≡ pos 29
-  where open CommRingStr (ℤCommRing .snd) using (_+_)
-answer = refl
+  square : negsuc 23 · negsuc 23 ≡ pos 576
+  square = refl
+
+  -- 576 = 8·72, so the answer is already correct modulo 72:
+  --   -115 + 144 = 29, and 144 = 2·72
+  answer : negsuc 114 + pos 144 ≡ pos 29
+  answer = refl

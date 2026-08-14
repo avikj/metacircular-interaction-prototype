@@ -149,11 +149,6 @@ module _ {a m : R} (C : Cert a m) where
     ∙ cong (λ X → 1r · X · m) εε
     ∙ tidy m
 
-  dividesA : d Divides a
-  dividesA = (ε · u · s) , sym (aFromD ∙ refl) ∙ ·Comm d (ε · u · s)
-    where ·Comm : (x y : R) → y · x ≡ x · y
-          ·Comm x y = ·-comm y x
-
   -- d is itself an a,m-combination: the Bézout direction, read off eq1.
 
   dFromAM : a · (u · p) + m · (u · r) ≡ d

@@ -149,3 +149,4 @@ Myhill and Nerode -- count the distinguishable futures; that number is the machi
 Newman -- if every local ambiguity resolves and nothing runs forever, the whole rewriting is already a function
 Landauer -- charge the erasure, not the computation; the cost lives where information is destroyed
 Bennett -- make it reversible first, then ask what the uncomputation costs
+Lakatos -- run the definition against its own examples; the counterexample usually already lives inside the paper that banned it
