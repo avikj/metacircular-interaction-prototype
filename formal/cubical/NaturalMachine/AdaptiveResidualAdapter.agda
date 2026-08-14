@@ -81,6 +81,14 @@ responses : (X → A → X) → (X → Bool)
   → BoolExperimentTree A → X → List Bool
 responses step observe tree state = snd (trace step observe tree state)
 
+trace-split :
+    (step : X → A → X) (observe : X → Bool)
+    (tree : BoolExperimentTree A) (state : X)
+  → trace step observe tree state
+    ≡ (observe state , responses step observe tree state)
+trace-split step observe done state = refl
+trace-split step observe (query action continue) state = refl
+
 -- Every ordinary word is an adaptive experiment whose two response branches
 -- are definitionally the same.  This is the reverse-direction witness, not a
 -- compactness or search argument.
@@ -153,8 +161,10 @@ currentAndPost→adaptiveEq :
     (step : X → A → X) (observe : X → Bool) {left right : X}
   → CurrentAndPostEq step observe left right
   → AdaptiveEq step observe left right
-currentAndPost→adaptiveEq step observe (current , post) tree i =
-  current i , post tree i
+currentAndPost→adaptiveEq step observe {left} {right} (current , post) tree =
+  trace-split step observe tree left
+  ∙ (λ i → current i , post tree i)
+  ∙ sym (trace-split step observe tree right)
 
 isPropFutureEq :
     (step : X → A → X) (observe : X → Bool) (left right : X)
@@ -230,8 +240,11 @@ identifiesAll→identifiesInitialFibers :
   → IdentifiesAll step observe tree
   → IdentifiesInitialFibers step observe tree
 identifiesAll→identifiesInitialFibers step observe tree identifies
-    current post =
-  identifies (λ i → current i , post i)
+    {left} {right} current post =
+  identifies
+    ( trace-split step observe tree left
+    ∙ (λ i → current i , post i)
+    ∙ sym (trace-split step observe tree right) )
 
 identifiesInitialFibers→identifiesAll :
     (step : X → A → X) (observe : X → Bool)
@@ -239,7 +252,11 @@ identifiesInitialFibers→identifiesAll :
   → IdentifiesInitialFibers step observe tree
   → IdentifiesAll step observe tree
 identifiesInitialFibers→identifiesAll step observe tree identifies same =
-  identifies (cong fst same) (cong snd same)
+  identifies
+    ( sym (cong fst (trace-split step observe tree _))
+    ∙ cong fst same
+    ∙ cong fst (trace-split step observe tree _) )
+    (cong snd same)
 
 identifiesAll-iff-identifiesInitialFibers :
     (step : X → A → X) (observe : X → Bool)

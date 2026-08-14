@@ -25,7 +25,7 @@ open Finset
 theorem sum_antidiagonal_fst_eq_sum_Icc (N : ℕ) (f : ℕ → ℝ) :
     (∑ pair ∈ Finset.HasAntidiagonal.antidiagonal N, f pair.1) =
       ∑ n ∈ Finset.Icc 0 N, f n := by
-  simpa [Finset.range_succ_eq_Icc_zero] using
+  simpa [Nat.range_succ_eq_Icc_zero] using
     (Finset.Nat.sum_antidiagonal_eq_sum_range_succ (fun a _ => f a) N)
 
 theorem sum_antidiagonal_snd_eq_sum_Icc (N : ℕ) (f : ℕ → ℝ) :
@@ -40,7 +40,7 @@ theorem sum_antidiagonal_snd_eq_sum_Icc (N : ℕ) (f : ℕ → ℝ) :
         ∑ k ∈ Finset.range N.succ, f k := by
           simpa using (Finset.sum_range_reflect f N.succ)
     _ = ∑ k ∈ Finset.Icc 0 N, f k := by
-          rw [Finset.range_succ_eq_Icc_zero]
+          rw [Nat.range_succ_eq_Icc_zero]
 
 theorem vonMangoldt_le_log_of_le_center {m N : ℕ}
     (hN : 1 ≤ N) (hmN : m ≤ N) :

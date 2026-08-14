@@ -43,6 +43,13 @@ theorem goldbachUpToCheck_eq_true_iff (X : ℕ) :
     exact (goldbachLeg?_isSome_iff N).2
       (hGoldbach N hfour hNX heven)
 
+/-- The universal conjecture makes every finite check succeed.  Only this
+restriction direction is provided: success at one fixed `X` contains no
+targets above `X` and therefore does not yield `StrongGoldbach`. -/
+theorem goldbachUpToCheck_eq_true_of_strongGoldbach
+    (h : StrongGoldbach) (X : ℕ) : goldbachUpToCheck X = true := by
+  exact (goldbachUpToCheck_eq_true_iff X).2 (h.upTo X)
+
 /-- Decode Boolean success of the single-target program to the actual
 dependent center fiber, retaining the first leg selected by `find?`. -/
 def goldbachFiberOfIsSome {N : ℕ}
