@@ -103,6 +103,8 @@ import NaturalMachine.WalkCapacity
 -- stream IS the increasing enumeration of the capacity function's jump
 -- points, plus the walk's step as a total computable function.
 import NaturalMachine.WalkBridge
+-- the walk's Nerode theorem: a sensor family is seen only through its lcm.
+import NaturalMachine.SensorNerode
 open import NaturalMachine.DigitTowerLimit public
 -- The Fin presentation of the same tower.  Imported unopened: it defines its
 -- own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open above.
