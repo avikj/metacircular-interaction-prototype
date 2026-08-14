@@ -139,3 +139,10 @@ two rows exactly, not merely two prefix residuals. It still does not select
 reachable rows, quotient duplicates, or construct transition targets on the
 quotient. The next operation is therefore genuinely the reducer/traversal, not
 another equality horizon.
+
+Aggregate replay boundary: after all focused targets passed, `lake build
+Pairfield` replayed through the adapter and failed only in the same unrelated
+existing modules: three Boolean-algebra normalization goals in `Lowenheim.lean`
+and unit-determinant certificate tactic failures in `DirectSmith2x2.lean`.
+Nothing in the Nerode import graph depends on either proof. Focused green is
+claimed; aggregate green is not.
