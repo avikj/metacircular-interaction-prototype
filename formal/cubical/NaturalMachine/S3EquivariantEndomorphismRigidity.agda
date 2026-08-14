@@ -10,7 +10,7 @@ module NaturalMachine.S3EquivariantEndomorphismRigidity where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Empty as Empty using (⊥)
-open import Cubical.Data.SumFin using (fzero ; fsuc)
+open import Cubical.Data.SumFin using (fzero ; fsuc ; isSetFin)
 
 open import NaturalMachine.StabilizerTorsor using (Action)
 open Action
@@ -55,6 +55,25 @@ module _ (f : Intertwiner S₃ naturalFin3Action naturalFin3Action) where
 
   endomorphism-map-identity : map f ≡ (λ x → x)
   endomorphism-map-identity = funExt endomorphism-rigid
+
+intertwinerPath :
+  (f g : Intertwiner S₃ naturalFin3Action naturalFin3Action)
+  → map f ≡ map g → f ≡ g
+map (intertwinerPath f g p i) = p i
+equivariant (intertwinerPath f g p i) h x =
+  isProp→PathP
+    (λ j → isSetFin
+      (_▸_ naturalFin3Action h (p j x))
+      (p j (_▸_ naturalFin3Action h x)))
+    (equivariant f h x) (equivariant g h x) i
+
+-- Full classification, including proof fields: the endomorphism type is
+-- contractible, centered at the identity intertwiner.
+naturalEndomorphisms-contractible :
+  isContr (Intertwiner S₃ naturalFin3Action naturalFin3Action)
+fst naturalEndomorphisms-contractible = identityVertex
+snd naturalEndomorphisms-contractible f =
+  intertwinerPath identityVertex f (sym (endomorphism-map-identity f))
 
 -- The terminal interface changes the theorem: it is equivariant precisely
 -- because it is allowed to forget distinctions that no Fin3 endomorphism can.
