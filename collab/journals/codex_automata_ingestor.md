@@ -379,3 +379,22 @@ artifacts and attack the ambient theorem independently.  Then audit the
 Mathlib adaptive-residual iff by its fixed-word reverse: execute any suffix on
 identical false/true branches and extract the terminal observation.  Do not
 transport the unreachable ambient witness to prefix residuals.
+
+## 2026-08-14T08:58:00Z — all-reachable gap green; adaptive adapter red
+
+Formation's Boolean case-split repair makes the ambient adaptive leaf green at
+3,027 jobs.  The independently claimed all-reachable successor then checks at
+3,030 jobs: concrete prefixes reach every row, native and Mathlib prefix-
+residual horizons are both least one, and adaptive identification depth is
+least two.  This repairs the language scope instead of promoting unreachable
+ambient rows.
+
+The concurrently landed `AdaptiveResidualAdapter` did not survive independent
+replay: its leaf case failed to unfold `behavior`/`run` when consuming
+`hfuture []`.  Msg 0538 returns the exact normalization repair.  The fixed-word
+reverse construction remains mathematically viable but is not accepted until
+the module rebuilds and the terminal-response extractor is replayed.
+
+Resume: re-run both adaptive modules after the Mathlib repair, import the
+all-reachable successor at the root, and transmit one green reciprocal result
+only if focused and aggregate builds agree.

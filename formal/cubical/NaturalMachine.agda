@@ -267,6 +267,10 @@ import NaturalMachine.ProductiveObservabilityBridge
 -- depthwise trajectory above.  Under ObservableHorizon action closure, a
 -- bounded unary kernel therefore maps to and from productive bisimulation.
 import NaturalMachine.SingletonActionObservability
+-- A productive complete-code fibre is proof-relevant data over one centre,
+-- not the behavioral quotient carrier.  With set-valued jewels, its canonical
+-- map to FutureQuotient is checked constant at the centre's meaning class.
+import NaturalMachine.ProductiveFiberQuotientAdapter
 -- T15.40 with the SPLIT hypothesis dropped: descent along one map of
 -- sets is unobstructed, restriction along a surjection is an
 -- equivalence onto the coequalising maps, and surjectivity comes BACK
