@@ -63,17 +63,11 @@ theorem ResidualCellDescendant.depth_le
   induction descendant with
   | refl => rfl
   | false tail ih =>
-      rename_i action onFalse onTrue subtree cell later
       simp only [depth]
-      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
-        ih.trans (Nat.le_max_left _ _)
-      omega
+      exact ih.trans ((Nat.le_max_left _ _).trans (Nat.le_succ _))
   | true tail ih =>
-      rename_i action onFalse onTrue subtree cell later
       simp only [depth]
-      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
-        ih.trans (Nat.le_max_right _ _)
-      omega
+      exact ih.trans ((Nat.le_max_right _ _).trans (Nat.le_succ _))
 
 theorem ProperResidualCellDescendant.toDescendant
     {M : DFA A X} [DecidablePred (fun state : X => state ∈ M.accept)]
@@ -91,19 +85,11 @@ theorem ProperResidualCellDescendant.depth_lt
     subtree.depth < tree.depth := by
   cases descendant with
   | false tail =>
-      rename_i action onFalse onTrue subtree cell later
-      have htail := tail.depth_le
       simp only [depth]
-      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
-        htail.trans (Nat.le_max_left _ _)
-      omega
+      exact Nat.lt_succ_of_le (tail.depth_le.trans (Nat.le_max_left _ _))
   | true tail =>
-      rename_i action onFalse onTrue subtree cell later
-      have htail := tail.depth_le
       simp only [depth]
-      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
-        htail.trans (Nat.le_max_right _ _)
-      omega
+      exact Nat.lt_succ_of_le (tail.depth_le.trans (Nat.le_max_right _ _))
 
 /-- Recursive splitting certificates restrict to every selected descendant
 subtree on its exact response-conditioned live cell. -/

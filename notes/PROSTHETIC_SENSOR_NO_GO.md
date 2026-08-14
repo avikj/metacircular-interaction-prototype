@@ -99,6 +99,21 @@ full revised `true` state still realizes the novel response and
 the inherited image.  Localization is thus a restriction of the law's
 quantifier, not an exception hidden inside a total square.
 
+Once a global state translation `s : X' → X` and comparison `j` are declared,
+`MaximalCompatibleResponseImage` removes one remaining arbitrary choice.  It
+defines
+
+`Compatible x' = (q : Q) → r' q x' ≡ j q (r q (s x'))`
+
+and checks the localized square and image transport on that subtype.
+`inheritance→compatible` proves the universal property: every other inherited
+predicate satisfying the same square with the same `s` and `j` maps into
+`Compatible`.  Thus this is the maximal lawful inherited domain relative to
+the declared translation.  The Bool control proves `false-is-compatible` and
+`true-is-incompatible`.  The remaining formation boundary is now precise:
+the response law determines the maximal domain only *after* `s` and `j` have
+been supplied; it cannot justify those translation choices itself.
+
 The historical finite checker below was the original falsifier.  The Cubical
 module is now the load-bearing certificate.
 
