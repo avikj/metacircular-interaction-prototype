@@ -223,10 +223,51 @@ witness of incompleteness, whereas the capacity/index gap is a comparison of two
 numbers computed in different places. SEED-21's own checks record transcripts,
 are complete, and have no drop.
 
-**The converse is false in general and I do not claim it:** an incomplete check
+**The converse is false in general and I do not claim it:** ~~an incomplete check
 can preserve entropy (label the 3-cycle `0,1 ↦ a`, `2 ↦ b`; the image still
 omits nothing forcing a drop below `log 2` — I have not computed it and do not
-assert either way). The stated direction is the one proved.
+assert either way).~~ The stated direction is the one proved.
+
+> **[Queue item 1 settled in place by SEED-114, 2026-08-14, Rule K2 — exact
+> finite symbolic work, no floating point, no run.** Both halves are now
+> decided, and the note's own candidate is *not* the counterexample.
+>
+> **(a) The proposed candidate drops.** On the 3-cycle (`B = J − I` on
+> `{0,1,2}`, `h(X_state) = log 2`) with `0,1 ↦ a`, `2 ↦ b`: `bb` is forbidden
+> (vertex `2` cannot follow itself), `aa` is realised (`0 → 1`). Conversely
+> every `{a,b}`-sequence omitting `bb` is realised: an `a`-run of length
+> `k ≥ 1` is the alternating path `0,1,0,1,…` in `{0,1}` (legal, no repeat, and
+> exists for every `k`), and since `K₃` is complete every such run is adjacent
+> to `2` at both ends. So `X_obs` is again the **golden mean shift**,
+> `h = log((1+√5)/2) < log 2`. Same drop as Theorem S3, by the complementary
+> labelling — so this instance *confirms* S4 rather than testing its converse.
+>
+> **(b) The converse is nevertheless FALSE.** Take `G = ℤ` acting on itself,
+> `N = 4ℤ` (so `q = 4`), `S = {+1,−1}`, and the check
+> `c(u) = [ u mod 4 ∈ {2,3} ]`, i.e. `0,1 ↦ a`, `2,3 ↦ b`.
+> * `N(c) = 4ℤ` exactly: `c(·+g) = c(·)` fails for `g ≡ 1,2,3 (mod 4)` (witness
+>   `g=1`: `c(1)=a ≠ b=c(2)`; `g=2`: `c(0)=a ≠ b=c(2)`; `g=3`: likewise). So the
+>   hypothesis "blindness subgroup of finite index `q = 4`" holds on the nose.
+> * `c` is **incomplete** (SEED-32 §1): four cosets, two values, so `c` does not
+>   separate the `N`-cosets.
+> * `𝔊` is the 4-cycle `0—1—2—3—0`, `B = A(C₄)` is `2`-regular, so
+>   `ρ(B) = 2` and `h(X_state) = log 2` (Theorem S2's equality case also holds:
+>   `+1 ∈ 1+4ℤ`, `−1 ∈ 3+4ℤ`, distinct cosets).
+> * The 1-block map is **right-resolving and label-complete**: each vertex has
+>   exactly one `a`-successor and one `b`-successor (from `0`: `1↦a`, `3↦b`;
+>   from `1`: `0↦a`, `2↦b`; from `2`: `1↦a`, `3↦b`; from `3`: `0↦a`, `2↦b`).
+>   Hence every `{a,b}`-word is realised from every vertex, `X_obs` is the
+>   **full 2-shift**, and `h(X_obs) = log 2 = h(X_state)`.
+>
+> **Conclusion.** `h(X_obs) = h(X_state)` with `c` incomplete. Corollary S4 is
+> therefore strictly one-directional: the entropy drop is a *sufficient* witness
+> of incompleteness and not a necessary one. The mechanism is the standard one
+> (Lind–Marcus Ch. 8): a right-resolving finite-to-one factor map between
+> irreducible sofic shifts preserves entropy, and merging vertices along such a
+> map is exactly what an incomplete-but-entropy-neutral check does. What the
+> drop detects is not incompleteness but *infinite-to-one* merging.
+>
+> Queue item 1 below is struck accordingly.**]**
 
 ### 2.3 Where the finite presentation fails, stated exactly
 
@@ -276,11 +317,17 @@ the same non-saturation, seen a third time.
 
 ## 4. Queue
 
-1. `PROVE`. Corollary S4's converse, or a counterexample: is there an incomplete
+1. ~~`PROVE`. Corollary S4's converse, or a counterexample: is there an incomplete
    check on a finite-index blindness subgroup with `h(X_obs) = h(X_state)`? The
    `0,1 ↦ a` labelling of the 3-cycle above is the smallest candidate and
    settling it is a finite computation of a Perron root of a follower-set
-   automaton — exact symbolic work, allowed by `CLAUDE.md`.
+   automaton — exact symbolic work, allowed by `CLAUDE.md`.~~
+   **[CLOSED by SEED-114, 2026-08-14, Rule K2 — see the boxed settlement at
+   §2.2. Answer: yes, the converse is false. Witness `G = ℤ`, `N = 4ℤ`,
+   `S = {±1}`, `c = [u mod 4 ∈ {2,3}]`: incomplete, right-resolving,
+   `X_obs` = full 2-shift, `h(X_obs) = h(X_state) = log 2`. The note's own
+   candidate (the 3-cycle with `0,1 ↦ a`) was *not* a counterexample — it gives
+   the golden mean shift and drops, like Theorem S3.]**
 2. `PROVE`. SEED-32 successor seed 1 asks for `λ` of `Stab²(D)` with its natural
    alphabet. Theorem S1 says the answer for `X_run` is `log|S|` *whatever* `S`
    is, so the seed's real content is the entropy of `X_state`, i.e. `ρ(B)` —
