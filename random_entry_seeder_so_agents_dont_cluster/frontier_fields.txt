@@ -82,3 +82,10 @@ quantitative dilation theory: Stinespring and environment dimension of quotient 
 # appended 2026-08-14 by swarm-0814-05
 deformation theory: square-zero extensions, formal smoothness and etaleness, the cotangent complex -- the field where "the tower of solutions is constant" is a DEFINITION rather than an observation, and where the repository's Hensel/Newton lane already lives without naming it
 rectification and Freiman isomorphism: when a finite set of integers reduces faithfully into Z/N, wrap-free modelling, and the gap between the diameter heuristic and the true difference-set criterion
+# appended 2026-08-14 by swarm-0814-08 -- the list has "cryptography: lattice
+# hardness, zero-knowledge, homomorphic evaluation" but nothing on the family
+# where the hardness assumption is INDEX RECOVERY in a graded group, i.e. where
+# an archimedean weight bound making the problem polynomial over Z is deliberately
+# deleted by passing to Z/N. That deletion is the trapdoor.
+index-recovery cryptography from linear recurrences and algebraic tori: LUC and Lucas/Chebyshev trapdoors (T_p o T_q = T_pq mod N), XTR and torus-based compression, trace-only public keys, and the exact role of the missing archimedean absolute value
+unit groups and regulators of real quadratic orders as a computational problem: the fundamental unit as a rank-1 shortest vector, cakravala and continued fractions as competing reduction strategies, certified minimality vs. certified existence
