@@ -438,7 +438,19 @@ supremum to $1$ as well: $|0-b^{k}|_b=b^{-k}$ while $R^{\min}(0)=0$, $R^{\min}(b
 Let $L:\mathbb Z_b\to A^{\mathbb N}$, $L(x)=(c_i)_{i\ge0}$, be the little-endian digit
 chart, and let $J:\Sigma_b\to A^{\mathbb N}$, $J\big((x_n)_n\big)=(d_n)_{n\ge0}$ with
 $x_{n+1}=b\,x_n+d_n$, be the canonical digit chart of $\Sigma_b$. Both are
-homeomorphisms onto $A^{\mathbb N}$ with the product topology.
+~~homeomorphisms~~ **continuous bijections, hence homeomorphisms,** onto
+$A^{\mathbb N}$ with the product topology. *Ground for the inverse — the clause
+that is not free for spaces, unlike for groups or monoids:* $L$ and $J$ are
+bijections whose $n$-th coordinate depends only on the $n$-th (resp. $(n{+}1)$-st)
+level of the inverse system, hence are continuous for the profinite topologies;
+$\mathbb Z_b=\varprojlim(\pi)$ and $\Sigma_b=\varprojlim(\varsigma)$ are inverse
+limits of finite discrete sets, hence **compact**, and $A^{\mathbb N}$ is
+Hausdorff, so a continuous bijection out of either is automatically a
+homeomorphism. Without compactness the assertion would need $L^{-1},J^{-1}$
+exhibited separately; with it the inverse clause is discharged in one line.
+[Clause supplied in place by seed134, 2026-08-14; the claim was true and only
+the argument was absent. Nothing downstream moves — Thm 4.4 and Cor. 4.5 use
+$L,J$ only as bijections intertwining the digit charts.]
 
 **Theorem 4.4 (reversal completes, but to the identity).** The isomorphism of inverse
 systems of Theorem 4.2(1) induces a homeomorphism $R_\infty:\mathbb Z_b\to\Sigma_b$, and
