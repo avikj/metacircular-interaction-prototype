@@ -12,6 +12,11 @@ namespace Pairfield
 
 namespace AdaptiveConstantResponseSteering
 
+noncomputable section
+
+local instance languageDecidableEq :
+    DecidableEq (Language (Fin 3)) := Classical.decEq _
+
 /-- Three actions: reach the second live residual, steer both live residuals
 without revealing them, and reveal only after steering. -/
 def reach : Fin 3 := 0
@@ -65,6 +70,10 @@ def representatives : Finset (List (Fin 3)) := {[], [reach]}
 
 def liveCell : Set (List (Fin 3)) := ↑representatives
 
+theorem mem_representatives_iff (pre : List (Fin 3)) :
+    pre ∈ representatives ↔ pre = [] ∨ pre = [reach] := by
+  simp [representatives, eq_comm]
+
 /-- The required separator first steers on a constant response and then
 reveals on the surviving false branch. -/
 def steeringTree : BoolExperimentTree (Fin 3) :=
@@ -87,10 +96,12 @@ theorem live_residuals_ne :
 theorem liveCell_currentConstant :
     ResidualCell.CurrentConstant automaton liveCell := by
   intro left right hleft hright
+  have hleft' : left ∈ representatives := hleft
+  have hright' : right ∈ representatives := hright
   have hleftCases : left = [] ∨ left = [reach] := by
-    simpa [liveCell, representatives] using hleft
+    exact (mem_representatives_iff left).mp hleft'
   have hrightCases : right = [] ∨ right = [reach] := by
-    simpa [liveCell, representatives] using hright
+    exact (mem_representatives_iff right).mp hright'
   rcases hleftCases with rfl | rfl <;>
     rcases hrightCases with rfl | rfl <;> native_decide
 
@@ -98,10 +109,12 @@ theorem liveCell_currentConstant :
 theorem steeringTree_separates :
     steeringTree.SeparatesPrefixResidualsOn automaton liveCell := by
   intro left right hleft hright htrace
+  have hleft' : left ∈ representatives := hleft
+  have hright' : right ∈ representatives := hright
   have hleftCases : left = [] ∨ left = [reach] := by
-    simpa [liveCell, representatives] using hleft
+    exact (mem_representatives_iff left).mp hleft'
   have hrightCases : right = [] ∨ right = [reach] := by
-    simpa [liveCell, representatives] using hright
+    exact (mem_representatives_iff right).mp hright'
   rcases hleftCases with rfl | rfl <;>
     rcases hrightCases with rfl | rfl
   · rfl
@@ -128,16 +141,26 @@ theorem reach_not_safe :
     ¬ ResidualCell.SafeAction automaton liveCell reach := by
   intro hsafe
   exact live_residuals_ne
-    (hsafe (by simp [liveCell, representatives])
-      (by simp [liveCell, representatives]) reach_advanced_residuals_eq)
+    (hsafe (by
+        change ([] : List (Fin 3)) ∈ representatives
+        exact (mem_representatives_iff []).2 (Or.inl rfl))
+      (by
+        change [reach] ∈ representatives
+        exact (mem_representatives_iff [reach]).2 (Or.inr rfl))
+      reach_advanced_residuals_eq)
 
 /-- Premature `reveal` is also a lossy root. -/
 theorem reveal_not_safe :
     ¬ ResidualCell.SafeAction automaton liveCell reveal := by
   intro hsafe
   exact live_residuals_ne
-    (hsafe (by simp [liveCell, representatives])
-      (by simp [liveCell, representatives]) reveal_advanced_residuals_eq)
+    (hsafe (by
+        change ([] : List (Fin 3)) ∈ representatives
+        exact (mem_representatives_iff []).2 (Or.inl rfl))
+      (by
+        change [reach] ∈ representatives
+        exact (mem_representatives_iff [reach]).2 (Or.inr rfl))
+      reveal_advanced_residuals_eq)
 
 /-- The actual root is safe because the complete steering tree separates. -/
 theorem steer_safe :
@@ -149,26 +172,28 @@ theorem steer_safe :
 
 /-- No leaf separates the live residual pair. -/
 theorem done_not_separates :
-    ¬ (BoolExperimentTree.done : BoolExperimentTree (Fin 3)).
-      SeparatesPrefixResidualsOn automaton liveCell := by
+    ¬ BoolExperimentTree.SeparatesPrefixResidualsOn automaton
+      (.done : BoolExperimentTree (Fin 3)) liveCell := by
   intro hseparates
   apply live_residuals_ne
   apply hseparates
-  · simp [liveCell, representatives]
-  · simp [liveCell, representatives]
+  · change ([] : List (Fin 3)) ∈ representatives
+    exact (mem_representatives_iff []).2 (Or.inl rfl)
+  · change [reach] ∈ representatives
+    exact (mem_representatives_iff [reach]).2 (Or.inr rfl)
   · native_decide
 
 /-- Any separating query must use `steer` at its root. -/
 theorem separating_query_root_eq_steer
     (action : Fin 3) (onFalse onTrue : BoolExperimentTree (Fin 3))
     (hseparates :
-      (BoolExperimentTree.query action onFalse onTrue).
-        SeparatesPrefixResidualsOn automaton liveCell) :
+      BoolExperimentTree.SeparatesPrefixResidualsOn automaton
+        (.query action onFalse onTrue) liveCell) :
     action = steer := by
   have hsafe : ResidualCell.SafeAction automaton liveCell action :=
-    ((BoolExperimentTree.query action onFalse onTrue).
-      residualSplitting_iff_separatesOn automaton liveCell
-        liveCell_currentConstant).2 hseparates |>.1
+    ((BoolExperimentTree.residualSplitting_iff_separatesOn automaton
+      (.query action onFalse onTrue) liveCell
+      liveCell_currentConstant).2 hseparates).1
   fin_cases action
   · exact False.elim (reach_not_safe hsafe)
   · rfl
@@ -194,7 +219,7 @@ theorem steer_response_constant
     (pre : List (Fin 3)) (hpre : pre ∈ representatives) :
     ResidualPotentialAdapter.postResponse automaton steer pre = false := by
   have hcases : pre = [] ∨ pre = [reach] := by
-    simpa [representatives] using hpre
+    exact (mem_representatives_iff pre).mp hpre
   rcases hcases with rfl | rfl <;> native_decide
 
 theorem steer_true_responseFiber_empty :
@@ -206,11 +231,11 @@ theorem steer_true_responseFiber_empty :
 theorem representatives_distinct :
     ResidualPotentialAdapter.DistinctRepresentatives
       automaton representatives := by
-  intro ⟨left right⟩ hleft hright hresidual
+  intro left right hleft hright hresidual
   have hleftCases : left = [] ∨ left = [reach] := by
-    simpa [representatives] using hleft
+    exact (mem_representatives_iff left).mp hleft
   have hrightCases : right = [] ∨ right = [reach] := by
-    simpa [representatives] using hright
+    exact (mem_representatives_iff right).mp hright
   rcases hleftCases with rfl | rfl <;>
     rcases hrightCases with rfl | rfl
   · rfl
@@ -237,6 +262,8 @@ theorem steer_zero_potential_decrease :
       representatives steer representatives_distinct steer_safe)).2
   right
   simp [FiniteLiveCell.advancedBranch, steer_true_responseFiber_empty]
+
+end
 
 end AdaptiveConstantResponseSteering
 
