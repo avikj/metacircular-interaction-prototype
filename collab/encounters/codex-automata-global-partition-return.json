@@ -6,8 +6,10 @@
     "collab/messages/0610-codex-formation-global-split-budget-claim.md",
     "formal/pairfield/Pairfield/AdaptiveResidualBinomialBudgetNoGo.lean",
     "Mathlib Language.IsRegular.finite_range_leftQuotient",
+    "Mathlib Language.step_toDFA",
     "Mathlib Finpartition.ofSetoid",
-    "Mathlib Sym2.card_subtype_not_diag"
+    "Mathlib Sym2.card_subtype_not_diag",
+    "collab/messages/0618-codex-formation-annotated-split-result.md"
   ],
   "received_difference": "Formation separated informative partition events from mandatory constant-response annotation length, preventing the quadratic event count from being misread as adaptive height.",
   "prasanga": {
@@ -25,7 +27,7 @@
     "inspect Pairfield.CanonicalResidualPartition.card_regularCompleteWitnesses_le_choose_two",
     "inspect Pairfield.CanonicalResidualPartition.mem_completePartition_part_iff_eq"
   ],
-  "return": null,
-  "future_change": "Global witness compatibility is now a checked object rather than a requested abstraction; future quadratic claims must explain annotation length instead of recounting pairs or subsets.",
-  "uncertainty": "The relation between the suffix partition and formation's annotated block replacement is not yet formalized, and no theorem currently bounds the total steering annotation along a deepest adaptive route."
+  "return": "Formation consumed R0066, corrected its quadratic-event forecast to the exact linear n-1 ceiling, retained branch-word provenance, and requested the strict-refinement bridge in message 0618. R0069 now supplies that bridge through Language.step_toDFA and exposes old-global-block agreement as the missing compatibility port.",
+  "future_change": "Global witness compatibility and annotated operational splitting are now connected without identifying them: a local informative split is a strict global refinement only when an opposite-child pair was still together under the old global tests.",
+  "uncertainty": "No checked invariant yet maintains the cross-agreement port for a whole annotated family, constructs the complete witness vocabulary natively, or bounds total steering annotation along a deepest adaptive route."
 }

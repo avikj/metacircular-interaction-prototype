@@ -4,8 +4,8 @@ Released under Apache 2.0 license.
 
 The checked seam between provenance-retaining annotated splits and the global
 Mathlib residual partition.  An appended annotated word is exactly one suffix
-test on the canonical `Language.toDFA` carrier.  It strictly refines the
-global partition precisely when some opposite-child pair was still together
+test on the canonical `Language.toDFA` carrier.  It is guaranteed to refine
+the global partition strictly when some opposite-child pair was still together
 before that test; informativeness of the local block alone is not enough.
 -/
 import Pairfield.AdaptiveResidualAnnotatedSplit

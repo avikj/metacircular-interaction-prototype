@@ -80,20 +80,50 @@ gives a primitive `m`-th root modulo `p`, not merely an `m`-th root. -/
 theorem isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index
     {m p : ℕ} [hp : Fact p.Prime] {a : ℤ}
     (hpm : ¬p ∣ m) (hdiv : (p : ℤ) ∣ piece a m) :
-    IsPrimitiveRoot (a : ZMod p) m := by
+    IsPrimitiveRoot ((Int.castRingHom (ZMod p)) a) m := by
   have hmcast : (m : ZMod p) ≠ 0 := by
-    rwa [ZMod.natCast_eq_zero_iff]
-  letI : NeZero (m : ZMod p) := ⟨hmcast⟩
+    intro hmzero
+    exact hpm ((ZMod.natCast_eq_zero_iff m p).mp hmzero)
+  let _ : NeZero (m : ZMod p) := ⟨hmcast⟩
   apply Polynomial.isRoot_cyclotomic_iff.mp
   rw [Polynomial.IsRoot.def]
-  rw [Polynomial.cyclotomic.eval_apply a m (Int.castRingHom (ZMod p))]
-  exact (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mpr hdiv
+  calc
+    eval ((Int.castRingHom (ZMod p)) a) (cyclotomic m (ZMod p)) =
+        ((piece a m : ℤ) : ZMod p) := by
+      simpa only [piece, Int.coe_castRingHom] using
+        (Polynomial.cyclotomic.eval_apply a m (Int.castRingHom (ZMod p)))
+    _ = 0 := (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mpr hdiv
 
 /-- Consequently the base has exact multiplicative order `m` modulo `p`. -/
 theorem orderOf_mod_prime_eq_index_of_dvd_piece_of_not_dvd_index
     {m p : ℕ} [Fact p.Prime] {a : ℤ}
     (hpm : ¬p ∣ m) (hdiv : (p : ℤ) ∣ piece a m) :
-    orderOf (a : ZMod p) = m := by
+    orderOf ((Int.castRingHom (ZMod p)) a) = m := by
   exact (isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index hpm hdiv).eq_orderOf.symm
+
+/-- Exact positive control for the primitive branch: `7 ∣ Phi_3(2)` and the
+order of `2` modulo `7` is exactly `3`. -/
+theorem primitive_branch_two_three_seven :
+    orderOf ((Int.castRingHom (ZMod 7)) 2) = 3 := by
+  let _ : Fact (Nat.Prime 7) := ⟨by decide⟩
+  apply orderOf_mod_prime_eq_index_of_dvd_piece_of_not_dvd_index
+  · norm_num
+  · norm_num [piece, Polynomial.cyclotomic_three]
+
+/-- Hostile boundary for the continuation: the conclusion is false when the
+prime divides the index, as `3 ∣ Phi_6(2)` but `2 mod 3` has order `2`, not
+`6`. -/
+theorem exceptional_branch_control :
+    (3 : ℤ) ∣ piece 2 6 ∧
+      orderOf ((Int.castRingHom (ZMod 3)) 2) ≠ 6 := by
+  constructor
+  · rw [sixth_piece_two]
+  · let _ : Fact (Nat.Prime 2) := ⟨by decide⟩
+    have horder : orderOf ((Int.castRingHom (ZMod 3)) 2) = 2 := by
+      apply orderOf_eq_prime
+      · decide
+      · decide
+    rw [horder]
+    norm_num
 
 end Pairfield.CyclotomicRoutingAdapter
