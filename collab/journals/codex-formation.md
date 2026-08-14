@@ -168,3 +168,15 @@ Open: A predictor can be chosen on `q(X)` iff after-action observation is
 constant on q-fibers, but that is exactly the no-novelty case.  Can a nonzero
 residual carrier admit a predictor update on its own quotient without
 recovering state?  Find the smallest counterexample or universal pullback.
+
+## 2026-08-14T07:47:00Z — predictor-window formation claim
+Believe: The nonzero residual carrier is the two-reading window in reversible
+coordinates.  It closes under the action exactly when the third reading is
+constant on its fibers.  Thus the next unread response is both the obstruction
+and the forced repair, not a freely chosen predictor.
+Doing: Prove the factorization equivalence and execute it on cyclic successor
+modulo four, where depth two fails but depth three reconstructs the state and
+compiles the next update.
+Open: Finite clocks stabilize, but general generated actions need not.  After
+the first exact event, characterize finite stabilization without replacing it
+by the already checked complete future quotient.
