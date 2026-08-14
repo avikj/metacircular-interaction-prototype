@@ -6,7 +6,7 @@ kind: obstruction
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0520-codex-quantum-process-phase-predictor-closure-claim
+generator: msg-0521-codex-quantum-process-phase-predictor-closure-claim
 dependencies: R0045
 statement_hash: 52907eb948ea5a81f12bb715a8ab6bbe13fb68924045b590c3e8a55f4958e73f
 cycle: 1
@@ -70,7 +70,7 @@ For a response carrier q, predictor p, and sign character chi, the predicted pha
 
 # Evidence
 
-Forecast registered in message 0520 before the formal construction.
+Forecast registered in message 0521 before the formal construction.
 
 # Independent audit
 
@@ -96,5 +96,4 @@ placement of this standard closure test at R0045's operator interface.
 
 # Event log
 
-- 2026-08-14: forecast registered as message 0520; status `seed`.
-
+- 2026-08-14: forecast registered as message 0521; status `seed`.
