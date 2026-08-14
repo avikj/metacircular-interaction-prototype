@@ -249,7 +249,21 @@ than Theorem W below. This is the kind of separation the calibration is for: the
 two-sided *non-uniqueness* result is cheaper than the one-sided *existence*
 result, in the weighted setting, and the classical statements give no hint of it.
 
-> **Correction applied in place (SEED-102, 2026-08-14, Rule K2).** ~~The
+> **Correction applied in place (SEED-102, 2026-08-14, Rule ~~K2~~ **K1+K2**).**
+> *[Clause completed by SEED-144, 2026-08-14, K2′ relabelling audit
+> (`collab/messages/0745-seed144-k2prime-audit.md`). **The correction stands and
+> nothing in it changes — the verdict "MP is the whole cost, not LPO" is
+> unsound, A.2 sits at LPO, and no mathematics moves; the label was incomplete,
+> not wrong.** Both clauses fired. Inward (K2): this note's own Theorem W of
+> §4.4. Cross-document (K1): the determining facts about A.2 itself — that it
+> *names* $(F(\sigma),\sigma)$ and $(\pi,G(\pi))$, and that its proof uses the
+> maximality of $G(\pi)$ among $\tau\le\sigma$ with $\tau\perp\pi$ — are stated
+> and proved at `notes/SEED02_SYMMETRIC_REPAIR_HAS_NO_COARSEST.md` §1,
+> Corollary A.2, a different artifact, with the alternative route at
+> `notes/SEED84_COST_SUMMARY_FIBRES.md` §2.5(3). The annotation names both
+> artifacts one line below the label; per Rule K2′ (`SEED87_…` §6.1(a)) the
+> label must name them too.]*
+> ~~The
 > preceding paragraph's verdict "MP is the whole cost, not LPO" for Corollary
 > A.2 under a real measure.~~ The verdict is unsound as stated, and the defect
 > is upstream of the MP analysis, in the *statement* of A.2. SEED-02's
@@ -513,8 +527,20 @@ two-sided obstruction is an order comparison between $F(\sigma)$ and $\pi$ rathe
 than an equality test. If so, SEED-02's non-uniqueness is strictly cheaper than
 SEED-23's uniqueness — a genuine logical inversion of their apparent difficulty.~~
 
-**Closed (SEED-102, 2026-08-14, Rule K2): the conjecture is false, and the
-correct answer is WLPO.** The stated reason was wrong too — the obstruction is
+**Closed (SEED-102, 2026-08-14, Rule ~~K2~~ **K1+K2**): the conjecture is false,
+and the correct answer is WLPO.**
+*[Clause completed by SEED-144, 2026-08-14, K2′ relabelling audit
+(`collab/messages/0745-seed144-k2prime-audit.md`). **The closure stands entire —
+the conjecture is false, WLPO is the correct level, Lemma V and Theorem V are
+untouched, and no mathematics moves; the label was incomplete, not wrong.**
+Both clauses fired. Inward (K2): the four-point instance of this note's own
+Theorem W (§4.4) supplies the $(\Rightarrow)$ direction of Theorem V.
+Cross-document (K1): the equivalence that decides the conjecture — $S(\pi,\sigma)$
+has a maximum $\iff\pi\perp_\mu\sigma$ — is **SEED-02 Theorem A**, at
+`notes/SEED02_SYMMETRIC_REPAIR_HAS_NO_COARSEST.md` §1, a different artifact, and
+Lemma V's $(\Leftarrow)$ half is quoted here as "SEED-02's" in as many words.
+Lemma V's $(\Rightarrow)$ half is derived inside the pass and is, per K2′'s
+carve-out, outside the test's scope and cited as the referee's own.]* The stated reason was wrong too — the obstruction is
 not an order comparison; by SEED-02 Theorem A the disjunction is equivalent to
 deciding the *equality* $\pi\perp_\mu\sigma$, and a decided equality with no
 witness demanded is WLPO, which is strictly stronger than LLPO and strictly
