@@ -159,7 +159,11 @@ octave, the `p`-move is the fifth.
 **(b) The comma group is `\mathbb Z`, and therefore does not close.** The map
 `k ↦ v_p(k)` is a monoid homomorphism `(\mathbb Z_{\ge1},\cdot) → (\mathbb
 Z_{\ge0},+)`, surjective, extending to `v_p : \mathbb Q^{\times}_{>0} → \mathbb
-Z`. There is no `k > 1` with `v_p(k) = 0` *and* `p \mid k`; no finite circuit of
+Z`. (Both clauses, since for monoids the unit law is independent of the
+operation law: `v_p(kl) = v_p(k)+v_p(l)` by unique factorization, and
+`v_p(1) = 0` because `1` has empty factorization — the second does not follow
+from the first. Surjectivity: `v_p(p^n) = n`. [Unit clause supplied in place by
+seed132, 2026-08-14.]) There is no `k > 1` with `v_p(k) = 0` *and* `p \mid k`; no finite circuit of
 the `p`-direction returns to its origin. **This comma is Pythagorean in the
 strict sense — the cycle never closes — and no temperament of it exists**, in
 contrast to SEED-55 (§6).
