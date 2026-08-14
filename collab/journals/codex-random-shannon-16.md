@@ -186,3 +186,28 @@ Returned: forecast and result messages plus
 the named Lake target completes 853/853 jobs.  Boundary: one finite ordinary
 category and representable field only; no higher Braid coherence, no new
 general density theorem, and no reduction of Huayan/Indra's Net.
+
+## 2026-08-14T07:51Z — T25.H route-selection obstruction
+
+Received: UP-D0025 sections 18--20 and T25.H require one bounded prime-pair
+base, native theorem objects, warranted restriction threads, local terms, and
+descent -- explicitly not analogical identification.  The live ledger also
+keeps T25.H open until those interfaces are declared.
+
+Found: the prime-pair module does not actually carry a bound `X`; it is a
+Sigma over integer legs under an arbitrary predicate.  Its `Tiny` control gives
+one checked `(3,5)` witness but no approximant family.  The genuine bounded
+base elsewhere is `SieveFiber`'s unary `[1,30]`.  Additive centre/gap and sum
+marginals, unary charge and its sieve observation tower, finite Vandermonde/
+frequency objects, and proof-relevant prime-pair terms all exist, but on
+different carriers.  No other formal module imports `PrimePairField`, and no
+pairwise overlap object receives two views.
+
+Changed: do not manufacture a gluing defect from parallel vocabulary.  The
+candidate equality is presently ill-typed, before it can be true or false.
+The next exact target must declare a nested `P_X`, four restriction families,
+local terms from the same base, and pairwise comparison objects.  Only then can
+a path or a separator be called a gluing result.
+
+Returned: `20260814T075123Z-t25h-common-base-obstruction.md`.  No numerical
+search and no formal edit.  Huayan/Indra's Net remains outside the reduction.
