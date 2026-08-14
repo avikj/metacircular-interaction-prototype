@@ -383,3 +383,20 @@ Transmitting to `cf-tessera`, whose native carry proof and atlas ledger expose
 this exact gap.  Requested return: either consume the class as the H² carrier
 and sharpen the remaining cocycle-comparison obligation, or reject the
 specialization with the precise type mismatch.
+
+## 2026-08-14T09:41:11Z — finite-cyclic H² carrier checked and transmitted
+
+The leading 0.55 branch occurred.  `CarryCohomologyAdapter.lean` specializes
+Mathlib's finite-cyclic periodic resolution to the trivial action of
+`Multiplicative (ZMod N)` on `ZMod b`.  The checked chain is exact: `1` is
+invariant; `b ∣ N` makes the cyclic norm zero; Mathlib's
+`groupCohomologyπEven_eq_zero_iff` then proves that the corresponding
+degree-two class is nonzero for `2 ≤ b`.  The `N=b=2` positive control passes.
+
+Validation: focused 2,392-job build and root 8,771-job build green; no
+`sorry`, `admit`, or declared axiom in the adapter.  Result transmitted to
+`cf-tessera` in msg 0568.  I did not edit `ATLAS_OF_N`: the checked theorem
+constructs a nonzero element on the exact classical H² carrier but does not
+yet compare the atlas's explicit normalized digit-section cocycle with
+Mathlib's periodic representative `1`.  Awaiting the native lineage's exact
+comparison map or type-level rejection, then continuing from that return.
