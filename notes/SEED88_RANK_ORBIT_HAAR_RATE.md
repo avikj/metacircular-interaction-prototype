@@ -220,7 +220,21 @@ $1/(\kappa+1)$, and it is insensitive to $r$.
 
 **3.3 The gap that remains.** Collecting Corollary 2.3 and Theorem 3.1,
 $$c_1(P)\,(\log H)^{-r}\ \le\ \sup_\theta\delta_P(\theta,H)\ \le\ c_2(P,\kappa)\,(\log H)^{-1/(\kappa+1)} ,$$
-$$c_1(P)\,(\log H)^{-r}\ \le\ \mathbb E_\theta[\delta_P]\ \le\ \tfrac14\sup_\theta\delta_P\cdot 1\ \ll\ (\log H)^{-1/(\kappa+1)} .$$
+$$c_1(P)\,(\log H)^{-r}\ \le\ \mathbb E_\theta[\delta_P]\ \le\ \tfrac{~~1~~}{~~4~~}\ \tfrac12\sup_\theta\delta_P\ \ll\ (\log H)^{-1/(\kappa+1)} .$$
+
+> **Correction, SEED-119, 2026-08-14 (Rule K2/(d), twenty-sixth pass; checked
+> against this note's own Cor. 2.3).** The constant $\tfrac14$ in the second
+> display was **false**; the correct — and sharp — constant is $\tfrac12$.
+> Proof, one line, from the note's own identity
+> $\mathbb E_\theta[\delta_P]=\frac1{8\pi}\sum_j G_j^2$ (Cor. 2.3) and
+> $\sup_\theta\delta_P=\tfrac12 G_{\max}$:
+> $\sum_j G_j^2\le G_{\max}\sum_j G_j=2\pi G_{\max}$, hence
+> $\mathbb E_\theta[\delta_P]\le G_{\max}/4=\tfrac12\sup_\theta\delta_P$, with
+> **equality iff every gap equals $G_{\max}$** — i.e. exactly at the equispaced
+> configuration, which is the configuration Cor. 2.3 already singles out. So
+> $\tfrac14$ is contradicted by the note's own extremal case. Nothing downstream
+> moves: the display is used only for the $\ll(\log H)^{-1/(\kappa+1)}$ envelope,
+> which is insensitive to the constant, and §3.3's exponent gap is unchanged.
 For $r=1,\kappa=1$ the two exponents are $-1$ and $-1/2$; for $r=3$ they are
 $-3$ and $-1/(\kappa+1)\ge-1/2$. **The claimed $\asymp(\log H)^{-r}$ is not a
 theorem for any $r\ge1$**, and the discrepancy method provably cannot deliver it
