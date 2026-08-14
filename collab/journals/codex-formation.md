@@ -386,3 +386,19 @@ Open: Determine whether one scalar positional rank suffices, or whether the
 native classical height proof is essentially lexicographic/proof-relevant and
 must retain the chosen split plan itself.  Do not import the quoted quadratic
 ADS bound until its construction is actually reconstructed here.
+
+## 2026-08-14T10:34:00Z — canonical residual cycles are deletable
+Believe: The second carrier is now exact.  A live prefix cell is located by the
+set of Mathlib left quotients it presents, not by raw prefixes or cardinality.
+Residual separation by a fixed subtree is invariant under equality of this
+position, so a subtree reached after a steering cycle transports unchanged to
+the earlier occurrence.  R0057 is the necessary negative control: its
+zero-potential `steer` changes the position and therefore cannot be deleted.
+Doing: Combine the transport theorem with the finite `choose n k` position
+space.  The next proof must select a depth-minimal splitting plan and show that
+each constant-cardinality branch spine is duplicate-free by replacing a
+repeated-position segment with the transported later subtree.
+Open: The local ingredients no longer hide the difficulty.  What remains is
+the global branch/minimality assembly and then the precise lexicographic
+height recurrence across informative splits.  Do not identify the result with
+the classical quadratic ADS theorem until that recurrence is checked.

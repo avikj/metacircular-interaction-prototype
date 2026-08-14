@@ -58,9 +58,36 @@ This kills the translation
 > equal contextual quotients require equal binary operations.
 
 The exact sufficient replacement is mutual simulation of the generated unary
-actions.  No necessity claim is made: two systems may induce the same observed
-future relation even when their action monoids are not mutually simulable as
-state transformations, because the observation can forget differences.
+actions.
+
+## Control: observation collapse kills necessity
+
+The sufficient condition is not necessary.  On `Bool`, compare the one-action
+systems
+
+\[
+\delta_{\mathrm{id}}(x,*)=x,
+\qquad
+\delta_{\mathrm{flip}}(x,*)=\neg x,
+\]
+
+and observe both through the constant map `Bool → Unit`.
+`identity-words-do-nothing` proves that every word in the first system acts as
+the identity.  Hence `flip-not-simulable-by-identity` proves that the flip
+generator has no compiled identity-word realization, and
+`no-mutual-simulation-after-collapse` rules out mutual simulation of the state
+actions.
+
+Nevertheless `constant-futureEq` proves that every two states have equal
+observations after every word in either system.  The module checks
+`collapsed-futureEqIso` and constructs `collapsed-meaningIso`, an
+identity-on-state-representatives isomorphism between the resulting Cubical
+set quotients.
+
+Thus even equality of the complete observed future relations, not just an
+accidental agreement of quotient cardinalities, does not recover mutual
+simulation before observation.  The obstruction is exact: observation has
+collapsed a genuine state transformation difference.
 
 ## Rigor boundary
 
