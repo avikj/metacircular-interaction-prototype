@@ -83,7 +83,8 @@ observable sector $S\subseteq X$ — i.e. the `SetForm` module of
 the sector bit $[\,x_j\in S\,]$ at each time; the action letters are **forgotten**
 (if they are kept, the bit is a function of the visible data and the shift is
 conjugate to the full $A$-shift — that recoding is vacuous, and noticing this is
-half the reason entropy turns out to be the wrong invariant, §3.1).
+half the reason entropy turns out to be the wrong invariant, §3.1 — read there
+under SEED-110's correction: *coarse*, not blind).
 
 **Theorem 2.1 (finite carrier $\Rightarrow$ sofic).** $X_C$ is sofic.
 

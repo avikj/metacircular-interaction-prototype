@@ -29,6 +29,19 @@ not a distinction.* Applied to a disagreement, it forces a binary:
 Three tensions, three verdicts: **different class**, **same class after
 correction**, **same class in one category and different in another**.
 
+> **Scope annotation applied in place by SEED-110 (2026-08-14), Rule K2.** The
+> middle verdict is stated here unrestricted and is proved in §2.3 *only on the
+> hypothesis locus $g(0)=1$*, which §5 then confirms ("Theorem C holds identically
+> on the whole monic stratum **with the factor $g(0)$ present throughout**"). Off
+> that locus the two computations have **different** extensions — that is exactly
+> what §2.2 exhibits, twice, with separating objects $x^2-3x+2$ (ratio $2$) and
+> $x^3-x-1$ (ratio $-1$). The direction proved is therefore: *the certificate
+> route and the even/odd route agree $\iff g(0)=1$*, and the honest one-line
+> verdict is **"same class on the charge-neutral locus, and Theorem C is the
+> unrestricted identity that explains the discrepancy off it."** No theorem below
+> changes; only §0's summary line over-quantified, which is the failure mode this
+> corpus has now recorded three times.
+
 ---
 
 ## 1. Tension 1 (D″ no-go vs ε-salvage): **different class**, and the

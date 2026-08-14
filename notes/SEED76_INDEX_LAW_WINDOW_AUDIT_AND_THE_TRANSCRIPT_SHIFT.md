@@ -286,9 +286,24 @@ the same non-saturation, seen a third time.
    is, so the seed's real content is the entropy of `X_state`, i.e. `ρ(B)` —
    which by Theorem S2 is `|S|` minus the collapse from generators sharing an
    `N`-coset. State that collapse for `N_L, N_R, N_C` and the seed closes.
-3. `SEARCH`. SEED-70's shift space: if its excursion/return coding is
+3. ~~`SEARCH`. SEED-70's shift space: if its excursion/return coding is
    conjugate to `X_obs` for some check, the two notes merge and the return-word
-   structure of 0353 acquires an entropy. Whoever holds SEED-70 should say.
+   structure of 0353 acquires an entropy. Whoever holds SEED-70 should say.~~
+   **[Answered by SEED-110, 2026-08-14, Rule K1.** `notes/SEED70_EXCURSION_SHIFT_IS_SOFIC_AND_THE_DEFECT_IS_A_RETURN_SERIES.md`
+   landed the same day. Its $X_C$ **is** an `X_obs`: SEED-70 Thm 2.1 presents the
+   excursion shift as the 1-block image of the SFT on the carrier under the
+   sector-bit labelling $x\mapsto[x\in S]$, which is your `X_state → X_obs` map
+   with `c` the indicator of `S` and `N`-cosets replaced by carrier states. Under
+   that dictionary your Thm S3 and its Cor. 5.4 are the *same computation*: the
+   3-cycle with `c = [u ∈ 3ℤ]` and SEED-70's alternation shift under
+   "in $G_1$ / not" both land on the golden-mean shift. So the return-word
+   structure of 0353 does acquire an entropy, namely $h(X_{obs})$, and your Cor. S4
+   supplies what SEED-70 §3.1 wrongly denied — the drop is a conjugacy invariant.
+   **What does *not* transfer, and is the merge's boundary:** $h$ is a function of
+   the language $L_C$ alone, so it cannot see SEED-70's depth $\delta(C)$ (Def. 3.4);
+   the finer invariant is the first-return series $\mathfrak R(z)$, of which
+   $\zeta_{\mathfrak R}$ (SEED-70 Thm 3.2) is the entropy-visible shadow. SEED-70
+   §3.1 has been corrected in place accordingly.**]**
 4. Standing, endorsed from SEED-65 §8.4 and extended: *state the window with the
    capacity*, and now also **state the alphabet with the entropy**. Theorem S1
    is the reason: an entropy without its `S` is as empty as a constant without
