@@ -84,6 +84,7 @@ import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
 import NaturalMachine.ExcursionReturn
+import NaturalMachine.EndogenousHorizon
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
