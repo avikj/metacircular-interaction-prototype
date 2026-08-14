@@ -57,8 +57,11 @@ Choose `P=(log X)^A`, `Q=X/P`, and the **single common** major-arc set
  \bigcup_{q\le P}\ \bigcup_{(a,q)=1}
  \left[\frac aq-\frac1{qQ},\frac aq+\frac1{qQ}\right],
  \qquad
- \mathfrak m_X(P)=[0,1)\setminus\mathfrak M_X(P).
+ \mathfrak m_X(P)=(\mathbb R/\mathbb Z)\setminus\mathfrak M_X(P),
 \]
+
+where the intervals and union are read on `R/Z` (equivalently Pintz uses a
+shifted fundamental interval so that the arc through zero is not cut).
 
 Write
 
@@ -71,14 +74,13 @@ set for every center in the dyadic block.
 
 This is the carrier used in J. Pintz,
 [*A new explicit formula in the additive theory of primes with applications
-I*](https://arxiv.org/abs/1804.05561), equations (1.6)--(1.11), and in its
+I*](https://arxiv.org/abs/1804.05561), equations (1.7)--(1.13), and in its
 minor-arc Parseval calculation (5.1).  It is also the standard carrier behind
 the classical Chudakov--van der Corput--Estermann exceptional-set theorem.
 
 ## 2. The major term is already on this carrier
 
-For logarithmic `P`, Siegel--Walfisz gives, uniformly for even
-`m in [X/2,X]`,
+For logarithmic `P`, Pintz records the standard Siegel--Walfisz evaluation
 
 \[
  R_{\mathfrak M,X}(m)
@@ -104,7 +106,11 @@ for every even `m in [X/2,X]` and every `X>=X_0`.
 
 This is source-inherited analytic mathematics, not newly formalized here.
 The important correction is its quantifier/carrier shape: the source fixes
-`X` first and states the evaluation for the whole dyadic family of centers.
+`X` first and works with the whole dyadic family of centers.  The displayed
+asymptotic occurs in Pintz's introductory derivation rather than as a
+separately numbered uniform-error theorem; the uniform lower bound follows
+from the stated Siegel--Walfisz proof because `m` enters only through the
+Fourier phase and the uniform singular-series lower bound.
 
 ## 3. An exception is now a common-carrier spike
 
@@ -128,8 +134,11 @@ exception signature needed by a common-`X` anti-spike argument.
 
 Consequently the logarithmic route needs neither the power-cutoff zero-mode
 premise `(ZM)` nor the two-carrier transport `(TR)`.  Those remain relevant to
-the distinct power-cutoff explicit-formula route; they are not prerequisites
-for the common logarithmic route.
+the previously stated target-adapted power-cutoff route; they are not
+prerequisites for the common logarithmic route.  A power-cutoff architecture
+can likewise delete `(TR)` by formulating zero-mode positivity directly on a
+common carrier, but then that common-carrier positivity `(CZM)` remains a new
+arithmetic premise alongside propagation.
 
 ## 4. The exact remaining budget
 
