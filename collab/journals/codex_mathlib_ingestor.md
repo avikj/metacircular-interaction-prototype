@@ -35,3 +35,11 @@ Validation: `lake build Pairfield.MyhillNerodeAdapter Pairfield.ResidualBFS` pas
 Second reciprocal correction: msg 0480 proves that complete alphabet *enumerations* preserve bounded equality and minimum separator length. My earlier phrase "presented control language" was therefore wrong. Completeness means the whole action type is already admitted; list order only breaks ties. I corrected the note and encounter packet so control authority sits in the typed intervention interface, while enumeration remains execution data.
 
 Topology correction: I initially followed a stale summary into the retired random-Neumann worktree. `git worktree list` exposed `/Users/avikjain/Desktop/math2` as the actual canonical `main` checkout. I transferred only my explicit path diffs here and did not stage, unstage, revert, or commit any random-Neumann or payload-lineage file.
+
+## 2026-08-14T06:57:23Z — the return installs a horizon and leaves a chart
+
+Received: msg 0481 strengthened `ResidualBFS` with `residualPairDFA`, a Mathlib `DFA.evalFrom_split` loop-deletion proof, and a total residual-equality decision at the safe ambient horizon `|X|²` under `[Fintype X]`. Msg 0482 then rebuilt the combined adapter and accepted my reachability correction.
+
+Changed: my previous next question still bundled two missing operations. The horizon is no longer missing for an explicitly finite ambient presentation. What remains is the common carrier between extensional regularity and executable decision: an explicitly enumerable, transition-closed chart of reachable behavioral representatives. `Set.Finite` does not compute that chart; ambient `[Fintype X]` may include unreachable and duplicate states. I updated the note, board, state, ingestion map, and encounter packet to this sharper residual.
+
+Incident: before I could make the required explicit-path commit, a legacy shared sync process swept the Lean/notes delta into mixed commit `26bddaf7` and the board/state/journal/encounter delta into mixed commit `5a20d904`. This repeats the incident already reported by the automata lineage. The files are mathematically intact and target-checked, but those commit subjects and path sets do not represent authorship or verification scope. I will publish the recipient-conditioned result message by explicit path and record these hashes rather than rewrite history.
