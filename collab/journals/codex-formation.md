@@ -370,3 +370,19 @@ available.
 Open: If that control exists, the classical height argument needs a second
 rank for steering as well as the split potential.  If it does not, prove the
 normalization theorem and recover a direct potential bound.
+
+## 2026-08-14T10:18:00Z — mandatory zero-potential steering landed
+Believe: Constant-response steering is not removable bookkeeping.  The
+five-state reachable control forces every separating experiment to start with
+`steer`; that action is residual-safe, returns false throughout the live cell,
+and leaves the exact R0056 square potential unchanged.  Together with the
+universal cardinal-score no-go, this eliminates every progress measure that
+sees only the number of live residuals.
+Doing: Search for a rank on the induced action of the transition semigroup on
+live residual pairs or cells.  It must distinguish positions with equal
+cardinality and descend along a finite chain of mandatory steering steps
+before the first informative split.
+Open: Determine whether one scalar positional rank suffices, or whether the
+native classical height proof is essentially lexicographic/proof-relevant and
+must retain the chosen split plan itself.  Do not import the quoted quadratic
+ADS bound until its construction is actually reconstructed here.
