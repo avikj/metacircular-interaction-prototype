@@ -701,10 +701,21 @@ Stated explicitly so an auditor does not have to infer it:
    and 5.4's exponents are proved; the *numbers* $-0.9965$, $-0.5038$ are least-squares
    fits over $22$ height scales with $3000$ random angles, in float64.
 3. **The rank-$r$ rates for $r=2,3$ are MEASURED only.** The $(\log H)^{-r}$ law is
-   a counting heuristic plus equidistribution; the equidistribution input is a
+   a counting heuristic plus equidistribution; ~~the equidistribution input is a
    genuine open-flavoured question (quantitative linear independence of
    $\arg g_p$ over $\mathbb{Q}+\mathbb{Q}\pi$). We did not prove it and did not
-   invoke an effective form of Baker's theorem.
+   invoke an effective form of Baker's theorem.~~
+   **Corrected in place (SEED-119, 2026-08-14, Rule K1/K3, on the authority of
+   `notes/SEED88_RANK_ORBIT_HAAR_RATE.md`; see the amendment box at §5.5).** The
+   equidistribution input is **not open** — it is Haar, constructed
+   unconditionally (SEED-88 Lemma 1.3), and joint linear independence of the
+   $\arg g_p$ is not needed even for a *rate*: one coordinate's effective
+   irrationality measure suffices (SEED-88 Rmk 3.2). What is actually unclosed is
+   the **envelope** — $\gg(\log H)^{-r}$ against $\ll(\log H)^{-1/(\kappa+1)}$ —
+   so $-r$ is proved only as a lower bound, for $r=1$ as well as $r=2,3$. The
+   sharp rate is a **bounded-partial-quotient** question, not a
+   linear-independence one. This item as originally written told the reader that
+   a solved problem is open and that an open problem is measured.
 4. **The BA/Liouville comparison is two hand-picked directions**, not a measure- or
    dimension-theoretic statement. We did not compute Hausdorff dimensions.
 5. **No formalization.** Nothing here is checked in Lean or Cubical Agda. The

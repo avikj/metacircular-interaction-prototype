@@ -427,7 +427,7 @@ counting problem, not an LP-duality one.
   counterexample that forces it.
 - Theorem A3.1 rests on agent identifiers being replica-unique, which is an
   owner-side allocation and not proved here.
-- §5's rates (82/3741, 11/12) are a finite exhaustive enumeration over a
+- §5's rates (82/3741, ~~11/12~~ **10/12**, corrected SEED-120 2026-08-15) are a finite exhaustive enumeration over a
   **stated snapshot** and a **stated stoplist**. They are not properties of the
   corpus. Changing the stoplist changes them.
 - `SEARCH` (unperformed, flagged per SEED-83 §1.1's object-type rule — the
