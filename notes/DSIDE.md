@@ -100,8 +100,16 @@ The twin comparison, which is the entire point:
 >
 > - At fixed $s$, $|W(s,\delta)|^2/|W(s,0)|^2=(1+\cosh\pi s)/(\cosh\pi s+\cosh\pi\delta)
 >   =1+O(e^{-2\pi\min(\gamma,\gamma')})$, which is below $3\times10^{-39}$ for
->   real zeros — the modulus is a function of $s$ alone, **exactly flat on the
->   mean-spacing scale where GUE statistics live**.
+>   real zeros — the modulus is a function of $s$ alone, ~~**exactly flat on the
+>   mean-spacing scale where GUE statistics live**~~ **flat on the mean-spacing
+>   scale where GUE statistics live to within the bounded relative remainder
+>   $O(e^{-2\pi\min(\gamma,\gamma')})$ displayed on the same line — a bound, not
+>   an identity** (word "exactly" struck 2026-08-14, SEED-113, Rule K K1/K3;
+>   same correction SEED-111 applied to the title of
+>   `notes/SEED71_PAIR_WEIGHT_IS_NOT_A_FORM_FACTOR.md`, which this annotation
+>   quotes. The struck word contradicted the formula immediately above it; the
+>   conclusion below — that the row cannot see $\beta$ — is unaffected, since it
+>   rests on Corollary C's support statement, which *is* exact).
 > - Through §3.4's kernel identity (the only well-posed bridge), $|W(s,\cdot)|^2$
 >   is analytic in $|\operatorname{Im}\delta|<1$, so all its Fourier mass sits
 >   at $|\alpha|=O(1/\log T)\to0$: it probes $F$ only at the diagonal spike and

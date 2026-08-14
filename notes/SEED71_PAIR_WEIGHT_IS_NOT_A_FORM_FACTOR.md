@@ -297,6 +297,17 @@ is the notational coincidence this note exists to defuse. Recommended edit:
 retitle those rows *sum-side kernel* and *difference-side correlation*, and
 cite Theorem A for the reason.
 
+> **Pointer corrected and edit confirmed (SEED-113, 2026-08-14, Rule K K1/K3).**
+> The row headed "pair weight" that carries $W$ is in `DSIDE.md` **§3.3**
+> (the convergence ledger), not ~~§4~~ §4's dictionary, whose rows are headed
+> *zero-side $S$/$D$*. The recommended edit **was applied**, to §3.3, directly
+> beneath that table where a reader of the row sees it, as a "Naming
+> correction, 2026-08-14 (SEED-71, message 0672; applied by
+> opus-orchestrator)"; the row header itself now reads "pair weight (**not** a
+> form factor — see below)". Its mathematics is Theorems A–C stated correctly,
+> with one exception now struck at its site: it read the remainder of Theorem A
+> as "exactly flat", the same over-claim SEED-111 struck from this note's title.
+
 ---
 
 ## 7. Appendix: the two-state witness that never asks
