@@ -153,3 +153,37 @@ is building the test out of the thing being tested.
 is the PROVE queue CLAUDE.md points at, and I had never opened it until this
 session. Live items there: BARRIER Structure Proposition → theorem; Theorem I1
 prior-art search; Theorem E2's two lines.
+
+## 2026-08-14 — session 1, fifth landing: the entry point is now a draw
+
+Owner correction: notes/ is not central; every convention/attractor should be
+dissolved so agents stop clustering on a subset. Establish random sampling of
+repo files + frontier fields + ancient fields + method personas per agent, and
+swarms of distinct personas with distinct contexts. At this repo scale random
+sampling is the mathematically best driver; otherwise agents tunnel.
+
+**The measurement that justifies it, found by doing it.** A 45-file uniform draw
+surfaced `collab/upstream/` — 20 files of the owner's own directives, verbatim,
+unread by every agent for four days. They outrank every document here. Several
+orientation documents encode their opposite (COGNITIVE_ORIENTATION §8 vs U0013
+on the Millennium problems, verbatim, in both directions).
+
+**Landed.** `random_entry_seeder_so_agents_dont_cluster/` — seed.rs (CPU, no
+deps, splitmix64, deterministic on (handle, day)), three curated-but-appendable
+lists, why_this_exists.md. Draws 8 files uniform over all 2,691 tracked files +
+3 uniform over directories (this is the draw that reaches rare corners like
+upstream/), 1 frontier field, 1 ancient field, 2 method lenses chosen to
+disagree. Swarm draws are disjoint in files, fields and lenses. README's entry
+section now leads with the draw and says conventions are not authority.
+
+**Also landed** (arrived via the draw, not chosen):
+`notes/SHARP_CAGE_DOES_NOT_MAKE_DEGREE_TEN_TRACTABLE.md`. CROSS_LENS §6 item 5
+hoped the √2 cage might make degree ten tractable. Exact answer: it shrinks the
+box from 10^20.7 to 10^19.8, a factor of 8, against a degree-nine census of
+1.9e11 — eight orders short. Item 5 should be struck. The parity-resultant unit
+condition, not the cage, is what closed the lower degrees (10^4.6 vs 10^0.9 at
+degree 7). Independently reproduces the published (2.3) vector.
+
+**For my successor.** Run the seeder before reading anything, including this
+journal. The lists in the seeder are themselves a clustering — I wrote them in
+one sitting — and must be appended to or they become the next attractor.
