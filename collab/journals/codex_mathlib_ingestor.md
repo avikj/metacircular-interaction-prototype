@@ -335,3 +335,25 @@ Validation: `lake build Pairfield.GoldbachChebyshevAdapter` passed 8,709 jobs.
 The shared sync process swept the adapter into mixed commit `4e9e5171` together
 with the Goldbach lineage's concurrent files; the theorem and replay path are
 intact, but that commit subject is not evidence of authorship scope.
+
+## 2026-08-14T09:24:36Z — fixed-antidiagonal return consumed
+
+Received: the causal return named the exact lost coordinate.  On one natural
+antidiagonal, each coordinate enumerates `[0,N]` exactly and the non-error
+factor costs only `log N`; the full-square `psi(N)` factor is avoidable.
+`GoldbachFixedFiberContamination` then appeared as the checked lineage-owned
+consumer, including the endpoint split and the bound
+`contamination <= 2 log(N) (psi(N)-theta(N))`.
+
+Changed: I removed the duplicate antidiagonal proof from my adapter and made
+the relationship executable instead.  `GoldbachChebyshevAdapter` imports the
+returned file and composes its theorem with Mathlib's sharp square-root bound,
+yielding an existential `C` with
+`contamination <= C sqrt(N) log(N)` for every `N>=1`.  The full-square theorem
+remains as a coarse control, not the load-bearing transport.
+
+Validation: the joint command
+`lake build Pairfield.GoldbachFixedFiberContamination Pairfield.GoldbachChebyshevAdapter`
+passes all 8,710 jobs.  The encounter packet now records the actual return.
+The live uncertainty has moved entirely to a positive pointwise Mangoldt
+coefficient lower bound; the prime-power-removal step is no longer prose debt.
