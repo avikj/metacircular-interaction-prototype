@@ -60,7 +60,46 @@ scale-dependent** — the exp27 shape; `X` retracted/closed already.
 
 | # | constant | where | status | what it actually is |
 |---|---|---|---|---|
-| **A** | $C/D=1.44$; and its restatements $L^*=14.5$, "off-diagonal $\le6.5\%$ at $L=100$", "$2.3\%$ truncation tail" | `BLOCKS.md` §3, §4; `APPENDIX_D.md` §D.6; `papers/phase_side.md`:25,98 | **`F!`** | **F2. Not a constant** — it is $\langle\rho_2\rangle_{|c|^2}$, the $|c|^2$-weighted mean atom density, units $=$ (frequency)$^{-1}$; scales as $f_0\log^2(f_0/2\pi)$ in the band bottom. **Derived in §3.** $L^*=10\,(C/D)$ and $5(C/D)/L$ are $C/D$ restated, not independent findings (`SWEEP.md` §2 saw this; nobody did the integral) |
+| **A** | $C/D=1.44$; and its restatements $L^*=14.5$, "off-diagonal $\le6.5\%$ at $L=100$", "$2.3\%$ truncation tail" | `BLOCKS.md` §3, §4; `APPENDIX_D.md` §D.6; `papers/phase_side.md`:25,98 | **`F!`**, mathematics settled 2026-08-14 — see the row note | **F2. Not a constant** — it is $\langle\rho_2\rangle_{|c|^2}$, the $|c|^2$-weighted mean atom density, units $=$ (frequency)$^{-1}$; ~~scales as $f_0\log^2(f_0/2\pi)$ in the band bottom~~ **dominated by the band bottom, but convergent in the band top (SEED-40 Thm O)**. **Derived in §3.** $L^*=10\,(C/D)$ and $5(C/D)/L$ are $C/D$ restated, not independent findings (`SWEEP.md` §2 saw this; nobody did the integral) |
+
+> **Row A, updated in place (SEED-100, 2026-08-14, Rule K1) on the authority of
+> `notes/SEED40_ORPHANED_RESULT_PROTOCOL.md` §4.2.** The row's *live-failure*
+> status survives; its *diagnosis* needs three amendments, and one of §3's
+> forced corrections is withdrawn.
+>
+> 1. **The identity is confirmed and is now a theorem twice.** SEED-40 Lemma 1
+>    proves $C/D=\langle\rho\rangle_{|c|^2}$ independently of §3's
+>    Proposition A. No dispute.
+> 2. **"Not a constant" is too strong as stated; the true defect is
+>    bottom-domination, not band-dependence.** SEED-40 Theorem O proves both
+>    weight integrals converge at $\infty$ — $2\pi s^{-5}\rho\asymp s^{-4}\log^2s$
+>    and $2\pi s^{-5}\rho^2\asymp s^{-3}\log^4s$ — so $\langle\rho\rangle_{|c|^2}$
+>    **converges as the band top $S\to\infty$**, with truncation error
+>    $O(S^{-2}\log^4S)$, and does *not* grow like $T\log^2T$ as `SWEEP.md` §2
+>    asserted. §3's scale law is in the band *bottom* $f_0$ and is compatible
+>    with this — but $f_0=2\gamma_1$ is not a free parameter of the object, it
+>    is the smallest atom. SEED-40 Theorem O′ draws the right conclusion:
+>    $C/D$ is **a finite arithmetic constant determined to any fixed precision
+>    by the lowest few dozen zeros**, i.e. exactly the kind of certified finite
+>    symbolic computation `CLAUDE.md` permits — presented, wrongly, as a fitted
+>    slope. So the sin is not "quoted a scale-dependent quantity as a constant";
+>    it is "quoted a certifiable finite sum as a measured law".
+> 3. **Forced correction (iii) of §3's Verdict A is withdrawn.** See the strike
+>    at Verdict A below (SEED-40 Cor. O1).
+> 4. **§3's numerical confrontation does not survive and should not be quoted.**
+>    See the strike in §3 below.
+>
+> **The row is still live, in a narrower and now fully diagnosed form.** As of
+> this pass, `papers/phase_side.md`:25 still lists $C/D=1.44$ among the D″
+> chain's "explicit constants" with no band and no grade, `:98` repeats it, and
+> `BLOCKS.md`:409 still says "measured linear with $C/D=1.44$ over five
+> decades" — which SEED-40 Lemma 2 proves is *structurally impossible* ($E$ is a
+> step function that vanishes below the minimum atom gap). That last one is
+> struck at its site by this pass; the two paper lines are not mine to rewrite
+> and are re-flagged instead. Also unresolved: SEED-40 §4.3's
+> **ordered/unordered convention**, which leaves the numeral determined only up
+> to a factor $2$ — a `DEMONSTRATE` item resolvable by reading
+> `code/exp13_energy.py` as text.
 | **B** | $S_\infty=0.257780\ldots$ and $\tfrac C2+2S_\infty=1.181852\ldots$ | `METHOD.md`:26–29, `COPRIME_MERTENS.md`:223 | `D`, contested | Exactly defined convergent prime sum. `SWEEP.md` §3.5 asserts $S_\infty\approx0.45$ and that M1's coefficient "looks reverse-engineered". **Settled in §4 by a certified enclosure: $S_\infty\in[0.2564,0.2597]$.** SWEEP §3.5 is wrong (it dropped the $\varphi(m)/m$ factor); the queue item retires |
 | **C** | asymptotic slack $\approx680\,Q$ | `LENS_NUMERICS.md`:46,251,254,324 | `F` | a *prefactor from a bounding step* ($|\Psi_1^\flat(y)|\le XD_Q$), i.e. the looseness of one inequality, quoted as a law. Derivable in principle (it is the ratio of the true $\Psi_1^\flat$ mean-square to its trivial bound); the note itself flags slack $10^3$–$10^6$ unsettled. See §5(C) |
 | **D** | coherent fraction: measured $0.105$ vs predicted $0.088$; slopes $-0.68$, $-1.66$ ($k=2,3$) vs $-\tfrac12,-1$ | `FRESNEL.md`:164, `papers/phase_side.md`:44,101 | `F` | `SWEEP.md` §3.7 says the density-weighted Fresnel ratio closes this in closed form and *retires* the queued $k=3$ run (predicted $-1.48$). Still not written. The $k=2$ side is closed ($-0.698$ vs $-0.741$) |

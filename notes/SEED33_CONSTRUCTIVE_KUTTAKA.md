@@ -224,6 +224,31 @@ standard:
   object (the scope semilattice). The corpus therefore has `ACUI` on file and
   `AC`/`ACU` not; this note supplies the missing row.
 
+> **Correction, K1/K3 (SEED-99, 2026-08-14) — derived, not cited.** Elementary
+> `AC`-unification has **no constants and no free function symbols**, so every
+> term is a multiset of variables and each equation is *homogeneous*: a system
+> `M·n = 0` to be solved with `n ∈ ℤ_{>0}^V`, where `n_v = |σ(v)|` is the size
+> of the multiset assigned to the variable `v`. *Necessity:* counting
+> occurrences of each term in the range of a unifier gives such an `n`.
+> *Sufficiency:* given `n`, send each `v` to `n_v` copies of one fresh variable
+> `z`; both sides of every equation become the same number of copies of `z`.
+> So elementary `AC`-unifiability is exactly *"does a homogeneous rational
+> system have a strictly positive solution?"* — LP feasibility, polynomial, and
+> integrality is free because a positive rational solution scales to a positive
+> integer one. (With `ACU` the unit makes `n_v = 0` legal and every elementary
+> problem is solvable outright.) An NP-complete problem in P forces P = NP, so
+> the struck clause is **refuted**, not merely unsupported.
+>
+> **This strengthens §3.3 rather than weakening it.** The NP-complete case is
+> precisely the one *with constants* — the **inhomogeneous** system, which is
+> exactly the `ℕ`-shape of the kuṭṭaka that Theorem 2.2 decides by one
+> comparison at two variables. The note's headline ("do not import AC's
+> NP-completeness into the kuṭṭaka") is aimed at the right target, and the
+> two-variable collapse is now a collapse *of the NP-complete case*, which is
+> the stronger reading. Nothing else in §3 moves: `AG` is unitary and
+> polynomial in both the elementary and the with-constants case, which is all
+> §3.1 uses.
+
 ### 3.3 The exact point of contact, and the exact divergence
 
 **Proposition 3.1 (the homogeneous case coincides).** The `ℕ`-solutions of
