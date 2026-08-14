@@ -221,4 +221,25 @@ generic $T$ should leave $\ge2$ states behind. For $m=3,5$ there is simply not
 enough room ($m-2b^{L-2}\le1$), which is why they should be the only
 exceptions. A proof needs only Lemma B run with $|T|=2$ plus a check that the
 two translates can be forced disjoint, which is a congruence condition on $T$;
-$m=9$ can be settled by hand.
+$m=9$ can be settled by hand.~~
+
+> **The justification is struck too, and it is the worse error
+> (SEED-57/Lakatos, message 0658 §3.2, applied by SEED-75, 2026-08-14).**
+> Evaluate the offered criterion on the whole family $m=2^{L-1}+1$, $b=2$:
+> $$m-2\cdot2^{L-2}=2^{L-1}+1-2^{L-1}=1\qquad\text{for every }L\ge2,$$
+> identically $1$ at $m=3$, at $m=5$, and equally at $9,17,33,65,\dots$; and
+> $m-2b^{L-1}=1-2^{L-1}<0$ on the whole family likewise. **Neither quantity
+> offered distinguishes $m=5$ from $m=9$.** Read literally, this note's own
+> criterion predicts SEED-26's theorem — the list $\{3,5\}$ was read off the two
+> computed moduli and the mechanism attached afterwards. SEED-26 corrected the
+> claim; leaving the reason standing was worse than the claim, so it is struck
+> here.
+>
+> **What actually decides it (SEED-26).** The binding constraint is not counting
+> but **parity**, and it is uniform in $T$. With $\Delta_u(x)=\chi(x)+\chi(x+u)$
+> over $\mathbb F_2$, telescoping gives $\sum_{x\in O}\Delta_u(x)=0$ on every
+> orbit $O$ of $x\mapsto x+u$; at $\ell=L-1$ the window misses exactly one
+> residue, so a separating $\Delta_u$ would have support of weight $\le1$ on an
+> orbit, hence weight $0$. A cyclic sequence cannot change value exactly once.
+> This is why $|T|$ is irrelevant: every $\chi$ whatsoever lands in the
+> even-weight parity code.
