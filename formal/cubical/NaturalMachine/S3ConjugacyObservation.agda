@@ -14,28 +14,28 @@ open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Empty using (⊥)
-open import Cubical.Data.SumFin using (fzero ; fsuc)
+open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc)
 import Cubical.Data.Sum.Properties as Sum
 import Cubical.Data.Prod as P
 
 open import NaturalMachine.FiniteNonabelianHolonomy
 open import NaturalMachine.RelationalHolonomyRefinement
-  using (closedLoopGaugeInvariant)
+  using (closedLoopGaugeInvariant ; endpointGauge)
 
 Fixed : ⟨ S₃ ⟩ → Type₀
-Fixed g = Σ[ x ∈ Fin3 ] fst g x ≡ x
+Fixed g = Σ[ x ∈ Fin3 ] g .fst x ≡ x
 
 fixedConjugateIso : (h g : ⟨ S₃ ⟩)
   → Iso (Fixed ((h S.· g) S.· S.inv h)) (Fixed g)
-Iso.fun (fixedConjugateIso h g) (x , p) = fst h x , fixed
+Iso.fun (fixedConjugateIso h g) (x , p) = h .fst x , fixed
   where
-  fixed : fst g (fst h x) ≡ fst h x
-  fixed = sym (retEq h (fst g (fst h x))) ∙ cong (fst h) p
-Iso.inv (fixedConjugateIso h g) (y , q) = fst (invEquiv h) y , fixed
+  fixed : g .fst (h .fst x) ≡ h .fst x
+  fixed = sym (retEq h (g .fst (h .fst x))) ∙ cong (h .fst) p
+Iso.inv (fixedConjugateIso h g) (y , q) = (invEquiv h) .fst y , fixed
   where
-  fixed : fst ((h S.· g) S.· S.inv h) (fst (invEquiv h) y)
-    ≡ fst (invEquiv h) y
-  fixed = cong (fst (invEquiv h)) (cong (fst g) (retEq h y) ∙ q)
+  fixed : ((h S.· g) S.· S.inv h) .fst ((invEquiv h) .fst y)
+    ≡ (invEquiv h) .fst y
+  fixed = cong ((invEquiv h) .fst) (cong (g .fst) (retEq h y) ∙ q)
 Iso.rightInv (fixedConjugateIso h g) (y , q) =
   Σ≡Prop (λ _ → S.is-set _ _) (retEq h y)
 Iso.leftInv (fixedConjugateIso h g) (x , p) =

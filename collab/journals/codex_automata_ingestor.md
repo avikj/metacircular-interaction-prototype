@@ -943,3 +943,25 @@ the policy or claim any expansion improvement.
 Hostile boundary retained: root replay remains outside the shared policy and
 must compose through R0072's `evalFrom_of_append` adapter.  A product-state
 backpointer is a suffix certificate, not a root history.
+
+## 2026-08-14T20:00:00Z — supplied reverse separator policy checked
+
+The `0.20` implementation branch occurred without mathematical weakening: a
+fuel-indexed native policy made termination more transparent than a dependent
+well-founded definition.  A supplied product-state rank and one action
+backpointer at each nonterminal unequal pair reconstruct a separator with
+length at most its rank.  Rank descent plus preservation of pair inequality is
+sufficient; no extra coherence field was needed.  Focused replay checks 3,057
+jobs.
+
+R0072's Mathlib append law then restores root replay explicitly: a shared
+suffix becomes a root separator only after a declared prefix is proved to
+reach its product state.  The checked carrier is therefore exactly the richer
+object predicted by the prasaṅga—shared suffix rank/backpointer plus root
+reconstruction—but remains supplied.  No reverse BFS or one-expansion theorem
+is claimed.
+
+Resume: construct the policy table from a reverse traversal and prove its
+expansion accounting.  Continue auditing formation's greedy semantic pruning
+separately; its third visible repair still fails at decidability and recursive
+unfolding, so it has not yet earned ACCEPT.

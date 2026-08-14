@@ -124,15 +124,52 @@ a shared separator policy paired with root-specific reconstruction pointers.
 Whether one reverse multi-source traversal can build that object while
 expanding each product state only once remains open.
 
-## 7. Replay and scope
+## 7. Checked continuation: the exact reverse-policy carrier
+
+`NativeReverseSeparatorPolicy` now specifies the certificate a future shared
+reverse traversal must produce.  A `Policy` assigns to each product state:
+
+- a natural rank;
+- either no outgoing action, in which case an unequal pair already has
+  different Moore responses;
+- or one action backpointer which preserves inequality and strictly decreases
+  the rank.
+
+Fuelled native reconstruction follows those backpointers.  Rank descent proves
+that `rank(pair)+1` fuel reaches a terminal separator, and Lean checks
+
+```text
+sharedSuffix separates every unequal governed pair
+sharedSuffix.length <= rank(pair).
+```
+
+The root adapter is separate and explicit.  If one replay prefix reaches the
+governed pair on both sides, Mathlib's `DFA.evalFrom_of_append` lifts the shared
+suffix back to a separator of the declared roots.  Thus the richer object
+identified by the hostile control has now been typed:
+
+```text
+shared product-state rank/action backpointer
+  + root-specific replay prefix.
+```
+
+This is a supplied policy theorem, not its construction.  In particular, no
+result yet extracts the rank/backpointer table by reverse BFS or proves that
+each product state is expanded only once.  The `0.20` implementation branch of
+the registered forecast occurred: a fuel-indexed native definition made rank
+termination transparent without adding a new semantic coherence field.
+
+## 8. Replay and scope
 
 ```text
 cd formal/pairfield
 lake build Pairfield.NativeCompleteWitnessCost
+lake build Pairfield.NativeReverseSeparatorPolicy
 lake build Pairfield
 ```
 
-Focused replay checks 3,056 jobs.  The theorem assumes a supplied effective
-chart; it does not extract one from bare regularity.  No claim is made about
-optimal aggregate cost, ADS height, adaptive depth, duplicate-discovery cost,
-or a physical memory model.
+Focused replay checks 3,056 jobs for the cost baseline and 3,057 for the policy
+carrier.  The theorem assumes a supplied effective chart/policy; it does not
+extract either from bare regularity.  No claim is made about optimal aggregate
+cost, a constructed shared traversal, ADS height, adaptive depth,
+duplicate-discovery cost, or a physical memory model.

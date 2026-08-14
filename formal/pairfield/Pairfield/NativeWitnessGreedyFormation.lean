@@ -46,7 +46,14 @@ def Useful (installed : Finset (List A)) (word : List A) : Prop :=
         behavior M.step (acceptsBool M) right word
 
 instance usefulDecidable (installed : Finset (List A)) (word : List A) :
-    Decidable (Useful M installed word) := inferInstance
+    Decidable (Useful M installed word) := by
+  unfold Useful
+  letI : DecidablePred (fun left : X => ∃ right : X,
+      Agree M installed left right ∧
+        behavior M.step (acceptsBool M) left word ≠
+          behavior M.step (acceptsBool M) right word) :=
+    fun _ => Fintype.decidableExistsFintype
+  exact Fintype.decidableExistsFintype
 
 /-- The executable formation event.  Candidate order may change which
 representative word is retained, but not the final response equivalence. -/
