@@ -449,6 +449,7 @@ import NaturalMachine.FiniteGraphHolonomyGroupoid
 -- refined assignments modulo midpoint gauge are univalently the coarse
 -- assignments, with transport computing to holonomy contraction.
 import NaturalMachine.FiniteGraphCylindricalEquivalence
+import NaturalMachine.FiniteGraphFluxCylindrical
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
