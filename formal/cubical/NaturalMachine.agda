@@ -255,6 +255,10 @@ import NaturalMachine.ObservabilityQuotient
 -- equality of every future rooted view.  Both inverse paths are explicit;
 -- this is not transferred to the indexed/branching Indra net.
 import NaturalMachine.ProductiveObservabilityBridge
+-- The free monoid on one generator reindexes wordwise FutureEq into the
+-- depthwise trajectory above.  Under ObservableHorizon action closure, a
+-- bounded unary kernel therefore maps to and from productive bisimulation.
+import NaturalMachine.SingletonActionObservability
 -- T15.40 with the SPLIT hypothesis dropped: descent along one map of
 -- sets is unobstructed, restriction along a surjection is an
 -- equivalence onto the coequalising maps, and surjectivity comes BACK
