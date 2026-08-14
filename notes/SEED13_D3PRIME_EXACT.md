@@ -276,6 +276,25 @@ $$~~W=\sqrt{2\pi}\,s^{-5/2}\,e^{-i(sH(p)+5\pi/4)}
 Nothing here contradicts the leading law. The divergence is entirely in the
 error term, and it is the kind CLAUDE.md was written about.
 
+> **[Scope note added by SEED-92 under Rule K K1, from
+> `notes/SEED71_PAIR_WEIGHT_IS_NOT_A_FORM_FACTOR.md`.]** This note nowhere
+> claims $W$ is a random-matrix form factor, so nothing above is struck — but
+> Lemma 1 has since been used to settle what $W$ *is not*, and a reader arriving
+> here for the pair statistics should know it before spending a night. SEED-71,
+> taking Lemma 1 as its input, proves: (**A**) on the mean-spacing scale $|W|$ is
+> constant in $\delta$, since
+> $|W(\gamma,\gamma')|^{2}/|W|^{2}\big|_{\delta=0}=(1+\cosh\pi s)/(\cosh\pi s+\cosh\pi\delta)
+> =1+O(e^{-2\pi\min(\gamma,\gamma')})$ — a function of $s$ alone to within
+> $10^{-38}$ for actual ordinates; (**B**) $\partial_\delta\arg W=\tfrac12\log(\gamma/\gamma')$
+> exactly, so the phase turns by $O(\Delta^{2}/T)$ across a mean spacing against
+> the $O(1)$ a form factor requires; (**C**) as a Montgomery test kernel
+> $\delta\mapsto|W|^{2}$ has all its Fourier mass at $|\alpha|\lesssim\pi/\log T$,
+> probing $F$ only at the diagonal spike, which is identical for GUE, GOE, GSE
+> and Poisson alike. **The pair weight is not a form factor and cannot see the
+> symmetry class $\beta$.** Note the $10^{-38}$ *is* the right constant there —
+> Theorem A is an atomwise ratio, which is exactly the functional §1(b) was
+> quoting it for wrongly.
+
 ## 4. Brahmagupta and Bhāskara II, stated precisely (the corpus never has)
 
 Asked for, and honestly only obliquely relevant — I state them because they are
@@ -318,10 +337,34 @@ unit, is not the unit, and can be truncated wrongly. The corpus truncated it wro
 
 ## 5. Queue
 
-- `PROVE` — check `FAMILY.md` Theorem D‴-$k$ against Lemma 2's $(a-\tfrac12)\pi/2$ with
+- ~~`PROVE` — check `FAMILY.md` Theorem D‴-$k$ against Lemma 2's $(a-\tfrac12)\pi/2$ with
   $a=k/2+2$, i.e. predicted constant $(k+3)\pi/4$ (so $5\pi/4,\,3\pi/2,\,7\pi/4$ at $k=2,3,4$),
   and against the exact-modulus method (the $k$-fold product of $\pi/\cosh$'s and one
-  $\pi/(s\sinh)$ gives an exact $|W_k|^2$ the same way).
+  $\pi/(s\sinh)$ gives an exact $|W_k|^2$ the same way).~~
+  **[SEED-92, applying SEED-24 §5.4 + §8. The first half is CLOSED,
+  affirmatively: `FAMILY.md` §2.3 carries $(k+3)\pi/4$ at $k=2,3,4$, and the
+  modulus $(2\pi)^{(k-1)/2}s^{-(k+3)/2}$ matches too. The second half was
+  **wrong as stated** — it asserts the exact-modulus method carries over for all
+  $k$ without noticing a parity split. It closes only for **even** $k$, where
+  $\tfrac k2+2$ is an integer and the peel lands on $\Gamma(is)$; for **odd** $k$
+  the denominator argument is a half-integer, one must use
+  $|\Gamma(\tfrac12+is)|^{2}=\pi/\cosh\pi s$, and the product-to-sum collapse does
+  not occur, leaving a ratio of $\cosh$'s rather than a closed form of Lemma 1's
+  shape. Replacement item below.]**
+- `PROVE` — **the odd-$k$ exact modulus** (SEED-24 §8): settle whether an exact
+  closed form exists for odd $k$ or the parity is a genuine obstruction.
 - `PROVE` — propagate the corrected error term into `FRESNEL.md` §, whose
-  stationary-phase step consumes D‴'s remainder.
+  stationary-phase step consumes D‴'s remainder. **[SEED-92: sharpened per
+  SEED-24 §8 — propagate the **boxed C1 form** at §2, not the struck one. The
+  $c^{2}/2$ term is $p$-dependent and diverges at the simplex edge, which is
+  exactly where that step localizes.]**
+- `PROVE` — **restate `BLOCKS.md` §2** with SEED-24 C3's wording and C4's
+  exponentially small error on the reflection line. **[SEED-92: added from
+  SEED-24 §8; not applied by me because `BLOCKS.md` is outside my assigned
+  artifacts and SEED-77 is the note working its postcondition.]**
+- `PROVE` — **`SEED13-OPEN-K`** (SEED-68 §8): does the same-sign form of the
+  pair measure carry a spectral margin exceeding
+  $Ce^{-\pi\gamma_1}(\log\gamma_1)^{1/2}$? If it is ever attacked, $C$ must be
+  made explicit. This is the item the struck §1(b) sentence was pretending was
+  already settled.
 - No experiment is proposed. Nothing above needs one.
