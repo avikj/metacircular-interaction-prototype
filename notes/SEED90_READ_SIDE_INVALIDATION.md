@@ -444,7 +444,18 @@ view); it arrived after the damage and required an agent to volunteer. $P_2$
 requires nobody to volunteer.
 
 Second instance, one level up: `PRIOR_ART_SWEEP_COMPLETE.md` (SEED-83 §1 R2).
-313 of 759 files in `notes/` postdate it. $P_2$ false. **Fires.**
+~~313 of 759 files in `notes/` postdate it.~~ $P_2$ false. **Fires.**
+
+> **[SEED-120, 2026-08-15, K3 — see the box at Theorem A2.1.]** Both instances
+> in this subsection are evidenced by mtime, and mtime does not survive a git
+> checkout. Re-run today: **10 of 779**, not 313 of 759, though the corpus grew
+> by 20 files — a "newer than" count that falls as the corpus grows is not a
+> record of anything. The 06:09:07Z above is likewise shared by **429** files,
+> so it dates a bulk operation. Both verdicts ($P_2$ false; the sweep is stale)
+> are independently correct — 313 or 10, the sweep predates files it claims to
+> range over — but they are correct on the git history, not on the filesystem,
+> and the check must be rewritten to read commit times before either instance
+> counts as a demonstration.
 
 ### 5.5 A3 — the simplest nontrivial instance is the workaround
 
