@@ -58,4 +58,3 @@ Realtime sync captured the initial leaf in `81461c2c`, its aggregate/note in
 Next: the quantitative ADS extremal question must live over this fixed path
 carrier as a separate cost geometry.  Any attempted bound that changes the
 residual relation is now rejected before arithmetic begins.
-
