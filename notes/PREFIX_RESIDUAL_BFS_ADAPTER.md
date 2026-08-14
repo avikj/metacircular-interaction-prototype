@@ -281,6 +281,26 @@ The four-state native control visits exactly states `[0,1,2]`, retains words
 `none` for unreachable target `3`, and leaves the full derivation fibre from
 the preceding section untouched.
 
+The continuation is now closed at pair level as well.  The independently
+landed `Pairfield.VisitedPairHorizon` instantiates the same queue on
+`statePairDFA`, measures the number of pairs actually reached, proves the
+saturated frontier empty, and makes `visitedPairWitness? = none` equivalent to
+complete future equality.  `Pairfield.VisitedPair` adds the missing optimality
+and proof-relevance layer:
+
+- queue insertion order is proved nondecreasing in replay-word length;
+- the first separating pair node is globally shortest among **all** suffixes,
+  not just retained nodes;
+- completed pair expansions are bounded by the actual reachable-pair count,
+  itself at most `|X|²`, and the saturated queue is a fixed point;
+- visited and exhaustive pair searches have exactly the same minimum length;
+- `DistinguishingDerivationFiber` retains every separating suffix, while the
+  active query selects one shortest inhabitant without identifying the rest.
+
+Thus the old quadratic theorem remains the safe semantic horizon, but native
+execution no longer enumerates all words below that horizon.  It expands each
+reachable synchronous pair at most once.
+
 ## Falsifier and replay
 
 The internal three-state DFA has prefixes `[]` and `[false]` separated first by
@@ -293,13 +313,15 @@ cd formal/pairfield
 lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
   Pairfield.ChartStateBFS Pairfield.ChartQuotient \
   Pairfield.ReachableSubDFA Pairfield.ExecutableMinimization \
-  Pairfield.ShortestReach Pairfield.VisitedReachCardinality
+  Pairfield.ShortestReach Pairfield.VisitedReachCardinality \
+  Pairfield.VisitedPair
 ```
 
-The newest focused target passes (`3021` jobs).  Its native controls return
+The newest focused target passes (`3024` jobs).  Its state controls return
 `[false, true]` for reachable state `2` and `none` for unreachable state `3`
-in the four-state quotient witness.  `Pairfield.lean` imports the
-adapter and both reducers.  A root
+in the four-state quotient witness; its pair controls return `[true]` for the
+separable chart rows and `none` for an equal-row control.  `Pairfield.lean`
+imports the adapter and both reducers.  A root
 `lake build Pairfield` reaches the adapter but remains red in the unrelated
 pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no
 aggregate-green claim is made.
@@ -314,10 +336,15 @@ minimality are now proved, but the canonical construction is noncomputable.
 The executable chart must still be supplied as data.  Given that data, the
 native path now removes unreachable rows and emits the future quotient.  Start
 reachability uses a checked visited-state traversal with at most `|X|` completed
-row expansions; future distinction still uses exhaustive word layers on the
-pair automaton.  No visited-**pair** efficiency claim is made.  The quotient
-carrier is executable Lean data rather than a serialized external transition
-table.  The linear and quadratic horizons are safe rather than sharp.
+row expansions; the new pair query uses a checked visited-pair traversal with
+at most the number of actually reachable synchronous pairs, hence at most
+`|X|²`, completed expansions.  The older quotient constructor still consumes
+its exhaustive specification because changing that dependency would require a
+module refactor; equality and minimum-length agreement are proved, so this is
+an implementation-routing boundary rather than a semantic gap.  Candidate
+edge generation is not separately costed.  The quotient carrier is executable
+Lean data rather than a serialized external transition table.  The linear and
+quadratic horizons are safe rather than sharp.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked

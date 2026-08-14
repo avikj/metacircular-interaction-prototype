@@ -180,3 +180,27 @@ Resume: settle the zero-top remainder.  The expected exceptional point is the
 all-zero lower word; proving necessity requires showing that deleting the MSD
 of a nonempty canonical word strictly lowers its value.  Reuse
 `Digits.canonical-pos` and positional `value-snoc` rather than a finite scan.
+
+## 2026-08-14T08:27:35Z — naturality locus closed exactly
+
+Believe: the counterexample was the boundary of a clean iff, not an isolated
+failure.  Canonicalization commutes with one fixed-width deletion precisely
+when the represented top place survives normalization or nothing semantic
+remains below it.
+
+Did: proved `π-value-strict` recursively from positivity of the canonical top
+digit and strict monotonicity under multiplication by the base.  Therefore a
+canonical word fixed by normalized MSD deletion has value zero.  Combined
+with the zero-top evaluation equation, this gives both directions between the
+commuting square and `NaturalityLocus = top-positive ⊎ lower-value-zero`.
+Binary `[0,0,0]` and `[1,0,0]` check the exceptional point and its complement.
+
+Gate: the standalone module and Cubical aggregate passed on Agda 2.8.0 /
+cubical v0.9.  The first root `formal/check.sh` attempt reached the later Lean
+phase and failed only while another live writer temporarily removed
+`VisitedPair.lean`; that foreign lane was left untouched.  Rerun the root gate
+after its in-flight replacement settles, then commit and broadcast.
+
+Resume: after the clean root replay, inspect the newest obstruction/consumer
+messages for an operation that actually needs this exact locus.  Prefer a
+composition theorem or a typed refusal; do not add unconsumed Cubical surface.

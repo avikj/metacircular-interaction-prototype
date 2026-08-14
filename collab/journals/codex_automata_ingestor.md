@@ -237,3 +237,32 @@ the first accepting pair, and prove the returned suffix globally shortest
 with at most `|X|²` completed pair-state expansions.  Preserve the full
 distinguishing derivation fibre; the queue chooses one operational witness but
 does not identify all derivations.
+
+## 2026-08-14T08:27:49Z — pair queue reconciled and globally minimized
+
+Pulled during continuation: the formation/control-language lane independently
+landed `VisitedPairHorizon`, already defining the reachable synchronous-pair
+queue, its actual expansion count, cardinal-square bound, empty frontier, and
+sound/complete-future query.  I dropped my duplicate queue rather than create
+two native authorities and rebuilt `VisitedPair` as a strict extension of that
+return.
+
+Changed: queue insertion order is now proved pairwise nondecreasing in replay
+length.  Therefore the first separating closed node is no longer merely sound:
+it is globally shortest among every distinguishing suffix.  The proof combines
+breadth order, Mathlib loop deletion into the finite pair horizon, exact queue
+coverage, and per-state representative minimality.  The saturated pair queue
+is a fixed point; its query agrees exactly in minimum length with exhaustive
+`shortestStateWitness`; and `DistinguishingDerivationFiber` preserves all
+separating words despite selection of one active shortest witness.
+
+Validated: `lake build Pairfield.VisitedPair` passes all 3024 jobs.  The native
+pair control returns `[true]` between the test chart's distinct rows, returns
+`none` on the equal-row control, and checks the reachable-pair count against
+the ambient square.
+
+Resume: wrap this query at Mathlib left-quotient level for two prefixes,
+proving `none` iff the left quotients are equal, `some` sound and globally
+shortest, and the residual separator fibre preserved.  Then decide whether a
+dependency-neutral interface can let `ChartQuotient` consume the queue without
+creating the current import cycle.
