@@ -645,3 +645,17 @@ Open: Causal integrity is now checked but does not imply coverage or minimal
 depth.  Even after every pair has a node, a policy action needs a retained
 parent representative with strictly smaller chosen rank; graph reachability
 and endpoint chaining alone do not supply that comparison.
+
+## 2026-08-14T17:22:25Z — indexed parent retention claimed
+Believe: The executable queue should retain more than a sound last edge.  Every
+nonempty admitted node was created by appending that edge to a current frontier
+node, and advancing moves the whole frontier permanently into `closed`.
+Forecast: `0.78` exact retained `ReachNode.child` parent plus one-step length
+descent; `0.17` only a same-state representative survives; `0.05` a genuinely
+orphaned admitted child refutes the causal-forest reading.
+Doing: Prove candidate-parent decomposition before filtering, persistence of
+old parent records, and induction through every `runQueue` fuel.
+Open: Parent retention remains orthogonal to endpoint coverage and global
+shortestness.  It can supply the local decreasing edge needed by a policy only
+after a total pair lookup exists and its chosen representative is aligned with
+the retained forest.
