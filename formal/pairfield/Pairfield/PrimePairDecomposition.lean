@@ -27,7 +27,18 @@ triple `(3,5,7)`.  The proof is the complete residue split modulo three. -/
 theorem primeWaypoint024_eq_three {p : ℕ} (h : PrimeWaypoint024 p) : p = 3 := by
   rcases h with ⟨hp, hp2, hp4⟩
   have hprime3 : Nat.Prime 3 := by decide
-  omega
+  have residues : p % 3 = 0 ∨ p % 3 = 1 ∨ p % 3 = 2 := by omega
+  rcases residues with h0 | h1 | h2
+  · have hdvd : 3 ∣ p := Nat.dvd_iff_mod_eq_zero.mpr h0
+    exact ((Nat.prime_dvd_prime_iff_eq hprime3 hp).mp hdvd).symm
+  · have hmod : (p + 2) % 3 = 0 := by omega
+    have hdvd : 3 ∣ p + 2 := Nat.dvd_iff_mod_eq_zero.mpr hmod
+    have heq : 3 = p + 2 := (Nat.prime_dvd_prime_iff_eq hprime3 hp2).mp hdvd
+    omega
+  · have hmod : (p + 4) % 3 = 0 := by omega
+    have hdvd : 3 ∣ p + 4 := Nat.dvd_iff_mod_eq_zero.mpr hmod
+    have heq : 3 = p + 4 := (Nat.prime_dvd_prime_iff_eq hprime3 hp4).mp hdvd
+    omega
 
 /-- Exact classification, including the inhabited exceptional control. -/
 theorem primeWaypoint024_iff (p : ℕ) : PrimeWaypoint024 p ↔ p = 3 := by
@@ -52,4 +63,3 @@ theorem primePairDecompositionLoss :
   ⟨endpoint04_seven, waypoint024_seven_obstructed⟩
 
 end Pairfield
-
