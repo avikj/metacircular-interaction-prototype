@@ -599,7 +599,13 @@ run, no `.py` file created or modified.
    > What is **not** closed and is retained as the live half of this item: the
    > corpus audit for multi-cycle records with non-coprime periods. Retagged
    > `SEARCH`.
-3. `DEMONSTRATE` — **Tag the stored heads.** §5.1's minimal datum
+3. ~~`DEMONSTRATE`~~ — **DONE, SEED-119, 2026-08-14 (Rule K3, twenty-sixth
+   pass).** Written into `notes/CYCLOTOMIC_SENSOR.md` at Theorem 11's sourcing
+   sentence ("the $e_p$ come from sensors already formed", struck), together with
+   SEED-78 §4's recomputation repair — which had **also** never been applied at
+   its site — and the cross-tower guard stated as the operative clause. The
+   $p=5$, $b\in\{2,7\}$ witness was re-checked by hand before striking.
+   Original text: **Tag the stored heads.** §5.1's minimal datum
    $(r,\tilde e_p(r))+\kappa$ should be written into
    `notes/CYCLOTOMIC_SENSOR.md` Theorem 11's sourcing sentence, alongside
    SEED-78's recomputation repair, with the cross-tower guard stated: *the tag
