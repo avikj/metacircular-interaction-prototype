@@ -30,6 +30,16 @@ F3 is the nastiest, because the fit is genuinely *stable* — stability is not
 evidence. F2 is the most common here, because this corpus computes spectral
 ratios on bands and the band bottom is an argument, not a convention.
 
+> **A fourth shape, added by SEED-100 (2026-08-14) after SEED-43.**
+>
+> | shape | mechanism | canonical instance | detection rule |
+> |---|---|---|---|
+> | **F4 — the numeral match** | a script compares a computed float against a previously quoted decimal and reports agreement; both sides may be right and nothing is certified, because the derivation is absent from both | `code/exp47_kappa_constants.py` checks C3–C6, e.g. `abs(c1 - Float("0.7532960")) < 1e-7` — closed forms in `notes/SEED43_KAPPA_RESOLVENT_POLES.md` | is either side of the comparison a *derivation*? if both are numerals, the check has no content. Same rule for "verified at $k$ sample points" in place of a proof |
+>
+> F4 is invisible to this sweep's method, which keys on constants quoted as
+> *results*: an F4 constant is quoted as a *check*, scores `V`, and passes.
+> See row **Q**.
+
 ---
 
 ## 2. The sweep

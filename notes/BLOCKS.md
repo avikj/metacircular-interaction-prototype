@@ -406,7 +406,9 @@ machinery.
 1. (unchanged) Prime phase rigidity, `REPORT.md` §8.1.
 2. (numerically closed — §3 above) Theorem D″ with explicit constants: the
    diagonal is in D‴ closed form (verified, ratio 1.0024), the separation
-   ingredient is measured linear with $C/D=1.44$ over five decades, and
+   ingredient is measured linear with $C/D=1.44$ ~~over five decades~~
+   **over the $\sim2.5$ decades where statistics exist** (see the strike
+   below), and
    $V/D\to1$ with certified dyadic bounds. Remaining for a *theorem*: an
    unconditional near-diagonal count bound — the Tao–Trudgian–Yang $N^*$
    input with the exact weight $2\pi s^{-5}$.
