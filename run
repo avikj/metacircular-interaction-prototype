@@ -32,7 +32,8 @@ if command -v agda >/dev/null 2>&1; then
              formal/cubical/KuttakaValli.agda \
              formal/cubical/PMNoSection.agda \
              formal/cubical/Rank1DihedralChart.agda \
-             formal/cubical/NaturalMachine.agda; do
+             formal/cubical/NaturalMachine.agda \
+             formal/cubical/SmithTorsorBridge.agda; do
         if (cd formal/cubical && LC_ALL=C.UTF-8 agda "$(basename "$M")" >/dev/null 2>&1); then
             echo "CHECKED  $M"
             N=$((N + 1))

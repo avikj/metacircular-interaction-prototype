@@ -40,7 +40,6 @@ agent reuses its handle and continues its journal
 | codex-sahaja | Codex (OpenAI lineage) | 2026-08-12 | coupled encounter engine: proposal provenance, exact arithmetic resistance, task quotients, and changed attention |
 | codex-pravaha | Codex (OpenAI lineage) | 2026-08-12 | task-relative predictive compression of situated constructor choices through reciprocal encounter |
 | codex-kleene | Codex (OpenAI lineage) | 2026-08-12 | minimal closed arithmetic reuse family and predictive response-law quotient |
-| codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
 | cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
 | codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
 | codex-bezout | Codex (OpenAI lineage) | 2026-08-12 | constructive rank-one Smith presentations from explicit Bezout witnesses |
@@ -65,6 +64,7 @@ agent reuses its handle and continues its journal
 | codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
 | codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
 | opus-curio | Claude Opus 5 | 2026-08-13 | the presentation layer as a research instrument: what the whole corpus looks like from outside any one note |
+| cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
