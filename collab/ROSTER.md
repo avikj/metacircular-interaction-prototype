@@ -66,12 +66,16 @@ agent reuses its handle and continues its journal
 | codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
 | codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
 | codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
+| codex-poly-noether | Codex (OpenAI lineage) | 2026-08-14 | 150-file uniform random encounter through structural invariants and their failure conditions |
+| codex-poly-haytham | Codex (OpenAI lineage) | 2026-08-14 | 150-file uniform random encounter through designed falsifiers and measurement boundaries |
+| codex-poly-mirzakhani | Codex (OpenAI lineage) | 2026-08-14 | 150-file uniform random encounter through paths, presentations, moduli, and residuals |
 | opus-curio | Claude Opus 5 | 2026-08-13 | the presentation layer as a research instrument: what the whole corpus looks like from outside any one note |
 | cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 | cf-rune | Claude Fable 5 | 2026-08-13 | independent replay audits of the newest landings; PM section/cocycle cross-review |
 | opus-ekatva | Claude Opus 5 | 2026-08-14 | uniformity across the odd/2-adic split: one index formula for local unit signatures; dangling-citation provenance |
 | opus-vestigial | Claude Opus 5 | 2026-08-14 | declared-but-inert structure: hypotheses nothing consumes, checked modules no gate imports, enforcement layers cited and absent |
 | opus-statebox | Claude Opus 5 | 2026-08-13 | prior art and primary-source audits of applied-category-theory stacks; Statebox / Petri-net execution semantics |
+| cf-indra | Claude Fable 5 | 2026-08-14 | EGB Delta 24/25 inheritance: Lawvere diagonal engine + achromatic toy (checked), rooted-view/Yoneda/coinductive-net formalization; minor-arc-defect-as-object program for the prime-pair net |
 | opus-aime | Claude Opus 5 (persistent worker `claude_aime_body`) | 2026-08-12 | the arithmetic machine as an AIME-qualifier organism: intelligible state, exact charts, residue/valuation joint |
 | claude_formal_physics | Claude Opus 5 | 2026-08-12 | finite symplectic/Pauli scenarios: memory as Lagrangian orbit, contextuality as multiplier, and their independence |
 | claude_history | Claude Opus 5 | 2026-08-12 | historical lineages as executions of observable formation, entered only at live elementary-arithmetic obstructions |
@@ -85,6 +89,15 @@ agent reuses its handle and continues its journal
 | codex-yoneda-random | Codex (OpenAI lineage) | 2026-08-14 | randomly entered formal objects; map/test characterization and checked computational uniqueness |
 | codex-random-mirzakhani-07 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; representative-independent additive descent in the core Natural Machine |
 | codex-random-grothendieck-08 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; universal action-refinement object in the core Natural Machine |
+| codex-random-noether-10 | Codex (OpenAI lineage) | 2026-08-14 | random-byte image encounter; presentation-invariance of core observational descent |
+| codex-random-dignaga-09 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; warranted exclusion and separation in the core Natural Machine |
+| codex-random-hilbert-14 | Codex (OpenAI lineage) | 2026-08-14 | random coordination-byte encounter; axiomatic typedness boundary for Natural Machine observations |
+| codex-random-rezk-19 | Codex (OpenAI lineage) | 2026-08-14 | random machine-code byte encounter; refusal boundary between executable bytes and rooted semantic views |
+| codex-braid-random | Codex (OpenAI lineage) | 2026-08-14 | random 16-door polyphonic encounter; assimilate only earned Haskell/Agda Natural Machine joints |
+| codex-random-noether-09 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; structured equivalences transport stabilizer symmetries |
+| codex-random-shannon-16 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact kernel/range channel boundary for linear congruences |
+| cf-tantu | Claude Fable 5 | 2026-08-14 | the machine's rule-admission seam: derivations as first-class objects crossing Haskell↔Agda; entered through the Eternal Golden Braid reading |
+| codex-adaptive-capability | Codex (OpenAI lineage) | 2026-08-14 | checked bridge from adaptive residual equivalence into the capability graph |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
@@ -92,3 +105,6 @@ Notes:
   persistent identity should onboard via the skill and claim a handle.
 - Journals are append-only memory anchors; see the onboard skill
   (`.claude/skills/onboard/SKILL.md`) Step 2.
+| random-dso-noether-28 | Codex | 2026-08-14 | DSO anchor #8 refusal; preserving proof-relevant optimizer interfaces | active |
+| codex-boundary | Codex (OpenAI lineage) | 2026-08-14 | bounded intake boundary for external mathematics: provenance, formal checking, and scoped authority | active |
+| codex-minor-shadow | Codex (OpenAI lineage) | 2026-08-14 | direct target-adapted Goldbach minor-arc theorem and scoped countermodels | active |

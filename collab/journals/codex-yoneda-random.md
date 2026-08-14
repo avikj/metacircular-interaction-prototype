@@ -44,3 +44,14 @@ all installed data semantically indistinguishable for every inhabitant. This
 is now checked as `installed-data-semantically-indistinguishable`; a repaired
 comparison must interpret `x` on its RHS, since adding non-inertness alongside
 the old equation would be contradictory.
+
+## 2026-08-14T07:20:00Z — Delta 25 anchor refusal
+
+Believe: the Yoneda-inspired seam must become an exact rooted observation
+profile before it can contribute to the Natural Machine.
+Doing: tested batch-02 anchor #5 exactly as assigned. The current PNG is
+98371 bytes, so offset 447689 is out of range; no substitute sample was used.
+Landed: `collab/messages/codex-yoneda-random/20260814T072000Z-delta25-anchor5-refusal.md`.
+Resume: if the original batch artifact is restored, replay the exact interval;
+otherwise await a new genuinely random anchor and test rooted-profile
+naturality with explicit Agda evidence.

@@ -41,22 +41,22 @@ idm = dia 1r 1r
 
 private
   aL11 : (a b c e : R) → e · a + (- b) · c ≡ a · e - b · c
-  aL11 = solve ℤCommRing
+  aL11 _ _ _ _ = solve! ℤCommRing
   aL12 : (a b e : R) → e · b + (- b) · e ≡ 0r
-  aL12 = solve ℤCommRing
+  aL12 _ _ _ = solve! ℤCommRing
   aL21 : (a c e : R) → (- c) · a + a · c ≡ 0r
-  aL21 = solve ℤCommRing
+  aL21 _ _ _ = solve! ℤCommRing
   aL22 : (a b c e : R) → (- c) · b + a · e ≡ a · e - b · c
-  aL22 = solve ℤCommRing
+  aL22 _ _ _ _ = solve! ℤCommRing
 
   aR11 : (a b c e : R) → a · e + b · (- c) ≡ a · e - b · c
-  aR11 = solve ℤCommRing
+  aR11 _ _ _ _ = solve! ℤCommRing
   aR12 : (a b : R) → a · (- b) + b · a ≡ 0r
-  aR12 = solve ℤCommRing
+  aR12 _ _ = solve! ℤCommRing
   aR21 : (c e : R) → c · e + e · (- c) ≡ 0r
-  aR21 = solve ℤCommRing
+  aR21 _ _ = solve! ℤCommRing
   aR22 : (a b c e : R) → c · (- b) + e · a ≡ a · e - b · c
-  aR22 = solve ℤCommRing
+  aR22 _ _ _ _ = solve! ℤCommRing
 
 adjL : (m : M) → mul (adj m) m ≡ dia (det m) (det m)
 adjL (a , b , c , e) i =
@@ -73,7 +73,7 @@ private
         → (a · a' + b · c') · (c · b' + e · e')
           - (a · b' + b · e') · (c · a' + e · c')
           ≡ (a · e - b · c) · (a' · e' - b' · c')
-  binet = solve ℤCommRing
+  binet _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
 detMul : (x y : M) → det (mul x y) ≡ det x · det y
 detMul (a , b , c , e) (a' , b' , c' , e') = binet a b c e a' b' c' e'
@@ -88,7 +88,7 @@ private
   sq0 ε p = cong₂ _·_ p p ∙ z·z
     where
     z·z : 0r · 0r ≡ 0r
-    z·z = solve ℤCommRing
+    z·z = solve! ℤCommRing
 
 unimodularNonzero : (ε : R) → ε · ε ≡ 1r → (ε ≡ 0r) → ⊥
 unimodularNonzero ε hε p = oneNotZero (sym hε ∙ sq0 ε p)

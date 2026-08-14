@@ -264,4 +264,3 @@ noneIn m d h r m<r r<b = subst (λ z → ¬ IsPrimePower z) (sym r≡) (h t t<d)
 
 test-9 : IsPrimePower 9
 test-9 = acceptDec (decIsPrimePower 9) tt
-

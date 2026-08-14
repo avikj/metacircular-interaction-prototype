@@ -61,14 +61,14 @@ module Parity {ℓ} (R : CommRing ℓ) where
   parity-mult : (e o u v x : A)
     → (e + x · o) · (u + x · v)
     ≡ (e · u + (x · x) · (o · v)) + x · (e · v + o · u)
-  parity-mult = solve R
+  parity-mult _ _ _ _ _ = solve! R
 
   -- p(x) p(-x) = N(y) at y = x^2.  Not special to any degree: it is the
   -- difference of squares in the parity split.  QUINTIC_OBSTRUCTION
   -- (1.3) and PARITY_RESULTANT's H are instances.
   reflect-norm : (e o x : A)
     → (e + x · o) · (e - x · o) ≡ e · e - (x · x) · (o · o)
-  reflect-norm = solve R
+  reflect-norm _ _ _ = solve! R
 
   -- THE NORM IS MULTIPLICATIVE.  With composition
   --     (e , o) * (u , v) = (e u + y o v ,  e v + o u)
@@ -82,7 +82,7 @@ module Parity {ℓ} (R : CommRing ℓ) where
     →   ((e · u + y · (o · v)) · (e · u + y · (o · v)))
       - y · ((e · v + o · u) · (e · v + o · u))
     ≡ (e · e - y · (o · o)) · (u · u - y · (v · v))
-  norm-mult = solve R
+  norm-mult _ _ _ _ _ = solve! R
 
   -- The parity identity of the prime-prefix family: with P = 1 + x A(x^2)
   -- (the shape forced by "every prime above 2 is odd"), P(x) + P(-x) = 2
@@ -91,11 +91,11 @@ module Parity {ℓ} (R : CommRing ℓ) where
   -- A(x^2); substituting that value is what makes the right-hand side
   -- N_X evaluated at y = x^2.)
   parity-identity : (a x : A) → (1r + x · a) + (1r - x · a) ≡ 1r + 1r
-  parity-identity = solve R
+  parity-identity _ _ = solve! R
 
   norm-of-prefix : (a x : A)
     → (1r + x · a) · (1r - x · a) ≡ 1r - (x · x) · (a · a)
-  norm-of-prefix = solve R
+  norm-of-prefix _ _ = solve! R
 
   ----------------------------------------------------------------------
   -- 2.  The two shapes the corpus needs
@@ -133,21 +133,21 @@ module Parity {ℓ} (R : CommRing ℓ) where
   -- E and O really are its even and odd parts, at y = x^2
   quintic-shape : (a b c d x : A)
     → Eq a c (x · x) + x · Oq b d (x · x) ≡ quintic a b c d x
-  quintic-shape = solve R
+  quintic-shape _ _ _ _ _ = solve! R
 
   quartic-shape : (a b c x : A)
     → Ec b (x · x) + x · Oc a c (x · x) ≡ quartic a b c x
-  quartic-shape = solve R
+  quartic-shape _ _ _ _ = solve! R
 
   -- and negating x negates exactly the odd part, i.e. the second factor of
   -- the reflection product is literally g(-x)
   quintic-reflect : (a b c d x : A)
     → Eq a c (x · x) - x · Oq b d (x · x) ≡ quintic a b c d (- x)
-  quintic-reflect = solve R
+  quintic-reflect _ _ _ _ _ = solve! R
 
   quartic-reflect : (a b c x : A)
     → Ec b (x · x) - x · Oc a c (x · x) ≡ quartic a b c (- x)
-  quartic-reflect = solve R
+  quartic-reflect _ _ _ _ = solve! R
 
   -- the two reflection norms, as the notes write them
   Hq : A → A → A → A → A → A
@@ -166,11 +166,11 @@ module Parity {ℓ} (R : CommRing ℓ) where
   -- (resp. degree-8) identity in five (resp. four) indeterminates.
   reflect-quintic : (a b c d x : A)
     → quintic a b c d x · quintic a b c d (- x) ≡ Hq a b c d (x · x)
-  reflect-quintic = solve R
+  reflect-quintic _ _ _ _ _ = solve! R
 
   reflect-quartic : (a b c x : A)
     → quartic a b c x · quartic a b c (- x) ≡ Hc a b c (x · x)
-  reflect-quartic = solve R
+  reflect-quartic _ _ _ _ = solve! R
 
   ----------------------------------------------------------------------
   -- 3.  The two resultants, each computed twice
@@ -216,7 +216,7 @@ module Parity {ℓ} (R : CommRing ℓ) where
     + a · det3 b  d  0r   1r b  d    a  c  1r
 
   syl-quintic-closed : (a b c d : A) → sylQuintic a b c d ≡ Dq a b c d
-  syl-quintic-closed = solve R
+  syl-quintic-closed _ _ _ _ = solve! R
 
   -- Syl(O,E) for O = ay+c (degree 1) and E = y^2+by+1 (degree 2):
   --
@@ -227,7 +227,7 @@ module Parity {ℓ} (R : CommRing ℓ) where
   sylQuartic a b c = det3 a c 0r   0r a c   1r b 1r
 
   syl-quartic-closed : (a b c : A) → sylQuartic a b c ≡ Dc a b c
-  syl-quartic-closed = solve R
+  syl-quartic-closed _ _ _ = solve! R
 
   -- The same two quantities as products of E over the roots of O.  No
   -- roots are postulated: the roots are presented as indeterminates
@@ -235,10 +235,10 @@ module Parity {ℓ} (R : CommRing ℓ) where
   -- functions, b = -(y1+y2), d = y1 y2.
   res-quintic-roots : (a c y₁ y₂ : A)
     → Eq a c y₁ · Eq a c y₂ ≡ Dq a (- (y₁ + y₂)) c (y₁ · y₂)
-  res-quintic-roots = solve R
+  res-quintic-roots _ _ _ _ = solve! R
 
   -- For the quartic, O = a y + c has the single root y0 with a y0 = -c,
   -- and Res(O,E) = a^2 E(y0).  Presenting the root as y0 and c as -(a y0):
   res-quartic-root : (a b y₀ : A)
     → a · a · Ec b y₀ ≡ Dc a b (- (a · y₀))
-  res-quartic-root = solve R
+  res-quartic-root _ _ _ = solve! R

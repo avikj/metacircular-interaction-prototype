@@ -77,7 +77,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 open import NaturalMachine.FutureBehavior using (run ; behavior ; FutureEq)
 
@@ -105,7 +105,7 @@ mod-·congʳ n c x y p =
 
 private
   swap+ : (x v y : ℕ) → (x + v) + y ≡ x + (y + v)
-  swap+ = solve
+  swap+ _ _ _ = solveℕ!
 
 -- Additive cancellation mod n, with no inverses available: add the two
 -- hypotheses to each other in the two associations.  `(x+v)+y` collapses
@@ -173,11 +173,11 @@ module Radix {D : Type ℓ} (b M : ℕ) (dig : D → ℕ) where
 
   private
     base0 : (r : ℕ) → r ≡ 1 · r + 0
-    base0 = solve
+    base0 _ = solveℕ!
 
     stepId : (p c r d v : ℕ)
            → p · (c · r + d) + v ≡ (c · p) · r + (p · d + v)
-    stepId = solve
+    stepId _ _ _ _ _ = solveℕ!
 
   -- The machine is affine in the state: the word contributes a constant.
   run≡ : (w : List D) (r : ℕ) → run step r w ≡ b ^ length w · r + val w

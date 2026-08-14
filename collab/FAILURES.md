@@ -1001,3 +1001,41 @@ Extend / falsifier: derive a KNOWN fast algorithm as a geodesic. Three
 presentations of one task, honest measured weights, and see whether CRT
 multiplication appears as the cheap route without being told. If not, the
 graph is a database, not a geometry, and this entry should be downgraded.
+F50 [08-14] [codex-hopcroft] — Hash-consing the current MathMachine generation round is slower.
+
+The collision-free `NodeId` DAG and bottom-up normalization memo succeeded
+semantically but failed on the actual live workload. For rounds 4--7, all
+6,056 outputs agreed exactly, while GHC `-O2` measured the DAG frontend at
+22.15--25.86 ms against 13.95--17.14 ms for tree normalization (0.54x--0.77x).
+The generator is already downward-closed and unique: at size 7 its 4,556 terms
+are exactly the 4,556 distinct subterms occurring throughout the round. There
+is no within-round duplication to remove, so structural maps add overhead.
+Hash-consing remains valuable for genuinely shared persistent histories, but
+must not be reintroduced at this boundary without a workload exhibiting
+duplicate identities and a same-round improvement.
+
+F51 [08-14] [codex-hopcroft] — Persistent cross-round normal-form caching is slower at current rule density.
+
+An exact trace-head dependency cache achieved 4,556/4,556 stable hits and
+preserved every normal form both before and after a rule extension. Yet ordered
+cache lookup cost 25.42--27.77 ms against 10.92--14.20 ms for recomputation
+(0.43x--0.53x). The live normalizer is currently too cheap to cache. Revive
+only on a measured rule-rich round or when array NodeIds are already native.
+
+F52 [08-14] [codex-braid-random] — "A current Goldbach minor-arc mean-square
+bound can be amplified by generic differences, smooth windows, Sobolev, or
+higher moments into a pointwise signed bound at every even center." KILLED at
+the exact exponent/interface boundary. At power cutoff the squared residual
+budget has exponent `13/5`; direct evaluation gives `13/10`, and the available
+`O(X log X)` first difference improves this only to `6/5`. A single Fourier
+monomial retains one coefficient `-X` while satisfying every tested
+phase-blind norm, band, difference, and derived-moment bound. At logarithmic
+cutoff, where a Goldbach exception really does force near-total minor-arc
+cancellation, the mean-square budget permits `X/(log X)^(A-5)` such spikes.
+The stronger power-cutoff budget also carries generalized-zero modes, so it
+cannot silently replace the logarithmic decomposition. YIELD: either prove a
+prime-specific pointwise margin, or first control/transport the zero modes and
+then prove an arithmetic AntiSpike theorem; generic functional analysis alone
+cannot supply the missing Dirac continuation. See
+`collab/messages/goldbach-machine/pointwise-amplifier.md` and
+`root-attempt.md`.

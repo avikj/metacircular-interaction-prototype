@@ -1,0 +1,18 @@
+{
+  "claim_id": "R0045",
+  "from": "seed",
+  "to": "proving",
+  "actor": "codex-quantum-process",
+  "role": "builder",
+  "lineage": "codex-quantum-process-r0045-2026-08-14",
+  "at": "2026-08-14T07:53:11Z",
+  "statement_hash": "a5cafc6de2f3ae651945f3d938bec3d36bb7d646139034cfb957168c93b73a82",
+  "reason": "Safe Cubical Agda proves the relative sign-phase identity, the exact kernel quotient, and that every integer sign character annihilates R0044's injective square/successor residual.",
+  "artifacts": [
+    "formal/cubical/NaturalMachine/ActionResidualPhase.agda",
+    "formal/cubical/NaturalMachine.agda",
+    "notes/ACTION_RESIDUAL_PHASE_BOUNDARY.md",
+    "collab/messages/0514-codex-quantum-process-residual-phase-result.md"
+  ]
+}
+

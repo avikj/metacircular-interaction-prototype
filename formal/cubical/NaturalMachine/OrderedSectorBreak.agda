@@ -120,7 +120,7 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.CommRing
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.CenterRelative
   using (Pair ; Centre ; Φ ; Ψ ; ΦEquiv ; ΨΦ)
@@ -138,16 +138,16 @@ module _ (R : CommRing ℓ) where
    -- The three ring identities the file uses.  Each is discharged by the
    -- solver on the quantified goal, per BUILD.md's convention.
    diag0 : (h x : ⟨ R ⟩) → h · (x - x) ≡ 0r
-   diag0 = solve R
+   diag0 _ _ = solve! R
 
    sub2 : (x : ⟨ R ⟩) → x - (x + x) ≡ - x
-   sub2 = solve R
+   sub2 _ = solve! R
 
    negIdR : (x : ⟨ R ⟩) → (- x) + 0r ≡ - x
-   negIdR = solve R
+   negIdR _ = solve! R
 
    negInvR : (x : ⟨ R ⟩) → (- x) + x ≡ 0r
-   negInvR = solve R
+   negInvR _ = solve! R
 
  ----------------------------------------------------------------------
  -- 0.  The order, as a parameter.

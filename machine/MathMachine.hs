@@ -32,18 +32,23 @@
 module Main (main) where
 
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, foldl', intercalate)
+import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
-import Control.Monad (forM_, when, unless)
+import Control.Monad (forM_, replicateM_, when, unless, filterM)
+import Control.Exception (finally)
 import System.IO
+import System.Directory (getTemporaryDirectory, removePathForcibly)
+import System.FilePath ((</>))
+import System.Process (readProcess, readProcessWithExitCode)
+import System.Exit (ExitCode(..), exitFailure)
+import System.Environment (getArgs)
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
 import Data.Char (isAlphaNum, isSpace)
-import System.Environment (getArgs)
 import System.Directory (doesFileExist)
-import System.Exit (exitFailure, exitSuccess)
+import System.Exit (exitSuccess)
 -- (imports for the unbuilt evolve step removed; they were dead, and a
 -- dead import is a claim about what a program does)
 
@@ -83,6 +88,371 @@ kSizeCap = 7
 -- ---------------------------------------------------------------- terms
 
 data Term = V !Int | F !String [Term] deriving (Eq, Ord)
+
+-- Theorem Factory II, stripped to its generic computational content.  A
+-- bounded ordered fibre plus a decidable predicate and an accepted coverage
+-- witness determines one canonical least inhabitant.  Coverage is input
+-- mathematics; search never manufactures it.
+data Coverage a = Coverage !a deriving (Eq, Show)
+
+data CoverageResidual a
+  = WitnessOutsideFiber !a
+  | WitnessRejected !a
+  deriving (Eq, Show)
+
+data LeastWitness a = LeastWitness
+  { leastValue :: !a
+  , excludedPrefix :: [a]
+  } deriving (Eq, Show)
+
+leastCovered :: Eq a => [a] -> (a -> Bool) -> Coverage a
+  -> Either (CoverageResidual a) (LeastWitness a)
+leastCovered fibre predicate (Coverage supplied)
+  | supplied `notElem` fibre = Left (WitnessOutsideFiber supplied)
+  | not (predicate supplied) = Left (WitnessRejected supplied)
+  | otherwise = Right (walk [] fibre)
+  where
+    walk rejected (x:xs)
+      | predicate x = LeastWitness x (reverse rejected)
+      | otherwise = walk (x:rejected) xs
+    walk _ [] = error "leastCovered: validated coverage became empty"
+
+-- Recurrence over an unbounded fibre cannot be totalized by a finite scan.
+-- The residual retains the searched prefix instead of asserting absence.
+data PartialWitness a = FoundLeast (LeastWitness a) | OpenBeyond [a]
+  deriving (Eq, Show)
+
+searchPrefix :: [a] -> (a -> Bool) -> PartialWitness a
+searchPrefix fibre predicate = walk [] fibre
+  where
+    walk rejected [] = OpenBeyond (reverse rejected)
+    walk rejected (x:xs)
+      | predicate x = FoundLeast (LeastWitness x (reverse rejected))
+      | otherwise = walk (x:rejected) xs
+
+-- The live search projection keeps mathematical provenance separate from the
+-- operational branch set.  Installing coverage changes only `activeWitnesses`;
+-- `derivationFiber` remains available to explanations and later transports.
+data BoundedSearch = BoundedSearch
+  { searchFiber :: [Int]
+  , searchPredicate :: Int -> Bool
+  , acceptedCoverage :: Maybe (Coverage Int)
+  }
+
+data SearchProjection = SearchProjection
+  { activeWitnesses :: [Int]
+  , derivationFiber :: [Int]
+  , existenceConsequence :: Bool
+  , searchResidual :: Maybe (CoverageResidual Int)
+  } deriving (Eq, Show)
+
+-- Delta 26: a finite continuation-aware route compiler.  This is not another
+-- Bellman implementation: DSOBellmanFinite.agda already checks the two-route
+-- counterexample.  Here a route is compiled to its observable cost vector over
+-- the continuations whose dependencies are active.  Equal vectors are one
+-- contextual class while all originating route labels are retained; labels are
+-- identifiers, not derivations or certificates.  A class is removed only when
+-- another class is pointwise no worse and strictly better somewhere.
+data DSORoute = DSORoute
+  { dsoWitness :: !String
+  , dsoBoundary :: !Int
+  , dsoLocalCost :: !Int
+  } deriving (Eq, Show)
+
+data DSOContinuation = DSOContinuation
+  { dsoContext :: !String
+  , dsoDependency :: !String
+  , dsoFutureCost :: Int -> Int
+  }
+
+data DSOTask = DSOTask
+  { dsoTaskName :: !String
+  , dsoTaskDependencies :: [String]
+  , dsoTaskContinuations :: [DSOContinuation]
+  , dsoTaskRoutes :: [DSORoute]
+  }
+
+data DSOClass = DSOClass
+  { dsoProfile :: [Int]
+  , dsoWitnesses :: [String]
+  } deriving (Eq, Show)
+
+data DSOCompilation = DSOCompilation
+  { dsoActiveContexts :: [String]
+  , dsoClasses :: [DSOClass]
+  , dsoSurvivors :: [DSOClass]
+  , dsoRawEvaluations :: !Int
+  , dsoActiveEvaluations :: !Int
+  } deriving (Eq, Show)
+
+data DSOArchitectureCandidate = DSOArchitectureCandidate
+  { dsoArchitectureName :: !String
+  , dsoArchitectureOrigin :: [String]
+  , dsoArchitectureRoutes :: [DSORoute]
+  , dsoArchitectureMigration :: [(String,String)]
+  }
+
+data DSOArchitectureResult = DSOArchitectureResult
+  { dsoArchitectureProfiles :: [(String,[Int])]
+  , dsoEquivalentArchitectures :: [(String,String,[Int])]
+  , dsoParetoArchitectures :: [String]
+  , dsoArchitectureCosts :: [(String,(Int,Int))]
+  , dsoArchitectureRegret :: [(String,(Int,Int))]
+  , dsoRetainedMigrations :: [(String,[(String,String)])]
+  } deriving (Eq, Show)
+
+compileDSO :: [String] -> [DSOContinuation] -> [DSORoute] -> DSOCompilation
+compileDSO active continuations routes =
+  DSOCompilation (map dsoContext live) classes survivors rawCount activeCount
+  where
+    live = filter (\k -> dsoDependency k `elem` active) continuations
+    profile r = [dsoLocalCost r + dsoFutureCost k (dsoBoundary r) | k <- live]
+    grouped = M.fromListWith (++) [(profile r, [dsoWitness r]) | r <- routes]
+    classes = [DSOClass costs (reverse witnesses)
+              | (costs,witnesses) <- M.toAscList grouped]
+    dominates a b = and (zipWith (<=) (dsoProfile a) (dsoProfile b))
+                  && or (zipWith (<) (dsoProfile a) (dsoProfile b))
+    survivors = [c | c <- classes, not (any (\d -> dominates d c) classes)]
+    rawCount = length routes * length continuations
+    activeCount = length routes * length live
+
+-- A contextual quotient is valid only for the continuation family that was
+-- actually evaluated.  Extending that family can resurrect a route class that
+-- the smaller query dominated.  Compare stable route labels after recompiling
+-- from raw routes; if any label reappears, cached survivors fail closed.  This
+-- is an operational guard, not proof evidence: `String` is still only an
+-- identifier and `DSOCompilation` does not retain a replayable derivation.
+dsoSurvivorLabels :: DSOCompilation -> [String]
+dsoSurvivorLabels = ordNub . concatMap dsoWitnesses . dsoSurvivors
+
+checkDSOQueryExtension
+  :: DSOCompilation -> DSOCompilation -> Either [String] DSOCompilation
+checkDSOQueryExtension old new
+  | not (all (`elem` dsoActiveContexts new) (dsoActiveContexts old)) =
+      Left ["not-an-extension"]
+  | null resurrected = Right new
+  | otherwise = Left resurrected
+  where
+    oldLabels = dsoSurvivorLabels old
+    resurrected =
+      [ label
+      | label <- dsoSurvivorLabels new
+      , label `notElem` oldLabels ]
+
+-- Existing bounded-search witnesses become architecture routes without
+-- losing their native values.  The declared observation is the ordered-fibre
+-- objective justified by `leastCovered`: it charges the witness index itself.
+-- This is a consumer of that theorem-generated fibre, not a second search.
+boundedDSOTask :: String -> BoundedSearch -> DSOTask
+boundedDSOTask name plan = DSOTask name ["ordered-fibre"] observations routes
+  where
+    projection = executeBoundedSearch plan
+    routes = [DSORoute (name ++ "/" ++ show n) n 0
+             | n <- derivationFiber projection]
+    observations =
+      [ DSOContinuation "least-witness" "ordered-fibre" id
+      , DSOContinuation "parity-audit" "audit" (`mod` 2)
+      ]
+
+-- Compare whole factorizations only through their boundary continuation
+-- transformers.  Cost is (materialised routes, active route/context work).
+-- Pareto comparison is restricted to architectures with the same transformer;
+-- a cheaper but observably different factorisation is never a replacement.
+compileDSOArchitectures :: [String] -> [DSOContinuation]
+  -> [DSOArchitectureCandidate] -> DSOArchitectureResult
+compileDSOArchitectures active continuations candidates =
+  DSOArchitectureResult profiles equivalents pareto costs regrets migrations
+  where
+    live = filter (\k -> dsoDependency k `elem` active) continuations
+    transformer candidate =
+      [ minimum [dsoLocalCost r + dsoFutureCost k (dsoBoundary r)
+                | r <- dsoArchitectureRoutes candidate]
+      | k <- live ]
+    profiles = [(dsoArchitectureName c, transformer c) | c <- candidates]
+    equivalents =
+      [ (dsoArchitectureName a, dsoArchitectureName b, transformer a)
+      | (i,a) <- zip [0 :: Int ..] candidates
+      , b <- drop (i + 1) candidates
+      , transformer a == transformer b ]
+    cost c = (length (dsoArchitectureRoutes c),
+              length (dsoArchitectureRoutes c) * length live)
+    costs = [(dsoArchitectureName c, cost c) | c <- candidates]
+    dominates a b = transformer a == transformer b
+      && fst (cost a) <= fst (cost b) && snd (cost a) <= snd (cost b)
+      && (fst (cost a) < fst (cost b) || snd (cost a) < snd (cost b))
+    winners = [c | c <- candidates,
+                   not (any (\d -> dominates d c) candidates)]
+    pareto = map dsoArchitectureName winners
+    winnerCost c = minimum [cost w | w <- winners,
+      transformer w == transformer c]
+    regrets = [(dsoArchitectureName c,
+                (fst (cost c) - fst (winnerCost c),
+                 snd (cost c) - snd (winnerCost c))) | c <- candidates]
+    migrations = [(dsoArchitectureName c, dsoArchitectureMigration c)
+                 | c <- candidates]
+
+boundedArchitectures :: String -> BoundedSearch -> [DSOArchitectureCandidate]
+boundedArchitectures name plan = [direct, compiled]
+  where
+    task = boundedDSOTask name plan
+    routes = dsoTaskRoutes task
+    projection = executeBoundedSearch plan
+    leastRoutes = [DSORoute (name ++ "/least/" ++ show n) n 0
+                  | n <- activeWitnesses projection]
+    target = case leastRoutes of
+      r:_ -> dsoWitness r
+      [] -> name ++ "/unresolved"
+    direct = DSOArchitectureCandidate (name ++ "/direct")
+      (map dsoWitness routes) routes [(dsoWitness r, dsoWitness r) | r <- routes]
+    compiled = DSOArchitectureCandidate (name ++ "/least-selector")
+      (map dsoWitness routes) leastRoutes [(dsoWitness r, target) | r <- routes]
+
+-- A squarefree divisor history adjoins each of m distinct prime factors once,
+-- hence is exactly a permutation.  Checkpoints remember the accumulated set,
+-- not the within-block order.  Consequently the exact residual fibre is the
+-- product of factorials of the checkpoint block lengths.
+data HistoryDemand = EndpointDemand | SnapshotDemand [Int] | FullDemand
+  deriving (Eq, Show)
+
+data HistoryArchitecture = HistoryArchitecture
+  { historyArchitectureName :: !String
+  , historyCheckpoints :: [Int]
+  , historyCandidate :: DSOArchitectureCandidate
+  , historyFibres :: [[String]]
+  }
+
+factorial :: Int -> Int
+factorial n = product [1..n]
+
+historyBlocks :: Int -> [Int] -> [Int]
+historyBlocks m checkpoints = zipWith (-) boundaries (0 : boundaries)
+  where boundaries = sort (filter (\k -> k > 0 && k < m) checkpoints) ++ [m]
+
+historyObservation :: Int -> [Int] -> [Int] -> [[Int]]
+historyObservation m checkpoints history =
+  [ sort (take (hi - lo) (drop lo history))
+  | (lo,hi) <- zip (0 : boundaries) boundaries ]
+  where boundaries = sort (filter (\k -> k > 0 && k < m) checkpoints) ++ [m]
+
+mkHistoryArchitecture :: Int -> String -> [Int] -> HistoryArchitecture
+mkHistoryArchitecture m name checkpoints =
+  HistoryArchitecture name checkpoints candidate fibres
+  where
+    histories = permutations [0..m-1]
+    keyed = M.fromListWith (++)
+      [(historyObservation m checkpoints h, [show h]) | h <- histories]
+    classes = zip [0..] (M.toAscList keyed)
+    routeFor = M.fromList
+      [(witness, name ++ "/class/" ++ show i)
+      | (i,(_,witnesses)) <- classes, witness <- witnesses]
+    routes = [DSORoute (name ++ "/class/" ++ show i) i 0
+             | (i,_) <- classes]
+    fibres = [reverse witnesses | (_,(_,witnesses)) <- classes]
+    origins = map show histories
+    migration = [(origin, routeFor M.! origin) | origin <- origins]
+    candidate = DSOArchitectureCandidate name origins routes migration
+
+historyAdequate :: Int -> HistoryDemand -> HistoryArchitecture -> Bool
+historyAdequate m EndpointDemand _ = True
+historyAdequate m (SnapshotDemand ranks) architecture =
+  all (`elem` historyCheckpoints architecture) ranks
+historyAdequate m FullDemand architecture =
+  historyCheckpoints architecture == [1..m-1]
+
+compileHistoryArchitectures :: Int -> [Int] -> HistoryDemand
+  -> ([HistoryArchitecture], DSOArchitectureResult)
+compileHistoryArchitectures m selected demand = (adequate, result)
+  where
+    endpoint = mkHistoryArchitecture m "history/endpoint" []
+    snapshot = mkHistoryArchitecture m "history/snapshot" selected
+    full = mkHistoryArchitecture m "history/full" [1..m-1]
+    adequate = filter (historyAdequate m demand) [endpoint,snapshot,full]
+    context = DSOContinuation (show demand) "history-demand" (const 0)
+    result = compileDSOArchitectures ["history-demand"] [context]
+      (map historyCandidate adequate)
+
+-- Orientation control for the corrected divisor-history statement.  Reversing
+-- an increasing construction removes the largest factor first.  Least-factor
+-- peeling is the reverse of the decreasing construction word, not increasing.
+increasingConstruction, decreasingConstruction :: Int -> [Int]
+increasingConstruction m = [0..m-1]
+decreasingConstruction m = reverse (increasingConstruction m)
+
+reverseRemoval, leastFactorPeeling :: Int -> [Int]
+reverseRemoval = reverse . increasingConstruction
+leastFactorPeeling = reverse . decreasingConstruction
+
+executeBoundedSearch :: BoundedSearch -> SearchProjection
+executeBoundedSearch plan =
+  let witnesses = filter (searchPredicate plan) (searchFiber plan)
+      consequence = not (null witnesses)
+  in case acceptedCoverage plan of
+       Nothing -> SearchProjection witnesses witnesses consequence Nothing
+       Just coverage -> case leastCovered (searchFiber plan) (searchPredicate plan) coverage of
+         Left residual -> SearchProjection [] witnesses consequence (Just residual)
+         Right least -> SearchProjection [leastValue least] witnesses consequence Nothing
+
+-- A finite connected-groupoid atlas.  `toChart c` is the chosen spanning-tree
+-- transport from the base; the remaining arrows are represented by loop
+-- generators acting on the base fibre.
+data FiniteAtlas = FiniteAtlas
+  { atlasCharts :: [Int]
+  , atlasCarrier :: [Int]
+  , toChart :: Int -> Int -> Int
+  , loopGenerators :: [Int -> Int]
+  }
+
+data HolonomyFailure = HolonomyFailure
+  { failedBaseValue :: !Int
+  , failedLoop :: !Int
+  , loopImage :: !Int
+  } deriving (Eq, Show)
+
+data CompiledAtlas = CompiledAtlas
+  { coherentFamilies :: [(Int, [(Int,Int)])]
+  , holonomyFailures :: [HolonomyFailure]
+  , assignmentBranches :: !Integer
+  } deriving (Eq, Show)
+
+compileAtlas :: FiniteAtlas -> CompiledAtlas
+compileAtlas atlas = CompiledAtlas families failures rawBranches
+  where
+    carrier = atlasCarrier atlas
+    loops = loopGenerators atlas
+    fixed a = all (\g -> g a == a) loops
+    families =
+      [ (a, [ (chart, toChart atlas chart a) | chart <- atlasCharts atlas ])
+      | a <- carrier, fixed a ]
+    failures =
+      [ HolonomyFailure a i (g a)
+      | a <- carrier
+      , Just (i,g) <- [firstFailure a (zip [0..] loops)] ]
+    firstFailure _ [] = Nothing
+    firstFailure a ((i,g):gs)
+      | g a == a = firstFailure a gs
+      | otherwise = Just (i,g)
+    rawBranches = toInteger (length carrier) ^ length (atlasCharts atlas)
+
+-- The finite two-bit instance of NaturalMachine.Endian: chart 0=id,
+-- 1=reversal D, 2=complement E, 3=DE.  The loop is the actual reversal
+-- action, so its tears are precisely the non-palindromic words 01 and 10.
+reverseBits2 :: Int -> Int
+reverseBits2 word = (word `mod` 2) * 2 + word `div` 2
+
+complementBits2 :: Int -> Int
+complementBits2 word = 3 - word
+
+endianAtlas2 :: FiniteAtlas
+endianAtlas2 = FiniteAtlas
+  { atlasCharts = [0,1,2,3]
+  , atlasCarrier = [0..3]
+  , toChart = \chart word -> case chart of
+      0 -> word
+      1 -> reverseBits2 word
+      2 -> complementBits2 word
+      _ -> reverseBits2 (complementBits2 word)
+  , loopGenerators = [reverseBits2]
+  }
 
 instance Show Term where
   show (V i) | i < 6 = [ "xyzuvw" !! i ]
@@ -176,10 +546,9 @@ data Sym = Sym { symName :: String
                , symSem :: [Integer] -> Integer
                , symDefs :: [(Term,Term)] }
 
-x_, y_, z_ :: Term
+x_, y_ :: Term
 x_ = V 0
 y_ = V 1
-z_ = V 2
 
 zero_ :: Term
 zero_ = F "0" []
@@ -193,7 +562,9 @@ bin f a b = F f [a,b]
 vocabulary :: [Sym]
 vocabulary =
   [ Sym "0"   0 (const 0)      []
-  , Sym "s"   1 (\vs -> head vs + 1) []
+  , Sym "s"   1 (\vs -> case vs of
+                           [v] -> v + 1
+                           _   -> error "successor received wrong arity") []
   , Sym "+"   2 (\vs -> vs !! 0 + vs !! 1)
       [ (bin "+" x_ zero_,      x_)
       , (bin "+" x_ (su y_),    su (bin "+" x_ y_)) ]
@@ -209,12 +580,19 @@ vocabulary =
       , (bin "-" zero_ x_,          zero_)
       , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
-      -- gcd needs its recursion, not just its base cases: a symbol the
-      -- machine can compute but not unfold is a black box it can test
-      -- and never reason about.
+      -- These are the only unconditional gcd equations currently admitted
+      -- to the proof kernel.  The former recursive clause
+      --
+      --   gcd (s x) (s y) = gcd ((s x) - (s y)) (s y)
+      --
+      -- was false when x < y: at x=1,y=2 it asserted gcd 2 3 = gcd 0 3,
+      -- hence 1 = 3.  A correct Euclidean step needs a comparison/guard or
+      -- remainder operation.  Until the term language can express one, gcd
+      -- remains computationally visible to conjecture generation but only
+      -- its sound base cases are available to proof search.  The Agda module
+      -- NaturalMachine.HaskellDefinitionBoundary checks this exact boundary.
       [ (bin "gcd" x_ zero_, x_)
-      , (bin "gcd" zero_ x_, x_)
-      , (bin "gcd" (su x_) (su y_), bin "gcd" (F "-" [su x_, su y_]) (su y_)) ]
+      , (bin "gcd" zero_ x_, x_) ]
   , Sym "le"  2 (\vs -> if vs !! 0 <= vs !! 1 then 1 else 0)
       -- Eleven of the machine's thirty-five theorems were `max`-shaped
       -- restatements of x <= y.  It was not producing junk; it was
@@ -241,7 +619,10 @@ eval _ env (V i) = env !! i
 eval sem env (F f ts) =
   case M.lookup f sem of
     Just g  -> g (map (eval sem env) ts)
-    Nothing -> 0
+    -- Unknown syntax must never acquire the accidental meaning zero.  Term
+    -- generation and researcher input are checked before evaluation; this
+    -- branch is the final fail-loud boundary if either caller regresses.
+    Nothing -> error ("MathMachine.eval: unknown symbol " ++ show f)
 
 -- deterministic pseudo-random assignments: the machine must be
 -- reproducible, so no system entropy enters.
@@ -249,10 +630,10 @@ lcg :: Integer -> Integer
 lcg x = (6364136223846793005 * x + 1442695040888963407) `mod` (2^(62::Int))
 
 assignments :: Int -> Int -> [[Integer]]
-assignments nv count = go 12345 count
+assignments nv sampleCount = go 12345 sampleCount
   where
     go _ 0 = []
-    go s k = let vals = take nv (tail (iterate lcg s))
+    go s k = let vals = take nv (drop 1 (iterate lcg s))
                  env = map (\v -> v `mod` 9) vals
              in env : go (lcg (s + 7)) (k-1)
 
@@ -262,10 +643,221 @@ assignments nv count = go 12345 count
 fingerprint :: M.Map String ([Integer] -> Integer) -> [[Integer]] -> Term -> [Integer]
 fingerprint sem envs t = map (\e -> eval sem e t) envs
 
+-- ------------------------------------------------ definition firewall
+--
+-- Defining equations are axioms of the Haskell proof search.  Fingerprints
+-- only test conjectures; they cannot protect the kernel from a false equation
+-- already installed here.  Before doing any search, exhaustively look for a
+-- small semantic counterexample to every defining equation.  Passing this
+-- finite audit is NOT a proof of soundness.  Failing it is, however, a proof
+-- that the search must not start, so the firewall fails closed.
+
+type DefinitionFailure = (String, Term, Term, [Integer], Integer, Integer)
+
+termShapeProblems :: [Sym] -> Term -> [String]
+termShapeProblems _ (V _) = []
+termShapeProblems syms (F f ts) = arityProblem ++ concatMap (termShapeProblems syms) ts
+  where
+    arityProblem = case [ symArity s | s <- syms, symName s == f ] of
+      [] -> ["unknown symbol " ++ show f]
+      (arity:_)
+        | arity == length ts -> []
+        | otherwise -> ["symbol " ++ show f ++ " expects " ++ show arity
+                          ++ " arguments, received " ++ show (length ts)]
+
+wellFormedTerm :: [Sym] -> Term -> Bool
+wellFormedTerm syms = null . termShapeProblems syms
+
+definitionShapeFailures :: [Sym] -> [String]
+definitionShapeFailures syms =
+  [ symName s ++ ": " ++ show l ++ " = " ++ show r ++ ": " ++ problem
+  | s <- syms
+  , (l,r) <- symDefs s
+  , problem <- termShapeProblems syms l
+            ++ termShapeProblems syms r
+            ++ [ "right side introduces a variable absent from the left"
+               | not (vars r `subsetOf` vars l) ] ]
+
+smallEnvironments :: Int -> Integer -> [[Integer]]
+smallEnvironments n bound = sequence (replicate n [0 .. bound])
+
+ruleCounterexample
+  :: [Sym] -> Integer -> Rule -> Maybe ([Integer], Integer, Integer)
+ruleCounterexample syms bound (l,r) =
+  case [ (env, lv, rv)
+       | env <- smallEnvironments variableCount bound
+       , let lv = eval sem env l
+       , let rv = eval sem env r
+       , lv /= rv ] of
+    (w:_) -> Just w
+    []    -> Nothing
+  where
+    sem = semantics syms
+    used = vars l ++ vars r
+    variableCount = case used of
+      [] -> 0
+      _  -> 1 + maximum used
+
+definitionFailures :: [Sym] -> Integer -> [DefinitionFailure]
+definitionFailures syms bound =
+  [ (symName s, l, r, env, lv, rv)
+  | s <- syms
+  , (l,r) <- symDefs s
+  , Just (env,lv,rv) <- [ruleCounterexample syms bound (l,r)] ]
+
+oldUnsoundGcdRule :: Rule
+oldUnsoundGcdRule =
+  ( bin "gcd" (su x_) (su y_)
+  , bin "gcd" (bin "-" (su x_) (su y_)) (su y_) )
+
+renderDefinitionFailure :: DefinitionFailure -> String
+renderDefinitionFailure (name,l,r,env,lv,rv) =
+  name ++ ": " ++ show l ++ " = " ++ show r
+    ++ " fails at env=" ++ show env
+    ++ " (left=" ++ show lv ++ ", right=" ++ show rv ++ ")"
+
+definitionAuditBound :: Integer
+definitionAuditBound = 8
+
+definitionAudit :: Either [String] ()
+definitionAudit = case definitionShapeFailures vocabulary
+                    ++ map renderDefinitionFailure
+                         (definitionFailures vocabulary definitionAuditBound) of
+  [] -> Right ()
+  fs -> Left fs
+
+survivesSemanticFirewall :: [Sym] -> Rule -> Bool
+survivesSemanticFirewall syms =
+  not . isJust . ruleCounterexample syms definitionAuditBound
+
+parseNaturalInt :: String -> Maybe Int
+parseNaturalInt raw = case reads raw of
+  [(n,"")] | n >= 0 -> Just n
+  _                  -> Nothing
+
+runSmokeMachine :: Int -> IO Machine
+runSmokeMachine n = do
+  ref <- newIORef start
+  withFile "/dev/null" WriteMode $ \sink -> do
+    hSetBuffering sink LineBuffering
+    replicateM_ n (round1 sink sink ref)
+  readIORef ref
+
+smokeRounds :: Int -> IO ()
+smokeRounds n = do
+  m <- runSmokeMachine n
+  putStrLn ("MACHINE SMOKE CHECKED: rounds=" ++ show (mRound m)
+    ++ " known=" ++ show (M.size (mKnown m))
+    ++ " rules=" ++ show (length (mRules m))
+    ++ " lemmas=" ++ show (length (mLemmas m))
+    ++ " vocab=" ++ show (mVocab m)
+    ++ " horizon=" ++ show (mSize m))
+
+printSmokeDiscoveries :: Int -> IO ()
+printSmokeDiscoveries n = do
+  m <- runSmokeMachine n
+  forM_ (M.keys (mKnown m)) $ \(l,r) ->
+    putStrLn (show l ++ " = " ++ show r)
+
+definitionManifest :: [String]
+definitionManifest =
+  [ symName s ++ " :: " ++ show l ++ " = " ++ show r
+  | s <- vocabulary
+  , (l,r) <- symDefs s ]
+
+agdaString :: String -> String
+agdaString raw = '"' : concatMap escape raw ++ "\""
+  where
+    escape '"'  = "\\\""
+    escape '\\' = "\\\\"
+    escape c    = [c]
+
+renderAgdaList :: (a -> String) -> [a] -> String
+renderAgdaList render xs = unlines
+  (map (\entry -> "  " ++ render entry ++ " ∷") xs ++ ["  []"])
+
+emitAgdaDefinitionManifest :: FilePath -> IO ()
+emitAgdaDefinitionManifest path = writeFile path (unlines
+  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+  , "module NaturalMachine.HaskellDefinitionManifestGenerated where"
+  , "open import Cubical.Foundations.Prelude"
+  , "open import Cubical.Data.List using (List ; [] ; _∷_)"
+  , "open import Agda.Builtin.String using (String)"
+  , "open import NaturalMachine.HaskellDefinitionBoundary"
+  , "  using (expectedDefinitionManifest)"
+  , ""
+  , "generatedDefinitionManifest : List String"
+  , "generatedDefinitionManifest ="
+  ] ++ renderAgdaList agdaString definitionManifest ++ unlines
+  [ ""
+  , "definition-manifest-agrees :"
+  , "  generatedDefinitionManifest ≡ expectedDefinitionManifest"
+  , "definition-manifest-agrees = refl"
+  ])
+-- The first bridge language is intentionally only the signature reached in
+-- five deterministic rounds.  Unsupported syntax fails generation instead
+-- of being encoded as an opaque string.
+agdaDiscoveryTerm :: Term -> Either String String
+agdaDiscoveryTerm (V i) = Right ("var " ++ show i)
+agdaDiscoveryTerm (F "0" []) = Right "zeroT"
+agdaDiscoveryTerm (F "s" [t]) = do
+  rendered <- agdaDiscoveryTerm t
+  Right ("sucT (" ++ rendered ++ ")")
+agdaDiscoveryTerm (F "+" [l,r]) = do
+  leftRendered <- agdaDiscoveryTerm l
+  rightRendered <- agdaDiscoveryTerm r
+  Right ("(" ++ leftRendered ++ " +T " ++ rightRendered ++ ")")
+agdaDiscoveryTerm (F "*" [l,r]) = do
+  leftRendered <- agdaDiscoveryTerm l
+  rightRendered <- agdaDiscoveryTerm r
+  Right ("(" ++ leftRendered ++ " ·T " ++ rightRendered ++ ")")
+agdaDiscoveryTerm t = Left ("unsupported discovery syntax: " ++ show t)
+
+agdaDiscoveryEquation :: Rule -> Either String String
+agdaDiscoveryEquation (l,r) = do
+  leftRendered <- agdaDiscoveryTerm l
+  rightRendered <- agdaDiscoveryTerm r
+  Right ("(" ++ leftRendered ++ " , " ++ rightRendered ++ ")")
+
+emitAgdaDiscoveryManifest :: Int -> FilePath -> IO ()
+emitAgdaDiscoveryManifest n path = do
+  m <- runSmokeMachine n
+  case traverse agdaDiscoveryEquation (M.keys (mKnown m)) of
+    Left problem -> hPutStrLn stderr problem >> exitFailure
+    Right rendered -> writeFile path (unlines
+      [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+      , "module NaturalMachine.HaskellDiscoveryManifestGenerated where"
+      , "open import Cubical.Foundations.Prelude"
+      , "open import Cubical.Data.List using (List ; [] ; _∷_)"
+      , "open import Cubical.Data.Sigma using (_,_ )"
+      , "open import NaturalMachine.HaskellDiscoveryBoundary"
+      , "  using (Equation ; AllSound ; var ; zeroT ; sucT ; _+T_ ; _·T_"
+      , "        ; expectedDiscoveries ; expectedDiscoveriesSound)"
+      , ""
+      , "generatedDiscoveries : List Equation"
+      , "generatedDiscoveries ="
+      ] ++ renderAgdaList id rendered ++ unlines
+      [ ""
+      , "generated-discoveries-agree :"
+      , "  generatedDiscoveries ≡ expectedDiscoveries"
+      , "generated-discoveries-agree = refl"
+      , ""
+      , "generatedDiscoveriesSound : AllSound generatedDiscoveries"
+      , "generatedDiscoveriesSound ="
+      , "  subst AllSound (sym generated-discoveries-agree)"
+      , "    expectedDiscoveriesSound"
+      ])
+
 -- --------------------------------------------------------- generation
 
 genTerms :: [(String,Int)] -> Int -> Int -> [Term]
-genTerms sig nv maxSize = concat table
+genTerms = genTermsModulo [] []
+
+-- Compile a proved commutativity law into the grammar: for a binary symbol
+-- in `comm`, generate one representative of the transposition orbit.  This
+-- removes the losing branch before a `Term` exists.
+genTermsModulo :: [String] -> [String] -> [(String,Int)] -> Int -> Int -> [Term]
+genTermsModulo comm assoc sig nv maxSize = concat table
   where
     -- a lazy list, not a strict map: `build n` consults `ofSize m` only
     -- for m < n, so the knot ties, but only if the table's entries stay
@@ -274,13 +866,36 @@ genTerms sig nv maxSize = concat table
     ofSize n | n >= 1 && n <= maxSize = table !! (n-1)
              | otherwise = []
     build 1 = [ V i | i <- [0..nv-1] ] ++ [ F f [] | (f,0) <- sig ]
-    build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1) ]
+    build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1)
+                          , canonical f args ]
       where
+        canonical f [l,r] | f `elem` comm && f `elem` assoc =
+          not (headed f l) && sortedBy cmpTerm (flatten f l ++ flatten f r)
+        canonical f [l,r] | f `elem` comm = cmpTerm l r /= GT
+        canonical _ _ = True
+        headed f (F g _) = f == g
+        headed _ _ = False
+        flatten f (F g [l,r]) | f == g = flatten f l ++ flatten f r
+        flatten _ t = [t]
+        sortedBy _ [] = True
+        sortedBy _ [_] = True
+        sortedBy cmp (x:y:xs) = cmp x y /= GT && sortedBy cmp (y:xs)
         argsOf 1 k | k >= 1 = map (:[]) (ofSize k)
                    | otherwise = []
         argsOf a k = [ t:rest | i <- [1..k-a+1]
                               , t <- ofSize i
                               , rest <- argsOf (a-1) (k-i) ]
+
+acCanonical :: String -> Term -> Term
+acCanonical f = rebuild . sortBy cmpTerm . collect
+  where
+    collect (F g [l,r]) | f == g = collect l ++ collect r
+    collect t = [mapChildren t]
+    mapChildren (F g ts) = F g (map (acCanonical f) ts)
+    mapChildren t = t
+    rebuild [] = error "acCanonical: empty product"
+    rebuild [t] = t
+    rebuild (t:ts) = F f [t, rebuild ts]
 
 -- --------------------------------------------------------- rewriting
 --
@@ -374,6 +989,8 @@ normalize rs = go (200 :: Int)
     go k t = case step rs t of
                Nothing -> t
                Just t' -> go (k-1) t'
+
+
 
 -- Which way should a proved equation be run?  Getting this wrong is
 -- not a style question: an equation oriented the wrong way makes the
@@ -550,6 +1167,71 @@ ordNub = go M.empty
     go seen (x:xs) | M.member x seen = go seen xs
                    | otherwise = x : go (M.insert x () seen) xs
 
+-- ------------------------------------------------------- Agda kernel seam
+-- The first proof-producing seam is intentionally narrow.  The Haskell
+-- search may propose any equation, but only the shared Peano fragment can be
+-- translated, and its first certificate language is Agda's `refl`.
+-- Consequently acceptance means definitional equality in Agda itself; the
+-- Haskell induction trace is never mistaken for a kernel certificate.
+
+agdaTerm :: Term -> Maybe String
+agdaTerm (V i)
+  | i >= 0 && i < 6 = Just ["xyzuvw" !! i]
+  | otherwise = Nothing
+agdaTerm (F "0" []) = Just "zero"
+agdaTerm (F "s" [t]) = (\u -> "suc (" ++ u ++ ")") <$> agdaTerm t
+agdaTerm (F "+" [a,b]) = binAgda "+" a b
+agdaTerm (F "*" [a,b]) = binAgda "·" a b
+agdaTerm _ = Nothing
+
+binAgda :: String -> Term -> Term -> Maybe String
+binAgda op a b = do
+  x <- agdaTerm a
+  y <- agdaTerm b
+  pure ("(" ++ x ++ " " ++ op ++ " " ++ y ++ ")")
+
+agdaCertificate :: (Term,Term) -> Maybe String
+agdaCertificate (l,r) = do
+  lhs <- agdaTerm l
+  rhs <- agdaTerm r
+  pure $ unlines
+    [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+    , "module Candidate where"
+    , "open import Cubical.Foundations.Prelude"
+    , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
+    , "candidate : (x y z u v w : ℕ) → " ++ lhs ++ " ≡ " ++ rhs
+    , "candidate x y z u v w = refl"
+    ]
+
+
+kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAccept logh roundNo ((l,r),_) =
+  case agdaCertificate (l,r) of
+    Nothing -> do
+      hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
+      pure False
+    Just source -> do
+      tmp <- getTemporaryDirectory
+      -- A fixed directory lets concurrent machine processes overwrite one
+      -- another's proposition between write and check.  `mktemp -d` makes
+      -- the proposition/check pair private; cleanup also runs on exceptions.
+      dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
+      let dir = reverse (dropWhile isSpace (reverse dirLine))
+          file = dir </> "Candidate.agda"
+      (do writeFile file source
+          (code,out,err) <- readProcessWithExitCode "agda"
+            ["-i", "formal/cubical", "-i", dir, file] ""
+          case code of
+            ExitSuccess -> do
+              hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s\n"
+                roundNo (show l) (show r)
+              pure True
+            ExitFailure _ -> do
+              hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
+                roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
+              pure False)
+        `finally` removePathForcibly dir
+
 -- --------------------------------------------------------- the machine
 
 data Machine = Machine
@@ -564,10 +1246,24 @@ data Machine = Machine
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
+  , mBoundedSearches :: [BoundedSearch]
+  , mAtlases :: [FiniteAtlas]
+  , mDSOTasks :: [DSOTask]
+  , mDSOArchitectureSearches :: [(DSOTask,[DSOArchitectureCandidate])]
+  , mHistoryArchitectureSearches :: [(Int,[Int],HistoryDemand)]
   }
+
+squareThresholdSearch :: BoundedSearch
+squareThresholdSearch = BoundedSearch [0..20] (\n -> n * n >= 30)
+  (Just (Coverage 12))
 
 start :: Machine
 start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
+  [squareThresholdSearch] [endianAtlas2]
+  [boundedDSOTask "square-threshold" squareThresholdSearch]
+  [(boundedDSOTask "square-threshold" squareThresholdSearch,
+    boundedArchitectures "square-threshold" squareThresholdSearch)]
+  [(4,[2],SnapshotDemand [2])]
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -598,6 +1294,7 @@ canonTerm :: Term -> Term
 canonTerm t = applySub ren t
   where ren = M.fromList (zip (ordNub (vars t)) (map V [0..]))
 
+inventConcept :: [Sym] -> [Term] -> [Term] -> Int -> Maybe Sym
 inventConcept syms retired terms n =
   case best of
     []        -> Nothing
@@ -610,6 +1307,11 @@ inventConcept syms retired terms n =
                  [ (p, F nm (map V [0 .. ar-1])) ])
   where
     best = bestOf syms retired terms
+
+conceptRule :: Sym -> Maybe Rule
+conceptRule s = case symDefs s of
+  [r] -> Just r
+  _   -> Nothing
 
 -- candidate concepts, best first: how often a shape appears times how
 -- much naming it would save.  A shape already named is not a new idea.
@@ -679,6 +1381,36 @@ usableRules m =
     ++ mRules m
     ++ lemmaRules (mLemmas m)
 
+provedCommutative :: Machine -> [String]
+provedCommutative m =
+  [ symName s
+  | s <- take (mVocab m) vocabulary ++ mInvented m
+  , symArity s == 2
+  , any (isCommutativity (symName s)) (M.keys (mKnown m)) ]
+
+isCommutativity :: String -> (Term,Term) -> Bool
+isCommutativity f (F g [V a,V b], F h [V c,V d]) =
+  f == g && g == h && a /= b && a == d && b == c
+isCommutativity _ _ = False
+
+provedAssociative :: Machine -> [String]
+provedAssociative m =
+  [ symName s
+  | s <- take (mVocab m) vocabulary ++ mInvented m
+  , symArity s == 2
+  , any (isAssociativity (symName s)) (M.keys (mKnown m)) ]
+
+isAssociativity :: String -> (Term,Term) -> Bool
+isAssociativity f equation = forward equation || forward (swap equation)
+  where
+    swap (a,b) = (b,a)
+    forward (F g [F g' [V a,V b],V c],
+             F h [V d,F h' [V e,V k]]) =
+      f == g && g == g' && g == h && h == h'
+      && a == d && b == e && c == k
+      && length (ordNub [a,b,c]) == 3
+    forward _ = False
+
 round1 :: Handle -> Handle -> IORef Machine -> IO ()
 round1 logh libh ref = do
   m <- readIORef ref
@@ -689,7 +1421,8 @@ round1 logh libh ref = do
       nv = kVars
       envs = assignments nv kAssign
       rules = usableRules m
-      raw = genTerms sig nv (mSize m)
+      raw = genTermsModulo (provedCommutative m) (provedAssociative m)
+              sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
       normed = ordNub (map (normalize rules) raw)
       classes = M.elems (M.fromListWith (++)
@@ -698,13 +1431,14 @@ round1 logh libh ref = do
         ( [ canonVars (rep, other)
           | cls <- classes
           , length cls > 1
-          , let sorted = sortOn (\t -> (size t, t)) cls
-          , let rep = head sorted
-          , other <- tail sorted
+          , rep:others <- [sortOn (\t -> (size t, t)) cls]
+          , other <- others
           ]
         ++ [ canonVars (l,r)
            | (l,r) <- mThoughts m
            , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+           , wellFormedTerm syms l
+           , wellFormedTerm syms r
            , fingerprint sem envs l == fingerprint sem envs r ] )
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
@@ -734,8 +1468,52 @@ round1 logh libh ref = do
       -- 10:01.  So the round folds its own discoveries back in as it goes.
       probe = take kProbe normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
+      bounded = map executeBoundedSearch (mBoundedSearches m)
+      witnessBranches = sum (map (length . activeWitnesses) bounded)
+      derivationBranches = sum (map (length . derivationFiber) bounded)
+      atlases = map compileAtlas (mAtlases m)
+      atlasRaw = sum (map assignmentBranches atlases)
+      atlasFixed = sum (map (toInteger . length . coherentFamilies) atlases)
+      atlasTears = sum (map (length . holonomyFailures) atlases)
+      dsoCompiled =
+        [ compileDSO (dsoTaskDependencies task)
+            (dsoTaskContinuations task) (dsoTaskRoutes task)
+        | task <- mDSOTasks m ]
+      dsoRoutes = sum (map (length . dsoTaskRoutes) (mDSOTasks m))
+      dsoClassesN = sum (map (length . dsoClasses) dsoCompiled)
+      dsoSurvivorsN = sum (map (length . dsoSurvivors) dsoCompiled)
+      dsoRawWork = sum (map dsoRawEvaluations dsoCompiled)
+      dsoActiveWork = sum (map dsoActiveEvaluations dsoCompiled)
+      dsoWitnessFiber = sum
+        [ sum (map (length . dsoWitnesses) (dsoSurvivors compiled))
+        | compiled <- dsoCompiled ]
+      historyArchitectureResults =
+        [ compileHistoryArchitectures mFactors checkpoints demand
+        | (mFactors,checkpoints,demand) <- mHistoryArchitectureSearches m ]
+      architectureResults =
+        [ compileDSOArchitectures (dsoTaskDependencies task)
+            (dsoTaskContinuations task) candidates
+        | (task,candidates) <- mDSOArchitectureSearches m ]
+        ++ map snd historyArchitectureResults
+      architectureCandidatesN = sum (map (length . dsoArchitectureCosts) architectureResults)
+      architectureParetoN = sum (map (length . dsoParetoArchitectures) architectureResults)
+      architectureEquivalencesN = sum (map (length . dsoEquivalentArchitectures) architectureResults)
+      architectureRegretStates = sum
+        [ states | result <- architectureResults, (_, (states,_)) <- dsoArchitectureRegret result ]
+      architectureRegretWork = sum
+        [ work | result <- architectureResults, (_, (_,work)) <- dsoArchitectureRegret result ]
+      retainedHistoryFibre = sum
+        [ sum [sum (map length (historyFibres architecture))
+              | architecture <- adequate
+              , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
+        | (adequate,result) <- historyArchitectureResults ]
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
+        -- Proof search is only as trustworthy as its current axiom set and
+        -- induction implementation.  This finite gate does not certify a
+        -- theorem; it prevents any theorem with a concrete small refutation
+        -- from becoming a new axiom and poisoning every later round.
+        | not (survivesSemanticFirewall syms c) = (acc, out)
         | otherwise =
             case proveByInduction acc c of
               Nothing -> (acc, out)
@@ -757,29 +1535,46 @@ round1 logh libh ref = do
       nConj = length conjectures
       nFresh = length fresh
       nRes = length results
-  nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
+  retainedHistoryFibre `seq` architectureRegretWork `seq` architectureRegretStates `seq`
+    architectureEquivalencesN `seq` architectureParetoN `seq`
+    architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
+    dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
+    nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
+  checkedResults <- filterM (kernelAccept logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
       prunedPct = if null raw then 0
                   else 100 * (1 - fromIntegral (length normed)
                                   / fromIntegral (length raw))
-      newRules = mapMaybe (orient . fst) results
-      newLemmas = [ c | (c,_) <- results, not (isJust (orient c)) ]
+      newRules = mapMaybe (orient . fst) checkedResults
+      newLemmas = [ c | (c,_) <- checkedResults, not (isJust (orient c)) ]
       m' = m { mRules = mRules m ++ newRules
              , mLemmas = mLemmas m ++ newLemmas
-             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) results
+             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
-                          [ c | c <- fresh, notElem c (map fst results) ]
+                          [ c | c <- fresh, notElem c (map fst checkedResults) ]
              , mRound = mRound m + 1 }
-  forM_ results $ \((l,r),pf) -> do
+  forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
   hFlush libh
+  hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
+    witnessBranches derivationBranches
+  hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
+    atlasRaw atlasFixed atlasTears
+  hPrintf logh "  DSO  tasks=%s routes=%d classes=%d survivors=%d survivor-witnesses=%d continuation-work=%d->%d\n"
+    (intercalate "," (map dsoTaskName (mDSOTasks m)))
+    dsoRoutes dsoClassesN dsoSurvivorsN dsoWitnessFiber dsoRawWork dsoActiveWork
+  hPrintf logh "  DSO-ARCH  candidates=%d transformer-equivalences=%d pareto=%d aggregate-regret=(%d states,%d work)\n"
+    architectureCandidatesN architectureEquivalencesN architectureParetoN
+    architectureRegretStates architectureRegretWork
+  hPrintf logh "  DSO-HISTORY  searches=%d retained-history-fibre=%d\n"
+    (length historyArchitectureResults) retainedHistoryFibre
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
-    prunedPct (length conjectures) (length fresh) (length results)
+    prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
   hFlush logh
   -- GROW: nothing new means the machine must change what it is looking at
@@ -787,7 +1582,7 @@ round1 logh libh ref = do
   -- name the shape that keeps recurring in its own working terms.  Only
   -- if it cannot does it fall back to widening the given vocabulary or
   -- looking further out.
-  let stuck = null results
+  let stuck = null checkedResults
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
@@ -802,22 +1597,29 @@ round1 logh libh ref = do
       -- either use the idea it has, or widen the vocabulary it was given.
       lastNameUsed = case mInvented m' of
         [] -> True
-        ss -> let nm = symName (last ss)
-              in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
-                     (M.keys (mKnown m'))
+        ss -> case reverse ss of
+          s:_ -> let nm = symName s
+                 in any (\(l,r) -> nm `elem` (symbolsIn l ++ symbolsIn r))
+                        (M.keys (mKnown m'))
+          [] -> True
       candidate = if stuck && lastNameUsed
                     then inventConcept syms (mRetired m') normed
                            (length (mInvented m'))
                     else Nothing
       invented = case candidate of
-        Just s | let (pat,fold) = head (symDefs s)
+        Just s | Just (pat,fold) <- conceptRule s
+               , null (definitionShapeFailures (syms ++ [s]))
+               , null (definitionFailures (syms ++ [s]) definitionAuditBound)
                , marginalCompress (usableRules m') (take kProbe normed) (pat,fold)
                    >= kConceptGain
                -> Just s
         _ -> Nothing
   case invented of
-    Just s -> hPrintf logh "  CONCEPT  named %s := %s  (arity %d)\n"
-                (symName s) (show (fst (head (symDefs s)))) (symArity s)
+    Just s -> case conceptRule s of
+      Just (pat,_) -> hPrintf logh "  CONCEPT  named %s := %s  (arity %d)\n"
+                        (symName s) (show pat) (symArity s)
+      Nothing -> hPrintf logh "  CONCEPT-REJECT  %s has no unique definition\n"
+                   (symName s)
     Nothing -> return ()
   let m2 = case invented of
              Just s  -> m' { mInvented = mInvented m' ++ [s] }
@@ -849,14 +1651,16 @@ round1 logh libh ref = do
           -- bit-identical, 45 seconds each.  A machine spinning on a
           -- state it can prove it cannot leave is worse than one that
           -- halts, because it looks alive.
-          | not (null (mInvented m2)) =
-              m2 { mInvented = init (mInvented m2)
-                 , mRetired = mRetired m2
-                     ++ [ canonTerm (fst (head (symDefs (last (mInvented m2))))) ] }
-          -- Nothing left to withdraw and nothing left to widen: the
-          -- machine genuinely needs more room, and saying so by raising
-          -- the horizon is now the honest move rather than the lazy one.
-          | otherwise = m2 { mSize = mSize m2 + 1 }
+          | otherwise = case reverse (mInvented m2) of
+              s:rest -> case conceptRule s of
+                Just (pat,_) ->
+                  m2 { mInvented = reverse rest
+                     , mRetired = mRetired m2 ++ [canonTerm pat] }
+                Nothing -> m2 { mInvented = reverse rest }
+              -- Nothing left to withdraw and nothing left to widen: the
+              -- machine genuinely needs more room, and saying so by raising
+              -- the horizon is now the honest move rather than the lazy one.
+              [] -> m2 { mSize = mSize m2 + 1 }
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
@@ -864,13 +1668,246 @@ round1 logh libh ref = do
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
   when (stuck && length (mInvented m'') < length (mInvented m2)) $
     hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
-      (symName (last (mInvented m2)))
+      (case reverse (mInvented m2) of
+         s:_ -> symName s
+         []  -> "<none>")
   hFlush logh
   writeIORef ref m''
 
 main :: IO ()
 main = do
   args <- getArgs
+  when (args == ["--least-witness-self-test"]) $ do
+    let fibre = [0..20 :: Int]
+        predicate n = n >= 7 && n `mod` 3 == 1
+        covered = leastCovered fibre predicate (Coverage 16)
+        bad = leastCovered fibre predicate (Coverage 15)
+        open = searchPrefix [0..6 :: Int] predicate
+    unless (covered == Right (LeastWitness 7 [0..6])
+            && bad == Left (WitnessRejected 15)
+            && open == OpenBeyond [0..6]) exitFailure
+    hPrintf stdout "LEAST WITNESS CHECKED: satisfying-fiber=5 representatives=1 least=7 open-prefix=7 residual=retained\n"
+    exitSuccess
+  when (args == ["--bounded-search-self-test"]) $ do
+    let predicate n = n * n >= 30
+        pending = BoundedSearch [0..20] predicate Nothing
+        installed = pending { acceptedCoverage = Just (Coverage 12) }
+        before = executeBoundedSearch pending
+        after = executeBoundedSearch installed
+    unless (derivationFiber before == [6..20]
+            && activeWitnesses before == [6..20]
+            && derivationFiber after == derivationFiber before
+            && activeWitnesses after == [6]
+            && existenceConsequence before == existenceConsequence after
+            && searchResidual after == Nothing) exitFailure
+    hPrintf stdout "BOUNDED SEARCH CHECKED: branches=15->1 eliminated=14 consequence=equal derivations=15\n"
+    exitSuccess
+  when (args == ["--atlas-fixed-point-self-test"]) $ do
+    let atlas = FiniteAtlas
+          { atlasCharts = [0,1,2,3]
+          , atlasCarrier = [0..5]
+          , toChart = \chart a -> (a + chart) `mod` 6
+          , loopGenerators = [\a -> (-a) `mod` 6]
+          }
+        compiled = compileAtlas atlas
+        expected =
+          [ (0,[(0,0),(1,1),(2,2),(3,3)])
+          , (3,[(0,3),(1,4),(2,5),(3,0)]) ]
+    unless (assignmentBranches compiled == 1296
+            && coherentFamilies compiled == expected
+            && map failedBaseValue (holonomyFailures compiled) == [1,2,4,5])
+      exitFailure
+    hPrintf stdout "ATLAS CHECKED: assignments=1296 base-candidates=6 fixed=2 eliminated=1294 tears=4\n"
+    exitSuccess
+  when (args == ["--endian-atlas-self-test"]) $ do
+    let compiled = compileAtlas endianAtlas2
+        expected =
+          [ (0,[(0,0),(1,0),(2,3),(3,3)])
+          , (3,[(0,3),(1,3),(2,0),(3,0)]) ]
+    unless (assignmentBranches compiled == 256
+            && coherentFamilies compiled == expected
+            && holonomyFailures compiled ==
+                 [HolonomyFailure 1 0 2, HolonomyFailure 2 0 1]) exitFailure
+    hPrintf stdout "ENDIAN ATLAS CHECKED: words=4 charts=4 assignments=256 fixed=2 eliminated=254 reversal-tears=2\n"
+    exitSuccess
+  when (args == ["--dso-context-self-test"]) $ do
+    -- `goal` is exactly the K/L table checked in DSOBellmanFinite.agda:
+    -- true has local cost 0 then future cost 2; false has 1 then 0.
+    -- The second active probe makes contextual comparison non-scalar, while
+    -- `diagnostic` is outside this query's dependency cone and is not run.
+    let routes =
+          [ DSORoute "true/direct" 1 0
+          , DSORoute "false/direct" 0 1
+          , DSORoute "false/factored" 0 1
+          , DSORoute "true/detour" 1 3
+          ]
+        continuations =
+          [ DSOContinuation "goal" "answer" (\b -> if b == 1 then 2 else 0)
+          , DSOContinuation "robustness" "answer" (\b -> if b == 1 then 4 else 0)
+          , DSOContinuation "diagnostic" "audit" (\b -> if b == 1 then 0 else 100)
+          ]
+        compiled = compileDSO ["answer"] continuations routes
+        extended = compileDSO ["answer","audit"] continuations routes
+        localGreedy = dsoWitness (head (sortOn dsoLocalCost routes))
+        expectedClass = DSOClass [1,1] ["false/direct","false/factored"]
+        expectedExtended =
+          [ DSOClass [1,1,101] ["false/direct","false/factored"]
+          , DSOClass [2,4,0] ["true/direct"]
+          ]
+    unless (localGreedy == "true/direct"
+            && dsoActiveContexts compiled == ["goal","robustness"]
+            && expectedClass `elem` dsoClasses compiled
+            && dsoSurvivors compiled == [expectedClass]
+            && dsoRawEvaluations compiled == 12
+            && dsoActiveEvaluations compiled == 8
+            && dsoActiveContexts extended == ["goal","robustness","diagnostic"]
+            && dsoSurvivors extended == expectedExtended
+            && checkDSOQueryExtension compiled extended == Left ["true/direct"])
+      exitFailure
+    hPrintf stdout "DSO CONTEXT CHECKED: local=true/0 contextual=false/1 routes=4 classes=3 survivors=1 origin-labels=2 continuation-evals=12->8 query-extension-rejected=true/direct\n"
+    exitSuccess
+  when (args == ["--dso-live-self-test"]) $ do
+    let task = boundedDSOTask "square-threshold" squareThresholdSearch
+        projection = executeBoundedSearch squareThresholdSearch
+        compiled = compileDSO (dsoTaskDependencies task)
+          (dsoTaskContinuations task) (dsoTaskRoutes task)
+        survivorValues = map dsoProfile (dsoSurvivors compiled)
+        retainedRoutes = map dsoWitness (dsoTaskRoutes task)
+    unless (activeWitnesses projection == [6]
+            && derivationFiber projection == [6..20]
+            && existenceConsequence projection
+            && retainedRoutes == map (\n -> "square-threshold/" ++ show n) ([6..20] :: [Int])
+            && length (dsoClasses compiled) == 15
+            && survivorValues == [[6]]
+            && concatMap dsoWitnesses (dsoSurvivors compiled) == ["square-threshold/6"]
+            && dsoRawEvaluations compiled == 30
+            && dsoActiveEvaluations compiled == 15) exitFailure
+    hPrintf stdout "LIVE DSO CHECKED: bounded-routes=15 classes=15 survivors=1 retained-fiber=15 continuation-work=30->15 least-output=6 consequence=equal\n"
+    exitSuccess
+  when (args == ["--dso-architecture-self-test"]) $ do
+    let task = boundedDSOTask "square-threshold" squareThresholdSearch
+        candidates = boundedArchitectures "square-threshold" squareThresholdSearch
+        result = compileDSOArchitectures (dsoTaskDependencies task)
+          (dsoTaskContinuations task) candidates
+        compiledMigration = lookup "square-threshold/least-selector"
+          (dsoRetainedMigrations result)
+    unless (dsoArchitectureProfiles result ==
+              [("square-threshold/direct",[6]),
+               ("square-threshold/least-selector",[6])]
+            && dsoEquivalentArchitectures result ==
+              [("square-threshold/direct","square-threshold/least-selector",[6])]
+            && dsoArchitectureCosts result ==
+              [("square-threshold/direct",(15,15)),
+               ("square-threshold/least-selector",(1,1))]
+            && dsoParetoArchitectures result == ["square-threshold/least-selector"]
+            && dsoArchitectureRegret result ==
+              [("square-threshold/direct",(14,14)),
+               ("square-threshold/least-selector",(0,0))]
+            && maybe False ((== 15) . length) compiledMigration
+            && maybe False (all ((== "square-threshold/least/6") . snd)) compiledMigration)
+      exitFailure
+    hPrintf stdout "DSO ARCHITECTURE CHECKED: transformer=[6]=[6] direct=(15,15) compiled=(1,1) pareto=compiled regret=(14,14) migrations=15 origins=retained\n"
+    exitSuccess
+  when (args == ["--divisor-history-self-test"]) $ do
+    let architecture m checkpoints name =
+          head [a | a <- fst (compileHistoryArchitectures m checkpoints EndpointDemand),
+                    historyArchitectureName a == name]
+        checkArchitecture m checkpoints name expectedClasses expectedFibre =
+          let a = architecture m checkpoints name
+              fibres = historyFibres a
+              predicted = product (map factorial (historyBlocks m checkpoints))
+              origins = dsoArchitectureOrigin (historyCandidate a)
+              migrated = map fst (dsoArchitectureMigration (historyCandidate a))
+          in length fibres == expectedClasses
+             && all ((== expectedFibre) . length) fibres
+             && predicted == expectedFibre
+             && sort origins == sort migrated
+             && sort origins == sort (concat fibres)
+             && length origins == factorial m
+        (_, endpoint4) = compileHistoryArchitectures 4 [2] EndpointDemand
+        (snapshotArchitectures4, snapshot4) =
+          compileHistoryArchitectures 4 [2] (SnapshotDemand [2])
+        (_, full4) = compileHistoryArchitectures 4 [2] FullDemand
+        selectedSnapshotFibre =
+          [historyFibres a | a <- snapshotArchitectures4,
+             historyArchitectureName a `elem` dsoParetoArchitectures snapshot4]
+    unless (checkArchitecture 2 [] "history/endpoint" 1 2
+            && checkArchitecture 2 [1] "history/snapshot" 2 1
+            && checkArchitecture 2 [1] "history/full" 2 1
+            && checkArchitecture 4 [] "history/endpoint" 1 24
+            && checkArchitecture 4 [2] "history/snapshot" 6 4
+            && checkArchitecture 4 [1,2,3] "history/full" 24 1
+            && dsoParetoArchitectures endpoint4 == ["history/endpoint"]
+            && dsoParetoArchitectures snapshot4 == ["history/snapshot"]
+            && dsoParetoArchitectures full4 == ["history/full"]
+            && map (map length) selectedSnapshotFibre == [replicate 6 4]
+            && reverseRemoval 4 == [3,2,1,0]
+            && leastFactorPeeling 4 == [0,1,2,3]
+            && leastFactorPeeling 4 == reverse (decreasingConstruction 4)
+            && leastFactorPeeling 4 /= reverse (increasingConstruction 4))
+      exitFailure
+    hPrintf stdout "DIVISOR HISTORY CHECKED: m=2 endpoint=1x2 full=2x1; m=4 endpoint=1x24 snapshot=6x4 full=24x1; selected=snapshot eliminated=18 retained-history=24 orientation=corrected\n"
+    exitSuccess
+  when (args == ["--commutative-grammar-self-test"]) $ do
+    let sig = [("0",0),("+",2)]
+        raw = genTerms sig 2 7
+        quotient = genTermsModulo ["+"] [] sig 2 7
+        commLaw = (bin "+" x_ y_, bin "+" y_ x_)
+        oldNF = ordNub (map (normalize (lemmaRules [commLaw])) raw)
+        newNF = ordNub (map (normalize (lemmaRules [commLaw])) quotient)
+        renamedComm = (F "+" [V 9,V 4], F "+" [V 4,V 9])
+        renamedAssoc = (F "+" [F "+" [V 8,V 3],V 11],
+                        F "+" [V 8,F "+" [V 3,V 11]])
+    unless (oldNF == newNF && length quotient < length raw
+            && isCommutativity "+" renamedComm
+            && isAssociativity "+" renamedAssoc) exitFailure
+    hPrintf stdout "COMMUTATIVE GRAMMAR CHECKED: raw=%d representatives=%d eliminated=%d coverage=exact\n"
+      (length raw) (length quotient) (length raw - length quotient)
+    exitSuccess
+  when (args == ["--ac-grammar-self-test"]) $ do
+    let sig = [("0",0),("+",2)]
+        raw = genTerms sig 2 7
+        quotient = genTermsModulo ["+"] ["+"] sig 2 7
+        oldNF = ordNub (map (acCanonical "+") raw)
+        newNF = ordNub (map (acCanonical "+") quotient)
+    unless (oldNF == newNF && length quotient < length raw) exitFailure
+    hPrintf stdout "AC GRAMMAR CHECKED: raw=%d multisets=%d eliminated=%d coverage=exact\n"
+      (length raw) (length quotient) (length raw - length quotient)
+    exitSuccess
+  when (args == ["--concept-invention-self-test"]) $ do
+    let syms = take 3 vocabulary
+        patternTerm = bin "+" x_ x_
+        workingSet = replicate 12 patternTerm
+        invented = inventConcept syms [] workingSet 0
+    case invented of
+      Nothing -> exitFailure
+      Just concept -> do
+        let expectedFold = F "c0" [x_]
+            expectedRule = (patternTerm, expectedFold)
+            extended = syms ++ [concept]
+            installedRules = definitionsOf extended
+            semanticValue = symSem concept [7]
+            folded = normalize installedRules patternTerm
+            compression = marginalCompress (definitionsOf syms)
+              workingSet expectedRule
+            towerOnly = replicate 12 (F "c0" [F "c0" [x_]])
+            towerRejected = not (isJust (inventConcept extended [] towerOnly 1))
+            retiredRejected = not (isJust
+              (inventConcept syms [canonTerm patternTerm] workingSet 1))
+        unless (symName concept == "c0"
+                && symArity concept == 1
+                && conceptRule concept == Just expectedRule
+                && semanticValue == 14
+                && null (definitionShapeFailures extended)
+                && null (definitionFailures extended definitionAuditBound)
+                && folded == expectedFold
+                && compression >= kConceptGain
+                && towerRejected
+                && retiredRejected) exitFailure
+        hPrintf stdout
+          "CONCEPT INVENTION CHECKED: collision-pattern=x+x primitive=c0/1 semantics(7)=14 definition-installed compression=%d tower=rejected retired=rejected\n"
+          compression
+        exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw
@@ -880,9 +1917,68 @@ main = do
             && requiredVocabulary b == 7) exitFailure
     putStrLn "THOUGHT-FORMAT CHECKED: candidate object + exact residual demand"
     exitSuccess
-  exists <- doesFileExist "machine/thoughts.math"
-  batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
-                     else pure (ThoughtBatch [] [])
+  when (args == ["--check-definitions"]) $ do
+    case definitionAudit of
+      Left failures -> do
+        forM_ failures (hPutStrLn stderr)
+        exitFailure
+      Right () -> pure ()
+    when (wellFormedTerm vocabulary (F "+" [x_])) $ do
+      hPutStrLn stderr "definition firewall regression: malformed arity accepted"
+      exitFailure
+    case ruleCounterexample vocabulary definitionAuditBound oldUnsoundGcdRule of
+      Nothing -> do
+        hPutStrLn stderr "definition firewall regression: old false gcd rule escaped"
+        exitFailure
+      Just (env,lv,rv) ->
+        putStrLn ("DEFINITION FIREWALL CHECKED: current rules survive bound "
+          ++ show definitionAuditBound ++ "; rejected old gcd rule at env="
+          ++ show env ++ " (left=" ++ show lv ++ ", right=" ++ show rv ++ ")")
+    exitSuccess
+  case definitionAudit of
+    Left failures -> do
+      hPutStrLn stderr "REFUSING TO START: defining equation failed semantic firewall"
+      forM_ failures (hPutStrLn stderr)
+      exitFailure
+    Right () -> pure ()
+  case args of
+    ["--smoke-rounds", raw]
+      | Just n <- parseNaturalInt raw -> smokeRounds n >> exitSuccess
+      | otherwise -> hPutStrLn stderr "--smoke-rounds requires a nonnegative integer"
+                       >> exitFailure
+    _ -> pure ()
+  case args of
+    ["--print-smoke-discoveries", raw]
+      | Just n <- parseNaturalInt raw -> printSmokeDiscoveries n >> exitSuccess
+      | otherwise -> hPutStrLn stderr
+          "--print-smoke-discoveries requires a nonnegative integer"
+            >> exitFailure
+    _ -> pure ()
+  case args of
+    ["--emit-agda-manifest", path] ->
+      emitAgdaDefinitionManifest path >> exitSuccess
+    _ -> pure ()
+  case args of
+    ["--emit-agda-discoveries", raw, path]
+      | Just n <- parseNaturalInt raw ->
+          emitAgdaDiscoveryManifest n path >> exitSuccess
+      | otherwise -> hPutStrLn stderr
+          "--emit-agda-discoveries requires a nonnegative round count and path"
+            >> exitFailure
+    _ -> pure ()
+  case args of
+    ["--kernel-self-test"] -> do
+      accepted <- kernelAccept stdout 0 ((bin "+" zero_ x_, x_), "positive control")
+      rejected <- kernelAccept stdout 0 ((su x_, x_), "negative control")
+      unless (accepted && not rejected) exitFailure
+    _ -> do
+      exists <- doesFileExist "machine/thoughts.math"
+      batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
+                         else pure (ThoughtBatch [] [])
+      runMachine batch
+
+runMachine :: ThoughtBatch -> IO ()
+runMachine batch = do
   logh <- openFile "machine/machine.log" AppendMode
   libh <- openFile "machine/library.txt" AppendMode
   hSetBuffering logh LineBuffering
@@ -903,7 +1999,8 @@ main = do
   -- that — concept invention — was gated on a condition no definition can
   -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
   -- reason to keep going, so it keeps going.
-  let loop = round1 logh libh ref >> loop
+  let loop :: IO ()
+      loop = round1 logh libh ref >> loop
   loop
   hClose logh
   hClose libh

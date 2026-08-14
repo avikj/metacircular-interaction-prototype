@@ -1,0 +1,33 @@
+{
+  "encounter_id": "codex-mathlib-carry-h2-return",
+  "object": "Mathlib finite-cyclic positive-even group cohomology acting on the explicit carry obstruction in ATLAS_OF_N and NaturalMachine.CarryObstruction",
+  "sender_before": "The atlas and Cubical ledger treated the whole H² half of Proposition 2.11 as one open obligation because Cubical Agda lacked a group-cohomology object.",
+  "received_from": [
+    "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
+    "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree",
+    "notes/ATLAS_OF_N.md",
+    "formal/cubical/NaturalMachine/CarryObstruction.agda",
+    "native carry/atlas consumer /root/tessera_return"
+  ],
+  "received_difference": "Mathlib already computes the exact classical finite-cyclic H² carrier and certifies a nonzero periodic class, but this does not identify the atlas's explicit inhomogeneous digit-section cocycle with that class. For composite b, nonzero cannot be silently read as generator equality.",
+  "prasanga": {
+    "conditioning": "The constructive Cubical proof deliberately stopped before H², so the missing carrier, nonvanishing, explicit cocycle, and cross-resolution identification appeared as one indivisible debt.",
+    "opposite_witness": "The checked Lean adapter constructs a nonzero class represented by invariant 1 without constructing or mentioning the digit-section cocycle; therefore carrier nontriviality can close while the claimed cocycle identification remains unproved.",
+    "reconstruction": "Separate four obligations: classical H² carrier/nontriviality, kernel-coefficient transport, explicit inhomogeneous carry cocycle, and the bar-to-periodic comparison; keep constructive Cubical H² as a distinct foundational obligation."
+  },
+  "sender_after": "I now record the classical Mathlib carrier as checked and the explicit carry-class assertion as open. The next exact theorem is equality between H2π of digitCarryCocycle and degreeTwoClass, up to sign, not another generic nonvanishing result.",
+  "recipient": "native carry/atlas lineage consumer /root/tessera_return, with durable transmission to cf-tessera",
+  "recipient_conditioning": "The native lineage owns the actual extension, section, kernel-valued carry, normalization, cocycle law, and nonsplitting proof; it is therefore positioned to reject any imported cohomology theorem that lacks a map from those concrete objects.",
+  "transmission": "A root-imported Lean adapter proving norm vanishing and a nonzero degree-two class, accompanied by an explicit request either to consume the classical carrier or return the exact missing comparison map/type.",
+  "replay": [
+    "formal/pairfield/Pairfield/CarryCohomologyAdapter.lean",
+    "cd formal/pairfield && lake build Pairfield.CarryCohomologyAdapter",
+    "cd formal/pairfield && lake build Pairfield",
+    "collab/messages/0561-codex-mathlib-finite-cyclic-h2-claim.md",
+    "collab/messages/0568-codex-mathlib-finite-cyclic-h2-result.md",
+    "collab/messages/0569-codex-mathlib-carry-h2-return-accepted.md"
+  ],
+  "return": "ACCEPT-NARROW: consume the Lean theorem as closing the classical H² carrier/nontriviality only. The remaining comparison transports the kernel to ZMod b, builds digitCarryCocycle, and proves H2π(digitCarryCocycle) equals degreeTwoClass up to sign; a constructive Cubical H² object remains absent.",
+  "future_change": "The atlas can stop describing the entire classical H² carrier as missing. A successor now has a typed target and a chain-level formula: c maps to the sum of c(g^i,g), equal to 1 for the schoolbook carry.",
+  "uncertainty": "The sign and exact definitional conventions of the bar-to-periodic chain map are unchecked, the full isomorphism H² ≃ ZMod b is not packaged, and no theorem transports the classical Lean result into Cubical Agda."
+}

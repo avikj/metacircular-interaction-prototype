@@ -31,54 +31,94 @@ def eval : BooleanFunction B n → (Fin n → B) → B
 def patch (a : B) (z x : Fin n → B) : Fin n → B :=
   fun i => (a ⊓ z i) ⊔ (aᶜ ⊓ x i)
 
-/-- The two halves of a patch never interact: `a` and `aᶜ` annihilate. -/
-theorem patch_inf (a u v u' v' : B) :
-    (a ⊓ u ⊔ aᶜ ⊓ v) ⊓ (a ⊓ u' ⊔ aᶜ ⊓ v')
-      = a ⊓ (u ⊓ u') ⊔ aᶜ ⊓ (v ⊓ v') := by
-  have cross : ∀ w w' : B, (a ⊓ w) ⊓ (aᶜ ⊓ w') = ⊥ := by
-    intro w w'
-    calc (a ⊓ w) ⊓ (aᶜ ⊓ w') = (a ⊓ aᶜ) ⊓ (w ⊓ w') := by ac_rfl
-      _ = ⊥ := by simp
-  have cross' : ∀ w w' : B, (aᶜ ⊓ w) ⊓ (a ⊓ w') = ⊥ := by
-    intro w w'
-    rw [inf_comm]
-    exact cross w' w
-  rw [inf_sup_left, inf_sup_right, inf_sup_right, cross, cross']
-  simp only [sup_bot_eq, bot_sup_eq]
-  congr 1 <;> ac_rfl
+private theorem partition (a u : B) :
+    u = (a ⊓ u) ⊔ (aᶜ ⊓ u) := by
+  calc
+    u = ⊤ ⊓ u := (top_inf_eq u).symm
+    _ = (a ⊔ aᶜ) ⊓ u := by rw [sup_compl_eq_top]
+    _ = (a ⊓ u) ⊔ (aᶜ ⊓ u) := inf_sup_right a aᶜ u
 
-theorem patch_sup (a u v u' v' : B) :
-    (a ⊓ u ⊔ aᶜ ⊓ v) ⊔ (a ⊓ u' ⊔ aᶜ ⊓ v')
-      = a ⊓ (u ⊔ u') ⊔ aᶜ ⊓ (v ⊔ v') := by
-  simp [inf_sup_left, sup_assoc, sup_left_comm, sup_comm]
+private theorem select_left (a u v : B) :
+    a ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v)) = a ⊓ u := by
+  rw [inf_sup_left]
+  simp [← inf_assoc]
 
-/-- Complementation acts halfwise, and this is forced: the patched
-complement meets the patch in `⊥` and joins it to `⊤`, so it *is* the
-complement by uniqueness.  No distributive expansion is needed. -/
-theorem patch_compl (a u v : B) :
-    (a ⊓ u ⊔ aᶜ ⊓ v)ᶜ = a ⊓ uᶜ ⊔ aᶜ ⊓ vᶜ := by
-  refine compl_unique ?_ ?_
-  · rw [patch_inf]
-    simp
-  · rw [patch_sup]
-    simp
+private theorem select_right (a u v : B) :
+    aᶜ ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v)) = aᶜ ⊓ v := by
+  rw [inf_sup_left]
+  simp [← inf_assoc]
+
+private theorem select_inf_left (a u v r s : B) :
+    a ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊓ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      a ⊓ (u ⊓ r) := by
+  let p := (a ⊓ u) ⊔ (aᶜ ⊓ v)
+  let q := (a ⊓ r) ⊔ (aᶜ ⊓ s)
+  calc
+    a ⊓ (p ⊓ q) = (a ⊓ a) ⊓ (p ⊓ q) := by rw [inf_idem]
+    _ = (a ⊓ p) ⊓ (a ⊓ q) := by ac_rfl
+    _ = (a ⊓ u) ⊓ (a ⊓ r) := by rw [select_left, select_left]
+    _ = (a ⊓ a) ⊓ (u ⊓ r) := by ac_rfl
+    _ = a ⊓ (u ⊓ r) := by rw [inf_idem]
+
+private theorem select_inf_right (a u v r s : B) :
+    aᶜ ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊓ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      aᶜ ⊓ (v ⊓ s) := by
+  let p := (a ⊓ u) ⊔ (aᶜ ⊓ v)
+  let q := (a ⊓ r) ⊔ (aᶜ ⊓ s)
+  calc
+    aᶜ ⊓ (p ⊓ q) = (aᶜ ⊓ aᶜ) ⊓ (p ⊓ q) := by rw [inf_idem]
+    _ = (aᶜ ⊓ p) ⊓ (aᶜ ⊓ q) := by ac_rfl
+    _ = (aᶜ ⊓ v) ⊓ (aᶜ ⊓ s) := by rw [select_right, select_right]
+    _ = (aᶜ ⊓ aᶜ) ⊓ (v ⊓ s) := by ac_rfl
+    _ = aᶜ ⊓ (v ⊓ s) := by rw [inf_idem]
+
+private theorem select_sup_left (a u v r s : B) :
+    a ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊔ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      a ⊓ (u ⊔ r) := by
+  simp [inf_sup_left, ← inf_assoc]
+
+private theorem select_sup_right (a u v r s : B) :
+    aᶜ ⊓ (((a ⊓ u) ⊔ (aᶜ ⊓ v)) ⊔ ((a ⊓ r) ⊔ (aᶜ ⊓ s))) =
+      aᶜ ⊓ (v ⊔ s) := by
+  simp [inf_sup_left, ← inf_assoc]
+
+private theorem select_compl_left (a u v : B) :
+    a ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v))ᶜ = a ⊓ uᶜ := by
+  rw [← sdiff_eq, ← sdiff_eq]
+  exact sdiff_eq_sdiff_iff_inf_eq_inf.mpr (select_left a u v)
+
+private theorem select_compl_right (a u v : B) :
+    aᶜ ⊓ ((a ⊓ u) ⊔ (aᶜ ⊓ v))ᶜ = aᶜ ⊓ vᶜ := by
+  rw [← sdiff_eq, ← sdiff_eq]
+  exact sdiff_eq_sdiff_iff_inf_eq_inf.mpr (select_right a u v)
+
+private theorem eq_of_select (a u v : B)
+    (left : a ⊓ u = a ⊓ v)
+    (right : aᶜ ⊓ u = aᶜ ⊓ v) : u = v := by
+  rw [partition a u, partition a v, left, right]
 
 theorem eval_patch (p : BooleanFunction B n) (a : B) (z x : Fin n → B) :
     eval p (patch a z x) = (a ⊓ eval p z) ⊔ (aᶜ ⊓ eval p x) := by
   induction p with
   | var i => rfl
-  | const c =>
-      show c = a ⊓ c ⊔ aᶜ ⊓ c
-      rw [← inf_sup_right, sup_compl_eq_top, top_inf_eq]
-  | bot =>
-      show (⊥ : B) = a ⊓ ⊥ ⊔ aᶜ ⊓ ⊥
-      simp
-  | top =>
-      show (⊤ : B) = a ⊓ ⊤ ⊔ aᶜ ⊓ ⊤
-      simp
-  | inf p q ihp ihq => simp only [eval, ihp, ihq, patch_inf]
-  | sup p q ihp ihq => simp only [eval, ihp, ihq, patch_sup]
-  | compl p ihp => simp only [eval, ihp, patch_compl]
+  | const c => exact partition a c
+  | bot => simp [eval]
+  | top => simp [eval]
+  | inf p q ihp ihq =>
+      rw [eval, ihp, ihq, eval, eval]
+      apply eq_of_select a
+      · rw [select_inf_left, select_left]
+      · rw [select_inf_right, select_right]
+  | sup p q ihp ihq =>
+      rw [eval, ihp, ihq, eval, eval]
+      apply eq_of_select a
+      · rw [select_sup_left, select_left]
+      · rw [select_sup_right, select_right]
+  | compl p ih =>
+      rw [eval, ih, eval, eval]
+      apply eq_of_select a
+      · rw [select_compl_left, select_left]
+      · rw [select_compl_right, select_right]
 
 def lowenheimBA (p : BooleanFunction B n) (zero x : Fin n → B) : Fin n → B :=
   patch (eval p x) zero x

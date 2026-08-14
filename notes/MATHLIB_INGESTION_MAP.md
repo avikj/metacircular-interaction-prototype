@@ -167,13 +167,70 @@ left quotients, and transports
 M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite.
 ```
 
-The concurrent `ResidualBFS` return then connects bounded shortest witnesses
-to prefix residuals. It does not convert `Set.Finite` into enumeration or a
-global terminating horizon.
+The concurrent `ResidualBFS` return then connects shortest witnesses to prefix
+residuals and, under an explicit ambient `[Fintype X]`, uses the synchronous
+pair monitor plus `DFA.evalFrom_split` to install the safe horizon `|X|^2`.
+The later `ReachableChart` return supplies the missing effective datum as
+`FiniteBehavioralPresentation M`.  `NerodeChartAdapter` now turns Mathlib's
+`Language.toDFA` into the canonical instance: its states are exactly the left
+quotients, its chosen concrete representatives preserve state language, and
+Lean proves the chart reachable, reduced, and language-preserving.  The
+construction from regularity is explicitly `noncomputable`; it does not
+extract executable rows from `Set.Finite`.
+
+The reciprocal audit now also proves
+`M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M)` and the
+global Myhill--Nerode cardinal lower bound: the canonical residual state type
+injects into the state type of every finite DFA recognizing the same language.
+The later `ReachableSubDFA`, `ChartQuotient`, and `ExecutableMinimization`
+returns close constructive reduction of supplied executable chart data:
+unreachable rows are removed, equal futures are quotiented, the recognized
+language is preserved, and the result is globally cardinal-minimal.
+
+The next cost layer is `VisitedReach`. Its checked global `Nodup` invariant
+meets Mathlib's `List.Nodup.length_le_card` in
+`VisitedReachCardinality`, giving the exact native budget
+
+```lean
+(runReachQueue M alphabet round).states.length ≤ Fintype.card X.
+```
+
+The reciprocal return then closes the missing layer invariant.  Mathlib
+`DFA.evalFrom_split` supplies loop deletion, every frontier word at round `n`
+has length exactly `n`, every retained word is globally shortest, and a
+frontier node at round `|X|` would therefore contradict its shorter loop-free
+representative.  Hence the frontier at `|X|` is empty and the queue is a fixed
+point.  The bound remains a bound on retained discoveries and completed
+expansions, not on raw candidate edges generated before freshness filtering.
+
+`VisitedPairHorizon` specializes that result to the live synchronous product
+monitor.  Mathlib `Fintype.card_prod` identifies its ambient horizon with
+`|X|²`, while the native `reachableStatePairCount` records the often smaller
+number of pairs actually expanded.  `VisitedPair` proves the first retained
+separator globally shortest and preserves the full distinguishing derivation
+fibre.  Finally `ObservableVisitedPairAdapter` checks the exact semantic seam
+
+```lean
+ObservableClosesAt M.step (acceptsBool M) fuel ↔
+  ∀ left right,
+    BoundedFutureEq M.step (acceptsBool M) fuel left right →
+      visitedPairWitness? M alphabet left right = none.
+```
+
+Thus bounded observable formation and the executable stable pair queue are
+now literally the same proposition.  The safe global horizon is `|X|²`; its
+sharp least value still requires aggregating the pair-labelled shortest
+witnesses over the whole finite presentation.
+
+The reciprocal `VisitedResidual` module continues the transport to Mathlib's
+native residual languages.  Its visited query returns `none` exactly when the
+two `Language.leftQuotient`s agree.  Every returned word is a globally shortest
+separating suffix, its minimum length agrees with the exhaustive Mathlib query,
+and `ResidualSeparatorFiber` preserves the full family of separators.
 
 **Still unbridged:**
 
-1. `Language.toDFA` and `accepts_toDFA` — the canonical residual automaton. `Pairfield.BehavioralState` is a quotient of `X`; mathlib's is a subtype of `Language α`. The adapter proves equality of the reachable image but does not yet package a subtype equivalence or executable enumeration. Mathlib itself does not prove minimality.
+1. **Bridged 2026-08-14:** `Language.toDFA` and `accepts_toDFA` — `NerodeChartAdapter` packages the canonical residual automaton as a native `FiniteBehavioralPresentation`, proves all states reachable and behaviorally reduced, and preserves all DFA operations used here. The bridge is classical/noncomputable, not an executable enumeration extracted from regularity. Mathlib itself still does not state DFA minimality.
 2. `DFA.pumping_lemma` — never invoked.
 3. `DFA.union` / `inter` / `Compl` / `IsRegular.add` / `IsRegular.inf` / `IsRegular_compl` — the Boolean algebra of behaviours. `futureEq_pair_iff` is the observation-side shadow of `DFA.inter`; the connection is unmade.
 4. `Language.leftQuotient_append` — our `stateLanguage_step` is only the one-letter case; the word case is free from mathlib.
@@ -382,7 +439,7 @@ verified present at the pinned `v4.33.0`.
 
 1. **[easy] `Mathlib.GroupTheory.GroupAction.Basic` + `…GroupAction.Quotient` into `HolonomyDescent.lean`.** Delete `orbitSetoid`; use `MulAction.orbitRel`. Immediately inherits `orbitRel.Quotient`, `orbitEquivQuotientStabilizer`, `stabilizerEquivStabilizer`, `selfEquivSigmaOrbitsQuotientStabilizer`. Highest ratio of gain to effort in the whole list.
 
-2. **[landed 2026-08-14] `Mathlib.Computability.MyhillNerode`'s finiteness half into `MyhillNerodeAdapter.lean`.** The correct carrier is the set of *reachable* `BehavioralState M` values, not the whole ambient quotient. `accepts_isRegular_iff_reachableBehavioralStates_finite` is Lean-checked; whole-ambient finiteness is false in the presence of unreachable states. The executable residual-BFS return preserves the further boundary between extensional finiteness and an enumerated global horizon.
+2. **[landed twice 2026-08-14] `Mathlib.Computability.MyhillNerode` into the native reachable chart.** `MyhillNerodeAdapter` first proved regularity iff finiteness of *reachable* behavioral meanings; `NerodeChartAdapter` now packages Mathlib's `Language.toDFA` as the canonical `FiniteBehavioralPresentation`, with representative-language preservation, reachable/reduced proofs, and recognized-language equality. `ResidualBFS` decides equality from a supplied finite chart. Exact residual: the canonical construction from regularity uses classical choice and is noncomputable, so it does not replace explicit chart data.
 
 3. **[easy] `Mathlib.LinearAlgebra.FreeModule.Int` + `Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient` into the Smith thread.** `AddSubgroup.index_eq_natAbs_det` and `Basis.SmithNormalForm.toAddSubgroup_index_eq_pow_mul_prod` give the cokernel order of `A : IntMat2` for free, which several Smith notes compute by hand.
 

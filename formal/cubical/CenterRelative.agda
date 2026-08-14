@@ -77,41 +77,41 @@ J₂CR (W , R) = (- R , - W)
 private
   -- Φraw intertwines the two presentations of each involution.
   e-τ-fst : (p q : ℤ) → q + p ≡ p + q
-  e-τ-fst = solve ℤCommRing
+  e-τ-fst _ _ = solve! ℤCommRing
   e-τ-snd : (p q : ℤ) → p - q ≡ - (q - p)
-  e-τ-snd = solve ℤCommRing
+  e-τ-snd _ _ = solve! ℤCommRing
 
   e-J-fst : (p q : ℤ) → p + (- q) ≡ - (q - p)
-  e-J-fst = solve ℤCommRing
+  e-J-fst _ _ = solve! ℤCommRing
   e-J-snd : (p q : ℤ) → (- q) - p ≡ - (p + q)
-  e-J-snd = solve ℤCommRing
+  e-J-snd _ _ = solve! ℤCommRing
 
   -- The two cone coordinates are the doubled legs.
   e-diff : (p q : ℤ) → (p + q) - (q - p) ≡ p + p
-  e-diff = solve ℤCommRing
+  e-diff _ _ = solve! ℤCommRing
   e-sum  : (p q : ℤ) → (p + q) + (q - p) ≡ q + q
-  e-sum  = solve ℤCommRing
+  e-sum _ _ = solve! ℤCommRing
 
   -- Quadratic invariant.
   e-Qτ : (W R : ℤ) → W · W - (- R) · (- R) ≡ W · W - R · R
-  e-Qτ = solve ℤCommRing
+  e-Qτ _ _ = solve! ℤCommRing
   e-QJ : (W R : ℤ) → (- R) · (- R) - (- W) · (- W) ≡ - (W · W - R · R)
-  e-QJ = solve ℤCommRing
+  e-QJ _ _ = solve! ℤCommRing
   e-Q4 : (p q : ℤ) →
          (p + q) · (p + q) - (q - p) · (q - p) ≡ (p · q) + (p · q) + ((p · q) + (p · q))
-  e-Q4 = solve ℤCommRing
+  e-Q4 _ _ = solve! ℤCommRing
 
   -- Round-trip identities for the equivalence.
   e-halfΦ : (p q : ℤ) → (p + q) - (q - p) ≡ pos 2 · p
-  e-halfΦ = solve ℤCommRing
+  e-halfΦ _ _ = solve! ℤCommRing
   e-recoverq : (p q : ℤ) → (p + q) - p ≡ q
-  e-recoverq = solve ℤCommRing
+  e-recoverq _ _ = solve! ℤCommRing
   e-recoverW : (W m : ℤ) → m + (W - m) ≡ W
-  e-recoverW = solve ℤCommRing
+  e-recoverW _ _ = solve! ℤCommRing
   e-recoverR : (W R : ℤ) → R ≡ W - (W - R)
-  e-recoverR = solve ℤCommRing
+  e-recoverR _ _ = solve! ℤCommRing
   e-shift : (W m : ℤ) → W - pos 2 · m ≡ (W - m) - m
-  e-shift = solve ℤCommRing
+  e-shift _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 3.  Target 2 — Theorem 16.1: J₂ swaps center and relative coordinates
@@ -206,9 +206,9 @@ exchangePreservesCone (W , R) (d , s) =
   subst Pos (sym (e1 W R)) s , subst Pos (sym (e2 W R)) d
   where
   e1 : (W R : ℤ) → W - (- R) ≡ W + R
-  e1 = solve ℤCommRing
+  e1 _ _ = solve! ℤCommRing
   e2 : (W R : ℤ) → W + (- R) ≡ W - R
-  e2 = solve ℤCommRing
+  e2 _ _ = solve! ℤCommRing
 
 -- Theorem 16.4 / Corollary 16.5, the load-bearing half: the one-leg
 -- reflection cannot preserve the cone.  It would demand that W + R and
@@ -218,7 +218,7 @@ thm16-4 (W , R) (_ , s) (_ , s') =
   posAnti (W + R) s (subst Pos (e W R) s')
   where
   e : (W R : ℤ) → (- R) + (- W) ≡ - (W + R)
-  e = solve ℤCommRing
+  e _ _ = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 6.  Target 1 — the integral equivalence Pair ≃ CR
@@ -375,7 +375,7 @@ private
   negsucDouble k = eNeg (pos (suc k)) ∙ cong -_ (sym (pos+ (suc k) (suc k)))
     where
     eNeg : (a : ℤ) → (- a) + (- a) ≡ - (a + a)
-    eNeg = solve ℤCommRing
+    eNeg _ = solve! ℤCommRing
 
   nonNegDouble : (n : ℤ) → NonNeg n → NonNeg (n + n)
   nonNegDouble n (m , p) = (m +ℕ m) , (cong₂ _+_ p p ∙ sym (pos+ m m))

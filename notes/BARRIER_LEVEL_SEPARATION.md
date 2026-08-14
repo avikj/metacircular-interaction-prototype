@@ -1,4 +1,4 @@
-# Windows separate levels, not layers: the Vandermonde behind B2′, and the exact level ($\nu=k-1$) at which finitely many windowed reads stop
+# ~~Windows separate levels, not layers: the exact finite stopping level is $\nu=k-1$~~ Windows separate constant modes; moving modes have a Lagrange frequency response
 
 Closes the one named gap in the honesty ledger of `BARRIER_SMOOTH_TERM.md`,
 row **W6**:
@@ -8,8 +8,9 @@ row **W6**:
 > I have not written."*
 
 Status: theorem-grade for L1–L7 and L9 (all proofs written out below, no
-numerics, no fitted constant); one **conditional** step isolated in L8 and
-booked in the ledger (row Y7). Conventions, notation and hypotheses are those
+numerics, no fitted constant). ~~One conditional finite no-go was isolated in
+L8.~~ That step and L8(b)'s error lower bound are retracted below and in
+`BARRIER_LEVEL_EXTRACTION_CORRECTION.md`. Conventions, notation and hypotheses are those
 of `BARRIER_SMOOTH_TERM.md` §1 and §6 throughout; $a=d$ is **out of scope**
 (struck there, §5.3, and not readmitted here).
 
@@ -27,23 +28,20 @@ different answers.
    are exactly right, and two of its demands turn out to be **vacuous**: every
    level $\nu<0$ is below tolerance for free once $X_0\ge(6\beta_k\Sigma_k\|\phi\|_1/\epsilon)^2$.
    (Theorem L5.)
-2. **The separability statement it invoked — "the levels are separable by
-   finitely many windows" — is TRUE asymptotically and FALSE finitely**, and
-   the failure point is exact. Windows at $P$ distinct scales do give a
-   nonsingular Vandermonde system (Theorem L4: determinant
-   $y^{\binom{k+1}{3}}\prod_{d\ge1}(y^d-1)^{k+1-d}$, $y=e^{\Delta/2}$), but the
-   coefficients of that system are the *layer values*, which are **uniformly
-   almost periodic, not constant**. Comparing two scales therefore commits an
-   error equal to the drift of every level above the target, amplified by that
-   level's burial factor. For $a=\Lambda$, $k\ge2$, the level immediately
-   relevant is $\nu=k-1$, whose layer $\mathcal Z^{[(k-1)\theta_a]}_1$ is
-   arity $1$ and unconditionally oscillating (S1 $(\star)$-discharge), so
-   $$\text{(finite-window error at level }0)\ \gtrsim\ X^{(k-1)/2}\cdot
-   \operatorname{drift}_{k-1}(\Delta),$$
-   and the burial factor $X^{(k-1)/2}$ of `BARRIER_SMOOTH_TERM.md` §4
-   **reappears as an information-theoretic obstruction, not as slack in an
-   estimate.** Finitely many windows reach levels $k$ and $k-1$ and stop.
-   (Theorems L7, L8.)
+2. ~~The separability statement it invoked — "the levels are separable by
+   finitely many windows" — is TRUE asymptotically and FALSE finitely, with
+   finite-window error bounded below by
+   $X^{(k-1)/2}\operatorname{drift}_{k-1}(\Delta)$; finitely many windows
+   reach levels $k$ and $k-1$ and stop.~~
+
+   **Correction (2026-08-14).** L4's Vandermonde is exact for constant
+   coefficients, and L7 is a valid **upper** error bound for moving ones.  L8
+   cannot turn a lower bound on a drift inside that upper bound into a lower
+   bound on actual extraction error.  The exact response of the target-$\nu$
+   extractor to a frequency-$\gamma$ mode at node $\xi_\mu$ is the Lagrange
+   polynomial $\ell_\nu(\xi_\mu e^{i\gamma\Delta})$; see
+   `BARRIER_LEVEL_EXTRACTION_CORRECTION.md`.  This proves generic-spacing
+   leakage, not a universal finite no-go.
 3. **Per dressing:** for $\mu$ the grading is **multiplicity-free** and the
    target sits at the *top* of the ladder — one window suffices, unconditionally,
    and B2 = B2′ = B2″ there. For $\Lambda$ the levels are distinct but their
@@ -54,9 +52,10 @@ different answers.
    separation there is by frequency, and `FAMILY.md` exp19 measured the
    crowding that results. (Theorems L1, L9.)
 
-So the ledger row closes as: *sufficiency proved; separability proved in the
-form in which it holds, and refuted — with the obstruction identified and its
-$X$-dependence stated — in the form in which it does not.*
+So the ledger row splits: *sufficiency is proved; asymptotic separation and
+constant-mode finite separation are proved; the claimed universal finite
+refutation is reopened, with generic-spacing leakage now stated by its exact
+frequency response.*
 
 ---
 
@@ -100,7 +99,7 @@ not a verified reading of it.* With that stated:
   and its known failure mode is exactly the one that bites here: the
   weight-recovery step is a Vandermonde solve whose conditioning degrades like
   (node separation)$^{-(P-1)}$. What is *not* in that literature, and is the
-  content of L7–L8, is the case where the "amplitudes" are themselves
+  setting of L7–L8, is the case where the "amplitudes" are themselves
   almost periodic functions of the sample point — which is what a graded ladder
   of wave layers is.
 - **Bohr's theory** supplies the two facts used: the $\varepsilon$-almost-periods
@@ -371,7 +370,7 @@ Two things this settles, both of which W6 left open.
 
 ---
 
-## 5. Separability: true asymptotically, false finitely
+## 5. Separability: true asymptotically; the universal finite no-go is retracted
 
 Write the read of the family as an exact identity. With
 $$\Lambda_\nu(u):=\bigl\langle w_{L,u},\,e^{\nu u'/2}\mathcal W_{k,\nu}(u')\bigr\rangle
@@ -443,7 +442,7 @@ Apply $\sum_pa_{\nu p}$, use $\sum_pa_{\nu p}\xi_{\nu'}^{p-1}=\delta_{\nu\nu'}$
 $\nu<0$ block is bounded as in Theorem L5 (its $\xi_\nu^{p-1}\le1$ since
 $\xi_\nu<1$ there). $\square$
 
-**Corollary L7′ (what the family reaches, exactly).** The drift bracket
+**Corollary L7′ (constant fibers, and the corrected moving-target boundary).** The drift bracket
 vanishes for every level whose fiber consists of $q=0$ layers only, since then
 $\mathcal W_{k,\nu}$ is constant in $u$ (for $a\ne d$: the $q=0$ layers are
 pure constants $\binom{k}{r,m,0}g_a^rD_a(0)^m/\Gamma(r\theta_a+j+1)$). By
@@ -451,16 +450,18 @@ Theorem L1 those levels are, for $a=\Lambda$, exactly $\nu=\pm k$. Hence:
 
 | target level | what must be annihilated | drift incurred | verdict |
 |---|---|---|---|
-| $\nu=k$ ($\Lambda$) | nothing (it is the top) | none — a *single* window reads it, relative error $O(X^{-1/2})$ | **exact** |
-| $\nu=k-1$ ($\Lambda$) | level $k$ only, which is constant | none | **exact** |
-| $\nu\le k-2$ ($\Lambda$, so in particular $\nu=0$, $k\ge2$) | level $k-1$, whose layer is $\mathcal Z^{[(k-1)\theta_a]}_1$ — arity $1$, oscillating | $\ \asymp X^{(k-1)/2}\operatorname{drf}_{k-1}$ | **obstructed (§5.3)** |
+| $\nu=k$ ($\Lambda$) | nothing (it is the top and constant) | none — a *single* window reads the leading coefficient with relative error $O(X^{-1/2})$ from lower levels | **asymptotically exact** |
+| $\nu=k-1$ ($\Lambda$) | level $k$ is constant, but the **target itself moves** | self-response $\ell_{k-1}(\xi_{k-1}e^{i\gamma\Delta})-1$ | ~~exact~~ **generically distorted; top subtraction leaves lower-order contamination** |
+| $\nu\le k-2$ ($\Lambda$, so in particular $\nu=0$, $k\ge2$) | moving higher levels and the moving target | non-target leakage $\ell_\nu(\xi_\mu e^{i\gamma\Delta})$ plus target self-response minus $1$ | ~~obstructed for every spacing~~ **generic fixed spacings leak/distort; selected spacings open (§5.3)** |
 | $\nu=0$ ($\mu$) | nothing (it is the top, and the fiber is $\{\mathcal Z_k\}$) | none | **exact**, one window |
 | $\nu=0$ ($\lambda$) | nothing — but the fiber is the whole ladder | none, and no separation either | **degenerate (§6)** |
 
 The $k=1$ row of the $\Lambda$ column is worth stating separately: at $k=1$ the
-level above $0$ is $\nu=1$, fiber $\{(1,0,0)\}$, constant — so **the signal
-level is finitely extractable at $k=1$**, which is why every unconditional
-statement in `BARRIER_ERROR_WINDOW.md` U3 lives at $k=1$.
+level above $0$ is $\nu=1$, fiber $\{(1,0,0)\}$, constant.  ~~Therefore the
+signal level is finitely extractable.~~  The higher level can be subtracted
+exactly, but a translated-window Vandermonde still distorts the moving
+level-$0$ target by its self-response.  A single-window subtraction is
+asymptotically exact once negative levels and the remainder are bounded.
 
 ### 5.3 The obstruction, and the regime it bites
 
@@ -478,16 +479,22 @@ statement in `BARRIER_ERROR_WINDOW.md` U3 lives at $k=1$.
 > the $(\star)$-discharge of `BARRIER_SMOOTH_TERM.md` §6, which needs only
 > arity $1$), for every $\gamma$ with $\widehat{\phi^{(k-1)}}(\gamma L)\ne0$.
 >
-> **(b) Consequently the level-$\nu$ extraction error of Theorem L7 is
-> $\ \gtrsim\ \kappa_\nu\,X^{(k-1)/2}\sup_\gamma|\hat c_\gamma\sin(\gamma\Delta/2)|$,
-> against a target of size $O(1)$**: separation of level $\nu\le k-2$ to
-> tolerance $\epsilon$ requires $\Delta$ to be an
-> $\bigl(\epsilon\kappa_\nu^{-1}X^{-(k-1)/2}\bigr)$-almost-period of $C_{k-1}$.
-> The burial factor is the same $X^{(k-1)(\theta_a-1/2)}$ that
-> `BARRIER_SMOOTH_TERM.md` §4 derived as an amplitude ratio: **the amplitude
-> statement and the identifiability statement are the same number.**
+> **(b) ~~Consequently the level-$\nu$ extraction error of Theorem L7 is
+> $\gtrsim\kappa_\nu X^{(k-1)/2}\sup_\gamma
+> |\hat c_\gamma\sin(\gamma\Delta/2)|$.~~  Retracted.**  Theorem L7 is an
+> upper bound obtained after a triangle inequality; a lower bound on one term
+> inside its right-hand side is not a lower bound on the signed extraction
+> error.  With L4's
+> $\ell_\nu(z)=\sum_p a_{\nu p}z^{p-1}$, the exact response to a
+> frequency-$\gamma$ mode in level $\mu$ is instead
+> $$e^{\mu u_0/2}\hat c_\gamma e^{i\gamma u_0}
+>   \ell_\nu(\xi_\mu e^{i\gamma\Delta}).$$
+> Constants are separated exactly.  For $\mu\ne\nu$, a fixed nonzero mode
+> leaks for every non-resonant spacing $e^{i\gamma\Delta}\ne1$, but selected
+> near-resonant spacings require a separate conditioning estimate.
 >
-> **(c) Unconditionally, a positive proportion of spacings are bad.** For
+> **(c) Unconditionally, a positive proportion of spacings have large raw
+> drift.** For
 > $H\ge2/\gamma_1$,
 > $$\frac1H\int_0^H\sup_u\bigl|C_{k-1}(u+\Delta)-C_{k-1}(u)\bigr|^2 d\Delta
 > \ \ge\ \sum_\gamma|\hat c_\gamma|^2\ >\ 0,$$
@@ -495,16 +502,12 @@ statement in `BARRIER_ERROR_WINDOW.md` U3 lives at $k=1$.
 > $\bigl(\tfrac12\sum_\gamma|\hat c_\gamma|^2\bigr)^{1/2}$ has measure at most
 > $H\bigl(1-\sum_\gamma|\hat c_\gamma|^2/(8\|C_{k-1}\|_\infty^2)\bigr)$.
 >
-> **(d) Conditionally, no admissible spacing works.** Almost-periods of the
-> required precision exist (Bohr: they are relatively dense). But if the
-> ordinates are linearly independent over $\mathbb Q$ — the standard hypothesis,
-> quoted and *not* assumed elsewhere in this lane — then by Weyl equidistribution
-> the set of $\Delta\in[0,H]$ that are $\varepsilon$-almost-periods of the
-> $M$ frequencies carrying weight $\ge\varepsilon$ has measure
-> $\asymp\varepsilon^{M}H$, so the least such $\Delta$ exceeds
-> $\varepsilon^{-M}$. With $\varepsilon=\epsilon X^{-(k-1)/2}$ this is
-> superpolynomial in $X$, whereas the family must fit inside the data:
-> $(P^+-1)\Delta\le\log(X/X_0)$. **No admissible spacing separates level $0$.**
+> **(d) ~~Conditionally, no admissible spacing works.~~  Retracted.**  Under
+> linear independence, Weyl equidistribution can estimate the asymptotic
+> **measure** of simultaneous almost-periods.  Such a density estimate does
+> not bound the first return and cannot prove that a prescribed finite
+> interval contains none.  The open quantitative question must also include
+> the blow-up of the inverse-Vandermonde coefficients as $\Delta\to0$.
 
 *Proof.* (a) $D(u):=C_{k-1}(u+\Delta)-C_{k-1}(u)$ is u.a.p. with Bohr
 coefficients $\hat c_\gamma(e^{i\gamma\Delta}-1)$; a Bohr coefficient is a mean
@@ -512,21 +515,23 @@ of $D(u)e^{-i\gamma u}$ and so is bounded by $\sup|D|$, and
 $|e^{i\gamma\Delta}-1|=2|\sin(\gamma\Delta/2)|$. A u.a.p. function attains at
 least half its supremum on a relatively dense set (Bohr), and
 $\operatorname{drf}_{k-1}\ge|D(u_0)|$ for the $p=2$ member of the family. (b)
-Insert (a) into the drift bracket of Theorem L7, keeping only $\nu'=k-1$, and
-compare with $|e^{\nu u_0/2}C_\nu(u_0)|$ in level-$0$ normalisation. (c)
+The former inference from L7 is withdrawn.  Expanding each Bohr mode before
+applying $\sum_p a_{\nu p}$ gives the displayed Lagrange response; this is
+proved algebraically in `BARRIER_LEVEL_EXTRACTION_CORRECTION.md` and checked in
+`Pairfield.VandermondeFrequencyResponse`. (c)
 Bohr–Parseval gives $\sup_u|D|^2\ge\sum_\gamma|\hat c_\gamma|^2|e^{i\gamma\Delta}-1|^2$;
 average in $\Delta$ using $\frac1H\int_0^H|e^{i\gamma\Delta}-1|^2d\Delta
 =2\bigl(1-\frac{\sin\gamma H}{\gamma H}\bigr)\ge1$ for $\gamma H\ge2$; then
-Chebyshev against the upper bound $4\|C_{k-1}\|_\infty^2$. (d) is the quoted
-equidistribution statement plus the mean-gap bound; it is the **only**
-conditional step in this note. $\square$
+Chebyshev against the upper bound $4\|C_{k-1}\|_\infty^2$. (d) The quoted
+equidistribution statement supplies density only; the claimed first-return
+consequence is withdrawn. $\square$
 
-**Where it bites, exactly.** $a=\Lambda$, every $k\ge2$, every target level
-$\nu\le k-2$, and every window family whose scale spread is confined to the
-data range $[\,X_0,X\,]$ — which is every family a WL observer can build, since
-`BARRIER.md`'s class reads $a\!\restriction\![1,X]$. It does **not** bite at
-$k=1$; it does **not** bite for $\mu$ at the level that matters; and for
-$\lambda$ it is superseded by a worse obstruction (§6).
+**~~Where it bites, exactly: every finite window family for $a=\Lambda$,
+$k\ge2$, and target $\nu\le k-2$.~~**  Correction: the exact response proves
+asymptotically amplified leakage for generic fixed non-resonant spacings.  It
+does not exclude every spacing in the finite data range.  It still does not
+arise at $k=1$ or for $\mu$ at its top level; for $\lambda$ the rank-one
+degeneracy of §6 remains exact.
 
 **Why the other knob does not help.** One might vary the *span* $L$ at fixed
 top $X$ instead of the centre. That knob is exponentially weak. By Lemma L2 the
@@ -541,7 +546,8 @@ $$|\det M|\ \le\ P!\,\|E\|_\infty^{P}\ +\ P\,(P-1)!\,\|A\|_\infty\|E\|_\infty^{P
 \qquad \|E\|_\infty\le \tfrac{2}{\nu_{\min}L_{\min}}e^{-\nu_{\min}L_{\min}/2}.$$
 **Span variation separates only at strength $e^{-\nu_{\min}L/2}$: the lever
 vanishes exponentially in the span.** Moving the anchor — i.e. moving the
-centre — is the only strong lever, and Theorem L8 says what it costs.
+centre — is the only strong lever. Corrected L8 gives its exact modal response,
+but not a universal finite cost lower bound.
 
 ---
 
@@ -595,7 +601,7 @@ route is resolution-limited in a way that has already been measured".
 | H5 | $k\le2j$ | absolute convergence of every $C_\nu$, hence u.a.p. (S2) | (5.1) is not a convergent expansion |
 | **H6′** | $\eta>(k-1)(\theta_a-\tfrac12)-\tfrac12$ | pushes $\mathcal R_k$ below level $0$ so the signal level is readable at all; **replaces H6 for $k\ge3$** | $\mathcal R_k$ sits at level $k-2-2\eta\ge0$ and no separation statement about level $0$ is meaningful |
 | $(\dagger)$ | resolution of the tapered window is $\max(2\pi/L,\pi|\nu|)$, not $2\pi/L$ | Lemma L2(2): B2″'s level-$\nu$ conditions are conditions at the coarser resolution | conditions at level $\nu$ over-claim their resolving power by the factor $1+|\nu|L/2$ |
-| $(\ddagger)$ | linear independence of the ordinates over $\mathbb Q$ | **only** Theorem L8(d) | L8(a)–(c) survive: the obstruction holds for a positive proportion of spacings, but a conspiratorial $\Delta$ inside the data range is not excluded |
+| ~~$(\ddagger)$~~ | ~~linear independence of the ordinates over $\mathbb Q$~~ | ~~Theorem L8(d)~~ | **Retracted:** equidistribution density does not yield the claimed first-return bound. No surviving theorem in this note uses LI. |
 
 Nothing here needs $(\star)$ of `BARRIER_SMOOTH_TERM.md` §6: the obstructing
 layer has arity $1$, whose Bohr coefficients are unconditionally nonzero.
@@ -608,19 +614,18 @@ layer has arity $1$, whose Bohr coefficients are unconditionally nonzero.
 |---|---|---|
 | B2′ **sufficiency** | not claimed (W6) | **proved** as B2″ (Theorem L5), with the test function corrected to the anchored taper $\widehat{w^{(\nu)}}$ and the levels $\nu<0$ shown vacuous for $X_0\ge(6\beta_k\Sigma_k\|\phi\|_1/\epsilon)^2$ |
 | B2′ **necessity** | asserted from "the observer may vary $X$" | **proved** in that regime (Theorem L6, Corollary L6′), and sharpened: at fixed tolerance the positive levels must agree **exactly** in the resolved band |
-| "levels separable by finitely many windows" | unwritten | **written, and split**: nonsingular Vandermonde with explicit determinant and inverse (L4); exact separation down to $\nu=k-1$ for $\Lambda$, to $\nu=0$ for $\mu$ (L7′); **false below $\nu=k-2$ for $\Lambda$**, with the obstruction equal to the burial factor $X^{(k-1)/2}$ (L8) |
+| "levels separable by finitely many windows" | unwritten | **written, and corrected**: nonsingular Vandermonde with explicit determinant and inverse (L4); exact separation only for constant modes, with the $\Lambda$ top level asymptotically isolated and the one-window $\mu$ target un-mixed at level $0$; ~~exact through $\nu=k-1$ and false below for every family~~ **moving targets have self-response and non-target modes leak at generic spacings; selected quantitative separation is open** (corrected L7′/L8) |
 | the window family | unspecified | $P^+=|\mathcal N^{\ge0}|$ log-translates of one window, spacing $\Delta$, nodes $\xi_\nu=e^{\nu\Delta/2}$: **$k+1$ windows for $\Lambda$, one for $\mu$ and $\lambda$**, stable under shift depth (Corollary L1′) |
 | $\lambda$ | "no scale separation, separate by frequency" (S1 §5.1) | **theorem**: the Vandermonde has all nodes equal, rank $1$; no family of any size separates the $r$-grading (L9), and the frequency route is the resolution limit exp19 measured |
 | which dressing to probe with | $\mu$ (empty $\mathrm{Smooth}$) | $\mu$, on a second and independent ground: multiplicity-free grading, target at the top of the ladder, one window, unconditional |
 | shift depth | H6, $\eta<\tfrac12$ | **H6′ required for $k\ge3$**; harmless, since $\mathcal N^{\ge0}$ is shift-stable |
 
-**The row is discharged.** What is *not* done: Theorem L8(d) is conditional on
-linear independence of the ordinates (row Y7); the unconditional part L8(c)
-gives only "a positive proportion of spacings fail", not "all". And the
-question L8 raises but does not answer — whether the arity-$1$ layer at level
-$k-1$ can be *modelled and subtracted* rather than annihilated, which would
-reopen level $0$ to finitely many windows — is a new `PROVE` item, stated in
-row Y10.
+**The sufficiency row is discharged; the universal finite-separation row is
+reopened.**  Corrected L8 gives an exact frequency-response polynomial and
+generic-spacing leakage.  It does not rule out a carefully selected spacing
+inside the data range.  Modelling/subtracting the arity-$1$ layer remains one
+route; an effective simultaneous-return estimate balanced against
+inverse-Vandermonde conditioning is another.
 
 ---
 
@@ -634,7 +639,7 @@ row Y10.
 | Y4 | Lemma L3, Theorem L4 (Vandermonde, determinant, inverse norms) | **Proved from scratch**, Descartes/Rolle induction plus the classical Vandermonde formula; the closed form $y^{\binom{k+1}{3}}\prod_{d}(y^d-1)^{k+1-d}$ and $\kappa_\nu=\prod_{\nu'\ne\nu}\frac{1+\xi_{\nu'}}{|\xi_\nu-\xi_{\nu'}|}$ are exact, not estimated. The total positivity of generalized Vandermonde matrices, and Prony-method conditioning, are **search-summary grade prior art** (§0) — no document was fetched; nothing below depends on them, since the proofs are written. |
 | Y5 | Theorem L5 (B2″ sufficiency) | **Proved** under H1–H5, H6′. It is S1 + L2 + triangle inequality; the only substantive corrections to B2′ are the tapered test function and the vacuity of the $\nu<0$ conditions. The constants $\beta_k=(1+|g_a|+|D_a(0)|)^k$ and $\Sigma_k$ are closed forms, and every threshold is quoted with its $X$-dependence (`HOLOGRAM.md` §7). |
 | Y6 | Theorem L6 / Corollary L6′ (peeling, necessity) | **Proved** given that each $C_\nu$ is u.a.p. and bounded (S2 + Bohr). Uses two textbook facts about uniformly almost periodic functions — relative density of $\varepsilon$-almost-periods, and $C\to0\Rightarrow C\equiv0$ — **quoted from memory and corroborated by search summary only; no source was fetched** (egress is fetch-blocked). Both are standard Bohr theory and neither is delicate. |
-| Y7 | Theorem L8(d) — "no admissible spacing works" | **Conditional**, on linear independence of the ordinates over $\mathbb Q$, and even then it uses Weyl equidistribution and a mean-gap bound rather than an effective discrepancy estimate: it shows the *measure* of good spacings in $[0,H]$ is $\asymp\varepsilon^MH$, hence that the least good spacing is typically superpolynomial in $X$, **not** that none exists below $\log(X/X_0)$. Removing the condition would need an effective simultaneous-Diophantine statement about zeta ordinates, which is not available. **This is the exact remaining gap in the note.** Parts (a)–(c) are unconditional. |
+| Y7 | Theorem L8(b),(d) | **Corrected/retracted.**  ~~A drift lower bound inside L7's upper bound gives an extraction-error lower bound; under LI, small density of good spacings implies no admissible spacing exists.~~  Neither inference is valid.  The exact replacement is $\ell_\nu(\xi_\mu e^{i\gamma\Delta})$ per Bohr mode (`BARRIER_LEVEL_EXTRACTION_CORRECTION.md`); it proves generic-spacing leakage.  L8(a) and L8(c) survive only as statements about raw drift.  Universal quantitative finite impossibility is open. |
 | Y8 | The span-variation remark (§5.3) | **Proved for the boxcar**, where $\widetilde\Theta_\phi(\theta)=\theta^{-1}(1-e^{-\theta})$ is exact (Lemma 5.4/Lemma 6). The rank-one determinant expansion is the standard multilinearity identity. For a general profile I have **not** shown the leading part is rank one, only that it is $\frac{2}{\nu L}(1+o(1))$ for a profile with $|\phi(t_+-v)|\sim c$; the remark should not be quoted beyond the boxcar without that check. |
 | Y9 | Theorem L9 ($\lambda$) | **Proved, trivially, and that is the point**: $\vartheta_\lambda=0$ makes every node equal to $1$. The claim that frequency separation is *also* partial is argued (shared frequencies across arities differing by $2$) but not quantified; the quantitative statement in the corpus is exp19's **measurement**, quoted as corroboration and explicitly not as evidence — per `CLAUDE.md`, the theorem here is the derivation, and the measurement is a check on it. |
 | Y10 | What is not attempted | (i) Modelling and subtracting the level-$(k-1)$ arity-$1$ layer instead of annihilating it — the one route that could reopen finite separation of level $0$, and a new `PROVE` item; (ii) mixed dressings across the $k$ variables (exp18's $\Lambda\otimes\mu$), where the level formula becomes $\nu=\sum_i\nu_i$ and Theorem L1's collision law needs redoing per assignment; (iii) $a=d$, out of scope by H3/H4 and struck in `BARRIER_SMOOTH_TERM.md` §5.3 — **not readmitted here**. |

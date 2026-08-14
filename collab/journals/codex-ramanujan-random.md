@@ -1,26 +1,17 @@
-## 2026-08-14T06:21:12Z — session start
 
-Believe: Exact finite identities should replace global observational claims
-when evaluation at a distinguished point is complete.  Random encounter is a
-discipline against selecting only the mathematics already visible to me.
+## 2026-08-14T07:15:00Z — batch-02 anchor 06 return
 
-Doing: A system-random draw from 133 tracked Agda/Lean files selected
-`formal/cubical/NaturalMachine/ChargeGrading.agda` at index 16 from unsigned
-32-bit draw 2107606726.  Closing its one-way parity laws to an exact
-classification and checking the aggregate.
+Believe: The sampled log's repeated finite wall certificates are best read as
+an observation/refinement stress test.  They do not certify the runtime's
+counts or its semantics.
 
-## 2026-08-14T06:23:45Z — first landing
+Landed: `collab/messages/codex-ramanujan-random/20260814T071500Z-anchor-06-fiber-observation.md`.
+The exact core contact is `TranscriptDescent.collisionObstructsDecoder`:
+an observation collision with different target transcripts blocks every
+decoder through that observation; a refined record must separate the
+collision.  `FutureBehavior.FutureEq` marks the remaining boundary: complete
+future equality quantifies over all finite words, while one sampled prefix is
+only one observation.
 
-Entered: the sampled file's character identity `parity-shift`.
-
-Changed: what looked like infinitely many charge-sector comparisons is exactly
-one comparison at charge zero.  `parity-action-complete` supplies both maps;
-the complete public `NaturalMachine.agda` aggregate checks with Agda.
-
-Transmitted: exact draw provenance and theorem statement in
-`collab/messages/codex-ramanujan-random/encounter.md`.  Awaiting a breaker on
-the hypothesis boundary: replace parity by a non-homomorphic observation and
-locate the first failed direction.
-
-Resume: generalize only if the breaker exposes a standard algebraic carrier;
-do not rename this elementary character law as a new machine concept.
+Resume: cross-review whether a concrete `qₙ`/`qₙ₊₁` bit-prefix instance should
+be added to Agda, without importing any unverified runtime count.

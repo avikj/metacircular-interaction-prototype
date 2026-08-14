@@ -17,8 +17,8 @@
 -- The first half of that sentence is not accurate and the diagnosis in
 -- the second half is the wrong one.  §4's parameter is not "a family of
 -- self-equivalences": it is `A ≃ A`, which IS the group object, and
--- cubical v0.5 ships it as `Cubical.Algebra.SymmetricGroup`
--- `Symmetric-Group A isSetA` — `1g = idEquiv`, `_·_ = compEquiv`,
+-- cubical ships it as `Cubical.Algebra.SymmetricGroup`
+-- `SymGroup A isSetA` — `1g = idEquiv`, `_·_ = compEquiv`,
 -- `inv = invEquiv`, i.e. literally the three operations §4's three
 -- lemmas are stated at.  No group object had to be packaged.
 --
@@ -27,7 +27,7 @@
 -- below, whose entire proof is §4's three lemmas cited unchanged.
 --
 --   (i)  `isSet A`, so that `A ≃ A` carries a group structure at all
---        (`Symmetric-Group` demands it; without it the automorphisms
+--        (`SymGroup` demands it; without it the automorphisms
 --        form a higher group and "subgroup" needs coherence, not
 --        closure).
 --   (ii) `isSet (Str A)`, so that `Stab g = subst Str (ua g) s ≡ s` is
@@ -81,7 +81,7 @@ open import Cubical.Foundations.Powerset using (ℙ)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.Group.Base using (Group)
 open import Cubical.Algebra.Group.Subgroup using (isSubgroup ; Subgroup)
-open import Cubical.Algebra.SymmetricGroup using (Symmetric-Group)
+open import Cubical.Algebra.SymmetricGroup using (SymGroup)
 
 open import NaturalMachine.DefectCalculus using (Stab ; stab-id ; stab-∘ ; stab-inv)
 
@@ -94,7 +94,7 @@ module _ (Str : Type ℓ → Type ℓ) {A : Type ℓ}
 
   private
     Aut : Group ℓ
-    Aut = Symmetric-Group A isSetA
+    Aut = SymGroup A isSetA
 
   -- (ii) made visible: `Stab` becomes a subSET only because `Str A` is
   -- a set.  This line is the whole content of the correction.
@@ -102,7 +102,7 @@ module _ (Str : Type ℓ → Type ℓ) {A : Type ℓ}
   StabP g = Stab Str s g , isSetStrA _ _
 
   -- The three fields are `DefectCalculus`'s three lemmas, unchanged.
-  -- `1g`, `_·_`, `inv` of `Symmetric-Group` reduce to `idEquiv`,
+  -- `1g`, `_·_`, `inv` of `SymGroup` reduce to `idEquiv`,
   -- `compEquiv`, `invEquiv`, so no bridging lemma is needed either.
   isSubgroupStab : isSubgroup Aut StabP
   isSubgroup.id-closed  isSubgroupStab       = stab-id Str s

@@ -76,7 +76,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- §1  Configurations
@@ -130,32 +130,32 @@ SQ (x ∷ xs) = suc x · suc x + SQ xs
 
 private
   swap3 : (a b c : ℕ) → a + (b + c) ≡ b + (a + c)
-  swap3 = solve
+  swap3 _ _ _ = solveℕ!
 
   sqRearr : (a s k q e : ℕ)
           → (a + a + s) + ((k + (e + e)) + q)
           ≡ (k + ((a + e) + (a + e))) + (s + q)
-  sqRearr = solve
+  sqRearr _ _ _ _ _ = solveℕ!
 
   midSwap : (a b c d : ℕ) → (a + b) + (c + d) ≡ (a + c) + (b + d)
-  midSwap = solve
+  midSwap _ _ _ _ = solveℕ!
 
   tripleSplit : (k x : ℕ)
               → (k + x) + ((k + x) + (k + x))
               ≡ (k + (k + k)) + (x + (x + x))
-  tripleSplit = solve
+  tripleSplit _ _ = solveℕ!
 
   sqPlus2K : (k x q : ℕ)
            → ((k + (x + x)) + q) + (k + k)
            ≡ (k + (k + k)) + (x + (x + q))
-  sqPlus2K = solve
+  sqPlus2K _ _ _ = solveℕ!
 
   doubleSplit : (k x : ℕ) → (k + x) + (k + x) ≡ (k + k) + (x + x)
-  doubleSplit = solve
+  doubleSplit _ _ = solveℕ!
 
   sqPlusOnes : (k x q s : ℕ)
              → ((k + (x + x)) + q) + s ≡ (k + (q + s)) + (x + x)
-  sqPlusOnes = solve
+  sqPlusOnes _ _ _ _ = solveℕ!
 
 private
   ≡≤ : {a b c : ℕ} → a ≡ b → b ≤ c → a ≤ c

@@ -92,6 +92,22 @@ LEDGER=collab/orchestration/machine-ledger.tsv
 FIBERS=collab/orchestration/open-fibers.md
 STAMP() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 
+# GNU `timeout` is not present on the macOS host used by this workspace.  A
+# missing watchdog must not turn every mathematical check into exit 127.
+# Prefer a real watchdog where available; otherwise run the check directly and
+# preserve its actual exit code.  The outer supervisor still keeps the loop
+# alive, while the ledger records genuine Agda results instead of command
+# lookup failures.
+run_checked() {
+    if command -v timeout >/dev/null 2>&1; then
+        timeout 900 "$@"
+    elif command -v gtimeout >/dev/null 2>&1; then
+        gtimeout 900 "$@"
+    else
+        "$@"
+    fi
+}
+
 mkdir -p collab/orchestration
 [ -f "$LEDGER" ] || printf 'utc\tcycle\tmodules\tgreen\tfibers\taggregate\twalk_frontier\n' > "$LEDGER"
 
@@ -109,7 +125,7 @@ phase_gate() {
     GREEN=0; FIBER=0; FIBER_LIST=""
     while IFS= read -r f; do
         rel="${f#"$CUBICAL"/}"
-        ( cd "$CUBICAL" && LC_ALL=C.UTF-8 timeout 900 agda -i . "$rel" ) >/dev/null 2>&1
+        ( cd "$CUBICAL" && LC_ALL=C.UTF-8 run_checked agda -i . "$rel" ) >/dev/null 2>&1
         if [ $? -eq 0 ]; then
             GREEN=$((GREEN+1))
         else
@@ -123,7 +139,7 @@ phase_gate() {
     # refutations as fibers would be a false red, which is the same
     # failure as a false green with the sign flipped.
 
-    ( cd "$CUBICAL" && LC_ALL=C.UTF-8 timeout 900 agda -i . NaturalMachine.agda ) >/dev/null 2>&1
+    ( cd "$CUBICAL" && LC_ALL=C.UTF-8 run_checked agda -i . NaturalMachine.agda ) >/dev/null 2>&1
     AGG=$?
 }
 

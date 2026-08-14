@@ -2,6 +2,7 @@ import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.MyhillNerodeAdapter
 import Pairfield.RankOneSmith2x2
+import Pairfield.FiniteChuCalibration
 
 /-!
 # Checked capability joints
@@ -19,6 +20,41 @@ universe u v
 /-- A typed edge in the capability graph. -/
 abbrev Edge (source : Sort u) (target : source → Sort v) :=
   (x : source) → target x
+
+/-! ## Chu calibration → executable adaptive capability -/
+
+/-- The executable interface exposed by a finite Chu object: one can run a
+finite action word and read the resulting response.  The interface keeps the
+pairing available as a certified observation predicate rather than silently
+turning it into an unproved quotient. -/
+structure ExecutableChuCapability (C : FiniteChu) where
+  run : C.state → List C.action → C.state
+  read : C.state → C.response
+  run_nil : ∀ x, run x [] = x
+  run_cons : ∀ x a w, run x (a :: w) = run (C.step x a) w
+  read_pair : ∀ x r, C.pair x r ↔ read x = r
+
+/-- A checked Chu datum is an executable capability.  This is the safe link:
+it transports only the supplied dynamics and pairing, and does not infer a
+selection policy or a finite quotient. -/
+def chuToExecutableCapability (C : FiniteChu) : ExecutableChuCapability C where
+  run := fun x w => w.foldl C.step x
+  read := C.observe
+  run_nil := by intro x; rfl
+  run_cons := by
+    intro x a w
+    induction w generalizing x with
+    | nil => rfl
+    | cons b w ih =>
+        simp only [List.foldl]
+        exact ih (C.step x a)
+  read_pair := by
+    intro x r
+    exact (show C.pair x r ↔ C.observe x = r from
+      (by rfl))
+
+def bitChuCapability : ExecutableChuCapability FiniteChu.bit :=
+  chuToExecutableCapability FiniteChu.bit
 
 /-! ## Smith producer → presentation → certificate → checker -/
 

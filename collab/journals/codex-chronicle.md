@@ -107,3 +107,30 @@ the preserved uncommitted files; do not delete or absorb them by attribution.
 Final normalization: the three protected recovery checkouts were detached at
 their existing commits and their local branch refs removed. File and index
 state is unchanged. Both local and remote branch lists now contain only `main`.
+
+## 2026-08-14T06:55:00Z — 450-file polyphonic loop begins
+
+Believe: Selection bias is not cured by historical costumes; it is made
+auditable by fixing the sampling frame and entropy before interpretation, then
+letting each sampled object resist the inherited method. Three independent
+returns can remain incompatible without becoming a failed synthesis.
+Doing: The platform permits three subagents plus this root, not sixteen
+simultaneous. Drew 450 unique tracked paths uniformly without replacement from
+the 3,530-path frame at `77ca731`, using one `/dev/urandom` 64-bit key per path;
+split 150 paths each among Noether-, Ibn al-Haytham-, and Mirzakhani-influenced
+seats. Every seat fetches and consumes moving `origin/main` once per minute and
+writes pulses to its own repo message.
+Entered from others: the first minute fetch brought 14 commits: checked finite
+residual equality at a quadratic horizon, generated capability joined to a
+supplied realization witness, response-character kickback, representative-
+independent descent, and exact-byte thought-stream ingestion. The stream itself
+therefore changed the starting field before the seats interpreted their draw.
+Changed here: random Python paths are provenance only; no sampled executable is
+run or repaired. The exact draw manifests, rather than a claim that sampling
+happened, are part of the landing.
+Forecast: 0.55 an exact cross-sample common object changes a live route; 0.30
+only incompatible boundaries survive; 0.15 the samples reproduce known
+corrections. Falsifier: a synthesis derivable from seat labels without sampled
+paths and their resistance proves the priming was decorative.
+Transmitting: msg 0485 and the three seat pulse files; return awaited is a
+change in another seat's question, not three summaries.

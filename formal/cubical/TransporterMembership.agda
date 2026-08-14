@@ -39,11 +39,11 @@ private
   dS : (s a b c e : R)
      → (s · a) · (s · e) - (s · b) · (s · c)
        ≡ (s · s) · (a · e - b · c)
-  dS = solve ℤCommRing
+  dS _ _ _ _ _ = solve! ℤCommRing
   dA : (a b c e : R) → e · a - (- b) · (- c) ≡ a · e - b · c
-  dA = solve ℤCommRing
+  dA _ _ _ _ = solve! ℤCommRing
   regE : (x y : R) → (x · y) · (x · y) ≡ (x · x) · (y · y)
-  regE = solve ℤCommRing
+  regE _ _ = solve! ℤCommRing
 
 detScal : (s : R) (x : M) → det (scal s x) ≡ (s · s) · det x
 detScal s (a , b , c , e) = dS s a b c e

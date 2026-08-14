@@ -43,16 +43,16 @@ scal s (a , b , c , e) = (s · a , s · b , s · c , s · e)
 private
   eL : (s a b a' c' : R)
      → (s · a) · a' + (s · b) · c' ≡ s · (a · a' + b · c')
-  eL = solve ℤCommRing
+  eL _ _ _ _ _ = solve! ℤCommRing
   eR : (s a b a' c' : R)
      → a · (s · a') + b · (s · c') ≡ s · (a · a' + b · c')
-  eR = solve ℤCommRing
+  eR _ _ _ _ _ = solve! ℤCommRing
   eS : (s t a : R) → s · (t · a) ≡ (s · t) · a
-  eS = solve ℤCommRing
+  eS _ _ _ = solve! ℤCommRing
   -- ℤ reduction facts (probed): 0r·a, 1r·a, a+0r reduce; the mirrored
   -- forms are stuck — entry lemmas are written against normal forms
   eE : (d c : R) → 0r + d · c ≡ d · c
-  eE = solve ℤCommRing
+  eE _ _ = solve! ℤCommRing
 
 scalL : (s : R) (x y : M) → mul (scal s x) y ≡ scal s (mul x y)
 scalL s (a , b , c , e) (a' , b' , c' , e') i =
@@ -81,9 +81,9 @@ diaR d (a , b , c , e) i =
   ( iRa d a b i , iRb d a b i , iRa d c e i , iRb d c e i )
   where
   iRa : (d a b : R) → a · d + b · 0r ≡ d · a
-  iRa = solve ℤCommRing
+  iRa _ _ _ = solve! ℤCommRing
   iRb : (d a b : R) → a · 0r + b · d ≡ d · b
-  iRb = solve ℤCommRing
+  iRb _ _ _ = solve! ℤCommRing
 
 congScal : {s t : R} (x : M) → s ≡ t → scal s x ≡ scal t x
 congScal x p i = scal (p i) x
