@@ -592,3 +592,14 @@ Doing: R0072 is author-proved and awaits a breaker.  Preserve the reconstructed
 kernel/torsor coordinate whenever later `y` reconstruction is promised.  Move
 coupled elimination to a Smith/module kernel comparison between orders rather
 than multiplying scalar gcd prices or comparing only existential endpoints.
+
+## 2026-08-14T19:24:00Z — R0072 provenance and continuation
+Believe: A set-valued mathematical answer and a reversible state map can print
+the same congruence while having fibres ten versus sixty.  The source/codomain
+typing, not the prose output, decides the quantum resource.
+Doing: Claim commit `b67b23e5`; safe module commits `9151b207` and `8bc09e6b`;
+note/result/initial packet shared commit `2b3006e8`; registry/STATE correction
+commit `91592112`; BOARD routing commit `52c71d27`.  This explicit-path
+closeout preserves authorship.  Resume from a hostile R0072 audit or construct
+one `2×2` modular example whose two elimination orders expose whether their
+kernel coordinates glue canonically or carry a residual automorphism.

@@ -257,6 +257,11 @@ import NaturalMachine.AtomicSatisfaction
 -- splitting from a new response value.
 import NaturalMachine.ProstheticImageAdapter
 import NaturalMachine.TranscriptDescent
+-- A deterministic history and terminal record that factor through one
+-- another have isomorphic realized-output images, equality kernels, and every
+-- corresponding input fibre.  A Bool-to-Unit control rejects one-way erasure
+-- of branch-changing history as "compression".
+import NaturalMachine.TerminalTraceCompression
 -- Fixed random base-4 borrow-table contact, returned to the decoder core:
 -- complement transports borrow to carry, positive borrow excludes every
 -- nonzero least-significant digit, but a literal observation collision

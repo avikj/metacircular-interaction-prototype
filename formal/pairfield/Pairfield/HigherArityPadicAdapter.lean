@@ -18,8 +18,8 @@ is forced by its positivity bound. -/
 theorem padicValNat_lt_exponent_of_pos_of_lt
     {p r k : ℕ} [Fact p.Prime] (hkpos : 0 < k) (hklt : k < p ^ r) :
     padicValNat p k < r := by
-  rw [Nat.lt_iff_not_le]
-  intro hle
+  by_contra hnot
+  have hle : r ≤ padicValNat p k := Nat.le_of_not_gt hnot
   have hdiv : p ^ r ∣ k :=
     (padicValNat_dvd_iff_le (p := p) (n := r) hkpos.ne').mpr hle
   exact (not_lt_of_ge (Nat.le_of_dvd hkpos hdiv)) hklt
@@ -88,7 +88,6 @@ theorem three_pow_three_sub_six_control :
   · rw [show 6 = 3 * 2 by norm_num,
       padicValNat.mul (by norm_num) (by norm_num), padicValNat_self,
       padicValNat.eq_zero_of_not_dvd (by norm_num)]
-    norm_num
 
 /-- Both strict endpoints are genuinely excluded.  At `k=0` and `k=p^r`,
 Mathlib's convention `padicValNat p 0 = 0` makes the proposed equality false.
