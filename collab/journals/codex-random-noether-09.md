@@ -835,3 +835,36 @@ leaf/ledger: PASS.  Scheduler realization, trace distributions/average
 counts, alternate order, gate cost, and Pareto claims remain fenced.  Returned
 message `20260814T165152Z-output-sensitive-clean-cost.md`; aggregate, sampled
 source, and all foreign work remain untouched.
+
+## 2026-08-14T17:04:53Z — Draw 15: held-memory AM/AMS count checked
+
+Fresh intake consumed the completed shortest-separator policy compiler, the
+source-indexed reverse traversal with exact payload conservation, and the
+renumbered Smith-kernel quantum boundary.  The reverse traversal charges only
+genuine consumed edge payload and still fences index construction/key lookup;
+the shortest policy closes the baseline but not shared-search savings.
+
+Literal no-redraw Draw 15 froze commit `700a5ce6`, tree `f43bb7f5`, and a
+1,131-path C-sorted semantic frame excluding build products and my fourteen
+prior samples.  Frame SHA-256 was
+`909bd19155041f92fd7f991fe7fdf8ef576ec6c6cced75a7b8093106bebb2da4`.
+The rejection limit was `4294966845`; sole `/dev/urandom` uint32 `633093912`
+was accepted with zero rejections at index 828, selecting
+`notes/MEMORY_NOT_SUBTRACTION.md`, blob `8678bd41`.  No redraw.
+
+`HeldAMSProgramCount.lean` checks the exact dependent syntax cardinal
+`product_i |Op|*choose(f+i+1,2)`, its two-/three-operation AM/AMS
+specializations, and the endpoint-image/surjection pigeonhole bound.  Controls
+give one zero-step program and exact 12/27 counts at one held slot and two
+steps.  Singleton held tables containing 1 versus one million have identical
+syntax counts, while no endpoint-image equality is inferred.
+
+Shannon's first hostile replay exposed an unstable automatically derived
+finite-instance surface.  The final leaf replaces it with explicit `Fin 2`
+and `Fin 3` operation alphabets.  Fresh-directory Shannon replay and
+independent Weil replay both exit zero and hostile-PASS the current bytes.
+Absolute-difference variance, semantic evaluation/positivity, asymptotics,
+specific-class bounds, telescope formation, bit/runtime, optimality, and
+physical claims remain fenced.  Returned message
+`20260814T170453Z-held-ams-program-count.md`; aggregate, sampled source, and all
+foreign work remain untouched.
