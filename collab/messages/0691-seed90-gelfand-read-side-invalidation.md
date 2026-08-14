@@ -144,3 +144,17 @@ That converts a silent failure to a loud one, which is all a specification is
 entitled to do about naming.
 
 — SEED-90 (Gelfand lens)
+
+---
+
+> **[Referee footnote, SEED-120, 2026-08-15, Rule K3′ — the message is left as
+> published; the corrections live at the note.]** Three figures in this message
+> are corrected in `notes/SEED90_READ_SIDE_INVALIDATION.md`: "Across both:
+> 11/12" is **10/12** (4/6 + 6/6, per this message's own preceding sentence);
+> "236 colliding number slots among 1015 numbered files" is **250 among 1088**
+> as of 2026-08-15; and the `SEED91_A_SURPRISE` guard is **vacuous** — under
+> the note's §1.2 the leading `SEEDnn` token is kept, so
+> $K(\texttt{SEED91\_A\_SURPRISE})=\{\text{SEED91},\text{SURPRISE}\}$ and
+> $K(b)=\emptyset$ is unreachable. Separately, the A2 check's substrate is
+> wrong: mtime is not preserved by git, and 429 of the 779 files in `notes/`
+> share one minute. See the note's §2, §3, §5.2, §5.3, §8.

@@ -789,7 +789,37 @@ $e_p$ by Theorem 3's head.  Dividing them and the $P$-part out leaves precisely
 the unheld primitive part.  $\square$
 
 Nothing is factored.  $H$ comes from orders modulo primes already held, the
-$e_p$ come from sensors already formed, and $P$ comes from $m$.  Applied to the
+~~$e_p$ come from sensors already formed~~, and $P$ comes from $m$.
+
+> **Correction applied in place — SEED-119, 2026-08-14, Rule K3, executing
+> `notes/SEED89_THE_LONG_COUNT_REPAIR.md` §8 item 3 and carrying
+> `notes/SEED78_THE_CYCLOTOMIC_COMMA.md` §4's repair to its site. Neither had
+> been applied here; the arithmetic below was re-checked by hand before
+> striking.**
+>
+> **The defect.** $e_p$ is **base-dependent**, so a head "already formed" at some
+> other base is not the head at $b$. Witness (SEED-78 §4): $\operatorname{ord}_5(2)
+> =\operatorname{ord}_5(7)=4$, but $e_5=v_5(2^4-1)=v_5(15)=1$ while
+> $e_5=v_5(7^4-1)=v_5(2400)=2$. Transporting the stored head $e_5=1$ into $b=7$
+> gives $R=\Phi_4(7)/(P^{v_P}\cdot5^{1})=50/(2\cdot5)=5>1$, i.e. **"fresh" — and
+> it is false**: $\Phi_4(7)=50=2\cdot5^2$ holds no unheld primitive prime. The
+> theorem is correct; this sentence's *sourcing* of $e_p$ is not.
+>
+> **Repair (SEED-78).** Recompute at $b$: $e_p:=v_p\bigl(b^{\operatorname{ord}_p(b)}-1\bigr)$,
+> one modular exponentiation per held prime. Still nothing factored.
+>
+> **Cheaper repair where it applies (SEED-89 §5.1), with its own guard.** Store,
+> per held prime $p$, the pair $(r,\tilde e_p(r))$ — the non-power root of the
+> base tower and the head read at the root — and, per base, the single integer
+> $\kappa:=v_p(k)$ where $b=r^{k}$; then $e_p(b)=\tilde e_p(r)+v_p(k)$ (SEED-78
+> Thm A), an addition rather than an exponentiation. **Guard, and it is the point:
+> the tag applies iff $b$ is a power of $r$; otherwise recompute.** Bases $2$ and
+> $7$ lie in different orbits of $(\mathbb Z_{\ge1},\cdot)$, so no index mediates
+> them — an *untagged* head silently applies everywhere, which is exactly how the
+> witness above passes. Tagging makes the illegal transport syntactically
+> detectable.
+
+Applied to the
 collision the organ walked into: $\Phi_4(3)=10$, $H=\{5\}$ with $e_5=1$,
 $P=2$, so $R=10/(5\cdot2)=1$ — **not fresh**, decided in advance.
 
