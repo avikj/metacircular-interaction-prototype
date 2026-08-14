@@ -205,24 +205,18 @@ theorem BoolExperimentTree.residualSplitting_iff_separatesOn
               have hrightResponse :
                   acceptsBool M (M.eval (right ++ [action])) = false := by
                 rw [← hnext, hleftResponse]
-              have hleftResponseStep :
-                  acceptsBool M (M.step (M.eval left) action) = false := by
-                simpa [DFA.eval_append_singleton] using hleftResponse
               have hrightResponseStep :
                   acceptsBool M (M.step (M.eval right) action) = false := by
                 simpa [DFA.eval_append_singleton] using hrightResponse
-              simp [hleftResponseStep, hrightResponseStep, hfalse]
+              simp [hrightResponseStep, hfalse]
           | true =>
               have hrightResponse :
                   acceptsBool M (M.eval (right ++ [action])) = true := by
                 rw [← hnext, hleftResponse]
-              have hleftResponseStep :
-                  acceptsBool M (M.step (M.eval left) action) = true := by
-                simpa [DFA.eval_append_singleton] using hleftResponse
               have hrightResponseStep :
                   acceptsBool M (M.step (M.eval right) action) = true := by
                 simpa [DFA.eval_append_singleton] using hrightResponse
-              simp [hleftResponseStep, hrightResponseStep, htrue]
+              simp [hrightResponseStep, htrue]
         refine ⟨hsafe, ?_, ?_⟩
         · apply (ihFalse (ResidualCell.advance M cell action false)
             (ResidualCell.advance_currentConstant

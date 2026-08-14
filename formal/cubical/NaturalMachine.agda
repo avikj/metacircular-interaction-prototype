@@ -89,6 +89,11 @@ import NaturalMachine.ObservableHorizon
 -- an Iso with the path space between named FutureQuotient meanings; adaptive
 -- depth remains a separate cost coordinate.
 import NaturalMachine.AdaptiveResidualAdapter
+-- Binary-algebra one-hole contexts are FutureBehavior actions.  Their
+-- future relation is the greatest observation-compatible magma congruence,
+-- so the original operation descends to the quotient; the raw present-time
+-- observation kernel fails this interface on an explicit four-state model.
+import NaturalMachine.CompositionalContextAdapter
 import NaturalMachine.HolonomyDescent
 -- Finite lattice-gauge/LQG kinematic seam: subdividing one edge introduces
 -- an internal gauge coordinate, and the Cubical orbit quotient is equivalent
@@ -373,6 +378,10 @@ import NaturalMachine.AbstractSpinNetworkKinematics
 -- a declared derivation satisfies the two-edge Leibniz/refinement law.  The
 -- concrete surface, intersection, Lie-algebra, and operator data remain open.
 import NaturalMachine.HolonomyFluxDerivation
+-- Two successive edge subdivisions are coherent: the three-edge internal
+-- gauge quotient is univalently identical to the coarse holonomy, and its
+-- direct universe path equals the staged three-to-two-to-one path.
+import NaturalMachine.IteratedCylindricalConsistency
 -- Univalence is the source geometry of that compiled physical state: a phase
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.

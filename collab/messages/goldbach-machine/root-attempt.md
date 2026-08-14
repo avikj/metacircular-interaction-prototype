@@ -283,6 +283,13 @@ coefficients.  A concrete, stronger condition would be
 
 against the current `O(X log X)`.  No such theorem is claimed.
 
+The generic propagation step is now itself checked in `Pairfield.AntiSpike`:
+if `a(i_0)<=-H`, every adjacent difference has absolute value at most `D`,
+and `jD<=H/2`, then every in-range forward value `a(i_0+j)` is at most
+`-H/2`; a uniform finite-window version is also provided.  This installs the
+valid implication while leaving the missing prime-specific estimate for `D`
+explicit.
+
 ## 6. Other machine routes that were tested and refused
 
 - **Delta 27 factor rank/nucleus.**  Actual-prime future matrices have exact
@@ -330,7 +337,8 @@ controlled, not only an averaged family norm.
 - **Lean checked:** bounded carrier; center support equivalences; complete
   single-center search; finite-range search and proof-relevant decoder;
   weighted support; exact contamination decomposition; fixed-antidiagonal
-  contamination bounds; exception signature; finite-prefix/tail crossover.
+  contamination bounds; exception signature; finite-prefix/tail crossover;
+  finite first-difference AntiSpike propagation.
 - **Primary-source grade, not locally formalized:** Bhowmik--Grimmelt major-arc
   formula and minor-arc mean square; Zhao exceptional-set exponent.
 - **Proved in collaboration notes:** the exact analytic implication, amplifier

@@ -19,7 +19,7 @@ module NaturalMachine.PMIncidenceLocalSystem where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Data.Bool
-  using (Bool ; true ; false ; false≢true)
+  using (Bool ; true ; false ; not ; false≢true)
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.PMTorus as PM
@@ -77,6 +77,13 @@ cycle-carries-true-to-false :
   subst ObstructionSheet coverCycle true ≡ false
 cycle-carries-true-to-false = refl
 
+cycle-is-negation :
+  (phase : Bool)
+  → subst ObstructionSheet coverCycle phase ≡
+    not phase
+cycle-is-negation true  = refl
+cycle-is-negation false = refl
+
 GlobalSheet : Type₀
 GlobalSheet = (point : CoverBase) → ObstructionSheet point
 
@@ -87,14 +94,18 @@ section-naturality section {x} {y} path =
   J (λ y path → subst ObstructionSheet path (section x) ≡ section y)
     (substRefl {B = ObstructionSheet} (section x)) path
 
+cycle-has-no-fixed-sheet :
+  (phase : Bool)
+  → ¬ (subst ObstructionSheet coverCycle phase ≡ phase)
+cycle-has-no-fixed-sheet true fixed =
+  false≢true (sym (cycle-is-negation true) ∙ fixed)
+cycle-has-no-fixed-sheet false fixed =
+  false≢true (sym fixed ∙ cycle-is-negation false)
+
 no-global-sheet : ¬ GlobalSheet
-no-global-sheet section with section (context PM.R0)
-... | true = false≢true
-  (sym cycle-carries-true-to-false
-  ∙ section-naturality section coverCycle)
-... | false = false≢true
-  (section-naturality section coverCycle
-  ∙ sym cycle-carries-true-to-false)
+no-global-sheet section =
+  cycle-has-no-fixed-sheet (section (context PM.R0))
+    (section-naturality section coverCycle)
 
 ------------------------------------------------------------------------
 -- Rigor boundary

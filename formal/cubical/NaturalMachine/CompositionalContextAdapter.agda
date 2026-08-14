@@ -24,7 +24,6 @@
 module NaturalMachine.CompositionalContextAdapter where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.HLevels using (isSet)
 open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true ; isSetBool)
 open import Cubical.Data.List using (List ; [] ; _∷_)
@@ -159,14 +158,14 @@ module ContextQuotient
   Meaning : Type _
   Meaning = Q.Meaning
 
-  _∙_ : Meaning → Meaning → Meaning
-  _∙_ = SQ.rec2 squash/ (λ x y → [ operation x y ])
+  _opQ_ : Meaning → Meaning → Meaning
+  _opQ_ = SQ.rec2 squash/ (λ x y → [ operation x y ])
     (λ x x′ y related →
       eq/ _ _ (FB.futureEq-step step observe related (false , y)))
     (λ x y y′ related →
       eq/ _ _ (FB.futureEq-step step observe related (true , x)))
 
-  operation-β : (x y : X) → [ x ] ∙ [ y ] ≡ [ operation x y ]
+  operation-β : (x y : X) → [ x ] opQ [ y ] ≡ [ operation x y ]
   operation-β x y = refl
 
 ------------------------------------------------------------------------
