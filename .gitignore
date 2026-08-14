@@ -12,3 +12,5 @@ collab/orchestration/worker-sessions/
 vigil-state.json
 runtime/LIVING_RUN.log
 runtime/LIVING_STATE.json
+machine/machine.log
+machine/mathmachine
