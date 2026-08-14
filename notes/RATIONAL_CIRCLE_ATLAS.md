@@ -605,7 +605,35 @@ bridge: points of $\Gamma_P$ of height $\le H$ are exactly the lattice points of
 $\mathbb{Z}^r$ in the weighted $\ell^1$ ball $\sum_{p}|e_p|\log p \le \log H$, so
 their number is $\asymp (\log H)^r$ rather than $\asymp H$.
 
-**Heuristic answer, PROVED for $r=1$ / MEASURED for $r=2,3$.** For $r=1$ the points
+> **Amended in place — SEED-119, 2026-08-14, executing
+> `notes/SEED88_RANK_ORBIT_HAAR_RATE.md` §8 item 4 (Rule K3). The three
+> substantive claims below were checked against SEED-88 §§1–4 before applying.**
+>
+> 1. ~~"this requires genuine equidistribution of the $r$-dimensional orbit …
+>    exactly a linear-forms-in-logarithms question"~~ — **withdrawn.** The
+>    equidistribution is not open and needs no Baker: $\overline{\Gamma_P}=\mathbb T$
+>    and the unique invariant measure is Haar, by a Pontryagin-annihilator argument
+>    resting on nothing beyond unique factorization in $\mathbb Z[i]$ (SEED-88
+>    Lemmas 1.1–1.3). Qualitative equidistribution of the *height-ordered* sets is
+>    then unconditional, because the weighted $\ell^1$ balls are Følner (SEED-88
+>    Lemma 5.1, Cor. 5.2).
+> 2. ~~"the count heuristic gives $\delta_P\asymp(\log H)^{-r}$"~~ — **mis-located.**
+>    The part of that law which is true is a counting statement and uses no
+>    dynamics: the *mean* gap is $2\pi/\#\Gamma_P(H)$ by definition, and
+>    $\#\Gamma_P(H)=\frac{2^{r+2}}{r!\prod_{p\in P}\log p}(\log H)^r+O((\log H)^{r-1})$
+>    exactly (SEED-88 Thm 2.1, Cor. 2.2).
+> 3. ~~"PROVED for $r=1$"~~ and ~~"$\asymp(\log H)^{-r}$"~~ — **overstated; the
+>    exponent $-r$ is proved in one direction only.** The provable envelope is
+>    $c_1(P)(\log H)^{-r}\le\sup_\theta\delta_P\le c_2(P,\kappa)(\log H)^{-1/(\kappa+1)}$
+>    (SEED-88 Cor. 2.3 + Thm 3.1), improving to $(\log H)^{-1/\kappa}$ at $r=1$
+>    (Prop. 4.1). $\sup_\theta\delta_P\asymp1/\log H$ at $r=1$ holds **iff** the
+>    partial quotients of $\arg g_p/2\pi$ are bounded, which is not known for a
+>    single $p$; non-Liouville is not enough. The fitted exponents displayed below
+>    are therefore **class (S)**: sample statistics of a quantity whose provable
+>    envelope has different exponents at its two ends, consistent with the lower
+>    bound and with nothing else. **Not quotable as the exponent.**
+
+**Heuristic answer, ~~PROVED for $r=1$~~ PROVED as a lower bound only / MEASURED for $r=2,3$.** For $r=1$ the points
 are $\{i^k g_p^n\}$ and the rate is governed by the three-distance theorem for
 $n\arg g_p$: $\delta_P \asymp 1/N \asymp 1/\log H$, provided $\arg g_p/2\pi$ is not
 Liouville — which it is not, by Baker's theorem on linear forms in logarithms
