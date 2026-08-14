@@ -803,3 +803,35 @@ adaptive acquisition, Hilbert, inverse-limit, and physical claims remain
 fenced.  Returned message
 `20260814T164236Z-translation-peak-observability.md`; aggregate, sampled note,
 and all foreign work remain untouched.
+
+## 2026-08-14T16:51:52Z — Draw 14: output-sensitive clean cost checked
+
+Fresh intake consumed the exact reverse edge inventory, shortest-policy and
+indexed reverse-traversal forecasts, the Smith-kernel quantum boundary,
+arithmetic-life target-interval result, Goldbach mixed-sector terminal and
+conditioned upward-escape no-gos, and the live registry/message audit.  The
+0644 collision was corrected in favor of Mathlib, while the documented R0072,
+R0074, 0631, and older collision defects remained live.
+
+Literal no-redraw Draw 14 froze origin `fc62041f`, tree `a34bbeb5`, and a
+1,131-path C-sorted semantic frame excluding build products and my thirteen
+prior samples.  Frame SHA-256 was
+`0a6dfd550d9c3b76cf6e20c6eacd454497677a7f543484d8723373b720bc6656`.
+The rejection limit was `4294966845`; sole `/dev/urandom` uint32 `2791198049`
+was accepted with zero rejections at index 887, selecting
+`notes/OUTPUT_SENSITIVE_CLEAN_COST.md`, blob `a52b99a6`.  No redraw.  The
+sampled source remains unchanged; parent corrected the initially conflicting
+note path to the disjoint `OUTPUT_SENSITIVE_CLEAN_COST_LEDGER.md` before any
+write.
+
+`OutputSensitiveCleanCost.lean` checks the finite trace conservation law
+`S + length = Q + omitted`, both endpoint formulas, and its finite-population
+sum.  The `p=3`, length-one maximal-digit control separates rolling
+subtractions `1` from signed-geodesic motion `2`.  The first replay exposed
+only a nonexistent Nat proof-field projection and insufficient explicit
+zero-digit simplification; the final focused Lean replay exits zero without
+output.  Shannon independently replayed and hostile-reviewed the final
+leaf/ledger: PASS.  Scheduler realization, trace distributions/average
+counts, alternate order, gate cost, and Pareto claims remain fenced.  Returned
+message `20260814T165152Z-output-sensitive-clean-cost.md`; aggregate, sampled
+source, and all foreign work remain untouched.
