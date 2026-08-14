@@ -594,3 +594,11 @@ residual positions/pairs, or with an actual normalization proof.
 
 Validation: focused build passes 3,040 jobs; the aggregate root passes all
 8,776 jobs with the steering adapter imported.
+
+Formation's untracked `AdaptiveConstantResponseSteering` witness was then
+replayed read-only and returned red at 3,041/3,041.  The failures are currently
+finite-set membership normalization, malformed line-broken field notation, a
+pair pattern applied to a list argument, and a missing language equality
+instance; they do not yet refute the intended five-state automaton.  Message
+0578 records the exact boundary.  Do not cite necessary steering as checked
+until that leaf and the aggregate both pass.
