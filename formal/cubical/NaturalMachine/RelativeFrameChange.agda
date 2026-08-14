@@ -17,7 +17,7 @@ module NaturalMachine.RelativeFrameChange where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
-  using (_≣_ ; equivFun ; idEquiv ; compEquiv)
+  using (_≃_ ; equivFun ; idEquiv ; compEquiv)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Data.Bool.Properties using (notEquiv)
 open import Cubical.Data.Unit using (Unit ; tt)
@@ -36,7 +36,7 @@ Family L level = L → Type level
 
 familyEquivNatural : {L : Type ℓ}
   {F : L → Type ℓf} {G : L → Type ℓg}
-  (e : (o : L) → F o ≣ G o)
+  (e : (o : L) → F o ≃ G o)
   {source target : L} (p : source ≡ target) (x : F source)
   → equivFun (e target) (subst F p x)
     ≡ subst G p (equivFun (e source) x)
@@ -57,7 +57,7 @@ record FrameChange {L : Type ℓ}
     (F : L → Type ℓf) (G : L → Type ℓg)
     : Type (ℓ-max ℓ (ℓ-max ℓf ℓg)) where
   field
-    at : (o : L) → F o ≣ G o
+    at : (o : L) → F o ≃ G o
 
 open FrameChange public
 
@@ -80,7 +80,7 @@ change-commutes-with-interaction change = familyEquivNatural (at change)
 
 identityChange : {L : Type ℓ} {F : L → Type ℓf}
                → FrameChange F F
-at identityChange o = idEquiv (F o)
+at (identityChange {F = F}) o = idEquiv (F o)
 
 composeChange : {L : Type ℓ}
   {F : L → Type ℓf} {G : L → Type ℓg}
@@ -89,7 +89,8 @@ composeChange : {L : Type ℓ}
 at (composeChange first second) o = compEquiv (at first o) (at second o)
 
 identity-change-computes : {L : Type ℓ} {F : L → Type ℓf}
-  (o : L) (x : F o) → changeFact identityChange o x ≡ x
+  (o : L) (x : F o)
+  → changeFact (identityChange {F = F}) o x ≡ x
 identity-change-computes o x = refl
 
 composite-change-computes : {L : Type ℓ}
@@ -127,8 +128,8 @@ flip-moves-true = refl
 
 flip-is-nontrivial :
   ¬ (changeFact flipChange tt true ≡
-     changeFact identityChange tt true)
-flip-is-nontrivial = true≢false ∘ sym
+     changeFact (identityChange {F = BoolFrame}) tt true)
+flip-is-nontrivial p = true≢false (sym p)
 
 double-flip-restores :
   changeFact (composeChange flipChange flipChange) tt true ≡ true

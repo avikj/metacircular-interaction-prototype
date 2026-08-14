@@ -141,3 +141,21 @@ orders produces two differently bracketed three-term expressions, and Agda
 proves them equal using only representation multiplicativity, the declared
 Leibniz witness, and group associativity.  At this abstraction level there is
 therefore no additional flux-coherence defect to postulate.
+
+## Parallel finite-network composition
+
+[`ParallelNetworkComposition.agda`](../formal/cubical/NaturalMachine/ParallelNetworkComposition.agda)
+adds disjoint, parallel composition to the checked seam.  It constructs the
+cartesian product of two group actions and proves the serial/parallel
+interchange law for intertwiners.  Subdividing both components and then
+contracting is judgmentally the same map as contracting each component and
+then composing them in parallel.  The same construction pairs two abstract
+flux derivations and proves that the subdivision law projects to each
+component.
+
+This is the first checked move from one path toward a finite network, but its
+monoidal product is deliberately only the cartesian product of abstract action
+carriers.  It is not the Hilbert-space tensor product used for LQG spin-network
+states.  Reaching that claim requires a declared linear/unitary representation
+category, tensor products of edge representations, and invariant tensors at
+multivalent vertices; none is inferred from the present interchange theorem.

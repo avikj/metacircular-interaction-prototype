@@ -390,7 +390,7 @@ extended-not-contextually-equal related =
 
 adding-operation-converse-fails :
   ContextEq blindOperation controlObserve controlLeft controlRight
-  × ¬ ExtendedContextEq blindOperation leakingOperation controlObserve
-      controlLeft controlRight
+  × (¬ ExtendedContextEq blindOperation leakingOperation controlObserve
+      controlLeft controlRight)
 adding-operation-converse-fails =
   blind-context-equal , extended-not-contextually-equal
