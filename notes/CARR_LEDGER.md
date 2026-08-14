@@ -251,3 +251,331 @@ claim the note lists as having lost its instrument: Theorem 1's proof
 regenerates cold, in full, from the statement alone. Cor 2.5 (the
 contingency-table closed form) is a different matter and is *not*
 touched by this run — it was not derived and stays conjectural per §7.
+
+---
+
+*Batch note (2026-08-14): runs C8–C12 were selected under an explicit
+harder-and-more-varied mandate — analytic over finite, exact constants,
+pair-field/zeta side over arithmetic-machine side, and at least one
+statement chosen because I suspected it was wrong. Closing tally after
+C12.*
+
+## C8 [2026-08-14, fleet, for cf-archivist] — heat-smoothed Goldbach ⟺ RH: MATCH
+
+Statement taken cold from the `notes/REPORT.md` §0 abstract line for
+Theorem C only: *RH $\iff \sum_N(\Lambda*\Lambda)(N)e^{-Nt} =
+(1/t-\log2\pi)^2 + O(t^{-3/2-\varepsilon})$ for every $\varepsilon>0$.*
+§4 (the statement's home, with its proof) unread at derivation time.
+
+Blind derivation. Additive convolution ⟹ the generating function is an
+exact square: $\sum_N(\Lambda*\Lambda)(N)e^{-Nt} = P(t)^2$ with
+$P(t)=\sum_n\Lambda(n)e^{-nt}$. Mellin: $P(t)=\frac1{2\pi i}\int_{(c)}
+\Gamma(s)(-\zeta'/\zeta)(s)t^{-s}ds$, $c>1$. Shift left: $s=1$ gives
+$\Gamma(1)t^{-1}=1/t$; $s=0$ gives $(-\zeta'/\zeta)(0)=-\log2\pi$ (from
+$\zeta(0)=-1/2$, $\zeta'(0)=-\tfrac12\log2\pi$); each nontrivial zero
+gives $-\Gamma(\rho)t^{-\rho}$; trivial zeros and the remaining $\Gamma$
+poles give $O(t)$. So with $M(t):=1/t-\log2\pi$ and $E:=P-M$,
+$|E|\le\sum_\rho|\Gamma(\rho)|t^{-\Theta}+O(t)\ll t^{-\Theta-\varepsilon}$,
+the sum converging because $\Gamma(\tfrac12+i\gamma)\ll e^{-\pi|\gamma|/2}$
+beats the $\log$-density of zeros.
+Now the *whole* content of the equivalence is one factorization:
+$$P^2-M^2=(P-M)(P+M)=E\cdot\big(2/t+O(t^{-\Theta})\big).$$
+Forward: $\Theta=1/2$ gives $E\ll t^{-1/2}$, hence
+$P^2-M^2\ll t^{-3/2}$, which is the stated bound (note $t\to0^+$, so
+$t^{-3/2-\varepsilon}$ is the *weaker* claim). Converse: the denominator
+$P+M\sim2/t$ is known and nonvanishing for small $t$, so the hypothesis
+inverts to $E\ll t^{-1/2-\varepsilon}$; then
+$\int_0^1E(t)t^{s-1}dt$ is holomorphic in $\operatorname{Re}s>1/2+\varepsilon$
+and $\int_1^\infty P t^{s-1}dt$ is entire, so $\Gamma(s)(-\zeta'/\zeta)(s)
+-\frac1{s-1}+\frac{\log2\pi}{s}$ continues there; $\Gamma$ never vanishes,
+so $-\zeta'/\zeta$ has no pole off $s=1$ in that half-plane, i.e. no zeros:
+RH. The $\varepsilon$ is doing exactly one job — converting a $\sup$ over
+zeros into an infimum over admissible exponents.
+
+Diff against §4 (first read after derivation): identical, line for line.
+Their $E(t):=P(t)-1/t+\log2\pi$ is my $E$; their part (1)
+($\Theta=\inf\{\sigma:E=O(t^{-\sigma})\}$) is the two halves I derived,
+with the same $\sum_\rho|\Gamma(\rho)|<\infty$ upper bound and the same
+Mellin-continuation lower bound including the identical subtracted polar
+terms $\frac1{s-1}$ and $\frac{\log2\pi}{s}$; their part (2) is my
+factorization verbatim, including "the denominator $\sim2/t$ is known and
+nonvanishing". **MATCH.** The statement is fully self-sufficient: nothing
+in it needed a definition I could not reconstruct, and the "difficulty"
+of the sharp-cutoff literature (Granville; Bhowmik–Schlage-Puchta) shows
+up in the derivation precisely as the step that survives smoothing —
+$P^2$ is a square, and squares of things $\sim2/t$ are invertible.
+
+## C9 [2026-08-14, fleet, for cf-archivist] — parity resultant $\operatorname{Res}(g,g(-x))\mid2^d$: MATCH (+ALTERNATE on Theorem 1b)
+
+Statement taken cold from the candidate list: *for monic $g$ dividing $P$
+with $P(x)+P(-x)=2$ and $\deg g=d$, $\operatorname{Res}(g,g(-x))$ divides
+$2^d$.* `notes/PARITY_RESULTANT.md` unread at derivation time.
+
+Blind derivation. Let $\alpha_1,\dots,\alpha_d$ be the roots of $g$. Since
+$g\mid P$ and $g$ is monic, Gauss gives $P=gh$ with $h\in\mathbb Z[x]$, so
+$P(\alpha_i)=0$ and the parity identity gives $P(-\alpha_i)=2$. Also
+$P(-x)=g(-x)h(-x)$, so $g(-\alpha_i)\,h(-\alpha_i)=2$: **$g(-\alpha_i)$
+divides $2$ in the ring of algebraic integers.** Taking the product over
+$i$ (equivalently, the norm), $\operatorname{Res}(g,g(-x))=\pm\prod_i
+g(-\alpha_i)$ divides $2^d$ in $\mathbb Z$, and it is nonzero because
+$\gcd(g(x),g(-x))$ divides $\gcd(P(x),P(-x))\mid2$, a constant.
+
+Consequence I derived before reading, which turned out to be their
+Theorem 1b in different coordinates:
+$g(-\alpha_i)=(-1)^d\prod_j(\alpha_i+\alpha_j)$, so
+$$\operatorname{Res}(g,g(-x))=\pm\,2^d\,g(0)\Big(\prod_{i<j}(\alpha_i+\alpha_j)\Big)^2,$$
+the $2^d$ coming entirely from the diagonal terms $2\alpha_i$ and
+$\prod\alpha_i=\pm g(0)=\pm1$. Since a $2^d$ times an integer square can
+divide $2^d$ only if the square is $1$: $\prod_{i<j}(\alpha_i+\alpha_j)
+=\pm1$ and $|\operatorname{Res}|=2^d$ **exactly** — no two distinct roots
+of any factor sum to a non-unit.
+
+Diff (note read after derivation): Theorem 1 is the same statement; their
+proof is the same identity organised better — $\operatorname{Res}(g,P(-x))
+=\prod P(-\alpha_i)=2^d$ and then *multiplicativity of the resultant*
+$2^d=\operatorname{Res}(g,g(-x))\operatorname{Res}(g,h(-x))$, which gets
+the divisibility in one line without leaving $\mathbb Z$. Mine goes
+through divisibility in $\mathbb Z[\alpha]$ and a norm; theirs is
+cleaner. **MATCH.**
+Their Theorem 1b is $\operatorname{Res}_x(g,g(-x))=2^d
+\operatorname{Res}_y(E,O)^2$ with $\operatorname{Res}_y(E,O)=\pm1$, for
+$g(x)=E(x^2)+xO(x^2)$. That is my boxed identity in the even/odd-part
+coordinates instead of the root-pair coordinates, and the two unit
+statements are the same statement: $\prod_{i<j}(\alpha_i+\alpha_j)=
+\pm\operatorname{Res}_y(E,O)$. Logged as **ALTERNATE** for 1b — a
+genuinely different derivation of the same exact value (root-pairing and
+the diagonal $2\alpha_i$, versus their split into $d$ even/odd and the
+paired evaluation $g(s)g(-s)$ at $s^2=\beta$). Their form is the one that
+feeds the coefficient search in §2; mine is the one that says what the
+$2^d$ *is*.
+
+## C10 [2026-08-14, fleet, for cf-archivist] — global cyclotomic classification $\Phi_m\mid F_X\iff(X,m)\in\{(3,2),(11,6)\}$: PARTIAL — reduction rederived, closure not
+
+Statement taken cold from the candidate list and the `CORPUS_ABSORPTION`
+digest line: *$\Phi_m$ divides $F_X=\sum_{p\le X}x^{p-2}$ iff
+$(X,m)=(3,2)$ or $(11,6)$.* `notes/CYCLOTOMIC_TRACE.md` unread at
+derivation time. Chosen as the "might be wrong" slot: an unconditional
+`iff` quantified over *all* $X$ and *all* $m$ looked like it should need
+an effective prime-distribution input that the statement does not
+advertise.
+
+Blind derivation, as far as it went.
+$\Phi_m\mid F_X\iff F_X(\zeta_m)=0\iff\sum_{p\le X}\zeta_m^{\,p}=0$.
+The coefficients of that vanishing sum of $m$th roots of unity are the
+prime counts $c_a=\#\{p\le X:p\equiv a\ (m)\}\ge0$, so
+Rédei–de Bruijn–Schoenberg applies: the multiset of residues decomposes
+into disjoint *blocks* $\{a,a+\tfrac m\ell,\dots,a+(\ell-1)\tfrac m\ell\}$,
+one per prime $\ell\mid m$ used. Three consequences I then derived:
+(i) a block's members are pairwise congruent mod $m/\ell$ and distinct,
+so they span $\ge(\ell-1)m/\ell$, forcing $m<2X$;
+(ii) if $\ell\,\|\,m$ then $m/\ell$ is prime to $\ell$, so the block meets
+every class mod $\ell$ — in particular it contains a prime $\equiv0$
+$(\ell)$, i.e. **the prime $\ell$ itself**; hence *at most one block per
+$\ell$*, and (since $\ell\le X$ must itself be covered) *exactly one*;
+(iii) therefore, for squarefree $m$,
+$$\pi(X)=\sum_{\ell\mid m,\ \ell\ \text{prime}}\ell .$$
+I also recorded, before reading, that the argument (ii) **breaks exactly
+when $\ell^2\mid m$** — then all block residues are congruent mod $\ell$,
+the block need not contain $\ell$, and the block count is unbounded. I had
+no replacement.
+With (iii) I verified the two claimed solutions by hand ($X=3$, $m=2$:
+$F_3=1+x=\Phi_2$; $X=11$, $m=6$: residues $2,3,5,1,5$ split as the
+$2$-block $\{2,5\}$ and the $3$-block $\{1,3,5\}$) and eliminated the next
+several candidate partitions by hand: $\pi(X)=\ell$ alone forces $m=\ell$
+and the first $\ell$ primes to be a complete residue system mod $\ell$,
+which fails for $\ell=3,5,7,11$; $\{2,5\}\Rightarrow m=10$, $\{3,5\}
+\Rightarrow m=15$, $\{2,7\}\Rightarrow m=14$, $\{2,3,5\}\Rightarrow m=30$
+all fail on the forced residue multiset.
+**Where I stopped:** I could not make the elimination uniform in $X$. The
+single-prime family alone needs "the first $\ell$ primes never form a
+complete residue system mod $\ell$ for $\ell\ge3$", which is a genuine
+theorem, not a manipulation.
+
+Diff (note read after derivation). §2 is my derivation in the
+primitive-root basis instead of via vanishing-sum classification: their
+Proposition 2 ($\zeta_m^r=-\sum_{c\equiv r\,(m/r)}\zeta_m^c$) *is* my
+block, their Corollary 3(2.2) is my forced residue multiset, and their
+boxed (2.3) $\pi(X)=\sum_{r\mid m}r$ is my (iii), with the same argument
+that every prime divisor of $m$ contributes. My hand-eliminations agree
+with theirs term by term (their $P=7$ multiset mod $14$,
+$\{3,5,11,13,3,5,9\}$ vs target $\{1,3,5,9,11,13,9\}$, is the same
+computation I did). So **MATCH on the entire reduction**, by two visibly
+different routes (combinatorics of vanishing sums vs. explicit expansion
+in the primitive-root basis).
+Two things I did not have, and they do:
+(a) **Theorem 1** kills non-squarefree $m$ outright with a relative trace:
+if $p^2\mid m$, $\operatorname{Tr}_{K/K_0}\zeta_m^a$ is $0$ unless
+$p\mid a$, and among prime exponents only $q=p$ survives, so the tie
+would give $p\zeta_m^p=0$. That is precisely the hole I had identified and
+could not fill, closed by a tool I did not reach for.
+(b) The uniform closure is done with Bertrand's postulate (§4) plus an
+imported finite-computation theorem — Hajdu–Saradha 2016, Thm 2.3 — which
+restricts $P$ to $\{2,3,7,11\}$. So my suspicion was *half* right: the
+statement does conceal an external input, but it is a proved one, and the
+note says so explicitly in its §7 prior-art section.
+Verdict logged as **PARTIAL**: the derivable core regenerated cold and
+matched; the two steps I failed are the two that are not derivable from
+the statement.
+
+## C11 [2026-08-14, fleet, for cf-archivist] — $\liminf N_0^*/N\ge2/3$ unconditionally: MATCH on every constant, NOT DERIVED on the one thing that is new
+
+Statement taken cold from the `notes/KAPPA.md` title line and the
+candidate list: *$\liminf N_0^*/N\ge2/3$ unconditionally.* Body unread at
+derivation time. Chosen as the second "might be wrong" slot: the standing
+record I could reconstruct from memory is the Levinson–Conrey ladder
+$1/3$ (Levinson 1974), $2/5$ (Conrey 1989), $\approx0.4105$
+(Bui–Conrey–Young), $\approx0.4173$ (PRZZ 2020), with a well-known
+mollifier-length barrier below $1/2$; an unconditional $2/3$ is a
+factor-of-$1.6$ jump through that barrier, which is the profile of a
+claim that is either wrong or is not doing what its bare statement
+suggests.
+
+Blind derivation. First observation, recorded before reading: $2/3$ is
+*exactly* Montgomery's 1973 constant for simple zeros under RH, so the
+number itself is not new — the word "unconditionally" is the whole claim.
+I then rederived the constant, and the whole family it belongs to, from
+pair correlation. With $F(\alpha)$ Montgomery's form, RH gives
+$F(\alpha)=T^{-2\alpha}\log T+\alpha+o(1)$ on $[0,1]$, $F\ge0$. Take the
+Fejér test function of support $\lambda\le1$, $\hat r_\lambda(\alpha)=
+(1-|\alpha|/\lambda)_+$, so $r_\lambda(0)=\lambda$ and
+$$\int\hat r_\lambda F=2\int_0^\lambda\Big(1-\frac\alpha\lambda\Big)
+\big(T^{-2\alpha}\log T+\alpha\big)d\alpha=1+\frac{\lambda^2}3+o(1).$$
+The diagonal of the pair sum is $\sum_\gamma m_\gamma^2\cdot r_\lambda(0)$,
+so
+$$\sum_\gamma m_\gamma^2\le\Big(\frac1\lambda+\frac\lambda3\Big)N .$$
+Three corollaries drop out mechanically:
+*simple:* $\sum m^2\ge S+2(N-S)=2N-S$ gives
+$S\ge\big(2-\tfrac1\lambda-\tfrac\lambda3\big)N$;
+*distinct, Cauchy–Schwarz:* $N_d\ge N^2/\sum m^2=
+\frac{\lambda}{1+\lambda^2/3}N$;
+*distinct, cheap:* $N_d\ge S+\tfrac{N-S}2=\tfrac{N+S}2$.
+At $\lambda=1$ (the endpoint of Montgomery's admissible range, and the
+maximum of the increasing $H$ on $(0,1]$): $2/3$, $3/4$, $5/6$. The
+optimal test function replaces the Fejér value $4/3$ by the
+Montgomery–Taylor constant $1.32749\ldots$, giving
+$2-1.32749\ldots=0.6725\ldots$ and $(3-1.32749\ldots)/2=0.83625\ldots$.
+
+Diff (§3 read after derivation, and only §§0/3/8 read at all). Manuscript
+Theorem A is $N_0^*\ge H(\lambda)N$ with
+$\boxed{H(\lambda)=2-\tfrac1\lambda-\tfrac\lambda3}$ — my simple-zero
+function, symbol for symbol. Theorem C is
+$\max(H_d(\lambda),F(\lambda))$ with $H_d=(1+H)/2$ and
+$F(\lambda)=\lambda/(1+\lambda^2/3)$ — my two distinct-zero corollaries,
+both of them, in the same two forms. Theorem D's constants are
+$2-1/c_1^*=0.67250\ldots$ and $(3-1/c_1^*)/2=0.83625\ldots$ with
+$1/c_1^*$ the Montgomery–Taylor constant $1.3274992\ldots$ — my optimal-
+window values. So **MATCH on the entire constant structure**, four
+theorems' worth, derived cold in about a page.
+And the diff isolates the new content exactly: the objects are different.
+Mine are *simple* and *distinct* zeros under RH; theirs are *distinct
+on-line* ($N_0^*$) and *simple and on-line* zeros with **no RH**, obtained
+by making Montgomery's argument unconditional through Sylvester inertia
+plus a rank–trace inequality on a finite Gabor compression of Weil's
+Hermitian form. **That step I did not derive and make no claim about.**
+My prior suspicion was therefore wrong in its conclusion and right in its
+instinct: the number is not an inflated record, it is the classical
+conditional constant, and the jump lives entirely in removing the
+hypothesis. Recorded as a genuine finding, since a reader who knows
+Montgomery can *predict* every constant in the manuscript's §1.3 before
+opening it — the statement layer is fully consistent with the classical
+theory it generalises.
+Independent of my derivation, the note's own §8/§5.2 already downgrade
+the mechanical-verification claim (curated build log; no
+trusted/solution statement-equality check). This run touches only the
+mathematics of the constants and does not bear on that.
+
+## C12 [2026-08-14, fleet, for cf-archivist] — unique odd carrier: MATCH
+
+Statement taken cold from the candidate list (msg 0019): *every finite
+odd-support Newman polynomial has exactly one odd-degree irreducible
+factor, of multiplicity one.* Derivation fixed before opening either
+`0019-codex-quintic-closure.md` or `notes/PARITY_RESULTANT.md`.
+
+First problem was reading the statement. "Odd-support" admits two
+readings, and one of them makes the claim false: with $|{\rm supp}|$ odd,
+$x^2+x+1$ has three terms and *no* odd-degree factor. So the intended
+object must be $P=1+\sum_{j\ \rm odd}\epsilon_jx^j$ — support in
+$\{0\}\cup{\rm odds}$, which is exactly $P(x)+P(-x)=2$. I recorded that
+disambiguation as forced by the claim itself.
+
+A route that failed, recorded because the failure is informative. Since
+$P=1+xO(x^2)$, mod $2$ we get $\bar P'=\bar O(x)^2$ and
+$\gcd(\bar P,\bar P')=1$, so $P$ is squarefree mod $2$ — hence squarefree,
+hence the multiplicity claim would follow from the count. I then tried to
+prove "$\bar P$ has exactly one odd-degree irreducible factor over
+$\mathbb F_2$" and lift by Hensel. **This is false:** $P=1+x^7$ has
+$\bar P=(1+x)\Phi_7$ and $\Phi_7$ splits into two cubics mod $2$
+($\operatorname{ord}_7(2)=3$), giving three odd-degree factors mod $2$
+while over $\mathbb Q$ it has exactly one ($1+x$, since $\Phi_{14}$ is
+irreducible of degree $6$). The correct grouping is that a rational factor
+of odd degree needs an *odd number* of odd-degree local factors, which the
+mod-$2$ count cannot see. Local information is the wrong instrument here.
+
+Blind derivation that worked — it is archimedean, not $2$-adic. For
+$t>0$, $P(-t)=1-\sum_j\epsilon_jt^j$ is strictly decreasing from $1$ to
+$-\infty$, and $P(t)\ge1>0$. So **$P$ has exactly one real root, it is
+negative, and it is simple** (the derivative of $P(-t)$ is strictly
+negative at the crossing). $\deg P$ is odd (the largest exponent is odd),
+so the factorisation contains at least one odd-degree irreducible factor;
+every odd-degree factor has a real root; distinct irreducible factors have
+disjoint root sets; a repeated factor would make its real root multiple.
+Hence exactly one, with multiplicity one.
+
+Diff: this is Corollary 1c of `notes/PARITY_RESULTANT.md` (found while
+reading that note for run C9, after the derivation above was fixed), and
+the proof there is the same four sentences — strict monotonicity of
+$P(-t)$, one simple real root, odd degree forces an odd-degree factor,
+every odd-degree factor supplies a real root. **MATCH.** Their framing
+adds what the corollary is *for*: the unique odd-degree factor is the
+minimal polynomial of that one negative real root, and the cubic/quintic
+classification in the corpus is the classification of its degree; all
+other irreducible factors have even degree. The mod-$2$ dead end is mine
+alone and is not in the note — worth keeping in the ledger as a measured
+fact about the statement: it is an archimedean theorem wearing $2$-adic
+clothes, and the $2$-adic clothes fit badly.
+
+## Closing tally after C12
+
+Twelve runs. **C1–C7: 7 MATCH** (one carrying an ALTERNATE on half a
+statement). **C8–C12, under the harder-and-more-varied mandate: 3 MATCH
+(C8, C9 with an ALTERNATE, C12), 1 PARTIAL (C10), 1 MATCH-on-constants-
+but-core-not-derived (C11).** Still **zero MISMATCH** in twelve runs: in
+no case did the corpus's statement layer misstate what its own note
+proves, and in no case did my independent derivation contradict it.
+
+The harder selection did change the outcome, but not along the axis the
+batch was aimed at. It did not produce errors. What it produced is a
+different measurement: **the protocol's real variable is not correctness,
+it is self-sufficiency** — how much of a statement's proof is recoverable
+from the statement alone. On that axis the batch separates cleanly:
+
+- **Fully self-sufficient (C8, C9, C12).** Each closed cold in under a
+  page, and in each case the derivation converged on the *same single
+  idea* the note uses (a square factorises; $g(-\alpha)\mid2$; $P(-t)$ is
+  monotone). These statements carry their proofs.
+- **Self-sufficient down to an imported theorem (C10).** The reduction
+  regenerated completely and by a different route; the two steps that
+  failed are exactly the two the note itself imports or invents — a
+  relative-trace argument for the non-squarefree case, and
+  Hajdu–Saradha 2016 for the uniform closure. The statement conceals the
+  external dependency, which is worth recording: an unconditional "iff
+  for all $X$" of this shape *cannot* be self-sufficient, and knowing that
+  in advance was the correct prediction.
+- **Statement predicts every constant, conceals the whole mechanism
+  (C11).** All four theorems' constants — $2-\tfrac1\lambda-\tfrac\lambda3$,
+  $\lambda/(1+\lambda^2/3)$, $(1+H)/2$, $0.6725\ldots$, $0.83625\ldots$ —
+  fell out of Montgomery 1973 plus Cauchy–Schwarz. The novelty is a single
+  word, "unconditionally", and no amount of staring at the statement
+  yields it. This is the most useful data point in the batch: a claim can
+  be 100% predictable at the level of its numbers and 0% predictable at
+  the level of its content, and a ledger that only checked constants would
+  have scored it a full MATCH.
+
+Practical consequence for the queue: the runs that pay are the ones where
+a `PROVE` item's statement is *suspected* self-sufficient — C8, C9 and C12
+each took minutes and each produced a second independent derivation. Runs
+like C11 are still worth doing, but their yield is diagnostic (they
+localise the novelty) rather than a second proof. And the C12 dead end
+suggests the ledger should keep recording *refuted routes*: "$\bmod\,2$
+cannot see this" is a reusable fact about the whole odd-support family,
+and it cost one counterexample to learn.
