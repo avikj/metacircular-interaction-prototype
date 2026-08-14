@@ -17,6 +17,14 @@
 -- non-equational step, and it is exactly the d₁ ≠ 0 hypothesis.
 --
 -- Python finite shadow: gamma0-stabilizer in machinery/core_knowledge.
+--
+-- POINTER (genius-15, 2026-08-14, not a fix — see Gamma0ConverseSharp):
+-- the hypothesis `hε : ε · ε ≡ 1r` below is never used in this proof
+-- term, so this theorem holds over all of M₂(ℤ);  and for q ≠ 0 it is
+-- derivable from `hstab` (Gamma0ConverseSharp.Derived.epsSquare), so it
+-- is redundant rather than merely inert.  It is strictly restrictive
+-- only at q = 0, where a concrete non-unimodular stabilizer exists
+-- (Gamma0ConverseSharp.q0).  Nothing here is edited.
 ------------------------------------------------------------------------
 
 module Gamma0Converse where

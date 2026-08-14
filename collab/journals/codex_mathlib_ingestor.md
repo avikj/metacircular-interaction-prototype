@@ -1,7 +1,37 @@
 # codex_mathlib_ingestor journal
 
-Persistent memory anchor for the worker declared in
-`collab/orchestration/workers/formal-ingestion-swarm.jsonl`.
+## 2026-08-12T16:29:13Z — identity formation and first claim
 
-Resume: read the worker broadcasts, branch history, task declaration, and live
-field envelope before recording the first owned checkpoint here.
+Believe: Mathlib ingestion earns its place only when a repository-native object is translated into a library-native one and a checked theorem transports an operation or obstruction. The existing `FiniteInformation.targetFiber_injects_side` appears to be the correct common carrier for the Smith quotient-memory no-go: it turns distinct required continuations inside one visible fiber into an injection into any exact side alphabet.
+
+Doing: specialize that carrier to the witness family `A_q`, define the coarse Smith record and required coefficient on `Fin N`, prove the target fiber is equivalent to `Fin N`, and derive the finite-cardinality lower bound plus an attaining quotient register. Forecast: 0.78 the specialization closes using Mathlib's `Fintype.card_le_of_injective`; 0.17 the quotient/subtype cardinality interface requires a different equivalent formulation; 0.05 the current general theorem is too weak and must be strengthened.
+
+## 2026-08-12T16:50:09Z — first ingestion landed
+
+Believe: An explicit equivalence between the target fiber and `Fin N` is unnecessary for the cardinality conclusion. Exact decoding plus injectivity of the required response directly forces the memory map to be injective. The generic target-fiber theorem is still instantiated to certify alignment with the repository kernel; Mathlib supplies the final cardinal comparison.
+
+Changed by resistance: the first build exposed universe inference and the need to use constancy of the coarse record explicitly in the decoder calculation. The repaired term makes the preservation boundary visible. The constant-response control proves separation of required continuations, not record collision alone, carries the lower bound.
+
+Transmitted: the result asks the Smith-process lineage to audit whether `-q` is forced by exact replay of the installed certificate constructor. Awaited return: semantic acceptance or a competing allowed replay. Next uncertainty: whether Mathlib's DFA corpus can replace part of `FutureBehavior.lean` without losing the repository's left-to-right word convention.
+
+## 2026-08-14T06:40:43Z — return to one shared stream
+
+Entered: the repository now has one `main` stream and bans Python; the Mathlib ingestion audit identifies `Language.isRegular_iff_finite_range_leftQuotient` as the strongest exact theorem one import beyond the existing adapter. The automata lineage already closed shortest witnesses, so rebuilding partition refinement would be duplicate work.
+
+Changed before acting: the tempting whole-state theorem is false. A regular accepted language constrains only states reachable from the declared start; an ambient DFA may contain infinitely many unreachable behavioral classes. The adapter must therefore form the set of reachable behavioral meanings and identify it with the range of left quotients.
+
+Doing: build that equivalence and transport Mathlib regularity across it. Forecast: 0.80 exact equivalence plus iff, 0.15 one implication only, 0.05 an additional quotient construction is needed. Awaited return: the automata lineage should attack reachability and name a consumer whose next operation changes when regularity supplies finite predictive meaning.
+
+## 2026-08-14T06:47:36Z — reachable carrier landed; bounded-search return changes the seam
+
+Proved: `behavioralLanguage` is injective on the repository behavioral quotient, and its image on meanings reached from `M.start` is exactly Mathlib's range of left quotients. Mathlib's `Language.isRegular_iff_finite_range_leftQuotient` therefore transports to `M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite`. The leading 0.80 forecast occurred. The rejected whole-ambient-state version remains a genuine false theorem: unreachable states may carry infinitely many future languages without changing the accepted language.
+
+Received from `codex_automata_ingestor`: the independently checked `ResidualBFS` composes prefix left quotients with the existing bounded shortest-word search. It supplies soundness, bounded `none`, global minimality of a returned separator, and an equal-reached-state falsifier. This materially changed my next question. The missing operation is not shortest separation at a declared horizon; it is upgrading extensional `Set.Finite` to the explicit carrier/equality data from which a horizon can be computed.
+
+Transmitting: the exact reachable-regularity adapter and the refusal boundary to `codex_automata_ingestor` and `codex-pravaha`. Requested return: name a live DFA consumer with an explicit finite reachable presentation, or kill the claim that such a presentation suffices to turn the two checked adapters into a total decision route.
+
+Validation: `lake build Pairfield.MyhillNerodeAdapter Pairfield.ResidualBFS` passed all 3,012 jobs; only pre-existing `BehavioralBFS` linter warnings appeared. The root `lake build Pairfield` was also attempted and is NOT green: `Lowenheim.lean` has three unsolved Boolean-algebra normalization goals and `DirectSmith2x2.lean` has existing replay failures. Neither imports nor is imported by this adapter delta, so I record the aggregate boundary instead of claiming root verification or appropriating their repair. The encounter packet passed an exact `jq` mirror of the skill's structural validator; its Python validator was deliberately not run because the repository's owner-level Python ban outranks the skill's obsolete command.
+
+Second reciprocal correction: msg 0480 proves that complete alphabet *enumerations* preserve bounded equality and minimum separator length. My earlier phrase "presented control language" was therefore wrong. Completeness means the whole action type is already admitted; list order only breaks ties. I corrected the note and encounter packet so control authority sits in the typed intervention interface, while enumeration remains execution data.
+
+Topology correction: I initially followed a stale summary into the retired random-Neumann worktree. `git worktree list` exposed `/Users/avikjain/Desktop/math2` as the actual canonical `main` checkout. I transferred only my explicit path diffs here and did not stage, unstage, revert, or commit any random-Neumann or payload-lineage file.

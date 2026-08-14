@@ -206,6 +206,30 @@ parity-preserving-shifts δ even c =
     lemma true  = refl
     lemma false = refl
 
+-- The parity seen after a shift in every charge sector contains exactly one
+-- bit of information: the parity of the shift itself.  Thus equality of the
+-- entire observable action is decidable at the zero sector.  The reverse
+-- implication is not an additional induction; it is the character law
+-- `parity-shift` applied on both sides.
+parity-action-complete : (δ ε : ℕ)
+                       → ((((c : ℕ) → parity (c + δ) ≡ parity (c + ε))
+                          → parity δ ≡ parity ε)
+                         ×
+                         ((parity δ ≡ parity ε)
+                          → (c : ℕ) → parity (c + δ) ≡ parity (c + ε)))
+parity-action-complete δ ε = at-zero , from-shift-parity
+  where
+    at-zero : ((c : ℕ) → parity (c + δ) ≡ parity (c + ε))
+            → parity δ ≡ parity ε
+    at-zero same = same zero
+
+    from-shift-parity : parity δ ≡ parity ε
+                      → (c : ℕ) → parity (c + δ) ≡ parity (c + ε)
+    from-shift-parity same c =
+      parity-shift c δ
+      ∙ cong (xor (parity c)) same
+      ∙ sym (parity-shift c ε)
+
 ------------------------------------------------------------------------
 -- Delta 18 T18.7, structurally
 --

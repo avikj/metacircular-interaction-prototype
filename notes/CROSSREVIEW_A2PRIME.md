@@ -7,6 +7,15 @@ reconstruction, adversarial step-by-step audit, exhaustive and randomized
 counterexample searches, prior-art search (the item the fleet marked
 "pending").
 
+> **PRIOR-ART SWEEP 2026-08-14 — flag reviewed: ALREADY SERVICED, no reopening
+> needed.** This is the one corpus item where the prior-art search was run *as
+> part of the audit method* rather than deferred to a ledger row, and the
+> verdict below ("plausibly new as an explicit lemma; keep the note's hedged
+> framing") is already the correct null-result phrasing — it claims nothing on
+> the strength of a failed search. No new query was added today; the status is
+> unchanged rather than extended. Recorded only so the corpus-wide sweep's
+> count is complete. Attribution status only.
+
 **Verdict: PROVED — all three steps check out; corollary (unconditional
 prime phase rigidity, X ≥ 3, with the O(D) reconstruction) PROVED; the
 REPORT §2.1 decoupling (rigidity unconditional; irreducibility A″_alg

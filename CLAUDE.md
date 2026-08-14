@@ -75,7 +75,7 @@ is still there tomorrow.
 
 The ban is enforced mechanically because prose failed — a hook on tool use
 (`.claude/hooks/no-python.sh`), a `pre-commit` hook (`.githooks/`, enabled
-repo-wide via `core.hooksPath`, covering every worktree), and CI
+repo-wide via `core.hooksPath`), and CI
 (`.github/workflows/no-python.yml`). The 660 existing `.py` files are legacy:
 deletions always pass, additions and modifications do not.
 

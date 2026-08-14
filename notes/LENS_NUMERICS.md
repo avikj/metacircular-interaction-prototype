@@ -359,6 +359,14 @@ there is the Mertens floor, three orders below the bound.
   the ratio must creep upward without bound, at a rate invisible over
   three decades. "Flat" here means: no *power-law* drift. Same for every
   Bohr constant.
+  **[SHARPENED 2026-08-14 — `notes/INTERVAL_DISCREPANCY_MEAN_SQUARE.md`: this
+  caveat is right and is not conditional on RH (Thm A there splits on
+  $\Theta$); but "creep upward" overstates it — $D_Q(X)/\sqrt X$ is a
+  *discounted* running max (bound (2.1) there), so what is proved is
+  $\limsup=+\infty$, with no known drift in the $\liminf$, and the proved rate
+  needs $X\approx10^{986}$ to double. The exactly derivable companion statistic
+  is the logarithmic mean square, limit $\sum_\gamma m_\gamma^2/(\tfrac14+\gamma^2)$
+  $=2+\gamma_E-\log4\pi$ iff the zeros are simple.]**
 - **Max-over-intervals statistics.** $D_Q(X)$ is a running maximum —
   monotone, upward-biased, and its fluctuations are not averaged out by
   the fit; the exponent estimates inherit step-structure (visible as the

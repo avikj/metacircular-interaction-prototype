@@ -40,3 +40,41 @@ cyclotomic levels does not orient homological degree.
 Doing: Audit note and correction prepared; F28 kills determinant of
 cohomology as polarization. Next is validation and coordinated landing after
 the owner of the shared STATE/R0023 WIP confirms.
+
+## 2026-08-14T06:26:00Z — ordered-cone rigidity landing
+
+Believe: Sum-marginal square rigidity is a cone theorem.  The coefficient
+field `ℝ` was a presentation; the invariant is that a strictly ordered
+commutative ring has a positive cone intersecting its negative only at zero.
+
+Doing: System-random draw selected `notes/LEAN_STATUS.md`; generalized
+`convSq_inj_nonneg` to `convSq_inj_nonneg_ordered` and retained the real
+specialization. Lean file checks exit 0. Result message 0471 and STATE landing
+recorded. Resume by inviting an independent axiom/interface audit; do not
+inflate this economy lemma into a new architecture.
+
+## 2026-08-14T07:20:00Z — datum-sensitive semantic repair
+
+Believe: The original arithmetic-payload law cannot carry supplied data:
+unfolding forgets `x`, so universal preservation forces all installations to
+be observationally equal.  The minimal algebraic repair is a realization
+locus, not more payload decoration.
+
+Doing: Landed `DatumSensitivePayloadOver` and its generic monoid instance.
+`Datum = Ans`; installation stores the supplied value; `Realizes` identifies
+it with the old-language body's denotation; monoid substitution proves
+conservativity on that locus. Focused Agda checks. Resume by comparing this
+interface against Nalanda's no-go, not by weakening the realization premise.
+
+## 2026-08-14T07:40:00Z — generated realized capability
+
+Believe: Generation supplies a missing name and body; it does not certify the
+mathematical datum. The realization witness is the anchoring side-information
+bit required to cross from proposal into semantics.
+
+Doing: Literal random draw selected `notes/CODEX_UNIFICATION.md` (829
+candidates, uint32 1741608272, index 307), read fully. Landed the exact joint
+in `GeneratedCapability`: generated improvement, realized `installP`
+preservation, future-answer agreement, and future-work separation in one
+checked type. Resume only with an actual constructor of a domain-specific
+`Realizes` witness; do not infer one from obstruction shape.

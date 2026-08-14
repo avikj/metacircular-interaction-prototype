@@ -74,6 +74,10 @@ open import NaturalMachine.SymmetryArithmeticAction public
 open import NaturalMachine.SmithCapability public
 open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
+-- Accepted mathematics can change several later resource coordinates at
+-- once.  This keeps their Pareto order non-scalar and checks the concrete
+-- representation-reopening antichain `(120,0)` / `(104,32)`.
+import NaturalMachine.ParetoCost
 import NaturalMachine.FutureBehavior
 import NaturalMachine.HolonomyDescent
 import NaturalMachine.FiniteInformation
@@ -95,15 +99,37 @@ import NaturalMachine.TwoProjections
 import NaturalMachine.ConeOrder
 import NaturalMachine.ParitySeparator
 import NaturalMachine.ChargeCriterion
+-- and the class theorem TARGET.md's headline promised: Signs is a TORSOR
+-- over the gauge torus, not a set with a distinguished involution, so the
+-- fibres of the transcript map are exactly the COSETS of the annihilator
+-- subgroup of the query set.  `flip` is one group element among many; the
+-- right lemma is bilinearity, not flip-law, and flip-law comes back out.
+-- Also: val lands in a group of exponent 2, so every SQUARE query lies in
+-- every annihilator -- unboundedly large queries with separating power
+-- exactly zero.
+import NaturalMachine.GaugeOrbitClasses
 import NaturalMachine.GenerativeLoop
+import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
+import NaturalMachine.ArithmeticPayloadCounterexample
+import NaturalMachine.DatumSensitivePayload
+import NaturalMachine.RealizedPayloadCapability
+import NaturalMachine.ProofLabelNoGo
 import NaturalMachine.GeneratedCapability
+import NaturalMachine.AtomicSatisfaction
+import NaturalMachine.TranscriptDescent
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus
+-- and the operator layer under it: the Peres-Mermin sign vector derived
+-- from the Weyl representation, rather than transcribed from a script.
+import NaturalMachine.PauliWeyl
+import NaturalMachine.FlipObservable
+import NaturalMachine.AtlasResiduals
+import NaturalMachine.LinearOrderFinite
 -- the walk's two laws (msgs 0374, 0382): forcing and capacity.  Plain
 -- imports, not `public`: both carry local list predicates (All, _∈_)
 -- whose names would clash on re-export; the aggregate still checks them.
@@ -113,9 +139,73 @@ import NaturalMachine.WalkCapacity
 -- stream IS the increasing enumeration of the capacity function's jump
 -- points, plus the walk's step as a total computable function.
 import NaturalMachine.WalkBridge
+-- independent second derivation of §(b), which also removes WalkBridge's
+-- `1 ≤ m` hypothesis, so the walk's first step stops being a base case.
+import NaturalMachine.WalkBridgeUniform
+-- the walk's Nerode theorem: a sensor family is seen only through its lcm.
+import NaturalMachine.SensorNerode
+-- U0006's named first experiment: the sieve quotient, its fibres, and the
+-- charge obstruction as an actual fibre rather than prose.
+import NaturalMachine.SieveFiber
+-- and the X-uniform lemma the one-bit story rests on: below the isqrt
+-- horizon, a rough number is 1 or prime.
+import NaturalMachine.RoughSplit
+-- Delta 14, the perspectival deltas made executable: the general
+-- transport/fibre/sector toolkit, and the w±r centre-relative instance.
+import NaturalMachine.PerspectiveCore
+-- A random prime-pair image returned an exact instance of that API:
+-- ambient reflection restricts on negation-invariant fibres, while the
+-- positive cone supplies a literal sector-break witness.
+import NaturalMachine.PairReflectionSector
+import NaturalMachine.CenterRelative
+-- Delta 15, theorem factory II: the defect calculus -- structured
+-- equivalence, the structured defect type, stabilisers, polarization,
+-- charge shift, kernel-pair descent, and refutation transport.
+import NaturalMachine.DefectCalculus
+-- Delta 17 sections 17.4 and 17.8: the same chart when 2 is NOT
+-- invertible -- the composites are doubling, which is what `half` was
+-- dividing away, plus C17.7's two-involutions distinction.
+import NaturalMachine.CenterRelativeIntegral
+-- Delta 18 T18.4-T18.6: the excursion-return defect -- what a
+-- non-invariant selected sector costs dynamically, and the
+-- observability kernel that decides whether it can ever be seen again.
+import NaturalMachine.CompressionDefect
+-- Delta 19 section 19.6: the safe quotient is N_obs, not ker P, with a
+-- three-state witness that the inclusion is strict.
+import NaturalMachine.ObservabilityQuotient
+-- T15.40 with the SPLIT hypothesis dropped: descent along one map of
+-- sets is unobstructed, restriction along a surjection is an
+-- equivalence onto the coequalising maps, and surjectivity comes BACK
+-- out of the conclusion (tested at hProp alone).  No SetQuotients: the
+-- factorisation is built by PT.rec->Set, the argument FiniteInformation
+-- already ran four files away.
+import NaturalMachine.EffectiveDescent
+-- Programs 14.74-14.76: charge as a dependent index, the finite scale
+-- tower, and the monodromy kill test -- which came back DISSOLVED: over
+-- a set base there is no loop to act, so the parity-monodromy route is
+-- dead unless the base leaves the 0-types.
+import NaturalMachine.ChargeGradedPeeling
+import NaturalMachine.SieveScaleTower
+import NaturalMachine.SetBaseNoMonodromy
+-- Programs 14.72/14.73: the positive-cone SectorBreak against a
+-- parameterised strict order, and R^k = R x V_k at every k with the
+-- transposition non-scalar for k >= 3 unless 1+1 = 0.
+import NaturalMachine.OrderedSectorBreak
+import NaturalMachine.MeanStandardRep
+-- Noether lane: the certificate counting argument replaced by Sigma-eta,
+-- and the stabiliser as an actual Subgroup once the h-levels are stated.
+import NaturalMachine.CertificateFibration
+import NaturalMachine.StabilizerSubgroup
+-- Archimedes lane: the base-b divisibility automaton's Myhill-Nerode
+-- invariant in TWO coordinates, alphabet-independent.
+import NaturalMachine.RadixSymptoma
+-- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
+import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers
+-- and the trajectory form of the same law.
+import NaturalMachine.WalkInduction
 -- and the exchange rate that makes the walk cheap to execute: `next m` is
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
@@ -124,10 +214,16 @@ import NaturalMachine.WalkFast
 -- the stabilizer is the self-defect, polarization loci, charge shifts.
 import NaturalMachine.PerspectiveSymmetry
 open import NaturalMachine.DigitTowerLimit public
+-- The Fin presentation of the same tower.  Imported unopened: it defines its
+-- own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open above.
+import NaturalMachine.FinTopSplit
+import NaturalMachine.DigitTowerFinLimit
+import NaturalMachine.DigitTowerFin
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
 import NaturalMachine.Transport
+import NaturalMachine.TransportInstance
 import NaturalMachine.Controls
 import NaturalMachine.CountedDigits
 import NaturalMachine.ResidueTransport
@@ -137,6 +233,9 @@ import NaturalMachine.ResidueTransport
 -- module runs the multiplier at bases 10 and 2.
 import NaturalMachine.TransportMul
 import NaturalMachine.TransportMulWitness
+-- the leakage lane's commutator-rank identity, folded in so that the root
+-- aggregate's green claim and the directory's contents finally coincide.
+import NaturalMachine.LeakageCommutator
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

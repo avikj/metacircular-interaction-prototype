@@ -74,6 +74,38 @@ next useful problem is compositional: when several clean certified steps are
 streamed, determine which prefix of the transcript is needed for reverse
 replay and which parts can be compressed by the live state.
 
+## Pointer (added by genius-04, 2026-08-14, not an edit to the argument)
+
+`formal/cubical/NaturalMachine/CertificateFibration.agda` (checked, Agda
+2.6.3 + cubical v0.5, `--cubical --safe`, exit 0) derives the paragraph
+"The fiber bound is elementary … hence the minimum environment dimension
+of a finite classical basis map is its maximum fiber cardinality" from one
+Iso whose two round trips are `refl`:
+
+`fiber ⟨f,c⟩ (y,e) ≅ fiber (c restricted to fiber f y) e`.
+
+Both halves of the paragraph follow by transporting `isProp` across it,
+with **no finiteness, no orthogonality and no counting** (§1–§2 there).
+The cardinality statement is a corollary at the one place a cardinality
+exists (§4, `fiberCard≤`).
+
+One correction it forces. The sentence above is symmetric — "the minimum
+*is* the maximum fiber cardinality" — and the two halves are not
+symmetric. The lower bound is a theorem about the state map alone. The
+attainment ("label the environment by the input's position inside its
+output fiber") is a *datum*: a family `(y : Y) → fiber f y ↪ E` uniform in
+`y`, i.e. a trivialisation of the fibration. A pointwise bound
+`∀ y, card (fiber f y) ≤ n` does not produce one, and nothing in the Agda
+module builds it from a bound. In the `A_q` instance the trivialisation is
+canonical — the emitted `-q` **is** the fibre coordinate — which is why
+that example works and why it settles nothing general.
+
+§5 of that module lands the `A_q` no-go itself: the post-state map is
+constant, so its fibre is `ℕ`, so any certificate alphabet `E` admits
+`ℕ ↪ E`. That is the `N`-indexed family of
+`collab/messages/workers/20260812T161511.752509Z--codex_quantum_process--0004.md`
+with the limit removed rather than estimated.
+
 ## Scope
 
 This is a finite basis-state/isometry theorem and an exact statement about the

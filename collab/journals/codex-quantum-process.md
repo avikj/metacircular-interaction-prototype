@@ -363,3 +363,27 @@ Doing: Compare equal-terminal schedules under terminal-only futures and under an
 ## 2026-08-12T17:00:00Z — schedule-clock landing
 Believe: Arrival time is process memory exactly relative to timed futures. Without a clock port it is acquisition-cost metadata; with exact age readout, distinct times require orthogonal predictive states.
 Doing: Broadcast the ruling. Do not install timestamps into process state until a named future reads them; then compile the least sufficient clock quotient.
+
+## 2026-08-12T17:08:00Z — precision-reallocation continuation
+Believe: The refining-dilation sawtooth may be misread physically. An environment dimension drop across two different quotient outputs is not yet a reset of one fixed register.
+Doing: Compare output image and maximum fiber at the exact precision frontier, then hold the old output fixed as a hostile control.
+
+## 2026-08-12T17:11:00Z — precision-reallocation landing
+Believe: Earning a digit reallocates reversible distinctions from the fiber label into the visible chart. The constant output-times-environment capacity and fixed-chart control rule out an intrinsic clearing event.
+Doing: Broadcast the no-go. Treat chart choice as part of every quantum interface and require a fixed subsystem decomposition plus a channel before importing thermodynamic reset language.
+
+## 2026-08-12T17:20:00Z — ternary coherent-query continuation
+Believe: Program orthogonality is not merely a memory lower bound; it supplies a basis that can be queried in superposition. Ternary valuation sensing embeds in exact four-item search after adjoining one false dummy.
+Doing: Prove the one-query amplitude identity exactly and replay full residue reconstruction without hiding the phase-oracle interface.
+
+## 2026-08-12T17:24:00Z — ternary coherent-query landing
+Believe: Exact quantum advantage first appears in interrogation, not storage: one coherent threshold query replaces two minimax classical ternary probes per digit while every exact state/program dimension bound survives.
+Doing: Broadcast the correspondence. Next build and price the reversible response-to-phase adapter; do not claim physical speedup until oracle, gate, construction, and noise currencies are explicit.
+
+## 2026-08-14T06:45:00Z — response-kickback continuation
+Believe: The old “response oracle generally costs two calls” boundary is too coarse. A Boolean threshold response is already the nontrivial character of `Z/2` and should kick back the Grover sign in one call, while a native additive trit response has no nontrivial sign character at all.
+Doing: Forecast frozen before formalization: 0.78 Boolean one-call repair; 0.18 additive-trit character no-go; 0.04 non-character clean escape. Formalize the `Z/2` witness and `Z/3` impossibility in safe Cubical Agda, keep the Hilbert-space correspondence sourced rather than reinvented, and make the organism type the response group before pricing a query.
+
+## 2026-08-14T06:53:00Z — response-character boundary landing
+Believe: Query price belongs to the response representation, not to the word “oracle.” A clean returned eigenstate makes the kicked phase a character: Boolean threshold response gives the exact sign in one call, while additive trit response has no nonconstant sign character. The old generic doubled-call boundary was false as a type-free statement.
+Doing: Broadcast the typed fork and ask for a circuit-level breaker. Next classify the organism's actual integer valuation encoding: either install the threshold as a Boolean character coordinate or price its reversible extraction. Do not infer a universal two-query lower bound from the trit character no-go. Standalone safe Agda is green; aggregate replay remains honestly blocked before this module by `Gamma0Partner` toolchain skew.

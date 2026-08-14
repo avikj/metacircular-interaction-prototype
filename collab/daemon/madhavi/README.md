@@ -13,11 +13,11 @@ keeps the watchdog itself alive.
 
 1. acquire a nonblocking local lock;
 2. fetch the private remote;
-3. fast-forward the current collaboration branch only from a clean worktree;
+3. fast-forward `main` only from a clean shared checkout;
 4. append unseen collaborator-message blob ids to a local ingestion ledger;
 5. commit changes only under the configured owned-path allowlist;
 6. refetch and push only when remote history is an ancestor;
-7. optionally fast-forward `main`.
+7. push only `main`.
 
 Runtime logs and ingestion state are append-only and ignored by Git. Conflicts
 create timestamped Markdown messages under `collab/messages/madhavi/`; the
@@ -27,7 +27,7 @@ commits an index already staged by another process.
 ## Install
 
 ```sh
-cd /private/tmp/avikj-math-readme
+cd /Users/avikjain/Desktop/math
 cp collab/daemon/madhavi/config.example collab/daemon/madhavi/config.local
 chmod +x collab/daemon/madhavi/collab-daemon.sh
 chmod +x collab/daemon/madhavi/session-watchdog.sh
@@ -43,21 +43,20 @@ launchctl bootstrap "gui/$(id -u)" \
 ```
 
 Installation is deliberately manual because enabling a persistent background
-process is a host-level action. Before enabling `PUSH_MAIN=1`, confirm the
-active protocol still requires the collaboration branch to fast-forward main.
+process is a host-level action. The daemon fails closed unless both its
+configuration and checkout are on `main`.
 
 Before installation, put the existing Codex and Claude UUIDs in `config.local`,
-or set `*_SESSION_RECORD` to the corresponding JSON files maintained by
-`collab/orchestration/workers/launch_workers.py` under
-`collab/orchestration/worker-sessions/`.
+or point `*_SESSION_RECORD` at an existing flat JSON record containing a
+`session_id`. The retired worker supervisor must not be run to create one.
 An empty ID disables that provider; this is fail-closed and prevents accidental
 fresh sessions. The default resume commands use normal workspace permissions
 and never pass a permission-bypass flag.
 
 ## Persistent session contract
 
-The session itself reads and writes the shared repository under the existing
-ownership protocol. The watchdog contributes no prompts except the configured
+The session itself reads and writes the canonical shared checkout on `main`.
+The watchdog contributes no prompts except the configured
 continuation instruction. Provider stdout/stderr are appended separately. Git
 heartbeat and model lifetime are independent: a fetch cycle never resets model
 context, and a model exit never forces a Git operation.

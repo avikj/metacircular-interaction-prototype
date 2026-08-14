@@ -174,6 +174,30 @@ vacuous.
   2.2**, and the recorded search is: none performed this session.  What is
   offered as new *to this repository* is the identification of the two lanes'
   matrices and the closed form for the rank, not the criterion.
+  **PRIOR-ART SWEEP 2026-08-14 — RESOLVED-FOUND. The author's guess was right:
+  Corollary 2.2 is known mathematics, and it is the composite of two published
+  equivalences.** (i) Commuting conditional expectations $\iff$ conditional
+  independence given the meet: arXiv:1307.6403 Prop. 7, which this note already
+  cites via `LENS_ORDER_COMMUTATION`. (ii) *A contingency matrix has rank 1
+  $\iff$ the two classifications are statistically independent*: S. Tsumoto and
+  S. Hirano, **Contingency Matrix Theory I: Rank and Statistical Independence in
+  a Contingency Table**, RSCTC 2008, LNCS/LNAI **5306**, 240–249, and
+  *Contingency matrix theory: statistical dependence in a contingency table*,
+  Information Sciences **179** (2009) 1615–1627 — stated there as "statistical
+  independence is a special form of linear dependence in which all rows (columns)
+  are described by one row (column), i.e. the rank of the matrix equals 1".
+  Composing (i) and (ii) blockwise over $\pi\vee\sigma$ *is* Corollary 2.2.
+  Search-summary (śabda) grade: `WebFetch` returns EGRESS_BLOCKED on every host,
+  so no PDF or abstract page was read. Queries: *two orthogonal projections
+  commute if and only if contingency table rank one conditional independence
+  given join partition*; *rank of contingency table equals one statistical
+  independence Tsumoto contingency matrix theory*; *conditional expectations
+  commute iff sigma-algebras conditionally independent given intersection*.
+  **NO-MATCH, unchanged, for the load-bearing content:** nothing was located
+  stating Theorem 2.1's closed form $\sum_{E\in\pi\vee\sigma}(\operatorname{rank}N_E-1)$,
+  nor Cor. 2.4's block-count ceiling, nor Props A–F of §7–§8. Absence of a located
+  source is not evidence of novelty. Attribution status only; no statement here
+  is weakened, strengthened, or restated.
 - **Not covered:** actions that are not averaging projections.  The reopening
   cycle's live example uses the diagonal `position` operator on $\mathbb Z/30$,
   which is not a lens; Theorem 2.1 says nothing about it.  Extending the closed

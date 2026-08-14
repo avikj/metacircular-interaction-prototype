@@ -17,6 +17,20 @@ natural_machine_cpu_loop_rust/evolve
 natural_machine_cpu_loop_rust/natural_machine
 natural_machine_cpu_loop_rust/verify
 random_entry_seeder_so_agents_dont_cluster/seed
+machine/library.txt
+
+# Agda scratch probes.  Agents testing whether something reduces on the nose
+# write throwaway modules; two of these (`ZZTestSolver.agda`, `Probe1.agda`)
+# were swept into commits by `git add -A` and had to be removed again.  A
+# probe is a question, not a result: name it `Probe*.agda` or `Scratch*.agda`
+# and it stays out of the tree.  Anything worth keeping goes in
+# `NaturalMachine/` under a name that carries its category.
+formal/cubical/Probe*.agda
+formal/cubical/Tmp*.agda
+formal/cubical/**/Tmp*.agda
+formal/cubical/Scratch*.agda
+formal/cubical/**/Probe*.agda
+formal/cubical/**/Scratch*.agda
 runtime/LIVING_RUN.log
 runtime/LIVING_STATE.json
 vigil-state.json

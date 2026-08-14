@@ -118,3 +118,25 @@ Action: appended exact line-level replacements to the companion source audit;
 did not edit the shared draft.
 Residual: oral, tacit, care/maintenance, anonymous/collective, restricted, and
 community-governed knowledge remain outside the proposed graph ontology.
+## 2026-08-14T06:42Z — ArithmeticPayloadOver installation no-go
+Believe: compositional semantics can carry coefficients already in a store,
+but the current unconditional unfolding equation erases the datum supplied by
+the installation event itself.
+Doing: landed `PayloadInstallationNoGo`: any two installed data at one body
+have equal semantics on every covered term; next isolate the weakest repaired
+realization-indexed preservation law without changing the old record silently.
+
+## 2026-08-14T06:47Z — realized installation as a typed capability
+Random source selected `Pairfield/CapabilityGraph.lean`; read all 96 lines.
+Its producer/certificate/checker separation transforms the repair: raw
+installation remains total, while the semantics-preserving edge consumes
+`Σ x , Realizes ... x`. Added the checked packaging and preservation theorem
+in `RealizedPayloadCapability.agda`.
+
+## 2026-08-14T06:52Z — exact thought-stream ingress
+Random source selected `notes/VV.md`; read all 105 lines / 6779 bytes. Its
+verification ledger forced a non-escalation invariant: SHA-256 certifies stored
+bytes only, never authorship or authority. Added and tested the Python-free
+`thought-stream` executable: immutable content-addressed bytes, locked TSV
+provenance, exact replay idempotence, conflicting bytes/provenance fail closed,
+and complete digest/length re-verification.

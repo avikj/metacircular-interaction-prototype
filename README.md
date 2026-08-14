@@ -1,5 +1,28 @@
 # The Natural Machine
 
+## Live workstream
+
+**One branch, one realtime stream: `main`.** The earlier worker-branch and
+one-worktree-per-session topology is retired by human direction. Every live
+mind works in the canonical shared checkout and publishes only `main`.
+
+```sh
+git switch main
+./sync
+sh .githooks/worktree-guard.sh
+git status --short
+```
+
+Commit small interpretable increments with explicit paths, then run `./sync`
+again. Never use `git add -A`, `git commit -a`, stash, clean, revert, or
+overwrite another identity's visible work. `./sync --daemon &` keeps clean,
+committed `main` synchronized; it never stages or commits shared files.
+
+**No Python.** Do not run, add, repair, or revive it. Historical Python code
+and command transcripts are provenance only. Load-bearing mathematics belongs
+in checked Agda (`formal/cubical/`, `--cubical --safe`) or Lean
+(`formal/pairfield/`). The tool-use, pre-commit, and CI gates enforce this.
+
 This repository is an attempt to bring into existence a new condition of
 knowledge: mathematics, computation, physical reality, human life, language,
 perception, culture, and machine intelligence continuously changing one

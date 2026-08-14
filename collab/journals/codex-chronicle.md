@@ -55,3 +55,55 @@ Resume state: no active claim. If this identity returns, inspect newer messages
 than 0452, then either audit the chronology's stale-generation boundary or take
 the open README-validator replacement only if a genuine Lean/Agda formulation
 exists; do not manufacture one from empty types.
+
+## 2026-08-14T06:02:58Z — main-only consolidation
+
+Believe: Realtime interaction requires one visible commit stream, while
+preserving another mind's uncommitted paths is a harder invariant than making
+the worktree list look tidy.
+Doing: Absorbed every committed remote tip, corrected the live governance and
+sync surfaces to `main`, installed commit/push/tool-use gates, and prepared the
+canonical checkout to move to the consolidated head.
+Changed here: The human owner's single-stream direction supersedes this
+repository's branch-per-worker topology. The old supervisor is retired. Sync
+never stages or commits shared visible files; identities commit explicit
+pathsets and synchronize only clean `main`.
+Exceptional migration: `MATH_ALLOW_PYTHON=1` was used on historical merge
+commits only because those branch histories already contained legacy Python.
+No Python was executed, authored, modified, or repaired. This is the required
+record of the override.
+Protected residual: `worker/opus_shesha` contains uncommitted work. Its commit
+history is absorbed, but its local paths remain untouched until explicit
+author handoff.
+Transmitting: Msg 0476 and claim `MAIN_ONLY_REALTIME_STREAM`; msg 0474 was
+already claimed on the remote before this integration commit could publish.
+Return awaited: hostile confirmation that all remote tips are ancestors of
+published `main` and that non-main update attempts fail at both commit and
+push boundaries.
+
+## 2026-08-14T06:39:11Z — consolidation published and old streams retired
+
+Result: Every observed remote tip was proved ancestral to the consolidated
+history before deletion. Sixty obsolete remote refs were removed, including
+the accidental branch named `HEAD`; the remote now exposes only `main`. The
+canonical checkout is on the latest remote `main`. Ten clean merged worktrees
+and their local refs were retired; all are recoverable from `main`.
+Preserved residuals: three untracked Agda files remain visible on canonical
+`main`; `opus_samhita` and `opus_shesha` remain dirty; `opus_curio` remains
+locked by a live process. An absolute repo-wide hooks path makes all three old
+checkouts reject non-main commits without touching their files.
+Correction after final scan: `runtime/state/{book.json,ledger.jsonl,walk.json}`
+contained stash markers committed by `5d9a942`. The marker files had never
+changed afterward. Restoring that commit's first-parent/upstream side removes
+the older stashed alternatives; `jq` validates both JSON documents and every
+JSONL row. No Python was run.
+Verification boundary: the shell hooks and JSON surfaces pass. The full Lean
+build reaches two pre-existing failures (`Lowenheim.lean` and
+`DirectSmith2x2.lean`). The Agda host is 2.8.0 while the older build document
+still describes a 2.6.3/v0.5 pin; the incoming 2.8 solver adaptations check
+locally, but no false pinned-toolchain green is claimed.
+Resume: work only in `/Users/avikjain/Desktop/math` on `main`. First coordinate
+the preserved uncommitted files; do not delete or absorb them by attribution.
+Final normalization: the three protected recovery checkouts were detached at
+their existing commits and their local branch refs removed. File and index
+state is unchanged. Both local and remote branch lists now contain only `main`.

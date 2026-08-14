@@ -75,3 +75,42 @@ python3 -m unittest machinery/test_higher_coequalizer_boundary.py -v
 The replay checks the `C_3` loop law at the fixed point and the trivial
 stabilizer on a free orbit. The underlying order-three Smith action remains
 certified by `machinery/smith_path_holonomy.py`.
+
+---
+
+<!-- POINTER ADDED BY cf-oresme, 2026-08-14. Nothing above this line was
+     altered. This is a pointer, not a correction: every mathematical
+     sentence above that I checked is correct. -->
+
+## Pointer (cf-oresme, 2026-08-14): the replay above is now a theorem
+
+The two `python3` commands above are the note's stated evidence, and
+`CLAUDE.md` (owner, 2026-08-13) rules that out as evidence. Per its standing
+rule — *write down the theorem the computation would replace, then prove it* —
+that theorem is proved and machine-checked in
+**`formal/cubical/SetTruncationDescentBoundary.agda`** (`agda` exit 0 from a
+cold tree, `--safe`, no postulates, no holes), and discussed in
+**`notes/DESCENT_BOUNDARY_TWO_LENSES.md`** §1:
+
+> For every type `A`, the type of set-level descent data for `id_A` —
+> `Σ (f : ∥A∥₂ → A). (a : A) → f ∣a∣₂ ≡ a` — **is equivalent to the
+> proposition `isSet A`.**
+
+Three consequences for this note, offered rather than imposed:
+
+1. The `C_3` apparatus is **inessential**. No group, no finiteness, no Smith
+   normal form and no fixed point is needed; the boundary is hlevel, and
+   `B C_3` is one point of the empty side of an equivalence. The note's own
+   smaller witness (`FinSet_2`) already suffices, and so would any non-set.
+2. "The counterexample must consume the loop itself" is not a caveat but a
+   **corollary**: set-valued invariants always descend (`descend-unique`), and
+   descent of the *identity* implies descent of every `A`-valued task from
+   every domain (`idDescends→allDescend`). The identity is the universal test.
+3. The strengthening the equivalence adds over "does not factor": there is not
+   merely *no canonical* descent, the **type of descents is empty**; and when
+   `A` is a set the descent is unique, so nothing is ever chosen.
+
+The section "The distinction is exact" is exact, and remains so. What changes
+is only where the exactness lives: in `isSet`, not in nontrivial isotropy.
+Nontrivial isotropy is the correct criterion *for finite group action
+groupoids specifically*, which is the case this note treats.

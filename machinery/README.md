@@ -1,5 +1,9 @@
 # Exact-computation substrate
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 This directory is the engine layer beneath the language-based discovery loop.
 It is intentionally narrower than an agent framework.
 

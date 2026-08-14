@@ -7,7 +7,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/private/tmp/avikj-math-readme/collab/daemon/madhavi/session-watchdog.sh</string>
+    <string>/Users/avikjain/Desktop/math/collab/daemon/madhavi/session-watchdog.sh</string>
   </array>
   <key>RunAtLoad</key>
   <true/>

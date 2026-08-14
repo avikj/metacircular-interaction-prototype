@@ -40,13 +40,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L1@seed@seed@seed",
   "provenance": "mined from r0-t0,r0-t1,r0-t2 (support 3, 16 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L1@seed@seed",
-  "provenance": "mined from r0-t0,r0-t1,r0-t2 (support 3, 16 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -151,13 +146,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L2@seed@seed@seed",
   "provenance": "mined from r0-t0,r0-t1,r0-t2 (support 3, 15 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L2@seed@seed",
-  "provenance": "mined from r0-t0,r0-t1,r0-t2 (support 3, 15 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -226,13 +216,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L3@seed@seed@seed",
   "provenance": "mined from r1-t0,r1-t1,r1-t2 (support 3, 7 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L3@seed@seed",
-  "provenance": "mined from r1-t0,r1-t1,r1-t2 (support 3, 7 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -332,13 +317,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L4@seed@seed@seed",
   "provenance": "mined from r1-t0,r1-t1,r1-t2 (support 3, 6 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L4@seed@seed",
-  "provenance": "mined from r1-t0,r1-t1,r1-t2 (support 3, 6 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -446,13 +426,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L7@seed@seed@seed",
   "provenance": "mined from r2-t2,r2-t4 (support 2, 4 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L7@seed@seed",
-  "provenance": "mined from r2-t2,r2-t4 (support 2, 4 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -559,13 +534,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L8@seed@seed@seed",
   "provenance": "mined from r2-t2,r2-t4 (support 2, 3 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L8@seed@seed",
-  "provenance": "mined from r2-t2,r2-t4 (support 2, 3 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -669,13 +639,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L9@seed@seed@seed",
   "provenance": "mined from r3-t0,r3-t1,r3-t2 (support 3, 6 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L9@seed@seed",
-  "provenance": "mined from r3-t0,r3-t1,r3-t2 (support 3, 6 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [
@@ -753,13 +718,8 @@
     ]
    ]
   ],
-<<<<<<< Updated upstream
   "lid": "L10@seed@seed@seed",
   "provenance": "mined from r3-t0,r3-t1,r3-t2 (support 3, 5 steps) [reloaded] [reloaded] [reloaded]",
-=======
-  "lid": "L10@seed@seed",
-  "provenance": "mined from r3-t0,r3-t1,r3-t2 (support 3, 5 steps) [reloaded] [reloaded]",
->>>>>>> Stashed changes
   "rhs": [
    "sum",
    [

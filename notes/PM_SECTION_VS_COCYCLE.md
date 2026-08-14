@@ -112,11 +112,47 @@ pure finite linear algebra over `F₂`"):
 
 Honest limits, all in that file's header: no `SetQuotient` (the cokernel
 is delivered as exactness + surjectivity, the convention `PMTorus` already
-uses); the sign vector `s` is a **datum transcribed from this note**, not
+uses); ~~the sign vector `s` is a **datum transcribed from this note**, not
 derived from the Gaussian-integer Pauli matrices — the upstream operator
-layer `(φ, μ)` remains unformalized, so §Theorem-4 (the gauge term is
+layer `(φ, μ)` remains unformalized~~; §Theorem-4 (the gauge term is
 load-bearing) is *not* in the checked lane; `rows-only-section` is trivial
 for this `s` and says so.
+
+**UPDATE 2026-08-14 — the sign vector is no longer transcribed.**
+`formal/cubical/NaturalMachine/PauliWeyl.agda` (cf-tessera, `--safe`, no
+postulates, exit 0 standalone and through the root aggregate) builds the
+two-qubit Pauli group in the Weyl/symplectic presentation —
+$i^{e}\,X^{a_1}Z^{b_1}\otimes X^{a_2}Z^{b_2}$ with $e\in\mathbb Z_4$ — and
+computes the six line products of *this corpus's* grid
+`[[XI,IX,XX],[IY,YI,YY],[XY,YX,ZZ]]`. Each is one `refl`, `C2` lands on
+$-I$, and `derived-s ≡ PMCokernel.s` pointwise. Everything `PMCokernel`
+proves downstream of `s` now rests on operator algebra rather than on a
+printout of `machinery/pm_section_cocycle.py`.
+
+Two further things came with it, both previously unchecked anywhere:
+
+- **The 2-cocycle identity is now a proof, not an exhaustion.** This note
+  records it as "verified over all 4096 triples". Associativity of the
+  Pauli product (`·P-assoc`) reduces, after the $\mathbb Z_4$ part
+  cancels, to the $\mathbb F_2$ identity
+  $b a' \oplus (b\oplus b')a'' \equiv b' a'' \oplus b(a'\oplus a'')$ —
+  distributivity of $\wedge$ over $\oplus$ — which is a sixteen-row truth
+  table applied once per qubit. This is `CLAUDE.md`'s rule landing exactly
+  where it says it should: the page of algebra existed and was shorter
+  than the enumeration.
+- **The physical hypotheses are checked.** `lines-commute` (all 18 pairs)
+  and `obs-involutive` (all 9): the lines are commuting triples and each
+  observable squares to the identity. The Peres–Mermin argument needs
+  both and the corpus had assumed both.
+
+Still open, and stated in that file's header rather than hidden: the
+**φ/μ split is not exhibited** — the gauge cochain $\varphi=\#Y$ is
+absorbed into each observable's phase field, so the total is right but
+Theorem 4 stays outside the checked lane; and nothing constructs $4\times4$
+matrices over $\mathbb Z[i]$ or proves the Weyl presentation faithful, so
+what was removed is the Python dependency, not the modelling assumption.
+The assumption is now a written definition instead of an invisible one,
+which is the whole of the difference.
 
 One methodological point worth keeping: the author ran a **sensitivity
 check**, flipping `s C2` to `false` in a scratch copy and confirming

@@ -89,7 +89,7 @@ module A1 (R : CommRing ℓ) where
 
   -- δ = (n,n) is in the kernel …
   diff-kills-diagonal : (n : fst R) → diff n n ≡ 0r
-  diff-kills-diagonal = solve R
+  diff-kills-diagonal n = solve! R
 
   -- … and the kernel is no bigger: two points with the same difference
   -- differ by a diagonal vector, exhibited.
@@ -100,10 +100,10 @@ module A1 (R : CommRing ℓ) where
       -- y − y′ = (y − x) − (y′ − x′) + (x − x′), and the bracket is 0.
       step : (x y x' y' : fst R)
            → y - y' ≡ ((y - x) - (y' - x')) + (x - x')
-      step = solve R
+      step x y x' y' = solve! R
 
       zeroed : (x y x' y' : fst R) → (0r + (x - x')) ≡ x - x'
-      zeroed = solve R
+      zeroed x y x' y' = solve! R
 
       lemma : y - y' ≡ x - x'
       lemma = step x y x' y'
@@ -112,7 +112,7 @@ module A1 (R : CommRing ℓ) where
             ∙ zeroed x y x' y'
         where
           rearrange : (z : fst R) → z - z ≡ 0r
-          rearrange = solve R
+          rearrange z = solve! R
 
   -- Surjectivity of the difference coordinate: every weight is hit.
   diff-surjective : (m : fst R) → Σ[ p ∈ fst R × fst R ]
@@ -120,7 +120,7 @@ module A1 (R : CommRing ℓ) where
   diff-surjective m = (0r , m) , surj m
     where
       surj : (m : fst R) → diff 0r m ≡ m
-      surj = solve R
+      surj m = solve! R
 
   ----------------------------------------------------------------------
   -- §2  The root lattice, and its image in the weight lattice.
@@ -134,7 +134,7 @@ module A1 (R : CommRing ℓ) where
   root x = x , - x
 
   root-sums-to-zero : (x : fst R) → fst (root x) + snd (root x) ≡ 0r
-  root-sums-to-zero = solve R
+  root-sums-to-zero x = solve! R
 
   -- The image lands in the doubles: diff(x, −x) = −x − x = 2·(−x).
   root→double : (x : fst R)
@@ -142,7 +142,7 @@ module A1 (R : CommRing ℓ) where
   root→double x = (- x) , img x
     where
       img : (x : fst R) → diff x (- x) ≡ (- x) + (- x)
-      img = solve R
+      img x = solve! R
 
   -- And it fills them: every double is the image of a root vector.
   double→root : (m : fst R)
@@ -150,7 +150,7 @@ module A1 (R : CommRing ℓ) where
   double→root m = (- m) , fillD m
     where
       fillD : (m : fst R) → diff (- m) (- (- m)) ≡ m + m
-      fillD = solve R
+      fillD m = solve! R
 
   ----------------------------------------------------------------------
   -- §3  The index, both inclusions at once.

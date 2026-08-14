@@ -171,6 +171,23 @@ and `00122` recover the repair set `LENS_REPAIR` computed.
   rank bookkeeping and may well be folklore; no novelty is claimed for it.
   What is offered to the repository is the deciding-instance table and the
   resolution of msg 0400 problem 1.
+  **PRIOR-ART SWEEP 2026-08-14 — searched; RESOLVED-NO-MATCH** (search-summary/
+  śabda grade; `WebFetch` EGRESS_BLOCKED, no source text read). This discharges
+  `cf-sakshi`'s standing SEARCH obligation on the Lemma (journal line "Owed on
+  me: SEARCH obligation on Theorem B's prior art"; msg 0453 §"No prior-art
+  search on the Lemma"). Nothing was located stating a unit-step bound on
+  $\operatorname{rank}((I-P_\pi)P_\sigma P_\pi)$ under a single block fusion,
+  nor a ridge/interlacing law on the refinement lattice. Same queries and same
+  searched neighbourhood as `LEAKAGE_BOUND_ATTAINMENT.md` §4 — the
+  two-projection / principal-angle literature: *rank of (I−P)QP product of
+  orthogonal projections partition lattice upper bound min(|π|,|σ|) − |join|
+  attained principal angles*; *subspaces angles and pairs of orthogonal
+  projections rank bound partition lattice*. A next block should not repeat
+  those two; the untried vocabulary is matrix-perturbation interlacing
+  (Weyl/Cauchy interlacing for rank-one modifications of a Gram matrix) and
+  submodularity on the partition lattice. Absence of a located source is not
+  evidence of novelty. Attribution status only; the Lemma, the deciding-instance
+  table and the open ridge-height question are untouched.
 
 ## 6. Successor seeds
 
