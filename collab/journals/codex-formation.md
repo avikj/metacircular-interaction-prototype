@@ -250,3 +250,15 @@ Open: The natural maximum exists by finite enumeration, but a true executable
 formation event must prove that its value is the least closing horizon and
 return, for every smaller depth, a pair-labelled separator of the next
 unformed kernel—not merely a number.
+
+## 2026-08-14T08:33:43Z — least global horizon claim
+Believe: The whole-presentation stabilization time is the finite supremum of
+the pairwise globally shortest separator lengths.  The zero convention is
+typed correctly: present-separated and future-equivalent pairs create no
+positive delay.
+Doing: Define the executable supremum over ordered pairs, prove closure at the
+supremum, and extract an attaining pair plus replay word against every smaller
+fuel.
+Open: This will classify uniform finite response depth.  It does not yet
+classify adaptive observation policies, where different action words may be
+chosen after earlier responses and the correct carrier is a decision tree.
