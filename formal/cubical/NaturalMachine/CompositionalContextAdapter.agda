@@ -108,9 +108,21 @@ magma→behavioral congruence = record
   step-preserves (true , fixed) related =
     respects-operation congruence (reflexive congruence fixed) related
 
+-- Change the left input, then the right input, using the two elementary
+-- contexts; transitivity joins the two checked paths.
+contextEq-respects-operation :
+    (operation : X → X → X) (observe : X → O)
+    {x x′ y y′ : X}
+  → ContextEq operation observe x x′
+  → ContextEq operation observe y y′
+  → ContextEq operation observe (operation x y) (operation x′ y′)
+contextEq-respects-operation operation observe {x′ = x′} {y = y} left right =
+  FB.futureEq-trans (contextStep operation) observe
+    (FB.futureEq-step (contextStep operation) observe left (false , y))
+    (FB.futureEq-step (contextStep operation) observe right (true , x′))
+
 -- The contextual relation is itself a congruence for the original binary
--- operation.  Change the left input, then the right input, using the two
--- elementary contexts; transitivity joins the two checked paths.
+-- operation.
 contextEq-isMagmaCongruence :
     (operation : X → X → X) (observe : X → O)
   → isObservedMagmaCongruence operation observe
@@ -120,17 +132,8 @@ contextEq-isMagmaCongruence operation observe = record
   ; symmetric = FB.futureEq-sym (contextStep operation) observe
   ; transitive = FB.futureEq-trans (contextStep operation) observe
   ; respects-observe = λ related → related []
-  ; respects-operation = preserves-operation
+  ; respects-operation = contextEq-respects-operation operation observe
   }
-  where
-  preserves-operation : {x x′ y y′ : X}
-    → ContextEq operation observe x x′
-    → ContextEq operation observe y y′
-    → ContextEq operation observe (operation x y) (operation x′ y′)
-  preserves-operation {x′ = x′} {y = y} left right =
-    FB.futureEq-trans (contextStep operation) observe
-      (FB.futureEq-step (contextStep operation) observe left (false , y))
-      (FB.futureEq-step (contextStep operation) observe right (true , x′))
 
 -- Greatestness: every observation-compatible magma congruence is contained
 -- in contextual equality.  This is the exact universal-algebraic / Nerode

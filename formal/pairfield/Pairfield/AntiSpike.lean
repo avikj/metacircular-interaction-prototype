@@ -33,7 +33,7 @@ theorem forward_growth_le_of_abs_step
           rw [Nat.add_succ, Nat.succ_eq_add_one]
         _ ≤ a (i + j) + D := by linarith
         _ ≤ (a i + (j : ℝ) * D) + D := by
-          exact add_le_add_right (ih hij') D
+          linarith [ih hij']
         _ = a i + (Nat.succ j : ℝ) * D := by
           push_cast
           ring

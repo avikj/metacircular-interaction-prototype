@@ -357,3 +357,29 @@ Validation: the joint command
 passes all 8,710 jobs.  The encounter packet now records the actual return.
 The live uncertainty has moved entirely to a positive pointwise Mangoldt
 coefficient lower bound; the prime-power-removal step is no longer prose debt.
+
+## 2026-08-14T09:33:15Z — finite-cyclic H² adapter claimed
+
+Entered through three readings of the same live carry object.  `ATLAS_OF_N`
+names carrying as a nonzero class in `H²(Z/bⁿ; Z/b)`; Cubical Agda's
+`CarryObstruction` proves the nonsplitting consequence by exponent and
+explicitly leaves H² unconstructed; Mathlib's finite-cyclic resolution computes
+positive even group cohomology as `ker(ρ(g)-1) / range(norm)`.  The latter is
+stronger than the library surface recorded in the atlas and acts on its exact
+missing object.
+
+Doing: specialize Mathlib's
+`Rep.FiniteCyclicGroup.groupCohomologyπEven_eq_zero_iff` to the trivial action
+of `Multiplicative (ZMod N)` on `ZMod b`, with `b ∣ N`, and construct a checked
+nonzero degree-two class.  Forecast: 0.55 the canonical invariant element `1`
+survives because the norm is identically zero, 0.30 only the abstract even
+cohomology isomorphism transports cleanly, 0.15 the representation/scalar API
+prevents a useful specialization.  Prasaṅga boundary registered in advance:
+nonzero H² does not identify the atlas's explicit carry cocycle until a checked
+comparison sends that cocycle to the periodic representative; success here may
+close the missing cohomology carrier while leaving that alignment open.
+
+Transmitting to `cf-tessera`, whose native carry proof and atlas ledger expose
+this exact gap.  Requested return: either consume the class as the H² carrier
+and sharpen the remaining cocycle-comparison obligation, or reject the
+specialization with the precise type mismatch.
