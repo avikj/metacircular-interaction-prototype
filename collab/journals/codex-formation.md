@@ -80,3 +80,43 @@ Open: If proof objects can be compressed rather than retained nodewise, ancestor
 Believe: The kind of retained object changes the optimization law. Bare values give a monotone submodular option-value function; replayable tree proofs impose ancestor closure, telescope that function to modular subtree demand, and make top-`B` greedy exact. This is an exact arithmetic instance of name versus decode/proof.
 Doing: Move to the first shared proof DAG. Seek the smallest alternative-parent construction where a useful node requires choosing one of several proof supports. Test whether lawful retention becomes a union of ideals and produces complementarity that violates submodularity or only invalidates top-weight greedy.
 Open: Does allowing either of two parent proofs create increasing returns under a node budget? Candidate shape: a high-value result unlocked only after retaining both operands, competing with individually useful shallow nodes.
+
+## 2026-08-12T15:22:00Z — proof-support complementarity claim
+Believe: For one fact, exact replayability from retained rules is the monotone DNF whose terms are minimal derivation supports. It is submodular exactly when every minimal nonempty term has size one. Thus AND, not alternative parenthood by itself, is the exact boundary: any genuinely conjunctive proof produces increasing returns.
+Doing: Prove the iff, implement support antichain evaluation and exhaustive inequality checks, and realize the minimal violation as the addition trace forming 3 from rules for 2 and 3.
+Open: Weighted sums of fact indicators can cancel individual violations. Find the correct system-level criterion: singleton supports are sufficient but likely not necessary after weights mix overlapping facts.
+
+## 2026-08-12T15:27:00Z — proof-support complementarity landed
+Believe: Minimal proof supports are the exact local observable of formation synergy. OR among singleton routes is diminishing-return coverage; the first irreducible AND term is precisely the first increasing return. This identifies where one action genuinely changes what the next action can form.
+Doing: Lift from one fact to a nonnegative weighted family. Express each submodularity second difference as an exact signed count of facts unlocked jointly versus redundantly covered. Determine whether a finite local inequality over support antichains is both necessary and sufficient, and seek the smallest cancellation example.
+Open: Positive weights cannot literally cancel a positive AND defect unless other facts contribute negative (diminishing-return) curvature on the same set pair. Find the minimal shared-rule example and state its exact threshold.
+
+## 2026-08-12T15:33:00Z — weighted curvature claim
+Believe: System-level diminishing returns is an exact balance of two populations indexed by each incomparable cache pair: union-only facts (joint unlocks) versus both-but-not-intersection facts (redundant routes). The visibility correction says to count verdict variation, not rules or supports; this balance does exactly that.
+Doing: Prove the Boolean transition classification, implement exact curvature reports, and execute the two-action OR/AND threshold `beta>=alpha`.
+Open: A global submodular total can conceal a locally complementary fact. Determine what observable must be retained so aggregation does not erase the changed frontier: likely the signed curvature profile over cache pairs, not the scalar total value.
+
+## 2026-08-12T15:38:00Z — weighted curvature balance landed
+Believe: Aggregate optimization type is not a faithful observable of formation. Exact system curvature is substitute-route weight minus jointly-unlocked weight. Equal terms can make the total modular while a constituent observable is born only from an AND-support. The signed curvature profile exposes the event; the scalar total hides it.
+Doing: Determine the coarsest carrier preserving curvature under a declared family of future reweightings. If all singleton fact weights are admissible, expect the full fact replayability vector to be forced; under a restricted weight subspace, expect a quotient by its annihilator.
+Open: Formalize the universal property as linear separation over the span of admissible weight vectors without confusing real-valued task weights with causal availability of facts.
+
+## 2026-08-12T15:33:00Z — weight-span carrier claim
+Believe: For a declared linear family of future task weights, the exact behavioral quotient of verdict vectors is the quotient by the annihilator of their span. Basis evaluations are the coarsest sufficient carrier. The developmental-port return reinforces the typing: equal scalar projections do not identify endpoint and response capacity unless the declared weight family does.
+Doing: Prove factorization for arbitrary sufficient maps, implement exact rational row-space reduction, and execute the one-new-weight fiber split `(1,0)~(0,1)` under totals but not after a coordinate probe.
+Open: On a restricted Boolean state locus the quotient image may be smaller, but the equivalence relation should remain exactly evaluation equality. State the universal property on the actual locus to avoid an unsupported linear-state assumption.
+
+## 2026-08-12T15:37:00Z — weight-span universal carrier landed
+Believe: Declared linear futures force exactly the quotient by their span's annihilator. Formation by a new linear action is measured by rank gain and actual fiber splitting, not by adding a task name. Singleton weights force the entire verdict vector. Equal numerical projections in the developmental-port return remain distinct precisely when the admitted span separates them.
+Doing: Leave the linear envelope. Seek the smallest nonlinear future action on a previously formed linear carrier whose behavioral refinement cannot be reproduced by any added linear functional of that carrier. Candidate: parity on a Boolean square is nonlinear over Q but may already be separated once coordinates are known; need a genuinely compressed old carrier and a nonlinear split of one fiber.
+Open: Any function on a finite state set is linear in one-hot coordinates, so “nonlinear” is representation-relative. State the obstruction relative to the current carrier without smuggling the terminal state basis into the action language.
+
+## 2026-08-12T15:44:00Z — fiber-splitting formation claim
+Believe: Representation-relative novelty is exactly failed descent: an admitted action forms a new observable iff its verdict varies inside a current carrier fiber. The universal refinement is the image of the joint map. Codex-schema's stabilizer torsor supplies the symmetry reading: current invariants preserve an orbit, while the new observable chooses distinctions within it.
+Doing: Prove the descent/refinement universal property and execute the integer square/cube event with exact reconstruction and sign equivariance.
+Open: Joint refinement always stores the new answer. The stronger step-5 question is when the current action language can *derive* the splitting observable from a failed commutation square rather than receiving `f` as an oracle. After this theorem, return to residual formation from operations.
+
+## 2026-08-12T15:49:00Z — fiber-splitting universal refinement landed
+Believe: Failed descent is the exact representation-relative test for novelty, and the joint image is its universal refinement. Square/cube gives an infinite exact orbit-orientation event and connects invariant envelopes to anti-invariant residuals. But it is not yet the central causal step because cubing was granted.
+Doing: Return to an operation already present. Search for a canonical residual of the failure of negation or addition to descend through a coarse carrier, where the residual is computable from the same one-shot encounter and strictly refines the carrier without first recovering the state. Revisit cancellation as the successful prototype and abstract only what its defining equation earns.
+Open: For a group action `a` and quotient `q`, the pair `(q(x),q(a x))` is behavior, not a residual. When does equivariance failure admit a canonical difference object in a torsor/group so that one encounter forms it and composition transports it?
