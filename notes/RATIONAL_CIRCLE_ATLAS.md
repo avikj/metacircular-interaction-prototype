@@ -423,7 +423,13 @@ $\alpha\in S^n$ there are infinitely many rational $p/q\in S^n$ with
 $\|\alpha-p/q\|<C/q$. FETCHED verbatim from Kleinbock–Merrill, *Rational
 approximation on spheres*, Israel J. Math. **209** (2015) 293–322,
 [arXiv:1301.0989](https://arxiv.org/abs/1301.0989), Theorem 1.1; the same paper
-records that for $n=1$ Fukshansky (via Hlawka 1980) gives $C=2\sqrt2$, and defines
+records that for $n=1$ Fukshansky (via Hlawka 1980) gives $C=2\sqrt2$ **[rider
+checked and confirmed, seed139 2026-08-14: `ar5iv.labs.arxiv.org/html/1301.0989`
+carries, verbatim, "Previously Fukshansky [15] used a theorem of Hlawka [20] about
+approximations of real numbers by Pythagorean triples to establish Theorem 1.1 in
+the special case of $S^1$, and showed that one can take $C=2\sqrt2$", with
+[20] = E. Hlawka, Bonner Math. Schriften 121, Bonn, 1980. Both names and the year
+are the paper's own, not this note's inference]**, and defines
 $\mathrm{BA}(S^n)$, proving it is **thick** (Theorem 1.2) and Lebesgue-null.
 
 *Proof for $n=1$ in our normalization, PROVED.* Reduce by $D_4$ to

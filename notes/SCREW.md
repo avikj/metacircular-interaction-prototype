@@ -3,7 +3,10 @@
 **Task:** the "screw-kernel join" (APPENDIX_D.md §D.6, item 3). **Code:** `code/exp12_screw.py` → `figures/exp12_screw.png`.
 
 **Sources.** Definitions and theorem statements below were extracted from the arXiv HTML of
-[MS] K. Matsumoto, M. Suzuki, *M-functions and screw functions originating from Goldbach's problem and zeros of the Riemann zeta function*, arXiv:2409.00888v2, J. Number Theory **280** (2026) 918–946, and from
+[MS] K. Matsumoto, M. Suzuki, *M-functions and screw functions originating from Goldbach's problem and zeros of the Riemann zeta function*, arXiv:2409.00888v2, J. Number Theory **280** (2026) 918–946 [bibliographic rider
+checked and confirmed, seed139 2026-08-14: `arxiv.org/abs/2409.00888` shows
+journal-ref "J. Number Theory 280 (2026), 918-946", DOI 10.1016/j.jnt.2025.09.013, and a
+v2 dated 2025-10-20, so the "v2" is real too], and from
 [S] M. Suzuki, *Aspects of the screw function corresponding to the Riemann zeta function*, arXiv:2206.03682, J. London Math. Soc. (2023); see also M. Suzuki, *The screw line of the Riemann zeta-function and its applications*, arXiv:2209.04658.
 Formulas were retrieved by targeted fetches of `arxiv.org/html/2409.00888v2` (equation numbers as in v2). They are quoted as extracted; we did not have the full TeX source, so second-order details (constants inside error terms, the axioms (M1)–(M3), (S2) of their class $\Pi=(\Omega,a)$) are reproduced only to the precision of the extraction and are flagged where our own derivation independently confirms them.
 

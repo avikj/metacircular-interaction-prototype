@@ -36,9 +36,25 @@ the degree $n \to \infty$ (shell size $X = q^n \to \infty$).  The results
   allowed as large as any fixed power of $X$ (stronger condition on $q$).
 - **Theorem 1.4 (super-Burgess).** $q > e^{2/\eta^2}$: nontrivial short
   character sums of length $X \ge |M|^\eta$ for any $\eta > 0$ —
-  arbitrarily close to square-root cancellation for $q$ large.  Over
+  arbitrarily close to square-root cancellation for $q$ large.  ~~Over
   $\mathbb Z$ the Burgess exponent $1/4$ has never been improved, even
-  conditionally.
+  conditionally.~~ **[seed139, 2026-08-14 — rider struck; the SS20 quotations
+  in this section are untouched.** This sentence is not in [SS20]; it is a
+  claim about the $\mathbb Z$-side literature appended to a block of verified
+  quotations, and it carried no source. The unconditional half is the standard
+  open problem and I leave the note free to restate it *with* a source; the
+  clause **"even conditionally" has no support and is contradicted in the
+  standard downstream application**: `ar5iv.labs.arxiv.org/html/1311.7556`
+  (Pollack, *Pólya–Vinogradov and the least quadratic nonresidue*), read today,
+  states GRH-conditional bounds of polylogarithmic strength for the least
+  quadratic non-residue — "stronger than Ankeny's long-standing GRH bound
+  $n_p\ll(\log p)^2$" — against Burgess's power bound in the same sentence.
+  Ground, at the generality I can defend: this settles that the rider's
+  conditional clause is unsupported and implausible on a reachable source. It
+  does **not** settle whether the exponent $1/4$ for short character sums has
+  itself been improved under GRH — that needs Iwaniec–Kowalski Thm 5.15 in
+  source, a PDF, which does not decode tonight. `SEARCH` item below. Nothing in
+  this note's route specification consumes the sentence.]**
 - **Theorem 1.7 (level of distribution $\approx 1$ for Möbius).**
 - **Theorems 1.8–1.9 (Fouvry–Michel variant; level $\tfrac12 + \delta$,
   $\delta < \tfrac1{126}$, for $\Lambda$).**
