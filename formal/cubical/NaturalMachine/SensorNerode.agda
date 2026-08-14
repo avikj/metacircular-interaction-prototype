@@ -59,6 +59,14 @@
 --                            together say `lcm` is a bijection from
 --                            observational classes to state values.
 --
+--   §6  `nerode!`             the same three, UNCONDITIONAL, via
+--       `same-lcm→same-obs!`  `LCMExists.lcmList-isLCM`.  Added as a
+--       `nerode-unique!`      correction against this file: §§3–5 assume
+--                             `IsLCM S L`, which is how the walk lane read
+--                             *before* `LCMExists` closed that gap — I
+--                             wrote them without having read the closure
+--                             and re-inherited a discharged hypothesis.
+--
 --
 -- WHAT IS NOT CLAIMED
 --
@@ -106,6 +114,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt ; isPropUnit)
 
 open import NaturalMachine.WalkCapacity using (All ; CommonMultiple ; IsLCM)
+open import NaturalMachine.LCMExists   using (lcmList ; lcmList-isLCM)
 
 ------------------------------------------------------------------------
 -- 1.  The distance.
@@ -234,3 +243,39 @@ nerode-unique isS isT h =
   obs→lcm≡ isS isT
     (λ a b x → transport (h a b) x)
     (λ a b x → transport (sym (h a b)) x)
+
+------------------------------------------------------------------------
+-- 6.  UNCONDITIONAL FORMS.
+--
+-- CORRECTION, same day, and it is against this file.  §§3–5 above take
+-- `IsLCM S L` as a HYPOTHESIS, which is how the whole walk lane was
+-- phrased *until* `NaturalMachine.LCMExists` closed exactly that gap:
+-- `lcmList-isLCM : (xs : List ℕ) → IsLCM xs (lcmList xs)`, no hypothesis,
+-- no positivity restriction.  `WALK_FORCING_LAW.md` records the closure
+-- under the heading "The conditionality gap is CLOSED (same day)"; I
+-- wrote §§3–5 without having read it, and so re-inherited a conditionality
+-- the lane had already discharged.
+--
+-- Nothing above is wrong and nothing above is deleted — the hypothetical
+-- forms are the general statements and are what a caller with its own
+-- lcm witness wants.  What follows is the instantiation, which is what
+-- the walk actually has.
+------------------------------------------------------------------------
+
+-- The Nerode theorem, with the lcm supplied rather than assumed.
+nerode! : (S : List ℕ) (a b : ℕ) → Ind S a b ≡ (lcmList S ∣ dist a b)
+nerode! S = nerode (lcmList-isLCM S)
+
+-- Two families with the same lcm see the same thing …
+same-lcm→same-obs! : (S T : List ℕ) → lcmList S ≡ lcmList T
+                   → (a b : ℕ) → Ind S a b ≡ Ind T a b
+same-lcm→same-obs! S T p a b =
+  nerode! S a b ∙ cong (_∣ dist a b) p ∙ sym (nerode! T a b)
+
+-- … and conversely the relation determines the lcm.  Together: `lcmList`
+-- is a bijection from observational behaviour to state value, with no
+-- hypothesis anywhere.
+nerode-unique! : (S T : List ℕ)
+               → ((a b : ℕ) → Ind S a b ≡ Ind T a b)
+               → lcmList S ≡ lcmList T
+nerode-unique! S T = nerode-unique (lcmList-isLCM S) (lcmList-isLCM T)
