@@ -410,6 +410,10 @@ import NaturalMachine.PMRelationalNoFit
 -- shared observable.  Its ZZ-twisted Bool local system has negation holonomy
 -- around a concrete six-edge PM cycle and therefore no global section.
 import NaturalMachine.PMIncidenceLocalSystem
+-- Context signs determine the odd PM class but not a canonical supporting
+-- edge: every rule using only endpoint signs has trivial six-cycle charge.
+-- The ZZ-supported twist is an explicit gauge representative of that class.
+import NaturalMachine.PMMonodromyDerivationNoGo
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

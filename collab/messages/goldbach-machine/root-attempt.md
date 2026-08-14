@@ -26,12 +26,15 @@ repository's executable and formal boundary in four exact ways:
 4. a checked crossover theorem composes a finite prefix certificate with an
    analytic tail inequality to produce `StrongGoldbach`.
 
-This removes finite search, witness extraction, architecture rank, charge
-extraction, major-arc normalization, and prime-power removal from the list of
-ambiguous bottlenecks.  The remaining load-bearing theorem is pointwise and
-signed: exclude an order-`N` negative minor-arc coefficient at **each** even
-center.  Current mean-square estimates control all but an exceptional set but
-permit an isolated spike.
+This removes finite search, witness extraction, and prime-power removal from
+the list of ambiguous bottlenecks, and it closes off architecture rank and
+charge extraction as substitutes for positivity.  The externally pinned
+major-arc normalization is target-adapted; it is not yet identified with the
+common-`X` coefficient family used by the mean-square and finite-difference
+arguments below.  The remaining load-bearing theorem is pointwise and signed:
+exclude an order-`N` negative minor-arc coefficient at **each** even center.
+Current mean-square estimates control all but an exceptional set but permit an
+isolated spike.
 
 ## 1. What the machine can now execute
 
@@ -182,12 +185,15 @@ non-tautological analytic interface.
 
 ## 4. What a counterexample must look like analytically
 
-For a common ambient scale `X`, put
+For the externally pinned pointwise formula, keep the target-dependent
+normalization
 
 \[
-S_X(\alpha)=\sum_{n\le X}\Lambda(n)e(n\alpha),
+S_N(\alpha)=\sum_{n\le N}\Lambda(n)e(n\alpha),
+\qquad Q_N=(\log N)^B,
 \qquad
-a_R(N)=\int_{\mathfrak m(R)}S_X(\alpha)^2e(-N\alpha)\,d\alpha.
+a_B^{\mathrm{diag}}(N)=
+ \int_{\mathfrak m_B(N)}S_N(\alpha)^2e(-N\alpha)\,d\alpha.
 \]
 
 Bhowmik--Grimmelt's current primary preprint,
@@ -196,23 +202,25 @@ supplies the matching pointwise major-arc formula
 
 \[
 R_\Lambda(N)=N\mathfrak S(N)
-+O\!\left(Ne^{-c\sqrt{\log N}}\right)+a_R(N)
++O\!\left(Ne^{-c\sqrt{\log N}}\right)+a_B^{\mathrm{diag}}(N)
 \]
 
-for every individual `N` at logarithmic cutoff.  For even `N`, the singular
-series is bounded below by a positive constant.  Combined with the checked
-exception signature, any sufficiently large Goldbach exception would force
+for every individual `N`, with the same `N` setting the polynomial cutoff,
+the target Fourier coefficient, and the arc widths `Q_N/(qN)`.  For even `N`,
+the singular series is bounded below by a positive constant.  Combined with
+the checked exception signature, any sufficiently large Goldbach exception
+would force
 
 \[
 \boxed{
-a_R(N)=-N\mathfrak S(N)+o(N).}
+a_B^{\mathrm{diag}}(N)=-N\mathfrak S(N)+o(N).}
 \]
 
 The logical minimum for sufficiently large Goldbach is therefore a one-sided
 margin: for some fixed `eta>0`,
 
 \[
-a_R(N)\ge-(1-\eta)N\mathfrak S(N)
+a_B^{\mathrm{diag}}(N)\ge-(1-\eta)N\mathfrak S(N)
 \]
 
 for every sufficiently large even `N`.  This analytic theorem is not present

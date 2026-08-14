@@ -210,3 +210,22 @@ Cold safe Agda 2.8.0 passed
 in a temporary frozen-tree archive.  An arbitrary intended module/carrier
 witness, the general T18.5 direction, and analytic/arithmetic realizations
 remain open.
+
+## 2026-08-14T09:33:32Z — N5 threshold-generation boundary checked
+The ninth literal no-redraw encounter selected
+`notes/THRESHOLD_GENERATION_DICHOTOMY.md` from a frozen 998-path frame at tree
+`bee86bf0` (native uint32 `2462038981`, accepted index0 925).  Its M3
+threshold-generation obstruction was already checked, but the companion N5
+argument remained prose.  I encoded the five-element pentagon table and
+proved that every multiplicative-test threshold above identity has value at
+`na` at least `nc`; the invariant survives finite nonempty pointwise meet, so
+such a meet cannot equal identity.  The identity's meet/top admissibility is
+checked separately.  Cold safe Agda 2.8.0 passed.  Tests are not required to
+preserve top, making the refuted family larger than the admissible threshold
+family.  The general converse “thresholds generate iff distributive” and the
+generic finite-distributive positive theorem remain open; no historical or
+cultural claim is extracted from the sampled note's other sections.
+The sibling import was added beside `ThresholdGenerationDichotomy` in
+`Everything.agda`.  Full aggregate replay is independently blocked earlier by
+the existing `CompositionalContextAdapter.agda:129.65-67` de Bruijn-index
+mismatch; the new module and an isolated temporary-copy replay are green.

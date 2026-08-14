@@ -30,28 +30,51 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
     module G = GroupStr (snd Γ)
 
   leftMultiplyIso : (a : ⟨ Γ ⟩) → Iso ⟨ Γ ⟩ ⟨ Γ ⟩
-  Iso.fun (leftMultiplyIso a) x = a G.· x
-  Iso.inv (leftMultiplyIso a) x = G.inv a G.· x
-  Iso.rightInv (leftMultiplyIso a) x =
-      sym (G.·Assoc (G.inv a) a x)
-    ∙ congL G._·_ (G.·InvL a)
-    ∙ G.·IdL x
-  Iso.leftInv (leftMultiplyIso a) x =
-      sym (G.·Assoc a (G.inv a) x)
-    ∙ congL G._·_ (G.·InvR a)
-    ∙ G.·IdL x
+  leftMultiplyIso a = iso (a G.·_) (G.inv a G.·_) right left
+    where
+    right : (x : ⟨ Γ ⟩) → a G.· (G.inv a G.· x) ≡ x
+    right x =
+      a G.· (G.inv a G.· x)
+        ≡⟨ sym (G.·Assoc a (G.inv a) x) ⟩
+      (a G.· G.inv a) G.· x
+        ≡⟨ cong (λ z → z G.· x) (G.·InvR a) ⟩
+      G.1g G.· x
+        ≡⟨ G.·IdL x ⟩
+      x ∎
+
+    left : (x : ⟨ Γ ⟩) → G.inv a G.· (a G.· x) ≡ x
+    left x =
+      G.inv a G.· (a G.· x)
+        ≡⟨ sym (G.·Assoc (G.inv a) a x) ⟩
+      (G.inv a G.· a) G.· x
+        ≡⟨ cong (λ z → z G.· x) (G.·InvL a) ⟩
+      G.1g G.· x
+        ≡⟨ G.·IdL x ⟩
+      x ∎
 
   rightMultiplyIso : (a : ⟨ Γ ⟩) → Iso ⟨ Γ ⟩ ⟨ Γ ⟩
-  Iso.fun (rightMultiplyIso a) x = x G.· a
-  Iso.inv (rightMultiplyIso a) x = x G.· G.inv a
-  Iso.rightInv (rightMultiplyIso a) x =
-      G.·Assoc x (G.inv a) a
-    ∙ congR G._·_ (G.·InvL a)
-    ∙ G.·IdR x
-  Iso.leftInv (rightMultiplyIso a) x =
-      G.·Assoc x a (G.inv a)
-    ∙ congR G._·_ (G.·InvR a)
-    ∙ G.·IdR x
+  rightMultiplyIso a =
+    iso (λ x → x G.· a) (λ x → x G.· G.inv a) right left
+    where
+    right : (x : ⟨ Γ ⟩) → (x G.· G.inv a) G.· a ≡ x
+    right x =
+      (x G.· G.inv a) G.· a
+        ≡⟨ G.·Assoc x (G.inv a) a ⟩
+      x G.· (G.inv a G.· a)
+        ≡⟨ cong (λ z → x G.· z) (G.·InvL a) ⟩
+      x G.· G.1g
+        ≡⟨ G.·IdR x ⟩
+      x ∎
+
+    left : (x : ⟨ Γ ⟩) → (x G.· a) G.· G.inv a ≡ x
+    left x =
+      (x G.· a) G.· G.inv a
+        ≡⟨ G.·Assoc x a (G.inv a) ⟩
+      x G.· (a G.· G.inv a)
+        ≡⟨ cong (λ z → x G.· z) (G.·InvR a) ⟩
+      x G.· G.1g
+        ≡⟨ G.·IdR x ⟩
+      x ∎
 
   -- Endpoint covariance is invertible: t acts on the left and s⁻¹ on
   -- the right.  This construction uses only the supplied endpoint pair.
