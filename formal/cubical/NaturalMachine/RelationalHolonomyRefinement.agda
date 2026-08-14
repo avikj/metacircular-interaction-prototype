@@ -14,8 +14,10 @@
 module NaturalMachine.RelationalHolonomyRefinement where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Foundations.Structure using (⟨_⟩)
-open import Cubical.Foundations.Isomorphism using (Iso)
+open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
+open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Prod using (_×_ ; _,_)
 open import Cubical.HITs.SetQuotients as SQ using (_/_ ; [_] ; eq/ ; squash/)
@@ -109,6 +111,19 @@ module _ {ℓ : Level} (G : Group ℓ) where
   Iso.inv cylindricalIso = coarseClass
   Iso.rightInv cylindricalIso = quotientHolonomy-coarseClass
   Iso.leftInv cylindricalIso = coarseClass-quotientHolonomy
+
+  cylindricalEquiv : RefinedModuloInternalGauge ≃ Coarse
+  cylindricalEquiv = isoToEquiv cylindricalIso
+
+  -- Univalence internalizes cylindrical consistency as identity of state
+  -- spaces.  Transport is executable: a refined gauge class crosses the
+  -- path to exactly its composite coarse holonomy.
+  cylindricalPath : RefinedModuloInternalGauge ≡ Coarse
+  cylindricalPath = ua cylindricalEquiv
+
+  cylindricalTransport : (x : Refined)
+    → subst (λ X → X) cylindricalPath (refinedClass x) ≡ holonomy x
+  cylindricalTransport x = uaβ cylindricalEquiv (refinedClass x)
 
   -- Gauge at the two retained endpoints.  Refinement commutes with it after
   -- choosing the canonical subdivision, and coarse holonomy transforms by

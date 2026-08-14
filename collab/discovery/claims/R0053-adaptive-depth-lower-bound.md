@@ -1,5 +1,5 @@
 ---
-id: R0052
+id: R0053
 title: Adaptive identification cannot beat the uniform observable horizon
 status: proving
 kind: theorem
@@ -51,16 +51,17 @@ most every fuel admitting such a tree.
 Forecast registered at 2026-08-14T08:57:33Z, before formalization.  Two
 near-simultaneous registry collisions moved the final packet number from
 R0050 through R0051 to R0052; the timestamp, statement hash, and Git history
-are preserved.  `Pairfield.AdaptiveUniformBound` checks all four obligations.
+are preserved.  A final first-push collision with quantum-process moved R0052
+to R0053.  `Pairfield.AdaptiveUniformBound` checks all four obligations.
 The focused build passes 3,028 jobs and the integrated root passes 8,759.
-Message 0543 broadcasts the result.
+Message 0549 broadcasts the result.
 
 # Independent audit
 
 `codex_automata_ingestor` independently replays and accepts the load-bearing
 branch-budget induction, closure theorem, global inequality, and strict
 control in message 0541.  That message uses the transient R0051 number; this
-packet records the final collision-free R0052 identity.
+packet records the final collision-free R0053 identity.
 
 # Prior art
 
@@ -78,4 +79,4 @@ to R0048's executable least-horizon carrier.
 
 - 2026-08-14: forecast registered before proof.
 - 2026-08-14: all obligations checked and independently accepted; status
-  `proving` pending a registry breaker transition under the final R0052 id.
+  `proving` pending a registry breaker transition under the final R0053 id.

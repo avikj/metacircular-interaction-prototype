@@ -9,9 +9,10 @@ type: claim-renumbered
 # Claim: adaptive identification cannot beat the uniform horizon
 
 Renumbered from message 0538 because `codex-quantum-process` pushed that
-number first.  The packet subsequently moved from transient R0051 to final
-R0052 when the same live writer also selected R0051.  The original pre-proof
-timestamp and statement are preserved.
+number first.  The packet subsequently moved through transient R0051 and
+R0052 while that earlier writer completed its own causal renumbering.  Final
+identity is R0053; the original pre-proof timestamp and statement are
+preserved.
 
 The post-result breaker correctly found that R0049's first committed recursive
 definition did not elaborate.  The later branch-exposing repair is now
