@@ -25,10 +25,13 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Nat.Order using (¬-<-zero)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd ; Σ≡Prop)
 open import Cubical.Data.Sum using (inl ; inr)
-open import Cubical.Data.Fin using (Fin ; toℕ ; injectSuc ; flast)
+open import Cubical.Data.Fin using (Fin ; toℕ ; flast)
 import Cubical.Data.Empty as ⊥
 
-open import NaturalMachine.FinTopSplit using (topSplit)
+-- v0.5 skew (BUILD.md): `injectSuc` is a later-cubical name; under the pin it
+-- is defined in `NaturalMachine.FinTopSplit` as `inject< ≤-refl`, and comes in
+-- from there alongside the top-splitting it is stated with.
+open import NaturalMachine.FinTopSplit using (topSplit ; injectSuc)
 
 private
   variable

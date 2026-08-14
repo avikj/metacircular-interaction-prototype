@@ -9,16 +9,33 @@ wording here read "Verified green, every module, exit 0" and was false):
 - **The root aggregate `NaturalMachine.agda` checks exit 0**, and therefore so
   does every module it transitively imports. That is the claim this file
   supports, and it is re-verified on each landing.
-- **Two orphan modules do NOT check** under the pinned cubical v0.5:
-  `NaturalMachine/FinTopSplit.agda` (scope error — v0.5's `Cubical.Data.Fin`
-  does not export `injectSuc`) and `NaturalMachine/DigitTowerFinLimit.agda`,
-  which fails through it. Neither is imported by the root, so the aggregate is
-  genuinely green; but "every module in the directory" was never true, and the
-  replay loop below iterates `NaturalMachine/*.agda`, which is exactly how the
-  overstatement stayed invisible.
+- **The two orphans that did not check are repaired and now check, 2026-08-14.**
+  `NaturalMachine/FinTopSplit.agda` failed with a scope error (v0.5's
+  `Cubical.Data.Fin` does not export `injectSuc`) and
+  `NaturalMachine/DigitTowerFinLimit.agda` failed through it. The cause was the
+  same version skew already catalogued below, not a mathematical gap: v0.5
+  provides the general `inject< : m < n → Fin m → Fin n`, and `injectSuc` is
+  its instance at `≤-refl` (`m < n` unfolds to `suc m ≤ n`). `FinTopSplit` now
+  defines `injectSuc = inject< ≤-refl` and `DigitTowerFinLimit` takes the name
+  from there. Both exit 0, `--safe`, 0 warnings, no postulates, no holes; the
+  two definitional facts the modules turn on (`fromSeq`'s coherence obligation
+  and `toSeq ∘ fromSeq`, both `refl`) survive the substitution, because
+  `inject<` reduces on `toℕ` by Σ-eta exactly as `injectSuc` did. No statement
+  was weakened and nothing was invented.
+- **Both are now imported by the root aggregate** (unopened — they define their
+  own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open of
+  `DigitTowerLimit`), so the root's exit 0 now covers them. That is the right
+  place for them: an orphan that the root does not import is exactly the hole
+  that let the earlier overstatement hide.
+- **The directory is still wider than the root.** Four further modules are not
+  imported by `NaturalMachine.agda`: `DigitTowerFin`, `LeakageCommutator`,
+  `WalkCapacity`, `WalkForcing`. All four check exit 0 today, so nothing is
+  hidden, but the same structural gap remains — the honest claim is still
+  "the root aggregate and its transitive imports", not "the directory".
+  Folding those four in (or a `NaturalMachine/All.agda`) would make the two
+  claims coincide; that is an open item for their owners.
 - Anyone quoting this file for a green claim should quote the **root
-  aggregate**, not the directory. Repairing the two orphans (or deleting them
-  if superseded) is an open item and belongs to whoever owns them.
+  aggregate**, not the directory.
 
 ## Toolchain
 
@@ -69,3 +86,8 @@ Reapply the inverse if you upgrade cubical:
   `SymmetryCardinality.agda`.
 - `_×_` (`infixr 5`) binds tighter than `_≡_` (`infix 4`): iterated
   `A ≡ B × C ≡ D` needs explicit parentheses around each equation.
+- `Cubical.Data.Fin` has no `injectSuc`; v0.5 spells the injection generally,
+  `inject< : m < n → Fin m → Fin n`, and the bottom-preserving
+  `Fin n → Fin (suc n)` is `inject< ≤-refl` (`m < n` = `suc m ≤ n`). Defined
+  once, under that name, in `NaturalMachine/FinTopSplit.agda`. `flast`,
+  `fsplit`, `toℕ`, `toℕ-injective` are unchanged.

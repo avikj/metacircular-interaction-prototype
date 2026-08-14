@@ -13,10 +13,21 @@ module NaturalMachine.FinTopSplit where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Cubical.Data.Nat.Order using (_<_ ; _≤_ ; ≤-split ; pred-≤-pred ; <-trans)
+open import Cubical.Data.Nat.Order using (_<_ ; _≤_ ; ≤-split ; ≤-refl ; pred-≤-pred ; <-trans)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
-open import Cubical.Data.Fin using (Fin ; toℕ ; toℕ-injective ; injectSuc ; flast)
+open import Cubical.Data.Fin using (Fin ; toℕ ; toℕ-injective ; inject< ; flast)
+
+------------------------------------------------------------------------
+-- v0.5 skew (BUILD.md): the bottom-preserving injection `Fin n → Fin (suc n)`
+-- is named `injectSuc` only in later cubical.  v0.5 offers the general
+-- `inject< : m < n → Fin m → Fin n`; the instance at `n < suc n` is `≤-refl`
+-- (recall `m < n` unfolds to `suc m ≤ n`).  Defined here so the rest of this
+-- module and `DigitTowerFinLimit` read as written.
+------------------------------------------------------------------------
+
+injectSuc : {n : ℕ} → Fin n → Fin (suc n)
+injectSuc = inject< ≤-refl
 
 ------------------------------------------------------------------------
 -- The top-splitting.

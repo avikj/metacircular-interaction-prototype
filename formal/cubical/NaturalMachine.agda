@@ -93,6 +93,10 @@ import NaturalMachine.PMTorus
 import NaturalMachine.FlipObservable
 import NaturalMachine.AtlasResiduals
 open import NaturalMachine.DigitTowerLimit public
+-- The Fin presentation of the same tower.  Imported unopened: it defines its
+-- own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open above.
+import NaturalMachine.FinTopSplit
+import NaturalMachine.DigitTowerFinLimit
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
