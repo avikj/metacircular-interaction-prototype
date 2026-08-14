@@ -92,6 +92,8 @@ import NaturalMachine.BuchstabDegree
 import NaturalMachine.RootWeightIndex
 import NaturalMachine.TwoProjections
 import NaturalMachine.ConeOrder
+import NaturalMachine.ParitySeparator
+import NaturalMachine.ChargeCriterion
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism

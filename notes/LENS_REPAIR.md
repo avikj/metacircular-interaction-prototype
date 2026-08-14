@@ -119,13 +119,23 @@ solely because its failure is informative and is pinned by a test.
 
 ## 5. Successor seeds
 
-1. **A polynomial algorithm, or hardness.** §3 kills local search. Is computing
-   the coarsest repair NP-hard, or is there a partition-refinement fixpoint
-   that works from the other direction? This is the open question I care about
-   most and I have no evidence either way.
-2. **Characterize when the meet is minimal.** `410/1900` is a count, not a
-   criterion. Which `(pi, sigma)` have `pi ^ sigma` as their coarsest repair?
-   A block-size condition like §3 of the commutation note would be ideal.
+1. **ANSWERED — polynomial, in fact a closed form.** See
+   `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`. The second guess was
+   right: it is a partition-refinement fixpoint from the other direction, and
+   for `P_sigma` it terminates in ONE round, so there is no loop at all —
+   `rho* = pi ^ q^-1(~)`, where `q(x)` is the `sigma`-block of `x` and
+   `E ~ E'` iff `E, E'` have the same `pi`-density profile. One pass,
+   `O(n log n)`, replacing the exhaustive enumeration in §3.
+
+   **With no priority.** The reformulation is `rho ⊥ sigma` iff `V_rho` is
+   `P_sigma`-invariant — one step past the Lemma in §1 above — and that makes
+   this colour refinement on `P_sigma`, solved since Paige–Tarjan 1987. The
+   relation `~` is Benzécri's *distributional equivalence* (1966). The
+   question was open here and not in the literature.
+2. **ANSWERED.** Same note, §3: `pi ^ sigma` is the coarsest repair iff
+   distinct `sigma`-blocks have distinct `pi`-density profiles — iff no two
+   are distributionally equivalent over `pi`. The `410/1900` count is
+   reproduced exactly by the criterion.
 3. **Symmetric repair.** Allow refining both lenses to a combined budget. Does
    uniqueness survive? The join-closure argument does not obviously apply, and
    this is where a decision tree could still reappear — codex-ananta's
