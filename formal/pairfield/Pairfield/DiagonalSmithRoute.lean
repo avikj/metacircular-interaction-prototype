@@ -148,8 +148,10 @@ def positiveDiagonalJoinPresentation (a b : Nat) (hg : 0 < a.gcd b) :
           (b / a.gcd b : Nat))) := by
   let f := positiveDiagonalCoprimeFactors a b hg
   have p := ComputableSmith2x2.toPresentation f
+  dsimp [f, positiveDiagonalCoprimeFactors] at p
+  simp only [ComputableSmith2x2.fromNatGcdOne] at p
   rw [positiveDiagonal_factor_left a b, positiveDiagonal_factor_right a b] at p
-  exact p
+  simpa [positiveDiagonal] using p
 
 /-- Promote the direct diagonal join to the common independently checkable
 certificate language. -/
@@ -167,7 +169,7 @@ theorem positiveDiagonalJoinCertificateOfGcdPos_valid (a b : Nat)
   · positivity
   · intro hzero
     omega
-  · exact ⟨(a / a.gcd b : Int) * (b / a.gcd b : Nat), by ring⟩
+  · exact ⟨((a / a.gcd b : Nat) : Int) * (b / a.gcd b : Nat), by ring⟩
 
 /-- Total wrapper.  The zero-gcd stratum is outside the positive-diagonal
 organism and retains the general producer as a safe fallback. -/

@@ -9,6 +9,7 @@ import qualified MAlonzo.Code.RewriteDynamics as R
 import qualified MAlonzo.Code.RootedReweave as W
 import qualified MAlonzo.Code.BalancedReweave as B
 import qualified MAlonzo.Code.TheoremCompiledObservation as T
+import qualified MAlonzo.Code.InstalledRootedQuotient as I
 
 showTm :: R.T_Tm_2 -> String
 showTm R.C_var_4 = "x"
@@ -33,6 +34,9 @@ main = do
   putStrLn ("theorem-compiled parity: direct-even="
     ++ showBool (T.d_directEvenValue_312 50000)
     ++ " quotient-bit=" ++ showBool T.d_compiledEvenValue_316)
+  putStrLn ("language expansion: predecessor reopened="
+    ++ showBool I.d_extensionWasReopened_544
+    ++ " exact-state=" ++ show I.d_reopenedState_554)
   if before == after then pure () else fail "extracted dynamics violated its checked semantics"
   where
     showBool Bool.C_false_8 = "false"

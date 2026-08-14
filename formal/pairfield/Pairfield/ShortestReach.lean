@@ -182,6 +182,43 @@ theorem shortestReachingWord_minimal
       word.length ≤ candidate.length :=
   shortestReachingUpTo_minimal alphabet complete M target h
 
+/-- A nonempty shortest reaching word carries its own predecessor edge, and
+its `dropLast` prefix is already a globally shortest word to that predecessor.
+Thus shortest witnesses form a well-founded predecessor forest under word
+length; no extra choice of parents is required. -/
+theorem shortestReachingWord_predecessor
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (target : X)
+    {word : List A} (h : shortestReachingWord M alphabet target = some word)
+    (hne : word ≠ []) :
+    let prefix := word.dropLast
+    let action := word.getLast hne
+    M.step (M.eval prefix) action = target ∧
+      ∀ candidate : List A, M.eval candidate = M.eval prefix →
+        prefix.length ≤ candidate.length := by
+  dsimp only
+  have hdecompose : word.dropLast ++ [word.getLast hne] = word :=
+    List.dropLast_append_getLast hne
+  have htarget := shortestReachingWord_sound
+    M alphabet complete target h
+  have hedge : M.step (M.eval word.dropLast) (word.getLast hne) = target := by
+    rw [← hdecompose] at htarget
+    rw [DFA.eval, DFA.evalFrom_of_append] at htarget
+    exact htarget
+  refine ⟨hedge, ?_⟩
+  intro candidate hcandidate
+  have hcandTarget : M.eval (candidate ++ [word.getLast hne]) = target := by
+    rw [DFA.eval, DFA.evalFrom_of_append, hcandidate]
+    exact hedge
+  have hminimal := shortestReachingWord_minimal
+    M alphabet complete target h (candidate ++ [word.getLast hne]) hcandTarget
+  have hwordLength : word.length = word.dropLast.length + 1 := by
+    rw [← hdecompose]
+    simp
+  simp only [List.length_append, List.length_singleton] at hminimal
+  omega
+
 /-- A proof-relevant shortest reaching witness. -/
 structure ShortestReachCertificate (M : DFA A X) (target : X) where
   word : List A

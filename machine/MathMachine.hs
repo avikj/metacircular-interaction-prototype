@@ -89,6 +89,47 @@ kSizeCap = 7
 
 data Term = V !Int | F !String [Term] deriving (Eq, Ord)
 
+-- Theorem Factory II, stripped to its generic computational content.  A
+-- bounded ordered fibre plus a decidable predicate and an accepted coverage
+-- witness determines one canonical least inhabitant.  Coverage is input
+-- mathematics; search never manufactures it.
+data Coverage a = Coverage !a deriving (Eq, Show)
+
+data CoverageResidual a
+  = WitnessOutsideFiber !a
+  | WitnessRejected !a
+  deriving (Eq, Show)
+
+data LeastWitness a = LeastWitness
+  { leastValue :: !a
+  , excludedPrefix :: [a]
+  } deriving (Eq, Show)
+
+leastCovered :: Eq a => [a] -> (a -> Bool) -> Coverage a
+  -> Either (CoverageResidual a) (LeastWitness a)
+leastCovered fibre predicate (Coverage supplied)
+  | supplied `notElem` fibre = Left (WitnessOutsideFiber supplied)
+  | not (predicate supplied) = Left (WitnessRejected supplied)
+  | otherwise = Right (walk [] fibre)
+  where
+    walk rejected (x:xs)
+      | predicate x = LeastWitness x (reverse rejected)
+      | otherwise = walk (x:rejected) xs
+    walk _ [] = error "leastCovered: validated coverage became empty"
+
+-- Recurrence over an unbounded fibre cannot be totalized by a finite scan.
+-- The residual retains the searched prefix instead of asserting absence.
+data PartialWitness a = FoundLeast (LeastWitness a) | OpenBeyond [a]
+  deriving (Eq, Show)
+
+searchPrefix :: [a] -> (a -> Bool) -> PartialWitness a
+searchPrefix fibre predicate = walk [] fibre
+  where
+    walk rejected [] = OpenBeyond (reverse rejected)
+    walk rejected (x:xs)
+      | predicate x = FoundLeast (LeastWitness x (reverse rejected))
+      | otherwise = walk (x:rejected) xs
+
 instance Show Term where
   show (V i) | i < 6 = [ "xyzuvw" !! i ]
              | otherwise = "n" ++ show i
@@ -1005,6 +1046,17 @@ round1 logh libh ref = do
 main :: IO ()
 main = do
   args <- getArgs
+  when (args == ["--least-witness-self-test"]) $ do
+    let fibre = [0..20 :: Int]
+        predicate n = n >= 7 && n `mod` 3 == 1
+        covered = leastCovered fibre predicate (Coverage 16)
+        bad = leastCovered fibre predicate (Coverage 15)
+        open = searchPrefix [0..6 :: Int] predicate
+    unless (covered == Right (LeastWitness 7 [0..6])
+            && bad == Left (WitnessRejected 15)
+            && open == OpenBeyond [0..6]) exitFailure
+    hPrintf stdout "LEAST WITNESS CHECKED: satisfying-fiber=5 representatives=1 least=7 open-prefix=7 residual=retained\n"
+    exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]
         raw = genTerms sig 2 7

@@ -100,6 +100,10 @@ import NaturalMachine.ActionRefinement
 -- cross-effect, and square under successor forms the faithful integer sensor
 -- 2x.  Root-covered checked formation event.
 import NaturalMachine.ActionResidual
+-- A response character compiles the action residual as a relative phase only
+-- modulo its kernel.  In particular every sign character annihilates the
+-- classically injective square/successor residual 2x.
+import NaturalMachine.ActionResidualPhase
 import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
