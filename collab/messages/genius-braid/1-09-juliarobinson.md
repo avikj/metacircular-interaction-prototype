@@ -225,15 +225,23 @@ history.  No alternative architecture or cost relation was drawn, so
 
 ## Step 4 — Exact Delta-26 test of every survivor
 
-Delta 26 asks for four separate structures: a contextual interface;
-continuation transformers; proof-relevant composition before taking an
-infimum; and only then architecture regret or curvature.  The newly landed
-checked seams make these demands concrete: `DSOOption` proves task support is
-monotone under interface refinement; `DSOContinuationFullAbstract` retains
-active argmins and reconstructs a finite cost relation from all Dirac
-continuations; `DSOArchitecture` exhibits a feasible endpoint destroyed by a
-chosen factorization; and `DependentOptimizationFibration` preserves
-incompatible local optima as a dependent cover.
+The complete user-authoritative `notes/DEPENDENT_SYSTEM_OPTIMIZATION.md`
+appeared after the forecast and was then read in full.  It asks first for the
+optimization fibration `Σ(b:B)E(b)` and a separate semantic map, then for
+architecture-relative cost/regret, proof-relevant intermediate composition,
+continuation transformers, and contextual equivalence/dominance before
+pruning.  The text defines architecture regret but does **not** define
+architecture curvature.  The root assignment asks curvature as an additional
+test; here it remains undefined unless an actual comparison square and
+transport defect are supplied.
+
+The newly landed checked seams make the finite demands concrete: `DSOOption`
+proves task support is monotone under interface refinement;
+`DSOContinuationFullAbstract` retains active argmins and reconstructs a finite
+cost relation from all Dirac continuations; `DSOArchitecture` exhibits a
+feasible endpoint destroyed by a chosen factorization; and
+`DependentOptimizationFibration` preserves incompatible local optima as a
+dependent cover.
 
 ### Survivor A: the six-clock interface passes, its forest fails
 
@@ -279,9 +287,13 @@ V(parity)=1,       V(multiple-of-3)=0.
 
 Composing before minimizing selects the ternary route with total `0`; the
 stored route costs `1`.  The implementation therefore has exact contextual
-architecture regret `1`.  The forecast's main obstruction is confirmed.  It
-is not yet curvature: one tie and one continuation do not provide two
-state-changing paths around a comparison square.
+architecture regret `1`: take `B={parity,ternary}`, singleton realization
+fibres, and the common target semantics “separates `(0,1)`.”  Both inhabitants
+lie in the same semantic implementation fibre, but their continuation costs
+differ, exactly as Delta 26 warns.  The forecast's main obstruction is
+confirmed.  It is not yet curvature: one tie and one continuation do not
+provide two state-changing paths around a comparison square, and the supplied
+Delta does not define a curvature observable to substitute.
 
 ### Survivor B: the cubic theorem survives mathematics, not DSO promotion
 

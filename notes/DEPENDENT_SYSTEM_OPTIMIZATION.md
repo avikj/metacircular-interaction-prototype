@@ -277,3 +277,411 @@ infeasible; the true composite costs \(1\) through \(b_2\).
 
 in general. A locally dominated-looking implementation may be globally
 essential because of continuation compatibility.
+
+## 11. Contextual Pareto frontier
+
+For input \(a\), implementation \(b\) induces
+\(V\mapsto K(a,b)+V(b)\). Define
+
+\[
+b\preceq_{\mathcal V}^{a}b'
+\iff
+K(a,b)+V(b)\le K(a,b')+V(b')
+\quad\forall V\in\mathcal V.
+\]
+
+The contextual Pareto frontier is the set of undominated implementations. It
+differs from the local frontier and is the smallest implementation interface
+preserving every future optimization behavior in \(\mathcal V\).
+
+## 12. Proof-relevant composition precedes optimization
+
+Scalar costs forget attaining implementations, independent witnesses,
+provenance, shared-resource identity, proof obligations, and incompatibility
+between reused choices. Define
+
+\[
+\mathcal R(a,b)=
+\sum_{i:\operatorname{Impl}(a,b)}\operatorname{Cert}(i),
+\]
+
+with composition
+
+\[
+\boxed{(\mathcal S\odot\mathcal R)(a,c)=
+\sum_{b:B}\mathcal R(a,b)\times\mathcal S(b,c).}
+\]
+
+Cost is a decategorification:
+
+\[
+K_{\mathcal R}(a,b)=\inf_{i:\mathcal R(a,b)}c(i).
+\]
+
+\[
+\boxed{\text{compose proof-relevant implementation spaces first;
+optimize or decategorify only at a task-justified boundary.}}
+\]
+
+Premature infimum is premature truncation.
+
+## 13. Relation to the 2026 co-design frontier
+
+Monotone co-design supplies functionality/resource relations,
+series/parallel/intersection/feedback composition, Pareto antichains, and least
+fixed points. Linear co-design supplies a polyhedral subclass closed under
+principal interconnections and reducible to multiobjective linear/vector
+programs. Quantale-enriched co-design generalizes Boolean feasibility to
+quantitative evaluation and exposes the open problem of combining
+implementation-level composition with optimization.
+
+The failure is that \(S\mapsto\inf_{i\in S}c(i)\) need not provide the required
+lax compositional map. DSO’s construction direction is:
+
+\[
+\boxed{\text{do not collapse }S\text{ to its cheapest scalar before
+composition.}}
+\]
+
+Retain implementation witnesses, dependency compatibility, and continuation
+transformers; optimize only the composed boundary semantics. This is not yet a
+solution of the full quantale-enriched open problem.
+
+## 14. Active dependencies are context-dependent witnesses
+
+Define
+
+\[
+\operatorname{Act}_K(V,a)=
+\sum_{b:B}[K(a,b)+V(b)=\mathcal B_K(V)(a)].
+\]
+
+This is the type of optimal next dependencies. The syntactic graph contains
+candidate edges; the active graph contains only edges supported by this type.
+Different continuations activate different graphs:
+
+\[
+\boxed{\text{dependency is architecture conditioned by continuation.}}
+\]
+
+**Theorem 14.1 — dead-edge elimination.** If an edge is never active for any
+\(V\in\mathcal V\), and its deletion changes no externally relevant
+proof/provenance constraint, deleting it preserves every
+\(\mathcal B_K(V)\).
+
+**Converse 14.2.** If the edge is the unique active witness for some
+\((a,V)\), deleting it changes the value.
+
+## 15. Multiple optima remain proof-relevant
+
+The scalar \(\mathcal B_K(V)(a)\) is only the shadow of
+
+\[
+\operatorname{Argmin}_K(V,a)=
+\sum_{b:B}[K(a,b)+V(b)=\mathcal B_K(V)(a)].
+\]
+
+Arbitrary tie-breaking may erase future compatibility, provenance, robustness,
+independent proof routes, privacy, or nonclassical path information. A
+dependent optimizer returns this witness type or a certified inhabitant, not
+only a scalar minimum.
+
+## 16. Recursive dependencies are fixed-point optimization
+
+Feedback produces a monotone transformer
+
+\[
+F:[0,\infty]^X\to[0,\infty]^X
+\]
+
+and a fixed-point equation \(V=F(V)\). Complete-lattice hypotheses give
+Knaster–Tarski least/greatest fixed points; Scott continuity gives Kleene
+iteration
+
+\[
+\mu F=\sup_{n<\omega}F^n(\bot).
+\]
+
+DSO additionally optimizes which fixed-point operator the architecture
+generates. Recursive architectures are equivalent for a task class only when
+their boundary fixed-point semantics agree.
+
+## 17. Architecture as transformer factorization
+
+For target boundary transformer \(T^\ast\), define
+
+\[
+\operatorname{Fact}_{\mathcal V}(T^\ast)=
+\sum_{D:\operatorname{Diagram}}
+[\llbracket D\rrbracket^\ast\equiv_{\mathcal V}T^\ast].
+\]
+
+A point includes the dependency diagram, component relations/transformers,
+composition or fixed-point semantics, and proof of target equivalence. The
+architecture problem is
+
+\[
+\boxed{
+D^\star\in
+\operatorname{ParetoMin}_{D:\operatorname{Fact}_{\mathcal V}(T^\ast)}
+\mathcal K(D),}
+\]
+
+where \(\mathcal K\) records solve time, communication, verification, memory,
+disclosure, reconfiguration, and negative reuse. This is “compile the task
+into the cheapest exact dependency structure.”
+
+## 18. Dependency curvature
+
+For decomposition \(D\) and target \(T^\ast\), let
+
+\[
+\Delta_D(V)=\llbracket D\rrbracket^\ast(V)-T^\ast(V)
+\]
+
+when subtraction exists, or use the comparison type
+
+\[
+\operatorname{Eq}_D(V)=
+[\llbracket D\rrbracket^\ast(V)=T^\ast(V)].
+\]
+
+For metric output:
+
+\[
+\boxed{
+\operatorname{Curv}_{\mathcal V}(D;T)=
+\sup_{V\in\mathcal V}
+d(\llbracket D\rrbracket^\ast(V),T^\ast(V)).}
+\]
+
+Zero means full abstraction for \(\mathcal V\); nonzero means some continuation
+exposes distortion; infinite means a feasible target became impossible. This
+extends Boolean decomposition loss to quantitative continuation semantics.
+
+## 19. Update curvature
+
+For local rewrites \(U_i,U_j\), define
+
+\[
+\operatorname{Flat}_{ij}(S)=
+[U_iU_j(S)\simeq U_jU_i(S)].
+\]
+
+With invertible transport the loop has holonomy
+
+\[
+\Omega_{ij}=U_j^{-1}U_i^{-1}U_jU_i.
+\]
+
+Commuting local optimizations may proceed asynchronously; noncommutation
+identifies a genuine coordination domain:
+
+\[
+\boxed{\text{optimization curvature generates coordination requirements.}}
+\]
+
+## 20. Local edits of dependency DAGs
+
+Let \(D\) be acyclic and suppose each node’s feasible type and cost depend only
+on its ancestors. If an edit changes node \(v\) and its outgoing interface
+while preserving upstream interfaces, any node outside the causal future of
+\(v\) retains its feasible type and cost family.
+
+Exact incremental reoptimization therefore touches only
+\(\operatorname{Future}_D(v)\), plus declared global constraints crossing the
+edit cut.
+
+## 21. Minimal coordination dimension in a convex separable system
+
+Consider
+
+\[
+\min_{x_1,\ldots,x_n}\sum_i f_i(x_i)
+\quad\text{subject to}\quad
+\sum_iA_ix_i=b.
+\]
+
+Let \(A=[A_1;\ldots;A_n]\) have rank \(m\). The Lagrangian
+
+\[
+\mathcal L(x,\lambda)=
+\sum_i(f_i(x_i)+\lambda^\top A_ix_i)-\lambda^\top b
+\]
+
+shows that all cross-agent coupling is mediated by the quotient of dual space
+\(\operatorname{im}(A)\simeq\mathbb R^m\). Under strong duality, local primal
+and dual feasibility plus primal–dual equality certify the global optimum.
+Thus:
+
+\[
+\boxed{\text{coordination dimension tracks coupling rank }m,
+\text{ not population size }n.}
+\]
+
+The nonlinear, nonconvex, proof-relevant program asks for the minimal boundary
+object carrying all genuine coupling.
+
+## 22. Coarsest exact optimization interface
+
+For hidden state \(X\) and continuation family \(\mathcal V\), define
+
+\[
+x\sim_{\mathcal V}y
+\iff
+\operatorname{Response}_x(V)=\operatorname{Response}_y(V)
+\quad\forall V\in\mathcal V.
+\]
+
+Then \(Q_{\mathcal V}=X/{\sim_{\mathcal V}}\) is the
+optimization-behavioral interface.
+
+**Theorem 22.1 — interface minimality.** Any deterministic exact interface
+\(q:X\to Z\) from which every response in \(\mathcal V\) can be computed must
+refine \(Q_{\mathcal V}\).
+
+**Proof.** Equal \(q\)-images force equality of every response computed from
+\(q\); hence each \(q\)-fiber lies in a behavioral class. QED.
+
+This is Myhill–Nerode/full-abstraction logic for optimization behavior.
+
+## 23. Compression versus future option value
+
+For \(q:X\to Z\), define
+
+\[
+\operatorname{Tasks}(q)=
+\{f:X\to Y\mid\exists\bar f:Z\to Y,\ f=\bar f\circ q\}.
+\]
+
+If \(q_2=h\circ q_1\), then:
+
+\[
+\boxed{\operatorname{Tasks}(q_2)\subseteq\operatorname{Tasks}(q_1).}
+\]
+
+Indeed, \(f=\bar f\circ q_2=(\bar f\circ h)\circ q_1\). Coarsening may reduce
+current communication or storage, but can only shrink exact future task
+support. DSO must price both current compression and future liftability.
+
+## 24. The global optimizer is a section
+
+Define
+
+\[
+\operatorname{Argmin}(b)=
+\sum_{x:E(b)}
+\prod_{y:E(b)}[J(b,x)\le J(b,y)].
+\]
+
+A uniform optimizer is a dependent section
+
+\[
+\boxed{\mathcal O:\prod_{b:B}\operatorname{Argmin}(b).}
+\]
+
+This is stronger than merely knowing each argmin type is inhabited after
+propositional truncation. Pointwise existence does not supply constructive,
+computable, continuous, equivalence-coherent, or resource-bounded selection.
+Optimizer design is therefore a section/gluing problem.
+
+## 25. Local optimizers and gluing defects
+
+Given local charts \(U_i\subseteq B\) and optimizer sections
+\(\mathcal O_i\), compare their restrictions on overlaps. Coherent agreement
+may glue to a global optimizer. Failure may encode symmetric optima,
+discontinuity, monodromy, incompatible tie-breaking, computational
+unavailability, or a genuine change of feasible type.
+
+\[
+\boxed{\text{local optimal sections may exist while no coherent global
+optimizer section exists.}}
+\]
+
+## 26. Certified architecture improvement
+
+A rewrite \(D\to D'\) carries
+
+\[
+e:\llbracket D\rrbracket^\ast
+\equiv_{\mathcal V}
+\llbracket D'\rrbracket^\ast
+\]
+
+and a cost comparison
+
+\[
+\pi:\mathcal K(D')\preceq\mathcal K(D).
+\]
+
+**Theorem 26.1.** Along a sequence of such rewrites, contextual equivalence is
+preserved and declared cost is nonincreasing, by transitivity. If the verifier
+or continuation family changes, a higher-level certificate is required.
+
+## 27. The optimizer may invent an interface
+
+A DSO agent may discover a sufficient statistic, dual variable, quotient,
+lemma, latent representation, decomposition, equivalence, invariant, verifier,
+or fixed-point formulation rather than merely a value \(x\). Such an artifact
+changes \(E(b)\), \(\mathcal B_K\), \(\mathcal V\), and \(\mathcal K(D)\), and
+therefore changes future search. Concept invention is valuable when it lowers
+the cost of a continuation class, not just one query.
+
+## 28. Reachable-knowledge value
+
+For verified artifact graph \(\mathcal G\), let
+\(\operatorname{Reach}_{\mathcal T}(\mathcal G)\) be tasks in family
+\(\mathcal T\) derivable under accepted rules. For new artifact \(a\), define
+
+\[
+\Delta_{\mathcal T}(a\mid\mathcal G)=
+V(\operatorname{Reach}_{\mathcal T}(\mathcal G\cup\{a\}))
+-V(\operatorname{Reach}_{\mathcal T}(\mathcal G)).
+\]
+
+The scheduler should approximately maximize
+
+\[
+\boxed{
+\frac{\text{expected future reach expansion}+\text{reuse}+
+\text{obstruction value}}
+{\text{search}+\text{verification}+\text{coordination cost}}.}
+\]
+
+The objective is not theorem count but the quality of future reachable
+mathematics.
+
+## 29. Agent-society interpretation
+
+A task is an open costed relation; an agent implementation is a witness in a
+relation fiber. An artifact exposes boundary semantics, certificate,
+dependency closure, cost, privacy, capability, and continuation behavior. Its
+systemic value is not an intrinsic scalar but:
+
+\[
+\boxed{\text{how possessing this artifact changes the cost of every future
+task}.}
+\]
+
+Equivalences can transport entire dependent corpora. Obstructions can send
+large task families directly to \(+\infty\), preventing wasted search.
+
+## 30. Proof search is architecture optimization
+
+A theorem \(R\) may be proved end-to-end or through cuts:
+
+\[
+R\supseteq S_n\circ\cdots\circ S_1.
+\]
+
+The intermediate formula/type vocabulary controls which proofs remain
+representable:
+
+\[
+\boxed{\text{choose intermediate formulas that preserve completeness while
+reducing search and verification complexity}.}
+\]
+
+Bad cuts can exclude proof paths, explode branching, require unavailable
+witnesses, destroy symmetry, or overconstrain the endpoint. A lemma is an
+interface, not merely a subtask.

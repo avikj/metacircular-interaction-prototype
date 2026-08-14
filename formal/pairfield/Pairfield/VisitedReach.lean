@@ -329,6 +329,38 @@ theorem runReachQueue_word_length [DecidableEq X]
         advanceReachQueue_word_length M alphabet
           (runReachQueue M alphabet n) n ih
 
+theorem mem_expandFrontier_word_length_eq (M : DFA A X) (alphabet : List A)
+    (frontier : List (ReachNode A X)) (round : Nat)
+    (hfrontier : ∀ node ∈ frontier, node.word.length = round) :
+    ∀ child ∈ expandFrontier M alphabet frontier,
+      child.word.length = round + 1 := by
+  intro child hchild
+  simp only [expandFrontier, List.mem_flatMap, List.mem_map] at hchild
+  obtain ⟨node, hnode, action, _, rfl⟩ := hchild
+  simp only [ReachNode.child, List.length_append, List.length_singleton]
+  exact congrArg (· + 1) (hfrontier node hnode)
+
+/-- The frontier really is a breadth layer: every word retained there has
+length exactly equal to the round number. -/
+theorem runReachQueue_frontier_word_length [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (round : Nat) :
+    ∀ node ∈ (runReachQueue M alphabet round).frontier,
+      node.word.length = round := by
+  induction round with
+  | zero =>
+      intro node hnode
+      simp [runReachQueue, initialReachQueue] at hnode
+      rcases hnode with rfl
+      rfl
+  | succ n ih =>
+      intro node hnode
+      change node ∈ freshNodes (runReachQueue M alphabet n).states
+        (expandFrontier M alphabet
+          (runReachQueue M alphabet n).frontier) at hnode
+      apply mem_expandFrontier_word_length_eq M alphabet
+        (runReachQueue M alphabet n).frontier n ih
+      exact mem_freshNodes_imp_mem hnode
+
 theorem ReachQueue.node_eq_of_state_eq (queue : ReachQueue A X)
     (hnodup : queue.states.Nodup) {left right : ReachNode A X}
     (hleft : left ∈ queue.nodes) (hright : right ∈ queue.nodes)
@@ -512,6 +544,65 @@ theorem visitedReachQueue_expansion_bound [DecidableEq X] [Fintype X]
   simp only [ReachQueue.states, ReachQueue.nodes, List.length_map,
     List.length_append] at hstates
   omega
+
+/-- The cardinal horizon is saturated: no unexpanded discovery remains. -/
+theorem visitedReachQueue_frontier_eq_nil [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) :
+    (visitedReachQueue M alphabet).frontier = [] := by
+  apply List.eq_nil_iff_forall_not_mem.mpr
+  intro node hfrontier
+  have hlength := runReachQueue_frontier_word_length M alphabet
+    (Fintype.card X) node hfrontier
+  have hnode : node ∈ (visitedReachQueue M alphabet).nodes := by
+    change node ∈ (visitedReachQueue M alphabet).closed ++
+      (visitedReachQueue M alphabet).frontier
+    exact List.mem_append.mpr (Or.inr hfrontier)
+  have hvalid := runReachQueue_valid M alphabet
+    (Fintype.card X) node hnode
+  obtain ⟨short, hshort, heval⟩ := exists_short_eval_eq M node.word
+  have hminimal := runReachQueue_node_minimal M alphabet complete
+    (Fintype.card X) hnode short (heval.trans hvalid)
+  omega
+
+theorem advanceReachQueue_eq_self_of_frontier_eq_nil [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    (hfrontier : queue.frontier = []) :
+    advanceReachQueue M alphabet queue = queue := by
+  cases queue with
+  | mk closed frontier =>
+      simp only at hfrontier
+      subst frontier
+      simp [advanceReachQueue, ReachQueue.states, ReachQueue.nodes,
+        expandFrontier, freshNodes]
+
+theorem visitedReachQueue_stable [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) :
+    advanceReachQueue M alphabet (visitedReachQueue M alphabet) =
+      visitedReachQueue M alphabet :=
+  advanceReachQueue_eq_self_of_frontier_eq_nil M alphabet _
+    (visitedReachQueue_frontier_eq_nil M alphabet complete)
+
+/-- The visited-state implementation and the original word-layer
+specification may choose different equal-length ties, but their returned
+lengths agree exactly. -/
+theorem visitedReachNode?_length_eq_shortestReachingWord
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (target : X)
+    {node : ReachNode A X} {word : List A}
+    (hvisited : visitedReachNode? M alphabet target = some node)
+    (hshortest : shortestReachingWord M alphabet target = some word) :
+    node.word.length = word.length := by
+  have hvisitedSound := visitedReachNode?_sound M alphabet complete
+    target hvisited
+  have hshortestSound := shortestReachingWord_sound M alphabet complete
+    target hshortest
+  apply Nat.le_antisymm
+  · exact hvisitedSound.2.2 word hshortestSound
+  · apply shortestReachingWord_minimal M alphabet complete target hshortest
+    exact hvisitedSound.1.trans hvisitedSound.2.1
 
 namespace VisitedReachWitness
 

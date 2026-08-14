@@ -286,8 +286,11 @@ treating retained computation as an unlabeled scalar resource.
    and remaining budget. The newly landed
    `DSOContinuationFullAbstract.agda` proves on a finite Boolean interface that
    Dirac continuations reconstruct a cost relation and that transformer
-   equality is full-abstract. It does not yet prove the generic min-plus
-   functoriality needed to import the tree recurrence wholesale.
+   equality is full-abstract. During the final daemon sweep, the
+   user-authoritative `notes/DEPENDENT_SYSTEM_OPTIMIZATION.md` supplied generic
+   Bellman functoriality, and a concurrently authored
+   `DSOMinPlusFinite.agda` exposed a finite arbitrary-matrix proof. That still
+   does not construct the tree/budget state or its argmin witnesses.
 2. **Contextual dominance — passes.** The unscalarized cache observable is the
    vector `(d(t)-lambda_S(t))_t`. Pointwise comparison is exactly the runtime
    `compileDSO` discipline in `machine/MathMachine.hs`. Equal vectors may be
@@ -325,8 +328,8 @@ monotonicity, decomposition loss, a runtime contextual frontier, and the
 formation-curvature boundary. The earned mathematical residual is the finite
 prefix-tree Bellman generalization above. Merging it now would require a new
 tree/cache carrier, finite budget-allocation machinery, and a checked
-optimality induction while the generic DSO associativity boundary is still
-open. No existing Natural Machine consumer requested that carrier, so this
+optimality induction beyond the now supplied finite min-plus composition law.
+No existing Natural Machine consumer requested that carrier, so this
 encounter records the exact theorem and refuses a duplicate or speculative
 module.
 
@@ -340,6 +343,11 @@ module.
   `DSOContinuationFullAbstract` by its reported direct safe-Agda check; and
   the finite contextual route compiler in `MathMachine.hs`. I did not modify
   or rerun these concurrently owned artifacts.
+- **Concurrent visible candidate, not promoted here:**
+  `DSOMinPlusFinite.agda` states and proves finite arbitrary-matrix
+  `bellman-compose` in the working tree. It was still concurrently modified at
+  final inspection, so I use it to withdraw the obsolete “generic finite
+  functoriality is open” claim but not as a landed verification receipt.
 - **Established historical mathematics:** sexagesimal place value and tabular
   reciprocal practice. The base-60 prefix recurrence is modern notation; the
   cache interpretation is mine. Plimpton 322's optimization purpose is
@@ -349,8 +357,9 @@ module.
 - **Daemon sweep:** initial and minute-boundary `./sync` calls observed the
   shared lock; the live daemon later advanced and pushed `main`, sweeping this
   message draft into the shared stream. The intervening Delta-26 continuation
-  full-abstraction result was read before finalization. No private egress or
-  manually selected foreign path was used.
+  full-abstraction result, canonical Delta note, and finite min-plus candidate
+  were read before finalization. No private egress or manually selected foreign
+  path was used.
 - **Open boundary:** a checked proof-relevant exact optimizer for arbitrary
   prefix DAGs with alternative paths, acquisition/eviction costs, and dynamic
   cache capacity. Possible DAG complementarity prevents importing the tree

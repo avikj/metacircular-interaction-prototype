@@ -6,7 +6,8 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; min)
 open import Cubical.Data.Nat.Properties using (+-comm ; +-assoc ; minComm)
 open import NaturalMachine.DSOContinuationFullAbstract
-  using (Cost ; fin ; ∞ ; _⊗_ ; minC ; min-∞-right)
+  using (Cost ; fin ; ∞ ; _⊗_ ; minC ; min-∞-right
+        ; ⊗-zero-right ; ⊗-∞-right)
 
 -- An inductive finite index is used rather than assuming an enumeration axiom.
 data Ix : ℕ → Type₀ where
@@ -50,6 +51,10 @@ minC-assoc ∞ b c = refl
 ⊗-assoc (fin a) (fin b) ∞ = refl
 ⊗-assoc (fin a) ∞ c = refl
 ⊗-assoc ∞ b c = refl
+
+⊗-zero-left : (a : Cost) → fin zero ⊗ a ≡ a
+⊗-zero-left (fin a) = refl
+⊗-zero-left ∞ = refl
 
 ⊗-min-left : (a b c : Cost) → a ⊗ minC b c ≡ minC (a ⊗ b) (a ⊗ c)
 ⊗-min-left (fin a) (fin b) (fin c) = cong fin (+-min-left a b c)
@@ -138,3 +143,50 @@ bellman-compose R S V = funExt λ x →
   ∙ fold-swap (λ z y → (R x y ⊗ S y z) ⊗ V z)
   ∙ fold-cong (λ y → fold-cong (λ z → sym (⊗-assoc (R x y) (S y z) (V z))))
   ∙ fold-cong (λ y → sym (⊗-fold-left (R x y) (λ z → S y z ⊗ V z)))
+
+⋆-assoc : {l m n p : ℕ} (R : Matrix l m) (S : Matrix m n) (T : Matrix n p)
+  → (R ⋆ S) ⋆ T ≡ R ⋆ (S ⋆ T)
+⋆-assoc R S T = funExt λ x → funExt λ w →
+  cong (λ V → V x) (bellman-compose R S (λ z → T z w))
+
+identity : {n : ℕ} → Matrix n n
+identity {suc n} iz iz = fin zero
+identity {suc n} iz (is j) = ∞
+identity {suc n} (is i) iz = ∞
+identity {suc n} (is i) (is j) = identity i j
+
+fold-right-unit : {n : ℕ} (f : Ix n → Cost) (z : Ix n)
+  → foldMin (λ y → f y ⊗ identity y z) ≡ f z
+fold-right-unit {suc n} f iz =
+  cong₂ minC (⊗-zero-right (f iz))
+    (fold-cong (λ i → ⊗-∞-right (f (is i))) ∙ fold-∞ {n})
+  ∙ min-∞-right (f iz)
+fold-right-unit {suc n} f (is z) =
+  cong (λ q → minC q (foldMin (λ i → f (is i) ⊗ identity i z)))
+       (⊗-∞-right (f iz))
+  ∙ fold-right-unit (λ i → f (is i)) z
+
+fold-left-unit : {n : ℕ} (f : Ix n → Cost) (x : Ix n)
+  → foldMin (λ y → identity x y ⊗ f y) ≡ f x
+fold-left-unit {suc n} f iz =
+  cong₂ minC (⊗-zero-left (f iz))
+    (fold-cong {f = λ i → identity iz (is i) ⊗ f (is i)}
+               {g = λ _ → ∞} (λ i → refl)
+     ∙ fold-∞ {n})
+  ∙ min-∞-right (f iz)
+fold-left-unit {suc n} f (is x) = fold-left-unit (λ i → f (is i)) x
+
+⋆-identity-right : {m n : ℕ} (R : Matrix m n) → R ⋆ identity ≡ R
+⋆-identity-right R = funExt λ x → funExt λ z → fold-right-unit (R x) z
+
+⋆-identity-left : {m n : ℕ} (R : Matrix m n) → identity ⋆ R ≡ R
+⋆-identity-left R = funExt λ x → funExt λ z → fold-left-unit (λ y → R y z) x
+
+-- Optimization witnesses remain a dependent fiber over the scalar Bellman
+-- consequence.  Matrix equality never quotients these active derivations.
+record Argmin {m n : ℕ} (R : Matrix m n) (V : Continuation n)
+              (x : Ix m) : Type₀ where
+  constructor active
+  field
+    witness : Ix n
+    realizes : bellman R V x ≡ R x witness ⊗ V witness

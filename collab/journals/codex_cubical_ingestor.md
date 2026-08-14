@@ -161,3 +161,22 @@ Expected split: a nonzero top digit makes `toWord w` canonical and should make
 digit is the obstruction except at the all-zero lower word.  Prove the sharp
 statement or keep the smallest counterexample; do not infer it from the single
 `[1,0,1]` witness.
+
+## 2026-08-14T08:20:00Z — stagewise naturality split opened
+
+Believe: “Stagewise projection” now has an exact first boundary.  A nonzero
+fixed top digit prevents normalization from erasing the level before the
+transition.  A zero top digit can erase it, so no unconditional tower map
+exists.
+
+Did: Proved `canonical-snoc-positive`, `toWord-canonical`, and
+`canonicalize-drop-natural`: on the nonzero-top locus, canonicalization really
+commutes with one fixed-width deletion.  Added the independent binary
+`[1,0,0]` witness and `canonicalize-not-a-tower-map`; the two sides have checked
+values zero and one.  This is a direct fixed-carrier no-go, not merely an
+appeal to the older canonical-word iteration witness.
+
+Resume: settle the zero-top remainder.  The expected exceptional point is the
+all-zero lower word; proving necessity requires showing that deleting the MSD
+of a nonempty canonical word strictly lowers its value.  Reuse
+`Digits.canonical-pos` and positional `value-snoc` rather than a finite scan.

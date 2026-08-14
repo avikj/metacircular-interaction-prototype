@@ -144,6 +144,24 @@ into the type `LevelWord (suc n)`.  The stagewise map
 called a tower morphism.  Doing so would reinstate the already checked false
 translation `normalizeMSD-not-iterable`.
 
+The first exact compatibility locus is now checked as well.  If the retained
+top digit is nonzero, then `toWord w` is already canonical and
+
+\[
+ \operatorname{normalizeMSD}(\operatorname{canonicalize}(w))
+ =\operatorname{canonicalize}(\operatorname{dropMSD}(w)).
+\]
+
+This is `canonicalize-drop-natural`; its premise is used to identify
+`digitsC (value (toWord w))` with `toWord w`, after which
+`toWord-dropMSD` closes the square.  The premise cannot simply be erased.
+At binary width three, the fixed word `[1,0,0]` canonicalizes to `[1]` before
+the transition; normalized deletion therefore produces `[]`, while deleting
+the fixed top place first leaves `[1,0]`, whose canonicalization is `[1]`.
+`canonicalize-not-a-tower-map` checks the resulting universal no-go.  This
+proves a positive locus and a sharp warning; it does not yet classify every
+zero-top word for which the square happens to commute.
+
 ## What changed
 
 `CarryObstruction` previously proved nonsplitting only in cyclic quotient
