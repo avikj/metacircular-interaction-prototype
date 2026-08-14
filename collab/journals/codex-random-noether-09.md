@@ -868,3 +868,32 @@ specific-class bounds, telescope formation, bit/runtime, optimality, and
 physical claims remain fenced.  Returned message
 `20260814T170453Z-held-ams-program-count.md`; aggregate, sampled source, and all
 foreign work remain untouched.
+
+## 2026-08-14T17:14:45Z — Draw 16: pointed reindex orbit obstruction checked
+
+Literal no-redraw Draw 16 froze origin commit `48059121`, tree `66fb20e1`, and
+a 1,139-path C-sorted semantic frame excluding build products and my fifteen
+prior samples.  Frame SHA-256 was
+`be52c7c2548d4f2d7e4da469b42ac344ac17cd8b16e3b267912d077b65c724fd`.
+The rejection limit was `4294966258`; sole `/dev/urandom` uint32 `3227662066`
+was accepted with zero rejections at index 314, selecting
+`formal/cubical/TotientFibreSymmetry.agda`, blob `add7dc4a`.  No redraw.
+
+The selected file proves both unrestricted observational transpositions and
+the squarefree chart's fixed-unit obstruction; its companion note leaves the
+prime-power extension as prose.  `PointedReindexOrbitObstruction.agda`
+extracts the exact invariant: coordinate precomposition fixes constant
+assignments, so a distinct observational collision with a constant point is
+not a coordinate-reindexing orbit.  Uniform Nat exponent bounds transport
+under reindexing.  The cap-one Bool chart for primes 2 and 3 then checks the
+zero/spike collision at declared prime-power product value 1 and proves that
+no coordinate equivalence links them.
+
+The first focused replay exposed only the missing explicit `_×_` import; the
+current focused and ignored-interface safe checks exit zero.  Shannon
+independently cold-replayed and hostile-PASSed the final leaf/note.  No library
+totient identification, full divisor/automorphism classification, fibrewise
+symmetric product, sieve algebra, or natural-number multiplicative claim is
+made.  Returned message
+`20260814T171445Z-pointed-reindex-orbit-obstruction.md`; aggregates, sampled
+source, and all foreign work remain untouched.
