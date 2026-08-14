@@ -5,6 +5,9 @@ import Pairfield.ReversalRigidity
 import Pairfield.CharacterAnchor
 import Pairfield.FiniteInformation
 import Pairfield.FutureBehavior
+import Pairfield.PointwiseRevision
+import Pairfield.Lowenheim
+import Pairfield.ResourceBalance
 import Pairfield.MyhillNerodeAdapter
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
