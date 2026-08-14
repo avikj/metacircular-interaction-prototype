@@ -184,6 +184,22 @@ data DSOCompilation = DSOCompilation
   , dsoActiveEvaluations :: !Int
   } deriving (Eq, Show)
 
+data DSOArchitectureCandidate = DSOArchitectureCandidate
+  { dsoArchitectureName :: !String
+  , dsoArchitectureOrigin :: [String]
+  , dsoArchitectureRoutes :: [DSORoute]
+  , dsoArchitectureMigration :: [(String,String)]
+  }
+
+data DSOArchitectureResult = DSOArchitectureResult
+  { dsoArchitectureProfiles :: [(String,[Int])]
+  , dsoEquivalentArchitectures :: [(String,String,[Int])]
+  , dsoParetoArchitectures :: [String]
+  , dsoArchitectureCosts :: [(String,(Int,Int))]
+  , dsoArchitectureRegret :: [(String,(Int,Int))]
+  , dsoRetainedMigrations :: [(String,[(String,String)])]
+  } deriving (Eq, Show)
+
 compileDSO :: [String] -> [DSOContinuation] -> [DSORoute] -> DSOCompilation
 compileDSO active continuations routes =
   DSOCompilation (map dsoContext live) classes survivors rawCount activeCount
@@ -213,6 +229,59 @@ boundedDSOTask name plan = DSOTask name ["ordered-fibre"] observations routes
       [ DSOContinuation "least-witness" "ordered-fibre" id
       , DSOContinuation "parity-audit" "audit" (`mod` 2)
       ]
+
+-- Compare whole factorizations only through their boundary continuation
+-- transformers.  Cost is (materialised routes, active route/context work).
+-- Pareto comparison is restricted to architectures with the same transformer;
+-- a cheaper but observably different factorisation is never a replacement.
+compileDSOArchitectures :: [String] -> [DSOContinuation]
+  -> [DSOArchitectureCandidate] -> DSOArchitectureResult
+compileDSOArchitectures active continuations candidates =
+  DSOArchitectureResult profiles equivalents pareto costs regrets migrations
+  where
+    live = filter (\k -> dsoDependency k `elem` active) continuations
+    transformer candidate =
+      [ minimum [dsoLocalCost r + dsoFutureCost k (dsoBoundary r)
+                | r <- dsoArchitectureRoutes candidate]
+      | k <- live ]
+    profiles = [(dsoArchitectureName c, transformer c) | c <- candidates]
+    equivalents =
+      [ (dsoArchitectureName a, dsoArchitectureName b, transformer a)
+      | (i,a) <- zip [0 :: Int ..] candidates
+      , b <- drop (i + 1) candidates
+      , transformer a == transformer b ]
+    cost c = (length (dsoArchitectureRoutes c),
+              length (dsoArchitectureRoutes c) * length live)
+    costs = [(dsoArchitectureName c, cost c) | c <- candidates]
+    dominates a b = transformer a == transformer b
+      && fst (cost a) <= fst (cost b) && snd (cost a) <= snd (cost b)
+      && (fst (cost a) < fst (cost b) || snd (cost a) < snd (cost b))
+    winners = [c | c <- candidates,
+                   not (any (\d -> dominates d c) candidates)]
+    pareto = map dsoArchitectureName winners
+    winnerCost c = minimum [cost w | w <- winners,
+      transformer w == transformer c]
+    regrets = [(dsoArchitectureName c,
+                (fst (cost c) - fst (winnerCost c),
+                 snd (cost c) - snd (winnerCost c))) | c <- candidates]
+    migrations = [(dsoArchitectureName c, dsoArchitectureMigration c)
+                 | c <- candidates]
+
+boundedArchitectures :: String -> BoundedSearch -> [DSOArchitectureCandidate]
+boundedArchitectures name plan = [direct, compiled]
+  where
+    task = boundedDSOTask name plan
+    routes = dsoTaskRoutes task
+    projection = executeBoundedSearch plan
+    leastRoutes = [DSORoute (name ++ "/least/" ++ show n) n 0
+                  | n <- activeWitnesses projection]
+    target = case leastRoutes of
+      r:_ -> dsoWitness r
+      [] -> name ++ "/unresolved"
+    direct = DSOArchitectureCandidate (name ++ "/direct")
+      (map dsoWitness routes) routes [(dsoWitness r, dsoWitness r) | r <- routes]
+    compiled = DSOArchitectureCandidate (name ++ "/least-selector")
+      (map dsoWitness routes) leastRoutes [(dsoWitness r, target) | r <- routes]
 
 executeBoundedSearch :: BoundedSearch -> SearchProjection
 executeBoundedSearch plan =
@@ -866,6 +935,7 @@ data Machine = Machine
   , mBoundedSearches :: [BoundedSearch]
   , mAtlases :: [FiniteAtlas]
   , mDSOTasks :: [DSOTask]
+  , mDSOArchitectureSearches :: [(DSOTask,[DSOArchitectureCandidate])]
   }
 
 squareThresholdSearch :: BoundedSearch
@@ -876,6 +946,8 @@ start :: Machine
 start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [squareThresholdSearch] [endianAtlas2]
   [boundedDSOTask "square-threshold" squareThresholdSearch]
+  [(boundedDSOTask "square-threshold" squareThresholdSearch,
+    boundedArchitectures "square-threshold" squareThresholdSearch)]
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1092,6 +1164,17 @@ round1 logh libh ref = do
       dsoWitnessFiber = sum
         [ sum (map (length . dsoWitnesses) (dsoSurvivors compiled))
         | compiled <- dsoCompiled ]
+      architectureResults =
+        [ compileDSOArchitectures (dsoTaskDependencies task)
+            (dsoTaskContinuations task) candidates
+        | (task,candidates) <- mDSOArchitectureSearches m ]
+      architectureCandidatesN = sum (map (length . dsoArchitectureCosts) architectureResults)
+      architectureParetoN = sum (map (length . dsoParetoArchitectures) architectureResults)
+      architectureEquivalencesN = sum (map (length . dsoEquivalentArchitectures) architectureResults)
+      architectureRegretStates = sum
+        [ states | result <- architectureResults, (_, (states,_)) <- dsoArchitectureRegret result ]
+      architectureRegretWork = sum
+        [ work | result <- architectureResults, (_, (_,work)) <- dsoArchitectureRegret result ]
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
@@ -1115,7 +1198,9 @@ round1 logh libh ref = do
       nConj = length conjectures
       nFresh = length fresh
       nRes = length results
-  dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
+  architectureRegretWork `seq` architectureRegretStates `seq`
+    architectureEquivalencesN `seq` architectureParetoN `seq`
+    architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
   checkedResults <- filterM (kernelAccept logh (mRound m)) results
@@ -1144,6 +1229,9 @@ round1 logh libh ref = do
   hPrintf logh "  DSO  tasks=%s routes=%d classes=%d survivors=%d survivor-witnesses=%d continuation-work=%d->%d\n"
     (intercalate "," (map dsoTaskName (mDSOTasks m)))
     dsoRoutes dsoClassesN dsoSurvivorsN dsoWitnessFiber dsoRawWork dsoActiveWork
+  hPrintf logh "  DSO-ARCH  candidates=%d transformer-equivalences=%d pareto=%d aggregate-regret=(%d states,%d work)\n"
+    architectureCandidatesN architectureEquivalencesN architectureParetoN
+    architectureRegretStates architectureRegretWork
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
@@ -1336,6 +1424,30 @@ main = do
             && dsoRawEvaluations compiled == 30
             && dsoActiveEvaluations compiled == 15) exitFailure
     hPrintf stdout "LIVE DSO CHECKED: bounded-routes=15 classes=15 survivors=1 retained-fiber=15 continuation-work=30->15 least-output=6 consequence=equal\n"
+    exitSuccess
+  when (args == ["--dso-architecture-self-test"]) $ do
+    let task = boundedDSOTask "square-threshold" squareThresholdSearch
+        candidates = boundedArchitectures "square-threshold" squareThresholdSearch
+        result = compileDSOArchitectures (dsoTaskDependencies task)
+          (dsoTaskContinuations task) candidates
+        compiledMigration = lookup "square-threshold/least-selector"
+          (dsoRetainedMigrations result)
+    unless (dsoArchitectureProfiles result ==
+              [("square-threshold/direct",[6]),
+               ("square-threshold/least-selector",[6])]
+            && dsoEquivalentArchitectures result ==
+              [("square-threshold/direct","square-threshold/least-selector",[6])]
+            && dsoArchitectureCosts result ==
+              [("square-threshold/direct",(15,15)),
+               ("square-threshold/least-selector",(1,1))]
+            && dsoParetoArchitectures result == ["square-threshold/least-selector"]
+            && dsoArchitectureRegret result ==
+              [("square-threshold/direct",(14,14)),
+               ("square-threshold/least-selector",(0,0))]
+            && maybe False ((== 15) . length) compiledMigration
+            && maybe False (all ((== "square-threshold/least/6") . snd)) compiledMigration)
+      exitFailure
+    hPrintf stdout "DSO ARCHITECTURE CHECKED: transformer=[6]=[6] direct=(15,15) compiled=(1,1) pareto=compiled regret=(14,14) migrations=15 origins=retained\n"
     exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]

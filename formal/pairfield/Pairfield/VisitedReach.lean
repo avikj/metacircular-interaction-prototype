@@ -437,6 +437,70 @@ theorem runReachQueue_node_minimal [DecidableEq X]
     simpa [hsame] using hpriorLength
   exact (Nat.not_lt_of_ge hnodeLength) hcandlt
 
+/-- Run the visited traversal through the Mathlib loop-deletion horizon. -/
+def visitedReachQueue [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A) : ReachQueue A X :=
+  runReachQueue M alphabet (Fintype.card X)
+
+/-- Native lookup of the unique retained node for a target row. -/
+def visitedReachNode? [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A) (target : X) :
+    Option (ReachNode A X) :=
+  (visitedReachQueue M alphabet).nodes.find?
+    (fun node => decide (node.state = target))
+
+/-- A returned node is a replayable, globally shortest certificate. -/
+theorem visitedReachNode?_sound [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (target : X)
+    {node : ReachNode A X}
+    (hnode : visitedReachNode? M alphabet target = some node) :
+    node.Valid M ∧ node.state = target ∧
+      ∀ candidate : List A, M.eval candidate = target →
+        node.word.length ≤ candidate.length := by
+  have hmem : node ∈ (visitedReachQueue M alphabet).nodes :=
+    List.mem_of_find?_eq_some hnode
+  have hstate : node.state = target := by
+    have := List.find?_some hnode
+    simpa using this
+  refine ⟨runReachQueue_valid M alphabet (Fintype.card X) node hmem,
+    hstate, ?_⟩
+  intro candidate hcandidate
+  apply runReachQueue_node_minimal M alphabet complete
+    (Fintype.card X) hmem candidate
+  exact hcandidate.trans hstate.symm
+
+/-- `none` is exact unreachability.  Completeness uses the same Mathlib
+`DFA.evalFrom_split` consequence as `ShortestReach`: every reachable row has a
+loop-free word shorter than the state cardinality. -/
+theorem visitedReachNode?_eq_none_iff [DecidableEq X] [Fintype X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (target : X) :
+    visitedReachNode? M alphabet target = none ↔
+      ∀ word : List A, M.eval word ≠ target := by
+  unfold visitedReachNode?
+  rw [List.find?_eq_none]
+  constructor
+  · intro hnone word hword
+    obtain ⟨short, hlength, heval⟩ := exists_short_eval_eq M word
+    have hcover := runReachQueue_covers_word M alphabet complete short
+    simp only [ReachQueue.states, List.mem_map] at hcover
+    obtain ⟨node, hnode, hstate⟩ := hcover
+    have hnodeFinal : node ∈ (visitedReachQueue M alphabet).nodes := by
+      apply advanceReachQueue_nodes_mono_le M alphabet
+        (Nat.le_of_lt hlength) hnode
+    have hfalse := hnone node hnodeFinal
+    have htarget : node.state = target :=
+      hstate.trans (heval.trans hword)
+    simpa [htarget] using hfalse
+  · intro hunreachable node hnode
+    have hvalid := runReachQueue_valid M alphabet
+      (Fintype.card X) node hnode
+    have hne : node.state ≠ target := by
+      intro hstate
+      exact hunreachable node.word (hvalid.trans hstate)
+    simp [hne]
+
 namespace VisitedReachWitness
 
 open ChartQuotientWitness

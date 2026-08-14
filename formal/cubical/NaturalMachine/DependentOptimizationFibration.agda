@@ -4,7 +4,7 @@ module NaturalMachine.DependentOptimizationFibration where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz ; znots)
-open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤)
+open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤ ; ≤0→≡0)
 open import Cubical.Data.Bool using (Bool ; false ; true ; false≢true)
 open import Cubical.Data.Sigma
 open import Cubical.Data.List using (List ; [] ; _∷_)
@@ -268,10 +268,11 @@ immediate identityContext = cost
 left-local-dominance : (future : List Unit)
   → futureCost identityContext left-architecture left-point future
     ≤ futureCost identityContext left-architecture right-point future
-left-local-dominance future = zero-≤
+left-local-dominance [] = zero-≤
+left-local-dominance (tt ∷ future) = left-local-dominance future
 
 one-not≤zero : ¬ (suc zero ≤ zero)
-one-not≤zero ()
+one-not≤zero bounded = snotz (≤0→≡0 bounded)
 
 left-not-contextually-dominant :
   ¬ ContextuallyDominates identityContext left-point right-point
@@ -297,7 +298,10 @@ prunedCostView root target = cost root left-point
 
 covered-cost-coherent : (left right target : Architecture)
   → coveredCostView left target ≡ coveredCostView right target
-covered-cost-coherent left right target = refl
+covered-cost-coherent left-architecture left-architecture target = refl
+covered-cost-coherent left-architecture right-architecture target = refl
+covered-cost-coherent right-architecture left-architecture target = refl
+covered-cost-coherent right-architecture right-architecture target = refl
 
 local-pruning-tear : Tear left-architecture prunedCostView
 local-pruning-tear = tear right-architecture left-architecture znots

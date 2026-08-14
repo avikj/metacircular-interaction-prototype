@@ -104,6 +104,11 @@ import NaturalMachine.ActionResidual
 -- modulo its kernel.  In particular every sign character annihilates the
 -- classically injective square/successor residual 2x.
 import NaturalMachine.ActionResidualPhase
+-- Residual separation is not enough to make the predicted phase factor
+-- executable from a retained phase carrier.  The two-sign swap passes the
+-- residual kernel test while predictor pullback requires the missing second
+-- character; adjoining it closes the update exactly.
+import NaturalMachine.PhasePredictorClosure
 -- A residual/two-reading carrier predicts its own action exactly when the
 -- third reading descends through it.  A checked four-state clock supplies the
 -- collision no-go and the strict three-reading repair; the repaired carrier

@@ -144,6 +144,40 @@ module FixedBridge (k n' : ℕ) where
                      → D.valueC (canonicalize w) ≡ levelValue w
   canonicalize-value w = D.value-digits (levelValue w)
 
+  -- When the retained top digit is nonzero, the fixed-width raw word is
+  -- already canonical.  On this locus the stagewise projection really does
+  -- commute with one tower transition.
+  canonical-snoc-positive : (xs : D.Word) (y : D.Digit)
+                          → 0 < toℕ y
+                          → D.Canonical (xs ++ (y ∷ []))
+  canonical-snoc-positive []       y positive = positive
+  canonical-snoc-positive (x ∷ xs) y positive =
+    canonical-snoc-positive xs y positive
+
+  toWord-canonical : {m : ℕ} (w : LevelWord (suc m))
+                   → 0 < toℕ (w flast)
+                   → D.Canonical (toWord w)
+  toWord-canonical w positive =
+    subst D.Canonical (sym (toWord-snoc w))
+      (canonical-snoc-positive
+        (toWord (dropMSD _ w)) (w flast) positive)
+
+  canonicalize-is-toWord : {m : ℕ} (w : LevelWord (suc m))
+                         → (positive : 0 < toℕ (w flast))
+                         → canonicalize w ≡
+                           (toWord w , toWord-canonical w positive)
+  canonicalize-is-toWord w positive =
+    Σ≡Prop D.isPropCanonical
+      (D.digits-value (toWord w) (toWord-canonical w positive))
+
+  canonicalize-drop-natural : {m : ℕ} (w : LevelWord (suc m))
+                            → (positive : 0 < toℕ (w flast))
+                            → B.normalizeMSD (canonicalize w)
+                            ≡ canonicalize (dropMSD m w)
+  canonicalize-drop-natural w positive =
+      cong B.normalizeMSD (canonicalize-is-toWord w positive)
+    ∙ cong D.digitsC (cong D.value (toWord-dropMSD w))
+
   chartN : LevelWord C.n → Fin C.N
   chartN w =
     (levelValue w mod C.N) , mod< (C.bp C.n) (levelValue w)
@@ -204,3 +238,36 @@ private
 
   _ : F₂.dropMSD 1 (F₂.dropMSD 2 w101) ≡ F₂.dropMSD² 1 w101
   _ = F₂.dropMSD-compose 1 w101
+
+------------------------------------------------------------------------
+-- The nonzero-top premise is real: a zero top place is erased before the
+-- canonical-word transition sees it.  Binary [1,0,0] is the least displayed
+-- witness at the same 3 → 2 level used above.
+------------------------------------------------------------------------
+
+module BinaryNaturalityCounterexample where
+
+  module F₂ = FixedBridge 0 1
+
+  w100 : F₂.LevelWord 3
+  w100 (0 , _) = fone
+  w100 (1 , _) = fzero
+  w100 (suc (suc _) , _) = fzero
+
+  normalized-high-value-zero :
+      F₂.D.valueC (F₂.B.normalizeMSD (F₂.canonicalize w100)) ≡ 0
+  normalized-high-value-zero = refl
+
+  canonical-lower-value-one :
+      F₂.D.valueC (F₂.canonicalize (F₂.dropMSD 2 w100)) ≡ 1
+  canonical-lower-value-one = refl
+
+  canonicalize-not-a-tower-map :
+    ¬ ((w : F₂.LevelWord 3)
+      → F₂.B.normalizeMSD (F₂.canonicalize w)
+      ≡ F₂.canonicalize (F₂.dropMSD 2 w))
+  canonicalize-not-a-tower-map natural =
+    znots
+      ( sym normalized-high-value-zero
+      ∙ cong F₂.D.valueC (natural w100)
+      ∙ canonical-lower-value-one )
