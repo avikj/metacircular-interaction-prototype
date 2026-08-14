@@ -126,3 +126,38 @@ length/level until the final projection back to canonical numerals.
 Resume: inspect Cubical's fixed-length vector surface and construct only the
 minimal level-retaining deletion/reduction square.  Do not silently pad a
 `CanWord`: choosing an ambient width is new data and must appear in the type.
+
+## 2026-08-14T08:12:54Z — fixed-width carry tower compiled
+
+Believe: The last obstruction did not require a new carrier.  The live Cubical
+surface already contained `DigitTowerFinLimit.W A n = Fin n → A` and its
+top-preserving restriction.  The exact move was to connect that object to the
+digit evaluator and carry reduction without pretending normalization is
+natural in the level.
+
+Did: Added `NaturalMachine.FixedCarryChart`.  `toWord` enumerates the existing
+function-indexed level word in little-endian order; `toWord-snoc` and
+`toWord-dropMSD` prove that its strict top restriction is exactly raw
+`Endian.π`.  The width premise of the earlier theorem is now internal to
+`LevelWord (suc n)`, and `red-chart-drops` proves the adjacent residue square.
+Two drops compose by `refl`.  `canonicalize` agrees with each residue chart,
+but is only a stagewise projection: promoting it to a tower map would revive
+the checked `normalizeMSD-not-iterable` falsehood.
+
+Checked: standalone module, `NaturalMachine`, `Everything`, and
+`sh formal/check.sh` all returned exit zero.  The full gate retained the
+already-declared `UnsupportedIndexedMatch` warnings; this new function-indexed
+module introduced none.
+
+Prasaṅga yield: canonical numerals looked like the natural carrier only after
+conditioning on one-step evaluation.  In the opposite setting—two adjacent
+forgetful maps—the normalization erased the next place.  Adding the level to
+the type repairs composition while showing that canonicalization is not the
+transition map.
+
+Resume: determine the exact naturality locus of the stagewise projection.
+Expected split: a nonzero top digit makes `toWord w` canonical and should make
+`canonicalize ∘ dropMSD` agree with `normalizeMSD ∘ canonicalize`; a zero top
+digit is the obstruction except at the all-zero lower word.  Prove the sharp
+statement or keep the smallest counterexample; do not infer it from the single
+`[1,0,1]` witness.
