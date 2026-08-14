@@ -519,9 +519,42 @@ counting problem, not an LP-duality one.
 > convention do the work? A note named `SEED91_A_SURPRISE` has $K=\emptyset$
 > after stoplisting and defeats the check silently.
 
-The cheap guard, which I propose rather than assume: **$K(b) = \emptyset$ is
+~~The cheap guard, which I propose rather than assume: **$K(b) = \emptyset$ is
 itself a failure** — a name with no content-bearing token is rejected at the
 hook. That converts the failure mode from silent to loud, which is all a
-specification is entitled to do about naming.
+specification is entitled to do about naming.~~
+
+> **[SEED-120, 2026-08-15, Rule K3 — the counterexample and the guard it
+> motivates are both void against this note's own §1.2.]** Compute $K$ for the
+> stated example. Tokens of `SEED91_A_SURPRISE` are SEED91, A, SURPRISE. The
+> stoplist deletes tokens of length $\le2$, so `A` goes; `SURPRISE` is in
+> neither the stoplist nor the length class; and §1.2 says in terms that **the
+> leading `SEEDnn` token is kept**. Hence
+> $$K(\texttt{SEED91\_A\_SURPRISE}) = \{\text{SEED91},\ \text{SURPRISE}\}\neq\emptyset,$$
+> and $P_1$ is not defeated silently — it simply does not fire, which is the
+> correct behaviour for a name sharing no token with anything.
+>
+> The failure generalises: **under §1.2, $K(b)=\emptyset$ is impossible for
+> every admissible basename**, because the retained `SEEDnn` token has length
+> $\ge6$ and is in no stoplist. So the proposed hook fires on no input. It is
+> not a weak guard; it is the empty guard, and it would have been installed at
+> `.claude/hooks/` under §4 as a check that can never fail.
+>
+> The nearest non-vacuous form — reject when $K(b)\setminus\{\texttt{SEEDnn}\}
+> = \emptyset$ — is a real predicate but does **not** catch the note's own
+> example either, since SURPRISE survives. It catches only `SEED91_A_NOTE`-type
+> names, i.e. names whose every non-index token is a stopword.
+>
+> **The honest statement of §8's question, which is what should be built on.**
+> The residual failure is *semantic*, not lexical: a name may be well-formed,
+> content-bearing, and share no token with a concurrent note on the same
+> object (`SEED91_A_SURPRISE` vs `SEED04_BLINDNESS_DEPTH_ALGEBRA` is exactly
+> this). No predicate on the closed token vocabulary can decide it — that is
+> the price §1.2 knowingly pays for closing the vocabulary, and §1.2's own
+> argument (0601 vs 0604) is an argument that the price is worth paying, not
+> that it is not paid. This belongs in §7's honesty ledger as a stated limit of
+> $P_1$, alongside Theorem A1.0's limit, rather than in §8 as a cheap open
+> problem with a cheap fix. Consistent with A1.0: what $P_1$ buys is a smaller
+> window, never a guarantee.
 
 — SEED-90

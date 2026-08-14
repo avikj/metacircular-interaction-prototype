@@ -560,13 +560,45 @@ run, no `.py` file created or modified.
    canonical positional record exists and the index must be a word. This is the
    difference between "recordable" (cardinality) and "usable" (presentation),
    and the corpus currently conflates them.
-2. `PROVE` — **The finite-defect half of §4.2, in general.** For a
+2. ~~`PROVE` — **The finite-defect half of §4.2, in general.** For a
    satisfaction-blind check given by $k$ cyclic sub-records of periods
    $n_1,\dots,n_k$, the record is complete inside one cycle iff the $n_i$ are
    pairwise coprime, and otherwise deficient by
    $\prod n_i/\operatorname{lcm}(n_i)$. State once, with the Calendar Round
    ($94900/18980=5$) and SEED-55 ($6/6=1$) as the two worked instances, and
-   audit the corpus for multi-cycle records with non-coprime periods.
+   audit the corpus for multi-cycle records with non-coprime periods.~~
+   — **CLOSED by this note's own §2.2(a) (SEED-119, 2026-08-14, Rule K2,
+   twenty-sixth pass). The seed asks for the general form of an argument the
+   note already wrote in the case $k=2$; the general case is the same three
+   lines with no new idea, so per Rule K2 it is written here rather than
+   carried.**
+
+   > **Corollary LC6 (multi-cycle defect).** Let $f:\mathbb Z\to
+   > A:=\prod_{i=1}^{k}\mathbb Z/n_i$, $f(n)=(n\bmod n_1,\dots,n\bmod n_k)$.
+   > Then $\ker f=\bigcap_i n_i\mathbb Z=\operatorname{lcm}(n_i)\mathbb Z$, hence
+   > $$|\operatorname{im}f|=\operatorname{lcm}(n_1,\dots,n_k),\qquad
+   > [\,A:\operatorname{im}f\,]=\frac{\prod_i n_i}{\operatorname{lcm}(n_i)} .$$
+   > The record is complete inside one cycle — i.e. $f$ surjective — iff that
+   > index is $1$, iff $\prod n_i=\operatorname{lcm}(n_i)$, iff the $n_i$ are
+   > **pairwise** coprime. *Proof.* The first display is the definition of the
+   > lcm plus $|\mathbb Z/\ker f|=|\operatorname{im}f|$; this is §2.2(a)'s
+   > argument with the surjection $A\to\mathbb Z/5$ replaced by the count, and
+   > the count is what §2.2(a) actually used ("equal cardinalities and
+   > containment give equality"). For the last equivalence: pairwise coprimality
+   > gives $\prod=\operatorname{lcm}$ by CRT; conversely if $d:=\gcd(n_i,n_j)>1$
+   > for some $i\ne j$ then $\operatorname{lcm}(n_i,n_j)\le n_in_j/d$, and
+   > $\operatorname{lcm}$ of the whole family divides $\operatorname{lcm}(n_i,n_j)
+   > \cdot\prod_{l\ne i,j}n_l\le\prod_l n_l/d<\prod_l n_l$. $\square$
+   >
+   > Instances: Calendar Round $260\cdot365/18980=5$ (§2.2); SEED-55
+   > $2\cdot3/6=1$ (§4.2). Note $k\ge3$ needs *pairwise*, not setwise, coprimality
+   > — $(2,3,4)$ has $\gcd=1$ setwise and defect $24/12=2$ — which is the one
+   > place the $k=2$ statement of §2.2 does not read off verbatim, and is why
+   > the corollary is worth the six lines.
+   >
+   > What is **not** closed and is retained as the live half of this item: the
+   > corpus audit for multi-cycle records with non-coprime periods. Retagged
+   > `SEARCH`.
 3. `DEMONSTRATE` — **Tag the stored heads.** §5.1's minimal datum
    $(r,\tilde e_p(r))+\kappa$ should be written into
    `notes/CYCLOTOMIC_SENSOR.md` Theorem 11's sourcing sentence, alongside
@@ -580,7 +612,16 @@ run, no `.py` file created or modified.
    nobody should cite this note for it. Searched in-corpus (torsor, index,
    grading, epoch) and found no general statement; no external search was
    possible.
-5. `PROVE` — Whether Corollary LC5's third bullet has a converse of practical
+5. ~~`PROVE`~~ **CLOSED — not a seed (SEED-119, 2026-08-14, Rule K2).** The item
+   is refuted by its own parenthesis: Corollary LC5's third bullet *is* the
+   answer ("There are none"), proved in the note by Baire plus homogeneity, and
+   the residual "has any lane's $D_f$ been misidentified as compact?" is
+   answered exhaustively three clauses later — $\mathbb T$ genuinely compact,
+   $\mathrm{Inn}(\Gamma_0(D_r))$ genuinely not, all remaining lanes finite.
+   An item that states its own proof and its own exhaustive check is a **record
+   that the check was made**, not an open problem, and carrying it under `PROVE`
+   is exactly the miscarried-openness Rule K1 exists to strike. Retained below
+   verbatim, as a closed record. ~~Whether Corollary LC5's third bullet has a converse of practical
    use: are there corpus lanes with $D_f$ countable *and* compact that are not
    finite? (There are none — that is the corollary — so the real question is
    whether any lane's $D_f$ has been *misidentified* as compact when it is
