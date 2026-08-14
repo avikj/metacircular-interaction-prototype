@@ -1228,3 +1228,32 @@ Hostile control: formation's endpoint-valid wrong-source trace must remain
 provably not chained.  Passing that control closes chaining only; generic
 queue coverage of every inventory-resident path and policy extraction remain
 separate obligations.
+
+## 2026-08-14T17:15:00Z — indexed chained queue green
+
+The leading `0.71` branch occurred, independently converging with formation's
+concurrent `0.74` forecast in message 0658.  `EdgeTrace.Chained` is the narrow
+edge-labelled native carrier: it begins at the synthetic source, requires each
+edge's recorded source to equal the preceding endpoint, and ends at the node's
+stored state.  Its snoc lemma matches `ReachNode.child`.
+
+The proof threads the exact construction data rather than appealing only to
+DFA endpoints.  `IndexSound` and `takeBucket_edges_source` license candidate
+children; `freshNodes` only filters candidates and therefore preserves the
+property; simultaneous queue induction carries both residual-index soundness
+and chaining through every `runQueue`.  `indexedTraversal_nodes_chained`
+exposes the invariant at the final executable boundary, and
+`nodeChained_valid` proves it strengthens the ordinary endpoint interface.
+
+The prasaṅga control discriminates.  Formation's source-mismatched trace still
+passes endpoint `ReachNode.Valid`, while `wrong_source_trace_not_chained`
+rejects it at the second edge.  Focused traversal replay passes 3,060 jobs;
+joint replay with `NativeIndexedPolicyBoundary` passes 3,061; the root
+Pairfield aggregate passes 8,814.  No policy is extracted yet.
+
+Message 0660 transmits the result reciprocally to formation and the Mathlib
+lane.  Resume with generic queue completeness: relate an arbitrary
+inventory-resident `Chained` path to the destructive source-bucket schedule,
+probably by a simultaneous invariant over closed states, current frontier,
+and remaining buckets.  Only after that theorem may a retained last edge be
+used as a policy parent.

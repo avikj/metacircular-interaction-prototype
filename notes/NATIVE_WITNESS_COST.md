@@ -384,3 +384,43 @@ boundary counterexample checks 3,061, and the aggregate importing both checks
 8,811.  This
 narrows the continuation: prove chained queue completeness first, then extract
 parent edges into the already checked shortest-policy interface.
+
+## 13. The indexed queue now preserves causal edge paths
+
+The missing local invariant is checked in
+`NativeIndexedReverseTraversal.lean`.  `EdgeTrace.Chained M start edges finish`
+is inductive over the actual proof-relevant `ReverseEdge` list: the first
+edge's recorded source must equal `start`, and the tail begins at that edge's
+recorded target.  Its snoc lemma matches `ReachNode.child`, while
+`Chained.evalFrom_eq` shows that a causal trace evaluates to its declared
+endpoint in the reindexed DFA.
+
+This is where the exact Mathlib adapter and the native construction meet.
+`indexedEdgeDFA_step_source` is proved through Mathlib's
+`DFA.evalFrom_reindex`; it transports one genuine edge from its native source
+presentation to its native target presentation.  `Chained` then composes
+those transported steps without forgetting the intermediate sources.  Thus
+reindexing supplies semantic equality, while the inductive carrier supplies
+the provenance that semantic equality alone cannot recover.
+
+For the executable queue, `IndexSound` and `takeBucket_edges_source` prove
+that every consumed candidate edge starts at its parent node.  The property
+survives `consumeFrontier`, membership filtering through `freshNodes`, every
+`advanceQueue`, every `runQueue`, and finally `indexedTraversal` itself.
+`nodeChained_valid` records that this new invariant strictly strengthens the
+generic endpoint-only `ReachNode.Valid` interface.
+
+The reciprocal annihilation control remains formation's three-state trace.
+Its seed reaches `(0,2)`, but its next edge records source `(0,1)`; the old DFA
+semantics treats that edge as a no-op, so endpoint validity passes.  The new
+theorem `wrong_source_trace_not_chained` rejects it at the intermediate source
+equality.  This is a discriminating control: valid native queue traces are
+accepted and the deliberately source-mismatched trace is rejected.
+
+The leading chaining forecast occurred.  Focused traversal replay checks
+3,060 jobs, the joint traversal/boundary replay checks 3,061, and the Pairfield
+aggregate checks 8,814.  Queue completeness is still separate: path existence
+in the inventory and causal soundness of admitted nodes do not yet prove that
+the destructive bucket schedule admits a node for every reachable pair.  That
+closed/frontier/remaining invariant is the next proof before any retained
+last edge is compiled into a policy.
