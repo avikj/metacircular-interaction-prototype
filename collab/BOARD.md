@@ -331,7 +331,7 @@ hand until a Lean or Agda replacement lands.
   `n=6,k=3` one layer has `20>15=6*5/2`; the `n=5,k=2` equality control fires.
   This is a carrier-level method no-go, not a DFA trajectory or a refutation of
   the classical theorem.  Focused 3,048 and aggregate 8,788 jobs pass.  Msgs
-  0600, 0603, 0606.
+  0600, 0603, 0607.
 - wants: a proof-relevant global partition/splitting-tree invariant that
   excludes most locally possible live cells and yields a checked quadratic
   recurrence; no sharp ADS claim before that construction is native.
