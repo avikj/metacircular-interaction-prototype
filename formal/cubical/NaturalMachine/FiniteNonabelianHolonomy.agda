@@ -12,6 +12,7 @@ open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc)
 open import Cubical.Data.Unit using (Unit ; tt)
+open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.Group.Base using (GroupStr)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 open import Cubical.Algebra.SymmetricGroup using (FinSymGroup)
@@ -56,13 +57,14 @@ s₀₁ s₁₂ : ⟨ S₃ ⟩
 s₀₁ = isoToEquiv swap01Iso
 s₁₂ = isoToEquiv swap12Iso
 
-private module S = GroupStr (snd S₃)
-private module ST = GroupTheory S
+module S = GroupStr (snd S₃)
+module ST = GroupTheory (snd S₃)
 
 -- The two adjacent transpositions genuinely do not commute.  Evaluation at
 -- vertex zero reduces the proposed equality to distinct constructors.
-noncommuting : ¬ (s₀₁ S.· s₁₂ ≡ s₁₂ S.· s₀₁)
-noncommuting p = znots (cong (λ e → fst e fzero) p)
+noncommuting : (s₀₁ S.· s₁₂ ≡ s₁₂ S.· s₀₁) → ⊥
+noncommuting p with cong (λ e → fst e fzero) p
+... | ()
 
 -- A deliberately minimal conjugation-invariant loop observation.  It records
 -- only that a loop was observed; the point is that gauge invariance is checked
@@ -103,4 +105,3 @@ s₃-reversal-square =
 
 s₃-signed-sum-square =
   signed-sum-cylindrical S₃ s₃SignedFlux (λ g → g)
-
