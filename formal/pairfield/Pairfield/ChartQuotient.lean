@@ -111,7 +111,14 @@ theorem behavioralQuotientDFA_isReduced_acceptsBool
   intro left right hfuture
   apply behavioralQuotientDFA_isReduced M
   intro word
-  simpa only [acceptsBool_behavioralQuotientDFA] using hfuture word
+  have hword := hfuture word
+  change acceptsBool (behavioralQuotientDFA M)
+      (run (behavioralQuotientDFA M).step left word) =
+    acceptsBool (behavioralQuotientDFA M)
+      (run (behavioralQuotientDFA M).step right word) at hword
+  rw [acceptsBool_behavioralQuotientDFA,
+    acceptsBool_behavioralQuotientDFA] at hword
+  exact hword
 
 /-- If every input row is start-reachable, every quotient class remains
 start-reachable.  Without this hypothesis the quotient merges garbage but
@@ -147,6 +154,15 @@ variable {M : DFA A X} (C : FiniteBehavioralPresentation M)
 def reducedDFA [DecidablePred (fun state : X => state ∈ M.accept)] :
     DFA A (Quotient (dfaFutureSetoid C.toDFA)) :=
   behavioralQuotientDFA C.toDFA
+
+instance reducedDFA_accept_decidable
+    [DecidablePred (fun state : X => state ∈ M.accept)] :
+    DecidablePred (fun meaning : Quotient (dfaFutureSetoid C.toDFA) =>
+      meaning ∈ C.reducedDFA.accept) :=
+  fun meaning => by
+    change Decidable
+      (quotientObserve C.toDFA.step (acceptsBool C.toDFA) meaning = true)
+    infer_instance
 
 @[instance_reducible] def reducedFintype
     [DecidableEq A] [DecidablePred (fun state : X => state ∈ M.accept)]

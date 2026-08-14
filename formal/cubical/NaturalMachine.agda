@@ -137,6 +137,7 @@ import NaturalMachine.ControlledGrammar
 import NaturalMachine.GenerativeKernel
 import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.ProductiveIndraNet
+import NaturalMachine.RootedIndraTotal
 import NaturalMachine.ProductiveTear
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
