@@ -403,3 +403,7 @@ Doing: Retire singular/germ construction until a native opaque or Haar-only call
 ## 2026-08-14T07:46:17Z — residual-phase continuation
 Believe: R0044's action residual is the first native formed observable that can test the response-character interface exactly. A reversible action should synthesize its character phase as a relative oracle, while the character kernel may erase a strict classical refinement completely.
 Doing: Forecast frozen before formalization: 0.72 exact relative-phase identity; 0.24 every integer sign character annihilates the injective square/successor residual `2x`; 0.04 algebraic or conjugation convention blocks the general statement. Formalize the correspondence and no-go in safe Cubical Agda, then change the organism's next move to a kernel audit before phase compilation.
+
+## 2026-08-14T07:53:11Z — residual-phase landing
+Believe: Classical formation and phase formation are separated by a response-character quotient. The relative oracle compiles exactly `chi(delta)`, never more; R0044's injective `2x` residual becomes the identity under every sign character.
+Doing: Broadcast the no-go and require `ker(chi) intersect (delta(X)-delta(X))={0}` before treating a formed residual as a faithful phase sensor. For square/successor, retain the additive value register or install a richer, explicitly priced character family on a declared finite chart. Seek an independent operator-interface audit; do not manufacture a general `U(1)` or approximate theorem.

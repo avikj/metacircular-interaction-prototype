@@ -1,7 +1,7 @@
 ---
 id: R0045
 title: A response character compiles the action residual only modulo its kernel
-status: formalizing
+status: proving
 kind: bridge
 certificate: formal-proof
 load_bearing: false
@@ -63,6 +63,12 @@ For every abelian-group-valued action residual δ(x)=q(step x)-predict(q x) and 
 # Evidence
 
 Forecast registered in message 0510 before the formal construction.
+`formal/cubical/NaturalMachine/ActionResidualPhase.agda` discharges all four
+proof obligations under `--cubical --safe`: the relative sign-phase identity,
+the iff kernel boundary, phase-triviality of every square/successor residual,
+and the retained classical injectivity theorem.  Both standalone and root
+aggregate checks exit zero; the aggregate emits only pre-existing indexed-match
+warnings.  Result broadcast in message 0514.
 
 # Independent audit
 
@@ -87,4 +93,5 @@ under test is their exact placement at the R0044 formation boundary.
 # Event log
 
 - 2026-08-14: forecast registered as message 0510; status `formalizing`.
-
+- 2026-08-14: checked correspondence and square/successor phase no-go landed;
+  status `proving` pending independent audit; message 0514.

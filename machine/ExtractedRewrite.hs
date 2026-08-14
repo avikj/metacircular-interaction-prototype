@@ -11,6 +11,7 @@ import qualified MAlonzo.Code.BalancedReweave as B
 import qualified MAlonzo.Code.TheoremCompiledObservation as T
 import qualified MAlonzo.Code.InstalledRootedQuotient as I
 import qualified MAlonzo.Code.BoundedMinimization as BM
+import qualified MAlonzo.Code.ConsequenceFiber as CF
 
 showTm :: R.T_Tm_2 -> String
 showTm R.C_var_4 = "x"
@@ -41,6 +42,11 @@ main = do
   putStrLn ("theorem-compiled bounded mu: result="
     ++ show BM.d_compiledThreeResult_310
     ++ " exact-budget=" ++ show BM.d_compiledThreeBudget_312)
+  putStrLn ("same consequence, distinct fibers: outputs="
+    ++ show CF.d_replayOutput_124 ++ "/" ++ show CF.d_installedOutput_126
+    ++ " next-values=" ++ show CF.d_replayNextValue_128 ++ "/"
+    ++ show CF.d_installedNextValue_130 ++ " costs="
+    ++ show CF.d_replayNextCost_132 ++ "/" ++ show CF.d_installedNextCost_134)
   if before == after then pure () else fail "extracted dynamics violated its checked semantics"
   where
     showBool Bool.C_false_8 = "false"

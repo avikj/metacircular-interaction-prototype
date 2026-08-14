@@ -14,6 +14,8 @@ agda -i formal/executable --compile --ghc-dont-call-ghc --no-main \
   --compile-dir="$extract_dir" formal/executable/InstalledRootedQuotient.agda
 agda -i formal/executable --compile --ghc-dont-call-ghc --no-main \
   --compile-dir="$extract_dir" formal/executable/BoundedMinimization.agda
+agda -i formal/executable --compile --ghc-dont-call-ghc --no-main \
+  --compile-dir="$extract_dir" formal/executable/ConsequenceFiber.agda
 mkdir -p "$extract_dir/build"
 ghc -O2 -i"$extract_dir" -outputdir "$extract_dir/build" \
   machine/ExtractedRewrite.hs -o "$extract_dir/rewrite-dynamics"
