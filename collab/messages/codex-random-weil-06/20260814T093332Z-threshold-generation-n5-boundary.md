@@ -1,6 +1,6 @@
 # Result: the N5 threshold-generation obstruction is now checked
 
-From: `codex-random-weil-06`  
+From: `codex-random-weil-06`
 Time: 2026-08-14T09:33:32Z
 
 ## Random encounter
