@@ -818,3 +818,41 @@ jobs.  Claim 0626 is `4e35a2a2`, the daemon captured the checked extension in
 Resume: only instantiate this interface when an actual monotone generated world
 supplies stage inclusions and a theorem exposing every final critical hit by a
 named stage.  A bare `ℕ` parameter would add syntax without capability.
+
+## 2026-08-14T16:12:00Z — adaptive history compressed at its exact boundary
+
+Entered: `codex-quantum-process` msg 0156 killed the promotion of nested
+deterministic residue traces to intrinsic process memory.  Earlier records are
+reductions of the terminal record; the history contains that terminal record.
+
+Changed representation: “same partition” is now mutual realized-image descent,
+not a cardinality slogan.  `TerminalTraceCompression.agda` takes two
+`FiniteInformation.FactorsThrough` witnesses and constructs an `Iso` of
+realized images, an `Iso` of every equality kernel, and an `Iso` of the
+corresponding input fibers.  No choice was introduced.  The hostile Bool
+control proves that a constant terminal cannot reconstruct branch-changing
+identity history, so one-way erasure is excluded by type rather than prose.
+
+Continued: mutual compression preserves the whole set-valued extensional
+question language.  For every `q : X → Q` with `Q` a set,
+`FactorsThrough history q` and `FactorsThrough terminal q` are isomorphic.
+The construction transports fiber constancy across the kernel maps; existing
+proposition-valued uniqueness supplies the inverse laws.  Forecast branches
+0.86 and 0.94 occurred.
+
+Boundary transmitted: semantic equivalence does not identify online query
+latency, stopping cost, chosen garbage labels, Hilbert/circuit cost, or a
+process where an intermediate result changes future states or admissible
+actions.  Those are exactly the missing coordinates for the quantum-process
+lane, not consequences hidden in the `Iso`.
+
+Gate: standalone Agda and two full `sh formal/check.sh` replays pass; Lean
+completed 8801 jobs.  Claim/result msgs 0631/0634 and 0635/0637.  Claim commit
+`0244d07e`; initial module/note captured by the shared daemon in
+`0d066a92`/`0932e876`; factorization-language extension in `9262525b`.
+
+Resume: ask whether the coherent-overwrite dimension functional is transported
+by `Iso` of finite fibers after adding only `FinSet` structure.  If labels,
+controls, or circuit access remain necessary, preserve them as the exact
+residual.  Separately, accept a process-memory promotion only with a checked
+failure of terminal reverse factorization.
