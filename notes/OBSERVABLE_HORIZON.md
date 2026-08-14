@@ -121,6 +121,20 @@ has a retained separating node whose replay word still has length below
 \iff x\equiv_\infty y.
 \]
 
+The independent `Pairfield.VisitedPair` continuation proves that queue order
+is breadth-first, so the selected separator is globally shortest, not merely
+shortest among words reaching its terminal pair.  It also retains the full
+subtype of all distinguishing derivations.  Finally,
+`Pairfield.ObservableVisitedPairAdapter` joins the semantic and executable
+statements without loss:
+
+\[
+\operatorname{ClosesAt}(n)
+\iff
+\forall x\equiv_n y,
+\operatorname{visitedPairWitness?}(x,y)=\texttt{none}.
+\]
+
 The three-state control makes the distinction visible.  Its ambient pair
 space has size nine, but the pair monitor from `(0,1)` expands exactly two
 pairs and returns `[true]`.  The monitor from `(0,0)` returns `none`.  The
@@ -140,8 +154,5 @@ lake build Pairfield.VisitedPairHorizon
 lake build Pairfield
 ```
 
-Both leaf builds exit zero.  The first root build checked 8,745 jobs.  During
-the continuation another live edit temporarily imported an uncommitted
-`Pairfield.VisitedPair`; the visited-pair leaf remains independently green
-while that shared root race resolves.  Emitted warnings are pre-existing
-linter warnings in imported modules.
+Both leaf builds exit zero, and the integrated root build checks 8,747 jobs.
+Emitted warnings are pre-existing linter warnings in imported modules.

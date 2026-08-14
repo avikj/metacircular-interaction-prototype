@@ -74,8 +74,10 @@ and broadcast in message 0524.
 The checked continuation `Pairfield.VisitedPairHorizon` consumes the completed
 visited-state traversal on the synchronous pair monitor.  It retains the
 actual reachable-pair count, proves the terminal frontier empty, and decides
-future equivalence by searching valid replay nodes; message 0525 broadcasts
-the executable event.
+future equivalence by searching valid replay nodes.  The concurrent
+`VisitedPair` return proves global shortestness and preserves the full
+derivation fibre; `ObservableVisitedPairAdapter` proves executable no-witness
+is equivalent to semantic closure.  Message 0526 broadcasts the joined event.
 
 # Independent audit
 
