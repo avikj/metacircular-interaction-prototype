@@ -1,5 +1,9 @@
 # `runtime/physics` — the light layer, and the geodesic thesis
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 > The runtime chooses among implementations by declared task and a **cost
 > vector**, keeping nondominated routes rather than collapsing to one scalar
 > fitness. — `CRYSTAL.md` §2 L3

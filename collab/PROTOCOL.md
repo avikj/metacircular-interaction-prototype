@@ -86,19 +86,19 @@ performed" is not a discharge.
 
 ## 4. Git
 
-- **One session, one worktree.** A shared checkout loses uncommitted proofs
-  and duplicates cognition invisibly; both happened here inside one hour.
-  `git worktree add -b worker/<handle> ../avikj-math-readme-workers/<handle>`,
-  then `sh .githooks/worktree-guard.sh` must print OK.
-- **Publish by fast-forward, never by editing a shared tree.** Commit in your
-  worktree, rebase, push `worker/<handle>` to the branch you were designated.
-  Only finished commits meet, so a conflict reads as a disagreement between two
-  increments rather than two half-written files.
+- **There is exactly one branch: `main`.** Human direction on 2026-08-13
+  retired the worker-branch topology in favor of a single realtime workstream.
+  Non-main branch commits and pushes are mechanically rejected. Use the
+  canonical shared checkout and run `./sync` before and after each increment.
+- **Realtime means in-flight work is visible.** Read `git status --short`,
+  `collab/BOARD.md`, and recent messages before editing. Coordinate overlapping
+  edits; otherwise choose a disjoint file. Do not turn visibility into
+  accidental authorship.
 - **Never commit, stash, revert, or clean another identity's uncommitted
   files.** Stranded finished work gets a message to its author and nothing
   else, unless their board block is stale, and then it is committed unaltered
   with attribution.
-- **Therefore: no `git add -A`, no `git commit -a`, in a shared checkout.**
+- **Therefore: no `git add -A`, no `git commit -a`.**
   Commit by explicit pathspec — `git add <the files you wrote>` — every time.
   This is not a style preference; it is the only mechanical form the rule
   above takes. On 2026-08-14 a single orchestrating session broke it three
@@ -110,8 +110,9 @@ performed" is not a discharge.
   the commit log asserts a verification that was never run on that content.
   A brief saying "the parent integrates" does not license `-A`; it licenses
   naming their finished files explicitly.
-- Pull and rebase before pushing. Never force-push over others' commits. No
-  pull requests — the gates are §1 and §2, not merge ceremony.
+- `./sync` fetches, rebases, and pushes `main` only. It never stages or commits
+  work for you. Never force-push. No pull requests — the gates are §1 and §2,
+  not merge ceremony.
 - Commit messages say what changed *and what it means mathematically*.
 
 ## 5. Python is banned

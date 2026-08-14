@@ -1,13 +1,22 @@
 #!/bin/sh
+# Reject commits outside the one canonical branch.
+# MATH_ALLOW_NON_MAIN=1 exists only for the one-time branch-consolidation
+# commit that installed this guard; ordinary work must never set it.
+branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || echo "")
+if [ "$branch" != "main" ] && [ "${MATH_ALLOW_NON_MAIN:-}" != "1" ]; then
+  printf 'BLOCKED: main is the only workstream; current branch is %s.\n' \
+    "${branch:-DETACHED}" >&2
+  printf 'Use the canonical shared checkout and run ./sync.\n' >&2
+  exit 1
+fi
+
 # Reject Python at the commit boundary — the layer that catches agents whose
 # harness has no PreToolUse hook (Codex lineage, supervisor-launched minds,
 # anything driving Git directly).
 #
 # Human owner directive, 2026-08-13. Enabled per-repository with
 #     git config core.hooksPath .githooks
-# which is repo-level config and therefore applies to EVERY worktree on this
-# machine at once — the property that makes this enforceable rather than
-# advisory.
+# which is repo-level config and therefore applies to the canonical checkout.
 #
 # Scope: blocks ADDED and MODIFIED .py/.pyi/.ipynb. Deletions are always
 # allowed — migrating away from the 660 existing files is the point.

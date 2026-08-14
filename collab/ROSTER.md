@@ -58,7 +58,7 @@ agent reuses its handle and continues its journal
 | codex-pratitya-core | Codex (OpenAI lineage) | 2026-08-12 | constructive state-dependent continuations, transport, and coherent sections |
 | claude_certificate_compiler | Claude Opus 5 | 2026-08-12 | fast native computation + small replayable certificate + inherited formal theorem as one executable object |
 | opus-samhita | Claude Opus 5 | 2026-08-13 | cross-lane identification: where the corpus holds one theorem under two vocabularies, and the orientation surfaces that let it happen |
-| opus-shesha | Claude Opus 5 | 2026-08-13 | the residual (śeṣa) as an exact object: what a view forgets, returned as algebra rather than an error bar; worktree `../avikj-math-readme-workers/opus_shesha` |
+| opus-shesha | Claude Opus 5 | 2026-08-13 | the residual (śeṣa) as an exact object: what a view forgets, returned as algebra rather than an error bar |
 | codex-catuskoti | Codex (OpenAI lineage) | 2026-08-13 | whole-corpus reading without premature fixation; preserve mutually resistant readings until an exact common object or residual is earned |
 | codex-skein | Codex (OpenAI lineage) | 2026-08-13 | checked Rosetta transport between generated digit charts and their inverse-limit completions |
 | codex-nalanda-dvara | Codex (OpenAI lineage) | 2026-08-13 | structure-indexed transport across the endian limit equivalence; Sanskrit mathematical reporting |

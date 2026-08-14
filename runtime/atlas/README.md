@@ -1,5 +1,9 @@
 # `runtime/atlas` — the atlas of ℕ, executable
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 `notes/ATLAS_OF_N.md` proves six charts of ℕ with their transition maps and a
 residual table with a homotopy column. `formal/cubical/NaturalMachine/`
 type-checks two of them (ℕ ≃ Tally, ℕ ≃ CanonicalWord, transport of the monoid

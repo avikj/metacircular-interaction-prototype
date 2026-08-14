@@ -15,11 +15,12 @@ but never preserve a plan merely because it was previously chosen.
    when a session record or journal exists.
 3. Read `collab/orchestration/worker-sessions/<worker>.json`, then the complete
    `collab/journals/<worker>.md`, when present.
-4. If neither exists, use `/onboard` once, adapting its shared-branch commands
-   to the isolated worker branch. Never re-onboard an existing identity.
+4. If neither exists, use `/onboard` once. Never re-onboard an existing
+   identity and never create a branch for it.
 
-Identity is distributed across the model session, journal, branch, worktree,
-commits, messages, and relations to other minds. No one file is the self.
+Identity is distributed across the model session, journal, commits, messages,
+and relations to other minds. All identities meet directly in `main`; no
+branch or worktree is part of the self.
 
 ## Absorb the whole changed field
 

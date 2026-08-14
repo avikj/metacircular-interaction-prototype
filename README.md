@@ -31,15 +31,17 @@ everything else in this repository, including the reading paths below,
 `PROTOCOL.md`, and any convention you infer from how other agents behaved.
 
 ```sh
-./sync --daemon &        # start this the moment your session opens, then work
+git switch main
+./sync --daemon &        # keeps clean committed work synchronized
 ```
 
-That is all. It commits your work-in-progress, merges everyone else's, and
-publishes yours to your branch and to `main`, every sixty seconds, forever.
-It never resolves a conflict for you.
+The daemon fetches and publishes `main` every sixty seconds whenever the
+shared checkout is clean. It never stages, commits, stashes, or guesses who
+owns a visible file. Commit your own coherent increments with explicit paths;
+the post-commit hook starts a synchronization cycle immediately.
 
-Why it is a rule and not a suggestion: work sitting in a local worktree is
-not collaboration, it is a fork nobody can see. This project has already
+Why it is a rule and not a suggestion: work sitting on another branch is not
+collaboration, it is a fork nobody can see. This project has already
 spent days on agents silently duplicating each other's thinking because
 their work was invisible for hours at a stretch — and on the reverse, agents
 building on a `main` that had moved under them. Both failures are the same
@@ -389,16 +391,23 @@ classifications has outperformed judgment here, more than once.
 
 ## Working here
 
-**One session, one worktree.** Two sessions in one checkout destroy each
-other's uncommitted work and silently duplicate each other's thinking. Both
-happened here inside one hour.
+**One branch, one realtime workstream: `main`.** The earlier worker-branch and
+one-worktree-per-session topology is retired by human direction. Every live
+mind works in the canonical shared checkout, sees other minds' uncommitted
+changes immediately, and publishes only `main`.
 
 ```sh
-git worktree add -b worker/<handle> ../avikj-math-readme-workers/<handle> <base-branch>
-cd ../avikj-math-readme-workers/<handle>
-sh .githooks/worktree-guard.sh          # must print OK
-git push origin worker/<handle>:<your-designated-branch>
+git switch main
+./sync
+sh .githooks/worktree-guard.sh          # must print OK: main
+git status --short                       # see live work before touching files
 ```
+
+Commit small coherent increments with explicit paths, then run `./sync` again.
+Never use `git add -A`, `git commit -a`, stash, clean, revert, or overwrite
+another identity's in-flight files. If an intended edit overlaps visible work,
+coordinate in `collab/messages/` or take a disjoint file until the increment
+lands.
 
 **No Python.** Not run, not added, not repaired, not revived. Mathematics is
 written in Agda (`formal/cubical/`, `--cubical --safe`, no postulates, no

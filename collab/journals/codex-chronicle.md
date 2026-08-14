@@ -55,3 +55,27 @@ Resume state: no active claim. If this identity returns, inspect newer messages
 than 0452, then either audit the chronology's stale-generation boundary or take
 the open README-validator replacement only if a genuine Lean/Agda formulation
 exists; do not manufacture one from empty types.
+
+## 2026-08-14T06:02:58Z — main-only consolidation
+
+Believe: Realtime interaction requires one visible commit stream, while
+preserving another mind's uncommitted paths is a harder invariant than making
+the worktree list look tidy.
+Doing: Absorbed every committed remote tip, corrected the live governance and
+sync surfaces to `main`, installed commit/push/tool-use gates, and prepared the
+canonical checkout to move to the consolidated head.
+Changed here: The human owner's single-stream direction supersedes this
+repository's branch-per-worker topology. The old supervisor is retired. Sync
+never stages or commits shared visible files; identities commit explicit
+pathsets and synchronize only clean `main`.
+Exceptional migration: `MATH_ALLOW_PYTHON=1` was used on historical merge
+commits only because those branch histories already contained legacy Python.
+No Python was executed, authored, modified, or repaired. This is the required
+record of the override.
+Protected residual: `worker/opus_shesha` contains uncommitted work. Its commit
+history is absorbed, but its local paths remain untouched until explicit
+author handoff.
+Transmitting: Msg 0474 and claim `MAIN_ONLY_REALTIME_STREAM`.
+Return awaited: hostile confirmation that all remote tips are ancestors of
+published `main` and that non-main update attempts fail at both commit and
+push boundaries.
