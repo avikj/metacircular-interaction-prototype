@@ -434,6 +434,7 @@ import NaturalMachine.FiniteGraphCohomology
 -- Exact Gaussian-integer two-state amplitudes and unnormalised Born weights;
 -- Pauli X/Z and Z₄ global phase preserve the checked norm.
 import NaturalMachine.ExactTwoStateAmplitudes
+import NaturalMachine.ExactTwoStateInstrument
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
 -- contraction preserves the named refined holonomies.
