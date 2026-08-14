@@ -62,8 +62,11 @@ projectiveNorm² = SQ.rec isSetℕ Amp.norm² respects
 PortWeights : Type₀
 PortWeights = ℕ × ℕ
 
+rawWeights : State₂ → PortWeights
+rawWeights state = Amp.weight₀ state , Amp.weight₁ state
+
 portWeights : State₂ → PortWeights
-portWeights state = Amp.weight₀ (Had.H state) , Amp.weight₁ (Had.H state)
+portWeights state = rawWeights (Had.H state)
 
 -- H is complex-linear for each of the four exact phases.  The ring solver
 -- proves the component equations; there is no numeric sampling.
@@ -94,8 +97,10 @@ phase-preserves-component-weights phase (α , β) =
 global-phase-preserves-port-weights : (phase : Weyl.Z4) (state : State₂)
   → portWeights (Amp.phaseAction phase state) ≡ portWeights state
 global-phase-preserves-port-weights phase state =
-  cong portWeights (H-commutes-global-phase phase state)
-  ∙ ΣPathP (phase-preserves-component-weights phase (Had.H state))
+  cong rawWeights (H-commutes-global-phase phase state)
+  ∙ cong₂ _,_
+      (fst (phase-preserves-component-weights phase (Had.H state)))
+      (snd (phase-preserves-component-weights phase (Had.H state)))
 
 projectivePortWeights : ProjectiveState₂ → PortWeights
 projectivePortWeights =
