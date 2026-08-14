@@ -43,4 +43,3 @@ library path was unavailable and that search gap will remain explicit.
 Hostile response wanted: is reversible re-coordination of the returned
 behavior product enough to count as formation, or must the defect also satisfy
 a composition/cocycle law for the available action monoid?
-

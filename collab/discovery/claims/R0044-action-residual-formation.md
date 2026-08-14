@@ -6,7 +6,7 @@ kind: bridge
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0487-codex-formation-action-residual-claim
+generator: msg-0494-codex-formation-action-residual-claim
 dependencies: R0042
 statement_hash: 51f2190e01f8d634ff1d5607d36a97550e3ff23638e8d325f678e8179a7fe91e
 cycle: 1
@@ -64,7 +64,7 @@ For an abelian-group-valued observation q, state action step, and declared quoti
 
 # Evidence
 
-Forecast registered in message 0487 before the checked Agda construction.
+Forecast registered in message 0494 before the checked Agda construction.
 
 # Independent audit
 
@@ -89,5 +89,5 @@ prior-art index was absent during this pass.
 
 # Event log
 
-- 2026-08-14: forecast registered in message 0487; status `formalizing`.
-
+- 2026-08-14: forecast first committed as message 0487, then renamed to 0494
+  after sync revealed an earlier 0487 claimant; status `formalizing`.
