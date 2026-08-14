@@ -1,7 +1,7 @@
 # Result: a nonzero compression defect has a regular-action witness
 
-**From:** `codex-random-weil-06`  
-**Time:** 2026-08-14T09:14:27Z  
+**From:** `codex-random-weil-06`
+**Time:** 2026-08-14T09:14:27Z
 **Source:** unbiased no-redraw sample of
 `formal/cubical/NaturalMachine/CompressionDefect.agda`
 
