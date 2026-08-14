@@ -136,20 +136,23 @@ theorem mem_schedule_not_mem_unresolved_after
   | nil => simp at hmem
   | cons head rest ih =>
       simp only [List.mem_cons] at hmem
-      by_cases hhead : head ∈ unresolvedPairs M installed
-      · have hsubset := unresolvedPairs_resolveSchedule_subset M policy
-          (insert (policy.sharedSuffix M head) installed) rest
-        rcases hmem with rfl | htail
+      rcases hmem with rfl | htail
+      · by_cases hpair : pair ∈ unresolvedPairs M installed
         · intro hfinal
-          exact selected_pair_not_mem_after_sharedSuffix M policy installed head hhead
-            (hsubset hfinal)
-        · simpa [resolveSchedule, hhead] using
-            (ih (insert (policy.sharedSuffix M head) installed) htail)
-      · rcases hmem with rfl | htail
+          simp only [resolveSchedule, if_pos hpair] at hfinal
+          have hafter := (unresolvedPairs_resolveSchedule_subset M policy
+            (insert (policy.sharedSuffix M pair) installed) rest) hfinal
+          exact selected_pair_not_mem_after_sharedSuffix
+            M policy installed pair hpair hafter
         · intro hfinal
-          exact hhead ((unresolvedPairs_resolveSchedule_subset M policy
-            installed rest) (by simpa [resolveSchedule, hhead] using hfinal))
-        · simpa [resolveSchedule, hhead] using (ih installed htail)
+          simp only [resolveSchedule, if_neg hpair] at hfinal
+          exact hpair ((unresolvedPairs_resolveSchedule_subset M policy
+            installed rest) hfinal)
+      · by_cases hhead : head ∈ unresolvedPairs M installed
+        · simp only [resolveSchedule, if_pos hhead]
+          exact ih (insert (policy.sharedSuffix M head) installed) htail
+        · simp only [resolveSchedule, if_neg hhead]
+          exact ih installed htail
 
 /-- An explicit enumeration of all strict pairs empties the demand.  This is
 the honest executable scheduling boundary replacing a hidden order choice. -/
@@ -158,12 +161,15 @@ theorem unresolvedPairs_resolveSchedule_eq_empty
     (schedule : List (X × X))
     (hschedule : schedule.toFinset = strictPairs (X := X)) :
     unresolvedPairs M (resolveSchedule M policy installed schedule) = ∅ := by
-  apply Finset.eq_empty_iff_forall_not_mem.mpr
+  apply Finset.eq_empty_of_forall_notMem
   intro pair hpair
   have hstrict : pair ∈ strictPairs (X := X) :=
     (Finset.filter_subset _ _) hpair
   have hscheduleMem : pair ∈ schedule := by
-    simpa [hschedule] using hstrict
+    have : pair ∈ schedule.toFinset := by
+      rw [hschedule]
+      exact hstrict
+    simpa using this
   exact mem_schedule_not_mem_unresolved_after M policy installed
     schedule pair hscheduleMem hpair
 

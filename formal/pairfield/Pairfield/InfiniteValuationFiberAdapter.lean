@@ -8,6 +8,7 @@ in every nonzero-modulus chart through a root of a nonzero polynomial.
 -/
 import Mathlib.Algebra.MvPolynomial.Funext
 import Mathlib.Data.Int.ModEq
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import Mathlib.Tactic
 
 namespace Pairfield.InfiniteValuationFiberAdapter
@@ -39,6 +40,21 @@ theorem mem_affineResidueSide_iff_modEq {m a b : ℤ} :
     exact ⟨z, rfl⟩
   · rintro ⟨z, hz⟩
     exact ⟨z, hz.symm⟩
+
+/-- Polynomial evaluation respects the native coordinatewise residue chart. -/
+theorem eval_modEq_of_sameResidueChart {σ : Type*} {m : ℤ}
+    {x y : σ → ℤ} (f : MvPolynomial σ ℤ)
+    (hxy : SameResidueChart m x y) :
+    eval x f ≡ eval y f [ZMOD m] := by
+  rw [← Int.modEq_natAbs, ← ZMod.intCast_eq_intCast_iff]
+  change
+    Int.castRingHom (ZMod m.natAbs) (eval x f) =
+      Int.castRingHom (ZMod m.natAbs) (eval y f)
+  rw [MvPolynomial.eval₂_comp, MvPolynomial.eval₂_comp]
+  apply MvPolynomial.eval₂_congr
+  intro i _c _hi _hc
+  exact (ZMod.intCast_eq_intCast_iff _ _ _).mpr
+    (Int.modEq_natAbs.mpr (hxy i))
 
 /-- The Boolean zero/infinity status is determined at `x` by the modulus-`m`
 chart when every same-chart point has the same zero status as `x`. -/
@@ -85,6 +101,42 @@ theorem primePower_zeroStatus_not_determined {σ : Type*}
     ¬ ZeroStatusDeterminedAt ((p : ℤ) ^ k) f x := by
   apply zeroStatus_not_determined_at_root f hf ((p : ℤ) ^ k) ?_ x hx
   exact pow_ne_zero k (Int.ofNat_ne_zero.mpr hp.out.ne_zero)
+
+/-- Complementary finite row: at a nonroot, the prime-power chart one digit
+deeper than the `p`-adic valuation already determines Boolean zero status. -/
+theorem primePower_zeroStatus_determined_at_nonroot {σ : Type*}
+    (f : MvPolynomial σ ℤ) (p : ℕ) [hp : Fact p.Prime]
+    (x : σ → ℤ) (hx : eval x f ≠ 0) :
+    ZeroStatusDeterminedAt
+      ((p : ℤ) ^ (padicValInt p (eval x f) + 1)) f x := by
+  intro y hy
+  have hmod := eval_modEq_of_sameResidueChart f hy
+  have hfy : eval y f ≠ 0 := by
+    intro hyzero
+    have hdvd :
+        (p : ℤ) ^ (padicValInt p (eval x f) + 1) ∣ eval x f := by
+      rw [← Int.modEq_zero_iff_dvd]
+      simpa [hyzero] using hmod
+    rcases (padicValInt_dvd_iff _ _).mp hdvd with hzero | hle
+    · exact hx hzero
+    · exact (Nat.not_succ_le_self (padicValInt p (eval x f))) hle
+  exact iff_of_false hfy hx
+
+/-- Exact Boolean classification of the native infinity fiber: for a nonzero
+integral polynomial, a point is a root exactly when no finite prime-power
+residue chart determines its zero/infinity status. -/
+theorem eval_eq_zero_iff_no_primePower_zeroStatus_chart {σ : Type*}
+    (f : MvPolynomial σ ℤ) (hf : f ≠ 0) (p : ℕ) [hp : Fact p.Prime]
+    (x : σ → ℤ) :
+    eval x f = 0 ↔
+      ∀ k : ℕ, ¬ ZeroStatusDeterminedAt ((p : ℤ) ^ k) f x := by
+  constructor
+  · intro hx k
+    exact primePower_zeroStatus_not_determined f hf p k x hx
+  · intro hall
+    by_contra hx
+    exact hall (padicValInt p (eval x f) + 1)
+      (primePower_zeroStatus_determined_at_nonroot f p x hx)
 
 /-- Positive concrete control: `X` at zero and the depth-two `3`-adic chart
 has the explicit same-chart nonroot `9`. -/
