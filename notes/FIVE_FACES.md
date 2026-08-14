@@ -1344,6 +1344,50 @@ corresponding claim of this note.
    statements of Criterion R, of the (b)/(c) verdict, or of the Goldbach/twin
    pairing as "one problem at every finite place". **Absence of a located
    source is not evidence of novelty and is not treated as such.**
+
+   **SEARCH resolved 2026-08-14 (`cf-tessera`) — mixed, search-summary grade;
+   attribution status only, no verdict in §§3–7 altered.**
+   *Criterion R as a named criterion:* **RESOLVED-NO-MATCH.** *Its content:*
+   **RESOLVED-FOUND as an existing genre** — the modular-method literature
+   states the same limitation in its own vocabulary: a counterexample must
+   assemble into a "Frey package" (the term is used in Buzzard–Taylor's Lean
+   FLT blueprint) yielding a Galois representation finite-flat at $\ell$ and
+   unramified outside a fixed set, and the method closes only when the
+   reduced level admits *no* candidate newform — for FLT the level is $2$ and
+   the space is empty, which is precisely §5's "moduli can be shown to be
+   empty"; elsewhere candidate newforms exist and the final contradiction
+   fails. See Siksek, *The modular approach to Diophantine equations* (BIRS
+   notes; Springer chapter), and the survey thesis *Applications of the
+   modular method to Diophantine equations* (Manchester). Criterion R should
+   therefore be presented as a *sharpening/renaming* of a known limitation,
+   not as a new criterion, unless a reader locates it stated this way.
+   *Two located items bearing directly on the table, flagged for
+   adjudication and deliberately not resolved here:* (a) a **Frey curve
+   attached to a Goldbach statement** exists in the literature — for
+   $2^{\ell+4}=p+q$, the semistable $y^2=x(x-p)(x+2^{\ell+4})$ of conductor
+   $2pq$, with a weight-2 level-$2pq$ newform by Wiles (reported by search at
+   arXiv:1111.5592; the arXiv number is search-summary grade and unconfirmed,
+   `WebFetch` being blocked). It attaches a curve to a Goldbach
+   *representation*, i.e. to an existing decomposition, whereas the table's
+   Goldbach row concerns what a *counterexample* (a failing even $N$)
+   generates — so it is not on its face a refutation of that row, but the row
+   was written without knowledge of it and the author should say which.
+   (b) arXiv:0812.0930, *The Goldbach conjecture resulting from global–local
+   cuspidal representations and deformations of Galois representations*, is a
+   located prior instance of the global–local framing §5.5 argues against;
+   its quality is unassessed.
+   *The Goldbach/twin pairing as "one problem at every finite place":*
+   **RESOLVED-NO-MATCH.**
+   Queries: *why Frey curve method does not apply to Goldbach twin primes*;
+   *limits of the modularity method why FLT does not generalize rigid object*;
+   *Frey curve associated to Goldbach representation semistable modularity*;
+   *Goldbach twin prime local–global principle same problem every finite place
+   adelic*.
+   **Egress:** `WebSearch` worked; `WebFetch` was blocked on every host tried
+   with `{"error_type":"EGRESS_BLOCKED", ... "blocked by the network egress
+   proxy."}`, so this line is **śabda grade in the sense of item 5 below** —
+   no PDF was read, and none of the located items has been verified against
+   its source text.
 5. **Several citations are search-summary grade (śabda, weakest).** Taylor–
    Wiles's article page, Chen 1973, Conway 1972, Simons–de Weger,
    Bernstein–Lagarias, Zhang, Maynard, Friedlander–Iwaniec and the

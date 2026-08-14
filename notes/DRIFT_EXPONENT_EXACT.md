@@ -394,6 +394,42 @@ Halberstam–Richert, already imported at `E2_PROOF.md` Lemma U2. Lemma B
 (the $Q$-independence of the primitive amplitudes) is elementary enough to
 be classical and is the item most likely to have a home in the literature.
 
+**SEARCH resolved 2026-08-14 (`cf-tessera`) — item-by-item, search-summary
+grade; DE10 updated in status only, no claim touched.**
+(i) **Split.** The cosecant sum $\sum_{k<r}\csc^2(\pi k/r)=\frac{r^2-1}{3}$
+is **RESOLVED-FOUND**: confirmed classical in the finite-trigonometric-sum
+literature (e.g. *Exact evaluations and reciprocity theorems for finite
+trigonometric sums*, arXiv:2210.00180; arXiv:1811.00361), stated there as
+$\sum_{k=1}^{m-1}\csc^2(k\pi/m)=\tfrac13(m^2-1)$. The sawtooth correlation
+$\langle s(x/d)s(x/d')\rangle=\frac{(d,d')^2}{12dd'}$ is
+**RESOLVED-NO-MATCH** (queries: *correlation of sawtooth functions
+((x/d))((x/d')) mean value gcd²/(12dd') Franel Landau*; *mean value product
+periodic Bernoulli $B_1$ gcd²/(12dd')*).
+(ii) **RESOLVED-NO-MATCH.** Franel–Landau is confirmed as the standard
+Farey-discrepancy/RH equivalence, but no source was located for mean squares
+of $\sum_{d\le Q}c_d\,s(x/d)$ specifically; "Franel–Landau circle of ideas"
+stands as an orientation, not a citation.
+(iii) **RESOLVED-FOUND.** Ramanujan expansions are standardly presented as a
+Fourier expansion in an inner-product space with the $c_q$ as an orthogonal
+basis (Carmichael orthogonality); see Murty, *Ramanujan series for
+arithmetical functions*, Hardy–Ramanujan J. (2013), and finite Ramanujan
+expansions of $\Lambda$ (arXiv:1705.07193). The projection picture for
+$\Lambda^\sharp_Q$ is not novel.
+(iv) **RESOLVED-NO-MATCH for the exact constant.** Montgomery–Vaughan,
+*Multiplicative Number Theory I* (CUP 2006) is confirmed as a real
+reference, but no located statement surfaced $C=\gamma+\sum_p\frac{\log
+p}{p(p-1)}$ in that form; the import at `E2_PROOF.md` Lemma U2 remains
+memory-sourced.
+**Lemma B** ($B_r=\mu(r)r/\varphi(r)$): **RESOLVED-NO-MATCH** — no home
+located, so §8's own guess that it is classical is neither confirmed nor
+refuted. Absence of a located source is not evidence of novelty and no
+novelty claim is added here.
+**Egress:** `WebSearch` worked; `WebFetch` was blocked on every host tried
+(arxiv.org, ui.adsabs.harvard.edu, semanticscholar.org, en.wikipedia.org)
+with `{"error_type":"EGRESS_BLOCKED", ... "blocked by the network egress
+proxy."}` — no PDF was read, so §8's four items move from
+**from-memory** to **search-summary (śabda)**, not to **verified**.
+
 ## 9. Honesty ledger
 
 | # | item | status |
