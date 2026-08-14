@@ -402,3 +402,17 @@ Open: The local ingredients no longer hide the difficulty.  What remains is
 the global branch/minimality assembly and then the precise lexicographic
 height recurrence across informative splits.  Do not identify the result with
 the classical quadratic ADS theorem until that recurrence is checked.
+
+## 2026-08-14T11:12:00Z — node-minimal native depth bound landed
+Believe: The global quantifiers are now explicit.  Depth minimality deletes a
+repeat on a selected branch, but node minimality is the hereditary cost needed
+for every sibling.  Replacing a strict subplan is literal syntax, so a repeated
+canonical position would shrink the whole certified plan.  Following deepest
+children turns the resulting `Nodup` theorem into the native bound
+`depth(P)+1 ≤ 2^n`.
+Doing: Refine zero-potential steering runs by the constant cardinality of their
+canonical positions and consume R0058's `Nat.choose n k` carrier before
+crossing an informative split.
+Open: Derive and solve the exact recurrence that combines those steering
+segments with the R0056 cross-fibre potential loss.  The checked exponential
+bound is unconditional; the classical quadratic ADS height remains unclaimed.
