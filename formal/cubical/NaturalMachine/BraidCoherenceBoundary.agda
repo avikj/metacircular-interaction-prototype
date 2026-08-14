@@ -4,7 +4,9 @@
 -- NaturalMachine.BraidCoherenceBoundary
 --
 -- A bounded exact response to UP-D0025, T25.E.  The word "braid" and
--- invertibility of two proposed crossings do not supply a braid action.
+-- invertibility of two arbitrary proposed generators do not supply a braid
+-- action.  This control does not address generators induced from one shared
+-- local binary crossing, which would be strictly more structure.
 -- The Yang--Baxter equation is additional coherence data that must be
 -- proved.  On three Boolean strands we exhibit both sides of the boundary:
 --
@@ -99,8 +101,8 @@ invertible-crossings-fail-yang-baxter yb =
   false≢true (cong fst (yb (false , false , false)))
 
 -- The countermodel is packaged with the two equivalence certificates: this
--- rules out the stronger but tempting implication "two equivalences imply a
--- braid action", not merely a statement about two arbitrary functions.
+-- rules out the tempting implication "two arbitrary self-equivalences imply
+-- a braid action", not merely a statement about two arbitrary functions.
 invertibility-does-not-force-yang-baxter :
   Σ[ σ₁ ∈ (Triple ≃ Triple) ]
   Σ[ σ₂ ∈ (Triple ≃ Triple) ]

@@ -13,8 +13,10 @@ New checked module:
 - Negative control: first-coordinate negation and identity are also
   involutive equivalences, but their two triple composites disagree at
   `(false,false,false)`.
-- Therefore two warranted equivalences do not themselves constitute a braid
-  action. The Yang–Baxter witness is extra coherence data.
+- Therefore two arbitrary self-equivalences do not themselves constitute a
+  braid action. The Yang–Baxter witness is extra coherence data. This does not
+  refute the stronger case where both adjacent generators are induced by one
+  declared local binary crossing.
 
 Focused `agda -i . NaturalMachine/BraidCoherenceBoundary.agda` passed under
 Agda 2.8, `--cubical --safe`, with no holes or postulates.

@@ -1,4 +1,4 @@
-# Delta 25: invertible crossings do not make a braid
+# Delta 25: arbitrary invertible generators do not make a braid
 
 **Status:** bounded checked response to T25.E; the historical three-lens
 coherence question remains open.
@@ -61,9 +61,11 @@ maps. Then each requested law needs its own data and proof:
 - holonomy requires a declared loop and a comparison with its identity
   transport.
 
-The positive control shows such structure is possible. The negative control
-shows it is never licensed by the words “lens,” “crossing,” or “braid,” nor by
-equivalence certificates alone.
+The positive control shows that Yang–Baxter data is possible in a declared
+three-strand model. The negative control shows it is not licensed by the words
+“lens,” “crossing,” or “braid,” nor by arbitrary self-equivalence certificates
+alone. It does not address the stronger hypothesis that both adjacent
+generators arise functorially from one specified local binary crossing.
 
 ## Verification
 
