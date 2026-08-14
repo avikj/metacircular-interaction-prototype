@@ -18,6 +18,7 @@ open import Cubical.HITs.SetQuotients using (_/_)
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.ExactExperimentFullAbstraction as Exp
+import NaturalMachine.ExactTwoStateAmplitudes as Amp
 import NaturalMachine.FiniteInformation as FI
 import NaturalMachine.TwoSidedExperimentInterface as Two
 
@@ -28,7 +29,7 @@ import NaturalMachine.TwoSidedExperimentInterface as Two
 PhaseState : Type₀
 PhaseState = Bool
 
-phaseState : PhaseState → _
+phaseState : PhaseState → Amp.State₂
 phaseState true  = Two.plusInput
 phaseState false = Two.minusInput
 
@@ -92,4 +93,3 @@ immediate-interface-cannot-reconstruct-paired-signature factors =
   separated =
     funExt⁻ (funExt⁻ (funExt⁻ kernelEquality Exp.readout)
       Exp.h-readout) false
-

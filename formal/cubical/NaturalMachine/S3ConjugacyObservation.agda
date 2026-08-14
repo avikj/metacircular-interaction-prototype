@@ -27,19 +27,27 @@ Fixed g = Σ[ x ∈ Fin3 ] g .fst x ≡ x
 
 fixedConjugateIso : (h g : ⟨ S₃ ⟩)
   → Iso (Fixed ((h S.· g) S.· S.inv h)) (Fixed g)
-Iso.fun (fixedConjugateIso h g) (x , p) = (invEquiv h) .fst x , fixed
+Iso.fun (fixedConjugateIso h g) (x , p) = h .fst x , fixed
   where
-  fixed : g .fst ((invEquiv h) .fst x) ≡ (invEquiv h) .fst x
-  fixed = sym (secEq h (g .fst ((invEquiv h) .fst x)))
-    ∙ cong ((invEquiv h) .fst) p
-Iso.inv (fixedConjugateIso h g) (y , q) = h .fst y , fixed
+  cancel : (z : Fin3) → h .fst ((S.inv h) .fst z) ≡ z
+  cancel z = cong (λ e → e .fst z) (S.·InvL h)
+
+  fixed : g .fst (h .fst x) ≡ h .fst x
+  fixed = sym (cancel (g .fst (h .fst x))) ∙ cong (h .fst) p
+Iso.inv (fixedConjugateIso h g) (y , q) = (S.inv h) .fst y , fixed
   where
-  fixed : ((h S.· g) S.· S.inv h) .fst (h .fst y) ≡ h .fst y
-  fixed = cong (h .fst) (cong (g .fst) (secEq h y) ∙ q)
+  cancel : (z : Fin3) → (S.inv h) .fst (h .fst z) ≡ z
+  cancel z = cong (λ e → e .fst z) (S.·InvR h)
+
+  fixed : ((h S.· g) S.· S.inv h) .fst ((S.inv h) .fst y)
+    ≡ (S.inv h) .fst y
+  fixed = cong ((S.inv h) .fst) (cong (g .fst) (cancel y) ∙ q)
 Iso.rightInv (fixedConjugateIso h g) (y , q) =
-  Σ≡Prop (λ _ → S.is-set _ _) (retEq h y)
+  Σ≡Prop (λ _ → S.is-set _ _)
+    (cong (λ e → e .fst y) (S.·InvL h))
 Iso.leftInv (fixedConjugateIso h g) (x , p) =
-  Σ≡Prop (λ _ → S.is-set _ _) (secEq h x)
+  Σ≡Prop (λ _ → S.is-set _ _)
+    (cong (λ e → e .fst x) (S.·InvR h))
 
 fixedConjugateEquiv : (h g : ⟨ S₃ ⟩)
   → Fixed ((h S.· g) S.· S.inv h) ≃ Fixed g

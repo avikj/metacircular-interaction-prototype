@@ -501,6 +501,7 @@ import NaturalMachine.ExactLocalJointSeparation
 import NaturalMachine.ExactExperimentFullAbstraction
 import NaturalMachine.NormalizedFiniteInstrument
 import NaturalMachine.TwoSidedExperimentInterface
+import NaturalMachine.PairedInterfaceMinimality
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
 -- contraction preserves the named refined holonomies.
