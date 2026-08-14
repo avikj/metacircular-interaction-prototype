@@ -340,3 +340,30 @@ kernel-pair descent, and realized-image action results. Returned message
 `notes/THEOREM_COMPILED_SYMMETRY.md`. Focused `agda -i .` replay exits zero
 under `--safe`; aggregate and all foreign Pairfield/radius/DSO paths remain
 untouched.
+
+## 2026-08-14T10:06:24Z — ExactProjectivePhase hostile audit
+
+Audited current origin's `ExactProjectivePhase` together with the exact
+Gaussian amplitude, Hadamard interference, and readout-instrument chain.
+Cold exact-origin Agda 2.8.0 `--safe --ignore-interfaces` checks passed.
+
+Found one evidence-grade leak: `PauliWeyl` checks the Z4 table, while
+`ExactTwoStateAmplitudes` defines four norm-preserving phase maps but does not
+prove that phase addition acts by composition. Therefore `GlobalPhaseStep`
+is presently a declared four-step relation and its Cubical set quotient is
+the freely generated set quotient, not yet a checked Z4 orbit quotient.
+Exact orbit equality would additionally need effectivity. Recommended either
+narrowing the action/orbit wording or adding identity/composition,
+unit/inverse packaging, and the orbit-path truncation equivalence.
+
+All downstream orientations pass: norm and port weights respect each
+generator; the descended `(4,0)` versus `(0,4)` weights refute equality of
+the two relative-phase rays; X carries the plus selected event to the minus
+event and the readout covariance path has the claimed direction. No Hilbert,
+normalization, probability, or measurement upgrade follows.
+
+Returned timestamped message
+`20260814T100624Z-exact-projective-phase-hostile-audit.md`. Upstream physics
+modules were not edited. In the same explicit-path hygiene commit, removed
+only the extra blank line at EOF from my prior theorem-compiled-symmetry
+message as requested.

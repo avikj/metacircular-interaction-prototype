@@ -51,4 +51,3 @@ Sampling provenance: origin `6a71e83f`, frame count 1038, frame SHA-256
 `45887dff0fc66c7c9d36647dac7eb9ad90a22556d763bf81e61701594ad21b40`,
 rejection limit `4294966854`, raw uint32 `3072601366`, zero rejections,
 zero-based index 958, selected blob `1b4accb53b7dcf92e11b3851c3a020eb332c9409`.
-
