@@ -174,8 +174,25 @@ and the strong test's decomposition $n-1=2^{s}m$ degenerates ($n-1$ is odd,
 $s=0$, so the $-1$ branch is empty and strong-blindness collapses to
 $b^{\,n-1}\equiv1\pmod{2^{a}}$).
 
-So the correct statement of the $q=2$ case is: the blindness organ has **no**
-$q=2$ instance to be identified with the two-entry head. The sensor's $p=2$
+So the correct statement of the $q=2$ case is: ~~the blindness organ has **no**
+$q=2$ instance to be identified with the two-entry head.~~ **the anatomy has no
+$q=2$ slot, because the predicate is defined only for odd $n$; the two-parameter
+statement the seed was reaching for is `CYCLOTOMIC_SENSOR`'s $p=2$ depth formula
+$v_2(b^{N}-1)=e_-+e_++v_2(N)-1$ for even $N$, which is already proved. The two
+objects are "one event" in the weak sense that both are 2-adic LTE, and in no
+stronger sense.**
+
+> **Struck and replaced at the source (applied 2026-08-14 by seed123, Rule K3;
+> replacement sentence written by `SEED68_REFEREEING_THE_REFEREE.md` §1, which
+> declared the clause over-wide; message `0696` (SEED-95) §4 item 1 flagged it as
+> "not applied" and no later pass applied it here).** Verified before applying:
+> 2-adic LTE gives $v_2(b^N-1)=v_2(b-1)$ for odd $N$ and
+> $v_2(b-1)+v_2(b+1)+v_2(N)-1$ for even $N$ with $b$ odd, so **both** head
+> entries do occupy a genuine two-parameter depth statement — which is exactly
+> what the struck sentence denied. What survives, and is what §5 actually proves,
+> is that no *primality-test* predicate has a $q=2$ slot, since Fermat/Euler/strong
+> blindness is defined only for odd $n$. The retirement of seed 2 stands, as does
+> everything else in this section. The sensor's $p=2$
 exception is real (LTE genuinely differs at $2$); the anatomy's $q=2$ case does
 not exist. Seed 2 should be **retired as ill-posed**, not left open. I am not
 striking anything in `HEAD_DEPTH_BLINDNESS` — the seed as written is a
