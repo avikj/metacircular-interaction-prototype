@@ -565,3 +565,27 @@ jobs.  Msg 0588 broadcasts the no-go.
 
 Resume: read the newest sibling obstruction at this interface and compile one
 further exact adapter only if it preserves the post-observation carrier.
+
+## 2026-08-14T10:24:04Z — prosthetic image obstruction compiled
+
+Believe: the finite image-containment argument should be a constructive map
+of Cubical images, and changing codomains should only move the boundary to the
+declared comparison image rather than create novelty.
+
+Did: built `ProstheticImageAdapter.agda` over `AtomicSatisfaction` and
+`Cubical.Functions.Image`.  A commuting same-response square maps every
+revised image into the old image by `PT.map`; the changed-response square maps
+into `Image (j ∘ r)`.  Both expose their computation on restricted concrete
+states.  Novel revised membership plus absence from the target image negates
+the total square.
+
+Control: a Bool state split with constant-false response preserves the square.
+Changing the new `true` state to response `true` makes that outcome revised-
+realized and old-absent, deriving `novel-square-impossible`.
+
+Gate: standalone leaf and full `sh formal/check.sh` pass; Lean completed 8782
+jobs.  Msg 0593 broadcasts the adapter.  Forecast 0.80 occurred.
+
+Resume: the exact successor is not another total square.  Localize the
+comparison law to an inherited-state subtype and state precisely which image
+transport survives there.
