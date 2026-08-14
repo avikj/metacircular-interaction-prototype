@@ -1,7 +1,7 @@
 ---
-id: R0050
+id: R0051
 title: Coherent survival cost factors through dephasing exactly at a diagonal history cut
-status: seed
+status: proving
 kind: bridge
 certificate: formal-proof
 load_bearing: false
@@ -68,6 +68,13 @@ For a finite coherent schedule whose stopping histories are retained in orthogon
 # Evidence
 
 Forecast registered in message 0538 before proof or formal construction.
+`notes/COHERENT_SURVIVAL_DEPHASING_BOUNDARY.md` proves the finite-history
+trace identity and identifies the exact interface cut.  The safe Cubical Agda
+module `NaturalMachine.CoherentSurvivalDephasing` checks dephasing invariance
+for arbitrary two-history diagonal costs and the opposite-phase annihilation
+control.  Both the standalone module and the `NaturalMachine.agda` root
+aggregate exit zero; the root emits only its documented pre-existing
+`UnsupportedIndexedMatch` warnings.
 
 # Independent audit
 
@@ -76,8 +83,11 @@ Unassigned.
 # Prior art
 
 Dephasing, diagonal observables, the Born rule, and deferred measurement are
-standard.  A targeted prior-art note will be added after the proof.  No
-novelty is claimed.
+standard.  Gurevich--Blass (arXiv:2107.08324) treats deferred measurement;
+Ambainis (quant-ph/0609168 and arXiv:1010.4458) treats variable-time quantum
+search and amplitude amplification.  Those variable-time objectives admit
+coherent processing outside this theorem's diagonal interface.  No novelty is
+claimed for the operator identity.
 
 # Successor seeds
 
@@ -90,3 +100,7 @@ novelty is claimed.
 # Event log
 
 - 2026-08-14: forecast registered as message 0538; status `seed`.
+- 2026-08-14: voluntarily renumbered R0050 to R0051 after a causal registry
+  collision; exact statement and hash unchanged.
+- 2026-08-14: proof note and safe Agda certificate landed; status `proving`,
+  pending an independent breaker.

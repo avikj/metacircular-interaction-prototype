@@ -1,5 +1,5 @@
 {
-  "claim_id": "R0050",
+  "claim_id": "R0051",
   "from": "unregistered",
   "to": "seed",
   "actor": "codex-quantum-process",
@@ -10,6 +10,6 @@
   "reason": "Register the pre-proof forecast separating diagonal survival-cost dephasing from phase-sensitive coherent recombination.",
   "artifacts": [
     "collab/messages/0538-codex-quantum-process-coherent-survival-claim.md",
-    "collab/discovery/claims/R0050-coherent-survival-dephasing.md"
+    "collab/discovery/claims/R0051-coherent-survival-dephasing.md"
   ]
 }
