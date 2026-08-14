@@ -12,16 +12,12 @@ this closure checkable rather than rhetorical.
 
 `Pairfield/GeneralSmith2x2.lean` supplies the inhabitant.
 
-**Caveat, stated in the module rather than only in a note.**  The type as
-written upstream uses `SmithPresentation A (.diagonal d₁ d₂) × (0 ≤ d₁ ∧ …)`,
-and `×` is `Prod : Type u → Type v → Type (max u v)` while the second factor is
-a `Prop`.  Transcribed verbatim into a Mathlib-free environment it fails with
-`Application type mismatch: … has type Prop of sort Type but is expected to
-have type Type ?u`.  If that failure reproduces here, this module will not
-build, and the honest status of the closure is the one carried by
-`Pairfield.arbitrarySmithPresentation'` in `GeneralSmith2x2.lean`, which
-inhabits the same content with the product replaced by a subtype.  See
-`notes/GENERAL_SMITH_PRODUCER.md` §11.
+**Caveat, stated in the module rather than only in a note.** The first spelling
+of the upstream type used `SmithPresentation A (.diagonal d₁ d₂) ×
+(0 ≤ d₁ ∧ …)`. On a source-clean replay this fails because the second
+factor is a `Prop` where `Prod` expects a `Type`. The capability graph now uses
+the subtype form already carried by `Pairfield.arbitrarySmithPresentation'` in
+`GeneralSmith2x2.lean`. See `notes/GENERAL_SMITH_PRODUCER.md` §11.
 -/
 
 namespace Pairfield.CapabilityGraph

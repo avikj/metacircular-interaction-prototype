@@ -9,4 +9,17 @@ _build/
 collab/orchestration/persistent-minds.*.log
 collab/orchestration/worker-runs/
 collab/orchestration/worker-sessions/
+machine/library.txt
+machine/machine.log
+machine/mathmachine
+natural_machine_cpu_loop_rust/cage
+natural_machine_cpu_loop_rust/evolve
+natural_machine_cpu_loop_rust/natural_machine
+natural_machine_cpu_loop_rust/verify
+random_entry_seeder_so_agents_dont_cluster/seed
+runtime/LIVING_RUN.log
+runtime/LIVING_STATE.json
 vigil-state.json
+natural_machine_cpu_loop_rust/real_workload
+natural_machine_cpu_loop_rust/decic_extend
+natural_machine_cpu_loop_rust/root_singular_series

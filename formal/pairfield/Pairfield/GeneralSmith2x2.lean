@@ -483,7 +483,7 @@ def SmithResult.toPresentation {A : IntMat2} (s : SmithResult A) :
   right_unimodular := s.red.right_unimodular
 
 /-!
-### The capability graph's open-joint type, and a defect in it
+### The capability graph's open-joint type, and its repaired package
 
 `Pairfield/CapabilityGraph.lean` names the open joint as
 
@@ -492,15 +492,11 @@ def SmithResult.toPresentation {A : IntMat2} (s : SmithResult A) :
           SmithPresentation A (.diagonal d1 d2) *
           (0 <= d1 /\ 0 <= d2 /\ (d1 = 0 -> d2 = 0) /\ d1 | d2)
 
-That does **not** elaborate: the product is `Prod : Type u -> Type v -> Type
-(max u v)`, while the second factor is a `Prop`.  Verified by transcribing it
-verbatim into this environment; the error is `Application type mismatch: ...
-has type Prop of sort Type but is expected to have type Type ?u`.  See
+That spelling does **not** elaborate on a source-clean pinned build: `Prod`
+expects both factors in `Type`, while the side conditions inhabit `Prop`.
+`CapabilityGraph.lean` now uses the subtype below, which preserves exactly a
+presentation together with the four side conditions. See
 `notes/GENERAL_SMITH_PRODUCER.md` section 11.
-
-The repair that preserves the intended content exactly -- a presentation
-*together with* the four side conditions -- replaces the product by a subtype,
-whose predicate may be a `Prop`.
 -/
 
 /-- The intended open-joint type, repaired. -/

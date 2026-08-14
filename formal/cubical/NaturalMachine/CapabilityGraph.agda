@@ -15,7 +15,7 @@ open import NaturalMachine.SmithCapability
 -- projection of that carrier; there is intentionally no count-to-action edge.
 record SymmetryCapability (n : ℕ) : Type₁ where
   field
-    symmetry : Fin n ≣ Fin n
+    symmetry : Fin n ≃ Fin n
 
   count-certificate : symmetryCount n ≡ n !
   count-certificate = symmetryCount≡factorial n
@@ -31,7 +31,7 @@ record SymmetryCapability (n : ℕ) : Type₁ where
 
 -- A carrier element supplies the whole checked fork without reconstructing a
 -- permutation from the factorial count.
-symmetryPipeline : (n : ℕ) → (Fin n ≣ Fin n) → SymmetryCapability n
+symmetryPipeline : (n : ℕ) → (Fin n ≃ Fin n) → SymmetryCapability n
 SymmetryCapability.symmetry (symmetryPipeline n e) = e
 
 -- The open joint is named only by its required interface.  The present
@@ -41,11 +41,15 @@ record ObservationalClassCompiler (n : ℕ)
                                   (observation : Fin n → ℕ) : Type₁ where
   field
     Class : Type₀
-    classOf : (Fin n ≣ Fin n) → Class
-    complete : (e f : Fin n ≣ Fin n)
-             → (classOf e ≡ classOf f) ≣ (e ≈[ observation ] f)
+    classOf : (Fin n ≃ Fin n) → Class
+    complete : (e f : Fin n ≃ Fin n)
+             → (classOf e ≡ classOf f) ≃ (e ≈[ observation ] f)
 
--- Smith is already a closed native producer/consumer joint: the dependent
--- eliminator prevents a consumer from receiving a normal matrix without its
--- replay, invertibility, and normality witnesses.
+-- Smith offers a bundled consumer interface: a consumer that goes through
+-- `withSmith` receives the normal matrix together with its replay,
+-- invertibility, and normality witnesses in one call.  Nothing is *prevented*:
+-- SmithCapability also exports the unbundled projections (`normalMatrix`,
+-- `leftTransform`, `rightTransform`), so a consumer can take the normal matrix
+-- witness-free.  The bundling is an offered convention, not an enforced
+-- abstraction boundary.
 smithPipeline = withSmith

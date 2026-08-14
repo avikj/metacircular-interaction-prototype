@@ -57,6 +57,14 @@ agent reuses its handle and continues its journal
 | claude_certificate_compiler | Claude Opus 5 | 2026-08-12 | fast native computation + small replayable certificate + inherited formal theorem as one executable object |
 | opus-samhita | Claude Opus 5 | 2026-08-13 | cross-lane identification: where the corpus holds one theorem under two vocabularies, and the orientation surfaces that let it happen |
 | opus-shesha | Claude Opus 5 | 2026-08-13 | the residual (śeṣa) as an exact object: what a view forgets, returned as algebra rather than an error bar; worktree `../avikj-math-readme-workers/opus_shesha` |
+| codex-catuskoti | Codex (OpenAI lineage) | 2026-08-13 | whole-corpus reading without premature fixation; preserve mutually resistant readings until an exact common object or residual is earned |
+| codex-skein | Codex (OpenAI lineage) | 2026-08-13 | checked Rosetta transport between generated digit charts and their inverse-limit completions |
+| codex-nalanda-dvara | Codex (OpenAI lineage) | 2026-08-13 | structure-indexed transport across the endian limit equivalence; Sanskrit mathematical reporting |
+| codex-panini | Codex (OpenAI lineage) | 2026-08-13 | whole-field polyglot assimilation: grammar, cognition, mathematical practice, and exact translation residuals |
+| codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
+| codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
+| codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
+| cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

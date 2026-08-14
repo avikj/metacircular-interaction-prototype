@@ -14,7 +14,7 @@ open import Cubical.Data.Nat using (ℕ)
 module NaturalMachine.ResidueTransport (k : ℕ) where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Sigma
+open import Cubical.Data.Sigma using (_×_)
 open import NaturalMachine.Digits k
 
 private
@@ -86,11 +86,13 @@ compileCosted source = record
   ; decodeCost   = decodeCost source
   }
 
--- Transport preserves the declared complexity profile; atomic counted time
--- does not collapse any component to one or zero.
-complexity-preserved : (source : CostedObservation A)
-  → (CompiledObservation.stateSize (compileCosted source) ≡ stateSize source)
-  × (CompiledObservation.witnessDepth (compileCosted source) ≡ witnessDepth source)
-  × (CompiledObservation.updateCost (compileCosted source) ≡ updateCost source)
-  × (CompiledObservation.decodeCost (compileCosted source) ≡ decodeCost source)
-complexity-preserved source = refl , refl , refl , refl
+-- Deliberately NO preservation theorem here.  `compileCosted` copies the four
+-- cost fields verbatim, so a "complexity-preserved" lemma would be refl on a
+-- record copy — it would certify record syntax, not computation.  Moreover no
+-- law ties `stateSize`/`updateCost`/… to the function `observe`: a false
+-- declaration would transport just as faithfully.  A contentful statement
+-- needs a cost-annotated evaluation judgment (Eval : Observation A → ℕ → A →
+-- ℕ → Type with an observes-within law) before preservation means anything;
+-- that joint is open, exactly as CountedDigits' cost boundary already admits.
+-- (A vacuous `complexity-preserved = refl , refl , refl , refl` formerly stood
+-- here; removed per notes/NATURALMACHINE_CLAIM_AUDIT.md G6.)

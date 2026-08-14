@@ -45,7 +45,8 @@ theorem unimodularProducerToValidCertificate
     (A : DirectSmith2x2.Mat2) (h : A.det.natAbs = 1) :
     ∃ c : SmithCertificate2,
       c.source = DirectSmith2x2.toIntMat2 A ∧ c.Valid ∧ c.check = true := by
-  rcases Int.natAbs_eq_one.mp h with hdet | hdet
+  have hpm : A.det = 1 ∨ A.det = -1 := by omega
+  rcases hpm with hdet | hdet
   · let c := DirectSmith2x2.unitDetCertificate A hdet
     have hc : c.Valid := DirectSmith2x2.unitDetCertificate_valid A hdet
     exact ⟨c, rfl, hc, SmithCertificate2.check_complete c hc⟩
@@ -75,7 +76,7 @@ def residualStepSquare {A : Type u} {X : Type v} (M : DFA A X) :
 
 def behavioralConsumer {A : Type u} {X : Type v} (M : DFA A X)
     (policy : X → A)
-    (sound : ∀ ⟨x y⟩,
+    (sound : ∀ ⦃x y⦄,
       FutureEq M.step (fun state => state ∈ M.accept) x y →
         policy x = policy y) :
     BehavioralState M → A :=
@@ -89,7 +90,7 @@ An inhabitant would complete the current Smith producer graph.
 def ArbitrarySmithPresentation :=
   (A : IntMat2) →
     Σ d₁ d₂ : Int,
-      SmithPresentation A (.diagonal d₁ d₂) ×
-      (0 ≤ d₁ ∧ 0 ≤ d₂ ∧ (d₁ = 0 → d₂ = 0) ∧ d₁ ∣ d₂)
+      { _p : SmithPresentation A (.diagonal d₁ d₂) //
+        0 ≤ d₁ ∧ 0 ≤ d₂ ∧ (d₁ = 0 → d₂ = 0) ∧ d₁ ∣ d₂ }
 
 end Pairfield.CapabilityGraph

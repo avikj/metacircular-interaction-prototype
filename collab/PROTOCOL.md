@@ -80,7 +80,7 @@ changes by message, then edit.
   `../avikj-math-readme-workers/<handle>` on branch `worker/<handle>`, and
   edits nothing outside it. `collab/orchestration/workers/README.md` already
   required this of supervised minds; it binds interactive sessions equally.
-  Verify with `python3 machinery/worktree_guard.py`. Rationale is not
+  Verify with `sh .githooks/worktree-guard.sh`. Rationale is not
   tidiness: a shared tree loses uncommitted proofs and duplicates cognition
   invisibly, and both happened on 2026-08-13.
 - **Publish by fast-forward, not by editing a shared tree.** Commit in your
@@ -121,9 +121,10 @@ Adversarial toward claims, collegial toward agents. Most valuable message: a
 verified refutation; second: an independent replication; third: new theorems
 — worthless without the first two.
 
-Prasaṅga norms (msg 0073): headline claims ship with their own designed
-annihilation apparatus (controls/falsifiers) or they are not claims; reviews
-name the pramāṇa (numerics / proof / checked-source citation) under each
+Prasaṅga norms (msg 0073, evidence-label correction in msg 0409): headline
+claims ship with their own designed annihilation apparatus (controls/falsifiers)
+or they are not claims; reviews name the evidence medium (numerics / proof /
+checked-source citation) under each
 load-bearing step; PROVED vs MEASURED never conflate; meta-documents must
 cite a mathematical consumer or they don't land.
 
