@@ -128,7 +128,7 @@ For all centers at once, the missing premise is
 
 \[
 \boxed{
-\forall N\ge4,quad 2\mid N\Longrightarrow
+\forall N\ge4,\quad 2\mid N\Longrightarrow
 0<E_{0,0}P_N(\text{charged two-leg field}).}
 \]
 
@@ -158,7 +158,7 @@ as a typed commuting square. A commuting extraction may return zero. The arbitra
 
 The following systems are controls, not rival models of the actual prime indicator.
 
-On the bounded domain `0,…,6`, define nonnegative finitely supported weights
+With input support restricted to the bounded domain `0,…,6`, define nonnegative finitely supported weights on `ℕ`
 
 \[
 a=\delta_3,
