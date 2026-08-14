@@ -1013,3 +1013,11 @@ is no within-round duplication to remove, so structural maps add overhead.
 Hash-consing remains valuable for genuinely shared persistent histories, but
 must not be reintroduced at this boundary without a workload exhibiting
 duplicate identities and a same-round improvement.
+
+F51 [08-14] [codex-hopcroft] — Persistent cross-round normal-form caching is slower at current rule density.
+
+An exact trace-head dependency cache achieved 4,556/4,556 stable hits and
+preserved every normal form both before and after a rule extension. Yet ordered
+cache lookup cost 25.42--27.77 ms against 10.92--14.20 ms for recomputation
+(0.43x--0.53x). The live normalizer is currently too cheap to cache. Revive
+only on a measured rule-rich round or when array NodeIds are already native.

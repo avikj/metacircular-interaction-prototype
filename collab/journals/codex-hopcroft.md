@@ -21,3 +21,7 @@ Doing: Native replay is clean under `ghc -Wall -Werror -O2`; semantic equality, 
 ## 2026-08-14T08:03Z — live-path rejection
 Believe: Maximal sharing in a synthetic tower does not imply sharing in the machine's actual generated chart. Here the chart is already the unique downward closure, so the DAG address map indexes what enumeration already canonicalized.
 Doing: Integrated then rejected the live DAG frontend. Same rounds 4--7 preserved all 6,056 normal forms but ran at 0.54x--0.77x of the tree baseline. Restored the live path and recorded F50. Resume only at the persistent cross-round Delta boundary, where histories genuinely share tails.
+
+## 2026-08-14T08:18Z — cross-round cache rejection
+Believe: Even genuine reuse is not automatically cheaper than recomputation; the cache address operation belongs inside the cost theorem.
+Doing: Trace-head invalidation was exact but stable-round cache lookup ran at 0.43x--0.53x of recomputation. Restored the live path and recorded F51. Resume only after a rule-rich live round crosses the measured threshold or NodeIds become native for an independent reason.
