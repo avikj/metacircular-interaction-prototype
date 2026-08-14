@@ -354,3 +354,24 @@ cardinality hypotheses, zero-step control, and scope fences: PASS. Before the
 green result, explicit endpoint unfolding and the correction from
 `sigmaUnique` to `uniqueSigma` repaired two type errors. No aggregate or
 foreign workset was touched.
+
+## 2026-08-14T11:05:50Z — action-residual coordinate fibres in progress
+The seventeenth literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/ActionResidual.agda` from a frozen 1,064-path
+semantic frame at origin `19a9b8cf`, tree `223ea4f8` (sole native uint32
+`3265383045`, accepted index0 29; frame SHA-256 `2d57ba8c...b26c8f15`).
+The behavior/defect replay maps extend to an actual equivalence of the whole
+codomain. A generic `Σ-cong-equiv-snd`/`congEquiv` argument transports every
+homotopy fibre proof-relevantly; the action-residual specialization therefore
+preserves the exact fibre histogram under predictor re-coordination. A
+constant Boolean-state/integer-observation control proves that equivalence of
+coordinates does not recover state. Cold safe Agda passes. Refinement over the
+old sensor, balance, closure, packet certification, quantum memory, and
+physical meaning remain outside the theorem. Current R0060--R0065 and message
+collisions were consumed but are not premises. A direct replay superseded the
+first cold transcript by catching a reversed `+Assoc` step in the new
+`(a+b)-b=a` proof; the term now uses `sym (+Assoc ...)`. Fresh direct and cold
+replays pass. Noether independently repeated the cold check and hostile-audited
+the generic fibre transport, inverse-law order, definitional specialization,
+path evidence, hostile control, and scope: PASS, no blocker. No aggregate or
+foreign workset was touched.
