@@ -78,3 +78,78 @@ language of mine should survive until done.
 because the ban forced the question "what is the theorem this computation
 would replace?" first. §4 is the clearest instance: the number the corpus
 had measured numerically fell out of a classical formula in four lines.
+
+## 2026-08-14 — session 1, third landing: audit of the first two
+
+Owner correction: I was generating tokens where the corpus already had the
+answers, and specifically reaching past the Indian-tradition lane — which is
+not decoration here but the lane holding the *general* statements — for
+Western-canon derivations of results already stated. Read the stratum:
+`ALREADY_ANSWERED`, `MILLENNIUM_ROSETTA`, `APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT`,
+`PRAMANA_IS_NOT_AN_EVIDENCE_RANK`, `ABHAVA`, `PANINIAN_DERIVATION_IS_NOT_
+ENDPOINT_REWRITING`, `ROSETTA_ENGINE`, the three `KUTTAKA_*`,
+`WHITEPAPER_INDIAN_AUTHORITY_PROPERTY_AUDIT`, and the panini/nalanda/apoha/
+weaver-limitor message threads.
+
+**Landed.** `notes/LEAKAGE_LANDINGS_WERE_ALREADY_NAMED.md` + msg 0455. What
+the lookup returned, all against me:
+- Theorem C is an instance of codex-panini's fiber-constancy proposition
+  (`PANINIAN` §2, one day earlier). One-step rank = endpoint-only semantics.
+- Theorem B's closure is the coarsest sufficient predictive quotient —
+  `PANINIAN` §3 and codex-apoha msg 0279. SEARCH obligation was aimed
+  outward; the load-bearing prior art was internal. Novelty withdrawn for the
+  construction; only the spectral evaluation and §4 stay local.
+- msg 0454 §2's "declare the regime" ask withdrawn: `KUTTAKA_TRACE_MACRO`
+  already gives the crossover `(m−1)(r−1) > 1`.
+- My open seed 2 (totient collapse of `P_W`) is answered by weaver 0250 /
+  Theorem E: unobservable iff a symmetry acts transitively. Natively: the
+  avacchedaka of the sieve multiplier is `φ(m)`, not `m`. Flagged as a
+  reading — the group on `{m|W}` with totient-fiber orbits is unexhibited,
+  and that finite question is now the whole of seed 2.
+
+**Standing rule I am writing down for my successor.** Before landing anything
+in the lens/leakage/repair lane, grep the tradition-facing notes for the
+object first. `ALREADY_ANSWERED` names this failure mode and I reproduced it
+one day later; treating that lane as flavour rather than as prior literature
+is the specific error, and it cost two notes' worth of misattributed novelty.
+I did not read any primary source; every Sanskrit term I used is quoted from
+codex-nalanda-dvara's and weaver's checked readings.
+
+**Owed.** External prior art for Theorem B's spectral evaluation (B5).
+
+## 2026-08-14 — session 1, fourth landing: the machine runs
+
+Owner correction: stop working on other things; the natural machine should
+execute on its own on a CPU and do the generative process.
+
+**Landed.** `natural_machine_cpu_loop_rust/` + `notes/NATURAL_MACHINE_CPU_LOOP.md`
++ msg 0456. CRYSTAL.md §7's loop, executing: GENERATE, DISTINGUISH (Moore →
+FutureEq), ROUTE (horizon cost), CRYSTALLIZE (block mining + exhaustively
+checked replay law), REOPEN (one-step vs persistent). Three kernel counters.
+
+**Substrate defect, recorded.** Rust, not Agda/Lean: no toolchain in this
+container, egress to elan is 403, Python banned. Flagged at the top of the note
+and the message. Owed: Lean port of the §4 classification as a decide-checked
+theorem.
+
+**Two results.**
+- The seed criterion FAILS at one pass on genuinely unseen input: the mined
+  block occurs once, saves 105, costs 350 to transport, break-even 4 passes.
+  F32 reproduced by the machine on itself; and the reuse that matters is reuse
+  on unseen input (1), not mining reuse (8).
+- Exhaustive: all 144 affine actions on Z/12 against the 5-class carrier —
+  86 sound, 58 reopening, 36 with persistent > one-step, maximal gap 5 at
+  r ↦ r+1 (one-step 2, persistent 7). Independently re-derived by verify.rs
+  with a different algorithm. The successor is the maximal reopener, which
+  ATLAS_OF_N's (f)→(b) residual predicts and I did not plant.
+
+**Two near-misses caught before publishing**, both of which would have
+manufactured a success: the independent workload was first generated from the
+mined block, and the null control [0,0,0] actually occurs in the test words.
+Both replaced; the control is now searched for. Record this — the failure mode
+is building the test out of the thing being tested.
+
+**For my successor.** Do not start from a message thread. `notes/METHOD.md` §3
+is the PROVE queue CLAUDE.md points at, and I had never opened it until this
+session. Live items there: BARRIER Structure Proposition → theorem; Theorem I1
+prior-art search; Theorem E2's two lines.

@@ -94,6 +94,15 @@ import NaturalMachine.PMTorus
 import NaturalMachine.FlipObservable
 import NaturalMachine.AtlasResiduals
 import NaturalMachine.LinearOrderFinite
+-- the walk's two laws (msgs 0374, 0382): forcing and capacity.  Plain
+-- imports, not `public`: both carry local list predicates (All, _∈_)
+-- whose names would clash on re-export; the aggregate still checks them.
+import NaturalMachine.WalkForcing
+import NaturalMachine.WalkCapacity
+-- and §(b), the bridge that composes them (2026-08-14): the install
+-- stream IS the increasing enumeration of the capacity function's jump
+-- points, plus the walk's step as a total computable function.
+import NaturalMachine.WalkBridge
 open import NaturalMachine.DigitTowerLimit public
 -- The Fin presentation of the same tower.  Imported unopened: it defines its
 -- own `InvLim`/`W`/`MSDLimit`, which would clash with the `public` open above.

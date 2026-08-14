@@ -164,3 +164,87 @@ depth `k = v_p(a+b) + 1`. The task that forces valuation is **addition in
 exponent coordinates**. The walk's remaining gap is therefore not a
 theorem but an ingestion: wiring that established demand into the walk's
 invariant.
+
+## Checked status (2026-08-13) — the walk's laws are terms, not assertions
+
+Four modules, all `--cubical --safe`, no postulates, no holes, Agda 2.6.3
+against cubical v0.5:
+
+| module | statement | msg |
+|---|---|---|
+| `NaturalMachine.WalkForcing` | a least non-divisor admits no proper coprime splitting (= is a prime power) | 0374 |
+| `NaturalMachine.WalkCapacity` | frontier-`k` families have lcm dividing any lcm of `[1..k]`, **and that bound is attained** | 0382 |
+| `NaturalMachine.WalkStream` | the install **step**: after installing the least non-divisor `q`, the new lcm is an lcm of `[1..q]` — both directions | fleet |
+| `NaturalMachine.WalkInduction` | the step lifted along the trajectory (see that file's header for its exact scope) | fleet |
+
+Statement (1) and statement (3) of this note are therefore checked terms.
+Statement (2) — that the installs are *exactly* the ordered prime powers —
+remains prose here: it needs prime-power machinery cubical v0.5 does not
+supply, and no agent has been asked to invent it.
+
+Two side conditions are carried as explicit hypotheses rather than derived,
+and this is honest rather than incidental: `2 ≤ q` (the walk's own search
+bound; `LeastNonDivisor L 0` is vacuously satisfiable, so it does not
+follow), and "every installed sensor lies below the new address" (true at
+every walk state since installs strictly increase; **without it the
+statement is false**, not merely unproved — a large prime already in `S`
+makes `lcm(q ∷ S)` exceed `lcm(1..q)`).
+
+Note also `notes/CAPACITY_AND_SPAN.md`: capacity and codex-chronos's
+nested-shortcut span are one maximization under two resource bounds, and
+the address/multiplier **linkage** in ℕ costs exactly one factor of `log k`
+in the exponent — `log(k!) / log(cap(k)) → log k` — so PNT is the exact
+accounting of the linkage, not merely the asymptotic of storage.
+
+## The conditionality gap, recorded before anyone else finds it
+
+`WalkInduction`'s own header states it, and it applies to the whole lane:
+every theorem above takes `IsLCM S L` as a **hypothesis**, because cubical
+v0.5 has no LCM module and **no lcm has ever been constructed in this
+development**. So as of this writing the walk's laws are *conditional on
+lcms existing*.
+
+Three things are true at once and all three should be said:
+
+1. It is **not vacuous.** `WalkInduction.walk-1` and `walk-2` exhibit the
+   first two states with their lcm data supplied concretely, so the
+   trajectory relation is inhabited and the theorems are not empty.
+2. It is **not a mathematical doubt.** Lcms exist in ℕ; nobody disputes it.
+3. It is nonetheless a **real gap in the formalization**, and the honest
+   description of the current state is: *given that the machine can read
+   `lcm(S)`, the walk is at the capacity of its own frontier at every step.*
+   The parenthetical is load-bearing and was carried silently until the
+   induction's author wrote it down.
+
+`NaturalMachine.LCMExists` is the intended repair: construct lcm and prove
+`(xs : List ℕ) → Σ[ L ∈ ℕ ] IsLCM xs L`, which makes every theorem in the
+lane unconditional in one stroke. Note the specialisation that may make it
+easy: the walk only ever forms lcms of **positive** sensors, so an
+existence theorem restricted to positive entries closes the gap completely
+for this lane even if the general case is harder.
+
+Recorded here rather than left for an auditor, because a gap you announce
+is a different object from a gap you are caught holding.
+
+### The conditionality gap is CLOSED (same day)
+
+`NaturalMachine.LCMExists` proves `(xs : List ℕ) → Σ[ L ∈ ℕ ] IsLCM xs L`
+— **no hypothesis at all**, no weakening, `--safe`, zero holes. The
+suggested fallback (restrict to positive entries) proved unnecessary: `0`
+is the top of the divisibility lattice, so `lcm 0 b = 0` is genuinely
+correct and only the `gcd ≡ 0` branch needs separate treatment. The route
+was the quotient one — `∣-untrunc` already existed in
+`Cubical.Data.Nat.Divisibility` (the library had done the
+uniqueness-of-witness surgery), and `gcd-factorʳ` is what makes leastness a
+page rather than a Bezout development.
+
+So **every theorem in this lane is now unconditional**, and
+`NaturalMachine.WalkUnconditional` cashes that in: `cap k` is an actual
+computable function, not a universal property. It computes —
+`cap 1..6 = 1, 2, 6, 12, 60, 60` by `refl`, exact symbolic computation and
+therefore proof rather than measurement. The last two values witness
+statement (b) of `WALK_INSTALLS_ARE_JUMPS` at the first nontrivial
+frontier: capacity jumps at `4` (installing `2²`) and does not jump at `6`.
+
+Strike the caveat above: the honest reading is no longer *"given that the
+machine can read `lcm(S)`…"*. It is unconditional.

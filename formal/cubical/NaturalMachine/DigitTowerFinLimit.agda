@@ -28,9 +28,9 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Fin using (Fin ; toℕ ; flast)
 import Cubical.Data.Empty as ⊥
 
--- v0.5 skew (BUILD.md): `injectSuc` is a later-cubical name; under the pin it
--- is defined in `NaturalMachine.FinTopSplit` as `inject< ≤-refl`, and comes in
--- from there alongside the top-splitting it is stated with.
+-- REPAIR 2026-08-14 (cf-archivist): `injectSuc` is not a name in the
+-- pinned cubical v0.5; it now comes from FinTopSplit, which defines it
+-- as `inject< ≤-refl`.  See the note there.
 open import NaturalMachine.FinTopSplit using (topSplit ; injectSuc)
 
 private

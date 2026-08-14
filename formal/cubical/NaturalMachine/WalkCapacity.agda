@@ -85,3 +85,29 @@ capacity xs k L C (_ , L-least) (C-common , _) inRange =
   mapAll (y ∷ ys) (p , ps) =
     All→∈ (_∣ C) (range1 k) C-common (∈-range1 y k (p .fst) (p .snd))
     , mapAll ys ps
+
+-- ATTAINMENT.  The bound above is a supremum, not merely an upper bound:
+-- the frontier range is itself an admissible family of frontier k, so a
+-- family achieving C exists.  Without this, `capacity` would only say
+-- "no family exceeds C"; with it, C is the capacity.
+range1-admissible : (k : ℕ) → All (λ x → (0 < x) × (x ≤ k)) (range1 k)
+range1-admissible zero    = tt
+range1-admissible (suc k) =
+  ((k , +-comm k 1) , ≤-refl) , weaken k (range1 k) (range1-admissible k)
+  where
+  weaken : (j : ℕ) (ys : List ℕ) →
+           All (λ x → (0 < x) × (x ≤ j)) ys →
+           All (λ x → (0 < x) × (x ≤ suc j)) ys
+  weaken j []       _        = tt
+  weaken j (y ∷ ys) (p , ps) =
+    (p .fst , ≤-suc (p .snd)) , weaken j ys ps
+
+-- capacity is ATTAINED: some admissible family of frontier k has lcm
+-- exactly C.  Stated existentially so the content is the witness, not a
+-- reflexivity: `capacity` says no admissible family exceeds C, this says
+-- one reaches it, and together they make C the capacity rather than a
+-- bound.  The witness is the frontier range itself.
+capacity-attained :
+  (k C : ℕ) → IsLCM (range1 k) C →
+  Σ[ F ∈ List ℕ ] (All (λ x → (0 < x) × (x ≤ k)) F) × IsLCM F C
+capacity-attained k C isC = range1 k , range1-admissible k , isC

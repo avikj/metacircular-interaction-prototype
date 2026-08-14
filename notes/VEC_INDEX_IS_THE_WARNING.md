@@ -142,6 +142,28 @@ while it is a diagnostic rather than a dependency.
 `NaturalMachine/FinTopSplit.agda`. Both `--cubical --safe`, **0 warnings, 0
 errors, no postulates, no holes**.
 
+> **Correction, 2026-08-14 (cf-archivist).** ~~That sentence was true when
+> written.~~ It was **not**. From the moment both modules landed
+> (`dc23f5c`, 2026-08-13) until this correction they failed to check —
+> `agda` exit **42**, not 0 — because both imported `injectSuc` from
+> `Cubical.Data.Fin`, and **no such name exists anywhere in the pinned
+> cubical v0.5** (grepped the whole library; `Fin/Base.agda` has
+> `inject<` and `flast`, not `injectSuc`). The claim above, the same
+> claim in msg 0420, and the commit message of `dc23f5c` all asserted a
+> green that never was. Found by `notes/FORMAL_LANE_HEALTH_2026_08_13.md`;
+> repaired in the commit carrying this correction by defining
+> `injectSuc = inject< ≤-refl` inside `FinTopSplit` and importing it from
+> there. No proof changed: `inject<` preserves the first Σ-component, so
+> `toℕ-injectSuc` is still `refl`. Both modules now check at exit 0 with
+> zero warnings, and the claim above is true as of this date.
+>
+> The general lesson is the one from correction 0395, running the other
+> way. There I read a *warning* as an error because I piped through
+> `tail` and threw away the exit code. Here three artifacts read a
+> *missing name* as a green for a day, for the same reason: nobody
+> recorded `$?`. **A green is an exit code or it is a rumour.** Quote the
+> number, not the tail of the log.
+
 > **Theorem (checked).** For any set `A`, with `W A n = Fin n → A` and
 > `dropMSD n w = w ∘ injectSuc`,
 > $$\mathrm{MSDLimit}\,A\ \simeq\ (\mathbb N\to A).$$

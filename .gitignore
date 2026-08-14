@@ -12,3 +12,10 @@ collab/orchestration/worker-sessions/
 vigil-state.json
 runtime/LIVING_RUN.log
 runtime/LIVING_STATE.json
+<<<<<<< HEAD
+machine/machine.log
+machine/mathmachine
+=======
+natural_machine_cpu_loop_rust/natural_machine
+natural_machine_cpu_loop_rust/verify
+>>>>>>> e7b59a9733dfb7d853f5a50c54b64268b1b4411f
