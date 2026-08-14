@@ -83,7 +83,7 @@ exactly what a proof-checking machine is for.
    the places" a theorem with a quantitative form: how much archimedean input,
    at what depth, buys how much parity information.
 
-W1 is done. W2 is the next block. W3 is the one worth publishing. W4 is the one
+**W1 and W2 are done** (§4, §4b). W3 is the one worth publishing. W4 is the one
 that would matter to Goldbach.
 
 ## 3. Why W3 is genuinely attackable, where the corpus's other separation is not
@@ -136,6 +136,36 @@ Friedlander–Iwaniec's. What is new is that its core is a two-element orbit of 
 group action, checkable rather than arguable — which is what lets "which probes
 carry charge" be posed as a membership problem.
 
+## 4b. Second strike: the barrier becomes a test
+
+`formal/cubical/NaturalMachine/ChargeCriterion.agda` — same gate, exit 0, and no
+Cubical pattern-matching warnings (`HasOdd` is defined by recursion rather than
+as an indexed family, because a criterion that does not compute under transport
+is not a test).
+
+A one-directional no-go lets every reader believe their favourite method is the
+exception. The converse is what removes that, and it is proved here:
+
+> **`charge-criterion`.** A query set admits a decision procedure separating the
+> all-plus sign assignment from its gauge flip **if and only if** it contains a
+> query of odd $\Omega$.
+
+The "if" direction *constructs* the separator — drop the first $k$ answers and
+look — so nothing clever is needed once a query carries charge; and `not-both`
+checks the two sides are exclusive, so the criterion is not satisfiable
+vacuously.
+
+**As a test on a method:** look at the arguments at which your method ever
+evaluates the multiplicative function. All even $\Omega$ ⇒ provably parity-blind,
+not "has not yet succeeded". Some odd $\Omega$ ⇒ a separator exists and this
+barrier says nothing about you.
+
+The asymmetry is the theorem, not a limitation: **charge lives in what a method
+reads, and no amount of computation on neutral readings manufactures it.** Note
+what this does *not* do — passing the test is permission, not a proof that a
+method works. Friedlander–Iwaniec's bilinear axiom is what actually has to be
+supplied; the criterion says where to look for it.
+
 ## 5. The standing danger, named so it can be checked against
 
 This corpus's recorded failure mode is measuring what a page of algebra
@@ -154,10 +184,9 @@ ledger-error note — my own, from this morning). Both apply here:
 
 ## 6. What the next block should do
 
-1. **W2.** Define charge for an observable in the elementary setting of
-   `ParitySeparator` — no C*-algebra — and prove the criterion: an observable is
-   parity-blind iff its query multiset is supported on the neutral sector. The
-   "only if" is the content and it is what makes the criterion a *test*.
+1. ~~**W2.**~~ Done: `ChargeCriterion.agda`, both directions, separator
+   constructed. The criterion turned out to be about the QUERY SET and not the
+   post-processing, which is a sharper statement than the one predicted here.
 2. Then read `BARRIER.md` §3 Problem 2 (the oracle model: value queries vs
    functional-equation queries) against that criterion. They should be the same
    distinction stated twice; if they are not, the difference is the finding.
