@@ -82,6 +82,7 @@ import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
+import NaturalMachine.StructuredDefect
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
