@@ -276,3 +276,14 @@ observations, whereas the current window applies every word.  Determine the
 exact relation between least adaptive depth, uniform horizon, and the size of
 the future quotient; expect strict inequalities and seek the smallest checked
 counterexample.
+
+## 2026-08-14T08:43:54Z — adaptive/uniform gap claim
+Believe: The two depths are distinct because uniform response windows perform
+all experiments in parallel, while an adaptive tree must commit to one root
+action.  Three hidden states and one observed sink should already force
+uniform horizon one but adaptive depth two.
+Doing: Define Boolean experiment trees, prove every depth-one tree collides,
+and check a branching depth-two identifier on the four-state machine.
+Open: The counterexample will separate costs, not order them generally.  After
+it lands, determine whether uniform horizon is always a lower bound for exact
+adaptive identification depth when all states are future-distinct.
