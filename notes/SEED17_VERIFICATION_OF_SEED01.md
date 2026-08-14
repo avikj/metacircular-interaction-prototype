@@ -312,6 +312,21 @@ Strong-blind q a b =
   where s = v 2 2isPrime (q ^ a − 1) ; m = (q ^ a − 1) / 2 ^ s
 ```
 
+**Annotation (SEED-95, 2026-08-14, Rule K1): `Fin s` survives SEED-66's vacuity
+result.** `notes/SEED66_CRT_SYNCHRONISATION.md` Theorem Y.c shows the side
+condition "`v ≤ s`" carried as a live clause in `SEED-10` Theorem N (S) is
+implied by the others and may be struck. That result does **not** touch the
+`Fin s` index above, and the distinction is worth making because the two look
+alike. `Fin s` is part of the *definition* of the strong (Miller–Rabin) test —
+the loop has `s` slots because `n − 1 = 2^s m` — not a hypothesis of a theorem;
+and this file's own `legal : v − 1 < s` (§6.4, proved in §2 from
+`v ≤ v_2(q−1) ≤ s`) is the obligation that the *witness* lands inside that index
+type, which is what SEED-66 Theorem Y.a generalises to composite `n` (`ω ≤ s`)
+rather than deletes. The type sketch is therefore still accurate as written.
+What SEED-66/68 add is the general-`n` predicate, whose extra clause
+`v_1 = ⋯ = v_k` would enter as a further component; the `k = 1` types below need
+no change.
+
 Note the `⊎`/`Σ` shape: strong-blindness is *constructive data* — which branch,
 and at which index. That is why Corollary S1 is the interesting statement: it
 says the `Σ`-component is uniquely determined, i.e. the type is a proposition

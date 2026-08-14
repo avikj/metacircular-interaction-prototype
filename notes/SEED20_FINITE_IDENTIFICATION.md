@@ -64,6 +64,23 @@ $\Omega\setminus C$. $\square$
 Theorem 0 is elementary; its force is that it is *checkable by inspecting a
 claim's quantifier form*, before any run:
 
+> **Annotation 2026-08-14 (SEED-96, Rule K1), constructive strength.** "Elementary"
+> is correct *pointwise* but understates what the corpus draws from the theorem.
+> SEED-41 (`notes/SEED41_CONSTRUCTIVE_CALIBRATION.md` §5) proves: read with
+> "open" $=$ "given by an enumeration of basic cylinders", Theorem 0 and
+> Theorems 3–5 are **BISH** (each negative result *builds* its indistinguishable
+> competitor). But the reading CLAUDE.md actually uses — *a $\Sigma_0$ claim is
+> settled by a finite run, so the run may be replaced by a certificate of known
+> size* — is the **uniform-stage** statement (U): verdicts issued by a stage
+> fixed in advance. SEED-41 Theorem U: over BISH, $(\mathrm U)\iff
+> \mathrm{FAN}_\Delta$ ($\equiv$ WKL$_0$ over RCA$_0$; **false** in RUSS). So the
+> corrected house rule is *"settled by a finite run **whose length is
+> exhibited**"* — the exhibited bound is the extra hypothesis, not a corollary of
+> decidability, and it is exactly what a certificate supplies and a run does not.
+> This changes nothing in the theorems below; it changes §5 item 2, where the
+> annotation is repeated. Prop. 1 is already in the corrected form: the bound
+> "one datum" is part of its statement.
+
 | syntactic form of the claim | topology | verdict |
 |---|---|---|
 | $\exists$ finite witness, decidable predicate ($\Sigma_1$) | open | finitely verifiable, **not** refutable |
@@ -292,7 +309,12 @@ Theorem 0 turns CLAUDE.md's licence into a decision procedure applied to the
 2. If it is $\Sigma_0$ (bounded, finite, decidable) — the computation *is* the
    proof, and should be recorded as a certificate rather than a script
    (Prop. 2). Exhaustive verification, resultants, factorizations, CRT
-   inversions live here.
+   inversions live here. **[SEED-96, 2026-08-14, per SEED-41 §5.2–5.3:** the
+   certificate must **exhibit its length**. "$\Sigma_0$, therefore a finite run
+   suffices" is the uniform-stage reading (U), equivalent to
+   $\mathrm{FAN}_\Delta$ over BISH and false in RUSS; decidability alone does not
+   give the stage. Every item in this list qualifies only with its bound
+   attached.**]**
 3. If it is $\Sigma_1$ or $\Pi_1$ — a finite run can settle it in **one**
    direction. Say which, in the write-up. A search that fails proves nothing
    (Prop. 2.1).
