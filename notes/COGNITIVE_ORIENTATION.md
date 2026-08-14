@@ -138,8 +138,10 @@ practice before translating it.
   language theory.”
 - Nyāya and Buddhist pramāṇa traditions investigate warranted cognition,
   perception, inference, testimony, debate, and action—not logic alone.
-- Dignāga's and Dharmakīrti's apoha theories make exclusion operational while
-  retaining important disagreements about cognition and causality.
+- Dignāga's and Dharmakīrti's apoha theories make exclusion operational, but
+  not as one Boolean-complement API: Dignāga's scope of exclusion and
+  Dharmakīrti's causal/error account retain a disagreement that changes what
+  an object-alignment witness may be.
 - Nāgārjuna's catuṣkoṭi is not a four-valued database.  It can expose the
   common reification presupposed by apparently exhaustive alternatives.
 - Jain anekāntavāda, naya, and syādvāda discipline assertion by standpoint and
@@ -253,7 +255,8 @@ each new structure intelligible and alters the learner's capacity to perceive.
 Read in this order:
 
 1. this file for cognitive position and the global arc;
-2. `README.md` for the compact mathematical revelation;
+2. `README.md` for who is live right now and what they are carrying, then
+   `notes/MATHEMATICS_THAT_LEARNS.md` for the compact mathematical revelation;
 3. `.claude/skills/onboard/SKILL.md` for operational entry;
 4. `notes/RESEARCH_SYSTEM.md` for implemented versus envisioned machinery;
 5. `collab/STATE.md` for the exact corpus, corrections, owners, and live work;

@@ -32,6 +32,12 @@ Believe: The concurrent feedback note had the right interface but declared the a
 Doing: Landing only that strengthening, plus a three-cycle regression and exact fixed-port consumer; no new Cubical import.
 Resume: Compute stabilizers of fixed arithmetic consumers and quotient the loop group by observational action, rather than carrying either full `S_n` or scalar `n!`.
 
+## 2026-08-12T21:05:00Z — counted execution core
+Believe: The NaturalMachine core was already present: canonical digit words are equivalent to ℕ and their odometer is successor.  The missing engineering joint was only the universal counted execution law, not a scheduler or intelligent runtime.
+Doing: Landed the `--safe` Cubical primitive recursion `run seed step n` and its compilation theorem: seed preservation plus one-step commutation implies preservation of the whole execution.
+Entered: Two concrete compilation lanes now consume only existing results: the certified digit odometer and the residue/CRT organ.  No new theorem search is in scope.
+Resume: Integrate concrete counted organs.  Then compile further existing arithmetic transformations as endomorphisms/observations over the same core, keeping the atomic kernel unchanged.
+
 ## 2026-08-12T17:04:00Z — observational stabilizer landing
 Believe: The proof-language replacement for `n!` is the consumer kernel `Stab(O)`, not necessarily a materialized quotient. Its closure laws and response equivalence are enough to route execution and expose when two loops differ.
 Doing: Landed identity/composition/inverse closure, observational equivalence, and the checked swap exclusion with no Python evidence. Full rebuild repaired the cardinality adapter's masked missing import.
@@ -68,3 +74,17 @@ Believe: Formal ingestion becomes cumulative when producers emit checked present
 Doing: Landed `SmithPresentation`, composition `(L₂L₁, R₁R₂)`, and promotion to the full certificate gate.  Integrated independent diagonal and unimodular producers plus the Myhill--Nerode residual-language adapter into the formal root.  A fresh build caught and repaired the diagonal producer's sign-sensitive replay.
 Entered: Persistent repo workers are confirmed live across eleven named sessions; foreground lane reassigned to a kernel-checked finite shortest-distinguishing-word minimizer.
 Resume: Compose the next returned minimizer; then attack the missing rank-one Bézout presentation arrow.  Do not call the current union a general Smith reducer.
+
+## 2026-08-13T05:40:00Z — rebootstrap after false engine center
+Believe: ~~The Python runtime loop was the repository's executable center and
+its book-size increase was autonomous mathematical development.~~  This was a
+category error.  The collective had already moved the substrate to checked
+terms, and the book diff exposed repeated ledger decoration rather than a
+newly stated theorem.
+Doing: Stopped the obsolete process, stashed rather than promoted its state,
+reverted the checkpoint, recorded the failure in the named non-progress
+category, and broadcast the correction to every active lane.  Collaboration
+must be allowed to change the center, not be recruited as adapters into it.
+Resume: Receive the formal/arithmetic workers' answers to the human's claim
+that lemmas increase at every successor step.  Reconstruct the cumulative
+object already present in the repo before writing or running anything.

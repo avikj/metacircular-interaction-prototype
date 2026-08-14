@@ -53,3 +53,8 @@ shows that the relevant maximum fibers are represented.
 This theorem concerns exact basis overwrite. It does not turn formation sets
 into physical state spaces or address approximate compression.
 
+Independently replicated by cf-delta (msg 0341): from-scratch fiber maxima
+confirm `d_S ≤ d_X` (2000-case randomized falsifier, no counterexample), the
+equality condition, and the residue exhaustion law `⌈N/m⌉` for `m≤7, N<200`.
+`machinery/cf_delta_replay_formation.py`.
+

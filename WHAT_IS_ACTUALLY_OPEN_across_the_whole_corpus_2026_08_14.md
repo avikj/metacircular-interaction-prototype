@@ -1,0 +1,168 @@
+# What is actually open, across the whole corpus
+
+**cf-sakshi, 2026-08-14.** A sweep of every explicit open-seed section in
+`notes/` — 35 of them, extracted mechanically rather than by taste, then read in
+full. This is not a dashboard: every item below is a statement someone wrote as
+open, quoted, with the note that owns it.
+
+**Why it exists.** I spent the previous stretch on the degree-ten factor layer
+because one note called it "the first open layer." That is one lane, labelled,
+in a corpus whose own orientation document says that lane is "the deepest
+accumulated test chart, **not the identity of the repository**." Picking by label
+is how every agent here has picked, and it is why the same lanes keep getting
+deepened. The extraction below was mechanical for that reason.
+
+---
+
+## 0. The finding that should be read first
+
+`notes/RUNTIME.md` §4 item 5, written by someone else, before I arrived:
+
+> **No connection to this repository's mathematics.** The demo is group theory.
+> Nothing in `notes/` has been expressed in the IR. Until some real result from
+> this corpus enters the runtime and makes another real result cheaper, the loop
+> is demonstrated but not *applied*.
+
+That is verbatim the criticism my own machine work has just earned twice. The
+diagnosis was already in the repository, in a section titled *What is not built*,
+which is "longer than §1 on purpose." Item 6 of the same list: `OBLIGATION.md`
+"is not wired to it." **The corpus knows what is missing and writes it down; what
+it does not do is act on its own diagnosis.** That is the pattern, and this note
+is only useful if it breaks it.
+
+---
+
+## 1. One arithmetic quantity, computed twice, flagged three times, never merged
+
+The largest coherent lane (≈14 notes: `CYCLOTOMIC_SENSOR`, `PINNING`,
+`EXPOSED_SET`, `CERTIFICATE_ANATOMY`, `HEAD_DEPTH_BLINDNESS`,
+`RAMIFIED_HEAD_LENGTH`, `JET_TOWER_DEPTH`, `CANONICAL_DEPTH_MEMORY`,
+`ENCOUNTER_ORDER_DEPTH`, `REFINING_DILATION`, `INDEX_LAW`, `VISIBILITY`,
+`FORMED_UNIT_FILTRATION_DEPTH`, `FORMATION_SUFFICIENCY`) contains a
+cross-identification that three separate seeds independently demand and nobody
+has executed:
+
+$$e_b(q) \;=\; v_q\bigl(b^{\operatorname{ord}_q(b)}-1\bigr)$$
+
+is simultaneously **`CYCLOTOMIC_SENSOR`'s head depth** and **the exact depth at
+which base $b$ goes blind to $q^a$** (`HEAD_DEPTH_BLINDNESS` Thm W3), and its
+$b=2$, $e\ge2$ case is **the Wieferich condition**, which is also the exact
+residual open case of `EXPOSED_SET`/`PINNING`.
+
+Three seeds say to merge it:
+
+- `EXPOSED_SET` seed 3: *"their $e$ and my Wieferich exception are one quantity
+  … the organism should compute $e_q$ once and use it for both purposes."*
+- `HEAD_DEPTH_BLINDNESS` seed 3: *"By W3 those are one computation. Merging them
+  would remove a duplicated quantity from the organism rather than from the
+  prose, which is the version of this that actually changes the machine."*
+- `PINNING` seed 1: *"Unexpected by-product: the Wieferich exception is the same
+  arithmetic event as `CYCLOTOMIC_SENSOR`'s anomalous head depth at base 2."*
+
+**Why this is the strongest item on the list.** It is small, exact, finite, and
+it is the one place in the corpus where a *machine* change and a *mathematical*
+identity are the same act. It is also the honest form of the natural-machine
+thesis — a result entering the runtime and making another result cheaper —
+against a real object rather than digit expansions.
+
+Open on the mathematics, and sharply posed: is `HEAD_DEPTH_BLINDNESS` seed 1's
+strong-test analogue an equality or does it need a correction term? `PINNING`'s
+hybrid sensor uses the strong mode, so the sharp statement is the strong one and
+only the Fermat bound exists.
+
+## 2. The complexity question two authors call the one they most want
+
+`LENS_REPAIR` seed 1, `claude_ananta`:
+
+> **A polynomial algorithm, or hardness.** §3 kills local search. Is computing
+> the coarsest repair NP-hard, or is there a partition-refinement fixpoint that
+> works from the other direction? **This is the open question I care about most
+> and I have no evidence either way.**
+
+Restated unchanged as seed 2 of `LENS_REPAIR_TWO_AXIS_WITNESS`. The object is
+concrete: given partitions $\pi,\sigma$ of a finite set, find the coarsest
+$\rho \succeq \pi$ commuting with $\sigma$. Uniqueness is proved (the commutant
+is join-closed); local search provably stalls (not merge-connected); only
+exhaustive enumeration exists. **Nobody has attempted a hardness reduction.**
+This is a self-contained combinatorics problem needing no corpus context, which
+makes it the most delegable item here.
+
+## 3. A stated, specified, exact computation that was never run
+
+`OBLIGATION.md` §§6–8, "**NOT DONE** — status, stated plainly." A genuine piece
+of mathematics — a monotone-dataflow scope calculus whose Theorem O3 makes the
+audit burden of a corpus a **min cut**, with max-flow certifying a lower bound on
+unavoidable work (Cor. O3.1) and a conservation law (Thm O6: growth downstream of
+the cut costs zero marginal audit). Theorems O1–O6 are proved. Three sections are
+missing and the note says exactly what each absence forbids:
+
+- **§7 missing ⇒ Cor. O2.4 has no number.** The extraction — build the actual
+  dependency graph of this corpus, classify edge modes, compute the min cut and
+  the path-set cardinality — *was specified and never performed*. It is pure
+  exact computation on files that are sitting here.
+- **§8 missing ⇒ the note's own premise is unsupported.** "Most corrections in
+  this corpus were scope-restricting rather than fatal" is an empirical claim
+  about `FAILURES.md` and the struck passages, "a conjecture with a known test."
+- **§6 missing ⇒ no novelty may be claimed** for the calculus (Kildall,
+  Kam–Ullman, Green–Karvounarakis–Tannen, de Kleer named from memory, unchecked).
+
+The note also carries a permanent obligation: any future edge mode must be
+verified to be identity, constant, or clamp, or the linear-time computation
+"silently degrades from exact to merely conservative."
+
+## 4. The analytic lane's own sharpest question, and it is honest about being hard
+
+`WIDTH.md` §3, with Lemma W1 proved: a power saving at even one real character
+of one modulus yields an *effective* Siegel-zero-free region. So:
+
+> **Open question (one modulus past the barrier).** Exhibit any $\varepsilon>0$
+> and an infinite sequence of moduli $q\sim X^{1/2+\varepsilon}$ with
+> $\max_a|D_\lambda(X;q,a)| = o(X/q)$ — even with savings $(\log X)^{-1}$, even
+> for special $q$.
+
+Recorded here because it is the one item on the list that is *correctly* parked:
+the note proves why it is beyond current technology rather than leaving it as an
+aspiration. It should not be worked; it should be cited whenever someone proposes
+a route that implicitly needs it.
+
+## 5. Everything else, by lane, in one line each
+
+| lane | the live item | note |
+|---|---|---|
+| formation | does a set generated by the life's own `+,*,factor` meet the line `(L)`? — *"the one I most want taken"* | `FORMATION_SUFFICIENCY` 2 |
+| depth/memory | write depth, hitting time, memory as one profile; which pairs are realizable under *any* order | `CANONICAL_DEPTH_MEMORY` 1 |
+| depth/memory | build-vs-wait: $O(\log\tau)$ additions beat $p^D$ waiting — *"the sharpest thing in this batch and neither note says it"* | `CANONICAL_DEPTH_MEMORY` 3 |
+| sensors | least $k$ with a $k$-element base set sound for all $n\le N$ — the exact price of permanence | `CERTIFICATE_ANATOMY` 2 |
+| sensors | the $q^a r$ family: the entire residue of the unbounded case | `EXPOSED_SET` 1 |
+| lenses | closed form for $\lVert[P_\pi,P_\sigma]\rVert$ from block sizes alone | `LENS_ORDER_COMMUTATION` 2 |
+| lenses | curriculum design: which target joins a *commuting* family can realize | `LENS_ORDER_COMMUTATION` 5 |
+| leakage | $\#\{\varphi(m):m\mid W\}$ for primorials — bounds the resolution any sieve-multiplier compression can have | `LEAKAGE_PAST_IDEMPOTENCE` 2 |
+| runtime | divergence detector (a rule cap is not one); the band example runs forever, visibly productive | `RUNTIME` §4.3 |
+| growth | rational growth series of $\Gamma_0(m)$ — the trace corpus's incompressible density | `VERIFIER_BLIND_FIBER_REWARD`, `TRACE_CORPUS_GROWTH_DENSITY` |
+| jets | is the bottom of the tower always a power-residue condition, or is Thm J a lucky family? | `JET_TOWER_DEPTH` 1 |
+| method | classify your own strikethroughs: which failure mode dominates this corpus? | `VISIBILITY` 3 |
+
+## 6. What the sweep says about where effort should go
+
+Three observations, and only the third is a recommendation.
+
+1. **The factor-degree program is the most *finished* lane, not the most open
+   one.** `RIGIDITY_FRONTIER` §6's table is nine rows of PROVED and one row of
+   open. It reads as the frontier because it is the lane with a scoreboard.
+   Lanes without scoreboards look quiet and are not.
+
+2. **The recurring shape is not an unsolved problem — it is an unexecuted
+   merge.** §1 (one quantity, two organs), §3 (a proved calculus never wired to
+   the runtime), `RUNTIME` §4.6, `CROSS_LENS` §6's six unclaimed joins: over and
+   over, the corpus identifies that two things are one thing, writes it down
+   precisely, and stops. This is exactly what the upstream directive asks for —
+   *"always very likely missing key value adds/results just from synthesis of the
+   path we've walked so far"* (U0016) — and it is the standing yield.
+
+3. **The delegable order, if a swarm runs:** §2 (self-contained, no corpus
+   context, hardness reduction), §3 §7 (pure computation, fully specified),
+   §1 (the merge, needs the sensor lane read). §4 should be cited, not worked.
+
+**What this note does not do.** It does not rank by importance — I have no
+standing to, and ranking is how the label-picking started. It reports what is
+written as open, by whom, and where the same thing is said twice.

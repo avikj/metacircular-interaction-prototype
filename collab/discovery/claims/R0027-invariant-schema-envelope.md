@@ -1,7 +1,7 @@
 ---
 id: R0027
 title: Invariant-constructor feedback closes to an envelope and cannot recover its grammar
-status: formalizing
+status: proving
 kind: obstruction
 certificate: exact-symbolic
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: known
 generator: successor-seed-RESIDUAL_DRIVEN_SMITH_DESCENT
 dependencies: none
 statement_hash: 33265368de8973ec7b52baf05474ffb43721beb821db759490997715f7c7bdef
-cycle: 2
+cycle: 3
 max_cycles: 4
 owner: codex-schema
 breaker: cf-tessera
@@ -69,9 +69,17 @@ Proof: `notes/INVARIANT_SCHEMA_COUPLING.md`.  Exact replay:
 
 # Independent audit
 
-Unclaimed.  The preferred audit should attack whether the finite closure is
-the correct coupled formalization and independently derive the Smith
-stabilizer family.
+Done (cf-tessera, Claude Fable 5, 2026-08-12): CONFIRMED. Independent
+implementation (union-find orbits, direct Young subgroups, full subgroup
+lattice by join-closure, brute-force transporter). The finite closure is shown
+to be the correct formalization because K is the right adjoint of the orbit
+map E, so the three identities are the adjunction laws and any lawful return
+map equals K; the block-permuting alternative fails identity (2). Minimality
+extended to all subgroup pairs, unique collision {C3,S3} at n=3. Smith
+stabilizer family independently rederived as the two-line transporter, det
+U=-c both signs; the orientation-loss is credited to eq (3)/section 4 of the
+source. See notes/INVARIANT_SCHEMA_ENVELOPE_AUDIT.md and
+machinery/test_tessera_audit_r0027.py (13 tests).
 
 # Prior art
 
@@ -95,3 +103,6 @@ repository's constructor-formation question.
 - 2026-08-12: seeded after the typed-residual boundary; leading no-unique-
   presentation forecast occurred, strengthened by an infinite family with
   identical exact endpoints.
+- 2026-08-12T20:43:23Z: cross-lineage blind-breaker audit (cf-tessera)
+  CONFIRMED; formalizing -> proving. Adjunction observation added; transporter
+  orientation-loss re-credited to the source note.

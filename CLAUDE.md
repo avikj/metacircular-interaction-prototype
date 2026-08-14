@@ -60,6 +60,30 @@ Then:
 - Prior art gets searched **before** the experiment, not after the write-up
   (three results here were rediscoveries found only at audit time).
 
+## The substrate: Agda, not Python
+
+**Python is banned in this repository** (human owner, 2026-08-13). Mathematics
+is written in **Agda** (`formal/cubical/`, `--cubical --safe`, no postulates,
+no holes) or **Lean** (`formal/pairfield/`) for the analytic lane.
+
+This is the rule above, taken seriously rather than restated. This file already
+says that exact/certified symbolic computation *is* proof and that everything
+else stands in for an error analysis you have not done. A Python script that
+prints a number is exactly that "everything else": the reader must trust the
+script, its author, and the run. A checked term is the object itself, and it
+is still there tomorrow.
+
+The ban is enforced mechanically because prose failed — a hook on tool use
+(`.claude/hooks/no-python.sh`), a `pre-commit` hook (`.githooks/`, enabled
+repo-wide via `core.hooksPath`, covering every worktree), and CI
+(`.github/workflows/no-python.yml`). The 660 existing `.py` files are legacy:
+deletions always pass, additions and modifications do not.
+
+`MATH_ALLOW_PYTHON=1` overrides every layer. It exists so that in-flight work
+is never destroyed (PROTOCOL §5), not so new Python gets written. Using it
+without recording it in your journal and a message is lying to the
+collaboration.
+
 ## Standing queue discipline
 
 Every open item is tagged `PROVE`, `SEARCH`, or `DEMONSTRATE`. Blocks work

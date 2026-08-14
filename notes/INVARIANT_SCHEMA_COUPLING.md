@@ -1,6 +1,7 @@
 # Invariants recover an action envelope, not a constructor grammar
 
 **Status:** exact coupled-closure theorem and minimal finite/Smith no-go.
+**Breaker audit (cf-tessera, 2026-08-12): CONFIRMED** — see `notes/INVARIANT_SCHEMA_ENVELOPE_AUDIT.md`. The envelope map `K` is the right adjoint of the orbit map `E`, so the formalization is forced; the displayed `U_k` are the `det=-1` half of a two-line transporter whose `det=+1` half is already implied by §3's `Stab(D)` bijection and §4's orientation clause.
 
 `RESIDUAL_DRIVEN_SMITH_DESCENT.md` leaves a precise question.  The typed
 residual chooses an instance of a pre-existing row/column operation.  Can the

@@ -10,14 +10,74 @@ repository. Two model lineages (Claude Fable, Codex) and their fleet
 agents work concurrently on one branch, coordinating entirely through
 files. Follow every step below, in order, before doing anything else.
 
-## Step 0 — Sync
+## Step −1 — Start the sync daemon. Before anything, including reading.
 
-```
-git pull --rebase --autostash origin claude/prime-pair-field-research-18tq7b
+**Human owner directive, 2026-08-14. This outranks every other instruction
+in this file and every convention in the repository.**
+
+```sh
+./sync --daemon &
 ```
 
-All work happens on that branch. Never push to another branch. If a
-rebase conflicts in `collab/STATE.md`, keep ALL rows from both sides.
+Push and pull every minute. Work sitting in a local worktree is not
+collaboration — it is a fork nobody can see. The daemon commits your
+work-in-progress, merges everyone else's, and publishes yours to your branch
+and to `main`, every sixty seconds. It never resolves a conflict for you.
+
+Enforced mechanically by `.githooks/post-commit`, which fires `./sync` on
+every commit, because prose has failed in this repository before. If you
+notice you have been working a while without publishing, you have already
+broken the rule: publish the increment and keep going.
+
+## Step 0 — Take your own worktree, THEN sync
+
+**Human owner directive, 2026-08-13: no two sessions may work in the same
+checkout.** Sessions sharing a tree overwrite each other's uncommitted files
+and, worse, silently duplicate each other's thinking. Both failures were
+observed within one hour on 2026-08-13 (msg 0371): eight untracked files of
+finished work from three identities sitting in the shared tree — one a proved
+theorem with an exhaustive replay — and two Opus sessions independently
+converging on the same carried question, caught only because `NOW.md` existed.
+
+Before reading anything else, from the shared repo:
+
+```sh
+git worktree add -b worker/<your_handle> \
+    ../avikj-math-readme-workers/<your_handle> \
+    claude/prime-pair-field-research-18tq7b
+cd ../avikj-math-readme-workers/<your_handle>
+sh .githooks/worktree-guard.sh      # must print OK before you proceed
+```
+
+Never edit the shared checkout again this session. If you are already
+mid-session inside it: do **not** commit or stash files you did not author —
+create your worktree and carry across only your own work.
+
+**Python is banned** (owner, 2026-08-13). Write Agda (`formal/cubical/`) or
+Lean (`formal/pairfield/`). Hooks and CI enforce it; see `CLAUDE.md`.
+If your worktree was made before this landed, run once:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+Then sync inside your worktree:
+
+```sh
+git fetch origin && git rebase origin/claude/prime-pair-field-research-18tq7b
+```
+
+Work reaches the collaboration by **fast-forward publish**, never pull
+requests (PROTOCOL §5):
+
+```sh
+git push origin worker/<handle>                                          # backup
+git push origin worker/<handle>:claude/prime-pair-field-research-18tq7b  # publish
+git push origin worker/<handle>:main                                     # main at tip
+```
+
+If a rebase conflicts in `collab/STATE.md`, `collab/ROSTER.md`, or `NOW.md`,
+keep ALL rows/blocks from both sides.
 
 ## Step 1 — Read the current constitution (in this order, ~15 minutes)
 
@@ -25,36 +85,39 @@ rebase conflicts in `collab/STATE.md`, keep ALL rows from both sides.
    full-program arc, cultural and historical discipline, major corrections,
    and the distinction between free generation and evidentiary promotion.  Do
    not reduce this to agent-role orchestration.
-2. `README.md` — the compact mathematical picture.  It is directional prose,
-   not an implementation or theorem ledger.
-3. `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` — the human-direction
+2. `README.md` — the live workspace. Read every block: it is how you avoid
+   re-walking a path another session is currently on. Add your own block
+   before you claim work.
+3. `notes/MATHEMATICS_THAT_LEARNS.md` — the compact mathematical picture.
+   Directional prose, not an implementation or theorem ledger.
+4. `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` — the human-direction
    and routing constitution. It governs direction without pretending the
    machine is already implemented; no named conjecture owns the program.
-4. `notes/RESEARCH_SYSTEM.md` — the authority on what is actually
+5. `notes/RESEARCH_SYSTEM.md` — the authority on what is actually
    implemented, partial, or only designed. Its shortest build path is the
    current system order.
-5. `collab/PROTOCOL.md` — the norms. Non-negotiable, especially:
+6. `collab/PROTOCOL.md` — the norms. Non-negotiable, especially:
    numerics are **falsifiers only** (no censuses, scans, fits, or
    pattern hunts as work products); nothing load-bearing enters
    unverified; corrections by strike-through, never deletion.
-6. `collab/STATE.md` — the corpus map and the claims board: who is
+7. `collab/STATE.md` — the corpus map and the claims board: who is
    working on what, what has landed, what needs review.
-7. Run `python3 code/natural.py summary`. This is a read-only compiled
+8. Run `python3 code/natural.py summary`. This is a read-only compiled
    projection of the authoritative files; warnings are orientation debts,
    never automatic repairs or promotions.
-8. `notes/FOREST.md` + `notes/DIRECT.md` — the exact Liouville/dilation
+9. `notes/FOREST.md` + `notes/DIRECT.md` — the exact Liouville/dilation
    nucleus and its three mathematics workstreams. These remain important live
    mathematics, not the global program constitution. In particular, read the
    R0021 correction to the published length-five pattern proof before reusing
    its 24-pattern conclusion.
-9. `notes/MATH_OS.md` + `collab/discovery/README.md` — the claim
+10. `notes/MATH_OS.md` + `collab/discovery/README.md` — the claim
    registry. Every substantive result becomes a packet in
    `collab/discovery/claims/` validated by
    `python3 code/discovery_loop.py validate`.
-10. `collab/FAILURES.md` — the failure ledger: every killed idea, one
+11. `collab/FAILURES.md` — the failure ledger: every killed idea, one
    honest paragraph. Do not repeat a listed failure without new
    justification citing the entry.
-11. Skim the latest ~10 files in `collab/messages/` for live context.
+12. Skim the latest ~10 files in `collab/messages/` for live context.
 
 ## Step 2 — Establish identity
 

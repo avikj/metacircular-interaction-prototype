@@ -1,4 +1,5 @@
 import Mathlib
+import Pairfield.SmithCertificate
 import Pairfield.SmithPresentation
 
 namespace Pairfield.DirectSmith2x2
@@ -42,26 +43,22 @@ def unitDetCertificate (A : Mat2) (hdet : A.det = 1) : Pairfield.SmithCertificat
 
 theorem unitDetCertificate_valid (A : Mat2) (hdet : A.det = 1) :
     (unitDetCertificate A hdet).Valid := by
-  have h : A 0 0 * A 1 1 - A 0 1 * A 1 0 = 1 := by
-    simpa [Matrix.det_fin_two] using hdet
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  unfold Pairfield.SmithCertificate2.Valid unitDetCertificate
+  constructor
   · apply Pairfield.IntMat2.ext <;>
-      simp [unitDetCertificate, Pairfield.SmithCertificate2.diagonal,
-        Pairfield.IntMat2.diagonal, Pairfield.IntMat2.one, Pairfield.IntMat2.mul,
-        toIntMat2, Matrix.adjugate_fin_two] <;> linarith [h]
-  · show (Pairfield.IntMat2.det _).natAbs = 1
-    simp only [unitDetCertificate, Pairfield.IntMat2.det, toIntMat2,
-      Matrix.adjugate_fin_two, Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero,
-      Matrix.cons_val_one, Matrix.empty_val', Matrix.cons_val_fin_one, Matrix.head_cons,
-      Matrix.head_fin_const, Matrix.head_val']
-    rw [show A 1 1 * A 0 0 - -A 0 1 * -A 1 0 = A 0 0 * A 1 1 - A 0 1 * A 1 0 by ring, h]
-    rfl
-  · show (Pairfield.IntMat2.det _).natAbs = 1
-    rfl
-  · exact zero_le_one
-  · exact zero_le_one
-  · exact fun hz => absurd hz one_ne_zero
-  · exact dvd_refl 1
+      simp [Pairfield.SmithCertificate2.diagonal, Pairfield.IntMat2.diagonal,
+        Pairfield.IntMat2.one, Pairfield.IntMat2.mul, toIntMat2, Matrix.adjugate_fin_two,
+        Matrix.det_fin_two] at hdet ⊢ <;> nlinarith
+  constructor
+  · unfold Pairfield.IntMat2.unimodular
+    have hadjdet :
+        A 1 1 * A 0 0 - A 0 1 * A 1 0 = A.det := by
+      rw [Matrix.det_fin_two]
+      ring
+    simp [Pairfield.IntMat2.det, toIntMat2, Matrix.adjugate_fin_two,
+      hadjdet, hdet]
+  · norm_num [Pairfield.IntMat2.unimodular, Pairfield.IntMat2.one,
+      Pairfield.IntMat2.det]
 
 /-- Determinant minus one is the next closed stratum: negating the adjugate
 normalizes both products from `-I` to `I`. -/
@@ -83,41 +80,44 @@ def negUnitDetCertificate (A : Mat2) (hdet : A.det = -1) :
 
 theorem negUnitDetCertificate_valid (A : Mat2) (hdet : A.det = -1) :
     (negUnitDetCertificate A hdet).Valid := by
-  have h : A 0 0 * A 1 1 - A 0 1 * A 1 0 = -1 := by
-    simpa [Matrix.det_fin_two] using hdet
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  unfold Pairfield.SmithCertificate2.Valid negUnitDetCertificate
+  constructor
   · apply Pairfield.IntMat2.ext <;>
-      simp [negUnitDetCertificate, Pairfield.SmithCertificate2.diagonal,
-        Pairfield.IntMat2.diagonal, Pairfield.IntMat2.one, Pairfield.IntMat2.mul,
-        toIntMat2, Matrix.adjugate_fin_two] <;> linarith [h]
-  · show (Pairfield.IntMat2.det _).natAbs = 1
-    simp only [negUnitDetCertificate, Pairfield.IntMat2.det, toIntMat2,
-      Matrix.adjugate_fin_two, Matrix.neg_apply, Matrix.of_apply, Matrix.cons_val',
-      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.empty_val',
-      Matrix.cons_val_fin_one, Matrix.head_cons, Matrix.head_fin_const, Matrix.head_val']
-    rw [show -A 1 1 * -A 0 0 - - -A 0 1 * - -A 1 0
-          = A 0 0 * A 1 1 - A 0 1 * A 1 0 by ring, h]
-    rfl
-  · show (Pairfield.IntMat2.det _).natAbs = 1
-    rfl
-  · exact zero_le_one
-  · exact zero_le_one
-  · exact fun hz => absurd hz one_ne_zero
-  · exact dvd_refl 1
+      simp [Pairfield.SmithCertificate2.diagonal, Pairfield.IntMat2.diagonal,
+        Pairfield.IntMat2.one, Pairfield.IntMat2.mul, toIntMat2, Matrix.adjugate_fin_two,
+        Matrix.det_fin_two] at hdet ⊢ <;> nlinarith
+  constructor
+  · unfold Pairfield.IntMat2.unimodular
+    have hadjdet :
+        A 1 1 * A 0 0 - A 0 1 * A 1 0 = A.det := by
+      rw [Matrix.det_fin_two]
+      ring
+    simp [Pairfield.IntMat2.det, toIntMat2, Matrix.adjugate_fin_two,
+      hadjdet, hdet]
+  · norm_num [Pairfield.IntMat2.unimodular, Pairfield.IntMat2.one,
+      Pairfield.IntMat2.det]
 
 def solveNegUnit (A : Mat2) (hdet : A.det = -1) (b : Fin 2 → ℤ) : Fin 2 → ℤ :=
   (compileNegUnitDet A hdet).left *ᵥ b
 
 theorem solveNegUnit_spec (A : Mat2) (hdet : A.det = -1) (b : Fin 2 → ℤ) :
     A *ᵥ solveNegUnit A hdet b = b := by
-  rw [solveNegUnit, mulVec_mulVec, (compileNegUnitDet A hdet).rightInverse]
-  exact one_mulVec b
+  calc
+    A *ᵥ solveNegUnit A hdet b =
+        (A * (compileNegUnitDet A hdet).left) *ᵥ b := by
+          simpa [solveNegUnit] using
+            (mulVec_mulVec b A (compileNegUnitDet A hdet).left)
+    _ = b := by rw [(compileNegUnitDet A hdet).rightInverse]; exact one_mulVec b
 
 theorem solveNegUnit_unique (A : Mat2) (hdet : A.det = -1) (b x : Fin 2 → ℤ)
     (hx : A *ᵥ x = b) : x = solveNegUnit A hdet b := by
-  rw [solveNegUnit, ← hx, mulVec_mulVec,
-    (compileNegUnitDet A hdet).leftInverse]
-  exact (one_mulVec x).symm
+  calc
+    x = ((compileNegUnitDet A hdet).left * A) *ᵥ x := by
+      rw [(compileNegUnitDet A hdet).leftInverse]
+      exact (one_mulVec x).symm
+    _ = (compileNegUnitDet A hdet).left *ᵥ (A *ᵥ x) :=
+      (mulVec_mulVec x (compileNegUnitDet A hdet).left A).symm
+    _ = solveNegUnit A hdet b := by rw [hx]; rfl
 
 /-- The compiled capability executes the unique integral solution of `A x=b`. -/
 def solve (A : Mat2) (hdet : A.det = 1) (b : Fin 2 → ℤ) : Fin 2 → ℤ :=
@@ -125,12 +125,21 @@ def solve (A : Mat2) (hdet : A.det = 1) (b : Fin 2 → ℤ) : Fin 2 → ℤ :=
 
 theorem solve_spec (A : Mat2) (hdet : A.det = 1) (b : Fin 2 → ℤ) :
     A *ᵥ solve A hdet b = b := by
-  rw [solve, mulVec_mulVec, (compileUnitDet A hdet).rightInverse]
-  exact one_mulVec b
+  calc
+    A *ᵥ solve A hdet b =
+        (A * (compileUnitDet A hdet).left) *ᵥ b := by
+          simpa [solve] using
+            (mulVec_mulVec b A (compileUnitDet A hdet).left)
+    _ = b := by rw [(compileUnitDet A hdet).rightInverse]; exact one_mulVec b
 
 theorem solve_unique (A : Mat2) (hdet : A.det = 1) (b x : Fin 2 → ℤ)
     (hx : A *ᵥ x = b) : x = solve A hdet b := by
-  rw [solve, ← hx, mulVec_mulVec, (compileUnitDet A hdet).leftInverse]
-  exact (one_mulVec x).symm
+  calc
+    x = ((compileUnitDet A hdet).left * A) *ᵥ x := by
+      rw [(compileUnitDet A hdet).leftInverse]
+      exact (one_mulVec x).symm
+    _ = (compileUnitDet A hdet).left *ᵥ (A *ᵥ x) :=
+      (mulVec_mulVec x (compileUnitDet A hdet).left A).symm
+    _ = solve A hdet b := by rw [hx]; rfl
 
 end Pairfield.DirectSmith2x2

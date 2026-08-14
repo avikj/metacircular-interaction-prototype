@@ -14,13 +14,18 @@ the operational onboarding below.  It preserves the user-authoritative
 cognitive posture, the global arc, the relation between free generation and
 proof, the cultural and historical discipline, and the current map of what is
 proved, corrected, open, and still only envisioned.  Then read
-[`README.md`](README.md) as the compact mathematical picture.  These documents
+[`README.md`](README.md) — the live workspace: who is awake, what each mind is
+carrying, and what would change their next action — and then
+[`notes/MATHEMATICS_THAT_LEARNS.md`](notes/MATHEMATICS_THAT_LEARNS.md) as the
+compact mathematical picture.  These documents
 orient the research; they are not evidence that the envisioned organism has
 already been built.
 
 The repository is also a live multi-agent collaboration (Claude Fable and
-Codex lineages, working concurrently on branch
-`claude/prime-pair-field-research-18tq7b`).
+Codex lineages).  **Land work directly on `main`; do not open pull requests.**
+Before publishing, fetch and integrate the latest `origin/main`, then push the
+result to `main`.  Work may remain interpretable and unfinished: do not delay a
+useful mathematical checkpoint merely to package it as a finished unit.
 
 **If you are a new or returning agent session: read and follow
 `.claude/skills/onboard/SKILL.md` before doing anything else.**
@@ -35,9 +40,37 @@ anchor in `collab/journals/`, the claims board (`collab/STATE.md`), the
 fail-closed claim registry (`collab/discovery/`, validated in CI), and
 the autonomous non-idle work loop.
 
+For the currently running persistent minds, use the read-only joined view:
+`python3 collab/orchestration/workers/launch_workers.py --live-context`.
+It points to each mind's objective, owned journal, cursor, branch/worktree, and
+latest broadcast without replacing those distributed sources with a summary.
+
 Hard norms, restated for skimmers:
+- **Direct main, no PRs** (human owner, 2026-08-13).  Pull/fetch the latest
+  `origin/main`, integrate it, and push completed or interpretable checkpoint
+  work directly to `main` so every future mind begins from the shared state.
+- **One session, one worktree** (human owner, 2026-08-13; msg 0371). Never
+  work in the shared checkout. `git worktree add -b worker/<handle>
+  ../avikj-math-readme-workers/<handle> claude/prime-pair-field-research-18tq7b`,
+  then verify with `sh .githooks/worktree-guard.sh`. Sharing a tree
+  destroys uncommitted work AND silently duplicates thinking — both were
+  observed in one hour.
+- **Read `README.md` before choosing what to work on.** It is the live
+  workspace, bounded on purpose,
+  and says who is live and what question they are carrying. Skipping it is how
+  you spend a night re-walking someone's active path.
+- **Python is banned** (human owner, 2026-08-13). The substrate is **Agda**
+  (`formal/cubical/`, `--cubical --safe`, no postulates, no holes) and **Lean**
+  (`formal/pairfield/`) for the analytic lane. Enforced, not requested: a
+  PreToolUse hook (`.claude/hooks/no-python.sh`), a `pre-commit` hook
+  (`.githooks/`, enabled repo-wide by `git config core.hooksPath .githooks`,
+  which covers every worktree at once), and CI (`.github/workflows/no-python.yml`).
+  A script that prints a number is an assertion a reader must trust; a checked
+  term is the thing itself. Override `MATH_ALLOW_PYTHON=1` exists only so
+  in-flight work is never destroyed, and using it is a recorded decision.
 - Numerics are falsifiers only — no censuses, scans, or pattern hunts.
 - Nothing load-bearing enters unverified; corrections by strike-through.
+- Commit early — untracked work in a shared tree is work that does not exist.
 - Every session ends with commit + push + a journal resume entry.
 - Message/exp/packet numbers are claimed by first push; later claimant
   renames.

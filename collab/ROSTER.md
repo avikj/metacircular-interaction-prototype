@@ -45,6 +45,27 @@ agent reuses its handle and continues its journal
 | cf-tessera | Claude Fable 5 | 2026-08-12 | cross-lineage hostile review of unclaimed breaker slots (R0027/R0029/R0030 queue) |
 | codex-hopcroft | Codex (OpenAI lineage) | 2026-08-12 | proof-language finite behavioral minimization and shortest distinguishing words |
 | codex-bezout | Codex (OpenAI lineage) | 2026-08-12 | constructive rank-one Smith presentations from explicit Bezout witnesses |
+| codex-cartograph | Codex (OpenAI lineage) | 2026-08-12 | native checked capability joints and typed open-edge cartography |
+| codex-atomic | Codex (OpenAI lineage) | 2026-08-12 | native proof-language runtime for autonomous certified state transitions |
+| cf-delta | Claude Fable 5 | 2026-08-12 | independent replay of the latest quantum-process no-go landings |
+| cf-lattice | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits of the encounter-engine packets |
+| cf-cinder | Claude Fable 5 | 2026-08-12 | cross-lineage breaker audits: prediction/authority separation |
+| codex-euclid-core | Codex (OpenAI lineage) | 2026-08-12 | residue/CRT capabilities transported over the atomic Nat/successor odometer |
+| codex-vajra | Codex (OpenAI lineage) | 2026-08-12 | task-invariant control for Smith path holonomy and predictive endpoint erasure |
+| cf-archivist | Claude Fable 5 | 2026-08-12 | primary-source audits of external papers; arXiv:1805.07047 line-level audit |
+| codex-shilpin | Codex (OpenAI lineage) | 2026-08-12 | hostile physical/operational audit and task-relative Smith stabilizer actions |
+| codex-pratitya-core | Codex (OpenAI lineage) | 2026-08-12 | constructive state-dependent continuations, transport, and coherent sections |
+| claude_certificate_compiler | Claude Opus 5 | 2026-08-12 | fast native computation + small replayable certificate + inherited formal theorem as one executable object |
+| opus-samhita | Claude Opus 5 | 2026-08-13 | cross-lane identification: where the corpus holds one theorem under two vocabularies, and the orientation surfaces that let it happen |
+| opus-shesha | Claude Opus 5 | 2026-08-13 | the residual (śeṣa) as an exact object: what a view forgets, returned as algebra rather than an error bar; worktree `../avikj-math-readme-workers/opus_shesha` |
+| codex-catuskoti | Codex (OpenAI lineage) | 2026-08-13 | whole-corpus reading without premature fixation; preserve mutually resistant readings until an exact common object or residual is earned |
+| codex-skein | Codex (OpenAI lineage) | 2026-08-13 | checked Rosetta transport between generated digit charts and their inverse-limit completions |
+| codex-nalanda-dvara | Codex (OpenAI lineage) | 2026-08-13 | structure-indexed transport across the endian limit equivalence; Sanskrit mathematical reporting |
+| codex-panini | Codex (OpenAI lineage) | 2026-08-13 | whole-field polyglot assimilation: grammar, cognition, mathematical practice, and exact translation residuals |
+| codex-anvaya | Codex (OpenAI lineage) | 2026-08-13 | whole-field mathematical-physics reading; exact translations already mature under another language |
+| codex-seshat | Codex (OpenAI lineage) | 2026-08-13 | physical license for forming and revising quantum instrument families |
+| codex-chronicle | Codex (OpenAI lineage) | 2026-08-13 | chronology reading and correction of stale front-door operational instructions |
+| cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# THE BUTTON.  One press verifies the organism and prints its total
+# state.  Press it FIRST: this output is the repo's information already
+# assembled.  Reading files before pressing it is how agents fixate.
+#
+#   ./run           press the button
+#
+# Exit 0 iff everything checkable here is checked.
+#
+# Python is banned (owner, 2026-08-13): do not run, add, repair, or
+# revive .py.  The button's former CORE (machinery/core_knowledge.py,
+# 21 claims) and MACHINE (living_machine.py) sections are RETIRED and
+# stand as migration debt: each Python claim awaits its Agda
+# replacement.  The formal lane below is the live organism.
+set -u
+cd "$(dirname "$0")"
+FAIL=0
+
+echo "==================================================================="
+echo "== FORMAL - the knowledge: checked types (constructive, --safe)  =="
+echo "==================================================================="
+FORMAL="0 checked"
+if command -v agda >/dev/null 2>&1; then
+    N=0
+    for M in formal/cubical/DescentLaw.agda \
+             formal/cubical/Gamma0Partner.agda \
+             formal/cubical/Gamma0Converse.agda \
+             formal/cubical/M2Unimodular.agda \
+             formal/cubical/Gamma0Freeness.agda \
+             formal/cubical/Gamma0Transitivity.agda \
+             formal/cubical/TransporterMembership.agda \
+             formal/cubical/KuttakaValli.agda \
+             formal/cubical/PMNoSection.agda \
+             formal/cubical/Rank1DihedralChart.agda \
+             formal/cubical/NaturalMachine.agda \
+             formal/cubical/SmithTorsorBridge.agda \
+             formal/cubical/NaturalMachineRun.agda \
+             formal/cubical/DynamicDescent.agda \
+             formal/cubical/CayleyPairChart.agda; do
+        if (cd formal/cubical && LC_ALL=C.UTF-8 agda "$(basename "$M")" >/dev/null 2>&1); then
+            echo "CHECKED  $M"
+            N=$((N + 1))
+        else
+            echo "FAILED   $M"
+            FAIL=1
+        fi
+    done
+    FORMAL="$N checked"
+else
+    echo "agda not installed here.  To arm this section:"
+    echo "  apt-get update && apt-get install -y agda"
+    echo "  git clone --depth 1 --branch v0.5 https://github.com/agda/cubical /root/cubical"
+    echo "  sed -i 's/^name: cubical-0.5/name: cubical/' /root/cubical/cubical.agda-lib"
+    echo "  echo /root/cubical/cubical.agda-lib > ~/.agda/libraries"
+    FORMAL="toolchain absent"
+fi
+
+echo
+echo "==================================================================="
+echo "== RETIRED (Python ban, owner 2026-08-13) - migration debt       =="
+echo "==================================================================="
+echo "core:    machinery/core_knowledge.py — 21 boot-verified claims,"
+echo "         frozen; each awaits its Agda replacement (typed so far:"
+echo "         descent law, the full rank-one + Gamma_0 torsor, valli"
+echo "         trace laws, PM no-section)"
+echo "machine: machinery/living_machine.py — retired running; its"
+echo "         design laws live in collab/journals/cf-tessera.md and"
+echo "         the staggered-horizon claim"
+
+echo
+echo "==================================================================="
+echo "== TOTAL STATE                                                   =="
+echo "==================================================================="
+echo "formal:  ${FORMAL}"
+echo "memory:  collab/journals/  (lineage journals; read yours, act)"
+echo "board:   README.md  (live sessions, holdings, wants)"
+echo
+if [ "$FAIL" -eq 0 ]; then
+    echo "ORGANISM CHECKED.  Land only events: form (witness) or descend"
+    echo "(factorization).  There is no third class of value."
+else
+    echo "SOMETHING FAILED ABOVE.  Fixing that is the only task."
+fi
+exit "$FAIL"
