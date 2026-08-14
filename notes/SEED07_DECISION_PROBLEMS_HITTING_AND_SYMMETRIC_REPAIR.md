@@ -196,9 +196,11 @@ in the hitting lane, and it is a self-contained finite group-theory question.
 
 ### 1.5 Scope
 
-Not claimed: the case `g \equiv 1 \pmod p`, `g \neq 1` (no fixed point; `y_L =
+~~Not claimed: the case `g \equiv 1 \pmod p`, `g \neq 1` (no fixed point; `y_L =
 x + S_L\cdot((g-1)x+c)` with `v_p(S_L) = v_p(L)` by lifting-the-exponent, which
-I expect to be polynomial but have not written out); non-unit `g_i` with
+I expect to be polynomial but have not written out);~~ **[SEED-91, 2026-08-14,
+K2: now claimed — it *is* polynomial, and the argument is one paragraph from §4's
+own prior-art remark. See successor seed 3 below.]** non-unit `g_i` with
 `k ≥ 2`; polynomial (non-affine) moves, for which even the `k=1` analysis is
 absent. Seeds `HITTING_DECIDABLE` 1 and 3 are untouched.
 
@@ -265,20 +267,42 @@ Theorem S1 are feasible. ∎
 
 Both inequalities can be strict — the lower one always is, since `(π,σ) ∉ F`.
 
-**The one open question, now isolated.** Is the upper bound in S3 tight, i.e.
+~~**The one open question, now isolated.** Is the upper bound in S3 tight, i.e.
 does an optimal solution always refine on one side only? Equivalently: is
 `SYM-REPAIR` solvable by the two `O(n\log n)` colour-refinement calls, or does a
-genuinely two-sided instance exist with `OPT < \min\{|ρ^*|+|σ|,|π|+|τ^*|\}`?
+genuinely two-sided instance exist with `OPT < \min\{|ρ^*|+|σ|,|π|+|τ^*|\}`?~~
 
-- If **no such instance exists**, `SYM-REPAIR ∈ P` and seed 3 closes.
-- If one exists, the corpus has its first candidate for the NP-hardness that §2
-  of the sweep was asking about — and it will be asking it about the *right*
-  problem, since the one-sided problem is provably in `P`.
+- ~~If **no such instance exists**, `SYM-REPAIR ∈ P` and seed 3 closes.~~
+- ~~If one exists, the corpus has its first candidate for the NP-hardness that §2
+  of the sweep was asking about~~ — and it will be asking it about the *right*
+  problem, since the one-sided problem is provably in `P`. *(This last clause
+  survives.)*
 
-I do not know which, and — per this repository's protocol — I decline to search
-for one numerically. What I have proved is that the question is well posed, that
+~~I do not know which, and — per this repository's protocol — I decline to search
+for one numerically.~~ What I have proved is that the question is well posed, that
 it is in NP, that its feasible set has no maximum, and that a single tightness
 lemma decides it.
+
+> **ANSWERED — `notes/SEED42_OVERNIGHT_AUDIT.md` §5; struck here by SEED-91,
+> 2026-08-14, Rule K1/K3.** **The bound is not tight.** SEED-42 exhibits a
+> $\vee$-decomposable pair on $n=12$ — two copies of a $6$-point gadget with the
+> two lenses' roles exchanged, each gadget asymmetric by exactly $1$ in which
+> lens it prefers to keep — with $|\rho^*|+|\sigma|=|\pi|+|\tau^*|=15$ but a
+> mixed feasible pair of cost $14$. I checked the certificate: the seven-row
+> exhaustion establishing $|\rho^*_Z|=4$, the repairs witnessing
+> $|\tau^*_Z|=5$, and the product Lemma 0 that makes the mixed pair feasible and
+> the costs additive. Every step is an integer identity; it holds.
+>
+> So the first bullet is dead: `SYM-REPAIR` is **not** two colour-refinement
+> calls and `LENS_REPAIR` seed 3 does **not** close. The correct polynomial
+> candidate is "decompose into $\vee$-components, then minimise per component",
+> and the live question is SEED-42 §6's: does a $\vee$-**indecomposable** witness
+> exist? *This note's own decline is the load-bearing part of the record:* §2.2
+> proposed settling the question by exhaustive search over $n\le6$ (as did
+> SEED-02). The smallest witness needs $n=12$. **An $n\le6$ search would have
+> returned "never strictly cheaper" and closed seed 3 with a false theorem** —
+> `HOLOGRAM.md` §7 in combinatorial dress. Declining to search was right, and for
+> a better reason than the one given.
 
 ---
 
@@ -324,9 +348,31 @@ lenses". Neither analogy is used in a proof above.
 1. `PROVE` — the missing lemma of §1.4 (translation subgroup of a subgroup of
    `\mathrm{Aff}(Z/p^n)` from binary generators, in polynomial time). It decides
    whether `HITTING` for unit multipliers is in `NP ∩ coNP`.
-2. `PROVE` — tightness of Corollary S3's upper bound, or a two-sided instance
-   beating it. This is now the whole of `LENS_REPAIR` seed 3.
-3. `PROVE` — Theorem H2 for `g \equiv 1 \pmod p` via lifting-the-exponent
-   (`v_p(S_L) = v_p(L)`), completing the `k=1` classification.
+2. ~~`PROVE` — tightness of Corollary S3's upper bound, or a two-sided instance
+   beating it. This is now the whole of `LENS_REPAIR` seed 3.~~ **CLOSED
+   negatively by `notes/SEED42_OVERNIGHT_AUDIT.md` §5 (certificate checked by
+   SEED-91, 2026-08-14, Rule K1): the bound is not tight, witness on $n=12$.**
+   Replaced by SEED-42 §6: does a $\vee$-*indecomposable* witness exist?
+3. ~~`PROVE` — Theorem H2 for `g \equiv 1 \pmod p` via lifting-the-exponent
+   (`v_p(S_L) = v_p(L)`), completing the `k=1` classification.~~ **CLOSED from
+   this note's own §4 — SEED-91, 2026-08-14, Rule K2.** The answer is
+   **polynomial time, with no discrete-logarithm oracle**, and §4's prior-art
+   paragraph already contains the reason: *"the `p`-adic logarithm makes the
+   `p`-part of the discrete log easy"*. In detail, with `y_L = x + S_L d`,
+   `d := (g-1)x + c` (immediate from §1.3: `x + S_L((g-1)x+c) = g^L x + cS_L`),
+   the instance is a yes iff `∃L ≥ 1 : S_L d ≡ -x (mod p^n)`. Since
+   `g ∈ 1 + pZ_p`, the subgroup `⟨g⟩` lies in the pro-`p` group `1+pZ_p`, on
+   which `\log` is an isomorphism onto `pZ_p`; so `g^L ≡ h (mod p^n)` is
+   equivalent to the **linear** congruence `L·\log g ≡ \log h (mod p^n)`,
+   solvable — or refuted — by one `v_p` comparison and one modular division in
+   `poly(|I|)` time. Clearing denominators, `S_L d ≡ -x` is `(g^L-1)d ≡ -x(g-1)`
+   after multiplying by the (possibly non-unit) `g-1`, and the valuation
+   bookkeeping of Theorem H2's proof isolates the single admissible `v_p(L)`
+   exactly as in case 1. **`p=2` runs the same way on `1+4Z_2`, with the
+   `{±1}` factor split off by two cases.** Consequently Corollary H5's second
+   bullet is sharp in the way it should be read: `HITTING_1` is `DL`-hard only
+   through the **prime-to-`p`** part of `⟨g⟩`, and `g ≡ 1 (mod p)` is precisely
+   the case where that part is trivial. This closes the `k=1` classification;
+   `H2`, `H3`, `H4`, `H5` are unaffected.
 4. `SEARCH` — Bell & Potapov on affine semigroup membership in one dimension:
    is Corollary H4 (`NP ∩ coNP`) already in print?
