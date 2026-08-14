@@ -90,6 +90,11 @@ import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
 import NaturalMachine.DefinitionalExtension
 import NaturalMachine.PMTorus
+-- the walk's two laws (msgs 0374, 0382): forcing and capacity.  Plain
+-- imports, not `public`: both carry local list predicates (All, _∈_)
+-- whose names would clash on re-export; the aggregate still checks them.
+import NaturalMachine.WalkForcing
+import NaturalMachine.WalkCapacity
 open import NaturalMachine.DigitTowerLimit public
 
 import NaturalMachine.Digits
