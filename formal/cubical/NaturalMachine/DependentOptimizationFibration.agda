@@ -3,15 +3,18 @@
 module NaturalMachine.DependentOptimizationFibration where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz ; znots)
+open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤)
 open import Cubical.Data.Bool using (Bool ; false ; true ; false≢true)
 open import Cubical.Data.Sigma
-open import Cubical.Data.List using ([] ; _∷_)
+open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Empty as Empty using (⊥)
+open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.FiniteIndraWeave using (TotalView ; Tear ; tear)
 open import NaturalMachine.ProductiveIndraNet using (Net ; observe)
+import NaturalMachine.DSOContinuationFullAbstract as Bellman
 
 data Architecture : Type₀ where
   left-architecture right-architecture : Architecture
@@ -220,3 +223,97 @@ repair-next-semantics : (left right target : Architecture)
   → repairSemantics (Net.view (Net.next repairNet) left target)
     ≡ repairSemantics (Net.view (Net.next repairNet) right target)
 repair-next-semantics = cover-semantically-coherent
+
+------------------------------------------------------------------------
+-- Contextual pruning.  A covered point may be erased only when one other
+-- point dominates it at every root after every finite continuation.
+------------------------------------------------------------------------
+
+record ContextualSystem
+    (Root Point Action : Type₀) : Type₁ where
+  field
+    advance : Action → Point → Point
+    immediate : Root → Point → ℕ
+
+open ContextualSystem
+
+runActions : {Root Point Action : Type₀}
+  → ContextualSystem Root Point Action
+  → List Action → Point → Point
+runActions system [] point = point
+runActions system (action ∷ future) point =
+  runActions system future (advance system action point)
+
+futureCost : {Root Point Action : Type₀}
+  → ContextualSystem Root Point Action
+  → Root → Point → List Action → ℕ
+futureCost system root point future =
+  immediate system root (runActions system future point)
+
+ContextuallyDominates : {Root Point Action : Type₀}
+  → ContextualSystem Root Point Action → Point → Point → Type₀
+ContextuallyDominates {Root} {Action = Action} system retained removed =
+  (root : Root) (future : List Action)
+  → futureCost system root retained future
+    ≤ futureCost system root removed future
+
+PruningWarrant : {Root Point Action : Type₀}
+  → ContextualSystem Root Point Action → Point → Point → Type₀
+PruningWarrant = ContextuallyDominates
+
+identityContext : ContextualSystem Architecture (SemanticFiber false) Unit
+advance identityContext tt point = point
+immediate identityContext = cost
+
+left-local-dominance : (future : List Unit)
+  → futureCost identityContext left-architecture left-point future
+    ≤ futureCost identityContext left-architecture right-point future
+left-local-dominance future = zero-≤
+
+one-not≤zero : ¬ (suc zero ≤ zero)
+one-not≤zero ()
+
+left-not-contextually-dominant :
+  ¬ ContextuallyDominates identityContext left-point right-point
+left-not-contextually-dominant warrant =
+  one-not≤zero (warrant right-architecture [])
+
+right-not-contextually-dominant :
+  ¬ ContextuallyDominates identityContext right-point left-point
+right-not-contextually-dominant warrant =
+  one-not≤zero (warrant left-architecture [])
+
+-- The full Bellman continuation theorem is consumed rather than reproved:
+-- contextual equality at every continuation and root recovers the relation.
+bellman-context-complete : (K L : Bellman.Relation)
+  → ((V : Bellman.Continuation) (root : Bool)
+      → Bellman.bellman K V root ≡ Bellman.bellman L V root)
+  → K ≡ L
+bellman-context-complete = Bellman.transformer-full-abstraction
+
+coveredCostView prunedCostView : TotalView Architecture ℕ
+coveredCostView root target = cost root (selectedPoint repairedCover root)
+prunedCostView root target = cost root left-point
+
+covered-cost-coherent : (left right target : Architecture)
+  → coveredCostView left target ≡ coveredCostView right target
+covered-cost-coherent left right target = refl
+
+local-pruning-tear : Tear left-architecture prunedCostView
+local-pruning-tear = tear right-architecture left-architecture znots
+
+mutual
+  pruningNet : Net Architecture ℕ
+  Net.view pruningNet = coveredCostView
+  Net.next pruningNet = locallyPrunedNet
+
+  locallyPrunedNet : Net Architecture ℕ
+  Net.view locallyPrunedNet = prunedCostView
+  Net.next locallyPrunedNet = locallyPrunedNet
+
+pruning-two : observe 2 pruningNet ≡
+  coveredCostView ∷ prunedCostView ∷ []
+pruning-two = refl
+
+pruning-next-tears : Tear left-architecture (Net.view (Net.next pruningNet))
+pruning-next-tears = local-pruning-tear
