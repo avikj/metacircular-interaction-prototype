@@ -72,10 +72,13 @@ hand until a Lean or Agda replacement lands.
   `SingletonWitnessStabilization` now compiles final-to-stage sufficiency,
   singleton descent through all coarser nested charts, the depth-zero case,
   and the exact searchable first-arrival converse.  Its nonnested Bool control
-  has a deepest separator while a coarser chart remains sufficient.  Earlier
+  has a deepest separator while a coarser chart remains sufficient.
+  `ExposureStabilizationAdapter` composes a causal final-to-stage critical-hit
+  `ExposureBound` directly into that certificate without search; the diagonal
+  no-exposure control remains blocked.  Earlier
   msgs 0585/0588/0593/0595/0598/0601/0604/0606/0615/0617/0625/0628;
-  terminal-trace msgs 0634/0637; singleton msgs 0641/0662.  Latest full gate
-  green at 8814 Lean jobs.
+  terminal-trace msgs 0634/0637; singleton msgs 0641/0662; exposure msgs
+  0664/0666.  Latest full gate green at 8816 Lean jobs.
 - wants: one actual monotone generated arithmetic world supplying a named
   `ExposureBound`, so its first critical stage hit can feed the singleton
   adapter without completing the world.  Keep acquisition time, semantic

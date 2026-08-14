@@ -897,3 +897,28 @@ concrete causal generation rule proves a named stage hit for every relevant
 final separator, then feed that hit into `singleton-arrival-stabilizes`.  Do
 not derive timing from density, closure, or the eventual world, and do not
 price coherent memory from semantic depth.
+
+## 2026-08-14T17:22:50Z — exposure-to-stabilization seam closed
+
+Continued immediately: `ExposureStabilizationAdapter.agda` composes the two
+checked interfaces.  A final critical hit passes through a supplied
+`ExposureBound`, the direction criterion turns the stage hit into the exact
+formed separator, and the singleton theorem returns `StageStabilized`.
+
+Finding: the 0.91 branch was stronger than expected in its simplicity.  No
+universe or witness repacking was needed because `DirectionHit` preserves both
+the formed-point evidence and its chart path.  This is a positive adapter: it
+uses neither the searchable converse nor any completion of the stage world.
+
+Controls: identical Bool stage/final worlds make exposure the identity and
+recover the depth-two stabilization certificate.  The diagonal/ambient
+control still proves there is no `ExposureBound`, so mere inclusion cannot
+enter the adapter.
+
+Gate: standalone Agda and `sh formal/check.sh` passed; Lean completed 8,816
+jobs.  Module/root import commit `5529f256`; claim `764eaedb`; msgs 0664/0666.
+
+Resume: the generic composition is closed.  Accept the next step only from an
+actual generated arithmetic world that constructs `ExposureBound` causally.
+An eventual-world density or closure theorem is not a substitute, and the
+adapter still carries no acquisition-time or coherent-memory price.
