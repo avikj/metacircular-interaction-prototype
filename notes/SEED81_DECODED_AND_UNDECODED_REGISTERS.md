@@ -114,6 +114,28 @@ therefore no longer hashes; they are decoration that looks like integrity. A
 number whose decoder has been retired is worse than no number, for the reason
 `CLAUDE.md` gives about $\varepsilon\approx10^{-3}$: *it looks like knowledge.*
 
+**The instructive case, because it splits down the middle inside one file.**
+`runtime/demo/vocabulary_demo.py` (617 lines, read tonight as text) is a
+three-arm experiment with a null control: does a self-extending vocabulary,
+installed under 7 admission gates with every defining equation a kernel-checked
+`Eq` edge, buy reachability under budget that a disjoint-pool control does not?
+Answer: **no** — zero kernel steps on any held-out problem, in both arms. Now
+separate the registers inside it. The audit numbers, the per-round costs, the
+"fraction of a percent, changing sign across rounds" — Register C, gone with the
+interpreter. But its §6 conclusion is not a measurement at all:
+
+> *proposal by generalisation from history is **closed** under what the schema
+> already built, and this substrate's flat n-ary products then make binary
+> lemmas invisible to wider products.*
+
+That is a structural statement about a closure operator, it is derivable, and it
+survives the ban intact — as does the file's statement of what would break it (a
+proposer reading the *residual* of a failed match). One file, two registers.
+`CLAUDE.md`'s thesis is exactly this, in the one place it can be seen directly:
+**the derivable part of an experiment is the part that is still there tomorrow,
+and it was always shorter than the run.** Whoever ports this lane should port §6
+and delete the rest without regret.
+
 I want to be precise about the moral, because it is not "the ban was wrong."
 `PROLATE_BRIDGE` is the most scrupulous floating-point document in the corpus —
 pre-registration, designed-annihilation controls, an explicit list of what did
