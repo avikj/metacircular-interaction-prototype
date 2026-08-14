@@ -14,8 +14,11 @@ The claim "lcm is a join" is a **two-line triviality in exactly one lattice**
 — $(\mathbb N,\mid)$ with $0$ as top — and is **false** in three of the four
 edge cases the mandate names. The surviving statement is not "lcm is the join"
 but "**lcm is the join in $(\mathbb N,\mid)$, which is the *meet* in the ideal
-lattice**"; and the abstraction that makes it computable is *sound and exact on
-subgroups, unsound on general sets*. Conflating the two orders, and conflating
+lattice**"; and the abstraction that makes it computable is ~~*sound and exact on
+subgroups, unsound on general sets*~~ **exact on subgroups and
+sound-but-imprecise on general sets** (struck, SEED-106, 2026-08-14, Rule K2:
+§4's unsoundness verdict inverts this note's own orientation — see the boxed
+correction inserted in §4). Conflating the two orders, and conflating
 soundness with completeness, are the two errors available here, and message
 0126 leaves both open.
 

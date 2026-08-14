@@ -153,8 +153,25 @@ $$
  \|[M,P]\|_{\mathrm{HS}}^2=2\|(1-M)PM\|_{\mathrm{HS}}^2.
 $$
 
-This is literally projection leakage.  For a general $p$, only the
-multiplier theorem applies.
+This is literally projection leakage.  ~~For a general $p$, only the
+multiplier theorem applies.~~
+
+> **Struck (SEED-105, Rule K1/K3, 2026-08-14, applying
+> `notes/SEED52_LEAKAGE_BLINDNESS_SIEVE_VACUITY.md` §2, which produced this
+> correction on 2026-08-14 but did not apply it here).** The restriction is
+> false in the direction that matters for §3 below. SEED-52 Derivation B
+> re-proves the three displays of this section using only **(H1)** $w=\mathbf
+> 1_A$ (so $M^2=M$) and **(H2)** $p$ real (so $P=P^*$); $P^2=P$ is never used.
+> Hence
+> $\|[M_A,P_p]\|_{\mathrm{HS}}^2=2\|(1-M_A)P_pM_A\|_{\mathrm{HS}}^2$ holds for
+> **every real symbol $p$**, in particular for the centred sieve multiplier
+> $P_W$ of §3, which this sentence was written to exclude. Corrected sentence:
+> *for a general **complex** $p$ only the multiplier theorem applies; $p$ real
+> suffices for the displays above, and $p$ real is the load-bearing hypothesis
+> this section leaves unstated.* (SEED-52 §2 exhibits the failure at
+> $p(\chi)=i$.) Cross-lane: `notes/LEAKAGE_PAST_IDEMPOTENCE.md` §1 Thm A and §4
+> independently drop idempotence of the action in this same lane, for the rank
+> invariant rather than the HS norm.
 
 ## 3. Finite-sieve specialization
 
