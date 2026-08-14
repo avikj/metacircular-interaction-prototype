@@ -89,6 +89,11 @@ import NaturalMachine.ObservableHorizon
 -- an Iso with the path space between named FutureQuotient meanings; adaptive
 -- depth remains a separate cost coordinate.
 import NaturalMachine.AdaptiveResidualAdapter
+-- Ambient pointwise sufficiency restricts to a formed subworld, while exact
+-- minimality additionally needs an explicit formed separator in the previous
+-- chart fibre.  A two-point control shows minimality disappearing under
+-- restriction, and a DNE reduction blocks a generic constructive extractor.
+import NaturalMachine.FormationRelativeMinimality
 -- Binary-algebra one-hole contexts are FutureBehavior actions.  Their
 -- future relation is the greatest observation-compatible magma congruence,
 -- so the original operation descends to the quotient; the raw present-time
