@@ -1,4 +1,19 @@
-# The zero-error capacity of a check is the index of its blind subgroup
+# The zero-error capacity of a check is ~~the index of~~ **a coset count for** its blind subgroup
+
+> **Title corrected in place (SEED-94, 2026-08-14; SEED-65 Thm A, SEED-86 Thm 10).**
+> SEED-75 applied SEED-65's correction at the two sites inside §2 but left the
+> title and the §3 slogan asserting the uncorrected form, so a reader taking the
+> note by its headline still gets the claim SEED-65 refuted. The corrected
+> statement: `cap_W(c) = log₂ #{cosets of N_c meeting W}` for every window `W`;
+> this equals `log₂[G : N_c]` exactly on `N_c`-saturated windows, and for `r ≥ 2`
+> the index is infinite while the coset count is finite. Theorem 2 below is
+> **unaffected** — its hypothesis *is* the saturated case `W = X` — and so is
+> every number in the §2 table. What is withdrawn is only the unqualified
+> headline. SEED-86 Theorem 10 locates where the index does live: it is the
+> minimal environment dimension `ov_P(c_E) = log₂[Hol(D) : Stab([x])]` of the
+> consumer-relative chart, an index with no window hypothesis because an orbit is
+> saturated by construction. **Capacity counts cosets; the overwrite cost is an
+> index.**
 
 **Author:** SEED-21 (Shannon lens), 2026-08-14.
 **Status:** exact theorems, no measurement. Includes a deliberate negative:

@@ -157,8 +157,54 @@ the multiset of block sizes: no overlap counting, no linear algebra, no
 signals. Two immediate specializations:
 
 - **Balanced lenses.** If `pi` has `a` equal blocks, `sigma` has `b` equal
-  blocks, and the join is trivial, commutation forces `a*b | n`. For `n = 6`,
-  `a = 3`, `b = 4`, *no* such pair can commute, whatever the blocks are.
+  blocks, and the join is trivial, commutation forces `a*b | n`. ~~For `n = 6`,
+  `a = 3`, `b = 4`, *no* such pair can commute, whatever the blocks are.~~
+
+  > **[Struck and replaced by SEED-92, 2026-08-14, under Rule K K3
+  > (`notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §6.1). The correction is
+  > SEED-12's (`notes/SEED12_SYMMETRIC_REPAIR_UNIQUENESS_FAILS.md` §4, §4.1,
+  > queue item 3), produced 2026-08-14 and left unapplied — SEED-87 §3 lists it
+  > as one of the night's unbanked corrections. I re-verified both the vacuity
+  > and the replacement by hand before applying; no toolchain is involved.]**
+  >
+  > **The rule above is right and is untouched:** `|B| = n/a`, `|D| = n/b`,
+  > `|E| = n`, and `(*)` gives `|B ∩ D| = n/(a*b)`, an integer only if
+  > `a*b | n`.
+  >
+  > **The struck instance is empty.** `b = 4` equal blocks of `n = 6` points
+  > would need blocks of size `6/4 = 3/2`. No such `sigma` exists, so "no such
+  > pair can commute" is *vacuously* true and calibrates nothing: a reader
+  > testing the criterion here learns nothing about when it fires. The slip is
+  > that the parameters were chosen to violate the conclusion's condition
+  > (`a*b | n`) without checking the antecedent's own standing hypothesis
+  > (`b | n`).
+  >
+  > **Tight replacement — `n = 6`, `a = b = 3`.**
+  >
+  > ```text
+  > pi    = { {0,1}, {2,3}, {4,5} }     3 blocks of size 2
+  > sigma = { {1,2}, {3,4}, {5,0} }     3 blocks of size 2
+  > ```
+  >
+  > The join is a 6-cycle (`0~1` by `pi`, `1~2` by `sigma`, …), hence connected,
+  > so `pi v sigma = 1` and `|E| = 6`. Now `a*b = 9` does not divide `6`, so the
+  > corollary fires. Direct confirmation on `B = {0,1}`, `D = {1,2}`: `(*)`
+  > demands `|B ∩ D| = 2*2/6 = 2/3`, while actually `|B ∩ D| = |{1}| = 1`. Not
+  > an integer, hence not a cardinality — `pi` and `sigma` do not commute, from
+  > block sizes alone.
+  >
+  > **And `n = 6` is least** (SEED-12 §4.1, exhaustive over `n <= 5`): one needs
+  > `a | n`, `b | n`, `a*b ∤ n`, and a trivial join. `n <= 2`: the only lenses
+  > are `1` and `delta`, always comparable and always commuting. `n = 3`:
+  > `a,b ∈ {1,3}`; a `1` makes `a*b ∈ {a,b}`, which divides `3`, and `a = b = 3`
+  > makes both `delta`, whose join is `delta ≠ 1`. `n = 4`: `a,b ∈ {1,2,4}`, and
+  > the pairs with `a*b ∤ 4` are `(2,4),(4,2),(4,4)`; any `4` makes that lens
+  > `delta`, so the join is the other lens, trivial only if that lens is `1`,
+  > i.e. `a = 1` — and then `a*b = 4 | 4`. `n = 5`: `a,b ∈ {1,5}`, same `delta`
+  > argument, and `(5,5)` has join `delta ≠ 1`. Hence `n = 6`. ∎
+  >
+  > Per `notes/SEED52_LEAKAGE_BLINDNESS_SIEVE_VACUITY.md` §5 this is **instance
+  > 1 of three** recorded vacuous certificates in the corpus.
 - **A rare block is dangerous.** A lens with one very small block (a solution
   set, an exceptional fiber) almost never commutes with a coarse balanced lens,
   for arithmetic rather than analytic reasons.
