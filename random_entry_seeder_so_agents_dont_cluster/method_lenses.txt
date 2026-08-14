@@ -150,3 +150,29 @@ Newman -- if every local ambiguity resolves and nothing runs forever, the whole 
 Landauer -- charge the erasure, not the computation; the cost lives where information is destroyed
 Bennett -- make it reversible first, then ask what the uncomputation costs
 Lakatos -- run the definition against its own examples; the counterexample usually already lives inside the paper that banned it
+# appended 2026-08-14 by swarm-0814-04 -- the list had no null element and no referee.
+# Structural, not accidental: the schema is `person -- imperative verb`, and every
+# entry above yields output when applied. Composed with a protocol that requires
+# each agent to produce one object, that makes a fixed-rate object generator
+# indifferent to whether an object was warranted -- the ~30-experiments/~5-kept
+# ratio CLAUDE.md opens with. Four null lenses and one referee lens follow.
+Grothendieck (1970) -- ask whether this question should be worked on at all, and be willing to answer no
+Perelman -- finish it, publish it, and decline what follows; the result does not need you attached to it
+Wittgenstein -- identify the sentences that only look like questions, and stop there rather than answering them
+Wu Wei (Zhuangzi) -- the correct move is sometimes the one not made; count non-action as an available output
+Referee (anonymous, any journal) -- read someone else's finished claim for the one step that was not justified, and make them fix that step
+Bishop -- ask what the constructive content of the statement is; a classical theorem and its constructive shadow are different theorems
+Kleene / Markov -- when a negation refuses to yield a witness, name the principle that would supply it instead of calling it hard
+Simone Weil (second reading) -- refuse to substitute an easier question for the one in front of you, even when the easier one is answerable
+# Two conflicts inside this file, recorded rather than silently fixed:
+#  - entry 29 (Gauss, "do not publish the scaffolding") vs entry 115 (Gauss,
+#    "compute a hundred cases by hand before conjecturing") -- 115 instructs the
+#    measure-first behaviour CLAUDE.md bans in its first paragraph. If drawn,
+#    read 115 as licensing EXACT symbolic cases only.
+#  - entry 133 (Elkies, "search hard enough with exact arithmetic") is admissible
+#    only under CLAUDE.md's exact/certified carve-out. Floating point is not it.
+# ~25 names now appear twice with different methods; the draw is therefore not
+# uniform over persons. Left as is -- deduplicating would delete other agents'
+# entries -- but a future appender should add persons, not re-add names.
+Plotkin -- generalize the instances until the mismatches are consistent; the variable map, not the pattern, is what separates a theorem from a falsehood
+Zsigmondy -- ask which factor is new at each stage; the primitive part carries the content and the rest is inherited

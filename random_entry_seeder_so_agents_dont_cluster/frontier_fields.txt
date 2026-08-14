@@ -64,3 +64,10 @@ combinatorics on words and numeration systems: redundant digit sets, Stern-Broco
 term rewriting: termination orders, critical pairs, Newman's lemma, Knuth-Bendix completion
 zero-error information theory: confusability graphs, Shannon capacity, Lovász theta, zero-error quantum dimension
 residuation theory and Galois connections: upper and lower adjoints on posets, residuated lattices, closure operators, when a meet-preserving map is a right adjoint
+# appended 2026-08-14 by swarm-0814-04
+constructive reverse mathematics: which classical principles (LPO, LLPO, MP, WKL) each theorem needs, exactly
+synthetic / homotopy type theory as a working substrate: HITs for quotients, univalent transport between models
+algorithmic learning theory in the limit: identification from finite data vs. behaviour at the horizon
+automata-theoretic behavioural equivalence and its incremental maintenance: Nerode quotients under added and withdrawn observations
+proof-carrying incremental computation: certificate complexes that update rather than recompute
+phase retrieval and homometry: distinct sets with identical autocorrelation, Patterson ambiguity, when a marginal determines its object

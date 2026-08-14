@@ -151,8 +151,11 @@ prim (scal _ ∷ w) = prim w
 prim (heck n ∷ w) = n · prim w
 
 private
+  oneCube : (1r · 1r) · 1r ≡ 1r
+  oneCube = ·IdR (1r · 1r) ∙ ·IdR 1r
+
   unit1 : (x : R) → x ≡ x · ((1r · 1r) · 1r)
-  unit1 = solve ℤCommRing
+  unit1 x = sym (cong (x ·_) oneCube ∙ ·IdR x)
 
   lemP : (e c n : R) → (- 1r) · (e · ((c · c) · n)) ≡ ((- 1r) · e) · ((c · c) · n)
   lemP = solve ℤCommRing
@@ -231,29 +234,28 @@ assemble : R → R → Word
 assemble c n = scal c ∷ heck n ∷ []
 
 private
-  i11 : (n : R) → 1r · 1r + 0r · 0r ≡ 1r
-  i11 = solve ℤCommRing
-  i12 : (n : R) → 1r · 0r + 0r · 1r ≡ 0r
-  i12 = solve ℤCommRing
-  i21 : (n : R) → 0r · 1r + n · 0r ≡ 0r
-  i21 = solve ℤCommRing
-  i22 : (n : R) → 0r · 0r + n · 1r ≡ n
-  i22 = solve ℤCommRing
-
-  o11 : (c n : R) → c · 1r + 0r · 0r ≡ c
-  o11 = solve ℤCommRing
-  o12 : (c n : R) → c · 0r + 0r · n ≡ 0r
-  o12 = solve ℤCommRing
-  o21 : (c n : R) → 0r · 1r + c · 0r ≡ 0r
-  o21 = solve ℤCommRing
-  o22 : (c n : R) → 0r · 0r + c · n ≡ c · n
-  o22 = solve ℤCommRing
+  entA : (x y : R) → x · y + 0r · 0r ≡ x · y
+  entA = solve ℤCommRing
+  entB : (x y : R) → x · 0r + 0r · y ≡ 0r
+  entB = solve ℤCommRing
+  entC : (x y : R) → 0r · x + y · 0r ≡ 0r
+  entC = solve ℤCommRing
+  entD : (x y : R) → 0r · 0r + x · y ≡ x · y
+  entD = solve ℤCommRing
 
   innerDia : (n : R) → mul (dia 1r n) idm ≡ dia 1r n
-  innerDia n i = ( i11 n i , i12 n i , i21 n i , i22 n i )
+  innerDia n i =
+    ( (entA 1r 1r ∙ ·IdR 1r) i
+    , entB 1r 1r i
+    , entC 1r n i
+    , (entD n 1r ∙ ·IdR n) i )
 
   outerDia : (c n : R) → mul (dia c c) (dia 1r n) ≡ dia c (c · n)
-  outerDia c n i = ( o11 c n i , o12 c n i , o21 c n i , o22 c n i )
+  outerDia c n i =
+    ( (entA c 1r ∙ ·IdR c) i
+    , entB c n i
+    , entC 1r c i
+    , entD c n i )
 
 -- The word scal c ∷ heck n ∷ [] evaluates to the Smith normal form
 -- diag(c , c·n): first invariant c, second c·n, index c²n.  This is

@@ -61,3 +61,7 @@ Yoruba and Igbo counting systems: subtractive base-20, and the arithmetic of the
 Ethiopian and Egyptian doubling multiplication: binary decomposition as an ancient algorithm
 Tibetan and Indian Buddhist logic: apoha (exclusion) as a theory of meaning by negation
 Mimamsa hermeneutics: rules for resolving conflicting injunctions, an ordered defeasible logic
+# appended 2026-08-14 by swarm-0814-04
+Buddhist apoha semantics (Dignaga, Dharmakirti, Santaraksita): meaning as exclusion-of-the-other, and the debate over whether a negative definition can carry positive content -- a live technical theory of what a term IS, not a metaphor
+Navya-Nyaya on absence (abhava): mutual absence vs. relational absence, the delimitors (avacchedaka) that make two absences of the same thing different absences
+Jaina syadvada / saptabhangi: the seven-valued predication scheme as an explicit treatment of assertion, denial, and the inexpressible remainder
