@@ -44,7 +44,7 @@ def toDFA : DFA A C.State where
   start := C.start
   accept := { state | C.rep state ∈ M.accept }
 
-instance [DecidablePred (fun state : X ⇒ state ∈ M.accept)] :
+instance [DecidablePred (fun state : X => state ∈ M.accept)] :
     DecidablePred (fun state : C.State => state ∈ C.toDFA.accept) :=
   fun state => show Decidable (C.rep state ∈ M.accept) from inferInstance
 
@@ -107,8 +107,8 @@ theorem accepts_eq : C.toDFA.accepts = M.accepts := by
   rw [show word ∈ C.toDFA.accepts ↔
       word ∈ M.acceptsFrom (C.rep C.start) from
     C.mem_acceptsFrom_iff C.start word]
-  exact iff_of_eq (by simpa [behavior, DFA.eval, run_eq_evalFrom] using
-    C.start_sound word)
+  exact iff_of_eq (by
+    simpa [behavior, DFA.eval, run_eq_evalFrom] using (C.start_sound word))
 
 theorem leftQuotient_eq (pre : List A) :
     C.toDFA.accepts.leftQuotient pre = M.accepts.leftQuotient pre := by
@@ -118,7 +118,7 @@ theorem leftQuotient_eq (pre : List A) :
 stronger than the proposition that the language is regular. -/
 theorem accepts_isRegular : M.accepts.IsRegular := by
   apply Language.isRegular_iff.mpr
-  exact ⟨C.State, inferInstance, C.toDFA, C.accepts_eq⟩
+  exact ⟨C.State, C.fintypeState, C.toDFA, C.accepts_eq⟩
 
 /-- Install the chart cardinality as the sufficient search horizon. -/
 def shortestLeftQuotientWitness
@@ -184,7 +184,7 @@ This, not mere finiteness or coverage, is the extra datum required before
 calling the whole chart reduced. -/
 def IsReduced : Prop :=
   ∀ ⦃left right : C.State⦄,
-    FutureEq C.toDFA.step (fun state ⇒ state ∈ C.toDFA.accept) left right →
+    FutureEq C.toDFA.step (fun state => state ∈ C.toDFA.accept) left right →
       left = right
 
 end FiniteBehavioralPresentation

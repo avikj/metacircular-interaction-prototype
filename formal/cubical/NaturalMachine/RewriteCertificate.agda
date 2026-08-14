@@ -5,7 +5,7 @@ module NaturalMachine.RewriteCertificate where
 open import Cubical.Foundations.Prelude
 
 data Tm : Type₀ where
-  var  : Tm
+  var yvar zvar uvar vvar wvar : Tm
   zero : Tm
   suc  : Tm → Tm
   add  : Tm → Tm → Tm
@@ -24,6 +24,11 @@ data Derivation : Tm → Tm → Type₀ where
 
 subVar : Tm → Tm → Tm
 subVar u var = u
+subVar u yvar = yvar
+subVar u zvar = zvar
+subVar u uvar = uvar
+subVar u vvar = vvar
+subVar u wvar = wvar
 subVar u zero = zero
 subVar u (suc t) = suc (subVar u t)
 subVar u (add l r) = add (subVar u l) (subVar u r)
