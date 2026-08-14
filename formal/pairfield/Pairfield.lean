@@ -48,6 +48,7 @@ import Pairfield.AdaptiveResidualSplitting
 import Pairfield.AdaptiveResidualPartition
 import Pairfield.AdaptiveSplitPotential
 import Pairfield.AdaptiveResidualPotentialAdapter
+import Pairfield.AdaptiveResidualConstructor
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter

@@ -548,3 +548,24 @@ jobs; focused `lake build Pairfield.AdaptiveResidualPotentialAdapter` passes
 3,039.  Resume at the conditional constructor: a decreasing potential bounds
 a tree only after an informative safe action is supplied at every
 nonhomogeneous live cell; the potential does not prove such an action exists.
+
+## 2026-08-14T09:53:00Z — conditional constructor checked
+
+Continued rather than stopping at the potential return.
+`AdaptiveResidualConstructor` defines the indexed witness type
+`ResidualSplitPlan M cell`: homogeneous cells stop, while query nodes carry
+the safe action and recursive plans for the two advanced response cells.  Its
+compiler emits the native `BoolExperimentTree` and a checked
+`ResidualSplitting` certificate.  Its decompiler consumes any certified tree,
+and recompilation is definitionally faithful up to a proved equality.
+
+Using `residualSplitting_iff_separatesOn`, Lean now checks the local conditional
+existence theorem: the plan type is inhabited iff some native tree separates
+the Mathlib residuals on that current-constant cell.  This is deliberately not
+an unconditional ADS existence claim.
+
+Focused validation passes 3,040 jobs.  The remaining height joint is now
+precise: the square potential ignores safe constant-response steering.  Either
+find a second rank controlling those zero-decrease moves or prove a
+normalization theorem that removes them before transporting the classical
+quadratic bound.
