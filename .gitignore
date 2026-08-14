@@ -16,8 +16,5 @@ machine/machine.log
 machine/mathmachine
 natural_machine_cpu_loop_rust/natural_machine
 natural_machine_cpu_loop_rust/verify
-<<<<<<< HEAD
-=======
 natural_machine_cpu_loop_rust/cage
 random_entry_seeder_so_agents_dont_cluster/seed
->>>>>>> e3e4254 (Dissolve the entry attractor: every agent draws a random door)
