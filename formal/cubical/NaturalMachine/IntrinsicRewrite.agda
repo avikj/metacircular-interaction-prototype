@@ -125,3 +125,78 @@ reweave-result locus (advance motion rest) = reweave-result locus rest
 add-one-under-right :
   result (profile add-one (under-right var root)) ≡ add var (suc var)
 add-one-under-right = refl
+
+------------------------------------------------------------------------
+-- Persistent incremental reweaving
+------------------------------------------------------------------------
+
+-- A local delta remembers both of its boundaries.  Unlike `Run`, it cannot
+-- halt at an arbitrary intermediate term: `done` is available only when the
+-- current term is the declared target.  This lets an old weave be reused as
+-- the tail of a new one without comparing or rebuilding endpoints.
+data Delta (target : Tm) : Tm → Type₀ where
+  done : Delta target target
+  more : {t u : Tm} → Step t u → Delta target u → Delta target t
+
+-- The persistent state stores the generative run once.  Rooted views are
+-- projections, not a materialised table containing one copy per locus.
+record Weave (t : Tm) : Type₀ where
+  constructor keep
+  field
+    shared-run : Run t
+
+open Weave public
+
+view : {t : Tm} → Weave t → (locus : Locus) → Run (plug locus t)
+view weave locus = reweave locus (shared-run weave)
+
+-- Splice a delta in front of an existing run.  Recursion touches only the
+-- new dependency cone; at `done` the old run is returned literally.
+splice : {s t : Tm} → Delta t s → Run t → Run s
+splice done old = old
+splice (more motion delta) old = advance motion (splice delta old)
+
+install : {s t : Tm} → Delta t s → Weave t → Weave s
+install delta weave = keep (splice delta (shared-run weave))
+
+-- Transport only the delta through a requested root, then share the old
+-- rooted tail.  This is the query form of the dependency-cone algorithm.
+weave-delta : (locus : Locus) {s t : Tm} →
+  Delta t s → Delta (plug locus t) (plug locus s)
+weave-delta locus done = done
+weave-delta locus (more motion delta) =
+  more (weave-step locus motion) (weave-delta locus delta)
+
+-- Key incremental invariant: querying after installation is exactly
+-- delta-transport followed by the previously available rooted view.  The
+-- proof is structural in the new delta and never traverses the old run.
+view-install : (locus : Locus) {s t : Tm} (delta : Delta t s)
+  (weave : Weave t) →
+  view (install delta weave) locus
+    ≡ splice (weave-delta locus delta) (view weave locus)
+view-install locus done weave = refl
+view-install locus (more motion delta) weave =
+  cong (advance (weave-step locus motion))
+       (view-install locus delta weave)
+
+-- Consequently the persistent algorithm has the same global endpoint law
+-- as full eager reweaving.
+view-result : {t : Tm} (weave : Weave t) (locus : Locus) →
+  result (view weave locus) ≡ plug locus (result (shared-run weave))
+view-result weave locus = reweave-result locus (shared-run weave)
+
+-- A concrete one-step update.  `old` is the already woven tail; installation
+-- adds only the new head and the right-root query exposes the same sharing.
+add-one-tail : Weave (suc var)
+add-one-tail = keep halt
+
+add-one-delta : Delta (suc var) (add var (suc zero))
+add-one-delta =
+  more (add-suc var zero)
+    (more (suc-step (add-zero var)) done)
+
+incremental-under-right :
+  result (view (install add-one-delta add-one-tail)
+               (under-right var root))
+    ≡ add var (suc var)
+incremental-under-right = refl
