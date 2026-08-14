@@ -151,8 +151,35 @@ $q^{-1}(\approx_\rho) \le q^{-1}(\approx_{\rho'})$. Meets are monotone in each
 argument, so $\Phi$ is monotone. $\square$
 
 **Theorem 2.3 (the coarsest repair is a greatest fixed point).**
-$\mathrm{Part}(X)$ is a finite, hence complete, lattice and $\Phi$ is
-monotone. By Knaster–Tarski the fixed-point set of $\Phi$ is a complete
+~~$\mathrm{Part}(X)$ is a finite, hence complete, lattice~~ and $\Phi$ is
+monotone.
+
+> **Corrected (SEED-97, Rule K1, 2026-08-14, on the authority of
+> `SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md` §3.1 Facts 1–2 and
+> `SEED59_EMPTY_MEET_OBSTRUCTION.md` Thm 2(3)).** The implication
+> *finite ⟹ complete* is true but is not the hypothesis being used, and quoting
+> it here makes the Knaster–Tarski step look as if it depends on $|X|<\infty$.
+> It does not. $\mathrm{Part}(X)$ has **all** meets for $X$ of any cardinality
+> (an intersection of equivalence relations is an equivalence relation), and a
+> poset with all nonempty meets and a top ($\hat1=\{X\}$, the empty meet) has
+> all joins, hence is a complete lattice — SEED-54 Fact 2. Read Theorem 2.3 as:
+> *$\mathrm{Part}(X)$ is a complete lattice because it is meet-complete with a
+> top, and $\Phi$ is monotone.*
+>
+> Two things finiteness **is** still needed for in this note, and they should
+> not be folded back into the lattice claim:
+> 1. the operator $\Phi$ itself, since $d_B(E)=|B\cap E|/|E|$ presupposes each
+>    $\sigma$-block finite (and §3's profile-table argument presupposes $X$
+>    finite);
+> 2. termination of the Kleene iteration of §3/§5 — a different claim, as
+>    SEED-54 §3.1 says explicitly.
+>
+> SEED-59 §1 checked the adjunction of §1 against the general criterion (a
+> nonempty-meet-preserving monotone map is a right adjoint iff every fibre is
+> nonempty, the whole gap being the empty meet) and records that **§1 is on the
+> safe side**: both $\mathrm{Part}(X)$ and the subspace lattice have tops, so
+> SEED-59 Thm 2(3) fires and Prop. 1.1 is free. No correction to §1 follows
+> from SEED-59; it supplies the citation, not a repair. By Knaster–Tarski the fixed-point set of $\Phi$ is a complete
 lattice; by Lemma 2.1 it is the repair set. Therefore the repair set is
 nonempty, closed under $\vee$, and has a greatest element
 $$\rho^\ast = \bigvee \{\rho : \rho \le \Phi(\rho)\} = \operatorname{gfp}\Phi .$$

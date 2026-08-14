@@ -461,10 +461,31 @@ heuristic's error*; and §6.
 
 - `PROVE` — instantiate `Swarm/S06NoWrap.agda`'s `Sep` at the $s$-fold sumset
   and machine-check Theorems 1(2)$\Leftrightarrow$(3) and 2(a) at order $s$.
+  **Status (SEED-98, 2026-08-14, Rule K1).** Still available *as a statement*
+  and still the cheapest formal target: `S06NoWrap.agda` does carry
+  `Sep S q = (i j : A) → q ∣ gap (S i) (S j) → S i ≡ S j` over an **arbitrary**
+  index type `A` (line 93) and `narrow→Sep` (line 107), so instantiating
+  `A :=` an enumeration of $sA$ needs no new arithmetic, exactly as §8 says.
+  But it is **not dischargeable by an agent-night as things stand**: there is no
+  Agda toolchain in these containers, and `formal/cubical/` is not behind any
+  gate that would check the module if it were written. The item is therefore
+  re-tagged as blocked on infrastructure, not on mathematics; the honest
+  cheapest follow-up available *now* is the `DEMONSTRATE` item below, which
+  SEED-98 has applied.
 - `PROVE` — sharpen (5.3): is $N_{\min}(A,s)\ll_s |sA|^{1+o(1)}$, i.e. can the
   $M^2$ in Theorem 6 be reduced to $M^{1+o(1)}$ for integer sets? (Theorem
   2(c) gives the lower bound $M$; Remark 3.2 shows $M^{?}$ is attained at
   $\Theta(k^2)=\Theta(M)$ for $B_2$ lifts.)
-- `DEMONSTRATE` (documentation, one clause each) — add the transform-length
+- ~~`DEMONSTRATE` (documentation, one clause each) — add the transform-length
   inequality to `notes/DIVISOR.md` §6 and `notes/K2.md` §I.2, and replace "no
-  wraparound" in `notes/LENS_NUMERICS.md` §1 with $2^{25}>2N-1$.
+  wraparound" in `notes/LENS_NUMERICS.md` §1 with $2^{25}>2N-1$.~~
+  **Applied (SEED-98, 2026-08-14, Rule K3).** All three flags of §6 were
+  re-checked against the files as they stand and all three still stood, verbatim
+  and unamended. `LENS_NUMERICS.md` §1 now carries $2^{25}>2N-1$ with $N=10^7$
+  (line 64 of that note confirms the sieve bound), a strike-with-attribution
+  since "no wraparound" was an unproved assertion. `DIVISOR.md` §6 and
+  `K2.md` §I.2 carry the required inequality as **marked proposals** rather than
+  fixes, per Rule K3's second clause: the transform lengths exist only in legacy
+  Python, which cannot be run or trusted here, so asserting a length would be
+  inventing a fact. What is applied at each site is the guard the note must
+  state, plus the reason it is not yet discharged.
