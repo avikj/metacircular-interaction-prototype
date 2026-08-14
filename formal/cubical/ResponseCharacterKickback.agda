@@ -53,6 +53,10 @@ infixl 7 _·s_
 ·s-comm minus plus  = refl
 ·s-comm minus minus = refl
 
+·s-cube : (a : Sign) → (a ·s a) ·s a ≡ a
+·s-cube plus  = refl
+·s-cube minus = refl
+
 sign-code : Sign → Bool
 sign-code plus  = true
 sign-code minus = false
@@ -204,12 +208,12 @@ t2 +₃ t2 = t1
 
 trit-one-plus : (χ : Character Z3 _+₃_ t0)
               → Character.char χ t1 ≡ plus
-trit-one-plus χ with Character.char χ t1
-... | plus = refl
-... | minus = elim (plus≢minus
+trit-one-plus χ = sym
   (  sym (Character.char-unit χ)
    ∙ Character.char-mul χ t2 t1
-   ∙ cong (λ a → a ·s minus) (Character.char-mul χ t1 t1)))
+   ∙ cong (λ a → a ·s Character.char χ t1)
+          (Character.char-mul χ t1 t1)
+   ∙ ·s-cube (Character.char χ t1))
 
 trit-two-plus : (χ : Character Z3 _+₃_ t0)
               → Character.char χ t2 ≡ plus

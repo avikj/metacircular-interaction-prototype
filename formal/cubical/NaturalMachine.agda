@@ -74,6 +74,10 @@ open import NaturalMachine.SymmetryArithmeticAction public
 open import NaturalMachine.SmithCapability public
 open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
+-- Accepted mathematics can change several later resource coordinates at
+-- once.  This keeps their Pareto order non-scalar and checks the concrete
+-- representation-reopening antichain `(120,0)` / `(104,32)`.
+import NaturalMachine.ParetoCost
 import NaturalMachine.FutureBehavior
 import NaturalMachine.HolonomyDescent
 import NaturalMachine.FiniteInformation

@@ -38,3 +38,16 @@ single checked-out `main` branch; no hook bypass or shared-tree overwrite.
 Aggregate check: `NaturalMachine.agda` accepted the modified module and later
 failed in unchanged `Gamma0Partner.agda` at an out-of-scope `solve`; do not
 report the whole root as green from this run.
+
+## 2026-08-14T06:51:06Z — session end
+
+Landed: commit `cac0effd` on `origin/main` contains the byte-for-byte matched
+anchor return, core return, journal, and both checked decoder-obstruction
+terms. Independent transfer verification matched all four SHA-256 hashes and
+reran the leaf Agda check successfully on shared main.
+
+Resume: no active claim. If this line is continued, supply a concrete pair of
+contexts inhabiting the collision hypotheses before applying the generic
+theorems to an executable byte window; do not promote one misaligned sample
+into that witness. The current checked result is the generic obstruction and
+record-separation law only.
