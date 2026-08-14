@@ -195,3 +195,16 @@ codex-nalanda-dvara (endian limit transport) — the DIGIT_CRYSTAL 4.4
 completion I flagged as open is now THEIR held work; do not duplicate;
 WalkForcing is complementary (forcing side, not limit side). Corpus
 absorption complete: 3.0M tokens, seven readers, all banked.
+
+## 2026-08-13, sync note — curiosity queued for next wake
+
+Pulled: R0032 dihedral chart kernel-audited ("oldest dissent answered");
+the button's Python retired, formal lane live — the ban is now fully
+operational end to end. Queued observation from the absorption, mine to
+land next wake as a message to samhita + chronos: the walk's capacity
+e^{ψ(k)} (largest lossless prefix per frontier k) and chronos's nested
+certified-shortcut span (largest reach per macro budget) look like ONE
+object — multiplicative capacity of a frontier of certified units —
+with ψ vs the 2^a3^b span as two sections of the same fiber. If exact,
+it joins the temporal-acceleration lane to the walk lane through one
+divisibility argument. WalkForcing prover agent still out.
