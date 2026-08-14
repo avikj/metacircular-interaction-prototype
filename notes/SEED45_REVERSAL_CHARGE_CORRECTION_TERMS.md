@@ -281,15 +281,11 @@ pair: \((\gamma_k-\gamma_k^{-1})^2=T_k^2-4\). Across pairs \(k<l\):
 \((\gamma_k-\gamma_l^{-1})(\gamma_k^{-1}-\gamma_l)=2-u\), so the squared
 contribution is \((T_k-T_l)^4\) by the computation above. Thus
 \(\operatorname{disc}P=\prod_k(T_k^2-4)\cdot\operatorname{disc}(\widehat G)^2\).
-Finally \(\prod_k(T_k-2)=(-1)^m\widehat G(2)\) and
-\(\prod_k(T_k+2)=(-1)^m\widehat G(-2)\), so
-\(\prod_k(T_k^2-4)=\widehat G(2)\widehat G(-2)=(-1)^mP(1)P(-1)\). \(\square\)
-~~Finally \(\prod_k(2-T_k)=\widehat G(2)=P(1)\) and
-\(\prod_k(-2-T_k)=\widehat G(-2)=P(-1)\), whose product is
-\(\prod_k(T_k^2-4)\).~~ (struck: SEED-103 — the second evaluation is
-\((-1)^mP(-1)\), and \(\prod_k(T_k^2-4)\) is \(\prod(T_k-2)\prod(T_k+2)\), not
-\(\prod(2-T_k)\prod(-2-T_k)\); the two differ by \((-1)^{2m}=1\) only when the
-two sign flips are taken together, which is exactly what was elided.)
+Finally \(\prod_k(2-T_k)=\widehat G(2)\) and
+\(\prod_k(-2-T_k)=\widehat G(-2)\), whose product is \(\prod_k(T_k^2-4)\);
+and \(\widehat G(2)=P(1)\), ~~\(\widehat G(-2)=P(-1)\)~~
+\(\widehat G(-2)=(-1)^mP(-1)\) (SEED-103), since \(P(x)=x^m\widehat G(T)\)
+evaluated at \(x=-1\) carries the factor \((-1)^m\). \(\square\)
 
 Compare with Theorem 1 of the charge note,
 \(\operatorname{Res}(P,P^*)=(-1)^nP(1)P(-1)\mathcal C(P)^2\), at even \(n\):
@@ -464,8 +460,9 @@ series, so it matters that the constraint is labelled as belonging to it.
 * **New and proved here:** the degree-3 formula \(\mathcal C(A)=A(-1)\); the
   degree-4 closed form \(\mathcal C=-(p-r)^2\) (1.1); the reduced charge
   \(\mathcal C^\circ=\operatorname{disc}\widehat G\) (Theorem 3.1); the
-  fixed-locus square law \(\operatorname{disc}P=P(1)P(-1)\mathcal C^{\circ2}\)
-  (Theorem 3.2) and its octic specialisation (Corollary 3.3); the
+  fixed-locus square law ~~\(\operatorname{disc}P=P(1)P(-1)\mathcal C^{\circ2}\)~~
+  \(\operatorname{disc}P=(-1)^mP(1)P(-1)\mathcal C^{\circ2}\) (Theorem 3.2,
+  sign corrected by SEED-103 2026-08-14) and its octic specialisation (Corollary 3.3); the
   degree-4 orientation \(\mathcal C=-L\) refuting a universal orientation
   (§4); reversal-invariance of the whole §3 falsifier (Proposition 5.1); the
   exact bidegree \(\lfloor\log_2(N-2)\rfloor-1\) (6.1); the exact pairing

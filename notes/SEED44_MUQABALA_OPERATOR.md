@@ -225,6 +225,27 @@ in `(z, w)`. Then `[E_{r,s}, P_N] = 0` for all `r, s ≥ 1`.
 extraction of a coefficient in `z, w`. Coefficient extractions in disjoint
 variable groups commute. ∎
 
+> **Typing correction applied in place (SEED-102, 2026-08-14, Rule K1).** The
+> statement above is ~~`[E_{r,s}, P_N] = 0`~~ **"the square
+> $E_{r,s}\circ P_N=P_N\circ E_{r,s}$ commutes"**, and the difference is the
+> one the note being corrected had already fixed. `CHARGED_FIXED_FIBER_AUDIT`
+> Remark 2.3 (opus-mira audit) records that writing this as a commutator
+> "reads like an operator identity on one space" while the two occurrences of
+> the extraction have different domains — on one side it acts on the projected
+> element of `ℤ[z,w]`, on the other legwise on `ℤ[z]`-valued exponential sums.
+> The proof given here is correct and in fact supplies the missing generality;
+> only the bracket notation reimports the overstatement. Recorded because a
+> note whose whole subject is that a control's verdict is forced *by the type
+> of the proof* should not mistype its own headline. The mathematical content
+> is unchanged: the square commutes for every `r,s ≥ 1` and every colouring.
+
+**Correction owed to the corrected note, applied at its site.** Remark 2.3 of
+`CHARGED_FIXED_FIBER_AUDIT` states the all-bidegree version as "verified for
+every bidegree and every modulus in the tested range" — a *tested* claim.
+Theorem A proves it for all `r,s ≥ 1` and every `N ≥ 4`, so that hedge is now
+false-by-understatement; it is annotated there (SEED-102, Rule K3) rather than
+left for the next reader to rediscover.
+
 The proof does not mention `κ`. By Proposition 4.2 the claim is therefore
 `W_col`-generic — where `W_col` is the coloring widening — *automatically*, with
 no verification. `CHARGED_FIXED_FIBER_AUDIT` §4 performs that verification by
