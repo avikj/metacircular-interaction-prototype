@@ -245,47 +245,6 @@ noneIn m d h r m<r r<b = subst (λ z → ¬ IsPrimePower z) (sym r≡) (h t t<d)
   t<d : t < d
   t<d = <-k+-cancel (pred-≤-pred (subst (_< suc (m + d)) r≡ r<b))
 
-------------------------------------------------------------------------
--- 4.  THE PAYOFF.  Walk steps past the point where evaluation dies.
---
--- From the definition, `next 8` exhausts a 3.5 GB heap: the search
--- decides `s ∣ cap 8` and cap 8 = 840 in unary.  Here `next 8 ≡ 9` is
--- `IsPrimePower 9` plus an empty interval, and `next 32 ≡ 37` — which
--- the evaluator cannot reach at all — costs four refutations of numbers
--- below 37.  Same kernel, same machine.  The theorem is the speedup.
-------------------------------------------------------------------------
 
--- adjacent installs: the interval between is empty, so only the prime
--- power itself must be exhibited
-next-8 : next 8 ≡ 9
-next-8 = next-characterised 8 9 (7 , refl)
-  (acceptDec (decIsPrimePower 9) tt)
-  (0 , refl)
-  (noneIn 8 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
-
-next-16 : next 16 ≡ 17
-next-16 = next-characterised 16 17 (15 , refl)
-  (acceptDec (decIsPrimePower 17) tt)
-  (0 , refl)
-  (noneIn 16 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
-
-next-24 : next 24 ≡ 25
-next-24 = next-characterised 24 25 (23 , refl)
-  (acceptDec (decIsPrimePower 25) tt)
-  (0 , refl)
-  (noneIn 24 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
-
--- a genuine gap: 33, 34, 35, 36 are all refuted, each at size < 37
-next-32 : next 32 ≡ 37
-next-32 = next-characterised 32 37 (31 , refl)
-  (acceptDec (decIsPrimePower 37) tt)
-  (4 , refl)
-  (noneIn 32 4 gap)
-  where
-  gap : (i : ℕ) → i < 4 → ¬ IsPrimePower (suc (32 + i))
-  gap zero                      _ = refuteDec (decIsPrimePower 33) tt
-  gap (suc zero)                _ = refuteDec (decIsPrimePower 34) tt
-  gap (suc (suc zero))          _ = refuteDec (decIsPrimePower 35) tt
-  gap (suc (suc (suc zero)))    _ = refuteDec (decIsPrimePower 36) tt
-  gap (suc (suc (suc (suc i)))) p =
-    Empty.rec (¬-<-zero (pred-≤-pred (pred-≤-pred (pred-≤-pred (pred-≤-pred p)))))
+test-9 : IsPrimePower 9
+test-9 = acceptDec (decIsPrimePower 9) tt

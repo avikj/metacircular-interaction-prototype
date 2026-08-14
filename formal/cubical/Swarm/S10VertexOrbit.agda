@@ -67,10 +67,10 @@ module Cage (a b : ℕ) where
   ≡→≤ p = 0 , p
 
   stepA : (s : ℕ) → s · a ≤ suc s · a
-  stepA s = ≤-·k ≤-sucℕ
+  stepA s = ≤-·k {s} {suc s} {a} ≤-sucℕ
 
   stepB : (u : ℕ) → u · b ≤ suc u · b
-  stepB u = ≤-·k ≤-sucℕ
+  stepB u = ≤-·k {u} {suc u} {b} ≤-sucℕ
 
   ----------------------------------------------------------------------
   -- (1) EXISTENCE.  Some vertex index is feasible, for every n.

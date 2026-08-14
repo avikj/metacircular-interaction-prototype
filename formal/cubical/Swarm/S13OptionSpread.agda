@@ -53,6 +53,8 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order
 open import Cubical.Data.Sum using (_⊎_; inl; inr)
+open import Cubical.Data.Sigma using (Σ; _×_; _,_; fst; snd; Σ-syntax)
+open import Cubical.Data.Unit using (Unit; tt)
 open import Cubical.Data.Vec.Base using (Vec; []; _∷_)
 open import Cubical.Relation.Nullary using (¬_)
 import Cubical.Data.Empty as ⊥
@@ -121,30 +123,38 @@ data _◃_ : {m : ℕ} → Vec ℕ m → Vec ℕ m → Type₀ where
 -- 3.  Fibres: an inhabited finite family of cost vectors
 ------------------------------------------------------------------------
 
-data _∈_ {A : Type₀} : {m : ℕ} → A → Vec A m → Type₀ where
-  z∈ : {m : ℕ} {a : A} {v : Vec A m} → a ∈ (a ∷ v)
-  s∈ : {m : ℕ} {a b : A} {v : Vec A m} → a ∈ v → a ∈ (b ∷ v)
+-- Membership and pointwise domination over a fibre are defined by
+-- RECURSION on the vector, not as indexed families: index unification
+-- against `_∷_` is not available in Cubical Agda, and a definition that
+-- fails to compute under transport is not the object we want.
 
-data _≼all_ {m : ℕ} (u : Vec ℕ m) : {j : ℕ} → Vec (Vec ℕ m) j → Type₀ where
-  all[] : u ≼all []
-  all∷  : {j : ℕ} {x : Vec ℕ m} {F : Vec (Vec ℕ m) j}
-        → u ≼ x → u ≼all F → u ≼all (x ∷ F)
+_∈_ : {A : Type₀} {m : ℕ} → A → Vec A m → Type₀
+a ∈ []      = ⊥.⊥
+a ∈ (x ∷ v) = (a ≡ x) ⊎ (a ∈ v)
+
+_≼all_ : {m j : ℕ} → Vec ℕ m → Vec (Vec ℕ m) j → Type₀
+u ≼all []      = Unit
+u ≼all (x ∷ F) = (u ≼ x) × (u ≼all F)
+
+≼all-∈ : {u v : Vec ℕ n} {F : Vec (Vec ℕ n) k}
+       → u ≼all F → v ∈ F → u ≼ v
+≼all-∈ {F = x ∷ F} (p , r) (inl e) = subst (_ ≼_) (sym e) p
+≼all-∈ {F = x ∷ F} (p , r) (inr i) = ≼all-∈ r i
 
 ≼all-mono : {x u : Vec ℕ n} {F : Vec (Vec ℕ n) k}
           → x ≼ u → u ≼all F → x ≼all F
-≼all-mono p all[]      = all[]
-≼all-mono p (all∷ q r) = all∷ (≼-trans p q) (≼all-mono p r)
+≼all-mono {F = []}    p _       = tt
+≼all-mono {F = x ∷ F} p (q , r) = ≼-trans p q , ≼all-mono p r
 
 -- (R): the merge representative.
-data Least {m : ℕ} : {j : ℕ} → Vec (Vec ℕ m) j → Type₀ where
-  mkLeast : {j : ℕ} {F : Vec (Vec ℕ m) j} (u : Vec ℕ m)
-          → u ∈ F → u ≼all F → Least F
+Least : {m j : ℕ} → Vec (Vec ℕ m) j → Type₀
+Least {m} F = Σ[ u ∈ Vec ℕ m ] ((u ∈ F) × (u ≼all F))
 
 -- (S): the two-point separating certificate.  `u ◃ v` names a target on
 -- which u is strictly cheaper, `v ◃ u` names another on which v is.
-data Sep {m : ℕ} : {j : ℕ} → Vec (Vec ℕ m) j → Type₀ where
-  mkSep : {j : ℕ} {F : Vec (Vec ℕ m) j} (u v : Vec ℕ m)
-        → u ∈ F → v ∈ F → u ◃ v → v ◃ u → Sep F
+Sep : {m j : ℕ} → Vec (Vec ℕ m) j → Type₀
+Sep {m} F = Σ[ u ∈ Vec ℕ m ] Σ[ v ∈ Vec ℕ m ]
+              ((u ∈ F) × (v ∈ F) × (u ◃ v) × (v ◃ u))
 
 ------------------------------------------------------------------------
 -- 4.  THE DICHOTOMY
@@ -154,30 +164,33 @@ consLeast : (x : Vec ℕ n) {G : Vec (Vec ℕ n) k}
           → (u : Vec ℕ n) → u ∈ G → u ≼all G
           → Least (x ∷ G) ⊎ Sep (x ∷ G)
 consLeast x u u∈ dom with ≼-or-◃ x u
-... | inl x≼u = inl (mkLeast x z∈ (all∷ ≼-refl (≼all-mono x≼u dom)))
+... | inl x≼u = inl (x , inl refl , (≼-refl , ≼all-mono x≼u dom))
 ... | inr u◃x with ≼-or-◃ u x
-...   | inl u≼x = inl (mkLeast u (s∈ u∈) (all∷ u≼x dom))
-...   | inr x◃u = inr (mkSep u x (s∈ u∈) z∈ u◃x x◃u)
+...   | inl u≼x = inl (u , inr u∈ , (u≼x , dom))
+...   | inr x◃u = inr (u , x , (inr u∈ , inl refl , u◃x , x◃u))
 
 -- For every inhabited finite fibre, EITHER a sound merge representative
 -- OR a two-point separation.  Constructive, hence decidable.
 dichotomy : (F : Vec (Vec ℕ n) (suc k)) → Least F ⊎ Sep F
-dichotomy {k = zero}   (x ∷ []) = inl (mkLeast x z∈ (all∷ ≼-refl all[]))
+dichotomy {k = zero}   (x ∷ []) = inl (x , inl refl , (≼-refl , tt))
 dichotomy {k = suc k'} (x ∷ G) with dichotomy G
-... | inl (mkLeast u u∈ dom)      = consLeast x u u∈ dom
-... | inr (mkSep u v u∈ v∈ p q)   = inr (mkSep u v (s∈ u∈) (s∈ v∈) p q)
+... | inl (u , u∈ , dom)           = consLeast x u u∈ dom
+... | inr (u , v , u∈ , v∈ , p , q) =
+        inr (u , v , (inr u∈ , inr v∈ , p , q))
 
 -- On a two-element fibre the separating certificate really is a no-go:
 -- no member of the fibre dominates the other.
 sep-pair-noLeast : {u v : Vec ℕ n} → u ◃ v → v ◃ u → ¬ Least (u ∷ v ∷ [])
-sep-pair-noLeast u◃v v◃u (mkLeast _ z∈ (all∷ _ (all∷ u≼v _))) = ◃→¬≼ v◃u u≼v
-sep-pair-noLeast u◃v v◃u (mkLeast _ (s∈ z∈) (all∷ v≼u _))     = ◃→¬≼ u◃v v≼u
-sep-pair-noLeast u◃v v◃u (mkLeast _ (s∈ (s∈ ())) _)
+sep-pair-noLeast {u = u} {v = v} u◃v v◃u (m , inl e , (_ , q , _)) =
+  ◃→¬≼ v◃u (subst (_≼ v) e q)
+sep-pair-noLeast {u = u} {v = v} u◃v v◃u (m , inr (inl e) , (p , _)) =
+  ◃→¬≼ u◃v (subst (_≼ u) e p)
+sep-pair-noLeast u◃v v◃u (m , inr (inr ()) , _)
 
 -- A singleton fibre is always sound: this is the router-side reading of
 -- exposed-point rigidity (§5).  Rigidity ⇒ soundness.
 singleton-least : (x : Vec ℕ n) → Least (x ∷ [])
-singleton-least x = mkLeast x z∈ (all∷ ≼-refl all[])
+singleton-least x = x , inl refl , (≼-refl , tt)
 
 ------------------------------------------------------------------------
 -- 5.  The rigidity end: R0019 (E), discretely
@@ -252,7 +265,7 @@ cacheFibre = μ₅ ∷ μ₆ ∷ []
 μ₆◃μ₅ = hd 0<1
 
 cacheSep : Sep cacheFibre
-cacheSep = mkSep μ₅ μ₆ z∈ (s∈ z∈) μ₅◃μ₆ μ₆◃μ₅
+cacheSep = μ₅ , μ₆ , (inl refl , inr (inl refl) , μ₅◃μ₆ , μ₆◃μ₅)
 
 -- Hence no merge representative exists: message 0249's no-go, as a term.
 cacheNoLeast : ¬ Least cacheFibre
