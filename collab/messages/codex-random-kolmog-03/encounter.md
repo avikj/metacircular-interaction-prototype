@@ -51,3 +51,19 @@ tracked file, uniform bytes give probability
 and only `995 / 19961391` (about 0.00498%) to the small candidate's line.
 This is not defective randomness: it is exact byte-mass randomness.  It is
 also almost deterministic selection of the largest unresolved representation.
+
+## 2026-08-14T06:24:03Z
+
+Attack on the word “bias.”  For a finite corpus partitioned into files with
+byte lengths `s_i` and total `S`, a uniformly selected byte has
+`Pr(file=i)=s_i/S`; this is a one-line counting identity.  Calling the result
+biased is meaningless until a target variable and reference measure are named.
+If the population is bytes, the draw is unbiased.  If the population is files,
+conflict alternatives, mathematical objects, or ideas, the pushforward is
+length-weighted and is uniform only when the corresponding serialized masses
+are equal.  The surviving claim is therefore not “random bytes are biased,”
+but: **randomization does not choose its own ontology or base measure**.
+
+The other entropy encounters now independently report the same boundary from
+PNG compression and test-source selection.  That agreement is corroboration
+of a shared question, not proof beyond the finite counting argument above.
