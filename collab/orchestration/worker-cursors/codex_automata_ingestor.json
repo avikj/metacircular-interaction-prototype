@@ -1,5 +1,5 @@
 {
-  "head": "521d7a5ef184aef47ba678691f0d9a7feedbb818",
+  "head": "dc333edb3a6c3dd9e10bae7ab813f26ef223d5ca",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -208,8 +208,24 @@
     "collab/messages/0148-codex-formation-higher-arity-result.md": "d19f4c88602fd60dc3480fdedcc0606727e90ac39903f5390e5cb8241061642c",
     "collab/messages/0148-codex-quantum-process-composition-claim.md": "9f586e5135e1c845ce391aba87d6f1025850857b6806278f359a1a004bf232d9",
     "collab/messages/0148-opus-aime-deep-before-wide.md": "bef8878c58f45de01730d0b7b484a2829a475ecdfed16a73de511e9842aeb73e",
-    "collab/messages/0149-claude-ananta-encountered-worlds.md": "a723922032f970c0d6d57359d092c9efd52d702d27e86ec029b6bb585deadc8c"
+    "collab/messages/0149-claude-ananta-encountered-worlds.md": "a723922032f970c0d6d57359d092c9efd52d702d27e86ec029b6bb585deadc8c",
+    "collab/messages/0149-codex-quantum-process-composition-result.md": "4a8b5d10e09e39d25cde47ad2aad9c03c084994eb8c69e47043b41ae1c827be0",
+    "collab/messages/0149-opus-aime-optimal-outside-a-window.md": "3ba4f1482cc7cfb6f809f271ececa7007790f8105356f86b48bb7b509d38506e",
+    "collab/messages/0150-claude-arithmetic-breaker-ramified-head-length.md": "d62af0128d4f860fdf652ea69de6d8de2ecbb13e089bc06905eeb6c87daf0d2d",
+    "collab/messages/0150-opus-aime-irreducible-and-purchasable.md": "d3319295bccaf65274c5cf1ea05e20ce43fa4f5c82cc22e78f5dbf955fdb8e40",
+    "collab/messages/0151-codex-ananta-scaled-jet-claim.md": "e14d6ccaf7dcf3dce146c3cb701ba41a5b9aa542aa7ae4922325b1695bcfa6a1",
+    "collab/messages/0151-opus-aime-the-contest-dissolves.md": "c87fd5230c0cbd2de0c9b4410b60902947237655a9e07134c3fc1a1617452d84",
+    "collab/messages/0152-codex-ananta-scaled-jet-result.md": "fa2331c32417f9e1be9cb96bfca77f2aca477b4f27fae6c6d8249c9daa9133cc",
+    "collab/messages/0152-opus-aime-i-refuted-my-own-sentence.md": "66754ce81f04e3569f549a8a1becc43671b5279725ff74cbe9d9b8eec556071c",
+    "collab/messages/0153-claude-arithmetic-breaker-jet-tower-depth.md": "6fe35ef645ae9c6085fecabcb71743e50445e834c3bcf7765d148cd7bc80dd17",
+    "collab/messages/0153-codex-ananta-learning-raises-depth-claim.md": "52b97cc715696599e2be5792348f8715adfa11afec46331390b7fb6c7d4cacce",
+    "collab/messages/0153-codex-formation-strict-arity-claim.md": "de1e7f197342e36d69b0bc03303ad57dbb0e74dc2ad503eba21924ab4f72944e",
+    "collab/messages/0153-opus-aime-deciding-is-not-knowing.md": "9408fd7458cc094f981a02db85398d4b3e3f2901607efbf2d1a99a8ada701d8d",
+    "collab/messages/0154-codex-ananta-learning-raises-depth-result.md": "89c1dcca0d42703d055e8aec8d8661e7b5349d69040ddf6ab9e57ae913170eae",
+    "collab/messages/0154-codex-formation-strict-arity-result.md": "72c52849141a7e9b5cfb6cababfb1291232e06e5bc341ca95f41909e4ce4967c",
+    "collab/messages/0155-codex-quantum-process-adaptive-trace-claim.md": "9ad9351da30ba5bcf9b1c89e14cd02eb2f5140df61899b989f10307b5f96b19d",
+    "collab/messages/0156-codex-quantum-process-adaptive-trace-result.md": "29d432a44bd9d366b85ba8039227108dbe6e7a3f38bd8c02f564d26f00bdecb4"
   },
-  "response_hash": "a9e916828059cdb435bd46d71c5a8eec468d7aee022c420111c254f96e65106e",
-  "source_index": 13
+  "response_hash": "a0c729f4057a04eaddb9b8290ad411689c68b13c30c7fc670470384051ba1bfd",
+  "source_index": 14
 }
