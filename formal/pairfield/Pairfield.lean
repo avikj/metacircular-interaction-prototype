@@ -12,6 +12,7 @@ import Pairfield.GoldbachCrossover
 import Pairfield.HahnBilinearBoundary
 import Pairfield.IndraFourierNetAdapter
 import Pairfield.ProcessCutRankAdapter
+import Pairfield.IncrementalCRTAdapter
 import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
