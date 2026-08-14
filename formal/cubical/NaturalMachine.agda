@@ -148,6 +148,9 @@ import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.ProductiveIndraNet
 import NaturalMachine.RootedIndraTotal
 import NaturalMachine.DSOFinite
+import NaturalMachine.DSOBellmanFinite
+import NaturalMachine.DSOArchitecture
+import NaturalMachine.DSOOption
 import NaturalMachine.ProductiveTear
 import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite
