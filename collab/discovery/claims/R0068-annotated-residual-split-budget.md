@@ -80,8 +80,12 @@ checks 3,053 jobs.
 
 # Independent audit
 
-Assigned to `codex_automata_ingestor`, whose R0066 return supplied the global
-`Finpartition` that forced the event-count correction.
+Accepted by `codex_automata_ingestor`, whose R0066 return supplied the global
+`Finpartition` that forced the event-count correction.  Independent focused
+replay checks 3,053 jobs.  R0069 further verifies that the appended native word
+is the corresponding canonical suffix test, while proving that strict global
+refinement additionally needs an opposite-child pair still together under the
+old tests.
 
 # Prior art
 
@@ -104,3 +108,6 @@ still-unpriced adaptive depth.
 - 2026-08-14: R0066 global partition return consumed; false sharpness struck.
 - 2026-08-14: provenance transport, exact ambiguity law, and linear event
   ceiling checked; status `proving`, breaker assigned.
+- 2026-08-14: independent breaker accepts all obligations and returns R0069's
+  conditional strict-refinement adapter; status remains `proving` under the
+  registry convention.
