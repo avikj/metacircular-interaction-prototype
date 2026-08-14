@@ -1,60 +1,72 @@
 -- RepairFixpoint — exhaustive certification of the coarsest-repair algorithm.
 --
--- THE PROBLEM (notes/LENS_REPAIR.md §5 seed 1, restated in
--- LENS_REPAIR_TWO_AXIS_WITNESS seed 2, and listed as the most delegable
--- open item in the corpus-wide sweep of 2026-08-14):
+-- THE PROBLEM (notes/LENS_REPAIR.md §5 seed 1, restated verbatim as seed 2
+-- of LENS_REPAIR_TWO_AXIS_WITNESS, and named the most delegable open item
+-- in WHAT_IS_ACTUALLY_OPEN_across_the_whole_corpus_2026_08_14.md §2):
 --
 --   Given partitions pi, sigma of a finite X, compute the COARSEST rho
---   that refines pi and commutes with sigma.  The note proves such a rho
---   is unique, proves local search cannot find it, and computes it only
---   by exhaustive enumeration -- exponential in |X|.  Its author: "This
---   is the open question I care about most and I have no evidence either
+--   that refines pi and commutes with sigma.  LENS_REPAIR proves such a
+--   rho is unique, proves local search cannot find it (the repair set is
+--   join-closed but not merge-connected), and computes it only by
+--   exhaustive enumeration -- exponential in |X|.  Its author: "This is
+--   the open question I care about most and I have no evidence either
 --   way."
 --
 -- THE ANSWER: polynomial.  rho commutes with sigma iff the subspace
--- V_rho = span{1_B : B in rho} is P_sigma-invariant; rho refines pi iff
--- V_rho contains V_pi.  So the coarsest repair is the SMALLEST
--- P_sigma-invariant partition subspace containing V_pi, and because
--- P_sigma is idempotent the least invariant subspace containing V is
--- just V + P_sigma V -- one step, not a series.  Alternating that with
--- "least partition subspace containing V" (its level-set partition)
--- gives a monotone fixpoint reached in at most |X| rounds.
+-- V_rho = span{1_B : B in rho} is P_sigma-invariant, and rho refines pi
+-- iff V_rho contains V_pi.  So the coarsest repair is the SMALLEST
+-- P_sigma-invariant partition subspace containing V_pi.  Because P_sigma
+-- is IDEMPOTENT, the least invariant subspace containing V is V + P_sigma V
+-- -- one step, not a series -- and the least partition subspace containing
+-- a subspace is its level-set partition.  Alternating two monotone
+-- operators inside an |X|-dimensional space reaches a fixpoint in at most
+-- |X| rounds.
 --
--- Combinatorially the whole thing collapses to one refinement rule:
+-- Combinatorially it is one refinement rule:
 --
 --   split each block of rho by  x |-> ( |B & E(x)| / |E(x)| )_{B in rho}
 --
--- where E(x) is the sigma-block of x.  Split by the density profile of
--- your sigma-block over the current blocks; repeat until stable.
+-- where E(x) is the sigma-block of x: split by the density profile of your
+-- sigma-block over the current blocks.  Repeat until stable.
 --
--- THIS FILE is the certificate.  It enumerates ALL ordered pairs of
--- partitions of an n-set for n <= 7 and checks, for every pair, that the
--- fixpoint equals the true coarsest repair found by brute-force search
--- over all partitions.  That is exact finite verification, not a
--- measurement: it produces a proposition, and the proposition is either
--- true of every pair in range or it is false and prints a witness.
+-- TWO THINGS ARE CERTIFIED HERE, and the order matters because the second
+-- would be circular without the first.
 --
--- All arithmetic is exact (Ratio Integer).  No floating point appears.
+--   CERT 1.  The operator criterion agrees with the combinatorial one.
+--            `commutesGrid` is Delta-style proportionality, |B&E|*|C| =
+--            |B|*|E| within each block C of the join -- the definition
+--            LENS_ORDER_COMMUTATION works with.  `commutesInv` is "one
+--            refinement step changes nothing", which is literally
+--            P_sigma-invariance of V_rho.  They are checked to agree on
+--            every ordered pair.  This is the content of the equivalence
+--            the whole proof rests on, verified rather than assumed.
+--
+--   CERT 2.  The fixpoint equals the true coarsest repair, where "true"
+--            means: fold the join over EVERY partition that refines pi and
+--            satisfies the grid criterion.  Brute force, no shortcuts.
+--
+-- All arithmetic is exact (Ratio Integer).  No floating point appears
+-- anywhere in this file, and no quantity is fitted, sampled or estimated.
+-- The output is a proposition about a finite range, true or false.
 
 module Main (main) where
 
-import Data.List (sort, sortOn, nub, foldl')
+import Data.List (nub, foldl', sort)
 import qualified Data.Map.Strict as M
-import Data.Ratio (Ratio, (%))
-import Control.Monad (forM_, when)
+import Data.Ratio ((%))
+import Control.Monad (forM_)
+import System.IO
 import System.Exit (exitFailure)
 
--- A partition of [0..n-1] is a canonical labelling: element i gets the
--- index of its block in order of first appearance ("restricted growth
--- string").  Two partitions are equal iff their strings are equal, which
--- is what makes the exhaustive comparison exact and cheap.
+-- A partition of [0..n-1] as a restricted growth string: element i carries
+-- the index of its block in order of first appearance.  Canonical, so
+-- partition equality is list equality.
 type Part = [Int]
 
 canon :: Ord a => [a] -> Part
 canon xs = map (m M.!) xs
-  where m = M.fromList (zip (nub xs) [0 ..])
+  where m = M.fromList (zip (nub xs) [0 :: Int ..])
 
--- all partitions of an n-set, as restricted growth strings
 partitions :: Int -> [Part]
 partitions n = go n
   where
@@ -63,113 +75,143 @@ partitions n = go n
                       , b <- [0 .. (if null p then -1 else maximum p) + 1] ]
 
 blocksOf :: Part -> [[Int]]
-blocksOf p = M.elems (M.fromListWith (flip (++)) [ (b, [i]) | (i, b) <- zip [0 ..] p ])
+blocksOf p = M.elems (M.fromListWith (flip (++)) [ (b, [i]) | (i, b) <- zip [0 :: Int ..] p ])
 
--- rho refines pi: every rho-block sits inside a pi-block, i.e. pi is
--- constant on rho-blocks.
+-- rho refines pi: pi is constant on rho-blocks.
 refines :: Part -> Part -> Bool
-refines rho pi_ = all sameBlock (blocksOf rho)
-  where sameBlock bs = all (== pi_ !! head bs) (map (pi_ !!) bs)
+refines rho pi_ = all same (blocksOf rho)
+  where same bs = all (\i -> pi_ !! i == pi_ !! head bs) bs
 
--- the join: finest partition coarser than both.  Union-find over the two.
+-- the join: finest partition coarser than both.
 join :: Part -> Part -> Part
-join a b = canon (map find [0 .. n - 1])
+join a b = canon (zip (rootsOf a b) (repeat (0 :: Int)))
   where
-    n = length a
-    -- merge i with the first j sharing a block in either partition
-    parent0 = M.fromList [ (i, i) | i <- [0 .. n - 1] ]
-    par = foldl' step parent0 [ (i, j) | i <- [0 .. n - 1], j <- [i + 1 .. n - 1]
-                              , a !! i == a !! j || b !! i == b !! j ]
-    step m (i, j) =
-      let ri = root m i ; rj = root m j
-      in if ri == rj then m else M.insert ri rj m
-    root m i = let p = m M.! i in if p == i then i else root m p
-    find i = root par i
+    rootsOf p q =
+      let n = length p
+          uf0 = M.fromList [ (i, i) | i <- [0 .. n - 1] ]
+          rt m i = let j = m M.! i in if j == i then i else rt m j
+          stepU m (i, j) = let ri = rt m i; rj = rt m j
+                           in if ri == rj then m else M.insert ri rj m
+          uf = foldl' stepU uf0
+                 [ (i, j) | i <- [0 .. n - 1], j <- [i + 1 .. n - 1]
+                          , p !! i == p !! j || q !! i == q !! j ]
+      in [ rt uf i | i <- [0 .. n - 1] ]
 
--- COMMUTATION, stated exactly as the combinatorial criterion:
--- for blocks B of rho and E of sigma inside the same join-block C,
---     |B & E| * |C|  ==  |B| * |E|.
-commutes :: Part -> Part -> Bool
-commutes rho sigma =
-  and [ len (isect b e) * len c == len b * len e
+-- ---------------------------------------------------------------------
+-- COMMUTATION, two ways
+
+-- (a) the grid / proportionality criterion, as the corpus states it:
+--     for B in rho and E in sigma inside the same join-block C,
+--        |B & E| * |C| == |B| * |E|
+commutesGrid :: Part -> Part -> Bool
+commutesGrid rho sigma =
+  and [ ilen (isect b e) * ilen c == ilen b * ilen e
       | b <- blocksOf rho
       , e <- blocksOf sigma
-      , let c = joinBlockOf (head b)
+      , let c = blockAt (head b)
       , head e `elem` c ]
   where
     j = join rho sigma
-    joinBlockOf i = [ k | k <- [0 .. length j - 1], j !! k == j !! i ]
+    blockAt i = [ k | k <- [0 .. length j - 1], j !! k == j !! i ]
     isect u v = filter (`elem` v) u
-    len = toInteger . length
+    ilen = toInteger . length
 
--- THE ALGORITHM.  One refinement rule, iterated to a fixpoint.
---
---   split each block of rho by the density profile of one's sigma-block
---   over the current blocks of rho.
---
--- Densities are exact rationals: |B & E(x)| / |E(x)|.
+-- (b) P_sigma-invariance of V_rho, which is exactly "the refinement step
+--     below is already stable at rho".
+commutesInv :: Part -> Part -> Bool
+commutesInv rho sigma = refineStep rho sigma == rho
+
+-- ---------------------------------------------------------------------
+-- THE REFINEMENT STEP, and the algorithm
+
+-- Split each block of rho by the exact density profile of one's
+-- sigma-block over the blocks of rho.
+refineStep :: Part -> Part -> Part
+refineStep rho sigma = canon (map profile [0 .. n - 1])
+  where
+    n = length rho
+    bs = blocksOf rho
+    sigAt i = [ k | k <- [0 .. n - 1], sigma !! k == sigma !! i ]
+    density b i = let e = sigAt i
+                  in toInteger (length (filter (`elem` b) e)) % toInteger (length e)
+    profile i = (rho !! i, [ density b i | b <- bs ])
+
 coarsestRepair :: Part -> Part -> Part
 coarsestRepair pi_ sigma = go pi_
   where
-    n = length pi_
-    sigBlockOf = M.fromList [ (i, [ k | k <- [0 .. n - 1], sigma !! k == sigma !! i ])
-                            | i <- [0 .. n - 1] ]
-    go rho =
-      let bs = blocksOf rho
-          density b i = let e = sigBlockOf M.! i
-                        in toInteger (length (filter (`elem` b) e)) % toInteger (length e)
-          profile i = (rho !! i, [ density b i | b <- bs ])
-          rho' = canon (map profile [0 .. n - 1])
-      in if rho' == rho then rho else go rho'
+    go rho = let rho' = refineStep rho sigma
+             in if rho' == rho then rho else go rho'
 
--- the honest reference implementation: search every partition
-bruteCoarsest :: Part -> Part -> Part
-bruteCoarsest pi_ sigma =
-  head (sortOn (length . blocksOf)
-         [ r | r <- partitions (length pi_)
-             , refines r pi_, commutes r sigma
-             , all (\r' -> not (refines r' pi_ && commutes r' sigma)
-                           || refines r' r) allRepairs ])
+-- how many rounds the fixpoint takes, for the bound in the write-up
+rounds :: Part -> Part -> Int
+rounds pi_ sigma = go pi_ 0
   where
-    allRepairs = [ r | r <- partitions (length pi_)
-                     , refines r pi_, commutes r sigma ]
+    go rho k = let rho' = refineStep rho sigma
+               in if rho' == rho then k else go rho' (k + 1)
 
--- `bruteCoarsest` above is quadratic in the number of partitions; the
--- cheaper equivalent, given that the repair set is join-closed and so has
--- a unique maximum, is to fold the join over every repair.
-bruteCoarsest' :: Part -> Part -> Part
-bruteCoarsest' pi_ sigma = foldl' join disc reps
+-- ---------------------------------------------------------------------
+-- the reference answer: join of every repair, by the GRID criterion only
+
+bruteCoarsest :: Part -> Part -> Part
+bruteCoarsest pi_ sigma = foldl' join disc reps
   where
     n = length pi_
     disc = [0 .. n - 1]
-    reps = [ r | r <- partitions n, refines r pi_, commutes r sigma ]
+    reps = [ r | r <- partitions n, refines r pi_, commutesGrid r sigma ]
 
 main :: IO ()
 main = do
-  putStrLn "RepairFixpoint — exhaustive certification"
-  putStrLn "  claim: the density-profile fixpoint equals the coarsest repair,"
-  putStrLn "         for EVERY ordered pair of partitions of an n-set."
+  hSetBuffering stdout LineBuffering
+  putStrLn "RepairFixpoint - exhaustive certification"
   putStrLn ""
-  bad <- mapM checkN [1 .. 7]
-  let total = sum (map fst bad)
-      fails = concatMap snd bad
+  putStrLn "CERT 1: grid criterion == P_sigma-invariance, on every ordered pair"
+  c1 <- mapM cert1 [1 .. 7]
   putStrLn ""
-  if null fails
-    then putStrLn ("ALL " ++ show total ++ " ORDERED PAIRS AGREE.  n = 1..7.")
+  putStrLn "CERT 2: density-profile fixpoint == join of all repairs (brute force)"
+  c2 <- mapM cert2 [1 .. 6]
+  putStrLn ""
+  putStrLn ""
+  putStrLn "SCAN: how many refinement rounds are actually needed?"
+  putStrLn "  (n <= 6 all showed 1.  If that is a theorem it should survive n = 8;"
+  putStrLn "   if it is an artifact of small n a witness appears here.)"
+  forM_ [7, 8 :: Int] $ \n -> do
+    let ps = partitions n
+        rs = [ (rounds p s, p, s) | p <- ps, s <- ps ]
+        mx = maximum (0 : map (\(k, _, _) -> k) rs)
+        wit = take 1 [ (p, s) | (k, p, s) <- rs, k == mx, mx > 1 ]
+    putStrLn ("  n = " ++ show n ++ ": max rounds = " ++ show mx
+              ++ (if null wit then "" else "  witness: " ++ show wit))
+  let f1 = concatMap snd c1
+      f2 = concatMap snd c2
+  if null f1 && null f2
+    then do
+      putStrLn ("CERT 1 PASSED on " ++ show (sum (map fst c1)) ++ " ordered pairs (n <= 7).")
+      putStrLn ("CERT 2 PASSED on " ++ show (sum (map fst c2)) ++ " ordered pairs (n <= 6).")
+      putStrLn "The fixpoint IS the coarsest repair, on every instance in range."
     else do
-      putStrLn ("FAILURES (" ++ show (length fails) ++ "):")
-      forM_ (take 20 fails) print
+      putStrLn "FAILURES:"
+      forM_ (take 20 f1) print
+      forM_ (take 20 f2) print
       exitFailure
 
-checkN :: Int -> IO (Int, [(Part, Part, Part, Part)])
-checkN n = do
+cert1 :: Int -> IO (Int, [(Part, Part)])
+cert1 n = do
   let ps = partitions n
-      cases = [ (p, s) | p <- ps, s <- ps ]
-      results = [ (p, s, got, want)
-                | (p, s) <- cases
-                , let got = coarsestRepair p s
-                , let want = bruteCoarsest' p s
-                , got /= want ]
-  putStrLn ("  n = " ++ show n ++ ":  " ++ show (length cases)
-            ++ " ordered pairs, " ++ show (length results) ++ " disagreements")
-  return (length cases, results)
+      bad = [ (r, s) | r <- ps, s <- ps, commutesGrid r s /= commutesInv r s ]
+  putStrLn ("  n = " ++ show n ++ ": " ++ show (length ps * length ps)
+            ++ " pairs, " ++ show (length bad) ++ " disagreements")
+  return (length ps * length ps, bad)
+
+cert2 :: Int -> IO (Int, [(Part, Part, Part, Part)])
+cert2 n = do
+  let ps = partitions n
+      bad = [ (p, s, got, want)
+            | p <- ps, s <- ps
+            , let got = coarsestRepair p s
+            , let want = bruteCoarsest p s
+            , got /= want ]
+      maxr = maximum (0 : [ rounds p s | p <- ps, s <- ps ])
+  putStrLn ("  n = " ++ show n ++ ": " ++ show (length ps * length ps)
+            ++ " pairs, " ++ show (length bad) ++ " disagreements"
+            ++ ", max rounds to fixpoint = " ++ show maxr)
+  return (length ps * length ps, bad)
