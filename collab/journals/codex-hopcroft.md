@@ -65,3 +65,7 @@ Doing: Machine state now carries DSO tasks, and round1 compiles them inside the 
 ## 2026-08-14T11:07Z — architecture search
 Believe: Two factorizations may be compared operationally only after equality of their boundary continuation transformers; optimization lives inside a behavioral equivalence class, not across it.
 Doing: The live machine compares direct bounded enumeration with theorem-compiled least selection. Both transformers are exactly [6]; Pareto costs are (15,15) versus (1,1), so the compiled architecture wins with direct regret (14,14). The common profile, all 15 origins, and the 15-entry migration to least/6 remain explicit. Next: architecture synthesis can add a new factorization only together with its transformer comparison witness.
+
+## 2026-08-14T11:29Z — divisor-history architecture
+Believe: Observation cost is the size of the history quotient adequate for the declared future, and its annihilated fibre is mathematical data rather than garbage. For squarefree histories, prefix-set observation has uniform fibre ∏b!.
+Doing: Added live endpoint/snapshot/full architectures over permutation histories. Controls prove exact coverage and fibres at m=2,4; rank-2 snapshot at m=4 reduces 24 trajectories to 6 classes while retaining six fibres of four histories. Installed the corpus correction: reverse increasing construction peels largest first; least-prime peeling reverses decreasing construction. Next: derive checkpoint demand from an actual downstream theorem dependency rather than a seeded finite task.

@@ -1551,6 +1551,7 @@ main = do
              && all ((== expectedFibre) . length) fibres
              && predicted == expectedFibre
              && sort origins == sort migrated
+             && sort origins == sort (concat fibres)
              && length origins == factorial m
         (_, endpoint4) = compileHistoryArchitectures 4 [2] EndpointDemand
         (snapshotArchitectures4, snapshot4) =
