@@ -110,6 +110,7 @@ import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.ArithmeticPayloadCounterexample
 import NaturalMachine.DatumSensitivePayload
+import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent

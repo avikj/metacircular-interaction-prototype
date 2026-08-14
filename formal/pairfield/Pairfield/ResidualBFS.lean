@@ -128,6 +128,42 @@ theorem shortestLeftQuotientWitnessUpTo_eq_none_of_eval_eq
   rw [leftQuotient_eq_stateLanguage_eval M left,
     leftQuotient_eq_stateLanguage_eval M right, hreached]
 
+/-- Changing a complete enumeration cannot change bounded residual equality.
+The action type, not the list order, carries control authority. -/
+theorem shortestLeftQuotientWitnessUpTo_none_iff_of_complete_alphabets
+    [DecidableEq A] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (first second : List A)
+    (first_complete : ∀ a : A, a ∈ first)
+    (second_complete : ∀ a : A, a ∈ second)
+    (left right : List A) (fuel : Nat) :
+    shortestLeftQuotientWitnessUpTo M first left right fuel = none ↔
+      shortestLeftQuotientWitnessUpTo M second left right fuel = none := by
+  rw [shortestLeftQuotientWitnessUpTo_none_iff M first first_complete,
+    shortestLeftQuotientWitnessUpTo_none_iff M second second_complete]
+
+/-- Complete enumeration order may select a different shortest word, but not
+a different minimum length. -/
+theorem shortestLeftQuotientWitnessUpTo_length_invariant
+    [DecidableEq A] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (first second : List A)
+    (first_complete : ∀ a : A, a ∈ first)
+    (second_complete : ∀ a : A, a ∈ second)
+    (left right : List A) {fuel₁ fuel₂ : Nat} {word₁ word₂ : List A}
+    (h₁ : shortestLeftQuotientWitnessUpTo M first left right fuel₁ = some word₁)
+    (h₂ : shortestLeftQuotientWitnessUpTo M second left right fuel₂ = some word₂) :
+    word₁.length = word₂.length := by
+  have separates₁ :=
+    (shortestLeftQuotientWitnessUpTo_sound M first first_complete left right h₁).2
+  have separates₂ :=
+    (shortestLeftQuotientWitnessUpTo_sound M second second_complete left right h₂).2
+  apply Nat.le_antisymm
+  · exact shortestLeftQuotientWitnessUpTo_minimal M first first_complete
+      left right h₁ word₂ separates₂
+  · exact shortestLeftQuotientWitnessUpTo_minimal M second second_complete
+      left right h₂ word₁ separates₁
+
 namespace ResidualBFSWitness
 
 /-- A reachable three-state DFA: `false` reaches state `1`, then `true`
@@ -174,4 +210,3 @@ example :
 end ResidualBFSWitness
 
 end Pairfield
-
