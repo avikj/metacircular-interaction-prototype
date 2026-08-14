@@ -16,6 +16,7 @@ import Pairfield.IncrementalCRTAdapter
 import Pairfield.CyclotomicRoutingAdapter
 import Pairfield.CyclotomicPrimitiveTransportAdapter
 import Pairfield.HigherArityPadicAdapter
+import Pairfield.InfiniteValuationFiberAdapter
 import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
@@ -73,6 +74,7 @@ import Pairfield.NativeCompleteWitnessPartition
 import Pairfield.NativeCompleteWitnessCost
 import Pairfield.NativeWitnessGreedyFormation
 import Pairfield.NativeReverseSeparatorPolicy
+import Pairfield.NativeReversePairTraversal
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2

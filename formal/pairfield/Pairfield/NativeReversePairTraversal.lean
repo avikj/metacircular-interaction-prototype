@@ -202,6 +202,20 @@ theorem exists_closed_reverse_node_of_ne
       exact ⟨node, by simpa [reverseTraversal, reverseM, moves] using hclosed,
         by simpa [reverseM] using hsound.1, hsound.2.1⟩
 
+namespace Control
+
+open BehavioralBFSWitness
+open VisitedPairHorizonWitness
+
+/-- Native execution control: the shared reverse traversal for the planted
+three-state reduced automaton expands seven reverse states, below the generic
+`3^2 + 1` ceiling. -/
+theorem shared_reverse_traversal_expands_seven :
+    (reverseTraversal automaton alphabet).closed.length = 7 := by
+  native_decide
+
+end Control
+
 end NativeReversePairTraversal
 
 end Pairfield

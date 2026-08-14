@@ -36,8 +36,10 @@ of the increment away from a negative spike.  The exact weaker hypothesis
 `(UP_gamma)` below ignores all downward motion and all unnecessary second
 moments.  No audited source proves it for the prime minor residual.
 
-No unconditional Goldbach claim, no local formalization claim, and no core
-edit are made.
+No unconditional Goldbach claim and no arithmetic instance of the new
+propagation premise are asserted.  Its finite ordered-sum consequence is
+checked in `formal/pairfield/Pairfield/UpwardEscape.lean`; no shared import or
+core edit is made.
 
 ## 1. A source-conditional `(ZM)` theorem at small power cutoff
 
@@ -257,8 +259,15 @@ At most `2 gamma |H|` shifts can have positive increment greater than
 Consequently
 
 \[
- B_X\ge \frac{(1-2\gamma)c^2X^2}{4}|H|. \tag{14}
+B_X\ge \frac{(1-2\gamma)c^2X^2}{4}|H|. \tag{14}
 \]
+
+The finite Markov step, surviving-cardinality inequality, and square-energy
+lower bound are checked respectively as `upwardEscape_bad_card`,
+`upwardEscape_good_card`, and `upwardEscape_energy_lower` in
+`formal/pairfield/Pairfield/UpwardEscape.lean`.  The file takes the negative
+center and one-sided budget as parameters; it does not manufacture either
+from primes.
 
 Thus `(UP_gamma)` contradicts the existing power-minor norm as soon as
 
@@ -333,14 +342,14 @@ need symmetric variation control.
 - **Elementary deductions proved here:** `(ZM-small)` after choosing the
   small power and error margin; the conductor-multiple simplification (9);
   the parity dichotomy and prime-power removal; `(UP_gamma)` implies
-  (13)--(15); current `(AC)` implies `(UP_gamma)` with
-  `gamma=1/sqrt(8)`.
+  (13)--(15), with its finite cardinality and energy steps checked in Lean;
+  current `(AC)` implies `(UP_gamma)` with `gamma=1/sqrt(8)`.
 - **Not proved:** unconditional `(ZM)` at `theta>=2/5`, any target/common
   transport beyond the stated `(TR)` hypothesis, `(UP_gamma)` for the actual
   prime residual, or propagation of a Goldbach zero from packet coherence.
-- **Merge decision:** no Lean or Natural Machine edit.  Formalizing the
-  elementary implication while leaving all arithmetic estimates as
-  parameters would add only an ordered-sum shell.  The earned change is the
-  sharper analytic interface and the conditional terminal slice recorded
-  here.
+- **Merge decision:** add only the disjoint checked finite lemma; do not import
+  it into the default library and do not change Natural Machine.  It records
+  the strictly weaker residual contract without suggesting that the missing
+  arithmetic bound has been proved.  The other earned change is the sharper
+  analytic interface and conditional terminal slice recorded here.
 - **Execution:** no Python, census, or numerical search was used.
