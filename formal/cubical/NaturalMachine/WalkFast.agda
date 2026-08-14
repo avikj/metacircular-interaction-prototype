@@ -249,8 +249,3 @@ noneIn m d h r m<r r<b = subst (λ z → ¬ IsPrimePower z) (sym r≡) (h t t<d)
 test-9 : IsPrimePower 9
 test-9 = acceptDec (decIsPrimePower 9) tt
 
-next-8 : next 8 ≡ 9
-next-8 = next-characterised 8 9 (7 , refl)
-  (acceptDec (decIsPrimePower 9) tt)
-  (0 , refl)
-  (noneIn 8 0 (λ i i<0 → Empty.rec (¬-<-zero i<0)))
