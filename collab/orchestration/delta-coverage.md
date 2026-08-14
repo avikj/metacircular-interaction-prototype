@@ -22,12 +22,12 @@ Status vocabulary, and the distinction is the point:
 | **15** | T15.1/T15.2 transport & inverse | CHECKED | `StructuredDefect.defect-id` |
 | 15 | D15.5 structured equivalence | CHECKED | `StructuredDefect.StructuredEquiv` |
 | 15 | P15.6/C15.7 bare ≠ structured | CHECKED | `witness-defect` + positive control |
-| 15 | §15.3 symmetry breaking, stabilizer | OPEN | — |
-| 15 | §15.4 polarization defect set | OPEN | — |
+| 15 | §15.3 symmetry breaking, stabilizer | CHECKED | `PerspectiveSymmetry.Stab` (T15.9, C15.10) — **row was wrong**, see the ledger-error note below |
+| 15 | §15.4 polarization defect set | CHECKED | `PerspectiveSymmetry` (T15.12–T15.14, Program 15.16) — same |
 | 15 | §15.5 conditioning vs transport | OPEN | — |
-| 15 | §15.6–15.7 charge grading, parity as truncation | CHECKED | `ChargeGrading` (T15.22/24, C15.23/25, T15.27, C15.28, P15.29) |
+| 15 | §15.6–15.7 charge grading, parity as truncation | CHECKED | `PerspectiveSymmetry` (T15.22/24) and `ChargeGrading` (C15.23/25, T15.27, C15.28, P15.29). **Shift/shift-comp are duplicated** across the two — see below |
 | 15 | §15.8 fixed-charge coefficient extraction | OPEN | — |
-| 15 | §15.9 two projections, commutator | NOTE | `LEAKAGE_RANK_IS_INCIDENCE_RANK` |
+| 15 | §15.9 two projections, commutator | CHECKED | `TwoProjections`: T15.36 confirmed **and** its hypothesis shown load-bearing; P15.37 and C15.38 witnessed. Prose companion: `LEAKAGE_RANK_IS_INCIDENCE_RANK` |
 | 15 | T15.40/C15.41 descent through quotient | CHECKED | `StructuredDefect.Descent` |
 | 15 | §15.11–15.14 lifting, Čech, triples, holonomy | OPEN | — |
 | 15 | T15.57 transport composes | CHECKED | `StructuredDefect.defect-comp` |
@@ -73,7 +73,7 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 22 · FALSIFIED 1 · CORRECTED 1 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
+**CHECKED 25 · FALSIFIED 1 · CORRECTED 1 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 22.**
 
 FALSIFIED and CORRECTED are new rows in this vocabulary and they are the most
 valuable ones: a supplied claim was checked, came back wrong, and the right
@@ -96,12 +96,24 @@ has paid.
 structural half — a composite of shifts δ, ε preserves the installed sector only
 when δ + ε ≡ 0, and over ℕ that forces both to vanish — is a checked term.)
 
-The honest reading: the *foundational* half of Delta 15 and 18 is in the machine
-and running; Delta 17 and 22 are largely on paper. Everything in the OPEN column
-is supplied material that is **not** in the machine, and the directive is that it
-should be.
+The honest reading, updated after the 2026-08-14 run of six modules: Delta 15's
+structural spine (transport, descent, no-go, charge grading, projections) and all
+of Delta 18's exact algebra are in the machine and running. What is left OPEN is
+of three kinds, and lumping them together would misrepresent the state:
 
-## The three that should go next, and why
+- **Analytic**, and not formalizable as it stands: T18.1's tanh identification,
+  §15.8's coefficient extraction, the Feshbach/Schur and half-line targets,
+  Delta 17's log bridge and formal groups. These need the analytic lane
+  (`formal/pairfield/`), not Cubical Agda.
+- **Order-theoretic**, small, and genuinely next: the inequality half of T17.13's
+  cone, which needs an ordered ring and nothing else.
+- **Geometric setup** that is standard and would be gratuitous to re-encode:
+  §17.2–17.3's split torus and Weyl group, §17.9–17.12's characters.
+
+So "OPEN 24" is not 24 units of the same work. The formalizable residue is
+closer to four items.
+
+## The three that were named next — all three landed
 
 1. ~~**Delta 18's Buchstab target.**~~ Run, and it came back **negative**, which
    is why it was ranked first. `BuchstabDegree.agda`: on the rooted tree the
@@ -122,6 +134,45 @@ should be.
    directions, over an arbitrary commutative ring — so Delta 17's congruence is
    the datum that reconstructs the pair, not a filter on it. The inequality half
    of the cone needs an order and is a separate, smaller item.
+
+Landed the same day, unprompted by the list, because they were the load-bearing
+ones: `RootWeightIndex` (T17.24 corrected, and the correction turned out to be
+the cone parity constraint again) and `TwoProjections` (§15.9, with T15.36's
+hypothesis shown necessary).
+
+## The next three, chosen on the same criterion
+
+1. **The cone inequality**, T17.13's second half. Needs an ordered ring; small;
+   completes the only PARTIAL row that is not analytic.
+2. **Delta 15 §15.5**, conditioning vs transport — the only remaining structural
+   row in Delta 15, now that §15.3/§15.4 have been found already done.
+3. **T22.2 in full**, which needs the infinitude of primes. Currently a schema in
+   `EndogenousHorizon`. Standard, but it is the one place where the machine
+   states an impossibility it cannot yet inhabit for every threshold.
+
+## A ledger error, recorded rather than quietly fixed
+
+When this file was first written it marked Delta 15 §§15.3, 15.4 and 15.6 OPEN.
+They were not open: `NaturalMachine/PerspectiveSymmetry.agda` had already checked
+T15.9, C15.10, T15.12–T15.14, Program 15.16, T15.22 and T15.24, and that module
+was already imported by the `NaturalMachine` root. The ledger was built by
+reading the Delta documents against `StructuredDefect`, `ExcursionReturn`,
+`EndogenousHorizon` and `PairCoordinates` — and missed a module that says
+"Delta 15 §§15.3, 15.4, 15.6" in its own first line.
+
+Two consequences, both worth more than the two rows:
+
+1. **`ChargeGrading` duplicates `PerspectiveSymmetry`'s `Shift` and
+   `shift-comp`.** The duplication is real and is not being hidden. It is left in
+   place for now because the two are stated over different bases (that module's
+   is fibred over `Str`, this one's over a bare ℕ-grading) and merging them is a
+   refactor, not a proof; but a later block should merge them, and until then
+   this paragraph is the pointer.
+2. **This is the failure mode this repository already named.** An agent building
+   a coverage map from the documents *it* had read produced a map of its own
+   attention, and then acted on it. `random_entry_seeder_so_agents_dont_cluster/`
+   exists for exactly this, and the fix is the one it prescribes: before adding a
+   row, grep the corpus for the section number, not for the concept.
 
 ## Standing rule for this file
 
