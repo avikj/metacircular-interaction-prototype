@@ -219,6 +219,7 @@ import NaturalMachine.DSOBellmanFinite
 import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
 import NaturalMachine.SemanticCrystal
+import NaturalMachine.KnowledgeProcess
 import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct
@@ -480,6 +481,7 @@ import NaturalMachine.BalanceWithoutTransitivity
 -- while overwrite to its one symbolic coset costs all sixty basis states.
 import NaturalMachine.AffineProjectionQuantumBoundary
 import NaturalMachine.SmithKernelQuantumBoundary
+import NaturalMachine.GlobalSmithAtlasFlatness
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.
