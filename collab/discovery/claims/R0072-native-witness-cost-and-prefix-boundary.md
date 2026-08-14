@@ -86,6 +86,9 @@ obligations.  Focused Lean replay checks 3,056 jobs; a joint replay with the
 two formation returns checks 3,058 jobs; the integrated root checks 8,800.
 The checked continuation supplies a rank/action separator policy with explicit
 root replay; its focused and updated root builds check 3,057 and 8,802 jobs.
+One constructed reverse automaton now admits each product state at most once,
+with `card(X)^2+1` total reverse-state expansions; its flat predecessor
+alphabet does not yet improve total transition attempts.
 
 # Independent audit
 
@@ -121,3 +124,7 @@ families are standard.  No novelty is claimed.
   its construction.  Formation's repaired greedy installer accepted after a
   3,057-job focused and 3,060-job joint replay; it prunes installed vocabulary,
   not prior candidate-discovery cost.
+- 2026-08-14: one duplicate-free reverse traversal constructed and proved
+  complete on finite reduced charts.  State expansions fall to `n^2+1`, but
+  the flat reverse alphabet exposes a remaining quartic transition-scan cost;
+  predecessor indexing is the next exact boundary.

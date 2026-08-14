@@ -182,3 +182,52 @@ at most `choose(card X,2)` installed words.  The combined adapter/partition/
 cost/policy/formation build checks 3,060 jobs.  This reduces installed
 vocabulary only: every scheduled candidate is already present, so no discovery
 cost reduction follows.
+
+## 9. One checked reverse traversal, and its remaining width cost
+
+`NativeReversePairTraversal` now constructs one duplicate-free search rather
+than assuming a shared table.  Its reverse automaton has states
+
+```text
+Option (X × X)
+```
+
+where `none` is one synthetic source.  A `seed pair` move enters a pair whose
+present Moore responses differ.  A `predecessor pair action` move enters
+`pair` from a solved current pair exactly when the original synchronous action
+takes `pair` to that current pair.
+
+The exact adapter reverses any forward separator:
+
+```text
+behavior left word != behavior right word
+  -> reverseDFA.eval (reverseCertificate (left,right) word)
+       = some (left,right).
+```
+
+The proof recursively reverses the suffix and uses
+`DFA.evalFrom_of_append` for the final predecessor edge.  On a finite reduced
+chart this gives a closed retained reverse node for every unequal pair.  The
+generic visited invariant then checks:
+
+```text
+reverseTraversal.states.Nodup
+reverseTraversal.closed.length <= card(X)^2 + 1
+reverseTraversal.frontier = [].
+```
+
+Thus every product state is admitted and expanded at most once; the `+1` is
+exactly the synthetic source.  A native three-state control expands seven
+reverse states, below the generic ceiling `3^2+1`.
+
+This is not yet a total-work speedup.  The first executable reverse alphabet
+is deliberately flat: it contains every seed label and every
+`(pair, action)` predecessor label, and the generic DFA traversal scans that
+whole alphabet at each expanded reverse state.  It removes duplicate state
+admissions but may still perform quartically many transition tests.  A genuine
+discovery-cost improvement now requires an indexed predecessor adjacency (or
+an equivalent custom frontier expansion) built once, followed by extraction
+of retained reverse paths into `NativeReverseSeparatorPolicy.Policy`.
+
+Focused replay checks 3,058 jobs; importing the traversal into the aggregate
+checks 8,805 jobs.

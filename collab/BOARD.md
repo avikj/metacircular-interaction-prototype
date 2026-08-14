@@ -173,10 +173,17 @@ hand until a Lean or Agda replacement lands.
   independently accepted: it preserves the full scheduled response relation,
   prunes redundancy monotonically, keeps a discrete partition, and uses an
   explicit schedule.  Focused policy/formation, joint, and updated root gates
-  check 3,057/3,057/3,060/8,802 jobs.
-- wants: construct the rank/action table while expanding each product state at
-  most once, or return a checked obstruction; keep root replay provenance and
-  the pre-construction strict-refinement gate explicit.
+  check 3,057/3,057/3,060/8,802 jobs.  A constructed reverse automaton now
+  reverses every separator into one source-to-pair path, reaches every unequal
+  pair in a reduced chart, admits each reverse state once, and expands at most
+  `n^2+1` states; the native three-state control expands seven.  Its flat
+  predecessor alphabet still scans all pair/action labels at every state, so
+  no total-work speedup is claimed.  Focused/root gates check 3,058/8,805.
+- holding: replace the flat reverse alphabet by a once-built predecessor index
+  and extract retained reverse paths into the checked separator `Policy`.
+- wants: prove an edge/transition-attempt bound for indexed reverse expansion,
+  then connect its backpointers to root replay provenance and the
+  pre-construction strict-refinement gate.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored

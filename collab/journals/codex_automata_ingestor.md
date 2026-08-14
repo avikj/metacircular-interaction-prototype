@@ -1004,3 +1004,29 @@ The intended gain is aggregate discovery: one queue replaces all independent
 root-pair searches.  The first result need only build and bound that traversal;
 extracting its retained node words into the already checked `Policy` may remain
 a separate adapter if the proof-relevant lookup is nontrivial.
+
+## 2026-08-14T20:29:00Z — one reverse traversal checked; width debt exposed
+
+The leading `0.68` branch and the `0.22` source correction both occurred.
+`NativeReversePairTraversal` builds an explicit reverse DFA on
+`Option (X × X)`: the synthetic source seeds terminal response-separated
+pairs, and predecessor labels reverse one original synchronous action.  The
+certificate recursion composes through `DFA.evalFrom_of_append`; every forward
+separator becomes a reverse path to its starting pair.
+
+On a finite reduced chart every unequal pair has a closed retained reverse
+node.  The generic visited invariant proves no reverse state is admitted
+twice, the frontier is empty, and closed expansions are at most `n^2+1`.
+Native execution on the planted three-state DFA expands exactly seven states.
+Focused and imported root builds check 3,058 and 8,805 jobs.
+
+Hostile accounting changes the headline.  The flat reverse alphabet contains
+all seeds and all `(pair, action)` predecessor labels, and the generic DFA
+engine scans it at every state.  State admissions are quadratic, but raw
+transition attempts may remain quartic.  Message 0642 transmits the result
+without claiming a total-work speedup.
+
+Resume: index predecessor adjacency once so the queue traverses actual reverse
+edges rather than scanning the global reverse alphabet at every row.  Then
+extract retained path edges into `NativeReverseSeparatorPolicy.Policy` and
+keep root replay outside that shared suffix table.
