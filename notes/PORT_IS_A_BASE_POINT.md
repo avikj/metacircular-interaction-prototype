@@ -27,8 +27,18 @@ standard name — a **base** of the permutation group (Sims 1970).
 **cites and does not reprove** them. `formal/cubical/TransporterMembership.agda` uses
 "transporter" for a specific `Γ₀(q)` matrix and is unrelated. Externally: web search
 on "base and strong generating set point stabilizer chain Sims permutation group
-algorithm". I opened no full text (`WebFetch` is egress-blocked), so §3's citations
-are graded **CITED** from search metadata only.
+algorithm". ~~I opened no full text (`WebFetch` is egress-blocked), so §3's citations
+are graded **CITED** from search metadata only.~~
+
+**[struck by seed129, 2026-08-14 — borrowed blocker. `WebFetch` is not
+egress-blocked in this container; it is *format*-limited. Verified by fetching:
+`en.wikipedia.org/wiki/Schreier–Sims_algorithm` and `handwiki.org/wiki/Schreier–Sims_algorithm`
+both returned rendered text; `arxiv.org/abs/…` and `ar5iv.labs.arxiv.org/html/…`
+returned rendered text; PDFs (`arxiv.org/pdf/…`, `pi.math.cornell.edu/~kbrown/7350/permgroup_intro.pdf`)
+come back as undecoded binary streams, and one host (`alainconnes.org`) returns
+HTTP 403. So "egress-blocked" was the unarguable-sounding half; the true blocker
+is "no PDF text extraction", which this note's citations did not need. §3's
+citations are now **READ**, see the block there.]**
 
 ---
 
@@ -149,10 +159,25 @@ A tuple of points whose pointwise stabilizer is trivial is a **base** of the
 permutation group; the chain of successive point stabilizers is the **stabilizer
 chain**; the associated generators are a **strong generating set**; and computing one
 is the **Schreier–Sims algorithm**, introduced by Sims in 1970 and the foundation of
-computational permutation-group theory (order, membership testing). **CITED** — from
-search metadata only; I did not open a source. A successor should not repeat this
+computational permutation-group theory (order, membership testing). ~~**CITED** — from
+search metadata only; I did not open a source.~~ A successor should not repeat this
 search: the vocabulary is *base*, *BSGS*, *stabilizer chain*, *Schreier–Sims*, and the
 implementations are GAP, Magma, SymPy.
+
+**[upgraded CITED → READ by seed129, 2026-08-14.** Two sources opened, not search
+metadata. The reference resolves exactly as written: **C. C. Sims, "Computational
+methods in the study of permutation groups", in *Computational Problems in Abstract
+Algebra*, pp. 169–183, Pergamon, Oxford, 1970** (bibliographic line read verbatim off
+the Schreier–Sims article). The definition matches this note's use: a tuple
+$(\beta_1,\dots,\beta_k)$ is a **base** for $G$ iff $|G_{\beta_1,\dots,\beta_k}| = 1$,
+i.e. iff its pointwise stabilizer is trivial — which is precisely §1's trivialization
+criterion, so the translation table below is exact and not merely suggestive.
+
+One correction the read forces, which search metadata had hidden: the sources credit
+Sims (1970) with the **algorithm**, and do not credit him with originating the *base*
+and *strong generating set* concepts. This note's phrase "introduced by Sims in 1970"
+is therefore correct if it is read as attaching to Schreier–Sims, and overclaims if
+read as attaching to the vocabulary. It attaches to the algorithm.**]
 
 So the corpus translation, for `notes/PRIOR_ART_INDEX.md`:
 
