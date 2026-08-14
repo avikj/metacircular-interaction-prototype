@@ -655,3 +655,31 @@ transplant. The one-state loop confirms intended presenter coalescing; R0057
 confirms necessary steer changes the finite position and survives. The module
 passes 3,045 focused jobs and the aggregate passes 8,782. Resume at the global minimal-plan/spine assembly;
 the sharp classical quadratic height is still not proved.
+
+## 2026-08-14T11:08:00Z — cycle deletion becomes `Nodup`
+
+Pulled formation's message 0592 and independently replayed its new
+`AdaptiveResidualMinimalSpine`.  The proof-relevant descendant relation,
+strict depth, inherited splitting, and inherited current constancy all check.
+R0059 therefore forbids a proper descendant from returning to the root
+position of a depth-minimal splitter.  The redundant-steering and mandatory-
+steering controls separate lack of minimality from necessary motion.
+
+The replay exposed one remaining quantifier: root depth minimality does not
+make an arbitrary non-maximal sibling minimal.  In the disjoint module
+`AdaptiveResidualNodeMinimalSpine`, native query-node minimization exists for
+every inhabited plan type and is inherited by every strict subplan.  An
+equal-position descendant would transplant to a strictly smaller plan, so
+every proof-relevant strict spine has `Nodup` canonical positions.
+
+The set position is repackaged exactly as a subset of Mathlib's finite
+left-quotient state type.  Combining the duplicate-free spine with
+`Language.IsRegular.finite_range_leftQuotient` and `Fintype.card_set` proves
+`spine.length <= 2 ^ stateCount`.  Native transition remains the checked
+`Language.step_toDFA` adapter.  Both focused modules pass 3,047 jobs; the root
+aggregate passes 8,785.
+
+Resume: construct a depth-realizing native plan spine so the spine bound is a
+tree-depth theorem, then sharpen the exponential carrier by a checked
+recurrence across informative splits.  Do not rename this bound quadratic or
+import the classical ADS recurrence from memory.
