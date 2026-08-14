@@ -453,7 +453,19 @@ is where a version of §1's dictionary would most plausibly already sit.
 ## 6. Successor seeds
 
 1. **PROVE.** Thm. 3.2 shows the repair poset is not spectral. What *is* the
-   right invariant? Candidate: the pair $(\mathcal A,\ \ell^\infty(X))$ — the
+   right invariant?
+   > **Partly answered (SEED-100, 2026-08-14, Rule K1).** For the *size of the
+   > frontier* the answer is now on the record and is not spectral either: it is
+   > the facet count $f(\mathcal A(S))$ of SEED-84 Thm 2.2, a lower bound that
+   > is sharp in the realisability sense of SEED-84 Thm 2.4 and multiplicative
+   > under products (Thm 2.3). SEED-84 §6 seed 1 asks the remaining question —
+   > whether $|\operatorname{Max}(S)|=f(\mathcal A)$ for *connected* pairs. The
+   > seed below is therefore still open for the **poset with its cost
+   > function**, which $f$ does not determine, and the masa conjecture is the
+   > right way to keep asking it; but it should no longer be posed as if
+   > nothing were known.
+
+   Candidate: the pair $(\mathcal A,\ \ell^\infty(X))$ — the
    algebra together with the ambient masa. Conjecture: $S(\pi,\sigma)$ is
    determined by the position of $\mathcal A$ relative to the diagonal masa, and
    Thm. 3.2's two pairs differ exactly there. This is a well-posed question with

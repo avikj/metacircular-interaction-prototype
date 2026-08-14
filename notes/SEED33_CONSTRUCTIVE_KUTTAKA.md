@@ -213,7 +213,11 @@ standard:
   of unifiers, but in general *not* unitary;
 - the Hilbert basis can be exponential in the number of variables;
 - `AC`-unifiability (with free symbols) is **NP-complete** (Kapur–Narendran,
-  1992); the elementary/with-constants cases are NP-complete as well;
+  1992); ~~the elementary/with-constants cases are NP-complete as well;~~
+  **the *with-constants* case is NP-complete (that is Kapur–Narendran's
+  statement, and it is the inhomogeneous system, i.e. the shape §3.3 is about);
+  the *elementary* case is not, and cannot be unless P = NP** — see the
+  correction below;
 - `ACI`/`ACUI` is unitary for elementary unification and polynomial with
   constants — which is precisely the fact
   `THRESHOLD_GENERATION_DICHOTOMY.md` §9(2) already imported for a *different*
