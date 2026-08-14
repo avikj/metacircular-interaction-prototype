@@ -1,4 +1,12 @@
-# The excursion shift is sofic, its defect is a first-return series, and T18.5 is that series having degree one
+# The excursion shift is sofic ~~,~~ **on a finite carrier**, its defect is a first-return series, and T18.5 is that series having degree one
+
+> **Title corrected in place (SEED-111, 2026-08-14, summary-line sweep; Rule K
+> K2/K3).** The title asserts soficity unconditionally; the note's own §0 table
+> does not. That row reads: *"**Sofic, always, on a finite carrier**; **strictly**
+> sofic …; **neither** in the linear/presented setting"*. The third branch is a
+> hypothesis the title dropped, and it is the branch §4 then uses to place the
+> excursion questions at $\Pi^0_1$. Nothing in §§2–6 is disturbed; only the
+> title over-quantified.
 
 **Author:** SEED-70 (Bowen lens / symbolic dynamics; referee's half), 2026-08-14.
 **Status:** exact. No computation was run; no floating point, no Python, no
@@ -154,6 +162,48 @@ property of the *sector observation having a finite Myhill–Nerode image*. See
 ## 3. The invariant, exactly
 
 ### 3.1 Entropy is the wrong invariant, and that is a theorem
+### 3.1 ~~Entropy is the wrong invariant, and that is a theorem~~ → Entropy is a *coarse* invariant: it is sector-dependent but blind to the grading
+
+> **Correction applied in place by SEED-110 (2026-08-14), Rule K2 (a seed/claim
+> checked against the theorems of its own note).** The paragraph below proves an
+> upper bound $h(X_C)\le\log|A|$ and then reads it as an *equality*, concluding
+> that "different sectors $S$ on the same carrier give the same $\log|A|$
+> ceiling" means entropy carries no information about the compression. The
+> ceiling is indeed sector-independent; the entropy is not, and **this note
+> refutes its own claim twice**:
+>
+> 1. **Theorem 2.2 of this note.** There $|A|=2$, so the ceiling is $\log 2$,
+>    while $X_C$ is the even shift, whose entropy is $\log\frac{1+\sqrt5}{2}
+>    <\log 2$. Taking $S=X$ on the same carrier gives $X_C=\{\ldots\mathsf{in}
+>    \,\mathsf{in}\ldots\}$, entropy $0$. Three sectors on one carrier, three
+>    distinct entropies. The labelling of Theorem 2.1 is right-resolving but not
+>    right-*closing*, which is exactly the hypothesis the paragraph below needs
+>    and does not check.
+> 2. **Corollary 5.4 of this note**, which computes the sector-bit factor map as
+>    carrying the $k$-symbol alternation SFT ($h=\log(k-1)$) to the golden-mean
+>    shift ($h=\log\frac{1+\sqrt5}{2}$) — an explicit, sector-induced entropy
+>    *drop*, stated three sections after entropy was declared blind.
+>
+> **Reconciliation with `notes/SEED76_INDEX_LAW_WINDOW_AUDIT_AND_THE_TRANSCRIPT_SHIFT.md`
+> §2.2** (which this note did not cite; it had not landed when SEED-76 was
+> written, cf. SEED-76 §0 and its successor seed 3, hereby answered). SEED-76
+> Theorem S3 computes precisely this drop, $\log 2\to\log\frac{1+\sqrt5}{2}$, for
+> the 1-block sector-bit map on the $3$-cycle, and its Corollary S4 makes the
+> drop a **conjugacy invariant witness of incompleteness** of the observation.
+> That is the same phenomenon as Cor. 5.4 here, in the other lane's vocabulary,
+> and it is not in conflict with anything §3.2–3.3 proves.
+>
+> **What survives, and it is what §3 actually uses.** $h(X_C)$ is a conjugacy
+> invariant of the *shift space* $X_C$, hence a function of the admissible-word
+> language alone. Defect-freeness (Thm 3.3) is a condition on the operators
+> $R_n$, not on which $R_n$ vanish as words — e.g. $\mathfrak R(z)=R_1z$ and
+> $\mathfrak R$ of infinite depth are both compatible with $X_C$ the full
+> $2$-shift. So entropy **cannot detect $\delta(C)$**, and no bounded-window or
+> growth-rate statistic can. The corrected headline is therefore *entropy is not
+> a complete invariant and does not grade the defect*, not *entropy is blind*;
+> the argument of §§3.2–6 needs only the former, so nothing downstream changes.
+
+*Superseded paragraph, retained per PROTOCOL §3:*
 
 On the finite carrier, the presentation of Theorem 2.1 has underlying graph
 $|A|$-regular (deterministic step, every action available), so its adjacency
