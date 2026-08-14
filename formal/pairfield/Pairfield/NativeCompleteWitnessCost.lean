@@ -25,7 +25,7 @@ variable [DecidablePred (fun state : X => state ∈ M.accept)]
 /-- Sum the pair states actually retained by every independently scheduled
 strict-pair query.  This is an executable baseline, not a shared traversal. -/
 def aggregateVisitedPairExpansions (alphabet : List A) : Nat :=
-  ∑ pair in strictPairs (X := X),
+  ∑ pair ∈ strictPairs (X := X),
     reachableStatePairCount M alphabet pair.1 pair.2
 
 /-- The exact strict-pair schedule and the per-query product-state ceiling give
@@ -37,9 +37,9 @@ theorem aggregateVisitedPairExpansions_le
         (Fintype.card X * Fintype.card X) := by
   calc
     aggregateVisitedPairExpansions M alphabet =
-        ∑ pair in strictPairs (X := X),
+        ∑ pair ∈ strictPairs (X := X),
           reachableStatePairCount M alphabet pair.1 pair.2 := rfl
-    _ ≤ ∑ _pair in strictPairs (X := X),
+    _ ≤ ∑ _pair ∈ strictPairs (X := X),
           (Fintype.card X * Fintype.card X) := by
       apply Finset.sum_le_sum
       intro pair _
@@ -72,7 +72,7 @@ theorem completeWord_length_lt_card_sq
 
 /-- Total length of the deduplicated installed control language. -/
 def totalCompleteWordLength (alphabet : List A) : Nat :=
-  ∑ word in completeWords M alphabet, word.length
+  ∑ word ∈ completeWords M alphabet, word.length
 
 /-- The deduplicated language's total retained length obeys the same
 quadratic-schedule times product-state ceiling.  This is a storage ceiling,
@@ -85,8 +85,8 @@ theorem totalCompleteWordLength_le
         (Fintype.card X * Fintype.card X) := by
   calc
     totalCompleteWordLength M alphabet =
-        ∑ word in completeWords M alphabet, word.length := rfl
-    _ ≤ ∑ _word in completeWords M alphabet,
+        ∑ word ∈ completeWords M alphabet, word.length := rfl
+    _ ≤ ∑ _word ∈ completeWords M alphabet,
           (Fintype.card X * Fintype.card X) := by
       apply Finset.sum_le_sum
       intro word hword
@@ -105,25 +105,25 @@ Moore-observation interface.  A suffix may be reused at a reached state only
 after its replay prefix has been restored. -/
 theorem behavior_append_eq_behavior_reached
     {O : Type*} (observe : X → O) (left : X)
-    (prefix suffix : List A) :
-    behavior M.step observe left (prefix ++ suffix) =
-      behavior M.step observe (M.evalFrom left prefix) suffix := by
+    (replayPrefix suffix : List A) :
+    behavior M.step observe left (replayPrefix ++ suffix) =
+      behavior M.step observe (M.evalFrom left replayPrefix) suffix := by
   simp [behavior, run_eq_evalFrom, DFA.evalFrom_of_append]
 
 /-- Prefix/suffix splicing preserves and reflects pair separation exactly. -/
 theorem append_suffix_separates_iff_reached
     {O : Type*} (observe : X → O) (left right : X)
-    (prefix suffix : List A) :
-    behavior M.step observe left (prefix ++ suffix) ≠
-        behavior M.step observe right (prefix ++ suffix) ↔
-      behavior M.step observe (M.evalFrom left prefix) suffix ≠
-        behavior M.step observe (M.evalFrom right prefix) suffix := by
-  rw [behavior_append_eq_behavior_reached M observe left prefix suffix,
-    behavior_append_eq_behavior_reached M observe right prefix suffix]
+    (replayPrefix suffix : List A) :
+    behavior M.step observe left (replayPrefix ++ suffix) ≠
+        behavior M.step observe right (replayPrefix ++ suffix) ↔
+      behavior M.step observe (M.evalFrom left replayPrefix) suffix ≠
+        behavior M.step observe (M.evalFrom right replayPrefix) suffix := by
+  rw [behavior_append_eq_behavior_reached M observe left replayPrefix suffix,
+    behavior_append_eq_behavior_reached M observe right replayPrefix suffix]
 
 end NativeCompleteWitnesses
 
-/-- Hostile finite control for erasing replay roots.  Two different root pairs
+/- Hostile finite control for erasing replay roots.  Two different root pairs
 reach the same current pair under different one-letter prefixes. -/
 namespace PrefixErasureWitness
 
