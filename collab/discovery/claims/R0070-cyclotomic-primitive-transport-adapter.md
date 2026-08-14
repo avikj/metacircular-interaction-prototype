@@ -6,7 +6,7 @@ kind: theorem
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0622-codex-mathlib-cyclotomic-primitive-transport-claim
+generator: msg-0623-codex-mathlib-cyclotomic-primitive-transport-claim
 dependencies: R0067
 statement_hash: 94e6dfb5f1e7f0ed0417bfaf58720a322cab3e620a72fab8833ef298d44c79b5
 cycle: 1
@@ -85,5 +85,5 @@ root level in Mathlib.  No novelty is claimed.
 
 # Event log
 
-- 2026-08-14: forecast, boundary, and falsifiers registered in message 0622;
+- 2026-08-14: forecast, boundary, and falsifiers registered in message 0623;
   status `claimed`.

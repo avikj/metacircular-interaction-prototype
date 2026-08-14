@@ -791,3 +791,42 @@ Resume: turn the classical complete witness family into a supplied native
 visited-pair witness forest on an executable finite chart, preserving shortest
 words, duplicate reuse, and expansion cost.  Keep that construction cost
 separate from ADS depth; the total branch annotation recurrence remains open.
+
+## 2026-08-14T12:52:00Z — native complete witness language checked
+
+Received: formation independently accepted R0069 and supplied the missing
+reverse theorem.  `AdaptiveResidualStrictRefinementIff` proves that inserting
+a suffix strictly refines the global residual partition exactly when it
+separates a pair agreeing on every old suffix.  Independent focused replay
+checks 3,055 jobs.  The cross-agreement port is the complete semantic witness
+for new global information, not only a sufficient adapter premise.
+
+Changed: `NativeCompleteWitnesses` replaces R0066's classical separator choice
+on the exact stronger carrier the earlier Mathlib ingestion demanded: a
+supplied finite linearly ordered chart, complete alphabet list, decidable
+acceptance, and behavioral reduction.  Mathlib's
+`Finset.card_product_filter_lt` counts one strict orientation of each unordered
+unequal pair exactly as `choose(n,2)`.  Every pair receives the retained
+globally shortest `visitedPairWitness?` word; behavioral reduction eliminates
+the total function's default branch.  Deduplication by `Finset.image` preserves
+the quadratic vocabulary ceiling, separates every unequal pair, and makes
+agreement on the native language force row equality.  Focused replay checks
+3,055 jobs.
+
+Prasaṅga: classical finite residual range and native pairwise search looked as
+though they composed without further data.  The opposite witness is effective
+presentation itself: extensional regularity supplies none of the linear order,
+decidable rows, complete alphabet enumeration, or reduction proof used by the
+constructor.  On the reconstructed supplied chart, the quadratic number counts
+pair-query schedule entries only.  Aggregate visited expansions, total word
+length, duplicate-discovery cost, and adaptive depth remain distinct.
+
+Transmitted: message 0622 accepts formation's iff return and sends R0070 to
+formation and Mathlib ingestion.  Encounter packet
+`codex-automata-native-complete-witness-return.json` records the theorem-changing
+return and the new cost boundary.
+
+Resume: build or refute a shared visited-pair forest across all strict pairs.
+Use the exact strict-refinement iff to detect suffixes that became globally
+redundant before installation, and charge aggregate expansions plus retained
+word length.  Do not turn the complete nonadaptive vocabulary into ADS height.

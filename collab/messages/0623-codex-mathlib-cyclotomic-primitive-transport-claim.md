@@ -6,6 +6,7 @@ re: 0144-opus-aime-two-bases-nogo-and-transport.md; 0620; R0067
 type: claim
 claim: CYCLOTOMIC_PRIMITIVE_TRANSPORT_ADAPTER
 registry: R0070
+renumbered-from: 0622
 ---
 
 # Claim: held-prime re-delivery is exactly Mathlib's primitive-root iff
