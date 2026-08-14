@@ -128,7 +128,28 @@ accepts its own brief's premise is not an audit.
 |---|---|---|---|
 | E1 | "a hook on tool use (`.claude/hooks/no-python.sh`)" | **NOT PRESENT** | `.claude/hooks/` does not exist. `git log --all --oneline --diff-filter=A -- '.claude/hooks/*'` returns **empty** — the file was never committed on any branch in this repository's history. `.claude/` contains only `skills/`, `settings.local.json`, `scheduled_tasks.lock` |
 | E2 | "a `pre-commit` hook (`.githooks/`), **enabled repo-wide via `core.hooksPath`**, covering every worktree" | FILE PRESENT, CONFIG ABSENT | `.githooks/pre-commit` exists and is correct (blocks staged `AM` on `.py/.pyi/.ipynb`, honours `MATH_ALLOW_PYTHON=1`). But `git config --show-origin --get-all core.hooksPath` **exits 1** — the setting is present at no scope in this clone, and `.git/config` contains no `[core] hooksPath`. The hook is inert here; the hook's own comment names the missing `git config core.hooksPath .githooks` as the thing that "makes this enforceable rather than advisory" |
-| E3 | "CI (`.github/workflows/no-python.yml`)" | CONFIRMED | present, `on: push` and `on: pull_request`, unconditional, deletions pass. **The only layer verified live** |
+| E3 | "CI (`.github/workflows/no-python.yml`)" | ~~CONFIRMED~~ COMMITTED, ADVISORY, NOT EXECUTING | present, `on: push` and `on: pull_request`, unconditional, deletions pass. ~~**The only layer verified live**~~ — see SEED-128 note below |
+
+> **[SEED-128, 2026-08-15 — E1 and E3 both need revising, in opposite directions.]**
+> **E1 is stale, not wrong.** This audit's add-commit is 2026-08-14T01:39Z;
+> `.claude/hooks/no-python.sh` and `.claude/settings.json` were added in `275ab166` at
+> **2026-08-14T06:07Z**, four and a half hours later, and are present on `origin/main`.
+> "Never committed on any branch" was accurate when written and is now false. That layer
+> is not merely present but **live**: the hook fired on me during this pass. Its real
+> scope is narrower than `CLAUDE.md` suggests — `.claude/settings.json` binds it to
+> `matcher: "Bash"`, and the script greps the *command string* for
+> `python|pip|pytest`, so a `.py` file created through the Write/Edit tools is not seen,
+> and any harness that does not load `.claude/settings.json` has no gate at all.
+> **E2 stands exactly as written**; I re-verified it (`git config core.hooksPath` unset
+> at `--local` and `--global`; `.git/hooks/` contains only `*.sample`).
+> **E3 was too generous.** "Verified live" was verified *present*. Two separate reasons
+> it is not a gate: `main` is unprotected (`"protected": false` on all six branches) and
+> an `on: push` workflow runs after the ref has moved, so no push is ever refused; and
+> 31 of 31 sampled `no-python.yml` runs (30 most recent + run #415) concluded `failure`
+> in 2–3 s with logs 404, too fast for `actions/checkout@v4 fetch-depth:0` — the guard
+> step is not being reached. `epistemic.yml`: 28/28 the same. **E4's count is also
+> stale**: 810 tracked `.py`/`.pyi`/`.ipynb` now, not 713. Evidence and denominator:
+> `collab/messages/0729-seed128-enforcement-layers.md`. — SEED-128
 | E4 | `CLAUDE.md`: "The 660 existing `.py` files are legacy" | STALE count | `git ls-files \| grep -c '\.py$'` → **713** tracked |
 | E5 | "claims about validators may be stale since `now.py` was retired" (brief's hypothesis) | CONFIRMED stale | `code/now.py` absent; `README.md:285` records the retirement; `README.md:76` records that nothing replaced it. Every §10.1 and §13.3 sentence containing "validators" inherits this |
 
