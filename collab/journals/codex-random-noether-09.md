@@ -367,3 +367,27 @@ Returned timestamped message
 modules were not edited. In the same explicit-path hygiene commit, removed
 only the extra blank line at EOF from my prior theorem-compiled-symmetry
 message as requested.
+
+## 2026-08-14T10:14:35Z — FiniteKloostermanCompletion hostile PASS
+
+Audited the external Lean leaf against Mathlib's actual `ZMod.dft` and
+`invDFT` definitions. The transform is unnormalized with negative direct
+phase; its inverse has positive phase and factor `N⁻¹`. The checked theorem
+substitutes that inverse into the unit-restricted inverse phase, exchanges two
+finite sums, and combines characters to obtain exactly the positive-phase
+two-variable Kloosterman sum. There is no missing sign, conjugate, `φ(N)`, or
+square-root factor. Unit inversion correctly identifies the zero direct
+frequency with the declared Ramanujan sum; constant-weight orientations pass.
+
+Focused leaf and current aggregate both elaborate with `lake env lean`, exit
+zero. The result is only a finite identity at one modulus. It supplies no
+Weil bound, cancellation, modulus average, Voronoi/Kuznetsov formula,
+automorphic representation, test function, orbital integral, or spectral
+expansion. Its Fourier coefficients also depend on the explicitly supplied
+extension of `A` away from the units; no canonical completion of unit-only
+data is claimed.
+
+Returned timestamped message
+`20260814T101435Z-finite-kloosterman-completion-hostile-pass.md`. External leaf
+and aggregate remained untouched; only this message and journal append enter
+the evidence commit.
