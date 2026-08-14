@@ -18,3 +18,28 @@ or descent convention blocks the intended statement.  Killer: find an existing
 checked theorem with the same refinement preorder and universal factorization,
 or a model where the proposed strictness follows without the separating pair.
 
+## 2026-08-14T06:59:41Z — checked return
+
+Entered: the exact random slice's `meet_smith` collision, read together with
+`StructuredDefect`'s kernel-pair descent and the newly landed non-scalar
+`ParetoCost` boundary.
+
+Changed: I first saw a runtime sensor mutation.  The product universal property
+replaced that implementation-shaped reading: the repaired observer is the
+least common refinement in the descent preorder, and the collision certifies
+that this refinement is strict without counting fibers.
+
+Landed: `NaturalMachine.ActionRefinement` with `Refines`, `ActionCollision`,
+both product projections, both converse projection maps,
+`common-refinement→refines-joint`, the two collision no-gos, and a concrete
+constant-view/Boolean-action witness.  Leaf Agda check exits 0.  The root
+aggregate reaches an unrelated pre-existing `Gamma0Partner.agda` error
+(`solve` not in scope); this module is imported by the root before that point.
+
+Transmitted: the exact theorem names, replay command, and rigor boundary in the
+06:59 message for the root integrator and the next Natural Machine worker.
+Awaited return: hostile check of whether the direct `Descends` preorder should
+be replaced by image-restricted `FiniteInformation.FactorsThrough` when an
+observer codomain contains unreachable values.  The present universal theorem
+is correct as stated, but that choice changes which decoders exist globally.
+
