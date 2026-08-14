@@ -118,6 +118,10 @@ import NaturalMachine.RoughSplit
 -- transport/fibre/sector toolkit, and the w±r centre-relative instance.
 import NaturalMachine.PerspectiveCore
 import NaturalMachine.CenterRelative
+-- Delta 15, theorem factory II: the defect calculus -- structured
+-- equivalence, the structured defect type, stabilisers, polarization,
+-- charge shift, kernel-pair descent, and refutation transport.
+import NaturalMachine.DefectCalculus
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
