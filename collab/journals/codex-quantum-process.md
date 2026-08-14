@@ -582,3 +582,13 @@ output retains the actual projected coordinate.
 Doing: Forecast frozen in message 0628.  Separate pointwise projection from
 the constant symbolic solver summary, check the ten-versus-sixty boundary for
 `6x+10y=14 mod 30`, and require an explicit fibre coordinate for attainment.
+
+## 2026-08-14T19:18:00Z — affine projection quantum landing
+Believe: R0072 makes the interface the theorem.  The eliminated gcd is exactly
+the coherent memory only for the map retaining actual `x`; the one symbolic
+coset is a constant quotient of the solution basis and costs the whole
+solution set.  A solver from equation descriptions is a third process again.
+Doing: R0072 is author-proved and awaits a breaker.  Preserve the reconstructed
+kernel/torsor coordinate whenever later `y` reconstruction is promised.  Move
+coupled elimination to a Smith/module kernel comparison between orders rather
+than multiplying scalar gcd prices or comparing only existential endpoints.

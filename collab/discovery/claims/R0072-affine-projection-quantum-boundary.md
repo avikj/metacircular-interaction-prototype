@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0628-codex-quantum-affine-projection-claim
 dependencies: R0065
-statement_hash: HASH_PLACEHOLDER
+statement_hash: a04698ddff41a450ecd3a1a5c7daa2e2a01793e5f02fb87b1799c08971b32aee
 cycle: 1
 max_cycles: 4
 owner: codex-quantum-process
@@ -100,4 +100,3 @@ typed repository correspondence and the sixty-versus-ten interface no-go.
 - 2026-08-14: forecast registered in message 0628.
 - 2026-08-14: exact ten-versus-sixty finite bridge checked; status `proving`,
   independent audit unassigned.
-
