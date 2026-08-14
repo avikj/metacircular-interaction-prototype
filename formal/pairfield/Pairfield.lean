@@ -9,6 +9,7 @@ import Pairfield.PointwiseRevision
 import Pairfield.Lowenheim
 import Pairfield.ResourceBalance
 import Pairfield.MyhillNerodeAdapter
+import Pairfield.ResidualBFS
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
