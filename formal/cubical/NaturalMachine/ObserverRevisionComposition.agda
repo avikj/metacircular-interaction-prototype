@@ -18,16 +18,19 @@
 module NaturalMachine.ObserverRevisionComposition where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Isomorphism using (Iso)
 open import Cubical.Data.Bool
-  using (Bool ; false ; true ; false≢true)
+  using (Bool ; false ; true ; false≢true ; isSetBool)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
 
+import NaturalMachine.FiniteInformation as FI
+
 private
   variable
-    ℓX₀ ℓX₁ ℓX₂ ℓQ₀ ℓQ₁ ℓQ₂ ℓV : Level
+    ℓX₀ ℓX₁ ℓX₂ ℓQ₀ ℓQ₁ ℓQ₂ ℓV ℓS : Level
     X₀ : Type ℓX₀
     X₁ : Type ℓX₁
     X₂ : Type ℓX₂
@@ -235,3 +238,63 @@ no-stage-defect-decoder :
 no-stage-defect-decoder decode law =
   false≢true
     (sym (law zero one zero) ∙ law zero one two)
+
+------------------------------------------------------------------------
+-- 4.  Exact criterion for any proposed response-span summary
+------------------------------------------------------------------------
+
+ResponseSpan : Type₀
+ResponseSpan = Response₃ × (Response₃ × Response₃)
+
+stageSummary : ResponseSpan → Bool × Bool
+stageSummary (old , middle , new) = stageFlags old middle new
+
+compositeTarget : ResponseSpan → Bool
+compositeTarget (old , middle , new) = compositeFlag old middle new
+
+-- A supplied summary determines composite defects exactly when the target
+-- factors through its realized image.  This reuses the repository's
+-- choice-free image factorization rather than inventing a second quotient.
+DeterminesComposite : {S : Type ℓS} → (ResponseSpan → S) → Type _
+DeterminesComposite summary = FI.FactorsThrough summary compositeTarget
+
+-- Kernel criterion: a summary is sufficient iff the composite flag is
+-- constant on every one of its fibers.  The decoder lives only on the
+-- realized image, so no arbitrary default or choice is hidden here.
+summary-kernel-criterion : {S : Type ℓS} (summary : ResponseSpan → S)
+  → Iso (DeterminesComposite summary)
+      (FI.FiberConstant summary compositeTarget)
+summary-kernel-criterion summary =
+  FI.factorsThroughIsoFiberConstant isSetBool summary compositeTarget
+
+recoverySpan : ResponseSpan
+recoverySpan = zero , one , zero
+
+persistentSpan : ResponseSpan
+persistentSpan = zero , one , two
+
+same-stage-summary : stageSummary recoverySpan ≡ stageSummary persistentSpan
+same-stage-summary = refl
+
+different-composite-target :
+  ¬ (compositeTarget recoverySpan ≡ compositeTarget persistentSpan)
+different-composite-target = false≢true
+
+-- The Boolean pair fails the exact kernel criterion on the same collision
+-- that killed total Boolean decoders above.  This form applies even when a
+-- decoder is permitted to exist only on actually realized summaries.
+stage-summary-does-not-determine :
+  ¬ DeterminesComposite stageSummary
+stage-summary-does-not-determine determines =
+  different-composite-target
+    (FI.factorsThrough→fiberConstant
+      stageSummary compositeTarget determines
+      recoverySpan persistentSpan same-stage-summary)
+
+-- Positive control: retaining the complete comparison span is sufficient.
+-- The theorem does not assert that this is a minimal sufficient summary.
+full-span-determines : DeterminesComposite (λ span → span)
+full-span-determines =
+  FI.fiberConstant→factorsThrough isSetBool
+    (λ span → span) compositeTarget
+    (λ left right same → cong compositeTarget same)

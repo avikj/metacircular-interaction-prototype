@@ -28,21 +28,27 @@ abbrev UnitResidue (n : ℕ) := (ZMod n)ˣ
 /-- An arbitrary complex signal on ordered pairs of reduced residue classes. -/
 abbrev CellGrid (n : ℕ) := UnitResidue n × UnitResidue n → ℂ
 
+/-- One-leg unnormalised Dirichlet-character transform. -/
+def fourierForward (n : ℕ) [NeZero n] (f : UnitResidue n → ℂ)
+    (χ : DirichletCharacter ℂ n) : ℂ :=
+  ∑ a : UnitResidue n, χ (a : ZMod n) * f a
+
+/-- One-leg inverse transform, normalized by `φ(n)`. -/
+def fourierInverse (n : ℕ) [NeZero n]
+    (H : DirichletCharacter ℂ n → ℂ) (a : UnitResidue n) : ℂ :=
+  (n.totient : ℂ)⁻¹ *
+    ∑ χ : DirichletCharacter ℂ n, χ ((a : ZMod n)⁻¹) * H χ
+
 /-- The unnormalised `(χ₁, χ₂)` component of a residue-pair signal. -/
 def characterComponent (n : ℕ) [NeZero n] (F : CellGrid n)
     (χ₁ χ₂ : DirichletCharacter ℂ n) : ℂ :=
-  ∑ a : UnitResidue n, ∑ b : UnitResidue n,
-    χ₁ (a : ZMod n) * χ₂ (b : ZMod n) * F (a, b)
+  fourierForward n (fun a ↦ fourierForward n (fun b ↦ F (a, b)) χ₂) χ₁
 
 /-- Reconstruction from the complete character grid, using inverse
 evaluations rather than writing complex conjugates. -/
 def reconstruct (n : ℕ) [NeZero n]
     (H : DirichletCharacter ℂ n → DirichletCharacter ℂ n → ℂ) : CellGrid n :=
-  fun pair ↦
-    ((n.totient : ℂ) ^ 2)⁻¹ *
-      ∑ χ₁ : DirichletCharacter ℂ n, ∑ χ₂ : DirichletCharacter ℂ n,
-        χ₁ ((pair.1 : ZMod n)⁻¹) *
-          χ₂ ((pair.2 : ZMod n)⁻¹) * H χ₁ χ₂
+  fun pair ↦ fourierInverse n (fun χ₁ ↦ fourierInverse n (H χ₁) pair.2) pair.1
 
 /-- Mathlib's character orthogonality theorem, stated directly on unit
 representatives. -/
@@ -52,6 +58,37 @@ theorem character_delta (n : ℕ) [NeZero n] (a b : UnitResidue n) :
         if a = b then (n.totient : ℂ) else 0 := by
   simpa only [Units.val_inj] using
     (DirichletCharacter.sum_char_inv_mul_char_eq ℂ a.isUnit (b : ZMod n))
+
+/-- The one-leg transform is inverted exactly. -/
+theorem fourierInverse_fourierForward (n : ℕ) [NeZero n]
+    (f : UnitResidue n → ℂ) (a : UnitResidue n) :
+    fourierInverse n (fourierForward n f) a = f a := by
+  classical
+  have hφ : (n.totient : ℂ) ≠ 0 := by
+    exact_mod_cast (Nat.totient_pos.mpr (NeZero.pos n)).ne'
+  simp only [fourierInverse, fourierForward]
+  calc
+    (n.totient : ℂ)⁻¹ *
+        ∑ χ : DirichletCharacter ℂ n,
+          χ ((a : ZMod n)⁻¹) *
+            ∑ b : UnitResidue n, χ (b : ZMod n) * f b =
+        (n.totient : ℂ)⁻¹ *
+          ∑ b : UnitResidue n,
+            (∑ χ : DirichletCharacter ℂ n,
+              χ ((a : ZMod n)⁻¹) * χ (b : ZMod n)) * f b := by
+          congr 1
+          simp_rw [Finset.mul_sum]
+          rw [Finset.sum_comm]
+          apply Finset.sum_congr rfl
+          intro b _
+          rw [Finset.sum_mul]
+          apply Finset.sum_congr rfl
+          intro χ _
+          ring
+    _ = (n.totient : ℂ)⁻¹ * ((n.totient : ℂ) * f a) := by
+      simp_rw [character_delta]
+      simp
+    _ = f a := by field_simp
 
 end
 
