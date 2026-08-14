@@ -897,7 +897,7 @@ theorem frontier_state_not_mem_closed (queue : IndexedQueue M)
   rw [List.map_append, List.nodup_append'] at hnodup
   rw [List.disjoint_left] at hnodup
   intro hclosed
-  exact hnodup.2.2 (List.mem_map.mpr ⟨node, hnode, rfl⟩) hclosed
+  exact hnodup.2.2 hclosed (List.mem_map.mpr ⟨node, hnode, rfl⟩)
 
 theorem advanceQueue_closed_expanded (inventory : List (ReverseEdge M))
     (queue : IndexedQueue M) (hclosed : queue.ClosedExpanded M inventory)
