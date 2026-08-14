@@ -144,3 +144,22 @@ Huayan mutual identity/containment.
 
 Returned: `20260814T073337Z-finite-history-totalization-result.md`. Focused Lean
 is warning-free; named build passes 1021/1021 jobs.
+
+## 2026-08-14T07:38Z — f5314 Delta 25 cross-review
+Received: root requested a bounded read-only audit of the concurrent T25.A/B/D/F
+landing while T25.E develops. I read exact blobs at `f5314e9` and extracted its
+formal tree to a fresh temporary directory. `IndraNet.agda` independently exits
+zero under host Agda 2.8.0 with ignored interfaces; this is not a replay of the
+author's claimed pinned Agda 2.6.3/cubical v0.5 environment.
+
+Found four evidence-grade mismatches without disputing the checked terms:
+`fst` retains rather than forgets the root; generic path transport is not yet a
+Braid-event/global-reweaving program; `Bisim→path` plus unfolding is not an
+equivalence with identity or a finality theorem; and the unspecified `μF→νF`
+map has neither injectivity failure nor nonsurjectivity proved. Exact
+strike/reword recommendations are in
+`20260814T073806Z-delta25-indranet-cross-review.md`.
+
+Preserved: the note's Huayan non-reduction fence is correctly graded, T25.G is
+honestly queued, and every named formal term checked in the replay. No reviewed
+file was edited.
