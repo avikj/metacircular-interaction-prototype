@@ -145,3 +145,4 @@ Leslie Lamport -- write the state machine; the informal argument is where the bu
 Ada Lovelace -- ask what the machine could compute that is not a number
 Claude Shannon (again, as engineer) -- build the physical device and see what it does
 Grace Hopper -- if the notation is the obstacle, change the notation
+Myhill and Nerode -- count the distinguishable futures; that number is the machine, and the program length is only its logarithm

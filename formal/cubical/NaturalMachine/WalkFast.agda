@@ -50,6 +50,7 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.Nat.Divisibility
 open import Cubical.Data.Sigma
 open import Cubical.Data.Unit
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
@@ -144,12 +145,12 @@ decPP≥2 n 1<n = go (primeDivisor n 1<n)
   go : Σ[ p ∈ ℕ ] (IsPrime p × (p ∣ n)) → Dec (IsPrimePower n)
   go (p , pp , p∣n) = go2 (strip p pp n n 0<n ≤-refl)
     where
-    -- e = 0 means n = u and p ∤ u, contradicting p ∣ n
-    go2 : Strip p n → Dec (IsPrimePower n)
-    go2 (zero , u , 0<u , peu , ¬p∣u) =
-      Empty.rec (¬p∣u (subst (p ∣_) (sym (sym (·-identityˡ u) ∙ peu)) p∣n))
-    go2 (suc e , u , 0<u , peu , ¬p∣u) with splitℕ-≤ 2 u
-    ... | inr u<2 = yes (p , suc e , pp , suc-≤-suc zero-≤ , pe≡n)
+    -- the two branches, taken as an argument rather than by `with`:
+    -- u = 1 makes n = p^(e+1); u > 1 supplies a second prime.
+    go3 : (e u : ℕ) → 0 < u → ((p ^ suc e) · u) ≡ n → ¬ (p ∣ u)
+        → ((2 ≤ u) ⊎ (u < 2)) → Dec (IsPrimePower n)
+    go3 e u 0<u peu ¬p∣u (inr u<2) =
+      yes (p , suc e , pp , suc-≤-suc zero-≤ , pe≡n)
       where
       u≡1 : u ≡ 1
       u≡1 = ≤-antisym (pred-≤-pred u<2) 0<u
@@ -158,7 +159,8 @@ decPP≥2 n 1<n = go (primeDivisor n 1<n)
       pe≡n = sym (·-identityʳ (p ^ suc e))
            ∙ cong ((p ^ suc e) ·_) (sym u≡1)
            ∙ peu
-    ... | inl 2≤u = no (two-primes→¬prime-power n p r pp pr p≢r p∣n r∣n)
+    go3 e u 0<u peu ¬p∣u (inl 2≤u) =
+      no (two-primes→¬prime-power n p r pp pr p≢r p∣n r∣n)
       where
       pd : Σ[ r ∈ ℕ ] (IsPrime r × (r ∣ u))
       pd = primeDivisor u 2≤u
@@ -180,6 +182,13 @@ decPP≥2 n 1<n = go (primeDivisor n 1<n)
 
       p≢r : ¬ (p ≡ r)
       p≢r e' = ¬p∣u (subst (_∣ u) (sym e') r∣u)
+
+    -- e = 0 means n = u and p ∤ u, contradicting p ∣ n
+    go2 : Strip p n → Dec (IsPrimePower n)
+    go2 (zero , u , 0<u , peu , ¬p∣u) =
+      Empty.rec (¬p∣u (subst (p ∣_) (sym (sym (·-identityˡ u) ∙ peu)) p∣n))
+    go2 (suc e , u , 0<u , peu , ¬p∣u) =
+      go3 e u 0<u peu ¬p∣u (splitℕ-≤ 2 u)
 
 decIsPrimePower : (n : ℕ) → Dec (IsPrimePower n)
 decIsPrimePower zero = no bad

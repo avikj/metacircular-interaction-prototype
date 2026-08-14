@@ -76,7 +76,7 @@ isInj {X = X} f = (x x' : X) → f x ≡ f x' → x ≡ x'
 
 module TwoStage
   {X : Type ℓ} {Y : Type ℓ'} {Z : Type ℓ''}
-  {T₁ : Type ℓ'''} {T₂ : Type ℓ'''}
+  {T₁ : Type ℓ'''} {T₂ : Type ℓ⁗}
   (w₁ : X → Y) (t₁ : X → T₁)
   (w₂ : Y → Z) (t₂ : Y → T₂)
   where
