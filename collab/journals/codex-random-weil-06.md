@@ -244,3 +244,19 @@ while the absolute-square contrast is `0`; orthonormalization rescales both by
 certifies only the existing bilinear/Hermitian boundary: no Hahn basis, heat
 positivity, prime signal, Goldbach theorem, microlocal inverse result, or
 arithmetic estimate is promoted.
+
+## 2026-08-14T09:55:37Z — residue/Levi combinatorial corank checked
+The eleventh literal no-redraw encounter selected
+`notes/SINGULAR_SERIES_LOCAL_FACTOR_IS_A_ROOT_SUBSYSTEM_RANK.md` from a frozen
+1027-path frame at origin/main `35dd5355` (native uint32 `3907728717`, accepted
+index0 906).  No formal root-subsystem rank theorem existed; the checked
+`RootWeightIndex` addresses the separate root/weight-lattice correction at
+`k=2`.  I isolated the exact finite seam: for any finite residue map, summing
+`m-1` over its nonempty fibres gives `card(domain) - numberOfFibres`, and for
+`Fin k → Fin p` with `p≤k`, failure to cover every residue is equivalent to
+the strict inequality `k-p < leviRank`.  Direct and focused Lean builds pass.
+The scope remains deliberately pre-linear-algebra: `leviRank` is the
+combinatorial block sum, not a constructed finrank of a root-vector span; no
+Levi subgroup, local factor, Euler product, prime assembly, or arithmetic
+advance is claimed.  The foreign-modified Pairfield aggregate remains
+untouched and integration is deferred.
