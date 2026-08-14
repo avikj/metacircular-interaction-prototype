@@ -19,9 +19,10 @@ of `q`-multiple shifts on which that **packet** remains negative.
 This is the strongest unconditional inverse statement obtained.  It does not
 recover a Dirichlet-character conductor or a Type-II block, and it does not
 propagate the full minor coefficient: the complementary packets are
-uncontrolled.  At logarithmic cutoff, even the unrestricted number of shifts
-certified for the recovered packet is smaller by a factor `(log X)^10` than
-the leading exceptional-set budget in Pintz's estimate.
+uncontrolled.  At logarithmic cutoff, the shift count guaranteed uniformly
+from the spike is smaller by a factor `(log X)^10` than the leading
+exceptional-set budget in Pintz's estimate; even the largest window obtainable
+from the packet's phase-Lipschitz certificate is short by `(log X)^9`.
 
 There is also an exact fixed-signal scope obstruction.  One can define a
 single, globally fixed, nonnegative prime-supported weight which, on disjoint
@@ -175,16 +176,16 @@ increments may cancel it.
 ## 3. The exact quantitative shortfall
 
 For an exception signature `D=cX`, (2) turns (9) into packet persistence for
-at most a constant multiple of
+at least a constant multiple of
 
 \[
  \frac{DQ}{M_X}\gg\frac{Q}{\log X}
  =\frac{X}{P\log X}                                     \tag{11}
 \]
 
-successive `q_j`-multiples, provided those shifted centers remain in the
-declared range.  On a dyadic center interval the actual count must be replaced
-by
+successive `q_j`-multiples in the unrestricted coefficient sequence, provided
+those shifted centers remain in the declared range.  On a dyadic center
+interval the guaranteed count must be replaced by
 
 \[
  \min\!\left(\frac{DQ}{M_X},\frac{X}{q_j}\right),         \tag{12}
@@ -205,16 +206,20 @@ At `P=(log X)^A`, its leading order-`X` spike budget is
  X(\log X)^{9-A}.                                       \tag{14}
 \]
 
-Even the unrestricted count in (11) is only
+Thus the uniform guarantee in (11) is
 
 \[
  X(\log X)^{-A-1},                                      \tag{15}
 \]
 
-a factor `(log X)^10` below (14).  More importantly, (11) propagates one
-packet rather than the full coefficient to which (13) applies.  Therefore the
-exact weak inverse theorem does not compose with the existing norm
-contradiction.
+a factor `(log X)^10` below (14).  For the selected packet, the sharper window
+obtained directly from (8) has `d_j/M_j<=1`, so that particular
+phase-Lipschitz certificate contains at most `Q` successive multiples.  Even
+this maximally favorable value is a factor `(log X)^9` below (14).  These are
+bounds on what (7)--(9) certify, not upper bounds on the packet's unknown true
+persistence.  More importantly, the theorem propagates one packet rather than
+the full coefficient to which (13) applies.  Therefore the exact weak inverse
+theorem does not compose with the existing norm contradiction.
 
 This exposes two genuinely additional premises a useful inverse theorem must
 provide:
@@ -390,7 +395,9 @@ It does not rule out an inverse theorem for the actual `vartheta`.  The
 block-coded weight (22) deliberately lacks the cross-scale multiplicative
 coherence of the prime-log coefficients.  That coherence, or an equally
 specific property of `Lambda`, is exactly what a fixed-prime rigidity theorem
-must use.
+must use.  Also, (24) is the full coefficient of the declared truncated
+carrier `W_j`; the unrestricted global convolution of `w` may contain pairs
+using primes below the annulus and is not claimed to vanish.
 
 ## 6. Hostile boundary and merge decision
 

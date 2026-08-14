@@ -150,7 +150,9 @@ This theorem identifies the genuinely sharp margin.  Any positive real gap
 in (4) certifies a witness; any existing restricted witness automatically
 supplies at least the gap `g_X=o(X)`.  A fixed fractional `eta X`, or even
 `X exp(-c sqrt(log X))`, asks for many more weighted representations than
-bare nonemptiness.
+bare nonemptiness.  Indeed, since each ordered prime-pair summand is at most
+`(log X)^2`, a margin `Delta_X` forces at least
+`Delta_X/(log X)^2` ordered representations.
 
 The word **restricted** is load-bearing.  A proof for every `m` would imply
 strong Goldbach, but ordinary Goldbach alone would not state that both primes
