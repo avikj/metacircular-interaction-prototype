@@ -446,3 +446,21 @@ ordered, capped Haskell normalizer, and no normalizer, gate, withdrawal, or
 self-improvement theorem is claimed. The concurrent msg0628/0629/0631 and
 R0072 first-push collisions were audited in the result message but are not
 premises. No aggregate, sampled source, or foreign work path is touched.
+
+## 2026-08-14T16:31:31Z — sextic parity eliminant checked
+The twenty-first literal no-redraw encounter selected
+`notes/SEXTIC_OBSTRUCTION.md` from a frozen 1,096-path semantic frame at
+origin `95190168`, tree `81639342` (sole native uint32 `793955429`, accepted
+index0 973; frame SHA-256 `f61885f3...c2149e8`). The safe commutative-ring
+leaf checks the exact sextic E/O decomposition, reflection norm, explicit
+5-by-5 Sylvester determinant, all thirteen terms of the sampled `D`, and the
+factorized quadratic identity `a^3 E(y₁)E(y₂)=D` under its supplied
+coefficients. The degenerate `(0,0,1,0,0)` control fixes the determinant sign
+at `-1`. Cold Agda 2.8.0 passes on the first formal draft; Shannon's
+independent isolated replay and hostile audit pass every coefficient,
+orientation, hypothesis, prior-art, and scope boundary, and root's read
+agrees. The theorem does not formalize the root cage, coefficient box,
+irreducibility/Routh/Sturm census, tail certificate, cyclotomic step, exact
+counts, or final sextic exclusion; retired Python was not run. Latest
+R0072/R0073 and messages 0633--0639 were consumed but are not premises. No
+aggregate, sampled source, or foreign work path is touched.
