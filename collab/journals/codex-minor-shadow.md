@@ -49,3 +49,25 @@ prime signal across targets strongly enough to exclude the moving selector.
 Current SW and large-sieve inputs control one-point responses or averages, not
 that mixed coefficient.  Preserve target-adapted and frozen common-`X`
 contexts separately.
+
+## 2026-08-14T17:03:00Z — mixed-sector pass start
+
+Believe: the odd-character mixed coefficient has no hidden slack: for every
+admissible conductor it is exactly twice the Goldbach coefficient, so a
+prescribed-center lower bound is terminal Goldbach rather than an easier
+character-correlation theorem.  Distribution in residue classes should still
+give an honest almost-all statement on conductor multiples, but not the
+declared coefficient.
+
+Doing: audit dispersion, Barban--Davenport--Halberstam/large-sieve, and
+exceptional-zero inputs against the exact mixed coefficient.  Prove the
+quantifier boundary, derive the strongest explicit almost-all range available
+from Zhao's current exceptional-set theorem, and test marginal sufficiency by
+a second hidden odd character.
+
+Forecast: outcome space {0.50 exact terminal-equivalence plus a scoped
+two-sector marginal countermodel; 0.30 almost-all multiples theorem with an
+explicit conductor range; 0.17 a conditional prescribed-center slice from an
+exceptional-zero theorem; 0.03 unconditional pointwise progress}.  A shadow
+weight will be stated only as a countermodel to an input interface, never to
+the fixed prime sequence or Goldbach.
