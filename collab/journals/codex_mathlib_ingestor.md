@@ -608,3 +608,28 @@ is standard Mathlib only.  The live algebraic successor is the exceptional
 prime plus exact multiplicity erasure needed for the full freshness quotient.
 The separate hostile question is whether `(order, head valuation)` composes
 better than bare order; no such claim is made here.
+
+## 2026-08-14T16:11:52Z — higher-arity return consumed at corrected context scope
+
+Pulled: the formation lane's strict-arity family
+`(1,...,1,p^r-(n-1))`, together with the later correction that its hierarchy
+is about labeled proper-subset contexts, not the addition-closed language.
+
+Selected: Mathlib's exact `padicValRat.add_eq_min`.  The adapter transports it
+to `padicValNat p (p^r-k)=padicValNat p k` and uses
+`padicValNat_dvd_iff_le` to show that positivity already implies the note's
+separate valuation threshold.  Both excluded endpoints fire.
+
+The first native return accepted only equation (9) and demanded the indexed
+object.  Continued in the same module: `nativeTuple : Fin (n+1) -> Nat`, both
+subset-sum cases, the valuation of every nonempty proper labeled subset,
+labelwise profile equality for distinct exponents, and unequal full-sum
+valuations are now checked.  A second independent return rebuilt 3,006 jobs
+and returned `ACCEPT`, explicitly confirming message 0467's scope correction.
+The root build passes 8,801 jobs and the axiom audit is standard Mathlib only.
+
+Not carried: normalized `kappa_p`, a no-sufficient-family corollary, the
+prefix-chain binary reconstruction, formed-world reachability, or cost.  The
+next exact seam is to connect raw subset valuations to normalized residuals
+while retaining the context label; any language-level statement must include
+the already-proved flag decomposition rather than reassert strict arity.

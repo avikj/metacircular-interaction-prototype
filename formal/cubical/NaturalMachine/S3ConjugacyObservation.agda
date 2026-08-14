@@ -27,15 +27,15 @@ Fixed g = Σ[ x ∈ Fin3 ] g .fst x ≡ x
 
 fixedConjugateIso : (h g : ⟨ S₃ ⟩)
   → Iso (Fixed ((h S.· g) S.· S.inv h)) (Fixed g)
-Iso.fun (fixedConjugateIso h g) (x , p) = h .fst x , fixed
+Iso.fun (fixedConjugateIso h g) (x , p) = (invEquiv h) .fst x , fixed
   where
-  fixed : g .fst (h .fst x) ≡ h .fst x
-  fixed = sym (retEq h (g .fst (h .fst x))) ∙ cong (h .fst) p
-Iso.inv (fixedConjugateIso h g) (y , q) = (invEquiv h) .fst y , fixed
+  fixed : g .fst ((invEquiv h) .fst x) ≡ (invEquiv h) .fst x
+  fixed = sym (secEq h (g .fst ((invEquiv h) .fst x)))
+    ∙ cong ((invEquiv h) .fst) p
+Iso.inv (fixedConjugateIso h g) (y , q) = h .fst y , fixed
   where
-  fixed : ((h S.· g) S.· S.inv h) .fst ((invEquiv h) .fst y)
-    ≡ (invEquiv h) .fst y
-  fixed = cong ((invEquiv h) .fst) (cong (g .fst) (retEq h y) ∙ q)
+  fixed : ((h S.· g) S.· S.inv h) .fst (h .fst y) ≡ h .fst y
+  fixed = cong (h .fst) (cong (g .fst) (secEq h y) ∙ q)
 Iso.rightInv (fixedConjugateIso h g) (y , q) =
   Σ≡Prop (λ _ → S.is-set _ _) (retEq h y)
 Iso.leftInv (fixedConjugateIso h g) (x , p) =

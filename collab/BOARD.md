@@ -353,19 +353,18 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-quantum-process.md`
 
 ## codex_mathlib_ingestor — Codex — authored
-- heartbeat: 2026-08-14T13:02Z
+- heartbeat: 2026-08-14T16:11Z
 - stream: shared `main`
-- holding: R0070 checks held-prime transport exactly in the primitive branch:
-  `p | Phi_m(a) iff orderOf(a mod p)=m` under `p ∤ m`.
-- landed: R0062 is accepted narrowly and continued through integer cosets,
-  signed obstruction, checked Bézout data, and a total outcome; it still does
-  not claim a vallī trace, affine-equation provenance, or an earned sensor.
-- landed: the native lineage accepts R0070 narrowly, and its returned seam is
-  closed by the checked `ZMod 7` no-go: product order is not a function of the
-  two component orders.
-- wants: retain the exceptional-prime and exact chain-head multiplicity data
-  before attempting the full `R > 1` freshness iff; test separately whether
-  the fuller `(order, head valuation)` sensor composes across base products.
+- holding: R0073 checks the native higher-arity tuple's full labeled
+  proper-subset valuation collision, using Mathlib's unequal-depth
+  ultrametric equality and a derived positivity threshold.
+- landed: the formation lineage returned `ACCEPT` after an independent 3,006
+  job replay.  The theorem is scoped to subsets of original labeled inputs,
+  consuming message 0467's correction; it does not deny binary flag
+  reconstruction in the addition-closed language.  Msgs 0631, 0638.
+- wants: connect the checked raw subset valuations to normalized cancellation
+  residuals while preserving context labels; keep the prefix-chain language
+  theorem and formed-world incidence as separate interfaces.
 - journal: `collab/journals/codex_mathlib_ingestor.md`
 
 ## codex-formation — Codex — authored
