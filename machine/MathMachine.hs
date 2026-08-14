@@ -35,15 +35,19 @@ import qualified Data.Map.Strict as M
 import Data.List (sortOn, foldl', intercalate)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
-import Control.Monad (forM_, when, unless)
+import Control.Monad (forM_, when, unless, filterM)
 import System.IO
+import System.Directory (createDirectoryIfMissing, getTemporaryDirectory)
+import System.FilePath ((</>))
+import System.Process (readProcessWithExitCode)
+import System.Exit (ExitCode(..), exitFailure)
+import System.Environment (getArgs)
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
 import Data.Char (isAlphaNum, isSpace)
-import System.Environment (getArgs)
 import System.Directory (doesFileExist)
-import System.Exit (exitFailure, exitSuccess)
+import System.Exit (exitSuccess)
 -- (imports for the unbuilt evolve step removed; they were dead, and a
 -- dead import is a claim about what a program does)
 
@@ -550,6 +554,66 @@ ordNub = go M.empty
     go seen (x:xs) | M.member x seen = go seen xs
                    | otherwise = x : go (M.insert x () seen) xs
 
+-- ------------------------------------------------------- Agda kernel seam
+-- The first proof-producing seam is intentionally narrow.  The Haskell
+-- search may propose any equation, but only the shared Peano fragment can be
+-- translated, and its first certificate language is Agda's `refl`.
+-- Consequently acceptance means definitional equality in Agda itself; the
+-- Haskell induction trace is never mistaken for a kernel certificate.
+
+agdaTerm :: Term -> Maybe String
+agdaTerm (V i)
+  | i >= 0 && i < 6 = Just ["xyzuvw" !! i]
+  | otherwise = Nothing
+agdaTerm (F "0" []) = Just "zero"
+agdaTerm (F "s" [t]) = (\u -> "suc (" ++ u ++ ")") <$> agdaTerm t
+agdaTerm (F "+" [a,b]) = binAgda "+" a b
+agdaTerm (F "*" [a,b]) = binAgda "·" a b
+agdaTerm _ = Nothing
+
+binAgda :: String -> Term -> Term -> Maybe String
+binAgda op a b = do
+  x <- agdaTerm a
+  y <- agdaTerm b
+  pure ("(" ++ x ++ " " ++ op ++ " " ++ y ++ ")")
+
+agdaCertificate :: (Term,Term) -> Maybe String
+agdaCertificate (l,r) = do
+  lhs <- agdaTerm l
+  rhs <- agdaTerm r
+  pure $ unlines
+    [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+    , "module Candidate where"
+    , "open import Cubical.Foundations.Prelude"
+    , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
+    , "candidate : (x y z u v w : ℕ) → " ++ lhs ++ " ≡ " ++ rhs
+    , "candidate x y z u v w = refl"
+    ]
+
+kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAccept logh roundNo ((l,r),_) =
+  case agdaCertificate (l,r) of
+    Nothing -> do
+      hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
+      pure False
+    Just source -> do
+      tmp <- getTemporaryDirectory
+      let dir = tmp </> "math-machine-agda"
+          file = dir </> "Candidate.agda"
+      createDirectoryIfMissing True dir
+      writeFile file source
+      (code,out,err) <- readProcessWithExitCode "agda"
+        ["-i", "formal/cubical", "-i", dir, file] ""
+      case code of
+        ExitSuccess -> do
+          hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  certificate=%s\n"
+            roundNo (show l) (show r) file
+          pure True
+        ExitFailure _ -> do
+          hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
+            roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
+          pure False
+
 -- --------------------------------------------------------- the machine
 
 data Machine = Machine
@@ -758,28 +822,29 @@ round1 logh libh ref = do
       nFresh = length fresh
       nRes = length results
   nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
+  checkedResults <- filterM (kernelAccept logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
       prunedPct = if null raw then 0
                   else 100 * (1 - fromIntegral (length normed)
                                   / fromIntegral (length raw))
-      newRules = mapMaybe (orient . fst) results
-      newLemmas = [ c | (c,_) <- results, not (isJust (orient c)) ]
+      newRules = mapMaybe (orient . fst) checkedResults
+      newLemmas = [ c | (c,_) <- checkedResults, not (isJust (orient c)) ]
       m' = m { mRules = mRules m ++ newRules
              , mLemmas = mLemmas m ++ newLemmas
-             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) results
+             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
-                          [ c | c <- fresh, notElem c (map fst results) ]
+                          [ c | c <- fresh, notElem c (map fst checkedResults) ]
              , mRound = mRound m + 1 }
-  forM_ results $ \((l,r),pf) -> do
+  forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
   hFlush libh
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
-    prunedPct (length conjectures) (length fresh) (length results)
+    prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
   hFlush logh
   -- GROW: nothing new means the machine must change what it is looking at
@@ -787,7 +852,7 @@ round1 logh libh ref = do
   -- name the shape that keeps recurring in its own working terms.  Only
   -- if it cannot does it fall back to widening the given vocabulary or
   -- looking further out.
-  let stuck = null results
+  let stuck = null checkedResults
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
@@ -880,9 +945,19 @@ main = do
             && requiredVocabulary b == 7) exitFailure
     putStrLn "THOUGHT-FORMAT CHECKED: candidate object + exact residual demand"
     exitSuccess
-  exists <- doesFileExist "machine/thoughts.math"
-  batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
-                     else pure (ThoughtBatch [] [])
+  case args of
+    ["--kernel-self-test"] -> do
+      accepted <- kernelAccept stdout 0 ((bin "+" zero_ x_, x_), "positive control")
+      rejected <- kernelAccept stdout 0 ((su x_, x_), "negative control")
+      unless (accepted && not rejected) exitFailure
+    _ -> do
+      exists <- doesFileExist "machine/thoughts.math"
+      batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
+                         else pure (ThoughtBatch [] [])
+      runMachine batch
+
+runMachine :: ThoughtBatch -> IO ()
+runMachine batch = do
   logh <- openFile "machine/machine.log" AppendMode
   libh <- openFile "machine/library.txt" AppendMode
   hSetBuffering logh LineBuffering

@@ -78,3 +78,16 @@ in `GeneratedCapability`: generated improvement, realized `installP`
 preservation, future-answer agreement, and future-work separation in one
 checked type. Resume only with an actual constructor of a domain-specific
 `Realizes` witness; do not infer one from obstruction shape.
+
+## 2026-08-14T08:20:00Z — direct Haskell–Agda installation gate
+
+Believe: A proof label has no authority. The least honest closed loop sends
+the conclusion itself to a kernel and admits only the theorem class for which
+it can emit an actual proof term.
+
+Doing: `MathMachine` now emits safe Agda modules for Peano-fragment candidates
+with `refl` certificates, invokes Agda, and installs only exit-zero results.
+Positive `(0+x)=x` and negative `s(x)=x` controls execute correctly. The
+concurrent thought-stream parser was consumed and now feeds the same gate.
+Resume by replacing `Maybe String` with an indexed induction derivation; do not
+broaden the translator before its proof object exists.
