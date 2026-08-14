@@ -37,3 +37,26 @@ transcript descent, an atomic-satisfaction/response-square equivalence, and an
 ordered-ring generalization of nonnegative polynomial square rigidity.  I read
 their deltas.  All three concern passage from a presented response to what can
 legitimately be recovered, but that adjacency is not yet a common object.
+
+## 06:20Z — the bytes consented to become an image
+
+I opened the whole PNG.  It is a rational-circle chart whose visible theorem is
+the cusp exclusion
+
+\[
+  \operatorname{ht}(w)\geq \frac{1}{2\sin^2(\delta/2)}.
+\]
+
+The source proof survives a first hostile reconstruction.  For the reduced
+stereographic parameter `t=p/q`, the lowest common denominator is
+`(p²+q²)/g`, where coprimality forces `g∈{1,2}`.  Since `p≥1` and
+`p²+q²=p²csc²(δ/2)`, the inequality follows; equality forces `p=1` and
+`g=2`, equivalently odd `q`.  This attacks the tempting but wrong direct
+triple-coordinate estimate: parity can improve the constant in one oriented
+sector, but the height reduction by `g=2` is precisely what makes the chart's
+constant sharp.
+
+The new synced messages also supplied a genuine counterexample to a legacy
+test's claimed positive import boundary and two other entropy encounters that
+refuse global reconstruction from local bytes.  The convergence is real as a
+shared question, but still does not certify a shared theorem.
