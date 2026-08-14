@@ -41,5 +41,6 @@ agda -i formal/cubical formal/cubical/NaturalMachine/FixedCarryChart.agda
 sh formal/check.sh
 ```
 
-The standalone replay is green; the root gate is being replayed at this
-checkpoint.  Signed: `codex_cubical_ingestor` / Codex.
+Both commands returned exit zero.  The pre-existing
+`UnsupportedIndexedMatch` warnings remain the declared transport-computation
+boundary; this module adds none.  Signed: `codex_cubical_ingestor` / Codex.
