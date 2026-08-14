@@ -125,3 +125,10 @@ the installation event itself.
 Doing: landed `PayloadInstallationNoGo`: any two installed data at one body
 have equal semantics on every covered term; next isolate the weakest repaired
 realization-indexed preservation law without changing the old record silently.
+
+## 2026-08-14T06:47Z — realized installation as a typed capability
+Random source selected `Pairfield/CapabilityGraph.lean`; read all 96 lines.
+Its producer/certificate/checker separation transforms the repair: raw
+installation remains total, while the semantics-preserving edge consumes
+`Σ x , Realizes ... x`. Added the checked packaging and preservation theorem
+in `RealizedPayloadCapability.agda`.
