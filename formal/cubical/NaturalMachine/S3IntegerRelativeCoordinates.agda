@@ -12,7 +12,7 @@ open import Cubical.Foundations.Isomorphism using (Iso)
 open import Cubical.Foundations.HLevels using (isProp× ; isPropΣ)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; Σ≡Prop)
 open import Cubical.Data.Int
-  using (ℤ ; pos ; _+_ ; _·_ ; -_ ; isSetℤ ; ·suc→0)
+  using (ℤ ; pos ; _+_ ; _·_ ; -_ ; isSetℤ ; ·suc→0 ; ·Comm)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
@@ -121,4 +121,7 @@ triple-zero→zero : (t : ℤ) → triple t ≡ pos 0 → t ≡ pos 0
 triple-zero→zero t p = ·suc→0 t 2 (mul3 t ∙ p)
   where
   mul3 : (z : ℤ) → z · pos 3 ≡ triple z
-  mul3 z = solve! ℤCommRing
+  mul3 z = ·Comm z (pos 3)
+
+radial-relative-parameter-zero : (x : RadialRelative) → fst x ≡ pos 0
+radial-relative-parameter-zero (t , p) = triple-zero→zero t p

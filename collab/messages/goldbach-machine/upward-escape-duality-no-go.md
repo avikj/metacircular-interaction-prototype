@@ -196,6 +196,10 @@ At most `B/(epsilon^2 X^2)` indices in the entire sequence satisfy
 
 Summing these positive increments proves (7). `QED`
 
+The finite inequality, with the energy budget taken directly on the declared
+shift set, is kernel-checked as `upwardEscape_lower_of_energy` in
+`Pairfield.UpwardEscapeNecessity`.
+
 At exactly the scale
 
 \[
@@ -403,6 +407,8 @@ be omitted.
 - **Exact, proved here:** selector duality (1)--(2); necessary signed mean
   (4); convolution rewrite (5)--(6); the `L2` lower bound (7); the finite
   odd-character convolution (10)--(15).
+- **Lean checked:** the finite energy-to-upward-escape lower bound underlying
+  (7) is `Pairfield.upwardEscape_lower_of_energy`.
 - **Constant audit:** with `epsilon=c/4`, the safe displayed specialization
   (8) uses `|H|>=32B/(c^2X^2)`; theorem (7) is exact and should be used
   directly.
