@@ -312,7 +312,9 @@ This is Proposition 2 again, in the register of the mandate's other draw.
 - `PROVE` — INV6 repair: exhibit a strictly monotone index `μ : S → ℕ` with `μ` injective on
   reachable knowledge states, and prove injectivity. (`round` at last Commit is the candidate;
   the proof obligation is that `U` is constant between Commits, which SEED-25 §5 gives.)
-  This is an Axis II repair and is independent of everything else.
+  ~~This is an Axis II repair~~ — *not* an Axis II repair (SEED-104, 2026-08-14: the
+  §5 defect is off Theorem 1's chain, §4 row 2 as struck); it is a hygiene repair on
+  the store's control state, and it remains independent of everything else.
 - `PROVE` — the `Retire` guard: state and prove the strengthened transition
   `Retire' ≡ Retire ∧ (withdrawn symbol occurs in no element of rules ∪ lemmas)`, and prove
   INV3 inductive from `Retire'` alone, without INV2. Discharges the Axis III obligation *before*
