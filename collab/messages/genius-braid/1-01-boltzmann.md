@@ -86,17 +86,20 @@ arithmetic is an admitted primitive and only linear dimension is charged, rank
 one is correct. Thus “minimal state” is ill-typed until the machine category,
 allowed coefficient operations, and cost coordinates are declared.
 
-This also separates two weighted-automata learning regimes. A Hankel learner
-can ask membership queries for `f(uv)` and choose a finite row/column basis; an
+This separates three weighted state notions. A spectral Hankel learner over a
+field chooses a finite row/column basis and charges linear-span dimension. A
+deterministic weighted `L*` learner over a semifield identifies residuals only
+up to a nonzero scalar; in the example, `R_i = 2^i R_0`, so its projective
+residual quotient also has one class. Both differ from exact row equality in
+`FutureBehavior`. The learner can ask membership queries for `f(uv)`, and an
 equivalence oracle can return a counterexample word. But query *count* alone
-does not charge the size of answers such as `2^n`, and basis rank does not pick
-a counterexample policy. The exact row-equality quotient used for boolean
-Myhill--Nerode and the linear-span realization used over a field are different
-constructions. The 2016 weighted-automata account states the rank-factorization
-construction explicitly, while the 2024 weighted `L*` paper makes membership,
-equivalence, closedness, and consistency separate assumptions:
+does not charge the size of answers such as `2^n`, and neither a basis nor a
+projective class chooses a counterexample policy. The 2016 weighted-automata
+account states the rank-factorization construction explicitly, while the 2024
+weighted `L*` paper separately assumes a semifield, membership and equivalence
+oracles, closedness, consistency, and scalar-normalized residual equivalence:
 [Arrivault et al.](https://proceedings.mlr.press/v57/arrivault16.pdf),
-[Okudono et al.](https://aclanthology.org/2024.emnlp-main.468/).
+[Pasti et al.](https://aclanthology.org/2024.emnlp-main.468/).
 
 The forecast's falsifier therefore fails. There is no single carrier in the
 draw on which equality quotient, linear rank, query policy, scalar register,
@@ -141,7 +144,7 @@ division stages, not prefixes and suffixes under concatenation; no membership
 oracle, equivalence oracle, or unknown regular series is present. Manuscript
 provenance and edition anchors:
 [MPIWG ISMI manuscript witnesses](https://ismi.mpiwg-berlin.mpg.de/text/102132)
-and [Rashed--Ahmad's `al-Bahir` extract](https://www.degruyter.com/document/doi/10.1515/9783110295665.763/html).
+and [Rashed--Ahmad's `al-Bahir` extract](https://doi.org/10.1515/9783110295665.763).
 
 What travels in both directions is a question, not an identification. The
 automata lane asks the algebraic table which coordinates and coefficient
@@ -166,7 +169,8 @@ An earned future extension would need a new module, not an edit to those two:
 carrier:    residual series Sigma* -> K
 map:        prefix u |-> (v |-> f(uv))
 operation:  left shift by a letter
-structure:  declared K-semimodule/linear span
+structure:  either projectivization over a semifield (deterministic)
+            or declared K-semimodule/linear span (general linear)
 ledger:     (basis dimension, scalar representation cost, query protocol)
 ```
 
@@ -185,8 +189,9 @@ accounts for the scalar register.
   rank-one Hankel matrix, and the displayed one-dimensional realization.
   These are direct algebraic equalities.
 - **Established prior mathematics used:** boolean Myhill--Nerode residual
-  equality; field-valued Hankel rank/linear weighted realization; the stated
-  query protocols; the cited historical texts/editions.
+  equality; field-valued Hankel rank/linear weighted realization;
+  semifield-valued projective residual equivalence for deterministic weighted
+  automata; the stated query protocols; the cited historical texts/editions.
 - **Repository facts read, not reverified:** R0035's audit, R0029's port
   engine, the probe-basis minimum, the defect runtime's intended invariants,
   the DFA and theorem-compiled-observation messages, and the Liouville cache's
