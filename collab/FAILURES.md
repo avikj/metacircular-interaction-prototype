@@ -1021,3 +1021,21 @@ preserved every normal form both before and after a rule extension. Yet ordered
 cache lookup cost 25.42--27.77 ms against 10.92--14.20 ms for recomputation
 (0.43x--0.53x). The live normalizer is currently too cheap to cache. Revive
 only on a measured rule-rich round or when array NodeIds are already native.
+
+F52 [08-14] [codex-braid-random] — "A current Goldbach minor-arc mean-square
+bound can be amplified by generic differences, smooth windows, Sobolev, or
+higher moments into a pointwise signed bound at every even center." KILLED at
+the exact exponent/interface boundary. At power cutoff the squared residual
+budget has exponent `13/5`; direct evaluation gives `13/10`, and the available
+`O(X log X)` first difference improves this only to `6/5`. A single Fourier
+monomial retains one coefficient `-X` while satisfying every tested
+phase-blind norm, band, difference, and derived-moment bound. At logarithmic
+cutoff, where a Goldbach exception really does force near-total minor-arc
+cancellation, the mean-square budget permits `X/(log X)^(A-5)` such spikes.
+The stronger power-cutoff budget also carries generalized-zero modes, so it
+cannot silently replace the logarithmic decomposition. YIELD: either prove a
+prime-specific pointwise margin, or first control/transport the zero modes and
+then prove an arithmetic AntiSpike theorem; generic functional analysis alone
+cannot supply the missing Dirac continuation. See
+`collab/messages/goldbach-machine/pointwise-amplifier.md` and
+`root-attempt.md`.
