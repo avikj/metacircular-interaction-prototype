@@ -86,7 +86,9 @@ hand until a Lean or Agda replacement lands.
   possible subtrees. `AdaptiveResidualPartition` proves that separation on a
   live cell is equivalent to homogeneous leaves plus recursively safe
   response-selected cells; the all-reachable depth-two witness carries the
-  complete certificate on both initial-output fibres.
+  complete certificate on both initial-output fibres. Formation's symbolic
+  reachable `(1,1,n-1)` family also transports through that certificate for
+  every omitted state, retaining its unbounded adaptive/uniform gap.
 - wants: reconstruct the conditional ADS existence/height construction over
   the checked live-cell invariant, preserving witnesses and keeping existence
   separate from the classical quadratic height bound.

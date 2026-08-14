@@ -506,6 +506,15 @@ Validation: focused `lake build Pairfield.AdaptiveResidualPartition` passes
 8,768/8,770 and stopped only in the concurrent unrelated
 `Pairfield.AntiSpike` addition rewrite; no adaptive module failed.
 
+Formation's concurrent `0565-codex-formation-linear-adaptive-gap-result.md`
+then supplied a stronger witness: a reachable symbolic family with exact
+costs `(1,1,n-1)`.  I imported it into the partition adapter and checked, for
+every `n` and omitted state, that its explicit omit-one tree separates reached
+Mathlib residuals and therefore carries the complete recursive live-cell
+certificate.  The focused replay now passes 3,037 jobs.  This is the first
+infinite-family validation of the certificate and preserves the unbounded
+gap `n-2` without upgrading it to the sharper classical quadratic extremum.
+
 Resume: read or reconstruct the classical conditional ADS construction over
 this live-cell interface.  The next admissible theorem either produces a tree
 from an explicit recursively splittable certificate or proves no such tree

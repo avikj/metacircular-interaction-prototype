@@ -24,6 +24,8 @@
 module NaturalMachine.CompositionalContextAdapter where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.HLevels using (isPropΠ)
+open import Cubical.Foundations.Isomorphism using (Iso ; iso)
 open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true ; isSetBool)
 open import Cubical.Data.List using (List ; [] ; _∷_)
@@ -55,11 +57,96 @@ contextStep operation state (true  , fixed) = operation fixed state
 applyContext : (X → X → X) → X → List (ContextAction X) → X
 applyContext operation = FB.run (contextStep operation)
 
+-- The ordinary one-hole term grammar, written from the hole outwards.  The
+-- continuation is the outer context still to be applied.
+data OneHoleContext (X : Type ℓX) : Type ℓX where
+  hole      : OneHoleContext X
+  leftHole  : X → OneHoleContext X → OneHoleContext X
+  rightHole : X → OneHoleContext X → OneHoleContext X
+
+plug : (X → X → X) → OneHoleContext X → X → X
+plug operation hole state = state
+plug operation (leftHole fixed outer) state =
+  plug operation outer (operation state fixed)
+plug operation (rightHole fixed outer) state =
+  plug operation outer (operation fixed state)
+
+compileContext : OneHoleContext X → List (ContextAction X)
+compileContext hole = []
+compileContext (leftHole fixed outer) =
+  (false , fixed) ∷ compileContext outer
+compileContext (rightHole fixed outer) =
+  (true , fixed) ∷ compileContext outer
+
+plug-compile : (operation : X → X → X)
+    (context : OneHoleContext X) (state : X)
+  → plug operation context state
+    ≡ applyContext operation state (compileContext context)
+plug-compile operation hole state = refl
+plug-compile operation (leftHole fixed outer) state =
+  plug-compile operation outer (operation state fixed)
+plug-compile operation (rightHole fixed outer) state =
+  plug-compile operation outer (operation fixed state)
+
+decodeContext : List (ContextAction X) → OneHoleContext X
+decodeContext [] = hole
+decodeContext ((false , fixed) ∷ word) = leftHole fixed (decodeContext word)
+decodeContext ((true , fixed) ∷ word) = rightHole fixed (decodeContext word)
+
+compile-decode : (word : List (ContextAction X))
+  → compileContext (decodeContext word) ≡ word
+compile-decode [] = refl
+compile-decode ((false , fixed) ∷ word) =
+  cong ((false , fixed) ∷_) (compile-decode word)
+compile-decode ((true , fixed) ∷ word) =
+  cong ((true , fixed) ∷_) (compile-decode word)
+
 -- Equality under every generated unary context.  Keeping this as an exact
 -- alias makes the adapter computational: no conversion theorem or choice of
 -- representatives is hidden between contexts and future behavior.
 ContextEq : (X → X → X) → (X → O) → X → X → Type _
 ContextEq operation observe = FB.FutureEq (contextStep operation) observe
+
+SyntacticContextEq : (X → X → X) → (X → O) → X → X → Type _
+SyntacticContextEq {X = X} operation observe left right =
+  (context : OneHoleContext X)
+  → observe (plug operation context left)
+    ≡ observe (plug operation context right)
+
+contextEq→syntactic : (operation : X → X → X) (observe : X → O)
+    {left right : X}
+  → ContextEq operation observe left right
+  → SyntacticContextEq operation observe left right
+contextEq→syntactic operation observe {left} {right} related context =
+  cong observe (plug-compile operation context left)
+  ∙ related (compileContext context)
+  ∙ sym (cong observe (plug-compile operation context right))
+
+syntactic→contextEq : (operation : X → X → X) (observe : X → O)
+    {left right : X}
+  → SyntacticContextEq operation observe left right
+  → ContextEq operation observe left right
+syntactic→contextEq operation observe {left} {right} related word =
+  sym (cong (λ actions → observe (applyContext operation left actions))
+        (compile-decode word))
+  ∙ sym (cong observe (plug-compile operation (decodeContext word) left))
+  ∙ related (decodeContext word)
+  ∙ cong observe (plug-compile operation (decodeContext word) right)
+  ∙ cong (λ actions → observe (applyContext operation right actions))
+      (compile-decode word)
+
+-- The syntactic and machine presentations are not merely mutually usable:
+-- for set-valued observations their proof spaces are isomorphic.
+syntactic-futureIso : (operation : X → X → X) (setO : isSet O)
+    (observe : X → O) (left right : X)
+  → Iso (SyntacticContextEq operation observe left right)
+      (ContextEq operation observe left right)
+syntactic-futureIso operation setO observe left right =
+  iso
+    (syntactic→contextEq operation observe)
+    (contextEq→syntactic operation observe)
+    (λ future → isPropΠ (λ word → setO _ _) _ future)
+    (λ syntactic → isPropΠ (λ context → setO _ _) _ syntactic)
 
 contextEq-at : (operation : X → X → X) (observe : X → O)
     {left right : X}

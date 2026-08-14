@@ -23,8 +23,11 @@ ContextEq x y := every generated unary context gives equal observations
 is therefore definitionally the existing
 `FutureBehavior.FutureEq (contextStep operation) observe x y`.
 
-`formal/cubical/NaturalMachine/CompositionalContextAdapter.agda` checks the
-missing algebraic joint:
+`formal/cubical/NaturalMachine/CompositionalContextAdapter.agda` first defines
+the inductive one-hole grammar `OneHoleContext`, compiles it to translation
+words, and proves `plug-compile`.  `syntactic-futureIso` then identifies
+equality under every syntactic context with the existing `FutureEq` proof
+space (for set-valued observations).  It checks the missing algebraic joint:
 
 1. `contextEq-respects-operation`: `ContextEq` is stable under the original
    binary operation.  The proof changes the left input in a left-hole context,
@@ -77,8 +80,9 @@ that makes the quotient compositional.
 
 ## Scope and provenance
 
-- **PROVED/CHECKED:** the binary adapter, greatestness, quotient descent, and
-  the hostile observation-kernel counterexample.
+- **PROVED/CHECKED:** the one-hole syntax/word `Iso`, binary adapter,
+  greatestness, quotient descent, and the hostile observation-kernel
+  counterexample.
 - **SOURCE:** `notes/COMPOSITIONAL_CRYSTAL_THEOREM.md`, whose universal-
   algebraic/Myhill–Nerode theorem is explicitly classical and makes no novelty
   claim.

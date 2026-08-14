@@ -35,7 +35,7 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
     right : (x : ⟨ Γ ⟩) → a G.· (G.inv a G.· x) ≡ x
     right x =
       a G.· (G.inv a G.· x)
-        ≡⟨ sym (G.·Assoc a (G.inv a) x) ⟩
+        ≡⟨ G.·Assoc a (G.inv a) x ⟩
       (a G.· G.inv a) G.· x
         ≡⟨ cong (λ z → z G.· x) (G.·InvR a) ⟩
       G.1g G.· x
@@ -45,7 +45,7 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
     left : (x : ⟨ Γ ⟩) → G.inv a G.· (a G.· x) ≡ x
     left x =
       G.inv a G.· (a G.· x)
-        ≡⟨ sym (G.·Assoc (G.inv a) a x) ⟩
+        ≡⟨ G.·Assoc (G.inv a) a x ⟩
       (G.inv a G.· a) G.· x
         ≡⟨ cong (λ z → z G.· x) (G.·InvL a) ⟩
       G.1g G.· x
@@ -59,7 +59,7 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
     right : (x : ⟨ Γ ⟩) → (x G.· G.inv a) G.· a ≡ x
     right x =
       (x G.· G.inv a) G.· a
-        ≡⟨ G.·Assoc x (G.inv a) a ⟩
+        ≡⟨ sym (G.·Assoc x (G.inv a) a) ⟩
       x G.· (G.inv a G.· a)
         ≡⟨ cong (λ z → x G.· z) (G.·InvL a) ⟩
       x G.· G.1g
@@ -69,7 +69,7 @@ module _ {ℓ : Level} (Γ : Group ℓ) where
     left : (x : ⟨ Γ ⟩) → (x G.· a) G.· G.inv a ≡ x
     left x =
       (x G.· a) G.· G.inv a
-        ≡⟨ G.·Assoc x a (G.inv a) ⟩
+        ≡⟨ sym (G.·Assoc x a (G.inv a)) ⟩
       x G.· (a G.· G.inv a)
         ≡⟨ cong (λ z → x G.· z) (G.·InvR a) ⟩
       x G.· G.1g

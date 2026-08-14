@@ -228,41 +228,71 @@ in Lean and is not proved here.
 
 ## 5. Why the current strongest average does not close one center
 
-There are two different arc regimes and they must not be conflated.  At the
-logarithmic cutoff used in the pointwise major-arc formula, Lemma 4.2 gives
+There are two different arc regimes, two coefficient-family normalizations,
+and two power-cutoff residuals; they must not be conflated.  For Lemma 4.2 and
+for differences in the center variable, freeze one common ambient scale and
+define
 
 \[
-\sum_{N\le X}|a_R(N)|^2
-\ll X^3(\log X)^{5-A}
+\widetilde S_X(\alpha)=\sum_{n\le X}\Lambda(n)e(n\alpha),
+\qquad
+\widetilde a_{X,R}(N)=
+ \int_{\mathfrak m_X(R)}\widetilde S_X(\alpha)^2e(-N\alpha)\,d\alpha.
+\]
+
+At logarithmic cutoff, Lemma 4.2 gives the full two-term budget
+
+\[
+\sum_{N\le X}|\widetilde a_{X,R}(N)|^2
+\ll X^3(\log X)^{5-A}+X^{13/5}(\log X)^5
 \qquad(R=(\log X)^A).
 \]
 
-This still permits `O(X (log X)^(5-A))` order-`X` spikes, including one.  An
-anti-spike theorem in this same regime would have to propagate one exception
-to more than that many comparable coefficients.  A first-difference route
-would require a polylogarithmic estimate of the approximate strength
-`D=o((log X)^(A-5))`, against the current `O(X log X)`.
+Although the full Fourier coefficient of `\widetilde S_X^2` at `N\le X`
+still equals `R_Lambda(N)`, its major/minor split uses the common polynomial
+cutoff `X` and common arcs `m_X(R)`, not the target-adapted data in section 4.
+No checked local theorem or pinned source statement in this audit transports
+the exception spike
+`a_B^diag(N)=-N S(N)+o(N)` to an order-`X` spike of
+`\widetilde a_(X,R)(N)` uniformly across a dyadic interval.  Such a
+logarithmic-normalization transport is therefore an additional premise of the
+following anti-spike route.
 
-The source also proves a numerically stronger squared norm at a **different,
-power-sized cutoff**:
+Conditional on that transport, the displayed mean square permits
+`O(X (log X)^(5-A) + X^(3/5) (log X)^5)` order-`X` spikes, including one.  A
+first-difference route would need
 
 \[
-\sum_{N\le X}|a_R(N)|^2
+D=o\!\left(\min\{(\log X)^{A-5},
+ X^{2/5}(\log X)^{-5}\}\right)
+ =o((\log X)^{A-5})
+\]
+
+for fixed `A>5`, against the current `O(X log X)`.
+
+At a **power-sized cutoff** `R=X^vartheta` with `vartheta>=2/5`, Lemma 4.2
+gives for the raw minor coefficient
+
+\[
+\sum_{N\le X}|\widetilde a_{X,R}(N)|^2
 \ll X^{13/5}(\log X)^5.
 \]
 
-Direct point evaluation in that decomposition gives only
-`O(X^(13/10) log^(5/2) X)`, larger than the order-`X` main term.  It permits
-`O(X^(3/5) log^5 X)` coefficients of order `X`, and in particular permits
-one.
+Proposition 7.5 gives the same exponent for a different object: its smoothed
+residual `D_R(N)` after the pole--pole, pole--zero, and zero--zero terms have
+been separately retained.  The raw minor coefficient and `D_R` are not the
+same sequence.  Direct point evaluation of either displayed squared norm
+gives only `O(X^(13/10) log^(5/2) X)`, larger than the order-`X` main term, and
+permits `O(X^(3/5) log^5 X)` order-`X` coordinates.
 
-At a power cutoff, however, the major-arc side contains generalized-zero
-terms.  A Goldbach exception does not automatically put its entire order-`X`
-defect into this minor/residual coordinate.  The power-cutoff anti-spike route
-therefore also needs a theorem controlling or transporting those zero modes.
-The `13/5` calculation is a sharp audit of the residual point-evaluation
-interface, not by itself a deduction from “Goldbach exception” to “residual
-spike.”
+At a power cutoff, moreover, the major-arc side contains generalized-zero
+terms; Proposition 7.5 exposes them explicitly outside `D_R`.  A Goldbach
+exception does not automatically put its entire order-`X` defect into either
+the raw minor coordinate or the smoothed residual.  The power-cutoff
+anti-spike route therefore also needs a theorem controlling or transporting
+those zero modes.  The `13/5` calculation is a sharp audit of two
+point-evaluation interfaces, not by itself a deduction from “Goldbach
+exception” to “residual spike.”
 
 The companion amplifier audit tested the obvious repairs:
 
@@ -280,12 +310,13 @@ that is precisely the proof that the missing input must use prime-specific
 arithmetic rather than another phase-blind norm inequality.
 
 A sufficient new interface **after the power-cutoff zero modes are controlled**
-is an anti-spike theorem: one coefficient
-`a_R(N_0)<=-cX` forces more than `X^(3/5) log^5 X` comparably negative
-coefficients.  A concrete, stronger condition would be
+is an anti-spike theorem for the raw common-`X` family: one coefficient
+`\widetilde a_(X,R)(N_0)<=-cX` forces more than
+`X^(3/5) log^5 X` comparably negative coefficients.  A concrete, stronger
+condition would be
 
 \[
-\sup_{N\asymp X}|a_R(N+1)-a_R(N)|
+\sup_{N\asymp X}|\widetilde a_{X,R}(N+1)-\widetilde a_{X,R}(N)|
 =o\!\left(X^{2/5}(\log X)^{-5}\right),
 \]
 
@@ -326,7 +357,8 @@ The next work is not a larger finite verification and not another quotient.
 It is to seek prime-specific arithmetic anti-concentration across centers:
 
 1. retain a common ambient polynomial and arc decomposition across a dyadic
-   interval;
+   interval, and prove the missing transport from the target-adapted
+   logarithmic normalization when using an exception as a spike;
 2. express the coefficient family through shared Dirichlet-zero or Type-II
    dispersion data before absolute values, and keep logarithmic- and
    power-cutoff major arcs distinct;
