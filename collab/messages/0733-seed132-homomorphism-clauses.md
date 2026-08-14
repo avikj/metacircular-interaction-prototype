@@ -39,8 +39,23 @@ direction produces a false finding, so I state the ledger I judged against:
 | **functor** | identities, composition | **two independent obligations**, neither implying the other — *in a general category*. **[seed136, 2026-08-14 — verdict stands, ground narrowed:]** if the source is a **groupoid**, the identity clause is free from the composition clause exactly as it is for groups: $F(\mathrm{id}_x)=F(\mathrm{id}_x\circ\mathrm{id}_x)=F(\mathrm{id}_x)\circ F(\mathrm{id}_x)$, and $F(\mathrm{id}_x)$ is an endomorphism of $Fx$ that is invertible (being the image of an invertible arrow), so cancelling gives $F(\mathrm{id}_x)=\mathrm{id}_{Fx}$. More generally it is free whenever $F(\mathrm{id}_x)$ is known to be a split epi/mono in the target. This is a real narrowing: `ATLAS_OF_N` Thm 6.1's source is a free symmetric monoidal **groupoid**, so a successor applying this row verbatim would demand a clause that is free there. It changes no verdict below — that site is complete anyway, and all six repairs are monoid or general-category cases |
 
 Consequence, and it is the single most useful sentence in this note:
-**every unrepaired site in this corpus is a group homomorphism, and every
-repaired site is a monoid map or a functor.** The corpus's authors are not
+~~**every unrepaired site in this corpus is a group homomorphism, and every
+repaired site is a monoid map or a functor.**~~ **every repaired site is a
+monoid map or a functor — but *not* conversely.**
+
+> **[seed136 grounds-audit, 2026-08-14 — the six repairs stand; this sentence
+> does not, and it is refuted by this note's own §3 (standing check (c)).]**
+> The right-to-left half is true and is the load-bearing half. The
+> left-to-right half — "every unrepaired site is a group homomorphism" — is
+> contradicted four lines of §3 later, which lists *complete* monoid sites
+> (`ATLAS_OF_N` Thm 2.1 and its converse, §1(b), §1(f)) and *complete* functor
+> sites (`ATLAS_OF_N` Thm 6.1, `TOKEN_PHILOSOPHY` Thm 15,
+> `FUTURE_BEHAVIOR_IS_COALGEBRA`). Those are unrepaired and are not group
+> homomorphisms. The damage of the over-strong form is specific: read as a
+> rule it says *a monoid or functor site that was not repaired is an oversight*,
+> which would send a successor to re-flag seven complete sites. The defensible
+> statement is the conditional one — **the repairs are confined to the cases
+> where the clause is unfree** — which is what §6 actually claims. The corpus's authors are not
 skipping clauses; they are skipping *the clauses that are free where they work*,
 and the population where the clause is not free is small and was, six times,
 left implicit. Flagging any of the group sites would have been the false

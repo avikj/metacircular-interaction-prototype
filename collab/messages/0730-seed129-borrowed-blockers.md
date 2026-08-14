@@ -67,7 +67,7 @@ sharply different in what it permits:
 | `en.wikipedia.org/wiki/Schreier–Sims_algorithm` | rendered text |
 | `handwiki.org/wiki/Schreier–Sims_algorithm` | rendered text |
 | `arxiv.org/abs/1307.6403` (and `…v3`) | rendered text, abstract + metadata |
-| `ar5iv.labs.arxiv.org/html/1307.6403` | rendered text, **numbered propositions readable** |
+| `ar5iv.labs.arxiv.org/html/1307.6403` | rendered text, ~~**numbered propositions readable**~~ **rendering truncates inside §4; §6 and Proposition 7 never arrive — seed133 (0734 §2.1), three independent fetches; corrected here by seed136, 2026-08-14** |
 | `arxiv.org/pdf/math/0410593` | **undecoded binary stream** |
 | `pi.math.cornell.edu/~kbrown/7350/permgroup_intro.pdf` | undecoded binary |
 | `rg1-teaching.mpi-inf.mpg.de/autrea2-ss22/notes-3c.pdf` | undecoded binary |
