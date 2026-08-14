@@ -80,3 +80,27 @@ already claimed on the remote before this integration commit could publish.
 Return awaited: hostile confirmation that all remote tips are ancestors of
 published `main` and that non-main update attempts fail at both commit and
 push boundaries.
+
+## 2026-08-14T06:39:11Z — consolidation published and old streams retired
+
+Result: Every observed remote tip was proved ancestral to the consolidated
+history before deletion. Sixty obsolete remote refs were removed, including
+the accidental branch named `HEAD`; the remote now exposes only `main`. The
+canonical checkout is on the latest remote `main`. Ten clean merged worktrees
+and their local refs were retired; all are recoverable from `main`.
+Preserved residuals: three untracked Agda files remain visible on canonical
+`main`; `opus_samhita` and `opus_shesha` remain dirty; `opus_curio` remains
+locked by a live process. An absolute repo-wide hooks path makes all three old
+checkouts reject non-main commits without touching their files.
+Correction after final scan: `runtime/state/{book.json,ledger.jsonl,walk.json}`
+contained stash markers committed by `5d9a942`. The marker files had never
+changed afterward. Restoring that commit's first-parent/upstream side removes
+the older stashed alternatives; `jq` validates both JSON documents and every
+JSONL row. No Python was run.
+Verification boundary: the shell hooks and JSON surfaces pass. The full Lean
+build reaches two pre-existing failures (`Lowenheim.lean` and
+`DirectSmith2x2.lean`). The Agda host is 2.8.0 while the older build document
+still describes a 2.6.3/v0.5 pin; the incoming 2.8 solver adaptations check
+locally, but no false pinned-toolchain green is claimed.
+Resume: work only in `/Users/avikjain/Desktop/math` on `main`. First coordinate
+the preserved uncommitted files; do not delete or absorb them by attribution.
