@@ -5,14 +5,14 @@ date: 2026-08-14
 type: result
 ---
 
-# Arithmetic anti-spikes: one coherent zero mode, but no general center correlation
+# Arithmetic anti-spikes: one coherent self-pair packet, but no full propagation
 
 ## Verdict
 
 The Dirichlet-zero formula contains genuine arithmetic coherence that the
 generic Fourier-spike countermodel omits.  For a *specified* real zero
-`tilde beta` of a primitive real character, its self-pair secondary term has
-the fixed sign `tilde chi(-1)` on even multiples of the conductor.  When
+`tilde beta` of a primitive real character of conductor `r`, its self-pair
+secondary term has the fixed sign `tilde chi(-1)` on even multiples of `r`.  When
 `(1-tilde beta) log X=O(1)`, it has order `X` and recurs at
 `asymp X/lcm(2,r)` centers.  If
 `r <= X^(2/5-delta)`, this is more than the `X^(3/5+epsilon)` minor-arc
@@ -338,8 +338,9 @@ with `|mathcal H_q| >> X^(3/5+delta)` and
 \]
 
 By Markov, at least half of these shifts satisfy
-`tilde a_(X,R)(N_0+h)<=-cX/2`.  This would contradict the existing global squared norm
-`ll X^(13/5)(log X)^5` after allowing a corresponding logarithmic margin.
+`tilde a_(X,R)(N_0+h)<=-cX/2`.  This would contradict the existing global
+squared norm `ll X^(13/5)(log X)^5` after allowing a corresponding logarithmic
+margin.
 Thus `(ZM)+(TR)+(AC)`, with the displayed constant choices, is an exact
 sufficient bridge from one Goldbach exception to the current power
 mean-square theorem.
@@ -387,9 +388,11 @@ and (17) contains no center variable at all.
 - Genheng Zhao, arXiv:2511.05631v2: primary preprint; Theorems 1--4 audited.
   The exact statements are the `7/10` exceptional-set bound, (17), and the
   fixed-residue Linnik corollary, not a signed cross-center estimate.
-- Equations (1), (3), (5), (6), (12), (15), and the implication from `(AC)`
-  are elementary deductions displayed here.  `(ZM)` and `(AC)` are proposed
-  hypotheses, not results of any cited paper or of the repository.
+- Equations (1), (3), (5), (6), (12), (15), (18), and the implication from
+  `(ZM)+(TR)+(AC)` are elementary deductions displayed here.  `(ZM)`, `(TR)`,
+  and `(AC)` are proposed hypotheses, not results of any cited paper or of the
+  repository.
 
 The arithmetic structure therefore narrows the obstruction to a precise
-two-part interface, but does not close it.
+three-part interface, but does not close it.  Its sole proved propagation
+mechanism here remains self-pair packet coherence.
