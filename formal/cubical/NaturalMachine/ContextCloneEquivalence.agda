@@ -27,7 +27,7 @@ open import Cubical.Foundations.Isomorphism using (Iso ; iso)
 open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true ; isSetBool)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
-open import Cubical.Data.Unit using (Unit ; tt)
+open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
 open import Cubical.HITs.SetQuotients as SQ
   using ([_] ; eq/ ; squash/)
 open import Cubical.Relation.Nullary using (¬_)
@@ -290,7 +290,7 @@ flip-not-simulable-by-identity :
   ¬ ActionSimulation flipStep identityStep
 flip-not-simulable-by-identity simulation =
   false≢true
-    (identity-words-do-nothing false (compileAction simulation tt)
+    (sym (identity-words-do-nothing false (compileAction simulation tt))
     ∙ realizesAction simulation false tt)
 
 no-mutual-simulation-after-collapse :

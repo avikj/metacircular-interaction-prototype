@@ -75,7 +75,8 @@ the same finite dimension.  The subtype map is injective, so no scalarization
 or quotient is hidden in this transport. -/
 theorem finrank_ker_transmittedRestriction (A : M →ₗ[K] H) (B : F →ₗ[K] M) :
     finrank K (LinearMap.ker (transmittedRestriction A B)) =
-      finrank K (LinearMap.range B ⊓ LinearMap.ker A) := by
+      finrank K
+        (LinearMap.range B ⊓ LinearMap.ker A : Submodule K M) := by
   rw [← map_ker_transmittedRestriction]
   exact
     (Submodule.equivMapOfInjective (LinearMap.range B).subtype
@@ -88,7 +89,8 @@ The composite rank plus the dimension annihilated at the interface equals the
 dimension actually transmitted by the first process. -/
 theorem cutRank_add_alignmentDefect (A : M →ₗ[K] H) (B : F →ₗ[K] M) :
     finrank K (LinearMap.range (A.comp B)) +
-        finrank K (LinearMap.range B ⊓ LinearMap.ker A) =
+        finrank K
+          (LinearMap.range B ⊓ LinearMap.ker A : Submodule K M) =
       finrank K (LinearMap.range B) := by
   rw [← range_transmittedRestriction,
     ← finrank_ker_transmittedRestriction]
@@ -100,7 +102,8 @@ bookkeeping. -/
 theorem cutRank_eq_sub_alignmentDefect (A : M →ₗ[K] H) (B : F →ₗ[K] M) :
     finrank K (LinearMap.range (A.comp B)) =
       finrank K (LinearMap.range B) -
-        finrank K (LinearMap.range B ⊓ LinearMap.ker A) := by
+        finrank K
+          (LinearMap.range B ⊓ LinearMap.ker A : Submodule K M) := by
   exact Nat.eq_sub_of_add_eq (cutRank_add_alignmentDefect A B)
 
 /-- If the transmitted boundary is disjoint from the receiver's kernel, the
@@ -109,7 +112,12 @@ theorem cutRank_eq_of_disjoint (A : M →ₗ[K] H) (B : F →ₗ[K] M)
     (h : Disjoint (LinearMap.range B) (LinearMap.ker A)) :
     finrank K (LinearMap.range (A.comp B)) =
       finrank K (LinearMap.range B) := by
-  simpa [h.eq_bot] using cutRank_add_alignmentDefect A B
+  have hintersection :
+      (LinearMap.range B ⊓ LinearMap.ker A : Submodule K M) = ⊥ :=
+    h.eq_bot
+  have hrank := cutRank_add_alignmentDefect A B
+  rw [hintersection, finrank_bot, add_zero] at hrank
+  exact hrank
 
 /-- Opposite control: if every transmitted state lies in the receiver's
 kernel, the composite transmits no linear information. -/
@@ -121,7 +129,7 @@ theorem cutRank_eq_zero_of_range_le_ker (A : M →ₗ[K] H) (B : F →ₗ[K] M)
     have hx : B x ∈ LinearMap.ker A :=
       h (LinearMap.mem_range_self B x)
     simpa [LinearMap.mem_ker] using hx
-  simp [hcomp]
+  rw [hcomp, LinearMap.range_zero, finrank_bot]
 
 section Matrix
 
@@ -133,19 +141,35 @@ variable [Fintype h] [Fintype m] [Fintype f]
 theorem matrix_cutRank_add_alignmentDefect (A : Matrix h m K)
     (B : Matrix m f K) :
     (A * B).rank +
-        finrank K (LinearMap.range B.mulVecLin ⊓ LinearMap.ker A.mulVecLin) =
+        finrank K
+          (LinearMap.range B.mulVecLin ⊓ LinearMap.ker A.mulVecLin :
+            Submodule K (m → K)) =
       B.rank := by
-  simpa only [Matrix.rank, Matrix.mulVecLin_mul] using
-    cutRank_add_alignmentDefect A.mulVecLin B.mulVecLin
+  change
+    finrank K (LinearMap.range (A * B).mulVecLin) +
+        finrank K
+          (LinearMap.range B.mulVecLin ⊓ LinearMap.ker A.mulVecLin :
+            Submodule K (m → K)) =
+      finrank K (LinearMap.range B.mulVecLin)
+  rw [Matrix.mulVecLin_mul]
+  exact cutRank_add_alignmentDefect A.mulVecLin B.mulVecLin
 
 /-- Matrix subtraction form, matching the displayed identity in the native
 process-table note. -/
 theorem matrix_cutRank_eq_sub_alignmentDefect (A : Matrix h m K)
     (B : Matrix m f K) :
     (A * B).rank = B.rank -
-      finrank K (LinearMap.range B.mulVecLin ⊓ LinearMap.ker A.mulVecLin) := by
-  simpa only [Matrix.rank, Matrix.mulVecLin_mul] using
-    cutRank_eq_sub_alignmentDefect A.mulVecLin B.mulVecLin
+      finrank K
+        (LinearMap.range B.mulVecLin ⊓ LinearMap.ker A.mulVecLin :
+          Submodule K (m → K)) := by
+  change
+    finrank K (LinearMap.range (A * B).mulVecLin) =
+      finrank K (LinearMap.range B.mulVecLin) -
+        finrank K
+          (LinearMap.range B.mulVecLin ⊓ LinearMap.ker A.mulVecLin :
+            Submodule K (m → K))
+  rw [Matrix.mulVecLin_mul]
+  exact cutRank_eq_sub_alignmentDefect A.mulVecLin B.mulVecLin
 
 end Matrix
 
