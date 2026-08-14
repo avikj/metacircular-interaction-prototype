@@ -129,3 +129,83 @@ both with inhabited hypotheses. But the halves are phrased against
 different objects (`IsLCM (range1 n)` vs `LeastNonDivisor`), so §(b)'s
 bridge is still what stands between them and the composed statement
 "the installs are exactly the prime powers in increasing order".
+
+## §(b) is CHECKED (2026-08-14): `NaturalMachine.WalkBridge`
+
+`--cubical --safe`, exit 0, 0 warnings, no postulates, no holes, 3.8 s.
+The item labelled "**(b) ordering** — not formalised" above is now a term,
+and with it the composed statement this note has been chasing since it was
+written.
+
+### What closed it, and why it was never hard
+
+The obstruction was never the ordering. It was that §(b) as written above
+speaks about *the walk's state*, a list of installed sensors, while §(c)
+speaks about `cap`, a function of a number. Bridging them looked like it
+needed the walk-as-a-stream. It does not, because of `WalkStream`: after
+installing `q` the state's lcm **is** `cap(q)`. So the state is redundant —
+the walk's entire dynamics is a self-map of ℕ,
+
+$$\mathrm{next}(m) \;=\; \min\{\,q \ge 2 : q \nmid \mathrm{cap}(m)\,\},$$
+
+and §(b) is a statement about `next`, with no lists anywhere. Written that
+way the proof is four lines of divisibility (`WalkBridge`, `walk-step`):
+
+| clause | statement | proof |
+|---|---|---|
+| (i) | `m ≤ j` where `next m = j+1` | everything in `[1,m]` divides `cap m` |
+| (ii) | `cap j ≡ cap m` | ≥ by minimality of `next m`, ≤ by monotonicity |
+| (iii) | `Jump j` | (ii) transports `q ∤ cap m` to `q ∤ cap j` |
+| (iv) | no `Jump i` for `m ≤ i < j` | minimality then monotonicity |
+
+Clause (ii) is the content: **the capacity is flat exactly across the
+interval the walk skips.** The walk skips because nothing happens there,
+and (ii) is that sentence as an equation. It is the same fact that
+`WalkUnconditional.no-jump-at-6 : cap 6 ≡ cap 5` exhibits by computation at
+the first place the walk actually skips one.
+
+Iterating gives the global form (`install-mono`, `install-is-jump!`,
+`install-exhaustive`, `below-first`): the install stream is strictly
+increasing, every term is a jump point, nothing between consecutive terms
+is, and nothing below the first is. That is the increasing enumeration of
+*all* jump points — §(b) with no residue.
+
+### A second thing landed on the way: the walk's step is now a FUNCTION
+
+Every earlier theorem in this lane quantified over a hypothesis
+`LeastNonDivisor L q`, so the walk was a relation. `WalkBridge.leastND`
+constructs it by bounded search — the bound is `L+1`, which never divides
+`L ≥ 1` — using the `dec∣` the correction above recovered, plus `cap-pos`
+(`cap k > 0`, via the product of the frontier range as a nonzero common
+multiple; `LCMExists` deliberately assumes no positivity, so this had to be
+proved). So `next : ℕ → ℕ` is total and the walk **runs**:
+
+```agda
+next-1 : next 1 ≡ 2   next-2 : next 2 ≡ 3   next-3 : next 3 ≡ 4
+next-4 : next 4 ≡ 5   next-5 : next 5 ≡ 7
+```
+
+all `refl` — 2, 3, 4, 5, 7 evaluated by the kernel, the prime powers in
+order, with 6 skipped. Not a script printing numbers: the trace *is* the
+proof term.
+
+### Where the execution stops, which is the theorem again
+
+`next 7 ≡ 8` also checks, in 86 s, and is left out of the file for gate
+cost. `next 8` exhausts a 3.5 GB heap. That is not an evaluator accident
+and it is not a measurement: the search decides `s ∣ cap m` for each
+candidate, a unary divisibility test on `cap m` costs `Θ(cap m)`, so a step
+costs `Θ(cap m · (next m − m))`, and `cap m = e^{ψ(m)}`. **The walk's
+storage law is also its naive runtime law**, so the capacity theorem is
+precisely the obstruction to executing the walk far by evaluation. Getting
+past `m ≈ 8` is a change of representation (binary naturals), not a bigger
+machine — and that is a statement about the object, not about the hardware.
+
+### What remains in statement (2)
+
+Only the *composition*. §(b) is checked here in terms of `Jump`; §(c)(⇐)
+is checked in `WalkJumps` in terms of `IsLCM (range1 n)`; §(c)(⇒) in
+`CoprimeSplitting` in terms of `LeastNonDivisor`. All three are now
+statements about the same `cap`, so gluing them is renaming plus
+`lcmList-isLCM`, with no mathematics left in it. Whoever does it should
+land it as `install-is-prime-power` and delete this paragraph.
