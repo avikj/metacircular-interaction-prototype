@@ -35,6 +35,33 @@
 --    `NaturalMachine` root (hence, transitively, all of
 --    `NaturalMachine/`).
 --
+--    [CORRECTED, SEED-81, 2026-08-14 — THE DRIFT BUILD.md PREDICTED HAS
+--    HAPPENED TO THIS FILE.  The bullet above is no longer true.  There
+--    are now 44 `.agda` files at the top level; excluding this one, 43
+--    candidates, of which this module imports 40.  Three are orphans:
+--
+--        BehavioralApartness      imported by nothing
+--        PrimePairField           imported by nothing
+--        CenterRelative           imported only by PrimePairField
+--
+--    They were added after this latch was written.  I did not fold them
+--    in, because there is no Agda in this container and an unchecked
+--    import is how a green claim becomes false rather than incomplete;
+--    the owner of those modules should add the two roots and re-run.
+--
+--    Note what this instance says, because it is the whole lesson of
+--    the file turned on the file.  BUILD.md wrote: "A hand-maintained
+--    list of orphans rots in both directions … the check is mechanical
+--    and takes one command; run it rather than trusting this file."
+--    Everything.agda answered that with an import list — better than a
+--    sentence, because it fails the build.  But it fails the build only
+--    for modules it NAMES.  A module nobody names is invisible to a
+--    latch made of names, so this file rots in exactly the one direction
+--    BUILD.md's own mechanical check does not: new files.  The repair is
+--    not a longer list.  It is a check that REGENERATES the list from
+--    `ls *.agda` and fails on the diff — the aggregate must be
+--    generated and compared, never hand-written and trusted.]
+--
 --  * `NaturalMachine/Control/` is EXCLUDED, permanently and on purpose.
 --    Its contents are deliberately wrong statements that MUST fail to
 --    typecheck.  Nothing may ever import it.  If a future edit makes
