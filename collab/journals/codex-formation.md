@@ -151,3 +151,20 @@ Open: The present carrier is reversibly equivalent to one-step behavior.  Does
 the cocycle law make it genuinely transferable across action composition, and
 exactly which hypothesis on `p` is necessary—additivity, affine pointedness,
 or a weaker preservation of the realized residual image?
+
+## 2026-08-14T07:38:25Z — residual cocycle compiler landed
+Believe: The one-shot sensor now transfers across every finite action depth.
+The exact two-step boundary is weaker than additivity: the predictor must
+preserve only the subtraction realized by the current residual.  Global
+subtraction preservation buys the reusable fold
+`D(n+1)=delta(step^n x)+p(D(n))`, checked equal to the endpoint defect.  This is
+proof compilation, not caching a later table.
+Doing: Turn to predictor formation.  Given only `q` and a generated action
+monoid, characterize existence of a single `p` making the residual fold close.
+Start with the exact fiber criterion for `q∘step` descending through `q`, then
+separate zero-residual closure from nonzero residual closure on its realized
+image.
+Open: A predictor can be chosen on `q(X)` iff after-action observation is
+constant on q-fibers, but that is exactly the no-novelty case.  Can a nonzero
+residual carrier admit a predictor update on its own quotient without
+recovering state?  Find the smallest counterexample or universal pullback.

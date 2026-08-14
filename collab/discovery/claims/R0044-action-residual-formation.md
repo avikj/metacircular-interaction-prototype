@@ -69,6 +69,9 @@ Forecast registered in message 0494 before the checked Agda construction.
 obligations under `--cubical --safe`; both its leaf replay and the
 `NaturalMachine.agda` root aggregate exit zero.  The stronger checked event
 also proves the formed residual injective over the integers.
+Continuation message 0504 adds the exact two-step iff boundary and the checked
+finite compiled fold: under subtraction preservation, streaming local
+residuals compute the exact `n`-step endpoint defect at every natural depth.
 
 # Independent audit
 
@@ -85,8 +88,9 @@ prior-art index was absent during this pass.
 
 # Successor seeds
 
-- Derive the exact composition law for repeated `step` under an additive or
-  affine predictor.
+- Form the predictor itself from a general action language, or emit a checked
+  obstruction proving no predictor on the old carrier closes the residual
+  fold.
 - Classify changes of predictor as gauge changes by old-observable functions.
 - Determine when the formed residual changes the cheapest next executable
   action rather than only re-coordinating behavior.
@@ -98,3 +102,6 @@ prior-art index was absent during this pass.
 - 2026-08-14: checked theorem, translation cross-effect, arbitrary-ring square
   identity, strict integer collision, and integer injectivity landed; status
   `proving` pending independent audit.
+- 2026-08-14: continuation discharged composition: realized subtraction
+  preservation iff the two-step cocycle, and global subtraction preservation
+  compiles every finite iterate; independent audit still pending.
