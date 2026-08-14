@@ -192,11 +192,11 @@ theorem shortestReachingWord_predecessor
     (complete : ∀ action : A, action ∈ alphabet) (target : X)
     {word : List A} (h : shortestReachingWord M alphabet target = some word)
     (hne : word ≠ []) :
-    let prefix := word.dropLast
-    let action := word.getLast hne
-    M.step (M.eval prefix) action = target ∧
-      ∀ candidate : List A, M.eval candidate = M.eval prefix →
-        prefix.length ≤ candidate.length := by
+    (let pre := word.dropLast
+     let action := word.getLast hne
+     M.step (M.eval pre) action = target ∧
+       ∀ candidate : List A, M.eval candidate = M.eval pre →
+         pre.length ≤ candidate.length) := by
   dsimp only
   have hdecompose : word.dropLast ++ [word.getLast hne] = word :=
     List.dropLast_append_getLast hne

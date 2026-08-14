@@ -63,7 +63,7 @@ sign-right-inverse-self minus minus h = refl
 
 module RelativeSignPhase
   {ℓx : Level} {X : Type ℓx}
-  (A : AbGroup 0ℓ)
+  (A : AbGroup ℓ-zero)
   (q : X → ⟨ A ⟩)
   (step : X → X)
   (predict : ⟨ A ⟩ → ⟨ A ⟩)
@@ -152,4 +152,3 @@ module IntegerSquareSuccessorNoGo where
       → RK.Character.char χ (I.squareResidual x) ≡ plus)
   faithful-classical-trivial-phase =
     classical-residual-is-injective , every-sign-phase-is-identity
-

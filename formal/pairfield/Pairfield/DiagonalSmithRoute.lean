@@ -150,8 +150,15 @@ def positiveDiagonalJoinPresentation (a b : Nat) (hg : 0 < a.gcd b) :
   have p := ComputableSmith2x2.toPresentation f
   dsimp [f, positiveDiagonalCoprimeFactors] at p
   simp only [ComputableSmith2x2.fromNatGcdOne] at p
-  rw [positiveDiagonal_factor_left a b, positiveDiagonal_factor_right a b] at p
-  simpa [positiveDiagonal] using p
+  have hsource :
+      IntMat2.diagonal
+          ((a.gcd b : Int) * (a / a.gcd b : Nat))
+          ((a.gcd b : Int) * (b / a.gcd b : Nat)) =
+        positiveDiagonal a b := by
+    rw [positiveDiagonal_factor_left a b, positiveDiagonal_factor_right a b]
+    rfl
+  rw [hsource] at p
+  exact p
 
 /-- Promote the direct diagonal join to the common independently checkable
 certificate language. -/
