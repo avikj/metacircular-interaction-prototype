@@ -84,4 +84,8 @@ run-four = refl
 
 run-propagated-four : observe 4 (propagate rootAction pulse) ≡
   woven ∷ baseView ∷ woven ∷ baseView ∷ []
-run-propagated-four = refl
+run-propagated-four =
+  cong₂ _∷_ refl
+    (cong₂ _∷_ reweave-woven
+      (cong₂ _∷_ refl
+        (cong₂ _∷_ reweave-woven refl)))
