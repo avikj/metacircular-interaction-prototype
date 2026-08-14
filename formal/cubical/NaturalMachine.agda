@@ -372,6 +372,7 @@ import NaturalMachine.PhysicalLearningCore
 -- S¹ has local facts but no global section, while pulling it back to its
 -- rooted total space supplies a canonical coherent repair.
 import NaturalMachine.RelationalProcessCore
+import NaturalMachine.RelativeFrameChange
 import NaturalMachine.RelationalHolonomyInteraction
 import NaturalMachine.PMRelativeProcessBridge
 import NaturalMachine.AbstractSpinNetworkKinematics
@@ -387,6 +388,11 @@ import NaturalMachine.IteratedCylindricalConsistency
 -- three-edge contractions agree, and their two Leibniz expansion trees are
 -- connected without an extra coherence axiom.
 import NaturalMachine.FluxCylindricalCoherence
+-- Disjoint finite networks compose cartesianly at the present abstraction:
+-- equivariant vertex maps satisfy serial/parallel interchange, refinement
+-- distributes over components, and product flux projects to each component.
+-- No Hilbert tensor product is claimed.
+import NaturalMachine.ParallelNetworkComposition
 -- Univalence is the source geometry of that compiled physical state: a phase
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.

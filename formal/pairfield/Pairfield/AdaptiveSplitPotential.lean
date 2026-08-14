@@ -196,4 +196,57 @@ end Control
 
 end FiniteLiveCell
 
+namespace ResidualCell
+
+variable {A : Type u} {X : Type v}
+
+/-- Choosing one prefix representative per live residual transports the
+recursive certificate's local safety law to the finite ambiguity theorem. -/
+theorem safeAction_to_finiteSafeAdvance
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (cell : Set (List A)) (representatives : Finset (List A)) (action : A)
+    (hrepresentatives : ∀ pre ∈ representatives, cell pre)
+    (hinjective : Set.InjOn (BranchResidual M) representatives)
+    (hsafe : ResidualCell.SafeAction M cell action) :
+    FiniteLiveCell.SafeAdvance representatives
+      (fun pre => acceptsBool M (M.eval (pre ++ [action])))
+      (fun pre => BranchResidual M (pre ++ [action])) := by
+  intro left right hleft hright _hresponse hadvanced
+  apply hinjective hleft hright
+  exact hsafe
+    (hrepresentatives left hleft)
+    (hrepresentatives right hright)
+    hadvanced
+
+/-- Actual residual-cell specialization: for one representative of every
+live residual, a certified safe action obeys the exact square-potential split
+law on its two advanced left-quotient branches. -/
+theorem safeAction_squarePotential_split
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (cell : Set (List A)) (representatives : Finset (List A)) (action : A)
+    (hrepresentatives : ∀ pre ∈ representatives, cell pre)
+    (hinjective : Set.InjOn (BranchResidual M) representatives)
+    (hsafe : ResidualCell.SafeAction M cell action) :
+    let response :=
+      fun pre => acceptsBool M (M.eval (pre ++ [action]))
+    let advance :=
+      fun pre => BranchResidual M (pre ++ [action])
+    FiniteLiveCell.squarePotential representatives =
+      FiniteLiveCell.squarePotential
+          (FiniteLiveCell.advancedBranch representatives response advance false) +
+        FiniteLiveCell.squarePotential
+          (FiniteLiveCell.advancedBranch representatives response advance true) +
+        2 *
+          (FiniteLiveCell.advancedBranch representatives response advance false).card *
+          (FiniteLiveCell.advancedBranch representatives response advance true).card := by
+  classical
+  exact FiniteLiveCell.squarePotential_split
+    representatives
+    (fun pre => acceptsBool M (M.eval (pre ++ [action])))
+    (fun pre => BranchResidual M (pre ++ [action]))
+    (safeAction_to_finiteSafeAdvance M cell representatives action
+      hrepresentatives hinjective hsafe)
+
+end ResidualCell
+
 end Pairfield
