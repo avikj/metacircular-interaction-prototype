@@ -96,69 +96,81 @@ theorem unresolvedPairs_sharedSuffix_card_lt
   Finset.card_lt_card
     (unresolvedPairs_sharedSuffix_ssubset M policy installed pair hpair)
 
-/-- Choose the least currently unresolved pair and lazily reconstruct only its
-policy suffix.  Fuel counts successful demand discharges, not reverse-policy
-table construction. -/
-def resolveFuel (policy : Policy M) :
-    Nat → Finset (List A) → Finset (List A)
-  | 0, installed => installed
-  | fuel + 1, installed =>
-      if h : (unresolvedPairs M installed).Nonempty then
-        let pair := (unresolvedPairs M installed).min' h
-        resolveFuel policy fuel
-          (insert (policy.sharedSuffix M pair) installed)
+/-- Traverse an explicit strict-pair schedule.  A policy suffix is reconstructed
+only when its pair remains unresolved at the moment of demand. -/
+def resolveSchedule (policy : Policy M) :
+    Finset (List A) → List (X × X) → Finset (List A)
+  | installed, [] => installed
+  | installed, pair :: rest =>
+      if pair ∈ unresolvedPairs M installed then
+        resolveSchedule policy
+          (insert (policy.sharedSuffix M pair) installed) rest
       else
-        installed
+        resolveSchedule policy installed rest
 
-/-- Fuel at least the current demand cardinality empties the demand finset. -/
-theorem unresolvedPairs_resolveFuel_eq_empty
-    (policy : Policy M) :
-    ∀ fuel installed,
-      (unresolvedPairs M installed).card ≤ fuel →
-        unresolvedPairs M (resolveFuel M policy fuel installed) = ∅ := by
-  intro fuel
-  induction fuel with
-  | zero =>
-      intro installed hcard
-      exact Finset.card_eq_zero.mp (Nat.eq_zero_of_le_zero hcard)
-  | succ fuel ih =>
-      intro installed hcard
-      by_cases hnonempty : (unresolvedPairs M installed).Nonempty
-      · let pair := (unresolvedPairs M installed).min' hnonempty
-        have hpair : pair ∈ unresolvedPairs M installed := by
-          exact Finset.min'_mem _ _
-        have hdrop := unresolvedPairs_sharedSuffix_card_lt
-          M policy installed pair hpair
-        have hnext : (unresolvedPairs M
-            (insert (policy.sharedSuffix M pair) installed)).card ≤ fuel := by
-          omega
-        have hdone := ih
-          (insert (policy.sharedSuffix M pair) installed) hnext
-        simpa [resolveFuel, hnonempty, pair] using hdone
-      · have hempty : unresolvedPairs M installed = ∅ :=
-          Finset.not_nonempty_iff_eq_empty.mp hnonempty
-        simpa [resolveFuel, hnonempty] using hempty
+/-- Processing later demands can only refine the current response relation. -/
+theorem unresolvedPairs_resolveSchedule_subset
+    (policy : Policy M) (installed : Finset (List A))
+    (schedule : List (X × X)) :
+    unresolvedPairs M (resolveSchedule M policy installed schedule) ⊆
+      unresolvedPairs M installed := by
+  induction schedule generalizing installed with
+  | nil => simp [resolveSchedule]
+  | cons pair rest ih =>
+      by_cases hpair : pair ∈ unresolvedPairs M installed
+      · exact Finset.Subset.trans
+          (by simpa [resolveSchedule, hpair] using
+            (ih (insert (policy.sharedSuffix M pair) installed)))
+          (unresolvedPairs_insert_subset M installed
+            (policy.sharedSuffix M pair))
+      · simpa [resolveSchedule, hpair] using ih installed
 
-theorem unresolvedPairs_card_le_choose_two
-    (installed : Finset (List A)) :
-    (unresolvedPairs M installed).card ≤
-      Nat.choose (Fintype.card X) 2 := by
-  calc
-    (unresolvedPairs M installed).card ≤ (strictPairs (X := X)).card := by
-      exact Finset.card_le_card (Finset.filter_subset _ _)
-    _ = Nat.choose (Fintype.card X) 2 := card_strictPairs
+/-- Every pair which appears in the explicit schedule is resolved after the
+entire schedule, whether it was already resolved or triggered construction. -/
+theorem mem_schedule_not_mem_unresolved_after
+    (policy : Policy M) (installed : Finset (List A))
+    (schedule : List (X × X)) (pair : X × X)
+    (hmem : pair ∈ schedule) :
+    pair ∉ unresolvedPairs M (resolveSchedule M policy installed schedule) := by
+  induction schedule generalizing installed with
+  | nil => simp at hmem
+  | cons head rest ih =>
+      simp only [List.mem_cons] at hmem
+      by_cases hhead : head ∈ unresolvedPairs M installed
+      · have hsubset := unresolvedPairs_resolveSchedule_subset M policy
+          (insert (policy.sharedSuffix M head) installed) rest
+        rcases hmem with rfl | htail
+        · intro hfinal
+          exact selected_pair_not_mem_after_sharedSuffix M policy installed head hhead
+            (hsubset hfinal)
+        · simpa [resolveSchedule, hhead] using
+            (ih (insert (policy.sharedSuffix M head) installed) htail)
+      · rcases hmem with rfl | htail
+        · intro hfinal
+          exact hhead ((unresolvedPairs_resolveSchedule_subset M policy
+            installed rest) (by simpa [resolveSchedule, hhead] using hfinal))
+        · simpa [resolveSchedule, hhead] using (ih installed htail)
 
-/-- Execute enough demand discharges for every possible unresolved pair. -/
-def formObservable (policy : Policy M) (installed : Finset (List A)) :
-    Finset (List A) :=
-  resolveFuel M policy (Nat.choose (Fintype.card X) 2) installed
+/-- An explicit enumeration of all strict pairs empties the demand.  This is
+the honest executable scheduling boundary replacing a hidden order choice. -/
+theorem unresolvedPairs_resolveSchedule_eq_empty
+    (policy : Policy M) (installed : Finset (List A))
+    (schedule : List (X × X))
+    (hschedule : schedule.toFinset = strictPairs (X := X)) :
+    unresolvedPairs M (resolveSchedule M policy installed schedule) = ∅ := by
+  apply Finset.eq_empty_iff_forall_not_mem.mpr
+  intro pair hpair
+  have hstrict : pair ∈ strictPairs (X := X) :=
+    (Finset.filter_subset _ _) hpair
+  have hscheduleMem : pair ∈ schedule := by
+    simpa [hschedule] using hstrict
+  exact mem_schedule_not_mem_unresolved_after M policy installed
+    schedule pair hscheduleMem hpair
 
-theorem unresolvedPairs_formObservable_eq_empty
-    (policy : Policy M) (installed : Finset (List A)) :
-    unresolvedPairs M (formObservable M policy installed) = ∅ := by
-  exact unresolvedPairs_resolveFuel_eq_empty M policy
-    (Nat.choose (Fintype.card X) 2) installed
-    (unresolvedPairs_card_le_choose_two M installed)
+/-- Demand-restricted formation from an explicit complete pair schedule. -/
+def formObservable (policy : Policy M) (installed : Finset (List A))
+    (schedule : List (X × X)) : Finset (List A) :=
+  resolveSchedule M policy installed schedule
 
 theorem agree_symm {installed : Finset (List A)} {left right : X}
     (hagree : Agree M installed left right) :
@@ -187,17 +199,20 @@ theorem eq_of_agree_of_unresolvedPairs_eq_empty
 forms a discrete response partition from arbitrary initial tests in at most
 `choose(n,2)` successful policy-suffix installations. -/
 theorem formObservable_partition_discrete
-    (policy : Policy M) (installed : Finset (List A)) :
+    (policy : Policy M) (installed : Finset (List A))
+    (schedule : List (X × X))
+    (hschedule : schedule.toFinset = strictPairs (X := X)) :
     ∀ left right : X,
       right ∈ (responsePartition M
-        (formObservable M policy installed)).part left ↔ left = right := by
+        (formObservable M policy installed schedule)).part left ↔ left = right := by
   intro left right
   rw [mem_part_responsePartition_iff]
   constructor
   · intro hagree
     exact eq_of_agree_of_unresolvedPairs_eq_empty M
-      (formObservable M policy installed)
-      (unresolvedPairs_formObservable_eq_empty M policy installed)
+      (formObservable M policy installed schedule)
+      (unresolvedPairs_resolveSchedule_eq_empty M policy installed
+        schedule hschedule)
       left right (by simpa [Agree] using hagree)
   · rintro rfl word hword
     rfl
@@ -226,26 +241,36 @@ def policy : Policy automaton where
   action? pair := if needsStep pair then some false else none
   terminal_separates := by
     rintro ⟨left, right⟩ hne hnone
-    fin_cases left <;> fin_cases right <;> native_decide
+    fin_cases left <;> fin_cases right <;>
+      simp_all [needsStep, automaton, step, behavior, run, acceptsBool]
   step_preserves_ne := by
     rintro ⟨left, right⟩ hne action haction
     fin_cases left <;> fin_cases right <;>
-      cases action <;> native_decide
+      cases action <;>
+        simp_all [needsStep, automaton, step, pairStep]
   rank_decreases := by
     rintro ⟨left, right⟩ hne action haction
     fin_cases left <;> fin_cases right <;>
-      cases action <;> native_decide
+      cases action <;>
+        simp_all [needsStep, automaton, step, pairStep]
+
+def schedule : List (Fin 3 × Fin 3) :=
+  [(0, 1), (0, 2), (1, 2)]
+
+theorem schedule_complete :
+    schedule.toFinset = strictPairs (X := Fin 3) := by
+  native_decide
 
 /-- Native formation event: demand restriction constructs `[false]` for the
 hidden pair, then `[]` for the last visible distinction, and stops. -/
 theorem forms_exact_two_word_observable :
-    formObservable automaton policy ∅ =
+    formObservable automaton policy ∅ schedule =
       ({[], [false]} : Finset (List Bool)) := by
   native_decide
 
 theorem formed_control_is_discrete :
     ∀ left right : Fin 3,
-      Agree automaton (formObservable automaton policy ∅) left right →
+      Agree automaton (formObservable automaton policy ∅ schedule) left right →
         left = right := by
   native_decide
 

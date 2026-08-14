@@ -523,6 +523,7 @@ import NaturalMachine.SurfaceFluxCylindricalSquare
 import NaturalMachine.FiniteNonabelianHolonomy
 import NaturalMachine.S3ConjugacyObservation
 import NaturalMachine.TwoLoopNonabelianNetwork
+import NaturalMachine.S3FiniteSpinNetwork
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

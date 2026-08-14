@@ -387,6 +387,19 @@ and `jD<=H/2`, then every in-range forward value `a(i_0+j)` is at most
 valid implication while leaving the missing prime-specific estimate for `D`
 explicit.
 
+The strictly weaker finite interface is now checked in
+`Pairfield.UpwardEscape`.  From a spike `a(i_0)<=-depth` it charges only
+
+\[
+\sum_{i\in H}(a(i)-a(i_0))_+,
+\]
+
+leaving downward motion free.  If this is at most
+`gamma * depth * |H|` with `gamma<1/2`, Lean proves that at least a
+`1-2 gamma` proportion remains below `-depth/2`, together with the resulting
+square-energy lower bound.  No arithmetic theorem presently supplies this
+one-sided budget for the prime minor coefficients.
+
 ## 6. Other machine routes that were tested and refused
 
 - **Delta 27 factor rank/nucleus.**  Actual-prime future matrices have exact
@@ -455,6 +468,15 @@ character of conductor `r`, the self-pair secondary term has the fixed sign
 statement: one bad Goldbach center does not imply that such a zero exists,
 that its conductor divides the center, or that its packet dominates.
 
+Matomaki--Merikoski provide one genuine terminal slice beyond packet
+coherence.  Under a sufficiently close zero of an **even** primitive
+quadratic character, their full von-Mangoldt formula implies Goldbach for
+sufficiently large even conductor multiples in their explicit scale range.
+For an odd character the leading conductor-multiple bracket vanishes and no
+positivity follows.  This is a conditional full-coefficient theorem, not a
+route from one exception to propagation; the exact quantifiers are audited in
+[`zero-mode-terminal-and-upward-escape.md`](zero-mode-terminal-and-upward-escape.md).
+
 The sufficient power-cutoff interface is therefore the following three-part
 contract, recorded precisely in `arithmetic-antispike.md`:
 
@@ -464,12 +486,20 @@ contract, recorded precisely in `arithmetic-antispike.md`:
 - `(AC)`: a conditional signed covariance that spreads a large negative raw
   minor coefficient over more than the `X^(3/5) log^5 X` residual budget.
 
+**Residual refinement.**  `(AC)` is sufficient but not minimal.  It can be
+replaced by `(UP_gamma)`, a first-moment bound only on positive escape from
+the negative spike.  Cauchy--Schwarz shows the old `(AC)` implies such a
+budget with `gamma=1/sqrt(8)`, while arbitrarily large downward jumps show the
+converse need not hold.
+
 Current zero-density, Linnik, and dispersion estimates provide upper mass or
 equidistribution statements, not these signed prescribed-center inequalities.
 This three-part contract belongs specifically to the target-adapted
 power-cutoff architecture.  A common-carrier power formulation would replace
-`(ZM)+(TR)` by one common zero-mode positivity premise `(CZM)`; the logarithmic
-prime-log route needs neither.
+`(ZM)+(TR)` by one common zero-mode positivity premise `(CZM)`; its remaining
+residual contract is `(UP_gamma)`.  The logarithmic prime-log route needs
+neither zero-mode premise nor transport, only the corresponding propagation
+or a direct edge-margin theorem.
 
 ## Rigor and execution ledger
 
@@ -478,6 +508,8 @@ prime-log route needs neither.
   weighted support; exact contamination decomposition; fixed-antidiagonal
   contamination bounds; exception signature; finite-prefix/tail crossover;
   finite first-difference AntiSpike propagation.
+  The one-sided Markov survivor and energy inequalities are checked in
+  `Pairfield.UpwardEscape`.
 - **Primary-source grade, not locally formalized:** Bhowmik--Grimmelt major-arc
   formula and minor-arc mean square; Zhao exceptional-set exponent.
 - **Proved in collaboration notes:** the exact analytic implication, amplifier
@@ -496,7 +528,9 @@ prime-log route needs neither.
   [`GoldbachCrossover`](../../../formal/pairfield/Pairfield/GoldbachCrossover.lean)
   (`34b98c9a`), and
   [`AntiSpike`](../../../formal/pairfield/Pairfield/AntiSpike.lean)
-  (`9aff3cd8`).  The analytic normalization and amplifier audits are
+  (`9aff3cd8`), plus the weaker one-sided
+  [`UpwardEscape`](../../../formal/pairfield/Pairfield/UpwardEscape.lean).
+  The analytic normalization and amplifier audits are
   [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
   direct edge-margin and moving-character audit is
@@ -505,6 +539,9 @@ prime-log route needs neither.
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the
   logarithmic common-carrier correction is
   [`common-carrier-elimination.md`](common-carrier-elimination.md); the
+  conditional zero-mode and upward-escape audit is
+  [`zero-mode-terminal-and-upward-escape.md`](zero-mode-terminal-and-upward-escape.md);
+  the
   executable audit is [`execution-compiler.md`](execution-compiler.md)
   (`7a02f908`).
 - **Open:** the pointwise signed minor-arc margin or a prime-specific AntiSpike
