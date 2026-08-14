@@ -60,6 +60,14 @@ double-negation elimination for every type. The checked boundary and the
 constructive directions are in
 `formal/cubical/NaturalMachine/FormationRelativeMinimality.agda`.
 
+The same checked module packages the exact searchable repair. At a fixed
+point it requires decidable equality of task values against that point and a
+decision procedure for the formed-counterexample type. A negative search result
+then constructs formed sufficiency pointwise, so negated sufficiency forces the
+positive search branch and returns its witness. Chart equality need not be
+decided: it is already the fibre premise. Thus “finite/searchable” here names
+supplied executable data, not finiteness inferred from prose.
+
 The theorem is nearly a definition; its value is that it converts "does
 minimality transport?" into a **single membership question** about one fiber,
 which is what makes the arithmetic corollary sharp. Note what it does *not*
