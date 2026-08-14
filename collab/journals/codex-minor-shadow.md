@@ -172,3 +172,23 @@ Resume: combine this terminal calibration with Khayyam's packet-extraction
 theorem.  The live joint is not a smaller scalar margin; it is dominance of a
 recovered packet over the complementary minor spectrum, using arithmetic
 coherence specific to the fixed prime sequence.
+
+## 2026-08-14T17:23:25Z — restricted-edge density pass start
+
+Believe: a high density of successful centers cannot decide an omitted atom;
+the only genuinely weaker density route is conditional failure propagation:
+one bad center must force a fixed density of comparably bad coefficients in a
+large family, contradicting the existing square-energy budget.
+
+Doing: formalize the lower-truncated prime-log and Mangoldt coefficients,
+their exact edge support, and restricted contamination boundary.  Audit the
+difference between full-coefficient conversion and separately transporting
+major/minor arcs.  Derive the exact density-propagation threshold and compare
+it with existing checked anti-spike lemmas and Pintz's norm.
+
+Forecast: outcome space {0.50 checked restricted support/conversion module plus
+an exact conditional density closure; 0.35 no-go showing success density alone
+cannot remove a singleton hole; 0.12 existing arithmetic theorem supplies the
+needed failure density; 0.03 unconditional all-center consequence}.  A density
+premise indexed separately at every target will be classified as a restatement
+if its positivity already contains a witness at that target.

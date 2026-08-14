@@ -706,15 +706,17 @@ theorem consumeFrontier_covers_edge
   | cons node rest ih =>
       rcases hsource with ⟨sourceNode, hsourceNode, hsource⟩
       simp only [List.mem_cons] at hsourceNode
-      rcases hsourceNode with rfl | hsourceTail
-      · have htaken := takeBucket_edge_complete M node.state index hsound
-          hkeys hedge hsource
+      rcases hsourceNode with heq | hsourceTail
+      · have hsourceHead : reverseEdgeSourceState M edge = node.state :=
+          hsource.trans (congrArg ReachNode.state heq)
+        have htaken := takeBucket_edge_complete M node.state index hsound
+          hkeys hedge hsourceHead
         refine ⟨node.child (indexedEdgeDFA M) edge, ?_, ?_⟩
         · simp only [consumeFrontier, List.mem_append, List.mem_map]
           exact Or.inl ⟨edge, htaken, rfl⟩
         · change (indexedEdgeDFA M).step node.state edge =
             reverseEdgeTargetState M edge
-          rw [← hsource]
+          rw [← hsourceHead]
           exact indexedEdgeDFA_step_source M edge
       · have hpartition :=
           (mem_indexEdges_takeBucket M node.state index edge).mp hedge
