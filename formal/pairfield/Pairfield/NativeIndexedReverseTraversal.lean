@@ -242,8 +242,14 @@ structure SourceBucket where
   source : SourceState X
   edges : List (ReverseEdge M)
 
+def indexEdges (index : List (SourceBucket M)) : List (ReverseEdge M) :=
+  index.flatMap SourceBucket.edges
+
 def indexPayload (index : List (SourceBucket M)) : Nat :=
-  (index.flatMap SourceBucket.edges).length
+  (indexEdges M index).length
+
+def IndexKeysNodup (index : List (SourceBucket M)) : Prop :=
+  (index.map SourceBucket.source).Nodup
 
 /-- Insert one edge into its unique source bucket. -/
 def insertEdge (edge : ReverseEdge M) :
@@ -254,6 +260,50 @@ def insertEdge (edge : ReverseEdge M) :
         ⟨bucket.source, edge :: bucket.edges⟩ :: rest
       else
         bucket :: insertEdge edge rest
+
+theorem mem_indexEdges_insertEdge (candidate edge : ReverseEdge M)
+    (index : List (SourceBucket M)) :
+    candidate ∈ indexEdges M (insertEdge M edge index) ↔
+      candidate = edge ∨ candidate ∈ indexEdges M index := by
+  induction index with
+  | nil => simp [insertEdge, indexEdges]
+  | cons bucket rest ih =>
+      by_cases hsource : reverseEdgeSourceState M edge = bucket.source
+      · simp [insertEdge, indexEdges, hsource, or_assoc]
+      · simp [insertEdge, indexEdges, hsource, ih, or_assoc, or_left_comm]
+
+theorem mem_indexSources_insertEdge (state : SourceState X)
+    (edge : ReverseEdge M) (index : List (SourceBucket M)) :
+    state ∈ (insertEdge M edge index).map SourceBucket.source ↔
+      state = reverseEdgeSourceState M edge ∨
+        state ∈ index.map SourceBucket.source := by
+  induction index with
+  | nil => simp [insertEdge]
+  | cons bucket rest ih =>
+      by_cases hsource : reverseEdgeSourceState M edge = bucket.source
+      · simp [insertEdge, hsource, or_assoc]
+      · simp [insertEdge, hsource, ih, or_assoc, or_left_comm]
+
+theorem insertEdge_keys_nodup (edge : ReverseEdge M)
+    (index : List (SourceBucket M)) (hkeys : IndexKeysNodup M index) :
+    IndexKeysNodup M (insertEdge M edge index) := by
+  induction index with
+  | nil => simp [insertEdge, IndexKeysNodup]
+  | cons bucket rest ih =>
+      rw [IndexKeysNodup] at hkeys ⊢
+      simp only [List.map_cons, List.nodup_cons] at hkeys
+      rcases hkeys with ⟨hhead, hrest⟩
+      by_cases hsource : reverseEdgeSourceState M edge = bucket.source
+      · simpa [insertEdge, hsource] using
+          (List.nodup_cons.mpr ⟨hhead, hrest⟩)
+      · simp only [insertEdge, hsource, ↓reduceIte, List.map_cons,
+          List.nodup_cons]
+        refine ⟨?_, ih hrest⟩
+        intro hmem
+        rw [mem_indexSources_insertEdge] at hmem
+        rcases hmem with heq | hold
+        · exact hsource heq.symm
+        · exact hhead hold
 
 /-- Build the source index once from the genuine edge inventory. -/
 def materializeIndex : List (ReverseEdge M) → List (SourceBucket M)
@@ -284,6 +334,23 @@ theorem materializeIndex_payload (edges : List (ReverseEdge M)) :
   | cons edge rest ih =>
       rw [materializeIndex, indexPayload_insertEdge, ih]
       rfl
+
+theorem mem_materializeIndex_iff (candidate : ReverseEdge M)
+    (edges : List (ReverseEdge M)) :
+    candidate ∈ indexEdges M (materializeIndex M edges) ↔
+      candidate ∈ edges := by
+  induction edges with
+  | nil => simp [materializeIndex, indexEdges]
+  | cons edge rest ih =>
+      rw [materializeIndex, mem_indexEdges_insertEdge, ih]
+      simp [eq_comm]
+
+theorem materializeIndex_keys_nodup (edges : List (ReverseEdge M)) :
+    IndexKeysNodup M (materializeIndex M edges) := by
+  induction edges with
+  | nil => simp [materializeIndex, IndexKeysNodup]
+  | cons edge rest ih =>
+      simpa [materializeIndex] using insertEdge_keys_nodup M edge _ ih
 
 def BucketSound (bucket : SourceBucket M) : Prop :=
   ∀ edge ∈ bucket.edges, reverseEdgeSourceState M edge = bucket.source
