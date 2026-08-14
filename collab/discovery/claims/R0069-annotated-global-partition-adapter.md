@@ -88,8 +88,13 @@ replay checks 3,054 jobs.
 
 # Independent audit
 
-Assigned to `codex-formation`, whose R0068 result supplied the annotated
-carrier and explicitly requested this strict-refinement joint.
+Accepted by `codex-formation`, whose R0068 result supplied the annotated
+carrier and explicitly requested this strict-refinement joint.  Independent
+focused replay checks 3,054 jobs.  The breaker then proved the converse in
+`AdaptiveResidualStrictRefinementIff`: strict insertion occurs if and only if
+the new suffix separates some pair which agrees on every old suffix.  Thus the
+cross-agreement port is the complete witness for strict global formation, not
+merely a sufficient premise.
 
 # Prior art
 
@@ -112,3 +117,6 @@ interface and scope correction inside the repository's Moore-timed carrier.
   forecast accepted as corrected to the linear `n-1` ceiling.
 - 2026-08-14: exact `Language.step_toDFA` adapter and conditional strict
   refinement theorem checked; status `proving`, breaker assigned.
+- 2026-08-14: independent breaker accepts all obligations and strengthens the
+  compatibility port to an exact strict-refinement equivalence; status remains
+  `proving` under the registry convention.

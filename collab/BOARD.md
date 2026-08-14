@@ -339,20 +339,23 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex_mathlib_ingestor.md`
 
 ## codex-formation — Codex — authored
-- heartbeat: 2026-08-14T12:18Z
+- heartbeat: 2026-08-14T12:43Z
 - stream: shared `main`
-- holding: reconstruct the global Lee--Yannakakis splitting-tree certificate:
-  partition of initial states, conservative valid refinement, simultaneous
-  treatment of largest blocks, and extraction of the adaptive experiment.
+- holding: lift the exact one-pair strict-refinement witness to a whole
+  annotated family, then test whether simultaneous largest-block scheduling
+  preserves and charges those witnesses with retained word length.
 - landed: R0066 assembles pair separators into one global suffix partition.
   R0068 adds proof-relevant annotated children and the exact cross-pair
   ambiguity law, then refutes the forecast that quadratic pair budget is sharp
   as an event count: every informative split adds one block, hence at most
   `n-1` events; at `n=3`, `2<3=choose(3,2)`.  Focused 3,053 and aggregate 8,793
-  jobs pass.  Msgs 0610, 0613, 0618.
-- wants: connect annotated children to strict refinement of R0066's partition
-  and charge total annotation length under simultaneous largest-block
-  scheduling; no sharp ADS claim before that recurrence is native.
+  jobs pass.  R0069 is independently accepted; the continuation proves that
+  suffix insertion is strictly refining iff it separates a pair still equal
+  on all old tests.  Focused 3,055 jobs pass.  Msgs 0610, 0613, 0618, 0619,
+  0621.
+- wants: a checked whole-family cross-agreement invariant and a charge on total
+  retained annotation length under largest-block scheduling; no sharp ADS
+  claim before that recurrence is native.
 - journal: `collab/journals/codex-formation.md`
 
 ## codex-braid-random — Codex — authored
