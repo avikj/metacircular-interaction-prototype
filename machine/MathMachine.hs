@@ -35,10 +35,19 @@ import qualified Data.Map.Strict as M
 import Data.List (sortOn, foldl', intercalate)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
-import Control.Monad (forM_, when, unless)
+import Control.Monad (forM_, when, unless, filterM)
 import System.IO
+import System.Directory (createDirectoryIfMissing, getTemporaryDirectory)
+import System.FilePath ((</>))
+import System.Process (readProcessWithExitCode)
+import System.Exit (ExitCode(..), exitFailure)
+import System.Environment (getArgs)
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
+import Text.ParserCombinators.ReadP
+import Data.Char (isAlphaNum, isSpace)
+import System.Directory (doesFileExist)
+import System.Exit (exitSuccess)
 -- (imports for the unbuilt evolve step removed; they were dead, and a
 -- dead import is a claim about what a program does)
 
@@ -86,6 +95,62 @@ instance Show Term where
   show (F f [a,b])
     | f `elem` ["+","*","^","gcd","max"] = "(" ++ show a ++ f ++ show b ++ ")"
   show (F f as) = f ++ "(" ++ intercalate "," (map show as) ++ ")"
+
+-- ------------------------------------------------ researcher thought input
+
+-- A candidate line becomes the machine's own equation object.  Any line
+-- which does not parse is retained exactly as a residual; known vocabulary
+-- names inside residuals can still widen the language needed for the next
+-- round, but are never mistaken for equations.
+data ThoughtBatch = ThoughtBatch
+  { thoughtCandidates :: [(Term,Term)]
+  , thoughtResiduals  :: [String]
+  } deriving (Eq, Show)
+
+splitTabs :: String -> [String]
+splitTabs s = case break (== '\t') s of
+  (a, [])     -> [a]
+  (a, _:rest) -> a : splitTabs rest
+
+identifier :: ReadP String
+identifier = munch1 (\c -> isAlphaNum c || c `elem` "+*-^#_")
+
+termP :: ReadP Term
+termP = do
+  name <- identifier
+  args <- option Nothing (Just <$> between (char '(') (char ')')
+                    (sepBy termP (char ',')))
+  case (name, args) of
+    ([v], Nothing) | Just i <- lookup v (zip "xyzuvw" [0..]) -> pure (V i)
+    (_, Nothing) -> pure (F name [])
+    (_, Just ts) -> pure (F name ts)
+
+parseTerm :: String -> Maybe Term
+parseTerm s = case [ t | (t, rest) <- readP_to_S (termP <* eof) s, null rest ] of
+  [t] -> Just t
+  _   -> Nothing
+
+parseThoughts :: String -> ThoughtBatch
+parseThoughts = foldl' parseLine (ThoughtBatch [] []) . lines
+  where
+    parseLine b line
+      | all isSpace line = b
+      | otherwise = case splitTabs line of
+          ["candidate", l, r]
+            | Just lt <- parseTerm l, Just rt <- parseTerm r ->
+                b { thoughtCandidates = thoughtCandidates b ++ [(lt,rt)] }
+          _ -> b { thoughtResiduals = thoughtResiduals b ++ [line] }
+
+residualWords :: String -> [String]
+residualWords = words . map (\c -> if isAlphaNum c || c `elem` "+*-^#_" then c else ' ')
+
+requiredVocabulary :: ThoughtBatch -> Int
+requiredVocabulary b = maximum (3 : demanded)
+  where
+    names = concatMap (\(l,r) -> symbolsIn l ++ symbolsIn r)
+              (thoughtCandidates b)
+            ++ concatMap residualWords (thoughtResiduals b)
+    demanded = [ i + 1 | (i,s) <- zip [0..] vocabulary, symName s `elem` names ]
 
 size :: Term -> Int
 size (V _) = 1
@@ -489,6 +554,66 @@ ordNub = go M.empty
     go seen (x:xs) | M.member x seen = go seen xs
                    | otherwise = x : go (M.insert x () seen) xs
 
+-- ------------------------------------------------------- Agda kernel seam
+-- The first proof-producing seam is intentionally narrow.  The Haskell
+-- search may propose any equation, but only the shared Peano fragment can be
+-- translated, and its first certificate language is Agda's `refl`.
+-- Consequently acceptance means definitional equality in Agda itself; the
+-- Haskell induction trace is never mistaken for a kernel certificate.
+
+agdaTerm :: Term -> Maybe String
+agdaTerm (V i)
+  | i >= 0 && i < 6 = Just ["xyzuvw" !! i]
+  | otherwise = Nothing
+agdaTerm (F "0" []) = Just "zero"
+agdaTerm (F "s" [t]) = (\u -> "suc (" ++ u ++ ")") <$> agdaTerm t
+agdaTerm (F "+" [a,b]) = binAgda "+" a b
+agdaTerm (F "*" [a,b]) = binAgda "·" a b
+agdaTerm _ = Nothing
+
+binAgda :: String -> Term -> Term -> Maybe String
+binAgda op a b = do
+  x <- agdaTerm a
+  y <- agdaTerm b
+  pure ("(" ++ x ++ " " ++ op ++ " " ++ y ++ ")")
+
+agdaCertificate :: (Term,Term) -> Maybe String
+agdaCertificate (l,r) = do
+  lhs <- agdaTerm l
+  rhs <- agdaTerm r
+  pure $ unlines
+    [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+    , "module Candidate where"
+    , "open import Cubical.Foundations.Prelude"
+    , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
+    , "candidate : (x y z u v w : ℕ) → " ++ lhs ++ " ≡ " ++ rhs
+    , "candidate x y z u v w = refl"
+    ]
+
+kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAccept logh roundNo ((l,r),_) =
+  case agdaCertificate (l,r) of
+    Nothing -> do
+      hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
+      pure False
+    Just source -> do
+      tmp <- getTemporaryDirectory
+      let dir = tmp </> "math-machine-agda"
+          file = dir </> "Candidate.agda"
+      createDirectoryIfMissing True dir
+      writeFile file source
+      (code,out,err) <- readProcessWithExitCode "agda"
+        ["-i", "formal/cubical", "-i", dir, file] ""
+      case code of
+        ExitSuccess -> do
+          hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  certificate=%s\n"
+            roundNo (show l) (show r) file
+          pure True
+        ExitFailure _ -> do
+          hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
+            roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
+          pure False
+
 -- --------------------------------------------------------- the machine
 
 data Machine = Machine
@@ -498,13 +623,15 @@ data Machine = Machine
   , mInvented :: [Sym]        -- concepts the machine named for itself
   , mRetired :: [Term]        -- patterns it named, never used, and withdrew
   , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
+  , mThoughts :: [(Term,Term)] -- researcher candidates, as native terms
+  , mResiduals :: [String]     -- exact lines not promoted to equations
   , mVocab   :: Int           -- how many symbols are in play
   , mSize    :: Int           -- current term-size horizon
   , mRound   :: Int
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty 3 4 0
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -632,13 +759,17 @@ round1 logh libh ref = do
       classes = M.elems (M.fromListWith (++)
                   [ (fingerprint sem envs t, [t]) | t <- normed ])
       conjectures = ordNub
-        [ canonVars (rep, other)
-        | cls <- classes
-        , length cls > 1
-        , let sorted = sortOn (\t -> (size t, t)) cls
-        , let rep = head sorted
-        , other <- tail sorted
-        ]
+        ( [ canonVars (rep, other)
+          | cls <- classes
+          , length cls > 1
+          , let sorted = sortOn (\t -> (size t, t)) cls
+          , let rep = head sorted
+          , other <- tail sorted
+          ]
+        ++ [ canonVars (l,r)
+           | (l,r) <- mThoughts m
+           , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+           , fingerprint sem envs l == fingerprint sem envs r ] )
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
       -- what it wrote down last round is not learning, it is looping
@@ -691,28 +822,29 @@ round1 logh libh ref = do
       nFresh = length fresh
       nRes = length results
   nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
+  checkedResults <- filterM (kernelAccept logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
       prunedPct = if null raw then 0
                   else 100 * (1 - fromIntegral (length normed)
                                   / fromIntegral (length raw))
-      newRules = mapMaybe (orient . fst) results
-      newLemmas = [ c | (c,_) <- results, not (isJust (orient c)) ]
+      newRules = mapMaybe (orient . fst) checkedResults
+      newLemmas = [ c | (c,_) <- checkedResults, not (isJust (orient c)) ]
       m' = m { mRules = mRules m ++ newRules
              , mLemmas = mLemmas m ++ newLemmas
-             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) results
+             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
-                          [ c | c <- fresh, notElem c (map fst results) ]
+                          [ c | c <- fresh, notElem c (map fst checkedResults) ]
              , mRound = mRound m + 1 }
-  forM_ results $ \((l,r),pf) -> do
+  forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
   hFlush libh
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
-    prunedPct (length conjectures) (length fresh) (length results)
+    prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
   hFlush logh
   -- GROW: nothing new means the machine must change what it is looking at
@@ -720,7 +852,7 @@ round1 logh libh ref = do
   -- name the shape that keeps recurring in its own working terms.  Only
   -- if it cannot does it fall back to widening the given vocabulary or
   -- looking further out.
-  let stuck = null results
+  let stuck = null checkedResults
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
@@ -803,12 +935,42 @@ round1 logh libh ref = do
 
 main :: IO ()
 main = do
+  args <- getArgs
+  when (args == ["--check-thought-format"]) $ do
+    let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
+        b = parseThoughts raw
+        expectedResiduals = ["candidate\tgcd(x,y\ty", "free prose asks for max"]
+    unless (thoughtCandidates b == [(F "+" [V 0,F "0" []], V 0)]
+            && thoughtResiduals b == expectedResiduals
+            && requiredVocabulary b == 7) exitFailure
+    putStrLn "THOUGHT-FORMAT CHECKED: candidate object + exact residual demand"
+    exitSuccess
+  case args of
+    ["--kernel-self-test"] -> do
+      accepted <- kernelAccept stdout 0 ((bin "+" zero_ x_, x_), "positive control")
+      rejected <- kernelAccept stdout 0 ((su x_, x_), "negative control")
+      unless (accepted && not rejected) exitFailure
+    _ -> do
+      exists <- doesFileExist "machine/thoughts.math"
+      batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
+                         else pure (ThoughtBatch [] [])
+      runMachine batch
+
+runMachine :: ThoughtBatch -> IO ()
+runMachine batch = do
   logh <- openFile "machine/machine.log" AppendMode
   libh <- openFile "machine/library.txt" AppendMode
   hSetBuffering logh LineBuffering
   hSetBuffering libh LineBuffering
   hPutStrLn logh "=== MathMachine start ==="
-  ref <- newIORef start
+  hPrintf logh "  THOUGHTS  candidates=%d residuals=%d required-vocab=%d\n"
+    (length (thoughtCandidates batch)) (length (thoughtResiduals batch))
+    (requiredVocabulary batch)
+  forM_ (thoughtResiduals batch) $ \r -> hPrintf logh "  RESIDUAL  %s\n" r
+  let seeded = start { mThoughts = thoughtCandidates batch
+                     , mResiduals = thoughtResiduals batch
+                     , mVocab = requiredVocabulary batch }
+  ref <- newIORef seeded
   -- A machine that halts is not a machine.  The old loop stopped when the
   -- size horizon passed its cap, which is to say: it enumerated a finite
   -- space and finished.  Nothing about arithmetic is finite; what was

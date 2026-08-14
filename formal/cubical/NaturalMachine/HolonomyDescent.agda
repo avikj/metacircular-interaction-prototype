@@ -376,3 +376,35 @@ module Coinvariants {ℓg ℓa : Level} (G : Group ℓg) (A : AbGroup ℓa)
       Σ≡Prop (λ d' → isPropΠ (λ x → isSetB _ _))
         (GroupHom≡ (funExt (SQ.elimProp (λ q → isSetB _ _)
                                         (λ x → sym (comm x)))))
+
+    -- The universal property as a reversible machine interface.  A
+    -- factorisation program and a holonomy-invariance certificate contain
+    -- exactly the same information: each side is proposition-valued, while
+    -- invariant→homFactors constructs the unique executable factor.
+    isPropHomInvariant : (f : AbGroupHom A B) → isProp (HomInvariant f)
+    isPropHomInvariant f = isPropΠ (λ g → isPropΠ (λ x → isSetB _ _))
+
+    isPropHomFactors : (f : AbGroupHom A B) → isProp (HomFactors f)
+    isPropHomFactors f h₀ h₁ =
+      isContr→isProp
+        (descendHom-contr f (homFactors→invariant f h₀)) h₀ h₁
+
+    homFactorsIsoInvariant : (f : AbGroupHom A B)
+      → Iso (HomFactors f) (HomInvariant f)
+    Iso.fun (homFactorsIsoInvariant f) = homFactors→invariant f
+    Iso.inv (homFactorsIsoInvariant f) = invariant→homFactors f
+    Iso.rightInv (homFactorsIsoInvariant f) finv =
+      isPropHomInvariant f _ _
+    Iso.leftInv (homFactorsIsoInvariant f) hfac =
+      isPropHomFactors f _ _
+
+    -- Representative independence.  A quotient path is enough to replay a
+    -- lawful additive task; no section or sampled representative is part of
+    -- the executable interface.
+    coinvPath→homPath : (f : AbGroupHom A B) → HomInvariant f
+      → {a b : ⟨ A ⟩} → coinvMk a ≡ coinvMk b
+      → f .fst a ≡ f .fst b
+    coinvPath→homPath f finv {a} {b} p =
+        sym (descendHom-β f finv a)
+      ∙ cong (descendHom f finv .fst) p
+      ∙ descendHom-β f finv b

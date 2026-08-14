@@ -164,6 +164,161 @@ theorem shortestLeftQuotientWitnessUpTo_length_invariant
   · exact shortestLeftQuotientWitnessUpTo_minimal M second second_complete
       left right h₂ word₁ separates₁
 
+/-- The synchronous product monitor for separating two prefix residuals. -/
+def residualPairDFA (M : DFA A X) (left right : List A) : DFA A (X × X) where
+  step pair action := (M.step pair.1 action, M.step pair.2 action)
+  start := (M.eval left, M.eval right)
+  accept := { pair | ¬ (pair.1 ∈ M.accept ↔ pair.2 ∈ M.accept) }
+
+private theorem residualPairDFA_evalFrom
+    (M : DFA A X) (left right : List A) (pair : X × X) (word : List A) :
+    (residualPairDFA M left right).evalFrom pair word =
+      (M.evalFrom pair.1 word, M.evalFrom pair.2 word) := by
+  induction word generalizing pair with
+  | nil => rfl
+  | cons action word ih =>
+      exact ih (M.step pair.1 action, M.step pair.2 action)
+
+theorem mem_residualPairDFA_accepts_iff
+    (M : DFA A X) (left right word : List A) :
+    word ∈ (residualPairDFA M left right).accepts ↔
+      ¬ (word ∈ M.accepts.leftQuotient left ↔
+        word ∈ M.accepts.leftQuotient right) := by
+  rw [DFA.mem_accepts, DFA.eval, residualPairDFA_evalFrom]
+  change (¬ (M.evalFrom (M.eval left) word ∈ M.accept ↔
+    M.evalFrom (M.eval right) word ∈ M.accept)) ↔ _
+  simp only [mem_leftQuotient_iff_accept_evalFrom_eval]
+
+/--
+Mathlib's `DFA.evalFrom_split`, applied to the synchronous pair automaton,
+deletes a loop from every overlong separating run.  Thus every inequivalent
+pair of reachable residuals has a separator shorter than the number of pair
+states.  This quadratic horizon is constructive and safe, but not sharp.
+ -/
+theorem exists_residual_separator_lt_card_sq
+    [Fintype X] (M : DFA A X) (left right : List A) {word : List A}
+    (hword : ¬ (word ∈ M.accepts.leftQuotient left ↔
+      word ∈ M.accepts.leftQuotient right)) :
+    ∃ short : List A,
+      short.length < Fintype.card X * Fintype.card X ∧
+        ¬ (short ∈ M.accepts.leftQuotient left ↔
+          short ∈ M.accepts.leftQuotient right) := by
+  let P := residualPairDFA M left right
+  have haccept : word ∈ P.accepts :=
+    (mem_residualPairDFA_accepts_iff M left right word).2 hword
+  have shorten : ∀ n : Nat, ∀ candidate : List A,
+      candidate.length = n → candidate ∈ P.accepts →
+        ∃ short : List A,
+          short.length < Fintype.card (X × X) ∧ short ∈ P.accepts := by
+    intro n
+    induction n using Nat.strong_induction_on with
+    | h n ih =>
+        intro candidate hlength hcand
+        by_cases hshort : candidate.length < Fintype.card (X × X)
+        · exact ⟨candidate, hshort, hcand⟩
+        · have hlong : Fintype.card (X × X) ≤ candidate.length :=
+            Nat.le_of_not_gt hshort
+          obtain ⟨q, a, b, c, hsplit, _, hb, ha, hloop, hc⟩ :=
+            P.evalFrom_split (s := P.start) hlong rfl
+          have hdelete : P.eval (a ++ c) = P.eval candidate := by
+            rw [DFA.eval, DFA.evalFrom_of_append, ha, hc]
+          have hsmaller : (a ++ c).length < n := by
+            have hbpos : 0 < b.length := List.length_pos_iff.mpr hb
+            rw [hsplit] at hlength
+            simp only [List.length_append] at hlength ⊢
+            omega
+          apply ih (a ++ c).length hsmaller (a ++ c) rfl
+          rw [DFA.mem_accepts, hdelete]
+          exact hcand
+  obtain ⟨short, hlength, hshort⟩ :=
+    shorten word.length word rfl haccept
+  refine ⟨short, ?_, ?_⟩
+  · simpa [Fintype.card_prod] using hlength
+  · exact (mem_residualPairDFA_accepts_iff M left right short).1 hshort
+
+/--
+For a finite-state DFA, exhaustive search through the quadratic pair-state
+horizon decides equality of the two reachable Mathlib left quotients.
+ -/
+theorem shortestLeftQuotientWitnessUpTo_card_sq_none_iff
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) :
+    shortestLeftQuotientWitnessUpTo M alphabet left right
+        (Fintype.card X * Fintype.card X) = none ↔
+      M.accepts.leftQuotient left = M.accepts.leftQuotient right := by
+  rw [shortestLeftQuotientWitnessUpTo_none_iff M alphabet complete]
+  constructor
+  · intro hagree
+    apply Set.ext
+    intro word
+    by_contra hword
+    obtain ⟨short, hlength, hseparates⟩ :=
+      exists_residual_separator_lt_card_sq M left right hword
+    exact hseparates (hagree short (Nat.le_of_lt hlength))
+  · intro heq word _
+    rw [heq]
+
+/-- The finite-state search with its proved sufficient horizon installed. -/
+def shortestLeftQuotientWitness
+    [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (left right : List A) : Option (List A) :=
+  shortestLeftQuotientWitnessUpTo M alphabet left right
+    (Fintype.card X * Fintype.card X)
+
+theorem shortestLeftQuotientWitness_eq_none_iff
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) :
+    shortestLeftQuotientWitness M alphabet left right = none ↔
+      M.accepts.leftQuotient left = M.accepts.leftQuotient right :=
+  shortestLeftQuotientWitnessUpTo_card_sq_none_iff
+    M alphabet complete left right
+
+theorem shortestLeftQuotientWitness_sound
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) {word : List A}
+    (h : shortestLeftQuotientWitness M alphabet left right = some word) :
+    ¬ (word ∈ M.accepts.leftQuotient left ↔
+      word ∈ M.accepts.leftQuotient right) :=
+  (shortestLeftQuotientWitnessUpTo_sound M alphabet complete left right h).2
+
+theorem shortestLeftQuotientWitness_minimal
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) {word : List A}
+    (h : shortestLeftQuotientWitness M alphabet left right = some word) :
+    ∀ candidate : List A,
+      ¬ (candidate ∈ M.accepts.leftQuotient left ↔
+        candidate ∈ M.accepts.leftQuotient right) →
+      word.length ≤ candidate.length :=
+  shortestLeftQuotientWitnessUpTo_minimal
+    M alphabet complete left right h
+
+/--
+A proof-producing decision procedure for equality of two reachable residual
+languages.  The equality is extensional; its `Decidable` evidence is obtained
+from the finite executable above rather than assumed as a language oracle.
+ -/
+def reachableLeftQuotientEqDecidable
+    [DecidableEq A] [Fintype X] (M : DFA A X)
+    [DecidablePred (fun x : X => x ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ a : A, a ∈ alphabet)
+    (left right : List A) :
+    Decidable (M.accepts.leftQuotient left = M.accepts.leftQuotient right) :=
+  if h : shortestLeftQuotientWitness M alphabet left right = none then
+    isTrue ((shortestLeftQuotientWitness_eq_none_iff
+      M alphabet complete left right).1 h)
+  else
+    isFalse fun heq => h ((shortestLeftQuotientWitness_eq_none_iff
+      M alphabet complete left right).2 heq)
+
 namespace ResidualBFSWitness
 
 /-- A reachable three-state DFA: `false` reaches state `1`, then `true`

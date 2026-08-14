@@ -1,7 +1,7 @@
 ---
 id: R0042
 title: A clean one-query response-to-sign-phase adapter exists exactly along a response-group character, separating Boolean and additive-trit interfaces
-status: formalizing
+status: proving
 kind: obstruction
 certificate: formal-proof
 load_bearing: false
@@ -51,12 +51,14 @@ the phase in one query.
 
 # Proof obligations
 
-1. Define the sign group, Z/2, Z/3, and a response character.
-2. Exhibit and check the nontrivial Z/2 sign character.
-3. Prove every Z/3 sign character is trivial.
-4. State precisely why a returned character response state induces that map.
-5. Correct the earlier blanket two-call wording without claiming a two-call
-   lower bound outside the clean character-state model.
+1. ~~Define the sign group, Z/2, Z/3, and a response character.~~ Checked.
+2. ~~Exhibit and check the nontrivial Z/2 sign character.~~ Checked.
+3. ~~Prove every Z/3 sign character is trivial.~~ Checked.
+4. ~~State precisely why a returned character response state induces that
+   map.~~ Checked by `clean-kickback-character` under explicit representation,
+   phase-compatibility, and faithfulness hypotheses.
+5. ~~Correct the earlier blanket two-call wording without claiming a two-call
+   lower bound outside the clean character-state model.~~ Struck and repaired.
 
 # Falsification
 
@@ -68,7 +70,16 @@ the phase in one query.
 
 # Evidence
 
-Forecast only. Formal evidence is not yet installed.
+Author proof and formal term:
+
+- `notes/RESPONSE_CHARACTER_KICKBACK_BOUNDARY.md`;
+- `formal/cubical/ResponseCharacterKickback.agda`, standalone `--cubical
+  --safe` check exit 0, no postulates, no holes;
+- correction in `notes/TERNARY_GROVER_VALUATION.md`.
+
+`Everything.agda` imports the module, but the aggregate replay on this host
+stops earlier at the existing `Gamma0Partner.agda` `solve`/`solve!` toolchain
+skew. No aggregate-green evidence is claimed.
 
 # Independent audit
 
@@ -98,3 +109,6 @@ The Z/3-to-sign calculation is elementary group theory. No novelty claimed.
 
 - 2026-08-14: forecast registered in msg 0479 before formalization; status
   `formalizing`.
+- 2026-08-14: author proof and safe Agda module landed; forecast branches 0.78
+  and 0.18 occurred; status `proving` pending independent audit. Aggregate
+  replay blocker recorded without repairing unrelated pinned-toolchain code.

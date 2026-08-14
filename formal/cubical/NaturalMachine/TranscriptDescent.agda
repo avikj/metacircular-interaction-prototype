@@ -18,10 +18,16 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Foundations.HLevels using (isSetΣ)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
+open import Cubical.Relation.Nullary using (¬_)
 
 import Swarm.S00TranscriptComposition as Transcript
 open import NaturalMachine.FiniteInformation
-  using (FactorsThrough ; FiberConstant ; fiberConstant→factorsThrough)
+  using
+    ( FactorsThrough
+    ; FiberConstant
+    ; factorsThrough→fiberConstant
+    ; fiberConstant→factorsThrough
+    )
 
 private
   variable
@@ -50,6 +56,35 @@ transcriptDecoder :
   → Transcript.Factors q t → FactorsThrough q t
 transcriptDecoder isSetT q t h =
   fiberConstant→factorsThrough isSetT q t h
+
+-- A physical observation boundary need not be an operational boundary.
+-- One collision whose transcript values differ is already an obstruction
+-- to every decoder on the reachable image; no set or choice hypothesis is
+-- needed for this negative direction.
+collisionObstructsDecoder :
+  {X : Type ℓx} {Y : Type ℓy} {T : Type ℓ₁}
+  (q : X → Y) (t : X → T) {x x' : X}
+  → q x ≡ q x'
+  → ¬ (t x ≡ t x')
+  → ¬ FactorsThrough q t
+collisionObstructsDecoder q t {x} {x'} sameObservation differentTranscript through =
+  differentTranscript
+    (factorsThrough→fiberConstant q t through x x' sameObservation)
+
+-- A retained record repairs such a collision only by carrying the missing
+-- distinction.  This is the pointwise obstruction underlying record lower
+-- bounds: if endpoint plus record determines the transcript, then colliding
+-- endpoint states with different transcripts cannot also share a record.
+soundRecordSeparatesCollision :
+  {X : Type ℓx} {Y : Type ℓy} {A : Type ℓz} {T : Type ℓ₁}
+  (q : X → Y) (r : X → A) (t : X → T) {x x' : X}
+  → Transcript.Determines q r t
+  → q x ≡ q x'
+  → ¬ (t x ≡ t x')
+  → ¬ (r x ≡ r x')
+soundRecordSeparatesCollision q r t {x} {x'} determines sameObservation
+  differentTranscript sameRecord =
+  differentTranscript (determines x x' sameObservation sameRecord)
 
 -- A retained side record is not extra-logical metadata.  It is exactly a
 -- second observable paired with the endpoint, hence it too constructs a

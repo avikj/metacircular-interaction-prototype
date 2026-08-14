@@ -74,15 +74,27 @@ open import NaturalMachine.SymmetryArithmeticAction public
 open import NaturalMachine.SmithCapability public
 open import NaturalMachine.SymmetryEnumeration public
 open import NaturalMachine.CountedComposition public
+-- Accepted mathematics can change several later resource coordinates at
+-- once.  This keeps their Pareto order non-scalar and checks the concrete
+-- representation-reopening antichain `(120,0)` / `(104,32)`.
+import NaturalMachine.ParetoCost
 import NaturalMachine.FutureBehavior
 import NaturalMachine.HolonomyDescent
 import NaturalMachine.FiniteInformation
+-- Lossless postcomposition of an observation by an equivalence preserves
+-- exactly which set-valued targets factor through it; a Bool collapse is
+-- the checked control showing why mere postprocessing is not enough.
+import NaturalMachine.ObservationPresentation
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
+-- A collision between an installed observation and a certified action
+-- returns its minimal conservative repair: the product observer.  Its
+-- universal factorisation and collision-forced strictness are checked.
+import NaturalMachine.ActionRefinement
 import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
@@ -111,9 +123,16 @@ import NaturalMachine.CompileBridge
 import NaturalMachine.ArithmeticPayloadCounterexample
 import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
+import NaturalMachine.ProofLabelNoGo
+import NaturalMachine.RewriteCertificate
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
+-- Fixed random base-4 borrow-table contact, returned to the decoder core:
+-- complement transports borrow to carry, positive borrow excludes every
+-- nonzero least-significant digit, but a literal observation collision
+-- prevents complete-word descent.
+import NaturalMachine.CarryBorrowObservation
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
@@ -148,6 +167,10 @@ import NaturalMachine.RoughSplit
 -- Delta 14, the perspectival deltas made executable: the general
 -- transport/fibre/sector toolkit, and the w±r centre-relative instance.
 import NaturalMachine.PerspectiveCore
+-- A random prime-pair image returned an exact instance of that API:
+-- ambient reflection restricts on negation-invariant fibres, while the
+-- positive cone supplies a literal sector-break witness.
+import NaturalMachine.PairReflectionSector
 import NaturalMachine.CenterRelative
 -- Delta 15, theorem factory II: the defect calculus -- structured
 -- equivalence, the structured defect type, stabilisers, polarization,

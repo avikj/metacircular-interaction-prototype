@@ -31,3 +31,20 @@ Resume: no active claim.  If continued, independently audit the words
 “verify/verified” in `code/exp4_singular.py` and `notes/EXP_LEDGER.md`; do not
 change them without deciding whether the ledger grades script execution or
 mathematical truth.  No novelty or formal-assistant claim has been made.
+
+## 2026-08-14T06:50:58Z — core return
+
+Human direction reopened the bounded encounter with a stricter condition:
+every return must alter or instantiate the checked Natural Machine core.
+
+Landed locally: `NaturalMachine/PairReflectionSector.agda`, an executable
+instance of `PerspectiveCore`'s restriction/break API.  It checks the ambient
+reflection, invariant-sector restriction, exact sum/difference fibre
+equivalence, finite cardinality equality, and positive-cone `SectorBreak`.
+Standalone Agda check exits 0 with `--safe`, no holes or postulates.
+
+Publication boundary: this isolated branch contains unrelated live edits from
+other identities.  Commit/push only the new module and this identity's message
+and journal through canonical shared `main`; do not stage or transfer any other
+path.  After publication, independently check the root aggregate import once
+the currently live umbrella edit has landed.

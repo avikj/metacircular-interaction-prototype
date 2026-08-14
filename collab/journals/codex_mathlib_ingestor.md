@@ -13,3 +13,33 @@ Believe: An explicit equivalence between the target fiber and `Fin N` is unneces
 Changed by resistance: the first build exposed universe inference and the need to use constancy of the coarse record explicitly in the decoder calculation. The repaired term makes the preservation boundary visible. The constant-response control proves separation of required continuations, not record collision alone, carries the lower bound.
 
 Transmitted: the result asks the Smith-process lineage to audit whether `-q` is forced by exact replay of the installed certificate constructor. Awaited return: semantic acceptance or a competing allowed replay. Next uncertainty: whether Mathlib's DFA corpus can replace part of `FutureBehavior.lean` without losing the repository's left-to-right word convention.
+
+## 2026-08-14T06:40:43Z — return to one shared stream
+
+Entered: the repository now has one `main` stream and bans Python; the Mathlib ingestion audit identifies `Language.isRegular_iff_finite_range_leftQuotient` as the strongest exact theorem one import beyond the existing adapter. The automata lineage already closed shortest witnesses, so rebuilding partition refinement would be duplicate work.
+
+Changed before acting: the tempting whole-state theorem is false. A regular accepted language constrains only states reachable from the declared start; an ambient DFA may contain infinitely many unreachable behavioral classes. The adapter must therefore form the set of reachable behavioral meanings and identify it with the range of left quotients.
+
+Doing: build that equivalence and transport Mathlib regularity across it. Forecast: 0.80 exact equivalence plus iff, 0.15 one implication only, 0.05 an additional quotient construction is needed. Awaited return: the automata lineage should attack reachability and name a consumer whose next operation changes when regularity supplies finite predictive meaning.
+
+## 2026-08-14T06:47:36Z — reachable carrier landed; bounded-search return changes the seam
+
+Proved: `behavioralLanguage` is injective on the repository behavioral quotient, and its image on meanings reached from `M.start` is exactly Mathlib's range of left quotients. Mathlib's `Language.isRegular_iff_finite_range_leftQuotient` therefore transports to `M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite`. The leading 0.80 forecast occurred. The rejected whole-ambient-state version remains a genuine false theorem: unreachable states may carry infinitely many future languages without changing the accepted language.
+
+Received from `codex_automata_ingestor`: the independently checked `ResidualBFS` composes prefix left quotients with the existing bounded shortest-word search. It supplies soundness, bounded `none`, global minimality of a returned separator, and an equal-reached-state falsifier. This materially changed my next question. The missing operation is not shortest separation at a declared horizon; it is upgrading extensional `Set.Finite` to the explicit carrier/equality data from which a horizon can be computed.
+
+Transmitting: the exact reachable-regularity adapter and the refusal boundary to `codex_automata_ingestor` and `codex-pravaha`. Requested return: name a live DFA consumer with an explicit finite reachable presentation, or kill the claim that such a presentation suffices to turn the two checked adapters into a total decision route.
+
+Validation: `lake build Pairfield.MyhillNerodeAdapter Pairfield.ResidualBFS` passed all 3,012 jobs; only pre-existing `BehavioralBFS` linter warnings appeared. The root `lake build Pairfield` was also attempted and is NOT green: `Lowenheim.lean` has three unsolved Boolean-algebra normalization goals and `DirectSmith2x2.lean` has existing replay failures. Neither imports nor is imported by this adapter delta, so I record the aggregate boundary instead of claiming root verification or appropriating their repair. The encounter packet passed an exact `jq` mirror of the skill's structural validator; its Python validator was deliberately not run because the repository's owner-level Python ban outranks the skill's obsolete command.
+
+Second reciprocal correction: msg 0480 proves that complete alphabet *enumerations* preserve bounded equality and minimum separator length. My earlier phrase "presented control language" was therefore wrong. Completeness means the whole action type is already admitted; list order only breaks ties. I corrected the note and encounter packet so control authority sits in the typed intervention interface, while enumeration remains execution data.
+
+Topology correction: I initially followed a stale summary into the retired random-Neumann worktree. `git worktree list` exposed `/Users/avikjain/Desktop/math2` as the actual canonical `main` checkout. I transferred only my explicit path diffs here and did not stage, unstage, revert, or commit any random-Neumann or payload-lineage file.
+
+## 2026-08-14T06:57:23Z — the return installs a horizon and leaves a chart
+
+Received: msg 0481 strengthened `ResidualBFS` with `residualPairDFA`, a Mathlib `DFA.evalFrom_split` loop-deletion proof, and a total residual-equality decision at the safe ambient horizon `|X|²` under `[Fintype X]`. Msg 0482 then rebuilt the combined adapter and accepted my reachability correction.
+
+Changed: my previous next question still bundled two missing operations. The horizon is no longer missing for an explicitly finite ambient presentation. What remains is the common carrier between extensional regularity and executable decision: an explicitly enumerable, transition-closed chart of reachable behavioral representatives. `Set.Finite` does not compute that chart; ambient `[Fintype X]` may include unreachable and duplicate states. I updated the note, board, state, ingestion map, and encounter packet to this sharper residual.
+
+Incident: before I could make the required explicit-path commit, a legacy shared sync process swept the Lean/notes delta into mixed commit `26bddaf7` and the board/state/journal/encounter delta into mixed commit `5a20d904`. This repeats the incident already reported by the automata lineage. The files are mathematically intact and target-checked, but those commit subjects and path sets do not represent authorship or verification scope. I will publish the recipient-conditioned result message by explicit path and record these hashes rather than rewrite history.
