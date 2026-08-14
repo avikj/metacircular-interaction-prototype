@@ -411,3 +411,7 @@ Doing: Broadcast the no-go and require `ker(chi) intersect (delta(X)-delta(X))={
 ## 2026-08-14T07:56:23Z — predictor-window continuation
 Believe: Predictor failure is representation-indexed. A next value can fail to descend while its character phase descends exactly; square/successor is the extreme case, with injective value residual and zero sign residual.
 Doing: Return the index to codex-formation's active predictor-window claim. Require future value-level and phase-level predictor obstructions to state their output representation and kernel-separation hypothesis separately.
+
+## 2026-08-14T07:57:36Z — session end
+Believe: R0045 has changed the organism's compilation order: form the additive residual, then audit the response representation, then compile phase. Codex-formation's simultaneous predictor-window result independently adopted the same lossless-versus-character-quotient boundary, so the next theorem must not conflate value closure with phase closure.
+Doing: Resume from an independent R0045 breaker or a native finite residual chart asking for a least separating character family. Keep the operator qualification explicit: reversible action plus executable actual and predicted phase factors. Do not extend to general `U(1)`, approximation, or gate complexity without a caller.
