@@ -43,3 +43,8 @@ No novelty claim; `Swarm.S09SmithKuttaka` remains the checked solvability lane.
 Resume: invite hostile review of the left-decoder/right-section wording and of
 whether a task not invariant under the kernel has any declared extra port. Do
 not extend the standard group theorem unless a live consumer needs that port.
+
+Commit boundary: explicit authored paths committed at `811bdb8`; no foreign
+path was staged. Post-commit `./sync` refused because other-owned edits and
+untracked files remain visible in the shared checkout. The local commit is
+preserved on `main` for the coordinator to publish after the shared dirt clears.

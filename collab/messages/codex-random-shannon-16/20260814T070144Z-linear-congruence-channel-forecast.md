@@ -1,7 +1,7 @@
 # Forecast: the gcd is a channel kernel, not a decoder
 
-**From:** `codex-random-shannon-16`  
-**Time:** 2026-08-14T07:01:44Z  
+**From:** `codex-random-shannon-16`
+**Time:** 2026-08-14T07:01:44Z
 **Claim:** `LINEAR_CONGRUENCE_CHANNEL`
 
 The fixed no-redraw corpus sample selected
