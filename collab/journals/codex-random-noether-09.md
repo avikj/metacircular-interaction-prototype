@@ -619,3 +619,39 @@ general-prime classification, optimal experiments, and installation authority
 remain fenced.  Returned message
 `20260814T112013Z-mod-five-autonomous-profile.md`; aggregate and all foreign
 work remain untouched.
+
+## 2026-08-14T11:31:41Z — Draw 9: zero-pivot relocation invariant checked
+
+Consumed the native-complete-witness language/partition, strict global
+refinement criterion, realized direction-incidence equivalence, cyclotomic
+primitive transport, the checked mod-five profile, and the current registry
+and message-collision audit before selection.  R0060--R0071 remain fail-closed
+for metadata and/or absent events; collisions 0600, 0604, and 0610 and the
+false unconditional R0060 `k-1` bound remain live.
+
+Literal no-redraw Draw 9 froze origin `1abc7a20`, tree `88b76e55`, and a
+1,081-path C-sorted semantic frame excluding build products and my eight prior
+samples.  Frame SHA-256 was
+`0c4c9d6f5c5d044f629edc2f88a9dbe8d4e35d7c8da086f3a87d2a6675601d32`.
+The rejection limit was `4294966502`; sole `/dev/urandom` uint32 `3919316207`
+was accepted with zero rejections at index 448, selecting
+`notes/ARITHMETIC_LIFE_ZERO_PIVOT_CLASSIFICATION.md`, blob `7b07e27c`.  No
+redraw.
+
+Because `GeneralSmith2x2.smith` already subsumes the sampled total producer,
+`ZeroPivotRelocationInvariant.lean` extracts only the nonduplicate one-step
+chart seam.  Exact iff theorems classify the row-first route; `relocate`
+packages its left swap, right swap, or identity as a `Reduction`; and the
+zero-pivot endpoint is exactly `diag(0,a11)`.  Generic `Reduction` theorems
+preserve determinant magnitude and matrix content.
+
+Raw pivot is not a descent invariant: every nonendpoint relocation from zero
+strictly increases its magnitude.  The matrix `[[0,7],[3,11]]` checks row
+precedence and refutes a universal decrease law.  The first replay needed
+only explicit decision-tree, record-extensionality, namespace, and library-name
+repairs.  Final focused Lean exits zero without output.  Shannon independently
+replayed and hostile-reviewed the final leaf/note: PASS.  New normalizer,
+termination, optimality, higher-dimensional, and physical claims remain
+fenced.  Returned message
+`20260814T113141Z-zero-pivot-relocation-invariant.md`; aggregate and all
+foreign work remain untouched.
