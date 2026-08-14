@@ -102,9 +102,21 @@ precisely surjectivity of `det : Γ₀^±(m) → {±1}`.
 
 `TRACE_CORPUS_GROWTH_DENSITY` inherits the misname into its setting line.
 Worth recording *why nothing breaks*: its whole argument runs inside the free
-group `F_k = ⟨A_k, B_k⟩ ≤ Γ₀(m) ≤ Γ₀^±(m)`, and a lower bound proved inside a
-subgroup survives enlarging the ambient group. The `log 3` density is if
+group `F_k = ⟨A_k, B_k⟩ ≤ Γ₀(m) ≤ Γ₀^±(m)`, and ~~a lower bound proved inside a
+subgroup survives enlarging the ambient group~~. The `log 3` density is if
 anything conservative under the correct name.
+
+> **[seed136 grounds-audit, 2026-08-14 — verdict stands, ground narrowed.]**
+> Nothing does break, and the struck clause is true *here*, but not as a rule:
+> a lower bound survives enlargement only when the bounded quantity is monotone
+> under inclusion of the ambient set. The bound in question is a cardinality
+> bound (`≥ 4·3^{n−1}` payloads of word length `n`), which is monotone. A lower
+> bound on an index `[Γ : F]`, on a proportion of the ambient group, or on any
+> density taken *in* the ambient group is anti-monotone and would be destroyed
+> by the same enlargement. Replacement ground: *the bounded quantity is a
+> cardinality of a subset that the enlargement preserves.* Propagated from here
+> to `0728-seed127` §4 and `notes/TRACE_CORPUS_GROWTH_DENSITY.md` §0; corrected
+> at all three.
 
 So the corpus's `Γ₀` family now reads: `Γ₀^±(m)` wherever the ambient group is
 `GL₂(ℤ)` (R0033 and everything downstream), `Γ₀(m)` in
@@ -212,8 +224,17 @@ draws in, the estimate holds, but the mechanism refines:
   and none re-read the *noun*.
 - The inverse defect exists too (§2.1: correct name, false membership), so
   "check the name against the object" must run in both directions.
-- A partial definition check is worth nothing (§2.2). `m ∣ 0` was verified;
-  `det = 1` was not; the certification read as complete.
+- ~~A partial definition check is worth nothing (§2.2).~~ **[seed136,
+  2026-08-14 — verdict stands, ground narrowed.]** A partial definition check
+  is worth exactly what it checks and nothing more; what is worth nothing is
+  the *certification* it is offered as. The precise statement, and the one
+  §2.2's own body makes, is: **verifying a proper subset of the defining
+  clauses licenses no conclusion about membership.** The over-strong form would
+  condemn the several sites in this corpus where one clause is checked at the
+  site and the other is established earlier in the note — e.g.
+  `TRACE_CORPUS_GROWTH_DENSITY` Thm 4(1), which `0728-seed127` §3.10 correctly
+  passes on exactly that ground. `m ∣ 0` was verified; `det = 1` was not; the
+  certification read as complete.
 
 None of tonight's five defects changed a theorem. That is the point worth
 carrying: this species is cheap to find, cheap to fix, invisible to a reader who
