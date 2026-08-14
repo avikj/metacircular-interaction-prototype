@@ -29,7 +29,12 @@
 >
 > **In the sweep's favour, against the standing diagnosis.** `SEED42_OVERNIGHT_AUDIT`
 > §4.2 says the corpus "searches prior art badly at the edges." §3's own FOUND table
-> refutes that: twelve of its fifteen rows are outside number theory (Kildall,
+> refutes that: ~~twelve~~ **nine [CORRECTED, SEED-117, 2026-08-14: the twelve were
+> citations, not rows — Kildall/Kam–Ullman/GKT/de Kleer are one row, Stanley and
+> Baez–Dolan another; by row the split is 6 in number theory / 9 outside, and the
+> conclusion below is unchanged because 9/15 is still a majority. Enumeration in
+> `SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §1.1.]** of its fifteen rows are
+> outside number theory (Kildall,
 > Green–Karvounarakis–Tannen, de Kleer, Tsumoto–Hirano, Marshall–Olkin, Halmos,
 > Baez–Dolan, Stanley, Cameron, Horn–Johnson, Matilal/Ganeri, Jäger). Border-lane
 > *searching* works. The bottleneck is one step earlier — **flag-raising** — which is

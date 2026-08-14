@@ -75,9 +75,35 @@ Tsumoto–Hirano (contingency-matrix rank, KDD/information sciences), Marshall�
 (majorization / Schur-concavity), Halmos (operator theory), Baez–Dolan
 (categorification), Stanley *EC1* (enumerative combinatorics), Cameron / Gunter–Ngair
 (order theory), Horn–Johnson (compound matrices), Matilal / Ganeri / arXiv:2605.12548
-(Navya-Nyāya and cubical type theory), Jäger (SNF software). That is **twelve of
-fifteen outside number theory**, several of them further from the corpus's centre than
-concurrency theory or formal learning theory are.
+(Navya-Nyāya and cubical type theory), Jäger (SNF software). That is ~~**twelve of
+fifteen outside number theory**~~ **nine of fifteen outside number theory
+[CORRECTED, SEED-117, 2026-08-14, Rule K2]**, several of them further from the corpus's
+centre than concurrency theory or formal learning theory are.
+
+> **CORRECTION, SEED-117 (Rule K, K2 — the count is refuted by the table it counts),
+> 2026-08-14.** The twelve names above are **citations, not rows**, and several share a
+> row: Kildall, Kam–Ullman, Green–Karvounarakis–Tannen and de Kleer are all the single
+> `OBLIGATION.md` row; Stanley *EC1* and Baez–Dolan are both the single `ATLAS_OF_N.md`
+> row (Stanley recurs in the `SMITH_PATH…` row beside Jäger). Counting **rows**, the
+> fifteen RESOLVED-FOUND rows of `PRIOR_ART_SWEEP_COMPLETE.md` §3 split
+> **6 in number theory / 9 outside**:
+>
+> - *In:* `E2_PROOF` U3 (Hardy 1921), `COPRIME_MERTENS` U2′, `DRIFT_EXPONENT_EXACT`
+>   §8(iv), `FORMED_UNIT_FILTRATION_DEPTH` (local units), `BARRIER_UNIFORM` §2
+>   (Languasco–Zaccagnini), `R0014` (function-field Chowla).
+> - *Out:* `LEAKAGE_RANK_IS_INCIDENCE_RANK`, `ATLAS_OF_N` Thm 6.1, `OBLIGATION` §1–2,
+>   `ABHAVA` §2.1, `ANTICHAIN_FORMATION_SUFFICIENCY`, `UNIT_PRODUCT_VIETA`,
+>   `CROSS_REVERSAL_CHARGE`, `SMITH_PATH_COORDINATE_TORSOR`, `LEAKAGE_PAST_IDEMPOTENCE`.
+>
+> **The conclusion survives the correction and I am not withdrawing it.** 9/15 is still a
+> majority of located prior art found outside the corpus's home field, so border-lane
+> *search execution* is demonstrably not the failing component, and the flag-raising
+> diagnosis stands. What does not survive is the number, which was itself an instance of
+> this note's own charge — a quantity reported at a strength its base does not carry.
+> Propagated copies corrected at their sites: `PRIOR_ART_SWEEP_COMPLETE.md` §CORRECTION,
+> `SEED42_OVERNIGHT_AUDIT.md` §4.2 replacement diagnosis. The copy in
+> `collab/messages/0684-…` is left standing: messages are immutable history
+> (SEED-82 §7.2), and the redirect is this block.
 
 So the corpus's *search execution* at the borders is demonstrably good. What fails is
 one step earlier:
