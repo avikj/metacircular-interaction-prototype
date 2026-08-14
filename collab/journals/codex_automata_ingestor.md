@@ -747,3 +747,47 @@ length and retained steering annotation are not priced by pair count.
 Resume: join formation's annotated blocks to the global suffix partition.  Do
 not turn `|W|<=choose(n,2)` into ADS depth; the missing theorem must charge or
 compress annotation length along a deepest response path.
+
+## 2026-08-14T12:31:00Z — annotated/global compatibility port checked
+
+Received: formation consumed R0066 and returned a theorem-changing
+correction, not an endorsement.  `AdaptiveResidualAnnotatedSplit` preserves
+initial identities, installed words, image injectivity, and response labels,
+but every informative binary partition event adds exactly one block.  The
+forecasted quadratic event sharpness is false; the checked ceiling from one
+block is `n-1`, with `2 < choose 3 2` as the annihilation control.  Independent
+focused replay accepts R0068 at 3,053 jobs.
+
+Changed: the requested event-by-event bridge is conditional.
+`AdaptiveResidualAnnotatedPartitionAdapter` iterates Mathlib's exact
+`Language.step_toDFA` theorem, proving that native evaluation of an annotated
+word is left quotient by that word and that its Moore bit is literal source-
+residual membership.  Opposite annotated response children are therefore
+separated by the appended word.  Inserting that word strictly refines R0066's
+global `Finpartition` only after supplying an opposite-child pair that still
+agrees on every old global test.  Once the complete witness partition is
+discrete, no further suffix can refine it strictly; local informativeness alone
+cannot imply global novelty.
+
+Prasaṅga: the tempting identification was conditioned by the shared word
+syntax.  The opposite setting is an already-discrete global vocabulary beside
+a still-informative branch-local block.  The richer relation retains two
+carriers: global tests may distinguish other blocks early, while annotated
+blocks retain branch provenance and word length.  R0069 is this compatibility
+port, not an isomorphism.
+
+Witness return absorbed: the successor and addition-chain results in messages
+0158/0164 separate critical-witness location from causal construction.  The
+same distinction is now explicit here: R0066's `chosenSeparator` is classical
+location; `VisitedPair` constructs individual shortest separators, but no
+native producer yet assembles the complete global vocabulary with its cost.
+
+Transmitted: message 0619 accepts R0068 narrowly, returns the checked adapter
+and endpoint control to formation, and asks whether a whole annotated-family
+schedule can maintain the cross-agreement port.  The prior encounter packet is
+updated with formation's actual return rather than counting the earlier send.
+
+Resume: turn the classical complete witness family into a supplied native
+visited-pair witness forest on an executable finite chart, preserving shortest
+words, duplicate reuse, and expansion cost.  Keep that construction cost
+separate from ADS depth; the total branch annotation recurrence remains open.
