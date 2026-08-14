@@ -8,6 +8,8 @@ import Control.Exception (finally)
 import Control.Monad (unless)
 import Data.Char (isSpace)
 import qualified Data.Map.Strict as Map
+import qualified Data.Sequence as Sequence
+import qualified Data.Set as Set
 import System.Directory
   ( createDirectoryIfMissing
   , doesFileExist
@@ -26,7 +28,7 @@ data Term
   | Zero
   | Suc Term
   | Add Term Term
-  deriving (Eq, Show)
+  deriving (Eq, Ord, Show)
 
 data StepCertificate
   = AddZero Term
@@ -103,6 +105,150 @@ renderHypDerivation :: HypDerivation -> String
 renderHypDerivation = \case
   HypDone term -> "(hyp-done " ++ renderTerm term ++ ")"
   HypThen step rest -> "(hyp-then " ++ renderHypStep step ++ " " ++ renderHypDerivation rest ++ ")"
+
+termSize :: Term -> Int
+termSize Var = 1
+termSize YVar = 1
+termSize ZVar = 1
+termSize Zero = 1
+termSize (Suc term) = 1 + termSize term
+termSize (Add left right) = 1 + termSize left + termSize right
+
+substituteX :: Term -> Term -> Term
+substituteX replacement Var = replacement
+substituteX _ YVar = YVar
+substituteX _ ZVar = ZVar
+substituteX _ Zero = Zero
+substituteX replacement (Suc term) = Suc (substituteX replacement term)
+substituteX replacement (Add left right) =
+  Add (substituteX replacement left) (substituteX replacement right)
+
+-- One checked rewrite step, including every context and both directions.
+-- Reverse add-zero increases size, so the bounded search below is the
+-- termination argument rather than an unstated orientation heuristic.
+stepTransitions :: Term -> [(Term, StepCertificate)]
+stepTransitions term = topLevel ++ underContext
+  where
+  topLevel =
+    case term of
+      Add left Zero -> [(left, AddZero left), addZeroExpansion]
+      Add left (Suc right) ->
+        [(Suc (Add left right), AddSuc left right), addZeroExpansion]
+      Suc (Add left right) ->
+        [(Add left (Suc right), Reverse (AddSuc left right)), addZeroExpansion]
+      _ -> [addZeroExpansion]
+  addZeroExpansion = (Add term Zero, Reverse (AddZero term))
+  underContext =
+    case term of
+      Suc child ->
+        [ (Suc next, SucStep certificate)
+        | (next, certificate) <- stepTransitions child
+        ]
+      Add left right ->
+        [ (Add next right, AddLeft certificate right)
+        | (next, certificate) <- stepTransitions left
+        ]
+        ++ [ (Add left next, AddRight left certificate)
+           | (next, certificate) <- stepTransitions right
+           ]
+      _ -> []
+
+hypothesisTransitions
+  :: Term -> Term -> Term -> [(Term, HypStepCertificate)]
+hypothesisTransitions hypothesisLeft hypothesisRight term =
+  atRoot ++ underContext
+  where
+  atRoot
+    | term == hypothesisLeft = [(hypothesisRight, Hypothesis)]
+    | term == hypothesisRight = [(hypothesisLeft, ReverseHypothesis)]
+    | otherwise = []
+  underContext =
+    case term of
+      Suc child ->
+        [ (Suc next, HypSuc certificate)
+        | (next, certificate) <-
+            hypothesisTransitions hypothesisLeft hypothesisRight child
+        ]
+      Add left right ->
+        [ (Add next right, HypAddLeft certificate right)
+        | (next, certificate) <-
+            hypothesisTransitions hypothesisLeft hypothesisRight left
+        ]
+        ++ [ (Add left next, HypAddRight left certificate)
+           | (next, certificate) <-
+               hypothesisTransitions hypothesisLeft hypothesisRight right
+           ]
+      _ -> []
+
+hypStepTransitions
+  :: Term -> Term -> Term -> [(Term, HypStepCertificate)]
+hypStepTransitions hypothesisLeft hypothesisRight term =
+  [ (next, LiftStep certificate)
+  | (next, certificate) <- stepTransitions term
+  ]
+  ++ hypothesisTransitions hypothesisLeft hypothesisRight term
+
+-- Breadth-first search is bounded independently by path length, term size,
+-- and visited-node budget. `seen` makes every admitted term enter once.
+boundedSearch
+  :: Int
+  -> Int
+  -> Int
+  -> (Term -> [(Term, certificate)])
+  -> Term
+  -> Term
+  -> Maybe [certificate]
+boundedSearch maximumDepth maximumSize maximumNodes transitions source target =
+  go maximumNodes (Set.singleton source) (Sequence.singleton (source, [], 0))
+  where
+  go remaining seen queue
+    | remaining <= 0 = Nothing
+    | otherwise =
+        case Sequence.viewl queue of
+          Sequence.EmptyL -> Nothing
+          (current, reversePath, depth) Sequence.:< rest
+            | current == target -> Just (reverse reversePath)
+            | depth >= maximumDepth -> go (remaining - 1) seen rest
+            | otherwise ->
+                let candidates =
+                      [ (next, certificate : reversePath, depth + 1)
+                      | (next, certificate) <- transitions current
+                      , termSize next <= maximumSize
+                      ]
+                    (nextSeen, nextQueue) =
+                      foldl' enqueue (seen, rest) candidates
+                in go (remaining - 1) nextSeen nextQueue
+  enqueue (seen, queue) candidate@(term, _, _)
+    | Set.member term seen = (seen, queue)
+    | otherwise = (Set.insert term seen, queue Sequence.|> candidate)
+
+stepsToDerivation :: Term -> [StepCertificate] -> Derivation
+stepsToDerivation target = foldr ThenStep (Done target)
+
+stepsToHypDerivation :: Term -> [HypStepCertificate] -> HypDerivation
+stepsToHypDerivation target = foldr HypThen (HypDone target)
+
+deriveInductionCertificate :: Term -> Term -> Maybe InductionCertificate
+deriveInductionCertificate lhs rhs = do
+  let baseLeft = substituteX Zero lhs
+      baseRight = substituteX Zero rhs
+      stepLeft = substituteX (Suc Var) lhs
+      stepRight = substituteX (Suc Var) rhs
+      largestEndpoint = maximum
+        (map termSize [baseLeft, baseRight, stepLeft, stepRight])
+      maximumDepth = 6
+      maximumSize = largestEndpoint + 4
+      maximumNodes = 20000
+  baseSteps <- boundedSearch
+    maximumDepth maximumSize maximumNodes stepTransitions baseLeft baseRight
+  successorSteps <- boundedSearch
+    maximumDepth maximumSize maximumNodes
+    (hypStepTransitions lhs rhs) stepLeft stepRight
+  pure (InductionCertificate
+    lhs
+    rhs
+    (stepsToDerivation baseRight baseSteps)
+    (stepsToHypDerivation stepRight successorSteps))
 
 renderModule :: InductionCertificate -> String
 renderModule certificate = unlines
@@ -250,41 +396,63 @@ validateAndInstall repo name rules certificate = do
       putStrLn ("KERNEL-REJECT " ++ name ++ "  " ++ take 3000 diagnostic)
       pure (False, rules)
 
-associativity :: InductionCertificate
-associativity = InductionCertificate lhs rhs baseTrace stepTrace
-  where
-  lhs = Add YVar (Add ZVar Var)
-  rhs = Add (Add YVar ZVar) Var
-  middle = Add YVar ZVar
-  baseTrace =
-    ThenStep (AddRight YVar (AddZero ZVar))
-      (ThenStep (Reverse (AddZero middle))
-        (Done (Add middle Zero)))
-  stepTrace =
-    HypThen (LiftStep (AddRight YVar (AddSuc ZVar Var)))
-      (HypThen (LiftStep (AddSuc YVar (Add ZVar Var)))
-        (HypThen (HypSuc Hypothesis)
-          (HypThen (LiftStep (Reverse (AddSuc middle Var)))
-            (HypDone (Add middle (Suc Var))))))
+associativityLhs :: Term
+associativityLhs = Add YVar (Add ZVar Var)
 
--- Exactly one proof constructor is removed: `hyp-suc hypothesis` becomes
--- `hypothesis`. The indexed source is still under `suc`, so Agda rejects it.
-mutatedAssociativity :: InductionCertificate
-mutatedAssociativity = associativity { stepDerivation = mutatedStep }
-  where
-  middle = Add YVar ZVar
-  mutatedStep =
-    HypThen (LiftStep (AddRight YVar (AddSuc ZVar Var)))
-      (HypThen (LiftStep (AddSuc YVar (Add ZVar Var)))
-        (HypThen Hypothesis
-          (HypThen (LiftStep (Reverse (AddSuc middle Var)))
-            (HypDone (Add middle (Suc Var))))))
+associativityRhs :: Term
+associativityRhs = Add (Add YVar ZVar) Var
+
+-- Delete exactly the `hyp-suc` constructor around the first induction-
+-- hypothesis use. The resulting Haskell value is deliberately ill-indexed;
+-- Agda must be the component that discovers and rejects that mutation.
+removeHypSuc :: HypDerivation -> Maybe HypDerivation
+removeHypSuc (HypDone _) = Nothing
+removeHypSuc (HypThen (HypSuc Hypothesis) rest) =
+  Just (HypThen Hypothesis rest)
+removeHypSuc (HypThen certificate rest) =
+  HypThen certificate <$> removeHypSuc rest
+
+mutateAssociativity
+  :: InductionCertificate -> Maybe InductionCertificate
+mutateAssociativity certificate = do
+  mutatedStep <- removeHypSuc (stepDerivation certificate)
+  pure certificate { stepDerivation = mutatedStep }
+
+derivationLength :: Derivation -> Int
+derivationLength (Done _) = 0
+derivationLength (ThenStep _ rest) = 1 + derivationLength rest
+
+hypDerivationLength :: HypDerivation -> Int
+hypDerivationLength (HypDone _) = 0
+hypDerivationLength (HypThen _ rest) = 1 + hypDerivationLength rest
 
 main :: IO ()
 main = do
   repo <- getCurrentDirectory
-  let lhs = certificateLhs associativity
+  associativity <-
+    case deriveInductionCertificate associativityLhs associativityRhs of
+      Just certificate -> pure certificate
+      Nothing -> do
+        putStrLn "SEARCH-FAIL associativity"
+        exitFailure
+  mutatedAssociativity <-
+    case mutateAssociativity associativity of
+      Just certificate -> pure certificate
+      Nothing -> do
+        putStrLn "MUTATION-FAIL derived trace did not use hyp-suc hypothesis"
+        exitFailure
+  let falseSearchRefused =
+        deriveInductionCertificate Zero (Suc Zero) == Nothing
+      lhs = certificateLhs associativity
       rhs = certificateRhs associativity
+  putStrLn
+    ("SEARCH-FOUND associativity baseSteps="
+      ++ show (derivationLength (baseDerivation associativity))
+      ++ " stepSteps="
+      ++ show (hypDerivationLength (stepDerivation associativity)))
+  unless falseSearchRefused $ do
+    putStrLn "SEARCH-FAIL false equation unexpectedly derived"
+    exitFailure
   (accepted, rulesAfterGood) <-
     validateAndInstall repo "associativity" [] associativity
   (mutatedAccepted, rulesAfterMutation) <-
@@ -315,6 +483,7 @@ main = do
       && consistentRepeated
       && inconsistentRepeated
       && nonmatchingTerm
+      && falseSearchRefused
       && mutationDidNotInstall
       && exactlyOneRule
     then putStrLn
