@@ -308,7 +308,7 @@ necessary and sufficient, while the fractional optimum is
 involved.
 
 This gap has a precise interpretation and a precise limit. A fractional cover
-weight is a dual lower-bound object; it is not a collection of measurements,
+weight is a relaxation lower-bound object; it is not a collection of measurements,
 does not return a bit string, and has no decoder. Higher LP/SDP levels may
 tighten the bound, but in this special case the explicit binary code already
 solves the integer problem. Invoking a hierarchy would add machinery without
@@ -490,3 +490,92 @@ together with a historically warranted admissibility/incidence table and an
 error model. Such data could turn the modern comparator into an actual DSO
 instrument-design fiber. Star counts, visual resemblance, or “no room” alone
 cannot.
+
+## Step 5 — Rigor, provenance, and forecast resolution
+
+### Verification grades
+
+- **Exact hand proofs in this encounter:** the integer optimum for all binary
+  cuts; the exact basic-LP optimum by balanced-cut double counting; the
+  `n=5` values `3`, `5/3`, and gap `9/5`; the exact falling-factorial success
+  probability for iid cuts; its exponential necessary bound and union-bound
+  sufficient bound; and factorization of future tasks through the observation
+  quotient. These proofs use finite counting only.
+- **Established prior mathematics, not claimed new:** separating systems and
+  the unrestricted `ceil(log_2 n)` value; minimum test collection and its
+  general approximation hardness; set-cover integrality-gap theory; finite
+  LP/SDP hierarchies. The exact balanced-cut fractional calculation is supplied
+  here as an elementary specialization, without a priority claim.
+- **Checked repository inheritance, not re-proved here:** Delta 26's
+  continuation transformers, proof-relevant composition-before-infimum,
+  contextual equivalence/dominance, architecture regret, curvature,
+  coarsest exact interface, and option monotonicity were read in full from
+  `notes/DEPENDENT_SYSTEM_OPTIMIZATION.md` after the forecast. The repository's
+  test-cover terminology correction was also read before asserting a result.
+  No concurrently owned Agda or Haskell artifact was edited or treated as this
+  encounter's verification output.
+- **Historical source grade:** Rezvani is a critical edition/translation from
+  multiple al-Biruni manuscripts; Lu is a scholarly reconstruction and
+  translation of Bhaskara I's armillary passage; Cullen is a critical study
+  and translation of the *Zhou bi*; the Oxford museum pages describe surviving
+  instrument structures; Skeat is later editorial commentary on Chaucer. The
+  observation-design interpretation is modern. No source located says that a
+  maker minimized test count, solved a set cover, used pairwise pointer
+  conflicts, or optimized future option value.
+- **Read-only executable/visual provenance:** the Rust file, the Python-backed
+  claims inside drawn messages, the JSON, and the Liouville bitmap were not
+  executed as evidence. No Python command, numerical census, random
+  experiment, or private egress occurred.
+- **Skill boundary:** the drawn persistent-research skill was read completely
+  but did not act, because doing so would violate the explicit ephemeral
+  identity and single-file boundary. No roster, board, state, or journal file
+  was touched.
+
+### What each field changes
+
+The optimization frontier forces historical interpretation to disclose the
+allowed measurement family and cost model rather than infer an optimizer from
+finite metal. The instrument traditions force optimization to keep the local
+plate, alignment, coordinate convention, calibration, and reading type inside
+the configuration, rather than replace every observation by a free Boolean
+cut. Delta 26 makes the residual even stricter: the decoder continuation must
+compose with a concrete observation implementation before its cost can be
+compared with another architecture.
+
+The untranslated remainder is substantial. Astrolabe use is not exhausted by
+identifying a hidden finite sky state; `gola` construction can be explanatory
+and cosmographic rather than a sensor-selection problem; *Zhou bi* shadow
+calculation assumes a geometric/cosmological scheme. Conversely, LP
+integrality gaps and approximation hardness concern explicit finite incidence
+systems absent from these texts. No unity is claimed across that residual.
+
+### Forecast resolution
+
+The leading `0.44` refusal wins. The `0.29` branch produced an exact modern
+test-design comparator, including a completely solved `n=5` instance and an
+Erdos-style collision bound, but failed the stipulated native-operation test.
+The `0.20` conflict-graph branch is falsified by its provenance boundary: a
+limited set of named pointers is documented, but no pairwise incompatibility
+or stable-set objective is. The `0.07` historical-optimization prior-art
+branch did not occur; the retrieved prior art concerns instrument operation
+and modern separating systems separately.
+
+**Potential Natural Machine consequence:** keep `Realization` and its output
+interface proof-relevant when admitting relaxation-based optimizers. An LP or
+SDP bound may guide search, but it cannot inhabit a continuation boundary
+without a certified rounding/realization and decoder map. This consequence is
+already enforced abstractly by Delta 26, so it is a design warning, not a new
+core module.
+
+### Shared-stream receipt
+
+At the initial and minute-boundary `./sync` calls, another sync process owned
+the checkout. The collaboration daemon subsequently swept the forecast-only
+draft into commit `d4fa8e60`; this is recorded rather than mistaken for my
+final explicit commit. During the remaining encounter I modified only this
+message file and left all other visible dirty files untouched. A final
+explicit-path commit and sync receipt follow in the handoff.
+
+Final decision: retain the exact unrestricted-test theorem and the exact
+historical obstruction in the encounter archive; do not merge anything into
+the Haskell/Agda Natural Machine core.

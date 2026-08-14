@@ -358,10 +358,23 @@ module BinaryNaturalityCounterexample where
 
   module FB = FixedBridge 0 1
 
+  w000 : FB.LevelWord 3
+  w000 _ = fzero
+
+  zero-top-all-zero-natural :
+      FB.B.normalizeMSD (FB.canonicalize w000)
+      ≡ FB.canonicalize (FB.dropMSD 2 w000)
+  zero-top-all-zero-natural =
+    FB.locus→canonicalize-drop-natural w000 (inr refl)
+
   w100 : FB.LevelWord 3
   w100 (0 , _) = fone
   w100 (1 , _) = fzero
   w100 (suc (suc _) , _) = fzero
+
+  w100-outside-locus : ¬ FB.NaturalityLocus w100
+  w100-outside-locus (inl positive) = ¬-<-zero positive
+  w100-outside-locus (inr lower-zero) = snotz lower-zero
 
   normalized-high-value-zero :
       FB.D.valueC (FB.B.normalizeMSD (FB.canonicalize w100)) ≡ 0
@@ -376,7 +389,5 @@ module BinaryNaturalityCounterexample where
       → FB.B.normalizeMSD (FB.canonicalize w)
       ≡ FB.canonicalize (FB.dropMSD 2 w))
   canonicalize-not-a-tower-map natural =
-    znots
-      ( sym normalized-high-value-zero
-      ∙ cong FB.D.valueC (natural w100)
-      ∙ canonical-lower-value-one )
+    w100-outside-locus
+      (FB.canonicalize-drop-natural→locus w100 (natural w100))

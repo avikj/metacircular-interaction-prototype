@@ -14,6 +14,12 @@ universe u v
 
 variable {A : Type u} {X : Type v}
 
+/-- Executable acceptance predicate for the synchronous pair monitor. -/
+def statePairSeparates
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (pair : X × X) : Bool :=
+  acceptsBool M pair.1 != acceptsBool M pair.2
+
 /-- The visited pair-state queue at its exact finite cardinal horizon. -/
 def visitedStatePairQueue [DecidableEq X] [Fintype X]
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
@@ -24,9 +30,8 @@ def visitedStatePairQueue [DecidableEq X] [Fintype X]
 def visitedStateWitnessNode? [DecidableEq X] [Fintype X]
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (left right : X) : Option (ReachNode A (X × X)) :=
-  let P := statePairDFA M left right
   (visitedStatePairQueue M alphabet left right).nodes.find?
-    (fun node => decide (node.state ∈ P.accept))
+    (fun node => statePairSeparates M node.state)
 
 /-- The executable suffix projection.  The node-valued query above retains
 the terminal pair and therefore the complete replay certificate. -/
@@ -34,6 +39,23 @@ def visitedStateWitness? [DecidableEq X] [Fintype X]
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (left right : X) : Option (List A) :=
   (visitedStateWitnessNode? M alphabet left right).map ReachNode.word
+
+theorem pairwise_word_length_of_all_eq
+    (nodes : List (ReachNode A X)) (round : Nat)
+    (hlength : ∀ node ∈ nodes, node.word.length = round) :
+    nodes.Pairwise (fun left right =>
+      left.word.length ≤ right.word.length) := by
+  induction nodes with
+  | nil => simp
+  | cons head tail ih =>
+      simp only [List.pairwise_cons]
+      constructor
+      · intro node hnode
+        rw [hlength head List.mem_cons_self,
+          hlength node (List.mem_cons_of_mem head hnode)]
+      · apply ih
+        intro node hnode
+        exact hlength node (List.mem_cons_of_mem head hnode)
 
 theorem runReachQueue_nodes_pairwise_word_length [DecidableEq X]
     (M : DFA A X) (alphabet : List A) (round : Nat) :
@@ -49,19 +71,12 @@ theorem runReachQueue_nodes_pairwise_word_length [DecidableEq X]
         (fun left right => left.word.length ≤ right.word.length)
       rw [List.pairwise_append]
       refine ⟨ih, ?_, ?_⟩
-      · apply List.pairwise_of_forall
-        intro left hleft right hright _
-        have leftCandidate := mem_freshNodes_imp_mem hleft
-        have rightCandidate := mem_freshNodes_imp_mem hright
-        have leftLength := mem_expandFrontier_word_length_eq M alphabet
+      · apply pairwise_word_length_of_all_eq next (n + 1)
+        intro node hnode
+        apply mem_expandFrontier_word_length_eq M alphabet
           queue.frontier n
           (runReachQueue_frontier_word_length M alphabet n)
-          left leftCandidate
-        have rightLength := mem_expandFrontier_word_length_eq M alphabet
-          queue.frontier n
-          (runReachQueue_frontier_word_length M alphabet n)
-          right rightCandidate
-        omega
+        exact mem_freshNodes_imp_mem hnode
       · intro old hold fresh hfresh
         have holdLength := runReachQueue_word_length M alphabet n old hold
         have freshCandidate := mem_freshNodes_imp_mem hfresh
@@ -119,9 +134,9 @@ theorem visitedStateWitnessNode?_sound
   let P := statePairDFA M left right
   have hmem : node ∈ (visitedStatePairQueue M alphabet left right).nodes :=
     List.mem_of_find?_eq_some hnode
-  have haccept : node.state ∈ P.accept := by
+  have haccept : statePairSeparates M node.state = true := by
     have := List.find?_some hnode
-    simpa [P] using this
+    simpa [visitedStateWitnessNode?] using this
   have hvalid : node.Valid P :=
     runReachQueue_valid P alphabet (Fintype.card (X × X)) node hmem
   have hseparates :
@@ -129,14 +144,12 @@ theorem visitedStateWitnessNode?_sound
         behavior M.step (acceptsBool M) right node.word := by
     apply (mem_statePairDFA_accepts_iff M left right node.word).1
     rw [DFA.mem_accepts]
-    exact hvalid ▸ haccept
+    rw [hvalid]
+    simpa [P, statePairDFA, statePairSeparates] using haccept
   refine ⟨hvalid, hseparates, ?_⟩
   intro candidate hcandidate
   have hcandAccept : candidate ∈ P.accepts :=
     (mem_statePairDFA_accepts_iff M left right candidate).2 hcandidate
-  have hcover := runReachQueue_covers_word P alphabet complete candidate
-  simp only [ReachQueue.states, List.mem_map] at hcover
-  obtain ⟨candidateNode, hcandNode, hcandState⟩ := hcover
   obtain ⟨short, hshortLength, hshortEval⟩ := exists_short_eval_eq P candidate
   have hshortCover := runReachQueue_covers_word P alphabet complete short
   simp only [ReachQueue.states, List.mem_map] at hshortCover
@@ -146,17 +159,20 @@ theorem visitedStateWitnessNode?_sound
     apply advanceReachQueue_nodes_mono_le P alphabet
       (Nat.le_of_lt hshortLength) hstored
   have hstoredAccept : stored.state ∈ P.accept := by
-    rw [← hstoredState, hshortEval]
-    exact (DFA.mem_accepts.mp hcandAccept)
+    rw [hstoredState, hshortEval]
+    rw [← DFA.mem_accepts]
+    exact hcandAccept
+  have hstoredPredicate : statePairSeparates M stored.state = true := by
+    simpa [P, statePairDFA, statePairSeparates] using hstoredAccept
   have hfirstMinimal := find?_word_length_minimal_of_pairwise
     (visitedStatePairQueue M alphabet left right).nodes
-    (fun candidate => decide (candidate.state ∈ P.accept))
+    (fun candidate => statePairSeparates M candidate.state)
     (runReachQueue_nodes_pairwise_word_length P alphabet
       (Fintype.card (X × X))) hnode stored hstoredFinal
-    (by simpa [hstoredAccept])
+    hstoredPredicate
   have hstoredMinimal := runReachQueue_node_minimal P alphabet complete
     (Fintype.card (X × X)) hstoredFinal candidate
-    (hshortEval.trans (hstoredState.trans hcandState.symm))
+    (hshortEval.symm.trans hstoredState.symm)
   exact Nat.le_trans hfirstMinimal hstoredMinimal
 
 /-- No visited accepting pair is exactly complete-future equality. -/
@@ -184,31 +200,35 @@ theorem visitedStateWitnessNode?_eq_none_iff
       · simpa [Fintype.card_prod] using Nat.le_of_lt hlength
       · exact hnode
     have hnodeAccept : node.state ∈ P.accept := by
-      rw [← hstate]
-      exact (DFA.mem_accepts.mp
-        ((mem_statePairDFA_accepts_iff M left right short).2 hshort))
-    have hnoneAll : ∀ candidate ∈
-        (visitedStatePairQueue M alphabet left right).nodes,
-        decide (candidate.state ∈ P.accept) = false := by
-      simpa [visitedStateWitnessNode?, P,
-        List.find?_eq_none] using hnone
-    have := hnoneAll node hnodeFinal
-    simpa [hnodeAccept] using this
+      rw [hstate]
+      rw [← DFA.mem_accepts]
+      exact (mem_statePairDFA_accepts_iff M left right short).2 hshort
+    have hnodePredicate : statePairSeparates M node.state = true := by
+      simpa [P, statePairDFA, statePairSeparates] using hnodeAccept
+    have hnoneRaw :
+        (visitedStatePairQueue M alphabet left right).nodes.find?
+          (fun candidate => statePairSeparates M candidate.state) = none := by
+      simpa [visitedStateWitnessNode?] using hnone
+    have hfalse := (List.find?_eq_none.mp hnoneRaw) node hnodeFinal
+    rw [hnodePredicate] at hfalse
+    contradiction
   · intro heq
     unfold visitedStateWitnessNode?
     rw [List.find?_eq_none]
     intro node hnode
     have hvalid := runReachQueue_valid (statePairDFA M left right)
       alphabet (Fintype.card (X × X)) node hnode
-    have hnotAccept : node.state ∉ (statePairDFA M left right).accept := by
-      intro haccept
+    cases hsep : statePairSeparates M node.state with
+    | false => simp [hsep]
+    | true =>
+      have haccept : node.state ∈ (statePairDFA M left right).accept := by
+        simpa [statePairDFA, statePairSeparates] using hsep
       have hwordAccept : node.word ∈
           (statePairDFA M left right).accepts := by
         rw [DFA.mem_accepts]
         exact hvalid ▸ haccept
-      exact ((mem_statePairDFA_accepts_iff M left right node.word).1
-        hwordAccept) (heq node.word)
-    simp [hnotAccept]
+      exact False.elim (((mem_statePairDFA_accepts_iff M left right
+        node.word).1 hwordAccept) (heq node.word))
 
 /-- The pair queue completes at most one expansion per pair state. -/
 theorem visitedStatePairQueue_expansion_bound
@@ -274,13 +294,17 @@ theorem visitedStateWitnessNode?_exists_iff_derivationFiber
     cases hresult : visitedStateWitnessNode? M alphabet left right with
     | none =>
         exact False.elim
-          (((visitedStateWitnessNode?_eq_none_iff M alphabet complete
-            left right).1 hresult word) hword)
+          (hword ((visitedStateWitnessNode?_eq_none_iff M alphabet complete
+            left right).1 hresult word))
     | some node => exact ⟨node, rfl⟩
 
 namespace VisitedPairWitness
 
 open ChartStateBFSWitness ReachableChartWitness
+
+local instance : DecidableEq chart.State := by
+  change DecidableEq (Fin 3)
+  infer_instance
 
 example :
     (visitedStateWitnessNode? chart.toDFA alphabet left right).map

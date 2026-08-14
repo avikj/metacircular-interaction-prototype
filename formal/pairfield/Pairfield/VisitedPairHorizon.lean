@@ -108,11 +108,13 @@ theorem visitedPairWitness?_sound [DecidableEq X] [Fintype X]
     node.Valid (statePairDFA M left right) ∧
       behavior M.step (acceptsBool M) left node.word ≠
         behavior M.step (acceptsBool M) right node.word := by
+  have hnode' := hnode
+  unfold visitedPairWitness? at hnode'
   have hmem : node ∈ (visitedStatePairQueue M alphabet left right).closed :=
-    List.mem_of_find?_eq_some hnode
+    List.mem_of_find?_eq_some hnode'
   have hdist :
       Distinguishes M.step (acceptsBool M) left right node.word = true :=
-    List.find?_some hnode
+    List.find?_some hnode'
   have hnodes :
       node ∈ (visitedStatePairQueue M alphabet left right).nodes := by
     exact List.mem_append.mpr (Or.inl hmem)
@@ -156,7 +158,7 @@ def automaton : DFA Bool (Fin 3) where
 instance : DecidablePred (fun state : Fin 3 => state ∈ automaton.accept) :=
   fun state => inferInstanceAs (Decidable (observe state = true))
 
-example : reachableStatePairCount automaton alphabet (0 : Fin 3) 1 = 3 := by
+example : reachableStatePairCount automaton alphabet (0 : Fin 3) 1 = 2 := by
   native_decide
 
 example :
