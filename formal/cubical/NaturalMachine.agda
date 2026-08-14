@@ -369,6 +369,10 @@ import NaturalMachine.PhysicalLearningCore
 import NaturalMachine.RelationalProcessCore
 import NaturalMachine.RelationalHolonomyInteraction
 import NaturalMachine.AbstractSpinNetworkKinematics
+-- Abstract holonomy--flux boundary: any represented group holonomy carrying
+-- a declared derivation satisfies the two-edge Leibniz/refinement law.  The
+-- concrete surface, intersection, Lie-algebra, and operator data remain open.
+import NaturalMachine.HolonomyFluxDerivation
 -- Univalence is the source geometry of that compiled physical state: a phase
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.

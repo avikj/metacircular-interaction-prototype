@@ -1,0 +1,261 @@
+/-
+Copyright (c) 2026 Avik Jain and the mathematics collaboration.
+Released under Apache 2.0 license.
+
+The recursive live-cell invariant for residual-labelled adaptive
+distinguishing trees.  A live cell contains exactly those reached prefixes
+whose observations so far agree.  A query must be safe on that cell and its
+two continuation trees must recursively split the response-selected advanced
+cells.
+-/
+import Pairfield.AdaptiveResidualSplitting
+
+namespace Pairfield
+
+universe u v
+
+variable {A : Type u} {X : Type v}
+
+/-- All prefixes in a live cell have the same currently visible output. -/
+def ResidualCell.CurrentConstant
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (cell : Set (List A)) : Prop :=
+  ∀ ⦃left right : List A⦄,
+    cell left → cell right →
+    acceptsBool M (M.eval left) = acceptsBool M (M.eval right)
+
+/-- A leaf is valid exactly when every prefix still live there has the same
+Mathlib residual language. -/
+def ResidualCell.Homogeneous (M : DFA A X) (cell : Set (List A)) : Prop :=
+  ∀ ⦃left right : List A⦄,
+    cell left → cell right →
+    BranchResidual M left = BranchResidual M right
+
+/-- Apply one action to every prefix in a live cell and retain precisely the
+advanced prefixes producing the declared response. -/
+def ResidualCell.advance
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (cell : Set (List A)) (action : A) (response : Bool) :
+    Set (List A) :=
+  { next | ∃ pre, cell pre ∧ next = pre ++ [action] ∧
+      acceptsBool M (M.eval next) = response }
+
+/-- Every advanced response cell is again constant at its current output. -/
+theorem ResidualCell.advance_currentConstant
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (cell : Set (List A)) (action : A) (response : Bool) :
+    (ResidualCell.advance M cell action response).CurrentConstant M := by
+  intro left right hleft hright
+  exact hleft.2.2.trans hright.2.2.symm
+
+/-- A root action is safe on one live cell when equality after the action
+cannot merge two distinct residuals in that cell.  Current-output equality is
+not repeated here because `CurrentConstant` is the live-cell invariant. -/
+def ResidualCell.SafeAction
+    (M : DFA A X) (cell : Set (List A)) (action : A) : Prop :=
+  ∀ ⦃left right : List A⦄,
+    cell left → cell right →
+    BranchResidual M (left ++ [action]) =
+      BranchResidual M (right ++ [action]) →
+    BranchResidual M left = BranchResidual M right
+
+/-- A tree separates residuals on a declared live cell. -/
+def BoolExperimentTree.SeparatesPrefixResidualsOn
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (tree : BoolExperimentTree A) (cell : Set (List A)) : Prop :=
+  ∀ ⦃left right : List A⦄,
+    cell left → cell right →
+    BranchTrace M tree left = BranchTrace M tree right →
+    BranchResidual M left = BranchResidual M right
+
+/-- A root query trace is the free current bit followed by the chosen child's
+trace at the advanced prefix. -/
+theorem branchTrace_query
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (action : A) (onFalse onTrue : BoolExperimentTree A) (pre : List A) :
+    BranchTrace M (.query action onFalse onTrue) pre =
+      acceptsBool M (M.eval pre) ::
+        BranchTrace M
+          (if acceptsBool M (M.eval (pre ++ [action]))
+            then onTrue else onFalse)
+          (pre ++ [action]) := by
+  simp [BranchTrace, BoolExperimentTree.trace,
+    BoolExperimentTree.responses, DFA.eval_append_singleton]
+
+/-- The recursive certificate carried by a residual-labelled adaptive tree. -/
+def BoolExperimentTree.ResidualSplitting
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)] :
+    BoolExperimentTree A → Set (List A) → Prop
+  | .done, cell => ResidualCell.Homogeneous M cell
+  | .query action onFalse onTrue, cell =>
+      ResidualCell.SafeAction M cell action ∧
+        onFalse.ResidualSplitting M
+          (ResidualCell.advance M cell action false) ∧
+        onTrue.ResidualSplitting M
+          (ResidualCell.advance M cell action true)
+
+/-- The recursive safety/partition certificate is exactly residual separation
+on a live cell.  This is the checked global invariant missing from the local
+safe-root theorem. -/
+theorem BoolExperimentTree.residualSplitting_iff_separatesOn
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (tree : BoolExperimentTree A) (cell : Set (List A))
+    (hconstant : cell.CurrentConstant M) :
+    tree.ResidualSplitting M cell ↔
+      tree.SeparatesPrefixResidualsOn M cell := by
+  induction tree generalizing cell with
+  | done =>
+      constructor
+      · intro hhomogeneous left right hleft hright _htrace
+        exact hhomogeneous hleft hright
+      · intro hseparates left right hleft hright
+        apply hseparates hleft hright
+        simpa [BranchTrace, BoolExperimentTree.trace,
+          BoolExperimentTree.responses] using
+          congrArg (fun response => [response])
+            (hconstant hleft hright)
+  | query action onFalse onTrue ihFalse ihTrue =>
+      constructor
+      · rintro ⟨hsafe, hfalseSplit, htrueSplit⟩
+        have hfalseSeparates :=
+          (ihFalse (ResidualCell.advance M cell action false)
+            (ResidualCell.advance_currentConstant
+              M cell action false)).1 hfalseSplit
+        have htrueSeparates :=
+          (ihTrue (ResidualCell.advance M cell action true)
+            (ResidualCell.advance_currentConstant
+              M cell action true)).1 htrueSplit
+        intro left right hleft hright htrace
+        rw [branchTrace_query, branchTrace_query] at htrace
+        have hcurrent :
+            acceptsBool M (M.eval left) =
+              acceptsBool M (M.eval right) :=
+          List.cons.inj htrace |>.1
+        have hchild := List.cons.inj htrace |>.2
+        have hresponse :
+            acceptsBool M (M.eval (left ++ [action])) =
+              acceptsBool M (M.eval (right ++ [action])) := by
+          exact List.cons.inj hchild |>.1
+        cases hleftResponse :
+            acceptsBool M (M.eval (left ++ [action])) with
+        | false =>
+            have hrightResponse :
+                acceptsBool M (M.eval (right ++ [action])) = false := by
+              rw [← hresponse, hleftResponse]
+            have hadvanced := hfalseSeparates
+              ⟨left, hleft, rfl, hleftResponse⟩
+              ⟨right, hright, rfl, hrightResponse⟩
+              (by simpa [hleftResponse, hrightResponse] using hchild)
+            exact hsafe hleft hright hadvanced
+        | true =>
+            have hrightResponse :
+                acceptsBool M (M.eval (right ++ [action])) = true := by
+              rw [← hresponse, hleftResponse]
+            have hadvanced := htrueSeparates
+              ⟨left, hleft, rfl, hleftResponse⟩
+              ⟨right, hright, rfl, hrightResponse⟩
+              (by simpa [hleftResponse, hrightResponse] using hchild)
+            exact hsafe hleft hright hadvanced
+      · intro hseparates
+        have hsafe : ResidualCell.SafeAction M cell action := by
+          intro left right hleft hright hadvanced
+          apply hseparates hleft hright
+          have hfalse :=
+            branchTrace_eq_of_branchResidual_eq M onFalse hadvanced
+          have htrue :=
+            branchTrace_eq_of_branchResidual_eq M onTrue hadvanced
+          have hnext :
+              acceptsBool M (M.eval (left ++ [action])) =
+                acceptsBool M (M.eval (right ++ [action])) := by
+            simpa [BranchTrace, BoolExperimentTree.trace,
+              BoolExperimentTree.responses] using
+              List.cons.inj hfalse |>.1
+          rw [branchTrace_query, branchTrace_query]
+          rw [hconstant hleft hright]
+          cases hleftResponse :
+              acceptsBool M (M.eval (left ++ [action])) with
+          | false =>
+              have hrightResponse :
+                  acceptsBool M (M.eval (right ++ [action])) = false := by
+                rw [← hnext, hleftResponse]
+              simp [hleftResponse, hrightResponse, hfalse]
+          | true =>
+              have hrightResponse :
+                  acceptsBool M (M.eval (right ++ [action])) = true := by
+                rw [← hnext, hleftResponse]
+              simp [hleftResponse, hrightResponse, htrue]
+        refine ⟨hsafe, ?_, ?_⟩
+        · apply (ihFalse (ResidualCell.advance M cell action false)
+            (ResidualCell.advance_currentConstant
+              M cell action false)).2
+          intro leftNext rightNext hleftNext hrightNext hchild
+          rcases hleftNext with ⟨left, hleft, rfl, hleftResponse⟩
+          rcases hrightNext with ⟨right, hright, rfl, hrightResponse⟩
+          have horiginal :
+              BranchResidual M left = BranchResidual M right := by
+            apply hseparates hleft hright
+            rw [branchTrace_query, branchTrace_query]
+            rw [hconstant hleft hright]
+            simp [hleftResponse, hrightResponse, hchild]
+          exact prefixResidual_append_action_eq_of_eq
+            M horiginal action
+        · apply (ihTrue (ResidualCell.advance M cell action true)
+            (ResidualCell.advance_currentConstant
+              M cell action true)).2
+          intro leftNext rightNext hleftNext hrightNext hchild
+          rcases hleftNext with ⟨left, hleft, rfl, hleftResponse⟩
+          rcases hrightNext with ⟨right, hright, rfl, hrightResponse⟩
+          have horiginal :
+              BranchResidual M left = BranchResidual M right := by
+            apply hseparates hleft hright
+            rw [branchTrace_query, branchTrace_query]
+            rw [hconstant hleft hright]
+            simp [hleftResponse, hrightResponse, hchild]
+          exact prefixResidual_append_action_eq_of_eq
+            M horiginal action
+
+/-- Prefixes with a declared current output form the initial live cells. -/
+def ResidualCell.initial
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (response : Bool) : Set (List A) :=
+  { pre | acceptsBool M (M.eval pre) = response }
+
+theorem ResidualCell.initial_currentConstant
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (response : Bool) :
+    (ResidualCell.initial M response).CurrentConstant M := by
+  intro left right hleft hright
+  exact hleft.trans hright.symm
+
+/-- Global prefix-residual separation is equivalent to carrying a recursive
+splitting certificate on both free-current-output fibres. -/
+theorem BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (tree : BoolExperimentTree A) :
+    tree.SeparatesPrefixResiduals M ↔
+      ∀ response : Bool,
+        tree.ResidualSplitting M (ResidualCell.initial M response) := by
+  constructor
+  · intro hseparates response
+    apply (tree.residualSplitting_iff_separatesOn M
+      (ResidualCell.initial M response)
+      (ResidualCell.initial_currentConstant M response)).2
+    intro left right hleft hright htrace
+    exact hseparates left right htrace
+  · intro hsplitting left right htrace
+    have hcurrent :
+        acceptsBool M (M.eval left) = acceptsBool M (M.eval right) := by
+      exact List.cons.inj (by simpa [BranchTrace,
+        BoolExperimentTree.trace] using htrace) |>.1
+    let response := acceptsBool M (M.eval left)
+    have hleft : ResidualCell.initial M response left := rfl
+    have hright : ResidualCell.initial M response right := by
+      exact hcurrent.symm
+    have hseparates :=
+      (tree.residualSplitting_iff_separatesOn M
+        (ResidualCell.initial M response)
+        (ResidualCell.initial_currentConstant M response)).1
+        (hsplitting response)
+    exact hseparates hleft hright htrace
+
+end Pairfield
