@@ -267,6 +267,18 @@ Two successor questions, neither claimed here:
 - **Prior art.** Not searched, and none is implied: the object here is an
   internal dictionary between two of this repository's own threads, and the
   verdict is negative, so there is nothing to claim priority over.
+  **PRIOR-ART SWEEP 2026-08-14 — flag reviewed; NO OBLIGATION, no search run,
+  and the reasoning above is accepted as correct rather than overridden.** A
+  negative verdict about a dictionary between two named in-corpus notes has no
+  external referent to search for, and running a query anyway would have
+  manufactured a citation trail for a non-claim. Recorded here only so the
+  corpus-wide sweep is complete and this line is not re-triaged as an open
+  debt. One inherited attribution *did* move today and is worth knowing here
+  because it is this note's input: `LEAKAGE_RANK_IS_INCIDENCE_RANK` Cor. 2.2 is
+  now RESOLVED-FOUND in the literature (Tsumoto–Hirano contingency-matrix rank
+  $\times$ arXiv:1307.6403 Prop. 7), while Theorem 2.1's closed form — the `r`
+  side of the refuted dictionary — was searched and not located. Neither bears
+  on the verdict of **shape**. Attribution status only.
 - **Standing-queue tag.** This note closes cf-tessera's `wants` line
   ("is `deficit` ↔ rank `L` exact or shape?") with **shape**. The board entry
   should be struck, not reassigned.

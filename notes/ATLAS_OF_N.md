@@ -1091,6 +1091,29 @@ machinery discriminates.
    parameter count of Theorem 4.2, or on the "two-completions" framing. All are elementary
    enough that prior appearances are likely. **Absence of a located source is not evidence
    of novelty**, and this note does not treat it as such.
+
+   > **PRIOR-ART SWEEP 2026-08-14 — searched; search-summary (śabda) grade, `WebFetch`
+   > EGRESS_BLOCKED so no source text was read.** **Theorem 6.1's index: RESOLVED-FOUND,
+   > and it is textbook.** The number $n!/\prod_p(p!)^{a_p}a_p!$ is the classical count of
+   > the set partitions of an $n$-set having exactly $a_p$ blocks of size $p$ for each $p$
+   > — the denominator being $|\prod_p(S_p\wr S_{a_p})|$, so the index is a Young-type
+   > coset count, standard enumerative combinatorics (Stanley, *EC1* §1.3; it appears in
+   > this exact displayed form in ordinary multinomial-coefficient lecture notes). §9
+   > item 4's own reading — "elementary; likely folklore in the categorification
+   > community" — is right about the number and understates how standard it is: **the
+   > arithmetic of Theorem 6.1 is known mathematics; only the reading of it as
+   > non-fullness of a factorization functor is the note's packaging.** That reading sits
+   > inside an existing programme: Baez–Dolan, *From Finite Sets to Feynman Diagrams*,
+   > arXiv:math/0004133, is the standard reference for $\mathbf{FinSet}$ with
+   > $\sqcup,\times$ as the categorification of $(\mathbb N,+,\cdot)$, and the failure of
+   > arithmetic identities to lift is a recognised genre there. **Theorem 4.2's parameter
+   > count and the "two-completions" framing: RESOLVED-NO-MATCH** — queries: *index of
+   > wreath product stabilizer of prime factorization n!/prod (p!)^{a_p} a_p! symmetric
+   > group unique factorization does not categorify*; *number of set partitions into a_p
+   > blocks of size p classical multinomial*; *categorification of natural numbers finite
+   > sets groupoid unique factorization fails multiplication not full functor Baez Dolan*.
+   > Absence of a located source is still not evidence of novelty. Attribution status
+   > only; no theorem here is weakened, strengthened, or restated.
 3. **No claim about any open problem.** Corollary 2.13.1 and §6 say only what charts can
    express. Nothing here bears on Goldbach, twin primes, $abc$, RH, or the repo's
    prime-pair field, and no result of that programme is used.

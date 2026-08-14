@@ -273,6 +273,23 @@ lens and the joint.
   corollary**. A negative search is weak evidence — it moves the status from
   *unsearched* to *searched twice without a hit*, and no further. I did not
   search paper databases behind authentication.
+  **PRIOR-ART SWEEP 2026-08-14 — searched a third time; the integrality
+  obstruction and the unconditional CRT statement stay RESOLVED-NO-MATCH, and
+  the status moves to *searched three times without a hit*, no further.**
+  (Search-summary/śabda grade; `WebFetch` EGRESS_BLOCKED.) One thing the third
+  pass did add, and it belongs to the *classical* bullet above rather than to
+  the `possibly-new` one: the rank-one criterion that `(*)` reduces to within a
+  join block is published order-independently of probability, as
+  **S. Tsumoto and S. Hirano, *Contingency Matrix Theory I: Rank and Statistical
+  Independence in a Contingency Table*, RSCTC 2008, LNCS/LNAI 5306, 240–249**
+  (and Inf. Sci. **179** (2009) 1615–1627): rank of a contingency matrix $=1$
+  $\iff$ statistical independence. Composed with arXiv:1307.6403 Prop. 7 already
+  cited here, that is the whole criterion — see the full record in
+  `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` §Rigor. **Nothing there implies the
+  divisibility corollary**, which is the corpus-local step and remains
+  unlocated. New query this pass: *rank of contingency table equals one
+  statistical independence Tsumoto contingency matrix theory*. Absence of a
+  located source is not evidence of novelty. Attribution status only.
 - **Checked computation only:** the `984` count and the specific fractions of
   §4.3 (these replicate a collaborator, they prove nothing new).
 - **Scope limits.** Uniform counting measure only. A general positive weight

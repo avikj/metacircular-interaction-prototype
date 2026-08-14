@@ -396,6 +396,28 @@ claimed:
   are stated from memory and **have not been verified against sources**, so
   they are a reading list, not a citation. Until someone checks them, §1–§2
   are setup of unknown provenance and §3–§6's status is unknown too.
+
+  > **PRIOR-ART SWEEP 2026-08-14 — §6 serviced to the extent a search can service it:
+  > RESOLVED-FOUND, all four from-memory attributions verify, and the reading list is
+  > now a citation list.** G. A. Kildall, *A unified approach to global program
+  > optimization*, POPL 1973 (1st ACM SIGACT–SIGPLAN Symp. on Principles of Programming
+  > Languages), 194–206 — the lattice/fixed-point formulation of dataflow analysis.
+  > J. B. Kam and J. D. Ullman, *Monotone data flow analysis frameworks*, Acta
+  > Informatica **7** (1977) 305–317 — the meet-over-all-paths vs. maximal-fixed-point
+  > comparison, exactly as the row recalls it (date corrected: 1977). T. J. Green,
+  > G. Karvounarakis and V. Tannen, *Provenance semirings*, PODS 2007, 31–40 —
+  > commutative semirings as annotation algebras. J. de Kleer, *An assumption-based
+  > TMS*, Artificial Intelligence **28** (1986) 127–162. **So the §6-missing conclusion
+  > stands and can now be stated without the hedge: the lattice machinery of §1–§2 is
+  > standard monotone dataflow analysis with semiring-annotated propagation, and no
+  > novelty may be claimed for it.** What this does *not* do is close §6: no source text
+  > was read (`WebFetch` is EGRESS_BLOCKED; search-summary/śabda grade), and no search
+  > was run for the *obligation calculus itself* — discharge cost $c(u)$, the typed
+  > correction taxonomy, Prop. O2.3's mode-vocabulary distributivity — which stay
+  > unsearched and therefore unattributed. §7 and §8 are untouched and remain NOT DONE.
+  > Query: *Kildall 1973 unified approach global program optimization / Kam Ullman meet
+  > over all paths lattice / Green Karvounarakis Tannen provenance semirings PODS 2007 /
+  > de Kleer ATMS 1986*. Attribution status only.
 - **§7 missing ⇒ Corollary O2.4 has no number.** It says the meet-over-all-
   paths ranges over a path set whose cardinality makes manual review
   hopeless. That cardinality was to be computed exactly. It was not, so the
