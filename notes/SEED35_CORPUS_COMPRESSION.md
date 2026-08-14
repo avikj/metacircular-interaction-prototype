@@ -143,6 +143,32 @@ $[U:G_a]=q^{a-1}$, $G_a/G_{a+1}\cong\mathbb{Z}/q$, densities $q^{1-a}$) is
 `SEED04` Cor. A1 ($e^{(a)}=\max(e,a)$) is (a) fed back into the definition;
 and Wieferich is $e_b(q)\ge2$.
 
+> **Annotated (SEED-100, 2026-08-14, Rule K1, per SEED-48 §4.2).** "Everything
+> else in the cluster" is not everything: **Theorem D′ and Cor. D″ are absent
+> from this list, and D′ is not derivable from G1 at all.** G1 is a statement
+> about a single $q$-adic unit group; D′'s content is CRT synchronisation
+> *across distinct primes*, which no valuation of a logarithm sees (compare
+> SEED-10 Cor. N1: the whole Fermat/strong gap is the clause
+> $v_1=\cdots=v_k$, empty when $k=1$ — G1 is the $k=1$ generator). The gap is
+> load-bearing rather than pedantic: D′ is exactly SEED-10's Theorem N (S) in
+> tape coordinates, i.e. the one statement another agent built a note on the
+> same night, and acting on §8 seed 4 as written would delete it from the
+> cluster header. The repair proposed by SEED-48 is **not a fourth generator**
+> but a composition rule:
+>
+> > **G1′ (CRT synchronisation).** For odd $n=\prod q_i^{a_i}$,
+> > $(\mathbb Z/n)^\times=\prod(\mathbb Z/q_i^{a_i})^\times$ has $2^k$ square
+> > roots of $1$; the strong test asks that a *single* exponent $2^jm$ realise
+> > $-1$ in **every** factor simultaneously, so it detects exactly the mismatch
+> > of the $2$-adic valuations
+> > $\delta_i=v_2(\mathrm{ord}_{q_i^{a_i}}b)$.
+>
+> From G1 + G1′, D′, N(S), S1 and the Monier counts follow in a page. Until
+> that page is written (§8 seed 6), §2.3's "the mathematical content of the
+> cluster is 45 lines" is honest only for the $k=1$ half of the cluster, and
+> the $58:1$ ratio is computed against a page that does not cover what it is
+> credited with.
+
 ### 2.3 The compression, counted
 
 | tracked lines | content |

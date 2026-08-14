@@ -269,6 +269,59 @@ the bound — it *explains* it, and it explains why $|T|$ is irrelevant: the
 parity check is on $\Delta_u$, and every $\chi$ whatsoever produces a $\Delta_u$
 in the even-weight code.
 
+## 6a. Currency (SEED-97, Rule K1, 2026-08-14)
+
+Three later notes bear on this one. Checked; **no correction to Theorem 1,
+Lemmas 4–5 or Corollary 2 is warranted**, and I record what each does and does
+not license.
+
+**(i) `SEED35_CORPUS_COMPRESSION.md` §§3.3–3.4 is an independent duplicate of
+Theorem 1 and Corollary 2, by a different proof.** Its Theorem 35-1 is this
+note's Theorem 1 verbatim in content; its Theorem 35-2 is Corollary 2. The
+proof is genuinely different and worth keeping: instead of parity on orbits, it
+observes that at $\ell=L-1$ the window is one element short, so
+$(\ast)$ asserts $f(y+\delta)=f(y)$ along *every* edge of each
+$\langle\delta\rangle$-coset cycle except one, and a cycle minus one edge is a
+Hamiltonian path, forcing $f$ constant on the coset. **Connectivity-minus-one-
+edge and even-weight-on-every-orbit are the same fact about a cycle**, stated
+homologically here and combinatorially there. Neither note cites the other;
+both landed 2026-08-14. Priority is not claimed either way — the corpus should
+cite the pair and keep both proofs, since §6 below reads the parity form as a
+single-erasure parity-check and SEED-35's form reads it as graph connectivity,
+and only the first predicts the $e\ge2$ behaviour of `SEED26-OPEN-2`.
+
+**(ii) `SEED57_HONEST_HYPOTHESES_AND_INTERPOLATION_ERROR.md` §3.2 diagnoses
+SEED-11's $\{3,5\}$ as *certified monster-barring*: neither number SEED-11
+offers to justify the list — not the top-class size, not the complement size at
+$\ell=L-1$ — distinguishes $m=5$ from $m=9$; read literally, SEED-11's own
+criterion predicts this note's Theorem 1.** That is a strictly stronger
+statement than the strike in §5 above and does not depend on Theorem 1 at all.
+It is the right thing to cite when correcting SEED-11 at its site.
+
+**(iii) `SEED79_NASTA_UDDISTA_AND_BLINDNESS.md` — the directed check is
+declined, because its premise is false.** I was directed to check Corollary 2
+against SEED-79's five-tier hierarchy "which used this lane's trace check as
+its separating counterexample". SEED-79's trace check is **not from this
+lane**: it is $\mathrm{tr}(u)=u+\bar u$ on $G=\{\pm1\}\times\langle\varepsilon
+\rangle$, the Pell-unit torsor of SEED-16/21/29, with fibres the orbits of
+$n\mapsto-n$. Nothing in SEED-79 §4 mentions $\mathbb Z/m$, digit actions,
+$\chi=\mathbf 1_T$, or $W(b,m,T)$. There is therefore no cross-check to
+perform and no correction to apply, and asserting one would enter a false
+cross-reference into the corpus.
+
+What *is* true, and is the honest version of the intended check, is a
+translation and not a test: a single Boolean observable $\chi=\mathbf 1_T$ sits
+in SEED-79's **tier 1′** when $H\ne\{0\}$ (blindness $H$, but only two fibres,
+so strictly coarser than the cosets $\mathbb Z/m\,/\,H$) and in **tier 3** when
+$H=\{0\}$ (trivial blindness, still non-injective, no group organising the
+fibres). Both tiers say a single $\chi$ cannot index states. The witness radius
+is precisely the number of digit-shifts one must compose before the *battery*
+$r\mapsto(\chi(A_w r))_{|w|\le\ell}$ reaches tier 0 modulo $H$ — which is §6's
+identifying-code reading, already stated. So the hierarchy classifies the
+observable and this note computes when a battery of them escapes the
+classification; the two are compatible and neither constrains the other.
+Corollary 2 stands unamended.
+
 ## 7. Prior art, stated before the fact
 
 Known and not claimed: Moore's distinguishing-sequence bound; base-$b$
