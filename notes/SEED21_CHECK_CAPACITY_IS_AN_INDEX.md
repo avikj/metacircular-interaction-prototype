@@ -1,0 +1,256 @@
+# The zero-error capacity of a check is the index of its blind subgroup
+
+**Author:** SEED-21 (Shannon lens), 2026-08-14.
+**Status:** exact theorems, no measurement. Includes a deliberate negative:
+the Lovász/Shannon *gap* phenomena are unreachable for every check in this
+corpus, and I say why rather than manufacturing an example that reaches them.
+
+Files this reads: `notes/RANK_R_PAYLOAD_NORMAL_FORM.md` (R0038),
+`notes/MIXED_RANK_SMITH_STABILIZER.md` (R0037), `notes/DECODE_COST.md`,
+`formal/pairfield/Pairfield/MyhillNerodeAdapter.lean`.
+
+## 0. The lens
+
+Two files in this repository were doing the same thing in different
+vocabularies and neither named it.
+
+`RANK_R_PAYLOAD_NORMAL_FORM.md` computes what a normalization event
+`(U,V)`, `UMV = D`, carries beyond its endpoint: the endpoint is a function
+of `M` alone, and the whole payload `(A,B,E,R,S)` is *invisible* to it.
+`MyhillNerodeAdapter.lean` proves that two automaton states are identified
+exactly when no future experiment distinguishes them
+(`futureEq_iff_stateLanguage_eq`, `behavioralLanguage_injective`).
+
+Both are statements about **what a check cannot distinguish**. That is the
+object Shannon's zero-error theory is built on: a *confusability graph*. The
+lens both files lacked is one line —
+
+> A check `c` on a set of objects `X` is a channel whose confusability graph
+> is the fiber graph of `c`; its zero-error capacity says how many objects
+> `c` can certify apart with certainty.
+
+and the theorem below says the answer, exactly, in every case this corpus
+contains.
+
+## 1. The general statement
+
+Let `X` be a set of objects and `c : X → Σ` a check (any procedure that
+terminates in an observed value: a computed invariant, a recorded transcript,
+an acceptance bit). Define the **confusability graph** `G_c` on vertex set
+`X`: distinct `x, y` are adjacent iff `c(x) = c(y)`, i.e. iff a certifier
+armed only with `c` can be made to confuse them.
+
+**Theorem 1 (checks are perfect channels).** For any check `c`:
+
+1. `G_c` is a disjoint union of cliques (the fibers of `c`);
+2. `α(G_c) = |c(X)|`, the number of realized check values;
+3. `G_c ⊠ G_{c'} = G_{c×c'}`, so `α` is exactly multiplicative over
+   independent uses: `α(G_c^{⊠k}) = |c(X)|^k`;
+4. therefore the Shannon capacity and the Lovász bound coincide with the
+   independence number,
+   `Θ(G_c) = ϑ(G_c) = α(G_c) = |c(X)|`,
+   and the zero-error capacity is exactly `log₂ |c(X)|` bits per use — with
+   no asymptotics, no error term, and no gap.
+
+*Proof.* (1) `c(x) = c(y)` is an equivalence relation because `c` is a
+function; its classes are the fibers, and adjacency is "same fiber, distinct".
+(2) An independent set meets each fiber at most once and a transversal meets
+each exactly once. (3) In the strong product, `(x,x')` and `(y,y')` are
+adjacent-or-equal iff each coordinate is adjacent-or-equal, i.e. iff
+`c(x)=c(y)` and `c'(x')=c'(y')`, which is the adjacency-or-equality of the
+fiber graph of `c × c'`; hence `α(G_c ⊠ G_{c'}) = |c(X)|·|c'(X')|`.
+(4) `Θ = sup_k α(G^{⊠k})^{1/k} = α` by (3). A disjoint union of cliques is
+perfect (it is `P₄`-free), so its complement — a complete multipartite graph —
+is perfect and `ϑ` equals the clique-cover-dual value `α`; alternatively
+`α ≤ Θ ≤ ϑ` and `ϑ` of a disjoint union of `m` cliques is `m` by the standard
+orthonormal representation assigning one vector per clique. ∎
+
+**Theorem 2 (group form: capacity is an index).** Let `X` be a torsor under a
+group `G` (simply transitive action) and let `c` be invariant exactly under a
+subgroup `N ≤ G`, meaning `c(x) = c(y) ⟺ y = x·n` for some `n ∈ N`. Then the
+fibers of `c` are the `N`-orbits, and
+
+```text
+zero-error capacity of c  =  log₂ [G : N]   bits per use, exactly.
+```
+
+In particular `c` certifies apart exactly `[G:N]` objects, no more, and there
+is no coding scheme, block length, or randomization that improves it.
+
+*Proof.* Orbits of `N` on a `G`-torsor are the cosets `xN` under the identifi-
+cation `X ≅ G`; there are `[G:N]` of them; apply Theorem 1(2,4). ∎
+
+**Remark (section-independence).** In `RANK_R_PAYLOAD_NORMAL_FORM.md`
+Theorem 5(1), *no* function of one event's coordinates is independent of the
+chosen base event. Capacity nevertheless is: a change of base right-translates
+payloads (Theorem 4 there), right translation permutes the cosets of `N`
+bijectively, and `[G:N]` is untouched. The capacity of a check is a
+section-free invariant of a coordinate system in which nothing else is.
+
+## 2. The concrete instance: normalization events
+
+Fix `M ∈ ℤ^{n×n}` of rank `r`, `0 < r < n`, `s = n − r`, Smith endpoint
+`D = blockdiag(D_r, 0)`. By R0038 Theorem 3 the set `X` of events `(U,V)`
+with `UMV = D` is a torsor under `G = Stab²(D)`, with coordinates
+
+```text
+(A, B, E, R, S) ∈ Γ₀(D_r) × ℤ^{r×s} × GL_s(ℤ) × ℤ^{s×r} × GL_s(ℤ)
+```
+
+and the group law of R0038 Theorem 2. Four checks that this corpus actually
+performs, with their blind subgroups computed from that law:
+
+**(E) The endpoint check** — "recompute the Smith normal form of `M` and
+compare it to `D`". Blind subgroup `N_E = G` (the endpoint is a function of
+`M` alone).
+**Capacity 0 bits.** This is the corpus's recurring "check that accepts too
+much" in its sharpest form: the endpoint check certifies exactly one object,
+namely `M`, and *zero* bits about the derivation. Any claim of the form "the
+normalization was verified" that rests on the endpoint has certified nothing
+about the path.
+
+**(L) The left-transcript check** — record `U` and verify `UMV = D`. Blind
+subgroup `N_L = {(A,B,E,R,S) : A = I, B = 0, E = I}`, which is closed under
+the law (`(I,0,I,R,S)*(I,0,I,R',S') = (I,0,I, R' + S'R, S'S)`), so
+`N_L ≅ ℤ^{s×r} ⋊ GL_s(ℤ)`.
+**Capacity `log₂ ( |Γ₀(D_r)| · |ℤ^{r×s}| · |GL_s(ℤ)| )`.**
+
+**(R) The right-transcript check** — record `V`. Here `K = I` forces
+`D_r^{-1}A^{-1}D_r = I`, i.e. `A = I`, and `R = 0`, `S = I`, so
+`N_R = {(I,B,E,0,I)} ≅ ℤ^{r×s} ⋊ GL_s(ℤ)`, capacity
+`log₂ ( |Γ₀(D_r)| · |ℤ^{s×r}| · |GL_s(ℤ)| )`.
+
+*The corner leaks to both sides.* `K₁₁ = D_r^{-1}A^{-1}D_r` determines `A`,
+so the one-sided check `R` sees `(A,R,S)` and the one-sided check `L` sees
+`(A,B,E)`. Neither side is blind to the `Γ₀(D_r)` corner; each is blind to
+exactly the other's parabolic tail.
+
+**(C) The corner check** — verify only the `Γ₀(D_r)` corner (the R0035
+payload, the only coordinate that exists at `r = n`). Blind subgroup
+`N_C = {(I,B,E,R,S)}`, closed by the same computation.
+**Capacity `log₂ |Γ₀(D_r)|`.**
+
+**Theorem 3 (exact accounting, `n = 2`, `r = s = 1`).** Let `D = diag(d, 0)`,
+`d ≥ 1`. Then `Γ₀(d) = GL_1(ℤ) = {±1}` and the coordinates are
+`(A,B,E,R,S) ∈ {±1} × ℤ × {±1} × ℤ × {±1}`. Restrict to the finite window
+`W_m = { |B| ≤ m, |R| ≤ m }`, so `|W_m| = 8(2m+1)²`. Then per use of each
+check, exactly:
+
+```text
+check           sees            classes         capacity (bits)
+E  endpoint     —               1               0
+C  corner       A               2               1
+L  left         (A,B,E)         4(2m+1)         2 + log₂(2m+1)
+R  right        (A,R,S)         4(2m+1)         2 + log₂(2m+1)
+L∧R jointly     everything      8(2m+1)²        3 + 2·log₂(2m+1)
+```
+
+and the inclusion–exclusion is exact:
+
+```text
+cap(L) + cap(R) − cap(L ∧ R)  =  1  =  log₂|Γ₀(d)|,
+```
+
+i.e. **the redundancy between the two one-sided checks is exactly the corner,
+to the bit.** In general rank the same identity reads
+`cap(L) + cap(R) − cap(L∧R) = log₂|Γ₀(D_r)|`.
+
+*Proof.* Count fibers and apply Theorem 2; the joint check `L ∧ R` is the
+product check `c_L × c_R`, whose blind subgroup is `N_L ∩ N_R = {1}`, giving
+`[G : 1] = |W_m|` by Theorem 1(3). The overlap identity is the table read
+aloud: `log₂ 4(2m+1) + log₂ 4(2m+1) − log₂ 8(2m+1)² = log₂ 2 = 1`. In general
+rank the same subtraction reads
+`log(|Γ₀|·|ℤ^{r×s}|·|GL_s|) + log(|Γ₀|·|ℤ^{s×r}|·|GL_s|) −
+ log(|Γ₀|·|ℤ^{r×s}|·|GL_s|·|ℤ^{s×r}|·|GL_s|) = log|Γ₀(D_r)|`,
+the corner counted once on each side and once in the joint check. ∎
+
+No floating point appears anywhere above, and no constant is fitted: every
+number is a cardinality.
+
+## 3. The honest negative: Lovász theta has nothing to do here
+
+The mandate was to apply zero-error information theory *literally, and only if
+it is honest*. Half of it is honest and half of it is not, and the split is
+clean enough to state as a theorem, which is Theorem 1(4):
+
+**Every check in this corpus has `α = Θ = ϑ`.** The phenomena that make
+zero-error information theory interesting — the `C₅` pentagon with
+`α = 2 < Θ = √5 < ϑ = √5`, strict superadditivity of independence numbers
+under strong products (Haemers, Alon), the separation between `Θ` and the
+zero-error *quantum* dimension — all require a confusability relation that is
+**not transitive**. Confusability here is always `c(x) = c(y)`, an equivalence
+relation, because every check in this repository is "compute an invariant and
+compare it". Equivalence ⇒ disjoint cliques ⇒ perfect graph ⇒ no gap.
+
+So: the Lovász number, the theta body, and the quantum bound are *correct and
+useless* here. Invoking them on a corpus of invariant-checks would be
+decoration. The content is Theorem 2 — capacity is an index — and it is
+elementary.
+
+What would make them bite is a check with a **tolerance**: an acceptance
+predicate `x ≈ y` that is reflexive and symmetric but not transitive, e.g.
+"the elementary divisors agree up to one doubling", or "the payload corners
+agree modulo a prime up to `±1`". The second of those on `ℤ/5` is literally
+`C₅` and would have `Θ = √5`. I am not writing it down as a result, because
+this corpus contains no such check and inventing one to make the analogy land
+would be exactly the manufactured-analogy failure the mandate warned against.
+The correct standing item is `SEARCH`: does any check in this repository
+accept a *tolerance* rather than an equality? If one does, its capacity is
+genuinely a Lovász problem. If none does, Theorem 1 closes the subject.
+
+## 4. Consequence for the decode-cost thread
+
+`DECODE_COST.md` §3 identifies its four-level recurrence as one bound: *a
+scheme over alphabet `A` has at most `|A|^L` names of length `L`*
+(`NAMING_RULE_ACCOUNTING.md` Theorem X). Theorem 2 is that bound's dual on the
+verification side, and it fixes the constant that §3 left implicit:
+
+**Corollary.** If certificates for objects in `X` are checked only by `c`, and
+`c` is blind to `N`, then any naming scheme over an alphabet `Σ` whose names
+are *verified* by `c` needs names of length at least
+`log_{|Σ|} [G : N]`, and this is attained. A name longer than that is paying
+for distinctions the check discards; a name shorter than that certifies a
+class, not an object.
+
+At `r = s = 1` in the window `W_m`: a certificate checked by the left
+transcript alone can honestly name at most `4(2m+1)` events, so binary names
+below `2 + log₂(2m+1)` bits are ambiguous and names above it are certifying
+nothing extra — the check, not the encoder, sets the length.
+
+This also re-reads the `MyhillNerodeAdapter.lean` result in one line:
+`behavioralLanguage_injective` says the residual-language check has blind
+subgroup trivial *on the behavioral quotient*, i.e. capacity
+`log₂ |reachableBehavioralStates|`; and
+`accepts_isRegular_iff_reachableBehavioralStates_finite` says the check has
+**finite** zero-error capacity exactly when the language is regular. Myhill–
+Nerode is the statement that a check's capacity is finite iff the object it
+checks is a finite automaton. That is a genuinely Shannon-shaped reading of a
+theorem already formalized here, and it costs nothing to add.
+
+## Rigor boundary
+
+**Proved:** Theorems 1, 2, 3 and the Corollary, from the definitions plus
+R0037/R0038 Theorem 1–3 (cited, proved there) and the standard facts that
+disjoint unions of cliques are perfect and `α ≤ Θ ≤ ϑ` (Lovász 1979, cited,
+not reproved).
+**Not proved / not claimed:** nothing about tolerance checks; the `C₅`
+sentence in §3 is an illustration of a hypothetical, explicitly not a result.
+**No novelty claimed** for Theorems 1–2: "confusability of a deterministic
+observation is an equivalence relation, so its zero-error capacity is the log
+of the number of classes" is folklore in zero-error information theory and is
+the Myhill–Nerode observation in another alphabet. The content is the exact
+index computation for this corpus's checks (§2) and the negative in §3.
+
+## Successor seeds
+
+1. `SEARCH`: any check in the repository whose acceptance is a *tolerance*
+   (reflexive, symmetric, non-transitive). Only such a check can have
+   `α < Θ`. If the search comes back empty, record that and close the
+   zero-error line.
+2. `PROVE`: `|Γ₀(D_r)|` and `|GL_s(ℤ)|` are infinite, so §2's general
+   capacities are `∞` without a window. Give the *growth* of the number of
+   distinguishable classes in a height-`≤ m` window — a counting problem for
+   `Γ₀(D_r)` points of bounded height, not a measurement.
+3. `PROVE`: state the endpoint check's capacity-0 result (§2 E) wherever the
+   corpus asserts "verified by normal form", and check whether any existing
+   claim in the corpus rests on it.
