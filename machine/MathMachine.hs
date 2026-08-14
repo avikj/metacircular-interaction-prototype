@@ -135,6 +135,10 @@ vocabulary =
       [ (bin "max" x_ zero_,          x_)
       , (bin "max" zero_ x_,          x_)
       , (bin "max" (su x_) (su y_),   su (bin "max" x_ y_)) ]
+  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
+      [ (bin "-" x_ zero_,          x_)
+      , (bin "-" zero_ x_,          zero_)
+      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
       -- gcd needs its recursion, not just its base cases: a symbol the
       -- machine can compute but not unfold is a black box it can test
@@ -150,10 +154,6 @@ vocabulary =
       [ (bin "le" zero_ x_,          su zero_)
       , (bin "le" (su x_) zero_,     zero_)
       , (bin "le" (su x_) (su y_),   bin "le" x_ y_) ]
-  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
-      [ (bin "-" x_ zero_,          x_)
-      , (bin "-" zero_ x_,          zero_)
-      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   ]
 
 definitionsOf :: [Sym] -> [Rule]
