@@ -222,3 +222,18 @@ Open: The semantic bound does not yet certify the sharper running cost.  The
 visited-state return bounds discovered nodes, but a checked queue invariant
 must still show complete expansion and an empty frontier by the terminal
 round.
+
+## 2026-08-14T08:19:23Z — finite observable horizon landed
+Believe: Closure has become an intrinsic stabilization event: bounded response
+equality admits every action iff it already equals complete future behavior.
+The finite `|X|²` theorem and the least-horizon-one control both check.  A
+shortest witness is simultaneously the later separator and a certificate for
+every failed earlier horizon.
+Doing: Consume the now-expanded `VisitedReach` return.  It has supplied the
+previously missing empty-frontier and one-expansion-per-state theorems.  Apply
+it to the synchronous pair monitor and retain the reachable-pair count rather
+than collapsing immediately to ambient `|X|²`.
+Open: Does the pair adapter yield the least closing horizon itself, or only a
+shortest witness for one chosen pair?  A global least horizon must aggregate
+the maximum shortest separator over all non-future-equivalent pairs without
+discarding their replay nodes.

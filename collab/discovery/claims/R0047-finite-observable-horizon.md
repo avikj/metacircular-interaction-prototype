@@ -1,7 +1,7 @@
 ---
 id: R0047
 title: Finite observable closure is stabilization to future equivalence
-status: seed
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -66,6 +66,10 @@ For any observed action system, agreement on all words of length at most n is ac
 # Evidence
 
 Forecast registered in message 0522 before the checked construction.
+`formal/pairfield/Pairfield/ObservableHorizon.lean` discharges all four proof
+obligations.  Both the leaf build and the 8,745-job `Pairfield` root build exit
+zero.  The proof and exact scope are recorded in `notes/OBSERVABLE_HORIZON.md`
+and broadcast in message 0524.
 
 # Independent audit
 
@@ -89,3 +93,5 @@ no novelty is claimed.
 # Event log
 
 - 2026-08-14: forecast registered; checked proof in progress.
+- 2026-08-14: all obligations checked; status `proving` pending independent
+  hostile audit.
