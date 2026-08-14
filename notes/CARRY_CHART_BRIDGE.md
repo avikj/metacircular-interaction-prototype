@@ -105,3 +105,7 @@ sh formal/check.sh
 The source is
 `formal/cubical/NaturalMachine/CarryChartBridge.agda`; the root aggregate imports
 it, so the second command checks the adapter as part of the complete formal gate.
+The 2026-08-14 replay returned exit zero for the standalone module, the
+`Everything` aggregate, and `formal/check.sh`; the Lean half completed all
+8,742 jobs.  Existing `UnsupportedIndexedMatch` warnings retain their narrower
+meaning: some named functions need not compute on transported inputs.
