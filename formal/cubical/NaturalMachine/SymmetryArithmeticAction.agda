@@ -67,6 +67,18 @@ loopTransportedPortRead-invariant : {n : ℕ} (p : Fin n ≡ Fin n)
 loopTransportedPortRead-invariant p =
   transportedPortRead-invariant (pathToEquiv p)
 
+-- Under the transported-port policy the whole loop carrier collapses to one
+-- observable behavior. Distinct paths can require distinct actions while
+-- still representing the same predictive state for this declared interface.
+loopTransportedBehavior-collapse : {n : ℕ} (p q : Fin n ≡ Fin n)
+                                  → (registers : Fin n → ℕ)
+                                  → loopTransportedPortRead p registers
+                                   ≡ loopTransportedPortRead q registers
+loopTransportedBehavior-collapse p q registers =
+  funExt λ port →
+    loopTransportedPortRead-invariant p registers port
+    ∙ sym (loopTransportedPortRead-invariant q registers port)
+
 pointwiseProduct : {n : ℕ} → (Fin n → ℕ) → (Fin n → ℕ) → Fin n → ℕ
 pointwiseProduct weights registers port = weights port · registers port
 
