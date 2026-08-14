@@ -41,7 +41,7 @@ theorem alphabet_complete (n : Nat) (action : Fin n) :
 /-- Unlike R0049's first ambient control, every row in this family is a
 genuine prefix-reached state. -/
 theorem all_states_reachable (n : Nat) (state : Option (Fin n)) :
-    ∃ prefix : List (Fin n), (automaton n).eval prefix = state := by
+    ∃ pre : List (Fin n), (automaton n).eval pre = state := by
   cases state with
   | none => exact ⟨[], rfl⟩
   | some action => exact ⟨[action], rfl⟩
@@ -75,6 +75,11 @@ theorem closesAt_one (n : Nat) : ObservableClosesAt step observe 1 := by
   rw [bounded_one_injective n left right hbounded]
   exact futureEq_refl step observe right
 
+theorem acceptsBool_automaton (n : Nat) :
+    acceptsBool (automaton n) = (@observe n) := by
+  funext state
+  cases state <;> rfl
+
 theorem not_closesAt_zero {n : Nat} (hn : 2 ≤ n) :
     ¬ ObservableClosesAt (@step n) observe 0 := by
   let first : Fin n := ⟨0, by omega⟩
@@ -94,11 +99,16 @@ theorem uniform_horizon_eq_one {n : Nat} (hn : 2 ≤ n) :
     globalObservableHorizon (automaton n) (alphabet n) = 1 := by
   have hleast := globalObservableHorizon_isLeast
     (automaton n) (alphabet n) (alphabet_complete n)
+  have hclose : ObservableClosesAt (automaton n).step
+      (acceptsBool (automaton n)) 1 := by
+    rw [acceptsBool_automaton]
+    exact closesAt_one n
   have hle : globalObservableHorizon (automaton n) (alphabet n) ≤ 1 :=
-    hleast.2 (closesAt_one n)
+    hleast.2 hclose
   have hne : globalObservableHorizon (automaton n) (alphabet n) ≠ 0 := by
     intro hzero
     apply not_closesAt_zero hn
+    rw [← acceptsBool_automaton]
     rw [← hzero]
     exact hleast.1
   omega
@@ -110,7 +120,7 @@ theorem residual_horizon_isLeast {n : Nat} (hn : 2 ≤ n) :
     (automaton n) (alphabet n) (alphabet_complete n)
     (all_states_reachable n)
 
-namespace BoolExperimentTree
+open BoolExperimentTree
 
 /-- Actions encountered while repeatedly taking the false-response branch. -/
 def falseSpine {A : Type} : BoolExperimentTree A → List A
@@ -118,7 +128,7 @@ def falseSpine {A : Type} : BoolExperimentTree A → List A
   | .query action onFalse _ => action :: falseSpine onFalse
 
 theorem falseSpine_length_le_depth {A : Type} (tree : BoolExperimentTree A) :
-    tree.falseSpine.length ≤ tree.depth := by
+    (falseSpine tree).length ≤ tree.depth := by
   induction tree with
   | done => rfl
   | query action onFalse onTrue ihFalse ihTrue =>
@@ -130,7 +140,7 @@ theorem falseSpine_length_le_depth {A : Type} (tree : BoolExperimentTree A) :
 /-- Two hidden states never named on the false spine return the same trace. -/
 theorem trace_eq_some_of_not_mem_falseSpine {n : Nat}
     (tree : BoolExperimentTree (Fin n)) {left right : Fin n}
-    (hleft : left ∉ tree.falseSpine) (hright : right ∉ tree.falseSpine) :
+    (hleft : left ∉ falseSpine tree) (hright : right ∉ falseSpine tree) :
     tree.trace (@step n) observe (some left) =
       tree.trace step observe (some right) := by
   induction tree with
@@ -181,19 +191,19 @@ theorem linear_trace_ne_of_mem {n : Nat} (actions : List (Fin n))
           simpa [linear, trace, responses, step, observe, hleft, hright] using
             congrArg List.tail heq
 
-end BoolExperimentTree
-
 /-- Probe every hidden state except `omitted`. -/
-def omitOneTree {n : Nat} (omitted : Fin n) :
+noncomputable def omitOneTree {n : Nat} (omitted : Fin n) :
     BoolExperimentTree (Fin n) :=
-  BoolExperimentTree.linear ((Finset.univ.erase omitted).toList)
+  linear ((Finset.univ.erase omitted).toList)
 
 theorem omitOneTree_depth {n : Nat} (omitted : Fin n) :
     (omitOneTree omitted).depth = n - 1 := by
+  classical
   simp [omitOneTree]
 
 theorem omitOneTree_identifies {n : Nat} (omitted : Fin n) :
     (omitOneTree omitted).IdentifiesAll (@step n) observe := by
+  classical
   intro left right htrace
   cases left with
   | none =>
@@ -207,17 +217,21 @@ theorem omitOneTree_identifies {n : Nat} (omitted : Fin n) :
           simp [BoolExperimentTree.trace, observe] at htrace
       | some right =>
           by_contra hne
+          have hneFin : left ≠ right := by
+            intro heq
+            apply hne
+            rw [heq]
           have hmem :
               left ∈ (Finset.univ.erase omitted).toList ∨
                 right ∈ (Finset.univ.erase omitted).toList := by
             by_cases hleft : left = omitted
             · have hright : right ≠ omitted := by
                 intro hright
-                exact hne (hleft.trans hright.symm)
+                exact hneFin (hleft.trans hright.symm)
               exact Or.inr (by simp [hright])
             · exact Or.inl (by simp [hleft])
-          exact (BoolExperimentTree.linear_trace_ne_of_mem
-            ((Finset.univ.erase omitted).toList) hne hmem) htrace
+          exact (linear_trace_ne_of_mem
+            ((Finset.univ.erase omitted).toList) hneFin hmem) htrace
 
 /-- The false-spine capacity obstruction: an identifying policy must name all
 but at most one hidden state. -/
@@ -226,19 +240,19 @@ theorem adaptive_depth_lower_bound {n : Nat}
     (hidentifies : tree.IdentifiesAll (@step n) observe) :
     n - 1 ≤ tree.depth := by
   classical
-  let queried : Finset (Fin n) := tree.falseSpine.toFinset
+  let queried : Finset (Fin n) := (falseSpine tree).toFinset
   have hcomplement : (queriedᶜ).card ≤ 1 :=
     (Finset.card_le_one_iff).2 (by
       intro left right hleft hright
-      have hleft' : left ∉ tree.falseSpine := by
+      have hleft' : left ∉ falseSpine tree := by
         simpa [queried] using hleft
-      have hright' : right ∉ tree.falseSpine := by
+      have hright' : right ∉ falseSpine tree := by
         simpa [queried] using hright
       exact Option.some.inj (hidentifies
-        (tree.trace_eq_some_of_not_mem_falseSpine hleft' hright')))
-  have hqueried : queried.card ≤ tree.falseSpine.length := by
+        (trace_eq_some_of_not_mem_falseSpine tree hleft' hright')))
+  have hqueried : queried.card ≤ (falseSpine tree).length := by
     exact List.toFinset_card_le
-  have hspine := tree.falseSpine_length_le_depth
+  have hspine := falseSpine_length_le_depth tree
   have htotal := Finset.card_add_card_compl queried
   simp only [Fintype.card_fin] at htotal
   omega
@@ -248,7 +262,7 @@ theorem adaptive_depth_isLeast {n : Nat} (hn : 2 ≤ n) :
       (@step n) observe fuel } (n - 1) := by
   let omitted : Fin n := ⟨n - 1, by omega⟩
   constructor
-  · exact ⟨omitOneTree omitted, omitOneTree_depth omitted,
+  · exact ⟨omitOneTree omitted, (omitOneTree_depth omitted).le,
       omitOneTree_identifies omitted⟩
   · intro fuel hidentifies
     obtain ⟨tree, hdepth, htree⟩ := hidentifies

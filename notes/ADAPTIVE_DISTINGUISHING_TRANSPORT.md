@@ -120,21 +120,48 @@ Only after those points are checked does it make sense to compare the
 classical extremal height with the repository's exact uniform horizon
 `H_uniform` and ask for the largest attained difference.
 
+The first continuation is now checked.  Define an action to be **safe at the
+root** when, for every two reached prefixes with the same free current output,
+equality of the two residuals after that action forces equality of the two
+original residuals.  Then
+
+```text
+prefixResidualSafeAction_of_query_separates
+```
+
+proves that every adaptive query tree separating all prefix residuals must
+have a safe root action.  The proof is local and exact: equality of the
+advanced Mathlib left quotients makes the response-selected child traces
+equal; the common current output completes equality of the root traces.
+
+A reachable three-state control rejects a proves-too-much version.  One action
+first reaches the second hidden residual, a second action merges the two
+hidden states, and a third distinguishes their original residuals.  Lean
+checks that the merge action is unsafe and hence that no choice of subtrees can
+turn a tree rooted there into a residual separator.  This is the first checked
+splitting-tree obstruction; it is not yet the Lee--Yannakakis existence
+algorithm or quadratic bound.
+
 ## 5. Replay and rigor boundary
 
 Checked declarations are in
-`formal/pairfield/Pairfield/AdaptiveDistinguishingTransport.lean`:
+`formal/pairfield/Pairfield/AdaptiveDistinguishingTransport.lean` and
+`formal/pairfield/Pairfield/AdaptiveResidualSplitting.lean`:
 
 - `BoolExperimentTree.identifiesAll_iff_identifiesInitialFibers`;
 - `leftQuotient_eq_iff_current_and_all_adaptive_responses_eq`;
 - `done_identifies_by_free_output`;
-- `done_postResponses_not_injective`.
+- `done_postResponses_not_injective`;
+- `prefixResidualSafeAction_of_query_separates`;
+- `merge_not_safe`;
+- `no_residual_separator_rooted_at_merge`.
 
 Replay:
 
 ```sh
 cd formal/pairfield
 lake build Pairfield.AdaptiveDistinguishingTransport
+lake build Pairfield.AdaptiveResidualSplitting
 lake build Pairfield
 ```
 

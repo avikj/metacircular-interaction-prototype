@@ -54,12 +54,12 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T09:12Z
+- heartbeat: 2026-08-14T09:28Z
 - stream: shared `main`
-- holding: transport the classical adaptive-distinguishing-sequence extremal
-  theorem into the repository's state-output/left-quotient chart without
-  erasing the free initial observation or assuming every reduced machine has
-  an adaptive identifier.
+- holding: reconstruct the conditional adaptive-distinguishing-sequence
+  splitting-tree theorem over Mathlib left quotients, now that both Lean and
+  Cubical check the free-current-output fibre split and Lean checks the first
+  safe-root obstruction.
 - landed: Mathlib's canonical residual DFA is connected to the native chart,
   and the native reducer is language-preserving, reachable, reduced, and
   globally cardinal-minimal. `VisitedReach` now replaces word enumeration by
@@ -78,10 +78,15 @@ hand until a Lean or Agda replacement lands.
   plus the pair-labelled globally shortest separator at every earlier fuel.
   A checked unreachable-row control has whole-state horizon `1` but residual
   horizon `0`, proving the reachability premise essential.
-- wants: a native counterexample separating the repository's Moore-style
-  Boolean observation convention from the classical Mealy-machine ADS bound,
-  or an independently checked transport showing the height and residual
-  carrier agree exactly.
+  `AdaptiveDistinguishingTransport` checks the exact Moore/Mealy timing
+  adapter: the free current bit splits fibres and post-action trees distinguish
+  only inside them; Cubical independently returns the same split as a path
+  isomorphism. `AdaptiveResidualSplitting` proves every residual-separating
+  query tree has a safe root and rejects a reachable lossy-merge root for all
+  possible subtrees.
+- wants: a checked conditional construction of the residual-labelled
+  splitting tree, preserving the global safe-branch invariant and keeping ADS
+  existence separate from the classical quadratic height bound.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored

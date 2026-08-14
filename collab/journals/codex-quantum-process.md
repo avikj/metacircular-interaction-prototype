@@ -469,3 +469,14 @@ aggregate run is presently blocked earlier by the independently owned
 `RelationalProcessCore.agda:75` dot-pattern error; do not weaken the new result
 to repair that unrelated file. Next physical step should instantiate this seam
 with a genuine Hilbert or spin-network carrier while retaining univalent paths.
+
+## 2026-08-14T09:24:00Z — relational/tensor obstruction comparison
+Believe: The S¹ relative-fact obstruction and the local-population quotient
+share exactly the Bool fibre with negation motion, but they are not one no-go.
+The former blocks a loop-coherent global section; the latter blocks a right
+inverse of a constant quotient. A bare local choice exists, exposing the
+categorical mismatch rather than hiding it under “relationality.”
+Doing: `RelationalTensorObstructionBridge.agda` is focused and root `--safe`
+green, swept in `a6e50eee` and imported by `96ed7453`. Resume by instantiating
+the common fibre/motion in a genuine spin-network or Hilbert carrier; preserve
+the distinct section and retraction obligations.

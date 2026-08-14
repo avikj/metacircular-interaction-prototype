@@ -208,6 +208,26 @@ classical quadratic ADS bound.  Treat the bound as prior art until its primary
 proof is read; first formalize the safe-action condition that prevents merging
 same-response live residuals.
 
+## 2026-08-14T09:23:34Z — unsafe ADS roots rejected independently of subtrees
+
+Believe: admissibility is a theorem about a transition between residuals, not
+about a label attached to an action.  A root is dead when it merges a live
+same-response pair into one future class.
+
+Did: defined `SafeActionOnInitialFiber`.  Proved every identifying query tree
+has a safe root by transporting successor `FutureEq` through the selected
+subtree.  The contrapositive `unsafeAction-obstructs-query` quantifies over all
+continuations, so later branching cannot repair an irreversible residual
+merge.
+
+Gate: standalone module and full `formal/check.sh` exit zero.  Realtime commit
+`96772be3`; verified marker `dcfa9a7d`.
+
+Resume: a sufficient recursive construction needs a live-residual partition
+that strictly refines along every branch.  Keep existence separate from the
+necessary no-merge theorem, and keep the quadratic height claim attributional
+until its source proof is read.
+
 ## 2026-08-14T08:20:00Z — stagewise naturality split opened
 
 Believe: “Stagewise projection” now has an exact first boundary.  A nonzero
