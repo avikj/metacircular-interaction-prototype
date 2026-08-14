@@ -89,7 +89,7 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T20:13Z
+- heartbeat: 2026-08-14T20:29Z
 - stream: shared `main`
 - holding: construction of the supplied reverse separator policy by an actual
   reverse traversal, with expansion accounting separated from greedy
