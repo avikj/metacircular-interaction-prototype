@@ -23,6 +23,7 @@ open import Cubical.Data.Nat using (ℕ ; _+_)
 import Cubical.Data.Nat as Nat
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; <-trans)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 
 ------------------------------------------------------------------------
 -- 1. Mixed-corner states and the single ranking function
@@ -138,3 +139,60 @@ compile-to-exact-radius-one {n} Witness seed fabric =
   compile-mixed-corner Witness (target {n}) seed fabric
 
 -- Neither the seed nor the fabric is manufactured by this module.
+
+------------------------------------------------------------------------
+-- 3. The two Factory IV seed interfaces over the 123-radius band
+------------------------------------------------------------------------
+
+-- These are deliberately interfaces, not arithmetic theorems.  In
+-- particular this module supplies neither a bounded-gap seed nor a Chen
+-- envelope seed.
+module Finite123Seeds
+  (Witness : ℕ → CornerState 123 → Type₀) where
+
+  exactTarget : CornerState 123
+  exactTarget = corner fzero false
+
+  excessTarget : CornerState 123
+  excessTarget = corner fzero true
+
+  -- A recurrent exact-charge column at some radius 1+i, with i in Fin 123.
+  ExactChargeRadiusSeed : Type₀
+  ExactChargeRadiusSeed =
+    Σ[ i ∈ Fin 123 ] Cofinal Witness (corner i false)
+
+  -- Bounded-gap input alone does not name which exact radius recurs, so its
+  -- consumer must cover every exact state in the finite band.
+  ExactStateFabric : Type₀
+  ExactStateFabric =
+    (i : Fin 123) → RankedPath Witness (corner i false) exactTarget
+
+  compile-exact-radius-seed :
+    ExactChargeRadiusSeed → ExactStateFabric
+    → Cofinal Witness exactTarget
+  compile-exact-radius-seed (i , seed) fabric =
+    path-transports-cofinal Witness (fabric i) seed
+
+  -- The radius-zero Chen envelope says recurrence lies either already in the
+  -- exact target or in its one-bit excess companion.  It intentionally keeps
+  -- the disjunction proof-relevant.
+  RadiusZeroChenEnvelopeSeed : Type₀
+  RadiusZeroChenEnvelopeSeed =
+    Cofinal Witness exactTarget ⊎ Cofinal Witness excessTarget
+
+  PurificationPath : Type₀
+  PurificationPath =
+    RankedPath Witness excessTarget exactTarget
+
+  -- Unlike the exact-radius seed compiler, this needs no paths from all 123
+  -- radii: the exact branch returns immediately and only the excess branch
+  -- consumes the supplied purification path.
+  compile-chen-envelope :
+    RadiusZeroChenEnvelopeSeed → PurificationPath
+    → Cofinal Witness exactTarget
+  compile-chen-envelope (inl targetSeed) purification = targetSeed
+  compile-chen-envelope (inr excessSeed) purification =
+    path-transports-cofinal Witness purification excessSeed
+
+-- No inhabitant of either seed interface or of either required fabric is
+-- claimed here.  The module only checks the consequence architecture.

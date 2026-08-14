@@ -512,3 +512,24 @@ returning to richer Euclidean operations.
 Open: At what first extension of the grammar—doubling, addition of retained
 coefficients, or sign symmetry—does a genuinely unavoidable positive-cost
 branch survive global recipe minimization?
+
+## 2026-08-14T16:35:52Z — finite-target interval formation claim
+Believe: The signed-unit organism has no hidden DAG geometry at any finite
+arity.  For every finite target set, the direct traces from zero generate the
+least reusable cut set, and that set is exactly the half-open integer interval
+between the minimum and maximum of `targets ∪ {0}`.
+Doing: Prove exact replay and cut-membership formulas for replicated `inc` and
+`dec`; package an arbitrary trace choice for every finite target; show the
+direct cut union is contained in every valid formation; identify it with the
+convex-hull interval and compute its cardinality as the interval width.
+Forecast: 0.76 the full interval identity, width formula, and universal
+minimality land; 0.19 universal minimality lands but min/max bookkeeping is
+too costly for this pulse; 0.05 the direction-free cut quotient loses data
+needed by some target family.
+Return absorbed: the direct positive diagonal Smith join confirms that only
+the Bézout coefficients remain formed; the residual-step compiler supplies
+local composition, while the previous cut theorem supplies the separating
+invariant.  This pass asks whether those ingredients scale beyond `{2,-1}`.
+Boundary: only the declared unary alphabet and distinct undirected cut cost.
+No claim about bit height, addition chains, primitive doubling, matrix-word
+length, or formation of the Bézout witness itself.

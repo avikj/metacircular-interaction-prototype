@@ -238,7 +238,8 @@ Define a nonnegative function
 \[
  f(0)=0,
  \qquad
- f(x)=1+\chi(x)\quad(x\ne0). \tag{10}
+ f(x)=1+\chi(x)\quad(x\ne0). \tag{9}
+\]
 
 It takes only the values `0` and `2`, and
 
@@ -259,7 +260,7 @@ Let additive convolution be
  C(0)=0,
  \qquad
  C(t)=r-1-2\chi(t)>0\quad(t\ne0). }
- \tag{11}
+ \tag{10}
 \]
 
 #### Proof
@@ -303,7 +304,7 @@ Subtract the constant density prediction
 and define the residual
 
 \[
- a(t)=C(t)-M. \tag{12}
+ a(t)=C(t)-M. \tag{11}
 \]
 
 Then
@@ -315,7 +316,7 @@ Then
 while for `t ne 0`
 
 \[
- a(t)=1-r^{-1}-2\chi(t), \tag{13}
+ a(t)=1-r^{-1}-2\chi(t), \tag{12}
 \]
 
 so every nonzero residual has absolute value less than `3`, apart from the
@@ -330,7 +331,7 @@ is positive and
  \operatorname{UP}_H(a;0)
  &=\sum_{t\ne0}(a(t)-a(0))\\
  &=\sum_{t\ne0}C(t)\\
- &=(r-1)^2. \tag{14}
+ &=(r-1)^2. \tag{13}
 \end{aligned}
 \]
 
@@ -347,8 +348,7 @@ we have
  \operatorname{UP}_H(a;0)
  =\frac r{r-1}M|H|>\gamma M|H|
  \quad\text{for every }\gamma<1. }
- \tag{15}
-\]
+ \tag{14}
 \]
 
 The model also has square-root nontrivial additive Fourier coefficients.  If
@@ -357,7 +357,7 @@ The model also has square-root nontrivial additive Fourier coefficients.  If
 \[
  \widehat f(k)=\widehat\chi(k)-1,
  \qquad
- |\widehat f(k)|\le\sqrt r+1, \tag{16}
+ |\widehat f(k)|\le\sqrt r+1, \tag{15}
 \]
 
 by the quadratic Gauss-sum identity.  Thus excellent phase-blind Fourier
@@ -390,11 +390,11 @@ form
  a(m_0)\le-cX
  \Longrightarrow
  \text{a retained arithmetic mode selecting a family }H_{m_0}
- \text{ on which the negative phase persists}. \tag{17}
+ \text{ on which the negative phase persists}. \tag{16}
 \]
 
 The retained mode may be a character conductor, a Type-II bilinear packet, or
-another proof-relevant obstruction.  Equation (17) must be proved for the
+another proof-relevant obstruction.  Equation (16) must be proved for the
 actual prime-log polynomial; the finite model only shows why the mode cannot
 be omitted.
 
@@ -402,7 +402,7 @@ be omitted.
 
 - **Exact, proved here:** selector duality (1)--(2); necessary signed mean
   (4); convolution rewrite (5)--(6); the `L2` lower bound (7); the finite
-  odd-character convolution (11)--(16).
+  odd-character convolution (10)--(15).
 - **Constant audit:** with `epsilon=c/4`, the safe displayed specialization
   (8) uses `|H|>=32B/(c^2X^2)`; theorem (7) is exact and should be used
   directly.

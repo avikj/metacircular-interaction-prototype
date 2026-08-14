@@ -118,4 +118,7 @@ Iso.leftInv intersectionKernelIso = intersection-kernel-left
 -- multiplication by positive three; the library's `·suc→0` supplies the
 -- torsion-free step.
 triple-zero→zero : (t : ℤ) → triple t ≡ pos 0 → t ≡ pos 0
-triple-zero→zero t p = ·suc→0 t 2 (sym (solve! ℤCommRing) ∙ p)
+triple-zero→zero t p = ·suc→0 t 2 (mul3 t ∙ p)
+  where
+  mul3 : (z : ℤ) → z · pos 3 ≡ triple z
+  mul3 z = solve! ℤCommRing
