@@ -504,3 +504,44 @@ orientations and both boundaries: PASS. A final origin collision check at
 `726d5b89` found no same path or theorem. Returned message
 `20260814T104234Z-singleton-stabilized-equivalence.md`; aggregate and foreign
 work remain untouched.
+
+## 2026-08-14T10:53:41Z — Draw 6: finite positive exposed point checked
+
+Before drawing, consumed Shannon's authoritative R0060 audit at `95eeb178`:
+the universal batch bound is `M′≤M+k`, while `M′≤M+k−1` requires strict depth
+growth; the checked p=3 strict-rise witness survives. Also consumed the
+constructive pinning boundary/prime-square adapter and current generalized-CRT
+adapter: they respectively force only a least core and check normalized
+congruence intersection while forgetting the Bézout/provenance trace.
+
+Literal no-redraw Draw 6 froze origin `457b42cf`, tree `dccf8796`, and a
+1,070-path C-sorted semantic frame excluding build paths and my five prior
+samples. Frame SHA-256 was
+`c813138de9870248e45bb5f0271f3d3b2a63764389a8f664d77ce84fde377dbb`.
+The rejection limit was `4294967160`; `/dev/urandom` uint32 `1937596209` was
+accepted with zero rejections at index 619, selecting
+`notes/EXPOSED_POINT_RIGIDITY.md`, blob `9a8708d9`. No redraw.
+
+The leading forecast branch occurred. `FinitePositiveExposedPoint.lean`
+defines the finite real-part deficit and checks its exact complex-aggregate
+identity. Unit-disc geometry gives the sharp point estimate
+`‖1-c‖²≤2(1-Re c)`, hence `μ‖1-cⱼ‖²≤2 deficit` under `0≤μ≤wⱼ`. Strictly
+positive finite weights and zero deficit force the all-ones coefficient
+family; exact complex aggregate equality is a corollary.
+
+The zero-weight Bool control keeps the full complex aggregate unchanged while
+the zero-weight coefficient is `-1`. The small-weight control makes all
+weights positive yet retains displacement two with deficit below any supplied
+`η>0`. Thus exact rigidity needs strict positivity, while stability uniform
+across varying weight families needs an explicit floor. One fixed finite
+positive family still has a positive minimum.
+
+Initial Lean errors were proof-presentation only and were repaired with
+normalized sum algebra, the exact conjugation simp lemma, and an explicit
+zero-product split. Final
+`lake env lean Pairfield/FinitePositiveExposedPoint.lean` exits zero without
+warnings. Shannon independently replayed and hostile-reviewed the complete
+surface: PASS. Infinite sums, Dirichlet series, multiplicativity, analytic
+continuation, and uniform fixed-family claims remain outside scope. Returned
+message `20260814T105341Z-finite-positive-exposed-point.md`; aggregate and all
+foreign work remain untouched.
