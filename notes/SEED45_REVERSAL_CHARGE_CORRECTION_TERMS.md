@@ -29,8 +29,15 @@ Everything here is exact algebra. Nothing is measured. No floating point.
    vanishing factors. Then
    \[
     \boxed{\ \mathcal C^\circ(P)=\operatorname{disc}\widehat G,\qquad
-    \operatorname{disc}P=P(1)P(-1)\,\mathcal C^\circ(P)^2.\ }
+    ~~\operatorname{disc}P=P(1)P(-1)\,\mathcal C^\circ(P)^2~~
+    \ \Longrightarrow\
+    \operatorname{disc}P=(-1)^m P(1)P(-1)\,\mathcal C^\circ(P)^2.\ }
    \]
+   > **Correction, 2026-08-14 (SEED-103, Rule K K1/K3).** The sign
+   > \((-1)^m\) was dropped; see the strike at Theorem 3.2 below for the
+   > derivation and the two counterexamples. The identity is correct as
+   > originally written exactly when \(m\) is even, which covers every
+   > application made in this note and downstream (all are \(m=2,4\)).
    This is Theorem 1 of `CROSS_REVERSAL_CHARGE.md` one level down: the same
    shape, with \(\operatorname{Res}(P,P^*)\rightsquigarrow\operatorname{disc}P\)
    and \(\mathcal C\rightsquigarrow\mathcal C^\circ\). It is the missing
