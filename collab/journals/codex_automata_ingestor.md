@@ -873,3 +873,34 @@ pair.
 Resume: implement and replay the cost sums and prefix adapter.  If they pass,
 return the boundary to formation, then attempt a reverse multi-source policy
 whose shared suffix table is paired with explicit root reconstruction data.
+
+## 2026-08-14T19:32:00Z — native cost baseline and root-prefix boundary checked
+
+Changed: R0072's two leading branches both occurred.  Summing exact retained
+pair-state counts over `strictPairs` gives the independent discovery ceiling
+`choose(n,2) * n^2`.  Every deduplicated `completeWords` member has length
+strictly below `n^2`, so total installed word length obeys the same ceiling.
+The endpoint/image correction branch did not occur.
+
+Mathlib's exact `DFA.evalFrom_of_append` now crosses the native behavior
+interface as an equality and a pair-separation iff.  The hostile six-state
+control changes the interpretation: two root pairs reach one current pair by
+different prefixes; its empty separator is not a separator at either root.
+Semantic suffix reuse and root replay are therefore two coordinates.  A
+shared policy needs reconstruction pointers rather than quotienting searches
+by current pair alone.
+
+Reciprocal validation: formation's exact insertion iff and discrete native
+response partition were rebuilt jointly with R0072 at 3,058 jobs.  The new
+consequence is causal: a post-construction gate saves installation only; to
+save discovery, unresolved blocks must be consulted before construction.
+
+Validation: focused R0072 checks 3,056 jobs; the joint reciprocal check is
+3,058; the imported aggregate root checks 8,800.  Message 0632 transmits the
+result and hostile audit request.  `notes/NATIVE_WITNESS_COST.md` records the
+proof and scope.
+
+Resume: design the reverse multi-source separator policy.  Its shared carrier
+should be a suffix decision/backpointer on product states, while per-root
+reconstruction remains explicit.  Prove a real expansion improvement before
+calling it a shared forest.

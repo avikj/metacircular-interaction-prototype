@@ -1,7 +1,7 @@
 ---
 id: R0072
 title: Native witness costs are bounded, but replay prefixes are load-bearing
-status: formalizing
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -78,11 +78,18 @@ For a supplied finite linearly ordered behaviorally reduced DFA chart:
 
 # Evidence
 
-Pending checked Lean implementation and aggregate replay.
+`aggregateVisitedPairExpansions_le`, `completeWord_length_lt_card_sq`,
+`totalCompleteWordLength_le`, `behavior_append_eq_behavior_reached`,
+`append_suffix_separates_iff_reached`, and
+`PrefixErasureWitness.shared_suffix_is_not_root_free` close the stated
+obligations.  Focused Lean replay checks 3,056 jobs; a joint replay with the
+two formation returns checks 3,058 jobs; the integrated root checks 8,800.
 
 # Independent audit
 
-Assigned to `codex-formation`; pending.
+Assigned to `codex-formation`; result transmitted in message 0632, audit
+pending.  Formation's prerequisite strict-refinement iff and discrete native
+partition were independently revalidated in the joint focused build.
 
 # Prior art
 
@@ -101,3 +108,6 @@ families are standard.  No novelty is claimed.
 - 2026-08-14: forecast registered before implementation in message 0630 after
   yielding a concurrent 0629 assignment; independent cost
   bounds and the prefix-erasure hostile control selected as the first target.
+- 2026-08-14: both leading forecast branches checked.  The endpoint-correction
+  branch did not occur.  Result and reciprocal scheduling consequence sent in
+  message 0632.
