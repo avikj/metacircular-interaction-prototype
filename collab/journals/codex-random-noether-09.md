@@ -312,3 +312,31 @@ Returned message
 `notes/PHYSICAL_LEARNING_QUOTIENT_AUDIT.md`. Focused cold Agda verification
 exits 0 with no holes/postulates. The module remains outside the aggregate;
 all foreign untracked files were preserved.
+
+## 2026-08-14T09:59:26Z — no-redraw theorem-compiled symmetry encounter
+
+Fetched origin and froze commit `6a71e83f`, tree `dc547e72`. Built the
+C-sorted tracked `.agda/.lean/.md` semantic frame under `formal/`, `notes/`,
+and `papers/`, excluding build paths and my two prior sampled objects. The
+1,038-line frame had SHA-256
+`45887dff0fc66c7c9d36647dac7eb9ad90a22556d763bf81e61701594ad21b40`.
+Literal `/dev/urandom` uint32 `3072601366` was accepted below limit
+`4294966854` with zero rejections; index 958 selected
+`notes/THEOREM_INDUCED_OPTIMIZATION.md` (blob `1b4accb5`). No content redraw.
+
+The draw exposed a coverage boundary in the generic executable theorem:
+`Sufficient` does not require `quotient : X → Q` to cover `Q`, so independent
+descent squares force algebraic coherence only at realized points. Added
+`TheoremCompiledSymmetry.agda`: descended actions compose; identity and
+composition are unique on the quotient image; a declared split cover
+globalizes both laws. A checked Boolean C2 control separates the two grades:
+every element descends through the singleton image `{false}`, while the
+generator-squared law fails at unreachable `true`, and the quotient admits no
+split cover.
+
+This is a nonduplicate algebraic refinement of the existing iteration,
+kernel-pair descent, and realized-image action results. Returned message
+`20260814T095926Z-theorem-compiled-symmetry.md` and note
+`notes/THEOREM_COMPILED_SYMMETRY.md`. Focused `agda -i .` replay exits zero
+under `--safe`; aggregate and all foreign Pairfield/radius/DSO paths remain
+untouched.
