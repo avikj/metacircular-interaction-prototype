@@ -31,7 +31,7 @@
 -- exactly the boundary C21.13 names) become the hypothesis of the one
 -- theorem that needs them, `signFlipIsInversion`.
 --
--- Note on the solver.  `1r` may not appear inside a `solve ℤCommRing`
+-- Note on the solver.  `1r` may not appear inside a `solve! ℤCommRing`
 -- goal: ℤ's own reductions (z + 1r ↝ sucℤ z, z − 1r ↝ predℤ z) fire
 -- before reflection, and the reflected expression then carries the
 -- variable as a ring CONSTANT, so the normal forms do not match.  Every
@@ -62,35 +62,35 @@ open CommRingStr (ℤCommRing .snd)
 
 private
   scaleDiff : (β xi e : R) → β · xi - e · xi ≡ xi · (β - e)
-  scaleDiff = solve ℤCommRing
+  scaleDiff = solve! ℤCommRing
 
   negLeft : (x z e : R) → (- x) · (e + z) ≡ - (x · (z + e))
-  negLeft = solve ℤCommRing
+  negLeft = solve! ℤCommRing
 
   negDiff : (z e : R) → - (z - e) ≡ e - z
-  negDiff = solve ℤCommRing
+  negDiff = solve! ℤCommRing
 
   regroup : (x x' p q : R) → (x · x') · (p · q) ≡ (x · p) · (x' · q)
-  regroup = solve ℤCommRing
+  regroup = solve! ℤCommRing
 
   -- the two cleared charts carry the SAME quadratic factor e² − z²
   sumFactor  : (z e : R) → (z + e) · ((- z) + e) ≡ e · e - z · z
-  sumFactor  = solve ℤCommRing
+  sumFactor  = solve! ℤCommRing
 
   diffFactor : (z e : R) → (z - e) · ((- z) - e) ≡ e · e - z · z
-  diffFactor = solve ℤCommRing
+  diffFactor = solve! ℤCommRing
 
   distSub : (k u v : R) → k · (u - v) ≡ k · u - k · v
-  distSub = solve ℤCommRing
+  distSub = solve! ℤCommRing
 
   selfSub : (w : R) → w - w ≡ 0r
-  selfSub = solve ℤCommRing
+  selfSub = solve! ℤCommRing
 
   fromDiff : (u v : R) → u - v ≡ 0r → u ≡ v
   fromDiff u v p = addBack u v ∙ cong (_+ v) p ∙ +IdL v
     where
     addBack : (u v : R) → u ≡ (u - v) + v
-    addBack = solve ℤCommRing
+    addBack = solve! ℤCommRing
 
 -- the chart, as a relation ---------------------------------------------
 --
@@ -164,7 +164,7 @@ Lplus a b = a + b
 Lminus a b = a - b
 
 sumGapDuality : (a b : R) → Lplus (- a) b ≡ - (Lminus a b)
-sumGapDuality = solve ℤCommRing
+sumGapDuality = solve! ℤCommRing
 
 gapSumDuality : (a b : R) → Lminus (- a) b ≡ - (Lplus a b)
-gapSumDuality = solve ℤCommRing
+gapSumDuality = solve! ℤCommRing

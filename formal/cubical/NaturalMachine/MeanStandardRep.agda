@@ -179,7 +179,7 @@ module _ (R : CommRing ℓ) where
 
  private
    sw2sum : (a b : ⟨ R ⟩) → b + a ≡ a + b
-   sw2sum = solve R
+   sw2sum = solve! R
 
  swap2-sum : (x : Vec2) → sum2 (swap2 x) ≡ sum2 x
  swap2-sum (a , b) = sw2sum a b
@@ -197,12 +197,12 @@ module _ (R : CommRing ℓ) where
    negFromSum a b p = sym (sym (e1 a b) ∙ cong (_+ (- b)) p ∙ e2 b)
      where
      e1 : (a b : ⟨ R ⟩) → (a + b) + (- b) ≡ a
-     e1 = solve R
+     e1 = solve! R
      e2 : (b : ⟨ R ⟩) → 0r + (- b) ≡ - b
-     e2 = solve R
+     e2 = solve! R
 
    negSum2 : (b : ⟨ R ⟩) → (- b) + b ≡ 0r
-   negSum2 = solve R
+   negSum2 = solve! R
 
  V₂→R : V₂ → ⟨ R ⟩
  V₂→R ((a , b) , _) = b
@@ -240,17 +240,17 @@ module _ (R : CommRing ℓ) where
   private
     d2a : (h a b : ⟨ R ⟩) → (a - h · (a + b)) + (b - h · (a + b))
                           ≡ (a + b) - (h + h) · (a + b)
-    d2a = solve R
+    d2a = solve! R
     d2b : (s : ⟨ R ⟩) → s - 1r · s ≡ 0r
-    d2b = solve R
+    d2b = solve! R
     m2a : (h m a b : ⟨ R ⟩) → h · ((m + a) + (m + b)) ≡ h · ((m + m) + (a + b))
-    m2a = solve R
+    m2a = solve! R
     m2b : (h m : ⟨ R ⟩) → h · ((m + m) + 0r) ≡ (h + h) · m
-    m2b = solve R
+    m2b = solve! R
     s2a : (m a : ⟨ R ⟩) → (m + a) - m ≡ a
-    s2a = solve R
+    s2a = solve! R
     s2b : (m a : ⟨ R ⟩) → m + (a - m) ≡ a
-    s2b = solve R
+    s2b = solve! R
 
   dev₂-sum : (x : Vec2) → sum2 (dev₂ x) ≡ 0r
   dev₂-sum (a , b) =
@@ -307,7 +307,7 @@ module _ (R : CommRing ℓ) where
 
   private
     bridge : (h a b : ⟨ R ⟩) → (h + h) · b - h · (a + b) ≡ h · (b - a)
-    bridge = solve R
+    bridge = solve! R
 
   split₂-is-Φ : (x : Pair R half half+half)
               → (mean₂ x , V₂→R (dev₂ x , dev₂-sum x)) ≡ Φ R half half+half x
@@ -338,11 +338,11 @@ module _ (R : CommRing ℓ) where
 
  private
    p01 : (a b c : ⟨ R ⟩) → b + a + c ≡ a + b + c
-   p01 = solve R
+   p01 = solve! R
    p12 : (a b c : ⟨ R ⟩) → a + c + b ≡ a + b + c
-   p12 = solve R
+   p12 = solve! R
    p02 : (a b c : ⟨ R ⟩) → c + b + a ≡ a + b + c
-   p02 = solve R
+   p02 = solve! R
 
  sw01-sum : (x : Vec3) → sum3 (sw01 x) ≡ sum3 x
  sw01-sum (a , b , c) = p01 a b c
@@ -363,9 +363,9 @@ module _ (R : CommRing ℓ) where
 
  private
    scale-sum : (c a b d : ⟨ R ⟩) → (c · a) + (c · b) + (c · d) ≡ c · (a + b + d)
-   scale-sum = solve R
+   scale-sum = solve! R
    scale-zero : (c : ⟨ R ⟩) → c · 0r ≡ 0r
-   scale-zero = solve R
+   scale-zero = solve! R
 
  scaleV : ⟨ R ⟩ → V₃ → V₃
  scaleV c ((a , b , d) , p) =
@@ -382,13 +382,13 @@ module _ (R : CommRing ℓ) where
    uSum = lem 1r
      where
      lem : (x : ⟨ R ⟩) → x + (- x) + 0r ≡ 0r
-     lem = solve R
+     lem = solve! R
 
    vSum : 1r + 1r + (- (1r + 1r)) ≡ 0r
    vSum = lem 1r
      where
      lem : (x : ⟨ R ⟩) → x + x + (- (x + x)) ≡ 0r
-     lem = solve R
+     lem = solve! R
 
  -- `u = (1, −1, 0)`: the `−1` eigenvector of the transposition (0 1)
  uVec : V₃
@@ -403,27 +403,27 @@ module _ (R : CommRing ℓ) where
    uc0 = lem 1r
      where
      lem : (x : ⟨ R ⟩) → (- x) ≡ (- x) · 1r
-     lem = solve R
+     lem = solve! R
    uc1 : 1r ≡ (- 1r) · (- 1r)
    uc1 = lem 1r
      where
      lem : (x : ⟨ R ⟩) → x ≡ (- 1r) · (- x)
-     lem = solve R
+     lem = solve! R
    uc2 : 0r ≡ (- 1r) · 0r
    uc2 = lem 1r
      where
      lem : (x : ⟨ R ⟩) → 0r ≡ (- x) · 0r
-     lem = solve R
+     lem = solve! R
    vc0 : 1r ≡ 1r · 1r
    vc0 = lem 1r
      where
      lem : (x : ⟨ R ⟩) → x ≡ x · 1r
-     lem = solve R
+     lem = solve! R
    vc2 : (- (1r + 1r)) ≡ 1r · (- (1r + 1r))
    vc2 = lem 1r
      where
      lem : (x : ⟨ R ⟩) → (- (x + x)) ≡ 1r · (- (x + x))
-     lem = solve R
+     lem = solve! R
 
  -- T14.11, the exhibition: `(0 1)` scales `u` by `−1` …
  sw01-u : sw01V uVec ≡ scaleV (- 1r) uVec
@@ -442,11 +442,11 @@ module _ (R : CommRing ℓ) where
    fstOf ((a , _ , _) , _) = a
 
    c1 : (c : ⟨ R ⟩) → c · 1r ≡ c
-   c1 = solve R
+   c1 = solve! R
    char2lem : (x : ⟨ R ⟩) → x + x ≡ x - (- x)
-   char2lem = solve R
+   char2lem = solve! R
    selfSub : (x : ⟨ R ⟩) → x - x ≡ 0r
-   selfSub = solve R
+   selfSub = solve! R
 
  -- **T14.11, SHARP.**  If the transposition (0 1) acts on `V₃` by a
  -- scalar then `1 + 1 ≡ 0`.  No invertibility hypothesis of any kind:
@@ -474,21 +474,21 @@ module _ (R : CommRing ℓ) where
     unit½ x = cong (_· x) half+half ∙ ·IdL x
 
     q1 : (h α β : ⟨ R ⟩) → h · ((α + β) - ((- α) + β)) ≡ (h + h) · α
-    q1 = solve R
+    q1 = solve! R
     q2 : (h α β : ⟨ R ⟩) → h · ((α + β) + ((- α) + β)) ≡ (h + h) · β
-    q2 = solve R
+    q2 = solve! R
     q3 : (α β : ⟨ R ⟩) → (α + β) + ((- α) + β) + (- (β + β)) ≡ 0r
-    q3 = solve R
+    q3 = solve! R
     r1 : (h a b : ⟨ R ⟩) → h · (a - b) + h · (a + b) ≡ (h + h) · a
-    r1 = solve R
+    r1 = solve! R
     r2 : (h a b : ⟨ R ⟩) → (- (h · (a - b))) + h · (a + b) ≡ (h + h) · b
-    r2 = solve R
+    r2 = solve! R
     r3 : (h a b : ⟨ R ⟩) → (- (h · (a + b) + h · (a + b))) ≡ - ((h + h) · (a + b))
-    r3 = solve R
+    r3 = solve! R
     r4 : (a b c : ⟨ R ⟩) → (a + b + c) + (- (a + b)) ≡ c
-    r4 = solve R
+    r4 = solve! R
     r5 : (s : ⟨ R ⟩) → 0r + (- s) ≡ - s
-    r5 = solve R
+    r5 = solve! R
 
     negOfSum3 : (a b c : ⟨ R ⟩) → a + b + c ≡ 0r → (- (a + b)) ≡ c
     negOfSum3 a b c p =
@@ -522,9 +522,9 @@ module _ (R : CommRing ℓ) where
 
   private
     f1 : (h a b : ⟨ R ⟩) → h · (b - a) ≡ - (h · (a - b))
-    f1 = solve R
+    f1 = solve! R
     f2 : (h a b : ⟨ R ⟩) → h · (b + a) ≡ h · (a + b)
-    f2 = solve R
+    f2 = solve! R
 
   -- **T14.11 IN FULL, at k = 3.**  In the basis `(u,v)` the transposition
   -- (0 1) is `diag(−1, +1)`: eigenvalue `−1` with multiplicity 1,
@@ -536,9 +536,9 @@ module _ (R : CommRing ℓ) where
 
   private
     g : (h : ⟨ R ⟩) → h + h ≡ h · (1r + 1r)
-    g = solve R
+    g = solve! R
     z : (h : ⟨ R ⟩) → h · 0r ≡ 0r
-    z = solve R
+    z = solve! R
 
   -- … and hence, when 2 is invertible in a NONTRIVIAL ring, the
   -- transposition is not scalar — Delta 14 T14.11's own phrasing.
@@ -565,18 +565,18 @@ module _ (R : CommRing ℓ) where
     g1 : (t a b c : ⟨ R ⟩)
        → (a - t · (a + b + c)) + (b - t · (a + b + c)) + (c - t · (a + b + c))
        ≡ (a + b + c) - (t + t + t) · (a + b + c)
-    g1 = solve R
+    g1 = solve! R
     g2 : (s : ⟨ R ⟩) → s - 1r · s ≡ 0r
-    g2 = solve R
+    g2 = solve! R
     g3 : (t m a b c : ⟨ R ⟩)
        → t · ((m + a) + (m + b) + (m + c)) ≡ t · ((m + m + m) + (a + b + c))
-    g3 = solve R
+    g3 = solve! R
     g4 : (t m : ⟨ R ⟩) → t · ((m + m + m) + 0r) ≡ (t + t + t) · m
-    g4 = solve R
+    g4 = solve! R
     g5 : (m a : ⟨ R ⟩) → (m + a) - m ≡ a
-    g5 = solve R
+    g5 = solve! R
     g6 : (m a : ⟨ R ⟩) → m + (a - m) ≡ a
-    g6 = solve R
+    g6 = solve! R
 
   dev₃-sum : (x : Vec3) → sum3 (dev₃ x) ≡ 0r
   dev₃-sum (a , b , c) =
@@ -671,13 +671,13 @@ module _ (R : CommRing ℓ) where
 
  private
    n1 : (t s : ⟨ R ⟩) → t · (s + 0r) ≡ t · s
-   n1 = solve R
+   n1 = solve! R
    n2 : (s : ⟨ R ⟩) → s + (- s) ≡ 0r
-   n2 = solve R
+   n2 = solve! R
    n3 : (m a : ⟨ R ⟩) → (m + a) - m ≡ a
-   n3 = solve R
+   n3 = solve! R
    n4 : (m a : ⟨ R ⟩) → m + (a - m) ≡ a
-   n4 = solve R
+   n4 = solve! R
 
  module _ (k : ℕ) (kinv : ⟨ R ⟩)
           (kinvSum : ∑ (replicateFinVec k kinv) ≡ 1r) where
@@ -762,16 +762,16 @@ module _ (R : CommRing ℓ) where
     K = suc (suc (suc n))
 
     swSum : (a b s : ⟨ R ⟩) → b + (a + s) ≡ a + (b + s)
-    swSum = solve R
+    swSum = solve! R
     us : (x : ⟨ R ⟩) → x + ((- x) + 0r) ≡ 0r
-    us = solve R
+    us = solve! R
     vs : (x : ⟨ R ⟩) → x + (x + ((- (x + x)) + 0r)) ≡ 0r
-    vs = solve R
+    vs = solve! R
     vz : 0r ≡ 1r · 0r
     vz = lem 1r
       where
       lem : (x : ⟨ R ⟩) → 0r ≡ x · 0r
-      lem = solve R
+      lem = solve! R
 
   -- the transposition of the first two coordinates
   sw01ₖ : Vecₖ K → Vecₖ K
@@ -898,11 +898,11 @@ module _ (R : CommRing ℓ) where
 
  private
    np1 : (x : ⟨ R ⟩) → (- 1r) · ((- 1r) · x) ≡ x
-   np1 = solve R
+   np1 = solve! R
    ah  : (s p : ⟨ R ⟩) → (s + (- 1r) · p) + p ≡ s
-   ah  = solve R
+   ah  = solve! R
    a0  : (x : ⟨ R ⟩) → x + (- 1r) · x ≡ 0r
-   a0  = solve R
+   a0  = solve! R
 
  negPow-two : (j : ℕ) → negPow (suc (suc j)) ≡ negPow j
  negPow-two j = np1 (negPow j)

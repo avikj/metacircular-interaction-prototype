@@ -58,7 +58,7 @@ replay (q ∷ v) = mul (L q) (replay v)
 
 private
   zA : (c : R) → 0r + c ≡ c
-  zA = solve ℤCommRing
+  zA = solve! ℤCommRing
 
 mulIdL : (x : M) → mul idm x ≡ x
 mulIdL (a , b , c , e) i = ( a , b , zA c i , zA e i )

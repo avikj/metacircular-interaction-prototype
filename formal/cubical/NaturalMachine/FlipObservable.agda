@@ -129,16 +129,16 @@ open CommRingStr (ℤCommRing .snd)
 
 private
   l1 : (x y : R) → 1r · x + 0r · y ≡ x
-  l1 = solve ℤCommRing
+  l1 = solve! ℤCommRing
 
   l2 : (x y : R) → 0r · x + (- 1r) · y ≡ - y
-  l2 = solve ℤCommRing
+  l2 = solve! ℤCommRing
 
   negneg : (x : R) → - (- x) ≡ x
-  negneg = solve ℤCommRing
+  negneg = solve! ℤCommRing
 
   detFlipL : (a b c d : R) → a · (- d) - b · (- c) ≡ - (a · d - b · c)
-  detFlipL = solve ℤCommRing
+  detFlipL = solve! ℤCommRing
 
 flipMat : M
 flipMat = dia 1r (- 1r)

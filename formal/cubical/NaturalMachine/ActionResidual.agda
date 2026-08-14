@@ -151,20 +151,31 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
 
   open CommRingStr (snd Rng)
 
-  square step predict after residual : ⟨ Rng ⟩ → ⟨ Rng ⟩
+  square : fst Rng → fst Rng
   square x = x · x
-  step x = x + 1r
-  predict y = y + 1r
-  after x = square (step x)
-  residual x = after x - predict (square x)
 
-  square-successor-residual : (x : ⟨ Rng ⟩) → residual x ≡ x + x
-  square-successor-residual = solve! Rng
+  -- Prove the stronger translation identity first.  Besides exposing the
+  -- bilinear cross-term, keeping the increment variable avoids a known
+  -- Cubical v0.5 reflection failure for a literal unit under multiplication.
+  step : fst Rng → fst Rng → fst Rng
+  step u x = x + u
 
-  square-forgets-sign : (x : ⟨ Rng ⟩) → square (- x) ≡ square x
+  predict : fst Rng → fst Rng → fst Rng
+  predict u y = y + square u
+
+  after residual : fst Rng → fst Rng → fst Rng
+  after u x = square (step u x)
+  residual u x = after u x - predict u (square x)
+
+  translation-residual :
+    (u x : fst Rng) → residual u x ≡ (x · u) + (x · u)
+  translation-residual = solve! Rng
+
+  square-forgets-sign : (x : fst Rng) → square (- x) ≡ square x
   square-forgets-sign = solve! Rng
 
-  residual-reverses-sign : (x : ⟨ Rng ⟩) → residual (- x) ≡ - (residual x)
+  residual-reverses-sign :
+    (u x : fst Rng) → residual u (- x) ≡ - (residual u x)
   residual-reverses-sign = solve! Rng
 
 ------------------------------------------------------------------------
@@ -174,6 +185,13 @@ module SquareSuccessor {ℓ : Level} (Rng : CommRing ℓ) where
 module IntegerFormationEvent where
 
   module S = SquareSuccessor ℤCommRing
+  open CommRingStr (snd ℤCommRing) using (1r ; _+_ ; _·_ ; ·IdR)
+
+  successor squarePredict squareAfter squareResidual : ℤ → ℤ
+  successor x = S.step 1r x
+  squarePredict y = S.predict 1r y
+  squareAfter x = S.after 1r x
+  squareResidual x = S.residual 1r x
 
   plusOne minusOne : ℤ
   plusOne  = pos 1
@@ -182,21 +200,25 @@ module IntegerFormationEvent where
   same-old-reading : S.square plusOne ≡ S.square minusOne
   same-old-reading = solve! ℤCommRing
 
-  plus-residual : S.residual plusOne ≡ pos 2
-  plus-residual = solve! ℤCommRing
+  plus-residual : squareResidual plusOne ≡ pos 2
+  plus-residual =
+      S.translation-residual 1r plusOne
+    ∙ cong₂ _+_ (·IdR plusOne) (·IdR plusOne)
 
-  minus-residual : S.residual minusOne ≡ negsuc 1
-  minus-residual = solve! ℤCommRing
+  minus-residual : squareResidual minusOne ≡ negsuc 1
+  minus-residual =
+      S.translation-residual 1r minusOne
+    ∙ cong₂ _+_ (·IdR minusOne) (·IdR minusOne)
 
-  residuals-differ : ¬ (S.residual plusOne ≡ S.residual minusOne)
+  residuals-differ : ¬ (squareResidual plusOne ≡ squareResidual minusOne)
   residuals-differ h =
     posNotnegsuc 2 1 (sym plus-residual ∙ h ∙ minus-residual)
 
-  square-residual-collision : AR.ActionCollision S.square S.residual
+  square-residual-collision : AR.ActionCollision S.square squareResidual
   square-residual-collision =
     plusOne , minusOne , same-old-reading , residuals-differ
 
-  module Formed = AR.ProductRefinement S.square S.residual
+  module Formed = AR.ProductRefinement S.square squareResidual
 
   -- Executing successor once and comparing the old square observation with
   -- its declared prediction forms a strict observable refinement.

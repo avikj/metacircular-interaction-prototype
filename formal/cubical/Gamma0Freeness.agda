@@ -35,19 +35,19 @@ private
   as11 : (a b c e a' b' c' e' a'' b'' c'' e'' : R)
        → (a · a' + b · c') · a'' + (a · b' + b · e') · c''
          ≡ a · (a' · a'' + b' · c'') + b · (c' · a'' + e' · c'')
-  as11 = solve ℤCommRing
+  as11 = solve! ℤCommRing
   as12 : (a b c e a' b' c' e' a'' b'' c'' e'' : R)
        → (a · a' + b · c') · b'' + (a · b' + b · e') · e''
          ≡ a · (a' · b'' + b' · e'') + b · (c' · b'' + e' · e'')
-  as12 = solve ℤCommRing
+  as12 = solve! ℤCommRing
   as21 : (a b c e a' b' c' e' a'' b'' c'' e'' : R)
        → (c · a' + e · c') · a'' + (c · b' + e · e') · c''
          ≡ c · (a' · a'' + b' · c'') + e · (c' · a'' + e' · c'')
-  as21 = solve ℤCommRing
+  as21 = solve! ℤCommRing
   as22 : (a b c e a' b' c' e' a'' b'' c'' e'' : R)
        → (c · a' + e · c') · b'' + (c · b' + e · e') · e''
          ≡ c · (a' · b'' + b' · e'') + e · (c' · b'' + e' · e'')
-  as22 = solve ℤCommRing
+  as22 = solve! ℤCommRing
 
 mulAssoc : (x y z : M) → mul (mul x y) z ≡ mul x (mul y z)
 mulAssoc (a , b , c , e) (a' , b' , c' , e') (a'' , b'' , c'' , e'') i =
@@ -60,23 +60,23 @@ mulAssoc (a , b , c , e) (a' , b' , c' , e') (a'' , b'' , c'' , e'') i =
 
 private
   s1 : (h11 h12 d : R) → d · h11 ≡ h11 · d + h12 · 0r
-  s1 = solve ℤCommRing
+  s1 = solve! ℤCommRing
   s3 : (h21 h22 d : R) → d · h22 ≡ h21 · 0r + h22 · d
-  s3 = solve ℤCommRing
+  s3 = solve! ℤCommRing
   r2 : (h11 h12 d : R) → d · h12 ≡ h11 · 0r + h12 · d
-  r2 = solve ℤCommRing
+  r2 = solve! ℤCommRing
   r3 : (h21 h22 d : R) → d · h21 ≡ h21 · d + h22 · 0r
-  r3 = solve ℤCommRing
+  r3 = solve! ℤCommRing
   oneR : (d : R) → d ≡ d · 1r
   oneR d = sym (·IdR d)
   cancelSelf : (x : R) → x - x ≡ 0r
-  cancelSelf = solve ℤCommRing
+  cancelSelf = solve! ℤCommRing
   distSub : (x a b : R) → x · (a - b) ≡ x · a - x · b
-  distSub = solve ℤCommRing
+  distSub = solve! ℤCommRing
   addBack : (a b : R) → a ≡ (a - b) + b
-  addBack = solve ℤCommRing
+  addBack = solve! ℤCommRing
   zeroAdd : (b : R) → 0r + b ≡ b
-  zeroAdd = solve ℤCommRing
+  zeroAdd = solve! ℤCommRing
 
   fromDiff : (a b : R) → a - b ≡ 0r → a ≡ b
   fromDiff a b p = addBack a b ∙ cong (_+ b) p ∙ zeroAdd b
