@@ -81,3 +81,67 @@ Hofstadter -- the strange loop is the phenomenon, not the paradox
 Bell -- design the inequality that separates the theories experimentally
 Wheeler -- it from bit: ask what the observation itself contributes
 Penrose -- draw it; the diagram is the calculation
+# appended 2026-08-14 by cf-archivist -- a list that stops growing is the next attractor
+Brahmagupta -- state the composition law (bhavana) before solving any instance
+Mahavira -- classify the problem types exhaustively, then solve the classification
+Narayana Pandita -- enumerate combinatorial objects by a generating rule, not a formula
+Jyesthadeva (Yuktibhasa) -- write the DERIVATION out, not the result; the rationale is the object
+Nilakantha Somayaji -- correct the received model where observation forces it, and say which part changed
+Katyayana (Sulbasutra) -- construct it with cord and peg before believing the identity
+Ibn al-Haytham -- design the experiment that could refute you, then run it
+Omar Khayyam -- solve by intersecting two curves when the algebra will not factor
+Zu Chongzhi -- push the numerical bound until the next digit is forced
+Liu Hui -- cut the figure into pieces you already understand, then take the limit
+Seki Takakazu -- eliminate variables systematically; invent the determinant if you need it
+Emmy Noether -- replace the computation with the symmetry that makes it unnecessary
+Grothendieck -- change the ambient category until the problem is a triviality there
+Alexander Gelfond -- transcendence: build the auxiliary function, then bound it two ways
+Ramanujan -- write the identity first and worry about the proof after; but write it exactly
+Hardy -- demand the error term; an asymptotic without one is not a theorem
+Littlewood -- look for the counterexample at scales nobody has reached
+Erdos -- ask for the extremal example and the probabilistic lower bound in the same breath
+Renyi -- measure the information, not the object
+Kolmogorov -- define the complexity of the individual object, not the ensemble
+Chaitin -- ask what the shortest program that outputs this would look like
+Turing -- build the machine whose behaviour IS the definition
+Church -- if two formalisms compute the same class, say so and use the convenient one
+Curry / Howard -- read the proof as a program and the proposition as its type
+Per Martin-Lof -- ask what a canonical element of this type would be
+Voevodsky -- if two things are equal, ask what the space of identifications is
+Thurston -- ask what the object looks like to someone living inside it
+Milnor -- find the exotic example that shows the obvious classification is false
+Serre -- state it in the shortest correct form and delete the rest
+Atiyah -- look for the index: a hard analytic number that is secretly topological
+Gauss -- compute a hundred cases by hand before conjecturing anything
+Dirichlet -- put the pigeons in the holes; the counting is the theorem
+Riemann -- move to the complex plane and let the singularities tell you the arithmetic
+Dedekind -- define the object by the cut it makes, not by the process that reaches it
+Cantor -- ask whether the two infinities are actually the same size
+Godel -- construct the sentence that talks about its own provability
+Tarski -- separate the language from the metalanguage before asking about truth
+Robinson -- take the nonstandard model seriously as a place to compute
+Shannon -- ask for the channel capacity before designing the code
+Wiener -- treat the noise as a signal with its own spectrum
+von Neumann -- if the pure states are not enough, take the algebra of observables as primary
+Feynman -- sum over all the histories, including the absurd ones
+Bell -- design the inequality that separates the two explanations
+Kitaev -- encode the invariant in the ground state so local noise cannot touch it
+Karen Uhlenbeck -- find where the bubbles form and prove the compactness anyway
+Maryam Mirzakhani -- count the closed geodesics; the counting is the geometry
+Julia Robinson -- reduce the decision problem to an arithmetic one and see what breaks
+Sophie Germain -- attack the general case through the auxiliary prime
+Noam Elkies -- search hard enough with exact arithmetic that a counterexample appears
+Terence Tao -- decompose into structured plus pseudorandom, then handle each
+Timothy Gowers -- ask what a proof of this would have to look like before writing one
+Peter Scholze -- find the perfectoid setting where the two characteristics become one
+Jacob Lurie -- write the higher-categorical statement; the coherence is the content
+Vladimir Arnold -- draw the picture and refuse to accept an unvisualisable proof
+Yuri Manin -- ask what the object is a shadow of in another category
+Israel Gelfand -- ask the simplest nontrivial example, out loud, until someone answers
+Donald Knuth -- analyse the exact cost, not the order of growth
+Edsger Dijkstra -- derive the program from the postcondition
+Barbara Liskov -- ask what the abstraction promises and what it may not assume
+Leslie Lamport -- write the state machine; the informal argument is where the bug is
+Ada Lovelace -- ask what the machine could compute that is not a number
+Claude Shannon (again, as engineer) -- build the physical device and see what it does
+Grace Hopper -- if the notation is the obstacle, change the notation

@@ -40,3 +40,24 @@ Music and tuning theory: śruti systems, Pythagorean commas, gamelan tuning, tem
 Weaving and textile combinatorics: pattern algebra, Andean and West African cloth structure
 Kolam and sona drawing: rule-generated curve families, Eulerian path traditions
 Astronomical instrument traditions: astrolabe, armillary, gnomon computation
+# appended 2026-08-14 by cf-archivist
+Kerala school (14th-16th c.): infinite series for arcsine and pi, with error terms and rationale
+Jaina mathematics: enumeration of very large numbers, sets, and permutation-combination rules
+Bakhshali manuscript: the zero symbol, approximation of square roots, negative quantities
+Aryabhatiya: kuttaka for linear congruences, sine tables by second differences
+Sulbasutra geometry: altar construction, exact right angles, surd approximations
+Babylonian mathematics: base-60 reciprocal tables, Plimpton 322, quadratic algorithms
+Egyptian mathematics: unit-fraction decomposition, the Rhind papyrus method of false position
+Chinese remainder tradition (Sunzi, Qin Jiushao): dayan aggregate method for simultaneous congruences
+Nine Chapters + Liu Hui commentary: fangcheng elimination, the sea island survey problems
+Islamic algebra (al-Khwarizmi, al-Karaji, al-Samawal): completion, induction, polynomial division
+Islamic combinatorics and trigonometry (al-Tusi, al-Kashi): spherical laws, decimal fractions
+Greek exhaustion (Eudoxus, Archimedes): the method of mechanical theorems, then the rigorous proof
+Diophantus: determinate and indeterminate problems, the notation as a technology
+Apollonius: conics classified by their symptoma, before coordinates existed
+Mayan and Mesoamerican calendrical arithmetic: positional base-20, long-count congruences
+Polynesian and Micronesian navigation: star compasses, etak reference frames, wave interference reading
+Yoruba and Igbo counting systems: subtractive base-20, and the arithmetic of the odu corpus
+Ethiopian and Egyptian doubling multiplication: binary decomposition as an ancient algorithm
+Tibetan and Indian Buddhist logic: apoha (exclusion) as a theory of meaning by negation
+Mimamsa hermeneutics: rules for resolving conflicting injunctions, an ordered defeasible logic
