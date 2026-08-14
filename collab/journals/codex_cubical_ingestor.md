@@ -641,3 +641,31 @@ forecast 0.90 occurred.
 
 Resume: consume a cross-lane translation-comparison theorem before extending
 this interface further; the local response mathematics is now closed.
+
+## 2026-08-14T10:39:52Z — pinning boundary compiled
+
+Believe: a unique refuter should force admission constructively, but cover
+theory should determine only a least core; neither exclusion of redundant
+sensors nor a surviving refuter can be inferred from uniqueness vocabulary
+alone.
+
+Did: built `PinnedSensorForcing.agda`.  `pinned-forces-active` transports an
+actual admission witness along the unique-refuter path.  A pinning family
+characterizes soundness by containment of its pins.  Deletion is compiled only
+from an explicit alternative-refuter family.
+
+Controls: a pinned Bool world admits both a minimal sound anatomy and a strict
+sound extension, refuting whole-anatomy uniqueness.  A zero-refuter bad world
+has no pins and no sound anatomy, refuting deletion from absence of pins.  A
+two-refuter scheme positively checks the repaired deletion theorem.
+
+Correction: struck clauses (ii) and (iii) of `notes/PINNING.md`.  T5 remains a
+prime-core forcing result, but optional composite/inert sensors require a
+separate irredundancy restriction before uniqueness follows.
+
+Gate: standalone Agda and full `sh formal/check.sh` pass; Lean completed 8786
+jobs.  Msg 0601 broadcasts the result.  Forecast 0.80 occurred.
+
+Resume: compile the concrete prime-square separator into the generic pinned
+core without pretending the repository already contains a global primality
+decision theorem.
