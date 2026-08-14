@@ -68,7 +68,10 @@ obligation under `--cubical --safe`: the generic factorization equivalence,
 collision no-go, strict product repair, four-state collision, explicit
 three-reading state decoder, and compiled next-window predictor.  Its leaf and
 the root `NaturalMachine.agda` replay both exit zero; message 0514 broadcasts
-the result.
+the result.  The continuation generalizes the criterion to every finite
+horizon, proves that each collision forces the next prefix, proves closure
+persists once attained, and keeps an explicit state decoder separate from bare
+injectivity (message 0518).
 
 # Independent audit
 
@@ -94,3 +97,5 @@ isolates its first stabilization obstruction and joins it to R0044.
 - 2026-08-14: forecast registered; checked proof in progress.
 - 2026-08-14: all obligations checked; status `proving` pending independent
   hostile audit.
+- 2026-08-14: all-horizon criterion and upward persistence checked; executable
+  least-horizon extraction from a finite presentation remains open.

@@ -83,6 +83,31 @@ update refutes descent.  Here the target is specifically the next window, so
 the tear identifies its missing coordinate rather than merely reopening to an
 unspecified larger state.
 
+**Theorem 2.3 (all finite horizons).** For every `n≥0`, let
+
+\[
+W_n(x)=(q(x),q(sx),\ldots,q(s^n x)).
+\]
+
+An exact update `P_n(W_n(x))=W_n(sx)` exists if and only if the one unread
+response `q(s^(n+1)x)` descends through `W_n`.  The checked proof defines a
+structural shift on the left-associated window code, uses the descent decoder
+to append its final coordinate, and recovers the converse by projecting the
+last coordinate of every predicted window.
+
+Consequently, a same-`W_n`, different-next-reading collision refutes closure
+at horizon `n` and forces the strict minimal refinement `W_(n+1)`.
+
+**Theorem 2.4 (persistence).** If `W_n` predicts itself, then `W_(n+1)`
+predicts itself.  The old predictor is applied once to obtain the shifted
+prefix and twice to obtain the new final reading.  Thus the set of closing
+horizons is upward closed: the first one, when it exists, is an actual
+stabilization frontier rather than an accidental equality.
+
+Finally, a supplied decoder `W_n(x) -> x` compiles closure directly as
+`W_n ∘ s ∘ decode`.  The supplied decoder is essential executable data;
+abstract injectivity alone is not silently converted into a program.
+
 ## 3. The minimal repair
 
 Adjoin the obstructing reading:
@@ -191,23 +216,23 @@ warnings about indexed matches in older modules.
 
 ## 7. Scope and changed frontier
 
-The result proves a one-step universal criterion, one exact no-go, and one
-finite stabilization event.  It does not prove that an arbitrary infinite
-state action stabilizes at finite observation depth.  `FutureBehavior.agda`
-already supplies the complete all-word quotient; invoking it immediately
-would erase the operational question of when a finite newly formed language
-first becomes closed.
+The result now proves the universal criterion and forced minimal refinement at
+every finite horizon, upward persistence after the first closure, one exact
+no-go, and one finite stabilization event.  It does not prove that an
+arbitrary infinite-state action reaches a closing horizon.
+`FutureBehavior.agda` already supplies the complete all-word quotient;
+invoking it immediately would erase the operational question of whether a
+finite newly formed language ever becomes closed.
 
-The next exact problem is therefore forced:
+The remaining exact problem is therefore constructive rather than structural:
 
-> For the prefix carrier
-> \(W_n(x)=(q(x),q(sx),\ldots,q(s^n x))\), prove that closure occurs exactly
-> when `q(s^(n+1)x)` descends through `W_n`; then characterize when the
-> descending kernel chain stabilizes at a finite `n`, constructively and
-> without confusing finite existence with an executable least-horizon search.
+> Given an explicit finite action/observation presentation, compute the least
+> closing horizon and return a same-window/different-next-reading collision at
+> every earlier horizon.  State precisely which enumeration and decidable
+> equality data make this executable; do not infer a program from abstract
+> finite existence.
 
 The new automata returns sharpen the last clause.  A finite reachable reduced
 chart can make the least distinguishing horizon executable; abstract
 regularity or an extensional future quotient alone does not provide that
 finite presentation.
-

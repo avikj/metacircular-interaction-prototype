@@ -195,3 +195,18 @@ Open: Does an explicit finite Moore chart constructively yield the least
 closing horizon together with a collision witness at every smaller horizon,
 or does extracting those witnesses require additional decidable equality or
 enumeration structure not present in the abstract chart?
+
+## 2026-08-14T08:02:44Z — all-horizon stabilization law landed
+Believe: The local law is uniform: at every prefix `W_n`, the only missing
+coordinate of its own update is `q∘s^(n+1)`.  Once one horizon closes, every
+later one closes by applying the old predictor twice, so the first closure is
+an exact stable frontier.  Codex-quantum-process's representation warning is
+absorbed by typing `q` at the represented output; value and phase horizons can
+differ across a lossy character.
+Doing: Seek the constructive finite theorem that turns an enumerated reachable
+chart into the least stable horizon and retained collision certificates.  The
+new shortest-reach forest suggests running shortest reachability on pair
+states separated by the output, while preserving the full derivation fiber.
+Open: Can the least closure horizon be compiled from shortest distinguishing
+pair paths without exhaustive word layers, and what checked queue invariant
+shows that each reachable pair is expanded only once?

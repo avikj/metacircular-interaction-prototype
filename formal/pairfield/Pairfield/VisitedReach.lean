@@ -146,7 +146,7 @@ theorem advanceReachQueue_valid [DecidableEq X]
   rcases hnode with hclosed | hfresh
   · apply hvalid node
     change node ∈ queue.closed ++ queue.frontier
-    exact hclosed
+    exact List.mem_append.mpr hclosed
   · have hcandidates := mem_freshNodes_imp_mem hfresh
     apply mem_expandFrontier_valid M alphabet queue.frontier
     · intro old hold
@@ -168,6 +168,34 @@ theorem runReachQueue_valid [DecidableEq X]
       exact advanceReachQueue_valid M alphabet
         (runReachQueue M alphabet n) ih
 
+/-- Fresh filtering makes the visited-state invariant executable: no state is
+ever admitted twice, so every node enters the expandable frontier at most
+once. -/
+theorem advanceReachQueue_states_nodup [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X)
+    (hnodup : queue.states.Nodup) :
+    (advanceReachQueue M alphabet queue).states.Nodup := by
+  let candidates := expandFrontier M alphabet queue.frontier
+  let next := freshNodes queue.states candidates
+  change ((queue.nodes ++ next).map ReachNode.state).Nodup
+  rw [List.map_append, List.nodup_append']
+  refine ⟨hnodup, freshNodes_states_nodup queue.states candidates, ?_⟩
+  simp only [List.disjoint_left]
+  intro state hseen hfresh
+  simp only [List.mem_map] at hfresh
+  obtain ⟨node, hnode, rfl⟩ := hfresh
+  exact (freshNodes_state_not_mem_seen queue.states candidates node hnode) hseen
+
+theorem runReachQueue_states_nodup [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (round : Nat) :
+    (runReachQueue M alphabet round).states.Nodup := by
+  induction round with
+  | zero => simp [runReachQueue, initialReachQueue, ReachQueue.states,
+      ReachQueue.nodes]
+  | succ n ih =>
+      exact advanceReachQueue_states_nodup M alphabet
+        (runReachQueue M alphabet n) ih
+
 namespace VisitedReachWitness
 
 open ChartQuotientWitness
@@ -182,6 +210,9 @@ example : (runReachQueue automaton alphabet 3).nodes.map ReachNode.word =
 example : ∀ node ∈ (runReachQueue automaton alphabet 3).nodes,
     node.Valid automaton :=
   runReachQueue_valid automaton alphabet 3
+
+example : (runReachQueue automaton alphabet 3).states.Nodup :=
+  runReachQueue_states_nodup automaton alphabet 3
 
 end VisitedReachWitness
 
