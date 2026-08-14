@@ -1055,3 +1055,31 @@ Prasaṅga boundary: an edge inventory does not by itself prove a traversal
 speedup.  Filtering or association-list lookup may scan the inventory again.
 Promotion to a work bound requires a materialized source index and a queue
 theorem charging each source bucket once.
+
+## 2026-08-14T21:02:00Z — comap adapter and reciprocal demand gate checked
+
+The `0.72` branch occurred; the `0.20` and `0.08` corrections did not.
+`NativeReverseEdgeInventory` carries only proof-certified terminal seeds and
+one predecessor edge per `(pair, action)`.  Every edge has a unique computed
+source/target, and the inventory is bounded by
+`card(X)^2 * (alphabet.length+1)`.  The native control has 22 genuine edges,
+not the flat alphabet's 27 labels.
+
+Exact Mathlib connection: `DFA.evalFrom_comap` proves that the edge DFA's
+evaluation on every native trace equals the old reverse DFA's evaluation on
+the decoded trace.  This is the checked adapter promised in message 0643 and
+is independent of the earlier append theorem.
+
+Reciprocal evidence: formation's message 0645 and
+`NativeDemandRestrictedFormation` were inspected and rebuilt, not merely
+imported.  The theorem reconstructs a policy suffix only for a still
+unresolved pair, proves pre-installation usefulness and strict finite demand
+descent, and obtains a discrete final observable from an explicit complete
+schedule.  This return changes the future queue contract: indexed discovery
+must expose roots to the demand gate before path reconstruction.
+
+Validation: focused edge inventory 3,059 jobs; reciprocal demand target 3,060;
+joint 3,062; imported root 8,807.  Message 0646 transmits ACCEPT plus the new
+adapter.  The live uncertainty is now narrower: construct a materialized
+source index whose payload is charged once, run a custom queue over it, then
+extract retained parent edges into `Policy` without erasing root replay.

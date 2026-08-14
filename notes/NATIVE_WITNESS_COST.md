@@ -231,3 +231,56 @@ of retained reverse paths into `NativeReverseSeparatorPolicy.Policy`.
 
 Focused replay checks 3,058 jobs; importing the traversal into the aggregate
 checks 8,805 jobs.
+
+## 10. Genuine reverse-edge inventory and the second Mathlib adapter
+
+`NativeReverseEdgeInventory` removes the first source of avoidable width from
+the flat alphabet without yet changing the queue.  A proof-relevant
+`ReverseEdge` is either:
+
+- a seed carrying a proof that its pair's present Moore responses differ; or
+- one predecessor edge determined by an original product state and action.
+
+Every edge has a computed unique source and target.  Lean proves that the old
+`reverseStep` performs exactly that source-to-target move.  False terminal
+seeds are filtered before they enter the inventory, while every
+`(pair, action)` contributes exactly one predecessor edge.  Hence
+
+```text
+predecessorEdges.length = card(X)^2 * alphabet.length
+edgeInventory.length <= card(X)^2 * (alphabet.length + 1).
+```
+
+The exact Mathlib seam is a different automata theorem from the append law
+used above:
+
+```text
+DFA.evalFrom_comap:
+  (M.comap decode).evalFrom state nativeTrace
+    = M.evalFrom state (nativeTrace.map decode).
+```
+
+The repository defines the native edge DFA as the alphabet pullback of the
+existing reverse DFA.  `edgeDFA_evalFrom` therefore checks every native edge
+trace against the earlier semantics, not merely the one-step constructor.  On
+the three-state control, the inventory contains 22 genuine edges (4 terminal
+seeds and 18 predecessor edges), whereas the earlier flat alphabet contains
+27 labels.
+
+This is an inventory bound, not a traversal-work theorem.  Materializing
+source buckets by repeated list filtering can itself rescan the inventory, and
+an association-list lookup can reintroduce width at execution time.  The next
+proof must construct a source index and a custom frontier which charges each
+bucket once; only then may the 22-versus-27 control be read as more than stored
+edge elimination.
+
+Formation's reciprocal `NativeDemandRestrictedFormation` was independently
+replayed with this module.  It checks the complementary gate: a policy suffix
+is reconstructed only while its pair remains unresolved, is useful before
+installation, and strictly decreases the unresolved-pair finset.  A complete
+explicit schedule produces a discrete response partition.  Thus discovery
+now has a genuine-edge carrier and installation has a pre-construction demand
+gate, but extracting the reverse traversal into `Policy` still remains open.
+
+Focused replay checks 3,059 jobs; the joint edge/demand build checks 3,062;
+the imported aggregate checks 8,807.
