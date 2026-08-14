@@ -337,6 +337,38 @@ theorem ReachQueue.node_eq_of_state_eq (queue : ReachQueue A X)
   exact (List.nodup_map_iff_inj_on hnodes).mp hnodup
     left hleft right hright heq
 
+/-- Every retained node carries a globally shortest reaching word.  The proof
+uses completeness at the candidate word's length, monotonicity of the visited
+set, and uniqueness of state representatives. -/
+theorem runReachQueue_node_minimal [DecidableEq X]
+    (M : DFA A X) (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet) (round : Nat)
+    {node : ReachNode A X}
+    (hnode : node ∈ (runReachQueue M alphabet round).nodes) :
+    ∀ candidate : List A, M.eval candidate = node.state →
+      node.word.length ≤ candidate.length := by
+  intro candidate hcandidate
+  by_contra hnot
+  have hcandlt : candidate.length < node.word.length :=
+    Nat.lt_of_not_ge hnot
+  have hnodeRound := runReachQueue_word_length M alphabet round node hnode
+  have hcandRound : candidate.length ≤ round :=
+    Nat.le_trans (Nat.le_of_lt hcandlt) hnodeRound
+  have hcover := runReachQueue_covers_word M alphabet complete candidate
+  simp only [ReachQueue.states, List.mem_map] at hcover
+  obtain ⟨prior, hprior, hpriorState⟩ := hcover
+  have hpriorLater := advanceReachQueue_nodes_mono_le M alphabet
+    hcandRound hprior
+  have hsame : prior = node :=
+    ReachQueue.node_eq_of_state_eq (runReachQueue M alphabet round)
+      (runReachQueue_states_nodup M alphabet round)
+      hpriorLater hnode (hpriorState.trans hcandidate)
+  have hpriorLength := runReachQueue_word_length M alphabet
+    candidate.length prior hprior
+  have hnodeLength : node.word.length ≤ candidate.length := by
+    simpa [hsame] using hpriorLength
+  exact (Nat.not_lt_of_ge hnodeLength) hcandlt
+
 theorem mem_expandFrontier_valid (M : DFA A X) (alphabet : List A)
     (frontier : List (ReachNode A X))
     (hvalid : ∀ node ∈ frontier, node.Valid M) :

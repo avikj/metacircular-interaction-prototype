@@ -1115,7 +1115,9 @@ round1 logh libh ref = do
       nConj = length conjectures
       nFresh = length fresh
       nRes = length results
-  nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
+  dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
+    dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
+    nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
   checkedResults <- filterM (kernelAccept logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
@@ -1139,7 +1141,8 @@ round1 logh libh ref = do
     witnessBranches derivationBranches
   hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
     atlasRaw atlasFixed atlasTears
-  hPrintf logh "  DSO  routes=%d classes=%d survivors=%d survivor-witnesses=%d continuation-work=%d->%d\n"
+  hPrintf logh "  DSO  tasks=%s routes=%d classes=%d survivors=%d survivor-witnesses=%d continuation-work=%d->%d\n"
+    (intercalate "," (map dsoTaskName (mDSOTasks m)))
     dsoRoutes dsoClassesN dsoSurvivorsN dsoWitnessFiber dsoRawWork dsoActiveWork
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
@@ -1315,6 +1318,24 @@ main = do
             && dsoRawEvaluations compiled == 12
             && dsoActiveEvaluations compiled == 8) exitFailure
     hPrintf stdout "DSO CONTEXT CHECKED: local=true/0 contextual=false/1 routes=4 classes=3 survivors=1 witness-routes=2 continuation-evals=12->8\n"
+    exitSuccess
+  when (args == ["--dso-live-self-test"]) $ do
+    let task = boundedDSOTask "square-threshold" squareThresholdSearch
+        projection = executeBoundedSearch squareThresholdSearch
+        compiled = compileDSO (dsoTaskDependencies task)
+          (dsoTaskContinuations task) (dsoTaskRoutes task)
+        survivorValues = map dsoProfile (dsoSurvivors compiled)
+        retainedRoutes = map dsoWitness (dsoTaskRoutes task)
+    unless (activeWitnesses projection == [6]
+            && derivationFiber projection == [6..20]
+            && existenceConsequence projection
+            && retainedRoutes == map (\n -> "square-threshold/" ++ show n) ([6..20] :: [Int])
+            && length (dsoClasses compiled) == 15
+            && survivorValues == [[6]]
+            && concatMap dsoWitnesses (dsoSurvivors compiled) == ["square-threshold/6"]
+            && dsoRawEvaluations compiled == 30
+            && dsoActiveEvaluations compiled == 15) exitFailure
+    hPrintf stdout "LIVE DSO CHECKED: bounded-routes=15 classes=15 survivors=1 retained-fiber=15 continuation-work=30->15 least-output=6 consequence=equal\n"
     exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]
