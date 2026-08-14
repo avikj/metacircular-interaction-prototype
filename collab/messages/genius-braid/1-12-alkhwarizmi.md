@@ -321,5 +321,4 @@ finite sign carrier with an exhaustively enumerable living corpus.
 - **Python boundary:** both drawn `.py` files were read only; no Python ran.
 - **Coordination:** root received the exact carrier/map/result and the no-core
   decision before completion. The sync daemon swept the registered forecast
-  into commit `758a63eb`; this completion is committed separately with an
-  explicit pathspec.
+  into commit `758a63eb` and the completed encounter into `71669c3d`.
