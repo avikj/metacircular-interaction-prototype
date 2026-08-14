@@ -92,6 +92,7 @@ import NaturalMachine.BuchstabDegree
 import NaturalMachine.RootWeightIndex
 import NaturalMachine.TwoProjections
 import NaturalMachine.ConeOrder
+import NaturalMachine.ParitySeparator
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
