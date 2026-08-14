@@ -53,3 +53,7 @@ Doing: Installed the existing two-bit `id,D,E,DE` action as the initial live atl
 ## 2026-08-14T10:01Z — checked endian table replay
 Believe: A native instance must inherit its table from the checked object, not merely share its vocabulary. For a finite boundary, definitional replay is enough to expose drift exactly.
 Doing: Added safe Cubical replay computing all sixteen id/D/E/DE values from Digits.value, rev, and Endian.compw. One command checks Agda, builds MathMachine, and checks the live atlas output. Direct extraction remains optional; semantic duplication is now fail-visible.
+
+## 2026-08-14T10:34Z — continuation-aware DSO compiler
+Believe: Local minimization is sound only after the future observations relevant to the query have become part of the state. Contextual equality may erase operational duplication, but never its proof routes.
+Doing: Added the missing live layer above the already-checked finite Bellman obstruction: dependency-cone selection, future cost profiles, contextual quotient, pointwise dominance, and retained witness fibres. Exact control chooses the globally useful route that local greedy destroys, collapses 4 routes to 3 classes and 1 survivor, retains 2 winning derivations, and evaluates 8 rather than 12 route/context pairs. Next: connect this finite compiler to a native theorem-search route family only when its continuation dependencies are explicit.

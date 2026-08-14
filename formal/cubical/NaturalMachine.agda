@@ -156,6 +156,7 @@ import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite
 import NaturalMachine.LeastWitnessFactory
 import NaturalMachine.ReflectionAttachment
+import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent

@@ -269,9 +269,9 @@ theorem runReachQueue_covers_word [DecidableEq X]
   induction word using List.reverseRecOn with
   | nil => simp [runReachQueue, initialReachQueue, ReachQueue.states,
       ReachQueue.nodes]
-  | append_singleton prefix action ih =>
+  | append_singleton pre action ih =>
       have hnext := runReachQueue_successor M alphabet complete
-        prefix.length ih action
+        pre.length ih action
       simpa [DFA.eval, DFA.evalFrom_of_append] using hnext
 
 theorem mem_expandFrontier_valid (M : DFA A X) (alphabet : List A)

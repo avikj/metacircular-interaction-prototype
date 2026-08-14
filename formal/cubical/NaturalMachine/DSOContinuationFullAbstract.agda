@@ -4,7 +4,7 @@ module NaturalMachine.DSOContinuationFullAbstract where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; false ; true)
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; min)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma using (Σ ; _,_)
 import NaturalMachine.DSOFinite as D
@@ -51,6 +51,10 @@ dirac true true = fin zero
   +-zero (suc m) = cong suc (+-zero m)
 ⊗-zero-right ∞ = refl
 
+⊗-∞-right : (c : Cost) → c ⊗ ∞ ≡ ∞
+⊗-∞-right (fin n) = refl
+⊗-∞-right ∞ = refl
+
 min-∞-right : (c : Cost) → minC c ∞ ≡ c
 min-∞-right (fin n) = refl
 min-∞-right ∞ = refl
@@ -59,8 +63,9 @@ min-∞-right ∞ = refl
 -- transformer loses no information about a finite cost relation.
 dirac-reconstruct : (K : Relation) (a c : Bool)
   → bellman K (dirac c) a ≡ K a c
-dirac-reconstruct K a false
-  rewrite ⊗-zero-right (K a false) | min-∞-right (K a false) = refl
+dirac-reconstruct K a false =
+  cong₂ minC (⊗-zero-right (K a false)) (⊗-∞-right (K a true))
+    ∙ min-∞-right (K a false)
 dirac-reconstruct K a true with K a false | K a true
 ... | fin m | fin n = ⊗-zero-right (fin n)
 ... | fin m | ∞ = refl

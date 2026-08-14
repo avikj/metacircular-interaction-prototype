@@ -4,7 +4,7 @@ module NaturalMachine.DependentOptimizationFibration where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz)
-open import Cubical.Data.Bool using (Bool ; false)
+open import Cubical.Data.Bool using (Bool ; false ; true ; false≢true)
 open import Cubical.Data.Sigma
 open import Cubical.Data.List using ([] ; _∷_)
 open import Cubical.Data.Empty as Empty using (⊥)
@@ -78,7 +78,11 @@ right-optimal-architecture (((left-architecture , left-realization) , proof) , o
 right-optimal-architecture (((right-architecture , right-realization) , proof) , optimal) = refl
 
 left≠right : ¬ (left-architecture ≡ right-architecture)
-left≠right ()
+left≠right equality = false≢true (cong tag equality)
+  where
+  tag : Architecture → Bool
+  tag left-architecture = false
+  tag right-architecture = true
 
 -- Local optimizer sections glue only if their selected semantic-fiber
 -- points agree.  The two zero-cost sections cannot satisfy that overlap.

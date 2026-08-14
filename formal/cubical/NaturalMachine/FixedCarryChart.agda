@@ -1,0 +1,206 @@
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- NaturalMachine.FixedCarryChart
+--
+-- `CarryChartBridge` proved the one-step residue square for canonical
+-- numeral words and then killed its iteration: canonicalization forgets the
+-- ambient width.  The missing coordinate already exists in the repository.
+-- `DigitTowerFinLimit.W A n = Fin n → A` retains exactly n places, and its
+-- `dropMSD` restricts along the top-preserving inclusion Fin n ↪ Fin (suc n).
+--
+-- This module is the exact adapter between that fixed-width tower and the
+-- existing digit/carry chart.  It proves:
+--
+--   * fixed-width MSD deletion composes strictly;
+--   * enumerating a level word as a little-endian raw word intertwines the
+--     tower deletion with `Endian.π`;
+--   * reducing its b^(n+1) residue coordinate is exactly the b^n coordinate
+--     after fixed-width deletion; and
+--   * normalization into `CanWord` preserves each stage's residue chart.
+--
+-- The last statement is deliberately stagewise.  It does not turn
+-- normalization into a morphism of towers; `normalizeMSD-not-iterable` is
+-- precisely the obstruction to that stronger, false translation.
+------------------------------------------------------------------------
+
+module NaturalMachine.FixedCarryChart where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Function using (_∘_)
+open import Cubical.Data.Nat
+open import Cubical.Data.Nat.Mod
+open import Cubical.Data.Nat.Order
+open import Cubical.Data.Fin
+  using (Fin ; fzero ; fone ; fsuc ; flast ; toℕ ; toℕ-injective)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
+open import Cubical.Data.Sigma using (Σ≡Prop ; fst ; _,_)
+
+import NaturalMachine.Digits
+import NaturalMachine.Endian
+import NaturalMachine.CarryObstruction
+import NaturalMachine.CarryChartBridge
+import NaturalMachine.DigitTowerFinLimit
+import NaturalMachine.FinTopSplit
+
+------------------------------------------------------------------------
+-- One adjacent pair b^(n+1) → b^n, where n = 1 + n'.
+------------------------------------------------------------------------
+
+module FixedBridge (k n' : ℕ) where
+
+  module D = NaturalMachine.Digits k
+  module E = NaturalMachine.Endian k
+  module C = NaturalMachine.CarryObstruction.BasePower k n'
+  module B = NaturalMachine.CarryChartBridge.Bridge k n'
+  module T = NaturalMachine.DigitTowerFinLimit
+  module F = NaturalMachine.FinTopSplit
+
+  ----------------------------------------------------------------------
+  -- The level-retaining carrier and its strict transition.
+  ----------------------------------------------------------------------
+
+  LevelWord : ℕ → Type₀
+  LevelWord m = T.W D.Digit m
+
+  dropMSD : (m : ℕ) → LevelWord (suc m) → LevelWord m
+  dropMSD = T.dropMSD
+
+  dropMSD² : (m : ℕ) → LevelWord (suc (suc m)) → LevelWord m
+  dropMSD² m w i = w (F.injectSuc (F.injectSuc i))
+
+  -- Unlike normalized deletion on `CanWord`, adjacent fixed-level maps
+  -- compose on the nose.  The width is present in the source and target
+  -- types, so no zero place can disappear between the two steps.
+  dropMSD-compose : (m : ℕ) (w : LevelWord (suc (suc m)))
+                  → dropMSD m (dropMSD (suc m) w) ≡ dropMSD² m w
+  dropMSD-compose m w = refl
+
+  ----------------------------------------------------------------------
+  -- The existing raw-word chart, enumerated from least to most significant.
+  ----------------------------------------------------------------------
+
+  toWord : {m : ℕ} → LevelWord m → D.Word
+  toWord {zero}  w = []
+  toWord {suc m} w = w fzero ∷ toWord (w ∘ fsuc)
+
+  length-toWord : {m : ℕ} (w : LevelWord m) → length (toWord w) ≡ m
+  length-toWord {zero}  w = refl
+  length-toWord {suc m} w = cong suc (length-toWord (w ∘ fsuc))
+
+  private
+    inject-zero : {m : ℕ}
+                → F.injectSuc (fzero {k = m}) ≡ fzero
+    inject-zero = toℕ-injective refl
+
+    fsuc-inject : {m : ℕ} (i : Fin m)
+                → fsuc (F.injectSuc i) ≡ F.injectSuc (fsuc i)
+    fsuc-inject i = toℕ-injective refl
+
+    fsuc-last : (m : ℕ)
+              → fsuc (flast {k = m}) ≡ flast {k = suc m}
+    fsuc-last m = toℕ-injective refl
+
+    zero-last : fzero {k = 0} ≡ flast {k = 0}
+    zero-last = toℕ-injective refl
+
+    tail-drop : {m : ℕ} (w : LevelWord (suc (suc m)))
+              → dropMSD m (w ∘ fsuc)
+              ≡ (dropMSD (suc m) w) ∘ fsuc
+    tail-drop w = funExt λ i → cong w (fsuc-inject i)
+
+  -- Every fixed-width word is its lower restriction followed by the top
+  -- digit.  This is the raw-list form of `FinTopSplit.topSplit`.
+  toWord-snoc : {m : ℕ} (w : LevelWord (suc m))
+              → toWord w ≡ toWord (dropMSD m w) ++ (w flast ∷ [])
+  toWord-snoc {zero} w = cong (_∷ []) (cong w zero-last)
+  toWord-snoc {suc m} w =
+    cong₂ _∷_
+      (cong w (sym inject-zero))
+      ( toWord-snoc (w ∘ fsuc)
+      ∙ cong₂ _++_
+          (cong (toWord {m = m}) (tail-drop w))
+          (cong (_∷ []) (cong w (fsuc-last m))) )
+
+  -- Consequently the function-indexed tower deletion is exactly the raw
+  -- `Endian.π`, without normalization and without a canonicity premise.
+  toWord-dropMSD : {m : ℕ} (w : LevelWord (suc m))
+                 → E.π (toWord w) ≡ toWord (dropMSD m w)
+  toWord-dropMSD {m} w =
+      cong E.π (toWord-snoc w)
+    ∙ E.π-snoc (toWord (dropMSD m w)) (w flast)
+
+  ----------------------------------------------------------------------
+  -- Stagewise projection to the numeral chart.
+  ----------------------------------------------------------------------
+
+  levelValue : {m : ℕ} → LevelWord m → ℕ
+  levelValue w = D.value (toWord w)
+
+  canonicalize : {m : ℕ} → LevelWord m → D.CanWord
+  canonicalize w = D.digitsC (levelValue w)
+
+  canonicalize-value : {m : ℕ} (w : LevelWord m)
+                     → D.valueC (canonicalize w) ≡ levelValue w
+  canonicalize-value w = D.value-digits (levelValue w)
+
+  chartN : LevelWord C.n → Fin C.N
+  chartN w =
+    (levelValue w mod C.N) , mod< (C.bp C.n) (levelValue w)
+
+  chartM : LevelWord (suc C.n) → Fin C.M
+  chartM w =
+    (levelValue w mod C.M) , mod< C.M' (levelValue w)
+
+  -- Normalization forgets width but not the coordinate at a fixed stage.
+  chartN-canonicalizes : (w : LevelWord C.n)
+                       → chartN w ≡ B.chartN (canonicalize w)
+  chartN-canonicalizes w = Σ≡Prop (λ _ → isProp≤)
+    (sym (cong (_mod C.N) (canonicalize-value w)))
+
+  chartM-canonicalizes : (w : LevelWord (suc C.n))
+                       → chartM w ≡ B.chartM (canonicalize w)
+  chartM-canonicalizes w = Σ≡Prop (λ _ → isProp≤)
+    (sym (cong (_mod C.M) (canonicalize-value w)))
+
+  ----------------------------------------------------------------------
+  -- The exact fixed-level carry square.
+  ----------------------------------------------------------------------
+
+  levelValue-mod : (w : LevelWord (suc C.n))
+                 → levelValue w mod C.N
+                 ≡ levelValue (dropMSD C.n w) mod C.N
+  levelValue-mod w =
+      cong (λ z → D.value z mod C.N) (toWord-snoc w)
+    ∙ B.value-snoc-mod
+        (toWord (dropMSD C.n w))
+        (w flast)
+        (length-toWord (dropMSD C.n w))
+
+  -- Width is now carried by the type.  The former explicit length premise
+  -- disappears, and the square composes because `dropMSD-compose` does.
+  red-chart-drops : (w : LevelWord (suc C.n))
+                  → C.red (chartM w) ≡ chartN (dropMSD C.n w)
+  red-chart-drops w = Σ≡Prop (λ _ → isProp≤)
+    (C.mod-mod (levelValue w) ∙ levelValue-mod w)
+
+------------------------------------------------------------------------
+-- Definitional guards at the binary 3 → 2 digit transition.
+------------------------------------------------------------------------
+
+private
+  module F₂ = FixedBridge 0 1
+
+  w101 : F₂.LevelWord 3
+  w101 (0 , _) = fone
+  w101 (1 , _) = fzero
+  w101 (suc (suc _) , _) = fone
+
+  _ : F₂.toWord w101 ≡ fone ∷ fzero ∷ fone ∷ []
+  _ = refl
+
+  _ : F₂.toWord (F₂.dropMSD 2 w101) ≡ fone ∷ fzero ∷ []
+  _ = refl
+
+  _ : F₂.dropMSD 1 (F₂.dropMSD 2 w101) ≡ F₂.dropMSD² 1 w101
+  _ = F₂.dropMSD-compose 1 w101
