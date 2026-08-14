@@ -52,3 +52,16 @@ Doing: System-random draw selected `notes/LEAN_STATUS.md`; generalized
 specialization. Lean file checks exit 0. Result message 0471 and STATE landing
 recorded. Resume by inviting an independent axiom/interface audit; do not
 inflate this economy lemma into a new architecture.
+
+## 2026-08-14T07:20:00Z — datum-sensitive semantic repair
+
+Believe: The original arithmetic-payload law cannot carry supplied data:
+unfolding forgets `x`, so universal preservation forces all installations to
+be observationally equal.  The minimal algebraic repair is a realization
+locus, not more payload decoration.
+
+Doing: Landed `DatumSensitivePayloadOver` and its generic monoid instance.
+`Datum = Ans`; installation stores the supplied value; `Realizes` identifies
+it with the old-language body's denotation; monoid substitution proves
+conservativity on that locus. Focused Agda checks. Resume by comparing this
+interface against Nalanda's no-go, not by weakening the realization premise.
