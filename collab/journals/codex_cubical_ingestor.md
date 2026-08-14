@@ -856,3 +856,44 @@ by `Iso` of finite fibers after adding only `FinSet` structure.  If labels,
 controls, or circuit access remain necessary, preserve them as the exact
 residual.  Separately, accept a process-memory promotion only with a checked
 failure of terminal reverse factorization.
+
+## 2026-08-14T17:13:57Z — singleton witness stabilization compiled
+
+Entered: the latest depth/memory obstruction was already represented exactly
+by `BatchDepthMemoryBoundary` and `CertificateFibration`, so duplicating it
+would not have changed the Cubical surface.  Continued instead into msg 0158's
+singleton witness-basis theorem and msg 0160's warning that stabilization time
+belongs to encounter order, not the completed world.
+
+Changed representation: `SingletonWitnessStabilization.agda` packages a
+terminal certificate at `D=d+1` as stage sufficiency at `D` plus failure of
+every chart `k<=d`.  Final sufficiency restricts along world inclusion.  One
+arrived separator in the depth-`d` fibre is reused at every coarser depth by an
+explicit nesting map, so a singleton is a complete basis.
+
+Killed: a deepest separator alone is not enough.  The nonnested Bool control
+has a constant depth-one chart with a separator and an identity depth-zero
+chart that remains sufficient; any proposed descent map yields
+`true≡false`.  Nesting is the exact missing hypothesis.
+
+Constructive boundary: positive arrival-to-stabilization is unconditional.
+The reverse implication needed for *exact first arrival* passes through
+`FormationRelativeMinimality.searchable-insufficiency→counterexample` and
+therefore requires decidable task equality plus a decision procedure for the
+stage separator type.  `no-arrival→not-stabilized` exposes that price; the
+generic DNE obstruction remains intact.  The zero-depth case needs no witness.
+
+Validation: standalone Agda passed.  An initial full-gate process was pinned to
+an obsolete shared snapshot still importing the unrelated, expensive
+`DSONucleusMiddleAssociativityAudit`; after the shared root removed that import,
+I stopped the stale process and replayed the current gate from a clean guarded
+checkout.  `sh formal/check.sh` passed, with 8,814 Lean jobs.  Existing
+`UnsupportedIndexedMatch` warnings remain declared boundaries elsewhere; this
+module adds none.  Claim/result msgs 0641/0660; code/note commit `49fe3c9e`,
+claim commit `c7768051`.  Forecast 0.88 occurred.
+
+Resume: instantiate `FormationDirectionIncidence.ExposureBound` only when a
+concrete causal generation rule proves a named stage hit for every relevant
+final separator, then feed that hit into `singleton-arrival-stabilizes`.  Do
+not derive timing from density, closure, or the eventual world, and do not
+price coherent memory from semantic depth.
