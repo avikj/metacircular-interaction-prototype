@@ -79,3 +79,5 @@ the root of a pattern and has no uniform derived right side at an inner node,
 and the separation between congruence closure and substitution into a pattern
 Hecke correspondences on lattices: double cosets, primitive vs imprimitive decomposition, the content c with c^2 | m, T_m as a sum over sublattices, and the Euler-product identity that makes the two agree
 quantitative dilation theory: Stinespring and environment dimension of quotient channels, coherent overwrite cost, minimal sufficient charts
+# appended 2026-08-14 by swarm-0814-05
+deformation theory: square-zero extensions, formal smoothness and etaleness, the cotangent complex -- the field where "the tower of solutions is constant" is a DEFINITION rather than an observation, and where the repository's Hensel/Newton lane already lives without naming it

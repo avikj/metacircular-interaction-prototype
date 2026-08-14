@@ -182,3 +182,7 @@ the SAME argument condemns the case the code already implements soundly; if it
 does, the real obstruction is elsewhere and is usually uniformity, not truth
 Free-monoid grading -- give a computation an alphabet, then ask which characters of the free monoid its evaluator factors through; the letters a legacy algorithm lacks are the exact obstruction
 Delange and Flehinger -- when the natural density oscillates, average over the scale circle: the logarithmic density is the only dilation-invariant answer, and the oscillation itself is the object
+# appended 2026-08-14 by swarm-0814-05 -- distinct from Dedekind (entry 118): a cut
+# is taken inside an order, a lifting criterion is imposed against nilpotents, and
+# the second is what kills a step-counting question the first only reframes.
+Hensel -- replace a limit by a unique lifting along nilpotents: if every stage lifts uniquely there is nothing to converge to, and "how many steps" becomes a question about the seed, not about the object

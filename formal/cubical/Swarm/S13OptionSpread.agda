@@ -136,10 +136,11 @@ _≼all_ : {m j : ℕ} → Vec ℕ m → Vec (Vec ℕ m) j → Type₀
 u ≼all []      = Unit
 u ≼all (x ∷ F) = (u ≼ x) × (u ≼all F)
 
-≼all-∈ : {u v : Vec ℕ n} {F : Vec (Vec ℕ n) k}
+≼all-∈ : {u v : Vec ℕ n} (F : Vec (Vec ℕ n) k)
        → u ≼all F → v ∈ F → u ≼ v
-≼all-∈ {F = x ∷ F} (p , r) (inl e) = subst (_ ≼_) (sym e) p
-≼all-∈ {F = x ∷ F} (p , r) (inr i) = ≼all-∈ r i
+≼all-∈ []      _       ()
+≼all-∈ (x ∷ F) (p , r) (inl e) = subst (_ ≼_) (sym e) p
+≼all-∈ (x ∷ F) (p , r) (inr i) = ≼all-∈ F r i
 
 ≼all-mono : {x u : Vec ℕ n} {F : Vec (Vec ℕ n) k}
           → x ≼ u → u ≼all F → x ≼all F
@@ -171,10 +172,14 @@ consLeast x u u∈ dom with ≼-or-◃ x u
 
 -- For every inhabited finite fibre, EITHER a sound merge representative
 -- OR a two-point separation.  Constructive, hence decidable.
-dichotomy : (F : Vec (Vec ℕ n) (suc k)) → Least F ⊎ Sep F
-dichotomy {k = zero}   (x ∷ []) = inl (x , inl refl , (≼-refl , tt))
-dichotomy {k = suc k'} (x ∷ G) with dichotomy G
-... | inl (u , u∈ , dom)           = consLeast x u u∈ dom
+--
+-- An inhabited fibre is presented as a distinguished member `x` together
+-- with the rest `G`; this keeps the recursion on Vec constructors alone,
+-- so the term computes under transport.
+dichotomy : (x : Vec ℕ n) (G : Vec (Vec ℕ n) k) → Least (x ∷ G) ⊎ Sep (x ∷ G)
+dichotomy x []      = inl (x , inl refl , (≼-refl , tt))
+dichotomy x (y ∷ G) with dichotomy y G
+... | inl (u , u∈ , dom)            = consLeast x u u∈ dom
 ... | inr (u , v , u∈ , v∈ , p , q) =
         inr (u , v , (inr u∈ , inr v∈ , p , q))
 
@@ -277,5 +282,5 @@ chainFibre : Vec (Vec ℕ 2) 2
 chainFibre = (0 ∷ 0 ∷ []) ∷ (1 ∷ 0 ∷ []) ∷ []
 
 chainLeast : Least chainFibre
-chainLeast = mkLeast (0 ∷ 0 ∷ []) z∈
-               (all∷ ≼-refl (all∷ (≼∷ zero-≤ (≼∷ ≤-refl ≼[])) all[]))
+chainLeast = (0 ∷ 0 ∷ []) , inl refl
+           , (≼-refl , (≼∷ zero-≤ (≼∷ ≤-refl ≼[])) , tt)
