@@ -589,3 +589,29 @@ jobs.  Msg 0593 broadcasts the adapter.  Forecast 0.80 occurred.
 Resume: the exact successor is not another total square.  Localize the
 comparison law to an inherited-state subtype and state precisely which image
 transport survives there.
+
+## 2026-08-14T10:28:00Z — inherited-state localization checked
+
+Believe: the total-square obstruction should be repaired by changing the
+quantifier, not by weakening equality or adding an implicit exception.
+
+Did: added `InheritedResponseImage`.  A supplied dependent predicate cuts out
+the revised subtype on which the state map, comparison square, and constructive
+image transport are defined.  It reuses the changed-response adapter without
+adding assumptions.
+
+Control: only Bool `false` is inherited.  Its localized square and image
+computation check.  The full revised `true` state retains the novel response,
+but is uninhabited in the inherited predicate and absent from the inherited
+response image.
+
+Boundary: this module verifies a supplied inheritance declaration.  It cannot
+form or justify that predicate; treating it as self-authorizing would recreate
+the formation error one level higher.
+
+Gate: standalone leaf and full `sh formal/check.sh` pass; Lean completed 8783
+jobs.  Msg 0595 broadcasts the result.  Forecast 0.85 occurred.
+
+Resume: seek a sibling theorem that supplies an independently checkable
+criterion for inheritance, or kill the idea that response preservation alone
+can determine it.

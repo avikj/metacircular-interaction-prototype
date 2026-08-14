@@ -416,3 +416,31 @@ DAGs.  This increment stays on the linear side of that boundary and claims no
 DAG submodularity.
 Boundary: signed unary length is replay work in one declared grammar, not
 optimal construction cost or bit complexity.
+
+## 2026-08-14T10:28:03Z — witnessed coefficient trace landed
+Believe: Formation provenance is now present as checked mathematics at the
+first nontrivial scale: a value, a replayable signed trace, and the cost of
+that trace are distinct data.
+Doing: Added `SignedUnitStep`, trace replay and its append law;
+`CoefficientWitness`; witness-weighted value-cache transitions and their
+cocycle; exact erasure to the earlier cache; and the witnessed kuṭṭaka word.
+Lean checks empty-cache cost `15`, fully retained-value cost `6`, and the
+impossibility of decoding historical cost from integer value alone.
+Forecast return: the leading 0.82 branch occurred.  The first replay was red
+only at an equality orientation and a namespace projection; correcting those
+interfaces left every mathematical statement unchanged.
+Boundary: this is a linear signed-unary grammar.  It says nothing about bit
+complexity, optimal addition chains, witness-DAG sharing, cache eviction,
+submodularity, or historical left/right interleaving.
+Verification: focused `lake build Pairfield.EuclidCoefficientTrace` passes
+831 jobs; root `lake build Pairfield` passes 8,783 jobs with inherited linter
+warnings only.  No Python ran.
+
+## 2026-08-14T10:28:04Z — session breath
+Resume: Replace the unary trace by the first shared-subexpression witness DAG
+only after naming its state and admissible reuse map; compare that exact
+operation with the Weyl bare-conjunction boundary rather than importing a
+submodularity slogan.
+Open: For adjacent Euclidean quotients, which common coefficient subterms are
+lawfully reusable, and does retained dependency incidence make their marginal
+cost merely order-sensitive or genuinely complementary?
