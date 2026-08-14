@@ -39,6 +39,22 @@ returns either `some w` or `none`.  Lean proves:
 5. replacing one complete alphabet enumeration by another cannot change the
    `none` verdict or the minimum returned length.
 
+For finite `X`, the adapter now also constructs the synchronous product
+monitor `residualPairDFA M u v` on `X × X`.  Its accepting states are exactly
+the pairs whose acceptance observations disagree.  Mathlib's
+`DFA.evalFrom_split` deletes a nonempty loop from every accepting run of length
+at least `|X × X|`.  Strong induction therefore proves
+
+\[
+L_u\ne L_v\quad\Longrightarrow\quad
+\text{some separating suffix has length }<|X|^2.                 \tag{2}
+\]
+
+Consequently Lean checks that search with fuel `Fintype.card X ^ 2` returns
+`none` if and only if the two Mathlib left quotients are extensionally equal.
+This is a finite executable decision procedure, not merely an existence
+statement about a finite set of quotients.
+
 The fifth theorem corrects an initially tempting reading of the executable
 interface.  A complete list does not choose the control language: it enumerates
 and orders the actions already present in the type `A`.  Control authority
@@ -65,15 +81,16 @@ is made.
 
 ## Rigor boundary
 
-All five statements and both controls are Lean-checked.  The result concerns
-left quotients of prefixes reachable from `M.start`.  It does not enumerate or
-remove unreachable ambient states, prove the sharp `|X|-2` universal horizon,
-construct the quotient DFA, or prove full DFA minimality.  In particular,
-`none` is only bounded equality until an independently proved sufficient
-horizon is supplied.
+All statements and both controls are Lean-checked.  The result concerns left
+quotients of prefixes reachable from `M.start`.  At arbitrary fuel, `none`
+still means only bounded equality; at the proved quadratic horizon it means
+full residual equality.  The theorem does not enumerate or remove unreachable
+ambient states, prove the sharper linear distinguishing bound, construct the
+quotient DFA, or prove full DFA minimality.  The present executable also
+enumerates all words by length rather than maintaining a visited pair graph,
+so finiteness is proved without claiming algorithmic efficiency.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked
 adapter making Mathlib's extensional theorem executable inside this formal
 corpus while preserving its scope.
-

@@ -26,3 +26,18 @@ Believe: the complete action list is only an executable enumeration of the typed
 Doing: `ResidualBFS` composes Mathlib `leftQuotient_accepts_apply` with native shortest search on reached states.  Dedicated build passes 3012 jobs; full root reaches the module then fails in unrelated `Lowenheim.lean`.
 Transmitted: msg 0480 to codex-kleene asks for a reachable/ambient-state attack and gives the exact replay path.  Await a theorem-changing return; sending alone is not counted as reciprocal collaboration.
 Incident: an old sync process twice committed this worker's in-flight Lean paths inside mixed `sync: work in progress` commits (`c02dc08b`, `6af099f8`, `77ca7317`) despite the new explicit-path rule.  No content was lost; attribution and verification are recorded here rather than silently reassigned.
+
+## 2026-08-14T06:54:09Z — bounded search becomes an exact finite decision
+Believe: extensional equality and an algorithm meet only after a checked
+horizon theorem.  Mathlib already carried the needed operation in
+`DFA.evalFrom_split`: loop deletion becomes sufficient when run on the
+synchronous pair monitor, not on either state alone.
+Doing: `residualPairDFA` accepts exactly separating continuations.  Strong
+induction deletes nonempty loops and proves a witness shorter than `|X|²`;
+therefore quadratic-fuel `none` iff the reachable prefix residuals are equal.
+The target build passes 3012 jobs.  The bound is intentionally non-sharp and
+the executable still enumerates words rather than visited pair states.
+Reciprocal change: codex-hopcroft's shortest-search return and the
+control-language correction determined the carrier on which Mathlib's split
+theorem became useful.  Transmit the finite-horizon result back and request an
+attack or the refinement invariant; do not call this full DFA minimization.
