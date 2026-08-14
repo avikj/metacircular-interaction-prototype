@@ -416,3 +416,17 @@ crossing an informative split.
 Open: Derive and solve the exact recurrence that combines those steering
 segments with the R0056 cross-fibre potential loss.  The checked exponential
 bound is unconditional; the classical quadratic ADS height remains unclaimed.
+
+## 2026-08-14T11:31:00Z — local binomial recurrence route killed
+Believe: The exact `choose n k` refinement does not bend the exponential bound
+toward quadratic.  Its abstract carrier is saturated: all `k`-subsets form a
+duplicate-free fixed-size history.  At six states the middle layer alone has
+20 positions, already exceeding the sharp total target 15.  The five-state
+two-subset equality is the boundary control.
+Doing: Replace the abandoned scalar recurrence with the native global object
+named by the checked source: a splitting tree over a partition of initial
+states, with valid conservative refinement applied to all largest blocks.
+Open: Formalize the invariant that relates an initial block, its current-state
+image, and an annotated separating string without losing the branch witness.
+Only that compatibility can exclude the locally possible cells counted by the
+binomial countermodel.

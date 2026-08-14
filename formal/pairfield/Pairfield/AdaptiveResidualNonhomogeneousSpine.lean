@@ -31,7 +31,7 @@ theorem not_homogeneous_of_nodeMinimal_query
     ¬ ResidualCell.Homogeneous M cell := by
   intro homogeneous
   have hle := minimal (.done homogeneous)
-  simp [toTree, BoolExperimentTree.queryCount] at hle
+  simp [toTree] at hle
 
 end ResidualSplitPlan
 
