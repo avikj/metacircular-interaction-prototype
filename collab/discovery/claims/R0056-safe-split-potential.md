@@ -86,7 +86,13 @@ strictness equivalence, and no-progress boundary in message 0571.  Its checked
 reciprocal adapter proves `SafeAdvance ↔ ResidualCell.SafeAction` on a reduced
 finite cell.  The one-state control with distinct prefixes `[]` and `[()]`
 presenting the same residual proves the representative hypothesis cannot be
-dropped.
+dropped.  The follow-up `Pairfield.AdaptiveResidualSteering` packages every
+native prefix residual as an actual state of `Language.toDFA`, proves its
+transition square with Mathlib's exact `Language.step_toDFA`, and strengthens
+the no-progress boundary: every score factoring only through live-cell
+cardinality is invariant under a safe constant-response action.  Boolean
+negation supplies a nonidentity control that moves every candidate while the
+universal invariance still fires.
 
 # Prior art
 
@@ -117,3 +123,5 @@ novelty is claimed.
   checked; status `proving`.
 - 2026-08-14: independent residual-carrier audit accepted; reciprocal adapter,
   conditional constructor, and 8,775-job root replay green.
+- 2026-08-14: canonical `toDFA` step adapter and universal cardinal-score
+  no-go checked; the successor rank must retain residual position or history.

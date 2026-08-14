@@ -569,3 +569,25 @@ Focused validation passes 3,040 jobs; the imported aggregate root passes all
 ignores safe constant-response steering.  Either find a second rank controlling
 those zero-decrease moves or prove a normalization theorem that removes them
 before transporting the classical quadratic bound.
+
+## 2026-08-14T10:03:00Z — cardinal-only steering ranks excluded
+
+The next scalar generalization is now closed.  `AdaptiveResidualSteering`
+packages `BranchResidual M pre` as an actual state of Mathlib's canonical
+`Language.toDFA` and proves that native prefix advance commutes exactly with
+`toDFA.step`, using `Language.step_toDFA`.  Acceptance and arbitrary-word
+iteration are checked on the same adapter.
+
+On any safe constant-response live cell, the selected response fibre is the
+whole cell and the advanced image has the identical cardinality.  Hence every
+score that factors through cell cardinality is invariant.  The Boolean
+negation control is safe, moves every candidate, and still fires the theorem;
+this is not merely the earlier identity-action equality.  The result also
+transports through the reduced Mathlib residual carrier and
+`ResidualCell.SafeAction`.
+
+Formation simultaneously registered message 0575, a five-state attempt to
+prove that such a zero-decrease steering action can be structurally necessary.
+That is the exact reciprocal next test.  Whether it survives or not, another
+cardinality potential cannot solve the height problem: resume with a rank on
+residual positions/pairs, or with an actual normalization proof.

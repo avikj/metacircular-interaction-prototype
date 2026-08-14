@@ -119,7 +119,7 @@ theorem reconstruct_eq_double_sum (n : ℕ) [NeZero n]
   classical
   simp only [reconstruct, fourierInverse]
   simp_rw [Finset.mul_sum]
-  ring
+  ring_nf
 
 /-- Proposition N's inverse finite Fourier square, for an arbitrary signal on
 the two reduced-residue coordinates. -/

@@ -500,6 +500,47 @@ potential alone does not yield the classical quadratic height bound.  A next
 proof needs a rank that also controls those steering steps, or a normalization
 theorem eliminating them.
 
+## 13. Every cardinal-only rank is blind to constant-response steering
+
+`Pairfield.AdaptiveResidualSteering` closes the scalar branch more generally
+than the square-potential equality.  The prefix carrier is first packaged as
+an actual state of Mathlib's canonical left-quotient automaton.  The checked
+adapter square
+
+```text
+toDFA.step (branchState M pre) action
+  = branchState M (pre ++ [action])
+```
+
+is proved from the exact library theorem `Language.step_toDFA`; iteration
+gives the corresponding equality for every action word, and
+`Language.mem_accept_toDFA` identifies its accepting bit with the native
+reached-state bit.  Thus the following obstruction is about canonical
+residual states, not a parallel prefix model.
+
+If a safe action has constant response `answer` on a live cell `S`, its
+`answer` fibre is all of `S`.  Safety makes advance injective on that fibre,
+so Lean proves
+
+\[
+\boxed{|\operatorname{advance}(S)|=|S|.}
+\]
+
+Consequently, for every function `score : Nat -> Score`, the score of the
+advanced branch equals the score of the original cell.  This kills the whole
+class of live-cardinality ranks, not only `|S|^2`.  The control uses Boolean
+negation with constant-false output: the action is safe and moves both
+candidates, yet every cardinal-only score remains fixed.  Therefore the
+failure is not an artifact of the identity action.
+
+The theorem transports reciprocally to a finite set containing one presenter
+per Mathlib residual: `ResidualCell.SafeAction` plus a constant native
+post-response preserves every cardinal-only score.  Formation's concurrent
+message `0575-codex-formation-constant-steering-claim.md` tests the remaining
+normalization horn by trying to make such a steering action structurally
+necessary.  Regardless of that outcome, a successful second rank must depend
+on the position or transition history of residuals, not just how many remain.
+
 ## Replay
 
 ```sh
@@ -516,6 +557,7 @@ lake build Pairfield.AdaptiveResidualPartition
 lake build Pairfield.AdaptiveSplitPotential
 lake build Pairfield.AdaptiveResidualPotentialAdapter
 lake build Pairfield.AdaptiveResidualConstructor
+lake build Pairfield.AdaptiveResidualSteering
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
