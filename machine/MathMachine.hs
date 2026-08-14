@@ -150,8 +150,9 @@ data SearchProjection = SearchProjection
 -- Bellman implementation: DSOBellmanFinite.agda already checks the two-route
 -- counterexample.  Here a route is compiled to its observable cost vector over
 -- the continuations whose dependencies are active.  Equal vectors are one
--- contextual class (while all proof routes are retained); a class is removed
--- only when another class is pointwise no worse and strictly better somewhere.
+-- contextual class while all originating route labels are retained; labels are
+-- identifiers, not derivations or certificates.  A class is removed only when
+-- another class is pointwise no worse and strictly better somewhere.
 data DSORoute = DSORoute
   { dsoWitness :: !String
   , dsoBoundary :: !Int
@@ -214,6 +215,29 @@ compileDSO active continuations routes =
     survivors = [c | c <- classes, not (any (\d -> dominates d c) classes)]
     rawCount = length routes * length continuations
     activeCount = length routes * length live
+
+-- A contextual quotient is valid only for the continuation family that was
+-- actually evaluated.  Extending that family can resurrect a route class that
+-- the smaller query dominated.  Compare stable route labels after recompiling
+-- from raw routes; if any label reappears, cached survivors fail closed.  This
+-- is an operational guard, not proof evidence: `String` is still only an
+-- identifier and `DSOCompilation` does not retain a replayable derivation.
+dsoSurvivorLabels :: DSOCompilation -> [String]
+dsoSurvivorLabels = ordNub . concatMap dsoWitnesses . dsoSurvivors
+
+checkDSOQueryExtension
+  :: DSOCompilation -> DSOCompilation -> Either [String] DSOCompilation
+checkDSOQueryExtension old new
+  | not (all (`elem` dsoActiveContexts new) (dsoActiveContexts old)) =
+      Left ["not-an-extension"]
+  | null resurrected = Right new
+  | otherwise = Left resurrected
+  where
+    oldLabels = dsoSurvivorLabels old
+    resurrected =
+      [ label
+      | label <- dsoSurvivorLabels new
+      , label `notElem` oldLabels ]
 
 -- Existing bounded-search witnesses become architecture routes without
 -- losing their native values.  The declared observation is the ordered-fibre
@@ -1719,15 +1743,24 @@ main = do
           , DSOContinuation "diagnostic" "audit" (\b -> if b == 1 then 0 else 100)
           ]
         compiled = compileDSO ["answer"] continuations routes
+        extended = compileDSO ["answer","audit"] continuations routes
         localGreedy = dsoWitness (head (sortOn dsoLocalCost routes))
         expectedClass = DSOClass [1,1] ["false/direct","false/factored"]
+        expectedExtended =
+          [ DSOClass [1,1,101] ["false/direct","false/factored"]
+          , DSOClass [2,4,0] ["true/direct"]
+          ]
     unless (localGreedy == "true/direct"
             && dsoActiveContexts compiled == ["goal","robustness"]
             && expectedClass `elem` dsoClasses compiled
             && dsoSurvivors compiled == [expectedClass]
             && dsoRawEvaluations compiled == 12
-            && dsoActiveEvaluations compiled == 8) exitFailure
-    hPrintf stdout "DSO CONTEXT CHECKED: local=true/0 contextual=false/1 routes=4 classes=3 survivors=1 witness-routes=2 continuation-evals=12->8\n"
+            && dsoActiveEvaluations compiled == 8
+            && dsoActiveContexts extended == ["goal","robustness","diagnostic"]
+            && dsoSurvivors extended == expectedExtended
+            && checkDSOQueryExtension compiled extended == Left ["true/direct"])
+      exitFailure
+    hPrintf stdout "DSO CONTEXT CHECKED: local=true/0 contextual=false/1 routes=4 classes=3 survivors=1 origin-labels=2 continuation-evals=12->8 query-extension-rejected=true/direct\n"
     exitSuccess
   when (args == ["--dso-live-self-test"]) $ do
     let task = boundedDSOTask "square-threshold" squareThresholdSearch

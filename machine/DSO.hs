@@ -23,8 +23,8 @@ first False True  = 1
 first True  _     = 3
 
 downstream :: CostRelation
-downstream _ False = 2
-downstream _ True  = 0
+downstream False _ = 2
+downstream True  _ = 0
 
 localArgmin :: CostRelation -> Boundary -> Boundary
 localArgmin k a = if k a False <= k a True then False else True
