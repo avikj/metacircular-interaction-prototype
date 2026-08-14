@@ -15,7 +15,7 @@ module NaturalMachine.ConstructiveBornNormalization where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; Σ-syntax)
 open import Cubical.Data.Nat
-  using (ℕ ; zero ; suc ; snotz) renaming (_+_ to _+ℕ_)
+  using (ℕ ; zero ; suc ; snotz ; +-suc) renaming (_+_ to _+ℕ_)
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.ExactTwoStateAmplitudes as Amp
@@ -118,7 +118,8 @@ scaled-plus-norm-is-even scalar = refl
 
 double-is-not-one : (n : ℕ) → ¬ (n +ℕ n ≡ 1)
 double-is-not-one zero equality = snotz (sym equality)
-double-is-not-one (suc n) equality = snotz (cong pred equality)
+double-is-not-one (suc n) equality =
+  snotz (sym (+-suc n n) ∙ cong pred equality)
   where
   pred : ℕ → ℕ
   pred zero = zero
