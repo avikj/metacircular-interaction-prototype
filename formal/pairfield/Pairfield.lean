@@ -29,3 +29,4 @@ import Pairfield.WalkFalsifier
 -- Replay it with
 --   lake build Pairfield.ArbitrarySmithClosure
 import Pairfield.SmithMemory
+import Pairfield.HaarNullProcess
