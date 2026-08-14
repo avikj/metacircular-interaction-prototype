@@ -978,14 +978,34 @@ Theorem 4.2's dependency claim machine-visible.
 `NaturalMachine.agda`): Theorem 2.1's contractibility half — `ℕ-isInitial`,
 `ℕ-recursor-unique`, `ℕ-algebra-endo-is-id`, and Residual 2.1(1) in general as
 `isContrAlgIso` (the type of algebra isomorphisms between two initial algebras is
-contractible) — and the **univalence half only** of Theorem 3.2, `isContrOrdTotal`,
+contractible) — and the **univalence half** of Theorem 3.2, `isContrOrdTotal`,
 which defines $\mathrm{LinOrd}(X) := (X\simeq\mathrm{Fin}\,n)$ by fiat and therefore
 proves the based-path-space contractibility but **not** the order-theoretic
-identification; the exact remaining obligation ($\mathrm{LinOrd}'(X)\simeq
-(X\simeq\mathrm{Fin}\,n)$ against a decidable total order) is stated in that file's
-"WHAT IS DELIBERATELY NOT CLAIMED". Theorem 3.1's loop-group half was already
-covered by `PathIsSymmetry`/`Decategorification`; Theorem 2.7 + Proposition 2.11
-remain unclaimed.
+identification.
+
+*Theorem 3.2, status (2026-08-14): **RESOLVED in full**.* The order-theoretic half is
+now checked in `formal/cubical/NaturalMachine/LinearOrderFinite.agda` (same toolchain,
+`--safe`, no postulates, no holes, exit 0 standalone and via the root aggregate, which
+imports it). That module defines $\mathrm{LinOrd}'(X)$ as a genuine order structure — a
+relation with prop-valuedness, reflexivity, antisymmetry, transitivity and **mere**
+(truncated) totality; decidability of the order is *derived* there from mere totality
+plus the decidable equality that finiteness supplies, not assumed, so the axioms are
+exactly the classical ones and none is constructively stronger — and proves
+`linOrd′≃` $:\ \mathrm{LinOrd}'(X)\simeq(X\simeq\mathrm{Fin}\,n)$ for every $X$ with
+$\lVert X\simeq\mathrm{Fin}\,n\rVert_1$: forward the rank map
+$x\mapsto\#\{z\mid z<x\}$, proved an equivalence (injective by antisymmetry, surjective
+by a finite pigeonhole proved there by counting fibres), backward transport of the
+standard order, with both round trips as paths. Composing it fibrewise with
+`isContrOrdTotal` gives `isContrOrdTotal′`: $\sum_{X:BS_n}\mathrm{LinOrd}'(X)$ is
+contractible — Theorem 3.2 as stated in §3.2, with orders and not rank listings in the
+fibre. The proof counts down-sets rather than inducting on $n$; the obligation as
+recorded in `AtlasResiduals` predicted an induction, and was wrong about the method,
+not the content. Prior art, per `notes/HOTT_ECOSYSTEM_MAP.md`: UniMath states this
+existence direction and `Abort`s it; mathlib4 has it classically as `monoEquivOfFin`;
+no surveyed constructive library has it.
+
+Theorem 3.1's loop-group half was already covered by
+`PathIsSymmetry`/`Decategorification`; Theorem 2.7 + Proposition 2.11 remain unclaimed.
 
 ---
 

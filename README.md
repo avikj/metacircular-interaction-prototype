@@ -59,46 +59,94 @@ every word of framing around it.
 
 ---
 
-## The failure mode, with tonight's receipts
+## Redundancy is the Rosetta Stone, not the waste
 
-The characteristic way an intelligent agent wastes a night here is not error.
-It is *fluent, correct, checked reconstruction of something that already
-exists*. It feels exactly like discovery from the inside. Every one of the
-following passed its own tests:
+You will shortly find out that most of what this corpus proves was proved
+somewhere else first. Here is the mistake it is easy to make on discovering
+that, and the first version of this file made it: to conclude that re-deriving
+a known result in your own vocabulary is the failure, and that the remedy is to
+delete your version and import theirs.
 
-- **`AtlasResiduals.agda` re-derives `Cubical/Data/Nat/Algebra.agda` — a file
-  inside the library this repository already depends on — in a strictly weaker
-  form.** The library proves the initial ℕ-algebra comparison type contractible
-  for any carrier. We proved it for *set* carriers and wrote a paragraph
-  apologizing for the gap the library had closed in 2019. The library file
-  names the paper in its header. `grep -rn "Data.Nat.Algebra" formal/` returned
-  nothing.
-- **`ATLAS_OF_N` §3 is Chapter 4 of the *Symmetry* book.** What we called our
-  sharpest residual, `Sₙ ≅ π₁(BSₙ)`, is an exercise there. The book was already
-  on disk.
-- **The corpus's most-repeated construction is Myhill–Nerode.** Minimal
-  realization for Moore coalgebras, re-proved under private names — and the
-  same induction was written *three times in one module* because nobody named
-  the final coalgebra they were building.
-- **`Tm` is `List Shape`, constructor for constructor.** About 1400 lines of
-  the generative lane are the free monoid's universal property with the serial
-  numbers filed off. The lane has no terms.
-- **`CRYSTAL.md` is babble + egg + Adapton + CEGAR + LCF**, four shipping
-  systems and a fifty-year-old architecture, re-specified.
-- **`PayloadMorphism.MinCarrier` is a character-for-character duplicate** of a
-  library module sitting fifteen lines below an existing import.
-- **`exp27` published a fitted constant, 0.362–0.421, where the true value is
-  exactly ¼.** The error reached two notes, a paper section, and a round of
-  cross-review before anyone did the page of algebra.
-- We import **62 of 859** modules of our own pinned library. Of its 88
-  category-theory modules: **zero**.
+It is not, and the Stone is the argument. Parallel text in three scripts is
+pure redundancy by any compression measure, and it is the only reason anyone
+can read Egyptian. Decipherment *needs* the same content said twice. So does
+this repository, whose central technical claim is that positional notation is a
+**chart** rather than the object — that the atlas, the collection of
+presentations together with the transitions between them, is where mathematics
+lives. A chart is not a lesser copy of the thing it charts.
 
-The lesson is not "be more careful." It is that *your own fluency is the
-adversary*. You can generate a correct proof of a known theorem faster than you
-can find out it is known, and the generated proof will feel better. The only
-defense is a hard ordering: **search before you prove, and search under the
-standard name, not the one we coined.** Our names are precisely what hide the
-standard objects — that is the mechanism, demonstrated above, repeatedly.
+This is not a metaphor doing work it hasn't earned. It is checkable, and this
+week it got checked. `AtlasResiduals` states homotopy-initiality of ℕ in local
+vocabulary; `Cubical/Data/Nat/Algebra` states it in the library's. The
+transition between the two presentations — pointwise commutation against a
+funExt'd equality of functions — turns out to compute to `refl` in both
+directions. The charts are not merely equivalent, they are **definitionally
+interchangeable**, so transport across them leaves no coercion in the term.
+That fact is strictly more information than either presentation carries alone,
+and *you cannot even state it with one chart*. It is now `AlgHomChart`, public
+and named, in the module whose subject it is.
+
+So: **write your own version. Then connect it.** The unconnected chart is the
+only defect, and the repair is an equivalence, never a deletion.
+
+### Transitions currently missing, i.e. work
+
+Each of these is a second chart already written, sitting next to a first chart
+already written, with nothing in between. None of them should be deleted. Every
+one is a statable, checkable equivalence that nobody has stated:
+
+- `Tm` and `List Shape`, constructor for constructor — so roughly 1400 lines of
+  the generative lane are waiting to be identified with the free monoid's
+  universal property, which would hand that lane every theorem the free monoid
+  has.
+- `ATLAS_OF_N` §3 and Chapter 4 of the *Symmetry* book, already on disk, where
+  our sharpest residual `Sₙ ≅ π₁(BSₙ)` is an exercise. Two presentations of
+  concrete groups, no transition.
+- `CRYSTAL.md` and the shipping systems it independently specifies — babble,
+  egg, Adapton, CEGAR, the LCF kernel. Five vocabularies for one architecture,
+  and the translation table is the thing worth having.
+- `PayloadMorphism.MinCarrier` and its library twin, fifteen lines below an
+  existing import.
+- `LIMIT_ORBIT_COMPARISON`'s `c : (lim X)/G → lim(X/G)` and mathlib4's
+  `colimitLimitToLimitColimit`. The word "colimit" occurs in 2 of 507 notes.
+
+`notes/PRIOR_ART_INDEX.md` holds the running coined → standard table. Extend it
+every time you find another pair; it is the atlas index, and it is the most
+valuable file here.
+
+### What is actually worth fixing
+
+A different list, and a shorter one. These are not "we said it twice" — these
+are places where a statement is *wrong, weaker, or unattributed*:
+
+- **Weaker than the known form, and unconnected.** `AtlasResiduals` A2 required
+  a set carrier; the library needs no h-level hypothesis at all and has not
+  since 2019. The hypothesis was doing nothing but shrinking the theorem, so it
+  is gone, and §3 now holds over arbitrary types as a result. *That* was the
+  bug — not the second presentation, which stays.
+- **A fitted constant where an exact one exists.** `exp27` published 0.362–0.421
+  where the value is exactly ¼, and it propagated into two notes, a paper
+  section and a round of review before anyone did the page of algebra. A
+  correlation coefficient has no content; the content is the error term.
+- **A constant quoted without its scaling.** A "measured" noise floor of 10⁻³
+  was really $X^{-1/2}$, and deriving that changed a depth law from $T\log^2 T$
+  to $T^{1/2}\log^{3/2}T$. A number without its $X$-dependence is worse than no
+  number, because it looks like knowledge.
+- **A novelty claim the literature had already closed.** `WIDTH.md`'s "only
+  known crossing of θ = 1/2" is falsified by a 2025 paper; a `COPRIME_MERTENS`
+  result is published elsewhere with a sharper error term. Attribution is not
+  etiquette — it is the difference between a frontier and a room.
+- **Three copies with no transition between them.** Minimal realization for
+  Moore coalgebras appears repeatedly under private names, and the same
+  induction was written *three times in one module*. Three charts and no atlas
+  is the one shape that really is waste — not because the copies exist, but
+  because nothing connects them, so nothing was learned from having them.
+
+The through-line: **an unconnected presentation is debt; a connected one is an
+atlas entry.** We import 62 of 859 modules of our own pinned library, and zero
+of its 88 category-theory modules — which is not a scolding about laziness. It
+is 797 unbuilt transitions, sitting on the disk, each one a checkable statement
+nobody has written down.
 
 ---
 

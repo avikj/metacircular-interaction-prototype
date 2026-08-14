@@ -39,15 +39,19 @@
 --                            carrier, the comparison type is
 --                            CONTRACTIBLE — a path, not a
 --                            mere-propositional "at most one".
---                            **This is not ours.**  It is
---                            `Cubical.Data.Nat.Algebra.isNatHInitialℕ`,
---                            from the library this file already depends
---                            on (Awodey–Gambino–Sojakova,
---                            arXiv:1504.05531), and all we supply is a
---                            `refl`-on-both-sides Iso reconciling their
---                            funExt'd `comm-suc` with our pointwise one.
---                            The earlier hand proof, and the set
---                            hypothesis it needed, are deleted.
+--                            The theorem is
+--                            `Cubical.Data.Nat.Algebra.isNatHInitialℕ`
+--                            (Awodey–Gambino–Sojakova, arXiv:1504.05531).
+--   A2c `AlgHomChart`        ... and THIS is the second chart on it:
+--      `chart-lib-ours`      our pointwise comparison type and the
+--      `chart-ours-lib`      library's funExt'd one are interchangeable
+--                            ON THE NOSE, both round trips `refl`.  Not
+--                            a redundancy to be eliminated — a checked
+--                            translation, stronger than an equivalence,
+--                            in the module that argues presentations are
+--                            charts.  The earlier hand proof and the set
+--                            hypothesis it needed are gone; the second
+--                            presentation stays, now connected.
 --   A3 `ℕ-recursor-unique`   the honest minimum the task names: the type
 --                            of algebra maps ℕ → ℕ commuting with zero
 --                            and suc is contractible.
@@ -125,30 +129,42 @@
 --    statement of §2.3, Proposition 2.4 — is the content, it is a real
 --    induction on n, and it is NOT here.
 --
---    STATUS 2026-08-14.  `NaturalMachine.LinearOrderFinite` now checks
---    (--safe, exit 0) and lands the HARD half: inside
---    `module Order (X) (finX) (L : LinOrd′ X)` it builds
---    `rankEquiv : X ≃ Fin (finX .fst)` together with
---    `rank-order : (toℕ (rank x) ≤ toℕ (rank y)) ≡ (x ⊑ y)` — the rank
---    map is an order-REFLECTING equivalence.  That is the existence
---    direction UniMath states and then `Abort`s
---    (`OrderTheory/OrderedSets/OrderedSets.v:360`), and no library
---    surveyed — cubical, agda-unimath, Coq-HoTT, 1lab — has it
---    constructively; mathlib4 has it classically as `monoEquivOfFin`.
---    **The obligation as stated above is nonetheless still open**:
---    `LinOrd′ X ≃ (X ≃ Fin n)` does not appear in that file, which is
---    parameterised by a GIVEN order and supplies neither the inverse
---    (transport Fin n's standard order back) nor the round trips.  Cite
---    it as "the rank map is an order-reflecting equivalence", never as
---    half (i).  It is also not yet imported by the root aggregate, so it
---    is outside the green claim.  (Provenance: survey in
---    `notes/HOTT_ECOSYSTEM_MAP.md`; the typecheck is a concurrent
---    session's, commit 1356718, not the surveyor's — their own run hit
---    a timeout without reaching a verdict.)
+--    STATUS 2026-08-14 — **RESOLVED**, by
+--    `NaturalMachine.LinearOrderFinite` (--safe, no postulates, no
+--    holes, exit 0 standalone and through the root aggregate, which
+--    imports it).  That module defines `LinOrd′` as a genuine order
+--    structure and proves
+--        `linOrd′≃ : LinOrd′ X ≃ (X ≃ Fin n)`  for X with ∥ X ≃ Fin n ∥₁
+--    — half (i), whole, with both round trips:
+--      * forward `Order.rankEquiv`, the rank map x ↦ #{ z | z < x },
+--        proved an equivalence (injective by antisymmetry through
+--        `rank-order`, surjective by a finite pigeonhole `embSurj`
+--        proved there by counting fibres);
+--      * backward `pull`, transport of Fin n's standard order;
+--      * `rank-pull`, `pull-rank`, the two composites, as paths.
+--    Its `isContrOrdTotal′ : isContr (Σ[ X ∈ BSₙ ] LinOrd′ ⟨X⟩)` is
+--    Theorem 3.2 whole, and it is obtained by transporting B5 below
+--    along that fibrewise equivalence: B5 is imported, not reproved.
 --
---    Until half (i) lands, B5 should be
---    cited as "the univalence half of Theorem 3.2" and never as
---    Theorem 3.2.
+--    Two riders, both spelled out in that file's header.  (a) The
+--    axioms are the classical ones with MERE (truncated) totality;
+--    decidability of the order — which the obligation above offered as
+--    an axiom — is DERIVED there from mere totality plus decidable
+--    equality, so nothing was weakened to force the close.  (b) The
+--    proof counts down-sets; it is NOT the induction on n predicted
+--    above.  The prediction was wrong about the method, not about the
+--    content.
+--
+--    Prior art (from the ecosystem survey, `notes/HOTT_ECOSYSTEM_MAP.md`,
+--    and kept here): UniMath states this existence direction and then
+--    `Abort`s it (`OrderTheory/OrderedSets/OrderedSets.v:360`); no
+--    library surveyed — cubical, agda-unimath, Coq-HoTT, 1lab — has it
+--    constructively; mathlib4 has it classically as `monoEquivOfFin`.
+--
+--    B5 is unchanged and is still exactly the univalence half.  It may
+--    now be cited as such without the rider that the other half is
+--    missing — but it is still NOT Theorem 3.2 by itself.  The name for
+--    the whole theorem is `LinearOrderFinite.isContrOrdTotal′`.
 --
 --  * ~~A2 requires the TARGET algebra's carrier to be a set (`isSetCar`
 --    is a field of `Alg`) ... Initiality of ℕ among (1+X)-algebras on
@@ -161,9 +177,12 @@
 --    Found by the HoTT/UF ecosystem survey (`notes/HOTT_ECOSYSTEM_MAP.md`),
 --    which reports that 12 of 15 univalent claims in this corpus are
 --    already proved elsewhere, nine of them in libraries already on disk.
---    This paragraph is left standing, struck, because the apology it
---    contained for a gap that was not open is the most instructive thing
---    in the file.
+--    Struck rather than deleted: the withdrawn text is a correct record
+--    of what was believed and is part of the mathematics.  Note what is
+--    withdrawn and what is not.  Withdrawn: that the ∞-statement was
+--    open.  NOT withdrawn, and never was: that this file states the
+--    theorem in its own vocabulary.  That is a chart, it is kept, and
+--    `AlgHomChart` is now the transition to the library's.
 --
 --  * `isInitial` is stated at a FIXED universe level, because A5 must
 --    apply an algebra's initiality to another algebra AND to itself.
@@ -255,28 +274,41 @@ compAlgHom (h , p , q) (h' , p' , q') =
 -- A2, RE-DERIVED FROM THE LIBRARY AND STRENGTHENED, 2026-08-14.
 --
 -- This module's first version proved A2 by hand and required the target
--- carrier to be a SET, and said so in a "NOT CLAIMED" paragraph.  Both
--- the proof and the hypothesis were unnecessary:
--- `Cubical.Data.Nat.Algebra` — a module of the very library this file
--- already depends on, following Awodey–Gambino–Sojakova
--- (arXiv:1504.05531), named in that file's own header — proves
+-- carrier to be a SET.  `Cubical.Data.Nat.Algebra` — a module of the
+-- library this file already depends on, following
+-- Awodey–Gambino–Sojakova (arXiv:1504.05531) — proves
 --
 --     isNatHInitialℕ : (M : NatAlgebra ℓ) → isContr (NatMorphism NatAlgebraℕ M)
 --
--- with NO h-level hypothesis at all, at every universe level.  It has
--- been in the pin since 2019.  `grep -rn "Data.Nat.Algebra" formal/`
--- returned nothing until this edit.
+-- with NO h-level hypothesis at all, at every universe level, and has
+-- since 2019.
 --
--- What is genuinely left to us is packaging, and it is definitional:
--- the library's `comm-suc` is a funExt'd equality of functions where
--- ours is pointwise, and in cubical Agda `funExt` and `funExt⁻` are
--- inverse on the nose, so both halves of the Iso below are `refl`.
+-- TWO THINGS FOLLOW, AND THEY ARE DIFFERENT THINGS.
 --
--- Consequence, and the reason this is a strengthening and not just a
--- deletion: `isSetCar` is gone from `Alg` entirely.  It was used in
--- exactly one place (the hand proof's appeal to `Σ≡Prop`), so §3's
--- `initial→isEquiv` and `isContrAlgIso` now hold for algebras on
--- ARBITRARY types — their proofs only ever used contractibility.
+-- (1) The set hypothesis was a genuine WEAKENING and is deleted.
+--     `isSetCar` was used in exactly one place (the hand proof's appeal
+--     to `Σ≡Prop`), so removing it costs nothing and §3's
+--     `initial→isEquiv` and `isContrAlgIso` now hold for algebras on
+--     ARBITRARY types — their proofs only ever used contractibility.
+--     This part is a strengthening, and it is why the hand proof went.
+--
+-- (2) The second PRESENTATION is not a redundancy, and it stays.  An
+--     earlier version of this comment called it "packaging" and treated
+--     having re-stated a known theorem in local vocabulary as the error.
+--     That reading is withdrawn, and it was wrong in a specific way: it
+--     is the reading this whole module is written against.  A chart is
+--     not a lesser copy of the object.  Parallel presentations are how
+--     anything gets deciphered, and the transition between them is the
+--     mathematical content — which is exactly what `AlgHomChart` below
+--     now records, publicly and by name.
+--
+--     Nor is it a mere equivalence.  Both round trips compute to `refl`
+--     (`chart-lib-ours`, `chart-ours-lib`): the library's funExt'd
+--     `comm-suc` and our pointwise one are DEFINITIONALLY
+--     interchangeable, because cubical `funExt` / `funExt⁻` are inverse
+--     by computation.  That is strictly more information than "the two
+--     comparison types are equivalent", and it is information neither
+--     chart carries alone.  You cannot state it with one presentation.
 ------------------------------------------------------------------------
 
 AlgHom∞ : {B : Type ℓ} → B → (B → B) → Type ℓ
@@ -285,33 +317,54 @@ AlgHom∞ {B = B} b₀ bs =
 
 module _ {B : Type ℓ} (b₀ : B) (bs : B → B) where
 
-  private
-    BAlg : NatAlgebra ℓ
-    NatAlgebra.Carrier  BAlg = B
-    NatAlgebra.alg-zero BAlg = b₀
-    NatAlgebra.alg-suc  BAlg = bs
+  -- The library's presentation of the same algebra.
+  libAlg : NatAlgebra ℓ
+  NatAlgebra.Carrier  libAlg = B
+  NatAlgebra.alg-zero libAlg = b₀
+  NatAlgebra.alg-suc  libAlg = bs
 
-    toM : AlgHom∞ b₀ bs → NatMorphism NatAlgebraℕ BAlg
-    NatMorphism.morph     (toM φ) = φ .fst
-    NatMorphism.comm-zero (toM φ) = φ .snd .fst
-    NatMorphism.comm-suc  (toM φ) = funExt (φ .snd .snd)
+  ----------------------------------------------------------------------
+  -- THE CHART TRANSITION.  This is the contribution of this section,
+  -- and it is not "packaging" — it is the atlas entry between our
+  -- pointwise presentation of a comparison and the library's funExt'd
+  -- one, in a module whose entire subject is that presentations are
+  -- charts and the transitions between them carry the content.
+  ----------------------------------------------------------------------
 
-    fromM : NatMorphism NatAlgebraℕ BAlg → AlgHom∞ b₀ bs
-    fromM m = NatMorphism.morph m
+  toLib : AlgHom∞ b₀ bs → NatMorphism NatAlgebraℕ libAlg
+  NatMorphism.morph     (toLib φ) = φ .fst
+  NatMorphism.comm-zero (toLib φ) = φ .snd .fst
+  NatMorphism.comm-suc  (toLib φ) = funExt (φ .snd .snd)
+
+  fromLib : NatMorphism NatAlgebraℕ libAlg → AlgHom∞ b₀ bs
+  fromLib m = NatMorphism.morph m
             , NatMorphism.comm-zero m
             , funExt⁻ (NatMorphism.comm-suc m)
 
-    -- Both round trips are `refl`: record and Σ eta, plus the
-    -- definitional inverse pair funExt / funExt⁻.
-    packagingIso : Iso (AlgHom∞ b₀ bs) (NatMorphism NatAlgebraℕ BAlg)
-    Iso.fun      packagingIso = toM
-    Iso.inv      packagingIso = fromM
-    Iso.rightInv packagingIso _ = refl
-    Iso.leftInv  packagingIso _ = refl
+  -- The two charts agree ON THE NOSE.  Both round trips are `refl`, so
+  -- the presentations are not merely equivalent but DEFINITIONALLY
+  -- interchangeable: record eta and Σ eta on one side, and the fact
+  -- that cubical `funExt` / `funExt⁻` are inverse by computation rather
+  -- than by a proof, on the other.  A mere Iso would be weaker, and
+  -- weaker in the way that matters — transport along this one costs
+  -- nothing, so a statement proved in either chart is available in the
+  -- other with no coercion left in the term.
+  chart-lib-ours : (m : NatMorphism NatAlgebraℕ libAlg) → toLib (fromLib m) ≡ m
+  chart-lib-ours _ = refl
 
-  -- A2∞.  No set hypothesis, any universe level.
+  chart-ours-lib : (φ : AlgHom∞ b₀ bs) → fromLib (toLib φ) ≡ φ
+  chart-ours-lib _ = refl
+
+  AlgHomChart : Iso (AlgHom∞ b₀ bs) (NatMorphism NatAlgebraℕ libAlg)
+  Iso.fun      AlgHomChart = toLib
+  Iso.inv      AlgHomChart = fromLib
+  Iso.rightInv AlgHomChart = chart-lib-ours
+  Iso.leftInv  AlgHomChart = chart-ours-lib
+
+  -- A2∞.  No set hypothesis, any universe level.  Transported along the
+  -- chart from the library's theorem.
   ℕ-isInitial∞ : isContr (AlgHom∞ b₀ bs)
-  ℕ-isInitial∞ = isOfHLevelRetractFromIso 0 packagingIso (isNatHInitialℕ BAlg)
+  ℕ-isInitial∞ = isOfHLevelRetractFromIso 0 AlgHomChart (isNatHInitialℕ libAlg)
 
 -- A2.  The original statement, now a definitional instance of A2∞
 -- (`AlgHom ℕAlg B` reduces to `AlgHom∞ (pt B) (op B)`).
