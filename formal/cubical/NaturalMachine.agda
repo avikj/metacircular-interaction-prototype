@@ -83,6 +83,7 @@ import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
+import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
 import NaturalMachine.PairCoordinates
@@ -98,6 +99,7 @@ import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
+import NaturalMachine.GeneratedCapability
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold

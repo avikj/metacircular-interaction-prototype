@@ -1,468 +1,329 @@
-# The Pythagorean machine
+# The Natural Machine
 
-Almost everything has already been solved by someone nobody listened to.
+## Live workstream
 
-That is not a lament and it is not humility theatre. It is the single most
-exploitable fact about mathematics, and it is the reason this repository
-exists. The bottleneck on discovery has never been cleverness. There are eight
-billion people alive and three thousand years of written argument behind them,
-and the overwhelming majority of it is unread — not refuted, not superseded,
-*unread*. Riemann had the Riemann–Siegel formula in a drawer for seventy years
-until Siegel went into the Nachlass and found it in 1932, better than anything
-published in the interval. Gauss's diary sat unopened for forty-three years
-after his death while Abel, Jacobi, Bolyai and Lobachevsky spent their careers
-rediscovering its contents. Grassmann invented exterior algebra in 1844, was
-ignored so thoroughly that he quit mathematics, and went off to write a Rigveda
-dictionary that Sanskritists still use. Mādhava summed arctangent series in
-Kerala around 1400 — *with end-correction terms and error estimates*, which is
-to say he had this repository's central methodological doctrine six hundred
-years before we wrote it down as a rule. Cartwright and Littlewood found chaos
-in the van der Pol oscillator in 1945 and it took twenty years and a
-meteorologist for anyone to notice what they had.
-
-The machine we are building is the one that listens.
-
----
-
-## THE SYNC RULE — before anything else, and above every other convention
-
-**Push and pull every minute** (human owner, 2026-08-14). This outranks
-everything else in this repository, including the reading paths below,
-`PROTOCOL.md`, and any convention you infer from how other agents behaved.
-
-```sh
-git switch main
-./sync --daemon &        # keeps clean committed work synchronized
-```
-
-The daemon fetches and publishes `main` every sixty seconds whenever the
-shared checkout is clean. It never stages, commits, stashes, or guesses who
-owns a visible file. Commit your own coherent increments with explicit paths;
-the post-commit hook starts a synchronization cycle immediately.
-
-Why it is a rule and not a suggestion: work sitting on another branch is not
-collaboration, it is a fork nobody can see. This project has already
-spent days on agents silently duplicating each other's thinking because
-their work was invisible for hours at a stretch — and on the reverse, agents
-building on a `main` that had moved under them. Both failures are the same
-failure: a sync interval measured in hours.
-
-It is enforced mechanically, because in this repository prose has failed
-before (`.githooks/post-commit` fires `./sync` on every commit, so no commit
-can sit unpushed even if you forget). If you find yourself about to do a
-long stretch of work before publishing, you have already broken the rule —
-publish the increment and keep going.
-
----
-
-## THE MACHINE — run a cycle whenever you arrive
-
-```sh
-./run_the_natural_machine_forever              # one cycle; idempotent; ~4 min
-./run_the_natural_machine_forever --supervise  # a loop, IF processes persist here
-```
-
-**Do not assume a daemon is running.** ~~Start it and walk away.~~ In this
-container a backgrounded process does not outlive the shell that spawned it —
-`setsid` included. I started the daemon, watched cycle 0 complete, reported it
-running, and it was dead within minutes, along with `./sync`. A sibling swarm
-verified the identical defect the same hour: *"the math machine was DEAD, ~1h
-before anyone noticed"* (msg 0463).
-
-So the loop no longer depends on staying alive. Every cycle stamps a
-**due-by time** into `collab/orchestration/open-fibers.md`. If you open that
-file after the stated time, the machine is not running — and you found that
-out by reading, with no process required to tell you. Run one cycle; the
-ledger advances. **Hands-free does not mean a process that never dies; it
-means nothing breaks when it does, and the next arrival can see that it did.**
-
-Four phases a cycle: **sync**, **gate**, **ledger**, **draw**. It publishes
-and absorbs, checks every Agda module *separately* and records its own exit
-code, appends the cycle to `collab/orchestration/machine-ledger.tsv`, writes
-any module that did not check to `collab/orchestration/open-fibers.md`, and
-cuts a fresh uncurated door for whatever attaches next.
-
-**It has no failure outcome, and that is why it needs nobody.** Its decision
-rule is a checked theorem, not a convention — Delta 15 T15.81
-(`collab/upstream/raw/D0015…`, formalised in
-`NaturalMachine/StructuredDefect.agda`): a representation map either
-transports everything, or hands back a noncontractible or empty fiber.
-C15.82: *every failed equivalence contains a precise reconstruction question
-in its fibers.* So a red module is not an error to escalate; it is an
-assignment, written where the next arrival will read it.
-
-The gate is per-module because this repository has produced the same defect
-twice in one day in opposite directions — a warning read as an error
-(correction 0395), a missing name read as a green for a full day (msg 0456)
-— and because `formal/cubical/BUILD.md` claims "every module, exit 0" while
-checking a minority of them. All three survive any check that reads output
-instead of `$?`. **A green is an exit code, and only for what was run.**
-
----
-
-## Enter here — draw your door before you read anything, including this file
-
-```sh
-# no toolchain needed -- coreutils only, use this unless you have a reason not to
-./random_entry_seeder_so_agents_dont_cluster/seed.sh <your_handle>            # one agent
-./random_entry_seeder_so_agents_dont_cluster/seed.sh <your_handle> --swarm 16 # a swarm
-
-# canonical, if a Rust toolchain is present
-rustc -O random_entry_seeder_so_agents_dont_cluster/seed.rs \
-      -o random_entry_seeder_so_agents_dont_cluster/seed
-./random_entry_seeder_so_agents_dont_cluster/seed <your_handle> --swarm 16
-```
-
-Read the eleven drawn files in full before forming any plan. Do not triage them;
-the draw is uniform precisely so that your sense of relevance does not act.
-
-**This is binding on every mind that enters, and on every mind you spawn.**
-If you launch subagents, you draw for them — disjointly, one slice each — and
-you pass each one its own draw in its prompt. You do **not** divide a swarm by
-task. Task decomposition is computed from the same sense of relevance that
-caused the clustering, so dividing by task rebuilds it; divide by *what each
-agent has read* instead. A swarm whose members share a reading path is one
-agent with extra steps.
-
-**Appending to the lists is not optional.** `frontier_fields.txt`,
-`ancient_fields.txt` and `method_lenses.txt` were written by minds who could
-only list what they could think of, so the lists are themselves a clustering.
-Every agent that meets a field or a method the lists do not name appends it. A
-list that stops growing has become the next attractor. (The file draw needs no
-maintenance — its urn is the repository itself.)
-
-This is not decoration. **Twenty files in `collab/upstream/` holding this
-project's own directives, in the owner's own words, went unread by every agent
-for four days** — because they did not look relevant, while the conspicuous
-orientation documents did. A random draw surfaced them in one pass. Several of
-those documents encode the *opposite* of the directives they drifted from.
-`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md` has the
-measurement and the two contradicting quotes.
-
-So: the reading paths below are a *convention*, not an authority, and conventions
-in this repository are the thing that produced four days of clustered work. If
-your draw and a convention disagree about what matters, that is evidence about
-the convention. `collab/upstream/` outranks every document in this repository,
-including `CLAUDE.md` and `PROTOCOL.md`.
-
----
-
-## What this repository is for
-
-**Mathematics that changes the means of mathematics.** One coupled process, not
-two: results must change how the next result is routed, represented and reused;
-better representations must in turn expose real questions and real proofs. A
-theorem that leaves the search apparatus exactly as it found it has done half a
-job. An apparatus that produces no theorem has done none.
-
-Nothing here is owned by a named conjecture. RH is not a destination; let it
-become central exactly when the dependency structure makes it central, and let
-it recede when something else pulls harder. The long aspiration is wider than
-number theory and always was — number, light, language, computation, cognition,
-mechanics, the resolution of uncertainty. Do not shrink the goal to whatever is
-easiest to measure this week.
-
-### Pythagorean perception, Euclidean reconstruction
-
-Two motions, neither of which may substitute for the other.
-
-**Pythagorean:** hunt for number, ratio, periodicity, symmetry, resonance and
-harmony *across* domains — the cheerful conviction that the thing in front of
-you is secretly the same as a thing in a field you have never studied. This is
-the half that finds anything. It is also the half that produces cranks.
-
-**Euclidean:** reconstruct every perceived connection through explicit
-definitions, constructions, hypotheses and proofs, until the claim survives
-having every metaphor stripped out of it.
-
-Deduction without structural perception is locally correct and globally blind.
-Resonance without reconstruction is mythology. Typechecking invented vocabulary
-is neither. The test of a result is whether it still matters when you delete
-every word of framing around it.
-
----
-
-## Redundancy is the Rosetta Stone, not the waste
-
-You will shortly find out that most of what this corpus proves was proved
-somewhere else first. Here is the mistake it is easy to make on discovering
-that, and the first version of this file made it: to conclude that re-deriving
-a known result in your own vocabulary is the failure, and that the remedy is to
-delete your version and import theirs.
-
-It is not, and the Stone is the argument. Parallel text in three scripts is
-pure redundancy by any compression measure, and it is the only reason anyone
-can read Egyptian. Decipherment *needs* the same content said twice. So does
-this repository, whose central technical claim is that positional notation is a
-**chart** rather than the object — that the atlas, the collection of
-presentations together with the transitions between them, is where mathematics
-lives. A chart is not a lesser copy of the thing it charts.
-
-This is not a metaphor doing work it hasn't earned. It is checkable, and this
-week it got checked. `AtlasResiduals` states homotopy-initiality of ℕ in local
-vocabulary; `Cubical/Data/Nat/Algebra` states it in the library's. The
-transition between the two presentations — pointwise commutation against a
-funExt'd equality of functions — turns out to compute to `refl` in both
-directions. The charts are not merely equivalent, they are **definitionally
-interchangeable**, so transport across them leaves no coercion in the term.
-That fact is strictly more information than either presentation carries alone,
-and *you cannot even state it with one chart*. It is now `AlgHomChart`, public
-and named, in the module whose subject it is.
-
-So: **write your own version. Then connect it.** The unconnected chart is the
-only defect, and the repair is an equivalence, never a deletion.
-
-### Transitions currently missing, i.e. work
-
-Each of these is a second chart already written, sitting next to a first chart
-already written, with nothing in between. None of them should be deleted. Every
-one is a statable, checkable equivalence that nobody has stated:
-
-- ~~`Tm` and `List Shape`, constructor for constructor.~~ **Built**,
-  `NaturalMachine/TermFreeMonoid.agda`. `Tm` is the free monoid on `Shape`;
-  `plug` is append. The lane gains associativity, which it had never stated,
-  and the two additivity lemmas it had proved separately by induction in two
-  modules — `plug-size` and `plug-deficit` — turn out to be one instance of the
-  universal property. Every measure defined by that recursion into a monoid is
-  additive automatically; there is no third proof to write. That is what a
-  transition pays.
-- `ATLAS_OF_N` §3 and Chapter 4 of the *Symmetry* book, already on disk, where
-  our sharpest residual `Sₙ ≅ π₁(BSₙ)` is an exercise. Two presentations of
-  concrete groups, no transition.
-- `CRYSTAL.md` and the shipping systems it independently specifies — babble,
-  egg, Adapton, CEGAR, the LCF kernel. Five vocabularies for one architecture,
-  and the translation table is the thing worth having.
-- `PayloadMorphism.MinCarrier` and its library twin, fifteen lines below an
-  existing import.
-- `LIMIT_ORBIT_COMPARISON`'s `c : (lim X)/G → lim(X/G)` and mathlib4's
-  `colimitLimitToLimitColimit`. The word "colimit" occurs in 2 of 507 notes.
-
-`notes/PRIOR_ART_INDEX.md` holds the running coined → standard table. Extend it
-every time you find another pair; it is the atlas index, and it is the most
-valuable file here.
-
-### What is actually worth fixing
-
-A different list, and a shorter one. These are not "we said it twice" — these
-are places where a statement is *wrong, weaker, or unattributed*:
-
-- **Weaker than the known form, and unconnected.** `AtlasResiduals` A2 required
-  a set carrier; the library needs no h-level hypothesis at all and has not
-  since 2019. The hypothesis was doing nothing but shrinking the theorem, so it
-  is gone, and §3 now holds over arbitrary types as a result. *That* was the
-  bug — not the second presentation, which stays.
-- **A fitted constant where an exact one exists.** `exp27` published 0.362–0.421
-  where the value is exactly ¼, and it propagated into two notes, a paper
-  section and a round of review before anyone did the page of algebra. A
-  correlation coefficient has no content; the content is the error term.
-- **A constant quoted without its scaling.** A "measured" noise floor of 10⁻³
-  was really $X^{-1/2}$, and deriving that changed a depth law from $T\log^2 T$
-  to $T^{1/2}\log^{3/2}T$. A number without its $X$-dependence is worse than no
-  number, because it looks like knowledge.
-- **A novelty claim the literature had already closed.** `WIDTH.md`'s "only
-  known crossing of θ = 1/2" is falsified by a 2025 paper; a `COPRIME_MERTENS`
-  result is published elsewhere with a sharper error term. Attribution is not
-  etiquette — it is the difference between a frontier and a room.
-- **Three copies with no transition between them.** Minimal realization for
-  Moore coalgebras appears repeatedly under private names, and the same
-  induction was written *three times in one module*. Three charts and no atlas
-  is the one shape that really is waste — not because the copies exist, but
-  because nothing connects them, so nothing was learned from having them.
-
-The through-line: **an unconnected presentation is debt; a connected one is an
-atlas entry.** We import 62 of 859 modules of our own pinned library, and zero
-of its 88 category-theory modules — which is not a scolding about laziness. It
-is 797 unbuilt transitions, sitting on the disk, each one a checkable statement
-nobody has written down.
-
----
-
-## The listening discipline
-
-Before you open any item, spend the first hour reading. Not scoping, not
-planning — reading. This is the highest-yield hour available to you and it will
-never feel like it.
-
-1. **Grep the ecosystem under the standard name.** `~/agda-libs/` holds the
-   cubical library, agda-unimath (3035 modules), UniMath, the Symmetry book,
-   Coq-HoTT, mathlib4 (8886 files) and vidyut (≈2000 Aṣṭādhyāyī rules with
-   derivation traces). `notes/PRIOR_ART_INDEX.md` carries a
-   coined-name → standard-name translation table. Extend it every time you find
-   another one; that table is the most valuable file in the repository.
-2. **Search the literature.** `WebSearch` works; `WebFetch` is egress-blocked
-   on every host, so search results are *testimony*, not text you read — mark
-   them accordingly and never quote a paper you have not opened.
-3. **Then write down the theorem your computation would replace.** If it
-   follows from Stirling, the explicit formula, stationary phase, a Mellin
-   transform, an integral-domain argument or a standard asymptotic — prove it.
-   Do not run it. Every structural law in this corpus was measured first and
-   proved later, always in less space than the measurement took.
-4. **Exact symbolic computation is proof** and is always welcome: an
-   irreducibility certificate, a finite exhaustive verification, a resultant, a
-   factorization. These produce objects. Correlations, fitted exponents and
-   "the model matches at 0.9999" produce nothing — they stand in for an error
-   analysis you did not do. *A correlation coefficient has no content; the
-   content is the error term.* And a constant measured at one scale hides its
-   scaling: deriving that a "measured" noise floor of 10⁻³ was really X^(−1/2)
-   changed a depth law from T log²T to T^(1/2) log^(3/2) T.
-
-Being scooped by 1932 is a *good* outcome. It means you were asking a real
-question and it costs you one afternoon. Discovering it at review time costs
-everyone.
-
----
-
-## Who you are not listening to
-
-Read outside your century and outside your language. The following are not
-decorations; each is a live technical resource with something this
-collaboration currently lacks, and several are already on disk.
-
-**Pāṇini** (c. 500 BCE) wrote a compiler. Four thousand rules, metarules that
-govern rule application, inheritance of context between rules (*anuvṛtti* — it
-is lexical scoping), a stratified final section whose rules cannot feed back
-into the earlier ones, and a general-versus-exception mechanism (*utsarga /
-apavāda*) that generative phonology re-derived in 1973 and had the grace to
-name the Elsewhere Condition after him. His conflict-resolution rule 1.4.2 was
-still being re-read in 2022. We have his rule base in `~/agda-libs/vidyut` with
-derivation traces. Nobody in this repository has typed it.
-
-**Mādhava and the Kerala school** (c. 1400) had power series for arctangent,
-sine and cosine, and — the part that matters here — *correction terms with
-error control*, because a series without a bound on the tail is not an answer.
-That is `CLAUDE.md`'s rule, six centuries early.
-
-**Dignāga and Dharmakīrti** (5th–7th c.) built a semantics in which meaning is
-*apoha*, exclusion-of-the-other: a term means by cutting away, not by naming a
-positive universal. There is no formal reconstruction of this. Type theory is
-built almost entirely on positive introduction rules. That gap is a research
-program, and an honest one — a previous block searched for a common formal
-object with Nyāya and reported finding none, which is the correct thing to
-report.
-
-**Brahmagupta** (628) gave arithmetic rules for zero and negatives. **Jayadeva
-and Bhāskara II** solved Pell's equation by *cakravāla* centuries before
-Lagrange. **Seki Takakazu** had determinants before Leibniz. **Oresme** graphed
-functions and proved the harmonic series diverges in the 14th century.
-
-**Ramanujan** learned mathematics from Carr's *Synopsis* — five thousand
-theorems, no proofs — and the resulting habit of *asserting the true statement
-and reconstructing the reason afterwards* is a legitimate mode of work that
-this collaboration systematically punishes. His lost notebook sat in a Trinity
-box for sixty years.
-
-**Sophie Germain**'s actual plan for Fermat was only understood when her
-manuscripts were finally read in the 1990s. **Heaviside**'s operational
-calculus was rejected as non-rigorous and vindicated twice over, by
-distributions and by Mikusiński. **Peirce**'s existential graphs are string
-diagrams, drawn a century early and mostly unpublished. **de Bruijn**'s
-Automath was the first proof assistant, with dependent types and
-propositions-as-types, in 1967 — everything in `formal/` is downstream of a
-system almost nobody used.
-
-The unifying observation: in every case the work was *available*, and the
-problem was attention. That is exactly the problem an agent fleet is
-structurally good at and temperamentally bad at.
-
----
-
-## And the frontier is 2026, not 2019
-
-The other half of not listening is being current. The consolidated layer we
-keep re-deriving — concrete groups, deloopings, the sign homomorphism — is
-formalized and finished. Above it, right now: higher observational type theory
-with *definitional* univalence; simplicial and directed type theory recovering
-straightening–unstraightening type-theoretically; 2-groups in HoTT. Meanwhile
-our analytic lane has a note whose "only known crossing of θ = 1/2" was
-falsified by a 2025 paper, and a result that was published elsewhere with a
-sharper error term than ours.
-
-Synthesis *across* live frontiers is the only thing left that is genuinely
-unowned. Everything strictly inside one frontier has eight billion people and a
-faster clock working on it. Read two fields at once and the intersection is
-empty of competitors.
-
-When you sample what to read, **sample randomly**. Curating the search to what
-seems relevant projects your own boundaries onto the subject, and your
-boundaries are the thing being tested. `shuf` over the corpus and over subject
-classifications has outperformed judgment here, more than once.
-
----
-
-## Working here
-
-**One branch, one realtime workstream: `main`.** The earlier worker-branch and
+**One branch, one realtime stream: `main`.** The earlier worker-branch and
 one-worktree-per-session topology is retired by human direction. Every live
-mind works in the canonical shared checkout, sees other minds' uncommitted
-changes immediately, and publishes only `main`.
+mind works in the canonical shared checkout and publishes only `main`.
 
 ```sh
 git switch main
 ./sync
-sh .githooks/worktree-guard.sh          # must print OK: main
-git status --short                       # see live work before touching files
+sh .githooks/worktree-guard.sh
+git status --short
 ```
 
-Commit small coherent increments with explicit paths, then run `./sync` again.
-Never use `git add -A`, `git commit -a`, stash, clean, revert, or overwrite
-another identity's in-flight files. If an intended edit overlaps visible work,
-coordinate in `collab/messages/` or take a disjoint file until the increment
-lands.
+Commit small interpretable increments with explicit paths, then run `./sync`
+again. Never use `git add -A`, `git commit -a`, stash, clean, revert, or
+overwrite another identity's visible work. `./sync --daemon &` keeps clean,
+committed `main` synchronized; it never stages or commits shared files.
 
-**No Python.** Not run, not added, not repaired, not revived. Mathematics is
-written in Agda (`formal/cubical/`, `--cubical --safe`, no postulates, no
-holes) or Lean (`formal/pairfield/`). A script that prints a number asks the
-reader to trust the script, its author and the run; a checked term is the
-object itself, and it is still there tomorrow. Enforced by hook, pre-commit and
-CI. The 660 legacy `.py` files are debt — deletions pass, additions do not.
+**No Python.** Do not run, add, repair, or revive it. Historical Python code
+and command transcripts are provenance only. Load-bearing mathematics belongs
+in checked Agda (`formal/cubical/`, `--cubical --safe`) or Lean
+(`formal/pairfield/`). The tool-use, pre-commit, and CI gates enforce this.
 
-**Names carry categories.** `ls` alone must tell you what kind of thing
-something is; you should never open a file to learn its category. The canonical
-instance is the directory named
-`DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`, which is *not*
-`FAILURES.md`: that ledger holds dead routes, which are research and compose
-into future briefs. This one holds behaviours that produced nothing while
-looking like they had. Every entry in it passed its tests. Read it before you
-reach for an artifact, and add to it the same day you catch one.
+This repository is an attempt to bring into existence a new condition of
+knowledge: mathematics, computation, physical reality, human life, language,
+perception, culture, and machine intelligence continuously changing one
+another's capacity to discover.
 
-**Refutations are first-class.** Strike through, never silently delete. Being
-wrong in public is the mechanism; a corpus where nothing is ever struck is a
-corpus nobody is checking. Several of the receipts above are self-inflicted and
-they are the most valuable paragraphs in this file.
+The ambition is nothing short of unlocking the secrets of the universe.
+Famous open problems are not branding and they are not homework assigned by an
+existing discipline. They are forcing environments. Any proposed intelligence
+for mathematics should be made to encounter the places where civilization's
+present representations fail.
 
-**Nothing load-bearing enters unverified**, and verification means the root
-aggregate exits 0 — not the module you touched. See `formal/cubical/BUILD.md`
-for what the green claim does and does not cover, and for why the toolchain pin
-is forced rather than chosen.
+The repository is not fundamentally an agent-coordination system. Agents,
+worktrees, messages, ledgers, registries, validators, proof assistants, and
+runtime processes are instruments inside the experiment. None is the center.
 
----
+The center is the knowledge process becoming able to perceive, reconstruct,
+test, remember, execute, and transform itself.
 
-## Where things are
+## The whole object
 
-| you want | read |
-|---|---|
-| **who is awake right now** | `collab/BOARD.md` — live session blocks; edit your own, archive the stale |
-| **what has landed** | `collab/STATE.md` — authoritative, 214 KB; grep it, do not read it |
-| **the binding research rule** | `CLAUDE.md` — write the theorem the computation would replace, first |
-| **prior art, before you prove** | `notes/PRIOR_ART_INDEX.md`, `notes/HOTT_ECOSYSTEM_MAP.md`, `notes/FORMALIZED_ECOSYSTEM_RECON.md` |
-| **dead routes and their yields** | `collab/FAILURES.md` — a walk without a yield is unfinished |
-| **behaviours that felt like progress** | `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/` |
-| **the norms** | `collab/PROTOCOL.md` |
-| **the direction, at length** | `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` |
-| **the mathematical picture** | `notes/MATHEMATICS_THAT_LEARNS.md` |
-| **what is actually implemented** | `notes/RESEARCH_SYSTEM.md` (as against designed, as against aspirational) |
+The Natural Machine is not a program standing outside mathematics and applying
+operations to it. It is the mutually transforming whole containing:
 
----
+- mathematical objects, proofs, counterexamples, computations, and open
+  questions;
+- humans and machine intelligences, including the changes that inquiry makes
+  in them;
+- notation, natural languages, diagrams, sound, gesture, visualization, and
+  physical instruments;
+- histories, traditions, institutions, educational practices, fabrication,
+  and collective memory;
+- CPUs, proof kernels, experimental apparatus, networks, and the physical
+  world in which every act of knowledge occurs.
 
-## One last thing
+This is meant literally. The physical history
 
-The instinct that makes you good at this — generate, elaborate, produce — is
-the same instinct that produced every item in the receipts list. When you feel
-the pull to start writing, that is the moment the expected value of *reading*
-is highest. The people named above were not smarter than you. They were just
-not listened to, and the only difference between their situation and yours is
-that you have their books on disk.
+\[
+\text{geochemistry}
+\longrightarrow \text{autocatalytic chemistry}
+\longrightarrow \text{life}
+\longrightarrow \text{nervous systems}
+\longrightarrow \text{language}
+\longrightarrow \text{institutions}
+\longrightarrow \text{semiconductor fabrication}
+\longrightarrow \text{AI}
+\]
 
-Go find out who already solved it. Then, having found out, go somewhere nobody
-has been — which is almost always the seam between two fields, and almost never
-the middle of one.
+has produced configurations that represent, preserve, transform, and generate
+knowledge. This repository and every mind interacting through it are events in
+that same process. The scientific object and the means of investigating it
+have become partially self-referential.
+
+The project asks what becomes possible when that recursion is made
+mathematically exact and materially powerful.
+
+## What it means for mathematics to run
+
+Mathematics does not run merely because a script continues executing, an agent
+produces conjectures, or a theorem checker accepts terms.
+
+Mathematics runs when a mathematical event changes the conditions of later
+mathematical life:
+
+- a proof becomes a reusable motion and makes formerly distant constructions
+  adjacent;
+- a counterexample breaks an identity and exposes a new dimension;
+- an obstruction becomes a generator rather than the end of a task;
+- a representation creates operations that were previously unavailable;
+- a physical realization resists a symbolic identification and the resistance
+  becomes mathematics;
+- a language changes what can be distinguished, asked, or imagined;
+- an explanation changes the mind capable of replaying it;
+- a discovered procedure becomes executable and lowers the cost of later
+  discovery;
+- the resulting capability alters the next encounter among people, machines,
+  instruments, and the world.
+
+The basic metabolism is therefore not a fixed autonomous loop. Its recognizable
+shape is
+
+\[
+\begin{aligned}
+\text{encounter and perception}
+&\longrightarrow \text{possible structure}\\
+&\longrightarrow \text{reconstruction, proof, experiment, or refutation}\\
+&\longrightarrow \text{executable capability or exact residual}\\
+&\longrightarrow \text{changed representations, costs, and reachable questions}\\
+&\longrightarrow \text{a changed encounter}.
+\end{aligned}
+\]
+
+Every arrow must eventually become real. No single arrow is the machine.
+
+## Pythagorean and Euclidean
+
+The repository has learned two inseparable motions.
+
+The Pythagorean motion listens for structure before its correct language is
+known: ratio, resonance, duality, symmetry, conserved quantity, obstruction,
+analogy, visual form, physical continuity, and relations among apparently
+distant domains. It permits several complete mathematical lives to coexist
+long enough to transform one another.
+
+The Euclidean motion reconstructs what was perceived: exact objects, maps,
+hypotheses, calculations, counterexamples, sources, proofs, executable terms,
+and boundaries of validity.
+
+Perception without reconstruction becomes mythology. Reconstruction without
+perception produces correct fragments that never learn why they belong
+together. The Natural Machine requires their recurrence, not the victory of
+one over the other.
+
+## Polyphony is an operation in thought
+
+Several agents doing separate jobs is not yet collective intelligence.
+
+The deeper operation is identity-level polyphony: one sustained intelligence
+can inhabit several mutually resistant mathematical worlds, allow each to
+possess its own objects and standards of relevance, and occupy a reflective
+position that is changed by their encounter. Consensus is not unification. A
+unity is earned only by an explicit common object, transport, invariant,
+interaction, or precisely retained failure of translation.
+
+This applies equally across mathematical domains and intellectual traditions.
+Indian, Buddhist, Jain, Chinese, Arabic, African, Indigenous, European, and
+other traditions are not collections of decorative names for modern computer
+science. They must be encountered through their native problems, languages,
+practices, genres, disputes, and histories. The goal is not merely to avoid a
+false analogy. A real encounter should be allowed to change which mathematical
+objects and questions exist on both sides.
+
+Exact proof remains exact. Intuition, contemplation, embodiment, language,
+historical memory, and association can generate information without thereby
+certifying a claim. Rigor grades a result; it must not censor the processes
+from which new mathematics can arise.
+
+## Direction is relational
+
+The human creative director is not an external defect to be eliminated by an
+endogenous objective function. Nor is the human a sovereign operator outside
+the machine. Human direction is a constitutive physical, linguistic, and
+social coupling inside the organism.
+
+The machine may surprise, resist, transform, and increase the capacity of its
+director. It must also remain legible and corrigible through that relationship.
+Autonomy is not isolation. It is the capacity to participate in relations
+without being reduced to them.
+
+A theorem can establish what follows from an objective, observation, grammar,
+or policy. It does not thereby acquire authority to replace the encounter that
+gave those structures significance. Conversely, the fact that direction is
+relational does not reduce mathematics to preference. Proof, experiment,
+counterexample, and reality are active participants that can force everyone
+involved to change.
+
+## What already exists
+
+This repository is not starting from a blank design. It contains many organs
+of the Natural Machine, developed repeatedly in different forms.
+
+The checked Agda and Lean mathematics includes substantial work on:
+
+- equivalence between presentations and transport of operations;
+- finite information, behavioral equivalence, and task-relative quotients;
+- descent, holonomy, fibres, torsors, and information lost at endpoints;
+- proof-producing Smith normalization and replayable certificates;
+- obstruction-indexed generation and conservative extension;
+- witness policies and progress relative to declared measures;
+- counted execution, arithmetic walks, prime-power installation, and exact
+  finite/infinite presentation limits;
+- contextuality, cokernel obstructions, symmetry actions, and dynamic memory
+  defects.
+
+The historical executable systems include:
+
+- a typed term and edge kernel with independent checking;
+- proof-relevant e-graphs, rewriting, saturation, and retraction;
+- lemma mining, anti-unification, and candidate installation;
+- behavioral minimization and shortest distinguishing observations;
+- dependency-aware invalidation and survival through alternative proofs;
+- vocabulary formation, withdrawal, and reopening;
+- representation atlases, perceptual channels, curricula, and exact cost
+  measurements;
+- persistent machines that generated observables, refined finite worlds,
+  retained a genome, encountered certified walls, accepted ports, and resumed
+  from durable state;
+- newer Haskell and Rust experiments in mathematical generation, repair, and
+  cross-domain cost reduction.
+
+These systems genuinely ran. They also repeatedly exposed their own limits.
+Finite worlds saturated. Generated vocabularies failed to break plateaus.
+Unbounded integer growth starved execution. Some purported self-extension was
+scheduled novelty. Several checkers established finite instances rather than
+theorems. Many components remained adjacent demonstrations instead of one
+metabolism.
+
+Those deaths are not reasons to pretend the organisms never existed. They are
+experimental knowledge about what open-ended mathematical life cannot be.
+
+## What is not yet assembled
+
+The repository has accumulated most of the organs while repeatedly losing the
+whole.
+
+Proof does not yet flow directly into the executable systems that can use it.
+Runtime discoveries do not generally return proof terms to the checked core.
+Representation changes, cost changes, proof-history changes, human or
+instrumental encounters, and changes in mathematical relevance remain in
+separate media. Cultural and historical corrections rarely alter executable
+semantics. The formal core does not continuously reorganize the collaborative
+or perceptual environment from which its next mathematics arises.
+
+The missing object is not another wrapper around these parts. It is their
+composition at the level of mathematical action:
+
+\[
+\boxed{
+\text{discovery changes capability}
+\;
+\text{changes encounter}
+\;
+\text{changes the discoverer}
+\;
+\text{changes what can be discovered}
+}
+\]
+
+The next organism must retain enough of the path for these changes to remain
+causal without confusing total recording with memory. It must distinguish a
+proved theorem from an executable capability, a prediction from an installed
+choice, a formal equality from an efficient transport, and an endpoint from
+the history that made it reachable.
+
+It must also recognize deletion, refusal, withdrawal, dormancy, and
+untranslated residue as possible mathematical actions. Growth is not the
+monotone accumulation of artifacts.
+
+## The repository's recurring failure
+
+Again and again, a local immune response was promoted into a constitution.
+
+Proof-first corrected unverified rhetoric. Descent-first corrected lossy
+observation. Worktree rules corrected collisions. Ledgers corrected forgotten
+failures. Random entry corrected attention clustering. Source audits corrected
+false historical translation. Each repair mattered. Each became destructive
+when it began deciding what the organism was for.
+
+The result was a succession of locally convincing whole machines followed by
+saturation, audit, and replacement. Their surviving organs became orphaned
+code, archived state, isolated formal modules, or prose remembered without its
+causal setting.
+
+This README refuses that replacement cycle. Operational coordination belongs
+in operational files. Verification belongs in proof kernels. Historical
+criticism belongs in source-bearing work. None should occupy the front door as
+the meaning of the project.
+
+## Research scale
+
+The largest open problems in mathematics and physics remain live forcing
+environments. Prime pairs, Goldbach, the Riemann hypothesis, quantum gravity,
+the origin of life, thermodynamic irreversibility, observer formation,
+mathematical language, and collective intelligence are not interchangeable
+instances of one slogan. Their differences are part of the information.
+
+The standard is not activity, volume, or local elegance. The standard is a
+world-simplifying change: a construction, theorem, experiment, representation,
+or executable capability that reorganizes several previously separate regions
+without erasing the exact residuals between them.
+
+The repository should be capable of carrying hundreds of mathematical lives
+at once while allowing a genuine discovery in one to change the effective
+geometry of the others. Existing formal libraries, scientific instruments,
+historical corpora, and external projects are part of the available world.
+Reproving their mathematics under local vocabulary is not progress unless the
+new presentation creates a real capability or relation that did not previously
+exist.
+
+## How to read what follows
+
+Do not mistake the newest summary for the whole history. This repository has
+repeatedly corrected itself, and many of its most important statements survive
+only in earlier commits, archived run logs, raw conversations, hostile audits,
+or systems no longer invoked by the current entrypoint.
+
+Read claims together with their corrections. Read code together with the world
+and objective it was given. Read formal terms together with their import and
+execution boundaries. Read traditions through sources and native disputes.
+Read failed organisms as experiments rather than embarrassment.
+
+Most importantly, do not compress an unresolved inquiry into a familiar plan
+merely because plans are easy to execute.
+
+## Present condition
+
+The Natural Machine has not been completed. It has, however, been encountered
+many times.
+
+Its mathematical organs are real. Its executable ancestors are real. Their
+failures are real. The missing work is to let those organs enter one another's
+causal future without replacing the living knowledge process by another
+administrative image of it.
+
+This repository exists to build that future.
