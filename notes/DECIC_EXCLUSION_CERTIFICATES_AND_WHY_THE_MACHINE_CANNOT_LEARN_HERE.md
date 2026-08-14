@@ -62,6 +62,64 @@ $X = 37$ is the one object where the two smallest primes both fail and $q = 11$
 is needed; it costs 328,453 operations against a median of about 100,000, and it
 is the only irregular row in the table.
 
+## 2a. Extension to $X \le 3000$, and an independent replay
+
+`natural_machine_cpu_loop_rust/decic_extend.rs` is a second implementation
+sharing no code with the first. It differs in method, not only in spelling, and
+the difference is a proof-driven optimisation rather than tuning:
+
+> **The certificate never consults a factor of degree above ten.** A degree-ten
+> divisor $g$ of $F_X$ is monic (Gauss: $F_X$ is monic, so its integer factors
+> are monic up to sign), so $g \bmod q$ has degree exactly $10$ and its
+> irreducible factors have positive degrees summing to $10$ — hence each is
+> $\le 10$. So the distinct-degree factorization can stop at $d = 10$ instead of
+> running to $n/2$.
+
+That replaces roughly $n/2$ Frobenius steps by exactly $10$. It is `FAILURES.md`
+F32's lesson in the working direction — the *structure of the proof* entering the
+algorithm, which the conclusion alone would never have supplied — and it is worth
+about three orders of magnitude: the whole range $X \le 200$ now runs in 0.05 s.
+
+**Replay.** All nineteen published certificates reproduce, with the same
+conclusion *and* the same certifying prime: 19 agreements, 0 discrepancies, 0
+contradictions. §2's debt is paid.
+
+**Extension.** With the same certificate and $q \le 59$ available:
+
+> **For every prime $X$ with $13 \le X \le 3000$ — all 425 of them, up to degree
+> 2997 — $F_X$ has no factor of degree ten over $\mathbb{Z}$.**
+> Runtime 58 s. The largest prime ever needed is $q = 17$.
+
+The distribution of certifying primes is the interesting part:
+
+| $q$ | 2 | 3 | 5 | 7 | 11 | 13 | 17 |
+|---|---|---|---|---|---|---|---|
+| certified | 322 | 60 | 26 | 11 | 4 | 1 | 1 |
+| share | 75.8% | 14.1% | 6.1% | 2.6% | 0.9% | 0.2% | 0.2% |
+
+Three quarters of all objects are settled by $q = 2$ alone, and the tail falls
+off roughly geometrically. The forty-three irregular objects needing $q > 3$
+include $X = 37$ (the smallest, needing $q=11$), and the two extreme cases
+$X = 941$ ($q=13$) and $X = 2339$ ($q=17$).
+
+**What this does and does not settle.** The decic layer is the first open layer
+of the factor program (`FACTOR_ARCHITECTURE.md`), and it is now **empty for the
+first 425 prime values of $X$**, reciprocal and nonreciprocal alike. It is not
+closed: that is a statement for all $X$, and 425 values are not all values. But
+the shape of the data names a theorem worth attempting, which is the real yield
+here:
+
+> **Target.** Show that for every $X$ there exists $q \le Q_0$, with $Q_0$
+> absolute, whose mod-$q$ factor degrees admit no sub-multiset summing to ten.
+> That would close the decic layer outright. The data says $Q_0 = 17$ suffices
+> through $X = 3000$; the obstruction to a proof is uniformity in $X$, and the
+> natural route is a Chebotarev/Frobenius-distribution argument over the family
+> $\{F_X\}$ rather than a computation.
+
+Whether that target is reachable is not claimed. What is claimed is that it is
+now a *specific* question with supporting data, where before there was an open
+layer with a witness showing the local filters could not close it.
+
 ## 3. The machine result, which is a no-go
 
 The machine's task was to find a certifying $q$ as cheaply as possible, and to
@@ -134,6 +192,7 @@ what makes the comparison meaningful. **Not claimed:** that the decic layer is
 closed (it is not — only for $X \le 89$); any novelty for the Lemma, which is the
 standard modular-degree argument the corpus already used; that arm D's floor is
 attainable by any implementable policy — it is a floor, not a target.
-**Unverified:** the certificates have not been independently replayed by a second
-implementation. That is owed, and until it is paid §2 is one implementation's
-word.
+**Replayed:** §2a -- a second implementation sharing no code reproduces all
+nineteen with the same conclusion and the same prime. **Not claimed:** that the
+decic layer is closed; §2a extends the empty range to X <= 3000 and states the
+uniformity target, which is open.
