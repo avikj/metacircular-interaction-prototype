@@ -52,6 +52,7 @@ import Pairfield.AdaptiveResidualPotentialAdapter
 import Pairfield.AdaptiveResidualConstructor
 import Pairfield.AdaptiveResidualSteering
 import Pairfield.AdaptiveConstantResponseSteering
+import Pairfield.AdaptiveResidualPositionRank
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
