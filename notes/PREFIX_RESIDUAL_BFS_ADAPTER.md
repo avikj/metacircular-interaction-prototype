@@ -301,6 +301,22 @@ Thus the old quadratic theorem remains the safe semantic horizon, but native
 execution no longer enumerates all words below that horizon.  It expands each
 reachable synchronous pair at most once.
 
+`Pairfield.VisitedResidual` completes the transition back to Mathlib's native
+language vocabulary.  For prefixes `left` and `right`, it runs precisely the
+same pair query from `(M.eval left, M.eval right)` and proves:
+
+- `none` iff `M.accepts.leftQuotient left =
+  M.accepts.leftQuotient right`;
+- a returned node is a genuine left-quotient membership separator and is
+  globally shortest among every such separator;
+- its minimum length agrees with the older exhaustive
+  `shortestLeftQuotientWitness`;
+- `ResidualSeparatorFiber` preserves all separating suffixes.
+
+The adapter uses the existing checked pointwise identification between
+Mathlib left-quotient membership and Boolean future observation.  No search is
+duplicated and no extensional language equality is assumed as an oracle.
+
 ## Falsifier and replay
 
 The internal three-state DFA has prefixes `[]` and `[false]` separated first by
@@ -314,13 +330,15 @@ lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
   Pairfield.ChartStateBFS Pairfield.ChartQuotient \
   Pairfield.ReachableSubDFA Pairfield.ExecutableMinimization \
   Pairfield.ShortestReach Pairfield.VisitedReachCardinality \
-  Pairfield.VisitedPair
+  Pairfield.VisitedPair Pairfield.VisitedResidual
 ```
 
-The newest focused target passes (`3024` jobs).  Its state controls return
+The newest focused target passes (`3025` jobs).  Its state controls return
 `[false, true]` for reachable state `2` and `none` for unreachable state `3`
 in the four-state quotient witness; its pair controls return `[true]` for the
-separable chart rows and `none` for an equal-row control.  `Pairfield.lean`
+separable chart rows and `none` for an equal-row control; the residual control
+returns `[true]` for prefixes `[]` and `[false]`, and `none` for prefixes
+reaching the same row.  `Pairfield.lean`
 imports the adapter and both reducers.  A root
 `lake build Pairfield` reaches the adapter but remains red in the unrelated
 pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no

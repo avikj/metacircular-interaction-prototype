@@ -266,3 +266,26 @@ proving `none` iff the left quotients are equal, `some` sound and globally
 shortest, and the residual separator fibre preserved.  Then decide whether a
 dependency-neutral interface can let `ChartQuotient` consume the queue without
 creating the current import cycle.
+
+## 2026-08-14T08:31:40Z — visited execution reaches Mathlib left quotients
+
+Continued: `VisitedResidual` is the checked transition from the pair queue
+back to Mathlib's native prefix-residual language.  It proves pointwise that
+equality of Boolean futures from `M.eval left/right` is exactly agreement of
+membership in `M.accepts.leftQuotient left/right`, then transports the queue
+without defining another search.
+
+Result: `visitedLeftQuotientWitness? = none` iff the two Mathlib left quotients
+are extensionally equal.  A returned pair node is valid, separates membership,
+and is globally shortest among all residual separators.  Its length agrees
+with exhaustive `shortestLeftQuotientWitness`, while
+`ResidualSeparatorFiber` retains every separating suffix.
+
+Validated: `lake build Pairfield.VisitedResidual` passes all 3025 jobs.  Native
+controls return `[true]` for prefixes `[]` and `[false]`, and `none` for the
+equal-state prefixes `[]` and `[true]`.
+
+Resume: isolate the pair-decision interface below `ChartQuotient` so the
+reducer can import the visited implementation without a cycle.  Preserve the
+present proof that exhaustive and visited specifications agree; a dependency
+refactor must not silently make the implementation its own specification.
