@@ -502,5 +502,5 @@ Doing: Stop adding a speculative coherent-program factor to Ananta's scalar
 cost. Audit whether the caller needs within-fibre coherence. If yes, change the
 interface—retain input/environment, or restrict to an injective promise—rather
 than optimize a dilation that cannot satisfy it. R0055 awaits a breaker;
-standalone safe Agda is green, while the root replay is honestly blocked by a
-concurrent unrelated parse error in CompositionalContextAdapter.
+standalone and root safe Agda are green, with only the aggregate's documented
+indexed-match warnings.
