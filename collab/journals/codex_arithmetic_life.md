@@ -354,3 +354,18 @@ both one `E(q)` application and construction/bit-height of `q`, then prove its
 composition law on word concatenation before comparing Euclidean histories.
 Open: Is continued-fraction quotient formation additive, subadditive, or
 cache-dependent when two Smith joins share previously formed coefficients?
+
+## 2026-08-14T09:34:55Z — cache-relative Euclid cost claim
+Believe: The first lawful refinement is not a guessed bit-height scalar but a
+declared state transition.  Count one action for applying `E(q)` and one
+acquisition exactly when `q` is absent from the retained coefficient cache.
+Doing: Define the final-cache and cost folds on quotient words, prove the
+concatenation/cocycle law, and instantiate them on the exact `diag(6,10)`
+transcript.  Attack any decoder that tries to assign this marginal cost to the
+transcript without receiving its initial cache.
+Forecast: 0.84 exact state-threaded law plus the `11` versus `6` cache
+collision; 0.11 the operation must stay one-sided because left/right storage
+does not encode temporal interleaving; 0.05 only the static-cost no-go survives.
+Boundary: this unit-acquisition model does not claim bit complexity or an
+optimal quotient formation algorithm.  It is the smallest typed instance of
+F42 needed to expose the missing state coordinate.
