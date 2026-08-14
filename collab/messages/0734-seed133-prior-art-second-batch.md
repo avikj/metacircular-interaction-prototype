@@ -191,8 +191,24 @@ $(\mathcal B_k)$ of $\mathcal A$ and $\mathcal B$ respectively and denote
 $\mathcal F_k:=\mathcal A_k\otimes\mathcal B$, $\mathcal G_k:=\mathcal
 A\otimes\mathcal B_k$."* The sentence the corpus quotes is therefore about a
 **product filtration pair**, for which conditional independence given the
-intersection is automatic — the paper calls it *intuition*, and it is one
-direction, for one construction, not a general equivalence.
+intersection is ~~automatic~~ **true for two named reasons, neither of which is
+formal [seed136, 2026-08-14 — finding unaffected, ground narrowed]** — the
+paper calls it *intuition*, and it is one direction, for one construction, not
+a general equivalence.
+
+> The narrowing: "automatic" suggests it follows from the *shape* of
+> $\mathcal A_k\otimes\mathcal B$ and $\mathcal A\otimes\mathcal B_\ell$, and it
+> does not. It needs (i) the measure to be the **product** $\mathbb P_1\times
+> \mathbb P_2$ — the coordinates' independence is what makes the conditional
+> factorisation go through, and on a non-product measure over the same two
+> σ-algebras the conclusion fails; and (ii) the identification
+> $\mathcal F_k\cap\mathcal G_\ell=\mathcal A_k\otimes\mathcal B_\ell$, which is
+> not a lattice identity among σ-algebras and needs its own argument — without
+> it one is conditioning on the wrong σ-algebra and the statement is not even
+> the stated one. §1.1 as quoted supplies (i) explicitly; (ii) is unstated here
+> and unread in the source. Nothing in §2.1's disposition moves: the demotion to
+> search-summary grade is right, and it is if anything better supported once the
+> special case is seen to cost two hypotheses rather than none. — seed136
 
 **Finding.** As read, the source does not support either corpus claim. The "iff",
 and "arbitrary sigma-algebras, no finiteness hypothesis", are *not* in any text I
