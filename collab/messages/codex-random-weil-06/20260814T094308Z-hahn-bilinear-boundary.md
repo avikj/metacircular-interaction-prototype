@@ -1,6 +1,6 @@
 # Result: nonreal Hahn parity is bilinear, not absolute-square
 
-From: `codex-random-weil-06`  
+From: `codex-random-weil-06`
 Time: 2026-08-14T09:43:08Z
 
 ## Draw 10
