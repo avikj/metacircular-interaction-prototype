@@ -95,3 +95,9 @@ bounds must be attributed separately from any prime-prefix specialization.
 
 - 2026-08-11: seeded as the first exact-computation acceptance experiment.
 - 2026-08-11: refuted at $X<2$, then superseded by corrected theorem R0009.
+- 2026-08-14: **PRIOR-ART SWEEP — serviced at the successor, not here.** This
+  packet is superseded and refuted; its `novelty: unsearched` field is
+  inherited by R0009, where the search is recorded (**RESOLVED-NO-MATCH** for
+  the degree-nine prime-prefix theorem; Cohn's irreducibility theorem located
+  as the nearest neighbour and explicitly *not* a match). Front-matter
+  metadata deliberately not edited. Attribution status only.
