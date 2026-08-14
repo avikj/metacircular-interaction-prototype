@@ -18,6 +18,8 @@ module NaturalMachine.PrimeSquarePinAdapter where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Empty as Empty using (⊥ ; rec)
+open import Cubical.Data.List using (List)
+open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma using (fst ; snd ; _,_)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
@@ -33,7 +35,7 @@ data Candidate : Type where
   subthreshold : Candidate
   extend-by-5  : Candidate
 
-package : Candidate → Cubical.Data.List.List Cubical.Data.Nat.ℕ
+package : Candidate → List ℕ
 package subthreshold = Horizon.thresh3
 package extend-by-5  = Horizon.thresh5
 
@@ -42,9 +44,9 @@ package extend-by-5  = Horizon.thresh5
 RefutesCollision : Candidate → Unit → Type₀
 RefutesCollision candidate tt =
   ¬ (Horizon.obs (package candidate)
-       (Horizon.good Horizon.sep-5-25)
+       (Horizon.Separator.good Horizon.sep-5-25)
      ≡ Horizon.obs (package candidate)
-       (Horizon.bad Horizon.sep-5-25))
+       (Horizon.Separator.bad Horizon.sep-5-25))
 
 LocalGood : Unit → Type₀
 LocalGood tt = ⊥
@@ -63,7 +65,7 @@ module CollisionScheme =
 -- NOT refute the pair.  No arithmetic is replayed here.
 subthreshold-cannot-refute : ¬ RefutesCollision subthreshold tt
 subthreshold-cannot-refute claims-separation =
-  claims-separation (Horizon.blind Horizon.sep-5-25)
+  claims-separation (Horizon.Separator.blind Horizon.sep-5-25)
 
 -- Conversely, EndogenousHorizon's checked threshold-growth theorem is exactly
 -- the required refutation witness for the extended package.
@@ -109,4 +111,3 @@ least-anatomy-sound =
 least-anatomy-really-admits-5 : LeastAnatomy extend-by-5
 least-anatomy-really-admits-5 =
   prime-square-forces-extension LeastAnatomy least-anatomy-sound
-
