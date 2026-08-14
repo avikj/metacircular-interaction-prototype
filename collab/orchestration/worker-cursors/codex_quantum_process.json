@@ -1,5 +1,5 @@
 {
-  "head": "5da470efb785d8ff5bbe0a0ed507decc3b7986d3",
+  "head": "c211864c2d921e814e9a854205af5c944e68ca92",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -319,8 +319,24 @@
     "collab/messages/0198-codex-ananta-minimal-branch-state-claim.md": "49b1b0b984fb3c2df5a4df9e5fa8efe5f0061510ff60aa9935010343a1f80444",
     "collab/messages/0199-codex-ananta-minimal-branch-state-result.md": "5925a91829f3595c855af5f3320616213791fe8de6d2c6727fb33dc5d5e435a2",
     "collab/messages/0200-codex-ananta-output-sensitive-clean-cost-claim.md": "5051e90e30c665bdcadc907101ef6807c2ac9b07aad9b6e5caa0467786e4c675",
-    "collab/messages/0201-codex-ananta-output-sensitive-clean-cost-result.md": "d6366833da93b3fc07494b4f1f91b7b619f32103b63cc2cec2ae68d26c1740e2"
+    "collab/messages/0201-codex-ananta-output-sensitive-clean-cost-result.md": "d6366833da93b3fc07494b4f1f91b7b619f32103b63cc2cec2ae68d26c1740e2",
+    "collab/messages/0202-codex-ananta-expected-query-order-claim.md": "430289c2360c880559acc06ff2b567007c97d2f0e4f501da370b846439727ece",
+    "collab/messages/0203-codex-ananta-expected-query-order-result.md": "826ce1526dbc6925fb8941b78b6bda6bfe9f110a54d9de4a748e18ded1c5ceb5",
+    "collab/messages/0204-codex-ananta-center-order-latency-claim.md": "219298b8cfec420589668b096682bf54488af289b4b342b8291c711fa08e2d01",
+    "collab/messages/0205-codex-ananta-center-order-latency-result.md": "5afa3ebe92013c64b08ccee97fdb0a62e8a91064c93c270e3de4a8096f15aa9c",
+    "collab/messages/0206-codex-ananta-survival-path-dp-claim.md": "8b715adff849f8c9f675eeaabdb065970fe7fa1c02a05d20677eba0a1f2984c8",
+    "collab/messages/0207-codex-ananta-survival-path-dp-result.md": "8e9b63a4a12113f87371c65fe19383cc7a92b06c978cb31b157c1b17b680d53d",
+    "collab/messages/0208-codex-ananta-monotone-law-order-claim.md": "8100462046c2d75de5b113bffc3a14074fd8edbcd9d83d97dd3a3d08b1bcb84f",
+    "collab/messages/0209-codex-ananta-monotone-law-order-result.md": "4e582820eee3b6f4dc92b5491d4c04edbdc4ff7209bb7d8ef282b3313b8d4f6a",
+    "collab/messages/0210-codex-ananta-successor-prefix-law-claim.md": "6c055b837608508a52a9e2b0c2dd64451f36e2978ff5a8097a5f495ddb846b87",
+    "collab/messages/0211-codex-ananta-successor-prefix-law-result.md": "0f7db2df0a3d8056bc67c9e0972bb1a0a54bb69e878ffbe1fed2ab1ef846ac03",
+    "collab/messages/0212-codex-ananta-aligned-measure-cone-claim.md": "8c251d3ea14b795d6b8c7fced33ff24c729536a9de883f84c93ff67d846aa2a7",
+    "collab/messages/0213-codex-ananta-aligned-measure-cone-result.md": "770484a8a1d9beb1248d91743d908357a2e8b690f83d31b5e03257c5309233da",
+    "collab/messages/0214-codex-ananta-binary-depth-two-rays-claim.md": "07a53d38df8986af7e420cb3b2bea958fc69f0aa25c72b094a8d305af879103d",
+    "collab/messages/0215-codex-ananta-binary-depth-two-rays-result.md": "623fa318cb01529c386028f86ceae42ed06a343f0121e6918c2ce01f82ed160e",
+    "collab/messages/0216-codex-ananta-aligned-cone-recursion-claim.md": "2118a70cb021b850c13402086a8ea630fd3bebef885fef6422b8003c6c316e98",
+    "collab/messages/0217-codex-ananta-aligned-cone-recursion-result.md": "49dcb1ca930faed3425fdae3073ec09818b952fad50d1ae85a14bb5f147f8e43"
   },
-  "response_hash": "f27b0d574f6c37e111cf1cd59fe148d5468e6369971690e544bb492fce3cd8e1",
-  "source_index": 20
+  "response_hash": "ff638d43b78c0e30a577d8a86ee3912471d5ed68de237535d00802f41b2f86df",
+  "source_index": 21
 }

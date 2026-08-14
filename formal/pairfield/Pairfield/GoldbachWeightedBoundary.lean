@@ -151,6 +151,94 @@ theorem primePowerContamination_nonneg (N : ℕ) :
     0 ≤ primePowerContamination N := by
   exact sub_nonneg.mpr (primeLogGoldbachCoeff_le_mangoldtGoldbachCoeff N)
 
+/-- Exact decomposition of the contamination.  A pair is charged when its
+right entry has prime-power error, or when its left entry has error while the
+right entry has genuine prime support. -/
+theorem primePowerContamination_eq_error_convolutions (N : ℕ) :
+    primePowerContamination N =
+      ∑ pair ∈ Finset.antidiagonal N,
+        (Λ pair.1 * primePowerError pair.2 +
+          primePowerError pair.1 * primeLogWeight pair.2) := by
+  unfold primePowerContamination mangoldtGoldbachCoeff primeLogGoldbachCoeff
+  rw [← Finset.sum_sub_distrib]
+  apply Finset.sum_congr rfl
+  intro pair _
+  unfold primePowerError
+  ring
+
+/-- The exact contamination is at most twice the product of total Mangoldt
+mass and total prime-power-only mass through the same horizon. -/
+theorem primePowerContamination_le_two_mul_psi_mul_sub_theta (N : ℕ) :
+    primePowerContamination N ≤
+      2 * Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) := by
+  have hleft :
+      (∑ pair ∈ Finset.antidiagonal N,
+        Λ pair.1 * primePowerError pair.2) ≤
+        Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) := by
+    simpa [sum_vonMangoldt_Icc, sum_primePowerError_Icc] using
+      (sum_antidiagonal_mul_le_square N
+        (fun n ↦ Λ n) primePowerError
+        (fun n ↦ ArithmeticFunction.vonMangoldt_nonneg (n := n))
+        primePowerError_nonneg)
+  have hright :
+      (∑ pair ∈ Finset.antidiagonal N,
+        primePowerError pair.1 * primeLogWeight pair.2) ≤
+        (Chebyshev.psi N - Chebyshev.theta N) * Chebyshev.theta N := by
+    simpa [sum_primePowerError_Icc, sum_primeLogWeight_Icc] using
+      (sum_antidiagonal_mul_le_square N
+        primePowerError primeLogWeight
+        primePowerError_nonneg primeLogWeight_nonneg)
+  have herror : 0 ≤ Chebyshev.psi N - Chebyshev.theta N :=
+    sub_nonneg.mpr (Chebyshev.theta_le_psi N)
+  rw [primePowerContamination_eq_error_convolutions,
+    Finset.sum_add_distrib]
+  calc
+    _ ≤ Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) +
+        (Chebyshev.psi N - Chebyshev.theta N) * Chebyshev.theta N :=
+      add_le_add hleft hright
+    _ ≤ Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) +
+        (Chebyshev.psi N - Chebyshev.theta N) * Chebyshev.psi N := by
+      gcongr
+    _ = 2 * Chebyshev.psi N *
+        (Chebyshev.psi N - Chebyshev.theta N) := by ring
+
+/-- `psi_sub_theta_le` turns the exact obstruction into a checked but coarse
+`O(psi(N) * sqrt(N) * log(N))` upper bound. -/
+theorem primePowerContamination_le_four_mul_psi_mul_sqrt_mul_log
+    (N : ℕ) (hN : 1 ≤ N) :
+    primePowerContamination N ≤
+      4 * Chebyshev.psi N * Real.sqrt N * Real.log N := by
+  have hNreal : (1 : ℝ) ≤ N := by exact_mod_cast hN
+  calc
+    primePowerContamination N ≤
+        2 * Chebyshev.psi N * (Chebyshev.psi N - Chebyshev.theta N) :=
+      primePowerContamination_le_two_mul_psi_mul_sub_theta N
+    _ ≤ 2 * Chebyshev.psi N * (2 * Real.sqrt N * Real.log N) := by
+      gcongr
+      exact Chebyshev.psi_sub_theta_le hNreal
+    _ = 4 * Chebyshev.psi N * Real.sqrt N * Real.log N := by ring
+
+/-- A completely explicit consequence of Chebyshev's linear upper bound for
+`psi`.  Its `N^(3/2) log N` scale is too large to separate an expected
+Goldbach main term of order `N`; the theorem records a rigorously checked
+boundary, not progress on the missing lower bound. -/
+theorem primePowerContamination_le_explicit (N : ℕ) (hN : 1 ≤ N) :
+    primePowerContamination N ≤
+      4 * (Real.log 4 + 4) * N * Real.sqrt N * Real.log N := by
+  have hNreal : (1 : ℝ) ≤ N := by exact_mod_cast hN
+  have hfactor : 0 ≤ 4 * Real.sqrt N * Real.log N := by
+    positivity
+  calc
+    primePowerContamination N ≤
+        4 * Chebyshev.psi N * Real.sqrt N * Real.log N :=
+      primePowerContamination_le_four_mul_psi_mul_sqrt_mul_log N hN
+    _ = Chebyshev.psi N * (4 * Real.sqrt N * Real.log N) := by ring
+    _ ≤ ((Real.log 4 + 4) * N) *
+        (4 * Real.sqrt N * Real.log N) := by
+      exact mul_le_mul_of_nonneg_right
+        (Chebyshev.psi_le_const_mul_self (by positivity)) hfactor
+    _ = 4 * (Real.log 4 + 4) * N * Real.sqrt N * Real.log N := by ring
+
 /-- A von-Mangoldt lower bound proves Goldbach only after it exceeds the exact
 prime-power contamination at the same centre. -/
 theorem goldbachAt_of_contamination_lt_mangoldtGoldbachCoeff (N : ℕ)
