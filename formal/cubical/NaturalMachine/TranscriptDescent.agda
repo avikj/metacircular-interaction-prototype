@@ -17,7 +17,7 @@ module NaturalMachine.TranscriptDescent where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Foundations.HLevels using (isSetΣ)
-open import Cubical.Data.Sigma using (_×_)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 import Swarm.S00TranscriptComposition as Transcript
 open import NaturalMachine.FiniteInformation
@@ -51,6 +51,31 @@ transcriptDecoder :
 transcriptDecoder isSetT q t h =
   fiberConstant→factorsThrough isSetT q t h
 
+-- A retained side record is not extra-logical metadata.  It is exactly a
+-- second observable paired with the endpoint, hence it too constructs a
+-- decoder on the reachable image of that pair.
+sideRecordDecoder :
+  {X : Type ℓx} {Y : Type ℓy} {A : Type ℓz} {T : Type ℓ₁}
+  (isSetT : isSet T) (q : X → Y) (r : X → A) (t : X → T)
+  → Transcript.Determines q r t
+  → FactorsThrough (λ x → q x , r x) t
+sideRecordDecoder isSetT q r t h =
+  fiberConstant→factorsThrough isSetT (λ x → q x , r x) t
+    (λ x x' p → h x x' (cong fst p) (cong snd p))
+
+-- If the endpoint already determines the retained record, then the record
+-- is eliminable: endpoint plus record determines no more transcript than
+-- the endpoint alone.  The conclusion is again an installed decoder.
+eraseDeterminedRecord :
+  {X : Type ℓx} {Y : Type ℓy} {A : Type ℓz} {T : Type ℓ₁}
+  (isSetT : isSet T) (q : X → Y) (r : X → A) (t : X → T)
+  → Transcript.Factors q r
+  → Transcript.Determines q r t
+  → FactorsThrough q t
+eraseDeterminedRecord isSetT q r t endpointDeterminesRecord together =
+  transcriptDecoder isSetT q t
+    (λ x x' p → together x x' p (endpointDeterminesRecord x x' p))
+
 module TwoStage
   {X : Type ℓx} {Y : Type ℓy} {Z : Type ℓz}
   {T₁ : Type ℓ₁} {T₂ : Type ℓ₂}
@@ -73,4 +98,3 @@ module TwoStage
   stagewiseDecoder set₁ set₂ inj first second =
     transcriptDecoder (isSetΣ set₁ (λ _ → set₂)) W total
       (injectiveSuffices inj first second)
-
