@@ -29,7 +29,7 @@ merely repeats the same coefficient and cannot amplify it.
 
 The strongest unconditional consequence found is almost-all, not
 prescribed-center.  Zhao's current theorem gives, uniformly for every prime
-`r ≡ 3 (mod 4)`,
+`r ≡ 3 (mod 4)` and `X>4r`,
 
 \[
  \#\{N\in(X/2,X]:2r\mid N,\ C_r(N)=0\}

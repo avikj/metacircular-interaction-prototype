@@ -464,7 +464,17 @@ new conditioned correlation proving persistence on such a family.
   center, the two same-sector convolutions vanish and the entire coefficient
   is exactly one half of the mixed `(+,-)` sector convolution.  That prescribed
   mixed coefficient is the precise two-sided object which current
-  Siegel--Walfisz and large-sieve marginals do not control from below.
+  Siegel--Walfisz and large-sieve marginals do not control from below.  It is
+  also terminal: for every admissible odd conductor `r|N`, the mixed
+  coefficient is exactly `2 R_vartheta(N)`, independent of `r`, so averaging
+  over conductor divisors merely repeats Goldbach.  Zhao gives density one
+  among such multiples uniformly for `r<=X^(3/10-delta)`, but still cannot
+  select a prescribed multiple.  A second hidden character just beyond the
+  logarithmic cutoff preserves both visible sector marginals and their major
+  mixed response up to `o(N)` while annihilating the full mixed coefficient.
+  This scopes the surviving target to a conductor-sensitive minor theorem for
+  the fixed prime signal; see
+  [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md).
 - **Exceptional-set bounds.**  Zhao's current
   [preprint, arXiv:2511.05631v2](https://arxiv.org/abs/2511.05631v2) proves
   `E(X)=O(X^(7/10))`, with ineffective constant.  A power saving still permits
@@ -593,6 +603,9 @@ or a direct edge-margin theorem.
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
   direct edge-margin and moving-character audit is
   [`direct-minor-shadow.md`](direct-minor-shadow.md); the
+  prescribed mixed-sector closure is
+  [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md);
+  the
   arithmetic coherence audit is
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the
   logarithmic common-carrier correction is
