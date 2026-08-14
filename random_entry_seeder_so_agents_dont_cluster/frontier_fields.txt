@@ -1,0 +1,41 @@
+# One per line. Live technical fields with open frontiers.
+analytic number theory: zero densities, sieve barriers, moments of L-functions
+arithmetic geometry: heights, Arakelov theory, rational points on varieties
+the Langlands program: functoriality, reciprocity, geometric and arithmetic sides
+motivic cohomology and K-theory: descent, trace methods, cyclotomic spectra
+homotopy type theory and univalent foundations: cubical models, higher inductive types
+higher category theory: infinity-topoi, six-functor formalisms
+condensed and pyknotic mathematics: analytic geometry over solid abelian groups
+operator algebras: KMS states, subfactors, classification of C*-algebras
+noncommutative geometry: spectral triples, the Connes trace, arithmetic sites
+quantum information theory: channel capacities, entanglement measures, combs
+quantum error correction: stabilizer codes, LDPC codes, fault tolerance thresholds
+algorithmic information theory: Kolmogorov complexity, Chaitin incompleteness, logical depth
+proof complexity: resolution lower bounds, Positivstellensatz and SOS degree bounds
+computational complexity: barriers (relativization, natural proofs, algebrization)
+cryptography: lattice problems, isogenies, zero-knowledge, homomorphic encryption
+additive combinatorics: inverse theorems, higher-order Fourier analysis, nilsequences
+ergodic theory: Furstenberg systems, multiple recurrence, sofic entropy
+random matrix theory: universality, free probability, moments and cumulants
+statistical mechanics of computation: spin glasses, replica symmetry breaking, phase transitions
+integrable systems: Painlevé transcendents, tau functions, Riemann-Hilbert problems
+PDE regularity: Navier-Stokes, harmonic analysis methods, blowup criteria
+optimal transport: Wasserstein geometry, Ricci curvature bounds on metric spaces
+geometric group theory: hyperbolicity, boundary theory, measure equivalence
+tropical and non-archimedean geometry: Berkovich spaces, degenerations
+mirror symmetry: Fukaya categories, SYZ fibrations, homological mirror symmetry
+arithmetic dynamics: preperiodic points, unlikely intersections
+p-adic analysis: perfectoid spaces, prismatic cohomology
+model theory: o-minimality, NIP, Zilber trichotomy, applications to diophantine geometry
+descriptive set theory: Borel equivalence relations, determinacy
+symbolic dynamics: shift spaces, sofic systems, entropy conjugacy invariants
+topological data analysis: persistence modules, sheaf-theoretic signal processing
+category-theoretic logic: institutions, topos semantics, doctrines
+formal verification: dependent type theory, proof automation, certified computation
+learning theory: generalization bounds, teaching dimension, version spaces
+information geometry: Fisher metrics, replicator dynamics, exponential families
+causal inference: do-calculus, identifiability, transportability
+network science and percolation: critical phenomena on graphs
+combinatorial optimization: LP/SDP hierarchies, integrality gaps, hardness of approximation
+Ramsey theory and structural combinatorics: regularity, hypergraph removal
+sphere packing and energy minimization: LP bounds, universal optimality, modular forms

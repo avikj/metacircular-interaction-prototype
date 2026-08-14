@@ -1,0 +1,83 @@
+# One per line: a person, and the METHOD to borrow. You are not roleplaying them
+# and not claiming their authority. You are asking their question of your object.
+# Living people appear only through published method.
+Pingala -- enumerate the whole space by a recursive rule before counting anything in it
+Panini -- write the rule system, then the metarules that order the rules
+Aryabhata -- when the equation resists, pulverize it and keep the trace column
+Brahmagupta -- find the composition law that makes solutions a group
+Bhaskara II -- cycle a bad approximation deliberately until it becomes exact
+Madhava -- push a finite identity to an infinite series and control the remainder
+Nagarjuna -- show the four exhaustive alternatives share a false presupposition
+Dignaga -- define the term by what it excludes, never by what it positively names
+Dharmakirti -- ask what causal work the concept does before asking what it denotes
+Gangesa -- delimit every relation; two relations between the same pair are different relations
+Kumarila -- when rules conflict, order them; the ordering is the content
+Bhartrhari -- ask whether the unit you are analyzing is the real bearer of meaning
+Euclid -- refuse the step that has no stated ground
+Archimedes -- bound it above and below and squeeze
+Diophantus -- solve the special case completely and let the method generalize itself
+Hypatia -- make the difficult text usable by others; commentary is research
+Liu Hui -- approximate by a procedure whose error you can name
+Seki Takakazu -- eliminate variables systematically; the bookkeeping is the theorem
+al-Khwarizmi -- name the procedure, then the procedure becomes an object
+Omar Khayyam -- cross two curves to solve what one equation cannot
+Ibn al-Haytham -- design the experiment that would refute you
+al-Biruni -- learn the other tradition's terms before comparing
+Ibn Khaldun -- look for the structural cycle behind the particular events
+Fermat -- descend: from any solution build a strictly smaller one
+Euler -- compute boldly, then find why the computation was allowed
+Gauss -- do not publish the scaffolding, but do build it
+Galois -- replace the object by its group of symmetries
+Riemann -- move to the complex plane and let the singularities speak
+Dedekind -- define the object by the cut it makes in what you already have
+Cantor -- ask whether two infinite collections can be matched
+Poincare -- when the equation is unsolvable, study the qualitative flow
+Hilbert -- state the problem list; the list is the contribution
+Noether -- every symmetry is a conservation law; find the invariant
+Ramanujan -- trust the form of the identity, then hand it to someone to prove
+Weil -- guess the right cohomology by counting points
+Godel -- encode the system inside itself and read off the limit
+Turing -- ask what a machine could do, then what no machine can
+von Neumann -- build the axioms that make the physics computable
+Shannon -- separate the signal's content from its representation and count bits
+Kolmogorov -- define randomness as incompressibility
+Chaitin -- ask how many bits of axiom the theorem costs
+Erdos -- find the probabilistic existence proof, then hunt the explicit one
+Grothendieck -- rise to the generality where the problem becomes trivial
+Serre -- write it so short that the mechanism is visible
+Atiyah -- an index is a topological quantity computed analytically
+Connes -- the space is the algebra of functions on it, even when there is no space
+Thurston -- the goal is human understanding, not the shortest correct proof
+Conway -- play with the small cases until the structure surrenders
+Mandelbrot -- look at the same object at every scale at once
+Wolfram -- enumerate the simple programs exhaustively and look at what happens
+Feynman -- rederive it your own way or you do not know it
+Dirac -- follow the formal beauty of the equation past what is currently justified
+Boltzmann -- count the microstates
+Prigogine -- study the system far from equilibrium, where structure forms
+McClintock -- have a feeling for the organism; look at the exceptions
+Margulis -- the units you assumed were individuals may be collaborations
+Darwin -- variation plus selection plus time explains the appearance of design
+Wiener -- the loop, not the parts, is the object
+Ashby -- a regulator must have at least as much variety as what it regulates
+Simone Weil -- attention is the faculty; look without imposing
+Sofia Kovalevskaya -- take the singular case others avoided as the real problem
+Sophie Germain -- work the general obstruction rather than the individual case
+Emmy Noether -- ask what structure the proof actually used
+Julia Robinson -- turn the decision problem into a diophantine one
+Mirzakhani -- doodle the surface for years until the recursion appears
+Uhlenbeck -- find where the compactness fails and name the bubble
+Langlands -- suspect that two unrelated theories are two faces of a correspondence
+Voevodsky -- if the foundations cannot check your proof, change the foundations
+Tao -- decompose into structured plus pseudorandom parts
+Gowers -- ask what the natural proof strategy is and why it fails
+Villani -- carry an inequality across fields until it becomes a geometry
+Bourgain -- estimate everything; the estimate is the structure
+Deligne -- purity: weights control what can appear
+Milnor -- construct the counterexample that shows the intuition was wrong
+Nash -- the embedding exists if you allow enough wrinkling
+Ulam -- if you cannot solve it, simulate it and look
+Hofstadter -- the strange loop is the phenomenon, not the paradox
+Bell -- design the inequality that separates the theories experimentally
+Wheeler -- it from bit: ask what the observation itself contributes
+Penrose -- draw it; the diagram is the calculation
