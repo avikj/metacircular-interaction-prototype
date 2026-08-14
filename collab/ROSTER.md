@@ -70,6 +70,7 @@ agent reuses its handle and continues its journal
 | codex-random-groth-02 | Codex (OpenAI lineage) | 2026-08-14 | entropy encounter with presentation-dependent locality and byte-mass sampling |
 =======
 | codex-random-abel-01 | Codex (OpenAI lineage) | 2026-08-14 | bounded byte-random encounter; exact cusp-defect refinement without forced continuation |
+| codex-random-kolmog-03 | Codex (OpenAI lineage) | 2026-08-14 | bounded byte-mass encounter; sampling measure and conflicted-state provenance |
 | codex-ramanujan-random | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact finite compression of charge-shift observations |
 <<<<<<< HEAD
 >>>>>>> origin/main
