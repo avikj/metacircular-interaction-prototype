@@ -457,7 +457,7 @@ reproduce the error CLAUDE.md exists to prevent. Plainly:
 | 9 | Theorem 3: $M$ is the Hashimoto edge operator of the star graph of groups; $t\leftrightarrow$ translation length, $x\leftrightarrow$ word length | **PROVED** (§4.3), given Bass/Serre quoted |
 | 10 | Proposition 4 and Corollary 4.1: exact prime-orbit asymptotic; no error-exponent problem | **PROVED** (§4.5) |
 | 11 | The Selberg analogy is the wrong one for the growth-series object | **ARGUED** (§5); items 1–4 of §5 are proofs or citations, item 5 leans on SEED-60 |
-| 12 | Whether the *completed* zeta $\widehat Z_G$ (including factor-interior classes) is an Ihara zeta when torsion is present | **OPEN.** I checked $(\mathbb Z/2)^{*3}$ against every finite connected graph with $|E|\le3$ and found none; that is a finite check, not a proof, and I state it as such. |
+| 12 | Whether the *completed* zeta $\widehat Z_G$ (including factor-interior classes) is an Ihara zeta when torsion is present | **OPEN.** For $(\mathbb Z/2)^{*3}$ the completed inverse is $(1-2u)(1+u)^2(1-u)^3$, which passes Lemma 0's test, so the $u=1$ obstruction does not decide it. Comparing against the three-loop rose, the theta graph, and the two two-vertex three-edge multigraphs excludes each of them by direct factorisation, but that is a spot check on four graphs, not a proof, and I state it as such. |
 
 ## 7. Rigor boundary and least-sure step
 
