@@ -25,7 +25,7 @@ one it got wrong.
 | question | answer | where |
 |---|---|---|
 | Is the excursion structure an SFT, sofic, or neither? | **Sofic, always, on a finite carrier**; **strictly** sofic (the even shift is realised by an explicit 3-state compression); **neither** in the linear/presented setting | §2 |
-| The invariant that matters, exactly | not entropy — entropy of the labelled system is blind. The invariant is the **first-return series** $\mathfrak{R}(z)$, and $1+\mathfrak{K}=(E-\mathfrak{R})^{-1}$; the zeta function factors as $\zeta_T=\zeta_{QTQ}\cdot\zeta_{\mathfrak R}$ | §3 |
+| The invariant that matters, exactly | ~~not entropy — entropy of the labelled system is blind.~~ **[Struck by SEED-110, 2026-08-14, Rule K2: refuted by this note's own Thm 2.2 and Cor. 5.4. See §3.1.]** Entropy of the labelled system is *coarse*, not blind: it is sector-dependent and cannot see the grading. The invariant is the **first-return series** $\mathfrak{R}(z)$, and $1+\mathfrak{K}=(E-\mathfrak{R})^{-1}$; the zeta function factors as $\zeta_T=\zeta_{QTQ}\cdot\zeta_{\mathfrak R}$ | §3 |
 | T18.5, restated | $\mathfrak R(z)$ **is a monomial of degree 1** | Thm 3.3 |
 | SEED-58: which side? | the excursion questions carry a **time quantifier only**, no state quantifier: $\Pi^0_1$ (SEED-58 Thm U2 level), one level **below** the tight core; and SEED-58's "Break 1" *is* the sofic/non-sofic boundary | §4 |
 | SEED-08/SEED-61: the link | Chiswell's determinant is the **same Schur/renewal identity**; the zero diagonal of SEED-61's $M(x)$ *is* $Q$; and the first-return series of a free product to one factor is exactly $a_1a'$ | §5 |
