@@ -81,7 +81,7 @@ open import Cubical.Foundations.Powerset using (ℙ)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.Group.Base using (Group)
 open import Cubical.Algebra.Group.Subgroup using (isSubgroup ; Subgroup)
-open import Cubical.Algebra.SymmetricGroup using (Symmetric-Group)
+open import Cubical.Algebra.SymmetricGroup using (SymGroup)
 
 open import NaturalMachine.DefectCalculus using (Stab ; stab-id ; stab-∘ ; stab-inv)
 
@@ -94,7 +94,7 @@ module _ (Str : Type ℓ → Type ℓ) {A : Type ℓ}
 
   private
     Aut : Group ℓ
-    Aut = Symmetric-Group A isSetA
+    Aut = SymGroup A isSetA
 
   -- (ii) made visible: `Stab` becomes a subSET only because `Str A` is
   -- a set.  This line is the whole content of the correction.
