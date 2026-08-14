@@ -106,3 +106,9 @@ import LiftingFiberResidue
 
 -- Walsh/window analysis.
 import Window5Walsh
+
+-- The Eternal Golden Braid delta (notes/ETERNAL_GOLDEN_BRAID_DELTA24.md):
+-- the Lawvere diagonal engine (§19.D) and the finite achromatic-reflection
+-- toy (§19.C) — holonomy, gluing, defect retention, universe-graded ascent.
+import LawvereDiagonal
+import AchromaticToy
