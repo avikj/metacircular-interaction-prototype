@@ -3,8 +3,11 @@
 **Status.** Proved. The monotonicity is **weak**, not strict, and cannot be made
 strict; the exact difference set is computed (Thm 2), which is the only part
 that carries content. The non-implication δ = 0 ⇏ Advance is **refuted as an
-implication** by a finite counterexample, minimal and unique up to isomorphism
-over its parameters (Thm 5, exhaustive check). §J3's non-implication falls out
+implication** by a finite counterexample, minimal in $(|X|,|\mathcal T|,|Q|)$
+and — under the hypothesis that holonomy is invertible — unique up to
+isomorphism at those minimal parameters (Thm 5, exhaustive check over the $16$
+cases; Rem. 5.2 records that uniqueness, though not minimality, fails if
+invertibility is dropped). §J3's non-implication falls out
 as the second coordinate of the same lemma (Thm 3, Ex. E2).
 
 **Substance: classical.** Theorems 1 and 3 are the monotone half of a Birkhoff
