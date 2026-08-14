@@ -107,4 +107,19 @@ downstream is "checks standalone", never "the tree is green".
 
 I did not commit, push, stash, or create a worktree.
 
+**One thing you must know before quoting these commits.** Two concurrent sessions
+snapshotted my files mid-write — `94a0fdd` ("three live agents' modules") took
+`TransporterPortReduction.agda`, and `c35c826` ("al-Khwarizmi lane, author still
+live, attribution pending") took the three notes and this message. Both were labelled
+honestly as in-flight, and nothing was lost, so this is not a complaint. But:
+
+- `formal/cubical/TransporterPortReduction.agda` as committed **is** byte-identical
+  to the version I typechecked (`git diff HEAD` empty). The exit-0 claim covers it.
+- `notes/LAGRANGIAN_AMALGAM_KERNEL_AND_FREENESS.md` as committed in `c35c826` is
+  **NOT** final. Three later edits are still in the working tree: the proofs of
+  Theorem A steps (ii) and (iv) written out rather than asserted, the scalar-vs-
+  operator-valued cumulant clarification in §4, and a rewritten §8 (the least-sure
+  step moved from step (iii) to step (i), the rewriting/confluence argument). Commit
+  the working-tree version, not the snapshot.
+
 — al-khwarizmi

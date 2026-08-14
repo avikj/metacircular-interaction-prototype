@@ -256,6 +256,12 @@ and `v ∈ D ⟺ v + d + d′ ∈ D`), and it is faithful.
 > 4. Consequently `R` and `C` are **never** free with amalgamation over `Alg*(D)`
 >    unless `L = M`.
 
+**Which cumulants these are.** (1)–(3) are the **scalar** free cumulants with respect
+to `τ`, not operator-valued (`D`-valued) ones. That is deliberate and it is enough:
+the numbers being compared with the kernel signs are scalars. (4) is proved
+separately below and does **not** go through cumulants at all, so no scalar fact is
+being smuggled into an operator-valued conclusion.
+
 *Proof.* (1) is immediate. For (2): the moment–cumulant formula gives
 `τ(a₁a₂a₃a₄) = Σ_{π ∈ NC(4)} κ_π`. Since all `κ₁` vanish, only partitions without
 singletons contribute; the non-crossing ones are `{1234}`, `{12}{34}`, `{14}{23}`
@@ -360,17 +366,30 @@ the opposite sign: counting sees plenty where canonicity sees none.
 
 ## 8. Least-sure step, stated for a hostile reader
 
-**Theorem A step (iii), the independence of the `2^{2n−k}` monomials.** I argued
-that `(α,β,γ) ↦ Σα_iw_i + Σβ_au_a + Σγ_bv_b` is a bijection onto `L + M` because
-`L + M = D ⊕ L′ ⊕ M′`. The directness of that sum is asserted from a dimension count
-(`k + (n−k) + (n−k) = 2n−k = dim(L+M)`) plus the fact that the three summands
-together span `L + M`. That is correct — spanning plus matching dimensions gives
-directness over a field — but it is the one place where I did not write out the
-independence directly, and if `dim(L+M)` were not `2n−k` (i.e. if my use of
-`dim(L+M) = dim L + dim M − dim(L∩M)` were misapplied) the whole dimension match in
-(i)–(iii) would fail and Theorem A would become an inequality rather than an
-equality. A reader wanting to break this should attack the claim that `L′ ∩ (D + M′) = 0`,
-which is where `L′ ∩ D = 0` and Lemma 2.1's nondegeneracy are doing joint work.
+**Theorem A(i), the sorting step.** Everything in Theorem A rests on the claim that
+modulo `I` every word in `w, x, z` reduces to a monomial `w^α x^β z^γ`, giving
+`dim(U/I) ≤ 2^{2n−k}`. I justified this by "modulo `I` every generator pair commutes
+up to sign, and the squares are `1`". That is a *rewriting* argument stated in one
+sentence, and rewriting arguments are exactly where hidden cases live: I did not
+exhibit a terminating confluent rewrite system, nor a diamond lemma / Bergman
+verification of the overlap ambiguities (`x_a z_b z_c`, `x_a x_b z_c`, and the
+`w`-central overlaps). I believe there is nothing there — every ambiguity resolves
+because the signs are scalars and scalars commute — but a hostile reader should
+attack precisely this, because if any overlap failed to resolve, `dim(U/I)` could
+exceed `2^{2n−k}`, `U/I → B` would stop being injective, and Theorem A would degrade
+to `I ⊆ ker π` with the reverse inclusion unproved. Note that the *lower* bound in
+(iii) is safe regardless: the images really are independent.
+
+Two smaller exposures, both already flagged in the text:
+
+- **§3(a) reads "cycle" as a cycle of the `K_{3,3}` row/column incidence graph.** If
+  the questioner meant a cycle in another complex — the 2-complex with the nine cells
+  as 2-cells, say — the parity argument does not directly apply. §3(b) and §3(c) are
+  immune to that reading, which is why three reasons were given and not one.
+- **Theorem D(3) compares scalar cumulants with the kernel's signs.** They are equal
+  as numbers. Anyone reading it as an operator-valued (`D`-valued) cumulant statement
+  is reading more than is written, and D(4) is proved without cumulants for that
+  reason.
 
 A second, softer exposure: **§3(a) assumes the incidence graph is `K_{3,3}`**, i.e.
 that "cycle" in the open question means a cycle of the row/column incidence graph.
