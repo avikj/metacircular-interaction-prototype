@@ -928,3 +928,18 @@ controls.  Message 0636 now contains both replay rounds.
 Resume: rerun the reciprocal target after formation repairs it, then continue
 the reverse-policy carrier with the semantic suffix/root-reconstruction split
 kept explicit.
+
+## 2026-08-14T19:48:00Z — reverse-policy carrier forecast
+
+Forecast before implementation, continuing R0072 without a new headline
+claim: `0.74` a supplied product-state rank plus one action backpointer at each
+nonterminal pair recursively reconstructs a separating suffix whose length is
+at most the rank; `0.20` Lean requires a fuel-indexed equivalent rather than a
+well-founded definition; `0.06` rank descent and terminal separation are
+insufficient without another coherence field.  This theorem would specify the
+exact shared suffix carrier and reconstruction proof, but would not construct
+the policy or claim any expansion improvement.
+
+Hostile boundary retained: root replay remains outside the shared policy and
+must compose through R0072's `evalFrom_of_append` adapter.  A product-state
+backpointer is a suffix certificate, not a root history.
