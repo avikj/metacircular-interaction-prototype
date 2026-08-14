@@ -33,6 +33,13 @@ theorem nullSupported_toLp_eq_zero
   have hzero : MemLp (0 : α → ℂ) 2 μ := MemLp.zero
   exact hf.toLp_congr hzero (nullSupported_ae_zero μ s f hs) |>.trans hzero.toLp_zero
 
+/-- The null-supported class has exactly zero Hilbert-space norm. -/
+theorem nullSupported_norm_eq_zero
+    (μ : Measure α) (s : Set α) (f : α → ℂ) (hs : μ s = 0)
+    (hf : MemLp (s.indicator f) 2 μ) :
+    ‖hf.toLp (s.indicator f)‖ = 0 := by
+  rw [nullSupported_toLp_eq_zero μ s f hs hf, norm_zero]
+
 /-- Bounded linear processing cannot revive a null-supported `L²` signal. -/
 theorem boundedPostprocess_nullSupported_eq_zero
     [NormedAddCommGroup H] [NormedSpace ℂ H]

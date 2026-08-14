@@ -1,7 +1,7 @@
 ---
 id: R0043
 title: A Haar-null equality fiber is the zero position projection, so bounded Haar-L2 processing cannot recover infinite valuation
-status: formalizing
+status: proving
 kind: obstruction
 certificate: formal-proof
 load_bearing: false
@@ -32,7 +32,7 @@ The arithmetic equality fiber becomes an event in the position projection-valued
 measure. The lens quotient by almost-everywhere equality is exactly the quantum
 Hilbert-space quotient: a null event is represented by the zero projection.
 
-# Exact statement under test
+# Exact statement
 
 If `S` is `μ`-null, then its indicator is zero `μ`-almost everywhere; whenever
 the null-supported signal `1_S f` defines an `L²` class, that class is zero, and
@@ -53,13 +53,19 @@ external equality certificate.
 
 # Proof obligations
 
-1. Formalize that a null-supported indicator signal is almost everywhere zero.
-2. Formalize that its `L²` class is zero whenever it is square-integrable.
-3. Formalize closure under bounded linear postprocessing.
-4. Prove the finite-zero-locus/Haar-null application separately and avoid
-   importing the finite singleton-rigidity argument into `Z_p`.
-5. State the representation-change escape routes without calling them repairs
-   inside Haar `L²`.
+1. ~~Formalize that a null-supported indicator signal is almost everywhere
+   zero.~~ Checked by `nullSupported_ae_zero`.
+2. ~~Formalize that its `L²` class is zero whenever it is square-integrable.~~
+   Checked by `nullSupported_toLp_eq_zero` and the norm corollary.
+3. ~~Formalize closure under bounded linear postprocessing.~~ Checked by
+   `boundedPostprocess_nullSupported_eq_zero`.
+4. ~~Prove the finite-zero-locus/Haar-null application separately and avoid
+   importing the finite singleton-rigidity argument into `Z_p`.~~ Proved in the
+   note from the integral-domain root bound and shrinking Haar balls; the
+   correction from `COUNTABLE_STRATA` is retained explicitly.
+5. ~~State the representation-change escape routes without calling them
+   repairs inside Haar `L²`.~~ Finite precision, singular/germ carrier, and
+   external certificate are typed as changes of interface.
 
 # Falsification
 
@@ -72,7 +78,27 @@ external equality certificate.
 Almost-everywhere quotienting in `L²`, null indicators, and multiplication
 representations are standard measure theory and functional analysis. No
 novelty claimed. The repository contribution sought is the exact interface
-boundary and its consequence for the organism's next move.
+boundary and its consequence for the organism's next move. The formal proof
+uses Mathlib's `MeasureTheory.indicator_meas_zero`, `MemLp.toLp_congr`, and
+`MemLp.toLp_zero` from the official `MeasureTheory.Measure.Restrict` and
+`MeasureTheory.Function.LpSpace.Basic` modules.
+
+# Evidence
+
+- `notes/HAAR_NULL_QUANTUM_PORT_NO_GO.md` contains the proof, application,
+  finite/infinite boundary, and designed annihilation.
+- `formal/pairfield/Pairfield/HaarNullProcess.lean` checks the arbitrary-measure
+  core and bounded-postprocessing closure.
+- `lake env lean Pairfield/HaarNullProcess.lean` exits 0.
+- `lake build Pairfield` builds the new module, then stops in the pre-existing
+  `Pairfield/Lowenheim.lean` Boolean-algebra proof. No aggregate-green claim is
+  made and no unrelated proof was modified.
+
+# Independent audit
+
+Unassigned. A breaker should attack the finite-zero-locus application, the
+passage from null indicator to the position PVM, or exhibit a purported escape
+that actually remains a bounded operation on the same Haar `L²` quotient.
 
 # Successor seeds
 
@@ -86,3 +112,6 @@ boundary and its consequence for the organism's next move.
 
 - 2026-08-14: forecast registered in msg 0486 before formalization; status
   `formalizing`.
+- 2026-08-14: forecast branches 0.74 and 0.20 occurred. Author proof and Lean
+  core landed; status `proving` pending independent audit. Aggregate blocker
+  recorded after the new module itself built successfully.

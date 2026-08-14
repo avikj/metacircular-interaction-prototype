@@ -125,6 +125,7 @@ import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
 import NaturalMachine.RewriteCertificate
+import NaturalMachine.ControlledGrammar
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent

@@ -109,8 +109,8 @@ module Bridge (k n' : ℕ) where
     ∙
     ( cong (λ z → toℕ d + (D.b · D.value xs + z))
         (·-assoc D.b (D.b ^ length xs) (toℕ y))
-    ∙ sym (+-assoc (toℕ d) (D.b · D.value xs)
-        ((D.b · D.b ^ length xs) · toℕ y)) )
+    ∙ +-assoc (toℕ d) (D.b · D.value xs)
+        ((D.b · D.b ^ length xs) · toℕ y) )
 
   -- At exactly n lower digits, the removed place is a multiple of C.N.
   high-place-vanishes : (xs : D.Word) (y : D.Digit)
