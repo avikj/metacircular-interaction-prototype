@@ -98,7 +98,8 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Empty using (⊥)
-open import Cubical.Data.FinData.Base using (FinVec ; replicateFinVec)
+open import Cubical.Data.FinData.Base using (Fin ; FinVec ; replicateFinVec)
+  renaming (zero to fzero ; suc to fsuc)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.BigOps using (module Sum)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
@@ -593,6 +594,216 @@ module _ (R : CommRing ℓ) where
   dev₃-equivariant-02 : (x : Vec3) → dev₃ (sw02 x) ≡ sw02 (dev₃ x)
   dev₃-equivariant-02 (a , b , c) =
     cong (λ u → shift₃ u (c , b , a)) (mean₃-inv-02 (a , b , c))
+
+ ---------------------------------------------------------------------
+ -- 4.  T14.8 AT GENERAL k.
+ --
+ -- `Vₖ k = {x : Fin k → R | Σxᵢ = 0}` and `Rᵏ ≃ R × Vₖ k` by
+ -- `x ↦ (mean x , x − mean x · 1)`, for EVERY `k`, given `k` invertible.
+ --
+ -- "`k` invertible" is presented in the form the proof actually consumes:
+ -- an element `kinv` with `Σ_{i<k} kinv ≡ 1r`.  That is the same shape as
+ -- `CenterRelative`'s `half + half ≡ 1r` and is the honest statement —
+ -- `k·kinv = 1` needs a ring map from ℕ, which this avoids.
+ --
+ -- Note what this does NOT give.  **T14.9 at general `k` is NOT here**,
+ -- and the reason is precise: it needs `Σ` to be invariant under
+ -- permutation of the index, and cubical v0.5's
+ -- `Cubical.Algebra.Ring.BigOps` has `∑Ext`, `∑Split`, `∑Mulrdist`,
+ -- `∑Mulldist`, `∑Dist-` and NO permutation-invariance lemma at all
+ -- (not even for a transposition of two indices).  Proving it is an
+ -- induction over `FinData` positions and is a module of its own.  So
+ -- T14.9 stands at k = 2, 3 (§1, §3.3), where the permutations are
+ -- finitely many concrete maps and the invariance is one solver call
+ -- each.
+ ---------------------------------------------------------------------
+
+ open Sum (CommRing→Ring R)
+   using (∑ ; ∑0r ; ∑Split ; ∑Mulrdist ; ∑Mulldist ; ∑Dist-)
+
+ Vecₖ : ℕ → Type ℓ
+ Vecₖ k = FinVec ⟨ R ⟩ k
+
+ Vₖ : ℕ → Type ℓ
+ Vₖ k = Σ[ x ∈ Vecₖ k ] (∑ x ≡ 0r)
+
+ private
+   n1 : (t s : ⟨ R ⟩) → t · (s + 0r) ≡ t · s
+   n1 = solve R
+   n2 : (s : ⟨ R ⟩) → s + (- s) ≡ 0r
+   n2 = solve R
+   n3 : (m a : ⟨ R ⟩) → (m + a) - m ≡ a
+   n3 = solve R
+   n4 : (m a : ⟨ R ⟩) → m + (a - m) ≡ a
+   n4 = solve R
+
+ module _ (k : ℕ) (kinv : ⟨ R ⟩)
+          (kinvSum : ∑ (replicateFinVec k kinv) ≡ 1r) where
+
+  meanₖ : Vecₖ k → ⟨ R ⟩
+  meanₖ x = kinv · ∑ x
+
+  devₖ : Vecₖ k → Vecₖ k
+  devₖ x i = x i - meanₖ x
+
+  private
+    -- the two places `kinvSum` is used, and the only two
+    constSum : (s : ⟨ R ⟩) → ∑ (replicateFinVec k (kinv · s)) ≡ s
+    constSum s = sym (∑Mulldist s (replicateFinVec k kinv))
+               ∙ cong (_· s) kinvSum
+               ∙ ·IdL s
+
+    meanConst : (m : ⟨ R ⟩) → kinv · ∑ (replicateFinVec k m) ≡ m
+    meanConst m = ∑Mulrdist kinv (replicateFinVec k m)
+                ∙ sym (∑Mulldist m (replicateFinVec k kinv))
+                ∙ cong (_· m) kinvSum
+                ∙ ·IdL m
+
+  devₖ-sum : (x : Vecₖ k) → ∑ (devₖ x) ≡ 0r
+  devₖ-sum x =
+      ∑Split x (replicateFinVec k (- meanₖ x))
+    ∙ cong (∑ x +_)
+           (∑Dist- (replicateFinVec k (meanₖ x))
+            ∙ cong (λ u → - u) (constSum (∑ x)))
+    ∙ n2 (∑ x)
+
+  splitₖ-fun : Vecₖ k → ⟨ R ⟩ × Vₖ k
+  splitₖ-fun x = (meanₖ x , (devₖ x , devₖ-sum x))
+
+  splitₖ-inv : ⟨ R ⟩ × Vₖ k → Vecₖ k
+  splitₖ-inv (m , (v , _)) i = m + v i
+
+  splitₖIso : Iso (Vecₖ k) (⟨ R ⟩ × Vₖ k)
+  Iso.fun      splitₖIso = splitₖ-fun
+  Iso.inv      splitₖIso = splitₖ-inv
+  Iso.rightInv splitₖIso (m , (v , p)) =
+    ≡-× meanPath
+        (Σ≡Prop (λ w → isPropEq (∑ w) 0r)
+                (funExt (λ i → cong (λ u → (m + v i) - u) meanPath
+                               ∙ n3 m (v i))))
+    where
+    meanPath : meanₖ (splitₖ-inv (m , (v , p))) ≡ m
+    meanPath =
+        cong (kinv ·_)
+             (∑Split (replicateFinVec k m) v
+              ∙ cong (∑ (replicateFinVec k m) +_) p)
+      ∙ n1 kinv (∑ (replicateFinVec k m))
+      ∙ meanConst m
+  Iso.leftInv  splitₖIso x = funExt (λ i → n4 (meanₖ x) (x i))
+
+  -- **T14.8, general `k`.**
+  splitₖ : Vecₖ k ≃ (⟨ R ⟩ × Vₖ k)
+  splitₖ = isoToEquiv splitₖIso
+
+ ---------------------------------------------------------------------
+ -- 4.1  T14.11's OBSTRUCTION AT GENERAL k ≥ 3.
+ --
+ -- The same two eigenvectors as §3.1, now inside `Vₖ (n+3)`:
+ -- `u = e₀ − e₁` and `v = e₀ + e₁ − 2e₂`.  The transposition `(0 1)`
+ -- scales `u` by `−1` and fixes `v`, so it is scalar only if `−1 ≡ 1`.
+ --
+ -- No invertibility hypothesis, and no `mean` — this section does not
+ -- use `kinv` at all, which is the point: the SPLIT needs `k` invertible,
+ -- the non-scalarity does not.
+ --
+ -- Note that `∑`-invariance is proved HERE only for this one
+ -- transposition, and by unfolding `∑` twice rather than by any general
+ -- permutation lemma (v0.5 has none — see §4).  That is why the
+ -- multiplicity half of T14.11 stays at k = 3 (§3.2): it needs a basis
+ -- of `Vₖ`, not one vector pair.
+ ---------------------------------------------------------------------
+
+ module _ (n : ℕ) where
+
+  private
+    K : ℕ
+    K = suc (suc (suc n))
+
+    swSum : (a b s : ⟨ R ⟩) → b + (a + s) ≡ a + (b + s)
+    swSum = solve R
+    us : (x : ⟨ R ⟩) → x + ((- x) + 0r) ≡ 0r
+    us = solve R
+    vs : (x : ⟨ R ⟩) → x + (x + ((- (x + x)) + 0r)) ≡ 0r
+    vs = solve R
+    vz : 0r ≡ 1r · 0r
+    vz = lem 1r
+      where
+      lem : (x : ⟨ R ⟩) → 0r ≡ x · 0r
+      lem = solve R
+
+  -- the transposition of the first two coordinates
+  sw01ₖ : Vecₖ K → Vecₖ K
+  sw01ₖ x fzero              = x (fsuc fzero)
+  sw01ₖ x (fsuc fzero)       = x fzero
+  sw01ₖ x (fsuc (fsuc i))    = x (fsuc (fsuc i))
+
+  sw01ₖ-sum : (x : Vecₖ K) → ∑ (sw01ₖ x) ≡ ∑ x
+  sw01ₖ-sum x =
+    swSum (x fzero) (x (fsuc fzero)) (∑ (λ i → x (fsuc (fsuc i))))
+
+  sw01ₖV : Vₖ K → Vₖ K
+  sw01ₖV (x , p) = (sw01ₖ x , sw01ₖ-sum x ∙ p)
+
+  scaleₖ : ⟨ R ⟩ → Vₖ K → Vₖ K
+  scaleₖ c (x , p) =
+    ((λ i → c · x i) , sym (∑Mulrdist c x) ∙ cong (c ·_) p ∙ scale-zero c)
+
+  -- `u = e₀ − e₁`
+  uK : Vecₖ K
+  uK fzero           = 1r
+  uK (fsuc fzero)    = - 1r
+  uK (fsuc (fsuc i)) = 0r
+
+  uK-sum : ∑ uK ≡ 0r
+  uK-sum = cong (λ s → 1r + ((- 1r) + s)) (∑0r (suc n)) ∙ us 1r
+
+  -- `v = e₀ + e₁ − 2e₂`
+  vK : Vecₖ K
+  vK fzero                  = 1r
+  vK (fsuc fzero)           = 1r
+  vK (fsuc (fsuc fzero))    = - (1r + 1r)
+  vK (fsuc (fsuc (fsuc i))) = 0r
+
+  vK-sum : ∑ vK ≡ 0r
+  vK-sum = cong (λ s → 1r + (1r + ((- (1r + 1r)) + s))) (∑0r n) ∙ vs 1r
+
+  uₖ vₖ : Vₖ K
+  uₖ = (uK , uK-sum)
+  vₖ = (vK , vK-sum)
+
+  sw01ₖ-u : sw01ₖV uₖ ≡ scaleₖ (- 1r) uₖ
+  sw01ₖ-u = Σ≡Prop (λ w → isPropEq (∑ w) 0r) (funExt lem)
+    where
+    lem : (i : Fin K) → sw01ₖ uK i ≡ (- 1r) · uK i
+    lem fzero           = uc0
+    lem (fsuc fzero)    = uc1
+    lem (fsuc (fsuc i)) = uc2
+
+  sw01ₖ-v : sw01ₖV vₖ ≡ scaleₖ 1r vₖ
+  sw01ₖ-v = Σ≡Prop (λ w → isPropEq (∑ w) 0r) (funExt lem)
+    where
+    lem : (i : Fin K) → sw01ₖ vK i ≡ 1r · vK i
+    lem fzero                  = vc0
+    lem (fsuc fzero)           = vc0
+    lem (fsuc (fsuc fzero))    = vc2
+    lem (fsuc (fsuc (fsuc i))) = vz
+
+  Scalar01ₖ : Type ℓ
+  Scalar01ₖ = Σ[ c ∈ ⟨ R ⟩ ] ((x : Vₖ K) → sw01ₖV x ≡ scaleₖ c x)
+
+  -- **T14.11's obstruction, at every k ≥ 3.**
+  sw01ₖ-scalar→char2 : Scalar01ₖ → 1r + 1r ≡ 0r
+  sw01ₖ-scalar→char2 (c , h) =
+    char2lem 1r ∙ cong (λ u → 1r - u) neg1≡1 ∙ selfSub 1r
+    where
+    at0 : Vₖ K → ⟨ R ⟩
+    at0 (x , _) = x fzero
+    fromU : (- 1r) ≡ c
+    fromU = cong at0 (h uₖ) ∙ c1 c
+    fromV : 1r ≡ c
+    fromV = cong at0 (h vₖ) ∙ c1 c
+    neg1≡1 : (- 1r) ≡ 1r
+    neg1≡1 = fromU ∙ sym fromV
 
  ---------------------------------------------------------------------
  -- 5.  T14.12, AND WHY IT IS NOT HERE.

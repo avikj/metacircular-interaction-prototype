@@ -133,6 +133,13 @@ import NaturalMachine.CompressionDefect
 -- Delta 19 section 19.6: the safe quotient is N_obs, not ker P, with a
 -- three-state witness that the inclusion is strict.
 import NaturalMachine.ObservabilityQuotient
+-- Programs 14.74-14.76: charge as a dependent index, the finite scale
+-- tower, and the monodromy kill test -- which came back DISSOLVED: over
+-- a set base there is no loop to act, so the parity-monodromy route is
+-- dead unless the base leaves the 0-types.
+import NaturalMachine.ChargeGradedPeeling
+import NaturalMachine.SieveScaleTower
+import NaturalMachine.SetBaseNoMonodromy
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the

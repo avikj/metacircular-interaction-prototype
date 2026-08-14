@@ -283,6 +283,14 @@ MonodromyOf F b p = Σ[ x ∈ F b ] (subst F p x ≡ x → ⊥)
 -- trivialisable naturally.  That is not proved here.  P14.24 as Delta 14
 -- states it is the constant-family statement, and that is exactly what
 -- is below; anything stronger would need the trivialisation.
+--
+-- **GAP CLOSED, and by a stronger route than the one this paragraph
+-- proposed.**  `NaturalMachine.SetBaseNoMonodromy.setNoMonodromy` proves
+-- it for EVERY family over a base that is a set — no trivialisation
+-- needed, because over a 0-type `p ≡ refl` and there is no loop to act.
+-- So the constant-family restriction below is not the general statement;
+-- it is the special case that happens to need no hypothesis on the base.
+-- Cite that module, not this one, when the base is known to be a set.
 constNoMonodromy :
   {B : Type ℓ} (C : Type ℓ') (b : B) (p : b ≡ b)
   → MonodromyOf {B = B} (λ _ → C) b p → ⊥
