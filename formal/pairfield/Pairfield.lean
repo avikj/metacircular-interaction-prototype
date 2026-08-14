@@ -88,6 +88,7 @@ import Pairfield.DiagonalSmithRoute
 import Pairfield.EuclidCoefficientTrace
 import Pairfield.EuclidCoefficientForkNoGo
 import Pairfield.EuclidCoefficientCutBound
+import Pairfield.EuclidFiniteTargetFormation
 import Pairfield.SmithContent
 import Pairfield.CertificateSource
 import Pairfield.RankOneSmith2x2

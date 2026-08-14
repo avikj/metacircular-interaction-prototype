@@ -222,8 +222,6 @@ import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct
 import NaturalMachine.DSONucleusMiddleProduct
-import NaturalMachine.DSONucleusMiddleAssociativityAudit
-import NaturalMachine.DSONucleusResidualAudit
 import NaturalMachine.BehavioralHankel
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.
@@ -528,6 +526,8 @@ import NaturalMachine.S3ConjugacyObservation
 import NaturalMachine.TwoLoopNonabelianNetwork
 import NaturalMachine.S3FiniteSpinNetwork
 import NaturalMachine.S3EquivariantEndomorphismRigidity
+import NaturalMachine.S3IntegerPermutationModule
+import NaturalMachine.S3IntegerRelativeCoordinates
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

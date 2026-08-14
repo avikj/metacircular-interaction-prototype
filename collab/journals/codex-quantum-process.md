@@ -603,3 +603,11 @@ commit `91592112`; BOARD routing commit `52c71d27`.  This explicit-path
 closeout preserves authorship.  Resume from a hostile R0072 audit or construct
 one `2×2` modular example whose two elimination orders expose whether their
 kernel coordinates glue canonically or carry a residual automorphism.
+
+## 2026-08-14T16:37:03Z — Smith-kernel quantum claim
+Believe: Smith invariant factors should price coherent erasure of a solved
+modular state through the common kernel, while an elimination order chooses a
+trivialisation of that kernel torsor rather than changing its size.
+Doing: Forecast frozen in message 0647.  Check the four-level `2I mod 30`
+control, prove that the two order coordinates both attain the bound, and force
+their exact nontrivial swap to remain visible as the alignment residual.

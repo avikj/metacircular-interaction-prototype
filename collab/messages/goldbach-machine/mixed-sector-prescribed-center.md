@@ -151,8 +151,8 @@ fixed `delta>0`, uniformly for
  r\le X^{3/10-\delta},                                  \tag{9}
 \]
 
-all but `O(X^{-delta})` of the even multiples in `(X/2,X]` have positive
-mixed coefficient.
+the exceptional proportion among the even multiples in `(X/2,X]` is
+`O(X^{-delta})`.
 
 Equation (9) is the honest range inherited from the current cardinality
 theorem.  At `r asymp X^{3/10}` the progression itself has the same order as
@@ -272,7 +272,9 @@ But the sector identity (1) requires an **odd** quadratic character.  In that
 line the main multiplier in (12) vanishes, and the error in the source has no
 positive sign.  Therefore (14) supplies neither `C_r(h)>0` nor a positive
 proportion lower bound.  An exceptional zero does not close the odd mixed
-sector; it cancels its modeled terminal main term.
+sector; it cancels its modeled terminal main term.  The precise unsigned error
+and its sharp relative-smallness threshold are audited independently in
+`odd-siegel-conductor-multiple-no-go.md`.
 
 Primary source: Kaisa Matomaki--Jori Merikoski,
 [*Siegel zeros, twin primes, Goldbach's conjecture, and primes in short
@@ -317,7 +319,7 @@ All four weights are nonnegative and prime-supported.
 
 ### Theorem 5.1 (marginals and logarithmic major response do not determine the cell)
 
-Let `U_{pm,s}` and `V_pm` be the exponential polynomials of (18) and (17),
+Let `U_{\pm,s}` and `V_\pm` be the exponential polynomials of (18) and (17),
 truncated at `N_s`.  Let `mathfrak M_B(N_s)` be the target-adapted major arcs
 with denominators `q<=Q_s` and widths `Q_s/(qN_s)`.  Then:
 
@@ -368,7 +370,7 @@ in the convolution vanishes, proving (19).  Equation (20) is (1) with `r=3`.
 
 #### Proof of the major comparison
 
-The difference `U_{pm,s}-V_pm` is a sum of the prime twists by `chi_s` and
+The difference `U_{\pm,s}-V_\pm` is a sum of the prime twists by `chi_s` and
 `chi_3 chi_s`, apart from the harmless removed `3` atom.  On an arc
 
 \[
@@ -378,8 +380,9 @@ The difference `U_{pm,s}-V_pm` is a sum of the prime twists by `chi_s` and
 
 split the rationally twisted prime sum into residue classes modulo a divisor
 of `3sq`.  Since `q<s`, the `s`-component makes the principal main term cancel.
-Every remaining character has conductor divisible by `s` and is
-nonprincipal.  By (16),
+Residue classes not coprime to that modulus contribute only the finitely many
+prime divisors of it.  The nonprincipal progression errors are controlled
+uniformly because, by (16),
 
 \[
  3sq\ll (\log N_s)^{2B+o(1)}.
@@ -391,7 +394,7 @@ short prefixes trivially; on the long prefixes the same modulus is at most a
 fixed power of `log t`, so Siegel--Walfisz applies uniformly.  Choose its
 logarithmic saving after `B,K` are fixed.
 
-Finally `||U_{pm,s}||_infty,||V_pm||_infty=O(N_s)` and
+Finally `||U_{\pm,s}||_infty,||V_\pm||_infty=O(N_s)` and
 
 \[
  \operatorname{meas}(\mathfrak M_B(N_s))
