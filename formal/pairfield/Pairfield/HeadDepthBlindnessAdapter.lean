@@ -34,13 +34,13 @@ theorem emultiplicity_fermatExponent_eq_head
     exact fun hzero ↦ hb ((ZMod.intCast_zmod_eq_zero_iff_dvd b q).mp hzero)
   have hdvd : headOrder q b ∣ q - 1 := by
     exact ZMod.orderOf_dvd_card_sub_one hz
-  obtain ⟨k, hk⟩ := hdvd
   have hqsubpos : 0 < q - 1 := Nat.sub_pos_of_lt hq.one_lt
   have hdpos : 0 < headOrder q b := by
     exact Nat.pos_of_dvd_of_pos hdvd hqsubpos
+  obtain ⟨k, hk⟩ := hdvd
   have hkpos : 0 < k := by
     rw [hk] at hqsubpos
-    exact (Nat.mul_pos_iff.mp hqsubpos).2
+    exact pos_of_mul_pos_right hqsubpos (Nat.zero_le _)
   have hkle : k ≤ headOrder q b * k := by
     exact Nat.le_mul_of_pos_left k hdpos
   have hklt : k < q := by

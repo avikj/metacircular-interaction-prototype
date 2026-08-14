@@ -17,6 +17,7 @@ import Pairfield.ProcessCutRankAdapter
 import Pairfield.IncrementalCRTAdapter
 import Pairfield.CyclotomicRoutingAdapter
 import Pairfield.CyclotomicPrimitiveTransportAdapter
+import Pairfield.HeadDepthBlindnessAdapter
 import Pairfield.HigherArityPadicAdapter
 import Pairfield.InfiniteValuationFiberAdapter
 import Pairfield.PrimePairDecomposition

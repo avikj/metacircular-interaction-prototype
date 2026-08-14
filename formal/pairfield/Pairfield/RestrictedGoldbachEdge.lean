@@ -78,6 +78,58 @@ theorem restrictedPrimeLogGoldbachCoeff_pos_iff (L N : ℕ) :
       mul_pos ((primeLogWeight_pos_iff p).2 hp)
         ((primeLogWeight_pos_iff q).2 hq)⟩
 
+/-- Every inhabited restricted fiber contributes at least the universal
+prime-log gap coming from its declared lower cutoff.  This is a uniform lower
+threshold, not a claim that the least positive coefficient is attained. -/
+theorem log_succ_sq_le_restrictedPrimeLogGoldbachCoeff
+    (L N : ℕ) (hL : 1 ≤ L) (hGoldbach : RestrictedGoldbachAt L N) :
+    (Real.log (L + 1 : ℕ)) ^ 2 ≤ restrictedPrimeLogGoldbachCoeff L N := by
+  rcases hGoldbach with ⟨p, q, hp, hq, hpL, hqL, hsum⟩
+  have hbase : 0 ≤ Real.log (L + 1 : ℕ) := by
+    apply Real.log_nonneg
+    exact_mod_cast (show 1 ≤ L + 1 by omega)
+  have hlogp : Real.log (L + 1 : ℕ) ≤ Real.log p := by
+    apply Real.log_le_log
+    · exact_mod_cast (show 0 < L + 1 by omega)
+    · exact_mod_cast (Nat.succ_le_of_lt hpL)
+  have hlogq : Real.log (L + 1 : ℕ) ≤ Real.log q := by
+    apply Real.log_le_log
+    · exact_mod_cast (show 0 < L + 1 by omega)
+    · exact_mod_cast (Nat.succ_le_of_lt hqL)
+  have hterm :
+      (Real.log (L + 1 : ℕ)) ^ 2 ≤
+        primeLogWeight p * primeLogWeight q := by
+    simp only [primeLogWeight, if_pos hp, if_pos hq]
+    calc
+      (Real.log (L + 1 : ℕ)) ^ 2 =
+          Real.log (L + 1 : ℕ) * Real.log (L + 1 : ℕ) := by ring
+      _ ≤ Real.log (L + 1 : ℕ) * Real.log q :=
+        mul_le_mul_of_nonneg_left hlogq hbase
+      _ ≤ Real.log p * Real.log q :=
+        mul_le_mul_of_nonneg_right hlogp hq.log_pos.le
+  unfold restrictedPrimeLogGoldbachCoeff
+  exact hterm.trans <| Finset.single_le_sum
+    (fun pair _ ↦ mul_nonneg (primeLogWeight_nonneg pair.1)
+      (primeLogWeight_nonneg pair.2))
+    (Finset.mem_filter.mpr
+      ⟨Finset.HasAntidiagonal.mem_antidiagonal.mpr hsum, hpL, hqL⟩)
+
+/-- Above a positive cutoff, the universal prime-log gap is equivalent to
+restricted support because the coefficient is otherwise exactly zero. -/
+theorem log_succ_sq_le_restrictedPrimeLogGoldbachCoeff_iff
+    (L N : ℕ) (hL : 1 ≤ L) :
+    (Real.log (L + 1 : ℕ)) ^ 2 ≤ restrictedPrimeLogGoldbachCoeff L N ↔
+      RestrictedGoldbachAt L N := by
+  constructor
+  · intro hgap
+    apply (restrictedPrimeLogGoldbachCoeff_pos_iff L N).1
+    have hlog : 0 < Real.log (L + 1 : ℕ) := by
+      apply Real.log_pos
+      exact_mod_cast (show 1 < L + 1 by omega)
+    have hgapPos : 0 < (Real.log (L + 1 : ℕ)) ^ 2 := sq_pos_of_pos hlog
+    exact hgapPos.trans_le hgap
+  · exact log_succ_sq_le_restrictedPrimeLogGoldbachCoeff L N hL
+
 /-- An abstract exact major/minor decomposition has positive edge precisely
 when the restricted prime-pair fiber is inhabited. -/
 theorem restrictedMinor_gt_neg_major_iff
