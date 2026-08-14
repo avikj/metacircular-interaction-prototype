@@ -34,6 +34,12 @@ def Useful (installed : Finset (List A)) (word : List A) : Prop :=
       behavior M.step (acceptsBool M) left word ≠
         behavior M.step (acceptsBool M) right word
 
+instance responseRelDecidable (installed : Finset (List A))
+    (left right : X) :
+    Decidable ((responseSetoid M installed).r left right) := by
+  unfold responseSetoid
+  infer_instance
+
 instance usefulDecidable (installed : Finset (List A)) (word : List A) :
     Decidable (Useful M installed word) := inferInstance
 
@@ -108,18 +114,19 @@ theorem response_rel_union_of_greedy
       (greedyInstall M installed candidates)).r left right) :
     (responseSetoid M (installed ∪ candidates.toFinset)).r left right := by
   induction candidates generalizing installed with
-  | nil => simpa [greedyInstall] using hagree
+  | nil => simpa [greedyInstall, responseSetoid] using hagree
   | cons word rest ih =>
       by_cases huseful : Useful M installed word
       · have htail : (responseSetoid M
             (greedyInstall M (insert word installed) rest)).r left right := by
-          simpa [greedyInstall, huseful] using hagree
+          simpa [greedyInstall, huseful, responseSetoid] using hagree
         have hall := ih (installed := insert word installed) htail
         simpa [List.toFinset_cons, Finset.insert_union,
-          Finset.union_assoc, Finset.union_left_comm, Finset.union_comm] using hall
+          Finset.union_assoc, Finset.union_left_comm, Finset.union_comm,
+          responseSetoid] using hall
       · have htail : (responseSetoid M
             (greedyInstall M installed rest)).r left right := by
-          simpa [greedyInstall, huseful] using hagree
+          simpa [greedyInstall, huseful, responseSetoid] using hagree
         have hall := ih (installed := installed) htail
         have hinstalled : (responseSetoid M installed).r left right :=
           response_rel_mono M (Finset.subset_union_left) hall
@@ -175,8 +182,8 @@ theorem eq_of_agree_greedyScheduledWords
   apply eq_of_agree_completeWords M alphabet complete reduced left right
   have hall := (response_rel_greedy_iff_union M
     (∅ : Finset (List A)) schedule left right).1
-      (by simpa [greedyScheduledWords] using hagree)
-  simpa [hschedule] using hall
+      (by simpa [greedyScheduledWords, responseSetoid] using hagree)
+  simpa [hschedule, responseSetoid] using hall
 
 /-- Checked formation theorem: greedy native installation remains discrete and
 retains no more words than the original quadratic witness ceiling. -/

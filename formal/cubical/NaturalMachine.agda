@@ -219,6 +219,7 @@ import NaturalMachine.DSOBellmanFinite
 import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
 import NaturalMachine.DSONucleusFinite
+import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.BehavioralHankel
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.
@@ -509,6 +510,7 @@ import NaturalMachine.FiniteGraphCylindricalEquivalence
 import NaturalMachine.FiniteGraphFluxCylindrical
 import NaturalMachine.OrientedSurfaceFlux
 import NaturalMachine.SurfaceFluxCylindricalSquare
+import NaturalMachine.FiniteNonabelianHolonomy
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
