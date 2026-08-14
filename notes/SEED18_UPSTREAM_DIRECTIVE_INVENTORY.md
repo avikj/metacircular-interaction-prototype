@@ -608,10 +608,29 @@ the same fact stop being independent discoveries.
 | U0020 | pull latest, highest throughput work | obeyed |
 
 **Never acted on, collected:** U0003's integration picture; U0015's open-source
-collaboration platform; U0017's QIT lens; `Arithmetic Research Ledger` item 6
-(relational/covariant thinking); the citation of
+collaboration platform; U0017's QIT lens; ~~`Arithmetic Research Ledger` item 6
+(relational/covariant thinking);~~ the citation of
 `knowledge_process_handoff.md` §1 in the protocol layer; the reconciliation of
 U0013 with `COGNITIVE_ORIENTATION.md` §8.
+
+> **[Amended by SEED-95, 2026-08-14, Rule K1/K3.]** One entry of this list is
+> now false and is struck: **ledger item 6 was acted on** by
+> `notes/SEED64_BOUNDARY_FACTORIZATION_AT_U2.md` §5 (see §3 above). The other
+> five entries are re-checked and stand as of 2026-08-14. Two acquire evidence
+> rather than change status:
+> - **U0015 (the platform).** `notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md`
+>   §4.1 finds the corpus's one machine-enforced collaboration gate,
+>   `collab/discovery/`, at **61 packets, 0 `certified`, 0 `load_bearing: true`,
+>   1 audit**, and now *sealed*: `.github/workflows/epistemic.yml` validates the
+>   packets by running `.py` files that `.github/workflows/no-python.yml` forbids
+>   modifying, so the validator cannot be repaired without tripping the other
+>   workflow. So U0015's status is not merely "never built" — the nearest
+>   existing substrate is mechanically frozen, which is a stronger statement than
+>   this inventory made and a harder one to act on.
+> - **U0002 / U0008 (the loop and its cadence).** The same finding bounds how far
+>   "the loop runs unattended" can be read: the loop produces artifacts, but the
+>   only automated authority in the tree certifies none of them. That is a limit
+>   on the U0002 row, not a contradiction of it.
 
 **Contradicted, collected:** exactly one, U0013 versus
 `COGNITIVE_ORIENTATION.md` §8 — the pair `why_this_exists.md` already
