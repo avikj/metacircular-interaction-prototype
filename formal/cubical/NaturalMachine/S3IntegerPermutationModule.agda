@@ -10,8 +10,14 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int
   using (ℤ ; pos ; _+_ ; +Assoc ; +Comm ; isSetℤ)
 open import Cubical.Data.SumFin using (fzero ; fsuc)
+open import Cubical.Data.Unit using (Unit ; tt)
+open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.FiniteNonabelianHolonomy using (Fin3)
+open import NaturalMachine.AbstractSpinNetworkKinematics using (Intertwiner)
+open Intertwiner
+open import NaturalMachine.S3FiniteSpinNetwork using (terminalVertex)
 
 record ℤ³ : Type₀ where
   constructor vec3
@@ -52,25 +58,13 @@ augmentation (vec3 a b c) = a + (b + c)
 
 augmentation-additive : (u v : ℤ³)
   → augmentation (u +³ v) ≡ augmentation u + augmentation v
-augmentation-additive (vec3 a b c) (vec3 x y z) =
-    +Assoc (a + x) (b + y) (c + z)
-  ∙ cong ((a + x) +_) (sym (+Assoc (b + y) c z))
-  ∙ cong ((a + x) +_) (cong (_+ z) (+Assoc b y c))
-  ∙ cong ((a + x) +_) (cong (b +_) (+Comm y c))
-  ∙ cong ((a + x) +_) (+Assoc b c (y + z))
-  ∙ sym (+Assoc (a + x) (b + c) (y + z))
-  ∙ cong (_+ (y + z)) (+Assoc a x (b + c))
-  ∙ cong (_+ (y + z)) (cong (a +_) (+Comm x (b + c)))
-  ∙ cong (_+ (y + z)) (sym (+Assoc a (b + c) x))
-  ∙ +Assoc (a + (b + c)) x (y + z)
+augmentation-additive (vec3 a b c) (vec3 x y z) = solve! ℤCommRing
 
 augmentation-swap₀₁ : (v : ℤ³) → augmentation (swap₀₁ v) ≡ augmentation v
-augmentation-swap₀₁ (vec3 a b c) =
-    cong (_+ c) (+Comm b a)
+augmentation-swap₀₁ (vec3 a b c) = solve! ℤCommRing
 
 augmentation-swap₁₂ : (v : ℤ³) → augmentation (swap₁₂ v) ≡ augmentation v
-augmentation-swap₁₂ (vec3 a b c) =
-    cong (a +_) (+Comm c b)
+augmentation-swap₁₂ (vec3 a b c) = solve! ℤCommRing
 
 zeroℤ : ℤ
 zeroℤ = pos 0
@@ -102,3 +96,9 @@ augmentation-collapses-basis : (x y : Fin3)
   → augmentation (basis x) ≡ augmentation (basis y)
 augmentation-collapses-basis x y = augmentation-basis x ∙ sym (augmentation-basis y)
 
+scalarCollapse : ℤ → Unit
+scalarCollapse z = tt
+
+collapse-augmentation-square : (x : Fin3)
+  → scalarCollapse (augmentation (basis x)) ≡ map terminalVertex x
+collapse-augmentation-square x = refl

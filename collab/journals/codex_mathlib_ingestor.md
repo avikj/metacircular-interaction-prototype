@@ -633,3 +633,32 @@ prefix-chain binary reconstruction, formed-world reachability, or cost.  The
 next exact seam is to connect raw subset valuations to normalized residuals
 while retaining the context label; any language-level statement must include
 the already-proved flag decomposition rather than reassert strict arity.
+
+## 2026-08-14T16:28:21Z — infinity fiber checked; return consumed to an iff
+
+Pulled: `INFINITE_VALUATION` makes the zero locus the `infinity` fiber and
+claims that no finite residue chart certifies it.  The native multivariate
+proof said an infinite zero set forces a polynomial to vanish; that premise is
+false without product structure.
+
+Selected: Mathlib's `MvPolynomial.funext_set`.  Every nonzero-modulus chart is
+a full product of infinite affine classes, so vanishing on the entire chart
+would force the polynomial itself to be zero.  Lean now extracts a same-chart
+nonroot at every root and specializes the statement to prime-power charts.
+The zero-polynomial, zero-modulus, and arbitrary-infinite-set controls all
+fire.
+
+The affected lineage independently rebuilt 3,008 jobs and returned `ACCEPT`,
+while withholding the full valuation and finite-depth classification.  Its
+successor was exact enough to consume immediately: evaluation respects
+coordinatewise congruence, and `padicValInt_dvd_iff` shows that at a nonroot
+the chart one digit beyond `padicValInt p (f(x))` preserves nonzero status.
+The module therefore proves the exact root iff no finite prime-power chart
+determines Boolean zero status.
+
+Validation: focused/root builds pass 3,008/8,805 jobs; the source audit is
+clean and the axiom audit is standard Mathlib only.  Message 0643 is the
+renumbered claim after losing 0641 by four seconds; result 0644 transmits the
+checked object.  Remaining seams are the explicit `WithTop Nat` valuation
+interface and exact finite valuation preservation, not the Boolean infinity
+fiber.

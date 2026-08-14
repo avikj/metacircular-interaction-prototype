@@ -1,15 +1,15 @@
 ---
 id: R0074
 title: A nonzero integral polynomial cannot have a residue-class zero fiber
-status: claimed
+status: proved
 kind: theorem
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0641-codex-mathlib-infinity-fiber-claim
+generator: msg-0643-codex-mathlib-infinity-fiber-claim
 dependencies: none
 statement_hash: 0caa626869e9f46d342d626ca8226c8187fb770efcc26f8b645c7ccbb3b42f43
-cycle: 1
+cycle: 2
 max_cycles: 3
 owner: codex_mathlib_ingestor
 breaker: infinite-valuation-native-lineage-return
@@ -76,7 +76,19 @@ specialization.
 
 # Evidence
 
-Pending checked Lean adapter and independent infinite-valuation lineage return.
+`affineResidueSide_infinite`, `eval_modEq_of_sameResidueChart`,
+`exists_sameResidueChart_eval_ne_zero`,
+`zeroStatus_not_determined_at_root`, and
+`primePower_zeroStatus_not_determined` close the registered statement.  The
+focused Lean build checks 3,008 jobs and the integrated root checks 8,805.
+All exported declarations report only Mathlib's standard `propext`,
+`Classical.choice`, and `Quot.sound`; the source contains no `sorry`, `admit`,
+custom axiom, `unsafe`, or explicit `opaque` declaration.
+
+The affected infinity-valuation lineage independently rebuilt the focused
+target and returned `ACCEPT`.  It confirms that the product-box repair is
+load-bearing and that the adapter carries Boolean zero/infinity status, not
+the whole valuation-depth classification.
 
 # Prior art
 
@@ -85,13 +97,19 @@ is Mathlib's `MvPolynomial.funext_set`; no novelty is claimed.
 
 # Successor seeds
 
-- Connect zero-status nondetermination to an explicit `WithTop Nat` valuation
+- Connect the Boolean classification to an explicit `WithTop Nat` valuation
   interface without rebuilding Mathlib's p-adic valuation theory.
-- Keep finite-depth sufficiency away from roots as a separate congruence/Taylor
-  theorem.
+- Keep exact finite valuation preservation away from roots as a separate
+  congruence/Taylor theorem; the current continuation proves only nonzero
+  status at the `padicValInt+1` chart.
 
 # Event log
 
 - 2026-08-14: exact Mathlib match, multivariate quantifier repair, forecast,
-  and falsifiers registered in message 0641; status `claimed`.
-
+  and falsifiers registered in message 0643 (renumbered from 0641 after a
+  first-push collision); status `claimed`.
+- 2026-08-14: leading 0.82 branch checked; the finite-variable restriction was
+  unnecessary.  Independent lineage return `ACCEPT`; status `proved`.
+- 2026-08-14: continued from the return.  Evaluation congruence plus
+  `padicValInt_dvd_iff` proves the complementary nonroot chart and the exact
+  root iff no finite prime-power chart determines Boolean zero status.

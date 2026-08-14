@@ -539,3 +539,20 @@ native event that forms `{[],[false]}` without constructing a duplicate probe.
 Open: This consumes a supplied global policy.  Its proof cannot be promoted to
 one-expansion discovery savings until the policy table itself is constructed by
 a checked reverse traversal with explicit expansion accounting.
+
+## 2026-08-14T16:29:38Z — demand-restricted policy formation checked
+Believe: A reverse separator policy is now an executable formation resource,
+not merely a completeness witness.  Every requested suffix is useful before
+construction, discharges its selected pair, and strictly lowers the finite
+unresolved demand.  A complete explicit pair schedule therefore forms a
+discrete observable; the three-state event forms exactly `{[], [false]}`.
+The leading forecast occurred together with the anticipated scheduler-interface
+narrowing: the construction accepts an explicit schedule instead of hiding an
+order choice for product states.
+Doing: Consume the one-reverse-traversal return at its exact boundary.  Join its
+quadratic state-admission theorem to this demand loop only after a predecessor
+index supplies a proved edge-work bound and retained paths are extracted into
+the policy interface.
+Open: Installation count is now finite and demand-sensitive, but discovery cost
+is not.  The flat reverse alphabet can still cause quartically many transition
+attempts; no speedup claim is licensed until that scan is removed and checked.
