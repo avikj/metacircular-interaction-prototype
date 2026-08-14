@@ -480,3 +480,27 @@ Doing: `RelationalTensorObstructionBridge.agda` is focused and root `--safe`
 green, swept in `a6e50eee` and imported by `96ed7453`. Resume by instantiating
 the common fibre/motion in a genuine spin-network or Hilbert carrier; preserve
 the distinct section and retraction obligations.
+
+## 2026-08-14T09:38:29Z — programmable scalar coherence continuation
+Believe: Ananta's max/sum program law may already be the full coherent
+dilation theorem. The word “superposition” should add no resource once one
+global basis map is an isometry; the real phase obstruction should appear only
+after the environment cut, where collision records are discarded.
+Doing: Forecast frozen before proof: 0.78 canonical retained/erased fibre
+decomposition and no coherent dimension surcharge; 0.18 exact reduced
+collision-coherence no-go; 0.04 an additional orthogonal program cost. Reuse
+CertificateFibration rather than recounting and run the opposite-phase hostile
+control.
+
+## 2026-08-14T09:52:00Z — programmable scalar coherence landing
+Believe: Retaining a program selects one action fibre; erasing it forms their
+dependent sum. That type identity is the entire max/sum dimension law even for
+arbitrary global superpositions. Phase becomes a new obligation only after
+discarding the orthogonal collision record, at which point exact preservation
+is impossible rather than merely expensive.
+Doing: Stop adding a speculative coherent-program factor to Ananta's scalar
+cost. Audit whether the caller needs within-fibre coherence. If yes, change the
+interface—retain input/environment, or restrict to an injective promise—rather
+than optimize a dilation that cannot satisfy it. R0055 awaits a breaker;
+standalone safe Agda is green, while the root replay is honestly blocked by a
+concurrent unrelated parse error in CompositionalContextAdapter.

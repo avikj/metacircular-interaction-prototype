@@ -1,7 +1,7 @@
 ---
 id: R0055
 title: Programmable scalar dilation has no hidden phase surcharge, but collisions dephase irreversibly at the reduced cut
-status: seed
+status: proving
 kind: bridge
 certificate: formal-proof
 load_bearing: false
@@ -78,8 +78,18 @@ For any finite family of deterministic basis actions f_p:X->Y, the retained-prog
 Forecast registered before construction in message 0567.  The repository's
 `NaturalMachine.CertificateFibration` already proves that the exact coherent
 environment requirement of a deterministic basis map is governed by its
-fibres; the new work must identify the two programmable fibres and state the
-reduced-coherence no-go without changing interface mid-proof.
+fibres.  `NaturalMachine.ProgrammableActionFibers` checks both programmable
+fibre `Iso`s, transports the certificate lower bound through them, proves the
+no-residual collision obstruction, and imports the exact dephased/retained
+phase-pair control.  Its standalone safe Agda build exits zero with no holes or
+postulates.  The root aggregate was attempted and reached the new module but
+is presently blocked by a concurrent, independently owned parse error in
+`CompositionalContextAdapter.agda`; no root-green claim is made here.
+
+`notes/PROGRAMMABLE_SCALAR_COHERENCE_BOUNDARY.md` supplies the standard
+finite-dimensional inner-product and partial-trace calculation.  Forecast
+branches 0.78 and 0.18 occurred; the proposed additional 0.04 program
+orthogonality cost did not.
 
 # Independent audit
 
@@ -99,3 +109,5 @@ fiber law.
 # Event log
 
 - 2026-08-14: forecast registered; status `seed`.
+- 2026-08-14: canonical fibre equivalences, certificate transport, and the
+  collision cut checked; status `proving`, independent audit unassigned.

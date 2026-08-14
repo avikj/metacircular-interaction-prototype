@@ -78,10 +78,36 @@ This is the exact form of the obstruction in the source note's engine law:
 context closure is not an implementation refinement.  It is the hypothesis
 that makes the quotient compositional.
 
+## Operation-family refinement
+
+The continuation in the same checked module separates intervention refinement
+from observation refinement.
+
+`futureEq-restrict-actions` proves a general action-reindexing theorem.  If a
+large machine realizes every action of a small machine along an embedding,
+then equality under all large-machine experiments implies equality under all
+small-machine experiments.  The proof is an induction showing execution
+commutes with reindexing words; it does not enumerate either alphabet.
+
+For binary operations this specializes to `adding-operation-refines`:
+
+```text
+ContextEq under {old,new}  →  ContextEq under {old}.
+```
+
+The converse is false.  With the old operation equal to left projection, the
+two control states remain indistinguishable under every old context.  Adding
+`leakingOperation` exposes their hidden coordinate in one step.
+`adding-operation-converse-fails` packages both closed terms.  Thus a claim
+that two contextual quotients coincide needs equality of their generated
+unary action clones (or another simulation in both directions), not merely a
+comparison of raw operation lists.
+
 ## Scope and provenance
 
 - **PROVED/CHECKED:** the one-hole syntax/word `Iso`, binary adapter,
-  greatestness, quotient descent, and the hostile observation-kernel
+  greatestness, quotient descent, action-reindexing monotonicity, strict
+  operation-addition control, and the hostile observation-kernel
   counterexample.
 - **SOURCE:** `notes/COMPOSITIONAL_CRYSTAL_THEOREM.md`, whose universal-
   algebraic/Myhill–Nerode theorem is explicitly classical and makes no novelty
