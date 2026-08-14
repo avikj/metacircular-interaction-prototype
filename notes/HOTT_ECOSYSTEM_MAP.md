@@ -72,7 +72,7 @@ Verdicts: **ALREADY** (proved elsewhere, in a form at least as strong),
 | C4 | $\lVert\mathbf{FinType}\rVert_0\simeq\mathbb N$ | Thm 3.1(3); `Decategorification.ℕ≃π₀FinSet` | **PARTIAL** | all inputs in agda-unimath (`is-0-connected-…`, `compute-total-…`); the assembled $\pi_0$ statement not found verbatim |
 | C5 | $\sum_{X:BS_n}\mathrm{LinOrd}(X)$ contractible | Thm 3.2; `AtlasResiduals.isContrOrdTotal` | **ALREADY** (as stated — see below, the statement as checked is a based path space) | is the standard `is-torsorial-Id`/`is-torsorial-equiv-…` argument |
 | C5′ | orders on $X$ form an $S_n$-torsor | Thm 2.5; `AtlasResiduals.linOrd-torsor` | **ALREADY** | same; agda-unimath `torsors.lagda.md`, `principal-torsors-concrete-groups` |
-| **C5″** | **$\mathrm{LinOrd}'(X)\simeq(X\simeq\mathrm{Fin}\,n)$ for a genuine decidable total order** | **the OPEN OBLIGATION** in `AtlasResiduals` "NOT CLAIMED"; in flight in `LinearOrderFinite.agda` | **OURS, in HoTT** | **not in agda-unimath, not in cubical (either version), and in UniMath the proof is literally `Abort`ed.** Present classically as `mathlib4 monoEquivOfFin` |
+| **C5″** | **$\mathrm{LinOrd}'(X)\simeq(X\simeq\mathrm{Fin}\,n)$ for a genuine decidable total order** | **the OPEN OBLIGATION** in `AtlasResiduals` "NOT CLAIMED"; **the hard half now checked** in `LinearOrderFinite.agda` (commit `1356718`) | **OURS, in HoTT** | **not in agda-unimath, not in cubical (either version), and in UniMath the proof is literally `Abort`ed.** Present classically as `mathlib4 monoEquivOfFin` |
 | C6 | ordinals: $\sum_X\mathrm{WellOrd}(X)$ not contractible past $\omega$; $+$ non-commutative | §3.2 remark | **ALREADY** | HoTT Book Ch. 10 `[śabda]`; cubical **master** `Cubical/Data/Ordinal/`, `Relation/Binary/Order/Woset` |
 | C7 | $(\mathbb F_{\ge1},\times)$ is not the free symmetric monoidal groupoid on the primes | §3.3, §6 Thm 6.1 | **OURS** | no hit; agda-unimath `species/` has the ambient machinery but not this negative |
 | C8 | endian $\mathbb Z/2$-torsor $=$ a point of $B(\mathbb Z/2)$ $=$ the type of 2-element types | §3.4 | **ALREADY** (the object) | agda-unimath `2-Element-Type`; cubical v0.5 `Data/FinSet/Binary/`; Coq-HoTT `Spaces/BAut/Bool.v`; *Symmetry* `group.tex` §4 opening example |
@@ -523,19 +523,42 @@ So the actionable items are:
 - **(b1)** Discharge C5″ in the **Lean** lane immediately via `monoEquivOfFin`,
   and cite it from `ATLAS_OF_N` §7 as the classical half. Cost: minutes.
 - **(b2)** The **cubical** discharge is genuinely open across the whole univalent
-  ecosystem. `formal/cubical/NaturalMachine/LinearOrderFinite.agda` (untracked as
-  of this reading, **and being bisected by a concurrent session at the time of
-  writing — its typecheck status is NOT established here**) builds
-  `Order.rankEquiv : X ≃ Fin (finX .fst)` and
-  `Order.rank-order : (toℕ (rank x) ≤ toℕ (rank y)) ≡ (x ⊑ y)`, which is the
-  existence half UniMath aborted. **It does not currently state the top-level
-  equivalence `LinOrd′ X ≃ (X ≃ Fin n)` that `AtlasResiduals` names as the
-  obligation** — no such declaration exists in the file. Two things are needed:
-  (i) confirm the module typechecks; (ii) add the packaging declaration.
-  If both land, this is a **real** contribution to the univalent ecosystem —
-  the only one identified in this survey — and should be offered upstream to
-  `agda/cubical` (as a `Toset`-based lemma against master's
-  `Relation.Binary.Order.Toset`) rather than kept private.
+  ecosystem, and this repository now holds the hard half of it.
+  `formal/cubical/NaturalMachine/LinearOrderFinite.agda` **typechecks clean,
+  `--safe`, exit 0** under the pinned toolchain (landed by a concurrent session
+  as commit `1356718` while this survey was being written; my own run of
+  `agda --safe NaturalMachine/LinearOrderFinite.agda` was killed by its 900 s
+  timeout at SIGTERM, so the certification here is that commit's, not mine).
+  It builds, inside `module Order (X) (finX : isFinSet X) (L : LinOrd′ X)`:
+  `rankEquiv : X ≃ Fin (finX .fst)` and
+  `rank-order : (toℕ (rank x) ≤ toℕ (rank y)) ≡ (x ⊑ y)` — **the existence half
+  UniMath aborted, with order-reflection as a path of propositions.** That is
+  the mathematical content and it is certified.
+
+  Two things are nonetheless still missing, and both are checkable facts about
+  the committed file, not opinions:
+
+  1. **The obligation as `AtlasResiduals` states it is still not stated.**
+     `AtlasResiduals` asks for `LinOrd′ X ≃ (X ≃ Fin n)`. Grepping the committed
+     file for `LinOrd′.*≃`, `≃.*LinOrd′`, `isContr`, or `Iso` returns **nothing**;
+     every result lives inside `module Order` and is parameterised by a *given*
+     order. The type-level equivalence needs the inverse direction (transport
+     $\mathrm{Fin}\,n$'s standard order back along an equivalence) and the two
+     round-trips, using `LinOrd′≡` — which the file already provides at `:61`
+     and does not yet use for this. Until that declaration exists, C5″ should be
+     cited as *"the rank map is an order-reflecting equivalence"*, **never** as
+     Theorem 3.2's half (i), and `AtlasResiduals`' "NOT CLAIMED" section should
+     be amended to point here rather than left implying nothing has moved.
+  2. **The module is an orphan.** `grep -n LinearOrderFinite
+     formal/cubical/NaturalMachine.agda` returns nothing — it is not imported by
+     the root aggregate, by the committing session's own deliberate choice.
+     A module outside the aggregate is not covered by the repository's build and
+     can rot silently.
+
+  Once (1) lands and (2) is closed, this is a **real** contribution to the
+  univalent ecosystem — the only one identified in this survey — and should be
+  offered upstream to `agda/cubical` as a `Toset`-based lemma against master's
+  `Relation.Binary.Order.Toset` rather than kept private.
 - **(b3)** Retarget the pin, or at least read master. Three years of drift cost
   us a hand-rolled `IsToset`, a hand-rolled `isProp` for it, and the whole
   `Cubical/Data/Ordinal/` development that §3.2's ordinal remarks want.
@@ -573,7 +596,10 @@ Three things in the corpus are **not** restatements, and they are where the
 foundational cluster's remaining value is:
 
 1. **C5″ in cubical** — the finite-total-order rigidification. Missing from
-   every univalent library; aborted in UniMath. Worth finishing and upstreaming.
+   every univalent library; aborted in UniMath. The hard half is checked here
+   (`LinearOrderFinite.agda`, commit `1356718`, `--safe`, exit 0); the
+   type-level packaging and the aggregate import are not. Worth finishing and
+   upstreaming — see (b2).
 2. **C7** — $(\mathbb F_{\ge1},\times)$ is *not* the free symmetric monoidal
    groupoid on the primes, with an exact index (`ATLAS_OF_N` Thm 6.1). A
    negative result about a specific structure; no ecosystem hit. Whether it is
@@ -600,9 +626,14 @@ another module; it is a subtraction.
   content appears in this document**, and none can be obtained from this
   environment. Any future note citing the nLab from this repo is citing
   something it did not read.
-- The typecheck status of `formal/cubical/NaturalMachine/LinearOrderFinite.agda`
-  is **not established** by this note; a concurrent session was bisecting it
-  during this reading.
+- `formal/cubical/NaturalMachine/LinearOrderFinite.agda` **does** typecheck
+  (`--safe`, exit 0) — certified by a concurrent session's commit `1356718`,
+  landed while this note was being written, **not** by this session: my own
+  `agda --safe` run on it was terminated by a 900 s timeout (SIGTERM, exit 143)
+  without reaching a verdict. What this note establishes independently, by
+  reading the committed source, is narrower and is the part that matters for
+  the obligation: the file contains **no** top-level `LinOrd′ X ≃ (X ≃ Fin n)`,
+  and **no** import of it from the root aggregate. See §4(b2).
 - Prior art was searched *before* recommending any further work, per
   `CLAUDE.md` — which is what produced §2.4, and which, had it been done before
   `AtlasResiduals.agda` was written, would have saved that module entirely.

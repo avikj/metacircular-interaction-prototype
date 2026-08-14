@@ -34,12 +34,20 @@
 --                            carrier map together with the two
 --                            commutation data (h pt ≡ pt, h ∘ op ≡ op ∘ h).
 --                            Comparisons are DATA here, not a property.
---   A2 `ℕ-isInitial`         for EVERY (1+X)-algebra B on a set, at any
---                            universe level, `AlgHom ℕAlg B` is
---                            CONTRACTIBLE.  The recursor is the centre;
---                            uniqueness is a path, produced by induction
---                            plus `Σ≡Prop`, not a mere-propositional
---                            statement of "there is at most one".
+--   A2 `ℕ-isInitial∞`        for EVERY (1+X)-algebra B, at any universe
+--      `ℕ-isInitial`         level and with NO h-level hypothesis on the
+--                            carrier, the comparison type is
+--                            CONTRACTIBLE — a path, not a
+--                            mere-propositional "at most one".
+--                            **This is not ours.**  It is
+--                            `Cubical.Data.Nat.Algebra.isNatHInitialℕ`,
+--                            from the library this file already depends
+--                            on (Awodey–Gambino–Sojakova,
+--                            arXiv:1504.05531), and all we supply is a
+--                            `refl`-on-both-sides Iso reconciling their
+--                            funExt'd `comm-suc` with our pointwise one.
+--                            The earlier hand proof, and the set
+--                            hypothesis it needed, are deleted.
 --   A3 `ℕ-recursor-unique`   the honest minimum the task names: the type
 --                            of algebra maps ℕ → ℕ commuting with zero
 --                            and suc is contractible.
@@ -115,17 +123,47 @@
 --    The forward map is "rank in the order"; the backward map transports
 --    Fin n's standard order.  That equivalence — the rigidification
 --    statement of §2.3, Proposition 2.4 — is the content, it is a real
---    induction on n, and it is NOT here.  Until it lands, B5 should be
+--    induction on n, and it is NOT here.
+--
+--    STATUS 2026-08-14.  `NaturalMachine.LinearOrderFinite` now checks
+--    (--safe, exit 0) and lands the HARD half: inside
+--    `module Order (X) (finX) (L : LinOrd′ X)` it builds
+--    `rankEquiv : X ≃ Fin (finX .fst)` together with
+--    `rank-order : (toℕ (rank x) ≤ toℕ (rank y)) ≡ (x ⊑ y)` — the rank
+--    map is an order-REFLECTING equivalence.  That is the existence
+--    direction UniMath states and then `Abort`s
+--    (`OrderTheory/OrderedSets/OrderedSets.v:360`), and no library
+--    surveyed — cubical, agda-unimath, Coq-HoTT, 1lab — has it
+--    constructively; mathlib4 has it classically as `monoEquivOfFin`.
+--    **The obligation as stated above is nonetheless still open**:
+--    `LinOrd′ X ≃ (X ≃ Fin n)` does not appear in that file, which is
+--    parameterised by a GIVEN order and supplies neither the inverse
+--    (transport Fin n's standard order back) nor the round trips.  Cite
+--    it as "the rank map is an order-reflecting equivalence", never as
+--    half (i).  It is also not yet imported by the root aggregate, so it
+--    is outside the green claim.  (Provenance: survey in
+--    `notes/HOTT_ECOSYSTEM_MAP.md`; the typecheck is a concurrent
+--    session's, commit 1356718, not the surveyor's — their own run hit
+--    a timeout without reaching a verdict.)
+--
+--    Until half (i) lands, B5 should be
 --    cited as "the univalence half of Theorem 3.2" and never as
 --    Theorem 3.2.
 --
---  * A2 requires the TARGET algebra's carrier to be a set (`isSetCar` is
---    a field of `Alg`).  That hypothesis is what makes the commutation
---    data a proposition, hence what lets `Σ≡Prop` produce the path.
---    Initiality of ℕ among (1+X)-algebras on arbitrary types — the
---    ∞-algebra statement — is neither proved nor refuted here.  ℕ itself
---    is a set, so A3/A4 lose nothing; the restriction bites only for
---    exotic targets.
+--  * ~~A2 requires the TARGET algebra's carrier to be a set (`isSetCar`
+--    is a field of `Alg`) ... Initiality of ℕ among (1+X)-algebras on
+--    arbitrary types — the ∞-algebra statement — is neither proved nor
+--    refuted here.~~  **WITHDRAWN 2026-08-14.**  The ∞-algebra statement
+--    was proved in 2019, in `Cubical/Data/Nat/Algebra.agda`, inside the
+--    library pinned by this very corpus, and nothing in this file ever
+--    imported it.  `isSetCar` has been deleted from `Alg`; A2 is now
+--    that library theorem, repackaged.  §3 inherits the strengthening.
+--    Found by the HoTT/UF ecosystem survey (`notes/HOTT_ECOSYSTEM_MAP.md`),
+--    which reports that 12 of 15 univalent claims in this corpus are
+--    already proved elsewhere, nine of them in libraries already on disk.
+--    This paragraph is left standing, struck, because the apology it
+--    contained for a gap that was not open is the most instructive thing
+--    in the file.
 --
 --  * `isInitial` is stated at a FIXED universe level, because A5 must
 --    apply an algebra's initiality to another algebra AND to itself.
@@ -160,6 +198,8 @@ open import Cubical.Foundations.HLevels
 open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.Univalence
 open import Cubical.Data.Nat
+open import Cubical.Data.Nat.Algebra
+  using (NatAlgebra ; NatMorphism ; NatAlgebraℕ ; isNatHInitialℕ)
 open import Cubical.Data.Fin using (Fin ; isSetFin)
 open import Cubical.Data.Sigma
 open import Cubical.HITs.PropositionalTruncation
@@ -182,10 +222,9 @@ private
 record Alg (ℓ : Level) : Type (ℓ-suc ℓ) where
   constructor alg
   field
-    Car      : Type ℓ
-    isSetCar : isSet Car
-    pt       : Car
-    op       : Car → Car
+    Car : Type ℓ
+    pt  : Car
+    op  : Car → Car
 
 open Alg public
 
@@ -193,14 +232,6 @@ AlgHom : Alg ℓ → Alg ℓ' → Type (ℓ-max ℓ ℓ')
 AlgHom A B =
   Σ[ h ∈ (Car A → Car B) ]
     ((h (pt A) ≡ pt B) × ((x : Car A) → h (op A x) ≡ op B (h x)))
-
--- The commutation data is a proposition, because the target is a set.
--- This lemma is the whole reason contractibility (and not merely
--- "unique up to a homotopy of underlying functions") is available.
-isPropCommutes : (A : Alg ℓ) (B : Alg ℓ') (h : Car A → Car B)
-               → isProp ((h (pt A) ≡ pt B) × ((x : Car A) → h (op A x) ≡ op B (h x)))
-isPropCommutes A B h =
-  isProp× (isSetCar B _ _) (isPropΠ (λ _ → isSetCar B _ _))
 
 idAlgHom : (A : Alg ℓ) → AlgHom A A
 idAlgHom A = idfun (Car A) , refl , λ _ → refl
@@ -218,27 +249,74 @@ compAlgHom (h , p , q) (h' , p' , q') =
 ------------------------------------------------------------------------
 
 ℕAlg : Alg ℓ-zero
-ℕAlg = alg ℕ isSetℕ zero suc
+ℕAlg = alg ℕ zero suc
 
-natrec : {Y : Type ℓ} → Y → (Y → Y) → ℕ → Y
-natrec y₀ g zero    = y₀
-natrec y₀ g (suc n) = g (natrec y₀ g n)
+------------------------------------------------------------------------
+-- A2, RE-DERIVED FROM THE LIBRARY AND STRENGTHENED, 2026-08-14.
+--
+-- This module's first version proved A2 by hand and required the target
+-- carrier to be a SET, and said so in a "NOT CLAIMED" paragraph.  Both
+-- the proof and the hypothesis were unnecessary:
+-- `Cubical.Data.Nat.Algebra` — a module of the very library this file
+-- already depends on, following Awodey–Gambino–Sojakova
+-- (arXiv:1504.05531), named in that file's own header — proves
+--
+--     isNatHInitialℕ : (M : NatAlgebra ℓ) → isContr (NatMorphism NatAlgebraℕ M)
+--
+-- with NO h-level hypothesis at all, at every universe level.  It has
+-- been in the pin since 2019.  `grep -rn "Data.Nat.Algebra" formal/`
+-- returned nothing until this edit.
+--
+-- What is genuinely left to us is packaging, and it is definitional:
+-- the library's `comm-suc` is a funExt'd equality of functions where
+-- ours is pointwise, and in cubical Agda `funExt` and `funExt⁻` are
+-- inverse on the nose, so both halves of the Iso below are `refl`.
+--
+-- Consequence, and the reason this is a strengthening and not just a
+-- deletion: `isSetCar` is gone from `Alg` entirely.  It was used in
+-- exactly one place (the hand proof's appeal to `Σ≡Prop`), so §3's
+-- `initial→isEquiv` and `isContrAlgIso` now hold for algebras on
+-- ARBITRARY types — their proofs only ever used contractibility.
+------------------------------------------------------------------------
 
--- A2.  Universe-polymorphic in the target.
+AlgHom∞ : {B : Type ℓ} → B → (B → B) → Type ℓ
+AlgHom∞ {B = B} b₀ bs =
+  Σ[ h ∈ (ℕ → B) ] ((h zero ≡ b₀) × ((n : ℕ) → h (suc n) ≡ bs (h n)))
+
+module _ {B : Type ℓ} (b₀ : B) (bs : B → B) where
+
+  private
+    BAlg : NatAlgebra ℓ
+    NatAlgebra.Carrier  BAlg = B
+    NatAlgebra.alg-zero BAlg = b₀
+    NatAlgebra.alg-suc  BAlg = bs
+
+    toM : AlgHom∞ b₀ bs → NatMorphism NatAlgebraℕ BAlg
+    NatMorphism.morph     (toM φ) = φ .fst
+    NatMorphism.comm-zero (toM φ) = φ .snd .fst
+    NatMorphism.comm-suc  (toM φ) = funExt (φ .snd .snd)
+
+    fromM : NatMorphism NatAlgebraℕ BAlg → AlgHom∞ b₀ bs
+    fromM m = NatMorphism.morph m
+            , NatMorphism.comm-zero m
+            , funExt⁻ (NatMorphism.comm-suc m)
+
+    -- Both round trips are `refl`: record and Σ eta, plus the
+    -- definitional inverse pair funExt / funExt⁻.
+    packagingIso : Iso (AlgHom∞ b₀ bs) (NatMorphism NatAlgebraℕ BAlg)
+    Iso.fun      packagingIso = toM
+    Iso.inv      packagingIso = fromM
+    Iso.rightInv packagingIso _ = refl
+    Iso.leftInv  packagingIso _ = refl
+
+  -- A2∞.  No set hypothesis, any universe level.
+  ℕ-isInitial∞ : isContr (AlgHom∞ b₀ bs)
+  ℕ-isInitial∞ = isOfHLevelRetractFromIso 0 packagingIso (isNatHInitialℕ BAlg)
+
+-- A2.  The original statement, now a definitional instance of A2∞
+-- (`AlgHom ℕAlg B` reduces to `AlgHom∞ (pt B) (op B)`).
 ℕ-isInitial : (B : Alg ℓ) → isContr (AlgHom ℕAlg B)
-ℕ-isInitial B = centre , contract
-  where
-    centre : AlgHom ℕAlg B
-    centre = natrec (pt B) (op B) , refl , λ _ → refl
-
-    unique : (φ : AlgHom ℕAlg B) (n : ℕ)
-           → natrec (pt B) (op B) n ≡ φ .fst n
-    unique φ zero    = sym (φ .snd .fst)
-    unique φ (suc n) = cong (op B) (unique φ n) ∙ sym (φ .snd .snd n)
-
-    contract : (φ : AlgHom ℕAlg B) → centre ≡ φ
-    contract φ =
-      Σ≡Prop (isPropCommutes ℕAlg B) (funExt (unique φ))
+ℕ-isInitial B = ℕ-isInitial∞ (pt B) (op B)
 
 -- A3.  The honest minimum: algebra maps ℕ → ℕ commuting with 0 and suc
 -- form a CONTRACTIBLE type.  Uniqueness of the recursor as a path.

@@ -67,6 +67,13 @@ A partial translation table, extend it as lanes find more:
 | confinement index | filtration depth in ℤ_p^× |
 | torsor section | principal homogeneous space, non-canonical splitting |
 | vallī trace | continued-fraction / Euclidean algorithm trace |
+| `Alg`, `AlgHom`, comparison-type contractibility | **homotopy-initial algebra**, `NatAlgebra`/`NatMorphism`, `isNatHInitial` — *in our own pin*, `Cubical/Data/Nat/Algebra.agda` |
+| `Tm` (the generative lane's terms) | `List`, free monoid, its universal property |
+| `BSₙ`, `LinOrd`, the endian torsor | **concrete group**, delooping, `Aut_Set(bn n)`, `FinSet_n` — the *Symmetry* book, ch. 4 |
+| `LinOrd′ X ≃ (X ≃ Fin n)` | `monoEquivOfFin` (mathlib4), `stn_ord_bij`/`height_stn` (UniMath, aborted), `Finite-Total-Order` (agda-unimath) |
+| `c : (lim X)/G → lim(X/G)` | `colimitLimitToLimitColimit` (mathlib4, `ColimitLimit.lean:58`); "colimit" occurs in 2 of 507 notes |
+| `CRYSTAL.md`'s rewrite engine | e-graph, equality saturation (egg), babble/library-learning, Adapton, CEGAR, LCF tactic kernel |
+| decategorification (ours: π₀FinSet) | **not** the `math.RT` sense — Grothendieck group, whose interesting kernel ours lacks |
 
 ## Also reachable, and what the recon settled
 
