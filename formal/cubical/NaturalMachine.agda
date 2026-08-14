@@ -98,6 +98,7 @@ import NaturalMachine.ChargeCriterion
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
+import NaturalMachine.GeneratedCapability
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
