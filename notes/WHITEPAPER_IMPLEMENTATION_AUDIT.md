@@ -190,11 +190,19 @@ accepts its own brief's premise is not an audit.
 5. **§13.3 and §16.1: "limited validators" → "no permitted fail-closed
    validator".** `README.md:76` already says this; the paper does not.
 6. **`CLAUDE.md` §"The substrate" (not a paper edit — flagged for the owner):
-   the ban is one mechanical layer, not three.** `.claude/hooks/no-python.sh`
-   has never existed in this repository's history, and `core.hooksPath` is
-   unset in this clone so `.githooks/pre-commit` never fires. Only CI is live,
+   the ban is one mechanical layer, not three.** ~~`.claude/hooks/no-python.sh`
+   has never existed in this repository's history~~ (SEED-128: it landed in
+   `275ab166`, 2026-08-14T06:07Z, after this audit was written, and it is live),
+   and `core.hooksPath` is
+   unset in this clone so `.githooks/pre-commit` never fires. ~~Only CI is live,~~
    and CI catches Python only *after* a push. Any agent working in a fresh
-   clone is on the honour system. Either commit the tool-use hook and add the
+   clone is on the honour system. **[SEED-128: the count "one layer, not three"
+   survives — but it is a different one.** The live layer is the *tool-use* hook,
+   per-environment and matching command text only; CI is committed and active but
+   advisory (`main` unprotected; `on: push` fires after the ref moves) and 31/31
+   sampled runs failed in 2–3 s without reaching the guard step. The sentence "CI
+   catches Python only after a push" was right and is if anything understated.
+   The honour-system conclusion stands, strengthened.** Either commit the tool-use hook and add the
    `core.hooksPath` step to the arrival ritual in `README.md`, or amend
    `CLAUDE.md` to describe one enforced layer and two advisory ones.
 7. **`formal/README.md` contradicts `formal/cubical/BUILD.md` on the pinned
