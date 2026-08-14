@@ -20,7 +20,7 @@ module NaturalMachine.CompressionDefectRegularWitness where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
-open import Cubical.Data.Nat using (ℕ)
+open import Cubical.Data.Nat using (ℕ) renaming (_+_ to _+ℕ_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Ring
@@ -45,12 +45,20 @@ module _ (A : Ring ℓ) where
 
   -- The sampled raw CompressionDefect product, observed through the regular
   -- action.
-  -- No projector, complement, or semigroup law is needed to expose a witness
-  -- once this particular ring element is assumed nonzero.
+  -- The imported `defect` interface binds the enclosing laws even though its
+  -- displayed value is the raw product.  Once that element is supplied and
+  -- assumed nonzero, the witness extraction itself uses only the ring unit.
   nonzero-compression-defect→regular-witness :
-    (e q : ⟨ A ⟩) (T : ℕ → ⟨ A ⟩) (t s : ℕ)
-    → ¬ (CD.defect A e q T t s ≡ 0r)
+    (e q : ⟨ A ⟩)
+    (eIdem : e · e ≡ e)
+    (eq1 : e + q ≡ 1r)
+    (T : ℕ → ⟨ A ⟩)
+    (Tsemi : (t s : ℕ) → T t · T s ≡ T (t +ℕ s))
+    (t s : ℕ)
+    → ¬ (CD.defect A e q eIdem eq1 T Tsemi t s ≡ 0r)
     → Σ[ x ∈ ⟨ A ⟩ ]
-        ¬ (CD.defect A e q T t s · x ≡ 0r)
-  nonzero-compression-defect→regular-witness e q T t s nonzero =
-    regular-action-detects-nonzero (CD.defect A e q T t s) nonzero
+        ¬ (CD.defect A e q eIdem eq1 T Tsemi t s · x ≡ 0r)
+  nonzero-compression-defect→regular-witness
+      e q eIdem eq1 T Tsemi t s nonzero =
+    regular-action-detects-nonzero
+      (CD.defect A e q eIdem eq1 T Tsemi t s) nonzero

@@ -19,11 +19,11 @@ the ring's left regular action:
 
 The witness is `1r`, because `a · 1r ≡ a`.  Hence no cancellation,
 integral-domain, or no-zero-divisor hypothesis is used.  Instantiating `a` by
-`CompressionDefect.defect A e q T t s` gives the checked
+`CompressionDefect.defect A e q eIdem eq1 T Tsemi t s` gives the checked
 `nonzero-compression-defect→regular-witness` theorem.
-Here `defect` is the raw product expression; the enclosing idempotent,
-complement, and semigroup laws are still required for its structured
-compression interpretation.
+Here `defect` displays the raw product expression, but its imported interface
+binds the enclosing idempotent, complement, and semigroup laws.  Once that
+element is selected, the witness extraction itself uses only the ring unit.
 
 Strict boundary: this is the left regular representation only.  It does not
 extract a state from an arbitrary module/carrier, close T18.5 generally,

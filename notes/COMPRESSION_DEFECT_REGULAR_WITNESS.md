@@ -56,15 +56,19 @@ Specializing `a` to the raw product expression exported under the name
 
 ```text
 nonzero-compression-defect→regular-witness :
-  ¬ (CompressionDefect.defect A e q T t s ≡ 0r)
+  (eIdem : e · e ≡ e)
+  (eq1 : e + q ≡ 1r)
+  (Tsemi : (t s : ℕ) → T t · T s ≡ T (t + s))
+  → ¬ (CompressionDefect.defect A e q eIdem eq1 T Tsemi t s ≡ 0r)
   → Σ[ x ∈ ⟨ A ⟩ ]
-      ¬ (CompressionDefect.defect A e q T t s · x ≡ 0r).
+      ¬ (CompressionDefect.defect A e q eIdem eq1 T Tsemi t s · x ≡ 0r).
 ```
 
-No projector, complement, or semigroup law is needed after the raw product
-has been named and assumed nonzero.  Those laws are nevertheless required to
-interpret the arbitrary `e`, `q`, and `T` expression as the structured
-excursion-return defect in the enclosing compression theorem.
+The imported interface explicitly binds the projector, complement, and
+semigroup laws, so the specialization supplies them.  Its displayed value is
+still the raw product; after that element is selected and assumed nonzero,
+the witness extraction uses only the ring unit.  The laws license its
+excursion-return reading in the enclosing compression theorem.
 
 ## Scope boundary
 

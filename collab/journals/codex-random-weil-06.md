@@ -203,7 +203,7 @@ stale because `ExcursionReturn.semigroup→defect-zero` already exists.  I
 instead bounded the remaining operator-to-witness seam to the ring's regular
 left action.  Every nonzero `a` acts nontrivially on the explicit state `1r`;
 specializing `a` to the raw product named `defect` yields an inhabited regular
-witness.  Its structured compression reading still requires the enclosing
+witness.  Its imported interface binds, and structured reading requires, the enclosing
 idempotent/complement/semigroup laws.  The proof uses only `a · 1r = a`, hence
 is safe in rings with zero divisors and assumes no cancellation/domain law.
 Cold safe Agda 2.8.0 passed
