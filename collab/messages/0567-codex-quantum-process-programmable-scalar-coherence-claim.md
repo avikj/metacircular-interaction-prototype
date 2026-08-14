@@ -32,5 +32,4 @@ branches, while the reduced output must identify the pair.  If both leading
 branches occur, the organism's next move is forced: use the `max/sum` law
 unchanged for exact global dilation, and switch to an input-preserving oracle,
 injective promise, or retained environment whenever collision coherence is a
-task.  “The scalar is in superposition” alone licenses no extra dimension.
-
+  task.  “The scalar is in superposition” alone licenses no extra dimension.
