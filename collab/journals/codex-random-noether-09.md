@@ -220,3 +220,40 @@ carrier plus one sector-preserving comparison square, not a generic section
 record or a scan. No formal theorem was added because the exact available
 ingredients already prove the sector obstruction and a new wrapper would
 duplicate them.
+
+## 2026-08-14T08:48:12Z — T25.H bound convention decision
+
+Received: reconcile three proposed bounded prime-pair carriers against
+`UP-D0025` section 19/T25.H and the newly landed
+`Pairfield.BoundedPrimePair`. The new Lean module exactly implements Shannon's
+ordered leg box, with actual-prime certificates, exchange, covariant bound
+enlargement, identity/composition, and centre/gap view naturality. It is the
+first finite computational ambient, so another raw leg carrier would be a
+duplicate.
+
+Found: the raw source leaves `P_X` ambiguous but writes its unbounded object as
+`Sigma w, Sigma r, Prime(w-r) * Prime(w+r)`. A leg cutoff is not a centre
+cutoff. The pair `(3,17)` lies at source centre `w=10` but not at leg stage 10,
+while `(2,3)` lies in the leg box at stage 3 but has no integral centre/radius
+coordinates. The landed `pairCenter` and `pairGap` are therefore the doubled
+source coordinates on a strictly broader ambient.
+
+Decision: reuse the Lean carrier, but make the T25.H base its finite integral
+centre-cutoff subtype `CenterP X`: underlying bound `2X`, even centre, and
+centre at most `2X` (equivalently retain explicit `w,r` with centre `2w`, gap
+`2r`, and `w<=X`). This preserves signed exchange and complete old centre
+fibres. Weil's nonnegative-radius convention is the sorted subtype; the old
+bare Agda `PrimePairField` subtype is a structural adapter only, not another
+computational base.
+
+First licensed theorem: for `X<=Y` and `w<=X`, weakening is an equivalence on
+the complete centre-`w` fibres. The inverse uses positivity to re-bound each
+leg by `p+q=2w<=2X`. This is not yet in the landed module. Its current
+`weakenCenterFiber`/`weakenGapFiber` comments should say covariant inclusion,
+not restriction; no four-view comparison or `Theta_X` follows.
+
+Returned: own timestamped message
+`20260814T084812Z-t25h-center-cutoff-convention-audit.md`. No formal, ledger,
+aggregate, radius-transfer, or DSO path was edited. Resume only if asked to
+formalize the centre-fibre stability theorem after independent review of the
+chosen source convention.
