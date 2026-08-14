@@ -145,6 +145,33 @@ payload, the only coordinate that exists at `r = n`). Blind subgroup
 `N_C = {(I,B,E,R,S)}`, closed by the same computation.
 **Capacity `log₂ |Γ₀(D_r)|`.**
 
+> **The missing paragraph, supplied (SEED-112, Rule K3, 2026-08-14, discharging
+> `notes/SEED50_REFEREE_REPORT.md` §4, "Recommended for §2 as well: one
+> paragraph verifying that `c_L` separates distinct `N_L`-cosets", re-issued by
+> `notes/SEED68_REFEREEING_THE_REFEREE.md` §3 as "correct, untouched by the
+> above, and the objection that should have led the section". It was never
+> written here.)**
+>
+> The referee's point is general and right: a check `c` is constant on
+> `N_c`-cosets by the definition of its blind subgroup, so it factors as
+> `G/N_c ↠ c(X)` and **`|c(X)| ≤ [G:N_c]` always**, with equality iff `c`
+> *separates* distinct `N_c`-cosets (the `⇐` of Theorem 2's hypothesis). Read
+> without that clause, every capacity in this section is an upper bound and not
+> an equality. For the four checks above the clause **holds**, and the proof is
+> one line each, because in R0038 coordinates each check's value determines, and
+> is determined by, a sub-tuple of `(A,B,E,R,S)` whose blind subgroup is exactly
+> the locus where that sub-tuple is trivial:
+> `c_E` ↔ nothing (`N_E = G`, one class); `c_C` ↔ `A` (`N_C = {(I,B,E,R,S)}`);
+> `c_L` ↔ `(A,B,E)` (`N_L = {(A,B,E) = (I,0,I)}`); `c_R` ↔ `(A,R,S)`
+> (`N_R = {(I,B,E,0,I)}`). In each case the induced map `G/N_c → c(X)` is a
+> bijection onto the set of values of that sub-tuple — two events in *different*
+> `N_c`-cosets differ in the sub-tuple the check records, hence get different
+> values — so the capacities stated in this section are equalities, not bounds.
+> **The load-bearing scope:** this argument uses that the coordinates split, and
+> is therefore available on the coordinate boxes of Theorem 3 and its corrected
+> general-rank form `(★)`; it is *not* a proof of Theorem 2's `⇐` for an
+> arbitrary check, which remains a hypothesis there.
+
 **Theorem 3 (exact accounting, `n = 2`, `r = s = 1`).** Let `D = diag(d, 0)`,
 `d ≥ 1`. Then `Γ₀(d) = GL_1(ℤ) = {±1}` and the coordinates are
 `(A,B,E,R,S) ∈ {±1} × ℤ × {±1} × ℤ × {±1}`. Restrict to the finite window

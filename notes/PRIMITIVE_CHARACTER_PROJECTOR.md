@@ -51,6 +51,20 @@ For the regular action only `k=-n` contributes, but the formula identifies
 the precise common operation: the primitive character idempotent weights the
 twisted sectors before taking their trace.
 
+> **Delimitor supplied (SEED-112, Rule K3, 2026-08-14, applying
+> `notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md` §4.2, ledger row 9,
+> which graded this "true but under-delimited" and, unlike §4.1 and §4.3, was
+> not landed here by SEED-105.)** The sentence is **true**, and its reason is a
+> fact about **stabilisers, not about the index `k`**: the regular action is
+> free, so `#Fix(g^m on C_q) = q·[m ≡ 0 mod q]`, and every summand of (3) with
+> `k ≠ −n` dies because the fixed-point count does, not because `k` is special.
+> Stated that way the passage from (3) to (4) stops being a generalisation and
+> becomes the same formula with the freeness hypothesis dropped: **(4) is
+> nontrivial precisely to the extent that `X` has points with nontrivial
+> stabiliser**, and (3) is its degenerate case. This is the same
+> `Stab`-triviality dichotomy `PORT_IS_A_BASE_POINT.md` §1 runs on. Nothing in
+> (3) or (4) changes; only the reason attached to the collapse.
+
 More generally, for any finite `C_q`-set `X` and any equivariant permutation
 `f`, the same matrix calculation gives
 

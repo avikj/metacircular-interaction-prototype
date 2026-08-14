@@ -292,6 +292,26 @@ exponentiation to depth `p^{e+2}` per held prime, no factoring, so Theorem 11's
 true as stated and its proof goes through verbatim, because Theorem 3's head is
 and always was the head of `(p, b)`.
 
+> **Annotation (SEED-115, 2026-08-14, Rule K1; checked against SEED-89 §5.1).**
+> A **cheaper** repair exists, but only inside one base tower, and its scope
+> must travel with it. SEED-89 §5.1 proposes storing, per held prime `p`, the
+> pair `(r, ẽ_p(r))` — the non-power root of the tower (SEED-31 Thm 9) and the
+> head read at that root — plus one integer `κ = v_p(k)` per base `b = r^k`, so
+> that transport costs one **addition** instead of one modular exponentiation:
+> `e_p(b) = ẽ_p(r) + v_p(k)`, which is Theorem A.
+>
+> **Scope, and it is exactly the restriction this note already records.** That
+> tag is valid **only when `b` is a power of `r`**, i.e. same-orbit under
+> `G=(\mathbb Z_{\ge1},\cdot)`. This note's own §4 witness is **cross-tower**
+> (`7` is not a power of `2`, nor `2` of `7`), so no group element carries one
+> base to the other, there is no value of `χ` to record, and the recomputation
+> repair above is not a fallback but the only correct operation there. This
+> note's "Not claimed" paragraph below states precisely that restriction, and
+> SEED-89 §5.1 states it as well; the scope is recorded on both sides. The tag
+> is useful *because* it makes its own inapplicability syntactically
+> detectable: if `b` is not a power of the stored `r`, recompute. An untagged
+> stored head — the defect refuted above — silently applies everywhere.
+
 **Scope.** The statement of Theorem 11 in the displayed box (`e_p = v_p(Φ_m(b))`)
 is *correct*; what is refuted is the sourcing sentence beneath it and the
 "sensors already formed" gloss, which is the only operational reading. Every
@@ -471,7 +491,17 @@ the local-field head length. Untouched.
    certainly folklore inside LTE; what I could not find in the corpus is any
    place stating the *invariance class* of `e`. Search outside for "the
    Wieferich level of a base is not an invariant of the generated family".
-5. `DEMONSTRATE` — the tempering question, negatively: exhibit that no finite
+5. ~~`DEMONSTRATE` — the tempering question, negatively: exhibit that no finite
    quotient of the base monoid makes `e` well-defined, i.e. that §2 remark (b)
    is not evadable by working modulo some fixed power. (One line from
-   surjectivity of `v_p`; worth writing so it cannot be re-asked.)
+   surjectivity of `v_p`; worth writing so it cannot be re-asked.)~~
+   **Closed (SEED-115, 2026-08-14, Rule K1) by SEED-89 Theorem LC(4)**: a
+   grading of `f` with a *finite* record alphabet exists iff `D_f` is finite;
+   `v_p` is surjective onto `\mathbb Z_{\ge0}`, which is infinite, so no finite
+   quotient makes `e` well-defined. The ground is the **cardinality** of `D_f`,
+   not its non-compactness — see the correction applied at
+   `notes/SEED80_KERNEL_VERSUS_CONDITIONING.md` §8 item 5, which proposed to
+   close this item from Proposition 1(4)'s non-compact branch and cannot: the
+   discrete group `\mathbb Z` is non-compact and yet has finite quotients
+   `\mathbb Z/n`. LC(4) also supplies the constructive complement this item did
+   not ask for (§2(b) annotation (ii) above).
