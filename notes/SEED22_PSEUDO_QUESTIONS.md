@@ -145,9 +145,25 @@ encoding**.
   encodings make almost every such problem hard, and the answer would say
   nothing about lenses.
 
-Under 1 the question is open and worth the effort; under 2 it is answered and
+~~Under 1 the question is open and worth the effort;~~ **Under 1 the question
+is closed and in P (see the strike below);** under 2 it is answered and
 worthless. That the two readings are not distinguished is why nobody has
 attempted the reduction: the target was never stated.
+
+> **Struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K
+> K3′).** Reading 1 is exactly the reading
+> `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` settles: with $\pi,\sigma$
+> given explicitly on $\{1,\dots,n\}$, the coarsest repair is
+> $\rho^\ast=\pi\wedge q^{-1}(\approx)$ — $q(x)$ the $\sigma$-block of $x$,
+> $E\approx E'$ iff $E,E'$ have the same $\pi$-density profile — computed in a
+> single refinement round, $O(n\log n)$; `SEED23` Thm 3.1 re-derives it as the
+> greatest fixed point of a monotone operator with round count $0$ or $1$. So
+> the decision version "$|\rho|\ge k$?" is in P and the hardness question is
+> not open under either reading. **This section's actual thesis survives and is
+> strengthened:** the question *was* ill-posed until the encoding was fixed,
+> and fixing it dissolved rather than resolved the hardness alternative. What
+> is open is the two-sided problem, and SEED-02 shows it has no coarsest
+> element at all.
 
 **Sharpened.** *Input: $\pi,\sigma$ partitions of $[n]$ given explicitly,
 plus $k\in\mathbb{N}$. Question: does the unique coarsest $\rho\succeq\pi$ with

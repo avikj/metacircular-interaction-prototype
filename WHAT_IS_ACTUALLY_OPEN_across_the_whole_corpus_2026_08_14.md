@@ -182,13 +182,25 @@ Original text, struck but preserved:
 > works from the other direction? **This is the open question I care about most
 > and I have no evidence either way.**
 
-Restated unchanged as seed 2 of `LENS_REPAIR_TWO_AXIS_WITNESS`. The object is
+~~Restated unchanged as seed 2 of `LENS_REPAIR_TWO_AXIS_WITNESS`. The object is
 concrete: given partitions $\pi,\sigma$ of a finite set, find the coarsest
 $\rho \succeq \pi$ commuting with $\sigma$. Uniqueness is proved (the commutant
 is join-closed); local search provably stalls (not merge-connected); only
 exhaustive enumeration exists. **Nobody has attempted a hardness reduction.**
 This is a self-contained combinatorics problem needing no corpus context, which
-makes it the most delegable item here.
+makes it the most delegable item here.~~
+
+> **Struck (SEED-116, 2026-08-14, propagation sweep under Rule K K3′).** The
+> quoted seed was struck two paragraphs above and the closure recorded at line
+> ~148 of this file; this restatement paragraph then re-asserted the closed
+> claim — *"only exhaustive enumeration exists"*, *"nobody has attempted a
+> hardness reduction"* — as if still live, in the same section. Both are false:
+> `COARSEST_REPAIR_IS_COLOUR_REFINEMENT` gives the closed form
+> $\rho^\ast=\pi\wedge q^{-1}(\approx)$ in one refinement round, $O(n\log n)$,
+> and no reduction is wanted because the problem is in P. The **two-sided**
+> problem (`LENS_REPAIR` §5 seed 3) is what remains open, and SEED-02 shows its
+> Pareto frontier can have $2^{n/3}$ elements, so it is not a coarsest-element
+> problem at all.
 
 ## 3. A stated, specified, exact computation that was never run
 
