@@ -191,7 +191,7 @@ open import Cubical.Data.Nat.Order
   using ( _<_ ; _≤_ ; zero-≤ ; suc-≤-suc ; ≤-refl ; ≤-+-≤ ; ≤0→≡0
         ; pred-≤-pred ; ¬m<m ; ¬-<-zero ; ≤<-trans ; Trichotomy ; lt ; eq ; gt ; _≟_ )
 open import Cubical.Data.Int
-  using (ℤ ; pos ; negsuc ; ·Rid ; injPos ; negsucNotpos)
+  using (ℤ ; pos ; negsuc ; ·IdR ; injPos ; negsucNotpos)
   renaming (_+_ to _+ℤ_ ; _·_ to _·ℤ_)
 open import Cubical.Data.FinData using (Fin) renaming (zero to fz ; suc to fs)
 open import Cubical.Data.Bool
@@ -728,7 +728,7 @@ intervalHom = chainHom (λ _ → pos 1) (λ _ → pos 1) law
   where
   law : (x : Fin 1 → ℤ)
       → pos 1 ·ℤ dot x (λ _ → pos 1) ≡ dot (∂app intervalCarrier x) (λ _ → pos 1)
-  law x = cong (λ w → w ·ℤ pos 1) (sym (·Rid (x fz)))
+  law x = cong (λ w → w ·ℤ pos 1) (sym (·IdR (x fz)))
 
 chain-min-interval : MinCarrier (Chaincls (pos 1)) edge 2
 chain-min-interval =
