@@ -211,9 +211,36 @@ $D^{\mathrm{op}}$. *This sign is the whole point.* Getting it backwards is
 exactly what turns "gcd" into "lcm" in prose, and it is the error latent in
 0126.
 
-**Consequence, stated in the correct direction.** $\alpha$, being a **right**
+> **Correction applied in place (SEED-106, 2026-08-14, Rule K2).** Everything
+> struck in the remainder of §4 fails by the very error §1 and §4 were written to
+> catch: $\alpha$ is **antitone**. $S\subseteq T\Rightarrow\gcd T\mid\gcd S$
+> (e.g. $\alpha\{2\}=2$, $\alpha\{2,3\}=1$, and $1\mid2$), and $\gamma$ is
+> antitone too ($m\mid n\Rightarrow n\mathbb Z\subseteq m\mathbb Z$). So the boxed
+> equivalence is an **antitone** Galois connection between $(P,\subseteq)$ and
+> $(D,\mid)$, not a monotone $\gamma\dashv\alpha$; and the abstract order matching
+> $\subseteq$ concretely is $D^{\mathrm{op}}$ (*reverse* divisibility), not $D$.
+> Two consequences, replacing the struck text:
+> 1. An antitone adjoint carries **joins to meets**: $\alpha(S\cup T)=\gcd(\alpha
+>    S,\alpha T)$ — which is exactly the identity verified below, so that identity
+>    is evidence *for* the antitone reading, not for meet-preservation.
+> 2. $\operatorname{lcm}$ **is a sound** abstract transformer for $\cap$, by this
+>    note's own definition of soundness ($S\subseteq\gamma\alpha S$, over-
+>    approximation in $\subseteq$). *Proof.* Every $s\in S\cap T$ satisfies
+>    $\alpha S\mid s$ and $\alpha T\mid s$, hence $\operatorname{lcm}(\alpha S,
+>    \alpha T)\mid s$; so $\operatorname{lcm}(\alpha S,\alpha T)\mid\alpha(S\cap
+>    T)$, i.e. $S\cap T\subseteq\gamma(\operatorname{lcm}(\alpha S,\alpha T))$.
+>    $\square$ On the $\{2\},\{3\}$ witness: $S\cap T=\emptyset\subseteq6\mathbb
+>    Z$ ✓. The witness shows $\operatorname{lcm}$ is **imprecise** ($0$ versus the
+>    best abstraction $6$), never unsound. Reading "$0$ sits above $6$ in $D$" as
+>    under-approximation is reading the order in $D$ where $D^{\mathrm{op}}$ is
+>    the abstraction order — the same sign slip §4 convicts message 0126 of.
+>
+> The soundness/completeness *distinction* the section makes is untouched, as is
+> §5 and all of §§1–3; only the direction verdict and the word "unsound" move.
+
+~~**Consequence, stated in the correct direction.** $\alpha$, being a **right**
 adjoint from $P$ to $D$, preserves **meets** of $P$, i.e. intersections:
-it does *not* automatically preserve unions. And indeed the union law
+it does *not* automatically preserve unions.~~ And indeed the union law
 $\alpha(S\cup T)=\gcd(\alpha S,\alpha T)$ holds (checkable directly:
 $\langle S\cup T\rangle=\langle S\rangle+\langle T\rangle$), while
 $$\alpha(S\cap T)\ \ne\ \operatorname{lcm}(\alpha S,\alpha T)\quad\text{in general.}$$

@@ -72,8 +72,8 @@ An endomap of a finite set has a nonnegative integer fixed-point count. But
 c_3(1)=-1.
 ```
 
-Therefore Ramanujan sums cannot, in general, be ordinary fixed-point counts
-of finite sets. The smallest obstruction is already `q=3`. Negative
+Therefore Ramanujan sums cannot, ~~in general,~~ be ordinary fixed-point counts
+of finite sets. ~~The smallest obstruction is already `q=3`.~~ Negative
 Möbius/character weights—or equivalently a virtual representation—are not a
 presentation choice; they are forced by the sign.
 
