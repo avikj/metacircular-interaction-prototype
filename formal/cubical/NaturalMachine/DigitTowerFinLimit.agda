@@ -25,10 +25,13 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Nat.Order using (¬-<-zero)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd ; Σ≡Prop)
 open import Cubical.Data.Sum using (inl ; inr)
-open import Cubical.Data.Fin using (Fin ; toℕ ; injectSuc ; flast)
+open import Cubical.Data.Fin using (Fin ; toℕ ; flast)
 import Cubical.Data.Empty as ⊥
 
-open import NaturalMachine.FinTopSplit using (topSplit)
+-- REPAIR 2026-08-14 (cf-archivist): `injectSuc` is not a name in the
+-- pinned cubical v0.5; it now comes from FinTopSplit, which defines it
+-- as `inject< ≤-refl`.  See the note there.
+open import NaturalMachine.FinTopSplit using (topSplit ; injectSuc)
 
 private
   variable
