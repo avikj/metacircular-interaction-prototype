@@ -46,7 +46,8 @@ Status vocabulary, and the distinction is the point:
 | 17 | T17.13 cone, parity constraint | CHECKED (parity half) | `ConeImage.cone-image`: (s,d) is in the image of the pair map **iff** s+d is a double, over any commutative ring, with an explicit decoder. The *inequality* half (\|d\| ≤ s) is an order statement and stays OPEN |
 | 17 | §17.9–17.12 charge sector, characters, G_m×Weyl | OPEN | — |
 | 17 | Programs 17.20–17.23 SU(1,1), adelic | OPEN | — |
-| 17 | T17.24/C17.25 A_{k−1} root lattice | NOTE | used by the singular-series note; T17.24 itself OPEN |
+| 17 | T17.24 A_{k−1} root lattice | **CORRECTED** + CHECKED (k=2) | `RootWeightIndex`: ℤ^k/ℤδ is the **weight** lattice, not the root lattice; they differ by ℤ/k. At k=2 that ℤ/2 **is** the cone's parity constraint |
+| 17 | C17.25 additive/multiplicative share A_{k−1} | NOTE | used by the singular-series note |
 | 17 | §17.17–17.19 log bridge, formal groups, p-adic log | OPEN | — |
 | 17 | Synthesis 17.32 contextual equivalence | OPEN | — |
 | 17 | C17.34 humility boundary | CITED | quoted in the singular-series note |
@@ -72,12 +73,23 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 21 · FALSIFIED 1 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
+**CHECKED 22 · FALSIFIED 1 · CORRECTED 1 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 25.**
 
-FALSIFIED is a new row in this vocabulary and it is the most valuable one: a
-supplied claim was checked, came back false, and the correct statement was
-proved in its place. Delta 18 flagged exactly one of its targets as falsifiable;
-that is the one that fell.
+FALSIFIED and CORRECTED are new rows in this vocabulary and they are the most
+valuable ones: a supplied claim was checked, came back wrong, and the right
+statement was proved in its place.
+
+- Delta 18 flagged exactly one of its targets as falsifiable; that is the one
+  that fell (`BuchstabDegree`).
+- Delta 17 T17.24 names the wrong lattice — the quotient by the diagonal
+  character is the weight lattice, and the root lattice is the sum-zero
+  sublattice. They differ by ℤ/k. This was worth catching because T17.24 is
+  load-bearing for `SINGULAR_SERIES_LOCAL_FACTOR…`; that note survives, because
+  it uses **rank** only, and rank does not see the index.
+
+Both corrections came from writing the theorem down rather than from a run,
+which is what CLAUDE.md's rule predicts and is the second time in two days it
+has paid.
 
 (Delta 15 §15.6–15.7 and Delta 18 T18.7 landed 2026-08-14 in
 `NaturalMachine/ChargeGrading.agda`; T18.7 counts as PARTIAL because only its

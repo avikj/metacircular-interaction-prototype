@@ -89,6 +89,7 @@ import NaturalMachine.PairCoordinates
 import NaturalMachine.ChargeGrading
 import NaturalMachine.ConeImage
 import NaturalMachine.BuchstabDegree
+import NaturalMachine.RootWeightIndex
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
