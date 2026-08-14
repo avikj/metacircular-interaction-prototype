@@ -162,7 +162,59 @@ module InheritedResponseImage
   open Adapter public
 
 ------------------------------------------------------------------------
--- 4. Bool controls: state splitting is conservative; novelty is not
+-- 4. Maximal lawful inheritance relative to a declared translation
+------------------------------------------------------------------------
+
+module MaximalCompatibleResponseImage
+  {X : Type ℓX} {X′ : Type ℓX′} {Q : Type ℓQ}
+  (Y : Q → Type ℓY)
+  (Y′ : Q → Type ℓY′)
+  (r : (q : Q) → X → Y q)
+  (r′ : (q : Q) → X′ → Y′ q)
+  (stateMap : X′ → X)
+  (compare : (q : Q) → Y q → Y′ q)
+  where
+
+  -- Compatibility is the response square evaluated at one revised state.
+  -- It is canonical only relative to the supplied state and response maps.
+  Compatible : X′ → Type _
+  Compatible state =
+    (q : Q) → r′ q state ≡ compare q (r q (stateMap state))
+
+  compatibleStateMap :
+    (Σ[ state ∈ X′ ] Compatible state) → X
+  compatibleStateMap state = stateMap (fst state)
+
+  module InheritedAdapter =
+    InheritedResponseImage
+      Y Y′ r r′ Compatible compatibleStateMap compare
+
+  compatible-square : InheritedAdapter.Observation.ResponseSquare
+  compatible-square q state = snd state q
+
+  -- Any inherited predicate satisfying the same local square maps into the
+  -- compatible predicate.  This is maximality as a dependent subpredicate.
+  inheritance→compatible :
+    (Inherited : X′ → Type ℓI)
+    → ((q : Q) (state : Σ[ revised ∈ X′ ] Inherited revised)
+       → r′ q (fst state) ≡
+          compare q (r q (stateMap (fst state))))
+    → (state : Σ[ revised ∈ X′ ] Inherited revised)
+    → Compatible (fst state)
+  inheritance→compatible Inherited square state q = square q state
+
+  inheritedSubtype→compatibleSubtype :
+    (Inherited : X′ → Type ℓI)
+    → ((q : Q) (state : Σ[ revised ∈ X′ ] Inherited revised)
+       → r′ q (fst state) ≡
+          compare q (r q (stateMap (fst state))))
+    → (Σ[ revised ∈ X′ ] Inherited revised)
+    → (Σ[ revised ∈ X′ ] Compatible revised)
+  inheritedSubtype→compatibleSubtype Inherited square state =
+    fst state , inheritance→compatible Inherited square state
+
+------------------------------------------------------------------------
+-- 5. Bool controls: state splitting is conservative; novelty is not
 ------------------------------------------------------------------------
 
 oldResponse : Unit → Unit → Bool
@@ -213,7 +265,7 @@ novel-square-impossible =
     true-is-revised true-is-absent-before
 
 ------------------------------------------------------------------------
--- 5. Localized control: inherit false; leave the novel true state outside
+-- 6. Localized control: inherit false; leave the novel true state outside
 ------------------------------------------------------------------------
 
 InheritedBoolState : Bool → Type₀
@@ -260,3 +312,34 @@ true-absent-from-inherited-image :
   ¬ isInImage (Localized.inheritedResponse tt) true
 true-absent-from-inherited-image =
   PT.rec isProp⊥ inherited-cannot-respond-true
+
+------------------------------------------------------------------------
+-- 7. Maximality control: compatibility discovers exactly the false state
+------------------------------------------------------------------------
+
+module MaximalNovel =
+  MaximalCompatibleResponseImage
+    (λ _ → Bool) (λ _ → Bool)
+    oldResponse novelResponse splitState
+    (λ _ response → response)
+
+false-is-compatible : MaximalNovel.Compatible false
+false-is-compatible tt = refl
+
+true-is-incompatible : ¬ MaximalNovel.Compatible true
+true-is-incompatible compatible =
+  false≢true (sym (compatible tt))
+
+-- The maximal compatible subtype carries the same checked image map without
+-- an independently supplied inheritance predicate.
+maximal-false-computes :
+  MaximalNovel.InheritedAdapter.revisedImage→comparisonImage
+      MaximalNovel.compatible-square tt
+      (restrictToImage
+        (MaximalNovel.InheritedAdapter.inheritedResponse tt)
+        (false , false-is-compatible))
+    ≡ restrictToImage
+        (MaximalNovel.InheritedAdapter.comparedOld tt) tt
+maximal-false-computes =
+  MaximalNovel.InheritedAdapter.map-restrict
+    MaximalNovel.compatible-square tt (false , false-is-compatible)

@@ -63,15 +63,15 @@ theorem ResidualCellDescendant.depth_le
   induction descendant with
   | refl => rfl
   | false tail ih =>
+      rename_i action onFalse onTrue subtree cell later
       simp only [depth]
-      have hbranch : tail.subtree.depth ≤
-          max tail.tree.depth tail.onTrue.depth :=
+      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
         ih.trans (Nat.le_max_left _ _)
       omega
   | true tail ih =>
+      rename_i action onFalse onTrue subtree cell later
       simp only [depth]
-      have hbranch : tail.subtree.depth ≤
-          max tail.onFalse.depth tail.tree.depth :=
+      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
         ih.trans (Nat.le_max_right _ _)
       omega
 
@@ -91,17 +91,17 @@ theorem ProperResidualCellDescendant.depth_lt
     subtree.depth < tree.depth := by
   cases descendant with
   | false tail =>
+      rename_i action onFalse onTrue subtree cell later
       have htail := tail.depth_le
       simp only [depth]
-      have hbranch : tail.subtree.depth ≤
-          max tail.tree.depth tail.onTrue.depth :=
+      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
         htail.trans (Nat.le_max_left _ _)
       omega
   | true tail =>
+      rename_i action onFalse onTrue subtree cell later
       have htail := tail.depth_le
       simp only [depth]
-      have hbranch : tail.subtree.depth ≤
-          max tail.onFalse.depth tail.tree.depth :=
+      have hbranch : subtree.depth ≤ max onFalse.depth onTrue.depth :=
         htail.trans (Nat.le_max_right _ _)
       omega
 
@@ -129,9 +129,9 @@ theorem ResidualCellDescendant.currentConstant
   induction descendant with
   | refl => exact constant
   | false tail ih =>
-      exact ih (ResidualCell.advance_currentConstant M _ _ false)
+      exact ih (ResidualCell.advance_currentConstant M _ _ Bool.false)
   | true tail ih =>
-      exact ih (ResidualCell.advance_currentConstant M _ _ true)
+      exact ih (ResidualCell.advance_currentConstant M _ _ Bool.true)
 
 /-- Minimality is intentionally quantified over recursive splitting
 certificates on the same root cell, not merely over tree syntax. -/
@@ -215,7 +215,10 @@ theorem redundantSteeringTree_not_depthMinimal :
     (steeringTree.residualSplitting_iff_separatesOn automaton liveCell
       liveCell_currentConstant).2 steeringTree_separates
   have hdepth := minimal.2 steeringTree usefulSplitting
-  native_decide at hdepth
+  have himpossible :
+      ¬ redundantSteeringTree.depth ≤ steeringTree.depth := by
+    native_decide
+  exact himpossible hdepth
 
 /-- The positive boundary control remains the exact R0057 result: its
 mandatory first step changes position and therefore is not removed by the
