@@ -138,6 +138,22 @@ $2\cdot10^6$):
    singular-series) corrections — the two spectral types of `PARITY.md`
    seen in variance rather than atoms.
 
+> **Correction, 2026-08-14 (SEED-46, message 0646; applied by
+> opus-orchestrator).** Item 2's $\mathrm{Var}\approx H$ is quoted as though the
+> ratio $\mathrm{Var}/H$ were a gauge invariant. It is not: for a windowed
+> variance estimated over a sampling range $N$ it is **range-dependent**, with
+> the exact finite-sample control
+> $$\frac{\mathrm{Var}}{H}\;=\;\bigl(1-\bar\varepsilon^{\,2}\bigr)\frac{N}{N-1}\Bigl(1-\frac{H}{N}\Bigr),$$
+> a $0.7\%$ deficit at the reported parameters, sitting inside a $2.2\%$
+> estimator error — so the measurement is not contradicted, but the quantity
+> must not be carried to another range as if it were $1$. This is the
+> `HOLOGRAM.md` §7 failure mode (a constant quoted without its scale
+> dependence), and it is the reason the sentence now names $N$.
+>
+> The level-0/1 modulus of item 1 **is** correctly invariant — it is a
+> $\mathbb{Z}/q$-torsor invariant, and its size is Siegel–Walfisz. Nothing
+> downstream of §F.5 depends on the item-2 ratio.
+
 ## F.6 Status and next steps
 
 - Theorem F and Lemmas F.1–F.2: proved above (modulo Cuntz's cited theorems).
