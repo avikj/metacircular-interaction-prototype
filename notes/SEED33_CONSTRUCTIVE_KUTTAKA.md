@@ -178,7 +178,9 @@ is the solution of linear systems over `ℤ`, decided by Hermite/Smith normal
 form in polynomial time, and it is **unitary** (type 1): every solvable
 problem has a *single* most general unifier.
 
-For `aX − bY ≐ c`, the mgu is
+For `aX − bY ≐ c` **with `g | c`** (K1, SEED-99: the hypothesis is not
+optional and was omitted here as it was in the source note — see the currency
+box below), the mgu is
 
   `σ = { X ↦ x₀ + B·T, Y ↦ y₀ + A·T }`, `T` a fresh variable.
 

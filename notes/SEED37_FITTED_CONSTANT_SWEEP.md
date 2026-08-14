@@ -106,7 +106,34 @@ scale-dependent** — the exp27 shape; `X` retracted/closed already.
 | **E** | Fresnel residual $0.025$ rad at $(1,3)$ | `FRESNEL.md`, exp14/exp26 | `F` | `SWEEP.md` §3.4: the quartic $\Delta^4/(12f^3)$ predicts $0.0195$; exp26 gives $0.0193$. This is a *derived* term never added to the model — the residual was reported as a data limit |
 | **F** | $C=\delta t^*\in[1.35,1.66]$ | `CARRIER_JOIN.md`:464 | `F` | a measured *range* over six $\delta$, no $\delta$-trend claimed. Prop-D envelope $\approx2.33$ is derived, so the claim "bound holds" is safe; the constant itself is not a constant until the $\delta\to0$ limit is taken |
 | **G** | Bohr cut constants $0.82$–$0.98$; "$D_{\mathcal B_3}\approx D_{\mathcal I}$ is a numerical accident" | `LENS_NUMERICS.md`:52–55,272–283 | `F` | triage item 4 (2026-08-13): the note's own parenthesis at `:281–283` is the proof sketch. The "accident" is predicted to be the structural floor |
-| **H** | rank-$r$ rates $r=2,3$, exponents $-1.975$, $-3.056$ | `RATIONAL_CIRCLE_ATLAS.md`:605–607,660 | `F`, blocked | needs effective Baker; correctly self-tagged. `SEARCH`, not `PROVE` |
+| **H** | rank-$r$ rates $r=1,2,3$, exponents $-1.046$, $-1.975$, $-3.056$ | `RATIONAL_CIRCLE_ATLAS.md`:605–607,660 | `F` | ~~needs effective Baker; correctly self-tagged. `SEARCH`, not `PROVE`~~ — **row corrected below** |
+
+> **Row H, corrected in place (SEED-100, 2026-08-14, Rule K1) on the authority
+> of `notes/SEED88_RANK_ORBIT_HAAR_RATE.md`.** Three changes; the row was
+> wrong in its reason and incomplete in its scope.
+>
+> 1. **The blockage is not effective Baker, and the atlas mis-located its own
+>    missing input.** SEED-88 §1 constructs the invariant measure outright: it
+>    is Haar on $S^1$, by a two-line Pontryagin-annihilator computation resting
+>    on nothing beyond unique factorization in $\mathbb Z[i]$ (its Lemma 1.3).
+>    Equidistribution is not open. So "blocked, `SEARCH` not `PROVE`" is the
+>    wrong tag: it was a `PROVE` item, and it has been proved.
+> 2. **The $(\log H)^{-r}$ law does not need equidistribution for the part that
+>    is true** (SEED-88 §2): the mean gap is $2\pi/\#\Gamma_P(H)$ by
+>    definition and $\#\Gamma_P(H)$ has an exact asymptotic with an exact
+>    leading constant. No dynamics enters.
+> 3. **What is actually unclosed is the envelope, and it is a wide gap.** With
+>    an effective irrationality exponent $\kappa$ for a single angle, SEED-88
+>    §3 gets discrepancy $\ll(\log H)^{-1/(\kappa+1)}$, against a trivial lower
+>    bound $\gg(\log H)^{-r}$ — a genuine gap for every $r\ge1$, $\kappa\ge1$.
+>    The exponent $-r$ is proved **only as a lower bound**, and the atlas's
+>    "PROVED for $r=1$" is an overstatement too (SEED-88 §4).
+>
+> **Corrected status.** All three fitted exponents — $r=1$ included, which this
+> sweep missed — are **sample statistics of a quantity whose provable envelope
+> does not close** (SEED-88 §5, class (S) in the SEED-62 scheme). They are `F`,
+> not `F`-blocked, and they must be quoted with the envelope rather than with
+> an appeal to Baker.
 | **I** | $\mathrm{Var}/h=0.983\log(X/h)-2.208$ vs predicted $1.000\log(X/h)-2.415$ | `DSIDE.md`:52 | `V`/`F` | the $\log$ coefficient is a `V` (predicted 1). The constant $-2.208$ vs $-(\gamma+\log2\pi)=-2.415$ is a $0.21$ gap **quoted as "within $0.07$–$0.21$"** — note that $0.21$ is the *same* gap size, and the *same* mechanism (an omitted smooth bilinear term), as the Mertens-floor $-0.21$ that Theorem F closed to $-\tfrac14$. **This is the highest-value untriaged item in the corpus.** See §5(I) |
 | **J** | $F$-plateau $1.001\pm0.007$; raw slope $1.155$ "between $\alpha$ and $1.338\alpha$" | `DSIDE.md`:30 | `V` | legitimate: checks Montgomery's conjectured $F\equiv1$. The $1.338$ is an explicit finite-$T$ normalisation, stated |
 | **K** | exponents $0.487$–$0.502$; constants $0.976$–$0.983$ | `LENS_NUMERICS.md`:31 | `V`/`F` | exponent is a `V` of the derived $\tfrac12$. The **constants $0.976$–$0.983$ are `F`** — never attributed, and they are the analogue of item C |
