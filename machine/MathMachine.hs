@@ -539,7 +539,13 @@ lemmaRules = concatMap (\(a,b) -> [(a,b),(b,a)])
 -- its unorientable theorems applied only in the decreasing direction.
 usableRules :: Machine -> [Rule]
 usableRules m =
-  definitionsOf (take (mVocab m) vocabulary)
+  -- Grothendieck: the invented symbols' OWN defining equations were
+  -- missing here, while `round1` put those symbols into the term space
+  -- and the fingerprint.  So every concept the machine named for itself
+  -- became exactly the black box this file's header warns about — it
+  -- could compute with it and never unfold it.  The bug documented for
+  -- `gcd` at the top, reintroduced for the machine's own ideas.
+  definitionsOf (take (mVocab m) vocabulary ++ mInvented m)
     ++ mRules m
     ++ lemmaRules (mLemmas m)
 
