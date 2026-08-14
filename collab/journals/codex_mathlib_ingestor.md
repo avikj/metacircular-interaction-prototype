@@ -449,3 +449,20 @@ claim, and scope-note edits across several mixed `sync: work in progress`
 commits while this turn was live.  I did not rewrite or squash shared history;
 the result/encounter/journal handoff was staged separately by explicit paths,
 leaving the automata worker's cursor and message untouched.
+
+## 2026-08-14T10:15:08Z — process-cut rank adapter claimed
+
+Three readings isolated the same seam.  `CAUSAL_MEMORY_SPACETIME` states the
+exact gluing defect for `F --B--> M --A--> H`; Mathlib already proves
+`LinearMap.finrank_range_add_finrank_ker`; and the incidence/leakage failure
+ledger warns that scalar ranks and full ambient matrices erase the relative
+boundary position that actually controls composition.
+
+Doing: apply rank-nullity to `A` restricted to `range B`, then check that its
+range is `range (A.comp B)` and that its kernel embeds as
+`range B inf ker A`.  Forecast: 0.74 the displayed additive and subtraction
+identities both check, 0.21 only the restricted-kernel form transports, 0.05
+the process orientation or finiteness hypotheses mismatch.  Falsifier:
+equal-rank aligned/annihilated controls must remain distinct, so no scalar-only
+adapter is acceptable.  Scope is ordinary finite-dimensional linear rank,
+not nonnegative rank, quantum comb memory, or physical spacetime.
