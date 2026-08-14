@@ -148,3 +148,11 @@ that string is discarded while the candidate is installed immediately. Added
 checked `ProofLabelNoGo`: any collision of distinct claims at a label makes a
 faithful validator/decoder impossible. The missing seam object is therefore a
 conclusion-indexed derivation, not subprocess wiring.
+
+## 2026-08-14T07:00Z — first Haskell → Agda → rule installation
+Added a shared rewrite calculus with endpoint-indexed `Step` and `Derivation`.
+The Haskell mirror renders a temporary checked module, installs its exact rule
+only after Agda exits successfully, and leaves the rule set unchanged for a
+one-constructor mutation with mismatched intermediate endpoint. Both positive
+and negative paths executed; this is a closed minimal seam, not yet the full
+MathMachine induction prover.

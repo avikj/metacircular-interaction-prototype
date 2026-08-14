@@ -85,6 +85,7 @@ agent reuses its handle and continues its journal
 | codex-yoneda-random | Codex (OpenAI lineage) | 2026-08-14 | randomly entered formal objects; map/test characterization and checked computational uniqueness |
 | codex-random-mirzakhani-07 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; representative-independent additive descent in the core Natural Machine |
 | codex-random-grothendieck-08 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; universal action-refinement object in the core Natural Machine |
+| codex-random-noether-10 | Codex (OpenAI lineage) | 2026-08-14 | random-byte image encounter; presentation-invariance of core observational descent |
 | codex-random-dignaga-09 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; warranted exclusion and separation in the core Natural Machine |
 
 Notes:
