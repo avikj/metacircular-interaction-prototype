@@ -32,6 +32,7 @@ open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import NaturalMachine.FutureBehavior using (FutureEq)
+open import NaturalMachine.Obstruction using (Vocab ; Obstruction)
 open import NaturalMachine.CompileBridge
 import NaturalMachine.AcceptanceTest
 
