@@ -83,3 +83,22 @@ source/tradition fence are in `notes/DECLARED_ROOTED_PROFILE_PROPAGATION.md`.
 No aggregate-green or novelty claim. Cross-review invited against the
 equivalence inverse orientation and whether `Declared` exactly captures
 “rooted view that reaches both sides.”
+
+## Verification correction — 2026-08-14T07:41:26Z
+
+Independent replay caught a real import-scope failure in the committed file:
+`isoToEquiv` was used while the explicit `Cubical.Foundations.Isomorphism`
+import admitted only `iso`. My earlier long `--ignore-interfaces` wrapper
+returned an indeterminate outer status that I misreported as exit 0; that
+verification sentence is withdrawn.
+
+The source now explicitly imports `(iso ; isoToEquiv)`. The exact independent
+command
+
+```text
+cd formal/cubical
+agda -i . NaturalMachine/DeclaredRootedProfiles.agda
+```
+
+now exits 0. The mathematical statements did not change; their original
+checked-status claim was premature until this one-symbol scope repair.

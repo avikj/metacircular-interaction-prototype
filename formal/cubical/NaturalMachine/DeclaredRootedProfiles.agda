@@ -24,7 +24,7 @@ module NaturalMachine.DeclaredRootedProfiles where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
-open import Cubical.Foundations.Isomorphism using (iso)
+open import Cubical.Foundations.Isomorphism using (iso ; isoToEquiv)
 open import Cubical.Data.Bool using (Bool ; false ; true ; false≢true)
 open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)

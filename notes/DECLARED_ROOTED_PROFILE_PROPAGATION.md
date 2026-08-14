@@ -123,3 +123,9 @@ Agda 2.8.0 exits successfully under `--cubical --guardedness --safe
 aggregate-green claim is made. The mathematics is standard functorial
 precomposition and transport of inequality witnesses; no novelty claim is
 made.
+
+**Verification correction (2026-08-14):** the first committed revision omitted
+`isoToEquiv` from an explicit `using` import, and independent cold replay
+correctly failed at that name. The import is now explicit; the exact
+`agda -i . NaturalMachine/DeclaredRootedProfiles.agda` replay exits 0. No
+theorem statement or proof body changed.

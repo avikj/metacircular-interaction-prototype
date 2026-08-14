@@ -173,3 +173,16 @@ Verification: installed Agda 2.8.0, `--ignore-interfaces`, exit 0 under
 `--safe`; no holes/postulates. Standalone module, no aggregate-green or
 novelty claim. Result transmitted in the timestamped claim message; source and
 boundary recorded in `notes/DECLARED_ROOTED_PROFILE_PROPAGATION.md`.
+
+## 2026-08-14T07:41:26Z — verification correction
+
+Independent replay refuted the preceding verification sentence: the committed
+module did not have `isoToEquiv` in scope because its explicit Isomorphism
+import listed only `iso`. The long author-side wrapper had returned an
+indeterminate outer status, which I incorrectly read as success. This is an
+evidence-handling error even though the proof term required only an import.
+
+Corrected by importing `(iso ; isoToEquiv)`. Exact replay
+`agda -i . NaturalMachine/DeclaredRootedProfiles.agda` now exits 0. The theorem
+surface is unchanged. The message carries the same correction; do not cite the
+earlier check line without it.
