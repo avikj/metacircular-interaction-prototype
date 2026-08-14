@@ -10,7 +10,9 @@
 --
 --   * an Iso of the two realized-output carriers;
 --   * an Iso of their equality kernels; and
---   * an Iso of every pair of corresponding input fibres.
+--   * an Iso of every pair of corresponding input fibres; and
+--   * an Iso between their factorization witnesses for every set-valued
+--     downstream target.
 --
 -- These are semantic information statements.  They do not identify query
 -- latency, online stopping cost, quantum circuits, or histories in which an
@@ -35,7 +37,7 @@ import NaturalMachine.FiniteInformation as FI
 
 private
   variable
-    ℓX ℓH ℓT : Level
+    ℓX ℓH ℓT ℓQ : Level
 
 ------------------------------------------------------------------------
 -- 1. Mutual determination on realized images
@@ -208,7 +210,44 @@ module MutualCompression
       refl
 
 ------------------------------------------------------------------------
--- 3. Positive control: a displayed one-step history and its terminal bit
+-- 3. Every set-valued downstream question is preserved
+------------------------------------------------------------------------
+
+  history-target→terminal-target :
+    {Q : Type ℓQ} (setQ : isSet Q) (target : X → Q)
+    → FI.FactorsThrough history target
+    → FI.FactorsThrough terminal target
+  history-target→terminal-target setQ target throughHistory =
+    FI.fiberConstant→factorsThrough setQ terminal target
+      (λ x y same-terminal →
+        FI.factorsThrough→fiberConstant history target throughHistory x y
+          (terminal-equality→history-equality x y same-terminal))
+
+  terminal-target→history-target :
+    {Q : Type ℓQ} (setQ : isSet Q) (target : X → Q)
+    → FI.FactorsThrough terminal target
+    → FI.FactorsThrough history target
+  terminal-target→history-target setQ target throughTerminal =
+    FI.fiberConstant→factorsThrough setQ history target
+      (λ x y same-history →
+        FI.factorsThrough→fiberConstant terminal target throughTerminal x y
+          (history-equality→terminal-equality x y same-history))
+
+  targetFactorizationIso :
+    {Q : Type ℓQ} (setQ : isSet Q) (target : X → Q)
+    → Iso (FI.FactorsThrough history target)
+          (FI.FactorsThrough terminal target)
+  Iso.fun (targetFactorizationIso setQ target) =
+    history-target→terminal-target setQ target
+  Iso.inv (targetFactorizationIso setQ target) =
+    terminal-target→history-target setQ target
+  Iso.rightInv (targetFactorizationIso setQ target) throughTerminal =
+    FI.isPropFactorsThrough setQ terminal target _ throughTerminal
+  Iso.leftInv (targetFactorizationIso setQ target) throughHistory =
+    FI.isPropFactorsThrough setQ history target _ throughHistory
+
+------------------------------------------------------------------------
+-- 4. Positive control: a displayed one-step history and its terminal bit
 ------------------------------------------------------------------------
 
 DisplayedHistory : Type₀
@@ -248,8 +287,14 @@ displayed-terminal-false-fiber-iso :
 displayed-terminal-false-fiber-iso =
   DisplayedCompression.correspondingFiberIso false
 
+displayed-terminal-target-factorization-iso :
+  Iso (FI.FactorsThrough displayedHistory terminalBit)
+      (FI.FactorsThrough terminalBit terminalBit)
+displayed-terminal-target-factorization-iso =
+  DisplayedCompression.targetFactorizationIso isSetBool terminalBit
+
 ------------------------------------------------------------------------
--- 4. Hostile control: erasing a branch-changing bit is not compression
+-- 5. Hostile control: erasing a branch-changing bit is not compression
 ------------------------------------------------------------------------
 
 collapsedTerminal : Bool → Unit

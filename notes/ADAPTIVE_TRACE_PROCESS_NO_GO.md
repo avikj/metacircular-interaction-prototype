@@ -103,7 +103,12 @@ The load-bearing semantic adapter is now checked in
 of their realized Cubical images, an `Iso` of every equality kernel, and an
 `Iso` between the corresponding input fibres over each realized state.  This
 checks the exact input from Theorem 2.1 used by the finite fibre-cardinality
-argument.  It does **not** formalize the residue-reduction arithmetic of
+argument.  More strongly, every set-valued downstream target factors through
+the history exactly when it factors through the terminal record; the checked
+adapter gives an `Iso` between those two factorization-witness types.  Thus the
+two presentations have the same extensional question language even though
+they can have different online acquisition costs.  It does **not** formalize
+the residue-reduction arithmetic of
 Theorem 2.1, finite cardinality maxima, a quantum circuit, or query latency.
 
 A checked hostile control keeps the process boundary sharp: the identity Bool

@@ -30,7 +30,7 @@ variable [DecidablePred (fun state : X => state ∈ M.accept)]
 currently installed response vectors still identify. -/
 def Useful (installed : Finset (List A)) (word : List A) : Prop :=
   ∃ left right : X,
-    (responseSetoid M installed).Rel left right ∧
+    (responseSetoid M installed).r left right ∧
       behavior M.step (acceptsBool M) left word ≠
         behavior M.step (acceptsBool M) right word
 
@@ -51,8 +51,8 @@ def greedyInstall (installed : Finset (List A)) :
 /-- Agreement on more tests implies agreement on any subfamily. -/
 theorem response_rel_mono {smaller larger : Finset (List A)}
     (hsub : smaller ⊆ larger) {left right : X}
-    (hagree : (responseSetoid M larger).Rel left right) :
-    (responseSetoid M smaller).Rel left right := by
+    (hagree : (responseSetoid M larger).r left right) :
+    (responseSetoid M smaller).r left right := by
   intro word hword
   exact hagree word (hsub hword)
 
@@ -105,23 +105,23 @@ theorem response_rel_union_of_greedy
     (installed : Finset (List A)) (candidates : List (List A))
     {left right : X}
     (hagree : (responseSetoid M
-      (greedyInstall M installed candidates)).Rel left right) :
-    (responseSetoid M (installed ∪ candidates.toFinset)).Rel left right := by
+      (greedyInstall M installed candidates)).r left right) :
+    (responseSetoid M (installed ∪ candidates.toFinset)).r left right := by
   induction candidates generalizing installed with
   | nil => simpa [greedyInstall] using hagree
   | cons word rest ih =>
       by_cases huseful : Useful M installed word
       · have htail : (responseSetoid M
-            (greedyInstall M (insert word installed) rest)).Rel left right := by
+            (greedyInstall M (insert word installed) rest)).r left right := by
           simpa [greedyInstall, huseful] using hagree
         have hall := ih (installed := insert word installed) htail
         simpa [List.toFinset_cons, Finset.insert_union,
           Finset.union_assoc, Finset.union_left_comm, Finset.union_comm] using hall
       · have htail : (responseSetoid M
-            (greedyInstall M installed rest)).Rel left right := by
+            (greedyInstall M installed rest)).r left right := by
           simpa [greedyInstall, huseful] using hagree
         have hall := ih (installed := installed) htail
-        have hinstalled : (responseSetoid M installed).Rel left right :=
+        have hinstalled : (responseSetoid M installed).r left right :=
           response_rel_mono M (Finset.subset_union_left) hall
         have hword : behavior M.step (acceptsBool M) left word =
             behavior M.step (acceptsBool M) right word := by
@@ -141,54 +141,63 @@ equivalence relation of the initial family plus all candidates. -/
 theorem response_rel_greedy_iff_union
     (installed : Finset (List A)) (candidates : List (List A))
     (left right : X) :
-    (responseSetoid M (greedyInstall M installed candidates)).Rel left right ↔
-      (responseSetoid M (installed ∪ candidates.toFinset)).Rel left right := by
+    (responseSetoid M (greedyInstall M installed candidates)).r left right ↔
+      (responseSetoid M (installed ∪ candidates.toFinset)).r left right := by
   constructor
   · exact response_rel_union_of_greedy M installed candidates
   · exact response_rel_mono M (greedyInstall_subset_union M installed candidates)
 
-/-- Greedily prune the native globally shortest pair-witness pool. -/
-def greedyCompleteWords (alphabet : List A) : Finset (List A) :=
-  greedyInstall M ∅ (completeWords M alphabet).toList
+/-- Greedily prune an explicitly enumerated native witness schedule.  The list
+is part of the executable input; no noncomputable ordering is chosen for the
+finite witness set. -/
+def greedyScheduledWords (schedule : List (List A)) : Finset (List A) :=
+  greedyInstall M ∅ schedule
 
 /-- Every retained native word belongs to the original complete pool. -/
-theorem greedyCompleteWords_subset (alphabet : List A) :
-    greedyCompleteWords M alphabet ⊆ completeWords M alphabet := by
-  simpa [greedyCompleteWords] using
+theorem greedyScheduledWords_subset (alphabet : List A)
+    (schedule : List (List A))
+    (hschedule : schedule.toFinset = completeWords M alphabet) :
+    greedyScheduledWords M schedule ⊆ completeWords M alphabet := by
+  simpa [greedyScheduledWords, hschedule] using
     (greedyInstall_subset_union M (∅ : Finset (List A))
-      (completeWords M alphabet).toList)
+      schedule)
 
 /-- The pruned native language still separates every pair in a reduced chart.
 No backtracking or classical choice is hidden in the statement. -/
-theorem eq_of_agree_greedyCompleteWords
+theorem eq_of_agree_greedyScheduledWords
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
-    (reduced : BehaviorallyReduced M) (left right : X)
+    (reduced : BehaviorallyReduced M) (schedule : List (List A))
+    (hschedule : schedule.toFinset = completeWords M alphabet)
+    (left right : X)
     (hagree : (responseSetoid M
-      (greedyCompleteWords M alphabet)).Rel left right) :
+      (greedyScheduledWords M schedule)).r left right) :
     left = right := by
   apply eq_of_agree_completeWords M alphabet complete reduced left right
   have hall := (response_rel_greedy_iff_union M
-    (∅ : Finset (List A)) (completeWords M alphabet).toList left right).1
-      (by simpa [greedyCompleteWords] using hagree)
-  simpa using hall
+    (∅ : Finset (List A)) schedule left right).1
+      (by simpa [greedyScheduledWords] using hagree)
+  simpa [hschedule] using hall
 
 /-- Checked formation theorem: greedy native installation remains discrete and
 retains no more words than the original quadratic witness ceiling. -/
-theorem greedyCompleteWords_card_le_and_partition_discrete
+theorem greedyScheduledWords_card_le_and_partition_discrete
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet)
-    (reduced : BehaviorallyReduced M) :
-    (greedyCompleteWords M alphabet).card ≤
+    (reduced : BehaviorallyReduced M) (schedule : List (List A))
+    (hschedule : schedule.toFinset = completeWords M alphabet) :
+    (greedyScheduledWords M schedule).card ≤
         Nat.choose (Fintype.card X) 2 ∧
       ∀ left right : X,
         right ∈ (responsePartition M
-          (greedyCompleteWords M alphabet)).part left ↔ left = right := by
+          (greedyScheduledWords M schedule)).part left ↔ left = right := by
   constructor
-  · exact (Finset.card_le_card (greedyCompleteWords_subset M alphabet)).trans
+  · exact (Finset.card_le_card
+      (greedyScheduledWords_subset M alphabet schedule hschedule)).trans
       (card_completeWords_le_choose_two M alphabet)
   · intro left right
     rw [mem_part_responsePartition_iff]
     constructor
-    · exact eq_of_agree_greedyCompleteWords M alphabet complete reduced left right
+    · exact eq_of_agree_greedyScheduledWords M alphabet complete reduced
+        schedule hschedule left right
     · rintro rfl word hword
       rfl
 
@@ -221,7 +230,7 @@ is discrete on all three states. -/
 theorem duplicate_control_remains_discrete :
     ∀ left right : Fin 3,
       (responseSetoid automaton
-        (greedyInstall automaton ∅ [[], [false], [true]])).Rel left right →
+        (greedyInstall automaton ∅ [[], [false], [true]])).r left right →
         left = right := by
   native_decide
 
