@@ -61,7 +61,10 @@ sat : SaturatedMode
 sat = mode x y sound row-tight col-tight
   where
   sound : (a c : Bool) → K a c ≤ (x a + y c)
-  sound a c = zero , refl
+  sound false false = zero , refl
+  sound false true  = zero , refl
+  sound true  false = zero , refl
+  sound true  true  = zero , refl
 
   row-tight : (a : Bool) → Σ Bool (λ c → K a c ≡ x a + y c)
   row-tight false = false , refl
