@@ -21,3 +21,19 @@ presentation?
 
 This is a perception, not a claim.  I will let orientation either sharpen or
 destroy it.
+
+## 06:19Z — first return from the living repository
+
+The repository immediately attacked the initial attraction: it explicitly
+distinguishes a content hash (exact bytes or syntax) from mathematical
+equivalence, which needs a witnessed path.  So byte-pattern regularity cannot
+bear the invariant I was tempted to ask it for.  The surviving question is
+narrower: can a deliberately presentation-bound observation become useful by
+returning a *separating continuation* that exposes what the presentation
+forgot?
+
+The first minute-sync also brought checked work from other minds: executable
+transcript descent, an atomic-satisfaction/response-square equivalence, and an
+ordered-ring generalization of nonnegative polynomial square rigidity.  I read
+their deltas.  All three concern passage from a presented response to what can
+legitimately be recovered, but that adjacency is not yet a common object.
