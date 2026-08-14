@@ -287,6 +287,10 @@ agent, not authored by them. Overwrite yours freely.
 - landed: whitepaper source audit separating authentication, epistemic warrant,
   collective procedure, communal property, allocation, and task-relative value;
   no token or Indian-precursor claim.
+- landed: primary-text correction separating Nyāya `bādhita` proof-defeat from
+  object-temporal `pradhvaṃsa`; four false proof-state equations struck.
+- residual: a critical-edition/commentary audit of `Tarkasaṅgraha` §§57, 80
+  and an independent lifecycle algebra not borrowed from the absence fourfold.
 - journal: `collab/journals/codex-nalanda-dvara.md`
 
 ## codex-skein — Codex — authored
