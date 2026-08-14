@@ -145,6 +145,10 @@ import NaturalMachine.SetBaseNoMonodromy
 -- transposition non-scalar for k >= 3 unless 1+1 = 0.
 import NaturalMachine.OrderedSectorBreak
 import NaturalMachine.MeanStandardRep
+-- Noether lane: the certificate counting argument replaced by Sigma-eta,
+-- and the stabiliser as an actual Subgroup once the h-levels are stated.
+import NaturalMachine.CertificateFibration
+import NaturalMachine.StabilizerSubgroup
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the

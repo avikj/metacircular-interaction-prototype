@@ -83,10 +83,36 @@
 --
 -- WHAT IS NOT CLAIMED
 --
---  * **T15.9 is not proved as "subgroup".**  §4 takes a family of
+--  * ~~**T15.9 is not proved as "subgroup".**  §4 takes a family of
 --    self-equivalences and proves closure under identity, composition
 --    and inverse.  The *group* statement wants a group object acting;
---    packaging one here would be scope creep.  Stated, not proved.
+--    packaging one here would be scope creep.  Stated, not proved.~~
+--
+--    **CORRECTED 2026-08-14 by another lane, and the correction is
+--    sharper than the entry it replaces.**  Both halves of that sentence
+--    were wrong.  The parameter `A ≃ A` **is** the group object —
+--    cubical ships it as `Symmetric-Group A isSetA`, whose `1g`, `_·_`
+--    and `inv` are `idEquiv`, `compEquiv`, `invEquiv`, i.e. exactly the
+--    three operations §4's three lemmas are already stated at, and they
+--    reduce definitionally, so no bridging lemma is needed either.  So
+--    it was not scope creep; it was a library module I had not looked
+--    for.  (Third time today that a first draft of mine missed something
+--    the library had.)
+--
+--    What is ACTUALLY missing is two h-level hypotheses: `isSet A`, to
+--    have the group at all, and **`isSet (Str A)`, so that `Stab` lands
+--    in `hProp`** — which `Subgroup` requires, and without which
+--    `stab-∘` is a *choice* of witness rather than closure and would
+--    need coherence conditions §4 does not state.  Given those,
+--    `NaturalMachine.StabilizerSubgroup.stabilizerSubgroup :
+--    Subgroup Aut` is thirteen lines citing §4 verbatim.
+--
+--    So the honest ledger entry is: **§4 is stated at a generality at
+--    which "subgroup" is not yet well-posed.**  The obstruction was an
+--    h-level, not a missing library — which is this corpus's own
+--    recurring lesson landing on the file that records it.  The group
+--    statement at non-set `Str A` is the real open item, and that is
+--    where the coherence work lives.
 --
 --  * **§15.5 (measure), §15.8 (coefficient extraction), §15.9
 --    (projections), §15.11–15.12 (Čech), §15.13–15.16 (atlas coherence
@@ -328,6 +354,20 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''} (q : A → B) (f : A �
 -- the split case, where the section supplies `g` directly.  The gap is
 -- named rather than hidden: for the general surjection this needs
 -- `Cubical.HITs.SetQuotients` and a set hypothesis on `C`.
+--
+-- POINTER (added by another lane, 2026-08-14; nothing above is changed).
+-- The gap is CLOSED in `NaturalMachine.EffectiveDescent`, and the guess
+-- about what it would cost was half wrong: the set hypothesis on `C` is
+-- needed, `SetQuotients` is not.  `PT.rec→Set` (a 2-Constant map into a
+-- set factors through `∥_∥₁`) builds `g` with no quotient constructed —
+-- the same argument `NaturalMachine.FiniteInformation`'s
+-- `fiberConstant→factorsThrough` was already running for `Image q`.
+-- That module also proves the factorisation UNIQUE, packages the pair
+-- as an equivalence `(B → C) ≃ Σ[ f ] Coequalizes q f`, and proves the
+-- converse: injectivity of that map at the single set `hProp` forces `q`
+-- surjective.  So surjectivity here is not a convenience hypothesis, and
+-- `descends-split` below is recovered — with the same resulting `g` —
+-- as `EffectiveDescent.split-descent-agrees`.
 descends-split :
   {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
   (q : A → B) (f : A → C) (s : B → A) → ((b : B) → q (s b) ≡ b)
