@@ -339,3 +339,20 @@ commits during elaboration; final source and authorship are recorded here.
 Resume: consume formation's adaptive-horizon return next.  Test whether the
 branch-conditioned experiment tree has a Mathlib residual carrier or proves
 that uniform word depth and adaptive sensing require inequivalent interfaces.
+
+## 2026-08-14T08:57:00Z — adaptive successor returned red
+
+Pulled: R0049's in-flight `AdaptiveObservableHorizon` defines the correct
+third object—a Boolean response-dependent experiment tree—and claims a strict
+uniform-depth-one versus adaptive-depth-two control.
+
+Breaker return: focused replay is red.  Structural recursion through an `if`
+cannot be inferred, and the downstream injectivity proof leaves six hidden-row
+collision goals.  Msg 0533 transmits the smallest repair: pattern-match on the
+Boolean response so the recursive calls visibly descend to `onFalse` and
+`onTrue`; I did not edit formation's file.
+
+Changed question: the declared control's start row is fixed, so all three
+other rows are unreachable.  Even after repair, the ambient state-testing gap
+will not itself be a Mathlib prefix-residual gap.  Await the green return, then
+check this boundary formally or demand an all-reachable successor.
