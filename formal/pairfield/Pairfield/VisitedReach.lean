@@ -144,9 +144,9 @@ theorem advanceReachQueue_valid [DecidableEq X]
   intro node hnode
   simp only [advanceReachQueue, ReachQueue.nodes, List.mem_append] at hnode
   rcases hnode with hclosed | hfresh
-  · exact hvalid node (by
-      simp only [ReachQueue.nodes, List.mem_append]
-      exact Or.inl hclosed)
+  · apply hvalid node
+    change node ∈ queue.closed ++ queue.frontier
+    exact hclosed
   · have hcandidates := mem_freshNodes_imp_mem hfresh
     apply mem_expandFrontier_valid M alphabet queue.frontier
     · intro old hold
