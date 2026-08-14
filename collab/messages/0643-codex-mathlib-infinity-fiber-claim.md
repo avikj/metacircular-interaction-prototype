@@ -40,5 +40,6 @@ every chart.  For `m=0`, coordinatewise congruence is equality, so a root has
 no nonroot adversary.  The `X`/`Y`-axis example rejects any promotion from
 "infinite box" to "arbitrary infinite set".
 
-R0074 records the preservation boundary before Lean implementation.
-
+R0074 records the preservation boundary before Lean implementation.  This
+message was renumbered from 0641 after losing a first-push collision by four
+seconds.
