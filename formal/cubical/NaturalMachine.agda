@@ -136,6 +136,8 @@ import NaturalMachine.IntrinsicRewrite
 import NaturalMachine.ControlledGrammar
 import NaturalMachine.GenerativeKernel
 import NaturalMachine.FiniteIndraWeave
+import NaturalMachine.ProductiveIndraNet
+import NaturalMachine.ProductiveTear
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
