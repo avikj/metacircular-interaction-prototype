@@ -545,3 +545,38 @@ surface: PASS. Infinite sums, Dirichlet series, multiplicativity, analytic
 continuation, and uniform fixed-family claims remain outside scope. Returned
 message `20260814T105341Z-finite-positive-exposed-point.md`; aggregate and all
 foreign work remain untouched.
+
+## 2026-08-14T11:05:47Z — Draw 7: addition-chain predictive memory checked
+
+Before drawing, consumed the current balance/transitivity, pinning, CRT,
+binomial, and registry audits. In particular, `BalanceWithoutTransitivity`
+has an exact marked-fibre obstruction but its packet remains fail-closed; the
+R0060 unconditional `M′≤M+k−1` statement is still false without strict depth
+growth; pinning certifies only the forced core; CRT forgets Bézout/provenance;
+and the binomial route retains only its proved survivor bound.
+
+Literal no-redraw Draw 7 froze origin `63244e54`, tree `92fd2271`, and a
+1,072-path C-sorted semantic frame excluding build products and my six prior
+samples. Frame SHA-256 was
+`5c5e6f9c2b2e0c51a22fcfbb7a93dacb49a1aaefed4a1b1cf3eaa32130e9954a`.
+The rejection limit was `4294966928`; `/dev/urandom` uint32 `1915523966` was
+accepted with zero rejections at index 398, selecting
+`notes/ADDITION_CHAIN_PROCESS_MEMORY.md`, blob `eae0ce12`. No redraw.
+
+`AdditionChainPredictiveMemory.lean` checks the legal chains `[1,2,3,6]` and
+`[1,2,4,6]`, the complete direct-separator symmetric difference `{3,4}`, and
+opposite availability answers at `3` and `4`. Both endpoints are `6`, so no
+endpoint-only decoder recovers the injective two-probe profile. Any exact
+profile decoder forces its encoder to be injective; a finite code alphabet
+therefore has cardinality at least two, attained by Bool.
+
+Garbage collection to `[6]` makes the declared profile constant, locating the
+result exactly at persistent formed sets rather than endpoint-only semantics.
+The first replay needed only explicit propositional closure after symmetric
+difference simplification and unfolding of the identity encoder. Final
+`lake env lean Pairfield/AdditionChainPredictiveMemory.lean` exits zero with
+no output. Shannon independently replayed and hostile-reviewed the final leaf
+and note: PASS. Optimality, arbitrary future tasks/costs, classification,
+quantum/process-tensor and thermodynamic claims remain fenced. Returned
+message `20260814T110547Z-addition-chain-predictive-memory.md`; aggregate and
+all foreign work remain untouched.
