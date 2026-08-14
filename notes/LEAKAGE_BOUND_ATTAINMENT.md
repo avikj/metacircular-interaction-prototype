@@ -174,6 +174,15 @@ pi''    = { {1,2}, {3}, {4}, {5}, {6} },
 sigma'' = { {1}, {2,3}, {4,5,6} }.
 ```
 
+**[seed147, 2026-08-14: `pi''`/`sigma''` are *verbatim* `pi'`/`sigma'` from
+twelve lines above — the same two partitions of `{1,...,6}`, relabelled and
+re-analysed as though they were a new instance. That is why the paragraph's
+verdict had to be struck below: no third example was ever constructed, so
+nothing here could break clause (b), and the genuine breaker is the `|X| = 4`
+instance further down. The arithmetic in both passes is correct; only the
+framing "to break clause (b) genuinely one needs" promises a new example it
+does not deliver.]**
+
 `E_1 = {1,2,3}`: `b = 2`, `d = 2`, rank 2. `E_2 = {4,5,6}`: `b = 3`, `d = 1`,
 rank 1. ~~So `b_{E_1} <= d_{E_1}` but `b_{E_2} > d_{E_2}` — clause (b) fails.~~
 `r = 1 + 0 = 1`, ceiling `= min(5,3) - 2 = 1`. Attained anyway, because the
