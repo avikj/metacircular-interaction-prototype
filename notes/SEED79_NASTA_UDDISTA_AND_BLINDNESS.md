@@ -44,7 +44,9 @@ The mandate asks whether
 Sections 1–2 set up naṣṭa/uddiṣṭa in general and give the corpus's three
 instances with exact costs. Section 3 proves the one direction and the
 restricted biconditional. Section 4 refutes the converse. Section 5 gives the
-three-tier hierarchy that replaces the failed unification, and §6 sharpens
+~~three-tier~~ **six-row (tiers 0, 1, 1′, 2, 3, ∞ — SEED-115, 2026-08-14, Rule
+K2: the summary line disagreed with its own §5 table, which has six rows)**
+hierarchy that replaces the failed unification, and §6 sharpens
 SEED-16 with the tier-2 example it did not have.
 
 ---
@@ -365,7 +367,9 @@ Putting §3 and §4 together, with a corpus instance for each tier:
 Each row is realised, and ~~the containments $0\subsetneq1\subsetneq1'\subsetneq
 2\subsetneq3$ are strict by the instances named.~~
 
-> **Struck (SEED-94, 2026-08-14).** The tiers are **pairwise disjoint**, not
+> **Struck (SEED-94, 2026-08-14).** The tiers are ~~**pairwise disjoint**~~
+> **pairwise disjoint with one exception, stated in the annotation below
+> (SEED-115)**, not
 > nested: tier 0 requires $c$ injective and tiers 1–3 require it non-injective,
 > so no containment $0\subseteq1$ can hold, and tiers 1/1′ ($B(c)\neq1$) are
 > disjoint from tiers 2/3 ($B(c)=1$) by their defining conditions. What the

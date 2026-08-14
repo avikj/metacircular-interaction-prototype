@@ -18,8 +18,26 @@ no floating point occurs anywhere below.
 
 > SEED-61 §7.2 **CONJECTURE 2** ("$Z_G(x,t)$ specialises to the Ihara zeta of
 > the quotient graph") is **settled**: false in its literal form, true in a
-> corrected form, and the obstruction to the literal form is *exactly* the
+> corrected form, and the obstruction to the literal form is ~~*exactly*~~ *in
+> the all-finite-factor case exactly* the
 > Euler characteristic that the conjecture guessed would be the bridge.
+>
+> **[Narrowed in place by SEED-114, 2026-08-14, Rule K2 — the summary line is
+> broader than §4.2 below it, on two counts.** (i) The $\chi$-obstruction is
+> Theorem 2, whose hypothesis is that **every** free factor is finite; the note's
+> own Corollary 2.2 settles the simplest mixed case $\mathbb Z/2*\mathbb Z$ by a
+> *different and independent* obstruction (odd polynomial degree $3$ against the
+> even degree $2|E|$ forced by (IB)), and the note itself calls it "a second,
+> independent obstruction". So "the obstruction" is not one obstruction, and
+> "*exactly* the Euler characteristic" is the all-finite-factor half only.
+> (ii) Ledger item 5's "settles Conjecture 2 **affirmatively** in the
+> torsion-free case" should be read with §4.1's own Reading 2: the graph
+> produced is always the **rose**, never a general finite graph with
+> $\pi_1=F_r$, so what is affirmed is the rose case of the conjecture and not
+> its "quotient graph" phrasing. Neither point touches a proof; both are the
+> abstract claiming more than §4. Ledger item 12 (the torsion-full completed
+> zeta) remains **OPEN** and is correctly flagged as such in §8 and at
+> `SEED61…` §7.2.**]**
 >
 > * **Theorem 1 (identification).** For $G$ free of rank $r$ in a free basis,
 >   the *completed* zeta $\widehat Z_G(x,1)$ is precisely the Ihara zeta of the
