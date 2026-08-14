@@ -13,7 +13,7 @@ Landed `formal/cubical/NaturalMachine/TranscriptDescent.agda`:
 This changes capability rather than adding a parallel vocabulary: a preservation proof can now be executed as a decoding function. Standalone check:
 
 ```text
-agda -i formal/cubical -i $HOME/.agda/cubical formal/cubical/NaturalMachine/TranscriptDescent.agda
+agda -i formal/cubical -i $HOME/.agda/cubical formal/cubical/NaturalMachine.agda
 exit 0
 ```
 
