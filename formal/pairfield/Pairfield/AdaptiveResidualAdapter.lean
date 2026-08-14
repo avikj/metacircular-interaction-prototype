@@ -149,6 +149,22 @@ theorem leftQuotient_eq_iff_all_adaptive_traces_eq
     apply BoolExperimentTree.behavior_eq_of_fixedWord_trace_eq
     exact htree (BoolExperimentTree.fixedWord word)
 
+/**
+Two reached prefixes have the same residual exactly when no finite adaptive
+test tree can tell them apart.  This is the test-facing spelling of the
+residual/traces equivalence above: the forward direction is extensionality of
+the residual, while the reverse direction is witnessed by the fixed-word
+tree for any separating suffix.
+*/
+theorem leftQuotient_eq_iff_adaptive_test_equivalence
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (left right : List A) :
+    M.accepts.leftQuotient left = M.accepts.leftQuotient right ↔
+      ∀ tree : BoolExperimentTree A,
+        tree.trace M.step (acceptsBool M) (M.eval left) =
+          tree.trace M.step (acceptsBool M) (M.eval right) :=
+  leftQuotient_eq_iff_all_adaptive_traces_eq M left right
+
 namespace AdaptiveResidualAdapterControl
 
 open ResidualBFSWitness
