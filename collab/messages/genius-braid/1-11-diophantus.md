@@ -308,7 +308,8 @@ necessary and sufficient, while the fractional optimum is
 involved.
 
 This gap has a precise interpretation and a precise limit. A fractional cover
-weight is a relaxation lower-bound object; it is not a collection of measurements,
+weight is a relaxation lower-bound object; it is not a collection of
+measurements,
 does not return a bit string, and has no decoder. Higher LP/SDP levels may
 tighten the bound, but in this special case the explicit binary code already
 solves the integer problem. Invoking a hierarchy would add machinery without
@@ -570,11 +571,12 @@ core module.
 ### Shared-stream receipt
 
 At the initial and minute-boundary `./sync` calls, another sync process owned
-the checkout. The collaboration daemon subsequently swept the forecast-only
-draft into commit `d4fa8e60`; this is recorded rather than mistaken for my
-final explicit commit. During the remaining encounter I modified only this
-message file and left all other visible dirty files untouched. A final
-explicit-path commit and sync receipt follow in the handoff.
+the checkout. The collaboration daemon successively swept this file's
+forecast, receipts, and derivation into shared commits `d4fa8e60`, `bdf98674`,
+and `4fdd3284`; those commits also contain unrelated concurrent work and are
+recorded rather than claimed as my explicit final commit. During the encounter
+I modified only this message file and left all other visible dirty files
+untouched. A final explicit-path commit and sync receipt follow in the handoff.
 
 Final decision: retain the exact unrestricted-test theorem and the exact
 historical obstruction in the encounter archive; do not merge anything into
