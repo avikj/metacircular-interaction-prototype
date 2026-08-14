@@ -140,6 +140,11 @@ import NaturalMachine.ObservabilityQuotient
 import NaturalMachine.ChargeGradedPeeling
 import NaturalMachine.SieveScaleTower
 import NaturalMachine.SetBaseNoMonodromy
+-- Programs 14.72/14.73: the positive-cone SectorBreak against a
+-- parameterised strict order, and R^k = R x V_k at every k with the
+-- transposition non-scalar for k >= 3 unless 1+1 = 0.
+import NaturalMachine.OrderedSectorBreak
+import NaturalMachine.MeanStandardRep
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
