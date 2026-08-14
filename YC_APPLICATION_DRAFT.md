@@ -47,12 +47,18 @@ proposed a construction. The kernel is the only gate.
 **1. It proves new mathematics.** Four paper-grade artifacts with recorded
 prior-art searches and adversarial red-team audits, among ~490 notes:
 
-- *The Hardy–Littlewood singular series has a critical temperature, and it
-  is the pole of ζ* — with a universal critical scaling law in which the
-  Dickman function appears as the response per excess point, and **every
-  finite-size correction is a Stieltjes/Laurent layer of ζ at 1**, verified
-  to z = 10⁸ with the exact second coefficient γ₁ + γ²/2 = 0.09377…
-  (`papers/crossover.md`; novelty sustained over 15 recorded searches).
+- *A no-go nobody else has stated*: no asymptotic input about zeta-zero
+  statistics can decide the repo's own central quantity, because the
+  governing weight concentrates the sum on a bounded range of heights —
+  together with the catch that a frontier paper's additive-energy input
+  lives on a set that is empty under the Riemann Hypothesis
+  (`notes/DPP.md`). A visiting number theorist judged this "worth a
+  paper" and, in the same audit, judged our previously headline
+  crossover result to be a restatement of the classical smooth-number
+  asymptotic — verified numerically to three digits against our own
+  theorem. That exchange is the product: an outside lens deleted our
+  best-advertised claim and promoted the one we were not promoting,
+  within hours, and the record of both is in the repository.
 - *A Riemann zero located to four significant figures from prime-pair
   counts*: the zero difference sits as a Fresnel chirp in the phase of a
   Goldbach spectral line; inverting the proved phase law recovers
