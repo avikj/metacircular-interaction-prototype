@@ -61,3 +61,7 @@ Doing: Added the missing live layer above the already-checked finite Bellman obs
 ## 2026-08-14T10:51Z — live DSO organ
 Believe: A continuation compiler belongs in the round only when its tasks and dependencies are declared mathematical data; an optimizer cannot infer future relevance from runtime coincidence.
 Doing: Machine state now carries DSO tasks, and round1 compiles them inside the measured work. The native square-threshold bounded fibre supplies 15 actual witness routes; ordered-fibre observation preserves the established least output 6, while dependency selection removes the inactive parity audit (30 to 15 route/probe evaluations). All 15 derivations remain stored. Next: allow theorem installation to declare new task dependencies, rather than hard-coding additional observations.
+
+## 2026-08-14T11:07Z — architecture search
+Believe: Two factorizations may be compared operationally only after equality of their boundary continuation transformers; optimization lives inside a behavioral equivalence class, not across it.
+Doing: The live machine compares direct bounded enumeration with theorem-compiled least selection. Both transformers are exactly [6]; Pareto costs are (15,15) versus (1,1), so the compiled architecture wins with direct regret (14,14). The common profile, all 15 origins, and the 15-entry migration to least/6 remain explicit. Next: architecture synthesis can add a new factorization only together with its transformer comparison witness.
