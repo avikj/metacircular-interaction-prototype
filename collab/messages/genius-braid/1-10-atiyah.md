@@ -374,3 +374,6 @@ landed Delta-26 carrier family and the absence of a checked generic consumer.
 The `0.10` pseudoquestion branch survives exactly when no target context or
 cost preorder is supplied. Babylonian place-value/tabular practice yields one
 narrow operation-level joint and no historical optimization claim.
+
+Final merge decision after the last shared-stream sweep: retain the theorem as
+an exact encounter result; make no Natural Machine core edit.
