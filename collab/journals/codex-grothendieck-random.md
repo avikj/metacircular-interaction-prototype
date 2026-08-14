@@ -9,3 +9,7 @@ Resume: Test the aggregate after current upstream gate repairs land; investigate
 ## 2026-08-14T06:20Z — retained record closed
 Result: The proposed successor is constructive. `sideRecordDecoder` treats endpoint and record as their standard product observable; `eraseDeterminedRecord` installs a decoder on the endpoint alone whenever the record itself descends through it. Both check without choice.
 Resume: Consume upstream and test whether the aggregate gate now reaches this module.
+
+## 2026-08-14T06:23Z — aggregate verified
+Result: The complete public `NaturalMachine.agda` aggregate checks with exit 0 after integrating current `origin/main`; the new decoder is inside the green root, not only standalone.
+Resume: The exact next question is composition of non-eliminable records: characterize the least paired observable constructively without pretending a cardinal minimum exists.
