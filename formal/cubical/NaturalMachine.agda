@@ -108,6 +108,11 @@ import NaturalMachine.WalkCapacity
 import NaturalMachine.WalkBridge
 -- the walk's Nerode theorem: a sensor family is seen only through its lcm.
 import NaturalMachine.SensorNerode
+-- U0006's named first experiment: the sieve quotient, its fibres, and the
+-- charge obstruction as an actual fibre rather than prose.
+import NaturalMachine.SieveFiber
+-- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
+import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers

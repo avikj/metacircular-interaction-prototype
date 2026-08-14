@@ -1007,6 +1007,88 @@ no surveyed constructive library has it.
 Theorem 3.1's loop-group half was already covered by
 `PathIsSymmetry`/`Decategorification`; Theorem 2.7 + Proposition 2.11 remain unclaimed.
 
+*Theorem 2.7, status (2026-08-14): **already discharged, and not by this pass** — the
+sentence immediately above is superseded on this point.* Theorem 2.7 has been in the
+Cubical lane since the digit chart was first built, under the corpus's own name rather
+than the note's: `formal/cubical/NaturalMachine/Digits.agda` defines the base-$b$ chart
+for `b = 2 + k` (so $b\ge2$ holds by construction, not by hypothesis) and proves
+`ℕ≃CanWord : ℕ ≃ CanWord` (line 309), with `value` the positional sum $\sum c_ib^i$,
+`value-digits` the surjectivity round trip, and `value-inj`/`digits-value` the
+uniqueness round trip; `ℕ≡CanWord = ua ℕ≃CanWord` is the path. One reindexing separates
+it from the statement in §2.4: the note's domain is $A_b^{(\mathbb{N})}$, finitely
+supported digit *sequences*, while `CanWord` is the *canonical word* normal form (a
+list whose last digit is positive) — the standard normal form of a finitely supported
+sequence, and `isPropCanonical` makes the canonicity datum a proposition, so the two
+domains agree. Downstream, `Transport.agda` and `TransportMul.agda` already transport
+$+$ and $\times$ across this equivalence and land the odometer `sucC` as the transported
+successor. Nothing about Theorem 2.7 was re-proved for this note; it should be cited,
+not re-formalized.
+
+*Proposition 2.11, status (2026-08-14): **Corollary 2.11.1 RESOLVED; the $H^2$ statement
+itself deliberately NOT claimed.*** Checked in
+`formal/cubical/NaturalMachine/CarryObstruction.agda` (Agda 2.6.3 + cubical v0.5,
+`--safe`, no postulates, no holes, exit 0 standalone; not yet imported by the root
+aggregate `NaturalMachine.agda`, which was separately re-verified exit 0 unchanged
+today). The module proves the *consequence with the content* — "no choice of digit set
+eliminates carrying" — by the exponent argument the proof of Proposition 2.11 gives,
+and it needs no cohomology machinery, which is why it was reachable at all: cubical v0.5
+has `Cubical.Algebra.Group` and `Cubical.Cohomology.EilenbergMacLane`, but the latter is
+cohomology of *spaces*; group cohomology of $\mathbb{Z}/m$ with a cocycle model is
+absent there, in agda-unimath's `group-theory/`, and in 1lab's `Algebra/Group/`.
+(mathlib4 has the general vocabulary — `GroupTheory/GroupExtension/` with `Section` and
+`Splitting`, plus `GroupTheory/Exponent` — classically; no surveyed constructive library
+has the specific nonsplitting.)
+
+Three separated layers, so the group theory does not smuggle in arithmetic and vice
+versa. **(1)** `Splitting.kills`: if $\pi:G\to Q$ is a homomorphism of an *abelian* $G$,
+$s$ a homomorphic section, and one $m:\mathbb{N}$ annihilates both $Q$ and $\ker\pi$,
+then $m$ annihilates $G$ — *splitting cannot raise the exponent*. This is the note's
+$\operatorname{lcm}(b^n,b)=b^n$ step, stated with no cyclic group in sight.
+**(2)** `Carry.carry-free→pres`: for a bare set-theoretic section, the coboundary
+$c(u,v)=s(u)s(v)s(uv)^{-1}$ vanishes identically iff $s$ is a homomorphism — this is
+what makes "carry-free" and "split" the same statement, i.e. it is Corollary 2.11.1's
+"would be precisely a group-theoretic splitting", proved rather than asserted. That the
+object is the one the note names is recorded by `carry-inKer` (it is a 2-cochain valued
+in $\ker\pi$), `carry-normR`/`carry-normL` (normalized, for a normalized section) and
+`carry-cocycle` (the 2-cocycle identity $c(u,v)+c(u+v,w)=c(v,w)+c(u,v+w)$, for abelian
+$G$). **(3)** `Cyclic`: for the reduction $\mathbb{Z}/(N\!\cdot\!e)\to\mathbb{Z}/N$ with
+$e\mid N$ and $e\ge2$ — built on the library's `ℤGroup/_`, `Fin`, `_+ₘ_` and
+`Cubical.Data.Nat.Mod` — all three hypotheses of (1) hold with $m=N$ (`selfkill`,
+`kill-ker`), while $N\cdot1\neq0$ (`pow-one`, `N<M`), so `no-hom-section` and hence
+`no-carry-free`. `BasePower k n'` specializes to $b=2+k$, $n=1+n'$, giving
+`carry-unremovable` and `extension-does-not-split`: **for every $b\ge2$, every $n\ge1$
+and every section whatever of $\mathbb{Z}/b^{n+1}\to\mathbb{Z}/b^n$, it is false that
+all carries vanish.** The hypothesis $n\ge1$ is not decorative and is visible in the
+proof: it is exactly what makes $e=b$ divide $N=b^n$, i.e. what lets the single exponent
+$b^n$ annihilate the kernel as well as the quotient. Non-vacuity is recorded, not
+assumed: `stdSection` is the schoolbook least-representative digit set, `stdSection-sect`
+proves it is a section, and `std-carries` is the instance for it.
+
+Two honest boundaries. (i) **$H^2$ is not constructed.** The note's Proposition 2.11
+says $[c_n]\ne0$ in $H^2(\mathbb{Z}/b^n;\mathbb{Z}/b)\cong\mathbb{Z}/b$; the module
+proves only that $c_n$ is a normalized 2-cocycle valued in the kernel and that it cannot
+be made to vanish, which is $[c_n]\ne0$ *stated without the group it lives in*. Building
+$H^2$ of a cyclic group constructively, and identifying it with $A/mA$, remains open and
+is the successor's task; the residual table's entry for the carry should keep its $H^2$
+wording, which this module supports but does not yet render machine-visible.
+(ii) **The moduli are $b^n$ up to a checked path, not on the nose.** Agda must see the
+modulus as a literal successor for `ℤGroup/_` to be the $\mathbb{Z}/m$ branch rather
+than $\mathbb{Z}$, and `b ^ n` does not reduce to `suc _` for variable `n`; so `BasePower`
+uses `bpow j = suc (bp j)` and exports `bpow≡ : bpow j ≡ b ^ j`, `N≡ : N ≡ b ^ n`,
+`M≡b : M ≡ b ^ (suc n)`. The identification is a checked term, and four definitional
+sanity checks pin the arithmetic ($b=2,n=1$: $\mathbb{Z}/4\to\mathbb{Z}/2$; $b=3,n=2$:
+$\mathbb{Z}/27\to\mathbb{Z}/9$). Also not claimed: the closed form
+$c_n(u,v)=b^n\lfloor(\tilde u+\tilde v)/b^n\rfloor$, and any *exhibited* carrying pair —
+the theorem is $\neg\forall$, which constructively does not hand back the witnessing
+$(u,v)$.
+
+With this, §7's list is discharged in full except for the $H^2$ half of Proposition 2.11:
+Theorem 2.1 and Theorem 3.2 (`AtlasResiduals`, `LinearOrderFinite`), Theorem 3.1's loop
+half (`PathIsSymmetry`/`Decategorification`), Theorem 2.7 (`Digits`), Corollary 2.11.1
+(`CarryObstruction`). Theorem 4.2(2)(iii)'s "nonredundant, and irreducibly so" is now
+machine-visible: the third parameter of $\mathrm{Dig}(b,\varepsilon,s)$ cannot be chosen
+away.
+
 ---
 
 ## 8. The residual table

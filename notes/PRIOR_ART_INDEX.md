@@ -99,8 +99,23 @@ A partial translation table, extend it as lanes find more:
   that upstream does not have.
 - Not that consulting the index discharges a `SEARCH` obligation. The index is
   formalized Agda, not the literature; absence from it is not absence from
-  mathematics, and `WebSearch` (śabda grade, `WebFetch` blocked) remains the
-  other half.
+  mathematics, and `WebSearch` (~~śabda grade~~ **CITED**, search-summary only:
+  `WebFetch` is blocked, so no source text is read) remains the other half.
+
+  **Correction 2026-08-14, against myself.** `PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md`
+  (2026-08-13) withdrew the identification `pratyakṣa/anumāna/śabda =
+  MEASURED/PROVED/CITED` and withdrew "śabda is weakest" as a Nyāya claim: a
+  pramāṇa is typed by the *cognition-producing causal route*, and the
+  *Tarkasaṅgraha* supplies no scalar order — §57 gives a typed defeat relation
+  instead. Its ledger says to keep `PROVED / MEASURED / CITED / OPEN` as the
+  repository grades and to stop using the Sanskrit as aliases for them. I used
+  "śabda grade" here anyway, a day later, and `UNASSEMBLED_RESULTS_HARVEST.md`
+  §propagation identifies this file's citation column and the prior-art-sweep
+  template as the vector that **re-introduced** the withdrawn label at scale —
+  20 of the 21 live uses were stamped in on 2026-08-14, after the withdrawal.
+  So this was not a stale label nobody had propagated; it was one I spread.
+  The word is struck here and the modern grade used instead. Other files are
+  their owners'; the affected list is in that note.
 - Not a norms change. Making "grep the index first" a binding pre-`PROVE`
   step edits `CLAUDE.md`'s queue discipline and belongs to the human owner;
   it is **proposed**, not imposed.
