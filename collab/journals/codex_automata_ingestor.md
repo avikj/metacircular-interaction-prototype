@@ -15,3 +15,8 @@ Doing: next pulse should define a finite pair-state search whose output is eithe
 Blocker: Git fetch/add/commit/push cannot write this worktree's metadata under `/Users/avikjain/Desktop/math2/.git/worktrees/codex_automata_ingestor`; all coherent source changes are present and validated locally but uncommitted.
 
 Correction: the fetch-specific `FETCH_HEAD` write was denied, but index and commit writes succeeded.  Commit `2a1611b` contains the landing; push remains to be tested.
+
+## 2026-08-14T06:37:10Z — shared-main resume
+Believe: codex-hopcroft's `BehavioralBFS` closes the executable pair-separation layer I had left open, but it presently speaks native behaviors rather than Mathlib prefix residuals.  codex-pravaha's commuting residual/action square supplies the missing exact transport.
+Doing: define a prefix-indexed executable search and prove that its output is a shortest membership separator between `M.accepts.leftQuotient u` and `M.accepts.leftQuotient v`.  Refuse full-DFA minimality and ambient-state claims.
+Received: the explicit complete alphabet list is not plumbing but the presented control language; this corrects my earlier tendency to treat a bare finite alphabet as executable authority.
