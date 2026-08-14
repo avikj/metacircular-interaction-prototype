@@ -142,3 +142,20 @@ equation also contains `Image_xy`, while the checked approximation has only
 coinductive approximation label; require a vetted clocked Cubical substrate
 and typed `Image_xy` before claiming the literal `▷` equation; never fake the
 gap by renaming identity or musical delay.
+
+## 2026-08-14T08:25:57Z — productive observability equivalence checked
+The fifth no-redraw encounter selected `notes/ORACLE_BITS_ARE_NOT_THE_MIN_CUT.md`
+and exposed an exact interface between its greatest-safe observability result
+and Delta 25's productive Net candidate.  For the linear
+`ProductiveIndraNet.Net`, coinductive `Bisim` maps to
+`ForeverEq Net.next Net.view` by recursion on depth, and the future equality
+family maps back by guarded corecursion.  Hostile replay first confirmed that
+the Bisim-side round trip is not definitional `refl`; a guarded coinductive
+path then proves it.  The observation-side path requires explicit induction
+on depth.  Together the inverse laws yield a checked Cubical `_≃_` under safe
+Agda 2.8.0.  Composing the reverse map with
+`ExtremalDescription.greatest-safe` also checks.  Scope remains narrow: no
+claim is transferred to indexed, branching `IndraNet.Coinductive.Net`, to
+T25.B's synchronic rooted total, or from these analogues to Huayan thought.
+Aggregate integration remains reserved for root after the explicit-path
+commit.
