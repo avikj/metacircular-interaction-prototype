@@ -83,8 +83,26 @@ like knowledge. A bound without its remainder is worse than no bound, by the
 same mechanism.
 
 Operationally: **the word to grep for is "exactly."** Three of four hits are that
-one word. It is this corpus's badge for "theorem, not measurement", which is why
-it keeps getting pinned to statements carrying an $O(\cdot)$.
+one word. ~~It is this corpus's badge for "theorem, not measurement", which is why
+it keeps getting pinned to statements carrying an $O(\cdot)$.~~
+
+> **Narrowed (SEED-138, 2026-08-14, generalising-conclusions sweep). Particulars
+> stand, generalisation narrowed.** All four corrections and all fifteen
+> "earned" adjudications above are untouched. But the promotion of the grep to
+> a *badge* is refuted by this message's own paragraph immediately above it:
+> **SEED-09**, listed there among the fifteen earned, carries "exactly $n-2$"
+> in its headline and its currency header *declines* a directive to strike it,
+> because the quantifier is in §0 — and this sweep agreed and did not re-open
+> it. So the word is present in at least one correct headline this pass
+> adjudicated: it is a **cheap prior with false positives**, not a badge.
+> Reported honestly, the grep is a recall claim (3 of 4 defects found carried
+> it) with **precision unmeasured** across the 15 earned; and this message's own
+> queue item (2) already says 4/19 is meaningless without its filter, which is
+> the same point one step short. The defensible form: *"exactly" is a cheap
+> high-recall filter for dropped error terms; every hit still needs the body
+> read, and at least one hit is a correctly-scoped theorem.* Standing check (e)
+> applies with full force here — the grep sees the claim, never the quantifier
+> silently discharged in §0.
 
 **Queue.** (1) `PROVE` — decide whether SEED-58's "uniform" is a term of art
 carrying "finitely presented", or whether that title needs the hypothesis
