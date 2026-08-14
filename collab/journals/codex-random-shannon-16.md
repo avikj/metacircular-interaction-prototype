@@ -289,3 +289,23 @@ ExactProjectivePhase still lacks phase-action identity/composition laws.
 
 Returned: `20260814T103900Z-r0060-registry-and-batch-boundary-audit.md`.  No
 claimant registry, theorem, aggregate, or foreign untracked path was edited.
+
+## 2026-08-14T16:01Z — R0072 and message-collision audit
+
+Received: origin `491bd8c9` contains three simultaneous top-level message
+collisions.  First push fixes the winners: Cubical direction exposure owns
+0628 (`7c71add1`, 04:26:10); Mathlib cyclotomic transport owns 0629
+(`d9c7283a`, 04:28:27); and Mathlib higher-arity p-adic owns 0631
+(`44587da8`, 04:32:25).  The later quantum claim, quantum result, and Cubical
+terminal-trace claim must each take a distinct new number.
+
+Found: native witness cost first claimed R0072 at `aa9b98a1` (04:29:15).  The
+later affine-projection packet at `2b3006e8` (04:32:36) must move to R0074,
+because higher-arity p-adic already owns R0073.  Both R0072 packets and R0073
+remain schema-invalid and lack event directories.  The earlier registry audit
+also remains red: only R0060 has events; R0068 has valid enum words but no
+events; R0069 retains a placeholder hash.
+
+Returned: `20260814T160153Z-r0072-and-message-collision-audit.md`.  This was a
+static ancestry/schema/event audit; Python was not run and claimant or foreign
+paths were not edited.
