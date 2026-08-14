@@ -1,4 +1,5 @@
 import Pairfield.GeneralSmith2x2
+import Pairfield.ComputableSmith2x2Adapter
 
 /-!
 # Positive diagonal Smith routing
@@ -10,9 +11,10 @@ identity ordering and its swap.
 
 This file turns that distinction into an executable dispatcher.  The ordered
 branch emits the identity certificate, the reverse-ordered branch emits the
-paired-swap certificate, and the incomparable branch delegates to the existing
-total Smith producer.  It therefore changes the next computation without
-duplicating the Euclidean reducer.
+paired-swap certificate, and the incomparable branch factors out the gcd and
+invokes the closed-form kuttaka join.  Thus a diagonal input never enters the
+general matrix descent: extended Euclid forms one Bezout witness, then the
+two change-of-basis matrices are written down directly.
 -/
 
 namespace Pairfield
@@ -113,13 +115,80 @@ theorem positiveDiagonalRoute_nontrivialJoin_iff_two_simple_fail {a b : Nat}
     not_congr (positiveDiagonalIdentityCertificate_valid_iff ha),
     not_congr (positiveDiagonalSwapCertificate_valid_iff hb)]
 
-/-- Execute the action selected by `positiveDiagonalRoute`.  The first two
-branches are closed-form; only the mutually nondividing branch invokes the
-general Euclidean producer. -/
+/-! ## The direct kuttaka join
+
+For `g = gcd a b`, write `a = gp` and `b = gq`.  The normalized factors are
+coprime, so executable extended Euclid supplies `xp + yq = 1`.  The existing
+closed formula then sends `diag (gp) (gq)` to `diag g (gpq)` in one
+presentation arrow.  No general matrix descent is needed.
+-/
+
+/-- Normalize a positive diagonal pair to a common factor and a coprime pair.
+The positivity hypothesis is exactly what excludes the undefined `(0,0)`
+normalization. -/
+def positiveDiagonalCoprimeFactors (a b : Nat) (hg : 0 < a.gcd b) :
+    ComputableSmith2x2.CoprimeFactors :=
+  ComputableSmith2x2.fromNatGcdOne (a.gcd b : Int)
+    (a / a.gcd b) (b / a.gcd b)
+    ((Nat.coprime_div_gcd_div_gcd hg).gcd_eq_one)
+
+theorem positiveDiagonal_factor_left (a b : Nat) :
+    (a.gcd b : Int) * (a / a.gcd b : Nat) = (a : Int) := by
+  exact_mod_cast Nat.mul_div_cancel' (Nat.gcd_dvd_left a b)
+
+theorem positiveDiagonal_factor_right (a b : Nat) :
+    (a.gcd b : Int) * (b / a.gcd b : Nat) = (b : Int) := by
+  exact_mod_cast Nat.mul_div_cancel' (Nat.gcd_dvd_right a b)
+
+/-- The kuttaka join transported onto the repository's common matrix type. -/
+def positiveDiagonalJoinPresentation (a b : Nat) (hg : 0 < a.gcd b) :
+    SmithPresentation (positiveDiagonal a b)
+      (IntMat2.diagonal (a.gcd b : Int)
+        ((a.gcd b : Int) * (a / a.gcd b : Nat) *
+          (b / a.gcd b : Nat))) := by
+  let f := positiveDiagonalCoprimeFactors a b hg
+  have p := ComputableSmith2x2.toPresentation f
+  rw [positiveDiagonal_factor_left a b, positiveDiagonal_factor_right a b] at p
+  exact p
+
+/-- Promote the direct diagonal join to the common independently checkable
+certificate language. -/
+def positiveDiagonalJoinCertificateOfGcdPos (a b : Nat)
+    (hg : 0 < a.gcd b) : SmithCertificate2 :=
+  SmithPresentation.toCertificate (a.gcd b : Int)
+    ((a.gcd b : Int) * (a / a.gcd b : Nat) * (b / a.gcd b : Nat))
+    (positiveDiagonalJoinPresentation a b hg)
+
+theorem positiveDiagonalJoinCertificateOfGcdPos_valid (a b : Nat)
+    (hg : 0 < a.gcd b) :
+    (positiveDiagonalJoinCertificateOfGcdPos a b hg).Valid := by
+  apply SmithPresentation.toCertificate_valid
+  · positivity
+  · positivity
+  · intro hzero
+    omega
+  · exact ⟨(a / a.gcd b : Int) * (b / a.gcd b : Nat), by ring⟩
+
+/-- Total wrapper.  The zero-gcd stratum is outside the positive-diagonal
+organism and retains the general producer as a safe fallback. -/
+def positiveDiagonalJoinCertificate (a b : Nat) : SmithCertificate2 :=
+  if hg : 0 < a.gcd b then
+    positiveDiagonalJoinCertificateOfGcdPos a b hg
+  else
+    smithCertificate (positiveDiagonal a b)
+
+theorem positiveDiagonalJoinCertificate_valid {a b : Nat}
+    (ha : 0 < a) : (positiveDiagonalJoinCertificate a b).Valid := by
+  have hg : 0 < a.gcd b := Nat.gcd_pos_of_pos_left b ha
+  simp only [positiveDiagonalJoinCertificate, dif_pos hg]
+  exact positiveDiagonalJoinCertificateOfGcdPos_valid a b hg
+
+/-- Execute the action selected by `positiveDiagonalRoute`.  Every diagonal
+branch is now closed-form after the executable gcd/Bezout normalization. -/
 def positiveDiagonalCertificate (a b : Nat) : SmithCertificate2 :=
   if a ∣ b then positiveDiagonalIdentityCertificate a b
   else if b ∣ a then positiveDiagonalSwapCertificate a b
-  else smithCertificate (positiveDiagonal a b)
+  else positiveDiagonalJoinCertificate a b
 
 theorem positiveDiagonalCertificate_valid {a b : Nat}
     (ha : 0 < a) (hb : 0 < b) :
@@ -129,7 +198,7 @@ theorem positiveDiagonalCertificate_valid {a b : Nat}
   · exact positiveDiagonalIdentityCertificate_valid ha ‹a ∣ b›
   · split
     · exact positiveDiagonalSwapCertificate_valid hb ‹b ∣ a›
-    · exact smithCertificate_valid _
+    · exact positiveDiagonalJoinCertificate_valid ha
 
 theorem positiveDiagonalCertificate_check {a b : Nat}
     (ha : 0 < a) (hb : 0 < b) :
@@ -145,7 +214,7 @@ theorem positiveDiagonalCertificate_of_swapRoute {a b : Nat}
 
 theorem positiveDiagonalCertificate_of_joinRoute {a b : Nat}
     (h : positiveDiagonalRoute a b = .nontrivialJoin) :
-    positiveDiagonalCertificate a b = smithCertificate (positiveDiagonal a b) := by
+    positiveDiagonalCertificate a b = positiveDiagonalJoinCertificate a b := by
   rw [positiveDiagonalRoute_nontrivialJoin_iff] at h
   simp [positiveDiagonalCertificate, h.1, h.2]
 
@@ -162,8 +231,18 @@ example : (positiveDiagonalCertificate 6 2).check = true :=
 
 example : positiveDiagonalRoute 6 10 = .nontrivialJoin := by decide
 example : positiveDiagonalCertificate 6 10 =
-    smithCertificate (positiveDiagonal 6 10) :=
+    positiveDiagonalJoinCertificate 6 10 :=
   positiveDiagonalCertificate_of_joinRoute (by decide)
+example : (positiveDiagonalJoinCertificate 6 10).source = positiveDiagonal 6 10 := by
+  native_decide
+example : (positiveDiagonalJoinCertificate 6 10).left = ⟨2, -1, -5, 3⟩ := by
+  native_decide
+example : (positiveDiagonalJoinCertificate 6 10).right = ⟨1, 5, 1, 6⟩ := by
+  native_decide
+example : (positiveDiagonalJoinCertificate 6 10).d₁ = 2 := by
+  native_decide
+example : (positiveDiagonalJoinCertificate 6 10).d₂ = 30 := by
+  native_decide
 example : (positiveDiagonalCertificate 6 10).check = true :=
   positiveDiagonalCertificate_check (by decide) (by decide)
 
