@@ -40,6 +40,7 @@ Focused replay:
 ```sh
 cd formal/pairfield
 lake build Pairfield.DiagonalSmithRoute  # 830 jobs, green
+lake build Pairfield                     # 8,770 jobs, green
 ```
 
 Boundary: this is unit first-use acquisition, not bit complexity or an optimal

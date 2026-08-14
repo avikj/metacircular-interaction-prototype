@@ -248,13 +248,13 @@ At logarithmic cutoff, Lemma 4.2 gives the full two-term budget
 \qquad(R=(\log X)^A).
 \]
 
-Although the full Fourier coefficient of `\widetilde S_X^2` at `N\le X`
-still equals `R_Lambda(N)`, its major/minor split uses the common polynomial
-cutoff `X` and common arcs `m_X(R)`, not the target-adapted data in section 4.
-No checked local theorem or pinned source statement in this audit transports
-the exception spike
-`a_B^diag(N)=-N S(N)+o(N)` to an order-`X` spike of
-`\widetilde a_(X,R)(N)` uniformly across a dyadic interval.  Such a
+Although the full Fourier coefficient of $\widetilde S_X^2$ at $N\le X$
+still equals $R_\Lambda(N)$, its major/minor split uses the common polynomial
+cutoff $X$ and common arcs $\mathfrak m_X(R)$, not the target-adapted data in
+section 4.  No checked local theorem or pinned source statement in this audit
+transports the exception spike
+$a_B^{\mathrm{diag}}(N)=-N\mathfrak S(N)+o(N)$ to an order-$X$ spike of
+$\widetilde a_{X,R}(N)$ uniformly across a dyadic interval.  Such a
 logarithmic-normalization transport is therefore an additional premise of the
 following anti-spike route.
 
@@ -270,20 +270,20 @@ D=o\!\left(\min\{(\log X)^{A-5},
 
 for fixed `A>5`, against the current `O(X log X)`.
 
-At a **power-sized cutoff** `R=X^vartheta` with `vartheta>=2/5`, Lemma 4.2
-gives for the raw minor coefficient
+At a **power-sized cutoff** `R=X^vartheta` with
+`2/5<=vartheta<1/2`, Lemma 4.2 gives for the raw minor coefficient
 
 \[
 \sum_{N\le X}|\widetilde a_{X,R}(N)|^2
 \ll X^{13/5}(\log X)^5.
 \]
 
-Proposition 7.5 gives the same exponent for a different object: its smoothed
-residual `D_R(N)` after the pole--pole, pole--zero, and zero--zero terms have
-been separately retained.  The raw minor coefficient and `D_R` are not the
-same sequence.  Direct point evaluation of either displayed squared norm
-gives only `O(X^(13/10) log^(5/2) X)`, larger than the order-`X` main term, and
-permits `O(X^(3/5) log^5 X)` order-`X` coordinates.
+For `2/5<=vartheta<4/9`, Proposition 7.5 gives the same exponent for a
+different object: its smoothed residual `D_R(N)` after the pole--pole,
+pole--zero, and zero--zero terms have been separately retained.  The raw minor
+coefficient and `D_R` are not the same sequence.  Direct point evaluation of
+either squared norm gives only `O(X^(13/10) log^(5/2) X)`, larger than the
+order-`X` main term, and permits `O(X^(3/5) log^5 X)` order-`X` coordinates.
 
 At a power cutoff, moreover, the major-arc side contains generalized-zero
 terms; Proposition 7.5 exposes them explicitly outside `D_R`.  A Goldbach
@@ -311,7 +311,7 @@ arithmetic rather than another phase-blind norm inequality.
 
 A sufficient new interface **after the power-cutoff zero modes are controlled**
 is an anti-spike theorem for the raw common-`X` family: one coefficient
-`\widetilde a_(X,R)(N_0)<=-cX` forces more than
+$\widetilde a_{X,R}(N_0)\le-cX$ forces more than
 `X^(3/5) log^5 X` comparably negative coefficients.  A concrete, stronger
 condition would be
 
@@ -383,6 +383,25 @@ controlled, not only an averaged family norm.
   formula and minor-arc mean square; Zhao exceptional-set exponent.
 - **Proved in collaboration notes:** the exact analytic implication, amplifier
   exponent thresholds, Fourier-spike control, rank/charge/propagation no-gos.
+- **Checked source links and landing provenance:**
+  [`GoldbachBoundary`](../../../formal/pairfield/Pairfield/GoldbachBoundary.lean)
+  (`08ef332d`),
+  [`GoldbachDecision`](../../../formal/pairfield/Pairfield/GoldbachDecision.lean)
+  (`4e9e5171`),
+  [`GoldbachDecisionRange`](../../../formal/pairfield/Pairfield/GoldbachDecisionRange.lean)
+  (`48914341`),
+  [`GoldbachWeightedBoundary`](../../../formal/pairfield/Pairfield/GoldbachWeightedBoundary.lean)
+  (`4e9e5171`),
+  [`GoldbachFixedFiberContamination`](../../../formal/pairfield/Pairfield/GoldbachFixedFiberContamination.lean)
+  (`d8145ca4`),
+  [`GoldbachCrossover`](../../../formal/pairfield/Pairfield/GoldbachCrossover.lean)
+  (`34b98c9a`), and
+  [`AntiSpike`](../../../formal/pairfield/Pairfield/AntiSpike.lean)
+  (`9aff3cd8`).  The analytic normalization and amplifier audits are
+  [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
+  [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
+  executable audit is [`execution-compiler.md`](execution-compiler.md)
+  (`7a02f908`).
 - **Open:** the pointwise signed minor-arc margin or a prime-specific AntiSpike
   theorem.
 - **Not run:** no Python; no numerical census, scan, or large finite Goldbach
