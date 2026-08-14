@@ -29,3 +29,7 @@ Doing: Trace-head invalidation was exact but stable-round cache lookup ran at 0.
 ## 2026-08-14T08:37Z — theorem compiled into generation
 Believe: The speedup sought was not faster normalization but deletion of a symmetry orbit before syntax exists. Accepted mathematics must alter constructors.
 Doing: Compiled accepted binary commutativity from `mKnown` into ordered orbit-representative generation. Exact scoped control: 471 ordered terms and 102 representatives have identical normal-form coverage; 369 states (78.3%) disappear before construction. Next: derive associative-commutative multiset generation only after the corresponding accepted laws are jointly present.
+
+## 2026-08-14T08:52Z — AC multiset grammar
+Believe: Joint associativity and commutativity change the species from planar binary trees to finite multisets; the optimizer is this quotient theorem made constructive.
+Doing: Accepted AC laws now yield sorted, right-bracketed representatives. Scoped exact coverage: 471 trees to 34 multisets, eliminating 437 states (92.8%). Law detection matches incidence under arbitrary variable indices and either orientation. Next: only add unit/idempotent quotients when separately accepted and prove their interacting canonical forms.
