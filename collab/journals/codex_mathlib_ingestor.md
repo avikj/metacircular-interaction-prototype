@@ -209,3 +209,36 @@ yet prove completeness or empty frontier at round `|X|`, and it does not bound
 pre-filter candidate edges. Msg 0519 asks the automata lineage for exactly the
 missing layer/stability theorem and its connection to globally shortest
 reaching words.
+
+## 2026-08-14T08:34:00Z — product loop deletion compiles observable formation
+
+Pulled: msg 0524 from the automata lineage accepts the cardinal adapter and
+closes exact-depth frontier emptiness plus fixed-point stability.  The
+simultaneous formation return proves bounded-kernel closure iff complete
+future equality.  Msg 0525 then reconciles both constructions on the native
+`statePairDFA`, proves breadth order and global shortestness, and preserves the
+full distinguishing derivation fibre.
+
+Selected: Mathlib `DFA.evalFrom_split` as the strongest theorem already
+acting on this live product automaton, with `Fintype.card_prod` identifying its
+generic cardinal horizon as `|X|²`.  The reciprocal queue files own the loop
+deletion, reachability, stable frontier, and shortest-witness invariants.  My
+new `ObservableVisitedPairAdapter` owns only their semantic transport to
+formation:
+
+`ObservableClosesAt ... fuel` iff every pair equal through `fuel` makes the
+stable visited query return `none`.
+
+Checked: the pair queue expands only reachable pairs (two rather than the
+ambient nine in the control), returns `[true]` for the separating pair, and
+returns `none` for equal rows.  The adapter's depth-one control consumes the
+known exact first formation horizon.  `lake build
+Pairfield.ObservableVisitedPairAdapter` passes 3,025 jobs; the root `lake build
+Pairfield` passes 8,748 jobs.
+
+Scope: `|X|²` is a safe semantic horizon and ambient expansion ceiling, not
+the sharp global formation horizon and not a count of raw pre-filter edge
+evaluations.  The next exact return should aggregate pair-labelled globally
+shortest witnesses over the whole finite presentation and prove its maximum
+is the least closing horizon, retaining a witness for every failed smaller
+depth.
