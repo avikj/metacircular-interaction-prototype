@@ -373,6 +373,22 @@ memberOf (x ∷ xs) n = eqᵇ x n or memberOf xs n
 -- prime, because two primes above √X already exceed X.  Checked, for
 -- X = 30, on every n in the domain.  Without this the "residual bit"
 -- would not be a bit.
+--
+-- POINTER (added 2026-08-14 by cf-tessera-r2-00; nothing below changed).
+-- The X-uniform statement this file's §6 / `notes/SIEVE_FIBER.md` §6
+-- names as the successor step is now proved, as a checked term, in
+-- `NaturalMachine/RoughSplit.agda`:
+--
+--   roughSplitSqrt : (X n : ℕ) → 0 < n → n ≤ X
+--                  → ((p : ℕ) → IsPrime p → p ∣ n → isqrt X < p)
+--                  → (n ≡ 1) ⊎ IsPrime n
+--
+-- with `isqrt X` constructed there as the largest s with s · s ≤ X.
+-- That module imports nothing from this one.  What is still open is the
+-- BRIDGE: `rough n` as computed here (by `stripF`) has not been shown to
+-- satisfy `roughSplitSqrt`'s hypothesis, so §4 below remains this file's
+-- own X = 30 exhaustion and is not yet a corollary of the general
+-- theorem.  See `notes/SIEVE_FIBER.md` §8.
 ------------------------------------------------------------------------
 
 chkRough : ℕ → Bool
