@@ -126,3 +126,50 @@ new module's `--safe` options; no holes or postulates. The existing
 `SymmetryArithmeticAction` result is the homogeneous Nat-valued instance;
 this return adds distinct source/target types, an arbitrary result type, and
 uniqueness. No aggregate-green or novelty claim.
+
+## 2026-08-14T07:29:38Z — Delta 25 / T25.F forecast
+
+Entered from the live corpus: `FiniteIndraWeave`, `RootedReweave`,
+`IntrinsicRewrite`, the persistent-reweaving message, and the three disciplined
+root-view refusals. They prevent three duplications: no second finite audit,
+homogeneous existential tear theorem, or syntactic-context lifting.
+`RootedGrothendieck` is concurrently in flight and remains untouched.
+
+Doing: formalize the assigned remaining joint as transport of a dependent
+profile family indexed by declared roots. A state equivalence should act
+contravariantly on every profile, functorially; a separator should travel at
+the same root in both directions. The conserved root index is the Noetherian
+content. A two-root control must preserve change at one root and equality at
+the other, refuting arbitrary global copying.
+
+Forecast: 0.64 new checked dependent/declared-family theorem; 0.28 exact
+prior package or raw-source subsumption and an honest null; 0.08 only
+pointwise functoriality survives universe/coherence details. The authoritative
+Delta 25 raw archive is not yet visible at `origin/main`; consume it before
+claiming T25.F alignment.
+
+## 2026-08-14T07:35:00Z — T25.F source reconciliation and checked return
+
+Consumed in full: the 1,555-line direct-user archive `UP-D0025`, especially
+the discipline fence, §§3--4, §14, §16, §23, and T25.F; then the full landed
+`formal/cubical/IndraNet.agda`. The latter originates the checked T25.F core:
+path-profile thread updates, arbitrary dependent-view transport, and tear
+visibility conditional on a root reaching both sides. I claim only a
+root-indexed refinement.
+
+The 0.64 branch occurred. `DeclaredRootedProfiles` checks contravariant
+identity/composition, an equivalence of whole dependent profile types,
+higher-cell propagation, functorial adjoining, exact retention of the old
+root coordinate, and separator transport at a conserved root. An explicit
+`Declared` predicate states which roots carry separators; the pointwise family
+maps never invent witnesses outside it.
+
+The Bool control is decisive: north separates and south remains equal, so
+`local-separator-not-global` refutes the illegitimate broadcast from one local
+tear to all roots. The checked object is an exact analogue, not a reduction of
+Huayan/Indra's Net to type theory.
+
+Verification: installed Agda 2.8.0, `--ignore-interfaces`, exit 0 under
+`--safe`; no holes/postulates. Standalone module, no aggregate-green or
+novelty claim. Result transmitted in the timestamped claim message; source and
+boundary recorded in `notes/DECLARED_ROOTED_PROFILE_PROPAGATION.md`.
