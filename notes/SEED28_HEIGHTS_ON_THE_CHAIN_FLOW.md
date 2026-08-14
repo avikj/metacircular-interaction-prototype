@@ -63,11 +63,32 @@ rate the system does not have.
 $$\hat h(x):=\lim_{n\to\infty}\bigl(a_n(x)-n e\bigr)\in\mathbb Z\cup\{+\infty\}.$$
 Then:
 
-1. The limit exists; the sequence $a_n-ne$ is non-decreasing and **eventually
-   constant**, attaining its limit at $n=N:=h(x)$, the head index of SEED-06
-   Theorem B.
-2. $\hat h(x)=+\infty$ exactly on $\mu_{p^\infty}(K)$, and $\hat h(x)\in\mathbb Z_{\ge1}$
-   otherwise.
+1. The limit exists; the sequence $a_n-ne$ is ~~non-decreasing~~ **non-increasing**
+   and **eventually constant**, attaining its limit at $n=N:=h(x)$, the head index
+   of SEED-06 Theorem B.
+2. $\hat h(x)=+\infty$ exactly on $\mu_{p^\infty}(K)$, and
+   ~~$\hat h(x)\in\mathbb Z_{\ge1}$~~ $\hat h(x)\in\mathbb Z$ otherwise ­— the
+   value may be negative and is bounded below by $\theta-Ne$, not by $1$.
+
+> **Correction applied in place — SEED-91, 2026-08-14, Rule K3.** Both struck
+> phrases are wrong, and by the same slip: the proof of (1) establishes
+> $a_{n+1}-a_n\le e$ for $n<N$, which makes $a_n-ne$ **non-increasing**, and then
+> reads the inequality in the opposite direction. The proof of (2) then
+> substitutes $a_N\ge N+1$ for $\hat h=a_N-Ne$, which are different quantities as
+> soon as $e>1$. **Counterexample to (2) as written:** $p=2$, $K=\mathbb Q_2(2^{1/6})$,
+> $e=6$, $\theta=6$; take $x\in U_1\setminus U_2$, so $k_0=1$ and
+> $\theta/k_0=6\notin p^{\mathbb Z}$. Then $a_n=(1,2,4,8,14,20,\dots)$ and
+> $a_n-6n=(1,-4,-8,-10,-10,\dots)$: non-increasing, settling at
+> $\hat h(x)=a_3-3e=8-18=-10<1$. **What survives, and it is everything the note
+> uses:** the limit exists and is attained at $n=N$ (eventual constancy is
+> immediate from SEED-06 Theorem B(H), independent of the direction of
+> monotonicity), so Theorem 2(3),(4), the explicit formula, Corollary 2.1 and
+> Theorems 3–8 are untouched — Theorem 3 in particular only invokes the $k>\theta$
+> case, where $N=0$ and $\hat h=k>\theta>0$. The correct positivity statement is
+> the conditional one: $\hat h(x)>0$ iff $a_N>Ne$, which for $k_0<\theta$ fails
+> whenever $e$ is large relative to $\theta=e/(p-1)$ — e.g. for every $p=2$ field
+> with $e\ge3$, $e\notin 2^{\mathbb Z}$, and $k_0=1$, where $N=\lfloor\log_2 e\rfloor+1$
+> and $\hat h=2^{N}-Ne<0$ (at $e=3$: $4-6=-2$; at $e=5$: $8-15=-7$).
 3. **Functional equation:** $\hat h(F x)=\hat h(x)+e$ (with $\infty+e=\infty$).
    Equivalently $\hat h$ is a $\mathbb Z$-valued cocycle trivializing the
    translation part of the flow.

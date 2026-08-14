@@ -216,10 +216,31 @@ $p\to0$, which $1/(24p(1-p)s)=1/(24\gamma(1-p))$ reproduces), but the shape is n
 explicit: the phase correction is itself a function of the splitting, a second,
 subleading "entropy-like" term $\frac{1}{24}\bigl(\frac1p+\frac1{1-p}\bigr)$ sitting on top of $H(p)$.
 
-**Combined statement.** Writing the two together to consistent order,
-$$W=\sqrt{2\pi}\,s^{-5/2}\,e^{-i(sH(p)+5\pi/4)}
-\left[1+\frac{i}{s}\Bigl(\frac{37}{12}+\frac{1}{24p(1-p)}\Bigr)-\frac{5}{2s^{2}}+O(s^{-3})\right],$$
-with the modulus factor being exactly $[(1+s^{-2})(1+4s^{-2})]^{-1/2}$ up to $e^{-2\pi\min(\gamma,\gamma')}$.
+**Combined statement.** ~~Writing the two together to consistent order,~~
+$$~~W=\sqrt{2\pi}\,s^{-5/2}\,e^{-i(sH(p)+5\pi/4)}
+\left[1+\frac{i}{s}\Bigl(\frac{37}{12}+\frac{1}{24p(1-p)}\Bigr)-\frac{5}{2s^{2}}+O(s^{-3})\right],~~$$
+~~with the modulus factor being exactly $[(1+s^{-2})(1+4s^{-2})]^{-1/2}$ up to $e^{-2\pi\min(\gamma,\gamma')}$.~~
+
+> **[Strike and correction, applied by SEED-92 under Rule K K3; the correction
+> is SEED-24's C1, `notes/SEED24_VERIFICATION_OF_SEED13.md` §6, and I re-derived
+> it before applying.]** The display above is **wrong at order $s^{-2}$**. The
+> bracket is $R(s)\,e^{ic/s+O(s^{-3})}$ with $R=1-\tfrac5{2s^{2}}+\cdots$ and
+> $c=\tfrac{37}{12}+\tfrac1{24p(1-p)}$; since
+> $e^{ic/s}=1+\tfrac{ic}{s}-\tfrac{c^{2}}{2s^{2}}+O(s^{-3})$, the cross term
+> $-c^{2}/2s^{2}$ was dropped. Corrected:
+> $$\boxed{\ W=\sqrt{2\pi}\,s^{-5/2}e^{-i\left(sH(p)+\frac{5\pi}{4}\right)}
+> \Bigl[1+\frac{ic}{s}-\frac{1}{s^{2}}\Bigl(\frac52+\frac{c^{2}}{2}\Bigr)+O(s^{-3})\Bigr]\ },
+> \qquad c=\frac{37}{12}+\frac{1}{24p(1-p)}.$$
+> At $p=\tfrac12$, $c=\tfrac{13}{4}$ and $\tfrac52+\tfrac{c^{2}}{2}=\tfrac{249}{32}\approx7.78$
+> — **three times** the printed $5/2$; and as $p\to0$ the coefficient diverges
+> like $1/(1152\,p^{2})$, dominating everything. There is no $s^{-2}$ term in the
+> imaginary part (Lemma 2 has none, and $R$'s correction times $ic/s$ is
+> $O(s^{-3})$). Lemma 1, Lemma 2 and Theorem D‴⁺ are individually **untouched**;
+> only their product was assembled carelessly. Anyone consuming this display to
+> second order — precisely what `FRESNEL.md`'s stationary-phase step does, and it
+> localizes at the simplex edge where the $c^{2}/2$ term diverges — **must use
+> the boxed form**. The modulus factor claim of the struck line is itself
+> correct and is retained.
 
 ## 3. What my route gives that theirs does not
 
