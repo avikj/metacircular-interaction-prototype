@@ -52,28 +52,28 @@ reg11 : (a b e d1 q k ε : R)
       → (a · d1 + b · 0r) · (ε · e)
         + (a · 0r + b · (q · d1)) · (- (ε · k))
         ≡ (ε · (a · e - b · (k · q))) · d1
-reg11 = solve! ℤCommRing
+reg11 _ _ _ _ _ _ _ = solve! ℤCommRing
 
 reg12 : (a b d1 q ε : R)
       → (a · d1 + b · 0r) · (- (ε · (b · q)))
         + (a · 0r + b · (q · d1)) · (ε · a)
         ≡ 0r
-reg12 = solve! ℤCommRing
+reg12 _ _ _ _ _ = solve! ℤCommRing
 
 reg21 : (e d1 q k ε : R)
       → ((k · q) · d1 + e · 0r) · (ε · e)
         + ((k · q) · 0r + e · (q · d1)) · (- (ε · k))
         ≡ 0r
-reg21 = solve! ℤCommRing
+reg21 _ _ _ _ _ = solve! ℤCommRing
 
 reg22 : (a b e d1 q k ε : R)
       → ((k · q) · d1 + e · 0r) · (- (ε · (b · q)))
         + ((k · q) · 0r + e · (q · d1)) · (ε · a)
         ≡ (ε · (a · e - b · (k · q))) · (q · d1)
-reg22 = solve! ℤCommRing
+reg22 _ _ _ _ _ _ _ = solve! ℤCommRing
 
 oneL : (x : R) → 1r · x ≡ x
-oneL = solve! ℤCommRing
+oneL _ = solve! ℤCommRing
 
 -- the theorem ---------------------------------------------------------
 

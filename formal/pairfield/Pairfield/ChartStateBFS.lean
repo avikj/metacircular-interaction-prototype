@@ -41,7 +41,7 @@ theorem mem_statePairDFA_accepts_iff
   rw [DFA.mem_accepts, DFA.eval, statePairDFA_evalFrom]
   change (decide (M.evalFrom left word ∈ M.accept) ≠
       decide (M.evalFrom right word ∈ M.accept)) ↔ _
-  rfl
+  simp only [behavior, acceptsBool, run_eq_evalFrom]
 
 /-- Loop deletion in the pair monitor gives a safe finite horizon for two
 arbitrary rows, not only states reached by prefixes from the declared start. -/

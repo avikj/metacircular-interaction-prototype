@@ -42,7 +42,8 @@ open import Cubical.Data.Sigma
   using (_×_ ; Σ-syntax ; _,_ ; fst ; snd ; ΣPathP)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Int
-  using (ℤ ; pos ; negsuc ; posNotnegsuc)
+  using (ℤ ; pos ; negsuc ; posNotnegsuc ; injPos ; sucℤ· ; ·lCancel)
+open import Cubical.Data.Nat using (snotz)
 open import Cubical.Algebra.AbGroup.Base
   using (AbGroup ; AbGroupStr)
 open import Cubical.Algebra.CommRing
@@ -226,6 +227,25 @@ module IntegerFormationEvent where
   minus-residual =
       S.translation-residual 1r minusOne
     ∙ cong₂ _+_ (·IdR minusOne) (·IdR minusOne)
+
+  residual-is-double : (x : ℤ) → squareResidual x ≡ pos 2 · x
+  residual-is-double x =
+      S.translation-residual 1r x
+    ∙ cong₂ _+_ (·IdR x) (·IdR x)
+    ∙ sym (sucℤ· plusOne x)
+
+  two≢zero : ¬ (pos 2 ≡ pos 0)
+  two≢zero h = snotz (injPos h)
+
+  -- The changed frontier is stronger than splitting one sign orbit: over ℤ
+  -- the formed residual alone is faithful.  The proof uses torsion-freeness
+  -- exactly once, as cancellation of multiplication by 2.
+  residual-injective :
+    (x y : ℤ) → squareResidual x ≡ squareResidual y → x ≡ y
+  residual-injective x y h =
+    ·lCancel (pos 2) x y
+      (sym (residual-is-double x) ∙ h ∙ residual-is-double y)
+      two≢zero
 
   residuals-differ : ¬ (squareResidual plusOne ≡ squareResidual minusOne)
   residuals-differ h =
