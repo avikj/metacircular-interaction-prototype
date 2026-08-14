@@ -18,7 +18,7 @@ module NaturalMachine.ProstheticImageAdapter where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
   using (Bool ; false ; true ; false≢true)
-open import Cubical.Data.Empty using (isProp⊥)
+open import Cubical.Data.Empty as Empty using (⊥ ; isProp⊥ ; rec)
 open import Cubical.Data.Sigma using (Σ-syntax ; fst ; snd ; _,_ ; Σ≡Prop)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Functions.Image
@@ -31,7 +31,7 @@ import NaturalMachine.AtomicSatisfaction as AS
 
 private
   variable
-    ℓX ℓX′ ℓQ ℓY ℓY′ : Level
+    ℓX ℓX′ ℓQ ℓY ℓY′ ℓI : Level
 
 ------------------------------------------------------------------------
 -- 1. Same response family: conservative revision gives image containment
@@ -134,7 +134,35 @@ module ChangedResponseImage
     old-absent (preserves-comparison-image square q y revised)
 
 ------------------------------------------------------------------------
--- 3. Bool controls: state splitting is conservative; novelty is not
+-- 3. Localized preservation: only inherited revised states owe the square
+------------------------------------------------------------------------
+
+module InheritedResponseImage
+  {X : Type ℓX} {X′ : Type ℓX′} {Q : Type ℓQ}
+  (Y : Q → Type ℓY)
+  (Y′ : Q → Type ℓY′)
+  (r : (q : Q) → X → Y q)
+  (r′ : (q : Q) → X′ → Y′ q)
+  (Inherited : X′ → Type ℓI)
+  (stateMap : (Σ[ state ∈ X′ ] Inherited state) → X)
+  (compare : (q : Q) → Y q → Y′ q)
+  where
+
+  InheritedState : Type (ℓ-max ℓX′ ℓI)
+  InheritedState = Σ[ state ∈ X′ ] Inherited state
+
+  inheritedResponse : (q : Q) → InheritedState → Y′ q
+  inheritedResponse q state = r′ q (fst state)
+
+  -- This is deliberately the whole adapter: all previous theorems apply to
+  -- the inherited subtype, and none quantifies over a non-inherited state.
+  module Adapter =
+    ChangedResponseImage Y Y′ r inheritedResponse stateMap compare
+
+  open Adapter public
+
+------------------------------------------------------------------------
+-- 4. Bool controls: state splitting is conservative; novelty is not
 ------------------------------------------------------------------------
 
 oldResponse : Unit → Unit → Bool
@@ -183,3 +211,52 @@ novel-square-impossible : ¬ Novel.Observation.ResponseSquare
 novel-square-impossible =
   Novel.novel-outcome→no-square tt true
     true-is-revised true-is-absent-before
+
+------------------------------------------------------------------------
+-- 5. Localized control: inherit false; leave the novel true state outside
+------------------------------------------------------------------------
+
+InheritedBoolState : Bool → Type₀
+InheritedBoolState false = Unit
+InheritedBoolState true  = ⊥
+
+inheritedStateMap : (Σ[ state ∈ Bool ] InheritedBoolState state) → Unit
+inheritedStateMap state = tt
+
+module Localized =
+  InheritedResponseImage
+    (λ _ → Bool) (λ _ → Bool)
+    oldResponse novelResponse
+    InheritedBoolState inheritedStateMap
+    (λ _ response → response)
+
+localized-square : Localized.Observation.ResponseSquare
+localized-square tt (false , inherited) = refl
+localized-square tt (true  , impossible) = Empty.rec impossible
+
+-- The inherited response image transports exactly as before.
+localized-false-computes :
+  Localized.revisedImage→comparisonImage localized-square tt
+      (restrictToImage (Localized.inheritedResponse tt) (false , tt))
+    ≡ restrictToImage (Localized.comparedOld tt) tt
+localized-false-computes =
+  Localized.map-restrict localized-square tt (false , tt)
+
+true-not-inherited : ¬ InheritedBoolState true
+true-not-inherited impossible = impossible
+
+inherited-cannot-respond-true :
+  (Σ[ state ∈ Localized.InheritedState ]
+    (Localized.inheritedResponse tt state ≡ true)) → ⊥
+inherited-cannot-respond-true ((false , inherited) , response) =
+  false≢true response
+inherited-cannot-respond-true ((true , impossible) , response) =
+  Empty.rec impossible
+
+-- The novel full-state response is not falsely imported into the inherited
+-- response image.  It remains available as `true-is-revised` above, but the
+-- localized square makes no assertion about that non-inherited state.
+true-absent-from-inherited-image :
+  ¬ isInImage (Localized.inheritedResponse tt) true
+true-absent-from-inherited-image =
+  PT.rec isProp⊥ inherited-cannot-respond-true
