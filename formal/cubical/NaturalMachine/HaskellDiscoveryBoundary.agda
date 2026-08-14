@@ -21,17 +21,18 @@ module NaturalMachine.HaskellDiscoveryBoundary where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
-  using (ℕ ; zero ; suc ; _+_ ; +-assoc ; +-comm)
+  using (ℕ ; zero ; suc ; _+_ ; _·_ ; +-comm ; ·-comm ; 0≡m·0)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 
-infixl 20 _+T_
+infixl 20 _+T_ _·T_
 
 data HaskellTerm : Type₀ where
   var   : ℕ → HaskellTerm
   zeroT : HaskellTerm
   sucT  : HaskellTerm → HaskellTerm
   _+T_  : HaskellTerm → HaskellTerm → HaskellTerm
+  _·T_  : HaskellTerm → HaskellTerm → HaskellTerm
 
 Environment : Type₀
 Environment = ℕ → ℕ
@@ -41,6 +42,7 @@ evaluate ρ (var n)  = ρ n
 evaluate ρ zeroT    = zero
 evaluate ρ (sucT t) = suc (evaluate ρ t)
 evaluate ρ (l +T r) = evaluate ρ l + evaluate ρ r
+evaluate ρ (l ·T r) = evaluate ρ l · evaluate ρ r
 
 Equation : Type₀
 Equation = HaskellTerm × HaskellTerm
@@ -67,41 +69,22 @@ z = var 2
 expectedDiscoveries : List Equation
 expectedDiscoveries =
     (x , zeroT +T x)
-  ∷ (x +T y , y +T x)
-  ∷ (x +T (x +T y) , y +T (x +T x))
-  ∷ (x +T (y +T y) , y +T (x +T y))
-  ∷ (x +T (y +T z) , y +T (x +T z))
   ∷ (sucT x +T y , sucT (x +T y))
+  ∷ (zeroT , zeroT ·T x)
   ∷ (sucT x , sucT zeroT +T x)
   ∷ []
 
 sound-1 : Sound (x , zeroT +T x)
 sound-1 ρ = refl
 
-sound-2 : Sound (x +T y , y +T x)
-sound-2 ρ = +-comm (ρ 0) (ρ 1)
+sound-2 : Sound (sucT x +T y , sucT (x +T y))
+sound-2 ρ = refl
 
-sound-3 : Sound (x +T (x +T y) , y +T (x +T x))
-sound-3 ρ =
-  +-assoc (ρ 0) (ρ 0) (ρ 1)
-  ∙ +-comm (ρ 0 + ρ 0) (ρ 1)
+sound-3 : Sound (zeroT , zeroT ·T x)
+sound-3 ρ = 0≡m·0 (ρ 0) ∙ sym (·-comm zero (ρ 0))
 
-sound-4 : Sound (x +T (y +T y) , y +T (x +T y))
-sound-4 ρ =
-  +-assoc (ρ 0) (ρ 1) (ρ 1)
-  ∙ +-comm (ρ 0 + ρ 1) (ρ 1)
-
-sound-5 : Sound (x +T (y +T z) , y +T (x +T z))
-sound-5 ρ =
-  +-assoc (ρ 0) (ρ 1) (ρ 2)
-  ∙ cong (_+ ρ 2) (+-comm (ρ 0) (ρ 1))
-  ∙ sym (+-assoc (ρ 1) (ρ 0) (ρ 2))
-
-sound-6 : Sound (sucT x +T y , sucT (x +T y))
-sound-6 ρ = refl
-
-sound-7 : Sound (sucT x , sucT zeroT +T x)
-sound-7 ρ = refl
+sound-4 : Sound (sucT x , sucT zeroT +T x)
+sound-4 ρ = refl
 
 expectedDiscoveriesSound : AllSound expectedDiscoveries
 expectedDiscoveriesSound =
@@ -109,7 +92,4 @@ expectedDiscoveriesSound =
   all∷ sound-2
   all∷ sound-3
   all∷ sound-4
-  all∷ sound-5
-  all∷ sound-6
-  all∷ sound-7
   all∷ all[]

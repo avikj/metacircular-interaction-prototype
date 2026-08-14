@@ -262,3 +262,33 @@ Resume: compare `RealizedWindow.Carrier` with `FutureQuotient.Meaning` under
 closure.  The pointwise kernels coincide, but an actual equivalence needs the
 image and quotient universal properties composed explicitly; do not infer
 type equality from relation equality.
+
+## 2026-08-14T08:52:00Z — realized image and future quotient identified exactly
+
+Believe: equal kernels were enough to suggest the map, not enough to identify
+the carriers.  The exact proof had to compose the two native universal
+properties and retain which direction consumes stabilization.
+
+Did: built `fromMeaning` by SetQuotient descent of the state-to-image map;
+complete future equality always restricts to a bounded window, so this
+direction does not use closure.  Built `toMeaning` by choice-free Image
+descent; this direction uses closure once to turn an equal bounded window into
+`FutureEq`.  Quotient uniqueness and uniqueness of Image factorization prove
+the two inverse laws, yielding `realizedMeaningIso` and its explicit
+`realizedMeaningEquiv`.  A second uniqueness argument checks
+`toMeaning-step`, so the equivalence respects the installed actions.
+
+Yield: kernel equality has now earned a checked equivalence witness, not a
+type hash or an asserted identification.  The precise obstruction is
+asymmetric: without closure the complete quotient still maps to the bounded
+image, but the bounded image cannot map back canonically because a bounded
+fiber may contain several complete futures.
+
+Gate: standalone `ObservableHorizon`, the Cubical aggregate, and
+`sh formal/check.sh` all exit zero.  The emitted `UnsupportedIndexedMatch`
+warnings are pre-existing in imported modules; this adapter introduces none.
+
+Resume: add the observation coordinate and arbitrary-word run law.  These
+should follow from the empty bounded word plus the checked step law.  If any
+additional quotient or choice assumption appears, stop and record it rather
+than calling the carrier equivalence a machine equivalence.

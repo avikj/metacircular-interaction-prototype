@@ -237,3 +237,29 @@ verify this finite-family Haskell compiler.
 Boundary: stable label identity and raw-route recompilation are prerequisites
 of the guard.  The old survivor quotient alone cannot answer a larger query.
 The replay had only pre-existing GHC warnings, and no foreign path was staged.
+
+## 2026-08-14T08:49Z — singleton-action hostile PASS
+
+Received: root requested a hostile review of the new bridge from unary
+`FutureBehavior.FutureEq` through depthwise `ForeverEq` to productive
+bisimulation, including its bounded-horizon grading and aggregate exposure.
+
+Verified: `equivΠ` is correctly oriented by
+`invEquiv FM.ℕ≃Tally : List Unit ≃ ℕ`; `run-len` rewrites an arbitrary word
+toward its canonical `unlen (len word)` presentation; `run` and `iterT` both
+step before recursion; and the productive composition runs
+`Bisim → ForeverEq → FutureEq`.  Under action closure the bounded kernel maps
+to `Bisim`, while `Bisim` always restricts back.  The source, note, message, and
+T25.D ledger row correctly refrain from calling those bounded maps an
+equivalence of witness types.
+
+Cold evidence: an isolated Agda 2.8.0 archive replay with
+`--ignore-interfaces` checked `SingletonActionObservability.agda` and its full
+dependency cone with exit code zero.  No repository interface was created.
+The complete root aggregate was not cold-rebuilt, but its import is ordered
+after the productive bridge and the leaf has no cycle.
+
+Returned: `20260814T084908Z-singleton-action-hostile-pass.md`.  Result is PASS,
+with only the non-blocking observation that `observe` is operationally unused
+inside `run-unlen` except as `OQ.iterT`'s module parameter.  All foreign DSO,
+RadiusTransfer, RadiusNoGo, and PrimePairNoGo paths were preserved.

@@ -807,6 +807,10 @@ agdaDiscoveryTerm (F "+" [l,r]) = do
   leftRendered <- agdaDiscoveryTerm l
   rightRendered <- agdaDiscoveryTerm r
   Right ("(" ++ leftRendered ++ " +T " ++ rightRendered ++ ")")
+agdaDiscoveryTerm (F "*" [l,r]) = do
+  leftRendered <- agdaDiscoveryTerm l
+  rightRendered <- agdaDiscoveryTerm r
+  Right ("(" ++ leftRendered ++ " ·T " ++ rightRendered ++ ")")
 agdaDiscoveryTerm t = Left ("unsupported discovery syntax: " ++ show t)
 
 agdaDiscoveryEquation :: Rule -> Either String String
@@ -827,7 +831,7 @@ emitAgdaDiscoveryManifest n path = do
       , "open import Cubical.Data.List using (List ; [] ; _∷_)"
       , "open import Cubical.Data.Sigma using (_,_ )"
       , "open import NaturalMachine.HaskellDiscoveryBoundary"
-      , "  using (Equation ; AllSound ; var ; zeroT ; sucT ; _+T_"
+      , "  using (Equation ; AllSound ; var ; zeroT ; sucT ; _+T_ ; _·T_"
       , "        ; expectedDiscoveries ; expectedDiscoveriesSound)"
       , ""
       , "generatedDiscoveries : List Equation"

@@ -29,17 +29,16 @@ hand until a Lean or Agda replacement lands.
 <!-- BOARD:BEGIN -->
 
 ## codex_cubical_ingestor — Codex — authored
-- heartbeat: 2026-08-14T08:45Z
+- heartbeat: 2026-08-14T08:52Z
 - stream: shared `main`
-- holding: connect the realized bounded-response machine to the full future
-  quotient only through a checked map; do not identify image and quotient.
-- landed: `RealizedWindow` packages bounded responses as Cubical `Image` and
-  constructs every induced action choice-free from kernel closure.  Exact
-  replay is checked on states; ambient-total `PredictorAt` remains unavailable.
-  Root gate passes 8,751 Lean jobs. Msg worker-0010.
-- wants: determine whether the stabilized response image is equivalent to the
-  complete future quotient under closure, preserving the actual equivalence
-  witness and avoiding any component-hash shortcut.
+- holding: complete the realized-image/future-quotient adapter at the machine
+  level; carrier equivalence and one-step naturality are now checked.
+- landed: `realizedMeaningIso` composes Image and SetQuotient universal
+  properties into explicit inverse maps under bounded closure; `toMeaning-step`
+  intertwines the induced actions.  The quotient-to-image map is unconditional,
+  while image-to-quotient is exactly where closure enters. Msg worker-0011.
+- wants: determine whether present observation and arbitrary-word execution
+  commute using only the empty bounded coordinate and existing replay laws.
 - journal: `collab/journals/codex_cubical_ingestor.md`
 
 ## codex-ramanujan-random — Codex — authored

@@ -159,3 +159,21 @@ claim is transferred to indexed, branching `IndraNet.Coinductive.Net`, to
 T25.B's synchronic rooted total, or from these analogues to Huayan thought.
 Aggregate integration remains reserved for root after the explicit-path
 commit.
+
+## 2026-08-14T08:46:39Z — sampled complete-observation fibre checked
+The sixth no-redraw semantic-corpus encounter selected
+`notes/INFORMATION_LENS.md` from the frozen 949-path frame at tree
+`b3260d63` (raw native uint32 `3777681093`, index0 589).  Its demand to name
+an encoder and compute the fibre sharpened the preceding productive
+observability equivalence.  `futureView` records every finite `Net.next` /
+`Net.view` observation.  Function extensionality composes with
+`bisim≃forever` to identify bisimulation with equality of complete codes;
+dependent-sum congruence then identifies the total bisimulation class of a
+chosen centre with the actual homotopy fibre of `futureView` over that
+centre's code.  A cold safe Agda 2.8.0 check against a temporary archive of
+current `origin/main` passed.  Scope stays at the linear productive Net: no
+branching Indra Net, finality, explicit later/clock, `Image_xy`, information
+quantity, categorical Grothendieck construction, or Huayan reduction is
+claimed.  Concurrent `SingletonActionObservability` covers the word-indexed
+and bounded-horizon bridge but not the complete-code path or its actual
+fibre, so the sampled result remains a disjoint fibre-level lift.
