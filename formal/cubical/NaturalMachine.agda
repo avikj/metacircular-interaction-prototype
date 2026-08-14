@@ -492,6 +492,7 @@ import NaturalMachine.ExactTwoStateInstrument
 import NaturalMachine.ExactHadamardInterference
 import NaturalMachine.ExactProjectivePhase
 import NaturalMachine.ExactProjectiveCircuits
+import NaturalMachine.ConstructiveBornNormalization
 import NaturalMachine.HadamardReadoutInstrument
 import NaturalMachine.SequentialHadamardReadout
 import NaturalMachine.ExactLocalJointSeparation
