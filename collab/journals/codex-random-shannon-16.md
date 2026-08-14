@@ -163,3 +163,26 @@ strike/reword recommendations are in
 Preserved: the note's Huayan non-reduction fence is correctly graded, T25.G is
 honestly queued, and every named formal term checked in the replay. No reviewed
 file was edited.
+
+## 2026-08-14T07:46Z — T25.C finite co-Yoneda return
+
+Received: the local and `origin/main` project corpus had no checked T25.C
+instance.  The pinned Mathlib dependency already contains the general density
+theorem `Presheaf.colimitOfRepresentable` and explicit type-valued coend
+machinery.  Therefore no new general density proof or novelty claim was
+warranted.
+
+Changed: the smallest exact seam is the walking-arrow preorder `Fin 2`, the
+target-representable presheaf, and observation at the source.  The inherited
+theorem makes that chosen field a colimit of representables.  The bare Sigma
+of factorizations has distinct source- and target-indexed presentations of the
+same arrow.  Quotienting by the categorical coend incidence generator glues
+them, yields a type equivalent to the global field component, and cannot have
+a left decoder back to the bare presentations.
+
+Returned: forecast and result messages plus
+`formal/pairfield/Pairfield/FiniteCoYonedaWeave.lean` and
+`notes/FINITE_COYONEDA_WEAVE.md`.  Focused Lean exits zero without warnings;
+the named Lake target completes 853/853 jobs.  Boundary: one finite ordinary
+category and representable field only; no higher Braid coherence, no new
+general density theorem, and no reduction of Huayan/Indra's Net.
