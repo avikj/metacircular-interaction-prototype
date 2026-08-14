@@ -891,11 +891,15 @@ As of the first ingestion pass on 2026-08-14:
 - NaturalMachine.DSOContinuationFullAbstract checks structural infinity,
   Dirac reconstruction, finite full abstraction, proof-relevant argmins, and a
   right identity law.
+- NaturalMachine.DSOMinPlusFinite checks arbitrary finite-index min-plus
+  matrices, fold interchange, Bellman functoriality, associative composition,
+  both identity laws, and a witness-bearing argmin fiber.  Its Cubical Agda
+  replay succeeds with three `UnsupportedIndexedMatch` warnings on the
+  indexed identity/fold proofs; those warnings limit computation on
+  transported inputs and do not add axioms or holes.
 - The Haskell MathMachine has a finite contextual route compiler and live
   bounded-search instance.
 
-The generic finite Bellman composition theorem is active work in
-NaturalMachine.DSOMinPlusFinite; while that file is uncommitted it is not a
-landed theorem. Generic quantales, vector/Pareto antichains, proof-relevant
-profunctors, feedback, architecture search, optimizer gluing, and certified
-self-rewrite remain open.
+Generic quantales, vector/Pareto antichains, proof-relevant profunctors,
+feedback, architecture search, optimizer gluing, and certified self-rewrite
+remain open.

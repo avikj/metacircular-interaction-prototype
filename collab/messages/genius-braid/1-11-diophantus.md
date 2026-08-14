@@ -232,3 +232,261 @@ an invented yes/no probe changes both the observation map and its error model.
 No selected source specifies a finite library of shadow tests, a monetary or
 material cost, or a global cover objective. Thus the gnomon route supplies a
 model-sensitive observation interface but no historical test-cover instance.
+
+## Step 3 — What combinatorial optimization already knows
+
+The repository had already corrected its local phrase “contextual dimension”
+to the standard **minimum test cover / minimum test collection** problem in
+`notes/MINIMAL_SIGNAL_FOR_A_FINITE_LANGUAGE_EXTENSION.md` and message 0415.
+Given states `X` and allowed binary tests `A subseteq 2^X`, the universe for
+set cover is the unordered-pair set `binom(X,2)`; a test covers precisely the
+pairs it separates. Categorical instrument readings instead form partitions,
+and charging separately for their outcome fibers changes the problem.
+
+This terminology is mature. Katona defines separating systems exactly by the
+“contains one but not the other” condition and studies size restrictions
+([Katona 1966](https://real.mtak.hu/21125/)). Minimum Test Collection is hard
+to approximate within `o(log n)` unless `P=NP` in the general allowed-test
+model ([Halldorsson, Halldorsson, and Ravi 2001](https://doi.org/10.1007/3-540-44676-1_13)).
+General set cover has the familiar logarithmic approximation threshold under
+its stated complexity hypothesis ([Feige 1998](https://courses.cs.duke.edu/cps296.2/spring07/papers/p634-feige.pdf)),
+and Lovasz bounded integral versus fractional hypergraph cover by a logarithm
+in maximum degree ([Lovasz 1975](https://www.sciencedirect.com/science/article/pii/0012365X75900588)).
+LP and SDP hierarchies can systematically strengthen a declared 0–1
+formulation and have finite convergence guarantees in finite Boolean settings,
+but only after the variables and constraints exist ([Lasserre 2002](https://people.eecs.berkeley.edu/~jordan/sail/readings/archive/lasserre-2.pdf)).
+None of these results manufactures the astrolabe's admissible tests or loss
+function.
+
+### The unrestricted-cut special case
+
+Diophantus asks for one special case closed completely. Let `X` have `n >= 2`
+states. Every bipartition of `X` is available at unit cost as a binary test;
+complementary subsets are the same test. We must choose tests separating every
+pair.
+
+**Theorem 1 (exact integer and fractional optima).** For the unrestricted
+binary test system,
+
+```text
+OPT_int(n) = ceil(log_2 n),
+OPT_LP(n)  = binom(n,2) / floor(n^2/4).
+```
+
+Consequently the standard covering LP has exact gap
+
+```text
+ceil(log_2 n) * floor(n^2/4) / binom(n,2),
+```
+
+which grows as `(1/2) log_2 n`.
+
+**Integer proof.** `k` tests give each state a `k`-bit membership word. Pair
+separation is exactly injectivity of this code, so `2^k >= n`. Conversely,
+assign the `n` states distinct words of length `ceil(log_2 n)` and take each
+coordinate as a test. This gives equality. The unrestricted value
+`ceil(log_2 n)` is standard separating-system mathematics; no novelty is
+claimed ([Scott and Wood, *On separating systems*](https://people.maths.ox.ac.uk/scott/Papers/separating.pdf)).
+
+**Fractional proof.** Give every cut `C` a nonnegative weight `x_C`; for each
+pair require the sum of weights of cuts separating that pair to be at least
+one. Summing all pair constraints gives
+
+```text
+sum_C x_C |C|(n-|C|) >= binom(n,2).
+```
+
+Every cut separates at most `floor(n^2/4)` pairs, so every fractional solution
+has weight at least `binom(n,2)/floor(n^2/4)`. Equality is attained by assigning
+equal weight to all maximum balanced cuts. Symmetry makes their total weight
+on each pair equal; double-counting cut-pair incidences gives exactly the lower
+bound. Thus this is the LP optimum, not merely a feasible value.
+
+For the fully explicit Diophantine instance `n=5`, three coordinate cuts are
+necessary and sufficient, while the fractional optimum is
+`binom(5,2)/6=5/3`; the exact gap is `3/(5/3)=9/5`. No numerical search is
+involved.
+
+This gap has a precise interpretation and a precise limit. A fractional cover
+weight is a dual lower-bound object; it is not a collection of measurements,
+does not return a bit string, and has no decoder. Higher LP/SDP levels may
+tighten the bound, but in this special case the explicit binary code already
+solves the integer problem. Invoking a hierarchy would add machinery without
+adding a result.
+
+### Erdos resists with random cuts
+
+Now choose `k` tests independently, putting each state on either side with
+probability `1/2`. Each state receives an independent uniform word in an
+alphabet of size `m=2^k`. Therefore the probability of separating all states
+is exactly
+
+```text
+P_success(n,k) = (m)_n / m^n                 when n <= m,
+                 0                           when n > m.
+```
+
+Using `1-u <= exp(-u)`,
+
+```text
+P_success(n,k)
+  = product_{i=0}^{n-1} (1-i/m)
+ <= exp(-n(n-1)/(2m)).
+```
+
+Hence a success probability at least `1/2` necessarily requires
+
+```text
+2^k >= n(n-1)/(2 ln 2),
+```
+
+so naive independent random cuts require about `2 log_2 n` tests for constant
+success probability. Conversely the union bound gives
+
+```text
+P_failure <= binom(n,2)/2^k,
+```
+
+so `2^k >= n(n-1)` suffices for success probability at least `1/2`. This is
+the demanded probabilistic lower/upper window, but it concerns the random
+architecture, not the deterministic optimum.
+
+The exact disagreement is now falsifiable:
+
+- Diophantus says the all-cuts problem is a coding problem and closes it with
+  `ceil(log_2 n)` structured coordinates.
+- Erdos says an unstructured random family should expose a generic existence
+  principle. It does, but the collision calculation proves that this family
+  pays an asymptotic factor two in test count at constant reliability.
+
+Thus randomness does not recover the optimum architecture here. The claim can
+be checked directly against the displayed falling-factorial probability; it
+is not a judgment about style.
+
+### Why hardness does not enter this special case
+
+The general minimum-test-collection hardness result concerns a supplied,
+restricted test family. Allowing every cut destroys that hardness because a
+binary labeling constructs an optimum immediately. Conversely, historical
+instruments supply highly restricted, structured, often multivalued
+observations. One cannot import the unrestricted answer until proving that
+the physical observation family realizes those cuts, and one cannot import
+general hardness until encoding a family and approximation-preserving
+reduction. Neither bridge is present.
+
+## Step 4 — The Delta-26 gauntlet
+
+Let `T` be a selected finite family of allowed binary tests on hidden state
+`X`, and write
+
+```text
+sigma_T : X -> {0,1}^T
+sigma_T(x)(q) = 1 iff x is in q.
+```
+
+The all-pairs objective says exactly that `sigma_T` is injective. This lets the
+modern special case meet each DSO object without pretending that it already
+models an astrolabe.
+
+### Continuation transformer
+
+Each concrete `T` exposes a boundary `{0,1}^T` and a deterministic costed
+relation from a hidden state to its observation word. A decoder or future task
+is a continuation out of that boundary. If `sigma_T` is injective, every
+function on `X` factors through the word; if not, only functions constant on
+its fibers do. This is exactly Delta 26's coarsest-interface theorem and task
+set `Tasks(sigma_T)`.
+
+The physical instrument changes the carrier: for an astrolabe the output
+depends on latitude plate, date/configuration, alignment, and an altitude or
+scale reading; for a gnomon it includes a shadow length and observational
+context. A truthful DSO carrier would therefore begin with a dependent
+configuration such as
+
+```text
+Config = Sigma(location/latitude, calibrated realization at that context),
+```
+
+not a naked finite set of cuts. No such finite carrier is supplied by the
+selected sources, so no instrument continuation transformer is asserted.
+
+### Proof-relevant composition before infimum
+
+A concrete implementation contains the chosen tests, proof they are admissible
+instrument operations, the produced word, and a decoder proof. These pieces
+must compose before minimizing test count. The LP vector `(x_C)` has no word
+type and no decoder witness; it is a decategorified lower bound on the
+selection problem. Treating `OPT_LP < 2` as a cheap measuring device would be
+exactly premature infimum.
+
+This is the main Natural Machine consequence of Theorem 1: a relaxation bound
+and an executable observation architecture live in different realization
+fibers until a certified rounding/realization map relates them.
+
+### Contextual interface and dominance
+
+If `T subseteq T'`, projection forgets the extra coordinates, so
+`sigma_T = projection o sigma_T'`. Therefore every exact task supported by
+`T` is supported by `T'`; the finer interface contextually dominates for the
+declared family of factored tasks. But a scalar preference still requires the
+acquisition, construction, calibration, error, and continuation costs. An
+extra star pointer or ring may increase material fragility while increasing
+task support. Test inclusion alone proves option monotonicity, not Pareto
+dominance for the physical instrument.
+
+### Architecture regret and curvature
+
+Two conditional regret statements are exact:
+
+1. restricting the deterministic architecture to fewer than
+   `ceil(log_2 n)` arbitrary cuts gives infinite regret for any continuation
+   requiring exact identification, because that endpoint behavior is
+   infeasible;
+2. restricting the design rule to independent random cuts under a declared
+   reliability `P_success >= 1/2` forces about twice the structured test count,
+   by the bounds above.
+
+The LP integrality gap by itself is **not** architecture regret: the fractional
+point has not been given operational semantics as an implementation. Nor is
+the gap Delta 26 dependency curvature or update holonomy. No pair of local
+instrument rewrites and no common target continuation transformer has been
+specified. Calling an integrality gap “curvature” would only rename it.
+
+### Option value
+
+The option value is exact but set-valued: `Tasks(sigma_T)` consists of the
+future functions constant on current observation fibers. Refinement can only
+enlarge this set, and injectivity reaches all functions on `X`. There is no
+intrinsic scalar option price until a future-task family or probability/cost
+functional is declared. This agrees with the drawn mod-5 predictive quotient:
+four response classes are task-relative capability, while the fifth
+constructor label is not automatically useful memory.
+
+### Merge decision
+
+**DSO reuse/refusal; no core edit.** The exact carrier/map/operation that
+survived is the finite evaluation interface
+`sigma_T : X -> Bool^T`, selection cost `|T|`, and decoder continuation. The
+repository already identifies this as minimum test collection and already has
+the Delta-26 quotient/option laws. The new hand calculation is the basic-LP
+value for the unrestricted family and the collision threshold for an iid
+design rule. Neither is needed by a current Haskell or Agda consumer, and the
+historical sources do not provide an admissible physical test family. There
+is therefore no earned change to `MathMachine` or the Natural Machine Agda
+aggregate, and no core-edit request was sent to root.
+
+The refusal is falsifiable. A future source or reconstruction must give, at
+minimum:
+
+```text
+InstrumentConfig
+Realization : InstrumentConfig -> Type
+Observation : (c : InstrumentConfig) -> Realization c -> SkyState -> Reading
+Task        : Context -> SkyState -> Output
+Cost        : proof-relevant selected operations -> cost vector
+```
+
+together with a historically warranted admissibility/incidence table and an
+error model. Such data could turn the modern comparator into an actual DSO
+instrument-design fiber. Star counts, visual resemblance, or “no room” alone
+cannot.

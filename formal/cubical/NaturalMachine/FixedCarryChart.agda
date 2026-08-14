@@ -34,7 +34,9 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.Fin
   using (Fin ; fzero ; fone ; fsuc ; flast ; toℕ ; toℕ-injective)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
+open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Data.Sigma using (Σ≡Prop ; fst ; _,_)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.Digits
@@ -179,6 +181,111 @@ module FixedBridge (k n' : ℕ) where
   canonicalize-drop-natural w positive =
       cong B.normalizeMSD (canonicalize-is-toWord w positive)
     ∙ cong D.digitsC (cong D.value (toWord-dropMSD w))
+
+  ----------------------------------------------------------------------
+  -- Sharp naturality locus of the stagewise canonicalization.
+  ----------------------------------------------------------------------
+
+  -- Deleting the final digit of a nonempty canonical numeral strictly
+  -- lowers its value.  This is the load-bearing fact excluded by the
+  -- earlier single counterexample: a canonical word cannot be a nonzero
+  -- fixed point of normalized MSD deletion.
+  π-value-strict : (d : D.Digit) (w : D.Word)
+                 → D.Canonical (d ∷ w)
+                 → D.value (E.π (d ∷ w)) < D.value (d ∷ w)
+  π-value-strict d [] canonical =
+    subst (0 <_)
+      (sym
+        ( cong (toℕ d +_) (sym (0≡m·0 D.b))
+        ∙ +-zero (toℕ d) ))
+      canonical
+  π-value-strict d (e ∷ w) canonical =
+    toℕ d + D.b · D.value (E.π (e ∷ w))
+      ≡<⟨ cong (toℕ d +_)
+            (·-comm D.b (D.value (E.π (e ∷ w)))) ⟩
+    toℕ d + D.value (E.π (e ∷ w)) · D.b
+      <≡⟨ <-k+ (<-·sk {k = suc k} (π-value-strict e w canonical)) ⟩
+    toℕ d + D.value (e ∷ w) · D.b
+      ≡⟨ cong (toℕ d +_) (·-comm (D.value (e ∷ w)) D.b) ⟩
+    toℕ d + D.b · D.value (e ∷ w) ∎
+    where open <-Reasoning
+
+  normalizeMSD-fixed-zero : (u : D.CanWord)
+                          → B.normalizeMSD u ≡ u
+                          → D.valueC u ≡ 0
+  normalizeMSD-fixed-zero ([] , canonical) fixed = refl
+  normalizeMSD-fixed-zero (d ∷ w , canonical) fixed =
+    Empty.rec
+      (<→≢ (π-value-strict d w canonical)
+        ( sym (B.normalizeMSD-value ((d ∷ w) , canonical))
+        ∙ cong D.valueC fixed ))
+
+  -- A zero top place contributes nothing to evaluation, even though its
+  -- presence remains visible in the fixed-width carrier.
+  levelValue-zero-top : {m : ℕ} (w : LevelWord (suc m))
+                      → toℕ (w flast) ≡ 0
+                      → levelValue w ≡ levelValue (dropMSD m w)
+  levelValue-zero-top w top-zero =
+      cong D.value (toWord-snoc w)
+    ∙ B.value-snoc (toWord (dropMSD _ w)) (w flast)
+    ∙ cong (λ z → D.value (toWord (dropMSD _ w))
+                  + D.b ^ length (toWord (dropMSD _ w)) · z)
+        top-zero
+    ∙ cong (D.value (toWord (dropMSD _ w)) +_)
+        (sym (0≡m·0 (D.b ^ length (toWord (dropMSD _ w)))))
+    ∙ +-zero (D.value (toWord (dropMSD _ w)))
+
+  -- On the zero-top stratum, the square commutes at exactly one semantic
+  -- point: the lower word must evaluate to zero.  It may still contain
+  -- fixed-width leading zeroes; the theorem concerns the represented value,
+  -- not literal list equality.
+  zero-top-lower-zero→natural : {m : ℕ} (w : LevelWord (suc m))
+                              → toℕ (w flast) ≡ 0
+                              → levelValue (dropMSD m w) ≡ 0
+                              → B.normalizeMSD (canonicalize w)
+                                ≡ canonicalize (dropMSD m w)
+  zero-top-lower-zero→natural w top-zero lower-zero =
+      cong B.normalizeMSD
+        (cong D.digitsC (levelValue-zero-top w top-zero ∙ lower-zero))
+    ∙ cong D.digitsC (sym lower-zero)
+
+  zero-top-natural→lower-zero : {m : ℕ} (w : LevelWord (suc m))
+                              → toℕ (w flast) ≡ 0
+                              → B.normalizeMSD (canonicalize w)
+                                ≡ canonicalize (dropMSD m w)
+                              → levelValue (dropMSD m w) ≡ 0
+  zero-top-natural→lower-zero w top-zero natural =
+      sym (canonicalize-value (dropMSD _ w))
+    ∙ normalizeMSD-fixed-zero (canonicalize (dropMSD _ w))
+        ( cong B.normalizeMSD
+            (sym (cong D.digitsC (levelValue-zero-top w top-zero)))
+        ∙ natural )
+
+  NaturalityLocus : {m : ℕ} → LevelWord (suc m) → Type₀
+  NaturalityLocus {m} w =
+    (0 < toℕ (w flast)) ⊎ (levelValue (dropMSD m w) ≡ 0)
+
+  locus→canonicalize-drop-natural : {m : ℕ} (w : LevelWord (suc m))
+                                   → NaturalityLocus w
+                                   → B.normalizeMSD (canonicalize w)
+                                     ≡ canonicalize (dropMSD m w)
+  locus→canonicalize-drop-natural w (inl positive) =
+    canonicalize-drop-natural w positive
+  locus→canonicalize-drop-natural {m} w (inr lower-zero)
+    with ≤-split (zero-≤ {toℕ (w flast)})
+  ... | inl positive = canonicalize-drop-natural w positive
+  ... | inr zero≡top =
+    zero-top-lower-zero→natural w (sym zero≡top) lower-zero
+
+  canonicalize-drop-natural→locus : {m : ℕ} (w : LevelWord (suc m))
+                                   → B.normalizeMSD (canonicalize w)
+                                     ≡ canonicalize (dropMSD m w)
+                                   → NaturalityLocus w
+  canonicalize-drop-natural→locus {m} w natural
+    with ≤-split (zero-≤ {toℕ (w flast)})
+  ... | inl positive = inl positive
+  ... | inr zero≡top =
+    inr (zero-top-natural→lower-zero w (sym zero≡top) natural)
 
   chartN : LevelWord C.n → Fin C.N
   chartN w =
