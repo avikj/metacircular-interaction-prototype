@@ -45,3 +45,7 @@ Doing: `round1` now executes machine-state bounded searches and logs active vers
 ## 2026-08-14T09:34Z — finite atlas fixed-point compiler
 Believe: A connected atlas is not a product of chart choices. Spanning transports make the family a base-fibre element; holonomy loops state the exact residual coherence.
 Doing: Live machine atlases compile arbitrary assignments to common loop fixed points while retaining transported families and first failing loop witnesses. Four-chart/six-value control collapses 1296 assignments to 2 coherent families and retains 4 tears. Next: disconnected atlases require one base per component, not forced connectedness.
+
+## 2026-08-14T09:47Z — existing endian atlas enters live machine
+Believe: A generic compiler becomes mathematical only when an already-proved native action deforms its state. Endian reversal supplies real fixed points and real tears without analogy.
+Doing: Installed the existing two-bit `id,D,E,DE` action as the initial live atlas. The compiler replaces 256 arbitrary chart assignments by the two palindromic families and retains `01↔10` as two reversal holonomy failures. No theorem beyond Endian.agda is claimed.
