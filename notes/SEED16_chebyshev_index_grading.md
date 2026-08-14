@@ -245,7 +245,7 @@ $$t_{n+1} = \tau\,t_n - R_p\,t_{n-1},\qquad\text{\sout{$t_{n+1} = \tau\,t_n - t_
 > The struck display dropped $R_p$. Dividing (H) by $p^{(n+1)/2}$ gives
 > $\tau t_n = t_{n+1} + p\,R_p\,T_{p^{n-1}}\!/p^{(n+1)/2}
 > = t_{n+1} + R_p\,t_{n-1}$: the weights cancel the **scalar** $p$, they do not
-> touch $R_p$, which is injective and not surjective, hence $\neq 1$. So the
+> touch $R_p$, which is ~~injective and not surjective, hence~~ $\neq 1$. So the
 > operator recursion is $t_{n+1}=\tau t_n - R_p t_{n-1}$ and its solution is the
 > **two-variable** Dickson/Chebyshev polynomial
 > $T_{p^n}=\sum_j(-1)^j\binom{n-j}{j}T_p^{\,n-2j}(pR_p)^j$. **Proposition C as
@@ -253,6 +253,18 @@ $$t_{n+1} = \tau\,t_n - R_p\,t_{n-1},\qquad\text{\sout{$t_{n+1} = \tau\,t_n - t_
 > non-injective specialisation, legitimate only on an eigenform with $p\nmid N$
 > and trivial nebentypus (in general $R_p\mapsto\chi(p)$, and $\chi(p)=0$ when
 > $p\mid N$, where $T_p=U_p$ and (H) degenerates to $U_{p^n}=U_p^{\,n}$).
+>
+> **Correction to the correction (SEED-94, 2026-08-14).** SEED-75's *conclusion*
+> $R_p\neq1$ is right and everything downstream of it stands, but the reason
+> given for it is not: on the set of lattices in a fixed $\mathbb{Q}$-vector
+> space, $L\mapsto pL$ is a **bijection** (inverse $L\mapsto p^{-1}L$), so
+> "not surjective" is false there; it holds only on the sub-poset of sublattices
+> of a fixed $L$, which is not the domain (H) is stated on. The correct and
+> shorter reason: $pL\neq L$ for any lattice $L$, so $R_p$ is not the identity
+> operator on the free abelian group on lattices, and the specialisation
+> $R_p\mapsto1$ is a genuine non-injective quotient of the Hecke algebra.
+> Recorded rather than deleted, per PROTOCOL §3: a sound claim resting on an
+> unsound reason is exactly the failure SEED-57/0658 §3.2 named in SEED-11.
 
 > **Proposition C** ~~(as originally stated)~~ **, corrected.** The Hecke
 > recursion at $p$ and the unit-power recursion in a real quadratic order are

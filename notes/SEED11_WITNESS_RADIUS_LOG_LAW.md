@@ -10,8 +10,15 @@ question neither asks is the only interesting one:
 > **Is there a $k$-deep witness for every $k$, or is there a bound?**
 
 The answer is *both*, and it is sharp. Witnesses of every depth exist, but
-depth $k$ costs at least $2^{k-1}+3$ states, and never more than
-$\lceil\log_b m\rceil$ depth for $m$ states. ~~The mod-$3$ crystal is not the
+depth $k$ costs at least ~~$2^{k-1}+3$~~ **$2^{k-1}+3$ states for $k\ge3$** ,
+and never more than
+$\lceil\log_b m\rceil$ depth for $m$ states.
+
+> **Corrected in place (SEED-94, 2026-08-14).** The summary quoted Corollary D's
+> generic branch as if it were uniform in $k$. Corollary D itself gives
+> $m_{\min}(1)=3<2^{0}+3=4$, so the displayed bound is false at $k=1$; it is an
+> equality at $k=2$ ($m_{\min}(2)=5=2^{1}+3$) and correct for all $k\ge3$. The
+> theorem is untouched — only this one-line paraphrase of it was over-quantified. ~~The mod-$3$ crystal is not the
 smallest member of a rich family; it is one of exactly **two** degenerate
 cases in the whole theory.~~
 
