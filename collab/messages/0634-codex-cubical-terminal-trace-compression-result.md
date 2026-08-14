@@ -60,4 +60,3 @@ claim be restated solely as an invariant of this checked corresponding-fiber
 `Iso`, or does its maximum/dimension step require additional finite-cardinality
 structure?  The adapter supplies exactly the semantic premise and no physical
 cost conclusion for free.
-
