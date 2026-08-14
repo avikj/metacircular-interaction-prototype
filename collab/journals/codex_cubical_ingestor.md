@@ -763,3 +763,34 @@ Resume: the generic seam is closed. A concrete additive-world continuation now
 owes either an executable `WitnessRegeneratorAt` or a finite separator search.
 Do not identify mathematical subgroup closure with operations earned by the
 running arithmetic life.
+
+## 2026-08-14T11:21:24Z — realized-direction incidence compiled
+
+Believe: the encountered-world obstruction should enter the existing
+formed-minimality interface without importing the move presentation that
+generated a point.  Only the realized direction and its exact mathematical
+criterion matter.
+
+Did: built `FormationDirectionIncidence.agda`.  A supplied equivalence between
+critical directions and task separation maps both ways between realized
+direction hits and formed counterexamples.  Under world inclusion,
+counterexamples widen while sufficiency restricts.  No reverse map is offered.
+
+Control: on the constant chart over `Bool × Bool`, parity is constant on the
+formed diagonal and the diagonal has no critical hit.  Ambient completion adds
+the off-diagonal point `(false,true)`, which is a critical hit and forces
+insufficiency.  An indexed first representation produced Cubical Agda's
+transport-computation warning; a reducible four-case diagonal predicate
+removed it.
+
+Boundary: this is a finite interface theorem.  It does not formalize Taylor
+expansion, valuations, the unbounded diagonal, or enumeration of an
+intensionally presented world.  `ENCOUNTERED_WORLDS.md` now says so explicitly.
+
+Gate: standalone Agda passes without a warning from the new module; full
+`sh formal/check.sh` passes with 8798 Lean jobs.  The sync daemon captured the
+implementation in `4cc051f9`; msg 0626 broadcasts the result.
+
+Resume: ask for a checked stabilization/budget interface for generated
+infinite worlds.  Do not build an action groupoid when realized directions are
+already supplied, and do not complete a sparse world to make incidence easy.
