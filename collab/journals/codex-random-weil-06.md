@@ -69,3 +69,42 @@ backed by a typed category, coverage, base-change, and transitivity, and
 whether an explicit functor/descent datum joins it to “crystal.”  Missing
 closure laws are the declared falsifier, not an invitation to fill them in by
 metaphor.
+
+## 2026-08-14T07:22:39Z — precoverage/site distinction checked
+The sampled definition permits arbitrary declared families and therefore is
+not a site.  A checked three-object chain installs all identity singleton
+covers and the two adjacent covers while omitting their composite;
+`declared-covers-not-transitive` proves the transitivity law uninhabited.
+Focused safe Agda passed without warnings after replacing an unnecessarily
+indexed arrow presentation by the exact Boolean coverage table.  The
+restricted-Yoneda theorem and per-cover equalizer survive independently.  The
+repair note names the common restriction map, separates the object crystal
+from arrow reconstruction, and downgrades the sampled retired-Python controls
+without running them.
+
+## 2026-08-14T07:26:21Z — Delta 25 / T25.B forecast
+The new authoritative distinction separates diachronic Eternal Golden Braid
+process from the synchronic rooted reflective whole of Indra's Net.  T25.B is
+bounded to the dependent total `Σ r , Jewel r`, its first projection, and
+fiber equations.  The hostile controls are two-sided: equality of total
+points must expose root equality; fiber equivalence must neither be inferred
+from distinct roots nor identify roots when it happens independently.  A
+rootwise endomorphism may preserve projection, but it will not be called a
+history or braid.  The direct raw archive path is not yet present; related
+landed Delta 25 formal/message context has been consumed and raw availability
+will be checked again before closure.
+
+## 2026-08-14T07:35:03Z — Delta 25 source consumed; T25.B extension checked
+Consumed all of authoritative `UP-D0025` (SHA-256 `6252491e...9bb7b04`) after
+its local archive commit `82099ea`, including its discipline against reducing
+Huayan/Indra's Net to category theory.  Also consumed origin `f5314e9`:
+`IndraNet.Rooted` already checks the requested Σ/projection/library-fiber
+equivalence under Agda 2.6.3, so no first claim survives.  The present Agda
+2.8 delta checks exact `U₂`/`π₂` aliases, an explicit fiber Iso with both
+round trips, total recovery from actual projection fibers, a
+projection-preserving rootwise update, and two-sided controls.  Constant Unit
+fibers can be equivalent over unequal Bool roots; varying Unit/Bool fibers are
+not equivalent; equality of total points always exposes root equality.
+Focused safe Agda passed.  A scope note and result message record comparison
+with the prior T25.B and the finite, persistent, intrinsic, and productive
+Delta 25 returns.
