@@ -89,6 +89,16 @@ image refutes total preservation.  A Bool control distinguishes conservative
 state splitting from a new `true` response and derives
 `novel-square-impossible`.
 
+`InheritedResponseImage` supplies the exact constructive fork.  It takes an
+explicit predicate `Inherited : X' → Type` and requires the comparison square
+only on the subtype `Σ x', Inherited x'`; the same checked image transport is
+then recovered on precisely that subtype.  In the Bool control only `false` is
+inherited.  `localized-false-computes` checks preservation there, while the
+full revised `true` state still realizes the novel response and
+`true-absent-from-inherited-image` proves it was not silently imported into
+the inherited image.  Localization is thus a restriction of the law's
+quantifier, not an exception hidden inside a total square.
+
 The historical finite checker below was the original falsifier.  The Cubical
 module is now the load-bearing certificate.
 
