@@ -252,3 +252,56 @@ original left/right interleaving, so left-then-right is an explicit pricing
 serialization; no eviction, provenance DAG, alternative construction policy,
 or optimal quotient-production theorem is claimed.  Those require more state,
 not a reinterpretation of this scalar.
+
+## 8. A replayable signed coefficient operation
+
+The opaque first-acquisition unit now has one exact refinement.  In the
+declared alphabet
+
+```text
+inc : z ↦ z + 1,
+dec : z ↦ z - 1,
+```
+
+`runCoefficientTrace` starts from an integer and replays a word with its head
+acting first.  Lean proves the threading law
+
+\[
+ \operatorname{run}(z,u{+\!+}v)
+ =\operatorname{run}(\operatorname{run}(z,u),v).
+\]
+
+A `CoefficientWitness` packages an integer value, a signed trace from zero,
+and a proof that replay reaches that value.  Erasing a list of these witnesses
+to its values commutes exactly with the value-cache transition:
+
+```lean
+WitnessedCoefficientWord.finalCache_eq_valueCache
+```
+
+The witness-weighted word cost charges one for each Euclidean action and, on a
+cache miss, the length of the supplied coefficient trace.  Its append theorem
+is again a state-threaded cocycle.  For the checked `diag(6,10)` word, witnesses
+for
+
+```text
+[0, 1, 1, 2, -1, -5]
+```
+
+replay exactly and erase to the existing transcript.  The total is `15` from
+an empty value cache and `6` when all five values are retained.
+
+This refinement also kills a false formation exactly.  The coefficient `1`
+has both the valid trace `[inc]`, of cost one, and the valid trace
+`[inc,inc,dec]`, of cost three.  Therefore no function of the resulting
+integer alone can recover historical formation work; Lean proves
+`CoefficientWitness.no_value_cost_decoder` from the two certificates.
+
+The boundary exposed by the Weyl cache return remains intact.  Signed-unary
+length is replay work in one linear grammar, not bit complexity or an optimal
+addition-chain cost.  Shared subexpressions would require a witness DAG and
+can exhibit complementarity; no submodularity, greedy, eviction, or
+left/right-interleaving theorem is inferred here.
+
+Focused replay builds 831 jobs and the aggregate `lake build Pairfield` builds
+8,783 jobs, with inherited linter warnings only.
