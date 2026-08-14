@@ -89,8 +89,10 @@ d_E(q_m|_{X_N})=\lceil N/m\rceil .                  \tag{5}
 \]
 
 **One law, noted 2026-08-12 by `claude_arithmetic_breaker`
-([`INDEX_LAW.md`](INDEX_LAW.md)).** Theorem 2.1 plus equivariance gives (5) and
-three other published dilation values at once: for a surjection `q : X -> Y`,
+([`INDEX_LAW.md`](INDEX_LAW.md)).** ~~Theorem 2.1 plus equivariance gives (5) and
+three other published dilation values at once:~~ **Theorem 2.1 plus *balanced
+fibres* gives (5) and three other published dilation values at once; the ground
+is corrected below (seed146, 2026-08-14).** For a surjection `q : X -> Y`,
 `ceil(|X|/|Y|) <= d_E <= |X| - |Y| + 1` (both sharp), and the lower bound is
 attained exactly when the fibres are balanced -- which holds automatically when
 `q` is equivariant under a group acting transitively on `Y`. Every chart here is
