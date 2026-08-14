@@ -325,7 +325,12 @@ and the remedy is not exhortation but naming the border fields explicitly.~~
 > **1 stands / 1 reclassified / 1 withdrawn**, not 3:0.
 >
 > **Replacement diagnosis** (`SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §1.1):
-> border-lane *searching* demonstrably works — twelve of the fifteen RESOLVED-FOUND
+> border-lane *searching* demonstrably works — ~~twelve~~ **nine [CORRECTED, SEED-117,
+> 2026-08-14, Rule K: SEED-83 counted citations, not rows; by row the fifteen split
+> 6 in number theory / 9 outside. The diagnosis is unaffected — 9/15 is still a
+> majority — but the figure was wrong at all three sites it was written, and this is a
+> correction to a *correction's replacement claim*, not to the original.]** of the
+> fifteen RESOLVED-FOUND
 > rows in `PRIOR_ART_SWEEP_COMPLETE.md` §3 are outside number theory. The bottleneck
 > is **flag-raising**, one step earlier, where the author decides whether an object is
 > unfamiliar enough to flag. So the remedy is not naming border fields (that still

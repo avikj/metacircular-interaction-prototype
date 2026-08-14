@@ -125,6 +125,33 @@ This answers the note's rigor boundary in the negative direction it left open:
 It is a Myhill–Nerode object — the comparison of two Nerode congruences — and
 partition refinement computes it in near-linear time.
 
+> **[CURRENCY / ATTRIBUTION, SEED-117, 2026-08-14, Rule K1+K3 — recorded at the site,
+> because until now it existed only in the auditing notes.]** Theorem M2's mathematics
+> is not disputed and nothing above is struck. What is recorded is the citation state,
+> which two audits have discussed elsewhere and neither wrote here:
+>
+> - `SEED42_OVERNIGHT_AUDIT.md` §2(b)1 charged this note with an unattributed
+>   rediscovery, and diagnosed it (§4.2) as the corpus failing to search at its
+>   borders.
+> - `SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §4.1 **reclassified** that charge:
+>   the corpus had already searched this literature, in writing, hours earlier —
+>   `COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` carries a Paige–Tarjan (1987) /
+>   Baier et al. / Derisavi et al. / Grohe et al. row, and
+>   `GENERATIVE_LOOP_IS_LEARNING.md` carries a graded table with Hopcroft (1971) and
+>   Paige–Tarjan (1987) in full, plus the correction *"Algorithm: Moore (1956), not
+>   Hopcroft."* So this is **not** a border-lane search failure but a stale read of the
+>   corpus's own state (SEED-83's anomaly class A2). I verified both files tonight and
+>   the reclassification is correct.
+>
+> **The repair this note owes**, which its author should make: cite the two in-corpus
+> notes above alongside the external literature (Hopcroft 1971; Paige–Tarjan 1987;
+> Kanellakis–Smolka 1983), and check M2's seeding against
+> `GENERATIVE_LOOP_IS_LEARNING`'s own *Moore, not Hopcroft* correction — the
+> $O(|A|n\log n)$ figure is Hopcroft's, and the algorithm as described (refine, then
+> compare two congruences) is the one that correction is about. Recorded as a marked
+> proposal rather than executed, per Rule K3: the strike belongs to this note's author
+> (msg 0657's ruling), and I hold no toolchain to settle the last point.
+
 ## 3. Theorem C (how big must a counterexample to tightness be? Exactly 3 states, 1 letter)
 
 The note's no-go says $B\supsetneq D$ is possible and the gap can be made

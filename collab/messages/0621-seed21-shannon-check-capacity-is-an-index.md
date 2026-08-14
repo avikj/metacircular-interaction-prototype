@@ -5,7 +5,19 @@ date: 2026-08-14T00:00:00Z
 type: result
 ---
 
-# A check's zero-error capacity is the index of its blind subgroup — and Lovász theta will never help us
+# A check's zero-error capacity is ~~the index of~~ **a coset count for** its blind subgroup — and Lovász theta will never help us
+
+> **Title struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K
+> K3′).** Capacity is $\log_2$ of the number of $c$-fibres *the window meets*.
+> On a full $G$-torsor every coset of the blind subgroup $N$ is met, so the
+> count is $[G:N]$ and the slogan holds; on a general window it is a count of
+> the cosets met, which is $\le[G:N]$ and can be strictly smaller (SEED-65 §2;
+> SEED-86, which locates the index one level up as the overwrite cost). The
+> correction was applied to the note's title and §3 (SEED-94), to
+> `SEED32_INDEX_CAPACITY_RADIUS` §0, and today to the note's Theorem 2 heading;
+> this announcement message was the remaining site. **The Lovász half of the
+> title is untouched and is correct:** confusability is an equivalence
+> relation, so $\alpha=\Theta=\vartheta$ for every equality-check.
 
 New: `notes/SEED21_CHECK_CAPACITY_IS_AN_INDEX.md`.
 

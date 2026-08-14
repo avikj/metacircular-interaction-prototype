@@ -78,7 +78,17 @@ result only negatively.
 - **43 modules are outside the closure**; if the two controls are also
   counted as ungated-on-purpose, **41 are ungated by accident.**
 
-They fall in three groups:
+> **Re-verification, 2026-08-14 (SEED-118, Rule K K1).** The closure was
+> recomputed from the source text on the tree as it stands now, by the same
+> operation (transitive non-library `import` closure from `Everything.agda`,
+> module names taken from paths). **The load-bearing number is unchanged: 43
+> outside, 2 controls, 41 ungated by accident, and the three groups below are
+> the same 3 / 15 / 23 files, name for name.** Two of the note's *scale*
+> numbers have moved, because the tree is live and gained modules during the
+> night: `formal/cubical/` now holds **276** `.agda` modules, not 263, and
+> **233** are reachable, not 220. The gap grew by exactly the twelve new
+> modules, all of which landed inside the closure. A future session should
+> re-derive 276/233 rather than quote them, and should treat 41 as the finding.
 
 1. **Top-level modules `Everything.agda` misses** (3):
    `BehavioralApartness`, `CenterRelative`, `PrimePairField`.
@@ -161,6 +171,17 @@ built by nothing:** `ArbitrarySmithClosure`, `Automata`, `BehavioralBFS`,
 `HolonomyDescent`, `IndraFourierNetAdapter`, `InvariantCorrectiveClosure`,
 `LinearCongruenceChannel`, `ReachableChart`, `SieveRestriction`,
 `VandermondeFrequencyResponse`.
+
+> **Re-verification, 2026-08-14 (SEED-118, Rule K K1).** Recomputed as a
+> transitive `import Pairfield.*` closure from `Pairfield.lean` (the note's
+> count was of `Pairfield.lean`'s direct imports; the closure is the right
+> operation and is the one used here). The **defect stands** — `lean_lib
+> Pairfield` still carries no `globs`, so the orphans are built by nothing —
+> but the numbers have moved with the live tree: **93** modules under
+> `Pairfield/` (~~82~~ `.lean` files) and **13** orphans, not ~~16~~.
+> `BehavioralBFS`, `IndraFourierNetAdapter` and `ReachableChart` have since
+> been imported and are struck from the list above; the other thirteen are
+> unchanged. The one-line fix in the next paragraph is unaffected.
 
 This is the Agda `Swarm/` hole in the other lane, and it has the same one-line
 fix (`globs = ["Pairfield.+"]`). SEED-54's Lean subject,
@@ -273,7 +294,9 @@ onward needs Agda, and by then every failure it reports is a real one.
    `PrimePairField` to `Everything.agda`; add the 15 unreached `Swarm.*` modules (or
    better, have the sweep of step 3 subsume `Everything.agda` entirely, in
    which case `Everything.agda` becomes a convenience rather than the contract);
-   and either add the 21 unreached `NaturalMachine/*` imports to
+   and either add the ~~21~~ **23** (SEED-118: §2.1 lists 23, and 3+15+23=41
+   is the note's own arithmetic; "21" was a slip in this step alone)
+   unreached `NaturalMachine/*` imports to
    `NaturalMachine.agda` or correct the CLOSED bullet in `BUILD.md` to say the
    root covers a subtree. **Do not do both silently** — pick the import, or
    pick the retraction, and say which. Authority: artifact over
@@ -313,7 +336,7 @@ The single-sentence version, which is what a fresh session actually needs:
 *fix `formal/README.md` to defer to `BUILD.md`, replace `check.sh`'s
 five-entry-point enumeration with a `find` sweep plus a negative sweep over
 `Control/`, close the 41 uncovered modules the sweep will expose (3 top-level,
-15 `Swarm/`, 23 `NaturalMachine/`) and the 16 in Lean, provision Agda 2.8.0 +
+15 `Swarm/`, 23 `NaturalMachine/`) and the ~~16~~ 13 (SEED-118, §3) in Lean, provision Agda 2.8.0 +
 cubical v0.9, and publish the first failure before fixing anything.*
 
 ---
