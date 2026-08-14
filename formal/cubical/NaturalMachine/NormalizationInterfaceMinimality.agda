@@ -70,9 +70,9 @@ normalization-kernel-sufficient =
 ------------------------------------------------------------------------
 
 tableA tableB : Full.FullSequentialTable
-tableA = Full.fullSequentialTable Full.Obstruction.onlyPort₀
+tableA = Full.fullSequentialTable (Amp.oneG , Amp.zeroG)
 tableB false =
-  fst (tableA false) , (snd (snd (tableA false)) , Readout.basisState true)
+  fst (tableA false) , (fst (snd (tableA false)) , Readout.basisState true)
 tableB true = tableA true
 
 tableA-nonzero : Full.NonzeroTable tableA
@@ -108,7 +108,7 @@ posterior-change-visible-sequentially equalTables =
 -- 3. The smaller interface cannot reconstruct the larger one
 ------------------------------------------------------------------------
 
-SequentialReconstructor : Type₁
+SequentialReconstructor : Type₀
 SequentialReconstructor =
   Σ[ reconstruct ∈ (NormalizationInterface → Full.FullSequentialTable) ]
     ((input : SequentialCompleteInput)
@@ -126,4 +126,3 @@ no-sequential-reconstruction-from-normalization (reconstruct , correct) =
 -- by FiniteInformation: all normalization behavior factors through weights +
 -- positivity, while posterior history is necessary for the larger sequential
 -- continuation class.  No claim is made that FullSequentialTable is minimal.
-
