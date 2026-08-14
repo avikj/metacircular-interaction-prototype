@@ -987,3 +987,20 @@ Resume: construct a reverse traversal that returns the supplied `Policy` and
 prove its expansion count.  Do not merge current-pair suffix semantics with
 root replay provenance, and consult strict refinement before paying candidate
 construction cost if a discovery saving is claimed.
+
+## 2026-08-14T20:18:00Z — reverse traversal construction forecast
+
+Forecast before implementation, continuing R0072: `0.68` the existing
+duplicate-free `VisitedReach` engine can run on one reverse product automaton
+whose synthetic source seeds terminal response-separated pairs and whose
+predecessor moves reverse one original action.  Every unequal pair of a finite
+reduced DFA should then be reached by reversing any separator, each reverse
+state should enter the queue once, and total expansions should be at most
+`card(X)^2 + 1`.  `0.22` the construction works but the extra source cannot be
+removed without changing the generic single-start traversal interface.  `0.10`
+the reverse certificate order fails to compose with `DFA.evalFrom_of_append`.
+
+The intended gain is aggregate discovery: one queue replaces all independent
+root-pair searches.  The first result need only build and bound that traversal;
+extracting its retained node words into the already checked `Policy` may remain
+a separate adapter if the proof-relevant lookup is nontrivial.
