@@ -485,6 +485,22 @@ theorem exists_inventory_edge_path_of_ne [LinearOrder X] [Fintype X]
     reverseEdgeCertificate_mem_inventory M alphabet complete pair word hseparates,
     reverseEdgeCertificate_reaches M pair word hseparates⟩
 
+/-- The same finite-reduced witness theorem with the causal path invariant
+exposed rather than only its endpoint evaluation. -/
+theorem exists_inventory_chained_path_of_ne [LinearOrder X] [Fintype X]
+    [DecidableEq A] (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet)
+    (reduced : BehaviorallyReduced M) (pair : X × X)
+    (hne : pair.1 ≠ pair.2) :
+    ∃ edges : List (ReverseEdge M),
+      (∀ edge ∈ edges, edge ∈ edgeInventory M alphabet) ∧
+      EdgeTrace.Chained M .source edges (.pair pair) := by
+  obtain ⟨word, _hword, hseparates⟩ :=
+    exists_completeWord_separator M alphabet complete reduced hne
+  exact ⟨reverseEdgeCertificate M pair word hseparates,
+    reverseEdgeCertificate_mem_inventory M alphabet complete pair word hseparates,
+    reverseEdgeCertificate_chained M pair word hseparates⟩
+
 /-- Remove and return the first bucket for one expanded source. -/
 def takeBucket (state : SourceState X) :
     List (SourceBucket M) → List (ReverseEdge M) × List (SourceBucket M)
@@ -1191,6 +1207,32 @@ theorem indexedTraversal_nodes_chained [LinearOrder X] [Fintype X]
   simpa [indexedTraversal] using
     runQueue_nodes_chained M (edgeInventory M alphabet)
       (Fintype.card X * Fintype.card X + 1)
+
+/-- Exact completeness at the native policy boundary: every unequal pair in
+a finite reduced chart has a retained, causal, inventory-resident witness
+node in the closed queue. -/
+theorem exists_closed_indexed_node_of_ne [LinearOrder X] [Fintype X]
+    [DecidableEq A] (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet)
+    (reduced : BehaviorallyReduced M) (pair : X × X)
+    (hne : pair.1 ≠ pair.2) :
+    ∃ node ∈ (indexedTraversal M alphabet).closed,
+      NodeChained M node ∧ node.state = .pair pair := by
+  obtain ⟨edges, hinventory, hchain⟩ :=
+    exists_inventory_chained_path_of_ne M alphabet complete reduced pair hne
+  have hpair :
+      SourceState.pair pair ∈ (indexedTraversal M alphabet).states :=
+    indexedTraversal_covers_chained M alphabet hchain hinventory
+  have hfrontier := indexedTraversal_frontier_eq_nil M alphabet
+  simp only [IndexedQueue.states, IndexedQueue.nodes, hfrontier,
+    List.append_nil, List.mem_map] at hpair
+  obtain ⟨node, hclosed, hstate⟩ := hpair
+  refine ⟨node, hclosed, ?_, hstate⟩
+  apply indexedTraversal_nodes_chained M alphabet node
+  change node ∈ (indexedTraversal M alphabet).closed ++
+    (indexedTraversal M alphabet).frontier
+  rw [hfrontier, List.append_nil]
+  exact hclosed
 
 /-- Charged edge attempts are at most the genuine inventory payload. -/
 theorem indexedTraversal_attempts_le_inventory [LinearOrder X] [Fintype X]
