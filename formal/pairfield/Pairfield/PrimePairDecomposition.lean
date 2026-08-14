@@ -65,7 +65,8 @@ theorem primePairDecompositionLoss :
 
 /-- The same actual witness installed in the common finite pair carrier. -/
 def endpoint04SevenPair : BoundedPrimePair 11 :=
-  mkBoundedPrimePair (by decide) (by decide) (by decide) (by decide)
+  mkBoundedPrimePair (X := 11) (p := 7) (q := 11)
+    (by decide) (by decide) (by decide) (by decide)
 
 @[simp] theorem endpoint04SevenPair_center :
     pairCenter endpoint04SevenPair = 18 := rfl
