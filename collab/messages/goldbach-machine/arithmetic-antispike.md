@@ -14,7 +14,9 @@ generic Fourier-spike countermodel omits.  For a *specified* Siegel-zero
 self-pair, its secondary term has exactly the same sign on every multiple of
 the conductor, and it recurs at `asymp X/r` centers.  If
 `r <= X^(2/5-delta)`, this is more than the `X^(3/5+epsilon)` minor-arc
-exception budget.  This is the one rigorous arithmetic anti-spike found.
+exception budget.  This is the one rigorous **self-pair packet-coherence**
+anti-spike found.  It propagates that specified packet, not the full Goldbach
+coefficient, complete zero sum, or minor residual.
 
 It does not apply to an arbitrary bad center.  Present results do not infer
 from one order-`X` coefficient either a dominating real-zero packet or a
@@ -31,9 +33,10 @@ does so only after a separate pointwise lower bound for the full zero-mode
 major term.  Current primary theorems establish that positivity only away
 from an exceptional collection, not at a prescribed center.
 
-The exact missing arithmetic statement is the local signed correlation
-inequality `(AC)` in section 4.  No audited primary result proves it.  No
-Goldbach claim and no core edit are made.
+The exact missing full-coefficient interface is `(ZM)+(TR)+(AC)` in sections 1
+and 4: prescribed-center positivity, one-sided transport to a common carrier,
+and local signed correlation there.  No audited primary result proves this
+interface.  No Goldbach claim and no core edit are made.
 
 ## 1. Logarithmic and power cutoffs are different carriers
 
@@ -192,7 +195,8 @@ from `O_epsilon(X^(3/5+epsilon))` centers.  Therefore, if
 
 then (12) is `gg X^(3/5+delta)` and, on taking `epsilon<delta`, many of those
 coherent packet values survive the exceptional set.  This is an actual
-arithmetic propagation calculation.  At the boundary
+self-pair packet-coherence calculation, not propagation of the full Goldbach
+coefficient or residual.  At the boundary
 `tilde r asymp X^(2/5)`, however, (12) is only `asymp X^(3/5)`, exactly the
 minor-arc exceptional scale; it need not leave even one certified center.
 Bhowmik--Grimmelt Theorem 8.2 uses `X=tilde r^A`, `A>5/2`, precisely so that

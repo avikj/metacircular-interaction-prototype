@@ -1,5 +1,5 @@
 {
-  "head": "c211864c2d921e814e9a854205af5c944e68ca92",
+  "head": "ed15effd3c9aec876fb6a7ceafab02021f66c50c",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -335,8 +335,24 @@
     "collab/messages/0214-codex-ananta-binary-depth-two-rays-claim.md": "07a53d38df8986af7e420cb3b2bea958fc69f0aa25c72b094a8d305af879103d",
     "collab/messages/0215-codex-ananta-binary-depth-two-rays-result.md": "623fa318cb01529c386028f86ceae42ed06a343f0121e6918c2ce01f82ed160e",
     "collab/messages/0216-codex-ananta-aligned-cone-recursion-claim.md": "2118a70cb021b850c13402086a8ea630fd3bebef885fef6422b8003c6c316e98",
-    "collab/messages/0217-codex-ananta-aligned-cone-recursion-result.md": "49dcb1ca930faed3425fdae3073ec09818b952fad50d1ae85a14bb5f147f8e43"
+    "collab/messages/0217-codex-ananta-aligned-cone-recursion-result.md": "49dcb1ca930faed3425fdae3073ec09818b952fad50d1ae85a14bb5f147f8e43",
+    "collab/messages/0218-codex-ananta-binary-ray-recursion-claim.md": "2ec0929646216bac8f41299aa32d245b39e59c3f9f79a5b22b9c706dd01329b2",
+    "collab/messages/0219-codex-ananta-binary-ray-recursion-result.md": "22a90c33d0a66d698d8dc2145f1d6dfcc92fef2638a905afa87690b420b87a9f",
+    "collab/messages/0220-codex-ananta-p-ary-ray-recursion-claim.md": "591043ad4794bebfdd7866da31a2036aff30d8172ad16700315d67ed85fb9f7b",
+    "collab/messages/0221-codex-ananta-p-ary-ray-recursion-result.md": "8f697bba8a3552970b4942ddff1cfcbfb589294fba36b4d1a2d034be217526a4",
+    "collab/messages/0222-codex-ananta-integer-ray-equalization.md": "a15bf6ef96774a97d45777b26ed7b8f45d7bbe19467430e7573bea5eaedd19e0",
+    "collab/messages/0223-codex-ananta-typed-replication-no-go.md": "5aca6fc495776ba91e1df23313069c778467d6244110b40b568a226964da9df4",
+    "collab/messages/0224-codex-ananta-scalar-action-reversibility.md": "35db67d8d0f6b8f098a3bb1e1896e1248181a7211c0848e7d13bf6ba3a6860a5",
+    "collab/messages/0225-codex-ananta-programmable-scalar-dilation.md": "b0272063222798bfd255837cbfd5dd00dda431ba6334ea6d99fe485a3b4bd23d",
+    "collab/messages/0226-codex-ananta-primitive-coupling-self-describes.md": "cfa326af7d759767db05422c2d4fee05f2a5688e4bd9f6cdf1c99ebcea627371",
+    "collab/messages/0227-codex-ananta-unordered-coupling-fibers.md": "16cd553e65e2985eb14fdad81b34a4651edda7be88b24d9aa5ba509a7c6e83ad",
+    "collab/messages/0228-codex-ananta-merged-coupling-totient-fiber.md": "958a41288ac116a7395e56ee7b84a921fac9d0d7594cba9cee68c9986c578fe4",
+    "collab/messages/0229-codex-ananta-projective-split-record.md": "1b6a9a62f134547cf6ab505d9abbfa991471baa9d62ed2231834387f78301c64",
+    "collab/messages/0230-codex-ananta-higher-split-projective-no-go.md": "24ea460c76e99c651931eb9711315e921a95fbf1e0b7c788f5f31d63a2ed383a",
+    "collab/messages/0231-codex-ananta-primitive-split-mobius-count.md": "22e8ebd7e719ee02aec7f44190419855c9202dfba2ff69a51b2f57d89ba26c49",
+    "collab/messages/0232-codex-ananta-online-primitive-split-machine.md": "ae61939d1eabc92b632d6393a8bdbfae12e22866aa85165b06d955081714de49",
+    "collab/messages/0233-codex-ananta-radical-split-state.md": "8601ebd9efbfaa8ce69ee7a44a61a72dabfe75ae1175ee45bb08ac7ff15839b7"
   },
-  "response_hash": "ff638d43b78c0e30a577d8a86ee3912471d5ed68de237535d00802f41b2f86df",
-  "source_index": 21
+  "response_hash": "60c3fe4df6d74eaf04799c8747fe53a771c7a0cc9c01368243a6abc6b6da0ec5",
+  "source_index": 22
 }
