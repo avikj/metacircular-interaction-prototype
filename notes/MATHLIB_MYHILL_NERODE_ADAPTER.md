@@ -100,9 +100,21 @@ means bounded residual agreement, and includes an equal-reached-state false
 control.  It also proves that changing the complete enumeration preserves the
 bounded-equality verdict and minimum witness length.  The list therefore does
 not choose the control language; actual intervention restriction must change
-the action type or interface.  This return changes the open seam but does not
-erase it.  Regularity alone still does not compute an enumeration of the
-reachable quotient or a fuel beyond which `none` proves equality.
+the action type or interface.
+
+A second checked return installs a sufficient horizon when the *ambient* state
+type has `[Fintype X]`.  The synchronous pair monitor has `|X|^2` states;
+Mathlib's `DFA.evalFrom_split` deletes a loop from an overlong separating run.
+Thus search through fuel `|X|^2` returns `none` exactly when two reachable
+prefix residuals are equal.  This is a total proof-producing equality decision
+for an explicitly finite DFA presentation, though the bound is deliberately
+non-sharp.
+
+The two theorems still do not compose from regularity alone.  Regularity gives
+`Set.Finite` of reachable behavioral meanings; the quadratic decision assumes
+an ambient `Fintype X`, which may be inflated by unreachable and duplicate
+states.  The missing carrier is an explicitly enumerable, transition-closed
+chart of reachable behavioral representatives.
 
 ## Rigor boundary
 
@@ -113,11 +125,13 @@ exact identification of reachable meanings with the left-quotient range, and
 regularity iff finiteness of the reachable behavioral quotient.
 
 Not supplied by the regularity adapter: a finite quotient enumeration,
-decidable residual equality, or a global minimization horizon.  Bounded
-shortest separating certificates are supplied separately by `ResidualBFS`.
-Neither theorem is a source of policy authority.  Boolean acceptance is the
-declared observation; multi-valued observations require explicit Boolean
-probes or a separate generalized construction.
+decidable residual equality, or a global minimization horizon.  `ResidualBFS`
+supplies all three only from the stronger input of an explicit ambient
+`Fintype X` plus decidable acceptance and a complete action enumeration; it
+does not extract them from the regularity proof.  Neither theorem is a source
+of policy authority.  Boolean acceptance is the declared observation;
+multi-valued observations require explicit Boolean probes or a separate
+generalized construction.
 
 Replay in proof language only:
 

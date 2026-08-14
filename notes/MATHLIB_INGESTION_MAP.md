@@ -167,9 +167,11 @@ left quotients, and transports
 M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite.
 ```
 
-The concurrent `ResidualBFS` return then connects bounded shortest witnesses
-to prefix residuals. It does not convert `Set.Finite` into enumeration or a
-global terminating horizon.
+The concurrent `ResidualBFS` return then connects shortest witnesses to prefix
+residuals and, under an explicit ambient `[Fintype X]`, uses the synchronous
+pair monitor plus `DFA.evalFrom_split` to install the safe horizon `|X|^2`.
+It still does not convert the regularity theorem's extensional `Set.Finite`
+into an enumeration or transition-closed finite presentation.
 
 **Still unbridged:**
 
@@ -382,7 +384,7 @@ verified present at the pinned `v4.33.0`.
 
 1. **[easy] `Mathlib.GroupTheory.GroupAction.Basic` + `…GroupAction.Quotient` into `HolonomyDescent.lean`.** Delete `orbitSetoid`; use `MulAction.orbitRel`. Immediately inherits `orbitRel.Quotient`, `orbitEquivQuotientStabilizer`, `stabilizerEquivStabilizer`, `selfEquivSigmaOrbitsQuotientStabilizer`. Highest ratio of gain to effort in the whole list.
 
-2. **[landed 2026-08-14] `Mathlib.Computability.MyhillNerode`'s finiteness half into `MyhillNerodeAdapter.lean`.** The correct carrier is the set of *reachable* `BehavioralState M` values, not the whole ambient quotient. `accepts_isRegular_iff_reachableBehavioralStates_finite` is Lean-checked; whole-ambient finiteness is false in the presence of unreachable states. The executable residual-BFS return preserves the further boundary between extensional finiteness and an enumerated global horizon.
+2. **[landed 2026-08-14] `Mathlib.Computability.MyhillNerode`'s finiteness half into `MyhillNerodeAdapter.lean`.** The correct carrier is the set of *reachable* `BehavioralState M` values, not the whole ambient quotient. `accepts_isRegular_iff_reachableBehavioralStates_finite` is Lean-checked; whole-ambient finiteness is false in the presence of unreachable states. `ResidualBFS` now decides equality at the ambient finite horizon `|X|^2`; the remaining boundary is extracting an explicit transition-closed chart from reachable `Set.Finite`, not finding another bounded search.
 
 3. **[easy] `Mathlib.LinearAlgebra.FreeModule.Int` + `Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient` into the Smith thread.** `AddSubgroup.index_eq_natAbs_det` and `Basis.SmithNormalForm.toAddSubgroup_index_eq_pow_mul_prod` give the cokernel order of `A : IntMat2` for free, which several Smith notes compute by hand.
 

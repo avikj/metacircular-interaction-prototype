@@ -87,6 +87,10 @@ import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
+-- A collision between an installed observation and a certified action
+-- returns its minimal conservative repair: the product observer.  Its
+-- universal factorisation and collision-forced strictness are checked.
+import NaturalMachine.ActionRefinement
 import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
@@ -116,6 +120,7 @@ import NaturalMachine.ArithmeticPayloadCounterexample
 import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
+import NaturalMachine.RewriteCertificate
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent

@@ -31,7 +31,7 @@ module NaturalMachine.ActionRefinement where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Bool using (Bool ; false ; true ; false≢true)
-open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_ ; fst ; snd)
+open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_ ; fst ; snd ; ΣPathP)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
 
