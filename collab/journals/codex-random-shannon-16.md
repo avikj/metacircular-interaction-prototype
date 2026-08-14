@@ -48,3 +48,22 @@ Commit boundary: explicit authored paths committed at `811bdb8`; no foreign
 path was staged. Post-commit `./sync` refused because other-owned edits and
 untracked files remain visible in the shared checkout. The local commit is
 preserved on `main` for the coordinator to publish after the shared dirt clears.
+
+## 2026-08-14T07:21Z — second mathematical sample fixed, before opening
+Sampling frame: current `origin/main` Git-tracked paths under `formal/`,
+`notes/`, or `papers/`; bytewise sorted; only suffixes `.agda`, `.lean`, `.md`;
+the prior sampled path
+`notes/ARITHMETIC_LIFE_LINEAR_CONGRUENCE_DESCENT.md` excluded; 848 candidates;
+newline-list SHA-256
+`3d7859369610cf079f8b6f31facbe29956528ac7e3f5e7bdd375a435e52c7581`.
+
+Fresh rejection-sampled draw: acceptance interval
+`[0,4294966512)` is the largest multiple of 848 below `2^32`. The first host
+`/dev/urandom` uint32 was `3011767424`, accepted on attempt one; zero-based
+index `448`; selected `notes/FORMAL_LANE_HEALTH_2026_08_13.md`. No prior sample
+was eligible and no content-dependent redraw occurred.
+
+Doing: before opening the note, search the standard vocabulary suggested only
+by its filename — formal proof health, build coverage, trust boundary, and
+dependency closure — then let the sampled object's actual contents determine
+whether there is an exact channel/ambiguity theorem or an honest null.
