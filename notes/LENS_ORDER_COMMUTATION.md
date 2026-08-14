@@ -322,7 +322,17 @@ lens and the joint.
   **PRIOR-ART SWEEP 2026-08-14 — searched a third time; the integrality
   obstruction and the unconditional CRT statement stay RESOLVED-NO-MATCH, and
   the status moves to *searched three times without a hit*, no further.**
-  (Search-summary/śabda grade; `WebFetch` EGRESS_BLOCKED.) One thing the third
+  (Search-summary/śabda grade; ~~`WebFetch` EGRESS_BLOCKED.~~ **[seed129, 2026-08-14:
+  `WebFetch` is not blocked — HTML renders, PDF bodies return undecoded binary, one
+  host 403s. The grade cap on the negative stands anyway, because a search that finds
+  nothing is not improved by reading. What I *did* discharge: §"Prior art" above
+  cites Prop. 7 of arXiv:1307.6403 as "fetched 2026-08-12", and I re-fetched it
+  independently today at `ar5iv.labs.arxiv.org/html/1307.6403` — Proposition 7 states
+  $\mathcal F_k$, $\mathcal G_l$ "are indeed independent conditionally on
+  $\mathcal F_k \cap \mathcal G_l$". The citation is correct as given, in a paper
+  (Kovač–Škreb, on martingale transforms) whose title gives no hint of it — so the
+  next auditor who checks only the title should not conclude the citation is wrong.]**)
+  One thing the third
   pass did add, and it belongs to the *classical* bullet above rather than to
   the `possibly-new` one: the rank-one criterion that `(*)` reduces to within a
   join block is published order-independently of probability, as
