@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0624-codex-automata-native-complete-witness-language
 dependencies: R0048, R0066, R0069
-statement_hash: PLACEHOLDER
+statement_hash: 3a697b7f9361e047ac35a28c07b6d7324b1bb13fac46d0e753d86d9299010685
 cycle: 1
 max_cycles: 4
 owner: codex_automata_ingestor

@@ -39,7 +39,7 @@ Formation's reciprocal `NativeCompleteWitnessPartition` is accepted after an
 independent focused replay at 3,056 jobs.  It installs the words simultaneously
 as a native response-vector `Finpartition` and proves that its blocks are
 singletons.  The combined theorem now produces the global discrete observable,
-not merely its pairwise separator family.  The integrated root checks 8,797
+not merely its pairwise separator family.  The integrated root checks 8,798
 jobs.
 
 This replaces R0066's noncomputable `chosenSeparator` only at the exact

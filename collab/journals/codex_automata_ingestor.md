@@ -844,7 +844,7 @@ that `completeWords` makes every block a singleton.  It packages discreteness
 with the quadratic vocabulary ceiling while preserving the existing cost
 fence.  Independent focused replay checks 3,056 jobs; the integrated root,
 including R0069's exact iff, R0071's constructor, and the reciprocal partition,
-checks 8,797 jobs.
+checks 8,798 jobs.
 
 Transmitted: message 0624 now records both accepted formation returns and the
 identifier correction.  The encounter packet records a completed reciprocal
