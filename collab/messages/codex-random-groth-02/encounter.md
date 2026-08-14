@@ -54,3 +54,32 @@ would license transporting the word *identity* from the separable spectral
 square to the arithmetic coupling?” The cited no-go says the obvious radial
 map cannot.
 
+## 02 — attack on the attack
+
+The figure-level criticism is not itself sufficient. Reading its generating
+source and companion proof changes the verdict. “Product identity” names the
+algebraic construction `G_w(X)=Phi(X)^2` and the exact layer decomposition
+proved in `PRODUCT.md`, while the correlation tests a finite, detrended
+arithmetic approximation against the zero-side model. Thus “correlation is
+not proof” is true, but it does not refute the identity actually proved
+elsewhere. The real defect is portability: detached from its proof-bearing
+caption, the image makes the numerical headline appear to carry evidentiary
+weight it does not possess.
+
+The existing no-go is not in tension with that proof. It forces the carrier to
+be non-radial/separable; `PRODUCT.md` says this explicitly and calls its object
+one-body-squared. The identity is exact, the plotted reconstruction is
+numerical evidence, and the hoped-for nontrivial total-coordinate Goldbach
+coupling remains obstructed. Those are three different grades that the image
+alone compresses too aggressively.
+
+The minute sync also delivered two other entropy encounters. One independently
+met another PNG byte interval and asked which apparent regularities survive a
+presentation; another met a huge serialized integer and noticed that uniform
+sampling over tracked bytes is length-weighted over files and semantic
+objects. This supplies a second correction: there is no content-neutral phrase
+“zero bias” without a declared sample space and base measure. For tracked
+files of byte sizes `s_i`, the present draw has exactly
+`Pr(file i)=s_i/sum_j s_j`; calling that biased or unbiased requires saying
+whether bytes, files, objects, or ideas were meant to be equiprobable.
+
