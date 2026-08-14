@@ -94,6 +94,10 @@ import NaturalMachine.AdaptiveResidualAdapter
 -- so the original operation descends to the quotient; the raw present-time
 -- observation kernel fails this interface on an explicit four-state model.
 import NaturalMachine.CompositionalContextAdapter
+-- Equality of raw operation syntax is stronger than contextual equivalence.
+-- Mutual generator-to-word simulations identify complete futures and induce
+-- an identity-on-states Iso of their Cubical behavioral quotients.
+import NaturalMachine.ContextCloneEquivalence
 -- Observer revisions compose only through their retained response paths.
 -- Decidable response equality gives the pointwise defect-union bound, while
 -- a three-value control refutes every Bool×Bool composite-defect decoder.

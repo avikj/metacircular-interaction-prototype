@@ -546,6 +546,39 @@ decrease.  Thus safe constant-response steering cannot always be normalized
 away.  A successful second rank must depend on residual position or transition
 history, not just how many residuals remain.
 
+## 14. Canonical live-cell position is an exact finite steering carrier
+
+`Pairfield.AdaptiveResidualPositionRank` supplies the positional rank demanded
+by the preceding obstruction, without claiming the missing normalization
+theorem.  Mathlib's exact automata theorem
+`Language.IsRegular.finite_range_leftQuotient` makes the state type of the
+canonical left-quotient DFA finite.  If it has `n` states, the finite space of
+live cells containing exactly `k` canonical residuals has cardinality
+
+\[
+\boxed{\binom{n}{k}.}
+\]
+
+The native adapter is checked on both relevant joints.  A prefix cell with one
+presenter per residual maps to the canonical carrier without changing its
+cardinality, and one native prefix advance is exactly pointwise application of
+Mathlib's `Language.toDFA.step`; the commuting square uses
+`Language.step_toDFA`.  Residual safety makes that advance injective on the
+live cell, hence preserves `k` even when the response is constant.
+
+Therefore every duplicate-free history of canonical `k`-residual cells has
+length at most `Nat.choose n k`.  Both premises have active controls: repeating
+a canonical cell makes `List.Nodup` false, while two native prefixes presenting
+the same left quotient violate the reduced-representative hypothesis and
+cannot be counted twice.
+
+This is a finite carrier theorem, not yet the classical adaptive
+distinguishing-sequence height theorem.  The unproved joint is whether a
+minimal residual-separating plan can always be chosen with no repeated
+canonical live cell.  Formation's message 0583 has registered exactly the
+reciprocal cycle-deletion construction; R0057's mandatory `steer` is not a
+cycle because it moves the live cell to a genuinely new canonical position.
+
 ## Replay
 
 ```sh
@@ -564,6 +597,7 @@ lake build Pairfield.AdaptiveResidualPotentialAdapter
 lake build Pairfield.AdaptiveResidualConstructor
 lake build Pairfield.AdaptiveResidualSteering
 lake build Pairfield.AdaptiveConstantResponseSteering
+lake build Pairfield.AdaptiveResidualPositionRank
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -571,6 +605,7 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,778 jobs,
-including the constructor, cardinal no-go, and necessary-steering control.
+All leaf builds exit zero, and the integrated root build checks 8,779 jobs,
+including the constructor, cardinal no-go, necessary-steering control, and
+canonical positional carrier.
 Emitted warnings are pre-existing linter warnings in imported modules.
