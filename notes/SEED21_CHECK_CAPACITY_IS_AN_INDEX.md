@@ -80,7 +80,8 @@ is perfect and `ϑ` equals the clique-cover-dual value `α`; alternatively
 `α ≤ Θ ≤ ϑ` and `ϑ` of a disjoint union of `m` cliques is `m` by the standard
 orthonormal representation assigning one vector per clique. ∎
 
-**Theorem 2 (group form: capacity is an index).** Let `X` be a torsor under a
+**Theorem 2 (group form: ~~capacity is an index~~ **capacity is a coset count,
+which on this saturated window equals an index**).** Let `X` be a torsor under a
 group `G` (simply transitive action) and let `c` be invariant exactly under a
 subgroup `N ≤ G`, meaning `c(x) = c(y) ⟺ y = x·n` for some `n ∈ N`. Then the
 fibers of `c` are the `N`-orbits, and
