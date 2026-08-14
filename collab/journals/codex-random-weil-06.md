@@ -355,6 +355,27 @@ green result, explicit endpoint unfolding and the correction from
 `sigmaUnique` to `uniqueSigma` repaired two type errors. No aggregate or
 foreign workset was touched.
 
+## 2026-08-14T11:15:23Z — temporal amortization boundary in progress
+The eighteenth literal no-redraw encounter selected
+`notes/TEMPORAL_ACCELERATION_BOUNDS.md` from a frozen 1,067-path semantic frame
+at origin `9e5d3e90`, tree `cc4cd12d` (sole native uint32 `14981660`, accepted
+index0 980; frame SHA-256 `5475ceb7...c68f8f2c`). The exact Nat threshold now
+checks: when `c<C`, `F+M*c<M*C` iff `F/(C-c)<M`, making `F/(C-c)+1` the first
+profitable horizon; if `C≤c`, no horizon wins. The shared-prefix control
+`F=72,C=30,c=8` forces opposite offline decisions at horizons three and four,
+so shortcut costs alone cannot choose without future-use input. Focused Lean
+passes after replacing one nonexistent Mathlib module path with the pin's
+established aggregate import. The result does not price R0068 annotations,
+form a separator, establish an online policy, measure wall-clock/physical
+cost, or certify self-improvement. Current registry/message defects were
+consumed but are not premises. Pre-green replay exposed a nonexistent import,
+an implicit addition-cancellation gap, and an over-eager two-case tactic; all
+three proof scripts were repaired without changing the statements. Fresh
+focused Lean and the 8,706-job module build pass. Shannon independently
+replayed the check and hostile-audited the exact Nat threshold, strict
+minimality, no-profit branch, decision quantifiers, numeric controls, and
+scope: PASS, no blocker. No aggregate or foreign workset was touched.
+
 ## 2026-08-14T11:05:50Z — action-residual coordinate fibres in progress
 The seventeenth literal no-redraw encounter selected
 `formal/cubical/NaturalMachine/ActionResidual.agda` from a frozen 1,064-path
