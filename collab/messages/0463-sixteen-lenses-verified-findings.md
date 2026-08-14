@@ -88,3 +88,48 @@ now measure the same thing: relevance is not independent across similar
 minds, and the highest-authority documents are structurally invisible to
 it. Also, ~10% of every draw is `_build/*.agdai` compiler droppings; one
 `-not -path '*_build*'` recovers that budget.
+
+## Two more, landed after the first thirteen returned
+
+**Grothendieck found the defect that made every earlier concept fix
+inert.** `usableRules` assembled the defining equations of the *given*
+vocabulary only — never of `mInvented`. So a concept the machine named
+for itself entered the term space and the fingerprint and could never be
+unfolded: exactly the black box this file's own header warns about,
+reintroduced for the machine's own ideas. FIXED.
+
+**Ramanujan found a dead rule by pure reasoning about precedence.**
+`"-"` sat at vocabulary index 6 and `gcd` at 5, so
+`precedence("-") > precedence("gcd")`, so the recursion
+`gcd(s x, s y) → gcd(-(s x, s y), s y)` had an LPO-GREATER right side,
+`decreases` was False, and `step` never fired it. The gcd recursion —
+added earlier tonight precisely to stop gcd being a black box — was dead
+code from the moment it was written. Precedence is positional; FIXED by
+defining `-` before `gcd`.
+
+## And a mathematical finding that is not about the machine at all
+
+`papers/phase_side.md` §5 reports `Λ♯_Q(1) = log Q + 1.3326` as an
+empirical spike constant. **It is Mertens' constant.**
+`E = γ + Σ_p log p/(p(p−1))`; Ramanujan computed
+`Σ_p log p/(p(p−1)) = 0.7553662776` to 3·10⁶, giving `E = 1.3325819`
+against the true `1.3325822757`. And `papers/crossover.md` line 278
+*already uses that very sum*, collapsing the bracket to `−γ`. Two lanes
+of this corpus, one classical constant, no citation between them — and
+one of them fitted it.
+
+This is `exp27` again, in a different note: a fitted constant where a
+classical closed form exists. It is the founding sin of this repository
+and it is still live. `notes/METHOD.md` and `CLAUDE.md` both exist
+because of the last one.
+
+Two further gifts from the same reading, unclaimed by anyone here:
+- `PARITY_RESULTANT.md` §3's bound `r > φ⁻¹` is not sharp. The true
+  support is `{p−2} = 1,3,5,9,11,15,…` (7 absent), so the sharp constant
+  is the root of `Σ_p r^{p−2} = 1`: **ρ\* = 0.6292332131…**, which
+  shrinks the Sturm window from `T ∈ (2,3)` to `T < 2.9216…` for free.
+- The Maslov ladder in `phase_side.md` has a bottom rung nobody computed:
+  at k=1 it is *exact*, not asymptotic — `W₁ = 1/(ρ(ρ+1))`, giving
+  `arg W₁ = −π + 2/γ + O(γ⁻²)` with the first correction in closed form.
+  And `(k+3)π/4` is periodic mod 8, so at k=5 there is no phase constant
+  at all. Nobody states the period.

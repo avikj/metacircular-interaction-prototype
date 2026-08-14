@@ -135,6 +135,10 @@ vocabulary =
       [ (bin "max" x_ zero_,          x_)
       , (bin "max" zero_ x_,          x_)
       , (bin "max" (su x_) (su y_),   su (bin "max" x_ y_)) ]
+  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
+      [ (bin "-" x_ zero_,          x_)
+      , (bin "-" zero_ x_,          zero_)
+      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
       -- gcd needs its recursion, not just its base cases: a symbol the
       -- machine can compute but not unfold is a black box it can test
@@ -150,10 +154,6 @@ vocabulary =
       [ (bin "le" zero_ x_,          su zero_)
       , (bin "le" (su x_) zero_,     zero_)
       , (bin "le" (su x_) (su y_),   bin "le" x_ y_) ]
-  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
-      [ (bin "-" x_ zero_,          x_)
-      , (bin "-" zero_ x_,          zero_)
-      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
   ]
 
 definitionsOf :: [Sym] -> [Rule]
@@ -539,7 +539,13 @@ lemmaRules = concatMap (\(a,b) -> [(a,b),(b,a)])
 -- its unorientable theorems applied only in the decreasing direction.
 usableRules :: Machine -> [Rule]
 usableRules m =
-  definitionsOf (take (mVocab m) vocabulary)
+  -- Grothendieck: the invented symbols' OWN defining equations were
+  -- missing here, while `round1` put those symbols into the term space
+  -- and the fingerprint.  So every concept the machine named for itself
+  -- became exactly the black box this file's header warns about — it
+  -- could compute with it and never unfold it.  The bug documented for
+  -- `gcd` at the top, reintroduced for the machine's own ideas.
+  definitionsOf (take (mVocab m) vocabulary ++ mInvented m)
     ++ mRules m
     ++ lemmaRules (mLemmas m)
 
