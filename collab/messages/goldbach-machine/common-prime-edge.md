@@ -211,8 +211,9 @@ margin.  Thus the robust sufficient threshold is
  a_X(m)+\mathfrak S(m)I_X(m)>B_X(m).                    \tag{15}
 \]
 
-This is sharp for that information interface: lowering the right side cannot
-exclude the worst allowed sign `E_X(m)=-B_X(m)` at the cancellation wall.
+This is sharp for that information interface: any proposed non-strict
+threshold `t<=B_X(m)` still permits the allowed choice `E_X(m)=-t` and the
+exact cancellation `R_X(m)=0`.
 
 For a uniform source envelope
 

@@ -137,6 +137,14 @@ def NodeChained
     (node : ReachNode (ReverseEdge M) (SourceState X)) : Prop :=
   EdgeTrace.Chained M .source node.word node.state
 
+/-- Causal validity strengthens the ordinary endpoint-only reachability
+invariant consumed by the generic BFS layer. -/
+theorem nodeChained_valid
+    {node : ReachNode (ReverseEdge M) (SourceState X)}
+    (hnode : NodeChained M node) : node.Valid (indexedEdgeDFA M) := by
+  rw [ReachNode.Valid, DFA.eval]
+  exact EdgeTrace.Chained.evalFrom_eq (M := M) hnode
+
 theorem ReachNode.child_chained
     {node : ReachNode (ReverseEdge M) (SourceState X)}
     (hnode : NodeChained M node) (edge : ReverseEdge M)
@@ -654,6 +662,15 @@ def indexedTraversal [LinearOrder X] [Fintype X]
     (alphabet : List A) : IndexedQueue M :=
   runQueue M (edgeInventory M alphabet)
     (Fintype.card X * Fintype.card X + 1)
+
+/-- The complete executable traversal exposes the causal invariant directly,
+not only at the internal fuel-indexed queue. -/
+theorem indexedTraversal_nodes_chained [LinearOrder X] [Fintype X]
+    (alphabet : List A) :
+    ∀ node ∈ (indexedTraversal M alphabet).nodes, NodeChained M node := by
+  simpa [indexedTraversal] using
+    runQueue_nodes_chained M (edgeInventory M alphabet)
+      (Fintype.card X * Fintype.card X + 1)
 
 /-- Charged edge attempts are at most the genuine inventory payload. -/
 theorem indexedTraversal_attempts_le_inventory [LinearOrder X] [Fintype X]
