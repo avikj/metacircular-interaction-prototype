@@ -172,3 +172,11 @@ and derivation history remain one Agda value. Kernel-normalized `form` retains
 two equal-target futures with direct versus detour histories; count and target
 execution are both `refl`. Cubical Agda cannot use the Haskell backend, stated
 as an exact extraction limit rather than papered over with a mirror.
+
+## 2026-08-14 — finite rooted Indra scan
+Added an observer×target jewel view and observer-local reweave. Anchor agreement
+is proved equivalent to full pairwise coherence, reducing the finite audit from
+cubic root-pair scanning to one rectangular root×target scan. The executable
+audit returns proof-bearing coherence or a concrete root/target tear. A Bool
+adversary is evaluated by the kernel and finds its tear by `refl`. Coordinated
+scope with the disjoint IntrinsicRewrite and extracted RootedReweave lanes.
