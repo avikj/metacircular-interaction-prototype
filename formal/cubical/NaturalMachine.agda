@@ -440,6 +440,7 @@ import NaturalMachine.FiniteGraphCohomology
 import NaturalMachine.ExactTwoStateAmplitudes
 import NaturalMachine.ExactTwoStateInstrument
 import NaturalMachine.ExactHadamardInterference
+import NaturalMachine.ExactProjectivePhase
 import NaturalMachine.HadamardReadoutInstrument
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
@@ -449,6 +450,7 @@ import NaturalMachine.FiniteGraphHolonomyGroupoid
 -- refined assignments modulo midpoint gauge are univalently the coarse
 -- assignments, with transport computing to holonomy contraction.
 import NaturalMachine.FiniteGraphCylindricalEquivalence
+import NaturalMachine.FiniteGraphFluxCylindrical
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

@@ -42,7 +42,7 @@ def fourierInverse (n : ℕ) [NeZero n]
 /-- The unnormalised `(χ₁, χ₂)` component of a residue-pair signal. -/
 def characterComponent (n : ℕ) [NeZero n] (F : CellGrid n)
     (χ₁ χ₂ : DirichletCharacter ℂ n) : ℂ :=
-  fourierForward n (fun a ↦ fourierForward n (fun b ↦ F (a, b)) χ₂) χ₁
+  fourierForward n (fun b ↦ fourierForward n (fun a ↦ F (a, b)) χ₁) χ₂
 
 /-- Reconstruction from the complete character grid, using inverse
 evaluations rather than writing complex conjugates. -/
@@ -89,6 +89,14 @@ theorem fourierInverse_fourierForward (n : ℕ) [NeZero n]
       simp_rw [character_delta]
       simp
     _ = f a := by field_simp
+
+/-- Proposition N's inverse finite Fourier square, for an arbitrary signal on
+the two reduced-residue coordinates. -/
+theorem reconstruct_characterComponent (n : ℕ) [NeZero n] (F : CellGrid n) :
+    reconstruct n (characterComponent n F) = F := by
+  funext pair
+  simp only [reconstruct, characterComponent]
+  rw [fourierInverse_fourierForward, fourierInverse_fourierForward]
 
 end
 

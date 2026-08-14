@@ -69,11 +69,42 @@ minimal sufficient representation among every possible encoding.  It proves
 only the exact positive adapter using response paths and the impossibility of
 the named Boolean scalarization.
 
+## Continuation: the exact criterion for a smaller summary
+
+The follow-up does not guess a preferred replacement for the Boolean ledger.
+For any supplied summary
+
+\[
+h:V^3\to S,
+\]
+
+`DeterminesComposite h` says that the composite-defect target factors through
+the **realized image** of \(h\).  `summary-kernel-criterion` reuses
+`NaturalMachine.FiniteInformation` to identify this type with the exact fiber
+condition
+
+\[
+h(a,b,c)=h(a',b',c')\Longrightarrow
+[a\ne c]=[a'\ne c'].
+\]
+
+Here the displayed brackets denote the checked Boolean flag on the explicit
+three-value control.  The image formulation matters: a decoder is required
+only on summaries that actually occur, so no default value or choice is
+smuggled in for unreachable points of \(S\).
+
+`stage-summary-does-not-determine` now refutes even this weaker realized-image
+decoder for the pair of stage flags.  `full-span-determines` is the positive
+control: retaining `(a,b,c)` satisfies the criterion.  Thus every proposed
+smaller carrier has a precise next obligation—prove constancy of the composite
+target on its fibers—and no claim of raw-span minimality is needed.
+
 ## Rigor boundary
 
 - Machine-checked in Cubical Agda with `--safe`, no postulates and no holes:
   revision composition, preservation composition, decidable pointwise defect
-  containment, both finite controls, and the universal Boolean-decoder no-go.
+  containment, both finite controls, the universal Boolean-decoder no-go, and
+  the realized-image/fiber criterion for arbitrary supplied summaries.
 - No finiteness hypothesis is needed by the checked positive theorem.  The
   finite source theorem supplies decidable equality; the adapter records that
   dependency explicitly.

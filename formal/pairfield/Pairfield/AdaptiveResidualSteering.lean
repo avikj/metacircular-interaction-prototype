@@ -59,7 +59,7 @@ end CanonicalResidualAdapter
 
 namespace FiniteLiveCell
 
-variable {Candidate : Type u} {Next : Type v}
+variable {Candidate : Type u} {Next : Type v} {Score : Type w}
 variable [DecidableEq Candidate] [DecidableEq Next]
 
 /-- If every live candidate returns the declared answer, that response fibre
@@ -89,7 +89,7 @@ theorem card_advancedBranch_eq_of_constant
 /-- Universal no-go: every proposed progress measure that factors only
 through live-cell cardinality is blind to safe constant-response steering. -/
 theorem cardinalScore_invariant_of_constant
-    (score : Nat → Type w)
+    (score : Nat → Score)
     (cell : Finset Candidate) (response : Candidate → Bool)
     (advance : Candidate → Next) (answer : Bool)
     (hsafe : SafeAdvance cell response advance)
@@ -106,7 +106,8 @@ action: it moves both candidates while preserving cardinality. -/
 theorem constantFalse_not_safe :
     SafeAdvance ({false, true} : Finset Bool) (fun _ => false) Bool.not := by
   intro left right _hleft _hright _hresponse hadvance
-  cases left <;> cases right <;> simp_all
+  have hback := congrArg Bool.not hadvance
+  simpa using hback
 
 theorem constantFalse_not_moves_every_candidate :
     ∀ candidate ∈ ({false, true} : Finset Bool),
@@ -116,7 +117,7 @@ theorem constantFalse_not_moves_every_candidate :
 /-- The universal no-go fires on a genuinely moving action, for every
 cardinality-indexed family of types. -/
 theorem constantFalse_not_cardinalScore_invariant
-    (score : Nat → Type w) :
+    (score : Nat → Score) :
     score
         (advancedBranch ({false, true} : Finset Bool) (fun _ => false)
           Bool.not false).card =
@@ -137,13 +138,18 @@ noncomputable section
 
 variable [DecidableEq A]
 
+variable {Score : Type w}
+
+local instance steeringLanguageDecidableEq :
+    DecidableEq (Language A) := Classical.decEq _
+
 /-- Reciprocal automata result.  On a reduced finite cell, a residual-safe
 action with constant post-response preserves every cardinality-only score.
 The advanced objects are native `BranchResidual`s, whose transition is the
 canonical `Language.toDFA.step` by `CanonicalResidualAdapter.branchState_step`.
 -/
 theorem residualCardinalScore_invariant_of_constant
-    (score : Nat → Type w)
+    (score : Nat → Score)
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (cell : Finset (List A)) (action : A) (answer : Bool)
     (hdistinct : DistinctRepresentatives M cell)
