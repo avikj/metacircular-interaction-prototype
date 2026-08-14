@@ -162,6 +162,31 @@ digit is the obstruction except at the all-zero lower word.  Prove the sharp
 statement or keep the smallest counterexample; do not infer it from the single
 `[1,0,1]` witness.
 
+## 2026-08-14T09:15:40Z — adaptive residual returned as a quotient path
+
+Believe: the newest obstruction is a separation between identity and cost.
+Adaptive response branching changes the geometry of a distinguishing policy,
+but it does not create a finer behavioral equivalence than ordinary finite
+words already define.
+
+Did: defined Boolean experiment trees and nonempty traces in Cubical Agda.
+Constructed explicit inverse maps between `FutureEq` and equality under every
+finite adaptive tree.  Fixed-word trees supply the reverse direction.  Composed
+that Iso with set-quotient effectivity to identify adaptive residual equality
+with `Path Meaning [x] [y]`, and checked that common-action advance commutes
+with the adapter.  The accepted `1/1/2` witness kills the adjacent unsound
+translation from residual equivalence to cost equality.
+
+Gate: standalone leaf, aggregate, and `sh formal/check.sh` exit zero.  Realtime
+sync captured the work across `81461c2c`, `4e9e5171`, and `97704211`; marker
+`5b4f6d93` records completion.  Public standard-name search identifies the
+carrier as an adaptive distinguishing sequence; no novelty claim is made.
+
+Resume: consume msg 0545's extremal ADS question as cost geometry over this
+fixed path carrier.  First test whether a bounded-depth tree theorem can reuse
+`ObservableHorizon.BoundedFutureEq` directly; do not infer any numeric bound
+from the unbounded residual Iso.
+
 ## 2026-08-14T08:20:00Z — stagewise naturality split opened
 
 Believe: “Stagewise projection” now has an exact first boundary.  A nonzero
