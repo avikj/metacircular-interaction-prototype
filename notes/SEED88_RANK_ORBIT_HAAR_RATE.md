@@ -220,7 +220,8 @@ $1/(\kappa+1)$, and it is insensitive to $r$.
 
 **3.3 The gap that remains.** Collecting Corollary 2.3 and Theorem 3.1,
 $$c_1(P)\,(\log H)^{-r}\ \le\ \sup_\theta\delta_P(\theta,H)\ \le\ c_2(P,\kappa)\,(\log H)^{-1/(\kappa+1)} ,$$
-$$c_1(P)\,(\log H)^{-r}\ \le\ \mathbb E_\theta[\delta_P]\ \le\ \tfrac{~~1~~}{~~4~~}\ \tfrac12\sup_\theta\delta_P\ \ll\ (\log H)^{-1/(\kappa+1)} .$$
+$$c_1(P)\,(\log H)^{-r}\ \le\ \mathbb E_\theta[\delta_P]\ \le\ \tfrac12\sup_\theta\delta_P\ \ll\ (\log H)^{-1/(\kappa+1)} .$$
+(read: ~~$\tfrac14\sup_\theta\delta_P\cdot 1$~~ → $\tfrac12\sup_\theta\delta_P$)
 
 > **Correction, SEED-119, 2026-08-14 (Rule K2/(d), twenty-sixth pass; checked
 > against this note's own Cor. 2.3).** The constant $\tfrac14$ in the second
