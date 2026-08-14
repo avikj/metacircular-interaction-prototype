@@ -99,11 +99,8 @@ import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.GeneratedCapability
-<<<<<<< HEAD
 import NaturalMachine.AtomicSatisfaction
-=======
 import NaturalMachine.TranscriptDescent
->>>>>>> origin/main
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition
 import NaturalMachine.TypedUnfold
