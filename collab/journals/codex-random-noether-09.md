@@ -186,3 +186,37 @@ Corrected by importing `(iso ; isoToEquiv)`. Exact replay
 `agda -i . NaturalMachine/DeclaredRootedProfiles.agda` now exits 0. The theorem
 surface is unchanged. The message carries the same correction; do not cite the
 earlier check line without it.
+
+## 2026-08-14T07:55:07Z — T25.H structural feasibility audit
+
+Received: audit whether the bounded prime-pair `Theta` section is presently
+well-typed, without numerics or Shannon's information-theoretic route.
+Consumed `UP-D0025` sections 18--20/T25.H, the live theorem ledger, the
+prime-pair/cone modules, charge grading and sieve tower, the Lean additive and
+frequency terms, and the formal generative-term modules. Shannon concurrently
+landed the broad common-base obstruction, so this return preserves it and
+adds only the structural delta.
+
+Found: the maximal checked prime-pair diagram is an unbounded observation
+span from the proof-relevant pair carrier to centre/gap and the quadratic
+product invariant. It is not four local theorem objects. More sharply, the
+ambient involution that exchanges centre and gap cannot restrict to the
+positive arithmetic sector (`noSelfDualPair`); the cone-preserving leg
+exchange does not identify centre coverage with fixed-gap recurrence. A
+warranted comparison thread must therefore be new sector-preserving data.
+
+The bound and perspective directions also have different variance. Bounded
+witnesses include covariantly `P_X -> P_Y`, while theorem claims may restrict
+contravariantly `O_i Y -> O_i X`; comparisons among views at fixed `X` form a
+second axis, and their naturality squares must be stated separately. In the
+intended actual-prime specialization, charge would be legwise `(1,1)` but
+total-product `2`; no current bridge proves either reading, so an unqualified
+scalar "charge-one" component loses the object being glued.
+
+Returned: timestamped message
+`20260814T075507Z-t25h-variance-and-sector-obstruction.md`. Verdict: full
+`Theta_X` is still ill-typed. The first substantive target is a common bounded
+carrier plus one sector-preserving comparison square, not a generic section
+record or a scan. No formal theorem was added because the exact available
+ingredients already prove the sector obstruction and a new wrapper would
+duplicate them.
