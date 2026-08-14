@@ -104,6 +104,9 @@ base-false = false
 loop-carries-true-to-false : subst RelativeFact loop true ≡ false
 loop-carries-true-to-false = refl
 
+loop-carries-false-to-true : subst RelativeFact loop false ≡ true
+loop-carries-false-to-true = refl
+
 loop-interaction : Interaction relationalProcess base base
 path   loop-interaction = loop
 before loop-interaction = true
@@ -117,15 +120,14 @@ GlobalFact = (o : Observer) → RelativeFact o
 -- Local inhabitation does not imply such a global fact: naturality around
 -- the physical comparison loop would make negation fix the selected Bool.
 no-global-fact : ¬ GlobalFact
-no-global-fact s = true≢false contradiction
+no-loop-fixed-point : (b : Bool) → ¬ (subst RelativeFact loop b ≡ b)
+no-loop-fixed-point true  p = true≢false (sym p)
+no-loop-fixed-point false p = true≢false p
+
+no-global-fact s = no-loop-fixed-point (s base) fixed
   where
   fixed : subst RelativeFact loop (s base) ≡ s base
   fixed = section-naturality RelativeFact s loop
-
-  contradiction : true ≡ false
-  contradiction with s base
-  ... | true  = sym loop-carries-true-to-false ∙ fixed
-  ... | false = sym fixed ∙ loop-carries-true-to-false
 
 ------------------------------------------------------------------------
 -- 3. Rooted repair by retaining the interaction-relative sheet

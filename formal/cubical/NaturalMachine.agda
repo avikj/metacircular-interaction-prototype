@@ -90,6 +90,11 @@ import NaturalMachine.ObservableHorizon
 -- depth remains a separate cost coordinate.
 import NaturalMachine.AdaptiveResidualAdapter
 import NaturalMachine.HolonomyDescent
+-- Finite lattice-gauge/LQG kinematic seam: subdividing one edge introduces
+-- an internal gauge coordinate, and the Cubical orbit quotient is equivalent
+-- to the original coarse holonomy.  This is cylindrical refinement
+-- consistency, not a claim to implement full LQG dynamics.
+import NaturalMachine.RelationalHolonomyRefinement
 import NaturalMachine.FiniteInformation
 -- Lossless postcomposition of an observation by an equivalence preserves
 -- exactly which set-valued targets factor through it; a Bool collapse is
