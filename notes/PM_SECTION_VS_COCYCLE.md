@@ -88,3 +88,38 @@ obstruction with local-system coefficients" — this note supplies the
 smallest worked instance, not the theorem), and any Agda/Lean form. The
 natural checked target: `coker(δ) ≅ F₂` and the exactness step — pure
 finite linear algebra over F₂, no matrices over ℤ[i] needed.
+
+## Checked status (2026-08-13): the named target is discharged
+
+`formal/cubical/NaturalMachine/PMCokernel.agda` — `--cubical --safe`,
+exit 0, no postulates, no holes — discharges this note's closing line
+("the natural checked target: `coker(δ) ≅ F₂` and the exactness step —
+pure finite linear algebra over `F₂`"):
+
+- **parity kills the image**, and not by enumeration: the proof is the
+  identity *a 3×3 array has the same total by rows as by columns*, so it
+  covers all 512 assignments at once — a better proof than the Python's
+  512-fold exhaustion, which is what generalizes;
+- `total s ≡ true` by one `refl`, hence no global section;
+- **each observable occurs exactly twice** is *computed* from the context
+  data with a certified equality test, not transcribed — the hypothesis of
+  the parity argument is checked rather than assumed;
+- **exactness both ways** (`im δ = ker total`, plus `total` onto), which is
+  `coker δ ≅ F₂` in usable form;
+- the **one-edge ZZ twist gives exactly `2⁴ = 16` sections**, as an
+  equivalence `TwistedSection ≃ (Fin 4 → Bool)` *derived* from the cycle
+  structure, not measured. Theorem 3 of this note is therefore checked.
+
+Honest limits, all in that file's header: no `SetQuotient` (the cokernel
+is delivered as exactness + surjectivity, the convention `PMTorus` already
+uses); the sign vector `s` is a **datum transcribed from this note**, not
+derived from the Gaussian-integer Pauli matrices — the upstream operator
+layer `(φ, μ)` remains unformalized, so §Theorem-4 (the gauge term is
+load-bearing) is *not* in the checked lane; `rows-only-section` is trivial
+for this `s` and says so.
+
+One methodological point worth keeping: the author ran a **sensitivity
+check**, flipping `s C2` to `false` in a scratch copy and confirming
+`total-s` then fails to typecheck. So the module is demonstrably not
+proving an obstruction for every sign vector — the checked theorem knows
+which square it is about.

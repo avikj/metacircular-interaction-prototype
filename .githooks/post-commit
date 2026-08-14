@@ -1,0 +1,11 @@
+#!/bin/sh
+# Owner directive, 2026-08-14: push and pull every minute. Enforced here
+# so no commit can sit unpushed even if the agent forgets. Fires ./sync
+# in the background; never blocks or fails a commit.
+#
+# MATH_SYNCING guards the recursion (sync itself commits WIP).
+[ "${MATH_SYNCING:-}" = "1" ] && exit 0
+if [ -x "$(git rev-parse --show-toplevel)/sync" ]; then
+  ( MATH_SYNCING=1 "$(git rev-parse --show-toplevel)/sync" >/dev/null 2>&1 & ) 
+fi
+exit 0
