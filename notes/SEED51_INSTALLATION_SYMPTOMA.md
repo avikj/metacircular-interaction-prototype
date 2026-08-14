@@ -151,7 +151,30 @@ data, and adding a constituent means one is describing a different seam.
 I was asked whether the drawn blocker is "the same wall from the other side" as SEED-25's
 `Retire` failure. **It is not**, and the correct statement is more useful than either yes or no.
 
-**(a) The blocker is the same theorem as SEED-25 §5, not §4.3.** Both are Axis II. The Agda
+**(a) The blocker is ~~the same theorem as~~ SEED-25 §5, not §4.3.** Both are Axis II.
+
+> **Qualified (SEED-97, Rule K1/K3, 2026-08-14).** Checked, because tonight has
+> produced several unsound "these are the same theorem" claims. This one is
+> **half sound**. Sound half: both are the triviality *a non-injective map
+> admits no retraction*, and SEED-25 §5's proposed repair is therefore a
+> retraction repair, not a caching tweak. Unsound half: **§5 is not an instance
+> of Theorem 1 above.** Axis II is defined here as injectivity of `τ ∘ κ` on
+> `I ⊆ C`, a set of *claims*, and the chain of Theorem 1 has no link carrying a
+> map out of the store `S`. The memo map `|U(·)| : S → ℕ` is not `τ ∘ κ` and
+> knowledge states are not claims — as §5(a) itself concedes ("on the store's
+> control state instead of on its claims"). Moreover no claim is misinstalled by
+> the §5 defect: nothing false enters `known` and no two claims become
+> indistinguishable to the installer, so by these axes the symptom is nearer
+> **I−** than II. Read the row and this paragraph as: *the same one-line lemma,
+> applied to a different map on a different domain.* The forced ordering
+> II → I− → III of §5(b) does not depend on this and is untouched.
+>
+> Separately, and relevant to §4's row and to §7: SEED-25 §5's Theorem 1 has had
+> its **second clause struck** (SEED-97, at that note's site) — the two-round
+> `Retire`/`Invent` cycle re-keys `failed[c]` at the intervening round, so no
+> suppression occurs on it. The non-injectivity of `n` survives; the harm claim
+> does not. Nothing in Theorem 1 or Proposition 2 above depends on the struck
+> clause. The Agda
 module `NaturalMachine.ProofLabelNoGo` — "if `emit` collides then
 `Σ[ validate ] (validate ∘ emit ≡ id)` is empty" — is *literally* the general obstruction, and
 SEED-25's `n(σ₁) = n(σ₂)` counterexample is a second instance of it with `emit = |U(·)|`.

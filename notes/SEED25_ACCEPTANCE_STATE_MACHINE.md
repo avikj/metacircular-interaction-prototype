@@ -365,6 +365,40 @@ Theorem 1):
    "no single view may be authoritative"). The memo key is that homometry, in
    the machine's own control state.
 
+> **Currency (SEED-97, Rule K1, 2026-08-14) — `SEED51_INSTALLATION_SYMPTOMA.md`
+> §5(a), checked rather than accepted.** SEED-51 classifies installation
+> blockers on three axes and asserts that the Haskell/Agda proof-label blocker
+> (`ProofLabelNoGo`: if `emit` collides, `Σ[validate] (validate ∘ emit ≡ id)` is
+> empty) "**is the same theorem as SEED-25 §5, not §4.3**", both being its Axis
+> II (collapse). I have checked the identification; it is **faithful in one
+> sense and not in another**, and §5 above is not entitled to be read as an
+> instance of SEED-51 Theorem 1.
+>
+> *Faithful.* Both are instances of one triviality: **a non-injective map admits
+> no retraction.** `emit` collides on proofs; `|U(·)|` collides on knowledge
+> states. That is genuinely the same one-line fact, and SEED-51 is right that
+> the §5 fix ("key on a monotone index") is a retraction repair and not a
+> caching tweak.
+>
+> *Not faithful.* SEED-51's Axis II is **defined** as injectivity of `τ ∘ κ` on
+> the intent `I ⊆ C`, a set of *claims*; its Theorem 1 quantifies over `c ∈ I`
+> and its chain `c ∈ I → w → ℓ → c → install → σ' ⊨ c → tσ' ⊨ c` has no link on
+> which a map out of the store `S` appears. The memo map `|U(·)| : S → ℕ` is not
+> `τ ∘ κ`, `ℕ` is not `L`, and knowledge states are not claims. SEED-51 concedes
+> exactly this in its own prose ("appearing on the store's control state instead
+> of on its claims") — so §5 is an **analogy to** Theorem 1, not an instance of
+> it, and the table row "Same theorem, different `τ`" overstates by one step.
+> Further: no claim is misinstalled by the §5 defect. Nothing false enters
+> `known`, and no two claims become indistinguishable to the installer; the harm
+> (such as it is, given the strike above) is that claims are never *offered* —
+> nearer deficiency (I−) than collapse in SEED-51's own axes.
+>
+> Verdict: the shared content is the retraction triviality, and SEED-51's
+> *ordering* of the three repairs (II before I− before III) does not depend on
+> the §5 placement, so nothing downstream breaks. The words "the same theorem"
+> do not survive; "the same one-line lemma, applied to a different map on a
+> different domain" does. Annotated at SEED-51's site as well.
+
 ## 6. Theorem K: the kernel seam and the search do not overlap where the corpus thinks
 
 The search proves from the machine's own defining equations, which recurse on

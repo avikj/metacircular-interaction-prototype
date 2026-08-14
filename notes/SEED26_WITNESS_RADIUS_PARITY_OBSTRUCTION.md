@@ -204,12 +204,29 @@ with two clarifications and no corrections.**
   $m-b^{L-1}$, and the witness radius, being the second-largest value of $d$,
   is $L-1$ iff that size is $1$ iff $m=b^{L-1}+1$. **Theorem C stands.**
 
-One editorial correction propagates from Theorem 1: §4 and the abstract of
+~~One editorial correction propagates from Theorem 1: §4 and the abstract of
 `SEED11_WITNESS_RADIUS_LOG_LAW.md` say that $3$ and $5$ are "the complete list
 of degenerate cases in the whole theory". That is true for $T=\{0\}$ only in
-the sense that $\{3,5\}$ are the smallest members; as a statement about
+the sense that $\{3,5\}$ are the smallest members;~~ as a statement about
 $W_{\max}$ it should read: the degenerate moduli are exactly
 $m=b^{L-1}+1$, an infinite family, and the degeneracy is universal over $T$.
+
+> **Sharpened, and the softening struck (SEED-97, Rule K1/K3, 2026-08-14, on
+> the authority of `SEED35_CORPUS_COMPRESSION.md` §3.5(1)).** The struck
+> sentence calls the offending claim "editorial" and "true for $T=\{0\}$ … in
+> the sense that $\{3,5\}$ are the smallest members". Both concessions are too
+> generous and I withdraw them. SEED-11 §4 says $3$ and $5$ are the complete
+> list of cases **where the divisibility observable fails to achieve the bound
+> of Theorem A** — a claim about $T=\{0\}$ alone. SEED-11's *own* Theorem C
+> says the failures for $T=\{0\}$ are exactly $m=b^{L-1}+1$, which at $b=2$ is
+> $\{3,5,9,17,33,65,\dots\}$. So §4 is **outright false at $m=9$, and false as
+> a statement about $T=\{0\}$, independently of Theorem 1 of the present note.**
+> It is an *internal inconsistency* in SEED-11 between its §4 and its §C — as
+> SEED-35 §3.5(1) diagnoses — apparently caused by importing §6's *conjecture*
+> (that only $3,5$ resist rescue by other $T$) into a sentence about the
+> divisibility observable. Calling it editorial understates it: it needs a
+> strike at its site, not a rewording, and it does not need Theorem 1 to
+> justify one.
 Corollary D (unboundedness, $m_{\min}(k)$) is unaffected — it concerns
 $T=\{0\}$ and is correct as stated.
 
