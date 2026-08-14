@@ -44,7 +44,7 @@ def oneInvariant (N b : ℕ) :
     LinearMap.ker
       ((Rep.applyAsHom (coefficients N b) (generator N) - 𝟙 _).hom.toLinearMap) :=
   ⟨1, by
-    change ((coefficients N b).ρ (generator N) - LinearMap.id) 1 = 0
+    change (coefficients N b).ρ (generator N) 1 - 1 = 0
     simp [coefficients]⟩
 
 /-- When `b ∣ N`, the cyclic norm on `ZMod b` is identically zero. -/

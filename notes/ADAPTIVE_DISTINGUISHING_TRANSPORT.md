@@ -157,7 +157,12 @@ tree.ResidualSplitting M cell
 whenever the cell's current output is constant.  Globally, prefix-residual
 separation is equivalent to carrying this certificate on both initial fibres
 of the free current bit.  The all-reachable `1/1/2` witness is a positive
-control: its depth-two tree carries the complete recursive certificate.
+control: its depth-two tree carries the complete recursive certificate.  The
+symbolic `LinearAdaptiveGap` family is a second positive control: for every
+`n` and every omitted hidden state, its depth-`n-1` tree carries the same
+certificate.  Under `n ≥ 2` that family has exact costs `(1,1,n-1)`, so the
+adaptive-minus-uniform gap is unbounded on reachable Mathlib residual
+presentations.
 
 This removes a hidden strengthening from the earlier informal continuation.
 The continuations do not need to separate a union of candidates that were
@@ -181,7 +186,8 @@ certificate in `formal/pairfield/Pairfield/AdaptiveResidualPartition.lean`:
 - `no_residual_separator_rooted_at_merge`;
 - `BoolExperimentTree.residualSplitting_iff_separatesOn`;
 - `BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting`;
-- `adaptiveTree_initialResidualSplitting`.
+- `adaptiveTree_initialResidualSplitting`;
+- `omitOneTree_initialResidualSplitting`.
 
 Replay:
 

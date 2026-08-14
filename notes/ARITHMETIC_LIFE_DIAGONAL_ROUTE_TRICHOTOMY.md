@@ -202,3 +202,53 @@ This is not a contradiction with `no_historical_actionCost_decoder`: the
 eight-step padded word still proves that the history actually taken is absent
 from the endpoint. Nor does the theorem price formation or bit-height of an
 arbitrary integer quotient `q`; that is the next typed cost coordinate.
+
+## 7. Cache-relative quotient acquisition is a state transition
+
+The next coordinate is now typed in the smallest exact model that distinguishes
+application from acquisition.  Let `K` be a retained list of integer
+coefficients.  Replaying `E(q)` costs one action, plus one acquisition exactly
+when `q` is absent from `K`; the transition then retains `q`.  For a quotient
+word `u`, write
+
+```text
+Φ(K,u) = final retained cache,
+C(K,u) = applications + first acquisitions.
+```
+
+Lean checks both composition laws for arbitrary integer words:
+
+\[
+ \Phi(K,u{+\!+}v)=\Phi(\Phi(K,u),v),
+ \qquad
+ C(K,u{+\!+}v)=C(K,u)+C(\Phi(K,u),v).
+\]
+
+Thus the cost is an additive cocycle only after its intermediate cache state
+is threaded.  The transcript exposes a declared left-then-right coefficient
+serialization
+
+```text
+[0, 1, 1, 2, -1, -5].
+```
+
+It has six applications and five distinct coefficients.  Consequently Lean
+checks
+
+```text
+cachedActionCost [] kuttaka610Transcript = 11
+cachedActionCost [0,1,2,-1,-5] kuttaka610Transcript = 6.
+```
+
+The theorem `no_cache_independent_actionCost` uses this collision to refute
+every proposed `price : DiagonalEuclidTranscript → Nat` that is required to
+equal marginal cached cost for all initial caches.  This is the exact
+`diag(6,10)` instance of the corpus's F42 yield: formation cost is a transition
+on `(object, cache)`, not a static attribute of the object.
+
+The scope is deliberately narrow.  Unit first acquisition is a declared
+model, not the bit complexity of forming `q`; the transcript did not record an
+original left/right interleaving, so left-then-right is an explicit pricing
+serialization; no eviction, provenance DAG, alternative construction policy,
+or optimal quotient-production theorem is claimed.  Those require more state,
+not a reinterpretation of this scalar.

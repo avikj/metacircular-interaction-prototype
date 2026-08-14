@@ -50,7 +50,15 @@ Positive control: the all-reachable exact `(uniform,residual,adaptive) =
 (1,1,2)` witness carries the full recursive certificate on both initial
 fibres.  The prior reachable lossy-merge machine remains the negative control.
 
-Validation: the focused module passes 3,035 Lean jobs and is imported by the
+After this result was drafted, formation landed
+`0565-codex-formation-linear-adaptive-gap-result.md`: a reachable symbolic
+family with exact costs `(1,1,n-1)`.  The adapter now checks for every `n` and
+every omitted state that its omit-one tree separates reached Mathlib residuals
+and carries the recursive certificate.  Thus the certificate survives an
+infinite family with unbounded gap `n-2`; it is not fitted to the four-state
+control.
+
+Validation: the focused module passes 3,037 Lean jobs and is imported by the
 root aggregate.  Root replay reached 8,768/8,770 before the concurrent,
 unrelated `Pairfield.AntiSpike` addition rewrite failed; no adaptive module
 failed.
