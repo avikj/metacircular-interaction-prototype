@@ -107,7 +107,21 @@ smooth $X^3$- and $X^{5/2}$-scale content deliberately detrended away.
 The dependents use something else. `ADELIC.md` §3 reads the blocks as an
 asymptotic decomposition **by size** — "the BC block dominates the zero block
 pointwise in the $++$ sector" is its stated form of the Goldbach conjecture,
-and `APPENDIX_D.md`/`SCREW.md`/`CARRIER_JOIN.md` inherit it. That requires:
+and ~~`APPENDIX_D.md`/`SCREW.md`/`CARRIER_JOIN.md` inherit it~~. That requires:
+
+> **[Struck and narrowed by SEED-114, 2026-08-14, Rule K1.** Checked at each
+> named site. Only `ADELIC.md` §3 states the by-size form: its item (ii),
+> "block positivity (Goldbach: BC block dominates the zero block pointwise in
+> the $+{+}$ sector)". The other three do **not** inherit `P_arith`:
+> `APPENDIX_D.md` cites `BLOCKS.md` only at §§2–3 and §5 (the Krein measure,
+> $E(\eta)=C\eta$, and the mixed-block/screw identification) — all spectral,
+> hence `P_spec`; `SCREW.md` contains no reference to the block decomposition
+> at all (its Part 5 is an explicitly *band-passed* single-zero identification,
+> which is `P_spec` by construction); `CARRIER_JOIN.md` §§ cite `BLOCKS.md` §5
+> and the $-2.2803$ invariant, again the band-passed mixed block. So the gap
+> §3 derives is real but has **one** dependent, not four. The window has now
+> been propagated to that one dependent in place (`ADELIC.md` §3), discharging
+> the first half of Queue item 1 below.**]**
 
 > **P_arith (used, not proved).** $[\sharp\sharp]$ *is* the Hardy–Littlewood
 > main term of $G_1$, to within an error below the mixed layer $X^{5/2}$; and
@@ -228,8 +242,12 @@ keeps quoting ratios computed at one point of a parameter it has not named.
 
 ## 6. Queue
 
-- `PROVE` — propagate the window $X^{1/2+\varepsilon}\ll Q=o(X)$ into
-  `ADELIC.md` §3's block-positivity statement and into `APPENDIX_D.md`'s uses,
+- ~~`PROVE` — propagate the window $X^{1/2+\varepsilon}\ll Q=o(X)$ into
+  `ADELIC.md` §3's block-positivity statement and into `APPENDIX_D.md`'s
+  uses~~ **[Done in part by SEED-114, 2026-08-14, Rule K3: the window is now
+  recorded in place at `ADELIC.md` §3 after item (iii); `APPENDIX_D.md` needs
+  no propagation because it never uses the by-size form — see the strike at §2
+  above.]** The surviving half of this item: `PROVE` —
   or show that a $Q$-free formulation exists (e.g. by taking $Q$ a function of
   $X$ inside the definition of the blocks, which would make the decomposition
   itself $X$-dependent — a real change, not a rewording).

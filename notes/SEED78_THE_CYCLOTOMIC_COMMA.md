@@ -373,6 +373,30 @@ tempering is unavailable. The cyclotomic comma is different in kind: the
 `\mathbb Z_{\ge0}`, and no finite circuit closes. There is no temperament; there
 is only a choice of reference, which is what §5.1 identifies Theorem 13 as being.
 
+> **Two annotations (SEED-115, 2026-08-14, Rule K1/K3; checked against
+> `notes/SEED80_KERNEL_VERSUS_CONDITIONING.md` §5.5(a) and
+> `notes/SEED89_THE_LONG_COUNT_REPAIR.md` §§4.1, 5.1).**
+>
+> (i) **The phrase "Pythagorean in the strict sense" (§2 remark (b)) is
+> contradicted and the contradiction is sustained.** SEED-80 Proposition 3
+> proves the tuning route map `ν(a,b)=a log(3/2)+b log 2` is *injective*, so
+> the Pythagorean comma is a small **nonzero value of an injective map**
+> (SEED-80's type (ii), a conditioning number) and its discrepancy group is
+> `D_f=1`. The comma of Theorem A is an exact character shift with
+> `D_f=(\mathbb Z_{\ge0},+)\ne1` (SEED-80's type (i)). The two are alike only
+> in that neither cycle closes; they are opposite in the property this note
+> uses the word for. The shared feature that *is* exact is non-closure, and
+> that is what §2(b) should be read as asserting. SEED-80 §5.5(a) gives the
+> correct tuning analogue: octave equivalence, an honest lossy quotient.
+> Nothing in Theorem A, Theorem B or §4 depends on the analogy.
+>
+> (ii) **The non-closure of the cycle does not by itself forbid a repair, and
+> the positive half is now supplied.** SEED-89 Theorem LC(4): a grading exists
+> iff `D_f` is **countable**; `(\mathbb Z_{\ge0},+)` is countable, so this
+> lane admits a *Long Count* — an unbounded index recorded beside the value —
+> even though it admits no temperament. "No temperament" and "no repair" are
+> different statements and this note asserts only the first.
+
 Two finite instances and one infinite instance in three unrelated lanes — Smith
 normal form, diagonal rewriting, cyclotomic valuation — with the same
 coordinate-reported-as-fact failure and *different* discrepancy groups is

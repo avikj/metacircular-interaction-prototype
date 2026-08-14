@@ -15,7 +15,10 @@ integer verification carried out in the text.
 **Reads.** `SEED02_SYMMETRIC_REPAIR_HAS_NO_COARSEST.md`,
 `SEED03_LENS_DEFECT_SPECTRUM.md`, `SEED12_SYMMETRIC_REPAIR_UNIQUENESS_FAILS.md`,
 `SEED21_CHECK_CAPACITY_IS_AN_INDEX.md`,
-`COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`.
+`COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`,
+`LEAKAGE_RANK_IS_INCIDENCE_RANK.md` **(added SEED-112, Rule K3, 2026-08-14: §1's
+own prior-art annotation ends "`LEAKAGE_RANK_IS_INCIDENCE_RANK.md` should be
+added to this note's Reads" — the annotation landed, the Reads line did not)**.
 
 ---
 
