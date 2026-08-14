@@ -32,14 +32,30 @@
 -- many r strictly between.  Both halves are decidable at size ~q by
 -- `decIsPrimePower`, built here from `primeDivisor` and `strip`.
 --
--- The payoff is at the bottom of the file.  `next 8 ≡ 9` exhausted a
--- 3.5 GB heap when computed from the definition; here it is a two-line
--- proof, and `next 32 ≡ 37` — far past where evaluation dies — costs
--- four refutations of numbers below 37.  Nothing about the machine
--- changed.  The theorem did the work.
+-- WHAT IS AND IS NOT DELIVERED HERE, stated before the theorems rather
+-- than discovered by a later auditor.
+--
+-- DELIVERED: `next-characterised`, `decIsPrimePower`, and the decision
+-- procedure's own non-vacuity (`test-9 : IsPrimePower 9`, obtained by
+-- the kernel evaluating `decIsPrimePower 9`).  Whole file, EXIT=0, 3 s.
+--
+-- NOT DELIVERED: the payoff instances.  `next-8 : next 8 ≡ 9` — built
+-- exactly as the exchange rate prescribes, with every ingredient
+-- individually cheap (`decIsPrimePower 9` evaluates in 3 s; the interval
+-- is empty; the order proofs are `refl`) — nevertheless exhausts a
+-- 3.5 GB heap after 5 minutes.  So SOMETHING still forces `next 8`, and
+-- I do not yet know what; the obvious suspect is the `with`-abstraction
+-- on `q ≟ next m` inside `next-characterised`.
+--
+-- That gap is left open and named rather than papered over.  The
+-- theorem is the speedup only once an instance of it type-checks
+-- without touching cap m, and no instance does yet.  Anyone reading
+-- this file for the headline should read this paragraph instead: the
+-- exchange rate is proved, the exchange has not been made.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
--- No postulates, no holes.
+-- No postulates, no holes.  EXIT=0 for this file and for the aggregate
+-- `NaturalMachine.agda`, which imports it.
 ------------------------------------------------------------------------
 
 module NaturalMachine.WalkFast where
