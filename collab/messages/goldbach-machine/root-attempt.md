@@ -235,6 +235,37 @@ a_B^{\mathrm{diag}}(N)\ge-(1-\eta)N\mathfrak S(N)
 for every sufficiently large even `N`.  This analytic theorem is not present
 in Lean and is not proved here.
 
+**Weaker exact edge target.**  A fixed fractional `eta` is more than Goldbach
+needs.  If
+
+\[
+I_{\mathfrak M}(N)=\mathfrak S(N)N+E_{\mathfrak M}(N),
+\]
+
+then the strictly weaker sufficient condition is
+
+\[
+I_{\mathfrak m}(N)+\mathfrak S(N)N
+>|E_{\mathfrak M}(N)|+4\sqrt N(\log N)^2.
+\]
+
+Using the source's displayed exponential major error, it is enough, for any
+fixed `0<c'<c`, to prove
+
+\[
+I_{\mathfrak m}(N)
+\ge-\mathfrak S(N)N+Ne^{-c'\sqrt{\log N}}.
+\tag{H_edge}
+\]
+
+The margin is `o(N)` but still dominates both the major uncertainty and the
+checked prime-power contamination.  Conversely, the fixed-margin `H_min` is,
+up to a change of constant, equivalent to a uniform lower bound
+`R_Lambda(N) >= kappa mathfrak S(N)N`; it would yield
+`gg N/(log N)^2` ordered prime pairs at every center, substantially more than
+nonemptiness.  The proof and exact boundary are in
+[`direct-minor-shadow.md`](direct-minor-shadow.md).
+
 ## 5. Why the current strongest average does not close one center
 
 There are two different arc regimes, two coefficient-family normalizations,
@@ -367,6 +398,14 @@ explicit.
   exactly but do not prove it positive.  One-atom controls have the same mass,
   factor-count charge, parity, and Fourier energy while a chosen sum
   coefficient changes.
+- **Bounded-denominator major semantics.**  A moving quadratic-character
+  selector at a prime conductor just beyond the logarithmic arc cutoff is
+  nonnegative and supported on actual primes, has the same declared major-arc
+  coefficient up to `o(N)`, but has zero convolution at a chosen conductor
+  multiple.  This is not the prime sequence and not a counterexample to
+  Goldbach; it proves that major semantics, nonnegativity, and prime support
+  alone cannot yield a fixed minor-arc margin.  A successful proof must exclude
+  or couple the hidden character mode across targets.
 - **Exceptional-set bounds.**  Zhao's current
   [preprint, arXiv:2511.05631v2](https://arxiv.org/abs/2511.05631v2) proves
   `E(X)=O(X^(7/10))`, with ineffective constant.  A power saving still permits
@@ -460,6 +499,8 @@ prime-log route needs neither.
   (`9aff3cd8`).  The analytic normalization and amplifier audits are
   [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
+  direct edge-margin and moving-character audit is
+  [`direct-minor-shadow.md`](direct-minor-shadow.md); the
   arithmetic coherence audit is
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the
   logarithmic common-carrier correction is

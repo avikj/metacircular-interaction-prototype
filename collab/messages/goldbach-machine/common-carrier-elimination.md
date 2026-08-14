@@ -215,10 +215,46 @@ statement is narrower: choosing the common carrier makes the analytic
 composition type-correct and deletes an otherwise unnecessary transport
 hypothesis.
 
+## 6. Transport audit: polynomial tails are cheap; conductor walls are not
+
+The carrier comparison separates into two mathematically different legs.
+For a fixed measurable mask `A`, `N<=Y`, and prime or von-Mangoldt exponential
+sums of the corresponding lengths, Cauchy--Schwarz and Parseval give
+
+\[
+\left|\int_A(S_Y^2-S_N^2)e(-N\alpha)\,d\alpha\right|
+\le
+\|S_Y-S_N\|_2(\|S_Y\|_2+\|S_N\|_2)
+\le 2\sqrt{(Y-N)Y}\log^2Y.
+\]
+
+Hence the polynomial-tail leg is `o(Y)` on windows
+`Y-N=Y/(log Y)^K` with `K>4`.  This is already large enough to outrun a
+sufficiently strong logarithmic exceptional-set budget.  The carrier-length
+change was not the real obstruction.
+
+At logarithmic cutoff, the remaining arc-mask change is likewise controlled
+by the same uniform Siegel--Walfisz major approximation.  At a power cutoff it
+is not a geometric small-boundary problem.  A narrow conductor band can
+contain an entire primitive real exceptional character.  If its conductor
+crosses the cutoff, divides the target, the character is odd, and
+`(1-beta)log X=O(1)`, the exact self-pair generalized singular-series term has
+negative sign and order `X`.  Band width alone supplies no amplitude saving.
+
+The existence of such an odd near-one zero is unknown, so this is a
+conditional obstruction rather than an actual counterexample.  It proves
+that a universal power-cutoff `(TR)` cannot be obtained merely from the size
+of the cutoff perturbation and known zero-free information.  One must either
+prove a new exceptional-zero theorem or, more cleanly, formulate the major
+positivity requirement on one common carrier `(CZM)` from the start.  In Delta
+29 language, the exceptional conductor is an event wall at which the
+one-sided interface can change by order `X`.
+
 ## Rigor boundary
 
 * **Exact algebra:** Fourier decomposition; exception implies
-  `R_m=-R_M`; the `(UE)` Markov implication.
+  `R_m=-R_M`; the `(UE)` Markov implication; the fixed-mask polynomial-tail
+  comparison.
 * **Primary-source inherited:** the common-`X` logarithmic major-arc
   asymptotic and common minor-arc mean square in
   [Pintz Part I](https://arxiv.org/abs/1804.05561).
