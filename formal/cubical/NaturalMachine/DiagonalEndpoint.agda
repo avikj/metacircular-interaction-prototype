@@ -17,7 +17,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-trans ; ¬m<m)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as Empty using (⊥ ; rec)
-open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
+open import Cubical.Data.Sigma using (Σ-syntax ; fst ; _,_)
 
 record FactorState (m⋆ : ℕ) : Type₀ where
   field
@@ -28,10 +28,11 @@ record FactorState (m⋆ : ℕ) : Type₀ where
 record NearFamily (m⋆ : ℕ) : Type₁ where
   field
     threshold : ℕ → ℕ
-    witness : (m : ℕ) → (x : ℕ) → threshold m ≤ x → FactorState m⋆
     -- The near-boundary theorem itself.  Its concrete arithmetic meaning
     -- (a ≤ b^(1/m), factor share, etc.) belongs to the instance.
     near : (m : ℕ) → (x : ℕ) → threshold m ≤ x → Type₀
+    witness : (m : ℕ) → (x : ℕ) → (h : threshold m ≤ x) →
+      Σ[ state ∈ FactorState m⋆ ] near m x h
 
 record DiagonalCertificate {m⋆ : ℕ}
   (F : NearFamily m⋆) : Type₀ where
@@ -42,7 +43,8 @@ record DiagonalCertificate {m⋆ : ℕ}
     -- diagonal choice, the supplied near-boundary estimate is absolutely
     -- below the discrete gap.  It is not hidden in an unproved real limit.
     small : (x : ℕ) →
-      FactorState.factor (NearFamily.witness F (choose x) x (applicable x)) < m⋆
+      FactorState.factor
+        (fst (NearFamily.witness F (choose x) x (applicable x))) < m⋆
 
 UnitWitness : {m⋆ : ℕ} → FactorState m⋆ → Type₀
 UnitWitness state = FactorState.factor state ≡ 1
@@ -54,11 +56,11 @@ DiagonalEndpoint : {m⋆ : ℕ}
   (x : ℕ) → UnitWitness
     (NearFamily.witness F
       (DiagonalCertificate.choose C x) x
-      (DiagonalCertificate.applicable C x))
+      (DiagonalCertificate.applicable C x)) .fst
 DiagonalEndpoint F C x with
   FactorState.gap
-    (NearFamily.witness F (DiagonalCertificate.choose C x) x
-      (DiagonalCertificate.applicable C x))
+    (fst (NearFamily.witness F (DiagonalCertificate.choose C x) x
+      (DiagonalCertificate.applicable C x)))
 ... | inl unit = unit
 ... | inr nonunit = Empty.rec (¬m<m
     (≤-trans (DiagonalCertificate.small C x) nonunit))
