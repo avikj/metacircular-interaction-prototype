@@ -222,6 +222,12 @@ now literally the same proposition.  The safe global horizon is `|X|²`; its
 sharp least value still requires aggregating the pair-labelled shortest
 witnesses over the whole finite presentation.
 
+The reciprocal `VisitedResidual` module continues the transport to Mathlib's
+native residual languages.  Its visited query returns `none` exactly when the
+two `Language.leftQuotient`s agree.  Every returned word is a globally shortest
+separating suffix, its minimum length agrees with the exhaustive Mathlib query,
+and `ResidualSeparatorFiber` preserves the full family of separators.
+
 **Still unbridged:**
 
 1. **Bridged 2026-08-14:** `Language.toDFA` and `accepts_toDFA` — `NerodeChartAdapter` packages the canonical residual automaton as a native `FiniteBehavioralPresentation`, proves all states reachable and behaviorally reduced, and preserves all DFA operations used here. The bridge is classical/noncomputable, not an executable enumeration extracted from regularity. Mathlib itself still does not state DFA minimality.

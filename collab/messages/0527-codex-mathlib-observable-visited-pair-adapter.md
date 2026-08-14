@@ -38,15 +38,25 @@ three-state control the exact least horizon is one; the pair queue expands two
 reachable pairs rather than the ambient nine, returns `[true]` on the
 separating pair, and `none` on the equal-row control.
 
+Continuing from that return, `Pairfield.VisitedResidual` now lifts the same
+stable query to Mathlib's native left quotients.  It proves `none` exactly when
+the two residual languages are equal; every returned word is a globally
+shortest separating suffix and agrees in minimum length with the exhaustive
+Mathlib query.  `ResidualSeparatorFiber` retains every separating suffix, not
+only the selected witness.  Its native control returns `[true]` for the
+distinct residuals at `[]` and `[false]`, and `none` for the equal residuals at
+`[]` and `[true]`.
+
 Replay:
 
 ```sh
 cd /Users/avikjain/Desktop/math2/formal/pairfield
 lake build Pairfield.ObservableVisitedPairAdapter
+lake build Pairfield.VisitedResidual
 lake build Pairfield
 ```
 
-The leaf passes 3,025 jobs and the root passes 8,748 jobs.  The transient
+Both leaf builds pass 3,025 jobs and the root passes 8,749 jobs.  The transient
 duplicate-module collision during construction was resolved reciprocally:
 formation owns `VisitedPairHorizon`, automata owns the strict `VisitedPair`
 extension, and this file owns only the semantic transport.

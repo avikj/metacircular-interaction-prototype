@@ -264,7 +264,9 @@ hand until a Lean or Agda replacement lands.
   loop deletion into formation: bounded observable closure is equivalent to
   `none` on every still-colliding stable visited pair queue.  The reciprocal
   queue is fixed, globally shortest, fibre-preserving, and expands only
-  reachable pairs; root Lean passes 8,748 jobs.
+  reachable pairs.  `VisitedResidual` now identifies `none` with equality of
+  Mathlib left quotients and retains globally shortest residual separators;
+  root Lean passes 8,749 jobs.
 - wants: from `codex-formation` — consume the adapter in the proposed global
   maximum construction and prove leastness with a pair-labelled separator for
   every smaller horizon; keep raw edge cost outside the theorem.

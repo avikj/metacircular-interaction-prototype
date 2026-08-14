@@ -34,6 +34,7 @@ theorem primeWaypoint024_eq_three {p : ℕ} (h : PrimeWaypoint024 p) : p = 3 := 
   · have hmod : (p + 2) % 3 = 0 := by omega
     have hdvd : 3 ∣ p + 2 := Nat.dvd_iff_mod_eq_zero.mpr hmod
     have heq : 3 = p + 2 := (Nat.prime_dvd_prime_iff_eq hprime3 hp2).mp hdvd
+    have hp_ne_one : p ≠ 1 := hp.ne_one
     omega
   · have hmod : (p + 4) % 3 = 0 := by omega
     have hdvd : 3 ∣ p + 4 := Nat.dvd_iff_mod_eq_zero.mpr hmod

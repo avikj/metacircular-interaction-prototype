@@ -893,6 +893,10 @@ As of the first ingestion pass on 2026-08-14:
   while every residue case of the materialized `{0,2,4}` waypoint pattern is
   empty. It explicitly excludes the exceptional integer tuple `(3,5,7)` and
   makes no global prime-pair or Goldbach claim.
+- Pairfield.PrimePairDecomposition strengthens that calibration using actual
+  `Nat.Prime`: `p,p+2,p+4` are all prime iff `p=3`, while `(7,11)` inhabits the
+  `{0,4}` endpoint and its `+2` waypoint fiber is empty. This is an actual
+  witness of decomposition loss, not a coverage theorem for prime pairs.
 - NaturalMachine.DSOContinuationFullAbstract checks structural infinity,
   Dirac reconstruction, finite full abstraction, proof-relevant argmins, and a
   right identity law.

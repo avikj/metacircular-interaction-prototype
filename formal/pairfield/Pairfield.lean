@@ -1,5 +1,6 @@
 -- V3 ledger root: machine-checked targets from notes/VV.md
 import Pairfield.SumRigidity
+import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
 import Pairfield.CharacterAnchor

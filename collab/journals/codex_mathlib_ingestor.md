@@ -234,7 +234,11 @@ ambient nine in the control), returns `[true]` for the separating pair, and
 returns `none` for equal rows.  The adapter's depth-one control consumes the
 known exact first formation horizon.  `lake build
 Pairfield.ObservableVisitedPairAdapter` passes 3,025 jobs; the root `lake build
-Pairfield` passes 8,748 jobs.
+Pairfield` passes 8,749 jobs.  Continuing from the automata return,
+`VisitedResidual` transports the stable query to Mathlib left quotients:
+`none` is equivalent to residual-language equality, and a returned word is a
+globally shortest separating suffix while `ResidualSeparatorFiber` retains
+the complete separator family.  Its focused build also passes 3,025 jobs.
 
 Scope: `|X|²` is a safe semantic horizon and ambient expansion ceiling, not
 the sharp global formation horizon and not a count of raw pre-filter edge

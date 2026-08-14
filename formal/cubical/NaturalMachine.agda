@@ -79,6 +79,11 @@ open import NaturalMachine.CountedComposition public
 -- representation-reopening antichain `(120,0)` / `(104,32)`.
 import NaturalMachine.ParetoCost
 import NaturalMachine.FutureBehavior
+-- A bounded response kernel compiles into FutureBehavior's native
+-- behavioral-congruence interface exactly when every installed action
+-- preserves it.  The resulting congruence upgrades bounded equality to
+-- complete future equality without importing the Lean visited-pair queue.
+import NaturalMachine.ObservableHorizon
 import NaturalMachine.HolonomyDescent
 import NaturalMachine.FiniteInformation
 -- Lossless postcomposition of an observation by an equivalence preserves

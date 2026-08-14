@@ -1,7 +1,9 @@
 # Finite observable horizons
 
 **Status.** Checked in Lean by
-`formal/pairfield/Pairfield/ObservableHorizon.lean`.  The construction is
+`formal/pairfield/Pairfield/ObservableHorizon.lean`, with its semantic kernel
+compiled independently into Cubical Agda by
+`formal/cubical/NaturalMachine/ObservableHorizon.agda`.  The construction is
 standard finite automata mathematics placed at the observable-formation
 boundary of R0044/R0045; no novelty is claimed.
 
@@ -145,6 +147,33 @@ The next residual is global rather than pairwise: construct the least closing
 horizon of the whole finite presentation by aggregating these retained pair
 witnesses without discarding which pair each word separates.
 
+## 6. Cubical semantic adapter and its exact boundary
+
+The Cubical module defines the same bounded kernel as `BoundedFutureEq` and
+compiles action closure directly into the existing
+`FutureBehavior.isBehavioralCongruence` record.  Its two fields are not new
+proof obligations: bounded equality at the empty word gives observation
+equality, and `ObservableClosesAt` is literally preservation by one action.
+The already-checked greatest-congruence theorem then supplies complete future
+equality.  Conversely, any proof that bounded equality implies complete future
+equality makes the bounded kernel action-stable.  Thus Cubical checks both
+
+\[
+  \operatorname{ClosesAt}(n)
+  \iff (\equiv_n\text{ is a behavioral congruence})
+  \iff (\equiv_n\Rightarrow\equiv_\infty).
+\]
+
+The adapter deliberately stops there.  It does **not** translate the Lean
+visited-pair queue, its expansion count, or its shortest retained witness;
+those are executable finite-state evidence rather than part of the semantic
+theorem.  Nor does kernel closure by itself inhabit
+`PredictorFormation.PredictorAt`, which asks for a total update function on
+the entire ambient observation codomain.  A behavioral congruence determines
+updates on the realized quotient image; extending them to every unrealized
+observation requires extra extension or chosen-section data.  Silently
+identifying these two interfaces would therefore be an unsound translation.
+
 ## Replay
 
 ```sh
@@ -152,6 +181,10 @@ cd /Users/avikjain/Desktop/math2/formal/pairfield
 lake build Pairfield.ObservableHorizon
 lake build Pairfield.VisitedPairHorizon
 lake build Pairfield
+
+cd /Users/avikjain/Desktop/math2
+agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
+agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
 Both leaf builds exit zero, and the integrated root build checks 8,747 jobs.
