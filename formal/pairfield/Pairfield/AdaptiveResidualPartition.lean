@@ -303,4 +303,36 @@ theorem BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting
         (hsplitting response)
     exact hseparates hleft hright htrace
 
+namespace AdaptiveResidualPartitionControl
+
+open ReachableAdaptiveObservableHorizonWitness
+
+theorem acceptsBool_automaton :
+    acceptsBool automaton = observe := by
+  funext state
+  fin_cases state <;> native_decide
+
+/-- The all-reachable `1/1/2` witness is a positive control: its native
+identifying tree separates every reached Mathlib prefix residual. -/
+theorem adaptiveTree_separatesPrefixResiduals :
+    adaptiveTree.SeparatesPrefixResiduals automaton := by
+  intro left right htrace
+  have heval : automaton.eval left = automaton.eval right := by
+    apply adaptiveTree_identifies
+    rw [← acceptsBool_automaton]
+    simpa [BranchTrace] using htrace
+  rw [BranchResidual, leftQuotient_eq_stateLanguage_eval,
+    leftQuotient_eq_stateLanguage_eval, heval]
+
+/-- Consequently the same depth-two tree carries the full recursive
+safe-action/live-cell certificate on both free-current-output fibres. -/
+theorem adaptiveTree_initialResidualSplitting :
+    ∀ response : Bool,
+      adaptiveTree.ResidualSplitting automaton
+        (ResidualCell.initial automaton response) :=
+  (BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting
+    automaton adaptiveTree).1 adaptiveTree_separatesPrefixResiduals
+
+end AdaptiveResidualPartitionControl
+
 end Pairfield
