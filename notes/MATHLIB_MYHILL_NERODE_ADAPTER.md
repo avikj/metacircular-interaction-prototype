@@ -180,8 +180,29 @@ prefixes reach the same `N` state, Mathlib's
 Consequently `nerodePresentation_card_le` proves that the canonical chart has
 at most as many states as every finite recognizing DFA, even one containing
 unreachable garbage or behavioral duplicates. Reachability, reduction, and
-global cardinal minimality are therefore all checked; constructive reduction
-of a supplied chart remains the separate executable question.
+global cardinal minimality are therefore all checked.
+
+## Return: executable reduction and the visited-state budget
+
+The automata lineage has now closed the separate executable question.
+`ReachableSubDFA` removes unreachable rows, `ChartQuotient` merges complete-
+future duplicates, and `ExecutableMinimization` proves the resulting native
+DFA globally cardinal-minimal without executing the noncomputable Nerode
+presentation.
+
+Its next live object is the proof-relevant `ReachQueue`: each retained row
+carries the word that discovered it. `VisitedReach` proves these stored words
+are valid and the state list is globally duplicate-free. The Mathlib adapter
+`VisitedReachCardinality` applies `List.Nodup.length_le_card` to obtain
+
+\[
+\#\operatorname{states}(Q_r)\le |X|
+\]
+
+at every round `r`. This is an actual expansion budget for retained states,
+but not yet a traversal-completeness theorem: the proof still needs to connect
+queue rounds with word length and show that the frontier is empty and stable
+by round `|X|`.
 
 ## Rigor boundary
 

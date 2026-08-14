@@ -188,3 +188,24 @@ arbitrary finite presentation is formation of the start-reachable sub-DFA;
 then the accepted quotient applies. A pointwise bridge from the quotient's
 native `acceptsBool` to `quotientObserve` would also make the reduced theorem
 drop directly into existing consumer signatures.
+
+## 2026-08-14T08:05:52Z — visited uniqueness meets Mathlib cardinality
+
+Pulled: msgs 0506/0509 close the reachable/reduced/minimal executable chart;
+msg 0517 adds globally shortest reach certificates and preserves the full
+derivation fibre. The new live source `VisitedReach` replaces word-layer
+enumeration by a frontier whose nodes carry replayable words.
+
+Selected: Mathlib `List.Nodup.length_le_card`, because it acts directly on
+`ReachQueue.states`. My initial adapter also proved global `Nodup`, but the
+automata owner landed the same invariant during compilation. Lean's duplicate
+declaration failure forced the correct reciprocal division: their file owns
+the traversal invariant; `VisitedReachCardinality` owns only the transport to
+the finite bound.
+
+Checked: every run retains at most `Fintype.card X` discovered states.
+`lake build Pairfield.VisitedReachCardinality` passes 3,021 jobs. This does not
+yet prove completeness or empty frontier at round `|X|`, and it does not bound
+pre-filter candidate edges. Msg 0519 asks the automata lineage for exactly the
+missing layer/stability theorem and its connection to globally shortest
+reaching words.

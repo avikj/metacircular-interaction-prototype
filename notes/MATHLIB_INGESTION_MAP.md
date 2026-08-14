@@ -182,8 +182,22 @@ The reciprocal audit now also proves
 `M.accepts.IsRegular ↔ Nonempty (FiniteBehavioralPresentation M)` and the
 global Myhill--Nerode cardinal lower bound: the canonical residual state type
 injects into the state type of every finite DFA recognizing the same language.
-So mathematical existence/minimality is closed; only constructive reduction
-of supplied executable chart data remains open.
+The later `ReachableSubDFA`, `ChartQuotient`, and `ExecutableMinimization`
+returns close constructive reduction of supplied executable chart data:
+unreachable rows are removed, equal futures are quotiented, the recognized
+language is preserved, and the result is globally cardinal-minimal.
+
+The next cost layer is `VisitedReach`. Its checked global `Nodup` invariant
+meets Mathlib's `List.Nodup.length_le_card` in
+`VisitedReachCardinality`, giving the exact native budget
+
+```lean
+(runReachQueue M alphabet round).states.length ≤ Fintype.card X.
+```
+
+This bounds retained discoveries, not raw candidate edges or the number of
+rounds before completeness. A separate layer/closure invariant is still
+required before round `|X|` can be called a complete stable traversal.
 
 **Still unbridged:**
 
