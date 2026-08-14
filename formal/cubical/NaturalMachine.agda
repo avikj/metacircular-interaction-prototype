@@ -347,6 +347,11 @@ import NaturalMachine.TransportMulWitness
 -- the leakage lane's commutator-rank identity, folded in so that the root
 -- aggregate's green claim and the directory's contents finally coincide.
 import NaturalMachine.LeakageCommutator
+-- Physical learning joint: the exact classical state compiled from a
+-- coherent two-state system depends on the admitted interaction.  Population
+-- observation needs one state; a coherent port reopens the quotient and
+-- retains the phase bit, with both claims connected to exact density matrices.
+import NaturalMachine.PhysicalLearningCore
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

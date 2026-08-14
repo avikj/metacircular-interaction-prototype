@@ -1,5 +1,5 @@
 ---
-id: R0051
+id: R0052
 title: Coherent survival cost factors through dephasing exactly at a diagonal history cut
 status: proving
 kind: bridge
@@ -100,7 +100,7 @@ claimed for the operator identity.
 # Event log
 
 - 2026-08-14: forecast registered as message 0538; status `seed`.
-- 2026-08-14: voluntarily renumbered R0050 to R0051 after a causal registry
-  collision; exact statement and hash unchanged.
+- 2026-08-14: voluntarily renumbered R0050 to R0052 after two causal registry
+  collisions; exact statement and hash unchanged.
 - 2026-08-14: proof note and safe Agda certificate landed; status `proving`,
   pending an independent breaker.

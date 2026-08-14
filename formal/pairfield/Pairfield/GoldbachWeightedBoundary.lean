@@ -36,6 +36,10 @@ def primeLogGoldbachCoeff (N : ℕ) : ℝ :=
 def primePowerContamination (N : ℕ) : ℝ :=
   mangoldtGoldbachCoeff N - primeLogGoldbachCoeff N
 
+/-- The pointwise von-Mangoldt mass not carried by primes. -/
+def primePowerError (n : ℕ) : ℝ :=
+  Λ n - primeLogWeight n
+
 theorem primeLogWeight_nonneg (n : ℕ) : 0 ≤ primeLogWeight n := by
   by_cases hn : n.Prime
   · simp [primeLogWeight, hn, hn.log_pos.le]
@@ -53,6 +57,48 @@ theorem primeLogWeight_le_vonMangoldt (n : ℕ) :
   · simp [primeLogWeight, hn, ArithmeticFunction.vonMangoldt_apply_prime hn]
   · simpa [primeLogWeight, hn] using
       (ArithmeticFunction.vonMangoldt_nonneg (n := n))
+
+theorem primePowerError_nonneg (n : ℕ) : 0 ≤ primePowerError n := by
+  exact sub_nonneg.mpr (primeLogWeight_le_vonMangoldt n)
+
+theorem sum_primeLogWeight_Icc (N : ℕ) :
+    (∑ n ∈ Finset.Icc 0 N, primeLogWeight n) = Chebyshev.theta N := by
+  rw [Chebyshev.theta_eq_sum_Icc]
+  simp [primeLogWeight]
+
+theorem sum_vonMangoldt_Icc (N : ℕ) :
+    (∑ n ∈ Finset.Icc 0 N, Λ n) = Chebyshev.psi N := by
+  simpa using (Chebyshev.psi_eq_sum_Icc (N : ℝ)).symm
+
+/-- The total pointwise error through `N` is exactly `ψ(N) - θ(N)`. -/
+theorem sum_primePowerError_Icc (N : ℕ) :
+    (∑ n ∈ Finset.Icc 0 N, primePowerError n) =
+      Chebyshev.psi N - Chebyshev.theta N := by
+  simp_rw [primePowerError, Finset.sum_sub_distrib]
+  rw [sum_vonMangoldt_Icc, sum_primeLogWeight_Icc]
+
+/-- A nonnegative antidiagonal convolution is bounded by its full square. -/
+theorem sum_antidiagonal_mul_le_square (N : ℕ) (f g : ℕ → ℝ)
+    (hf : ∀ n, 0 ≤ f n) (hg : ∀ n, 0 ≤ g n) :
+    (∑ pair ∈ Finset.antidiagonal N, f pair.1 * g pair.2) ≤
+      (∑ n ∈ Finset.Icc 0 N, f n) * (∑ n ∈ Finset.Icc 0 N, g n) := by
+  have hsubset :
+      Finset.antidiagonal N ⊆ Finset.Icc 0 N ×ˢ Finset.Icc 0 N := by
+    intro pair hpair
+    have hsum : pair.1 + pair.2 = N := Finset.mem_antidiagonal.mp hpair
+    rw [Finset.mem_product]
+    constructor <;> simp only [Finset.mem_Icc, Nat.zero_le, true_and] <;> omega
+  calc
+    (∑ pair ∈ Finset.antidiagonal N, f pair.1 * g pair.2) ≤
+        ∑ pair ∈ Finset.Icc 0 N ×ˢ Finset.Icc 0 N,
+          f pair.1 * g pair.2 := by
+      exact Finset.sum_le_sum_of_subset_of_nonneg hsubset
+        (fun pair _ _ ↦ mul_nonneg (hf pair.1) (hg pair.2))
+    _ = ∑ i ∈ Finset.Icc 0 N, ∑ j ∈ Finset.Icc 0 N, f i * g j := by
+      rw [Finset.sum_product]
+    _ = (∑ n ∈ Finset.Icc 0 N, f n) *
+        (∑ n ∈ Finset.Icc 0 N, g n) := by
+      rw [Finset.sum_mul_sum]
 
 theorem primeLogGoldbachCoeff_nonneg (N : ℕ) :
     0 ≤ primeLogGoldbachCoeff N := by

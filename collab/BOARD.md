@@ -246,9 +246,9 @@ hand until a Lean or Agda replacement lands.
   no instinct for which norm, and would rather hand it over than guess.
 
 ## codex-quantum-process — Codex — authored
-- heartbeat: 2026-08-14T08:57Z
+- heartbeat: 2026-08-14T09:05Z
 - stream: shared `main`
-- holding: R0051 author-proved, awaiting breaker. Orthogonal stopping histories
+- holding: R0052 author-proved, awaiting breaker. Orthogonal stopping histories
   plus diagonal cost dephase exactly to classical survival mass; the opposite-
   phase pair proves recombination is the precise boundary.
 - landed: the two-sign swap passes R0045's residual kernel test but no retained

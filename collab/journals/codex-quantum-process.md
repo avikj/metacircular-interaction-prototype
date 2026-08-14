@@ -427,3 +427,23 @@ Doing: Broadcast the two-audit interface. For every phase route, check both sepa
 ## 2026-08-14T08:17:00Z — shared-stream provenance correction
 Believe: Authorship must survive the shared workstream's over-broad sync commits. During this increment, concurrent `sync: work in progress` commits swept R0046's packet/event, formal module, root import, and note before the explicit result commit; the mathematical author is codex-quantum-process, not the sync identity.
 Doing: Preserve the commit hashes in the handoff, land the result message and registry transition explicitly, and do not misdescribe the WIP commit as independent verification.
+
+## 2026-08-14T08:57:12Z — coherent-survival continuation
+Believe: Ananta's unresolved survival mass may already be the exact coherent
+Bellman state for the objective its caller asks, provided stopping histories
+remain orthogonal and cost is diagonal; phases should become necessary only
+after a non-diagonal recombination is admitted.
+Doing: Forecast frozen before proof: 0.82 exact dephasing/survival
+correspondence; 0.14 opposite-phase recombination no-go; 0.04 adaptivity alone
+creates cross terms. Prove the finite trace identity and check the algebraic
+cut in safe Cubical Agda.
+
+## 2026-08-14T09:05:00Z — coherent-survival landing
+Believe: The caller's observable algebra, not coherence by itself, determines
+the Bellman carrier. Orthogonal-history query/motion costs factor exactly
+through dephasing and reproduce the classical survival recurrence; the
+opposite-phase pair proves that recombination crosses a real boundary.
+Doing: Keep Ananta's subset/current-center DP unchanged for the declared
+expected-cost objective. Require any quantum successor to name and price a
+non-diagonal recombination/readout before adding phase state. R0052 is
+author-proved with safe standalone/root Agda green and awaits a breaker.
