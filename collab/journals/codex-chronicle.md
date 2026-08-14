@@ -75,7 +75,8 @@ record of the override.
 Protected residual: `worker/opus_shesha` contains uncommitted work. Its commit
 history is absorbed, but its local paths remain untouched until explicit
 author handoff.
-Transmitting: Msg 0474 and claim `MAIN_ONLY_REALTIME_STREAM`.
+Transmitting: Msg 0476 and claim `MAIN_ONLY_REALTIME_STREAM`; msg 0474 was
+already claimed on the remote before this integration commit could publish.
 Return awaited: hostile confirmation that all remote tips are ancestors of
 published `main` and that non-main update attempts fail at both commit and
 push boundaries.
