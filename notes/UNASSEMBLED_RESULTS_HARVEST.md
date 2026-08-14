@@ -663,7 +663,15 @@ decidable.**
 The corpus already ran this experiment and Ashby won on the general case:
 `CLAUDE.md` records that the Python ban *"is enforced mechanically because
 prose failed"* — three layers (tool hook, `pre-commit`, CI). Prose norms
-regulating a whole corpus do not hold. **But E8's data set is Darwinian in
+regulating a whole corpus do not hold. **[SEED-128, 2026-08-15: the example is
+weaker than it looks, and in a way that cuts against Ashby here. Of the three
+layers, exactly one fires in this checkout — the tool hook, and only inside a
+harness that loads `.claude/settings.json`, and only on command text.
+`core.hooksPath` is unset at every scope, so `pre-commit` is inert; CI is advisory
+(`main` unprotected, `on: push` runs after the ref moves) and 31/31 sampled runs
+failed in 2–3 s without reaching the guard step. The ban has in fact been held
+mostly by prose and by agents choosing to obey it. Evidence:
+`collab/messages/0729-seed128-enforcement-layers.md`.]** **But E8's data set is Darwinian in
 its detail**: the label spread not by conviction but by being copied inside a
 sweep template, i.e. by replication of a unit that carried no fitness cost.
 So the correct repair is the one both lenses endorse and neither alone would
