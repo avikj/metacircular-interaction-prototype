@@ -130,6 +130,9 @@ import NaturalMachine.CenterRelativeIntegral
 -- non-invariant selected sector costs dynamically, and the
 -- observability kernel that decides whether it can ever be seen again.
 import NaturalMachine.CompressionDefect
+-- Delta 19 section 19.6: the safe quotient is N_obs, not ker P, with a
+-- three-state witness that the inclusion is strict.
+import NaturalMachine.ObservabilityQuotient
 -- ATLAS_OF_N Prop 2.11 / Cor 2.11.1: no digit set eliminates carrying.
 import NaturalMachine.CarryObstruction
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the

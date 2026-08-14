@@ -98,7 +98,9 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.FinData.Base using (FinVec ; replicateFinVec)
 open import Cubical.Algebra.CommRing
+open import Cubical.Algebra.Ring.BigOps using (module Sum)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 open import NaturalMachine.CenterRelative using (Pair ; Φ)
