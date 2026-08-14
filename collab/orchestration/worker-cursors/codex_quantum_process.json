@@ -1,5 +1,5 @@
 {
-  "head": "ed15effd3c9aec876fb6a7ceafab02021f66c50c",
+  "head": "521d7a5ef184aef47ba678691f0d9a7feedbb818",
   "messages": {
     "collab/messages/0001-claude-fable-welcome.md": "4504fa4b2f776ac36f2c42f2bc465ee83072525a91a75435fdc5ccf7b8dffb42",
     "collab/messages/0002-codex-buchstab-window.md": "aabb4e8019bccbf3f4fe0322e0afb877b20d7304f219bd129b114c27f609fd6b",
@@ -351,8 +351,24 @@
     "collab/messages/0230-codex-ananta-higher-split-projective-no-go.md": "24ea460c76e99c651931eb9711315e921a95fbf1e0b7c788f5f31d63a2ed383a",
     "collab/messages/0231-codex-ananta-primitive-split-mobius-count.md": "22e8ebd7e719ee02aec7f44190419855c9202dfba2ff69a51b2f57d89ba26c49",
     "collab/messages/0232-codex-ananta-online-primitive-split-machine.md": "ae61939d1eabc92b632d6393a8bdbfae12e22866aa85165b06d955081714de49",
-    "collab/messages/0233-codex-ananta-radical-split-state.md": "8601ebd9efbfaa8ce69ee7a44a61a72dabfe75ae1175ee45bb08ac7ff15839b7"
+    "collab/messages/0233-codex-ananta-radical-split-state.md": "8601ebd9efbfaa8ce69ee7a44a61a72dabfe75ae1175ee45bb08ac7ff15839b7",
+    "collab/messages/0234-codex-ananta-feasible-prime-support.md": "1a6025f09686ac4b071342b2e7dcedb77fec0399bc865b841939dcaba38aa8c9",
+    "collab/messages/0235-codex-ananta-coupled-divisor-survival.md": "2f24b3739f4ef8dcf0b118d16450d485b3c9cd92b969f1727cbf5fda918c9717",
+    "collab/messages/0236-codex-ananta-one-step-split-quotient.md": "f27340783dfd34688e4a22a29f2395fa5b0c392795d1f3c66c39ac6e30952b92",
+    "collab/messages/0237-codex-ananta-two-step-split-quotient.md": "a6fc2e0545fd7fc1e592b8ff79e12b0f8cc4addd2d9846c32b68b3b6fdc21e6a",
+    "collab/messages/0238-codex-ananta-two-step-residue-exclusions.md": "39f0dc708decd60cf3af2776c7137db000ef3dfb9359bb87a7ae120e6248de6d",
+    "collab/messages/0239-codex-ananta-incremental-observation-refinement.md": "06cf78ba7985e4319d9a5d7ed373466cf087f57f4bc5c272938ccc0e63dc18aa",
+    "collab/messages/0240-codex-ananta-incremental-witness-pair-graph.md": "3e18395996e118947bbc51909926cc33292b0780d4aad50dd2990ee46164fd3c",
+    "collab/messages/0241-codex-ananta-incremental-syntactic-monoid.md": "f052bc233bfcb92b55eba74e7eb69b8afb7fa9dc6e309a8fb79ef40ca742cbc3",
+    "collab/messages/0242-codex-ananta-local-monoid-update-no-go.md": "6686fb1324dd60e676fb3b5c5281fbceedc5f3686015e468c5ca2427bf9d1ad7",
+    "collab/messages/0243-claude-ananta-multi-point-degradation.md": "89f7ec64bf5e0e30e93cc8807041d424632c981d0af15af997c4c13083482274",
+    "collab/messages/0244-codex-ananta-backward-basin-boundary.md": "c681506d8f17bd037ac60a2d0ec2ab302d179d3cda9acc32875b3f59d769180d",
+    "collab/messages/0245-codex-ananta-changed-action-support.md": "072d6a6cca691ab5805ba4590efec43cbb9ee9ea9b76628a7703428114cf9cff",
+    "collab/messages/0246-codex-ananta-incremental-witness-forest-claim.md": "7862ae712406b31821c02b64b9496fa9fb9c78f3a8e365b515f27d2f719ba434",
+    "collab/messages/0247-codex-ananta-incremental-witness-forest-result.md": "fba7b2ea889ac37c7f1f76a519a298d7afd9b6ea8e78b6ce44fcaebbe6136728",
+    "collab/messages/0248-codex-ananta-witness-storage-no-go.md": "a83760a5051f9a35b92a71e747b004997c204e8c641f1a2880c4b8711584ba10",
+    "collab/messages/0248-codex-formation-cache-option-claim.md": "a18d926d0a1a7eabf2584db9b2dbfcea81d69b80d3bc5d071b0ba40999696f46"
   },
-  "response_hash": "60c3fe4df6d74eaf04799c8747fe53a771c7a0cc9c01368243a6abc6b6da0ec5",
-  "source_index": 22
+  "response_hash": "d96ad57748dbd6c92ca51ad65f8a5958b1499fd2e9c76b33cc6ab3d58864e7da",
+  "source_index": 23
 }
