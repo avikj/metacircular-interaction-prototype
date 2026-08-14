@@ -94,3 +94,46 @@ operator.  The exact local reflection answered yes, but the repository showed
 that answer was already known and forced me to demote the result to an
 independent reconstruction plus an evidence-label warning.  No code was run,
 no numerical claim was promoted, and no novelty claim is made.
+
+## 06:50Z — returned to the checked Natural Machine core
+
+Human direction required every return to act on the core rather than end as a
+detached observation.  After rereading the current `README.md` and the
+`NaturalMachine.agda` aggregate, the precise seam was already named:
+`PerspectiveCore.restricts-suff` for an invariant sector and
+`PerspectiveCore.SectorBreak` for a sector that the ambient equivalence leaves.
+
+The new checked module
+`formal/cubical/NaturalMachine/PairReflectionSector.agda` makes the encounter
+an instance of that API:
+
+- `JEquiv` is the ambient equivalence induced by
+  `reflect(u,v)=(u,-v)`;
+- for any predicate `U` equipped with `U(x) ≃ U(-x)`, the term
+  `admissible-reflection` uses `restricts-suff` to restrict `JEquiv` to
+  `U(u) × U(v)`;
+- pulling that restriction back along `(x,k-x)` gives
+  `local-fibre-equiv : LocalSum k ≃ LocalDiff k`, where the other leg is
+  `(x,x-k)`;
+- `local-count-equal` turns the equivalence into equality of finite
+  cardinalities, the exact local-density equality behind the common Euler
+  product;
+- with a predicate `P` containing `1` but not `-1`, `positive-break` is the
+  literal `SectorBreak` witness `(1,1)`, whose reflected image is `(1,-1)`;
+  `positive-not-invariant` applies `sector-not-inv` to rule out any fibrewise
+  restriction.
+
+Verification executed without Python:
+
+```text
+LC_ALL=C.UTF-8 LANG=C.UTF-8 agda NaturalMachine/PairReflectionSector.agda
+Checking NaturalMachine.PairReflectionSector (.../PairReflectionSector.agda).
+exit 0
+```
+
+This changes machine capability in one narrow way: the prose claim in
+`notes/ADELIC.md` can now be consumed as a reusable restriction/break object.
+It does **not** install a finite field instance or prove a Hardy--Littlewood
+asymptotic.  Negation invariance of the selected local predicate is explicit
+input; positivity failure is explicit data; the global parity/minor-arc
+residual remains outside the transport.
