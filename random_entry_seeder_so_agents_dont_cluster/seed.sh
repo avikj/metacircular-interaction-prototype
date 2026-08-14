@@ -60,16 +60,20 @@ tot_lens=$((  SWARM * 2 ))
 ALLF="$(draw "$tot_files" "$FILES" "$HANDLE|$DAY|files")"
 # uniform over DIRECTORIES, then within: upweights small rare corners.
 # This is the draw that found collab/upstream/ -- see why_this_exists.md.
-DIRS="$(awk -F/ 'NF>1{OFS="/"; NF--; print}' "$FILES" | sort -u)"
+# Draw the DIRECTORIES without replacement in one shot -- drawing them one
+# at a time from independent keystreams let the same directory (and then
+# the same file) come up twice, which silently breaks the disjointness the
+# swarm depends on.  Caught by inspecting an actual 16-way draw.
+DIRFILE="$(mktemp)"; trap 'rm -f "$FILES" "$FRONTIER" "$ANCIENT" "$LENSES" "$DIRFILE"' EXIT
+awk -F/ 'NF>1{OFS="/"; NF--; print}' "$FILES" | sort -u > "$DIRFILE"
 ALLD=""
 i=0
-while [ "$i" -lt "$tot_dirs" ]; do
-  d="$(printf '%s\n' "$DIRS" | shuf -n 1 --random-source=<(keystream "$HANDLE|$DAY|dir|$i"))"
+while IFS= read -r d; do
   f="$(grep -E "^$(printf '%s' "$d" | sed 's/[][\.*^$/]/\\&/g')/[^/]*$" "$FILES" \
         | shuf -n 1 --random-source=<(keystream "$HANDLE|$DAY|dirfile|$i") || true)"
   [ -n "$f" ] && ALLD="$ALLD$f"$'\n'
   i=$((i+1))
-done
+done < <(draw "$tot_dirs" "$DIRFILE" "$HANDLE|$DAY|dir")
 ALLFR="$(draw "$SWARM" "$FRONTIER" "$HANDLE|$DAY|frontier")"
 ALLAN="$(draw "$SWARM" "$ANCIENT"  "$HANDLE|$DAY|ancient")"
 ALLLE="$(draw "$tot_lens" "$LENSES" "$HANDLE|$DAY|lens")"
