@@ -274,6 +274,68 @@ theorem runReachQueue_covers_word [DecidableEq X]
         pre.length ih action
       simpa [DFA.eval, DFA.evalFrom_of_append] using hnext
 
+theorem advanceReachQueue_nodes_mono_le [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) {first last : Nat}
+    (hle : first ≤ last) {node : ReachNode A X}
+    (hnode : node ∈ (runReachQueue M alphabet first).nodes) :
+    node ∈ (runReachQueue M alphabet last).nodes := by
+  obtain ⟨extra, rfl⟩ := Nat.exists_eq_add_of_le hle
+  induction extra with
+  | zero => simpa
+  | succ n ih =>
+      simpa [Nat.add_assoc, runReachQueue] using
+        advanceReachQueue_nodes_mono M alphabet
+          (runReachQueue M alphabet (first + n)) ih
+
+theorem mem_expandFrontier_word_length (M : DFA A X) (alphabet : List A)
+    (frontier : List (ReachNode A X)) (round : Nat)
+    (hfrontier : ∀ node ∈ frontier, node.word.length ≤ round) :
+    ∀ child ∈ expandFrontier M alphabet frontier,
+      child.word.length ≤ round + 1 := by
+  intro child hchild
+  simp only [expandFrontier, List.mem_flatMap, List.mem_map] at hchild
+  obtain ⟨node, hnode, action, _, rfl⟩ := hchild
+  simp only [ReachNode.child, List.length_append, List.length_singleton]
+  exact Nat.add_le_add_right (hfrontier node hnode) 1
+
+theorem advanceReachQueue_word_length [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (queue : ReachQueue A X) (round : Nat)
+    (hlength : ∀ node ∈ queue.nodes, node.word.length ≤ round) :
+    ∀ node ∈ (advanceReachQueue M alphabet queue).nodes,
+      node.word.length ≤ round + 1 := by
+  intro node hnode
+  simp only [advanceReachQueue, ReachQueue.nodes, List.mem_append] at hnode
+  rcases hnode with hold | hfresh
+  · exact Nat.le_trans (hlength node (List.mem_append.mpr hold))
+      (Nat.le_succ round)
+  · apply mem_expandFrontier_word_length M alphabet queue.frontier round
+    · intro old hfrontier
+      exact hlength old (List.mem_append.mpr (Or.inr hfrontier))
+    · exact mem_freshNodes_imp_mem hfresh
+
+theorem runReachQueue_word_length [DecidableEq X]
+    (M : DFA A X) (alphabet : List A) (round : Nat) :
+    ∀ node ∈ (runReachQueue M alphabet round).nodes,
+      node.word.length ≤ round := by
+  induction round with
+  | zero =>
+      intro node hnode
+      simp [runReachQueue, initialReachQueue, ReachQueue.nodes] at hnode
+      rcases hnode with rfl
+      simp
+  | succ n ih =>
+      simpa [runReachQueue] using
+        advanceReachQueue_word_length M alphabet
+          (runReachQueue M alphabet n) n ih
+
+theorem ReachQueue.node_eq_of_state_eq (queue : ReachQueue A X)
+    (hnodup : queue.states.Nodup) {left right : ReachNode A X}
+    (hleft : left ∈ queue.nodes) (hright : right ∈ queue.nodes)
+    (heq : left.state = right.state) : left = right := by
+  have hnodes : queue.nodes.Nodup := List.Nodup.of_map _ hnodup
+  exact (List.nodup_map_iff_inj_on hnodes).mp hnodup
+    left hleft right hright heq
+
 theorem mem_expandFrontier_valid (M : DFA A X) (alphabet : List A)
     (frontier : List (ReachNode A X))
     (hvalid : ∀ node ∈ frontier, node.Valid M) :

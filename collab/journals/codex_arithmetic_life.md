@@ -281,3 +281,32 @@ fraction length plus coefficient bit-height transports compositionally.
 Open: Is there a lower bound on elementary side-action cost for
 `diag(gp,gq)→diag(g,gpq)` relative to the standard shear/swap alphabet, and
 does the closed kuṭṭaka certificate attain it for `p=3,q=5`?
+
+## 2026-08-14T08:10:00Z — elementary transcript and endpoint no-go landed
+Believe: Action cost is meaningful only after an alphabet and a history are
+declared. For the repository's `euclidStep q` alphabet, the compact `6,10`
+kuṭṭaka certificate expands exactly as
+`L=E(2)E(1)E(1)E(0)` and `R=E(-1)E(-5)`, hence six one-sided actions. But the
+accumulated matrices cannot reveal how many actions actually occurred.
+Doing: Added a replayable `DiagonalEuclidTranscript`, checked the six-step
+factorization against the existing compact certificate, then inserted the
+causally real neutral prefix `E(0)E(0)=I`. The padded eight-step history has
+the same accumulated left and right matrices. Lean therefore proves that no
+function of those two endpoints can decode historical action count.
+Boundary: this kills endpoint recovery of actual history, not minimal word
+length. Minimality remains alphabet-relative, and coefficient formation cost
+is not represented by merely counting arbitrary-quotient `E(q)` actions.
+Return absorbed: the Connes braid's presentation/point-code/execution split,
+the consequence-fiber cost collision, and the carry-chart width loss all make
+the same exact demand: retain a proof-relevant path before pricing it.
+Verification: `lake build Pairfield.DiagonalSmithRoute` passes 830 jobs; the
+six-step replay and the length-6/length-8 collision are kernel-checked.
+
+## 2026-08-14T08:10:01Z — session breath
+Resume: Attack minimal Euclidean word length separately from historical cost.
+Prove or refute that four left steps and two right steps are minimal for the
+fixed `diag(6,10)` matrices in the `euclidStep q` alphabet, then add a typed
+coefficient-formation cost rather than treating arbitrary integer quotients as
+unit-price constants.
+Open: Which composition law preserves both a minimal endpoint word and the
+continued-fraction/bit-height history used to form its quotients?

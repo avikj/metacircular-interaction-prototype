@@ -91,16 +91,71 @@ the width (for example, a fixed-length word chart in which leading zeros remain
 real places) and only normalize when leaving that carrier.  This conclusion is
 forced by the counterexample, not proposed as a general architecture.
 
+## Fixed-width repair: the level is part of the type
+
+The required carrier was already present in
+`NaturalMachine.DigitTowerFinLimit`:
+
+\[
+  W(A,n)=\operatorname{Fin}(n)\to A,
+  \qquad
+  \operatorname{dropMSD}_n(w)=w\circ\operatorname{injectSuc}.
+\]
+
+Here `injectSuc` preserves the underlying index and omits the top element.
+`NaturalMachine.FixedCarryChart` specializes this tower to `Digits.Digit` and
+installs the missing transition map into the live numeral/carry chart.  The
+width is now an index, so two adjacent deletions compose strictly:
+
+\[
+ \operatorname{dropMSD}_n\bigl(\operatorname{dropMSD}_{n+1}(w)\bigr)
+ =w\circ\operatorname{injectSuc}\circ\operatorname{injectSuc}.
+\]
+
+This is `dropMSD-compose`; unlike the normalized `CanWord` operation, its proof
+is `refl`.
+
+The adapter `toWord` enumerates `Fin n` from least to most significant and
+lands in the existing raw `Digits.Word`.  The checked equations
+
+```text
+toWord w = toWord (dropMSD w) ++ [top w]
+Endian.π (toWord w) = toWord (dropMSD w)
+```
+
+show that no second evaluator or reversed indexing convention has been
+introduced.  The top-preserving inclusion supplied by `FinTopSplit` is the
+only non-definitional bridge required.
+
+At adjacent powers `M = b^(n+1)` and `N = b^n`, let `chartM` and `chartN`
+evaluate these raw words and reduce modulo their displayed level.  Then Agda
+checks the premise-free square
+
+\[
+ \boxed{
+ \operatorname{red}(\operatorname{chartM}(w))
+ =\operatorname{chartN}(\operatorname{dropMSD}_n(w)).}
+\]
+
+This is `red-chart-drops`.  The old explicit `length xs ≡ n` premise has moved
+into the type `LevelWord (suc n)`.  The stagewise map
+`canonicalize = digitsC ∘ levelValue` agrees with both residue charts
+(`chartN-canonicalizes`, `chartM-canonicalizes`), but it is intentionally not
+called a tower morphism.  Doing so would reinstate the already checked false
+translation `normalizeMSD-not-iterable`.
+
 ## What changed
 
 `CarryObstruction` previously proved nonsplitting only in cyclic quotient
-coordinates.  The adapter now makes its `red` map executable on the repository's
-actual numeral presentation.  A consumer can move from a canonical word at one
-finite digit level to the adjacent residue coordinate without inventing a
-second evaluator.  Conversely, any future statement equating raw `π` directly
-with a `CanWord → CanWord` operation must confront the checked counterexample.
-Any future statement iterating `normalizeMSD` as though canonical words retained
-fixed-width zero places must also confront `normalizeMSD-not-iterable`.
+coordinates.  `CarryChartBridge` made its `red` map executable on the
+repository's canonical numeral presentation for one step.  `FixedCarryChart`
+now gives that step its composable, level-retaining source.  A consumer can
+move through the finite tower without inventing a second evaluator, then
+project stagewise to canonical numerals.  Conversely, any future statement
+equating raw `π` directly with a `CanWord → CanWord` operation must confront the
+checked counterexample.  Any future statement iterating `normalizeMSD` as
+though canonical words retained fixed-width zero places must also confront
+`normalizeMSD-not-iterable`.
 
 This does **not** construct
 `H²(ℤ/b^n;ℤ/b)`, exhibit a carrying pair from the constructive negation of
@@ -126,13 +181,14 @@ become a capability of the live machine.
 
 ```sh
 agda -i formal/cubical formal/cubical/NaturalMachine/CarryChartBridge.agda
+agda -i formal/cubical formal/cubical/NaturalMachine/FixedCarryChart.agda
 sh formal/check.sh
 ```
 
-The source is
-`formal/cubical/NaturalMachine/CarryChartBridge.agda`; the root aggregate imports
-it, so the second command checks the adapter as part of the complete formal gate.
-The 2026-08-14 replay returned exit zero for the standalone module, the
-`Everything` aggregate, and `formal/check.sh`; the Lean half completed all
-8,742 jobs.  Existing `UnsupportedIndexedMatch` warnings retain their narrower
-meaning: some named functions need not compute on transported inputs.
+The sources are `formal/cubical/NaturalMachine/CarryChartBridge.agda` and
+`formal/cubical/NaturalMachine/FixedCarryChart.agda`; the root aggregate imports
+both, so the final command checks the adapters as part of the complete formal
+gate.  The 2026-08-14 replay returned exit zero for the standalone modules, the
+`Everything` aggregate, and `formal/check.sh`.  Existing
+`UnsupportedIndexedMatch` warnings retain their narrower meaning: some named
+functions need not compute on transported inputs.

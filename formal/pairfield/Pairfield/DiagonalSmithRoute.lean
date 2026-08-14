@@ -227,6 +227,93 @@ theorem positiveDiagonalCertificate_of_joinRoute {a b : Nat}
   rw [positiveDiagonalRoute_nontrivialJoin_iff] at h
   simp [positiveDiagonalCertificate, h.1, h.2]
 
+/-! ## Expanding a compact join into elementary Euclidean actions
+
+The certificate stores only its accumulated left and right matrices.  To
+price a particular formation, first declare an action alphabet.  Here one
+action is `IntMat2.euclidStep q` on one side.  Temporal left actions accumulate
+in reverse matrix order, while temporal right actions accumulate in forward
+matrix order.
+
+This transcript is proof-relevant data.  The endpoint matrices do not recover
+its historical length: inserting two swaps (`euclidStep 0`) changes the
+length while their product is the identity.  This does not say that *minimal*
+word length is ill-defined; minimal length is a different function, relative
+to this declared alphabet.
+-/
+
+/-- A replayable word in the one-sided Euclidean action alphabet. -/
+structure DiagonalEuclidTranscript where
+  leftSteps : List Int
+  rightSteps : List Int
+  deriving DecidableEq, Repr
+
+namespace DiagonalEuclidTranscript
+
+/-- Accumulated left action.  The head of the list acts first. -/
+def leftWord : List Int → IntMat2
+  | [] => .one
+  | q :: qs => leftWord qs * .euclidStep q
+
+/-- Accumulated right action.  The head of the list acts first. -/
+def rightWord : List Int → IntMat2
+  | [] => .one
+  | q :: qs => .euclidStep q * rightWord qs
+
+def leftMatrix (t : DiagonalEuclidTranscript) : IntMat2 :=
+  leftWord t.leftSteps
+
+def rightMatrix (t : DiagonalEuclidTranscript) : IntMat2 :=
+  rightWord t.rightSteps
+
+/-- Historical action count in this alphabet, not an endpoint invariant. -/
+def actionCost (t : DiagonalEuclidTranscript) : Nat :=
+  t.leftSteps.length + t.rightSteps.length
+
+end DiagonalEuclidTranscript
+
+/-- The direct `diag(6,10)` kuṭṭaka certificate as six elementary actions.
+The left quotients are the Euclidean run `3,5 → 5,3 → 3,2 → 2,1 → 1,0`;
+the two right actions complete the diagonalization. -/
+def kuttaka610Transcript : DiagonalEuclidTranscript :=
+  ⟨[0, 1, 1, 2], [-1, -5]⟩
+
+/-- The same accumulated actions with a causally real but endpoint-invisible
+`swap²` prefix. -/
+def paddedKuttaka610Transcript : DiagonalEuclidTranscript :=
+  ⟨[0, 0, 0, 1, 1, 2], [-1, -5]⟩
+
+theorem kuttaka610Transcript_replays_compact_certificate :
+    kuttaka610Transcript.leftMatrix =
+        (positiveDiagonalJoinCertificate 6 10).left ∧
+      kuttaka610Transcript.rightMatrix =
+        (positiveDiagonalJoinCertificate 6 10).right ∧
+      kuttaka610Transcript.actionCost = 6 := by
+  native_decide
+
+theorem paddedKuttaka610_same_endpoint_different_cost :
+    paddedKuttaka610Transcript.leftMatrix =
+        kuttaka610Transcript.leftMatrix ∧
+      paddedKuttaka610Transcript.rightMatrix =
+        kuttaka610Transcript.rightMatrix ∧
+      paddedKuttaka610Transcript.actionCost = 8 ∧
+      kuttaka610Transcript.actionCost = 6 := by
+  native_decide
+
+/-- Actual formation length cannot be decoded from the two accumulated
+matrices.  A decoder for minimal word length is not ruled out. -/
+theorem no_historical_actionCost_decoder :
+    ¬ ∃ decode : IntMat2 → IntMat2 → Nat,
+        ∀ t : DiagonalEuclidTranscript,
+          decode t.leftMatrix t.rightMatrix = t.actionCost := by
+  rintro ⟨decode, hdecode⟩
+  have hshort := hdecode kuttaka610Transcript
+  have hpadded := hdecode paddedKuttaka610Transcript
+  obtain ⟨hleft, hright, hpaddedCost, hshortCost⟩ :=
+    paddedKuttaka610_same_endpoint_different_cost
+  rw [hleft, hright] at hpadded
+  omega
+
 /-! Exact controls.  The first is the killed blanket criterion; the second is
 the surviving mutually nondividing branch. -/
 

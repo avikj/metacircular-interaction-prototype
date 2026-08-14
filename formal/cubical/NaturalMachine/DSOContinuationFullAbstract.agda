@@ -6,6 +6,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; false ; true)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; min)
 open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Sigma using (Σ ; _,_)
 import NaturalMachine.DSOFinite as D
 
@@ -88,8 +89,9 @@ identity true false = ∞
 identity true true = fin zero
 
 ⋆-identity-right : (K : Relation) → K ⋆ identity ≡ K
-⋆-identity-right K = funExt λ a → funExt λ c →
-  dirac-reconstruct K a c
+⋆-identity-right K = funExt λ a → funExt λ
+  { false → dirac-reconstruct K a false
+  ; true → dirac-reconstruct K a true }
 
 -- Proof-relevant active witnesses: argmin returns the interface that realizes
 -- the Bellman value, not only the scalar consequence.
@@ -118,7 +120,14 @@ local-active : Argmin Kᵉ (λ _ → fin zero) false
 local-active = active false refl
 
 active-witnesses-differ : (Argmin.witness local-active ≡ Argmin.witness global-active) → ⊥
-active-witnesses-differ ()
+active-witnesses-differ p = false≠true p
+  where
+  false≠true : (false ≡ true) → ⊥
+  false≠true p = subst Disc p tt
+    where
+    Disc : Bool → Type₀
+    Disc false = Unit
+    Disc true = ⊥
 
 -- Bellman composition is executable functoriality on the planted control:
 -- composing relations first equals transforming the continuation in stages.
