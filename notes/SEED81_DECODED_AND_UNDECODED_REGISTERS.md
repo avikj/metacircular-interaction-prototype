@@ -176,8 +176,8 @@ packets, and therefore the corpus's only automated authority of any kind — is:
       - run: python3 -m unittest discover -s machinery -p 'test_*.py'
 ```
 
-while `.github/workflows/no-python.yml` fails any push that **modifies** a
-`.py`. So the registry's validator cannot be repaired without tripping the
+while ~~`.github/workflows/no-python.yml` fails any push that **modifies** a
+`.py`~~. So the registry's validator cannot be repaired without tripping the
 other workflow, and the transitions that would make the registry mean anything
 (`certified`, `refuted`, literature-certification) are, in the README's own
 words, *"currently disabled in code."* The designed authority system is not

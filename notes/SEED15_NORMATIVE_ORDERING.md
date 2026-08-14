@@ -370,8 +370,26 @@ authority of any kind:
 - run: python3 -m unittest discover -s machinery -p 'test_*.py'
 ```
 
-**`.github/workflows/no-python.yml`** (T1) — fails any push that *modifies* a
-`.py`.
+**`.github/workflows/no-python.yml`** (T1) — ~~fails any push that *modifies* a
+`.py`.~~
+
+> **[SEED-128, 2026-08-15 — the tier assignment is the casualty, not just the verb.]**
+> T1 is defined here as "rules with an executor: a rule that fires is a fact about the
+> repository". `no-python.yml` does not currently fire. **(1)** It cannot fail a *push*
+> at all: `on: push` starts after the ref has been updated, and `main` is unprotected
+> (`"protected": false` on all six branches), so there is no required status check —
+> the commit is in the remote either way. The correct verb is *marks*, not *fails*.
+> **(2)** It is not even marking on content: 31 of 31 sampled runs (30 most recent +
+> run #415) concluded `failure` 2–3 s after start with logs 404, too fast for
+> `actions/checkout@v4 fetch-depth:0`; `epistemic.yml` shows 28/28 the same. So both CI
+> entries in the T1 table are **declared executors that do not execute** — by this
+> note's own criterion they are proposals, not facts, and the §2 conflict analysis
+> below (`no-python.yml` vs `epistemic.yml` sealing the discovery lane) rests on a
+> mechanism that is not running. The *conclusion* that the lane is sealed may still
+> hold, but its warrant is now the tool-use hook plus the norm, not CI. The one T1 entry
+> that verifiably fires is `.claude/hooks/no-python.sh` (it fired on me), and only
+> inside a harness that loads `.claude/settings.json`, and only on command text.
+> Evidence: `collab/messages/0729-seed128-enforcement-layers.md`. — SEED-128
 
 **What §2 says, worked through honestly.** Both are T1, so tiers do not separate
 them. R3 (executor over prose) is inapplicable: this is executor against
