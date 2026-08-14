@@ -4,7 +4,7 @@ module NaturalMachine.PolynomialRewrite where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Vec.Base using (Vec ; [] ; _∷_ ; _++_)
+open import Cubical.Data.Vec.Base using (Vec ; [] ; _∷_ ; _++_ ; map)
 
 record Signature : Type₁ where
   field
@@ -15,6 +15,25 @@ open Signature
 data Term (S : Signature) : Type₀ where
   var : Term S
   node : {n : ℕ} → Op S n → Vec (Term S) n → Term S
+
+record Algebra (S : Signature) (Carrier : Type₀) : Type₀ where
+  field
+    operation : {n : ℕ} → Op S n → Vec Carrier n → Carrier
+
+open Algebra
+
+mutual
+  evaluate : {S : Signature} {Carrier : Type₀}
+    → Algebra S Carrier → Carrier → Term S → Carrier
+  evaluate algebra environment var = environment
+  evaluate algebra environment (node operation terms) =
+    Algebra.operation algebra operation (evaluateVec algebra environment terms)
+
+  evaluateVec : {S : Signature} {Carrier : Type₀} {n : ℕ}
+    → Algebra S Carrier → Carrier → Vec (Term S) n → Vec Carrier n
+  evaluateVec algebra environment [] = []
+  evaluateVec algebra environment (term ∷ terms) =
+    evaluate algebra environment term ∷ evaluateVec algebra environment terms
 
 module _ (S : Signature) where
 
@@ -65,6 +84,54 @@ module _ (S : Signature) where
     reweave-result context halt = refl
     reweave-result context (advance step rest) =
       reweave-result context rest
+
+    PrimitiveLaw : {Carrier : Type₀} → Algebra S Carrier → Type₀
+    PrimitiveLaw {Carrier} algebra =
+      {from to : Term S} → Motion from to → (environment : Carrier)
+      → evaluate algebra environment from ≡ evaluate algebra environment to
+
+    focus-values : {Carrier : Type₀} (algebra : Algebra S Carrier)
+      (environment : Carrier) {m n : ℕ}
+      (left : Vec (Term S) m) (right : Vec (Term S) n)
+      {from to : Term S}
+      → evaluate algebra environment from ≡ evaluate algebra environment to
+      → evaluateVec algebra environment (left ++ from ∷ right)
+        ≡ evaluateVec algebra environment (left ++ to ∷ right)
+    focus-values algebra environment [] right equality =
+      cong (_∷ evaluateVec algebra environment right) equality
+    focus-values algebra environment (term ∷ left) right equality =
+      cong (evaluate algebra environment term ∷_)
+        (focus-values algebra environment left right equality)
+
+    step-sound : {Carrier : Type₀} (algebra : Algebra S Carrier)
+      → PrimitiveLaw algebra → {from to : Term S}
+      → Step from to → (environment : Carrier)
+      → evaluate algebra environment from ≡ evaluate algebra environment to
+    step-sound algebra law (lift-motion motion) environment =
+      law motion environment
+    step-sound algebra law (under operation left right step) environment =
+      cong (Algebra.operation algebra operation)
+        (focus-values algebra environment left right
+          (step-sound algebra law step environment))
+
+    run-sound : {Carrier : Type₀} (algebra : Algebra S Carrier)
+      → PrimitiveLaw algebra → {term : Term S} (run : Run term)
+      → (environment : Carrier)
+      → evaluate algebra environment term
+        ≡ evaluate algebra environment (result run)
+    run-sound algebra law halt environment = refl
+    run-sound algebra law (advance step rest) environment =
+      step-sound algebra law step environment
+      ∙ run-sound algebra law rest environment
+
+    reweave-sound : {Carrier : Type₀} (algebra : Algebra S Carrier)
+      → PrimitiveLaw algebra → (context : Context)
+      → {term : Term S} (run : Run term) (environment : Carrier)
+      → evaluate algebra environment (plug context term)
+        ≡ evaluate algebra environment (plug context (result run))
+    reweave-sound algebra law context run environment =
+      run-sound algebra law (reweave context run) environment
+      ∙ cong (evaluate algebra environment) (reweave-result context run)
 
 ------------------------------------------------------------------------
 -- Arithmetic is an instance, not a privileged syntax.

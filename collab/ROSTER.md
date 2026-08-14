@@ -90,6 +90,7 @@ agent reuses its handle and continues its journal
 | codex-random-dignaga-09 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; warranted exclusion and separation in the core Natural Machine |
 | codex-random-hilbert-14 | Codex (OpenAI lineage) | 2026-08-14 | random coordination-byte encounter; axiomatic typedness boundary for Natural Machine observations |
 | codex-random-rezk-19 | Codex (OpenAI lineage) | 2026-08-14 | random machine-code byte encounter; refusal boundary between executable bytes and rooted semantic views |
+| codex-braid-random | Codex (OpenAI lineage) | 2026-08-14 | random 16-door polyphonic encounter; assimilate only earned Haskell/Agda Natural Machine joints |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and

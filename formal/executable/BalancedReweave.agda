@@ -523,3 +523,60 @@ updateAdaptiveFin-sound : {R O : Set} {n : Nat} (f : Fin n → Fin n)
     ≡ finBase C r (runFinMode (finMode C) (f x))
 updateAdaptiveFin-sound f C r x
   rewrite updateFinMode-sound f (finMode C) x = refl
+
+swapFirstTwo : {n : Nat} → Fin (suc (suc n)) → Fin (suc (suc n))
+swapFirstTwo fzero = fsuc fzero
+swapFirstTwo (fsuc fzero) = fzero
+swapFirstTwo (fsuc (fsuc x)) = fsuc (fsuc x)
+
+isZeroFin : {n : Nat} → Fin (suc n) → Bool
+isZeroFin fzero = true
+isZeroFin (fsuc x) = false
+
+writeFinModeN : {n : Nat} → Nat → (Fin n → Fin n)
+  → AdaptiveFinMode n → AdaptiveFinMode n
+writeFinModeN zero f m = m
+writeFinModeN (suc k) f m = writeFinModeN k f (updateFinMode f m)
+
+observeFinModeN : {n : Nat} → Nat → AdaptiveFinMode (suc n) → Bool
+  → Σ Bool (λ _ → AdaptiveFinMode (suc n))
+observeFinModeN zero m acc = acc , m
+observeFinModeN (suc k) m acc =
+  observeFinModeN k (snd step) (xor (isZeroFin (fst step)) acc)
+  where
+  step = readFinMode m fzero
+
+finAdaptiveMixed : (tail writes reads : Nat) → Bool
+finAdaptiveMixed tail writes reads = fst
+  (observeFinModeN reads
+    (writeFinModeN {n = suc (suc tail)} writes swapFirstTwo
+      (lazyFin empty zero zero)) false)
+
+writeFinPlanN : {n : Nat} → Nat → (Fin n → Fin n)
+  → Plan (Fin n) → Plan (Fin n)
+writeFinPlanN zero f p = p
+writeFinPlanN (suc k) f p = writeFinPlanN k f (push f p)
+
+observeFinPlanN : {n : Nat} → Nat → Plan (Fin (suc n)) → Bool → Bool
+observeFinPlanN zero p acc = acc
+observeFinPlanN (suc k) p acc =
+  observeFinPlanN k p (xor (isZeroFin (runPlan p fzero)) acc)
+
+finLazyMixed : (tail writes reads : Nat) → Bool
+finLazyMixed tail writes reads =
+  observeFinPlanN reads
+    (writeFinPlanN {n = suc (suc tail)} writes swapFirstTwo empty) false
+
+writeFinTableN : {n : Nat} → Nat → (Fin n → Fin n)
+  → FinTable n → FinTable n
+writeFinTableN zero f t = t
+writeFinTableN (suc k) f t = writeFinTableN k f (composeFinTable f t)
+
+observeFinTableN : {n : Nat} → Nat → FinTable (suc n) → Bool → Bool
+observeFinTableN zero t acc = acc
+observeFinTableN (suc k) t acc =
+  observeFinTableN k t (xor (isZeroFin (applyFinTable t fzero)) acc)
+
+finFusedMixed : (tail writes reads : Nat) → Bool
+finFusedMixed tail writes reads = observeFinTableN reads
+  (writeFinTableN writes swapFirstTwo (identityFinTable (suc (suc tail)))) false
