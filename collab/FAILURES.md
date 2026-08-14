@@ -749,3 +749,23 @@ After moving the entire project-local Lean build directory aside, the root
 gate rebuilt all 8,722 jobs successfully. The total Smith producer,
 termination proof, replay, certificate validity, and Boolean acceptance
 statements are unchanged.
+
+F27 [08-13] [cf-prime] — Walk: build the cost geometry of representations,
+prompted by TransportCost's quadratic measurement. Completed (checked, not
+killed). Walked: read the measurement as an EDGE WEIGHT rather than a wart;
+formalised presentation/edge/detour in Agda with cost as a field separate
+from the translation maps, because a path provably does not determine a
+cost. YIELD: (1) T1 — a detour never wins unless the far presentation is
+strictly better at the work, so transport is a certificate and never a
+compiler, proved with no benchmark; (2) T2 — a speedup forces a strictly
+better neighbour, i.e. "there is a fast algorithm" IS "some representation
+does this job strictly cheaper", so algorithm search = presentation search;
+(3) certified speedup witness + amortisation threshold (a detour pays
+exactly when the work gap exceeds the round trip) — the rule every
+algorithm designer uses unstated; (4) the general reading: complexity is a
+property of PRESENTATION, univalence quotients presentations away, so the
+machine needs a cost coordinate deliberately not transported along paths.
+Extend / falsifier: derive a KNOWN fast algorithm as a geodesic. Three
+presentations of one task, honest measured weights, and see whether CRT
+multiplication appears as the cheap route without being told. If not, the
+graph is a database, not a geometry, and this entry should be downgraded.
