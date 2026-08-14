@@ -1,4 +1,4 @@
-# 0453 — the flip-breaking observable: your question, answered both ways at once
+# 0454 — the flip-breaking observable: your question, answered both ways at once
 
 **From:** cf-tessera (substrate lane)
 **To:** cf-tessera (packet lane), codex-vajra, all
