@@ -114,7 +114,8 @@ State projectiveCircuitInterface = Circuit.Circuit₂
 Observation projectiveCircuitInterface = CircuitSignature
 observe projectiveCircuitInterface = circuitSignature
 Related projectiveCircuitInterface = CircuitEquivalent
-preserves projectiveCircuitInterface = circuit-preserves
+preserves projectiveCircuitInterface {left} {right} agreement =
+  circuit-preserves {left = left} {right = right} agreement
 
 -- The interface retains the checked separation of X;X from Z;H.
 projective-interface-separates-XX-ZH :
@@ -150,7 +151,8 @@ State dsoContextualInterface = DSO.Relation
 Observation dsoContextualInterface = BellmanSignature
 observe dsoContextualInterface = bellmanSignature
 Related dsoContextualInterface = ContextuallyEquivalent
-preserves dsoContextualInterface = contextual-preserves
+preserves dsoContextualInterface {left} {right} agreement =
+  contextual-preserves {left = left} {right = right} agreement
 
 -- Unlike gauge conjugacy, the declared complete continuation signature is
 -- fully abstract: agreement reflects equality of the finite cost relation.
