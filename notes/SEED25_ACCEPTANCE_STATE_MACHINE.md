@@ -32,7 +32,7 @@ The headline results:
 | **INV1 (soundness)** | inductive — and the one-line proof exposes *why*: the final gate is state-independent. §4.1 |
 | **INV2 (fragment)** | inductive, and it has two unadvertised consequences: §6 and §7 |
 | **INV3 (scope)** | **not inductive on its own.** It survives only via INV2, i.e. only because an unrelated module is narrow. §4.3 |
-| **INV6 (memo)** | **not inductive. Induction fails at `Retire`.** Explicit two-round counterexample. §5 |
+| **INV6 (memo)** | **not inductive. Induction fails at `Retire`.** Explicit two-round counterexample. §5 — but the *harm* claimed there (suppressed retries) is struck by SEED-97; see §5 |
 | **the `decreases` order** | the stated well-foundedness argument is *invalid*; witness in §8 |
 
 ---
@@ -260,8 +260,48 @@ inspection of Commit and Grow (no transition shrinks these four). Note that
 ## 5. The induction failure: `Retire` breaks INV6
 
 > **Theorem 1.** INV6 is not inductive. There is a reachable pair of states
-> `σ₁`, `σ₂` with `n(σ₁) = n(σ₂)` and `U(σ₁) ≠ U(σ₂)`, and the conjectures that
-> failed at `σ₁` are suppressed at `σ₂`.
+> `σ₁`, `σ₂` with `n(σ₁) = n(σ₂)` and `U(σ₁) ≠ U(σ₂)`, ~~and the conjectures that
+> failed at `σ₁` are suppressed at `σ₂`.~~
+
+> **Second clause struck (SEED-97, Rule K2/K3, 2026-08-14).** The first clause
+> — INV6 is not inductive, `n` is not injective on reachable knowledge states —
+> **stands and is proved below.** The second clause does not follow from the
+> two-round cycle exhibited, and on the machine's own Commit rule it is false
+> on that cycle. The cycle is not `σ₁ → σ₂`; it passes through `σ'`, and `σ'` is
+> a *full round*, not a phase:
+>
+> ```
+> round A at σ₁ (n = N)   : fresh ∋ c, checked = [], so failed[c] := N ; Grow = Retire → σ'
+> round B at σ' (n = N−1) : failed[c] = N ≠ N−1, so c is admitted to fresh again,
+>                           fails again, and failed[c] := N−1 ; Grow = Invent → σ₂
+> round C at σ₂ (n = N)   : failed[c] = N−1 ≠ N, so c is admitted. NOT suppressed.
+> ```
+>
+> The re-keying is forced by §2's own `Commit`
+> (`failed' = failed ⊕ {c ↦ n(σ) | c ∈ fresh, c ∉ map fst checked}`) together
+> with `stuck ⇒ checked = []`, which is exactly the hypothesis the cycle runs
+> under: in the terminal region *every* `c` reaching `fresh` is re-keyed every
+> round. And `n` alternates `N, N−1, N, N−1, …` along the cycle, so no two
+> consecutive attempts of `c` ever see equal `n`. **On the exhibited cycle the
+> memo is not over-suppressing; it is inert — it never suppresses anything.**
+> That is a defect too, but it is the opposite defect, and consequence 1 below
+> is struck with the clause.
+>
+> What a suppression witness would additionally require: a path from `σ₁` to a
+> state of equal `n` along which `c` is *never re-attempted*. On this cycle the
+> only way `c` misses round B is for `c` to mention the retired symbol `c_k` —
+> and then `c` is not generated at `σ₂` either, since `Σ(σ₂)` contains `c_{k+1}`
+> and not `c_k`, so no suppression occurs there either. A residual escape does
+> exist and is **not** discharged here: `c` could fail to be *proposed* at `σ'`
+> because `normalize U(σ')` puts its two sides in different fingerprint classes,
+> or pairs them with different representatives. Whether that is reachable is
+> **OPEN**; until it is settled, the harm claim of §5 is an unproved conjecture
+> and the sound claim is the non-inductiveness alone.
+>
+> The repair recommended in consequence 3 below is unaffected — keying `failed`
+> on a monotone index fixes both the (proved) non-injectivity and the (here
+> demonstrated) inertness. The bug report is still correct; its stated symptom
+> is not.
 
 *Proof.* By INV2, no invented symbol ever occurs in a key of `known`. Hence for
 any state with `invented ≠ []`,
@@ -292,16 +332,27 @@ while `U(σ₁)` contains `c_k`'s defining equation and `U(σ₂)` contains
 `c_{k+1}`'s instead — and `inventConcept` is passed `retired`, so it may not
 re-propose `p_k`; the two equations are distinct. Now let `c` be any conjecture
 that reached `fresh` and failed at `σ₁`. Then `failed[c] = n(σ₁) = n(σ₂)`, so the
-`fresh` filter at `σ₂` rejects `c` — even though `σ₂`'s rule set differs from
+~~`fresh` filter at `σ₂` rejects `c`~~ — even though `σ₂`'s rule set differs from
 `σ₁`'s exactly in the newly coined abbreviation that `σ₂` exists in order to
 try. ∎
 
-Three things make this worse than a stale cache:
+*(SEED-97, 2026-08-14: the struck sentence is the step the boxed correction
+above refutes — the intervening round at `σ'` re-keys `failed[c]` to `n(σ')`.
+Everything in the proof up to and including `n(σ₁) = n(σ₂)` with
+`U(σ₁) ≠ U(σ₂)` is correct and is the whole of the surviving Theorem 1.)*
 
-1. **It suppresses precisely the retries the transition was built to enable.**
+~~Three things make this worse than a stale cache:~~ **Two** things make this
+worse than a stale cache (SEED-97: item 1 struck with the second clause of
+Theorem 1):
+
+1. ~~**It suppresses precisely the retries the transition was built to enable.**
    The long comment above the retire branch explains that the machine must
    withdraw a dead name so a *different* pattern can be coined; the memo then
-   hides the old questions from the new name.
+   hides the old questions from the new name.~~ **Struck (SEED-97).** On the
+   exhibited cycle the memo suppresses nothing at all; see the boxed correction.
+   The honest symptom is that `n`'s non-injectivity makes the memo *unsound as a
+   memo in both directions* — it can neither be relied on to suppress nor be
+   relied on to admit — and no reachable suppression instance has been exhibited.
 2. **`n` is non-monotone at exactly one transition, and it is the only
    non-monotone transition in the machine.** Every other component was designed
    under the assumption of monotone growth (INV5), and the `fresh` filter's
