@@ -897,3 +897,31 @@ symmetric product, sieve algebra, or natural-number multiplicative claim is
 made.  Returned message
 `20260814T171445Z-pointed-reindex-orbit-obstruction.md`; aggregates, sampled
 source, and all foreign work remain untouched.
+
+## 2026-08-14T17:26:35Z — Draw 17: compositional magma factor checked
+
+Fresh intake froze origin `cec32d9d`, tree `ab360f7c`, and a 1,139-path
+C-sorted semantic frame excluding build products and my sixteen prior
+samples.  Frame SHA-256 was
+`5cbb85348abfc3eb0a8c1f6489d2bfec86d7067d1eb4212b1eb67da2f4d1130c`.
+The rejection limit was `4294966258`; sole `/dev/urandom` uint32 `3524175921`
+was accepted with zero rejections at index 577, selecting
+`notes/COMPOSITIONAL_CONTEXT_ADAPTER.md`, blob `c6f3bbd3`.  No redraw.
+
+The sample combines a descended binary operation with the generic quotient's
+bare factorization theorem, but leaves their algebra-homomorphism joint
+implicit.  `CompositionalMagmaFactorization.agda` checks that a
+context-constant magma map factors through Meaning, that its factor preserves
+the descended operation, and that generator agreement uniquely determines
+the factor.  Bool xor with identity observation supplies the strict boundary:
+`not` is context-constant and therefore bare-factorable, but quotient-level
+operation preservation at `[false],[false]` would force `true=false`.
+
+Focused and ignored-interface safe Agda checks exit zero.  Shannon
+independently cold-replayed and hostile-PASSed the final leaf/note.  The result
+remains binary-magma/set-valued and makes no general-signature, algorithmic,
+contextual-dimension, initiality, novelty, runtime, or physical claim.  During
+review, origin's indexed-parent and exposure-stabilization results were
+consumed and found orthogonal.  Returned message
+`20260814T172635Z-compositional-magma-factorization.md`; aggregate, sampled
+source, and all foreign work remain untouched.
