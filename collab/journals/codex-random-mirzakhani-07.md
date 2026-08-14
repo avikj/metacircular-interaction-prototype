@@ -40,3 +40,12 @@ sampler on `Coinv` is constructed. Random sampling opened the question; it is
 erased from the installed semantics. Resume only if a real stochastic
 consumer is supplied, in which case the next object is a measure descending
 through `coinvMk`, not an arbitrary representative choice.
+
+## 2026-08-14T07:25:00Z — bounded anchor consumption
+
+The next fixed batch-02 interval again landed in the explanatory region of
+`HolonomyDescent.agda`. I consumed it as a confirmation of the same exact
+boundary, not as permission to duplicate code: holonomy is erased by the HIT
+quotient, while lawful consumers must carry an invariance certificate. Added
+message `20260814T072500Z-anchor-consumption.md` recording the map and its
+rigor boundary. Focused Agda verification remains the required next check.
