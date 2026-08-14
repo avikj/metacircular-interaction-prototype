@@ -725,6 +725,36 @@ splitting tree, refines all largest blocks together, and only then derives the
 adaptive experiment.  Native formation must reconstruct that partition-level
 certificate; another scalar live-cell rank cannot close the gap.
 
+## 19. Internal positions remove `n+1` powerset states
+
+`Pairfield.AdaptiveResidualNonhomogeneousSpine` separates the query spine from
+its terminal leaf.  A node-minimal plan cannot query an already homogeneous
+cell: replacing that query and both descendants by the certified `done` node
+has strictly smaller native query count.  On the exact finite Mathlib residual
+carrier, a position of cardinality at most one is homogeneous.  Hence every
+internal position on a deepest node-minimal spine contains at least two
+canonical residual states.
+
+The adapter still uses the same exact Mathlib object and transition as
+Sections 13 and 17.  `Language.IsRegular.finite_range_leftQuotient` supplies
+the finite canonical state type, and the checked `Language.step_toDFA` square
+identifies native prefix advance with its DFA step.  The proof enumerates the
+omitted positions explicitly: the empty set and all `n` singleton sets.
+Appending those `n+1` small positions to the duplicate-free internal history
+and applying `Fintype.card_finset` gives
+
+\[
+  \operatorname{depth}(T)+(n+1)\le 2^n,
+  \qquad
+  \boxed{\operatorname{depth}(T)+1\le 2^n-n}.
+\]
+
+This is a strict refinement of R0061 and remains exponential.  Section 18
+explains why deleting still more abstract subset states by local cardinality
+cannot reach the quadratic theorem: the missing restriction is global
+transition and response compatibility inside one splitting-tree
+certificate.
+
 ## Replay
 
 ```sh
@@ -749,6 +779,7 @@ lake build Pairfield.AdaptiveResidualPositionCycleAdapter
 lake build Pairfield.AdaptiveResidualMinimalSpine
 lake build Pairfield.AdaptiveResidualNodeMinimalSpine
 lake build Pairfield.AdaptiveResidualNodeMinimalDepth
+lake build Pairfield.AdaptiveResidualNonhomogeneousSpine
 lake build Pairfield.AdaptiveResidualBinomialBudgetNoGo
 lake build Pairfield
 
@@ -757,7 +788,7 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,788 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,789 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
 canonical positional carrier, cycle deletion, their exact equality adapter,
 both minimal-spine theorems, and the binomial-budget no-go.  Emitted warnings
