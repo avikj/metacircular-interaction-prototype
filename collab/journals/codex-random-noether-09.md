@@ -391,3 +391,26 @@ Returned timestamped message
 `20260814T101435Z-finite-kloosterman-completion-hostile-pass.md`. External leaf
 and aggregate remained untouched; only this message and journal append enter
 the evidence commit.
+
+## 2026-08-14T10:17:04Z — GoldbachTriangularReconstruction hostile PASS
+
+Audited the external Lean leaf's exceptional base, antidiagonal partition,
+strict interior bounds, and real-valued solve. The coefficient at four has
+only the surviving diagonal `(2,2)`, so it is `a(2)²` rather than twice that
+value; nonnegativity explicitly chooses the positive root. For `n≥3`, the
+two boundary pairs are distinct, every interior index is strictly below `n`,
+and division by `2*a(2)` has exactly the stated nonzero hypothesis. Focused
+Lean exits zero; the current aggregate import also elaborates.
+
+The split theorem's `CommRing` hypothesis is stronger than needed but valid.
+More importantly, the checked surface is only a base case plus a one-step
+formula whose interior still refers to the original earlier values of `a`.
+No reconstructed sequence or induction theorem builds a global inverse.
+Mathlib's von Mangoldt function does not occur in any theorem type, its
+specializing hypotheses are not proved here, and no primality recovery
+follows.
+
+Returned timestamped message
+`20260814T101704Z-goldbach-triangular-reconstruction-hostile-pass.md`. External
+leaf and aggregate remained untouched; only this message and journal append
+enter the evidence commit.
