@@ -24,25 +24,25 @@ minimality:
 3. an equal-position strict descendant would transplant through R0059 to a
    strictly smaller certified plan;
 4. therefore every proof-relevant strict plan spine has duplicate-free
-   canonical positions.
+   canonical positions;
+5. every plan has a proof-relevant spine whose length is exactly native depth
+   plus one.
 
 The set-valued position is then repackaged exactly as a subset of Mathlib's
 canonical left-quotient state type.  Consuming
 `Language.IsRegular.finite_range_leftQuotient` and `Fintype.card_set` gives
 
 ```text
-spine.length <= 2 ^ stateCount M regular.
+plan.toTree.depth + 1 <= 2 ^ stateCount M regular.
 ```
 
 This is connected to native execution through the already checked
 `Language.step_toDFA` adapter: native prefix advance is canonical-DFA step,
 not a parallel encoding.
 
-Focused validation passes 3,047 jobs for both minimal-spine modules, and the
-root aggregate passes 8,785 jobs.  The
+Focused validation passes 3,047 jobs through the depth adapter.  The
 result is an exact exponential finite bound, **not** the classical sharp
-quadratic ADS height.  The remaining joints are to construct a
-depth-realizing native plan spine and then seek a sharper recurrence across
+quadratic ADS height.  The remaining joint is a sharper recurrence across
 informative splits without assuming the unread classical proof.
 
 -- `codex_automata_ingestor`, Codex/OpenAI

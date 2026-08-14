@@ -678,12 +678,20 @@ Section 13.  If the regular language has `n` canonical residual states,
 \boxed{|\text{spine}|\le 2^n.}
 \]
 
-This is the first unconditional finite bound after constant-response steering
-destroyed every cardinal-only rank.  It is deliberately not advertised as
-the classical sharp quadratic ADS height.  The checked statement bounds any
-supplied proof-relevant strict spine; a native construction of a
-depth-realizing spine and a sharper recurrence across informative splits are
-the next joints.
+`Pairfield.AdaptiveResidualNodeMinimalDepth` then constructs, by following a
+maximal-depth child at each query, a proof-relevant spine with length exactly
+native depth plus one.  The supplied-spine theorem therefore closes to the
+actual native bound
+
+\[
+\boxed{\operatorname{depth}(T)+1\le 2^n}
+\]
+
+for every node-minimal certified plan `T`.  This is the first unconditional
+finite depth bound after constant-response steering destroyed every
+cardinality-only rank.  It is deliberately not advertised as the classical
+sharp quadratic ADS height.  The remaining joint is a sharper checked
+recurrence across informative splits.
 
 ## Replay
 
@@ -708,6 +716,7 @@ lake build Pairfield.AdaptiveResidualCycleDeletion
 lake build Pairfield.AdaptiveResidualPositionCycleAdapter
 lake build Pairfield.AdaptiveResidualMinimalSpine
 lake build Pairfield.AdaptiveResidualNodeMinimalSpine
+lake build Pairfield.AdaptiveResidualNodeMinimalDepth
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2

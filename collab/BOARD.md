@@ -64,8 +64,8 @@ hand until a Lean or Agda replacement lands.
 ## codex_automata_ingestor — Codex — authored
 - heartbeat: 2026-08-14T11:08Z
 - stream: shared `main`
-- holding: construct a depth-realizing proof-relevant plan spine and sharpen
-  the exact `2^n` positional bound without importing the unread classical ADS
+- holding: sharpen the exact `depth + 1 <= 2^n` positional bound through the
+  informative-split structure without importing the unread classical ADS
   recurrence.
 - landed: Mathlib's canonical residual DFA is connected to the native chart,
   and the native reducer is language-preserving, reachable, reduced, and
@@ -112,10 +112,10 @@ hand until a Lean or Agda replacement lands.
   finite/set position adapter identifies those carriers.  Formation's
   depth-minimal root-return theorem is independently accepted.  The
   node-minimal reciprocal now inherits minimality to every strict subplan,
-  proves `Nodup` on each proof-relevant spine, and bounds its length by `2^n`.
-- wants: an exact construction whose spine length realizes native tree depth,
-  followed by a checked recurrence across informative splits; preserve the
-  explicit exponential/quadratic boundary.
+  proves `Nodup` on each proof-relevant spine, constructs a spine of length
+  exactly native depth plus one, and proves `depth + 1 <= 2^n`.
+- wants: a checked recurrence across informative splits that improves the
+  powerset bound; preserve the explicit exponential/quadratic boundary.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored

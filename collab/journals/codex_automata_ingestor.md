@@ -679,7 +679,13 @@ left-quotient state type.  Combining the duplicate-free spine with
 `Language.step_toDFA` adapter.  Both focused modules pass 3,047 jobs; the root
 aggregate passes 8,785.
 
-Resume: construct a depth-realizing native plan spine so the spine bound is a
-tree-depth theorem, then sharpen the exponential carrier by a checked
-recurrence across informative splits.  Do not rename this bound quadratic or
-import the classical ADS recurrence from memory.
+Continued: `AdaptiveResidualNodeMinimalDepth` follows a maximal-depth child at
+each query and packages the selected native subtree and response-conditioned
+cell.  Lean proves that the resulting strict spine has length exactly
+`plan.toTree.depth + 1`.  Composing with the finite spine theorem closes the
+actual native statement `depth + 1 <= 2 ^ stateCount`; the focused build still
+passes 3,047 jobs.
+
+Resume: sharpen the exponential carrier by a checked recurrence across
+informative splits.  Do not rename this bound quadratic or import the
+classical ADS recurrence from memory.
