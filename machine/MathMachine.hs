@@ -197,6 +197,27 @@ compileAtlas atlas = CompiledAtlas families failures rawBranches
       | otherwise = Just (i,g)
     rawBranches = toInteger (length carrier) ^ length (atlasCharts atlas)
 
+-- The finite two-bit instance of NaturalMachine.Endian: chart 0=id,
+-- 1=reversal D, 2=complement E, 3=DE.  The loop is the actual reversal
+-- action, so its tears are precisely the non-palindromic words 01 and 10.
+reverseBits2 :: Int -> Int
+reverseBits2 word = (word `mod` 2) * 2 + word `div` 2
+
+complementBits2 :: Int -> Int
+complementBits2 word = 3 - word
+
+endianAtlas2 :: FiniteAtlas
+endianAtlas2 = FiniteAtlas
+  { atlasCharts = [0,1,2,3]
+  , atlasCarrier = [0..3]
+  , toChart = \chart word -> case chart of
+      0 -> word
+      1 -> reverseBits2 word
+      2 -> complementBits2 word
+      _ -> reverseBits2 (complementBits2 word)
+  , loopGenerators = [reverseBits2]
+  }
+
 instance Show Term where
   show (V i) | i < 6 = [ "xyzuvw" !! i ]
              | otherwise = "n" ++ show i
@@ -779,7 +800,7 @@ data Machine = Machine
   }
 
 start :: Machine
-start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 [] []
+start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0 [] [endianAtlas2]
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1167,6 +1188,17 @@ main = do
             && map failedBaseValue (holonomyFailures compiled) == [1,2,4,5])
       exitFailure
     hPrintf stdout "ATLAS CHECKED: assignments=1296 base-candidates=6 fixed=2 eliminated=1294 tears=4\n"
+    exitSuccess
+  when (args == ["--endian-atlas-self-test"]) $ do
+    let compiled = compileAtlas endianAtlas2
+        expected =
+          [ (0,[(0,0),(1,0),(2,3),(3,3)])
+          , (3,[(0,3),(1,3),(2,0),(3,0)]) ]
+    unless (assignmentBranches compiled == 256
+            && coherentFamilies compiled == expected
+            && holonomyFailures compiled ==
+                 [HolonomyFailure 1 0 2, HolonomyFailure 2 0 1]) exitFailure
+    hPrintf stdout "ENDIAN ATLAS CHECKED: words=4 charts=4 assignments=256 fixed=2 eliminated=254 reversal-tears=2\n"
     exitSuccess
   when (args == ["--commutative-grammar-self-test"]) $ do
     let sig = [("0",0),("+",2)]

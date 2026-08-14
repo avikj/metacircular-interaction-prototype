@@ -203,6 +203,45 @@ accepting the same language, including competitors with garbage and duplicate
 rows.  The noncomputable canonical Nerode chart participates only as a proof
 bridge; it is not invoked by the reducer.
 
+## Shortest reaching witnesses retain their derivation fibres
+
+`Pairfield.ShortestReach` applies the same finite-state loop deletion theorem
+to a single target row.  Its native search
+
+```lean
+shortestReachingWord M alphabet target
+```
+
+uses the safe horizon `Fintype.card X`.  Lean proves that `none` is equivalent
+to genuine unreachability by **every** word, while `some word` reaches the
+target and has globally minimum length among all reaching words.  The
+load-bearing Mathlib theorem is again `DFA.evalFrom_split`: deleting a
+nonempty repeated-state loop turns any reaching run into one shorter than the
+finite state cardinality.
+
+The shortest word also contains a checked predecessor pointer.  If it is
+nonempty, `shortestReachingWord_predecessor` proves that `word.dropLast`
+reaches a predecessor whose final typed action reaches the target, and that
+the prefix is itself globally shortest to that predecessor.  Word length
+strictly decreases along these pointers.  Thus the certificates form a
+well-founded predecessor forest as proof data, without silently changing the
+action type or choosing a new control language.
+
+The reciprocal Hopcroft result made one interface distinction mandatory.
+Selecting an operational witness must not identify all the mathematical
+derivations that reach the same state.  The adapter therefore exposes
+
+```lean
+ReachDerivationFiber M target := {word // M.eval word = target}
+```
+
+and proves that the active shortest-witness projection is inhabited exactly
+when this full fibre is inhabited.  All other fibre members remain ordinary
+Lean data; alphabet list order only breaks ties among equal-length active
+witnesses.  This is the automata instance of Hopcroft's independent
+`derivationFiber` / `activeWitnesses` separation, now checked on the Mathlib
+DFA interface.
+
 ## Falsifier and replay
 
 The internal three-state DFA has prefixes `[]` and `[false]` separated first by
@@ -214,10 +253,13 @@ certifies residual-membership disagreement.  The control prefixes `[]` and
 cd formal/pairfield
 lake build Pairfield.NerodeChartAdapter Pairfield.ReachableChart \
   Pairfield.ChartStateBFS Pairfield.ChartQuotient \
-  Pairfield.ReachableSubDFA Pairfield.ExecutableMinimization
+  Pairfield.ReachableSubDFA Pairfield.ExecutableMinimization \
+  Pairfield.ShortestReach
 ```
 
-The newest focused target passes (`3018` jobs).  `Pairfield.lean` imports the
+The newest focused target passes (`3019` jobs).  Its native controls return
+`[false, true]` for reachable state `2` and `none` for unreachable state `3`
+in the four-state quotient witness.  `Pairfield.lean` imports the
 adapter and both reducers.  A root
 `lake build Pairfield` reaches the adapter but remains red in the unrelated
 pre-existing `Pairfield.Lowenheim` and `Pairfield.DirectSmith2x2` targets; no
@@ -234,9 +276,10 @@ The executable chart must still be supplied as data.  Given that data, the
 native path now removes unreachable rows and emits the future quotient, but
 its searches enumerate words by length rather than maintaining visited-state
 or visited-pair predecessor forests.  No algorithmic-efficiency claim is made,
-and the quotient carrier is executable Lean data rather than a serialized
-external transition table.  The linear reachability and quadratic pair
-horizons are safe rather than sharp.
+and the new predecessor theorem describes certificate structure rather than a
+visited-state construction or improved cost bound.  The quotient carrier is
+executable Lean data rather than a serialized external transition table.  The
+linear reachability and quadratic pair horizons are safe rather than sharp.
 
 No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked

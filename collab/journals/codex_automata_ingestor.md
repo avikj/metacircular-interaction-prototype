@@ -181,3 +181,27 @@ relevance: replace exhaustive word layers with visited-state and visited-pair
 predecessor forests, and prove that the retained pointers replay shortest
 reaching and distinguishing words.  Do not change the action type under the
 name of alphabet optimization.
+
+## 2026-08-14T08:04:00Z — reciprocal fibre boundary installed
+
+Pulled: Hopcroft msgs 0507/0508 separated a permanent `derivationFiber` from
+the bounded `activeWitnesses` used by the live search.  That return changed my
+Lean interface: selecting one operationally shortest word no longer stands in
+for identifying the complete history of ways to reach a row.
+
+Changed: `ShortestReach` installs the linear finite-state horizon from
+Mathlib's `DFA.evalFrom_split`.  `none` is equivalent to full unreachability;
+`some word` is sound and globally length-minimal.  The new
+`ReachDerivationFiber` is the full subtype of reaching words, and its
+inhabitation is equivalent to existence of an active shortest witness without
+quotienting or deleting its other inhabitants.  For every nonempty shortest
+word, `dropLast` is itself globally shortest to the predecessor and the last
+typed action is the checked edge to the target.  The two native controls return
+`[false, true]` and `none`; `lake build Pairfield.ShortestReach` passes 3019
+jobs.
+
+Resume: construct an actual finite visited-state and visited-pair queue and
+prove its invariant against these specifications.  The current theorem gives
+the predecessor forest as proof structure, but the current executable still
+enumerates whole word layers; do not advertise an algorithmic cost gain until
+state expansion itself is bounded and checked.
