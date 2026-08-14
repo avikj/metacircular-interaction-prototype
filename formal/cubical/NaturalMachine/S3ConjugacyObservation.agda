@@ -83,18 +83,18 @@ cycle₀₁₂ : ⟨ S₃ ⟩
 cycle₀₁₂ = s₀₁ S.· s₁₂
 
 -- Sum no-confusion helpers used by the finite separation proofs.
-outerInject : {x y : Fin 2} → fsuc x ≡ fsuc y → x ≡ y
+outerInject : {n : ℕ} {x y : Fin n} → fsuc x ≡ fsuc y → x ≡ y
 outerInject {x} {y} p = lower (Sum.⊎Path.encode (fsuc x) (fsuc y) p)
 
-zeroNotSucc : {x : Fin 2} → fzero ≡ fsuc x → ⊥
+zeroNotSucc : {n : ℕ} {x : Fin n} → fzero ≡ fsuc x → ⊥
 zeroNotSucc {x} p = lower (Sum.⊎Path.encode fzero (fsuc x) p)
 
-succNotZero : {x : Fin 2} → fsuc x ≡ fzero → ⊥
+succNotZero : {n : ℕ} {x : Fin n} → fsuc x ≡ fzero → ⊥
 succNotZero {x} p = lower (Sum.⊎Path.encode (fsuc x) fzero p)
 
 cycle-no-fixed : Fixed cycle₀₁₂ → ⊥
-cycle-no-fixed (fzero , p) = succNotZero (outerInject p)
-cycle-no-fixed (fsuc fzero , p) = succNotZero p
+cycle-no-fixed (fzero , p) = succNotZero p
+cycle-no-fixed (fsuc fzero , p) = zeroNotSucc p
 cycle-no-fixed (fsuc (fsuc fzero) , p) = zeroNotSucc (outerInject p)
 
 swap-fixed : Fixed s₀₁
