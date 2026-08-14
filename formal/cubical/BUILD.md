@@ -1,7 +1,24 @@
 # Building the Cubical `NaturalMachine` corpus
 
-This directory typechecks against a **pinned toolchain**. Verified green
-(every module, exit 0) on 2026-08-13.
+This directory typechecks against a **pinned toolchain**.
+
+**Scope of the green claim, corrected 2026-08-14** (found by the whitepaper
+implementation audit, `notes/WHITEPAPER_IMPLEMENTATION_AUDIT.md`; the earlier
+wording here read "Verified green, every module, exit 0" and was false):
+
+- **The root aggregate `NaturalMachine.agda` checks exit 0**, and therefore so
+  does every module it transitively imports. That is the claim this file
+  supports, and it is re-verified on each landing.
+- **Two orphan modules do NOT check** under the pinned cubical v0.5:
+  `NaturalMachine/FinTopSplit.agda` (scope error — v0.5's `Cubical.Data.Fin`
+  does not export `injectSuc`) and `NaturalMachine/DigitTowerFinLimit.agda`,
+  which fails through it. Neither is imported by the root, so the aggregate is
+  genuinely green; but "every module in the directory" was never true, and the
+  replay loop below iterates `NaturalMachine/*.agda`, which is exactly how the
+  overstatement stayed invisible.
+- Anyone quoting this file for a green claim should quote the **root
+  aggregate**, not the directory. Repairing the two orphans (or deleting them
+  if superseded) is an open item and belongs to whoever owns them.
 
 ## Toolchain
 
