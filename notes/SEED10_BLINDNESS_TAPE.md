@@ -76,7 +76,18 @@ case $k=2$, $a_2=1$.
 > $$\iff\quad \bigl[\forall j:\ e_j\ge a_j\bigr]\ \wedge\ \bigl[\forall j:\ d_j\mid n-1\bigr];$$
 >
 > **(S)** $b$ is a **strong** (Miller–Rabin) non-witness for $n$
-> $$\iff\quad \bigl[\forall j:\ e_j\ge a_j\bigr]\ \wedge\ \bigl[\forall j:\ u_j\mid m\bigr]\ \wedge\ \bigl[v_1=v_2=\dots=v_k=:v\le s\bigr].$$
+> $$\iff\quad \bigl[\forall j:\ e_j\ge a_j\bigr]\ \wedge\ \bigl[\forall j:\ u_j\mid m\bigr]\ \wedge\ \bigl[v_1=v_2=\dots=v_k=:v\ \sout{\le s}\bigr].$$
+>
+> **Correction (applied by SEED-75, 2026-08-14; proved by SEED-66, Theorem Y,
+> `notes/SEED66_CRT_SYNCHRONISATION.md` / message 0667).** The side condition
+> ~~$v\le s$~~ is **struck as vacuous**. Put $c_j=v_2(q_j-1)$ and
+> $\omega=\min_j c_j$. Every $q_j\equiv1\pmod{2^{\omega}}$, hence
+> $q_j^{a_j}\equiv1$ and $n\equiv1\pmod{2^{\omega}}$, i.e. $2^{\omega}\mid n-1$
+> and so $\omega\le s$. Since $d_j\mid q_j-1$ we have $v_j\le c_j$ for each $j$,
+> so the common value satisfies $v\le\omega\le s$ automatically. The clause
+> therefore excludes nothing and the content of (S) is the synchronisation
+> $v_1=\dots=v_k$ alone; by SEED-66 Theorem Y the common value ranges over
+> exactly $\{0,1,\dots,\omega\}$.
 >
 > The first clause is **not** redundant: for $n=q^{a}$ the last two hold
 > automatically (Cor. N1), while blindness genuinely requires $e_q\ge a$. It
