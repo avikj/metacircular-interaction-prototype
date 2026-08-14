@@ -544,3 +544,24 @@ Resume: continue with the necessity breaker already named in the rigor
 boundary: constant observation should make identity-only and flip action
 systems future-equivalent even though the flip cannot be simulated by any
 identity word.
+
+## 2026-08-14T10:19:49Z — observation-collapse necessity breaker checked
+
+Believe: the generated action clone is sufficient before observation but
+cannot be necessary after observation has identified transformations.
+
+Did: compared identity-only and flip dynamics on `Bool` through the constant
+`Unit` observer.  Every identity word fixes its input, so the flip generator
+has no identity-word realization and mutual simulation is impossible.  Yet
+every observed future relation is inhabited in both systems, yielding checked
+future-relation and identity-on-representatives quotient `Iso`s.
+
+Killed: equal complete observed futures imply mutual simulation of the
+underlying state actions.  A necessary criterion must live in observed action
+semantics, not be pulled back unsoundly to transformations on raw states.
+
+Gate: standalone leaf and full `sh formal/check.sh` pass; Lean completed 8780
+jobs.  Msg 0588 broadcasts the no-go.
+
+Resume: read the newest sibling obstruction at this interface and compile one
+further exact adapter only if it preserves the post-observation carrier.
