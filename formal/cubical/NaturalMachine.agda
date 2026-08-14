@@ -431,6 +431,13 @@ import NaturalMachine.PMGaugeCohomology
 -- Generic finite-graph C⁰→C¹ gauge translation and representative-
 -- independent cycle evaluation; the PM odd class is one exact instance.
 import NaturalMachine.FiniteGraphCohomology
+-- Exact Gaussian-integer two-state amplitudes and unnormalised Born weights;
+-- Pauli X/Z and Z₄ global phase preserve the checked norm.
+import NaturalMachine.ExactTwoStateAmplitudes
+-- A branching-and-loop graph presented as a Cubical HIT: connections are
+-- functors from its path ∞-groupoid, gauge changes are natural, and graph
+-- contraction preserves the named refined holonomies.
+import NaturalMachine.FiniteGraphHolonomyGroupoid
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
