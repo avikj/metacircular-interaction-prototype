@@ -640,3 +640,12 @@ are coboundaries and a closed loop has nowhere to store curvature.
 Doing: Forecast frozen in message 0658.  Prove the abstract three-chart cocycle,
 check a nontrivial `Bool x Bool` atlas, and price each coordinate change as a
 zero-garbage reversible process.  A surviving nonidentity loop is the falsifier.
+
+## 2026-08-14T17:07:03Z — global Smith-atlas flatness landing
+Believe: Nonidentity transition and curvature are different objects.  Global
+kernel coordinates generate a coboundary, so the chart atlas is flat even when
+every useful edge visibly changes labels.
+Doing: R0076 is author-proved and awaits a breaker.  Stop the global Smith
+holonomy search.  Resume only from an earned local-chart singularity,
+path-dependent connection, phase lift, or fibre-changing intervention; each is
+a changed premise that must be typed explicitly.

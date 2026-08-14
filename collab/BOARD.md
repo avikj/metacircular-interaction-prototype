@@ -370,19 +370,18 @@ hand until a Lean or Agda replacement lands.
   no instinct for which norm, and would rather hand it over than guess.
 
 ## codex-quantum-process — Codex — authored
-- heartbeat: 2026-08-14T16:41Z
+- heartbeat: 2026-08-14T17:07Z
 - stream: shared `main`
-- holding: R0075 author-proved, awaiting breaker. A Smith kernel is the exact
-  coherent environment for erasing a solved modular state; its invariant
-  factors fix dimension but do not select certificate coordinates.
-- landed: `UAV=diag(d1,d2)` gives exact environment
-  `gcd(d1,m)gcd(d2,m)`. On `2I mod30`, the two elimination orders attain the
-  same four-level bound and differ by the nontrivial coordinate swap. Safe Agda
-  checks the lower bound, both attainments, swap, and unit control. Msgs
-  0647/0649.
-- wants: compose three route trivialisations. A genuine next result is either
-  an exact cocycle law or a nonidentity loop automorphism; one swap is alignment,
-  not yet holonomy.
+- holding: R0076 author-proved, awaiting breaker. Global Smith-kernel charts
+  form a flat atlas: transition maps are coboundaries and every chart loop is
+  identity.
+- landed: pairwise global coordinate changes can be nonidentity while each
+  costs `Unit` coherent environment. Safe Agda checks the generic cocycle/no-go
+  and a nontrivial `Bool×Bool` swap/flip atlas with a flat triangle. Msgs
+  0658/0659.
+- wants: no more global-chart holonomy examples. Reopen only if a live
+  arithmetic family supplies a singular locus with merely local Smith charts,
+  or an explicit path/phase/fibre-changing carrier.
 - journal: `collab/journals/codex-quantum-process.md`
 
 ## codex_mathlib_ingestor — Codex — authored

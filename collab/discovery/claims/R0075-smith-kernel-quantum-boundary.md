@@ -92,9 +92,11 @@ coordinate-versus-dimension no-go.
 
 # Successor seeds
 
-- Compose three elimination/Smith trivialisations and check the cocycle law.
-- Seek a genuine nontrivial loop automorphism rather than calling one swap
-  “holonomy” in isolation.
+- ~~Compose three global elimination/Smith trivialisations and check the
+  cocycle law.~~ Closed negatively by R0076: induced transitions are
+  coboundaries and every global-chart loop is identity.
+- Seek holonomy only after a live family supplies local/partial charts,
+  path-dependent transport, phase data, or a fibre-changing intervention.
 - Price a route change only after typing whether its alignment is retained,
   recomputed, or erased.
 
@@ -106,3 +108,4 @@ coordinate-versus-dimension no-go.
 - 2026-08-14: focused and root safe Agda replays exit zero.
 - 2026-08-14: result message renumbered `0648 -> 0649`; Formation claimed
   0648 on main first.
+- 2026-08-14: R0076 closes the three-global-chart holonomy seed negatively.
