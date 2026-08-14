@@ -155,6 +155,10 @@ import NaturalMachine.EndogenousHorizon
 -- uniqueness, and a zero-refuter control shows why absence of pins does not
 -- license deletion without an explicit alternative-refuter witness.
 import NaturalMachine.PinnedSensorForcing
+-- The checked 5/25 collision at threshold 3 becomes one concrete pin: among
+-- the declared sub-threshold and modulus-5 packages, every sound anatomy must
+-- admit the latter.  The adapter imports no global primality classifier.
+import NaturalMachine.PrimeSquarePinAdapter
 import NaturalMachine.PairCoordinates
 import NaturalMachine.ChargeGrading
 import NaturalMachine.ConeImage
