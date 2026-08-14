@@ -48,7 +48,8 @@ module Scheme
     (world : World) → Bad world →
     Σ[ sensor ∈ Sensor ] (Active sensor × Refutes sensor world)
 
-  record Pinned (world : World) (sensor : Sensor) : Type _ where
+  record Pinned (world : World) (sensor : Sensor)
+    : Type (ℓ-max ℓS ℓR) where
     field
       refutes : Refutes sensor world
       unique  : (other : Sensor) → Refutes other world → other ≡ sensor
