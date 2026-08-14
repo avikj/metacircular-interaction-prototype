@@ -206,15 +206,18 @@ $a^i,a^j$ with $i<j\leq p$. $M$ then answers identically on $a^i\#a^i$ and
 $a^j\#a^i$, which have different membership. The longer word has length
 $j+i+1\leq 2p+1$. $\square$
 
-**Theorem P3 (this is optimal up to the constant).** No bound $o(p)$ is possible:
-for each $p$ there is a $p$-state DFA agreeing with $\mathrm{BASIN}$ on all words
-of length $<p$ (take the DFA that accepts exactly the words of
-$\mathrm{BASIN}$ of length $<p$, of which there are finitely many, and rejects
-everything else — realizable with $O(p^2)$ states; and a length-counting DFA with
-$p$ states is correct on all inputs of length $<p$ by vacuity of the failure
-witnesses below that length, since the shortest disagreement forced by a
-$p$-state collision has length $\geq p+1$ when the colliding pair is
-$(a^{p-1},a^p)$). Hence the refutation length is $\Theta(p)$. $\square$
+**Theorem P3 (optimal up to a factor $4$).** For every $\ell\geq 1$ there is a DFA
+$M_\ell$ with $2\ell+3$ states that agrees with $\mathrm{BASIN}$ on every word of
+length $\leq\ell$. Hence a $p$-state DFA can have shortest refutation as long as
+$(p-3)/2$, and by Thm P2 never longer than $2p+1$: the smallest counterexample
+size is $\Theta(p)$, with the constant pinned between $\tfrac12$ and $2$.
+
+*Construction.* States $c_0,\dots,c_\ell$ (count of leading $a$'s, $c_\ell$
+saturating), $d_0,\dots,d_\ell$ (entered from $c_i$ on $\#$ as $d_i$; $d_j\xrightarrow{a}d_{j-1}$,
+$d_0\xrightarrow{a}\bot$), sink $\bot$ for a second $\#$; accepting states are
+$d_1,\dots,d_\ell$. On input $a^n\#a^m$ with $n+m+1\leq\ell$ no saturation occurs,
+so the machine ends in $d_{n-m}$ and accepts iff $m<n$; every other word of length
+$\leq\ell$ is malformed and rejected by both. $\square$
 
 ## 6. What this changes
 

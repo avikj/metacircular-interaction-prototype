@@ -76,8 +76,13 @@ case $k=2$, $a_2=1$.
 > $$\iff\quad \bigl[\forall j:\ e_j\ge a_j\bigr]\ \wedge\ \bigl[\forall j:\ d_j\mid n-1\bigr];$$
 >
 > **(S)** $b$ is a **strong** (Miller–Rabin) non-witness for $n$
-> $$\iff\quad \bigl[\forall j:\ u_j\mid m\bigr]\ \wedge\ \bigl[v_1=v_2=\dots=v_k=:v\bigr]\ \wedge\ \bigl[v\le s\bigr],$$
-> and these three conditions **imply** $e_j\ge a_j$ for every $j$.
+> $$\iff\quad \bigl[\forall j:\ e_j\ge a_j\bigr]\ \wedge\ \bigl[\forall j:\ u_j\mid m\bigr]\ \wedge\ \bigl[v_1=v_2=\dots=v_k=:v\le s\bigr].$$
+>
+> The first clause is **not** redundant: for $n=q^{a}$ the last two hold
+> automatically (Cor. N1), while blindness genuinely requires $e_q\ge a$. It
+> becomes redundant only when the conditions are stated in terms of
+> $\operatorname{ord}_{q_j^{a_j}}(b)$ rather than $\operatorname{ord}_{q_j}(b)$,
+> which is what the proof does.
 
 *Proof.* Put $D_j=\operatorname{ord}_{q_j^{a_j}}(b)$.
 
@@ -100,18 +105,17 @@ $$\Bigl[\forall j:\ U_j\mid m\Bigr]\ \wedge\ \Bigl[\ \forall j:\ w_j=0\ \ \text{
 i.e. all $w_j$ share one value $w$ with $w\le s$ (the value $w=0$ being the
 first branch, $w\ge1$ requiring the legal index $i=w-1\le s-1$).
 
-It remains to replace $(w_j,U_j)$ by $(v_j,u_j)$. Suppose the displayed
-conditions hold for $(w_j,U_j)$. If $a_j>e_j$ for some $j$ then by Lemma 0
-$q_j\mid D_j$, and $q_j$ is odd, so $q_j\mid U_j\mid m\mid n-1$ — impossible,
-since $q_j\mid n$. Hence $e_j\ge a_j$ for all $j$, so $D_j=d_j$ and
-$(w_j,U_j)=(v_j,u_j)$. Conversely, if the conditions hold for $(v_j,u_j)$, the
-same argument applies verbatim after noting that they force $e_j\ge a_j$: if
-$a_j>e_j$ then $D_j=d_jq_j^{a_j-e_j}$, but the Miller–Rabin condition is a
-statement about $D_j$, and $u_j\mid m$ with $v_j$ synchronised gives
-$d_j\mid 2^{s}m=n-1$, so $b^{n-1}\equiv1\pmod{q_j^{a_j}}$ would need
-$D_j\mid n-1$, contradicting $q_j\mid D_j$, $q_j\nmid n-1$. So in both
-directions $D_j=d_j$ and the two forms of the condition coincide.
-$\square$
+Call this condition $(\ast)$; so far, strong-blind $\iff(\ast)$, with $(\ast)$
+phrased in the data $(w_j,U_j)$ of $D_j=\operatorname{ord}_{q_j^{a_j}}(b)$.
+
+It remains to rewrite $(\ast)$ in the tape data $(v_j,u_j)$ of
+$d_j=\operatorname{ord}_{q_j}(b)$. First, $(\ast)\Rightarrow e_j\ge a_j$ for
+all $j$: if $a_j>e_j$ then $q_j\mid D_j$ by Lemma 0, and $q_j$ is odd, so
+$q_j\mid U_j\mid m\mid n-1$, impossible since $q_j\mid n$. Hence $(\ast)$
+implies $D_j=d_j$, i.e. $(w_j,U_j)=(v_j,u_j)$, so $(\ast)$ implies the three
+displayed clauses. Conversely, if $e_j\ge a_j$ for all $j$ then $D_j=d_j$ by
+Lemma 0, so $(w_j,U_j)=(v_j,u_j)$ and the remaining two clauses are literally
+$(\ast)$. $\square$
 
 ### 2.1 Consistency and consequences
 
