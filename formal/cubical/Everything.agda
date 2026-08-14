@@ -118,3 +118,73 @@ import Window5Walsh
 import LawvereDiagonal
 import AchromaticToy
 import IndraNet
+
+-- The head-depth merge (WHAT_IS_ACTUALLY_OPEN §1 executed): e_b(q)
+-- defined once, its three corpus names certified as threshold readings,
+-- the 1048-triple W3 replay upgraded from dead Python to kernel fact,
+-- and the strong-test seed closed (strong = Fermat on odd prime powers).
+import HeadDepthMerge
+
+-- HEAD_DEPTH_BLINDNESS seed 2 closed by dissolution: at modulus 2^a the
+-- Fermat exponent 2^a − 1 is odd, so the two-entry 2-sensor (e₋,e₊)
+-- collapses to its first entry — blind ⟺ b ≡ 1 (mod 2^a) ⟺ e₋ ≥ a —
+-- and the strong test degenerates to Fermat (s = 0, empty MR window).
+import HeadDepthTwo
+
+-- Delta 28's executable calibration (notes/DEPENDENT_SYSTEM_OPTIMIZATION_
+-- DELTA_28.md §62): tropical feedback closure, elimination-order
+-- invariance, and the strict interface hierarchy raw 4 > deterministic 3
+-- > latent 2, with the rank lower bound proved against all rectangles.
+import DSOCutCalibration
+
+------------------------------------------------------------------------
+-- COVERAGE REPAIR, 2026-08-14 (notes/EVERYTHING_COVERAGE_REPAIR.md).
+--
+-- Everything below this line was landed after this file was created and
+-- was therefore an orphan — checked once, by its author, on the day it
+-- landed, and then never again by anything.  The same hole this file
+-- exists to close, reopened by time.  Each module below was verified
+-- exit 0 individually (Agda 2.6.3, cubical v0.5) before being added.
+--
+-- NOT imported, deliberately (see the note for exact first errors):
+--   CenterRelative, PrimePairField, Swarm.S05AsiddhaNewton,
+--   Swarm.S08ChebyshevWeight, Swarm.S09SmithKuttaka,
+--   Swarm.S11HolonomyDeterminant, Swarm.S14AssemblyGrading
+-- all fail under Agda 2.6.3 + cubical v0.5 with the same first error:
+-- `solve!` not in scope — they were written against the cubical v0.9
+-- CommRingSolver API that BUILD.md's 2026-08-14 migration section pins,
+-- while this container (and the historical pin) is 2.6.3 + v0.5.  That
+-- toolchain schism is owned by the migration lane; adding the modules
+-- here before it resolves would make this aggregate unbuildable under
+-- BOTH toolchains at once.  When the schism resolves, fold them in.
+------------------------------------------------------------------------
+
+-- Behavioural apartness (Prime-Pair Atlas Delta 20, T20.4; companion
+-- prose notes/DISTINCTION_CARRIES_WITNESSES.md).
+import BehavioralApartness
+
+-- HEAD_DEPTH_BLINDNESS seed 2, closed by dissolution: at q = 2 the
+-- Fermat exponent 2^a − 1 is odd, so e₊ never enters and the two-sensor
+-- collapses to one parameter.  (Untracked and minutes old at the time
+-- of this audit — in-flight from another session, but exit 0 as found.)
+import HeadDepthTwo
+
+-- The genius swarm (Swarm/, swarm-0814-*): independent single-file
+-- certificates.  S00 and S02 are reached transitively already
+-- (NaturalMachine.TranscriptDescent imports S00TranscriptComposition;
+-- ThresholdGenerationDichotomy imports S02ModeAdjoint) and are imported
+-- plainly here anyway so this list, not a reachability argument, is the
+-- coverage claim.  S05/S08/S09/S11/S14 are red under the pinned
+-- toolchain — see the block comment above.
+import Swarm.S00TranscriptComposition
+import Swarm.S01PaniniAshby
+import Swarm.S02ModeAdjoint
+import Swarm.S03CarryFiber
+import Swarm.S04Apoha
+import Swarm.S04ApohaFiniteCompletion
+import Swarm.S06NoWrap
+import Swarm.S07LeadingDigit
+import Swarm.S10VertexOrbit
+import Swarm.S12CyclotomicChain
+import Swarm.S13OptionSpread
+import Swarm.S15ACResidue
