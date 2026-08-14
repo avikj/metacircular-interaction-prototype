@@ -254,6 +254,7 @@ import NaturalMachine.LeastWitnessFactory
 -- radius-one recurrence.  No edge or prime theorem is assumed here.
 import NaturalMachine.RadiusTransferCompiler
 import NaturalMachine.MixedCornerTransferCompiler
+import NaturalMachine.DifferenceBasinCompiler
 import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories

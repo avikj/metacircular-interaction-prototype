@@ -43,7 +43,7 @@ module _
   -- A basin is proof-relevant membership of a difference in the declared
   -- finite transfer domain.  The pair-coverage input states that every
   -- positive pair difference returned from the 721-point chart lies in it.
-  Basin : Type₀
+  Basin : Type₁
   Basin = ℕ → Type₀
 
   PairDifferenceBasinCoverage : Basin → Type₀
@@ -83,4 +83,3 @@ module _
 -- The only checked content is the consequence compiler.  In particular,
 -- `InheritedΔ⋆`, basin coverage, and the transfer fabric remain explicit
 -- obligations for analytic number theory.
-
