@@ -24,7 +24,19 @@ formalism I did not rebuild.*
 >   $\approx10^{-19}$, not the atomwise ratio $10^{-38}$; and the tail carries
 >   one log, not two. Applied at §1(b).
 > - **SEED-71** (`notes/SEED71_PAIR_WEIGHT_IS_NOT_A_FORM_FACTOR.md`): the pair
->   weight is not a form factor and is exactly blind to the symmetry class.
+>   weight is not a form factor and is ~~exactly blind to the symmetry class~~
+>   **blind to the symmetry class, with the ensemble-dependence of $|W|$ bounded
+>   rather than annihilated** (word "exactly" struck 2026-08-14, SEED-116,
+>   propagation sweep under Rule K K3′; same correction SEED-111 applied to the
+>   title of `notes/SEED71_PAIR_WEIGHT_IS_NOT_A_FORM_FACTOR.md` and SEED-113 to
+>   the copy in `notes/DSIDE.md` §3.3 — this currency header is the third site
+>   and quotes the struck word verbatim). SEED-71 Theorem A is
+>   $|W|^2/|W|^2\big|_{\delta=0}=(1+\cosh\pi s)/(\cosh\pi s+\cosh\pi\delta)
+>   =1+O(e^{-2\pi\min(\gamma,\gamma')})$ — a bound with a nonzero remainder, not
+>   an identity; the ratio is genuinely non-constant in $\delta$. **The
+>   conclusion is untouched:** the statistic's inability to distinguish $\beta$
+>   is Corollary C's support statement (analyticity in $|\Im\delta|<1$), which
+>   *is* exact, and §3's own restatement below is already correct.
 >   Applied as a scope note at §3.
 > - SEED-68 §3.2 also **removes** the hypothesis $s\neq0$ from Lemma 1. Applied
 >   at Lemma 1.

@@ -73,7 +73,18 @@ constructivity was earned by the mathematics, not by luck.
 | **SEED-02** Thm A, Cor A.1 | $S(\pi,\sigma)$ has a maximum $\iff\pi\perp\sigma$ | **none (BISH)** | — | stated as an *equivalence*, never as a case split; all data rational |
 | **SEED-02** Cor A.2 | $\pi\not\perp\sigma\Rightarrow$ two distinct maximal elements | **none (BISH)** as written; ~~**exactly MP** under a real measure~~ **LPO to state, MP for the distinctness clause given $F,G$** (SEED-102, 2026-08-14) | yes, in the weighted setting | $\not\perp$ must be read as apartness, not as $\neg\perp$. §4.3 |
 | **SEED-09** Thms N, M, M2, C1, C2 | $S\subseteq D\subseteq B$; $D$ least sufficient; $B\smallsetminus D$ overreach $=n-2$ | **none (BISH)** | — | $\exists w\in A^{*}$ collapses to $\exists w,|w|<n$ by pigeonhole on $Q$; $\forall w$ collapses by Moore. Needs (F1) on $Q$ *and* $A$. §3 |
-| **SEED-11** Thms A, C, Lem B, Cor D | $W(b,m,\{0\})=L$ or $L-1$; exceptional set $\{3,5\}$ | **none (BISH)** | — | Theorem A proves the bound $d(r)\le L$ *before* $d$ is minimized — (F2) done right |
+| **SEED-11** Thms A, C, Lem B, Cor D | $W(b,m,\{0\})=L$ or $L-1$; ~~exceptional set $\{3,5\}$~~ **exceptional set = the infinite family $m=b^{L-1}+1$ ($b=2$: $3,5,9,17,33,\dots$)** | **none (BISH)** | — | Theorem A proves the bound $d(r)\le L$ *before* $d$ is minimized — (F2) done right |
+
+> **Struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K K3′).**
+> The SEED-11 row above quoted the refuted two-element exception list. SEED-11's
+> own Theorem C gives $W(b,m,\{0\})=L-1$ at **every** $m=b^{L-1}+1$, and SEED-26
+> Thm 1 / Cor. 2 (independently SEED-35 Thm 35-1) make this uniform in the target
+> set: $W_{\max}(b,m)=\lceil\log_b m\rceil-[\,m=b^{\lceil\log_b m\rceil-1}+1\,]$.
+> Witness that the list is not $\{3,5\}$: $m=9=2^3+1$, $L=4$, $W=3<4$. Four
+> earlier occurrences were struck inside `SEED11_WITNESS_RADIUS_LOG_LAW.md`
+> (SEED-75 ×3, SEED-94, title by SEED-111); this fifth lived in another file and
+> survived all of them. The constructive verdict of the row — **none (BISH)** —
+> is unaffected: the exception set is decidable either way.
 | **SEED-20** Prop 1 (Calendar Round) | one datum pins $d$ mod $18980$, nothing pins more | **none (BISH)** | — | $\Sigma_0$ with a CRT certificate; the unidentifiability half is an explicit pair |
 | **SEED-20** Thm 0, pointwise | verifiable $\iff$ open, refutable $\iff$ closed | **none (BISH)** *provided* "open" means **enumerably** open | — | the classical proof forms $\bigcup\{[s]:[s]\subseteq C\}$; constructively the enumeration *is* the learner. §5.1 |
 | **SEED-20** Thm 0, **uniform-stage** reading (the one the corpus uses) | $C$ finitely decidable $\Rightarrow\exists N$ deciding $C$ from $\sigma\!\restriction\!N$ | **exactly FAN$_\Delta$** ($\equiv$ WKL$_0$ over RCA$_0$) | **yes — Theorem U, §5** | nothing in BISH supplies it; refutable in RUSS |
