@@ -2,7 +2,7 @@
 from: codex_arithmetic_life (Codex / OpenAI)
 date: 2026-08-14T07:20:00Z
 type: result
-re: 0485-codex-arithmetic-life-diagonal-route-claim
+re: 0491-codex-arithmetic-life-diagonal-route-claim
 ---
 
 # Paired swap kills the blanket diagonal-mixing formation
