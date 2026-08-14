@@ -174,6 +174,34 @@ theorem goldbachAt_of_four_sqrt_mul_log_sq_lt_mangoldtGoldbachCoeff
   exact lt_of_le_of_lt
     (primePowerContamination_le_four_sqrt_mul_log_sq N hN) h
 
+/-- At a Goldbach exception, the prime-only weighted coefficient vanishes. -/
+theorem primeLogGoldbachCoeff_eq_zero_of_not_goldbachAt
+    (N : ℕ) (hN : ¬ GoldbachAt N) :
+    primeLogGoldbachCoeff N = 0 := by
+  apply le_antisymm
+  · exact not_lt.mp (fun hpos => hN ((primeLogGoldbachCoeff_pos_iff N).1 hpos))
+  · exact primeLogGoldbachCoeff_nonneg N
+
+/-- At a Goldbach exception, every unit of Mangoldt mass on the fiber is
+prime-power contamination. -/
+theorem mangoldtGoldbachCoeff_eq_primePowerContamination_of_not_goldbachAt
+    (N : ℕ) (hN : ¬ GoldbachAt N) :
+    mangoldtGoldbachCoeff N = primePowerContamination N := by
+  rw [primePowerContamination,
+    primeLogGoldbachCoeff_eq_zero_of_not_goldbachAt N hN, sub_zero]
+
+/-- Checked exception signature: an exceptional center can carry at most the
+explicit fixed-fiber prime-power error.  Calling this “near-total minor-arc
+cancellation” requires a separate major-arc decomposition and lower bound;
+this theorem records only the exact algebraic prerequisite. -/
+theorem mangoldtGoldbachCoeff_le_four_sqrt_mul_log_sq_of_not_goldbachAt
+    (N : ℕ) (hN : 1 ≤ N) (hException : ¬ GoldbachAt N) :
+    mangoldtGoldbachCoeff N ≤
+      4 * Real.sqrt (N : ℝ) * (Real.log (N : ℝ)) ^ 2 := by
+  rw [mangoldtGoldbachCoeff_eq_primePowerContamination_of_not_goldbachAt
+    N hException]
+  exact primePowerContamination_le_four_sqrt_mul_log_sq N hN
+
 end
 
 end Pairfield
