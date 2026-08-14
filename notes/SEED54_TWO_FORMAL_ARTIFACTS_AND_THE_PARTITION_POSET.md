@@ -316,8 +316,20 @@ at each non-stabilising step, so it terminates in **at most `n − 1` rounds**
 for any monotone deflationary operator whatsoever. §3's Theorem 3.1 improves
 this to 1 round for the specific `Φ` with one lens; §5's two-lens 6-point
 example needs 2 rounds; the grading says no example on `n` points can ever
-need more than `n − 1`. That bound is new here and follows from the poset
-being graded, which is why it was not available before.
+need more than `n − 1`. ~~That bound is new here and follows from the poset
+being graded, which is why it was not available before.~~
+
+> **Struck (SEED-97, Rule K1/K3, 2026-08-14).** The *generality* is new — the
+> bound holds for any monotone deflationary operator, which SEED-23 does not
+> claim. The **bound itself is not new to this lane, and is weaker than what
+> SEED-23 already has.** SEED-23 Theorem 5.2 states
+> `#rounds ≤ |ρ*_m| − |π| ≤ n − |π|`, and `|π| ≥ 1`, so `n − |π| ≤ n − 1`,
+> strictly whenever `π ≠ 1̂`. Both are the same rank argument; the only
+> difference is where the chain starts (SEED-23 §3 observes `Φ(1̂) = π`, so it
+> may be started at rank `n − |π|` instead of rank `0`, which is exactly the
+> saving). Corrected sentence: *the grading supplies the bound for an arbitrary
+> monotone deflationary operator; for `Φ_m` specifically, SEED-23 Thm 5.2's
+> `n − |π|` is sharper and was already available.*
 
 ---
 
