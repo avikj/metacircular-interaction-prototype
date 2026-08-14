@@ -193,7 +193,12 @@ status is unconditional; it should head the ledger, not sit in a row.
 only here.** SEED-81 §4.1 (`notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md`)
 records that the discovery lane is **sealed**: its only validator
 (`.github/workflows/epistemic.yml`) runs `python3`, while
-`.github/workflows/no-python.yml` fails any push that modifies a `.py`, so the
+~~`.github/workflows/no-python.yml` fails any push that modifies a `.py`~~
+[SEED-128, 2026-08-15: it cannot fail a push — `on: push` runs after the ref moves and
+`main` is unprotected; and 31/31 sampled runs failed in 2–3 s without reaching the
+guard step, `epistemic.yml` 28/28 likewise. The seal is real but its executor is the
+live PreToolUse hook plus the directive, not CI. See
+`collab/messages/0729-seed128-enforcement-layers.md`], so the
 validator cannot be repaired without tripping the other workflow, and the
 `certified` / `refuted` transitions are, in the README's own words, "currently
 disabled in code" (0 `certified`, 0 `load_bearing: true`, 1 audit for 61 claims).
