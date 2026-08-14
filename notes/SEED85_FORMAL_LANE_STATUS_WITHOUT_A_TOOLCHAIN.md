@@ -43,7 +43,7 @@ Three specific carry-overs:
 |---|---|
 | aggregate `NaturalMachine.agda` exits 0, 64 `UnsupportedIndexedMatch` warnings | **unrunnable here**, and measured on 2.6.3/v0.5. The warning *population* is a property of the pinned cubical's feature support and cannot be carried across a version change. |
 | `FinTopSplit`, `DigitTowerFinLimit` FAIL (scope error, `injectSuc`) | **repaired in source, unverified.** `FinTopSplit.agda:36-37` now reads `injectSuc = inject< ≤-refl`; `DigitTowerFinLimit.agda:34` takes the name from `FinTopSplit`. `NaturalMachine.agda:349-350` imports both. The audit's "false green in the written record" is closed *textually*. |
-| eleven modules in no gate | **understated by today's tree.** The correct number is 39 (§2). |
+| eleven modules in no gate | **understated by today's tree.** The correct number is 41 (§2). |
 | Lean lane unknown | still unknown, and now with a second, structural reason (§3). |
 
 The audit's most durable contribution is not a verdict but a method: *the
@@ -76,7 +76,7 @@ result only negatively.
   (`NaturalMachine/Control/WrongEquivalence`, `…/WrongFirstStep`), which are
   excluded on purpose and must fail.
 - **43 modules are outside the closure**; if the two controls are also
-  counted as ungated-on-purpose, **39 are ungated by accident.**
+  counted as ungated-on-purpose, **41 are ungated by accident.**
 
 They fall in three groups:
 
@@ -87,7 +87,7 @@ They fall in three groups:
    says that command "must print nothing". **It prints three names. This is the
    one place where a source document is contradicted by the tree it
    describes.**
-2. **The entire `Swarm/` lane** (17): `S01PaniniAshby`, `S03CarryFiber`,
+2. **The `Swarm/` lane, all but two** (15 of 17; only `S00TranscriptComposition` and `S02ModeAdjoint` are reached): `S01PaniniAshby`, `S03CarryFiber`,
    `S04Apoha`, `S04ApohaFiniteCompletion`, `S05AsiddhaNewton`, `S06NoWrap`,
    `S07LeadingDigit`, `S08ChebyshevWeight`, `S09SmithKuttaka`, `S10VertexOrbit`,
    `S11HolonomyDeterminant`, `S12CyclotomicChain`, `S13OptionSpread`,
@@ -97,7 +97,7 @@ They fall in three groups:
    recurrence of the identical defect (`NaturalMachine/*` orphans → top-level
    orphans → `Swarm/*`), which is the argument for fixing it with a `find`
    sweep rather than another import list.
-3. **`NaturalMachine/` modules the root does not reach** (21):
+3. **`NaturalMachine/` modules the root does not reach** (23):
    `BraidCoherenceBoundary`, `CarryClassNonzero`,
    `CompressionDefectRegularWitness`, `CostGeometry`, `CostGeometryWitness`,
    `DSOFactorRankFinite`, `DeclaredRootedProfiles`, `EndianAtlasReplay`,
@@ -209,7 +209,7 @@ predates at least some of the sixteen.
   `ProjectionChargeAudit.agda`", which is behind both `check.sh` (five) and
   `Everything.agda` (forty).
 - `BUILD.md` — "the root aggregate now transitively reaches every module in
-  `NaturalMachine/`", marked CLOSED. 21 do not appear in the closure.
+  `NaturalMachine/`", marked CLOSED. 23 do not appear in the closure.
 - `BUILD.md` — its own coverage command "must print nothing"; it prints three.
 - `notes/FORMAL_LANE_HEALTH_2026_08_13.md` — "Toolchain as actually installed:
   Agda 2.6.3, cubical 0.5. This matches `formal/cubical/BUILD.md`." It no
@@ -265,12 +265,12 @@ onward needs Agda, and by then every failure it reports is a real one.
    with each file checked, and a **negative sweep** over
    `NaturalMachine/Control/*.agda` asserting each *fails*; then the two
    coverage commands from `BUILD.md` as hard failures. The enumeration of five
-   entry points is what let 39 modules drift out of sight; deleting it is the
+   entry points is what let 41 modules drift out of sight; deleting it is the
    structural fix, and it is the one change that makes all later drift
    self-reporting.
 4. **Close today's three coverage holes in the same commit**, since step 3
    turns them into failures: add `BehavioralApartness`, `CenterRelative`,
-   `PrimePairField` to `Everything.agda`; add the 17 `Swarm.*` modules (or
+   `PrimePairField` to `Everything.agda`; add the 15 unreached `Swarm.*` modules (or
    better, have the sweep of step 3 subsume `Everything.agda` entirely, in
    which case `Everything.agda` becomes a convenience rather than the contract);
    and either add the 21 unreached `NaturalMachine/*` imports to
@@ -313,7 +313,7 @@ The single-sentence version, which is what a fresh session actually needs:
 *fix `formal/README.md` to defer to `BUILD.md`, replace `check.sh`'s
 five-entry-point enumeration with a `find` sweep plus a negative sweep over
 `Control/`, close the 41 uncovered modules the sweep will expose (3 top-level,
-17 `Swarm/`, 21 `NaturalMachine/`) and the 16 in Lean, provision Agda 2.8.0 +
+15 `Swarm/`, 23 `NaturalMachine/`) and the 16 in Lean, provision Agda 2.8.0 +
 cubical v0.9, and publish the first failure before fixing anything.*
 
 ---

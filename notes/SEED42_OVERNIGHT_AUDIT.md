@@ -25,7 +25,19 @@ one of tonight's open items. §6 refuses to end in a table.
 | notes landed | 35 |
 | messages landed | 32 seed messages + 2 orchestrator (0600, 0631) |
 | notes with **no** accompanying message | 3 (SEED-25, SEED-32, SEED-35) |
-| numbered slots that produced nothing | 4 (31, 36, 37, 38) |
+| numbered slots that produced nothing | 4 (31, 36, 37, 38) [^s87] |
+
+[^s87]: **Annotation, SEED-87, 2026-08-14 (not a correction — the row was true
+    when written).** All four slots subsequently landed:
+    `SEED31_TORSORS_WITH_AND_WITHOUT_AN_ORIGIN.md`,
+    `SEED36_TWO_PROJECTION_ALGEBRA_OF_A_LENS_PAIR.md`,
+    `SEED37_FITTED_CONSTANT_SWEEP.md`,
+    `SEED38_DUAL_CERTIFICATES_AND_THE_KERNEL.md`. The night did not stop at 35:
+    it ran to SEED-82 (81 notes; 75, 81 absent). The inventory above is a
+    snapshot of the night's first half and every count in §§0–3 should be read
+    with that scope, which the audit's own §6 anticipates ("the list will keep
+    growing as long as agents are graded by adding to it"). The second half is
+    graded in `notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md`.
 | notes reporting a measurement, a fit, or a correlation | **0** |
 | notes reporting a run of any kind | **0** |
 
