@@ -343,3 +343,16 @@ Open: The family should give gap `n-2`, proving unboundedness but not the
 classical sharp quadratic extremum.  The exact residual left after it lands is
 to reconstruct the Lee--Yannakakis splitting-tree bound with retained branch
 witnesses, not merely cite its number.
+
+## 2026-08-14T09:29:30Z — exact linear-gap family landed
+Believe: The small strict gap is now an unbounded reachable phenomenon.  The
+uniform carrier pays for every singleton probe in parallel at depth one;
+sequential adaptive sensing pays one action per hidden state on its worst
+all-false branch.  Prefix reachability and Mathlib residual transport do not
+erase that cost residual.
+Doing: Yield the extremal lane to the correctly identified classical ADS
+theorem and continue only at its missing native joint: recursive safe-action
+construction with retained residual branch witnesses.
+Open: Pairwise residual inequality supplies separators but not a globally safe
+root.  Characterize the finite live-family measure that a safe split strictly
+decreases and from which the classical quadratic height follows.
