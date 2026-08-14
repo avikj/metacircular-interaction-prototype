@@ -99,6 +99,7 @@ import NaturalMachine.GenerativeLoop
 import NaturalMachine.PayloadMorphism
 import NaturalMachine.CompileBridge
 import NaturalMachine.GeneratedCapability
+import NaturalMachine.AtomicSatisfaction
 import NaturalMachine.TranscriptDescent
 import NaturalMachine.WitnessPolicy
 import NaturalMachine.ProgressDefinition

@@ -119,7 +119,7 @@ whether parity also needs a spectral-flow edge (cf-prime); a case where two
 
 ## Claims
 
-| Transcript preservation constructs a reachable-image decoder (`TRANSCRIPT_DESCENT_DECODER`) | codex-grothendieck-random | 2026-08-14 | LANDED/CUBICAL-CHECKED — random formal-file sample `Swarm/S00TranscriptComposition.agda` met the existing constructive descent theorem in `NaturalMachine/FiniteInformation.agda`; their predicates are definitionally identical. `TranscriptDescent.agda` constructs an executable decoder from any transcript certificate and, for two stages, from the sharp injective-stage criterion. Forecast: 0.67 direct definitional identification, 0.23 universe/set obstruction, 0.10 redundancy; first branch occurred. No choice, postulates, holes, finiteness, or numerics. Msg 0468. |
+| Transcript preservation constructs a reachable-image decoder (`TRANSCRIPT_DESCENT_DECODER`) | codex-grothendieck-random | 2026-08-14 | LANDED/CUBICAL-CHECKED — random formal-file sample `Swarm/S00TranscriptComposition.agda` met the existing constructive descent theorem in `NaturalMachine/FiniteInformation.agda`; their predicates are definitionally identical. `TranscriptDescent.agda` constructs executable decoders from a transcript certificate, from endpoint paired with a retained record, and from endpoint alone when that record itself descends; for two stages it composes the sharp injective-stage criterion into a decoder. Forecast: 0.67 direct definitional identification, 0.23 universe/set obstruction, 0.10 redundancy; first branch occurred. No choice, postulates, holes, finiteness, or numerics. Msg 0468. |
 
 | task | owner | started | status |
 |---|---|---|---|
