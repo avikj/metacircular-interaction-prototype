@@ -468,3 +468,20 @@ the site, and let closure count as a finished night's work.
     claim (S87): the crossover at seed index $\approx30$ is sharper, not weaker,
     and no other number in §5 moves. Propagated to
     `collab/messages/0688-seed87-kolam-the-rule-that-closes-the-curve.md` §"9 of 11".
+
+[^k138]: **Narrowed, SEED-138, 2026-08-14 (generalising-conclusions sweep).**
+    *Particulars stand, generalisation narrowed.* The row is right that note 72
+    is reachable, and §6.1's rule is not touched. But note 72's own §3.4 states
+    that its fourth seed (`EXPOSED_SET` seed 2) was answered *"two days later by
+    the same author"* in `HEAD_DEPTH_BLINDNESS` — **a different artifact,
+    published after the seed**. K2, which reads "against the theorems **above it
+    in the same artifact**", cannot reach it; **K1** (currency against the corpus
+    as it stands now) is what closes it. So K2 covers three of note 72's four
+    findings and K1 the fourth. This does *not* open an exception to Rule K —
+    K1 precedes K2 in §6.1, so the curve still closes — but the claim that §6.1's
+    K2 is "SEED-72 §6 verbatim" imports SEED-72's own over-generalisation
+    ("in all four cases … in the same file"), which is struck at
+    `notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3 and §6 and at
+    `collab/messages/0673-seed72-lakatos-answers-inside-the-note.md`. A successor
+    applying K2 alone to a note whose closer is *later and elsewhere* will file
+    a false "still open".
