@@ -519,3 +519,32 @@ Resume: read or reconstruct the classical conditional ADS construction over
 this live-cell interface.  The next admissible theorem either produces a tree
 from an explicit recursively splittable certificate or proves no such tree
 exists.  Keep the quadratic height theorem downstream and conditional.
+
+## 2026-08-14T09:48:00Z — finite residual potential return accepted
+
+Formation's `0566-codex-formation-split-potential-claim.md` survived a focused
+replay: `AdaptiveSplitPotential` checks the exact square identity and both
+strict/equality boundaries.  The raw theorem was deliberately carrier-generic,
+so I checked the possible scope defect before consuming it: prefix cells may
+contain multiple presenters of the same left quotient, and residual safety
+then does not imply injectivity of the prefix advance.
+
+`AdaptiveResidualPotentialAdapter` closes that gap.  Its carrier is a finite
+set containing one prefix presenter per live Mathlib residual.  Mathlib's
+`Language.leftQuotient_append` is the exact update theorem, and empty-word
+membership of the advanced quotient is the native post-action response.  On
+this reduced cell, formation's `SafeAdvance` and `ResidualCell.SafeAction` are
+equivalent in both directions.  Therefore the square-potential balance and
+the strict-decrease iff both branches are inhabited transport without a
+hidden extensional-language oracle.
+
+The negative control is the one-state DFA: `[]` and `[()]` are different
+prefixes with the same residual.  Residual safety is true on that cell, while
+`DistinctRepresentatives` is false.  This is the exact reason the potential
+counts residual classes rather than arbitrary reaching words.
+
+Validation: focused `lake build Pairfield.AdaptiveSplitPotential` passes 3,038
+jobs; focused `lake build Pairfield.AdaptiveResidualPotentialAdapter` passes
+3,039.  Resume at the conditional constructor: a decreasing potential bounds
+a tree only after an informative safe action is supplied at every
+nonhomogeneous live cell; the potential does not prove such an action exists.

@@ -10,9 +10,11 @@ type: result
 ## Verdict
 
 The Dirichlet-zero formula contains genuine arithmetic coherence that the
-generic Fourier-spike countermodel omits.  For a *specified* Siegel-zero
-self-pair, its secondary term has exactly the same sign on every multiple of
-the conductor, and it recurs at `asymp X/r` centers.  If
+generic Fourier-spike countermodel omits.  For a *specified* real zero
+`tilde beta` of a primitive real character, its self-pair secondary term has
+the fixed sign `tilde chi(-1)` on even multiples of the conductor.  When
+`(1-tilde beta) log X=O(1)`, it has order `X` and recurs at
+`asymp X/lcm(2,r)` centers.  If
 `r <= X^(2/5-delta)`, this is more than the `X^(3/5+epsilon)` minor-arc
 exception budget.  This is the one rigorous **self-pair packet-coherence**
 anti-spike found.  It propagates that specified packet, not the full Goldbach
@@ -269,12 +271,57 @@ coefficient; it does not preserve the exact additive-size phase beyond (15),
 and it does not prevent cancellation among different `q` and character
 packets.
 
-## 4. The missing correlation, stated as an inequality
+## 4. The missing transport and correlation, stated as inequalities
 
-Let `a_P(N)` be a common-dyadic power-minor coefficient family, with the
-ambient polynomial and arc set frozen as in `pointwise-amplifier.md`.  If
-`a_P(N_0)<=-cX`, a sufficient arithmetic anti-spike theorem would produce a
-modulus `q` and a set
+The negative spike obtained from `(ZM)` first lives on the target-adapted
+carrier of section 1.  Put `R=X^vartheta` and `P_N=N^vartheta`, and for even
+`N in [X/2,X]` write
+
+\[
+ m_N^{\rm diag}(P_N)
+ :=\int_{\mathfrak m_N(P_N)}S_N(\alpha)^2e(-N\alpha)\,d\alpha,
+ \qquad
+ \widetilde a_{X,R}(N)
+ :=\int_{\mathfrak m_X(R)}S_X(\alpha)^2e(-N\alpha)\,d\alpha .
+\]
+
+The second family freezes both the polynomial and the arc set at `X`, as in
+`pointwise-amplifier.md`.  The one-sided transport needed to preserve a
+negative target spike is
+
+\[
+ \boxed{
+ \sup_{\substack{X/2\le N\le X\\2\mid N}}
+ \frac{\bigl(\widetilde a_{X,R}(N)-m_N^{\rm diag}(P_N)\bigr)_+}{X}
+ \longrightarrow0 .}
+ \tag{TR}
+\]
+
+This is weaker than absolute `o(X)` transport and is exactly the required
+direction.  Equality of the full `N`th coefficients of `S_N^2` and `S_X^2`
+does not prove `(TR)`, because the target-adapted and frozen major/minor
+decompositions differ.
+
+The scale margin is explicit.  Let
+`s_0=inf_(2|N) mathfrak S(N)=2C_2>0`.  Under `(ZM)`, choose
+`tau<=kappa s_0/4` in (4), then take `X` large enough that the remaining
+`O(N^(1-epsilon))` term is at most `kappa s_0 N/4`, uniformly on the dyadic
+interval.  The target-adapted power major coefficient is then at least
+`kappa s_0 N/2`.  At a Goldbach exception the proper-prime-power contribution
+is `o(N)`, hence at most `kappa s_0 N/4` for large `N`, and therefore
+
+\[
+ m_N^{\rm diag}(P_N)\le-\frac{\kappa s_0}{4}N
+ \le-\frac{\kappa s_0}{8}X. \tag{18}
+\]
+
+For large `X`, `(TR)` makes its positive transport error at most
+`kappa s_0 X/16`, so
+`tilde a_(X,R)(N)<=-kappa s_0 X/16`.  Thus the following correlation
+hypothesis applies with `c=kappa s_0/16`.
+
+If `tilde a_(X,R)(N_0)<=-cX`, a sufficient full-residual anti-spike hypothesis
+would produce a modulus `q` and a set
 
 \[
  \mathcal H_q\subset\{h:N_0+h\asymp X,\ h\equiv0\pmod q,\ 2\mid h\}
@@ -284,16 +331,18 @@ with `|mathcal H_q| >> X^(3/5+delta)` and
 
 \[
  \boxed{
- \sum_{h\in\mathcal H_q}|a_P(N_0+h)-a_P(N_0)|^2
+ \sum_{h\in\mathcal H_q}|\widetilde a_{X,R}(N_0+h)
+                         -\widetilde a_{X,R}(N_0)|^2
  \le \frac{c^2X^2}{8}|\mathcal H_q|.}
  \tag{AC}
 \]
 
 By Markov, at least half of these shifts satisfy
-`a_P(N_0+h)<=-cX/2`.  This would contradict the existing global squared norm
+`tilde a_(X,R)(N_0+h)<=-cX/2`.  This would contradict the existing global squared norm
 `ll X^(13/5)(log X)^5` after allowing a corresponding logarithmic margin.
-Thus `(AC)`, together with `(ZM)`, is an exact sufficient bridge from one
-Goldbach exception to the current power mean-square theorem.
+Thus `(ZM)+(TR)+(AC)`, with the displayed constant choices, is an exact
+sufficient bridge from one Goldbach exception to the current power
+mean-square theorem.
 
 What current dispersion supplies has the wrong direction and quantifiers:
 upper averages of progression errors over moduli/residues or upper weighted
@@ -305,7 +354,8 @@ therefore separates as follows:
 1. for the full Goldbach implication, prescribed-center positivity `(ZM)`;
    merely identifying a dominant coherent packet describes a failure of
    `(ZM)` but does not remove it; and
-2. the conditional moving-center covariance `(AC)` for the residual if the
+2. one-sided target-to-common-carrier transport `(TR)`; and
+3. the conditional moving-center covariance `(AC)` for the residual if the
    zero mode is not responsible.
 
 Genheng Zhao, [*The exceptional set of Goldbach's problem and Linnik's

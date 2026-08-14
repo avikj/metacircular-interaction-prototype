@@ -9,7 +9,7 @@ module NaturalMachine.FiniteGraphHolonomyGroupoid where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.GroupoidLaws using
-  (assoc ; lUnit ; rUnit ; rCancel ; lCancel)
+  (assoc ; lUnit ; rUnit ; rCancel ; lCancel ; cong-∙)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
@@ -89,7 +89,8 @@ pullConnection : (G : Group ℓg) {V W : Type ℓv}
   → (f : V → W) → Connection G W → Connection G V
 hol (pullConnection G f A) p = hol A (cong f p)
 hol-id (pullConnection G f A) x = hol-id A (f x)
-hol-comp (pullConnection G f A) p q = hol-comp A (cong f p) (cong f q)
+hol-comp (pullConnection G f A) p q =
+  cong (hol A) (cong-∙ f p q) ∙ hol-comp A (cong f p) (cong f q)
 hol-reverse (pullConnection G f A) p = hol-reverse A (cong f p)
 
 -- Cylindrical refinement on the fork/loop graph is therefore executable:
@@ -99,9 +100,18 @@ refinement-holonomy : (G : Group ℓg) (A : Connection G BranchLoop)
   → hol (pullConnection G contractGraph A) p ≡ hol A (cong contractGraph p)
 refinement-holonomy G A p = refl
 
+contract-stem₀ : cong contractGraph stem₀ ≡ refl
+contract-stem₀ = refl
+
+contract-stem₁ : cong contractGraph stem₁ ≡ stem
+contract-stem₁ = refl
+
 stem-refinement : (G : Group ℓg) (A : Connection G BranchLoop)
   → hol (pullConnection G contractGraph A) (stem₀ ∙ stem₁) ≡ hol A stem
-stem-refinement G A = refl
+stem-refinement G A = cong (hol A)
+  (cong-∙ contractGraph stem₀ stem₁
+    ∙ cong₂ _∙_ contract-stem₀ contract-stem₁
+    ∙ lUnit stem)
 
 loop-refinement : (G : Group ℓg) (A : Connection G BranchLoop)
   → hol (pullConnection G contractGraph A) loop′ ≡ hol A loop

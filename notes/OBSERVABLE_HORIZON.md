@@ -462,10 +462,15 @@ identity advance with constant false response gives equality, while identity
 response gives a strict split.
 
 The representative hypothesis is load-bearing.  Raw prefixes may present the
-same left quotient, so prefix cardinality is not residual ambiguity.  The
-specialization `ResidualCell.safeAction_squarePotential_split` requires an
-injective residual map on the chosen representatives before transporting the
-recursive safety certificate to the finite balance law.
+same left quotient, so prefix cardinality is not residual ambiguity.
+`Pairfield.AdaptiveResidualPotentialAdapter` consumes Mathlib's exact
+`Language.leftQuotient_append` law and proves that, on a reduced finite prefix
+cell, formation's fibrewise `SafeAdvance` is equivalent to
+`ResidualCell.SafeAction`.  Its theorem
+`ResidualPotentialAdapter.residualSquarePotential_split` then transports the
+recursive safety certificate to the finite balance law.  A one-state DFA with
+the two distinct presenters `[]` and `[()]` is the checked negative control:
+residual safety holds, but distinct representation fails.
 
 ## Replay
 
@@ -481,6 +486,7 @@ lake build Pairfield.AdaptiveUniformBound
 lake build Pairfield.LinearAdaptiveGap
 lake build Pairfield.AdaptiveResidualPartition
 lake build Pairfield.AdaptiveSplitPotential
+lake build Pairfield.AdaptiveResidualPotentialAdapter
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2

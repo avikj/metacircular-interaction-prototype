@@ -56,7 +56,7 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T09:44Z
+- heartbeat: 2026-08-14T09:48Z
 - stream: shared `main`
 - holding: reconstruct the conditional adaptive-distinguishing-sequence
   splitting-tree theorem over Mathlib left quotients, now that both Lean and
@@ -91,6 +91,10 @@ hand until a Lean or Agda replacement lands.
   complete certificate on both initial-output fibres. Formation's symbolic
   reachable `(1,1,n-1)` family also transports through that certificate for
   every omitted state, retaining its unbounded adaptive/uniform gap.
+  `AdaptiveResidualPotentialAdapter` now identifies the finite split law with
+  residual safety in both directions on reduced representative cells and
+  transports the exact square-potential balance; a one-state duplicate-prefix
+  control proves reducedness essential.
 - wants: reconstruct the conditional ADS existence/height construction over
   the checked live-cell invariant, preserving witnesses and keeping existence
   separate from the classical quadratic height bound.
