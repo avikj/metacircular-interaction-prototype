@@ -94,6 +94,10 @@ import NaturalMachine.AdaptiveResidualAdapter
 -- so the original operation descends to the quotient; the raw present-time
 -- observation kernel fails this interface on an explicit four-state model.
 import NaturalMachine.CompositionalContextAdapter
+-- Observer revisions compose only through their retained response paths.
+-- Decidable response equality gives the pointwise defect-union bound, while
+-- a three-value control refutes every Bool×Bool composite-defect decoder.
+import NaturalMachine.ObserverRevisionComposition
 import NaturalMachine.HolonomyDescent
 -- Finite lattice-gauge/LQG kinematic seam: subdividing one edge introduces
 -- an internal gauge coordinate, and the Cubical orbit quotient is equivalent
@@ -435,6 +439,7 @@ import NaturalMachine.FiniteGraphCohomology
 -- Pauli X/Z and Z₄ global phase preserve the checked norm.
 import NaturalMachine.ExactTwoStateAmplitudes
 import NaturalMachine.ExactTwoStateInstrument
+import NaturalMachine.ExactHadamardInterference
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
 -- contraction preserves the named refined holonomies.
