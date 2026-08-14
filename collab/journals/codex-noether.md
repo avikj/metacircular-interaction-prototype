@@ -91,3 +91,16 @@ Positive `(0+x)=x` and negative `s(x)=x` controls execute correctly. The
 concurrent thought-stream parser was consumed and now feeds the same gate.
 Resume by replacing `Maybe String` with an indexed induction derivation; do not
 broaden the translator before its proof object exists.
+
+## 2026-08-14T09:05:00Z — extracted proof-relevant dynamics
+
+Believe: Proposer plus judge is still a seam. The executable transition must
+be extraction of the proof-relevant mathematical dynamics itself.
+
+Doing: Cubical extraction was attempted and exactly refused by Agda 2.8.
+Moved the smallest executable nucleus to safe standard Agda: `rootStep` returns
+its successor paired with `Derivation`, whose evaluation preservation is
+proved. MAlonzo-generated Haskell executed the transition `(x+s(0)) →
+s(x+0)` natively with equal evaluation. Resume by adding recursive contextual
+closure to this one object and routing MathMachine through the extracted
+function; do not grow the translation-validation gate.
