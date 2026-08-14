@@ -95,10 +95,14 @@ Each of these is a second chart already written, sitting next to a first chart
 already written, with nothing in between. None of them should be deleted. Every
 one is a statable, checkable equivalence that nobody has stated:
 
-- `Tm` and `List Shape`, constructor for constructor — so roughly 1400 lines of
-  the generative lane are waiting to be identified with the free monoid's
-  universal property, which would hand that lane every theorem the free monoid
-  has.
+- ~~`Tm` and `List Shape`, constructor for constructor.~~ **Built**,
+  `NaturalMachine/TermFreeMonoid.agda`. `Tm` is the free monoid on `Shape`;
+  `plug` is append. The lane gains associativity, which it had never stated,
+  and the two additivity lemmas it had proved separately by induction in two
+  modules — `plug-size` and `plug-deficit` — turn out to be one instance of the
+  universal property. Every measure defined by that recursion into a monoid is
+  additive automatically; there is no third proof to write. That is what a
+  transition pays.
 - `ATLAS_OF_N` §3 and Chapter 4 of the *Symmetry* book, already on disk, where
   our sharpest residual `Sₙ ≅ π₁(BSₙ)` is an exercise. Two presentations of
   concrete groups, no transition.
