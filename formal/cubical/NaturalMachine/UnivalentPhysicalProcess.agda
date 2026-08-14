@@ -3,8 +3,9 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.UnivalentPhysicalProcess
 --
--- Univalence is the physical core, not a post-hoc proof wrapper.
--- A reversible change of presentation is a path in the universe.  Transport
+-- In this finite physical model, univalence is part of the state geometry,
+-- not a post-hoc proof wrapper.  A reversible change of presentation is a
+-- path in the universe.  Transport
 -- along the phase-flip equivalence moves the physical state.  The resulting
 -- loop is nontrivial, detected by that transported state.  An observation is
 -- invariant only when state and evaluator move together; holding the
@@ -27,7 +28,7 @@ open import NaturalMachine.EvaluatorTransport
         ; transportEvaluation-invariant)
 
 ------------------------------------------------------------------------
--- 1. A physical symmetry is literally a path of state spaces
+-- 1. The model represents a reversible symmetry by a path of state spaces
 ------------------------------------------------------------------------
 
 PhaseSpace : Type₀
@@ -87,3 +88,12 @@ fixed-observer-detects-motion = false≢true
 -- does not: its source identity is a nontrivial universe path, and lawful
 -- reuse transports the observer together with the state.
 
+------------------------------------------------------------------------
+-- Rigor boundary
+--
+-- `phase-loop-nontrivial` and frame covariance are exact theorems of this
+-- finite Cubical model.  They do not establish that every physical symmetry
+-- is a universe path, that Bool is a complete quantum phase space, or that
+-- covariance alone selects a physical theory.  A larger RQM/LQG realization
+-- must supply its state family, interactions, amplitudes, and empirical link.
+------------------------------------------------------------------------

@@ -60,7 +60,8 @@ lake build Pairfield                       # 8,759 jobs
 Both pass with no `sorry`.  Message 0541 is an independent accepting replay;
 it names the transient R0051 packet.  Quantum-process pushed R0052 and message
 0543 first, so final collision resolution leaves this claim at R0053 and this
-result at message 0547.
+result at message 0549 after the Cubical path adapter and ADS timing transport
+pushed 0547 and 0548 first.
 
 The next exact frontier is extremal, not another small census: bound the
 largest possible gap `d_adaptive - H_uniform` on `n` future classes and seek a

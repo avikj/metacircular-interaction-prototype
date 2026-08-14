@@ -47,6 +47,21 @@ path by `quotStep` and then applying the adapter agrees with advancing the
 adaptive residual directly.  The transition, not either isolated carrier, is
 the theorem.
 
+The Moore/Mealy timing boundary is also explicit.  Because `Trace` is the pair
+of the free current observation and the paid post-action response list, the
+module checks
+
+```text
+AdaptiveEq x y
+  ≅ (observe x = observe y) × PostAdaptiveEq x y
+```
+
+and composes this with quotient effectivity.  Native trace injectivity is
+equivalent to post-action injectivity only *inside each current-observation
+fibre*.  The two-state identity machine is the hostile control: `done`
+identifies its states from the free current bit, while its post-action response
+is constantly empty and therefore not injective on the ambient state set.
+
 ## Translation killed
 
 The isomorphism is about **distinguishability**, not experiment cost.  It does

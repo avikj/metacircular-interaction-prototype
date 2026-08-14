@@ -11,7 +11,7 @@
 -- the interaction port:
 --
 --   population port  : both states compile to Unit;
---   coherent port    : the phase bit must be retained.
+--   coherent port    : any exact compiler must retain a separating state.
 --
 -- Evolution and compilation commute.  Changing the admitted interaction
 -- from population-only to coherent observation reopens the old quotient;
@@ -134,6 +134,20 @@ population-one-state = refl
 coherent-two-states : ¬ (compile coherent true ≡ compile coherent false)
 coherent-two-states = true≢false
 
+-- This is the missing minimality direction.  It does not assume that the
+-- intermediate compiler state is Bool: every exact factorization of the
+-- coherent response through an arbitrary type C must keep the two phases
+-- distinct.  Our Bool compiler attains that lower bound with its two points.
+coherent-compiler-must-separate :
+  {ℓ : Level} {C : Type ℓ}
+  (encode : Phase → C)
+  (decode : C → Bool)
+  → ((s : Phase) → decode (encode s) ≡ observe coherent s)
+  → ¬ (encode true ≡ encode false)
+coherent-compiler-must-separate encode decode correct collision =
+  true≢false
+    (sym (correct true) ∙ cong decode collision ∙ correct false)
+
 ------------------------------------------------------------------------
 -- 4. Learning is quotient reopening caused by a new interaction
 ------------------------------------------------------------------------
@@ -147,8 +161,9 @@ interaction-reopens-phase : Reopening
 interaction-reopens-phase .Reopening.oldCollision = population-one-state
 interaction-reopens-phase .Reopening.newSeparator = coherent-two-states
 
--- A classical CPU can therefore execute the exact effective dynamics with
--- one state when only population is relevant, and with exactly the retained
--- phase bit when coherent interaction is admitted.  No measurement rule,
+-- A classical CPU can therefore execute these exact effective dynamics with
+-- one state when only population is relevant.  For the coherent port, every
+-- exact compiler must retain a separating pair, and Bool attains that bound.
+-- No measurement rule,
 -- probability calculus, continuum Hilbert space, or claim about biological
 -- evolution is smuggled into this finite theorem.

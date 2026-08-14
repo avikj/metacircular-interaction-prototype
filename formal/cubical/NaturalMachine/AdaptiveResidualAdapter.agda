@@ -23,12 +23,13 @@ open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.HLevels
   using (isPropΠ ; isSetΣ)
 open import Cubical.Data.Bool
-  using (Bool ; false ; true ; isSetBool)
+  using (Bool ; false ; true ; isSetBool ; false≢true)
 open import Cubical.Data.List
   using (List ; [] ; _∷_ ; isOfHLevelList)
 open import Cubical.Data.Sigma
   using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.HITs.SetQuotients as SQ using ([_])
+open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.FutureBehavior as FB
 
@@ -76,6 +77,10 @@ trace step observe (query action continue) state =
       (continue (observe (step state action)))
       (step state action))
 
+responses : (X → A → X) → (X → Bool)
+  → BoolExperimentTree A → X → List Bool
+responses step observe tree state = snd (trace step observe tree state)
+
 -- Every ordinary word is an adaptive experiment whose two response branches
 -- are definitionally the same.  This is the reverse-direction witness, not a
 -- compactness or search argument.
@@ -100,6 +105,16 @@ AdaptiveEq : (X → A → X) → (X → Bool) → X → X → Type _
 AdaptiveEq {A = A} step observe left right =
   (tree : BoolExperimentTree A)
   → trace step observe tree left ≡ trace step observe tree right
+
+PostAdaptiveEq : (X → A → X) → (X → Bool) → X → X → Type _
+PostAdaptiveEq {A = A} step observe left right =
+  (tree : BoolExperimentTree A)
+  → responses step observe tree left ≡ responses step observe tree right
+
+CurrentAndPostEq : (X → A → X) → (X → Bool) → X → X → Type _
+CurrentAndPostEq step observe left right =
+  (observe left ≡ observe right)
+  × PostAdaptiveEq step observe left right
 
 futureEq→adaptiveEq :
     (step : X → A → X) (observe : X → Bool) {left right : X}
@@ -127,6 +142,20 @@ adaptiveEq→futureEq step observe {left} {right} adaptive word =
   ∙ cong terminal (adaptive (fixedWord word))
   ∙ fixedWord-terminal step observe word right
 
+adaptiveEq→currentAndPost :
+    (step : X → A → X) (observe : X → Bool) {left right : X}
+  → AdaptiveEq step observe left right
+  → CurrentAndPostEq step observe left right
+adaptiveEq→currentAndPost step observe adaptive =
+  cong fst (adaptive done) , λ tree → cong snd (adaptive tree)
+
+currentAndPost→adaptiveEq :
+    (step : X → A → X) (observe : X → Bool) {left right : X}
+  → CurrentAndPostEq step observe left right
+  → AdaptiveEq step observe left right
+currentAndPost→adaptiveEq step observe (current , post) tree i =
+  current i , post tree i
+
 isPropFutureEq :
     (step : X → A → X) (observe : X → Bool) (left right : X)
   → isProp (FB.FutureEq step observe left right)
@@ -138,6 +167,14 @@ isPropAdaptiveEq :
   → isProp (AdaptiveEq step observe left right)
 isPropAdaptiveEq step observe left right =
   isPropΠ λ tree → isSetTrace _ _
+
+isPropCurrentAndPostEq :
+    (step : X → A → X) (observe : X → Bool) (left right : X)
+  → isProp (CurrentAndPostEq step observe left right)
+isPropCurrentAndPostEq step observe left right =
+  isPropΣ (isSetBool _ _)
+    λ _ → isPropΠ λ tree →
+      isOfHLevelList 0 isSetBool _ _
 
 -- Complete uniform behavior and all finite adaptive traces are the same
 -- residual relation.  The proof uses propositionhood only for the inverse
@@ -152,6 +189,85 @@ futureEq-adaptiveIso step observe left right =
     (adaptiveEq→futureEq step observe)
     (λ adaptive → isPropAdaptiveEq step observe left right _ adaptive)
     (λ future → isPropFutureEq step observe left right _ future)
+
+-- The free Moore output is a fibre split, not a paid action.  Native trace
+-- equality is exactly equality of that current bit together with equality of
+-- every post-action response tree.
+adaptive-currentAndPostIso :
+    (step : X → A → X) (observe : X → Bool) (left right : X)
+  → Iso (AdaptiveEq step observe left right)
+      (CurrentAndPostEq step observe left right)
+adaptive-currentAndPostIso step observe left right =
+  iso
+    (adaptiveEq→currentAndPost step observe)
+    (currentAndPost→adaptiveEq step observe)
+    (λ split → isPropCurrentAndPostEq step observe left right _ split)
+    (λ adaptive → isPropAdaptiveEq step observe left right _ adaptive)
+
+------------------------------------------------------------------------
+-- Moore/Mealy identification boundary
+------------------------------------------------------------------------
+
+Injective : (X → Trace) → Type _
+Injective function =
+  {left right : X} → function left ≡ function right → left ≡ right
+
+IdentifiesAll : (X → A → X) → (X → Bool)
+  → BoolExperimentTree A → Type _
+IdentifiesAll step observe tree = Injective (trace step observe tree)
+
+IdentifiesInitialFibers : (X → A → X) → (X → Bool)
+  → BoolExperimentTree A → Type _
+IdentifiesInitialFibers {X = X} step observe tree =
+  {left right : X}
+  → observe left ≡ observe right
+  → responses step observe tree left ≡ responses step observe tree right
+  → left ≡ right
+
+identifiesAll→identifiesInitialFibers :
+    (step : X → A → X) (observe : X → Bool)
+    (tree : BoolExperimentTree A)
+  → IdentifiesAll step observe tree
+  → IdentifiesInitialFibers step observe tree
+identifiesAll→identifiesInitialFibers step observe tree identifies
+    current post =
+  identifies (λ i → current i , post i)
+
+identifiesInitialFibers→identifiesAll :
+    (step : X → A → X) (observe : X → Bool)
+    (tree : BoolExperimentTree A)
+  → IdentifiesInitialFibers step observe tree
+  → IdentifiesAll step observe tree
+identifiesInitialFibers→identifiesAll step observe tree identifies same =
+  identifies (cong fst same) (cong snd same)
+
+identifiesAll-iff-identifiesInitialFibers :
+    (step : X → A → X) (observe : X → Bool)
+    (tree : BoolExperimentTree A)
+  → (IdentifiesAll step observe tree
+      → IdentifiesInitialFibers step observe tree)
+    × (IdentifiesInitialFibers step observe tree
+      → IdentifiesAll step observe tree)
+identifiesAll-iff-identifiesInitialFibers step observe tree =
+  identifiesAll→identifiesInitialFibers step observe tree ,
+  identifiesInitialFibers→identifiesAll step observe tree
+
+-- Hostile timing control.  The free current observation identifies Bool at
+-- depth zero, while the post-action response of `done` is constantly empty.
+freeOutputStep : Bool → Bool → Bool
+freeOutputStep state _ = state
+
+done-identifies-by-free-output :
+  IdentifiesAll freeOutputStep (λ state → state) done
+done-identifies-by-free-output same = cong fst same
+
+done-postResponses-not-injective :
+  ¬ ({left right : Bool}
+      → responses freeOutputStep (λ state → state) done left
+        ≡ responses freeOutputStep (λ state → state) done right
+      → left ≡ right)
+done-postResponses-not-injective injective =
+  false≢true (injective {left = false} {right = true} refl)
 
 -- Equality under all adaptive experiments is stable under a common next
 -- action because it is the existing future congruence, not a new quotient.
@@ -184,6 +300,13 @@ module QuotientAdapter
   quotientPath-adaptiveIso left right =
     compIso (FQ.[]-effectiveIso left right)
       (futureEq-adaptiveIso step observe left right)
+
+  quotientPath-currentAndPostIso : (left right : X)
+    → Iso (Path FQ.Meaning [ left ] [ right ])
+        (CurrentAndPostEq step observe left right)
+  quotientPath-currentAndPostIso left right =
+    compIso (quotientPath-adaptiveIso left right)
+      (adaptive-currentAndPostIso step observe left right)
 
   -- Advancing a quotient path by one common action is the native quotient
   -- action.  The adaptive presentation of that transported path agrees with

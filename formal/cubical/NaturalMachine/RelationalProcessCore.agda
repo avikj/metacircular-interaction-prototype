@@ -73,7 +73,8 @@ section-naturality : {B : Type ℓ} (F : B → Type ℓ')
                    {x y : B} (p : x ≡ y)
                    → subst F p (s x) ≡ s y
 section-naturality F s {x} {y} p =
-  J (λ y p → subst F p (s x) ≡ s y) (substRefl (s x)) p
+  J (λ y p → subst F p (s x) ≡ s y)
+    (substRefl {B = F} (s x)) p
 
 ------------------------------------------------------------------------
 -- 2. A genuine finite-fibre gluing obstruction
