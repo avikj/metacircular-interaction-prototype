@@ -210,3 +210,83 @@ subsetChartDepth p m zs bs k k≤m c =
   chartDepth p (sumL (mask bs zs)) (sumR (mask bs zs)) k m k≤m
              (Cong-sum (p ^ suc m) (mask bs zs) (Cong-mask (p ^ suc m) bs zs c))
 
+
+------------------------------------------------------------------------
+-- §6  The chart depth `m+1` cannot be lowered to `m`.
+--
+-- Take `p = 3`, two inputs, and the full-set context.
+--
+--     a = (1 , 2)      subset sums 1, 2, 3        max depth m = 1
+--     b = (7 , 2)      subset sums 7, 2, 9
+--
+-- `a` and `b` agree coordinatewise modulo `3^m = 3`, yet the full-set sum
+-- has exact depth 1 on the left and depth at least 2 on the right.  So the
+-- chart modulus `p^(suc m)` in `subsetChartDepth` is sharp: `p^m` does not
+-- suffice, and the "+1" is not slack.
+------------------------------------------------------------------------
+
+private
+  zsSharp : List (ℤ × ℤ)
+  zsSharp = (pos 1 , pos 7) ∷ (pos 2 , pos 2) ∷ []
+
+  bsFull : List Bool
+  bsFull = true ∷ true ∷ []
+
+  -- both coordinates agree modulo 3 = 3^m
+  congModP^m : Cong (pos 3 ^ 1) zsSharp
+  congModP^m = ∣'→∣ (pos 3) (negsuc 5) (negsuc 1 , refl)
+             , ∣'→∣ (pos 3) (pos 0) (pos 0 , refl)
+             , tt
+
+  9≤3→⊥ : 9 ≤ 3 → ⊥
+  9≤3→⊥ h = snotz (injSuc (injSuc (injSuc (≤-antisym h (6 , refl)))))
+
+  ¬9∣3 : ¬ (pos 9 ∣ pos 3)
+  ¬9∣3 d = 9≤3→⊥ (m∣n→m≤n snotz (∣→∣ℕ d))
+
+-- the left tuple's full-set sum is 3 (exact depth 1); the right one's is 9
+sharpLeft : sumL (mask bsFull zsSharp) ≡ pos 3
+sharpLeft = refl
+
+sharpRight : sumR (mask bsFull zsSharp) ≡ pos 9
+sharpRight = refl
+
+depthMIsNotEnough :
+    ((pos 3 ^ 1) ∣ sumL (mask bsFull zsSharp))
+  × (¬ ((pos 3 ^ 2) ∣ sumL (mask bsFull zsSharp)))
+  × ((pos 3 ^ 2) ∣ sumR (mask bsFull zsSharp))
+depthMIsNotEnough = ∣'→∣ (pos 3) (pos 3) (pos 1 , refl)
+                  , ¬9∣3
+                  , ∣'→∣ (pos 9) (pos 9) (pos 1 , refl)
+
+------------------------------------------------------------------------
+-- §7  The observational fibre is not the scaling orbit.
+--
+-- `a = (1 , 2)` and `b = (10 , 2)` agree coordinatewise modulo
+-- `3^2 = p^(m+1)`, so by §5 they carry the *same* exact depth on every
+-- subset context at every depth `k ≤ m = 1`; but `b` is not a scalar
+-- multiple of `a`.  This is the negative answer to the hostile question of
+-- `collab/messages/0161-codex-formation-subset-sum-carrier-result.md`.
+------------------------------------------------------------------------
+
+private
+  zsFibre : List (ℤ × ℤ)
+  zsFibre = (pos 1 , pos 10) ∷ (pos 2 , pos 2) ∷ []
+
+congModP^sm : Cong (pos 3 ^ 2) zsFibre
+congModP^sm = ∣'→∣ (pos 9) (negsuc 8) (negsuc 0 , refl)
+            , ∣'→∣ (pos 9) (pos 0) (pos 0 , refl)
+            , tt
+
+fibreTransport :
+    (bs : List Bool) (k : ℕ) → k ≤ 1
+  → (pos 3 ^ k) ∣ sumL (mask bs zsFibre)
+  → ¬ ((pos 3 ^ suc k) ∣ sumL (mask bs zsFibre))
+  → ((pos 3 ^ k) ∣ sumR (mask bs zsFibre))
+  × (¬ ((pos 3 ^ suc k) ∣ sumR (mask bs zsFibre)))
+fibreTransport bs k k≤1 =
+  subsetChartDepth (pos 3) 1 zsFibre bs k k≤1 congModP^sm
+
+notProportional : ¬ (Σ[ c ∈ ℤ ] ((c · pos 1 ≡ pos 10) × (c · pos 2 ≡ pos 2)))
+notProportional (c , h1 , h2) =
+  snotz (injSuc (injSuc (injPos (sym (cong (_· pos 2) (sym (·IdR c) ∙ h1)) ∙ h2))))

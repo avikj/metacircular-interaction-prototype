@@ -387,6 +387,37 @@ noEquivariantTiebreak sel pick symm equi = branch (pick gA gB t1)
     branch (inr q) =
       false≢true (sym (funExt⁻ q t0) ∙ fix ∙ funExt⁻ q t2)
 
+-- Non-vacuity, mechanised for two of the three hypotheses: dropping `symm`,
+-- or dropping `pick`, leaves the remaining hypotheses satisfiable.  (The
+-- third witness -- the textual-order tiebreak, which has `pick` and `symm`
+-- but not `equi` -- is argued in the comment above and is NOT mechanised
+-- here; it needs a decidable total order on `Guard Three`.)
+selFirst : Guard Three → Guard Three → Three → Guard Three
+selFirst g _ _ = g
+
+selFirst-pick : (g h : Guard Three) (y : Three)
+              → (selFirst g h y ≡ g) ⊎ (selFirst g h y ≡ h)
+selFirst-pick g h y = inl refl
+
+selFirst-equi : (g h : Guard Three) (y : Three) (π : Three → Three)
+              → ((z : Three) → π (π z) ≡ z)
+              → selFirst (λ z → g (π z)) (λ z → h (π z)) (π y)
+                ≡ (λ z → selFirst g h y (π z))
+selFirst-equi g h y π inv = refl
+
+selConst : Guard Three → Guard Three → Three → Guard Three
+selConst _ _ _ = λ _ → true
+
+selConst-symm : (g h : Guard Three) (y : Three)
+              → selConst g h y ≡ selConst h g y
+selConst-symm g h y = refl
+
+selConst-equi : (g h : Guard Three) (y : Three) (π : Three → Three)
+              → ((z : Three) → π (π z) ≡ z)
+              → selConst (λ z → g (π z)) (λ z → h (π z)) (π y)
+                ≡ (λ z → selConst g h y (π z))
+selConst-equi g h y π inv = refl
+
 -- (d) the repair, on the very system that fails: state the apavāda for the
 -- overlap.  `gM` cuts out {t1} = gA ∩ gB, and the Elsewhere Condition is
 -- restored -- with no tiebreak, and no appeal to rule order.

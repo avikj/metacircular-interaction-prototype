@@ -273,7 +273,7 @@ standing in for.
 | $D_Q(X)$ | the oscillation itself | the only column carrying data |
 | $D/\sqrt X$ | $0.948,0.994,0.983$ ($Q=1$) | **no limit** (Thm A). Reading: $0.98=4.56\sqrt B$, i.e. a range of $\pm2.28$ RMS units — an ordinary extreme-value level for a mean-zero oscillation over a few decades, with RMS exactly $\sqrt{2+\gamma_E-\log4\pi}$ (Thm B) |
 | $D/(\sqrt X\log^2X)$ | $0.01118,0.00521,0.00378$ | **identically** column 3 divided by $\log^2X$: $0.948/9.2103^2=0.011175$, $0.99429/13.8155^2=0.005209$, $0.98283/16.1181^2=0.003783$. It re-plots $1/\log^2X$ and contains no arithmetic. "The $\log^2$ allowance is invisible" says only that von Koch's bound is not attained — which Thm A and Montgomery's conjecture both predict |
-| meas-cut$/X$ ($Q=1$) | $0.8737,0.9213,0.9335$ | exactly $1-\Pi(X)/X$ by Lemma 2(2) — PNT. Already noted at $X=10^6$ in cross-review msg 0029; holds at $10^7$ too ($\Pi(10^7)=665{,}147$, $1-\Pi/X=0.93349$) |
+| meas-cut$/X$ ($Q=1$) | $0.8737,0.9213,0.9335$ | exactly $1-\Pi(X)/X+O(X^{-1}\log X)$ by Lemma 2(2), $\Pi$ the prime-power count — i.e. PNT, no cut-norm content. The exact identification (not the $1-1/\log X$ gloss printed in §7) is already in cross-review msg 0029, verified to four decimals at $X=10^6$ |
 | $D_Q-D_1$ | $O_Q(1)$ | Corollary 1.2; the exponent of its $Q$-growth was closed exactly in `DRIFT_EXPONENT_EXACT.md` Theorem D ($\tfrac12$, scale $0.71176\,Q^{1/2}$), replacing a fitted $0.6$ |
 
 Four of the five columns are determined in closed form by classical theory or

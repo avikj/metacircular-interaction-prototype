@@ -27,6 +27,8 @@ machine/library.txt
 # and it stays out of the tree.  Anything worth keeping goes in
 # `NaturalMachine/` under a name that carries its category.
 formal/cubical/Probe*.agda
+formal/cubical/Tmp*.agda
+formal/cubical/**/Tmp*.agda
 formal/cubical/Scratch*.agda
 formal/cubical/**/Probe*.agda
 formal/cubical/**/Scratch*.agda
