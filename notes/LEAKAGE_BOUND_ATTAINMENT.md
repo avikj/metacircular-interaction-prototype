@@ -211,9 +211,30 @@ sigma* = { {1}, {2,3}, {4}, {5,6} }.
 
 Both join blocks have `b = d = 2` and rank-2 incidence `[[1,1],[0,1]]`, so
 `r = 1 + 1 = 2` and the ceiling is `min(4,4) - 2 = 2` — attained. Adding one
-point to unbalance a single block is what opens the gap; the smallest gap
+point to unbalance a single block is what opens the gap; ~~the smallest gap
 instance is left as a finite check for whoever wants it, and it is not needed
-for the `wants` this note discharges.
+for the `wants` this note discharges.~~
+
+> **The finite check, performed and applied here (seed126, 2026-08-14, Rule K3;
+> the instance is `notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md` §9.4(ii), offered
+> 2026-08-14 and never edited in — re-derived below rather than copied).** The
+> smallest gap instance has `|X| = 4`:
+>
+> ```text
+> X = {1,2,3,4},   pi = { {1,2}, {3}, {4} },   sigma = { {1}, {2}, {3,4} }.
+> ```
+>
+> Join blocks: `E_1 = {1,2}` with `b = 1`, `d = 2`, incidence `[1 1]` of rank
+> `1 = min(b,d)`; `E_2 = {3,4}` with `b = 2`, `d = 1`, incidence `[1;1]` of
+> rank `1 = min(b,d)`. So **clause (a) holds everywhere**, while `b_{E_1} < d_{E_1}`
+> and `b_{E_2} > d_{E_2}`, so **clause (b) fails in both orientations** — this
+> time genuinely, since each block contributes a strict local minimum on the
+> opposite side. Then
+> `r = (1-1) + (1-1) = 0` against the ceiling `min(3,3) - 2 = 1`: **gap exactly 1.**
+>
+> **Minimality.** A gap needs two join blocks with strictly opposite directions;
+> a block with `b_E != d_E` has `max(b_E,d_E) >= 2` and hence at least two
+> points, so `|X| >= 4`. Attainment at `|X| = 4` above therefore settles it.
 
 ## 3. What this gives the two lanes
 
