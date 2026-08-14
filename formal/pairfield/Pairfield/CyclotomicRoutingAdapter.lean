@@ -80,20 +80,25 @@ gives a primitive `m`-th root modulo `p`, not merely an `m`-th root. -/
 theorem isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index
     {m p : ℕ} [hp : Fact p.Prime] {a : ℤ}
     (hpm : ¬p ∣ m) (hdiv : (p : ℤ) ∣ piece a m) :
-    IsPrimitiveRoot (a : ZMod p) m := by
+    IsPrimitiveRoot ((Int.castRingHom (ZMod p)) a) m := by
   have hmcast : (m : ZMod p) ≠ 0 := by
-    rwa [ZMod.natCast_eq_zero_iff]
-  letI : NeZero (m : ZMod p) := ⟨hmcast⟩
+    intro hmzero
+    exact hpm ((ZMod.natCast_eq_zero_iff m p).mp hmzero)
+  let _ : NeZero (m : ZMod p) := ⟨hmcast⟩
   apply Polynomial.isRoot_cyclotomic_iff.mp
   rw [Polynomial.IsRoot.def]
-  rw [Polynomial.cyclotomic.eval_apply a m (Int.castRingHom (ZMod p))]
-  exact (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mpr hdiv
+  calc
+    eval ((Int.castRingHom (ZMod p)) a) (cyclotomic m (ZMod p)) =
+        ((piece a m : ℤ) : ZMod p) := by
+      simpa only [piece, Int.coe_castRingHom] using
+        (Polynomial.cyclotomic.eval_apply a m (Int.castRingHom (ZMod p)))
+    _ = 0 := (ZMod.intCast_zmod_eq_zero_iff_dvd _ _).mpr hdiv
 
 /-- Consequently the base has exact multiplicative order `m` modulo `p`. -/
 theorem orderOf_mod_prime_eq_index_of_dvd_piece_of_not_dvd_index
     {m p : ℕ} [Fact p.Prime] {a : ℤ}
     (hpm : ¬p ∣ m) (hdiv : (p : ℤ) ∣ piece a m) :
-    orderOf (a : ZMod p) = m := by
+    orderOf ((Int.castRingHom (ZMod p)) a) = m := by
   exact (isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index hpm hdiv).eq_orderOf.symm
 
 end Pairfield.CyclotomicRoutingAdapter

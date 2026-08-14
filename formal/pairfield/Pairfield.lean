@@ -64,6 +64,7 @@ import Pairfield.AdaptiveResidualNodeMinimalDepth
 import Pairfield.AdaptiveResidualNonhomogeneousSpine
 import Pairfield.AdaptiveResidualGlobalPartition
 import Pairfield.AdaptiveResidualAnnotatedSplit
+import Pairfield.AdaptiveResidualAnnotatedPartitionAdapter
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2

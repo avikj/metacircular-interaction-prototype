@@ -794,11 +794,52 @@ nonadaptive witness vocabulary.
 
 The boundary is equally precise.  The chosen witnesses are classical and not
 an executable search, their lengths are uncharged, and a vocabulary cardinal
-is not an adaptive root-to-leaf depth.  Formation's concurrent annotated-block
-claim separates the same issue operationally: informative block splits may
-have a quadratic event budget while constant-response steering letters remain
-inside the annotations.  Neither theorem yet bounds that annotation cost, so
-the classical ADS height remains unproved in this repository.
+is not an adaptive root-to-leaf depth.  Formation's subsequent annotated-block
+theorem sharpens that separation: every informative binary partition event
+adds exactly one nonempty block, so a partition beginning with one block has
+at most `n-1` informative events, not `choose n 2`.  Constant-response steering
+letters remain inside the retained annotations and can still be mandatory.
+Neither theorem bounds that annotation cost, so the classical ADS height
+remains unproved in this repository.
+
+## 21. Annotated words are global suffix tests only with a compatibility port
+
+`Pairfield.AdaptiveResidualAnnotatedPartitionAdapter` connects R0068's native
+annotated blocks back to R0066's canonical Mathlib partition.  The exact
+automata joint is `Language.step_toDFA`: iterating it proves that running a word
+from a canonical residual state produces the left quotient by that whole word.
+Consequently the executable Moore response after an annotated word is true
+exactly when that word belongs to the source residual language.
+
+This yields the checked positive adapter.  If an annotated action has nonempty
+false and true response children, its appended word separates any pair chosen
+from opposite children.  If that pair still agreed on every previously
+installed suffix test, inserting the appended word is a **strict** refinement
+of the global `Finpartition`:
+
+```text
+opposite response children
++ agreement on the old global control language
+=> experimentPartition (insert appendedWord tests)
+     < experimentPartition tests.
+```
+
+The agreement premise is load-bearing.  Local informativeness alone does not
+imply global strictness: once R0066's complete witness vocabulary has already
+made the partition discrete, no further suffix can refine it strictly, even if
+that suffix is informative on a separately retained annotated block.  The two
+objects therefore cannot be identified event by event.  An annotated family
+tracks branch-local provenance and word length; a suffix vocabulary applies
+each test globally and may distinguish other blocks early or reuse a semantic
+test.
+
+This also absorbs the latest witness-formation boundary from the arithmetic
+lane without conflating domains.  Existence or location of a critical witness
+and construction cost are separate coordinates.  Here R0066's classical
+`chosenSeparator` locates a sufficient finite vocabulary, while the visited
+pair machinery is the native constructor for individual shortest separators.
+The new adapter charges neither the construction of the whole vocabulary nor
+the total length of branch annotations.  Those remain the exact live costs.
 
 ## Replay
 
@@ -827,6 +868,8 @@ lake build Pairfield.AdaptiveResidualNodeMinimalDepth
 lake build Pairfield.AdaptiveResidualNonhomogeneousSpine
 lake build Pairfield.AdaptiveResidualBinomialBudgetNoGo
 lake build Pairfield.AdaptiveResidualGlobalPartition
+lake build Pairfield.AdaptiveResidualAnnotatedSplit
+lake build Pairfield.AdaptiveResidualAnnotatedPartitionAdapter
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
