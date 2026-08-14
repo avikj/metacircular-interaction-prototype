@@ -494,13 +494,57 @@ datum, and the bound "one" is part of the statement.
 
 ## 6. What is left open
 
-`SEED41-OPEN-1` (**PROVE**). Theorem W pins the weighted one-sided repair at
+~~`SEED41-OPEN-1` (**PROVE**). Theorem W pins the weighted one-sided repair at
 LPO. Locate the *two-sided* weighted problem (SEED-02's $S(\pi,\sigma)$). Its
 Theorem A is an equivalence and so may sit at LLPO or lower; the conjecture is
 that "$S$ has a maximum, or it does not" is **LLPO**, not LPO, because the
 two-sided obstruction is an order comparison between $F(\sigma)$ and $\pi$ rather
 than an equality test. If so, SEED-02's non-uniqueness is strictly cheaper than
-SEED-23's uniqueness — a genuine logical inversion of their apparent difficulty.
+SEED-23's uniqueness — a genuine logical inversion of their apparent difficulty.~~
+
+**Closed (SEED-102, 2026-08-14, Rule K2): the conjecture is false, and the
+correct answer is WLPO.** The stated reason was wrong too — the obstruction is
+not an order comparison; by SEED-02 Theorem A the disjunction is equivalent to
+deciding the *equality* $\pi\perp_\mu\sigma$, and a decided equality with no
+witness demanded is WLPO, which is strictly stronger than LLPO and strictly
+weaker than LPO. Written out:
+
+> **Lemma V (BISH; SEED-02 Theorem A with $F,G$ removed).** For $X$ finite
+> discrete and any measure, $S(\pi,\sigma)$ has a maximum $\iff\pi\perp_\mu\sigma$.
+>
+> *Proof.* $(\Leftarrow)$ is SEED-02's. $(\Rightarrow)$: the discrete partition
+> $\hat0$ satisfies $\hat0\perp_\mu\tau$ for every $\tau$ (Tjur's criterion at
+> $\rho=\hat0$ reads $\mu(B)\mu(C)=\mu(B)\mu(C)$, since $\hat0\vee\sigma=\sigma$
+> forces $E=C$), so $(\pi,\hat0)$ and $(\hat0,\sigma)$ both lie in $S$. A
+> maximum $(\hat\rho,\hat\tau)$ dominates the first, giving $\hat\rho\ge\pi$,
+> and $\hat\rho\le\pi$ by membership, so $\hat\rho=\pi$; symmetrically
+> $\hat\tau=\sigma$; membership then forces $\pi\perp_\mu\sigma$. $\square$
+>
+> This matters constructively: SEED-02's own proof of the $(\Rightarrow)$ half
+> routes through $F(\sigma)$ and $G(\pi)$, whose existence under real weights
+> *is* $(\mathrm{CR}_\mu)=\mathrm{LPO}$. Lemma V proves the same equivalence
+> using only $\hat0$, and so is available in BISH for real weights.
+>
+> **Theorem V (SEED-102).** Over BISH, with $X$ finite discrete ranging over
+> all finite sets and $\mu$ over real probability measures,
+> $$(\mathrm{TS})\quad\text{for all }\pi,\sigma:\ \text{$S(\pi,\sigma)$ has a maximum, or it does not}$$
+> is equivalent to $\mathrm{WLPO}$ ($\forall x\in\mathbb R:\ x=0\vee\neg(x=0)$).
+>
+> *Proof.* $(\Leftarrow)$ Tjur's criterion is a finite conjunction of real
+> equalities; WLPO decides each as $=0$ or $\neg(=0)$, hence decides
+> $\pi\perp_\mu\sigma\vee\neg(\pi\perp_\mu\sigma)$, and Lemma V transports the
+> decision to the existence of a maximum. $(\Rightarrow)$ Take the four-point
+> instance of Theorem W's proof: there $\pi\perp_\mu\sigma\iff t=0$, so by
+> Lemma V $(\mathrm{TS})$ yields $t=0\vee\neg(t=0)$ for the arbitrary
+> $\alpha\in2^{\mathbb N}$ encoded by $t$. That is WLPO. $\square$
+
+**What survives of the conjecture.** Its *conclusion* — the two-sided problem is
+strictly cheaper than the one-sided one — is correct, since
+$\mathrm{WLPO}\Rightarrow\mathrm{LPO}$ fails; its *level* (LLPO) and its
+*reason* (an order comparison) are both wrong. The inversion is real but one rung
+higher than conjectured, and note the shape: the two-sided problem is cheaper
+only in its **decision** form. Its witness-exhibiting form (SEED-02 Cor A.2, as
+named there) is back at LPO — see the correction in §4.3.
 
 `SEED41-OPEN-2` (**PROVE**). SEED-09 under real-valued observations $o:Q\to\mathbb R$.
 Lemma 3.1 survives (it only uses discreteness of $Q$), but $S$ and $D$ become

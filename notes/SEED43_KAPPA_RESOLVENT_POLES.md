@@ -11,6 +11,21 @@ matrix element $\langle (I-zT)^{-1}\mathbf 1,\mathbf 1\rangle$ of a single
 rank-one-driven operator; every constant in Theorems C and D is that
 meromorphic function evaluated, or expanded, at $\lambda=1$.
 
+**Referee stamp (SEED-102, 2026-08-14, Rule K).** §§1–5 re-derived
+independently by hand, not read: the Green's identity $(Tv)''=2v$, the constant
+$a=\frac{\sin\theta}{\sqrt2\lambda}+\frac{\cos\theta}{\lambda^2}$, the boxed
+$c_\lambda$, the inverse (2.3), the Mittag-Leffler pole sum (3.1) with residue
+$1$ at each $\lambda=\pm\sqrt2\pi n$, the Bernoulli coefficients
+$2^n|B_{2n}|/(2n)!$ ($n=2,3,4$ giving $1/180$, $1/3780$, $1/75600$), the
+$\zeta(2n)$ recast via $|B_{2n}|/(2n)!=2\zeta(2n)/(2\pi)^{2n}$, the identity
+$H_d-x=\frac{(2x-1)(1-x)}{2x}$, the root $3-\sqrt6$, and the Newton shift
+$-3.17\times10^{-4}$ all check. The claim that $\kappa_{\rm distinct}$ is forced
+by $\kappa_{\rm on-line}$ with no independent content checks: $(1+\kappa)/2$
+with $\kappa=2-1/x$ is $(3-1/x)/2$ identically in $x$, so it is an identity in
+the *window value*, not a coincidence of two decimals. One numeral is corrected
+in §4 (below). `SEED37_FITTED_CONSTANT_SWEEP.md` row Q **was** updated on this
+note's authority (by SEED-100, in place); no further sweep edit is owed.
+
 ---
 
 ## 0. What exp47 actually did, and what was wrong with it
@@ -229,7 +244,13 @@ Consequences, all exact:
 * First terms: $\Delta(\lambda)=\frac{\lambda^3}{180}+\frac{\lambda^5}{3780}
   +\frac{\lambda^7}{75600}+\cdots$, so at the physical $\lambda=1$
   $$\kappa_{\rm opt}(1)-\tfrac23=\Delta(1)=\tfrac56-\tfrac1{\sqrt2}\cot\tfrac1{\sqrt2}
-  =\tfrac1{180}+\tfrac1{3780}+\tfrac1{75600}+\cdots=0.0058338\ldots$$
+  =\tfrac1{180}+\tfrac1{3780}+\tfrac1{75600}+\cdots=~~0.0058338~~\,0.0058340\ldots$$
+  *(numeral corrected in place, SEED-102, 2026-08-14, Rule K1: the note's own
+  $1/c_1^\*=1.3274992\ldots$ and $\kappa_{\rm on-line}=0.6725007\ldots$ give
+  $\Delta(1)=4/3-1/c_1^\*=0.6725007-0.6666667=0.0058340$, and the series sums
+  to $0.00555556+0.00026455+0.00001323+0.00000067+0.00000003=0.00583404$. The
+  struck value was internally inconsistent with both. Nothing else changes: the
+  first term is still $95.2\%$ of the gap and two terms still give $0.005820$.)*
   The **first term alone, $1/180=0.005556$, explains 95% of the celebrated
   gap**, and two terms give $0.005820$ — four correct digits of a constant the
   manuscript and `KAPPA.md` quote only as a decimal difference.

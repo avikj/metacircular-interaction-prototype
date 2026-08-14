@@ -248,8 +248,32 @@ discriminant. \(\square\)
 **Theorem 3.2 (fixed-locus square law).** For \(P\in\mathcal R_{2m}\)
 reciprocal,
 \[
- \boxed{\ \operatorname{disc}P=P(1)P(-1)\,\mathcal C^\circ(P)^2.\ }
+ ~~\boxed{\ \operatorname{disc}P=P(1)P(-1)\,\mathcal C^\circ(P)^2.\ }~~
 \]
+\[
+ \boxed{\ \operatorname{disc}P=\widehat G(2)\,\widehat G(-2)\,\mathcal C^\circ(P)^2
+ =(-1)^m\,P(1)P(-1)\,\mathcal C^\circ(P)^2.\ }
+\]
+
+> **Correction, 2026-08-14 (SEED-103, Rule K K1/K3).** The struck form drops a
+> factor \((-1)^m\). The proof's last step is where it goes: \(P(x)=x^m\widehat
+> G(T)\) gives \(P(1)=\widehat G(2)\) but
+> \(P(-1)=(-1)^m\widehat G(-2)\), so \(\widehat G(-2)=(-1)^mP(-1)\), **not**
+> \(P(-1)\). Two counterexamples at odd \(m\), each exact:
+> \(P=x^2+x+1\) (\(m=1\), \(\widehat G=T+1\)): \(\operatorname{disc}P=-3\),
+> while \(P(1)P(-1)\mathcal C^{\circ2}=3\cdot1\cdot1=3\); the corrected form
+> gives \(\widehat G(2)\widehat G(-2)=3\cdot(-1)=-3\) ✓.
+> \(P=x^6+1\) (\(m=3\), \(\widehat G=T^3-3T\), \(\operatorname{disc}\widehat
+> G=108\)): \(\operatorname{disc}P=(-1)^{15}6^6=-46656\), while the struck form
+> gives \(+2\cdot2\cdot108^2=+46656\); the corrected form gives
+> \(-1\cdot 4\cdot 108^2=-46656\) ✓.
+> The note's own two checks (§3, \(P=x^4+1\) and \(P=x^4+x^3+x+1\)) both have
+> \(m=2\) or vanish, so neither could detect the sign — the error is
+> **invisible on the entire sample the note tested**. Corollary 3.3 (the octic,
+> \(m=4\)) and every downstream use in `SEED73`, `CROSSREVIEW_OCTIC_V2.md` and
+> `SEED34` are at even \(m\) and are **unaffected**; only the general statement
+> was wrong. Theorem 3.1 (\(\mathcal C^\circ=\operatorname{disc}\widehat G\)) is
+> unaffected and was re-derived independently here.
 
 *Proof.* \(\operatorname{disc}P=\prod_{i<j}(\alpha_i-\alpha_j)^2\). Within a
 pair: \((\gamma_k-\gamma_k^{-1})^2=T_k^2-4\). Across pairs \(k<l\):
@@ -257,9 +281,15 @@ pair: \((\gamma_k-\gamma_k^{-1})^2=T_k^2-4\). Across pairs \(k<l\):
 \((\gamma_k-\gamma_l^{-1})(\gamma_k^{-1}-\gamma_l)=2-u\), so the squared
 contribution is \((T_k-T_l)^4\) by the computation above. Thus
 \(\operatorname{disc}P=\prod_k(T_k^2-4)\cdot\operatorname{disc}(\widehat G)^2\).
-Finally \(\prod_k(2-T_k)=\widehat G(2)=P(1)\) and
+Finally \(\prod_k(T_k-2)=(-1)^m\widehat G(2)\) and
+\(\prod_k(T_k+2)=(-1)^m\widehat G(-2)\), so
+\(\prod_k(T_k^2-4)=\widehat G(2)\widehat G(-2)=(-1)^mP(1)P(-1)\). \(\square\)
+~~Finally \(\prod_k(2-T_k)=\widehat G(2)=P(1)\) and
 \(\prod_k(-2-T_k)=\widehat G(-2)=P(-1)\), whose product is
-\(\prod_k(T_k^2-4)\). \(\square\)
+\(\prod_k(T_k^2-4)\).~~ (struck: SEED-103 — the second evaluation is
+\((-1)^mP(-1)\), and \(\prod_k(T_k^2-4)\) is \(\prod(T_k-2)\prod(T_k+2)\), not
+\(\prod(2-T_k)\prod(-2-T_k)\); the two differ by \((-1)^{2m}=1\) only when the
+two sign flips are taken together, which is exactly what was elided.)
 
 Compare with Theorem 1 of the charge note,
 \(\operatorname{Res}(P,P^*)=(-1)^nP(1)P(-1)\mathcal C(P)^2\), at even \(n\):
