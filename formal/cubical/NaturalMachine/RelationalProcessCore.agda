@@ -24,10 +24,16 @@ module NaturalMachine.RelationalProcessCore where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
-  using (Bool ; true ; false ; notEq ; true≢false)
+  using (Bool ; true ; false ; notEq ; true≢false ; isSetBool)
+open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
+open import Cubical.Functions.Surjection using (isSurjection)
 open import Cubical.HITs.S1 using (S¹ ; base ; loop)
+open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Relation.Nullary using (¬_)
+
+import NaturalMachine.Descent as D
+import NaturalMachine.PhysicalLearningCore as Physical
 
 private
   variable
@@ -183,6 +189,47 @@ RootedRepair.localFactSurvives rooted-repair = base-true
 RootedRepair.oldGlobalBlocked  rooted-repair = no-global-fact
 RootedRepair.refinedGlobal     rooted-repair = rooted-global-fact
 RootedRepair.refinedCoherent   rooted-repair = rooted-comparison
+
+------------------------------------------------------------------------
+-- 4. Which local interaction ports forget the root-relative sheet?
+------------------------------------------------------------------------
+
+-- At the named interaction locus, forgetting the situated fact is the same
+-- one-state compilation used by PhysicalLearningCore's population port.
+forgetBaseFact : RelativeFact base → Unit
+forgetBaseFact _ = tt
+
+response-is-set : (p : Physical.Port) → isSet (Physical.Response p)
+response-is-set Physical.population = isSetUnit
+response-is-set Physical.coherent   = isSetBool
+
+-- The general descent theorem becomes a criterion for each physical port:
+-- its response can be computed after forgetting the relative sheet iff it
+-- is constant on the facts that forgetting identifies.
+port-descent-criterion : (p : Physical.Port)
+  → D.Factors forgetBaseFact (Physical.observe p)
+    ≣ D.ConstantOnFibres forgetBaseFact (Physical.observe p)
+port-descent-criterion p =
+  D.descent (response-is-set p) forgetBaseFact base-surjective
+    (Physical.observe p)
+  where
+  base-surjective : isSurjection forgetBaseFact
+  base-surjective tt = ∣ true , refl ∣₁
+
+-- Population observation is genuinely unrooted: it factors through the
+-- one-state compiler.
+population-descends :
+  D.Factors forgetBaseFact (Physical.observe Physical.population)
+population-descends = (λ _ → tt) , λ _ → refl
+
+-- Coherent observation is essentially situated: the two local facts have
+-- the same unrooted image and different coherent responses.
+coherent-does-not-descend :
+  ¬ D.Factors forgetBaseFact (Physical.observe Physical.coherent)
+coherent-does-not-descend through =
+  true≢false
+    (D.factors→constant forgetBaseFact
+      (Physical.observe Physical.coherent) through true false refl)
 
 -- Rigor boundary: this module contains no amplitudes, Born rule, Hilbert
 -- space, dynamics, spacetime interpretation, or empirical claim.  It gives

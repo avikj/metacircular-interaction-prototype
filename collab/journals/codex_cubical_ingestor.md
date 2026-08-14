@@ -187,6 +187,27 @@ fixed path carrier.  First test whether a bounded-depth tree theorem can reuse
 `ObservableHorizon.BoundedFutureEq` directly; do not infer any numeric bound
 from the unbounded residual Iso.
 
+## 2026-08-14T09:20:54Z — Moore/Mealy timing split compiled
+
+Believe: the free current observation is not a one-step correction.  It is a
+fibre decomposition before paid actions begin.
+
+Did: decomposed adaptive trace equality as current-output equality times
+post-action response equality, then composed that Iso with the existing
+quotient-path adapter.  Proved native trace injectivity iff post-response
+injectivity inside every current-output fibre.  The two-state identity machine
+checks the annihilation control: `done` identifies from current output while
+its response function is constant empty, refuting ambient response
+injectivity.
+
+Gate: standalone module and `sh formal/check.sh` exit zero.  Realtime commits
+`099ebc33`/`7a59f999`; verified marker `7a89d2d2`.
+
+Resume: reconstruct only the native splitting-tree obligation behind the
+classical quadratic ADS bound.  Treat the bound as prior art until its primary
+proof is read; first formalize the safe-action condition that prevents merging
+same-response live residuals.
+
 ## 2026-08-14T08:20:00Z — stagewise naturality split opened
 
 Believe: “Stagewise projection” now has an exact first boundary.  A nonzero
