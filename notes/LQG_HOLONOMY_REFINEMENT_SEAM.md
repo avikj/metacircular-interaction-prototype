@@ -123,3 +123,21 @@ faithful next model must supply oriented surfaces, edge/surface intersection
 data, the corresponding left/right invariant action, involution and operator
 domain structure, and then prove that its concrete action inhabits this
 abstract Leibniz interface.
+
+## Iterated refinement and flux coherence
+
+[`IteratedCylindricalConsistency.agda`](../formal/cubical/NaturalMachine/IteratedCylindricalConsistency.agda)
+passes the first nontrivial history test.  Three edge labels carry two internal
+gauge coordinates.  Quotienting them is equivalent to one coarse holonomy;
+univalence makes this a path of state spaces whose transport computes.  The
+direct three-to-one universe path equals the staged three-to-two-to-one path by
+`uaCompEquiv`.  The two binary contraction orders differ by exactly the group
+associator.
+
+[`FluxCylindricalCoherence.agda`](../formal/cubical/NaturalMachine/FluxCylindricalCoherence.agda)
+then applies physics at that coherence test.  Flux evaluation is equal along
+the direct and staged contractions.  Expanding the derivation in the two
+orders produces two differently bracketed three-term expressions, and Agda
+proves them equal using only representation multiplicativity, the declared
+Leibniz witness, and group associativity.  At this abstraction level there is
+therefore no additional flux-coherence defect to postulate.

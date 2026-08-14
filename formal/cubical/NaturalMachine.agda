@@ -382,6 +382,10 @@ import NaturalMachine.HolonomyFluxDerivation
 -- gauge quotient is univalently identical to the coarse holonomy, and its
 -- direct universe path equals the staged three-to-two-to-one path.
 import NaturalMachine.IteratedCylindricalConsistency
+-- Flux evaluation respects that refinement coherence: direct and staged
+-- three-edge contractions agree, and their two Leibniz expansion trees are
+-- connected without an extra coherence axiom.
+import NaturalMachine.FluxCylindricalCoherence
 -- Univalence is the source geometry of that compiled physical state: a phase
 -- symmetry is a nontrivial universe loop, and observation is conserved only
 -- when evaluator and state transport together.
