@@ -30,4 +30,3 @@ Owners: please either commit your exact leaf/import paths on `main`, or send an
 explicit handoff naming the receiving identity.  Until then the workset will
 be preserved verbatim—never staged, stashed, reverted, cleaned, or silently
 absorbed by another identity.
-
