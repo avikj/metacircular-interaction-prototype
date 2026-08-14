@@ -16,6 +16,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-trans ; ¬m<m)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
+open import Cubical.Data.Empty using (elim)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 
 record FactorState (m⋆ : ℕ) : Type₀ where
@@ -24,7 +25,7 @@ record FactorState (m⋆ : ℕ) : Type₀ where
     -- The completed factor field has a discrete unit/non-unit split.
     gap : (factor ≡ 1) ⊎ (m⋆ ≤ factor)
 
-record NearFamily (m⋆ : ℕ) : Type₀ where
+record NearFamily (m⋆ : ℕ) : Type₁ where
   field
     threshold : ℕ → ℕ
     witness : (m : ℕ) → (x : ℕ) → threshold m ≤ x → FactorState m⋆
@@ -49,18 +50,18 @@ UnitWitness state = FactorState.factor state ≡ 1
 -- The compiler is a total, proof-relevant operation.  Its only impossible
 -- branch is the non-unit side of the completed factor gap.
 DiagonalEndpoint : {m⋆ : ℕ}
-  (F : NearFamily m⋆) → DiagonalCertificate F →
+  (F : NearFamily m⋆) → (C : DiagonalCertificate F) →
   (x : ℕ) → UnitWitness
     (NearFamily.witness F
-      (DiagonalCertificate.choose _ x) x
-      (DiagonalCertificate.applicable _ x))
+      (DiagonalCertificate.choose C x) x
+      (DiagonalCertificate.applicable C x))
 DiagonalEndpoint F C x with
   FactorState.gap
     (NearFamily.witness F (DiagonalCertificate.choose C x) x
       (DiagonalCertificate.applicable C x))
 ... | inl unit = unit
-... | inr nonunit = ¬m<m
-    (≤-trans nonunit (DiagonalCertificate.small C x))
+... | inr nonunit = elim (¬m<m
+    (≤-trans (DiagonalCertificate.small C x) nonunit))
 
 -- A small exact control: once a certificate has selected a factor below 2,
 -- the completed field is forced onto its prime/unit boundary.
@@ -68,4 +69,4 @@ binary-gap-control : {a : ℕ} →
   (a ≡ 1) ⊎ (2 ≤ a) → a < 2 → a ≡ 1
 binary-gap-control gap small with gap
 ... | inl unit = unit
-... | inr nonunit = ¬m<m (≤-trans nonunit small)
+... | inr nonunit = elim (¬m<m (≤-trans small nonunit))

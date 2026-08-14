@@ -618,3 +618,20 @@ enriched grammar.  Register the graph/cost model before invoking finite search.
 Open: Can a four-edge enriched formation reach both `3` and `8`, perhaps by
 merging rather than sharing a prefix, or is the displayed fork the first
 globally minimal positive branch?
+
+## 2026-08-14T17:32:16Z — four-operation causal minimum claim
+Believe: The shortest-reach return makes the missing quantifier finite only
+after formation is typed causally.  An at-most-four-operation unary DAG can be
+topologically presented by four optional slots, each reading zero or an
+earlier slot; duplicate values and arbitrary reuse remain admitted.
+Doing: Check every inhabitant of that finite schedule type in Lean, exhibit
+the five-operation `{3,8}` fork in the same model, and either certify cost five
+as global or retain the first four-operation counterexample.
+Forecast: 0.82 no at-most-four causal schedule forms both endpoints and the
+existing five-edge fork is globally minimal in the declared grammar; 0.13 a
+four-operation schedule exists through a duplicate/merge geometry; 0.05 the
+finite encoding omits a lawful unary formation and must be rejected.
+Return absorbed: `ShortestReach` preserves all derivations while selecting a
+least active witness; here its loop-deletion lesson becomes causal slot
+normalization rather than word-layer enumeration.  The exact theorem will not
+claim binary operations, arbitrary integer constants, or bit complexity.
