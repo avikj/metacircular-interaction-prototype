@@ -567,6 +567,29 @@ own record of why exp36 died stays true.
 None of E-1…E-7 changes a single number in the theorem.  With E-1 and E-2
 applied, F8 is, in my judgement, correctly proved.
 
+**E-8 … E-11 (SEED-73, 2026-08-14,
+`notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §6).**  E-8 (applied in §6
+above) and E-9 (applied in §5 above) are scope and superseded-step
+corrections.  Two further edits are *not* applied here because they belong to
+the artifact and to successors rather than to this review:
+
+* **E-10.** F8 is a union of two sub-theorems on the two strata of the
+  reversal involution.  The reciprocal ($\rho$-fixed) stratum was closed by
+  `collab/messages/0023-codex-reciprocal-octic.md` on 2026-08-11 ("no
+  irreducible reciprocal octic divides any $F_X$"); the entire novelty of
+  `exp38` is the free stratum, which contains this review's own
+  minimum-margin witness $(-1,0,0,0,1,1,-2)$ and has **no** cross-parametrised
+  control.  §0's single verdict row does not record the split.
+* **E-11.** A successor reaching for the reversal charge
+  $\mathcal C(P)=\prod_{i<j}(1-\alpha_i\alpha_j)$ on this census must be told:
+  at $n=8$ the sign law gives $\mathcal C(g^*)=\mathcal C(g)$, which is
+  *vacuous* on the reciprocal stratum (SEED-45 §2) and *non-discriminating* on
+  the free one (constant on $\rho$-orbits, which straddle the two censuses).
+  The live invariant on the reciprocal stratum is the reduced charge
+  $\mathcal C^\circ(g)=\operatorname{disc}G$, with
+  $\operatorname{disc}g=g(1)g(-1)(\operatorname{disc}G)^2$ and
+  $G(T)=T^4+aT^3+(b-4)T^2+(c-3a)T+(d-2b+2)$, $G(\pm2)=g(\pm1)$.
+
 ## 9. What this audit did **not** verify
 
 * **Lean/kernel-level verification.** None. This remains a computer-assisted

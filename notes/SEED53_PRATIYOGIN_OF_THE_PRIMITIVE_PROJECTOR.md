@@ -247,6 +247,17 @@ Quotient `2x^6 − 6x^2 − 8`, **remainder exactly zero**. Hence
 > At `q = 12`: `Res(Φ_12, R_12) = 12^4 = 20736 ≠ 0`. The rescaled projector
 > `R_q/q` has resultant `1` against `Φ_q` — a **unit**, the strongest form of
 > "does not vanish here".
+>
+> **Billing note (added by SEED-75, 2026-08-14, recording SEED-61 Proposition N,
+> `notes/SEED61_TRANSFER_OPERATOR_BEHIND_THE_GROWTH_SERIES.md` / message 0662;
+> this is a re-billing, not a correction — the mathematics of C1 is untouched).**
+> `Res(Φ_q, R_q) = q^{φ(q)}` **is the Galois norm of the constant `q`**:
+> `Res(Φ_q, R_q) = N_{ℚ(ζ_q)/ℚ}(R_q(ζ_q)) = N_{ℚ(ζ_q)/ℚ}(q) = q^{φ(q)}`, the
+> exponent being `[ℚ(ζ_q):ℚ] = |Gal| = φ(q)` and the base the constant value of
+> `R_q` on the primitive orbit given by Ψ2. It therefore carries **no content
+> beyond Ψ2**. Recorded so that no later note reads the exponent `φ(q)` as a
+> mysterious point count — there is no variety here with `q` points per orbit;
+> C1 and C2 together are just the decomposition of `μ_q` into Galois orbits.
 
 > **Certificate C2 (vanishing on the non-primitive locus, one divisor at a
 > time).** For every `d | q` with `d < q`, `Res(Phi_d, R_q) = 0`.
@@ -397,7 +408,7 @@ claim it as one.
 | 2 | Ψ1: `Ψ_q | R_q`; the projector's kernel contains every non-primitive line | **PROVED** |
 | 3 | Ψ2: `Φ_q | R_q − q`; hence `e_prim² = e_prim`, `rank = φ(q)` | **PROVED** |
 | 4 | Ψ3: `gcd(R_q, x^q−1) = Ψ_q` exactly — the delimitor is distinguishing | **PROVED** |
-| 5 | C1: `Res(Φ_q, R_q) = q^{φ(q)}`; at `q=12`, `20736` | **PROVED / CERTIFIED** |
+| 5 | C1: `Res(Φ_q, R_q) = q^{φ(q)}` (= the Galois norm of `q`; no content beyond Ψ2 — SEED-61 Prop. N); at `q=12`, `20736` | **PROVED / CERTIFIED** |
 | 6 | C2: `Res(Φ_d, R_q) = 0` for all `d | q`, `d < q` | **PROVED / CERTIFIED** |
 | 7 | N3′: `c_q(q/p) = −φ(q)/(p−1) < 0`; minimal obstruction `q = 2` | **PROVED** — **corrects** the lane note's "smallest is `q=3`" |
 | 8 | N5′: what is absent is a carrier, not a Fourier expression | **PROVED** (given 7) — **corrects** "Fourier language alone is insufficient" |

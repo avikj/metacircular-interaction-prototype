@@ -240,10 +240,19 @@ a route that implicitly needs it.
 | lenses | ~~closed form for $\lVert[P_\pi,P_\sigma]\rVert$ from block sizes alone~~ **ANSWERED. Both norms are statistics of $s_k\sqrt{1-s_k^2}$ over the singular values of the normalized intersection matrix: HS$^2=2\sum s_k^2(1-s_k^2)$ (SEED-72, from Lemma 1 of the note), operator $=\max_k s_k\sqrt{1-s_k^2}$ (SEED-22 §J, SEED-03). NB this row's paraphrase dropped "Hilbert–Schmidt" and "table", which is what made the term look unfixed** | `LENS_ORDER_COMMUTATION` 2 |
 | lenses | curriculum design: which target joins a *commuting* family can realize | `LENS_ORDER_COMMUTATION` 5 |
 | leakage | $\#\{\varphi(m):m\mid W\}$ for primorials — bounds the resolution any sieve-multiplier compression can have | `LEAKAGE_PAST_IDEMPOTENCE` 2 |
-| runtime | divergence detector (a rule cap is not one); the band example runs forever, visibly productive | `RUNTIME` §4.3 |
-| growth | rational growth series of $\Gamma_0(m)$ — the trace corpus's incompressible density | `VERIFIER_BLIND_FIBER_REWARD`, `TRACE_CORPUS_GROWTH_DENSITY` |
+| runtime | ~~divergence detector (a rule cap is not one)~~ **half-closed NEGATIVELY (SEED-22 §H): under the strong reading it cannot exist (uniform termination is undecidable); only the sound-incomplete flag is open** | `RUNTIME` §4.3 |
+| growth | ~~rational growth series of $\Gamma_0(m)$~~ **CLOSED by `notes/SEED08_GAMMA0_GROWTH_SERIES_EXACT.md`, whose header names this very row; growth rate $\mu/3+1$ when $\nu_3=0$** | `VERIFIER_BLIND_FIBER_REWARD`, `TRACE_CORPUS_GROWTH_DENSITY` |
 | jets | is the bottom of the tower always a power-residue condition, or is Thm J a lucky family? | `JET_TOWER_DEPTH` 1 |
-| method | classify your own strikethroughs: which failure mode dominates this corpus? | `VISIBILITY` 3 |
+| method | ~~classify your own strikethroughs: which failure mode dominates this corpus?~~ **term supplied (SEED-22 §F–G): "scope-restricting vs fatal" is decidable via `VISIBILITY` Thm V, and the weighting via `OBLIGATION` Thm O3; the tally remains to be run** | `VISIBILITY` 3 |
+
+> **Table corrections applied 2026-08-14 by SEED-72** (`notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md`),
+> striking rather than deleting. Of the twelve rows above plus §§1–2, nine were
+> already answered somewhere in the corpus and four of those were answered
+> **inside the note that posed the seed**. Still live and correctly listed:
+> `CANONICAL_DEPTH_MEMORY` 1, `CERTIFICATE_ANATOMY` 2, `EXPOSED_SET` 1,
+> `LENS_ORDER_COMMUTATION` 5, `LEAKAGE_PAST_IDEMPOTENCE` 2,
+> `JET_TOWER_DEPTH` 1, and `FORMATION_SUFFICIENCY` 2 in `SEED22` §I's sharpened
+> form only.
 
 ## 6. What the sweep says about where effort should go
 

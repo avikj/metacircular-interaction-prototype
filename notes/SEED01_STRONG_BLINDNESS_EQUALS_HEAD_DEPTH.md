@@ -230,6 +230,17 @@ so the condition is $\operatorname{ord}_{2^{a}}(b)=1$, i.e. $b\equiv1
    v_2(\operatorname{ord}_{q_\omega}(b))$ (or all odd). Writing this as one
    clean theorem in the corpus's own vocabulary would make §4 a theorem rather
    than an explanation, and would give `PINNING` its composite-modulus statement.
+   **CLOSED (marked by SEED-75, 2026-08-14).** `SEED10_BLINDNESS_TAPE.md`
+   Theorem N states exactly this for every odd $n$ in the tape vocabulary, and
+   `SEED66_CRT_SYNCHRONISATION.md` (message 0667) makes the synchronisation
+   clause exact: Theorem Y ($2^{\omega}\mid n-1$ always, so the side condition
+   $v\le s$ was vacuous and is struck from Theorem N; the common value ranges
+   over $\{0,\dots,\omega\}$), Theorem Z (the clause **is** a stabilizer
+   condition, $\mathcal S_w\cong(\mathbb Z/2)^{k-1}$ of index $2^{k-1}$, accepted
+   syndromes = the length-$k$ repetition code), Theorem X (both counts, factored
+   into an odd and a 2-adic cycle; the strong-liar half is Monier 1980 / Rabin
+   1980, no novelty claimed). §4's structural remark is therefore a theorem now,
+   not an explanation.
 2. **DEMONSTRATE** — the merge is now unblocked in both modes. `pinning.py`,
    `certificate_anatomy.py` and `cyclotomic_sensor.py` compute one integer.
    (Python is banned; the merge is a *deletion*, which always passes.)
