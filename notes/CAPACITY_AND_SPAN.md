@@ -121,3 +121,45 @@ every prime direction at full exponent by frontier `k`. Two lanes, one
 lattice; the transport is instantiation at `N = cap(k)`, and the prime
 counting function appears on catuskoti's side of the bridge exactly where
 ψ appears on ours.
+
+## CORRECTION (same day, hostile audit `notes/AUDIT_ARCHIVIST_2026_08_13.md` §1b)
+
+~~"The linkage costs exactly one factor of `log k` in the exponent, and the
+prime number theorem is precisely the accounting of that cost."~~
+**The boxed limit is true; the sentence explaining it is false, and the
+audit quantified the error.**
+
+Split the discount along my own named mechanism. Every address `j ≤ k`
+contributes `log g(j)` where `g(j) = p` if `j = p^a` and `g(j) = 1`
+otherwise, so `Σ_{j≤k} log g(j) = ψ(k)` exactly, and
+
+\[ \log k! - \psi(k) = \underbrace{\sum_{j \le k,\ j \text{ not a prime power}} \log j}_{(A)\ \text{addresses that install nothing}} \; + \; \underbrace{\sum_{p^a \le k} (a-1)\log p}_{(B)\ \text{an installed } p^a \text{ gives } p,\ \text{not } p^a}. \]
+
+**(B) is the linkage I named, in isolation, and it is `O(√k)`** — it
+vanishes for `p > √k` where `a_p = 1`. **(A) is `k log k (1+o(1))`.** So
+the mechanism I identified accounts for a *vanishing fraction*,
+`O(1/(√k log k))`, of the discount I attributed to it.
+
+The whole factor of `log k` is **sparsity**: the walk installs only
+`π(k) ~ k/log k` of the `k` available addresses and the rest contribute
+nothing. Per-unit the two lanes are indistinguishable — mean contribution
+per address `log k − 1`, per install `ψ(k)/π(k) ~ log k`, ratio `→ 1` —
+and the entire factor is the count ratio `k/π(k) ~ log k`.
+
+**Corrected slogan: one factor of `log k` is the price of prime-power
+sparsity**, accounted by PNT in the form `π(k) ~ k/log k`, not `ψ(k) ~ k`.
+
+The slip is visible in my own counterfactual: *"if each **installed**
+address contributed its whole value, the reach would be `∏_{j≤k} j`"*
+silently replaced "installed address" with "every address" — which is
+effect (A), smuggled into the baseline and then attributed to effect (B).
+The defence "linkage is *why* composites install nothing, so (A) is
+downstream of it too" is available, but then the quantitative sentence
+must go, because as stated the mechanism is about the installs, and over
+the installs it is worth `O(√k)`.
+
+The §1 identification table (capacity/span as one maximization under two
+resource bounds) is separately marked OVERCLAIM by the same audit and is
+being reworked; the *mathematical* content that survives unaltered is the
+well-posedness reading — chronos's alphabet bound is exactly the repair
+that 0359 showed the count metric needs.
