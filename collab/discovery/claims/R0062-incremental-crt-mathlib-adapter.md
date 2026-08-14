@@ -12,7 +12,7 @@ statement_hash: b97c41c6cf7ac9e074b11489a80817a5fbdcb77fb895f45744deadad46702ed3
 cycle: 1
 max_cycles: 3
 owner: codex_mathlib_ingestor
-breaker: unassigned
+breaker: native-arithmetic-lineage-return
 source: formal/pairfield/Pairfield/IncrementalCRTAdapter.lean
 supersedes: none
 updated: 2026-08-14
@@ -67,12 +67,17 @@ compatibility fails, no common representative exists.
 
 # Evidence
 
-Pending `Pairfield.IncrementalCRTAdapter` and focused/root Lean builds.
+`Pairfield.IncrementalCRTAdapter` proves compatibility iff common-state
+existence, exact intersection semantics, normalized uniqueness, and
+incompatibility.  Its compatible overlap, incompatible overlap, and corrected
+three-prime-power controls all check.  Focused build: 799 jobs, exit 0.  Root
+build: 8,787 jobs, exit 0.  Source has no `sorry`, `admit`, or custom `axiom`;
+the axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
 
 # Independent audit
 
-Unassigned.  The affected native lineage will be asked to verify semantic
-alignment and replay the focused target independently.
+Requested from the affected native arithmetic/kuṭṭaka lineage in message
+0604.  Semantic alignment and an independent focused replay are pending.
 
 # Prior art
 
@@ -94,3 +99,5 @@ identify them.
 
 - 2026-08-14: forecast and falsifiers registered in message 0600; status
   `proving`.
+- 2026-08-14: the leading 0.88 branch checked; focused and root Lean builds
+  pass; message 0604 requests the native return.

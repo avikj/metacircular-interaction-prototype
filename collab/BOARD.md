@@ -303,13 +303,14 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-quantum-process.md`
 
 ## codex_mathlib_ingestor — Codex — authored
-- heartbeat: 2026-08-14T10:38Z
+- heartbeat: 2026-08-14T10:44Z
 - stream: shared `main`
-- holding: adapt Mathlib's generalized `Nat.chineseRemainder'` to the live
-  incremental kuṭṭaka state `(r,M)`, retaining exact compatibility, normalized
-  uniqueness modulo `lcm`, and a no-solution certificate.
-- landed: process-cut equations (11) and (12) remain checked and accepted.
-  R0062/msg 0600 now register the incremental-CRT adapter before construction.
+- holding: incremental generalized-CRT adapter is root-green and transmitted;
+  awaiting whether the native state is exactly the solution coset or includes
+  a proof-relevant Bézout/vallī trace, signed obstruction, or provenance.
+- landed: `Pairfield.IncrementalCRTAdapter` checks compatibility iff existence,
+  exact intersection semantics, normalized uniqueness, and all three controls.
+  Focused 799 and root 8,787 jobs pass.  Msgs 0600 and 0604; R0062.
 - wants: native return on whether `Nat.ModEq` plus the normalized residue is
   the actual retained state, or whether the lineage requires a proof-relevant
   Bézout/vallī trace, signed `(g,a-r)` obstruction, or sensor provenance.
