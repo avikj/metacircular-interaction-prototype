@@ -77,6 +77,67 @@ theorem indexedEdgeDFA_step_source (edge : ReverseEdge M) :
     Equiv.symm_apply_apply]
   exact congrArg sourceStateEquiv (edgeDFA_step_source M edge)
 
+namespace EdgeTrace
+
+/-- A causal reverse-edge path.  Unlike endpoint DFA validity, every edge is
+required to start exactly where the preceding prefix ends. -/
+inductive Chained (M : DFA A X)
+    [DecidablePred (fun state : X => state ∈ M.accept)] :
+    SourceState X → List (ReverseEdge M) → SourceState X → Prop
+  | nil (state : SourceState X) : Chained M state [] state
+  | cons {start finish : SourceState X} {rest : List (ReverseEdge M)}
+      (edge : ReverseEdge M)
+      (source_eq : reverseEdgeSourceState M edge = start)
+      (tail : Chained M (reverseEdgeTargetState M edge) rest finish) :
+      Chained M start (edge :: rest) finish
+
+/-- Extend a causal trace at its endpoint.  This is the snoc orientation used
+by `ReachNode.child`. -/
+theorem Chained.snoc {start finish : SourceState X}
+    {edges : List (ReverseEdge M)}
+    (hchain : Chained M start edges finish) (edge : ReverseEdge M)
+    (hsource : reverseEdgeSourceState M edge = finish) :
+    Chained M start (edges ++ [edge]) (reverseEdgeTargetState M edge) := by
+  induction hchain with
+  | nil state =>
+      exact Chained.cons edge hsource (Chained.nil _)
+  | cons first hfirst tail ih =>
+      exact Chained.cons first hfirst (ih edge hsource)
+
+/-- A causal edge path evaluates to its declared endpoint in the reindexed
+DFA.  The proof uses the exact source-to-target adapter at every edge. -/
+theorem Chained.evalFrom_eq {start finish : SourceState X}
+    {edges : List (ReverseEdge M)}
+    (hchain : Chained M start edges finish) :
+    (indexedEdgeDFA M).evalFrom start edges = finish := by
+  induction hchain with
+  | nil state => rfl
+  | cons edge hsource tail ih =>
+      simp only [DFA.evalFrom_cons]
+      rw [← hsource, indexedEdgeDFA_step_source, ih]
+
+end EdgeTrace
+
+/-- The stronger invariant needed for policy-parent extraction. -/
+def ReachNode.Chained
+    (node : ReachNode (ReverseEdge M) (SourceState X)) : Prop :=
+  EdgeTrace.Chained M .source node.word node.state
+
+theorem ReachNode.child_chained
+    {node : ReachNode (ReverseEdge M) (SourceState X)}
+    (hnode : node.Chained M) (edge : ReverseEdge M)
+    (hsource : reverseEdgeSourceState M edge = node.state) :
+    (node.child (indexedEdgeDFA M) edge).Chained M := by
+  have hstep :
+      (indexedEdgeDFA M).step node.state edge =
+        reverseEdgeTargetState M edge := by
+    rw [← hsource]
+    exact indexedEdgeDFA_step_source M edge
+  change EdgeTrace.Chained M .source (node.word ++ [edge])
+    ((indexedEdgeDFA M).step node.state edge)
+  rw [hstep]
+  exact EdgeTrace.Chained.snoc hnode edge hsource
+
 /-- Lift a forward separator to proof-relevant genuine reverse edges.  The
 terminal proof is retained in the seed; predecessor edges retain the original
 pair and action. -/
@@ -127,6 +188,30 @@ theorem reverseEdgeCertificate_reaches (pair : X × X) (word : List A)
     M pair word hseparates
   simpa [DFA.eval, indexedEdgeDFA, edgeDFA, reverseDFA, sourceStateEquiv] using
     congrArg (sourceStateEquiv (X := X)) hreach
+
+/-- The lifted certificate is causal, not merely endpoint-valid. -/
+theorem reverseEdgeCertificate_chained (pair : X × X) (word : List A)
+    (hseparates :
+      behavior M.step (acceptsBool M) pair.1 word ≠
+        behavior M.step (acceptsBool M) pair.2 word) :
+    EdgeTrace.Chained M .source
+      (reverseEdgeCertificate M pair word hseparates) (.pair pair) := by
+  induction word generalizing pair with
+  | nil =>
+      exact EdgeTrace.Chained.cons (.seed ⟨pair, hseparates⟩) rfl
+        (EdgeTrace.Chained.nil _)
+  | cons action rest ih =>
+      have htail :
+          behavior M.step (acceptsBool M)
+              (pairStep M pair action).1 rest ≠
+            behavior M.step (acceptsBool M)
+              (pairStep M pair action).2 rest := by
+        simpa [behavior, run, pairStep] using hseparates
+      simpa [reverseEdgeCertificate, reverseEdgeSourceState,
+        reverseEdgeTargetState, ReverseEdge.source, ReverseEdge.target,
+        sourceStateEquiv] using
+        EdgeTrace.Chained.snoc (ih (pairStep M pair action) htail)
+          (.predecessor pair action) rfl
 
 /-- One materialized adjacency bucket.  Soundness is proved for the complete
 index below instead of stored in this executable record. -/
@@ -393,6 +478,26 @@ theorem consumeFrontier_candidates_valid
       · exact ih _ (fun old hold =>
           hvalid old (List.mem_cons_of_mem node hold)) candidate htail
 
+theorem consumeFrontier_candidates_chained
+    (frontier : List (ReachNode (ReverseEdge M) (SourceState X)))
+    (index : List (SourceBucket M)) (hsound : IndexSound M index)
+    (hchained : ∀ node ∈ frontier, node.Chained M) :
+    ∀ candidate ∈ (consumeFrontier M frontier index).candidates,
+      candidate.Chained M := by
+  induction frontier generalizing index with
+  | nil => simp [consumeFrontier]
+  | cons node rest ih =>
+      intro candidate hcandidate
+      simp only [consumeFrontier, List.mem_append, List.mem_map] at hcandidate
+      rcases hcandidate with ⟨edge, hedge, rfl⟩ | htail
+      · exact ReachNode.child_chained M
+          (hchained node List.mem_cons_self) edge
+          (takeBucket_edges_source M node.state index hsound hedge)
+      · exact ih (takeBucket M node.state index).2
+          (takeBucket_remaining_sound M node.state index hsound)
+          (fun old hold =>
+            hchained old (List.mem_cons_of_mem node hold)) candidate htail
+
 /-- The queue stores the unexpanded source index and an exact charged edge
 attempt counter alongside the ordinary proof-relevant reachability nodes. -/
 structure IndexedQueue where
@@ -449,6 +554,22 @@ theorem advanceQueue_nodes_valid (queue : IndexedQueue M)
       exact hvalid old (List.mem_append.mpr (Or.inr hfrontier))
     · exact mem_freshNodes_imp_mem hfresh
 
+theorem advanceQueue_nodes_chained (queue : IndexedQueue M)
+    (hsound : IndexSound M queue.remaining)
+    (hchained : ∀ node ∈ queue.nodes, node.Chained M) :
+    ∀ node ∈ (advanceQueue M queue).nodes, node.Chained M := by
+  intro node hnode
+  let expansion := consumeFrontier M queue.frontier queue.remaining
+  let next := freshNodes queue.states expansion.candidates
+  change node ∈ queue.nodes ++ next at hnode
+  rcases List.mem_append.mp hnode with hold | hfresh
+  · exact hchained node hold
+  · apply consumeFrontier_candidates_chained M queue.frontier queue.remaining
+      hsound
+    · intro old hfrontier
+      exact hchained old (List.mem_append.mpr (Or.inr hfrontier))
+    · exact mem_freshNodes_imp_mem hfresh
+
 theorem runQueue_total (edges : List (ReverseEdge M)) (fuel : Nat) :
     (runQueue M edges fuel).attempts +
         indexPayload M (runQueue M edges fuel).remaining = edges.length := by
@@ -476,6 +597,20 @@ theorem runQueue_nodes_valid (edges : List (ReverseEdge M)) (fuel : Nat) :
       rfl
   | succ fuel ih =>
       exact advanceQueue_nodes_valid M (runQueue M edges fuel) ih
+
+/-- Every node actually retained by the indexed traversal carries a causal
+edge-by-edge path from the synthetic source to its stored state. -/
+theorem runQueue_nodes_chained (edges : List (ReverseEdge M)) (fuel : Nat) :
+    ∀ node ∈ (runQueue M edges fuel).nodes, node.Chained M := by
+  induction fuel with
+  | zero =>
+      intro node hnode
+      simp [runQueue, initialQueue, IndexedQueue.nodes] at hnode
+      rcases hnode with rfl
+      exact EdgeTrace.Chained.nil _
+  | succ fuel ih =>
+      exact advanceQueue_nodes_chained M (runQueue M edges fuel)
+        (runQueue_remaining_sound M edges fuel) ih
 
 theorem advanceQueue_states_nodup (queue : IndexedQueue M)
     (hnodup : queue.states.Nodup) :
@@ -546,6 +681,25 @@ theorem native_reindex_adapter_control :
         (reverseEdgeSourceState automaton edge) [edge] =
       reverseEdgeTargetState automaton edge := by
   native_decide
+
+/-- Formation's hostile trace is endpoint-valid but fails the causal path
+invariant at its wrong-source predecessor. -/
+theorem wrong_source_trace_not_chained :
+    let seed : TerminalSeed automaton :=
+      ⟨(0, 2), by native_decide⟩
+    let wrong : ReverseEdge automaton :=
+      .predecessor (0, 1) false
+    ¬ EdgeTrace.Chained automaton .source [ReverseEdge.seed seed, wrong]
+        (.pair (0, 2)) := by
+  dsimp
+  intro hchain
+  cases hchain with
+  | cons seedEdge _ tail =>
+      cases tail with
+      | cons wrongEdge hsource _ =>
+          exact (by native_decide :
+            reverseEdgeSourceState automaton wrongEdge ≠
+              SourceState.pair (0, 2)) hsource
 
 /-- The indexed queue retains the same reached product-state set as the flat
 reverse traversal on the planted control. -/
