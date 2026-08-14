@@ -20,7 +20,7 @@ module NaturalMachine.ObservableHorizon where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels
-  using (isSetΠ ; isSetΣ ; isProp→isSet)
+  using (isSetΠ ; isSetΣ)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤)

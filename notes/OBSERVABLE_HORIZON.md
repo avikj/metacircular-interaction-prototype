@@ -167,12 +167,35 @@ equality makes the bounded kernel action-stable.  Thus Cubical checks both
 The adapter deliberately stops there.  It does **not** translate the Lean
 visited-pair queue, its expansion count, or its shortest retained witness;
 those are executable finite-state evidence rather than part of the semantic
-theorem.  Nor does kernel closure by itself inhabit
+theorem.
+
+The continuation now constructs exactly the action that closure licenses.
+`ResponseWindow` packages a word together with its depth certificate, and
+equality of its response functions is proved equivalent to bounded future
+equality.  For a closing horizon,
+
+\[
+  \operatorname{Carrier}_n
+  = \operatorname{Image}(X\to\operatorname{ResponseWindow}_n)
+\]
+
+inherits every installed action.  `RealizedWindow.actionFactors` uses the
+choice-free descent theorem already checked in `FiniteInformation`: closure
+makes the advanced response constant on each response fiber, so elimination
+of the truncated image witness into the set-valued carrier constructs
+`imageStep`.  Its replay law is exact on every state:
+
+\[
+  \operatorname{imageStep}([x],a)=[s_a x].
+\]
+
+This repairs the useful part of the boundary without weakening it.  Kernel
+closure still does **not** by itself inhabit
 `PredictorFormation.PredictorAt`, which asks for a total update function on
-the entire ambient observation codomain.  A behavioral congruence determines
-updates on the realized quotient image; extending them to every unrealized
-observation requires extra extension or chosen-section data.  Silently
-identifying these two interfaces would therefore be an unsound translation.
+the entire ambient observation codomain.  The image action is total only on
+realized response classes.  Extending it to every unrealized observation
+requires extra extension or chosen-section data.  Silently identifying these
+two interfaces remains an unsound translation.
 
 ## Replay
 

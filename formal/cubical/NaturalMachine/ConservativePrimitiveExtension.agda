@@ -137,9 +137,7 @@ freshArity doubleDefinition = 1
 body doubleDefinition = node add-op doubleBody
   where
     doubleBody : Fin 2 → Term Arithmetic (Fin 1)
-    doubleBody fzero = var fzero
-    doubleBody (fsuc fzero) = var fzero
-    doubleBody (fsuc (fsuc ()))
+    doubleBody _ = var fzero
 
 double : {Variable : Type₀}
   → Term (Extended Arithmetic doubleDefinition) Variable
@@ -147,8 +145,7 @@ double : {Variable : Type₀}
 double term = node fresh child
   where
     child : Fin 1 → Term (Extended Arithmetic doubleDefinition) _
-    child fzero = term
-    child (fsuc ())
+    child _ = term
 
 double-computes : (n : ℕ)
   → evaluate (extendAlgebra doubleDefinition NatAlgebra) (λ _ → n)

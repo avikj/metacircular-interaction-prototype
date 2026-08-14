@@ -167,8 +167,8 @@ theorem automaton_reachable (state : Fin 3) :
     ∃ word : List Bool, automaton.eval word = state := by
   fin_cases state
   · exact ⟨[], rfl⟩
-  · exact ⟨[false], rfl⟩
-  · exact ⟨[false, true], rfl⟩
+  · exact ⟨[false], by decide⟩
+  · exact ⟨[false, true], by decide⟩
 
 example : IsLeast { fuel : Nat |
     LeftQuotientsStabilizeAt automaton fuel } 1 := by
