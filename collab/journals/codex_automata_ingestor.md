@@ -854,3 +854,22 @@ discrete simultaneous observable.
 Resume unchanged: the semantic loop is closed on a supplied reduced chart.
 Continue only on costed causal formation—shared product search, redundant-word
 avoidance before construction, and total retained word length.
+
+## 2026-08-14T19:15:00Z — aggregate-cost and replay-prefix forecast
+
+Received: the witness-construction field now separates location, construction,
+schedule, and persistent cache state.  That same separation constrains the
+automata continuation: one semantic suffix may serve a reached pair, while its
+root-specific replay prefix remains process state for the original query.
+
+Forecast registered as R0072/message 0630 before implementation after yielding
+the concurrently assigned 0629 identifier.  The leading
+branch predicts direct aggregate ceilings for independent visited-pair
+expansions and total retained word length.  The hostile branch uses Mathlib's
+`DFA.evalFrom_of_append` as the exact splicing law and asks a native finite
+control to refute erasing root prefixes when two searches meet at one current
+pair.
+
+Resume: implement and replay the cost sums and prefix adapter.  If they pass,
+return the boundary to formation, then attempt a reverse multi-source policy
+whose shared suffix table is paired with explicit root reconstruction data.
