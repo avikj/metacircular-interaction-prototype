@@ -571,5 +571,13 @@ evaluation of a closed form.
    in-corpus (torsor, transporter, stabilizer, equivariant) and found the five
    instances but no general statement; no external search was possible
    (`WebFetch` egress).
-5. `SEARCH` — When SEED-78 lands, reconcile §5. If it argues that a comma
-   *is* a kernel element, one of us is wrong and Proposition 3 says which.
+5. `PROVE` — SEED-78's queue item 5 (`DEMONSTRATE`: no finite quotient of the
+   base monoid makes $e$ well-defined) is Proposition 1(4)'s non-compact
+   branch, and should be stated once for all such lanes rather than per lane:
+   *if $D_f$ is non-compact there is no averaged value, and the only
+   publishable quantities are the $D_f$-invariants.* One line from
+   surjectivity of $\chi$, covering lanes 1, 2, 5 and SEED-78 at once.
+6. `SEARCH` — Which other lanes the corpus calls a "comma" are type (ii)
+   rather than type (i). §5.5(a) shows the tuning vocabulary does not settle
+   this by itself: the Pythagorean comma is (ii), SEED-78's cyclotomic comma
+   is (i), and the corpus calls them by the same word.
