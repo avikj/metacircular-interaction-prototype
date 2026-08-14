@@ -40,7 +40,6 @@ open import Cubical.Data.Fin using (Fin ; fzero ; fone ; toℕ)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 open import Cubical.Data.Sigma using (Σ≡Prop ; fst ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
@@ -99,10 +98,18 @@ module Bridge (k n' : ℕ) where
   value-snoc : (xs : D.Word) (y : D.Digit)
              → D.value (xs ++ (y ∷ []))
              ≡ D.value xs + D.b ^ length xs · toℕ y
-  value-snoc [] y = solveℕ!
+  value-snoc [] y =
+      cong (toℕ y +_) (sym (0≡m·0 D.b))
+    ∙ +-zero (toℕ y)
+    ∙ sym (·-identityˡ (toℕ y))
   value-snoc (d ∷ xs) y =
       cong (toℕ d + D.b ·_) (value-snoc xs y)
-    ∙ solveℕ!
+    ∙ cong (toℕ d +_)
+        (·-distribˡ D.b (D.value xs) (D.b ^ length xs · toℕ y))
+    ∙ sym (+-assoc (toℕ d) (D.b · D.value xs)
+        (D.b · (D.b ^ length xs · toℕ y)))
+    ∙ cong ((toℕ d + D.b · D.value xs) +_)
+        (sym (·-assoc D.b (D.b ^ length xs) (toℕ y)))
 
   -- At exactly n lower digits, the removed place is a multiple of C.N.
   high-place-vanishes : (xs : D.Word) (y : D.Digit)

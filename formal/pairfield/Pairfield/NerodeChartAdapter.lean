@@ -113,7 +113,9 @@ theorem nerodePresentation_isReduced (M : DFA A X)
   apply Subtype.ext
   have hlanguage :=
     (futureEq_iff_stateLanguage_eq (nerodePresentation M regular).toDFA left right).mp h
-  simpa only [stateLanguage_nerodePresentation] using hlanguage
+  rw [stateLanguage_nerodePresentation M regular left,
+    stateLanguage_nerodePresentation M regular right] at hlanguage
+  exact hlanguage
 
 /-- Every canonical residual state is reached by one of its witnessing
 prefixes.  Together with `nerodePresentation_isReduced`, this separates

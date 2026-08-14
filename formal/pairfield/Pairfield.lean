@@ -16,6 +16,7 @@ import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.SmithPresentation
 import Pairfield.GeneralSmith2x2
+import Pairfield.DiagonalSmithRoute
 import Pairfield.SmithContent
 import Pairfield.CertificateSource
 import Pairfield.RankOneSmith2x2
