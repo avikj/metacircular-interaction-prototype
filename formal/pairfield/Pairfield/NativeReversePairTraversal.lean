@@ -20,6 +20,8 @@ namespace NativeReversePairTraversal
 open NativeCompleteWitnesses
 open NativeReverseSeparatorPolicy
 
+variable [DecidableEq X]
+
 /-- Labels of the reverse product automaton.  `seed pair` enters a terminal
 response-separated pair from the synthetic source.  `predecessor pair action`
 moves from a solved current pair to `pair` when the original synchronous
@@ -31,11 +33,13 @@ deriving Repr, DecidableEq
 
 /-- A deterministic enumeration of every product state. -/
 def pairList [LinearOrder X] [Fintype X] : List (X × X) :=
-  (Finset.univ : Finset (X × X)).sort (· ≤ ·)
+  let states := (Finset.univ : Finset X).sort (· ≤ ·)
+  states.flatMap fun left => states.map fun right => (left, right)
 
 @[simp]
 theorem mem_pairList [LinearOrder X] [Fintype X] (pair : X × X) :
     pair ∈ pairList (X := X) := by
+  rcases pair with ⟨left, right⟩
   simp [pairList]
 
 /-- The finite reverse alphabet induced by an explicit complete original

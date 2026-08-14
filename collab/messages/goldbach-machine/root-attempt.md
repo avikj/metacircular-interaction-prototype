@@ -36,6 +36,15 @@ exclude an order-`N` negative minor-arc coefficient at **each** even center.
 Current mean-square estimates control all but an exceptional set but permit an
 isolated spike.
 
+**Common-carrier correction.**  The preceding mismatch remains real for the
+target-adapted von-Mangoldt presentation and for the power-cutoff
+explicit-formula route.  It is not intrinsic to the logarithmic route.  Pintz's
+common prime-log formulation fixes one `S_X`, one arc set, and all
+`m in [X/2,X]`; there a Goldbach exception makes the same common minor
+coefficient an order-`X` negative spike directly.  Thus the logarithmic route
+needs neither prime-power removal nor a target-to-common transport.  See
+[`common-carrier-elimination.md`](common-carrier-elimination.md).
+
 ## 1. What the machine can now execute
 
 `Pairfield.GoldbachBoundary` defines
@@ -258,6 +267,24 @@ $\widetilde a_{X,R}(N)$ uniformly across a dyadic interval.  Such a
 logarithmic-normalization transport is therefore an additional premise of the
 following anti-spike route.
 
+**Correction of route, not of the displayed calculation.**  The transport is
+required only if one insists on importing the target-adapted exception
+signature into this particular von-Mangoldt family.  The mature prime-log
+carrier instead fixes
+
+\[
+S_X^{\mathbb P}(\alpha)=
+\sum_{X^{1-\varepsilon_0}<p\le X}(\log p)e(p\alpha)
+\]
+
+and the same logarithmic arc set for every even `m in [X/2,X]`.  Its full
+coefficient is the actual restricted prime-pair count, its major coefficient
+is uniformly `>=cX`, and its minor coefficients satisfy a common Parseval--
+Vaughan squared budget.  Hence an exception gives the common spike with no
+transport and no prime-power term.  What remains is propagation or a direct
+pointwise lower bound on this one coefficient family.  The target-adapted and
+power-cutoff audits below remain valid as analyses of those distinct routes.
+
 Conditional on that transport, the displayed mean square permits
 `O(X (log X)^(5-A) + X^(3/5) (log X)^5)` order-`X` spikes, including one.  A
 first-difference route would need
@@ -356,17 +383,23 @@ explicit.
 The next work is not a larger finite verification and not another quotient.
 It is to seek prime-specific arithmetic anti-concentration across centers:
 
-1. retain a common ambient polynomial and arc decomposition across a dyadic
+1. for the shortest logarithmic route, stay on Pintz's common prime-log
+   carrier and prove one-sided propagation of its negative minor coefficient;
+   a sufficient condition is a small average positive escape
+   `sum_h (a(m+h)-a(m))_+`, which is strictly weaker than a uniform
+   first-difference bound;
+2. for the target-adapted or power-cutoff route, retain a common ambient
+   polynomial and arc decomposition across a dyadic
    interval, and prove the missing transport from the target-adapted
    logarithmic normalization when using an exception as a spike;
-2. express the coefficient family through shared Dirichlet-zero or Type-II
+3. express the coefficient family through shared Dirichlet-zero or Type-II
    dispersion data before absolute values, and keep logarithmic- and
    power-cutoff major arcs distinct;
-3. prove either the logarithmic-cutoff pointwise one-sided margin directly,
+4. prove either the logarithmic-cutoff pointwise one-sided margin directly,
    or control the power-cutoff zero modes and then prove an anti-spike
    propagation theorem strong enough to contradict the corresponding
    `ell^2` or exceptional-set budget;
-4. then feed that theorem to the already checked crossover contract.
+5. then feed that theorem to the already checked crossover contract.
 
 This is narrower than “solve the minor arcs” and names the required direction
 of information: a single Dirac continuation at each even center must be
@@ -394,6 +427,10 @@ contract, recorded precisely in `arithmetic-antispike.md`:
 
 Current zero-density, Linnik, and dispersion estimates provide upper mass or
 equidistribution statements, not these signed prescribed-center inequalities.
+This three-part contract belongs specifically to the target-adapted
+power-cutoff architecture.  A common-carrier power formulation would replace
+`(ZM)+(TR)` by one common zero-mode positivity premise `(CZM)`; the logarithmic
+prime-log route needs neither.
 
 ## Rigor and execution ledger
 
@@ -425,6 +462,8 @@ equidistribution statements, not these signed prescribed-center inequalities.
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
   arithmetic coherence audit is
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the
+  logarithmic common-carrier correction is
+  [`common-carrier-elimination.md`](common-carrier-elimination.md); the
   executable audit is [`execution-compiler.md`](execution-compiler.md)
   (`7a02f908`).
 - **Open:** the pointwise signed minor-arc margin or a prime-specific AntiSpike

@@ -72,8 +72,8 @@ theorem upwardEscape_good_card
     {ι : Type*} (a : ι → ℝ) (s : Finset ι) (i₀ : ι)
     {depth gamma : ℝ}
     (hdepth : 0 < depth)
-    (hgamma0 : 0 ≤ gamma)
-    (hgammaHalf : gamma < 1 / 2)
+    (_hgamma0 : 0 ≤ gamma)
+    (_hgammaHalf : gamma < 1 / 2)
     (hspike : a i₀ ≤ -depth)
     (hbudget :
       (∑ i ∈ s, max (a i - a i₀) 0) ≤

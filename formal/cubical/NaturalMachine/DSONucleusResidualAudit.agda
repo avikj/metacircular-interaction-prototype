@@ -322,23 +322,31 @@ middle-right-residuation genControl genControl genControl = refl
 admissible : Generator → Generator → Generator → Bool
 admissible x z y = (middleSeed x ⊙M middleSeed y) ≤P middleSeed z
 
-probe-zero : admissible genC genControl genZero ≡ true
-probe-zero = refl
+example-zero-admissible : admissible genC genControl genZero ≡ true
+example-zero-admissible = refl
 
-probe-a : admissible genC genControl genA ≡ true
-probe-a = refl
+example-a-admissible : admissible genC genControl genA ≡ true
+example-a-admissible = refl
 
-probe-c : admissible genC genControl genC ≡ true
-probe-c = refl
+example-c-admissible : admissible genC genControl genC ≡ true
+example-c-admissible = refl
 
-probe-control : admissible genC genControl genControl ≡ true
-probe-control = refl
+example-control-admissible : admissible genC genControl genControl ≡ true
+example-control-admissible = refl
 
-probe-greatest : (b : Generator) → middleSeed b ≤P middleSeed genZero ≡ true
-probe-greatest genZero = refl
-probe-greatest genA = refl
-probe-greatest genC = refl
-probe-greatest genControl = refl
+example-greatest : (b : Generator) → middleSeed b ≤P middleSeed genZero ≡ true
+example-greatest genZero = refl
+example-greatest genA = refl
+example-greatest genC = refl
+example-greatest genControl = refl
+
+-- For A = generated ell-c and C = generated clL(control), the closed left
+-- residual synthesizes exactly the family-relative greatest missing B.
+example-residual-synthesizes-greatest :
+  clMid (leftResidual (middleSeed genC) (middleSeed genControl))
+  ≡ middleSeed genZero
+example-residual-synthesizes-greatest =
+  funExt λ { E.e → refl ; E.a → refl ; E.c → refl ; E.d → refl }
 
 -- Rigor boundary: exhaustive only for Generator^3.  The formulas are generic,
 -- but no unbounded residuated-lattice theorem is claimed.

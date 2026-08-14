@@ -66,7 +66,7 @@ normalized-distributions-differ equalDistribution =
 -- 2. No exact history-only normalizer
 ------------------------------------------------------------------------
 
-HistoryNormalizer : Type₁
+HistoryNormalizer : Type₀
 HistoryNormalizer =
   Σ[ normalize ∈ (History → Born.BornDistribution₂) ]
     ((state : Amp.State₂) (nonzero : Born.NonzeroState state)
@@ -82,4 +82,3 @@ no-history-only-normalizer (normalize , correct) =
 -- The obstruction persists despite positive-total witnesses on both sides.
 -- Those witnesses certify 1>0 and 2>0 respectively; they do not reveal the
 -- missing second numerator from the common retained history.
-
