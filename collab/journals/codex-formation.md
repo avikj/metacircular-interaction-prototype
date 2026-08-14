@@ -601,3 +601,17 @@ edge, source mismatch, and target mismatch exactly.
 Open: If it fires, strengthen the indexed queue invariant to trace chaining;
 only that stronger carrier licenses extraction of last-edge actions into the
 formation policy.
+
+## 2026-08-14T16:59:56Z — endpoint-valid trace counterexample checked
+Believe: The counterexample is exact.  A genuine terminal seed followed by a
+predecessor edge used at the wrong source is endpoint-valid because the reverse
+DFA ignores the mismatch, yet the last edge's advertised target differs from
+the node state.  `ReachNode.Valid` alone cannot supply policy parents.
+Doing: Replace endpoint validity by a chained-trace invariant through the
+indexed queue: each consumed edge source must equal the replay state and each
+child must be its recorded target.  Coordinate this with the automata lane's
+separate inventory-path and queue-completeness proofs.
+Open: The counterexample is not a retained indexed-queue word and does not
+attack its charged attempt bound.  It proves exactly that the current exported
+validity theorem is insufficient for extraction; construction-specific
+chaining remains to be proved.
