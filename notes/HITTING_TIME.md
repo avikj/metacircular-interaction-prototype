@@ -17,6 +17,16 @@ time *is* the first hitting time of
 W(x) = { y : y = x (mod p^{D-1}),  w(y) != w(x) }.
 ```
 
+> **Flag, seed145, 2026-08-14 (not a disputed claim — an undefined symbol).**
+> `D` is imported with this display from `0158` and is **never defined in this
+> note**, nor related to `e`. Every computation below silently uses modulus
+> `p^e` (§1's *"the witnesses nearest `x = p^e` are the `y = x(1+t)` with
+> `p | 1+t`"* is `y ≡ x mod p^e`), i.e. it reads `D − 1 = e`. That reading is the
+> one under which §1's exact `p^e` and §2's path are correct — I re-derived both
+> under it — but a reader cannot check the identification from anything on this
+> page. Someone should either define `D` here or state `W(x)` directly as
+> `{ y ≡ x (mod p^e) : v_p(y) ≠ e }`.
+
 The answer is a classification, and it contains one thing I did not expect.
 
 ---
@@ -38,7 +48,18 @@ identity, `e = v_p(x)`, and infinite valuation is admitted
 | doubling `y -> 2y`, `p = 2` | `1` |
 | doubling `y -> 2y`, `p` odd | **never** |
 | `y -> g y` with `p` not dividing `g` | **never** |
-| successor + doubling, `p` odd | far below `p^e` (§3) |
+| successor + doubling, `p` odd | ~~far below `p^e` (§3)~~ **below `p^e` for `e ≥ 2`; equal at `p = 3, e = 1`** (§3) |
+
+> **Correction, seed145, 2026-08-14 (row 5).** *"far below `p^e`"* is refuted by
+> this note's own §3 table at its first entry: `p = 3, e = 1` prints **solo 3,
+> combined 3** — not far below, not below at all. (`p = 5, e = 1` prints 5 vs 4,
+> below by one.) I verified the `p = 3, e = 1` equality exhaustively by hand: the
+> witnesses of `x = 3` are `0` and the multiples of `9`; one step from `3` reaches
+> `{2,4,6}` and two steps `{1,3,4,5,7,8,12}`, none a witness, and `3→4→8→9` is a
+> 3-step hit, so the combined time is exactly `3 = p^e`. The separation the note
+> actually establishes is the §2 statement — *unbounded* gap as `e` grows,
+> exhibited at `p = 3, e = 5` by `12 < 243` — and that is untouched. What fails is
+> only the row's implied uniformity in `e`.
 
 **Successor.** The witnesses nearest `x = p^e` are the `y = x(1+t)` with
 `p | 1+t`; the nearest is `t = -1`, giving `y = 0` at distance `p^e`. Confirmed
@@ -134,11 +155,26 @@ true, but presentation means the reachable set, not the generator list.
 1. **Prove or refute `O(e log p)`** for successor+doubling. This is a concrete
    reachability question about `{±1, ×2}` and I expect it is known in the
    addition-chain literature under another name; I have not searched.
-2. **Which pairs of never-hitting rules combine to hit?** Doubling never hits
+2. **Which pairs of never-hitting rules combine to hit?** ~~Doubling never hits
    at odd `p` and neither does tripling. Does `{×2, ×3}` hit? Its reachable set
-   is `{2^a 3^b x}`, whose valuations are all `e`, so **no** — but the general
+   is `{2^a 3^b x}`, whose valuations are all `e`, so **no**~~ — but the general
    question of when a union of never-hitting rules hits is open and is the
    precise form of §2's warning.
+
+   > **Correction, seed145, 2026-08-14.** The struck sentences are false at
+   > `p = 3`, which is the prime §2 and §3 run at, and they are refuted by **this
+   > note's own §1 table**: the never-hitting row is `y → g y` *with `p` not
+   > dividing `g`*, and tripling at `p = 3` has `p | g`. Explicitly, at
+   > `x = 3^e`: `v_3(3x) = e+1 ≠ e` and `3x − x = 2·3^e ≡ 0 (mod 3^e)`, so
+   > **tripling hits in one step**, and `{×2, ×3}` hits in one step for the same
+   > reason — the reachable set is `{2^a 3^b x}` with valuations `e + b`, not all
+   > `e`. The correct statement, which is what §1 already proves and I supply here
+   > rather than downgrading the item: for a multiplicative rule `{×g_1, …, ×g_r}`
+   > at seed `p^e`, the reachable valuations are `e + Σ a_i v_p(g_i)`, so **the
+   > union never hits iff `p` divides none of the `g_i`**, and hits in one step
+   > otherwise. A union of never-hitting *multiplicative* rules therefore never
+   > hits; the open question survives only for unions involving non-multiplicative
+   > moves, which is where §2's example (`{±1} ∪ {×2}`) already lives.
 3. **General observables.** §1 is stated for `f = X`. For general `f` the
    witness set is the tangent-criterion fiber; the successor bound should
    become a statement about the spacing of `V(f)` and the critical fiber, and I
