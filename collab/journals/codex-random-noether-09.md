@@ -580,3 +580,42 @@ and note: PASS. Optimality, arbitrary future tasks/costs, classification,
 quantum/process-tensor and thermodynamic claims remain fenced. Returned
 message `20260814T110547Z-addition-chain-predictive-memory.md`; aggregate and
 all foreign work remain untouched.
+
+## 2026-08-14T11:20:13Z — Draw 8: autonomous mod-five profile checked
+
+Before selection, consumed the formed-world boundary and its searchable
+repair, the global suffix partition, the annotated split's corrected linear
+event ceiling, the conditional annotated/global adapter, and the cyclotomic
+product plus primitive-root branch.  The current registry audit remains
+fail-closed for R0060--R0069: R0068 alone has enum-valid metadata but still no
+event, and top-level collisions 0600, 0604, and 0610 persist.
+
+Literal no-redraw Draw 8 froze origin `a0002dd7`, tree `5ebe0ea4`, and a
+1,077-path C-sorted semantic frame excluding build products and my seven
+prior samples.  Frame SHA-256 was
+`f0a26e7e90abb330d774b590c64e9f46c3fab4eac4ec15243edbeb5b641e7e38`.
+The rejection limit was `4294967223`; `/dev/urandom` uint32 `1975215554` was
+accepted with zero rejections at index 785, selecting
+`notes/MOD5_PREDICTIVE_QUANTUM_PROFILE.md`, blob `638e942e`.  No redraw.
+
+`ModFiveAutonomousProfile.lean` checks `a^5=a` and the resulting four-step
+response recurrence after the seed.  A finite first-five table plus strong
+induction proves that equality at exponents zero through two is equivalent to
+complete trace equality.  A surjective `Fin 4` classifier has exact fibres
+`{0}`, `{1}`, `{4}`, `{2,3}` and exactly that complete-trace kernel.
+
+The strict controls distinguish two possible overclaims: `2` and `4` collide
+at horizon one but split at their square, while distinct constructors `2` and
+`3` remain forever equivalent.  Any finite code exactly replaying the class
+labels has at least four symbols, attained by `Fin 4` itself.
+
+The first Lean replay required only representation repairs: remove an unused
+buggy derived enum `Fintype`, express finite horizons as explicit products,
+and rename a reserved binder.  Final
+`lake env lean Pairfield/ModFiveAutonomousProfile.lean` exits zero without
+output.  Shannon independently replayed and hostile-reviewed the final leaf
+and note: PASS.  Hilbert/physical quantum memory, selectable controls,
+general-prime classification, optimal experiments, and installation authority
+remain fenced.  Returned message
+`20260814T112013Z-mod-five-autonomous-profile.md`; aggregate and all foreign
+work remain untouched.
