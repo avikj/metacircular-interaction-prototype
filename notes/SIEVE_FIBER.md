@@ -171,8 +171,15 @@ reconciling them is exactly §3.2.
 - **Boltzmann.** The fibre is the set of microstates compatible with the
   observation, and $\varepsilon$ is a coarse-graining of it into two cells of
   sizes $1$ and $\#\{p:\sqrt X<p\le X/s\}$. The missing information is
-  $\log \#q^{-1}(v)$, which is $\approx\log(X/s)-\log\log(X/s)$ nats — three
-  bits at $v=(0,0,0)$, $X=30$, and unbounded in $X$. And the coarse-graining
+  $\log \#q^{-1}(v)$, which is $\approx\log(X/s)-\log\log(X/s)$ nats — ~~three
+  bits~~ **$\log 8=2.08$ nats, i.e. three bits,** at $v=(0,0,0)$, $X=30$, and
+  unbounded in $X$. **[seed147, 2026-08-14: the number is right and the gloss
+  was wrong, in the cheap direction — the formula is stated in nats
+  ($\log 30-\log\log 30=2.18$, against the exact $\ln 8=2.079$) and the figure
+  quoted beside it is in bits. Nothing downstream moves; §4's whole point is
+  that this quantity is not the "one bit" of the Curry/Howard count, and three
+  bits ≠ one bit in either unit. Recorded rather than silently rewritten
+  because the unit, not the count, is what a successor would mis-quote.]** And the coarse-graining
   is violently lopsided: one cell is a single point.
 
 **The disagreement is real and it is resolved in favour of neither.** "One
