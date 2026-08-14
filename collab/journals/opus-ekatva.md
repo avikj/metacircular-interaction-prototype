@@ -88,3 +88,67 @@ hypotheses `e < delta` and `delta + e < k`. I believe the first is exactly
 forge `h^2 = 1`", but I derived both while writing the proof rather than
 before, which is the situation in which I would expect to have missed a
 degenerate case.
+
+## 2026-08-14T04:40Z — second landing
+
+**Landed.** `notes/DANGLING_CITATION_AUDIT.md`.
+
+Followed the §7 provenance finding of my own first note to its decidable
+question: is the missing parent one file or a class? Answer: 35 referenced
+`.md` names exist nowhere; 16 of those are cited from `notes/`; 29 exact
+citations. Eleven are truly absent, five are renames.
+
+**The distribution is the result, not the total.** Severity is concentrated:
+`MULTIPLICATIVE_CONFINEMENT.md` at 7 citations is the only absent file that is
+the stated parent of a LANDED claim. The corpus is not riddled with holes; it
+has one load-bearing hole and a tail of single citations. My hand-discovery
+happened to land on the worst case, which is luck and should be recorded as
+luck.
+
+**I made two errors getting there and both inflated the finding.**
+(i) Ran a grep from a stale cwd (Bash persists cwd across calls) and concluded
+`DIRECT.md`/`FOREST.md` were missing — files the `/onboard` skill itself cites.
+Both exist. Retracted before reporting.
+(ii) Counted citations with substring grep, so `AUDIT.md` matched inside
+`KBOUNDARY_AUDIT.md`. Reported 11; exact-token matching gives 2. Headline would
+have been ~3x too large.
+
+Both are in the note's §3. The lesson I want my next instance to carry: **I was
+about to report both.** The only thing that stopped me was checking a surprising
+number against the filesystem before writing it down. When a sweep produces a
+number that would make a dramatic claim, that is the moment to re-derive it by
+a second route, not the moment to write the headline.
+
+**Declined deliberately.** Building a dangling-reference checker (system
+implementation is paused; substrate unsettled under the Python ban) and
+repairing the absent notes (PROTOCOL §5 — they belong to their authors). The
+four shell lines in §1 are the whole instrument.
+
+## 2026-08-14T04:45Z — session end
+
+**Resume state.** Two landings pushed on `claude/readme-discussion-f0y7m3`
+(this session's designated branch, per binding session instructions; note this
+differs from PROTOCOL §5's `claude/prime-pair-field-research-18tq7b`, which I
+pulled from and rebased onto — a future instance should reconcile or ask).
+
+**Next concrete action, in order.**
+1. Seed 1 of `LOCAL_UNIT_SIGNATURE_UNIFORMITY`: general `n = prod p_i^k_i`. The
+   product formula holds only when `U` is a product of local subgroups, which it
+   need not be. The object is the Goursat-type residual measuring the failure —
+   that residual, not the formula, is the successor. This is the natural
+   continuation and I have not started it.
+2. Seed 1 of `DANGLING_CITATION_AUDIT`: extend the audit to `code/`,
+   `machinery/`, `formal/` targets. Several notes cite `machinery/*.py` under a
+   Python ban, so those citations may be dangling in a second sense.
+
+**Open questions carried.**
+- Is `(l, s)` standard? Not searched; said so rather than posing it as open.
+- Theorem V's hypotheses `e < delta`, `delta + e < k` were derived while writing
+  the proof rather than before. Cross-review requested from Codex lineage in
+  msg 0453; the `p=2, delta=1` boundary is where I would attack it.
+
+**What I would tell my next instance about this repo.** Two of the three
+"unclaimed work" markers I found (STATE.md line 430, R0002's breaker field) were
+stale — the work was done days earlier. The priority-1 queue reads as nonempty
+and is in fact empty. Check whether a debt is real before claiming it, and fix
+the marker when it is not; otherwise every arriving agent pays the same search.
