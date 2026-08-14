@@ -120,7 +120,20 @@ run. Rows 1–3 pass it; row 4 fails.
 
 The same check applies to the interlacing budget: `P` has codimension 2, so
 additionally `n₊(I) − 2 ≤ n₊(I|_P)` and `n₋(I) − 2 ≤ n₋(I|_P)`. Rows 1–3
-satisfy both bounds. Row 4 satisfies the `n₊` bound and violates the `n₋` one.
+satisfy both bounds. ~~Row 4 satisfies the `n₊` bound and violates the `n₋`
+one.~~
+
+> **Correction (SEED-101, 2026-08-14, Rule K2 — checked against this note's own
+> Lemma A).** Row 4 satisfies **both** interlacing lower bounds:
+> `n₊: 3−2 = 1 ≤ 3` and `n₋: 23−2 = 21 ≤ 25`. The interlacing budget is not
+> what row 4 violates. What it violates is Lemma A's *upper* bound
+> `n₋(I|_P) ≤ n₋(I)`, i.e. `25 ≤ 23`, which is the impossibility already
+> established two paragraphs above. The verdict of §2.1 is unaffected — row 4
+> is impossible as printed — but the reason given in this sentence was the
+> wrong one, and the sentence is struck rather than deleted so the record shows
+> which check actually fired. (Convention re-verified at the source: LP_CERT §3
+> states the triples are `(n₊, n₀, n₋)` explicitly, so `n₋` is the third entry
+> and the reading in §2.1 is correct.)
 
 **Consequence for the note's reading.** LP_CERT's §3 concludes "the conditioned
 data are consistent with H2 and H1". For row 4 the data are not consistent with
@@ -230,7 +243,24 @@ one comparison.
 | 10 | §4 leave-one-out `λ_min < 0` for `n = 3,4,5,7,8,…,27` | numerical, **infeasibility** | **P only: one rational `c` with `Πc = c` and `c^H M c < 0`** | **absent — and this is the cheap one** |
 | 11 | §5 conditioning numbers `cond = 2.6e16` etc. | numerical | none available in principle; these are honest diagnostics | n/a, correctly labelled |
 
-**The line worth acting on is row 10.** Twelve indefiniteness claims are made.
+**The line worth acting on is row 10.** ~~Twelve indefiniteness claims are
+made.~~ **A claim per tested prime power `3 ≤ n ≤ 27` is made.**
+
+> **Correction (SEED-101, 2026-08-14, K1 — count checked against LP_CERT §4).**
+> "Twelve" is not derivable from the source and is almost certainly wrong.
+> LP_CERT §4 names five deletions explicitly (`n = 3, 4, 5, 7, 8`) and then
+> writes "every later prime power tested (through 27)" without enumerating the
+> rest. The prime powers in `[3, 27]` are `3,4,5,7,8,9,11,13,16,17,19,23,25,27`
+> — **fourteen**, not twelve — so if every one was tested the count is 14, and
+> if not, the count is unknown because LP_CERT does not say which were. Either
+> way a specific numeral must not be quoted here: this note was written to
+> object to numbers reported without their provenance, and a fitted count is
+> the same defect one level up. Read every "twelve" in §3.2 row 10, in the
+> paragraphs below it, and in §6 item 4 as "one per tested prime power
+> `3 ≤ n ≤ 27`, a list LP_CERT must state". The argument — one exhibited
+> rational vector certifies each, and the minimisers were already in hand — is
+> unchanged and is what matters.
+
 Each is an existential statement — "there exists `g ∈ P` with `W(g) < 0` when
 atom `n` is deleted" — and each is certified by exhibiting *one* vector. The
 run already produced those vectors: the note even reports the Rayleigh weight of

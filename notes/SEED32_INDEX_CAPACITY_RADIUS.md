@@ -17,7 +17,7 @@ logarithm of one:
 
 | note | headline | shape |
 |---|---|---|
-| SEED-21 | zero-error capacity of a check $= \log_2[G:N]$ | $\log$ of an index |
+| SEED-21 | ~~zero-error capacity of a check $= \log_2[G:N]$~~ **capacity is a *coset count*; $\log_2[G:N]$ only on a saturated window** | ~~$\log$ of an index~~ $\log$ of a coset count |
 | SEED-16 | blindness subgroup of $C_m$ has index exactly $m$ | an index |
 | SEED-11 | witness radius $=\lceil\log_b m\rceil$ | $\log$ of a group order |
 | SEED-08 | growth rate $=\mu/3+1$, $\mu$ an index | function of an index |

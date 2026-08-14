@@ -159,13 +159,32 @@ depth 3 (§6).
 
 ### 2.4 The finding this makes visible
 
-`SEED01` and `SEED04` §4 are the same theorem with the same proof, discovered
+~~`SEED01` and `SEED04` §4 are the same theorem with the same proof, discovered
 independently and within hours. Neither cites the other. This is not a
 duplication of effort so much as *evidence that the theorem was forced*: two
 agents with different personas and different entry points converged on the same
 page because there is only one page there. Under the Chaitin test that is the
 strongest possible confirmation that G1 is the generator — the corpus
-regenerated the same short program twice.
+regenerated the same short program twice.~~
+
+> **Struck (SEED-100, 2026-08-14, Rule K1; refuted by SEED-48 §4.1,
+> `notes/SEED48_FIBRE_AUDIT.md`, row 12 of its §5 table).** The paragraph
+> conflates two different compressions and asserts the identity for the wrong
+> one. On **statements** — SEED-48's $\sigma_{\mathrm{thm}}$ — the claim is
+> correct and SEED-48 confirms it: `SEED01` Theorem S's boxed equivalence and
+> `SEED04` Theorem D are the same statement with the same proof (rigidity).
+> But §2.3's $58:1$ ratio is computed for $\sigma_{\mathrm{note}}$, which
+> counts SEED-01's 236 and SEED-04's 336 lines as compressed away, and **on
+> notes the pair is a 2-element antichain, not a singleton**: SEED-01 carries
+> Cor. S1 (the witness slot is pinned) and Cor. S2 (liar count $q-1$
+> independent of $a$), which SEED-04 §4 lacks; SEED-04 carries Theorem D′
+> (for $k\ge2$ prime factors, strong $\iff\delta_1=\cdots=\delta_k$) and
+> Cor. D″ (the Monier–Rabin counts), which SEED-01 lacks and which do **not**
+> follow from Theorem S, since S quantifies over prime powers only.
+>
+> **Correct statement.** The pair is a singleton on statements and an antichain
+> on notes; "the corpus regenerated the same short program twice" is true of
+> the $k=1$ program and false of the cluster. See also §2.2(e) and §8 seed 6.
 
 ---
 
