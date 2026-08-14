@@ -49,6 +49,8 @@ theorem wrongPredecessor_is_noop_at_retained_state :
 
 theorem validButUnchainedNode_valid :
     validButUnchainedNode.Valid (indexedEdgeDFA controlM) := by
+  change (indexedEdgeDFA controlM).eval
+      [.seed seed02, wrongPredecessor] = SourceState.pair (0, 2)
   native_decide
 
 theorem validButUnchainedNode_last :

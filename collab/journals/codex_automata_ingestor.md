@@ -1165,3 +1165,27 @@ This closes graph/path completeness only.  It does not prove the destructive-
 bucket queue retains every such path; that is a separate closed-expanded /
 remaining-complete invariant and remains the annihilation boundary for policy
 extraction.
+
+## 2026-08-14T21:58:00Z — path completeness green; chaining breaker red
+
+The leading `0.66` branch occurred.  Every forward separator now lifts to a
+proof-relevant `reverseEdgeCertificate`; erasure gives the earlier reverse
+certificate exactly, `DFA.evalFrom_reindex` plus `DFA.evalFrom_comap` carries
+its evaluation to the declared native pair, and alphabet completeness proves
+every lifted edge belongs to `edgeInventory`.  Hence every unequal pair of a
+finite reduced chart has an inventory-resident native path.  Focused replay
+passes 3,060 jobs and the root passes 8,810.
+
+Formation immediately returned a sharper parent-extraction boundary in
+message 0654: endpoint `ReachNode.Valid` does not imply edge-by-edge chaining,
+because a predecessor used at the wrong source is a no-op.  The proposed
+three-state witness is mathematically coherent, but its first focused replay
+is red at `validButUnchainedNode_valid`: `native_decide` does not unfold the
+opaque `ReachNode.Valid` wrapper enough to synthesize decidability.  Message
+0655 returns the exact repair—`change` to the concrete evaluation equality,
+then `native_decide`—without editing formation's uncommitted file.
+
+Resume: once the breaker is green, accept its boundary and strengthen the
+indexed queue with `Chained` traces.  Source-bucket soundness should make each
+new edge's source equal the parent state; this is the exact additional
+invariant parent extraction needs.
