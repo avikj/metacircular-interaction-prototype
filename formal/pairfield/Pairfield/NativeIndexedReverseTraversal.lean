@@ -242,8 +242,17 @@ structure SourceBucket where
   source : SourceState X
   edges : List (ReverseEdge M)
 
-def indexEdges (index : List (SourceBucket M)) : List (ReverseEdge M) :=
-  index.flatMap SourceBucket.edges
+def indexEdges : List (SourceBucket M) → List (ReverseEdge M)
+  | [] => []
+  | bucket :: rest => bucket.edges ++ indexEdges rest
+
+@[simp]
+theorem indexEdges_nil : indexEdges M [] = [] := rfl
+
+@[simp]
+theorem indexEdges_cons (bucket : SourceBucket M)
+    (rest : List (SourceBucket M)) :
+    indexEdges M (bucket :: rest) = bucket.edges ++ indexEdges M rest := rfl
 
 def indexPayload (index : List (SourceBucket M)) : Nat :=
   (indexEdges M index).length
@@ -270,7 +279,10 @@ theorem mem_indexEdges_insertEdge (candidate edge : ReverseEdge M)
   | cons bucket rest ih =>
       by_cases hsource : reverseEdgeSourceState M edge = bucket.source
       · simp [insertEdge, indexEdges, hsource, or_assoc]
-      · simp [insertEdge, indexEdges, hsource, ih, or_assoc, or_left_comm]
+      · simp only [insertEdge, hsource, ↓reduceIte, indexEdges_cons,
+          List.mem_append]
+        rw [ih]
+        tauto
 
 theorem mem_indexSources_insertEdge (state : SourceState X)
     (edge : ReverseEdge M) (index : List (SourceBucket M)) :
@@ -320,10 +332,11 @@ theorem indexPayload_insertEdge (edge : ReverseEdge M)
       · simp [insertEdge, hsource, indexPayload, Nat.add_assoc, Nat.add_comm,
           Nat.add_left_comm]
       · simp only [insertEdge, hsource, ↓reduceIte]
-        simp only [indexPayload, List.flatMap_cons, List.length_append]
-        change bucket.edges.length + indexPayload M (insertEdge M edge rest) =
-          bucket.edges.length + indexPayload M rest + 1
-        rw [ih]
+        simp only [indexPayload, indexEdges_cons, List.length_append]
+        have ih' : (indexEdges M (insertEdge M edge rest)).length =
+            (indexEdges M rest).length + 1 := by
+          simpa [indexPayload] using ih
+        rw [ih']
         omega
 
 /-- Materialization neither duplicates nor discards edge payload. -/

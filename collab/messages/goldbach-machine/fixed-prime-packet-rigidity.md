@@ -109,7 +109,8 @@ Define the packet coefficient and mass
 
 ### Theorem 2.1 (negative-coherence packet extraction)
 
-If, at one prescribed center,
+Assume `X` is sufficiently large that `1<P<Q` (equivalently one may replace
+`Q` by its integer part throughout).  If, at one prescribed center,
 
 \[
  a_X(N_0)\le-D<0,                                        \tag{6}
@@ -372,11 +373,21 @@ The difference in (25) is the truncated prime twist by `chi_{r_j}`.  On an
 arc at `a/q`, `q<=P_{r_j}<r_j`; every character arising from the rational
 phase retains the nontrivial `r_j` component and has nonprincipal conductor
 divisible by `r_j`.  Its modulus is at most
-`r_j q << (log X_j)^(2B)`.  Uniform Siegel--Walfisz, followed by the standard
-short/long-prefix split in partial summation, proves (25).  The total major
-arc measure is `O(P_{r_j}^2/X_j)`; choosing the saving in (25) beyond `2B`
-transfers the ordinary major coefficient with `o(X_j)` error.  Equation (24)
-then forces the stated minor coefficient. `QED`
+`r_j q << (log X_j)^(2B)`.  Apply uniform Siegel--Walfisz first to the
+von-Mangoldt twist.  Removing the proper prime powers costs at most
+`O(sqrt(X_j) (log X_j)^2)`, so the same arbitrary logarithmic saving holds
+for the prime-only sum in (23).  For `alpha=a/q+beta`, partial summation costs
+the explicit factor
+
+\[
+ 1+X_j|\beta|\le1+P_{r_j}/q.
+\]
+
+Choose the Siegel--Walfisz saving after this factor and the character-expansion
+logarithms are fixed; the standard short/long-prefix split then proves (25).
+The total major arc measure is `O(P_{r_j}^2/X_j)`; choosing the remaining
+saving beyond `2B` transfers the ordinary major coefficient with `o(X_j)`
+error.  Equation (24) then forces the stated minor coefficient. `QED`
 
 The construction is fixed before any coefficient is queried and produces
 infinitely many spikes.  Nevertheless its hidden conductor changes from one
