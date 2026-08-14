@@ -719,11 +719,14 @@ therefore a dead proof route.
 This is a method-class countermodel, not a residual automaton trajectory.  It
 forgets transition realizability and the global compatibility among live
 cells.  That loss locates the missing object rather than refuting the ADS
-theorem.  The checked Lee--Yannakakis exposition supplies the same diagnosis
-from the positive side: the quadratic construction first builds a global
-splitting tree, refines all largest blocks together, and only then derives the
-adaptive experiment.  Native formation must reconstruct that partition-level
-certificate; another scalar live-cell rank cannot close the gap.
+theorem.  ~~The checked Lee--Yannakakis exposition supplies the same diagnosis
+from the positive side.~~  The paper metadata and abstract confirm the
+quadratic existence and sharpness result, but this lane has not independently
+reconstructed the paper's detailed recurrence from the full primary text.
+Formation's source audit reports that the construction first builds a global
+splitting tree and coordinates largest blocks.  Native formation must still
+check that partition-level certificate here; another scalar live-cell rank
+cannot close the gap.
 
 ## 19. Internal positions remove `n+1` powerset states
 
@@ -755,6 +758,48 @@ cannot reach the quadratic theorem: the missing restriction is global
 transition and response compatibility inside one splitting-tree
 certificate.
 
+## 20. Pair witnesses form one global residual partition
+
+`Pairfield.AdaptiveResidualGlobalPartition` supplies the first checked global
+carrier after the local binomial no-go.  For a finite suffix control language
+`W`, two canonical Mathlib residual states occupy one block exactly when they
+agree on membership of every word in `W`.  This equivalence is installed as a
+Mathlib `Finpartition` of the whole canonical residual carrier.  Adding one
+suffix refines that partition globally, not merely the live cell that happened
+to request the suffix:
+
+```text
+experimentPartition (insert suffix W) ≤ experimentPartition W.
+```
+
+The order points from fine to coarse.  Thus the arbitrary fixed-cardinality
+histories of Section 18 have been replaced by a single compatible family of
+blocks.
+
+The reciprocal witness theorem is exact.  Each unordered pair of distinct
+canonical residual languages has some separating suffix by extensionality.
+Choose one suffix for each such pair and deduplicate the resulting finite
+language.  Mathlib's `Sym2.card_subtype_not_diag` and the exact finite carrier
+from `Language.IsRegular.finite_range_leftQuotient` prove
+
+\[
+  |W|\le \binom n2.
+\]
+
+Agreement on all suffixes in `W` forces equality of canonical residual states,
+so the induced global partition is discrete.  This is the precise positive
+companion to R0063: witnesses do assemble into one globally compatible
+partition certificate, and the same quadratic number counts a sufficient
+nonadaptive witness vocabulary.
+
+The boundary is equally precise.  The chosen witnesses are classical and not
+an executable search, their lengths are uncharged, and a vocabulary cardinal
+is not an adaptive root-to-leaf depth.  Formation's concurrent annotated-block
+claim separates the same issue operationally: informative block splits may
+have a quadratic event budget while constant-response steering letters remain
+inside the annotations.  Neither theorem yet bounds that annotation cost, so
+the classical ADS height remains unproved in this repository.
+
 ## Replay
 
 ```sh
@@ -781,6 +826,7 @@ lake build Pairfield.AdaptiveResidualNodeMinimalSpine
 lake build Pairfield.AdaptiveResidualNodeMinimalDepth
 lake build Pairfield.AdaptiveResidualNonhomogeneousSpine
 lake build Pairfield.AdaptiveResidualBinomialBudgetNoGo
+lake build Pairfield.AdaptiveResidualGlobalPartition
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -788,8 +834,10 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,789 jobs,
+All leaf builds exit zero, and the integrated root build checks the full
+aggregate,
 including the constructor, cardinal no-go, necessary-steering control, and
 canonical positional carrier, cycle deletion, their exact equality adapter,
-both minimal-spine theorems, and the binomial-budget no-go.  Emitted warnings
-are pre-existing linter warnings in imported modules.
+both minimal-spine theorems, the binomial-budget no-go, and the global
+partition/witness certificate.  Emitted warnings are pre-existing linter
+warnings in imported modules.

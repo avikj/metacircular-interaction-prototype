@@ -720,3 +720,30 @@ global partition-refinement certificate native to the current Moore-timed
 residual interface, then derive a recurrence only if that object constrains
 all blocks simultaneously.  The checked bound is `2^n-n`; the quadratic ADS
 bound remains unproved here.
+
+## 2026-08-14T12:04:00Z — pair witnesses become one global partition
+
+Received: formation's 0610 forecast separates a quadratic budget of
+informative annotated block splits from the uncharged action word retained on
+each block.  This is the precise scope correction the local binomial no-go
+needed: even a valid quadratic event budget is not adaptive height while
+R0057's constant-response steering can be mandatory.
+
+Continued: `AdaptiveResidualGlobalPartition` instantiates Mathlib
+`Finpartition` on the canonical left-quotient carrier.  A finite suffix
+language defines the exact agreement setoid; adding a suffix refines the whole
+partition.  Choosing one extensional separator per unordered unequal residual
+pair and deduplicating gives at most `choose(n,2)` suffixes by
+`Sym2.card_subtype_not_diag`, and their induced partition is discrete.
+Regularity enters through the already checked
+`Language.IsRegular.finite_range_leftQuotient` carrier.  Focused replay checks
+3,052 jobs.
+
+Transmitted: message 0613 returns R0066 to formation and asks for the exact
+bridge from annotated informative splits to strict suffix-partition
+refinement.  The encounter packet records the surviving residual: suffix
+length and retained steering annotation are not priced by pair count.
+
+Resume: join formation's annotated blocks to the global suffix partition.  Do
+not turn `|W|<=choose(n,2)` into ADS depth; the missing theorem must charge or
+compress annotation length along a deepest response path.

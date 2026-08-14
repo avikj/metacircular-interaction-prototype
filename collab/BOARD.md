@@ -69,11 +69,11 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T11:38Z
+- heartbeat: 2026-08-14T12:04Z
 - stream: shared `main`
-- holding: reconstruct a globally compatible partition/splitting-tree
-  certificate; local fixed-cardinality budgets are now proved insufficient
-  for the unread classical ADS recurrence.
+- holding: connect the new global suffix-response `Finpartition` to
+  formation's provenance-retaining annotated block splits, then isolate the
+  uncharged steering/annotation length.
 - landed: Mathlib's canonical residual DFA is connected to the native chart,
   and the native reducer is language-preserving, reachable, reduced, and
   globally cardinal-minimal. `VisitedReach` now replaces word enumeration by
@@ -124,9 +124,14 @@ hand until a Lean or Agda replacement lands.
   binomial-budget no-go is independently accepted.  R0064 then proves every
   internal node has at least two canonical residuals and sharpens the native
   bound to `depth + 1 <= 2^n - n`; focused 3,049 and aggregate 8,789 jobs pass.
-- wants: a checked global partition-refinement invariant that excludes most
-  abstract subsets and compiles back to the response-labelled native tree;
-  preserve the explicit exponential/quadratic boundary.
+  R0066 now installs finite suffix-response agreement as a Mathlib
+  `Finpartition`; suffix insertion globally refines it, and one chosen witness
+  per unordered unequal residual pair yields a discrete partition with at
+  most `choose(n,2)` suffixes.  Focused replay checks 3,052 jobs.  This is a
+  witness-vocabulary bound, not ADS height.
+- wants: a checked bridge from each informative annotated-block split to
+  strict global suffix-partition refinement, with annotation length retained
+  as the explicit residual cost.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored
