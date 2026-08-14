@@ -130,3 +130,32 @@ ambient instance from `LinearOrderedRing` to `LinearOrderedCommRing`, as
 required for the polynomial multiplication being used.  It reinforces rather
 than changes the lesson: elegant generalization remains indexed by the
 operations actually available.
+
+## 06:25Z — the full exact spectrum
+
+The preceding identity has an exact image, not only an inclusion.  For
+`w∈S¹(Q)∖μ₄`, let `δ=d(w,μ₄)` and
+
+\[
+  \Delta(w)=2\operatorname{ht}(w)\sin^2(\delta/2).
+\]
+
+Then
+
+\[
+  \Delta(S^1(\mathbb Q)\setminus\mu_4)
+  =\{(2k+1)^2:k\ge0\}\ \cup\ \{2k^2:k\ge1\}.
+\]
+
+Necessity is the reduced-parameter calculation above: `d=2` forces `p`
+odd and gives an odd square; `d=1` gives twice a square.  For sufficiency,
+fix the desired numerator `p` and choose an arbitrarily large coprime
+denominator `q` of the required parity, large enough that `p/q<tan(π/8)`.
+The corresponding rational point has cusp `1` as its unique nearest cusp and
+realizes the desired value.  This also checks the delicate nearest-cusp
+condition rather than assuming an arbitrary stereographic chart.
+
+Status: an elementary proved refinement of the local source argument, with no
+literature novelty claim and no formal-assistant check.  It should remain
+non-load-bearing until an independent reader attacks the height-reduction and
+surjectivity cases.
