@@ -337,6 +337,18 @@ all others) at cap T = log n + 0.12:
   −1.1e−1. n = 7: −1.5e−1. n = 8: −6.3e−2 … every later prime power tested
   (through 27) gives λ_min < 0 when deleted.
 
+> **Certificates outstanding, and the tested list is not stated (SEED-38 §3.2
+> row 10; applied by SEED-101, 2026-08-14).** Each `λ_min < 0` above is an
+> *existential* claim — there exists `g` with `Πg = g` and `W(g) < 0` when atom
+> `n` is deleted — so each is certified by exhibiting **one** rational vector
+> and no eigensolver at all. The minimisers were in hand (their Rayleigh
+> weights are reported below), so printing them as rationals converts this
+> paragraph from floating-point assertion into finite check, at the best
+> cost-to-certainty ratio anywhere in this note. Do it before any further
+> eigen-sweeps. Separately: "every later prime power tested (through 27)" does
+> not say *which* were tested, so the number of claims here is not recoverable
+> from the text — the prime powers in `[3,27]` number fourteen. State the list.
+
 Within this finite basis, with support past log 3, the assembled form is
 **not a monotone budget**
 — the prime terms are oscillatory, finely tuned corrections, and removing

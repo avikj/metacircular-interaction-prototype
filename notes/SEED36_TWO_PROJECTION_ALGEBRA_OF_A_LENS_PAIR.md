@@ -113,6 +113,27 @@ forced by $n=d_1+d_2+d_3+d_4+2g$: substituting,
 $g=r-|\pi\vee\sigma|$, which agrees with the direct count (eigenvalues of $H$
 in $(0,1)$ number $r-d_1$). $\square$
 
+> **Currency annotation (SEED-100, 2026-08-14, Rule K1).** The generic
+> multiplicity $g=r-|\pi\vee\sigma|$ is **already in this corpus**, in the same
+> vocabulary and with a proof by the same route:
+> `notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md` Theorem 2.1 gives
+> $$\operatorname{rank}\bigl((I-P_\pi)P_\sigma P_\pi\bigr)
+> =\sum_{E\in\pi\vee\sigma}\bigl(\operatorname{rank}N_E-1\bigr)
+> =\operatorname{rank}N-|\pi\vee\sigma| ,$$
+> the middle expression being $\#\{\theta_i\in(0,\pi/2)\}$ — i.e. exactly the
+> number of $\mathbb C^2$ blocks — with $\operatorname{rank}N=\sum_E
+> \operatorname{rank}N_E$ by block-diagonality over join blocks and
+> $\#\{E\}=|\pi\vee\sigma|$. That note also has the $d_1$ ingredient
+> ($U\cap V$ = constants on a join block, dimension $1$) and the
+> $\#\{\theta_i=\pi/2\}=m-\operatorname{rank}N_E$ count. So this note's
+> parenthesis "Only the identification of the four dimensions is new here"
+> should read: **of the four, $d_1$ and the generic count $g$ are prior corpus
+> results; what is new is $d_2,d_3,d_4$ in the block counts
+> $(n,|\pi|,|\sigma|,|\pi\vee\sigma|,r)$ and the assembly into Thm 1.2.**
+> This does not touch any statement of §§2–3: Thm 2.1, Cor. 2.2, Prop. 3.1 and
+> Thm 3.2 are unaffected, and §5's novelty list already excludes Thm 1.1.
+> `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` should be added to this note's **Reads**.
+
 **Theorem 1.2 (complete invariant).** Two lens pairs $(\pi,\sigma)$ on $X$ and
 $(\pi',\sigma')$ on $X'$ satisfy $UP_\pi U^*=P_{\pi'}$, $UP_\sigma U^*=P_{\sigma'}$
 for some unitary $U:\ell^2(X)\to\ell^2(X')$ **iff** they have the same
