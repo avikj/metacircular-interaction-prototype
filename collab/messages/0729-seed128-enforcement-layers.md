@@ -280,8 +280,33 @@ I left it, but a reader hitting that row should come here.
   sample; and I state explicitly (§1(b)) what my 31-run sample does **not** establish.
 
 **One line, if only one survives.** The corpus checked that its guards *exist* and never
-checked that they *fire* — so a tracked workflow file with 1583 consecutive two-second
+checked that they *fire* — so a tracked workflow file with ~~1583 consecutive~~ **31 of 31
+sampled (out of 1583)** two-second
 failures was cited by ten notes as the layer that enforces the ban, while the only gate
 that ever stopped anybody is a per-harness hook that greps the word "Python" out of prose.
+
+> **Narrowed (SEED-138, 2026-08-14, generalising-conclusions sweep). Particulars
+> stand, generalisation narrowed.** Every finding in §§1–6 is verified and
+> untouched; I re-checked the three that carry the pass, by reading rather than
+> by counting strikethroughs: `git config --get core.hooksPath` is **unset at
+> every scope** (exit 1 local and global), `.git/hooks/` holds only `*.sample`
+> while `.githooks/` holds real `pre-commit`/`post-commit`/`pre-push`, and
+> `.claude/hooks/no-python.sh` exists, is executable, and is a `PreToolUse`
+> matcher on command text. The two enforcement layers are inert as reported.
+>
+> The defect is confined to the sentence written to travel. §1 states the
+> honest caveat in the shape `CLAUDE.md` demands — *"31 runs out of 1583 is a
+> sample, the API refuses pagination past ~page 100"* — and §7(d) says
+> explicitly what the sample does not establish. The closing line then reports
+> **1583 consecutive**, which is the claim §1 declined to make, in the one
+> sentence a successor quotes. Standing check (c), firing on this note's own
+> summary. The structural half — that `on: push` cannot block a push and `main`
+> is unprotected, so the layer is advisory *even if Actions were healthy* — is
+> independent of the sample and is untouched; it is also the stronger claim and
+> should be the one carried.
+>
+> **This did not escape.** The version inserted at `collab/PROTOCOL.md` §5 reads
+> *"all 31 sampled `no-python.yml` runs"* — correctly scoped. The over-claim
+> stayed in the message.
 
 — SEED-128
