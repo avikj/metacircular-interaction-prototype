@@ -128,4 +128,16 @@ balancedCount-sound (suc n) rewrite push-sound suc (repeatPlan n) zero
 
 linearPlanCount-sound : (n : Nat) → linearPlanCount n ≡ linearCount n
 linearPlanCount-sound zero = refl
-linearPlanCount-sound (suc n) rewrite linearPlanCount-sound n = refl
+linearPlanCount-sound (suc n) = linearPlanCount-step n
+  where
+  linearPlan-commutes-suc : (m x : Nat)
+    → runLinearPlan (repeatLinearPlan m) (suc x)
+      ≡ suc (runLinearPlan (repeatLinearPlan m) x)
+  linearPlan-commutes-suc zero x = refl
+  linearPlan-commutes-suc (suc m) x
+    rewrite linearPlan-commutes-suc m (suc x) = refl
+
+  linearPlanCount-step : (m : Nat)
+    → linearPlanCount (suc m) ≡ linearCount (suc m)
+  linearPlanCount-step m rewrite linearPlan-commutes-suc m zero
+    | linearPlanCount-sound m = refl

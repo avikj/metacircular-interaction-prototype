@@ -15,7 +15,7 @@ universe u v
 variable {A : Type u} {X : Type v}
 
 /-- The complete-future setoid for executable Boolean acceptance. -/
-def dfaFutureSetoid (M : DFA A X)
+abbrev dfaFutureSetoid (M : DFA A X)
     [DecidablePred (fun state : X => state ∈ M.accept)] : Setoid X :=
   futureSetoid M.step (acceptsBool M)
 
@@ -83,7 +83,7 @@ theorem behavioralQuotientDFA_isReduced
   rw [behavioralQuotientDFA_evalFrom_mk,
     behavioralQuotientDFA_evalFrom_mk,
     quotientObserve_mk, quotientObserve_mk] at hword
-  exact hword
+  simpa only [behavior, run_eq_evalFrom] using hword
 
 /-- If every input row is start-reachable, every quotient class remains
 start-reachable.  Without this hypothesis the quotient merges garbage but
@@ -102,7 +102,7 @@ theorem behavioralQuotientDFA_allStatesReachable
 
 /-- Mathlib's `Quotient.fintype` becomes executable here because
 `ChartStateBFS` supplies a decision procedure for the future setoid. -/
-def behavioralQuotientFintype
+@[instance_reducible] def behavioralQuotientFintype
     [DecidableEq A] [Fintype X] (M : DFA A X)
     [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
@@ -120,7 +120,7 @@ def reducedDFA [DecidablePred (fun state : X => state ∈ M.accept)] :
     DFA A (Quotient (dfaFutureSetoid C.toDFA)) :=
   behavioralQuotientDFA C.toDFA
 
-def reducedFintype
+@[instance_reducible] def reducedFintype
     [DecidableEq A] [DecidablePred (fun state : X => state ∈ M.accept)]
     (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
     Fintype (Quotient (dfaFutureSetoid C.toDFA)) :=
@@ -174,7 +174,8 @@ def alphabet : List Bool := [false, true]
 theorem alphabet_complete (action : Bool) : action ∈ alphabet := by
   cases action <;> simp [alphabet]
 
-def quotientFintype : Fintype (Quotient (dfaFutureSetoid automaton)) :=
+@[instance_reducible] def quotientFintype :
+    Fintype (Quotient (dfaFutureSetoid automaton)) :=
   behavioralQuotientFintype automaton alphabet alphabet_complete
 
 local instance : Fintype (Quotient (dfaFutureSetoid automaton)) :=
