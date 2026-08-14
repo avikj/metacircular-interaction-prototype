@@ -25,6 +25,17 @@ timedBool label f n = do
     (fromIntegral (t1 - t0) / (10 ^ (9 :: Int)) :: Double)
   pure answer
 
+timedMixed :: String -> (Integer -> Integer -> Integer -> AB.T_Bool_6)
+  -> (Integer, Integer, Integer) -> IO AB.T_Bool_6
+timedMixed label f (epochs, writes, reads) = do
+  t0 <- getCPUTime
+  answer <- evaluate (f epochs writes reads)
+  t1 <- getCPUTime
+  printf "%s epochs=%d writes/epoch=%d reads/epoch=%d cpu_ms=%.3f\n"
+    label epochs writes reads
+    (fromIntegral (t1 - t0) / (10 ^ (9 :: Int)) :: Double)
+  pure answer
+
 main :: IO ()
 main = do
   args <- getArgs
@@ -40,3 +51,13 @@ main = do
       (AB.C_false_8, AB.C_false_8) -> pure ()
       (AB.C_true_10, AB.C_true_10) -> pure ()
       _ -> fail "checked-equivalent flip implementations disagreed") sizes
+  let regimes =
+        [(100, 100, 1), (100, 100, 4), (20, 1000, 100), (20, 1000, 1000)]
+  mapM_ (\regime -> do
+    lazy <- timedMixed "mixed-lazy" B.d_lazyMixed_966 regime
+    adaptive <- timedMixed "mixed-adaptive" B.d_adaptiveMixed_912 regime
+    fused <- timedMixed "mixed-fused" B.d_fusedMixed_1020 regime
+    case (lazy, adaptive, fused) of
+      (AB.C_false_8, AB.C_false_8, AB.C_false_8) -> pure ()
+      (AB.C_true_10, AB.C_true_10, AB.C_true_10) -> pure ()
+      _ -> fail "mixed strategies disagreed") regimes

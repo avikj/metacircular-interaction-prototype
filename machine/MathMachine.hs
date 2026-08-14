@@ -992,6 +992,40 @@ round1 logh libh ref = do
 main :: IO ()
 main = do
   args <- getArgs
+  when (args == ["--cache-self-test"]) $ do
+    let syms = take 3 vocabulary
+        rules = definitionsOf syms
+        raw = genTerms (arities syms) 3 7
+        (first, cache, _, _) = normalizePersistent [] rules M.empty raw
+        (replay, _, hits, misses) = normalizePersistent rules rules cache raw
+        comm = (bin "+" x_ y_, bin "+" y_ x_)
+        extended = rules ++ [comm]
+        (revised, _, _, _) = normalizePersistent rules extended cache raw
+    unless (first == map (normalize rules) raw
+            && replay == first && hits == length raw && misses == 0
+            && revised == map (normalize extended) raw) exitFailure
+    hPrintf stdout "CACHE CHECKED: terms=%d stable-hits=%d extension=exact\n"
+      (length raw) hits
+    exitSuccess
+  when (args == ["--cache-benchmark"]) $ do
+    let syms = take 3 vocabulary
+        rules = definitionsOf syms
+        raw = genTerms (arities syms) 3 7
+        (_, cache, _, _) = normalizePersistent [] rules M.empty raw
+    a <- getCPUTime
+    let oldMass = sum (map (size . normalize rules) raw)
+    oldMass `seq` pure ()
+    b <- getCPUTime
+    let (cached, _, hits, misses) = normalizePersistent rules rules cache raw
+        newMass = sum (map size cached)
+    newMass `seq` hits `seq` misses `seq` pure ()
+    c <- getCPUTime
+    unless (oldMass == newMass && hits == length raw && misses == 0) exitFailure
+    let oldMs = fromIntegral (b - a) / (1e9 :: Double)
+        newMs = fromIntegral (c - b) / (1e9 :: Double)
+    hPrintf stdout "terms=%d tree-ms=%.3f cache-ms=%.3f speedup=%.3fx exact=yes\n"
+      (length raw) oldMs newMs (oldMs / newMs)
+    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw

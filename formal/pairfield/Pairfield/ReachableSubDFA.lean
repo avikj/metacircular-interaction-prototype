@@ -168,6 +168,68 @@ theorem startReachableDFA_allStatesReachable
   rw [startReachableDFA_eval_val]
   exact hword
 
+/-- Delete unreachable rows and then merge equal futures.  The carrier is
+fully native: both the reachability filter and the future setoid are decided
+by finite searches justified by the two Mathlib loop-deletion adapters. -/
+def reachableReducedDFA
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
+    DFA A (Quotient (dfaFutureSetoid
+      (startReachableDFA M alphabet complete))) :=
+  behavioralQuotientDFA (startReachableDFA M alphabet complete)
+
+instance reachableReducedDFA_accept_decidable
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
+    DecidablePred (fun meaning : Quotient (dfaFutureSetoid
+        (startReachableDFA M alphabet complete)) =>
+      meaning ∈ (reachableReducedDFA M alphabet complete).accept) := by
+  unfold reachableReducedDFA
+  infer_instance
+
+@[instance_reducible] def reachableReducedFintype
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
+    Fintype (Quotient (dfaFutureSetoid
+      (startReachableDFA M alphabet complete))) :=
+  behavioralQuotientFintype
+    (startReachableDFA M alphabet complete) alphabet complete
+
+theorem reachableReducedDFA_accepts_eq
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
+    (reachableReducedDFA M alphabet complete).accepts = M.accepts := by
+  rw [reachableReducedDFA, behavioralQuotientDFA_accepts_eq,
+    startReachableDFA_accepts_eq]
+
+theorem reachableReducedDFA_allStatesReachable
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
+    ∀ meaning : Quotient (dfaFutureSetoid
+        (startReachableDFA M alphabet complete)),
+      ∃ word : List A,
+        (reachableReducedDFA M alphabet complete).eval word = meaning := by
+  apply behavioralQuotientDFA_allStatesReachable
+    (startReachableDFA M alphabet complete)
+  exact startReachableDFA_allStatesReachable M alphabet complete
+
+theorem reachableReducedDFA_isReduced
+    [DecidableEq A] [DecidableEq X] [Fintype X]
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (alphabet : List A) (complete : ∀ action : A, action ∈ alphabet) :
+    ∀ {left right : Quotient (dfaFutureSetoid
+        (startReachableDFA M alphabet complete))},
+      FutureEq (reachableReducedDFA M alphabet complete).step
+        (acceptsBool (reachableReducedDFA M alphabet complete)) left right →
+      left = right :=
+  behavioralQuotientDFA_isReduced_acceptsBool
+    (startReachableDFA M alphabet complete)
+
 namespace ReachableSubDFAWitness
 
 open ChartQuotientWitness
@@ -179,6 +241,19 @@ example :
     (startReachableDFA automaton alphabet alphabet_complete).accepts =
       automaton.accepts :=
   startReachableDFA_accepts_eq automaton alphabet alphabet_complete
+
+local instance : Fintype (Quotient (dfaFutureSetoid
+    (startReachableDFA automaton alphabet alphabet_complete))) :=
+  reachableReducedFintype automaton alphabet alphabet_complete
+
+example : Fintype.card (Quotient (dfaFutureSetoid
+    (startReachableDFA automaton alphabet alphabet_complete))) = 3 := by
+  native_decide
+
+example :
+    (reachableReducedDFA automaton alphabet alphabet_complete).accepts =
+      automaton.accepts :=
+  reachableReducedDFA_accepts_eq automaton alphabet alphabet_complete
 
 end ReachableSubDFAWitness
 

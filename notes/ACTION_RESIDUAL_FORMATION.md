@@ -172,7 +172,10 @@ The formal artifact is
 4. the predictor-free translation cross-effect construction;
 5. the arbitrary-commutative-ring identity (7);
 6. the exact integer `1,-1` collision; and
-7. injectivity of the formed integer residual.
+7. injectivity of the formed integer residual;
+8. the necessary-and-sufficient two-step cocycle boundary;
+9. the finite compiled residual fold; and
+10. equality of that fold with the exact endpoint defect at every depth.
 
 Replay from `formal/cubical/`:
 
@@ -180,26 +183,95 @@ Replay from `formal/cubical/`:
 agda -i . NaturalMachine/ActionResidual.agda
 ```
 
-The file is `--cubical --safe`, with no holes or postulates.  At the time of
-landing it was leaf-checked; root-aggregate coverage is recorded separately
-because concurrent ownership of `NaturalMachine.agda` must not be overwritten.
+The file is `--cubical --safe`, with no holes or postulates, and is imported by
+the root aggregate.  Both the leaf command above and
+`agda -i . NaturalMachine.agda` exit zero.  The aggregate emits its existing
+unsupported-indexed-match warnings; none arise from this module.
 
-## 7. Scope and next obstruction
+## 7. Composition boundary and proof compilation
+
+Write
+
+\[
+\delta(x)=q(sx)-p(qx),\qquad
+\delta^{(2)}(x)=q(s^2x)-p^2(qx).                              \tag{10}
+\]
+
+Global additivity of `p` is sufficient for a cocycle law, but it is not the
+exact hypothesis.  At a fixed state `x`, define the realized preservation law
+
+\[
+p(\delta(x))=p(q(sx))-p^2(qx).                                \tag{11}
+\]
+
+**Theorem 7.1 (exact two-step boundary).** At every `x`, (11) holds if and
+only if
+
+\[
+\delta^{(2)}(x)=\delta(sx)+p(\delta(x)).                       \tag{12}
+\]
+
+**Proof.** Abelian-group cancellation gives the unconditional expansion
+
+\[
+\delta^{(2)}(x)
+=\delta(sx)+\bigl(p(q(sx))-p^2(qx)\bigr).                     \tag{13}
+\]
+
+Substituting (11) proves (12).  Conversely compare (12) with (13) and cancel
+the common first summand. `square`
+
+Thus the precise obstruction is not “nonlinearity somewhere.”  It is failure
+to preserve the one subtraction that actually produced the current residual.
+For a sharp control, take `A=Z`, `q(x)=x`, `s(x)=x+1`, and `p(y)=y^2`.  At
+`x=1`, `delta(x)=1`, so the two sides of (11) are `1` and `4-1=3`.  Correspondingly
+`delta^(2)(1)=3-1=2`, while `delta(2)+p(delta(1))=-1+1=0`.  The cocycle fails by
+exactly the realized preservation defect.
+
+When `p` preserves subtraction globally, the one-shot sensor compiles for all
+finite action depths.  Define an executable fold
+
+\[
+D_0(x)=0,\qquad
+D_{n+1}(x)=\delta(s^n x)+p(D_n(x)).                            \tag{14}
+\]
+
+**Theorem 7.2 (compiled residual fold).** For every natural number `n`,
+
+\[
+D_n(x)=q(s^n x)-p^n(qx).                                      \tag{15}
+\]
+
+**Proof.** The base case is `q(x)-q(x)=0`.  At the successor step, apply
+(13) with `s^n x` in place of `x`, use preservation of subtraction to identify
+the transported accumulated defect, and invoke the induction hypothesis.
+This is the checked recursion `compiledResidual-sound`. `square`
+
+Equation (15) is the proof-compilation event the one-step theorem left open.
+The action loop no longer needs to reopen the original hidden state or
+reconstruct the endpoint defect from scratch: each encounter emits one local
+residual, and (14) updates the exact global obstruction inside the observable
+codomain.  The theorem also says precisely when this compilation is unlawful.
+
+## 8. Scope and next obstruction
 
 Proved: the reversible coordinate theorem, the exact cross-effect formation,
-the ring identity, the strict integer collision, and integer faithfulness.
+the ring identity, the strict integer collision, integer faithfulness, the
+two-step iff boundary, and the all-finite-depth compiled fold under subtraction
+preservation.
 
 Not proved: that every useful action language has an additive codomain in
 which a difference can be taken; that a predictor is canonical without the
 pointed translation structure; that the residual is cheap under a specified
-physical cost model; or that the one-step residual already composes under
-repeated action.
+physical cost model; or that a useful predictor preserves the realized
+residuals produced by an arbitrary action language.
 
-The next exact question is composition.  If the predictor is an additive
-endomorphism, repeated action should transport the one-step defects by a
-cocycle law.  Proving that law would turn a newly formed one-shot reading into
-a reusable update rule; failure would separate “sensor formed once” from
-“observable compiled into the ongoing action language.”
+The next exact question has changed.  Composition is now compiled; the live
+boundary is **predictor formation**.  In the square/translation example the
+grading chooses `p_u(y)=y+u^2`.  For a general current action language, what
+universal property forms the predictor itself, and what collision certifies
+that no predictor on the old carrier can close the residual fold?  This is an
+existence/selection obstruction, not another cocycle calculation.
 
 ## Prior-art/search ledger
 
@@ -211,4 +283,3 @@ them.  Repository search located the related checked developments
 `notes/PRIOR_ART_INDEX.md` names an external `~/agda-libs` tree, but that path
 was absent in this checkout, so no claim about coverage of that library is
 made.
-

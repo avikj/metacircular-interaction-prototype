@@ -332,3 +332,69 @@ isFused (fusedMode t) = true
 
 adaptiveSelected : Nat → Nat → Bool
 adaptiveSelected writes reads = isFused (readRepeatedly reads (writeFlips writes))
+
+xor : Bool → Bool → Bool
+xor false y = y
+xor true false = true
+xor true true = false
+
+writeModeN : Nat → AdaptiveMode → AdaptiveMode
+writeModeN zero m = m
+writeModeN (suc n) m = writeModeN n (updateMode not m)
+
+observeAdaptiveN : Nat → AdaptiveMode → Bool
+  → Σ Bool (λ _ → AdaptiveMode)
+observeAdaptiveN zero m acc = acc , m
+observeAdaptiveN (suc n) m acc =
+  observeAdaptiveN n (snd step) (xor (fst step) acc)
+  where
+  step = readMode m false
+
+adaptiveEpochs : Nat → Nat → Nat → AdaptiveMode → Bool → Bool
+adaptiveEpochs zero writes reads m acc = acc
+adaptiveEpochs (suc epochs) writes reads m acc =
+  adaptiveEpochs epochs writes reads (snd observed) (fst observed)
+  where
+  observed = observeAdaptiveN reads (writeModeN writes m) acc
+
+adaptiveMixed : Nat → Nat → Nat → Bool
+adaptiveMixed epochs writes reads =
+  adaptiveEpochs epochs writes reads (lazyMode empty zero zero) false
+
+writePlanN : Nat → Plan Bool → Plan Bool
+writePlanN zero p = p
+writePlanN (suc n) p = writePlanN n (push not p)
+
+observePlanN : Nat → Plan Bool → Bool → Bool
+observePlanN zero p acc = acc
+observePlanN (suc n) p acc = observePlanN n p (xor (runPlan p false) acc)
+
+lazyEpochs : Nat → Nat → Nat → Plan Bool → Bool → Bool
+lazyEpochs zero writes reads p acc = acc
+lazyEpochs (suc epochs) writes reads p acc =
+  lazyEpochs epochs writes reads p′ (observePlanN reads p′ acc)
+  where
+  p′ = writePlanN writes p
+
+lazyMixed : Nat → Nat → Nat → Bool
+lazyMixed epochs writes reads = lazyEpochs epochs writes reads empty false
+
+writeTableN : Nat → BoolTable → BoolTable
+writeTableN zero t = t
+writeTableN (suc n) t = writeTableN n (composeBoolTable not t)
+
+observeTableN : Nat → BoolTable → Bool → Bool
+observeTableN zero t acc = acc
+observeTableN (suc n) t acc =
+  observeTableN n t (xor (applyBoolTable t false) acc)
+
+fusedEpochs : Nat → Nat → Nat → BoolTable → Bool → Bool
+fusedEpochs zero writes reads t acc = acc
+fusedEpochs (suc epochs) writes reads t acc =
+  fusedEpochs epochs writes reads t′ (observeTableN reads t′ acc)
+  where
+  t′ = writeTableN writes t
+
+fusedMixed : Nat → Nat → Nat → Bool
+fusedMixed epochs writes reads =
+  fusedEpochs epochs writes reads identityBoolTable false
