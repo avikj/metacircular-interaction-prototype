@@ -269,6 +269,48 @@ identifiesAll-iff-identifiesInitialFibers step observe tree =
   identifiesAll→identifiesInitialFibers step observe tree ,
   identifiesInitialFibers→identifiesAll step observe tree
 
+-- A root action is safe on each free-output fibre only if two states taking
+-- the same response cannot fall into the same complete future residual.
+-- Otherwise no response-selected continuation can recover their identity.
+SafeActionOnInitialFiber :
+  (X → A → X) → (X → Bool) → A → Type _
+SafeActionOnInitialFiber {X = X} step observe action =
+  {left right : X}
+  → observe left ≡ observe right
+  → observe (step left action) ≡ observe (step right action)
+  → FB.FutureEq step observe (step left action) (step right action)
+  → left ≡ right
+
+query-identifies→safeAction :
+    (step : X → A → X) (observe : X → Bool)
+    (action : A) (continue : Bool → BoolExperimentTree A)
+  → IdentifiesAll step observe (query action continue)
+  → SafeActionOnInitialFiber step observe action
+query-identifies→safeAction step observe action continue identifies
+    {left} {right} current response future =
+  identifies
+    (cong₂ prepend current
+      ( futureEq→adaptiveEq step observe future
+          (continue (observe (step left action)))
+      ∙ cong
+          (λ bit → trace step observe (continue bit) (step right action))
+          response ))
+
+unsafeAction-obstructs-query :
+    (step : X → A → X) (observe : X → Bool)
+    (action : A) {left right : X}
+  → ¬ (left ≡ right)
+  → observe left ≡ observe right
+  → observe (step left action) ≡ observe (step right action)
+  → FB.FutureEq step observe (step left action) (step right action)
+  → (continue : Bool → BoolExperimentTree A)
+  → ¬ IdentifiesAll step observe (query action continue)
+unsafeAction-obstructs-query step observe action different
+    current response future continue identifies =
+  different
+    (query-identifies→safeAction step observe action continue identifies
+      current response future)
+
 -- Hostile timing control.  The free current observation identifies Bool at
 -- depth zero, while the post-action response of `done` is constantly empty.
 freeOutputStep : Bool → Bool → Bool

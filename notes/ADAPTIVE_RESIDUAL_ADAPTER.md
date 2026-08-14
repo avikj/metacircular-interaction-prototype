@@ -62,6 +62,15 @@ fibre*.  The two-state identity machine is the hostile control: `done`
 identifies its states from the free current bit, while its post-action response
 is constantly empty and therefore not injective on the ambient state set.
 
+The first native splitting-tree obligation is now checked too.  A root action
+is `SafeActionOnInitialFiber` only if no two distinct states with the same free
+current output and the same root response enter future-equivalent successor
+states.  `query-identifies→safeAction` proves this condition for every
+identifying query tree.  Its contrapositive is executable and independent of
+the chosen subtrees: `unsafeAction-obstructs-query` rejects **every**
+continuation below an unsafe root.  This is a necessary branch-safety theorem,
+not an existence theorem for a global ADS.
+
 ## Translation killed
 
 The isomorphism is about **distinguishability**, not experiment cost.  It does
