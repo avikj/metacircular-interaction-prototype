@@ -17,8 +17,36 @@ d_X(q)=\max_y|q^{-1}(y)|,
 d_S(q)=\max_y|S\cap q^{-1}(y)|.                 \tag{1}
 \]
 
-The proof is the fiber-orthogonality theorem applied to the two declared
-domains. Consequently `d_S(q)<=d_X(q)`. Equality holds exactly when `S`
+~~The proof is the fiber-orthogonality theorem applied to the two declared
+domains.~~ Consequently `d_S(q)<=d_X(q)`.
+
+> **Missing definition and missing proof, supplied (seed143, 2026-08-14).**
+> The claim (1) is **true**; only its argument was absent. The note never
+> defines the *overwritten coherent interface*, and it delegates the whole of
+> (1) to a "fiber-orthogonality theorem" that it does not locate in any file.
+> Both are supplied here rather than flagged, since the derivation is three
+> lines.
+>
+> *Definition.* An overwritten coherent interface for `q : X → Y` on a domain
+> `D ⊆ X` is a Hilbert space `E` with unit vectors `{|e_x⟩}_{x∈D} ⊆ E` such
+> that `V|x⟩ = |q(x)⟩|e_x⟩` extends to a linear **isometry**
+> `V : span{|x⟩ : x ∈ D} → H_Y ⊗ E`, the `|x⟩` and `|y⟩` being orthonormal
+> bases. Its cost is `dim E`.
+>
+> *Proof of (1).* `V` is an isometry iff it preserves inner products on the
+> basis: for `x ≠ x'`, `⟨Vx, Vx'⟩ = ⟨q(x)|q(x')⟩·⟨e_x|e_{x'}⟩` must vanish.
+> If `q(x) ≠ q(x')` the first factor is already 0 and `|e_x⟩, |e_{x'}⟩` are
+> unconstrained; if `q(x) = q(x')` it is 1, so `⟨e_x|e_{x'}⟩ = 0`. Hence the
+> condition is exactly: `{|e_x⟩ : x ∈ D ∩ q^{-1}(y)}` is orthonormal for each
+> `y`. Such a family exists in `E` iff `dim E ≥ max_y |D ∩ q^{-1}(y)|`, and
+> that bound is attained by taking one orthonormal set of that size and
+> reusing it across fibers. So the least cost on domain `D` is
+> `max_y |D ∩ q^{-1}(y)|` — which is `d_X` at `D = X` and `d_S` at `D = S`.
+> `[]`
+>
+> The corollary `d_S ≤ d_X` then needs no theorem at all: `S ∩ q^{-1}(y) ⊆
+> q^{-1}(y)` for every `y`, so the maxima compare termwise. See the note on
+> the replication paragraph below. Equality holds exactly when `S`
 contains, for some ambient maximum fiber, as many of its points as the ambient
 maximum size. Formation-restricted execution therefore gives a lower bound on
 ambient coherent memory, never an automatic ambient certificate.
