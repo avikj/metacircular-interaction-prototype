@@ -766,14 +766,38 @@ round1 logh libh ref = do
           -- by raising the horizon anyway and then halting — growing the
           -- one dimension its own numbers said was not the constraint
           -- (rounds 16-18: conjectures 9k → 18k, proved 0 → 5 → 0; the
-          -- prover was the bottleneck, not the search).  It stays here
-          -- instead, and the only way out is a name it invents itself.
-          | otherwise = m2
+          -- prover was the bottleneck, not the search).  The only way out
+          -- is a name, and if the last name it coined is going unused
+          -- then that name is the thing standing in the way: WITHDRAW IT.
+          -- Retiring restores the term space the dead symbol was costing
+          -- and frees the coin slot for a different pattern, and the
+          -- retired pattern is remembered so it is not re-proposed.
+          --
+          -- Without this the previous rule deadlocks, and the deadlock is
+          -- provable rather than probable: with no results, no concept
+          -- and no axis moved, the next round has the same rules, vocab
+          -- and size, hence the same terms, hence the same conjectures,
+          -- all of them memoized-failed at the same rule count — fresh=0
+          -- forever.  Rounds 19 and 20 of the previous run were
+          -- bit-identical, 45 seconds each.  A machine spinning on a
+          -- state it can prove it cannot leave is worse than one that
+          -- halts, because it looks alive.
+          | not (null (mInvented m2)) =
+              m2 { mInvented = init (mInvented m2)
+                 , mRetired = mRetired m2
+                     ++ [ canonTerm (fst (head (symDefs (last (mInvented m2))))) ] }
+          -- Nothing left to withdraw and nothing left to widen: the
+          -- machine genuinely needs more room, and saying so by raising
+          -- the horizon is now the honest move rather than the lazy one.
+          | otherwise = m2 { mSize = mSize m2 + 1 }
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
   when (stuck && mSize m'' > mSize m2) $
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
+  when (stuck && length (mInvented m'') < length (mInvented m2)) $
+    hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
+      (symName (last (mInvented m2)))
   hFlush logh
   writeIORef ref m''
 
