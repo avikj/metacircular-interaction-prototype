@@ -643,6 +643,48 @@ Conversely, R0057's mandatory `steer` changes the finite canonical cell, so it
 cannot be deleted through this adapter.  The leading 0.84 forecast in message
 0587 occurred.
 
+## 17. Minimal spines are cycle-free, with an exact exponential bound
+
+Two complementary minimality statements now globalize the local deletion
+theorem.  `Pairfield.AdaptiveResidualMinimalSpine` carries a selected native
+subtree together with its response-conditioned live cell.  A proper
+descendant is strictly shallower, inherits both `ResidualSplitting` and current
+output constancy, and therefore cannot return to the root position of a
+depth-minimal splitting tree: R0059 would transplant the descendant subtree
+to the root and contradict depth minimality.  A redundant R0057 steering tree
+is the negative control; it separates but fails the minimality premise.  The
+mandatory R0057 steer survives because it changes canonical position.
+
+Depth minimality at the root alone does not justify minimality of an arbitrary
+non-maximal sibling.  `Pairfield.AdaptiveResidualNodeMinimalSpine` makes that
+quantifier explicit by using the native query-node count as a secondary
+selection criterion.  A node-minimal certified plan exists whenever any plan
+exists, every strict subplan is again node-minimal, and an equal-position
+proper descendant would compile through R0059 to a strictly smaller plan.
+Hence for every explicit root-to-leaf strict plan spine,
+
+```text
+(spine.map canonicalPosition).Nodup.
+```
+
+The set-valued positions are then repackaged without loss as subsets of
+Mathlib's canonical left-quotient state type.  The state type is finite by the
+exact theorem `Language.IsRegular.finite_range_leftQuotient`; the native
+transition into it remains the checked `Language.step_toDFA` adapter from
+Section 13.  If the regular language has `n` canonical residual states,
+`Fintype.card_set` and the duplicate-free spine prove
+
+\[
+\boxed{|\text{spine}|\le 2^n.}
+\]
+
+This is the first unconditional finite bound after constant-response steering
+destroyed every cardinal-only rank.  It is deliberately not advertised as
+the classical sharp quadratic ADS height.  The checked statement bounds any
+supplied proof-relevant strict spine; a native construction of a
+depth-realizing spine and a sharper recurrence across informative splits are
+the next joints.
+
 ## Replay
 
 ```sh
@@ -664,6 +706,8 @@ lake build Pairfield.AdaptiveConstantResponseSteering
 lake build Pairfield.AdaptiveResidualPositionRank
 lake build Pairfield.AdaptiveResidualCycleDeletion
 lake build Pairfield.AdaptiveResidualPositionCycleAdapter
+lake build Pairfield.AdaptiveResidualMinimalSpine
+lake build Pairfield.AdaptiveResidualNodeMinimalSpine
 lake build Pairfield
 
 cd /Users/avikjain/Desktop/math2
@@ -671,7 +715,8 @@ agda -i formal/cubical formal/cubical/NaturalMachine/ObservableHorizon.agda
 agda -i formal/cubical formal/cubical/NaturalMachine.agda
 ```
 
-All leaf builds exit zero, and the integrated root build checks 8,782 jobs,
+All leaf builds exit zero, and the integrated root build checks 8,785 jobs,
 including the constructor, cardinal no-go, necessary-steering control, and
-canonical positional carrier, cycle deletion, and their exact equality adapter.
-Emitted warnings are pre-existing linter warnings in imported modules.
+canonical positional carrier, cycle deletion, their exact equality adapter,
+and both minimal-spine theorems.  Emitted warnings are pre-existing linter
+warnings in imported modules.

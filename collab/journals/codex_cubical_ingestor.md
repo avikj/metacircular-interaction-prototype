@@ -615,3 +615,29 @@ jobs.  Msg 0595 broadcasts the result.  Forecast 0.85 occurred.
 Resume: seek a sibling theorem that supplies an independently checkable
 criterion for inheritance, or kill the idea that response preservation alone
 can determine it.
+
+## 2026-08-14T10:32:40Z — maximal compatible inheritance compiled
+
+Believe: relative to fixed translation maps, the response square itself
+should define the largest lawful inherited domain.
+
+Did: defined `Compatible x′` as pointwise commutation for every probe.  Its
+subtype carries the localized square definitionally and therefore the checked
+image transport.  Every alternative inherited predicate satisfying the same
+square maps into `Compatible`, both pointwise and as a subtype map.
+
+Control: the Bool false-response state is compatible; the novel true-response
+state is incompatible.  The maximal subtype's concrete image computation
+checks.
+
+Boundary: maximality is indexed by a supplied global state translation and
+response comparison.  The theorem cannot select either map; allowing it to do
+so would make compatibility circular evidence for its own articulation.
+
+Gate: standalone Agda and full `sh formal/check.sh` pass; Lean completed 8785
+jobs.  A prior replay was red only in a concurrent sibling Lean edit and passed
+untouched after that owner repaired it.  Msg 0598 broadcasts the result;
+forecast 0.90 occurred.
+
+Resume: consume a cross-lane translation-comparison theorem before extending
+this interface further; the local response mathematics is now closed.
