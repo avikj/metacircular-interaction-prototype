@@ -220,17 +220,41 @@ in Lean and is not proved here.
 
 ## 5. Why the current strongest average does not close one center
 
-The same primary source proves, at the optimized power cutoff,
+There are two different arc regimes and they must not be conflated.  At the
+logarithmic cutoff used in the pointwise major-arc formula, Lemma 4.2 gives
+
+\[
+\sum_{N\le X}|a_R(N)|^2
+\ll X^3(\log X)^{5-A}
+\qquad(R=(\log X)^A).
+\]
+
+This still permits `O(X (log X)^(5-A))` order-`X` spikes, including one.  An
+anti-spike theorem in this same regime would have to propagate one exception
+to more than that many comparable coefficients.  A first-difference route
+would require a polylogarithmic estimate of the approximate strength
+`D=o((log X)^(A-5))`, against the current `O(X log X)`.
+
+The source also proves a numerically stronger squared norm at a **different,
+power-sized cutoff**:
 
 \[
 \sum_{N\le X}|a_R(N)|^2
 \ll X^{13/5}(\log X)^5.
 \]
 
-Direct point evaluation gives only
+Direct point evaluation in that decomposition gives only
 `O(X^(13/10) log^(5/2) X)`, larger than the order-`X` main term.  It permits
 `O(X^(3/5) log^5 X)` coefficients of order `X`, and in particular permits
 one.
+
+At a power cutoff, however, the major-arc side contains generalized-zero
+terms.  A Goldbach exception does not automatically put its entire order-`X`
+defect into this minor/residual coordinate.  The power-cutoff anti-spike route
+therefore also needs a theorem controlling or transporting those zero modes.
+The `13/5` calculation is a sharp audit of the residual point-evaluation
+interface, not by itself a deduction from “Goldbach exception” to “residual
+spike.”
 
 The companion amplifier audit tested the obvious repairs:
 
@@ -247,7 +271,8 @@ satisfying all those generic bounds.  It is not a von-Mangoldt polynomial;
 that is precisely the proof that the missing input must use prime-specific
 arithmetic rather than another phase-blind norm inequality.
 
-A sufficient new interface is an anti-spike theorem: one coefficient
+A sufficient new interface **after the power-cutoff zero modes are controlled**
+is an anti-spike theorem: one coefficient
 `a_R(N_0)<=-cX` forces more than `X^(3/5) log^5 X` comparably negative
 coefficients.  A concrete, stronger condition would be
 
@@ -288,10 +313,12 @@ It is to seek prime-specific arithmetic anti-concentration across centers:
 1. retain a common ambient polynomial and arc decomposition across a dyadic
    interval;
 2. express the coefficient family through shared Dirichlet-zero or Type-II
-   dispersion data before absolute values;
-3. prove either the pointwise one-sided margin directly, or an anti-spike
-   propagation theorem strong enough to contradict the existing `ell^2` or
-   exceptional-set budget;
+   dispersion data before absolute values, and keep logarithmic- and
+   power-cutoff major arcs distinct;
+3. prove either the logarithmic-cutoff pointwise one-sided margin directly,
+   or control the power-cutoff zero modes and then prove an anti-spike
+   propagation theorem strong enough to contradict the corresponding
+   `ell^2` or exceptional-set budget;
 4. then feed that theorem to the already checked crossover contract.
 
 This is narrower than “solve the minor arcs” and names the required direction
