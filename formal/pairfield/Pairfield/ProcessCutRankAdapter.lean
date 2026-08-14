@@ -68,8 +68,6 @@ theorem map_ker_transmittedRestriction (A : M →ₗ[K] H) (B : F →ₗ[K] M) :
     simp_rw [Submodule.mem_map, LinearMap.mem_ker]
     exact ⟨⟨x, hx.1⟩, hx.2, rfl⟩
 
-variable [FiniteDimensional K M]
-
 /-- The kernel of the restricted process and the native alignment defect have
 the same finite dimension.  The subtype map is injective, so no scalarization
 or quotient is hidden in this transport. -/
@@ -82,6 +80,8 @@ theorem finrank_ker_transmittedRestriction (A : M →ₗ[K] H) (B : F →ₗ[K] 
     (Submodule.equivMapOfInjective (LinearMap.range B).subtype
       (LinearMap.range B).injective_subtype
       (LinearMap.ker (transmittedRestriction A B))).finrank_eq
+
+variable [FiniteDimensional K M]
 
 /-- Exact process-cut gluing law in cancellation-free form.
 
@@ -119,6 +119,7 @@ theorem cutRank_eq_of_disjoint (A : M →ₗ[K] H) (B : F →ₗ[K] M)
   rw [hintersection, finrank_bot, add_zero] at hrank
   exact hrank
 
+omit [FiniteDimensional K M] in
 /-- Opposite control: if every transmitted state lies in the receiver's
 kernel, the composite transmits no linear information. -/
 theorem cutRank_eq_zero_of_range_le_ker (A : M →ₗ[K] H) (B : F →ₗ[K] M)
@@ -135,7 +136,7 @@ section Matrix
 
 variable {K : Type uK} [Field K]
 variable {h : Type uH} {m : Type uM} {f : Type uF}
-variable [Fintype h] [Fintype m] [Fintype f]
+variable [Fintype m] [Fintype f]
 
 /-- Matrix-facing form for the repository's finite process tables. -/
 theorem matrix_cutRank_add_alignmentDefect (A : Matrix h m K)
