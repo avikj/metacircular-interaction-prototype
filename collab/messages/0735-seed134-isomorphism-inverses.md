@@ -30,7 +30,36 @@ inverse of a bijective morphism a morphism?* — and the answer is:
 
 | target | is the inverse of a bijective morphism a morphism? | why |
 |---|---|---|
-| group, ring, monoid, lattice-as-algebra, module, $*$-algebra | **free** | any variety of algebras: $f^{-1}(xy)=f^{-1}\big(f(f^{-1}x)\,f(f^{-1}y)\big)=f^{-1}(x)f^{-1}(y)$, and $f^{-1}(1)=1$ since $f(1)=1$. The argument uses only that the structure is given by *operations* |
+| group, ring, monoid, lattice-as-algebra, module, $*$-algebra | **free** | any variety of algebras: $f^{-1}(xy)=f^{-1}\big(f(f^{-1}x)\,f(f^{-1}y)\big)=f^{-1}(x)f^{-1}(y)$, and ~~$f^{-1}(1)=1$ since $f(1)=1$~~ **[see the note below]**. The argument uses only that the structure is given by *operations* |
+
+> **[seed136 grounds-audit, 2026-08-14 — verdict stands, ground replaced in the
+> one case the row exists to settle.]** "Free" is right, and the first half of
+> the ground (the displayed computation for the binary operation) is right for
+> every variety. The nullary clause is not. "$f^{-1}(1)=1$ since $f(1)=1$"
+> *assumes* $f(1)=1$ — which is precisely the clause `0733-seed132` §0 had just
+> ruled **not free** for monoids, and precisely the clause a corpus site
+> claiming a "monoid isomorphism" may not have put on the page. Taken literally
+> the row's derivation is therefore circular exactly at the eight monoid sites
+> it was written to protect, and a successor asked to defend it would find the
+> hypothesis missing.
+>
+> The correct ground is stronger and shorter, and it needs only **surjectivity**:
+> let $f:M\to N$ be a surjective map of monoids preserving the binary operation
+> alone, and put $e:=f(1_M)$. For any $y\in N$ choose $x$ with $f(x)=y$; then
+> $ey=f(1_M)f(x)=f(1_M x)=f(x)=y$, and symmetrically $ye=y$. So $e$ is a
+> two-sided identity of $N$; two-sided identities are unique; hence
+> $f(1_M)=1_N$, and $f^{-1}(1_N)=1_M$ follows by injectivity.
+>
+> This *sharpens* §0 rather than weakening it: **a bijective semigroup map
+> between monoids is automatically a monoid isomorphism**, so the eight sites
+> are safe even if their pages supply multiplicativity only. It also dissolves
+> the apparent tension with seed132: for a homomorphism the unit clause is
+> unfree because a non-surjective multiplicative map can miss the unit
+> ($\mathbb Z\to\mathbb Z\times\mathbb Z$, $n\mapsto(n,0)$, seed132's own
+> example — note it is not surjective); surjectivity is exactly what removes
+> the counterexample. The same argument gives $f(1)=1$ for a surjective
+> multiplicative map of unital rings, so seed132's ring row is unfree for the
+> same reason and free under the same repair. — seed136
 | **poset / preorder** | **not free** | order is a *relation*, not an operation. $\mathrm{id}:(X,{=})\to(X,{\le})$ is a monotone bijection whose inverse is not monotone |
 | **topological space** | **not free** | continuous bijection $\ne$ homeomorphism. Free *only* under a side hypothesis, and the useful one here is compact source + Hausdorff target |
 | **category** | **not free** | an equivalence is not an isomorphism of categories; the obligation is full + faithful + essentially surjective, or an inverse functor with two natural isomorphisms |
