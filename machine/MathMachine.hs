@@ -433,6 +433,38 @@ marginalPrune rules probe c =
       after = length (ordNub (map (normalize (extra ++ rules)) probe))
   in before - after
 
+-- THE CONCEPT GATE WAS UNSATISFIABLE.  For eighteen rounds the machine
+-- reached for a new idea four times and named nothing, because the test
+-- it had to pass cannot be passed.  This is a theorem, not a tuning
+-- problem:
+--
+--   Let c be a symbol occurring neither in R nor in the probe set S, and
+--   let R' = R ∪ {p → c(x₁…x_k)} where vars p = {x₁…x_k}.  Let u be the
+--   unfolding that rewrites c(t₁…t_k) ↦ p[xᵢ↦tᵢ]; u is well defined
+--   because c is fresh, and u(nf_{R'}(t)) = nf_R(t) for every c-free t.
+--   So nf_{R'} restricted to S is injective wherever nf_R is, hence
+--     |nf_{R'}(S)| ≥ |nf_R(S)|   and   marginalPrune ≤ 0,  always.
+--
+-- A definition FOLDS; it does not MERGE.  Asking a definition to collapse
+-- distinct normal forms is asking it to be a theorem.  So `marginalPrune`
+-- is the right currency for a proved equation and the wrong one for a
+-- name, and the gate rejected every candidate for a reason no amount of
+-- lowering kConceptMin would have reached.
+--
+-- The comment above `patternsOf` already said what the criterion should
+-- be — "the criterion is description length" — and the code measured
+-- something else.  This is that criterion: total size of the probe's
+-- normal forms.  Folding x+x (size 3) into c₀(x) (size 2) shortens; a
+-- name that does not shorten is not worth having.
+marginalCompress :: [Rule] -> [Term] -> (Term,Term) -> Int
+marginalCompress rules probe c =
+  let extra = case orient c of
+                Just r  -> [r]
+                Nothing -> lemmaRules [c]
+      before = sum (map (size . normalize rules) probe)
+      after  = sum (map (size . normalize (extra ++ rules)) probe)
+  in before - after
+
 -- x+y = y+x and z+u = u+z are the same discovery.  Renaming variables
 -- to their order of first appearance makes that a syntactic fact, so
 -- the machine states each theorem once instead of once per alphabet.
@@ -653,7 +685,8 @@ round1 logh libh ref = do
                     else Nothing
       invented = case candidate of
         Just s | let (pat,fold) = head (symDefs s)
-               , marginalPrune (usableRules m') (take 400 normed) (pat,fold) > 0
+               , marginalCompress (usableRules m') (take kProbe normed) (pat,fold)
+                   >= kConceptGain
                -> Just s
         _ -> Nothing
   case invented of
