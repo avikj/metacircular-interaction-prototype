@@ -36,8 +36,9 @@ def responses (step : X → A → X) (observe : X → Bool) :
   | query action onFalse onTrue, state =>
       let next := step state action
       let response := observe next
-      response :: responses step observe
-        (if response then onTrue else onFalse) next
+      response :: match response with
+        | false => responses step observe onFalse next
+        | true => responses step observe onTrue next
 
 /-- The current observation is available without spending an action. -/
 def trace (step : X → A → X) (observe : X → Bool)

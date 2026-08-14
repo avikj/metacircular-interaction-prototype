@@ -232,9 +232,21 @@ The adapter also preserves the installed dynamics, not merely the carrier:
 \]
 
 This commuting law is again obtained by uniqueness of descent from states.
-Thus the exact positive result is a machine equivalence on realized response
-classes.  The negative boundary from the preceding paragraph remains: no map
-from the whole ambient response-function type to itself has been constructed.
+The empty-word coordinate also defines `imageObserve`, and the same uniqueness
+argument proves
+
+\[
+ \operatorname{imageObserve}(c)
+ =
+ \operatorname{quotObserve}(\operatorname{toMeaning}(c)).
+\]
+
+Induction on words then gives `toMeaning-run` and
+`toMeaning-behavior`: arbitrary finite execution and its observation commute
+with the equivalence.  Thus the exact positive result is a machine equivalence
+on realized response classes, not only an equivalence of underlying types.
+The negative boundary from the preceding paragraph remains: no map from the
+whole ambient response-function type to itself has been constructed.
 
 ## 7. Exact least global horizon
 

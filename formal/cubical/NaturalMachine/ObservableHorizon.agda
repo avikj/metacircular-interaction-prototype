@@ -353,6 +353,48 @@ module RealizedWindow
           (leftStepFactors action) (rightStepFactors action)))
       carrier
 
+  -- The present observation is already the empty coordinate of every
+  -- response window.  Hence it descends on the image without any new data.
+  imageObserve : Carrier → O
+  imageObserve carrier = fst carrier ([] , zero-≤)
+
+  imageObserveFactors : FI.FactorsThrough window observe
+  imageObserveFactors = imageObserve , (λ x → refl)
+
+  quotientObserveFactors : FI.FactorsThrough window observe
+  quotientObserveFactors =
+    (λ carrier → FQ.quotObserve (toMeaning carrier)) ,
+    (λ x →
+      cong FQ.quotObserve (toMeaning-restrict x)
+      ∙ FQ.quotObserve-[] x)
+
+  toMeaning-observe : (carrier : Carrier)
+    → imageObserve carrier ≡ FQ.quotObserve (toMeaning carrier)
+  toMeaning-observe carrier =
+    funExt⁻
+      (cong fst
+        (FI.isPropFactorsThrough setO window observe
+          imageObserveFactors quotientObserveFactors))
+      carrier
+
+  -- One-step naturality iterates to every finite action word.  This is a
+  -- theorem about the installed machine language, not an enumeration of it.
+  toMeaning-run : (carrier : Carrier) (word : List A)
+    → toMeaning (FB.run imageStep carrier word)
+      ≡ FB.run FQ.quotStep (toMeaning carrier) word
+  toMeaning-run carrier [] = refl
+  toMeaning-run carrier (action ∷ word) =
+    toMeaning-run (imageStep carrier action) word
+    ∙ cong (λ meaning → FB.run FQ.quotStep meaning word)
+        (toMeaning-step carrier action)
+
+  toMeaning-behavior : (carrier : Carrier) (word : List A)
+    → FB.behavior imageStep imageObserve carrier word
+      ≡ FB.behavior FQ.quotStep FQ.quotObserve (toMeaning carrier) word
+  toMeaning-behavior carrier word =
+    toMeaning-observe (FB.run imageStep carrier word)
+    ∙ cong FQ.quotObserve (toMeaning-run carrier word)
+
 ------------------------------------------------------------------------
 -- Retained obstruction
 ------------------------------------------------------------------------

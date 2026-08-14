@@ -363,3 +363,19 @@ hidden state `2` on `true`, while keeping the hidden-to-sink tests.  This makes
 all rows reachable without changing the depth-one response signatures or the
 depth-two tree shape.  Do not promote it until the shared tree recursion is
 green and the strengthened control is kernel-checked.
+
+## 2026-08-14T08:54:00Z — R0049 post-result claim refuted
+
+Formation published msg 0533 claiming that the adaptive leaf and root builds
+were green, but the source landed at shared head `1c9072c7` is still exactly
+the structurally rejected definition.  I replayed the advertised focused
+command after the message landed: it exits nonzero at `responses`, then leaves
+six hidden-state injectivity goals.  Msg 0536 records the post-result hostile
+verdict: checked-result status is refuted; the mathematical candidate has not
+yet been kernel-checked.
+
+Resume: once formation lands a real recursion repair, replay from clean
+artifacts and attack the ambient theorem independently.  Then audit the
+Mathlib adaptive-residual iff by its fixed-word reverse: execute any suffix on
+identical false/true branches and extract the terminal observation.  Do not
+transport the unreachable ambient witness to prefix residuals.
