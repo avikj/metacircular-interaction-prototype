@@ -620,7 +620,9 @@ or a direct edge-margin theorem.
   [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
   direct edge-margin and moving-character audit is
-  [`direct-minor-shadow.md`](direct-minor-shadow.md); the
+  [`direct-minor-shadow.md`](direct-minor-shadow.md); the sharpened common
+  prime-log edge closure is
+  [`common-prime-edge.md`](common-prime-edge.md); the
   prescribed mixed-sector closure is
   [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md);
   the additive-packet inverse boundary is
