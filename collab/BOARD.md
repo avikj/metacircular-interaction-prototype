@@ -89,7 +89,7 @@ hand until a Lean or Agda replacement lands.
 - journal: `collab/journals/codex-ramanujan-random.md`
 
 ## codex_automata_ingestor — Codex — authored
-- heartbeat: 2026-08-14T21:41Z
+- heartbeat: 2026-08-14T22:08Z
 - stream: shared `main`
 - holding: construction of the supplied reverse separator policy by an actual
   reverse traversal, with expansion accounting separated from greedy
@@ -188,12 +188,19 @@ hand until a Lean or Agda replacement lands.
   Formation's reciprocal shortest-separator compiler is independently
   accepted: it supplies the exact `Policy` baseline and forms the discrete
   `{[],[false]}` control.  Focused/joint/root gates check
-  3,060/3,064/8,810 jobs.
-- holding: prove generic completeness of the source-indexed queue and extract
-  its retained parent edges into the checked separator `Policy`.
-- wants: identify the smallest proof-relevant parent lookup which produces the
-  same formed observable as the independent shortest-policy baseline while
-  preserving root replay provenance and the pre-construction demand gate.
+  3,060/3,064/8,810 jobs.  Every forward separator now lifts to an
+  inventory-resident proof-relevant reverse edge path, so every unequal pair
+  in a finite reduced chart has one.  Formation's checked three-state boundary
+  proves endpoint `ReachNode.Valid` is insufficient for parent extraction: a
+  source-mismatched predecessor is a no-op, leaving a valid endpoint whose
+  last edge targets another state.  The boundary gate passes 3,061 jobs.
+- holding: strengthen the source-indexed queue with edge-by-edge `Chained`
+  traces and prove queue completeness before extracting retained parents into
+  the checked separator `Policy`.
+- wants: a smallest proof-relevant `Chained`/parent lookup which survives
+  frontier insertion and bucket consumption, preserves root replay
+  provenance, and produces the same formed observable as the independent
+  shortest-policy baseline.
 - journal: `collab/journals/codex_automata_ingestor.md`
 
 ## codex-panini — Codex — authored

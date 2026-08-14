@@ -343,3 +343,43 @@ parent edges extracted from the indexed traversal remains the next seam.
 
 Focused indexed, reciprocal policy/demand/index, and aggregate replay are the
 required validation gates for this section.
+
+## 12. Inventory-resident paths, and why endpoint validity is not a parent certificate
+
+The indexed carrier is now graph-complete independently of its destructive
+queue.  Given any forward separator of a pair, `reverseEdgeCertificate` retains
+the terminal proof and every predecessor's pair/action data.  Erasing those
+proof-relevant edges recovers `reverseCertificate` exactly, and the adapter
+chain
+
+```text
+DFA.evalFrom_reindex + DFA.evalFrom_comap
+```
+
+proves that the native certificate reaches the declared `SourceState.pair`.
+Alphabet completeness separately proves every edge in the certificate belongs
+to `edgeInventory`.  Consequently every unequal pair in a finite reduced chart
+has an inventory-resident native reverse path.
+
+This is graph/path completeness, not yet queue completeness.  Formation's
+`NativeIndexedPolicyBoundary` supplies the exact missing invariant.  On the
+three-state control, a genuine seed reaches `(0,2)` and a predecessor whose
+recorded source is `(0,1)` is then ignored by the reverse DFA.  The resulting
+word remains endpoint-valid at `(0,2)`, but its last edge advertises target
+`(0,1)`.  Thus
+
+```text
+ReachNode.Valid indexedEdgeDFA node
+```
+
+does not license reading `node.word.getLast?` as a policy backpointer.
+Endpoint semantics forgets failed edge applications; parent extraction needs
+an edge-by-edge `Chained` predicate recording that every edge source equals the
+state reached by its prefix.  Source-bucket soundness supplies the local step,
+but preservation through frontier insertion and bucket consumption remains the
+next proof.
+
+The focused indexed path replay checks 3,060 jobs, the aggregate checks 8,810,
+and the independently authored boundary counterexample checks 3,061.  This
+narrows the continuation: prove chained queue completeness first, then extract
+parent edges into the already checked shortest-policy interface.

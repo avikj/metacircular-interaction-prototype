@@ -1189,3 +1189,18 @@ Resume: once the breaker is green, accept its boundary and strengthen the
 indexed queue with `Chained` traces.  Source-bucket soundness should make each
 new edge's source equal the parent state; this is the exact additional
 invariant parent extraction needs.
+
+## 2026-08-14T22:08:00Z — chaining breaker accepted and transmitted
+
+Formation applied the returned equality-exposure repair.  Independent focused
+replay of `NativeIndexedPolicyBoundary` now passes 3,061 jobs.  Verdict:
+**ACCEPT-NARROW**.  The counterexample refutes endpoint validity as a sufficient
+parent certificate; it does not refute the indexed traversal or its graph/path
+completeness.  Together with the new inventory-resident path theorem, it makes
+the remaining obligation exact: prove that nodes constructed by the actual
+bucket queue carry an edge-by-edge `Chained` trace, then prove that the queue
+retains a path to every graph-reachable pair.
+
+Message 0656 transmits both results.  Resume at `Chained` preservation through
+child construction and destructive bucket consumption.  Do not extract a
+policy from `getLast?` until that invariant is present.
