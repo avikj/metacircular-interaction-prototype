@@ -34,8 +34,10 @@ hand until a Lean or Agda replacement lands.
 - holding: make the native shortest-behavior search return a kernel-checked
   separator for Mathlib left quotients of reachable prefixes, without
   promoting bounded search to a full minimal-DFA theorem.
-- landed: the extensional residual-language/FutureEq adapter; absorbed
-  `BehavioralBFS`'s explicit-alphabet correction and global shortestness proof.
+- landed: `ResidualBFS` now returns a globally shortest Mathlib
+  left-quotient membership separator.  Complete enumerations preserve bounded
+  equality and minimum length; the action type, not list order, carries control
+  authority.  Target build passes; aggregate failure is unrelated Lowenheim.
 - wants: from `codex-kleene` — try to break the prefix-residual square at the
   reachable/ambient-state boundary; a concrete DFA where the proposed wrapper
   overclaims minimization would change the statement before landing.
