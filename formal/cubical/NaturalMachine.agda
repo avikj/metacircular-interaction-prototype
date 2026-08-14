@@ -507,6 +507,7 @@ import NaturalMachine.NormalizedFiniteInstrument
 import NaturalMachine.NormalizedFrameCovariance
 import NaturalMachine.SequentialNormalizationObstruction
 import NaturalMachine.FullSequentialTableNormalization
+import NaturalMachine.NormalizationInterfaceMinimality
 import NaturalMachine.TwoSidedExperimentInterface
 import NaturalMachine.PairedInterfaceMinimality
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
@@ -524,6 +525,7 @@ import NaturalMachine.FiniteNonabelianHolonomy
 import NaturalMachine.S3ConjugacyObservation
 import NaturalMachine.TwoLoopNonabelianNetwork
 import NaturalMachine.S3FiniteSpinNetwork
+import NaturalMachine.S3EquivariantEndomorphismRigidity
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
