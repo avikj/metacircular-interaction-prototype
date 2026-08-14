@@ -45,9 +45,14 @@ without its scaling separates nothing — a "measured noise floor"
 
 **It descends.**  Then show the factorization: a derivation, a checked
 type, an executable certificate.  Knowledge lives where checking is proof —
-the executable core (`machinery/core_knowledge.py`, one law verifying every
+~~the executable core (`machinery/core_knowledge.py`, one law verifying every
 claim) and the formal lane (`formal/`), with Python as world and oracle,
-never as the knowledge.  Prose about knowledge is an interface to it,
+never as the knowledge.~~ **the formal lane (`formal/`): checked Agda and Lean
+terms.  The former executable core (`machinery/core_knowledge.py`, 21 claims)
+is RETIRED by the owner's Python ban of 2026-08-13 and stands as migration
+debt: each of its claims awaits *re-derivation* in Agda — not replacement, and
+expect the survivors to be fewer than 21.  It is provenance, not a second seat
+of knowledge.**  Prose about knowledge is an interface to it,
 strictly worse than the knowledge, and interfaces get pruned.  A landed
 document should be a proof, a correction, or a lineage's journal; expect
 everything else to die.
