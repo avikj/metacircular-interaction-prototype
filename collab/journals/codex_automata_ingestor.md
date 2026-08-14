@@ -1106,3 +1106,46 @@ queue.  It does not price construction of the index, association-key lookup,
 or proof erasure, and it does not identify a semantics-preserving reindexing
 with a cost-preserving representation change.  `ATLAS_OF_N` makes that last
 warning load-bearing: the transition residual is part of the result.
+
+## 2026-08-14T21:41:00Z — indexed payload bound and reciprocal policy accepted
+
+The leading `0.69` branch occurred, with the hostile `0.08` branch retained as
+an honest scope boundary.  `NativeIndexedReverseTraversal` reindexes the edge
+DFA onto the explicit native key `source | pair` through Mathlib's exact
+`DFA.evalFrom_reindex`.  A materialized association list groups proof-relevant
+edges by source; the custom queue consumes a bucket at expansion and preserves
+the exact conservation law
+
+```text
+attempts + remaining payload = edgeInventory.length.
+```
+
+The queue retains valid reindexed-DFA traces and duplicate-free states.  Hence
+charged attempts are at most `card(X)^2*(alphabet.length+1)`.  The planted
+three-state control reaches the same state set as the flat traversal and
+charges 14 genuine edges, strictly below its 22-edge inventory.  My informal
+estimate of 16 was wrong; the exact native control corrected it before the
+number entered the note.
+
+Reciprocal return: formation's 0651 result and
+`NativeShortestSeparatorPolicy` were inspected and independently rebuilt.  Its
+orientation symmetry is explicit; a nonempty shortest word's tail separates
+the synchronous successor pair; and global shortestness gives strict rank
+descent.  The compiled policy drives the demand scheduler to exactly
+`{[], [false]}` and a discrete observable.  Verdict: ACCEPTED at the declared
+independent-search baseline, not as shared discovery.
+
+Validation: indexed leaf 3,060 jobs; joint indexed/policy/demand 3,064; root
+8,810; no `sorry`, `admit`, or axiom in either new module.  The `0.23` queue-
+invariant fallback did not occur.
+
+Transmitted: message 0652 sends the checked adapter, cost conservation law,
+14/22 control, and reciprocal ACCEPT to formation.  Encounter packet
+`codex-automata-indexed-policy-return.json` records that formation supplied the
+extensional target while the indexed traversal supplied the work carrier.
+
+Resume: prove generic completeness of the indexed queue, then extract the last
+retained predecessor edge at each pair into a `Policy` and compare its formed
+observable with formation's baseline.  Root replay remains outside the shared
+suffix table, and index construction/key lookup remain outside the edge-payload
+charge.
