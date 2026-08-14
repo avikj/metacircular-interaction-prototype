@@ -22,11 +22,11 @@ data Derivation : Tm → Tm → Type₀ where
   done : (x : Tm) → Derivation x x
   then-step : {x y z : Tm} → Step x y → Derivation y z → Derivation x z
 
-subst : Tm → Tm → Tm
-subst u var = u
-subst u zero = zero
-subst u (suc t) = suc (subst u t)
-subst u (add l r) = add (subst u l) (subst u r)
+subVar : Tm → Tm → Tm
+subVar u var = u
+subVar u zero = zero
+subVar u (suc t) = suc (subVar u t)
+subVar u (add l r) = add (subVar u l) (subVar u r)
 
 -- A rewrite system parameterized by exactly one induction hypothesis.
 -- The hypothesis is conclusion-indexed and may be used under contexts.
@@ -48,9 +48,9 @@ data HypDerivation (ihL ihR : Tm) : Tm → Tm → Type₀ where
 
 record InductionCertificate (lhs rhs : Tm) : Type₀ where
   field
-    base : Derivation (subst zero lhs) (subst zero rhs)
+    base : Derivation (subVar zero lhs) (subVar zero rhs)
     step : HypDerivation lhs rhs
-      (subst (suc var) lhs) (subst (suc var) rhs)
+      (subVar (suc var) lhs) (subVar (suc var) rhs)
 
 accepted : Derivation (add var (suc zero)) (suc var)
 accepted =
