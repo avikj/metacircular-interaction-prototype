@@ -22,6 +22,7 @@ namespace NativeIndexedReverseTraversal
 open NativeReverseSeparatorPolicy
 open NativeReversePairTraversal
 open NativeReverseEdgeInventory
+open NativeCompleteWitnesses
 
 /-- An explicit native key for the synthetic source and product states. -/
 inductive SourceState (X : Type v) where
@@ -219,7 +220,7 @@ theorem materializeIndex_sound (edges : List (ReverseEdge M)) :
   | cons edge rest ih =>
       simpa [materializeIndex] using insertEdge_sound M edge _ ih
 
-theorem seed_mem_terminalEdges (pair : X × X)
+theorem seed_mem_terminalEdges [LinearOrder X] [Fintype X] (pair : X × X)
     (hterminal : TerminalPair M pair) :
     ReverseEdge.seed (M := M) ⟨pair, hterminal⟩ ∈ terminalEdges M := by
   simp [terminalEdges, terminalEdge?, hterminal]
@@ -250,9 +251,15 @@ theorem reverseEdgeCertificate_mem_inventory [LinearOrder X] [Fintype X]
       exact List.mem_append_left _ (seed_mem_terminalEdges M pair hseparates)
   | cons action rest ih =>
       intro edge hedge
+      have htail :
+          behavior M.step (acceptsBool M)
+              (pairStep M pair action).1 rest ≠
+            behavior M.step (acceptsBool M)
+              (pairStep M pair action).2 rest := by
+        simpa [behavior, run, pairStep] using hseparates
       simp only [reverseEdgeCertificate, List.mem_append, List.mem_singleton] at hedge
       rcases hedge with hprefix | rfl
-      · exact ih (pairStep M pair action) edge hprefix
+      · exact ih (pairStep M pair action) htail edge hprefix
       · exact List.mem_append_right _
           (predecessor_mem_predecessorEdges M alphabet pair action
             (complete action))
