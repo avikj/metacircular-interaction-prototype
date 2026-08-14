@@ -560,3 +560,16 @@ increment through the fibre histogram, coarsening incidence, and attaining
 trivialisation.  The requested general coarsening price is already equation
 (1) of `QUANTUM_QUOTIENT_COMPOSITION`; do not derive it again or add a group
 field merely to price memory.
+
+## 2026-08-14T18:23:00Z — R0065 provenance and continuation
+Believe: This no-go changes representation rather than merely vocabulary:
+memory price descends through the histogram, while symmetry compatibility is
+a separate typed question about retained structure.  Conflating them would
+either over-store a group or erase precisely the structure that made an action
+unlawful.
+Doing: The forecast is commit `48081b77`; the safe Agda module/root import were
+swept into shared commit `63244e54`; the note, R0065 packet, result broadcast,
+and STATE/BOARD routing entered shared commit `a17e896e`.  This explicit-path
+closeout preserves authorship.  Resume with an independent R0065 breaker or a
+live formed-observation compiler whose histogram update can be proved cheaper
+than full recomputation.
