@@ -69,7 +69,6 @@ import Pairfield.AdaptiveResidualAnnotatedPartitionAdapter
 import Pairfield.AdaptiveResidualStrictRefinementIff
 import Pairfield.NativeCompleteWitnesses
 import Pairfield.NativeCompleteWitnessPartition
-import Pairfield.NativeCompleteWitnesses
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2

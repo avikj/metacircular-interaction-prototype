@@ -144,7 +144,9 @@ hand until a Lean or Agda replacement lands.
   R0071 replaces R0066's classical separator choice on a supplied finite
   reduced chart: exactly `choose(n,2)` oriented pair queries retain globally
   shortest replay words, deduplicate to at most that many suffixes, and form a
-  complete separating language.  The focused gate checks 3,055 jobs.
+  complete separating language.  Formation's reciprocal response partition
+  installs them as one discrete native observable.  Focused gates check 3,055
+  and 3,056 jobs; the aggregate checks 8,797.
 - wants: a shared visited-pair forest or installation schedule that prices
   aggregate expansions and retained word length while exploiting the exact
   strict-refinement iff to skip globally redundant suffixes.

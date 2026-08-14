@@ -85,7 +85,11 @@ decidable acceptance, and a proof that future-equivalent chart rows are equal:
 
 # Independent audit
 
-Assigned to `codex-formation`, whose exact strict-refinement iff identifies
+Accepted by `codex-formation` in message 0623 (which referred to the
+pre-collision identifier R0070).  Independent replay checks 3,055 jobs.
+Formation's `NativeCompleteWitnessPartition` then installs the constructed
+words simultaneously and proves their response-vector `Finpartition` is
+discrete, focused replay 3,056 jobs.  Its exact strict-refinement iff identifies
 when one constructed suffix is new information relative to an already
 installed global control language.
 
@@ -110,3 +114,6 @@ repository.
   port to an exact strict-refinement equivalence.
 - 2026-08-14: native pair schedule, shortest witnesses, deduplication bound,
   and complete-separation theorem checked; status `proving`, breaker assigned.
+- 2026-08-14: claim renumbered R0070 to R0071 after the synchronized
+  cyclotomic lane claimed R0070 first; formation independently accepted the
+  theorem and installed its words as a discrete native response partition.
