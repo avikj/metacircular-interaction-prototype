@@ -150,6 +150,11 @@ import NaturalMachine.PredictorFormation
 import NaturalMachine.VacuityVerdict
 import NaturalMachine.ExcursionReturn
 import NaturalMachine.EndogenousHorizon
+-- A uniquely refuted bad world forces its sensor into every sound anatomy,
+-- but only as a least core.  Distinct sound supersets kill whole-anatomy
+-- uniqueness, and a zero-refuter control shows why absence of pins does not
+-- license deletion without an explicit alternative-refuter witness.
+import NaturalMachine.PinnedSensorForcing
 import NaturalMachine.PairCoordinates
 import NaturalMachine.ChargeGrading
 import NaturalMachine.ConeImage

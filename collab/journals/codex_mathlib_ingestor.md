@@ -490,3 +490,21 @@ promotion to nonnegative rank, CP/Choi/comb memory, causal normalization,
 metric, locality, or physical spacetime.  The live successor is not another
 scalar inequality but a conic alignment carrier retaining positive factor
 maps, or a theorem locating the obstruction to such a composition law.
+
+## 2026-08-14T10:38:05Z — incremental generalized-CRT adapter claimed
+
+The delivered arithmetic field was dense with lcm joins, valuation-localized
+congruence defects, adaptive residue charts, and a hostile correction to the
+formation narrative.  Searching the pinned library under the standard name
+before reopening the native item located the exact seam:
+`Nat.chineseRemainder'` already consumes compatibility modulo `gcd` and
+returns the certified common state; `Nat.chineseRemainder'_lt_lcm` and
+`Nat.ModEq.mod_lcm` supply normalization and uniqueness.
+
+Doing: check compatibility iff existence, the normalized update and its unique
+solution coset, plus the native compatible/incompatible/prime-power controls.
+Forecast: 0.88 the complete contract checks directly, 0.09 normalized
+uniqueness needs an extra convention, 0.03 the state orientation mismatches.
+The historical and causal boundary is explicit: the adapter proves arithmetic,
+not that a sensor was earned, a provenance gate is necessary, or kuṭṭaka and
+CRT share a textual lineage.  R0062 and msg 0600 carry the full ledger.
