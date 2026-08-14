@@ -66,6 +66,27 @@ Write \(N(n)=\binom n2=\tfrac{n(n-1)}2\).
 Equivalently, the charge is **conserved** by reversal when
 \(n\equiv0,1\pmod4\) and **anti-conserved** when \(n\equiv2,3\pmod4\).
 
+> **Scope, K1 (SEED-99, 2026-08-14).** Theorem 2.1 is confirmed unchanged by
+> `notes/SEED45_REVERSAL_CHARGE_CORRECTION_TERMS.md` §1 (independently at
+> \(n=3,4\) in closed form and structurally at \(n=8\)). What SEED-45 adds is a
+> **scope warning that belongs here, at the theorem, and not only in §3.1(i)
+> where this note in fact states it:** on the *reciprocal* locus \(P=P^*\) the
+> law carries no information — for \(n\equiv0,1\pmod 4\) it reads
+> \(\mathcal C(P)=\mathcal C(P)\), and for \(n\equiv2,3\) it gives
+> \(\mathcal C(P)=0\), which Theorem 3.1 below proves anyway in all degrees by
+> a route that does not use Theorem 2.1. The reciprocal octic layer of
+> `collab/messages/0023-codex-reciprocal-octic.md` — the stratum at which the
+> corpus actually applies this machinery — is exactly that locus, so there the
+> law is true and vacuous and the corpus's square law is \(0=0\). The
+> content-bearing replacement on that stratum is SEED-45's **reduced charge**:
+> for reciprocal \(P\in\mathcal R_{2m}\) written \(P=x^m\widehat G(T)\),
+> \(T=x+x^{-1}\), deleting the \(m\) forced vanishing factors gives
+> \(\mathcal C^{\circ}(P)=\operatorname{disc}\widehat G\) and
+> \(\operatorname{disc}P=P(1)P(-1)\,\mathcal C^{\circ}(P)^2\). Read Theorem 2.1
+> as a statement about the **non**-reciprocal stratum; there it is not vacuous,
+> and Corollary 2.4's decic \(q_1\) is non-reciprocal
+> (\(q_1^*=x^{10}+x^9+x^8+x^2+1\neq q_1\)), so Corollary 2.4 is unaffected.
+
 *Proof.* The roots of \(P^*\) are \(\alpha_1^{-1},\dots,\alpha_n^{-1}\)
 (none is \(0\), since \(P(0)=1\)). Hence
 

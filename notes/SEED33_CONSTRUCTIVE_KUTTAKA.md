@@ -199,6 +199,25 @@ This is a precise, not analogical, restatement of the note's three facts:
    property of the *theory* (`AG` is unitary with a nontrivial unit group of
    the coefficient ring), not of the endpoint observable.
 
+> **Currency, K1 (SEED-99, 2026-08-14).**
+> `notes/SEED49_completeness_of_three_families.md` §1 now *proves* what §3.1
+> here imports as unification theory, and the two notes agree on the family.
+> SEED-49 Theorem 1 (`ax − by = c` solvable in `ℤ` iff `g | c`) and Theorem 2
+> (the solution set is exactly `(x₀ + t·b/g, y₀ + t·a/g)`, and `t ↦ …` is
+> injective) are, in this note's vocabulary, exactly *"the `AG`-unification
+> problem is solvable iff `g | c`, and when solvable it is unitary with a
+> one-variable mgu"*. **The classification in §3 stands unchanged and now rests
+> on a corpus proof rather than on a cited type-classification alone.**
+> Two consequences applied at their sites:
+> (i) SEED-49 flags that `KUTTAKA_SOLUTION_FAMILY.md` §1.1 omits `g | c`;
+> §3.1 above inherited the omission from that source and is repaired in place.
+> Theorem 2.2 of §2.1 never had the defect — it assumes `g | c` explicitly and
+> ships `(g, c)` as the certificate otherwise — so the constructive half of
+> this note is untouched.
+> (ii) SEED-49's injectivity clause needs `a, b` not both `0`, and its `b ≠ 0`
+> caveat is the same one §2.1 needs for `B = b/g` to be a modulus; both notes
+> exclude it, consistently.
+
 **Imported complexity.** `AG`-unification: decidable, unitary, polynomial. The
 kuṭṭaka's `O(log min(a,b))` divisions is the two-variable instance and is
 optimal in the sense that it is the Euclidean word length itself.
@@ -297,7 +316,8 @@ Hilbert-basis computation.
 | Cor. 2.3: negation carries a checkable certificate; predicate decidable | **PROVED** | §2.1 |
 | Cor. 2.4/2.5: `F = ab−a−b`, count `(a−1)(b−1)/2` | **PROVED** here; classical (Sylvester 1882) — **no novelty claimed** | §2.1 |
 | Kuṭṭaka family = mgu of an `AG`-unification problem; unitary; polynomial | **PROVED** (identification) + **CITED** (AG-unification type/complexity) | §3.1 |
-| `AC` = ℕ-Diophantine, Hilbert basis, finitary, NP-complete (Stickel 1981; Kapur–Narendran 1992) | **CITED** from standard knowledge; no source text was fetched (egress) | §3.2 |
+| `AC` = ℕ-Diophantine, Hilbert basis, finitary, NP-complete ~~(Stickel 1981; Kapur–Narendran 1992)~~ **with constants** (Stickel 1981; Kapur–Narendran 1992); the **elementary** case is polynomial | **CITED** from standard knowledge; no source text was fetched (egress). The elementary/with-constants split is **PROVED** in the §3.2 correction box (SEED-99, 2026-08-14), not cited | §3.2 |
+| Kuṭṭaka family solvable iff `g \| c`; solution set exactly (K); injective in `t` | **PROVED** in `notes/SEED49_completeness_of_three_families.md` §1, Thms 1–2 (added SEED-99, 2026-08-14) | §3.1 |
 | the family is *not* an AC/ACU problem | **PROVED** (the theories differ by inverses; §3.3 exhibits the divergence) | §3.3 |
 
 **Owed.** (i) The numerals in N4 — that is a `PROVE` item for whoever owns the

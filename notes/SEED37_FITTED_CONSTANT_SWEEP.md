@@ -142,7 +142,33 @@ scale-dependent** — the exp27 shape; `X` retracted/closed already.
 | **N** | $V/D\to0.9998$; $D$ ratio $1.0024$; corr $1.0000$/$0.9992$; $0.99997$ | `BLOCKS.md` §3, §5; `REDTEAM.md` | `V` | all checks of stated closed forms. **But** $V/D$ carries an audited caveat: the interval is $u_0$-dependent ($0.907$ at $u_0=\log10^5$); only the limit is $u_0$-free |
 | **O** | $-2.500$ same-sign weight decay | `REPORT.md`:170 | `V` | predicted $-5/2$ (D‴/Stirling). `REPRO_LEDGER.md`:48 flags it is not in the printed output — provenance, not mathematics |
 | **P** | $1.0017$ divisor ratio; $3.004/3.022/1.003$ ternary; $-0.99986$ vs $-1$; $0.151992$ vs $6/\pi^2$; $0.0004$ at $q=9$ | `DIVISOR.md`:271, `TERNARY.md`, `FAMILY.md`:39,142,221, `BARRIER_SMOOTH_TERM.md` | `V` | all verify exactly-stated derived values. Correctly excluded from triage |
-| **Q** | $0.6725$, $0.83625$, $0.6792$, $19/27$ | `KAPPA.md`, `FRONTIER_2026_MAP.md`, `BEYOND.md` | `D` (external) | literature constants (Montgomery–Taylor, Chirre–Gonçalves–de Laat, Bui–Heath-Brown) with attributions, checked current by `FRONTIER_2026_MAP.md` A13. Not our fits |
+| **Q** | $0.6725$, $0.83625$, $0.6792$, $19/27$ | `KAPPA.md`, `FRONTIER_2026_MAP.md`, `BEYOND.md` | `D` (external) → **`D` (derived here)** | literature constants (Montgomery–Taylor, Chirre–Gonçalves–de Laat, Bui–Heath-Brown) with attributions, checked current by `FRONTIER_2026_MAP.md` A13. Not our fits. **Row settled below** |
+
+> **Row Q, settled in place (SEED-100, 2026-08-14, Rule K1) on the authority of
+> `notes/SEED43_KAPPA_RESOLVENT_POLES.md`.** The row's verdict ("not our fits,
+> external, attributed") was correct and is now stronger than it needed to be:
+> the Montgomery–Taylor $\kappa$ family has since been derived **in closed
+> form** inside this corpus. SEED-43 identifies the whole family as the
+> diagonal resolvent matrix element
+> $\langle(I-zT)^{-1}\mathbf 1,\mathbf 1\rangle$ of one rank-one-driven
+> operator, $(Tv)(s)=\int_I|s-s'|v(s')ds'$, and evaluates it: $c_1^*$ and hence
+> $2-1/c_1^*=0.6725\ldots$, $2c_1^*-1$, $(3-1/c_1^*)/2=0.83625\ldots$ become
+> closed forms with an exact series and an exact radius of convergence, and the
+> $0.0058$ gap between the headline $2/3$ and the headline $0.6725$ — nowhere
+> explained in `KAPPA.md` — becomes a series in $\zeta(2n)$.
+>
+> **The methodological finding is the one this sweep should have caught.**
+> `code/exp47_kappa_constants.py` is a certificate replay, but five of its
+> nineteen checks are *decimal comparisons* against seven quoted digits. A
+> float agreeing with a numeral certifies nothing about either side: this is a
+> failure shape **§1's table does not list** — call it **F4, the
+> numeral match** — and it is more insidious than F1–F3 precisely because it
+> passes as verification. Three further checks (C1, B6, D1) *sample* rather
+> than prove, at four rational points, three rational $\lambda$, and $30$
+> random rational instances. A sweep keyed on "constants quoted as results"
+> cannot see F4, because the constant being matched is genuinely correct; what
+> is missing is the derivation on both sides. Recorded here so the next sweep
+> looks for it.
 | **R** | $0.9335$, $0.9213$ cut scales | `LENS_REGULARITY.md`:585,595 | `V` | $0.9213$ derived from $\Pi(10^6)$ and matched to four digits; $0.9335$ is the $X=10^7$ reading of the same derived object |
 | **S** | $2.389\times10^{-48}$ | `PROLATE_BRIDGE.md`:21,34,481 | `X` (honest) | external (CC Fig. 26), explicitly **not** reproduced and declared unreachable in double precision. Exemplary handling |
 | **T** | raw spacing var/mean$^2=6.39$ → unfolded $0.997$ | `BLOCKS.md` §3 | `V` | the unfolding is the content; $6.39$ is correctly labelled a density-gradient artifact |

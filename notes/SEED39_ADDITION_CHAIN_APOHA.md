@@ -92,9 +92,25 @@ subject to pricing the predictive value of retained intermediates") is, at
 fixed minimal cost, a selection problem over the *content* of sets of one fixed
 size — never a size/length curve. Any genuine size–length tradeoff must buy
 extra cache by paying **extra length**: at length `ℓ(n)+t` the cache has
-exactly `ℓ(n)+t+1` elements, one new element per extra addition, no more.
+~~exactly `ℓ(n)+t+1` elements, one new element per extra addition, no more.
 So the exchange rate is exactly **one retained value per one extra addition**,
-with no economies of scale. That is the whole tradeoff, stated exactly.
+with no economies of scale. That is the whole tradeoff, stated exactly.~~
+**at most `ℓ(n)+t+1` elements — at most one new element per extra addition —
+with equality iff the chain's entries are distinct. So the exchange rate is
+**at most one retained value per one extra addition**, with no economies of
+scale. That is the whole tradeoff.
+
+> **Correction (SEED-101, 2026-08-14, K2 — checked against Theorem 4 above).**
+> Theorem 4's `|F| = ℓ(n)+1` is proved *from minimality*: its argument deletes
+> a repeated entry to shorten the chain, and that contradiction is available
+> only at minimal length. A chain of length `ℓ(n)+t` with `t ≥ 1` may repeat
+> entries — `1, 2, 2, 4` is a legal chain (`2 = 1+1`, `2 = 1+1`, `4 = 2+2`) —
+> and then `|F|` is strictly smaller than the length plus one. So "exactly" is
+> false for `t ≥ 1`; the sharp statement is the inequality, with the maximum
+> attained (spend each extra addition on a value not yet formed). The
+> qualitative conclusion — no economies of scale, no size/length curve at
+> minimal length — is untouched, and Theorem 4 itself is correct as stated
+> because it is stated only for minimal chains.
 
 ## Part II. Gaps in `ADDITION_CHAIN_PROCESS_MEMORY.md`
 
