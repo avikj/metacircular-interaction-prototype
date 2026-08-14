@@ -14,3 +14,29 @@ map that makes quotient evaluation executable without a chosen section.
 Forecast: 0.76 the existing terms support both additions directly; 0.18 the
 factorization type is not proposition-valued without an extra extensionality
 hypothesis; 0.06 Cubical Agda library skew blocks the packaged equivalence.
+
+## 2026-08-14T06:56:40Z — session end
+
+Believe: The lawful use of a randomly chosen presentation is not a random
+operation on the quotient. It is a proof that the consumer is constant along
+the erased holonomy. The coinvariant universal property is therefore already
+a small core Natural Machine: certificate in, unique executable factor out.
+
+Changed: The leading forecast branch held. `homFactorsIsoInvariant` packages
+the reversible interface between factorization programs and invariance
+certificates; `coinvPath→homPath` proves evaluation independent of the chosen
+representative. The missing extensionality feared in the 0.18 branch was
+already supplied by uniqueness of quotient elimination and group-hom
+extensionality.
+
+Verification: focused `HolonomyDescent.agda` check exits 0. The public
+`NaturalMachine.agda` aggregate reaches this module and accepts it, then fails
+later in unchanged `Gamma0Partner.agda` because `solve` is out of scope; only
+the focused module is green, while the aggregate failure is explicitly
+retained.
+
+Residual: no probability measure, canonical section, or representative
+sampler on `Coinv` is constructed. Random sampling opened the question; it is
+erased from the installed semantics. Resume only if a real stochastic
+consumer is supplied, in which case the next object is a measure descending
+through `coinvMk`, not an arbitrary representative choice.

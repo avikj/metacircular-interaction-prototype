@@ -184,8 +184,10 @@ theorem mem_residualPairDFA_accepts_iff
     word ∈ (residualPairDFA M left right).accepts ↔
       ¬ (word ∈ M.accepts.leftQuotient left ↔
         word ∈ M.accepts.leftQuotient right) := by
-  rw [DFA.mem_accepts, residualPairDFA_evalFrom]
-  rfl
+  rw [DFA.mem_accepts, DFA.eval, residualPairDFA_evalFrom]
+  change (¬ (M.evalFrom (M.eval left) word ∈ M.accept ↔
+    M.evalFrom (M.eval right) word ∈ M.accept)) ↔ _
+  simp only [mem_leftQuotient_iff_accept_evalFrom_eval]
 
 /--
 Mathlib's `DFA.evalFrom_split`, applied to the synchronous pair automaton,
@@ -221,7 +223,7 @@ theorem exists_residual_separator_lt_card_sq
           have hdelete : P.eval (a ++ c) = P.eval candidate := by
             rw [DFA.eval, DFA.evalFrom_of_append, ha, hc]
           have hsmaller : (a ++ c).length < n := by
-            have hbpos : 0 < b.length := List.length_pos.mpr hb
+            have hbpos : 0 < b.length := List.length_pos_iff.mpr hb
             rw [hsplit] at hlength
             simp only [List.length_append] at hlength ⊢
             omega
