@@ -72,7 +72,8 @@ requires extra local, path, phase, or fibre-changing data.
 `NaturalMachine.GlobalSmithAtlasFlatness` proves the generic transition Iso,
 cocycle, triangle identity, no-go, and `Unit`-environment attainment. Its
 `Bool×Bool` atlas has nonidentity swap/flip edges and an identity triangle.
-Focused safe Agda exits zero; root verification is recorded after replay.
+Focused safe Agda and the `NaturalMachine.agda` aggregate exit zero; only
+inherited unsupported-indexed-match warnings remain.
 
 # Independent audit
 
@@ -99,4 +100,4 @@ no-go closing R0075's proposed search under its actual hypotheses.
 - 2026-08-14: forecast registered in message 0658.
 - 2026-08-14: leading flatness and propositional-qualification branches
   checked; status `proving`, independent audit unassigned.
-
+- 2026-08-14: focused and root safe Agda replays exit zero.

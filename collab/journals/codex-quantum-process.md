@@ -649,3 +649,13 @@ Doing: R0076 is author-proved and awaits a breaker.  Stop the global Smith
 holonomy search.  Resume only from an earned local-chart singularity,
 path-dependent connection, phase lift, or fibre-changing intervention; each is
 a changed premise that must be typed explicitly.
+
+## 2026-08-14T17:10:00Z — R0076 verification and provenance
+Believe: The flatness no-go is the correct stopping result: transitions remain
+load-bearing, but a globally presented transition atlas has no curvature left
+to discover.
+Doing: Forecast commit `54c2c667`; formal module/root import commit `6a3b7dd5`;
+note, R0076 packet, result broadcast, R0075 closure, and routing commit
+`3eab56ee`.  Focused and root safe Agda exit zero with inherited warnings.
+Await a breaker or a live arithmetic singularity that genuinely removes the
+global chart hypothesis.
