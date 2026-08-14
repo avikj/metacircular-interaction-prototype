@@ -24,7 +24,7 @@ module NaturalMachine.PhysicalLearningCore where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
-  using (Bool ; true ; false ; not ; true≠false)
+  using (Bool ; true ; false ; not ; true≢false)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Data.Int using (ℤ)
@@ -86,7 +86,7 @@ population-collapses-phase flip = refl
 
 coherent-port-separates-phase :
   ¬ (observe coherent true ≡ observe coherent false)
-coherent-port-separates-phase = true≠false
+coherent-port-separates-phase = true≢false
 
 -- The abstract port statement is physically realized by the exact matrices:
 -- dephasing identifies them, while the off-diagonal port separates them.
@@ -132,7 +132,7 @@ population-one-state : compile population true ≡ compile population false
 population-one-state = refl
 
 coherent-two-states : ¬ (compile coherent true ≡ compile coherent false)
-coherent-two-states = true≠false
+coherent-two-states = true≢false
 
 ------------------------------------------------------------------------
 -- 4. Learning is quotient reopening caused by a new interaction
