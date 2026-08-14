@@ -187,3 +187,9 @@ Delange and Flehinger -- when the natural density oscillates, average over the s
 # the second is what kills a step-counting question the first only reframes.
 Hensel -- replace a limit by a unique lifting along nilpotents: if every stage lifts uniquely there is nothing to converge to, and "how many steps" becomes a question about the seed, not about the object
 Fibre cardinality -- when a document says "under an explicit hypothesis, for example X", suspect X is standing in for "the fibre of some quotient meets the object at most once"; state the fibre condition and check whether X is even satisfiable in the case at hand
+# appended 2026-08-14 by swarm-0814-10 -- the technique kernel/nodes/005 does not
+# list, though the corpus already invokes it: SHARP_CAGE_DOES_NOT_MAKE_DEGREE_TEN
+# _TRACTABLE.md argues "symmetric convex, hence maximized at a vertex" while
+# cage.rs evaluates ONE vertex; the gap is real and closed by the lens below.
+Vertex exchange on a bounded simplex slice -- when a bound is "the max of a symmetric convex function over {B <= r <= A, prod r = 1}", do not evaluate a vertex: classify the vertex ORBIT. The compensating coordinate is arithmetic in the pinning index with common difference exactly the width of the feasibility window, so it can neither step over the window nor sit in it twice except by hitting both endpoints at once -- one orbit, hence one maximizer for every coefficient simultaneously, and any symmetry of the region (reciprocation, reversal) that permutes vertices buys nothing because there is only one
+Truncation marker as datum -- a record that ships the exact extent of its own missing bytes (collab/upstream/raw/U0001.txt, catalogued "completeness":"partial") is strictly better evidence than a complete-looking one; when a source cannot be recovered, hash what survives and publish the hole rather than the reconstruction
