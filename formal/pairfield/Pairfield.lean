@@ -14,6 +14,8 @@ import Pairfield.SmithPresentation
 import Pairfield.GeneralSmith2x2
 import Pairfield.SmithContent
 import Pairfield.CertificateSource
+import Pairfield.RankOneSmith2x2
+import Pairfield.RankOneWitness
 -- `Pairfield.ArbitrarySmithClosure` inhabits `CapabilityGraph`'s named open
 -- edge.  It is kept out of the default target for the same reason
 -- `Pairfield.CapabilityGraph` always was: that module imports all of Mathlib.

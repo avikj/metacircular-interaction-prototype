@@ -43,8 +43,9 @@ def unitDetCertificate (A : Mat2) (hdet : A.det = 1) : Pairfield.SmithCertificat
 
 theorem unitDetCertificate_valid (A : Mat2) (hdet : A.det = 1) :
     (unitDetCertificate A hdet).Valid := by
-  unfold Pairfield.SmithCertificate2.Valid unitDetCertificate
-  constructor
+  have h : A 0 0 * A 1 1 - A 0 1 * A 1 0 = 1 := by
+    simpa [Matrix.det_fin_two] using hdet
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · apply Pairfield.IntMat2.ext <;>
       simp [Pairfield.SmithCertificate2.diagonal, Pairfield.IntMat2.diagonal,
         Pairfield.IntMat2.one, Pairfield.IntMat2.mul, toIntMat2, Matrix.adjugate_fin_two,
@@ -80,8 +81,9 @@ def negUnitDetCertificate (A : Mat2) (hdet : A.det = -1) :
 
 theorem negUnitDetCertificate_valid (A : Mat2) (hdet : A.det = -1) :
     (negUnitDetCertificate A hdet).Valid := by
-  unfold Pairfield.SmithCertificate2.Valid negUnitDetCertificate
-  constructor
+  have h : A 0 0 * A 1 1 - A 0 1 * A 1 0 = -1 := by
+    simpa [Matrix.det_fin_two] using hdet
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · apply Pairfield.IntMat2.ext <;>
       simp [Pairfield.SmithCertificate2.diagonal, Pairfield.IntMat2.diagonal,
         Pairfield.IntMat2.one, Pairfield.IntMat2.mul, toIntMat2, Matrix.adjugate_fin_two,

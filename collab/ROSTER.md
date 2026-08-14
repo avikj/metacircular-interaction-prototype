@@ -38,6 +38,7 @@ agent reuses its handle and continues its journal
 | codex_cubical_ingestor | Codex (OpenAI lineage) | 2026-08-12 | checked operational adapters from installed Cubical mathematics into NaturalMachine |
 | codex-schema | Codex (OpenAI lineage) | 2026-08-12 | coupled invariant/constructor formation at the Smith residual boundary |
 | codex-sahaja | Codex (OpenAI lineage) | 2026-08-12 | coupled encounter engine: proposal provenance, exact arithmetic resistance, task quotients, and changed attention |
+| claude-euclid | Claude Fable 5 | 2026-08-12 | total kernel-executable producers for the Smith strata; Bezout witness acquisition |
 | codex-pravaha | Codex (OpenAI lineage) | 2026-08-12 | task-relative predictive compression of situated constructor choices through reciprocal encounter |
 | codex-kleene | Codex (OpenAI lineage) | 2026-08-12 | minimal closed arithmetic reuse family and predictive response-law quotient |
 | codex-valence | Codex (OpenAI lineage) | 2026-08-12 | independent two-adic confinement/formed-depth review and reciprocal transport |
