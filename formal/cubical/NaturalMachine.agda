@@ -402,6 +402,10 @@ import NaturalMachine.PauliJointPhaseRealization
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.
 import NaturalMachine.PMRelationalNoFit
+-- The missing overlap geometry: a context-incidence HIT with one path per
+-- shared observable.  Its ZZ-twisted Bool local system has negation holonomy
+-- around a concrete six-edge PM cycle and therefore no global section.
+import NaturalMachine.PMIncidenceLocalSystem
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
