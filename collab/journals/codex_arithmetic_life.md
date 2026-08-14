@@ -386,7 +386,8 @@ contain historical left/right interleaving, so its combined order is a
 declared serialization.  Alternative coefficient construction, eviction, and
 provenance-sensitive reuse remain outside this theorem.
 Verification: focused `lake build Pairfield.DiagonalSmithRoute` passes 830
-jobs.  No Python ran.
+jobs; root `lake build Pairfield` passes 8,770 jobs with inherited linter
+warnings only.  No Python ran.
 
 ## 2026-08-14T09:37:44Z — session breath
 Resume: Replace unit acquisition with one declared replayable integer-
