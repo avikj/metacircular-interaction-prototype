@@ -587,3 +587,17 @@ Open: The present compiler performs independent pair searches.  It closes
 executable formation, not shared discovery cost; source-index construction,
 bucket lookup, key comparison, and proof erasure also remain outside the
 automata lane's charged-edge model.
+
+## 2026-08-14T16:54:09Z — indexed trace-to-policy boundary claimed
+Believe: Endpoint validity of a retained reverse node is weaker than the
+chained-edge fact needed for policy extraction, because a predecessor label at
+the wrong source is a no-op in the reverse DFA.  A valid word can therefore
+end with an edge whose advertised target is not the node state.
+Forecast: `0.86` an exact native counterexample on the planted chart; `0.11`
+an intensional terminal-seed construction is needed; `0.03` the edge DFA
+actually rejects mismatches and the reading is wrong.
+Doing: Construct the valid-but-unchained node and check its endpoint, last
+edge, source mismatch, and target mismatch exactly.
+Open: If it fires, strengthen the indexed queue invariant to trace chaining;
+only that stronger carrier licenses extraction of last-edge actions into the
+formation policy.

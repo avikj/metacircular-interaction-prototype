@@ -76,6 +76,57 @@ theorem indexedEdgeDFA_step_source (edge : ReverseEdge M) :
     Equiv.symm_apply_apply]
   exact congrArg sourceStateEquiv (edgeDFA_step_source M edge)
 
+/-- Lift a forward separator to proof-relevant genuine reverse edges.  The
+terminal proof is retained in the seed; predecessor edges retain the original
+pair and action. -/
+def reverseEdgeCertificate (pair : X × X) :
+    (word : List A) →
+      behavior M.step (acceptsBool M) pair.1 word ≠
+        behavior M.step (acceptsBool M) pair.2 word →
+      List (ReverseEdge M)
+  | [], hseparates => [.seed ⟨pair, hseparates⟩]
+  | action :: rest, hseparates =>
+      have htail :
+          behavior M.step (acceptsBool M)
+              (pairStep M pair action).1 rest ≠
+            behavior M.step (acceptsBool M)
+              (pairStep M pair action).2 rest := by
+        simpa [behavior, run, pairStep] using hseparates
+      reverseEdgeCertificate (pairStep M pair action) rest htail ++
+        [.predecessor pair action]
+
+/-- Erasing proof-relevant edges recovers the earlier reverse certificate
+exactly. -/
+theorem reverseEdgeCertificate_map_toMove (pair : X × X) (word : List A)
+    (hseparates :
+      behavior M.step (acceptsBool M) pair.1 word ≠
+        behavior M.step (acceptsBool M) pair.2 word) :
+    (reverseEdgeCertificate M pair word hseparates).map
+        (ReverseEdge.toMove M) =
+      reverseCertificate M pair word := by
+  induction word generalizing pair with
+  | nil => simp [reverseEdgeCertificate, reverseCertificate,
+      ReverseEdge.toMove]
+  | cons action rest ih =>
+      simp only [reverseEdgeCertificate, reverseCertificate, List.map_append,
+        List.map_singleton, ReverseEdge.toMove]
+      rw [ih]
+
+/-- The native edge certificate reaches its declared product pair in the
+reindexed DFA. -/
+theorem reverseEdgeCertificate_reaches (pair : X × X) (word : List A)
+    (hseparates :
+      behavior M.step (acceptsBool M) pair.1 word ≠
+        behavior M.step (acceptsBool M) pair.2 word) :
+    (indexedEdgeDFA M).eval
+        (reverseEdgeCertificate M pair word hseparates) = .pair pair := by
+  rw [DFA.eval, indexedEdgeDFA_evalFrom, edgeDFA_evalFrom,
+    reverseEdgeCertificate_map_toMove]
+  have hreach := NativeReversePairTraversal.reverseCertificate_reaches
+    M pair word hseparates
+  simpa [DFA.eval, indexedEdgeDFA, edgeDFA, reverseDFA, sourceStateEquiv] using
+    congrArg (sourceStateEquiv (X := X)) hreach
+
 /-- One materialized adjacency bucket.  Soundness is proved for the complete
 index below instead of stored in this executable record. -/
 structure SourceBucket where
@@ -167,6 +218,61 @@ theorem materializeIndex_sound (edges : List (ReverseEdge M)) :
   | nil => simp [materializeIndex, IndexSound]
   | cons edge rest ih =>
       simpa [materializeIndex] using insertEdge_sound M edge _ ih
+
+theorem seed_mem_terminalEdges (pair : X × X)
+    (hterminal : TerminalPair M pair) :
+    ReverseEdge.seed (M := M) ⟨pair, hterminal⟩ ∈ terminalEdges M := by
+  simp [terminalEdges, terminalEdge?, hterminal]
+
+theorem predecessor_mem_predecessorEdges [LinearOrder X] [Fintype X]
+    (alphabet : List A) (pair : X × X) (action : A)
+    (haction : action ∈ alphabet) :
+    ReverseEdge.predecessor (M := M) pair action ∈
+      predecessorEdges M alphabet := by
+  simp [predecessorEdges, haction]
+
+/-- Every edge used by a lifted certificate is present in the explicit
+inventory whenever the supplied alphabet is complete. -/
+theorem reverseEdgeCertificate_mem_inventory [LinearOrder X] [Fintype X]
+    [DecidableEq A] (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet)
+    (pair : X × X) (word : List A)
+    (hseparates :
+      behavior M.step (acceptsBool M) pair.1 word ≠
+        behavior M.step (acceptsBool M) pair.2 word) :
+    ∀ edge ∈ reverseEdgeCertificate M pair word hseparates,
+      edge ∈ edgeInventory M alphabet := by
+  induction word generalizing pair with
+  | nil =>
+      intro edge hedge
+      simp only [reverseEdgeCertificate, List.mem_singleton] at hedge
+      subst edge
+      exact List.mem_append_left _ (seed_mem_terminalEdges M pair hseparates)
+  | cons action rest ih =>
+      intro edge hedge
+      simp only [reverseEdgeCertificate, List.mem_append, List.mem_singleton] at hedge
+      rcases hedge with hprefix | rfl
+      · exact ih (pairStep M pair action) edge hprefix
+      · exact List.mem_append_right _
+          (predecessor_mem_predecessorEdges M alphabet pair action
+            (complete action))
+
+/-- Graph/path completeness at the exact effective boundary: every unequal
+pair of a finite reduced chart has an inventory-resident native edge path from
+the synthetic source.  Queue coverage is a separate theorem. -/
+theorem exists_inventory_edge_path_of_ne [LinearOrder X] [Fintype X]
+    [DecidableEq A] (alphabet : List A)
+    (complete : ∀ action : A, action ∈ alphabet)
+    (reduced : BehaviorallyReduced M) (pair : X × X)
+    (hne : pair.1 ≠ pair.2) :
+    ∃ edges : List (ReverseEdge M),
+      (∀ edge ∈ edges, edge ∈ edgeInventory M alphabet) ∧
+      (indexedEdgeDFA M).eval edges = .pair pair := by
+  obtain ⟨word, _hword, hseparates⟩ :=
+    exists_completeWord_separator M alphabet complete reduced hne
+  exact ⟨reverseEdgeCertificate M pair word hseparates,
+    reverseEdgeCertificate_mem_inventory M alphabet complete pair word hseparates,
+    reverseEdgeCertificate_reaches M pair word hseparates⟩
 
 /-- Remove and return the first bucket for one expanded source. -/
 def takeBucket (state : SourceState X) :
