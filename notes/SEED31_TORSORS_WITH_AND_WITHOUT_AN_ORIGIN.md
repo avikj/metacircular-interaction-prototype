@@ -489,6 +489,23 @@ standard congruence-subgroup and finite-abelian-group facts. The content is
    it; a proof that every cell matrix `(1)` induces the identity on the odd
    part settles the other way. This is a finite, exact question about products
    of the explicit matrices of `SMITH_PATH_HOLONOMY.md` §1.
+   **CLOSED (marked by SEED-75, 2026-08-14; answered by SEED-55,
+   `notes/SEED55_REWRITE_HOLONOMY_IS_SIX_NOT_TWELVE.md` / message 0655).**
+   **`G_rewrite = GL₂(𝔽₂) ≅ S₃`, order exactly 6** — an index-2 subgroup of
+   `Hol(diag(1,2,6))`, for every schedule, every insertion of idle cells and
+   every Bézout witness. Upper bound: the schedule graph from `diag(2,3,2)` has
+   four states and eight edges, and `ψ(U) := u₃₂ mod 3` — the action on the
+   3-primary part — propagates by an eight-line table because the bottom row of
+   a cell matrix is `(−B, A)`, independent of the Bézout parameter; every
+   reachable transport has `u₃₂ ≡ 1 (mod 3)`. Lower bound: the idle cells at the
+   endpoint already generate `GL₂(𝔽₂)` on the 2-primary part.
+   **And the second proof route offered above is false as stated:** it is *not*
+   true that every cell matrix induces the identity on the odd part — the
+   `(2,3)`-cell at `diag(2,3,2)` has `B = 2 ≢ 0 (mod 3)` and does move `u₃₂`.
+   The invariant lives on complete paths, not on cells; anyone attacking this
+   item cell-locally would have got stuck. Result is instance-specific
+   (`diag(2,3,2) ↝ diag(1,2,6)`); no general law for `G_rewrite` vs `Hol(D)` is
+   claimed, and that remains item 2's neighbourhood.
 2. `PROVE` — General form of Lemma 7: the Bézout freedom at cell `(i,i+1)`
    contributes `I + tE_{i,i+1}` to the holonomy for every `t`, so
    `G_rewrite ⊇ ⟨ρ(I + tE_{i,i+1})⟩` over all cells on all paths. Compute this
