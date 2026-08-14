@@ -424,3 +424,64 @@ Chinese nested-evaluation scheme and the Indian vallī trace, and it shows the
 classical convergent recurrence **is** the Horner fold of the trace monoid.
 `--safe`, no holes. It also exposes a small API defect: `stepLaw` is `private` in
 `KuttakaValli`, so `convergent` cannot be reused downstream.
+
+### 6.8 Final returns: a vacuity refutation and improvable cage constants
+
+**`ObservationalClassCompiler` is vacuous — machine-checked** *(Turing-method)*.
+`NaturalMachine/CapabilityGraph.agda:41-46` declares a record and comments that
+the repository "has equality of response functions but no installed quotient
+carrier satisfying this exact classification law." **False.** Taking
+`Class := (Fin n → ℕ)` and `classOf e := actObservation e obs`, the two sides of
+`complete` become the *same type* and the field is `idEquiv`. Checked `--safe`,
+exit 0. The record imposes **no** requirement, for any `n` and any observation —
+an interface stating a research gap that is discharged by `idEquiv`. The missing
+content is the computability side: a non-vacuous version must demand `Class`
+finite or discrete, or a decision procedure for `classOf e ≡ classOf f`.
+
+**`WalkForcing.agda`'s contract is wrong, and there is an unlisted third gap.**
+`LeastNonDivisor L q` is satisfied by **`q = 0`** for every `L ≠ 0` (`0 ∣ L`
+unfolds to `L ≡ 0`… the first clause holds; the second is vacuous since `r < 0`
+is uninhabited). Zero is not a prime power. Checked `--safe`, exit 0. And even
+granting `q ≥ 2`, the checked theorem is `¬ ProperCoprimeSplit q`, not "`q` is a
+prime power" — the bridge is neither proved nor holed, it is absent. So there
+are **three** gaps, not the two the header lists, and closing H1/H2 would still
+not license retiring the `walk.py` assertion.
+
+**The torsor tower is certified non-vacuous** — `TransporterMembership.agda`
+proves its headline inside a `module _` with nine hypotheses and never exhibits
+an instance. Instantiated (`U=V=I`, `m=diag(1,3)`, `q=3`): all nine discharge by
+`refl` and the conclusion is non-degenerate (`H₂₁ ≡ pos 3`, so `k = 1`, not the
+trivial `0 ≡ 0·q`).
+
+**The general pattern, and it indicts my own practice as the exception rather
+than the rule:** `CenterRelative.agda` is currently the **only** module in the
+tree carrying its own non-vacuity controls. `Gamma0Partner`, `Gamma0Converse`,
+`Gamma0Transitivity`, `TransporterMembership`, and `LeakageCommutator` (an
+`IsInvolution` record never instantiated anywhere) have none. The doctrine exists
+in `VACUITY_CERTIFICATES.md` and is applied in one place out of a dozen.
+
+**Gate finding:** `formal/check.sh` gates two files, one of which
+(`NaturalMachine.agda`) does not check on the declared toolchain. **The effective
+Agda gate today is `ProjectionChargeAudit.agda` alone**; the other 18 checking
+modules are ungated and free to rot the way `PathIsSymmetry` did.
+
+**Cage constants are improvable by pure algebra** *(Ramanujan-method)*. Every
+exact claim in `NONRECIPROCAL_DECIC_FRONTIER.md` re-certified independently of
+its banned Python replay (`Res(q₁,q₁*)=735`, root counts 0/4/10, the vertex
+analysis, `π(X) ≡ 5 mod 15`). Two findings on top:
+
+- **Prior art missed.** The inner bound `φ⁻¹` is exactly Odlyzko–Poonen (1993)
+  for 0–1 polynomials; the note's odd-support re-derivation buys nothing on the
+  inside, and "sharper strict cage" is misleading. Only the outer half is the
+  note's own.
+- **Neither constant is right.** Using *prime* support rather than "odd support":
+  among `p, p−2, p−4` exactly one is divisible by 3 and is not `p`, so for
+  `p ≥ 11` at least one of `k ∈ {1,2}` is missing. This gives
+  `1 ≤ r^{−N} + u/(1−u) − u²`, whose threshold is `t³−2t²+t−1 = 0` — **the
+  plastic number**, `r → ρ = 1.3247…`, improvable to `1.30213…` with the full
+  mod-3 class. Certified rationally: for `X ≥ 17` every root has `|z| < 4/3`.
+  Inner: `|z| > 5/8 > φ⁻¹`. The polytope vertex then becomes **entirely
+  rational**, `(4/3,4/3,4/3,5/8,27/40)`, and the boxes tighten
+  (endpoint `1241 → 1195`). **The note's negative conclusion survives and is
+  strengthened** — `q₁` still inhabits the tightened cage, so even the
+  mod-3-sieved bound does not close the nonreciprocal decic layer.
