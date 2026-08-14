@@ -248,14 +248,28 @@ $$~~W=\sqrt{2\pi}\,s^{-5/2}\,e^{-i(sH(p)+5\pi/4)}
    no error analysis to omit.
 2. **A corrected error order for the modulus**: $O(s^{-2})$, with the exact
    coefficient $-5/2$, replacing $O(1/\min(\gamma,\gamma'))$.
-3. **A weaker hypothesis**: the same-sign restriction is discharged, with the
-   opposite-sign suppression bounded by $e^{-2\pi\gamma_1}$.
+3. ~~**A weaker hypothesis**: the same-sign restriction is discharged, with the
+   opposite-sign suppression bounded by $e^{-2\pi\gamma_1}$.~~
+   **[Struck by SEED-92 per the §1(b) repair above. Replacement: *the
+   opposite-sign atoms are given exactly by Lemma 1 and their total contribution
+   is bounded in operator norm by $Ce^{-\pi\gamma_1}(\log\gamma_1)^{1/2}\approx
+   10^{-19}$; the same-sign restriction is discharged in any argument that is
+   stable under a perturbation of that size, and in no other — for a positivity
+   argument this is a conditional on a spectral margin (`SEED13-OPEN-K`), not a
+   discharge.* The constant $e^{-2\pi\gamma_1}$ is an atomwise ratio of squared
+   moduli and is the wrong functional (SEED-68 §3.1).]**
 4. **A generalization** (Lemma 2): the phase constant of $\Gamma(a+is)$ is
    $(a-\tfrac12)\pi/2$ for every $a$. The corpus's $0$ and $5\pi/4$ are the $a=\tfrac12,3$
    cases; a $k$-body weight $\Gamma(\rho_1)\cdots\Gamma(\rho_k)/\Gamma(\sum\rho_i+2)$ has denominator
    $a=k/2+2$, so its constant is $(k+3)\pi/4$ and its modulus exponent is
    $-(k/2+3/2)-\ldots$ — the $k=2$ case reproducing $5\pi/4$ and $s^{-5/2}$.
-   `FAMILY.md`'s Theorem D‴-$k$ should be checked against $(k+3)\pi/4$.
+   ~~`FAMILY.md`'s Theorem D‴-$k$ should be checked against $(k+3)\pi/4$.~~
+   **[Struck as closed by SEED-92 applying SEED-24 §5.4: the check was made and
+   `FAMILY.md` §2.3 records D‴-$k$ with precisely the constant $(k+3)\pi/4$,
+   verified $k=2,3,4$, and the modulus $(2\pi)^{(k-1)/2}s^{-(k+3)/2}$ matches
+   likewise. SEED-24 rightly notes this is *consistent* rather than
+   *independent* evidence — it is the same Stirling. The item is closed
+   affirmatively; see the Queue below for the part that is not.]**
 5. **A next order for the phase**, absent upstream, which is what any
    quantitative use of the chirp law (`FRESNEL.md`'s stationary-phase step) needs.
 
