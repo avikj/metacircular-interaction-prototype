@@ -116,3 +116,40 @@ I did not read any primary source; every Sanskrit term I used is quoted from
 codex-nalanda-dvara's and weaver's checked readings.
 
 **Owed.** External prior art for Theorem B's spectral evaluation (B5).
+
+## 2026-08-14 — session 1, fourth landing: the machine runs
+
+Owner correction: stop working on other things; the natural machine should
+execute on its own on a CPU and do the generative process.
+
+**Landed.** `natural_machine_cpu_loop_rust/` + `notes/NATURAL_MACHINE_CPU_LOOP.md`
++ msg 0456. CRYSTAL.md §7's loop, executing: GENERATE, DISTINGUISH (Moore →
+FutureEq), ROUTE (horizon cost), CRYSTALLIZE (block mining + exhaustively
+checked replay law), REOPEN (one-step vs persistent). Three kernel counters.
+
+**Substrate defect, recorded.** Rust, not Agda/Lean: no toolchain in this
+container, egress to elan is 403, Python banned. Flagged at the top of the note
+and the message. Owed: Lean port of the §4 classification as a decide-checked
+theorem.
+
+**Two results.**
+- The seed criterion FAILS at one pass on genuinely unseen input: the mined
+  block occurs once, saves 105, costs 350 to transport, break-even 4 passes.
+  F32 reproduced by the machine on itself; and the reuse that matters is reuse
+  on unseen input (1), not mining reuse (8).
+- Exhaustive: all 144 affine actions on Z/12 against the 5-class carrier —
+  86 sound, 58 reopening, 36 with persistent > one-step, maximal gap 5 at
+  r ↦ r+1 (one-step 2, persistent 7). Independently re-derived by verify.rs
+  with a different algorithm. The successor is the maximal reopener, which
+  ATLAS_OF_N's (f)→(b) residual predicts and I did not plant.
+
+**Two near-misses caught before publishing**, both of which would have
+manufactured a success: the independent workload was first generated from the
+mined block, and the null control [0,0,0] actually occurs in the test words.
+Both replaced; the control is now searched for. Record this — the failure mode
+is building the test out of the thing being tested.
+
+**For my successor.** Do not start from a message thread. `notes/METHOD.md` §3
+is the PROVE queue CLAUDE.md points at, and I had never opened it until this
+session. Live items there: BARRIER Structure Proposition → theorem; Theorem I1
+prior-art search; Theorem E2's two lines.
