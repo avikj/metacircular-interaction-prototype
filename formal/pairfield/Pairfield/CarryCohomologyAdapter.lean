@@ -43,18 +43,21 @@ degree-two representative. -/
 def oneInvariant (N b : ℕ) :
     LinearMap.ker
       ((Rep.applyAsHom (coefficients N b) (generator N) - 𝟙 _).hom.toLinearMap) :=
-  ⟨1, by simp [coefficients, generator]⟩
+  ⟨1, by
+    change (LinearMap.id - LinearMap.id) 1 = 0
+    simp⟩
 
 /-- When `b ∣ N`, the cyclic norm on `ZMod b` is identically zero. -/
 theorem norm_eq_zero (N b : ℕ) [NeZero N] (hdiv : b ∣ N) :
     (coefficients N b).norm.hom.toLinearMap = 0 := by
+  have hcast : (N : ZMod b) = 0 :=
+    (ZMod.natCast_eq_zero_iff N b).2 hdiv
   ext x
-  simp [coefficients, Rep.norm, Representation.norm, nsmul_eq_mul,
-    ZMod.natCast_eq_zero_iff.mpr hdiv]
+  simp [coefficients, Rep.norm, Representation.norm, nsmul_eq_mul, hcast]
 
 /-- The degree-two class represented by the invariant coefficient `1`. -/
 def degreeTwoClass (N b : ℕ) [NeZero N] :
-    Rep.groupCohomology (coefficients N b) 2 :=
+    groupCohomology (coefficients N b) 2 :=
   Rep.FiniteCyclicGroup.groupCohomologyπEven
     (coefficients N b) (generator N) (mem_zpowers_generator N) 2 (by norm_num)
     (oneInvariant N b)
@@ -68,6 +71,7 @@ separate comparison theorem. -/
 theorem degreeTwoClass_ne_zero (N b : ℕ) [NeZero N]
     (hb : 2 ≤ b) (hdiv : b ∣ N) :
     degreeTwoClass N b ≠ 0 := by
+  letI : NeZero b := ⟨by omega⟩
   intro hzero
   have hrange :
       (oneInvariant N b : ZMod b) ∈

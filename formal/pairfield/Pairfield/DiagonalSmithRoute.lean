@@ -440,7 +440,7 @@ def wordCost : List Int → List Int → Nat
 theorem finalCache_append (cache qs rs : List Int) :
     finalCache cache (qs ++ rs) = finalCache (finalCache cache qs) rs := by
   induction qs generalizing cache with
-  | nil => rfl
+  | nil => simp [finalCache]
   | cons q qs ih =>
       simp [finalCache, ih]
 
@@ -450,7 +450,7 @@ theorem wordCost_append (cache qs rs : List Int) :
     wordCost cache (qs ++ rs) =
       wordCost cache qs + wordCost (finalCache cache qs) rs := by
   induction qs generalizing cache with
-  | nil => rfl
+  | nil => simp [wordCost, finalCache]
   | cons q qs ih =>
       simp [wordCost, finalCache, ih, Nat.add_assoc]
 

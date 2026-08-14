@@ -24,43 +24,43 @@ open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 import NaturalMachine.RelationalHolonomyRefinement as Hol
 import NaturalMachine.RelationalProcessCore as Rel
 
-module _ {ℓ : Level} (G : Group ℓ) where
+module _ {ℓ : Level} (Γ : Group ℓ) where
 
   private
-    module GS = GroupStr (snd G)
+    module G = GroupStr (snd Γ)
 
-  leftMultiplyIso : (a : ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
-  Iso.fun (leftMultiplyIso a) x = a GS.· x
-  Iso.inv (leftMultiplyIso a) x = GS.inv a GS.· x
+  leftMultiplyIso : (a : ⟨ Γ ⟩) → Iso ⟨ Γ ⟩ ⟨ Γ ⟩
+  Iso.fun (leftMultiplyIso a) x = a G.· x
+  Iso.inv (leftMultiplyIso a) x = G.inv a G.· x
   Iso.rightInv (leftMultiplyIso a) x =
-      sym (GS.·Assoc (GS.inv a) a x)
-    ∙ congL GS._·_ (GS.·InvL a)
-    ∙ GS.·IdL x
+      sym (G.·Assoc (G.inv a) a x)
+    ∙ congL G._·_ (G.·InvL a)
+    ∙ G.·IdL x
   Iso.leftInv (leftMultiplyIso a) x =
-      sym (GS.·Assoc a (GS.inv a) x)
-    ∙ congL GS._·_ (GS.·InvR a)
-    ∙ GS.·IdL x
+      sym (G.·Assoc a (G.inv a) x)
+    ∙ congL G._·_ (G.·InvR a)
+    ∙ G.·IdL x
 
-  rightMultiplyIso : (a : ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
-  Iso.fun (rightMultiplyIso a) x = x GS.· a
-  Iso.inv (rightMultiplyIso a) x = x GS.· GS.inv a
+  rightMultiplyIso : (a : ⟨ Γ ⟩) → Iso ⟨ Γ ⟩ ⟨ Γ ⟩
+  Iso.fun (rightMultiplyIso a) x = x G.· a
+  Iso.inv (rightMultiplyIso a) x = x G.· G.inv a
   Iso.rightInv (rightMultiplyIso a) x =
-      GS.·Assoc x (GS.inv a) a
-    ∙ congR GS._·_ (GS.·InvL a)
-    ∙ GS.·IdR x
+      G.·Assoc x (G.inv a) a
+    ∙ congR G._·_ (G.·InvL a)
+    ∙ G.·IdR x
   Iso.leftInv (rightMultiplyIso a) x =
-      GS.·Assoc x a (GS.inv a)
-    ∙ congR GS._·_ (GS.·InvR a)
-    ∙ GS.·IdR x
+      G.·Assoc x a (G.inv a)
+    ∙ congR G._·_ (G.·InvR a)
+    ∙ G.·IdR x
 
   -- Endpoint covariance is invertible: t acts on the left and s⁻¹ on
   -- the right.  This construction uses only the supplied endpoint pair.
-  endpointGaugeIso : (⟨ G ⟩ × ⟨ G ⟩) → Iso ⟨ G ⟩ ⟨ G ⟩
+  endpointGaugeIso : (⟨ Γ ⟩ × ⟨ Γ ⟩) → Iso ⟨ Γ ⟩ ⟨ Γ ⟩
   endpointGaugeIso (s , t) =
-    compIso (leftMultiplyIso t) (rightMultiplyIso (GS.inv s))
+    compIso (leftMultiplyIso t) (rightMultiplyIso (G.inv s))
 
-  endpointGaugeEquiv-computes : (u : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
-    → Iso.fun (endpointGaugeIso u) g ≡ Hol.endpointGauge G u g
+  endpointGaugeEquiv-computes : (u : ⟨ Γ ⟩ × ⟨ Γ ⟩) (g : ⟨ Γ ⟩)
+    → Iso.fun (endpointGaugeIso u) g ≡ Hol.endpointGauge Γ u g
   endpointGaugeEquiv-computes (s , t) g = refl
 
   -- Types are loci and their elements are the relative facts available at
@@ -70,11 +70,11 @@ module _ {ℓ : Level} (G : Group ℓ) where
   Rel.Locus GaugePresentationProcess = Type ℓ
   Rel.Fact  GaugePresentationProcess X = X
 
-  endpointInteraction : (u : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
-    → Rel.Interaction GaugePresentationProcess ⟨ G ⟩ ⟨ G ⟩
+  endpointInteraction : (u : ⟨ Γ ⟩ × ⟨ Γ ⟩) (g : ⟨ Γ ⟩)
+    → Rel.Interaction GaugePresentationProcess ⟨ Γ ⟩ ⟨ Γ ⟩
   Rel.path   (endpointInteraction u g) = ua (isoToEquiv (endpointGaugeIso u))
   Rel.before (endpointInteraction u g) = g
-  Rel.after  (endpointInteraction u g) = Hol.endpointGauge G u g
+  Rel.after  (endpointInteraction u g) = Hol.endpointGauge Γ u g
   Rel.lawful (endpointInteraction u g) =
     uaβ (isoToEquiv (endpointGaugeIso u)) g
       ∙ endpointGaugeEquiv-computes u g
@@ -82,28 +82,28 @@ module _ {ℓ : Level} (G : Group ℓ) where
   -- The pre-existing refinement covariance theorem is exactly the statement
   -- that refined holonomy lands at the `after` fact of this interaction.
   refinement-realizes-endpoint-interaction :
-    (u : ⟨ G ⟩ × ⟨ G ⟩) (x : Hol.Refined G)
-    → Hol.holonomy G (Hol.refinedEndpointGauge G u x)
-      ≡ Rel.after (endpointInteraction u (Hol.holonomy G x))
-  refinement-realizes-endpoint-interaction = Hol.holonomy-endpointGauge G
+    (u : ⟨ Γ ⟩ × ⟨ Γ ⟩) (x : Hol.Refined Γ)
+    → Hol.holonomy Γ (Hol.refinedEndpointGauge Γ u x)
+      ≡ Rel.after (endpointInteraction u (Hol.holonomy Γ x))
+  refinement-realizes-endpoint-interaction = Hol.holonomy-endpointGauge Γ
 
   -- Successive endpoint changes use the process core's composition.  The
   -- seam is definitional because the second interaction starts from the
   -- first interaction's transported result; no global representative or
   -- gauge-fixing function is selected.
   successiveEndpointInteractions :
-    (u₁ u₂ : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
-    → Rel.Interaction GaugePresentationProcess ⟨ G ⟩ ⟨ G ⟩
+    (u₁ u₂ : ⟨ Γ ⟩ × ⟨ Γ ⟩) (g : ⟨ Γ ⟩)
+    → Rel.Interaction GaugePresentationProcess ⟨ Γ ⟩ ⟨ Γ ⟩
   successiveEndpointInteractions u₁ u₂ g =
     Rel.composeInteraction GaugePresentationProcess
       (endpointInteraction u₁ g)
-      (endpointInteraction u₂ (Hol.endpointGauge G u₁ g))
+      (endpointInteraction u₂ (Hol.endpointGauge Γ u₁ g))
       refl
 
   successive-endpoint :
-    (u₁ u₂ : ⟨ G ⟩ × ⟨ G ⟩) (g : ⟨ G ⟩)
+    (u₁ u₂ : ⟨ Γ ⟩ × ⟨ Γ ⟩) (g : ⟨ Γ ⟩)
     → Rel.after (successiveEndpointInteractions u₁ u₂ g)
-      ≡ Hol.endpointGauge G u₂ (Hol.endpointGauge G u₁ g)
+      ≡ Hol.endpointGauge Γ u₂ (Hol.endpointGauge Γ u₁ g)
   successive-endpoint u₁ u₂ g = refl
 
   -- Scope boundary: `endpointInteraction` requires `u` as input.  Its type
