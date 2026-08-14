@@ -155,3 +155,51 @@ Doing: Landed quotient-35 closure to `diag(2,210)`, exact `LAR`, and determinant
 ## 2026-08-12T12:28:01Z — session end
 Resume: Execute the hostile lower-left residual by transposing the column-descent construction back into a row descent. Seek a measure on complete orientation changes—probably the positive pivot—while checking whether zeros/signs or singular matrices break it.
 Open: The concrete result is Smith-normalized because `2|210`, but that divisibility followed from this matrix, not yet from the alternating policy. Determine exactly when a diagonal endpoint produced by the policy is Smith-normalized.
+
+## 2026-08-12T12:37:00Z — lower-residual row descent claim
+Believe: The lower-left residual is the same Euclidean obstruction with orientation carried as an index. Acting on `(d,ell)^t` should strictly lower the pivot and return the state to upper-triangular orientation.
+Doing: Execute `[[2,0],[5,7]] -> [[1,7],[0,-14]]` with exact left witness, and reject a divisible lower entry masquerading as a residual.
+
+## 2026-08-12T12:44:00Z — lower-residual row descent landed
+Believe: Orientation is load-bearing state, not prose. The two residual transitions are transposes: each applies an earned Euclidean witness, rotates the zero off-diagonal entry, and replaces the pivot by a strictly smaller gcd whenever divisibility fails.
+Doing: Landed exact row witness `[[-2,1],[5,-2]]`, transition `[[2,0],[5,7]] -> [[1,7],[0,-14]]`, pivot descent `2->1`, and divisible-branch rejection. All 39 exponent-world tests are green.
+
+## 2026-08-12T12:44:01Z — session end
+Resume: Add canonical sign/zero normalization around the two oriented residual transitions. Then state and prove termination for the resulting positive nonsingular 2x2 alternation if the pivot is globally strictly decreasing on every nonclosing transition.
+Open: Singular matrices may end at `diag(d,0)` and require a separate endpoint law. Determine whether sign normalization can itself be made canonical without adding cycles or altering the pivot measure.
+
+## 2026-08-12T12:53:00Z — signed active normalization claim
+Believe: Signs are presentation indices removable by canonical unimodular row/column negations, but zero is not a sign. A lawful normalization must preserve orientation, exact certificates, and the absolute pivot measure in every sign cell.
+Doing: Execute all four nonzero sign patterns for upper and lower active pairs; refuse zero rather than calling it positive.
+
+## 2026-08-12T13:01:00Z — signed active normalization landed
+Believe: Sign variation is inert only because exact unimodular witnesses connect every nonzero sign cell while keeping the pivot magnitude and orientation fixed. Zero lies outside that orbit and must remain a distinct arithmetic branch.
+Doing: Landed canonical upper/lower sign witnesses across eight sign cells, exact replay, constant absolute pivot, and zero refusal. All 42 exponent-world tests are green.
+
+## 2026-08-12T13:01:01Z — session end
+Resume: Classify zero-active states exactly: already diagonal, row/column swap to a nonzero pivot, or zero matrix/singular endpoint. Compose that classification with signed normalization before claiming termination of the 2x2 alternation.
+Open: A generic theorem must track whether swaps preserve the proposed global measure. Determine the exact singular endpoint and whether the final diagonal automatically has the Smith divisibility chain.
+
+## 2026-08-12T13:10:00Z — zero-pivot classification claim
+Believe: Zero is not a sign and a swap is not descent. A leading-zero state should split exactly into diagonal endpoints or a witnessed row/column pivot relocation, with row priority fixing nonuniqueness when both off-diagonals are nonzero.
+Doing: Classify row-swap, column-swap, already-diagonal, and zero-matrix cases; preserve determinant magnitude and exact `LAR` in every branch.
+
+## 2026-08-12T13:18:00Z — zero-pivot classification landed
+Believe: Pivot relocation is a one-time chart formation, not progress within the chart. The leading-zero cases are exhaustive by the vanishing pattern of `(b,c)`, and canonical row priority prevents nondeterministic presentation choice.
+Doing: Landed exact endpoint/row-swap/column-swap classification and killed the global per-operation pivot-descent claim because relocation necessarily sends pivot magnitude `0` to positive. All 46 exponent-world tests are green.
+
+## 2026-08-12T13:18:01Z — session end
+Resume: Compose zero relocation, sign normalization, and the two oriented residual transitions into one narrow reducer for arbitrary nonsingular 2x2 matrices. Prove termination by a phase-ordered measure, not raw pivot alone, and verify the final Smith divisibility chain or retain its failure as a new residual.
+Open: Already-diagonal `diag(0,d)` is diagonal but not Smith-ordered; a row-and-column swap can move `d` forward. Decide whether endpoint classification should remain presentation-neutral or immediately canonicalize rank position.
+
+## 2026-08-12T13:27:00Z — rank-one diagonal ordering claim
+Believe: Diagonality is not canonicality. A sole trailing invariant must move to the leading position by paired row/column swaps; its sign then normalizes without changing rank or determinant.
+Doing: Execute `diag(0,-7) -> diag(7,0)`, retain exact `LAR`, and reject zero and full-rank diagonals from the rank-one branch.
+
+## 2026-08-12T13:34:00Z — rank-one diagonal ordering landed
+Believe: Endpoint recognition must carry rank position. Paired presentation swaps preserve the map while moving the sole invariant into Smith order; sign normalization then selects its positive representative.
+Doing: Landed `diag(0,-7) -> diag(7,0)` and leading-entry sign normalization with exact certificates. Zero/full-rank controls are refused. All 49 exponent-world tests are green.
+
+## 2026-08-12T13:34:01Z — session end
+Resume: Attack full-rank diagonal endpoints `diag(a,b)` where `a` does not divide `b`. The current alternating machine may diagonalize without Smith-normalizing; expose the residual `b mod a` and earn one mixing operation or prove a no-go for endpoint-only shears.
+Open: Determine whether the gcd of all four original entries, rather than the current pivot alone, must be the first Smith invariant. This may force reinjection of the second diagonal entry after apparent diagonal completion.
