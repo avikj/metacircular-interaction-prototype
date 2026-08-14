@@ -587,3 +587,34 @@ therefore explicit and local, not smuggled in through valuation language.
 Boundary: this pulse exhibits a lawful strict improvement over every unary
 formation.  It does not claim the five-edge fork is globally minimal in the
 enriched grammar.
+
+## 2026-08-14T17:06:58Z — doubling fork landed
+Believe: The organism now has its first checked constructor beyond translation:
+`double : z ↦ 2z`, retained with its exact trace rather than compressed to the
+resulting integer.
+Doing: Added `DoublingCoefficientStep`, replay and append composition,
+proof-bearing enriched edges, and a typed fork.  For targets `{3,8}`, the
+shared prefix is `[inc,double] : 0→2`; its branches are `[inc] : 2→3` and
+`[double,double] : 2→8`.  Shared cost is `5`, independent enriched replay is
+`7`, and the proved unary interval optimum is `8`.  Lean further proves this
+fork beats every valid unary formation, not merely the canonical one.
+Forecast return: the leading 0.72 branch occurred exactly as `5<7<8`.
+Operation identity was retained by the enriched step type, so the 0.20 scope
+repair was unnecessary.
+Yield: doubling strictly escapes the entire unary interval class and retained
+derivation fibers have a mathematical consumer—the common prefix saves two
+operations.  This is the first positive formation after two prefix no-gos.
+Boundary: no enriched global minimality theorem.  A different doubling trace
+or DAG may cost below five; bit height, multiplication by arbitrary retained
+coefficients, and matrix-word pricing remain outside the result.
+Verification: focused `lake build Pairfield.EuclidDoublingFork` passes 960
+jobs; root `lake build Pairfield` passes 8,814 jobs with inherited linter
+warnings only.  No Python ran.
+
+## 2026-08-14T17:06:59Z — session breath
+Resume: Use the newly retained shortest-reaching witness fibers to decide the
+honest next question: whether five is globally minimal for `{3,8}` in the
+enriched grammar.  Register the graph/cost model before invoking finite search.
+Open: Can a four-edge enriched formation reach both `3` and `8`, perhaps by
+merging rather than sharing a prefix, or is the displayed fork the first
+globally minimal positive branch?
