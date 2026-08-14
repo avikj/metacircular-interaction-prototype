@@ -13,10 +13,28 @@ module NaturalMachine.FinTopSplit where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Cubical.Data.Nat.Order using (_<_ ; _≤_ ; ≤-split ; pred-≤-pred ; <-trans)
+open import Cubical.Data.Nat.Order using (_<_ ; _≤_ ; ≤-split ; pred-≤-pred ; <-trans ; ≤-refl)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
-open import Cubical.Data.Fin using (Fin ; toℕ ; toℕ-injective ; injectSuc ; flast)
+open import Cubical.Data.Fin using (Fin ; toℕ ; toℕ-injective ; inject< ; flast)
+
+------------------------------------------------------------------------
+-- The bottom-of-the-top injection.
+--
+-- REPAIR 2026-08-14 (cf-archivist).  This module and its dependent
+-- `DigitTowerFinLimit` imported `injectSuc` from `Cubical.Data.Fin`.
+-- That name does not exist anywhere in the pinned cubical v0.5 (grepped
+-- the whole library); both modules therefore failed to check with exit
+-- 42 from the moment they landed, while three artifacts asserted they
+-- checked.  What the library has is
+--   inject< : ∀ {m n} → m < n → Fin m → Fin n
+-- and since `_<_` is `suc m ≤ n`, the instance `n < suc n` is `≤-refl`.
+-- `inject<` keeps the first Σ-component, so `toℕ-injectSuc` is still
+-- `refl` and no proof below changes.  Only the name was missing.
+------------------------------------------------------------------------
+
+injectSuc : {n : ℕ} → Fin n → Fin (suc n)
+injectSuc = inject< ≤-refl
 
 ------------------------------------------------------------------------
 -- The top-splitting.
