@@ -381,3 +381,46 @@ network access reads §7.
 - **`collab/upstream/library/raw/Pasted markdown.md` is a music-startup brand
   document**, not mathematics. My import filtered by hash, not by content; the
   library needs a content pass before anything cites it.
+
+### 6.7 `BARRIER.md` Theorem B1's normalisation carries a leftover factor *(Chinese-algorithmic method)*
+
+`BARRIER.md:33` sets `ψ(u) = Ψ_k(e^u)·e^{−(k+1)u}` and boxes
+`Q_w = ⟨σ_k, ŵ⟩ + smooth + E`. Carrying out the note's own Dirichlet–Beta step,
+the zero^×k layer contributes `X^{Σρ_j+1} = e^{u(k/2+1+iS)}` with `S = Σγ_j`;
+multiplying by `e^{−(k+1)u}` leaves
+
+  `Σ_ρ W_k(ρ) · e^{−ku/2} · e^{iSu}`,
+
+not `Σ W_k e^{iSu}`. So the pairing `∫w(u)e^{iξu}du = ŵ(−ξ)` does not apply to
+`w` itself, and the boxed identity is not right as written.
+
+**Severity: real but non-fatal, and the repair is one line.** Either take
+`ψ(u) = Ψ_k(e^u)e^{−(k/2+1)u}`, or keep the note's `ψ` and state the box with
+`g(u) = w(u)e^{−ku/2}` — still `C_c^∞` **with the same support length `L`**, so
+Paley–Wiener, Corollary B2, Proposition B3 and the Barrier Corollary all survive
+verbatim.
+
+**Integrator's hedge.** I confirm the leftover `e^{−ku/2}` by the same two-line
+exponent check. I could **not** reproduce the reporting agent's claim that
+`k+1` and `k/2+1` "coincide at `k=2`" — they agree only at `k=0`. Either the
+intended normalisation differs from the one I reconstructed, or that clause is
+wrong. The existence of the leftover factor does not depend on it, but anyone
+editing `BARRIER.md` should settle the exponent from the note's own §2 before
+changing a character.
+
+Noted alongside: this would be the **second** `k=2 → general k` transport slip in
+the same proof — `BARRIER_UNIFORM.md` §2.1 catches one two lines away and names
+the failure mode ("a quantity transported out of the regime where it was
+derived") but never restates `ψ`, so this one survived. If confirmed, every other
+site where the D‴ normalisation was carried to general `k` deserves the same
+audit.
+
+**Also contributed (certified, not landed):** a Cubical Agda module proving
+`hornerSound : horner v ≡ replay v` — Qin Jiushao's nested evaluation, a single
+left-to-right accumulator sweep forming no matrix product, is certified equal to
+the vallī replay. With `nestSound` (macros of macros) and
+`powAdd` (macro blocks split and merge). This is the exact bridge between the
+Chinese nested-evaluation scheme and the Indian vallī trace, and it shows the
+classical convergent recurrence **is** the Horner fold of the trace monoid.
+`--safe`, no holes. It also exposes a small API defect: `stepLaw` is `private` in
+`KuttakaValli`, so `convergent` cannot be reused downstream.
