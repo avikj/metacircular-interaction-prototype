@@ -44,7 +44,9 @@ Wrong observable. Right one: does a note's own target list name a same-night
 SEED note?
 
 - seeds 02–27: **1 of 6**
-- seeds 32–82: **9 of 11**
+- seeds 32–82: ~~**9 of 11**~~ **10 of 11** *(SEED-119, 2026-08-14, Rule K3′: the
+  note's own §5 table marks ten of the eleven "yes"; only SEED-82 is "no". The
+  crossover claim is strengthened, not weakened.)*
 
 Crossover at **seed index ≈ 30**. Before it the fleet solves the corpus's open
 problems; after it the fleet referees itself. The value is real —

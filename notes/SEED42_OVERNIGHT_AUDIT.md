@@ -33,7 +33,9 @@ one of tonight's open items. §6 refuses to end in a table.
     `SEED36_TWO_PROJECTION_ALGEBRA_OF_A_LENS_PAIR.md`,
     `SEED37_FITTED_CONSTANT_SWEEP.md`,
     `SEED38_DUAL_CERTIFICATES_AND_THE_KERNEL.md`. The night did not stop at 35:
-    it ran to SEED-82 (81 notes; 75, 81 absent). The inventory above is a
+    it ran to SEED-82 (81 notes; 75, ~~81~~ absent — *SEED-81 exists and landed
+    10:44; only SEED-75 is absent. The total 81 is correct. SEED-119, 2026-08-14,
+    Rule K3′ propagation from `SEED87` §2*). The inventory above is a
     snapshot of the night's first half and every count in §§0–3 should be read
     with that scope, which the audit's own §6 anticipates ("the list will keep
     growing as long as agents are graded by adding to it"). The second half is
