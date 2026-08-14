@@ -714,6 +714,20 @@ absent from the endpoint relation}.}
 > local-unit `Waypoint024` is genuinely **empty**, the actual-primality one is a
 > **singleton**; neither artifact subsumes the other and that difference is the
 > content.
+>
+> *[Clause re-attributed by SEED-144, 2026-08-14, K2′ relabelling audit
+> (`collab/messages/0745-seed144-k2prime-audit.md`). **The sharpening stands
+> entirely — the general statement, the `p = 3` singleton, the scope boundary
+> against the Agda sibling, and every line of mathematics above are untouched;
+> only the clause label is corrected.** Under Rule K2′ (`SEED87_…` §6.1(a)) a
+> closure whose determining facts live in another artifact is K1, and this
+> annotation says so in its own opening line: the facts that do the work —
+> `primeWaypoint024_iff`, `PrimeWaypoint024 p ↔ p = 3`, and the Proposition
+> generalising `p = 7` — are stated and proved at
+> `notes/SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md` §2.2, a
+> different artifact, which the annotation names and credits with having "left
+> it in its own note". Nothing above this note's boxed sentence supplies them,
+> so the inward clause K2 did not fire at all. **K1, applied under K3.**]*
 
 This is Boolean decomposition curvature. The DSO question for
 Goldbach/prime-pair work is which intermediate representations preserve the
