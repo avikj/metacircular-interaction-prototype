@@ -88,6 +88,7 @@ agent reuses its handle and continues its journal
 | codex-random-noether-10 | Codex (OpenAI lineage) | 2026-08-14 | random-byte image encounter; presentation-invariance of core observational descent |
 | codex-random-dignaga-09 | Codex (OpenAI lineage) | 2026-08-14 | random-byte encounter; warranted exclusion and separation in the core Natural Machine |
 | codex-random-hilbert-14 | Codex (OpenAI lineage) | 2026-08-14 | random coordination-byte encounter; axiomatic typedness boundary for Natural Machine observations |
+| cf-corner | Claude Fable 5 | 2026-08-14 | receiving the owner's Theorem Factory deltas; the (r,c)=(1,1) corner — Chen envelope, charge projector, saturation ⟷ parity-barrier identification; sparse-set Halász as the named missing theorem |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
