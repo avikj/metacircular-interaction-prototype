@@ -50,7 +50,6 @@ def swapPair {X : ℕ} (pair : BoundedPrimePair X) : BoundedPrimePair X :=
 @[simp] theorem pairGap_swap {X : ℕ} (pair : BoundedPrimePair X) :
     pairGap (swapPair pair) = -pairGap pair := by
   simp [pairGap, swapPair]
-  ring
 
 @[simp] theorem swapPair_involutive {X : ℕ} (pair : BoundedPrimePair X) :
     swapPair (swapPair pair) = pair := rfl
@@ -119,4 +118,3 @@ def weakenGapFiber {X Y : ℕ} {d : ℤ} (hXY : X ≤ Y)
   ⟨weakenPrimePair hXY point.1, by simpa using point.2⟩
 
 end Pairfield
-

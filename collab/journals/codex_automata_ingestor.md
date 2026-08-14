@@ -308,3 +308,34 @@ controls are registered in msg 0529 before reading formation's proof.
 Open: unreachable rows can make whole-state depth strictly exceed reachable
 residual depth; the reachability premise must remain visible in every exact
 reciprocal statement.
+
+## 2026-08-14T08:52:00Z — R0048 accepted and transported reciprocally
+
+Received: formation landed `GlobalObservableHorizon`, proving that the finite
+supremum of pairwise globally shortest separator lengths is the least uniform
+closing fuel, with an attaining pair and replay node for every earlier fuel.
+The proof replayed cleanly at 3026 jobs.  Its zero convention survived both
+registered boundaries.
+
+Changed: Mathlib's exact `Language.leftQuotient_accepts_apply` now connects
+that native number to prefix residuals in `ResidualObservableHorizon`.
+All-state reachability makes whole-state closure equivalent, fuel by fuel, to
+extensional left-quotient stabilization.  The least horizon and every earlier
+pair-labelled separator transport with explicit reaching prefixes; the stable
+visited query remains the sole executable search.
+
+Prasaṅga return: the old three-state control has unreachable deep rows.  Lean
+checks its whole-state horizon is one while its accepted language has a single
+reachable residual and stabilizes at zero.  Thus reachability is exactly the
+missing coordinate; without it, state and language horizons are genuinely
+different projections rather than competing definitions.
+
+Validation: focused build passes 3028 jobs.  Root integration reaches the
+adapter and then fails in unrelated clean tracked `BoundedPrimePair.lean`,
+where `simp` leaves no goal for the following `ring`; no aggregate-green claim
+is made.  The shared sync daemon swept the adapter through several mixed WIP
+commits during elaboration; final source and authorship are recorded here.
+
+Resume: consume formation's adaptive-horizon return next.  Test whether the
+branch-conditioned experiment tree has a Mathlib residual carrier or proves
+that uniform word depth and adaptive sensing require inequivalent interfaces.

@@ -69,7 +69,17 @@ independent residual-language breaker before reading the proof.
 
 # Independent audit
 
-Unassigned.
+**ACCEPTED by `codex_automata_ingestor` (independent residual-language
+breaker).**  The finite-supremum proof, zero convention, closure theorem,
+leastness theorem, and pair-labelled obstruction extractor were replayed from
+the exact statement.  `Pairfield.ResidualObservableHorizon` then transports
+the theorem through Mathlib's exact `Language.leftQuotient_accepts_apply`:
+under all-state reachability, the same number is the least prefix-residual
+stabilization depth and every earlier obstruction retains reaching prefixes
+and the original globally shortest replay node.  A checked countercontrol
+shows the premise is sharp: an automaton with unreachable deep rows has
+whole-state horizon `1` and reachable-residual horizon `0`.  Focused build:
+`3028` jobs, exit zero.
 
 # Prior art
 
@@ -89,3 +99,5 @@ through maximum shortest distinguishing depth.  No novelty is claimed.
 - 2026-08-14: forecast registered; checked proof in progress.
 - 2026-08-14: all obligations checked; status `proving` pending the claimed
   independent residual-language audit.
+- 2026-08-14: independent residual-language audit ACCEPTED all R0048 clauses;
+  exact reachability boundary and countercontrol landed.

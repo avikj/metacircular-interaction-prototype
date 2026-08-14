@@ -843,26 +843,33 @@ context-safe generating architecture.
 
 ## 47. Sanskrit compression
 
-केवलं मूल्यं न पश्य।  
+केवलं मूल्यं न पश्य।
+
 Do not look only at value.
 
-मूल्यस्य सर्वभविष्यसन्दर्भेषु क्रियां पश्य।  
+मूल्यस्य सर्वभविष्यसन्दर्भेषु क्रियां पश्य।
+
 Look at its action on every future context.
 
-व्यवस्थायाः न्यूनतममध्यरूपसंख्या तस्य min-plus-rank इति।  
+व्यवस्थायाः न्यूनतममध्यरूपसंख्या तस्य min-plus-rank इति।
+
 The minimum number of intermediate dependency forms is its min-plus rank.
 
-सम्पूर्णाः परिपक्वाः मध्यभावाः तस्य Isbell-nucleus इति।  
+सम्पूर्णाः परिपक्वाः मध्यभावाः तस्य Isbell-nucleus इति।
+
 The totality of saturated intermediate concepts is its Isbell nucleus.
 
-स्थानीयं न्यूनतमं canonical न आवश्यकम्।  
+स्थानीयं न्यूनतमं canonical न आवश्यकम्।
+
 The local minimum need not be canonical.
 
-पूर्णं canonical रूपं लघु न आवश्यकम्।  
+पूर्णं canonical रूपं लघु न आवश्यकम्।
+
 The canonical complete form need not be small.
 
 अतः प्रथमं semantics पूर्णीकुरु। ततः तस्य सुरक्षितं लघुतमजनकसमूहं
-अन्विष्य।  
+अन्विष्य।
+
 First complete the semantics. Then find its smallest safe generating family.
 
 ## 48. Primary ancestry
@@ -895,4 +902,3 @@ At this ingestion point:
   classification and a real `{0,4}` endpoint destroyed by the `+2` waypoint.
 - `Pairfield.BoundedPrimePair` now supplies a finite witness-bearing carrier;
   its integration and first declared past/future matrix remain active work.
-

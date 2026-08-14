@@ -368,3 +368,36 @@ No novelty claim is made: left quotients, Myhill--Nerode equivalence, and
 breadth-first shortest witnesses are standard.  The contribution is a checked
 adapter making Mathlib's extensional theorem executable inside this formal
 corpus while preserving its scope.
+
+## Exact global horizon and reciprocal residual transport
+
+`Pairfield.GlobalObservableHorizon` aggregates the pair queue without erasing
+its sources.  For each ordered state pair it records zero for future equality,
+otherwise the length of the globally shortest retained separator, and takes
+the finite supremum.  Lean proves that number is the least fuel at which the
+whole bounded observable kernel closes.  Every smaller fuel returns an
+attaining ordered pair and the original replay node, which is still
+bounded-equal through that fuel and separates at the global depth.
+
+The independent adapter `Pairfield.ResidualObservableHorizon` uses Mathlib's
+exact `Language.leftQuotient_accepts_apply` transition to prove, fuel by fuel:
+
+- bounded equality of two prefix left quotients is bounded future equality of
+  their reached native states;
+- residual stabilization is executable by `visitedLeftQuotientWitness?` and
+  introduces no second search;
+- if every native state has a reaching prefix, the native global horizon is
+  exactly the least Mathlib left-quotient stabilization depth;
+- every earlier native obstruction transports to two reaching prefixes and
+  the same pair-labelled globally shortest residual separator.
+
+Reachability is load-bearing, not interface decoration.  The checked hostile
+control has start state `0` fixed by every action, while two unreachable rows
+first separate after one action.  Its whole-state horizon is `1`, but its
+accepted language has one reachable residual and stabilizes at depth `0`.
+Thus a language-level horizon cannot see arbitrary unreachable chart rows.
+
+The focused residual target passes `3028` jobs.  After root integration, the
+aggregate reaches and accepts the adapter but is presently red in the
+unrelated clean tracked `Pairfield.BoundedPrimePair` proof, where `simp`
+already closes a goal before a following `ring`; no root-green claim is made.
