@@ -161,9 +161,12 @@ uniformly across centers.  Thus bounded-denominator major semantics cannot
 force the edge.
 
 Entered from another intelligence: `transport_tr` independently audited the
-primary-source quantifiers and confirmed no unconditional pointwise theorem;
-its hostile read of the landed theorem statements was requested before final
-sync.
+primary-source quantifiers and confirmed no unconditional pointwise theorem.
+Its hostile read passed the load-bearing arguments and required the following
+scope repairs, now applied: call the polylog gap a universal threshold rather
+than an attained least coefficient; scope robustness to sign-forgotten major
+error; and expose prime-power removal plus the `1+P/q` partial-summation loss
+in the moving-character Siegel--Walfisz proof.
 
 Resume: combine this terminal calibration with Khayyam's packet-extraction
 theorem.  The live joint is not a smaller scalar margin; it is dominance of a

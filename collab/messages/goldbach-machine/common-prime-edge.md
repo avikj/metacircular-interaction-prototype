@@ -28,7 +28,7 @@ The right side says that `m` has a representation by two primes both exceeding
 cancellation wall is already terminal restricted Goldbach, not an easier
 minor-arc estimate.
 
-There is an exact discrete gap.  If a restricted representation exists, then
+There is an exact universal discrete gap.  If a restricted representation exists, then
 
 \[
  R_X(m)\ge ((1-\varepsilon_0)\log X)^2.                 \tag{3}
@@ -126,7 +126,7 @@ Set
 
 ### Theorem 2.1 (exact edge equals restricted Goldbach)
 
-For every even `m in [X/2,X]`, the following are equivalent:
+For `X>1` and every even `m in [X/2,X]`, the following are equivalent:
 
 1. there are primes `p,p'>X_1` with `p+p'=m`;
 2. `R_X(m)>0`;
@@ -146,8 +146,10 @@ Every nonzero summand has
 so 1 implies 3, and 3 implies 2.  Equations 1 and 8 give the equivalence of
 2 and 4 and of 3 and 5.  QED.
 
-This theorem identifies the genuinely sharp margin.  Any positive real gap
-in (4) certifies a witness; any existing restricted witness automatically
+This theorem identifies a universal quantized margin, not the attained least
+positive coefficient for a fixed block: the latter depends on the available
+prime pair.  Any positive real gap in equation (2) certifies a witness; any
+existing restricted witness automatically
 supplies at least the gap `g_X=o(X)`.  A fixed fractional `eta X`, or even
 `X exp(-c sqrt(log X))`, asks for many more weighted representations than
 bare nonemptiness.  Indeed, since each ordered prime-pair summand is at most
@@ -213,9 +215,11 @@ margin.  Thus the robust sufficient threshold is
  a_X(m)+\mathfrak S(m)I_X(m)>B_X(m).                    \tag{15}
 \]
 
-This is sharp for that information interface: any proposed non-strict
-threshold `t<=B_X(m)` still permits the allowed choice `E_X(m)=-t` and the
-exact cancellation `R_X(m)=0`.
+This is sharp specifically for the **sign-forgotten** information interface
+which retains only `|E_X(m)|<=B_X(m)`: any proposed non-strict threshold
+`t<=B_X(m)` still permits the allowed choice `E_X(m)=-t` and the exact
+cancellation `R_X(m)=0`.  If the signed value of `E_X(m)` is retained, the
+exact threshold is instead `a_X(m)+M_X^0(m)>-E_X(m)`.
 
 For a uniform source envelope
 
@@ -305,7 +309,8 @@ Suppose `chi` is a primitive quadratic character modulo `q` with a real zero
 \]
 
 and `chi(-1)=+1`.  Matomaki--Merikoski Theorem 1.4 implies, for each fixed
-`delta>0` and `eta` sufficiently large, uniformly on even conductor multiples
+`delta>0`, as `eta` tends to infinity (and hence for sufficiently large source
+parameters), uniformly on even conductor multiples
 
 \[
  q^{10}\le h\le q^{\eta^{1-\delta}},\qquad q\mid h,    \tag{19}
@@ -325,7 +330,8 @@ contribute `O(sqrt(h)log^2 h)=o(h)`.  Terms with a prime or prime power at most
  O(\psi(X_1)\log X)=O(X_1\log X)=o(X).                 \tag{21}
 \]
 
-Consequently the restricted prime-log coefficient satisfies
+Since the even Goldbach singular series is uniformly bounded below,
+consequently the restricted prime-log coefficient satisfies
 
 \[
  R_X(h)\gg h.                                           \tag{22}
@@ -443,10 +449,13 @@ contain only prime divisors of `sq`.  The modulus satisfies
  sq\ll(\log X)^{2A+o(1)}.
 \]
 
-Siegel--Walfisz and partial summation give arbitrary logarithmic saving.
-Uniformity in `beta` follows by splitting the prefix sums at a fixed power of
-`X`: short prefixes are trivial, and on long prefixes `sq` remains a fixed
-power of `log t`.
+Siegel--Walfisz is naturally stated for von Mangoldt sums.  Removing the proper
+prime powers costs `O(sqrt(X)log^2 X)`, which is absorbed by any prescribed
+logarithmic saving.  Partial summation then loses at most
+`1+X|beta|<<1+P_s/q`; choose the initial saving larger by this fixed
+logarithmic power.  Uniformity in `beta` follows by splitting the prefix sums
+at a fixed power of `X`: short prefixes are trivial, and on long prefixes
+`sq` remains a fixed power of `log t`.
 
 The common major arcs have measure `O(P_s^2/X)`.  Since the two polynomial
 sup norms are `O(X)` and (28) has arbitrary log saving, expanding the square
