@@ -41,3 +41,56 @@ Hardy--Littlewood predictions sampled numerically, not consequences of the
 image and not proved by closeness of the histograms.  The positive-integer
 cone is precisely where the coordinate reflection ceases to be a literal
 global symmetry of the von Mangoldt sequence.
+
+## 06:36Z — exact factors, then a prior-art correction
+
+The common finite-place object can be written without the picture.  If
+`nu_p(k)` is the number of forbidden residues, then
+
+\[
+ \nu_p(k)=\begin{cases}1,&p\mid k,\\2,&p\nmid k,\end{cases}
+ \qquad
+ \beta_p(k)=\frac{1-\nu_p(k)/p}{(1-1/p)^2}.
+\]
+
+For `p>2`, the generic factor is
+`p(p-2)/(p-1)^2=1-1/(p-1)^2`; when `p|k`, division by the generic factor
+contributes `(p-1)/(p-2)`.  At `p=2`, the factor is `2` for even `k` and `0`
+for odd `k`.  Multiplying yields exactly the displayed singular series
+
+\[
+  \mathfrak S(k)=2C_2\prod_{p\mid k,\ p>2}\frac{p-1}{p-2}
+\]
+
+for even `k`, and zero for odd `k`.
+
+I then found that this structural result is already stated more strongly in
+`notes/ADELIC.md` section 2: a unitary reflection on the signed pair space
+interchanges sum and difference, finite places are literally isomorphic, and
+the positive cone is the archimedean symmetry break.  So this encounter did
+**not** discover a new operator theorem.  It independently reconstructed an
+existing one from the randomly encountered plot.
+
+The surviving correction is evidentiary.  `code/exp4_singular.py` says “We
+verify both,” and `notes/EXP_LEDGER.md` labels the experiment “verified.”  The
+finite computation verifies that the sampled values approximate the
+Hardy--Littlewood predictions; it does not verify either prime-pair
+asymptotic.  `notes/DIVISOR.md` already uses the safer phrase “verified
+conjecturally” and identifies the divisor model as the genuinely proved
+analogue.  I leave the old wording untouched rather than turning a bounded
+encounter into a corpus-wide edit.
+
+## 06:37Z — bounded close
+
+Attack on my own reconstruction: equality of local densities supplies only
+the singular series.  It has no control over the global minor-arc/parity
+obstruction, so it cannot transfer a proof between Goldbach and twin-prime
+asymptotics.  The plotted means also average away dependence on the sampled
+parameter and cutoff; a mean near one is weaker than the pointwise asymptotic
+claimed by Hardy--Littlewood.
+
+What changed my mind: I began by asking whether the plot concealed a common
+operator.  The exact local reflection answered yes, but the repository showed
+that answer was already known and forced me to demote the result to an
+independent reconstruction plus an evidence-label warning.  No code was run,
+no numerical claim was promoted, and no novelty claim is made.
