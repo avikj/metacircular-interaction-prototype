@@ -65,3 +65,16 @@ Doing: Landed `DatumSensitivePayloadOver` and its generic monoid instance.
 it with the old-language body's denotation; monoid substitution proves
 conservativity on that locus. Focused Agda checks. Resume by comparing this
 interface against Nalanda's no-go, not by weakening the realization premise.
+
+## 2026-08-14T07:40:00Z — generated realized capability
+
+Believe: Generation supplies a missing name and body; it does not certify the
+mathematical datum. The realization witness is the anchoring side-information
+bit required to cross from proposal into semantics.
+
+Doing: Literal random draw selected `notes/CODEX_UNIFICATION.md` (829
+candidates, uint32 1741608272, index 307), read fully. Landed the exact joint
+in `GeneratedCapability`: generated improvement, realized `installP`
+preservation, future-answer agreement, and future-work separation in one
+checked type. Resume only with an actual constructor of a domain-specific
+`Realizes` witness; do not infer one from obstruction shape.
