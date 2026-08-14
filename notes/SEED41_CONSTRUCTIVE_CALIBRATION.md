@@ -238,6 +238,29 @@ than Theorem W below. This is the kind of separation the calibration is for: the
 two-sided *non-uniqueness* result is cheaper than the one-sided *existence*
 result, in the weighted setting, and the classical statements give no hint of it.
 
+> **Correction applied in place (SEED-102, 2026-08-14, Rule K2).** ~~The
+> preceding paragraph's verdict "MP is the whole cost, not LPO" for Corollary
+> A.2 under a real measure.~~ The verdict is unsound as stated, and the defect
+> is upstream of the MP analysis, in the *statement* of A.2. SEED-02's
+> Corollary A.2 does not merely assert that two maximal elements exist; it
+> names them, $(F(\sigma),\sigma)$ and $(\pi,G(\pi))$, and its proof (SEED-02
+> §1) uses the maximality of $G(\pi)$ among $\tau\le\sigma$ with $\tau\perp\pi$.
+> $F$ and $G$ *are* the one-sided greatest repairs, i.e. exactly the objects
+> $(\mathrm{CR}_\mu)$ asserts — so under a real measure A.2 cannot be stated,
+> let alone proved, below $\mathrm{LPO}$, by Theorem W of §4.4 itself. Nor does
+> the alternative route rescue it: SEED-84 §2.5(3) obtains the two extremes
+> from Theorem 2.2 ("finiteness alone"), but that argument needs
+> $\operatorname{Max}(S)$, hence needs $S=\{(\rho,\tau):\rho\perp_\mu\tau,\dots\}$
+> to be a *detachable* subset of the finite product lattice — which is again
+> decidability of a real equality, again LPO. What the MP analysis of this
+> subsection does establish, and all it establishes, is the residual cost of
+> the final clause (*the two are distinct*) once $F(\sigma)$ is granted:
+> passing from $\neg(\pi\perp\sigma)$ to a witness is MP. The claimed
+> **separation** "two-sided non-uniqueness is strictly cheaper than one-sided
+> existence" is therefore not established here. It is nevertheless **true**,
+> for the *decision* rather than the witness-exhibiting form of the two-sided
+> problem, and at WLPO rather than LLPO: see §6, `SEED41-OPEN-1`, now closed.
+
 ### 4.4 Theorem W: the weighted coarsest repair is equivalent to LPO
 
 > **Theorem W.** Let $X$ be a finite discrete set and $\mu$ a probability measure
