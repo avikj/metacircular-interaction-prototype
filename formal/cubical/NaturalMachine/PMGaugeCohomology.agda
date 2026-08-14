@@ -13,7 +13,7 @@ module NaturalMachine.PMGaugeCohomology where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool
-  using (Bool ; true ; false ; _⊕_ ; ⊕-assoc ; ⊕-comm ; isSetBool)
+  using (Bool ; true ; false ; _⊕_ ; ⊕-assoc ; ⊕-comm ; ⊕-identityʳ ; isSetBool)
 open import Cubical.Data.Sigma using (Σ-syntax)
 open import Cubical.HITs.SetQuotients as SQ
   using (_/_ ; [_] ; eq/ ; squash/)
@@ -75,27 +75,70 @@ closed-six : (a b c d e f : Bool)
   → Torus.sum3 (a ⊕ b) (c ⊕ b) (c ⊕ d)
       ⊕ Torus.sum3 (e ⊕ d) (e ⊕ f) (a ⊕ f)
     ≡ false
-closed-six a b c d e f =
-  -- First reassociate the two triples into one left-associated walk.
-  sym (⊕-assoc (Torus.sum3 (a ⊕ b) (c ⊕ b) (c ⊕ d))
-               ((e ⊕ d) ⊕ (e ⊕ f)) (a ⊕ f))
-  ∙ cong (_⊕ (a ⊕ f))
-      (sym (⊕-assoc (Torus.sum3 (a ⊕ b) (c ⊕ b) (c ⊕ d))
-                    (e ⊕ d) (e ⊕ f)))
-  -- Orient the three backwards-traversed incidence edges.
-  ∙ cong (λ z → (((((a ⊕ b) ⊕ z) ⊕ (c ⊕ d)) ⊕ (e ⊕ d))
-                    ⊕ (e ⊕ f)) ⊕ (a ⊕ f)) (⊕-comm c b)
-  ∙ cong (λ z → ((((z ⊕ (c ⊕ d)) ⊕ (e ⊕ d)) ⊕ (e ⊕ f))
-                    ⊕ (a ⊕ f))) (chain-step a b c)
-  ∙ cong (λ z → (((z ⊕ (e ⊕ d)) ⊕ (e ⊕ f)) ⊕ (a ⊕ f)))
-      (chain-step a c d)
-  ∙ cong (λ z → (((a ⊕ d) ⊕ z) ⊕ (e ⊕ f)) ⊕ (a ⊕ f))
-      (⊕-comm e d)
-  ∙ cong (λ z → (z ⊕ (e ⊕ f)) ⊕ (a ⊕ f)) (chain-step a d e)
-  ∙ cong (_⊕ (a ⊕ f)) (chain-step a e f)
-  ∙ cong ((a ⊕ f) ⊕_) (⊕-comm a f)
-  ∙ chain-step a f a
-  ∙ Torus.⊕-self a
+closed-six false false false false false false = refl
+closed-six false false false false false true  = refl
+closed-six false false false false true  false = refl
+closed-six false false false false true  true  = refl
+closed-six false false false true  false false = refl
+closed-six false false false true  false true  = refl
+closed-six false false false true  true  false = refl
+closed-six false false false true  true  true  = refl
+closed-six false false true  false false false = refl
+closed-six false false true  false false true  = refl
+closed-six false false true  false true  false = refl
+closed-six false false true  false true  true  = refl
+closed-six false false true  true  false false = refl
+closed-six false false true  true  false true  = refl
+closed-six false false true  true  true  false = refl
+closed-six false false true  true  true  true  = refl
+closed-six false true  false false false false = refl
+closed-six false true  false false false true  = refl
+closed-six false true  false false true  false = refl
+closed-six false true  false false true  true  = refl
+closed-six false true  false true  false false = refl
+closed-six false true  false true  false true  = refl
+closed-six false true  false true  true  false = refl
+closed-six false true  false true  true  true  = refl
+closed-six false true  true  false false false = refl
+closed-six false true  true  false false true  = refl
+closed-six false true  true  false true  false = refl
+closed-six false true  true  false true  true  = refl
+closed-six false true  true  true  false false = refl
+closed-six false true  true  true  false true  = refl
+closed-six false true  true  true  true  false = refl
+closed-six false true  true  true  true  true  = refl
+closed-six true  false false false false false = refl
+closed-six true  false false false false true  = refl
+closed-six true  false false false true  false = refl
+closed-six true  false false false true  true  = refl
+closed-six true  false false true  false false = refl
+closed-six true  false false true  false true  = refl
+closed-six true  false false true  true  false = refl
+closed-six true  false false true  true  true  = refl
+closed-six true  false true  false false false = refl
+closed-six true  false true  false false true  = refl
+closed-six true  false true  false true  false = refl
+closed-six true  false true  false true  true  = refl
+closed-six true  false true  true  false false = refl
+closed-six true  false true  true  false true  = refl
+closed-six true  false true  true  true  false = refl
+closed-six true  false true  true  true  true  = refl
+closed-six true  true  false false false false = refl
+closed-six true  true  false false false true  = refl
+closed-six true  true  false false true  false = refl
+closed-six true  true  false false true  true  = refl
+closed-six true  true  false true  false false = refl
+closed-six true  true  false true  false true  = refl
+closed-six true  true  false true  true  false = refl
+closed-six true  true  false true  true  true  = refl
+closed-six true  true  true  false false false = refl
+closed-six true  true  true  false false true  = refl
+closed-six true  true  true  false true  false = refl
+closed-six true  true  true  false true  true  = refl
+closed-six true  true  true  true  false false = refl
+closed-six true  true  true  true  false true  = refl
+closed-six true  true  true  true  true  false = refl
+closed-six true  true  true  true  true  true  = refl
 
 gauge-cycle-zero : (gauge : ContextGauge) → cycleParity (δ₀ gauge) ≡ false
 gauge-cycle-zero gauge =
@@ -107,7 +150,8 @@ cycle-gauge-invariant : (signs : EdgeSign) (gauge : ContextGauge)
   → cycleParity (signs ⋆ gauge) ≡ cycleParity signs
 cycle-gauge-invariant signs gauge =
   cycle-additive signs (δ₀ gauge)
-  ∙ cong (cycleParity signs ⊕_) (gauge-cycle-zero gauge)
+  ∙ cong (λ z → cycleParity signs ⊕ z) (gauge-cycle-zero gauge)
+  ∙ ⊕-identityʳ (cycleParity signs)
 
 ------------------------------------------------------------------------
 -- Gauge quotient and its descended invariant

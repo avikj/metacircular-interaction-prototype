@@ -218,6 +218,19 @@ theorem safeAction_to_finiteSafeAdvance
     (hrepresentatives right hright)
     hadvanced
 
+/-- The advanced residual representatives in one Boolean branch.  Classical
+equality is used only to package the finite image; the cardinal theorem below
+does not decide equality of arbitrary languages at runtime. -/
+noncomputable def advancedResidualBranch
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (representatives : Finset (List A)) (action : A) (answer : Bool) :
+    Finset (Language A) := by
+  classical
+  exact FiniteLiveCell.advancedBranch representatives
+    (fun pre => acceptsBool M (M.eval (pre ++ [action])))
+    (fun pre => BranchResidual M (pre ++ [action]))
+    answer
+
 /-- Actual residual-cell specialization: for one representative of every
 live residual, a certified safe action obeys the exact square-potential split
 law on its two advanced left-quotient branches. -/
@@ -227,25 +240,22 @@ theorem safeAction_squarePotential_split
     (hrepresentatives : ∀ pre ∈ representatives, cell pre)
     (hinjective : Set.InjOn (BranchResidual M) representatives)
     (hsafe : ResidualCell.SafeAction M cell action) :
-    let response :=
-      fun pre => acceptsBool M (M.eval (pre ++ [action]))
-    let advance :=
-      fun pre => BranchResidual M (pre ++ [action])
     FiniteLiveCell.squarePotential representatives =
       FiniteLiveCell.squarePotential
-          (FiniteLiveCell.advancedBranch representatives response advance false) +
+          (advancedResidualBranch M representatives action false) +
         FiniteLiveCell.squarePotential
-          (FiniteLiveCell.advancedBranch representatives response advance true) +
+          (advancedResidualBranch M representatives action true) +
         2 *
-          (FiniteLiveCell.advancedBranch representatives response advance false).card *
-          (FiniteLiveCell.advancedBranch representatives response advance true).card := by
+          (advancedResidualBranch M representatives action false).card *
+          (advancedResidualBranch M representatives action true).card := by
   classical
-  exact FiniteLiveCell.squarePotential_split
+  simpa [advancedResidualBranch] using
+    (FiniteLiveCell.squarePotential_split
     representatives
     (fun pre => acceptsBool M (M.eval (pre ++ [action])))
     (fun pre => BranchResidual M (pre ++ [action]))
     (safeAction_to_finiteSafeAdvance M cell representatives action
-      hrepresentatives hinjective hsafe)
+      hrepresentatives hinjective hsafe))
 
 end ResidualCell
 
