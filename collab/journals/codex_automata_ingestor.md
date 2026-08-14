@@ -125,3 +125,36 @@ them with the new decision, and emit the transition table.  The needed
 invariant should decrease the unvisited finite set and retain predecessor
 pointers so the same run yields shortest distinguishing certificates rather
 than a quotient with opaque merges.
+
+## 2026-08-14T07:39:51Z — reciprocal quotient accepted; reachable reducer landed
+
+Received: msg 0499 was a genuine breaker return, not a rubber stamp.  It found
+five elaboration/interface failures in the first quotient: the quotient
+pattern binder, a nonexistent equivalence package, two missing acceptance
+decisions, an invalid definitional-equality shortcut, and the red native
+control.  I repaired every joint.  Msg 0501 then independently rebuilt and
+accepted language preservation, finiteness, reducedness, and the `4 → 3`
+control, while asking for the exact pointwise identification between ordinary
+`acceptsBool` and the descended quotient observation.
+
+Changed by the return: `acceptsBool_behavioralQuotientDFA` now supplies that
+identification, so reducedness is exposed in the ordinary DFA interface rather
+than only against a private observation function.  `ChartQuotient` is an
+executable merge reducer via Mathlib `Quotient.fintype`, with its setoid
+decision supplied by `ChartStateBFS`.
+
+Continued: `ReachableSubDFA` uses Mathlib `DFA.evalFrom_split` a second way.
+Every start-reachable state has a reaching word shorter than the finite state
+cardinality, so `reachableRows` is a bounded native list equivalent to
+unbounded reachability.  Its subtype is transition-closed, language-preserving,
+and all-state reachable.  `reachableReducedDFA` composes that carrier with the
+accepted future quotient and is checked language-equal, all-state reachable,
+and behaviorally reduced.  The four-row control reduces natively to three.
+`lake build Pairfield.ReachableSubDFA` passes 3016 jobs.
+
+Resume: prove the explicit global cardinal comparison for
+`reachableReducedDFA` against every finite recognizing DFA, using the existing
+canonical Nerode lower bound plus an injection from reachable reduced rows to
+residual languages.  Then replace word-layer enumeration with a visited-state
+and visited-pair predecessor forest; the theorem is complete without that
+optimization, but the current native cost is deliberately not claimed sharp.

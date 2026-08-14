@@ -3,7 +3,7 @@
 module NaturalMachine.PolynomialRewrite where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Vec.Base using (Vec ; [] ; _∷_ ; _++_)
 
 record Signature : Type₁ where
@@ -78,8 +78,6 @@ data ArithmeticOp : ℕ → Type₀ where
 Arithmetic : Signature
 Op Arithmetic = ArithmeticOp
 
-open module ArithmeticContext = _ Arithmetic
-
 aVar aZero : Term Arithmetic
 aVar = var
 aZero = node zero-op []
@@ -95,21 +93,21 @@ data ArithmeticMotion : Term Arithmetic → Term Arithmetic → Type₀ where
   add-suc : (left right : Term Arithmetic)
           → ArithmeticMotion (aAdd left (aSuc right)) (aSuc (aAdd left right))
 
-open module ArithmeticRun = ArithmeticContext._ ArithmeticMotion
-
-add-one : Run (aAdd aVar (aSuc aZero))
+add-one : Run Arithmetic ArithmeticMotion (aAdd aVar (aSuc aZero))
 add-one =
   advance (lift-motion (add-suc aVar aZero))
     (advance
       (under suc-op [] [] (lift-motion (add-zero aVar)))
       halt)
 
-add-one-result : result add-one ≡ aSuc aVar
+add-one-result : result Arithmetic ArithmeticMotion add-one ≡ aSuc aVar
 add-one-result = refl
 
-right-root : Context
+right-root : Context Arithmetic
 right-root = frame add-op (aVar ∷ []) hole []
 
 add-one-under-right :
-  result (reweave right-root add-one) ≡ aAdd aVar (aSuc aVar)
+  result Arithmetic ArithmeticMotion
+    (reweave Arithmetic ArithmeticMotion right-root add-one)
+    ≡ aAdd aVar (aSuc aVar)
 add-one-under-right = refl
