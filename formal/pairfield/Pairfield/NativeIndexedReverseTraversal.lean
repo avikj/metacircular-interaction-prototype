@@ -44,10 +44,10 @@ variable [DecidableEq X]
 variable (M : DFA A X)
 variable [DecidablePred (fun state : X => state ∈ M.accept)]
 
-def ReverseEdge.sourceState (edge : ReverseEdge M) : SourceState X :=
+def reverseEdgeSourceState (edge : ReverseEdge M) : SourceState X :=
   sourceStateEquiv edge.source
 
-def ReverseEdge.targetState (edge : ReverseEdge M) : SourceState X :=
+def reverseEdgeTargetState (edge : ReverseEdge M) : SourceState X :=
   sourceStateEquiv edge.target
 
 /-- The proof-relevant edge DFA reindexed onto the native source keys. -/
@@ -65,12 +65,14 @@ theorem indexedEdgeDFA_evalFrom (state : SourceState X)
     (DFA.evalFrom_reindex (M := edgeDFA M) (sourceStateEquiv (X := X)) state edges)
 
 theorem indexedEdgeDFA_step_source (edge : ReverseEdge M) :
-    (indexedEdgeDFA M).step edge.sourceState edge = edge.targetState := by
+    (indexedEdgeDFA M).step (reverseEdgeSourceState M edge) edge =
+      reverseEdgeTargetState M edge := by
   change sourceStateEquiv
       ((edgeDFA M).step
-        ((sourceStateEquiv (X := X)).symm edge.sourceState) edge) =
-    edge.targetState
-  simp only [ReverseEdge.sourceState, ReverseEdge.targetState,
+        ((sourceStateEquiv (X := X)).symm
+          (reverseEdgeSourceState M edge)) edge) =
+    reverseEdgeTargetState M edge
+  simp only [reverseEdgeSourceState, reverseEdgeTargetState,
     Equiv.symm_apply_apply]
   exact congrArg sourceStateEquiv (edgeDFA_step_source M edge)
 
@@ -86,17 +88,17 @@ def indexPayload (index : List (SourceBucket M)) : Nat :=
 /-- Insert one edge into its unique source bucket. -/
 def insertEdge (edge : ReverseEdge M) :
     List (SourceBucket M) → List (SourceBucket M)
-  | [] => [⟨edge.sourceState, [edge]⟩]
+  | [] => [⟨reverseEdgeSourceState M edge, [edge]⟩]
   | bucket :: rest =>
-      if edge.sourceState = bucket.source then
+      if reverseEdgeSourceState M edge = bucket.source then
         ⟨bucket.source, edge :: bucket.edges⟩ :: rest
       else
         bucket :: insertEdge edge rest
 
 /-- Build the source index once from the genuine edge inventory. -/
-def materializeIndex (edges : List (ReverseEdge M)) :
-    List (SourceBucket M) :=
-  edges.foldr (insertEdge M) []
+def materializeIndex : List (ReverseEdge M) → List (SourceBucket M)
+  | [] => []
+  | edge :: rest => insertEdge M edge (materializeIndex rest)
 
 theorem indexPayload_insertEdge (edge : ReverseEdge M)
     (index : List (SourceBucket M)) :
@@ -104,11 +106,14 @@ theorem indexPayload_insertEdge (edge : ReverseEdge M)
   induction index with
   | nil => simp [insertEdge, indexPayload]
   | cons bucket rest ih =>
-      by_cases hsource : edge.sourceState = bucket.source
+      by_cases hsource : reverseEdgeSourceState M edge = bucket.source
       · simp [insertEdge, hsource, indexPayload, Nat.add_assoc, Nat.add_comm,
           Nat.add_left_comm]
-      · simp [insertEdge, hsource, indexPayload, ih, Nat.add_assoc,
-          Nat.add_comm, Nat.add_left_comm]
+      · simp only [insertEdge, hsource, ↓reduceIte]
+        change bucket.edges.length + indexPayload M (insertEdge M edge rest) =
+          bucket.edges.length + indexPayload M rest + 1
+        rw [ih]
+        omega
 
 /-- Materialization neither duplicates nor discards edge payload. -/
 theorem materializeIndex_payload (edges : List (ReverseEdge M)) :
@@ -116,10 +121,11 @@ theorem materializeIndex_payload (edges : List (ReverseEdge M)) :
   induction edges with
   | nil => simp [materializeIndex, indexPayload]
   | cons edge rest ih =>
-      simp [materializeIndex, indexPayload_insertEdge, ih]
+      rw [materializeIndex, indexPayload_insertEdge, ih]
+      rfl
 
 def BucketSound (bucket : SourceBucket M) : Prop :=
-  ∀ edge ∈ bucket.edges, edge.sourceState = bucket.source
+  ∀ edge ∈ bucket.edges, reverseEdgeSourceState M edge = bucket.source
 
 def IndexSound (index : List (SourceBucket M)) : Prop :=
   ∀ bucket ∈ index, BucketSound M bucket
@@ -135,7 +141,7 @@ theorem insertEdge_sound (edge : ReverseEdge M)
       intro candidate hcandidate
       simpa using hcandidate
   | cons bucket rest ih =>
-      by_cases hsource : edge.sourceState = bucket.source
+      by_cases hsource : reverseEdgeSourceState M edge = bucket.source
       · intro candidateBucket hcandidateBucket
         simp only [insertEdge, hsource, ↓reduceIte, List.mem_cons] at hcandidateBucket
         rcases hcandidateBucket with rfl | hrest
@@ -148,7 +154,7 @@ theorem insertEdge_sound (edge : ReverseEdge M)
       · intro candidateBucket hcandidateBucket
         simp only [insertEdge, hsource, ↓reduceIte, List.mem_cons] at hcandidateBucket
         rcases hcandidateBucket with rfl | hrest
-        · exact hsound bucket List.mem_cons_self
+        · exact hsound _ List.mem_cons_self
         · exact ih (fun old hold => hsound old (List.mem_cons_of_mem bucket hold))
             candidateBucket hrest
 
@@ -187,7 +193,7 @@ theorem takeBucket_payload (state : SourceState X)
 theorem takeBucket_edges_source (state : SourceState X)
     (index : List (SourceBucket M)) (hsound : IndexSound M index)
     {edge : ReverseEdge M} (hedge : edge ∈ (takeBucket M state index).1) :
-    edge.sourceState = state := by
+    reverseEdgeSourceState M edge = state := by
   induction index with
   | nil => simp [takeBucket] at hedge
   | cons bucket rest ih =>
@@ -204,12 +210,12 @@ theorem takeBucket_remaining_sound (state : SourceState X)
   | nil => simp [takeBucket, IndexSound]
   | cons bucket rest ih =>
       by_cases hsource : bucket.source = state
-      · simpa [takeBucket, hsource] using
-          (fun old hold => hsound old (List.mem_cons_of_mem bucket hold))
+      · simp only [takeBucket, hsource, ↓reduceIte]
+        exact fun old hold => hsound old (List.mem_cons_of_mem bucket hold)
       · intro old hold
         simp only [takeBucket, hsource, ↓reduceIte, List.mem_cons] at hold
         rcases hold with rfl | hrest
-        · exact hsound bucket List.mem_cons_self
+        · exact hsound _ List.mem_cons_self
         · exact ih (fun item hitem =>
             hsound item (List.mem_cons_of_mem bucket hitem)) old hrest
 
@@ -351,8 +357,11 @@ theorem indexed_traversal_strictly_below_inventory :
 /-- The state-presentation adapter executes natively on an actual predecessor
 edge. -/
 theorem native_reindex_adapter_control :
-    (indexedEdgeDFA automaton).evalFrom (.pair (0, 2))
-        [ReverseEdge.predecessor (0, 1) false] = .pair (0, 1) := by
+    let edge : ReverseEdge automaton :=
+      ReverseEdge.predecessor (0, 1) false
+    (indexedEdgeDFA automaton).evalFrom
+        (reverseEdgeSourceState automaton edge) [edge] =
+      reverseEdgeTargetState automaton edge := by
   native_decide
 
 /-- The indexed queue retains the same reached product-state set as the flat
