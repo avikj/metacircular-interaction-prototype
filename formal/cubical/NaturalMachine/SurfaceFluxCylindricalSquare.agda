@@ -61,7 +61,7 @@ module _ (G : Group ℓg) (S : SignedFluxTarget ℓo)
         (subst (λ X → X) (networkCylindricalPath G) (networkClass G x))
       ≡ SignedFluxTarget._⊕_ S
           (refinedSurfaceFlux sign₀ x) (refinedSurfaceFlux sign₁ x)
-  signed-sum-cylindrical split x =
+  signed-sum-cylindrical {sign = sign} split x =
       surface-flux-cylindrical sign x
     ∙ signed-subdivision S split (representedStem (collapseNetwork G x))
 
@@ -75,6 +75,6 @@ module _ (G : Group ℓg) (S : SignedFluxTarget ℓo)
       ≡ SignedFluxTarget._⊕_ S
           (refinedSurfaceFlux (reverseSign sign₀) x)
           (refinedSurfaceFlux (reverseSign sign₁) x)
-  reversed-signed-sum-cylindrical split x =
+  reversed-signed-sum-cylindrical {sign = sign} split x =
       surface-flux-cylindrical (reverseSign sign) x
     ∙ reversed-subdivision S split (representedStem (collapseNetwork G x))
