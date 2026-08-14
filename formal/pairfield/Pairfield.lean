@@ -9,6 +9,7 @@ import Pairfield.GoldbachDecision
 import Pairfield.GoldbachDecisionRange
 import Pairfield.GoldbachWeightedBoundary
 import Pairfield.GoldbachFixedFiberContamination
+import Pairfield.RestrictedGoldbachEdge
 import Pairfield.GoldbachCrossover
 import Pairfield.HahnBilinearBoundary
 import Pairfield.IndraFourierNetAdapter

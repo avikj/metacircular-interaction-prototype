@@ -254,6 +254,22 @@ theorem indexEdges_cons (bucket : SourceBucket M)
     (rest : List (SourceBucket M)) :
     indexEdges M (bucket :: rest) = bucket.edges ++ indexEdges M rest := rfl
 
+theorem mem_indexEdges_iff (edge : ReverseEdge M)
+    (index : List (SourceBucket M)) :
+    edge ∈ indexEdges M index ↔
+      ∃ bucket ∈ index, edge ∈ bucket.edges := by
+  induction index with
+  | nil => simp
+  | cons bucket rest ih =>
+      simp only [indexEdges_cons, List.mem_append, List.mem_cons, ih]
+      constructor
+      · rintro (hbucket | ⟨old, hold, hedge⟩)
+        · exact ⟨bucket, Or.inl rfl, hbucket⟩
+        · exact ⟨old, Or.inr hold, hedge⟩
+      · rintro ⟨old, (rfl | hold), hedge⟩
+        · exact Or.inl hedge
+        · exact Or.inr ⟨old, hold, hedge⟩
+
 def indexPayload (index : List (SourceBucket M)) : Nat :=
   (indexEdges M index).length
 
@@ -493,6 +509,80 @@ theorem takeBucket_payload (state : SourceState X)
       · simp [takeBucket, hsource, indexPayload, Nat.add_comm]
       · simp [takeBucket, hsource, indexPayload] at ih ⊢
         omega
+
+theorem mem_indexEdges_takeBucket (state : SourceState X)
+    (index : List (SourceBucket M)) (edge : ReverseEdge M) :
+    edge ∈ indexEdges M index ↔
+      edge ∈ (takeBucket M state index).1 ∨
+        edge ∈ indexEdges M (takeBucket M state index).2 := by
+  induction index with
+  | nil => simp [takeBucket]
+  | cons bucket rest ih =>
+      by_cases hsource : bucket.source = state
+      · simp [takeBucket, hsource]
+      · simp only [takeBucket, hsource, ↓reduceIte, indexEdges_cons,
+          List.mem_append]
+        rw [ih]
+        tauto
+
+theorem takeBucket_remaining_sublist (state : SourceState X)
+    (index : List (SourceBucket M)) :
+    List.Sublist (takeBucket M state index).2 index := by
+  induction index with
+  | nil => simp [takeBucket]
+  | cons bucket rest ih =>
+      by_cases hsource : bucket.source = state
+      · simp only [takeBucket, hsource, ↓reduceIte]
+        exact List.Sublist.cons bucket (List.Sublist.refl rest)
+      · simp only [takeBucket, hsource, ↓reduceIte]
+        exact List.Sublist.cons_cons bucket ih
+
+theorem takeBucket_remaining_keys_nodup (state : SourceState X)
+    (index : List (SourceBucket M)) (hkeys : IndexKeysNodup M index) :
+    IndexKeysNodup M (takeBucket M state index).2 := by
+  rw [IndexKeysNodup] at hkeys ⊢
+  exact ((takeBucket_remaining_sublist M state index).map
+    SourceBucket.source).nodup hkeys
+
+theorem takeBucket_remaining_source_ne (state : SourceState X)
+    (index : List (SourceBucket M)) (hkeys : IndexKeysNodup M index) :
+    ∀ bucket ∈ (takeBucket M state index).2, bucket.source ≠ state := by
+  induction index with
+  | nil => simp [takeBucket]
+  | cons bucket rest ih =>
+      rw [IndexKeysNodup] at hkeys
+      simp only [List.map_cons, List.nodup_cons] at hkeys
+      rcases hkeys with ⟨hhead, hrest⟩
+      by_cases hsource : bucket.source = state
+      · intro candidate hcandidate heq
+        simp only [takeBucket, hsource, ↓reduceIte] at hcandidate
+        apply hhead
+        exact List.mem_map.mpr
+          ⟨candidate, hcandidate, heq.trans hsource.symm⟩
+      · intro candidate hcandidate
+        simp only [takeBucket, hsource, ↓reduceIte, List.mem_cons] at hcandidate
+        rcases hcandidate with rfl | htail
+        · exact hsource
+        · exact ih hrest candidate htail
+
+theorem takeBucket_edge_complete (state : SourceState X)
+    (index : List (SourceBucket M)) (hsound : IndexSound M index)
+    (hkeys : IndexKeysNodup M index) {edge : ReverseEdge M}
+    (hedge : edge ∈ indexEdges M index)
+    (hsource : reverseEdgeSourceState M edge = state) :
+    edge ∈ (takeBucket M state index).1 := by
+  rw [mem_indexEdges_takeBucket M state index edge] at hedge
+  rcases hedge with htaken | hremaining
+  · exact htaken
+  · exfalso
+    rw [mem_indexEdges_iff] at hremaining
+    obtain ⟨bucket, hbucket, hedge⟩ := hremaining
+    have hbucketSource :=
+      takeBucket_remaining_source_ne M state index hkeys bucket hbucket
+    have hbucketOld : bucket ∈ index :=
+      (takeBucket_remaining_sublist M state index).subset hbucket
+    have hedgeSource := hsound bucket hbucketOld edge hedge
+    exact hbucketSource (hedgeSource.symm.trans hsource)
 
 theorem takeBucket_edges_source (state : SourceState X)
     (index : List (SourceBucket M)) (hsound : IndexSound M index)
