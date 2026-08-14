@@ -100,6 +100,13 @@ Unassigned. A breaker should attack the finite-zero-locus application, the
 passage from null indicator to the position PVM, or exhibit a purported escape
 that actually remains a bounded operation on the same Haar `L²` quotient.
 
+# Next-action ruling
+
+Do not spend another increment searching for bounded Haar-`L²` recovery of the
+infinity fiber. First obtain a caller that needs exact equality; then retain a
+finite precision index, add and price a singular/germ carrier, or require the
+external equality certificate. Each is a declared interface change.
+
 # Successor seeds
 
 - Price a finite-precision equality effect as precision tends to infinity.
