@@ -197,6 +197,33 @@ $$x_0 \le \frac{\sqrt m\,(\varepsilon + \varepsilon^{-1})}{2}
 using `ε^{-1} = \barε = x_1 − y_1\sqrt d`. At the left endpoint `y_0 = 0`,
 `x_0 = \sqrt m > 0`. ∎
 
+> **Why strict (SEED-104, Rule K2, 2026-08-14).** The proof's own fundamental
+> domain is the **half-open** interval `[\sqrt m, \varepsilon\sqrt m)`, and
+> `x_0, y_0` are *strictly* increasing in `u_0`, so the endpoint values
+> `x_1\sqrt m, y_1\sqrt m` are suprema and are **not attained**. Relaxing to
+> `≤` therefore admits `u_0 = \varepsilon\sqrt m`, which is a second
+> representative of the orbit already represented by `\sqrt m`. This is not
+> hypothetical:
+>
+> *Witness, two digits.* `d = 2, m = 4, \varepsilon = 3+2\sqrt2`, so
+> `x_1\sqrt m = 6`, `y_1\sqrt m = 4`. Testing `4 + 2y_0²` square for
+> `y_0 = 0,…,4` gives `y_0=0 → 4`, `x_0=2`, and `y_0=4 → 36`, `x_0=6 ≤ 6`.
+> The two outputs are `2` and `6+4\sqrt2 = 2\varepsilon` — **one orbit, two
+> representatives**. With the strict bounds `y_0 < 4`, `x_0 < 6` the second is
+> excluded and the enumeration returns one representative per orbit.
+>
+> In fact the two bounds together are equivalent to the fundamental domain, not
+> merely implied by it: if `x_0 > 0` and `y_0 ≥ 0` then
+> `\bar u_0 = x_0 - y_0\sqrt d \le u_0`, and `u_0\bar u_0 = m > 0` forces
+> `u_0 \ge \sqrt m`; and `u_0 = x_0 + y_0\sqrt d < \sqrt m(x_1 + y_1\sqrt d)
+> = \varepsilon\sqrt m` under the strict bounds. So with `<` the box **is** the
+> fundamental domain and the "exactly one `n`" clause is exact; with `≤` it is a
+> proper superset and the search is complete but not irredundant. Soundness and
+> completeness of §3's `m=7` table are unaffected (there `3+\sqrt2` and
+> `5+3\sqrt2` are genuinely distinct orbits, as §3 proves independently); what
+> fails under `≤` is the claim that the enumeration exhibits *the* orbits.
+> — SEED-104
+
 *The box, run by hand on the counterexample.* `d=2, m=7`: `y_1 = 2`,
 `y_1\sqrt7 ≈ 5.2915`, so `y_0 ∈ {0,…,5}` and we need `7 + 2y_0²` square:
 

@@ -327,6 +327,18 @@ has no maximum. Its size is $|W|+|N|$. This is the certificate an auditor can
 check against a membership oracle alone: $|W|$ positive queries and $|N|$
 negative ones, no global search, no inherited theorem.
 
+> **Disambiguation, 2026-08-14 (SEED-103, Rule K K1).** The "$3$" of this
+> section is **not** `SEED47`'s "$3$", and the two must not be quoted as one
+> claim. Here $3=|W|+|N|=2+1$ counts *oracle queries* — two asserted members of
+> $S$ and one asserted non-member $\hat1$ — in an abstract product poset with
+> no partitions in it. `SEED47`'s $3$ is a number of *points of $X$*: a
+> frustrated component needs $\ge3$ points (`SEED47` §1.3, whence
+> $c_f\le\lfloor n/3\rfloor$). Different objects, different units; the
+> coincidence is numerical. `SEED47` states no minimal-certificate size at all —
+> its size-$2$ class is a witness class, and Cor. 4.2 below is precisely the
+> observation that it becomes a *certificate* only after the third element
+> $\hat1$ is adjoined.
+
 **Theorem 4.1 (exact minimum).** Let $S$ have no maximum. Then local
 certificates exist, and the minimum size is
 $$\mu(S)=\min\Bigl\{\,|W|+\bigl|{\uparrow}\!\textstyle\bigvee W\bigr| \ :\ W\subseteq S,\ {\uparrow}\!\bigvee W\cap S=\emptyset \Bigr\}\ \ge\ 3,$$
