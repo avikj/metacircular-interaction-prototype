@@ -237,6 +237,33 @@ refuted by the stationary false model. The old grid uniqueness check and
 finite-$\lambda$ regression were removed; exp53 is now exact and fail-closed.
 Extend: independently audit R0021, then rule out the four sharp vertices using
 genuinely arithmetic structure.
+STATUS [08-14] [cf-tessera-r2-03] — EVIDENCE RESCUED, PYTHON RETIRED. The
+finite content of `code/exp53_window5_polytope.py` is now
+`formal/cubical/Window5Walsh.agda` (Agda 2.6.3 + cubical v0.5, `--cubical
+--safe`, exit 0, no postulates, no holes; not yet in the root aggregate).
+Rationals cleared once by working with the integer m96(ε) = 96·μ_{1/3,1/3,1/3}(ε)
+= 3 + ε₁₂₃₄ + ε₂₃₄₅ + ε₁₃₄₅ + ε₁₂₃₅ + ε₁₂₄₅. Checked by kernel normalisation:
+the nine affine forms with multiplicities 2/4/8 and nothing else
+(`classCounts`/`classComplete`/`classDistinct` — this is the INPUT to
+CONSTRAINT_ALGEBRA Thm 2.1, so that hand proof is now warranted end to end);
+ten zeros, total mass one, no negative atom, at ALL FOUR vertices
+(`fourSharpVertices`); conserved de Bruijn flow out = in = 6 + 2ε₁₂₃₄ > 0 at
+all 16 states (`flowConserved`) WITH the planted-false control firing
+(`flowBroken` ≡ false by refl); all 31 nonempty Walsh coefficients
+(`walshOK`); the printed flip sending (+,+,+,+,−) ↦ (−,+,+,+,+) with both
+masses 0 (`flipFixesZero`); the four 𝔽₂[u] identities. Grade moves
+asserted-from-dead-script → CHECKED-FINITE. NEW (free from the enumeration):
+the product of the five characters is identically +1, so the number of −1s
+among them is even, the mass spectrum is exactly {0,4,8} with multiplicities
+10/20/2, and nonnegativity at the sharp point is a PARITY fact, not a
+computation. NOT upgraded: the claim about Tao–Teräväinen §7. WebFetch is
+EGRESS_BLOCKED; §7 was not read this block, so CONSTRAINT_ALGEBRA §4 stands at
+its own CITED grade. A fresh search ("Tao Teräväinen erratum corrigendum
+Theorem 1.14 sign patterns") surfaced no erratum, corroborating that note's
+null search and establishing nothing about novelty. Write-up:
+`notes/F25_F23_WITHOUT_PYTHON.md` §3. Identified as the highest-leverage
+repair by `notes/OPEN_PROBLEMS_WE_TOUCH.md` row L24; its caveats (ii) and
+(iii) are now discharged, (i) deliberately not.
 
 F24 [08-12] [codex] — Compiled `natural` runtime walk. Walked: projected all
 claim packets, event chains, sources, obligations, evidence, dependency and
@@ -291,6 +318,37 @@ is not. Any future gain from this direction must come from a sharper
 multiplicity→eigenvalue transplant, not from more integrality.
 Extend: quantify the transplant loss — compare the exact integer-hull
 bound against what Lemma 3.2 delivers on the same data.
+STATUS [08-14] [cf-tessera-r2-03] — UPGRADED FROM SEARCH TO THEOREM; PYTHON
+RETIRED. `code/exp61_integer_hull_check.py` checked five values of N by
+integer search. It was never needed. Substituting m_i = 1 + x_i gives
+N = k + X and Σm² = k + 2X + Q (X = Σx_i, Q = Σx_i²), whence
+  S + 2k − 3N ≥ Q − X   and   S + s − 2N ≥ Q + s − k,
+so the two relaxations m² ≥ 3m−2 and m² ≥ 2m−1 are EXACTLY the elementary
+per-element facts x ≤ x² and 1 ≤ x² + [x=0], summed. Both are equalities
+precisely on x ∈ {0,1}, i.e. m ∈ {1,2} — which is why ONE configuration
+saturates both at once: hull(t) = 4t atoms of multiplicity 1 plus t of
+multiplicity 2 has N = 6t, Σm² = 8t (so 3S = 4N, exactly the band-1
+ceiling), k = 5t = (5/6)N, s = 4t = (2/3)N. Hence F25's claim holds for ALL
+N and ALL S, not five instances. Machine-checked:
+`formal/cubical/IntegerHullMultiplicity.agda` (Agda 2.6.3 + cubical v0.5,
+`--cubical --safe`, exit 0, no postulates, no holes; not yet in the root
+aggregate) — `distinctBound`, `simpleBound`, `distinctOptimal`,
+`simpleOptimal`, `hullAttains`, `hullCeiling`, plus controls
+`noBetterDistinct`, `noBetterSimple` and `cauchySchwarzNotAttained` (at
+N = 12, S = 16 the Cauchy–Schwarz value 9 is provably NOT attainable, while
+the hull attains 10 — the exact sense in which integrality is already being
+used optimally). Grade moves asserted-from-dead-script → PROVED. NEW and not
+in F25: Σm² − N = Σ m(m−1) is always EVEN, so a ceiling S with S ≢ N (mod 2)
+acts as S−1; the five tested N were all ≡ 0 (mod 6) so this never bit, and it
+would bite at N ≡ 3 (mod 6). UNCHANGED: yield (3), the von Neumann transplant
+from multiplicities to matrix eigenvalues, is untouched and is now the only
+live thing in the lane — the measure-level statement is proved tight, the
+matrix-level one is still only believed lossy. LEAST-SURE STEP, named:
+whether Lemma 3.2 is applied to exactly these four functionals in exactly
+this grouping; if the manuscript's regrouping differs, §2 remains a correct
+theorem about a correct integer program and stops being THE one. Write-up:
+`notes/F25_F23_WITHOUT_PYTHON.md` §2. Identified as the highest-leverage
+repair by `notes/OPEN_PROBLEMS_WE_TOUCH.md` row L3.
 
 F26 [08-12] [cf-prime] — Walk: answer ATLAS §4's open question (is the
 exchange-rate budget 2 universal?). Completed, not killed. Traced the 2

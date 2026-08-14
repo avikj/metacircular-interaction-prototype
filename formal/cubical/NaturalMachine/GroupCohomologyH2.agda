@@ -36,15 +36,14 @@
 --      then π admits a *homomorphic* section.  (The converse direction,
 --      splitting ⇒ class zero, is `hom-section→class-zero`.)
 --
---  (3) `CyclicCarryClass`:  instantiated at `BasePower k n'`, i.e. b = 2+k,
---      n = 1+n′.  Combining (2) with `CarryObstruction`'s
---      `extension-does-not-split` gives
---
---          carryClass≠0 : ¬ (class carryK ≡ 0)   in H²(ℤ/bⁿ ; ker πₙ)
---
---      for every b ≥ 2, n ≥ 1 and **every** digit section whatever, and
---      `stdCarryClass≠0` for the schoolbook digit set.  This is
---      ATLAS_OF_N.md Proposition 2.11's `[c_n] ≠ 0`, now with the group.
+-- The arithmetic instance — b ≥ 2, n ≥ 1, the truncation ℤ/bⁿ⁺¹ ↠ ℤ/bⁿ,
+-- and hence Proposition 2.11's `[c_n] ≠ 0` — is the sibling module
+-- `NaturalMachine.CarryClassNonzero`, which combines (2) with
+-- `CarryObstruction.BasePower.extension-does-not-split`.  It is split off
+-- so that the general construction and the instance check separately (and
+-- because instantiating a `public`-opened chain of parametrized modules at
+-- `Fin bⁿ⁺¹` is what made the combined file take >15 min; the two files
+-- take 6 s and 3 s).
 --
 -- NOT claimed here, deliberately (see the status paragraph appended to
 -- ATLAS_OF_N.md §7):
@@ -66,11 +65,7 @@ open import Cubical.Foundations.Structure
 open import Cubical.Foundations.Powerset
 
 open import Cubical.Data.Sigma
-open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Empty as Empty using (⊥)
-open import Cubical.Data.Fin using (Fin)
-open import Cubical.Data.Fin.Arithmetic using (+ₘ-comm)
-
 open import Cubical.HITs.PropositionalTruncation as PT using (∥_∥₁ ; ∣_∣₁)
 open import Cubical.HITs.SetQuotients as SQ using ([_] ; squash/ ; effective)
 
@@ -328,7 +323,8 @@ module Cochain (Q : Group ℓ) (A : Group ℓ')
     ≈isPropValued x y = PT.squash₁
 
     ≈sym : (x y : Z₂) → x ≈ y → y ≈ x
-    ≈sym x y h = subst-∈ B₂Subset flip (inv-closed isSubgroupB₂ h)
+    ≈sym x y h = subst-∈ B₂Subset flip
+                   (inv-closed isSubgroupB₂ {x = x ZG.· ZG.inv y} h)
       where
         flip : ZG.inv (x ZG.· ZG.inv y) ≡ (y ZG.· ZG.inv x)
         flip = GroupTheory.invDistr Z₂Group x (ZG.inv y)
@@ -336,7 +332,9 @@ module Cochain (Q : Group ℓ) (A : Group ℓ')
 
     ≈trans : (x y z : Z₂) → x ≈ y → y ≈ z → x ≈ z
     ≈trans x y z hxy hyz = subst-∈ B₂Subset collapse
-                             (op-closed isSubgroupB₂ hxy hyz)
+                             (op-closed isSubgroupB₂
+                               {x = x ZG.· ZG.inv y} {y = y ZG.· ZG.inv z}
+                               hxy hyz)
       where
         collapse : ((x ZG.· ZG.inv y) ZG.· (y ZG.· ZG.inv z))
                  ≡ (x ZG.· ZG.inv z)
@@ -511,27 +509,3 @@ module CarryClass
             ∙ cong ((P G.· G.inv (s (u Q.· v))) G.·_) (G.·InvL T)
             ∙ G.·IdR (P G.· G.inv (s (u Q.· v)))
 
-------------------------------------------------------------------------
--- 3.  The arithmetic instance: [c_n] ≠ 0 for base b ≥ 2, n ≥ 1
-------------------------------------------------------------------------
-
-module CyclicCarryClass (k n' : ℕ) where
-
-  open CO.BasePower k n'
-
-  -- For every digit section whatever.
-  module _ (s : Fin N → Fin M) (sect : (q : Fin N) → red (s q) ≡ q) where
-
-    open CarryClass G Q +ₘ-comm redHom s sect public
-
-    -- ATLAS_OF_N.md Proposition 2.11: the carry class is nonzero.
-    carryClass≠0 : ¬ (class carryK ≡ GroupStr.1g (snd H²))
-    carryClass≠0 = class-zero→hom-section
-      (λ σ h → extension-does-not-split σ h)
-
-  -- … and in particular for the schoolbook alphabet {0,…,bⁿ−1}.
-  stdCarryClass≠0 :
-    ¬ (class stdSection stdSection-sect
-         (carryK stdSection stdSection-sect)
-       ≡ GroupStr.1g (snd (H² stdSection stdSection-sect)))
-  stdCarryClass≠0 = carryClass≠0 stdSection stdSection-sect
