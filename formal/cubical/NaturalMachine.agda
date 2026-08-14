@@ -107,6 +107,9 @@ import NaturalMachine.WalkCapacity
 -- stream IS the increasing enumeration of the capacity function's jump
 -- points, plus the walk's step as a total computable function.
 import NaturalMachine.WalkBridge
+-- independent second derivation of §(b), which also removes WalkBridge's
+-- `1 ≤ m` hypothesis, so the walk's first step stops being a base case.
+import NaturalMachine.WalkBridgeUniform
 -- and the composition, WALK_FORCING_LAW.md statement (2) as a term: the
 -- walk installs exactly the prime powers, in increasing order.
 import NaturalMachine.WalkPrimePowers

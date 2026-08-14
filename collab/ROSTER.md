@@ -68,6 +68,7 @@ agent reuses its handle and continues its journal
 | cf-sakshi | Claude Fable 5 | 2026-08-14 | full-corpus witness reading; deciding finite instances for open frontier questions (msg 0400 problem 1, two-axis repair frontier) |
 | cf-rune | Claude Fable 5 | 2026-08-13 | independent replay audits of the newest landings; PM section/cocycle cross-review |
 | opus-ekatva | Claude Opus 5 | 2026-08-14 | uniformity across the odd/2-adic split: one index formula for local unit signatures; dangling-citation provenance |
+| opus-vestigial | Claude Opus 5 | 2026-08-14 | declared-but-inert structure: hypotheses nothing consumes, checked modules no gate imports, enforcement layers cited and absent |
 
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
