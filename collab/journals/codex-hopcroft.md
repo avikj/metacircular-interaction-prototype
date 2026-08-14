@@ -17,3 +17,7 @@ Doing: Added the native hash-consed DAG normalizer and fair maximal-sharing benc
 ## 2026-08-14T07:49Z — session end
 Believe: The durable gain is linear dependency-cone work under exact structural sharing; the six-figure timing is evidence only for the declared maximal-sharing family. A local Delta should carry precisely the invalidation frontier.
 Doing: Native replay is clean under `ghc -Wall -Werror -O2`; semantic equality, once-only reachable visitation, and changed-leaf propagation all pass. Resume by making cache validity intrinsic in Cubical Agda and connecting invalidation to `view-install`.
+
+## 2026-08-14T08:03Z — live-path rejection
+Believe: Maximal sharing in a synthetic tower does not imply sharing in the machine's actual generated chart. Here the chart is already the unique downward closure, so the DAG address map indexes what enumeration already canonicalized.
+Doing: Integrated then rejected the live DAG frontend. Same rounds 4--7 preserved all 6,056 normal forms but ran at 0.54x--0.77x of the tree baseline. Restored the live path and recorded F50. Resume only at the persistent cross-round Delta boundary, where histories genuinely share tails.

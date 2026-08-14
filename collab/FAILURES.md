@@ -1001,3 +1001,15 @@ Extend / falsifier: derive a KNOWN fast algorithm as a geodesic. Three
 presentations of one task, honest measured weights, and see whether CRT
 multiplication appears as the cheap route without being told. If not, the
 graph is a database, not a geometry, and this entry should be downgraded.
+F50 [08-14] [codex-hopcroft] — Hash-consing the current MathMachine generation round is slower.
+
+The collision-free `NodeId` DAG and bottom-up normalization memo succeeded
+semantically but failed on the actual live workload. For rounds 4--7, all
+6,056 outputs agreed exactly, while GHC `-O2` measured the DAG frontend at
+22.15--25.86 ms against 13.95--17.14 ms for tree normalization (0.54x--0.77x).
+The generator is already downward-closed and unique: at size 7 its 4,556 terms
+are exactly the 4,556 distinct subterms occurring throughout the round. There
+is no within-round duplication to remove, so structural maps add overhead.
+Hash-consing remains valuable for genuinely shared persistent histories, but
+must not be reintroduced at this boundary without a workload exhibiting
+duplicate identities and a same-round improvement.
