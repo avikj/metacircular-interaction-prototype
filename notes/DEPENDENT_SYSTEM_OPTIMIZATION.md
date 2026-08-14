@@ -685,3 +685,217 @@ reducing search and verification complexity}.}
 Bad cuts can exclude proof paths, explode branching, require unavailable
 witnesses, destroy symmetry, or overconstrain the endpoint. A lemma is an
 interface, not merely a subtask.
+
+## 31. Prime-Pair calibration
+
+Endpoint: \(p,p+4\) prime. Materialized waypoint: \(p,p+2,p+4\) all prime.
+The endpoint pattern \(\{0,4\}\) is admissible, while
+\(\{0,2,4\}\) covers every residue modulo \(3\) and is locally annihilated
+apart from the exceptional path. Thus:
+
+\[
+\boxed{\text{the proof/workflow architecture creates a local obstruction
+absent from the endpoint relation}.}
+\]
+
+This is Boolean decomposition curvature. The DSO question for
+Goldbach/prime-pair work is which intermediate representations preserve the
+full witness field while lowering the cost of coverage or recurrence proofs.
+Coefficient optimization inside a fixed lossy representation cannot answer it.
+
+## 32. Physical/refoliation calibration
+
+Different intermediate hypersurfaces should preserve a spacetime boundary
+process up to the accepted phase notion. Refoliation invariance therefore says
+factorization choice must not change endpoint semantics. The quantum curvature
+
+\[
+\widehat{\mathcal F}(\xi,\eta)=
+\frac1{i\hbar}[\widehat G[\xi],\widehat G[\eta]]
+-\widehat G[[\xi,\eta]_{\mathrm{HDA}}]
+\]
+
+measures infinitesimal path dependence: different local update orders fail to
+transport to the same boundary process.
+
+## 33. Mature mathematics inherited
+
+- **Monotone co-design:** functionality/resource posets, design relations,
+  series/parallel/feedback, Pareto antichains, least fixed points.
+- **Linear co-design:** a polyhedral exact subclass, closure under principal
+  interconnections, internal-variable elimination, multiobjective programs.
+- **Quantale-enriched co-design:** quantitative heterogeneous composition,
+  change of base, feedback, and the explicit implementation/optimization gap.
+- **Compositional first-order optimization:** operad algebras, solver methods
+  as morphisms, primal/dual decomposition.
+- **Backprop as functor / categorical learning:** parameterized functions,
+  backward requests, compositional update rules.
+- **Bilevel/parametric optimization:** outer variables changing inner
+  problems, architecture and hyperparameter optimization.
+
+The DSO residue is their simultaneous coupling with dependent
+types/fibrations, univalent semantic transport, proof-relevant implementation
+fibers, contextual interfaces, decomposition obstruction, optimizer-section
+gluing, and certified mutation of theory/dependency spaces.
+
+## 34. The research target
+
+No individual ingredient is claimed new. The joint target is to:
+
+1. maintain proof-relevant compositional implementation spaces;
+2. represent subsystems by continuation-value transformers;
+3. search architecture/factorization space;
+4. identify systems by contextual optimization behavior;
+5. measure decomposition/update curvature;
+6. optimize current cost without destroying future task option value;
+7. certify self-modification of the optimizer and dependency language.
+
+The core object is a fibration of optimization problems plus a mutable,
+certified section-generating process.
+
+## 35. Finite executable benchmark
+
+Given finite boundaries \(A,B,C\), proof-relevant implementation fibers, cost
+vectors, candidate decompositions, and continuation family \(\mathcal V\),
+compute:
+
+1. costed composites;
+2. Bellman transformers;
+3. contextual-equivalence classes;
+4. contextual dominance/Pareto frontiers;
+5. active dependency graphs per continuation;
+6. local-argmin counterexamples;
+7. architecture regret;
+8. decomposition curvature;
+9. dead-edge elimination;
+10. optimal exact factorization under a coordination-cost model.
+
+Compare monolithic optimization, fixed decomposition, local greedy,
+continuation-aware DSO, and search over exact factorizations. The abstraction
+earns itself only by a cheaper exact factorization, a decomposition-loss
+certificate, a smaller fully abstract interface, a reusable transformer
+equivalence, or a proved reoptimization-scope reduction.
+
+## 36. Immediate theorem program
+
+- **A. Quantale Bellman–Yoneda:** generalize functoriality and reconstruction
+  to commutative quantales and antichain semantics.
+- **B. Proof-relevant enriched profunctors:** build certificate-bearing
+  composition and characterize when minimization/Pareto is lax or oplax.
+- **C. Contextual frontier:** show contextual dominance is the maximal
+  compositional pruning preorder for a declared continuation family.
+- **D. Architecture factorization:** find tractable normal forms for exact
+  factorization spaces.
+- **E. Feedback:** combine fixed-point co-design with witnesses and contextual
+  equivalence.
+- **F. Curvature:** relate rewrite commutators, decomposition loss,
+  information cuts, and coordination domains.
+- **G. Optimizer section:** formalize local sections, overlaps, and global
+  obstruction.
+- **H. Self-improvement:** build a checked rewrite
+  \((D,e,\pi)\mapsto D'\).
+- **I. Prime-Pair proof architecture:** compute finite decomposition curvature
+  for candidate lemma languages.
+- **J. Research scheduler:** estimate continuation value rather than local
+  solve probability alone.
+
+## 37. The core compiler
+
+Given boundary transformer \(T^\ast\), search
+
+\[
+\boxed{
+\min_D\mathcal K(D)
+\quad\text{subject to}\quad
+\llbracket D\rrbracket^\ast\equiv_{\mathcal V}T^\ast.}
+\]
+
+Decision variables include boundaries, intermediate dependent types,
+quotients, public/private state, causal edges, conflict hyperedges, solvers,
+proof systems, fixed-point decompositions, caching/reuse, and settlement only
+where actual coupling exists. The output is a Pareto frontier of certified
+factorizations. This is a semantics-preserving compiler over dependency space,
+not a workflow planner.
+
+## 38. Deepest compression
+
+\[
+\boxed{\text{the primitive optimization object is not a number;
+it is a continuation transformer}.}
+\]
+
+\[
+\boxed{\text{the primitive design problem is not parameter tuning;
+it is choosing an exact factorization of that transformer}.}
+\]
+
+An optimal system has correct behavior, sufficient but non-fictitious
+dependencies, task-fully-abstract interfaces, no decomposition-created
+obstruction, minimal active coupling, certificates for both results and
+architecture rewrites, and representations preserving valuable future
+continuations.
+
+## 39. Sanskrit compression
+
+स्थिरव्यवस्थायां केवलं चरान् मा अनुकूलय।  
+Do not optimize only the variables of a fixed system.
+
+व्यवस्थाया आधारं, तन्तून्, मध्यरूपाणि, सीमाः च अनुकूलय।  
+Optimize the base, dependencies, intermediate forms, and boundaries.
+
+स्थानीयमूल्यं पर्याप्तं न।  
+A local cost is insufficient.
+
+सर्वभविष्यत्सन्दर्भेषु तस्य क्रिया एव तस्य वास्तविकमूल्यम्।  
+Its action on every future context is its true value.
+
+\[
+\mathcal B_K(V)(a)=\inf_b[K(a,b)+V(b)],
+\qquad
+\mathcal B_{L\star K}=\mathcal B_K\circ\mathcal B_L.
+\]
+
+दुष्टमध्यरूपं सत्यसमाप्तिं निवारयति।  
+A bad intermediate form can destroy a valid endpoint.
+
+तस्मात् optimizer केवलं समाधानं न अन्विष्यतु—स समाधानस्य सम्भवस्थानं अपि
+पुनर्निर्मातु।  
+The optimizer must not only search for a solution; it must rebuild the space
+in which solutions remain possible.
+
+## 40. Final statement
+
+\[
+\boxed{\begin{aligned}
+\textbf{Optimization}&:\text{ best point in a fixed space},\\
+\textbf{Co-design}&:\text{ compose functionality/resource trade-offs},\\
+\textbf{Bilevel optimization}&:\text{ parameters governing an inner optimum},\\
+\textbf{DSO}&:\text{ optimize fibers, base, interfaces, factorization,}\\
+&\phantom{:\ }\text{and the certified optimizer section together}.
+\end{aligned}}
+\]
+
+\[
+\boxed{\textbf{from optimizing a system under dependencies
+to optimizing what the dependencies are allowed to be}.}
+\]
+
+## Checked footholds already landed
+
+As of the first ingestion pass on 2026-08-14:
+
+- NaturalMachine.DSOFinite checks the premature-local-argmin counterexample.
+- NaturalMachine.DSOBellmanFinite checks continuation-selected route change.
+- NaturalMachine.DSOArchitecture checks finite decomposition loss.
+- NaturalMachine.DSOOption checks exact-task option monotonicity.
+- NaturalMachine.DSOContinuationFullAbstract checks structural infinity,
+  Dirac reconstruction, finite full abstraction, proof-relevant argmins, and a
+  right identity law.
+- The Haskell MathMachine has a finite contextual route compiler and live
+  bounded-search instance.
+
+The generic finite Bellman composition theorem is active work in
+NaturalMachine.DSOMinPlusFinite; while that file is uncommitted it is not a
+landed theorem. Generic quantales, vector/Pareto antichains, proof-relevant
+profunctors, feedback, architecture search, optimizer gluing, and certified
+self-rewrite remain open.

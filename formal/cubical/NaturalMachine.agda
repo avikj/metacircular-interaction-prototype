@@ -160,6 +160,9 @@ import NaturalMachine.DSOOption
 -- functoriality, associative matrix composition, and both identity laws.
 -- Argmin remains a proof-relevant fiber over the scalar consequence.
 import NaturalMachine.DSOMinPlusFinite
+-- Divisor-history observation as a nontrivial DSO instance: block flags,
+-- residual permutation fibers, refinement, and continuation-sensitive choice.
+import NaturalMachine.DivisorHistoryDSO
 import NaturalMachine.ProductiveTear
 import NaturalMachine.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite

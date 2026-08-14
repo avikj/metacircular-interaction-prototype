@@ -225,15 +225,17 @@ history.  No alternative architecture or cost relation was drawn, so
 
 ## Step 4 — Exact Delta-26 test of every survivor
 
-The complete user-authoritative `notes/DEPENDENT_SYSTEM_OPTIMIZATION.md`
-appeared after the forecast and was then read in full.  It asks first for the
-optimization fibration `Σ(b:B)E(b)` and a separate semantic map, then for
-architecture-relative cost/regret, proof-relevant intermediate composition,
-continuation transformers, and contextual equivalence/dominance before
-pruning.  The text defines architecture regret but does **not** define
-architecture curvature.  The root assignment asks curvature as an additional
-test; here it remains undefined unless an actual comparison square and
-transport defect are supplied.
+The user-authoritative `notes/DEPENDENT_SYSTEM_OPTIMIZATION.md` appeared after
+the forecast, first as a partial file and then as a 30-section Delta 26; the
+expanded file was reread in full.  It asks first for the optimization fibration
+`Σ(b:B)E(b)` and a separate semantic map, then for architecture-relative
+cost/regret, proof-relevant intermediate composition, continuation
+transformers, and contextual equivalence/dominance before pruning.  It also
+defines two distinct curvatures: dependency curvature is the supremal metric
+distortion between a decomposition transformer and its target over the
+declared continuation family, while update curvature is failure of two local
+rewrites to commute (or the resulting holonomy when transports are
+invertible).  I test those definitions separately below.
 
 The newly landed checked seams make the finite demands concrete: `DSOOption`
 proves task support is monotone under interface refinement;
@@ -291,9 +293,23 @@ architecture regret `1`: take `B={parity,ternary}`, singleton realization
 fibres, and the common target semantics “separates `(0,1)`.”  Both inhabitants
 lie in the same semantic implementation fibre, but their continuation costs
 differ, exactly as Delta 26 warns.  The forecast's main obstruction is
-confirmed.  It is not yet curvature: one tie and one continuation do not
-provide two state-changing paths around a comparison square, and the supplied
-Delta does not define a curvature observable to substitute.
+confirmed.  It is not yet update curvature: one tie and one continuation do
+not provide two state-changing paths around a comparison square, so **update**
+curvature remains undefined.  It does, however, determine dependency
+curvature.  Let `T*` retain both witnesses and let `D*` be the stored
+parity-only transformer.  On the declared singleton continuation family
+`𝒱={V}` above, with ordinary distance on finite costs,
+
+```
+T*(V) = min(V(parity),V(multiple-of-3)) = 0,
+D*(V) = V(parity)                         = 1,
+Curv_𝒱(D;T) = sup_{V∈𝒱} |D*(V)-T*(V)|    = 1.
+```
+
+Thus the same source-level witness deletion has architecture regret `1` and
+dependency curvature `1` for the explicitly declared context.  No claim is
+made about a larger continuation family; its supremum would require that
+family and its extended-value metric to be fixed first.
 
 ### Survivor B: the cubic theorem survives mathematics, not DSO promotion
 
@@ -331,13 +347,18 @@ relations.
 
 ## Step 5 — Natural Machine consequence and DSO merge decision
 
-The exact new fact is an obstruction in a drawn legacy implementation:
+The exact new fact is an obstruction in a drawn legacy implementation, with a
+Delta-26 quantitative witness:
 
 ```
 one shortest Witness per pair
     ≠
 the fibre of all active shortest witnesses before continuation.
 ```
+
+For the singleton continuation family above, this mismatch has both
+architecture regret `1` and dependency curvature `1`; update curvature is not
+defined because the draw supplies no pair of rewrite orders to compare.
 
 The repair is already live elsewhere.  `DSOContinuationFullAbstract.agda`
 defines proof-relevant active argmins, and the new contextual route compiler
@@ -369,9 +390,9 @@ word “minimum.”
 - **Checked in-repo:** the cited Delta-26 Agda seams; no new proof term or core
   code was added.
 - **Elementary derivation here:** the six-profile table and injectivity, the
-  two immediate witnesses, the regret-`1` continuation, finite-rotation
-  periodicity/character cancellation, and coefficient-wise Diophantine factor
-  relation.
+  two immediate witnesses, the regret-`1` continuation, the singleton-family
+  dependency-curvature calculation, finite-rotation periodicity/character
+  cancellation, and coefficient-wise Diophantine factor relation.
 - **Read-only implementation evidence:** all four drawn Python files and the
   nearby formation-memory implementation were inspected but never run,
   edited, added, or repaired.
@@ -381,5 +402,6 @@ word “minimum.”
 - **Not claimed:** that the numerical scripts prove their bounds; that a
   correspondence measure retains algorithms; that a finite cyclic rotation
   invokes Ratner rigidity; that Jayadeva supplied a modern termination proof;
-  that root geometry is Khayyam's actual construction; or that regret from one
-  continuation is already architecture curvature.
+  that root geometry is Khayyam's actual construction; that one continuation
+  supplies update curvature; or that the singleton-family curvature value
+  extends to an undeclared continuation family.

@@ -32,7 +32,7 @@
 module Main (main) where
 
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, sortBy, foldl', intercalate)
+import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort)
 import Data.Maybe (mapMaybe, isJust)
 import Data.IORef
 import Control.Monad (forM_, when, unless, filterM)
@@ -282,6 +282,70 @@ boundedArchitectures name plan = [direct, compiled]
       (map dsoWitness routes) routes [(dsoWitness r, dsoWitness r) | r <- routes]
     compiled = DSOArchitectureCandidate (name ++ "/least-selector")
       (map dsoWitness routes) leastRoutes [(dsoWitness r, target) | r <- routes]
+
+-- A squarefree divisor history adjoins each of m distinct prime factors once,
+-- hence is exactly a permutation.  Checkpoints remember the accumulated set,
+-- not the within-block order.  Consequently the exact residual fibre is the
+-- product of factorials of the checkpoint block lengths.
+data HistoryDemand = EndpointDemand | SnapshotDemand [Int] | FullDemand
+  deriving (Eq, Show)
+
+data HistoryArchitecture = HistoryArchitecture
+  { historyArchitectureName :: !String
+  , historyCheckpoints :: [Int]
+  , historyCandidate :: DSOArchitectureCandidate
+  , historyFibres :: [[String]]
+  }
+
+factorial :: Int -> Int
+factorial n = product [1..n]
+
+historyBlocks :: Int -> [Int] -> [Int]
+historyBlocks m checkpoints = zipWith (-) boundaries (0 : boundaries)
+  where boundaries = sort (filter (\k -> k > 0 && k < m) checkpoints) ++ [m]
+
+historyObservation :: Int -> [Int] -> [Int] -> [[Int]]
+historyObservation m checkpoints history =
+  [ sort (take (hi - lo) (drop lo history))
+  | (lo,hi) <- zip (0 : boundaries) boundaries ]
+  where boundaries = sort (filter (\k -> k > 0 && k < m) checkpoints) ++ [m]
+
+mkHistoryArchitecture :: Int -> String -> [Int] -> HistoryArchitecture
+mkHistoryArchitecture m name checkpoints =
+  HistoryArchitecture name checkpoints candidate fibres
+  where
+    histories = permutations [0..m-1]
+    keyed = M.fromListWith (++)
+      [(historyObservation m checkpoints h, [show h]) | h <- histories]
+    classes = zip [0..] (M.toAscList keyed)
+    routeFor = M.fromList
+      [(witness, name ++ "/class/" ++ show i)
+      | (i,(_,witnesses)) <- classes, witness <- witnesses]
+    routes = [DSORoute (name ++ "/class/" ++ show i) i 0
+             | (i,_) <- classes]
+    fibres = [reverse witnesses | (_,(_,witnesses)) <- classes]
+    origins = map show histories
+    migration = [(origin, routeFor M.! origin) | origin <- origins]
+    candidate = DSOArchitectureCandidate name origins routes migration
+
+historyAdequate :: Int -> HistoryDemand -> HistoryArchitecture -> Bool
+historyAdequate m EndpointDemand _ = True
+historyAdequate m (SnapshotDemand ranks) architecture =
+  all (`elem` historyCheckpoints architecture) ranks
+historyAdequate m FullDemand architecture =
+  historyCheckpoints architecture == [1..m-1]
+
+compileHistoryArchitectures :: Int -> [Int] -> HistoryDemand
+  -> ([HistoryArchitecture], DSOArchitectureResult)
+compileHistoryArchitectures m selected demand = (adequate, result)
+  where
+    endpoint = mkHistoryArchitecture m "history/endpoint" []
+    snapshot = mkHistoryArchitecture m "history/snapshot" selected
+    full = mkHistoryArchitecture m "history/full" [1..m-1]
+    adequate = filter (historyAdequate m demand) [endpoint,snapshot,full]
+    context = DSOContinuation (show demand) "history-demand" (const 0)
+    result = compileDSOArchitectures ["history-demand"] [context]
+      (map historyCandidate adequate)
 
 executeBoundedSearch :: BoundedSearch -> SearchProjection
 executeBoundedSearch plan =
@@ -936,6 +1000,7 @@ data Machine = Machine
   , mAtlases :: [FiniteAtlas]
   , mDSOTasks :: [DSOTask]
   , mDSOArchitectureSearches :: [(DSOTask,[DSOArchitectureCandidate])]
+  , mHistoryArchitectureSearches :: [(Int,[Int],HistoryDemand)]
   }
 
 squareThresholdSearch :: BoundedSearch
@@ -948,6 +1013,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [boundedDSOTask "square-threshold" squareThresholdSearch]
   [(boundedDSOTask "square-threshold" squareThresholdSearch,
     boundedArchitectures "square-threshold" squareThresholdSearch)]
+  [(4,[2],SnapshotDemand [2])]
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1164,10 +1230,14 @@ round1 logh libh ref = do
       dsoWitnessFiber = sum
         [ sum (map (length . dsoWitnesses) (dsoSurvivors compiled))
         | compiled <- dsoCompiled ]
+      historyArchitectureResults =
+        [ compileHistoryArchitectures mFactors checkpoints demand
+        | (mFactors,checkpoints,demand) <- mHistoryArchitectureSearches m ]
       architectureResults =
         [ compileDSOArchitectures (dsoTaskDependencies task)
             (dsoTaskContinuations task) candidates
         | (task,candidates) <- mDSOArchitectureSearches m ]
+        ++ map snd historyArchitectureResults
       architectureCandidatesN = sum (map (length . dsoArchitectureCosts) architectureResults)
       architectureParetoN = sum (map (length . dsoParetoArchitectures) architectureResults)
       architectureEquivalencesN = sum (map (length . dsoEquivalentArchitectures) architectureResults)
@@ -1175,6 +1245,9 @@ round1 logh libh ref = do
         [ states | result <- architectureResults, (_, (states,_)) <- dsoArchitectureRegret result ]
       architectureRegretWork = sum
         [ work | result <- architectureResults, (_, (_,work)) <- dsoArchitectureRegret result ]
+      retainedHistoryFibre = sum
+        [ sum (map (sum . map length . historyFibres) selected)
+        | (selected,_) <- historyArchitectureResults ]
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
         | otherwise =
@@ -1198,7 +1271,7 @@ round1 logh libh ref = do
       nConj = length conjectures
       nFresh = length fresh
       nRes = length results
-  architectureRegretWork `seq` architectureRegretStates `seq`
+  retainedHistoryFibre `seq` architectureRegretWork `seq` architectureRegretStates `seq`
     architectureEquivalencesN `seq` architectureParetoN `seq`
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
@@ -1232,6 +1305,8 @@ round1 logh libh ref = do
   hPrintf logh "  DSO-ARCH  candidates=%d transformer-equivalences=%d pareto=%d aggregate-regret=(%d states,%d work)\n"
     architectureCandidatesN architectureEquivalencesN architectureParetoN
     architectureRegretStates architectureRegretWork
+  hPrintf logh "  DSO-HISTORY  searches=%d retained-history-fibre=%d\n"
+    (length historyArchitectureResults) retainedHistoryFibre
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
