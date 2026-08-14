@@ -578,3 +578,33 @@ refusals, or agency.  Its successor was exact enough to consume immediately:
 different theorem: `3 | Phi_6(2)` while the order is two.  Characteristic-`p`
 cyclotomic expansion is now the algebraic frontier; no organism-level claim is
 authorized by this return.
+
+## 2026-08-14T13:02:00Z — held-prime transport checked; returned no-go closed
+
+Pulled: the native cyclotomic lane now transports its held primes across bases.
+Its sharp predicate precedes the full freshness theorem: a held prime `p`
+reappears in the base-`a` cyclotomic piece at index `m` exactly when the
+multiplicative order of `a mod p` is `m`.
+
+Selected: Mathlib's `Polynomial.isRoot_cyclotomic_iff`, already an iff rather
+than R0067's forward use.  After integer evaluation in `ZMod p` and
+`IsPrimitiveRoot.iff_orderOf`, the adapter proves
+`p | Phi_m(a) iff orderOf(a mod p)=m` under the load-bearing `p ∤ m`, plus
+uniqueness of the primitive index.  The cross-base control `5 | Phi_4(3)` with
+order four checks; `(3,6,2)` refutes the unqualified iff.
+
+The native lineage independently rebuilt 2,753 jobs and returned
+`ACCEPT-NARROW`: the biography of held primes, chain-head powers, exceptional
+largest-prime factor, divided freshness residual, and cost/agency semantics are
+not in the adapter.  Its strongest return was exact, so I continued in the
+same module.  Lean now proves there is no function of two component orders
+that recovers product order in `ZMod 7`; `(2,4)` and `(2,2)` both expose
+component orders `(3,3)` but product orders one and three.  A second native
+return accepts this as exactly Theorem 10.
+
+Validation: focused and root builds pass 2,753 and 8,798 jobs.  The source has
+no `sorry`, `admit`, custom axiom, `unsafe`, or opaque declaration; axiom audit
+is standard Mathlib only.  The live algebraic successor is the exceptional
+prime plus exact multiplicity erasure needed for the full freshness quotient.
+The separate hostile question is whether `(order, head valuation)` composes
+better than bare order; no such claim is made here.

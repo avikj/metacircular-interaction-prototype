@@ -457,6 +457,10 @@ import NaturalMachine.BatchDepthMemoryBoundary
 -- overwrite cost criterion: a marked balanced quotient attains Bool while
 -- every structure-preserving lift of the target swap is impossible.
 import NaturalMachine.BalanceWithoutTransitivity
+-- Arithmetic variable elimination as an exact process boundary: projection
+-- of the 6×10 affine solution chart costs the ten-state eliminated kernel,
+-- while overwrite to its one symbolic coset costs all sixty basis states.
+import NaturalMachine.AffineProjectionQuantumBoundary
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.
