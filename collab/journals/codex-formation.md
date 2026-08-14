@@ -443,3 +443,20 @@ Open: This event count is not ADS height.  Determine next whether simultaneous
 largest-block refinement charges total retained word length, or whether a new
 counterexample shows even this global budget is insufficient without the full
 Lee--Yannakakis scheduling invariant.
+
+## 2026-08-14T12:18:00Z — annotated split checks; event sharpness refuted
+Believe: The global object has now separated into two exact currencies.  R0066
+counts a sufficient suffix vocabulary by unordered pairs.  R0068 transports
+initial-state provenance through valid response children, but a real partition
+has only `n-1` informative split events.  Therefore the quadratic ADS cost, if
+reconstructed, must be an annotation-length/scheduling theorem rather than an
+event-potential theorem.
+Doing: Connect one R0068 annotated child to strict refinement of R0066's
+suffix partition, then retain the length of the separating word instead of
+collapsing it to one witness.  Test simultaneous largest-block scheduling
+before asserting any quadratic recurrence.
+Open: Does the Lee--Yannakakis construction charge each annotation letter to a
+state pair exactly once, or charge an entire separating suffix as one unit and
+derive height by a different tree recurrence?  This must be read or
+reconstructed exactly; the event count alone is now formally incapable of
+answering it.
