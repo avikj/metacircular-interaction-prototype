@@ -26,6 +26,30 @@ data Derivation
   | Then StepCert Derivation
   deriving (Eq, Show)
 
+-- The executable face of RewriteCertificate's hypothesis-indexed language.
+-- The distinguished variable is `Var`; Agda checks that `Hypothesis` is used
+-- only at the predecessor endpoints named by the certificate.
+data HypStepCert
+  = LiftStep StepCert
+  | Hypothesis
+  | ReverseHypothesis
+  | HypSuc HypStepCert
+  | HypAddLeft HypStepCert Term
+  | HypAddRight Term HypStepCert
+  deriving (Eq, Show)
+
+data HypDerivation
+  = HypDone Term
+  | HypThen HypStepCert HypDerivation
+  deriving (Eq, Show)
+
+data InductionCertificate = InductionCertificate
+  { inductionSource :: Term
+  , inductionTarget :: Term
+  , baseDerivation :: Derivation
+  , stepDerivation :: HypDerivation
+  } deriving (Eq, Show)
+
 -- Unlike MathMachine's current String, the certificate carries its exact
 -- conclusion. Agda checks both that the derivation has these endpoints and,
 -- through RewriteCertificate.derivation-sound, that the installed endpoints
@@ -57,6 +81,21 @@ renderDerivation = \case
   Done x -> "(done " ++ renderTerm x ++ ")"
   Then p rest -> "(then-step " ++ renderStep p ++ " " ++ renderDerivation rest ++ ")"
 
+renderHypStep :: HypStepCert -> String
+renderHypStep = \case
+  LiftStep p -> "(lift-step " ++ renderStep p ++ ")"
+  Hypothesis -> "hypothesis"
+  ReverseHypothesis -> "reverse-hypothesis"
+  HypSuc p -> "(hyp-suc " ++ renderHypStep p ++ ")"
+  HypAddLeft p z -> "(hyp-add-left " ++ renderHypStep p ++ " " ++ renderTerm z ++ ")"
+  HypAddRight z p -> "(hyp-add-right " ++ renderTerm z ++ " " ++ renderHypStep p ++ ")"
+
+renderHypDerivation :: HypDerivation -> String
+renderHypDerivation = \case
+  HypDone x -> "(hyp-done " ++ renderTerm x ++ ")"
+  HypThen p rest ->
+    "(hyp-then " ++ renderHypStep p ++ " " ++ renderHypDerivation rest ++ ")"
+
 renderModule :: Certificate -> String
 renderModule c = unlines
   [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
@@ -66,21 +105,45 @@ renderModule c = unlines
   , "candidate = " ++ renderDerivation (derivation c)
   ]
 
-validateWithAgda :: FilePath -> Certificate -> IO Bool
-validateWithAgda repo c = do
+renderInductionModule :: InductionCertificate -> String
+renderInductionModule c = unlines
+  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+  , "module Gate where"
+  , "open import NaturalMachine.RewriteCertificate"
+  , "candidate : InductionCertificate "
+      ++ renderTerm (inductionSource c) ++ " " ++ renderTerm (inductionTarget c)
+  , "candidate = record"
+  , "  { base = " ++ renderDerivation (baseDerivation c)
+  , "  ; step = " ++ renderHypDerivation (stepDerivation c)
+  , "  }"
+  ]
+
+validateSourceWithAgda :: FilePath -> String -> IO Bool
+validateSourceWithAgda repo source = do
   tmp <- init <$> readProcess "mktemp" ["-d"] ""
   let gate = tmp </> "Gate.agda"
-  (do writeFile gate (renderModule c)
+  (do writeFile gate source
       (code, _, _) <- readProcessWithExitCode "agda"
         ["-i", repo </> "formal/cubical", "-i", tmp, gate] ""
       pure (code == ExitSuccess))
     `finally` removePathForcibly tmp
 
+validateWithAgda :: FilePath -> Certificate -> IO Bool
+validateWithAgda repo = validateSourceWithAgda repo . renderModule
+
+validateInductionWithAgda :: FilePath -> InductionCertificate -> IO Bool
+validateInductionWithAgda repo = validateSourceWithAgda repo . renderInductionModule
+
+data CheckedCertificate
+  = DirectCertificate Certificate
+  | InductiveCertificate InductionCertificate
+  deriving (Eq, Show)
+
 data NativeRule = NativeRule
   { ruleName :: String
   , ruleSource :: Term
   , ruleTarget :: Term
-  , ruleCertificate :: Certificate
+  , ruleCertificate :: CheckedCertificate
   } deriving (Eq, Show)
 
 type Rules = [NativeRule]
@@ -102,7 +165,15 @@ parallelFutures rules input =
 validateAndInstall :: FilePath -> String -> Rules -> Certificate -> IO (Bool, Rules)
 validateAndInstall repo name rules c = do
   accepted <- validateWithAgda repo c
-  let native = NativeRule name (source c) (target c) c
+  let native = NativeRule name (source c) (target c) (DirectCertificate c)
+  pure (accepted, if accepted then rules ++ [native] else rules)
+
+validateAndInstallInduction :: FilePath -> String -> Rules
+  -> InductionCertificate -> IO (Bool, Rules)
+validateAndInstallInduction repo name rules c = do
+  accepted <- validateInductionWithAgda repo c
+  let native = NativeRule name (inductionSource c) (inductionTarget c)
+        (InductiveCertificate c)
   pure (accepted, if accepted then rules ++ [native] else rules)
 
 good :: Certificate
@@ -137,6 +208,24 @@ underRightReversed = Certificate
   (Then (AddRight Var (Reverse (AddZero Var)))
     (Done (Add Var (Add Var Zero))))
 
+zeroPlusInduction :: InductionCertificate
+zeroPlusInduction = InductionCertificate
+  (Add Zero Var)
+  Var
+  (Then (AddZero Zero) (Done Zero))
+  (HypThen (LiftStep (AddSuc Zero Var))
+    (HypThen (HypSuc Hypothesis) (HypDone (Suc Var))))
+
+-- The first step reaches `suc (0 + var)`.  The bare hypothesis has endpoints
+-- `0 + var` and `var`, so using it without `hyp-suc` must be rejected.
+malformedInduction :: InductionCertificate
+malformedInduction = InductionCertificate
+  (Add Zero Var)
+  Var
+  (Then (AddZero Zero) (Done Zero))
+  (HypThen (LiftStep (AddSuc Zero Var))
+    (HypThen Hypothesis (HypDone (Suc Var))))
+
 main :: IO ()
 main = do
   repo <- getCurrentDirectory
@@ -147,6 +236,10 @@ main = do
   -- A second checked installation with the same extensional action remains a
   -- second future. This is the executable no-premature-collapse control.
   (duplicateOk, rules5) <- validateAndInstall repo "good-second-source" rules4 good
+  (inductionOk, rules6) <-
+    validateAndInstallInduction repo "zero-plus-induction" rules5 zeroPlusInduction
+  (malformedInductionOk, rules7) <-
+    validateAndInstallInduction repo "malformed-induction" rules6 malformedInduction
   let futures = parallelFutures rules5 (source good)
       controlled = case rules1 of
         [rule] -> applyNative rule (source good) == Just (target good)
@@ -154,11 +247,15 @@ main = do
         _ -> False
   if ok && not bad && leftOk && rightReverseOk
       && duplicateOk
+      && inductionOk
+      && not malformedInductionOk
+      && rules7 == rules6
+      && map ruleName (drop (length rules5) rules6) == ["zero-plus-induction"]
       && length rules1 == 1
       && rules2 == rules1
       && controlled
       && map (ruleName . fst) futures == ["good", "good-second-source"]
-    then putStrLn "AGDA GRAMMAR GATE CHECKED: controlled rules + two uncollapsed futures"
+    then putStrLn "AGDA GRAMMAR GATE CHECKED: direct + induction; malformed traces rejected"
     else do
       putStrLn ("gate failure: accepted=" ++ show ok ++ ", mutated=" ++ show bad
                 ++ ", installed=" ++ show rules2)

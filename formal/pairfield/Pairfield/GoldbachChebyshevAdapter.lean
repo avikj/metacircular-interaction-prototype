@@ -78,8 +78,8 @@ theorem sum_primePowerError_mul_antidiagonal_le
       Real.log N * (Chebyshev.psi N - Chebyshev.theta N) := by
   rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ
       (fun i j ↦ primePowerError i * g j) N,
-    ← Nat.range_succ_eq_Icc_zero,
-    ← sum_primePowerError_Icc, Finset.mul_sum]
+    ← sum_primePowerError_Icc,
+    ← Nat.range_succ_eq_Icc_zero, Finset.mul_sum]
   apply Finset.sum_le_sum
   intro n hnrange
   calc
@@ -107,7 +107,7 @@ theorem primePowerContamination_le_two_mul_log_mul_sub_theta
         simpa [Prod.swap, mul_comm] using
           (Finset.Nat.sum_antidiagonal_swap
             (n := N) (f := fun pair ↦
-              primePowerError pair.1 * Λ pair.2)).symm
+              primePowerError pair.1 * Λ pair.2))
       _ ≤ Real.log N * (Chebyshev.psi N - Chebyshev.theta N) :=
         sum_primePowerError_mul_antidiagonal_le N hN
           (fun n ↦ Λ n) (fun n hn ↦ vonMangoldt_le_log_horizon hN hn)
