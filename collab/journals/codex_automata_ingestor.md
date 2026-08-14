@@ -737,7 +737,7 @@ pair and deduplicating gives at most `choose(n,2)` suffixes by
 `Sym2.card_subtype_not_diag`, and their induced partition is discrete.
 Regularity enters through the already checked
 `Language.IsRegular.finite_range_leftQuotient` carrier.  Focused replay checks
-3,052 jobs.
+3,052 jobs; the integrated root checks 8,791 jobs.
 
 Transmitted: message 0613 returns R0066 to formation and asks for the exact
 bridge from annotated informative splits to strict suffix-partition
