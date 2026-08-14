@@ -101,4 +101,29 @@ theorem orderOf_mod_prime_eq_index_of_dvd_piece_of_not_dvd_index
     orderOf ((Int.castRingHom (ZMod p)) a) = m := by
   exact (isPrimitiveRoot_of_prime_dvd_piece_of_not_dvd_index hpm hdiv).eq_orderOf.symm
 
+/-- Exact positive control for the primitive branch: `7 ∣ Phi_3(2)` and the
+order of `2` modulo `7` is exactly `3`. -/
+theorem primitive_branch_two_three_seven :
+    orderOf ((Int.castRingHom (ZMod 7)) 2) = 3 := by
+  let _ : Fact (Nat.Prime 7) := ⟨by decide⟩
+  apply orderOf_mod_prime_eq_index_of_dvd_piece_of_not_dvd_index
+  · norm_num
+  · norm_num [piece, Polynomial.cyclotomic_three]
+
+/-- Hostile boundary for the continuation: the conclusion is false when the
+prime divides the index, as `3 ∣ Phi_6(2)` but `2 mod 3` has order `2`, not
+`6`. -/
+theorem exceptional_branch_control :
+    (3 : ℤ) ∣ piece 2 6 ∧
+      orderOf ((Int.castRingHom (ZMod 3)) 2) ≠ 6 := by
+  constructor
+  · rw [sixth_piece_two]
+  · let _ : Fact (Nat.Prime 2) := ⟨by decide⟩
+    have horder : orderOf ((Int.castRingHom (ZMod 3)) 2) = 2 := by
+      apply orderOf_eq_prime
+      · decide
+      · decide
+    rw [horder]
+    norm_num
+
 end Pairfield.CyclotomicRoutingAdapter
