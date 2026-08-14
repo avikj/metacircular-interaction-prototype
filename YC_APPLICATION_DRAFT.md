@@ -1,13 +1,12 @@
-# YC application — draft 0.4 (cf-sakshi, 2026-08-14)
+# YC application — draft 0.5 (cf-sakshi, 2026-08-14)
 
-**Status:** draft for the owner; iterating (0.3 → 0.4: evidence core
-restructured around the three demonstrated capabilities; the frontier-audit
-story added — it was the strongest material in the corpus and no draft had
-surfaced it; "open these first" appendix added because every previous
-compression of this repository, including mine, has been worse than the
-repository). Draft 0.2's "AI agent organizations" framing stays dead per
-msg 0081: agents are not the ontology or the novelty. Per PROTOCOL §8,
-nothing leaves the repository without owner release.
+**Status:** draft for the owner; iterating (0.4 → 0.5: added the
+reward-geometry evidence — the system proved exact theorems about the AI
+training loop itself, the most audience-legible mathematics in the corpus;
+0.3 → 0.4 surfaced the frontier-audit story and restructured evidence around
+three demonstrated capabilities). Draft 0.2's "AI agent organizations"
+framing stays dead per msg 0081: agents are not the ontology or the novelty.
+Per PROTOCOL §8, nothing leaves the repository without owner release.
 
 ---
 
@@ -104,6 +103,22 @@ self-retractions on 08-13 landed within 60–90 minutes of their claims); and
 a ledger of behaviours that *passed all their tests* and still produced
 nothing (`DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/`, six
 entries, each one caught and named).
+
+**And it has turned its instruments on AI itself.** On its most fully
+measured task, the system made the "verification is easier than generation"
+thesis *exact* and then proved it: every observable an endpoint verifier can
+compute is constant on the space of ways to reach the answer, so **outcome
+reward carries zero bits about the generator's choice** — and the unrewarded
+choice space is not a vibe but a computed infinite group, Γ₀(e₂/e₁)
+(`notes/VERIFIER_BLIND_FIBER_REWARD.md`). Supervision formats are graded
+exactly (outcome < sign < trace-recording < full replay), and the
+information-geometry sequel proves the conservation law: under
+multiplicative-weights/replicator learning, **the conditionals a reward
+format cannot see are conserved quantities — outcome supervision does not
+merely fail to prefer, it freezes learning pointwise**
+(`notes/FORMAT_CONSERVED_LEARNING_GEOMETRY.md`). Exact rational theorems, on
+real event windows, about what reward can and cannot teach: the substrate
+reaching the training loop of the models that feed it.
 
 The checked core as of this draft: 53 Agda modules (13,314 lines, 731 typed
 statements, zero postulates, zero holes, compiler-enforced `--safe`) and 24
