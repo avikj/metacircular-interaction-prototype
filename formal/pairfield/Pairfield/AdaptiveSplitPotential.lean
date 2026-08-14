@@ -46,10 +46,12 @@ theorem safeAdvance_injOn_responseFiber
     (hsafe : SafeAdvance cell response advance) :
     Set.InjOn advance (responseFiber cell response answer) := by
   intro left hleft right hright hadvance
-  have hleftCell := Finset.mem_of_mem_filter hleft
-  have hrightCell := Finset.mem_of_mem_filter hright
-  have hleftResponse := Finset.mem_filter.mp hleft |>.2
-  have hrightResponse := Finset.mem_filter.mp hright |>.2
+  have hleftData := Finset.mem_filter.mp hleft
+  have hrightData := Finset.mem_filter.mp hright
+  have hleftCell := hleftData.1
+  have hrightCell := hrightData.1
+  have hleftResponse := hleftData.2
+  have hrightResponse := hrightData.2
   exact hsafe hleftCell hrightCell
     (hleftResponse.trans hrightResponse.symm) hadvance
 
@@ -115,9 +117,13 @@ theorem branchPotential_lt_iff_both_nonempty
     · by_contra hempty
       rw [Finset.not_nonempty_iff_eq_empty.mp hempty] at hsplit hlt
       simp [squarePotential] at hsplit hlt
+      rw [hsplit] at hlt
+      exact Nat.lt_irrefl _ hlt
     · by_contra hempty
       rw [Finset.not_nonempty_iff_eq_empty.mp hempty] at hsplit hlt
       simp [squarePotential] at hsplit hlt
+      rw [hsplit] at hlt
+      exact Nat.lt_irrefl _ hlt
   · rintro ⟨hfalse, htrue⟩
     have hfalseCard : 0 < falseBranch.card := Finset.card_pos.mpr hfalse
     have htrueCard : 0 < trueBranch.card := Finset.card_pos.mpr htrue
@@ -136,9 +142,28 @@ theorem branchPotential_eq_iff_empty_branch
         squarePotential cell ↔
       advancedBranch cell response advance false = ∅ ∨
         advancedBranch cell response advance true = ∅ := by
-  rw [← not_lt, branchPotential_lt_iff_both_nonempty
-    cell response advance hsafe]
-  simp
+  let falseBranch := advancedBranch cell response advance false
+  let trueBranch := advancedBranch cell response advance true
+  have hsplit := squarePotential_split cell response advance hsafe
+  change squarePotential falseBranch + squarePotential trueBranch =
+      squarePotential cell ↔ falseBranch = ∅ ∨ trueBranch = ∅
+  change squarePotential cell = squarePotential falseBranch +
+      squarePotential trueBranch + 2 * falseBranch.card * trueBranch.card at hsplit
+  constructor
+  · intro heq
+    have hcross : 2 * falseBranch.card * trueBranch.card = 0 := by
+      omega
+    rcases Nat.mul_eq_zero.mp hcross with hfalseProduct | htrue
+    · rcases Nat.mul_eq_zero.mp hfalseProduct with htwo | hfalse
+      · omega
+      · exact Or.inl (Finset.card_eq_zero.mp hfalse)
+    · exact Or.inr (Finset.card_eq_zero.mp htrue)
+  · intro hempty
+    rcases hempty with hfalse | htrue
+    · rw [hfalse] at hsplit ⊢
+      simpa [squarePotential] using hsplit.symm
+    · rw [htrue] at hsplit ⊢
+      simpa [squarePotential] using hsplit.symm
 
 namespace Control
 

@@ -373,6 +373,7 @@ import NaturalMachine.PhysicalLearningCore
 -- rooted total space supplies a canonical coherent repair.
 import NaturalMachine.RelationalProcessCore
 import NaturalMachine.RelationalHolonomyInteraction
+import NaturalMachine.PMRelativeProcessBridge
 import NaturalMachine.AbstractSpinNetworkKinematics
 -- Abstract holonomy--flux boundary: any represented group holonomy carrying
 -- a declared derivation satisfies the two-edge Leibniz/refinement law.  The
@@ -402,6 +403,7 @@ import NaturalMachine.RelationalTensorObstructionBridge
 -- {+I,-I} sector; -I multiplication executes exchange, and the checked
 -- Peres--Mermin R0/C2 products supply its two endpoints.
 import NaturalMachine.PauliJointPhaseRealization
+import NaturalMachine.ProgrammableActionFibers
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.

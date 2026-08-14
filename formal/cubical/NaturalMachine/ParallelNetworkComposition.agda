@@ -8,6 +8,7 @@ module NaturalMachine.ParallelNetworkComposition where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
+import Cubical.Data.Prod as P
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 
 open import NaturalMachine.StabilizerTorsor using (Action)
@@ -51,9 +52,9 @@ module _ (G : Group ℓg) where
     (f₀ : Intertwiner G A₀ A₁) (f₁ : Intertwiner G A₁ A₂)
     (g₀ : Intertwiner G B₀ B₁) (g₁ : Intertwiner G B₁ B₂)
     (p : X₀ × Y₀)
-    → map (parallelIntertwiner (f₁ ∘I f₀) (g₁ ∘I g₀)) p
-      ≡ map ((parallelIntertwiner f₁ g₁)
-          ∘I (parallelIntertwiner f₀ g₀)) p
+    → map (parallelIntertwiner (_∘I_ G f₁ f₀) (_∘I_ G g₁ g₀)) p
+      ≡ map (_∘I_ G (parallelIntertwiner f₁ g₁)
+          (parallelIntertwiner f₀ g₀)) p
   interchange f₀ f₁ g₀ g₁ (x , y) = refl
 
   parallelRefinement :
@@ -65,8 +66,9 @@ module _ (G : Group ℓg) where
     → RefinedIntertwiner G B₀ B₁ B₂
     → RefinedIntertwiner G
         (prodAction G A₀ B₀) (prodAction G A₁ B₁) (prodAction G A₂ B₂)
-  parallelRefinement (f₀ , f₁) (g₀ , g₁) =
-    parallelIntertwiner f₀ g₀ , parallelIntertwiner f₁ g₁
+  parallelRefinement f g =
+    P._,_ (parallelIntertwiner (P.proj₁ f) (P.proj₁ g))
+          (parallelIntertwiner (P.proj₂ f) (P.proj₂ g))
 
   -- Contracting after parallel refinement equals parallel composition after
   -- contracting each component.  This is the refinement/interchange square.
@@ -80,7 +82,7 @@ module _ (G : Group ℓg) where
     (p : X₀ × Y₀)
     → map (contract G (parallelRefinement f g)) p
       ≡ map (parallelIntertwiner (contract G f) (contract G g)) p
-  contract-parallel (f₀ , f₁) (g₀ , g₁) (x , y) = refl
+  contract-parallel f g (x , y) = refl
 
   canonical-refinement-parallel :
     {X : Type ℓx} {Y : Type ℓy} {Z : Type ℓz} {W : Type ℓw}

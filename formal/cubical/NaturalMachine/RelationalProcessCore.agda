@@ -168,6 +168,16 @@ section-naturality F s {x} {y} p =
   J (λ y p → subst F p (s x) ≡ s y)
     (substRefl {B = F} (s x)) p
 
+-- A loop whose transport has no fixed fact rules out an unrooted global
+-- section.  This is the reusable process-groupoid obstruction; concrete
+-- theories need only supply the loop and its fixed-point refutation.
+loop-obstructs-global : (P : RelativeProcess { ℓ} { ℓ'})
+  {o : Locus P} (p : ProcessArrow P o o)
+  → ((x : Fact P o) → ¬ (transportFact P p x ≡ x))
+  → ¬ ((locus : Locus P) → Fact P locus)
+loop-obstructs-global P p noFixed section =
+  noFixed (section _) (section-naturality (Fact P) section p)
+
 ------------------------------------------------------------------------
 -- 2. A genuine finite-fibre gluing obstruction
 ------------------------------------------------------------------------
