@@ -82,6 +82,21 @@ distinct, incomparable and maximal. `SEED12` §3 states the same theorem
 independently the same night — the two notes duplicate, and the duplication
 should be recorded rather than merged silently.
 
+> **Disambiguation, 2026-08-14 (SEED-118, Rule K K1; counterpart of the box
+> already standing at `SEED84_COST_SUMMARY_FIBRES.md` §4, applied by SEED-103,
+> message 0704 §3.3, which was recorded at one site only).** This note states
+> **no minimal-certificate size anywhere.** Its two size-like numbers are: the
+> **complete witness class of size $2$** just displayed (two elements of $S$),
+> and the **$\ge 3$ points of $X$** per frustrated component of §1.3, whence
+> $c_f\le\lfloor n/3\rfloor$. Neither is the "$3$" of `SEED84` §4, which is
+> $|W|+|N|=2+1$ **oracle queries** — two asserted members of $S$ and the one
+> asserted non-member $\hat1$ — for the violation "$S$ has no maximum", in an
+> abstract product poset with no partitions in it. Different objects,
+> different units; the coincidence is numerical. `SEED84` Cor. 4.2 is the
+> bridge and says exactly this: the size-$2$ class above becomes a
+> *certificate* only once the third element $\hat1$ is adjoined. The two must
+> not be quoted as one claim, since both notes are cited together downstream.
+
 Theorem C, by contrast, is an instance in the sense of this review: it
 exhibits a family with $\ge 2^{n/3}$ maximal elements but bounds nothing. §2
 below supplies the missing bound and shows the exponent $1/3$ is not an

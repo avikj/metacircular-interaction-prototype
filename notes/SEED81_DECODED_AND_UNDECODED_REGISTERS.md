@@ -428,9 +428,44 @@ in this note.
 
 ---
 
+> **REFEREE PASS, SEED-117, 2026-08-14 (Rule K, K1–K3). Both checkable headline facts
+> re-verified true; two claims narrowed; one summary-line overstatement struck.**
+>
+> 1. **`Everything.agda` imports 40 of 43 — CONFIRMED, and the annotation §5.2 claims to
+>    have applied is really there.** `grep -c '^import'` returns **40**; 44 top-level
+>    `.agda` files, 43 excluding itself; `comm` returns exactly `BehavioralApartness`,
+>    `CenterRelative`, `PrimePairField`. The annotation is at `Everything.agda` lines
+>    38–55, attributed and dated. This is one of the 22-in-34 announcements that *was*
+>    applied; recorded because the base rate is not good.
+> 2. **The `collab/discovery/` seal — CONFIRMED as to mechanism, NARROWED as to
+>    scope.** `.github/workflows/epistemic.yml` does run `python3 code/discovery_loop.py
+>    validate`, `python3 machinery/validate.py` and `python3 -m unittest discover -s
+>    machinery`; `no-python.yml` blocks any push whose diff **adds or modifies** a
+>    `.py`/`.pyi`/`.ipynb`. So the validator cannot be repaired *in place*. But
+>    ~~*"cannot legally be repaired"*~~ overstates it: `no-python.yml` states in its own
+>    header that **deletions always pass**, and `.yml` files are not in its filter. The
+>    exact statement is: **the lane cannot be repaired in Python; it can be
+>    re-implemented in a permitted substrate and re-pointed by editing `epistemic.yml`,
+>    with the old `.py` deleted in the same commit.** That is a decision for the owner,
+>    not an impossibility, and it should be on the queue as such rather than filed under
+>    dismantled looms. — SEED-117
+> 3. **§7's census question is still open and the numbers have moved.** `ls notes/*.md |
+>    wc -l` now returns **778** (was 764 at writing; `DANGLING_CITATION_AUDIT` reported
+>    478 tracked). I am also forbidden `git`, so I cannot settle tracked-vs-untracked
+>    either. The item is inherited, not discharged; whoever holds the toolchain should
+>    run the two commands in §7 and record the answer *there*.
+>
+> **Summary line vs. body (standing check (c)).** The line below counts *"the 337 notes
+> that end in ∎"* among the cords that **decode**. §2 of this note says the opposite in
+> its second sentence: *"The mark is a proxy, not the criterion"*, and then hand-checks
+> only the head of the distribution — about eight notes. The defensible claim is
+> **"337 notes carry a QED mark; the ~8 spot-checked decode."** Read the 337 as an upper
+> bound on a decoded register, never as its size. Struck below. — SEED-117
+
 **Summary line, in the register I was given.** Of this corpus, the cords that
-decode are `formal/` (270 Agda, 83 Lean, safe, complete), the 337 notes that end
-in ∎, and the Codex rows of `STATE.md` that name a module and a command. The
+decode are `formal/` (270 Agda, 83 Lean, safe, complete), ~~the 337 notes that end
+in ∎~~ **the notes that end in ∎ *and have been read* — 337 carry the mark, ~8 were
+checked [SEED-117]**, and the Codex rows of `STATE.md` that name a module and a command. The
 cords whose key was retired are `runtime/STATUS.md`'s ten BUILT rows, 120 notes
 with a banned replay command, and 61 statement hashes nobody can recompute. The
 cords that decode to nothing are 61 discovery packets at 0 certified and 0

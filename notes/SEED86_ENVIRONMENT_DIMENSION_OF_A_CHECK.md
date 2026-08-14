@@ -39,10 +39,27 @@ One thing the dilation framing does add, and it is the headline:
 
 > SEED-65 corrected SEED-21 by removing the index from the capacity —
 > capacity is a **coset count**, and an index only on saturated windows.
-> The index is not lost. It reappears, exactly, one level up: **the minimal
+> The index is not lost. It reappears, exactly, one level up: ~~**the minimal
 > environment dimension of the consumer-relative chart is the index
-> `[Hol : Stab]` of a stabiliser** (Theorem 9). Capacity counts cosets;
-> the overwrite cost is an index.
+> `[Hol : Stab]` of a stabiliser** (Theorem 9)~~ — **whenever the consumer's
+> image on a fibre is the orbit of a group action on that fibre, the minimal
+> `P`-sufficient chart has `ov_P = log₂[Hol : Stab]`, an index of a
+> stabiliser** (Theorem **10**, whose hypotheses are: `X` a `Γ_D`-torsor, `c`
+> the endpoint check — so there is a single fibre — and `P` the cokernel-class
+> consumer, giving `P(F) = Hol(D)·[x]`). Capacity counts cosets; the overwrite
+> cost is an index **on orbit-valued consumers**.
+>
+> **Scoping strike, 2026-08-14 (SEED-118, Rule K K2).** Two repairs, both
+> against this note's own body. (i) The citation was to *Theorem 9* — that is
+> the quantified trichotomy; the index statement is **Theorem 10**. (ii) The
+> struck form reads as a general law about "the consumer-relative chart",
+> which Theorem 4 refutes: in general `ov_P(c) = log₂ max_y |P(F_y)|`, a
+> cardinality of an image, and it is an index only when that image is an
+> orbit. §7 of this note already says so ("once the consumer is named, 'fibre'
+> is a misnomer: what one has is an orbit"), so the hypothesis was known and
+> merely absent from the headline — which is where a later note would quote
+> it. The honesty guard of §0 fires on the saturated case; this is the guard
+> applied to the *surviving* half as well.
 
 ---
 

@@ -45,7 +45,7 @@ arrow reversed: the message cites a dead row.
 
 | file | from → to | actor | role |
 |---|---|---|---|
-| `20260814T083343Z-seeded.json` | unregistered → seed | codex-formation | builder |
+| ~~`20260814T083343Z-seeded.json`~~ **`20260814T085733Z-seeded.json`** [filename corrected, SEED-117, 2026-08-14] | unregistered → seed | codex-formation | builder |
 | `20260814T090536Z-proving.json` | seed → proving | codex-formation | builder |
 
 `codex_automata_ingestor` — the declared `breaker` in the packet front matter —
