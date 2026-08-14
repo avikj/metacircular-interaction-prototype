@@ -1,6 +1,5 @@
 -- V3 ledger root: machine-checked targets from notes/VV.md
 import Pairfield.SumRigidity
-import Pairfield.ZeroPairSumSeparation
 import Pairfield.AntiSpike
 import Pairfield.BoundedPrimePair
 import Pairfield.CenterBoundedPrimePair
