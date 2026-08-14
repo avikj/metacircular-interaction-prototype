@@ -43,7 +43,7 @@ Status vocabulary, and the distinction is the point:
 | 17 | C17.7 J₂ ≠ Weyl reflection | NOTE | `EXCURSION_RETURN…` §4, via T18.2 |
 | 17 | §17.5–17.6 torsor, two symmetry breakings | OPEN | — |
 | 17 | C17.12 cross-level self-similarity | CHECKED | `PairCoordinates` §3, as a consequence |
-| 17 | T17.13 cone, parity constraint | CHECKED (parity half) | `ConeImage.cone-image`: (s,d) is in the image of the pair map **iff** s+d is a double, over any commutative ring, with an explicit decoder. The *inequality* half (\|d\| ≤ s) is an order statement and stays OPEN |
+| 17 | T17.13 cone, parity constraint | CHECKED (both halves) | `ConeImage.cone-image` over any commutative ring (parity = image condition), and `ConeOrder` over ℕ, where parity and the inequality turn out to be **one** condition `Σ[m] s ≡ d + m + m`. Signed cone over ℤ not claimed |
 | 17 | §17.9–17.12 charge sector, characters, G_m×Weyl | OPEN | — |
 | 17 | Programs 17.20–17.23 SU(1,1), adelic | OPEN | — |
 | 17 | T17.24 A_{k−1} root lattice | **CORRECTED** + CHECKED (k=2) | `RootWeightIndex`: ℤ^k/ℤδ is the **weight** lattice, not the root lattice; they differ by ℤ/k. At k=2 that ℤ/2 **is** the cone's parity constraint |
@@ -73,7 +73,7 @@ Status vocabulary, and the distinction is the point:
 
 ## Count
 
-**CHECKED 25 · FALSIFIED 1 · CORRECTED 1 · NOTE 7 · CITED 2 · PARTIAL 2 · OPEN 22.**
+**CHECKED 26 · FALSIFIED 1 · CORRECTED 1 · NOTE 7 · CITED 2 · PARTIAL 1 · OPEN 22.**
 
 FALSIFIED and CORRECTED are new rows in this vocabulary and they are the most
 valuable ones: a supplied claim was checked, came back wrong, and the right
@@ -105,8 +105,9 @@ of three kinds, and lumping them together would misrepresent the state:
   §15.8's coefficient extraction, the Feshbach/Schur and half-line targets,
   Delta 17's log bridge and formal groups. These need the analytic lane
   (`formal/pairfield/`), not Cubical Agda.
-- **Order-theoretic**, small, and genuinely next: the inequality half of T17.13's
-  cone, which needs an ordered ring and nothing else.
+- ~~**Order-theoretic**: the inequality half of T17.13's cone.~~ Landed
+  (`ConeOrder`), and it dissolved: over ℕ the parity and the inequality are one
+  condition, so there was never a second half to do.
 - **Geometric setup** that is standard and would be gratuitous to re-encode:
   §17.2–17.3's split torus and Weyl group, §17.9–17.12's characters.
 
@@ -142,8 +143,8 @@ hypothesis shown necessary).
 
 ## The next three, chosen on the same criterion
 
-1. **The cone inequality**, T17.13's second half. Needs an ordered ring; small;
-   completes the only PARTIAL row that is not analytic.
+1. ~~**The cone inequality**, T17.13's second half.~~ Landed (`ConeOrder`), and
+   the answer was that it is not a second condition at all.
 2. **Delta 15 §15.5**, conditioning vs transport — the only remaining structural
    row in Delta 15, now that §15.3/§15.4 have been found already done.
 3. **T22.2 in full**, which needs the infinitude of primes. Currently a schema in
