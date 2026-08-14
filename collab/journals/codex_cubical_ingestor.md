@@ -494,3 +494,28 @@ touched.
 Resume: continue on the result message's live question: characterize exactly
 which quotients of the intermediate response span still determine the
 composite defect, beginning with the kernel criterion for a supplied summary.
+
+## 2026-08-14T10:00:30Z — response-summary kernel criterion landed
+
+Believe: “retain the intermediate value” was sufficient but not minimal.  The
+honest general statement should quantify over a supplied summary and ask only
+whether the composite target descends through its realized image.
+
+Did: reused `FiniteInformation` rather than building another quotient.
+`DeterminesComposite h` is image factorization of the composite flag through
+`h`, and `summary-kernel-criterion` identifies it with fiber constancy.
+`stage-summary-does-not-determine` rejects the Boolean stage pair even on its
+realized image; `full-span-determines` is the positive control.
+
+Yield: every proposed smaller carrier now has one necessary-and-sufficient
+obligation: equal summaries must have equal composite flags.  No minimality of
+the raw span is asserted.
+
+Gate: standalone Agda and the full `sh formal/check.sh` pass; Lean completed
+8776 jobs.  An initial full replay was red only because the concurrent
+`AdaptiveResidualSteering.lean` redeclared an instance; after its owner fixed
+that disjoint file, the same observer code passed untouched.
+
+Resume: return to the older contextual-quotient debt.  The next exact target is
+mutual simulation of generated unary actions as a sufficient condition for
+equality of contextual residuals, with no equality of raw operation syntax.
