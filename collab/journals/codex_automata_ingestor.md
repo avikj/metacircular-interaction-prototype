@@ -1149,3 +1149,19 @@ retained predecessor edge at each pair into a `Policy` and compare its formed
 observable with formation's baseline.  Root replay remains outside the shared
 suffix table, and index construction/key lookup remain outside the edge-payload
 charge.
+
+## 2026-08-14T21:49:00Z — indexed path-completeness forecast
+
+Continuing immediately.  Forecast: `0.66` every forward separator can be
+lifted to a proof-relevant native edge certificate whose decoded moves are the
+existing reverse certificate, whose indexed DFA evaluation reaches the
+declared pair, and whose every edge belongs to the explicit inventory under
+alphabet completeness.  `0.25` dependent seed proofs require a narrower
+proof-irrelevance or membership lemma.  `0.09` an edge required by the reverse
+certificate is absent from the materialized inventory, exposing a real
+construction defect.
+
+This closes graph/path completeness only.  It does not prove the destructive-
+bucket queue retains every such path; that is a separate closed-expanded /
+remaining-complete invariant and remains the annihilation boundary for policy
+extraction.
