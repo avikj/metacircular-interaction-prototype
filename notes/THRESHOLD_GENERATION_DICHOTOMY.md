@@ -546,7 +546,8 @@ consequences for that lane, which is not mine and which I have not edited:
 - `LENS_REPAIR.md` §1's uniqueness theorem and §3's no-go should be checked
   against that literature before either is cited as new;
 - its §5 seed 1 ("a polynomial algorithm for the coarsest repair, or
-  hardness") is a `SEARCH` item first, not a `PROVE` item: the design-theory
+  hardness") is ~~a `SEARCH` item first, not a `PROVE` item~~ **`SEARCH` only,
+  and no longer for the algorithm: the algorithm exists and is proved** — the design-theory
   literature on *supremum-closed orthogonal families* is where a
   partition-refinement fixpoint would already be, and the search results above
   note that these families are studied as **distributive lattices** of
