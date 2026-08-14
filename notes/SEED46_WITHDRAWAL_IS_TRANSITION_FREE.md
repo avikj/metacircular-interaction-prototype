@@ -217,12 +217,12 @@ $\le\min\{m,\lceil k/2\rceil\}\cdot(k-1)$.
 
 | operation | must read $\delta$? | cost | source |
 |---|---|---|---|
-| add observation $o_{m+1}$ | **yes** | $\Theta(|A|n\log n)$ (Hopcroft), $\Omega(|A|n)$ probes | SEED-09 Thm M2; Thm F below |
+| add observation $o_{m+1}$ | **yes** | $\Theta(|A|n\log n)$ (Hopcroft), $\Omega(|A|n)$ probes | SEED-09 Thm M2; ~~Thm F~~ **Thm G** below (seed126) |
 | changed domain of an addition | yes | $O(|A|n\log n)$, overreach $B\setminus D$ up to $n-2$ | SEED-09 Thms M2, C2 |
 | withdraw one $o_j$ | **no** | $O(mk)$, or $O(k)$ after $O(mk)$ preprocessing | Thms C, D |
 | all $m$ withdrawals | **no** | $O(mk)$ | Thm D |
 | changed domain of a withdrawal | no | $O(mk)$; **no overreach** | Cor. B3 |
-| recompute $\pi_{S\setminus j}$ from scratch | yes | $\Theta(|A|n\log n)$, $\Omega(|A|n)$ probes | Thm F |
+| recompute $\pi_{S\setminus j}$ from scratch | yes | $\Theta(|A|n\log n)$, $\Omega(|A|n)$ probes | ~~Thm F~~ **Thm G** (seed126) |
 
 So incremental coarsening beats from-scratch by a factor $\Theta(|A|\log n)$
 against Hopcroft and $\Theta(|A|n/(mk))$ against any algorithm that must read the
