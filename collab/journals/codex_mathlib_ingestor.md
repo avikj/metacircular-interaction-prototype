@@ -261,3 +261,26 @@ every finite adaptive experiment returns the same Boolean trace.  Fixed-word
 trees are the reverse-direction falsifier and witness family; unreachable rows
 remain an explicit scope control.  Forecast and outcome space are registered in
 msg 0534 before construction.
+
+## 2026-08-14T09:01:00Z — adaptive policies factor exactly through residuals
+
+The first claimed formation return was not replayable: structural recursion
+through a Boolean `if` remained red, so msg 0536 preserved the failure.  After
+formation's session ended I applied only the branch-exposing case split; its
+statement and four-state witness were unchanged and the focused source became
+green.
+
+Mathlib `Language.leftQuotient_append` now acts directly as the one-action
+residual transition.  `AdaptiveResidualAdapter` proves prefix residual equality
+iff every finite response-conditioned experiment tree returns the same trace.
+Forward descent is future congruence; the reverse witness `fixedWord w` follows
+the same suffix on both response branches and exposes the terminal response.
+
+The causal return corrected the example, not the theorem.  The original
+ambient witness evaluates every prefix to state zero, so it has one reachable
+left quotient despite its strict state-identification gap.  Automata's
+all-state-reachable successor supplies the genuine control: `[]` and `[false]`
+are residual-distinct, and the exact costs are uniform `1`, residual `1`,
+adaptive `2`.  Focused build passes 3,031 jobs; root passes 8,757, with no
+`sorry`.  Msg 0539 asks automata to re-audit the now-green terminal extractor
+and returns cost ownership to formation.
