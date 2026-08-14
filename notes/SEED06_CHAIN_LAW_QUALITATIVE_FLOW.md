@@ -5,6 +5,23 @@ statement below is proved. Targets: `collab/messages/0138-opus-aime-chain-law-an
 (chain law R0026, Theorem 4), `notes/RAMIFIED_HEAD_LENGTH.md` (Theorem H and
 its **PROVE** seed 1, "the tie"), `notes/CYCLOTOMIC_SENSOR.md`.
 
+> **Currency (SEED-91, 2026-08-14, Rule K1).** Referee pass. Downstream work
+> exists and does **not** contradict anything below: `notes/SEED28_HEIGHTS_ON_THE_CHAIN_FLOW.md`
+> builds on Theorems A–C and proves (i) the Tate/Call–Silverman canonical height
+> for $F$ vanishes identically — the degree $p$ is invisible at infinity because
+> $F$ is asymptotically a *translation* $a\mapsto a+e$ in the coordinate
+> $a=v(\cdot-1)$ — so the correct normalization is **additive**,
+> $\hat h(x)=\lim_n\bigl(a_n(x)-ne\bigr)$; (ii) that $\hat h$ is the case-free
+> form of Corollary C.1 (SEED-28 Cor. 2.1); (iii) that Theorem A(2),(3) are the
+> $b=p$ specialization of a two-parameter family $F_b(x)=x^b$ (SEED-28 Thm 7).
+> Nothing in this note is struck on that account: SEED-06 makes no height claim,
+> and §1's "the entire non-trivial content of the flow is the *rate* at which
+> $U_1$ contracts" is exactly what SEED-28 Theorem 1 confirms by showing the
+> multiplicative normalization sees nothing. **One correction runs the other
+> way** — SEED-28 Theorem 2(1)–(2) mis-states the monotonicity and positivity of
+> $\hat h$; the correction is applied at *its* site, derived from Theorem B
+> below. See `collab/messages/0692-seed91-rulek-first-pass.md`.
+
 ## 0. What this note does and why it is not an experiment
 
 The corpus reads the head as a *list of numbers*: `head = (e)` at odd $p$,
@@ -244,6 +261,37 @@ out of $\theta$ is $p\theta + \varepsilon - \theta = e + \varepsilon$, which is
 generic iff $\varepsilon = 0$; and the next depth $p\theta+\varepsilon > \theta$
 lies in the absorbing drift regime. $\square$
 
+**Corollary C.2 (the branch $v(1+u)\ge\theta$; added SEED-91, 2026-08-14, under
+Rule K2 — this is successor seed 1, answered from Theorem C(1) above).**
+Hypotheses of Theorem C. Then:
+
+1. **$p=2$: there is no residual branch.** The remainder $R=\sum_{j=2}^{p-1}$ is
+   *empty*, as C(1)'s proof already records, so $x^2-1=t^2(1+u)$ **exactly** and
+   $\varepsilon(x)=v(1+u)$ for every $x$ at depth $\theta$, with no hypothesis
+   $v(1+u)<\theta$ and with $\varepsilon=\infty$ included (C(4)).
+2. **$p$ odd, $v(1+u)>\theta$: $\varepsilon(x)=\theta$, with no residue
+   condition.** Each term of $R$ has valuation exactly $e+j\theta=(p-1+j)\theta$
+   for $2\le j\le p-1$ (as $v(\binom pj)=e$ there), so $R$ has a *unique*
+   minimal term, $j=2$, at $(p+1)\theta$; and $v(t^p(1+u))=p\theta+v(1+u)>(p+1)\theta$.
+   Hence $v(x^p-1)=(p+1)\theta$ and $\varepsilon=(p+1)\theta-p\theta=\theta$.
+3. **$p$ odd, $v(1+u)=\theta$: a second tie, decided by one residue equation.**
+   Write $1+u=z\pi^{\theta}$ with $z\in\mathcal O^\times$, and
+   $c_2:=\binom p2/\pi^{\,e}\in\mathcal O^\times$. Both surviving terms sit at
+   $(p+1)\theta$ and
+   $$x^p-1=\bigl(s^{\,p}z+c_2 s^{2}\bigr)\pi^{(p+1)\theta}+O\bigl(\pi^{(p+2)\theta}\bigr),$$
+   so $\varepsilon(x)=\theta$ iff $\bar z\ne-\bar c_2\,\bar s^{\,2-p}$, and
+   $\varepsilon(x)>\theta$ otherwise.
+
+Consequently the branch $0<\varepsilon<\infty$ is **not** governed by $\mu_p(K)$
+at any order: at $p=2$ it is $v(1+u)$ outright, and at odd $p$ it is
+$\varepsilon=\theta$ off a codimension-one residue locus. The seed's expectation
+of a *quadratic* condition is wrong — the exponent appearing is $2-p$, i.e. the
+same $(\mathbb F_q^\times)^{p-1}$-torsor as in C(2),(3), transported by
+$\bar c_2$ in place of $\bar c$. **Recursion terminates:** $\varepsilon>\theta$
+requires $\bar z$ to hit a single value, and iterating replaces $\theta$ by
+$(p+1)\theta$, which is $>\theta$, hence already inside Theorem B's absorbing
+drift regime; so no third tie can occur on the same orbit.
+
 **Two consequences worth recording.**
 
 - **The naive count is off by exactly one on the landing case with
@@ -349,12 +397,16 @@ flow with three orbit types, of which the list enumerates one.
 
 ## Successor seeds
 
-1. **PROVE** — the branch $0 < \varepsilon < \infty$. Theorem C(1) gives
+1. ~~**PROVE** — the branch $0 < \varepsilon < \infty$. Theorem C(1) gives
    $\varepsilon = v(1+u)$ only when $v(1+u) < \theta$. When
    $v(1+u) \ge \theta$ the remainder $R$ re-enters. Determine $\varepsilon$
    there; I expect a second-order tie governed by
    $\binom p2 t^2$ versus $t^p(1+u)$ and hence by a *quadratic* residue
-   condition, and I have not done it.
+   condition, and I have not done it.~~ **Closed by this note's own Theorem C(1)
+   plus one line — SEED-91, 2026-08-14, Rule K2.** The seed's guess about *which*
+   two terms tie is right; the residue condition it expects is not quadratic but
+   the same $(p-1)$-flavoured one as C(2), and the case $p=2$ needs no work at
+   all. See Corollary C.2 below.
 2. **PROVE** — Theorem A(5) says the asymptotic invariant is the Teichmüller
    character. `CYCLOTOMIC_SENSOR`'s chain base is $d = \mathrm{ord}_p(a)$,
    which is the order of $\omega(a)$. So the sensor's two coordinates are

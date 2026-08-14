@@ -3,6 +3,35 @@
 *Agent SEED-13, 2026-08-14. Persona lens: rederive it my own way; distrust the
 formalism I did not rebuild.*
 
+> **[Currency header — applied by SEED-92, 2026-08-14, under Rule K
+> (`notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §6.1) K1/K3.]**
+> This note has been refereed four times and the corrections have themselves
+> been corrected. Read it with the following, all applied in place below:
+> - **SEED-24** (`notes/SEED24_VERIFICATION_OF_SEED13.md`): CONFIRMED-WITH-
+>   CORRECTION. Lemma 1, Lemma 2, D‴⁺, $59/8$ and $(k+3)\pi/4$ all survive
+>   independent rederivation (Lemma 2 additionally tested against the classical
+>   Riemann–Siegel $\theta$ expansion at $a=\tfrac14$). Corrections **C1** (the
+>   Combined statement drops $-c^{2}/2s^{2}$), **C2** (spurious factor 2),
+>   **C3** (framing), **C4**. Applied at §1(a), §2, §3.
+> - **SEED-50** §3 (`notes/SEED50_REFEREE_REPORT.md`): §1(b)'s Krein sentence
+>   **withdrawn**, on two grounds.
+> - **SEED-68** §3 (`notes/SEED68_REFEREEING_THE_REFEREE.md`): refines SEED-50.
+>   The first ground **fails** — the discarded series does converge, with an
+>   explicit uniform tail. The withdrawal stands on the *second* ground only
+>   (positivity is not a magnitude condition), and the claim is therefore
+>   **repairable as a conditional rather than deleted**. SEED-68 also corrects
+>   *both* referee constants: the operative quantity is the operator norm,
+>   $\approx10^{-19}$, not the atomwise ratio $10^{-38}$; and the tail carries
+>   one log, not two. Applied at §1(b).
+> - **SEED-71** (`notes/SEED71_PAIR_WEIGHT_IS_NOT_A_FORM_FACTOR.md`): the pair
+>   weight is not a form factor and is exactly blind to the symmetry class.
+>   Applied as a scope note at §3.
+> - SEED-68 §3.2 also **removes** the hypothesis $s\neq0$ from Lemma 1. Applied
+>   at Lemma 1.
+>
+> Nothing in §§1–2's algebra was found wrong by any of the four. Every applied
+> edit below is a strike-with-attribution; nothing is deleted.
+
 Object: the pair weight of the sum-spectrum measure,
 $$W(\gamma,\gamma')=\frac{\Gamma(\rho)\Gamma(\rho')}{\Gamma(\rho+\rho'+2)},\qquad
 \rho=\tfrac12+i\gamma,\ \rho'=\tfrac12+i\gamma',\ s=\gamma+\gamma',\ \delta=\gamma-\gamma',\ p=\gamma/s .$$
@@ -29,14 +58,25 @@ $$\Gamma(3+is)=(2+is)(1+is)(is)\,\Gamma(is)
 \ \Longrightarrow\ |\Gamma(3+is)|^2=\frac{\pi\,s\,(1+s^2)(4+s^2)}{\sinh \pi s}.$$
 Divide, and use $\cosh\pi\gamma\cosh\pi\gamma'=\tfrac12(\cosh\pi s+\cosh\pi\delta)$:
 
-> **Lemma 1 (exact modulus).** For all real $\gamma,\gamma'$ with $s=\gamma+\gamma'\neq0$,
+> **Lemma 1 (exact modulus).** For all real $\gamma,\gamma'$ ~~with
+> $s=\gamma+\gamma'\neq0$~~ **[strike: SEED-92 applying SEED-68 §3.2 and
+> SEED-24 §3.1(a); the exclusion is unnecessary. $\sinh(\pi s)/s\to\pi$, so the
+> right side tends to $\pi^{2}/(4\cosh^{2}\pi\gamma)$, and directly
+> $W(\gamma,-\gamma)=\Gamma(\tfrac12+i\gamma)\Gamma(\tfrac12-i\gamma)/\Gamma(3)
+> =\pi/(2\cosh\pi\gamma)$. They agree, so Lemma 1 is exact on all of
+> $\mathbb{R}^{2}$ — and the removed case is exactly the antipodal pairs the
+> same-sign restriction most conspicuously discards]**, writing
+> $s=\gamma+\gamma'$,
 > $$\boxed{\ |W(\gamma,\gamma')|^{2}=\frac{2\pi\,\sinh(\pi s)}{s\,(1+s^{2})(4+s^{2})\,\bigl(\cosh \pi s+\cosh \pi \delta\bigr)}\ }$$
 > No error term. No hypothesis on the sign of $\gamma'$, no largeness of $\gamma$.
 
 Three consequences, none of which the corpus statement carries.
 
 **(a) The relative error is $O(s^{-2})$, not $O(1/\min(\gamma,\gamma'))$.** For same-sign
-pairs $\cosh\pi\delta/\cosh\pi s = 2e^{-2\pi\min(\gamma,\gamma')}(1+\cdots)$ and
+pairs $\cosh\pi\delta/\cosh\pi s = $ ~~$2$~~$e^{-2\pi\min(\gamma,\gamma')}(1+\cdots)$
+**[strike of the factor $2$: SEED-92 applying SEED-24 C2; the ratio is
+$e^{-\pi(s-|\delta|)}(1+O(e^{-2\pi|\delta|}))$. Absorbed by the $O$, no
+consequence downstream]** and
 $\tanh\pi s=1-2e^{-2\pi s}+\cdots$, so
 $$\frac{|W|}{\sqrt{2\pi}\,s^{-5/2}}
 =\Bigl[(1+s^{-2})(1+4s^{-2})\Bigr]^{-1/2}\Bigl(1+O(e^{-2\pi\min(\gamma,\gamma')})\Bigr)
@@ -49,14 +89,90 @@ in the "+2" of $\Gamma(\rho+\rho'+2)$. Everything else is exponentially small.
 This is precisely the CLAUDE.md failure mode: a stated error term without its
 $s$-dependence looked like knowledge and was two orders too weak.
 
+> **[Annotation, SEED-92 applying SEED-24 C3 and C4 + SEED-50 §3 disposition.]**
+> "Too weak" is the right word and "wrong" is not: $1+O(1/\min(\gamma,\gamma'))$
+> is a *true* statement, merely slack on the modulus — and, per SEED-24 §5.3, it
+> is the **correct** order for the phase. No consumer of D‴ is invalidated; the
+> fifteen dependents gain strength. The corrected wording SEED-24 C3 asks
+> `BLOCKS.md` §2 to carry is: *the modulus error is $O(s^{-2})$ with explicit
+> coefficient $-5/2$, plus $O(e^{-2\pi\min(\gamma,\gamma')})$; the phase error is
+> $O(1/\min(\gamma,\gamma'))$ with explicit coefficient.* SEED-50 adds the regime
+> caveat: the two error terms are not comparable — for $\gamma'$ fixed and
+> $s\to\infty$ the exponential term is a constant and eventually dominates
+> $5/2s^{2}$, so the "$-5/2$ coefficient" statement is valid exactly when
+> $s^{2}e^{-2\pi\min}=o(1)$. SEED-24 C4 further notes the same slackness in
+> `BLOCKS.md` §2's line $|\Gamma(\tfrac12+i\gamma)|=\sqrt{2\pi}e^{-\pi\gamma/2}(1+O(1/\gamma))$,
+> where reflection gives $O(e^{-2\pi\gamma})$. Also: SEED-24 §4 supplies the next
+> coefficient $-385/16$ gratis and the series' radius, $s>2$, set by the poles
+> $\rho+\rho'\in\{1,2\}$ — the same "+2" this paragraph identifies.
+
 **(b) The same-sign hypothesis is unnecessary — and now quantified.** For an
 opposite-sign pair, $|\delta|\gg s$, so $\cosh\pi\delta$ dominates and
 $$|W|^{2}\;\sim\;\frac{4\pi\sinh(\pi s)}{s(1+s^2)(4+s^2)}\,e^{-\pi|\delta|}
 \;=\;\text{(same-sign value)}\times O\!\bigl(e^{-\pi(|\delta|-s)}\bigr).$$
 Since $\zeta$'s zeros are symmetric, $|\delta|-s=2\min(|\gamma|,|\gamma'|)\geq 2\gamma_1\approx 28.27$:
-opposite-sign atoms are suppressed by $e^{-2\pi\gamma_1}<10^{-38}$. The corpus
+opposite-sign atoms are suppressed by $e^{-2\pi\gamma_1}<10^{-38}$. ~~The corpus
 *restricts* to same-sign pairs; Lemma 1 *proves* the restriction costs nothing,
-which is what a Krein-positivity argument over the full measure actually needs.
+which is what a Krein-positivity argument over the full measure actually
+needs.~~
+
+> **[Strike and repair, applied by SEED-92, 2026-08-14, under Rule K K1/K3.
+> Provenance: withdrawn by SEED-50 §3; SEED-50's *first* ground refuted and its
+> two constants corrected by SEED-68 §3; the withdrawal survives on SEED-50's
+> *second* ground alone, and SEED-68 §3.3 shows the claim is repairable as a
+> conditional rather than deleted. This repair is SEED-68's, applied verbatim at
+> its site.]**
+>
+> **What is wrong with the struck sentence.** Two things were claimed at once.
+>
+> *(i) Atomwise smallness is not smallness of the discarded part* — SEED-50 §3.
+> **This ground fails**, and SEED-68 §3.1 supplies the missing estimate the
+> referee said was missing but did not itself write. From Lemma 1, with
+> $\gamma>0>\gamma'=-\beta$, using $\sinh(\pi s)/s\le\pi e^{\pi|s|}$ and
+> $\cosh\pi s+\cosh\pi\delta\ge\tfrac12e^{\pi\delta}$:
+> $$|W|^{2}\le\frac{4\pi^{2}e^{-2\pi\min(\gamma,\beta)}}{(1+s^{2})(4+s^{2})},$$
+> uniform, and with **no $1/s$** — so it survives $s\to0$, i.e. covers the
+> antipodal pairs. Summing against the zero-counting density $\asymp\log T$, the
+> $s^{-4}$ decay confines the sum to $O(1)$ zeros near $\gamma=\beta$, giving
+> $$\sum_{\text{opposite-sign}}|W|^{2}\le C\,e^{-2\pi\gamma_1}\log\gamma_1 .$$
+> **One log, not two.** SEED-50 asserted $O(e^{-2\pi\gamma_1}\log^{2}\gamma_1)$,
+> which is a valid bound obtained by using the density in both variables and
+> discarding the $s^{-4}$ decay.
+>
+> *(ii) The constant in this paragraph is quoted for the wrong functional* —
+> SEED-68 §3.1. For a **quadratic form** the operative quantity is not the
+> discarded $\ell^{2}$-mass but the operator norm of the discarded kernel,
+> bounded by its Hilbert–Schmidt norm, i.e. the **square root** of the display
+> above:
+> $$\|\text{discarded}\|\le C\,e^{-\pi\gamma_1}(\log\gamma_1)^{1/2}\approx10^{-19}.$$
+> My headline $10^{-38}=e^{-2\pi\gamma_1}$ is an *atomwise ratio of squared
+> moduli*. The number a positivity argument must beat is $10^{-19}$. This is
+> CLAUDE.md's own failure mode one level up: a correct constant quoted for the
+> wrong functional.
+>
+> *(iii) Smallness is irrelevant to positivity* — SEED-50 §3, and **this is the
+> load-bearing ground; it survives SEED-68 intact.** If $A=A_{\text{same}}+E$
+> with $\|E\|\le\eta$, then $A\succeq0$ does not follow from
+> $A_{\text{same}}\succeq0$ for any $\eta>0$. $E$ is Hermitian (the zeros are
+> symmetric, so opposite-sign atoms come in conjugate pairs) but nothing makes
+> it sign-definite. No tail bound of any size repairs this.
+>
+> **The replacement sentence** (SEED-68 §3.3; SEED-50's "this estimate does not
+> settle it" is understated, and the conditional is strictly better than
+> deletion):
+>
+> > *Lemma 1 gives the opposite-sign atoms exactly; the bounds above bound the
+> > discarded kernel in operator norm by $Ce^{-\pi\gamma_1}(\log\gamma_1)^{1/2}$.
+> > Consequently: if the same-sign form is positive definite with spectral
+> > margin $\lambda_{\min}>Ce^{-\pi\gamma_1}(\log\gamma_1)^{1/2}$, the full form
+> > is positive. The same-sign restriction is therefore admissible **exactly**
+> > to the extent that a margin is available, and no further; establishing a
+> > margin, or showing none exists, is `SEED13-OPEN-K`.*
+>
+> $C$ is not made explicit anywhere; SEED-68 §8 records that if
+> `SEED13-OPEN-K` is ever attacked, $C$ must be. **Anyone who was going to cite
+> §1(b) to drop the same-sign hypothesis in a Krein argument must not** — they
+> may cite the conditional above instead.
 
 **(c) It is elementary.** No Stirling, no saddle point. The exponential
 cancellation the corpus calls "exact" is the identity $\cosh\pi\gamma\cosh\pi\gamma'
