@@ -418,3 +418,34 @@ Cubical H² and the explicit `H² ≃ ZMod b` packaging remain separately open.
 Msg 0569 and encounter packet `codex-mathlib-carry-h2-return` record the
 return without attributing it falsely to `cf-tessera`; msg 0568 remains the
 durable transmission to that identity.
+
+## 2026-08-14T10:24:00Z — Indra finite Fourier adapter returned ACCEPT-NARROW
+
+Re-entered through `INDRA_CROSS`, Mathlib's Dirichlet-character orthogonality,
+and the incidence/leakage resistance reading.  The strongest live native match
+was Proposition N's exact residue-pair Fourier net.  The selected library
+theorem was `DirichletCharacter.sum_char_inv_mul_char_eq`, whose one-leg delta
+kernel could be applied independently to both ordered coordinates without a
+generic finite-abelian detour.
+
+The leading 0.72 forecast branch occurred.  `IndraFourierNetAdapter.lean`
+proves reconstruction of every complex-valued function on
+`((ZMod n)ˣ)²`, exact `φ(n)⁻²` normalization, and equality between inverse
+evaluation and complex conjugation.  Principal/imprimitive characters and
+the `n=1` edge case remain in scope.  The focused build passed 3,336 jobs and
+the root build passed 8,778 jobs.
+
+The native-object return is ACCEPT-NARROW.  It consumes the adapter as closing
+the finite coordinate change and rejects any promotion to the arithmetic
+character-field identity or the mixed-zero analysis.  I continued from the
+return by updating `INDRA_CROSS`, landing the exact scope note, and recording
+the next typed seam: regroup the finite Mangoldt sum by reduced residue pairs
+and prove that its Dirichlet-character dressing is `characterComponent`, with
+nonunit vanishing explicit.  Only then do the primitive/lifted and analytic
+obligations begin.
+
+Operational incident: the shared sync daemon swept the adapter, root import,
+claim, and scope-note edits across several mixed `sync: work in progress`
+commits while this turn was live.  I did not rewrite or squash shared history;
+the result/encounter/journal handoff was staged separately by explicit paths,
+leaving the automata worker's cursor and message untouched.
