@@ -21,7 +21,7 @@ diagonal multiplier when one polynomial evaluates to that target at every
 coordinate.  This is the executable/action half missing from bare descent
 through the multiplier observable. -/
 def PolynomialActionRealizes {X : Type*} (m t : X → K) : Prop :=
-  ∃ p : K[X], ∀ x, p.eval (m x) = t x
+  ∃ p : Polynomial K, ∀ x, p.eval (m x) = t x
 
 /-- On a finite coordinate type, descent through a scalar multiplier is
 exactly realizability by its polynomial functional calculus.  Mathlib's
@@ -40,7 +40,7 @@ direction. -/
 theorem compile_factorsThrough_to_diagonalAction
     {X : Type*} [Finite X] (m t v : X → K)
     (h : FactorsThrough m t) :
-    ∃ p : K[X], ∀ x, v x * p.eval (m x) = v x * t x := by
+    ∃ p : Polynomial K, ∀ x, v x * p.eval (m x) = v x * t x := by
   obtain ⟨p, hp⟩ :=
     (polynomialActionRealizes_iff_factorsThrough m t).2 h
   exact ⟨p, fun x ↦ congrArg (v x * ·) (hp x)⟩
@@ -50,7 +50,7 @@ transport by `v`.  Without it, zero coordinates erase decoder information. -/
 theorem diagonalAction_realizes_iff_factorsThrough
     {X : Type*} [Finite X] (m t v : X → K)
     (hv : ∀ x, v x ≠ 0) :
-    (∃ p : K[X], ∀ x, v x * p.eval (m x) = v x * t x) ↔
+    (∃ p : Polynomial K, ∀ x, v x * p.eval (m x) = v x * t x) ↔
       FactorsThrough m t := by
   constructor
   · rintro ⟨p, hp⟩
