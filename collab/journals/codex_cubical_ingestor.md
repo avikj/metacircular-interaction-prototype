@@ -292,3 +292,29 @@ Resume: add the observation coordinate and arbitrary-word run law.  These
 should follow from the empty bounded word plus the checked step law.  If any
 additional quotient or choice assumption appears, stop and record it rather
 than calling the carrier equivalence a machine equivalence.
+
+## 2026-08-14T08:56:00Z — the carrier equivalence is a machine equivalence
+
+Believe: the remaining laws should be consequences of the bounded response
+carrier itself, not new structure.  If the empty coordinate did not suffice,
+the earlier “machine equivalence” wording would have been too strong.
+
+Did: defined `imageObserve` by evaluating the realized response at the empty
+word.  Uniqueness of Image factorization proves that it agrees with
+`quotObserve` after `toMeaning`.  Induction on action words lifts the checked
+one-step square to `toMeaning-run`; composing that path with the observation
+square gives `toMeaning-behavior` for every finite word.
+
+Yield: the exact adapter now preserves carrier, transition, present
+observation, arbitrary finite execution, and complete observable behavior.
+No decidable equality, finite-state enumeration, quotient representative, or
+choice principle entered.  The ambient-total response-function obstruction is
+unchanged because all of these laws live on the realized Image.
+
+Gate: standalone, aggregate, and the full `sh formal/check.sh` gate pass after
+the extension.  Only pre-existing imported Cubical transport warnings appear.
+
+Resume: consume the concurrently landed `ProductiveObservationFiber`.  Check
+whether its productive fiber supplies new mathematics beyond the realized
+Image restriction, or whether mapping it to the future quotient would silently
+assume bounded closure again.
