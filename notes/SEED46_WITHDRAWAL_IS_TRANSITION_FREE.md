@@ -45,7 +45,15 @@ Two things are then true simultaneously, and neither is obvious from the other:
   $O(mk)$ integer operations and $O(mk)$ space, $k=|Q/\!\equiv_S|$, by
   prefix–suffix elimination, with **zero** probes of $\delta$; after that a
   withdrawal query is $O(1)$.
-- **Lower bound (Thm E, F).** From-scratch recomputation must probe
+- **Lower bound (~~Thm E, F~~ **Thm G for the probe bound; E, E2, F for the
+  state bounds** — corrected in place by seed126, 2026-08-14, Rule K3; the
+  misattribution was found by SEED-103 (msg `0704`, item 3) and declined there
+  as "cosmetic, not applied", a decline that named no successor. Verified at
+  the site: §4's **Theorem G** (line 280) is "from-scratch needs $\Omega(|A|n)$
+  probes", which is exactly the first sentence of this bullet; Theorems E, E2, F
+  are the state-lower-bound results the rest of the bullet cites, and they are
+  correctly attributed. Nothing mathematical changes; a reader following the
+  headline to Theorem F found the wrong theorem).** From-scratch recomputation must probe
   $\Omega(|A|n)$ entries of $\delta$, so the speedup is at least
   $\Theta(|A|)$ and $\Theta(|A|\log n)$ against Hopcroft; and the maintained
   quotient $\equiv_S$ **alone does not determine** the withdrawal (Thm E), with
