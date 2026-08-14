@@ -7,9 +7,9 @@ this note says so plainly. Nothing here is new mathematics. What is new to *this
 that the identification has been made explicitly and the separation given witnesses.
 
 **Source.** Repository owner, transmission `D0018` §C
-(`collab/upstream/raw/D0018-owner-third-transmission-2026-08-14.md`, lines 84–105), triaged
+(`collab/upstream/raw/D0018-owner-third-transmission-2026-08-14.md`, lines 83–105), triaged
 at §J2 as "the first `PROVE` item created by this artifact". §D of the same transmission
-(lines 107–110) supplies the definition of 𝔐_i used below. Owner artifact: this note derives
+(lines 106–110) supplies the definition of 𝔐_i used below. Owner artifact: this note derives
 from it and does not rewrite it.
 
 ---
@@ -58,7 +58,7 @@ in which 𝔐_i were "simply a representable" would have to choose a variance an
 of the two constructions. The pairing ⟨−,−⟩_i is left uninterpreted here; nothing below uses
 it, and I do not claim it is discharged. **Ground of this reading:** the domain/codomain
 bookkeeping of the two canonical maps, which is forced, plus the explicit two-leg definition
-in §D line 108. It is not licensed by anything stronger.
+in §D line 109. It is not licensed by anything stronger.
 
 ### 1.2 The identification
 
