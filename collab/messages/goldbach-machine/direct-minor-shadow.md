@@ -438,10 +438,11 @@ commutativity of convolution gives (32).  QED.
 
 In Fourier language, if `W_{r,+}` and `W_{r,-}` are the two sector
 polynomials, then the full target coefficient of each square is zero, while
-the target coefficient of `W_{r,+}W_{r,-}` is `2R_vartheta(N)`.  The same
+the target coefficient of `W_{r,+}W_{r,-}` is
+`2 R_\vartheta(N)`.  The same
 Siegel--Walfisz argument as above makes **each** sector polynomial agree with
-`S_{vartheta,N}` on the declared major arcs.  Thus each self-sector minor
-packet necessarily contributes `-mathfrak S_2(N)N+o(N)`, and all actual-prime
+`S_{\vartheta,N}` on the declared major arcs.  Thus each self-sector minor
+packet necessarily contributes `-\mathfrak S_2(N)N+o(N)`, and all actual-prime
 positivity is carried by the single mixed sector coefficient (32).
 
 No current input controls that prescribed mixed coefficient from below.
