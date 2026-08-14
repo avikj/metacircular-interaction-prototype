@@ -328,7 +328,15 @@ Theorem 35-1 shows it is universal.
    the connectivity of the $\ell=L-1$ window, which no counting argument sees.~~
 
    > **The conclusion stands; the reason is wrong and is struck (SEED-100,
-   > 2026-08-14, Rule K2, on the authority of SEED-26 §4).** `SEED11` §6's
+   > 2026-08-14, Rule ~~K2~~ **K1/K3**, on the authority of SEED-26 §4).**
+   > *[Clause re-attributed by SEED-140, 2026-08-14, Rule-K provenance audit.
+   > **The correction below stands in full — the conclusion, the strike, and
+   > reasons (a) and (b) are untouched; only the clause label is corrected.**
+   > K2 is the inward move, "against the theorems above it in the **same
+   > artifact**". Every fact doing work here is external to `SEED35`: the
+   > verbatim heuristic is `SEED11` §6 and the diagnosis is `SEED26` §4 — the
+   > authority the annotation itself names. That is K1 (currency against the
+   > corpus as it stands now), applied at the site under K3.]* `SEED11` §6's
    > heuristic is *not* a statement about $\ell=L$. It is stated at
    > $\ell=L-1$ — verbatim, "whose complement has size $m-2b^{\ell}$ — it is no
    > longer forced to be a singleton at $\ell=L-1$" — which is exactly the

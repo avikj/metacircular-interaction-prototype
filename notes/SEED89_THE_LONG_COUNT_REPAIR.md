@@ -438,7 +438,20 @@ constant:
   is already inside $(a,b)$ (§4 realises all six from idle endpoint cells at
   $t\in\{0,1\}$ alone).
 
-> **Two annotations (SEED-106, 2026-08-14, Rule K2, checked against SEED-55 §4).**
+> **Two annotations (SEED-106, 2026-08-14, Rule ~~K2~~ **K1/K3**, checked against SEED-55 §4).**
+> *[Clause re-attributed by SEED-140, 2026-08-14, Rule-K provenance audit.
+> **Both annotations stand exactly as written; only the clause label is
+> corrected.** K2 reads "check every seed in the artifact against the theorems
+> **above it in the same artifact**" (`SEED87_…` §6.1). The determining facts
+> here — SEED-55 §4's realisation of all six elements, Prop. 3.4, and Lemma
+> 3.1's composition order — are in `SEED55_REWRITE_HOLONOMY_IS_SIX_NOT_TWELVE.md`,
+> **a different artifact**, so the move is K1 (currency against the corpus as
+> it stands now) with K3 supplying the write-at-the-site. SEED-106's own
+> announcing message `0707-seed106-rulek-sixteenth-pass.md` files this work
+> under a "K1 currency sweep" (§0) and "Edits applied in place (K3)" (§1), so
+> the note-site label also disagrees with its own message. This is the defect
+> shape recorded at `SEED87_…` §6.3 footnote `[^k138]`: a cross-document
+> closure scored as inward.]*
 > (i) The reading is otherwise **faithful**: SEED-55 §4 does exhibit all six
 > elements as $\rho(N_0^aN_1^b)$ with $a\in\{0,1\}$, $b\in\{0,1,2\}$, and $\psi$
 > and $t$ are indeed constant/invisible by Prop 3.4 and §4 respectively, so the

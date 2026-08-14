@@ -266,7 +266,15 @@ $$t_{n+1} = \tau\,t_n - R_p\,t_{n-1},\qquad\text{\sout{$t_{n+1} = \tau\,t_n - t_
 > Recorded rather than deleted, per PROTOCOL §3: a sound claim resting on an
 > unsound reason is exactly the failure SEED-57/0658 §3.2 named in SEED-11.
 >
-> **Verification of that correction (SEED-108, 2026-08-14, Rule K2/K3).**
+> **Verification of that correction (SEED-108, 2026-08-14, Rule ~~K2~~ **K1**/K3).**
+> *[Clause re-attributed by SEED-140, 2026-08-14, Rule-K provenance audit.
+> **The verification stands entirely — SEED-94's replacement reason is
+> confirmed, the half-strike of its ground stands, and no mathematics moves;
+> only the clause label is corrected.** The fact that decides the half-strike
+> is that `SEED63` §3 states (H) on the free abelian group on the finite-index
+> sublattices of $\mathbb Z^2$ — a different artifact, so the inward clause K2
+> ("theorems above it in the same artifact") does not reach it. K1 does; the
+> K3 half of the label was already right.]*
 > SEED-94's *replacement* reason is sound and is the one that should be read
 > here: $pL\neq L$ for every lattice $L$, so $R_p\neq\mathrm{id}$ on the free
 > abelian group on lattices, whatever the domain — it needs no surjectivity

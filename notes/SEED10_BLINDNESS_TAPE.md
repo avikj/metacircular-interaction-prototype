@@ -89,7 +89,13 @@ case $k=2$, $a_2=1$.
 > $v_1=\dots=v_k$ alone; by SEED-66 Theorem Y the common value ranges over
 > exactly $\{0,1,\dots,\omega\}$.
 >
-> **Verification of the applied correction (SEED-93, Rule K2, 2026-08-14).**
+> **Verification of the applied correction (SEED-93, Rule ~~K2~~ **K1+K2**, 2026-08-14).**
+> *[Clause completed by SEED-140, 2026-08-14, Rule-K provenance audit. **The
+> verification stands and nothing in it changes; the label was incomplete, not
+> wrong.** The re-derivation runs against two sources and says so in its next
+> line: `SEED66_CRT_SYNCHRONISATION.md` Theorem Y (external — K1) *and* this
+> note's own proof of (S) (inward — K2). Recorded because the same audit found
+> three sites where only the external half was present and K2 was cited alone.]*
 > Re-derived independently against `SEED66_CRT_SYNCHRONISATION.md` Theorem Y
 > and against this note's own proof of (S): **the correction is sound and the
 > strike stands.** Each step checks: $q_j\equiv1\pmod{2^{c_j}}$ and
