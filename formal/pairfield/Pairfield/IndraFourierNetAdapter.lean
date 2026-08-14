@@ -59,6 +59,23 @@ theorem character_delta (n : ℕ) [NeZero n] (a b : UnitResidue n) :
   simpa only [Units.val_inj] using
     (DirichletCharacter.sum_char_inv_mul_char_eq ℂ a.isUnit (b : ZMod n))
 
+/-- The iterated definition is the double character sum printed in
+Proposition N. -/
+theorem characterComponent_eq_double_sum (n : ℕ) [NeZero n]
+    (F : CellGrid n) (χ₁ χ₂ : DirichletCharacter ℂ n) :
+    characterComponent n F χ₁ χ₂ =
+      ∑ a : UnitResidue n, ∑ b : UnitResidue n,
+        χ₁ (a : ZMod n) * χ₂ (b : ZMod n) * F (a, b) := by
+  classical
+  simp only [characterComponent, fourierForward]
+  simp_rw [Finset.mul_sum]
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro a _
+  apply Finset.sum_congr rfl
+  intro b _
+  ring
+
 /-- The one-leg transform is inverted exactly. -/
 theorem fourierInverse_fourierForward (n : ℕ) [NeZero n]
     (f : UnitResidue n → ℂ) (a : UnitResidue n) :
@@ -90,13 +107,31 @@ theorem fourierInverse_fourierForward (n : ℕ) [NeZero n]
       simp
     _ = f a := by field_simp
 
+/-- The sequential inverse carries exactly the `φ(n)⁻²` double-sum
+normalization of Proposition N. -/
+theorem reconstruct_eq_double_sum (n : ℕ) [NeZero n]
+    (H : DirichletCharacter ℂ n → DirichletCharacter ℂ n → ℂ)
+    (a b : UnitResidue n) :
+    reconstruct n H (a, b) =
+      (n.totient : ℂ)⁻¹ ^ 2 *
+        ∑ χ₁ : DirichletCharacter ℂ n, ∑ χ₂ : DirichletCharacter ℂ n,
+          χ₁ ((a : ZMod n)⁻¹) * χ₂ ((b : ZMod n)⁻¹) * H χ₁ χ₂ := by
+  classical
+  simp only [reconstruct, fourierInverse]
+  simp_rw [Finset.mul_sum]
+  ring
+
 /-- Proposition N's inverse finite Fourier square, for an arbitrary signal on
 the two reduced-residue coordinates. -/
 theorem reconstruct_characterComponent (n : ℕ) [NeZero n] (F : CellGrid n) :
     reconstruct n (characterComponent n F) = F := by
   funext pair
-  simp only [reconstruct, characterComponent]
-  rw [fourierInverse_fourierForward, fourierInverse_fourierForward]
+  rcases pair with ⟨a, b⟩
+  change fourierInverse n
+    (fun χ₁ ↦ fourierInverse n
+      (fourierForward n (fun b' ↦ fourierForward n (fun a' ↦ F (a', b')) χ₁)) b) a =
+        F (a, b)
+  simp_rw [fourierInverse_fourierForward]
 
 end
 

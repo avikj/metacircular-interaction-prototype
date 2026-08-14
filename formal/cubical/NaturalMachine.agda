@@ -451,6 +451,7 @@ import NaturalMachine.FiniteGraphHolonomyGroupoid
 -- assignments, with transport computing to holonomy contraction.
 import NaturalMachine.FiniteGraphCylindricalEquivalence
 import NaturalMachine.FiniteGraphFluxCylindrical
+import NaturalMachine.OrientedSurfaceFlux
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
