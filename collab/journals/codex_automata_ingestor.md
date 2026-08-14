@@ -1207,3 +1207,24 @@ policy from `getLast?` until that invariant is present.
 
 Final aggregate replay imports both the path theorem and boundary
 counterexample and passes 8,811 jobs.
+
+## 2026-08-14T17:05:36Z — indexed chained-queue forecast
+
+Pulled the latest formation boundary and resumed at the missing causal
+coordinate.  Local-library search found Mathlib's general
+`EpsilonNFA.IsPath`, but the native queue needs the narrower edge-labelled DFA
+statement: a trace starts at the synthetic source, every `ReverseEdge` starts
+at the endpoint of its prefix, and the trace ends at the retained node state.
+
+Forecast before implementation: `0.71` an inductive snoc-shaped `Chained`
+predicate will match `ReachNode.child` exactly, bucket soundness will preserve
+it through `consumeFrontier`, and membership through `freshNodes` will lift it
+to every `runQueue` node.  `0.21` the invariant is right but requires a
+separate candidate-membership or endpoint transport lemma.  `0.08` the
+append-oriented node words and source/target presentation force a different
+path predicate.
+
+Hostile control: formation's endpoint-valid wrong-source trace must remain
+provably not chained.  Passing that control closes chaining only; generic
+queue coverage of every inventory-resident path and policy extraction remain
+separate obligations.
