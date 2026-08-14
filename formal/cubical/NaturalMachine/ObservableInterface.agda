@@ -14,7 +14,9 @@ module NaturalMachine.ObservableInterface where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Bool using (Bool)
 open import Cubical.Data.Sigma using (Σ ; Σ-syntax ; _,_)
+open import Cubical.Relation.Nullary using (¬_)
 
 import NaturalMachine.DSOContinuationFullAbstract as DSO
 import NaturalMachine.ExactProjectiveCircuits as Circuit
@@ -56,6 +58,7 @@ transportObservation-refl : ∀ {ℓs ℓo ℓr ℓp}
   → transportObservation I related P evidence ≡ evidence
 transportObservation-refl I related same P evidence =
   cong (λ path → subst P path evidence) same
+  ∙ substRefl {B = P} evidence
 
 ------------------------------------------------------------------------
 -- 2. S₃ holonomy character: comparison is gauge conjugacy
