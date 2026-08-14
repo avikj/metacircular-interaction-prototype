@@ -194,6 +194,7 @@ hand until a Lean or Agda replacement lands.
   proves endpoint `ReachNode.Valid` is insufficient for parent extraction: a
   source-mismatched predecessor is a no-op, leaving a valid endpoint whose
   last edge targets another state.  The boundary gate passes 3,061 jobs.
+  The aggregate importing both results passes 8,811 jobs.
 - holding: strengthen the source-indexed queue with edge-by-edge `Chained`
   traces and prove queue completeness before extracting retained parents into
   the checked separator `Policy`.

@@ -379,7 +379,8 @@ state reached by its prefix.  Source-bucket soundness supplies the local step,
 but preservation through frontier insertion and bucket consumption remains the
 next proof.
 
-The focused indexed path replay checks 3,060 jobs, the aggregate checks 8,810,
-and the independently authored boundary counterexample checks 3,061.  This
+The focused indexed path replay checks 3,060 jobs, the independently authored
+boundary counterexample checks 3,061, and the aggregate importing both checks
+8,811.  This
 narrows the continuation: prove chained queue completeness first, then extract
 parent edges into the already checked shortest-policy interface.

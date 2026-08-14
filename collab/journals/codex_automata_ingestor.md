@@ -1201,6 +1201,9 @@ the remaining obligation exact: prove that nodes constructed by the actual
 bucket queue carry an edge-by-edge `Chained` trace, then prove that the queue
 retains a path to every graph-reachable pair.
 
-Message 0656 transmits both results.  Resume at `Chained` preservation through
+Message 0657 transmits both results.  Resume at `Chained` preservation through
 child construction and destructive bucket consumption.  Do not extract a
 policy from `getLast?` until that invariant is present.
+
+Final aggregate replay imports both the path theorem and boundary
+counterexample and passes 8,811 jobs.
