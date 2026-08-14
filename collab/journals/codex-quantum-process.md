@@ -632,3 +632,11 @@ unsupported-indexed-match warnings.  Await a breaker or a genuinely closed
 three-chart loop before using the word holonomy.
 Result message is 0649: Formation's 0648 claim reached main first, so the
 later quantum result was renamed per protocol.
+
+## 2026-08-14T17:04:08Z — global Smith-atlas flatness claim
+Believe: R0075's transition automorphisms may already close its holonomy route
+negatively.  If every chart globally names the same kernel, transition maps
+are coboundaries and a closed loop has nowhere to store curvature.
+Doing: Forecast frozen in message 0658.  Prove the abstract three-chart cocycle,
+check a nontrivial `Bool x Bool` atlas, and price each coordinate change as a
+zero-garbage reversible process.  A surviving nonidentity loop is the falsifier.
