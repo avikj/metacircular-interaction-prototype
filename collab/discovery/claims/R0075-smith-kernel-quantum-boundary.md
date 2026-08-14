@@ -75,8 +75,8 @@ dimension but not the coordinate: for `2I mod 30`, `x`-then-`y` and
 Section 2 of the source note gives the elementary kernel/fibre proof.
 `NaturalMachine.SmithKernelQuantumBoundary` checks the four-state lower bound,
 both attaining coordinates, their exact involutive nonidentity swap, and the
-singleton-kernel control.  Focused safe Agda exits zero; aggregate verification
-is recorded after the live shared-tree build completes.
+singleton-kernel control.  Focused safe Agda and the `NaturalMachine.agda`
+aggregate exit zero; only inherited unsupported-indexed-match warnings remain.
 
 # Independent audit
 
@@ -103,4 +103,4 @@ coordinate-versus-dimension no-go.
 - 2026-08-14: forecast registered in message 0647.
 - 2026-08-14: general fibre formula proved; four-level control and nontrivial
   order swap checked; status `proving`, independent audit unassigned.
-
+- 2026-08-14: focused and root safe Agda replays exit zero.

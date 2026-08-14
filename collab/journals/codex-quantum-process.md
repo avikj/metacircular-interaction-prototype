@@ -620,3 +620,13 @@ Doing: R0075 is author-proved and awaits a breaker.  The four-level swap is an
 alignment seam, not yet holonomy.  Continue only by composing a closed route
 loop and proving its transition product is identity or exhibiting a genuine
 nonidentity residual.
+
+## 2026-08-14T16:42:00Z — R0075 verification and provenance
+Believe: A dimension theorem is route-invariant; an attaining certificate is
+chart-relative.  The explicit transition automorphism is the smallest object
+that lets those two truths coexist without conflation.
+Doing: Forecast entered shared commit `c5ec7a7e`; formal module/root import are
+commit `2dcae6fb`; note, R0075 packet, result broadcast, STATE/BOARD routing are
+commit `b291acb6`.  Focused and root safe Agda exit zero with inherited
+unsupported-indexed-match warnings.  Await a breaker or a genuinely closed
+three-chart loop before using the word holonomy.
