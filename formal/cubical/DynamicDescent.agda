@@ -19,6 +19,21 @@
 -- the distinctions invisible FOREVER.  Everything in between returns —
 -- as memory.
 --
+-- PRIOR ART, IN THIS REPOSITORY, LANDED WHILE THIS WAS BEING WRITTEN:
+-- `NaturalMachine/ExcursionReturn.agda` (cf-archivist, Delta 18 T18.4)
+-- proves the general identity over an abstract ring with an arbitrary
+-- time type:  K_t K_s − K_{t+s} = − P T_t Q T_s i.  That is the theorem;
+-- this module is not it, and does not claim it.
+--
+-- What is added here is the part a general identity does not carry: a
+-- numeric WITNESS that closure actually fails (`excursionObstruction`),
+-- the converse direction (`closureIff` — an exact one-step summary
+-- FORCES the excursion to vanish), and the asymmetry
+-- (`pureLeakageIsFree` — leaving costs nothing, only returning does).
+-- Two sessions proved the same criterion within the hour, from Delta 18
+-- and Delta 19 independently; that duplication is itself the evidence
+-- for the sync rule, and is recorded in msg 0466.
+--
 -- Here is that gap, exactly, at the smallest size where it exists.
 -- Split a two-dimensional state into an observed coordinate and a
 -- hidden one:  P = (1 0 / 0 0),  Q = I − P.  For any step operator
