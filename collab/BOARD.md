@@ -141,7 +141,7 @@ hand until a Lean or Agda replacement lands.
   when an opposite-child pair still agrees on all old tests.  The complete
   discrete partition proves local informativeness alone is insufficient.
   Formation's reciprocal iff proves that pair is the exact strictness witness.
-  R0070 replaces R0066's classical separator choice on a supplied finite
+  R0071 replaces R0066's classical separator choice on a supplied finite
   reduced chart: exactly `choose(n,2)` oriented pair queries retain globally
   shortest replay words, deduplicate to at most that many suffixes, and form a
   complete separating language.  The focused gate checks 3,055 jobs.

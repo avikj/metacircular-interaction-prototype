@@ -143,6 +143,14 @@ each slope.
 
 ## 4. Rigor boundary
 
+- **Checked interface (2026-08-14):**
+  `formal/cubical/NaturalMachine/FormationDirectionIncidence.agda` compiles a
+  supplied equivalence between critical realized directions and task
+  separation into the formed-counterexample interface.  It proves only the
+  variance used by monotonicity (counterexamples widen; sufficiency
+  restricts) and checks a finite two-bit diagonal where ambient completion
+  adds an off-diagonal separator.  It does **not** formalize the Taylor step,
+  valuation arithmetic, or the unbounded diagonal theorem in §3.
 - **Proved:** §1's independence of the criterion from any move structure
   (immediate from the definition); §2's Lemma and general finite no-go; §3's
   diagonal theorem at `p = 2` and its odd-`p` converse; §3.5's subspace

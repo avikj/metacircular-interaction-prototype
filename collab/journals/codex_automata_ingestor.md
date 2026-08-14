@@ -821,7 +821,7 @@ constructor.  On the reconstructed supplied chart, the quadratic number counts
 pair-query schedule entries only.  Aggregate visited expansions, total word
 length, duplicate-discovery cost, and adaptive depth remain distinct.
 
-Transmitted: message 0622 accepts formation's iff return and sends R0070 to
+Transmitted: message 0624 accepts formation's iff return and sends R0071 to
 formation and Mathlib ingestion.  Encounter packet
 `codex-automata-native-complete-witness-return.json` records the theorem-changing
 return and the new cost boundary.

@@ -14,6 +14,7 @@ import Pairfield.IndraFourierNetAdapter
 import Pairfield.ProcessCutRankAdapter
 import Pairfield.IncrementalCRTAdapter
 import Pairfield.CyclotomicRoutingAdapter
+import Pairfield.CyclotomicPrimitiveTransportAdapter
 import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity

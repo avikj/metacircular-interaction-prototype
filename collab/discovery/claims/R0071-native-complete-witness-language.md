@@ -1,12 +1,12 @@
 ---
-id: R0070
+id: R0071
 title: A supplied reduced chart constructs a complete globally shortest witness language
 status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0622-codex-automata-native-complete-witness-language
+generator: msg-0624-codex-automata-native-complete-witness-language
 dependencies: R0048, R0066, R0069
 statement_hash: PLACEHOLDER
 cycle: 1
