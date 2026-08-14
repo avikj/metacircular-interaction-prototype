@@ -45,7 +45,8 @@ open import Cubical.Data.Int
   using (ℤ ; pos ; negsuc ; posNotnegsuc ; injPos ; sucℤ· ; ·lCancel)
 open import Cubical.Data.Nat using (snotz)
 open import Cubical.Algebra.AbGroup.Base
-  using (AbGroup ; AbGroupStr)
+  using (AbGroup ; AbGroupStr ; AbGroup→Group)
+open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection
@@ -67,6 +68,7 @@ module DefectCoordinate
 
   open AbGroupStr (snd A)
     using (_+_ ; -_ ; _-_ ; 0g ; +Assoc ; +IdR ; +IdL ; +InvR ; +InvL)
+  open GroupTheory (AbGroup→Group A) using (·CancelL)
 
   after : X → ⟨ A ⟩
   after x = q (step x)
@@ -143,6 +145,66 @@ module DefectCoordinate
   collision-forces-residual-formation collision =
     ResidualProduct.collision-forces-strict-refinement
       (behavior-collision→defect-collision collision)
+
+  ----------------------------------------------------------------------
+  -- Composition: exactly when the one-shot residual becomes an update
+  ----------------------------------------------------------------------
+
+  after² residual² : X → ⟨ A ⟩
+  after² x = q (step (step x))
+  residual² x = after² x - predict (predict (q x))
+
+  -- The only predictor law needed by the two-step calculation.  Global
+  -- additivity is sufficient but stronger: this law asks preservation only
+  -- on the subtraction pair actually realized at x.
+  PreservesRealizedResidual : X → Type ℓa
+  PreservesRealizedResidual x =
+    predict (residual x)
+      ≡ predict (after x) - predict (predict (q x))
+
+  TwoStepCocycle : X → Type ℓa
+  TwoStepCocycle x =
+    residual² x ≡ residual (step x) + predict (residual x)
+
+  private
+    telescope : (a b c : ⟨ A ⟩) → (a - b) + (b - c) ≡ a - c
+    telescope a b c =
+        +Assoc (a - b) b (- c)
+      ∙ cong (_+ (- c)) (subAddRight a b)
+
+    residual²-expansion : (x : X)
+      → residual² x
+        ≡ residual (step x)
+          + (predict (after x) - predict (predict (q x)))
+    residual²-expansion x =
+      sym (telescope (after² x)
+                     (predict (after x))
+                     (predict (predict (q x))))
+
+  -- Sufficiency: a local residual emitted at each encounter updates the
+  -- two-step defect without reopening the original hidden state.
+  preservation→two-step-cocycle :
+    (x : X) → PreservesRealizedResidual x → TwoStepCocycle x
+  preservation→two-step-cocycle x preserves =
+      residual²-expansion x
+    ∙ cong (residual (step x) +_) (sym preserves)
+
+  -- Necessity: the cocycle update cannot hold accidentally.  Comparing it
+  -- with the unconditional telescoping expansion and cancelling the common
+  -- next residual forces precisely the realized preservation equation.
+  two-step-cocycle→preservation :
+    (x : X) → TwoStepCocycle x → PreservesRealizedResidual x
+  two-step-cocycle→preservation x cocycle =
+    ·CancelL (residual (step x))
+      (sym cocycle ∙ residual²-expansion x)
+
+  -- Exact boundary: no global homomorphism, surjectivity, or state recovery
+  -- is hidden in the statement.
+  two-step-cocycle-iff-realized-preservation : (x : X)
+    → (PreservesRealizedResidual x → TwoStepCocycle x)
+      × (TwoStepCocycle x → PreservesRealizedResidual x)
+  two-step-cocycle-iff-realized-preservation x =
+    preservation→two-step-cocycle x , two-step-cocycle→preservation x
 
 ------------------------------------------------------------------------
 -- 2.  Translation supplies a predictor without an external choice

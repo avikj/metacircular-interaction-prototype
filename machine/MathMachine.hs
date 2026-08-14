@@ -976,6 +976,28 @@ round1 logh libh ref = do
 main :: IO ()
 main = do
   args <- getArgs
+  when (args == ["--benchmark-normalizers"]) $ do
+    let syms = take 3 vocabulary
+        rules = definitionsOf syms
+        rounds = [4..7]
+        raws = [ genTerms (arities syms) 3 n | n <- rounds ]
+        force xss = sum [ sum (map size xs) | xs <- xss ]
+        legacy = [ map (normalize rules) raw | raw <- raws ]
+        shared = [ fst (normalizeDAG rules raw) | raw <- raws ]
+    a <- getCPUTime
+    let oldMass = force legacy
+    oldMass `seq` pure ()
+    b <- getCPUTime
+    let newMass = force shared
+    newMass `seq` pure ()
+    c <- getCPUTime
+    unless (legacy == shared && oldMass == newMass) exitFailure
+    let oldMs = fromIntegral (b - a) / (1e9 :: Double)
+        newMs = fromIntegral (c - b) / (1e9 :: Double)
+    hPrintf stdout
+      "same-rounds=4,5,6,7 terms=%d output-mass=%d tree-ms=%.3f dag-ms=%.3f speedup=%.3fx semantics=equal\n"
+      (sum (map length raws)) oldMass oldMs newMs (oldMs / newMs)
+    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw

@@ -3,7 +3,7 @@
 -- A small executable counterpart to NaturalMachine.RootedIndraTotal.
 -- It keeps a distinguished root, reweaves every rooted view with one local
 -- action, and exposes only finite observations of a guarded lazy stream.
--- This is an implementation of the finite/prod-uctive bridge, not a claim
+-- This is an implementation of the finite/productive bridge, not a claim
 -- that arbitrary self-containing universes have been constructed.
 module IndraNet
   ( Root, Jewel, View, LocalAction, RootedView(..), rootView
@@ -46,6 +46,9 @@ data Bisim = Bisim
   , bisimLater :: Bisim
   }
 
-propagateBisim :: (RootedView -> RootedView -> Bool)
+propagateBisim :: LocalAction
                -> Bisim -> Bisim
-propagateBisim _ (Bisim now later) = Bisim now (propagateBisim undefined later)
+propagateBisim action (Bisim now later) =
+  Bisim (\left right ->
+           now (reweaveRooted action left) (reweaveRooted action right))
+        (propagateBisim action later)

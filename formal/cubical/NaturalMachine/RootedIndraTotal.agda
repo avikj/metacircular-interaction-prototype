@@ -31,7 +31,7 @@ rootProjection : {Root Jewel : Type₀} → RootedView Root Jewel → Root
 rootProjection = rootOf
 
 rootFiber : {Root Jewel : Type₀} → Root → Type₀
-rootFiber root = TotalView Root Jewel
+rootFiber {Root = Root} {Jewel = Jewel} root = TotalView Root Jewel
 
 rooted : {Root Jewel : Type₀} (root : Root)
        → TotalView Root Jewel → RootedView Root Jewel
