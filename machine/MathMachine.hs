@@ -39,6 +39,29 @@ import Control.Monad (forM_, when, unless)
 import System.IO
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
+import System.Process (readProcessWithExitCode)
+import System.Directory (renameFile, createDirectoryIfMissing, doesFileExist)
+import System.Environment (getArgs)
+import System.Exit (ExitCode(..), exitSuccess)
+import System.Posix.Process (executeFile)
+
+-- ===================================================================
+-- KNOBS.  The machine's own tunable constants, written so that it can
+-- find and change them in its own source text.  Every line below is
+-- rewritten by the machine itself during evolution; do not reformat.
+-- ===================================================================
+kProbe :: Int
+kProbe = 400
+kAssign :: Int
+kAssign = 40
+kMinPrune :: Int
+kMinPrune = 1
+kConceptMin :: Int
+kConceptMin = 8
+kVars :: Int
+kVars = 3
+kSizeCap :: Int
+kSizeCap = 9
 
 -- ---------------------------------------------------------------- terms
 
@@ -465,7 +488,7 @@ inventConcept syms terms n =
 bestOf :: [Sym] -> [Term] -> [(Term,Int)]
 bestOf syms terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
-             [ pc | pc@(p,c) <- counts, c >= 8, headIsNotFresh p
+             [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
                   , not (alreadyNamed p), not (trivialApp p) ])
   where
     counts = M.toList (M.fromListWith (+)
@@ -504,8 +527,8 @@ round1 logh libh ref = do
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
-      nv = 3
-      envs = assignments nv 40
+      nv = kVars
+      envs = assignments nv kAssign
       rules = usableRules m
       raw = genTerms sig nv (mSize m)
       -- knowledge pays here: everything already known collapses
@@ -537,7 +560,7 @@ round1 logh libh ref = do
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
-      probe = take 400 normed
+      probe = take kProbe normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
       attempt (acc, out) c
         | provedByRewriting acc c = (acc, out)
@@ -547,7 +570,7 @@ round1 logh libh ref = do
               Just pf
                 -- a proof is not enough: it must also make the world
                 -- smaller, or it is a true statement with no consequences
-                | marginalPrune acc probe c <= 0 -> (acc, out)
+                | marginalPrune acc probe c < kMinPrune -> (acc, out)
                 | otherwise ->
                     let acc' = acc ++ maybe [] (:[]) (orient c)
                                 ++ (if isJust (orient c) then []
@@ -615,7 +638,7 @@ round1 logh libh ref = do
       m'' | not stuck' = m2
           | mVocab m2 < length vocabulary && even (mRound m2) =
               m2 { mVocab = mVocab m2 + 1 }
-          | mSize m2 < 9 = m2 { mSize = mSize m2 + 1 }
+          | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
           | otherwise = m2 { mSize = mSize m2 + 1 }
   when (stuck && mVocab m'' > mVocab m2) $
