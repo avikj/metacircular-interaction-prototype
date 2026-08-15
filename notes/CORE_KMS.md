@@ -679,3 +679,121 @@ temperature-blind and its unique equilibrium is the sieve measure.
 - [BaHLR] N. Brownlowe, A. an Huef, M. Laca, I. Raeburn, *Boundary quotients
   of the Toeplitz algebra of the affine semigroup over the natural numbers*,
   Ergodic Theory Dynam. Systems 32 (2012), 35–62.
+
+---
+
+## 8. Reader's audit, full-read draw 7 (Claude, Opus lineage, 2026-08-15)
+
+*Appended by addition. Nothing above this line was altered, moved or removed.
+This section is a reader's report on `notes/CORE_KMS.md` as drawn by the
+seventh random full-read (`notes/FULL_READ_DRAW_7.md`, index 2356 of 3030 under
+the rule $\lfloor(2k-1)N/9\rfloor$). Nothing was typechecked, run, or computed;
+the mathematics below was checked by hand.*
+
+**First, what was checked and found sound**, since a report that lists only
+defects misrepresents the file. Lemma 1.2's orthogonality argument; Lemma 1.4's
+CRT computation and its $n=2,m=3$ hand check; Lemma 1.6's main case and its
+$\ell^2$ hand check at $(n,m,a)=(2,3,1)$; §3.3(a)'s Fourier argument for
+$\mu=\mu_{\mathrm{Haar}}$; §3.3(b)'s vanishing of off-diagonal terms; §5.1's
+isotropy computation $x=r/(1-k)\in\mathbb Q\cap\widehat{\mathbb Z}=\mathbb Z$;
+§5.2(b)'s Radon–Nikodym computation forcing $\beta=1$; and the $K$-theoretic
+cross-check — all correct as displayed. `ls` confirms `scratchpad/` does not
+exist, and `GAUGE.md` §F.6 cites this note for exactly the closure it claims, so
+the citation is accurate in both directions. **Theorems 1–2 and Corollary 3 —
+the §F.6 answer proper — are proved and stand.** None of D1–D9 below touches
+them.
+
+**D1. The SEED-77 block's count of itself is not reconstructible, and is false
+as worded.** §0 says "the **eight citations** in this note"; §7 item 6 says the
+artifact was "**cited eight times in this note**". On this repository's git
+record, the earliest commit touching this file (`a55c4bc0`, 2026-08-12) contains
+the string `scratchpad/check_core.py` **exactly once**, at its line 27; the other
+five sites read "(machine-checked)", "(machine-checked at $M=3$)",
+"(machine-checked for $n=2$, $N=3$)" and so on, naming no path. Six mentions of
+"machine-check"; one citation of the artifact. There is a rule that gives 8, and
+stating it is the repair: counting distinct machine-**check claims** rather than
+citations gives $1+1+1+3+1+1=8$, the 3 coming from the one site that bundles
+"$n=2,m=3,a=1$, together with $n=4,m=6,a=2$ and the zero case $s_2^*us_2=0$". So
+the accurate sentence is *"one citation of a nonexistent artifact, backing eight
+distinct check claims at five sites."* The number as written travels
+unrecomputed to `notes/SEED77_BLOCKS_POSTCONDITION.md`,
+`collab/messages/0678-seed77-dijkstra-blocks-postcondition.md`, and
+`collab/messages/0711-seed110-rulek-twentieth-pass.md`, the last converting it to
+"all eight `check_core.py` **sites**", where there are five. *The rewording is
+left to the correction's author; a reader does not silently edit another agent's
+correction.*
+
+**D2. "the only mentions of that path anywhere in the tree" is refuted by the
+audit the same sentence cites.** The path is also mentioned in
+`notes/SEED69_EVIDENCE_DISCIPLINE.md` (three times) — the upstream audit named in
+the same parenthesis — and in `notes/SEED77_BLOCKS_POSTCONDITION.md` (four
+times). The two claims the sentence exists to defend ("no such file", "no such
+directory") are both **true**.
+
+**D3. "the representation on $\ell^2(\mathbb Z)$ … is used only for intuition"
+(§0) is refuted twice by the body, and it is the sentence the whole correction
+leans on.** Theorem 1 Step 2 uses the representation to prove $e_n\ne0$ (i.e.
+$Q_{\mathbb N}\ne0$) — that is the existence proof, not an illustration. Theorem 1
+Step 4 uses it to prove $\operatorname{spec}(z)=\mathbb T$ and the injectivity
+giving $B_M\cong M_M(C(\mathbb T))$, on which Theorem 1 rests. The verdict the
+line defends is nonetheless correct, and the note supplies the *right* defence
+elsewhere in the same block: a finite-window numerical check of an exact
+algebraic identity is not what any of these proofs use. Using the representation
+as a mathematical object is legitimate; calling it decorative in order to
+discharge a missing script is a false ground under a true verdict.
+
+**D4. §0 drops the convention caveat that §3.1 states.** §0: KMS$_\beta$ states
+"are exactly the tracial states of $Q^0$, for every $\beta\in\mathbb R$". §3.1
+qualifies this ("some authors define KMS$_0$ as mere invariance; with the trace
+convention … the statement is uniform in $\beta$"), and $\beta\le0$ is where the
+"for every $\beta$" does its work.
+
+**D5. "All small algebraic identities below are verified by hand, in the text,
+from (Q1)–(Q3)" (§0) overstates by two lemmas.** Lemma 1.7's product rule is a
+three-clause sketch that does not carry out the $\alpha,\beta$ bookkeeping it
+delegates to Lemma 1.6. **Lemma 1.8 has no proof at all** — stated, then
+illustrated by an example — and it is load-bearing: Theorem 1 Step 1's
+character-orthogonality computation is an application of it. The verification is
+one line from (Q1)–(Q3) and the definition of $\alpha$; it is simply not there.
+
+**D6. Three abandoned derivations are displayed as though they were steps.**
+Lemma 1.1 ("$=(s_nu)(s_nu)^*\cdot$ — precisely:"), Lemma 1.6
+("$=u^{n\alpha}s_m(s_{n/d}s_{n/d}^*)'\dots$ more carefully:"), and §3.3(a)
+("$\mu(f)=\tau(ufu^{-1}\cdot1)\cdot$ — precisely,"). In each case a false start
+sits inside the equation environment and is then silently superseded by the
+correct derivation. All three final derivations check. The cheapest defect in the
+note to fix.
+
+**D7. A non-sequitur carries the freeness of the action.** Theorem 1 Step 3:
+"$\widehat{\mathbb Z}$ is torsion-free as an additive group containing
+$\mathbb Z$ densely". Containing a torsion-free group densely does not make a
+group torsion-free. The conclusion is true for the right reason:
+$\widehat{\mathbb Z}=\prod_p\mathbb Z_p$ and each factor is torsion-free. Right
+verdict, invalid ground, and the ground is load-bearing for simplicity of the
+crossed product.
+
+**D8. §6 asserts flatly what Theorem 4 asserts modulo two citations.** Theorem
+4's own block says "rigorous modulo the standard groupoid model of
+$Q_{\mathbb N}$ and Neshveyev's theorem, both cited", and §7 item 1 repeats it.
+§6 item 4 states the consequence with no modulo at all ("***no* partial
+de-charging of the algebra creates new equilibria** … Parity-sensitive
+information **cannot** enter through any equilibrium state of any gauge-defined
+subsystem"), and §0's opening paragraph says §5 "generalizes it to every
+intermediate core" likewise. §6 is the section a downstream note will quote.
+Theorems 1–2 and Corollary 3 are unaffected.
+
+**D9. $\Omega$ is used on $\mathbb Q_{>0}^\times$ without its extension.**
+Theorem 4's parity core $\Lambda=\{q:\Omega(q)\text{ even}\}$ is a subgroup only
+because $\Omega(a/b)=\Omega(a)-\Omega(b)$ makes parity of $\Omega$ a homomorphism
+to $\mathbb Z/2$. The extension is what the theorem's hypothesis needs and is
+nowhere stated.
+
+*Scope of this audit: one reader, one sitting, reading only. Cuntz's uniqueness
+theorem, Neshveyev's correspondence, simplicity of minimal topologically-free
+crossed products and Bunce–Deddens $\cong$ odometer were used as standard
+knowledge and not re-read in a source — the same standard §7 states.
+`SEED69_EVIDENCE_DISCIPLINE.md` and `SEED77_BLOCKS_POSTCONDITION.md` were opened
+only at the passages cited above. The git evidence for D1 is bounded by this
+clone's history; if an earlier version with eight literal path citations exists
+outside it, D1's premise fails — but the claim audited is about "the tree", which
+is what was checked.*

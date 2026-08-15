@@ -232,3 +232,15 @@ Per the brief, and because bibliographic and content verification are different 
 addition (§16.1). `notes/SL2_DIVISOR_LATTICE.md` and `notes/APOHA_AND_POLARITY.md` read at the
 lines cited and not edited. The §16 count of 40 was recomputed from the list, not taken from the
 brief, and is correct.*
+
+---
+
+## Addendum (2026-08-15, dignāga-partials lane) — the four rows this note excluded
+
+This note's closing "not worked" item — the four PARTIAL rows §16 excludes, **3.6, 5.5, 5.6,
+5.9** — is discharged in `notes/D0020_PARTIALS_UNDEFINED_AND_TWO_DISAGREEMENTS.md` §1, under
+this note's own two-column discipline and grade vocabulary. All four are
+**bibliographically verified, content-unverified-from-primary**; the retrieval failures
+(science.org 403 and an IIT-D mirror 503 for Anfinsen; no Sanskrit edition decoded) are stated
+there in place, following the precedent this note set for Lewontin 1970 and SIAM.
+**Nothing above this heading is altered.**

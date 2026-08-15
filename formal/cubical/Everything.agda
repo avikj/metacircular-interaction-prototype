@@ -181,6 +181,10 @@ import Window5Walsh
 -- net — rooted views, type-theoretic Yoneda, propagation, coinductive
 -- weave (T25.A/B/D/F).
 import LawvereDiagonal
+-- Which sentences the diagonal engine proves and which it does not
+-- (notes/GODEL_BRIDGE_ADJUDICATED.md): Tarski is Cantor's term; Gödel I's
+-- second conjunct is refuted as an instance, with a finite countermodel.
+import GodelSeparation
 import AchromaticToy
 import IndraNet
 import StagewiseComposite
@@ -239,6 +243,18 @@ import DSOCutCalibration
 -- toolchain schism is owned by the migration lane; adding the modules
 -- here before it resolves would make this aggregate unbuildable under
 -- BOTH toolchains at once.  When the schism resolves, fold them in.
+--
+-- [SUPERSEDED 2026-08-15, Claude, Euclid-lineage orphan pass.  THE
+-- SCHISM RESOLVED AND THE INSTRUCTION IN THE LAST SENTENCE HAS BEEN
+-- CARRIED OUT.  The owner decided on 2026-08-15 that the sources track
+-- the pin, and the pinned toolchain now exists in a container:
+-- `solve!` is exactly the v0.9 CommRingSolver name these seven modules
+-- were written against.  All seven were run individually under
+-- Agda 2.8.0 + cubical v0.9 with LC_ALL=C.UTF-8 and exited 0, and they
+-- are imported at the bottom of this file.  They are red under
+-- /usr/bin/agda (2.6.3 / v0.5) and that is now the intended state of
+-- every source file in this tree, not a regression -- see
+-- notes/TOOLCHAIN_SKEW_AND_COVERAGE.md §6.7 and §7.]
 ------------------------------------------------------------------------
 
 -- Behavioural apartness (Prime-Pair Atlas Delta 20, T20.4; companion
@@ -270,3 +286,53 @@ import Swarm.S10VertexOrbit
 import Swarm.S12CyclotomicChain
 import Swarm.S13OptionSpread
 import Swarm.S15ACResidue
+
+-- The Birkhoff polarity closure and the vacuity of the Boolean apoha
+-- gloss (companion prose notes/APOHA_AND_POLARITY.md).  Added
+-- 2026-08-15 after the `Sub`/`Pow` rename: verified exit 0 individually
+-- under BOTH Agda 2.6.3 + cubical v0.5 and the BUILD.md pin
+-- Agda 2.8.0 + cubical v0.9.
+import PolarityClosure
+
+-- The invariance theorem of Kolmogorov complexity in its abstract form,
+-- and the comparison rule it forces: a description-length comparison
+-- transfers between machines iff the gap exceeds TWICE the invariance
+-- constant, with both sharpness witnesses (companion prose
+-- notes/MYSTERY_AND_DESCRIPTION_LENGTH.md §8).  Added 2026-08-15;
+-- verified exit 0 individually under BOTH Agda 2.6.3 + cubical v0.5 and
+-- the BUILD.md pin Agda 2.8.0 + cubical v0.9.
+import InvarianceConstant
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN, 2026-08-15 (Claude, Euclid-lineage orphan pass;
+-- collab/messages/0828-euclid-orphans.md, notes/TOOLCHAIN_SKEW_AND_
+-- COVERAGE.md §7).
+--
+-- The closure of this file was recomputed from the sources and diffed
+-- against `find . -name '*.agda'`: 322 of 367 files reached, 45 not,
+-- of which 9 are the `NaturalMachine/Control/` modules that must never
+-- be reached (verified: every mention of them outside their own
+-- directory is inside a comment) and 36 were genuine orphans.  Each
+-- module below was run INDIVIDUALLY under the BUILD.md pin (Agda 2.8.0
+-- + cubical v0.9, LC_ALL=C.UTF-8) and exited 0 before it was named
+-- here.  The `NaturalMachine/` orphans were folded into the root
+-- aggregate instead, at the bottom of `NaturalMachine.agda`.
+--
+-- These seven are the block above's "when the schism resolves, fold
+-- them in": all use the v0.9 `solve!` and are green under the pin.
+------------------------------------------------------------------------
+import CenterRelative
+import PrimePairField
+import Swarm.S05AsiddhaNewton
+import Swarm.S08ChebyshevWeight
+import Swarm.S09SmithKuttaka
+import Swarm.S11HolonomyDeterminant
+import Swarm.S14AssemblyGrading
+
+-- Machine-checked content of notes/OBSTRUCTION_COEND_REPAIR.md §3:
+-- degeneracy invariance of the defect BY EQUALITY (Theorem A), the
+-- refutation of the cosimplicial sharp form on a chart over ℤ
+-- (Theorem B), and shadow-support-infinite (§7).  Landed 2026-08-15 as
+-- an orphan and UNRUN under the pin by its own author's report; run
+-- here, EXIT=0.
+import SimplicialDefectFailure

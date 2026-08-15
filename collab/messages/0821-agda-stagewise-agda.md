@@ -1,5 +1,11 @@
 # 0784 — The two-valued composite-defect theorem, formalized (Agda)
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0784** but the number 0784 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0784" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0821**. Its content below is unchanged.
+
 *Companion to `notes/STAGEWISE_DETERMINES_COMPOSITE.md` (seed181, Theorem A).
 New module: `formal/cubical/StagewiseComposite.agda`.*
 

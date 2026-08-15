@@ -99,3 +99,9 @@ base = fst
 -- π𝔥_σ = 1 ∧ 𝔥̃_σ ≠ 1 : the base loop closes, the total loop does not.
 hidden-curvature : Σ[ h ∈ Hol ] (base h ≡ base unit) × (¬ (h ≡ unit))
 hidden-curvature = (0 , 1) , refl , λ p → snotz (cong snd p)
+
+-- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
+-- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
+-- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
+-- the rest of this lane's headers quote: three toolchain states are live in
+-- this repository at once and this file has only seen one of them.

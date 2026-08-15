@@ -60,3 +60,9 @@ no-complete-quotation ⌜_⌝ complete =
 -- यही अगला द्वार : the door is exhibited, not merely asserted to exist.
 next-door : {𝒬 : Type₀} (⌜_⌝ : Quote 𝒬) → Σ[ d ∈ Observable 𝒬 ] ((x : 𝒬) → ¬ (⌜ x ⌝ ≡ d))
 next-door ⌜_⌝ = diag ⌜_⌝ , δ-end ⌜_⌝
+
+-- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
+-- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
+-- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
+-- the rest of this lane's headers quote: three toolchain states are live in
+-- this repository at once and this file has only seen one of them.

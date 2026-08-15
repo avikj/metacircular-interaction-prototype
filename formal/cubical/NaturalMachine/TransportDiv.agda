@@ -26,6 +26,27 @@
 -- The chart map itself is NOT free, and nothing here pretends it is: the
 -- edge costs stay explicit parameters, discharged with numbers only in
 -- `TransportDivWitness`.
+--
+-- PRIOR ART, added after the fact by audit (notes/PRIOR_ART_TRANSPORTDIV.md)
+-- and not discovered by the author, which is the failure this repository's
+-- protocol names first.  The object is classical and has a name: Sutner,
+-- "Divisibility and State Complexity", Mathematica Journal 11:3 (2010),
+-- calls r ↦ (b·r + d) mod m the HORNER AUTOMATON and states
+-- δ(0,w) = val(w) mod m — which is `value-modw` verbatim.  Alexeev, JCSS
+-- 69:2 (2004), gives the MINIMAL state counts, so "one state below the
+-- modulus" is an upper bound and not the minimum.  mathlib's `Nat.ofDigits`
+-- is definitionally this file's `value` and carries the surrounding API
+-- (`ofDigits_modEq`, `dvd_iff_dvd_ofDigits`); the Agda standard library's
+-- `Data.Digit.fromDigits` is `value` too.  No library found declares the
+-- REDUCING fold, which is one induction wide.
+--
+-- In this repository: `NaturalMachine.RadixSymptoma` already has the digit
+-- action and its run law (`Radix.step`, `Radix.run≡`) in cubical Agda in
+-- this same directory, and `notes/GENERAL_RADIX_DIVISIBILITY.md` already
+-- carries the Alexeev citation.  Note also that `scale-mod` below collides
+-- in NAME with a different `scale-mod` there.  What is this file's own is
+-- the reduce-at-every-digit variant that keeps the state bounded, its
+-- cubical proof on this lane's chart, and the transport/cost framing.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
@@ -41,6 +62,7 @@ open import Cubical.Data.Nat.Mod
 open import Cubical.Data.Nat.Divisibility using (_∣_)
 open import Cubical.Data.Fin using (Fin ; toℕ)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 
 open import NaturalMachine.Digits k
@@ -109,3 +131,42 @@ steps (d ∷ w) = suc (steps w)
 steps-is-length : (w : Word) → steps w ≡ suc (length w)
 steps-is-length []      = refl
 steps-is-length (d ∷ w) = cong suc (steps-is-length w)
+
+------------------------------------------------------------------------
+-- 5.  The count is the algorithm's own recursion.
+--
+-- An audit of this file (notes/PRIOR_ART_TRANSPORTDIV.md) observed that
+-- §4 as first written was a definitional identity about a function
+-- connected to `modw` by nothing at all: `steps` counted its own clauses,
+-- and no theorem said those clauses were the automaton's.  That objection
+-- is correct and this section answers it.  `run` executes the automaton
+-- and carries the count in the same recursion, so the two projections are
+-- the state and the number of transitions that produced it.
+------------------------------------------------------------------------
+
+run : ℕ → Word → ℕ × ℕ
+run n []      = (0 mod n) , 1
+run n (d ∷ w) = ((toℕ d + b · fst (run n w)) mod n) , suc (snd (run n w))
+
+run-state : (n : ℕ) (w : Word) → fst (run n w) ≡ modw n w
+run-state n []      = refl
+run-state n (d ∷ w) = cong (λ z → (toℕ d + b · z) mod n) (run-state n w)
+
+run-count : (n : ℕ) (w : Word) → snd (run n w) ≡ steps w
+run-count n []      = refl
+run-count n (d ∷ w) = cong suc (run-count n w)
+
+-- so the cost claim is about the residue computation and not about a
+-- lookalike: one run, one state, one count, `suc (length w)` of them.
+run-is-the-automaton :
+    (n : ℕ) (w : Word)
+  → (fst (run n w) ≡ value w mod n) × (snd (run n w) ≡ suc (length w))
+run-is-the-automaton n w =
+    (run-state n w ∙ value-modw n w)
+  , (run-count n w ∙ steps-is-length w)
+
+-- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
+-- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
+-- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
+-- the rest of this lane's headers quote: three toolchain states are live in
+-- this repository at once and this file has only seen one of them.

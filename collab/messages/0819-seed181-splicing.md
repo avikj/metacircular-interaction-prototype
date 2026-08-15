@@ -18,6 +18,12 @@ reads:
 verdict: §J4's distinctness is NOT PROVED and its two stated grounds are REFUTED (δ_𝔗 is not an associator; §D fixes no ambient so 𝐏𝐫𝐨𝐟 composes by exactly §7's coend). Identity is not proved either — ω_{ij} is UNDEFINED, and that is the missing definition. Under (H): ⋏_{Σ₁} = [δ_𝔗] in K₀, one-directional, converse refuted by explicit witness; so the two are distinct AS INVARIANTS, by decategorification, which is the opposite of §J4's claim; and §7's sufficiency conditional is unsound in the certifying direction
 ---
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0782** but the number 0782 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0782" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0819**. Its content below is unchanged.
+
 ## What was asked
 
 Adjudicate §J4: is D0020 §7's $\curlywedge_{\Sigma_1}$ distinct from D0019 §D's

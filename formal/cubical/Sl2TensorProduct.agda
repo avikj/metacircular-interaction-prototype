@@ -17,9 +17,13 @@
 --     tensor from the two factors.  This is the load-bearing lemma.
 --
 --  2. Bn : ℕ → Sl2Rep                          (§5)
---     Bn m = V ⊗ (V ⊗ (… ⊗ k)) with m factors.  By induction on m,
+--     Bn m = V ⊗ (V ⊗ (… ⊗ V)) with m factors.  By induction on m,
 --     every multi-index divisor lattice carries the action.  Bn 0 is
---     the trivial (zero) triple on k; Bn (suc m) = chainRep ⊗ Bn m.
+--     the trivial (zero) triple on k, Bn 1 = chainRep, and
+--     Bn (suc (suc m)) = chainRep ⊗ Bn (suc m).  In particular
+--     Bn 2 = chainRep ⊗ chainRep = Rk2 DEFINITIONALLY (`Rk2≡Bn2`,
+--     §6), so the rank-2 displays of §6 and the controls of §7 are
+--     statements about the induction's own output.
 --
 --  3. tensor-E , tensor-F , tensor-H           (§4)
 --     The comultiplication read on decomposable tensors:
@@ -570,11 +574,21 @@ trivRep = record
 -- eK (Bn (suc m)) = lK εK ⊞ rK (eK (Bn m)).  That every Bn m satisfies
 -- the three relations is the content of the induction; it is one line
 -- because §3 did the work.
+--
+-- The recursion is anchored at m = 1 rather than only at m = 0, so that
+-- Bn m has index type (ℕ×ℕ)^m ON THE NOSE for m ≥ 1 — with no trailing
+-- Unit factor.  This is not cosmetic: it is what makes §6's rank-2
+-- displays displays OF THE INDUCTION'S OUTPUT rather than of a
+-- separately-built rank-2 object.  `Rk2≡Bn2` below records that, by
+-- `refl`.  With the older `Bn (suc m) = tensorRep chainRep (Bn m)`
+-- anchored only at zero, Bn 2 had index type Ch × (Ch × Unit) and no
+-- such identification was available.
 ------------------------------------------------------------------------
 
 Bn : ℕ → Sl2Rep
-Bn zero    = trivRep
-Bn (suc m) = tensorRep chainRep (Bn m)
+Bn zero          = trivRep
+Bn (suc zero)    = chainRep
+Bn (suc (suc m)) = tensorRep chainRep (Bn (suc m))
 
 -- the multi-index divisor lattice of a number with m prime factors
 divisorLatticeSl2 : (m : ℕ) → Sl2Rep
@@ -630,6 +644,13 @@ module _ (R S : Sl2Rep) where
 
 Rk2 : Sl2Rep
 Rk2 = tensorRep chainRep chainRep
+
+-- The rank-2 object the displays below are about IS the m = 2 stage of
+-- §5's induction — definitionally, not up to an equivalence that would
+-- have to be constructed.  Every display and every §7 control is
+-- therefore a statement about `Bn 2`.
+Rk2≡Bn2 : Rk2 ≡ Bn 2
+Rk2≡Bn2 = refl
 
 dl : ℕ → ℕ → Mod Ch
 dl κ d (a , b) = δ κ d a b

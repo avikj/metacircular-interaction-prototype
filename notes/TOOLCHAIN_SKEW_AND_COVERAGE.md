@@ -353,3 +353,86 @@ than file by file. Recorded, not repaired.
    `PolarityClosure.agda`, or any other source file. The only file I edited
    under `/root` is the `name:` field of my own v0.9 clone's `.agda-lib`
    (6.1).
+
+### 6.6 Addendum, 2026-08-15: `PolarityClosure.agda` is repaired
+
+Grothendieck-lineage pass, same day. §6.3's diagnosis was exactly right and
+the repair is exactly the one it named: the module's own `Sub` was renamed
+to `Pow` (the powerset-of, which is what it is). Nothing else was needed —
+the clash was the *only* error, not the first of several.
+
+`agda 2.8.0 --library-file=<v0.9> PolarityClosure.agda` → **EXIT=0**, and
+`/usr/bin/agda` (2.6.3 / v0.5) → **EXIT=0** as well. The rename is
+toolchain-neutral, so unlike §6.4's `·Rid`/`·IdR` it forces no choice
+between the two: the `PolarityClosure` row of §6.2's table now reads **0 /
+0**. The module was added to `Everything.agda`; that aggregate remains red
+under the pin for §6.4's unrelated reason.
+
+The pinned binary from §6.1 was still present in this session's scratchpad
+and was reused rather than rebuilt; §6.5 scope limit 2 stands unchanged for
+anyone starting fresh.
+
+### 6.7 Addendum, 2026-08-15: `Sl2TensorProduct.agda` is repaired (Noether pass)
+
+Under the owner's 2026-08-15 instruction that **the sources track the pin**,
+§6.4's recorded-not-repaired finding is now repaired. §6.4's guess that it
+was "on the evidence of this one run, a one-token" fix is **verified, not
+assumed**: I made the rename, re-ran from a *clean* copy of `formal/cubical`
+with no `_build`, and the module went straight to EXIT=0. Agda reports one
+scope error at a time, so this could have hidden further v0.5-only names; it
+did not. **The full list of names changed is one:**
+
+| line | v0.5 (was) | v0.9 (now) |
+|---|---|---|
+| 115 | `·Rid` | `·IdR` |
+
+```
+$ cd <clean copy of formal/cubical> && LC_ALL=C.UTF-8 \
+    <scratchpad>/Agda-2.8.0/.../agda --library-file=<v0.9> Sl2TensorProduct.agda
+Checking Sl2TensorProduct (…/Sl2TensorProduct.agda).
+ Checking Sl2DivisorLattice (…/Sl2DivisorLattice.agda).
+EXIT=0
+```
+
+The trade §6.4 declined is now taken deliberately and in the direction the
+owner chose: the module is **green under the pin and red under
+`/usr/bin/agda` (2.6.3 / v0.5)**, which has no `·IdR`. That is the intended
+state for every source file in this tree, not a regression. The
+`Sl2TensorProduct.agda` row of §6.2 now reads **42 / 0**.
+
+Consequence for §6.4's item 1, and it is stronger than "the abort moved":
+**`Everything.agda` is green under the pin.**
+
+```
+$ cd <fresh copy of formal/cubical, _build removed> && LC_ALL=C.UTF-8 \
+    <scratchpad>/Agda-2.8.0/.../agda --library-file=<v0.9> Everything.agda
+… 315 modules checked, 0 errors, 194 UnsupportedIndexedMatch warnings …
+EXIT=0
+```
+
+§6.4 item 1 is therefore **withdrawn, not merely narrowed**: the aggregate's
+exit code is once again evidence about every module it imports, and that
+evidence is positive. Two honesty notes on this run, because the first
+attempt did not earn the claim:
+
+- My first `Everything.agda` run reused `.agdai` interfaces that my own
+  clean `Sl2TensorProduct` check had just written, so it was not a
+  from-scratch aggregate and I did not publish it. The numbers above are a
+  **second** run in a fresh copy with `_build` deleted, in which
+  `Sl2TensorProduct` is genuinely re-checked (it appears as a `Checking`
+  line, not as a cache hit).
+- That second copy was taken **after** merging `origin/main`, so it covers
+  315 modules rather than the first run's 162 — it includes sibling work
+  landed today, among it §6.6's `PolarityClosure` repair. The larger number
+  is the stricter test, not a different one.
+
+This supersedes §6.2's `Everything.agda` row (**42 → 0**) and §6.5 scope
+limit 3 to the extent that the aggregate covers it: what remains unswept
+under the pin is any module `Everything.agda` does not import.
+
+Swept for the same class of breakage and found nothing:
+`grep -rn '·Rid\|·Lid\|+Rid\|+Lid\|Symmetric-Group' --include=*.agda formal/`
+returns **zero** hits tree-wide. (`PathIsSymmetry.agda` already spells it
+`SymGroup`, the v0.9 name — §1's refusal, vindicated in §6.2.) This is a
+grep for five specific identifiers, not a proof that the tree is clean under
+the pin; §6.5 scope limit 3 stands.

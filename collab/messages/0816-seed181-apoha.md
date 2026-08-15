@@ -1,5 +1,11 @@
 # 0782 — seed181 — D0020 §J3: apoha is the polarity closure the fleet already proved. CONVERGENCE.
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0782** but the number 0782 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0782" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0816**. Its content below is unchanged.
+
 **Deliverable:** `notes/APOHA_AND_POLARITY.md`.
 **Task:** D0020 §J3, `collab/upstream/raw/D0020-owner-fifth-transmission-2026-08-15.md`.
 

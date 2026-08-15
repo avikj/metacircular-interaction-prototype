@@ -648,3 +648,82 @@ counterexample, both failures) · §4 the family reading SERVES and is what the 
 uses; the face-poset colimit is REFUTED · §5 hypotheses (O1)–(O7), with (O2) and (O5) each
 independently fatal · §6 the fleet's theorems are CONTAINED; one decoration
 ($\|\mathcal O(S)\|$) refuted by Cor. 5.3, the theorem it decorates untouched.*
+
+---
+
+## 10. Addendum (2026-08-15, Mac Lane lane): the SHARP FORM, both directions, and a correction to §9's slogan
+
+*Added by a later pass, by addition only; nothing above is altered. Everything in
+this section is machine-checked in `formal/cubical/SimplicialDefectFailure.agda`
+(`--cubical --safe`, no postulates, no holes, exit 0 under Agda 2.6.3 + cubical
+v0.5 in this container; the pin 2.8.0/v0.9 is unrun here, as
+`notes/TOOLCHAIN_SKEW_AND_COVERAGE.md` §6.1 records for every module).*
+
+§7.4 declines the converse of Prop. 4 and §9 offers the slogan
+*"δ becomes functorial along faces exactly when ρ is a cocycle, i.e. exactly
+when δ is zero"*. The converse is now proved — **and the slogan is
+variance-dependent, which the note did not anticipate.** The two variances give
+opposite answers.
+
+**Theorem A (simplicial variance — the slogan is a theorem).** Suppose
+$\delta_\sigma\subseteq\delta_{d_0\sigma}$ for every $\sigma$ (only $d_0$, so
+strictly weaker than simpliciality). Then $\delta_\sigma=\emptyset$ for every
+$\sigma$; if the tests separate, $\mathfrak h_\sigma=\mathrm{id}$ for every
+$\sigma$, and under the corpus reading that is exactly
+$\rho_{jk}\rho_{ij}=\rho_{ik}$.
+*Proof.* Iterating $d_0$ carries any $\sigma$ to a $0$-simplex, and
+$\mathfrak h_{(i)}=\mathrm{cap}(\rho_{ii})\cdot e=\mathrm{cap}(e)\cdot e=e$; the
+chain of inclusions gives $\delta_\sigma\subseteq\delta_{\mathrm{id}}=\emptyset$.
+$\square$ (`covariant⇒trivial`, `covariant⇒holonomy-trivial`,
+`CocycleExtraction.Corpus.trivial⇒cocycle`.) The only hypothesis on the long
+edge is $\mathrm{cap}(e)=e$, true under **both** readings of §0.3, so Theorem A
+is archive-agnostic in the same sense §3 is.
+
+**Theorem B (cosimplicial variance — the slogan is FALSE).** There is a charted
+Chu space whose $\rho$ is **not** a cocycle, with $\delta_{\sigma_0}\neq\emptyset$
+for $\sigma_0=(0,1,0)$, and with $\delta_{d_j\sigma}\subseteq\delta_\sigma$ for
+**every** $\sigma$ and **every** $j$. Chart: $X=\mathbb Z$, $\rho_{ij}\in
+\operatorname{Aut}(X)$ translation by $1$ for $i\neq j$ and by $0$ for $i=j$,
+$I=\{0,1\}$, tests separating (so $\delta_\sigma=\emptyset\iff\mathfrak h_\sigma=0$).
+*Proof.* Write $t(\sigma)$ for the number of consecutive-vertex changes and
+$\varepsilon(\sigma)\in\{0,1\}$ for the long-edge indicator; then
+$\mathfrak h_\sigma=-\varepsilon+t$ (corpus) or $\varepsilon+t$ (archive). So the
+locus $\delta=\emptyset$ is $\{t=\varepsilon\}$ — the **block** simplices
+$i\cdots i\,j\cdots j$ — in the corpus reading, and $\{t=0\}$ — the **constant**
+simplices — in the archive reading. Both loci are closed under deleting a vertex,
+which is precisely $\delta_{d_j\sigma}\subseteq\delta_\sigma$. $\square$
+(`Cosimplicial-sharp-fails-corpus`, `Cosimplicial-sharp-fails-archive`.)
+
+**Consequences, stated so neither theorem is over-read.**
+
+1. §9's closing slogan holds in the **simplicial** variance and fails in the
+   **cosimplicial** one. Since §2.1 shows the realization coend needs the
+   *cosimplicial* variance, the sharp form does **not** close (O2) by itself:
+   what closes the repair is §2.2's $\sigma$-blindness objection, which no
+   functoriality result touches. §2.1 and §2.2 stand unamended.
+2. **(O6) is amended.** Its face part is refuted *for the $\rho$ of §3.2*, not
+   for all charts: Theorem B exhibits a chart where the face part of (O6) holds
+   in the cosimplicial variance with $\rho$ not a cocycle. Since
+   $Q_\alpha=(\mathcal P(X),\subseteq)$ is **thin**, the inequalities *are* a
+   functor — every diagram in a thin category commutes — so this is a genuine
+   functor $\mathrm{el}(N\mathcal F)^{op}\to Q_\alpha$, not merely a set of
+   inequalities. §7.4's open classification is thereby half-answered: in the
+   simplicial variance the answer is "only cocycles" (Theorem A); in the
+   cosimplicial variance the non-cocycle solutions are non-empty (Theorem B) and
+   the full classification is still open.
+3. **The §0.3 discrepancy is not resolved, and is now a pair of theorems.**
+   Under the corpus reading, trivial holonomy $\iff$ cocycle; under the archive
+   reading it gives instead $\rho_{ij}^2=e$ on every $1$-simplex together with
+   $\rho_{ik}\rho_{jk}\rho_{ij}=e$ — a different condition, and the exact content
+   of §0.3's observation that a $1$-simplex carries $\rho^2$
+   (`CocycleExtraction.Archive.trivial⇒involutive`, `…trivial⇒closed`). Which
+   reading D0016 §B intends remains the owner's, per §7.3.
+4. **Cor. 5.3 is now a checked term** (`shadow-support-infinite`): one simplex
+   with nonempty defect forces an $\mathbb N$-indexed family of pairwise distinct
+   simplices — its iterated degeneracies — all carrying the *same* defect, so
+   $\|\mathcal O(S)\|\in\{0,\infty\}$ is a two-valued predicate, not a count.
+5. **Scope.** Theorem B's chart is infinite ($X=\mathbb Z$); no claim is made
+   that a finite chart with the same property exists, and §3.2's finite
+   counterexample is untouched. Theorem A assumes only $d_0$-functoriality and
+   the poset structure of $Q_\alpha$ (transitivity and reflexivity of $\subseteq$).
+   Nothing here re-audits §6's containment table, and nothing measures anything.

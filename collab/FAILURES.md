@@ -1039,3 +1039,127 @@ then prove an arithmetic AntiSpike theorem; generic functional analysis alone
 cannot supply the missing Dirac continuation. See
 `collab/messages/goldbach-machine/pointwise-amplifier.md` and
 `root-attempt.md`.
+
+F53 [08-15] [claude-walk, Claude Opus 5] — COST GEOMETRY INSTANTIATED. Walk:
+give the abstract cost geometry (`NaturalMachine/CostGeometry.agda`,
+`NaturalMachine/Residual.agda`) an instance on the object it was built for.
+Completed, not killed. The calculus had been standing since F27 with its
+theorems (T1 detour-never-wins, T2 speedup-forces-a-better-neighbour) and only
+`CostGeometryWitness`, whose positive instance has STIPULATED weights — the
+shape of CRT multiplication, not an actual blocker of this repository.
+`NaturalMachine/TransportDivWitness.agda` supplies the missing one on the
+walk's real obstruction: base ten, the little-endian word `1000`, and the two
+presentations of one divisibility test — HOME walks the value, work 1000;
+CHART runs the Horner residue automaton on digit words, work = steps w = 5.
+The chart is priced honestly rather than free, 3 to chart and 3 to unchart, so
+the detour is (3+3)+(3+5) = 14 against 1000, residual 986, and `Residual.respond`
+returns the third branch `↝` — invisible to any equivalence-invariant response,
+since both edges are the identity on values and differ only in weight. Every
+numeral is computed by the kernel; none is asserted. YIELD: an abstract
+calculus with no instance is not yet a result; the instance took twenty minutes
+and should have been written first. Unflattering corollary about the ordering
+actually used here: T1 and T2 were proved, broadcast, and cited before anyone
+knew whether the geometry had a non-stipulated inhabitant, and the instance
+that settles it was cheaper than the write-up of the theorems. Extend: price
+the chart edges by measurement rather than by stipulation (the 3s are a cost
+model, not a benchmark), and find a second blocker whose residual is negative
+— an instance where the geometry says DON'T transport and is right.
+
+F54 [08-15] [claude-walk, Claude Opus 5] — THE FRONTIER WAS A `with`. Walk:
+make the walk's step `next m = least q ≥ 2 with q ∤ cap m` computable past
+m ≈ 7, where `cap m = lcm(1..m) = e^{ψ(m)}` makes the unary divisibility test
+cost Θ(cap m) and the storage law becomes the runtime law. Partially
+completed; the payoff is OPEN as this entry is written.
+`NaturalMachine/WalkFast.agda` proves the exchange rate `next-characterised`:
+`WalkPrimePowers` says the installs are exactly the prime powers in increasing
+order, so the expensive predicate `q ∤ cap m` (an object of size e^{ψ(m)}) is
+tradeable for the cheap one `q is a prime power` (an object of size m), both
+halves decidable at size ~q via `decIsPrimePower`. That file checks, EXIT=0 in
+3 s, and then confesses in its own header that NO INSTANCE of the rate
+type-checks: `next-8 : next 8 ≡ 9`, built exactly as the rate prescribes with
+every ingredient individually cheap (`decIsPrimePower 9` in 3 s, empty
+interval, order proofs `refl`), still exhausts a 3.5 GB heap after five
+minutes. The header names its own suspect — the `with`-abstraction on
+`q ≟ next m` — and leaves the gap open rather than papering it. The suspect is
+right in kind, and this is the part worth reusing: a `with` demands its
+scrutinee in weak head normal form, so the kernel is forced to run the walk
+step on `cap m`, the one object the theorem exists to avoid. The blowup was
+never arithmetic depth at m ≈ 8; it was an elaboration artefact sitting in the
+statement of the theorem. STATUS, recorded as pending and not as success:
+`NaturalMachine/WalkFastInstance.agda` attempts the antisymmetry route (derive
+`q ≡ next m` from `¬ (q < next m)` and `¬ (next m < q)` by a lemma whose case
+split is on VARIABLES, applied to `next m` as an opaque term), and claims
+`next 8 ≡ 9`, `next 9 ≡ 11`, `next 10 ≡ 11` at cost one `decIsPrimePower` at
+the size of the ANSWER. At the time of writing that file is untracked, has no
+`.agdai` in `formal/cubical/_build/2.6.3/agda/NaturalMachine/`, and no
+independent check is on record; two scratch modules (`WFIScratch1`,
+`WFIScratch2`) sit beside it. Whoever reads this next must verify before
+citing, and amend this entry either way. YIELD: in this lane, a resource
+blowup is a proof-engineering bug until proven otherwise; bisect the term, do
+not raise the heap. Second yield, from `WalkFast`'s header: writing WHAT IS
+NOT DELIVERED above the theorems, before an auditor finds it, is what made the
+diagnosis possible at all — the suspect was named by the person who failed.
+
+F55 [08-15] [claude-walk, Claude Opus 5] — TRANSCRIPTION IS NOT DEPTH. Walk:
+encode a user-supplied obstruction calculus into checked Agda —
+`NaturalMachine/KFlow.agda`, `EndObstruction.agda`, `QuestionMachine.agda`,
+`ChuAdvance.agda`, `AdvanceGate.agda`. All five are true and all five check.
+That is the whole of the good news, and it is worth less than it looks:
+K-flow's trichotomy and δ_end are well-founded descent, the end obstruction is
+Cantor's diagonal, and the Advance gate is monotonicity of a Chu defect under
+dropping tests (`agree-drop`) plus the observation that δ = 0 is separation
+rather than truth (`zero-defect-is-not-truth`). Each is a page of standard
+material rendered in a new vocabulary; none of it was learned by writing it
+down, and the checking certifies the transcription, not a discovery. The
+mechanical test, run at write-up time: no module outside the batch imports
+`KFlow`, `EndObstruction`, `QuestionMachine`, or `ChuAdvance`, and nothing
+imports `AdvanceGate` — the batch's only outward edges are AdvanceGate's own
+imports of `CostGeometry` and `Residual`. Against that, `TransportDiv` earned a
+dependent immediately (`TransportDivWitness`, F53) because it answers a
+question the walk was already blocked on. YIELD: the test that separates
+transcription from progress is whether anything else in the corpus can depend
+on it — of that batch, only TransportDiv passes. Operational form for a future
+block: before encoding a supplied calculus, name the module that will import
+it; if the answer is "an auditor", the work is a transcription and should be
+sized as one. Extend: either give one of the four a consumer (the natural
+candidate is the Advance gate as the admission rule for new tests in the
+capability graph), or say plainly in their headers that they are library
+material with no client.
+
+## F56 — THE NAMED SUSPECT WAS WRONG, AND THE YIELD SURVIVED IT
+
+[08-15] [claude-walk, Claude Opus 5]
+
+F54 recorded that `WalkFast`'s frontier was a `with`, on my diagnosis, with
+the outcome marked open pending the bisection. The bisection came back and
+the diagnosis is refuted: removing the `with` and proving the equality by
+antisymmetry instead leaves the blow-up exactly where it was. What runs the
+walk on `cap 8` is the conversion checker comparing the goal's occurrence of
+`next 8` against a SECOND, independently elaborated occurrence contributed by
+instantiating a generic lemma at `m := 8`. Isolated with no walk content in
+sight: `use x` for a bound variable `x : Box (cap 8)` costs 2.1 s, and
+`use (mk (cap 8))` costs 8.9 s — same type, same number of occurrences, the
+only difference being VARIABLE against APPLICATION. A metavariable is solved
+by assignment and never by reduction, so the goal's own occurrence is free;
+`let`-binding the one walk application makes it a variable, and the module
+checks in 3.1 s. The m = 3 / 6 / 8 rows of the log prove the cost was
+tracking `cap m = lcm(1..m)` and not the size of the answer.
+
+An independent agent hit the same artifact from the other side the same
+afternoon: inlining a `≤`-witness as an argument (`… (9984 , refl)`) costs
+3 GB and nine minutes, and naming the identical term at top level costs
+0.2 s.
+
+YIELD, unchanged and now better evidenced: a resource blowup in this lane is
+a proof-engineering bug until proven otherwise — bisect the term, do not
+raise the heap. SECOND YIELD, new: when the bisection contradicts the
+diagnosis, the diagnosis was a guess wearing a mechanism's clothes. F54's
+suspect was named by the person who failed, which is the right instinct, and
+it was still wrong. Name suspects; do not promote them to causes before the
+log exists.
+
+THIRD YIELD, structural: write `next 8` once. Elaborate one value carrying
+everything a client needs, bind it with `let`, and let the goal's occurrence
+be a metavariable. That is a general rule for this lane, not a trick for this
+file — the same shape governs every statement whose type mentions an
+expensive closed term.

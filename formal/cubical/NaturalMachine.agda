@@ -437,6 +437,17 @@ import NaturalMachine.ResidueTransport
 -- module runs the multiplier at bases 10 and 2.
 import NaturalMachine.TransportMul
 import NaturalMachine.TransportMulWitness
+-- and the third operation, the one the walk actually stalls on: the
+-- divisibility TEST carried across the same equivalence.  `modw n` is the
+-- Horner residue automaton on digit words, `value-modw` proves it computes
+-- `value w mod n` (so it is the residue, not an estimate), and
+-- `steps w ≡ suc (length w)` against the unary test's Θ(value) is the whole
+-- frontier gap.  Parameterised in the base exactly like Digits/Transport;
+-- imported unapplied here and instantiated at base ten in the witness, which
+-- runs the automaton on the word 1000 and discharges the edge costs with
+-- numbers rather than parameters.
+import NaturalMachine.TransportDiv
+import NaturalMachine.TransportDivWitness
 -- the leakage lane's commutator-rank identity, folded in so that the root
 -- aggregate's green claim and the directory's contents finally coincide.
 import NaturalMachine.LeakageCommutator
@@ -554,6 +565,7 @@ import NaturalMachine.FiniteGraphFluxCylindrical
 import NaturalMachine.OrientedSurfaceFlux
 import NaturalMachine.SurfaceFluxCylindricalSquare
 import NaturalMachine.FillabilityCertificate
+import NaturalMachine.ArityOfRepair
 import NaturalMachine.FiniteNonabelianHolonomy
 import NaturalMachine.S3ConjugacyObservation
 import NaturalMachine.TwoLoopNonabelianNetwork
@@ -567,6 +579,110 @@ import NaturalMachine.S3FixedPointCharacter
 -- The arithmetic family/threshold proof remains an explicit input; no prime
 -- theorem is claimed by this generic compiler.
 import NaturalMachine.DiagonalEndpoint
+
+------------------------------------------------------------------------
+-- The cost lane (2026-08-15).  `TransportCost` measured one edge and the
+-- measurement was quadratic; these modules make the WEIGHTED GRAPH the
+-- object instead of the benchmark.  Nodes are presentations, edges are
+-- checked equivalences, and cost is a field the equivalence does not carry
+-- -- paths transport theorems, never complexity.  A fast algorithm is then
+-- a detour, and "speedup" is a triangle inequality failing in the cheap
+-- direction.  Only +, ≤, < are used, so the geometry is independent of the
+-- cost currency.
+import NaturalMachine.CostGeometry
+-- The two instances that give those theorems content, kept separate so each
+-- is falsifiable alone: (W1) the repo's own measured `+` transport as a
+-- NEGATIVE instance, restated without rerunning the benchmark; (W2) a
+-- residue-style positive instance whose weights are stipulated, not
+-- measured -- what is proved is the implication.
+import NaturalMachine.CostGeometryWitness
+-- ϱ = wHere ⊖ detour, and the fifth response Γ↝.  The residual is invisible
+-- to every equivalence-invariant response, because `Edge` carries `cost` in
+-- a field the maps do not determine; `no-invariant-response-sees-ϱ` is that
+-- statement as a term.  Γ↝ is min-plus over neighbours -- the same operator
+-- as DSOMinPlusFinite/DSOBellmanFinite on other data.
+import NaturalMachine.Residual
+-- 𝒦 := ∂ ∘ Γ and the trichotomy of its step: decay (the orbit reaches 0),
+-- resonance (stationary), branching (never reaches 0).  Three theorems about
+-- one ℕ-valued obstruction measure; the spectral radius is the sign of the
+-- step, not a measurement.
+import NaturalMachine.KFlow
+-- δ_end, by Lawvere/Cantor: for every quotation ⌜−⌝ : 𝒬 → (𝒬 → Bool) the
+-- diagonal observable lies outside the image, so the end is never among the
+-- things the machine can say about the end.  Unconditional, no fuel.
+import NaturalMachine.EndObstruction
+-- and the two put together: the flow halting is a theorem about ∂, δ_end is
+-- a theorem about ⌜−⌝, and `halting-does-not-close` shows the second
+-- survives the first -- completeness does not imply termination of enquiry.
+import NaturalMachine.QuestionMachine
+-- Chu(X,𝒯,e): the defect is monotone in the test list, so a vanishing defect
+-- is a statement about 𝒯 and never about X (the empty test list makes every
+-- pair agree).  Also δ_σ = 0 ⇍ δ_σ^base = 0: the base can be flat while the
+-- fibre is not, so a base-only test is not a test.
+import NaturalMachine.ChuAdvance
+-- The advance gate as a record of its five clauses, with the two that are
+-- not formalizable here carried as explicit propositions the caller must
+-- supply rather than silently assumed.  The gate forces separation, and
+-- UsefulEscape > 0 is exactly ϱ ≢ 0, hence a strictly cheaper presentation;
+-- the non-theorem δ = 0 ⇒ Advance is exhibited as failing.
+import NaturalMachine.AdvanceGate
+-- Γ↝'s soundness was weaker than its own proof term: the witness it
+-- returns is a MEMBER of the neighbour list.  With optimality and the
+-- greatest-lower-bound clause this certifies Γ↝ to BE the minimum rather
+-- than to lie below it.  (`Any`/`_∈_` are defined here: cubical v0.7 has
+-- neither.)
+import NaturalMachine.ResidualPath
+-- Division by a modulus carried across the chart -- what TransportMul named
+-- as its own next step.  The certificate threads the residue as a component
+-- and proves it equals `modw`, which is what keeps the algorithm linear:
+-- written against `modw` directly it would re-run the automaton per level
+-- and still satisfy every stated theorem.  Parameterised in the base.
+import NaturalMachine.TransportDivQuot
+-- The converse of `modw-zero→∣`, hence `decDivides`; and the line that
+-- makes it useful, `decDividesℕ-agrees`: the charted test is EQUAL to
+-- CoprimeSplitting.dec∣, so it substitutes in the walk lane without
+-- touching a downstream proof.  Parameterised in the base.
+import NaturalMachine.WalkResidueBridge
+-- The other half of the walk's cost: cap m built ON the chart.  cap (suc m)
+-- = cap m · capQuot m with capQuot m fixed by one residue-automaton pass
+-- and arithmetic on numbers ≤ suc m, so the capacity is m digit-length
+-- passes and never a unary numeral.  Needed a reconciliation the library
+-- lacked (`%≡mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
+-- _mod_) before the Euclid step could even be stated.
+import NaturalMachine.WalkChartedCap
+-- The walk's frontier, broken: next 8 ≡ 9, next 9 ≡ 11, next 10 ≡ 11, each
+-- checked without running the walk on cap m.  WalkFast guessed the blocker
+-- was its `with`; the bisection in this file's header shows it is the
+-- conversion checker comparing the goal's `next 8` against a SECOND,
+-- independently elaborated one, and that `let`-sharing removes it.
+import NaturalMachine.WalkFastInstance
+-- The X-dependence the single-scale witness was missing: for a canonical
+-- word of length L the chart costs L+1 steps and the home presentation is
+-- at least b^(L−1), so the speedup is quantified over every base, every
+-- pair of edge costs, and every word past a derived threshold -- not four
+-- observations at four sizes.
+import NaturalMachine.TransportDivScale
+-- The same descent without fuel: accessibility pushed back along the
+-- measure, generalised to any well-founded relation, with KFlow.decay
+-- recovered as the instance μ = id.  The naive converse is false; what is
+-- forced is exactly one strict decrease along the orbit.
+import NaturalMachine.KFlowWF
+-- Lawvere 1969, of which δ_end is the Bool/`not` corollary.  Nothing here
+-- is new -- and `formal/cubical/LawvereDiagonal.agda` already had the
+-- general theorem in pointwise form, so this is a bridge between the two
+-- statements, not a second proof.
+import NaturalMachine.Lawvere
+-- ChuAdvance's qualitative shrink law as an inequality: the defect is a
+-- number, monotone in the test list, zero on the empty list, and equal to
+-- the saturation count only when the tests separate.  Discreteness is a
+-- hypothesis, never an assumption about X.
+import NaturalMachine.ChuDefect
+-- Genotype/phenotype separation as theorems rather than design prose: no
+-- edit of the evaluation store invents or alters a genotype; transport of
+-- a score along a Bridge needs the invariance hypothesis, and the
+-- homometric pair proves the Bridge alone cannot do that work; a gamed
+-- evaluator's records can be quarantined without touching anything else.
+import NaturalMachine.SelfImprovement
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
@@ -620,3 +736,77 @@ import NaturalMachine.FiniteWorldMaximizer
 -- "symmetry enlargement" is false.  Negative control:
 -- `NaturalMachine/Control/InflationFlattened.agda`, which must fail.
 import NaturalMachine.InflationVersusSubgroup
+
+-- The unreachability verdict of message 0533 with the premise it omits
+-- ("`start = 0`") in the type: `{s0}` is closed, but from `s1` one
+-- action reaches the sink, so the start-free reading is false
+-- (`notes/FULL_READ_DRAW_6.md` §B1).  Negative control:
+-- `NaturalMachine/Control/ReachabilityWithoutStart.agda`, which must fail.
+import NaturalMachine.ReachableFromStart
+
+-- Injectivity of the comparison maps is SUFFICIENT for the atomic
+-- satisfaction biconditional and not necessary: an explicit revised
+-- observer merging two unrealized outcomes satisfies the full invariant
+-- (`notes/FULL_READ_DRAW_6.md` §D3).  Negative control:
+-- `NaturalMachine/Control/InjectivityNecessary.agda`, which must fail.
+import NaturalMachine.ComparisonNeedNotBeInjective
+
+-- Two witnesses bound a constant, not every function of (b,n): the
+-- yield's third known value refutes the promoted universal
+-- (`notes/FULL_READ_DRAW_6.md` §C1).  Negative control:
+-- `NaturalMachine/Control/FunctionBoundFromConstant.agda`, which must fail.
+import NaturalMachine.ConstantBoundNotFunctionBound
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN, 2026-08-15 (Claude, Euclid-lineage orphan pass;
+-- collab/messages/0828-euclid-orphans.md, notes/TOOLCHAIN_SKEW_AND_
+-- COVERAGE.md §7).
+--
+-- The import closure of `Everything.agda` was recomputed from the
+-- sources (BFS over `^\s*(open\s+)?import\s+`, not a grep of this
+-- file's import lines and not a comment) and compared against
+-- `find . -name '*.agda'`.  It reached 322 of the 367 files; the 45
+-- unreached split into 9 in `NaturalMachine/Control/` (which MUST stay
+-- unreached — verified: every occurrence of `NaturalMachine.Control`
+-- outside that directory is inside a comment) and 36 genuine orphans.
+--
+-- The modules below are the `NaturalMachine/` orphans that were run
+-- INDIVIDUALLY under the BUILD.md pin (Agda 2.8.0 + cubical v0.9,
+-- LC_ALL=C.UTF-8) and exited 0 before this block was written.  Nothing
+-- red and nothing unrun was added.
+--
+-- NOT added, and why (see the note for the exit codes):
+--   NaturalMachine/WalkFastInstance.agda                  killed (137)
+--   NaturalMachine/DSONucleusMiddleAssociativityAudit.agda unrun
+--   NaturalMachine/DSONucleusResidualAudit.agda            unrun
+-- The last two had not returned after >25 and >15 minutes of pin
+-- typechecking on a contended container; `WalkFastInstance` was killed
+-- by the OOM killer, which is not a typecheck verdict in either
+-- direction.  They remain orphans and remain OUTSTANDING.
+------------------------------------------------------------------------
+import NaturalMachine.BraidCoherenceBoundary
+import NaturalMachine.CarryClassNonzero
+import NaturalMachine.CompressionDefectRegularWitness
+import NaturalMachine.DSOFactorRankFinite
+import NaturalMachine.DeclaredRootedProfiles
+import NaturalMachine.EndianAtlasReplay
+import NaturalMachine.FiniteEquivalenceBridge
+import NaturalMachine.FutureSeparation
+import NaturalMachine.Gamma0
+import NaturalMachine.GeneratedGrammarDescentBoundary
+import NaturalMachine.GroupCohomologyH2
+import NaturalMachine.OperationalCoverageCounterexample
+import NaturalMachine.OracleQueries
+import NaturalMachine.PhysicalLearningQuotient
+import NaturalMachine.PiPartialOnEveryPrime
+import NaturalMachine.PolyHaythamResponseCostNoGo
+import NaturalMachine.PolynomialAttachmentGrowth
+import NaturalMachine.QuadraticRefinement
+import NaturalMachine.QuotientUnitSourceCutBoundary
+import NaturalMachine.RootedGrothendieck
+import NaturalMachine.SpernerFromSl2
+import NaturalMachine.StructuredSymmetryTransport
+import NaturalMachine.TransportCost
+import NaturalMachine.Vacuity
+import NaturalMachine.WFIScratch1
+import NaturalMachine.WFIScratch2

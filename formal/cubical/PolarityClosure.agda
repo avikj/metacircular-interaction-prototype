@@ -66,8 +66,17 @@
 --   §3  THE CONTRAST.  Vacuity is a property of the Boolean gloss, not
 --       of the construction.  `cl-not-identity` exhibits a specific ε
 --       (one point, the total relation) with cl ≠ id, as a term of type
---       ¬ ((α : Sub Unit) → cl α ⊑ α).  A one-point contrast is the
+--       ¬ ((α : Pow Unit) → cl α ⊑ α).  A one-point contrast is the
 --       smallest possible and needs no finite search.
+--
+--   §3b THE CONTRAST, NON-DEGENERATE.  §3's witness has the constant
+--       full map as its closure, which invites the reply that the only
+--       alternative to the identity is triviality.  `Contrast2` refutes
+--       that on a TWO-point universe (X = Bool, i.e. Fin 2), with
+--       ε(x,y) = (x ≡ true): `cl-T` shows {true} is closed (so cl is
+--       not constant) while `cl-F-not-identity` shows {false} is not
+--       (so cl is not the identity).  A genuine closure, strictly
+--       between the two degenerate ones, at |X| = 2.
 --
 --   §4  THE OPEN EDGE of the note, settled.  For an indexed family ε_ι,
 --       the flattening ε̂(ξ,(ι,κ)) := ε_ι(ξ,κ) gives
@@ -92,7 +101,7 @@ module PolarityClosure where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (_×_)
 open import Cubical.Data.Unit using (Unit; tt)
-open import Cubical.Data.Bool using (Bool; true; false)
+open import Cubical.Data.Bool using (Bool; true; false; true≢false)
 open import Cubical.Data.Empty using (⊥; rec)
 open import Cubical.Relation.Nullary using (¬_; Dec; yes; no)
 
@@ -100,33 +109,33 @@ open import Cubical.Relation.Nullary using (¬_; Dec; yes; no)
 -- §0.  Subsets, inclusion, bi-inclusion.
 ------------------------------------------------------------------------
 
-Sub : ∀ {ℓ} → Type ℓ → Type (ℓ-suc ℓ)
-Sub {ℓ} T = T → Type ℓ
+Pow : ∀ {ℓ} → Type ℓ → Type (ℓ-suc ℓ)
+Pow {ℓ} T = T → Type ℓ
 
 module _ {ℓ} {T : Type ℓ} where
 
   infix 4 _⊑_ _≐_
 
-  _⊑_ : Sub T → Sub T → Type ℓ
+  _⊑_ : Pow T → Pow T → Type ℓ
   α ⊑ β = (t : T) → α t → β t
 
-  ⊑-refl : (α : Sub T) → α ⊑ α
+  ⊑-refl : (α : Pow T) → α ⊑ α
   ⊑-refl α t x = x
 
-  ⊑-trans : {α β γ : Sub T} → α ⊑ β → β ⊑ γ → α ⊑ γ
+  ⊑-trans : {α β γ : Pow T} → α ⊑ β → β ⊑ γ → α ⊑ γ
   ⊑-trans f g t x = g t (f t x)
 
   -- Bi-inclusion: the equality of subsets used everywhere below.
-  _≐_ : Sub T → Sub T → Type ℓ
+  _≐_ : Pow T → Pow T → Type ℓ
   α ≐ β = (α ⊑ β) × (β ⊑ α)
 
-  ≐-refl : (α : Sub T) → α ≐ α
+  ≐-refl : (α : Pow T) → α ≐ α
   ≐-refl α = ⊑-refl α , ⊑-refl α
 
-  ≐-sym : {α β : Sub T} → α ≐ β → β ≐ α
+  ≐-sym : {α β : Pow T} → α ≐ β → β ≐ α
   ≐-sym (f , g) = g , f
 
-  ≐-trans : {α β γ : Sub T} → α ≐ β → β ≐ γ → α ≐ γ
+  ≐-trans : {α β γ : Pow T} → α ≐ β → β ≐ γ → α ≐ γ
   ≐-trans (f , f') (g , g') = ⊑-trans f g , ⊑-trans g' f'
 
 ------------------------------------------------------------------------
@@ -143,68 +152,68 @@ module _ {ℓ} {T : Type ℓ} where
 module Polarity {ℓ} {A B : Type ℓ} (ε : A → B → Type ℓ) where
 
   -- α ↦ α^⊥ for α ⊆ A: the counter-witnesses ε-related to all of α.
-  perp⁺ : Sub A → Sub B
+  perp⁺ : Pow A → Pow B
   perp⁺ α b = (a : A) → α a → ε a b
 
   -- β ↦ β^⊥ for β ⊆ B: the mirror half.
-  perp⁻ : Sub B → Sub A
+  perp⁻ : Pow B → Pow A
   perp⁻ β a = (b : B) → β b → ε a b
 
   -- Both maps are ANTITONE.
-  perp⁺-anti : {α α' : Sub A} → α ⊑ α' → perp⁺ α' ⊑ perp⁺ α
+  perp⁺-anti : {α α' : Pow A} → α ⊑ α' → perp⁺ α' ⊑ perp⁺ α
   perp⁺-anti s b h a αa = h a (s a αa)
 
-  perp⁻-anti : {β β' : Sub B} → β ⊑ β' → perp⁻ β' ⊑ perp⁻ β
+  perp⁻-anti : {β β' : Pow B} → β ⊑ β' → perp⁻ β' ⊑ perp⁻ β
   perp⁻-anti s a h b βb = h b (s b βb)
 
   -- The GALOIS CONNECTION (antitone form): α ⊆ β^⊥ ⟺ β ⊆ α^⊥.
   -- Both directions are the same swap of two universal quantifiers,
   -- which is why no hypothesis on ε is ever needed.
-  galois-→ : {α : Sub A} {β : Sub B} → α ⊑ perp⁻ β → β ⊑ perp⁺ α
+  galois-→ : {α : Pow A} {β : Pow B} → α ⊑ perp⁻ β → β ⊑ perp⁺ α
   galois-→ h b βb a αa = h a αa b βb
 
-  galois-← : {α : Sub A} {β : Sub B} → β ⊑ perp⁺ α → α ⊑ perp⁻ β
+  galois-← : {α : Pow A} {β : Pow B} → β ⊑ perp⁺ α → α ⊑ perp⁻ β
   galois-← h a αa b βb = h b βb a αa
 
   -- The two unit inclusions.
-  unit⁺ : (α : Sub A) → α ⊑ perp⁻ (perp⁺ α)
+  unit⁺ : (α : Pow A) → α ⊑ perp⁻ (perp⁺ α)
   unit⁺ α = galois-← (⊑-refl (perp⁺ α))
 
-  unit⁻ : (β : Sub B) → β ⊑ perp⁺ (perp⁻ β)
+  unit⁻ : (β : Pow B) → β ⊑ perp⁺ (perp⁻ β)
   unit⁻ β = galois-→ (⊑-refl (perp⁻ β))
 
   -- THE CLOSURE OPERATOR α ↦ α^⊥⊥ on the A-side.
-  cl : Sub A → Sub A
+  cl : Pow A → Pow A
   cl α = perp⁻ (perp⁺ α)
 
-  cl-ext : (α : Sub A) → α ⊑ cl α
+  cl-ext : (α : Pow A) → α ⊑ cl α
   cl-ext = unit⁺
 
-  cl-mono : {α α' : Sub A} → α ⊑ α' → cl α ⊑ cl α'
+  cl-mono : {α α' : Pow A} → α ⊑ α' → cl α ⊑ cl α'
   cl-mono s = perp⁻-anti (perp⁺-anti s)
 
-  cl-cong : {α α' : Sub A} → α ≐ α' → cl α ≐ cl α'
+  cl-cong : {α α' : Pow A} → α ≐ α' → cl α ≐ cl α'
   cl-cong (f , g) = cl-mono f , cl-mono g
 
   -- The triple-polar identity α^⊥ = α^⊥⊥⊥, whence idempotence.
-  triple : (α : Sub A) → perp⁺ (cl α) ≐ perp⁺ α
+  triple : (α : Pow A) → perp⁺ (cl α) ≐ perp⁺ α
   triple α = perp⁺-anti (cl-ext α) , unit⁻ (perp⁺ α)
 
   -- IDEMPOTENCE, UNCONDITIONALLY.  No hypothesis on ε.
-  cl-idem : (α : Sub A) → cl (cl α) ≐ cl α
+  cl-idem : (α : Pow A) → cl (cl α) ≐ cl α
   cl-idem α = perp⁻-anti (snd (triple α)) , perp⁻-anti (fst (triple α))
 
   -- The mirror closure on the χ⁺ side, free by symmetry.
-  cl' : Sub B → Sub B
+  cl' : Pow B → Pow B
   cl' β = perp⁺ (perp⁻ β)
 
-  cl'-ext : (β : Sub B) → β ⊑ cl' β
+  cl'-ext : (β : Pow B) → β ⊑ cl' β
   cl'-ext = unit⁻
 
-  cl'-mono : {β β' : Sub B} → β ⊑ β' → cl' β ⊑ cl' β'
+  cl'-mono : {β β' : Pow B} → β ⊑ β' → cl' β ⊑ cl' β'
   cl'-mono s = perp⁺-anti (perp⁻-anti s)
 
-  cl'-idem : (β : Sub B) → cl' (cl' β) ≐ cl' β
+  cl'-idem : (β : Pow B) → cl' (cl' β) ≐ cl' β
   cl'-idem β =
       perp⁺-anti (unit⁺ (perp⁻ β))
     , perp⁺-anti (perp⁻-anti (cl'-ext β))
@@ -226,13 +235,13 @@ module BooleanGloss {ℓ} (X : Type ℓ) where
   open Polarity ε≠ public
 
   -- α^⊥ IS the complement.  Unconditional.
-  perp-is-complement : (α : Sub X) → perp⁺ α ≐ (λ x → ¬ (α x))
+  perp-is-complement : (α : Pow X) → perp⁺ α ≐ (λ x → ¬ (α x))
   perp-is-complement α =
       (λ y h αy → h y αy refl)
     , (λ y n a αa p → n (subst α p αa))
 
   -- α^⊥⊥ IS the double complement.  Unconditional.
-  cl-is-¬¬ : (α : Sub X) → cl α ≐ (λ x → ¬ ¬ (α x))
+  cl-is-¬¬ : (α : Pow X) → cl α ≐ (λ x → ¬ ¬ (α x))
   cl-is-¬¬ α =
       (λ x h n → h x (λ a αa p → n (subst α p αa)) refl)
     , (λ x nn b hb p → nn (λ αx → hb x αx p))
@@ -240,11 +249,11 @@ module BooleanGloss {ℓ} (X : Type ℓ) where
   -- ... hence THE CLOSURE IS THE IDENTITY on decidable subsets, which
   -- is what "a subset of a pre-given universe" means classically.
   -- THE BOXED DISPLAY IS VACUOUS.
-  ¬¬-out : (α : Sub X) (x : X) → Dec (α x) → ¬ ¬ (α x) → α x
+  ¬¬-out : (α : Pow X) (x : X) → Dec (α x) → ¬ ¬ (α x) → α x
   ¬¬-out α x (yes p) nn = p
   ¬¬-out α x (no k)  nn = rec (nn k)
 
-  cl-identity-on-Dec : (α : Sub X) → ((x : X) → Dec (α x)) → cl α ≐ α
+  cl-identity-on-Dec : (α : Pow X) → ((x : X) → Dec (α x)) → cl α ≐ α
   cl-identity-on-Dec α d =
       (λ x h → ¬¬-out α x (d x) (fst (cl-is-¬¬ α) x h))
     , cl-ext α
@@ -286,7 +295,7 @@ module Contrast where
 
   open Polarity εtotal
 
-  ∅ : Sub Unit
+  ∅ : Pow Unit
   ∅ _ = ⊥
 
   -- The closure of ∅ is inhabited at the point, while ∅ is not.
@@ -294,8 +303,70 @@ module Contrast where
   cl-∅-full _ _ = tt
 
   -- Hence cl is NOT the identity for this ε: it is not deflationary.
-  cl-not-identity : ¬ ((α : Sub Unit) → cl α ⊑ α)
+  cl-not-identity : ¬ ((α : Pow Unit) → cl α ⊑ α)
   cl-not-identity h = h ∅ tt cl-∅-full
+
+------------------------------------------------------------------------
+-- §3b.  A SHARPER CONTRAST, ON A TWO-POINT UNIVERSE.
+--
+-- §3 is the smallest possible witness, but it is open to the reply
+-- that a one-point universe with the total relation is degenerate: its
+-- closure is the CONSTANT map to the full set, so one might suspect
+-- that the only alternatives to "identity" are "everything".  They are
+-- not.  Take X = Bool (a two-element universe, i.e. Fin 2) and the
+-- b-independent relation
+--
+--     ε(x , y) := (x ≡ true)
+--
+-- — a legitimate two-sided evaluation in the sense of D0020 §7: the
+-- witness ξ is ε-related to a counter-witness κ iff ξ is `true`,
+-- irrespective of κ.  For this ε:
+--
+--   * `cl-T-closed`   : the subset {true} IS closed, so cl is not the
+--                       constant full map; and
+--   * `cl-F-true`     : the subset {false} is NOT closed — its double
+--                       polar contains `true` — so cl is not the
+--                       identity either.
+--
+-- Hence on a universe of size 2 the closure operator can be a genuine,
+-- non-degenerate closure: strictly between the identity (which is what
+-- §2 shows the Boolean gloss ε = (≠) forces) and the constant map.
+-- Vacuity is therefore a property of the GLOSS, not of the size of the
+-- universe and not of the construction.
+------------------------------------------------------------------------
+
+module Contrast2 where
+
+  -- ε(x , y) = (x ≡ true), independent of the second argument.
+  εT : Bool → Bool → Type₀
+  εT x _ = x ≡ true
+
+  open Polarity εT
+
+  T F : Pow Bool
+  T x = x ≡ true
+  F x = x ≡ false
+
+  -- {true} is closed: cl T ⊑ T (and T ⊑ cl T is `cl-ext`).
+  cl-T-closed : cl T ⊑ T
+  cl-T-closed a h = h true (λ x p → p)
+
+  cl-T : cl T ≐ T
+  cl-T = cl-T-closed , cl-ext T
+
+  -- {false} is not closed: `true` lies in its double polar, because
+  -- the polar of {false} is empty (nothing ε-related to `false`).
+  cl-F-true : cl F true
+  cl-F-true b h = refl
+
+  -- ... and `true` is not in {false}.
+  ¬F-true : ¬ (F true)
+  ¬F-true p = true≢false p
+
+  -- So for this ε the closure is NOT the identity, on a two-point
+  -- universe, with a non-empty proper subset as the witness.
+  cl-F-not-identity : ¬ (cl F ⊑ F)
+  cl-F-not-identity h = ¬F-true (h true cl-F-true)
 
 ------------------------------------------------------------------------
 -- §4.  THE INDEXED CASE, AND THE OPEN EDGE.
@@ -322,15 +393,15 @@ module Indexed {ℓ} {I A B : Type ℓ} (ε : I → A → B → Type ℓ) where
     renaming (cl to clHat; cl-idem to clHat-idem; cl-cong to clHat-cong)
 
   -- the closure at index ι
-  clAt : I → Sub A → Sub A
+  clAt : I → Pow A → Pow A
   clAt i = Polarity.cl (ε i)
 
   -- the intersection of the indexed closures — Def. B.3's shape
-  ⋂cl : Sub A → Sub A
+  ⋂cl : Pow A → Pow A
   ⋂cl α a = (i : I) → clAt i α a
 
   -- THE FLATTENING, both inclusions.
-  flatten : (α : Sub A) → clHat α ≐ ⋂cl α
+  flatten : (α : Pow A) → clHat α ≐ ⋂cl α
   flatten α =
       (λ a h i b hb → h (i , b) hb)
     , (λ a h ib hb → h (fst ib) (snd ib) hb)
@@ -339,15 +410,15 @@ module Indexed {ℓ} {I A B : Type ℓ} (ε : I → A → B → Type ℓ) where
   -- of closures" — that inference is invalid in general, which is
   -- exactly what Def. B.3 flags — but from the fact that this
   -- particular intersection IS a double polar.
-  intersection-idem : (α : Sub A) → ⋂cl (⋂cl α) ≐ ⋂cl α
+  intersection-idem : (α : Pow A) → ⋂cl (⋂cl α) ≐ ⋂cl α
   intersection-idem α =
     ≐-trans (≐-sym (flatten (⋂cl α)))
       (≐-trans (clHat-cong (≐-sym (flatten α)))
         (≐-trans (clHat-idem α) (flatten α)))
 
   -- ... and it is a closure operator outright.
-  intersection-ext : (α : Sub A) → α ⊑ ⋂cl α
+  intersection-ext : (α : Pow A) → α ⊑ ⋂cl α
   intersection-ext α a αa i = Polarity.cl-ext (ε i) α a αa
 
-  intersection-mono : {α α' : Sub A} → α ⊑ α' → ⋂cl α ⊑ ⋂cl α'
+  intersection-mono : {α α' : Pow A} → α ⊑ α' → ⋂cl α ⊑ ⋂cl α'
   intersection-mono s a h i = Polarity.cl-mono (ε i) s a (h i)
