@@ -1945,10 +1945,29 @@ round1 mem logh libh ref = do
               m2 { mVocab = mVocab m2 + 1 }
           | Just (Deepen,_,_) <- routed, mSize m2 < K.kSizeCap (mKnobs m2) =
               m2 { mSize = mSize m2 + 1 }
-          | mVocab m2 < length vocabulary && even (mRound m2) =
-              m2 { mVocab = mVocab m2 + 1 }
-          | mSize m2 < K.kSizeCap (mKnobs m2) = m2 { mSize = mSize m2 + 1 }
+          -- WIDEN BEFORE DEEPENING, and the reason is measured rather
+          -- than tasteful.  A factorial re-run (machine/LOOP_MEASUREMENT.md,
+          -- arm D) held the certificate fixed and varied only the growth
+          -- trigger: the OLD boolean rule reached 16 theorems where the
+          -- resonance rule reached 7, spending less CPU.  The mechanism is
+          -- the alternation below.  Deepening multiplies the term space
+          -- geometrically and introduces no new symbol, so it recombines
+          -- what the machine already has; widening introduces a symbol,
+          -- and the nine theorems the old rule got and the new one missed
+          -- were three each about max, monus and le -- symbols the
+          -- resonance rule never reached, because it grew half as often
+          -- and the alternation `even (mRound m2)` spent those growths on
+          -- the horizon.
+          --
+          -- So the trigger stays (KFlow's classification is right about
+          -- WHEN to grow) and the RESPONSE changes: at resonance take the
+          -- axis that adds content, and deepen only once the given
+          -- vocabulary is spent.  This is also what the flow says --
+          -- resonance means the orbit is the point, and recombining the
+          -- same symbols at a larger radius is the one move guaranteed
+          -- not to move it.
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
+          | mSize m2 < K.kSizeCap (mKnobs m2) = m2 { mSize = mSize m2 + 1 }
           -- Past this point the given vocabulary is exhausted and the
           -- size horizon is at its cap.  The machine used to answer that
           -- by raising the horizon anyway and then halting — growing the

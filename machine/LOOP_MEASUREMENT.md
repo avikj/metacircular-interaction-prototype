@@ -20,19 +20,33 @@ At a 15-round budget, on the unseeded start:
 - **The certificate is what moved yield.** 4 theorems → 7, including
   `(x+(y+z)) = ((x+y)+z)` — associativity of `+`, proved by induction. No
   amount of control law could have produced that line, because `refl` cannot
-  check it.
-- **The control law is what moved cost, and it did not move yield.** Holding
-  the gate fixed at `refl`, the three rules leave the theorem count at exactly
-  4 and cut the term space by 7.8×.
-- **The two compound well.** Together: same 7 theorems, 19.2× fewer terms
-  enumerated than the pre-wiring baseline, and the pruned trajectory ends
-  higher (67.0% vs 62.9%).
+  check it. Seeded, round 0 goes 4 → 14 and `KERNEL-SKIP` disappears entirely.
+- **The control law's effect on yield is not zero. It is negative, and it was
+  hidden by the broken gate.** With the certificate held fixed and *only* the
+  growth trigger reverted (arm D), the old boolean rule reaches **16 theorems
+  in 15 rounds where the new rule reaches 7** — and it does so having
+  enumerated slightly *fewer* terms (131,188 vs 143,080) and spent 6.4× *less*
+  engine CPU. On this budget the new control law is worse on every axis except
+  mean `pruned%`.
+- **This inverts the previous report, and the previous report was not wrong.**
+  Under a `refl`-only gate the control law's yield delta really was exactly
+  zero (arm A, re-measured today: 4 theorems either way, 7.8× fewer terms).
+  Widening the vocabulary was worthless then because nothing about the new
+  symbols could be proved. Once the prover can discharge definitional facts
+  about `max`, `-` and `le`, **widening is where the theorems are**, and the
+  new rule's whole mechanism is to classify a barren round as `resonance` and
+  deepen instead — multiplying the term space geometrically rather than
+  reaching the cheap new symbols.
 - **`GATE` has still never refused and `ROUTE` has still never fired** — in
   every run below that contains those rules at all, under either certificate,
-  seeded and unseeded, with yield live. That is now a finding about the rules
+  seeded and unseeded, with yield live. That is a finding about the rules
   rather than about the budget: the expectation that installing theorems would
   give them their first chance to bind was reasonable, and it did not happen.
   §8 gives the structural reason why neither can fire at this length.
+
+The honest one-line summary: **the certificate is a clear win; the control law
+was a win when measured against a gate that could not prove anything, and is a
+loss now that the gate can.**
 
 ## 2. The design
 
@@ -76,7 +90,9 @@ everything it builds:
 |---|---|
 | `6835a4e3` | `2bd0fa99cdc00f78` |
 | `9283c75e` | `b0a9c4d5d0ea96ff` |
-| working tree | `6b7ca8b622e0f5ce` |
+| working tree, arms B and C | `6b7ca8b622e0f5ce` |
+| working tree, arm D | `69546da7e09667a8` (see §6.1 — same behaviour, checked) |
+| arm D variant, cut from the above | `306530e057d0450b` |
 
 **The bound is a round count, not a clock.** `main` never returns, so the script
 watches the engine's own log and stops it when round *N* appears. The engine's
@@ -311,8 +327,87 @@ behaviour. **If a future run shows a nonzero count in either column, this
 variant stops being a single-factor control and the comparison becomes
 three-factor again.**
 
-*(Arm D was still running when this file was written; its table is appended in
-§6.1 below when it completes. Arms A–C stand on their own.)*
+### 6.1 Arm D result — the control law costs 9 theorems
+
+```
+== baseline variant:old-flow ==  (stop reason: rounds-reached)
+round vocab size     terms  pruned%     conj   fresh proved   cum   cpu_s  wall_s assign  flow           gate      route   grow
+    0     3    4        80     35.0        8       8      3     3    0.01    2.31     40  branching      advance   -       -
+    1     3    4        80     57.5        2       2      0     3    0.00    1.47     40  decay          advance   -       widen
+    2     4    4       144     45.1        9       9      2     5    0.02    5.51     40  branching      advance   -       -
+    3     4    4       144     51.4        6       6      0     5    0.01    1.58     40  decay          advance   -       -
+    4     4    4       284     40.8       26      26      0     5    0.01    1.37     40  branching/hold advance   -       deepen
+    5     4    5      1628     51.2      161     135      1     6    0.22   55.85     40  branching      advance   -       -
+    6     4    5      1628     52.9      148     148      1     7    0.37   49.11     40  branching      advance   -       -
+    7     4    5      1628     54.0      146     146      0     7    0.28   43.94     40  decay          advance   -       widen
+    8     5    5      2764     51.1      298     298      3    10    0.26   28.88     40  branching      advance   -       -
+    9     5    5      2764     54.6      265     265      0    10    0.27   28.44     40  decay          advance   -       widen
+   10     6    5      4156     53.1      366     366      3    13    0.32   26.32     40  branching      advance   -       -
+   11     6    5      4156     55.9      335     335      0    13    0.30   19.67     40  decay          advance   -       widen
+   12     7    5      5804     54.7      533     533      0    13    0.31   20.01     40  branching/hold advance   -       deepen
+   13     7    6     44332     57.2     3897    3369      0    13    1.40    1.38     40  branching/hold advance   -       widen
+   14     8    6     61596     53.5     6098    6098      3    16    3.19   34.02     40  branching      advance   -       -
+  rounds=15  theorems=16  theorems/round=1.067
+  cpu=6.97s  wall=319.86s
+  pruned% 35.0 -> 53.5  mean=51.2   rounds stuck (proved=0)=8  longest stuck run=3
+  GATE refusals=0  ROUTE firings=0   assignments 40 -> 40  (constant)
+```
+
+The `current` arm is the arm C table above, integer-for-integer. Deltas:
+
+```
+  metric                         baseline    current      delta
+  theorems (cumulative)            16.000      7.000     -9.000
+  theorems / round                  1.067      0.467     -0.600
+  mean pruned%                     51.200     59.327     +8.127
+  rounds stuck (proved=0)           8.000     12.000     +4.000
+  longest stuck run                 3.000      6.000     +3.000
+  wall seconds total              319.860    210.550   -109.310
+  engine cpu seconds total          6.970     44.770    +37.800
+  GATE refusals                     0.000      0.000     +0.000
+  ROUTE firings                     0.000      0.000     +0.000
+```
+
+| quantity | old-flow variant | current (new flow) |
+|---|---:|---:|
+| theorems | **16** | 7 |
+| terms enumerated | 131,188 | 143,080 |
+| conjectures | 12,298 | 13,767 |
+| engine CPU | 6.97 s | 44.77 s |
+| `KERNEL-ACCEPT` | 16 | 7 |
+| `KERNEL-REJECT` | 65 | 33 |
+| `KERNEL-SKIP` | 0 | 0 |
+| vocabulary reached by round 14 | 8 of 8 | 4 of 8 |
+| horizon reached by round 14 | 6 | 7 |
+
+**The mechanism is visible in the last two rows.** The old rule widens on every
+barren round and is at vocabulary 8, horizon 6 by round 14; the new rule
+classifies barren rounds as `resonance`, deepens, and is at vocabulary 4,
+horizon 7. Deepening costs `r_b` per step (§9) and buys nothing the machine
+cannot already normalise; widening costs one new symbol and exposes a fresh
+family of definitional facts the certificate can now discharge. The variant's
+extra nine theorems are exactly those: three about `max`, three about `-`,
+three about `le` — all symbols the current build never reached.
+
+The variant's library, all 16 lines (the current build's 7 are a prefix of the
+first seven modulo ordering):
+
+```
+x         = (0+x)        s(x)   = (s(0)+x)      (s(x)+y) = s((x+y))
+0         = (0*x)        x      = (s(0)*x)      (x+(y+z)) = ((x+y)+z)
+(s(x)*y)  = (y+(x*y))
+x         = (x max x)    s(x)   = (x max s(x))  s(x)    = (s(x) max x)
+0         = -(x,x)       0      = -(x,s(x))     s(0)    = -(s(x),x)
+0         = le(s(x),x)   s(0)   = le(x,x)       s(0)    = le(x,s(x))
+```
+
+**A caveat on this arm that must not be lost.** `machine/MathMachine.hs` was
+edited between arm C and arm D — the `current` source hash moved from
+`6b7ca8b622e0f5ce` to `69546da7e09667a8`. The variant was cut from the *newer*
+source, so arm D is internally consistent, and the two `current` runs
+(different hashes, separate invocations) agree in **every integer column**, so
+the edit changed no observable behaviour over these 15 rounds. That was checked,
+not assumed.
 
 ## 7. Reproducing the reported "14 at round 0", and what it decomposes into
 
@@ -420,11 +515,22 @@ generator, not more machine time.
 - The certificate lifted yield: 4 → 7 theorems unseeded, 4 → 14 at seeded round
   0, `KERNEL-SKIP` eliminated as a category (65 → 0), and an inductive theorem
   in the library that `refl` could not have admitted.
-- The control law lowered cost without touching yield (arm A: theorems 4 → 4,
-  terms 7.8× fewer), and the two effects compose (arm C: same 7 theorems,
-  19.2× fewer terms than the pre-wiring baseline).
-- These are exact integers, reproduced across separate invocations and across
-  sessions.
+- Under a `refl` gate the control law lowered cost without touching yield
+  (arm A: theorems 4 → 4, terms 7.8× fewer).
+- Under the induction gate the same control law **costs 9 theorems and saves
+  nothing** (arm D: 16 → 7 theorems, 131,188 → 143,080 terms, 6.97 s → 44.77 s
+  engine CPU). The sign of its effect depends on the prover it is steering.
+- These are exact integers, reproduced across separate invocations, across
+  sessions, and across two source hashes of the same behaviour.
+
+**A note on how nearly this was missed.** Arm C — the compound comparison that
+was actually requested, pre-wiring baseline against the current tree — shows
+4 → 7 theorems and 19.2× fewer terms, and reads as an unqualified success for
+everything that landed. It is only when the certificate is held fixed and the
+one-line growth trigger is varied alone that the control law's contribution
+separates out with the opposite sign. A compound A/B across two changes cannot
+attribute its own result, and this one would have credited the control law with
+the certificate's win.
 
 **Cannot show:**
 
@@ -441,11 +547,19 @@ generator, not more machine time.
 
 ## 11. What would settle the rest
 
+- **The trigger, which is now the live question.** Arm D says the `resonance`
+  classification is picking the wrong move on this budget: it deepens where
+  widening is cheaper *and* more productive. Whether that survives past round 14
+  is genuinely open — the old rule exhausts its vocabulary at round 14 and, on
+  the evidence of arm C's baseline, then spins. The natural next measurement is
+  arm D extended until the variant runs out of symbols, which is the first
+  round at which the frugal rule could start repaying its deficit.
 - **The gate.** Run with a deliberately small `kAssign` so the test set
   collapses, and check that `GATE` refuses, that `mAssign` doubles, and that
   the `assign` column steps — the harness will now show all three.
 - **The chooser.** `ROUTE` needs a recorded move cost before it can fire.
   Either seed `mCosts` or establish that 15 rounds cannot produce one, in which
   case the min-plus rule is unreachable in any run of this length and should be
-  described that way.
+  described that way. Note that if `ROUTE` ever does fire, the arm D variant
+  stops being a single-factor control (§6).
 - **Yield past round 14.** The horizon cap, not the budget, is the lever.
