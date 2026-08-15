@@ -155,6 +155,24 @@ equivalence lattice, so **incomparable steps cannot occur out of an advancing st
 $\operatorname{SearchSep}$ holds at both ends of a step, $\delta$ is **constant** along it —
 curvature is informationally inert on exactly the runs the framework certifies.
 
+> **A-1 (filed 2026-08-15, seed173). The four undefined conjuncts now have definitions and one
+> clean negative.** Established by `notes/ADVANCE_CONJUNCTS_DEFINED.md` (seed158, `0759`), read
+> in full. It reports: $\operatorname{Verify}$ and $\operatorname{PreserveProv}$ are **defined
+> and non-trivial only in their citation-rigid readings**;
+> $\operatorname{DeclaredBoundaryPreserved}$ is **defined but collapses to a property of the
+> declaration**; $\operatorname{UsefulEscape}$ **has no definition in the Chu language** and
+> needs a datum the framework does not carry. Its **Collapse theorem** (§7): any conjunct
+> expressible as a function of $(\sim_{\mathcal T_\alpha},\text{anchor})$ is, on precisely the
+> stages where $\operatorname{SearchSep}$ holds, decided by the anchor alone; what survives is
+> the *granularity* of the anchor, not the anchoring. Consequence it states (§8):
+> $\operatorname{Advance}$ is **decidable on ledgered stages and is not a function of
+> $\Diamond_\alpha$ at all**, and decidability is not progress (§9). The entry's own words
+> ~~"$\operatorname{PreserveProv}$, $\operatorname{UsefulEscape}$ and
+> $\operatorname{DeclaredBoundaryPreserved}$ are **undefined as written**"~~ are superseded to
+> the extent above: three of them now have definitions; $\operatorname{UsefulEscape}$'s
+> undefinability is upgraded from "undefined as written" to *proved undefinable in the
+> language*. Its Theorem U is used downstream by `UNTOUCHED_REGIONS_ADJUDICATED.md` §4.
+
 ### 1.7 §F — "$\mathcal T_\alpha \subseteq \mathcal T_{\alpha+1}$ **or not**": does §G's slogan extend?
 
 **Verdict: REFUTED. It does not extend, and nothing replaces it without new data.**
@@ -206,6 +224,48 @@ Yang–Baxter defect explicitly as untouched. Recorded here as a definitional re
 claim that the framework's *use* of $\Gamma\langle\operatorname{YB}_\delta(R)\rangle$ has
 been checked.
 
+> **A-2 (filed 2026-08-15, seed173). "Carries no content beyond notation" is corrected: the
+> *class* is gauge-invariant and the *element* is not, and that is content.** Established by
+> `notes/CENTRE_AND_YANG_BAXTER_DEFECT.md` (seed163, `0764`), read in full; its §3.3, Thm 5.
+> The struck phrase is this entry's ~~"carries no content beyond notation"~~. What that note
+> proves: (i) $\operatorname{YB}_\delta(R)=1\iff$ the braid relation (its Thm 4) is right, but
+> is carried by **cancellation in a group**, hence needs the hypothesis
+> $R\in\operatorname{Aut}(V\otimes V)$ which the transmission never states — for
+> non-invertible $R$ (idempotent / set-theoretic solutions) the whole clause is undefined and
+> the honest defect is a **parallel pair**, not a group element (§3.1); (ii) under gauge
+> $R\mapsto(g\otimes g)R(g\otimes g)^{-1}$ the defect **conjugates**, and the mirror defect
+> $(R_{23}R_{12}R_{23})^{-1}R_{12}R_{23}R_{12}$ is a conjugate that in general differs — so
+> $\operatorname{YB}_\delta$ is **REFUTED as an element, PROVED as a class**, and only the
+> predicate "$=1$" is gauge-invariant (Thm 5). That note's own honesty ledger records Thm 5(2)
+> as *argued, not exhibited* (no explicit $R$ with the two variants unequal), and the strength
+> of this amendment is capped there. (iii) Its Thm 6 adds, CLASSICAL: three strands is the
+> **whole** obstruction — $\operatorname{YB}_\delta(R)=1$ already gives $B_n$-representations
+> for all $n$. (iv) The *use* of $\Gamma\langle\operatorname{YB}_\delta(R)\rangle$, which this
+> entry correctly recorded as unchecked, is now checked and found **ambiguous between two of
+> the four repair modes** ($\Gamma_\Uparrow$ under D0016 §C's typing; $\Gamma_\varnothing$
+> under the normal-closure reading of $\langle-\rangle$), with $\Gamma_{\widehat{\phantom X}}$
+> **refuted** for it (its Thm 7: enlargement of a group is injective, so no ambient kills the
+> defect — there is no $H^1$ beneath it).
+>
+> **A-3 (filed 2026-08-15, seed173). $\Phi_{\mathrm{tr}}$, the other half of this entry:
+> "the transmission claims nothing more" is superseded — four further findings.** Established
+> by `notes/TRACE_FACTOR_ADJUDICATED.md` (seed167, `0768`), read in full. Its verdict table:
+> (a) the setting in which $\operatorname{Tr}$ of a *cyclically composable* triple exists is
+> **CLASSICAL** (bicategorical trace with a shadow — Ponto, Ponto–Shulman — or symmetric
+> monoidal plus dualizability), and §D's **unindexed slogan is a type error** while its
+> indexed $L_{ij}$ form is well-formed: "a note that cites the slogan without the indices will
+> be citing something false"; (b) **REFUTED as written**: $\Phi_{\mathrm{ctr}}$ does not supply
+> enough structure for $\Phi_{\mathrm{tr}}$'s cyclicity — braided is not enough, the missing
+> datum is a **twist** (ribbon/spherical), which the Drinfeld centre does not carry in general;
+> (c) **REFUTED**: the Yang–Baxter defect is **vacuous on $Z(U)$** — $\operatorname{YB}_\delta(R)=1$
+> identically on the object §D itself defines; (d) **CLASSICAL**: "labelled difference becomes
+> basepoint-free cyclicity" is Connes' $\Lambda$ / the cyclic bar construction verbatim, and
+> per D0016 §J6 in the owner's own hand, *translation is not a result*; (e) **OPEN, and that
+> note's sharpest defect**: the four factors of $\Phi_\alpha$ are not exhibited on a common
+> (co)domain, so the **outer composite is not shown to be defined**. Note (b) and (c) concern
+> $\Phi_{\mathrm{ctr}}$ and should be read alongside A-2, whose source note explicitly declines
+> to say whether $\Phi_{\mathrm{ctr}}$ belongs in the composite at all.
+
 ### 1.11 §J5 — "the anti-degeneracy clause is what the fleet measured empirically"
 
 **Verdict: REFUTED as an identification; retained as an analogy.**
@@ -226,12 +286,54 @@ Independence, well-definedness and exhaustiveness of the seven components
 $(X,\mathcal T,e,\rho)$; at present they are seven names.
 **File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §6.
 
+> **A-4 (filed 2026-08-15, seed173). OPEN is answered on four of its five sub-questions; the
+> entry's "what would settle it" has been supplied and the answer is that seven does no work.**
+> Established by `notes/SEVEN_DEFECT_COMPONENTS.md` (seed164, `0765`), read in full. Its own
+> verdict table, quoted: the 7-tuple is **PROVED** to be *a product of heterogeneously typed
+> lattices, not a filtration* (so "$\mathfrak H_\sigma\ominus1$" is **not** meaningful
+> componentwise — no $\ominus$, no comparable norm across coordinates); well-definedness is
+> **PARTIAL — 4 of 7 have a referent** ($\mathrm{sem}$ outright, $\mathrm{proof}$,
+> $\mathrm{boundary}$, $\mathrm{prov}$ on named added data), $\mathrm{charge}$ has **none**, and
+> $\mathrm{resource}$, $\mathrm{info}$ have none whose only natural completions are functions of
+> $\delta^{\mathrm{sem}}$; independence is **PROVED for $(\mathrm{sem},\mathrm{prov})$** (all
+> four vanishing patterns realised at $|X|=2$, $|\mathcal T|=1$) and **REFUTED for
+> $(\mathrm{sem},\mathrm{info})$** under any full-support measure; exhaustiveness remains
+> **OPEN and not settleable as posed**. It further reports §B's own hidden-curvature display as
+> **PARTIAL** (true when $\delta^{\mathrm{base}}$ is a *proper* sub-family, false when the
+> components are jointly exhaustive) and §B's $\pi\mathfrak H_\sigma=1\wedge\widetilde{\mathfrak
+> H}_\sigma\ne1$ clause as **CLASSICAL — the predecessor's Thm 3 restated**. Headline of that
+> note: **the number seven is inert** — every claim in §B is a statement about one projection
+> and its complement, and two coordinates suffice. This entry's class is therefore no longer
+> a single OPEN; the note files it as five verdicts and this ledger does not merge them.
+
 ### 1.13 §C, §E — the ordinal ladder, $\mathfrak F$, $\mathfrak F_{\alpha+1}\succeq\mathfrak F_\alpha$, $\mathbb B = \int^\alpha \Diamond_\alpha$, the closure claim
 
 **Verdict: PROGRAMME.** No convergence, no smallness, no proof that $\Gamma$ is well defined
 on $\mathcal O_\alpha$, no value for $\kappa$, and no proof that $\mathfrak F$ is a functor.
 The transmission's own §J4 says this; the fleet confirms it and adds nothing.
 **File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §6, §7A ("still unproved, in full").
+
+> **A-5 (filed 2026-08-15, seed173). PROGRAMME here meant "nobody looked"; somebody has now
+> looked, and the ladder is refuted at four independent points before smallness is reached.**
+> Established by `notes/ORDINAL_LADDER_SMALLNESS.md` (seed165, `0766`), read in full; fourteen
+> entries, its own verdict table quoted: $\Gamma$ is **not a function** on $\mathcal O_\alpha$
+> (a choice of mode plus a choice of lift — REFUTED, Thm 1); $\operatorname{Obs}$ (D0017 §G) is
+> **not functorial** (REFUTED, Thm 2); $\mathfrak F$ is **not covariant** — $\vee$ is
+> contravariant, so the ladder is a zig-zag and $\operatorname{hocolim}_{\beta<\lambda}$ has no
+> diagram (REFUTED, Thm 3); $\mathfrak F$ is **not an endofunctor** (REFUTED, Thm 4). On
+> smallness: $\kappa=\mathbf{Ord}$ **REFUTED** (Thm 6); $\kappa$ a set ordinal **PARTIAL**, at a
+> large-cardinal price unavailable in ZFC (Thm 7); the accessible/presentable reading
+> **REFUTED** on four hypotheses at once (Thm 8). On termination: the framework has **no**
+> termination clause, only a continuation rule (REFUTED, Prop 9); $\operatorname{Fix}(\mathfrak
+> F)=\emptyset$ **by rank** under §E's universe-raising $\ulcorner-\urcorner$ (Thm 5), which
+> *proves* $\mathfrak F_{\alpha+1}\not\equiv\mathfrak F_\alpha$ **and simultaneously vacuates
+> it**, the two functors compared not sharing a domain; and D0018 §D's saturation clause is
+> **REFUTED** as contradicted by §D's own widening non-implication (Thm 10). On $\succeq$:
+> **no non-constant meaning** under D0016 §E's step (Thm 11), and a meaning exactly under
+> D0018 §D's leaner step plus seed154's Prop. 8(b) (Cor 11.1) — which is §5(ii) of this ledger,
+> and see A-9. That note's one-line verdict: *the ladder does not get off the ground, and the
+> reason is not smallness.* Entries §2.11 and §3.11 of this ledger inherit Thm 2 and Thm 10
+> respectively; see A-8.
 
 ### 1.14 §H, §I — the gem invariants; net, garland, closing identifications
 
