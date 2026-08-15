@@ -90,8 +90,9 @@ usage() {
     '  --rounds N         --smoke-rounds budget per variant (default 12)' \
     '  --timeout SECONDS  wall-clock cap per variant (default 900)' \
     '  --engine SOURCE    engine to build (default machine/MathMachine.hs).' \
-    '                     Snapshotted once, so every variant compiles the' \
-    '                     identical text even if the file is being edited.' \
+    '                     The file is snapshotted once so every variant' \
+    '                     compiles identical text even while it is edited;' \
+    '                     sibling modules come live from machine/.' \
     '  --agda-home DIR    use DIR as AGDA_DIR instead of synthesising one' \
     '  --keep DIR         copy confs, binaries and raw output into DIR' \
     '  --dry-run          validate the variants and print their knob files,' \
@@ -193,7 +194,11 @@ cleanup() {
 trap cleanup EXIT HUP INT TERM
 
 # The engine source is read ONCE.  A race whose arms compile different text
-# because somebody saved the file halfway through is not a race.
+# because somebody saved the file halfway through is not a race.  This covers
+# the engine FILE only: its sibling modules (Certificate, and whatever else it
+# grows) are compiled live from machine/, because pinning those would mean
+# racing a snapshot of a codebase rather than the codebase.  A run started
+# while a sibling is mid-edit fails at the preflight build and says so.
 engine_snapshot="$work_directory/EngineSnapshot.hs"
 cp "$engine_source" "$engine_snapshot"
 # Snapshot the knob module beside it, and put the work directory on GHC's
@@ -335,8 +340,8 @@ build_variant() {
   build_output="$work_directory/engine-$build_label"
   build_objects="$work_directory/objects-$build_label"
   mkdir -p "$build_objects"
-  if ! ghc -O1 -i"$work_directory" -outputdir "$build_objects" \
-       -o "$build_output" "$engine_snapshot" \
+  if ! ghc -O1 -i"$work_directory" -i"$repository_directory/machine" \
+       -outputdir "$build_objects" -o "$build_output" "$engine_snapshot" \
        >"$work_directory/build-$build_label.log" 2>&1
   then
     sed 's/^/      | /' "$work_directory/build-$build_label.log" >&2
