@@ -83,7 +83,7 @@ really about $\sim$.
 
 Per mandate. I proved both from (H1)–(H6) and then compared with seed154.
 
-### 2.1 Theorem 3 (SearchSep forbids incomparability) — correct.
+### 2.1 seed154 Theorem 3 (SearchSep forbids incomparability) — correct.
 
 *Claim.* If $\sim_{\mathcal T_\alpha}=\Delta_X$ then for every $\mathcal T_{\alpha+1}$ the
 step is $\operatorname{Blunt}$ ($\sim_\alpha\subseteq\sim_{\alpha+1}$); dually for $\nabla_X$.
@@ -106,7 +106,7 @@ $\sim_\alpha=\{12\mid3\}$ is strictly between the bounds, and the step to
 $\sim_{\alpha+1}=\nabla$ is $\operatorname{Blunt}$, not Incomparable. Seed154 did not claim
 otherwise. No upgrade found.
 
-### 2.2 Theorem 5 ($\delta$ constant along Advancing runs) — correct, and sharpenable.
+### 2.2 seed154 Theorem 5 ($\delta$ constant along Advancing runs) — correct, and sharpenable.
 
 *Claim.* $\operatorname{SearchSep}$ at both ends $\Rightarrow$
 $\delta_\sigma(\mathcal T_{\alpha+1})=\delta_\sigma(\mathcal T_\alpha)$ for every $\sigma$.
@@ -143,8 +143,8 @@ A candidate definition $P$ for a conjunct must meet all of:
 - **(C4) Not true by construction.** $\operatorname{Advance}$ must not become derivable from
   the other conjuncts or from the definition's own shape. Where it does, I reject the
   definition and say so.
-- **(C5) Survives Theorems F, F′ and Theorem 5.** F/F′ kill monotone functions of
-  $\sim$ alone; Theorem 5 kills *any* function of $\sim$ on Advancing runs, monotone or not
+- **(C5) Survives Theorems F, F′ and seed154 Theorem 5.** F/F′ kill monotone functions of
+  $\sim$ alone; seed154 Theorem 5 kills *any* function of $\sim$ on Advancing runs, monotone or not
   (§7). This is a stronger filter than F′ and it is the operative one here.
 
 (C3) is the classical *vacuity* requirement of temporal model checking — Beer, Ben-David,
@@ -181,7 +181,7 @@ $S\subseteq\mathcal T_\alpha$. The *further datum* is not a new mathematical pri
 The framework as typed in D0016 §A does not carry it; §8 prices this.
 
 **Why the citation, and not "$\Pi_\alpha$ is verified by $\mathcal T_\alpha$".** Because the
-latter is exactly what Theorem 5 destroys (§7). The citation is a *proper subset* of the
+latter is exactly what Theorem K destroys (§7). The citation is a *proper subset* of the
 instrument, and $\operatorname{SearchSep}$ constrains $\sim_{\mathcal T_\alpha}$ while
 saying nothing whatever about $\sim_{S}$ for $S\subsetneq\mathcal T_\alpha$. This is the
 whole trick and it recurs in §5.
@@ -218,7 +218,7 @@ consequence of the others. Nor is it satisfied by everything, by (W1). **Accepte
 **(C5).** $\operatorname{Verify}$ is a function of the pair $(\Pi_\alpha,e_\alpha)$ and
 *not* a function of $\sim_{\mathcal T_\alpha}$ — (W1) and (W2) have the same Chu space,
 hence the same $\sim_{\mathcal T}$, the same $\delta$-family and the same
-$\operatorname{Ob}$, and differ in $\operatorname{Verify}$. Theorems F, F′ and Theorem 5
+$\operatorname{Ob}$, and differ in $\operatorname{Verify}$. Theorems F, F′ and seed154 Theorem 5
 therefore do not reach it. **This is the escape of the prior pass, generalised**: $\Pi_\alpha$
 is the fixed anchor, and it is fixed *relative to the stage*, which is enough, because the
 comparison is between the anchor and a sub-instrument rather than between two stages.
@@ -348,7 +348,7 @@ the only one shaped like a progress measure.
 
 ### 6.2 The negative
 
-**Theorem 4 (no $\sim$-expressible $\operatorname{UsefulEscape}$).** Assume (H5), (H6). Let
+**Theorem U (no $\sim$-expressible $\operatorname{UsefulEscape}$).** Assume (H5), (H6). Let
 $U$ assign to each step a value in a poset with a distinguished element $0$, and suppose $U$
 depends on the step only through the triple $(\sim_{\mathcal T_\alpha},\iota,\sim_{\mathcal T_{\alpha+1}})$
 — equivalently, by Lemma 0, only through the two defect families. Then $U$ takes **one and
@@ -362,9 +362,9 @@ vacuous or unsatisfiable, and in neither case is it a criterion.
 every such step the argument triple is $(\Delta_X,\operatorname{id},\Delta_X)$, one fixed
 tuple; $U$ is a function of it. $\square$
 
-**Ground and strength.** Theorem 4 does **not** use Theorems F or F′, and it does not assume
+**Ground and strength.** Theorem U does **not** use Theorems F or F′, and it does not assume
 $U$ monotone. It is strictly stronger than Proposition 3 of seed154 on this point: F′ kills
-*monotone* functions of resolving power; Theorem 4 kills *all* functions of resolving power,
+*monotone* functions of resolving power; Theorem U kills *all* functions of resolving power,
 on the runs at issue, because the argument is constant there. This is the promised
 strengthening and it is where the mandate's question — does the fixed-anchor escape
 generalise? — gets its sharp answer for this conjunct: **no anchor helps, because it is the
@@ -376,7 +376,7 @@ non-anchor argument that has collapsed.**
 $\operatorname{Res}(\mathcal T):=|\mathcal T/\!\sim_{\mathcal T\text{-dual}}|$, using D0016 §F's
 dual separation $t\sim_T t'\iff\forall x\,e(x,t)=e(x,t')$ — the column-deduplication half of
 Pratt's *biextensional collapse*. This is not a function of $\sim_X$ and so escapes both F′
-and Theorem 4.
+and Theorem U.
 
 **Proposition 4 (and it should not be used).** $\operatorname{Res}$ is not invariant under
 recoding of $Q$, hence is a property of the presentation and not of the instrument's power
@@ -411,7 +411,7 @@ $$\operatorname{gain}(\sigma)=L(\mathfrak Q)-L(\mathfrak Q\mid\sigma)-L(\sigma),
 computable code $L$. Put $\operatorname{UsefulEscape}(\alpha\to\alpha+1):=\sum_{\sigma\in\mathfrak L_{\alpha+1}\setminus\mathfrak L_\alpha}\operatorname{gain}(\sigma)$.
 
 **Proposition 5 (the side condition, and it is the whole content).** Definition 4 satisfies
-(C1)–(C3) and evades Theorem 4 — $\operatorname{gain}$ is not a function of $\sim$ — **iff
+(C1)–(C3) and evades Theorem U — $\operatorname{gain}$ is not a function of $\sim$ — **iff
 $L$ is declared before the run**. If $L$ is permitted to be chosen at or after the step,
 then for any step introducing at least one new sign $\sigma$ one may choose $L$ assigning
 $\sigma$ a short code and $\mathfrak Q\mid\sigma$ a shorter description, making
@@ -424,7 +424,7 @@ signs occur (a sign that is longer than the compression it buys has $\operatorna
 
 **Verdict for $\operatorname{UsefulEscape}$, stated as a negative because that is what it
 is.** *There is no definition of $\operatorname{UsefulEscape}$ in $\mathscr L_{\mathrm{Chu}}$
-that is non-vacuous on Advancing runs.* Theorem 4 is the proof. The further datum required is
+that is non-vacuous on Advancing runs.* Theorem U is the proof. The further datum required is
 **one of**: (i) a run-fixed code $L$, giving Definition 4 with Proposition 5's side
 condition; or (ii) the enrichment making $\partial$ a coend, giving a
 $\Delta\partial_{\mathrm{future}}$ reading per D0016 §H. The framework as transmitted carries
@@ -471,7 +471,7 @@ $D_{\mathrm{sep}}$-only special case, and it is right at that scope.
 Here is the theorem the mandate's question was really asking for, and its answer is not the
 comfortable one.
 
-**Theorem 5 (Collapse).** Assume (H6), (H6i). Let $P$ be any predicate on stages of the form
+**Theorem K (Collapse).** Assume (H6), (H6i). Let $P$ be any predicate on stages of the form
 $$P(\Diamond_\alpha)=\widehat P\bigl(\sim_{\mathcal T_\alpha},A\bigr)$$
 for a datum $A$ that does not depend on $\alpha$ (a *fixed anchor*, of any kind: a
 declaration, a code, a history-independent parameter). Then on every stage at which
@@ -485,7 +485,7 @@ $\operatorname{Advance}$ it is either implied by $\operatorname{SearchSep}$ or c
 by definition; substitute. (H6i) is used only to know that the pulled-back relation on the
 common carrier is still $\Delta$. $\square$
 
-**Corollary 5.1 ($\operatorname{DeclaredBoundaryPreserved}$ collapses).** On a stage with
+**Corollary K.1 ($\operatorname{DeclaredBoundaryPreserved}$ collapses).** On a stage with
 $\operatorname{SearchSep}=1$:
 $$\operatorname{DeclaredBoundaryPreserved}(\Diamond_\alpha)=1\iff D_{\mathrm{id}}\subseteq\Delta_{X_0},$$
 i.e. iff the declaration demanded no non-trivial identification. Hence within
@@ -498,13 +498,13 @@ automatically (any two distinct points are separated, using (H6i) for
 $\iota_\alpha x\ne\iota_\alpha x'$), and the $D_{\mathrm{id}}$ clause holds iff every
 declared identification is of a point with itself. $\square$
 
-**Corollary 5.2 (the free reading of $\operatorname{PreserveProv}$ collapses).** If
+**Corollary K.2 (the free reading of $\operatorname{PreserveProv}$ collapses).** If
 $\operatorname{SearchSep}$ holds at both ends of a step and $\iota$ is injective, then
 $\operatorname{PreserveProv}^{\mathrm{free}}=1$ for every $\operatorname{sep}$-claim, and
 holds for $\operatorname{id}$-claims iff there are no non-diagonal ones. So Definition 3b
-adds nothing to $\operatorname{Advance}$. *Proof.* As Corollary 5.1, applied at $\alpha+1$. $\square$
+adds nothing to $\operatorname{Advance}$. *Proof.* As Corollary K.1, applied at $\alpha+1$. $\square$
 
-**Corollary 5.3 (the free reading of $\operatorname{Verify}$ collapses).** Had we defined
+**Corollary K.3 (the free reading of $\operatorname{Verify}$ collapses).** Had we defined
 $\operatorname{Verify}$ by "every claim of $\Pi_\alpha$ is verified by the whole instrument
 $\mathcal T_\alpha$", then $\operatorname{SearchSep}(\mathcal T_\alpha)=1$ would imply
 $\operatorname{Verify}(\Pi_\alpha)=1$ for all $\operatorname{sep}$-claims. **This is why
@@ -519,7 +519,7 @@ generalises, and §§4, 5, 7.1 are three instances of it. It does **not** make t
 — is pinned to $\Delta_X$ by the $\operatorname{SearchSep}$ conjunct sitting beside them in
 the same conjunction. $\operatorname{SearchSep}=1$ is an extremely strong demand: it says the
 instrument is already maximal in the lattice. Everything expressible through $\sim$ is then
-determined, and Theorem 5 is just that observation taken seriously.
+determined, and Theorem K is just that observation taken seriously.
 
 **So the surviving criterion is not "anchored" but "sub-instrumental or extra-structural":**
 
@@ -527,9 +527,9 @@ determined, and Theorem 5 is just that observation taken seriously.
 |---|---|---|---|
 | $\operatorname{Verify}$ (Def. 2) | yes, to $\Pi_\alpha$ | $\sim_{S_\pi}$ for $S_\pi\subsetneq\mathcal T_\alpha$ | **survives** — sub-instrumental |
 | $\operatorname{PreserveProv}^{\mathrm{rig}}$ (Def. 3a) | yes, to $(\Pi_\alpha,j)$ | the lift relation on tests | **survives** — sub-instrumental |
-| $\operatorname{PreserveProv}^{\mathrm{free}}$ (Def. 3b) | yes | none | collapses (Cor. 5.2) |
-| $\operatorname{UsefulEscape}$ | — | none in $\mathscr L_{\mathrm{Chu}}$ | **no definition exists** (Thm 4); needs $L$ or the enrichment |
-| $\operatorname{DeclaredBoundaryPreserved}$ (Def. 5) | yes, to $\partial_{\mathrm{decl}}$ | none | collapses (Cor. 5.1) |
+| $\operatorname{PreserveProv}^{\mathrm{free}}$ (Def. 3b) | yes | none | collapses (Cor. K.2) |
+| $\operatorname{UsefulEscape}$ | — | none in $\mathscr L_{\mathrm{Chu}}$ | **no definition exists** (Thm U); needs $L$ or the enrichment |
+| $\operatorname{DeclaredBoundaryPreserved}$ (Def. 5) | yes, to $\partial_{\mathrm{decl}}$ | none | collapses (Cor. K.1) |
 
 $\operatorname{SearchSep}$ is not one conjunct among five. It is a hypothesis strong enough
 to trivialise every sibling conjunct that speaks only of the whole instrument.
@@ -544,7 +544,7 @@ is a ledgered stage at each end together with $\iota$, the transport $j:\Pi_\alp
 with its test-lift correspondence, the declared boundary $\partial_{\mathrm{decl}}$ with
 $\iota_\alpha$, and (if the owner supplies it) the run-fixed code $L$.
 
-**Theorem 6 (verdict, two halves).**
+**Theorem D (verdict, two halves).**
 
 **(a) $\operatorname{Advance}$ is not a function of $\Diamond_\alpha$.** Two ledgered stages
 with the *same* septuple $(X,\mathcal F,\mathcal T,e,\rho,\Pi,\mathcal O)$ except for the
@@ -566,24 +566,24 @@ only conjunct whose cost is exponential in the ledger rather than polynomial —
 removes that). $\operatorname{DeclaredBoundaryPreserved}$ (Def. 5) is decided by
 $|D_{\mathrm{sep}}|+|D_{\mathrm{id}}|$ separation tests. $\operatorname{UsefulEscape}$ is
 decided iff Definition 4's $L$ is supplied and computable; **without $L$ it is not decided,
-because it is not defined** (Theorem 4). $\square$
+because it is not defined** (Theorem U). $\square$
 
 **The verdict, stated at the generality I can defend.**
 
 > With Definitions 1, 2, 3a and 5, **four of the five conjuncts of D0016 §G become decidable
 > predicates on ledgered stages and steps, and the fifth does not**, because
-> $\operatorname{UsefulEscape}$ has no definition in the Chu language at all (Theorem 4) and
+> $\operatorname{UsefulEscape}$ has no definition in the Chu language at all (Theorem U) and
 > the framework supplies neither of the two data that would give it one. So
 > $\operatorname{Advance}$ is decidable **conditionally on the owner declaring a code $L$ in
 > advance** (Definition 4, Proposition 5), and is **undecided — indeed undefined —
 > otherwise**. It is in no case a function of $\Diamond_\alpha$ as D0016 §A types it
-> (Theorem 6(a)): the septuple must be extended by the citation, transport and declaration
+> (Theorem D(a)): the septuple must be extended by the citation, transport and declaration
 > ledger, and that extension is the real cost of the criterion.
 >
 > Further, of the four conjuncts that are or can be defined, **two do no work**: given
 > $\operatorname{SearchSep}$, $\operatorname{DeclaredBoundaryPreserved}$ is decided by the
-> declaration alone (Cor. 5.1) and the free reading of $\operatorname{PreserveProv}$ is
-> automatic (Cor. 5.2). $\operatorname{Advance}$ is therefore, on its intended runs,
+> declaration alone (Cor. K.1) and the free reading of $\operatorname{PreserveProv}$ is
+> automatic (Cor. K.2). $\operatorname{Advance}$ is therefore, on its intended runs,
 > effectively the three-conjunct predicate
 > $\operatorname{SearchSep}\wedge\operatorname{Verify}\wedge\operatorname{PreserveProv}^{\mathrm{rig}}$,
 > plus a fourth conjunct awaiting a declared code.
@@ -597,19 +597,19 @@ measure**, and the classical point is that a step predicate and a termination ar
 different objects: Floyd's method (*Assigning Meanings to Programs*, 1967) and Turing's 1949
 note require a map into a well-founded order that strictly decreases, and this is what
 progress measures in the verification literature supply. Theorem F′ of seed154 says no such
-map exists as a function of resolving power; Theorem 4 here says the same on Advancing runs
+map exists as a function of resolving power; Theorem U here says the same on Advancing runs
 without even the monotonicity hypothesis. **So $\operatorname{Advance}$, even fully defined
 and decided at every step, licenses no claim that the run converges, saturates, or reaches
 $\mathbb B$.** The transmission's $\operatorname{hocolim}_\alpha$ is not underwritten by
 $\operatorname{Advance}$, and I claim no such underwriting.
 
 **Other scope limits.**
-- **(H6i) is new and load-bearing** in Corollaries 5.1–5.2. If the transport $\iota$ is
+- **(H6i) is new and load-bearing** in Corollaries K.1–K.2. If the transport $\iota$ is
   non-injective — and $\Gamma$'s pushout gives no guarantee that it is — the collapse
-  arguments lapse, and so does Theorem 5 of seed154 with them.
+  arguments lapse, and so does seed154 Theorem 5 with them.
 - **Definition 1 is a choice.** $\Pi_\alpha$ may be intended as something richer than
   claims-with-citations. What I prove is: (i) *some* citation-like record is necessary, since
-  without one Corollary 5.3 makes $\operatorname{Verify}$ vacuous; (ii) claims-with-citations
+  without one Corollary K.3 makes $\operatorname{Verify}$ vacuous; (ii) claims-with-citations
   is *sufficient* to make it non-vacuous. I do not claim it is the owner's intent.
 - **The provability/provenance ambiguity of §5.1 is unresolved** and is the owner's.
 - **Everything is conditional on §7 of seed154's discrepancy** — whether $\Phi_{\mathrm{cut}}$
@@ -651,19 +651,19 @@ orders. What I actually read, and at what depth:
   Abstraction-Carrying Code*, arXiv cs/0701111) is the literature on *preserving* certificates
   across a change. **Located by search, abstracts only.** I claim no novelty for the pattern;
   what is new here is only that citation-rigidity is what stops the conjunct collapsing
-  (Cor. 5.3), which is a statement about this framework.
+  (Cor. K.3), which is a statement about this framework.
 - **Progress measures and termination.** Floyd 1967, Turing 1949, and ordinal-indexed
   termination; §9 uses them only to state a scope limit. **Not re-searched:** Galois
   connections, FCA, partition lattices, Ellerman — seed149 §10 and seed154 §9 did that, I read
   both, and Lemma 0 and the lattice bounds are cited from there as classical.
 
 **What is new here, briefly.** (1) Lemma 1: the defect on a separating stage *equals* the
-holonomy support, so it is not a function of the instrument at all. (2) Theorem 4: no
+holonomy support, so it is not a function of the instrument at all. (2) Theorem U: no
 $\sim$-expressible $\operatorname{UsefulEscape}$, proved without monotonicity — strictly
-stronger than the F′ route. (3) Theorem 5, the Collapse, and its three corollaries: the
+stronger than the F′ route. (3) Theorem K, the Collapse, and its three corollaries: the
 fixed-anchor escape confers definability but not information, and the real dividing line is
 sub-instrumental versus whole-instrument. (4) Definitions 1, 2, 3a, 5, with independence
-witnesses. (5) Theorem 6(a): $\operatorname{Advance}$ is not a function of the D0016 §A
+witnesses. (5) Theorem D(a): $\operatorname{Advance}$ is not a function of the D0016 §A
 septuple — witnessed, not inferred from missing definitions. Items (1)–(3) are elementary
 once posed; I would rather say so.
 
@@ -691,4 +691,4 @@ converges to anything.
 *Framework, $\operatorname{Advance}$, the four preservation clauses and $\operatorname{gain}$:
 the repository owner, D0016 §A/§B/§F/§G/§H and D0018 §A/§D, 2026-08-14. Theorems A–F: seed149.
 Theorems F′, 2–6 of the prior pass: seed154; its Theorems 3 and 5 re-derived in §2 above.
-Lemma 1, Theorems 4–6, Propositions 1–5, Definitions 1–6: this note. No experiment was run.*
+Lemma 1, Theorems U, K, D, Propositions 1–5, Definitions 1–6: this note. No experiment was run.*
