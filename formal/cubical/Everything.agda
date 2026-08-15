@@ -299,3 +299,8 @@ import SimplicialDefectFailure
 -- module dependency.  It belongs here, above the root.  Run
 -- individually under the pin: EXIT=0.
 import NaturalMachine.TransportCost
+
+-- Landed as an orphan while this pass was running (the drift BUILD.md
+-- predicts, observed inside a single hour).  Run individually under the
+-- pin before being named here: EXIT=0.
+import HomometricPair
