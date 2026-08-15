@@ -486,9 +486,112 @@ in finitely many $L$-terms with no growing parameter.
 
 ---
 
+## 8. Addendum, 2026-08-15 (seed-kolmogorov): the invariance theorem is now a checked term, and the threshold in row 1 of §1's table is exactly $2c$
+
+*Added by addition, per `CLAUDE.md`. Nothing in §§0–7 is altered or deleted. This
+section records one formalisation, one sharpening of a constant that §1 left
+qualitative, and one audit result on the note itself.*
+
+**The term.** `formal/cubical/InvarianceConstant.agda`, `--cubical --guardedness
+--safe --no-import-sorts`, no postulates, no holes, no `TERMINATING`. Verified
+`EXIT=0` in this container under **both** Agda 2.6.3 + cubical v0.5 (`/usr/bin/agda`)
+and the `BUILD.md` pin Agda 2.8.0 + cubical v0.9 (the §6.1 recipe of
+`notes/TOOLCHAIN_SKEW_AND_COVERAGE.md`). Registered in `Everything.agda`; that
+aggregate remains red under 2.6.3 for the pre-existing `SymGroup` skew
+(`TOOLCHAIN_SKEW_AND_COVERAGE` §1), which this module neither causes nor repairs.
+
+**Scope of the formalisation, stated first because it is the thing that gets
+dropped.** A universal machine cannot be built in `--safe` cubical Agda and none
+is attempted. What is formalised is the abstract content of the theorem, which is
+what remains after universality has done its only job: `Simulates c f g :=
+∀x. f x ≤ g x + c` is a *hypothesis*, and universality is precisely what supplies
+two such hypotheses in the classical proof. Everything downstream of that point is
+in the module. So: universality unformalised and named; the theorem formalised.
+
+| §0–7 statement | term in `InvarianceConstant.agda` |
+|---|---|
+| Invariance theorem, constant uniform in the argument | `invariance`, `invariance∃`; the uniformity is the quantifier order in `Within` |
+| $c$ is not unique, and chains of "up to $O(1)$" accumulate | `within-refl` (at 0), `within-sym`, `within-trans` (constants **add**), `within-mono` |
+| Uniformity Lemma, additive half ($k$ terms ⇒ $kc$) | `within-+` |
+| (I1)'s cancellation: $L(X)$ is *gone*, not small | `Cancellation.ΔMystery-indep`, proved by `refl` — cancellation is a fact about the syntax, which is why it costs $0$ and not $c$ |
+| (I2): no absolute value is invariant | `absolute-not-invariant`: for any $f$ and any $c\ge1$ there is a $g$ within $c$ of $f$ disagreeing at **every** object |
+| §1 table row 1: "sign when the gap $\gg c$" | `shorter-needs-margin` — see below |
+
+**The sharpening, and it is a correction of exactly the kind this note is about.**
+§1's table licenses a sign "when the gap $\gg c$". $\gg$ is not a threshold, and
+the threshold is derivable, so by this corpus's own rule the note should not have
+left it qualitative. It is **$2c$, and $2c$ is sharp**:
+
+> **Theorem 7 (`shorter-needs-margin`).** If $\operatorname{Within}c(f,g)$ and
+> $f(x)+2c<f(y)$, then $g(x)<g(y)$.
+> *Proof.* $g(x)+c\le f(x)+2c<f(y)\le g(y)+c$; cancel $c$. $\square$
+> (`weak-margin` gives the $\le$ version from $f(x)+2c\le f(y)$.)
+>
+> **Sharpness, both sides, by finite exhaustive verification on $X=\{0,1\}$ at
+> $c=1$** — admissible as proof under `CLAUDE.md`'s exact/certified clause, and
+> checked, not asserted:
+> - **At gap $=2c$** (`Sharp2c`): $f=(0,2)$, $g=(1,1)$ are within $1$, the
+>   $f$-gap is exactly $2$, and $g(x)=g(y)$. So the conclusion cannot be
+>   strengthened to `<`.
+> - **At gap $=2c-1$** (`SharpBelow2c`): $f=(0,1)$, $g=(1,0)$ are within $1$,
+>   $f(x)<f(y)$, and $g(y)<g(x)$. **The order reverses.** So the threshold cannot
+>   be lowered by even one bit.
+>
+> `threshold-sharp` bundles the two.
+
+The reason the constant is $2c$ and not $c$ is worth stating in words, because it
+is the error a reader makes unaided: the slack is spent *twice*, once pushing
+$f(x)$ up to $g(x)$ and once pulling $f(y)$ down to $g(y)$. Nothing in §§0–7 is
+wrong; row 1 was merely vague where it could have been exact, and that is the
+defect this note was written to catch, appearing in the note that explains it —
+in its mildest available form (a missing factor of 2 inside a $\gg$), but present.
+
+**This also confirms and explains §1's Proposition 2.** Proposition 2 quotes a
+$6c(U,V)$ window for the argmin. That is *not* an independent constant: the
+objective (A) has three non-cancelling terms, so per-candidate slack is $3c$ by
+`within-+`, and Theorem 7 doubles it. $6c=2\cdot 3c$. Proposition 2's constant is
+exactly right and is now derived rather than quoted. Symmetrically, row 1's
+two-term slack $2c$ gives threshold $4c$ **if one compares two $\Delta$'s**; the
+$2c$ above is the threshold for comparing two raw costs within $c$. Which one
+applies depends on what is being compared, and that is the whole point: *the
+constant is not a property of the quantity, it is a property of the comparison.*
+
+**Audit of this note against its own rule (mandate item 3): PASSES.** I checked
+every numeral in §§0–7. There is no bare description length, no compression
+ratio, and no fitted anything. Every slack is written $2c$, $3c$, $6c$ with
+$c=c(U,V)$ named and its dependence on the machine pair explicit; Theorem 5's
+bound is $2^{L(\mathfrak Q)}$ with the $\mathfrak Q$-dependence carried in the
+statement, and §4 says in terms that the *cardinality* is not invariant while the
+*finiteness* is. That is the corpus rule obeyed, not violated. The single
+qualitative constant in the note is the $\gg$ of §1's table, sharpened above; it
+is a vagueness, not a fitted number, and it is now a theorem.
+
+**Scope limits of §8.**
+1. Costs are $\mathbb N$-valued in the module. §7's scope limit 1 therefore
+   applies verbatim: nothing here covers real-valued MDL objectives.
+2. `Within` is subtraction-free (a pair of $\le$'s) rather than $|\cdot|\le c$
+   over $\mathbb Z$. The two are equivalent on $\mathbb N$; no truncated
+   subtraction lemma is used, and no $\mathbb Z$ is imported.
+3. The module formalises §1 and the arithmetic behind §1's table. Theorems 1–6
+   of §§2–4 are **not** formalised — Theorems 5 and 6 need Kraft's inequality and
+   a stage-indexed conditional code, neither of which is in the module. Their
+   status is unchanged: proved in prose here, unchecked by machine.
+4. `Cancellation.ΔMystery-indep` is `refl`. It is included because the fact that
+   it *is* `refl` is the content (nothing to cancel means nothing to bound), not
+   because the proof was difficult.
+
+---
+
 *Method ledger. No experiment was run; no Python; no Agda or Lean authored; no numerical
 computation; no constant fitted. Theorems 1–6, Propositions 1–3: this note. Proposition 5
 of `ADVANCE_CONJUNCTS_DEFINED.md` was verified by reading its statement and proof, not
 cited from summary. The invariance theorem's argument-uniform constant was checked against
 the standard statement before being used. Owner artifacts D0018 and D0019 are derived from
 and quoted, never edited.*
+
+*Ledger amendment, 2026-08-15 (seed-kolmogorov). The ledger above is left standing
+because it is true of §§0–7, which is what it was written about. It is **not** true
+of §8: §8 authored Agda (`formal/cubical/InvarianceConstant.agda`) and ran a
+typechecker. Still no Python, no experiment, no numerical computation, no fitted
+constant; the two finite verifications in §8 are exhaustive over a two-element type
+and are checked by the kernel, not printed by a script.*

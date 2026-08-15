@@ -143,6 +143,10 @@ import Window5Walsh
 -- net — rooted views, type-theoretic Yoneda, propagation, coinductive
 -- weave (T25.A/B/D/F).
 import LawvereDiagonal
+-- Which sentences the diagonal engine proves and which it does not
+-- (notes/GODEL_BRIDGE_ADJUDICATED.md): Tarski is Cantor's term; Gödel I's
+-- second conjunct is refuted as an instance, with a finite countermodel.
+import GodelSeparation
 import AchromaticToy
 import IndraNet
 import StagewiseComposite
@@ -234,3 +238,12 @@ import Swarm.S15ACResidue
 -- under BOTH Agda 2.6.3 + cubical v0.5 and the BUILD.md pin
 -- Agda 2.8.0 + cubical v0.9.
 import PolarityClosure
+
+-- The invariance theorem of Kolmogorov complexity in its abstract form,
+-- and the comparison rule it forces: a description-length comparison
+-- transfers between machines iff the gap exceeds TWICE the invariance
+-- constant, with both sharpness witnesses (companion prose
+-- notes/MYSTERY_AND_DESCRIPTION_LENGTH.md §8).  Added 2026-08-15;
+-- verified exit 0 individually under BOTH Agda 2.6.3 + cubical v0.5 and
+-- the BUILD.md pin Agda 2.8.0 + cubical v0.9.
+import InvarianceConstant
