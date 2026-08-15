@@ -53,7 +53,7 @@ the file's own author in its own header.
 | `Control/SatisfactionWithoutCodomainAgreement` | Must fail: the observer-revision theorem without the standing hypothesis `Y'_{τ(q)} = Y_q`, which the source states once in prose and in neither theorem, title, nor status line. | Designed annihilation; **must stay failing**. |
 | `Control/InjectivityNecessary` | Must fail: "the comparison maps must be injective for the backwards implication", as a message hardened it. | Designed annihilation; **must stay failing**. |
 | `Control/FunctionBoundFromConstant` | Must fail: "no function of (b,n) improves it", asserted as a universal over functions from two constant-sharpness witnesses. | Designed annihilation; **must stay failing**. |
-| `WFIScratch1`, `WFIScratch2` | Truncated working copies of `WalkFastInstance` under different module names, still carrying its header verbatim. Not in the aggregate. | **superseded-by-`WalkFastInstance`**; deletion candidates. |
+| ~~`WFIScratch1`, `WFIScratch2`~~ | Bisection stubs that reached the repository by an over-broad `git add`, listed here as deletion candidates when this index was built. | **deleted** 2026-08-15, once `WalkFastInstance` checked; nothing imported them. |
 | `PayloadMorphism` | The morphism class the arithmetic wants is fixed only as an obligation: "what is fixed is that the interface must name one". | **Open** as a construction. |
 | `LinearOrderFinite` | Records that the copattern form of one definition does not typecheck in this Agda; the workaround is in the file. | Cosmetic; noted for the next toolchain bump. |
 
@@ -126,8 +126,6 @@ Two further standing hypotheses, not gaps but worth the same attention:
 | `WalkUnconditional` | Every conditional walk theorem with its `IsLCM` hypothesis discharged; `cap` becomes an actual computable function. | load-bearing |
 | `WalkFast` | `next-characterised` (the exchange rate) and `decIsPrimePower`, with its non-vacuity. | load-bearing + open gap (§1) |
 | `WalkFastInstance` | `next-8 ≡ 9`, `next-9 ≡ 11`, `next-10 ≡ 11`, each at the size of the answer, `cap m` never run. Its header carries the bisection log with controls, and the record of two wrong diagnoses before the right one. | load-bearing |
-| `WFIScratch1` | 16-line stub. | superseded-by-`WalkFastInstance` |
-| `WFIScratch2` | 85-line truncated copy. | superseded-by-`WalkFastInstance` |
 | `SensorNerode` | The walk's minimal state is its lcm: `Ind S a b ⟺ L ∣ dist a b`, equal families give equal relations, and the relation determines the lcm. Contains no arithmetic. | load-bearing; two named gaps (§1) |
 | `LeastWitnessFactory` | `leastSelector`: a least witness from a mere witness, given propositionality and decidability. | load-bearing (lemma) |
 
