@@ -130,8 +130,9 @@ lemma EvenS.mul {f g : L} (hf : OddS f) (hg : OddS g) : EvenS (f * g) := by
 
 lemma evenS_one : EvenS (1 : L) := by
   intro n hn
-  by_contra _
-  exact hn (coeff_one_of_ne (by rintro rfl; exact hn (by simp) ))
+  by_cases h : n = 0
+  · exact h ▸ even_zero
+  · exact absurd (coeff_one_of_ne h) hn
 
 /-- An odd-supported summand and an even-supported summand are determined
 separately: the "separate odd and even Laurent coefficients" step. -/
@@ -203,11 +204,11 @@ noncomputable def ind (A : Finset ℤ) : L := ∑ a ∈ A, T a
   have : (∑ a ∈ A, (T a : L)).coeff n = ∑ a ∈ A, (T a : L).coeff n := by simp
   rw [this]
   simp only [coeff_T]
-  rw [Finset.sum_ite_eq' A n (fun _ => (1 : ℤ))]
+  exact Finset.sum_ite_eq A n (fun _ => (1 : ℤ))
 
 lemma ind_injective {A B : Finset ℤ} (h : ind A = ind B) : A = B := by
   ext n
-  have := congrArg (fun f => LaurentPolynomial.coeff f n) h
+  have : (ind A).coeff n = (ind B).coeff n := by rw [h]
   simp only [coeff_ind] at this
   by_cases hA : n ∈ A <;> by_cases hB : n ∈ B <;> simp_all
 
@@ -217,7 +218,7 @@ lemma invert_ind (A : Finset ℤ) :
   rw [LaurentPolynomial.invert_apply]
   simp only [coeff_ind, Finset.mem_image]
   by_cases h : -n ∈ A
-  · rw [if_pos h, if_pos ⟨-n, h, by ring⟩]
+  · rw [if_pos h, if_pos (⟨-n, h, by ring⟩ : ∃ a ∈ A, -a = n)]
   · rw [if_neg h, if_neg]
     rintro ⟨x, hx, rfl⟩
     exact h (by simpa using hx)
@@ -243,9 +244,8 @@ theorem coeff_autocorr (A : Finset ℤ) (n : ℤ) :
       = ∑ p ∈ A ×ˢ A, (T (p.1 - p.2) : L).coeff n := by simp
   rw [this]
   simp only [coeff_T]
-  rw [Finset.sum_ite_eq_card_filter_of_eq (s := A ×ˢ A)]
-  · simp
-  · intro p _; rfl
+  rw [Finset.sum_boole]
+  simp [eq_comm]
 
 /-- **Singleton-parity rigidity, normalized set form.**
 `A` and `B` are finite sets of integers, each containing `0` and otherwise
