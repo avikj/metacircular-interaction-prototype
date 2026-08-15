@@ -102,6 +102,24 @@ hiddenCurvature = (h, fst h == fst unit, h /= unit)
     h = (0, 1)
     unit = (0, 0)
 
+-- NaturalMachine.TransportDiv : modw (Horner residue automaton), value, steps.
+-- Little-endian base ten, as in NaturalMachine.Digits.
+valueW :: [Int] -> Int
+valueW = foldr (\d r -> d + 10 * r) 0
+
+modW :: Int -> [Int] -> Int
+modW n = foldr (\d r -> (d + 10 * r) `mod` n) 0
+
+stepsW :: [Int] -> Int
+stepsW w = 1 + length w
+
+-- value-modw, and the cost gap that stalls the walk: chart 5, home 1000
+hornerDemo :: (Int, Int, Bool, Int, Int)
+hornerDemo = (valueW thousand, modW 7 thousand, ok, stepsW thousand, valueW thousand)
+  where
+    thousand = [0, 0, 0, 1]
+    ok = and [ modW n thousand == valueW thousand `mod` n | n <- [1 .. 40] ]
+
 -- NaturalMachine.QuestionMachine : halts
 resolves :: (q -> Int) -> (q -> q) -> q -> Maybe Int
 resolves d f = go 0
@@ -127,3 +145,4 @@ main = do
   putStrLn ("halts (n -> n `div` 2, 64): " ++ show (resolves id (`div` 2) 64))
   putStrLn ("chu (defect0, separates)  : " ++ show chuDemo)
   putStrLn ("hidden curvature          : " ++ show hiddenCurvature)
+  putStrLn ("horner (value,mod7,ok,steps,unary): " ++ show hornerDemo)
