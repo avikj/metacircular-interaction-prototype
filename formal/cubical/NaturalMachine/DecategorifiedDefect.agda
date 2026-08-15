@@ -224,14 +224,17 @@ module Characterization {D : Type ℓ} {A : Type ℓ'}
                         (χ-zero : χ 0D ≡ 0A)
                         (stable : (d : D) → ¬ ¬ (d ≡ 0D) → d ≡ 0D) where
 
-  open Invariant 0D 0A χ χ-zero
+  -- named, not opened: the top level already has `Invariant`
+  -- instantiated at the model, and an unqualified second copy would
+  -- make every name below ambiguous.
+  private module I = Invariant 0D 0A χ χ-zero
 
   no-witness→reflects :
-    ((d : D) → ¬ ((χ d ≡ 0A) × (¬ (d ≡ 0D)))) → ReflectsZero
+    ((d : D) → ¬ ((χ d ≡ 0A) × (¬ (d ≡ 0D)))) → I.ReflectsZero
   no-witness→reflects h d q = stable d (λ d≢0 → h d (q , d≢0))
 
   reflects→no-witness :
-    ReflectsZero → (d : D) → ¬ ((χ d ≡ 0A) × (¬ (d ≡ 0D)))
+    I.ReflectsZero → (d : D) → ¬ ((χ d ≡ 0A) × (¬ (d ≡ 0D)))
   reflects→no-witness r d (q , d≢0) = d≢0 (r d q)
 
 -- The model satisfies the stability hypothesis, because Rank is
