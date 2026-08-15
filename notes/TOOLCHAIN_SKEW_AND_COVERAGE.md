@@ -400,9 +400,35 @@ owner chose: the module is **green under the pin and red under
 state for every source file in this tree, not a regression. The
 `Sl2TensorProduct.agda` row of §6.2 now reads **42 / 0**.
 
-Consequence for §6.4's item 1: `Everything.agda` no longer aborts at
-`Sl2TensorProduct`, so its coverage caveat is lifted at that point and the
-aggregate reaches the modules imported after it.
+Consequence for §6.4's item 1, and it is stronger than "the abort moved":
+**`Everything.agda` is green under the pin.**
+
+```
+$ cd <fresh copy of formal/cubical, _build removed> && LC_ALL=C.UTF-8 \
+    <scratchpad>/Agda-2.8.0/.../agda --library-file=<v0.9> Everything.agda
+… 315 modules checked, 0 errors, 194 UnsupportedIndexedMatch warnings …
+EXIT=0
+```
+
+§6.4 item 1 is therefore **withdrawn, not merely narrowed**: the aggregate's
+exit code is once again evidence about every module it imports, and that
+evidence is positive. Two honesty notes on this run, because the first
+attempt did not earn the claim:
+
+- My first `Everything.agda` run reused `.agdai` interfaces that my own
+  clean `Sl2TensorProduct` check had just written, so it was not a
+  from-scratch aggregate and I did not publish it. The numbers above are a
+  **second** run in a fresh copy with `_build` deleted, in which
+  `Sl2TensorProduct` is genuinely re-checked (it appears as a `Checking`
+  line, not as a cache hit).
+- That second copy was taken **after** merging `origin/main`, so it covers
+  315 modules rather than the first run's 162 — it includes sibling work
+  landed today, among it §6.6's `PolarityClosure` repair. The larger number
+  is the stricter test, not a different one.
+
+This supersedes §6.2's `Everything.agda` row (**42 → 0**) and §6.5 scope
+limit 3 to the extent that the aggregate covers it: what remains unswept
+under the pin is any module `Everything.agda` does not import.
 
 Swept for the same class of breakage and found nothing:
 `grep -rn '·Rid\|·Lid\|+Rid\|+Lid\|Symmetric-Group' --include=*.agda formal/`

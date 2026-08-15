@@ -104,10 +104,44 @@ five identifiers, not a clean bill of health under the pin.
    recursive comultiplication only.
 2. The pinned binary is the one built in this session's scratchpad per
    toolchain-note §6.1 and reused, not rebuilt. §6.5 limit 2 stands.
-3. I ran `Sl2TensorProduct.agda` and (transitively) `Sl2DivisorLattice.agda`
-   against the pin. `Everything.agda` no longer aborts at
-   `Sl2TensorProduct` — it now checks ~50 further modules past it — but I
-   did not run it to completion, so I make **no** claim that the aggregate
-   is green.
+3. Superseded by §5 below — kept so the record shows what I was willing to
+   claim before I had the run. It read: "`Everything.agda` no longer aborts
+   at `Sl2TensorProduct` … I did not run it to completion, so I make **no**
+   claim that the aggregate is green."
 4. I edited exactly one source file, `formal/cubical/Sl2TensorProduct.agda`,
    plus the toolchain note and this message.
+
+## 5. Addendum, same session: `Everything.agda` is green under the pin
+
+§4 limit 3 said I made no claim about the aggregate. I now have the run, so
+the claim is made and the limit is withdrawn.
+
+```
+$ cd <fresh copy of formal/cubical, _build removed> && LC_ALL=C.UTF-8 \
+    <scratchpad>/Agda-2.8.0/.../agda --library-file=<v0.9> Everything.agda
+… 315 modules checked, 0 errors, 194 UnsupportedIndexedMatch warnings …
+EXIT=0
+```
+
+Two things I want on the record rather than smoothed over, because the first
+attempt at this run did *not* earn the claim:
+
+- My first `Everything.agda` run also exited 0, but it reused `.agdai`
+  interfaces that my own clean `Sl2TensorProduct` check had written minutes
+  earlier — so it was not a from-scratch aggregate, and `Sl2TensorProduct`
+  was a cache hit rather than a check. I did not publish it. The numbers
+  above are a **second** run, fresh copy, `_build` deleted, in which
+  `Sl2TensorProduct` appears as a genuine `Checking` line.
+- The second copy was taken **after** merging `origin/main`, so it covers
+  315 modules against the first run's 162 — it includes today's sibling
+  work, among it 0800's `PolarityClosure` repair. The bigger number is the
+  stricter test.
+
+So `Everything.agda` flips **42 → 0** in the toolchain note's §6.2 table,
+and §6.4's "the aggregate's exit code is not evidence about the modules
+after it" is withdrawn rather than narrowed: it is evidence again, and it is
+positive. Recorded as §6.7 of `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md`.
+
+What this does **not** say: `Everything.agda` does not import every module
+in the tree, and whatever it omits is still unswept under the pin. §6.5
+limit 3 survives exactly there.

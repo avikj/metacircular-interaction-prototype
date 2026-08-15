@@ -654,36 +654,34 @@ data Blk (i : Bool) : List Bool → Type₀ where
   bsame : {t : List Bool} → Blk i t → Blk i (i ∷ t)
   bjump : {j : Bool} {t : List Bool} → Cst j t → Blk i (j ∷ t)
 
-Cst→last : (j : Bool) (t : List Bool) → Cst j t → lastL j t ≡ j
-Cst→last j []      cnil      = refl
-Cst→last j (_ ∷ t) (ccons c) = Cst→last j t c
+Cst→last : {j : Bool} {t : List Bool} → Cst j t → lastL j t ≡ j
+Cst→last cnil      = refl
+Cst→last (ccons c) = Cst→last c
 
-Cst→trans : (j : Bool) (t : List Bool) → Cst j t → transL j t ≡ 0
-Cst→trans j []      cnil      = refl
-Cst→trans j (_ ∷ t) (ccons c) =
-  cong (_+ℕ transL j t) (step-refl j) ∙ Cst→trans j t c
+Cst→trans : {j : Bool} {t : List Bool} → Cst j t → transL j t ≡ 0
+Cst→trans {j} cnil            = refl
+Cst→trans {j} (ccons {t} c) =
+  cong (_+ℕ transL j t) (step-refl j) ∙ Cst→trans c
 
 trans→Cst : (i : Bool) (t : List Bool) → transL i t ≡ 0 → Cst i t
 trans→Cst i []              p = cnil
 trans→Cst false (false ∷ xs) p = ccons (trans→Cst false xs p)
 trans→Cst true  (true  ∷ xs) p = ccons (trans→Cst true  xs p)
-trans→Cst false (true  ∷ xs) p = ⊥.rec (snotz p)
-  where open import Cubical.Data.Empty as ⊥ using ()
-trans→Cst true  (false ∷ xs) p = ⊥.rec (snotz p)
-  where open import Cubical.Data.Empty as ⊥ using ()
+trans→Cst false (true  ∷ xs) p = ⊥Mod.rec (snotz p)
+trans→Cst true  (false ∷ xs) p = ⊥Mod.rec (snotz p)
 
-Cst→Blk : (i j : Bool) (t : List Bool) → Cst j t → Blk i t
-Cst→Blk i j []      cnil      = bnil
-Cst→Blk i j (_ ∷ t) (ccons c) = bjump c
+Cst→Blk : {i j : Bool} {t : List Bool} → Cst j t → Blk i t
+Cst→Blk cnil      = bnil
+Cst→Blk (ccons c) = bjump c
 
-Blk→trans : (i : Bool) (t : List Bool) → Blk i t → transL i t ≡ step i (lastL i t)
-Blk→trans i []      bnil            = sym (step-refl i)
-Blk→trans i (_ ∷ t) (bsame b)       =
-  cong (_+ℕ transL i t) (step-refl i) ∙ Blk→trans i t b
-Blk→trans i (j ∷ t) (bjump {j} c)   =
-    cong (step i j +ℕ_) (Cst→trans j t c)
+Blk→trans : {i : Bool} {t : List Bool} → Blk i t → transL i t ≡ step i (lastL i t)
+Blk→trans {i} bnil          = sym (step-refl i)
+Blk→trans {i} (bsame {t} b) =
+  cong (_+ℕ transL i t) (step-refl i) ∙ Blk→trans b
+Blk→trans {i} (bjump {j} {t} c) =
+    cong (step i j +ℕ_) (Cst→trans c)
   ∙ +-zero (step i j)
-  ∙ cong (step i) (sym (Cst→last j t c))
+  ∙ cong (step i) (sym (Cst→last c))
 
 trans→Blk : (i : Bool) (t : List Bool) → transL i t ≡ step i (lastL i t) → Blk i t
 trans→Blk i []               p = bnil
@@ -695,24 +693,24 @@ trans→Blk true  (false ∷ xs) p =
   bjump (trans→Cst false xs (sucStep (not (lastL false xs)) (transL false xs) p))
 
 -- Both good loci are closed under deleting a vertex.
-Cst-del : (n : ℕ) (j : Bool) (t : List Bool) → Cst j t → Cst j (delL n t)
-Cst-del n       j []      cnil      = cnil
-Cst-del zero    j (_ ∷ t) (ccons c) = c
-Cst-del (suc n) j (_ ∷ t) (ccons c) = ccons (Cst-del n j t c)
+Cst-del : (n : ℕ) {j : Bool} {t : List Bool} → Cst j t → Cst j (delL n t)
+Cst-del n       cnil      = cnil
+Cst-del zero    (ccons c) = c
+Cst-del (suc n) (ccons c) = ccons (Cst-del n c)
 
-Blk-del : (n : ℕ) (i : Bool) (t : List Bool) → Blk i t → Blk i (delL n t)
-Blk-del n       i []      bnil          = bnil
-Blk-del zero    i (_ ∷ t) (bsame b)     = b
-Blk-del zero    i (j ∷ t) (bjump {j} c) = Cst→Blk i j t c
-Blk-del (suc n) i (_ ∷ t) (bsame b)     = bsame (Blk-del n i t b)
-Blk-del (suc n) i (j ∷ t) (bjump {j} c) = bjump (Cst-del n j t c)
+Blk-del : (n : ℕ) {i : Bool} {t : List Bool} → Blk i t → Blk i (delL n t)
+Blk-del n       bnil      = bnil
+Blk-del zero    (bsame b) = b
+Blk-del zero    (bjump c) = Cst→Blk c
+Blk-del (suc n) (bsame b) = bsame (Blk-del n b)
+Blk-del (suc n) (bjump c) = bjump (Cst-del n c)
 
-Cst-face₀ : (j x : Bool) (t : List Bool) → Cst j (x ∷ t) → Cst x t
-Cst-face₀ j _ t (ccons c) = c
+Cst-face₀ : {j x : Bool} {t : List Bool} → Cst j (x ∷ t) → Cst x t
+Cst-face₀ (ccons c) = c
 
-Blk-face₀ : (i x : Bool) (t : List Bool) → Blk i (x ∷ t) → Blk x t
-Blk-face₀ i _ t (bsame b)     = b
-Blk-face₀ i j t (bjump {j} c) = Cst→Blk j j t c
+Blk-face₀ : {i x : Bool} {t : List Bool} → Blk i (x ∷ t) → Blk x t
+Blk-face₀ (bsame b) = b
+Blk-face₀ (bjump c) = Cst→Blk c
 
 ------------------------------------------------------------------------
 -- §5.1  The ℤ bookkeeping: 𝔥 ≡ 0 decoded, in each reading.
@@ -749,7 +747,7 @@ GoodC→Blk i t g =
 Blk→GoodC : (i : Bool) (t : List Bool) → Blk i t → GoodC (i ◂ t)
 Blk→GoodC i t b =
     𝔥C≡ i t
-  ∙ ≡→-+≡0 (pos (step i (lastL i t))) (pos (transL i t)) (cong pos (Blk→trans i t b))
+  ∙ ≡→-+≡0 (pos (step i (lastL i t))) (pos (transL i t)) (cong pos (Blk→trans b))
 
 GoodA→Cst : (i : Bool) (t : List Bool) → GoodA (i ◂ t) → Cst i t
 GoodA→Cst i t g =
@@ -761,8 +759,8 @@ GoodA→Cst i t g =
 Cst→GoodA : (i : Bool) (t : List Bool) → Cst i t → GoodA (i ◂ t)
 Cst→GoodA i t c =
     𝔥A≡ i t
-  ∙ cong pos (cong₂ _+ℕ_ (cong (step i) (Cst→last i t c) ∙ step-refl i)
-                         (Cst→trans i t c))
+  ∙ cong pos (cong₂ _+ℕ_ (cong (step i) (Cst→last c) ∙ step-refl i)
+                         (Cst→trans c))
 
 ------------------------------------------------------------------------
 -- §5.2  The defect as a subset of X = ℤ, and the poset (𝒫(X), ⊆).
@@ -789,16 +787,16 @@ act-triv⁻ h x p = sym (plusMinus x h) ∙ cong (_- x) p ∙ -Cancel x
 goodC-face : (j : ℕ) (σ : Simplex Bool) → GoodC σ → GoodC (face j σ)
 goodC-face zero    (i ◂ [])      g = g
 goodC-face zero    (i ◂ (x ∷ t)) g =
-  Blk→GoodC x t (Blk-face₀ i x t (GoodC→Blk i (x ∷ t) g))
+  Blk→GoodC x t (Blk-face₀ (GoodC→Blk i (x ∷ t) g))
 goodC-face (suc j) (i ◂ t)       g =
-  Blk→GoodC i (delL j t) (Blk-del j i t (GoodC→Blk i t g))
+  Blk→GoodC i (delL j t) (Blk-del j (GoodC→Blk i t g))
 
 goodA-face : (j : ℕ) (σ : Simplex Bool) → GoodA σ → GoodA (face j σ)
 goodA-face zero    (i ◂ [])      g = g
 goodA-face zero    (i ◂ (x ∷ t)) g =
-  Cst→GoodA x t (Cst-face₀ i x t (GoodA→Cst i (x ∷ t) g))
+  Cst→GoodA x t (Cst-face₀ (GoodA→Cst i (x ∷ t) g))
 goodA-face (suc j) (i ◂ t)       g =
-  Cst→GoodA i (delL j t) (Cst-del j i t (GoodA→Cst i t g))
+  Cst→GoodA i (delL j t) (Cst-del j (GoodA→Cst i t g))
 
 -- THE COSIMPLICIAL FACE ACTION, in both readings: δ_{d_jσ} ⊆ δ_σ.
 faces-act-contravariantly-C :
@@ -847,15 +845,15 @@ defect-σ₀-A p = pos2≢pos0 p
 -- cosimplicial one.
 Cosimplicial-sharp-fails-corpus :
     ((j : ℕ) (σ : Simplex Bool) → δZ 𝔥C (face j σ) ⊆Z δZ 𝔥C σ)
-  × (δZ 𝔥C σ₀ (pos 0)
-  × ¬ (ρZ true false + ρZ false true ≡ ρZ false false))
+  × ((δZ 𝔥C σ₀ (pos 0))
+  × (¬ (ρZ true false + ρZ false true ≡ ρZ false false)))
 Cosimplicial-sharp-fails-corpus =
   faces-act-contravariantly-C , (defect-σ₀-C , ρZ-not-cocycle)
 
 Cosimplicial-sharp-fails-archive :
     ((j : ℕ) (σ : Simplex Bool) → δZ 𝔥A (face j σ) ⊆Z δZ 𝔥A σ)
-  × (δZ 𝔥A σ₀ (pos 0)
-  × ¬ (ρZ true false + ρZ false true ≡ ρZ false false))
+  × ((δZ 𝔥A σ₀ (pos 0))
+  × (¬ (ρZ true false + ρZ false true ≡ ρZ false false)))
 Cosimplicial-sharp-fails-archive =
   faces-act-contravariantly-A , (defect-σ₀-A , ρZ-not-cocycle)
 
