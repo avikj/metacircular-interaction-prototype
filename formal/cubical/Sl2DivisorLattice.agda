@@ -230,7 +230,7 @@ bracket-ηφ v = funExt (λ κ → funExt (λ d → go κ d))
     weight : S ≡ (- pos 2) + T
     weight =
         posDiff κ (suc d) (suc κ) (suc (suc d)) (+-suc κ (suc d))
-      ∙ cong (pos (suc κ) -_) (cong pos (sym (+two d)) ∙ pos+ d 2)
+      ∙ cong (λ z → pos (suc κ) - z) (cong pos (sym (+two d)) ∙ pos+ d 2)
       ∙ sym (sub-sub (pos (suc κ)) (pos d) (pos 2))
       ∙ +Comm T (- pos 2)
     sc : S · pos C ≡ (- pos 2) · pos C + pos C · T
@@ -336,10 +336,9 @@ private
   go : (a b : ℕ) → φ (δ (suc κ) d) a b
                  ≡ scale (pos (suc κ ·ℕ suc d)) (δ κ (suc d)) a b
   go a zero =
-    sym (cong (pos (suc κ ·ℕ suc d) ·_) (cong (kron κ a ·_) refl)
-         ∙ cong (pos (suc κ ·ℕ suc d) ·_) (·0ᵣ (kron κ a))
+    sym (cong (pos (suc κ ·ℕ suc d) ·_) (·0ᵣ (kron κ a))
          ∙ ·0ᵣ (pos (suc κ ·ℕ suc d)))
-  go a (suc b) = coefGen (λ x y → pos (suc x ·ℕ suc y)) κ (suc d) a (suc b)
+  go a (suc b) = coefGen (λ x y → pos (suc x ·ℕ suc y)) κ d a b
 
 -- φ needs no clause at κ = 0: the coefficient κ(α−κ+1) vanishes there
 -- on its own, so φ ξ^0 = 0 is a theorem and not a convention.
@@ -347,22 +346,8 @@ private
 φ-δ-bot d = funExt (λ a → funExt (λ b → go a b))
   where
   go : (a b : ℕ) → φ (δ zero d) a b ≡ 0M a b
-  go a zero = refl
-  go a (suc b) =
-      cong (pos (suc a ·ℕ suc b) ·_)
-           (cong (_· kron d b) (kron-≠ zero (suc a) (λ p → znotsuc p)))
-    ∙ cong (pos (suc a ·ℕ suc b) ·_) (·0ᵣ' (kron d b))
-    ∙ ·0ᵣ (pos (suc a ·ℕ suc b))
-    where
-    ·0ᵣ' : (x : ℤ) → pos 0 · x ≡ pos 0
-    ·0ᵣ' _ = refl
-    znotsuc : zero ≡ suc a → ⊥
-    znotsuc p = subst code p tt
-      where
-      code : ℕ → Type₀
-      code zero    = Cubical.Data.Unit.Unit
-      code (suc _) = ⊥
-      tt = Cubical.Data.Unit.tt
+  go a zero    = refl
+  go a (suc b) = ·0ᵣ (pos (suc a ·ℕ suc b))
 
 -- η ξ^κ = (2κ − α) ξ^κ = (κ − d) ξ^κ
 η-δ : (κ d : ℕ) → η (δ κ d) ≡ scale (pos κ - pos d) (δ κ d)
