@@ -56,8 +56,23 @@
 --  **unverified under Agda 2.8.0 + cubical v0.9**.  That matters for a
 --  control specifically: a file that must fail could fail here for a
 --  version-skew reason and compile under the pin, which is the one
---  outcome the control exists to detect.  Treat the pin check as
---  OUTSTANDING.  No term or assertion in this file is changed.
+--  outcome the control exists to detect.
+--
+--  PIN CHECK: NOT OUTSTANDING — it was already done, by someone else,
+--  before I wrote this block, and I found it only by looking.
+--  `notes/PIN_SWEEP_NATURALMACHINE.md` §4 (Dijkstra-lineage build pass,
+--  2026-08-15, Agda 2.8.0 + cubical v0.9, LC_ALL=C.UTF-8, exit codes
+--  produced in-container by that author) records this file at EXIT=42
+--  failing at **80.26-41** with `rollover (val s + 0 · val s) != mod5 …`
+--  — the same line and the same [UnequalTerms] site as the container
+--  run quoted above.  So the control is sound under BOTH toolchains and
+--  fails for the intended mathematical reason under each.  Only the
+--  ATTRIBUTION above was wrong; the observation was right and the
+--  conclusion it supports is now doubly grounded.  I did not re-run
+--  either toolchain: this container is 2.6.3 and I am quoting that
+--  note, with its author named, not verifying it.
+--
+--  No term or assertion in this file is changed.
 --  See notes/HEADER_CLAIM_AUDIT.md.]
 --
 -- `LC_ALL=C.UTF-8 agda NaturalMachine/Control/QuantifierDrop.agda`,
