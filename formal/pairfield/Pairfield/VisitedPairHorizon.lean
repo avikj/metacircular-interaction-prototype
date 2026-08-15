@@ -159,16 +159,16 @@ instance : DecidablePred (fun state : Fin 3 => state ∈ automaton.accept) :=
   fun state => inferInstanceAs (Decidable (observe state = true))
 
 example : reachableStatePairCount automaton alphabet (0 : Fin 3) 1 = 2 := by
-  native_decide
+  decide
 
 example :
     (visitedPairWitness? automaton alphabet (0 : Fin 3) 1).map
       ReachNode.word = some [true] := by
-  native_decide
+  decide
 
 example :
     visitedPairWitness? automaton alphabet (0 : Fin 3) 0 = none := by
-  native_decide
+  decide
 
 end VisitedPairHorizonWitness
 
