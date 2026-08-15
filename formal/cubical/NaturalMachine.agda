@@ -426,6 +426,17 @@ import NaturalMachine.ResidueTransport
 -- module runs the multiplier at bases 10 and 2.
 import NaturalMachine.TransportMul
 import NaturalMachine.TransportMulWitness
+-- and the third operation, the one the walk actually stalls on: the
+-- divisibility TEST carried across the same equivalence.  `modw n` is the
+-- Horner residue automaton on digit words, `value-modw` proves it computes
+-- `value w mod n` (so it is the residue, not an estimate), and
+-- `steps w ≡ suc (length w)` against the unary test's Θ(value) is the whole
+-- frontier gap.  Parameterised in the base exactly like Digits/Transport;
+-- imported unapplied here and instantiated at base ten in the witness, which
+-- runs the automaton on the word 1000 and discharges the edge costs with
+-- numbers rather than parameters.
+import NaturalMachine.TransportDiv
+import NaturalMachine.TransportDivWitness
 -- the leakage lane's commutator-rank identity, folded in so that the root
 -- aggregate's green claim and the directory's contents finally coincide.
 import NaturalMachine.LeakageCommutator
@@ -555,6 +566,53 @@ import NaturalMachine.S3FixedPointCharacter
 -- The arithmetic family/threshold proof remains an explicit input; no prime
 -- theorem is claimed by this generic compiler.
 import NaturalMachine.DiagonalEndpoint
+
+------------------------------------------------------------------------
+-- The cost lane (2026-08-15).  `TransportCost` measured one edge and the
+-- measurement was quadratic; these modules make the WEIGHTED GRAPH the
+-- object instead of the benchmark.  Nodes are presentations, edges are
+-- checked equivalences, and cost is a field the equivalence does not carry
+-- -- paths transport theorems, never complexity.  A fast algorithm is then
+-- a detour, and "speedup" is a triangle inequality failing in the cheap
+-- direction.  Only +, ≤, < are used, so the geometry is independent of the
+-- cost currency.
+import NaturalMachine.CostGeometry
+-- The two instances that give those theorems content, kept separate so each
+-- is falsifiable alone: (W1) the repo's own measured `+` transport as a
+-- NEGATIVE instance, restated without rerunning the benchmark; (W2) a
+-- residue-style positive instance whose weights are stipulated, not
+-- measured -- what is proved is the implication.
+import NaturalMachine.CostGeometryWitness
+-- ϱ = wHere ⊖ detour, and the fifth response Γ↝.  The residual is invisible
+-- to every equivalence-invariant response, because `Edge` carries `cost` in
+-- a field the maps do not determine; `no-invariant-response-sees-ϱ` is that
+-- statement as a term.  Γ↝ is min-plus over neighbours -- the same operator
+-- as DSOMinPlusFinite/DSOBellmanFinite on other data.
+import NaturalMachine.Residual
+-- 𝒦 := ∂ ∘ Γ and the trichotomy of its step: decay (the orbit reaches 0),
+-- resonance (stationary), branching (never reaches 0).  Three theorems about
+-- one ℕ-valued obstruction measure; the spectral radius is the sign of the
+-- step, not a measurement.
+import NaturalMachine.KFlow
+-- δ_end, by Lawvere/Cantor: for every quotation ⌜−⌝ : 𝒬 → (𝒬 → Bool) the
+-- diagonal observable lies outside the image, so the end is never among the
+-- things the machine can say about the end.  Unconditional, no fuel.
+import NaturalMachine.EndObstruction
+-- and the two put together: the flow halting is a theorem about ∂, δ_end is
+-- a theorem about ⌜−⌝, and `halting-does-not-close` shows the second
+-- survives the first -- completeness does not imply termination of enquiry.
+import NaturalMachine.QuestionMachine
+-- Chu(X,𝒯,e): the defect is monotone in the test list, so a vanishing defect
+-- is a statement about 𝒯 and never about X (the empty test list makes every
+-- pair agree).  Also δ_σ = 0 ⇍ δ_σ^base = 0: the base can be flat while the
+-- fibre is not, so a base-only test is not a test.
+import NaturalMachine.ChuAdvance
+-- The advance gate as a record of its five clauses, with the two that are
+-- not formalizable here carried as explicit propositions the caller must
+-- supply rather than silently assumed.  The gate forces separation, and
+-- UsefulEscape > 0 is exactly ϱ ≢ 0, hence a strictly cheaper presentation;
+-- the non-theorem δ = 0 ⇒ Advance is exhibited as failing.
+import NaturalMachine.AdvanceGate
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
