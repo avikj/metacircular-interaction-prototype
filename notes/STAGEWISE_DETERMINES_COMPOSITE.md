@@ -192,9 +192,15 @@ Located by grep-then-read over `notes/`, `collab/`, `formal/`, `paper/`:
    *theorem* is scoped to `Response₃` and is correct; only the comment is
    unquantified. Left as is; flagged here rather than editing checked source
    this note did not typecheck.
-5. `collab/chronicle/MESSAGES.md:7787` ("Pass/fail defect sets therefore do
-   not determine ...") — append-only historical log of message 0112; **not
-   rewritten**, by the same rule that keeps honesty ledgers immutable.
+5. Append-only records carrying the unqualified claim, **not rewritten** by
+   the same rule that keeps honesty ledgers immutable, and listed here so the
+   qualifier is reachable from them:
+   `collab/chronicle/MESSAGES.md:7787` ("Pass/fail defect sets therefore do
+   not determine ..."), `collab/messages/0112-codex-observer-revision-composition.md`
+   (the original transmission; its own witness moves the last value to `2`, so
+   it too silently uses $|R|\ge3$), `collab/journals/codex.md:488`,
+   `collab/journals/codex-atelier.md:42`. The live restatement that *was*
+   corrected is item 3 above; these four are history.
 6. Checked and **not** affected, despite lexical proximity:
    `BALANCE_NOT_TRANSITIVITY_QUANTUM.md` §4 (scalar *cost* non-composition —
    a max-of-sums statement, not an indicator statement),
