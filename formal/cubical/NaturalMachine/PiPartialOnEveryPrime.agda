@@ -167,7 +167,7 @@ RHSrepair e = par (ΩS e)
 Ω≡2→shape : (e : Shape) → ΩS e ≡ 2
           → (e ≡ (zero ∷ zero ∷ [])) ⊎ (e ≡ (suc zero ∷ []))
 Ω≡2→shape []             p = ⊥rec (znots p)
-Ω≡2→shape (zero ∷ [])    p = ⊥rec (snotz (injSuc p))
+Ω≡2→shape (zero ∷ [])    p = ⊥rec (znots (injSuc p))
 Ω≡2→shape (zero ∷ y ∷ e) p =
   let r = +≡0 (length e) (y +ℕ sumL e) (injSuc (injSuc p))
   in inl (cong₂ (λ a l → zero ∷ a ∷ l)

@@ -44,24 +44,29 @@
 -- --library-file=<v0.9> NaturalMachine/Control/InjectivityNecessary.agda`,
 -- exit code 42, error verbatim:
 --
---   NaturalMachine/Control/InjectivityNecessary.agda:78.30-48:
+--   NaturalMachine/Control/InjectivityNecessary.agda:80.19-23:
 --   error: [UnequalTerms]
---   ResponseSquare !=< InjectiveComparisons
---   when checking that the expression square→satisfaction has type
---   ResponseSquare → SatisfactionInvariant
---
--- Read it: the machine names the dropped hypothesis,
--- `InjectiveComparisons`, in the position where the note's "needed"
--- and the message's "must be" put it on the wrong side of the arrow.
---
--- (Agda stops at the first error, so assertion (b) is not reached.
--- Checked separately by commenting out (a) — same file, the two lines
--- of the `Dropped` module body commented out, then restored — it fails
--- at 84.19-23 with
 --   one != two of type Three
 --   when checking that the expression refl has type one ≡ two
--- — the two unrealized outcomes the comparison merges, named by the
--- machine.)
+--
+-- Read it: the machine refutes the necessity claim's consequence by
+-- naming the two unrealized outcomes the comparison merges — the exact
+-- pair whose merging the note's "needed" and the message's "must be"
+-- declare impossible.
+--
+-- (Agda stops at the first error, so assertion (a) is not reached.
+-- Checked separately by commenting out (b) — same file, its two lines
+-- commented out, then restored — it fails at 96.33-52 with
+--   error: [UnequalHiding]
+--   (x′ : X′) → r′ q x′ ≡ j q (r q (s x′)) !=
+--   {y z : Y q} → j q y ≡ j q z → y ≡ z because one is an implicit
+--   function type and the other is an explicit function type
+--   when checking that the expression square→satisfaction has type
+--   ResponseSquare → SatisfactionInvariant
+-- — i.e. what the sufficiency theorem still wants in first position is
+-- the injectivity statement, printed in full; the error names the
+-- dropped hypothesis by its content rather than by its identifier,
+-- which is weaker than the (b) failure and is why (b) is first.)
 --
 -- If a future edit makes this file compile, injectivity has been
 -- silently promoted from sufficient to necessary and the corpus has
