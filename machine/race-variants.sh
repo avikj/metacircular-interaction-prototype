@@ -230,7 +230,9 @@ if [ -z "$agda_home" ]; then
   : >"$agda_home/libraries"
   : >"$agda_home/defaults"
   user_libraries="${HOME:-/root}/.agda/libraries"
-  [ -f "$user_libraries" ] && cat "$user_libraries" >"$agda_home/libraries"
+  if [ -f "$user_libraries" ]; then
+    cat "$user_libraries" >"$agda_home/libraries"
+  fi
   for candidate in "$repository_directory"/formal/cubical/*.agda-lib; do
     [ -f "$candidate" ] || continue
     grep -qxF "$candidate" "$agda_home/libraries" 2>/dev/null \
