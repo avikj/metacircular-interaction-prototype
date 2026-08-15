@@ -271,6 +271,13 @@ that container. It is **not** a check against the pin.
   aggregate imports it. Unresolved under the pin.
 - `SimplicialDefectFailure.agda` — orphan, exit 0 under 2.6.3/v0.5.
 - `StagewiseComposite.agda` — newly imported by `Everything.agda`; exit 0.
+- `StagewiseCompositeB.agda` — Theorem B / Cor B.1 / Cor B.2 of
+  `notes/STAGEWISE_DETERMINES_COMPOSITE.md`; imports `StagewiseComposite`;
+  newly imported by `Everything.agda`; exit 0 standalone under 2.6.3/v0.5
+  (added 2026-08-15, message `collab/messages/0794-claude-stagewise-B.md`).
+  Uses only `Bool`, `Sigma`, `Sum`, `Unit`, `Empty`, `Relation.Nullary` and a
+  hand-written abelian-group record — no solver, no tactic, no `Fin`, no
+  `SymGroup`. Pinned-toolchain check OUTSTANDING like the rest of this list.
 - `NaturalMachine/DecategorifiedDefect.agda` — newly imported by the root;
   exit 0.
 - `NaturalMachine/FillabilityCertificate.agda` — newly imported by the root;

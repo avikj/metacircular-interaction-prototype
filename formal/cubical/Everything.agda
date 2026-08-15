@@ -146,6 +146,7 @@ import LawvereDiagonal
 import AchromaticToy
 import IndraNet
 import StagewiseComposite
+import StagewiseCompositeB
 
 -- The 𝔰𝔩₂-triple on a chain of the divisor lattice
 -- (notes/SL2_DIVISOR_LATTICE.md).  Rank one only; see that module's §6.

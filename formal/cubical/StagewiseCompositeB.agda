@@ -51,9 +51,17 @@
 --     twoValued→allDetermined  EVERY span set over a two-valued R is
 --                              determined (reusing Theorem A's
 --                              `TwoValued`, not a new notion).
---     largeCodomainDoesNotDefeat  the pointwise refutation the note asks
---                              for: a span set landing in a two-element
---                              subset is determined however large R is.
+--     spanwiseTwoValued→DeterminesOn , emptyMeet→DeterminesOn  the
+--                              pointwise refutation the note asks for: a
+--                              span set landing in a two-element subset,
+--                              or with A ∩ B = ∅, is determined however
+--                              large R is.
+--     determinesOnOneSpan     the same, concretely, over Three — whose
+--                              TOTAL span set is defeating
+--                              (threeIsDefeating) and for which
+--                              StagewiseComposite.¬DeterminesThree holds.
+--     cancellationOverBool    the asymmetry of the two cells: only the
+--                              persistence cell carries |R| ≥ 3.
 --
 --  §4 Corollary B.2 (G abelian, carried explicitly).
 --     telescope              (b − a) + (c − b) ≡ c − a, over ANY G.
@@ -91,7 +99,9 @@ open import StagewiseComposite
   using ( _⊕_ ; ind ; ind-eq ; ind-neq
         ; Determines ; TwoValued
         ; twoValued→Determines ; Determines→twoValued
-        ; noDecoderAtDistinctTriple )
+        ; noDecoderAtDistinctTriple
+        ; Three ; t0 ; t1 ; t2 ; discreteThree
+        ; t0≢t1 ; t1≢t2 ; t0≢t2 ; ¬DeterminesThree )
 
 private
   variable
@@ -136,13 +146,13 @@ DeterminesOn R d T =
 Cancellation : (R : Type ℓ) → SpanSet R ℓ' → Type (ℓ-max ℓ ℓ')
 Cancellation R T =
   Σ[ a ∈ _ ] Σ[ b ∈ _ ] Σ[ c ∈ _ ]
-    (T a b c × (¬ (a ≡ b) × (¬ (b ≡ c) × (a ≡ c))))
+    (T a b c × ((¬ (a ≡ b)) × ((¬ (b ≡ c)) × (a ≡ c))))
 
 -- {a ≠ b , b ≠ c , a ≠ c} — the stage defects persist.
 Persistence : (R : Type ℓ) → SpanSet R ℓ' → Type (ℓ-max ℓ ℓ')
 Persistence R T =
   Σ[ a ∈ _ ] Σ[ b ∈ _ ] Σ[ c ∈ _ ]
-    (T a b c × (¬ (a ≡ b) × (¬ (b ≡ c) × ¬ (a ≡ c))))
+    (T a b c × ((¬ (a ≡ b)) × ((¬ (b ≡ c)) × (¬ (a ≡ c)))))
 
 ------------------------------------------------------------------------
 -- 2.  Theorem B
@@ -289,7 +299,7 @@ Defeating R ℓ' = Σ[ T ∈ SpanSet R ℓ' ] (Cancellation R T × Persistence R
 -- Constructive |R| ≥ 3: an explicit pairwise-distinct triple.
 ThreeValued : Type ℓ → Type ℓ
 ThreeValued R =
-  Σ[ a ∈ R ] Σ[ b ∈ R ] Σ[ c ∈ R ] (¬ (a ≡ b) × (¬ (b ≡ c) × ¬ (a ≡ c)))
+  Σ[ a ∈ R ] Σ[ b ∈ R ] Σ[ c ∈ R ] ((¬ (a ≡ b)) × ((¬ (b ≡ c)) × (¬ (a ≡ c))))
 
 -- SUFFICIENCY.  Three distinct values produce a defeating span set — and
 -- an explicit, minimal one: the two-element set {(a,b,a) , (a,b,c)},
@@ -358,18 +368,220 @@ spanwiseTwoValued→DeterminesOn :
   → DeterminesOn R d T
 spanwiseTwoValued→DeterminesOn d T h =
   ¬Persistence→DeterminesOn d T
-    (λ { (a , b , c , t , ¬ab , ¬bc , ¬ac) → step (h a b c t) })
+    (λ { (a , b , c , t , ¬ab , ¬bc , ¬ac) →
+           step ¬ab ¬bc ¬ac (h a b c t) })
   where
-    step : {a b c : _} → (a ≡ b) ⊎ ((b ≡ c) ⊎ (a ≡ c)) → ⊥
-    step {a} {b} {c} _ = ⊥.rec (helper _)
-      where postulate helper : ⊥ → ⊥
+    step : {a b c : _} → ¬ (a ≡ b) → ¬ (b ≡ c) → ¬ (a ≡ c)
+         → (a ≡ b) ⊎ ((b ≡ c) ⊎ (a ≡ c)) → ⊥
+    step ¬ab ¬bc ¬ac (inl p)       = ¬ab p
+    step ¬ab ¬bc ¬ac (inr (inl q)) = ¬bc q
+    step ¬ab ¬bc ¬ac (inr (inr r)) = ¬ac r
 
 -- (ii) "A ∩ B = ∅": no realized span has both stage defects.  Then both
 -- cells are unrealized a fortiori, and the pair is determined.
 emptyMeet→DeterminesOn :
     (d : Discrete R) (T : SpanSet R ℓ')
-  → ((a b c : R) → T a b c → ¬ (¬ (a ≡ b) × ¬ (b ≡ c)))
+  → ((a b c : R) → T a b c → ¬ ((¬ (a ≡ b)) × (¬ (b ≡ c))))
   → DeterminesOn R d T
 emptyMeet→DeterminesOn d T h =
   ¬Persistence→DeterminesOn d T
     (λ { (a , b , c , t , ¬ab , ¬bc , _) → h a b c t (¬ab , ¬bc) })
+
+------------------------------------------------------------------------
+-- 3''.  Two concrete witnesses, over the codomains of StagewiseComposite
+------------------------------------------------------------------------
+
+-- The cancellation cell is realized already over Bool, so it alone
+-- carries no cardinality information: (true , false , true).
+cancellationOverBool : Cancellation Bool (Total Bool)
+cancellationOverBool =
+  true , false , true , tt
+    , (λ p → false≢true (sym p)) , (false≢true , refl)
+
+-- Over Three, `Determines` FAILS (¬DeterminesThree of StagewiseComposite)
+-- while a pair realizing only the persistence span is determined.  This
+-- is Corollary B.1's negative half, machine-checked: |R| ≥ 3 does not
+-- make a given pair non-determined.
+oneSpan : SpanSet Three ℓ-zero
+oneSpan x y z = (x ≡ t0) × ((y ≡ t1) × (z ≡ t2))
+
+oneSpanNoCancellation : ¬ (Cancellation Three oneSpan)
+oneSpanNoCancellation (a , b , c , (pa , pb , pc) , ¬ab , ¬bc , ac) =
+  t0≢t2 (sym pa ∙ ac ∙ pc)
+
+determinesOnOneSpan : DeterminesOn Three discreteThree oneSpan
+determinesOnOneSpan =
+  ¬Cancellation→DeterminesOn discreteThree oneSpan oneSpanNoCancellation
+
+-- ... contrasted with the total span set over the same Three, which is
+-- defeating.
+threeIsDefeating : Defeating Three ℓ-zero
+threeIsDefeating =
+  threeValued→Defeating (t0 , t1 , t2 , t0≢t1 , t1≢t2 , t0≢t2)
+
+------------------------------------------------------------------------
+-- 4.  Corollary B.2:  G-valued defects telescope; only supports cost
+--
+-- The note assumes G ABELIAN for this corollary.  That hypothesis is
+-- carried here as an explicit record rather than imported or implied.
+------------------------------------------------------------------------
+
+record AbGroupStr (G : Type ℓ) : Type ℓ where
+  field
+    _+_    : G → G → G
+    zero   : G
+    neg    : G → G
+    assoc+ : (x y z : G) → x + (y + z) ≡ (x + y) + z
+    rid    : (x : G) → x + zero ≡ x
+    rinv   : (x : G) → x + neg x ≡ zero
+    comm+  : (x y : G) → x + y ≡ y + x
+
+  infixl 6 _+_
+
+  lid : (x : G) → zero + x ≡ x
+  lid x = comm+ zero x ∙ rid x
+
+  linv : (x : G) → neg x + x ≡ zero
+  linv x = comm+ (neg x) x ∙ rinv x
+
+  -- difference: the G-VALUED defect of the step x → y
+  _−_ : G → G → G
+  y − x = y + neg x
+
+  infixl 6 _−_
+
+  -- (B.2, first half)  TELESCOPING, over ANY G: the response-valued
+  -- ledger composes.  No cardinality hypothesis appears.
+  telescope : (a b c : G) → (b − a) + (c − b) ≡ c − a
+  telescope a b c =
+      comm+ (b − a) (c − b)
+    ∙ assoc+ (c − b) b (neg a)
+    ∙ cong (λ w → w + neg a)
+        (sym (assoc+ c (neg b) b) ∙ cong (c +_) (linv b) ∙ rid c)
+
+  -- the companion identity: the cancellation span telescopes to zero.
+  telescope0 : (a b : G) → (b − a) + (a − b) ≡ zero
+  telescope0 a b = telescope a b a ∙ rinv a
+
+  -- differences detect equality, in both directions
+  −≡zero : {x y : G} → x ≡ y → y − x ≡ zero
+  −≡zero {x} {y} p = cong (λ w → y − w) p ∙ rinv y
+
+  ≡from− : {x y : G} → y − x ≡ zero → x ≡ y
+  ≡from− {x} {y} h =
+    sym (lid x) ∙ cong (_+ x) (sym h) ∙ sym (assoc+ y (neg x) x)
+      ∙ cong (y +_) (linv x) ∙ rid y
+
+-- The SUPPORT ledger: one records only 1_{g ≠ 0}.  Determination for
+-- supports is the existence of a decoder for the support of a sum.
+SupportDetermines : (G : Type ℓ) → Discrete G → AbGroupStr G → Type ℓ
+SupportDetermines G d A =
+  Σ[ f ∈ (Bool → Bool → Bool) ]
+    ((g₁ g₂ : G) →
+       f (ind d (AbGroupStr.zero A) g₁) (ind d (AbGroupStr.zero A) g₂)
+         ≡ ind d (AbGroupStr.zero A) (AbGroupStr._+_ A g₁ g₂))
+
+module _ {G : Type ℓ} (d : Discrete G) (A : AbGroupStr G) where
+  open AbGroupStr A
+
+  -- (B.2, second half, ⇐)  |G| ≤ 2 ⟹ supports compose, decoder xor.
+  twoValued→SupportDetermines : TwoValued G → SupportDetermines G d A
+  twoValued→SupportDetermines tv = _⊕_ , goal
+    where
+      goal : (g₁ g₂ : G)
+           → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
+      goal g₁ g₂ =
+        decRec
+          (λ p → decRec (λ q → yy p q) (λ ¬q → yn p ¬q) (d zero g₂))
+          (λ ¬p → decRec (λ q → ny ¬p q) (λ ¬q → nn ¬p ¬q) (d zero g₂))
+          (d zero g₁)
+        where
+          yy : zero ≡ g₁ → zero ≡ g₂
+             → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
+          yy p q = cong₂ _⊕_ (ind-eq d p) (ind-eq d q)
+                     ∙ sym (ind-eq d (sym (rid zero)
+                              ∙ cong₂ _+_ p q))
+
+          yn : zero ≡ g₁ → ¬ (zero ≡ g₂)
+             → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
+          yn p ¬q = cong₂ _⊕_ (ind-eq d p) (ind-neq d ¬q)
+                      ∙ sym (ind-neq d
+                          (λ r → ¬q (r ∙ cong (_+ g₂) (sym p) ∙ lid g₂)))
+
+          ny : ¬ (zero ≡ g₁) → zero ≡ g₂
+             → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
+          ny ¬p q = cong₂ _⊕_ (ind-neq d ¬p) (ind-eq d q)
+                      ∙ sym (ind-neq d
+                          (λ r → ¬p (r ∙ cong (g₁ +_) (sym q) ∙ rid g₁)))
+
+          -- the only fiber with content: with at most two values,
+          -- g₁ ≠ 0 and g₂ ≠ 0 force g₁ + g₂ = 0, via the triple
+          -- (0 , g₁ , g₁ + g₂).
+          nn : ¬ (zero ≡ g₁) → ¬ (zero ≡ g₂)
+             → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
+          nn ¬p ¬q = step (tv zero g₁ (g₁ + g₂))
+            where
+              step : (zero ≡ g₁) ⊎ ((g₁ ≡ g₁ + g₂) ⊎ (zero ≡ g₁ + g₂))
+                   → ind d zero g₁ ⊕ ind d zero g₂ ≡ ind d zero (g₁ + g₂)
+              step (inl p) = ⊥.rec (¬p p)
+              step (inr (inl q)) = ⊥.rec (¬q cancel)
+                where
+                  -- g₁ ≡ g₁ + g₂ cancels to 0 ≡ g₂
+                  cancel : zero ≡ g₂
+                  cancel =
+                    sym (linv g₁)
+                      ∙ cong (neg g₁ +_) q
+                      ∙ assoc+ (neg g₁) g₁ g₂
+                      ∙ cong (_+ g₂) (linv g₁)
+                      ∙ lid g₂
+              step (inr (inr r)) =
+                cong₂ _⊕_ (ind-neq d ¬p) (ind-neq d ¬q)
+                  ∙ sym (ind-eq d r)
+
+  -- (B.2, second half, ⇒)  supports compose ⟹ |G| ≤ 2.  The defeating
+  -- pair is (g , −g) against (g , h): both have nonzero summands, the
+  -- first sums to 0 and the second does not.
+  SupportDetermines→twoValued : SupportDetermines G d A → TwoValued G
+  SupportDetermines→twoValued (f , eq) a b c =
+    decRec inl
+      (λ ¬ab → decRec (λ q → inr (inl q))
+        (λ ¬bc → decRec (λ r → inr (inr r))
+          (λ ¬ac → ⊥.rec (defeat ¬ab ¬bc ¬ac))
+          (d a c))
+        (d b c))
+      (d a b)
+    where
+      -- from a distinct triple, two nonzero differences whose sums
+      -- differ in support
+      defeat : ¬ (a ≡ b) → ¬ (b ≡ c) → ¬ (a ≡ c) → ⊥
+      defeat ¬ab ¬bc ¬ac = false≢true (sym atZero ∙ atNonzero)
+        where
+          g₁ g₂ g₂' : G
+          g₁  = b − a
+          g₂  = c − b
+          g₂' = a − b
+
+          ¬g₁ : ¬ (zero ≡ g₁)
+          ¬g₁ p = ¬ab (≡from− (sym p))
+
+          ¬g₂ : ¬ (zero ≡ g₂)
+          ¬g₂ p = ¬bc (≡from− (sym p))
+
+          ¬g₂' : ¬ (zero ≡ g₂')
+          ¬g₂' p = ¬ab (sym (≡from− (sym p)))
+
+          atZero : f true true ≡ false
+          atZero =
+            sym (cong₂ f (ind-neq d ¬g₁) (ind-neq d ¬g₂'))
+              ∙ eq g₁ g₂'
+              ∙ ind-eq d (sym (telescope0 a b))
+
+          atNonzero : f true true ≡ true
+          atNonzero =
+            sym (cong₂ f (ind-neq d ¬g₁) (ind-neq d ¬g₂))
+              ∙ eq g₁ g₂
+              ∙ ind-neq d (λ r → ¬ac (≡from− (sym (r ∙ telescope a b c))))
+
+  corB2 : (TwoValued G → SupportDetermines G d A)
+        × (SupportDetermines G d A → TwoValued G)
+  corB2 = twoValued→SupportDetermines , SupportDetermines→twoValued

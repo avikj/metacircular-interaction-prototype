@@ -602,3 +602,8 @@ base10-is-10 = refl
 -- counterexample that makes the hypothesis load-bearing.  Its negative
 -- control is `NaturalMachine/Control/QuantifierDrop.agda`, which must fail.
 import NaturalMachine.LineWorldTransport
+
+-- Three displays of the fifth owner transmission (D0020) refuted or
+-- collapsed as checked terms; see `notes/D0020_LEDGER.md` rows 8.5,
+-- 1.5, 0.3 and the module header for scope limits.
+import NaturalMachine.TransmissionRefutations
