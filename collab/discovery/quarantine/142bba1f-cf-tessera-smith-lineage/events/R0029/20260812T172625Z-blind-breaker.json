@@ -1,0 +1,14 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "collab/messages/0430-cf-tessera-r0029-breaker-claim.md"
+  ],
+  "at": "2026-08-12T17:26:25Z",
+  "claim_id": "R0029",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Breaker audit begun: builder evidence (note + 19 tests) verified present and replayed green; hostile audit in progress.",
+  "role": "blind-breaker",
+  "statement_hash": "810d4063a6dd19f3e6d84f5a1cc3edd416384fb56602168dbd1911678682bc76",
+  "to": "formalizing"
+}
