@@ -719,6 +719,13 @@ import NaturalMachine.WalkChartedLength
 -- SensorNerode's first confessed gap: the identification of its
 -- divisibility statement with equal residue profiles, both directions.
 import NaturalMachine.SensorResidueBridge
+-- SieveFiber's section 4 was a finite X = 30 exhaustion standing in for a
+-- theorem.  This is the theorem, conditional on the hypothesis neither
+-- module had -- SieveFiber strips the fixed primes 2,3,5 while RoughSplit
+-- quantifies over primes below the square root -- and STRONGER than the
+-- exhaustion, since it holds for every n in range rather than the thirty
+-- listed.  The hypothesis is shown sharp at n = 49.
+import NaturalMachine.SieveRoughBridge
 -- The corpus's standing cost edge, closed: the exact carry-cost law
 -- (b−1)·C(n) + digitSum(digits n) = n·b, tied to CountedDigits' own `run`.
 -- It also proves CostGeometry's `Edge` is the WRONG SHAPE for this

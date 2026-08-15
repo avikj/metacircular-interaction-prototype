@@ -141,7 +141,11 @@
 --    `TransportDiv.steps` and are not re-derived here.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical), --cubical --safe,
--- 2026-08-15.  No postulates, no holes.
+-- 2026-08-15.  Whole file, cold interface: 3.4 s.  No postulates, no
+-- holes.  NOT verified against the pin in formal/cubical/BUILD.md
+-- (Agda 2.8.0, cubical v0.9); the modules it imports carry the same
+-- caveat, and `WalkResidueBridge`'s header records why three toolchain
+-- states are live in this repository at once.
 ------------------------------------------------------------------------
 
 import NaturalMachine.Digits            as Dg
