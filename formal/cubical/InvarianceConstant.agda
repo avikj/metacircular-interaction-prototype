@@ -120,9 +120,9 @@ Within {X = X} c f g = (x : X) → (f x ≤ g x + c) × (g x ≤ f x + c)
 invariance : {f g : Cost X} {c₁ c₂ : ℕ}
            → Simulates c₁ f g → Simulates c₂ g f
            → Within (max c₁ c₂) f g
-invariance {c₁ = c₁} {c₂ = c₂} s₁ s₂ x =
-    ≤-trans (s₁ x) (≤-k+ (left-≤-max {c₁} {c₂}))
-  , ≤-trans (s₂ x) (≤-k+ (right-≤-max {c₁} {c₂}))
+invariance {f = f} {g} {c₁} {c₂} s₁ s₂ x =
+    ≤-trans (s₁ x) (≤-k+ {k = g x} (left-≤-max {c₁} {c₂}))
+  , ≤-trans (s₂ x) (≤-k+ {k = f x} (right-≤-max {c₂} {c₁}))
 
 -- The existential form usually quoted: "there is a constant c".
 invariance∃ : {f g : Cost X} {c₁ c₂ : ℕ}
@@ -145,16 +145,16 @@ within-sym w x = snd (w x) , fst (w x)
 within-trans : {f g h : Cost X} {c d : ℕ}
              → Within c f g → Within d g h → Within (c + d) f h
 within-trans {f = f} {g} {h} {c} {d} w v x =
-    subst (f x ≤_) (+-assoc (h x) d c ∙ cong (_+ c) (+-comm (h x) d)
-                    ∙ sym (+-assoc d (h x) c) ∙ +-comm d (h x + c)
-                    ∙ sym (+-assoc (h x) c d) ∙ cong (h x +_) (+-comm c d)
-                    ∙ cong (h x +_) (+-comm d c))
+    subst (f x ≤_) lemma₁
       (≤-trans (fst (w x)) (≤-+k {k = c} (fst (v x))))
-  , subst (h x ≤_) lemma
+  , subst (h x ≤_) lemma₂
       (≤-trans (snd (v x)) (≤-+k {k = d} (snd (w x))))
   where
-    lemma : (f x + c) + d ≡ f x + (c + d)
-    lemma = sym (+-assoc (f x) c d)
+    lemma₁ : (h x + d) + c ≡ h x + (c + d)
+    lemma₁ = sym (+-assoc (h x) d c) ∙ cong (h x +_) (+-comm d c)
+
+    lemma₂ : (f x + c) + d ≡ f x + (c + d)
+    lemma₂ = sym (+-assoc (f x) c d)
 
 -- Upward closure: a valid constant stays valid when enlarged.  There is
 -- therefore no "the" invariance constant, only a nonempty upward-closed
@@ -226,8 +226,7 @@ module Cancellation {Obj Lang : Type ℓ}
 -- everywhere.
 shift-Within : (f : Cost X) (c : ℕ) → Within c f (λ x → f x + c)
 shift-Within f c x =
-    ≤-trans (subst (f x ≤_) (sym (+-zero (f x))) ≤-refl)
-            (≤-k+ {k = f x} zero-≤)
+    subst (f x ≤_) (+-assoc (f x) c c) (≤SumLeft {n = f x} {k = c + c})
   , ≤-refl
 
 n≢n+suc : (n k : ℕ) → ¬ (n ≡ n + suc k)

@@ -324,7 +324,7 @@ half-split : (α : ℕ) → Σ[ d ∈ ℕ ] (half α + d ≡ α)
 half-split zero = zero , refl
 half-split (suc zero) = suc zero , refl
 half-split (suc (suc n)) with half-split n
-... | (d , p) = suc d , (+-suc (half n) d ∙ cong suc (cong suc p))
+... | (d , p) = suc d , (cong suc (+-suc (half n) d) ∙ cong (λ z → suc (suc z)) p)
 
 middle : (α : ℕ) → Div α
 middle α = half α , fst (half-split α) , snd (half-split α)
@@ -392,11 +392,13 @@ DivM m α = Σ[ κ ∈ (ℕ → ℕ) ] ((i : ℕ) → Σ[ d ∈ ℕ ] (κ i + d 
 rkM : (m : ℕ) (α : ℕ → ℕ) → DivM m α → ℕ
 rkM m α x = sum m (fst x)
 
-_⊑M_ : {m : ℕ} {α : ℕ → ℕ} → DivM m α → DivM m α → Type₀
-_⊑M_ {m} {α} x y = (i : ℕ) → Σ[ c ∈ ℕ ] (fst x i + c ≡ fst y i)
+-- componentwise divisibility (m and α are explicit: DivM's underlying
+-- type does not determine them)
+LeqM : (m : ℕ) (α : ℕ → ℕ) → DivM m α → DivM m α → Type₀
+LeqM m α x y = (i : ℕ) → Σ[ c ∈ ℕ ] (fst x i + c ≡ fst y i)
 
-isAntichainM : {m : ℕ} {α : ℕ → ℕ} (A : DivM m α → Type₀) → Type₀
-isAntichainM {m} {α} A = (x y : DivM m α) → A x → A y → x ⊑M y → x ≡ y
+isAntichainM : (m : ℕ) (α : ℕ → ℕ) (A : DivM m α → Type₀) → Type₀
+isAntichainM m α A = (x y : DivM m α) → A x → A y → LeqM m α x y → x ≡ y
 
 RankM : (m : ℕ) (α : ℕ → ℕ) (k : ℕ) → Type₀
 RankM m α k = Σ[ x ∈ DivM m α ] (rkM m α x ≡ k)
@@ -412,7 +414,7 @@ GeneralSperner =
 
 -- Likewise for the two intermediate steps, so the queue is explicit:
 -- rank-unimodality is NOT degenerate in general and is not proved.
-GeneralRankSymmetry : Type₁
+GeneralRankSymmetry : Type₀
 GeneralRankSymmetry =
   (m : ℕ) (α : ℕ → ℕ) (k j : ℕ) → k + j ≡ sum m α
   → (RankM m α k → RankM m α j) × (RankM m α j → RankM m α k)

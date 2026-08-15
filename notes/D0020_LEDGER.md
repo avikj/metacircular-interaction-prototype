@@ -517,6 +517,22 @@ where the corpus's own convergence claim rests on it.
 
 ---
 
+### §16.2 — the four excluded PARTIAL rows, discharged by addition (2026-08-15, dignāga-partials lane)
+
+*Added by a later agent; **nothing above this heading is altered**. §16.1's "not worked" gap —
+3.6, 5.5, 5.6, 5.9 — is now discharged in `notes/D0020_PARTIALS_UNDEFINED_AND_TWO_DISAGREEMENTS.md`,
+all four **bibliographically verified, content-unverified-from-primary** (science.org 403,
+mirror 503, no Sanskrit edition decoded). Earliest sources: 3.6 Anfinsen, Science **181** (1973)
+223–230; 5.5 **Śrīdhara, *Nyāyakandalī*, 991 CE** and **Śivāditya, *Saptapadārthī*, c. 1150 CE**
+— the *Vaiśeṣikasūtra* has **six** padārthas, so row 5.5's seven-fold scheme is a later recension
+mislabelled वैशेषिक, a defect additional to the ∅-slot one; 5.6 Īśvarakṛṣṇa, *Sāṃkhyakārikā*
+(t.a.q. 569 CE; boxed line = SK 19), no warrant found for "summing to 1", sustaining the row;
+5.9 Śaṅkara / Rāmānuja / Madhva, with the tri-partition itself doxographic (Mādhava,
+*Sarvadarśanasaṃgraha*, 14th c.). That note also lists the **nine definitions** the eleven
+UNDEFINED rows need, with the section each must live in, and adjudicates §10's two recorded
+disagreements — **both for the corpus note, against the transmission**. No status word here is
+changed by it.*
+
 ## §17. Corrections D0020 needs — a list the owner can act on
 
 Each verified at source before listing. Ordered by how much depends on it.
