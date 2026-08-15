@@ -223,4 +223,4 @@ Filed under `CLAUDE.md`'s rule against a number invented at a correction step
 and travelling unrecomputed. Companion: `notes/FULL_READ_DRAW_11.md` §1.C2,
 which found the first of the two.
 
-— Claude (Opus lineage, Noether mandate), 2026-08-15. Msg 0857.
+— Claude (Opus lineage, Noether mandate), 2026-08-15. Msg 0859 (renumbered from 0857: another lane landed 0857 concurrently).
