@@ -194,3 +194,105 @@ item this note leaves behind.
   into one environment. It is not a bound.
 - I did not read the 133 modules. I read `lakefile.toml`, `check.sh`, the CI
   workflow, both audits, and the modules I edited.
+
+## 7a. The `example` blindness, closed — added 2026-08-15, claude (Post lineage)
+
+**Addition, not revision.** §7's third bullet is exactly right and is the
+defect this section closes. Written by its author as a scope note, it was
+independently rediscovered as a live hole by `DECIDE_STATEMENT_SWEEP` §5, which
+found that the lane's **single surviving `native_decide` was itself inside an
+anonymous `example`** — i.e. the gate would certify the tree while structurally
+unable to look at its only remaining oracle use. A decision procedure that
+cannot see part of its domain is not a decision procedure.
+
+**What I verified before acting** (every verdict from a run in this container):
+
+| claim | verdict |
+|---|---|
+| `lake exe axiom_gate` passes at HEAD | **Yes**, `OK … (allowlisted: 0)`, 3 m 25 s |
+| `native_decide` *tactic* sites in the tree | **1**, `ChartQuotient.lean`:238. The other 4 string matches are prose that disclaims it (`DECIDE_STATEMENT_SWEEP` §4/D3 reproduced exactly) |
+| that site is inside an anonymous `example` | **Yes**, `example :` at :237 |
+| decide-carrying declarations under `Pairfield/` | **195**, not the sweep's headline 200 — its own components (93 `theorem` + 69 `example` + 31 `def` + 1 `instance` + 1 `inductive`) sum to 195, and rerunning its awk verbatim gives 195 lines. The 69 and the 93 are right; only the total was wrong |
+| `.lean` files under `Pairfield/` | **132**, no subdirectories (the gate's "133 modules" includes the `Pairfield.lean` root) |
+
+The 195 correction is worth stating in this note's own terms: a count is a
+claim and needs its scope quoted with it, and this one had a scope quoted so
+precisely that the arithmetic error was recoverable from the note itself.
+
+**The fix, in both halves, because neither subsumes the other.**
+
+1. **Structural (option b): the example is now a theorem.**
+   `ChartQuotientWitness.quotientCard_eq_three`, stating
+   `Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3` — the four-row
+   chart automaton has three behavioural future classes. It was worth naming:
+   it is the file's whole point, and the docstring above it already asserted it
+   in prose. Naming brings it **inside this gate permanently**, which is the
+   only fix that does not depend on anyone remembering.
+
+   The demonstration that the hole was real is the pair of runs on one
+   unchanged oracle: with the site anonymous the gate reports `OK
+   (allowlisted: 0)`; with it named and the allowlist still empty the gate
+   reports
+
+   ```
+   axiom_gate: FAIL — 1 declaration(s) outside the trusted axiom set
+     THM	Pairfield.ChartQuotientWitness.quotientCard_eq_three
+         axioms: [….quotientCard_eq_three._native.native_decide.ax_1_1]
+   ```
+
+   Note the axiom's shape: Lean 4.33 emits a **per-declaration** native axiom,
+   not the `Lean.ofReduceBool` the older notes name. §2's design point survives
+   the observation and is strengthened by it — a gate taught the names of the
+   escape hatches would have missed this one; a gate taught only what to trust
+   catches it without an edit.
+
+2. **The oracle is NOT forced away — it is recorded.** The removal was
+   attempted and refused on measurement. `NATIVE_DECIDE_AUDIT` §4c had it as a
+   >20 min non-terminating `decide`; I substituted `decide +kernel`, the tactic
+   that retired the `DiagonalSmithRoute` entries (§3's superseding note), and
+   the build was **killed with exit 137 — OOM — after 123 s**. So this is not
+   the elaborator-irreducibility case `+kernel` fixes; it is a genuine cost
+   case, and it is a *memory* blowup, not only a stall. That is a second,
+   independent, differently-shaped observation of the same obstruction, and it
+   is what the allowlist entry now records, with the removal path (a `Fintype`
+   instance computed from the ChartStateBFS row table, or an explicit bijection
+   to `Fin 3` — neither is written). `ChartQuotient.lean` carries the
+   `-- TRUSTS-COMPILER:` header, and is now the only module in the lane that
+   does.
+
+   **The lane's honest state, corrected.** §3's superseding note says "all 8839
+   jobs' worth of mathematics rests on nothing but `propext`,
+   `Classical.choice` and `Quot.sound`". That was true of everything the gate
+   could see and false of the tree: one compiled-code result was hiding in the
+   blind spot the whole time. The gate now reports `OK … (allowlisted: 1)`, and
+   that `1` is the difference between an exception and an oversight.
+
+3. **Syntactic (option a): `scripts/check-lean-example-oracles.sh`**, wired into
+   `formal/check.sh` (before the expensive steps, beside
+   `check-agda-pragmas.sh`) and into `formal-gates.yml`'s cheap job. It fails
+   if any column-0 `example` block contains `native_decide`, `ofReduceBool`,
+   `ofReduceNat`, `sorryAx` or `sorry`, comments stripped. Toolchain-free, so
+   it runs where the closure checks do.
+
+   It complements this gate and replaces nothing: **the axiom gate sees
+   dependencies and is blind to anonymous declarations; the script sees
+   anonymous declarations and is blind to taint through imports** — precisely
+   the failure (`AdaptiveResidualCycleDeletion`, §2) the axiom gate was built
+   to catch. Neither alone covers the lane.
+
+   **Observed failing and passing, not assumed** — the standard this corpus set
+   for the staleness path in §2. Against the tree as found it exited 1 naming
+   `ChartQuotient.lean:237`; against a scratch lane it flagged a fresh
+   anonymous `example`, ignored the same token inside a `--` comment, and
+   ignored named `theorem`s around it; after the rename it exits 0.
+
+**What this does not close.** The script is a site check, not a dependency
+check, and shares `DECIDE_STATEMENT_SWEEP` §1's warning about syntactic
+attribution. It only knows the oracle tokens it is told, which is the weakness
+§2 correctly identifies in grep-shaped gates — that is why it is the second
+line and not the first. And 68 anonymous `example`s carrying a kernel `decide`
+remain unnamed: none rests on an oracle (this script's exit 0 is the evidence),
+so none is a soundness hole, but they are still uncitable, which is
+`DECIDE_STATEMENT_SWEEP` §5's separate and still-open recommendation. I did not
+name them; whether they are worth naming is a lane judgement, and I did not
+want a soundness fix to arrive carrying 68 unrelated edits.

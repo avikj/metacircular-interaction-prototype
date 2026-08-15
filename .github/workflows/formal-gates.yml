@@ -51,6 +51,14 @@ jobs:
       - name: Agda — every module asserts --safe (and nothing --safe forbids)
         run: ./scripts/check-agda-pragmas.sh
 
+      # The Lean axiom gate (lean-build job below) runs `collectAxioms` over
+      # NAMED declarations only; an anonymous `example` emits no constant and
+      # is structurally invisible to it. notes/AXIOM_GATE.md §7a. Pure text
+      # analysis, no toolchain, so it runs in the cheap job rather than behind
+      # the 10 GB mathlib cache.
+      - name: Lean — no anonymous example rests on an oracle
+        run: ./scripts/check-lean-example-oracles.sh
+
   # ------------------------------------------------------------------ #
   # Opt-in: ~10 GB mathlib cache. Not gated on push, so a landing is    #
   # never blocked on a 10 GB download; run it by hand or let the weekly #
