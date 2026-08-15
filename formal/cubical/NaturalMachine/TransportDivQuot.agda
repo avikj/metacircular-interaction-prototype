@@ -68,6 +68,9 @@
 -- count as `TransportDiv`'s residue automaton, because it IS that
 -- automaton with an extra output tape.  `remw-is-modw` records that the
 -- single pass recomputes the residue, so nothing needs a second pass.
+--
+-- CHECKED: Agda 2.6.3, cubical (the /tmp/cubical checkout), --cubical
+-- --safe, 2026-08-15.  No postulates, no holes, no TERMINATING.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
@@ -91,12 +94,25 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Unit using (tt)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 open import NaturalMachine.Digits k
 open import NaturalMachine.TransportDiv k
   using (modw ; value-modw ; steps ; steps-is-length)
-open import NaturalMachine.Transport k using (valueC-inj)
+
+------------------------------------------------------------------------
+-- DEPENDENCIES.  `Digits` and `TransportDiv`, and nothing else in the
+-- lane.  Division by a modulus needs neither the ripple adder nor the
+-- shift-and-add multiplier: the quotient digit comes from the library's
+-- Euclidean division on a number bounded by b · n, so `addw` and `mulw`
+-- never appear.  `valueC-inj` is restated here (it is two lines from
+-- `Digits.value-inj`) rather than imported from `Transport`, so that
+-- this module does not inherit `Transport`'s dependency on the
+-- reflection-based semiring solver; the two place-value identities in §2
+-- are proved by hand for the same reason.
+------------------------------------------------------------------------
+
+valueC-inj : (x y : CanWord) → valueC x ≡ valueC y → x ≡ y
+valueC-inj (u , cu) (v , cv) p = Σ≡Prop isPropCanonical (value-inj u v cu cv p)
 
 ------------------------------------------------------------------------
 -- 0.  Two facts about the library's Euclidean division that are used as
@@ -154,23 +170,37 @@ DivMod n w =
   Σ[ q ∈ Word ] Σ[ r ∈ ℕ ]
     ((value w ≡ suc n · value q + r) × (r ≡ modw (suc n) w))
 
--- the two place-value identities, discharged by the semiring solver
+-- the two place-value identities, by hand (see DEPENDENCIES above)
+shuffle : (a c z : ℕ) → a + (c + z) ≡ c + (a + z)
+shuffle a c z = +-assoc a c z ∙ cong (_+ z) (+-comm a c) ∙ sym (+-assoc c a z)
+
 divlem1 : (D bb M QQ R : ℕ)
         → D + bb · (M · QQ + R) ≡ bb · (M · QQ) + (D + bb · R)
-divlem1 D bb M QQ R = solveℕ!
+divlem1 D bb M QQ R =
+    cong (D +_) (sym (·-distribˡ bb (M · QQ) R))
+  ∙ shuffle D (bb · (M · QQ)) (bb · R)
 
 divlem2 : (bb M QQ S rr : ℕ)
         → bb · (M · QQ) + (M · S + rr) ≡ M · (S + bb · QQ) + rr
-divlem2 bb M QQ S rr = solveℕ!
+divlem2 bb M QQ S rr =
+    cong (_+ (M · S + rr)) mulshift
+  ∙ +-assoc (M · (bb · QQ)) (M · S) rr
+  ∙ cong (_+ rr) ( +-comm (M · (bb · QQ)) (M · S)
+                 ∙ ·-distribˡ M S (bb · QQ) )
+  where
+    mulshift : bb · (M · QQ) ≡ M · (bb · QQ)
+    mulshift = ·-assoc bb M QQ
+             ∙ cong (_· QQ) (·-comm bb M)
+             ∙ sym (·-assoc M bb QQ)
 
 divStep : (n : ℕ) (d : Digit) (w : Word) → DivMod n w → DivMod n (d ∷ w)
-divStep n d w (q , r , eq , rem) = (q₀ ∷ q) , (s mod suc n) , bigEq , bigRem
+divStep n d w (q , r , cert , res) = (q₀ ∷ q) , (s mod suc n) , bigEq , bigRem
   where
     s : ℕ
     s = toℕ d + b · r
 
     rlt : r < suc n
-    rlt = subst (_< suc n) (sym rem) (modw-bound n w)
+    rlt = subst (_< suc n) (sym res) (modw-bound n w)
 
     q₀ : Digit
     q₀ = quotient s / suc n , quotient-bound n b s (digit-scale-bound n d r rlt)
@@ -181,13 +211,13 @@ divStep n d w (q , r , eq , rem) = (q₀ ∷ q) , (s mod suc n) , bigEq , bigRem
          ∙ +-comm (s mod suc n) (suc n · (quotient s / suc n))
 
     bigEq : toℕ d + b · value w ≡ suc n · (toℕ q₀ + b · value q) + (s mod suc n)
-    bigEq = cong (λ z → toℕ d + b · z) eq
+    bigEq = cong (λ z → toℕ d + b · z) cert
           ∙ divlem1 (toℕ d) b (suc n) (value q) r
           ∙ cong (b · (suc n · value q) +_) eucl
           ∙ divlem2 b (suc n) (value q) (toℕ q₀) (s mod suc n)
 
     bigRem : (s mod suc n) ≡ (toℕ d + b · modw (suc n) w) mod suc n
-    bigRem = cong (λ z → (toℕ d + b · z) mod suc n) rem
+    bigRem = cong (λ z → (toℕ d + b · z) mod suc n) res
 
 divmodΣ : (n : ℕ) (w : Word) → DivMod n w
 divmodΣ n []      = [] , 0 , eqNil , remNil
@@ -276,10 +306,12 @@ divw-length n []      = refl
 divw-length n (d ∷ w) = cong suc (divw-length n w)
 
 -- Drop leading zeros (= trailing entries, little-endian).
+-- The list argument is split first so that `trimCons d (e ∷ v)` reduces
+-- without knowing d; the digit is only inspected at the top position.
 trimCons : Digit → Word → Word
+trimCons d           (e ∷ v) = d ∷ e ∷ v
 trimCons (zero  , _) []      = []
 trimCons (suc j , p) []      = (suc j , p) ∷ []
-trimCons d           (e ∷ v) = d ∷ e ∷ v
 
 trimw : Word → Word
 trimw []      = []
@@ -287,15 +319,15 @@ trimw (d ∷ w) = trimCons d (trimw w)
 
 value-trimCons : (d : Digit) (u : Word)
                → value (trimCons d u) ≡ toℕ d + b · value u
+value-trimCons d           (e ∷ v) = refl
 value-trimCons (zero  , _) []      = 0≡m·0 b
 value-trimCons (suc j , p) []      = refl
-value-trimCons d           (e ∷ v) = refl
 
 canonical-trimCons : (d : Digit) (u : Word)
                    → Canonical u → Canonical (trimCons d u)
+canonical-trimCons d           (e ∷ v) c = c
 canonical-trimCons (zero  , _) []      c = tt
 canonical-trimCons (suc j , p) []      c = suc-≤-suc zero-≤
-canonical-trimCons d           (e ∷ v) c = c
 
 value-trimw : (w : Word) → value (trimw w) ≡ value w
 value-trimw []      = refl
