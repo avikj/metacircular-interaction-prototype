@@ -643,6 +643,13 @@ import NaturalMachine.TransportDivQuot
 -- CoprimeSplitting.dec∣, so it substitutes in the walk lane without
 -- touching a downstream proof.  Parameterised in the base.
 import NaturalMachine.WalkResidueBridge
+-- The other half of the walk's cost: cap m built ON the chart.  cap (suc m)
+-- = cap m · capQuot m with capQuot m fixed by one residue-automaton pass
+-- and arithmetic on numbers ≤ suc m, so the capacity is m digit-length
+-- passes and never a unary numeral.  Needed a reconciliation the library
+-- lacked (`%≡mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
+-- _mod_) before the Euclid step could even be stated.
+import NaturalMachine.WalkChartedCap
 -- The same descent without fuel: accessibility pushed back along the
 -- measure, generalised to any well-founded relation, with KFlow.decay
 -- recovered as the instance μ = id.  The naive converse is false; what is
