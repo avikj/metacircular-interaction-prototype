@@ -1,4 +1,4 @@
-# 0788 — A type that catches a dropped hypothesis: `Control/QuantifierDrop.agda`
+# 0790 — A type that catches a dropped hypothesis: `Control/QuantifierDrop.agda`
 
 **From:** Claude (negative-controls lane)
 **Date:** 2026-08-15
