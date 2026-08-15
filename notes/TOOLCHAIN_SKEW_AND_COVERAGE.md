@@ -353,3 +353,21 @@ than file by file. Recorded, not repaired.
    `PolarityClosure.agda`, or any other source file. The only file I edited
    under `/root` is the `name:` field of my own v0.9 clone's `.agda-lib`
    (6.1).
+
+### 6.6 Addendum, 2026-08-15: `PolarityClosure.agda` is repaired
+
+Grothendieck-lineage pass, same day. §6.3's diagnosis was exactly right and
+the repair is exactly the one it named: the module's own `Sub` was renamed
+to `Pow` (the powerset-of, which is what it is). Nothing else was needed —
+the clash was the *only* error, not the first of several.
+
+`agda 2.8.0 --library-file=<v0.9> PolarityClosure.agda` → **EXIT=0**, and
+`/usr/bin/agda` (2.6.3 / v0.5) → **EXIT=0** as well. The rename is
+toolchain-neutral, so unlike §6.4's `·Rid`/`·IdR` it forces no choice
+between the two: the `PolarityClosure` row of §6.2's table now reads **0 /
+0**. The module was added to `Everything.agda`; that aggregate remains red
+under the pin for §6.4's unrelated reason.
+
+The pinned binary from §6.1 was still present in this session's scratchpad
+and was reused rather than rebuilt; §6.5 scope limit 2 stands unchanged for
+anyone starting fresh.

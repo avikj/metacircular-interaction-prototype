@@ -227,3 +227,10 @@ import Swarm.S10VertexOrbit
 import Swarm.S12CyclotomicChain
 import Swarm.S13OptionSpread
 import Swarm.S15ACResidue
+
+-- The Birkhoff polarity closure and the vacuity of the Boolean apoha
+-- gloss (companion prose notes/APOHA_AND_POLARITY.md).  Added
+-- 2026-08-15 after the `Sub`/`Pow` rename: verified exit 0 individually
+-- under BOTH Agda 2.6.3 + cubical v0.5 and the BUILD.md pin
+-- Agda 2.8.0 + cubical v0.9.
+import PolarityClosure
