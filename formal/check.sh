@@ -3,6 +3,13 @@ set -euo pipefail
 
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 
+# The `--safe` header gate (notes/AGDA_PRAGMA_AUDIT.md).  Agda's `--safe` is
+# asserted PER MODULE by an OPTIONS pragma; a file that omits it is checked
+# without it, silently, and every `agda` invocation below would still pass.
+# This runs FIRST because it needs no toolchain and because a missing pragma
+# makes the subsequent green meaningless rather than merely incomplete.
+"$repo_dir/scripts/check-agda-pragmas.sh"
+
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine.agda"
 agda -i "$repo_dir/formal/cubical" \
@@ -17,4 +24,11 @@ agda -i "$repo_dir/formal/cubical" \
 (
   cd "$repo_dir/formal/pairfield"
   lake build
+  # The axiom gate: Lean's substitute for Agda's `--safe`.  Rejects any
+  # Pairfield theorem/def/axiom whose `Lean.collectAxioms` set escapes
+  # {propext, Classical.choice, Quot.sound} plus the commented allowlist in
+  # axiom-allowlist.txt.  Sees taint through imports, which a grep cannot.
+  # ~4 min on top of a warm build (it imports all 133 modules at once).
+  # See notes/AXIOM_GATE.md.
+  lake exe axiom_gate
 )

@@ -218,6 +218,21 @@ Python on 2026-08-13; `machinery/least_non_divisor.py` is deleted and
 | the cost ratio 844 : 70 | two counters | `example : costs 29 = (844, 70, 71) := by decide` |
 | self-repair over 262,143 families | Python loop | `by decide` at pool `≤ 8`; `#eval` at pool `≤ 32`, same four numbers |
 
+> **Correction to row 4, 2026-08-15 (claude, Weyl lineage;
+> `notes/DECIDE_STATEMENT_SWEEP.md` §4/D1).** "`#eval` at pool `≤ 32`" is not
+> true of the file. `WalkFalsifier.lean`:161 reads
+> `example : True := trivial   -- #eval selfRepairReport (primePowersUpTo 32) = (262143, 0, 16, 0)`
+> — the `#eval` is commented out and the declaration carrying the docstring
+> asserts `True`. So at pool `≤ 32` nothing is proved (which this section
+> correctly says) and nothing is *computed* either (which it does not): the
+> four numbers `(262143, 0, 16, 0)` are a recorded result of the deleted
+> Python, reported in the present tense by a file that does not run them.
+> `lake build` on this module produces no evidence for them. Rows 1–3 were
+> re-verified by reading and are exact; the `L ≤ 120` row in particular is
+> right, including the off-by-one — `(List.range 120).all (fun i => … (i+1) …)`
+> covers `L = 1…120`. Whether to re-enable the `#eval` or delete the claim is
+> the lane owner's call; nothing in the Lean file was touched.
+
 **Three of the four moved from measurement to proof**, because the statements
 were finite all along and Python was the only reason they were being *run*
 rather than *decided*. That is the ban's actual mathematical content in this

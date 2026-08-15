@@ -131,8 +131,8 @@ def cost (formation : SharedFormation) : Nat :=
 def direct : SharedFormation where
   toTwo := [.inc, .inc]
   toNegOne := [.dec]
-  toTwo_valid := by native_decide
-  toNegOne_valid := by native_decide
+  toTwo_valid := by decide
+  toNegOne_valid := by decide
 
 theorem requiredCuts_subset (formation : SharedFormation) :
     ({-1, 0, 1} : Finset Int) ⊆ formation.cuts := by
@@ -155,13 +155,13 @@ distinct reusable transitions. -/
 theorem three_le_cost (formation : SharedFormation) :
     3 ≤ formation.cost := by
   calc
-    3 = ({-1, 0, 1} : Finset Int).card := by native_decide
+    3 = ({-1, 0, 1} : Finset Int).card := by decide
     _ ≤ formation.cuts.card := Finset.card_le_card (requiredCuts_subset formation)
     _ = formation.cost := rfl
 
 /-- The direct pair attains the universal lower bound. -/
 theorem direct_cost : direct.cost = 3 := by
-  native_decide
+  decide
 
 /-- Exhaustive closure of the fixed false-fork result: the previously found
 direct recipe is globally minimal among all shared signed-unit formations. -/

@@ -231,7 +231,7 @@ def hiddenBlock : Block automaton where
   imageInjective := by
     intro left hleft right hright heq
     simpa using heq
-  currentConstant := by native_decide
+  currentConstant := by decide
 
 theorem stay_valid : hiddenBlock.ValidAction automaton false := by
   intro left right hleft hright hresponse hnext
@@ -247,25 +247,25 @@ theorem reveal_valid : hiddenBlock.ValidAction automaton true := by
 
 theorem reveal_false_nonempty :
     (hiddenBlock.childMembers automaton true false).Nonempty := by
-  native_decide
+  decide
 
 theorem reveal_true_nonempty :
     (hiddenBlock.childMembers automaton true true).Nonempty := by
-  native_decide
+  decide
 
 /-- Positive event: reveal turns the size-two block into two singleton
 children and spends exactly two ordered-ambiguity units. -/
 theorem reveal_spends_exactly_two :
     hiddenBlock.squareAmbiguity automaton =
       hiddenBlock.branchSquareAmbiguity automaton true + 2 := by
-  native_decide
+  decide
 
 /-- Equality boundary: the valid constant-response identity action retains
 all ambiguity and creates no informative partition event. -/
 theorem stay_spends_zero :
     hiddenBlock.branchSquareAmbiguity automaton false =
       hiddenBlock.squareAmbiguity automaton := by
-  native_decide
+  decide
 
 end Control
 

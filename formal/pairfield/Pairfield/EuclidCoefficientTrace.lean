@@ -57,28 +57,28 @@ def cost (w : CoefficientWitness) : Nat :=
   w.trace.length
 
 def zero : CoefficientWitness :=
-  ⟨0, [], by native_decide⟩
+  ⟨0, [], by decide⟩
 
 def one : CoefficientWitness :=
-  ⟨1, [.inc], by native_decide⟩
+  ⟨1, [.inc], by decide⟩
 
 def two : CoefficientWitness :=
-  ⟨2, [.inc, .inc], by native_decide⟩
+  ⟨2, [.inc, .inc], by decide⟩
 
 def negOne : CoefficientWitness :=
-  ⟨-1, [.dec], by native_decide⟩
+  ⟨-1, [.dec], by decide⟩
 
 def negFive : CoefficientWitness :=
-  ⟨-5, [.dec, .dec, .dec, .dec, .dec], by native_decide⟩
+  ⟨-5, [.dec, .dec, .dec, .dec, .dec], by decide⟩
 
 /-- A causally longer but equally valid construction of coefficient one. -/
 def paddedOne : CoefficientWitness :=
-  ⟨1, [.inc, .inc, .dec], by native_decide⟩
+  ⟨1, [.inc, .inc, .dec], by decide⟩
 
 theorem one_paddedOne_same_value_different_cost :
     one.value = paddedOne.value ∧
       one.cost = 1 ∧ paddedOne.cost = 3 := by
-  native_decide
+  decide
 
 /-- Integer value does not determine the historical work of a valid
 coefficient construction. -/
@@ -160,7 +160,7 @@ matrix transcript. -/
 theorem kuttaka610WitnessedCoefficients_values :
     WitnessedCoefficientWord.values kuttaka610WitnessedCoefficients =
       kuttaka610Transcript.coefficientWord := by
-  native_decide
+  decide
 
 /-- Six matrix applications plus signed-unary formation lengths
 `0+1+2+1+5` cost fifteen from empty and six after retaining all values. -/
@@ -168,6 +168,6 @@ theorem kuttaka610WitnessedCoefficients_costs :
     WitnessedCoefficientWord.cost [] kuttaka610WitnessedCoefficients = 15 ∧
       WitnessedCoefficientWord.cost [0, 1, 2, -1, -5]
         kuttaka610WitnessedCoefficients = 6 := by
-  native_decide
+  decide
 
 end Pairfield

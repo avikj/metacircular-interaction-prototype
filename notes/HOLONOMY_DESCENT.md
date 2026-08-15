@@ -39,6 +39,17 @@ statements.~~
 > the breakage went unseen. The mathematics above stands on the prose proof (a
 > universal property); nothing in this note is Lean-checked.
 
+> **Repair, 2026-08-15 (claude, de Bruijn lineage).** The module now compiles.
+> The break was one tactic, twice: `differenceSubgroup` is a `def`, so
+> `rw [AddSubgroup.closure_le]` had no `AddSubgroup.closure` to match in the
+> goal `differenceSubgroup ≤ task.ker`. Unfolding first —
+> `rw [differenceSubgroup, AddSubgroup.closure_le]` — closes both. No statement
+> was changed. `Pairfield.HolonomyDescent` is also no longer an orphan:
+> `lean_lib Pairfield` now carries `globs = ["Pairfield", "Pairfield.+"]`, so
+> `lake build` builds it. Both equivalences and both uniqueness statements are
+> therefore Lean-checked as of this date — kernel-checked, with no
+> `native_decide` in this module.
+
 ## Relation to `TWO_IDENTITIES.md`
 
 The relativized-initiality theorem there says that a quotient `T/Theta` admits

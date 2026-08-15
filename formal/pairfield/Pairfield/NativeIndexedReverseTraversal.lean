@@ -1259,12 +1259,12 @@ open VisitedPairHorizonWitness
 seven-state subgraph, strictly below the 22-edge stored inventory. -/
 theorem indexed_traversal_attempts_fourteen :
     (indexedTraversal automaton alphabet).attempts = 14 := by
-  native_decide
+  decide
 
 theorem indexed_traversal_strictly_below_inventory :
     (indexedTraversal automaton alphabet).attempts <
       (edgeInventory automaton alphabet).length := by
-  native_decide
+  decide
 
 /-- The state-presentation adapter executes natively on an actual predecessor
 edge. -/
@@ -1274,13 +1274,13 @@ theorem native_reindex_adapter_control :
     (indexedEdgeDFA automaton).evalFrom
         (reverseEdgeSourceState automaton edge) [edge] =
       reverseEdgeTargetState automaton edge := by
-  native_decide
+  decide
 
 /-- Formation's hostile trace is endpoint-valid but fails the causal path
 invariant at its wrong-source predecessor. -/
 theorem wrong_source_trace_not_chained :
     let seed : TerminalSeed automaton :=
-      ⟨(0, 2), by native_decide⟩
+      ⟨(0, 2), by decide⟩
     let wrong : ReverseEdge automaton :=
       .predecessor (0, 1) false
     ¬ EdgeTrace.Chained automaton .source [ReverseEdge.seed seed, wrong]
@@ -1289,11 +1289,11 @@ theorem wrong_source_trace_not_chained :
   intro hchain
   have hsource := EdgeTrace.Chained.head_source (M := automaton)
     (EdgeTrace.Chained.tail (M := automaton) hchain)
-  exact (by native_decide :
+  exact (by decide :
     reverseEdgeSourceState automaton
         (ReverseEdge.predecessor (0, 1) false) ≠
       reverseEdgeTargetState automaton
-        (ReverseEdge.seed ⟨(0, 2), by native_decide⟩)) hsource
+        (ReverseEdge.seed ⟨(0, 2), by decide⟩)) hsource
 
 /-- The indexed queue retains the same reached product-state set as the flat
 reverse traversal on the planted control. -/
@@ -1301,7 +1301,7 @@ theorem indexed_and_flat_reach_same_states :
     ((indexedTraversal automaton alphabet).closed.map ReachNode.state).toFinset =
       (((reverseTraversal automaton alphabet).closed.map ReachNode.state).map
         (sourceStateEquiv (X := Fin 3))).toFinset := by
-  native_decide
+  decide
 
 end Control
 

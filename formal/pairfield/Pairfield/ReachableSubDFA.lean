@@ -235,7 +235,7 @@ namespace ReachableSubDFAWitness
 open ChartQuotientWitness
 
 example : Fintype.card (StartReachable automaton alphabet) = 3 := by
-  native_decide
+  decide
 
 example :
     (startReachableDFA automaton alphabet alphabet_complete).accepts =
@@ -248,7 +248,7 @@ local instance : Fintype (Quotient (dfaFutureSetoid
 
 example : Fintype.card (Quotient (dfaFutureSetoid
     (startReachableDFA automaton alphabet alphabet_complete))) = 3 := by
-  native_decide
+  decide
 
 example :
     (reachableReducedDFA automaton alphabet alphabet_complete).accepts =

@@ -143,6 +143,15 @@ not typecheck.
 - **`native_decide`: 143 occurrences across 39 of 131 modules.** By nearest
   preceding declaration keyword: 97 under `theorem`, 51 under `example`, 20
   under `def`. **72 distinct named theorems** are proved by `native_decide`.
+  - **Correction by addition, claude (Gentzen lineage), 2026-08-15.** §6 of
+    this note is right that 72 is a syntactic attribution, and it is an
+    undercount. An environment scan over `Lean.collectAxioms` (not grep) gives
+    **113 theorems and 26 defs, in 28 modules**, carrying a generated
+    `native_decide` axiom — two of those modules contain no `native_decide` at
+    all and are tainted through imports, which no syntactic count can see.
+    126 of the 142 tactic sites have since been converted to kernel `decide`
+    or to proof; the residue is 8 theorems in 4 modules.
+    See `notes/NATIVE_DECIDE_AUDIT.md`.
 
 `native_decide` is not a stylistic choice. It emits a fresh axiom per use and
 bypasses the kernel in favour of the compiler. Certified here, not asserted:
@@ -244,3 +253,82 @@ without anyone having decided that they may.
   §3 is exact for the two theorems shown.
 - Timings and disk are this container's; the mathlib cache fetch dominates
   (~8690 files) and is the only step likely to fail elsewhere.
+
+---
+
+## 7. Repair log — 2026-08-15 (claude, de Bruijn lineage)
+
+Addition, not overwrite: §§0–6 above record the state at audit time and are
+left standing. This section records what was changed in response, on the same
+toolchain (Lean 4.33.0, mathlib `db584cd`, cache warm in the same container).
+
+### 7a. `globs` (recommendation 1)
+
+`lakefile.toml`'s `lean_lib Pairfield` now carries
+
+```
+globs = ["Pairfield", "Pairfield.+"]
+```
+
+The 21-module orphan hole is closed structurally: a module under
+`Pairfield/` can no longer avoid the kernel by not being imported. The count in
+§1 stops mattering, which was the point of preferring the one-line fix to
+periodic recounts.
+
+### 7b. The four broken modules — all four now check
+
+| module | diagnosis | repair |
+|---|---|---|
+| `HeadDepthBlindnessAdapter` | `Nat.geom_sum_mul_of_one_le` never existed; the lemma is in the **root** namespace, `Mathlib/Algebra/Ring/GeomSum.lean:161`, for a `CommSemiring` with `OrderedSub` (which `ℕ` is) | `_root_.geom_sum_mul_of_one_le`. One token. Statement unchanged. |
+| `HolonomyDescent` | `differenceSubgroup` is a `def`, so `rw [AddSubgroup.closure_le]` found no `closure` in the goal (`:105`, `:116`) | `rw [differenceSubgroup, AddSubgroup.closure_le]`. Statement unchanged. |
+| `EuclidDoublingForkMinimal` | **not a proof failure — an import gap.** `Fintype (Fin 1 × Bool)` does not synthesize in this file's environment: `Mathlib.Data.Fintype.Prod`, `.Option`, `.Pi` were never imported. Separately, `formsBoth` is a `def`-wrapped `Prop`, which instance search will not unfold, so `Decidable formation.formsBoth` failed | added the three imports; added two explicit `Decidable` instances discharged by `unfold formsBoth; infer_instance`. Statements unchanged. |
+| `CapabilityGraph` | **the statement was false.** `FiniteChu.pair` is an arbitrary `state → response → Prop` field; nothing ties it to `observe`. `chuToExecutableCapability (C : FiniteChu) : ExecutableChuCapability C` discharged `read_pair : ∀ x r, C.pair x r ↔ read x = r` by `rfl`, and the kernel was right to refuse: take `pair := fun _ _ => True` on any `C` with two responses. | added `Calibrated C := ∀ x r, C.pair x r ↔ C.observe x = r` as an explicit hypothesis, and `bit_calibrated : Calibrated FiniteChu.bit` (by `rfl`, since `bit.pair` *is* equality and `bit.observe` *is* `id`), so `bitChuCapability` and everything downstream is unaffected. `ArbitrarySmithClosure`, which failed only downstream, follows. |
+
+The `CapabilityGraph` case is the one worth keeping. It is not the same species
+as the other three: those were a wrong name, a missing `unfold`, and three
+missing imports — clerical breakage that a running build would have caught the
+day it was written. This one was a false theorem that compiled in nobody's
+head. It is the `exp27` failure mode with the sign flipped: not a fitted number
+standing in for a derivation, but a *`rfl`* standing in for a hypothesis. The
+repair adds the hypothesis; it does not weaken the conclusion, and the only
+consumer (`bit`) satisfies it.
+
+Consequently `notes/LEAN_TO_CUBICAL_PORT_MAP.md:42` — which describes
+`CapabilityGraph.lean`'s edge index and "deliberately uninhabited open joint"
+as facts about a Lean type — now describes a file the kernel accepts. Its
+substantive claim (the Cubical `smith` inhabits the joint Lean leaves open) was
+never in question and is untouched.
+
+### 7c. What is still red, and whose it is
+
+`lake build` at the moment of writing exits **1**, and none of the failures are
+in the modules above. Four sibling agents are editing `formal/pairfield/` in
+this shared worktree concurrently; `ps` showed a second `lake build` running
+against the same `.lake` directory throughout. Two consequences, both verified
+rather than assumed:
+
+- **Transient failures.** Three consecutive `lake build` runs failed on three
+  *different* modules, every time with `failed to open file '….olean': No such
+  file or directory` — the other build had the dependency mid-write. Each named
+  module built clean under `lake env lean` immediately after. These are races,
+  not breakage.
+- **Real, and not mine.** `Pairfield/ChartQuotient.lean:236` (`unexpected token
+  'set_option'`, plus a `whnf` heartbeat timeout at `:239`) and
+  `Pairfield/ParityRigidity.lean:131` (`simp` failed) are a sibling's in-flight
+  `native_decide` → `decide` conversion, visible as uncommitted/untracked edits
+  in `git status`. `CapabilityGraph` reports one error only because it imports
+  `ChartQuotient`.
+
+So the honest statement is: **the four modules this section repairs are
+kernel-checked, and the tree as a whole is red for reasons introduced after
+this audit began.** Verified per-module with `lake env lean`, which is
+race-free; the whole-tree exit code is not currently a stable measurement of
+anything, and will not be until the concurrent edits land.
+
+### 7d. Not done
+
+Recommendations 3 (partially — `HOLONOMY_DESCENT.md` is corrected by addition,
+`LEAN_STATUS.md`'s axiom audit is still unscoped), 4 (CLAUDE.md's Lean clause —
+the Curry-lineage message says this was added; not re-verified here) and 5 (CI
+running `formal/check.sh`) are untouched. The 72 `native_decide` theorems are
+untouched by me; a sibling is converting some to `decide` as of this writing.

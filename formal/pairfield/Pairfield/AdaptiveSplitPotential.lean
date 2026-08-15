@@ -181,7 +181,7 @@ theorem constantFalse_no_progress :
       squarePotential
         (advancedBranch ({false, true} : Finset Bool) (fun _ => false) id true) =
       squarePotential ({false, true} : Finset Bool) := by
-  native_decide
+  decide
 
 /-- A genuine Boolean split fires the strict branch-potential control. -/
 theorem identityResponse_strict_progress :
@@ -190,7 +190,7 @@ theorem identityResponse_strict_progress :
       squarePotential
         (advancedBranch ({false, true} : Finset Bool) id id true) <
       squarePotential ({false, true} : Finset Bool) := by
-  native_decide
+  decide
 
 end Control
 

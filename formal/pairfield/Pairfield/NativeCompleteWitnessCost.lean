@@ -161,7 +161,7 @@ theorem shared_suffix_is_not_root_free :
         behavior automaton.step observe 1 ([false] ++ []) ∧
       behavior automaton.step observe 2 ([true] ++ []) ≠
         behavior automaton.step observe 3 ([true] ++ []) := by
-  native_decide
+  decide
 
 end PrefixErasureWitness
 

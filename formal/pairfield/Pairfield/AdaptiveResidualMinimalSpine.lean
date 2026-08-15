@@ -172,7 +172,7 @@ def redundantSteeringTree : BoolExperimentTree (Fin 3) :=
 theorem redundantSteering_traces_ne :
     BranchTrace automaton redundantSteeringTree [] ≠
       BranchTrace automaton redundantSteeringTree [reach] := by
-  native_decide
+  decide
 
 theorem redundantSteeringTree_separates :
     redundantSteeringTree.SeparatesPrefixResidualsOn automaton liveCell := by
@@ -203,7 +203,7 @@ theorem redundantSteeringTree_not_depthMinimal :
   have hdepth := minimal.2 steeringTree usefulSplitting
   have himpossible :
       ¬ redundantSteeringTree.depth ≤ steeringTree.depth := by
-    native_decide
+    decide
   exact himpossible hdepth
 
 /-- The positive boundary control remains the exact R0057 result: its

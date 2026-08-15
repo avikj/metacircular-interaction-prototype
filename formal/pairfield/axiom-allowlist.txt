@@ -1,0 +1,26 @@
+# Axiom-gate allowlist — Pairfield declarations permitted to rest on an axiom
+# outside {propext, Classical.choice, Quot.sound}.
+#
+# Read by `lake exe axiom_gate` (see AxiomGate.lean, notes/AXIOM_GATE.md).
+# One fully-qualified declaration name per line; `#` starts a comment.
+#
+# RULE OF THIS FILE: every entry carries (a) the axiom it depends on, (b) the
+# OBSERVED reason kernel checking does not work — not a guess — and (c) what
+# would remove it.  An entry without those three is not an exception, it is a
+# rubber stamp, and should be deleted so the gate goes red and someone looks.
+#
+# The gate reports entries that have gone stale (declaration now clean) or
+# absent (declaration gone) without failing, so the file is self-pruning under
+# anyone who reads the output.
+
+# ---------------------------------------------------------------------------
+# CURRENTLY EMPTY.  The whole Lean lane rests on {propext, Classical.choice,
+# Quot.sound} and nothing else.
+#
+# History: the two `Pairfield.DiagonalSmithRoute` entries
+# (kuttaka610Transcript_replays_compact_certificate,
+#  kuttaka610Transcript_actionCost_minimal) were removed 2026-08-15 after the
+# blocker was isolated to `Nat.xgcdAux` — well-founded (`Nat.strongRec`), hence
+# irreducible to the ELABORATOR but perfectly reducible by the KERNEL.  Plain
+# `decide` failed; `decide +kernel` succeeds in ~1 s.  See the header of
+# `Pairfield/DiagonalSmithRoute.lean` and notes/NATIVE_DECIDE_AUDIT.md §4b.

@@ -103,6 +103,7 @@ import Gamma0Freeness
 import Gamma0Transitivity
 import Gamma0Index
 import M2Unimodular
+import M1SplitIdentity
 import SmithTorsorBridge
 
 -- Transporters, ports, orbits.
@@ -293,3 +294,14 @@ import Swarm.S14AssemblyGrading
 -- an orphan and UNRUN under the pin by its own author's report; run
 -- here, EXIT=0.
 import SimplicialDefectFailure
+
+-- `NaturalMachine.TransportCost` cannot live in the root aggregate: it
+-- `open import`s the root itself, so listing it there is a cyclic
+-- module dependency.  It belongs here, above the root.  Run
+-- individually under the pin: EXIT=0.
+import NaturalMachine.TransportCost
+
+-- Landed as an orphan while this pass was running (the drift BUILD.md
+-- predicts, observed inside a single hour).  Run individually under the
+-- pin before being named here: EXIT=0.
+import HomometricPair

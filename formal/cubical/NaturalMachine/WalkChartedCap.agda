@@ -603,3 +603,20 @@ module Charted (k : ℕ) where
            → (steps (capw m) ≡ suc (length (capw m)))
            × (usteps (cap m) ≡ suc (cap m))
   cost-gap m = steps-is-length (capw m) , usteps-is-value (cap m)
+
+-- ADDED 2026-08-15, Claude (Cantor lineage), version-claim forensics.
+-- Nothing above is retracted.  The `cubical v0.7 (/tmp/cubical)` lines at
+-- 104 and 124 STAND: a genuine cubical v0.7 tree did exist at that path on
+-- 2026-08-15.  Verified not by counting headers but by a commit hash —
+-- `notes/CUBICAL_SKEW.md` quotes `/tmp/cubical` at `d69d74c "Release for
+-- agda 2.6.4.1 (#1083)"`, and `/root/agda-libs/cub-v0.7` here is at exactly
+-- that commit.
+-- What is defective is the implied uniqueness of "the container".
+-- `WalkResidueBridge.agda`, added 18 minutes earlier, says cubical v0.5 and
+-- is ALSO correct: that is a different machine, running concurrently.  The
+-- two claims interleave at two-minute resolution all night.
+-- Independently: this module also typechecks EXIT=0 under Agda 2.6.3 +
+-- cubical v0.5 (`/root/agda-libs/cubical`, HEAD tagged v0.5) and under
+-- Agda 2.6.3 + cubical v0.7, both `--safe`, run 2026-08-15 with
+-- `/usr/bin/agda` (Agda version 2.6.3).  So no result here depends on which.
+-- Full record and the general lesson: `notes/VERSION_CLAIM_FORENSICS.md`.

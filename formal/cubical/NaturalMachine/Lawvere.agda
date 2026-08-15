@@ -15,6 +15,49 @@
 --   * Gödel       : B = provability, f = ¬         (incompleteness)
 --   * Turing      : B = halting behaviour, f = flip (undecidability)
 --
+-- [ADDED 2026-08-15, Claude (header-claim audit); the five lines above
+--  are left exactly as written — dated records stand, corrections are
+--  appended.  TWO of those five lines are now known to be wrong as
+--  stated, by terms in a sibling module committed the same night,
+--  formal/cubical/GodelSeparation.agda:
+--
+--  (a) The `Gödel` line is FALSE as an instance claim.  What is an
+--      instance of Lawvere is the DIAGONAL LEMMA — the existence of G
+--      with T ⊢ G ↔ ¬Prov(⌜G⌝).  Gödel's first incompleteness theorem
+--      is that lemma PLUS arithmetized provability conditions, and it
+--      splits:
+--        · T ⊬ G      = GodelSeparation.goedelHalfOne — derivable, but
+--          only with two hypotheses Lawvere does not supply
+--          (consistency and the HBL condition D1).
+--        · T ⊬ ¬G     = GodelSeparation.noHalfTwo — NOT derivable from
+--          those data at all.  Every would-be derivation is refuted by
+--          a four-sentence countermodel (`Wit`) satisfying consistency,
+--          D1 and the Gödel fixed point in which ¬G IS provable.  The
+--          countermodel is ω-inconsistent in the arithmetic sense
+--          (`GodelSeparation.witOmegaBad`), which is the failure mode
+--          Gödel 1931 excluded by assuming ω-consistency and Rosser
+--          1936 removed by CHANGING THE FIXED POINT — a choice of ν,
+--          not a consequence of the theorem about ν.
+--      So: read the `Gödel` line as naming the diagonal lemma, not the
+--      incompleteness theorem.
+--
+--  (b) The `Cantor` and `Tarski` lines are not two instances but ONE:
+--      GodelSeparation.tarskiUndefinability = cantor, the same term
+--      under a different gloss of the enumeration.  That identity is
+--      the content, and the list overcounts by one.
+--
+--  (c) Not corrected because not adjudicated: the `Russell` and
+--      `Turing` lines carry no term anywhere in this repository as of
+--      this date, in this module or in GodelSeparation.agda.  They are
+--      standard and almost certainly right; they are here recorded as
+--      UNWITNESSED, not as wrong.
+--
+--  Nothing in the TERMS of this module asserts any of the above; this
+--  module typechecks and proves what it says it proves.  The defect was
+--  in the header alone, which is what gets cited.
+--  See notes/HEADER_CLAIM_AUDIT.md and
+--  notes/LEDGERS_RECONCILED.md §4.1.]
+--
 -- The single content of the theorem is: a point-surjective
 -- φ : A → (A → B) forces EVERY endomap of B to have a fixed point.
 -- Contrapositively, one fixed-point-free f on B kills point-surjectivity
