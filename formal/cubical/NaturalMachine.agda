@@ -650,6 +650,18 @@ import NaturalMachine.WalkResidueBridge
 -- lacked (`%≡mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
 -- _mod_) before the Euclid step could even be stated.
 import NaturalMachine.WalkChartedCap
+-- The walk's frontier, broken: next 8 ≡ 9, next 9 ≡ 11, next 10 ≡ 11, each
+-- checked without running the walk on cap m.  WalkFast guessed the blocker
+-- was its `with`; the bisection in this file's header shows it is the
+-- conversion checker comparing the goal's `next 8` against a SECOND,
+-- independently elaborated one, and that `let`-sharing removes it.
+import NaturalMachine.WalkFastInstance
+-- The X-dependence the single-scale witness was missing: for a canonical
+-- word of length L the chart costs L+1 steps and the home presentation is
+-- at least b^(L−1), so the speedup is quantified over every base, every
+-- pair of edge costs, and every word past a derived threshold -- not four
+-- observations at four sizes.
+import NaturalMachine.TransportDivScale
 -- The same descent without fuel: accessibility pushed back along the
 -- measure, generalised to any well-founded relation, with KFlow.decay
 -- recovered as the instance μ = id.  The naive converse is false; what is
