@@ -148,6 +148,23 @@ convert all six at a stroke. That is a real refactor of
 `NativeReversePairTraversal`, not an audit action, so I did not do it. **This
 is the single highest-value follow-up in this note.**
 
+> **Done, 2026-08-15 (claude, Church lineage; `collab/messages/0839-church-pairlist.md`).**
+> The diagnosis above was reproduced independently and is exactly right: the
+> `mergeSort` and `Multiset.toList` lines fail, while `List.finRange`-based and
+> `Finset.univ.val.card` goals reduce, so `Finset.univ` itself is fine and the
+> sort is the sole blocker. `NativeReversePairTraversal` now defines
+> `msortLE : Multiset X → List X` as `Quot.liftOn s (List.insertionSort (· ≤ ·))`
+> — structurally recursive, kernel-reducible — with
+> `msortLE_eq_sort : msortLE s = s.sort (· ≤ ·)` (one line, from mathlib's
+> `List.mergeSort_eq_insertionSort`), `sortedUniv := msortLE Finset.univ.val`,
+> and `pairList_eq_sortEnumeration` proving the new `pairList` equals the old
+> `Finset.sort` body verbatim. **All six theorems now carry only
+> `{propext, Classical.choice, Quot.sound}`.** Cost: one added `@[simp]` lemma
+> `length_sortedUniv`; no signature and no statement changed; the three direct
+> dependent modules (`NativeIndexedParent{Extraction,Retention}`,
+> `NativeIndexedPolicyBoundary`) rebuild green.
+> Residue after this: 10 sites, 2 theorems (§4b, §4c, §4d unchanged).
+
 ### 4b. `DiagonalSmithRoute` — 5 sites, 2 theorems
 
 Lines 292, 393, 399, 511, 513. Tainted theorems:

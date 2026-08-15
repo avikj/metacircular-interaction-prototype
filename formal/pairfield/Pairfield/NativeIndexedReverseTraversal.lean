@@ -1259,12 +1259,12 @@ open VisitedPairHorizonWitness
 seven-state subgraph, strictly below the 22-edge stored inventory. -/
 theorem indexed_traversal_attempts_fourteen :
     (indexedTraversal automaton alphabet).attempts = 14 := by
-  native_decide
+  decide
 
 theorem indexed_traversal_strictly_below_inventory :
     (indexedTraversal automaton alphabet).attempts <
       (edgeInventory automaton alphabet).length := by
-  native_decide
+  decide
 
 /-- The state-presentation adapter executes natively on an actual predecessor
 edge. -/
@@ -1301,7 +1301,7 @@ theorem indexed_and_flat_reach_same_states :
     ((indexedTraversal automaton alphabet).closed.map ReachNode.state).toFinset =
       (((reverseTraversal automaton alphabet).closed.map ReachNode.state).map
         (sourceStateEquiv (X := Fin 3))).toFinset := by
-  native_decide
+  decide
 
 end Control
 

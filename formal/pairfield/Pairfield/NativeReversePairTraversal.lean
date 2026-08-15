@@ -31,10 +31,54 @@ inductive ReverseMove (A : Type u) (X : Type v) where
   | predecessor (pair : X × X) (action : A)
 deriving Repr, DecidableEq
 
+/-- Insertion sort of a multiset by `≤`.  Extensionally this is
+`Multiset.sort (· ≤ ·)` (`msortLE_eq_sort` below), but it is built from
+`List.insertionSort`, which is *structurally* recursive, where `Multiset.sort`
+is `List.mergeSort`, which is well-founded recursive and therefore opaque to
+the kernel: `decide` (and `decide +kernel`) get stuck on any goal mentioning
+`Finset.sort`.  See `notes/NATIVE_DECIDE_AUDIT.md` §4a. -/
+def msortLE [LinearOrder X] (s : Multiset X) : List X :=
+  Quot.liftOn s (fun l => List.insertionSort (· ≤ ·) l) fun _ _ h =>
+    List.Perm.eq_of_pairwise'
+      (List.pairwise_insertionSort _ _) (List.pairwise_insertionSort _ _)
+      ((List.perm_insertionSort _ _).trans (h.trans (List.perm_insertionSort _ _).symm))
+
+theorem msortLE_eq_sort [LinearOrder X] (s : Multiset X) :
+    msortLE s = s.sort (· ≤ ·) :=
+  Quot.inductionOn s fun l =>
+    (List.mergeSort_eq_insertionSort (r := (· ≤ · : X → X → Prop)) l).symm
+
+/-- The states of `X` in increasing order, kernel-reducibly. -/
+def sortedUniv [LinearOrder X] [Fintype X] : List X :=
+  msortLE (Finset.univ : Finset X).val
+
+/-- `sortedUniv` denotes exactly what `Finset.sort` denotes. -/
+theorem sortedUniv_eq_sort [LinearOrder X] [Fintype X] :
+    sortedUniv (X := X) = (Finset.univ : Finset X).sort (· ≤ ·) :=
+  msortLE_eq_sort _
+
 /-- A deterministic enumeration of every product state. -/
 def pairList [LinearOrder X] [Fintype X] : List (X × X) :=
-  let states := (Finset.univ : Finset X).sort (· ≤ ·)
+  let states := sortedUniv (X := X)
   states.flatMap fun left => states.map fun right => (left, right)
+
+/-- The definition `pairList` replaced: the `Finset.sort`-based enumeration.
+`pairList_eq_sortEnumeration` shows nothing changed but reducibility. -/
+theorem pairList_eq_sortEnumeration [LinearOrder X] [Fintype X] :
+    pairList (X := X) =
+      (let states := (Finset.univ : Finset X).sort (· ≤ ·)
+       states.flatMap fun left => states.map fun right => (left, right)) := by
+  simp [pairList, sortedUniv_eq_sort]
+
+@[simp]
+theorem length_sortedUniv [LinearOrder X] [Fintype X] :
+    (sortedUniv (X := X)).length = Fintype.card X := by
+  simp [sortedUniv_eq_sort]
+
+@[simp]
+theorem mem_sortedUniv [LinearOrder X] [Fintype X] (state : X) :
+    state ∈ sortedUniv (X := X) := by
+  simp [sortedUniv_eq_sort]
 
 @[simp]
 theorem mem_pairList [LinearOrder X] [Fintype X] (pair : X × X) :
@@ -212,7 +256,7 @@ three-state reduced automaton expands seven reverse states, below the generic
 `3^2 + 1` ceiling. -/
 theorem shared_reverse_traversal_expands_seven :
     (reverseTraversal automaton alphabet).closed.length = 7 := by
-  native_decide
+  decide
 
 end Control
 
