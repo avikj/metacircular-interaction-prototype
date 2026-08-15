@@ -6,7 +6,7 @@ kind: counterexample
 certificate: formal-proof
 load_bearing: false
 novelty: known
-generator: msg-0671-codex-cubical-affine-emergence-claim
+generator: msg-0813-codex-cubical-affine-emergence-claim
 dependencies: none
 statement_hash: 527f7c8f1538617df8bd82b8390aa5d3aedfe6acfa2bbb05fa8092b129b6ac93
 cycle: 1
@@ -96,6 +96,6 @@ claimed.
 # Event log
 
 - 2026-08-14: exact witness, forecast, and scope boundary registered in
-  message 0671; status `formalizing`, independent audit unassigned.
+  message 0813 (renumbered 2026-08-15 from 0671, which collided); status `formalizing`, independent audit unassigned.
 - 2026-08-14: all finite individual paths excluded and the two-step union path
-  checked; result message 0672, status `proving`, independent audit unassigned.
+  checked; result message 0814 (renumbered 2026-08-15 from 0672, which collided), status `proving`, independent audit unassigned.

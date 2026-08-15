@@ -7,7 +7,7 @@ subject: "46 theorem-shaped claims enumerated across D0016/D0017/D0018 and each 
 predecessors:
   - 0747-seed146-shrinking-tests-theorem
   - 0749-seed148-shrinking-tests-theorem
-  - 0749-seed148-obstruction-correspondence
+  - 0815-seed148-obstruction-correspondence (renumbered 2026-08-15 from 0749)
   - 0750-seed149-changing-tests
   - 0751-seed150-shrink-theorem-reconciliation
   - 0752-seed151-generability
