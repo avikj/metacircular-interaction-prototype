@@ -101,10 +101,24 @@ c₂ : Obs → ℕ
 c₂ X   = 0
 c₂ X+Y = 1
 
+-- Reduction mod 5, defined by structural recursion so that it reduces
+-- transparently on open terms (the library's `_mod_` goes through
+-- well-founded recursion, which makes the CONTROL file's error message
+-- unreadable — the control is an instrument and must stay legible).
+-- Agreement with the library `_mod_` is checked below on every input
+-- that occurs in this file.
+mod5 : ℕ → ℕ
+mod5 zero    = 0
+mod5 (suc n) = rollover (mod5 n)
+  where
+  rollover : ℕ → ℕ
+  rollover 4 = 0
+  rollover k = suc k
+
 -- The restricted gradient on the line `L = span{(1,s)}`, evaluated at
 -- the generator `t = 1`: `grad f|_L (1) = c₁ + c₂·s`.
 grad : Obs → Slope → ℕ
-grad f s = (c₁ f + c₂ f · val s) mod p
+grad f s = mod5 (c₁ f + c₂ f · val s)
 
 ------------------------------------------------------------------------
 -- Decidable equality on ℕ, and the finite search.
@@ -121,11 +135,11 @@ eqℕ (suc m) (suc n) = eqℕ m n
 -- carried out by finite verification rather than by the group argument.
 attains : ℕ → Bool
 attains g =
-      eqℕ ((0 · g) mod p) target
-  or  eqℕ ((1 · g) mod p) target
-  or  eqℕ ((2 · g) mod p) target
-  or  eqℕ ((3 · g) mod p) target
-  or  eqℕ ((4 · g) mod p) target
+      eqℕ (mod5 (0 · g)) target
+  or  eqℕ (mod5 (1 · g)) target
+  or  eqℕ (mod5 (2 · g)) target
+  or  eqℕ (mod5 (3 · g)) target
+  or  eqℕ (mod5 (4 · g)) target
 
 -- The note's criterion.
 transports : Obs → Slope → Bool
@@ -134,6 +148,29 @@ transports f s = attains (grad f s)
 -- The right-hand side of the corollary: `s ≢ -1 (mod 5)`, i.e. `s ≠ 4`.
 crit : Slope → Bool
 crit s = not (eqℕ (val s) target)
+
+------------------------------------------------------------------------
+-- 0.  `mod5` is the library's `_mod_ 5` on every input reachable here.
+--     Reachable inputs: gradients `c₁ + c₂·s ≤ 1 + 1·4 = 5`, and their
+--     multiples `t·g ≤ 4·4 = 16`.  Checked exhaustively on `0..16`.
+
+mod5-agrees-0  : mod5  0 ≡ ( 0 mod p) ; mod5-agrees-0  = refl
+mod5-agrees-1  : mod5  1 ≡ ( 1 mod p) ; mod5-agrees-1  = refl
+mod5-agrees-2  : mod5  2 ≡ ( 2 mod p) ; mod5-agrees-2  = refl
+mod5-agrees-3  : mod5  3 ≡ ( 3 mod p) ; mod5-agrees-3  = refl
+mod5-agrees-4  : mod5  4 ≡ ( 4 mod p) ; mod5-agrees-4  = refl
+mod5-agrees-5  : mod5  5 ≡ ( 5 mod p) ; mod5-agrees-5  = refl
+mod5-agrees-6  : mod5  6 ≡ ( 6 mod p) ; mod5-agrees-6  = refl
+mod5-agrees-7  : mod5  7 ≡ ( 7 mod p) ; mod5-agrees-7  = refl
+mod5-agrees-8  : mod5  8 ≡ ( 8 mod p) ; mod5-agrees-8  = refl
+mod5-agrees-9  : mod5  9 ≡ ( 9 mod p) ; mod5-agrees-9  = refl
+mod5-agrees-10 : mod5 10 ≡ (10 mod p) ; mod5-agrees-10 = refl
+mod5-agrees-11 : mod5 11 ≡ (11 mod p) ; mod5-agrees-11 = refl
+mod5-agrees-12 : mod5 12 ≡ (12 mod p) ; mod5-agrees-12 = refl
+mod5-agrees-13 : mod5 13 ≡ (13 mod p) ; mod5-agrees-13 = refl
+mod5-agrees-14 : mod5 14 ≡ (14 mod p) ; mod5-agrees-14 = refl
+mod5-agrees-15 : mod5 15 ≡ (15 mod p) ; mod5-agrees-15 = refl
+mod5-agrees-16 : mod5 16 ≡ (16 mod p) ; mod5-agrees-16 = refl
 
 ------------------------------------------------------------------------
 -- 1.  The corollary, WITH its hypothesis.  The observable is fixed to
