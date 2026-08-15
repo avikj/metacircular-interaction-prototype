@@ -5,6 +5,7 @@
 #
 #   machine/run-loop-ab.sh [--rounds N] [--budget SECONDS] [--baseline REV]
 #                          [--current-only] [--baseline-only] [--thoughts]
+#                          [--memory]
 #                          [--keep DIR] [--agda-home DIR] [--help]
 #
 # WHAT IT MEASURES.  The engine's per-round log line
@@ -69,6 +70,7 @@ usage() {
   printf '%s\n' \
     'usage: run-loop-ab.sh [--rounds N] [--budget SECONDS] [--baseline REV]' \
     '                      [--current-only] [--baseline-only] [--thoughts]' \
+    '                      [--memory]' \
     '                      [--keep DIR] [--agda-home DIR]' \
     '' \
     '  --rounds N       stop each binary after round N has been logged' \
@@ -81,6 +83,14 @@ usage() {
     '  --baseline-only  measure only the baseline revision' \
     '  --thoughts       copy machine/thoughts.math into the scratch root' \
     '                   (seeds required-vocab=8; disables the Widen move)' \
+    '  --memory         copy machine/library.terms in as startup memory' \
+    '                   (only newer builds read it; off by default so that' \
+    '                    an A/B is not measuring the seed)' \
+    '  --baseline-variant old-flow' \
+    '                   build the baseline from the CURRENT source with the' \
+    '                   growth trigger reverted to the pre-KFlow boolean.' \
+    '                   Isolates the control law with everything else held' \
+    '                   fixed -- the cell of the design that is not a commit.' \
     '  --keep DIR       copy raw logs and binaries into DIR before cleanup' \
     '  --agda-home DIR  use DIR as AGDA_DIR instead of synthesising one'
 }
@@ -98,6 +108,8 @@ baseline_rev=
 run_baseline=yes
 run_current=yes
 use_thoughts=no
+use_memory=no
+baseline_variant=
 keep_directory=
 agda_home=
 
@@ -115,6 +127,10 @@ while [ "$#" -gt 0 ]; do
     --current-only) run_baseline=no; shift ;;
     --baseline-only) run_current=no; shift ;;
     --thoughts) use_thoughts=yes; shift ;;
+    --memory) use_memory=yes; shift ;;
+    --baseline-variant)
+      [ "$#" -ge 2 ] || fail '--baseline-variant needs an argument'
+      baseline_variant=$2; shift 2 ;;
     --keep)
       [ "$#" -ge 2 ] || fail '--keep needs an argument'
       keep_directory=$2; shift 2 ;;
@@ -218,7 +234,11 @@ build_engine() {
       "$(sha256sum "$build_source" | cut -d' ' -f1)" >&2
   fi
   printf '==> building %s\n' "$build_label" >&2
-  if ! ghc -O1 -outputdir "$build_objects" -o "$build_output" "$build_source" \
+  # -i<repo>/machine so `import Certificate` resolves; harmless for baselines
+  # that predate it.  -outputdir keeps every .o/.hi out of the repository, so
+  # the tracked machine/MathMachine.{o,hi} are never rewritten.
+  if ! ghc -O1 -i"$repository_directory/machine" \
+       -outputdir "$build_objects" -o "$build_output" "$build_source" \
        >"$work_directory/build-$build_label.log" 2>&1; then
     sed 's/^/      | /' "$work_directory/build-$build_label.log" >&2
     fail "build failed: $build_label"
@@ -234,6 +254,16 @@ prepare_root() {
     [ -f "$repository_directory/machine/thoughts.math" ] \
       || fail 'missing machine/thoughts.math'
     cp "$repository_directory/machine/thoughts.math" "$root/machine/"
+  fi
+  # machine/library.terms is the engine's own memory, re-admitted through the
+  # gate at startup.  It is OFF by default: a binary that predates the memory
+  # feature ignores the file, so seeding it would hand the newer build a set
+  # of theorems the older one cannot see, and the A/B would be measuring the
+  # seed.  Both builds start from nothing unless --memory says otherwise.
+  if [ "$use_memory" = yes ]; then
+    [ -f "$repository_directory/machine/library.terms" ] \
+      || fail 'missing machine/library.terms'
+    cp "$repository_directory/machine/library.terms" "$root/machine/"
   fi
 }
 
@@ -306,9 +336,9 @@ run_bounded() {
 cat >"$work_directory/summarise.awk" <<'AWK'
 function flush() {
   if (round_index < 0) return
-  printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+  printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
     rnd, vocab, size, terms, normed, pruned, conj, fresh, proved, known,
-    cpu, wall[round_index + 1], flow, gate, route, grow
+    cpu, wall[round_index + 1], flow, gate, route, grow, assign
 }
 BEGIN { round_index = -1; FS = "[ \t]+" }
 {
@@ -326,7 +356,7 @@ BEGIN { round_index = -1; FS = "[ \t]+" }
     vocab = size = terms = normed = pruned = "-"
     conj = fresh = proved = known = "-"
     cpu = "-"
-    flow = gate = route = grow = "-"
+    flow = gate = route = grow = assign = "-"
     for (i = 3; i <= n; i++) {
       t = tok[i]
       p = index(t, "=")
@@ -352,7 +382,18 @@ BEGIN { round_index = -1; FS = "[ \t]+" }
   if (round_index < 0) next
   if (tok[1] == "FLOW") flow = tok[2]
   else if (tok[1] == "FLOW-HOLD") flow = (flow == "-" ? "hold" : flow "/hold")
-  else if (tok[1] == "GATE") gate = tok[2]
+  else if (tok[1] == "GATE") {
+    # gateName renders a refusal as "refused: <reason>", so the verdict is
+    # not a single token.  Normalise it, and pick up assignments= as its own
+    # column: mAssign is engine state now (a refusal doubles it, capped at
+    # 8*kAssign), so the test-set size is no longer a constant to assume.
+    gate = (tok[2] ~ /^refused/) ? "refused" : tok[2]
+    for (i = 2; i <= n; i++) {
+      p = index(tok[i], "=")
+      if (p > 0 && substr(tok[i], 1, p - 1) == "assignments")
+        assign = substr(tok[i], p + 1)
+    }
+  }
   else if (tok[1] == "GATE-HOLD") gate = (gate == "-" ? "hold" : gate "/hold")
   else if (tok[1] == "ROUTE") route = tok[2]
   else if (tok[1] == "GROW") {
@@ -402,13 +443,13 @@ print_table() {
   printf '\n== %s ==  (stop reason: %s)\n' "$label" "$status"
   awk -F'\t' '
     BEGIN {
-      printf "%5s %5s %4s %9s %8s %8s %7s %6s %5s %7s %7s  %-14s %-9s %-7s %s\n",
+      printf "%5s %5s %4s %9s %8s %8s %7s %6s %5s %7s %7s %6s  %-14s %-9s %-7s %s\n",
         "round","vocab","size","terms","pruned%","conj","fresh","proved",
-        "cum","cpu_s","wall_s","flow","gate","route","grow"
+        "cum","cpu_s","wall_s","assign","flow","gate","route","grow"
     }
     {
-      printf "%5s %5s %4s %9s %8s %8s %7s %6s %5s %7s %7s  %-14s %-9s %-7s %s\n",
-        $1,$2,$3,$4,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16
+      printf "%5s %5s %4s %9s %8s %8s %7s %6s %5s %7s %7s %6s  %-14s %-9s %-7s %s\n",
+        $1,$2,$3,$4,$6,$7,$8,$9,$10,$11,$12,$17,$13,$14,$15,$16
     }
   ' "$tsv"
   awk -F'\t' '
@@ -420,6 +461,14 @@ print_table() {
       pruned_sum += $6
       if ($9 == 0) { stuck++; run++; if (run > longest) longest = run } else run = 0
       if ($13 != "-" || $14 != "-" || $15 != "-") control++
+      if ($14 ~ /refused/) refusals++
+      if ($15 != "-") routes++
+      if ($17 != "-") {
+        if (assign_lo == "" || $17 + 0 < assign_lo) assign_lo = $17 + 0
+        if (assign_hi == "" || $17 + 0 > assign_hi) assign_hi = $17 + 0
+      }
+      if (first_pruned == "") first_pruned = $6
+      last_pruned = $6
     }
     END {
       if (n == 0) { print "  (no rounds observed)"; exit }
@@ -428,9 +477,13 @@ print_table() {
       printf "\n"
       printf "  cpu=%.2fs  wall=%.2fs  kernel-and-io=%.2fs (%.0f%% of wall)\n",
         cpu, wall, wall - cpu, (wall > 0 ? 100 * (wall - cpu) / wall : 0)
-      printf "  mean pruned%%=%.1f  rounds stuck (proved=0)=%d  longest stuck run=%d\n",
-        pruned_sum / n, stuck + 0, longest + 0
-      printf "  rounds carrying FLOW/GATE/ROUTE lines=%d\n", control + 0
+      printf "  pruned%% %s -> %s  mean=%.1f   rounds stuck (proved=0)=%d  longest stuck run=%d\n",
+        first_pruned, last_pruned, pruned_sum / n, stuck + 0, longest + 0
+      printf "  rounds carrying FLOW/GATE/ROUTE lines=%d  GATE refusals=%d  ROUTE firings=%d\n",
+        control + 0, refusals + 0, routes + 0
+      if (assign_lo != "")
+        printf "  assignments %d -> %d%s\n", assign_lo, assign_hi,
+          (assign_lo == assign_hi ? "  (constant)" : "  (moved: mAssign is state)")
     }
   ' "$tsv"
 }
@@ -438,7 +491,52 @@ print_table() {
 # ------------------------------------------------------------ measurement
 current_source="$repository_directory/machine/MathMachine.hs"
 
-if [ "$run_baseline" = yes ]; then
+
+# --------------------------------------------------- synthesised baselines
+#
+# Some cells of the design are not any revision.  The control law and the
+# certificate generator landed in separate commits, so "old control law with
+# the new certificate" -- the cell that says whether the control law still
+# matters once the machine can actually install theorems -- exists nowhere in
+# git.  It is, however, exactly one line: the growth trigger.
+#
+#   6835a4e3   let stuck = null checkedResults
+#   current    let stuck = flow == Resonance && null checkedResults
+#
+# `--baseline-variant old-flow` builds the baseline from the CURRENT source
+# with that one line reverted, and nothing else touched.  The other two rules
+# ride along unchanged, which is sound precisely because the tables report
+# that they never bind: if a run shows a nonzero GATE refusal or ROUTE firing
+# count, this variant stops being a clean single-factor control and the
+# comparison must be read as three factors again.
+#
+# The substitution must match exactly once.  A variant that silently failed to
+# apply would be a copy of the current build wearing a baseline's label, and
+# would report "no difference" for the most flattering possible reason.
+make_variant() {
+  variant_name=$1
+  variant_out=$2
+  case "$variant_name" in
+    old-flow)
+      old_line='  let stuck = flow == Resonance && null checkedResults'
+      new_line='  let stuck = null checkedResults'
+      hits=$(grep -c -F -x "$old_line" "$current_source" || true)
+      [ "$hits" = 1 ] \
+        || fail "variant old-flow: growth trigger matched $hits times, expected 1"
+      awk -v old="$old_line" -v new="$new_line" \
+        '{ if ($0 == old) print new; else print }' "$current_source" >"$variant_out"
+      grep -q -F -x "$new_line" "$variant_out" \
+        || fail 'variant old-flow: substitution did not take'
+      ;;
+    *) fail "unknown baseline variant: $variant_name" ;;
+  esac
+}
+
+if [ "$run_baseline" = yes ] && [ -n "$baseline_variant" ]; then
+  baseline_source="$work_directory/VariantMathMachine.hs"
+  make_variant "$baseline_variant" "$baseline_source"
+  baseline_short="variant:$baseline_variant"
+elif [ "$run_baseline" = yes ]; then
   if [ -z "$baseline_rev" ]; then
     baseline_rev=$(cd "$repository_directory" \
       && git log --format='%H' -- machine/MathMachine.hs | sed -n '2p')
@@ -508,6 +606,10 @@ if [ "$run_baseline" = yes ] && [ "$run_current" = yes ]; then
           stuck[which]++; run++
           if (run > longest[which]) longest[which] = run
         } else run = 0
+        if (f[14] ~ /refused/) refusals[which]++
+        if (f[15] != "-") routes[which]++
+        P[which, n] = f[6]
+        T[which, n] = f[10]
       }
       close(file)
       N[which] = n
@@ -530,7 +632,16 @@ if [ "$run_baseline" = yes ] && [ "$run_current" = yes ]; then
       row("longest stuck run", longest["b"]+0, longest["c"]+0)
       row("wall seconds total", wall["b"], wall["c"])
       row("engine cpu seconds total", cpu["b"], cpu["c"])
+      row("GATE refusals", refusals["b"]+0, refusals["c"]+0)
+      row("ROUTE firings", routes["b"]+0, routes["c"]+0)
       m = (N["b"] < N["c"] ? N["b"] : N["c"])
+      # The two trajectories the control law is supposed to move, round by
+      # round, rather than collapsed into a mean that can hide a crossover.
+      printf "\n  %-7s %10s %10s   %10s %10s\n",
+        "round", "pruned% b", "pruned% c", "theorems b", "theorems c"
+      for (i = 1; i <= m; i++)
+        printf "  %-7s %10s %10s   %10s %10s\n",
+          R["b", i], P["b", i], P["c", i], T["b", i], T["c", i]
       div = ""
       for (i = 1; i <= m; i++) {
         if (V["b", i] != V["c", i] || S["b", i] != S["c", i]) {

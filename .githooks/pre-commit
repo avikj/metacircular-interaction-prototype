@@ -50,4 +50,20 @@ if [ -n "$offenders" ]; then
   exit 1
 fi
 
+# Board forecast-citation guard (2026-08-15). Only runs when collab/STATE.md is
+# staged. Rationale, scope and its exercised behaviour: see the script header
+# and notes/FORECAST_LEDGER_AUDIT.md. Fires on the pre-correction row 205 text;
+# 0 hits on the whole corrected board.
+if git diff --cached --name-only --diff-filter=AM | grep -qx 'collab/STATE.md'; then
+  tmp_board=$(git rev-parse --git-dir)/STATE.staged.$$
+  git show :collab/STATE.md > "$tmp_board" 2>/dev/null || true
+  if [ -s "$tmp_board" ] && [ -x .githooks/check-forecast-citations.sh ]; then
+    if ! ./.githooks/check-forecast-citations.sh "$tmp_board"; then
+      rm -f "$tmp_board"
+      exit 1
+    fi
+  fi
+  rm -f "$tmp_board"
+fi
+
 exit 0

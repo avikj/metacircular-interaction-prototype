@@ -90,8 +90,9 @@ usage() {
     '  --rounds N         --smoke-rounds budget per variant (default 12)' \
     '  --timeout SECONDS  wall-clock cap per variant (default 900)' \
     '  --engine SOURCE    engine to build (default machine/MathMachine.hs).' \
-    '                     Snapshotted once, so every variant compiles the' \
-    '                     identical text even if the file is being edited.' \
+    '                     The file is snapshotted once so every variant' \
+    '                     compiles identical text even while it is edited;' \
+    '                     sibling modules come live from machine/.' \
     '  --agda-home DIR    use DIR as AGDA_DIR instead of synthesising one' \
     '  --keep DIR         copy confs, binaries and raw output into DIR' \
     '  --dry-run          validate the variants and print their knob files,' \
@@ -150,6 +151,7 @@ require_command mktemp
 require_command awk
 require_command timeout
 require_command date
+require_command cmp
 
 [ -f "$engine_source" ] || fail "missing engine source: $engine_source"
 knobs_source="$repository_directory/machine/Knobs.hs"
@@ -162,24 +164,42 @@ knobs_source="$repository_directory/machine/Knobs.hs"
 work_directory=$(mktemp -d "${TMPDIR:-/tmp}/race-variants.XXXXXX")
 knobs_target="$repository_directory/machine/knobs.conf"
 knobs_backup="$work_directory/knobs.conf.pre-existing"
-knobs_state=untouched
+knobs_origin=unknown        # unknown | saved | absent
+knobs_installed=            # the conf this script last copied into place
 
+# Sampled ONCE, before the first variant.  Re-sampling per variant looks
+# tidier and is a trap: a collaborator who creates machine/knobs.conf while a
+# variant is running would have it recorded as "was absent" and then deleted.
+# That happened during this script's own first outing.
 save_repository_knobs() {
-  [ "$knobs_state" = untouched ] || return 0
+  [ "$knobs_origin" = unknown ] || return 0
   if [ -f "$knobs_target" ]; then
     cp "$knobs_target" "$knobs_backup"
-    knobs_state=saved
+    knobs_origin=saved
   else
-    knobs_state=absent
+    knobs_origin=absent
   fi
 }
 
+# Idempotent, and it refuses to touch a file it did not write.  If what is at
+# machine/knobs.conf right now is not byte-for-byte the conf this script
+# installed, somebody else put it there while we were running: say so and
+# leave it.  Losing a collaborator's file is a worse failure than leaving a
+# stale one, and this script's own knob file is reproducible in one command.
 restore_repository_knobs() {
-  case "$knobs_state" in
+  [ -n "$knobs_installed" ] || return 0
+  if [ -f "$knobs_target" ] && ! cmp -s "$knobs_target" "$knobs_installed"; then
+    printf 'race-variants: %s changed under us; leaving it alone.\n' \
+      "$knobs_target" >&2
+    printf '               The pre-race copy is at %s.\n' "$knobs_backup" >&2
+    knobs_installed=
+    return 0
+  fi
+  case "$knobs_origin" in
     saved)  cp "$knobs_backup" "$knobs_target" ;;
     absent) rm -f "$knobs_target" ;;
   esac
-  knobs_state=untouched
+  knobs_installed=
 }
 
 cleanup() {
@@ -193,7 +213,11 @@ cleanup() {
 trap cleanup EXIT HUP INT TERM
 
 # The engine source is read ONCE.  A race whose arms compile different text
-# because somebody saved the file halfway through is not a race.
+# because somebody saved the file halfway through is not a race.  This covers
+# the engine FILE only: its sibling modules (Certificate, and whatever else it
+# grows) are compiled live from machine/, because pinning those would mean
+# racing a snapshot of a codebase rather than the codebase.  A run started
+# while a sibling is mid-edit fails at the preflight build and says so.
 engine_snapshot="$work_directory/EngineSnapshot.hs"
 cp "$engine_source" "$engine_snapshot"
 # Snapshot the knob module beside it, and put the work directory on GHC's
@@ -225,7 +249,9 @@ if [ -z "$agda_home" ]; then
   : >"$agda_home/libraries"
   : >"$agda_home/defaults"
   user_libraries="${HOME:-/root}/.agda/libraries"
-  [ -f "$user_libraries" ] && cat "$user_libraries" >"$agda_home/libraries"
+  if [ -f "$user_libraries" ]; then
+    cat "$user_libraries" >"$agda_home/libraries"
+  fi
   for candidate in "$repository_directory"/formal/cubical/*.agda-lib; do
     [ -f "$candidate" ] || continue
     grep -qxF "$candidate" "$agda_home/libraries" 2>/dev/null \
@@ -335,8 +361,8 @@ build_variant() {
   build_output="$work_directory/engine-$build_label"
   build_objects="$work_directory/objects-$build_label"
   mkdir -p "$build_objects"
-  if ! ghc -O1 -i"$work_directory" -outputdir "$build_objects" \
-       -o "$build_output" "$engine_snapshot" \
+  if ! ghc -O1 -i"$work_directory" -i"$repository_directory/machine" \
+       -outputdir "$build_objects" -o "$build_output" "$engine_snapshot" \
        >"$work_directory/build-$build_label.log" 2>&1
   then
     sed 's/^/      | /' "$work_directory/build-$build_label.log" >&2
@@ -396,7 +422,8 @@ while IFS='	' read -r variant_name variant_overrides; do
   # its working directory has to be the repository root (see the header), so
   # the variant's knob file goes to the canonical path.  It is restored by the
   # trap whatever happens next.
-  cp "$work_directory/$variant_name.conf.canonical" "$knobs_target"
+  knobs_installed="$work_directory/$variant_name.conf.canonical"
+  cp "$knobs_installed" "$knobs_target"
 
   printf '==> %s: %s rounds (timeout %ss)\n' \
     "$variant_name" "$rounds" "$run_timeout" >&2
@@ -433,7 +460,6 @@ while IFS='	' read -r variant_name variant_overrides; do
     "$wall" "$run_status" >>"$results_file"
 
   restore_repository_knobs
-  save_repository_knobs
 done <"$variants_file"
 
 restore_repository_knobs

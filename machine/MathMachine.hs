@@ -46,6 +46,8 @@ import System.Environment (getArgs)
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
+import qualified Certificate as C
+import qualified Knobs as K
 import Data.Char (isAlphaNum, isSpace)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -64,26 +66,32 @@ import System.Exit (exitSuccess)
 -- winner) is designed and not built; the imports for it below are dead
 -- until it is.  Two visiting readers caught this in the same hour.
 -- ===================================================================
-kProbe :: Int
-kProbe = 400
-kAssign :: Int
-kAssign = 40
-kMinPrune :: Int
-kMinPrune = 1
-kConceptMin :: Int
-kConceptMin = 8
+-- The knob values below are the DEFAULTS.  They are no longer the values
+-- the engine runs on: `machine/Knobs.hs` owns the knob set, the loader
+-- reads machine/knobs.conf at startup, and the live set travels in the
+-- Machine record as `mKnobs`.  Each name is kept here as `<name>Default`
+-- so the banner above still reads as a list of constants with their
+-- provenance, and so an absent conf reproduces today's engine exactly.
+kProbeDefault :: Int
+kProbeDefault = 400
+kAssignDefault :: Int
+kAssignDefault = 40
+kMinPruneDefault :: Int
+kMinPruneDefault = 1
+kConceptMinDefault :: Int
+kConceptMinDefault = 8
 -- How much shorter the probe must get before a name is worth having.
 -- A fold of a pattern of size p saves p-1 symbols, and the smallest
 -- admissible pattern has size 3, so one fold saves at least 2: this
 -- threshold is "at least four real folds".  It is a gate on description
 -- length, which is the only currency a DEFINITION can be paid in — see
 -- `marginalCompress` for why the old prune-based gate could never pass.
-kConceptGain :: Int
-kConceptGain = 8
-kVars :: Int
-kVars = 3
-kSizeCap :: Int
-kSizeCap = 7
+kConceptGainDefault :: Int
+kConceptGainDefault = 8
+kVarsDefault :: Int
+kVarsDefault = 3
+kSizeCapDefault :: Int
+kSizeCapDefault = 7
 
 -- ---------------------------------------------------------------- terms
 
@@ -1243,8 +1251,58 @@ agdaCertificate (l,r) = do
     ]
 
 
+-- ===================================================================
+-- THE SEAM TO `machine/Certificate.hs`.
+--
+-- The gate below used to emit `candidate x y z u v w = refl` over the
+-- four symbols 0, s, + and `·`, so it could certify only definitional
+-- equalities and skipped everything else -- which is every theorem this
+-- engine's own induction prover produces.  `Certificate` emits induction
+-- skeletons, covers the whole vocabulary (with `max` and `le` as local
+-- definitions transcribed from THIS module's `symDefs`, so the
+-- certificate is about the same function the machine computed with), and
+-- emits invented concepts as local definitions too, which removes the
+-- KERNEL-SKIP category entirely.
+--
+-- Concept support is not a nicety: naming is the machine's growth axis,
+-- so a gate that cannot certify a statement mentioning a coined symbol
+-- caps the machine permanently at its given vocabulary.
+-- ===================================================================
+
+toCert :: Term -> C.Term
+toCert (V i)    = C.V i
+toCert (F f ts) = C.F f (map toCert ts)
+
+certDefinitions :: [Sym] -> [C.Definition]
+certDefinitions syms =
+  [ C.Definition (symName s) (symArity s) (toCert body)
+  | s <- syms
+  , Just (_, body) <- [conceptRule s]
+  ]
+
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAccept logh roundNo ((l,r),_) =
+kernelAccept = kernelAcceptWith []
+
+kernelAcceptWith :: [Sym] -> Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAcceptWith invented logh roundNo ((l,r),proofNote) = do
+  verdict <- C.certifyWith (certDefinitions invented) "."
+               ((toCert l, toCert r), proofNote)
+  case verdict of
+    C.Certified shape calls -> do
+      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (%s, %d agda calls)\n"
+        roundNo (show l) (show r) shape calls
+      pure True
+    C.Rejected err calls -> do
+      hPrintf logh "  KERNEL-REJECT round=%d %s = %s  (%d agda calls) %s\n"
+        roundNo (show l) (show r) calls (take 160 (filter (/= '\n') err))
+      pure False
+    C.Untranslatable why -> do
+      hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s  (%s)\n"
+        (show l) (show r) why
+      pure False
+
+kernelAcceptLegacy :: Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAcceptLegacy logh roundNo ((l,r),_) =
   case agdaCertificate (l,r) of
     Nothing -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
@@ -1324,6 +1382,10 @@ data Machine = Machine
   -- between two presentations does not determine it, so it is recorded and
   -- never derived.  (NaturalMachine.CostGeometry, NaturalMachine.Residual)
   , mCosts :: M.Map (Int,Int) Int
+  -- the live knob set, read from machine/knobs.conf at startup by
+  -- machine/Knobs.hs.  The constants at the top of this file are now only
+  -- the DEFAULTS, and an absent conf reproduces them exactly.
+  , mKnobs :: K.Knobs
   }
 
 -- ===================================================================
@@ -1444,7 +1506,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [(boundedDSOTask "square-threshold" squareThresholdSearch,
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
-  0 kAssign M.empty
+  0 (K.kAssign K.defaultKnobs) M.empty K.defaultKnobs
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1499,7 +1561,7 @@ conceptRule s = case symDefs s of
 bestOf :: [Sym] -> [Term] -> [Term] -> [(Term,Int)]
 bestOf syms retired terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
-             [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
+             [ pc | pc@(p,c) <- counts, c >= kConceptMinDefault, headIsNotFresh p
                   , not (alreadyNamed p), not (trivialApp p)
                   , mentionsPrimitive p
                   , canonTerm p `notElem` retired ])
@@ -1599,7 +1661,7 @@ round1 mem logh libh ref = do
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
-      nv = kVars
+      nv = K.kVars (mKnobs m)
       envs = assignments nv (mAssign m)
       rules = usableRules m
       raw = genTermsModulo (provedCommutative m) (provedAssociative m)
@@ -1647,7 +1709,7 @@ round1 mem logh libh ref = do
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
-      probe = take kProbe normed
+      probe = take (K.kProbe (mKnobs m)) normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
       bounded = map executeBoundedSearch (mBoundedSearches m)
       witnessBranches = sum (map (length . activeWitnesses) bounded)
@@ -1701,7 +1763,7 @@ round1 mem logh libh ref = do
               Just pf
                 -- a proof is not enough: it must also make the world
                 -- smaller, or it is a true statement with no consequences
-                | marginalPrune acc probe c < kMinPrune -> (acc, out)
+                | marginalPrune acc probe c < K.kMinPrune (mKnobs m) -> (acc, out)
                 | otherwise ->
                     let acc' = acc ++ maybe [] (:[]) (orient c)
                                 ++ (if isJust (orient c) then []
@@ -1721,7 +1783,7 @@ round1 mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAccept logh (mRound m)) results
+  checkedResults <- filterM (kernelAcceptWith (mInvented m) logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
@@ -1745,7 +1807,7 @@ round1 mem logh libh ref = do
              -- way to be stuck.
              , mAssign = case gate of
                  Advance   -> mAssign m
-                 Refused _ -> min (8 * kAssign) (2 * mAssign m)
+                 Refused _ -> min (8 * K.kAssign (mKnobs m)) (2 * mAssign m)
              -- the weight this state actually cost, recorded so a later
              -- round can route by it instead of guessing
              , mCosts = M.insert (mVocab m, mSize m) nRaw (mCosts m) }
@@ -1846,8 +1908,8 @@ round1 mem logh libh ref = do
         Just s | Just (pat,fold) <- conceptRule s
                , null (definitionShapeFailures (syms ++ [s]))
                , null (definitionFailures (syms ++ [s]) definitionAuditBound)
-               , marginalCompress (usableRules m') (take kProbe normed) (pat,fold)
-                   >= kConceptGain
+               , marginalCompress (usableRules m') (take (K.kProbe (mKnobs m')) normed) (pat,fold)
+                   >= K.kConceptGain (mKnobs m')
                -> Just s
         _ -> Nothing
   case invented of
@@ -1881,12 +1943,31 @@ round1 mem logh libh ref = do
           | not permitted = m2
           | Just (Widen,_,_) <- routed, mVocab m2 < length vocabulary =
               m2 { mVocab = mVocab m2 + 1 }
-          | Just (Deepen,_,_) <- routed, mSize m2 < kSizeCap =
+          | Just (Deepen,_,_) <- routed, mSize m2 < K.kSizeCap (mKnobs m2) =
               m2 { mSize = mSize m2 + 1 }
-          | mVocab m2 < length vocabulary && even (mRound m2) =
-              m2 { mVocab = mVocab m2 + 1 }
-          | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
+          -- WIDEN BEFORE DEEPENING, and the reason is measured rather
+          -- than tasteful.  A factorial re-run (machine/LOOP_MEASUREMENT.md,
+          -- arm D) held the certificate fixed and varied only the growth
+          -- trigger: the OLD boolean rule reached 16 theorems where the
+          -- resonance rule reached 7, spending less CPU.  The mechanism is
+          -- the alternation below.  Deepening multiplies the term space
+          -- geometrically and introduces no new symbol, so it recombines
+          -- what the machine already has; widening introduces a symbol,
+          -- and the nine theorems the old rule got and the new one missed
+          -- were three each about max, monus and le -- symbols the
+          -- resonance rule never reached, because it grew half as often
+          -- and the alternation `even (mRound m2)` spent those growths on
+          -- the horizon.
+          --
+          -- So the trigger stays (KFlow's classification is right about
+          -- WHEN to grow) and the RESPONSE changes: at resonance take the
+          -- axis that adds content, and deepen only once the given
+          -- vocabulary is spent.  This is also what the flow says --
+          -- resonance means the orbit is the point, and recombining the
+          -- same symbols at a larger radius is the one move guaranteed
+          -- not to move it.
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
+          | mSize m2 < K.kSizeCap (mKnobs m2) = m2 { mSize = mSize m2 + 1 }
           -- Past this point the given vocabulary is exhausted and the
           -- size horizon is at its cap.  The machine used to answer that
           -- by raising the horizon anyway and then halting — growing the
@@ -2167,7 +2248,7 @@ main = do
                 && null (definitionShapeFailures extended)
                 && null (definitionFailures extended definitionAuditBound)
                 && folded == expectedFold
-                && compression >= kConceptGain
+                && compression >= kConceptGainDefault
                 && towerRejected
                 && retiredRejected) exitFailure
         hPrintf stdout
@@ -2271,7 +2352,9 @@ runMachine batch = do
                      , mRules = mapMaybe orient admitted
                      , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
                      , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }
-  ref <- newIORef seeded
+  knobs <- K.loadKnobs
+  hPrintf logh "  KNOBS  %s\n" (show knobs)
+  ref <- newIORef (seeded { mKnobs = knobs })
   -- A machine that halts is not a machine.  The old loop stopped when the
   -- size horizon passed its cap, which is to say: it enumerated a finite
   -- space and finished.  Nothing about arithmetic is finite; what was
