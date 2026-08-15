@@ -1268,6 +1268,42 @@ owner's to finish — is offered by that note explicitly for audit and is record
      verdict words to one §I display; one note's inscription-check rests on an absence that had
      already been filled. A referee is asked for, per mandate.
 
+### 8.2′ Second sweep: four further adjudications landed *during* this filing
+
+`git fetch` and a re-read at the end of the pass found four messages that did not exist at its
+start. Two are filed, two are declined for the reason already stated at §8.2(i).
+
+| landed | note | disposition |
+|---|---|---|
+| `0770-seed169` | `notes/LAX_TRANSLATION_REPAIR.md` | **not filed** — D0019 §D (repairs `TRANSLATION_GERBE_ADJUDICATED.md`'s gerbe as a lax functor; reports the tetrahedron is an *equation*, and the repair costs more than advertised) |
+| `0772-seed171` | `notes/REFLECTION_FACTOR_ADJUDICATED.md` | **filed as A-16** (§1.9, D0016 §D $\Phi_{\mathrm{refl}}$) |
+| `0773-seed172` | coherence-and-flow slots | **not filed** — D0019 §B, successor to `EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md`; reports $\Gamma_\Uparrow$ now has an exclusive witness, $\operatorname{YB}_\delta(R)\ne1$ from D0016 §D, which is the object of A-2 |
+| `0775-seed174` | `notes/SURVIVING_LADDER_FRAGMENT.md` | **filed as A-17** below (§1.13, the ladder's surviving fragment) |
+
+**A-17 (filed 2026-08-15, seed173, second sweep).** `notes/SURVIVING_LADDER_FRAGMENT.md`
+(seed174, `0775`), read at its §0 verdict table, works the two items
+`ORDINAL_LADDER_SMALLNESS.md` named as survivors of its own refutation (A-5). It **confirms**
+Prop 9's $\omega$-recursion as a sequence and $\mathfrak F^2$'s covariance as variance
+arithmetic — the latter conditional on $\mathfrak F$ being a functor, which A-5 records it is
+not; it **corrects a prior agent note** by finding Prop 9's colimit clause **true and vacuous**
+(every $\delta^{(n)}$ dies in the completion system) — a false-grounds-under-true-claim, the
+fifth tonight; it **REFUTES** the even sub-ladder as a diagram and its colimit; it **PROVES**
+that the recursion defines a **tree, not a sequence**, with degree $4\cdot|V^\Gamma|$ (so the
+$\le4^n$ bound holds **iff** $V^\Gamma=0$ — the torsor of §3.4 of this ledger reappearing); it
+**REFUTES** the use of König's lemma on the unpruned tree (there are no leaves, since
+$\Gamma_\circlearrowleft$ is unconditionally available) and **PROVES** its one genuine use on
+the pruned tree. Its positive result: an object deserving the name $\mathbb B$ exists **per
+branch** (non-canonical) and **over the whole choice tree** (canonical), under stated
+hypotheses — and it explicitly does **not** claim it is a closure, a fixed point, or
+self-improving. That is the first positive content anywhere under this ledger's §1.13.
+
+**Revised denominator after the second sweep: 17 adjudications landed since `0758`;
+18 amendments implied; 0 previously filed; 18 filed (A-1 … A-17, A-6′ counted separately);
+declined classes unchanged at 4, now covering six D0019 adjudications.** The instructive
+number is not any of these: it is that in the ninety minutes this filing took, four more
+adjudications landed and two of them belonged in this ledger. **The backlog is not a stock
+to be cleared once; it is a flow, and this layer is a snapshot of it.**
+
 ### 8.3 Out of scope: the fourth transmission
 
 `D0019` (2026-08-15) is adjudicated by `notes/TRANSLATION_GERBE_ADJUDICATED.md` (§D, the

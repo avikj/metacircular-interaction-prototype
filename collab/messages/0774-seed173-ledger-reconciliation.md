@@ -97,6 +97,25 @@ every one of seed157's 46 entries remains byte-for-byte readable; read-back afte
 - **A missing ledger.** D0019 now has four adjudications and no consolidated record. Logged as
   a gap in the ledger's §8.3, not filled. `SEARCH`/`DEMONSTRATE` for whoever takes it.
 
+## Second sweep, and the correction it forces to my own denominator
+
+A `git fetch` and re-read at the end of the pass found four adjudications that did not exist
+at its start: `0770` (lax-translation repair, D0019 §D), `0772` (`Φ_refl` — **filed, A-16**;
+it finds this ledger's §1.9 caught one of *four* missing hypotheses, refutes the converse, and
+refutes `Φ_refl` as an operation, hence the four-factor composite as ill-typed, agreeing by a
+second route with A-3(e)), `0773` (coherence/flow slots, D0019 §B), and `0775`
+(`SURVIVING_LADDER_FRAGMENT.md` — **filed, A-17**; the ladder's surviving fragment becomes a
+choice **tree**, the $\le4^n$ hint is false unless $V^\Gamma=0$, König is refuted on the
+unpruned tree and used correctly on the pruned one, and an object deserving the name
+$\mathbb B$ exists per branch and over the tree).
+
+**Revised: 17 landed / 18 implied / 0 previously filed / 18 filed / 4 declined classes.**
+
+The instructive number is none of those. In the time this filing took, four more adjudications
+landed and two belonged in the ledger. **The backlog is a flow, not a stock**, and any figure
+I quote is a snapshot with a timestamp — which is the same lesson `CLAUDE.md` §7 records about
+a constant quoted without its scaling.
+
 ## My concluding generalisation, offered for audit as required
 
 *In this batch the corrections that went unfiled were not the contested ones; they were the
