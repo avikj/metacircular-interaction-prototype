@@ -25,8 +25,43 @@ D_{R_1R_2}(q)
 t^{-1}D_{R_1}(q)\cup D_{R_2}(\tau q).               \tag{2}
 \]
 
-Hence exact preservation composes. Equality in (2) need not hold, and the two
-stagewise Boolean defect sets do not determine the composite defect set.
+Hence exact preservation composes. ~~Equality in (2) need not hold, and the two
+stagewise Boolean defect sets do not determine the composite defect set.~~
+
+**CORRECTION (seed178, full-read draw 4, `0779`).** The second clause is stated
+without its hypothesis and is **false when responses are two-valued**; and (2) is
+half of an exact sandwich whose slack has a closed form, so what is written here
+as a merely-inexact bound is a structural fact
+(`QUANTITATIVE_VERSUS_STRUCTURAL_DEFECTS.md`'s class; the template find is
+`0760`). Write \(A=t^{-1}D_{R_1}(q)\), \(B=D_{R_2}(\tau q)\), and let \(R\) be
+the response set.
+
+> **Theorem 2′.** \(A\,\triangle\,B\;\subseteq\;D_{R_1R_2}(q)\;\subseteq\;A\cup B\),
+> and on \(A\cap B\) one has \(x''\in D_{R_1R_2}(q)\iff a\neq c\). Hence the
+> **entire** slack of (2) sits inside \(A\cap B\), and it is the only place the
+> stagewise ledgers fail to determine the composite.
+>
+> **Corollary 2′.1.** If \(|R|=2\) then \(D_{R_1R_2}(q)=A\,\triangle\,B\)
+> **exactly**: the two Boolean ledgers *do* determine the composite. Strictness
+> of (2) survives (\(A\cap B\neq\varnothing\) still forces \(\subsetneq\)), but
+> **nondetermination requires \(|R|\ge 3\)** — as the proof below silently uses,
+> at its \(c=2\).
+
+*Proof of 2′.* If \(x''\in A\setminus B\) then \(a\neq b\) and \(b=c\), so
+\(a\neq c\); symmetrically for \(B\setminus A\). That is the left inclusion. The
+right inclusion is (2). On \(A\cap B\) the membership condition is \(a\neq c\)
+by definition, and both values occur (below). \(\square\)
+
+*Proof of 2′.1.* In a two-element set, \(a\neq b\) and \(b\neq c\) force
+\(a=c\), so \(A\cap B\) meets \(D_{R_1R_2}(q)\) nowhere. \(\square\)
+
+**What the dichotomy is, structurally.** For \(|R|=2\) the pointwise defect is a
+\(\mathbb Z/2\)-valued additive quantity along the chain — \(1_{a\neq c}
+=1_{a\neq b}+1_{b\neq c}\) in \(\mathbb Z/2\) — so composition of ledgers is
+XOR and nothing is lost. For \(|R|\ge3\) the indicator is no longer additive,
+and \(A\cap B\) is exactly the locus where the loss lives. The note's
+"need not hold / do not determine" is therefore two claims with two different
+thresholds, not one.
 
 **Proof.** At \(x''\), write the old, intermediate, and new responses as
 
@@ -39,7 +74,9 @@ If neither stage is defective, then \(a=b=c\), so the composite is not
 defective. This proves (2) and the preservation statement.
 
 For strictness and nondetermination, use one state and one probe at every
-stage. Let \(a=0,b=1\). If \(c=0\), both stages are defective but the
+stage. *(seed178: this paragraph requires \(|R|\ge3\) for its second half — see
+Cor 2′.1 above. The \(c=0\) witness needs only \(|R|\ge2\) and establishes
+strictness alone.)* Let \(a=0,b=1\). If \(c=0\), both stages are defective but the
 composite is preserved. If instead \(c=2\), the same two stage defect sets
 occur and the composite remains defective. Thus the Boolean ledgers are
 identical while their composites differ. ∎
