@@ -332,6 +332,13 @@ that container. It is **not** a check against the pin.
   aggregate imports it. Unresolved under the pin.
 - `SimplicialDefectFailure.agda` — orphan, exit 0 under 2.6.3/v0.5.
 - `StagewiseComposite.agda` — newly imported by `Everything.agda`; exit 0.
+- `StagewiseCompositeB.agda` — Theorem B / Cor B.1 / Cor B.2 of
+  `notes/STAGEWISE_DETERMINES_COMPOSITE.md`; imports `StagewiseComposite`;
+  newly imported by `Everything.agda`; exit 0 standalone under 2.6.3/v0.5
+  (added 2026-08-15, message `collab/messages/0794-claude-stagewise-B.md`).
+  Uses only `Bool`, `Sigma`, `Sum`, `Unit`, `Empty`, `Relation.Nullary` and a
+  hand-written abelian-group record — no solver, no tactic, no `Fin`, no
+  `SymGroup`. Pinned-toolchain check OUTSTANDING like the rest of this list.
 - `NaturalMachine/DecategorifiedDefect.agda` — newly imported by the root;
   exit 0.
 - `NaturalMachine/FillabilityCertificate.agda` — newly imported by the root;
@@ -347,10 +354,52 @@ that container. It is **not** a check against the pin.
   v0.9 sources of `Cubical/Data/{Int,Nat}/Properties.agda` — but that is
   evidence, not a run, and the pinned-toolchain check is OUTSTANDING like the
   rest of this list.
+- `Sl2TensorProduct.agda` — newly imported by `Everything.agda`; exit 0
+  standalone under 2.6.3/v0.5 from a clean `_build` (`rm -rf _build &&
+  LC_ALL=C.UTF-8 agda Sl2TensorProduct.agda`, which also rechecked
+  `Sl2DivisorLattice` from source), 0 warnings, no postulates, no holes
+  (added 2026-08-15, message `collab/messages/0798-claude-sl2-tensor.md`).
+  It closes `Sl2DivisorLattice` §6: tensor of 𝔰𝔩₂-triples, hence the
+  multi-index B_n = ⨂_i V_{α_i}. Imports only
+  `Cubical.{Foundations.Prelude, Data.Nat, Data.Int, Data.List,
+  Data.Sigma, Data.Unit}` plus `Sl2DivisorLattice`; no solver, no tactic
+  macro, no `Fin`, no `SymGroup`. Same caveat as the entry above: that is
+  evidence about the pin, not a run against it. OUTSTANDING.
+- `NaturalMachine/TransmissionRefutations.agda` — newly imported by the root;
+  exit 0 standalone under 2.6.3/v0.5 (added 2026-08-15, message
+  `collab/messages/0795-claude-refutations-agda.md`). Refutes three displays
+  of the D0020 transmission as checked terms. Imports only
+  `Foundations.Prelude`, `Data/{Nat,Bool,Int,Sigma,Empty}` and
+  `Relation.Nullary`, and re-implements the small-number arithmetic it needs
+  (`div`, `mod`, μ, ω, Ω, λ, φ) rather than importing it, precisely so that
+  the version skew this file catalogues cannot touch it: no solver, no tactic,
+  no `Fin`, no `SymGroup`. NOTE the name hazard it hit and that
+  `PolarityClosure.agda` above did not survive: a top-level `Sub` clashes with
+  the Agda builtin `Agda/Builtin/Cubical/Sub.agda`, so the subset type here is
+  named `Subset`. Pinned-toolchain check OUTSTANDING like the rest of this
+  list.
 - `NaturalMachine/Control/QuantifierDrop.agda` — a CONTROL: it **exits 42, and
   that is its pass condition**. Confirmed to fail for the intended reason (the
   dropped quantifier, at line 80), not incidentally. Under the pin it must
   still fail, and for that reason.
+- `NaturalMachine/FiniteWorldMaximizer.agda` — newly imported by the root;
+  exit 0 standalone under 2.6.3/v0.5 (added 2026-08-15, message
+  `collab/messages/0797-claude-hypothesis-drop-controls.md`). Imports only
+  `Foundations.Prelude` and `Data/{Nat,Bool,Sum,Sigma,Unit,Empty}`; no
+  solver, no tactic macro, no `Fin`, no `SymGroup`. Pinned-toolchain check
+  OUTSTANDING like the rest of this list.
+- `NaturalMachine/InflationVersusSubgroup.agda` — newly imported by the root;
+  exit 0 standalone under 2.6.3/v0.5 (same message). Imports only
+  `Foundations.Prelude` and `Data/{Bool,Empty}`; same no-skew profile.
+  Pinned-toolchain check OUTSTANDING.
+- `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda` — a CONTROL: it
+  **exits 42, and that is its pass condition**. Confirmed to fail for the
+  intended reason (the dropped nonvanishing clause, named as `NonVanishing W`
+  in the error at line 84), not incidentally. Not imported anywhere.
+- `NaturalMachine/Control/InflationFlattened.agda` — a CONTROL: it **exits 42,
+  and that is its pass condition**. Confirmed to fail for the intended reason
+  (`k0 != kι`, the restriction-to-subgroup of the inflated class against the
+  class itself, at line 91), not incidentally. Not imported anywhere.
 
 Every import line added to `NaturalMachine.agda` and `Everything.agda` on that
 branch was audited against a standalone run: all five modules check, so no
@@ -359,3 +408,60 @@ module folded into an aggregate without ever being checked — did not occur on
 that branch.
 
 Full measurements, method, and scope limits: `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md`.
+
+## The pin was obtained and run, 2026-08-15 (Claude, pinned-toolchain pass)
+
+Added, not overwritten. The section above ("Container/pin discrepancy and
+OUTSTANDING checks") stands as an accurate record of what was knowable before
+this run; this section discharges most of its OUTSTANDING list.
+
+**Agda 2.8.0 + cubical v0.9 were both obtained in the container**: v0.9 by
+`git clone --depth 1 --branch v0.9` into a *second* directory (the v0.5 clone
+was left alone and selected against per-run with `--library-file`), and 2.8.0
+by `apt-get install cabal-install`, `cabal get Agda-2.8.0`, `cabal build
+exe:agda` against the system GHC 9.4.7. Roughly 75 minutes. Recipe, snags and
+scope limits: `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md` §6.
+
+**`agda NaturalMachine.agda` exits 0 under the pin** — 186
+`UnsupportedIndexedMatch` warnings (the documented F39 boundary), zero errors.
+The `PathIsSymmetry.agda:98` / `SymGroup` failure was exactly the v0.5 skew it
+was diagnosed as: v0.9 defines `SymGroup` at
+`Cubical/Algebra/SymmetricGroup.agda:28`. The file was correct un-edited, and
+this file's central identity — "the root exits 0" and "the directory checks"
+are the same claim — is restored under the pin.
+
+Discharged against the pin (exit 0 under Agda 2.8.0 / cubical v0.9):
+`StagewiseComposite.agda`, `SimplicialDefectFailure.agda`,
+`Sl2DivisorLattice.agda`, `NaturalMachine/DecategorifiedDefect.agda`,
+`NaturalMachine/RepairTorsor.agda`, `NaturalMachine/FillabilityCertificate.agda`,
+`NaturalMachine/LineWorldTransport.agda`, and the root `NaturalMachine.agda`.
+
+Confirmed against the pin, still failing:
+
+- `NaturalMachine/Control/QuantifierDrop.agda` — the CONTROL. Exits 42 under
+  2.8.0 for the intended reason: `error: [UnequalTerms]` at line 80 on the
+  dropped quantifier. It passes.
+- `PolarityClosure.agda` — exits 42 under the pin, `error:
+  [ClashingDefinition] Multiple definitions of Sub`, against
+  `Agda-2.8.0/lib/prim/Agda/Builtin/Cubical/Sub.agda`. The earlier note that
+  this "might not clash under 2.8.0" is now answered: **it does**. The module
+  is genuinely broken under the pin and needs the identifier renamed. Not
+  done here.
+
+**NEW OUTSTANDING — a module that is green under 2.6.3/v0.5 and red under the
+pin:**
+
+- `Sl2TensorProduct.agda` — `error: [NotInScope]: ·Rid` at line 115.
+  `Cubical.Data.Int.Properties.·Rid` (v0.5) is spelled **`·IdR`** in v0.9. One
+  error, one token. **Not fixed here**: renaming it would make the file right
+  under the pin and wrong under the `/usr/bin/agda` that this container
+  actually has, and the decision of which toolchain the sources track belongs
+  to the owner and should be made once for the whole tree.
+- Consequently **`Everything.agda` exits 42 under the pin**, aborting at
+  `Sl2TensorProduct`. It therefore checks nothing imported after that module,
+  and its exit code is not evidence about them in either direction.
+
+Scope: twelve modules were run against the pin, not the whole tree. Given the
+`·Rid` finding, expect other unswept modules to be red under the pin as well.
+The pinned Agda was built into a session scratchpad and is **not** installed
+as `/usr/bin/agda`, which remains 2.6.3.

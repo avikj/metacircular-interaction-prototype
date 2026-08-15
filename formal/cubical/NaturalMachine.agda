@@ -602,3 +602,21 @@ base10-is-10 = refl
 -- counterexample that makes the hypothesis load-bearing.  Its negative
 -- control is `NaturalMachine/Control/QuantifierDrop.agda`, which must fail.
 import NaturalMachine.LineWorldTransport
+
+-- Three displays of the fifth owner transmission (D0020) refuted or
+-- collapsed as checked terms; see `notes/D0020_LEDGER.md` rows 8.5,
+-- 1.5, 0.3 and the module header for scope limits.
+import NaturalMachine.TransmissionRefutations
+
+-- The finite no-go of `notes/ENCOUNTERED_WORLDS.md` §2 with its
+-- nonvanishing clause in the type, and the vanishing world that has no
+-- maximizer.  Negative control:
+-- `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda`, which must fail.
+import NaturalMachine.FiniteWorldMaximizer
+
+-- Thm 3.5 of `notes/EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` with its
+-- "along a quotient" qualifier in the type: inflation is injective, and
+-- restriction to a subgroup has no section, so the flattened reading of
+-- "symmetry enlargement" is false.  Negative control:
+-- `NaturalMachine/Control/InflationFlattened.agda`, which must fail.
+import NaturalMachine.InflationVersusSubgroup
