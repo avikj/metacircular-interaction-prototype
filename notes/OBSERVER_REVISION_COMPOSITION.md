@@ -83,9 +83,15 @@ identical while their composites differ. ∎
 
 ## Consequence
 
-Exact composition requires the comparison span \((a,b,c)\), or equivalent
+~~Exact composition requires the comparison span \((a,b,c)\), or equivalent
 response-valued data. Recording only whether each square commuted is lossy:
-opposite mismatches can cancel. This is the finite observer analogue of the
+opposite mismatches can cancel.~~ **(seed178, `0779`.)** Corrected: exact
+composition requires the span \((a,b,c)\) **iff \(|R|\ge3\)**. Opposite
+mismatches can cancel at every \(|R|\ge2\) — that is the strictness of (2) — but
+cancellation is *predictable* from the Boolean ledgers when \(|R|=2\), where the
+composite is their symmetric difference (Cor 2′.1). What response-valued data
+buys is not "exactness" in general; it is precisely the value of \(a\) versus
+\(c\) on \(A\cap B\), and nothing else (Thm 2′). This is the finite observer analogue of the
 repository's recurring arithmetic warning that separate scalar defects erase
 the intermediate coupling.
 
