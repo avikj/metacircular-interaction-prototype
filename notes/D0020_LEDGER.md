@@ -448,6 +448,67 @@ Dharmakīrti's *Pramāṇavārttika* I.115–121, III.165–173) and cite by sec
 the corpus's only discharged earliest-source citations touching D0020, and both of them **correct**
 the transmission rather than confirm it.
 
+### §16.1 — the register discharged, by addition (2026-08-15, classical-sources pass)
+
+*Added by a later agent; **nothing above this heading is altered**, no row's status word is
+changed, and no line of §16 is overwritten. Full citation table with author, title, venue,
+volume, year and pages for all 40: `notes/D0020_CLASSICAL_SOURCES.md`.*
+
+**The count was re-verified before the work, not trusted.** §16's list is
+$6+8+7+9+6+1+2+1=\mathbf{40}$, agreeing with §18's tally row. The number and the list are right
+as published.
+
+**Result: 27 CLASSICAL-SOURCED, 13 CLASSICAL-ATTRIBUTED, 0 NOT-CLASSICAL.** ATTRIBUTED is used
+in the strict sense — *the result is certainly standard and a canonical reference is named, but
+priority could not be established* — and is never allowed to be read as a priority claim. The
+13: 1.1, 1.7, 1.8, 3.2, 3.3, 3.11, 4.5, 4.10, 4.17, 5.4, 5.10, 5.11, 5.18. Most are unclearable
+in principle (Brunelleschi left no text; the Cārvāka corpus is lost; a one-line consequence of a
+definition has no first author); only **5.11** and **1.7** are live prior-art questions.
+
+**Zero NOT-CLASSICAL, and that is a finding rather than a suppression** — §§1–4 is an exposition,
+as §18 says, so a register of forty expository rows should discharge to forty prior sources. What
+the pass found instead is three citation defects:
+
+1. **Row 2.5 cites the wrong paper for the parameter it warns about.** Original text, quoted:
+   "*Rovelli–Smolin 1995; Ashtekar–Lewandowski. The $\gamma$ is the Immirzi parameter and is
+   **not** fixed by the theory — the display does not say so.*" The warning is right; the
+   citation is not. **$\gamma$ does not occur in Rovelli–Smolin 1995** (Nucl. Phys. B **442**
+   (1995) 593, erratum B **456** 753). It is Barbero, Phys. Rev. D **51** (1995) 5507, and
+   Immirzi, Class. Quantum Grav. **14** (1997) L177 — so the displayed spectrum is post-1995 in
+   its $\gamma$ and cannot be sourced to the 1995 paper alone.
+2. **Row 4.15 named no source at all** — the only row of the 40 that carried none, and §16
+   counted it regardless. Priority is locatable: **Zhu Zaiyu, *Lülü jingyi*, 1584**
+   ($\sqrt[12]{2}$ to 24 places), and independently **Simon Stevin, *Van de spiegheling der
+   singconst*, c. 1585** (printed 1884). The row's mathematical observation (the display swaps
+   small-integer ratios for their irrational approximations — the comma problem) is unaffected
+   and stands.
+3. **Row 2.4's reference is a start page, not a citation.** Ann. Math. (2) **37** (1936)
+   **823–843**.
+
+**Two of the forty were already discharged inside this repository, and §16 did not know it.**
+`notes/APOHA_AND_POLARITY.md` ll. 249–258 carries row 7.6's Birkhoff 1940 / Ore 1944 — and marks
+them "not read", i.e. the corpus was already at this ledger's standard. `notes/SL2_DIVISOR_LATTICE.md`
+carries row 8.11's search **and a source earlier than the one 8.11 names**: the Sperner property
+of divisor lattices is **de Bruijn–van Ebbenhorst Tengbergen–Kruyswijk (1951)**; Stanley 1980 and
+Proctor 1982 supply the $\mathfrak{sl}_2$/hard-Lefschetz *method*, not the theorem. Row 8.11
+attributes the theorem to Stanley–Proctor; that is the method's provenance. **J1's prior-art
+instruction is therefore discharged — by that note, which did the search, not by this addendum,
+which only confirms it.** §19.3 should be read with that correction.
+
+**What is still not discharged, and §16 stays true.** *Bibliographic* verification (the record
+exists, from multiple independent databases) was obtained for all 40. ***Content* verification —
+that the source says what the row attributes to it — was obtained for none**, and is claimed for
+none. §16's sentence "No CLASSICAL row in this ledger rests on a PDF I decoded; I decoded none"
+is still true. Named failures: SIAM full text (8.11) unretrievable, as `SL2_DIVISOR_LATTICE.md`
+independently found; **Lewontin 1970 (3.9) is an image scan that would not decode, so the row's
+content claim that Lewontin states the three conditions *as sufficiency* remains unverified and
+is not passed along**; the wordings quoted for Peirce CP 2.228 (4.9) and MMK 24.18 (5.13) come
+from secondary sources quoting the passage, not from the *Collected Papers* or a Sanskrit edition.
+
+**Not worked:** the four PARTIAL rows §16 excludes (3.6, 5.5, 5.6, 5.9). Their doctrinal halves
+carry the same defect and are now the largest remaining earliest-source gap in D0020; 3.6's is
+easy (Anfinsen, Science **181** (1973) 223–230).
+
 **Why this is not fatal but is not nothing.** The bulk of §§1–4 is textbook material stated
 correctly, and a reader loses little if my attributions are off by a decade or a name. The rows
 where it matters are the ones where the transmission's claim **is** the classicality — 8.11
@@ -573,8 +634,20 @@ verdicts already filed. **§8 is the section to read.**
    and it is mine, not the transmission's. **Every one of those rows therefore has an undischarged
    earliest-source requirement**, reported in place and collected at §16 rather than hidden.
    Ten of the 24 fragile rows (§18.1) are fragile for this reason.
+   *[Added 2026-08-15, classical-sources pass: **partly discharged**. All 40 now carry a named
+   earliest source with author/title/venue/volume/year/pages — 27 CLASSICAL-SOURCED, 13
+   CLASSICAL-ATTRIBUTED (priority not established), 0 NOT-CLASSICAL — at §16.1 and in
+   `notes/D0020_CLASSICAL_SOURCES.md`. **The "no source read" half of this defect stands
+   unchanged:** bibliographic verification was obtained for all 40, content verification for
+   none. Three citation defects found: rows 2.5, 4.15, 2.4 — see §16.1.]*
 3. **J1's prior-art instruction is not discharged.** Row 8.10 is proved; row 8.11's Stanley–Proctor
    attribution is from standing knowledge. A note writing up 8.10 must search first, as J1 says.
+   *[Added 2026-08-15, classical-sources pass: **discharged, and not by this ledger** —
+   `notes/SL2_DIVISOR_LATTICE.md` already carried the search, and carried an **earlier** source
+   for the theorem itself (de Bruijn–van Ebbenhorst Tengbergen–Kruyswijk 1951) than row 8.11's
+   Stanley 1980 / Proctor 1982, which are the method's provenance, not the theorem's. SIAM full
+   text remains unretrievable to that note and to this one, so no content of either paper is
+   asserted. §16.1.]*
 4. **§§2–4 are adjudicated at low resolution.** Roughly a hundred displays are compressed into
    twelve rows there, because the archive itself compresses them into running prose (§1). A row
    like 2.1 ("least action … Riemann tensor") is **one row covering nine displays**, and a defect
