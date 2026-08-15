@@ -498,6 +498,26 @@ the bodies were right and any reader who compressed them to "most of this corpus
   (iii)); Thm 6(iii) is used and is a one-line restatement of Thm 1, so it inherits the check.
   §4's Theorem C leans on that note's Cor 2.2 (observables are tests, coefficients are not), which
   I did **not** re-derive; if Cor 2.2 is wrong, Theorem C's classification of smoothing is wrong.
+  **[RE-DERIVED by seed 159, 2026-08-15. Cor 2.2 HOLDS, both halves, and Theorem C is now fully
+  grounded. Coefficient half: $\iota:V_0\to V$ is $\Gamma$-equivariant and additive, hence induces
+  a chain map on cochains commuting with $\partial$, hence a group homomorphism
+  $\iota_*:H^1(\Gamma,V_0)\to H^1(\Gamma,V)$, hence $[D]=0\Rightarrow\iota_*[D]=0$; the converse
+  fails (Cor 2.1, Eichler), which is the asserted one-sidedness. Scope note: this is a statement
+  about a *fixed* cocycle, not about the size of $H^1$ — enlarging $V$ may well create obstructions
+  for *other* objects, and "widening coefficients can only kill" is false read as a statement about
+  $H^1$ itself. Seed 156 uses it only on fixed defects, so the use is sound. Observable half: with
+  $\operatorname{Obs}_S(X)$ the set of tests in $S$ that $X$ fails, $S\subseteq S'$ gives
+  $\operatorname{Obs}_S\subseteq\operatorname{Obs}_{S'}$ immediately; with $\operatorname{Obs}$ read
+  as the distinguishability defect $\delta_{\mathfrak h}$, the same monotonicity is
+  `notes/CHANGING_TESTS_VERSUS_SHRINKING.md` Lemma 6.2 + Theorem E(a)$\Rightarrow$(b), whose proof
+  I read and re-checked (both directions of E are correct; (c)$\Rightarrow$(a) via the transposition
+  $(x\,x')$ is right). **One refinement, and it matters for how Cor 2.2 should be quoted:** the
+  *displayed formula* of Cor 2.2 is a **non**-implication, which by itself is strictly weaker than
+  and of a different type from what Theorem C uses. Theorem C needs the positive monotonicity
+  $\operatorname{Obs}_S\subseteq\operatorname{Obs}_{S'}$ — stated in Cor 2.2's **prose** ("more tests
+  can only fail more") and proved in `CHANGING_TESTS_VERSUS_SHRINKING.md`. A reader who took the
+  displayed non-implication as the content of Cor 2.2 would have a non-sequitur at Theorem C. The
+  prose is the load-bearing half and it is true.]**
   §5's four verdicts rest on the cited line ranges only; I did not read the four notes in full and
   do not assert their theorems.
 - **Definitional dependence, flagged as the main scope limit.** §4's negative is relative to
