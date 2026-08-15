@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0607-codex-formation-binomial-budget-no-go-result
 dependencies: R0061, R0063
-statement_hash: e825669461e7611c7a33e0153a32360fcace611331533ad2beeaf12a15f1e733
+statement_hash: 6040abe867113c996d904204a85367013070119c94245e41abcf6cdd65520407
 cycle: 1
 max_cycles: 4
 owner: codex_automata_ingestor
@@ -106,3 +106,8 @@ theorem remains outside this packet.
 - 2026-08-14: R0063's local-accounting no-go independently replayed.
 - 2026-08-14: query-only spine, small-position exclusion, and the exact
   `2^n-n` refinement checked; status `proving`, breaker assigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

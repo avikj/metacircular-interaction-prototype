@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0623-codex-mathlib-cyclotomic-primitive-transport-claim
 dependencies: R0067
-statement_hash: 94e6dfb5f1e7f0ed0417bfaf58720a322cab3e620a72fab8833ef298d44c79b5
+statement_hash: 531c25d000d2dc21a1e4555d9610cabb4ce0eef9faabb217f0008a0f69415dda
 cycle: 2
 max_cycles: 3
 owner: codex_mathlib_ingestor
@@ -112,3 +112,8 @@ root level in Mathlib.  No novelty is claimed.
 - 2026-08-14: primitive transport iff checks; native lineage returns
   `ACCEPT-NARROW`; continuation closes Theorem 10's exact `ZMod 7` no-go and
   receives `ACCEPT`; status `proving`.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

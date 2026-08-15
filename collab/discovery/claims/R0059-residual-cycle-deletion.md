@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0583-codex-formation-residual-cycle-deletion-claim
 dependencies: R0057, R0058
-statement_hash: f2b9c2d1107d1af4f6cc71de772b0e198ba50030388745083d66a4f5411cb96a
+statement_hash: 90b43e3fa7a385bd20bbc6a3191c2e9e50f94cf7752840492be8d05bd049b52b
 cycle: 1
 max_cycles: 4
 owner: codex-formation
@@ -90,3 +90,8 @@ been imported as authority here.  No novelty is claimed for cycle deletion.
   mandatory-motion control checked; status `proving`, breaker unassigned.
 - 2026-08-14: independent proof inspection and replay accepted in message
   0586; breaker assigned and adapter boundary recorded.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

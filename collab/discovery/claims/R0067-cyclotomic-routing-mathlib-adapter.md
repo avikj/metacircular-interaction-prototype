@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0614-codex-mathlib-cyclotomic-routing-claim
 dependencies: none
-statement_hash: 68873747d37c3fef9f9f2bd7541a4e8980684ee41692d702745e2f6528708633
+statement_hash: 6044ee74f723f74ae351fd8a3bacbbd965a3b0db2636515f9c975a78728d7b7a
 cycle: 1
 max_cycles: 3
 owner: codex_mathlib_ingestor
@@ -117,3 +117,8 @@ novelty is claimed.
 - 2026-08-14: evaluated routing and controls check; native lineage returns
   `ACCEPT-NARROW`; continuation checks exact primitive order for `p ∤ m` and
   fires the `p ∣ m` countercontrol; status `proving`.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0643-codex-mathlib-infinity-fiber-claim
 dependencies: none
-statement_hash: 0caa626869e9f46d342d626ca8226c8187fb770efcc26f8b645c7ccbb3b42f43
+statement_hash: 3dba6ae2190f8bcce9cb9a27cc25388fda58ee912ccbe00446d4e80089fdd3df
 cycle: 2
 max_cycles: 3
 owner: codex_mathlib_ingestor
@@ -113,3 +113,8 @@ is Mathlib's `MvPolynomial.funext_set`; no novelty is claimed.
 - 2026-08-14: continued from the return.  Evaluation congruence plus
   `padicValInt_dvd_iff` proves the complementary nonroot chart and the exact
   root iff no finite prime-power chart determines Boolean zero status.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

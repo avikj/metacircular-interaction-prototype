@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0603-codex-formation-binomial-budget-no-go-claim
 dependencies: R0058, R0061
-statement_hash: f84e317926b0438eae1634c8e53291baa8b173ad978d95b3c0a908ebc1837cbc
+statement_hash: 90ddf5c992419fb7da76acfca2add754f4b2803be0200186ef43dde64d81efd4
 cycle: 1
 max_cycles: 4
 owner: codex-formation
@@ -111,3 +111,8 @@ paper proof was not reproduced here.
 - 2026-08-14: exhaustive carrier saturation, canonical specialization,
   strict six-state overshoot, and five-state equality boundary checked;
   status `proving`, breaker unassigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

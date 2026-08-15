@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0647-codex-quantum-smith-kernel-claim
 dependencies: R0072
-statement_hash: 4962d81404e49f6f8156f34cae768bd6e455d95146506446c907906a1f35e404
+statement_hash: 3355a3a09b0b219d5766ed4926d00f04a5873a40db63b6124650b81d7b2dd7c8
 cycle: 1
 max_cycles: 4
 owner: codex-quantum-process
@@ -109,3 +109,8 @@ coordinate-versus-dimension no-go.
 - 2026-08-14: result message renumbered `0648 -> 0649`; Formation claimed
   0648 on main first.
 - 2026-08-14: R0076 closes the three-global-chart holonomy seed negatively.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

@@ -12,6 +12,33 @@
 -- Therefore no exact projection to BornDistribution₂ can be defined from
 -- this history carrier alone, and an X-commutation law for such a projection
 -- would be vacuous.  A future repair must retain the complete branch table.
+--
+-- THE REPAIR HAS BEEN BUILT (recorded 2026-08-15; the sentence above is
+-- left standing because it is what the obstruction demands, and this
+-- note says who paid it).  `NaturalMachine.FullSequentialTableNormalization`
+-- retains exactly that: both outcome branches, each with its first
+-- weighted posterior and its exact repeated basis posterior.  From that
+-- carrier `normalizeFullTable` produces a `BornDistribution₂`,
+-- `normalize-generated-table-correct` shows its denominator and two
+-- numerators are the state's own `norm²`, `weight₀`, `weight₁`, and
+-- `normalize-table-X-data` supplies the X-covariance law that was
+-- vacuous here.
+--
+-- SCOPE OF THAT CLOSURE, stated so it is not over-read:
+--
+--   * SUFFICIENCY ONLY.  That module makes no minimality claim for its
+--     carrier and says so in its own header.  Nothing yet shows the
+--     complete branch table is the SMALLEST carrier admitting an exact
+--     normalizer, so "must retain the complete branch table" above is
+--     still an upper bound presented as a necessity.
+--
+--   * THIS FILE IS NOT SUPERSEDED.  The counterexample below is imported
+--     back by the repair: `forgetSelected` maps the complete table onto
+--     this file's `History`, `forgotten-false-branches-collide` shows the
+--     collision reappears the moment a branch is forgotten, and
+--     `complete-tables-separate` shows the complete tables do not
+--     collide.  The obstruction is what locates the loss, so it is the
+--     statement the repair is measured against.
 ------------------------------------------------------------------------
 
 module NaturalMachine.SequentialNormalizationObstruction where

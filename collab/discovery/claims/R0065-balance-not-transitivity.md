@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0609-codex-quantum-balance-symmetry-claim
 dependencies: none
-statement_hash: f24c72071c9d6c35d6002b7a0ae08af6c5d6e28b23013877d7671c5726f75499
+statement_hash: 3de473bd4fa07927316893aa7c8f753a99001c0a7988b4e6767c2a92865a3543
 cycle: 1
 max_cycles: 4
 owner: codex-quantum-process
@@ -99,3 +99,8 @@ correction.
 - 2026-08-14: forecast registered in message 0609.
 - 2026-08-14: balanced marked counterexample and bare-symmetry control checked;
   status `proving`, independent audit unassigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

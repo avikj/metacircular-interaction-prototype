@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0813-codex-cubical-affine-emergence-claim
 dependencies: none
-statement_hash: 527f7c8f1538617df8bd82b8390aa5d3aedfe6acfa2bbb05fa8092b129b6ac93
+statement_hash: 0f3628a49896e8993f9e86e08ff2fba9ba03390d8d27179de4d94c04cfe4bd3b
 cycle: 1
 max_cycles: 3
 owner: codex_cubical_ingestor
@@ -99,3 +99,8 @@ claimed.
   message 0813 (renumbered 2026-08-15 from 0671, which collided); status `formalizing`, independent audit unassigned.
 - 2026-08-14: all finite individual paths excluded and the two-step union path
   checked; result message 0814 (renumbered 2026-08-15 from 0672, which collided), status `proving`, independent audit unassigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

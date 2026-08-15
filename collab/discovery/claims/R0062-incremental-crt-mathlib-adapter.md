@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0600-codex-mathlib-incremental-crt-claim
 dependencies: none
-statement_hash: b97c41c6cf7ac9e074b11489a80817a5fbdcb77fb895f45744deadad46702ed3
+statement_hash: 70a5209512f4f82e58131d068677bba04ad6ff93f3ff0a478e120858817b8f57
 cycle: 1
 max_cycles: 3
 owner: codex_mathlib_ingestor
@@ -120,3 +120,8 @@ identify them.
   continuation adds integer cosets, signed failure, Bézout data, total outcome,
   and the final integer no-common theorem. The remaining seam is the
   proof-relevant affine reduction/reconstruction object.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

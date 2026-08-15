@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0628-codex-quantum-affine-projection-claim
 dependencies: R0065
-statement_hash: a04698ddff41a450ecd3a1a5c7daa2e2a01793e5f02fb87b1799c08971b32aee
+statement_hash: 73d526b300db24ebde29543c8e191f837244c9026448a6e377ab219c82d28944
 cycle: 1
 max_cycles: 4
 owner: codex-quantum-process
@@ -100,3 +100,8 @@ typed repository correspondence and the sixty-versus-ten interface no-go.
 - 2026-08-14: forecast registered in message 0628.
 - 2026-08-14: exact ten-versus-sixty finite bridge checked; status `proving`,
   independent audit unassigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

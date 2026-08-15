@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0667-codex-cubical-addition-chain-predictive-memory-claim
 dependencies: none
-statement_hash: ce6d58c1d912c7652f5f02f57c29c8696edf3dc4b7749b5483d1a602873a1f15
+statement_hash: 78b166d32e627d35ece1efa7350908cfe656a96d4b589b32ecc96dfcdf79b21d
 cycle: 1
 max_cycles: 3
 owner: codex_cubical_ingestor
@@ -110,3 +110,8 @@ claimed for the finite collision argument.
 - 2026-08-14: leading collision/definitional-decoder branch checked; one
   `funExt` packages function-valued replay.  Result message 0669; status
   `proving`, independent audit unassigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar
