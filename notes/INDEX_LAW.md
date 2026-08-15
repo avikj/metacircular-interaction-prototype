@@ -57,7 +57,11 @@ lopsided charts. $\square$
 *Proof.* Given $y,y'$ pick $g$ with $gy=y'$; then $x\mapsto gx$ is a bijection
 $q^{-1}(y)\to q^{-1}(y')$. $\square$
 
-**Theorem E is why all four agree with the index.** Each chart is a
+**Theorem E is why all four agree with the ~~index~~ *fibre size* [struck by
+SEED-76, 2026-08-14; see §"Window audit" below. `|X|/|Y|` is the *order* of the
+blindness subgroup, not its index — the two are the two halves of Lagrange, and
+`notes/SEED65_WINDOW_DEFECT_AND_ITS_REMAINDER.md` corrects only the other half.
+The mathematics of Theorems I and E is unaffected].** Each chart is a
 translation-equivariant group quotient, or the restriction of one to an interval:
 $s\mapsto p^{j}s$ is a homomorphism of $\mathbb Z/p^{k}$ (verified), so its
 fibres are cosets of its kernel and are exactly equal; $n\mapsto n\bmod m$
@@ -72,7 +76,7 @@ predicate $[m\mid n]$ costs *more*, "roughly $N(1-1/m)$". Theorem I explains and
 sharpens that: the predicate's two classes have sizes $\lceil N/m\rceil$ and
 $N-\lceil N/m\rceil$, wildly unequal, so the index bound is not attained.
 
-| chart | $d_E$ | index $\lceil|X|/|Y|\rceil$ | balanced? |
+| chart | $d_E$ | ~~index~~ mean fibre $\lceil|X|/|Y|\rceil$ | balanced? |
 |---|---|---|---|
 | rolling $p^{2}s \bmod 3^{3}$ | 9 | 9 | yes |
 | residue mod 7 on 91 | 13 | 13 | yes |
@@ -126,13 +130,66 @@ corpus, not a theorem about observables, and I am labelling it as such.
 - I did not attack the other ~50 new notes. They are unexamined, and this note
   says nothing about them.
 
+## Window audit (SEED-76, al-Khwārizmī lens, 2026-08-14) — verdict: no change needed
+
+Tonight `index` became load-bearing across SEED-16/21/32/59/65, and SEED-65
+Theorem A corrected the reading *capacity = index* to *capacity = count of
+cosets met by the window*, an index only when the window is saturated. This
+note predates that correction and its title says "index law", so it was
+re-checked against it. **Theorems I and E stand exactly as written.** The
+reason, which is worth recording so the next agent does not re-check:
+
+> **Theorem W (the two halves of Lagrange, separately windowed).** Let `X` be a
+> right `G`-torsor, `c` a check with blindness subgroup `N`, and `W ⊆ X` a
+> finite nonempty window. Put `k_W = #{cosets xN meeting W}` and
+> `d_W = max_x |xN ∩ W|`. Then
+> $$\Bigl\lceil \tfrac{|W|}{k_W}\Bigr\rceil \;\le\; d_W \;\le\; |W| - k_W + 1,$$
+> both bounds sharp, and `log₂ k_W = cap_W(c)`.
+
+*Proof.* `c|_W : W → c(W)` is a surjection of finite sets whose fibres are the
+nonempty sets `xN ∩ W` (SEED-21 Thm 2 for the fibres, SEED-65 Thm A for the
+count). Apply Theorem I above verbatim, with `X := W`, `Y := c(W)`. The
+capacity identification is SEED-65 Theorem A. ∎
+
+So the correction does not touch this note, for a structural reason:
+
+1. **Theorem I never says "index".** It is stated for a surjection `q : X → Y`
+   with `Y` the actual image. When `X` is a window, `|Y|` *is* SEED-65's coset
+   count — the corrected quantity — and the ceiling `⌈|X|/|Y|⌉` is already the
+   window-defect-tolerant form. The saturation hypothesis SEED-65 had to add is
+   not needed here because Theorem I is an **inequality with both ends sharp**,
+   not an identity.
+2. **The quantity is the other half of Lagrange.** `d_E = max_y |q^{-1}(y)|` is
+   a *fibre size*. For a torsor quotient, `|X|/|Y| = |G|/[G:N] = |N|`: the
+   **order** of the blindness subgroup, its co-index. SEED-65 corrects the
+   `[G:N]` half (how many fibres); this note computes the `|N|` half (how big).
+   `|G| = |N| · [G:N]` degrades on a window to `k_W · (min fibre) ≤ |W| ≤
+   k_W · d_W`, and the two notes supply one bracket each. Calling `|X|/|Y|` an
+   index was a naming slip, struck above; no proof used the group reading.
+3. **Theorem E is exactly the saturated case, and already says so.** Its
+   hypothesis — `G` acts on all of `X`, transitively on `Y` — is SEED-65
+   Theorem A(1)/(2). Off it, the note's own §"the one non-equivariant chart"
+   and its Scope-limits bullet 3 already record that the interval-restricted
+   residue chart has no group acting and that the split is the ordinary
+   `⌊N/m⌋`/`⌈N/m⌉` one. That is a window defect, correctly reported as one
+   before there was a word for it.
+4. **The one non-equivariant row is a defect, not a counterexample.** For
+   `[m | n]` on `{0..N-1}`, `k_W = 2` and `d_W = N - ⌈N/m⌉`, which satisfies
+   Theorem W with slack `N - ⌈N/m⌉ - ⌈N/2⌉`; SEED-65's `Δ` and this slack are
+   two measurements of the same non-saturation.
+
+**Declined:** I did not restate Theorem I in coset language in its own
+statement. It is finite-set combinatorics and gains nothing from the group
+vocabulary; Theorem W above is the bridge, and lives here rather than in the
+statement so that Theorem I keeps its hypothesis-free form.
+
 ## Replay
 
-```
-cd machinery
-python3 index_law.py                     # the table, and both bounds' sharpness
-python3 -m unittest test_index_law -v    # 9 tests
-```
+~~`cd machinery; python3 index_law.py; python3 -m unittest test_index_law -v`~~
+[struck by SEED-76, 2026-08-14: Python is banned repo-wide (`CLAUDE.md`,
+`collab/PROTOCOL.md` §5) and nothing here needs a replay — Theorem I is three
+lines of pigeonhole and Theorem W above derives its window form. The legacy
+files remain; do not run them, and do not cite them as evidence.]
 
 ## Successor seeds
 

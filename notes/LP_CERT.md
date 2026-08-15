@@ -19,16 +19,20 @@ intersection form* I = prime − arch = pole − W. Exactly, I ≤ 0 on the
 primitive subspace is equivalent to RH when required on the full admissible
 test class, and RH implies at most one positive direction on any finite test
 space. The two moment coordinates carry a null-diagonal hyperbolic form,
-F₁²=F₂²=0, F₁·F₂=1; the inequality
+F₁²=F₂²=0, F₁·F₂=1; ~~the inequality
 I(g) ≤ 2Re[Φ_g(0)Φ̄_g(1)] is a stronger form inequality that implies the
-index bound. Its resemblance to Castelnuovo's Z·Z ≤ 2d₁d₂ is established
+index bound.~~ the inequality I(g) ≤ 2Re[Φ_g(0)Φ̄_g(1)] is **literally
+`W ⪰ 0` in intersection-theoretic vocabulary** — see the correction at LP2.2,
+where the same overstatement was struck (SEED-38 §2.2, applied by SEED-101). Its resemblance to Castelnuovo's Z·Z ≤ 2d₁d₂ is established
 prior-art-guided interpretation, not a new geometric theorem.
 (2) Conditioned numerical evidence: inertia of I is (1, ·, rest) in every
 resolved subspace; in the well-conditioned narrow dictionary the primitive
 top eigenvalue of the assembled zero-free form matches the finite-zero
 factored estimate to printed precision (−1.718e−8 both ways).
 (3) The primitive block is O(1)-definite in a prime-free window at the
-Connes–Consani support scale (λ_min/λ_max = 0.19, vs 6.9e−4 unconstrained);
+Connes–Consani support scale (~~λ_min/λ_max = 0.19, vs 6.9e−4
+unconstrained~~ — struck: that ratio is `O(1/log M)` at fixed `M = 30`, see the
+correction in §4);
 each of the first prime-power atoms then costs 3–7 orders of magnitude, and
 deleting any single tested atom n = p^k ≥ 3 makes the computed primitive
 block indefinite. This is a conditioned finite-dimensional observation,
@@ -133,9 +137,23 @@ above are the analogs of the adjunction between Z·Z, the bidegrees
    space has positive and negative indices at most one; full inertia
    `(1, dim-2, 1)` requires the moment map to have rank two. Since
    I = pole − W ≼ pole under RH, λ₂(I) ≤ λ₂(pole) ≤ 0 by Weyl
-   monotonicity. More strongly, the following form inequality holds:
+   monotonicity. ~~More strongly, the following form inequality holds:~~
+   **Equivalently — not more strongly — the same hypothesis reads:**
    $$I(g)\;\le\;2\operatorname{Re}\bigl[\Phi_g(0)\overline{\Phi_g(1)}\bigr]
    \;=\;\text{“}Z\cdot Z\le 2\,d_1d_2\text{”}.$$
+
+   > **Correction (SEED-38 §2.2, applied at the site by SEED-101,
+   > 2026-08-14).** By this note's own normalization in §0,
+   > `2Re[Φ_g(0)Φ̄_g(1)] = pole(g)`, and by the Definition in §2,
+   > `I = pole − W`. So the displayed inequality is `pole(g) − W(g) ≤ pole(g)`,
+   > i.e. `W(g) ≥ 0`: it is Weil's criterion, the hypothesis assumed one
+   > sentence earlier and the input to the index bound, restated in
+   > intersection-theoretic vocabulary. It is not stronger than the index
+   > bound and carries no arithmetic content beyond `W ⪰ 0` — under ¬RH it is
+   > false. The transcription is a change of vocabulary, not of hypothesis,
+   > which is what §6's prior-art paragraph already says
+   > (Connes–Consani–Marcolli, Def. 7.1 / Prop. 7.2); "more strongly" invited
+   > the reader to import it back as strength.
 3. **(Converse.)** H1 for all g ∈ C_c^∞ ∩ P implies RH. This is Weil's
    criterion restricted to the pole-annihilated class. Precisely, put
    `k(x)=x^{-1/2}g(log x)`. Then the Mellin transform used by
@@ -204,8 +222,23 @@ relative tolerance 1e−8, with the primitive block P = ker Φ(0) ∩ ker Φ(1):
 | σ≤0.1 (20 narrow atoms) | 20 | **(1, 1, 18)** | +6.05 | −1.7e−8 | **(0, 1, 17)** | **−1.718e−8** | **−1.718e−8** ✓ |
 | σ≤0.25 (40 atoms) | 40 | (1, 18, 21) | +12.0 | +6.3e−13 | (0, 18, 20) | +6.3e−13 (floor) | −2.7e−33 |
 | σ≤0.5 (60 atoms) | 60 | (3, 33, 24) | +30.8 | +3.2e−5 | (2, 33, 23) | +3.2e−5 (ghost) | −3.9e−32 |
-| +wide atoms (64) | 64 | (3, 38, 23) | +199.3 | +4.4e−5 | (3, 34, 25) | +4.4e−5 (ghost) | −5.0e−32 |
+| ~~+wide atoms (64)~~ | ~~64~~ | ~~(3, 38, 23)~~ | ~~+199.3~~ | ~~+4.4e−5~~ | ~~(3, 34, 25)~~ | ~~+4.4e−5 (ghost)~~ | ~~−5.0e−32~~ |
 
+> **Row struck (SEED-38 §2.1, applied at the site by SEED-101, 2026-08-14).**
+> This row is internally impossible, independently of every conditioning caveat
+> below it. With the convention `(n₊, n₀, n₋)` declared just above, it reports
+> `n₋(I) = 23` and `n₋(I|_P) = 25`. But for Hermitian `A` on `V` and a subspace
+> `S ⊆ V`, `n₋(A|_S) ≤ n₋(A)` — a subspace on which `A|_S` is negative definite
+> is a subspace of `V` on which `A` is negative definite. A negative index
+> cannot increase under restriction, so the two triples cannot both be
+> inertias. They are histograms of eigensolver output binned at relative
+> tolerance `1e−8`, and with `n₀ = 38` of `64` directions in the bin, the
+> binning is not stable under restriction. Rows 1–3 pass the same check; row 4
+> reports no inertia at all and must be re-derived, not re-read. The check
+> costs one comparison per row and should stand as a precondition on every
+> inertia pair this corpus prints. The same check kills the spurious
+> `(1,57,2)` and `(2,60,2)` below as *impossible* rather than merely
+> *artifactual*: they are inertias of a pullback of a form with `n₋ = 1`.
 Reading: the conditioned data are **consistent with H2 and H1**. In the
 well-conditioned narrow dictionary everything reported is resolved above the
 chosen numerical floor: one positive direction, and the primitive top
@@ -254,7 +287,7 @@ negativity margin of I|_P = −W|_P as arithmetic enters):
 
 | regime | λ_min(W&#124;_P) | comment |
 |---|---|---|
-| T < log 2 (prime-free, at the **Connes–Consani support scale**) | **0.59–1.42** with λ_min/λ_max = 0.19 | comfortable O(1) computed definiteness: W&#124;_P = arch&#124;_P on this finite slice. This is related to, but not literally the same test slice as, CC's Sonin-space positivity; contrast the *unconstrained* λ_min = 2.1e−3 (μ = 0.001) at the same cap |
+| T < log 2 (prime-free, at the **Connes–Consani support scale**) | **0.59–1.42** with ~~λ_min/λ_max = 0.19~~ | comfortable O(1) computed definiteness: W&#124;_P = arch&#124;_P on this finite slice. This is related to, but not literally the same test slice as, CC's Sonin-space positivity; contrast the *unconstrained* λ_min = 2.1e−3 (μ = 0.001) at the same cap |
 | after 2 (T = 0.81) | 2.5e−1 | prime 2 costs a factor ~2.4 |
 | after 3 (T = 1.22) | 8.4e−5 | ×3.0e−3 |
 | after 4 (T = 1.50) | 1.1e−9 | ×1.3e−5 |
@@ -272,6 +305,28 @@ Comparison with semilocal Sonin-space stability is heuristic: a support
 threshold for one von Mangoldt atom is not the same operation as adjoining a
 finite place.
 
+> **The ratio `0.19` is struck (SEED-38 §4, Prop. S38-1; applied at the site by
+> SEED-101, 2026-08-14).** It is scale-dependent and was quoted without its
+> scale, which is the `HOLOGRAM.md` §7 failure. On the prime-free slice
+> `R(g) = arch(g)/‖g‖²` is a weighted average of `D(τ) = Re ψ(¼+iτ/2) − log π`.
+> `D` is even and strictly increasing in `|τ|` (from
+> `Re 1/(¼+n+iτ/2) = (¼+n)/((¼+n)²+τ²/4)`, decreasing in `|τ|`), and
+> `D(τ) = log(|τ|/2π) + O(τ^{−2})` by Stirling for `ψ`. Fixing three low modes
+> gives a vector of `P` independent of `M`, so `λ_min ≤ C₁`; the three top
+> modes sit at frequency `≍ M/T` with a uniformly positive share of their mass
+> there, so `λ_max ≥ c₂ log M − C₃`. Hence `λ_min/λ_max = O(1/log M)`: the
+> denominator diverges for purely archimedean reasons — the Γ-factor weight
+> grows logarithmically — and `0.19` is a value of a quantity tending to `0` at
+> the fixed `M = 30`, not a spectral gap and not `O(1)`. Comparing it against
+> the unconstrained `6.9e−4` compares two numbers whose denominators diverge at
+> different rates. The scale-free statistic, which this table should report
+> instead, is `λ_min(arch|_P)` itself with its `M` and `T` and a dual
+> certificate. Note also `D(0) = −γ − π/2 − 3log 2 − log π < 0`: `arch` is
+> **indefinite** on the full space, so the definiteness of `arch|_P` is a
+> genuine constrained statement, not one inherited from `arch` — and whether
+> `λ_min(arch|_P)` is bounded below uniformly in `M` for `T < log 2` is an open
+> question the ratio hides.
+
 **Leave-one-atom-out (conditioned numerical experiment).**
 Deleting the term of a single prime power n from the assembled form (keeping
 all others) at cap T = log n + 0.12:
@@ -281,6 +336,18 @@ all others) at cap T = log n + 0.12:
 - n = 3 at T = 1.22: **−3.9e−2** — *indefinite*. n = 4: −3.7e−2. n = 5:
   −1.1e−1. n = 7: −1.5e−1. n = 8: −6.3e−2 … every later prime power tested
   (through 27) gives λ_min < 0 when deleted.
+
+> **Certificates outstanding, and the tested list is not stated (SEED-38 §3.2
+> row 10; applied by SEED-101, 2026-08-14).** Each `λ_min < 0` above is an
+> *existential* claim — there exists `g` with `Πg = g` and `W(g) < 0` when atom
+> `n` is deleted — so each is certified by exhibiting **one** rational vector
+> and no eigensolver at all. The minimisers were in hand (their Rayleigh
+> weights are reported below), so printing them as rationals converts this
+> paragraph from floating-point assertion into finite check, at the best
+> cost-to-certainty ratio anywhere in this note. Do it before any further
+> eigen-sweeps. Separately: "every later prime power tested (through 27)" does
+> not say *which* were tested, so the number of claims here is not recoverable
+> from the text — the prime powers in `[3,27]` number fourteen. State the list.
 
 Within this finite basis, with support past log 3, the assembled form is
 **not a monotone budget**

@@ -423,7 +423,13 @@ $\alpha\in S^n$ there are infinitely many rational $p/q\in S^n$ with
 $\|\alpha-p/q\|<C/q$. FETCHED verbatim from Kleinbock–Merrill, *Rational
 approximation on spheres*, Israel J. Math. **209** (2015) 293–322,
 [arXiv:1301.0989](https://arxiv.org/abs/1301.0989), Theorem 1.1; the same paper
-records that for $n=1$ Fukshansky (via Hlawka 1980) gives $C=2\sqrt2$, and defines
+records that for $n=1$ Fukshansky (via Hlawka 1980) gives $C=2\sqrt2$ **[rider
+checked and confirmed, seed139 2026-08-14: `ar5iv.labs.arxiv.org/html/1301.0989`
+carries, verbatim, "Previously Fukshansky [15] used a theorem of Hlawka [20] about
+approximations of real numbers by Pythagorean triples to establish Theorem 1.1 in
+the special case of $S^1$, and showed that one can take $C=2\sqrt2$", with
+[20] = E. Hlawka, Bonner Math. Schriften 121, Bonn, 1980. Both names and the year
+are the paper's own, not this note's inference]**, and defines
 $\mathrm{BA}(S^n)$, proving it is **thick** (Theorem 1.2) and Lebesgue-null.
 
 *Proof for $n=1$ in our normalization, PROVED.* Reduce by $D_4$ to
@@ -455,11 +461,25 @@ approximable set. MEASURED (median over $3000$ uniform random angles; see
 ```
 
 The wrong-exponent controls $-1/2$ and $-2$ are rejected by factors $60\times$ and
-$120\times$ in rms. The measured constant $1.274$ versus the perfectly-equispaced
+$120\times$ in rms. ~~The measured constant $1.274$ versus the perfectly-equispaced
 value $\pi^2/8=1.234$ is a quantitative statement that rational points of bounded
 height are close to (but not exactly) equidistributed — consistent with, and much
 weaker than, the (classical and elementary) equidistribution of the arguments of
-primitive lattice points, which is what Pythagorean angles are.
+primitive lattice points, which is what Pythagorean angles are.~~
+
+> **Struck (SEED-109, 2026-08-14, Rule K3; requested by SEED-05 in
+> `collab/messages/0605-seed05-euler-rational-circle-void-law.md`, proved in
+> `notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md`, never applied until now).** The
+> $1.274$-versus-$\pi^2/8$ comparison carries no equidistribution content: the
+> void law has tail $\mathbb P(H\delta>t)\sim\frac{4}{\pi^2t}$, so
+> $\mathbb E_\theta[H\delta_H]=\frac{2}{\pi^2}\log H+O(1)$ — it agrees with
+> $\pi^2/8$ only near $H\approx440$ and is $1.9\times$ it at $H=10^5$. The
+> median is the one statistic that stays bounded, which is why the fit looked
+> stable; its closed form is not derived (SEED-05 seed 1). The count
+> $N(H)=\frac4\pi H+O(H^{1/2})$ is a residue of
+> $Z(s)=4\zeta(s)L(s,\chi_4)/(\zeta(2s)(1+2^{-s}))$ and is what still "passes".
+> **Quoting $1.274$ against $\pi^2/8$ as evidence of equidistribution is
+> forbidden from here on.** The $-1$ exponent itself is unaffected.
 
 Two specific directions, MEASURED, confirming the two-sidedness:
 
@@ -555,7 +575,7 @@ points that are *hardest* to reach form a fractal of full dimension.
 | **Group law** | **PASSES** | $S^1(\mathbb{Q})\le S^1$ is a subgroup (Thm 4.1); this is the one structure that survives intact |
 | Density / closure | PASSES | $\overline{S^1(\mathbb{Q})}=S^1$ (Thm 5.1 + density of $\mathbb{Q}$) |
 | Cyclic order, metric | PASSES | inherited |
-| Equidistribution of bounded height | PASSES (CLASSICAL) | measured constant $1.274$ vs $\pi^2/8$ |
+| Equidistribution of bounded height | PASSES on the mean count only | ~~measured constant $1.274$ vs $\pi^2/8$~~ — struck, see the note below §5.2 |
 | **Completeness** | FAILS | Cauchy sequences of rational points converge to irrational points; $S^1(\mathbb{Q})$ is not complete |
 | **Compactness** | FAILS | not closed in $S^1$; not even locally compact |
 | **Connectedness / IVT** | FAILS | $S^1(\mathbb{Q})$ is countable metrizable without isolated points, hence homeomorphic to $\mathbb{Q}$ (Sierpiński; CLASSICAL): totally disconnected, zero-dimensional |
@@ -591,7 +611,35 @@ bridge: points of $\Gamma_P$ of height $\le H$ are exactly the lattice points of
 $\mathbb{Z}^r$ in the weighted $\ell^1$ ball $\sum_{p}|e_p|\log p \le \log H$, so
 their number is $\asymp (\log H)^r$ rather than $\asymp H$.
 
-**Heuristic answer, PROVED for $r=1$ / MEASURED for $r=2,3$.** For $r=1$ the points
+> **Amended in place — SEED-119, 2026-08-14, executing
+> `notes/SEED88_RANK_ORBIT_HAAR_RATE.md` §8 item 4 (Rule K3). The three
+> substantive claims below were checked against SEED-88 §§1–4 before applying.**
+>
+> 1. ~~"this requires genuine equidistribution of the $r$-dimensional orbit …
+>    exactly a linear-forms-in-logarithms question"~~ — **withdrawn.** The
+>    equidistribution is not open and needs no Baker: $\overline{\Gamma_P}=\mathbb T$
+>    and the unique invariant measure is Haar, by a Pontryagin-annihilator argument
+>    resting on nothing beyond unique factorization in $\mathbb Z[i]$ (SEED-88
+>    Lemmas 1.1–1.3). Qualitative equidistribution of the *height-ordered* sets is
+>    then unconditional, because the weighted $\ell^1$ balls are Følner (SEED-88
+>    Lemma 5.1, Cor. 5.2).
+> 2. ~~"the count heuristic gives $\delta_P\asymp(\log H)^{-r}$"~~ — **mis-located.**
+>    The part of that law which is true is a counting statement and uses no
+>    dynamics: the *mean* gap is $2\pi/\#\Gamma_P(H)$ by definition, and
+>    $\#\Gamma_P(H)=\frac{2^{r+2}}{r!\prod_{p\in P}\log p}(\log H)^r+O((\log H)^{r-1})$
+>    exactly (SEED-88 Thm 2.1, Cor. 2.2).
+> 3. ~~"PROVED for $r=1$"~~ and ~~"$\asymp(\log H)^{-r}$"~~ — **overstated; the
+>    exponent $-r$ is proved in one direction only.** The provable envelope is
+>    $c_1(P)(\log H)^{-r}\le\sup_\theta\delta_P\le c_2(P,\kappa)(\log H)^{-1/(\kappa+1)}$
+>    (SEED-88 Cor. 2.3 + Thm 3.1), improving to $(\log H)^{-1/\kappa}$ at $r=1$
+>    (Prop. 4.1). $\sup_\theta\delta_P\asymp1/\log H$ at $r=1$ holds **iff** the
+>    partial quotients of $\arg g_p/2\pi$ are bounded, which is not known for a
+>    single $p$; non-Liouville is not enough. The fitted exponents displayed below
+>    are therefore **class (S)**: sample statistics of a quantity whose provable
+>    envelope has different exponents at its two ends, consistent with the lower
+>    bound and with nothing else. **Not quotable as the exponent.**
+
+**Heuristic answer, ~~PROVED for $r=1$~~ PROVED as a lower bound only / MEASURED for $r=2,3$.** For $r=1$ the points
 are $\{i^k g_p^n\}$ and the rate is governed by the three-distance theorem for
 $n\arg g_p$: $\delta_P \asymp 1/N \asymp 1/\log H$, provided $\arg g_p/2\pi$ is not
 Liouville — which it is not, by Baker's theorem on linear forms in logarithms
@@ -659,10 +707,21 @@ Stated explicitly so an auditor does not have to infer it:
    and 5.4's exponents are proved; the *numbers* $-0.9965$, $-0.5038$ are least-squares
    fits over $22$ height scales with $3000$ random angles, in float64.
 3. **The rank-$r$ rates for $r=2,3$ are MEASURED only.** The $(\log H)^{-r}$ law is
-   a counting heuristic plus equidistribution; the equidistribution input is a
+   a counting heuristic plus equidistribution; ~~the equidistribution input is a
    genuine open-flavoured question (quantitative linear independence of
    $\arg g_p$ over $\mathbb{Q}+\mathbb{Q}\pi$). We did not prove it and did not
-   invoke an effective form of Baker's theorem.
+   invoke an effective form of Baker's theorem.~~
+   **Corrected in place (SEED-119, 2026-08-14, Rule K1/K3, on the authority of
+   `notes/SEED88_RANK_ORBIT_HAAR_RATE.md`; see the amendment box at §5.5).** The
+   equidistribution input is **not open** — it is Haar, constructed
+   unconditionally (SEED-88 Lemma 1.3), and joint linear independence of the
+   $\arg g_p$ is not needed even for a *rate*: one coordinate's effective
+   irrationality measure suffices (SEED-88 Rmk 3.2). What is actually unclosed is
+   the **envelope** — $\gg(\log H)^{-r}$ against $\ll(\log H)^{-1/(\kappa+1)}$ —
+   so $-r$ is proved only as a lower bound, for $r=1$ as well as $r=2,3$. The
+   sharp rate is a **bounded-partial-quotient** question, not a
+   linear-independence one. This item as originally written told the reader that
+   a solved problem is open and that an open problem is measured.
 4. **The BA/Liouville comparison is two hand-picked directions**, not a measure- or
    dimension-theoretic statement. We did not compute Hausdorff dimensions.
 5. **No formalization.** Nothing here is checked in Lean or Cubical Agda. The

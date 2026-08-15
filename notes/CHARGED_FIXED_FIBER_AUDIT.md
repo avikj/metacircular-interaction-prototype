@@ -126,8 +126,16 @@ square
 
 commutes.  The content is exactly as claimed and is verified in both
 directions; only the notation overstates it.  The same remark applies to the
-all-bidegree version displayed above, which is verified for every bidegree
-and every modulus in the tested range.  The reason it holds is worth
+all-bidegree version displayed above, which is ~~verified for every bidegree
+and every modulus in the tested range~~ **proved outright for every bidegree
+`(r-1,s-1)`, `r,s >= 1`, and every `N >= 4`** — see
+`notes/SEED44_MUQABALA_OPERATOR.md` Theorem A: on the finite-support Laurent
+module `Z[z,w][x,x^{-1}]` with `x=e(alpha)`, `P_N` is extraction of the
+coefficient of `x^N` and `E_{r,s}` is extraction in `z,w`, and extractions in
+disjoint variable groups commute.  The proof mentions no colouring, so by
+parametricity it holds with `Omega` replaced by any `kappa` — which is exactly
+what §4's hand control checks (annotation applied by SEED-102, 2026-08-14,
+Rule K3).  The reason it holds is worth
 recording: `z` occurs only in the first leg and `w` only in the second, so
 bidegree extraction never induces a convolution.  A one-variable
 specialization `w=z` does produce a convolution `[z^k]=sum_{r+s=k+2}R_{r,s}`,

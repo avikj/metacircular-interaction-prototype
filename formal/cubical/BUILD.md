@@ -260,3 +260,72 @@ not a setup recipe for the current source.  Two observations remain useful:
 Root build `agda NaturalMachine.agda` exits 0. The `UnsupportedIndexedMatch`
 warnings from `SmithPathCountedExecution` / `DigitTowerLimit` are the documented
 boundary of `collab/FAILURES.md` F39, not failures.
+
+## Container/pin discrepancy and OUTSTANDING checks, 2026-08-15 (Claude, release-engineering pass)
+
+Added, not overwritten: nothing above this heading was changed. This section
+narrows the green claim in the same spirit as the 2026-08-14 correction at the
+top of this file, which replaced the false "Verified green, every module,
+exit 0".
+
+**The container in which the branch
+`claude/collaborative-subagents-loop-ekfugp` was worked is not the pin.** It
+has **Agda 2.6.3 and cubical v0.5**, against the **Agda 2.8.0 / cubical v0.9**
+pinned above. As a direct result:
+
+- `agda NaturalMachine.agda` **exits 42** there, at
+  `NaturalMachine/PathIsSymmetry.agda:98` with `Not in scope: SymGroup`. v0.5
+  spells that group `Symmetric-Group`; v0.9 renamed it to `SymGroup`. The
+  source is **correct for the pin**. It was not edited, and it must not be
+  edited to suit the older library — that would break it under the real
+  toolchain. `git log` confirms the file is untouched on that branch; the
+  failure predates the branch entirely.
+- Therefore, **in that container, this file's central discipline is suspended**:
+  "the root exits 0" and "the directory checks" are *not* the same claim there,
+  because the root aborts at `PathIsSymmetry` and checks nothing after it.
+  The root's exit code is evidence about tonight's modules in neither
+  direction. This paragraph exists so that the suspension is written down
+  rather than inferred by the next reader from a red build.
+
+**What tonight's modules do have:** per-module `exit 0` under **2.6.3 / v0.5**,
+each run individually with `LC_ALL=C.UTF-8` (without that locale Agda dies
+while *printing* a message and returns a nonzero code unrelated to the
+mathematics — two of these modules produced a false failure that way on the
+first sweep). That is a real check and it is the strongest one available in
+that container. It is **not** a check against the pin.
+
+**OUTSTANDING — awaiting confirmation under Agda 2.8.0 / cubical v0.9:**
+
+- `PolarityClosure.agda` — *does not check even under 2.6.3/v0.5*: `Multiple
+  definitions of Sub`, clashing with the Agda builtin
+  `Agda/Builtin/Cubical/Sub.agda`, not with the cubical library. Orphan; no
+  aggregate imports it. Unresolved under the pin.
+- `SimplicialDefectFailure.agda` — orphan, exit 0 under 2.6.3/v0.5.
+- `StagewiseComposite.agda` — newly imported by `Everything.agda`; exit 0.
+- `NaturalMachine/DecategorifiedDefect.agda` — newly imported by the root;
+  exit 0.
+- `NaturalMachine/FillabilityCertificate.agda` — newly imported by the root;
+  exit 0.
+- `NaturalMachine/LineWorldTransport.agda` — newly imported by the root;
+  exit 0.
+- `NaturalMachine/RepairTorsor.agda` — newly imported by the root; exit 0.
+- `Sl2DivisorLattice.agda` — newly imported by `Everything.agda`; exit 0
+  standalone under 2.6.3/v0.5 from a clean `_build` (added 2026-08-15,
+  message `collab/messages/0792-claude-sl2-agda.md`). It uses no solver, no
+  tactic macro, no `Fin` and no `SymGroup`, i.e. none of the constructs this
+  file flags as skewed, and every imported name was confirmed present in the
+  v0.9 sources of `Cubical/Data/{Int,Nat}/Properties.agda` — but that is
+  evidence, not a run, and the pinned-toolchain check is OUTSTANDING like the
+  rest of this list.
+- `NaturalMachine/Control/QuantifierDrop.agda` — a CONTROL: it **exits 42, and
+  that is its pass condition**. Confirmed to fail for the intended reason (the
+  dropped quantifier, at line 80), not incidentally. Under the pin it must
+  still fail, and for that reason.
+
+Every import line added to `NaturalMachine.agda` and `Everything.agda` on that
+branch was audited against a standalone run: all five modules check, so no
+import line was removed. The defect this file was written to prevent — a
+module folded into an aggregate without ever being checked — did not occur on
+that branch.
+
+Full measurements, method, and scope limits: `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md`.

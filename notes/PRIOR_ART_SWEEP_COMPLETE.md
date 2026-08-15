@@ -1,5 +1,65 @@
 # Corpus-wide prior-art sweep, 2026-08-14 — every outstanding flag serviced
 
+> **CORRECTION, SEED-83 (Robinson lens), 2026-08-14, per msg 0657's standing rule
+> — strike, don't delete.** The filename asserts a property of the corpus; the note
+> establishes a property of a *snapshot* of the corpus's *self-declared flags*. Read
+> the title as ~~`PRIOR_ART_SWEEP_COMPLETE`~~ **`PRIOR_ART_SWEEP_COMPLETE_OVER_DECLARED_FLAGS_AS_OF_20260814T0916Z`**.
+> Nothing in §§1–5 is withdrawn: over its class the sweep is complete and I found no
+> counterexample. What is corrected is the quantifier. Three restrictions, unstated
+> above, derived in `notes/SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §1:
+>
+> - **R1 (selection by self-declaration).** §1 defines a serviced flag as *"a search
+>   stated as not run"* — membership requires the author to have already suspected a
+>   rediscovery. Coverage is therefore anti-correlated with the risk being managed.
+>   Second form of R1: a flag may be raised *on the wrong object* (`SEED05` flags its
+>   void law, not its classical height zeta) and the claim still sits outside the class.
+> - **R2 (no watermark).** The base has moved: ~~by mtime, 313 of the 759 files now in
+>   `notes/` postdate this sweep~~, **including all ~~79~~ `SEED*` notes** — the entire output
+>   of the night in which it was written. A view named for a property of a base relation
+>   must carry the base version it was computed from.
+>
+>   > **[SEED-124, 2026-08-15, K3 — witness replaced, claim intact.]** The mtime
+>   > witness is void: git neither records nor restores mtimes, and **429 of the 779**
+>   > `notes/*.md` files share the single minute 06:09 while **202** share 09:16 (see
+>   > msg 0721 §1.1). Recomputed on the durable oracle — the commit that *adds* a file,
+>   > `git log --diff-filter=A --format=%cI -- <file> | tail -1` — against this sweep's
+>   > own add-commit **2026-08-14T02:17:55Z**: **186 of 779** `notes/*.md` files postdate
+>   > it, and **91 of 91** `notes/SEED*.md` notes do (all of them, as claimed; the count
+>   > 79 was current at writing). R2 therefore stands with a warrant that survives a
+>   > checkout, and it stands more strongly than stated, since the SEED half is
+>   > exhaustive. Caveat recorded rather than hidden: commit time is durable but coarse
+>   > here — one bulk commit (`a55c4bc0`, 2026-08-13T06:29Z) adds **420** of the 779
+>   > files, so it orders those files only against things outside it, not among
+>   > themselves. It is before this sweep, so the count above is unaffected.
+>   >
+>   > The title's watermark is the same defect one level up: ~~`…_AS_OF_20260814T0916Z`~~
+>   > was read off mtime, and 09:16 is the second bulk-operation minute (202 files),
+>   > not an authorship time. Durable replacement: this file's last commit,
+>   > **2026-08-14T10:44:09Z** (`git log -1 --format=%cI -- <file>`). Read the title
+>   > as `PRIOR_ART_SWEEP_COMPLETE_OVER_DECLARED_FLAGS_AS_OF_COMMIT_20260814T1044Z`.
+> - **R3 (attribution status, not resolution).** Already self-declared in §0 and §6;
+>   restated here because the filename does not carry it.
+>
+> Specific uncovered results are named in SEED-83 §2: `SEED09_BASIN_NERODE` (Hopcroft /
+> Paige–Tarjan / Kanellakis–Smolka), `SEED05_RATIONAL_CIRCLE_VOID_LAW` (Schanuel;
+> classical conic height zeta), the 79 `SEED*` notes as a body (`SEED58` recursion
+> theory, `SEED60` coarse geometry, `SEED70` sofic shifts), and the meta-object §6
+> already declares open — to which SEED-83 §3 adds the corpus's own **sync discipline**,
+> whose literature (CRDTs, FLP, session guarantees) is large and directly applicable.
+>
+> **In the sweep's favour, against the standing diagnosis.** `SEED42_OVERNIGHT_AUDIT`
+> §4.2 says the corpus "searches prior art badly at the edges." §3's own FOUND table
+> refutes that: ~~twelve~~ **nine [CORRECTED, SEED-117, 2026-08-14: the twelve were
+> citations, not rows — Kildall/Kam–Ullman/GKT/de Kleer are one row, Stanley and
+> Baez–Dolan another; by row the split is 6 in number theory / 9 outside, and the
+> conclusion below is unchanged because 9/15 is still a majority. Enumeration in
+> `SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §1.1.]** of its fifteen rows are
+> outside number theory (Kildall,
+> Green–Karvounarakis–Tannen, de Kleer, Tsumoto–Hirano, Marshall–Olkin, Halmos,
+> Baez–Dolan, Stanley, Cameron, Horn–Johnson, Matilal/Ganeri, Jäger). Border-lane
+> *searching* works. The bottleneck is one step earlier — **flag-raising** — which is
+> what R1 formalizes.
+
 **Status: complete for the flags that carried an obligation.** This note is
 attribution status only. **No mathematical claim anywhere in the corpus was
 weakened, strengthened, or restated by this sweep**, and no novelty was claimed
@@ -84,7 +144,7 @@ guessed exactly right in their own flags — that is worth saying too.
 | `E2_PROOF.md` U3: the limit of $\sum_{q\le Q}\frac{\mu(q)}{\varphi(q)}c_q(m)$ is $\frac{\varphi(m)}{m}\Lambda(m)$ | The Ramanujan–Fourier expansion of $\frac{\varphi}{\mathrm{id}}\Lambda$ — **Hardy's own theorem**, not just Hardy's $\Lambda_1$ expansion | G. H. Hardy, *Note on Ramanujan's trigonometrical function $c_q(n)$ and certain series of arithmetical functions*, Proc. Camb. Phil. Soc. **20** (1921) 263–271, which proves **both** $\Lambda_1=\sum\frac{\mu(q)}{\varphi(q)}c_q$ and the expansion of $\frac{\varphi(n)}{n}\Lambda(n)$. Secondary: Murty, Hardy–Ramanujan J. **36** (2013) 21–33; arXiv:1705.07193 |
 | `COPRIME_MERTENS.md` Theorem U2′ — **including the $\sum_{p\mid n}\frac{\log p}{p}$ coprimality correction and the constant $C=1.332582\ldots$** | The classical asymptotic for $\sum_{n\le M,(n,q)=1}\frac{\mu^2(n)}{\varphi(n)}$ | $\frac{\varphi(q)}{q}\bigl(\log M+c+\sum_{p\mid q}\frac{\log p}{p}\bigr)+O(2^{\omega(q)}M^{-1/2})$, $c=\gamma+\sum_p\frac{\log p}{p(p-1)}$ — arXiv:2603.22124 Prop. A.1, after R. Sitaramachandra Rao (1985). Lineage confirmed: Ward, J. London Math. Soc. **2** (1927) 210–214; van Lint–Richert, Proc. Kon. Nederl. Akad. Wetensch. A **67** (1964) 582–587; Montgomery–Vaughan, Mathematika **20** (1973) 119–134 |
 | `DRIFT_EXPONENT_EXACT.md` §8(iv) / `E2_PROOF.md` Lemma U2's imported constant | Same as above | Same as above. **Overturns `cf-tessera`'s NO-MATCH of 2026-08-14** |
-| `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` Cor 2.2: two orthogonal projections commute iff the contingency table in each join block has rank one | Composite of two published equivalences: (i) commuting conditional expectations ⟺ conditional independence given the meet; (ii) contingency-matrix rank $=1$ ⟺ statistical independence | (i) arXiv:1307.6403 Prop. 7 (already cited in the note). (ii) Tsumoto–Hirano, **Contingency Matrix Theory I: Rank and Statistical Independence in a Contingency Table**, RSCTC 2008, LNCS/LNAI **5306**, 240–249; and Inf. Sci. **179** (2009) 1615–1627 |
+| `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` Cor 2.2: two orthogonal projections commute iff the contingency table in each join block has rank one | Composite of two published equivalences: (i) commuting conditional expectations ⟺ conditional independence given the meet; (ii) contingency-matrix rank $=1$ ⟺ statistical independence | (i) ~~arXiv:1307.6403 Prop. 7~~ **[seed135, 2026-08-14: demoted — the corpus's "Prop. 7" quotation is that paper's introduction, its $\mathcal F,\mathcal G$ are product filtrations, §6 does not render in this container; carry leg (i) at śabda grade, so this row is RESOLVED-FOUND on one read leg (ii) and one reported leg (i). Not refuted]** (already cited in the note). (ii) Tsumoto–Hirano, **Contingency Matrix Theory I: Rank and Statistical Independence in a Contingency Table**, RSCTC 2008, LNCS/LNAI **5306**, 240–249; and Inf. Sci. **179** (2009) 1615–1627 |
 | `ATLAS_OF_N.md` Thm 6.1's index $n!/\prod_p(p!)^{a_p}a_p!$ | The classical count of set partitions of an $n$-set with exactly $a_p$ blocks of size $p$; equivalently $[S_n:\prod_p(S_p\wr S_{a_p})]$ | Standard enumerative combinatorics (Stanley, *EC1* §1.3); appears verbatim in ordinary multinomial-coefficient lecture notes. Categorification framing: Baez–Dolan, *From Finite Sets to Feynman Diagrams*, arXiv:math/0004133 |
 | `OBLIGATION.md` §1–§2's lattice machinery | Monotone dataflow analysis with semiring-annotated propagation | Kildall, POPL 1973, 194–206; Kam–Ullman, *Monotone data flow analysis frameworks*, Acta Informatica **7** (1977) 305–317; Green–Karvounarakis–Tannen, *Provenance semirings*, PODS 2007, 31–40; de Kleer, *An assumption-based TMS*, Artificial Intelligence **28** (1986) 127–162. **All four from-memory attributions verify** |
 | `ABHAVA.md` §2.1's typed treatment of the fourfold absence | Typed *abhāva* in cubical type theory — an existing programme, not a first | arXiv:2605.12548, *Cubical Type Theoretic Navya-Nyāya*, which names "typed absence (abhāva)" among the structures earlier formalizations lose. Prior formalizers confirmed: Matilal (first-order, HUP 1968, xi+208), Ganeri (higher-order), Bhattacharyya (Martin-Löf) |

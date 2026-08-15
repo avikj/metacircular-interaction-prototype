@@ -77,7 +77,7 @@ evaluator.
 | `chargeFactors` | $\Omega(n)\bmod 2 = \mathrm{odd}(v_2{+}v_3{+}v_5)\oplus\varepsilon(n)$ |
 | `noChargeDescent` | $\nexists\,\bar\lambda:\mathrm{Vis}\to\mathbf 2$ with $\bar\lambda\circ q=\lambda$ |
 | `noChargeDescentQuot` | the same, out of the actual set quotient `Dom / ∼` |
-| `hasSection` | $\sigma(a,b,c)=2^a3^b5^c$ is a section of $q$: it lands in the domain, $q\circ\sigma\circ q=q$, and $\varepsilon\circ\sigma\circ q=0$ |
+| `hasSection` (+ `hasSectionᵇ`/`chkSection`) | $\sigma(a,b,c)=2^a3^b5^c$ is a section of $q$: it lands in the domain, $q\circ\sigma\circ q=q$, and $\varepsilon\circ\sigma\circ q=0$ — **claim stands, ground corrected (seed147, 2026-08-14): the exported term `hasSection` (`SieveFiber.agda:551`) has type `n ∈ domain → q (σ (q n)) ≡ q n` and carries the middle conjunct only; domain-membership and $\varepsilon=0$ are checked by `chkSection` (`:544`) and discharged by the `refl` at `hasSectionᵇ` (`:547–548`), which `hasSection` then projects out of with `andL`. All three are checked; one name does not prove all three.** |
 | `noChargePreservingSection` | **no** $s:\mathrm{Vis}\to\mathbb N$ has $\lambda(s(q\,n))=\lambda(n)$ |
 | `noReconstruction` | $q$ is not injective |
 | `noReconstructionWithBit` | $(q,\varepsilon)$ is not injective either |
@@ -171,8 +171,15 @@ reconciling them is exactly §3.2.
 - **Boltzmann.** The fibre is the set of microstates compatible with the
   observation, and $\varepsilon$ is a coarse-graining of it into two cells of
   sizes $1$ and $\#\{p:\sqrt X<p\le X/s\}$. The missing information is
-  $\log \#q^{-1}(v)$, which is $\approx\log(X/s)-\log\log(X/s)$ nats — three
-  bits at $v=(0,0,0)$, $X=30$, and unbounded in $X$. And the coarse-graining
+  $\log \#q^{-1}(v)$, which is $\approx\log(X/s)-\log\log(X/s)$ nats — ~~three
+  bits~~ **$\log 8=2.08$ nats, i.e. three bits,** at $v=(0,0,0)$, $X=30$, and
+  unbounded in $X$. **[seed147, 2026-08-14: the number is right and the gloss
+  was wrong, in the cheap direction — the formula is stated in nats
+  ($\log 30-\log\log 30=2.18$, against the exact $\ln 8=2.079$) and the figure
+  quoted beside it is in bits. Nothing downstream moves; §4's whole point is
+  that this quantity is not the "one bit" of the Curry/Howard count, and three
+  bits ≠ one bit in either unit. Recorded rather than silently rewritten
+  because the unit, not the count, is what a successor would mis-quote.]** And the coarse-graining
   is violently lopsided: one cell is a single point.
 
 **The disagreement is real and it is resolved in favour of neither.** "One
@@ -251,7 +258,11 @@ whoever owns that file:
 
 ## 6. What I did not do, and where I am least sure
 
-- **No $X$-uniform statement.** Everything is $X=30$. The one theorem worth
+- ~~**No $X$-uniform statement.**~~ **[Discharged — see §8; pointer added at the
+  site by seed147, 2026-08-14, because this ledger bullet is what a successor
+  quotes and §8 sits 250 lines below it. §8 declares the discharge honestly and
+  nothing here is retracted; the bullet was simply left reading as current. The
+  bridge to §4 remains open, as §8.5 says.]** Everything is $X=30$. The one theorem worth
   proving next is `roughSplit` for general $X$: *if $n\le X$ and every prime
   factor of $n$ exceeds $\sqrt X$ then $n$ is $1$ or prime*. It is a two-line
   argument ($p_1p_2 > X$) and it is the load-bearing fact under the whole

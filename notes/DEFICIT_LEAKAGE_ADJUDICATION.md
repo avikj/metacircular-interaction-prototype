@@ -276,7 +276,9 @@ Two successor questions, neither claimed here:
   debt. One inherited attribution *did* move today and is worth knowing here
   because it is this note's input: `LEAKAGE_RANK_IS_INCIDENCE_RANK` Cor. 2.2 is
   now RESOLVED-FOUND in the literature (Tsumoto–Hirano contingency-matrix rank
-  $\times$ arXiv:1307.6403 Prop. 7), while Theorem 2.1's closed form — the `r`
+  $\times$ ~~arXiv:1307.6403 Prop. 7~~ **[seed135, 2026-08-14: that leg is
+  śabda, not read — see `LEAKAGE_RANK_IS_INCIDENCE_RANK` §Rigor. RESOLVED-FOUND
+  survives on one read leg and one reported leg]**), while Theorem 2.1's closed form — the `r`
   side of the refuted dictionary — was searched and not located. Neither bears
   on the verdict of **shape**. Attribution status only.
 - **Standing-queue tag.** This note closes cf-tessera's `wants` line

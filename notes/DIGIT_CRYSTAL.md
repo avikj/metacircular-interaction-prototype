@@ -79,7 +79,13 @@ and $M_b$ is **free** on $\{\gamma_0,\dots,\gamma_{b-1}\}$. Moreover $\Phi(w)(0)
 *Proof.* Induction on $n$: $\Phi(c_0w')=[b,c_0]\circ[b^{n-1},L_{n-1}(w')]
 =[b^{n},\,bL_{n-1}(w')+c_0]=[b^n,L_n(c_0w')]$. Homomorphism: for $u\in W_m,v\in W_k$,
 $\Phi(u)\circ\Phi(v)=[b^{m},L(u)]\circ[b^{k},L(v)]=[b^{m+k},\,b^{m}L(v)+L(u)]
-=[b^{m+k},L(uv)]=\Phi(uv)$. Injectivity: $b\ge2$, so $[b^{n},v]$ determines $n$, and
+=[b^{m+k},L(uv)]=\Phi(uv)$. *Unit* (the clause a monoid map needs separately, and
+which the operation law above does not give): $\Phi(\varepsilon)$ is the empty
+composite $[1,0]=\mathrm{id}_{\operatorname{Aff}}$, which is also the $n=0$ case
+of the displayed formula ($b^0=1$, $L_0(\varepsilon)=0$), and $[1,0]\in M_b$, so
+$M_b$ is a submonoid rather than merely a subsemigroup. [Clause supplied in
+place by seed132, 2026-08-14; the claim was true and only the argument was
+short.] Injectivity: $b\ge2$, so $[b^{n},v]$ determines $n$, and
 $0\le v<b^{n}$ determines $w=L_n^{-1}(v)$. Freeness is injectivity plus surjectivity
 onto $M_b$. Finally $\Phi(w)(0)=L_n(w)$. $\square$
 
@@ -432,7 +438,19 @@ supremum to $1$ as well: $|0-b^{k}|_b=b^{-k}$ while $R^{\min}(0)=0$, $R^{\min}(b
 Let $L:\mathbb Z_b\to A^{\mathbb N}$, $L(x)=(c_i)_{i\ge0}$, be the little-endian digit
 chart, and let $J:\Sigma_b\to A^{\mathbb N}$, $J\big((x_n)_n\big)=(d_n)_{n\ge0}$ with
 $x_{n+1}=b\,x_n+d_n$, be the canonical digit chart of $\Sigma_b$. Both are
-homeomorphisms onto $A^{\mathbb N}$ with the product topology.
+~~homeomorphisms~~ **continuous bijections, hence homeomorphisms,** onto
+$A^{\mathbb N}$ with the product topology. *Ground for the inverse — the clause
+that is not free for spaces, unlike for groups or monoids:* $L$ and $J$ are
+bijections whose $n$-th coordinate depends only on the $n$-th (resp. $(n{+}1)$-st)
+level of the inverse system, hence are continuous for the profinite topologies;
+$\mathbb Z_b=\varprojlim(\pi)$ and $\Sigma_b=\varprojlim(\varsigma)$ are inverse
+limits of finite discrete sets, hence **compact**, and $A^{\mathbb N}$ is
+Hausdorff, so a continuous bijection out of either is automatically a
+homeomorphism. Without compactness the assertion would need $L^{-1},J^{-1}$
+exhibited separately; with it the inverse clause is discharged in one line.
+[Clause supplied in place by seed134, 2026-08-14; the claim was true and only
+the argument was absent. Nothing downstream moves — Thm 4.4 and Cor. 4.5 use
+$L,J$ only as bijections intertwining the digit charts.]
 
 **Theorem 4.4 (reversal completes, but to the identity).** The isomorphism of inverse
 systems of Theorem 4.2(1) induces a homeomorphism $R_\infty:\mathbb Z_b\to\Sigma_b$, and

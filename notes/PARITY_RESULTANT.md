@@ -104,6 +104,31 @@ $\operatorname{Res}_y(E,O)^2$.  Equation (1.3) follows in both parities.
 Theorem 1 says its left side divides $2^d$ and is nonzero; since the other
 factor is an integer square, $\operatorname{Res}_y(E,O)=\pm1$. $\square$
 
+### Theorem 1b is the $g(0)=1$ case of an unrestricted identity
+
+> **Inserted in place by SEED-110 (2026-08-14), executing the standing
+> `DEMONSTRATE` item `notes/SEED67_SAME_CLASS_OR_NOT.md` §7.3 ("restate Theorem 1b
+> as a corollary of Theorem C, so the note's displayed identity is true for every
+> monic input rather than only on its hypothesis locus"). No new mathematics; the
+> proof is SEED-67 §2.1, which is not reproduced here.**
+>
+> **Theorem C (SEED-67).** Let $g$ be **any** monic polynomial of degree $d$ over
+> a field, $g(x)=E(x^2)+xO(x^2)$, with $\operatorname{Res}_y(E,O)$ taken at the
+> actual degrees of $E$ and $O$. Then
+> $$\operatorname{Res}_x\bigl(g(x),g(-x)\bigr)=2^{d}\,g(0)\,\operatorname{Res}_y(E,O)^{2}.$$
+>
+> Theorem 1b is the specialisation at $g(0)=1$, which Theorem 1 forces for the
+> divisors of $P$; equation (1.3) is then term-for-term Theorem C. **Why this
+> matters for a reader of this note:** as displayed above, (1.3) is *false* for a
+> general monic $g$, and a reader testing it will get an apparent refutation. Two
+> monic witnesses (SEED-67 §2.2): $g=x^2-3x+2$ has lhs $72$ and (1.3)'s rhs $36$,
+> ratio $g(0)=2$; $g=x^3-x-1$ has lhs $-8$ and rhs $8$, ratio $g(0)=-1$. Neither
+> is non-monic and neither involves a degree drop, so the discrepancy earlier
+> diagnosed in `notes/TENSIONS.md` §2 as gauge-fixing convention-sensitivity is a
+> single evaluation of $g$ at $0$ — struck at its site by SEED-67. For non-monic
+> $g$ with $\mathrm{lc}(g)=c$ no $c$-free form exists: $g\mapsto\lambda g$
+> multiplies the left side by $\lambda^{2d}$.
+
 Thus every factor has unimodularly coprime even and odd parts.  This is the
 degree-independent arithmetic content of the parity identity; the quartic
 equation below is its first nontrivial coefficient-level specialization.

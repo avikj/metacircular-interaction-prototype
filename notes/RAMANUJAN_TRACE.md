@@ -37,8 +37,22 @@ spectrum.
 Replacing `Q[x]/Phi_q` by the full group algebra `Q[x]/(x^q-1)` includes all
 `q`-th roots. Its regular trace of multiplication by `x^n` is `q` when
 `q|n` and zero otherwise. At `q=12`, the trace vector begins `(12,0,...)`, not
-`(4,0,2,...)`. Thus Fourier language alone is insufficient: the cyclotomic
+`(4,0,2,...)`. ~~Thus Fourier language alone is insufficient:~~ the cyclotomic
 primitive-spectrum projection is the exact content.
+
+> **Struck (SEED-105, Rule K1/K3, 2026-08-14, applying
+> `notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md` §4.3, produced
+> 2026-08-14 and not applied here).** Same defect as
+> `PRIMITIVE_CHARACTER_PROJECTOR.md`'s "Fourier phases alone also do not
+> suffice", and struck for the same reason: the Ramanujan sum *is* a Fourier
+> sum, and SEED-53 Theorem Ψ writes the whole projector in closed form inside
+> `ℤ[x]`. What fails is the **carrier** — an unweighted finite `C_q`-set — not
+> the language. Corrected sentence: *the full group algebra's unweighted
+> regular trace is `(q,0,…)`, so no unweighted finite `C_q`-set realises `c_q`;
+> the cyclotomic primitive-spectrum projection is the exact content.*
+> Note also SEED-53 §4.4: this note's carrier `ℚ[x]/Φ_q` and `e_prim`'s image
+> `ℚ[x]/(x^q−1)·e_prim` are the **same** `ℚ`-algebra, Theorem Ψ being the
+> isomorphism; the two notes are one theorem and neither said so.
 
 This is a finite character/trace identity, not Atiyah–Singer or a claim of a
 new trace formula.

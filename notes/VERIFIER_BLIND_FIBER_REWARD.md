@@ -144,3 +144,65 @@ attributed; the mathematics stands without it.
 - Extend Theorem B to the rank-r payload group of R0039: the
   discrimination lattice of the five-coordinate formats (which coordinate
   subsets replay; which are homomorphic images).
+
+---
+
+## Correction (seed122, 2026-08-14): the torsor group is ~~`Γ₀(m)`~~ `Γ₀^±(m)`
+
+Every occurrence of `Γ₀(m)` above should read `Γ₀^±(m)`, defined as
+
+```text
+Γ₀^±(m) = { [[a,b],[c,d]] ∈ GL₂(ℤ) : c ≡ 0 (mod m) },
+```
+
+~~the preimage of `Γ₀(m)` under `SL₂(ℤ) ↪ GL₂(ℤ)`~~ so that
+`1 → Γ₀(m) → Γ₀^±(m) --det--> {±1} → 1` is exact.
+
+> **Correction to this correction (seed127, 2026-08-14) — the ground, not the
+> conclusion.** `Γ₀^±(m)` is *not* a preimage of `Γ₀(m)` under
+> `SL₂(ℤ) ↪ GL₂(ℤ)`: the preimage of a subgroup under an inclusion is its
+> intersection with the source, so `ι⁻¹(Γ₀(m)) = Γ₀(m)` and the phrase names
+> the wrong object in the wrong direction — `Γ₀^±(m)` is an *enlargement* of
+> `Γ₀(m)`, not a pullback of it. Two correct characterisations, either of which
+> may be used:
+>
+> - `Γ₀^±(m) ∩ SL₂(ℤ) = Γ₀(m)`, and `[Γ₀^±(m) : Γ₀(m)] = 2` (witness
+>   `diag(1,−1)`);
+> - `Γ₀^±(m)` **is** a preimage, but of the *Borel*: it is the preimage of the
+>   upper-triangular subgroup `B(ℤ/m) ⊂ GL₂(ℤ/m)` under reduction
+>   `GL₂(ℤ) → GL₂(ℤ/m)`, and `Γ₀(m)` is that same preimage taken inside
+>   `SL₂(ℤ)`.
+>
+> The renaming `Γ₀(m) → Γ₀^±(m)` and the exact sequence displayed above are
+> **both correct and undisturbed**; only the parenthetical justification of the
+> definition was wrong. `RANDOM_SAMPLE_READING_01.md` §2(c) carries the same
+> phrase in the looser form "the preimage of `Γ₀(m)` in `GL₂(ℤ)`" and is
+> corrected there too.
+
+**Why the standard name is wrong here.** `Γ₀(m)` is by definition a subgroup
+of `SL₂(ℤ)`; `det` is identically `1` on it. The note's own §2 proof step (2)
+asserts `det : Γ₀(m) → {±1}` is *surjective* "since `diag(1,−1) ∈ Γ₀(m)`" —
+and `diag(1,−1)` has determinant `−1`, so it is not in `Γ₀(m)` at all. Under
+the standard reading, Theorem B(2) would give **one** class, not two, and the
+det-format row of the table would be false.
+
+**The algebra is right; only the noun was wrong.** With `D = diag(e₁,e₂)` and
+`(U₀,V₀) ∈ E(M)` fixed, every event is `(gU₀, V₀h)` with `gDh = D`, i.e.
+`h = D⁻¹g⁻¹D`. Requiring `h ∈ GL₂(ℤ)` for `g = [[a,b],[c,d]] ∈ GL₂(ℤ)` gives
+
+```text
+D⁻¹ g D = [[a, b·e₂/e₁],[c·e₁/e₂, d]],
+```
+
+integral iff `m = e₂/e₁` divides `c`. So the stabilizer is exactly
+`Γ₀^±(m)`, the action on `E(M)` is free and transitive (regular torsor, as
+claimed), it contains the unipotent `ℤ` (so the fiber is infinite, Theorem A
+unaffected), it contains `diag(1,−1)` (so `det` *is* surjective and Theorem
+B(2) gives exactly two classes), and the pair law `det U · det V = sign(det M)`
+follows from `det U · det M · det V = e₁e₂ > 0`. Theorems A and B stand
+verbatim once the group is renamed.
+
+The Mathlib pointer that had been offered for this object,
+`CongruenceSubgroup.Gamma0`, is defined inside `SL(2,ℤ)` and is therefore a
+pointer to the *index-2 subgroup*, not to the torsor group. See
+`notes/RANDOM_SAMPLE_READING_01.md` §2(c) correction.

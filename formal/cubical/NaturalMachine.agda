@@ -135,6 +135,12 @@ import NaturalMachine.AffineEmergenceCountedPath
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
+-- An invariant that kills the zero detects a defect in one direction
+-- only: the certificate "the invariant vanished, so the construction is
+-- sufficient" is refuted by an explicit element, its contrapositive is
+-- sound, and the kernel is exactly the vanishing-Euler-characteristic
+-- locus (notes/SPLICING_DEFECT_ADJUDICATED.md §4, finite model).
+import NaturalMachine.DecategorifiedDefect
 -- A collision between an installed observation and a certified action
 -- returns its minimal conservative repair: the product observer.  Its
 -- universal factorisation and collision-forced strictness are checked.
@@ -403,6 +409,11 @@ import NaturalMachine.WalkInduction
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
 import NaturalMachine.WalkFast
+-- notes/NUMBER_TOWER_AS_REPAIR.md §4.3 and Prop 9, as terms: repairs of a
+-- defect form a torsor under Aut of the repaired object, so the repair is
+-- canonical iff that group is trivial (and an initial repair is unique up
+-- to UNIQUE isomorphism).
+import NaturalMachine.RepairTorsor
 -- Delta 15 §§15.3, 15.4, 15.6 (owner-supplied, collab/upstream/raw/D0015):
 -- the stabilizer is the self-defect, polarization loci, charge shifts.
 import NaturalMachine.PerspectiveSymmetry
@@ -542,6 +553,7 @@ import NaturalMachine.FiniteGraphCylindricalEquivalence
 import NaturalMachine.FiniteGraphFluxCylindrical
 import NaturalMachine.OrientedSurfaceFlux
 import NaturalMachine.SurfaceFluxCylindricalSquare
+import NaturalMachine.FillabilityCertificate
 import NaturalMachine.FiniteNonabelianHolonomy
 import NaturalMachine.S3ConjugacyObservation
 import NaturalMachine.TwoLoopNonabelianNetwork
@@ -584,3 +596,9 @@ base2-is-2 = refl
 
 base10-is-10 : Base10.b ≡ 10
 base10-is-10 = refl
+
+-- The line-world transport criterion of `notes/ENCOUNTERED_WORLDS.md` §3.5
+-- with its observable hypothesis in the type, plus the checked `f = X`
+-- counterexample that makes the hypothesis load-bearing.  Its negative
+-- control is `NaturalMachine/Control/QuantifierDrop.agda`, which must fail.
+import NaturalMachine.LineWorldTransport

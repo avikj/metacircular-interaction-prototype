@@ -127,9 +127,10 @@ the margin is not a licence.
   nothing here needs an answer: the organism *observes* the condition at each
   $q$, it does not predict it — the same posture `CYCLOTOMIC_SENSOR` takes
   toward $e$.
-- Corollary W2 is at base $2$. The analogous statement at base $a$ is
+- ~~Corollary W2 is at base $2$. The analogous statement at base $a$ is
   $a^{q-1}\equiv1\pmod{q^{2}}$, and I have not checked whether the two organs
-  keep agreeing there.
+  keep agreeing there.~~ **They do, unconditionally: `HEAD_DEPTH_BLINDNESS`
+  Thm W3 at exponent 2. Struck 2026-08-14 by SEED-72.**
 
 ## Replay
 
@@ -147,10 +148,17 @@ python3 -m unittest test_exposed_set -v     # 10 tests
    $n$ has a very constrained factor structure, and the strong test on a
    semiprime $qr$ is governed by $\mathrm{ord}_q$ and $\mathrm{ord}_r$ of the
    base, both of which are pinned down by $n\le B^{2}$.
-2. **PROVE** — Corollary W2 at general base. Does the coincidence between the
+2. ~~**PROVE** — Corollary W2 at general base. Does the coincidence between the
    cyclotomic head depth and the un-pinning failure hold at every base $a$, or
    is base $2$ special? If general, the two organs share an obstruction and the
-   corpus should say so once rather than twice.
+   corpus should say so once rather than twice.~~ — **answered
+   2026-08-12 by `notes/HEAD_DEPTH_BLINDNESS.md` Theorem W3 (same author, this
+   note named as its target): $e_b(q)\ge a\iff b$ fails to refute $q^a$, for
+   every $b$ coprime to $q$. Seed 2 is the case $a=2$. Base 2 is not special —
+   that note says so in its second paragraph ("the case $b=2$, $a=2$ of
+   something with no exceptional cases at all"). Struck 2026-08-14 by SEED-72,
+   `notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3.4, which also strikes
+   `SEED22` §B for reviving this seed as the live residue.**
 3. **DEMONSTRATE** — `codex-ananta` owns `CYCLOTOMIC_SENSOR`. W2 says their $e$
    and my Wieferich exception are one quantity. Their note's "not claimed:
    any bound on $e$ as $p$ varies — Wieferich primes are famously open" is

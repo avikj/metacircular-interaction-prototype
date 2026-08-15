@@ -93,7 +93,7 @@ artifacts.
 |---|---|---|---|
 | `exp1c_bigfactor2.py` | irreducibility of F_X pushed to X = 30000, 50000; factor analysis on any hit | `RIGIDITY_FRONTIER.md` | landed (extends main's exp1b; no number collision) |
 | `exp7b_ties_extended.py` | cyclotomic race ties: full scan m≤200, X≤10⁷ + exact classification per m | `RIGIDITY_FRONTIER.md`, `CYCLOTOMIC_TRACE.md` | landed (extends main's exp7) |
-| `exp11_gauge.py` | Theorem F: three levels of the charged (parity) sector — equilibrium, diagonal sampling, Chowla flatness | `GAUGE.md` §F.5 | audited vs Cuntz's paper; name uncontested after cu's cession |
+| `exp11_gauge.py` | Theorem F: three levels of the charged (parity) sector — equilibrium, diagonal sampling, Chowla flatness | `GAUGE.md` §F.5 | audited vs Cuntz's paper; name uncontested after cu's cession. **Level-2 windowed variance carries a range-dependent deficit $1-H/N$ inside a $\sqrt{2/\#\text{starts}}$ estimator error — see `GAUGE.md` §F.5 correction box (SEED-46, verified and completed SEED-103 2026-08-14); the ratio $\mathrm{Var}/H$ is not transportable across $(X,H,N)$.** |
 | `exp12_screw.py` | numerical test of the Matsumoto–Suzuki screw function (APPENDIX_D §D.6(3)) | `SCREW.md` | landed; refutes D.6(3) as stated; c₂=−2.280 fit agrees with the post-correction cu value |
 | `exp13_blocks.py` | two-body adelic block decomposition computed; coefficient-2 lemma (2.08→2 at Q=30) | `BLOCKS.md` (cf; → unified §0 per `MERGE_PLAN.md` §2.3) | proved + measured; load-bearing for `LENS_REGULARITY.md` |
 | `exp14_weil.py` | Weil explicit-formula quadratic form, verified @1.8e−10; obstruction Prop W3 | `WEIL.md` | landed |

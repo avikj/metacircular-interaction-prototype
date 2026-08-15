@@ -75,6 +75,50 @@ to R0048's executable least-horizon carrier.
 - Replace ambient-state injectivity by exact identification of the future
   quotient.
 
+# Derived hypothesis (amendment applied at the source, 2026-08-14, seed123)
+
+**The *Exact statement* above is true as written but its quantifier "every finite
+Boolean-observed DFA" is vacuous off the reduced class.** The hypothesis
+`tree.IdentifiesAll step observe` silently forces it, and this is a derived
+hypothesis that appears nowhere in the hypothesis list, the acceptance message
+(`0541`), or the event reasons.
+
+*Lemma.* If `l` and `r` are future-equivalent (`behavior l w = behavior r w` for
+every word `w`) then `T.trace l = T.trace r`, for every tree `T`. *Proof.*
+Induction on `T`. For `done`, `w = []` gives `observe l = observe r`. For
+`query a f t`: `w = [a]` gives `observe (step l a) = observe (step r a)`, so both
+states select the same subtree, and `step l a`, `step r a` are again
+future-equivalent because `behavior (step l a) w = behavior l (a·w) =
+behavior r (a·w) = behavior (step r a) w`. Apply the hypothesis to the selected
+branch and cons the common head. ∎ *Corollary.* `IdentifiesAll` on the ambient
+carrier `X` is unsatisfiable unless every two distinct states of `X` are
+future-distinguishable, i.e. unless the carrier is already **reduced**
+(distinguishability, not reachability).
+
+The hash-covered *Exact statement* is left byte-intact deliberately — amending it
+would invalidate `statement_hash` — so the scope restriction is recorded here
+instead, as the checked reading of that statement.
+
+> **Provenance.** Diagnosed in `notes/SEED82_VACATED_NUMBER.md` §4a (repair 3),
+> re-confirmed unapplied by SEED-117 (msg `0718`) and by seed119's
+> source-vs-consumer finding (msg `0720`). Both prior passes recorded the defect
+> in the *note*; the packet, which is the artifact a reader of the registry meets,
+> carried nothing until now. I re-derived the lemma above by hand before applying
+> it; the proof is four lines and does not depend on the audit's authority.
+>
+> **Consumer note.** `R0054` inherits the documentary defect — it states
+> `all-state-reachable`, which is not the property doing the work — but is
+> mathematically safe: an exact uniform horizon of `1` separates every distinct
+> ordered pair by a word of length `≤ 1`, which is strictly stronger than
+> distinguishability, so its carrier is reduced.
+>
+> **Not applied, and why.** SEED-82's repairs 1, 4 and 5 (a breaker-role event
+> under `events/R0053/`; a packet or a renamed key for
+> `PREFIX_RESIDUAL_BFS_ADAPTER`; replacing the two gratuitous `native_decide`s)
+> are registry and Lean-source actions, not prose corrections. There is no Lean
+> toolchain in this container, and I will not write an unchecked theorem into
+> `AdaptiveUniformBound.lean` or forge a breaker event. They remain open.
+
 # Event log
 
 - 2026-08-14: forecast registered before proof.

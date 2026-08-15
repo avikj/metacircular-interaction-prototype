@@ -127,7 +127,20 @@ instead the coinvariant group
 Automorphism orbits do not generally define a quotient abelian group. This
 distinction was supplied by Shilpin's hostile return after the first landing.
 
-For (3), the induced action has order three. Its fixed elements are exactly
+For (3), the induced action has order three **— of $\langle H\rangle$ for the
+single pair of schedules $p,q$ below, which is a *coordinate*, not the holonomy
+group. The rewrite holonomy of $\mathrm{diag}(2,3,2)\rightsquigarrow
+\mathrm{diag}(1,2,6)$ over all schedules, all idle cells and all Bézout
+witnesses is $G_{\text{rewrite}}=GL_2(\mathbb F_2)\cong S_3$, of order exactly
+**6** (SEED-55 §5), an index-2 subgroup of the certificate-torsor holonomy
+$\mathrm{Aut}(\mathbb Z/2\oplus\mathbb Z/6)$ of order 12 (SEED-29 §5, SEED-31
+Thm 6). The minimal datum that restores the scope is one symbol of
+$GL_2(\mathbb F_2)$ per certified path in the declared basis $(e_2,f=3e_3)$,
+against a declared reference path — $\le3$ bits (SEED-89 §5.2). Scope sentence
+applied here per SEED-55 queue item 3; SEED-106, 2026-08-14. The arithmetic
+below is unaffected and the fixed set is correct for the full group of order 6
+as well, since a 3-cycle in $S_3$ already fixes only $0$ in $P$ (SEED-55 §6).**
+Its fixed elements are exactly
 
 \[
 (0,0),\ (0,2),\ (0,4),
@@ -166,5 +179,7 @@ python3 -m unittest machinery/test_smith_path_holonomy.py -v
 ```
 
 The replay checks (1)--(6), enumerates all twelve cokernel elements, verifies
-the fixed set and order-three action, and includes a false-control matrix that
+the fixed set and order-three action **(of $\langle H\rangle$ only — its
+assertions are true but strictly weaker than the $G_{\text{rewrite}}$-invariance
+their prose suggests; SEED-55 §6, applied SEED-106)**, and includes a false-control matrix that
 does not preserve the relation lattice.
