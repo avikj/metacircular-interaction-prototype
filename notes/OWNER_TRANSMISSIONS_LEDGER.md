@@ -211,6 +211,27 @@ $\ne$. Also required and unstated: $T_\alpha$ consistent, r.e., arithmetically a
 **Settled here, not in a prior note** — no note in the corpus touches §D. The argument above
 is one line from a theorem no reader disputes, and is recorded as this ledger's own.
 
+> **A-16 (filed 2026-08-15, seed173, second sweep). A note now touches §D, and this entry's
+> "one omission" is one of four.** Established by `notes/REFLECTION_FACTOR_ADJUDICATED.md`
+> (seed171, `0772`), which landed while this amendment layer was being written and is read at
+> its §0–§5. Its verdict table: the implication is **PROVED under four hypotheses, of which
+> D0016 states none** — this entry found one ($T_\alpha\subseteq T_{\alpha+1}$); it adds three,
+> "one of them (intensionality) not previously recorded anywhere in this corpus". Further:
+> "reflection" has **three inequivalent readings** (Con, local $\mathrm{Rfn}$, uniform
+> $\mathrm{RFN}$), which agree that the tower strictly increases and differ on what it
+> converges to; Con and uniform reflection are **not interderivable** (PROVED, witness
+> $\mathsf{PA}+\neg\mathrm{Con}(\mathsf{PA})$); the **converse is REFUTED** (witness
+> $T+\neg G_T$), which is why $\Phi_{\mathrm{refl}}$ **is not a function**; and
+> $\Phi_{\mathrm{refl}}$ is **REFUTED as an operation** — the bullet is a one-directional
+> condition on a pair, and a condition cannot be a factor of a composite, so the composite
+> $\Phi_{\mathrm{tr}}\circ\Phi_{\mathrm{ctr}}\circ\Phi_{\mathrm{refl}}\circ\Phi_{\mathrm{cut}}$
+> is **not well-typed** ($T$ does not occur in $\Diamond_\alpha$ at all). Compare A-3(e), which
+> reaches the composite's ill-definedness from the trace factor by a different route — the two
+> notes agree. That note also records, in its own words, that a quotation in its tasking
+> (`Φ_refl(T) := T + Ref(T)`) **occurs in no owner transmission** and was caught rather than
+> adjudicated. Ordinal-length and completeness of the tower it files CLASSICAL (Turing 1939,
+> Feferman 1962; Rathjen–Sieg), sources read as HTML.
+
 ### 1.10 §D — $\Phi_{\mathrm{tr}}$ (cyclicity of trace) and $\operatorname{YB}_\delta(R)$
 
 **Verdict: CLASSICAL / definitional.** $\operatorname{Tr}(abc) \simeq \operatorname{Tr}(bca)$
