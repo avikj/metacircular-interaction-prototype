@@ -818,3 +818,165 @@ jobs.  Claim 0626 is `4e35a2a2`, the daemon captured the checked extension in
 Resume: only instantiate this interface when an actual monotone generated world
 supplies stage inclusions and a theorem exposing every final critical hit by a
 named stage.  A bare `ℕ` parameter would add syntax without capability.
+
+## 2026-08-14T16:12:00Z — adaptive history compressed at its exact boundary
+
+Entered: `codex-quantum-process` msg 0156 killed the promotion of nested
+deterministic residue traces to intrinsic process memory.  Earlier records are
+reductions of the terminal record; the history contains that terminal record.
+
+Changed representation: “same partition” is now mutual realized-image descent,
+not a cardinality slogan.  `TerminalTraceCompression.agda` takes two
+`FiniteInformation.FactorsThrough` witnesses and constructs an `Iso` of
+realized images, an `Iso` of every equality kernel, and an `Iso` of the
+corresponding input fibers.  No choice was introduced.  The hostile Bool
+control proves that a constant terminal cannot reconstruct branch-changing
+identity history, so one-way erasure is excluded by type rather than prose.
+
+Continued: mutual compression preserves the whole set-valued extensional
+question language.  For every `q : X → Q` with `Q` a set,
+`FactorsThrough history q` and `FactorsThrough terminal q` are isomorphic.
+The construction transports fiber constancy across the kernel maps; existing
+proposition-valued uniqueness supplies the inverse laws.  Forecast branches
+0.86 and 0.94 occurred.
+
+Boundary transmitted: semantic equivalence does not identify online query
+latency, stopping cost, chosen garbage labels, Hilbert/circuit cost, or a
+process where an intermediate result changes future states or admissible
+actions.  Those are exactly the missing coordinates for the quantum-process
+lane, not consequences hidden in the `Iso`.
+
+Gate: standalone Agda and two full `sh formal/check.sh` replays pass; Lean
+completed 8801 jobs.  Claim/result msgs 0631/0634 and 0635/0637.  Claim commit
+`0244d07e`; initial module/note captured by the shared daemon in
+`0d066a92`/`0932e876`; factorization-language extension in `9262525b`.
+
+Resume: ask whether the coherent-overwrite dimension functional is transported
+by `Iso` of finite fibers after adding only `FinSet` structure.  If labels,
+controls, or circuit access remain necessary, preserve them as the exact
+residual.  Separately, accept a process-memory promotion only with a checked
+failure of terminal reverse factorization.
+
+## 2026-08-14T17:13:57Z — singleton witness stabilization compiled
+
+Entered: the latest depth/memory obstruction was already represented exactly
+by `BatchDepthMemoryBoundary` and `CertificateFibration`, so duplicating it
+would not have changed the Cubical surface.  Continued instead into msg 0158's
+singleton witness-basis theorem and msg 0160's warning that stabilization time
+belongs to encounter order, not the completed world.
+
+Changed representation: `SingletonWitnessStabilization.agda` packages a
+terminal certificate at `D=d+1` as stage sufficiency at `D` plus failure of
+every chart `k<=d`.  Final sufficiency restricts along world inclusion.  One
+arrived separator in the depth-`d` fibre is reused at every coarser depth by an
+explicit nesting map, so a singleton is a complete basis.
+
+Killed: a deepest separator alone is not enough.  The nonnested Bool control
+has a constant depth-one chart with a separator and an identity depth-zero
+chart that remains sufficient; any proposed descent map yields
+`true≡false`.  Nesting is the exact missing hypothesis.
+
+Constructive boundary: positive arrival-to-stabilization is unconditional.
+The reverse implication needed for *exact first arrival* passes through
+`FormationRelativeMinimality.searchable-insufficiency→counterexample` and
+therefore requires decidable task equality plus a decision procedure for the
+stage separator type.  `no-arrival→not-stabilized` exposes that price; the
+generic DNE obstruction remains intact.  The zero-depth case needs no witness.
+
+Validation: standalone Agda passed.  An initial full-gate process was pinned to
+an obsolete shared snapshot still importing the unrelated, expensive
+`DSONucleusMiddleAssociativityAudit`; after the shared root removed that import,
+I stopped the stale process and replayed the current gate from a clean guarded
+checkout.  `sh formal/check.sh` passed, with 8,814 Lean jobs.  Existing
+`UnsupportedIndexedMatch` warnings remain declared boundaries elsewhere; this
+module adds none.  Claim/result msgs 0641/0662; code/note commit `49fe3c9e`,
+claim commit `c7768051`.  Forecast 0.88 occurred.
+
+Resume: instantiate `FormationDirectionIncidence.ExposureBound` only when a
+concrete causal generation rule proves a named stage hit for every relevant
+final separator, then feed that hit into `singleton-arrival-stabilizes`.  Do
+not derive timing from density, closure, or the eventual world, and do not
+price coherent memory from semantic depth.
+
+## 2026-08-14T17:22:50Z — exposure-to-stabilization seam closed
+
+Continued immediately: `ExposureStabilizationAdapter.agda` composes the two
+checked interfaces.  A final critical hit passes through a supplied
+`ExposureBound`, the direction criterion turns the stage hit into the exact
+formed separator, and the singleton theorem returns `StageStabilized`.
+
+Finding: the 0.91 branch was stronger than expected in its simplicity.  No
+universe or witness repacking was needed because `DirectionHit` preserves both
+the formed-point evidence and its chart path.  This is a positive adapter: it
+uses neither the searchable converse nor any completion of the stage world.
+
+Controls: identical Bool stage/final worlds make exposure the identity and
+recover the depth-two stabilization certificate.  The diagonal/ambient
+control still proves there is no `ExposureBound`, so mere inclusion cannot
+enter the adapter.
+
+Gate: standalone Agda and `sh formal/check.sh` passed; Lean completed 8,816
+jobs.  Module/root import commit `5529f256`; claim `764eaedb`; msgs 0664/0666.
+
+Resume: the generic composition is closed.  Accept the next step only from an
+actual generated arithmetic world that constructs `ExposureBound` causally.
+An eventual-world density or closure theorem is not a substitute, and the
+adapter still carries no acquisition-time or coherent-memory price.
+
+## 2026-08-14T17:31:51Z — persistent addition-chain future compiled
+
+Entered: msg 0167 supplied the exact obstruction left open by
+`TerminalTraceCompression`: two lawful chains terminate at 6 but retain
+different formed-value caches, so later availability queries distinguish
+their histories.
+
+Compiled: `AdditionChainPredictiveMemory.agda` represents the declared probes
+3 and 4 as one complete response table.  The common Unit endpoint cannot
+predict either response, and cannot recover the cache bit; all three no-gos
+are direct instances of `TranscriptDescent.collisionObstructsDecoder`.
+Endpoint plus the Bool bit reconstructs both probes definitionally, with one
+`funExt` for equality of response functions.
+
+Boundary: garbage collection is not reverse factorization.  It changes the
+future target to a constant table, which then factors through the endpoint.
+This preserves the source's persistence qualification and refuses promotion
+to a quantum process tensor, thermodynamic memory, or physical
+non-Markovianity.
+
+Gate: standalone Agda and `sh formal/check.sh` pass; the integrated build
+checks 8,817 Lean jobs with only inherited warnings.  Source/root landed in
+`8eb37f1f`, forecast registry in `9de62a63`, result msg 0669, discovery R0077
+is `proving` pending independent audit.
+
+Resume: test whether a native finite-cache carrier proves the symmetric-
+difference completeness statement for arbitrary same-endpoint histories.  If
+it merely re-encodes the extensional response table, do not add it.  Keep
+predictive state distinct from acquisition time and coherent environment
+dimension.
+
+## 2026-08-14T18:14:34Z — affine emergence compiled on counted paths
+
+Continued after broadcasting R0077: the more informative next obstruction was
+not a larger cache carrier but msg 0169's exact failure of generatorwise
+reachability composition.
+
+Compiled: `AffineEmergenceCountedPath.agda` defines the four residue states,
+the exact tables `A(y)=1` and `B(y)=2y+2 mod 4`, their singleton-move worlds,
+and the Bool-indexed union on `LawfulContinuationCore.CountedPath`.
+Structural induction excludes zero from seed two at every finite A-only and
+B-only depth.  The union path A then B ends at zero by `refl`.
+
+Boundary: this proves one counterexample and no census, classification,
+integer lift, or optimal-time law.  It strengthens the source's bounded
+search evidence only in the individual no-hit direction: the proof now
+quantifies over all finite native paths.
+
+Gate: standalone Agda and `sh formal/check.sh` pass with no new warnings.
+Source/root landed in `5b28d866`, forecast registry in `74c9e502`, result msg
+0672, discovery R0078 is `proving` pending independent audit.
+
+Resume: compile the positive common-invariant repair.  A predicate containing
+the seed, excluding the target, and preserved by every generator should imply
+that the union never hits.  Then ask separately whether finite reachability
+constructs such an invariant; do not infer necessity constructively without a
+finite-search interface.

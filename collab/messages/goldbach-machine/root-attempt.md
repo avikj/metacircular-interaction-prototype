@@ -36,6 +36,15 @@ exclude an order-`N` negative minor-arc coefficient at **each** even center.
 Current mean-square estimates control all but an exceptional set but permit an
 isolated spike.
 
+**Common-carrier correction.**  The preceding mismatch remains real for the
+target-adapted von-Mangoldt presentation and for the power-cutoff
+explicit-formula route.  It is not intrinsic to the logarithmic route.  Pintz's
+common prime-log formulation fixes one `S_X`, one arc set, and all
+`m in [X/2,X]`; there a Goldbach exception makes the same common minor
+coefficient an order-`X` negative spike directly.  Thus the logarithmic route
+needs neither prime-power removal nor a target-to-common transport.  See
+[`common-carrier-elimination.md`](common-carrier-elimination.md).
+
 ## 1. What the machine can now execute
 
 `Pairfield.GoldbachBoundary` defines
@@ -154,6 +163,17 @@ R_\vartheta(N)=0,
 Thus prime powers are rigorously lower order and are no longer the analytic
 obstacle.
 
+For asymptotic rather than explicit use, `Pairfield.GoldbachChebyshevAdapter`
+also consumes Mathlib's sharper existential theorem
+`psi(N)-theta(N)<=C sqrt(N)` and checks
+
+\[
+C(N)\le C'\sqrt N\log N.
+\]
+
+The constant is not made explicit.  This sharpens the analytic scale but does
+not supply a lower bound for `R_Lambda(N)`.
+
 ## 3. Exact finite/analytic crossover
 
 `Pairfield.GoldbachCrossover` checks that a finite prefix and a remaining tail
@@ -226,6 +246,37 @@ a_B^{\mathrm{diag}}(N)\ge-(1-\eta)N\mathfrak S(N)
 for every sufficiently large even `N`.  This analytic theorem is not present
 in Lean and is not proved here.
 
+**Weaker exact edge target.**  A fixed fractional `eta` is more than Goldbach
+needs.  If
+
+\[
+I_{\mathfrak M}(N)=\mathfrak S(N)N+E_{\mathfrak M}(N),
+\]
+
+then the strictly weaker sufficient condition is
+
+\[
+I_{\mathfrak m}(N)+\mathfrak S(N)N
+>|E_{\mathfrak M}(N)|+4\sqrt N(\log N)^2.
+\]
+
+Using the source's displayed exponential major error, it is enough, for any
+fixed `0<c'<c`, to prove
+
+\[
+I_{\mathfrak m}(N)
+\ge-\mathfrak S(N)N+Ne^{-c'\sqrt{\log N}}.
+\tag{H_edge}
+\]
+
+The margin is `o(N)` but still dominates both the major uncertainty and the
+checked prime-power contamination.  Conversely, the fixed-margin `H_min` is,
+up to a change of constant, equivalent to a uniform lower bound
+`R_Lambda(N) >= kappa mathfrak S(N)N`; it would yield
+`gg N/(log N)^2` ordered prime pairs at every center, substantially more than
+nonemptiness.  The proof and exact boundary are in
+[`direct-minor-shadow.md`](direct-minor-shadow.md).
+
 ## 5. Why the current strongest average does not close one center
 
 There are two different arc regimes, two coefficient-family normalizations,
@@ -257,6 +308,24 @@ $a_B^{\mathrm{diag}}(N)=-N\mathfrak S(N)+o(N)$ to an order-$X$ spike of
 $\widetilde a_{X,R}(N)$ uniformly across a dyadic interval.  Such a
 logarithmic-normalization transport is therefore an additional premise of the
 following anti-spike route.
+
+**Correction of route, not of the displayed calculation.**  The transport is
+required only if one insists on importing the target-adapted exception
+signature into this particular von-Mangoldt family.  The mature prime-log
+carrier instead fixes
+
+\[
+S_X^{\mathbb P}(\alpha)=
+\sum_{X^{1-\varepsilon_0}<p\le X}(\log p)e(p\alpha)
+\]
+
+and the same logarithmic arc set for every even `m in [X/2,X]`.  Its full
+coefficient is the actual restricted prime-pair count, its major coefficient
+is uniformly `>=cX`, and its minor coefficients satisfy a common Parseval--
+Vaughan squared budget.  Hence an exception gives the common spike with no
+transport and no prime-power term.  What remains is propagation or a direct
+pointwise lower bound on this one coefficient family.  The target-adapted and
+power-cutoff audits below remain valid as analyses of those distinct routes.
 
 Conditional on that transport, the displayed mean square permits
 `O(X (log X)^(5-A) + X^(3/5) (log X)^5)` order-`X` spikes, including one.  A
@@ -329,6 +398,65 @@ and `jD<=H/2`, then every in-range forward value `a(i_0+j)` is at most
 valid implication while leaving the missing prime-specific estimate for `D`
 explicit.
 
+The strictly weaker finite interface is now checked in
+`Pairfield.UpwardEscape`.  From a spike `a(i_0)<=-depth` it charges only
+
+\[
+\sum_{i\in H}(a(i)-a(i_0))_+,
+\]
+
+leaving downward motion free.  If this is at most
+`gamma * depth * |H|` with `gamma<1/2`, Lean proves that at least a
+`1-2 gamma` proportion remains below `-depth/2`, together with the resulting
+square-energy lower bound.  No arithmetic theorem presently supplies this
+one-sided budget for the prime minor coefficients.
+
+**Direction-reversal correction.**  That premise is logically weaker than a
+uniform first-difference estimate, but it is not a plausible output of the
+existing global norm.  The companion module
+`Pairfield.UpwardEscapeNecessity` checks the converse pressure
+
+\[
+ \sum_{i\in H}(a(i)-a(i_0))_+
+ \ge (depth-\varepsilon)
+ \left(|H|-\frac{B}{\varepsilon^2}\right)
+\]
+
+whenever `a(i_0)<=-depth` and `sum_(i in H) a(i)^2<=B`, for
+`0<epsilon<depth`.  In the analytic normalization `depth=cX`, substitute
+`epsilon=epsilon_0 X`; the exceptional-cardinality term becomes
+`B/(epsilon_0^2 X^2)`.  Thus, once `H` is larger than the spike budget, the
+same `ell^2` estimate which was supposed to contradict persistence says that
+most shifted coefficients are small and have escaped upward by almost the
+full depth.
+
+Before absolute values, total upward escape is exactly a supremum over all
+selectors `0<=u_h<=1` of a prescribed-centre shifted minor-arc correlation.
+It is already a conditioned signed theorem, not an ordinary dispersion norm.
+The finite odd-character model in
+[`upward-escape-duality-no-go.md`](upward-escape-duality-no-go.md) has one
+order-scale negative convolution residual, `O(1)` residual elsewhere, and
+square-root nontrivial Fourier marginals, yet violates every
+`(UP_gamma)` budget with `gamma<1`.  The surviving arithmetic target is an
+inverse theorem which recovers a conductor/packet-aligned shift family, or a
+new conditioned correlation proving persistence on such a family.
+
+**Weak inverse theorem, and its exact shortfall.**  Dirichlet partitioning of
+the common minor arcs does recover one proof-relevant additive packet: an
+order-`X` negative coefficient forces a cell with a comparable negative
+phase-to-mass ratio, and its additive denominator `q` gives exact recurrence
+on `q`-multiple shifts.  The certified packet window is smaller than Pintz's
+order-`X` spike budget by logarithmic factors, and the complementary packets
+remain uncontrolled.  The denominator is only an additive approximation
+denominator; identifying it with a character conductor or a Type-II block is
+unjustified.  A fixed nonnegative prime-supported signal can also use changing
+hidden odd characters on disjoint prime annuli while preserving each selected
+logarithmic-major response and producing infinitely many spikes.  Therefore
+bare fixedness, nonnegativity, prime support, and major response do not force a
+stable arithmetic mode.  The missing rigidity must use cross-scale coherence
+specific to `vartheta`/`Lambda`; see
+[`fixed-prime-packet-rigidity.md`](fixed-prime-packet-rigidity.md).
+
 ## 6. Other machine routes that were tested and refused
 
 - **Delta 27 factor rank/nucleus.**  Actual-prime future matrices have exact
@@ -340,12 +468,44 @@ explicit.
   exactly but do not prove it positive.  One-atom controls have the same mass,
   factor-count charge, parity, and Fourier energy while a chosen sum
   coefficient changes.
+- **Bounded-denominator major semantics.**  A moving quadratic-character
+  selector at a prime conductor just beyond the logarithmic arc cutoff is
+  nonnegative and supported on actual primes, has the same declared major-arc
+  coefficient up to `o(N)`, but has zero convolution at a chosen conductor
+  multiple.  This is not the prime sequence and not a counterexample to
+  Goldbach; it proves that major semantics, nonnegativity, and prime support
+  alone cannot yield a fixed minor-arc margin.  A successful proof must exclude
+  or couple the hidden character mode across targets.  For the actual
+  prime-log weight and an odd quadratic character with conductor dividing the
+  center, the two same-sector convolutions vanish and the entire coefficient
+  is exactly one half of the mixed `(+,-)` sector convolution.  That prescribed
+  mixed coefficient is the precise two-sided object which current
+  Siegel--Walfisz and large-sieve marginals do not control from below.  It is
+  also terminal: for every admissible odd conductor `r|N`, the mixed
+  coefficient is exactly `2 R_vartheta(N)`, independent of `r`, so averaging
+  over conductor divisors merely repeats Goldbach.  Zhao gives density one
+  among such multiples uniformly for `r<=X^(3/10-delta)`, but still cannot
+  select a prescribed multiple.  A second hidden character just beyond the
+  logarithmic cutoff preserves both visible sector marginals and their major
+  mixed response up to `o(N)` while annihilating the full mixed coefficient.
+  This scopes the surviving target to a conductor-sensitive minor theorem for
+  the fixed prime signal; see
+  [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md).
 - **Exceptional-set bounds.**  Zhao's current
   [preprint, arXiv:2511.05631v2](https://arxiv.org/abs/2511.05631v2) proves
   `E(X)=O(X^(7/10))`, with ineffective constant.  A power saving still permits
   isolated exceptions.  Upgrading it would require a new failure-propagation
   law; short-interval success and prime-gap theorems have the opposite logical
   direction.
+- **Odd exceptional-character remainder.**  At an even conductor multiple,
+  Matomaki--Merikoski's main bracket is `1+chi(-1)`.  For odd `chi` it
+  vanishes exactly and the theorem leaves only an unsigned upper error, not a
+  positive next term.  Even when that error is relatively `o(1)`, it cannot
+  produce a prime-pair witness; its published envelope also remains above the
+  checked prime-power scale.  The exact surviving implication runs backward:
+  assumed main-scale Goldbach mass excludes the specified odd exceptional
+  zero.  See
+  [`odd-siegel-conductor-multiple-no-go.md`](odd-siegel-conductor-multiple-no-go.md).
 - **The historical Haskell executable.**  Its term language has no Goldbach
   proposition or command.  Adding a flag without a primality certificate path
   would only create an unverified side program.  The checked Lean search is the
@@ -354,19 +514,25 @@ explicit.
 ## 7. Most important next work
 
 The next work is not a larger finite verification and not another quotient.
-It is to seek prime-specific arithmetic anti-concentration across centers:
+It is to retain and control the arithmetic mode which a prescribed bad center
+would force:
 
-1. retain a common ambient polynomial and arc decomposition across a dyadic
-   interval, and prove the missing transport from the target-adapted
-   logarithmic normalization when using an exception as a spike;
-2. express the coefficient family through shared Dirichlet-zero or Type-II
-   dispersion data before absolute values, and keep logarithmic- and
-   power-cutoff major arcs distinct;
-3. prove either the logarithmic-cutoff pointwise one-sided margin directly,
-   or control the power-cutoff zero modes and then prove an anti-spike
-   propagation theorem strong enough to contradict the corresponding
-   `ell^2` or exceptional-set budget;
-4. then feed that theorem to the already checked crossover contract.
+1. for the shortest logarithmic route, stay on Pintz's common prime-log
+   carrier and prove the direct edge margin `(H_edge)`, or prove an inverse
+   theorem extracting a conductor/Type-II packet from a negative coefficient
+   with dominance over complementary packets and enough recurrence to beat the
+   spike budget.  The exact candidate is a conditioned, fixed-decomposition,
+   scale-natural Vaughan inverse for the `Lambda=mu*log` tensor;
+2. retain the resulting character/bilinear mode on both sides of the center
+   and control the prescribed mixed coefficient, rather than replacing it by
+   sector marginals or an unconditioned norm;
+3. if a persistence route is attempted, choose its shift family from that
+   recovered mode and prove the conditioned selector correlation explicitly;
+   do not infer `(UP_gamma)` from the current `ell^2` or dispersion estimates;
+4. for a power-cutoff alternative, formulate zero-mode positivity on one
+   common carrier `(CZM)` and keep the raw minor and smoothed explicit-formula
+   residual distinct;
+5. then feed that theorem to the already checked crossover contract.
 
 This is narrower than “solve the minor arcs” and names the required direction
 of information: a single Dirac continuation at each even center must be
@@ -383,6 +549,15 @@ character of conductor `r`, the self-pair secondary term has the fixed sign
 statement: one bad Goldbach center does not imply that such a zero exists,
 that its conductor divides the center, or that its packet dominates.
 
+Matomaki--Merikoski provide one genuine terminal slice beyond packet
+coherence.  Under a sufficiently close zero of an **even** primitive
+quadratic character, their full von-Mangoldt formula implies Goldbach for
+sufficiently large even conductor multiples in their explicit scale range.
+For an odd character the leading conductor-multiple bracket vanishes and no
+positivity follows.  This is a conditional full-coefficient theorem, not a
+route from one exception to propagation; the exact quantifiers are audited in
+[`zero-mode-terminal-and-upward-escape.md`](zero-mode-terminal-and-upward-escape.md).
+
 The sufficient power-cutoff interface is therefore the following three-part
 contract, recorded precisely in `arithmetic-antispike.md`:
 
@@ -392,8 +567,23 @@ contract, recorded precisely in `arithmetic-antispike.md`:
 - `(AC)`: a conditional signed covariance that spreads a large negative raw
   minor coefficient over more than the `X^(3/5) log^5 X` residual budget.
 
+**Residual correction.**  `(AC)` can be logically replaced by `(UP_gamma)`,
+a first-moment bound only on positive escape from the negative spike, and the
+checked Markov implication is valid.  But `(UP_gamma)` is not an easier
+consequence of the available estimates: selector duality makes it a maximal
+conditioned correlation, while `Pairfield.UpwardEscapeNecessity` shows that
+the global norm forces near-maximal escape on any family larger than its
+spike budget.  It should be treated as an alternative statement of the
+missing persistence theorem, not as a route derived from dispersion.
+
 Current zero-density, Linnik, and dispersion estimates provide upper mass or
 equidistribution statements, not these signed prescribed-center inequalities.
+This three-part contract belongs specifically to the target-adapted
+power-cutoff architecture.  A common-carrier power formulation would replace
+`(ZM)+(TR)` by one common zero-mode positivity premise `(CZM)`; its remaining
+residual contract is `(UP_gamma)`.  The logarithmic prime-log route needs
+neither zero-mode premise nor transport, only the corresponding propagation
+or a direct edge-margin theorem.
 
 ## Rigor and execution ledger
 
@@ -402,6 +592,9 @@ equidistribution statements, not these signed prescribed-center inequalities.
   weighted support; exact contamination decomposition; fixed-antidiagonal
   contamination bounds; exception signature; finite-prefix/tail crossover;
   finite first-difference AntiSpike propagation.
+  The one-sided Markov survivor and energy inequalities are checked in
+  `Pairfield.UpwardEscape`; the converse `ell^2` pressure is checked in
+  `Pairfield.UpwardEscapeNecessity`.
 - **Primary-source grade, not locally formalized:** Bhowmik--Grimmelt major-arc
   formula and minor-arc mean square; Zhao exceptional-set exponent.
 - **Proved in collaboration notes:** the exact analytic implication, amplifier
@@ -420,14 +613,41 @@ equidistribution statements, not these signed prescribed-center inequalities.
   [`GoldbachCrossover`](../../../formal/pairfield/Pairfield/GoldbachCrossover.lean)
   (`34b98c9a`), and
   [`AntiSpike`](../../../formal/pairfield/Pairfield/AntiSpike.lean)
-  (`9aff3cd8`).  The analytic normalization and amplifier audits are
+  (`9aff3cd8`), plus the weaker one-sided
+  [`UpwardEscape`](../../../formal/pairfield/Pairfield/UpwardEscape.lean) and
+  its converse-pressure audit
+  [`UpwardEscapeNecessity`](../../../formal/pairfield/Pairfield/UpwardEscapeNecessity.lean).
+  The analytic normalization and amplifier audits are
   [`analytic-uniformity.md`](analytic-uniformity.md) (`a853c995`) and
   [`pointwise-amplifier.md`](pointwise-amplifier.md) (`b7b66049`); the
+  direct edge-margin and moving-character audit is
+  [`direct-minor-shadow.md`](direct-minor-shadow.md); the sharpened common
+  prime-log edge closure is
+  [`common-prime-edge.md`](common-prime-edge.md); the
+  prescribed mixed-sector closure is
+  [`mixed-sector-prescribed-center.md`](mixed-sector-prescribed-center.md);
+  the additive-packet inverse boundary is
+  [`fixed-prime-packet-rigidity.md`](fixed-prime-packet-rigidity.md);
+  the two-sided packet typing and continuation obstruction is
+  [`packet-two-sided-middle.md`](packet-two-sided-middle.md), and the
+  scale-natural `mu*log` coherence audit is
+  [`lambda-cross-scale-coherence.md`](lambda-cross-scale-coherence.md);
+  the
   arithmetic coherence audit is
   [`arithmetic-antispike.md`](arithmetic-antispike.md) (`61809c79`); the
+  logarithmic common-carrier correction is
+  [`common-carrier-elimination.md`](common-carrier-elimination.md); the
+  conditional zero-mode and upward-escape audit is
+  [`zero-mode-terminal-and-upward-escape.md`](zero-mode-terminal-and-upward-escape.md);
+  the reversal/no-go is
+  [`upward-escape-duality-no-go.md`](upward-escape-duality-no-go.md), and the
+  odd exceptional-character closure is
+  [`odd-siegel-conductor-multiple-no-go.md`](odd-siegel-conductor-multiple-no-go.md);
+  the
   executable audit is [`execution-compiler.md`](execution-compiler.md)
   (`7a02f908`).
-- **Open:** the pointwise signed minor-arc margin or a prime-specific AntiSpike
-  theorem.
+- **Open:** the pointwise edge margin `(H_edge)`, or an actual-prime inverse
+  theorem extracting a conductor/Type-II packet together with a conditioned
+  persistence estimate on its aligned shifts.
 - **Not run:** no Python; no numerical census, scan, or large finite Goldbach
   evaluation; no unverified Haskell Goldbach command.

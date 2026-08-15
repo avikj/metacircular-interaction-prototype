@@ -1,5 +1,7 @@
 -- V3 ledger root: machine-checked targets from notes/VV.md
 import Pairfield.SumRigidity
+import Pairfield.BellmanArgminIntegration
+import Pairfield.ChuArgminTransport
 import Pairfield.AntiSpike
 import Pairfield.BoundedPrimePair
 import Pairfield.CenterBoundedPrimePair
@@ -8,6 +10,7 @@ import Pairfield.GoldbachDecision
 import Pairfield.GoldbachDecisionRange
 import Pairfield.GoldbachWeightedBoundary
 import Pairfield.GoldbachFixedFiberContamination
+import Pairfield.RestrictedGoldbachEdge
 import Pairfield.GoldbachCrossover
 import Pairfield.HahnBilinearBoundary
 import Pairfield.IndraFourierNetAdapter
@@ -15,6 +18,9 @@ import Pairfield.ProcessCutRankAdapter
 import Pairfield.IncrementalCRTAdapter
 import Pairfield.CyclotomicRoutingAdapter
 import Pairfield.CyclotomicPrimitiveTransportAdapter
+import Pairfield.HeadDepthBlindnessAdapter
+import Pairfield.HigherArityPadicAdapter
+import Pairfield.InfiniteValuationFiberAdapter
 import Pairfield.PrimePairDecomposition
 import Pairfield.Lorentz
 import Pairfield.ReversalRigidity
@@ -70,6 +76,17 @@ import Pairfield.AdaptiveResidualStrictRefinementIff
 import Pairfield.NativeCompleteWitnesses
 import Pairfield.NativeCompleteWitnessPartition
 import Pairfield.NativeCompleteWitnessCost
+import Pairfield.NativeWitnessGreedyFormation
+import Pairfield.NativeReverseSeparatorPolicy
+import Pairfield.NativeReversePairTraversal
+import Pairfield.NativeReverseEdgeInventory
+import Pairfield.NativeIndexedReverseTraversal
+import Pairfield.NativeIndexedPolicyBoundary
+import Pairfield.NativeIndexedParentExtraction
+import Pairfield.NativeIndexedParentRetention
+import Pairfield.TernaryCancellationFormation
+import Pairfield.NativeDemandRestrictedFormation
+import Pairfield.NativeShortestSeparatorPolicy
 import Pairfield.AdaptiveResidualBinomialBudgetNoGo
 import Pairfield.SmithCertificate
 import Pairfield.ComputableSmith2x2
@@ -81,6 +98,8 @@ import Pairfield.DiagonalSmithRoute
 import Pairfield.EuclidCoefficientTrace
 import Pairfield.EuclidCoefficientForkNoGo
 import Pairfield.EuclidCoefficientCutBound
+import Pairfield.EuclidFiniteTargetFormation
+import Pairfield.EuclidDoublingFork
 import Pairfield.SmithContent
 import Pairfield.CertificateSource
 import Pairfield.RankOneSmith2x2

@@ -1,0 +1,594 @@
+diff --git a/machine/MathMachine.hs b/machine/MathMachine.hs
+index 4a13b5ff..fdcbc087 100644
+--- a/machine/MathMachine.hs
++++ b/machine/MathMachine.hs
+@@ -35,8 +35,8 @@ import qualified Data.Map.Strict as M
+ import Data.List (sortOn, foldl', intercalate)
+ import Data.Maybe (mapMaybe, isJust)
+ import Data.IORef
+-import Control.Monad (forM_, when, unless, filterM)
+-import Control.Exception (finally)
++import Control.Monad (forM_, when, unless, filterM, foldM)
++import Control.Exception (finally, try, IOException)
+ import System.IO
+ import System.Directory (getTemporaryDirectory, removePathForcibly)
+ import System.FilePath ((</>))
+@@ -313,11 +313,29 @@ applySub m (F f ts) = F f (map (applySub m) ts)
+ 
+ -- one rewrite step, innermost-leftmost: rewrite the first argument that
+ -- can move, otherwise rewrite at the root.
++--
++-- The step also REPORTS what it did: which rule fired, where, under what
++-- substitution, and on what term.  This is the raw material of the
++-- conclusion-indexed derivation the kernel seam needs (Nalanda's blocker:
++-- a proof label is not a proof object).  One strategy, one source of
++-- truth — `step` is the forgetful projection of `stepT`, so the proof
++-- search and the emitted certificate can never disagree about which
++-- rewrite happened.
++data TraceStep = TraceStep
++  { tsBefore :: Term            -- the whole term this step rewrote
++  , tsPos    :: [Int]           -- argument path from the root to the redex
++  , tsRule   :: Rule            -- the rule exactly as it fired
++  , tsSub    :: M.Map Int Term  -- the matching substitution
++  }
++
+ step :: [Rule] -> Term -> Maybe Term
+-step rs t =
++step rs t = fst <$> stepT rs t
++
++stepT :: [Rule] -> Term -> Maybe (Term, TraceStep)
++stepT rs t =
+   case t of
+-    F f ts -> case rewriteArgs ts of
+-                Just ts' -> Just (F f ts')
++    F f ts -> case rewriteArgs 0 ts of
++                Just (ts', st) -> Just (F f ts', st)
+                 Nothing  -> topStep t
+     _ -> topStep t
+   where
+@@ -329,15 +347,16 @@ step rs t =
+     -- is what lets an unorientable theorem still do work, and it makes
+     -- non-termination impossible rather than merely unlikely.
+     topStep u =
+-      case [ r' | (l,r) <- rs, Just sub <- [match l u]
+-                , let r' = applySub sub r, decreases u r' ] of
++      case [ (r', TraceStep t [] (l,r) sub)
++           | (l,r) <- rs, Just sub <- [match l u]
++           , let r' = applySub sub r, decreases u r' ] of
+         (x:_) -> Just x
+         []    -> Nothing
+-    rewriteArgs [] = Nothing
+-    rewriteArgs (x:xs) =
+-      case step rs x of
+-        Just x' -> Just (x':xs)
+-        Nothing -> fmap (x:) (rewriteArgs xs)
++    rewriteArgs _ [] = Nothing
++    rewriteArgs i (x:xs) =
++      case stepT rs x of
++        Just (x', st) -> Just (x':xs, st { tsBefore = t, tsPos = i : tsPos st })
++        Nothing -> (\(xs', st) -> (x:xs', st)) <$> rewriteArgs (i+1) xs
+ 
+ -- A step is progress if the path order says so, or failing that if the
+ -- term simply got smaller.  LPO is the honest order but it is partial:
+@@ -380,6 +399,16 @@ normalize rs = go (200 :: Int)
+                Nothing -> t
+                Just t' -> go (k-1) t'
+ 
++-- The same computation, remembering itself.  `normalize` is the fst of
++-- this; the snd is the derivation the kernel seam will replay in Agda.
++normalizeT :: [Rule] -> Term -> (Term, [TraceStep])
++normalizeT rs = go (200 :: Int) []
++  where
++    go 0 acc t = (t, reverse acc)
++    go k acc t = case stepT rs t of
++                   Nothing -> (t, reverse acc)
++                   Just (t', st) -> go (k-1) (st:acc) t'
++
+ -- Which way should a proved equation be run?  Getting this wrong is
+ -- not a style question: an equation oriented the wrong way makes the
+ -- machine's normal forms worse, and a set of equations oriented
+@@ -455,7 +484,27 @@ provedByRewriting rs (l,r) = normalize rs l == normalize rs r
+ eigen :: Term
+ eigen = F "#" []
+ 
+-proveByInduction :: [Rule] -> (Term,Term) -> Maybe String
++-- A proof is a derivation, not a label.  The kernel seam's blocker
++-- (collab/messages/codex-nalanda-dvara, and ProofLabelNoGo in Agda) is
++-- that "induction on x" carries neither the conclusion nor the base and
++-- step obligations, so nothing downstream can validate it.  What the
++-- search actually possesses at the moment of success is all of that:
++-- the induction variable, the frozen hypothesis, and the exact rewrite
++-- traces that close the base and the step.  Keep them.
++data Deriv = Deriv
++  { dGoal  :: (Term, Term)   -- the conclusion, exactly as conjectured
++  , dVar   :: Int            -- the induction variable
++  , dHyp   :: (Term, Term)   -- the hypothesis with that variable frozen to #
++  , dBaseL :: [TraceStep]    -- l[0/v]  ⇝  common base normal form
++  , dBaseR :: [TraceStep]    -- r[0/v]  ⇝  the same normal form
++  , dStepL :: [TraceStep]    -- l[s#/v] ⇝  common step normal form (IH usable)
++  , dStepR :: [TraceStep]    -- r[s#/v] ⇝  the same normal form
++  }
++
++derivLabel :: Deriv -> String
++derivLabel d = "induction on " ++ show (V (dVar d))
++
++proveByInduction :: [Rule] -> (Term,Term) -> Maybe Deriv
+ proveByInduction rs (l,r) =
+   case ordNub (vars l ++ vars r) of
+     [] -> Nothing
+@@ -465,16 +514,20 @@ proveByInduction rs (l,r) =
+                      (x:_) -> Just x
+                      []    -> Nothing
+     tryVar v =
+-      let base = (substVar v zeroT l, substVar v zeroT r)
++      let (bl, br) = (substVar v zeroT l, substVar v zeroT r)
+           hypL = substVar v eigen l
+           hypR = substVar v eigen r
+-          goal = (substVar v (sucT eigen) l, substVar v (sucT eigen) r)
++          (gl, gr) = (substVar v (sucT eigen) l, substVar v (sucT eigen) r)
+           -- the hypothesis goes in both directions; `step` will only
+           -- fire it where it decreases, so an unorientable IH (the
+           -- commutativity case) is still usable and still sound
+           hyps = [(hypL,hypR),(hypR,hypL)]
+-      in if provedByRewriting rs base && provedByRewriting (hyps ++ rs) goal
+-           then Just ("induction on " ++ show (V v))
++          (bnfL, btrL) = normalizeT rs bl
++          (bnfR, btrR) = normalizeT rs br
++          (snfL, strL) = normalizeT (hyps ++ rs) gl
++          (snfR, strR) = normalizeT (hyps ++ rs) gr
++      in if bnfL == bnfR && snfL == snfR
++           then Just (Deriv (l,r) v (hypL,hypR) btrL btrR strL strR)
+            else Nothing
+ 
+ -- f(a,b) = f(a',b') where a=a' and b=b' are already known is not a
+@@ -556,11 +609,30 @@ ordNub = go M.empty
+                    | otherwise = x : go (M.insert x () seen) xs
+ 
+ -- ------------------------------------------------------- Agda kernel seam
+--- The first proof-producing seam is intentionally narrow.  The Haskell
+--- search may propose any equation, but only the shared Peano fragment can be
+--- translated, and its first certificate language is Agda's `refl`.
+--- Consequently acceptance means definitional equality in Agda itself; the
+--- Haskell induction trace is never mistaken for a kernel certificate.
++-- The seam admits two certificate classes, and nothing else.
++--
++--   refl       the two sides are definitionally equal in Agda.  The
++--              emitted module states the conclusion and proves it `refl`.
++--
++--   induction  the machine's own derivation, replayed.  `proveByInduction`
++--              now returns the derivation object Nalanda's blocker asked
++--              for — induction variable, frozen hypothesis, and the exact
++--              rewrite traces closing base and step — and the emitter
++--              below compiles those traces to a path: every fired rule
++--              becomes a named lemma applied under `cong` at its position,
++--              the hypothesis becomes the structural recursive call, and
++--              the two traces compose with `sym` in the middle.  The
++--              module is self-contained: the machine's defining equations
++--              of + and · (second-argument recursion) are proved in a
++--              fixed preamble over the library's first-argument
++--              definitions, and every previously certified lemma the
++--              traces cite is re-emitted, in certification order, from
++--              its own stored proof.  Agda sees conclusions and
++--              derivations only; the label never crosses.
++--
++-- Anything the emitter cannot express — a rule outside the 0,s,+,·
++-- fragment, an invented concept, a variable the clause does not bind —
++-- is a KERNEL-SKIP, not a guess.  The gate fails closed.
+ 
+ agdaTerm :: Term -> Maybe String
+ agdaTerm (V i)
+@@ -592,33 +664,279 @@ agdaCertificate (l,r) = do
+     ]
+ 
+ 
+-kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
+-kernelAccept logh roundNo ((l,r),_) =
+-  case agdaCertificate (l,r) of
++-- What the kernel actually certified, kept so that later certificates can
++-- re-emit this one as a dependency lemma.
++data CertProof = CRefl | CInd Deriv
++
++type Certs = M.Map (Term,Term) (String, CertProof)
++
++-- variable printing for clause bodies.  The environment holds exactly the
++-- names the clause binds; key -1 is the eigenconstant # (the induction
++-- variable's bound name in the step clause), key -2 the cong hole.  A
++-- term mentioning anything else does not print, and the candidate is
++-- skipped — an unbound variable in an emitted proof would be Agda's
++-- scope error anyway, so the guard is just the same refusal, earlier.
++agdaTermV :: M.Map Int String -> Term -> Maybe String
++agdaTermV env (V i) = M.lookup i env
++agdaTermV env (F "#" []) = M.lookup (-1) env
++agdaTermV env (F "?" []) = M.lookup (-2) env
++agdaTermV _ (F "0" []) = Just "zero"
++agdaTermV env (F "s" [t]) = (\u -> "suc (" ++ u ++ ")") <$> agdaTermV env t
++agdaTermV env (F "+" [a,b]) = binV env "+" a b
++agdaTermV env (F "*" [a,b]) = binV env "·" a b
++agdaTermV _ _ = Nothing
++
++binV :: M.Map Int String -> String -> Term -> Term -> Maybe String
++binV env op a b = do
++  x <- agdaTermV env a
++  y <- agdaTermV env b
++  pure ("(" ++ x ++ " " ++ op ++ " " ++ y ++ ")")
++
++replaceAt :: Term -> [Int] -> Term -> Term
++replaceAt _ [] u = u
++replaceAt (F f ts) (i:p) u =
++  F f [ if j == i then replaceAt t p u else t | (j,t) <- zip [0..] ts ]
++replaceAt t _ _ = t
++
++varName :: Int -> Maybe String
++varName i | i >= 0 && i < 6 = Just [ "xyzuvw" !! i ]
++          | otherwise = Nothing
++
++lemVars :: (Term,Term) -> [Int]
++lemVars (l,r) = ordNub (vars l ++ vars r)
++
++-- The machine's defining equations of + and · with their preamble names.
++-- These are the only rules the emitter treats as primitive; max, -, gcd,
++-- le and invented concepts are outside the certificate fragment.
++machineArithDefs :: [(Rule, (String, [Int]))]
++machineArithDefs =
++  [ ((bin "+" x_ zero_,  x_),                          ("addZero", [0]))
++  , ((bin "+" x_ (su y_), su (bin "+" x_ y_)),         ("addSuc",  [0,1]))
++  , ((bin "*" x_ zero_,  zero_),                       ("mulZero", [0]))
++  , ((bin "*" x_ (su y_), bin "+" (bin "*" x_ y_) x_), ("mulSuc",  [0,1]))
++  ]
++
++-- every fired rule is one of three things, or the candidate is skipped
++data StepRef
++  = RDef String [Term]                       -- preamble lemma, instantiated
++  | RIH  Bool (M.Map Int Term)               -- recursive call; True = reversed
++  | RLem Bool String (Term,Term) (M.Map Int Term)  -- certified lemma; True = reversed
++
++classifyStep :: (Term,Term) -> Certs -> TraceStep -> Maybe StepRef
++classifyStep hyp certs st =
++  case lookup rl machineArithDefs of
++    Just (nm, is) -> Just (RDef nm [ M.findWithDefault (V i) i sub | i <- is ])
++    Nothing
++      | rl == hyp      -> Just (RIH False sub)
++      | rl == swap hyp -> Just (RIH True sub)
++      | otherwise ->
++          case M.lookup rl certs of
++            Just (nm,_) -> Just (RLem False nm rl sub)
++            Nothing -> case M.lookup (swap rl) certs of
++              Just (nm,_) -> Just (RLem True nm (swap rl) sub)
++              Nothing -> Nothing
++  where
++    rl = tsRule st
++    sub = tsSub st
++    swap (a,b) = (b,a)
++
++-- one trace step becomes one path piece: the named equality, instantiated,
++-- reversed if the rule fired right-to-left, and transported to its redex
++-- position by `cong` with the surrounding term as the context.
++stepPath :: M.Map Int String -> String -> [Int] -> Int -> (Term,Term) -> Certs
++         -> TraceStep -> Maybe String
++stepPath env self selfVars v hyp certs st = do
++  ref <- classifyStep hyp certs st
++  inner <- case ref of
++    RDef nm args -> do
++      as <- mapM (agdaTermV env) args
++      pure (unwords (nm : map paren as))
++    RIH rev sub -> do
++      as <- mapM (argFor sub) selfVars
++      pure (sym' rev (unwords (self : map paren as)))
++    RLem rev nm goal sub -> do
++      as <- mapM (\i -> agdaTermV env (M.findWithDefault (V i) i sub)) (lemVars goal)
++      pure (sym' rev (unwords (nm : map paren as)))
++  case tsPos st of
++    [] -> pure inner
++    p  -> do
++      ctx <- agdaTermV (M.insert (-2) "h" env) (replaceAt (tsBefore st) p (F "?" []))
++      pure ("cong (λ h → " ++ ctx ++ ") (" ++ inner ++ ")")
++  where
++    paren s = "(" ++ s ++ ")"
++    sym' True  s = "sym (" ++ s ++ ")"
++    sym' False s = s
++    argFor sub i
++      | i == v = M.lookup (-1) env
++      | otherwise = agdaTermV env (M.findWithDefault (V i) i sub)
++
++-- a clause's whole proof: the left trace forward, the right trace
++-- reversed, composed.  No steps at all means the two sides met without
++-- help — definitionally — and the path is refl.
++clausePath :: M.Map Int String -> String -> [Int] -> Int -> (Term,Term) -> Certs
++           -> [TraceStep] -> [TraceStep] -> Maybe String
++clausePath env self selfVars v hyp certs ltr rtr = do
++  ls <- mapM (stepPath env self selfVars v hyp certs) ltr
++  rs <- mapM (stepPath env self selfVars v hyp certs) rtr
++  pure $ case ls ++ map (\p -> "sym (" ++ p ++ ")") (reverse rs) of
++    [] -> "refl"
++    ps -> intercalate " ∙ " ps
++
++emitLemma :: Certs -> String -> (Term,Term) -> CertProof -> Maybe String
++emitLemma certs nm goal@(gl,gr) prf = do
++  let ivs = lemVars goal
++  vns <- mapM varName ivs
++  let envAll = M.fromList (zip ivs vns)
++      quant = if null vns then ""
++              else "(" ++ unwords vns ++ " : ℕ) → "
++  sigL <- agdaTermV envAll gl
++  sigR <- agdaTermV envAll gr
++  let sig = nm ++ " : " ++ quant ++ sigL ++ " ≡ " ++ sigR
++  case prf of
++    CRefl -> pure (unlines [ sig, unwords (nm : vns) ++ " = refl" ])
++    CInd d -> do
++      let v = dVar d
++      vn <- varName v
++      let baseEnv  = M.delete v envAll
++          basePats = [ if i == v then "zero" else n | (i,n) <- zip ivs vns ]
++          stepEnv  = M.insert (-1) vn (M.delete v envAll)
++          stepPats = [ if i == v then "(suc " ++ n ++ ")" else n
++                     | (i,n) <- zip ivs vns ]
++      basePf <- clausePath baseEnv nm ivs v (dHyp d) certs (dBaseL d) (dBaseR d)
++      stepPf <- clausePath stepEnv nm ivs v (dHyp d) certs (dStepL d) (dStepR d)
++      pure (unlines
++        [ sig
++        , unwords (nm : basePats) ++ " = " ++ basePf
++        , unwords (nm : stepPats) ++ " = " ++ stepPf
++        ])
++
++-- the certified lemmas a derivation's traces cite, transitively
++transDeps :: Certs -> (Term,Term) -> Deriv -> Maybe [(Term,Term)]
++transDeps certs = \hyp d -> direct hyp d >>= go []
++  where
++    direct hyp d = do
++      refs <- mapM (classifyStep hyp certs)
++                   (dBaseL d ++ dBaseR d ++ dStepL d ++ dStepR d)
++      pure (ordNub [ g | RLem _ _ g _ <- refs ])
++    go seen [] = Just seen
++    go seen (g:gs)
++      | g `elem` seen = go seen gs
++      | otherwise = case M.lookup g certs of
++          Nothing -> Nothing
++          Just (_, CRefl) -> go (g:seen) gs
++          Just (_, CInd d') -> do
++            ds <- direct (dHyp d') d'
++            go (g:seen) (ds ++ gs)
++
++lemIndex :: String -> Int
++lemIndex nm = case reads (drop 3 nm) of
++                [(n,"")] -> n
++                _        -> maxBound
++
++agdaHeader :: [String]
++agdaHeader =
++  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
++  , "module Candidate where"
++  , "open import Cubical.Foundations.Prelude"
++  , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
++  ]
++
++-- the machine's defining equations of + and · — second-argument
++-- recursion — proved once over the library's first-argument definitions.
++-- addAssoc is the one auxiliary mulSuc's step needs.
++agdaPreamble :: [String]
++agdaPreamble =
++  [ "addZero : (a : ℕ) → (a + zero) ≡ a"
++  , "addZero zero = refl"
++  , "addZero (suc a) = cong suc (addZero a)"
++  , "addSuc : (a b : ℕ) → (a + suc (b)) ≡ suc (a + b)"
++  , "addSuc zero b = refl"
++  , "addSuc (suc a) b = cong suc (addSuc a b)"
++  , "addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))"
++  , "addAssoc zero b c = refl"
++  , "addAssoc (suc a) b c = cong suc (addAssoc a b c)"
++  , "mulZero : (a : ℕ) → (a · zero) ≡ zero"
++  , "mulZero zero = refl"
++  , "mulZero (suc a) = mulZero a"
++  , "mulSuc : (a b : ℕ) → (a · suc (b)) ≡ ((a · b) + a)"
++  , "mulSuc zero b = refl"
++  , "mulSuc (suc a) b ="
++  , "  cong (λ h → suc (b + h)) (mulSuc a b)"
++  , "  ∙ cong suc (sym (addAssoc b (a · b) a))"
++  , "  ∙ sym (addSuc (b + (a · b)) a)"
++  ]
++
++inductionModule :: Certs -> (Term,Term) -> Deriv -> Either String String
++inductionModule certs goal d =
++  case build of
++    Just src -> Right src
++    Nothing  -> Left "derivation leaves the certified fragment"
++  where
++    build = do
++      deps <- transDeps certs (dHyp d) d
++      let ordered = sortOn (\(nm,_,_) -> lemIndex nm)
++            [ (nm, g, p) | g <- deps, Just (nm,p) <- [M.lookup g certs] ]
++      lems <- mapM (\(nm,g,p) -> emitLemma certs nm g p) ordered
++      body <- emitLemma certs "candidate" goal (CInd d)
++      pure (unlines (agdaHeader ++ agdaPreamble) ++ concat lems ++ body)
++
++-- write, check, clean up.  A missing agda binary is a KERNEL-ERROR and a
++-- refusal, never a crash and never an acceptance: a machine that cannot
++-- reach its kernel installs nothing.
++runAgdaSource :: Handle -> String -> IO (Either String ())
++runAgdaSource logh source = do
++  tmp <- getTemporaryDirectory
++  -- A fixed directory lets concurrent machine processes overwrite one
++  -- another's proposition between write and check.  `mktemp -d` makes
++  -- the proposition/check pair private; cleanup also runs on exceptions.
++  dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
++  let dir = reverse (dropWhile isSpace (reverse dirLine))
++      file = dir </> "Candidate.agda"
++  (do withFile file WriteMode $ \h -> do
++        hSetEncoding h utf8
++        hPutStr h source
++      res <- try (readProcessWithExitCode "agda"
++                    ["-i", "formal/cubical", "-i", dir, file] "")
++             :: IO (Either IOException (ExitCode, String, String))
++      case res of
++        Left e -> do
++          hPrintf logh "  KERNEL-ERROR agda unavailable: %s\n" (show e)
++          pure (Left "agda unavailable")
++        Right (ExitSuccess, _, _) -> pure (Right ())
++        Right (ExitFailure _, out, err) ->
++          pure (Left (take 160 (filter (/= '\n') (out ++ err)))))
++    `finally` removePathForcibly dir
++
++kernelGate :: Handle -> Int -> Certs -> ((Term,Term), Deriv) -> IO (Maybe CertProof)
++kernelGate logh roundNo certs (c@(l,r), d) =
++  case agdaCertificate c of
+     Nothing -> do
+       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
+-      pure False
+-    Just source -> do
+-      tmp <- getTemporaryDirectory
+-      -- A fixed directory lets concurrent machine processes overwrite one
+-      -- another's proposition between write and check.  `mktemp -d` makes
+-      -- the proposition/check pair private; cleanup also runs on exceptions.
+-      dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
+-      let dir = reverse (dropWhile isSpace (reverse dirLine))
+-          file = dir </> "Candidate.agda"
+-      (do writeFile file source
+-          (code,out,err) <- readProcessWithExitCode "agda"
+-            ["-i", "formal/cubical", "-i", dir, file] ""
+-          case code of
+-            ExitSuccess -> do
+-              hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s\n"
+-                roundNo (show l) (show r)
+-              pure True
+-            ExitFailure _ -> do
+-              hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
+-                roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
+-              pure False)
+-        `finally` removePathForcibly dir
++      pure Nothing
++    Just reflSrc -> do
++      r1 <- runAgdaSource logh reflSrc
++      case r1 of
++        Right () -> do
++          hPrintf logh "  KERNEL-ACCEPT refl round=%d %s = %s\n"
++            roundNo (show l) (show r)
++          pure (Just CRefl)
++        Left "agda unavailable" -> pure Nothing
++        Left _ ->
++          case inductionModule certs c d of
++            Left why -> do
++              hPrintf logh "  KERNEL-SKIP  %s: %s = %s\n" why (show l) (show r)
++              pure Nothing
++            Right indSrc -> do
++              r2 <- runAgdaSource logh indSrc
++              case r2 of
++                Right () -> do
++                  hPrintf logh "  KERNEL-ACCEPT induction round=%d %s = %s   (%s)\n"
++                    roundNo (show l) (show r) (derivLabel d)
++                  pure (Just (CInd d))
++                Left err -> do
++                  hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
++                    roundNo (show l) (show r) err
++                  pure Nothing
+ 
+ -- --------------------------------------------------------- the machine
+ 
+@@ -629,6 +947,7 @@ data Machine = Machine
+   , mInvented :: [Sym]        -- concepts the machine named for itself
+   , mRetired :: [Term]        -- patterns it named, never used, and withdrew
+   , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
++  , mCerts   :: Certs         -- kernel-certified lemmas: name and stored proof
+   , mThoughts :: [(Term,Term)] -- researcher candidates, as native terms
+   , mResiduals :: [String]     -- exact lines not promoted to equations
+   , mVocab   :: Int           -- how many symbols are in play
+@@ -637,7 +956,7 @@ data Machine = Machine
+   }
+ 
+ start :: Machine
+-start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
++start = Machine [] [] M.empty [] [] M.empty M.empty [] [] 3 4 0
+ 
+ -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
+ -- else typed can only ever compress the consequences of that list; when
+@@ -828,24 +1147,37 @@ round1 logh libh ref = do
+       nFresh = length fresh
+       nRes = length results
+   nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
+-  checkedResults <- filterM (kernelAccept logh (mRound m)) results
++  -- the gate threads its certificate environment through the round, so a
++  -- lemma accepted at 10am is citable inside a certificate at 10:01
++  (checkedRev, certs') <- foldM
++      (\(acc, cs) (c, d) -> do
++          verdict <- kernelGate logh (mRound m) cs (c, d)
++          case verdict of
++            Nothing -> pure (acc, cs)
++            Just p  -> pure ( (c, d, p) : acc
++                            , M.insert c ("lem" ++ show (M.size cs), p) cs ))
++      ([], mCerts m) results
++  let checkedResults = reverse checkedRev
+   t1 <- getCPUTime
+   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
+       prunedPct :: Double
+       prunedPct = if null raw then 0
+                   else 100 * (1 - fromIntegral (length normed)
+                                   / fromIntegral (length raw))
+-      newRules = mapMaybe (orient . fst) checkedResults
+-      newLemmas = [ c | (c,_) <- checkedResults, not (isJust (orient c)) ]
++      newRules = mapMaybe (\(c,_,_) -> orient c) checkedResults
++      newLemmas = [ c | (c,_,_) <- checkedResults, not (isJust (orient c)) ]
++      accepted = [ c | (c,_,_) <- checkedResults ]
+       m' = m { mRules = mRules m ++ newRules
+              , mLemmas = mLemmas m ++ newLemmas
+-             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
++             , mKnown = foldl' (\k c -> M.insert c () k) (mKnown m) accepted
++             , mCerts = certs'
+              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
+-                          [ c | c <- fresh, notElem c (map fst checkedResults) ]
++                          [ c | c <- fresh, notElem c accepted ]
+              , mRound = mRound m + 1 }
+-  forM_ checkedResults $ \((l,r),pf) -> do
+-    hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
+-    hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
++  forM_ checkedResults $ \((l,r), d, p) -> do
++    let cls = case p of CRefl -> "kernel refl"; CInd _ -> "kernel induction"
++    hPrintf libh "%-46s = %-24s   [%s; %s]\n" (show l) (show r) (derivLabel d) cls
++    hPrintf logh "  THEOREM  %s = %s   (%s; %s)\n" (show l) (show r) (derivLabel d) cls
+   hFlush libh
+   hPrintf logh
+     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
+@@ -953,9 +1285,43 @@ main = do
+     exitSuccess
+   case args of
+     ["--kernel-self-test"] -> do
+-      accepted <- kernelAccept stdout 0 ((bin "+" zero_ x_, x_), "positive control")
+-      rejected <- kernelAccept stdout 0 ((su x_, x_), "negative control")
+-      unless (accepted && not rejected) exitFailure
++      -- the chain below is a miniature of a live round: each acceptance
++      -- enters the rule set and the certificate environment, and the
++      -- third candidate NEEDS both — commutativity is not definitional
++      -- in Agda, so it can only cross as an induction certificate that
++      -- re-emits the first two lemmas it cites.
++      let defs = definitionsOf (take 4 vocabulary)
++          proveOr rs c = case proveByInduction rs c of
++            Just d  -> pure (c, d)
++            Nothing -> do
++              putStrLn ("SELF-TEST no machine proof: " ++ show c)
++              exitFailure
++          install cs c p = M.insert c ("lem" ++ show (M.size cs), p) cs
++          extend rs c = rs ++ maybe (lemmaRules [c]) (:[]) (orient c)
++      (c1, d1) <- proveOr defs (bin "+" zero_ x_, x_)
++      v1 <- kernelGate stdout 0 M.empty (c1, d1)
++      (certs1, rules1) <- case v1 of
++        Just p  -> pure (install M.empty c1 p, extend defs c1)
++        Nothing -> putStrLn "SELF-TEST refl control not accepted" >> exitFailure
++      (c2, d2) <- proveOr rules1 (bin "+" (su x_) y_, su (bin "+" x_ y_))
++      v2 <- kernelGate stdout 0 certs1 (c2, d2)
++      (certs2, rules2) <- case v2 of
++        Just p  -> pure (install certs1 c2 p, extend rules1 c2)
++        Nothing -> putStrLn "SELF-TEST second control not accepted" >> exitFailure
++      (c3, d3) <- proveOr rules2 (bin "+" x_ y_, bin "+" y_ x_)
++      v3 <- kernelGate stdout 0 certs2 (c3, d3)
++      case v3 of
++        Just (CInd _) -> pure ()
++        _ -> putStrLn "SELF-TEST commutativity did not cross as induction"
++               >> exitFailure
++      -- negative control: a planted derivation with a false conclusion
++      -- must be refused by Agda itself, whatever the label says
++      let bogus = Deriv (su x_, x_) 0 (su x_, x_) [] [] [] []
++      v4 <- kernelGate stdout 0 certs2 ((su x_, x_), bogus)
++      case v4 of
++        Nothing -> putStrLn "KERNEL-SELF-TEST PASSED"
++        Just _  -> putStrLn "SELF-TEST bogus derivation crossed the gate"
++                     >> exitFailure
+     _ -> do
+       exists <- doesFileExist "machine/thoughts.math"
+       batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"

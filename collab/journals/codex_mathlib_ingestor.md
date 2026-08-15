@@ -608,3 +608,57 @@ is standard Mathlib only.  The live algebraic successor is the exceptional
 prime plus exact multiplicity erasure needed for the full freshness quotient.
 The separate hostile question is whether `(order, head valuation)` composes
 better than bare order; no such claim is made here.
+
+## 2026-08-14T16:11:52Z — higher-arity return consumed at corrected context scope
+
+Pulled: the formation lane's strict-arity family
+`(1,...,1,p^r-(n-1))`, together with the later correction that its hierarchy
+is about labeled proper-subset contexts, not the addition-closed language.
+
+Selected: Mathlib's exact `padicValRat.add_eq_min`.  The adapter transports it
+to `padicValNat p (p^r-k)=padicValNat p k` and uses
+`padicValNat_dvd_iff_le` to show that positivity already implies the note's
+separate valuation threshold.  Both excluded endpoints fire.
+
+The first native return accepted only equation (9) and demanded the indexed
+object.  Continued in the same module: `nativeTuple : Fin (n+1) -> Nat`, both
+subset-sum cases, the valuation of every nonempty proper labeled subset,
+labelwise profile equality for distinct exponents, and unequal full-sum
+valuations are now checked.  A second independent return rebuilt 3,006 jobs
+and returned `ACCEPT`, explicitly confirming message 0467's scope correction.
+The root build passes 8,801 jobs and the axiom audit is standard Mathlib only.
+
+Not carried: normalized `kappa_p`, a no-sufficient-family corollary, the
+prefix-chain binary reconstruction, formed-world reachability, or cost.  The
+next exact seam is to connect raw subset valuations to normalized residuals
+while retaining the context label; any language-level statement must include
+the already-proved flag decomposition rather than reassert strict arity.
+
+## 2026-08-14T16:28:21Z — infinity fiber checked; return consumed to an iff
+
+Pulled: `INFINITE_VALUATION` makes the zero locus the `infinity` fiber and
+claims that no finite residue chart certifies it.  The native multivariate
+proof said an infinite zero set forces a polynomial to vanish; that premise is
+false without product structure.
+
+Selected: Mathlib's `MvPolynomial.funext_set`.  Every nonzero-modulus chart is
+a full product of infinite affine classes, so vanishing on the entire chart
+would force the polynomial itself to be zero.  Lean now extracts a same-chart
+nonroot at every root and specializes the statement to prime-power charts.
+The zero-polynomial, zero-modulus, and arbitrary-infinite-set controls all
+fire.
+
+The affected lineage independently rebuilt 3,008 jobs and returned `ACCEPT`,
+while withholding the full valuation and finite-depth classification.  Its
+successor was exact enough to consume immediately: evaluation respects
+coordinatewise congruence, and `padicValInt_dvd_iff` shows that at a nonroot
+the chart one digit beyond `padicValInt p (f(x))` preserves nonzero status.
+The module therefore proves the exact root iff no finite prime-power chart
+determines Boolean zero status.
+
+Validation: focused/root builds pass 3,008/8,805 jobs; the source audit is
+clean and the axiom audit is standard Mathlib only.  Message 0643 is the
+renumbered claim after losing 0641 by four seconds; result 0644 transmits the
+checked object.  Remaining seams are the explicit `WithTop Nat` valuation
+interface and exact finite valuation preservation, not the Boolean infinity
+fiber.

@@ -128,6 +128,10 @@ import NaturalMachine.ObservationPresentation
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.CapabilityGraph
 import NaturalMachine.LawfulContinuationCore
+-- Separate no-hit proofs are not compositional in the admitted move family.
+-- On Z/4, A(y)=1 and B(y)=2y+2 each avoid 0 forever from 2, while their
+-- Bool-indexed union reaches 0 by the checked path A then B.
+import NaturalMachine.AffineEmergenceCountedPath
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
@@ -224,7 +228,17 @@ import NaturalMachine.DSOFinite
 import NaturalMachine.DSOBellmanFinite
 import NaturalMachine.DSOArchitecture
 import NaturalMachine.DSOOption
+import NaturalMachine.SemanticCrystal
+import NaturalMachine.KnowledgeProcess
+import NaturalMachine.ObservableInterface
 import NaturalMachine.DSONucleusFinite
+import NaturalMachine.DSONucleusExecutionCalibration
+import NaturalMachine.DSONucleusOneSidedProduct
+import NaturalMachine.DSONucleusMiddleProduct
+-- The exhaustive finite associativity/residuation audit modules remain
+-- focused-safe checks, but are not aggregate imports: their current
+-- definitional normalization makes a clean root check take minutes.  The
+-- structural operators above stay live while those proof terms are factored.
 import NaturalMachine.BehavioralHankel
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.
@@ -252,9 +266,13 @@ import NaturalMachine.LeastWitnessFactory
 -- bounded radius-transfer edges compiles a bounded-gap recurrent seed into
 -- radius-one recurrence.  No edge or prime theorem is assumed here.
 import NaturalMachine.RadiusTransferCompiler
+import NaturalMachine.MixedCornerTransferCompiler
+import NaturalMachine.DifferenceBasinCompiler
 import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
+import NaturalMachine.ChenTwoChargeProjector
+import NaturalMachine.FiniteOccupancyChannelNoGo
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
 -- A total response square maps each revised univalent response image into
@@ -268,6 +286,13 @@ import NaturalMachine.TranscriptDescent
 -- corresponding input fibre.  A Bool-to-Unit control rejects one-way erasure
 -- of branch-changing history as "compression".
 import NaturalMachine.TerminalTraceCompression
+-- Equal arithmetic endpoints do not license the preceding compression when
+-- construction intermediates persist.  The two chains to 6 have opposite
+-- future availability at 3/4; one retained cache bit repairs the decoder,
+-- while explicit garbage collection changes the target to a constant table.
+import NaturalMachine.AdditionChainPredictiveMemory
+import NaturalMachine.SingletonWitnessStabilization
+import NaturalMachine.ExposureStabilizationAdapter
 -- Fixed random base-4 borrow-table contact, returned to the decoder core:
 -- complement transports borrow to carry, positive borrow excludes every
 -- nonzero least-significant digit, but a literal observation collision
@@ -477,6 +502,8 @@ import NaturalMachine.BalanceWithoutTransitivity
 -- of the 6×10 affine solution chart costs the ten-state eliminated kernel,
 -- while overwrite to its one symbolic coset costs all sixty basis states.
 import NaturalMachine.AffineProjectionQuantumBoundary
+import NaturalMachine.SmithKernelQuantumBoundary
+import NaturalMachine.GlobalSmithAtlasFlatness
 -- A precise contextuality boundary: contextwise satisfying assignments form
 -- an inhabited dependent section, while the true PM section requires one
 -- shared overlap-compatible valuation and is empty.
@@ -503,9 +530,18 @@ import NaturalMachine.ExactTwoStateInstrument
 import NaturalMachine.ExactHadamardInterference
 import NaturalMachine.ExactProjectivePhase
 import NaturalMachine.ExactProjectiveCircuits
+import NaturalMachine.ConstructiveBornNormalization
 import NaturalMachine.HadamardReadoutInstrument
 import NaturalMachine.SequentialHadamardReadout
 import NaturalMachine.ExactLocalJointSeparation
+import NaturalMachine.ExactExperimentFullAbstraction
+import NaturalMachine.NormalizedFiniteInstrument
+import NaturalMachine.NormalizedFrameCovariance
+import NaturalMachine.SequentialNormalizationObstruction
+import NaturalMachine.FullSequentialTableNormalization
+import NaturalMachine.NormalizationInterfaceMinimality
+import NaturalMachine.TwoSidedExperimentInterface
+import NaturalMachine.PairedInterfaceMinimality
 -- A branching-and-loop graph presented as a Cubical HIT: connections are
 -- functors from its path ∞-groupoid, gauge changes are natural, and graph
 -- contraction preserves the named refined holonomies.
@@ -518,6 +554,19 @@ import NaturalMachine.FiniteGraphFluxCylindrical
 import NaturalMachine.OrientedSurfaceFlux
 import NaturalMachine.SurfaceFluxCylindricalSquare
 import NaturalMachine.FillabilityCertificate
+import NaturalMachine.FiniteNonabelianHolonomy
+import NaturalMachine.S3ConjugacyObservation
+import NaturalMachine.TwoLoopNonabelianNetwork
+import NaturalMachine.S3FiniteSpinNetwork
+import NaturalMachine.S3EquivariantEndomorphismRigidity
+import NaturalMachine.S3IntegerPermutationModule
+import NaturalMachine.S3IntegerRelativeCoordinates
+import NaturalMachine.S3FixedPointCharacter
+-- Factory VI diagonal endpoint compiler: a uniform near-boundary family plus
+-- a certified subcritical scale choice produces an exact unit-boundary state.
+-- The arithmetic family/threshold proof remains an explicit input; no prime
+-- theorem is claimed by this generic compiler.
+import NaturalMachine.DiagonalEndpoint
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

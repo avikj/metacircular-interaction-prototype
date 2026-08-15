@@ -512,3 +512,126 @@ returning to richer Euclidean operations.
 Open: At what first extension of the grammar—doubling, addition of retained
 coefficients, or sign symmetry—does a genuinely unavoidable positive-cost
 branch survive global recipe minimization?
+
+## 2026-08-14T16:35:52Z — finite-target interval formation claim
+Believe: The signed-unit organism has no hidden DAG geometry at any finite
+arity.  For every finite target set, the direct traces from zero generate the
+least reusable cut set, and that set is exactly the half-open integer interval
+between the minimum and maximum of `targets ∪ {0}`.
+Doing: Prove exact replay and cut-membership formulas for replicated `inc` and
+`dec`; package an arbitrary trace choice for every finite target; show the
+direct cut union is contained in every valid formation; identify it with the
+convex-hull interval and compute its cardinality as the interval width.
+Forecast: 0.76 the full interval identity, width formula, and universal
+minimality land; 0.19 universal minimality lands but min/max bookkeeping is
+too costly for this pulse; 0.05 the direction-free cut quotient loses data
+needed by some target family.
+Return absorbed: the direct positive diagonal Smith join confirms that only
+the Bézout coefficients remain formed; the residual-step compiler supplies
+local composition, while the previous cut theorem supplies the separating
+invariant.  This pass asks whether those ingredients scale beyond `{2,-1}`.
+Boundary: only the declared unary alphabet and distinct undirected cut cost.
+No claim about bit height, addition chains, primitive doubling, matrix-word
+length, or formation of the Bézout witness itself.
+
+## 2026-08-14T16:39:35Z — finite-target interval law landed
+Believe: In the unary signed-step grammar, reusable formation geometry is now
+classified rather than sampled: every finite target family compiles to one
+integer interval.
+Doing: Added exact replay laws for replicated increments and decrements; proved
+their cut sets are `[z,z+n)` and `[z-n,z)`; constructed the monotone trace to
+every integer; and proved its cuts are contained in those of every alternative
+valid trace.  For a finite target set, the union of direct cuts is exactly
+`Ico(min(targets∪{0}), max(targets∪{0}))`, so its cost is the integer width and
+is a universal lower bound.  `{2,-1}` computes back to cost three.
+Forecast return: the leading 0.76 branch occurred.  The only proof repair was
+making `Int.ofNat`/`Nat.cast` equality explicit and unfolding the target union
+before applying its membership law; the mathematical statement did not
+narrow.
+Resulting kill: no finite signed-unit target set has a cheaper detour, hidden
+shared prefix, or non-interval reusable DAG.  Any genuine formation branch must
+enter with a richer operation alphabet.
+Boundary: direction-free distinct-cut cost is intentionally generous.  This
+does not price coefficient magnitude in bits, continued fractions, matrix
+factorization, primitive sign reversal, addition, or doubling.
+Verification: focused `lake build Pairfield.EuclidFiniteTargetFormation`
+passes 959 jobs; root `lake build Pairfield` passes 8,808 jobs with inherited
+linter warnings only.  No Python ran.
+
+## 2026-08-14T16:39:36Z — session breath
+Resume: Add exactly one richer coefficient operation and demand a strict
+separation from the interval theorem.  Doubling is the smallest candidate,
+but its cost and reuse semantics must be declared before searching for a
+branch.
+Open: Does unit-cost doubling create a finite target family whose globally
+minimal formation graph has a positive-cost shared ancestor, or does a
+different normal form kill that branch too?
+
+## 2026-08-14T17:04:23Z — doubling-fork separation claim
+Believe: Unit-cost doubling is the first constructor that escapes the unary
+interval law.  The target family `{3,8}` has a checked shared prefix
+`0→1→2`, then branches by `inc` to `3` and by two doublings to `8`, costing
+five distinct operations against the unary optimum eight.
+Doing: Add a proof-bearing `inc/dec/double` trace grammar with exact append
+composition; retain shared-prefix and independent-pair costs separately; and
+transport the already proved finite-target interval cost as the negative
+control.
+Forecast: 0.72 the typed doubling fork lands with costs `5<7<8` (shared,
+independent enriched, unary optimum); 0.20 the strict unary separation lands
+but edge identity prevents an honest shared-work comparison; 0.08 a shorter
+normal form makes the proposed fork noncompetitive.
+Return absorbed: consequence fibers require retaining alternative derivations
+when a future cost consumes them; exponent coordinates show multiplication is
+a genuine chart change but cannot transport addition.  The new constructor is
+therefore explicit and local, not smuggled in through valuation language.
+Boundary: this pulse exhibits a lawful strict improvement over every unary
+formation.  It does not claim the five-edge fork is globally minimal in the
+enriched grammar.
+
+## 2026-08-14T17:06:58Z — doubling fork landed
+Believe: The organism now has its first checked constructor beyond translation:
+`double : z ↦ 2z`, retained with its exact trace rather than compressed to the
+resulting integer.
+Doing: Added `DoublingCoefficientStep`, replay and append composition,
+proof-bearing enriched edges, and a typed fork.  For targets `{3,8}`, the
+shared prefix is `[inc,double] : 0→2`; its branches are `[inc] : 2→3` and
+`[double,double] : 2→8`.  Shared cost is `5`, independent enriched replay is
+`7`, and the proved unary interval optimum is `8`.  Lean further proves this
+fork beats every valid unary formation, not merely the canonical one.
+Forecast return: the leading 0.72 branch occurred exactly as `5<7<8`.
+Operation identity was retained by the enriched step type, so the 0.20 scope
+repair was unnecessary.
+Yield: doubling strictly escapes the entire unary interval class and retained
+derivation fibers have a mathematical consumer—the common prefix saves two
+operations.  This is the first positive formation after two prefix no-gos.
+Boundary: no enriched global minimality theorem.  A different doubling trace
+or DAG may cost below five; bit height, multiplication by arbitrary retained
+coefficients, and matrix-word pricing remain outside the result.
+Verification: focused `lake build Pairfield.EuclidDoublingFork` passes 960
+jobs; root `lake build Pairfield` passes 8,814 jobs with inherited linter
+warnings only.  No Python ran.
+
+## 2026-08-14T17:06:59Z — session breath
+Resume: Use the newly retained shortest-reaching witness fibers to decide the
+honest next question: whether five is globally minimal for `{3,8}` in the
+enriched grammar.  Register the graph/cost model before invoking finite search.
+Open: Can a four-edge enriched formation reach both `3` and `8`, perhaps by
+merging rather than sharing a prefix, or is the displayed fork the first
+globally minimal positive branch?
+
+## 2026-08-14T17:32:16Z — four-operation causal minimum claim
+Believe: The shortest-reach return makes the missing quantifier finite only
+after formation is typed causally.  An at-most-four-operation unary DAG can be
+topologically presented by four optional slots, each reading zero or an
+earlier slot; duplicate values and arbitrary reuse remain admitted.
+Doing: Check every inhabitant of that finite schedule type in Lean, exhibit
+the five-operation `{3,8}` fork in the same model, and either certify cost five
+as global or retain the first four-operation counterexample.
+Forecast: 0.82 no at-most-four causal schedule forms both endpoints and the
+existing five-edge fork is globally minimal in the declared grammar; 0.13 a
+four-operation schedule exists through a duplicate/merge geometry; 0.05 the
+finite encoding omits a lawful unary formation and must be rejected.
+Return absorbed: `ShortestReach` preserves all derivations while selecting a
+least active witness; here its loop-deletion lesson becomes causal slot
+normalization rather than word-layer enumeration.  The exact theorem will not
+claim binary operations, arbitrary integer constants, or bit complexity.

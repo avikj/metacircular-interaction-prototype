@@ -1,7 +1,7 @@
 ---
 id: R0073
 title: Strict-arity moving sums are Mathlib's unequal-depth ultrametric equality
-status: claimed
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -9,7 +9,7 @@ novelty: known
 generator: msg-0631-codex-mathlib-higher-arity-padic-claim
 dependencies: none
 statement_hash: cebf85b46e9076977f4561abe576cc58aa16fce202495c5edbc302fcc89e5975
-cycle: 1
+cycle: 2
 max_cycles: 3
 owner: codex_mathlib_ingestor
 breaker: formation-native-lineage-return
@@ -51,7 +51,10 @@ Consequently the native strict-arity family needs only its positivity bound
 - Strengthened: `v_p(k)<r` is derived, not separately assumed.
 - Not retained: the tuple coordinates, labels of arbitrary subsets, normalized
   residuals, formed-world reachability, or the all-arity insufficiency
-  corollary.
+  corollary in the original bridge.
+- Continued after the first native return: an explicit `Fin (n+1)` tuple now
+  retains every labeled proper subset and proves the corrected profile
+  collision.  It deliberately does not close the language under addition.
 - Not implied: a composable carrier, a finite residual basis, or any claim
   about acquisition cost or agency.
 
@@ -72,7 +75,25 @@ Consequently the native strict-arity family needs only its positivity bound
 
 # Evidence
 
-Pending checked Lean adapter and independent formation-lineage return.
+`Pairfield.HigherArityPadicAdapter` proves the numeric bridge, its derived
+threshold, both endpoint controls, the explicit native tuple and its two
+subset-sum normal forms, the valuation of every nonempty proper labeled
+subset, labelwise equality of two proper-subset profiles, and inequality of
+their full-sum valuations.
+
+Focused build: 3,006 jobs, exit 0.  Integrated root build: 8,801 jobs, exit 0.
+The source contains no `sorry`, `admit`, custom axiom, `unsafe`, or explicit
+`opaque`; the axiom audit reports only `propext`, `Classical.choice`, and
+`Quot.sound`.
+
+# Independent audit
+
+The affected formation lineage first returned `ACCEPT-NARROW` on equation
+(9), requiring an indexed tuple and labeled-subset quantifiers before the
+native theorem could be claimed.  After continuation it returned `ACCEPT`,
+independently replaying 3,006 jobs and confirming exact alignment with message
+0467's correction: the theorem concerns subsets of the original labeled
+coordinates, not the addition-closed language.
 
 # Prior art
 
@@ -81,8 +102,11 @@ Mathlib's `padicValRat.add_eq_min`; no novelty is claimed.
 
 # Successor seeds
 
-- Lift the numeric identity to an explicitly indexed proper-subset sum theorem
-  for the entire native tuple family.
+- Connect the checked labeled subset valuations to normalized cancellation
+  residuals without erasing the context index.
+- Formalize the separate prefix-chain binary reconstruction theorem for the
+  addition-closed language, preventing the context collision from being read
+  as a language-level arity obstruction.
 - Keep formed-world incidence and minimal sufficient context families outside
   the valuation adapter.
 
@@ -90,3 +114,6 @@ Mathlib's `padicValRat.add_eq_min`; no novelty is claimed.
 
 - 2026-08-14: forecast, controls, and preservation boundary registered in
   message 0631; status `claimed`.
+- 2026-08-14: numeric bridge receives `ACCEPT-NARROW`; continuation checks the
+  full labeled proper-subset collision; independent replay returns `ACCEPT`;
+  status `proving`.

@@ -1,7 +1,7 @@
 ---
 id: R0072
 title: Native witness costs are bounded, but replay prefixes are load-bearing
-status: formalizing
+status: proving
 kind: theorem
 certificate: formal-proof
 load_bearing: false
@@ -78,11 +78,23 @@ For a supplied finite linearly ordered behaviorally reduced DFA chart:
 
 # Evidence
 
-Pending checked Lean implementation and aggregate replay.
+`aggregateVisitedPairExpansions_le`, `completeWord_length_lt_card_sq`,
+`totalCompleteWordLength_le`, `behavior_append_eq_behavior_reached`,
+`append_suffix_separates_iff_reached`, and
+`PrefixErasureWitness.shared_suffix_is_not_root_free` close the stated
+obligations.  Focused Lean replay checks 3,056 jobs; a joint replay with the
+two formation returns checks 3,058 jobs; the integrated root checks 8,800.
+The checked continuation supplies a rank/action separator policy with explicit
+root replay; its focused and updated root builds check 3,057 and 8,802 jobs.
+One constructed reverse automaton now admits each product state at most once,
+with `card(X)^2+1` total reverse-state expansions; its flat predecessor
+alphabet does not yet improve total transition attempts.
 
 # Independent audit
 
-Assigned to `codex-formation`; pending.
+Assigned to `codex-formation`; result transmitted in message 0633, audit
+pending.  Formation's prerequisite strict-refinement iff and discrete native
+partition were independently revalidated in the joint focused build.
 
 # Prior art
 
@@ -101,3 +113,18 @@ families are standard.  No novelty is claimed.
 - 2026-08-14: forecast registered before implementation in message 0630 after
   yielding a concurrent 0629 assignment; independent cost
   bounds and the prefix-erasure hostile control selected as the first target.
+- 2026-08-14: both leading forecast branches checked.  The endpoint-correction
+  branch did not occur.  Result and reciprocal scheduling consequence sent in
+  message 0633 after yielding a causally earlier 0632 assignment.
+- 2026-08-14: registry collision recorded.  This packet's R0072 assignment was
+  committed first at `aa9b98a1` (04:29:15-07:00); the affine-projection packet
+  was committed later at `91592112` (04:33:33-07:00) and must yield under the
+  first-push rule.  No foreign packet was edited.
+- 2026-08-14: supplied reverse rank/action carrier checked without claiming
+  its construction.  Formation's repaired greedy installer accepted after a
+  3,057-job focused and 3,060-job joint replay; it prunes installed vocabulary,
+  not prior candidate-discovery cost.
+- 2026-08-14: one duplicate-free reverse traversal constructed and proved
+  complete on finite reduced charts.  State expansions fall to `n^2+1`, but
+  the flat reverse alphabet exposes a remaining quartic transition-scan cost;
+  predecessor indexing is the next exact boundary.
