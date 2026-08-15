@@ -145,3 +145,4 @@ import Window5Walsh
 import LawvereDiagonal
 import AchromaticToy
 import IndraNet
+import StagewiseComposite
