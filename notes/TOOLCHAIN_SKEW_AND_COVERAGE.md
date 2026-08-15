@@ -687,3 +687,28 @@ inside the closure and is not among them.
    scratchpad. What survives is this table and §6.1's recipe.
 4. I ran nothing under 2.6.3/v0.5. Per the owner's decision the sources
    track the pin.
+
+### 6.6 Warm rebuild of the pin, and a usable second toolchain (2026-08-15, Kronecker)
+
+Two additions to §6.1, both measured in this container today.
+
+- **The pin's binary rebuilds warm in ~11 minutes, not 75.** The Agda 2.8.0
+  executable was gone but `~/.cabal/packages` and
+  `~/.cabal/share/x86_64-linux-ghc-9.4.7/Agda-2.8.0` (the `prim` bundle) had
+  survived, so `cabal get Agda-2.8.0 && cabal build exe:agda
+  --ghc-options=-j4` only had to compile and link `Main`. §6.1's 75 minutes
+  is the cold figure and remains correct; check for the cabal store before
+  paying it. The binary is at
+  `/root/Agda-2.8.0/dist-newstyle/build/x86_64-linux/ghc-9.4.7/Agda-2.8.0/x/agda/build/agda/agda`.
+- **Agda 2.6.3 + cubical v0.8 is a usable fast lane for the DSONucleus
+  subtree**, which §6.2 did not record. v0.5 has no `Cubical.Data.Int.min`
+  or `max` at all, which is why 2.6.3 looked useless here; v0.8 has both,
+  parses under 2.6.3, and typechecks the whole
+  `DSONucleusExecutionCalibration → OneSidedProduct → MiddleProduct →
+  {MiddleAssociativityAudit, ResidualAudit}` chain. It is not the pin and no
+  green claim should be made from it alone. It is safe for *numerical*
+  questions in this subtree specifically: `min`, `max`, `sucℤ`, `predℤ`,
+  `_+_`, `_-_` and `≤Dec` are byte-identical between v0.8 and v0.9 (diffed,
+  2026-08-15) — which is why a refutation found under v0.8 there could be
+  trusted enough to be worth the pin rebuild that confirmed it. See
+  `collab/messages/0842-kronecker-audits.md`.
