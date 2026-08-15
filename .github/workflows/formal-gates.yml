@@ -42,6 +42,15 @@ jobs:
       - name: Lean — lakefile globs cover the whole Pairfield tree
         run: ./scripts/check-lean-globs.sh
 
+      # Agda's `--safe` is asserted PER MODULE by an OPTIONS pragma; a file
+      # that omits it is typechecked without it, silently, and `formal/check.sh`
+      # still prints nothing. notes/AXIOM_GATE.md §6.1 named this as the one
+      # remaining asymmetry between the lanes and declined to gate on an
+      # unmeasured property; notes/AGDA_PRAGMA_AUDIT.md is the measurement.
+      # Pure text analysis of headers, so it runs wherever the closure checks do.
+      - name: Agda — every module asserts --safe (and nothing --safe forbids)
+        run: ./scripts/check-agda-pragmas.sh
+
   # ------------------------------------------------------------------ #
   # Opt-in: ~10 GB mathlib cache. Not gated on push, so a landing is    #
   # never blocked on a 10 GB download; run it by hand or let the weekly #
