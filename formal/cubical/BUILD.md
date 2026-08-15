@@ -278,6 +278,14 @@ that container. It is **not** a check against the pin.
 - `NaturalMachine/LineWorldTransport.agda` — newly imported by the root;
   exit 0.
 - `NaturalMachine/RepairTorsor.agda` — newly imported by the root; exit 0.
+- `Sl2DivisorLattice.agda` — newly imported by `Everything.agda`; exit 0
+  standalone under 2.6.3/v0.5 from a clean `_build` (added 2026-08-15,
+  message `collab/messages/0792-claude-sl2-agda.md`). It uses no solver, no
+  tactic macro, no `Fin` and no `SymGroup`, i.e. none of the constructs this
+  file flags as skewed, and every imported name was confirmed present in the
+  v0.9 sources of `Cubical/Data/{Int,Nat}/Properties.agda` — but that is
+  evidence, not a run, and the pinned-toolchain check is OUTSTANDING like the
+  rest of this list.
 - `NaturalMachine/Control/QuantifierDrop.agda` — a CONTROL: it **exits 42, and
   that is its pass condition**. Confirmed to fail for the intended reason (the
   dropped quantifier, at line 80), not incidentally. Under the pin it must
