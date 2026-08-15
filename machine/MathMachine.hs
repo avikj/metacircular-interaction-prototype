@@ -47,6 +47,7 @@ import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
 import qualified Certificate as C
+import qualified Knobs as K
 import Data.Char (isAlphaNum, isSpace)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -65,26 +66,32 @@ import System.Exit (exitSuccess)
 -- winner) is designed and not built; the imports for it below are dead
 -- until it is.  Two visiting readers caught this in the same hour.
 -- ===================================================================
-kProbe :: Int
-kProbe = 400
-kAssign :: Int
-kAssign = 40
-kMinPrune :: Int
-kMinPrune = 1
-kConceptMin :: Int
-kConceptMin = 8
+-- The knob values below are the DEFAULTS.  They are no longer the values
+-- the engine runs on: `machine/Knobs.hs` owns the knob set, the loader
+-- reads machine/knobs.conf at startup, and the live set travels in the
+-- Machine record as `mKnobs`.  Each name is kept here as `<name>Default`
+-- so the banner above still reads as a list of constants with their
+-- provenance, and so an absent conf reproduces today's engine exactly.
+kProbeDefault :: Int
+kProbeDefault = 400
+kAssignDefault :: Int
+kAssignDefault = 40
+kMinPruneDefault :: Int
+kMinPruneDefault = 1
+kConceptMinDefault :: Int
+kConceptMinDefault = 8
 -- How much shorter the probe must get before a name is worth having.
 -- A fold of a pattern of size p saves p-1 symbols, and the smallest
 -- admissible pattern has size 3, so one fold saves at least 2: this
 -- threshold is "at least four real folds".  It is a gate on description
 -- length, which is the only currency a DEFINITION can be paid in — see
 -- `marginalCompress` for why the old prune-based gate could never pass.
-kConceptGain :: Int
-kConceptGain = 8
-kVars :: Int
-kVars = 3
-kSizeCap :: Int
-kSizeCap = 7
+kConceptGainDefault :: Int
+kConceptGainDefault = 8
+kVarsDefault :: Int
+kVarsDefault = 3
+kSizeCapDefault :: Int
+kSizeCapDefault = 7
 
 -- ---------------------------------------------------------------- terms
 
@@ -1375,6 +1382,10 @@ data Machine = Machine
   -- between two presentations does not determine it, so it is recorded and
   -- never derived.  (NaturalMachine.CostGeometry, NaturalMachine.Residual)
   , mCosts :: M.Map (Int,Int) Int
+  -- the live knob set, read from machine/knobs.conf at startup by
+  -- machine/Knobs.hs.  The constants at the top of this file are now only
+  -- the DEFAULTS, and an absent conf reproduces them exactly.
+  , mKnobs :: K.Knobs
   }
 
 -- ===================================================================
@@ -1495,7 +1506,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [(boundedDSOTask "square-threshold" squareThresholdSearch,
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
-  0 kAssign M.empty
+  0 (K.kAssign K.defaultKnobs) M.empty K.defaultKnobs
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1550,7 +1561,7 @@ conceptRule s = case symDefs s of
 bestOf :: [Sym] -> [Term] -> [Term] -> [(Term,Int)]
 bestOf syms retired terms =
     take 1 (sortOn (\(p,c) -> negate (c * (size p - 1)))
-             [ pc | pc@(p,c) <- counts, c >= kConceptMin, headIsNotFresh p
+             [ pc | pc@(p,c) <- counts, c >= kConceptMinDefault, headIsNotFresh p
                   , not (alreadyNamed p), not (trivialApp p)
                   , mentionsPrimitive p
                   , canonTerm p `notElem` retired ])
@@ -1650,7 +1661,7 @@ round1 mem logh libh ref = do
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
-      nv = kVars
+      nv = K.kVars (mKnobs m)
       envs = assignments nv (mAssign m)
       rules = usableRules m
       raw = genTermsModulo (provedCommutative m) (provedAssociative m)
@@ -1698,7 +1709,7 @@ round1 mem logh libh ref = do
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
-      probe = take kProbe normed
+      probe = take (K.kProbe (mKnobs m)) normed
       results = reverse (snd (foldl' attempt (rules, []) fresh))
       bounded = map executeBoundedSearch (mBoundedSearches m)
       witnessBranches = sum (map (length . activeWitnesses) bounded)
@@ -1752,7 +1763,7 @@ round1 mem logh libh ref = do
               Just pf
                 -- a proof is not enough: it must also make the world
                 -- smaller, or it is a true statement with no consequences
-                | marginalPrune acc probe c < kMinPrune -> (acc, out)
+                | marginalPrune acc probe c < K.kMinPrune (mKnobs m) -> (acc, out)
                 | otherwise ->
                     let acc' = acc ++ maybe [] (:[]) (orient c)
                                 ++ (if isJust (orient c) then []
@@ -1796,7 +1807,7 @@ round1 mem logh libh ref = do
              -- way to be stuck.
              , mAssign = case gate of
                  Advance   -> mAssign m
-                 Refused _ -> min (8 * kAssign) (2 * mAssign m)
+                 Refused _ -> min (8 * K.kAssign (mKnobs m)) (2 * mAssign m)
              -- the weight this state actually cost, recorded so a later
              -- round can route by it instead of guessing
              , mCosts = M.insert (mVocab m, mSize m) nRaw (mCosts m) }
@@ -1897,8 +1908,8 @@ round1 mem logh libh ref = do
         Just s | Just (pat,fold) <- conceptRule s
                , null (definitionShapeFailures (syms ++ [s]))
                , null (definitionFailures (syms ++ [s]) definitionAuditBound)
-               , marginalCompress (usableRules m') (take kProbe normed) (pat,fold)
-                   >= kConceptGain
+               , marginalCompress (usableRules m') (take (K.kProbe (mKnobs m')) normed) (pat,fold)
+                   >= K.kConceptGain (mKnobs m')
                -> Just s
         _ -> Nothing
   case invented of
@@ -1932,11 +1943,11 @@ round1 mem logh libh ref = do
           | not permitted = m2
           | Just (Widen,_,_) <- routed, mVocab m2 < length vocabulary =
               m2 { mVocab = mVocab m2 + 1 }
-          | Just (Deepen,_,_) <- routed, mSize m2 < kSizeCap =
+          | Just (Deepen,_,_) <- routed, mSize m2 < K.kSizeCap (mKnobs m2) =
               m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary && even (mRound m2) =
               m2 { mVocab = mVocab m2 + 1 }
-          | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
+          | mSize m2 < K.kSizeCap (mKnobs m2) = m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
           -- Past this point the given vocabulary is exhausted and the
           -- size horizon is at its cap.  The machine used to answer that
@@ -2218,7 +2229,7 @@ main = do
                 && null (definitionShapeFailures extended)
                 && null (definitionFailures extended definitionAuditBound)
                 && folded == expectedFold
-                && compression >= kConceptGain
+                && compression >= kConceptGainDefault
                 && towerRejected
                 && retiredRejected) exitFailure
         hPrintf stdout
@@ -2322,7 +2333,9 @@ runMachine batch = do
                      , mRules = mapMaybe orient admitted
                      , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
                      , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }
-  ref <- newIORef seeded
+  knobs <- K.loadKnobs
+  hPrintf logh "  KNOBS  %s\n" (show knobs)
+  ref <- newIORef (seeded { mKnobs = knobs })
   -- A machine that halts is not a machine.  The old loop stopped when the
   -- size horizon passed its cap, which is to say: it enumerated a finite
   -- space and finished.  Nothing about arithmetic is finite; what was
