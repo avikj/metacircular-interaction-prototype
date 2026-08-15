@@ -599,3 +599,91 @@ toolchain changed.
 5. I did not run anything under 2.6.3/v0.5. Per the owner's decision the
    pin is the toolchain the sources track, and several modules folded in
    here (every `solve!` user) are certainly red under v0.5.
+
+## 8. The exit-137 withholding, discharged
+
+2026-08-15, Claude (Landau-lineage pass). **Addition only** — nothing above
+this heading was altered, including §7.2's table, whose `WalkFastInstance`
+row I am superseding rather than editing. Every exit code, wall time and
+memory figure below was produced by me in this container under the pin:
+Agda 2.8.0 (the §6.1 binary, still alive in this session's scratchpad;
+`--version` confirmed, **not rebuilt**) + cubical v0.9 at
+`/root/agda-libs/cubical-v0.9`, `LC_ALL=C.UTF-8` on every run.
+
+### 8.1 The withholding was right and the verdict is 0
+
+§7.2 withheld `NaturalMachine/WalkFastInstance.agda` at **exit 137** —
+SIGKILL, the OOM killer — and refused to call it a typecheck verdict. That
+refusal was correct, and it was also the only thing standing between this
+module and a false record in either direction.
+
+Re-run under the pin from a tree with **no `_build` and no `.agdai`**:
+
+```
+WFI_EXIT=0   wall=13-15s   peak RSS=333-388 MB (two clean runs)   11 modules
+```
+
+**No source change was needed and none was made** to obtain this. The
+module's own header diagnoses its historical blow-up correctly — the
+conversion checker comparing the goal's `next 8` against a second,
+independently elaborated `next 8`, cured by binding `facts m 1≤m` with a
+`let` that carries *no type signature* — and that diagnosis holds under
+2.8.0's conversion checker as well as the 2.6.3 one it was bisected
+against. The statements `next 8 ≡ 9`, `next 9 ≡ 11`, `next 10 ≡ 11` are
+unchanged, as is every proof of them.
+
+**The order of magnitude is the whole point.** A module needing under 400 MB does not OOM a
+16 GB container. The 137 was contention — several agents' Agda processes at
+load ~4.5 — precisely as §7.2 suspected. The estimate, stated rather than
+gestured at: the module wants about 2.5% of this container's memory, so the
+gap between "was killed" and "is unbounded" is a factor of forty, and
+nothing about `cap 8 = lcm(1..8) = 840` in unary was ever being normalised.
+
+### 8.2 A measurement trap, recorded because I fell into it twice
+
+My first two attempts reported a peak RSS of **5412 kB** — the *same* number
+for an 11 s run and a 166 s run, which is what exposed it. Backgrounding a
+`cd … && export … && agda …` compound with `&` makes `$!` the **subshell's**
+PID, so `/proc/$!/status` meters bash, not Agda. The figures above and the two
+aggregate figures below come from a wrapper script that `exec`s the binary.
+An identical peak across runs of different length is the tell.
+
+### 8.3 The aggregates, re-run from a clean tree
+
+`WalkFastInstance` was already imported by `NaturalMachine.agda` (line 658)
+— folded in by the sibling lane §7.2 names, *without* an exit code, which
+left the root depending on a module whose verdict was unestablished. That is
+now closed. Both runs below started from a copy with `_build` removed and
+`find -name '*.agdai' | wc -l` = **0**, verified before each run; neither
+reuses interfaces written by the run before it.
+
+| aggregate root | exit | modules | errors | wall | peak RSS |
+|---|---|---|---|---|---|
+| `NaturalMachine.agda` | **0** | 293 | **0** | 138 s | 1237 MB |
+| `Everything.agda` | **0** | 359 | **0** | 300 s | 1486 MB |
+
+The 192 warnings under the `NaturalMachine` root are all
+`UnsupportedIndexedMatch`, the documented F39 boundary, and there are zero
+errors. `WalkFastInstance` is checked at line 1177 of the root log.
+
+`bash scripts/check-agda-closure.sh` exits **1**, on exactly two modules:
+`NaturalMachine.DSONucleusMiddleAssociativityAudit` and
+`NaturalMachine.DSONucleusResidualAudit` — §7.2's other two withholdings,
+which belong to a sibling lane working on them now. `WalkFastInstance` is
+inside the closure and is not among them.
+
+### 8.4 Scope limits
+
+1. This pass establishes an exit code for **one** module and re-establishes
+   it for the two aggregate roots. It says nothing about the two
+   `DSONucleus*Audit` orphans, which I deliberately did not run or touch.
+2. Exit 0 is a statement about typechecking, not about whether the module's
+   header says what it does. I *read* the header and its bisection log, and
+   the code matches its description; I did not re-run the bisection, so the
+   per-row timings in that log remain 2.6.3/v0.5 figures and are labelled as
+   such in the file.
+3. §6.5 limit 2 stands unchanged: the pinned Agda is still not
+   `/usr/bin/agda` (2.6.3), and the binary vanishes with this session's
+   scratchpad. What survives is this table and §6.1's recipe.
+4. I ran nothing under 2.6.3/v0.5. Per the owner's decision the sources
+   track the pin.

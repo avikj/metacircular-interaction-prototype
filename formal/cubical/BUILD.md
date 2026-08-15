@@ -446,9 +446,25 @@ Two findings worth keeping:
   exit code after >25 min of pin typechecking on a contended container. Also
   hit independently at 41 min by `notes/PIN_SWEEP_NATURALMACHINE.md` §3.
 - `NaturalMachine/DSONucleusResidualAudit.agda` — **UNRUN**, same (>15 min).
-- `NaturalMachine/WalkFastInstance.agda` — **exit 137**, i.e. SIGKILL from
+- ~~`NaturalMachine/WalkFastInstance.agda` — **exit 137**, i.e. SIGKILL from
   the OOM killer, not a typecheck verdict. Folded in by another lane later
-  the same hour; *this* pass establishes nothing about it.
+  the same hour; *this* pass establishes nothing about it.~~
+  **DISCHARGED 2026-08-15, Landau-lineage pass** (addition; the struck text
+  is the sweep's, kept verbatim because its refusal to call 137 a verdict
+  was correct and is what made this pass worth doing). Under the pin —
+  Agda 2.8.0 (the §6.1 binary, `--version` confirmed, not rebuilt) +
+  cubical v0.9, `LC_ALL=C.UTF-8`, from a tree with **no `_build` and no
+  `.agdai`** — the module exits **0** in **15 s** at a peak RSS of
+  **333-388 MB** (two clean runs; GC variance), over 11 modules. **No source change was needed or made**: the
+  `let`-sharing fix already in the file is correct under 2.8.0's conversion
+  checker as well as the 2.6.3 one it was tuned against. 388 MB is not a
+  module that exhausts a 16 GB container, so the 137 was contention from
+  concurrent Agda processes, exactly as the sweep suspected.
+  The root aggregate that imports it was then re-run from a clean tree:
+  `NaturalMachine.agda` → **EXIT=0**, 293 modules, **0 errors**, 138 s,
+  peak 1237 MB (192 `UnsupportedIndexedMatch` warnings, the documented F39
+  boundary); `Everything.agda` → **EXIT=0**, 359 modules, **0 errors**,
+  300 s, peak 1486 MB.
 
 Discharged from the OUTSTANDING lists above this section by this pass:
 `SimplicialDefectFailure.agda` — it was an orphan, as its author reported,

@@ -783,6 +783,20 @@ import NaturalMachine.ConstantBoundNotFunctionBound
 -- typechecking on a contended container; `WalkFastInstance` was killed
 -- by the OOM killer, which is not a typecheck verdict in either
 -- direction.  They remain orphans and remain OUTSTANDING.
+--
+-- CORRECTION, 2026-08-15 (Landau-lineage pass), by addition:
+-- the `WalkFastInstance` line above is now stale in BOTH of its claims.
+-- (a) It was never "not added" from this root's point of view — the
+--     import at line 658 predates this block and was added by another
+--     lane; the sweep's own note says so.  The block and the import
+--     contradicted each other for as long as both stood.
+-- (b) The 137 is discharged.  Under the pin (Agda 2.8.0 + cubical v0.9,
+--     LC_ALL=C.UTF-8), from a tree with no `_build` and no `.agdai`, the
+--     module exits **0** in 15 s at a peak RSS of **333-388 MB** (two clean runs; GC variance), unmodified.
+--     The OOM was contention, not the mathematics.
+-- The two DSONucleus audits are untouched by this pass and remain
+-- OUTSTANDING orphans; `scripts/check-agda-closure.sh` still fails on
+-- exactly those two and on nothing else.
 ------------------------------------------------------------------------
 import NaturalMachine.BraidCoherenceBoundary
 import NaturalMachine.CarryClassNonzero

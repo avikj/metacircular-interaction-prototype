@@ -114,6 +114,25 @@
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-15.
 -- No postulates, no holes.
 --
+-- CHECKED AGAIN UNDER THE PIN: Agda 2.8.0 + cubical v0.9, LC_ALL=C.UTF-8,
+-- from a tree with no `_build` and no `.agdai`, 2026-08-15 (Landau-lineage
+-- pass).  EXIT=0, 15 s wall, 11 modules, **peak RSS 333-388 MB (two clean runs)**.  Not one
+-- character of this module was changed to obtain that: the `let` diagnosis
+-- above is correct under 2.8.0's conversion checker as well as 2.6.3's.
+--
+-- The orphan sweep of the same day (notes/TOOLCHAIN_SKEW_AND_COVERAGE.md
+-- §7.2) reported this module as **exit 137**, SIGKILL, and rightly refused
+-- to read that as a typecheck verdict.  It was not one.  388 MB is not a
+-- module that OOMs a 16 GB container; it is a module that was standing next
+-- to several other agents' Agda processes when the kernel picked a victim.
+-- The reported 137 is reproduced here as what it was — a fact about the
+-- machine, at load ~4.5 — and is now superseded by a measured exit code.
+--
+-- Note for anyone re-measuring: background the *binary*, not a `cd … && …`
+-- compound, or `$!` is the subshell's PID and you will meter bash at 5 MB
+-- and conclude the run was free.  I did exactly that on my first two
+-- attempts; the 388 MB above is from an `exec`ed wrapper.
+--
 ------------------------------------------------------------------------
 -- (retracted header of the first revision, kept so the claim, its
 -- retraction and its repair stay together:)
