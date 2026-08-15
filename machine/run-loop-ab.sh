@@ -86,6 +86,11 @@ usage() {
     '  --memory         copy machine/library.terms in as startup memory' \
     '                   (only newer builds read it; off by default so that' \
     '                    an A/B is not measuring the seed)' \
+    '  --baseline-variant old-flow' \
+    '                   build the baseline from the CURRENT source with the' \
+    '                   growth trigger reverted to the pre-KFlow boolean.' \
+    '                   Isolates the control law with everything else held' \
+    '                   fixed -- the cell of the design that is not a commit.' \
     '  --keep DIR       copy raw logs and binaries into DIR before cleanup' \
     '  --agda-home DIR  use DIR as AGDA_DIR instead of synthesising one'
 }
@@ -104,6 +109,7 @@ run_baseline=yes
 run_current=yes
 use_thoughts=no
 use_memory=no
+baseline_variant=
 keep_directory=
 agda_home=
 
@@ -122,6 +128,9 @@ while [ "$#" -gt 0 ]; do
     --baseline-only) run_current=no; shift ;;
     --thoughts) use_thoughts=yes; shift ;;
     --memory) use_memory=yes; shift ;;
+    --baseline-variant)
+      [ "$#" -ge 2 ] || fail '--baseline-variant needs an argument'
+      baseline_variant=$2; shift 2 ;;
     --keep)
       [ "$#" -ge 2 ] || fail '--keep needs an argument'
       keep_directory=$2; shift 2 ;;
@@ -482,7 +491,52 @@ print_table() {
 # ------------------------------------------------------------ measurement
 current_source="$repository_directory/machine/MathMachine.hs"
 
-if [ "$run_baseline" = yes ]; then
+
+# --------------------------------------------------- synthesised baselines
+#
+# Some cells of the design are not any revision.  The control law and the
+# certificate generator landed in separate commits, so "old control law with
+# the new certificate" -- the cell that says whether the control law still
+# matters once the machine can actually install theorems -- exists nowhere in
+# git.  It is, however, exactly one line: the growth trigger.
+#
+#   6835a4e3   let stuck = null checkedResults
+#   current    let stuck = flow == Resonance && null checkedResults
+#
+# `--baseline-variant old-flow` builds the baseline from the CURRENT source
+# with that one line reverted, and nothing else touched.  The other two rules
+# ride along unchanged, which is sound precisely because the tables report
+# that they never bind: if a run shows a nonzero GATE refusal or ROUTE firing
+# count, this variant stops being a clean single-factor control and the
+# comparison must be read as three factors again.
+#
+# The substitution must match exactly once.  A variant that silently failed to
+# apply would be a copy of the current build wearing a baseline's label, and
+# would report "no difference" for the most flattering possible reason.
+make_variant() {
+  variant_name=$1
+  variant_out=$2
+  case "$variant_name" in
+    old-flow)
+      old_line='  let stuck = flow == Resonance && null checkedResults'
+      new_line='  let stuck = null checkedResults'
+      hits=$(grep -c -F -x "$old_line" "$current_source" || true)
+      [ "$hits" = 1 ] \
+        || fail "variant old-flow: growth trigger matched $hits times, expected 1"
+      awk -v old="$old_line" -v new="$new_line" \
+        '{ if ($0 == old) print new; else print }' "$current_source" >"$variant_out"
+      grep -q -F -x "$new_line" "$variant_out" \
+        || fail 'variant old-flow: substitution did not take'
+      ;;
+    *) fail "unknown baseline variant: $variant_name" ;;
+  esac
+}
+
+if [ "$run_baseline" = yes ] && [ -n "$baseline_variant" ]; then
+  baseline_source="$work_directory/VariantMathMachine.hs"
+  make_variant "$baseline_variant" "$baseline_source"
+  baseline_short="variant:$baseline_variant"
+elif [ "$run_baseline" = yes ]; then
   if [ -z "$baseline_rev" ]; then
     baseline_rev=$(cd "$repository_directory" \
       && git log --format='%H' -- machine/MathMachine.hs | sed -n '2p')
