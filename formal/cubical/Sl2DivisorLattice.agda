@@ -86,10 +86,10 @@ module Sl2DivisorLattice where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
   using (ℕ ; zero ; suc ; +-zero ; +-suc ; +-comm ; +-assoc
-        ; ·-suc ; ·-identityˡ ; ·-identityʳ ; discreteℕ ; injSuc)
+        ; ·-suc ; ·-identityˡ ; ·-identityʳ ; discreteℕ)
   renaming (_+_ to _+ℕ_ ; _·_ to _·ℕ_)
 open import Cubical.Data.Int
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_ ; yes ; no)
 
 ------------------------------------------------------------------------
@@ -211,8 +211,7 @@ bracket-ηφ : (v : M) → ⟦ η , φ ⟧ v ≡ scale (- pos 2) (φ v)
 bracket-ηφ v = funExt (λ κ → funExt (λ d → go κ d))
   where
   go : (κ d : ℕ) → ⟦ η , φ ⟧ v κ d ≡ scale (- pos 2) (φ v) κ d
-  go κ zero = ·0ᵣ (pos κ - pos (pos→ℕ)) ∙ sym (·0ᵣ (- pos 2))
-    where pos→ℕ = 0
+  go κ zero = ·0ᵣ (pos κ - pos 0) ∙ sym (·0ᵣ (- pos 2))
   go κ (suc d) =
       cong (_- (pos C · ((pos (suc κ) - pos d) · y))) (·Assoc S (pos C) y)
     ∙ cong ((S · pos C) · y -_) (·Assoc (pos C) (pos (suc κ) - pos d) y)
@@ -290,8 +289,7 @@ kron (suc m) (suc n) = kron m n
 
 private
   kron-≠ : (m n : ℕ) → ¬ (m ≡ n) → kron m n ≡ pos 0
-  kron-≠ zero zero ne = ⊥-elim (ne refl)
-    where open import Cubical.Data.Empty using (elim) renaming (elim to ⊥-elim)
+  kron-≠ zero zero ne = ⊥-rec (ne refl)
   kron-≠ zero (suc n) ne = refl
   kron-≠ (suc m) zero ne = refl
   kron-≠ (suc m) (suc n) ne = kron-≠ m n (λ p → ne (cong suc p))
