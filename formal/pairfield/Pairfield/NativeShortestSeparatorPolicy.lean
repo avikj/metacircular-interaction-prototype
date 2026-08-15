@@ -173,7 +173,7 @@ theorem compiled_policy_forms_exact_two_word_observable :
       (shortestPolicy automaton [false, true] (by intro action; cases action <;> simp)
         control_reduced)
       ∅ schedule = ({[], [false]} : Finset (List Bool)) := by
-  native_decide
+  decide
 
 theorem compiled_policy_control_is_discrete :
     ∀ left right : Fin 3,
@@ -183,7 +183,7 @@ theorem compiled_policy_control_is_discrete :
             (by intro action; cases action <;> simp) control_reduced)
           ∅ schedule)
         left right → left = right := by
-  native_decide
+  decide
 
 end Control
 

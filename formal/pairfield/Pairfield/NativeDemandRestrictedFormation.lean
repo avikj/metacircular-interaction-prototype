@@ -265,20 +265,20 @@ def schedule : List (Fin 3 × Fin 3) :=
 
 theorem schedule_complete :
     schedule.toFinset = strictPairs (X := Fin 3) := by
-  native_decide
+  decide
 
 /-- Native formation event: demand restriction constructs `[false]` for the
 hidden pair, then `[]` for the last visible distinction, and stops. -/
 theorem forms_exact_two_word_observable :
     formObservable automaton policy ∅ schedule =
       ({[], [false]} : Finset (List Bool)) := by
-  native_decide
+  decide
 
 theorem formed_control_is_discrete :
     ∀ left right : Fin 3,
       Agree automaton (formObservable automaton policy ∅ schedule) left right →
         left = right := by
-  native_decide
+  decide
 
 end Control
 

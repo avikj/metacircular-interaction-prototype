@@ -242,7 +242,7 @@ behaviorally identical `[true]` is rejected. -/
 theorem duplicate_word_is_pruned :
     greedyInstall automaton ∅ [[], [false], [true]] =
       ({[], [false]} : Finset (List Bool)) := by
-  native_decide
+  decide
 
 /-- Despite rejecting the planted duplicate, the resulting response partition
 is discrete on all three states. -/
@@ -251,7 +251,7 @@ theorem duplicate_control_remains_discrete :
       Agree automaton
         (greedyInstall automaton ∅ [[], [false], [true]]) left right →
         left = right := by
-  native_decide
+  decide
 
 end Control
 
