@@ -72,6 +72,12 @@ lemma coeff_one_of_ne {n : ℤ} (h : n ≠ 0) : (1 : L).coeff n = 0 := by
   simp only [AddMonoidAlgebra.coeff_single, Finsupp.single_apply]
   exact if_neg (Ne.symm h)
 
+lemma coeff_one_zero : (1 : L).coeff 0 = 1 := AddMonoidAlgebra.coeff_zero_zero
+
+lemma coeff_sub (f g : L) (n : ℤ) : (f - g).coeff n = f.coeff n - g.coeff n := by simp
+
+lemma coeff_add (f g : L) (n : ℤ) : (f + g).coeff n = f.coeff n + g.coeff n := by simp
+
 lemma coeff_T (a n : ℤ) : (T a : L).coeff n = if n = a then 1 else 0 := by
   simp only [LaurentPolynomial.T, AddMonoidAlgebra.coeff_single, Finsupp.single_apply]
   by_cases h : n = a
@@ -131,7 +137,7 @@ lemma EvenS.mul {f g : L} (hf : OddS f) (hg : OddS g) : EvenS (f * g) := by
 lemma evenS_one : EvenS (1 : L) := by
   intro n hn
   by_cases h : n = 0
-  · exact h ▸ even_zero
+  · subst h; exact ⟨0, by ring⟩
   · exact absurd (coeff_one_of_ne h) hn
 
 /-- An odd-supported summand and an even-supported summand are determined
@@ -229,16 +235,17 @@ number of ordered pairs of `A` with difference `n`: the autocorrelation
 theorem coeff_autocorr (A : Finset ℤ) (n : ℤ) :
     (ind A * LaurentPolynomial.invert (ind A)).coeff n
       = (((A ×ˢ A).filter (fun p => p.1 - p.2 = n)).card : ℤ) := by
+  have hinv : LaurentPolynomial.invert (ind A) = ∑ b ∈ A, (T (-b) : L) := by
+    unfold ind
+    rw [map_sum]
+    exact Finset.sum_congr rfl (fun b _ => by simp)
   have hmul : ind A * LaurentPolynomial.invert (ind A)
       = ∑ p ∈ A ×ˢ A, (T (p.1 - p.2) : L) := by
-    rw [invert_ind]
+    rw [hinv]
     unfold ind
-    rw [Finset.sum_mul_sum]
-    rw [Finset.sum_product]
-    refine Finset.sum_congr rfl (fun a _ => ?_)
-    rw [← Finset.sum_image (f := fun b => (T a : L) * T b)
-        (g := fun x => -x) (s := A) (by intro x _ y _ h; omega)]
-    exact Finset.sum_congr rfl (fun b _ => by rw [← T_add]; ring_nf)
+    rw [Finset.sum_mul_sum, Finset.sum_product]
+    exact Finset.sum_congr rfl (fun a _ => Finset.sum_congr rfl (fun b _ => by
+      rw [← T_add, ← sub_eq_add_neg]))
   rw [hmul]
   have : (∑ p ∈ A ×ˢ A, (T (p.1 - p.2) : L)).coeff n
       = ∑ p ∈ A ×ˢ A, (T (p.1 - p.2) : L).coeff n := by simp
@@ -246,6 +253,24 @@ theorem coeff_autocorr (A : Finset ℤ) (n : ℤ) :
   simp only [coeff_T]
   rw [Finset.sum_boole]
   simp [eq_comm]
+
+/-- A set containing `0` and otherwise odd has odd-supported `ind S - 1`:
+this is what puts the set-level hypothesis into the shape `core` wants. -/
+lemma oddS_ind_sub_one (S : Finset ℤ) (hS0 : (0 : ℤ) ∈ S)
+    (hSodd : ∀ a ∈ S, a ≠ 0 → Odd a) : OddS (ind S - 1) := by
+  intro n hn
+  rw [coeff_sub, coeff_ind] at hn
+  by_cases hn0 : n = 0
+  · exfalso
+    subst hn0
+    rw [if_pos hS0, coeff_one_zero] at hn
+    exact hn (by ring)
+  · rw [coeff_one_of_ne hn0] at hn
+    have hnS : n ∈ S := by
+      by_contra hx
+      rw [if_neg hx] at hn
+      exact hn (by ring)
+    exact hSodd n hnS hn0
 
 /-- **Singleton-parity rigidity, normalized set form.**
 `A` and `B` are finite sets of integers, each containing `0` and otherwise
@@ -258,36 +283,8 @@ theorem rigidity_normalized (A B : Finset ℤ)
     (h : ind A * LaurentPolynomial.invert (ind A)
        = ind B * LaurentPolynomial.invert (ind B)) :
     A = B ∨ A = B.image (fun x => -x) := by
-  have hUodd : OddS (ind A - 1) := by
-    intro n hn
-    rcases coeff_ne_or' hn with hc | hc
-    · rw [coeff_ind] at hc
-      have hnA : n ∈ A := by by_contra hx; exact hc (if_neg hx)
-      refine hAodd n hnA ?_
-      rintro rfl
-      exact hn (by simp [coeff_ind, hA0, AddMonoidAlgebra.one_def,
-        AddMonoidAlgebra.coeff_single, Finsupp.single_apply])
-    · exfalso
-      by_cases hn0 : n = 0
-      · subst hn0
-        exact hn (by simp [coeff_ind, hA0, AddMonoidAlgebra.one_def,
-          AddMonoidAlgebra.coeff_single, Finsupp.single_apply])
-      · exact hc (coeff_one_of_ne hn0)
-  have hVodd : OddS (ind B - 1) := by
-    intro n hn
-    rcases coeff_ne_or' hn with hc | hc
-    · rw [coeff_ind] at hc
-      have hnB : n ∈ B := by by_contra hx; exact hc (if_neg hx)
-      refine hBodd n hnB ?_
-      rintro rfl
-      exact hn (by simp [coeff_ind, hB0, AddMonoidAlgebra.one_def,
-        AddMonoidAlgebra.coeff_single, Finsupp.single_apply])
-    · exfalso
-      by_cases hn0 : n = 0
-      · subst hn0
-        exact hn (by simp [coeff_ind, hB0, AddMonoidAlgebra.one_def,
-          AddMonoidAlgebra.coeff_single, Finsupp.single_apply])
-      · exact hc (coeff_one_of_ne hn0)
+  have hUodd := oddS_ind_sub_one A hA0 hAodd
+  have hVodd := oddS_ind_sub_one B hB0 hBodd
   have hA1 : (1 : L) + (ind A - 1) = ind A := by ring
   have hB1 : (1 : L) + (ind B - 1) = ind B := by ring
   have hcore := core (ind A - 1) (ind B - 1) hUodd hVodd (by rw [hA1, hB1]; exact h)
@@ -324,31 +321,45 @@ removable. -/
 
 section Controls
 
-/-- C1: the hypotheses of `core` are satisfiable by nonzero data. -/
+/-- C1: the hypotheses of `core` are satisfiable by nonzero data, so `core`
+is not vacuously true. -/
 example : OddS (T 1 + T 3 : L) := by
   intro n hn
-  have h1 : (T 1 + T 3 : L).coeff n = (if n = 1 then 1 else 0) + (if n = 3 then 1 else 0) := by
-    simp [coeff_T]
-  rw [h1] at hn
+  rw [coeff_add, coeff_T, coeff_T] at hn
   by_cases ha : n = 1
   · exact ha ▸ ⟨0, by ring⟩
   · by_cases hb : n = 3
     · exact hb ▸ ⟨1, by ring⟩
-    · exact absurd (by rw [if_neg ha, if_neg hb]; ring) hn
+    · rw [if_neg ha, if_neg hb] at hn
+      exact absurd (by ring) hn
+
+/-- C1′: and the odd-support hypothesis is not satisfied by everything —
+`1 = T 0` is not odd-supported. -/
+example : ¬ OddS (1 : L) := by
+  intro h
+  rcases h 0 (by rw [coeff_one_zero]; norm_num) with ⟨k, hk⟩
+  omega
 
 /-- C2: the reflection disjunct of `rigidity_normalized` is not removable —
-`A = {0,1,3}` and `B = -A` satisfy every hypothesis and are distinct. -/
-example : ({0, 1, 3} : Finset ℤ) ≠ ({0, -1, -3} : Finset ℤ) := by decide
+`A = {0,1,3}` and `B = -A` both satisfy every hypothesis and are distinct. -/
+example : ({0, 1, 3} : Finset ℤ) ≠ ({0, -1, -3} : Finset ℤ) := by
+  intro h
+  have h1 : (1 : ℤ) ∈ ({0, -1, -3} : Finset ℤ) := by rw [← h]; decide
+  revert h1
+  decide
 
 /-- C3: `{0,-1,-3}` really is the image of `{0,1,3}` under negation, so C2
-exhibits the second disjunct rather than a failure. -/
+exhibits the second disjunct rather than a failure of the theorem. -/
 example : ({0, 1, 3} : Finset ℤ).image (fun x => -x) = ({0, -1, -3} : Finset ℤ) := by decide
 
 /-- C4: the normalization hypothesis is genuinely restrictive.  The minimal
 homometric pair of `notes/REPORT.md` §2 — `{0,1,2,6,8,11}` and
 `{0,1,6,7,9,11}`, which are *not* translates or reflections of one another —
 fails it: `{0,1,2,6,8,11}` has three even elements, not one. -/
-example : ¬ (∀ a ∈ ({0, 1, 2, 6, 8, 11} : Finset ℤ), a ≠ 0 → Odd a) := by decide
+example : ¬ (∀ a ∈ ({0, 1, 2, 6, 8, 11} : Finset ℤ), a ≠ 0 → Odd a) := by
+  intro h
+  rcases h 2 (by decide) (by decide) with ⟨k, hk⟩
+  omega
 
 /-- C5: the count in `parity_class_sizes` is not vacuous — `e = 1, o = 4`
 (a five-element set with a singleton even class) satisfies it. -/
