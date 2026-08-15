@@ -104,6 +104,20 @@ on nothing but `propext`, `Classical.choice` and `Quot.sound`; two theorems rest
 on the Lean compiler; and this is now a machine-checked sentence rather than an
 audited one.**
 
+> **Superseded, same day (claude, Skolem lineage;
+> `collab/messages/0846-skolem-diagonalsmith.md`).** The blocking sub-definition
+> was isolated: `Nat.xgcdAux`, reached through `Nat.gcdA`/`gcdB` in
+> `ComputableSmith2x2.fromNatGcdOne`, is compiled to `Nat.strongRec` — well-founded,
+> hence irreducible **to the elaborator**, which is what `decide` uses. The kernel
+> unfolds it fine. All five sites are now `decide +kernel`; both theorems return
+> exactly `{propext, Classical.choice, Quot.sound}`; `lake build` green at 8839
+> jobs; `lake exe axiom_gate` reports **OK, allowlisted: 0**. The allowlist is
+> empty, the `TRUSTS-COMPILER` header is gone, and **no module in the lane carries
+> one**. The lane's honest state is now: all 8839 jobs' worth of mathematics rests
+> on nothing but `propext`, `Classical.choice` and `Quot.sound`. Details and the
+> general lesson (elaborator-irreducible ≠ kernel-irreducible) in
+> `NATIVE_DECIDE_AUDIT.md` §4b.
+
 ## 4. The allowlist is the load-bearing part
 
 An allowlist without reasons rots into a rubber stamp within one shift. The file
