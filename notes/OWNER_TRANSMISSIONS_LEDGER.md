@@ -1,0 +1,781 @@
+# The owner transmissions D0016–D0018: consolidated ledger of what is now known
+
+*Referee pass, seed157, 2026-08-15. Compiled by reading the three transmissions and every
+note that adjudicates them; no verdict below is taken from a covering message. Where a
+verdict rests on a note, the note is named and was read in full. Where a claim has been
+settled **here and nowhere else**, the entry says so in those words and gives the argument
+inline, so that the reader is never left to infer that a file exists which does not.*
+
+**What this document is for.** Three framework transmissions arrived on 2026-08-14 and were
+worked by several agents over one night. The results are spread across five notes and eight
+messages, and until now no single artifact told the owner what had been established, what
+had been refuted, and what had been left alone. This is that artifact. It is meant to be
+readable start to finish by someone who has followed none of the session.
+
+**Sources adjudicated.**
+- `collab/upstream/raw/D0016-owner-diamond-transmission-2026-08-14.md` — Chu spaces, holonomy.
+- `collab/upstream/raw/D0017-owner-hieroglyphics-2026-08-14.md` — homotopy, obstruction theory.
+- `collab/upstream/raw/D0018-owner-third-transmission-2026-08-14.md` — repair modes, density, arithmetic.
+
+**Notes that did the adjudicating** (all read in full for this ledger):
+`notes/SHRINKING_TESTS_LOWER_CURVATURE.md`, `notes/CHANGING_TESTS_VERSUS_SHRINKING.md`,
+`notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md`,
+`notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md`, `notes/FOUR_REPAIR_MODES.md`.
+Supporting messages read: `0747`, `0749` (both of them — two messages share the number),
+`0750`, `0751`, `0752`, `0753`, `0754`. **Messages `0755`–`0757` do not exist**; `0754` is
+the highest message in the tree. The mandate's citation of them is recorded as unreachable,
+not silently dropped.
+
+**Verdict vocabulary.** PROVED (with the hypothesis it needs) · REFUTED (with the
+counterexample) · CLASSICAL (with the earliest source actually read, and its statement) ·
+PARTIAL (**always with the split named** — which half holds, which does not) · OPEN (with
+what would settle it) · PROGRAMME (notation awaiting content: no truth value is available
+because the terms do not yet denote).
+
+---
+
+## §1. D0016 — Chu spaces, holonomy, the anti-degeneracy clause
+
+### 1.1 §B — hidden curvature: $\delta_\sigma = 0 \not\Leftarrow \delta^{\mathrm{base}}_\sigma = 0$
+
+**Verdict: PROVED** (the non-implication holds; the transmission's arrow is correctly
+oriented and correctly one-directional).
+**Reason.** Coarsening the value set along any $\pi : Q \to Q_r$ can only shrink the defect
+(resolution monotonicity, Thm 3), so $\delta_\sigma = 0 \Rightarrow \delta^{\mathrm{base}}_\sigma = 0$
+always, and the converse fails on a $2\times1$ Chu space (E2) and on the seven-component
+shape (E2′), where the curvature hides in the provenance coordinate.
+**Hypothesis.** $\delta$ read *observationally* — as the set of points on which the tests
+can see the holonomy move them. The transmission fixes no reading of $\ominus 1$; this one
+is the note's, chosen as the weakest under which the slogan is true.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §4 (Thm 3, Cor 4.2), §5 (E2, E2′).
+
+### 1.2 §G — $\operatorname{Shrink}(\mathcal T) \Rightarrow \delta\downarrow$
+
+**Verdict: PROVED, weakly — and CLASSICAL in substance.**
+**Reason.** With $D_\sigma(x) = \{t : e(\mathfrak h_\sigma x,t) \ne e(x,t)\}$ and
+$\delta^S_\sigma = \{x : D_\sigma(x)\cap S \ne \emptyset\}$, $S'\subseteq S$ gives
+$\delta^{S'}_\sigma \subseteq \delta^{S}_\sigma$ in one line. It is the monotone half of a
+Birkhoff polarity (Birkhoff, *Lattice Theory*, 1940; the same monotonicity underlies testing
+preorders, De Nicola–Hennessy 1984, cited from its standard statement and not from a text
+opened). The note claims no novelty for it and should not be cited as if it had.
+**The $\downarrow$ is weak and cannot be made strict** (Cor 3.2).
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §2 (Thm 1), §7 (prior art).
+
+### 1.3 §G — the exact strictness criterion (not in the transmission; the content)
+
+**Verdict: PROVED.** $\delta^S_\sigma \setminus \delta^{S'}_\sigma
+= \{x : \emptyset \ne D_\sigma(x)\cap S \subseteq S\setminus S'\}$ — an equality, not a
+bound. Strict decrease occurs **iff** some point's entire $S$-detector set is destroyed;
+deleting a single test $t$ lowers $\delta$ iff $t$ is the unique detector of some point.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §3 (Thm 2, Cor 3.1), re-derived
+independently in `notes/CHANGING_TESTS_VERSUS_SHRINKING.md` §0.2.
+
+### 1.4 §G — the degenerate shrink: $\delta^{\emptyset}_\sigma = \emptyset$ always
+
+**Verdict: PROVED**, and this is the cleanest form of *zero curvature is not truth*: the
+empty test set reports zero defect for **every** holonomy datum whatsoever, so a bare report
+of $\delta = 0$ carries exactly zero information about $\rho$. No counterexample is needed.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §2, Cor 2.3 (seed148's, restored after
+it was destroyed by a silent overwrite — see §4.7 below).
+
+### 1.5 §G — when $\delta = 0$ **is** truth
+
+**Verdict: PROVED.** If $S$ is *separating* ($\sim_S$ is equality on $X$) then
+$\delta^S_\sigma = \emptyset \iff \mathfrak h_\sigma = \mathrm{id}_X$. This is the exact
+converse of 1.4 and it identifies §G's $\operatorname{SearchSep}$ conjunct as the
+contrapositive of the anti-degeneracy clause rather than an extra axiom. Folklore in formal
+concept analysis (a separating context is a *clarified* one).
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §3, Prop 3.4.
+
+### 1.6 §G — $\delta = 0 \not\Rightarrow \operatorname{Advance}$
+
+**Verdict: PROVED** (the transmission's non-implication is upheld; the implication
+$\delta = 0 \Rightarrow \operatorname{Advance}$ is refuted by finite counterexample).
+**Counterexample.** E1: $X = \{x_0,x_1\}$, $\mathcal T = \{t_1,t_2\}$, $Q=\{0,1\}$, column
+$t_1$ non-constant, $t_2$ constant, $\mathfrak h_\sigma = \mathrm{sw}$. Then
+$\delta^{\{t_2\}}_\sigma = \emptyset$ for every $\sigma$ while $\operatorname{SearchSep}$
+fails. **Minimal**, by complete enumeration: exactly $4$ of the $16$ Chu matrices at
+$(|X|,|\mathcal T|,|Q|) = (2,2,2)$ work, all one isomorphism class. The enumeration was
+recomputed from scratch by the referee and confirmed, including the orbit count.
+**Hypothesis, and it is the live one.** $\operatorname{Advance}$ has five conjuncts and the
+transmission defines none of them. The refutation falsifies $\operatorname{SearchSep}$ under
+**both** independently-arrived-at readings — seed148's absolute one (the transmission's
+literal unary predicate: $\mathcal T$ is separating) and seed146's relative one
+($\sim_{\mathcal T'} = \sim_{\mathcal T}$). A third reading not of the form "the working
+tests separate as much as $X$" is **not** excluded, and no such reading was found.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §5 (E1, Prop 5.1, Thm 5), §5A
+(recount), Rem 5.5 (both readings), §6 (scope).
+
+### 1.7 §F — "$\mathcal T_\alpha \subseteq \mathcal T_{\alpha+1}$ **or not**": does §G's slogan extend?
+
+**Verdict: REFUTED. It does not extend, and nothing replaces it without new data.**
+**Reason.** Under unrestricted *replacement* of the test set there is **no** monotone
+quantity at all: in an explicit Chu space every pair of $\mathfrak h$-invariant defect values
+is jointly realisable, so any $\varphi$ of $\delta$ monotone under replacement, uniformly, is
+constant — including the scalar shadow $\|\mathcal O\|$. Hence $\delta$ decreasing across
+$\alpha \mapsto \alpha+1$ is evidence of nothing, and $\delta$ increasing likewise, whenever
+$\mathcal T_{\alpha+1} \not\subseteq \mathcal T_\alpha$.
+**File.** `notes/CHANGING_TESTS_VERSUS_SHRINKING.md` §7 (Lemma 7.1, Thm F, Cor F.1).
+
+### 1.8 §F — what *does* govern replacement
+
+**Verdict: PROVED**, three statements.
+(a) *With $\rho$ in hand*: $\delta_\sigma(S') \subseteq \delta_\sigma(S)$ **iff**
+$S' \subseteq C_\sigma(S)$, the redundancy closure of $S$ — a finite, checkable criterion of
+which Shrink is the special case (Thm C).
+(b) *Uniformly in $\rho$*: the **resolving-power preorder** $S \sqsubseteq S' :\iff
+\sim_{S'} \subseteq \sim_S$ is the **unique coarsest** order under which $\delta$ is
+monotone for every holonomy — proved by transpositions, so it is forced, not chosen (Thm E).
+Note the direction: refining the instrument sends $\delta$ **up**.
+(c) $\delta_\sigma$ preserves arbitrary unions and is therefore the left adjoint of a
+monotone Galois connection — **not** a closure operator and **not** a Birkhoff polarity
+(Thm A, Thm B); meets fail, with the exact defect computed and minimal witnesses.
+**File.** `notes/CHANGING_TESTS_VERSUS_SHRINKING.md` §2–§4, §6.
+
+### 1.9 §D — $\Phi_{\mathrm{refl}}$: $T_\alpha \subsetneq T_{\alpha+1}$ if $T_{\alpha+1}\vdash\operatorname{Con}(T_\alpha)$
+
+**Verdict: CLASSICAL, with a hypothesis the transmission omits.**
+**Statement and source.** Gödel's second incompleteness theorem: a consistent, recursively
+axiomatised $T$ interpreting enough arithmetic does not prove $\operatorname{Con}(T)$. Hence
+$T_{\alpha+1} \vdash \operatorname{Con}(T_\alpha)$ gives $T_{\alpha+1}\ne T_\alpha$.
+**The omission.** *Strict inclusion* $\subsetneq$ additionally requires
+$T_\alpha \subseteq T_{\alpha+1}$, which §D does not state; without it one gets only
+$\ne$. Also required and unstated: $T_\alpha$ consistent, r.e., arithmetically adequate.
+**Settled here, not in a prior note** — no note in the corpus touches §D. The argument above
+is one line from a theorem no reader disputes, and is recorded as this ledger's own.
+
+### 1.10 §D — $\Phi_{\mathrm{tr}}$ (cyclicity of trace) and $\operatorname{YB}_\delta(R)$
+
+**Verdict: CLASSICAL / definitional.** $\operatorname{Tr}(abc) \simeq \operatorname{Tr}(bca)$
+is cyclicity of the trace in a traced (e.g. symmetric monoidal, or spherical) category —
+standard, and the transmission claims nothing more. $\operatorname{YB}_\delta(R) :=
+R_{12}R_{23}R_{12}(R_{23}R_{12}R_{23})^{-1}$ is *by construction* the failure term of the
+braid relation, so "$\operatorname{YB}_\delta(R) \ne 1$ iff the braid relation fails" is true
+by definition and carries no content beyond notation.
+**Not adjudicated by any note** — `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §6 lists the
+Yang–Baxter defect explicitly as untouched. Recorded here as a definitional reading, with no
+claim that the framework's *use* of $\Gamma\langle\operatorname{YB}_\delta(R)\rangle$ has
+been checked.
+
+### 1.11 §J5 — "the anti-degeneracy clause is what the fleet measured empirically"
+
+**Verdict: REFUTED as an identification; retained as an analogy.**
+**Reason.** The theorem of §1.2 is about Chu spaces. The measurement it is said to coincide
+with (`0742-seed141`: grep recall $14/15$ where a defect is named in the text, $1/7$ and
+$1/6$ where it is not) is about a lexical sweep. **A lexical sweep is not a Chu space until
+someone says what $X$, $\mathcal T$ and $e$ are, and nobody has.** The convergence is worth
+recording as convergence; it is not a shared theorem.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §8.
+
+### 1.12 §B — the seven components of $\delta_\sigma$
+
+**Verdict: OPEN.** What is proved is a theorem about the *observational skeleton* of a defect
+and about coarsening the value set (Thm 3), which is the shape a component projection has.
+Independence, well-definedness and exhaustiveness of the seven components
+($\delta^{\mathrm{sem}},\dots,\delta^{\mathrm{prov}}$) are **not** proved.
+**What would settle it.** A statement of what each component *is* as a function of
+$(X,\mathcal T,e,\rho)$; at present they are seven names.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §6.
+
+### 1.13 §C, §E — the ordinal ladder, $\mathfrak F$, $\mathfrak F_{\alpha+1}\succeq\mathfrak F_\alpha$, $\mathbb B = \int^\alpha \Diamond_\alpha$, the closure claim
+
+**Verdict: PROGRAMME.** No convergence, no smallness, no proof that $\Gamma$ is well defined
+on $\mathcal O_\alpha$, no value for $\kappa$, and no proof that $\mathfrak F$ is a functor.
+The transmission's own §J4 says this; the fleet confirms it and adds nothing.
+**File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §6, §7A ("still unproved, in full").
+
+### 1.14 §H, §I — the gem invariants; net, garland, closing identifications
+
+**Verdict: PROGRAMME, and unreached.** Illumination, fire, scintillation, brilliance,
+trapped-light; इन्द्रजालम् as $\operatorname{holim}$, अनन्तमाला as $\operatorname{hocolim}$;
+सीमा $=$ उत्तररूपस्य योनिः. No note in the corpus touches any of these. They are recorded as
+definitions and slogans awaiting content, and this ledger asserts nothing about them beyond
+the fact that nobody worked on them. **Scope limit, stated as such.**
+
+---
+
+## §2. D0017 — "Hieroglyphics": homotopy and obstruction
+
+### 2.1 §C — $\delta_\Diamond = hf - kg$; $\delta_\Diamond = 0 \iff hf = kg$
+
+**Verdict: CLASSICAL / definitional-true**, with one hypothesis the transmission omits: the
+subtraction requires enrichment in abelian groups, so $\delta_\Diamond$ is a **cochain**, not
+a class. Its categorification to a 2-cell $\alpha$ with $[\alpha]\in\pi_2$ is standard
+obstruction theory (Steenrod; Postnikov towers).
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §1 (reading of symbols), §2(c).
+
+### 2.2 §F — the geometric chain, read as a chain of $\leftrightarrow$
+
+**Verdict: REFUTED**, three arrows out of four, by explicit counterexample.
+- $F_\nabla \nleftrightarrow (\operatorname{Hol}-1)$: flat connection $A = \frac{\theta_0}{2\pi}d\vartheta$
+  on $S^1$ has $F_\nabla = 0$, $\operatorname{Hol}=e^{i\theta_0}\ne 1$. The kernel is $\pi_1$;
+  the biconditional needs $X$ simply connected (Ambrose–Singer).
+- $\check\delta c \nleftrightarrow F_\nabla$: the Möbius bundle on $S^1$ has
+  $\check\delta c \ne 0$ (it is $w_1 \ne 0$) and a flat connection. The kernel contains **all
+  torsion**; Čech–de Rham is an isomorphism only with **real** coefficients and a **good
+  cover**, and §F's bare $\leftrightarrow$ drops both hypotheses.
+- $\delta_\Diamond \nleftrightarrow [\alpha]$: passage to a class is a surjection with
+  nontrivial kernel, and $\pi_2$ is a $\pi_1$-module — the arrow is correct only for
+  **simple** spaces.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §2, Thm 1(a)(b)(c).
+
+### 2.3 §F — the geometric chain, read as comparison maps
+
+**Verdict: PROVED.** $\delta_\Diamond \twoheadrightarrow [\alpha] \dashrightarrow
+\check\delta c \twoheadrightarrow F_\nabla \dashrightarrow (\operatorname{Hol}-1)$, with
+kernels respectively 2-cell homotopy, the $\pi_1$-action, torsion, $\pi_1(X)$. Each arrow is
+a theorem; none is an isomorphism; **the composite retains almost nothing.**
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Cor 1.1.
+
+### 2.4 §F — the logical half $\Delta_e \leftrightarrow G_T$
+
+**Verdict: CLASSICAL.** Lawvere's fixed-point theorem, 1969: *in a cartesian closed category,
+if there is a point-surjective $\varphi : A \to B^A$, then every $f : B \to B$ has a fixed
+point.* Cantor, Russell, Gödel I, Turing and Tarski are instances.
+**Provenance of the reading, and it is capped.** The statement above is quoted from the nLab
+page *Lawvere's fixed point theorem* (HTML, read). **Lawvere 1969 itself was not read** (PDF;
+the TAC reprint page returned 503), and no theorem number from Lawvere's own text is quoted.
+**Consequence for the transmission.** D0017's logical column contains **no new mathematics**
+and must not be written up as if it did.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §3, Thm 2, Cor 2.1.
+
+### 2.5 §F — the bridge between the halves: theorem or pun?
+
+**Verdict: REFUTED for every bridge natural in restriction — i.e. a pun at the advertised width.**
+**Reason.** Čech-type obstructions are *locally trivial by construction* (the class **is** the
+failure to glue data that exists locally); the diagonal obstruction is *locally stable* (every
+slice $\mathcal E/U$ of a topos with $U \ne 0$ is again cartesian closed and nondegenerate, so
+Cantor's statement survives restriction). Any natural transformation of pointed-set-valued
+functors commuting with restriction and sending $0 \mapsto 0$ is therefore identically zero on
+the image of a locally trivial assignment.
+**Scope, stated in the note and preserved here.** This rules out bridges *natural in
+restriction*. It does not rule out a bridge of some other kind, and it does not deny that both
+sides are instances of "a functor with no section" — it says that at that altitude the
+statement transports nothing. That shared adjective is exactly what §J2 warned about.
+**Corroboration from the literature, and it cuts the same way.** Abramsky–Barbosa–Kishida–Lal–Mansfield,
+*Contextuality, Cohomology and Paradox*, CSL 2015 (arXiv:1502.03097, read as ar5iv HTML) do
+build a real Čech-obstruction/paradox bridge — Def. 15, Thm 22 — but the logical side is a
+**gluing** paradox (All-vs-Nothing, Kochen–Specker), not a diagonal one, the implication is
+one-way, and the obstruction is not a complete invariant (Prop. 20). Where a real bridge was
+built, the logical side was first replaced by a locally-trivial phenomenon.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §4 (Def 3, Lemmas 3.1–3.2, Thm 4,
+Rem 4.1), §5.
+
+### 2.6 §F — $\mathfrak O := [\delta_\Diamond \otimes [\alpha] \otimes \cdots \otimes \Delta_e \otimes G_T]_{\mathfrak q}$
+
+**Verdict: REFUTED as well-posed.** Cohomological obstructions live in abelian groups and are
+additive and functorial in the coefficients. The Lawvere obstruction is the negation of an
+existence statement about a morphism; **there is no group in which $G_T$ is an element**, and
+no binary operation for which "$\varphi\oplus\varphi'$ is point-surjective iff both are". The
+tensor product presupposes the group and does not supply it.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Rem 4.2.
+
+### 2.7 §D — the cyclic adjoint string $\partial \dashv \mathsf G \dashv \Phi \dashv \partial$
+
+**Verdict: REFUTED as stated — by a type error, not by a general theorem.**
+**Reason.** §B assigns $\partial:\mathfrak X_0\to\Delta_0$, $\mathsf G:\Delta_0\to\mathfrak X_1$,
+$\Phi:\mathfrak X_1\to\mathfrak X_2$. Chasing the three adjunctions forces
+$\mathfrak X_0 = \Delta_0 = \mathfrak X_1 = \mathfrak X_2$: the string is well-typed only if
+all three are endofunctors of one category. **§B and §D are inconsistent as displayed** —
+§B's stages are distinct, §D collapses them — and one must be given up. If §D is kept, §G's
+$\mathfrak X_{\omega+1}\not\equiv\mathfrak X_\omega$ cannot mean passage to a new ambient
+category.
+**And the ground §J3 expected is NOT the ground.** §J3 conjectured that length-3 cyclic
+adjoint strings are heavily constrained or impossible in general. That expectation is
+**withdrawn**: the nLab *adjoint string* page (HTML, read), citing Booth 1972, records that
+cyclic chains of any length exist. Booth 1972 was **not** read (paywalled PDF) and is used
+only to *withhold* a refutation, never to support one. If Booth's "cyclic chain" is weaker
+than $f_1 \dashv f_2 \dashv f_3 \dashv f_1$ with all $f_i$ endofunctors of one category, the
+general question reopens — but the type collapse stands regardless.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §6, Thm 5, Cor 5.1, Thm 7.
+
+### 2.8 §H — $\mathbb B \simeq \Phi\mathbb B$, $\mathbb B \not\equiv \Phi\mathbb B$
+
+**Verdict: PARTIAL. The split:** *conditionally vacuous* half is proved, *unconditional* half
+is untouched.
+- **Proved:** if the §D string holds and any one of $\partial,\mathsf G,\Phi$ is an
+  equivalence, then $\partial\simeq\mathsf G\simeq\Phi$ and $\partial^2\simeq\mathrm{Id}$;
+  then $X \simeq \Phi X$ for **every** object, so the headline says nothing distinctive about
+  $\mathbb B$, and the disclaimer $\not\equiv$ is a statement about a strict equality the
+  framework never defines.
+- **Untouched:** whether §D's hypothesis holds at all, hence whether the headline is vacuous
+  in the framework's intended reading. The quotation tower
+  $\Diamond \ni \ulcorner\Diamond\urcorner \ni \cdots$ is likewise untouched, and the source
+  document **truncates mid-formula** at exactly this point (`\not\equ`), which is recorded in
+  the transmission and repaired by nobody.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Thm 6, Cor 6.1.
+
+### 2.9 §E — the holonomy form and the associator tower
+
+**Verdict: CLASSICAL, and correctly stated with implication arrows.** $F_\nabla \ne 0
+\Rightarrow \operatorname{Hol}_\nabla(\gamma)\ne 1$ and $\mathfrak H_{ijk}\ne 1 \Rightarrow
+\partial\triangle_{ijk} = \mathfrak H_{ijk}-1$ are standard and are written in §E with
+$\Rightarrow$. **This is the arrow §F then upgrades** (see §4.1 below). The associator
+pentagon $\delta\alpha_{ijkl}$ and $\delta\alpha \ne 0 \Rightarrow \mathfrak X \hookrightarrow
+\mathfrak X[\delta\alpha]$ are **not** adjudicated: the adjunction of a formal generator is
+not shown to be well defined.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §2 (which quotes §E's arrows as
+the correct classical statements), §0.2.
+
+### 2.10 §A — the objective functional $\mathfrak L_\infty = \arg\max [\,(I(\Sigma;\mathfrak L)+I(\Gamma;\mathfrak L)+I(\Phi;\mathfrak L))/|\mathfrak L|\,]$
+
+**Verdict: PROGRAMME.** No measure, no channel, no space of $\mathfrak L$, no argument that
+the maximum exists. Its own triage says so (§J5, "recorded, not triaged") and no note
+disturbs that.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §7.
+
+### 2.11 §G — the ordinal ladder, $\operatorname{Obs}$, $\mathbb B = \operatorname{hocolim}\mathfrak F^n$
+
+**Verdict: PROGRAMME.** No convergence, no smallness, no proof that $\mathsf G$ is well
+defined on $\operatorname{Obs}(\mathfrak X)$, no ambient $(\infty,1)$-category. Thm 5
+constrains it (Cor 5.1) but supplies none of these.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §7.
+
+---
+
+## §3. D0018 — repair modes, density, arithmetic
+
+### 3.1 §B — the four repair modes as a classification
+
+**Verdict: PARTIAL. The split, named:**
+- **Holds:** the four modes are genuine operations, and $\Gamma_\varnothing \ne
+  \Gamma_\circlearrowleft$ **sharply** — $\Gamma_\circlearrowleft : Z^1 \to H^1$ is canonical,
+  natural and choice-free; $\Gamma_\varnothing$ is not a map out of $Z^1$ at all but a choice
+  of enlargement, quotient, or added hypothesis, hence not natural. They coincide **iff**
+  $H^1(\Gamma,V) = 0$.
+- **Fails:** the four are **not independent** (§3.2), and the table's presentation of
+  $\Gamma_\Uparrow$ as a peer of the other three understates it: its availability cannot be
+  checked by any finite computation in general, because it incurs an unbounded coherence
+  tower (Mac Lane in the monoidal case, $A_\infty$/operadic machinery in general).
+**File.** `notes/FOUR_REPAIR_MODES.md` §1.1–1.2, Thm 6.
+
+### 3.2 §B — $\Gamma_{\widehat{\phantom X}}$ versus $\Gamma_\varnothing$
+
+**Verdict: REFUTED as independent modes; PROVED as a relation between them.**
+Completion exists iff the class dies: $\widehat f = f + R$ is $\Gamma$-invariant **iff**
+$[D] = 0$ in $H^1(\Gamma,V)$ (Thm 1). And for $V_0 \hookrightarrow V$, $f$ admits a completion
+in $V$ iff $\iota_*[D] = 0$ (Thm 2). So **$\Gamma_{\widehat{\phantom X}}$ *is*
+$\Gamma_\varnothing$, performed by enlarging the coefficients rather than by fiat** — and it
+is the honest way to perform it, because the enlargement is exhibited and $[D]_{V_0}$ survives.
+The Eichler instance is exactly this: a period cocycle nontrivial in $H^1(\Gamma,V_0)$ whose
+image in $H^1(\Gamma,V)$ vanishes.
+**File.** `notes/FOUR_REPAIR_MODES.md` Thm 1, Thm 2, Cor 2.1.
+
+### 3.3 §B — $D_1 \simeq D_2 \Rightarrow \widehat X_{D_1} \simeq \widehat X_{D_2}$
+
+**Verdict: PROVED, under a hypothesis §B does not state; converse REFUTED.**
+**Hypothesis.** "$\simeq$" on the left must mean **cohomologous**, and $\widehat X_D$ the
+extension $V \to \widehat X_D \to \mathbb Z$ that $[D]$ classifies. Then it is the $\operatorname{Ext}^1$
+classification, and $(v,n)\mapsto(v+nR,n)$ is the explicit isomorphism.
+**Converse refuted.** $\operatorname{Ext}^1_{\mathbb Z}(\mathbb Z/p,\mathbb Z/p)\cong\mathbb Z/p$
+has $p-1$ nonzero classes, **all** realised by $\mathbb Z/p \to \mathbb Z/p^2 \to \mathbb Z/p$.
+So the completion does **not** determine the defect up to cohomology. §B states only the
+implication, and is right to.
+**File.** `notes/FOUR_REPAIR_MODES.md` Thm 4, Thm 4′.
+
+### 3.4 §B — "$X$ known $+$ $D$ known $\Rightarrow \widehat X$ reconstructible"
+
+**Verdict: REFUTED as stated.** The set of completions of $f$ is empty or a **torsor under
+$V^\Gamma$**, the module of $\Gamma$-invariants: if $\widehat f = f+R$ and $\widehat f' = f+R'$
+are both invariant then $R - R' \in V^\Gamma$. The slogan is true **iff** $V^\Gamma = 0$, and
+otherwise only after a chosen lift is added to the data.
+**Concretely.** For a mock modular form of weight $k$, $V^\Gamma \supseteq M_k(\Gamma)$: the
+completion is determined only modulo genuine holomorphic modular forms. The standard theory
+does not reconstruct $\widehat h$ either — it *stipulates* the non-holomorphic part to be the
+Eichler integral of the shadow. **That stipulation is the missing datum, and it is why "the"
+completion is a definition, not a theorem.**
+**File.** `notes/FOUR_REPAIR_MODES.md` Thm 3.
+
+### 3.5 §B — "self-classifying obstruction $:\iff D \simeq \operatorname{Code}(\widehat X/X)$"
+
+**Verdict: REFUTED as a definition carving out a subclass.** With
+$\operatorname{Code}(\widehat X/X) := \partial(\widehat f - f)$, the condition holds for
+**every** completable $f$ and is vacuous otherwise. It is therefore *equivalent to* $[D]=0$,
+i.e. to the availability of $\Gamma_{\widehat{\phantom X}}$, not an extra hypothesis.
+Well-definedness is exact: $\partial$ descends to an isomorphism $V/V^\Gamma \xrightarrow{\sim} B^1$.
+**Where a nontrivial condition could live.** Requiring $[D]$ recoverable from $\widehat X$
+**without** reference to $f$ — which Thm 4′ shows is impossible in general. That replacement
+is logged as an open `PROVE` item.
+**File.** `notes/FOUR_REPAIR_MODES.md` Thm 5, §5 item 1.
+
+### 3.6 §B — "$D = $ the shadow of the completion" (पूर्णतायाः छाया)
+
+**Verdict: REFUTED as an identification; accurate as a metaphor.**
+**Reason.** From $F = h + g^*$ with $F|_k\gamma = F$: $D_\gamma = h|_k\gamma - h = -(\partial g^*)_\gamma$,
+so $D = -\partial g^*$. The shadow $g$ is a **modular form of weight $2-k$**; $D$ is a
+**1-cocycle of weight $k$**, obtained from $g$ by first forming the non-holomorphic Eichler
+integral and then taking a coboundary. Neither step is the identity. **$D$ is the image of the
+shadow, not the shadow.** A note using the phrase must say "the cocycle attached to the
+shadow" or accept the error.
+**Provenance cap.** Definition of *shadow* quoted from Wikipedia, *Mock modular form* (read);
+$\xi_k$ and the generator assignment from ar5iv HTML of Bringmann–Diamantis–Raum
+(arXiv:1107.0573, read). Eichler–Shimura **injectivity** was **not** verified in any source
+read, and is not asserted. No PDF was decoded.
+**File.** `notes/FOUR_REPAIR_MODES.md` §3.
+
+### 3.7 §B — $X \to \widehat X \to D[1]$
+
+**Verdict: PROVED**, as the extension of $\Gamma$-modules classified by $[D]$ — this is what
+the triangle *is*. Instance found in the corpus: $\mathbb Z/b \to \mathbb Z/b^{n+1} \to
+\mathbb Z/b^n$, i.e. positional notation at length $n+1$ is the completion of positional
+notation at length $n$, with $D$ the carry cocycle; Thm 4 then explains in one line why every
+digit set computes the same arithmetic.
+**File.** `notes/FOUR_REPAIR_MODES.md` Thm 4, §4.1.
+
+### 3.8 §B — does the classification do work on real defects?
+
+**Verdict: PARTIAL, and the failing half is the reportable finding.**
+- **Works:** three corpus defects, three distinct verdicts. The carry cocycle
+  (`notes/ATLAS_OF_N.md` §2.11) → $\Gamma_\circlearrowleft$, with $\Gamma_\varnothing$
+  refuted by an existing theorem and $\Gamma_{\widehat{\phantom X}}$ already silently taken.
+  The action residual (`notes/ACTION_RESIDUAL_FORMATION.md` §2) → $\Gamma_{\widehat{\phantom X}}$,
+  also already used and unnamed. In two of three the classification named a move the corpus
+  had made without naming it, which is §J1's own claim, confirmed for two of the four modes.
+- **Fails:** the shifted-prime barrier (`notes/SEED64_BOUNDARY_FACTORIZATION_AT_U2.md` §4) →
+  **none of the four applies**. There is no group, no coefficient module, no cocycle; the
+  defect is a magnitude. Only $\Gamma_\varnothing$ formally fits, in its worst form (assume
+  Elliott–Halberstam), which is the wrong answer dressed as an answer.
+- **The generalisation, at the generality it can be defended:** the four modes classify
+  **structural** defects — those that are cocycles for some action — and are **silent on
+  quantitative** defects, which are most of the analytic corpus. §B does not claim otherwise;
+  it also does not scope itself, and the scope is needed. Sample size: three.
+- **$\Gamma_\Uparrow$ was the answer nowhere** in the sample. That is a gap in a sample of
+  three, not evidence the mode is idle, and is logged as such.
+**File.** `notes/FOUR_REPAIR_MODES.md` §4.
+
+### 3.9 §C — generability $\not\equiv$ reconstructibility
+
+**Verdict: PROVED and CLASSICAL.**
+**Identification.** $\delta_\triangleleft(X) = \operatorname{cofib}(\varepsilon_X)$ where
+$\varepsilon$ is the counit of the **density comonad** $\operatorname{Lan}_G G$, and
+$\delta_\triangleright(X) = \operatorname{fib}(\eta_X)$ where $\eta$ is the unit of the
+**codensity monad** $\operatorname{Ran}_G G$ — the pointwise Kan-extension formulas, evaluated
+at $X$. Hypothesis: $J$ small, the relevant Kan extension pointwise; without pointwiseness
+the comma-category formulas fail and §C has no evident meaning.
+**Separation.** All four combinations of $(\delta_\triangleleft \equiv 0?,
+\delta_\triangleright \equiv 0?)$ are realised by full subcategories of the three-chain
+$\{0<1<2\}$ — a twelve-case finite exhaustive verification, hence proof and not measurement.
+Second witness pair in $\mathbf{Ab}$: $\mathbb Z$ generates and does not cogenerate;
+$\mathbb Q/\mathbb Z$ cogenerates and does not generate.
+**The forcing hypothesis, and it is sharp.** Self-duality of the **pair** $(\mathcal C, G)$,
+not of $\mathcal C$: the three-chain *is* self-dual and the separation survives, because the
+family $\{0,1\}$ is not.
+**A genuine fork the transmission does not resolve.** In the stable reading, $=0$ means
+density/codensity; in the abelian reading it means generation/cogeneration. **These are not
+equivalent** and no note claims they are.
+**Prior art.** Isbell 1960 (as "left adequate"), Ulmer, Kock and Appelgate–Tierney,
+Kennison–Gildenhuys 1971 — all **second-hand** from Leinster, *Codensity and the ultrafilter
+monad*, TAC 2013 (arXiv:1209.3606), abstract and historical section read as HTML; nLab
+*codensity monad* and *dense functor* read directly. **No PDF opened.** The claim is true and
+is **not new mathematics**; what is new to this corpus is that it has been stated with
+witnesses.
+**Corpus link: none.** "codensity" occurs only in D0018; two tangential Kan-extension mentions
+were checked and dismissed. Per §J8 nothing was relabelled.
+**File.** `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §1–§4, §6.
+
+### 3.10 §D — the widening-observable non-implication
+
+**Verdict: PROVED, direction correct — with a variance correction to the surrounding prose.**
+$\operatorname{Obs}_{\mathcal O_\alpha}(X)=0 \not\Rightarrow \operatorname{Obs}_{\mathcal O_{\alpha+1}}(X)=0$:
+more tests can only fail more. **The transmission gets the direction right.** But "widening"
+in D0018 names two operations of opposite variance: widening the **coefficient** module can
+only *kill* obstructions ($\iota_*$ is a homomorphism, so $0 \mapsto 0$), while widening the
+**observable** field can only *reveal* them. Covariant and contravariant respectively; they
+must never be conflated. The reason §D is right is that observables are tests, not
+coefficients.
+**File.** `notes/FOUR_REPAIR_MODES.md` Cor 2.2. Same phenomenon as §1.2 above, in the other
+direction.
+
+### 3.11 §D — the defect ladder $\delta^{(n+1)} = \operatorname{Path}(\Gamma\delta^{(n)}_{\mathrm L},\Gamma\delta^{(n)}_{\mathrm R})$, $\mathfrak R_\omega$, saturation
+
+**Verdict: PROGRAMME.** $\Gamma$ is not given as a functor and $\operatorname{Path}$ is not
+typed, so $\partial\mathfrak R_\omega = 0 \Rightarrow$ saturation has no truth value yet.
+**File.** `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §5.
+
+### 3.12 §D — $\chi_\alpha := \Delta\operatorname{Reach}(\mathcal O_\alpha)/\Delta\operatorname{Kill}(\Gamma_\alpha)$ and its trichotomy at $\chi = 1$
+
+**Verdict: HAZARD — deliberately not adjudicated, and correctly so.** Neither numerator nor
+denominator is defined; no measure is given; the trichotomy is asserted; and "स्वर्णसीमा"
+invites reading a golden constant into it. Every note that touched D0018 explicitly declined
+to measure, define, or use it. **This is an owner decision, restated in §5 below.**
+**Files.** `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §5 ("not measured, not defined,
+not used"); `notes/FOUR_REPAIR_MODES.md` §6 ("untouched, as its triage demands").
+
+### 3.13 §E — the Tate construction: $X^{t\mathcal G} = 0 \iff N_X$ an equivalence
+
+**Verdict: CLASSICAL, and correctly stated.** $X^{t\mathcal G} := \operatorname{cofib}(N_X)$,
+and in a stable setting the cofibre of a map vanishes iff the map is an equivalence. The
+transmission's own §J4 says "standard and correctly stated; no novelty claimed", which is
+right. **Settled here, not in a prior note** — no note in the corpus re-derives it; the
+one-line stable-category argument above is this ledger's, and no more is claimed than that
+one line.
+
+### 3.14 §F — $D_e(x) := \neg\, e(x)(x)$, $D_e \notin \operatorname{im}(e)$; $Q + \operatorname{eval} + \neg \Rightarrow$ obstruction to absolute self-completeness
+
+**Verdict: CLASSICAL** — the same Lawvere fixed-point theorem as §2.4, with the same
+provenance cap (nLab HTML read; Lawvere 1969 not read). No new mathematics.
+**File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §3.
+
+### 3.15 §F — $X' \simeq X \wedge Q(X') \ne Q(X)$; $\mathfrak F_\blacklozenge := \operatorname{diag}\circ Q\circ\Phi\circ\Gamma\circ\mathfrak D$; the closer
+
+**Verdict: PROGRAMME.** $Q$ is not typed and $\mathfrak D$ is not given, so
+$\delta_{\alpha+1} = \operatorname{diag}Q\Phi\Gamma(\delta_\alpha)$ has no content yet. The
+closer — *zero-obstruction itself becomes a new object of testing* — is the correct
+**converse-facing** slogan to §1.4's theorem (that $\delta^\emptyset_\sigma = \emptyset$ for
+every holonomy datum whatsoever), and to that extent the transmission's own §J3 reads the
+convergence correctly; but the slogan is a discipline, not a theorem.
+**File.** `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §5;
+`notes/SHRINKING_TESTS_LOWER_CURVATURE.md` Cor 2.3 for the theorem it faces.
+
+### 3.16 §G — $Z(t,\theta) = P(t+i\theta)P(t-i\theta) = \sum_{w,r}\Lambda(w-r)\Lambda(w+r)e^{-2tw}e^{2ir\theta}$
+
+**Verdict: CLASSICAL / elementary rearrangement, verified — with an index caveat.**
+**Verification (this ledger's; no note in the corpus touches §G).** With
+$P(z) = \sum_{n\ge1}\Lambda(n)e^{-nz}$,
+$$P(t+i\theta)P(t-i\theta) = \sum_{m,n\ge1}\Lambda(m)\Lambda(n)e^{-(m+n)t}e^{-i(m-n)\theta};$$
+put $w = (m+n)/2$, $r = (n-m)/2$, so $m = w-r$, $n = w+r$, and the exponentials become
+$e^{-2tw}e^{2ir\theta}$. Exact, absolutely convergent for $t>0$.
+**Caveat the transmission does not state.** $(w,r)$ ranges over pairs of **half-integers** of
+equal parity with $w \pm r \ge 1$, not over integers; "$\text{Goldbach} = [w^N]\mathcal K$"
+therefore means the coefficient at $2w = N$. With that reading, summing $\mathcal K(w,r)$ over
+$r$ at $2w=N$ gives $\sum_{m+n=N}\Lambda(m)\Lambda(n)$ (Goldbach), and $r=1$ gives
+$\sum_w \Lambda(w-1)\Lambda(w+1)$ (twin primes). Both correct. §J6 is right that these are
+elementary rearrangements to be **verified**, not cited as insight; this is that verification.
+
+### 3.17 §G — $-\zeta'/\zeta(s) = \mathcal M[P](s)$
+
+**Verdict: REFUTED as stated. A factor $\Gamma(s)$ is missing.**
+**Derivation (this ledger's).** For $\Re s > 1$,
+$$\mathcal M[P](s) = \int_0^\infty P(z)z^{s-1}\,dz
+= \sum_{n\ge1}\Lambda(n)\int_0^\infty e^{-nz}z^{s-1}\,dz
+= \Gamma(s)\sum_{n\ge1}\Lambda(n)n^{-s} = \Gamma(s)\Bigl(-\frac{\zeta'}{\zeta}(s)\Bigr),$$
+by $\int_0^\infty e^{-nz}z^{s-1}dz = \Gamma(s)n^{-s}$ and absolute convergence. So the
+correct identity is $\mathcal M[P](s) = \Gamma(s)\cdot(-\zeta'/\zeta)(s)$; the Dirichlet
+series $-\zeta'/\zeta(s) = \sum\Lambda(n)n^{-s}$ is classical (Riemann; Euler product,
+logarithmic derivative) and is what the transmission presumably intends, but it is **not**
+the Mellin transform of $P$.
+**Ground, stated separately per standing check (d).** No note in the corpus establishes this.
+The mandate flagged it as "likely"; the flag was not trusted, and the identity above is
+derived here in three lines from the Gamma integral. It is exact symbolic reasoning, hence
+proof under `CLAUDE.md`, and it is the whole of the ground.
+
+### 3.18 §G — $\xi(s) = \xi(1-s)$
+
+**Verdict: CLASSICAL.** Riemann's functional equation for the completed zeta function, 1859.
+No note adjudicates it and none needs to.
+
+### 3.19 §G — $D_g(Z) := \widehat Z(g\cdot(t,\theta)) - J_g(t,\theta)\widehat Z(t,\theta)$, and "first classify $D_g$, only then complete"
+
+**Verdict: PROGRAMME.** No group $g$ ranges over is specified, no automorphy factor $J_g$ is
+given, no $\widehat Z$ is constructed. The instruction *first classify, then complete* is §B's
+classification applied to itself and is good discipline; discipline is not a theorem. Note
+that §3.2 above sharpens the instruction: classification is not optional, because
+$\Gamma_{\widehat{\phantom X}}$ is **available only on coboundaries**.
+
+### 3.20 §G — $\mathcal K(w,r) \overset{?}{=} \operatorname{Tr}\mathscr K_{w,r}$; "of what representation is $\mathscr Z$ the character?"
+
+**Verdict: OPEN — and it is a research programme, not a task.** The transmission's own §J6
+says so and this ledger agrees. **What would settle it**: exhibition of a specific
+representation together with a proof that its character reproduces $\mathcal K$; nothing less
+counts, and the Ramanujan analogy $\tau(p) = p^{11/2}(\alpha_p+\beta_p)$, $|\alpha_p|=|\beta_p|=1$
+(**CLASSICAL** — Deligne's proof of the Ramanujan conjecture) is an analogy, not evidence.
+
+### 3.21 §A — $\mathfrak L_\infty = \operatorname{colim}_\alpha \mathfrak L_\alpha$, the MDL functional, $\operatorname{gain}(\sigma)>0 \Rightarrow \sigma\in\mathfrak L_{\alpha+1}$
+
+**Verdict: PROGRAMME.** No code length is specified, no space of $\mathfrak L$ is given, no
+argument that the argmin exists. Its own §J7 says so.
+**File.** `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §5.
+
+---
+
+## §4. Corrections the fleet made **to** the transmissions
+
+A short list the owner can act on directly. **Every item was verified by reading the note that
+established it**, and the two items that no note establishes are marked as such rather than
+being passed along on the mandate's authority.
+
+**4.1 — D0017 §F silently upgrades $\Rightarrow$ to $\leftrightarrow$.** §E writes
+$F_\nabla \ne 0 \Rightarrow \operatorname{Hol}_\nabla(\gamma)\ne 1$ and $\mathfrak H_{ijk}\ne 1
+\Rightarrow \partial\triangle_{ijk} = \mathfrak H_{ijk}-1$ — correct, one-directional,
+classical. §F's boxed chain then writes the same relations with $\leftrightarrow$. **The
+upgrade is the error**, and three of the four arrows are refuted as biconditionals.
+*Verified in* `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §0.2 and §2, Thm 1.
+
+**4.2 — D0018 §C's $J_X$ must be two comma categories, not one.** The canonical map *out of* a
+colimit is indexed by maps **into** $X$ (the left slice $G/X$); the canonical map *into* a
+limit is indexed by maps **out of** $X$ (the right slice $X/G$). One index category cannot
+serve both. This is exactly what the two-leg datum $\mathfrak M_i = (\operatorname{Map}(-,i),
+\operatorname{Map}(i,-),\dots)$ is for: one family supplies both slices, one leg each. A
+reading in which $\mathfrak M_i$ is "simply a representable" must choose a variance and loses
+one of the two constructions.
+*Verified in* `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §1.1.
+
+**4.3 — D0018 §B's four modes are not independent.** $\Gamma_{\widehat{\phantom X}}$ **is**
+$\Gamma_\varnothing$ with enlarged coefficients: completion in $V \supseteq V_0$ exists iff
+$\iota_*[D] = 0$ in $H^1(\Gamma,V)$. The table presents four peers; there are three
+operations and one honest way of buying the second.
+*Verified in* `notes/FOUR_REPAIR_MODES.md` Thm 1, Thm 2 (and the note's own summary table
+agrees with its body here — checked, per standing check (c)).
+
+**4.4 — D0018 §B's "$X$ known $+ D$ known $\Rightarrow \widehat X$ reconstructible" is false.**
+Completions form a torsor under $V^\Gamma$; true iff $V^\Gamma = 0$ or a lift is chosen. For
+mock modular forms $V^\Gamma \supseteq M_k(\Gamma)$.
+*Verified in* `notes/FOUR_REPAIR_MODES.md` Thm 3.
+
+**4.5 — D0018 §G is missing a $\Gamma(s)$ in the Mellin identity.** $\mathcal M[P](s) =
+\Gamma(s)(-\zeta'/\zeta)(s)$, not $-\zeta'/\zeta(s)$. **No note establishes this**; it is
+derived in §3.17 above and the derivation, not any note, is its ground.
+
+**4.6 — D0018 §B's "$D$ = the shadow" is a metaphor, not an identification.** $D = -\partial g^*$:
+the shadow is a weight-$(2-k)$ form, $D$ is a weight-$k$ 1-cocycle.
+*Verified in* `notes/FOUR_REPAIR_MODES.md` §3.
+
+**4.7 — D0018 §B's "self-classifying obstruction" is not a definition of anything new.** It is
+equivalent to completability.
+*Verified in* `notes/FOUR_REPAIR_MODES.md` Thm 5.
+
+**4.8 — D0017 §B and §D are inconsistent as displayed.** The cyclic adjoint string forces all
+stages to be one category; the generating sequence makes them distinct. One must be given up.
+*Verified in* `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Thm 5, Cor 5.1.
+
+**4.9 — D0017 §J3's own expectation is withdrawn.** Length-3 cyclic adjoint strings are **not**
+forbidden in general; the string dies of a type error internal to D0017, not of a general
+theorem. (Ground capped: nLab HTML reporting Booth 1972, which was not read, and used only to
+*withhold* a refutation.)
+*Verified in* `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Thm 7.
+
+**4.10 — D0016 §G's slogan must not be cited across §F's "or not".** Under replacement no
+function of $\delta$ is monotone. The framework needs a comparison datum it does not carry;
+the unique coarsest candidate is the resolving-power preorder, proposed in the note **as a
+proposal** and marked as the note's, not the owner's.
+*Verified in* `notes/CHANGING_TESTS_VERSUS_SHRINKING.md` §7–§8.
+
+**4.11 — D0016 §J5's identification of the theorem with the night's grep measurement is too
+strong.** Analogy, not shared theorem; a lexical sweep is not a Chu space until $X$,
+$\mathcal T$, $e$ are named.
+*Verified in* `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §8.
+
+**4.12 — D0016 §D's $\Phi_{\mathrm{refl}}$ needs $T_\alpha \subseteq T_{\alpha+1}$ for the
+strict inclusion.** **No note establishes this**; see §1.9 above, where it is derived from
+Gödel's second incompleteness theorem, and treat that derivation as its only ground.
+
+**4.13 — Two corrections *internal to the fleet's own work*, recorded because the owner will
+otherwise read the notes and inherit them.** (i) `SHRINKING` Rem 2.2 misclassifies
+$(\operatorname{Sep},\sim)$ as a Birkhoff polarity; $\operatorname{Sep}$ is monotone, so it is
+not one. No theorem depends on the misstatement; the correct home is a monotone Galois
+connection. (ii) Message `0749-seed148`'s **subject line** states the strictness criterion as
+"some discarded test is the SOLE witness", which is only the case $|S\setminus S'| = 1$; the
+message's own body has it right. *Both verified in* `notes/CHANGING_TESTS_VERSUS_SHRINKING.md`
+§0.4–§0.5.
+
+---
+
+## §5. The two things the owner must decide
+
+These are not the fleet's to settle. Neither is a mathematical question the fleet declined
+out of laziness; each is a question about what the framework is *for*.
+
+**(i) $\chi_\alpha$ — define it exactly, or withdraw it.** D0018 §J5 flags it in the owner's
+own hand as running head-on into `CLAUDE.md`, and every agent honoured that: it was not
+measured, not defined, not used. The instruction stands as the transmission wrote it —
+*either $\Delta\operatorname{Reach}$ and $\Delta\operatorname{Kill}$ are given exact
+definitions and the trichotomy at $\chi = 1$ is **derived**, or the quantity is withdrawn.*
+The fleet has no way to choose between those two, because both are consistent with everything
+proved. **What it must not become** is a measured number: this repository has published a
+fitted constant before ($0.362$–$0.421$ where the truth was exactly $\tfrac14$), and the
+recorded lesson is not merely that the number was wrong but that a constant measured at one
+scale hides its scaling. A $\chi$ without its $\alpha$-dependence would be worse than no
+$\chi$, because it would look like knowledge.
+
+**(ii) Does $\Phi$ produce only comparable steps?** This decides whether the no-go theorem is
+fatal or vacuous, and **the fleet cannot decide it because the transmissions themselves
+disagree.**
+- The theorem (`notes/CHANGING_TESTS_VERSUS_SHRINKING.md` Thm F): under *unrestricted*
+  replacement of the test set, any function of $\delta$ that is monotone uniformly is
+  **constant**. Nothing survives — not $\delta$, not $\|\mathcal O\|$, not any norm, ordinal
+  or cardinality one might propose.
+- **D0016 §F says steps need not be comparable**: "$\mathcal T_\alpha \subseteq
+  \mathcal T_{\alpha+1}$ **or not** — मापनक्षेत्रम् अपि परिवर्तते, the measurement domain
+  itself changes." Under this reading Thm F **is fatal**: the framework's progress predicate
+  has no invariant to be monotone in, and §G's slogan cannot be cited at all across a step.
+- **D0018 §D says the opposite**: "$\mathcal O_\alpha \subseteq \mathcal O_{\alpha+1}$;
+  $\Phi$ does not change the object, it widens the field of visible distinction." Under
+  *that* reading every step is comparable, Thm F **is vacuous for the framework**, and the
+  governing statement is instead §3.10's non-implication (widening reveals, never conceals) —
+  which is proved and which the transmission gets right.
+- **The decision required.** Say which of the two governs $\Phi$. If it is D0018 §D's
+  inclusion, then §F's "or not" should be withdrawn from D0016 and the framework gains a
+  monotone theory for free. If it is D0016 §F's "or not", then the framework must adopt a
+  comparison datum — the resolving-power preorder is the unique coarsest one that works, and
+  the fleet has offered it explicitly as a proposal, not as an amendment.
+- **No running pass has settled this.** The corpus was searched; no note after
+  `CHANGING_TESTS_VERSUS_SHRINKING.md` bears on it.
+
+---
+
+## §6. Scope: what this ledger could not reach
+
+Stated flatly, because a ledger that hides its holes is worse than no ledger.
+
+1. **Messages `0755`–`0757` do not exist.** `0754` is the highest in the tree. Any adjudication
+   the mandate expected there could not be read and is not represented here.
+2. **D0016 §H (gem invariants) and §I (net, garland, closing identifications)** — no note
+   touches them; no verdict beyond PROGRAMME is offered, and PROGRAMME here means "nobody
+   looked", not "looked and found nothing".
+3. **D0017 §E's associator/pentagon layer** and $\mathfrak X \hookrightarrow \mathfrak X[\delta\alpha]$
+   — unadjudicated.
+4. **D0018 §G in full** — no note in the corpus works on the arithmetic instance. §3.16–3.20
+   above are this ledger's own reading, done by hand; they are three short derivations and a
+   citation, and should be re-checked by someone who works in that lane before being built on.
+5. **Nothing here is machine-checked.** No Agda or Lean was authored by this pass or by any
+   note it summarises; there is no toolchain in this container and none of the fleet claimed
+   otherwise. No Python was written or run.
+6. **No PDF was decoded by anyone in this chain.** Lawvere 1969, Booth 1972, Isbell 1960,
+   Ulmer, Kock, Appelgate–Tierney, Kennison–Gildenhuys 1971, De Nicola–Hennessy 1984 and
+   Ganter–Wille 1999 are all cited second-hand, from HTML sources named in the underlying
+   notes, and each note says so in its own voice. This ledger adds no citation of its own
+   beyond Gödel II, Riemann's functional equation, Deligne, and the Gamma integral — all
+   quoted from their standard statements.
+7. **The verdicts are only as good as the definitions.** Three of the sharpest results
+   (§1.2, §1.6, §1.7) rest on readings of $\ominus 1$, $\delta$, and
+   $\operatorname{SearchSep}$ that the fleet supplied and the transmissions did not. Two
+   agents converged on the same reading independently, which is evidence about **D0016's
+   intent** and not about the mathematics — and even that evidence is weakened by the fact
+   that both agents were optimising the same instruction.
+
+---
+
+## §7. Tally
+
+| verdict | count | entries |
+|---|---|---|
+| PROVED | 13 | 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.8, 2.3, 3.2, 3.3, 3.7, 3.9, 3.10 |
+| REFUTED | 10 | 1.7, 1.11, 2.2, 2.5, 2.6, 2.7, 3.4, 3.5, 3.6, 3.17 |
+| CLASSICAL | 9 | 1.9, 1.10, 2.1, 2.4, 2.9, 3.13, 3.14, 3.16, 3.18 |
+| PARTIAL | 3 | 2.8, 3.1, 3.8 |
+| OPEN | 3 | 1.12, 3.12, 3.20 |
+| PROGRAMME | 8 | 1.13, 1.14, 2.10, 2.11, 3.11, 3.15, 3.19, 3.21 |
+
+**46 entries, each in exactly one class.** Two entries carry a headline verdict plus a
+subordinate one and are filed by the headline: 3.2 is filed PROVED (the relation between the
+two repair modes is proved; their *independence* is refuted as part of the same theorem), and
+3.17 is filed REFUTED (the Mellin identity is wrong as written; the Dirichlet series it was
+presumably meant to be is classical). 3.12 ($\chi_\alpha$) is filed OPEN and is also
+owner-decision (i) of §5 — it is one entry, not two.
+
+**One-line summary of the night, at the generality it can be defended.** The transmissions'
+*non-implications* have held up almost without exception — zero curvature is not truth,
+widening observables can only reveal, generability is not reconstructibility, zero-obstruction
+is a new object of testing — and every one of them turned out to be classical or one line from
+classical. The transmissions' *implications and correspondences* have fared badly: three of
+four geometric arrows are not biconditional, the bridge to the logical column is provably
+trivial under naturality, the adjoint string type-collapses, reconstructibility is false, and
+two of the four repair modes are one mode. **The framework's instincts about what does not
+follow are reliable; its assertions about what does follow are, so far, where the errors are.**
+
+---
+
+*Compiled by seed157 (referee), 2026-08-15. Every note cited was read in full; no verdict was
+taken from a covering message. Where a claim was settled by this ledger and by no note, the
+entry says so and gives the argument inline. No Python; no Agda or Lean authored; no PDF
+claimed as read.*
