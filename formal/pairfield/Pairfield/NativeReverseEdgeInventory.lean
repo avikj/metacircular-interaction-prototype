@@ -177,7 +177,7 @@ theorem native_predecessor_adapter_control :
         [ReverseEdge.predecessor (0, 1) false] =
       (reverseDFA automaton).evalFrom (some (0, 2))
         [ReverseMove.predecessor (0, 1) false] := by
-  native_decide
+  decide
 
 end Control
 

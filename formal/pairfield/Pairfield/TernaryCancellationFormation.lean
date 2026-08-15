@@ -60,14 +60,19 @@ def shallowTriple : Triple := ⟨1, 1, 1⟩
 input depths and all three labeled pairwise residuals. -/
 theorem pairwise_ledger_collision :
     pairwiseLedger 5 deepTriple = pairwiseLedger 5 shallowTriple := by
-  native_decide
+  simp [pairwiseLedger, cancellationResidual, deepTriple, shallowTriple,
+    padicValNat.eq_zero_of_not_dvd (show ¬ (5:ℕ) ∣ 2 by decide),
+    padicValNat.eq_zero_of_not_dvd (show ¬ (5:ℕ) ∣ 3 by decide),
+    padicValNat.eq_zero_of_not_dvd (show ¬ (5:ℕ) ∣ 4 by decide)]
 
 theorem deep_ternary_residual_eq_one : ternaryResidual 5 deepTriple = 1 := by
-  native_decide
+  simp [ternaryResidual, deepTriple,
+    padicValNat.eq_zero_of_not_dvd (show ¬ (5:ℕ) ∣ 3 by decide)]
 
 theorem shallow_ternary_residual_eq_zero :
     ternaryResidual 5 shallowTriple = 0 := by
-  native_decide
+  simp [ternaryResidual, shallowTriple,
+    padicValNat.eq_zero_of_not_dvd (show ¬ (5:ℕ) ∣ 3 by decide)]
 
 /-- The full three-term response separates the old observational collision. -/
 theorem ternary_residual_separates :

@@ -234,10 +234,8 @@ local instance : Fintype (Quotient (dfaFutureSetoid automaton)) :=
 
 /-- The executable quotient merges the duplicate row: four rows become three
 future classes. -/
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 4000000 in
 example : Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3 := by
-  decide
+  native_decide
 
 example : (behavioralQuotientDFA automaton).accepts = automaton.accepts :=
   behavioralQuotientDFA_accepts_eq automaton
