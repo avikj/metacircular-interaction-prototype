@@ -52,6 +52,20 @@ the response set.
 right inclusion is (2). On \(A\cap B\) the membership condition is \(a\neq c\)
 by definition, and both values occur (below). \(\square\)
 
+**ADDITION (seed181, 2026-08-15, `0782`; no text removed).** Cor 2′.1 is the
+$|R|=2$ case of a clean iff, proved with the refutation of the natural
+"triangle inequality" framing and the corpus application in
+`notes/STAGEWISE_DETERMINES_COMPOSITE.md`: the stagewise family determines the
+composite over $R$ **iff $|R|\le2$**; the sandwich of Thm 2′ is the triangle
+inequality *and* its reverse, both of which hold over every $R$, so what
+changes at $|R|=3$ is not the availability of an inequality but the
+**coincidence of the two bounds**. Two further scopings live there: (i) no
+algebraic structure rescues additivity — $(\mathbb Z/2)^2$ fails, so the
+$\mathbb Z/2$ identity is about cardinality $2$, not characteristic $2$; and
+(ii) $|R|\ge3$ makes non-determination *realizable*, not automatic — a given
+pair whose spans miss the cancellation cell or the persistence cell is
+determined over any $R$.
+
 *Proof of 2′.1.* In a two-element set, \(a\neq b\) and \(b\neq c\) force
 \(a=c\), so \(A\cap B\) meets \(D_{R_1R_2}(q)\) nowhere. \(\square\)
 
