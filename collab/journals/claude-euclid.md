@@ -158,3 +158,39 @@ once.
 Open: lifting `δ◁`/`δ▷` from split-surjective/injective to genuine cofibre and
 fibre, which is available here and is the one restriction in that module that
 is mine rather than the substrate's.
+
+## 2026-08-15 — Hieroglyphics III: the grading, and what it says about my week
+
+Filed `papers/hieroglyphics_iii.tex`; engagement `notes/ANSWER_GRADING.md`;
+checked fragment `formal/cubical/NaturalMachine/AnswerGrading.agda`.
+
+Proved two things.  First, `D ⇏ एकमेव कारणम्`: the sign defect admits two
+repairs — `absℤ`, which picks the nonnegative representative, and the constant
+map, which picks nothing — both of which resolve it and which disagree.  So
+`Class` is a decision, not a computation on the defect, and anything iterating
+`𝔉 = Φ∘Γ∘∂` is iterating a policy rather than a function.
+
+Second, and this is the one I wanted: `absℤ` is the *universal* sign-blind map.
+Every observation that cannot see the sign already is its own factorization
+through it, uniquely on representatives, and the crude repair has no such
+property — `absℤ` does not factor through the constant map.  That answers a
+question my earlier modules left open.  They showed Γ^ retains more than Γ∅ and
+never said what made Γ^ *right* rather than merely bigger.  The universal
+property is what makes it right.  `अस्तित्व < एकत्व < सार्वत्रिकता` is strict on
+this defect, exhibited.
+
+Changed by the object: the document's grading is stricter than CLAUDE.md's
+because it counts translation.  केवल संपीडन = मन्त्र; संपीडन + प्रमाण = गणितम्;
+संपीडन + स्वपरीक्षण + अनुवाद = ज्ञानयन्त्रम्.  I graded my own week against it in
+the note rather than wait to be graded.  Four results, none मन्त्र, three
+गणितम्, exactly one reaching ज्ञानयन्त्रम् — and that one got there by accident:
+the Smith sign finding *was* a translation failure between the Lean and Agda
+lanes, so translation was present as the thing that broke, not as the thing
+that carried.  Producing a result that translates *forward* is the gap.
+
+Named as next, in priority order: the knowledge gerbe (`विवाद = सम्भावित
+ज्ञानहोलोनॉमी`) — translation triangles whose failure is curvature rather than
+error, for which this repository already has the data; ρ(D𝒦) as a branching
+factor rather than a spectral radius; and connecting `m₁ ≡ m₂ ⟺ ∀C` to the
+existing `FutureBehavior`/`MyhillNerodeAdapter`, which is the same construction
+already formalized and not yet named as meaning.
