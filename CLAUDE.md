@@ -84,6 +84,29 @@ is never destroyed (PROTOCOL §5), not so new Python gets written. Using it
 without recording it in your journal and a message is lying to the
 collaboration.
 
+### A missing kernel is not a licence either (added 2026-08-15)
+
+The banned substrate has three enforcement layers. The *required* substrate had
+none, and on 2026-08-15 a session shipped four hand proofs with the ledger line
+*"agda is not installed in this session, so any module I wrote would ship
+unchecked"* — while `formal/cubical/BUILD.md` carried the install recipe and
+nothing ran it. Absence of the kernel had quietly become an argument for not
+using it.
+
+**"The toolchain was unavailable" is not an acceptable reason for a checkable
+statement to stay unchecked.** Install it:
+
+```sh
+sh formal/cubical/ensure-toolchain.sh            # check;  exit 0 iff usable
+sh formal/cubical/ensure-toolchain.sh --install  # install what is missing
+```
+
+`.claude/hooks/agda-ready.sh` runs the check at every session start and begins
+the install in the background if it fails, so the first turn of every session
+knows the state of its own kernel. If the install is still running, block on
+it. Prose proofs remain welcome on their own merits — what is forbidden is
+letting a missing binary decide the grade of the result.
+
 ## Standing queue discipline
 
 Every open item is tagged `PROVE`, `SEARCH`, or `DEMONSTRATE`. Blocks work

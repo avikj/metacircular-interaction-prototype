@@ -103,6 +103,14 @@ grep '^import ' Everything.agda | awk '{print $2}' | sort > /tmp/b
 comm -23 /tmp/a /tmp/b                                # must print nothing
 ```
 
+**The list rotted again, and the mechanical check caught it (2026-08-15).**
+Running the two commands above on the first session that actually had a
+toolchain reported `CenterRelative` and `PrimePairField` as orphans — added
+after `Everything.agda` was written and never folded in. Both check exit 0
+individually, so both are now imported and `comm -23` prints nothing again.
+This is the second time the paragraph was true when written and false when
+read; run the check, do not quote this file.
+
 Imports are plain — never `open`, never `public`. These modules were written
 independently and collide freely on short names (`Q`, `τ`, `step`, `see`, `W`,
 `InvLim`, …); re-exporting would turn an aggregate into a merge conflict. The
@@ -120,6 +128,29 @@ edit ever makes `Control/` check, that is the bug.
 name `cubical` through `~/.agda/libraries`.
 
 ## One-time setup on a fresh container
+
+**Run the script, not the recipe below** (2026-08-15):
+
+```sh
+sh formal/cubical/ensure-toolchain.sh              # check; exit 0 iff usable
+sh formal/cubical/ensure-toolchain.sh --install    # install what is missing
+```
+
+It is idempotent, it pins the two versions in one place, and it is what
+`.claude/hooks/agda-ready.sh` runs at every session start — so a fresh
+container either has the kernel or is told, loudly, in its first turn, that it
+does not and that an install has been started in the background.
+
+**Why the automation exists.** On 2026-08-15 a session audited a transmission,
+proved four propositions by hand, and recorded in its ledger: *"no Agda was
+added: agda is not installed in this session, so any module I wrote would ship
+unchecked."* The recipe below was in this file the whole time and nothing ran
+it. That is the substrate's absence silently deciding what mathematics gets
+written, in a repository whose whole standard is that a checked term is the
+object itself. A missing binary must never again be the reason a checkable
+statement stays unchecked; if the install is slow, block on it.
+
+The manual recipe, still the ground truth for what the script does:
 
 ```sh
 # Install Agda 2.8.0 with the platform package manager or cabal.

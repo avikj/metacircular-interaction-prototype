@@ -10,6 +10,10 @@ needed. Four statements in the source are settled here by algebra — two of
 them negatively — and the rest are placed against the corpus's existing
 checked terms or tagged for the queue.
 
+**Proposition 1 is a checked term:** `formal/cubical/ClosureTowerCollapse.agda`,
+`--cubical --safe`, no postulates, no holes, `agda` exit 0. The prose proof in
+§1 is the readable version of `⟪⟫-idem` and `tower-limit` there.
+
 **What this note is not.** It is not an interpretation of the Sanskrit, not a
 claim of priority for anything, and not a new framework. The corpus already
 has a naming audit for the Indic material
@@ -63,6 +67,21 @@ thing to fix.
 > \Upsilon\text{ closed}\}$. Then for every $\Theta_0$,
 > $$\Theta_1=\Theta_2=\cdots=\Theta_\nu=\cdots=\Theta_\infty \qquad(\nu\ge1).$$
 > The transfinite ladder above stage $1$ is empty of content.
+
+**Checked.** `formal/cubical/ClosureTowerCollapse.agda` proves this for an
+arbitrary signature of binary and unary operations, and instantiates it at the
+source's own nine (`Seed.seed-tower-const`). The names there are `⟪⟫-infl`,
+`⟪⟫-closed`, `⟪⟫-least`, `⟪⟫-mono`, `⟪⟫-idem`, `tower-limit`, `tower-const`.
+
+One thing the formalisation says that the prose could not. The source's κ is an
+intersection over **all** supersets, which is impredicative: at a fixed universe
+that quantifier ranges over `ℙ A : Type (ℓ-suc ℓ)`, so κ does not land in `ℙ A`
+and the iteration `Θ_{ν+1} := κ(Θ_ν)` does not typecheck at all without
+propositional resizing. The module gives the predicative rendering — generate
+inductively, truncate — and proves (`⟪⟫-least`) that it has exactly the
+universal property the intersection was there to supply. So the ladder fails
+twice over: at the level where it is well-formed it is constant, and the form
+in which it is written is not well-formed.
 
 *Proof.* Three lines.
 
@@ -321,6 +340,10 @@ Tagged per `CLAUDE.md` standing queue discipline.
   the boundary operator equal parity. Ask what $\Pi_\partial$ computes for
   $\Omega\ge3$ — the answer is $\mu^2-\omega+1$, which is $\le 0$ and counts
   something else. Either identify it or drop $\Pi_\partial$.
+- **PROVE (P4).** Propositions 2 and 3 in Agda. Both need arithmetic the
+  cubical lane does not have: μ, ω, Ω, λ, and the case split on `Ω(ν) ≤ 2`.
+  Building that is worth more than these two statements — every arithmetic
+  claim in the corpus is currently prose for the same reason.
 - **SEARCH (S1).** The corrected identity of Proposition 2 restricted to
   $\Omega\le2$ is close to standard $E_2$/almost-prime bookkeeping; check
   Halberstam–Richert before treating it as new.
@@ -345,9 +368,18 @@ Tagged per `CLAUDE.md` standing queue discipline.
 - §5's correction assumes the $\tau$'s are equivalences, which §5 of the source
   states. If some $\tau$ is only a lax map, $\eta$ need not be invertible and a
   different repair is needed; that case is not treated.
-- No Agda was added. `agda` is not installed in this session, so any module I
-  wrote would ship unchecked, and an unchecked module claiming these
-  propositions would be worth less than the proofs above. `IndraNet.agda`,
+- **Proposition 1 is checked; Propositions 2–4 are not.** The first draft of
+  this note shipped all four as prose with the ledger line *"no Agda was added:
+  agda is not installed in this session"*. That was the toolchain's absence
+  deciding the grade of the result, and it has been fixed rather than excused:
+  the pinned toolchain (Agda 2.8.0 + cubical v0.9) is now installed by
+  `formal/cubical/ensure-toolchain.sh`, checked at every session start by
+  `.claude/hooks/agda-ready.sh`, and recorded in `CLAUDE.md`. Proposition 1 is
+  now `ClosureTowerCollapse.agda`. Propositions 2 and 3 remain hand proofs:
+  each needs μ, ω, Ω, λ and the classification of numbers with `Ω(ν) ≤ 2`,
+  which this corpus's Agda lane does not yet carry — that is a real gap in the
+  library, tagged `PROVE (P4)` below, not a fact about the container.
+- `IndraNet.agda`,
   `LawvereDiagonal.agda`, `DescentLaw.agda`, `BehavioralApartness.agda`,
   `OrbitSeparation.agda` and `ElsewhereCondition.agda` are cited from their
   headers, not re-verified in this session.
@@ -363,6 +395,7 @@ Tagged per `CLAUDE.md` standing queue discipline.
 
 Stripped of the encyclopaedia, the source contains one engine —
 
+
 $$\text{probe} \xrightarrow{\ \partial\ } \text{boundary} \xrightarrow{\ \delta\ } \text{obstruction} \xrightarrow{\ \Gamma\ } \text{the generator the next stage must adjoin}$$
 
 — and that engine is right, is not decoration, and is **already a checked term
@@ -373,3 +406,6 @@ is type-incorrect (§5), and one of its best boxes is Stanley 1980 (§4).
 
 That ratio is not a complaint. It is what an audit is for, and the engine
 survives it.
+
+And the closure tower, which was the source's own frame for that engine, is
+now a term in the kernel that says it is constant.

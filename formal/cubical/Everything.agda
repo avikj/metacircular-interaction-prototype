@@ -60,7 +60,10 @@ import NaturalMachineRun
 
 -- Charts and descent.
 import CayleyPairChart
+import CenterRelative
+import ClosureTowerCollapse
 import DescentLaw
+import PrimePairField
 import DynamicDescent
 import Rank1DihedralChart
 import SetTruncationDescentBoundary

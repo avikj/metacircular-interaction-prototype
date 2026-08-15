@@ -6,7 +6,18 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sh .claude/hooks/no-python.sh"
+            "command": "sh \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/no-python.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/agda-ready.sh",
+            "timeout": 60
           }
         ]
       }
