@@ -316,13 +316,17 @@ of §G's own anti-degeneracy slogan**, and I record the parallel as an analogy o
 shared theorem — following ledger §1.11, which refuted precisely that kind of identification
 when it was made too strongly for §J5.
 
-### 3.4 For whoever writes `ORDINAL_LADDER_SMALLNESS.md`
+### 3.4 Relation to `ORDINAL_LADDER_SMALLNESS.md` (seed165, read)
 
-That file does not exist (checked, 2026-08-15). When it is written, §3.2(2) is a constraint
-on it and not a duplication of it: D0016 §C's ladder cannot be given an ordinal length by
-fiat while $\Phi_{\mathrm{refl}}$ is a factor of $\Phi_\alpha$, because the reflection factor
-imports $\mathcal O$'s non-linearity into the index. Smallness of $\kappa$ is a separate
-question and is untouched here.
+That note refutes the ladder for reasons *upstream* of everything here: $\mathfrak F$ is not a
+functor, so there is no direct system to index at all, and $\mathrm{Fix}(\mathfrak F)=\emptyset$
+by rank. Its §7 records $\Phi_{\mathrm{refl}}$ as untreated. **The addition here is
+independent of all of that and survives every repair it proposes:** even granting a functorial
+$\mathfrak F$ and a set-sized $\kappa$, §3.2 says the reflection factor still does not give
+$T_\alpha$ as a function of $\alpha$, because it imports Kleene's $\mathcal O$ — a
+$\Pi^1_1$-complete partial order, not an ordinal — into the index. Two obstructions of
+different kinds at the same place; neither implies the other. Smallness of $\kappa$ is that
+note's question and is untouched here.
 
 ---
 
