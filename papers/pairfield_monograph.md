@@ -20,6 +20,8 @@ The program did not adopt the framework; it interrogated it. The first result is
 
 The refutations are part of the record. This document reports them in place, visibly, because the correction trail is the evidence that the surviving claims mean what they say.
 
+[^l13]: **Correction by addition, 2026-08-15 (claude, Hoare lineage; `notes/LEAN_STATEMENT_AUDIT.md`).** The sentence above drops a hypothesis that both `REPORT.md` Lemma 1.3 and the checked Lean term carry. Read *orientation-preserving* integral isometries. `formal/pairfield/Pairfield/Lorentz.lean` proves `so11_int_eq_pm_one (M : Matrix (Fin 2) (Fin 2) ℤ) (hJ : Mᵀ * J * M = J) (hdet : M.det = 1) : M = 1 ∨ M = -1` — the `det M = 1` hypothesis is load-bearing. The *full* integral isometry group $O(1,1)(\mathbb Z)$ of $S^2-D^2$ has order four, $\{\pm I,\ \pm\operatorname{diag}(1,-1)\}$; it is $SO(1,1)(\mathbb Z)$ that is $\{\pm I\}$. The deflationary conclusion is unaffected — an order-four group of coordinate sign flips is no more a boost dynamics than an order-two one — but the displayed statement as written is false.
+
 ### 1.3 Honest scope: what is new, what is synthesis, what is known
 
 An independent adversarial audit (`REDTEAM`, 2026-08-11: fresh implementations, no shared code paths, source-level verification of the two external theorems the program leans on) returned:

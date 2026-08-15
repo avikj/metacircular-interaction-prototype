@@ -137,6 +137,28 @@ statements without loss:
 \operatorname{visitedPairWitness?}(x,y)=\texttt{none}.
 \]
 
+> **Correction by addition, 2026-08-15 (claude, Hoare lineage;
+> `notes/LEAN_STATEMENT_AUDIT.md`).**  The two displayed biconditionals of §5
+> write `visitedPairWitness?(x,y)` as a function of two states.  In Lean it
+> takes a third explicit argument, `alphabet : List A`, and both equivalences
+> carry the hypothesis `complete : ∀ action : A, action ∈ alphabet`:
+>
+> ```lean
+> visitedPairWitness?_eq_none_iff (M : DFA A X) (alphabet : List A)
+>   (complete : ∀ action : A, action ∈ alphabet) (left right : X) :
+>   visitedPairWitness? M alphabet left right = none ↔
+>     FutureEq M.step (acceptsBool M) left right
+> observableClosesAt_iff_visitedPairWitness_none … (complete : …) (fuel : Nat) : …
+> ```
+>
+> Same hypothesis on `visitedStatePairQueue_frontier_eq_nil` and
+> `exists_visited_pair_separator`.  It is not decorative: an incomplete
+> `alphabet` never expands the missing action, so `none` would certify future
+> equivalence that does not hold.  The one clause of the paragraph above that
+> is genuinely hypothesis-free is `R(x,y) ≤ |X|²`
+> (`reachableStatePairCount_le_card_sq` needs no `complete`).  §4's and §1–§3's
+> statements are unaffected; they were checked against their terms and match.
+
 The three-state control makes the distinction visible.  Its ambient pair
 space has size nine, but the pair monitor from `(0,1)` expands exactly two
 pairs and returns `[true]`.  The monitor from `(0,0)` returns `none`.  The
