@@ -428,17 +428,18 @@ wrong, and one of them is wrong about the transmission's own mathematics.*
 ## §16. The CLASSICAL defect register — every undischarged earliest-source, in one place
 
 `OWNER_TRANSMISSIONS_LEDGER.md`'s vocabulary requires CLASSICAL to come "with the earliest source
-**actually read**". **This ledger has 31 CLASSICAL rows and read no source for any of them.** No
+**actually read**". **This ledger has 40 CLASSICAL rows and read no source for any of them.** No
 PDF was decoded, no web fetch performed, no library consulted. Every CLASSICAL row above names its
 source from standing knowledge and is flagged in place; they are collected here so the defect is
 countable rather than distributed:
 
-1.1, 1.4, 1.6, 1.7, 1.8, 1.9, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 3.1, 3.2, 3.5, 3.8, 3.9,
-3.11, 4.1, 4.5, 4.7, 4.9, 4.10, 4.13, 4.15, 5.4, 5.10, 5.11, 5.13, 5.14, 5.18, 7.6, 8.7, J5.
+1.1, 1.4, 1.6, 1.7, 1.8, 1.9 (6); 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8 (8); 3.1, 3.2, 3.3, 3.5,
+3.8, 3.9, 3.11 (7); 4.1, 4.5, 4.7, 4.9, 4.10, 4.12, 4.13, 4.15, 4.17 (9); 5.4, 5.10, 5.11, 5.13,
+5.14, 5.18 (6); 7.6 (1); 8.7, 8.11 (2); J5 (1) — **40**.
 
-*(That list has 36 entries; 31 is the count of rows whose **status word** is CLASSICAL — 3.11,
-4.12, 5.5, 5.6, 5.9 and J5 contribute classical content under a PARTIAL headline and are listed
-here but tallied elsewhere. The discrepancy is stated rather than smoothed.)*
+Four further rows carry classical content under a **PARTIAL** headline and are *not* counted here:
+3.6 (Anfinsen), 5.5 (Vaiśeṣika), 5.6 (Sāṃkhya), 5.9 (Vedānta). Their doctrinal halves have the
+same undischarged-source defect.
 
 **Three of these are better than the rest, and it is not my doing:** 5.5, 5.12 and 5.16 are backed
 by `notes/ABHAVA.md` and `notes/APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT.md`, which **do** read primary
