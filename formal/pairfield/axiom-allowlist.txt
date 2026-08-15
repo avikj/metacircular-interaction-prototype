@@ -14,28 +14,13 @@
 # anyone who reads the output.
 
 # ---------------------------------------------------------------------------
-# Pairfield.DiagonalSmithRoute — 2 theorems, native_decide.
+# CURRENTLY EMPTY.  The whole Lean lane rests on {propext, Classical.choice,
+# Quot.sound} and nothing else.
 #
-# (a) Both depend on `..._native.native_decide.ax_*`: the compiler evaluated a
-#     finite check and the result was inserted as an axiom.  The statements are
-#     concrete finite facts about the 6/10 kuttaka transcript; what is trusted
-#     is the Lean compiler and its extraction, not the kernel.
-#
-# (b) Observed (notes/NATIVE_DECIDE_AUDIT.md §4b, reproduced by the gate run of
-#     2026-08-15): `decide` reports "did not reduce to isTrue or isFalse",
-#     stuck at projections out of
-#     `ComputableSmith2x2.reduceDiagonal (positiveDiagonalCoprimeFactors 6 10 _)`
-#     — `(…).L.a11`, `(…).R.a12`.  `reduceDiagonal` is a tactic-mode definition
-#     returning a dependent `Certificate` and does not kernel-reduce.  This is
-#     an unreducible *definition*, not a search-space size problem: the audit
-#     converted 5 of this module's 10 sites; these are the ones that resist.
-#     The blocking sub-definition was NOT isolated by that audit, and is still
-#     not isolated here; neither of us will name a cause we did not observe.
-#
-# (c) Removal: make `reduceDiagonal` structurally reducible (the same species
-#     of repair as the `Finset.sort` → `List.finRange` refactor of
-#     `NativeReversePairTraversal`, which retired the other six residue
-#     theorems on 2026-08-15 — commit 82b8dc07).  Until then these two
-#     theorems are compiler-trusting and are marked as such here.
-Pairfield.kuttaka610Transcript_replays_compact_certificate
-Pairfield.kuttaka610Transcript_actionCost_minimal
+# History: the two `Pairfield.DiagonalSmithRoute` entries
+# (kuttaka610Transcript_replays_compact_certificate,
+#  kuttaka610Transcript_actionCost_minimal) were removed 2026-08-15 after the
+# blocker was isolated to `Nat.xgcdAux` — well-founded (`Nat.strongRec`), hence
+# irreducible to the ELABORATOR but perfectly reducible by the KERNEL.  Plain
+# `decide` failed; `decide +kernel` succeeds in ~1 s.  See the header of
+# `Pairfield/DiagonalSmithRoute.lean` and notes/NATIVE_DECIDE_AUDIT.md §4b.
