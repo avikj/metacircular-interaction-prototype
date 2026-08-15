@@ -107,9 +107,10 @@ instance (formation : AtMostFourFormation) : Decidable formation.formsBoth := by
 /-- No causal formation using at most four declared unary operations forms
 both targets.  This decides the complete finite schedule type, not a sampled
 collection of traces. -/
+set_option maxRecDepth 100000 in
 theorem noFormationFormsBoth :
     ∀ formation : AtMostFourFormation, ¬ formation.formsBoth := by
-  native_decide
+  decide
 
 theorem not_formsBoth (formation : AtMostFourFormation) :
     ¬ formation.formsBoth :=
@@ -159,11 +160,11 @@ theorem minimalThreeEightFormation_values :
       minimalThreeEightFormation.valueThree = 3 ∧
       minimalThreeEightFormation.valueFour = 4 ∧
       minimalThreeEightFormation.valueFive = 8 := by
-  native_decide
+  decide
 
 theorem minimalThreeEightFormation_formsBoth :
     minimalThreeEightFormation.formsBoth := by
-  native_decide
+  decide
 
 /-- Five operations suffice, while every causal formation with at most four
 operations fails.  This is global minimality inside the exact
@@ -172,7 +173,7 @@ theorem threeEight_global_causal_minimum :
     minimalThreeEightFormation.formsBoth ∧
       threeEightFork.sharedCost = 5 ∧
       (∀ formation : AtMostFourFormation, ¬ formation.formsBoth) := by
-  exact ⟨minimalThreeEightFormation_formsBoth, by native_decide,
+  exact ⟨minimalThreeEightFormation_formsBoth, by decide,
     AtMostFourFormation.noFormationFormsBoth⟩
 
 end KuttakaDoublingFork
