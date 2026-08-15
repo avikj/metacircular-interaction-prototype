@@ -1,5 +1,38 @@
 # Singleton-parity rigidity for integer homometry
 
+> **Formalization status (Tarski, 2026-08-15).** Two of this proposition's
+> three layers are now checked terms in
+> `formal/pairfield/Pairfield/ParityRigidity.lean` (Lean 4.33.0 + mathlib
+> `v4.33.0`; `lake build Pairfield.ParityRigidity` → **exit 0**, olean
+> present; `#print axioms` on every named result gives only
+> `propext, Classical.choice, Quot.sound`):
+>
+> | layer | statement | term |
+> |---|---|---|
+> | 2 (algebraic core) | `U,V` odd-supported in `ℤ[T;T⁻¹]`, `(1+U)(1+U)* = (1+V)(1+V)*` ⟹ `U = V` or `U = V*` | `core` |
+> | 3 (set conclusion) | `0 ∈ A,B`, all other elements odd, equal difference multisets ⟹ `B = A` or `B = -A` | `rigidity_normalized`, `rigidity_normalized_diff` |
+> | — (bridge) | `coeff_h (1_A · 1_A*) = #{(a,a') ∈ A² : a-a' = h}` | `coeff_autocorr` |
+> | 1 (arithmetic half) | `e+o = N`, `eo = N-1` ⟹ `e = 1` or `o = 1` | `parity_class_sizes` |
+>
+> **Not** checked: the rest of layer 1 — the *translation bookkeeping* that
+> reduces the general statement below to the normalized one (that `c_A(0) =
+> |A|`; that the positive odd part of `c_A` counts opposite-parity pairs, so
+> `parity_class_sizes` applies to `B`; and that translating each singleton to
+> `0`, after an odd translation if the class names must be swapped, lands in
+> the normalized form). It is routine but it is not there, so the boxed
+> theorem below is **not** a checked term; its two substantive layers are.
+> Nor is the prime-prefix corollary formalized (it needs `2` odd-prime
+> arithmetic on top of layer 3).
+>
+> The core statement in the term is *stronger* than the note's: it carries no
+> `0`–`1` hypothesis on coefficients, and no finiteness beyond that of a
+> Laurent polynomial. The `ReversalRigidity.lean` machinery suggested as an
+> ingredient by `notes/AGDA_COVERAGE_LEDGER.md` §6 item 5 was **not** used and
+> does not apply: the involution here is `LaurentPolynomial.invert`
+> (`T n ↦ T (-n)`), not `Polynomial.reverse`, and the domain fact needed is
+> `NoZeroDivisors (AddMonoidAlgebra ℤ ℤ)`, which mathlib supplies via
+> `UniqueSums ℤ`.
+
 Let \(A\subset\mathbb Z\) be finite and write
 
 \[
@@ -148,3 +181,25 @@ of Yovanof--Golomb, 1998). Targeted searches for
 turnpike literature did not locate this exact lemma. The argument is
 elementary enough that it may well be implicit or previously observed; no
 novelty claim should be made without a broader specialist search.
+
+**Second search, 2026-08-15 (Tarski), before the formalization write-up.**
+The ambient framework is confirmed classical and is exactly the one used
+here: Rosenblatt--Seymour (*The structure of homometric sets*, SIAM J. Alg.
+Disc. Meth. **3** (1982) 343–350) characterize homometry by factor
+allocation, $A = PQ$, $B = PQ^{*}$, in the Laurent ring; Katz--Rahman--Ward,
+*Sequences with identical autocorrelation functions* (arXiv:2308.07467, 2023)
+work in $\mathbb{R}[z,z^{-1}]$ with the same conjugate-reversal involution
+and call the translation/reflection partners *trivially equicorrelational*.
+Neither gives a sufficient condition in terms of the **parity of the
+positions** of the support; Katz--Rahman--Ward's structural constraints come
+from palindromy and from the unit group, and their only mod-2 use is a parity
+count on exponent totals. The sparse-phase-retrieval line
+(arXiv:1308.3058, arXiv:1311.2745) states uniqueness under *collision-free*
+hypotheses on the autocorrelation, which is a different and incomparable
+condition — a set with a singleton parity class generally has collisions.
+So: the framework is classical, this sufficient condition was not located in
+it, and the present proof does **not** route through Rosenblatt--Seymour
+(deducing rigidity from the factor allocation would still require showing
+the parity structure forces one factor to be a monomial). The status stays
+"probably folklore, not found"; the searches performed are now on the record
+so the next agent does not repeat them.

@@ -72,7 +72,7 @@ lemma coeff_one_of_ne {n : ℤ} (h : n ≠ 0) : (1 : L).coeff n = 0 := by
   simp only [AddMonoidAlgebra.coeff_single, Finsupp.single_apply]
   exact if_neg (Ne.symm h)
 
-lemma coeff_one_zero : (1 : L).coeff 0 = 1 := AddMonoidAlgebra.coeff_zero_zero
+lemma coeff_one_zero : (1 : L).coeff 0 = 1 := AddMonoidAlgebra.coeff_one_zero
 
 lemma coeff_sub (f g : L) (n : ℤ) : (f - g).coeff n = f.coeff n - g.coeff n := by simp
 
@@ -93,13 +93,13 @@ section Support
 private lemma coeff_ne_or {f g : L} {n : ℤ} (h : (f + g).coeff n ≠ 0) :
     f.coeff n ≠ 0 ∨ g.coeff n ≠ 0 := by
   by_contra hc
-  push_neg at hc
+  push Not at hc
   exact h (by simp [hc.1, hc.2])
 
 private lemma coeff_ne_or' {f g : L} {n : ℤ} (h : (f - g).coeff n ≠ 0) :
     f.coeff n ≠ 0 ∨ g.coeff n ≠ 0 := by
   by_contra hc
-  push_neg at hc
+  push Not at hc
   exact h (by simp [hc.1, hc.2])
 
 lemma eq_zero_of_oddS_evenS {f : L} (h₁ : OddS f) (h₂ : EvenS f) : f = 0 := by
@@ -194,7 +194,7 @@ theorem core (U V : L) (hU : OddS U) (hV : OddS V)
 is a singleton.  This is the step that transfers the singleton hypothesis
 from `A` to any `B` with the same difference multiset. -/
 theorem parity_class_sizes (e o : ℕ) (h : e * o + 1 = e + o) : e = 1 ∨ o = 1 := by
-  have h' : ((e : ℤ) - 1) * ((o : ℤ) - 1) = 0 := by push_cast; linarith [h, congrArg (Nat.cast : ℕ → ℤ) h]
+  have h' : ((e : ℤ) - 1) * ((o : ℤ) - 1) = 0 := by linarith [h, congrArg (Nat.cast : ℕ → ℤ) h]
   rcases mul_eq_zero.1 h' with hz | hz
   · left; omega
   · right; omega

@@ -98,7 +98,7 @@ series appears in a type anywhere in `formal/`.**
 | A2 | **Theorem A(ii)**, difference-marginal kernel = homometry; minimal pair `{0,1,2,6,8,11} ∼ {0,1,6,7,9,11}`, none at diameter ≤ 10 | `REPORT.md` §2 | `formal/cubical/HomometricPair.agda` — `interval-vector-agree`, `interval-vector-value`, `A-total`/`B-total` (all 15 differences accounted for), `not-congruent` (translations and reflections, translation parameter killed by the head of the sorted list), plus non-vacuity controls `control-self`/`control-mirror`. **EXIT=0 under the pin** (Agda 2.8.0 + cubical v0.9, run 2026-08-15) and EXIT=0 under 2.6.3 + v0.5 | **TERM** for the existence half; **PARTIAL** overall — *minimality* (diameter ≤ 10 sweep, 6 pairs / 12 events) still Python-only |
 | A3 | **Theorem A(iii)**, heat resolution restores completeness | `REPORT.md` §2 | none | **PROSE** |
 | A4 | **Theorem A′**, reversal/UFD rigidity, irreducible core | `REPORT.md` §2.1 | `Pairfield.ReversalRigidity` — `reverse_reverse_of_constantCoeff_ne_zero`, `Monic.eq_of_dvd_of_natDegree_eq` and the rigidity theorem they feed (read; olean present) | **TERM** (Lean) |
-| A5 | **Theorem A′′**, unconditional prime phase rigidity (singleton-parity) | `REPORT.md` §2.1, `PARITY_RIGIDITY.md` | none (`grep -rl "A′′\|parity rigidity" formal/` → empty) | **PROSE** |
+| A5 | **Theorem A′′**, singleton-parity rigidity (of which "unconditional prime phase rigidity" is the *corollary* — this row's original one-line summary named only the corollary; the theorem is about any finite `A ⊂ ℤ` one of whose parity classes is a singleton) | `REPORT.md` §2.1, `PARITY_RIGIDITY.md` | `Pairfield.ParityRigidity` — `core` (the algebraic layer, over `ℤ[T;T⁻¹]`, no 0–1 hypothesis), `rigidity_normalized` / `rigidity_normalized_diff` (the set layer, in normalized position), `coeff_autocorr` (the bridge: coefficient = difference count), `parity_class_sizes` (the `eo = N-1` step), plus six non-vacuity controls. `lake build Pairfield.ParityRigidity` → **EXIT=0** (Lean 4.33.0 + mathlib v4.33.0, run 2026-08-15), olean present, axioms = the three standard ones | **PARTIAL** — the two substantive layers are terms; the translation bookkeeping reducing the general statement to normalized position is not (see the module header and `PARITY_RIGIDITY.md`'s status box) |
 | A6 | **Theorem B**, tensor explicit formula / aperture law | `REPORT.md` §3 | none | **PROSE** |
 | A7 | **Theorem C**, heat smoothing trivializes "average Goldbach ⟺ RH" | `REPORT.md` §4 | none | **PROSE** |
 | A8 | **Theorem D**, Goldbach data displays the sum-spectrum | `REPORT.md` §5 | none | **PROSE** |
@@ -247,7 +247,26 @@ cubical kernel) already contain every ingredient?*
 
 ### Tier 2 — one file, real proof work, ingredients present
 
-5. **A5 — Theorem A′′ / the singleton-parity theorem.** ≈2–3 blocks. The proof
+5. ~~**A5 — Theorem A′′ / the singleton-parity theorem.**~~ **DONE in part,
+   2026-08-15 (Tarski), `formal/pairfield/Pairfield/ParityRigidity.lean`,
+   `lake build` exit 0.** Three corrections to the estimate below, for the
+   next estimator: (i) the item is a *three-layer* proposition, and this
+   entry's summary — like the A5 row's — named the boxed conclusion only;
+   (ii) `ReversalRigidity.lean` supplies **nothing** usable, because the
+   involution is `LaurentPolynomial.invert`, not `Polynomial.reverse`, and
+   the needed input is instead `NoZeroDivisors (AddMonoidAlgebra ℤ ℤ)`,
+   which mathlib has via `UniqueSums ℤ`; (iii) the algebraic core came in at
+   ≈40 lines and the *set-level* glue (indicator polynomial, injectivity,
+   `invert (ind A) = ind (-A)`, the autocorrelation-coefficient bridge) was
+   the larger half. What remains open is the translation bookkeeping of
+   layer 1, ≈½ block. **This does not by itself retire `Conjecture A″_alg`
+   from any critical path** — that inference in the original entry was
+   wrong: A′′ and A″_alg were already *separated* by `MERGE_PLAN.md` §255–6
+   and `RIGIDITY_FRONTIER.md` §0, A′′ being the theorem and A″_alg the
+   strictly stronger open irreducibility statement. Formalizing A′′ raises
+   the corpus's confidence in the *rigidity* half; A″_alg stands exactly
+   where it stood. Original entry, for the record:
+   ≈2–3 blocks. The proof
    in `REPORT.md` §2.1 is: shift by 2; one even exponent, all others odd;
    autocorrelation equality preserves the two parity-class sizes; separate odd
    and even Laurent coefficients. Every step is polynomial algebra over ℤ, and
