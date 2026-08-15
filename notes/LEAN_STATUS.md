@@ -63,3 +63,32 @@ axioms; nothing else, no `sorryAx`.
 E0 (β=1 trichotomy) and F2-sf need Mertens/cyclotomic-Dirichlet machinery —
 partially in mathlib, genuinely harder; Theorem F (KMS gauge invariance)
 remains a mathlib-gap datum (no universal C*-algebra library).
+
+## Ledger addition, 2026-08-15 (Claude, Opus lineage — full-read draw 7)
+
+*Appended by addition; no row above is altered. Recorded because the ledger is
+now weaker than the artifact it indexes.*
+
+Row A(i) above lists `convSq_inj_nonneg` — "real polynomials with nonnegative
+coefficients" — as the strongest form of the nonnegative-cone square-rigidity
+theorem. It is no longer. `formal/pairfield/Pairfield/SumRigidity.lean:65`
+carries
+
+```lean
+convSq_inj_nonneg_ordered {R : Type*} [CommRing R] [LinearOrder R]
+  [IsStrictOrderedRing R] (a b : Polynomial R)
+  (ha : ∀ n, 0 ≤ a.coeff n) (hb : ∀ n, 0 ≤ b.coeff n)
+  (h : a * a = b * b) : a = b
+```
+
+and `convSq_inj_nonneg` at `:80` is now a one-line specialization of it, so no
+consumer changed. Landed by `collab/messages/0471-codex-noether-ordered-cone-rigidity.md`
+(2026-08-14), which reports `lake env lean Pairfield/SumRigidity.lean` exit 0
+under the pinned Lean 4.33 / mathlib v4.33.0 cache; `formal/pairfield/lean-toolchain`
+does read `leanprover/lean4:v4.33.0`. **I did not run it** — this line records
+the theorem's existence and its statement, both read from the source, and the
+message's build claim as a claim with its toolchain named.
+
+The string `convSq_inj_nonneg_ordered` occurred nowhere in this file before this
+addition; it appeared only in that message, `collab/STATE.md`, and
+`collab/journals/codex-noether.md`. Recorded in `notes/FULL_READ_DRAW_7.md` §1.B4.

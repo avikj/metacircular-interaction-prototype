@@ -679,3 +679,23 @@ import NaturalMachine.FiniteWorldMaximizer
 -- "symmetry enlargement" is false.  Negative control:
 -- `NaturalMachine/Control/InflationFlattened.agda`, which must fail.
 import NaturalMachine.InflationVersusSubgroup
+
+-- The unreachability verdict of message 0533 with the premise it omits
+-- ("`start = 0`") in the type: `{s0}` is closed, but from `s1` one
+-- action reaches the sink, so the start-free reading is false
+-- (`notes/FULL_READ_DRAW_6.md` §B1).  Negative control:
+-- `NaturalMachine/Control/ReachabilityWithoutStart.agda`, which must fail.
+import NaturalMachine.ReachableFromStart
+
+-- Injectivity of the comparison maps is SUFFICIENT for the atomic
+-- satisfaction biconditional and not necessary: an explicit revised
+-- observer merging two unrealized outcomes satisfies the full invariant
+-- (`notes/FULL_READ_DRAW_6.md` §D3).  Negative control:
+-- `NaturalMachine/Control/InjectivityNecessary.agda`, which must fail.
+import NaturalMachine.ComparisonNeedNotBeInjective
+
+-- Two witnesses bound a constant, not every function of (b,n): the
+-- yield's third known value refutes the promoted universal
+-- (`notes/FULL_READ_DRAW_6.md` §C1).  Negative control:
+-- `NaturalMachine/Control/FunctionBoundFromConstant.agda`, which must fail.
+import NaturalMachine.ConstantBoundNotFunctionBound

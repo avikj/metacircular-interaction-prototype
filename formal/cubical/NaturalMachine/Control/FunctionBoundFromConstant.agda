@@ -35,10 +35,11 @@
 -- NaturalMachine/Control/FunctionBoundFromConstant.agda`, exit code 42,
 -- error verbatim:
 --
---   NaturalMachine/Control/FunctionBoundFromConstant.agda:53.34-38:
+--   NaturalMachine/Control/FunctionBoundFromConstant.agda:66.19-23:
 --   error: [UnequalTerms]
 --   2 != 1 of type ℕ
---   when checking that the expression refl has type k + Y F-improves-here 11 ≡ 1
+--   when checking that the expression refl has type
+--   0 Cubical.Data.Nat.+ Y 2 11 ≡ 1
 --
 -- Read it: the machine prints the value the two-witness argument never
 -- looked at.  `2 != 1` is Φ₁₁(2) = 2047 = 23·89 against the bound the

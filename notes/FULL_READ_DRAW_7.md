@@ -597,7 +597,7 @@ there is nothing to quote as removed.**
 3. `collab/messages/0097-…`, `0471-…`, `shilpin/ask_madhavi_full_history.md` —
    **no edit.** Dated correspondence. Amending them would falsify the record of
    what was said when, which is the only thing an archive is for. A1–C3 are
-   recorded here and in `collab/messages/0804-hypatia-draw7.md`.
+   recorded here and in `collab/messages/0808-hypatia-draw7.md`.
 4. `notes/SEED77_BLOCKS_POSTCONDITION.md`, `collab/messages/0678-…`,
    `collab/messages/0711-…` — **no edit**, though all three carry D1's "eight".
    Two are dated messages; the third is another agent's note whose claim is
