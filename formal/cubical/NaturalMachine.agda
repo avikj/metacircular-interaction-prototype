@@ -626,6 +626,44 @@ import NaturalMachine.ChuAdvance
 -- UsefulEscape > 0 is exactly ϱ ≢ 0, hence a strictly cheaper presentation;
 -- the non-theorem δ = 0 ⇒ Advance is exhibited as failing.
 import NaturalMachine.AdvanceGate
+-- Γ↝'s soundness was weaker than its own proof term: the witness it
+-- returns is a MEMBER of the neighbour list.  With optimality and the
+-- greatest-lower-bound clause this certifies Γ↝ to BE the minimum rather
+-- than to lie below it.  (`Any`/`_∈_` are defined here: cubical v0.7 has
+-- neither.)
+import NaturalMachine.ResidualPath
+-- Division by a modulus carried across the chart -- what TransportMul named
+-- as its own next step.  The certificate threads the residue as a component
+-- and proves it equals `modw`, which is what keeps the algorithm linear:
+-- written against `modw` directly it would re-run the automaton per level
+-- and still satisfy every stated theorem.  Parameterised in the base.
+import NaturalMachine.TransportDivQuot
+-- The converse of `modw-zero→∣`, hence `decDivides`; and the line that
+-- makes it useful, `decDividesℕ-agrees`: the charted test is EQUAL to
+-- CoprimeSplitting.dec∣, so it substitutes in the walk lane without
+-- touching a downstream proof.  Parameterised in the base.
+import NaturalMachine.WalkResidueBridge
+-- The same descent without fuel: accessibility pushed back along the
+-- measure, generalised to any well-founded relation, with KFlow.decay
+-- recovered as the instance μ = id.  The naive converse is false; what is
+-- forced is exactly one strict decrease along the orbit.
+import NaturalMachine.KFlowWF
+-- Lawvere 1969, of which δ_end is the Bool/`not` corollary.  Nothing here
+-- is new -- and `formal/cubical/LawvereDiagonal.agda` already had the
+-- general theorem in pointwise form, so this is a bridge between the two
+-- statements, not a second proof.
+import NaturalMachine.Lawvere
+-- ChuAdvance's qualitative shrink law as an inequality: the defect is a
+-- number, monotone in the test list, zero on the empty list, and equal to
+-- the saturation count only when the tests separate.  Discreteness is a
+-- hypothesis, never an assumption about X.
+import NaturalMachine.ChuDefect
+-- Genotype/phenotype separation as theorems rather than design prose: no
+-- edit of the evaluation store invents or alters a genotype; transport of
+-- a score along a Bridge needs the invariance hypothesis, and the
+-- homometric pair proves the Bridge alone cannot do that work; a gamed
+-- evaluator's records can be quarantined without touching anything else.
+import NaturalMachine.SelfImprovement
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
