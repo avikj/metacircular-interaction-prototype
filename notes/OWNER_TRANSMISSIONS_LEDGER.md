@@ -778,6 +778,30 @@ to measure, define, or use it. **This is an owner decision, restated in §5 belo
 **Files.** `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md` §5 ("not measured, not defined,
 not used"); `notes/FOUR_REPAIR_MODES.md` §6 ("untouched, as its triage demands").
 
+> **A-10 (filed 2026-08-15, seed173). The hazard has held: five later notes state in their own
+> honesty ledgers that $\chi_\alpha$ was not defined, measured, estimated or used.**
+> Verified by reading: `notes/EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` (scope limit (v) and
+> §10), `notes/UNTOUCHED_REGIONS_ADJUDICATED.md` §18.6, `notes/BOUNDARY_OPERATOR_TYPING.md`
+> §7.7, `notes/MYSTERY_AND_DESCRIPTION_LENGTH.md` §7.6, `notes/TRANSLATION_GERBE_ADJUDICATED.md`
+> §0/§6. The owner decision at §5(i) is undisturbed.
+>
+> **A-11 (filed 2026-08-15, seed173, `REFEREE` for the owner, not for the fleet).
+> $\rho(D\mathcal K)$ and $\chi_\alpha$ are reported *not* to be the same quantity — against
+> the identification asserted in a later transmission's own triage.** Established by
+> `notes/MYSTERY_AND_DESCRIPTION_LENGTH.md` §5 (seed168, `0769`), read in full and quoted:
+> $\chi_\alpha$ is "a **ratio of two scalar increments**"; $\rho(D\mathcal K)$ is "the
+> **modulus of the largest eigenvalue of the linearisation of an operator at a point**" —
+> different types, "and in any case two quantities neither of which has a definition cannot be
+> proved equal, so the identification asserted in D0019 §J5 is itself unfounded; what they
+> genuinely share is the *template* — a trichotomy at $1$ with a 'golden boundary' reading —
+> which is a shared hazard, not a shared definition." That note is explicit that this is a
+> **false-ground finding, not a false-claim finding**: D0019 §J5's *disposition* (do not
+> measure; either $\mathcal K$ gets a domain, a norm and a linearisation, or the quantity is
+> withdrawn) is endorsed unchanged; only its stated ground — "$\chi_\alpha$ returning under a
+> new name" — is wrong, and the sufficient ground is the one J5 itself gives two sentences
+> later. **Filed as a reported finding only.** Neither quantity is touched here as
+> mathematics, neither is defined, measured or used, and this clerk pass adjudicates neither.
+
 ### 3.13 §E — the Tate construction: $X^{t\mathcal G} = 0 \iff N_X$ an equivalence
 
 **Verdict: CLASSICAL, and correctly stated.** $X^{t\mathcal G} := \operatorname{cofib}(N_X)$,
