@@ -546,3 +546,4 @@ base2-is-2 = refl
 
 base10-is-10 : Base10.b ≡ 10
 base10-is-10 = refl
+import NaturalMachine.FillabilityCertificate

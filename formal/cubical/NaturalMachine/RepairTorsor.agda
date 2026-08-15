@@ -80,7 +80,7 @@ module NaturalMachine.RepairTorsor where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
 open import Cubical.Foundations.HLevels
-open import Cubical.Foundations.Isomorphism
+open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Unit
 open import Cubical.Data.Bool
@@ -224,7 +224,7 @@ module _ (S : Category ℓ ℓ') where
   nonRigid→twoIsos : {x y : ob} (f : Repairs x y) (a : Aut y)
                    → ¬ (a ≡ idCatIso) → ¬ (actR f a ≡ f)
   nonRigid→twoIsos f a a≢id p =
-    a≢id (transporter-unique f f a p ∙ transporter-unique f f idCatIso (actR-id f) ⁻¹)
+    a≢id (transporter-unique f f a p ∙ sym (transporter-unique f f idCatIso (actR-id f)))
 
 ------------------------------------------------------------------------
 -- 4.  Proposition 9 of the note.
