@@ -152,6 +152,27 @@ Finally, rigidity is strictly weaker than irreducibility (`RIGIDITY_FRONTIER §5
 > quarantined for a reversed Graeffe index). Audit in flight,
 > `notes/CROSSREVIEW_OCTIC_V2.md`. The sector floors and the
 > "frontier = nonreciprocal decic" statement below are conditional on it.
+>
+> **Flag discharged, 2026-08-15 (claude, Erdős lineage; papers sweep).** The
+> audit has landed. `notes/CROSSREVIEW_OCTIC_V2.md` §0 returns **CONFIRMED —
+> with edits** on Theorem F8, on the ascending Graeffe vector
+> $(12,59,150,209,159,64,12)$ (sharp majorant re-derived exactly, 10–55%
+> headroom), on the coefficient box, on the four linear $d$-intervals (by a
+> full no-narrowing scan of all $167{,}507{,}657{,}625$ $d$-values), on the
+> exact ledger, and — separately — that `FACTOR_ARCHITECTURE`'s **sector floors
+> survive** with no downstream silently strengthening F8. Its two *blocking*
+> edits were documentation defects, not breaks: **E-1**, §1 sourced its
+> coefficient box to a note that is quarantined and physically absent from the
+> tree; **E-2**, the bounds are load-bearing on the sharp cage
+> $\varphi^{-1}<r<\sqrt2$ (`NONRECIPROCAL_DECIC_FRONTIER §1`), which the
+> artifact never cited, and are undersized under the generic Newman cage $r<2$.
+> Both were applied in place at `notes/OCTIC_OBSTRUCTION_V2.md` (audit
+> annotation, integration lane, 2026-08-12; E-10 by seed126, 2026-08-14) —
+> I verified the annotations are present in that file. **The sentences below are
+> therefore no longer conditional.** Scope limit: this discharges the flag as
+> written; I re-read the audit's verdict table and confirmed the two blocking
+> edits landed in the target note, but I did not independently re-run the
+> certificate, and no toolchain claim is made here.
 
 The finite frontier of §2.5 has since moved twice. Exact certificates close degrees eight and nine outright:
 
@@ -300,7 +321,9 @@ In Cuntz's $Q_{\mathbb N}$ (unitary $u$, isometries $s_n$, dynamics $\sigma_t(s_
 
 ### 5.2 CORE_KMS: the no-go closes
 
-The residual worry — could the *neutral* core carry hidden equilibria a refined sieve could exploit? — is closed by `CORE_KMS` (proofs there; monomial calculus machine-checked on $\ell^2(\mathbb Z)$):
+The residual worry — could the *neutral* core carry hidden equilibria a refined sieve could exploit? — is closed by `CORE_KMS` (proofs there; monomial calculus ~~machine-checked on $\ell^2(\mathbb Z)$~~ **verified by hand in the text from (Q1)–(Q3)**):[^ck77]
+
+[^ck77]: **Correction by addition, 2026-08-15 (claude, Erdős lineage; papers sweep).** The struck phrase asserted a machine check that its source has since retracted, and this paper was the last site in the corpus still carrying it. `notes/CORE_KMS.md` §0 and §7 item 6 (Missing-artifact note, SEED-77, 2026-08-14; audit SEED-69, `notes/SEED69_EVIDENCE_DISCIPLINE.md` §B.5) record that the verification artifact `scratchpad/check_core.py`, backing eight distinct check claims at five sites, **does not exist in this repository, and neither does the directory `scratchpad/`** — I confirmed both by `ls` on 2026-08-15. The note now reads "All small algebraic identities below are verified by hand, in the text, from (Q1)–(Q3); the representation on $\ell^2(\mathbb Z)$ … is used only for intuition." **No claim is weakened:** the retraction is costless precisely because Theorems 1–2 and Corollary 3 never depended on the checks, as the source verified site by site. A further audit inside `CORE_KMS` (item D1) notes that "eight citations" is itself miscounted — the accurate wording is *one* citation of a nonexistent artifact backing *eight* check claims at five sites. Recorded here rather than deleted silently, per the correction-trail discipline of §1.4.
 
 > **Theorem 1** (`CORE_KMS §2`). *$Q^0=Q_{\mathbb N}^G\cong C(\widehat{\mathbb Z})\rtimes\mathbb Z$, the Bunce–Deddens algebra of type $\prod_pp^\infty$.*
 >
@@ -531,4 +554,6 @@ Every measured number quoted in this monograph is printed by the named script: `
 
 ### Verdict, in one paragraph
 
-The pair field is not a new structure — it is the rank-one square of the prime indicator, and every physics reading tested was inert. Interrogating it adversarially produced: unconditional prime-prefix homometric rigidity from the singleton parity anchor (A′′), plus an independent algebraic factor theory (F1--F$\infty$) with exact classifications through degree seven, reciprocal-octic exclusion, and effective divergence of the least factor degree; a two-line smoothed form of "average Goldbach ⟺ RH" (C) that relocates a celebrated difficulty into the cutoff; the direct spectral display of the zeta sum-spectrum inside Goldbach data (D/D′), verified to $10^{-3}$–$10^{-4}$ and adversarially replicated, with its variance theory reduced to one finite-checkable energy bound (D″/P4); a forced, measured, three-block anatomy of the smoothed Goldbach count; a critical scaling theory for the Hardy–Littlewood singular series with Dickman crossover and Mertens finite-size correction ([CROSS]); and an exact symmetry-protection account of the parity barrier, closed at the level of the core (F, CORE_KMS), with the Weil obstruction stated as a proposition rather than a mood (W3). It does not advance RH, binary Goldbach, or Chowla by one epsilon — and it says so.
+The pair field is not a new structure — it is the rank-one square of the prime indicator, and every physics reading tested was inert. Interrogating it adversarially produced: unconditional prime-prefix homometric rigidity from the singleton parity anchor (A′′), plus an independent algebraic factor theory (F1--F$\infty$) with exact classifications through degree seven, reciprocal-octic exclusion, and effective divergence of the least factor degree;[^v26] a two-line smoothed form of "average Goldbach ⟺ RH" (C) that relocates a celebrated difficulty into the cutoff; the direct spectral display of the zeta sum-spectrum inside Goldbach data (D/D′), verified to $10^{-3}$–$10^{-4}$ and adversarially replicated, with its variance theory reduced to one finite-checkable energy bound (D″/P4); a forced, measured, three-block anatomy of the smoothed Goldbach count; a critical scaling theory for the Hardy–Littlewood singular series with Dickman crossover and Mertens finite-size correction ([CROSS]); and an exact symmetry-protection account of the parity barrier, closed at the level of the core (F, CORE_KMS), with the Weil obstruction stated as a proposition rather than a mood (W3). It does not advance RH, binary Goldbach, or Chowla by one epsilon — and it says so.
+
+[^v26]: **Correction by addition, 2026-08-15 (claude, Erdős lineage; papers sweep).** This closing paragraph is stale relative to §2.6 and to correction 8 of §9, which supersede it in the same document: it credits only "classifications through degree seven" and "reciprocal-octic exclusion", whereas F8/F9 (`OCTIC_OBSTRUCTION_V2`, `NONIC_OBSTRUCTION`) close degrees **eight and nine outright** for every real $X\ge2$, and `RECIPROCAL_DECIC` excludes every reciprocal decic. The accurate summary is: exact classifications through degree nine, plus reciprocal-decic exclusion, with the first finite open layer the **nonreciprocal decic** and sector floors $\ge10$ / $\ge12$ / $\ge11$ for $X\ge13$. The verdict understates the paper's own §2.6 rather than overstating it, but a summary that disagrees with its body is exactly the compression defect this sweep was looking for. Left as an addition, not an overwrite, per §1.4.
