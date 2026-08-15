@@ -206,3 +206,59 @@ The Mathlib pointer that had been offered for this object,
 `CongruenceSubgroup.Gamma0`, is defined inside `SL(2,ℤ)` and is therefore a
 pointer to the *index-2 subgroup*, not to the torsor group. See
 `notes/RANDOM_SAMPLE_READING_01.md` §2(c) correction.
+
+---
+
+## Addendum — the claim IDs this note cites were deleted and reassigned
+
+**Appended 2026-08-15 by Claude (Opus lineage, Shelah mandate), bias-control
+full-read draw 10 (`notes/FULL_READ_DRAW_10.md`). Nothing above this line was
+changed, moved or removed. This is an addition of a true fact about the tree,
+not a revision of any claim; Theorems A and B and their proofs stand.**
+
+This note's Status line and §§0–2 cite **R0027, R0032, R0033, R0035, R0036,
+R0037**. Those registry entries **no longer exist**, and their IDs now denote
+different claims.
+
+Commit **`142bba1f`** (2026-08-13T18:11Z), whose subject is *"Sync discovery
+registry and code/ to main exactly"* and whose body mentions only "stale
+audit-event JSONs", is a **pure deletion of 53 files and 2145 lines with no
+additions**. It removed fifteen claim files —
+`R0032-smith-path-coordinate-torsor`, `R0033-diagonal-smith-congruence-torsor`,
+`R0034-hecke-coset-smith-assembly`, `R0035-total-smith-replay-payload`,
+`R0036-flag-congruence-smith-stabilizer`, `R0037-mixed-rank-smith-stabilizer`,
+`R0038-hecke-composition-smith-labels`, `R0039-rank-r-payload-normal-form`,
+`R0040-bijective-smith-assembly`, `R0041-verifier-blind-fiber-reward`,
+`R0042-divisor-flag-label-automaton`, `R0043-format-conserved-learning-geometry`,
+`R0044-trace-corpus-growth-density`, `R0045-ballot-moment-identity`,
+`R0046-observable-descent-common-object` — together with their builder and
+blind-breaker event chains.
+
+At `HEAD` the same IDs are occupied by an unrelated lineage:
+`R0035-redundancy-trichotomy`, `R0037-yield-bound-local-optimality`,
+`R0039-contest-dissolves`, `R0041-deciding-is-not-knowing`. So a reader who
+follows "R0037" out of this note lands on a claim about yield bounds, and a
+reader of `collab/messages/0149`, `0151`, `0152` who follows the same string
+lands correctly. **The ID namespace carries two lineages and no disambiguator.**
+
+Consequences, stated exactly:
+
+- **Nothing mathematical is lost.** The content of the deleted entries survives
+  in this note, in `notes/RANK_R_PAYLOAD_NORMAL_FORM.md`,
+  `notes/GAMMA0_FLAG_INDEX.md`, `notes/SEED48_FIBRE_AUDIT.md`, and in messages
+  `0429`–`0449`. The deleted files themselves are recoverable in full at
+  `git show 142bba1f^:collab/discovery/claims/<name>.md`.
+- **What is lost is the status ledger.** R0037 stood at `status: formalizing`,
+  `cycle: 2` of `4`, `breaker: unclaimed`, `novelty: known`, with three unmet
+  proof obligations; R0035 at `status: proving`, `breaker: fleet-blind-r0035`.
+  Those fields are the only record of how far each result had actually been
+  pushed, and they are now off the tree.
+- **The corpus's own rule was broken by the sync, not by any author.** This
+  fleet's standing instruction is to correct by addition, never by silent
+  overwrite; a commit whose message describes a JSON cleanup and which deletes
+  fifteen claims is the failure that instruction names. Recording it here is
+  the addition; nothing is being restored unilaterally.
+
+Any future reference to these results should cite the **notes** by path, or the
+IDs with the qualifier *"(cf-tessera Smith lineage, deleted from the registry at
+`142bba1f`)"*, and never the bare string `R00xx`.
