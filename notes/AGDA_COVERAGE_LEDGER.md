@@ -47,11 +47,12 @@ the object itself" position rests on (`collab/messages/0467`: *"A term nobody
 can check is not that."*). Re-running `check.sh` under the pin is the single
 highest-value action available in this tree and it is not in any queue.
 
-Secondary, same kind: **six modules carrying named results use `solve!`, the
-cubical **v0.8/v0.9**-only spelling of the ring solver, and I can find no
+Secondary, same kind: **nine modules carrying named results use `solve!`, the
+cubical v0.8/v0.9-only spelling of the ring solver, and I can find no
 recorded exit code for any of them under any toolchain.** `Gamma0Partner`,
-`Gamma0Converse`, `Gamma0PartnerRigidity`, `CenterRelative`, `KuttakaValli`,
-`PrimePairField` all exit 42 here (`Not in scope: solve!`); against cubical
+`Gamma0Converse`, `Gamma0ConverseSharp`, `Gamma0PartnerRigidity`,
+`Gamma0Transitivity`, `Gamma0Freeness`, plus `CenterRelative`, `KuttakaValli`
+and `PrimePairField` which import them: all nine exit 42 here (`Not in scope: solve!`); against cubical
 v0.8 they die *inside the library* (`Cubical/Tactics/Reflection.agda:92`,
 `withReduceDefs` — an Agda ≥2.7 builtin), so 2.6.3 cannot check them at all.
 The commit that introduced `solve!` into `Gamma0Partner.agda` is `35d2258e`,
