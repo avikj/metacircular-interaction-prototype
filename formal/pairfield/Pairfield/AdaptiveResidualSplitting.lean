@@ -113,11 +113,11 @@ def automaton : DFA (Fin 3) (Fin 3) where
 instance : DecidablePred (fun state : Fin 3 => state ∈ automaton.accept) :=
   fun state => inferInstanceAs (Decidable (observe state = true))
 
-theorem eval_reach : automaton.eval [reach] = 1 := by native_decide
+theorem eval_reach : automaton.eval [reach] = 1 := by decide
 
-theorem eval_merge_start : automaton.eval [merge] = 0 := by native_decide
+theorem eval_merge_start : automaton.eval [merge] = 0 := by decide
 
-theorem eval_reach_merge : automaton.eval [reach, merge] = 0 := by native_decide
+theorem eval_reach_merge : automaton.eval [reach, merge] = 0 := by decide
 
 /-- The merge action is a planted-false root: it gives the same advanced
 state from the two reachable hidden prefixes, although the original residuals
@@ -127,7 +127,7 @@ theorem merge_not_safe : ¬ PrefixResidualSafeAction automaton merge := by
   have hcurrent :
       acceptsBool automaton (automaton.eval []) =
         acceptsBool automaton (automaton.eval [reach]) := by
-    native_decide
+    decide
   have hadvanced :
       BranchResidual automaton ([] ++ [merge]) =
         BranchResidual automaton ([reach] ++ [merge]) := by
@@ -144,7 +144,7 @@ theorem merge_not_safe : ¬ PrefixResidualSafeAction automaton merge := by
           (acceptsBool automaton) (automaton.eval []) ≠
         (BoolExperimentTree.fixedWord [reveal]).trace automaton.step
           (acceptsBool automaton) (automaton.eval [reach]) := by
-    native_decide
+    decide
   exact hseparates (hall (BoolExperimentTree.fixedWord [reveal]))
 
 /-- Therefore no tree rooted at the lossy merge action can separate all

@@ -119,7 +119,7 @@ example : globalObservableHorizon automaton alphabet ≤ adaptiveTree.depth :=
   by
     have haccepts : acceptsBool automaton = observe := by
       funext state
-      fin_cases state <;> native_decide
+      fin_cases state <;> decide
     have htree : adaptiveTree.IdentifiesAll
         automaton.step (acceptsBool automaton) := by
       rw [haccepts]

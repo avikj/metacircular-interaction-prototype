@@ -59,11 +59,11 @@ counterexample. -/
 theorem all_states_reachable (state : Fin 5) :
     ∃ pre : List (Fin 3), automaton.eval pre = state := by
   fin_cases state
-  · exact ⟨[], by native_decide⟩
-  · exact ⟨[reach], by native_decide⟩
-  · exact ⟨[steer], by native_decide⟩
-  · exact ⟨[reach, steer], by native_decide⟩
-  · exact ⟨[reach, steer, reveal], by native_decide⟩
+  · exact ⟨[], by decide⟩
+  · exact ⟨[reach], by decide⟩
+  · exact ⟨[steer], by decide⟩
+  · exact ⟨[reach, steer], by decide⟩
+  · exact ⟨[reach, steer, reveal], by decide⟩
 
 /-- One presenter for each of the two initially live residuals. -/
 def representatives : Finset (List (Fin 3)) := {[], [reach]}
@@ -82,7 +82,7 @@ def steeringTree : BoolExperimentTree (Fin 3) :=
 theorem steering_traces_ne :
     BranchTrace automaton steeringTree [] ≠
       BranchTrace automaton steeringTree [reach] := by
-  native_decide
+  decide
 
 /-- The two live prefixes really present different Mathlib residuals. -/
 theorem live_residuals_ne :
@@ -103,7 +103,7 @@ theorem liveCell_currentConstant :
   have hrightCases : right = [] ∨ right = [reach] := by
     exact (mem_representatives_iff right).mp hright'
   rcases hleftCases with rfl | rfl <;>
-    rcases hrightCases with rfl | rfl <;> native_decide
+    rcases hrightCases with rfl | rfl <;> decide
 
 /-- The advertised depth-two tree separates the live residual cell. -/
 theorem steeringTree_separates :
@@ -181,7 +181,7 @@ theorem done_not_separates :
     exact (mem_representatives_iff []).2 (Or.inl rfl)
   · change [reach] ∈ representatives
     exact (mem_representatives_iff [reach]).2 (Or.inr rfl)
-  · native_decide
+  · decide
 
 /-- Any separating query must use `steer` at its root. -/
 theorem separating_query_root_eq_steer
@@ -220,12 +220,12 @@ theorem steer_response_constant
     ResidualPotentialAdapter.postResponse automaton steer pre = false := by
   have hcases : pre = [] ∨ pre = [reach] := by
     exact (mem_representatives_iff pre).mp hpre
-  rcases hcases with rfl | rfl <;> native_decide
+  rcases hcases with rfl | rfl <;> decide
 
 theorem steer_true_responseFiber_empty :
     FiniteLiveCell.responseFiber representatives
       (ResidualPotentialAdapter.postResponse automaton steer) true = ∅ := by
-  native_decide
+  decide
 
 /-- One representative really was chosen per residual. -/
 theorem representatives_distinct :

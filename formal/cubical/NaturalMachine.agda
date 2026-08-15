@@ -235,6 +235,11 @@ import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct
 import NaturalMachine.DSONucleusMiddleProduct
+-- Landed as orphans of the root while the pin sweep was running; both
+-- exit 0 individually, so folded in 2026-08-15 to keep BUILD.md's
+-- reachability invariant true rather than only asserted.
+import NaturalMachine.DSONucleusMiddleAssociativityAudit
+import NaturalMachine.DSONucleusResidualAudit
 -- The exhaustive finite associativity/residuation audit modules remain
 -- focused-safe checks, but are not aggregate imports: their current
 -- definitional normalization makes a clean root check take minutes.  The
@@ -806,9 +811,19 @@ import NaturalMachine.QuotientUnitSourceCutBoundary
 import NaturalMachine.RootedGrothendieck
 import NaturalMachine.SpernerFromSl2
 import NaturalMachine.StructuredSymmetryTransport
+-- `TransportCost` was excluded here for a while as a
+-- [CyclicModuleDependency]: it used to `open import` this very root to
+-- reach `Base2`.  That was repaired at the other end 2026-08-15 — it now
+-- opens the five leaf modules `Base2` bundles, exactly as its sibling
+-- `TransportMulWitness` already did — so the cycle is gone and the root
+-- covers it again.  Restoring it here keeps BUILD.md's invariant ("the
+-- root transitively reaches every module in NaturalMachine/") true,
+-- which the workaround of importing it from `Everything.agda` did not.
 import NaturalMachine.TransportCost
 import NaturalMachine.Vacuity
--- `NaturalMachine.WFIScratch1` and `.WFIScratch2` were deleted by
--- 3b4846c6 ("Delete the bisection stubs now that the real module
--- checks"); their import lines were left behind and made the root
--- FileNotFound.  Removed 2026-08-15 under the pinned toolchain.
+-- (`NaturalMachine.WFIScratch1`/`2` were green orphans under the pin
+-- when this sweep ran and were deleted from the tree by another lane
+-- minutes later, commit 3b4846c6 "Delete the bisection stubs now that
+-- the real module checks".  Not imported: there is nothing to import.
+-- Their import lines outlived the files for a while and made the root
+-- FileNotFound; removed 2026-08-15 under the pin.)

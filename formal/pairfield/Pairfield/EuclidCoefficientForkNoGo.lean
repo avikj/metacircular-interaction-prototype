@@ -47,14 +47,14 @@ end CoefficientEdge
 namespace KuttakaCoefficientFork
 
 def zeroToOne : CoefficientEdge 0 1 :=
-  ⟨[.inc], by native_decide⟩
+  ⟨[.inc], by decide⟩
 
 def oneToTwo : CoefficientEdge 1 2 :=
-  ⟨[.inc], by native_decide⟩
+  ⟨[.inc], by decide⟩
 
 /-- The tempting but nonminimal branch from the shared coefficient `1`. -/
 def oneToNegOne : CoefficientEdge 1 (-1) :=
-  ⟨[.dec, .dec], by native_decide⟩
+  ⟨[.dec, .dec], by decide⟩
 
 def zeroToTwo : CoefficientEdge 0 2 :=
   zeroToOne.trans oneToTwo
@@ -64,7 +64,7 @@ def zeroToNegOneViaOne : CoefficientEdge 0 (-1) :=
 
 /-- The admissible direct formation that destroys the proposed shared fork. -/
 def zeroToNegOneDirect : CoefficientEdge 0 (-1) :=
-  ⟨[.dec], by native_decide⟩
+  ⟨[.dec], by decide⟩
 
 theorem edge_costs :
     zeroToOne.cost = 1 ∧
@@ -73,7 +73,7 @@ theorem edge_costs :
       zeroToTwo.cost = 2 ∧
       zeroToNegOneViaOne.cost = 3 ∧
       zeroToNegOneDirect.cost = 1 := by
-  native_decide
+  decide
 
 /-- Cost of forcing both required coefficients through the common node `1`.
 The Boolean arguments say whether `2` and `-1` are already retained. -/
@@ -103,33 +103,33 @@ theorem forcedFork_workSaved_table :
       workSaved forcedForkCost true false = 1 ∧
       workSaved forcedForkCost false true = 2 ∧
       workSaved forcedForkCost true true = 4 := by
-  native_decide
+  decide
 
 theorem forcedFork_increasing_returns :
     workSaved forcedForkCost false true -
         workSaved forcedForkCost false false <
       workSaved forcedForkCost true true -
         workSaved forcedForkCost true false := by
-  native_decide
+  decide
 
 /-- But that effect was purchased by suppressing the shorter direct edge. -/
 theorem forcedFork_not_minimal :
     directPairCost false false < forcedForkCost false false := by
-  native_decide
+  decide
 
 /-- In every cache state, admitting the direct trace makes the fork inert. -/
 theorem optimalPairCost_eq_directPairCost
     (retainTwo retainNegOne : Bool) :
     optimalPairCost retainTwo retainNegOne =
       directPairCost retainTwo retainNegOne := by
-  cases retainTwo <;> cases retainNegOne <;> native_decide
+  cases retainTwo <;> cases retainNegOne <;> decide
 
 theorem optimal_workSaved_table :
     workSaved optimalPairCost false false = 0 ∧
       workSaved optimalPairCost true false = 2 ∧
       workSaved optimalPairCost false true = 1 ∧
       workSaved optimalPairCost true true = 3 := by
-  native_decide
+  decide
 
 /-- The apparent strict complementarity becomes equality after lawful recipe
 minimization. -/
@@ -138,7 +138,7 @@ theorem optimal_pair_is_modular :
         workSaved optimalPairCost false true =
       workSaved optimalPairCost false false +
         workSaved optimalPairCost true true := by
-  native_decide
+  decide
 
 end KuttakaCoefficientFork
 

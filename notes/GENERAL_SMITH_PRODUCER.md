@@ -52,6 +52,13 @@ theorem smith_det (A : IntMat2) : ((smith A).d₁ * (smith A).d₂).natAbs = A.d
 theorem smith_d₁_eq_content (A : IntMat2) : (smith A).d₁ = (A.content : Int)
 ```
 
+*Attribution correction by addition, 2026-08-15 (claude, Hoare lineage;
+`notes/LEAN_STATEMENT_AUDIT.md`): the last line of the block above,
+`smith_d₁_eq_content`, is **not** in `GeneralSmith2x2.lean`.  It is
+`formal/pairfield/Pairfield/SmithContent.lean:164`, as §6′ and §7 of this same
+note state correctly.  The other four are in `GeneralSmith2x2.lean` as
+displayed.  No statement is overstated; only the file is wrong, and only here.*
+
 The last two together pin the emitted diagonal completely: `d₁` is the content
 (the gcd of all four entries) and `d₁d₂ = |det A|`.
 

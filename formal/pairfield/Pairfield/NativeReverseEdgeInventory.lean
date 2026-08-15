@@ -162,13 +162,13 @@ open VisitedPairHorizonWitness
 eighteen predecessor edges, versus twenty-seven flat reverse labels. -/
 theorem inventory_has_twenty_two_edges :
     (edgeInventory automaton alphabet).length = 22 := by
-  native_decide
+  decide
 
 theorem inventory_respects_generic_bound :
     (edgeInventory automaton alphabet).length ≤
       Fintype.card (Fin 3) * Fintype.card (Fin 3) *
         (alphabet.length + 1) := by
-  native_decide
+  decide
 
 /-- Native evaluation encounters the same product state before and after
 decoding a proof-relevant predecessor edge. -/
@@ -177,7 +177,7 @@ theorem native_predecessor_adapter_control :
         [ReverseEdge.predecessor (0, 1) false] =
       (reverseDFA automaton).evalFrom (some (0, 2))
         [ReverseMove.predecessor (0, 1) false] := by
-  native_decide
+  decide
 
 end Control
 

@@ -12,6 +12,25 @@
 -- instances.  Gödel's first incompleteness theorem is not, and this
 -- module says so with a term rather than a paragraph.
 --
+-- [ADDED 2026-08-15, Claude (header-claim audit).  The sentence above is
+--  left as written; this is an appended correction, not a replacement.
+--  "Three of those five are instances" OUTRUNS THIS MODULE'S TERMS in
+--  both directions, and the module whose subject is overstatement should
+--  not overstate:
+--    · Only TWO of the five are witnessed here — Cantor and Tarski — and
+--      §1 itself proves they are ONE term (`tarskiUndefinability =
+--      cantor`), so the terms below support "two names, one instance",
+--      not "three instances".
+--    · RUSSELL and TURING carry no term in this module and none anywhere
+--      else in this repository (checked by search over all 377 .agda
+--      files under formal/, 2026-08-15: the only occurrences of either
+--      name are in comments here and in NaturalMachine/Lawvere.agda).
+--      They are standard and are almost certainly instances; they are
+--      UNWITNESSED here, and "three" silently counts one of them.
+--  The module's actual, and fully carried, claim is the NEGATIVE one:
+--  Gödel I's second conjunct is not an instance (`noHalfTwo`).  That is
+--  unaffected.  See notes/HEADER_CLAIM_AUDIT.md.]
+--
 -- The split, exactly:
 --
 --   * Cantor and Tarski are the SAME TERM as `LawvereDiagonal.cantor`,
@@ -81,6 +100,38 @@ tarskiUndefinability = cantor
 -- at the same type level.  Ungraded and non-terminating, against graded
 -- and terminating: a second discriminator, independent of the locality
 -- one in notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md Thm 4.
+--
+-- [ADDED 2026-08-15, Claude (header-claim audit).  The paragraph above
+--  is left as written and is appended to, not replaced.  IT CLAIMS MORE
+--  THAN `noTerminalStage` PROVES, and the gap is the exact shape this
+--  corpus keeps catching: a header reads off a result about an object
+--  the module never constructs.  What is below is
+--
+--      noTerminalStage {A D} (e : (A ⊎ D) → (A ⊎ D) → Bool) → ¬ WkPtSurj e
+--      noTerminalStage = cantor
+--
+--  i.e. `cantor` instantiated at the type `A ⊎ D`.  In it:
+--    · `D` is an UNCONSTRAINED type variable.  Nothing types it as the
+--      escaping observation of the previous stage — that escapee is a
+--      term of `A → Bool`, a function, not a type one can sum with `A`.
+--      So "adjoining the escaping observation D to the stage A" is a
+--      gloss the term does not carry; no adjunction is performed and no
+--      stage is related to its successor.
+--    · There is NO TOWER in this module: no stage indexing, no successor
+--      operation, no iteration.  "No stage of the diagonal tower is
+--      terminal" is therefore not a statement any term here makes.
+--    · The comparison with the graded geometric obstruction tower
+--      (H^{n+1}(X;π_n F), dying above dim X) is prose only: neither
+--      grading nor termination is formalised, so "ungraded and
+--      non-terminating, against graded and terminating: a second
+--      discriminator" is an unwitnessed claim.
+--  What IS proved, and it is worth having: Cantor holds at every type,
+--  coproducts included, so no coproduct-shaped enlargement of the
+--  carrier can make a quotation point-surjective.  That is a corollary
+--  of `cantor`'s universal quantification over the carrier, obtained
+--  without any tower.  Read §2 as that, and read the tower argument as
+--  an open PROVE item, not as something discharged below.
+--  See notes/HEADER_CLAIM_AUDIT.md.]
 ------------------------------------------------------------------------
 
 noTerminalStage : {A D : Type ℓ} (e : (A ⊎ D) → (A ⊎ D) → Bool)

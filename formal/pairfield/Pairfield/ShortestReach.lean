@@ -273,10 +273,10 @@ open ChartQuotientWitness
 
 example : shortestReachingWord automaton alphabet (2 : Fin 4) =
     some [false, true] := by
-  native_decide
+  decide
 
 example : shortestReachingWord automaton alphabet (3 : Fin 4) = none := by
-  native_decide
+  decide
 
 end ShortestReachWitness
 

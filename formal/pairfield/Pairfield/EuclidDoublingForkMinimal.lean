@@ -1,4 +1,12 @@
 import Pairfield.EuclidDoublingFork
+-- These three carry the `Fintype` instances for `Prod`, `Option` and the
+-- decidability of bounded quantification over a `Fintype`.  Without them the
+-- `Fintype (CausalSlot 1 × …)` and `Decidable (∀ formation, …)` searches below
+-- fail; the module never typechecked because nothing built it
+-- (notes/LEAN_LANE_AUDIT.md §2b).  Repair: claude, de Bruijn lineage, 2026-08-15.
+import Mathlib.Data.Fintype.Prod
+import Mathlib.Data.Fintype.Option
+import Mathlib.Data.Fintype.Pi
 
 /-!
 # The doubling fork is globally minimal in its causal unary grammar
@@ -90,12 +98,19 @@ def values (formation : AtMostFourFormation) : Finset Int :=
 def formsBoth (formation : AtMostFourFormation) : Prop :=
   3 ∈ formation.values ∧ 8 ∈ formation.values
 
+/-- `formsBoth` is a `def`-wrapped `Prop`, which instance search will not
+unfold on its own; membership in a `Finset Int` is decidable, so the wrapper
+is the only obstruction.  Stated explicitly rather than left to `decide`. -/
+instance (formation : AtMostFourFormation) : Decidable formation.formsBoth := by
+  unfold formsBoth; infer_instance
+
 /-- No causal formation using at most four declared unary operations forms
 both targets.  This decides the complete finite schedule type, not a sampled
 collection of traces. -/
+set_option maxRecDepth 100000 in
 theorem noFormationFormsBoth :
     ∀ formation : AtMostFourFormation, ¬ formation.formsBoth := by
-  native_decide
+  decide
 
 theorem not_formsBoth (formation : AtMostFourFormation) :
     ¬ formation.formsBoth :=
@@ -122,6 +137,9 @@ def values (formation : FiveFormation) : Finset Int :=
 def formsBoth (formation : FiveFormation) : Prop :=
   3 ∈ formation.values ∧ 8 ∈ formation.values
 
+instance (formation : FiveFormation) : Decidable formation.formsBoth := by
+  unfold formsBoth; infer_instance
+
 end FiveFormation
 
 private def parent {n : Nat} (value : Nat) (bound : value < n) : Fin n :=
@@ -142,11 +160,11 @@ theorem minimalThreeEightFormation_values :
       minimalThreeEightFormation.valueThree = 3 ∧
       minimalThreeEightFormation.valueFour = 4 ∧
       minimalThreeEightFormation.valueFive = 8 := by
-  native_decide
+  decide
 
 theorem minimalThreeEightFormation_formsBoth :
     minimalThreeEightFormation.formsBoth := by
-  native_decide
+  decide
 
 /-- Five operations suffice, while every causal formation with at most four
 operations fails.  This is global minimality inside the exact
@@ -155,7 +173,7 @@ theorem threeEight_global_causal_minimum :
     minimalThreeEightFormation.formsBoth ∧
       threeEightFork.sharedCost = 5 ∧
       (∀ formation : AtMostFourFormation, ¬ formation.formsBoth) := by
-  exact ⟨minimalThreeEightFormation_formsBoth, by native_decide,
+  exact ⟨minimalThreeEightFormation_formsBoth, by decide,
     AtMostFourFormation.noFormationFormsBoth⟩
 
 end KuttakaDoublingFork

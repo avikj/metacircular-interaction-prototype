@@ -24,7 +24,7 @@ abbrev controlM : DFA Bool (Fin 3) :=
 /-- A genuine terminal seed for the response-separated pair `(0,2)`. -/
 def seed02 : TerminalSeed controlM where
   pair := (0, 2)
-  terminal := by native_decide
+  terminal := by decide
 
 /-- This edge advertises target `(0,1)`, but its source is `(0,1)` under the
 false action, so it is not enabled after `seed02` reaches `(0,2)`. -/
@@ -40,18 +40,18 @@ def validButUnchainedNode :
 theorem wrongPredecessor_source_mismatch :
     reverseEdgeSourceState controlM wrongPredecessor ≠
       SourceState.pair (0, 2) := by
-  native_decide
+  decide
 
 theorem wrongPredecessor_is_noop_at_retained_state :
     (indexedEdgeDFA controlM).step (SourceState.pair (0, 2))
         wrongPredecessor = SourceState.pair (0, 2) := by
-  native_decide
+  decide
 
 theorem validButUnchainedNode_valid :
     validButUnchainedNode.Valid (indexedEdgeDFA controlM) := by
   change (indexedEdgeDFA controlM).eval
       [.seed seed02, wrongPredecessor] = SourceState.pair (0, 2)
-  native_decide
+  decide
 
 theorem validButUnchainedNode_last :
     validButUnchainedNode.word.getLast? = some wrongPredecessor := by
@@ -60,7 +60,7 @@ theorem validButUnchainedNode_last :
 theorem wrongPredecessor_target_ne_node :
     reverseEdgeTargetState controlM wrongPredecessor ≠
       validButUnchainedNode.state := by
-  native_decide
+  decide
 
 /-- Executable counterexample: endpoint-validity of an edge trace does not
 license reading its last edge as the retained state's policy backpointer. -/

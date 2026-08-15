@@ -298,7 +298,7 @@ theorem paddedKuttaka610_same_endpoint_different_cost :
         kuttaka610Transcript.rightMatrix ∧
       paddedKuttaka610Transcript.actionCost = 8 ∧
       kuttaka610Transcript.actionCost = 6 := by
-  native_decide
+  decide
 
 /-- Actual formation length cannot be decoded from the two accumulated
 matrices.  A decoder for minimal word length is not ruled out. -/
@@ -475,7 +475,7 @@ cost eleven from the empty cache and six from the fully retained cache. -/
 theorem kuttaka610Transcript_cache_costs :
     kuttaka610Transcript.cachedActionCost [] = 11 ∧
       kuttaka610Transcript.cachedActionCost [0, 1, 2, -1, -5] = 6 := by
-  native_decide
+  decide
 
 /-- Even after the action transcript is retained, its marginal formation cost
 cannot be assigned without the initial coefficient cache. -/
@@ -506,15 +506,15 @@ example : positiveDiagonalCertificate 6 10 =
     positiveDiagonalJoinCertificate 6 10 :=
   positiveDiagonalCertificate_of_joinRoute (by decide)
 example : (positiveDiagonalJoinCertificate 6 10).source = positiveDiagonal 6 10 := by
-  native_decide
+  decide
 example : (positiveDiagonalJoinCertificate 6 10).left = ⟨2, -1, -5, 3⟩ := by
   native_decide
 example : (positiveDiagonalJoinCertificate 6 10).right = ⟨1, 5, 1, 6⟩ := by
   native_decide
 example : (positiveDiagonalJoinCertificate 6 10).d₁ = 2 := by
-  native_decide
+  decide
 example : (positiveDiagonalJoinCertificate 6 10).d₂ = 30 := by
-  native_decide
+  decide
 example : (positiveDiagonalCertificate 6 10).check = true :=
   positiveDiagonalCertificate_check (by decide) (by decide)
 

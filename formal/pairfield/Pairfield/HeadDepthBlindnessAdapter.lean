@@ -108,7 +108,7 @@ native Fermat test. -/
 theorem primePower_sub_one_eq_mul_exponentQuotient
     {q a : ℕ} (hq : q.Prime) :
     q ^ a - 1 = (q - 1) * exponentQuotient q a := by
-  have hgeom := Nat.geom_sum_mul_of_one_le hq.one_le a
+  have hgeom := _root_.geom_sum_mul_of_one_le hq.one_le a
   calc
     q ^ a - 1 = exponentQuotient q a * (q - 1) := by
       simpa [exponentQuotient] using hgeom.symm

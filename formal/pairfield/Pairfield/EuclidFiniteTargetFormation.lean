@@ -246,7 +246,7 @@ theorem direct_is_minimal (targets : Finset Int) :
 /-- The previous kuṭṭaka target pair is recovered with interval width three. -/
 theorem kuttaka_target_interval_cost :
     (direct ({2, -1} : Finset Int)).cost = 3 := by
-  native_decide
+  decide
 
 end FiniteTargetFormation
 

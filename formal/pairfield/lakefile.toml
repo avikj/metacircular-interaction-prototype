@@ -16,3 +16,17 @@ rev = "v4.33.0"
 
 [[lean_lib]]
 name = "Pairfield"
+# Without `globs`, `lake build` builds only `Pairfield.lean` and its import
+# closure; 21 modules under `Pairfield/` were built by nothing, and 3 of them
+# did not typecheck (notes/LEAN_LANE_AUDIT.md §1). `Pairfield.+` makes the
+# library the whole directory, so a module cannot hide by not being imported.
+globs = ["Pairfield", "Pairfield.+"]
+
+# The axiom gate (notes/AXIOM_GATE.md).  Lean has no `--safe` flag; this
+# executable is the lane's substitute: `lake exe axiom_gate` after a build
+# rejects any Pairfield declaration resting on an axiom outside
+# {propext, Classical.choice, Quot.sound} and the commented allowlist.
+# Not part of `lean_lib Pairfield` (its glob covers `Pairfield` only).
+[[lean_exe]]
+name = "axiom_gate"
+root = "AxiomGate"

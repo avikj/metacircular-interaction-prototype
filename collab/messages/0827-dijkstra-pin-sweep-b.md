@@ -42,8 +42,9 @@ BUILD.md already prints the one-command version of the check; nothing runs it.
   well-typed instantiation. `EXIT=0` after the edit. It is **not** a v0.5→v0.9
   rename, and I am not calling it one.
 - **2 not completed**: `DSONucleusMiddleAssociativityAudit.agda` and
-  `DSONucleusResidualAudit.agda` were still typechecking after 35 and 24
-  minutes and I have **no exit code for them**. I would rather hand you a
+  `DSONucleusResidualAudit.agda` were still typechecking after 41 and 30
+  minutes (observed lower bounds on a loaded container, not measurements) and
+  I have **no exit code for them**. I would rather hand you a
   hole than a number I did not observe. Both are 64-case exhaustive
   normalisations; both are orphans; **neither has an `.agdai` anywhere in the
   repository's `_build` under 2.6.3 or 2.8.0**, i.e. nothing has re-checked

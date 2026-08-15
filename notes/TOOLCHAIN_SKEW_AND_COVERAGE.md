@@ -436,3 +436,166 @@ returns **zero** hits tree-wide. (`PathIsSymmetry.agda` already spells it
 `SymGroup`, the v0.9 name — §1's refusal, vindicated in §6.2.) This is a
 grep for five specific identifiers, not a proof that the tree is clean under
 the pin; §6.5 scope limit 3 stands.
+
+---
+
+## 7. The orphans of `Everything.agda`, swept and folded in
+
+2026-08-15, Claude (Euclid-lineage orphan pass). **Addition only** —
+nothing above this heading was altered. §6.7 established that
+`Everything.agda` exits 0 under the pin over 315 modules from a clean tree.
+That claim was true and it was also a claim about *the modules
+`Everything.agda` imports*. This section is about the ones it did not.
+
+Every exit code below was produced by me in this container under the pin —
+Agda 2.8.0 (the §6.1 binary, still alive in this session's scratchpad;
+`--version` confirmed, not rebuilt) plus cubical v0.9 at
+`/root/agda-libs/cubical-v0.9`, `LC_ALL=C.UTF-8` set for every run. No exit
+code here is quoted from another agent's report, including for modules a
+sibling pass had already run.
+
+### 7.1 The closure, derived rather than trusted
+
+BFS from `Everything` over `^\s*(open\s+)?import\s+<name>` in each reached
+file, restricted to modules that exist as files under `formal/cubical/`,
+diffed against `find . -name '*.agda'`. At the start of the pass: **367
+files, 322 reached, 45 not.**
+
+The 45 split cleanly:
+
+- **9 in `NaturalMachine/Control/`**, which must *never* be reached. I ran
+  the opposite check they require: `grep -rn 'NaturalMachine.Control'
+  --include=*.agda` over the whole directory returns, outside `Control/`
+  itself, **only comment lines** — in `NaturalMachine.agda`,
+  `Everything.agda`, `ConstantBoundNotFunctionBound`,
+  `ComparisonNeedNotBeInjective`, `LineWorldTransport`, `CompileBridge`,
+  `ReachableFromStart`, `FiniteWorldMaximizer`, `InflationVersusSubgroup`,
+  `Controls`. Not one is an import. (`NaturalMachine.ControlledGrammar` and
+  `NaturalMachine.Controls` are different modules whose names merely share
+  a prefix; both are legitimately imported.) The exclusion holds.
+- **36 genuine orphans**: 30 under `NaturalMachine/`, `CenterRelative`,
+  `PrimePairField`, `SimplicialDefectFailure`, and five `Swarm/` modules.
+
+`SimplicialDefectFailure.agda` was an orphan, exactly as its own author
+reported — verified, not taken on the report.
+
+### 7.2 Results under the pin
+
+**Green (exit 0), individually, before being folded in — 33 modules:**
+
+`CenterRelative`, `PrimePairField`, `SimplicialDefectFailure`,
+`Swarm/{S05AsiddhaNewton, S08ChebyshevWeight, S09SmithKuttaka,
+S11HolonomyDeterminant, S14AssemblyGrading}`, and under `NaturalMachine/`:
+`BraidCoherenceBoundary`, `CarryClassNonzero`,
+`CompressionDefectRegularWitness`, `DSOFactorRankFinite`,
+`DeclaredRootedProfiles`, `EndianAtlasReplay`, `FiniteEquivalenceBridge`,
+`FutureSeparation`, `Gamma0`, `GeneratedGrammarDescentBoundary`,
+`GroupCohomologyH2`, `OperationalCoverageCounterexample`, `OracleQueries`,
+`PhysicalLearningQuotient`, `PiPartialOnEveryPrime`,
+`PolyHaythamResponseCostNoGo`, `PolynomialAttachmentGrowth`,
+`QuadraticRefinement`, `QuotientUnitSourceCutBoundary`,
+`RootedGrothendieck`, `SpernerFromSl2`, `StructuredSymmetryTransport`,
+`TransportCost`, `Vacuity`, `WFIScratch1`, `WFIScratch2`.
+
+Two of these need their history stated rather than their exit code alone:
+
+- `PolynomialAttachmentGrowth.agda` exited **42**
+  (`[UnsolvedMetaVariables]` at 56.62-75) in my working copy, and **0**
+  after I re-ran it against the *working tree* version. The difference is a
+  sibling's uncommitted two-token repair (`{S}` bound and passed), which
+  landed between my copy and my run. I confirmed this **by diffing the two
+  files**, not by believing the coincidence: the only difference is those
+  two tokens. The 42 is a fact about a stale copy and is recorded so that
+  it is not mistaken for a fact about the module.
+- `WFIScratch1`/`WFIScratch2` were green and were then **deleted from the
+  tree** by another lane (commit `3b4846c6`) between the sweep and the
+  fold-in. They are not imported, because there is nothing to import.
+
+**Not folded in — 3 modules, and the reason is not a typecheck verdict:**
+
+| module | status |
+|---|---|
+| `NaturalMachine/WalkFastInstance.agda` | **exit 137** — SIGKILL, the OOM killer, on a container running several agents' Agda processes at load ~4.5. Not a typecheck result in either direction. (Folded in by a sibling lane later in the hour; its exit code under the pin remains unestablished *by me*.) |
+| `NaturalMachine/DSONucleusMiddleAssociativityAudit.agda` | **UNRUN.** Had not returned after >25 min under the pin. Killed to free the container. |
+| `NaturalMachine/DSONucleusResidualAudit.agda` | **UNRUN.** Same, >15 min. |
+
+I am supplying no exit code for the last two. `notes/PIN_SWEEP_NATURALMACHINE.md`
+§3 reached the same wall independently at 41 and 30 minutes; that is
+corroboration of the wall, not of any verdict.
+
+### 7.3 A real defect the fold-in exposed: a cyclic import
+
+`NaturalMachine/TransportCost.agda` line 30 is `open import NaturalMachine`
+— it imports the **root aggregate itself**. Adding it to the root's import
+list is therefore a `[CyclicModuleDependency]`, and the first clean run
+failed on exactly that:
+
+```
+NaturalMachine.agda? no —
+NaturalMachine/TransportCost.agda:30.1-27: error: [CyclicModuleDependency]
+  NaturalMachine importing NaturalMachine.TransportCost importing NaturalMachine
+```
+
+This is worth naming because it is a *structural* orphan, not an accidental
+one: `TransportCost` **can never** be reached from the root, no matter how
+diligently the root is maintained, so BUILD.md's mechanical check ("run the
+root, then look for missing `.agdai`") can never clear it. It is imported
+from `Everything.agda` instead, which sits above the root in the dependency
+order. Any future module that `open import`s the root inherits the same
+constraint.
+
+### 7.4 The clean run
+
+Aggregates edited: 26 imports appended to `NaturalMachine.agda` (the
+`NaturalMachine/` orphans), 9 to `Everything.agda` (`CenterRelative`,
+`PrimePairField`, `SimplicialDefectFailure`, the five `Swarm` modules,
+`TransportCost`, and `HomometricPair` — see below). The
+"NOT imported, deliberately … when the schism resolves, fold them in"
+block in `Everything.agda` is **superseded by addition**: the schism it
+names was the v0.9 `solve!` API, the owner's 2026-08-15 decision is that
+the sources track the pin, and all seven of those modules are green under
+it. Its text was not deleted.
+
+```
+$ cp -r formal/cubical <scratchpad>/euclidfinal3 && rm -rf <…>/_build
+$ cd <…>/euclidfinal3 && LC_ALL=C.UTF-8 \
+    <scratchpad>/Agda-2.8.0/.../agda --library-file=<v0.9> Everything.agda
+EXIT=0
+```
+
+- **358 modules checked** (`Checking …` lines; every one of them names a
+  file inside the fresh copy — there is no cache hit in the log).
+- **0 errors.**
+- 200 `UnsupportedIndexedMatch` warnings — the documented F39 boundary, and
+  the only warning class emitted.
+- The copy had **no `_build` and no `.agdai` anywhere** (`find … -name
+  '*.agdai' | wc -l` = 0 before the run). This is a from-scratch check, not
+  a re-use of the interfaces my own per-module sweep had just written. Two
+  earlier attempts were **discarded rather than published**: the first
+  failed on §7.3's cycle, the second on a copy taken in the instant a
+  sibling's merge had `WFIScratch1/2` transiently absent.
+
+This supersedes §6.7's **315** with **358**, and does so because the
+aggregate now covers 33 modules it did not cover then, not because the
+toolchain changed.
+
+### 7.5 Scope limits
+
+1. The corpus moved *while this ran*. Between the closure computation and
+   the final run the directory went 367 → 369 files, `WFIScratch1/2` were
+   deleted, `WalkFastInstance` was folded in by a sibling, and
+   `HomometricPair.agda` appeared as a brand-new orphan (run under the pin,
+   EXIT=0, folded in). Everything here is a snapshot. The corpus's own
+   standing conclusion applies to this note as much as to the ones before
+   it: **regenerate the list, do not quote it.**
+2. After the final run the only modules outside `Everything.agda`'s closure
+   are the 9 in `NaturalMachine/Control/` (correct) and the two
+   `DSONucleus*Audit` modules (§7.2). That is the residue, and it is
+   honest to call it the *only* residue as of commit time — no later.
+3. Exit 0 is a statement about typechecking, not about whether a module
+   says what its comments claim (§5.5, unchanged).
+4. The pinned Agda is still **not** `/usr/bin/agda` (2.6.3). §6.5's limit 2
+   stands: what survives this session is this table and §6.1's recipe.
+5. I did not run anything under 2.6.3/v0.5. Per the owner's decision the
+   pin is the toolchain the sources track, and several modules folded in
+   here (every `solve!` user) are certainly red under v0.5.

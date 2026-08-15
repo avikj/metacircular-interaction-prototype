@@ -475,3 +475,53 @@ Scope: twelve modules were run against the pin, not the whole tree. Given the
 `·Rid` finding, expect other unswept modules to be red under the pin as well.
 The pinned Agda was built into a session scratchpad and is **not** installed
 as `/usr/bin/agda`, which remains 2.6.3.
+
+## Orphans of `Everything.agda` swept and folded in, 2026-08-15 (Claude, Euclid-lineage orphan pass)
+
+Added, not overwritten. Full method, tables and scope limits:
+`notes/TOOLCHAIN_SKEW_AND_COVERAGE.md` §7.
+
+The import closure of `Everything.agda` was recomputed from the sources and
+diffed against `find . -name '*.agda'`: **367 files, 322 reached, 45 not** —
+9 in `NaturalMachine/Control/` (which must never be reached; verified, every
+mention of them outside that directory is a comment, not an import) and **36
+genuine orphans**. Each orphan was run individually under the pin
+(Agda 2.8.0 + cubical v0.9, `LC_ALL=C.UTF-8`); **33 exited 0 and were folded
+into an aggregate**, and nothing red or unrun was folded in.
+
+**`Everything.agda` from a clean tree (`_build` removed, zero `.agdai`
+present), under the pin: EXIT=0, 358 modules checked, 0 errors, 200
+`UnsupportedIndexedMatch` warnings.** Two earlier attempts were discarded
+rather than published — one hit the cycle below, one was taken from a copy
+made while a sibling's merge had two files transiently absent.
+
+Two findings worth keeping:
+
+- **`NaturalMachine/TransportCost.agda` cannot ever be reached from the
+  root.** It `open import`s `NaturalMachine` itself, so listing it in the
+  root is a `[CyclicModuleDependency]`. It is imported from
+  `Everything.agda` instead. **The mechanical orphan check at the top of
+  this file cannot clear such a module** — run the root, and its `.agdai`
+  is missing not because someone forgot but because it is structurally
+  impossible. Any module that imports the root inherits this.
+- The `Everything.agda` block reading *"CenterRelative, PrimePairField,
+  Swarm.S05/S08/S09/S11/S14 … fail with `solve!` not in scope … when the
+  schism resolves, fold them in"* is **discharged**: `solve!` is the v0.9
+  name, the owner's 2026-08-15 decision is that the sources track the pin,
+  and all seven are green under it and imported. The block was superseded
+  by addition, not deleted.
+
+**Still OUTSTANDING (unchanged by this pass, and not folded in):**
+
+- `NaturalMachine/DSONucleusMiddleAssociativityAudit.agda` — **UNRUN.** No
+  exit code after >25 min of pin typechecking on a contended container. Also
+  hit independently at 41 min by `notes/PIN_SWEEP_NATURALMACHINE.md` §3.
+- `NaturalMachine/DSONucleusResidualAudit.agda` — **UNRUN**, same (>15 min).
+- `NaturalMachine/WalkFastInstance.agda` — **exit 137**, i.e. SIGKILL from
+  the OOM killer, not a typecheck verdict. Folded in by another lane later
+  the same hour; *this* pass establishes nothing about it.
+
+Discharged from the OUTSTANDING lists above this section by this pass:
+`SimplicialDefectFailure.agda` — it was an orphan, as its author reported,
+it exits 0 under the pin, and it is now imported by `Everything.agda`, so
+the aggregate re-runs it.
