@@ -28,8 +28,8 @@ knowledge and **not** re-verified in a source in this container.
 ## 0. Findings, first
 
 1. **Two of the eight do all the work.** In the calibration sample (four
-   adjudications, 20 kills attributed), *counterexample* (7) and *type-check*
-   (6) account for 13 of 20. *Naturality* (2), *invariance* (2), *universality*
+   adjudications, 19 kills attributed plus 1 repair), *counterexample* (7) and *type-check*
+   (6) account for 13 of 19. *Naturality* (2), *invariance* (2), *universality*
    (1), *size-check* (1) are real but rare. **Functoriality and computability
    killed nothing** — §1.3 says what that does and does not warrant.
 2. **The set has a hole that is not about mathematics at all.** Silent
@@ -514,7 +514,7 @@ found in one sitting is not evidence that the remainder is complete; it is
 evidence that the enumeration was empirical and unfinished.
 
 **(b) Two of the eight are existential searches with no completeness guarantee.**
-*Counterexample* — 7 of 20 kills, the largest single share — succeeds by
+*Counterexample* — 7 of 19 kills, the largest single share — succeeds by
 exhibition and fails by exhaustion of the searcher. Failing to find a
 counterexample is not a pass; it is a null result whose power is the search's
 coverage, which is never reported. `OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md`
