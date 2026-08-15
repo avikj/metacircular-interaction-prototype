@@ -59,6 +59,14 @@ jobs:
       - name: Lean — no anonymous example rests on an oracle
         run: ./scripts/check-lean-example-oracles.sh
 
+      # Claim references must resolve. IDs collide (ten live IDs carry two
+      # claim files each); slugs do not (104 files, 104 distinct slugs).
+      # Fails on a slug that names nothing; warns, non-fatally, on a bare
+      # reference to an ambiguous ID. notes/CLAIM_ID_AMBIGUITY.md §6b.
+      # Pure text analysis of tracked files, so it belongs in the cheap job.
+      - name: Registry — every slug-qualified claim reference resolves
+        run: ./scripts/check-claim-slugs.sh
+
       # A large pure deletion of ledger files must be announced in the commit
       # subject (notes/REGISTRY_DELETION_142bba1f.md). Over the pushed range
       # when GitHub supplies one, else HEAD. `fetch-depth: 0` is NOT set on the

@@ -271,7 +271,15 @@ Recommended, in increasing cost:
   across ~300 files with no oracle for which lineage each means — i.e. exactly
   the operation §5 refuses, at four times the scale. **Not recommended.**
 
-Per the standing rule, (b) is *proposed and exercised*, not installed: run
+**Update, 2026-08-15 (librarian block):** (b) is now INSTALLED as
+`scripts/check-claim-slugs.sh`, wired into `formal/check.sh` and the
+toolchain-free CI job, with (c) folded in as a non-fatal warning and the
+same-lineage exemption this section asked for. See `notes/CLAIM_SLUG_GATE.md`
+for what it measures at HEAD (0 dead slugs, 1 ID/slug mismatch in an R0010
+event JSON, 695 ambiguous bare references across 192 files) and for the
+costed migration it deliberately does not perform.
+
+Per the standing rule as written then, (b) was *proposed and exercised*, not installed: run
 against `7b0740ff^` it flags the 17 Smith slug references and nothing else;
 run against HEAD it flags zero, because the quarantine now resolves them.
 

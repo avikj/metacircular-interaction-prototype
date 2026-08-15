@@ -25,6 +25,13 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # it over the pushed range, and `--pre-push` covers a branch before it lands.
 "$repo_dir/scripts/check-no-silent-deletion.sh"
 
+# The claim-resolver gate (notes/CLAIM_ID_AMBIGUITY.md §6b). Claim IDs come
+# from a per-branch counter and ten of them carry two live claim files; slugs
+# come from the statement and are unique (104/104). This fails on a
+# slug-qualified reference that names nothing, and WARNS (non-fatal) on a bare
+# reference to an ambiguous ID — the silently-wrong ones. Needs no toolchain.
+"$repo_dir/scripts/check-claim-slugs.sh"
+
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine.agda"
 agda -i "$repo_dir/formal/cubical" \
