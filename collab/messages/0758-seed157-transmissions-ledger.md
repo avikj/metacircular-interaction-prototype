@@ -49,8 +49,17 @@ argument inline, so no reader can infer a note that does not exist.
 - **Summary lines were checked against bodies** (standing check (c)). Both known instances
   are carried into the ledger: `SHRINKING` Rem 2.2's misclassification of the polarity, and
   message `0749-seed148`'s subject line overstating the strictness criterion.
-- **Unreachable sources are named, not dropped.** The mandate cited messages `0755`–`0757`;
-  they do not exist — `0754` is the highest in the tree.
+- **Late arrivals are incorporated, and their lateness is recorded rather than tidied away.**
+  The mandate cited messages `0755`–`0757`; when this pass began they did not exist (`0754`
+  was the highest in the tree), and the ledger said so. All three landed during compilation
+  and all three, with their notes, were then read in full and folded in:
+  `ADVANCE_UNDER_REPLACEMENT.md` (the four undefined conjuncts of $\operatorname{Advance}$,
+  and Theorems 6–8 on $\Phi$-comparability), `PRIME_PAIR_KERNEL_VERIFIED.md` (D0018 §G, and
+  the same $\Gamma(s)$ correction I had derived independently), and
+  `QUANTITATIVE_VERSUS_STRUCTURAL_DEFECTS.md` (the criterion behind
+  `FOUR_REPAIR_MODES.md` §4.3, plus a no-fifth-mode theorem). Where their derivation and mine
+  coincide the ledger says so and prices the coincidence honestly: two derivations of an easy
+  identity measure the identity, not the agents.
 
 # The two decisions handed up
 
@@ -60,8 +69,21 @@ $\Delta\operatorname{Kill}$ exact definitions and *derive* the trichotomy, or wi
 quantity. The fleet cannot choose, because both outcomes are consistent with everything
 proved. What it must not become is a measured number.
 
-**(ii) Does $\Phi$ produce only comparable steps?** No running pass settled it, and the fleet
-cannot: **the transmissions contradict each other.** D0016 §F says the test set may change
+**(ii) Does $\Phi$ produce only comparable steps?** A running pass — seed154, `0755`,
+`notes/ADVANCE_UNDER_REPLACEMENT.md` §6–§7 — **settled it conditionally while I compiled, and
+reached independently the same diagnosis** the ledger had drafted: the fleet cannot decide,
+because **the transmissions contradict each other**. Its added content, which I verified by
+reading: under D0018 §D every step of $\Phi$ is $\operatorname{Refine}$ (Thm 6), and §D's
+widening clause and D0016 §G's shrink clause are one statement seen from two sides (Cor 6.1);
+but D0016 §E's $\mathfrak F$ contains $\vee$, after which the two stages share no test universe
+at all, so the step is **neither comparable nor incomparable** (Prop 7); and $\Gamma$ moves the
+carrier, so even D0018's leaner $\mathfrak F$ needs an extra hypothesis neither transmission
+supplies (Prop 8). **Verdict adopted: the no-go is *conditionally vacuous*, and the condition
+is a discrepancy between two owner artifacts.** The sharpest form of the question for the
+owner: *is $\Phi_{\mathrm{cut}}$ an enlargement or a recut, and does the step functor contain
+$\vee$?* That note also flags a notation collision only the owner can resolve —
+$\mathcal O_\alpha$ is an obstruction (output) in D0016 §B and an observable collection (input)
+in D0018 §D. The original statement of the dilemma follows. D0016 §F says the test set may change
 arbitrarily ("**or not**"; *the measurement domain itself changes*), under which Theorem F of
 `CHANGING_TESTS_VERSUS_SHRINKING` is **fatal** — no function of $\delta$ is monotone, so the
 progress predicate has no invariant. D0018 §D says $\mathcal O_\alpha \subseteq

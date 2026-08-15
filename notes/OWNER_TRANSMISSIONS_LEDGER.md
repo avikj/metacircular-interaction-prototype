@@ -22,9 +22,18 @@ readable start to finish by someone who has followed none of the session.
 `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md`,
 `notes/GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md`, `notes/FOUR_REPAIR_MODES.md`.
 Supporting messages read: `0747`, `0749` (both of them — two messages share the number),
-`0750`, `0751`, `0752`, `0753`, `0754`. **Messages `0755`–`0757` do not exist**; `0754` is
-the highest message in the tree. The mandate's citation of them is recorded as unreachable,
-not silently dropped.
+`0750`, `0751`, `0752`, `0753`, `0754`.
+
+**Three further passes landed while this ledger was being compiled** and are incorporated,
+each read in full before being cited:
+`notes/ADVANCE_UNDER_REPLACEMENT.md` (seed154, `0755`) — the five conjuncts of
+$\operatorname{Advance}$, and the $\Phi$-comparability question of §5(ii) below, which it
+**settles conditionally**; `notes/PRIME_PAIR_KERNEL_VERIFIED.md` (seed155, `0756`) — D0018 §G;
+`notes/QUANTITATIVE_VERSUS_STRUCTURAL_DEFECTS.md` (seed156, `0757`) — successor to
+`FOUR_REPAIR_MODES.md` §4.3. At the time §3.16–§3.20 and §5(ii) were first drafted, these did
+not exist and this ledger said so; the entries below have been rewritten to cite them, and the
+places where an independent derivation of mine agrees with theirs are marked as such rather
+than being quietly merged.
 
 **Verdict vocabulary.** PROVED (with the hypothesis it needs) · REFUTED (with the
 counterexample) · CLASSICAL (with the earliest source actually read, and its statement) ·
@@ -105,6 +114,19 @@ literal unary predicate: $\mathcal T$ is separating) and seed146's relative one
 tests separate as much as $X$" is **not** excluded, and no such reading was found.
 **File.** `notes/SHRINKING_TESTS_LOWER_CURVATURE.md` §5 (E1, Prop 5.1, Thm 5), §5A
 (recount), Rem 5.5 (both readings), §6 (scope).
+**The other four conjuncts, adjudicated during this compilation.**
+`notes/ADVANCE_UNDER_REPLACEMENT.md` §3 types all five: exactly **one** conjunct
+($\operatorname{SearchSep}$) is a function of $\delta$, and it is a function of the whole
+holonomy *family*, so Thm F does not reach it and a family version (Thm F′) is needed and
+supplied. $\operatorname{Verify}$ is a function of $\Pi$, disjoint from $\delta$.
+$\operatorname{PreserveProv}$, $\operatorname{UsefulEscape}$ and
+$\operatorname{DeclaredBoundaryPreserved}$ are **undefined as written**; their type-correct
+completions are (pair), (pair), and comparison against a **fixed** declaration — and the last
+is the only shape that can carry progress. Two consequences worth the owner's attention:
+$\operatorname{SearchSep}(\mathcal T_\alpha)=1$ means $\sim_\alpha$ is the bottom of the
+equivalence lattice, so **incomparable steps cannot occur out of an advancing stage**; and if
+$\operatorname{SearchSep}$ holds at both ends of a step, $\delta$ is **constant** along it —
+curvature is informationally inert on exactly the runs the framework certifies.
 
 ### 1.7 §F — "$\mathcal T_\alpha \subseteq \mathcal T_{\alpha+1}$ **or not**": does §G's slogan extend?
 
@@ -442,6 +464,20 @@ digit set computes the same arithmetic.
 - **$\Gamma_\Uparrow$ was the answer nowhere** in the sample. That is a gap in a sample of
   three, not evidence the mode is idle, and is logged as such.
 **File.** `notes/FOUR_REPAIR_MODES.md` §4.
+**Successor, landed during this compilation and read in full.**
+`notes/QUANTITATIVE_VERSUS_STRUCTURAL_DEFECTS.md` upgrades the structural/quantitative split
+from an observation to a criterion and *explains* the failure above rather than recording it:
+a **structural** defect is one whose repair is certified by a single witness verified by an
+equality, a **quantitative** one requires a **matched pair** (a bound plus an attaining
+construction) verified by a comparison. All four modes presuppose an attainable distinguished
+zero (Thm A), hence **none acts on a quantitative defect except $\Gamma_\varnothing$ by fiat**
+(Cor A.1) — which is exactly the Elliott–Halberstam case above. A unary operation cannot
+discharge a bilateral certificate (Thm B), and **there is no fifth mode** under the definition
+that note supplies (Thm C), the analytic candidates being the existing four applied to the
+observable field. Two cautions it states about itself and this ledger repeats rather than
+smooths over: the "group-valued vs order-valued" framing is **refuted** ($\mathbb Z$ is both);
+and the no-go theorems are relative to a definition of *repair mode* that D0018 §B does not
+supply, so a fifth mode under a different definition is not excluded.
 
 ### 3.9 §C — generability $\not\equiv$ reconstructibility
 
@@ -530,7 +566,10 @@ convergence correctly; but the slogan is a discipline, not a theorem.
 ### 3.16 §G — $Z(t,\theta) = P(t+i\theta)P(t-i\theta) = \sum_{w,r}\Lambda(w-r)\Lambda(w+r)e^{-2tw}e^{2ir\theta}$
 
 **Verdict: CLASSICAL / elementary rearrangement, verified — with an index caveat.**
-**Verification (this ledger's; no note in the corpus touches §G).** With
+**Verification.** Done independently here *before* `notes/PRIME_PAIR_KERNEL_VERIFIED.md`
+existed, and it agrees with that note's §1–§3: the identity is correct **given its index
+set**, and the two coefficient extractions are a change of variables rather than an insight.
+The derivation below is mine; the note is the corpus's file for the claim. With
 $P(z) = \sum_{n\ge1}\Lambda(n)e^{-nz}$,
 $$P(t+i\theta)P(t-i\theta) = \sum_{m,n\ge1}\Lambda(m)\Lambda(n)e^{-(m+n)t}e^{-i(m-n)\theta};$$
 put $w = (m+n)/2$, $r = (n-m)/2$, so $m = w-r$, $n = w+r$, and the exponentials become
@@ -554,10 +593,15 @@ correct identity is $\mathcal M[P](s) = \Gamma(s)\cdot(-\zeta'/\zeta)(s)$; the D
 series $-\zeta'/\zeta(s) = \sum\Lambda(n)n^{-s}$ is classical (Riemann; Euler product,
 logarithmic derivative) and is what the transmission presumably intends, but it is **not**
 the Mellin transform of $P$.
-**Ground, stated separately per standing check (d).** No note in the corpus establishes this.
-The mandate flagged it as "likely"; the flag was not trusted, and the identity above is
-derived here in three lines from the Gamma integral. It is exact symbolic reasoning, hence
-proof under `CLAUDE.md`, and it is the whole of the ground.
+**Ground, stated separately per standing check (d).** The mandate flagged this as "likely";
+the flag was not trusted, and the identity above was derived here in three lines from the
+Gamma integral, at a time when no note in the corpus established it. It is exact symbolic
+reasoning, hence proof under `CLAUDE.md`.
+`notes/PRIME_PAIR_KERNEL_VERIFIED.md` §4 has since recorded the same correction as its **C1**,
+with the same proof, and states there that the correction is not cosmetic. **Two independent
+derivations, one identity** — and, as `SHRINKING` §7A puts it about a comparable coincidence,
+that agreement measures the difficulty of the integral, not the reliability of either agent.
+**File.** `notes/PRIME_PAIR_KERNEL_VERIFIED.md` §4 (correction C1).
 
 ### 3.18 §G — $\xi(s) = \xi(1-s)$
 
@@ -574,11 +618,19 @@ $\Gamma_{\widehat{\phantom X}}$ is **available only on coboundaries**.
 
 ### 3.20 §G — $\mathcal K(w,r) \overset{?}{=} \operatorname{Tr}\mathscr K_{w,r}$; "of what representation is $\mathscr Z$ the character?"
 
-**Verdict: OPEN — and it is a research programme, not a task.** The transmission's own §J6
-says so and this ledger agrees. **What would settle it**: exhibition of a specific
-representation together with a proof that its character reproduces $\mathcal K$; nothing less
-counts, and the Ramanujan analogy $\tau(p) = p^{11/2}(\alpha_p+\beta_p)$, $|\alpha_p|=|\beta_p|=1$
-(**CLASSICAL** — Deligne's proof of the Ramanujan conjecture) is an analogy, not evidence.
+**Verdict: OPEN, and sharpened — over $\mathbb Z$ it is *an analogy with no current
+mathematical content*, with a reason and not merely an absence; over $\mathbb F_q[T]$ it is a
+named programme with real work behind it** (Bogomolny–Keating; Keating–Roditty-Gershon), the
+difference being that in the function-field setting the weight $\log p$ becomes
+$\deg(P)\log q$ and $\deg$ **is** a cohomological grading — precisely the step unavailable
+over $\mathbb Z$. The well-posed neighbouring questions over $\mathbb Z$ are Hardy–Littlewood
+and Bogomolny–Keating, and the note declines to manufacture a forced positive answer, which
+is the right call. The Ramanujan analogy $\tau(p) = p^{11/2}(\alpha_p+\beta_p)$,
+$|\alpha_p|=|\beta_p|=1$ is **CLASSICAL** (Deligne) and is an analogy, not evidence.
+**What would settle it**: a specific representation plus a proof that its character reproduces
+$\mathcal K$. Nothing less counts.
+**File.** `notes/PRIME_PAIR_KERNEL_VERIFIED.md` §5 (§5.1 over $\mathbb Z$, §5.2 over
+$\mathbb F_q[T]$). Sources there are HTML/abstract only; no PDF decoded.
 
 ### 3.21 §A — $\mathfrak L_\infty = \operatorname{colim}_\alpha \mathfrak L_\alpha$, the MDL functional, $\operatorname{gain}(\sigma)>0 \Rightarrow \sigma\in\mathfrak L_{\alpha+1}$
 
@@ -623,8 +675,10 @@ mock modular forms $V^\Gamma \supseteq M_k(\Gamma)$.
 *Verified in* `notes/FOUR_REPAIR_MODES.md` Thm 3.
 
 **4.5 — D0018 §G is missing a $\Gamma(s)$ in the Mellin identity.** $\mathcal M[P](s) =
-\Gamma(s)(-\zeta'/\zeta)(s)$, not $-\zeta'/\zeta(s)$. **No note establishes this**; it is
-derived in §3.17 above and the derivation, not any note, is its ground.
+\Gamma(s)(-\zeta'/\zeta)(s)$, not $-\zeta'/\zeta(s)$. Derived in §3.17 above when no note
+established it; `notes/PRIME_PAIR_KERNEL_VERIFIED.md` §4 has since recorded the identical
+correction as **C1**, independently and with the same proof, and states that it is not
+cosmetic.
 
 **4.6 — D0018 §B's "$D$ = the shadow" is a metaphor, not an identification.** $D = -\partial g^*$:
 the shadow is a weight-$(2-k)$ form, $D$ is a weight-$k$ 1-cocycle.
@@ -703,13 +757,43 @@ disagree.**
   *that* reading every step is comparable, Thm F **is vacuous for the framework**, and the
   governing statement is instead §3.10's non-implication (widening reveals, never conceals) —
   which is proved and which the transmission gets right.
-- **The decision required.** Say which of the two governs $\Phi$. If it is D0018 §D's
-  inclusion, then §F's "or not" should be withdrawn from D0016 and the framework gains a
-  monotone theory for free. If it is D0016 §F's "or not", then the framework must adopt a
-  comparison datum — the resolving-power preorder is the unique coarsest one that works, and
-  the fleet has offered it explicitly as a proposal, not as an amendment.
-- **No running pass has settled this.** The corpus was searched; no note after
-  `CHANGING_TESTS_VERSUS_SHRINKING.md` bears on it.
+- **A running pass has since settled it, conditionally, and sharpened the decision.**
+  `notes/ADVANCE_UNDER_REPLACEMENT.md` §6–§7 (seed154, landed during this compilation, read
+  in full) proves: **Theorem 6** — under D0018 §D's reading, $\mathcal O_\alpha \subseteq
+  \mathcal O_{\alpha+1}$ gives $\sim_{\mathcal O_{\alpha+1}} \subseteq \sim_{\mathcal O_\alpha}$,
+  so every step of $\Phi$ is $\operatorname{Refine}$ and **no step is Incomparable**; and
+  **Corollary 6.1** — D0016 §G's shrink clause and D0018 §D's widening clause are *one
+  statement seen from its two sides*. But three conditionals intervene, and the framework
+  satisfies at most one:
+  1. **The step is not $\Phi$.** D0016 §E's $\mathfrak F$ contains $\vee$ and
+     $\ulcorner-\urcorner$; D0018 §D's is $\Phi\circ\Gamma\circ\partial$. **Proposition 7:**
+     after a $\vee$ the successor's tests are built from the predecessor's *objects*, so the
+     two stages share no test universe, $\sqsubseteq$ is undefined between them, and the step
+     is **neither comparable nor incomparable — the comparison has no truth value at all.**
+  2. **$\Phi$ is not described as enlargement in D0016.** $\Phi_{\mathrm{cut}}$ is a *recut*,
+     and its adjoined list contains $(-)^\vee$ and $\operatorname{Quot}$ — a duality and a
+     quotient, neither of which refines resolution.
+  3. **$\Gamma$ moves the carrier**, so even D0018's leaner $\mathfrak F$ changes $X$.
+     **Proposition 8** gives the exact repair: comparability survives a carrier change iff
+     every observable of $\mathcal O_\alpha$ is the restriction along $\iota : X_\alpha \to
+     X_{\alpha+1}$ of one in $\mathcal O_{\alpha+1}$ — *a hypothesis neither transmission
+     supplies*, and the smallest thing the framework would have to add.
+  - **Verdict of that note, which this ledger adopts:** the no-go is **conditionally
+    vacuous, and the condition is a discrepancy between two owner transmissions.** Under
+    D0018 §D's dynamics plus Prop. 8's hypothesis it says nothing; under D0016 §E's it
+    **bites harder than originally stated**, because a framework whose successive instruments
+    cannot even be *compared* has no progress criterion of any shape, $\delta$-based or not.
+  - That note also records a **notation collision the owner alone can resolve**:
+    $\mathcal O_\alpha$ is an *obstruction* (an output) in D0016 §B and an *observable
+    collection* (an input) in D0018 §D. They are not the same type, and identifying them is
+    the owner's to make or refuse.
+- **The decision required, in its sharpest form:** *is $\Phi_{\mathrm{cut}}$ an enlargement of
+  the observable field or a recut of it, and does the step functor contain $\vee$?* If
+  enlargement without $\vee$: withdraw §F's "or not", add Prop. 8's hypothesis, and the
+  framework gains a monotone theory for free. If recut with $\vee$: the framework must adopt
+  a comparison datum, and the resolving-power preorder is the unique coarsest one that works
+  — offered by the fleet explicitly as a proposal, not as an amendment. **No agent has chosen
+  between them, and none should.**
 
 ---
 
@@ -717,16 +801,20 @@ disagree.**
 
 Stated flatly, because a ledger that hides its holes is worse than no ledger.
 
-1. **Messages `0755`–`0757` do not exist.** `0754` is the highest in the tree. Any adjudication
-   the mandate expected there could not be read and is not represented here.
+1. **Messages `0755`–`0757` did not exist when this ledger was begun** — `0754` was then the
+   highest in the tree — and were written by three other passes while it was being compiled.
+   All three, and their notes, have been read in full and incorporated (§1.6, §3.8, §3.16,
+   §3.17, §3.20, §5(ii)). The record of their late arrival is kept rather than tidied away,
+   because it is the reason several entries carry two independent derivations of one fact.
 2. **D0016 §H (gem invariants) and §I (net, garland, closing identifications)** — no note
    touches them; no verdict beyond PROGRAMME is offered, and PROGRAMME here means "nobody
    looked", not "looked and found nothing".
 3. **D0017 §E's associator/pentagon layer** and $\mathfrak X \hookrightarrow \mathfrak X[\delta\alpha]$
    — unadjudicated.
-4. **D0018 §G in full** — no note in the corpus works on the arithmetic instance. §3.16–3.20
-   above are this ledger's own reading, done by hand; they are three short derivations and a
-   citation, and should be re-checked by someone who works in that lane before being built on.
+4. **D0018 §G** — §3.16–§3.20 were first drafted as this ledger's own hand derivations, when
+   no note worked the arithmetic instance. `notes/PRIME_PAIR_KERNEL_VERIFIED.md` now does, and
+   agrees on every point checked. The entries cite it; the independent agreement is recorded,
+   and is worth exactly what an easy calculation done twice is worth.
 5. **Nothing here is machine-checked.** No Agda or Lean was authored by this pass or by any
    note it summarises; there is no toolchain in this container and none of the fleet claimed
    otherwise. No Python was written or run.
