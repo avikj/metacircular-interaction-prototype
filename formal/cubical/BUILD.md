@@ -347,3 +347,60 @@ module folded into an aggregate without ever being checked — did not occur on
 that branch.
 
 Full measurements, method, and scope limits: `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md`.
+
+## The pin was obtained and run, 2026-08-15 (Claude, pinned-toolchain pass)
+
+Added, not overwritten. The section above ("Container/pin discrepancy and
+OUTSTANDING checks") stands as an accurate record of what was knowable before
+this run; this section discharges most of its OUTSTANDING list.
+
+**Agda 2.8.0 + cubical v0.9 were both obtained in the container**: v0.9 by
+`git clone --depth 1 --branch v0.9` into a *second* directory (the v0.5 clone
+was left alone and selected against per-run with `--library-file`), and 2.8.0
+by `apt-get install cabal-install`, `cabal get Agda-2.8.0`, `cabal build
+exe:agda` against the system GHC 9.4.7. Roughly 75 minutes. Recipe, snags and
+scope limits: `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md` §6.
+
+**`agda NaturalMachine.agda` exits 0 under the pin** — 186
+`UnsupportedIndexedMatch` warnings (the documented F39 boundary), zero errors.
+The `PathIsSymmetry.agda:98` / `SymGroup` failure was exactly the v0.5 skew it
+was diagnosed as: v0.9 defines `SymGroup` at
+`Cubical/Algebra/SymmetricGroup.agda:28`. The file was correct un-edited, and
+this file's central identity — "the root exits 0" and "the directory checks"
+are the same claim — is restored under the pin.
+
+Discharged against the pin (exit 0 under Agda 2.8.0 / cubical v0.9):
+`StagewiseComposite.agda`, `SimplicialDefectFailure.agda`,
+`Sl2DivisorLattice.agda`, `NaturalMachine/DecategorifiedDefect.agda`,
+`NaturalMachine/RepairTorsor.agda`, `NaturalMachine/FillabilityCertificate.agda`,
+`NaturalMachine/LineWorldTransport.agda`, and the root `NaturalMachine.agda`.
+
+Confirmed against the pin, still failing:
+
+- `NaturalMachine/Control/QuantifierDrop.agda` — the CONTROL. Exits 42 under
+  2.8.0 for the intended reason: `error: [UnequalTerms]` at line 80 on the
+  dropped quantifier. It passes.
+- `PolarityClosure.agda` — exits 42 under the pin, `error:
+  [ClashingDefinition] Multiple definitions of Sub`, against
+  `Agda-2.8.0/lib/prim/Agda/Builtin/Cubical/Sub.agda`. The earlier note that
+  this "might not clash under 2.8.0" is now answered: **it does**. The module
+  is genuinely broken under the pin and needs the identifier renamed. Not
+  done here.
+
+**NEW OUTSTANDING — a module that is green under 2.6.3/v0.5 and red under the
+pin:**
+
+- `Sl2TensorProduct.agda` — `error: [NotInScope]: ·Rid` at line 115.
+  `Cubical.Data.Int.Properties.·Rid` (v0.5) is spelled **`·IdR`** in v0.9. One
+  error, one token. **Not fixed here**: renaming it would make the file right
+  under the pin and wrong under the `/usr/bin/agda` that this container
+  actually has, and the decision of which toolchain the sources track belongs
+  to the owner and should be made once for the whole tree.
+- Consequently **`Everything.agda` exits 42 under the pin**, aborting at
+  `Sl2TensorProduct`. It therefore checks nothing imported after that module,
+  and its exit code is not evidence about them in either direction.
+
+Scope: twelve modules were run against the pin, not the whole tree. Given the
+`·Rid` finding, expect other unswept modules to be red under the pin as well.
+The pinned Agda was built into a session scratchpad and is **not** installed
+as `/usr/bin/agda`, which remains 2.6.3.

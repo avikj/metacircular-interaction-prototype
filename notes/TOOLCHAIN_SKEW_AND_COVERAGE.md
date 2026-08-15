@@ -191,3 +191,165 @@ Stated plainly, because a green claim is only worth its boundary:
    unrelated reason and still look like a passing control. That is a real
    weakness of failure-as-pass controls generally, not a finding about this
    file.
+
+---
+
+## 6. The pin was obtained. Results under Agda 2.8.0 + cubical v0.9
+
+2026-08-15, Claude (pinned-toolchain pass, branch
+`claude/collaborative-subagents-loop-ekfugp`). **Addition only** — nothing
+above this heading was altered. Sections 0–5 remain correct as statements
+about Agda 2.6.3 / cubical v0.5; this section supersedes their *scope limit
+1* ("none of them is evidence about 2.8.0 / v0.9") by supplying the missing
+runs.
+
+### 6.1 How the pin was obtained
+
+Both halves, in this container, in about 75 minutes of wall clock:
+
+- **Library half — trivial.** `git clone --depth 1 --branch v0.9
+  https://github.com/agda/cubical /root/agda-libs/cubical-v0.9`. The
+  outbound proxy permits github.com and hackage.haskell.org (verified:
+  `git ls-remote` lists all tags v0.1…v0.9; a HEAD on the Agda-2.8.0
+  tarball returns 200). **The existing v0.5 clone at
+  `/root/agda-libs/cubical` was not touched**, and neither was
+  `~/.agda/libraries`; the v0.9 clone is selected per-run with
+  `--library-file`.
+- **v0.9 alone does not work.** cubical v0.9 uses `opaque` blocks, which
+  Agda 2.6.3 cannot parse — it dies at
+  `Cubical/Foundations/Structure.agda:28` with a parse error, i.e. inside
+  the *library*, before any repository module is reached. The library half
+  is therefore useless without the compiler half. (v0.6, v0.7 and v0.8
+  contain no `opaque`; v0.8 *does* parse under 2.6.3, but fails inside
+  `Cubical/Categories/NaturalTransformation/Properties.agda` with unsolved
+  metas, so it is not a usable intermediate either. Neither v0.6–v0.8 nor
+  v0.5 exports `SymGroup`; the `Symmetric-Group` → `SymGroup` rename is a
+  **v0.8 → v0.9** change, confirmed by reading both files.)
+- **Compiler half — buildable.** `apt-get install cabal-install` (3.8.1.0),
+  `cabal update`, `cabal get Agda-2.8.0`, then `cabal build exe:agda
+  --ghc-options=-j4` with the system GHC 9.4.7. Agda 2.8.0's `tested-with`
+  lists GHC 9.4.8; 9.4.7 built it without a single error. Two snags worth
+  recording: `cabal install Agda-2.8.0` fails outright under cabal 3.8
+  ("Could not find module: Agda.Benchmarking" during its sdist step) — use
+  `cabal get` + `cabal build` in the unpacked tree instead; and the built
+  binary looks for its `prim` bundle in
+  `/root/.cabal/share/x86_64-linux-ghc-9.4.7/Agda-2.8.0`, which `cabal
+  build` does not populate, so `src/data/` must be copied there by hand.
+- One deviation from a literal pin, stated so nobody is misled: upstream's
+  `cubical.agda-lib` for v0.9 names the library **`cubical-0.9`**, while
+  `formal/cubical/natural-machine.agda-lib` says `depend: cubical`. I
+  renamed the field to `cubical` **in my own v0.9 clone**. Whoever
+  reproduces the pin must do the same, or add the version-suffixed name to
+  the `depend` line. This is a naming question only; no source was changed.
+- Runs were made in a **copy** of `formal/cubical` under the scratchpad, so
+  no v0.9 interface file ever entered the repository's `_build`. The
+  repository working tree is byte-identical to what I found.
+
+`LC_ALL=C.UTF-8` was set for every run, under both toolchains. §0's warning
+holds under 2.8.0 as well.
+
+### 6.2 The table, against the pin
+
+`agda 2.8.0 --library-file=<v0.9> <file>; echo EXIT=$?`. The 2.6.3/v0.5
+column is **my own re-run tonight**, not a quotation of §2 — every one of
+its eleven numbers reproduced §2 exactly.
+
+| module | 2.6.3 / v0.5 | **2.8.0 / v0.9 (the pin)** | |
+|---|---|---|---|
+| `NaturalMachine.agda` (root aggregate) | 42 | **0** | **the root is green under the pin** |
+| `Everything.agda` (aggregate) | 42 | **42** | new, real failure — see 6.4 |
+| `StagewiseComposite.agda` | 0 | **0** | discharged |
+| `SimplicialDefectFailure.agda` | 0 | **0** | discharged |
+| `Sl2DivisorLattice.agda` | 0 | **0** | discharged |
+| `NaturalMachine/DecategorifiedDefect.agda` | 0 | **0** | discharged |
+| `NaturalMachine/RepairTorsor.agda` | 0 | **0** | discharged |
+| `NaturalMachine/FillabilityCertificate.agda` | 0 | **0** | discharged |
+| `NaturalMachine/LineWorldTransport.agda` | 0 | **0** | discharged |
+| `NaturalMachine/Control/QuantifierDrop.agda` | 42 | **42** | control still passes — see 6.3 |
+| `PolarityClosure.agda` | 42 | **42** | still broken — see 6.3 |
+| `Sl2TensorProduct.agda` | 0 | **42** | **green under v0.5, red under the pin** |
+
+The root run emits 186 `UnsupportedIndexedMatch` warnings and **zero**
+errors. That is the documented F39 boundary, and it means BUILD.md's central
+identity — "the root exits 0" — is **true under the pin**, and was only ever
+suspended by the container skew. §1's `PathIsSymmetry` failure was exactly
+what it was diagnosed to be: v0.5 not having `SymGroup`. v0.9 defines
+`SymGroup : (X : Type ℓ) → isSet X → Group ℓ` at
+`Cubical/Algebra/SymmetricGroup.agda:28`, matching line 98's use. **Nothing
+was edited to achieve this**; the un-edited file was right all along, which
+is the vindication of §1's refusal.
+
+### 6.3 The two failures that were already known, under the pin
+
+- **`NaturalMachine/Control/QuantifierDrop.agda` still exits 42, and still
+  for the intended reason.** Under 2.8.0 the error carries a machine-readable
+  tag: `QuantifierDrop.agda:80.26-41: error: [UnequalTerms]`, on
+  `rollover (val s + 0 · val s) … != mod5 (c₁ f + c₂ f · val s)` — the
+  dropped quantifier, at the same line, not a syntax accident. The control
+  is valid under the pin.
+- **`PolarityClosure.agda` still exits 42, and §2's open question is now
+  closed against it.** `PolarityClosure.agda:103.1-4: error:
+  [ClashingDefinition] Multiple definitions of Sub. Previous definition at
+  …/Agda-2.8.0/lib/prim/Agda/Builtin/Cubical/Sub.agda:7.19-22`. The builtin
+  `Sub` is still in scope at this import set in 2.8.0, so this is **not** a
+  toolchain artefact: the module is genuinely broken under the pin and needs
+  its identifier renamed. That is for the agent already working on it; I did
+  not touch the file.
+
+### 6.4 The finding this exercise existed to produce
+
+**`Sl2TensorProduct.agda` checks under 2.6.3/v0.5 and does not check under
+the pin.**
+
+```
+Sl2TensorProduct.agda:115.29-33: error: [NotInScope]
+Not in scope: ·Rid
+```
+
+Line 114–115 is `·1ₗ x = ·Comm (pos 1) x ∙ ·Rid x`. The name is
+`Cubical.Data.Int.Properties.·Rid`, present in v0.5 at `Int/Properties.agda:417`
+and **renamed to `·IdR` in v0.9** (`Int/Properties.agda:1184`). It is a single
+error and, on the evidence of this one run, a one-token one.
+
+Two consequences, and I am stating both rather than the flattering one:
+
+1. `Everything.agda` is **red under the pin**, and this is its cause: it
+   aborts at `Sl2TensorProduct` and therefore checks nothing imported after
+   it. Its exit code is not evidence about those later modules in either
+   direction — the same caveat §1 attached to the root under v0.5 now
+   attaches to `Everything.agda` under the pin.
+2. `collab/messages/0798-claude-sl2-tensor.md` reported this module as
+   "exit 0" and correctly flagged the pin check as outstanding. That flag
+   was load-bearing and the honest framing paid: the pin check is now done,
+   and it is red. The claim in 0798 is not withdrawn — the module does check
+   under 2.6.3/v0.5 — but it does **not** hold under the toolchain BUILD.md
+   pins, and no claim about `Sl2TensorProduct` should be made without saying
+   which.
+
+**I did not fix it.** A rename from `·Rid` to `·IdR` would make the module
+right under the pin and wrong under the only compiler installed as
+`/usr/bin/agda` here, which is the exact trade §1 refused in the other
+direction. The choice of which toolchain the sources track is the owner's,
+not a build agent's, and it should be made once for the whole tree rather
+than file by file. Recorded, not repaired.
+
+### 6.5 Scope limits
+
+1. Everything in 6.2 is **Agda 2.8.0 built from Hackage against GHC 9.4.7**,
+   not a distributed 2.8.0 binary, plus **cubical v0.9 at tag
+   `b150186d`**. I regard that as the pin; someone who does not should say so.
+2. The pinned Agda is **not installed** as `/usr/bin/agda` and I did not
+   install it there — `/usr/bin/agda` is still 2.6.3. The binary lives in the
+   session scratchpad and will vanish with it. What survives this pass is
+   the *result table* and the recipe in 6.1, not a working environment.
+3. Only the twelve modules in 6.2 were run against the pin. The rest of the
+   corpus is unswept under 2.8.0/v0.9, and given the `·Rid` finding, the
+   prior expectation should now be that **other untouched modules are red
+   under the pin too**. `Everything.agda` aborting early means it has not
+   ruled that out.
+4. Exit 0 remains a statement about typechecking, not about whether a module
+   says what its comments claim (§5.5 unchanged).
+5. I did not modify `PathIsSymmetry.agda`, `Sl2TensorProduct.agda`,
+   `PolarityClosure.agda`, or any other source file. The only file I edited
+   under `/root` is the `name:` field of my own v0.9 clone's `.agda-lib`
+   (6.1).
