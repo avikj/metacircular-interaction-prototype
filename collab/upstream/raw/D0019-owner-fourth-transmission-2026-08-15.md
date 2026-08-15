@@ -179,6 +179,32 @@ $$
 \delta_{\mathrm{end}}\ne0\Rightarrow\Gamma\langle\delta_{\mathrm{end}}\rangle
 $$
 
+> **TWO FURTHER GAPS BETWEEN BODY AND TRIAGE, recorded 2026-08-15, seed176
+> (`notes/ARCHIVE_FIDELITY_AUDIT.md` §3).**
+>
+> 1. **§J7 names five objects as §G's; two are here and three are not.** $\Theta_\infty$
+>    and $\mathcal Q_\infty$ are the evident limits of §G's $\Theta_\alpha$ and
+>    $\mathcal Q_\alpha$ displays above. **$\mathbb U$, $\mathfrak F_\Omega$,
+>    $\mathfrak M_\infty$ and the question-marked $\operatorname{Fix?}$ occur nowhere in
+>    this archive's body** — J7 states that $\operatorname{Fix?}$ "is written with a
+>    question mark **by the author**", which is a claim about a body display that is not
+>    present. `notes/TRANSLATION_GERBE_ADJUDICATED.md` repeats the "§G's …" list; that
+>    repetition is downstream of J7 and is not independent evidence.
+> 2. **§J8 triages a section this archive does not contain.** "The physics section
+>    (§ Yoneda / Tate / path integral / Noether / entropy)" has no counterpart in §§A–G,
+>    and J8 quotes from it — "$X\simeq Y\iff h_X\simeq h_Y$, वस्तु $=$
+>    सम्बन्धप्रतिस्पन्दसम्पूर्णता" — calling it "exact". A triage entry that quotes a
+>    section which is absent is the strongest internal signature of transcription loss in
+>    any of the four archives. No note in `notes/` or `collab/messages/` quotes this
+>    section, so no further copy of it exists in this container.
+>
+> **Nothing is restored** — the quoted Yoneda line is J8's, and one line is not a section.
+>
+> **Standing consequence: this archive is a transcription, not the original**, and the
+> D0016 archive has been shown lossy at least once (D0016 §D). A display absent from an
+> archive is not thereby absent from the owner's transmission; report the absence, do not
+> conclude from it.
+
 ---
 
 ## J. Triage
