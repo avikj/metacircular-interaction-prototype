@@ -342,9 +342,13 @@ Read as HTML this session unless flagged:
   absent). I read §F and §J2 as they stand and **report, rather than conclude from**, that
   absence: if the original carried a diagram exhibiting the bridge explicitly, Theorems 3
   and 4 constrain what it can have been but do not tell us what it was.
-- **`Everything.agda`** imports the new module; the aggregate's own status under the pin is
-  reported in the accompanying message, and is independent of the two modules at issue,
-  both of which check green individually.
+- **`Everything.agda`** imports the new module and checks **EXIT=0 under the pin** with the
+  import in place, measured in this container (195 warning lines, 0 `error:` lines).
+  `notes/TOOLCHAIN_SKEW_AND_COVERAGE.md` and `formal/cubical/check.sh` both record
+  `Everything.agda` as "currently expected red under the pin"; that expectation is stale as
+  of this run. I report the measurement and do not amend those files, since a single green
+  run is evidence about this container and this moment, not about the general claim they
+  make.
 
 ---
 

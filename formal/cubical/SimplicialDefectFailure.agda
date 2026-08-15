@@ -69,17 +69,23 @@
 module SimplicialDefectFailure where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Bool using (Bool ; true ; false ; _⊕_ ; ⊕-identityʳ)
+open import Cubical.Data.Bool using (Bool ; true ; false ; not ; _⊕_ ; ⊕-identityʳ)
 open import Cubical.Data.Bool using (false≢true)
 open import Cubical.Data.Empty using (⊥)
-open import Cubical.Data.List using (List ; [] ; _∷_)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Nat
+  using (snotz ; injSuc ; inj-+m ; m+n≡0→m≡0×n≡0 ; +-zero)
+  renaming (_+_ to _+ℕ_ ; +-comm to +ℕ-comm)
+open import Cubical.Data.Int
+  using (ℤ ; pos ; _+_ ; -_ ; _-_ ; injPos ; pos+ ; pos0+ ; plusMinus
+        ; -Cancel ; -Cancel' ; +Assoc)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
 private
   variable
-    ℓ ℓ' : Level
+    ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
 -- §0.  Simplices of the indiscrete (Čech) nerve
