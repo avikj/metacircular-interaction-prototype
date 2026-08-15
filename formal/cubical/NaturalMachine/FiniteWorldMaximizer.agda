@@ -22,18 +22,21 @@
 -- only a missing clause.
 --
 -- WHAT KIND OF DEFECT THIS IS — stated because it differs from C2's and
--- the difference bounds what the instrument can show.  C2's dropped
--- hypothesis makes the surviving sentence FALSE, and `LineWorldTransport`
--- exhibits the counterexample.  C1's dropped hypothesis makes the
--- surviving sentence ILL-FORMED: with `f ≡ 0` on `E` every point has
--- `v_p(f) = ∞`, so the phrase "any maximizer of `v_p(f)`" — which is
--- the message's entire proof — denotes nothing.  The audit says exactly
--- this ("not even well formed").  Accordingly this file makes the
--- nonvanishing certificate an ARGUMENT that the maximizer-producing
--- term cannot be built without, and the control exhibits the checker
--- refusing to build it.  It does NOT claim the conclusion is false
--- without the hypothesis; that would be a different and unavailable
--- claim.
+-- the difference bounds what the instrument shows.  C2's dropped
+-- hypothesis leaves a sentence that is FALSE.  C1's leaves one the
+-- audit calls "not even well formed": with `f ≡ 0` on `E` every point
+-- has `v_p(f) = ∞`, so "any maximizer of `v_p(f)`" — the message's
+-- entire proof — denotes nothing.  Ill-formedness is not directly a
+-- type-checkable falsehood, so it is TRANSLATED here, by one modelling
+-- decision that must be stated openly: `MaxAt W m` requires the
+-- maximizer `m` to be a point where the observable does not vanish
+-- (`IsFin (W m)`), which is what "the point maximizing `v_p(f)`" has to
+-- mean if it means anything.  Under that reading the dropped-clause
+-- statement becomes false — `vanishing-world` has no maximizer at all —
+-- and `dropped-hypothesis-false` proves it.  A reader who rejects that
+-- reading is left with the weaker but still true claim that the term
+-- cannot be built; the control below exhibits both, since Agda's error
+-- is a MISSING-ARGUMENT error naming the clause.
 --
 -- THIS IS A MODEL, NOT THE FULL SETTING.  Formalized here is the
 -- smallest world that carries the distinction:
@@ -58,7 +61,8 @@
 --   maximizer               the theorem's witness, hypothesis in the type
 --   vanishing-world         the world `f ≡ 0` on `E`
 --   vanishing-has-no-certificate   it satisfies no nonvanishing hypothesis
---   dropped-hypothesis-unbuildable  a hypothesis-free maximizer would give one
+--   vanishing-world-has-no-maximizer  and has no maximizer either
+--   dropped-hypothesis-false        the clause-dropped reading implies ⊥
 ------------------------------------------------------------------------
 
 module NaturalMachine.FiniteWorldMaximizer where
@@ -68,7 +72,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Bool.Properties using (true≢false)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
-open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
+open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 
@@ -125,17 +129,37 @@ num (fin n) _ = n
 --     written without it — which is the whole content of the clause the
 --     summary dropped.
 
-IsMax : (W : World) (h : NonVanishing W) → Pt → Type
-IsMax W h m = (q : Pt) → le (num (W q) (h q)) (num (W m) (h m)) ≡ true
+-- The valuation does not depend on which nonvanishing certificate is
+-- offered (`IsFin v` is `Unit` or `⊥`).
+num-irr : (v : Val) (p q : IsFin v) → num v p ≡ num v q
+num-irr (fin n) _ _ = refl
+num-irr ∞       p _ = ⊥-rec p
 
-maximizer : (W : World) (h : NonVanishing W) → Σ[ m ∈ Pt ] IsMax W h m
-maximizer W h = go (dich (le (num (W x₁) (h x₁)) (num (W x₂) (h x₂))))
+-- "m maximizes v_p(f)": the observable does not vanish at m, and no
+-- point of E has larger valuation.  Note this does NOT mention a global
+-- certificate — it is statable for an arbitrary world, which is what
+-- lets the dropped-hypothesis reading be stated and refuted rather than
+-- merely left unbuildable.
+MaxAt : World → Pt → Type
+MaxAt W m =
+  Σ[ fm ∈ IsFin (W m) ]
+    ((q : Pt) (fq : IsFin (W q)) → le (num (W q) fq) (num (W m) fm) ≡ true)
+
+maximizer : (W : World) (h : NonVanishing W) → Σ[ m ∈ Pt ] MaxAt W m
+maximizer W h = go (dich (le a b))
   where
   a = num (W x₁) (h x₁)
   b = num (W x₂) (h x₂)
-  go : (le a b ≡ true) ⊎ (le a b ≡ false) → Σ[ m ∈ Pt ] IsMax W h m
-  go (inl q) = x₂ , λ { x₁ → q ; x₂ → le-refl b }
-  go (inr q) = x₁ , λ { x₁ → le-refl a ; x₂ → le-flip a b q }
+
+  lift₂ : ((q : Pt) → le (num (W q) (h q)) (num (W x₂) (h x₂)) ≡ true) → MaxAt W x₂
+  lift₂ base = h x₂ , λ q fq → cong (λ n → le n b) (num-irr (W q) fq (h q)) ∙ base q
+
+  lift₁ : ((q : Pt) → le (num (W q) (h q)) (num (W x₁) (h x₁)) ≡ true) → MaxAt W x₁
+  lift₁ base = h x₁ , λ q fq → cong (λ n → le n a) (num-irr (W q) fq (h q)) ∙ base q
+
+  go : (le a b ≡ true) ⊎ (le a b ≡ false) → Σ[ m ∈ Pt ] MaxAt W m
+  go (inl q) = x₂ , lift₂ (λ { x₁ → q ; x₂ → le-refl b })
+  go (inr q) = x₁ , lift₁ (λ { x₁ → le-refl a ; x₂ → le-flip a b q })
 
 ------------------------------------------------------------------------
 -- 3.  The degenerate world the dropped clause was excluding: `f ≡ 0` on
@@ -156,14 +180,18 @@ half-vanishing-has-no-certificate : NonVanishing half-vanishing-world → ⊥
 half-vanishing-has-no-certificate h = h x₂
 
 ------------------------------------------------------------------------
--- 4.  Therefore the hypothesis-dropped reading cannot be a theorem of
---     this model: a maximizer-producing term needing no certificate
---     would produce, at `vanishing-world`, a `num` of `∞`.  Stated as
---     the derivation the control's assertion would license:
---     `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda`
+-- 4.  Therefore the hypothesis-dropped reading — "EVERY finite world
+--     has a point maximizing v_p(f)" — is false on this model, since
+--     `vanishing-world` has no such point at all: the maximizer would
+--     have to be a point where the observable does not vanish, and
+--     there is none.  `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda`
 --     asserts exactly the antecedent below and must fail to type-check.
 
-dropped-hypothesis-unbuildable :
-  ((W : World) → Σ[ m ∈ Pt ] ((q : Pt) → IsFin (W q))) → ⊥
-dropped-hypothesis-unbuildable g with g vanishing-world
-... | (_ , h) = h x₁
+vanishing-world-has-no-maximizer : (m : Pt) → MaxAt vanishing-world m → ⊥
+vanishing-world-has-no-maximizer _ (fm , _) = fm
+
+dropped-hypothesis-false :
+  ((W : World) → Σ[ m ∈ Pt ] MaxAt W m) → ⊥
+dropped-hypothesis-false g =
+  vanishing-world-has-no-maximizer (fst (g vanishing-world))
+                                   (snd (g vanishing-world))
