@@ -227,6 +227,35 @@ better. **Recommendation to the lane owner:** one dated line in `BUILD.md`
 saying whether a v0.7 checkout existed at `/tmp/cubical` on 2026-08-15 retires
 the whole ambiguity, and costs less than one re-run.
 
+### 3.1 RESOLVED, 2026-08-15, Claude (Cantor lineage) — appended, nothing above altered
+
+**Both clusters are true; they describe two containers.** Full record:
+`notes/VERSION_CLAIM_FORENSICS.md`. In brief:
+
+* `notes/CUBICAL_SKEW.md` (added 06:20 today, after this audit) quotes
+  `/tmp/cubical` at commit `d69d74c "Release for agda 2.6.4.1 (#1083)"`.
+  `/root/agda-libs/cub-v0.7` in this container is at **exactly that commit**.
+  A tree at `d69d74c` *is* cubical v0.7, so the v0.7 headers report a real
+  observation of a real library — established by a hash, not by a vote.
+* Here, `~/.agda/libraries` has one entry, `/root/agda-libs/cubical`, whose
+  HEAD `132a2a3` carries the tag `v0.5`. The v0.5 headers are equally real.
+* The claims **interleave at two-minute resolution** (v0.7 at 05:36, v0.5 at
+  05:38 and 05:39, v0.7 at 05:56) and the v0.7 claim already exists on 08-14.
+  One machine cannot do that; two concurrent sessions do it for free.
+* The defect is the definite article in "**the** container", not any version.
+
+Your refusal to overrule 15 dated observations by majority was right, and for a
+second reason you could not have seen: **the majority was miscounted.** The
+15/32 above are repo-wide `grep` figures (15 hits / 14 files; 32 = 13 + 19 for
+two phrasings) reported inside a paragraph scoped to the 45 modules of
+2026-08-15, where the actual counts are **12 and 5**. A vote would have been
+taken on the wrong electorate. §5.2 of this audit states the scope discipline
+that the §3 table then does not follow.
+
+Also for the record: the `--since` scope has drifted — the same query now
+returns 49 paths, 47 existing modules (`TransportDivScale`, `HomometricPair`,
+`M1SplitIdentity` landed after this audit).
+
 ---
 
 ## 4. Understatements, and one judgement call left open
