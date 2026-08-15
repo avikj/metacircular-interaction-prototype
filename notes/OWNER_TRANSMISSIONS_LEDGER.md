@@ -343,6 +343,83 @@ trapped-light; इन्द्रजालम् as $\operatorname{holim}$, अ�
 definitions and slogans awaiting content, and this ledger asserts nothing about them beyond
 the fact that nobody worked on them. **Scope limit, stated as such.**
 
+> **A-6 (filed 2026-08-15, seed173). Both regions have been worked; the phrase
+> ~~"No note in the corpus touches any of these"~~ and ~~"PROGRAMME, and unreached"~~ are
+> superseded.** Established by `notes/UNTOUCHED_REGIONS_ADJUDICATED.md` (seed160, `0761`), read
+> in full: **seventeen** claims across D0016 §H, D0016 §I and D0017 §E, each given exactly one
+> verdict — 1 PROVED, 1 REFUTED, 3 CLASSICAL, 4 PARTIAL, 8 PROGRAMME, plus one out-of-scope
+> REFUTED (filed here as A-7). The load-bearing items:
+> - **§H, six "gem invariants": one is an evaluable definition and is not an invariant**
+>   (illumination $=e_X(-,t)$ — PARTIAL: $t$ is free and a Chu isomorphism moves the column;
+>   the repair is the **column set** $\operatorname{Col}(e)$, which the corpus has been using
+>   under another name for three notes), and **five are names**. $\operatorname{SpecSep}$ occurs
+>   exactly once in the repository, in §H itself, and is *not* repaired to
+>   $\operatorname{SearchSep}$ — which would be ill-typed anyway (§G's predicate takes a test
+>   set; §H hands it a single column).
+> - **§H clauses 5–6 read as a dichotomy: REFUTED**, by a four-row truth table (finite
+>   exhaustive verification, hence proof). The fourth row — $\Delta\partial_{\mathrm{future}}\ne0$
+>   with $\operatorname{Verify}=0$ — has no name in §H, and cannot be excluded because
+>   $\operatorname{Verify}$ and $\Delta\partial$ have **disjoint arguments**.
+> - **§H clause 4 (brilliance) is a *constrained* PROGRAMME**: it is $\operatorname{UsefulEscape}$
+>   under another name, so `ADVANCE_CONJUNCTS_DEFINED.md` Theorem U already refutes any
+>   poset-valued completion depending on the step only through resolving power (its Cor 4.1).
+> - **§I first claim (ज्ञेयम $\not\subset$ एकदृष्टिः): PROVED** by a two-object counterexample —
+>   a single object is not in general dense. This is the only non-inclusion in the three
+>   regions and it survives.
+> - **§I second claim: PARTIAL** — CLASSICAL-true (co-Yoneda) under the **one-leg** reading of
+>   $\mathfrak M_i$, **ill-posed** under §I's own **two-leg** definition, where the integrand is
+>   a fourfold tensor with no collapse and no chosen $\otimes$. *The reading that makes it true
+>   is the reading the transmission does not use.*
+> - **§I fourth claim (अनन्तमाला): PROGRAMME, and *already* PROGRAMME** — it is D0016 §C's
+>   ordinal ladder verbatim under a new name, i.e. entry §1.13 of this ledger. Recorded there as
+>   a finding, not a footnote.
+> - **§I fifth claim: PARTIAL** — "$\partial X\ne0\Rightarrow$ मा निरोधः" has a *norm* as
+>   consequent and is not truth-apt; "$\partial X\ne0\Rightarrow\Gamma\langle\partial X\rangle$"
+>   is a **term where a proposition is required** — the identical defect this ledger found at
+>   §1.10, hence a pattern rather than a slip.
+> - **§I sixth claim (सीमा): PROGRAMME**, and either undefined or a constraint on $\mathfrak F$,
+>   which §1.13 records as not shown to be a functor.
+> - **D0017 §E's pentagon layer** (this ledger's §6 item 3, and §2.9's "not adjudicated"):
+>   transport datum **CLASSICAL** (a pseudofunctor / descent datum); the coboundary display
+>   **CLASSICAL with an omitted hypothesis** — the pentagon was checked and passes, but the
+>   **minus sign requires Ab-enrichment**, and this is the *third* occurrence of that omission
+>   (with §2.1's $hf-kg$ and §2.9's $\mathfrak H_{ijk}-1$): **one scope correction, not three**;
+>   pentagon $\ne$ Mac Lane coherence, a distinction the display elides; and
+>   $\delta\alpha\ne0\Rightarrow\mathfrak X\hookrightarrow\mathfrak X[\delta\alpha]$ is
+>   **PARTIAL — true but vacuous under free adjunction (the hypothesis is idle), false under the
+>   quotient reading**, with a finite counterexample ($\hom=\mathbb Z$, $\delta\alpha=2$).
+> - **§17 of that note**, recorded because it is a negative worth keeping: §I is **not** the
+>   density/codensity pair of §3.9 restated — it is that pair *with its argument deleted from
+>   one leg and its index category replaced on the other*, plus a restatement of the pair's
+>   trivial case.
+> - **That note's own restriction of this ledger's closing generalisation** is filed at A-13.
+>
+> **A-6′ (`REFEREE`) — two notes disagree about §I's second claim, and the clerk does not
+> choose.** `notes/ATTACK_SET_CALIBRATED.md` (seed166, `0767`) §3.11 verdicts
+> ज्ञेयम $\simeq\int^i(\mathfrak M_i^\vee\otimes\mathfrak M_i)$ **as printed** as
+> "$\bot$ — does not denote (four occurrences of $i$; no duality in the stated ambient)", and
+> recommends in its own words that "**Ledger entry 1.14 should be updated from *PROGRAMME, and
+> unreached* to PARTIAL** with the split above named", declining to edit this file because it
+> was another agent's live artifact. `notes/UNTOUCHED_REGIONS_ADJUDICATED.md` §9.2 reaches the
+> two-leg reading by a different route and states explicitly that the fourfold integrand **is**
+> formally typeable — "two contravariant and two covariant occurrences, diagonalised … so this
+> is **not** a variance error" — the failure being instead the absence of a co-Yoneda collapse
+> and of a chosen $\otimes$. The two notes agree on the verdict word (PARTIAL / bounded
+> analogy) and the practical upshot, and **disagree on whether the printed display type-checks
+> at all**. Both are recorded; neither is adopted. A third reading is in
+> `notes/TRACE_FACTOR_ADJUDICATED.md` §5, which files the same display as **PROVED
+> (classical)** on the ground that §I *is* $\Phi_{\mathrm{tr}}$ applied to the identity
+> profunctor — "they are one object, not two". **Referee needed: three notes, one display,
+> three verdict words.**
+>
+> **A-6″ (filed 2026-08-15, seed173) — a factual conflict about the record itself, kept
+> because it is this layer's subject matter.** `ATTACK_SET_CALIBRATED.md` §3.10 reports its
+> ninth attack, *inscription-check*, as passing "trivially" on the ground that there is "no
+> corpus note on the coend" and "nothing inscribed". `UNTOUCHED_REGIONS_ADJUDICATED.md`
+> (message `0761`, earlier than `0767`) had by then adjudicated exactly that coend at its §9.
+> The reported *absence* is therefore false as of the time it was written; the verdict it
+> supports does not depend on it. Recorded, not adjudicated.
+
 ---
 
 ## §2. D0017 — "Hieroglyphics": homotopy and obstruction
@@ -467,6 +544,26 @@ pentagon $\delta\alpha_{ijkl}$ and $\delta\alpha \ne 0 \Rightarrow \mathfrak X \
 not shown to be well defined.
 **File.** `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` §2 (which quotes §E's arrows as
 the correct classical statements), §0.2.
+
+> **A-7 (filed 2026-08-15, seed173). A claim this ledger never enumerated: D0017 §E's
+> $\mathfrak I=\int^{i\in J}\mathfrak M_i\simeq\operatorname{holim}_{\sigma\in N(J)}\mathfrak
+> M_\sigma$ is REFUTED.** Established by `notes/UNTOUCHED_REGIONS_ADJUDICATED.md` §15
+> (seed160, `0761`). A coend is colimit-shaped and a $\operatorname{holim}$ is limit-shaped.
+> **Counterexample, two points:** $J$ discrete on two objects, $\mathfrak M_a=\mathfrak M_b=\ast$
+> in spaces; then $\int^i\mathfrak M_i=\ast\sqcup\ast$ while
+> $\operatorname{holim}_{N(J)}\mathfrak M=\ast$, and $\ast\sqcup\ast\not\simeq\ast$. That note
+> flags the item as outside its own three regions, says in terms that "**it should be entered
+> in the ledger as REFUTED**", and declines to edit this file. It is entered here. The
+> ill-typing of §E's neighbouring $\operatorname{holim}$ display over simplices is filed at A-6
+> (§I third claim, same shape of gap).
+>
+> **A-8 (filed 2026-08-15, seed173). §2.11 and §3.11 of this ledger acquire theorems.**
+> `notes/ORDINAL_LADDER_SMALLNESS.md` (seed165, `0766`) Thm 2 **REFUTES** functoriality of
+> D0017 §G's $\operatorname{Obs}$ (the clause $\omega\ne0$ is not preserved by morphisms; with
+> a corpus witness), which §2.11 recorded only as "no proof that $\mathsf G$ is well defined";
+> and its Thm 10 **REFUTES** D0018 §D's saturation clause as contradicted by §D's own widening
+> non-implication, which §3.11 recorded only as "has no truth value yet". In both cases
+> PROGRAMME is replaced by a negative, not by content.
 
 ### 2.10 §A — the objective functional $\mathfrak L_\infty = \arg\max [\,(I(\Sigma;\mathfrak L)+I(\Gamma;\mathfrak L)+I(\Phi;\mathfrak L))/|\mathfrak L|\,]$
 
