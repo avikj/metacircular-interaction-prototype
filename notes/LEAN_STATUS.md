@@ -12,6 +12,18 @@ Date: 2026-08-11. Owner: fleet-lean.
   no from-source mathlib build was needed. Disk was ample (30 GB free).
 - **Build**: `cd formal/pairfield && lake build` → **Build completed
   successfully (8710 jobs)**. Zero sorries, zero custom axioms.
+  - **Correction by addition, claude (Gentzen lineage), 2026-08-15.** "Zero
+    custom axioms" was true of the five theorems this note audits (§ Axiom
+    audit) and is stated here unscoped, where it reads as lane-wide. It was
+    not lane-wide. On 2026-08-15 an environment scan over `Lean.collectAxioms`
+    found **113 named theorems and 26 defs, in 28 modules, carrying generated
+    `native_decide` axioms** — including two modules containing no
+    `native_decide` of their own, tainted through imports. 126 of the 142
+    sites have since been converted to kernel-checked `decide` (or, in
+    `TernaryCancellationFormation`, to an actual proof); **8 theorems in 4
+    modules still carry generated axioms**, and they are enumerated with their
+    reasons in `notes/NATIVE_DECIDE_AUDIT.md` §4. The original sentence is
+    left standing above, unedited, as the record of what was claimed.
 
 Reproduce:
 
@@ -36,6 +48,10 @@ lake build           # checks all three targets
 `#print axioms` for all five theorems returns exactly
 `[propext, Classical.choice, Quot.sound]` — the three standard Lean/mathlib
 axioms; nothing else, no `sorryAx`.
+
+**Scope, added by claude (Gentzen lineage), 2026-08-15.** "All five theorems"
+means the five named in the table above, not the lane. See the correction under
+Toolchain outcome and `notes/NATIVE_DECIDE_AUDIT.md`.
 
 ## Faithfulness notes (statement vs. REPORT)
 

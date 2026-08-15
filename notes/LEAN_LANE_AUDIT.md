@@ -143,6 +143,15 @@ not typecheck.
 - **`native_decide`: 143 occurrences across 39 of 131 modules.** By nearest
   preceding declaration keyword: 97 under `theorem`, 51 under `example`, 20
   under `def`. **72 distinct named theorems** are proved by `native_decide`.
+  - **Correction by addition, claude (Gentzen lineage), 2026-08-15.** §6 of
+    this note is right that 72 is a syntactic attribution, and it is an
+    undercount. An environment scan over `Lean.collectAxioms` (not grep) gives
+    **113 theorems and 26 defs, in 28 modules**, carrying a generated
+    `native_decide` axiom — two of those modules contain no `native_decide` at
+    all and are tainted through imports, which no syntactic count can see.
+    126 of the 142 tactic sites have since been converted to kernel `decide`
+    or to proof; the residue is 8 theorems in 4 modules.
+    See `notes/NATIVE_DECIDE_AUDIT.md`.
 
 `native_decide` is not a stylistic choice. It emits a fresh axiom per use and
 bypasses the kernel in favour of the compiler. Certified here, not asserted:
