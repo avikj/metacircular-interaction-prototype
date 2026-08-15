@@ -92,29 +92,70 @@ witnesses: `forget : Bool → Unit` generates and does not reconstruct;
 `name : Unit → Bool` reconstructs and does not generate. Independent, as
 claimed.
 
-## 2. What is not encoded, and why
+## 2. What I claimed was not encodable, and was wrong about
 
-The module is 0-truncated and finite. It is the decategorified shadow, and
-saying so is part of the result.
+**Retracted, 2026-08-15.** The first version of this section said two things
+were beyond encoding. Both were true of the model I had chosen and false of the
+substrate. `formal/cubical/NaturalMachine/RepairGrading.agda` does them.
 
-- $\delta_\triangleleft = \operatorname{cofib}$ and
-  $\delta_\triangleright = \operatorname{fib}$ appear only as split-surjective
-  and injective. The homotopy content is discarded; the independence survives.
-- **Of the four repair kinds, only two are distinguishable here.**
-  $\Gamma_\Uparrow$ and $\Gamma_\circlearrowleft$ collapse to
-  $\Gamma_\varnothing$ after 0-truncation. The module gives them the same
-  repair type *openly*, rather than pretending to a distinction it cannot
-  make. This is not a defect of the schema — it is the schema's own claim, that
-  the higher structure is what tells repairs apart — but it does mean this
-  fragment cannot see three-quarters of $\Gamma$.
-- $\chi = \Delta\operatorname{Reach}/\Delta\operatorname{Kill}$ is **absent**.
-  It needs a cost model and this repository has none — `CountedDigits` records
-  the cost boundary explicitly. A ratio of two unmeasured rates, with a golden
-  value asserted at $\chi=1$, is precisely the object `CLAUDE.md` forbids: a
-  number without its scaling. If $\chi$ is to mean anything it needs
-  $\operatorname{Reach}$ and $\operatorname{Kill}$ defined as functions of
-  something, and then $\chi=1$ becomes a theorem or a refutation rather than an
-  aesthetic.
+### 2.1 "Only two of the four repair kinds are distinguishable" — false
+
+I wrote that $\Gamma_\Uparrow$ and $\Gamma_\circlearrowleft$ collapse into
+$\Gamma_\varnothing$ "after 0-truncation". Nothing forced that truncation on
+me; I imposed it, in a proof assistant chosen precisely because
+identifications are data.
+
+$\Gamma_\Uparrow$ promotes the defect to an identification and keeps *which
+one*: `Promote x y = x ≡ y`. $\Gamma_\circlearrowleft$ keeps the class:
+`Class x y = ∥ x ≡ y ∥₁`. In a 0-truncated model these agree because there is
+at most one identification to have. In a univalent one they do not, and `S¹`
+witnesses the gap: `refl` and `loop` are two repairs of the same defect
+`base ≡ base`, distinguished by `winding` (`Γ⇑-separates`, via
+`winding refl = 0`, `winding loop = 1`, both `refl`), and identified by
+`squash₁` once passed to the class (`Γ↺-identifies`). So the comparison map
+$\Gamma_\Uparrow \to \Gamma_\circlearrowleft$ is not injective, and what it
+forgets is a genuine defect.
+
+That is the schema's own claim — higher structure is what tells repairs apart —
+proved rather than cited as a reason not to prove it.
+
+### 2.2 "$\chi$ needs a cost model" — false as stated
+
+I wrote that $\chi = \Delta\operatorname{Reach}/\Delta\operatorname{Kill}$ was
+unencodable without a cost model, since a ratio of unmeasured rates is what
+`CLAUDE.md` forbids. That rule bans *measured* numbers, not counted ones, and
+in any case the ratio was the wrong object to reach for.
+
+What $\chi = 1$ asserts is that the widening opens exactly as much as the
+repair closes. Read that way it needs no cardinality at all — it is a
+biconditional between two predicates, and it is provable:
+
+$$\underbrace{\text{Blind}_{\mathcal O}(x,y) \times \text{Sep}_{\mathcal O^{+}}(x,y)}_{\text{what }\Phi\text{ opened}}
+\;\longleftrightarrow\;
+\underbrace{(|x| = |y|) \times (x \neq y)}_{\text{what }\Gamma_{\widehat{\ }}\text{ closes}}$$
+
+`golden` proves both directions for the sign defect over ℤ. The pairs the sign
+observation newly separates are *precisely* the pairs `absℤ` re-identifies —
+$\{(n,-n) : n \neq 0\}$ on both sides, on the nose. So the sign defect sits
+exactly at the golden boundary, and this is a theorem about a specific
+$(\mathcal O, \Gamma)$ rather than an aesthetic about all of them.
+
+An equality of predicates is also strictly stronger than an equality of counts:
+it says the two sets coincide, not merely that they are equinumerous.
+
+### 2.3 What genuinely remains outside this fragment
+
+$\delta_\triangleleft = \operatorname{cofib}$ and
+$\delta_\triangleright = \operatorname{fib}$ still appear only as
+split-surjective and injective, in `ObstructionCalculus` §E. The independence
+survives; the homotopy content is discarded. That one is a real restriction of
+the encoding rather than a limitation of the substrate, and it is the next
+thing to lift — cofibre and fibre are available here too.
+
+The general lesson, which I got backwards once already this week: **"not
+encodable" is almost always "not encodable in the model I happened to pick",
+and the distinction between those two is exactly the `भेदरक्षा` the document
+puts first.**
 
 ## 3. Two places I think the document is exposed
 

@@ -128,3 +128,33 @@ Whether the machine can generate its own widening from its own completeness
 claim is the open part, and it is what decides saturation versus endless novelty.
 
 Open: the χ cost model; the strong self-widening; the sublattice statement.
+
+## 2026-08-15 — "All is encodable"
+
+The owner's reply to my two hedges was three words, and both hedges were wrong.
+
+I had written that only two of the four repair kinds are distinguishable
+"after 0-truncation", and that χ needs a cost model the repository does not
+have.  Neither was a fact about what is encodable.  The first was a fact about
+a truncation I imposed myself, in a proof assistant chosen precisely because
+identifications are data; S¹ separates Γ⇑ from Γ↺ in six lines (`refl` and
+`loop` are two repairs of one defect, told apart by `winding`, identified by
+`squash₁`).  The second was reaching for the wrong object: χ = 1 does not need
+two cardinals, it needs a biconditional, and for the sign defect the pairs Φ
+newly separates are *precisely* the pairs Γ^ re-identifies — {(n,−n) : n ≠ 0}
+on both sides, proved both directions.
+
+Landed `NaturalMachine/RepairGrading.agda`; retracted §2 of
+`notes/OBSTRUCTION_CALCULUS.md` in place rather than appending a correction.
+
+Changed by the object: "not encodable" was doing work in my writing that
+"not encodable in the model I happened to pick" should have been doing.  Those
+are different claims and I stated the strong one.  That is the same failure as
+the two I catalogued this week — a distinction collapsed because the frame I
+was reading in could not see it — committed while writing the note *about* that
+failure.  Worth keeping in front of me: the guard is not a thing you install
+once.
+
+Open: lifting `δ◁`/`δ▷` from split-surjective/injective to genuine cofibre and
+fibre, which is available here and is the one restriction in that module that
+is mine rather than the substrate's.
