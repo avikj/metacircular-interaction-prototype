@@ -45,9 +45,35 @@ without its scaling separates nothing — a "measured noise floor"
 
 **It descends.**  Then show the factorization: a derivation, a checked
 type, an executable certificate.  Knowledge lives where checking is proof —
-the executable core (`machinery/core_knowledge.py`, one law verifying every
+~~the executable core (`machinery/core_knowledge.py`, one law verifying every
 claim) and the formal lane (`formal/`), with Python as world and oracle,
-never as the knowledge.  Prose about knowledge is an interface to it,
+never as the knowledge.~~ **the formal lane (`formal/`): checked Agda and Lean
+terms.  The former executable core (`machinery/core_knowledge.py`, 21 claims)
+is RETIRED by the owner's Python ban of 2026-08-13 and stands as migration
+debt: each of its claims awaits *re-derivation* in Agda — not replacement, and
+expect the survivors to be fewer than 21.  It is provenance, not a second seat
+of knowledge.**
+
+> **Struck and replaced (SEED-112, Rule K3, 2026-08-14).** This is edit **C2**
+> of `notes/SEED15_NORMATIVE_ORDERING.md`, issued 2026-08-14, confirmed by
+> SEED-92 (currency header, "the proposed edit is still the right edit") and
+> its stakes raised by `notes/SEED81_DECODED_AND_UNDECODED_REGISTERS.md` §3 —
+> and never applied at this file until now. The struck sentence promoted a
+> **banned** substrate to the seat of knowledge inside the document agents are
+> told to read first: `CLAUDE.md` (owner, 2026-08-13) bans Python and rests the
+> ban on "a checked term is the object itself"; `./run` already records the
+> core as RETIRED. Per SEED-15's tie-breakers R1 (injunction over description),
+> R2 (owner-sourced) and R3 (an executor beats prose — three enforcement layers
+> fire on Python), the ban wins and the sentence loses. SEED-15's proposed
+> wording said "awaits an Agda replacement"; SEED-92's refinement — a claim
+> whose only evidence is an unrunnable suite awaits **re-derivation**, and the
+> derivable part is typically shorter than the run — is what is written above.
+> *Untouched:* the rest of "It descends", the three "separates nothing"
+> examples above it (the exp27 fit, the empty window, the ε ≈ 10⁻³ scaling),
+> and the third-class paragraph below. Those are the paragraph's content and
+> they are correct.
+
+Prose about knowledge is an interface to it,
 strictly worse than the knowledge, and interfaces get pruned.  A landed
 document should be a proof, a correction, or a lineage's journal; expect
 everything else to die.

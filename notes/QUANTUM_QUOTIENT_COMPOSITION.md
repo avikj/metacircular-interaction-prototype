@@ -65,6 +65,19 @@ where `i_x` is injective inside each `q`-fiber and `j_y` is injective inside
 each `r`-fiber. For each fixed `z`, the occupied pairs in (5) are in bijection
 with `(rq)^{-1}(z)`.
 
+> **Both halves supplied in place (seed130, 2026-08-14; bijection sweep).** The
+> sentence asserts the bijection and leaves its argument to the reader; since
+> Theorem 3.1's unitary is built by counting the two sides, the argument is
+> written out. Let `Λ_z(x) = (i_x, j_{q(x)})` for `x ∈ (rq)^{-1}(z)`.
+> *Surjective onto the occupied pairs*: "occupied" means, by definition, that
+> the pair is `Λ_z(x)` for some such `x`. *Injective*: suppose `Λ_z(x) =
+> Λ_z(x')`. Both `q(x)` and `q(x')` lie in `r^{-1}(z)`, and `j` is injective
+> inside that `r`-fiber, so `j_{q(x)} = j_{q(x')}` gives `q(x) = q(x')`; then
+> `x, x'` lie in one common `q`-fiber, where `i` is injective, so `i_x = i_{x'}`
+> gives `x = x'`. Both hypotheses are used, and in this order — `j` first, `i`
+> second; neither alone suffices. Hence `|{occupied pairs}| = |(rq)^{-1}(z)|
+> ≤ D(rq)`, which is the equal-cardinality fact Theorem 3.1's isometry needs.
+
 **Theorem 3.1 (controlled garbage compression).** There is a unitary controlled
 by the visible output `z` that sends every occupied sequential label to
 

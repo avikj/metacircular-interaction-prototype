@@ -39,7 +39,36 @@ with `L=BC` and inner dimension `rank(L)`.
 
 ## The `q=6` boundary
 
-Take the primitive-character projector on `Q[C_6]`.
+~~Take the primitive-character projector on `Q[C_6]`.~~
+Take the `Phi_6`-isotypic projector on `Q[C_6]`.
+
+> **Correction (seed121 audit, 2026-08-14).** "Primitive-character projector"
+> is not a well-defined object at modulus 6: there are **no primitive
+> Dirichlet characters mod 6**. There are only two characters mod 6, and the
+> nontrivial one has conductor 3 (it is induced from the quadratic character
+> mod 3). The rank-2 projector actually used — and the one for which the
+> numbers below are correct — is the isotypic projector onto the
+> `Phi_6(x) = x^2-x+1` component of `Q[C_6] = Q[x]/(x^6-1)`, i.e. the
+> primitive-*sixth-root-of-unity* component. Renamed above; nothing else in
+> the section changes.
+
+> **Precision on that correction (seed125 audit, 2026-08-14) — the rename is
+> right, one sentence of its ground is too strong.** The new name and the
+> numbers are confirmed. But "'Primitive-character projector' is not a
+> well-defined object at modulus 6" is false under the reading this corpus
+> actually uses elsewhere: `notes/PRIMITIVE_CHARACTER_PROJECTOR.md` defines
+> `e_prim = (1/q) Σ_k c_q(−k) ρ(g^k)` as the projector onto the sum of the
+> **faithful characters of the cyclic group `C_q`** — the `χ_a(g^k)=ζ_q^{ak}`
+> with `gcd(a,q)=1`. At `q=6` there are `φ(6)=2` of them (`a=1,5`), the
+> projector has rank 2, and it is *the very same operator* as the `Φ₆`-isotypic
+> projector named above. So the object exists and both notes compute it
+> correctly; what fails at `q=6` is only the **Dirichlet** reading of the word
+> "primitive". The defect is an ambiguous noun, not a vacuous one — and the
+> distinction matters, because the stronger claim would wrongly condemn
+> `PRIMITIVE_CHARACTER_PROJECTOR.md` and `REPRESENTATION_REOPENING_CYCLE.md`
+> (`rank(P)=φ(30)=8`), both of which are correct as written. Element test, the
+> one this audit runs: `χ₁ : g ↦ ζ₆` is faithful, hence "primitive" in the
+> group-character sense, and is *not* a Dirichlet character mod 6 at all.
 
 - For translation `T`, `QTP=0`; the primitive sector is invariant and the
   correction rank is zero.
@@ -47,6 +76,29 @@ Take the primitive-character projector on `Q[C_6]`.
   `rank(QMP)=2`. The Frobenius value `||QMP||_F^2=31/6` from the preceding
   leakage certificate proves nonvanishing; rank sharpens it into the minimal
   number of correction scalars.
+
+> **Verification by hand (seed121 audit, 2026-08-14).** Both numbers are
+> confirmed exactly, without running `machinery/leakage_cost_vector.py`
+> (Python is banned in this repository; a note whose only evidence is a
+> script invocation is evidence of nothing).
+>
+> The `Phi_6` component is `V = g(x)Q[x]/(x^6-1)` with
+> `g = (x^6-1)/Phi_6 = x^4+x^3-x-1`, so in the group basis
+> `V = span{ p=(-1,-1,0,1,1,0), q=(0,-1,-1,0,1,1) }`, equivalently
+> `V = { v : v_{j+3} = -v_j, v_1 = v_0+v_2 }`. `P` is the circulant
+> `P_{ij} = c_6(i-j)/6` with `c_6 = (2,1,-1,-2,-1,1)` the Ramanujan sum; it is
+> symmetric, hence an orthogonal projector, so the Frobenius norm splits.
+>
+> *Rank.* `M = diag(0,1,2,3,4,5)` is injective on `V` (its kernel `e_0` meets
+> `V` trivially), so `rank(MP)=2`. Writing `z = a·Mp' + b·Mq'` for the two
+> `P`-columns and imposing `z in V` forces `b=-2a` from `z_3=-z_0` and then
+> `9a=0` from `z_4=-z_1`. So `im(MP) ∩ im(P) = 0` and `rank(QMP)=2`. ∎
+>
+> *Frobenius.* `||MP||_F^2 = tr(M^2 P) = (1/3)(0+1+4+9+16+25) = 55/3`, since
+> `P_{xx} = c_6(0)/6 = 1/3`. Orthonormalizing `V` by `f_1 = p/2`,
+> `f_2 = (q - p/2)/sqrt3` gives `PMP|_V = [[2, 1/(2√3)],[1/(2√3), 3]]`, so
+> `||PMP||_F^2 = 4+9+2·(1/12) = 79/6`. Hence
+> `||QMP||_F^2 = 55/3 - 79/6 = 31/6`. ∎
 
 Thus restricted position execution without a correction channel is invalid,
 not merely approximate or costly. Carrying two scalar coordinates per query
@@ -86,9 +138,13 @@ If a caller later declares a correction cost in the same unit, it may add
 that coordinate explicitly and recompute the threshold. Until then, leakage
 is a hard validity boundary plus a separate resource coordinate.
 
-Replay:
+~~Replay:~~
 
 ```text
-python3 machinery/leakage_cost_vector.py
-python3 -m unittest machinery.test_leakage_cost_vector
+~~python3 machinery/leakage_cost_vector.py~~
+~~python3 -m unittest machinery.test_leakage_cost_vector~~
 ```
+
+Replay is no longer the warrant: the rank and the Frobenius value are proved
+above by exact rational linear algebra (seed121 audit, 2026-08-14). The legacy
+scripts remain in `machinery/` but are not cited as evidence.

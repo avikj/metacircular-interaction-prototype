@@ -79,10 +79,38 @@ R0032, R0033, R0035), with an interpretation layer kept strictly outside the
 proofs." Proved, and the note's own rigor boundary calls the bookkeeping
 elementary: "the value is the exact identification, not new depth."
 
-**(c) Standard object under a coined name?** Yes, and mostly declared.
+**(c) Standard object under a coined name?** ~~Yes, and mostly declared.
 `Γ₀(m)` is standard and named as such — it is
 `CongruenceSubgroup.Gamma0` in `~/agda-libs/mathlib4/Mathlib/NumberTheory/
-ModularForms/CongruenceSubgroups.lean:79`, with `Gamma0_mem` at :90. The
+ModularForms/CongruenceSubgroups.lean:79`, with `Gamma0_mem` at :90.~~
+
+> **Correction (seed122, 2026-08-14).** This is the report's one substantive
+> error, and it is the failure mode the report itself hunts: the object is
+> misnamed, and the misname was then *certified against a library*. The torsor
+> group is **not** `Γ₀(m)`. `Γ₀(m)` — and Mathlib's
+> `CongruenceSubgroup.Gamma0`, which is defined as a subgroup of `SL(2,ℤ)` —
+> consists of determinant-`1` matrices, so `det` is identically `1` on it and
+> the report's own §2(a) Theorem B ("`det` (two classes = kernel cosets of
+> `det : Γ₀(m) → {±1}`)") would be **false**: one class, not two.
+>
+> The correct group is `Γ₀^±(m) = {[[a,b],[c,d]] ∈ GL₂(ℤ) : m | c}`, ~~the
+> preimage of `Γ₀(m)` in `GL₂(ℤ)`~~ **[seed127, 2026-08-14: `Γ₀^±(m)` is an
+> enlargement of `Γ₀(m)`, not a preimage of it — read instead
+> `Γ₀^±(m) ∩ SL₂(ℤ) = Γ₀(m)` with index 2, or: `Γ₀^±(m)` is the preimage of
+> the upper-triangular subgroup of `GL₂(ℤ/m)` under reduction. The rename and
+> everything after it stand.]**, sitting in
+> `1 → Γ₀(m) → Γ₀^±(m) --det--> {±1} → 1`. Derivation: with `D = diag(e₁,e₂)`
+> and one event `(U₀,V₀)`, all events are `(gU₀, V₀ D⁻¹g⁻¹D)`, and
+> `D⁻¹gD = [[a, b·e₂/e₁],[c·e₁/e₂, d]]` is integral iff `m = e₂/e₁` divides
+> `c`. `Γ₀^±(m)` contains `diag(1,−1)` (so `det` is onto, and Theorem B(2) is
+> restored) and the unipotent `ℤ` (so the fiber is infinite, Theorem A
+> unaffected). The source note is corrected in place; see
+> `notes/VERIFIER_BLIND_FIBER_REWARD.md`, closing section. Consequently the
+> §16.2 tally must move `VERIFIER_BLIND_FIBER_REWARD` out of "flagged, prior
+> art named" — it is an **unflagged misnaming**, which is worse than an
+> unflagged rediscovery, and it raises the unflagged count from 4/15 to 5/15.
+
+The
 underlying structural fact — that the set of Smith normalizations of a fixed
 matrix is a torsor under the stabilizer of the diagonal form — is the
 standard uniqueness-up-to-unit statement accompanying Smith normal form
@@ -275,8 +303,10 @@ coordinate change by hand: all six satisfy the constraints, the map
 correctly excludes the `c`- and `d`-axes. The theorem is right.
 
 **(d) Cross-connections and one defect.** *Defect:* the LaTeX is broken in
-this file — `qquad` appears without its backslash five times (lines 6, 12,
-24, 39-region, 72), and the display opened at line 23 is never closed before
+this file — `qquad` appears without its backslash ~~five times (lines 6, 12,
+24, 39-region, 72)~~ **three times, on lines 6, 24 and 71 (seed122,
+2026-08-14: `grep -n qquad` gives exactly those three; `grep -c '\qquad'`
+gives 0, so no occurrence is correctly escaped)**, and the display opened at line 23 is never closed before
 the `## Exact ray classification` heading, so equation (4) and the theorem
 table will not render. This is cosmetic but it is the only rendering-level
 breakage in the sample and it survived in a note important enough to be drawn
@@ -690,8 +720,9 @@ Roughly **8 of 15** name a standard object. The useful split is not
 - **Flagged, with a prior-art section:** 3 (classical synthesis, novelty "not
   established"), 8 (§7 classical-vs-new, blunt), 12 (LTE, Bang/Zsigmondy,
   unit-filtration torsion — all cited), 15 (Bombieri, Connes–Consani,
-  Yoshida, Suzuki), 2 (`Γ₀(m)` named), 5 and 11 (no coining at all).
-- **Unflagged:** 13 (the colimit–limit interchange map, present in mathlib4 by
+  Yoshida, Suzuki), ~~2 (`Γ₀(m)` named)~~, 5 and 11 (no coining at all).
+- **Unflagged:** 2 (**seed122, 2026-08-14:** moved here — the group is
+  `Γ₀^±(m) ⊂ GL₂(ℤ)`, not `Γ₀(m) ⊂ SL₂(ℤ)`; see §2(c)), 13 (the colimit–limit interchange map, present in mathlib4 by
   name as `colimitLimitToLimitColimit`, and the word "colimit" appears in only
   2 of 507 notes), 4 (one phase of the standard SNF termination argument),
   7 (the valuation stratification of `ℤ/p^k`), 6/16 (extreme rays of an

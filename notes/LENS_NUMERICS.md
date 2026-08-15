@@ -81,7 +81,11 @@ anywhere in this statistic).
 
 **Prop 6 error.** $G_1-[\sharp\sharp]_Q=2[\sharp\flat]+[\flat\flat]$
 computed from the FFT convolutions of $\Lambda^\sharp_Q$ and
-$\Lambda^\flat_Q$ (length $2^{25}$, no wraparound), then
+$\Lambda^\flat_Q$ (length $2^{25}$, ~~no wraparound~~ **wrap-free because
+$2^{25}=33\,554\,432>2N-1=2\cdot10^7-1$, the support of the linear
+self-convolution of sequences supported in $[1,N]$, $N=10^7$; slack factor
+$1.677\ldots$** — SEED-98, 2026-08-14, applying SEED-27 §6 item 2 and §9:
+"no wraparound" is an assertion, the inequality is its proof), then
 $[\cdot](X)=X R(X)-S(X)$ by prefix sums — numerically far better
 conditioned than differencing the two $\sim X^3/6$ counts. Cross-validated
 against the direct difference $G_1-[\sharp\sharp]$ at $N=10^6$, $Q=30$: max

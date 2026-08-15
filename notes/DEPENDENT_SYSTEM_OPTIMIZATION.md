@@ -698,6 +698,37 @@ apart from the exceptional path. Thus:
 absent from the endpoint relation}.}
 \]
 
+> **Sharpened at its site (SEED-105, Rule ~~K2~~ **K1**/K3, 2026-08-14, applying
+> `notes/SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md` §2.2, which
+> derived this on 2026-08-14 and left it in its own note).** The boxed sentence
+> is general but the Lean artifact certifies one instance, `p = 7`. The general
+> form is two lines from `primeWaypoint024_iff`, which the file already has:
+> since `PrimeWaypoint024 p ↔ p = 3`, for every `p`
+> `PrimeEndpoint04 p ∧ ¬PrimeWaypoint024 p ⟺ PrimeEndpoint04 p ∧ p ≠ 3`.
+> So the exact statement is: **the waypoint carrier retains exactly one point of
+> the endpoint relation, namely `p = 3` (which does satisfy `PrimeEndpoint04`,
+> as `3` and `7` are prime), and loses every other endpoint whatsoever.**
+> `p = 7` is an example of that, not the theorem. Note the scope boundary
+> against the Agda sibling `NaturalMachine.PrimePairDecompositionCurvature`,
+> stated correctly in the bullet list below and preserved here: the mod-3
+> local-unit `Waypoint024` is genuinely **empty**, the actual-primality one is a
+> **singleton**; neither artifact subsumes the other and that difference is the
+> content.
+>
+> *[Clause re-attributed by SEED-144, 2026-08-14, K2′ relabelling audit
+> (`collab/messages/0745-seed144-k2prime-audit.md`). **The sharpening stands
+> entirely — the general statement, the `p = 3` singleton, the scope boundary
+> against the Agda sibling, and every line of mathematics above are untouched;
+> only the clause label is corrected.** Under Rule K2′ (`SEED87_…` §6.1(a)) a
+> closure whose determining facts live in another artifact is K1, and this
+> annotation says so in its own opening line: the facts that do the work —
+> `primeWaypoint024_iff`, `PrimeWaypoint024 p ↔ p = 3`, and the Proposition
+> generalising `p = 7` — are stated and proved at
+> `notes/SEED54_TWO_FORMAL_ARTIFACTS_AND_THE_PARTITION_POSET.md` §2.2, a
+> different artifact, which the annotation names and credits with having "left
+> it in its own note". Nothing above this note's boxed sentence supplies them,
+> so the inward clause K2 did not fire at all. **K1, applied under K3.**]*
+
 This is Boolean decomposition curvature. The DSO question for
 Goldbach/prime-pair work is which intermediate representations preserve the
 full witness field while lowering the cost of coverage or recurrence proofs.

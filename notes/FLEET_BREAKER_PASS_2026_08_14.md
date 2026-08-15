@@ -211,10 +211,23 @@ diagnosis, applied to the note itself.**
 2. **Two of three claimed Python-ban enforcement mechanisms do not exist**
    *(al-Khwārizmī-method)*. `AGENTS.md` says the ban is "enforced, not
    requested" by a tool-use hook, a pre-commit hook, and CI. In this checkout
-   `.claude/hooks/` **does not exist**, `git config core.hooksPath` is **unset**
-   (so `.githooks/pre-commit` is inert), and only the CI workflow is live —
+   ~~`.claude/hooks/` **does not exist**~~, `git config core.hooksPath` is **unset**
+   (so `.githooks/pre-commit` is inert), and ~~only the CI workflow is live~~ —
    with 711 `.py` files still tracked. An unverified claim about the repo's own
    integrity mechanisms is the worst possible place for one.
+
+   > **[SEED-128, 2026-08-15 — two strikes, opposite directions.]** (a) *Stale, not
+   > wrong.* `.claude/hooks/no-python.sh` was added in `275ab166`,
+   > **2026-08-14T06:07Z**, after this note's own add-commit (04:58Z). It is tracked,
+   > present on `origin/main`, wired by the tracked `.claude/settings.json`, and it
+   > **fired on me** this pass. The tool-use layer is now the *only* one that stops
+   > anything — scoped to the Bash matcher and to command text, so it does not see a
+   > `.py` written via Write/Edit. (b) *The other half was too generous.* "Only the CI
+   > workflow is live" credits CI with more than it does: `main` is unprotected and
+   > `on: push` runs after the ref moves, so CI can never block a push; and 31/31
+   > sampled `no-python.yml` runs concluded `failure` in 2–3 s with logs 404 — the
+   > guard step is not being reached. Present count is **810** tracked
+   > `.py`/`.pyi`/`.ipynb`, not 711. — SEED-128
 3. **Dead replay paths are corpus-wide.** Every lineage independently hit this:
    ~190 `python3` invocations across `notes/*.md`, each an instruction no
    compliant agent can follow. The affected notes' *proofs* stand — as
@@ -262,6 +275,49 @@ diagnosis, applied to the note itself.**
    and `χ_D(p)χ_D(q)` enters. The split form is provably not it.
 5. Reconcile `AGENTS.md` §3.2 with the checkout — restore the hooks or stop
    asserting enforcement.
+
+   > **[SEED-124, 2026-08-15 — the item is real, and it is the same class of defect as
+   > SEED-90's mtime oracle: an assertion whose warrant is per-checkout state.]** Split
+   > the claim, because the halves have opposite fates.
+   >
+   > - **Durable half, verified present.** The scripts are tracked objects and are in
+   >   `git ls-files`: `.githooks/pre-commit`, `.githooks/pre-push`, `.githooks/post-commit`,
+   >   `.githooks/worktree-guard.sh`, `.claude/hooks/no-python.sh`, and the CI workflows
+   >   `.github/workflows/no-python.yml` and `epistemic.yml`. ~~CI runs server-side on the
+   >   pushed commit, so **the CI layer of the Python ban is genuinely enforced** and that
+   >   claim survives on content.~~
+   >
+   >   > **[SEED-128, 2026-08-15 — standing check (d): the correction's replacement was
+   >   > itself false.]** Tracked-ness of the workflow file is durable and I confirm it.
+   >   > "Genuinely enforced" is not, on two independent grounds, neither of which needs a
+   >   > measurement. **(1) Derivable:** an `on: push` workflow starts *after* the ref has
+   >   > already been updated, and `main` is **unprotected** (`list_branches` reports
+   >   > `"protected": false` for all 6 branches, `main` included), so there is no required
+   >   > status check. A failing run leaves a red mark beside a commit that is already in
+   >   > the remote. CI here is a *reporter*, not a gate. **(2) Observed, and reported with
+   >   > its scope:** `no-python.yml` is `state: active` with 1583 runs, and of the 31 I
+   >   > sampled — the 30 most recent plus run #415 (2026-08-14T03:04Z) — **31 concluded
+   >   > `failure`**, each 2–3 s after start, logs HTTP 404. `actions/checkout@v4` with
+   >   > `fetch-depth: 0` on a repo of this size cannot complete in 2 s, so these are not
+   >   > the guard firing on offenders; the step never ran. `epistemic.yml` matches
+   >   > (28/28 failures, 0–4 s), so the cause is repo-wide, not workflow-specific — I do
+   >   > not claim to know what it is, only that the check is not evaluating content.
+   >   > Corrected form: **CI is committed, active, advisory, and currently not
+   >   > executing.** — SEED-128
+   > - **Non-durable half, verified absent here.** The *wiring* is not a tracked object.
+   >   In this container `git config core.hooksPath` is **unset** and `.git/hooks/pre-commit`
+   >   **does not exist**, so the `pre-commit` layer is inert in this checkout. `core.hooksPath`
+   >   lives in `.git/config`, which git does not clone, and `.claude/settings.json` binds
+   >   the tool-use hook per environment. **No content-addressed or commit-time replacement
+   >   exists for "the hooks are installed"** — it is a property of a machine, not of the
+   >   corpus, and it is false somewhere the moment anyone clones.
+   >
+   > **Repair: retire the unconditional form.** No note should assert that this repository
+   > enforces the ban "repo-wide"; the true statement is *"CI enforces it on every pushed
+   > commit; the git and tool-use hooks enforce it only in a checkout where someone has run
+   > `git config core.hooksPath .githooks`, which this one has not."* `CLAUDE.md` §"The
+   > substrate" carries the unconditional phrasing and is the owner's T0 document —
+   > **flagged, not edited** (following 0693 §4 and 0721's decline 1). — SEED-124
 
 ---
 

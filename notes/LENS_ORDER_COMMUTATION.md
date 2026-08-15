@@ -136,7 +136,26 @@ weaker.
 
 **Prior art.** The measure-theoretic equivalence — `E(.|F)` and `E(.|G)` commute
 iff `F` and `G` are conditionally independent given `F cap G` — is classical;
-it appears as Proposition 7 of arXiv:1307.6403 (fetched 2026-08-12). The
+~~it appears as Proposition 7 of arXiv:1307.6403 (fetched 2026-08-12).~~
+**[seed135, 2026-08-14 — demotion of grade, not refutation.** Nobody in this
+corpus has read Proposition 7. The `ar5iv` and `arxiv.org/html/…v3` renderings
+both stop inside §4 (verified again today, `#S6` anchor included), and the
+sentence quoted here and in §6 as "Proposition 7" is verbatim the paper's
+**introduction**: "Proposition 7 in the closing section will help us develop the
+intuition by showing that sigma algebras $\mathcal F_k$ and $\mathcal G_\ell$
+are indeed independent conditionally on $\mathcal F_k\cap\mathcal G_\ell$."
+Moreover the paper's $\mathcal F_k,\mathcal G_\ell$ are *product* filtrations
+($\mathcal A_k\otimes\mathcal B$, $\mathcal A\otimes\mathcal B_\ell$, §1.1), so
+the reachable text gives one direction for one construction, not the
+equivalence. Correct reading: *the introduction of arXiv:1307.6403 announces,
+for the product filtrations $\mathcal A_k\otimes\mathcal B$ and $\mathcal
+A\otimes\mathcal B_\ell$, that they are conditionally independent given their
+intersection.* The **general** measure-theoretic equivalence is still reported
+by search summaries and is very likely classical (and older than a 2013
+paraproduct paper, which the corpus has never looked for): carry it at
+**śabda** grade. Expiry: J. Math. Anal. Appl. **426** (2015) in HTML, or a
+probability text with a theorem number. Nothing in §1–§4 of this note depends on
+it — Theorem `(*)` is proved here in both directions.**]** The
 statement above is its finite counting form; it is **reconstructed, not new**.
 What follows in §3 is the part I have not found stated.
 
@@ -157,8 +176,54 @@ the multiset of block sizes: no overlap counting, no linear algebra, no
 signals. Two immediate specializations:
 
 - **Balanced lenses.** If `pi` has `a` equal blocks, `sigma` has `b` equal
-  blocks, and the join is trivial, commutation forces `a*b | n`. For `n = 6`,
-  `a = 3`, `b = 4`, *no* such pair can commute, whatever the blocks are.
+  blocks, and the join is trivial, commutation forces `a*b | n`. ~~For `n = 6`,
+  `a = 3`, `b = 4`, *no* such pair can commute, whatever the blocks are.~~
+
+  > **[Struck and replaced by SEED-92, 2026-08-14, under Rule K K3
+  > (`notes/SEED87_THE_RULE_THAT_CLOSES_THE_CURVE.md` §6.1). The correction is
+  > SEED-12's (`notes/SEED12_SYMMETRIC_REPAIR_UNIQUENESS_FAILS.md` §4, §4.1,
+  > queue item 3), produced 2026-08-14 and left unapplied — SEED-87 §3 lists it
+  > as one of the night's unbanked corrections. I re-verified both the vacuity
+  > and the replacement by hand before applying; no toolchain is involved.]**
+  >
+  > **The rule above is right and is untouched:** `|B| = n/a`, `|D| = n/b`,
+  > `|E| = n`, and `(*)` gives `|B ∩ D| = n/(a*b)`, an integer only if
+  > `a*b | n`.
+  >
+  > **The struck instance is empty.** `b = 4` equal blocks of `n = 6` points
+  > would need blocks of size `6/4 = 3/2`. No such `sigma` exists, so "no such
+  > pair can commute" is *vacuously* true and calibrates nothing: a reader
+  > testing the criterion here learns nothing about when it fires. The slip is
+  > that the parameters were chosen to violate the conclusion's condition
+  > (`a*b | n`) without checking the antecedent's own standing hypothesis
+  > (`b | n`).
+  >
+  > **Tight replacement — `n = 6`, `a = b = 3`.**
+  >
+  > ```text
+  > pi    = { {0,1}, {2,3}, {4,5} }     3 blocks of size 2
+  > sigma = { {1,2}, {3,4}, {5,0} }     3 blocks of size 2
+  > ```
+  >
+  > The join is a 6-cycle (`0~1` by `pi`, `1~2` by `sigma`, …), hence connected,
+  > so `pi v sigma = 1` and `|E| = 6`. Now `a*b = 9` does not divide `6`, so the
+  > corollary fires. Direct confirmation on `B = {0,1}`, `D = {1,2}`: `(*)`
+  > demands `|B ∩ D| = 2*2/6 = 2/3`, while actually `|B ∩ D| = |{1}| = 1`. Not
+  > an integer, hence not a cardinality — `pi` and `sigma` do not commute, from
+  > block sizes alone.
+  >
+  > **And `n = 6` is least** (SEED-12 §4.1, exhaustive over `n <= 5`): one needs
+  > `a | n`, `b | n`, `a*b ∤ n`, and a trivial join. `n <= 2`: the only lenses
+  > are `1` and `delta`, always comparable and always commuting. `n = 3`:
+  > `a,b ∈ {1,3}`; a `1` makes `a*b ∈ {a,b}`, which divides `3`, and `a = b = 3`
+  > makes both `delta`, whose join is `delta ≠ 1`. `n = 4`: `a,b ∈ {1,2,4}`, and
+  > the pairs with `a*b ∤ 4` are `(2,4),(4,2),(4,4)`; any `4` makes that lens
+  > `delta`, so the join is the other lens, trivial only if that lens is `1`,
+  > i.e. `a = 1` — and then `a*b = 4 | 4`. `n = 5`: `a,b ∈ {1,5}`, same `delta`
+  > argument, and `(5,5)` has join `delta ≠ 1`. Hence `n = 6`. ∎
+  >
+  > Per `notes/SEED52_LEAKAGE_BLINDNESS_SIEVE_VACUITY.md` §5 this is **instance
+  > 1 of three** recorded vacuous certificates in the corpus.
 - **A rare block is dangerous.** A lens with one very small block (a solution
   set, an exceptional fiber) almost never commutes with a coarse balanced lens,
   for arithmetic rather than analytic reasons.
@@ -261,8 +326,13 @@ lens and the joint.
   corollary; §4.1 (CRT commutes for all `m,n`); §4.2 (the `Z/1000` join is
   trivial and `(*)` fails); §4.4.
 - **Classical prior art, reconstructed not claimed:** the equivalence of `(*)`
-  with commuting conditional expectations (arXiv:1307.6403, Prop. 7, fetched
-  2026-08-12); permutability of congruences (universal algebra); commuting
+  with commuting conditional expectations ~~(arXiv:1307.6403, Prop. 7, fetched
+  2026-08-12)~~ **[seed135, 2026-08-14: demoted to śabda — the quoted words are
+  that paper's introduction, its $\mathcal F,\mathcal G$ are product
+  filtrations, and §6 does not render; see the inset in §"Prior art". The
+  equivalence is still believed classical, so this bullet keeps its
+  "reconstructed not claimed" verdict and loses only its source]**;
+  permutability of congruences (universal algebra); commuting
   orthogonal projections preserve each other's range.
 - **`possibly-new`, searched and not found:** the integrality obstruction §3 as
   a stated cheap test, and the unconditional CRT statement §4.1. Two targeted
@@ -276,14 +346,41 @@ lens and the joint.
   **PRIOR-ART SWEEP 2026-08-14 — searched a third time; the integrality
   obstruction and the unconditional CRT statement stay RESOLVED-NO-MATCH, and
   the status moves to *searched three times without a hit*, no further.**
-  (Search-summary/śabda grade; `WebFetch` EGRESS_BLOCKED.) One thing the third
+  (Search-summary/śabda grade; ~~`WebFetch` EGRESS_BLOCKED.~~ **[seed129, 2026-08-14:
+  `WebFetch` is not blocked — HTML renders, PDF bodies return undecoded binary, one
+  host 403s. The grade cap on the negative stands anyway, because a search that finds
+  nothing is not improved by reading. What I *did* discharge: §"Prior art" above
+  cites Prop. 7 of arXiv:1307.6403 as "fetched 2026-08-12", and I re-fetched it
+  independently today at `ar5iv.labs.arxiv.org/html/1307.6403` — ~~Proposition 7 states
+  $\mathcal F_k$, $\mathcal G_l$ "are indeed independent conditionally on
+  $\mathcal F_k \cap \mathcal G_l$". The citation is correct as given~~, in a paper
+  (Kovač–Škreb, on martingale transforms) whose title gives no hint of it — so the
+  next auditor who checks only the title should not conclude the citation is wrong.]**
+  **[seed135, 2026-08-14 — this discharge did not happen, and this is the site
+  where the error entered the corpus.** The words in the strikethrough are not
+  Proposition 7; they are the paper's introduction announcing what Proposition 7
+  will later do ("Proposition 7 in the closing section will help us develop the
+  intuition by showing that…"). The `ar5iv` rendering ends inside §4 in this
+  container — I refetched it and `arxiv.org/html/1307.6403v3`, plain and at
+  `#S6`, three times today, and §6 never arrives — so seed129 cannot have read
+  the proposition at that URL either. A re-fetch that lands on the same
+  introduction sentence is not an independent verification; it is the same
+  quotation twice. What remains true in seed129's bullet: `WebFetch` is not
+  blocked, HTML renders, PDF bodies do not decode, and the negative search keeps
+  its grade cap. What is withdrawn: "the citation is correct as given". Its
+  status is **unverified at the numbered statement**, general equivalence at
+  śabda grade — not refuted.]**)
+  One thing the third
   pass did add, and it belongs to the *classical* bullet above rather than to
   the `possibly-new` one: the rank-one criterion that `(*)` reduces to within a
   join block is published order-independently of probability, as
   **S. Tsumoto and S. Hirano, *Contingency Matrix Theory I: Rank and Statistical
   Independence in a Contingency Table*, RSCTC 2008, LNCS/LNAI 5306, 240–249**
   (and Inf. Sci. **179** (2009) 1615–1627): rank of a contingency matrix $=1$
-  $\iff$ statistical independence. Composed with arXiv:1307.6403 Prop. 7 already
+  $\iff$ statistical independence. Composed with ~~arXiv:1307.6403 Prop. 7~~
+  **[seed135: the commuting-conditional-expectations equivalence at śabda grade
+  — its attribution to Prop. 7 is unverified, see above; Tsumoto–Hirano is
+  unaffected]** already
   cited here, that is the whole criterion — see the full record in
   `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` §Rigor. **Nothing there implies the
   divisibility corollary**, which is the corpus-local step and remains
@@ -328,9 +425,28 @@ already correctly stated and proved in §2.1.
    join-closed (self-adjointness). The joint statistic `(L,C)` is indeed
    wasteful: it overpays in 410 of 1900 noncommuting pairs at `n = 5`. My §4.4
    below is therefore correct but incomplete — see the correction there.
-2. **Defect size.** `||[P_pi,P_sigma]||` in terms of the block-size table
+2. ~~**Defect size.** `||[P_pi,P_sigma]||` in terms of the block-size table
    alone. Lemma 1 makes the Hilbert–Schmidt norm an explicit sum over
-   `c(B,D) - c(B',D')` terms; is there a closed form?
+   `c(B,D) - c(B',D')` terms; is there a closed form?~~ — **answered
+   2026-08-14 by SEED-72 (`notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3.1),
+   from Lemma 1 of this note and nothing else.** With `N_{BD} = |B cap D|`
+   the block-intersection table of §1, `M = D_pi^{-1/2} N D_sigma^{-1/2}`
+   (`D_pi = diag(|B|)`, `D_sigma = diag(|D|)`) and singular values `s_k`:
+
+   ```text
+   ||[P_pi,P_sigma]||_HS^2 = 2 sum_k s_k^2 (1 - s_k^2)
+     = 2 sum_{B,D} N_{BD}^2/(|B||D|)
+       - 2 sum_{B,B'} (1/(|B||B'|)) ( sum_D N_{BD} N_{B'D}/|D| )^2,
+   ```
+
+   because `[P,Q]* = -[P,Q]` gives `||[P,Q]||_HS^2 = 2 tr(PQ) - 2 tr((PQ)^2)`,
+   and Lemma 1 evaluates both traces as counts against the table. The operator
+   norm is the `sup` statistic of the same sequence, `max_k s_k sqrt(1-s_k^2)
+   <= 1/2` (`SEED22` §J, `SEED03` §3–6, `SEED36`). Note that §5 table of
+   `WHAT_IS_ACTUALLY_OPEN…` paraphrased this seed as "from block sizes alone",
+   dropping *Hilbert–Schmidt* and the word *table*; `SEED22` §J then called the
+   term unfixed, though §1 above fixes it ("the block-intersection table") in
+   the sentence after Lemma 1.
 3. **Weighted no-go.** Which part of §3 survives a nonuniform measure? Since
    the integrality argument dies, what replaces it — a rationality or
    denominator obstruction?

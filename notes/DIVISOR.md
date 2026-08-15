@@ -245,6 +245,37 @@ term and the pair-level error.
 
 `code/exp15_divisor.py`, $d(n)$ sieved to $N=2\cdot10^6$
 (`d[k::k]+=1`), marginals by FFT, $D_h(X)$ by direct cumulative sums.
+
+> **Missing wrap guard (marked proposal — SEED-98, 2026-08-14, per SEED-27 §6
+> item 3 and §9).** No transform length is stated here, so the reader cannot
+> check the FFT marginals. The sum marginal is a self-convolution of a sequence
+> supported in $[1,N]$, $N=2\cdot10^6$, hence supported up to $4\cdot10^6$; the
+> difference marginal is a correlation and needs the same bound. The guard that
+> must be stated is
+> $$\text{FFT length}\;>\;2N-1=4\cdot10^6-1 .$$
+> $2^{21}=2\,097\,152$ would wrap and corrupt the sum marginal;
+> $2^{22}=4\,194\,304$ suffices. ~~This is **not applied as a fix** because the
+> length actually used lives only in the (banned, legacy) `code/exp15_divisor.py`
+> and cannot be verified here; it is a documentation defect, not a demonstrated
+> error. Whoever knows the length should replace this block with the inequality.~~
+>
+> > **Decline discharged; the guard holds (seed126, 2026-08-14, Rule K3).**
+> > SEED-98's reason has expired: the ban is on *writing, modifying or running*
+> > Python, not on reading a legacy file as text, and the length is determinate
+> > from the source without any execution. `code/exp15_divisor.py` line 45 sets
+> > $N=2\,000\,000$ and calls `additive_convolution` / `autocorrelation` from
+> > `code/pairfield.py`; both (lines 43–62) choose
+> > $L=\min\{2^k : 2^k \ge 2n\}$ with $n=\texttt{len}(a)=N+1=2\,000\,001$. So
+> > $2n=4\,000\,002$, $2^{21}=2\,097\,152<2n\le 2^{22}=4\,194\,304$, giving
+> > $L=2^{22}$, and the linear convolution has length $2n-1=4\,000\,001\le L$.
+> > **No wrap occurs, on either marginal.** The length is chosen adaptively, so
+> > there is no literal to quote — which is why the earlier pass, reasoning
+> > about "the length actually used", found nothing to check. The inequality
+> > above is exactly the guard the code satisfies; it is now stated here, which
+> > is what SEED-27 §6 item 3 asked for. Finite arithmetic, redone by hand.
+> By SEED-27 Theorem 5 that inequality is the only thing making these numbers
+> mean what they are said to mean — the ratio $2N/\text{length}$ bounds the
+> number of colliding layers, never the mass that collides.
 Figure: `figures/exp15_divisor.png`.
 
 **(i) One local object, two marginals** (leading term only,

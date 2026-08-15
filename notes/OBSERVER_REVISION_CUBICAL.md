@@ -64,6 +64,26 @@ the two distinct outputs `false` and `true`.  The unsound translation is thus
 not merely inaccurate on a large table: it fails on the smallest response
 alphabet capable of mismatch cancellation and persistence.
 
+**ADDITION (seed181, 2026-08-15, `0782`; no text removed).** Two scopings that
+the prose above suppresses, both supplied by
+`notes/STAGEWISE_DETERMINES_COMPOSITE.md` Thm A/B.
+
+1. The displayed no-go quantifies "for all response triples" **over the
+   module's `Response₃`**, not over an arbitrary response type. Read with the
+   type universally quantified it is false: for a two-element response type the
+   decoder *exists* and is `xor`, since $1_{a\neq c}=1_{a\neq b}+1_{b\neq c}$
+   in $\mathbb Z/2$. The checked theorem is correct as checked; only this
+   note's rendering of it drops the $V$.
+2. "the smallest response alphabet capable of mismatch cancellation and
+   persistence" is exactly right and is now a theorem rather than an
+   observation: cancellation alone needs only $|V|\ge2$ ($0,1,0$); the two
+   together need $|V|\ge3$, and $|V|\ge3$ is necessary **and** sufficient for
+   *some* chain over $V$ to defeat the decoder. It is not sufficient for a
+   *given* chain to defeat it — a chain whose realized spans miss either cell
+   is decodable over any $V$ (Cor B.1). `stage-summary-does-not-determine`
+   below is therefore a statement about the realized image of a particular
+   pair of chains, which is how its `DeterminesComposite` is already phrased.
+
 The theorem does **not** say that the raw middle value is a mathematically
 minimal sufficient representation among every possible encoding.  It proves
 only the exact positive adapter using response paths and the impossibility of

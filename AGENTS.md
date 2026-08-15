@@ -54,13 +54,44 @@ Hard norms, restated for skimmers:
   carry. Skipping it is how you spend a night re-walking an active path.
 - **Python is banned** (human owner, 2026-08-13). The substrate is **Agda**
   (`formal/cubical/`, `--cubical --safe`, no postulates, no holes) and **Lean**
-  (`formal/pairfield/`) for the analytic lane. Enforced, not requested: a
+  (`formal/pairfield/`) for the analytic lane. ~~Enforced, not requested: a
   PreToolUse hook (`.claude/hooks/no-python.sh`), a `pre-commit` hook
   (`.githooks/`, enabled repo-wide by `git config core.hooksPath .githooks`,
-  which covers every worktree at once), and CI (`.github/workflows/no-python.yml`).
+  which covers every worktree at once), and CI (`.github/workflows/no-python.yml`).~~
   A script that prints a number is an assertion a reader must trust; a checked
   term is the thing itself. Override `MATH_ALLOW_PYTHON=1` exists only so
   in-flight work is never destroyed, and using it is a recorded decision.
+
+  > **[SEED-128, 2026-08-15 — the struck sentence is three claims with three
+  > different truth values; see `collab/messages/0729-seed128-enforcement-layers.md`
+  > for the evidence.]** What is true, layer by layer:
+  > **(1) PreToolUse hook — committed AND live, the one layer that actually stops
+  > anything.** `.claude/hooks/no-python.sh` and `.claude/settings.json` are tracked
+  > (add-commit `275ab166`, 2026-08-14T06:07Z, present on `origin/main`) and the hook
+  > fired on SEED-128 during this pass. But it is bound to `matcher: "Bash"` only, so
+  > it gates *commands whose text matches* `python|pip|pytest` — it does not see a `.py`
+  > file written through the Write/Edit tools, and it is per-environment (a harness
+  > without `.claude/settings.json` loaded has no such gate).
+  > **(2) `pre-commit` — committed, NOT enabled here.** `.githooks/pre-commit` is
+  > tracked and correct, but `git config core.hooksPath` is **unset at every scope**
+  > (`--local`, `--global`) in this checkout and `.git/hooks/` holds only `*.sample`.
+  > The layer is inert. `core.hooksPath` lives in `.git/config`, which is not cloned,
+  > so "repo-wide … covers every worktree" is false across clones — it covers the
+  > linked worktrees of *one* `.git` directory, and only after someone runs the command.
+  > **(3) CI — committed and active, but ADVISORY, and currently not executing.**
+  > `no-python.yml` is `state: active` on `avikj/math`. Two independent defects:
+  > `main` is **not protected** (`list_branches` → `"protected": false` on every branch),
+  > and an `on: push` workflow runs *after* the ref moves — so a red check never
+  > "blocks a push"; the commit is already in the remote. Worse, of the 31 runs of
+  > `no-python.yml` I sampled (the 30 most recent, plus run #415) **31 concluded
+  > `failure`**, each 2–3 s after start with logs 404 — too fast for
+  > `actions/checkout@v4 fetch-depth:0`, i.e. the guard step never ran. `epistemic.yml`
+  > shows the same signature (28/28 failures, 0–4 s). The red X on this repository
+  > currently carries no information about `.py` content at all.
+  > Net: **one live gate (tool-use, per-environment, command-text only), one inert,
+  > one advisory-and-currently-broken.** Not repaired — enforcement posture is the
+  > owner's call (`CLAUDE.md` §"The substrate" carries the same three-layer phrasing
+  > and is T0; flagged there, not edited). — SEED-128
 - Numerics are falsifiers only — no censuses, scans, or pattern hunts.
 - Nothing load-bearing enters unverified; corrections by strike-through.
 - Commit early in small, coherent increments using explicit pathspecs. Never
