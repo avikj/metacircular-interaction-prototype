@@ -396,6 +396,40 @@ divisorChainSl2 : Sl2Triple ε φ η
 divisorChainSl2 = record { he = bracket-ηε ; hf = bracket-ηφ ; ef = bracket-εφ }
 
 ------------------------------------------------------------------------
+-- §5′  Controls.  The brackets above would also hold for a vacuous
+-- encoding (all three operators zero), so here are the operators
+-- evaluated on ξ² and ξ⁰ and ξ³ inside V₃ = k[ξ]/(ξ⁴), i.e. on the
+-- divisor lattice of p³.  Each is `refl`: the values are definitional,
+-- not asserted.  In the note's notation, α = 3.
+------------------------------------------------------------------------
+
+private
+  -- η ξ² = (2·2 − 3) ξ² = ξ²
+  control-η2 : η (δ 2 1) 2 1 ≡ pos 1
+  control-η2 = refl
+
+  -- η ξ⁰ = (0 − 3) ξ⁰ = −3 ξ⁰
+  control-η0 : η (δ 0 3) 0 3 ≡ negsuc 2
+  control-η0 = refl
+
+  -- φ ξ² = 2·(3−2+1) ξ¹ = 4 ξ¹   (NOT 2 ξ¹: the coefficient is the
+  -- unnormalized one, which is what makes the ideal φ-stable)
+  control-φ2 : φ (δ 2 1) 1 2 ≡ pos 4
+  control-φ2 = refl
+
+  -- φ ξ⁰ = 0, with no clause for it in the definition of φ
+  control-φ0 : φ (δ 0 3) 0 3 ≡ pos 0
+  control-φ0 = refl
+
+  -- ε ξ² = ξ³
+  control-ε2 : ε (δ 2 1) 3 0 ≡ pos 1
+  control-ε2 = refl
+
+  -- ε ξ³ = 0 : the truncation ξ⁴ = 0, at the top of the chain
+  control-ε3 : ε (δ 3 0) 4 0 ≡ pos 0
+  control-ε3 = refl
+
+------------------------------------------------------------------------
 -- §6  Scope limit, stated because it would otherwise be papered over.
 --
 -- The multi-index module B_n = k[ξ₁,…,ξ_m]/(ξ_i^{α_i+1}) = ⨂_i V_{α_i}
