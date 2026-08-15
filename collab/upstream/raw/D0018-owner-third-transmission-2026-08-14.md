@@ -139,6 +139,26 @@ $$
 \mathfrak F:=\Phi\circ\Gamma\circ\partial,\qquad (X_{\alpha+1},\mathcal O_{\alpha+1})=\mathfrak F(X_\alpha,\mathcal O_\alpha)
 $$
 
+> **ESTABLISHED GAP IN THIS SECTION, recorded 2026-08-15, seed176
+> (`notes/ARCHIVE_FIDELITY_AUDIT.md` §3).** **The $\chi_\alpha$ display is missing from
+> §D.** Two places in this archive refer to it as belonging here: the provenance header's
+> item 4 ("a **fitted-looking ratio** $\chi_\alpha$ — flagged below"), and §J5 ("HAZARD —
+> §D's ratio $\chi_\alpha$"), which reproduces the display. `notes/OWNER_TRANSMISSIONS_LEDGER.md`
+> §3.12 files it under "§D" on the same basis. Two independent internal references to a
+> §D display that §D does not contain make **transcription loss the likelier reading**, on
+> the same pattern as the $\Phi_{\mathrm{refl}}$ loss confirmed in D0016 §D.
+>
+> **No text is restored here.** §J5's copy is the orchestrator's, not the owner's; its
+> placement, its surrounding wording and the "स्वर्णसीमा" gloss J5 quotes cannot be sourced
+> to a §D original in this container. Restoring an invented §D would be worse than a
+> recorded gap. **Any agent needing the display must read it from §J5 and cite it as
+> J5's reproduction, not as §D's text.**
+>
+> **Standing consequence: this archive is a transcription, not the original.** The D0016
+> archive has been shown lossy at least once (D0016 §D). A display absent from an archive
+> is not thereby absent from the owner's transmission; report the absence, do not conclude
+> from it.
+
 ## E. Tate construction — standard, correctly stated
 
 $$

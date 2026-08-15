@@ -133,6 +133,22 @@ $$
 \delta^{(\omega)}:=\operatorname*{colim}_{n<\omega}(\partial\Gamma)^n\delta
 $$
 
+> **CANDIDATE TRANSCRIPTION GAP, recorded 2026-08-15, seed176
+> (`notes/ARCHIVE_FIDELITY_AUDIT.md` §3).** §J4 below triages "§G's $\mathfrak F$, the
+> ordinal ladder, $\mathbb B=\operatorname{hocolim}\mathfrak F^n$, **the
+> $\mathfrak F^{\langle n\rangle}$ tower, and the large commuting diagrams**". The first
+> three are present above; **the $\mathfrak F^{\langle n\rangle}$ tower and the commuting
+> diagrams appear nowhere in this archive.** Either the LaTeX original carried material
+> that was not transcribed (diagrams are the likeliest casualty of a prose transcription),
+> or §J4 names material its author saw elsewhere. **Not established either way; no text is
+> restored, because none can be sourced.** Note that the provenance header already records
+> a truncation at the end of the document, so this archive is known to be partial.
+>
+> **Standing consequence, as on D0016 §D: this archive is a transcription, not the
+> original**, and D0016's has been shown lossy at least once. A display absent from it is
+> not thereby absent from the owner's transmission; report the absence, do not conclude
+> from it.
+
 ## H. Quotation tower and the closing identifications
 
 $$

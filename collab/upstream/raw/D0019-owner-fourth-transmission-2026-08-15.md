@@ -77,6 +77,21 @@ $$
 with the guard: *not every failure classifies a completion* —
 $\text{सममितिविफलता}\not\Rightarrow\text{कचरा}$, but also not every failure is a shadow.
 
+> **ESTABLISHED GAP IN THIS SECTION, recorded 2026-08-15, seed176
+> (`notes/ARCHIVE_FIDELITY_AUDIT.md` §3).** **The $\rho(D\mathcal K)$ display is missing
+> from §C.** §J5 below reads "HAZARD — **§C's** $\rho(D\mathcal K)$ …" and reproduces the
+> display ($\mathcal K:=\partial\circ\Gamma$; the trichotomy at $1$; जीवनम् $\sim\rho(D\mathcal K)\approx1$);
+> `notes/OWNER_TRANSMISSIONS_LEDGER.md` line 59 repeats the "§C" attribution. §C as
+> transcribed contains no $\mathcal K$, no $\rho$, and no जीवनम्. **Two readings are open
+> and internal evidence does not separate them:** the display was dropped in transcription,
+> or §J5's section pointer is wrong and the material sat elsewhere in the original. Unlike
+> the D0018 $\chi_\alpha$ case there is no second, independent in-archive reference (the
+> ledger's attribution is downstream of §J5, not independent of it), so this is recorded as
+> **candidate**, not established, loss.
+>
+> **No text is restored.** §J5's copy is the orchestrator's paraphrase-with-display, not
+> the owner's section.
+
 ## D. **The translation gerbe — the genuinely new structure**
 
 $$
