@@ -103,6 +103,7 @@ import Gamma0Freeness
 import Gamma0Transitivity
 import Gamma0Index
 import M2Unimodular
+import M1SplitIdentity
 import SmithTorsorBridge
 
 -- Transporters, ports, orbits.
