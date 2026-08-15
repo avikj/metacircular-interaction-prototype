@@ -698,6 +698,33 @@ import NaturalMachine.SelfImprovement
 -- and nothing else -- not the prover, the term generator, or how the
 -- fingerprint is computed.
 import NaturalMachine.MachineLoop
+-- What `no-invariant-response-sees-ϱ` actually proves, after a breaker
+-- audit showed the name over-claimed: an invariant response may READ the
+-- residual and may not DISTINGUISH on it.  Residual's theorem returns as
+-- the instance g = branchOf.
+import NaturalMachine.ResidualInvariance
+-- The two radix lanes were computing one function all along -- but only
+-- after reversal, since Radix is big-endian and TransportDiv little.  The
+-- induced divisibility DECISIONS are equal, by isPropDec.
+import NaturalMachine.RadixResidueUnification
+-- The walk's search, in the chart: findND re-typed against Word, deciding
+-- by the charted test, with nextw ≡ next for every m and no side
+-- hypothesis -- proved through uniqueness of the least non-divisor rather
+-- than by matching the two searches clause for clause.
+import NaturalMachine.WalkChartedStep
+-- and the length law that makes the charted capacity mean something:
+-- b^(L−1) ≤ cap m < b^L, both directions, so the digit length IS the
+-- base-b logarithm.  Kernel witnesses to m = 10.
+import NaturalMachine.WalkChartedLength
+-- SensorNerode's first confessed gap: the identification of its
+-- divisibility statement with equal residue profiles, both directions.
+import NaturalMachine.SensorResidueBridge
+-- The corpus's standing cost edge, closed: the exact carry-cost law
+-- (b−1)·C(n) + digitSum(digits n) = n·b, tied to CountedDigits' own `run`.
+-- It also proves CostGeometry's `Edge` is the WRONG SHAPE for this
+-- quantity -- no single cost per edge can carry a state-dependent one --
+-- which is a finding about the cost geometry, not about the odometer.
+import NaturalMachine.CountedDigitsEdge
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

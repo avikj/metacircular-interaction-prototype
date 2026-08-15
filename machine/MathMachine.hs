@@ -46,6 +46,7 @@ import System.Environment (getArgs)
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
+import qualified Certificate as C
 import Data.Char (isAlphaNum, isSpace)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -1243,8 +1244,58 @@ agdaCertificate (l,r) = do
     ]
 
 
+-- ===================================================================
+-- THE SEAM TO `machine/Certificate.hs`.
+--
+-- The gate below used to emit `candidate x y z u v w = refl` over the
+-- four symbols 0, s, + and `·`, so it could certify only definitional
+-- equalities and skipped everything else -- which is every theorem this
+-- engine's own induction prover produces.  `Certificate` emits induction
+-- skeletons, covers the whole vocabulary (with `max` and `le` as local
+-- definitions transcribed from THIS module's `symDefs`, so the
+-- certificate is about the same function the machine computed with), and
+-- emits invented concepts as local definitions too, which removes the
+-- KERNEL-SKIP category entirely.
+--
+-- Concept support is not a nicety: naming is the machine's growth axis,
+-- so a gate that cannot certify a statement mentioning a coined symbol
+-- caps the machine permanently at its given vocabulary.
+-- ===================================================================
+
+toCert :: Term -> C.Term
+toCert (V i)    = C.V i
+toCert (F f ts) = C.F f (map toCert ts)
+
+certDefinitions :: [Sym] -> [C.Definition]
+certDefinitions syms =
+  [ C.Definition (symName s) (symArity s) (toCert body)
+  | s <- syms
+  , Just (_, body) <- [conceptRule s]
+  ]
+
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAccept logh roundNo ((l,r),_) =
+kernelAccept = kernelAcceptWith []
+
+kernelAcceptWith :: [Sym] -> Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAcceptWith invented logh roundNo ((l,r),proofNote) = do
+  verdict <- C.certifyWith (certDefinitions invented) "."
+               ((toCert l, toCert r), proofNote)
+  case verdict of
+    C.Certified shape calls -> do
+      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (%s, %d agda calls)\n"
+        roundNo (show l) (show r) shape calls
+      pure True
+    C.Rejected err calls -> do
+      hPrintf logh "  KERNEL-REJECT round=%d %s = %s  (%d agda calls) %s\n"
+        roundNo (show l) (show r) calls (take 160 (filter (/= '\n') err))
+      pure False
+    C.Untranslatable why -> do
+      hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s  (%s)\n"
+        (show l) (show r) why
+      pure False
+
+kernelAcceptLegacy :: Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAcceptLegacy logh roundNo ((l,r),_) =
   case agdaCertificate (l,r) of
     Nothing -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
@@ -1721,7 +1772,7 @@ round1 mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAccept logh (mRound m)) results
+  checkedResults <- filterM (kernelAcceptWith (mInvented m) logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
