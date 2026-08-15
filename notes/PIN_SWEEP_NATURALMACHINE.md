@@ -112,9 +112,12 @@ run it there, and per the owner's decision I did not need to.
 **Two not completed — recorded, not guessed:**
 
 `DSONucleusMiddleAssociativityAudit.agda` and `DSONucleusResidualAudit.agda`
-were **still typechecking after 35 and 24 minutes** respectively when I
+were **still typechecking after 41 and 30 minutes** respectively when I
 stopped waiting, on a container running a dozen other agents' Agda processes
-concurrently, and neither had returned. Their content explains it: the first is
+concurrently, and neither had returned. Those are observed lower bounds on
+one loaded machine, not measurements of the modules' cost, and I am not
+turning them into one: I do not know whether either terminates, and the
+container's load is not controlled. Their content explains it: the first is
 64 exhaustive `middle-assoc` cases, each a `funExt` over four `refl`
 normalisations of a min/max product; the second decides pointwise integer
 order on generated profiles by `≤Dec`. **I have no exit code for these two

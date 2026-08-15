@@ -806,7 +806,11 @@ import NaturalMachine.QuotientUnitSourceCutBoundary
 import NaturalMachine.RootedGrothendieck
 import NaturalMachine.SpernerFromSl2
 import NaturalMachine.StructuredSymmetryTransport
-import NaturalMachine.TransportCost
+-- NB: NaturalMachine.TransportCost is NOT here.  It `open import`s this
+-- very root (line 30 of that file), so importing it here is a
+-- [CyclicModuleDependency] -- found by the clean run, not guessed.  It
+-- is imported from `Everything.agda` instead, which is above the root
+-- in the dependency order and so has no cycle.
 import NaturalMachine.Vacuity
 import NaturalMachine.WFIScratch1
 import NaturalMachine.WFIScratch2
