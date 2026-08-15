@@ -569,8 +569,10 @@ verdicts already filed. **§8 is the section to read.**
 1. **No note in this corpus adjudicates D0020.** Every verdict above is either transferred from a
    note about an *earlier* transmission (and says so, and names the note and section), or is one of
    the five exact checks of §5, which are mine. **There is no second reader on any row.**
-2. **31 CLASSICAL rows with no source read.** §16. This is the largest single defect of the ledger
-   and it is mine, not the transmission's.
+2. **40 CLASSICAL rows with no source read.** §16. This is the largest single defect of the ledger
+   and it is mine, not the transmission's. **Every one of those rows therefore has an undischarged
+   earliest-source requirement**, reported in place and collected at §16 rather than hidden.
+   Ten of the 24 fragile rows (§18.1) are fragile for this reason.
 3. **J1's prior-art instruction is not discharged.** Row 8.10 is proved; row 8.11's Stanley–Proctor
    attribution is from standing knowledge. A note writing up 8.10 must search first, as J1 says.
 4. **§§2–4 are adjudicated at low resolution.** Roughly a hundred displays are compressed into
@@ -614,8 +616,8 @@ and five hand checks. It should be tested against D0016–D0019 rather than beli
 weaker than it looks: with no second reader on any row, "the errors are in the details" may only
 mean that details are what a single careful reader finds. **It is not a measurement and has no
 error bars, because it is a count of a closed set** — and a reader who partitioned the same
-displays differently would get different numbers, which is why §18 shows the partition, and shows
-its own three arithmetic disagreements rather than hiding them.
+displays differently would get different numbers, which is why §18 shows the partition rather than
+only the totals, and why §18.1 names the **24 rows I would expect a second reader to move**.
 
 ---
 
