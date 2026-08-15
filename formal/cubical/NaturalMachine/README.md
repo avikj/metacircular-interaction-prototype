@@ -301,7 +301,7 @@ Two further standing hypotheses, not gaps but worth the same attention:
 | `KFlow` | `𝒦 = ∂ ∘ Γ` and the trichotomy of `ρ(D𝒦)`: decay / resonance / branching, as theorems about one ℕ-valued measure. "Nothing here is a fit." | load-bearing |
 | `KFlowWF` | The same termination without fuel: `decay-wf`, `decay-wf-general` over any well-founded relation, `decay-wf-𝒦`. Plus the sharp converse `reaches-zero→drops`. Explicitly claims no depth. | load-bearing (generalisation) |
 | `EndObstruction` | `δ_end ≢ 0` unconditionally, by Lawvere/Cantor: the end is never among the things the machine can say about the end. | load-bearing |
-| `QuestionMachine` | `halts`, `never-final`, and their conjunction `halting-does-not-close`: completeness does not imply termination of the question flow. | load-bearing |
+| `QuestionMachine` | `halts`, `never-final`, and their conjunction `halting-does-not-close`: termination does not imply completeness -- the flow closing every question is a theorem about the obstruction measure, and delta_end is a theorem about the quotation, and the second survives the first. | load-bearing |
 
 ### 2.8 Perspective, defect, and structured transport — Delta 14/15/17/18 (24)
 
