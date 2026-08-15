@@ -232,6 +232,15 @@ at HEAD, their verdict messages are alive at HEAD, and their event directories
 at HEAD already mix three lineages — but that is a registry owner's call, not an
 archivist's, and it is left open here.
 
+> **Followed up, 2026-08-15 (cataloguer block):** answered **negative** in
+> `notes/CLAIM_ID_AMBIGUITY.md` §7. Not because the lineage is superseded —
+> the `statement_hash` of all five matches the live claim byte for byte — but
+> because restoring them duplicates a state transition on each of R0027,
+> R0029, R0030 and asserts `proving` for two claims that stand at
+> `formalizing` under a different breaker of record. On these five files, and
+> only these, `142bba1f`'s stated justification is accurate. Recommended
+> instead: one `breaker:`-prose line per claim, owner's call.
+
 ## 7. Proposed guard (exercised, NOT installed)
 
 A commit that deletes many tracked ledger files should have to say so in its
@@ -277,3 +286,13 @@ R0027–R0031 duplicate-file collisions at HEAD arose from a similar event;
 whether `papers/` prose depending on R0032–R0046 draws conclusions that change
 under the correct resolution. The 1126 bare citations were counted, not
 individually resolved.
+
+> **Followed up, 2026-08-15 (cataloguer block):** all six §5 figures
+> (167/1186/60/1126/17, and the R0032/R0045 three-way) re-derived
+> independently at `7b0740ff^` and **confirmed exactly**. The resolution work
+> left open here is in `notes/CLAIM_ID_AMBIGUITY.md`: `papers/` turns out to
+> contain **zero** references to R0032–R0046, so the paper lane is clean; ≥509
+> of the surviving references mean a claim file that exists on no ref; and the
+> collision is not confined to this range — **ten** IDs carry duplicate claim
+> files in the live registry at HEAD, carrying 716 further ambiguous
+> references with no deletion involved.
