@@ -107,6 +107,12 @@ import Gamma0Index
 -- invariance, and psi(p^k) in multiplicative form.  Landed as an orphan
 -- (nothing rechecked it); EXIT=0 standalone under the pin before folding.
 import Gamma0IndexExponent
+-- The counting layer the Gamma0 index lane was blocked on: an injection
+-- between finite sets of equal cardinality is an equivalence (absent from
+-- cubical v0.9), and the Chinese remainder theorem as an equivalence
+-- Fin (m*n) ~ Fin m x Fin n for coprime moduli, with multiplicativity of a
+-- counting function along it.
+import FinCardinality
 import M2Unimodular
 import M1SplitIdentity
 import SmithTorsorBridge
