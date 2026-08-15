@@ -554,6 +554,7 @@ import NaturalMachine.FiniteGraphFluxCylindrical
 import NaturalMachine.OrientedSurfaceFlux
 import NaturalMachine.SurfaceFluxCylindricalSquare
 import NaturalMachine.FillabilityCertificate
+import NaturalMachine.ArityOfRepair
 import NaturalMachine.FiniteNonabelianHolonomy
 import NaturalMachine.S3ConjugacyObservation
 import NaturalMachine.TwoLoopNonabelianNetwork
