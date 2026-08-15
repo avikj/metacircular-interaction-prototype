@@ -136,6 +136,34 @@ module _ {I : Type ℓ} where
   face₀ (i ◂ [])      = i ◂ []
   face₀ (i ◂ (x ∷ t)) = x ◂ t
 
+  -- d_j for every j, added for §5–§6: deletion of the j-th vertex.  For
+  -- j greater than the dimension it is the identity, so a hypothesis
+  -- quantified over all j is no stronger there than at the real faces.
+  delL : ℕ → List I → List I
+  delL j       []       = []
+  delL zero    (x ∷ xs) = xs
+  delL (suc j) (x ∷ xs) = x ∷ delL j xs
+
+  face : ℕ → Simplex I → Simplex I
+  face zero    σ       = face₀ σ
+  face (suc j) (i ◂ t) = i ◂ delL j t
+
+  -- Iterated degeneracy at 0, and the vertex count, for §7.
+  iterDegen : ℕ → Simplex I → Simplex I
+  iterDegen zero    σ = σ
+  iterDegen (suc n) σ = degen zero (iterDegen n σ)
+
+  lengthS : Simplex I → ℕ
+  lengthS (i ◂ t) = suc (length t)
+
+  lengthS-iter : (n : ℕ) (σ : Simplex I) → lengthS (iterDegen n σ) ≡ n +ℕ lengthS σ
+  lengthS-iter zero    σ       = refl
+  lengthS-iter (suc n) σ       = cong suc (lengthS-iter n σ)
+
+  iterDegen-inj : (σ : Simplex I) (m n : ℕ) → iterDegen m σ ≡ iterDegen n σ → m ≡ n
+  iterDegen-inj σ m n p =
+    inj-+m (sym (lengthS-iter m σ) ∙ cong lengthS p ∙ lengthS-iter n σ)
+
 ------------------------------------------------------------------------
 -- §1.  Proposition 2 — degeneracy invariance, unconditional
 --
@@ -202,6 +230,21 @@ module Holonomy
 
     defect-dup : (j : ℕ) (σ : Simplex I) → δ (degen j σ) ≡ δ σ
     defect-dup j σ = cong δ𝔥 (holonomy-dup j σ)
+
+    -- §7 (see the header): the scalar shadow of
+    -- SHRINKING_TESTS_LOWER_CURVATURE.md Def. 1.5 is two-valued in
+    -- {0, ∞} rather than a count.  ONE simplex with nonempty defect
+    -- forces an ℕ-indexed family of PAIRWISE DISTINCT simplices with the
+    -- SAME defect: the iterated degeneracies of that simplex.
+    defect-iter : (n : ℕ) (σ : Simplex I) → δ (iterDegen n σ) ≡ δ σ
+    defect-iter zero    σ = refl
+    defect-iter (suc n) σ = defect-dup zero (iterDegen n σ) ∙ defect-iter n σ
+
+    shadow-support-infinite :
+        (σ : Simplex I)
+      → ((n : ℕ) → δ (iterDegen n σ) ≡ δ σ)
+      × ((m n : ℕ) → iterDegen m σ ≡ iterDegen n σ → m ≡ n)
+    shadow-support-infinite σ = (λ n → defect-iter n σ) , iterDegen-inj σ
 
 ------------------------------------------------------------------------
 -- §2.  Proposition 3 — the face counterexample
