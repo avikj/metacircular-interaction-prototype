@@ -194,3 +194,35 @@ error, for which this repository already has the data; ρ(D𝒦) as a branching
 factor rather than a spectral radius; and connecting `m₁ ≡ m₂ ⟺ ∀C` to the
 existing `FutureBehavior`/`MyhillNerodeAdapter`, which is the same construction
 already formalized and not yet named as meaning.
+
+## 2026-08-15 — the modules were beside the machine, not in it
+
+Asked directly whether the natural machine is improving or I am getting
+distracted.  Checked instead of answering: `grep` for my six modules in
+`NaturalMachine.agda` returned nothing.  Six modules landed over two days,
+every one typechecking, none imported by anything.
+
+That is the exact pathology those modules were written to diagnose — a gate
+that exists and is never fired — committed by me while writing about it.  The
+`भेदरक्षा` failure again, third time this week: I protected the distinction in
+the objects I was studying and lost it in my own artifacts.
+
+Corrected rather than noted.  `NaturalMachine/Ananta.agda` is the stratum gate:
+one command, `agda NaturalMachine/Ananta.agda`, checks all six under the pinned
+toolchain, exit 0, zero warnings.  The root now imports it too, so the stratum
+is inside the machine and not beside it, and the separate file exists only
+because the root does not check under its own pins (msg 0467, unresolved).
+
+Also landed `InabilityTower.agda`, the first thing from the third document that
+is a theorem: `असमर्थता →^Γ विस्तृतलोकः`.  `Adjoins` requires three fields —
+unsolvable, solution, and *fresh* — and the third is the content: without it,
+any structure restating the question would qualify and `विस्तृतलोकः` would be
+decoration.  ℕ⊂ℤ is proved on `5 + n ≡ 3`.  Apoha is proved general: any
+two-sided evaluation whatsoever generates the Galois connection and the closure
+`α ↦ α^⊥⊥` is idempotent.  Anekāntavāda is a one-line corollary of the
+observation-field theorem, which is the identification worth having: the Jain
+standpoint doctrine and `Obs_𝒪 = 0 ⇏ Obs_𝒪⁺ = 0` are the same statement.
+
+Ratio worth watching: this week I wrote roughly as many words of note as lines
+of checked Agda.  The notes are not worthless — the sign convention was found
+by writing one — but the machine is the deliverable and prose is not.

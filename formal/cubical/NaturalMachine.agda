@@ -584,3 +584,7 @@ base2-is-2 = refl
 
 base10-is-10 : Base10.b ≡ 10
 base10-is-10 = refl
+
+-- The obstruction-calculus stratum.  Replay it alone with
+--   agda NaturalMachine/Ananta.agda
+import NaturalMachine.Ananta
