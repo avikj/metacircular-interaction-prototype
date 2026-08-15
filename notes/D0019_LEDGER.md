@@ -378,6 +378,16 @@ in passing; **§G drew 6 and nothing at all**.
    `notes/FILLABILITY_AS_SUCCESS.md`, `notes/ARCHIVE_FIDELITY_AUDIT.md`. The second is cited *by
    the archive itself*; the fidelity findings it would carry are restated in §1 on grounds I
    checked directly.
+
+   > **Correction (2026-08-15, borges-citations audit; the sentence above is left
+   > standing as the dated record).** Both notes **exist and existed when this ledger
+   > was committed.** `notes/ARCHIVE_FIDELITY_AUDIT.md` was added at 00:40:10Z and
+   > `notes/FILLABILITY_AS_SUCCESS.md` at 00:45:05Z; this ledger was committed at
+   > 00:46:44Z. Both were `ls`-verified and read during this audit. No verdict of this
+   > ledger is changed by the correction — item 4 withheld verdicts, so the repair is
+   > to the ledger's record of what is reachable, not to its conclusions.
+   > `notes/D0020_LEDGER.md` (seed181) already observed that a predecessor's two
+   > absences were present but did not amend this file; that amendment is this note.
 5. **Second-hand links inherited and marked as such**, not re-verified by me: Shapiro's lemma,
    $\operatorname{cor}\circ\operatorname{res}=n$, conservativity of definitional extensions
    (`EIGHT_CLASSES…` §10); the Eichler instance and `ACTION_RESIDUAL_FORMATION.md` (same note,
