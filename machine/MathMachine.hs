@@ -1251,7 +1251,98 @@ data Machine = Machine
   , mDSOTasks :: [DSOTask]
   , mDSOArchitectureSearches :: [(DSOTask,[DSOArchitectureCandidate])]
   , mHistoryArchitectureSearches :: [(Int,[Int],HistoryDemand)]
+  -- ∂ of the previous round: what it stated and did not close.  The growth
+  -- rule below reads this, not a boolean.  (NaturalMachine.KFlow)
+  , mObstruction :: Int
+  -- observed term count at each (vocab,size) the machine has actually been
+  -- in.  This is the weight field of the cost geometry: an equivalence
+  -- between two presentations does not determine it, so it is recorded and
+  -- never derived.  (NaturalMachine.CostGeometry, NaturalMachine.Residual)
+  , mCosts :: M.Map (Int,Int) Int
   }
+
+-- ===================================================================
+-- THE THREE DECISION RULES, EACH CITING THE THEOREM IT IMPLEMENTS.
+--
+-- Until 2026-08-15 this loop grew on a boolean — "the round proved
+-- nothing" — with no measure, no gate, and a fixed ladder.  All three
+-- replacements are instances of statements checked in
+-- formal/cubical/NaturalMachine/; the Agda is the proof and what follows
+-- is the engine.  Where the Haskell cannot supply a hypothesis the Agda
+-- needs, it is named in a comment rather than assumed away.
+-- ===================================================================
+
+-- (1) KFlow's trichotomy.  ∂ is ℕ-valued, the step is classified by its
+-- sign, and growth is a response to resonance rather than to silence.
+data Flow = Decay | Resonance | Branching deriving (Eq)
+
+flowName :: Flow -> String
+flowName Decay     = "decay"
+flowName Resonance = "resonance"
+flowName Branching = "branching"
+
+-- KFlow.decay / KFlow.resonance / KFlow.branching.  Total and mutually
+-- exclusive by construction, which is the content of the Agda trichotomy.
+flowOf :: Int -> Int -> Flow
+flowOf before after
+  | after < before  = Decay
+  | after == before = Resonance
+  | otherwise       = Branching
+
+-- (2) ChuAdvance/ChuDefect.  The fingerprint classes ARE a Chu space: the
+-- objects are normalised terms, the tests are the assignments, and the
+-- defect is the number of pairs some assignment separates.  ChuDefect
+-- proves this count is monotone in the test list, so a small defect is a
+-- statement about the assignments and NOT about the terms — and
+-- ChuAdvance.zero-defect-is-not-truth is the empty-test-list extreme.
+-- Hence the gate below: never grow on a collapsed test set, because the
+-- terms would look identical no matter what they are.
+separatedPairs :: [[Term]] -> Int
+separatedPairs classes =
+  let n      = sum (map length classes)
+      inside = sum [ c * (c - 1) | cls <- classes, let c = length cls ]
+  in (n * (n - 1) - inside) `div` 2
+
+data Gate = Advance | Refused String
+
+gateName :: Gate -> String
+gateName Advance     = "advance"
+gateName (Refused w) = "refused: " ++ w
+
+-- AdvanceGate's separation clause, the one this loop can discharge
+-- honestly.  Verification is the induction gate, provenance is the
+-- append-only library, and the declared boundary is kSizeCap; those three
+-- are structural.  Separation is the one that can silently fail.
+advanceGate :: Int -> Int -> Gate
+advanceGate nNormed sepP
+  | nNormed <= 1 = Advance                       -- nothing to separate
+  | sepP > 0     = Advance
+  | otherwise    = Refused "assignments separate nothing"
+
+-- (3) Residual's Γ↝, min-plus over neighbouring presentations.  A growth
+-- move is a neighbour; its route is the term count last OBSERVED at the
+-- state it leads to; staying is always in the list, so the chooser is
+-- never worse than staying (Residual.Γ↝-never-worse) and a strict win
+-- exhibits a listed move (ResidualPath.Γ↝-sound-member).  With no
+-- recorded cost for a move there is no route, and the machine falls back
+-- to the ladder below rather than guessing a weight.
+data Move = Widen | Deepen deriving (Eq)
+
+moveName :: Move -> String
+moveName Widen  = "widen"
+moveName Deepen = "deepen"
+
+gammaRoute :: M.Map (Int,Int) Int -> Int -> Int -> Maybe (Move,Int,Int)
+gammaRoute costs vocab horizon =
+  case [ (mv,c) | (mv,st) <- [(Widen,(vocab+1,horizon)),(Deepen,(vocab,horizon+1))]
+                , Just c <- [M.lookup st costs] ] of
+    []     -> Nothing
+    routes ->
+      let (mv,c) = minimumOn snd routes
+          stay   = M.findWithDefault maxBound (vocab,horizon) costs
+      in if c < stay then Just (mv,c,stay) else Nothing
+  where
+    minimumOn f = foldr1 (\a b -> if f a <= f b then a else b)
 
 squareThresholdSearch :: BoundedSearch
 squareThresholdSearch = BoundedSearch [0..20] (\n -> n * n >= 30)
@@ -1264,6 +1355,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [(boundedDSOTask "square-threshold" squareThresholdSearch,
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
+  0 M.empty
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1554,7 +1646,22 @@ round1 logh libh ref = do
              , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
                           [ c | c <- fresh, notElem c (map fst checkedResults) ]
-             , mRound = mRound m + 1 }
+             , mRound = mRound m + 1
+             -- ∂ of THIS round: stated and not closed.  Read by the next
+             -- round's flow classification.
+             , mObstruction = obstruction
+             -- the weight this state actually cost, recorded so a later
+             -- round can route by it instead of guessing
+             , mCosts = M.insert (mVocab m, mSize m) nRaw (mCosts m) }
+      -- ∂, the obstruction the round leaves behind: conjectures it stated
+      -- and did not close.  ∂ = 0 is QuestionMachine's `Resolves` — the
+      -- question at this horizon is answered, so the machine must change
+      -- what it is looking at, which is why it counts as resonance.
+      obstruction = nFresh - length checkedResults
+      flow | obstruction == 0 = Resonance
+           | otherwise        = flowOf (mObstruction m) obstruction
+      sepP = separatedPairs classes
+      gate = advanceGate nNormed sepP
   forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
@@ -1576,13 +1683,41 @@ round1 logh libh ref = do
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
     prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
+  -- KFlow: the sign of the step in ∂, not the emptiness of a result list.
+  hPrintf logh "  FLOW  %s  d %d -> %d\n"
+    (flowName flow) (mObstruction m) obstruction
+  -- ChuDefect: the defect of the round's own test set.  If this is zero
+  -- with more than one term in play, the assignments have stopped
+  -- separating and every conjecture below is an artefact of the tests.
+  hPrintf logh "  GATE  %s  separated-pairs=%d terms=%d assignments=%d\n"
+    (gateName gate) sepP nNormed (length envs)
   hFlush logh
   -- GROW: nothing new means the machine must change what it is looking at
   -- When the machine runs dry it first tries to think of a new idea:
   -- name the shape that keeps recurring in its own working terms.  Only
   -- if it cannot does it fall back to widening the given vocabulary or
   -- looking further out.
-  let stuck = null checkedResults
+  -- The trigger.  It used to be `null checkedResults`: a round that proved
+  -- nothing grew, and a round that proved something did not, with no
+  -- account of whether the frontier was shrinking.  Both halves of that
+  -- were wrong.  A round can prove nothing while ∂ falls (its failures got
+  -- memoised, so the next round is strictly cheaper) — growing there is
+  -- premature, and it was widening the vocabulary on rounds that were
+  -- making progress.  A round can also prove something while ∂ rises,
+  -- which is branching and was invisible.  KFlow's classification is the
+  -- honest trigger: grow at resonance, not at silence.
+  -- Grow at RESONANCE only.  The first version of this rule said "not
+  -- decay", which still grows while branching, and the first run with the
+  -- instrumentation showed why that is wrong: ten rounds, nothing proved,
+  -- ∂ climbing 8 → 42 → 124 → 434 → 1604 → 7769 → 19878 → 31386 → 50978
+  -- → 79656, and the machine widening its vocabulary 3 → 8 and its horizon
+  -- 4 → 7 straight through it.  Growing while the frontier explodes is the
+  -- same pathology the naming rule above already documents (25k → 396k
+  -- terms with `proved` flat at zero); KFlow names it `branching`, and the
+  -- response to branching is not more room.  Resonance -- ∂ unchanged, or
+  -- ∂ = 0, which is QuestionMachine's `Resolves` -- is the only state in
+  -- which more room is the answer.
+  let stuck = flow == Resonance && null checkedResults
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
@@ -1625,7 +1760,28 @@ round1 logh libh ref = do
              Just s  -> m' { mInvented = mInvented m' ++ [s] }
              Nothing -> m'
       stuck' = stuck && not (isJust invented)
+      -- AdvanceGate.  Growing IS an advance, and advancing on a test set
+      -- that separates nothing is exactly the move ChuAdvance refutes:
+      -- the defect would be a fact about the assignments, so widening the
+      -- vocabulary would add symbols the machine cannot tell apart.  When
+      -- the gate refuses, the state is held and the refusal is logged --
+      -- it is a signal to enlarge the test set, not the term space.
+      permitted = case gate of
+                    Advance   -> True
+                    Refused _ -> False
+      -- Γ↝ over the growth moves whose cost this machine has actually
+      -- observed.  No history for a move means no route for it, and the
+      -- ladder below decides instead: a weight is recorded or it does not
+      -- exist, never estimated.
+      routed = if stuck' && permitted
+                 then gammaRoute (mCosts m2) (mVocab m2) (mSize m2)
+                 else Nothing
       m'' | not stuck' = m2
+          | not permitted = m2
+          | Just (Widen,_,_) <- routed, mVocab m2 < length vocabulary =
+              m2 { mVocab = mVocab m2 + 1 }
+          | Just (Deepen,_,_) <- routed, mSize m2 < kSizeCap =
+              m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary && even (mRound m2) =
               m2 { mVocab = mVocab m2 + 1 }
           | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
@@ -1661,6 +1817,15 @@ round1 logh libh ref = do
               -- machine genuinely needs more room, and saying so by raising
               -- the horizon is now the honest move rather than the lazy one.
               [] -> m2 { mSize = mSize m2 + 1 }
+  case routed of
+    Just (mv,c,stay) ->
+      hPrintf logh "  ROUTE  %s  cost %d < stay %d  (min-plus over observed weights)\n"
+        (moveName mv) c stay
+    Nothing -> return ()
+  when (flow == Branching && null checkedResults) $
+    hPrintf logh "  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held\n"
+  when (stuck' && not permitted) $
+    hPrintf logh "  GATE-HOLD  growth refused while the assignments separate nothing; enlarge the test set, not the term space\n"
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
