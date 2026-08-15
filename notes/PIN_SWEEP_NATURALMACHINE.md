@@ -64,7 +64,65 @@ who has been quoting it as one has been overstating by 34 modules.
 
 ## 3. The orphans, run individually under the pin
 
-TABLE_PLACEHOLDER
+Each was run standalone: `agda --library-file=<v0.9> <file>` with
+`LC_ALL=C.UTF-8`, from a tree whose `_build` had been warmed by the root run
+above (so a red result is the module's own, not a dependency's).
+
+**Green under the pin (31 of 34):**
+
+`AdvanceGate`, `BraidCoherenceBoundary`, `CarryClassNonzero`, `ChuAdvance`,
+`CompressionDefectRegularWitness`, `CostGeometry`, `CostGeometryWitness`,
+`DSOFactorRankFinite`, `DeclaredRootedProfiles`, `EndObstruction`,
+`EndianAtlasReplay`, `FiniteEquivalenceBridge`, `FutureSeparation`, `Gamma0`,
+`GeneratedGrammarDescentBoundary`, `GroupCohomologyH2`, `KFlow`,
+`OperationalCoverageCounterexample`, `OracleQueries`,
+`PhysicalLearningQuotient`, `PolyHaythamResponseCostNoGo`,
+`QuadraticRefinement`, `QuestionMachine`, `QuotientUnitSourceCutBoundary`,
+`Residual`, `RootedGrothendieck`, `StructuredSymmetryTransport`,
+`TransportCost`, `TransportDiv`, `TransportDivWitness`, `Vacuity` — all
+`EXIT=0`.
+
+**One red, and it is not a rename:**
+
+```
+NaturalMachine/PolynomialAttachmentGrowth.agda:56.62-75: error:
+  [UnsolvedMetaVariables]   EXIT=42
+```
+
+Line 56 is the middle of `old-cannot-fill`:
+
+```agda
+old-cannot-fill : {S : Signature} (term : Term S) → ¬ (embed term ≡ filler)
+old-cannot-fill term equality =
+  false≢true (sym (old-is-not-filler term) ∙ cong isFiller equality ∙ filler-is-new)
+```
+
+The unsolved meta is `filler-is-new`'s implicit `{S}`. 2.6.3 guessed it from
+the composition; 2.8.0 does not. **Repaired, and the repair is two tokens
+that change no statement and no proof term:** bind the implicit in the clause
+and pass it, `old-cannot-fill {S} term equality = … ∙ filler-is-new {S}`. The
+signature, the type of every subterm, and the theorem are untouched; the only
+well-typed instantiation is the one the composition already forces, which is
+why this is an annotation and not a mathematical choice. Verified `EXIT=0`
+under the pin after the edit.
+
+I have **not** claimed this makes the file green under 2.6.3/v0.5 — I did not
+run it there, and per the owner's decision I did not need to.
+
+**Two not completed — recorded, not guessed:**
+
+`DSONucleusMiddleAssociativityAudit.agda` and `DSONucleusResidualAudit.agda`
+were **still typechecking after 35 and 24 minutes** respectively when I
+stopped waiting, on a container running a dozen other agents' Agda processes
+concurrently, and neither had returned. Their content explains it: the first is
+64 exhaustive `middle-assoc` cases, each a `funExt` over four `refl`
+normalisations of a min/max product; the second decides pointwise integer
+order on generated profiles by `≤Dec`. **I have no exit code for these two
+and I am not supplying one.** Note what the reachability finding implies
+about them: they are orphans, so nothing has ever re-run them since they
+landed, and no `.agdai` for either exists anywhere in the repository's
+`_build` under 2.6.3 *or* 2.8.0. That is the standing cost of an orphan, and
+it is the same cost this note's main finding is about.
 
 ## 4. `NaturalMachine/Control/` — failure is the pass condition
 
@@ -109,6 +167,12 @@ than exit codes alone.
    which is precisely why BUILD.md's mechanical check must be run rather than
    this note quoted.
 5. Top-level `formal/cubical/*.agda` is another agent's lane and was not
-   touched here.
+   touched here — including `NaturalMachine.agda` itself, which is where the
+   34 missing imports belong. As this note was being written that lane had an
+   uncommitted diff adding 26 of them (plus `PiPartialOnEveryPrime`,
+   `SpernerFromSl2` and two `WFIScratch` modules that landed after my
+   snapshot). Note that its list includes `PolynomialAttachmentGrowth`: had
+   §3's implicit-argument repair not landed first, folding that module in
+   would have turned the root red.
 6. Exit 0 is a statement about typechecking, not about whether a module says
    what its comments claim.

@@ -744,3 +744,57 @@ import NaturalMachine.ComparisonNeedNotBeInjective
 -- (`notes/FULL_READ_DRAW_6.md` §C1).  Negative control:
 -- `NaturalMachine/Control/FunctionBoundFromConstant.agda`, which must fail.
 import NaturalMachine.ConstantBoundNotFunctionBound
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN, 2026-08-15 (Claude, Euclid-lineage orphan pass;
+-- collab/messages/0828-euclid-orphans.md, notes/TOOLCHAIN_SKEW_AND_
+-- COVERAGE.md §7).
+--
+-- The import closure of `Everything.agda` was recomputed from the
+-- sources (BFS over `^\s*(open\s+)?import\s+`, not a grep of this
+-- file's import lines and not a comment) and compared against
+-- `find . -name '*.agda'`.  It reached 322 of the 367 files; the 45
+-- unreached split into 9 in `NaturalMachine/Control/` (which MUST stay
+-- unreached — verified: every occurrence of `NaturalMachine.Control`
+-- outside that directory is inside a comment) and 36 genuine orphans.
+--
+-- The modules below are the `NaturalMachine/` orphans that were run
+-- INDIVIDUALLY under the BUILD.md pin (Agda 2.8.0 + cubical v0.9,
+-- LC_ALL=C.UTF-8) and exited 0 before this block was written.  Nothing
+-- red and nothing unrun was added.
+--
+-- NOT added, and why (see the note for the exit codes):
+--   NaturalMachine/WalkFastInstance.agda                  killed (137)
+--   NaturalMachine/DSONucleusMiddleAssociativityAudit.agda unrun
+--   NaturalMachine/DSONucleusResidualAudit.agda            unrun
+-- The last two had not returned after >25 and >15 minutes of pin
+-- typechecking on a contended container; `WalkFastInstance` was killed
+-- by the OOM killer, which is not a typecheck verdict in either
+-- direction.  They remain orphans and remain OUTSTANDING.
+------------------------------------------------------------------------
+import NaturalMachine.BraidCoherenceBoundary
+import NaturalMachine.CarryClassNonzero
+import NaturalMachine.CompressionDefectRegularWitness
+import NaturalMachine.DSOFactorRankFinite
+import NaturalMachine.DeclaredRootedProfiles
+import NaturalMachine.EndianAtlasReplay
+import NaturalMachine.FiniteEquivalenceBridge
+import NaturalMachine.FutureSeparation
+import NaturalMachine.Gamma0
+import NaturalMachine.GeneratedGrammarDescentBoundary
+import NaturalMachine.GroupCohomologyH2
+import NaturalMachine.OperationalCoverageCounterexample
+import NaturalMachine.OracleQueries
+import NaturalMachine.PhysicalLearningQuotient
+import NaturalMachine.PiPartialOnEveryPrime
+import NaturalMachine.PolyHaythamResponseCostNoGo
+import NaturalMachine.PolynomialAttachmentGrowth
+import NaturalMachine.QuadraticRefinement
+import NaturalMachine.QuotientUnitSourceCutBoundary
+import NaturalMachine.RootedGrothendieck
+import NaturalMachine.SpernerFromSl2
+import NaturalMachine.StructuredSymmetryTransport
+import NaturalMachine.TransportCost
+import NaturalMachine.Vacuity
+import NaturalMachine.WFIScratch1
+import NaturalMachine.WFIScratch2
