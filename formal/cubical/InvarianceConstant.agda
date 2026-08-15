@@ -51,19 +51,22 @@
 --                         "The description length of x is n" is not a
 --                         statement about x.
 --   §5  `shorter-needs-margin` — THE COMPARISON RULE.  A strict
---                         comparison transfers across machines iff the
---                         gap exceeds 2c.  With `margin-2c-sharp` and
---                         `margin-below-2c-sharp`: at gap 2c the
---                         conclusion degrades to ≤ and cannot be
---                         improved, and at gap 2c−1 the order can
---                         REVERSE.  Both sharpness witnesses are finite
---                         exhaustive verifications, which `CLAUDE.md`
+--                         comparison transfers across machines whenever
+--                         the gap EXCEEDS 2c, and the threshold cannot
+--                         be lowered.  `weak-margin` is the ≤ version.
+--                         §5.1's `Sharp2c` and `SharpBelow2c`, bundled
+--                         as `threshold-sharp`: at gap exactly 2c the
+--                         strict conclusion already fails (the costs
+--                         tie), and at gap 2c−1 the order REVERSES.
+--                         Both witnesses are finite exhaustive
+--                         verifications over Bool, which `CLAUDE.md`
 --                         admits as proof.
 --
--- The exact threshold is 2c, not c.  The note says "sign when the gap
--- ≫ c" (§1, table row 1); §5 replaces ≫ by the constant that actually
--- works and proves it cannot be lowered.  That is this module's one
--- correction to the note.
+-- The exact threshold is 2c, not c: the slack is spent twice, once
+-- raising f x to g x and once lowering f y to g y.  The note says "sign
+-- when the gap ≫ c" (§1, table row 1); §5 replaces ≫ by the constant
+-- that actually works and proves it cannot be lowered.  That is this
+-- module's one correction to the note, recorded in its §8.
 --
 -- Nothing here is new mathematics; see the note's §6 for prior art.
 -- The contribution is that it is checked.

@@ -143,6 +143,10 @@ import Window5Walsh
 -- net — rooted views, type-theoretic Yoneda, propagation, coinductive
 -- weave (T25.A/B/D/F).
 import LawvereDiagonal
+-- Which sentences the diagonal engine proves and which it does not
+-- (notes/GODEL_BRIDGE_ADJUDICATED.md): Tarski is Cantor's term; Gödel I's
+-- second conjunct is refuted as an instance, with a finite countermodel.
+import GodelSeparation
 import AchromaticToy
 import IndraNet
 import StagewiseComposite

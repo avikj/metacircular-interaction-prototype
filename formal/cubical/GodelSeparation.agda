@@ -119,7 +119,7 @@ GoedelFix T G =
 -- ω-inconsistency, in the one instance that matters here: T proves that
 -- G is provable, and does not prove G.
 OmegaBad : (T : Theory ℓ) → Sent T → Type ℓ
-OmegaBad T G = Pf T (prov T G) × ¬ Pf T G
+OmegaBad T G = Pf T (prov T G) × (¬ Pf T G)
 
 ------------------------------------------------------------------------
 -- §4.  The half that follows: T ⊬ G.

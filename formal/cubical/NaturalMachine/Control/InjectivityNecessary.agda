@@ -75,6 +75,10 @@ open import Cubical.Foundations.Prelude
 open import NaturalMachine.AtomicSatisfaction using (module ChangedResponses)
 open import NaturalMachine.ComparisonNeedNotBeInjective using (Three ; one ; two)
 
+-- (b) What "must be injective" would give in the checked instance.
+merged-outcomes : one ≡ two
+merged-outcomes = refl
+
 -- (a) The sufficiency theorem with its hypothesis deleted.
 module Dropped
   {ℓX ℓX′ ℓQ ℓY ℓY′ : Level}
@@ -90,7 +94,3 @@ module Dropped
 
   square→satisfaction-dropped : ResponseSquare → SatisfactionInvariant
   square→satisfaction-dropped = square→satisfaction
-
--- (b) What "must be injective" would give in the checked instance.
-merged-outcomes : one ≡ two
-merged-outcomes = refl
