@@ -35,11 +35,42 @@
 --  3. cocycle⇒trivial   Prop. 4, the sharp form, forward direction:
 --     cocycle⇒defect-const  a cocycle ρ forces 𝔥_σ ≡ e for every σ and
 --     cocycle⇒faces-act     hence δ constant, hence functorial along
---                       every face in both variances.  The CONVERSE
---                       (functoriality along faces ⇒ ρ a cocycle) is
---                       NOT formalized, because the note does not claim
---                       it either (§6.4 leaves the intermediate
---                       classification unattempted).
+--                       every face in both variances.
+--
+--  4. covariant⇒trivial          §4, THE CONVERSE, and it holds in ONE
+--     covariant⇒holonomy-trivial variance only.  If δ_σ ⊑ δ_{d₀σ} for
+--                       every σ (the SIMPLICIAL variance, and only d₀ is
+--                       assumed) then δ_σ ⊑ δ_e for every σ — in
+--                       (𝒫(X),⊆) that is δ_σ = ∅.  Iterating d₀ reaches
+--                       a 0-simplex, whose holonomy is cap(ρ_ii)·e = e.
+--                       With separating tests this gives 𝔥 ≡ e, and
+--                       CocycleExtraction.Corpus.trivial⇒cocycle then
+--                       gives ρ_jk ρ_ij = ρ_ik.  So in the simplicial
+--                       variance the note's slogan is a THEOREM:
+--                       face-functorial ⟺ δ = 0 ⟺ ρ a cocycle.
+--
+--  5. Cosimplicial-sharp-fails-corpus   §5, and this AMENDS the note.
+--     Cosimplicial-sharp-fails-archive  In the COSIMPLICIAL variance
+--                       (δ_{d_jσ} ⊑ δ_σ) the slogan is FALSE.  Chart:
+--                       X = ℤ with Aut(X) ⊇ ℤ acting by translation,
+--                       I = {0,1}, ρ_ij = 1 for i ≠ j, ρ_ii = 0,
+--                       separating tests.  ρ is NOT a cocycle and
+--                       δ_{(0,1,0)} ≠ ∅, yet δ_{d_jσ} ⊆ δ_σ for EVERY σ
+--                       and EVERY j.  Q_α is thin, so the inequalities
+--                       ARE a functor: the face half of note (O6) is
+--                       satisfiable off the cocycle locus.  Proved for
+--                       BOTH readings on the same chart — the good locus
+--                       is the block simplices under the corpus reading
+--                       and the constant simplices under the archive
+--                       one, and both are closed under vertex deletion.
+--
+--  6. shadow-support-infinite   §7 (note §5.3 / Cor. 5.3).  If one
+--                       simplex has nonempty defect then its iterated
+--                       degeneracies are pairwise distinct and all carry
+--                       the SAME defect, so Σ_σ |δ_σ| is 0 or infinite:
+--                       the scalar shadow of
+--                       SHRINKING_TESTS_LOWER_CURVATURE.md Def. 1.5 is a
+--                       two-valued predicate, not a count.
 --
 -- THE TWO READINGS OF THE HOLONOMY (note §0.3) — load-bearing for this
 -- encoding.  D0016 §B reads 𝔥_σ = ρ_{i₀iₙ} ρ_{i_{n-1}iₙ} ⋯ ρ_{i₀i₁},
@@ -61,9 +92,17 @@
 -- §3 is the one place where the readings differ, and the module says so
 -- in its hypothesis rather than hiding it: Prop. 4 is proved under
 -- `cap-inv : ∀ g → cap g · g ≡ e`, which holds for the corpus reading
--- and fails for the archive one.
+-- and fails for the archive one.  §4 needs only `cap e ≡ e`, true of
+-- both; §4′ proves SEPARATELY what each reading yields (cocycle for the
+-- corpus one; ρ² = e plus a closure identity for the archive one — the
+-- note's "a 1-simplex carries ρ²", now a checked term); §5's chart
+-- refutes the cosimplicial sharp form under BOTH readings at once.
+-- Nothing here chooses between the readings: that is the owner's
+-- (note §7.3), and the module converts the ambiguity into a pair of
+-- theorems instead.
 --
--- Companion prose: notes/OBSTRUCTION_COEND_REPAIR.md §§0.3, 1, 3.
+-- Companion prose: notes/OBSTRUCTION_COEND_REPAIR.md §§0.3, 1, 3, 5.3,
+-- 7.4, 9.
 ------------------------------------------------------------------------
 
 module SimplicialDefectFailure where
@@ -818,14 +857,14 @@ act-triv⁻ h x p = sym (plusMinus x h) ∙ cong (_- x) p ∙ -Cancel x
 goodC-face : (j : ℕ) (σ : Simplex Bool) → GoodC σ → GoodC (face j σ)
 goodC-face zero    (i ◂ [])      g = g
 goodC-face zero    (i ◂ (x ∷ t)) g =
-  Blk→GoodC x t (Blk-face₀ (GoodC→Blk i (x ∷ t) g))
+  eq→GoodC x t (trans-face₀ i x t (GoodC→eq i (x ∷ t) g))
 goodC-face (suc j) (i ◂ t)       g =
   Blk→GoodC i (delL j t) (Blk-del j (GoodC→Blk i t g))
 
 goodA-face : (j : ℕ) (σ : Simplex Bool) → GoodA σ → GoodA (face j σ)
 goodA-face zero    (i ◂ [])      g = g
 goodA-face zero    (i ◂ (x ∷ t)) g =
-  Cst→GoodA x t (Cst-face₀ (GoodA→Cst i (x ∷ t) g))
+  eq→GoodA x t (trans-face₀-Cst i x t (GoodA→eq i (x ∷ t) g))
 goodA-face (suc j) (i ◂ t)       g =
   Cst→GoodA i (delL j t) (Cst-del j (GoodA→Cst i t g))
 
