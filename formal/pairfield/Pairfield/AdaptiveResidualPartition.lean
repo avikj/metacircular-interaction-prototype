@@ -311,7 +311,7 @@ open ReachableAdaptiveObservableHorizonWitness
 theorem acceptsBool_automaton :
     acceptsBool automaton = observe := by
   funext state
-  fin_cases state <;> native_decide
+  fin_cases state <;> decide
 
 /-- The all-reachable `1/1/2` witness is a positive control: its native
 identifying tree separates every reached Mathlib prefix residual. -/

@@ -108,20 +108,20 @@ end DoublingCoefficientFork
 namespace KuttakaDoublingFork
 
 def zeroToOne : DoublingCoefficientEdge 0 1 :=
-  ⟨[.inc], by native_decide⟩
+  ⟨[.inc], by decide⟩
 
 /-- The new operation first acts here: `1 ↦ 2`. -/
 def oneToTwo : DoublingCoefficientEdge 1 2 :=
-  ⟨[.double], by native_decide⟩
+  ⟨[.double], by decide⟩
 
 def zeroToTwo : DoublingCoefficientEdge 0 2 :=
   zeroToOne.trans oneToTwo
 
 def twoToThree : DoublingCoefficientEdge 2 3 :=
-  ⟨[.inc], by native_decide⟩
+  ⟨[.inc], by decide⟩
 
 def twoToEight : DoublingCoefficientEdge 2 8 :=
-  ⟨[.double, .double], by native_decide⟩
+  ⟨[.double, .double], by decide⟩
 
 /-- A genuine enriched fork at coefficient two. -/
 def threeEightFork : DoublingCoefficientFork 0 2 3 8 where
@@ -142,7 +142,7 @@ theorem edge_costs :
       twoToEight.cost = 2 ∧
       threeEightFork.leftEdge.cost = 3 ∧
       threeEightFork.rightEdge.cost = 4 := by
-  native_decide
+  decide
 
 /-- The new operation and retained prefix produce the exact cost ladder
 `shared enriched < independent enriched < globally minimal unary`. -/
@@ -153,7 +153,7 @@ theorem doubling_strictly_escapes_unary_interval :
       threeEightFork.sharedCost < threeEightFork.independentCost ∧
       threeEightFork.independentCost <
         (FiniteTargetFormation.direct ({3, 8} : Finset Int)).cost := by
-  native_decide
+  decide
 
 /-- In particular, the displayed enriched fork beats every valid unary
 formation of the same targets, using the earlier universal lower bound. -/
@@ -165,11 +165,11 @@ theorem sharedCost_lt_every_unary
         FiniteTargetFormation.lower ({3, 8} : Finset Int)).toNat ≤
         formation.cost :=
     FiniteTargetFormation.intervalWidth_le_cost formation
-  have hshared : threeEightFork.sharedCost = 5 := by native_decide
+  have hshared : threeEightFork.sharedCost = 5 := by decide
   have hwidth :
       (FiniteTargetFormation.upper ({3, 8} : Finset Int) -
         FiniteTargetFormation.lower ({3, 8} : Finset Int)).toNat = 8 := by
-    native_decide
+    decide
   omega
 
 end KuttakaDoublingFork
