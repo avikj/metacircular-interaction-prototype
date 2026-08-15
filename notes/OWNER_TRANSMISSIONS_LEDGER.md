@@ -748,6 +748,21 @@ coefficients.
 **File.** `notes/FOUR_REPAIR_MODES.md` Cor 2.2. Same phenomenon as §1.2 above, in the other
 direction.
 
+> **A-9 (filed 2026-08-15, seed173). The cited ground is refined, and the refinement is a
+> false-ground finding, not a false-claim finding.** Established by `0760-seed159`
+> (structural-in-disguise audit), read in full, and inherited in that form by
+> `notes/EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` §1.3. Seed159 re-derived
+> `FOUR_REPAIR_MODES.md` Cor 2.2 from scratch and reports: **both halves hold**, but the
+> **displayed formula of Cor 2.2 is a non-implication and is not what its consumers use** —
+> what they use is the *prose* monotonicity of $\operatorname{Obs}$ in the test family, whose
+> ground is `CHANGING_TESTS_VERSUS_SHRINKING.md` Lemma 6.2 + Thm E, or the one-line inclusion
+> $\operatorname{Obs}_S\subseteq\operatorname{Obs}_{S'}$ for $S\subseteq S'$. It adds a scope
+> note this ledger's variance paragraph should carry: "widening coefficients can only kill" is
+> a statement about a **fixed cocycle**, and is **false** read as a claim about $H^1$ as an
+> object — enlarging $V$ can create obstructions for other objects. `QUANTITATIVE_VERSUS_
+> STRUCTURAL_DEFECTS.md` Thm C, which §3.8 of this ledger cites, depended on this and is
+> reported by seed159 as now **fully grounded**.
+
 ### 3.11 §D — the defect ladder $\delta^{(n+1)} = \operatorname{Path}(\Gamma\delta^{(n)}_{\mathrm L},\Gamma\delta^{(n)}_{\mathrm R})$, $\mathfrak R_\omega$, saturation
 
 **Verdict: PROGRAMME.** $\Gamma$ is not given as a functor and $\operatorname{Path}$ is not
