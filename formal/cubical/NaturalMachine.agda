@@ -689,6 +689,15 @@ import NaturalMachine.ChuDefect
 -- homometric pair proves the Bridge alone cannot do that work; a gamed
 -- evaluator's records can be quarantined without touching anything else.
 import NaturalMachine.SelfImprovement
+-- The three decision rules of machine/MathMachine.hs, modelled and proved:
+-- the flow trichotomy is total, exclusive, and decay closes without growth;
+-- the growth gate must not fire on a collapsed test set, because the defect
+-- is monotone in the assignment list; and the min-plus chooser over growth
+-- moves is a certified minimum that exhibits the move it picked.  It is a
+-- model of the loop, not the loop, and it constrains those three decisions
+-- and nothing else -- not the prover, the term generator, or how the
+-- fingerprint is computed.
+import NaturalMachine.MachineLoop
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds

@@ -1272,8 +1272,22 @@ data Machine = Machine
 -- needs, it is named in a comment rather than assumed away.
 -- ===================================================================
 
+-- The model of these three rules is NaturalMachine.MachineLoop, checked
+-- against the same library, and each rule below names the theorem it
+-- implements.  The model constrains exactly these decisions; it says
+-- nothing about the prover, the term generator, or the fingerprint's
+-- computation.
+--
 -- (1) KFlow's trichotomy.  ∂ is ℕ-valued, the step is classified by its
 -- sign, and growth is a response to resonance rather than to silence.
+-- MachineLoop.flow-total and .flow-unique: the classification is total
+-- and the three verdicts are mutually exclusive.
+-- MachineLoop.decay-closes-without-growth: a decaying loop reaches ∂ = 0
+-- in finitely many rounds, so decay needs no growth.
+-- MachineLoop.branching-never-closes: a branching loop never reaches 0,
+-- which is why growth is not the answer to branching either.
+-- MachineLoop.resonance-round-is-bit-identical: at resonance the orbit is
+-- the point, so only a change of what is being looked at can move it.
 data Flow = Decay | Resonance | Branching deriving (Eq)
 
 flowName :: Flow -> String
@@ -1297,6 +1311,13 @@ flowOf before after
 -- ChuAdvance.zero-defect-is-not-truth is the empty-test-list extreme.
 -- Hence the gate below: never grow on a collapsed test set, because the
 -- terms would look identical no matter what they are.
+-- MachineLoop.do-not-grow-on-a-collapsed-test-set is that rule, and
+-- MachineLoop.defect-monotone-in-assignments is why it is not paranoia.
+-- MachineLoop.agree→same-fingerprint is the bridge from this engine's
+-- Value-valued fingerprint to the Bool-valued Chu observation, and it
+-- carries an explicit proviso: the probe list must contain the term's own
+-- reading.  This engine supplies that by construction, since `envs` is
+-- exactly the list the fingerprint is computed on.
 separatedPairs :: [[Term]] -> Int
 separatedPairs classes =
   let n      = sum (map length classes)
@@ -1326,6 +1347,9 @@ advanceGate nNormed sepP
 -- exhibits a listed move (ResidualPath.Γ↝-sound-member).  With no
 -- recorded cost for a move there is no route, and the machine falls back
 -- to the ladder below rather than guessing a weight.
+-- MachineLoop.choose-never-worse and .choose-exhibits-listed-move are the
+-- two statements this implements; .choose-optimal and .choose-greatest
+-- together pin the value as the minimum rather than merely below it.
 data Move = Widen | Deepen deriving (Eq)
 
 moveName :: Move -> String
