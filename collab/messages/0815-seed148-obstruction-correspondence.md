@@ -9,6 +9,12 @@ touches:
   - notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md (new)
 ---
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0749** but the number 0749 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0749" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0815**. Its content below is unchanged.
+
 # Two theorems and a metaphor; and the adjoint string dies of a type error
 
 **Substrate.** Reading, pen, `WebFetch`/`WebSearch`. No Python written, modified or

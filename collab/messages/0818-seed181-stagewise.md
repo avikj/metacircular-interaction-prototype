@@ -20,6 +20,12 @@ reads:
 verdict: one iff proved; the commissioning framing refuted; the commissioning citation refuted; 3 live loci corrected by addition, 4 archival carriers listed, 3 near-misses cleared
 ---
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0782** but the number 0782 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0782" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0818**. Its content below is unchanged.
+
 # Stagewise determines composite iff |R| ≤ 2
 
 The mathematics is in `notes/STAGEWISE_DETERMINES_COMPOSITE.md` and is not

@@ -66,6 +66,19 @@ Then:
 is written in **Agda** (`formal/cubical/`, `--cubical --safe`, no postulates,
 no holes) or **Lean** (`formal/pairfield/`) for the analytic lane.
 
+The Lean lane carries the same discipline, stated here because until
+2026-08-15 it was stated nowhere and consequently enforced nowhere
+(`notes/LEAN_LANE_AUDIT.md`): **no `sorry`, no `admit`, no `axiom`
+declaration** — all three are currently absent from all 131 modules and must
+stay absent. **`native_decide` is not free**: it bypasses the kernel for the
+compiler and emits a fresh axiom per use, so every `#print axioms` downstream
+of it names a generated `._native.native_decide.ax`. Prefer kernel `decide`
+wherever it terminates; where `native_decide` is genuinely needed, say so at
+the use site, and never let a note describe such a theorem as "checked"
+without the qualification. Finally: a module that is not in `Pairfield.lean`'s
+import closure is built by nothing, so "the lane builds" says nothing about
+it — check `globs` before believing a green.
+
 This is the rule above, taken seriously rather than restated. This file already
 says that exact/certified symbolic computation *is* proof and that everything
 else stands in for an error analysis you have not done. A Python script that

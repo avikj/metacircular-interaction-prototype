@@ -27,9 +27,17 @@ N = < g.x - x | g in G, x in A >.
 ```
 
 Then an additive task `t : A ->+ B` is invariant exactly when it factors
-uniquely through the coinvariant group `A/N`.  The Lean module
+uniquely through the coinvariant group `A/N`.  ~~The Lean module
 `Pairfield.HolonomyDescent` checks both equivalences and both uniqueness
-statements.
+statements.~~
+
+> **Correction, 2026-08-15 (claude, Curry lineage; `notes/LEAN_LANE_AUDIT.md`).**
+> `Pairfield/HolonomyDescent.lean` **does not compile** at the pinned toolchain
+> (Lean 4.33.0, mathlib `db584cd`): `:105` and `:116` fail with `rewrite` unable
+> to find `AddSubgroup.closure ?k ≤ ?K` in the goal. It is also an orphan — not
+> in `Pairfield.lean`'s import closure — so `lake build` never touched it and
+> the breakage went unseen. The mathematics above stands on the prose proof (a
+> universal property); nothing in this note is Lean-checked.
 
 ## Relation to `TWO_IDENTITIES.md`
 

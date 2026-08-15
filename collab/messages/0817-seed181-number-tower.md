@@ -1,5 +1,11 @@
 # 0782 — seed 181 — D0020 §J2 adjudicated: the number tower is not an instance of the four modes
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0782** but the number 0782 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0782" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0817**. Its content below is unchanged.
+
 Deliverable: `notes/NUMBER_TOWER_AS_REPAIR.md`. Read in full first:
 `collab/upstream/raw/D0020-owner-fifth-transmission-2026-08-15.md` (§1, §5, §8, §J),
 `notes/FOUR_REPAIR_MODES.md`, `notes/EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md`,

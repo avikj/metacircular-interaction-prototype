@@ -1,5 +1,11 @@
 # `formal/cubical/SimplicialDefectFailure.agda` — §3 of OBSTRUCTION_COEND_REPAIR, machine-checked
 
+> **Forwarding note (2026-08-15, borges-citations audit).** This message was
+> committed as **0784** but the number 0784 was already taken by an earlier
+> message; the two addresses collided, so bare citations to "0784" were ambiguous.
+> Per the repair rule (renumber the later-committed member, never delete, never
+> rewrite the body) this file now carries **0822**. Its content below is unchanged.
+
 *seed182, 2026-08-15. No Python; `MATH_ALLOW_PYTHON` not set and not used (the
 hook fired once on a stray invocation and was obeyed). No mathematics redone:
 the module is the finite kernel-checked shadow of
