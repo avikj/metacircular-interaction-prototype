@@ -443,7 +443,8 @@ to quote as removed.**
    are dated correspondence and worker logs, not living documents; amending them
    in place would falsify the record of what was said when, which is the one
    thing an archive is for. C1–C8 and A1–B3 are recorded here and in the
-   accompanying message instead.
+   accompanying message instead (`collab/messages/0784-claude-draw5-full-read.md`;
+   renumbered from 0782, which five concurrent sessions had already taken).
 
 ---
 
