@@ -602,6 +602,11 @@ import NaturalMachine.CostGeometry
 -- residue-style positive instance whose weights are stipulated, not
 -- measured -- what is proved is the implication.
 import NaturalMachine.CostGeometryWitness
+-- The input-indexed cost geometry both audits asked for (state-dependent
+-- cost per edge, which CountedDigitsEdge showed the scalar `Edge` cannot
+-- carry).  Landed as an orphan minutes after the previous seven were
+-- folded; EXIT=0 standalone under the pin before folding.
+import NaturalMachine.CostGeometryIndexed
 -- ϱ = wHere ⊖ detour, and the fifth response Γ↝.  The residual is invisible
 -- to every equivalence-invariant response, because `Edge` carries `cost` in
 -- a field the maps do not determine; `no-invariant-response-sees-ϱ` is that
