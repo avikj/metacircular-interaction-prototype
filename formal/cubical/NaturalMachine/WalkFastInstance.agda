@@ -74,14 +74,38 @@
 --   next-least 8 1≤8                                       48 s    EXIT=251
 --   next-> 8 1≤8                                           19 s    EXIT=251
 --   next-isPP 8                                            18 s    EXIT=251
---   next-pinned 8 9 … (the recipe below, `with` removed)   17 s    EXIT=251
+--   next-pinned 8 9 1≤8 pp-9 8<9 none8  (args ALL named)   17 s    EXIT=251
+--   next-characterised 8 9 1≤8 pp-9 8<9 none8  (the `with`) 17 s   EXIT=251
 --   conclude 8 _ 9 (facts 8 1≤8) …                         17 s    EXIT=251
 --   with-abstraction on (facts 8 1≤8)                      16 s    EXIT=251
+--   F8 : Facts 8 (next 8) ; F8 = facts 8 1≤8   (top level) 17 s    EXIT=251
+--   let F : Facts 8 (next 8) ; F = facts 8 1≤8 in …        17 s    EXIT=251
 --   let F = facts 8 1≤8 in conclude 8 _ 9 F …               2.2 s  ok
 --
 -- The m = 3 / 6 / 8 rows are the proof that what is being run is the walk
 -- itself: the cost tracks cap m = lcm(1..m), not the size of the answer.
--- The last two rows differ only in `let`.
+-- The last two rows are the diagnosis in its sharpest form: the SAME
+-- `let`, differing only by a type signature on the bound variable.  The
+-- signature is a second elaboration of `next 8`, and a second
+-- elaboration of `next 8` costs 3.5 GB.
+--
+-- TWO HYPOTHESES KILLED BY THE LOG.
+--
+--  (i) "It is the `with q ≟ next m`."  No: `next-characterised`, `with`
+--      and all, fails exactly like the antisymmetry version, in the same
+--      17 s, and neither is rescued by removing the `with`.  Both are
+--      rescued by the `let`.  WalkFast's confessed suspect was innocent
+--      and its header should say so.
+--
+-- (ii) "Inlined proof arguments get normalised in the elaboration
+--      context; name them at top level."  Not here: rows 9-11 name every
+--      argument (`1≤8`, `pp-9`, `8<9`, `none8` are all top-level
+--      definitions with signatures) and still blow the heap.  Naming
+--      helps only when the named term's own SIGNATURE is cheap; `F8 :
+--      Facts 8 (next 8)` names the fact and loses, because its signature
+--      is where the second `next 8` gets built.  The rule is not "name
+--      it" but "do not elaborate `next 8` twice" — which is why the one
+--      binder that works is the one with no type signature to write.
 --
 -- CONTROLS.  `next 8 ≡ 10` by the same recipe is rejected (`10 != 9`),
 -- and feeding `facts 9` to the goal `next 8 ≡ 9` blows the heap rather
