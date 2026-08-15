@@ -37,14 +37,25 @@ whether $\Phi_{\mathrm{refl}}$ *should* be a factor of $\Phi_\alpha$, only that 
 it cannot be one. I prove no ordinal-analytic result: §3 is reportage of read sources, not
 new mathematics.
 
-**Two phantom citations in the tasking, recorded because the fleet's standing check (b)
-exists for exactly this.** (i) `notes/ORDINAL_LADDER_SMALLNESS.md` **does not exist** at the
-time of writing; there was no concurrent pass to extend, so §3 is written free-standing and
-§3.4 records what such a file would inherit. (ii) `notes/BOUNDARY_OPERATOR_TYPING.md`
-**does not exist** either; the "$\partial$ coend problem" it was said to contain is real but
-lives in `notes/CENTRE_AND_YANG_BAXTER_DEFECT.md` Thm 1 and
-`notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Thm 5, both of which I read. Neither
-absence changes a verdict; both would have changed one had I trusted the summary.
+**A race, not a phantom — recorded exactly, because standing check (b) cuts both ways.** At
+the moment I began, **neither** `notes/ORDINAL_LADDER_SMALLNESS.md` nor
+`notes/BOUNDARY_OPERATOR_TYPING.md` existed on disk; both appeared during this pass (seed165
+and seed170, commits within the hour). Had I written the verdict at first check I would have
+recorded two phantoms and been wrong. I re-checked before committing and read both. What they
+establish:
+
+- `ORDINAL_LADDER_SMALLNESS.md` refutes §C/§E's ladder on prior grounds — $\mathfrak F$ is not
+  a functor (three independent reasons), $\mathrm{Fix}(\mathfrak F)=\emptyset$ by rank, and
+  its §7 states explicitly that it **did not treat**
+  "$\Phi_{\mathrm{tr}}/\Phi_{\mathrm{ctr}}/\Phi_{\mathrm{refl}}$ individually". So §3 below is
+  an extension, not a duplication: it adds the one obstruction to the ladder that comes from
+  the reflection factor specifically (notation-dependence, §3.2), which that note does not
+  raise and could not, since it does not treat $\Phi_{\mathrm{refl}}$.
+- `BOUNDARY_OPERATOR_TYPING.md` confirms $\partial$ ill-typed **by arity** — each bound
+  variable occurs once where a coend needs two. That is a third instance of the pattern §4.2
+  Cor 3.1 names, and a sharper one than the two I had.
+
+Neither changes a verdict below; both sharpen §4.
 
 ### 0.1 Prior state, verified by reading
 
@@ -349,12 +360,14 @@ statements, not arithmetic, so it does not interpret $Q$ and (H3) fails; (iii)
 $\mathrm{Verify}(\Pi_\alpha)$ is defined semantically against $e_\alpha$, not by derivation
 from axioms, so there is no $\mathrm{Prov}_{\Pi_\alpha}$ to numerate and (H2) fails. $\square$
 
-**Corollary 3.1.** The failure is at the same level as the two type errors already adjudicated
-in this corpus — the coend $\int_{x\in U}\mathrm{HalfBraid}_U(x)$ over a non-functorial
-variable (`CENTRE_AND_YANG_BAXTER_DEFECT.md` Thm 1) and the cyclic adjoint string
-(`OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Thm 5). In all three the displayed formula names
-an operation whose argument does not exist in the stated type. That is now three independent
-instances in D0016–D0017, which is a pattern rather than a slip, and I say so as a claim
+**Corollary 3.1.** The failure is at the same level as the three type errors already
+adjudicated in this corpus — the coend $\int_{x\in U}\mathrm{HalfBraid}_U(x)$ over a
+non-functorial variable (`CENTRE_AND_YANG_BAXTER_DEFECT.md` Thm 1), the cyclic adjoint string
+(`OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Thm 5), and $\partial\Diamond_\alpha:=\int^{(f,t)}
+e_\alpha(f,t)$, whose bound variables occur once where a coend requires two
+(`BOUNDARY_OPERATOR_TYPING.md`, read after it appeared mid-pass). In all four the displayed
+formula names an operation whose argument does not exist in the stated type. That is now four
+independent instances in D0016–D0017, which is a pattern rather than a slip, and I say so as a claim
 subject to audit (standing check (f)): **the transmissions' composites are written by naming
 plausible operations and juxtaposing them, and the juxtapositions have not been type-checked.**
 
