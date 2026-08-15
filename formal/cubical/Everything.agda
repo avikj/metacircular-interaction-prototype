@@ -58,25 +58,31 @@
 --    splits them:
 --
 --        SimplicialDefectFailure  exit 0 — folded in below
---        PolarityClosure          exit 42 — NOT imported
---        StagewiseCompositeB      exit 42 — NOT imported
+--        StagewiseCompositeB      exit 42 at the time — since REPAIRED by
+--                                 its own lane (the ¬_/_×_ precedence
+--                                 parse at :145) and now imported
+--        PolarityClosure          exit 42 — STILL NOT imported.
+--                                 ClashingDefinition at :103: its local
+--                                 `Sub` collides with Agda 2.8.0's builtin
+--                                 Agda.Builtin.Cubical.Sub.Sub.  Rename
+--                                 the local one.  Independently confirmed
+--                                 by collab/messages/0799.
 --
---    Both failures are real under the pin and neither is mathematics:
+--    One more, found on the merge that brought 0798/0799 in:
 --
---      PolarityClosure:103   ClashingDefinition — its local `Sub`
---                            collides with Agda 2.8.0's builtin
---                            Agda.Builtin.Cubical.Sub.Sub.  Rename the
---                            local one.
---      StagewiseCompositeB:145  NoParseForApplication —
---                            `¬ (b ≡ c) × ¬ (a ≡ c)` cannot parse, since
---                            ¬_ is prefix level 3 and _×_ is infixr
---                            level 5.  Parenthesise both conjuncts.
+--        Sl2TensorProduct         exit 42 — `NotInScope: ·Rid` at :115.
+--                                 v0.9 renamed it `·IdR`.  REPAIRED HERE
+--                                 toward the pin, on the precedent BUILD.md
+--                                 sets for PathIsSymmetry/SymGroup, and
+--                                 the module now exits 0.  It was already
+--                                 imported, so until that one-token fix
+--                                 this aggregate was red.
 --
---    They stay out of this list until their owners fix them: importing a
---    red module is how a green claim becomes false rather than
---    incomplete, which is the rule the 2026-08-14 note above states and
---    the one it was right to follow.  What was wrong there was only the
---    reason — the container, not the modules.]
+--    A red module stays out of this list until it is fixed: importing one
+--    is how a green claim becomes false rather than incomplete, which is
+--    the rule the 2026-08-14 note above states and the one it was right to
+--    follow.  What was wrong there was only the reason — the container,
+--    not the modules.]
 --
 --    Note what this instance says, because it is the whole lesson of
 --    the file turned on the file.  BUILD.md wrote: "A hand-maintained

@@ -131,15 +131,25 @@ not quoted from anyone.
   `PolarityClosure.agda:103`, `ClashingDefinition`: its local `Sub` collides
   with Agda 2.8.0's builtin `Agda.Builtin.Cubical.Sub.Sub`. Rename the local
   one. Not imported by `Everything.agda` until then.
-- **`StagewiseCompositeB` is red, and it is not version skew.**
+- **`Sl2TensorProduct` was red and is now fixed.** `NotInScope: ·Rid` at
+  `:115` — v0.9 renamed `Cubical.Data.Int.Properties`'s right-unit law to
+  `·IdR`. Repaired toward the pin, exit 0. It was already imported by
+  `Everything.agda`, so until that one-token fix **the aggregate itself was
+  red**, which is what `collab/messages/0799` reports as "Everything.agda 42
+  (new cause)". Same precedent as `PathIsSymmetry`/`SymGroup`, applied in the
+  other direction: the source must name what the pin exports.
+- ~~**`StagewiseCompositeB` is red, and it is not version skew.**~~
+  **REPAIRED by its own lane, 2026-08-15**; exit 0 under the pin and imported.
+  The diagnosis below is kept because it is what the error looked like:
   `StagewiseCompositeB.agda:145`, `NoParseForApplication`:
   `¬ (b ≡ c) × ¬ (a ≡ c)` cannot parse, because `¬_` is prefix level 3 and
-  `_×_` is `infixr` level 5. Parenthesise both conjuncts. Not imported until
-  then.
+  `_×_` is `infixr` level 5. Parenthesise both conjuncts.
 - **`SimplicialDefectFailure` is green** and is now imported.
 
-Two red modules are excluded from the aggregate on purpose. Importing a red
-module is how a green claim becomes false rather than merely incomplete.
+**As of the merge that brought `0798`/`0799` in, `agda Everything.agda` exits
+0**, with `PolarityClosure` the one module still out. Importing a red module is
+how a green claim becomes false rather than merely incomplete, so it stays out
+until its `Sub` is renamed.
 
 Imports are plain — never `open`, never `public`. These modules were written
 independently and collide freely on short names (`Q`, `τ`, `step`, `see`, `W`,

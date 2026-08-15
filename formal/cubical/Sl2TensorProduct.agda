@@ -111,8 +111,12 @@ private
   +0ᵣ : (x : ℤ) → x + pos 0 ≡ x
   +0ᵣ x = +Comm x (pos 0) ∙ sym (pos0+ x)
 
+  -- `·IdR` is the pinned (cubical v0.9) name; v0.5 spelled it `·Rid`.
+  -- Repaired toward the pin 2026-08-15, per the precedent BUILD.md sets for
+  -- `PathIsSymmetry`/`SymGroup`: the source is correct for the pin, and a
+  -- red exit against the wrong library is not evidence about the source.
   ·1ₗ : (x : ℤ) → pos 1 · x ≡ x
-  ·1ₗ x = ·Comm (pos 1) x ∙ ·Rid x
+  ·1ₗ x = ·Comm (pos 1) x ∙ ·IdR x
 
   -- (a + b) + (c + d) ≡ (a + c) + (b + d)
   abel4 : (a b c d : ℤ) → (a + b) + (c + d) ≡ (a + c) + (b + d)
