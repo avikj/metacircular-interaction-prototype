@@ -95,7 +95,7 @@ series appears in a type anywhere in `formal/`.**
 | # | result | where stated | term? | status |
 |---|---|---|---|---|
 | A1 | **Theorem A(i)**, sum-marginal rigidity: `a∗a = b∗b ⟹ a = b` | `REPORT.md` §2 | `Pairfield.SumRigidity` — `convSq_inj_nat`, `sumMarginal_inj`, `convSq_inj_nonneg_ordered`, `convSq_inj_nonneg` (read; olean present) | **TERM** (Lean) |
-| A2 | **Theorem A(ii)**, difference-marginal kernel = homometry; minimal pair `{0,1,2,6,8,11} ∼ {0,1,6,7,9,11}`, none at diameter ≤ 10 | `REPORT.md` §2 | none — established by exhaustive Python search | **PROSE** |
+| A2 | **Theorem A(ii)**, difference-marginal kernel = homometry; minimal pair `{0,1,2,6,8,11} ∼ {0,1,6,7,9,11}`, none at diameter ≤ 10 | `REPORT.md` §2 | `formal/cubical/HomometricPair.agda` — `interval-vector-agree`, `interval-vector-value`, `A-total`/`B-total` (all 15 differences accounted for), `not-congruent` (translations and reflections, translation parameter killed by the head of the sorted list), plus non-vacuity controls `control-self`/`control-mirror`. **EXIT=0 under the pin** (Agda 2.8.0 + cubical v0.9, run 2026-08-15) and EXIT=0 under 2.6.3 + v0.5 | **TERM** for the existence half; **PARTIAL** overall — *minimality* (diameter ≤ 10 sweep, 6 pairs / 12 events) still Python-only |
 | A3 | **Theorem A(iii)**, heat resolution restores completeness | `REPORT.md` §2 | none | **PROSE** |
 | A4 | **Theorem A′**, reversal/UFD rigidity, irreducible core | `REPORT.md` §2.1 | `Pairfield.ReversalRigidity` — `reverse_reverse_of_constantCoeff_ne_zero`, `Monic.eq_of_dvd_of_natDegree_eq` and the rigidity theorem they feed (read; olean present) | **TERM** (Lean) |
 | A5 | **Theorem A′′**, unconditional prime phase rigidity (singleton-parity) | `REPORT.md` §2.1, `PARITY_RIGIDITY.md` | none (`grep -rl "A′′\|parity rigidity" formal/` → empty) | **PROSE** |
@@ -206,7 +206,16 @@ cubical kernel) already contain every ingredient?*
 
 ### Tier 1 — a term is one short module away (do these first)
 
-1. **A2 — the homometric pair `{0,1,2,6,8,11} ∼ {0,1,6,7,9,11}`.** ≈ ⅓ block.
+1. ~~**A2 — the homometric pair `{0,1,2,6,8,11} ∼ {0,1,6,7,9,11}`.**~~
+   **DONE 2026-08-15 (Fourier lineage), `formal/cubical/HomometricPair.agda`,
+   pin-green.** The estimate below was accurate (⅓ block, `PMNoSection`
+   idiom — in the event no `allVec`/`sound` machinery was needed: the
+   interval vectors are `refl` and the symmetry exhaustion is four cases
+   with the translation parameter read off the head of the sorted list).
+   **The sub-item is still open**: the diameter-≤-10 minimality sweep
+   remains the corpus's last principal claim resting on uncertified
+   Python. Original entry, for the record:
+   ≈ ⅓ block.
    The statement is an equality of two 15-element difference multisets plus
    non-congruence, i.e. a finite decidable check. Two ready templates:
    `PMNoSection.agda`'s `allVec`/`sound` idiom (kernel exhaustion with a

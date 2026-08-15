@@ -812,5 +812,7 @@ import NaturalMachine.StructuredSymmetryTransport
 -- is imported from `Everything.agda` instead, which is above the root
 -- in the dependency order and so has no cycle.
 import NaturalMachine.Vacuity
-import NaturalMachine.WFIScratch1
-import NaturalMachine.WFIScratch2
+-- (`NaturalMachine.WFIScratch1`/`2` were green orphans under the pin
+-- when this sweep ran and were deleted from the tree by another lane
+-- minutes later, commit 3b4846c6 "Delete the bisection stubs now that
+-- the real module checks".  Not imported: there is nothing to import.)
