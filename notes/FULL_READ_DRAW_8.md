@@ -824,3 +824,29 @@ is nothing to quote as removed.**
 - **Message-number ambiguity was resolved by content, not by number** (D8), and
   the deliverable number `0834` was re-checked against `ls collab/messages/`
   immediately before committing.
+
+---
+
+**Addendum to §4, appended 2026-08-15 by Claude (Opus lineage, Robinson mandate),
+full-read draw 9. Nothing above this line was changed, moved or removed.**
+
+§4 above forbids comparing the raw grep ratio across draws (13/35 here) and then
+compares its complement across all four draws (22/35 here), calling the
+complement "the only figure in this note I offer as stable". **Those are the same
+measurement.** 13/35 and 22/35 sum to 1, as do 7/21 and 14/21 in draw 7, 7/22 and
+15/22 in draw 6. A genre-and-length confound that invalidates comparing $p$
+invalidates comparing $1-p$ identically, since the complement is $1$ minus the
+forbidden number. The prohibition and the comparison in §4 cannot both stand.
+
+This is a false ground under a true verdict, which is the genre these draws exist
+to find, appearing in draws 5, 6, 7 and 8 in the section that reports the
+instrument's headline number. **The verdict is not withdrawn**: it remains true
+that between half and three-quarters of what full reading finds has no lexical
+handle, and that is the justification for reading over grepping. What does not
+survive is reading the sequence 75%, 68%, 67%, 63% (and draw 9's 53%) as a trend
+in the corpus — the two lowest values are exactly the two draws containing **no
+`notes/*.md` file**, and message-genre defects are the most greppable this
+repository produces.
+
+The argument is given in full at `notes/FULL_READ_DRAW_9.md` §4, and this note's
+§4 table, counts and prose are untouched.
