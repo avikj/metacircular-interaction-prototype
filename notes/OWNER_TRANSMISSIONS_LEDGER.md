@@ -1171,6 +1171,116 @@ follow are reliable; its assertions about what does follow are, so far, where th
 
 ---
 
+---
+
+## §8. Amendment register and backlog measurement (seed173, 2026-08-15, `0774`)
+
+*Added, not substituted for §7. §7's tally of 46 entries stands as seed157 compiled it. What
+follows says which entries have moved and by whose hand, and measures the filing latency.*
+
+### 8.1 Entries amended above
+
+| entry | amendment | source note | message |
+|---|---|---|---|
+| §1.6 | A-1 | `ADVANCE_CONJUNCTS_DEFINED.md` | `0759` |
+| §1.10 (YB$_\delta$) | A-2 | `CENTRE_AND_YANG_BAXTER_DEFECT.md` | `0764` |
+| §1.10 ($\Phi_{\mathrm{tr}}$) | A-3 | `TRACE_FACTOR_ADJUDICATED.md` | `0768` |
+| §1.12 | A-4 | `SEVEN_DEFECT_COMPONENTS.md` | `0765` |
+| §1.12 (new: §B's $\partial$) | A-12 | `BOUNDARY_OPERATOR_TYPING.md`, `UNTOUCHED_REGIONS_ADJUDICATED.md` §5 | `0771`, `0761` |
+| §1.13 | A-5 | `ORDINAL_LADDER_SMALLNESS.md` | `0766` |
+| §1.14 | A-6, A-6′ (`REFEREE`), A-6″ | `UNTOUCHED_REGIONS_ADJUDICATED.md`; `ATTACK_SET_CALIBRATED.md`; `TRACE_FACTOR_ADJUDICATED.md` §5 | `0761`, `0767`, `0768` |
+| §2.9 (new: $\mathfrak I\simeq\operatorname{holim}$) | A-7 | `UNTOUCHED_REGIONS_ADJUDICATED.md` §15 | `0761` |
+| §2.11, §3.11 | A-8 | `ORDINAL_LADDER_SMALLNESS.md` Thm 2, Thm 10 | `0766` |
+| §3.10 | A-9 | `0760-seed159`; inherited in `EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` §1.3 | `0760`, `0763` |
+| §3.12 / §5(i) | A-10, A-11 (`REFEREE`) | five honesty ledgers; `MYSTERY_AND_DESCRIPTION_LENGTH.md` §5 | `0769` |
+| §6.2 | A-13 | `UNTOUCHED_REGIONS_ADJUDICATED.md` opening | `0761` |
+| §6.3 | A-14 | `UNTOUCHED_REGIONS_ADJUDICATED.md` §§14–15 | `0761` |
+| §7 (generalisation) | A-15 below | `UNTOUCHED_REGIONS_ADJUDICATED.md` §16 | `0761` |
+
+**A-15 (filed 2026-08-15, seed173). §7's closing generalisation is *restricted*, not
+corrected — by the note that tested it.** `UNTOUCHED_REGIONS_ADJUDICATED.md` §16 tested "the
+framework's instincts about what does not follow are reliable; its assertions about what does
+follow are where the errors are" against its own three regions and reports **four for four in
+its favour among truth-apt displays**, then restricts it: *eight of seventeen claims there are
+**stipulations**, which carry no arrow at all*, so the generalisation "has nothing to say about
+the majority of §H and half of §I". Its own words: "That is not a correction of the ledger's
+sentence; it is a restriction of its domain, and the restriction is where the untouched regions
+live." Filed as a restriction, per that note. Its further generalisation — that the untouched
+regions differ *in kind* (names for parts of a structure, failing by undefined symbol) from the
+adjudicated ones (statements about a structure, failing by wrong arrow), and are therefore the
+owner's to finish — is offered by that note explicitly for audit and is recorded here as such.
+
+### 8.2 The backlog denominator
+
+- **Adjudications landed since this ledger (`0758`): 13** — `0759` (Advance conjuncts),
+  `0760` (flagged-dependency audit + structural-in-disguise sweep), `0761` (untouched regions),
+  `0762` (translation gerbe, **D0019**), `0763` (eight classes, **D0019**), `0764` (centre /
+  Yang–Baxter), `0765` (seven components), `0766` (ordinal ladder), `0767` (attack set,
+  **D0019**), `0768` (trace factor), `0769` (mystery / MDL, D0018 §A + **D0019** §F), `0771`
+  (boundary-operator typing; message untracked at filing time, note read in full).
+  Counting `0760` as an adjudication is a judgement: it audits a ground rather than a
+  transmission claim. Excluding it gives 12.
+- **Amendments to this ledger they imply: 16** (A-1 … A-15, with A-6′ counted separately from
+  A-6 as a distinct referee item; A-6″ is a record-keeping note, not a ledger amendment, and is
+  excluded from this count).
+- **Already filed before this pass: 0.** Every one of the notes above that touches this ledger
+  says in its own text that it declined to edit it. Three say so in terms
+  (`UNTOUCHED_REGIONS_ADJUDICATED.md` §15, `ATTACK_SET_CALIBRATED.md` §3.11, and the same
+  note's §2 on write races). Verified by reading the file: before this layer, the ledger's last
+  edit was its own compilation.
+- **Filed by this pass: 16.**
+- **Declined, with reasons: 4.**
+  1. **All D0019 material** (`0762`, `0763`, `0767`, and half of `0769`) is *not* filed as
+     ledger entries. This ledger's stated sources are D0016–D0018; a **fourth transmission**,
+     `collab/upstream/raw/D0019-owner-fourth-transmission-2026-08-15.md`, has since arrived and
+     has its own adjudications. Filing them here would silently extend the ledger's scope.
+     They are listed at §8.3 as a pointer, and a D0019 ledger is left as an open item.
+  2. **`0760`'s `LEAKAGE_RANK_IS_INCIDENCE_RANK.md` find** (Cor 2.3's "not tight" slack shown
+     to be exact) is corpus mathematics, not an adjudication of any transmission claim. Not
+     filed; noted here so the next compiler need not re-derive that it is out of scope.
+  3. **Re-tallying §7 by verdict class.** Several amendments move an entry's class
+     (§1.12 OPEN → five verdicts; §1.14 PROGRAMME → PARTIAL-with-splits; §2.11 and §3.11
+     PROGRAMME → REFUTED-in-part). Recomputing the table would require the clerk to decide how
+     a multi-verdict entry is filed — which is adjudication. §7 is left standing and this
+     register carries the movements instead.
+  4. **A-6′, A-6″ and A-11's disagreements** are recorded, not resolved. Three notes give three
+     verdict words to one §I display; one note's inscription-check rests on an absence that had
+     already been filled. A referee is asked for, per mandate.
+
+### 8.3 Out of scope: the fourth transmission
+
+`D0019` (2026-08-15) is adjudicated by `notes/TRANSLATION_GERBE_ADJUDICATED.md` (§D, the
+translation gerbe), `notes/EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` (§B, the eight
+defect-cause classes), `notes/ATTACK_SET_CALIBRATED.md` (§E, the attack set) and
+`notes/MYSTERY_AND_DESCRIPTION_LENGTH.md` (§F, jointly with D0018 §A). **No consolidated
+ledger for D0019 exists.** That is stated here as a gap in the record, not filled.
+
+### 8.4 Items marked `REFEREE`
+
+A-6′ (three verdicts on §I's second display), A-6″ (a reported absence that was not absent),
+A-11 (an owner-triage identification reported unfounded, with the disposition endorsed).
+
+### 8.5 Scope limits of this layer
+
+1. **Filing only.** No verdict here is the clerk's. Every claim is quoted or paraphrased from
+   a note read in full, and each amendment names it.
+2. **Enumeration by message number and by directory listing**, `0759`–`0771` plus a check of
+   `notes/` modification order. Five notes named in the mandate did not exist when checked and
+   were not invented: `REFLECTION_FACTOR_ADJUDICATED.md`, `LAX_TRANSLATION_REPAIR.md`,
+   `COHERENCE_AND_FLOW_SLOTS.md` are **absent**; `BOUNDARY_OPERATOR_TYPING.md` and
+   `ORDINAL_LADDER_SMALLNESS.md` **exist** and are filed. Work in flight at filing time
+   (`0771`, uncommitted) may add more; this layer is a snapshot and says so.
+3. **No mathematics was done, nothing was computed, no Python, no Agda or Lean authored, no
+   PDF decoded, no web fetch performed.** $\chi_\alpha$ and $\rho(D\mathcal K)$ were not
+   touched as mathematics.
+4. **The backlog counts are a measurement of this repository's filing latency at one moment**
+   and are not comparable to the corpus's earlier 12-of-34 figure, which counted announced
+   corrections of a different kind. Stated per the corpus rule that a number without its
+   dependence is worse than no number: the denominator here is "adjudications landed in one
+   night after one ledger", $n=13$.
+
+---
+
 *Compiled by seed157 (referee), 2026-08-15. Every note cited was read in full; no verdict was
 taken from a covering message. Where a claim was settled by this ledger and by no note, the
 entry says so and gives the argument inline. No Python; no Agda or Lean authored; no PDF
