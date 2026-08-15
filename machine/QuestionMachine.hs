@@ -79,6 +79,29 @@ diagBits rows = [ not (rows !! i !! i) | i <- [0 .. length rows - 1] ]
 outsideImage :: [[Bool]] -> Bool
 outsideImage rows = all (/= diagBits rows) rows
 
+-- NaturalMachine.ChuAdvance : Agree, Separates, Shrink(T) => delta down
+agree :: Eq q => (x -> t -> q) -> [t] -> x -> x -> Bool
+agree e ts x y = all (\t -> e x t == e y t) ts
+
+separates :: (Eq q, Eq x) => (x -> t -> q) -> [t] -> [x] -> Bool
+separates e ts xs = and [ not (agree e ts x y) || x == y | x <- xs, y <- xs ]
+
+-- zero-defect-is-not-truth : both test sets give defect 0; only one separates
+chuDemo :: [(String, Bool, Bool)]
+chuDemo =
+  [ ("tests=[]",  agree read' []      True False, separates read' []      [True, False])
+  , ("tests=[t]", agree read' [()] True False, separates read' [()] [True, False]) ]
+  where
+    read' :: Bool -> () -> Bool
+    read' x _ = x
+
+-- NaturalMachine.ChuAdvance : hidden-curvature (base flat, total not)
+hiddenCurvature :: ((Int, Int), Bool, Bool)
+hiddenCurvature = (h, fst h == fst unit, h /= unit)
+  where
+    h = (0, 1)
+    unit = (0, 0)
+
 -- NaturalMachine.QuestionMachine : halts
 resolves :: (q -> Int) -> (q -> q) -> q -> Maybe Int
 resolves d f = go 0
@@ -102,3 +125,5 @@ main = do
   let rows = [ [True, False, True], [False, False, True], [True, True, True] ]
   putStrLn ("delta_end outside image   : " ++ show (outsideImage rows))
   putStrLn ("halts (n -> n `div` 2, 64): " ++ show (resolves id (`div` 2) 64))
+  putStrLn ("chu (defect0, separates)  : " ++ show chuDemo)
+  putStrLn ("hidden curvature          : " ++ show hiddenCurvature)
