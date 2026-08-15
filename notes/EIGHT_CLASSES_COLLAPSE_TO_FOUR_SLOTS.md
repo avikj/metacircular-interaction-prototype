@@ -638,6 +638,92 @@ rather than as a literature claim.
   operations*; seed 156's counts are *corpus queue items*, and seed 152's "four modes" are the
   D0018 list. No number here is comparable to a number there.
 
+---
+
+## 11. Reader's addendum — full-read draw 5
+
+*Added by Claude (Opus lineage), 2026-08-15, as part of the fifth random full-read draw
+(`notes/FULL_READ_DRAW_5.md`, where this file was index 2320 of a 2900-entry frame). **Addition
+only: no line above this section was altered, replaced or removed.** The note was read in full;
+several things I would have flagged, §10 flags first, and this addendum only records what survives
+that self-audit. Full statements are at `notes/FULL_READ_DRAW_5.md` §1.D.*
+
+**Verified sound, by reading:** §1.1's claim that `FOUR_REPAIR_MODES.md` Thm 2 nowhere uses
+injectivity of $\iota$ — correct, both directions go through for any map of $\Gamma$-modules;
+§5.3's quotation of D0019 §J3 — verbatim accurate (raw file, lines 647–657), and its refutation
+of J3 stands; Thm 3.3's Shapiro argument; Thm 3.5's proof as stated.
+
+**D1 (structural, unresolved — the author's call, not a reader's). The trivial subgroup is
+disqualified in §5.1 and load-bearing in §6.1.** §5.1 excludes $\Gamma'=1$ as "not a cover but the
+total collapse of the base … repairs nothing selectively", in order to make $\mathsf{Alg}$'s
+$\mathbb Z$ witness exclusive. Thm 6.1(b)'s proof then reads "Take $\Gamma'=1$" and calls it a
+valid $\mathsf{Geom}$ repair. Both cannot stand. If $\Gamma'=1$ is valid, it also repairs §5.1's
+$\mathbb Z$ class ($H^1(1,\mathbb Z)=0$), so $\mathsf{Alg}$ has no exclusive witness and by
+Def 3.0.2 does not survive — the count becomes $8\to3$. If it is not valid, Thm 6.1(b) is unproved
+and, for $\Gamma=\mathbb Z/p$ with $V=\mathbb Z/p$ trivial, unprovable: the only subgroups are $1$
+and $\Gamma$, $H^1=\operatorname{Hom}(\mathbb Z/p,\mathbb Z/p)\neq0$, and
+$\operatorname{res}^\Gamma_\Gamma[D]=[D]\neq0$. The guard itself is probably safe — §6.1's
+$\mathbb Q/\mathbb Z$ carry-cocycle instance argues it better than the theorem does — but Thm 6.1
+needs either a non-degeneracy hypothesis on $\Gamma'$ or an explicit ruling that base-collapse
+counts as a repair, and §5.1 must then pay for that ruling.
+
+**D2.** Prop 6.2's hypothesis "no infinite-index proper subgroup **usable as a cover**" is
+undefined in the note, and "§5.1's $\mathbb Z$ witness satisfies the hypotheses" holds only under
+the reading D1 shows is unavailable — $\mathbb Z$ has the infinite-index proper subgroup $1$.
+
+**D3 (false ground, true verdict).** Thm 3.4's discussion concludes
+$\mathsf{Alg}\not\equiv\mathsf{Geom}$ on the ground that "the availability column is part of the
+template". Def 3.0.1 mentions only schema, parameter, slot and morphism, and states in bold that
+differing *costs* do not block a collapse; the five-column template is §2's, not Def 3.0.1's. The
+ground is unlicensed — and unnecessary, since Def 3.0.1 requires the two morphisms to lie in *the
+same slot*, and coefficient $\neq$ base gives the verdict in one line.
+
+**D4 (implication upgraded in a table cell).** Thm 3.4 proves necessity only
+($\operatorname{res}[D]=0\Rightarrow n[D]=0$), and §0's row says so ("*only if*"). §4's table fills
+the *availability* column with "quantified: $n[D]=0$ for a degree-$n$ cover", which reads as the
+condition for availability. It is not: $n[D]=0$ does not produce a subgroup of index $n$ with
+vanishing restriction. Nothing downstream breaks — §5.1 uses the correct direction — but §4 is
+where a later reader will quote it from.
+
+**D5 (§0 refuted by §5.4).** §0's witnesses row asserts flatly that
+$\mathsf{Top},\mathsf{Comp},\mathsf{Sem},\mathsf{Phys}$ "have none". §5.4 and §10 both say the
+$\mathsf{Sem}$ half is "an argument, not a theorem … the weakest link", with $k=5$ if it fails. The
+hedge is in the body twice and in the summary table zero times.
+
+**D6 (the headline number).** §0, the title and §5.6 carry **four**; §7 carries "**Honest count,
+therefore: five classes**". §7 explains the difference and is right to; but it appears once, at the
+end, uncross-referenced from any of the three places carrying 4 — the same mechanism §7 itself
+complains about upstream.
+
+**D7 (scope dropped from the principal negative).** Thm 3.5 proves inflation
+$H^1(G/N,V)\to H^1(G,V)$ is injective: enlargement **along a quotient**. §0's row keeps that
+qualifier; §2.8, §3.5's Reading, §4's rejection row and §5.5 all drop it and say flatly that
+symmetry enlargement "is not a repair at all" / is "proved to be no repair", and §3.5 calls it "the
+note's principal negative". The other reading — $\Gamma\le G$, the physicist embedding a symmetry
+group in a larger one — is not covered and cannot be by this theorem: for a subgroup inclusion
+there is no canonical $H^1(\Gamma,V)\to H^1(G,V)$ at all, so the defect does not transport and the
+question is a different one. Whether *that* enlargement is also a non-repair is open.
+
+**D8 (header claims more than theorem, in a word §5.2 redefines).** §3.3's header says "universal
+on **structural** defects"; the theorem is about $Z^1(\Gamma,V)$, and §0's row is careful ("every
+**cocycle** defect"). §5.2 then uses "structural" for defects that are explicitly not cocycles
+("a singularity is not a cocycle") — and needs Thm 3.3 to fail on them for $\mathsf{Geom}$'s
+witness to be exclusive. Under §5.2's sense of the word, §3.3's header is false, and its falsity is
+what §5.2 requires.
+
+**D9 (undischarged half of the concrete instance).** §6.1's carry cocycle sits in $H^2$ while
+Thm 6.1 is stated for $H^1$; the $\mathsf{Alg}$ half is re-proved self-containedly and is fine. The
+$\mathsf{Geom}$ half is one unproved clause — "restrict to a subgroup of index annihilating the
+class — work at a coarser modulus" — with no subgroup exhibited and no index computed, inheriting
+D1. So §6.1's "two genuinely different, both-valid repairs" is asserted where one of the two is
+unverified.
+
+*Reader's scope: I did not open `QUANTITATIVE_VERSUS_STRUCTURAL_DEFECTS.md` Thm C,
+`ATLAS_OF_N.md` §2.11 or `ACTION_RESIDUAL_FORMATION.md` §2; D4 and D9 rest on this note's own
+statements and on the cohomological algebra, not on those sources. Nothing was computed.*
+
+---
+
 *Credit: the eight classes, their response column, the guard $D_X\not\Rightarrow$ a single cause, the
 cause-classification test, and $\mathfrak U=(\mathcal X,\mathcal O,\mathcal R,\mathcal P,\mathcal C,\mathcal Q)$
 are the human owner's (D0019 §A–§B); the prediction that the eight collapse is the triage's (§J3).
