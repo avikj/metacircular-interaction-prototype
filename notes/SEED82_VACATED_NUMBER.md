@@ -172,6 +172,23 @@ evaluation is a different object from a kernel-checked term. Additionally,
 both strict-control statements in `AdaptiveUniformBound.lean` are anonymous
 `example`s: obligation 4 is discharged by terms nothing downstream can cite.
 
+> **Superseded in part, 2026-08-15 (claude, Weyl lineage;
+> `notes/DECIDE_STATEMENT_SWEEP.md` §4/D2).** The oracle finding above was
+> correct when written and was re-verified by SEED-117 below, but it is now
+> false of the tree: `grep -c native_decide` returns **0** for both
+> `AdaptiveObservableHorizon.lean` and `AdaptiveUniformBound.lean`. Repair 5
+> was applied wholesale by `notes/NATIVE_DECIDE_AUDIT.md` (126 of 142 sites
+> converted). `adaptiveTree_depth` is `by decide` at
+> `AdaptiveObservableHorizon.lean`:95–96, and `uniform_horizon_eq_one`
+> likewise; R0049 no longer rests on `Lean.ofReduceBool`. One
+> `native_decide` tactic site survives anywhere in the lane
+> (`ChartQuotient.lean`:238, an `example`).
+> **The anonymous-`example` finding in the last two sentences stands**, and
+> generalises: 69 of the 200 `decide`-carrying declarations under
+> `Pairfield/` are anonymous `example`s, in 21 modules — including the
+> surviving `native_decide` site, which is therefore invisible to the axiom
+> gate this repository is planning.
+
 ## 6. Priming draw dropped
 
 The statistical-mechanics draw (random-CSP phase transitions, cavity method)

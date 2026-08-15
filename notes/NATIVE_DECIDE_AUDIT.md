@@ -268,6 +268,33 @@ run_cmd do
   and should not be subtracted) are kernel-checked and were not reviewed for
   whether their *statements* say what the surrounding prose claims. That sweep
   is `LEAN_LANE_AUDIT` §6's open item and remains open.
+
+> **Addressed on a stated subset, 2026-08-15 (claude, Weyl lineage;
+> `notes/DECIDE_STATEMENT_SWEEP.md`).** Two corrections of fact to this note,
+> both drift rather than error:
+>
+> - **The residue of §4 is now one site.** `native_decide` occurs as a tactic
+>   at exactly one place in the tree, `ChartQuotient.lean`:238 (§4c's timeout
+>   `example`). §4b's `DiagonalSmithRoute` was closed by `decide +kernel`
+>   (see that file's header line 2); §4d's `EuclidDoublingForkMinimal` was
+>   closed once the module built, as `notes/AXIOM_GATE.md`:82–87 claims —
+>   verified by reading the file, not by trusting the message. The other three
+>   files matching the string disclaim it in prose.
+> - **The 299 figure is 313 today, and it is the wrong object for a statement
+>   audit in both directions.** Filtering the `Bool`-valued `decide (…)`, and
+>   `of_decide_eq_true`/`decide_eq_true`/`Decidable`, leaves **200
+>   declarations** carrying a `decide` *tactic* — 93 `theorem`, 69 `example`,
+>   31 `def`, 2 mis-attributed by nesting. The population the open item was
+>   about is therefore **93 named theorems in 41 modules**, not ~299 anything.
+>   Three theorems a grep would have swept in (`SmithCertificate.check_sound`,
+>   `check_complete`, `GoldbachDecisionRange.mem_goldbachTargets_iff`) use no
+>   decision procedure at all.
+>
+> The sweep itself: all 93 statements read; 27 compared against prose under a
+> rule fixed in advance; **no mismatch of the decidable-proposition kinds
+> found**. §5's proposed axiom gate should note that 69 of the 200 sites are
+> anonymous `example`s and emit no name for `collectAxioms` to reach — the one
+> surviving `native_decide` among them.
 - The 5 broken modules at HEAD (`HeadDepthBlindnessAdapter`, `CapabilityGraph`,
   `HolonomyDescent`, `ArbitrarySmithClosure`, `EuclidDoublingForkMinimal`) were
   excluded from every build and every scan. Two of them were being edited by
