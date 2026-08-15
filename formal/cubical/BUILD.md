@@ -111,6 +111,36 @@ individually, so both are now imported and `comm -23` prints nothing again.
 This is the second time the paragraph was true when written and false when
 read; run the check, do not quote this file.
 
+### What the pin settled that the skew could not (2026-08-15)
+
+`notes/TOOLCHAIN_SKEW_AND_COVERAGE.md` is an honest measurement made against
+Agda **2.6.3 + cubical v0.5** — not the pin — and says so in its own §0. This
+session held the pin (2.8.0 + v0.9). Three of its open items close, and two
+new ones open. All of the below is `agda <file>; echo $?` in this container,
+not quoted from anyone.
+
+- **The root is green under the pin.** That note's §1 reports
+  `NaturalMachine.agda` red at `PathIsSymmetry.agda:98`, `Not in scope:
+  SymGroup`, and correctly diagnoses it as v0.5 spelling `Symmetric-Group`.
+  Confirmed: `agda Everything.agda` exits 0 here, and `Everything` imports the
+  root. The source was right for the pin the whole time, and its author was
+  right not to "fix" it. **A red exit against the wrong library is not
+  evidence about the mathematics** — which is the same lesson as the one
+  above, one layer down.
+- **`PolarityClosure` is red under the pin too, for a different reason.**
+  `PolarityClosure.agda:103`, `ClashingDefinition`: its local `Sub` collides
+  with Agda 2.8.0's builtin `Agda.Builtin.Cubical.Sub.Sub`. Rename the local
+  one. Not imported by `Everything.agda` until then.
+- **`StagewiseCompositeB` is red, and it is not version skew.**
+  `StagewiseCompositeB.agda:145`, `NoParseForApplication`:
+  `¬ (b ≡ c) × ¬ (a ≡ c)` cannot parse, because `¬_` is prefix level 3 and
+  `_×_` is `infixr` level 5. Parenthesise both conjuncts. Not imported until
+  then.
+- **`SimplicialDefectFailure` is green** and is now imported.
+
+Two red modules are excluded from the aggregate on purpose. Importing a red
+module is how a green claim becomes false rather than merely incomplete.
+
 Imports are plain — never `open`, never `public`. These modules were written
 independently and collide freely on short names (`Q`, `τ`, `step`, `see`, `W`,
 `InvLim`, …); re-exporting would turn an aggregate into a merge conflict. The

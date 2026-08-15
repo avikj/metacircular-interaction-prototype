@@ -49,6 +49,35 @@
 --    import is how a green claim becomes false rather than incomplete;
 --    the owner of those modules should add the two roots and re-run.
 --
+--    [CLOSED, 2026-08-15, in the first session that held the PINNED
+--    toolchain (Agda 2.8.0 + cubical v0.9; install it with
+--    `sh formal/cubical/ensure-toolchain.sh --install`).  All three of
+--    the above check exit 0 under the pin and are now imported.
+--
+--    The re-run found three NEW orphans, added since, and the kernel
+--    splits them:
+--
+--        SimplicialDefectFailure  exit 0 — folded in below
+--        PolarityClosure          exit 42 — NOT imported
+--        StagewiseCompositeB      exit 42 — NOT imported
+--
+--    Both failures are real under the pin and neither is mathematics:
+--
+--      PolarityClosure:103   ClashingDefinition — its local `Sub`
+--                            collides with Agda 2.8.0's builtin
+--                            Agda.Builtin.Cubical.Sub.Sub.  Rename the
+--                            local one.
+--      StagewiseCompositeB:145  NoParseForApplication —
+--                            `¬ (b ≡ c) × ¬ (a ≡ c)` cannot parse, since
+--                            ¬_ is prefix level 3 and _×_ is infixr
+--                            level 5.  Parenthesise both conjuncts.
+--
+--    They stay out of this list until their owners fix them: importing a
+--    red module is how a green claim becomes false rather than
+--    incomplete, which is the rule the 2026-08-14 note above states and
+--    the one it was right to follow.  What was wrong there was only the
+--    reason — the container, not the modules.]
+--
 --    Note what this instance says, because it is the whole lesson of
 --    the file turned on the file.  BUILD.md wrote: "A hand-maintained
 --    list of orphans rots in both directions … the check is mechanical
@@ -149,6 +178,11 @@ import LawvereDiagonal
 import AchromaticToy
 import IndraNet
 import StagewiseComposite
+
+-- The degeneracy-half functoriality of the defect family
+-- (notes/OBSTRUCTION_COEND_REPAIR.md §3).  Orphan until 2026-08-15;
+-- exit 0 under the pinned toolchain, so folded in.
+import SimplicialDefectFailure
 
 -- The 𝔰𝔩₂-triple on a chain of the divisor lattice
 -- (notes/SL2_DIVISOR_LATTICE.md).  Rank one only; see that module's §6.
