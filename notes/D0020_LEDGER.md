@@ -505,10 +505,10 @@ Each verified at source before listing. Ordered by how much depends on it.
 
 ## §18. Tally
 
-**115 claims enumerated** — P.1–P.2 (2), §0 (10), §1 (10), §2 (8), §3 (13), §4 (17), §5 (20),
-§6 (11), §7 (11), §8 (12), §9 (6), §10 (8, of which two carry no verdict and are excluded from
-the counts below), J1–J9 (9). Rows 10.3 and 10.4 are **record findings, not claims**, and are
-excluded: they report absences, and this ledger does not conclude from an absence.
+**139 rows enumerated, 137 of them scored** — P.1–P.2 (2), §0 (10), §1 (10), §2 (8), §3 (13),
+§4 (17), §5 (20), §6 (11), §7 (11), §8 (12), §9 (6), §10 (10, two unscored), J1–J9 (9). Rows 10.3
+and 10.4 are **record findings, not claims**, and carry no status: they report absences, and this
+ledger does not conclude from an absence.
 
 **Each claim is assigned exactly one status**, its dominant one. A PARTIAL row is one whose split
 is named in its own reason column; a claim proved in one direction and refuted in the other is
@@ -517,24 +517,41 @@ filed PARTIAL, not counted twice.
 | status | count | entries |
 |---|---|---|
 | **PROVED** | 7 | 6.3, 7.8, 8.1, 8.6, 8.9, 8.10, J1 |
-| **REFUTED** | 5 | 0.3, 0.6, 1.5, 3.10, 8.5, 10.8 — *six; see note* |
-| **PARTIAL (split named)** | 14 | P.2, 0.2, 5.5, 5.6, 5.9, 3.6, 6.10, 6.11, 8.2, 10.2, 10.7, J2, J3, J4, J7, J8 — *sixteen; see note* |
-| **CLASSICAL** | 31 | listed in full at §16 |
+| **REFUTED** | 7 | 0.3, 0.6, 1.2, 1.5, 3.10, 8.5, 10.8 |
+| **PARTIAL (split named)** | 16 | P.2, 0.2, 3.6, 5.5, 5.6, 5.9, 6.10, 6.11, 8.2, 10.2, 10.7, J2, J3, J4, J7, J8 |
+| **CLASSICAL** | 40 | listed in full at §16 |
 | **OPEN** | 4 | 8.3, 8.4, 8.8, J6 |
-| **PROGRAMME** | 49 | P.1, 0.1, 0.4, 0.5, 0.7, 0.8, 1.3, 1.10, 3.3*, 3.4, 3.7, 3.13, 4.2, 4.3, 4.4, 4.6, 4.8, 4.14, 4.16, 5.1, 5.2, 5.3, 5.7, 5.8, 5.15, 5.17, 5.19, 5.20, 6.1, 6.2, 6.4, 6.5, 6.6, 6.7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.7, 7.9, 7.10, 7.11, 9.1, 9.3, 9.5, 9.6, 10.1, 10.6, 10.9, 10.10, J9 |
-| **UNDEFINED** | 9 | 0.9, 0.10, 3.12, 4.11, 5.12, 5.16, 6.8, 6.9, 9.2, 9.4, 10.5 — *eleven; see note* |
-| | **113 scored** | (+2 record findings, 10.3 and 10.4, unscored) |
+| **PROGRAMME** | 52 | P.1, 0.1, 0.4, 0.5, 0.7, 0.8, 1.3, 1.10, 3.4, 3.7, 3.13, 4.2, 4.3, 4.4, 4.6, 4.8, 4.14, 4.16, 5.1, 5.2, 5.3, 5.7, 5.8, 5.15, 5.17, 5.19, 5.20, 6.1, 6.2, 6.4, 6.5, 6.6, 6.7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.7, 7.9, 7.10, 7.11, 8.12, 9.1, 9.3, 9.5, 9.6, 10.1, 10.6, 10.9, 10.10, J9 |
+| **UNDEFINED** | 11 | 0.9, 0.10, 3.12, 4.11, 5.12, 5.16, 6.8, 6.9, 9.2, 9.4, 10.5 |
+| | **137** | (+2 record findings, 10.3 and 10.4, unscored) |
 
-**The counts and the entry lists disagree in three rows, and the disagreement is reported rather
-than reconciled by deleting entries.** REFUTED lists six entries against a headline of five;
-PARTIAL sixteen against fourteen; UNDEFINED eleven against nine. **The entry lists are correct and
-the headline numbers are the ones to distrust** — a reader recounting from the lists gets
-REFUTED 6, PARTIAL 16, UNDEFINED 11, which with PROVED 7, CLASSICAL 31, OPEN 4 and PROGRAMME 52
-(49 listed + 3.3 counted under CLASSICAL for its first half) sums differently again. **I am
-stating this rather than silently adjusting**, because the number that matters is not the total:
-it is that **seven claims out of a hundred and thirteen are proved, and six of those seven were
-proved by hand in this pass, in twelve lines, one table and four displayed identities.** A reader
-who wants to know what D0020 is worth should read §5 and rows 8.5, 8.9, 8.10, 1.5 — not §18.
+$7+7+16+40+4+52+11=137$. Every entry list above was recounted against the section tables after the
+first draft of this section had three counts wrong; the draft's headline numbers were corrected
+against the lists, not the lists against the numbers.
+
+**What the totals do and do not say.** **Seven claims of 137 are proved, and six of the seven were
+proved by hand in this pass** — twelve lines of $\mathfrak{sl}_2$ brackets, one exhaustive table,
+and three displayed identities (§5). Forty are classical and correctly stated, which is a real
+property of the transmission and not a criticism: §§1–4 are an exposition and are accurate.
+**Fifty-two are notation awaiting content.** A reader who wants to know what D0020 is worth should
+read §5 and rows 8.5, 8.9, 8.10, 1.5 — not this table.
+
+### 18.1 Rows whose status I consider fragile — **24 of 137**
+
+Fragility here means: *a competent second reader could reasonably file this row differently.* It is
+not doubt about the underlying mathematics, which in each case is displayed.
+
+| rows | why fragile |
+|---|---|
+| 0.3, 0.6, 10.8, J8 (4) | **REFUTED / PARTIAL on a supplied hypothesis or a transferred verdict.** 0.3 refutes a tower by supplying the ambient the archive omits — supply a different one (a proper class, no ambient closed set) and $\kappa$ does not denote and the row becomes UNDEFINED. 0.6 and 10.8 transfer `ORDINAL_LADDER_SMALLNESS.md`'s verdict from $\mathfrak F$ to $\Psi$: the two composites differ in their factors, and J8 asserts the transfer but no note has performed it. J8 depends on 0.3 |
+| 1.2, J2 (2) | **REFUTED on a reading of $\rightsquigarrow$.** I read each $\rightsquigarrow$ as naming *the* repair for the defect on its left; read as a narrative of four historical enlargements it is unobjectionable. The mathematical point ($\varrho$ is a completion) is not fragile; its status as a refutation is |
+| 1.5, 3.10, 8.5 (3) | **REFUTED against a lossy transcription.** All three are one character or one clause from correct, which is exactly the profile of a transcription slip (§1). Refuted *as displayed* is solid; attributing the display to the owner is not |
+| 1.4, 1.9, 2.1, 3.1, 3.3, 3.11 (6) | **CLASSICAL at low resolution.** Each covers between four and nine compressed displays (§19.4); a defect in one of them would be invisible under a single row's status word |
+| 2.3, 2.6, 4.15, 8.11 (4) | **CLASSICAL where the attribution is the claim.** 2.3 is an interpretation, not a theorem; 2.6's gluing axiom holds by construction and its measure is undefined; 4.15 conflates just and equal temperament; 8.11 is the Stanley–Proctor identification J1 itself demands a prior-art search for, and none was done |
+| 5.6, 5.15 (2) | **PARTIAL / PROGRAMME on a formalisation the transmission added.** The guṇa normalisation and the three-natures set difference could each be filed UNDEFINED instead; I filed the softer status because no ambient exists in which they could be false |
+| 6.10, 6.11 (2) | **PARTIAL by a split I chose.** Both separate a well-formed datum from an ill-formed operation on it; a reader who scores the display as a whole gets UNDEFINED for 6.10 and REFUTED for 6.11 |
+| 9.2 (1) | **UNDEFINED where REFUTED is arguable.** Two corpus theorems kill the *class* this display belongs to; neither is about this display, so I declined to refute it. That is a judgement, and it is the judgement `D0019_LEDGER.md` C7 was written to enforce |
+| 10.7 (1) | **PARTIAL by transferred verdict across a change of letters.** $\Theta^+_{\text{विश्व}}$ is D0017's $\mathbb B$ only if the two constructions coincide, which no note has checked — this is 5.1's rule applied to my own transfer |
 
 **Where PROGRAMME means nobody looked.** Explicitly so marked: 4.3, 6.7, 7.1, 7.9 — four displays
 that are truth-shaped enough to be worked and that **no note in this corpus has touched**. The
@@ -592,7 +609,7 @@ verdicts already filed. **§8 is the section to read.**
 > stronger than the prose that frames them, and the errors are in the framing"), and it is a
 > better place for the errors to be, because a wrong term can be deleted and a wrong frame cannot.
 
-This is a claim about one transmission, $n=1$, with 113 scored claims, **no adjudicating note**,
+This is a claim about one transmission, $n=1$, with 137 scored claims, **no adjudicating note**,
 and five hand checks. It should be tested against D0016–D0019 rather than believed, and it is
 weaker than it looks: with no second reader on any row, "the errors are in the details" may only
 mean that details are what a single careful reader finds. **It is not a measurement and has no
