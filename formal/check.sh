@@ -10,6 +10,14 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # makes the subsequent green meaningless rather than merely incomplete.
 "$repo_dir/scripts/check-agda-pragmas.sh"
 
+# The anonymous-`example` oracle gate (notes/AXIOM_GATE.md §7a).  `lake exe
+# axiom_gate` below can only reach NAMED declarations; an `example` emits no
+# constant, so an oracle inside one is structurally invisible to it — and for
+# a time the lane's single `native_decide` sat in exactly that position.  This
+# is the complement, not a replacement, and like the pragma check it needs no
+# toolchain, so it runs before anything expensive.
+"$repo_dir/scripts/check-lean-example-oracles.sh"
+
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine.agda"
 agda -i "$repo_dir/formal/cubical" \
