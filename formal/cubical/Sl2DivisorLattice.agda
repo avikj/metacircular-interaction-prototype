@@ -214,7 +214,7 @@ bracket-ηφ v = funExt (λ κ → funExt (λ d → go κ d))
   go κ zero = ·0ᵣ (pos κ - pos 0) ∙ sym (·0ᵣ (- pos 2))
   go κ (suc d) =
       cong (_- (pos C · ((pos (suc κ) - pos d) · y))) (·Assoc S (pos C) y)
-    ∙ cong ((S · pos C) · y -_) (·Assoc (pos C) (pos (suc κ) - pos d) y)
+    ∙ cong (λ z → (S · pos C) · y - z) (·Assoc (pos C) (pos (suc κ) - pos d) y)
     ∙ scalarStep (S · pos C) (pos C · (pos (suc κ) - pos d))
                  ((- pos 2) · pos C) y sc
     ∙ sym (·Assoc (- pos 2) (pos C) y)
