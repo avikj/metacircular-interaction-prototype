@@ -496,6 +496,42 @@ parseTerm s = case [ t | (t, rest) <- readP_to_S (termP <* eof) s, null rest ] o
   [t] -> Just t
   _   -> Nothing
 
+-- ===================================================================
+-- MEMORY.  The machine wrote machine/library.txt and never read it.
+--
+-- That is not a small thing: `start` has mRules = [] and mKnown = empty,
+-- so every run began from nothing and re-derived what earlier runs had
+-- proved -- when the whole architecture rests on installed theorems
+-- compounding, and the `pruned` percentage is advertised as measuring
+-- exactly that compounding.  library.txt is written with `show`, which
+-- renders infix, and the term parser above reads prefix, so the file it
+-- wrote was not a file it could read.  The fix is a second, machine-
+-- readable trace in the format `parseTerm` already accepts.
+--
+-- WHAT IS NOT DONE HERE, and it matters: a remembered theorem is not
+-- trusted.  It is re-submitted to the same kernel gate at load, and one
+-- that fails is dropped with a log line.  The invariant stays "every
+-- installed rule was kernel-accepted in THIS process", which is the only
+-- version of memory that does not quietly become an axiom store.
+-- ===================================================================
+
+showTermP :: Term -> String
+showTermP (V i)
+  | i >= 0 && i < 6 = ["xyzuvw" !! i]
+  | otherwise       = "v" ++ show i
+showTermP (F n [])  = n
+showTermP (F n ts)  = n ++ "(" ++ intercalate "," (map showTermP ts) ++ ")"
+
+memoryPath :: FilePath
+memoryPath = "machine/library.terms"
+
+parseMemory :: String -> [(Term,Term)]
+parseMemory = mapMaybe line . lines
+  where
+    line s = case splitTabs s of
+      [l,r] -> (,) <$> parseTerm l <*> parseTerm r
+      _     -> Nothing
+
 parseThoughts :: String -> ThoughtBatch
 parseThoughts = foldl' parseLine (ThoughtBatch [] []) . lines
   where
@@ -740,7 +776,7 @@ runSmokeMachine n = do
   ref <- newIORef start
   withFile "/dev/null" WriteMode $ \sink -> do
     hSetBuffering sink LineBuffering
-    replicateM_ n (round1 sink sink ref)
+    replicateM_ n (round1 Nothing sink sink ref)
   readIORef ref
 
 smokeRounds :: Int -> IO ()
@@ -1190,13 +1226,16 @@ binAgda op a b = do
   y <- agdaTerm b
   pure ("(" ++ x ++ " " ++ op ++ " " ++ y ++ ")")
 
-agdaCertificate :: (Term,Term) -> Maybe String
+-- The module name is supplied by the caller, because the candidate is
+-- checked inside formal/cubical (see `kernelAccept`) and two processes
+-- must not write the same file.
+agdaCertificate :: (Term,Term) -> Maybe (String -> String)
 agdaCertificate (l,r) = do
   lhs <- agdaTerm l
   rhs <- agdaTerm r
-  pure $ unlines
+  pure $ \modName -> unlines
     [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
-    , "module Candidate where"
+    , "module " ++ modName ++ " where"
     , "open import Cubical.Foundations.Prelude"
     , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
     , "candidate : (x y z u v w : ℕ) → " ++ lhs ++ " ≡ " ++ rhs
@@ -1210,17 +1249,35 @@ kernelAccept logh roundNo ((l,r),_) =
     Nothing -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
       pure False
-    Just source -> do
-      tmp <- getTemporaryDirectory
-      -- A fixed directory lets concurrent machine processes overwrite one
-      -- another's proposition between write and check.  `mktemp -d` makes
-      -- the proposition/check pair private; cleanup also runs on exceptions.
-      dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
-      let dir = reverse (dropWhile isSpace (reverse dirLine))
-          file = dir </> "Candidate.agda"
+    Just sourceFor -> do
+      -- WHERE THE CANDIDATE HAS TO LIVE, and why this was rewritten.
+      --
+      -- This gate used to write the candidate to a private directory under
+      -- /tmp and run `agda -i formal/cubical -i <dir> <file>`.  That never
+      -- compiled ANYTHING: `-i` adds include paths but does not make Agda
+      -- read a library, so every candidate died on `Failed to find source
+      -- of module Cubical.Foundations.Prelude` and was logged as a
+      -- KERNEL-REJECT indistinguishable from a false statement.  The engine
+      -- has therefore been rejecting all of its own output on a path error,
+      -- which is why machine/library.txt stopped growing and why every run
+      -- reports proved=0.  Found 2026-08-15 by reading the reject text
+      -- instead of the count.
+      --
+      -- Agda finds `cubical` through the .agda-lib in formal/cubical, so
+      -- the candidate must be checked FROM that directory.  The module
+      -- therefore gets a unique name and lives there for the length of one
+      -- check.  Uniqueness matters: concurrent machine processes would
+      -- otherwise overwrite each other's proposition between write and
+      -- check, which is the hazard the old /tmp directory was guarding
+      -- against.
+      nameLine <- readProcess "mktemp" ["-u", "Candidate_XXXXXX"] ""
+      let modName = filter (\c -> isAlphaNum c || c == '_')
+                      (reverse (dropWhile isSpace (reverse nameLine)))
+          file = "formal/cubical" </> (modName ++ ".agda")
+          source = sourceFor modName
       (do writeFile file source
-          (code,out,err) <- readProcessWithExitCode "agda"
-            ["-i", "formal/cubical", "-i", dir, file] ""
+          (code,out,err) <- readProcessWithExitCode "sh"
+            ["-c", "cd formal/cubical && LC_ALL=C.UTF-8 agda " ++ modName ++ ".agda"] ""
           case code of
             ExitSuccess -> do
               hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s\n"
@@ -1230,7 +1287,9 @@ kernelAccept logh roundNo ((l,r),_) =
               hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
                 roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
               pure False)
-        `finally` removePathForcibly dir
+        `finally` (removePathForcibly file
+                   >> removePathForcibly ("formal/cubical/_build/2.6.3/agda/"
+                                          ++ modName ++ ".agdai"))
 
 -- --------------------------------------------------------- the machine
 
@@ -1254,6 +1313,12 @@ data Machine = Machine
   -- ∂ of the previous round: what it stated and did not close.  The growth
   -- rule below reads this, not a boolean.  (NaturalMachine.KFlow)
   , mObstruction :: Int
+  -- how many random assignments the fingerprint is computed on.  It was a
+  -- constant, which made the gate's advice ("enlarge the test set, not the
+  -- term space") impossible to take.  ChuDefect.defect-mono says adding
+  -- tests can only increase the defect, so this is the axis to move when
+  -- the tests stop separating.
+  , mAssign :: Int
   -- observed term count at each (vocab,size) the machine has actually been
   -- in.  This is the weight field of the cost geometry: an equivalence
   -- between two presentations does not determine it, so it is recorded and
@@ -1379,7 +1444,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [(boundedDSOTask "square-threshold" squareThresholdSearch,
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
-  0 M.empty
+  0 kAssign M.empty
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1527,15 +1592,15 @@ isAssociativity f equation = forward equation || forward (swap equation)
       && length (ordNub [a,b,c]) == 3
     forward _ = False
 
-round1 :: Handle -> Handle -> IORef Machine -> IO ()
-round1 logh libh ref = do
+round1 :: Maybe FilePath -> Handle -> Handle -> IORef Machine -> IO ()
+round1 mem logh libh ref = do
   m <- readIORef ref
   t0 <- getCPUTime
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
       nv = kVars
-      envs = assignments nv kAssign
+      envs = assignments nv (mAssign m)
       rules = usableRules m
       raw = genTermsModulo (provedCommutative m) (provedAssociative m)
               sig nv (mSize m)
@@ -1674,6 +1739,13 @@ round1 logh libh ref = do
              -- ∂ of THIS round: stated and not closed.  Read by the next
              -- round's flow classification.
              , mObstruction = obstruction
+             -- the gate's own remedy, taken: when the assignments stop
+             -- separating, buy more assignments rather than more terms.
+             -- Bounded, because an unbounded test set is just a slower
+             -- way to be stuck.
+             , mAssign = case gate of
+                 Advance   -> mAssign m
+                 Refused _ -> min (8 * kAssign) (2 * mAssign m)
              -- the weight this state actually cost, recorded so a later
              -- round can route by it instead of guessing
              , mCosts = M.insert (mVocab m, mSize m) nRaw (mCosts m) }
@@ -1689,6 +1761,11 @@ round1 logh libh ref = do
   forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
+    -- and the same theorem in the form this program can read back.  The
+    -- prose library is for people; this is the machine's own memory.
+    case mem of
+      Nothing   -> return ()
+      Just path -> appendFile path (showTermP l ++ "\t" ++ showTermP r ++ "\n")
   hFlush libh
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
@@ -2177,9 +2254,23 @@ runMachine batch = do
     (length (thoughtCandidates batch)) (length (thoughtResiduals batch))
     (requiredVocabulary batch)
   forM_ (thoughtResiduals batch) $ \r -> hPrintf logh "  RESIDUAL  %s\n" r
+  -- MEMORY.  Read back what earlier runs proved, and re-admit each one
+  -- through the same kernel gate rather than trusting the file.  A
+  -- remembered theorem that no longer certifies is dropped and logged: the
+  -- invariant is that every rule in play was accepted in THIS process.
+  memExists <- doesFileExist memoryPath
+  remembered <- if memExists then parseMemory <$> readFile memoryPath
+                             else pure []
+  admitted <- filterM (\c -> kernelAccept logh 0 (c, "remembered")) remembered
+  hPrintf logh "  MEMORY  remembered=%d re-admitted=%d dropped=%d\n"
+    (length remembered) (length admitted)
+    (length remembered - length admitted)
   let seeded = start { mThoughts = thoughtCandidates batch
                      , mResiduals = thoughtResiduals batch
-                     , mVocab = requiredVocabulary batch }
+                     , mVocab = requiredVocabulary batch
+                     , mRules = mapMaybe orient admitted
+                     , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
+                     , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }
   ref <- newIORef seeded
   -- A machine that halts is not a machine.  The old loop stopped when the
   -- size horizon passed its cap, which is to say: it enumerated a finite
@@ -2189,7 +2280,7 @@ runMachine batch = do
   -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
   -- reason to keep going, so it keeps going.
   let loop :: IO ()
-      loop = round1 logh libh ref >> loop
+      loop = round1 (Just memoryPath) logh libh ref >> loop
   loop
   hClose logh
   hClose libh
