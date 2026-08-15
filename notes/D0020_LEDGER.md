@@ -717,3 +717,46 @@ a covering message. No Python written or run; no `MATH_ALLOW_PYTHON`. No Agda or
 none typechecked. No PDF decoded and none claimed as read. No web fetch. Nothing computed, nothing
 measured, no constant fitted; the five checks of §5 are exact finite symbolic reasoning and are
 displayed in full.*
+
+---
+
+## §21. POINTER (added 2026-08-15, reconciliation pass — by addition; no row above is edited)
+
+**Nothing above is altered**, and no status word is changed here.
+
+§19.1 records that "there is no second reader on any row". There is now, for
+some of them. **Ten of the 137 rows have a checked term behind them** — 1.5,
+7.6, 8.5, 8.10 and J1 in full; 0.3, 5.16, 7.2, 8.11 and J3 in part. Highlights:
+
+- **8.10 and J1 are closed both ways.** `formal/cubical/Sl2DivisorLattice.agda`
+  checks the three brackets in rank one (boundary cases included);
+  `formal/cubical/Sl2TensorProduct.agda` closes the multi-index case
+  $B_n=\bigotimes_i V_{\alpha_i}$ by `tensorRep`, with a non-vacuity control.
+  J1's prior-art instruction is discharged by `NaturalMachine/SpernerFromSl2.agda`'s
+  header, which carries a source **earlier** than row 8.11's — de Bruijn–van
+  Ebbenhorst Tengbergen–Kruyswijk 1951 for the theorem, Stanley/Proctor for the
+  method. The **Sperner conclusion itself is rank-one only**: `GeneralSperner`
+  is written down as a type with no term, with `CharZero` in its hypotheses.
+- **8.5's universal half is now a closed theorem.** `NaturalMachine/TransmissionRefutations.agda`
+  §A finds the witness $\nu=2$ on $\mathbb N$; `NaturalMachine/PiPartialOnEveryPrime.agda`
+  quantifies over **all** primes by deriving the shape from $\Omega(\nu)=1$,
+  closing the nine-witness gap the former declared.
+- **5.16 acquires a split.** `formal/cubical/PolarityClosure.agda` proves that
+  under the Boolean gloss read as the definition of $\perp$, $\alpha\mapsto
+  \alpha^{\perp\perp}$ is the **identity map** — vacuous, not merely undefined —
+  while UNDEFINED stands under the archive's gloss reading. 7.6's polarity is a
+  term, unconditionally.
+- **7.2's certificate shape is refuted** by `NaturalMachine/DecategorifiedDefect.agda`
+  `unsound-certificate`, though the row's PROGRAMME status does not move.
+- **0.3's fragility (§18.1) survives its second reader**: the intersection is not
+  formalised and cannot be, the archive supplying no ambient.
+
+Unchanged and worth repeating: 8.3, 8.4, 8.8 remain **OPEN**, and
+`SpernerFromSl2.agda` states in its own scope note that it is **not** a bridge
+to the Goldbach / critical-line material. The 40 CLASSICAL rows are untouched —
+a checked term is not a citation.
+
+Full table, with module and theorem identifier per row and every PARTIAL split
+named, plus the toolchain caveat on `Sl2TensorProduct` (red under 2.6.3/v0.5,
+green under the pin, pin not runnable in that container):
+**`notes/LEDGERS_RECONCILED.md`** §2.3 and §4.

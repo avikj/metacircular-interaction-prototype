@@ -1342,3 +1342,30 @@ A-11 (an owner-triage identification reported unfounded, with the disposition en
 taken from a covering message. Where a claim was settled by this ledger and by no note, the
 entry says so and gives the argument inline. No Python; no Agda or Lean authored; no PDF
 claimed as read.*
+
+---
+
+## §9. POINTER (added 2026-08-15, reconciliation pass — by addition; no row above is edited)
+
+**Nothing above is altered.** This block is a pointer, not an amendment.
+
+Between the compilation of this ledger and this block, forty-five Agda modules
+landed in `formal/`. **Nine of the 46 entries above now have a checked term
+behind them** — §1.1, §1.2, §1.4 in full; §1.5, §1.6, §2.4, §3.4, §3.8, §3.14
+in part — and three findings run against the record:
+
+- **§2.4 / §3.14's instance list is corrected.** `formal/cubical/GodelSeparation.agda`
+  proves Tarski *is* Cantor's term and **refutes** the claim (inherited from
+  `OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Cor 2.1) that Gödel I is a Lawvere
+  instance: `noHalfTwo` exhibits a finite countermodel. The Lawvere instance is
+  the **diagonal lemma**; incompleteness is that plus arithmetized provability.
+- **§3.8's cited ground is superseded.** `NaturalMachine/ArityOfRepair.agda`
+  makes the dividing line for quantitative defects the **arity** of the repair
+  certificate, not `QUANTITATIVE_VERSUS_STRUCTURAL_DEFECTS.md` Thm A's
+  attainable distinguished zero. The verdict stands; the reason does not.
+- **§1.7's moral gets a second route.** `formal/cubical/SimplicialDefectFailure.agda`
+  `shadow-support-infinite` gives $\lVert\mathcal O(S)\rVert\in\{0,\infty\}$.
+
+Full table, with module and theorem identifier per row, the split named for every
+PARTIAL, and the toolchain under which each exit code was obtained:
+**`notes/LEDGERS_RECONCILED.md`** §2.1 and §4.

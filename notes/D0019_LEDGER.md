@@ -436,3 +436,31 @@ verdict taken from a covering message. No Python written or run; no `MATH_ALLOW_
 or Lean authored, none typechecked. No PDF decoded and none claimed as read. No web fetch. Nothing
 computed, nothing measured, no constant fitted. `notes/OWNER_TRANSMISSIONS_LEDGER.md` was read and
 **not edited**.*
+
+---
+
+## §14. POINTER (added 2026-08-15, reconciliation pass — by addition; no row above is edited)
+
+**Nothing above is altered.** This block is a pointer, not an amendment.
+
+Forty-five Agda modules landed after this ledger was compiled. **Seven of the 71
+claims now have a checked term behind them** — F2 in full; B9, B17, D16, F4, F6,
+F7 in part. Two findings run against the record:
+
+- **B9's row is right and its downstream prose is not.**
+  `NaturalMachine/InflationVersusSubgroup.agda` makes the qualifier "along a
+  quotient" part of a type, and shows on the smallest model
+  ($G=\mathbb Z/4$, $N\cong\mathbb Z/2$) that under the **subgroup** reading
+  there is no map for the theorem to be about — the canonical map runs the other
+  way (`res-is-restriction`). The four flattened sentences in
+  `EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` ("not a repair at all") drop a word
+  with no lexical signature. The row itself is unaffected.
+- **F2/F4/F6/F7's ground is sharpened.** `formal/cubical/InvarianceConstant.agda`
+  replaces `MYSTERY_AND_DESCRIPTION_LENGTH.md` §1's "gap $\gg c$" by the exact
+  threshold **$2c$**, and proves it sharp on both sides (`threshold-sharp`: at
+  $2c$ the costs tie, at $2c-1$ the order reverses).
+
+§G remains PROGRAMME–nobody-looked in all six rows; no module touches it.
+
+Full table, with module and theorem identifier per row and every PARTIAL split
+named: **`notes/LEDGERS_RECONCILED.md`** §2.2 and §4.
