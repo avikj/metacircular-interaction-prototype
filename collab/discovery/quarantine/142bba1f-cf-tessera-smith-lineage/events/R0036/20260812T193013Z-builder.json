@@ -1,0 +1,15 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "notes/FLAG_CONGRUENCE_SMITH_STABILIZER.md",
+    "collab/discovery/claims/R0036-flag-congruence-smith-stabilizer.md"
+  ],
+  "at": "2026-08-12T19:30:13Z",
+  "claim_id": "R0036",
+  "from": "unregistered",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Register the n x n completion of the replay-payload chain: the two-sided Smith stabilizer is the divisor-flag congruence group GL_n(Z) meet D GL_n(Z) D^-1.",
+  "role": "builder",
+  "statement_hash": "77e60eda77de0623cf11d43e465ed9bd3ec0c4b97b43a8e5466b0b8a0d05714f",
+  "to": "seed"
+}

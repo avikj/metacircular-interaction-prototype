@@ -60,6 +60,15 @@ message *"sync: work in progress"*. A grep of `notes/` and `collab/messages/`
 returns discussion of the migration (0467, 0477, 0478) and **no exit code**.
 These are `TERM-UNCHECKED` below: real terms, nobody has shown they check.
 
+> **RETIRED 2026-08-15 (Dedekind lineage), by running them.** All nine exit
+> **0** under the pin (Agda 2.8.0 + cubical v0.9), cold, with the interface
+> files deleted first — the pinned binary of §6.1 still exists in a session
+> scratchpad, so this was a five-second check, not a rebuild. Rows B9/B10/B11
+> below are updated to **TERM**. Details and the table:
+> `notes/GAMMA0_INDEX_EXPONENT.md` §6. The finding was right that no exit code
+> was *recorded*; the inference that the modules were therefore doubtful was
+> wrong.
+
 ---
 
 ## 1. Status key
@@ -137,10 +146,10 @@ Every exit code in this section is my own run today:
 | B5 | **Stagewise defects determine the composite iff the response type is two-valued** | `STAGEWISE_DETERMINES_COMPOSITE.md` Thm A | `StagewiseComposite.agda` — `xorAddBool`, `indBool≡ind`, `threeFails`/`¬DeterminesThree`, and the general biconditional under `Discrete R` alone. Both directions closed; no finiteness. EXIT=0, **and pin-green** in `TOOLCHAIN…` §6.2 (file untouched since: last commit `979fd2ed`, 01:02, before the 01:50 pin run) | **TERM** |
 | B6 | **𝔰𝔩₂ action on a chain of the divisor lattice** (rank one) | `SL2_DIVISOR_LATTICE.md` §§2–3 | `Sl2DivisorLattice.agda` — `bracket-ηε`, `bracket-ηφ`, `bracket-εφ`, `ε-δ`/`ε-δ-top`/`φ-δ`/`φ-δ-bot`/`η-δ`, `ε-grade`/`φ-grade`/`η-grade`. Its own header: *"WHAT IS FORMALIZED: the RANK-ONE case … WHAT IS NOT: the multi-index case `B_n = ⨂_i V_{α_i}`."* EXIT=0; pin-green (§6.2) | **PARTIAL** → closed by B7 |
 | B7 | **𝔰𝔩₂ action on the full multi-index divisor lattice** `B_n = ⨂ V_{α_i}` | same note §1 | `Sl2TensorProduct.agda` — `tensorRep` (the load-bearing lemma), `Bn : ℕ → Sl2Rep` by induction, `tensor-E/F/H`, `Rk2≡Bn2`, plus a non-vacuity control (`E₁F₂ ≠ 0`). **EXIT=42 here**, `Not in scope: ·IdR` at `:119` — the module was repaired *for the pin* (commit `3f865d90`, *"green under the pin"*), which is the intended state under the owner's decision. I could not re-run it under the pin | **TERM** (pin; per §6.2+`3f865d90`, not re-verified by me — flagged) |
-| B8 | **Index formula** `[GLᵣ(ℤ):Γ₀(D)] = ∏_p p^{G_p−E_p}·[r;r₁,…,r_k]_p` | `GAMMA0_FLAG_INDEX.md` (proved by hand) | `Gamma0Index.agda` — every test is `refl` on a kernel-computed count over ℤ/n, for `r = 2,3,4` in the listed cases (up to 4⁹ matrices). The module states its own boundary: *"The verification is corroboration only: the theorem itself is proved in the note."* EXIT=0 | **PARTIAL** (finite corroboration; general formula is prose) |
-| B9 | **R0033**: the 2×2 two-sided Smith stabilizer partner, over all of ℤ | `FLAG_CONGRUENCE_SMITH_STABILIZER.md` | `Gamma0Partner.agda` (forward), `Gamma0Converse.agda` (converse), `Gamma0ConverseSharp.agda`, `Gamma0PartnerRigidity.agda`, `Gamma0Transitivity.agda`, `Gamma0Freeness.agda`. Real terms, read; `solve!` throughout → EXIT=42 under 2.6.3/v0.5 and unbuildable under v0.8 (§0) | **TERM-UNCHECKED** |
-| B10 | **Delta 23 §12**: Goldbach and twin primes are transverse fibrations of one dependent type, and the exchanging involution destroys the cone | `TWO_FIBRATIONS_ONE_FIELD.md` | `PrimePairField.agda` — `fibreCentre`, `fibreGap`, `inCone`, `noSelfDualPair`. Header is exemplary: *"`Goldbach` and `Twin` below are DEFINITIONS … nothing here proves or weakens either."* EXIT=42 (via `CenterRelative`'s `solve!`) | **TERM-UNCHECKED** |
-| B11 | **Kuṭṭaka/vallī as syntax with a replay semantics** | `KUTTAKA_TRACE_MACRO.md` | `KuttakaValli.agda`; EXIT=42 (imports `Gamma0Partner`) | **TERM-UNCHECKED** |
+| B8 | **Index formula** `[GLᵣ(ℤ):Γ₀(D)] = ∏_p p^{G_p−E_p}·[r;r₁,…,r_k]_p` | `GAMMA0_FLAG_INDEX.md` (proved by hand) | `Gamma0Index.agda` — every test is `refl` on a kernel-computed count over ℤ/n, for `r = 2,3,4` in the listed cases (up to 4⁹ matrices). The module states its own boundary: *"The verification is corroboration only: the theorem itself is proved in the note."* EXIT=0 | **PARTIAL** (finite corroboration; the group-theoretic formula is still prose) — but the EXPONENT ARITHMETIC of Theorem A is now a term for **every rank and every divisor chain**: `Gamma0IndexExponent.agda` (2026-08-15, Dedekind lineage; pin EXIT=0 cold, and 2.6.3/v0.5 EXIT=0) proves `E≤G`, `G≡E+excess`, general shift-invariance, and `psi-local` = ψ(p^k)=p^{k−1}(p+1) for all p,k. See `notes/GAMMA0_INDEX_EXPONENT.md` |
+| B9 | **R0033**: the 2×2 two-sided Smith stabilizer partner, over all of ℤ | `FLAG_CONGRUENCE_SMITH_STABILIZER.md` | `Gamma0Partner.agda` (forward), `Gamma0Converse.agda` (converse), `Gamma0ConverseSharp.agda`, `Gamma0PartnerRigidity.agda`, `Gamma0Transitivity.agda`, `Gamma0Freeness.agda`. Real terms, read; `solve!` throughout → EXIT=42 under 2.6.3/v0.5 and unbuildable under v0.8, but all six **EXIT=0 cold under the pin**, 2026-08-15 (§0 addendum) | **TERM** |
+| B10 | **Delta 23 §12**: Goldbach and twin primes are transverse fibrations of one dependent type, and the exchanging involution destroys the cone | `TWO_FIBRATIONS_ONE_FIELD.md` | `PrimePairField.agda` — `fibreCentre`, `fibreGap`, `inCone`, `noSelfDualPair`. Header is exemplary: *"`Goldbach` and `Twin` below are DEFINITIONS … nothing here proves or weakens either."* EXIT=42 under 2.6.3/v0.5 via `CenterRelative`; **EXIT=0 cold under the pin**, 2026-08-15 | **TERM** |
+| B11 | **Kuṭṭaka/vallī as syntax with a replay semantics** | `KUTTAKA_TRACE_MACRO.md` | `KuttakaValli.agda`; EXIT=42 under 2.6.3/v0.5 (imports `Gamma0Partner`); **EXIT=0 cold under the pin**, 2026-08-15 | **TERM** |
 | B12 | **Behavioural apartness** (Prime-Pair Atlas Δ20, T20.4) | Δ20 | `BehavioralApartness.agda`; EXIT=0 | **TERM-UNPINNED** |
 | B13 | **The sieve fibre at the √X horizon; does the arithmetic quotient admit a section?** | `SIEVE_FIBER.md` (owner proposal `U0006`) | `NaturalMachine/SieveFiber.agda` — `roughSplit`, `hasSection`/`hasSectionᵇ`/`chkSection`. **X = 30 fixed**; every `refl` is a 30-element exhaustion. The note itself says §4 *"remains this file's own X = 30"*. EXIT=0 | **PARTIAL** (finite model of a general question) |
 | B14 | **The generative presentation of ℕ** (three presentations equivalent; ℕ ≃ π₀FinSet; carry chart symmetry) | `NATURAL_MACHINE.md` | `NaturalMachine.agda` + closure. Claim-level status is `NATURALMACHINE_CLAIM_AUDIT.md` (84 claims: 61 PROVED, 8 DEFINED-ONLY, 9 OVERSTATED, 6 VACUOUS; three rows since resolved). Build status: **stale** — see §0 | **TERM-UNPINNED at best**, and §0 |
@@ -182,8 +191,8 @@ Counting the 22 lane-A rows, the 16 lane-B rows and the 6 lane-C rows
 |---|---|---|
 | **PROSE** | 20 | 51% |
 | **TERM-UNPINNED** | 7 | 18% |
-| **TERM** (pin-verified Agda, or Lean olean) | 6 | 15% |
-| **TERM-UNCHECKED** | 3 | 8% |
+| **TERM** (pin-verified Agda, or Lean olean) | 9 | 23% |  ← was 6; +3 from the 2026-08-15 cold pin runs of B9/B10/B11 (§0 addendum) 
+| **TERM-UNCHECKED** | 0 | — |  ← was 3; the status is now unused 
 | **PARTIAL** | 3 | 8% |
 
 Read that with §0 in mind: **only one Agda row (B5) is pin-green on a file
@@ -278,6 +287,21 @@ cubical kernel) already contain every ingredient?*
    Gaussian multinomial / parabolic-coset count; the global assembly is CRT.
    Would upgrade a PARTIAL to a TERM and is the one lane-B row whose prose
    proof is fully elementary.
+   **PARTLY DONE 2026-08-15 (Dedekind lineage), `Gamma0IndexExponent.agda`,
+   pin EXIT=0 cold.** Two corrections to this estimate, for the next
+   estimator. (i) The item splits cleanly in two and only one half was ever
+   near: the **exponent arithmetic** (`G ≥ E`, the exact `G = E + excess`
+   refinement, shift-invariance, and `ψ(p^k) = p^{k−1}(p+1)` for all `p,k`) is
+   now a term for every rank; the **group-theoretic** half is not, and was
+   never ≈3 blocks. (ii) The blocker is *not* the analytic one this ledger's
+   §2 identifies. Theorem A needs no analysis at all — it needs **finite group
+   theory**: a `Fin`-cardinality that transports along an equivalence. Cubical
+   v0.9 has no Chinese remainder theorem (`grep -ril chinese Cubical/` is
+   empty) and `formal/` types no group order and no subgroup index anywhere.
+   So the real tier-1 prerequisite, not previously on any queue, is **a
+   count-transport layer for `Fin`**; after it, Lemma 3.2 (the CRT
+   multiplicativity, i.e. `Gamma0Index`'s four `crt*` `refl`s) is one file.
+   See `notes/GAMMA0_INDEX_EXPONENT.md` §3.
 7. **A22 — DPP Theorem 10** (the weight `2πs^{-5}` concentrates the sum at the
    bottom of the spectrum, so no asymptotic zero-statistics input decides
    `V∞ = D`). ≈3 blocks. It is a statement about a fixed explicit weight

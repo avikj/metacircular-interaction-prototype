@@ -102,6 +102,11 @@ import Gamma0ConverseSharp
 import Gamma0Freeness
 import Gamma0Transitivity
 import Gamma0Index
+-- The exponent half of GAMMA0_FLAG_INDEX Theorem A, general in rank and
+-- divisor chain: E <= G, the exact refinement G = E + excess, shift
+-- invariance, and psi(p^k) in multiplicative form.  Landed as an orphan
+-- (nothing rechecked it); EXIT=0 standalone under the pin before folding.
+import Gamma0IndexExponent
 import M2Unimodular
 import M1SplitIdentity
 import SmithTorsorBridge
