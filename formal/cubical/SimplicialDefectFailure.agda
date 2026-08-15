@@ -705,12 +705,32 @@ Blk-del zero    (bjump c) = Cst→Blk c
 Blk-del (suc n) (bsame b) = bsame (Blk-del n b)
 Blk-del (suc n) (bjump c) = bjump (Cst-del n c)
 
-Cst-face₀ : {j x : Bool} {t : List Bool} → Cst j (x ∷ t) → Cst x t
-Cst-face₀ (ccons c) = c
+-- Closure under d₀ is proved at the level of the counts rather than of
+-- the predicates: d₀ moves the basepoint, so it is not an instance of
+-- delL, and matching on a constructor with index (x ∷ t) is exactly the
+-- pattern Cubical Agda declines.
+trans-face₀-Cst : (i x : Bool) (t : List Bool)
+                → transL i (x ∷ t) ≡ 0 → transL x t ≡ 0
+trans-face₀-Cst false false t p = p
+trans-face₀-Cst true  true  t p = p
+trans-face₀-Cst false true  t p = ⊥Mod.rec (snotz p)
+trans-face₀-Cst true  false  t p = ⊥Mod.rec (snotz p)
 
-Blk-face₀ : {i x : Bool} {t : List Bool} → Blk i (x ∷ t) → Blk x t
-Blk-face₀ (bsame b) = b
-Blk-face₀ (bjump c) = Cst→Blk c
+trans-face₀ : (i x : Bool) (t : List Bool)
+            → transL i (x ∷ t) ≡ step i (lastL i (x ∷ t))
+            → transL x t ≡ step x (lastL x t)
+trans-face₀ false false t p = p
+trans-face₀ true  true  t p = p
+trans-face₀ false true  t p =
+  n0 ∙ sym (cong (step true) (Cst→last (trans→Cst true t n0)) ∙ step-refl true)
+  where
+  n0 : transL true t ≡ 0
+  n0 = sucStep (lastL true t) (transL true t) p
+trans-face₀ true  false t p =
+  n0 ∙ sym (cong (step false) (Cst→last (trans→Cst false t n0)) ∙ step-refl false)
+  where
+  n0 : transL false t ≡ 0
+  n0 = sucStep (not (lastL false t)) (transL false t) p
 
 ------------------------------------------------------------------------
 -- §5.1  The ℤ bookkeeping: 𝔥 ≡ 0 decoded, in each reading.
@@ -739,28 +759,39 @@ GoodC GoodA : Simplex Bool → Type₀
 GoodC σ = 𝔥C σ ≡ pos 0
 GoodA σ = 𝔥A σ ≡ pos 0
 
+-- Corpus reading: 𝔥 ≡ 0 ⟺ t(σ) = ε(σ) ⟺ σ is a block simplex.
+GoodC→eq : (i : Bool) (t : List Bool) → GoodC (i ◂ t) → transL i t ≡ step i (lastL i t)
+GoodC→eq i t g =
+  injPos (-+≡0→≡ (pos (step i (lastL i t))) (pos (transL i t)) (sym (𝔥C≡ i t) ∙ g))
+
+eq→GoodC : (i : Bool) (t : List Bool) → transL i t ≡ step i (lastL i t) → GoodC (i ◂ t)
+eq→GoodC i t q =
+    𝔥C≡ i t
+  ∙ ≡→-+≡0 (pos (step i (lastL i t))) (pos (transL i t)) (cong pos q)
+
 GoodC→Blk : (i : Bool) (t : List Bool) → GoodC (i ◂ t) → Blk i t
-GoodC→Blk i t g =
-  trans→Blk i t
-    (injPos (-+≡0→≡ (pos (step i (lastL i t))) (pos (transL i t)) (sym (𝔥C≡ i t) ∙ g)))
+GoodC→Blk i t g = trans→Blk i t (GoodC→eq i t g)
 
 Blk→GoodC : (i : Bool) (t : List Bool) → Blk i t → GoodC (i ◂ t)
-Blk→GoodC i t b =
-    𝔥C≡ i t
-  ∙ ≡→-+≡0 (pos (step i (lastL i t))) (pos (transL i t)) (cong pos (Blk→trans b))
+Blk→GoodC i t b = eq→GoodC i t (Blk→trans b)
 
-GoodA→Cst : (i : Bool) (t : List Bool) → GoodA (i ◂ t) → Cst i t
-GoodA→Cst i t g =
-  trans→Cst i t (snd-of (m+n≡0→m≡0×n≡0 (injPos (sym (𝔥A≡ i t) ∙ g))))
+-- Archive reading: 𝔥 ≡ 0 ⟺ t(σ) = 0 ⟺ σ is a constant simplex.
+GoodA→eq : (i : Bool) (t : List Bool) → GoodA (i ◂ t) → transL i t ≡ 0
+GoodA→eq i t g = snd-of (m+n≡0→m≡0×n≡0 (injPos (sym (𝔥A≡ i t) ∙ g)))
   where
   snd-of : {A B : Type₀} → A × B → B
   snd-of (_ , b) = b
 
-Cst→GoodA : (i : Bool) (t : List Bool) → Cst i t → GoodA (i ◂ t)
-Cst→GoodA i t c =
+eq→GoodA : (i : Bool) (t : List Bool) → transL i t ≡ 0 → GoodA (i ◂ t)
+eq→GoodA i t q =
     𝔥A≡ i t
-  ∙ cong pos (cong₂ _+ℕ_ (cong (step i) (Cst→last c) ∙ step-refl i)
-                         (Cst→trans c))
+  ∙ cong pos (cong₂ _+ℕ_ (cong (step i) (Cst→last (trans→Cst i t q)) ∙ step-refl i) q)
+
+GoodA→Cst : (i : Bool) (t : List Bool) → GoodA (i ◂ t) → Cst i t
+GoodA→Cst i t g = trans→Cst i t (GoodA→eq i t g)
+
+Cst→GoodA : (i : Bool) (t : List Bool) → Cst i t → GoodA (i ◂ t)
+Cst→GoodA i t c = eq→GoodA i t (Cst→trans c)
 
 ------------------------------------------------------------------------
 -- §5.2  The defect as a subset of X = ℤ, and the poset (𝒫(X), ⊆).
