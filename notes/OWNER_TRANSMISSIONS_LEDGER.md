@@ -419,7 +419,7 @@ the fact that nobody worked on them. **Scope limit, stated as such.**
 >   density/codensity pair of §3.9 restated — it is that pair *with its argument deleted from
 >   one leg and its index category replaced on the other*, plus a restatement of the pair's
 >   trivial case.
-> - **That note's own restriction of this ledger's closing generalisation** is filed at A-13.
+> - **That note's own restriction of this ledger's closing generalisation** is filed at A-15 (§8.1).
 >
 > **A-6′ (`REFEREE`) — two notes disagree about §I's second claim, and the clerk does not
 > choose.** `notes/ATTACK_SET_CALIBRATED.md` (seed166, `0767`) §3.11 verdicts
