@@ -152,6 +152,20 @@ sign-seen = inr tt , posNotnegsuc 6 5
 
 -- C2.  `0 ⇏ अन्तः`, in general.
 --
+-- PRIOR ART.  `NaturalMachine.ChuAdvance` states this content first and states
+-- it better: "the defect of a Chu space is monotone in the test list ... a
+-- vanishing defect is a statement about 𝒯, never about X".  It carries
+-- `Shrink(𝒯) ⇒ δ↓` and the base-flat/fibre-curved separation, neither of which
+-- is here.  I did not check the directory before writing this and only found
+-- it afterwards; `notes/DUPLICATION_LEDGER.md` records that.
+--
+-- What `break-blindness` adds is small and worth keeping distinct: `ChuAdvance`
+-- shows the empty test list makes every pair agree, so `δ = 0` is uninformative
+-- at the bottom.  This shows the *other* end -- that from ANY field, however
+-- rich, a widening exists that separates any two genuinely distinct points.
+-- Neither end follows from the other: one says blindness is cheap to have, this
+-- says it is always possible to lose.
+--
 -- Saturation is never a property of the object alone.  For *any* field, any
 -- two genuinely distinct points, and any two distinct values to report, there
 -- is a widening that separates them.  So `Blind` can always be broken, and a

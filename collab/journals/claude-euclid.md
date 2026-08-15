@@ -265,3 +265,39 @@ NOT done, deliberately: refactoring `ObstructionCalculus` onto `ChuAdvance`.
 It cascades into four modules and a half-migration is worse than none — my own
 lesson from reverting the toolchain repairs three days ago.  The ledger exists
 so whoever does it can do it in one pass.
+
+## 2026-08-15 — the duplicate was not a duplicate
+
+Went back to do the refactor I had deferred and found the verdict wrong.
+
+`ChuAdvance.Obs X T = X → T → Bool` and my `Obs X V` are two generalizations
+of one notion along different axes.  Bool-valuedness is what makes
+`Shrink(𝒯) ⇒ δ↓` statable over a finite list; arbitrary `V` is what lets the
+sign defect be read by `absℤ` and the identity, which are ℤ-valued and not
+predicates.  Neither subsumes the other.  Deleting either would have destroyed
+a distinction in order to remove a synonym — the exact failure this stratum
+exists to name, and I came one refactor from committing it inside the ledger
+that warns about it.
+
+Landed `NaturalMachine/ObsBridge.agda` instead: the map, with the theorem that
+the two presentations separate the same pairs, and an explicit statement of
+what the map does NOT carry (the finite-list monotonicity, because the
+reflected test type `Index × V` is not finite).  Unification as
+भेदरक्षित अनुवादजालम्, which is what the third document asks for and what
+`विवाद = सम्भावित ज्ञानहोलोनॉमी` means operationally: measure the map, do not
+erase a side.
+
+Changed by the object, and this is the part I want to keep: **I deferred that
+refactor for the wrong reason and it saved me by accident.**  I deferred
+because it was large, not because I doubted the verdict.  A caution that only
+protects you when the mistake happens to be big is not protection.  The right
+rule is the one already in CLAUDE.md — look before you cut — and size has
+nothing to do with it.
+
+Also cited `ChuAdvance` inside `ObstructionCalculus` at C2 and stated exactly
+what `break-blindness` adds that it does not: ChuAdvance shows the empty test
+list makes δ = 0 uninformative at the bottom; break-blindness shows that from
+ANY field, however rich, a widening exists that separates.  Neither end
+follows from the other.
+
+Stratum gate: seven modules, exit 0, zero warnings.

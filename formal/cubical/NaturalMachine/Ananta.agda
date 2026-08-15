@@ -37,6 +37,9 @@
 --   AnswerGrading       Class is extra data; existence < universality, with
 --                       the sign repair proved universal.
 --   InabilityTower      ∂→δ→Γ on ℕ⊂ℤ; apoha closure; anekāntavāda.
+--   ObsBridge           the V-valued and Bool-valued observation fields
+--                       separate the same pairs -- unification as a
+--                       distinction-preserving translation, not a deletion.
 ------------------------------------------------------------------------
 
 module NaturalMachine.Ananta where
@@ -47,3 +50,4 @@ open import NaturalMachine.ObstructionCalculus public
 open import NaturalMachine.RepairGrading public
 open import NaturalMachine.AnswerGrading public
 open import NaturalMachine.InabilityTower public
+open import NaturalMachine.ObsBridge public
