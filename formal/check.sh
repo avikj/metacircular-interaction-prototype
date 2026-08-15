@@ -18,6 +18,13 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # toolchain, so it runs before anything expensive.
 "$repo_dir/scripts/check-lean-example-oracles.sh"
 
+# The silent-deletion gate (notes/REGISTRY_DELETION_142bba1f.md). Commit
+# 142bba1f removed 53 registry files under a subject that describes a sync;
+# the loss was found by an archivist draw, not by any check. Needs no
+# toolchain, so it runs with the other cheap gates. HEAD only here; CI runs
+# it over the pushed range, and `--pre-push` covers a branch before it lands.
+"$repo_dir/scripts/check-no-silent-deletion.sh"
+
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine.agda"
 agda -i "$repo_dir/formal/cubical" \

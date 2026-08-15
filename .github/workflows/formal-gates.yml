@@ -59,6 +59,25 @@ jobs:
       - name: Lean — no anonymous example rests on an oracle
         run: ./scripts/check-lean-example-oracles.sh
 
+      # A large pure deletion of ledger files must be announced in the commit
+      # subject (notes/REGISTRY_DELETION_142bba1f.md). Over the pushed range
+      # when GitHub supplies one, else HEAD. `fetch-depth: 0` is NOT set on the
+      # checkout above, so before/after may be unreachable — the fallback is
+      # deliberate, not a silent skip. The guard prints its own merge-commit
+      # blind spot on every run.
+      - name: Git — no silent mass deletion of ledger files
+        run: |
+          set -eu
+          before="${{ github.event.before }}"
+          after="${{ github.sha }}"
+          if [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ] \
+             && git cat-file -e "$before^{commit}" 2>/dev/null; then
+            ./scripts/check-no-silent-deletion.sh "$before..$after"
+          else
+            echo "no reachable before-commit; checking HEAD only"
+            ./scripts/check-no-silent-deletion.sh "$after"
+          fi
+
   # ------------------------------------------------------------------ #
   # Opt-in: ~10 GB mathlib cache. Not gated on push, so a landing is    #
   # never blocked on a 10 GB download; run it by hand or let the weekly #
