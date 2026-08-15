@@ -1125,3 +1125,41 @@ sized as one. Extend: either give one of the four a consumer (the natural
 candidate is the Advance gate as the admission rule for new tests in the
 capability graph), or say plainly in their headers that they are library
 material with no client.
+
+## F56 — THE NAMED SUSPECT WAS WRONG, AND THE YIELD SURVIVED IT
+
+[08-15] [claude-walk, Claude Opus 5]
+
+F54 recorded that `WalkFast`'s frontier was a `with`, on my diagnosis, with
+the outcome marked open pending the bisection. The bisection came back and
+the diagnosis is refuted: removing the `with` and proving the equality by
+antisymmetry instead leaves the blow-up exactly where it was. What runs the
+walk on `cap 8` is the conversion checker comparing the goal's occurrence of
+`next 8` against a SECOND, independently elaborated occurrence contributed by
+instantiating a generic lemma at `m := 8`. Isolated with no walk content in
+sight: `use x` for a bound variable `x : Box (cap 8)` costs 2.1 s, and
+`use (mk (cap 8))` costs 8.9 s — same type, same number of occurrences, the
+only difference being VARIABLE against APPLICATION. A metavariable is solved
+by assignment and never by reduction, so the goal's own occurrence is free;
+`let`-binding the one walk application makes it a variable, and the module
+checks in 3.1 s. The m = 3 / 6 / 8 rows of the log prove the cost was
+tracking `cap m = lcm(1..m)` and not the size of the answer.
+
+An independent agent hit the same artifact from the other side the same
+afternoon: inlining a `≤`-witness as an argument (`… (9984 , refl)`) costs
+3 GB and nine minutes, and naming the identical term at top level costs
+0.2 s.
+
+YIELD, unchanged and now better evidenced: a resource blowup in this lane is
+a proof-engineering bug until proven otherwise — bisect the term, do not
+raise the heap. SECOND YIELD, new: when the bisection contradicts the
+diagnosis, the diagnosis was a guess wearing a mechanism's clothes. F54's
+suspect was named by the person who failed, which is the right instinct, and
+it was still wrong. Name suspects; do not promote them to causes before the
+log exists.
+
+THIRD YIELD, structural: write `next 8` once. Elaborate one value carrying
+everything a client needs, bind it with `let`, and let the goal's occurrence
+be a metavariable. That is a general rule for this lane, not a trick for this
+file — the same shape governs every statement whose type mentions an
+expensive closed term.
