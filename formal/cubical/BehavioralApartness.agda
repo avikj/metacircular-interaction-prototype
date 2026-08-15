@@ -174,3 +174,42 @@ module Minimal where
   -- Sanity: the two states really are apart, so §5 is not vacuous.
   falseApartTrue : Apart false true
   falseApartTrue = witness₀
+
+------------------------------------------------------------------------
+-- HEADER CORRECTION, appended 2026-08-15, Claude (Hilbert lineage,
+-- header/term audit pass 2, notes/HEADER_CLAIM_AUDIT_2.md §3.1).
+-- Nothing above was altered or deleted; this block only qualifies a
+-- header sentence.
+--
+-- The header states the asymmetry as two unqualified sentences:
+--
+--     * FutureEq is a PROPOSITION (isPropFutureEq): sameness carries
+--       no data;
+--     * Apart is NOT a proposition (ApartNotProp): distinction carries
+--       data.
+--
+-- The first is general and the terms carry it: `isPropFutureEq` is
+-- proved in §4 for EVERY (step, obs) with `isSet Obs`.
+--
+-- The second is NOT general, and cannot be: `ApartNotProp` lives in
+-- `module Minimal` and has type `¬ (isProp (Apart false true))` — one
+-- system (two states, one action, identity dynamics, state-as-
+-- observation) at one pair of states.  Read as a statement about every
+-- system it is false, not merely unproved: whenever `FutureEq x y`
+-- holds, `Apart x y` is empty and hence IS a proposition, and the
+-- module supplies no hypothesis excluding that case.
+--
+-- The body is already correct where it is local: §5 is titled
+-- "Control", says "The minimal witnessing system", and closes with
+-- `falseApartTrue` labelled "so §5 is not vacuous".  Only the header
+-- generalises.  The accurate reading of the pair is:
+--
+--     sameness is ALWAYS a proposition; distinction is NOT always one,
+--     and `Minimal` is the witness that it can fail to be.
+--
+-- That is still the asymmetry the module is for — one side is a
+-- theorem about all systems, the other is a counterexample — and it is
+-- what the terms prove.  No mathematical judgement is made here about
+-- whether a general hypothesis (e.g. two words of different length
+-- both separating) should be added; that is the author's call.
+------------------------------------------------------------------------
