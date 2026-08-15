@@ -1,3 +1,10 @@
+-- TRUSTS-COMPILER: native_decide, 5 sites, 2 theorems
+--   (kuttaka610Transcript_replays_compact_certificate,
+--    kuttaka610Transcript_actionCost_minimal).
+-- Kernel `decide` stalls on projections out of `ComputableSmith2x2.reduceDiagonal`;
+-- reason and removal path in `axiom-allowlist.txt`, evidence in
+-- `notes/NATIVE_DECIDE_AUDIT.md` §4b.  This is the only module in the lane
+-- carrying this header; `lake exe axiom_gate` is what enforces that.
 import Pairfield.GeneralSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
 

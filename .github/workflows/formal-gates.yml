@@ -67,3 +67,15 @@ jobs:
           set -eu
           lake exe cache get
           lake build
+
+      # The axiom gate (notes/AXIOM_GATE.md).  Lean has no `--safe` flag; this
+      # is the lane's substitute.  It runs only after a green build, because a
+      # gate over a red build is theatre: a module that fails to compile has no
+      # theorems to be tainted, and its absence would read as cleanliness.
+      # Strictly stronger than grepping for `native_decide` — it sees taint
+      # propagated through imports, and needs no list of escape-hatch names.
+      - name: Axiom gate (collectAxioms over every Pairfield.* declaration)
+        working-directory: formal/pairfield
+        run: |
+          set -eu
+          lake exe axiom_gate
