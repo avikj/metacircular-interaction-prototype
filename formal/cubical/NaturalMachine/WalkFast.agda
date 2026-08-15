@@ -39,23 +39,85 @@
 -- procedure's own non-vacuity (`test-9 : IsPrimePower 9`, obtained by
 -- the kernel evaluating `decIsPrimePower 9`).  Whole file, EXIT=0, 3 s.
 --
--- NOT DELIVERED: the payoff instances.  `next-8 : next 8 ≡ 9` — built
--- exactly as the exchange rate prescribes, with every ingredient
--- individually cheap (`decIsPrimePower 9` evaluates in 3 s; the interval
--- is empty; the order proofs are `refl`) — nevertheless exhausts a
--- 3.5 GB heap after 5 minutes.  So SOMETHING still forces `next 8`, and
--- I do not yet know what; the obvious suspect is the `with`-abstraction
--- on `q ≟ next m` inside `next-characterised`.
+-- ALSO DELIVERED, AS OF 2026-08-15, BUT NOT IN THIS FILE: the payoff
+-- instances.  `NaturalMachine.WalkFastInstance` typechecks
 --
--- That gap is left open and named rather than papered over.  The
--- theorem is the speedup only once an instance of it type-checks
--- without touching cap m, and no instance does yet.  Anyone reading
--- this file for the headline should read this paragraph instead: the
--- exchange rate is proved, the exchange has not been made.
+--     next-8  : next 8  ≡ 9
+--     next-9  : next 9  ≡ 11
+--     next-10 : next 10 ≡ 11
+--
+-- whole module ~3 s, EXIT=0, --safe, no postulate and no hole, with
+-- `cap m` never evaluated.  The exchange rate has therefore been MADE,
+-- not merely proved.  The paragraph this replaced said the opposite and
+-- is preserved verbatim under HISTORY below; do not quote it as the
+-- state of the lane.
+--
+-- AND THE SUSPECT THIS HEADER NAMED WAS INNOCENT.  The correction is
+-- not "the `with` was fixed" — it is that the `with` was never the
+-- cause.  `WalkFastInstance` carries the bisection log with its
+-- controls, and two rows of it settle the question: applying
+-- `next-characterised` itself, `with`-abstraction and all, at m = 8
+-- exhausts the heap in 17 s; replacing the `with` by an antisymmetry
+-- argument whose own case split is on VARIABLES fails identically, in
+-- the same 17 s.  Both are rescued by the same change, a `let` with no
+-- type signature.
+--
+-- WHAT ACTUALLY FORCES THE EVALUATION is in the conversion checker.
+-- The goal type `next 8 ≡ 9` contains one occurrence of `next 8`;
+-- instantiating any lemma of this file at m := 8 contributes a SECOND,
+-- independently elaborated occurrence, and putting the two side by side
+-- runs the walk on cap 8.  A metavariable is solved by assignment and
+-- never by reduction, so handing the proof the goal's OWN `next 8` is
+-- free; building a second one costs 3.5 GB.  Hence `WalkFastInstance`
+-- packages everything the walk knows into one value, binds it with a
+-- signature-free `let` (a signature is itself a second elaboration of
+-- `next 8`, and loses), and lets the goal supply `next m` as a meta.
+--
+-- CONSEQUENCE FOR THIS FILE, and it is a real one.
+-- `next-characterised` below is cheap to PROVE, because m is a
+-- variable, and useless to APPLY at a numeral, because its conclusion
+-- `next m ≡ q` writes `next m` a second time.  It is kept because it is
+-- the statement the surrounding notes quote; the applicable form is
+-- `WalkFastInstance.conclude`, which takes the walk's answer as a plain
+-- variable `n`.  Anyone building a further instance should start there
+-- and not here.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-14.
 -- No postulates, no holes.  EXIT=0 for this file and for the aggregate
 -- `NaturalMachine.agda`, which imports it.
+--
+-- HEADER REVISED 2026-08-15 (comment only; not one line of code below
+-- was touched).  Re-typechecked after the edit: EXIT=0 in 2.3 s, and
+-- `WalkFastInstance` EXIT=0 in 3.1 s — but under Agda 2.6.3 with the
+-- cubical checkout at /tmp/cubical (`cubical-0.7`), which is NOT the
+-- repository pin (Agda 2.8.0 + cubical v0.9, see BUILD.md).  Treat that
+-- as a syntax-and-scope check of the comment, not as a pin result; the
+-- pin figures for `WalkFastInstance` (15 s wall, peak RSS 333-388 MB)
+-- are recorded in its own header.
+--
+-- ------------------------------------------------------------------
+-- HISTORY.  Kept rather than deleted, per this lane's convention — cf.
+-- the retracted first-revision header preserved at the foot of
+-- `WalkFastInstance`.  Until 2026-08-15 this section read:
+--
+-- > NOT DELIVERED: the payoff instances.  `next-8 : next 8 ≡ 9` — built
+-- > exactly as the exchange rate prescribes, with every ingredient
+-- > individually cheap (`decIsPrimePower 9` evaluates in 3 s; the
+-- > interval is empty; the order proofs are `refl`) — nevertheless
+-- > exhausts a 3.5 GB heap after 5 minutes.  So SOMETHING still forces
+-- > `next 8`, and I do not yet know what; the obvious suspect is the
+-- > `with`-abstraction on `q ≟ next m` inside `next-characterised`.
+-- >
+-- > That gap is left open and named rather than papered over.  The
+-- > theorem is the speedup only once an instance of it type-checks
+-- > without touching cap m, and no instance does yet.  Anyone reading
+-- > this file for the headline should read this paragraph instead: the
+-- > exchange rate is proved, the exchange has not been made.
+--
+-- The measurement in that paragraph was right; the diagnosis attached
+-- to it was wrong.  "SOMETHING still forces `next 8`" was the correct
+-- question, and the answer is: a second elaboration of `next 8`.
+-- ------------------------------------------------------------------
 ------------------------------------------------------------------------
 
 module NaturalMachine.WalkFast where

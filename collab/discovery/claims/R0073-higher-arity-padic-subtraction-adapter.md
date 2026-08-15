@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0631-codex-mathlib-higher-arity-padic-claim
 dependencies: none
-statement_hash: cebf85b46e9076977f4561abe576cc58aa16fce202495c5edbc302fcc89e5975
+statement_hash: d633627797d1e7d16c4d70cdd70ac0afcb0aac540cbff76ba8df978dcc352411
 cycle: 2
 max_cycles: 3
 owner: codex_mathlib_ingestor
@@ -117,3 +117,8 @@ Mathlib's `padicValRat.add_eq_min`; no novelty is claimed.
 - 2026-08-14: numeric bridge receives `ACCEPT-NARROW`; continuation checks the
   full labeled proper-subset collision; independent replay returns `ACCEPT`;
   status `proving`.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

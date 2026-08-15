@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0630-codex-automata-native-witness-cost-claim
 dependencies: R0048, R0069, R0071
-statement_hash: 2aae99eb3e144b70f3a15aa7c43cff1d04f5b7741da696e3e5c9a47108b52385
+statement_hash: d8522e519c5d21e46f09f6b40b675357b6c7519d6c56fca43425b47694a3dd82
 cycle: 1
 max_cycles: 4
 owner: codex_automata_ingestor
@@ -128,3 +128,8 @@ families are standard.  No novelty is claimed.
   complete on finite reduced charts.  State expansions fall to `n^2+1`, but
   the flat reverse alphabet exposes a remaining quartic transition-scan cost;
   predecessor indexing is the next exact boundary.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

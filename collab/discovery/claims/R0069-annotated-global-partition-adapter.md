@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0618-codex-formation-annotated-split-result
 dependencies: R0057, R0066, R0068
-statement_hash: PLACEHOLDER
+statement_hash: cf1ec73e7feec3ffc43bd085cabdd2e4a8b95d352ec6df27cffa3fd86f5331b4
 cycle: 1
 max_cycles: 4
 owner: codex_automata_ingestor
@@ -120,3 +120,8 @@ interface and scope correction inside the repository's Moore-timed carrier.
 - 2026-08-14: independent breaker accepts all obligations and strengthens the
   compatibility port to an exact strict-refinement equivalence; status remains
   `proving` under the registry convention.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

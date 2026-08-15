@@ -6,6 +6,16 @@ An executable behavioral quotient of a supplied finite DFA.  Exact row
 equality comes from `ChartStateBFS`; Mathlib's finite quotient instance turns
 that decision into a native finite state carrier.
 -/
+-- TRUSTS-COMPILER: `ChartQuotientWitness.quotientCard_eq_three` is proved by
+-- `native_decide` and therefore rests on a compiler-generated axiom
+-- (`…quotientCard_eq_three._native.native_decide.ax_1_1`, Lean 4.33's
+-- per-declaration form of `Lean.ofReduceBool`), i.e. on the Lean compiler
+-- rather than the kernel.  It is the ONLY such declaration in the
+-- lane; see `formal/pairfield/axiom-allowlist.txt` for the observed reason and
+-- the removal path.  Nothing else in this file uses it, and no other module in
+-- `Pairfield/` carries this header.  `lake exe axiom_gate` is what keeps that
+-- true, and `scripts/check-lean-example-oracles.sh` is what keeps the
+-- declaration named, so the gate can see it at all.
 import Pairfield.ChartStateBFS
 
 namespace Pairfield
@@ -234,7 +244,8 @@ local instance : Fintype (Quotient (dfaFutureSetoid automaton)) :=
 
 /-- The executable quotient merges the duplicate row: four rows become three
 future classes. -/
-example : Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3 := by
+theorem quotientCard_eq_three :
+    Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3 := by
   native_decide
 
 example : (behavioralQuotientDFA automaton).accepts = automaton.accepts :=

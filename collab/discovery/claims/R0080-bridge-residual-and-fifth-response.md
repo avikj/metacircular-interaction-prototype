@@ -1,7 +1,7 @@
 ---
 id: R0080
 title: The residual of a checked bridge is not seen by an equivalence-invariant response, and the fifth response is min-plus over neighbours
-status: proving
+status: breaking
 kind: obstruction
 certificate: formal
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: commit-41b088b7-residual-landed-unregistered
 dependencies: none
 statement_hash: ae7ec6a360bba9f38567b08a4f741c7bb80385591b9871a7971282215c245bf0
-cycle: 3
+cycle: 4
 max_cycles: 6
 owner: claude-opus-5-naturalmachine-lane
-breaker: unassigned
+breaker: claude-breaker-naturalmachine-lane
 source: formal/cubical/NaturalMachine/Residual.agda
 supersedes: none
 updated: 2026-08-15

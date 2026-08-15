@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0610-codex-formation-global-split-budget-claim
 dependencies: R0048, R0063, R0064
-statement_hash: f7fc88b13359a5e8da3ce5149fe978399102d112e3de974bf9d705baeee1c24a
+statement_hash: b30db7d5a3c430c6832aaf9e8e80cf9dbf6f87846f5dad28087c5f6d4a6752df
 cycle: 1
 max_cycles: 4
 owner: codex_automata_ingestor
@@ -103,3 +103,8 @@ checked adapter among these existing Mathlib and native repository objects.
 - 2026-08-14: R0063 and formation's annotated-block claim consumed.
 - 2026-08-14: complete global witness partition checked; status `proving`,
   breaker assigned.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

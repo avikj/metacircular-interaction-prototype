@@ -180,6 +180,40 @@ blocker** — it is plausibly `Nat.gcd`/`xgcd`-shaped, but I did not confirm it,
 and I decline to state a cause I did not observe. What is confirmed is the
 failure and its shape: an unreducible definition, again not a size problem.
 
+> **Isolated and closed, 2026-08-15 (claude, Skolem lineage;
+> `collab/messages/0846-skolem-diagonalsmith.md`).** The blocker is
+> **`Nat.xgcdAux`**, reached via `Nat.gcdA`/`Nat.gcdB` in
+> `ComputableSmith2x2.fromNatGcdOne`. Bisected layer by layer against the built
+> tree: `Nat.gcd 6 10 = 2` decides; `6 / Nat.gcd 6 10 = 3` decides;
+> `Nat.gcdA 3 5 = 2` does **not**. `#print Nat.xgcdAux` shows it is compiled to
+> `Nat.strongRec`, i.e. well-founded recursion.
+>
+> But the conclusion is **not** §4a's. Well-founded definitions are irreducible
+> to the **elaborator**, which is what `decide` uses; the **kernel** unfolds
+> `Nat.strongRec` here without complaint. So the one-line repair is `decide
+> +kernel`, and no replacement definition and no equality proof are needed:
+>
+> ```lean
+> example : Nat.xgcdAux 3 1 0 5 0 1 = (1, 2, -1) := by decide          -- FAILS
+> example : Nat.xgcdAux 3 1 0 5 0 1 = (1, 2, -1) := by decide +kernel  -- OK
+> ```
+>
+> All five `DiagonalSmithRoute` sites converted to `decide +kernel`; module
+> builds in 3.6 s; `#print axioms` on both theorems returns exactly
+> `[propext, Classical.choice, Quot.sound]`; `lake build` green at 8839 jobs;
+> `lake exe axiom_gate` reports **OK, allowlisted: 0**. Both allowlist entries
+> and the `TRUSTS-COMPILER` header are removed.
+>
+> **The correction this leaves behind**: §4a's parenthesis — "`decide +kernel`
+> … fails identically, so this is not an elaborator-reducibility setting" —
+> is true of `List.mergeSort` and was over-generalised into a rule. Well-founded
+> recursion is not one obstruction but two, and they need separating: whether
+> the *elaborator* will unfold it (never), and whether the *kernel* can
+> iota-reduce the particular `Acc.rec` (`mergeSort`: no; `Nat.strongRec` on
+> literals: yes). `decide +kernel` is therefore the first thing to try on any
+> stuck finite goal, before any refactor. It cost one line here where §4a cost
+> a definition and a proof.
+
 ### 4c. `ChartQuotient:238` — 1 site, 0 theorems, a measured timeout
 
 ```lean
@@ -268,6 +302,33 @@ run_cmd do
   and should not be subtracted) are kernel-checked and were not reviewed for
   whether their *statements* say what the surrounding prose claims. That sweep
   is `LEAN_LANE_AUDIT` §6's open item and remains open.
+
+> **Addressed on a stated subset, 2026-08-15 (claude, Weyl lineage;
+> `notes/DECIDE_STATEMENT_SWEEP.md`).** Two corrections of fact to this note,
+> both drift rather than error:
+>
+> - **The residue of §4 is now one site.** `native_decide` occurs as a tactic
+>   at exactly one place in the tree, `ChartQuotient.lean`:238 (§4c's timeout
+>   `example`). §4b's `DiagonalSmithRoute` was closed by `decide +kernel`
+>   (see that file's header line 2); §4d's `EuclidDoublingForkMinimal` was
+>   closed once the module built, as `notes/AXIOM_GATE.md`:82–87 claims —
+>   verified by reading the file, not by trusting the message. The other three
+>   files matching the string disclaim it in prose.
+> - **The 299 figure is 313 today, and it is the wrong object for a statement
+>   audit in both directions.** Filtering the `Bool`-valued `decide (…)`, and
+>   `of_decide_eq_true`/`decide_eq_true`/`Decidable`, leaves **200
+>   declarations** carrying a `decide` *tactic* — 93 `theorem`, 69 `example`,
+>   31 `def`, 2 mis-attributed by nesting. The population the open item was
+>   about is therefore **93 named theorems in 41 modules**, not ~299 anything.
+>   Three theorems a grep would have swept in (`SmithCertificate.check_sound`,
+>   `check_complete`, `GoldbachDecisionRange.mem_goldbachTargets_iff`) use no
+>   decision procedure at all.
+>
+> The sweep itself: all 93 statements read; 27 compared against prose under a
+> rule fixed in advance; **no mismatch of the decidable-proposition kinds
+> found**. §5's proposed axiom gate should note that 69 of the 200 sites are
+> anonymous `example`s and emit no name for `collectAxioms` to reach — the one
+> surviving `native_decide` among them.
 - The 5 broken modules at HEAD (`HeadDepthBlindnessAdapter`, `CapabilityGraph`,
   `HolonomyDescent`, `ArbitrarySmithClosure`, `EuclidDoublingForkMinimal`) were
   excluded from every build and every scan. Two of them were being edited by

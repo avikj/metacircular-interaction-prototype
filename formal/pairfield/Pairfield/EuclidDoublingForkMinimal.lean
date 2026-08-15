@@ -104,10 +104,12 @@ is the only obstruction.  Stated explicitly rather than left to `decide`. -/
 instance (formation : AtMostFourFormation) : Decidable formation.formsBoth := by
   unfold formsBoth; infer_instance
 
+set_option maxRecDepth 100000 in
 /-- No causal formation using at most four declared unary operations forms
 both targets.  This decides the complete finite schedule type, not a sampled
-collection of traces. -/
-set_option maxRecDepth 100000 in
+collection of traces.  Kernel `decide`, not `native_decide`: the schedule
+type is finite and the kernel reduces it; only the elaborator's default
+recursion depth had to be raised. -/
 theorem noFormationFormsBoth :
     ∀ formation : AtMostFourFormation, ¬ formation.formsBoth := by
   decide

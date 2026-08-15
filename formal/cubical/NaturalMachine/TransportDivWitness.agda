@@ -92,3 +92,31 @@ chart-is-better =
 -- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
 -- the rest of this lane's headers quote: three toolchain states are live in
 -- this repository at once and this file has only seen one of them.
+
+-- BREAKER FINDING, 2026-08-15 (notes/BREAKER_R0079_R0081.md), recorded
+-- here because this file is where the numbers live.
+--
+-- Two corrections to what the numbers above support:
+--
+--  (i)  The packet built on this witness claimed the comparison "survives
+--       any charting price below 497".  It does not: at 496 the detour is
+--       exactly 1000 and the branch is flat, so 495 is the true bound.
+--       An off-by-one in the one file whose boast is that no numeral is
+--       asserted.
+--
+--  (ii) More seriously, the weights 3 and 3 are STIPULATED, and charting
+--       is not free: `digits m` iterates the odometer m times, so the
+--       honest price of the chart edge is Θ(m) in the very quantity the
+--       chart is supposed to make cheap.  Priced that way the conclusion
+--       REVERSES -- the breaker checked it, and `↝` becomes `↻` on this
+--       word.  `TransportDivScale`'s quantified threshold does not repair
+--       this: `Edge.cost` is a scalar, so quantifying over the weights
+--       quantifies over CONSTANT weights only, and the threshold
+--       4 + (2c + c′) ≤ length w bounds the word by the weights rather
+--       than the other way round.
+--
+-- What survives is the statement with the chart already built: given a
+-- word, testing divisibility costs suc (length w) automaton steps against
+-- a recursion of depth value w.  That is `WalkChartedLength`'s content and
+-- it is real.  What does not survive is the claim that the ROUND TRIP
+-- pays, which is what a cost geometry is supposed to be about.

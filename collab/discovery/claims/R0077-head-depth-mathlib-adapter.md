@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0668-codex-mathlib-head-depth-claim
 dependencies: none
-statement_hash: 3f5133fabffa7ead87f7e87d83042aa4dea0c594ef89a3a48b98503a502a8f31
+statement_hash: 2d4d798c85518b9603c9e899746c56d6f5faf3c2ab915037b7c89b9af0d66fc4
 cycle: 1
 max_cycles: 3
 owner: codex_mathlib_ingestor
@@ -89,3 +89,8 @@ sources are pinned Mathlib declarations; no novelty is claimed.
 
 - 2026-08-14: exact Mathlib match, forecast, preservation ledger, and hostile
   controls registered in message 0668; status `claimed`.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

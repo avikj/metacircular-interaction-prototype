@@ -6,6 +6,36 @@ module NaturalMachine.DigitTowerLimit where
 -- arguments are themselves transports.  The checked equivalence and its
 -- inverse laws do not claim that stronger computational behavior; the warning
 -- is retained as an explicit implementation boundary rather than suppressed.
+--
+-- DIAGNOSED 2026-08-15 audit, and the retained boundary above is now
+-- explained -- but only PARTLY discharged, so read the two halves apart.
+--
+--   * The WARNING is a `Vec` artefact, not mathematics.
+--     `NaturalMachine.DigitTowerFin` restates the same base-two carry
+--     obstruction with digit words presented as `Fin n → Digit`.  A
+--     function type has no index to match on, and the count goes 28
+--     `UnsupportedIndexedMatch` warnings -> 0 with the two proved facts
+--     unchanged (LSD deletion is not additive; it is a homomorphism for
+--     carry-free XOR).  So nothing here is blocked by Cubical Agda's
+--     lack of index injectivity.
+--
+--   * The INVERSE LIMIT is ported, and only that far.
+--     `NaturalMachine.DigitTowerFinLimit` carries the MSD tower over
+--     `Fin n → A` and proves `MSDLimit A ≃ (ℕ → A)` for any set A, using
+--     `NaturalMachine.FinTopSplit` for the top-splitting eliminator that
+--     `Cubical.Data.Fin` does not supply.
+--
+--   * WHAT IS STILL ONLY HERE, in the `Vec` presentation: `LSDLimit`,
+--     `reverseToLSD`/`reverseToMSD`, `reversalLimitEquiv`,
+--     `limit-reversal-chart-identity` and `transportLawToLSD`, together
+--     with the two-bit `Vec` witnesses at the foot of the file.  Whether
+--     the reversal equivalence and the transported law also become
+--     transport-computable in the `Fin` presentation is open;
+--     `DigitTowerFin`'s own header says so ("the interesting question
+--     ... is open") and this file is where the unported statements live.
+--     So: superseded for the carry obstruction and for the MSD limit,
+--     NOT superseded for reversal.  The warning stays because the code
+--     it is about stays.
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)

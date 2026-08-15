@@ -235,15 +235,16 @@ import NaturalMachine.DSONucleusFinite
 import NaturalMachine.DSONucleusExecutionCalibration
 import NaturalMachine.DSONucleusOneSidedProduct
 import NaturalMachine.DSONucleusMiddleProduct
--- Landed as orphans of the root while the pin sweep was running; both
--- exit 0 individually, so folded in 2026-08-15 to keep BUILD.md's
--- reachability invariant true rather than only asserted.
 import NaturalMachine.DSONucleusMiddleAssociativityAudit
 import NaturalMachine.DSONucleusResidualAudit
--- The exhaustive finite associativity/residuation audit modules remain
--- focused-safe checks, but are not aggregate imports: their current
--- definitional normalization makes a clean root check take minutes.  The
--- structural operators above stay live while those proof terms are factored.
+-- The exhaustive finite associativity/residuation audits ARE aggregate
+-- imports as of 2026-08-15.  The paragraph that used to stand here said
+-- they were not, "because their definitional normalization makes a clean
+-- root check take minutes" — the real figure was hours, and the cause was
+-- that `clMid` re-evaluates its argument profile 64 times per output cell
+-- with no memoization.  Both were rewritten to share those profiles
+-- explicitly and now cost 2m32s and 2m07s individually under the pin
+-- (Agda 2.8.0 + cubical v0.9); see collab/messages/0842-kronecker-audits.md.
 import NaturalMachine.BehavioralHankel
 -- Prime-Pair/Delta-26 calibration: {0,4} has a mod-3 local-unit witness,
 -- while the materialized {0,2,4} waypoint architecture is locally empty.
@@ -655,6 +656,16 @@ import NaturalMachine.WalkResidueBridge
 -- lacked (`%≡mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
 -- _mod_) before the Euclid step could even be stated.
 import NaturalMachine.WalkChartedCap
+-- Landed as orphans of the root while this batch was in flight; each exits 0
+-- individually under the pin, so folded in 2026-08-15 rather than left for
+-- the closure gate to keep failing on.  Nothing rechecks an unimported
+-- module, which is the whole reason `scripts/check-agda-closure.sh` exists.
+import NaturalMachine.WalkChartedLength
+import NaturalMachine.WalkChartedStep
+import NaturalMachine.CountedDigitsEdge
+import NaturalMachine.RadixResidueUnification
+import NaturalMachine.ResidualInvariance
+import NaturalMachine.SensorResidueBridge
 -- The walk's frontier, broken: next 8 ≡ 9, next 9 ≡ 11, next 10 ≡ 11, each
 -- checked without running the walk on cap m.  WalkFast guessed the blocker
 -- was its `with`; the bisection in this file's header shows it is the
@@ -688,6 +699,15 @@ import NaturalMachine.ChuDefect
 -- homometric pair proves the Bridge alone cannot do that work; a gamed
 -- evaluator's records can be quarantined without touching anything else.
 import NaturalMachine.SelfImprovement
+-- The three decision rules of machine/MathMachine.hs, modelled and proved:
+-- the flow trichotomy is total, exclusive, and decay closes without growth;
+-- the growth gate must not fire on a collapsed test set, because the defect
+-- is monotone in the assignment list; and the min-plus chooser over growth
+-- moves is a certified minimum that exhibits the move it picked.  It is a
+-- model of the loop, not the loop, and it constrains those three decisions
+-- and nothing else -- not the prover, the term generator, or how the
+-- fingerprint is computed.
+import NaturalMachine.MachineLoop
 
 ------------------------------------------------------------------------
 -- The base-dependent development, instantiated.  Every statement holds
@@ -782,12 +802,39 @@ import NaturalMachine.ConstantBoundNotFunctionBound
 --
 -- NOT added, and why (see the note for the exit codes):
 --   NaturalMachine/WalkFastInstance.agda                  killed (137)
---   NaturalMachine/DSONucleusMiddleAssociativityAudit.agda unrun
---   NaturalMachine/DSONucleusResidualAudit.agda            unrun
--- The last two had not returned after >25 and >15 minutes of pin
--- typechecking on a contended container; `WalkFastInstance` was killed
--- by the OOM killer, which is not a typecheck verdict in either
--- direction.  They remain orphans and remain OUTSTANDING.
+-- `WalkFastInstance` was killed by the OOM killer, which is not a typecheck
+-- verdict in either direction.  It remains an orphan and remains OUTSTANDING.
+--
+-- RESOLVED 2026-08-15 (Kronecker audit block).  The two DSONucleus audits
+-- listed here as "unrun" are now imported below.  They had never returned
+-- for anyone because `clMid` re-evaluates its argument profile 64 times per
+-- output cell with no memoization, so the three-layer associativity
+-- statement cost ~5e9 leaf reductions over unary-recursive ℤ min/max; they
+-- were always terminating, never feasible.  Both were rewritten to share
+-- the intermediate profiles explicitly (`tab`, with `tab f ≡ f` proved by
+-- four reflexivities that normalize nothing).  Individually under the pin
+-- (Agda 2.8.0 + cubical v0.9, LC_ALL=C.UTF-8), from a cold scratch copy:
+--   DSONucleusMiddleAssociativityAudit  exit 0, 2m32s
+--   DSONucleusResidualAudit             exit 0, 2m07s
+-- Neither is unbounded, so importing them does not make this root unbounded.
+-- Three false claims in DSONucleusResidualAudit were exposed and corrected
+-- in the process; see that module's CORRECTION block.
+-- CORRECTION, 2026-08-15 (Landau-lineage pass), by addition:
+-- the `WalkFastInstance` line above is now stale in BOTH of its claims.
+-- (a) It was never "not added" from this root's point of view — the
+--     import at line 658 predates this block and was added by another
+--     lane; the sweep's own note says so.  The block and the import
+--     contradicted each other for as long as both stood.
+-- (b) The 137 is discharged.  Under the pin (Agda 2.8.0 + cubical v0.9,
+--     LC_ALL=C.UTF-8), from a tree with no `_build` and no `.agdai`, the
+--     module exits **0** in 15 s at a peak RSS of **333-388 MB** (two clean runs; GC variance), unmodified.
+--     The OOM was contention, not the mathematics.
+-- The two DSONucleus audits are untouched by this pass and remain
+-- OUTSTANDING orphans; `scripts/check-agda-closure.sh` still fails on
+-- exactly those two and on nothing else.
+-- [SUPERSEDED 2026-08-15 by the Kronecker audit block above: both audits
+--  now typecheck under the pin and are imported at lines 238-239; the
+--  closure script exits 0 with 361 of 361 modules reached.]
 ------------------------------------------------------------------------
 import NaturalMachine.BraidCoherenceBoundary
 import NaturalMachine.CarryClassNonzero

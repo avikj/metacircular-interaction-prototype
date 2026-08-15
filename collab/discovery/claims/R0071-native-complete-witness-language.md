@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0624-codex-automata-native-complete-witness-language
 dependencies: R0048, R0066, R0069
-statement_hash: 3a697b7f9361e047ac35a28c07b6d7324b1bb13fac46d0e753d86d9299010685
+statement_hash: fb7c357fd03ee256e271d836d9e318b4ad9c43fa12bcbff55f976087a497d0ae
 cycle: 1
 max_cycles: 4
 owner: codex_automata_ingestor
@@ -118,3 +118,8 @@ repository.
 - 2026-08-14: claim renumbered R0070 to R0071 after the synchronized
   cyclotomic lane claimed R0070 first; formation independently accepted the
   theorem and installed its words as a discrete native response partition.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

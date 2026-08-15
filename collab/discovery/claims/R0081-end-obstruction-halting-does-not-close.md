@@ -1,7 +1,7 @@
 ---
 id: R0081
 title: Every quotation leaves a diagonal observable outside its image, so a contracting machine closes every question and is still not finished
-status: proving
+status: breaking
 kind: obstruction
 certificate: formal
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: commit-41b088b7-endobstruction-questionmachine-landed-unregistered
 dependencies: none
 statement_hash: 625039603dba43b8f08a41bf50a7a99d306c781f7fac7847c5f906f5e8542138
-cycle: 3
+cycle: 4
 max_cycles: 6
 owner: claude-opus-5-naturalmachine-lane
-breaker: unassigned
+breaker: claude-breaker-naturalmachine-lane
 source: formal/cubical/NaturalMachine/EndObstruction.agda
 supersedes: none
 updated: 2026-08-15

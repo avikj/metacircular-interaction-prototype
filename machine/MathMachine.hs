@@ -496,6 +496,42 @@ parseTerm s = case [ t | (t, rest) <- readP_to_S (termP <* eof) s, null rest ] o
   [t] -> Just t
   _   -> Nothing
 
+-- ===================================================================
+-- MEMORY.  The machine wrote machine/library.txt and never read it.
+--
+-- That is not a small thing: `start` has mRules = [] and mKnown = empty,
+-- so every run began from nothing and re-derived what earlier runs had
+-- proved -- when the whole architecture rests on installed theorems
+-- compounding, and the `pruned` percentage is advertised as measuring
+-- exactly that compounding.  library.txt is written with `show`, which
+-- renders infix, and the term parser above reads prefix, so the file it
+-- wrote was not a file it could read.  The fix is a second, machine-
+-- readable trace in the format `parseTerm` already accepts.
+--
+-- WHAT IS NOT DONE HERE, and it matters: a remembered theorem is not
+-- trusted.  It is re-submitted to the same kernel gate at load, and one
+-- that fails is dropped with a log line.  The invariant stays "every
+-- installed rule was kernel-accepted in THIS process", which is the only
+-- version of memory that does not quietly become an axiom store.
+-- ===================================================================
+
+showTermP :: Term -> String
+showTermP (V i)
+  | i >= 0 && i < 6 = ["xyzuvw" !! i]
+  | otherwise       = "v" ++ show i
+showTermP (F n [])  = n
+showTermP (F n ts)  = n ++ "(" ++ intercalate "," (map showTermP ts) ++ ")"
+
+memoryPath :: FilePath
+memoryPath = "machine/library.terms"
+
+parseMemory :: String -> [(Term,Term)]
+parseMemory = mapMaybe line . lines
+  where
+    line s = case splitTabs s of
+      [l,r] -> (,) <$> parseTerm l <*> parseTerm r
+      _     -> Nothing
+
 parseThoughts :: String -> ThoughtBatch
 parseThoughts = foldl' parseLine (ThoughtBatch [] []) . lines
   where
@@ -740,7 +776,7 @@ runSmokeMachine n = do
   ref <- newIORef start
   withFile "/dev/null" WriteMode $ \sink -> do
     hSetBuffering sink LineBuffering
-    replicateM_ n (round1 sink sink ref)
+    replicateM_ n (round1 Nothing sink sink ref)
   readIORef ref
 
 smokeRounds :: Int -> IO ()
@@ -1190,13 +1226,16 @@ binAgda op a b = do
   y <- agdaTerm b
   pure ("(" ++ x ++ " " ++ op ++ " " ++ y ++ ")")
 
-agdaCertificate :: (Term,Term) -> Maybe String
+-- The module name is supplied by the caller, because the candidate is
+-- checked inside formal/cubical (see `kernelAccept`) and two processes
+-- must not write the same file.
+agdaCertificate :: (Term,Term) -> Maybe (String -> String)
 agdaCertificate (l,r) = do
   lhs <- agdaTerm l
   rhs <- agdaTerm r
-  pure $ unlines
+  pure $ \modName -> unlines
     [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
-    , "module Candidate where"
+    , "module " ++ modName ++ " where"
     , "open import Cubical.Foundations.Prelude"
     , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
     , "candidate : (x y z u v w : ℕ) → " ++ lhs ++ " ≡ " ++ rhs
@@ -1210,17 +1249,35 @@ kernelAccept logh roundNo ((l,r),_) =
     Nothing -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s\n" (show l) (show r)
       pure False
-    Just source -> do
-      tmp <- getTemporaryDirectory
-      -- A fixed directory lets concurrent machine processes overwrite one
-      -- another's proposition between write and check.  `mktemp -d` makes
-      -- the proposition/check pair private; cleanup also runs on exceptions.
-      dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
-      let dir = reverse (dropWhile isSpace (reverse dirLine))
-          file = dir </> "Candidate.agda"
+    Just sourceFor -> do
+      -- WHERE THE CANDIDATE HAS TO LIVE, and why this was rewritten.
+      --
+      -- This gate used to write the candidate to a private directory under
+      -- /tmp and run `agda -i formal/cubical -i <dir> <file>`.  That never
+      -- compiled ANYTHING: `-i` adds include paths but does not make Agda
+      -- read a library, so every candidate died on `Failed to find source
+      -- of module Cubical.Foundations.Prelude` and was logged as a
+      -- KERNEL-REJECT indistinguishable from a false statement.  The engine
+      -- has therefore been rejecting all of its own output on a path error,
+      -- which is why machine/library.txt stopped growing and why every run
+      -- reports proved=0.  Found 2026-08-15 by reading the reject text
+      -- instead of the count.
+      --
+      -- Agda finds `cubical` through the .agda-lib in formal/cubical, so
+      -- the candidate must be checked FROM that directory.  The module
+      -- therefore gets a unique name and lives there for the length of one
+      -- check.  Uniqueness matters: concurrent machine processes would
+      -- otherwise overwrite each other's proposition between write and
+      -- check, which is the hazard the old /tmp directory was guarding
+      -- against.
+      nameLine <- readProcess "mktemp" ["-u", "Candidate_XXXXXX"] ""
+      let modName = filter (\c -> isAlphaNum c || c == '_')
+                      (reverse (dropWhile isSpace (reverse nameLine)))
+          file = "formal/cubical" </> (modName ++ ".agda")
+          source = sourceFor modName
       (do writeFile file source
-          (code,out,err) <- readProcessWithExitCode "agda"
-            ["-i", "formal/cubical", "-i", dir, file] ""
+          (code,out,err) <- readProcessWithExitCode "sh"
+            ["-c", "cd formal/cubical && LC_ALL=C.UTF-8 agda " ++ modName ++ ".agda"] ""
           case code of
             ExitSuccess -> do
               hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s\n"
@@ -1230,7 +1287,9 @@ kernelAccept logh roundNo ((l,r),_) =
               hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s\n"
                 roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err)))
               pure False)
-        `finally` removePathForcibly dir
+        `finally` (removePathForcibly file
+                   >> removePathForcibly ("formal/cubical/_build/2.6.3/agda/"
+                                          ++ modName ++ ".agdai"))
 
 -- --------------------------------------------------------- the machine
 
@@ -1251,7 +1310,128 @@ data Machine = Machine
   , mDSOTasks :: [DSOTask]
   , mDSOArchitectureSearches :: [(DSOTask,[DSOArchitectureCandidate])]
   , mHistoryArchitectureSearches :: [(Int,[Int],HistoryDemand)]
+  -- ∂ of the previous round: what it stated and did not close.  The growth
+  -- rule below reads this, not a boolean.  (NaturalMachine.KFlow)
+  , mObstruction :: Int
+  -- how many random assignments the fingerprint is computed on.  It was a
+  -- constant, which made the gate's advice ("enlarge the test set, not the
+  -- term space") impossible to take.  ChuDefect.defect-mono says adding
+  -- tests can only increase the defect, so this is the axis to move when
+  -- the tests stop separating.
+  , mAssign :: Int
+  -- observed term count at each (vocab,size) the machine has actually been
+  -- in.  This is the weight field of the cost geometry: an equivalence
+  -- between two presentations does not determine it, so it is recorded and
+  -- never derived.  (NaturalMachine.CostGeometry, NaturalMachine.Residual)
+  , mCosts :: M.Map (Int,Int) Int
   }
+
+-- ===================================================================
+-- THE THREE DECISION RULES, EACH CITING THE THEOREM IT IMPLEMENTS.
+--
+-- Until 2026-08-15 this loop grew on a boolean — "the round proved
+-- nothing" — with no measure, no gate, and a fixed ladder.  All three
+-- replacements are instances of statements checked in
+-- formal/cubical/NaturalMachine/; the Agda is the proof and what follows
+-- is the engine.  Where the Haskell cannot supply a hypothesis the Agda
+-- needs, it is named in a comment rather than assumed away.
+-- ===================================================================
+
+-- The model of these three rules is NaturalMachine.MachineLoop, checked
+-- against the same library, and each rule below names the theorem it
+-- implements.  The model constrains exactly these decisions; it says
+-- nothing about the prover, the term generator, or the fingerprint's
+-- computation.
+--
+-- (1) KFlow's trichotomy.  ∂ is ℕ-valued, the step is classified by its
+-- sign, and growth is a response to resonance rather than to silence.
+-- MachineLoop.flow-total and .flow-unique: the classification is total
+-- and the three verdicts are mutually exclusive.
+-- MachineLoop.decay-closes-without-growth: a decaying loop reaches ∂ = 0
+-- in finitely many rounds, so decay needs no growth.
+-- MachineLoop.branching-never-closes: a branching loop never reaches 0,
+-- which is why growth is not the answer to branching either.
+-- MachineLoop.resonance-round-is-bit-identical: at resonance the orbit is
+-- the point, so only a change of what is being looked at can move it.
+data Flow = Decay | Resonance | Branching deriving (Eq)
+
+flowName :: Flow -> String
+flowName Decay     = "decay"
+flowName Resonance = "resonance"
+flowName Branching = "branching"
+
+-- KFlow.decay / KFlow.resonance / KFlow.branching.  Total and mutually
+-- exclusive by construction, which is the content of the Agda trichotomy.
+flowOf :: Int -> Int -> Flow
+flowOf before after
+  | after < before  = Decay
+  | after == before = Resonance
+  | otherwise       = Branching
+
+-- (2) ChuAdvance/ChuDefect.  The fingerprint classes ARE a Chu space: the
+-- objects are normalised terms, the tests are the assignments, and the
+-- defect is the number of pairs some assignment separates.  ChuDefect
+-- proves this count is monotone in the test list, so a small defect is a
+-- statement about the assignments and NOT about the terms — and
+-- ChuAdvance.zero-defect-is-not-truth is the empty-test-list extreme.
+-- Hence the gate below: never grow on a collapsed test set, because the
+-- terms would look identical no matter what they are.
+-- MachineLoop.do-not-grow-on-a-collapsed-test-set is that rule, and
+-- MachineLoop.defect-monotone-in-assignments is why it is not paranoia.
+-- MachineLoop.agree→same-fingerprint is the bridge from this engine's
+-- Value-valued fingerprint to the Bool-valued Chu observation, and it
+-- carries an explicit proviso: the probe list must contain the term's own
+-- reading.  This engine supplies that by construction, since `envs` is
+-- exactly the list the fingerprint is computed on.
+separatedPairs :: [[Term]] -> Int
+separatedPairs classes =
+  let n      = sum (map length classes)
+      inside = sum [ c * (c - 1) | cls <- classes, let c = length cls ]
+  in (n * (n - 1) - inside) `div` 2
+
+data Gate = Advance | Refused String
+
+gateName :: Gate -> String
+gateName Advance     = "advance"
+gateName (Refused w) = "refused: " ++ w
+
+-- AdvanceGate's separation clause, the one this loop can discharge
+-- honestly.  Verification is the induction gate, provenance is the
+-- append-only library, and the declared boundary is kSizeCap; those three
+-- are structural.  Separation is the one that can silently fail.
+advanceGate :: Int -> Int -> Gate
+advanceGate nNormed sepP
+  | nNormed <= 1 = Advance                       -- nothing to separate
+  | sepP > 0     = Advance
+  | otherwise    = Refused "assignments separate nothing"
+
+-- (3) Residual's Γ↝, min-plus over neighbouring presentations.  A growth
+-- move is a neighbour; its route is the term count last OBSERVED at the
+-- state it leads to; staying is always in the list, so the chooser is
+-- never worse than staying (Residual.Γ↝-never-worse) and a strict win
+-- exhibits a listed move (ResidualPath.Γ↝-sound-member).  With no
+-- recorded cost for a move there is no route, and the machine falls back
+-- to the ladder below rather than guessing a weight.
+-- MachineLoop.choose-never-worse and .choose-exhibits-listed-move are the
+-- two statements this implements; .choose-optimal and .choose-greatest
+-- together pin the value as the minimum rather than merely below it.
+data Move = Widen | Deepen deriving (Eq)
+
+moveName :: Move -> String
+moveName Widen  = "widen"
+moveName Deepen = "deepen"
+
+gammaRoute :: M.Map (Int,Int) Int -> Int -> Int -> Maybe (Move,Int,Int)
+gammaRoute costs vocab horizon =
+  case [ (mv,c) | (mv,st) <- [(Widen,(vocab+1,horizon)),(Deepen,(vocab,horizon+1))]
+                , Just c <- [M.lookup st costs] ] of
+    []     -> Nothing
+    routes ->
+      let (mv,c) = minimumOn snd routes
+          stay   = M.findWithDefault maxBound (vocab,horizon) costs
+      in if c < stay then Just (mv,c,stay) else Nothing
+  where
+    minimumOn f = foldr1 (\a b -> if f a <= f b then a else b)
 
 squareThresholdSearch :: BoundedSearch
 squareThresholdSearch = BoundedSearch [0..20] (\n -> n * n >= 30)
@@ -1264,6 +1444,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
   [(boundedDSOTask "square-threshold" squareThresholdSearch,
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
+  0 kAssign M.empty
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -1411,15 +1592,15 @@ isAssociativity f equation = forward equation || forward (swap equation)
       && length (ordNub [a,b,c]) == 3
     forward _ = False
 
-round1 :: Handle -> Handle -> IORef Machine -> IO ()
-round1 logh libh ref = do
+round1 :: Maybe FilePath -> Handle -> Handle -> IORef Machine -> IO ()
+round1 mem logh libh ref = do
   m <- readIORef ref
   t0 <- getCPUTime
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
       nv = kVars
-      envs = assignments nv kAssign
+      envs = assignments nv (mAssign m)
       rules = usableRules m
       raw = genTermsModulo (provedCommutative m) (provedAssociative m)
               sig nv (mSize m)
@@ -1554,10 +1735,37 @@ round1 logh libh ref = do
              , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
                           [ c | c <- fresh, notElem c (map fst checkedResults) ]
-             , mRound = mRound m + 1 }
+             , mRound = mRound m + 1
+             -- ∂ of THIS round: stated and not closed.  Read by the next
+             -- round's flow classification.
+             , mObstruction = obstruction
+             -- the gate's own remedy, taken: when the assignments stop
+             -- separating, buy more assignments rather than more terms.
+             -- Bounded, because an unbounded test set is just a slower
+             -- way to be stuck.
+             , mAssign = case gate of
+                 Advance   -> mAssign m
+                 Refused _ -> min (8 * kAssign) (2 * mAssign m)
+             -- the weight this state actually cost, recorded so a later
+             -- round can route by it instead of guessing
+             , mCosts = M.insert (mVocab m, mSize m) nRaw (mCosts m) }
+      -- ∂, the obstruction the round leaves behind: conjectures it stated
+      -- and did not close.  ∂ = 0 is QuestionMachine's `Resolves` — the
+      -- question at this horizon is answered, so the machine must change
+      -- what it is looking at, which is why it counts as resonance.
+      obstruction = nFresh - length checkedResults
+      flow | obstruction == 0 = Resonance
+           | otherwise        = flowOf (mObstruction m) obstruction
+      sepP = separatedPairs classes
+      gate = advanceGate nNormed sepP
   forM_ checkedResults $ \((l,r),pf) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
+    -- and the same theorem in the form this program can read back.  The
+    -- prose library is for people; this is the machine's own memory.
+    case mem of
+      Nothing   -> return ()
+      Just path -> appendFile path (showTermP l ++ "\t" ++ showTermP r ++ "\n")
   hFlush libh
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
@@ -1576,13 +1784,41 @@ round1 logh libh ref = do
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
     prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
+  -- KFlow: the sign of the step in ∂, not the emptiness of a result list.
+  hPrintf logh "  FLOW  %s  d %d -> %d\n"
+    (flowName flow) (mObstruction m) obstruction
+  -- ChuDefect: the defect of the round's own test set.  If this is zero
+  -- with more than one term in play, the assignments have stopped
+  -- separating and every conjecture below is an artefact of the tests.
+  hPrintf logh "  GATE  %s  separated-pairs=%d terms=%d assignments=%d\n"
+    (gateName gate) sepP nNormed (length envs)
   hFlush logh
   -- GROW: nothing new means the machine must change what it is looking at
   -- When the machine runs dry it first tries to think of a new idea:
   -- name the shape that keeps recurring in its own working terms.  Only
   -- if it cannot does it fall back to widening the given vocabulary or
   -- looking further out.
-  let stuck = null checkedResults
+  -- The trigger.  It used to be `null checkedResults`: a round that proved
+  -- nothing grew, and a round that proved something did not, with no
+  -- account of whether the frontier was shrinking.  Both halves of that
+  -- were wrong.  A round can prove nothing while ∂ falls (its failures got
+  -- memoised, so the next round is strictly cheaper) — growing there is
+  -- premature, and it was widening the vocabulary on rounds that were
+  -- making progress.  A round can also prove something while ∂ rises,
+  -- which is branching and was invisible.  KFlow's classification is the
+  -- honest trigger: grow at resonance, not at silence.
+  -- Grow at RESONANCE only.  The first version of this rule said "not
+  -- decay", which still grows while branching, and the first run with the
+  -- instrumentation showed why that is wrong: ten rounds, nothing proved,
+  -- ∂ climbing 8 → 42 → 124 → 434 → 1604 → 7769 → 19878 → 31386 → 50978
+  -- → 79656, and the machine widening its vocabulary 3 → 8 and its horizon
+  -- 4 → 7 straight through it.  Growing while the frontier explodes is the
+  -- same pathology the naming rule above already documents (25k → 396k
+  -- terms with `proved` flat at zero); KFlow names it `branching`, and the
+  -- response to branching is not more room.  Resonance -- ∂ unchanged, or
+  -- ∂ = 0, which is QuestionMachine's `Resolves` -- is the only state in
+  -- which more room is the answer.
+  let stuck = flow == Resonance && null checkedResults
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
@@ -1625,7 +1861,28 @@ round1 logh libh ref = do
              Just s  -> m' { mInvented = mInvented m' ++ [s] }
              Nothing -> m'
       stuck' = stuck && not (isJust invented)
+      -- AdvanceGate.  Growing IS an advance, and advancing on a test set
+      -- that separates nothing is exactly the move ChuAdvance refutes:
+      -- the defect would be a fact about the assignments, so widening the
+      -- vocabulary would add symbols the machine cannot tell apart.  When
+      -- the gate refuses, the state is held and the refusal is logged --
+      -- it is a signal to enlarge the test set, not the term space.
+      permitted = case gate of
+                    Advance   -> True
+                    Refused _ -> False
+      -- Γ↝ over the growth moves whose cost this machine has actually
+      -- observed.  No history for a move means no route for it, and the
+      -- ladder below decides instead: a weight is recorded or it does not
+      -- exist, never estimated.
+      routed = if stuck' && permitted
+                 then gammaRoute (mCosts m2) (mVocab m2) (mSize m2)
+                 else Nothing
       m'' | not stuck' = m2
+          | not permitted = m2
+          | Just (Widen,_,_) <- routed, mVocab m2 < length vocabulary =
+              m2 { mVocab = mVocab m2 + 1 }
+          | Just (Deepen,_,_) <- routed, mSize m2 < kSizeCap =
+              m2 { mSize = mSize m2 + 1 }
           | mVocab m2 < length vocabulary && even (mRound m2) =
               m2 { mVocab = mVocab m2 + 1 }
           | mSize m2 < kSizeCap = m2 { mSize = mSize m2 + 1 }
@@ -1661,6 +1918,15 @@ round1 logh libh ref = do
               -- machine genuinely needs more room, and saying so by raising
               -- the horizon is now the honest move rather than the lazy one.
               [] -> m2 { mSize = mSize m2 + 1 }
+  case routed of
+    Just (mv,c,stay) ->
+      hPrintf logh "  ROUTE  %s  cost %d < stay %d  (min-plus over observed weights)\n"
+        (moveName mv) c stay
+    Nothing -> return ()
+  when (flow == Branching && null checkedResults) $
+    hPrintf logh "  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held\n"
+  when (stuck' && not permitted) $
+    hPrintf logh "  GATE-HOLD  growth refused while the assignments separate nothing; enlarge the test set, not the term space\n"
   when (stuck && mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
@@ -1988,9 +2254,23 @@ runMachine batch = do
     (length (thoughtCandidates batch)) (length (thoughtResiduals batch))
     (requiredVocabulary batch)
   forM_ (thoughtResiduals batch) $ \r -> hPrintf logh "  RESIDUAL  %s\n" r
+  -- MEMORY.  Read back what earlier runs proved, and re-admit each one
+  -- through the same kernel gate rather than trusting the file.  A
+  -- remembered theorem that no longer certifies is dropped and logged: the
+  -- invariant is that every rule in play was accepted in THIS process.
+  memExists <- doesFileExist memoryPath
+  remembered <- if memExists then parseMemory <$> readFile memoryPath
+                             else pure []
+  admitted <- filterM (\c -> kernelAccept logh 0 (c, "remembered")) remembered
+  hPrintf logh "  MEMORY  remembered=%d re-admitted=%d dropped=%d\n"
+    (length remembered) (length admitted)
+    (length remembered - length admitted)
   let seeded = start { mThoughts = thoughtCandidates batch
                      , mResiduals = thoughtResiduals batch
-                     , mVocab = requiredVocabulary batch }
+                     , mVocab = requiredVocabulary batch
+                     , mRules = mapMaybe orient admitted
+                     , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
+                     , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }
   ref <- newIORef seeded
   -- A machine that halts is not a machine.  The old loop stopped when the
   -- size horizon passed its cap, which is to say: it enumerated a finite
@@ -2000,7 +2280,7 @@ runMachine batch = do
   -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
   -- reason to keep going, so it keeps going.
   let loop :: IO ()
-      loop = round1 logh libh ref >> loop
+      loop = round1 (Just memoryPath) logh libh ref >> loop
   loop
   hClose logh
   hClose libh

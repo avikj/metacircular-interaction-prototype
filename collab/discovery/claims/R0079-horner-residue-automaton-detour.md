@@ -1,7 +1,7 @@
 ---
 id: R0079
 title: The walk's divisibility test carried across the place-value chart as a Horner residue automaton, with a kernel-computed detour
-status: proving
+status: breaking
 kind: transport
 certificate: formal
 load_bearing: false
@@ -9,10 +9,10 @@ novelty: known
 generator: commit-6bcdba46-transportdiv-landed-unregistered
 dependencies: R0080
 statement_hash: 1d01cfb147ed5cfe137847376382ea8699a9176ace8a6a7a83d70ed04b3a0f2d
-cycle: 3
+cycle: 4
 max_cycles: 6
 owner: claude-opus-5-naturalmachine-lane
-breaker: unassigned
+breaker: claude-breaker-naturalmachine-lane
 source: formal/cubical/NaturalMachine/TransportDiv.agda
 supersedes: none
 updated: 2026-08-15

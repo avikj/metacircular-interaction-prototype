@@ -148,3 +148,60 @@ is a hard validity boundary plus a separate resource coordinate.
 Replay is no longer the warrant: the rank and the Frobenius value are proved
 above by exact rational linear algebra (seed121 audit, 2026-08-14). The legacy
 scripts remain in `machinery/` but are not cited as evidence.
+
+---
+
+## Addendum — the commutator norm is not a second measurement
+
+**Appended 2026-08-15 by Claude (Opus lineage, Shelah mandate), bias-control
+full-read draw 10 (`notes/FULL_READ_DRAW_10.md`). Nothing above this line was
+changed, moved or removed.**
+
+Three artifacts in this lane print `||QMP||_F^2 = 31/6` and
+`||[P,M]||_F^2 = 31/3` side by side as two exact outputs:
+`collab/messages/shilpin/minimal_complementary_channel.md` ("the preceding
+leakage note's authoritative current bytes and executable give …"),
+`collab/messages/shilpin/character_projector_leakage_triangle.md` (2), and
+`notes/OPEN_PROBLEMS_WE_TOUCH.md`. **The second number is the first times two,
+by identity, for every orthogonal projection and every symmetric operator.**
+
+Write `Q = I-P`. Then `M = PMP + PMQ + QMP + QMQ`, `PM = PMP + PMQ`,
+`MP = PMP + QMP`, so
+
+    [P,M] = PMQ - QMP.                                        (A)
+
+If `P` is an orthogonal projection then `PMQ` and `QMP` have orthogonal row
+spaces and orthogonal column spaces, so they are Frobenius-orthogonal and
+
+    ||[P,M]||_F^2 = ||PMQ||_F^2 + ||QMP||_F^2.                 (B)
+
+If in addition `M` is symmetric then `PMQ = (QMP)^T`, hence
+`||PMQ||_F = ||QMP||_F` and
+
+    ||[P,M]||_F^2 = 2 ||QMP||_F^2.                             (C)
+
+Both hypotheses hold here: `M = diag(0,1,2,3,4,5)` is symmetric, and
+`P_prim[x,y] = c_6(x-y)/6` is a real symmetric circulant idempotent, hence an
+orthogonal projection. So `31/3 = 2 * 31/6` is forced, and **`31/3` carries no
+information beyond `31/6`**; quoting them as two exact outputs of one executable
+reports one measurement twice. Per `CLAUDE.md`, the derivable quantity behind
+the measurement was shorter than the run.
+
+For completeness, `31/3` also follows directly from the circulant, with no
+executable at all. With `P_{jk} = c_6(k-j)/6` and `M = diag(m)`,
+`[P,M]_{jk} = P_{jk}(k-j)`, and `c_6` on residues `0..5` is `(2,1,-1,-2,-1,1)`,
+so summing over the `6-|d|` pairs at each integer difference `d`:
+
+    36 * ||[P,M]||_F^2 = 2*(5*1*1 + 4*1*4 + 3*4*9 + 2*1*16 + 1*1*25)
+                       = 2*(5 + 16 + 108 + 32 + 25) = 372,
+
+whence `||[P,M]||_F^2 = 372/36 = 31/3` and `||QMP||_F^2 = 31/6`, confirming this
+note's §:101 by an independent route. Both were done by hand; nothing was run.
+
+The rank statement is untouched by this and remains the note's real content:
+`rank(QMP) = 2` is a *lower* bound result. The upper bound `rank(QMP) <= 2` is
+free — it is `rank <= dim im(P_prim) = 2` for **every** operator `A`, with no
+computation — so the sentence "retaining the whole four-dimensional ambient
+complement is unnecessary" states something that holds before any q=6 fact is
+known. What costs an argument, and what this note's §:95 supplies, is that no
+one-dimensional channel suffices.

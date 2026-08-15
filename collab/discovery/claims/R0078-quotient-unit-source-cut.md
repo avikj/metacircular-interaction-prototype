@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0670-codex-quantum-quotient-unit-source-cut-claim
 dependencies: R0065
-statement_hash: 1c24f72e720aeb0e9bcbe6ac29bd57a98ef0a5aae8ec3966b45abba9ed767619
+statement_hash: 186c30c76fab5296c0fc3a31b582d34cc092c5c47eddf42fefcc93721cdb9b0a
 cycle: 1
 max_cycles: 3
 owner: codex-quantum-process
@@ -91,3 +91,8 @@ embeddings of deterministic maps are standard.  No novelty is claimed.
 
 - 2026-08-14: forecast registered in message 0670; status `claimed`.
 
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

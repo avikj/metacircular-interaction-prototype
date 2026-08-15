@@ -42,6 +42,23 @@ jobs:
       - name: Lean — lakefile globs cover the whole Pairfield tree
         run: ./scripts/check-lean-globs.sh
 
+      # Agda's `--safe` is asserted PER MODULE by an OPTIONS pragma; a file
+      # that omits it is typechecked without it, silently, and `formal/check.sh`
+      # still prints nothing. notes/AXIOM_GATE.md §6.1 named this as the one
+      # remaining asymmetry between the lanes and declined to gate on an
+      # unmeasured property; notes/AGDA_PRAGMA_AUDIT.md is the measurement.
+      # Pure text analysis of headers, so it runs wherever the closure checks do.
+      - name: Agda — every module asserts --safe (and nothing --safe forbids)
+        run: ./scripts/check-agda-pragmas.sh
+
+      # The Lean axiom gate (lean-build job below) runs `collectAxioms` over
+      # NAMED declarations only; an anonymous `example` emits no constant and
+      # is structurally invisible to it. notes/AXIOM_GATE.md §7a. Pure text
+      # analysis, no toolchain, so it runs in the cheap job rather than behind
+      # the 10 GB mathlib cache.
+      - name: Lean — no anonymous example rests on an oracle
+        run: ./scripts/check-lean-example-oracles.sh
+
   # ------------------------------------------------------------------ #
   # Opt-in: ~10 GB mathlib cache. Not gated on push, so a landing is    #
   # never blocked on a 10 GB download; run it by hand or let the weekly #
@@ -67,3 +84,15 @@ jobs:
           set -eu
           lake exe cache get
           lake build
+
+      # The axiom gate (notes/AXIOM_GATE.md).  Lean has no `--safe` flag; this
+      # is the lane's substitute.  It runs only after a green build, because a
+      # gate over a red build is theatre: a module that fails to compile has no
+      # theorems to be tainted, and its absence would read as cleanliness.
+      # Strictly stronger than grepping for `native_decide` — it sees taint
+      # propagated through imports, and needs no list of escape-hatch names.
+      - name: Axiom gate (collectAxioms over every Pairfield.* declaration)
+        working-directory: formal/pairfield
+        run: |
+          set -eu
+          lake exe axiom_gate

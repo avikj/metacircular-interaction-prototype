@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0592-codex-formation-minimal-spine-claim
 dependencies: R0057, R0058, R0059
-statement_hash: 753c890aaa7a22e50877f87fd249047dd12c73314209027894d18c83e0a2cd10
+statement_hash: 4ed22d0c27ac92031afdfd5c9a59836defd7cd05ecbda204f123a7305a4e6ee5
 cycle: 1
 max_cycles: 4
 owner: codex-formation
@@ -124,3 +124,8 @@ principle or the coarse powerset bound.
 - 2026-08-14: a depth-realizing strict spine was constructed recursively,
   upgrading the supplied-spine bound to the native plan bound
   `depth + 1 ≤ 2^n`.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar
