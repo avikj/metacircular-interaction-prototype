@@ -24,6 +24,19 @@ $$
 \qquad e_\alpha:\mathcal F_\alpha\times\mathcal T_\alpha\to Q_\alpha
 $$
 
+> **SIGNATURE COMPLETENESS, recorded 2026-08-15, seed176
+> (`notes/ARCHIVE_FIDELITY_AUDIT.md` §1).** Of the eleven symbols named in the
+> signature, **seven** ($\Diamond,\partial,\delta,\Gamma,\Phi,\vee,\ulcorner-\urcorner$)
+> receive a defining or typing display later in this archive. **Four do not**:
+> $\otimes$, $\int$, $\operatorname{holim}$, $\operatorname{hocolim}$. Each of the four
+> occurs only *in use* — $\otimes$ in §D ($\gamma_{y\otimes z}$) and §I; $\int$ as a coend
+> in §B, §D, §E, §I; $\operatorname{holim}$ in §I alone; $\operatorname{hocolim}$ in §C,
+> §E, §I — with no ambient category, no monoidal structure and no smallness stated.
+> **Whether the owner omitted these or the transcription dropped them cannot be
+> determined from internal evidence, and this note records the doubt rather than
+> resolving it.** §J4 independently flags the smallness gap; that is consistent with the
+> owner having omitted them, but is not evidence of it.
+
 ## B. Boundary, holonomy, defect, obstruction
 
 $$
