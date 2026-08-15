@@ -391,23 +391,31 @@ This is the sharpest limit and it is recent. As of 2026-08-15:
   `StagewiseComposite`, `SimplicialDefectFailure`, `Sl2DivisorLattice`,
   `DecategorifiedDefect`, `RepairTorsor`, `FillabilityCertificate`,
   `LineWorldTransport`, and (after its repair) `PolarityClosure`.
-- **Red under the pin:** `Sl2TensorProduct.agda` — one token,
-  `Cubical.Data.Int.Properties.·Rid` (v0.5) is spelled `·IdR` in v0.9. It is
-  **green under 2.6.3/v0.5 and red under the pin**. It has deliberately *not*
-  been fixed: renaming makes it right under the pin and wrong under the
-  compiler installed as `/usr/bin/agda` in the working container, and the
-  choice of which toolchain the sources track belongs to the owner and should
-  be made once for the whole tree.
-- **Consequently `Everything.agda` exits 42 under the pin**, aborting at
-  `Sl2TensorProduct`, and therefore checks *nothing imported after it*. Its
-  exit code is not evidence about those modules in either direction.
-- **Everything else is unswept under the pin.** Given the `·Rid` finding, the
-  correct prior is that other untouched top-level modules are red under the
-  pin too. Modules checked only under the container's **Agda 2.6.3 / cubical
-  v0.5** include the whole set flagged OUTSTANDING in BUILD.md —
-  `StagewiseCompositeB`, `TransmissionRefutations`, `FiniteWorldMaximizer`,
-  `InflationVersusSubgroup`, and the two newer `Control/` modules
-  (`MaximizerWithoutNonvanishing`, `InflationFlattened`).
+- **The direction of the tree is now decided.** `Sl2TensorProduct.agda` was
+  the one module found green under 2.6.3/v0.5 and red under the pin — one
+  token, `Cubical.Data.Int.Properties.·Rid` (v0.5) spelled `·IdR` in v0.9.
+  Two agents correctly declined to fix it, on the ground that which toolchain
+  the sources track is an owner decision to be made once for the whole tree.
+  The owner made it on 2026-08-15: **the sources track the pin.** The rename
+  landed and the module is now green under the pin and **red under
+  `/usr/bin/agda` (2.6.3 / v0.5)**, which has no `·IdR`. That is the intended
+  state for every file in this tree, not a regression, and it means older
+  per-module "exit 0 under 2.6.3/v0.5" reports elsewhere in the corpus are now
+  *historical evidence about a superseded toolchain*, not a current check.
+  (`TOOLCHAIN_SKEW_AND_COVERAGE.md` §6.7.)
+- **`Everything.agda` no longer aborts at `Sl2TensorProduct`**, so its
+  coverage caveat is lifted at that point and the aggregate reaches the
+  modules imported after it. I have **not** seen a recorded exit code for a
+  full `Everything.agda` run under the pin after that repair, so do not quote
+  one; run `check.sh`, which checks both aggregates.
+- **Everything else is unswept under the pin.** A tree-wide grep for five
+  specific renamed identifiers (`·Rid`, `·Lid`, `+Rid`, `+Lid`,
+  `Symmetric-Group`) now returns zero hits, which is reassuring and is not a
+  proof: it is a grep for five names, not a check. Modules whose only recorded
+  check is under **Agda 2.6.3 / cubical v0.5** — the OUTSTANDING set in
+  BUILD.md — include `StagewiseCompositeB`, `TransmissionRefutations`,
+  `FiniteWorldMaximizer`, `InflationVersusSubgroup`, and the two newer
+  `Control/` modules (`MaximizerWithoutNonvanishing`, `InflationFlattened`).
 
 Two further practical limits: the pinned Agda was **built into a session
 scratchpad and is not installed as `/usr/bin/agda`** — what survives that pass

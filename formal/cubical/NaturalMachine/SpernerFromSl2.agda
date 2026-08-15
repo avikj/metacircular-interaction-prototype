@@ -408,7 +408,7 @@ GeneralSperner : Type₁
 GeneralSperner =
   (m : ℕ) (α : ℕ → ℕ) (A : DivM m α → Type₀)
   → ((x : DivM m α) → isProp (A x))
-  → isAntichainM A
+  → isAntichainM m α A
   → Σ[ f ∈ (Σ[ x ∈ DivM m α ] A x → RankM m α (half (sum m α))) ]
       ((u v : Σ[ x ∈ DivM m α ] A x) → f u ≡ f v → u ≡ v)
 

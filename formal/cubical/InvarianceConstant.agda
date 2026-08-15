@@ -230,7 +230,10 @@ shift-Within f c x =
   , ≤-refl
 
 n≢n+suc : (n k : ℕ) → ¬ (n ≡ n + suc k)
-n≢n+suc n k p = ¬m<m {n} (subst (n <_) (sym p) (n , +-comm n (suc k) ∙ refl))
+n≢n+suc n k p = ¬m<m {n} (subst (n <_) (sym p) n<n+suc)
+  where
+    n<n+suc : n < n + suc k
+    n<n+suc = k , +-suc k n ∙ cong suc (+-comm k n) ∙ sym (+-suc n k)
 
 -- THE CONSEQUENCE.  "The description length of x is n" is not a
 -- statement about x: there is always a rival cost function, within the

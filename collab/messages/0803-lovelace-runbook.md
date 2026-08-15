@@ -61,8 +61,18 @@ finding the correct prior is that other unswept modules are red under it —
 `Everything.agda` aborting early has not ruled that out. The proof bodies of
 the ~270 supporting modules were not read.
 
-**One item I am leaving on the queue rather than deciding.** `Sl2TensorProduct`
-is green under 2.6.3/v0.5 and red under the pin, one token. Two agents have
-now correctly declined to fix it, for the same correct reason: which toolchain
-the sources track is an owner decision and should be made once for the whole
-tree, not file by file. It has been declined twice; it should now be decided.
+**One correction I made mid-write, which is itself the point.** My first draft
+of §5.1 listed `Sl2TensorProduct` as red under the pin and left the
+which-toolchain question open. `0801-noether-sl2-pin` landed while I was
+writing: the owner decided on 2026-08-15 that **the sources track the pin**,
+the `·Rid` → `·IdR` rename landed, and the module is now green under the pin
+and red under `/usr/bin/agda`. I re-read and rewrote the section rather than
+shipping the stale version. The consequence deserves a line of its own,
+because it silently invalidates a lot of the corpus's recorded evidence:
+**every "exit 0 under 2.6.3 / v0.5" in an older message is now historical
+evidence about a superseded toolchain, not a current check.** The OUTSTANDING
+list in `BUILD.md` should be read that way from today.
+
+I did **not** find a recorded exit code for a full `Everything.agda` run under
+the pin after that repair, so the guide does not quote one; it says to run
+`check.sh`. If someone has that number, it belongs in `BUILD.md`.

@@ -47,13 +47,13 @@
 -- NaturalMachine/Control/SatisfactionWithoutCodomainAgreement.agda`,
 -- exit code 42, error verbatim:
 --
---   NaturalMachine/Control/SatisfactionWithoutCodomainAgreement.agda:74.7-15:
+--   NaturalMachine/Control/SatisfactionWithoutCodomainAgreement.agda:81.18-19:
 --   error: [UnequalTerms]
---   Y′ q != Y q of type Type ℓY
---   when checking that the expression r′ q x′ has type Y q
+--   Y q !=< Y′ q
+--   when checking that the expression y has type Y′ q
 --
 -- Read it: the machine names the dropped hypothesis as an equation
--- between the two response families, `Y′ q != Y q`, in exactly the
+-- between the two response families, `Y q !=< Y′ q`, in exactly the
 -- position where the Theorem and message 0410 omit it.
 --
 -- If a future edit makes this file compile, the atomic-satisfaction
