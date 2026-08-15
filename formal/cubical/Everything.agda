@@ -152,6 +152,12 @@ import StagewiseCompositeB
 -- (notes/SL2_DIVISOR_LATTICE.md).  Rank one only; see that module's §6.
 import Sl2DivisorLattice
 
+-- The general case: tensor of two 𝔰𝔩₂-triples is an 𝔰𝔩₂-triple, hence by
+-- induction the multi-index divisor lattice B_n = ⨂_i V_{α_i} carries
+-- the action.  Closes Sl2DivisorLattice §6; controls at rank 2 with
+-- α₁ ≠ α₂, including non-vacuity of the off-diagonal cancellation.
+import Sl2TensorProduct
+
 -- The head-depth merge (WHAT_IS_ACTUALLY_OPEN §1 executed): e_b(q)
 -- defined once, its three corpus names certified as threshold readings,
 -- the 1048-triple W3 replay upgraded from dead Python to kernel fact,

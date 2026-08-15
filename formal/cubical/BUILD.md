@@ -293,6 +293,17 @@ that container. It is **not** a check against the pin.
   v0.9 sources of `Cubical/Data/{Int,Nat}/Properties.agda` — but that is
   evidence, not a run, and the pinned-toolchain check is OUTSTANDING like the
   rest of this list.
+- `Sl2TensorProduct.agda` — newly imported by `Everything.agda`; exit 0
+  standalone under 2.6.3/v0.5 from a clean `_build` (`rm -rf _build &&
+  LC_ALL=C.UTF-8 agda Sl2TensorProduct.agda`, which also rechecked
+  `Sl2DivisorLattice` from source), 0 warnings, no postulates, no holes
+  (added 2026-08-15, message `collab/messages/0798-claude-sl2-tensor.md`).
+  It closes `Sl2DivisorLattice` §6: tensor of 𝔰𝔩₂-triples, hence the
+  multi-index B_n = ⨂_i V_{α_i}. Imports only
+  `Cubical.{Foundations.Prelude, Data.Nat, Data.Int, Data.List,
+  Data.Sigma, Data.Unit}` plus `Sl2DivisorLattice`; no solver, no tactic
+  macro, no `Fin`, no `SymGroup`. Same caveat as the entry above: that is
+  evidence about the pin, not a run against it. OUTSTANDING.
 - `NaturalMachine/TransmissionRefutations.agda` — newly imported by the root;
   exit 0 standalone under 2.6.3/v0.5 (added 2026-08-15, message
   `collab/messages/0795-claude-refutations-agda.md`). Refutes three displays
@@ -310,6 +321,24 @@ that container. It is **not** a check against the pin.
   that is its pass condition**. Confirmed to fail for the intended reason (the
   dropped quantifier, at line 80), not incidentally. Under the pin it must
   still fail, and for that reason.
+- `NaturalMachine/FiniteWorldMaximizer.agda` — newly imported by the root;
+  exit 0 standalone under 2.6.3/v0.5 (added 2026-08-15, message
+  `collab/messages/0797-claude-hypothesis-drop-controls.md`). Imports only
+  `Foundations.Prelude` and `Data/{Nat,Bool,Sum,Sigma,Unit,Empty}`; no
+  solver, no tactic macro, no `Fin`, no `SymGroup`. Pinned-toolchain check
+  OUTSTANDING like the rest of this list.
+- `NaturalMachine/InflationVersusSubgroup.agda` — newly imported by the root;
+  exit 0 standalone under 2.6.3/v0.5 (same message). Imports only
+  `Foundations.Prelude` and `Data/{Bool,Empty}`; same no-skew profile.
+  Pinned-toolchain check OUTSTANDING.
+- `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda` — a CONTROL: it
+  **exits 42, and that is its pass condition**. Confirmed to fail for the
+  intended reason (the dropped nonvanishing clause, named as `NonVanishing W`
+  in the error at line 84), not incidentally. Not imported anywhere.
+- `NaturalMachine/Control/InflationFlattened.agda` — a CONTROL: it **exits 42,
+  and that is its pass condition**. Confirmed to fail for the intended reason
+  (`k0 != kι`, the restriction-to-subgroup of the inflated class against the
+  class itself, at line 91), not incidentally. Not imported anywhere.
 
 Every import line added to `NaturalMachine.agda` and `Everything.agda` on that
 branch was audited against a standalone run: all five modules check, so no
