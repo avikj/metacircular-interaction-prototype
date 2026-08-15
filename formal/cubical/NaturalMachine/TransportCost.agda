@@ -27,8 +27,18 @@ module NaturalMachine.TransportCost where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 
-open import NaturalMachine
-open NaturalMachine.Base2
+-- The root aggregate imports THIS module, so importing it back is a
+-- cyclic module dependency and the whole lane fails to typecheck
+-- (`NaturalMachine.agda:809` ↔ here).  Repaired 2026-08-15 under the
+-- pinned toolchain by opening the same leaf modules that the root's
+-- `Base2` bundles (`NaturalMachine.agda:693`) — which is exactly what the
+-- sibling `NaturalMachine/TransportMulWitness.agda` already does.  No
+-- statement below changes; the names resolve to the same definitions.
+open import NaturalMachine.Digits           0
+open import NaturalMachine.Endian           0
+open import NaturalMachine.Transport        0
+open import NaturalMachine.Controls         0
+open import NaturalMachine.ResidueTransport 0
 
 transported : CanWord → CanWord → CanWord
 transported = transport (λ i → ℕ≡CanWord i → ℕ≡CanWord i → ℕ≡CanWord i) _+_

@@ -808,5 +808,7 @@ import NaturalMachine.SpernerFromSl2
 import NaturalMachine.StructuredSymmetryTransport
 import NaturalMachine.TransportCost
 import NaturalMachine.Vacuity
-import NaturalMachine.WFIScratch1
-import NaturalMachine.WFIScratch2
+-- `NaturalMachine.WFIScratch1` and `.WFIScratch2` were deleted by
+-- 3b4846c6 ("Delete the bisection stubs now that the real module
+-- checks"); their import lines were left behind and made the root
+-- FileNotFound.  Removed 2026-08-15 under the pinned toolchain.
