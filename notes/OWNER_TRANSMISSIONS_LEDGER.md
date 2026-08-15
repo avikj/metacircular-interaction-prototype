@@ -306,6 +306,33 @@ $(X,\mathcal T,e,\rho)$; at present they are seven names.
 > and its complement, and two coordinates suffice. This entry's class is therefore no longer
 > a single OPEN; the note files it as five verdicts and this ledger does not merge them.
 
+> **A-12 (filed 2026-08-15, seed173). A claim this ledger never enumerated: D0016 §B's
+> $\partial\Diamond_\alpha:=\int^{(f,t)\in\mathcal F_\alpha\times\mathcal T_\alpha}e_\alpha(f,t)$
+> is ill-typed as a coend — reported first in passing, then confirmed with its ground
+> corrected.** Sources, both read in full: `notes/UNTOUCHED_REGIONS_ADJUDICATED.md` §5
+> (seed160, `0761`), which observed that a coend needs a **bifunctor** and $e_\alpha$ has a
+> single variance; and `notes/BOUNDARY_OPERATOR_TYPING.md` (seed170, `0771`), which
+> **confirms** it by an occurrence count — in $\int^cF(c,c)$ the bound variable occurs exactly
+> twice, in opposite variances, and here each of $f,t$ occurs once (its Prop 1) — and states
+> that the defect is **arity, not enrichment**, so no cocompleteness of $Q_\alpha$ and no
+> functoriality of $e_\alpha$ repairs it. That note applies the same test to the rest of the
+> signature: $\int^{\sigma\in N(\mathcal F_\alpha)}\delta_\sigma$ (§B) and
+> $\mathbb B=\int^{\alpha}\Diamond_\alpha$ (§E) are **also not coends**; §I's
+> $\int^i(\mathfrak M_i^\vee\otimes\mathfrak M_i)$ is the one well-typed occurrence — the same
+> shape of finding as this ledger's "$-$" observation (§2.1, §2.9): *a notation used for its
+> shape in settings that do not supply the operation the shape names*.
+> **A saving reading exists and it is the owner's own §E**: if $\vee:\mathcal T_\alpha^{op}
+> \to\mathcal F_\alpha$ is an equivalence then $e_\alpha$ is an endoprofunctor and
+> $\partial\Diamond_\alpha=\int^{t}e_\alpha(\vee t,t)$ is its **categorical trace** — but the
+> index changes, so §B must be *rewritten, not merely reread*, and whether $\vee$ is an
+> equivalence is the owner's decision, not a theorem. That note also **corrects the ground of
+> both prior statements of the degeneracy** (`UNTOUCHED_REGIONS_ADJUDICATED.md` §5's
+> $\coprod e(f,t)\cong\mathcal F\times\mathcal T$ and `ADVANCE_CONJUNCTS_DEFINED.md` §6.3(b)'s
+> "only invariant is a cardinality"): both headlines right, arithmetic under them wrong, and
+> the correction makes the claim stronger. Consequence it reports and this layer files rather
+> than smooths: **A-6's refutation of §H's dichotomy must be restated from categorical to
+> conditional**, and it survives the restatement under every candidate repair.
+
 ### 1.13 §C, §E — the ordinal ladder, $\mathfrak F$, $\mathfrak F_{\alpha+1}\succeq\mathfrak F_\alpha$, $\mathbb B = \int^\alpha \Diamond_\alpha$, the closure claim
 
 **Verdict: PROGRAMME.** No convergence, no smallness, no proof that $\Gamma$ is well defined
@@ -1074,8 +1101,24 @@ Stated flatly, because a ledger that hides its holes is worse than no ledger.
 2. **D0016 §H (gem invariants) and §I (net, garland, closing identifications)** — no note
    touches them; no verdict beyond PROGRAMME is offered, and PROGRAMME here means "nobody
    looked", not "looked and found nothing".
+
+   > **A-13 (filed 2026-08-15, seed173). This item's sentence ~~"no note touches them"~~ was
+   > **literally false when written**, and is now doubly superseded.** Reported by
+   > `notes/UNTOUCHED_REGIONS_ADJUDICATED.md` in its opening, "made by reading and not by
+   > trusting": `notes/ADVANCE_UNDER_REPLACEMENT.md` §3.4 (line 245) and
+   > `notes/ADVANCE_CONJUNCTS_DEFINED.md` §6.1 (line 344) both quote §H clauses 5 and 6 as
+   > evidence of the owner's intent for $\operatorname{UsefulEscape}$. That note is equally
+   > explicit that the *verdict* "unreached" survived — neither predecessor adjudicates any of
+   > the six invariants — so what fails is the sentence, not the classification. Both line
+   > references were checked by this clerk against the two files and are correct.
+   > `notes/TRACE_FACTOR_ADJUDICATED.md` §7 independently re-reports the same §6.2 sentence.
+   > Since `0761` the region is adjudicated outright: see A-6.
 3. **D0017 §E's associator/pentagon layer** and $\mathfrak X \hookrightarrow \mathfrak X[\delta\alpha]$
    — unadjudicated.
+
+   > **A-14 (filed 2026-08-15, seed173). Discharged.** `notes/UNTOUCHED_REGIONS_ADJUDICATED.md`
+   > §14 adjudicates the whole layer (A-6, final bullet), and its §15 adds the REFUTED
+   > $\mathfrak I\simeq\operatorname{holim}$ display that this ledger never enumerated (A-7).
 4. **D0018 §G** — §3.16–§3.20 were first drafted as this ledger's own hand derivations, when
    no note worked the arithmetic instance. `notes/PRIME_PAIR_KERNEL_VERIFIED.md` now does, and
    agrees on every point checked. The entries cite it; the independent agreement is recorded,

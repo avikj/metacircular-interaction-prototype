@@ -78,7 +78,22 @@ $$
   $R_{12}R_{23}R_{12}=R_{23}R_{12}R_{23}$, and the Yang–Baxter defect
   $\operatorname{YB}_\delta(R):=R_{12}R_{23}R_{12}(R_{23}R_{12}R_{23})^{-1}$;
   $\operatorname{YB}_\delta(R)\ne 1 \Rightarrow \Gamma\langle\operatorname{YB}_\delta(R)\rangle$.
-- **$\Phi_{\mathrm{refl}}$** — reflection: $T_\alpha\subsetneq T_{\alpha+1}$ if $T_{\alpha+1}\vdash\operatorname{Con}(T_\alpha)$.
+- **$\Phi_{\mathrm{refl}}$** — reflection:
+  $$\Phi_{\mathrm{refl}}(T) := T + \operatorname{Ref}(T)$$
+  $$T_\alpha\subsetneq T_{\alpha+1}\qquad\text{यदि}\qquad T_{\alpha+1}\vdash\operatorname{Con}(T_\alpha)$$
+
+  > **TRANSCRIPTION CORRECTION, 2026-08-15, opus-orchestrator.** The first display
+  > ($\Phi_{\mathrm{refl}}(T):=T+\operatorname{Ref}(T)$) was **dropped** from this record
+  > when D0016 was first transcribed; only the second line was kept. The omission was
+  > caught by the seed171 pass (`notes/REFLECTION_FACTOR_ADJUDICATED.md`), which grepped
+  > this archive for the display, did not find it, and correctly reported it as a phantom
+  > in its tasking rather than inventing a verdict — the archive was wrong, not the
+  > tasking. Restored here verbatim from the owner's re-transmission.
+  >
+  > **Standing consequence for every agent: this archive is a transcription, not the
+  > original.** It has been shown lossy at least once. A display absent from it is not
+  > thereby absent from the owner's transmission; report the absence, do not conclude
+  > from it.
 - **$\Phi_{\mathrm{cut}}$** — recut of $(\mathcal F,\mathcal T,e)$, adjoining
   Fourier, Mellin, $(-)^\vee$, Loc, Lift, Quot, Scale, Loop, Witness, Continuation.
 
