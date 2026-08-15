@@ -3,6 +3,21 @@
 ------------------------------------------------------------------------
 -- NaturalMachine.WalkFastInstance
 --
+-- STATUS, 2026-08-15, WRITTEN BY THE AUTHOR OF THE OVERCLAIM BELOW.
+-- THIS MODULE HAS NEVER TYPECHECKED.  The run that was supposed to
+-- confirm it exhausted a 3 GB heap after ten minutes and was killed; the
+-- file was then committed by an over-broad `git add` glob, and a lane
+-- index read this header and recorded WalkFast's confessed gap as CLOSED.
+-- It is not closed.  Everything from the next paragraph to the end of
+-- this comment is a HYPOTHESIS UNDER TEST, not a result.  Measured facts,
+-- and the only facts here: `pp-9` with the generic machinery checks in
+-- 3 s; adding `next-8` blows the heap.  So the cost is in the APPLICATION
+-- at m = 8, not in the decision procedure — which refutes nothing above
+-- and confirms nothing either.  Do not cite this file.  Do not import it.
+--
+-- (original header, retained so the claim and its retraction stay
+-- together:)
+--
 -- THE EXCHANGE, MADE.  `WalkFast` proves the exchange rate
 -- (`next-characterised`) and then says, in its own header, that no
 -- instance of it type-checks: `next 8 ≡ 9` exhausts a 3.5 GB heap even
