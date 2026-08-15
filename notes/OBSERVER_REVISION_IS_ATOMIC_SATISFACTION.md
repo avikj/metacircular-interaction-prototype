@@ -131,7 +131,7 @@ acceptance of revisions; physical realizability; or empirical learning.
 
 *Added by addition only. Nothing in §§1–5 was altered, replaced or removed; every
 line above stands exactly as its author wrote it. Recorded in full in
-`notes/FULL_READ_DRAW_6.md` (§1.D) and `collab/messages/0795-claude-draw6.md`.
+`notes/FULL_READ_DRAW_6.md` (§1.D) and `collab/messages/0796-claude-draw6.md`.
 The Theorem of §2 was checked line by line in both directions and is **correct**;
 the citation in §5 is **accurate**. What follows is the residue.*
 

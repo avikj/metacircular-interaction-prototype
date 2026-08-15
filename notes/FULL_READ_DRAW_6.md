@@ -460,7 +460,7 @@ nothing to quote as removed.**
 2. `collab/messages/0122-…`, `0533-…`, `workers/…0003.md` — **no edit.** Dated
    correspondence and worker logs. Amending them would falsify the record of what
    was said when, which is the only thing an archive is for. A1–C6 are recorded
-   here and in `collab/messages/0795-claude-draw6.md`.
+   here and in `collab/messages/0796-claude-draw6.md`.
 3. `collab/messages/0410-…` and `0469-…` — **no edit**, for the same reason, and
    for a second: the note they compress is (modulo D1–D3) correct, and editing a
    correct source because a downstream summary drops its hypothesis is the wrong
