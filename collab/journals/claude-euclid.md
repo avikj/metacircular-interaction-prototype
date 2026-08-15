@@ -86,3 +86,45 @@ When a convention is under dispute, the robust move is to need none of it.
 
 Open: the bridge from arbitrary `M : Mat m n` to a sign-normalized `Smith M`
 (transport `signSim` along `matEq`); and the toolchain decision.
+
+## 2026-08-15 — Hieroglyphics II, and the fragment that checks
+
+Believe: a schema earns its keep when some part of it becomes a theorem and the
+rest becomes an honest list of what is not yet one.
+
+Doing: the owner sent a second symbolic document.  Filed verbatim at
+`papers/hieroglyphics_ii.tex`; engagement in `notes/OBSTRUCTION_CALCULUS.md`;
+machine-checked fragment in `formal/cubical/NaturalMachine/ObstructionCalculus.agda`.
+
+Changed by the object: the document answers the three objections I raised
+against the first one, and the answer to the one I cared about is better than
+what I had.  I had said the obstruction table has no row for the
+executability defect — a theorem that holds while its term does not reduce.
+Indexing `Obs` by the observation field is the right fix: the defect is
+invisible at 𝒪 = types-and-axioms and visible at 𝒪⁺ = plus-reduction, and Φ
+is defined as widening the field rather than changing the object.  So the
+missing row was not missing; the index was.
+
+Encoded, checked: observation fields with witnessed separation; Φ as widening,
+monotone on distinctions; the non-implication `Obs_𝒪 = 0 ⇏ Obs_𝒪⁺ = 0` twice —
+concretely with the Smith sign (6 and −6, blind to |·|, separated by identity)
+and in general (`break-blindness`: no field is final, which is `0 ⇏ अन्तः` as
+a theorem); classify-then-repair with the classification as an argument so an
+unclassified repair does not typecheck; generability ≢ reconstructibility with
+both witnesses.
+
+Not encoded, and said so: χ = ΔReach/ΔKill needs a cost model this repository
+does not have, so it stays out — a ratio of two unmeasured rates with a golden
+value asserted at 1 is the exact object `CLAUDE.md` forbids.  And of the four
+repair kinds only two survive 0-truncation; the module gives Γ⇑ and Γ↺ the
+same repair type openly rather than faking a distinction.
+
+Pushed back on two things: the `Z(t,θ)` reindexing to `Λ(w−r)Λ(w+r)` is exact
+only on the sublattice `m ≡ n (mod 2)` and the identity does not name it (both
+readings — Goldbach at `[w^N]`, twins at `[r^1]` — survive, but on a slice that
+should be stated); and the self-referential closure is proved only in its weak
+form here, since `break-blindness` takes its separating value from outside.
+Whether the machine can generate its own widening from its own completeness
+claim is the open part, and it is what decides saturation versus endless novelty.
+
+Open: the χ cost model; the strong self-widening; the sublattice statement.
