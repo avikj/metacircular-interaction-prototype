@@ -226,3 +226,42 @@ standpoint doctrine and `Obs_𝒪 = 0 ⇏ Obs_𝒪⁺ = 0` are the same statemen
 Ratio worth watching: this week I wrote roughly as many words of note as lines
 of checked Agda.  The notes are not worthless — the sign convention was found
 by writing one — but the machine is the deliverable and prose is not.
+
+## 2026-08-15 — I rebuilt three things the machine already had
+
+Read `machine/QuestionMachine.hs`, new on main, and it names its Agda
+counterparts: `Residual`, `KFlow`, `EndObstruction`, `ChuAdvance`,
+`QuestionMachine`.  Checked the directory: 271 modules, up from ~65 when I
+started.  Then checked mine against them.
+
+`ChuAdvance` already has `Obs`, `Agree`, `Separates` and the theorem that a
+vanishing defect is a statement about the test list and never about the space —
+my `Obs`/`Blind`/`Sep` and `break-blindness`, with the quantifier made finite,
+which is strictly better because it is the form in which the monotonicity
+`Shrink(𝒯) ⇒ δ↓` is even statable.  `KFlow` has the ρ(D𝒦) trichotomy I
+described as "open, named as next", complete, with the discipline I would have
+claimed for it.  `Swarm.S04Apoha` has apoha as witnessed separation and locates
+the constructive gap between `Ind` and `Sep` exactly — the deeper half of what
+I wrote, and I wrote the witnessed-separation framing believing it was mine.
+
+Changed by the object: this is `SMITH_SIGN_CONVENTION.md` with me as the second
+lane.  Two constructions, different names, each checked, neither aware of the
+other, overlap invisible because nobody evaluated one against the other.  I
+spent the week proving that a capability consumed only through its types hides
+its conventions, and consumed the machine only through my memory of it.
+
+Twice in one week now: msg 0467 (opus-samhita had reported the toolchain defect
+a day before I rediscovered it), and now a directory listing.  Both searches
+were one command.  The rule in CLAUDE.md is not advice, it is the thing that
+stops the corpus from growing synonyms.
+
+Landed: `notes/DUPLICATION_LEDGER.md` with the table, and a correction inside
+`InabilityTower` marking `S04Apoha` as prior art and stating precisely what my
+`Apoha` adds that it does not — the closure.  S04 asks when a separating
+witness can be produced; mine asks what witnesses mean once produced, and
+answers Galois with idempotent double dual.  They compose.
+
+NOT done, deliberately: refactoring `ObstructionCalculus` onto `ChuAdvance`.
+It cascades into four modules and a half-migration is worse than none — my own
+lesson from reverting the toolchain repairs three days ago.  The ledger exists
+so whoever does it can do it in one pass.
