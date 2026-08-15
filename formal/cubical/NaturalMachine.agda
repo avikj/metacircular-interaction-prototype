@@ -131,6 +131,12 @@ import NaturalMachine.LawfulContinuationCore
 import NaturalMachine.AcceptanceTest
 import NaturalMachine.Obstruction
 import NaturalMachine.StructuredDefect
+-- An invariant that kills the zero detects a defect in one direction
+-- only: the certificate "the invariant vanished, so the construction is
+-- sufficient" is refuted by an explicit element, its contrapositive is
+-- sound, and the kernel is exactly the vanishing-Euler-characteristic
+-- locus (notes/SPLICING_DEFECT_ADJUDICATED.md §4, finite model).
+import NaturalMachine.DecategorifiedDefect
 -- A collision between an installed observation and a certified action
 -- returns its minimal conservative repair: the product observer.  Its
 -- universal factorisation and collision-forced strictness are checked.
@@ -378,6 +384,11 @@ import NaturalMachine.WalkInduction
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
 import NaturalMachine.WalkFast
+-- notes/NUMBER_TOWER_AS_REPAIR.md §4.3 and Prop 9, as terms: repairs of a
+-- defect form a torsor under Aut of the repaired object, so the repair is
+-- canonical iff that group is trivial (and an initial repair is unique up
+-- to UNIQUE isomorphism).
+import NaturalMachine.RepairTorsor
 -- Delta 15 §§15.3, 15.4, 15.6 (owner-supplied, collab/upstream/raw/D0015):
 -- the stabilizer is the self-defect, polarization loci, charge shifts.
 import NaturalMachine.PerspectiveSymmetry
