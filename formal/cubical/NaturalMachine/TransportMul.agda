@@ -59,7 +59,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.List
 open import Cubical.Data.Unit
 open import Cubical.Data.Sigma
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
+open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 open import NaturalMachine.Digits k
 open import NaturalMachine.Transport k
@@ -118,7 +118,7 @@ canonical-mulw (d ∷ u) v cv =
 
 -- the one place-value identity, discharged by the semiring solver
 mul-lem : (D V bb U : ℕ) → D · V + bb · (U · V) ≡ (D + bb · U) · V
-mul-lem D V bb U = solveℕ!
+mul-lem = solve
 
 -- THE ALGORITHM IS CORRECT.
 value-mulw : (u v : Word) → value (mulw u v) ≡ value u · value v

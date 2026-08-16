@@ -57,7 +57,7 @@ module NaturalMachine.ConeOrder where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
 open import Cubical.Data.Nat using (ℕ ; _+_)
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
+open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 ------------------------------------------------------------------------
 -- §1  The two sides.
@@ -89,7 +89,7 @@ Cone s d = Σ[ m ∈ ℕ ] (s ≡ d + m + m)
 ------------------------------------------------------------------------
 
 encode : (p d : ℕ) → p + (p + d) ≡ d + p + p
-encode p d = solveℕ!
+encode = solve
 
 -- ⇒  An ordered pair lands in the cone, certified by its SMALLER leg.
 legs→cone : (l : Legs) → Cone (sumOf l) (gapOf l)
@@ -126,7 +126,7 @@ legs-roundtrip (p , d) = refl
 ------------------------------------------------------------------------
 
 parity-lemma : (d m : ℕ) → (d + m + m) + d ≡ (d + m) + (d + m)
-parity-lemma d m = solveℕ!
+parity-lemma = solve
 
 parity-is-implied : (s d : ℕ) → Cone s d → Σ[ k ∈ ℕ ] (s + d ≡ k + k)
 parity-is-implied s d (m , hs) =

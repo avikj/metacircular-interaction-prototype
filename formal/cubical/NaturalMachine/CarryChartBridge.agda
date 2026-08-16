@@ -40,7 +40,7 @@ open import Cubical.Data.Fin using (Fin ; fzero ; fone ; toℕ)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 open import Cubical.Data.Sigma using (Σ≡Prop ; fst ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
+open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 import NaturalMachine.Digits
 import NaturalMachine.Endian
@@ -96,13 +96,31 @@ module Bridge (k n' : ℕ) where
   -- value at place b^(length xs).
   ----------------------------------------------------------------------
 
+  -- Drift repair (cf-corner, 2026-08-14): the two arithmetic steps below
+  -- were `solveℕ!`, cubical 2.8's macro, which abstracts the INTRO'D goal.
+  -- The canonical v0.5 solver macro is `solve` and wants the statement
+  -- whole, so neither call site can be written inline: the base case is a
+  -- pattern-matched clause and the step case is a factor of a `∙`-chain.
+  -- Both goals are therefore stated as ∀-quantified ℕ identities and
+  -- discharged by the solver here, then applied at their use sites.  The
+  -- lemmas say exactly what the two steps always meant:
+  --   base: appending to the empty word is the digit itself, at place b⁰;
+  --   step: one more digit distributes the place value across the sum.
+  private
+    snoc-base : (b t : ℕ) → t + b · 0 ≡ 0 + 1 · t
+    snoc-base = solve
+
+    snoc-step : (t b V P y : ℕ)
+              → t + b · (V + P · y) ≡ (t + b · V) + b · P · y
+    snoc-step = solve
+
   value-snoc : (xs : D.Word) (y : D.Digit)
              → D.value (xs ++ (y ∷ []))
              ≡ D.value xs + D.b ^ length xs · toℕ y
-  value-snoc [] y = solveℕ!
+  value-snoc [] y = snoc-base D.b (toℕ y)
   value-snoc (d ∷ xs) y =
-      cong (toℕ d + D.b ·_) (value-snoc xs y)
-    ∙ solveℕ!
+      cong (λ z → toℕ d + D.b · z) (value-snoc xs y)
+    ∙ snoc-step (toℕ d) D.b (D.value xs) (D.b ^ length xs) (toℕ y)
 
   -- At exactly n lower digits, the removed place is a multiple of C.N.
   high-place-vanishes : (xs : D.Word) (y : D.Digit)

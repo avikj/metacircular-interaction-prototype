@@ -82,7 +82,7 @@ module Cone (R : CommRing ℓ) where
   ----------------------------------------------------------------------
 
   sum-gap-doubles : (p q : fst R) → (p + q) + (q - p) ≡ q + q
-  sum-gap-doubles p q = solve! R
+  sum-gap-doubles = solve R
 
   image→double : (s d : fst R) → InImage s d → Double (s + d)
   image→double s d (p , q , hs , hd) =
@@ -97,13 +97,13 @@ module Cone (R : CommRing ℓ) where
   ----------------------------------------------------------------------
 
   decode-sum : (s k : fst R) → (s - k) + k ≡ s
-  decode-sum s k = solve! R
+  decode-sum = solve R
 
   decode-gap : (s k : fst R) → k - (s - k) ≡ (k + k) - s
-  decode-gap s k = solve! R
+  decode-gap = solve R
 
   cancel-s : (s d : fst R) → (s + d) - s ≡ d
-  cancel-s s d = solve! R
+  cancel-s = solve R
 
   double→image : (s d : fst R) → Double (s + d) → InImage s d
   double→image s d (k , hk) =
@@ -148,10 +148,10 @@ module Cone (R : CommRing ℓ) where
   ----------------------------------------------------------------------
 
   legs-sum : (w r : fst R) → leg₁ w r + leg₂ w r ≡ w + w
-  legs-sum w r = solve! R
+  legs-sum = solve R
 
   legs-gap : (w r : fst R) → leg₂ w r - leg₁ w r ≡ r + r
-  legs-gap w r = solve! R
+  legs-gap = solve R
 
   legs-in-image : (w r : fst R)
                 → InImage (leg₁ w r + leg₂ w r) (leg₂ w r - leg₁ w r)

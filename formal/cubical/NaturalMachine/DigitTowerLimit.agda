@@ -18,7 +18,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Vec.Base as V using (Vec ; [] ; _∷_ ; _++_)
 import Cubical.Data.Vec.Properties as VecProperties
-open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
+open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 private
   variable
@@ -256,13 +256,13 @@ carry-defect-decomposition base d e r carry x y column =
       : (b d′ e′ x′ y′ : ℕ)
       → (d′ + b · x′) + (e′ + b · y′)
       ≡ (d′ + e′) + b · x′ + b · y′
-    rearrange-left b d′ e′ x′ y′ = solveℕ!
+    rearrange-left = solve
 
     rearrange-right
       : (b r′ c′ x′ y′ : ℕ)
       → (r′ + b · c′) + b · x′ + b · y′
       ≡ r′ + b · (x′ + y′ + c′)
-    rearrange-right b r′ c′ x′ y′ = solveℕ!
+    rearrange-right = solve
 
 -- Opposite control: a zero carry makes least-significant deletion preserve
 -- addition exactly at the tail level.
